@@ -13,81 +13,83 @@
 module Network.AWS.Comprehend.Types.EntityType
   ( EntityType
       ( EntityType',
-        Person,
-        Location,
-        Organization,
-        CommercialItem,
-        Event,
-        Date,
-        Quantity,
-        Title,
-        Other
+        EntityTypePerson,
+        EntityTypeLocation,
+        EntityTypeOrganization,
+        EntityTypeCommercialItem,
+        EntityTypeEvent,
+        EntityTypeDate,
+        EntityTypeQuantity,
+        EntityTypeTitle,
+        EntityTypeOther,
+        fromEntityType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EntityType = EntityType' Lude.Text
+newtype EntityType = EntityType' {fromEntityType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Person :: EntityType
-pattern Person = EntityType' "PERSON"
+pattern EntityTypePerson :: EntityType
+pattern EntityTypePerson = EntityType' "PERSON"
 
-pattern Location :: EntityType
-pattern Location = EntityType' "LOCATION"
+pattern EntityTypeLocation :: EntityType
+pattern EntityTypeLocation = EntityType' "LOCATION"
 
-pattern Organization :: EntityType
-pattern Organization = EntityType' "ORGANIZATION"
+pattern EntityTypeOrganization :: EntityType
+pattern EntityTypeOrganization = EntityType' "ORGANIZATION"
 
-pattern CommercialItem :: EntityType
-pattern CommercialItem = EntityType' "COMMERCIAL_ITEM"
+pattern EntityTypeCommercialItem :: EntityType
+pattern EntityTypeCommercialItem = EntityType' "COMMERCIAL_ITEM"
 
-pattern Event :: EntityType
-pattern Event = EntityType' "EVENT"
+pattern EntityTypeEvent :: EntityType
+pattern EntityTypeEvent = EntityType' "EVENT"
 
-pattern Date :: EntityType
-pattern Date = EntityType' "DATE"
+pattern EntityTypeDate :: EntityType
+pattern EntityTypeDate = EntityType' "DATE"
 
-pattern Quantity :: EntityType
-pattern Quantity = EntityType' "QUANTITY"
+pattern EntityTypeQuantity :: EntityType
+pattern EntityTypeQuantity = EntityType' "QUANTITY"
 
-pattern Title :: EntityType
-pattern Title = EntityType' "TITLE"
+pattern EntityTypeTitle :: EntityType
+pattern EntityTypeTitle = EntityType' "TITLE"
 
-pattern Other :: EntityType
-pattern Other = EntityType' "OTHER"
+pattern EntityTypeOther :: EntityType
+pattern EntityTypeOther = EntityType' "OTHER"
 
 {-# COMPLETE
-  Person,
-  Location,
-  Organization,
-  CommercialItem,
-  Event,
-  Date,
-  Quantity,
-  Title,
-  Other,
+  EntityTypePerson,
+  EntityTypeLocation,
+  EntityTypeOrganization,
+  EntityTypeCommercialItem,
+  EntityTypeEvent,
+  EntityTypeDate,
+  EntityTypeQuantity,
+  EntityTypeTitle,
+  EntityTypeOther,
   EntityType'
   #-}

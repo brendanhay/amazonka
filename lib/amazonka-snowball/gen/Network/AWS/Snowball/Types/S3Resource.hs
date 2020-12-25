@@ -17,64 +17,60 @@ module Network.AWS.Snowball.Types.S3Resource
     mkS3Resource,
 
     -- * Lenses
+    srBucketArn,
     srKeyRange,
-    srBucketARN,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Snowball.Types.KeyRange
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Snowball.Types.BucketArn as Types
+import qualified Network.AWS.Snowball.Types.KeyRange as Types
 
 -- | Each @S3Resource@ object represents an Amazon S3 bucket that your transferred data will be exported from or imported into. For export jobs, this object can have an optional @KeyRange@ value. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
 --
 -- /See:/ 'mkS3Resource' smart constructor.
 data S3Resource = S3Resource'
-  { -- | For export jobs, you can provide an optional @KeyRange@ within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
-    keyRange :: Lude.Maybe KeyRange,
-    -- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
-    bucketARN :: Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
+    bucketArn :: Core.Maybe Types.BucketArn,
+    -- | For export jobs, you can provide an optional @KeyRange@ within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
+    keyRange :: Core.Maybe Types.KeyRange
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3Resource' with the minimum fields required to make a request.
---
--- * 'keyRange' - For export jobs, you can provide an optional @KeyRange@ within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
--- * 'bucketARN' - The Amazon Resource Name (ARN) of an Amazon S3 bucket.
+-- | Creates a 'S3Resource' value with any optional fields omitted.
 mkS3Resource ::
   S3Resource
 mkS3Resource =
-  S3Resource' {keyRange = Lude.Nothing, bucketARN = Lude.Nothing}
+  S3Resource' {bucketArn = Core.Nothing, keyRange = Core.Nothing}
+
+-- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
+--
+-- /Note:/ Consider using 'bucketArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srBucketArn :: Lens.Lens' S3Resource (Core.Maybe Types.BucketArn)
+srBucketArn = Lens.field @"bucketArn"
+{-# DEPRECATED srBucketArn "Use generic-lens or generic-optics with 'bucketArn' instead." #-}
 
 -- | For export jobs, you can provide an optional @KeyRange@ within a specific Amazon S3 bucket. The length of the range is defined at job creation, and has either an inclusive @BeginMarker@ , an inclusive @EndMarker@ , or both. Ranges are UTF-8 binary sorted.
 --
 -- /Note:/ Consider using 'keyRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srKeyRange :: Lens.Lens' S3Resource (Lude.Maybe KeyRange)
-srKeyRange = Lens.lens (keyRange :: S3Resource -> Lude.Maybe KeyRange) (\s a -> s {keyRange = a} :: S3Resource)
+srKeyRange :: Lens.Lens' S3Resource (Core.Maybe Types.KeyRange)
+srKeyRange = Lens.field @"keyRange"
 {-# DEPRECATED srKeyRange "Use generic-lens or generic-optics with 'keyRange' instead." #-}
 
--- | The Amazon Resource Name (ARN) of an Amazon S3 bucket.
---
--- /Note:/ Consider using 'bucketARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srBucketARN :: Lens.Lens' S3Resource (Lude.Maybe Lude.Text)
-srBucketARN = Lens.lens (bucketARN :: S3Resource -> Lude.Maybe Lude.Text) (\s a -> s {bucketARN = a} :: S3Resource)
-{-# DEPRECATED srBucketARN "Use generic-lens or generic-optics with 'bucketARN' instead." #-}
-
-instance Lude.FromJSON S3Resource where
-  parseJSON =
-    Lude.withObject
-      "S3Resource"
-      ( \x ->
-          S3Resource'
-            Lude.<$> (x Lude..:? "KeyRange") Lude.<*> (x Lude..:? "BucketArn")
-      )
-
-instance Lude.ToJSON S3Resource where
-  toJSON S3Resource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("KeyRange" Lude..=) Lude.<$> keyRange,
-            ("BucketArn" Lude..=) Lude.<$> bucketARN
+instance Core.FromJSON S3Resource where
+  toJSON S3Resource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BucketArn" Core..=) Core.<$> bucketArn,
+            ("KeyRange" Core..=) Core.<$> keyRange
           ]
       )
+
+instance Core.FromJSON S3Resource where
+  parseJSON =
+    Core.withObject "S3Resource" Core.$
+      \x ->
+        S3Resource'
+          Core.<$> (x Core..:? "BucketArn") Core.<*> (x Core..:? "KeyRange")

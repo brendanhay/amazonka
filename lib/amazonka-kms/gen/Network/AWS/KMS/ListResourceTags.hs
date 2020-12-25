@@ -23,26 +23,26 @@ module Network.AWS.KMS.ListResourceTags
 
     -- ** Request lenses
     lrtKeyId,
-    lrtMarker,
     lrtLimit,
+    lrtMarker,
 
     -- * Destructuring the response
     ListResourceTagsResponse (..),
     mkListResourceTagsResponse,
 
     -- ** Response lenses
-    lrtrsTruncated,
-    lrtrsNextMarker,
-    lrtrsTags,
-    lrtrsResponseStatus,
+    lrtrrsNextMarker,
+    lrtrrsTags,
+    lrtrrsTruncated,
+    lrtrrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListResourceTags' smart constructor.
 data ListResourceTags = ListResourceTags'
@@ -58,48 +58,29 @@ data ListResourceTags = ListResourceTags'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-    keyId :: Lude.Text,
-    -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
-    --
-    -- Do not attempt to construct this value. Use only the value of @NextMarker@ from the truncated response you just received.
-    marker :: Lude.Maybe Lude.Text,
+    keyId :: Types.KeyId,
     -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
     --
     -- This value is optional. If you include a value, it must be between 1 and 50, inclusive. If you do not include a value, it defaults to 50.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+    --
+    -- Do not attempt to construct this value. Use only the value of @NextMarker@ from the truncated response you just received.
+    marker :: Core.Maybe Types.MarkerType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListResourceTags' with the minimum fields required to make a request.
---
--- * 'keyId' - A unique identifier for the customer master key (CMK).
---
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
--- * 'marker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
---
--- Do not attempt to construct this value. Use only the value of @NextMarker@ from the truncated response you just received.
--- * 'limit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
---
--- This value is optional. If you include a value, it must be between 1 and 50, inclusive. If you do not include a value, it defaults to 50.
+-- | Creates a 'ListResourceTags' value with any optional fields omitted.
 mkListResourceTags ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyId ->
   ListResourceTags
-mkListResourceTags pKeyId_ =
+mkListResourceTags keyId =
   ListResourceTags'
-    { keyId = pKeyId_,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing
+    { keyId,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | A unique identifier for the customer master key (CMK).
@@ -116,130 +97,116 @@ mkListResourceTags pKeyId_ =
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrtKeyId :: Lens.Lens' ListResourceTags Lude.Text
-lrtKeyId = Lens.lens (keyId :: ListResourceTags -> Lude.Text) (\s a -> s {keyId = a} :: ListResourceTags)
+lrtKeyId :: Lens.Lens' ListResourceTags Types.KeyId
+lrtKeyId = Lens.field @"keyId"
 {-# DEPRECATED lrtKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
-
--- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
---
--- Do not attempt to construct this value. Use only the value of @NextMarker@ from the truncated response you just received.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrtMarker :: Lens.Lens' ListResourceTags (Lude.Maybe Lude.Text)
-lrtMarker = Lens.lens (marker :: ListResourceTags -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListResourceTags)
-{-# DEPRECATED lrtMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
 --
 -- This value is optional. If you include a value, it must be between 1 and 50, inclusive. If you do not include a value, it defaults to 50.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrtLimit :: Lens.Lens' ListResourceTags (Lude.Maybe Lude.Natural)
-lrtLimit = Lens.lens (limit :: ListResourceTags -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListResourceTags)
+lrtLimit :: Lens.Lens' ListResourceTags (Core.Maybe Core.Natural)
+lrtLimit = Lens.field @"limit"
 {-# DEPRECATED lrtLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest ListResourceTags where
+-- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+--
+-- Do not attempt to construct this value. Use only the value of @NextMarker@ from the truncated response you just received.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrtMarker :: Lens.Lens' ListResourceTags (Core.Maybe Types.MarkerType)
+lrtMarker = Lens.field @"marker"
+{-# DEPRECATED lrtMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+instance Core.FromJSON ListResourceTags where
+  toJSON ListResourceTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker
+          ]
+      )
+
+instance Core.AWSRequest ListResourceTags where
   type Rs ListResourceTags = ListResourceTagsResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.ListResourceTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListResourceTagsResponse'
-            Lude.<$> (x Lude..?> "Truncated")
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextMarker")
+            Core.<*> (x Core..:? "Tags")
+            Core.<*> (x Core..:? "Truncated")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListResourceTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.ListResourceTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListResourceTags where
-  toJSON ListResourceTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("KeyId" Lude..= keyId),
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListResourceTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListResourceTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListResourceTagsResponse' smart constructor.
 data ListResourceTagsResponse = ListResourceTagsResponse'
-  { -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
-    truncated :: Lude.Maybe Lude.Bool,
-    -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
+  { -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
     --
     -- Do not assume or infer any information from this value.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.MarkerType,
     -- | A list of tags. Each tag consists of a tag key and a tag value.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
+    -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+    truncated :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListResourceTagsResponse' with the minimum fields required to make a request.
---
--- * 'truncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
--- * 'nextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
---
--- Do not assume or infer any information from this value.
--- * 'tags' - A list of tags. Each tag consists of a tag key and a tag value.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListResourceTagsResponse' value with any optional fields omitted.
 mkListResourceTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListResourceTagsResponse
-mkListResourceTagsResponse pResponseStatus_ =
+mkListResourceTagsResponse responseStatus =
   ListResourceTagsResponse'
-    { truncated = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextMarker = Core.Nothing,
+      tags = Core.Nothing,
+      truncated = Core.Nothing,
+      responseStatus
     }
-
--- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
---
--- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrtrsTruncated :: Lens.Lens' ListResourceTagsResponse (Lude.Maybe Lude.Bool)
-lrtrsTruncated = Lens.lens (truncated :: ListResourceTagsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: ListResourceTagsResponse)
-{-# DEPRECATED lrtrsTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 --
 -- Do not assume or infer any information from this value.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrtrsNextMarker :: Lens.Lens' ListResourceTagsResponse (Lude.Maybe Lude.Text)
-lrtrsNextMarker = Lens.lens (nextMarker :: ListResourceTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListResourceTagsResponse)
-{-# DEPRECATED lrtrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+lrtrrsNextMarker :: Lens.Lens' ListResourceTagsResponse (Core.Maybe Types.MarkerType)
+lrtrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lrtrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | A list of tags. Each tag consists of a tag key and a tag value.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrtrsTags :: Lens.Lens' ListResourceTagsResponse (Lude.Maybe [Tag])
-lrtrsTags = Lens.lens (tags :: ListResourceTagsResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ListResourceTagsResponse)
-{-# DEPRECATED lrtrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+lrtrrsTags :: Lens.Lens' ListResourceTagsResponse (Core.Maybe [Types.Tag])
+lrtrrsTags = Lens.field @"tags"
+{-# DEPRECATED lrtrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrtrrsTruncated :: Lens.Lens' ListResourceTagsResponse (Core.Maybe Core.Bool)
+lrtrrsTruncated = Lens.field @"truncated"
+{-# DEPRECATED lrtrrsTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrtrsResponseStatus :: Lens.Lens' ListResourceTagsResponse Lude.Int
-lrtrsResponseStatus = Lens.lens (responseStatus :: ListResourceTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListResourceTagsResponse)
-{-# DEPRECATED lrtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrtrrsResponseStatus :: Lens.Lens' ListResourceTagsResponse Core.Int
+lrtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

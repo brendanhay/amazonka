@@ -17,89 +17,84 @@ module Network.AWS.SageMaker.Types.GitConfig
     mkGitConfig,
 
     -- * Lenses
-    gcRepositoryURL,
+    gcRepositoryUrl,
     gcBranch,
-    gcSecretARN,
+    gcSecretArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.Branch as Types
+import qualified Network.AWS.SageMaker.Types.RepositoryUrl as Types
+import qualified Network.AWS.SageMaker.Types.SecretArn as Types
 
 -- | Specifies configuration details for a Git repository in your AWS account.
 --
 -- /See:/ 'mkGitConfig' smart constructor.
 data GitConfig = GitConfig'
   { -- | The URL where the Git repository is located.
-    repositoryURL :: Lude.Text,
+    repositoryUrl :: Types.RepositoryUrl,
     -- | The default branch for the Git repository.
-    branch :: Lude.Maybe Lude.Text,
+    branch :: Core.Maybe Types.Branch,
     -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
     --
     -- @{"username": /UserName/ , "password": /Password/ }@
-    secretARN :: Lude.Maybe Lude.Text
+    secretArn :: Core.Maybe Types.SecretArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GitConfig' with the minimum fields required to make a request.
---
--- * 'repositoryURL' - The URL where the Git repository is located.
--- * 'branch' - The default branch for the Git repository.
--- * 'secretARN' - The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
---
--- @{"username": /UserName/ , "password": /Password/ }@
+-- | Creates a 'GitConfig' value with any optional fields omitted.
 mkGitConfig ::
-  -- | 'repositoryURL'
-  Lude.Text ->
+  -- | 'repositoryUrl'
+  Types.RepositoryUrl ->
   GitConfig
-mkGitConfig pRepositoryURL_ =
+mkGitConfig repositoryUrl =
   GitConfig'
-    { repositoryURL = pRepositoryURL_,
-      branch = Lude.Nothing,
-      secretARN = Lude.Nothing
+    { repositoryUrl,
+      branch = Core.Nothing,
+      secretArn = Core.Nothing
     }
 
 -- | The URL where the Git repository is located.
 --
--- /Note:/ Consider using 'repositoryURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcRepositoryURL :: Lens.Lens' GitConfig Lude.Text
-gcRepositoryURL = Lens.lens (repositoryURL :: GitConfig -> Lude.Text) (\s a -> s {repositoryURL = a} :: GitConfig)
-{-# DEPRECATED gcRepositoryURL "Use generic-lens or generic-optics with 'repositoryURL' instead." #-}
+-- /Note:/ Consider using 'repositoryUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcRepositoryUrl :: Lens.Lens' GitConfig Types.RepositoryUrl
+gcRepositoryUrl = Lens.field @"repositoryUrl"
+{-# DEPRECATED gcRepositoryUrl "Use generic-lens or generic-optics with 'repositoryUrl' instead." #-}
 
 -- | The default branch for the Git repository.
 --
 -- /Note:/ Consider using 'branch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcBranch :: Lens.Lens' GitConfig (Lude.Maybe Lude.Text)
-gcBranch = Lens.lens (branch :: GitConfig -> Lude.Maybe Lude.Text) (\s a -> s {branch = a} :: GitConfig)
+gcBranch :: Lens.Lens' GitConfig (Core.Maybe Types.Branch)
+gcBranch = Lens.field @"branch"
 {-# DEPRECATED gcBranch "Use generic-lens or generic-optics with 'branch' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
 --
 -- @{"username": /UserName/ , "password": /Password/ }@
 --
--- /Note:/ Consider using 'secretARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcSecretARN :: Lens.Lens' GitConfig (Lude.Maybe Lude.Text)
-gcSecretARN = Lens.lens (secretARN :: GitConfig -> Lude.Maybe Lude.Text) (\s a -> s {secretARN = a} :: GitConfig)
-{-# DEPRECATED gcSecretARN "Use generic-lens or generic-optics with 'secretARN' instead." #-}
+-- /Note:/ Consider using 'secretArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcSecretArn :: Lens.Lens' GitConfig (Core.Maybe Types.SecretArn)
+gcSecretArn = Lens.field @"secretArn"
+{-# DEPRECATED gcSecretArn "Use generic-lens or generic-optics with 'secretArn' instead." #-}
 
-instance Lude.FromJSON GitConfig where
-  parseJSON =
-    Lude.withObject
-      "GitConfig"
-      ( \x ->
-          GitConfig'
-            Lude.<$> (x Lude..: "RepositoryUrl")
-            Lude.<*> (x Lude..:? "Branch")
-            Lude.<*> (x Lude..:? "SecretArn")
-      )
-
-instance Lude.ToJSON GitConfig where
-  toJSON GitConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RepositoryUrl" Lude..= repositoryURL),
-            ("Branch" Lude..=) Lude.<$> branch,
-            ("SecretArn" Lude..=) Lude.<$> secretARN
+instance Core.FromJSON GitConfig where
+  toJSON GitConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RepositoryUrl" Core..= repositoryUrl),
+            ("Branch" Core..=) Core.<$> branch,
+            ("SecretArn" Core..=) Core.<$> secretArn
           ]
       )
+
+instance Core.FromJSON GitConfig where
+  parseJSON =
+    Core.withObject "GitConfig" Core.$
+      \x ->
+        GitConfig'
+          Core.<$> (x Core..: "RepositoryUrl")
+          Core.<*> (x Core..:? "Branch")
+          Core.<*> (x Core..:? "SecretArn")

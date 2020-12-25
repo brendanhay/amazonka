@@ -17,85 +17,81 @@ module Network.AWS.CognitoIdentityProvider.Types.ResourceServerType
     mkResourceServerType,
 
     -- * Lenses
-    rstUserPoolId,
     rstIdentifier,
-    rstScopes,
     rstName,
+    rstScopes,
+    rstUserPoolId,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType
+import qualified Network.AWS.CognitoIdentityProvider.Types.ResourceServerIdentifierType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.ResourceServerNameType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.ResourceServerScopeType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.UserPoolId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A container for information about a resource server for a user pool.
 --
 -- /See:/ 'mkResourceServerType' smart constructor.
 data ResourceServerType = ResourceServerType'
-  { -- | The user pool ID for the user pool that hosts the resource server.
-    userPoolId :: Lude.Maybe Lude.Text,
-    -- | The identifier for the resource server.
-    identifier :: Lude.Maybe Lude.Text,
-    -- | A list of scopes that are defined for the resource server.
-    scopes :: Lude.Maybe [ResourceServerScopeType],
+  { -- | The identifier for the resource server.
+    identifier :: Core.Maybe Types.ResourceServerIdentifierType,
     -- | The name of the resource server.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.ResourceServerNameType,
+    -- | A list of scopes that are defined for the resource server.
+    scopes :: Core.Maybe [Types.ResourceServerScopeType],
+    -- | The user pool ID for the user pool that hosts the resource server.
+    userPoolId :: Core.Maybe Types.UserPoolId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceServerType' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID for the user pool that hosts the resource server.
--- * 'identifier' - The identifier for the resource server.
--- * 'scopes' - A list of scopes that are defined for the resource server.
--- * 'name' - The name of the resource server.
+-- | Creates a 'ResourceServerType' value with any optional fields omitted.
 mkResourceServerType ::
   ResourceServerType
 mkResourceServerType =
   ResourceServerType'
-    { userPoolId = Lude.Nothing,
-      identifier = Lude.Nothing,
-      scopes = Lude.Nothing,
-      name = Lude.Nothing
+    { identifier = Core.Nothing,
+      name = Core.Nothing,
+      scopes = Core.Nothing,
+      userPoolId = Core.Nothing
     }
-
--- | The user pool ID for the user pool that hosts the resource server.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rstUserPoolId :: Lens.Lens' ResourceServerType (Lude.Maybe Lude.Text)
-rstUserPoolId = Lens.lens (userPoolId :: ResourceServerType -> Lude.Maybe Lude.Text) (\s a -> s {userPoolId = a} :: ResourceServerType)
-{-# DEPRECATED rstUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identifier for the resource server.
 --
 -- /Note:/ Consider using 'identifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rstIdentifier :: Lens.Lens' ResourceServerType (Lude.Maybe Lude.Text)
-rstIdentifier = Lens.lens (identifier :: ResourceServerType -> Lude.Maybe Lude.Text) (\s a -> s {identifier = a} :: ResourceServerType)
+rstIdentifier :: Lens.Lens' ResourceServerType (Core.Maybe Types.ResourceServerIdentifierType)
+rstIdentifier = Lens.field @"identifier"
 {-# DEPRECATED rstIdentifier "Use generic-lens or generic-optics with 'identifier' instead." #-}
-
--- | A list of scopes that are defined for the resource server.
---
--- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rstScopes :: Lens.Lens' ResourceServerType (Lude.Maybe [ResourceServerScopeType])
-rstScopes = Lens.lens (scopes :: ResourceServerType -> Lude.Maybe [ResourceServerScopeType]) (\s a -> s {scopes = a} :: ResourceServerType)
-{-# DEPRECATED rstScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
 
 -- | The name of the resource server.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rstName :: Lens.Lens' ResourceServerType (Lude.Maybe Lude.Text)
-rstName = Lens.lens (name :: ResourceServerType -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ResourceServerType)
+rstName :: Lens.Lens' ResourceServerType (Core.Maybe Types.ResourceServerNameType)
+rstName = Lens.field @"name"
 {-# DEPRECATED rstName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON ResourceServerType where
+-- | A list of scopes that are defined for the resource server.
+--
+-- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rstScopes :: Lens.Lens' ResourceServerType (Core.Maybe [Types.ResourceServerScopeType])
+rstScopes = Lens.field @"scopes"
+{-# DEPRECATED rstScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
+
+-- | The user pool ID for the user pool that hosts the resource server.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rstUserPoolId :: Lens.Lens' ResourceServerType (Core.Maybe Types.UserPoolId)
+rstUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED rstUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
+instance Core.FromJSON ResourceServerType where
   parseJSON =
-    Lude.withObject
-      "ResourceServerType"
-      ( \x ->
-          ResourceServerType'
-            Lude.<$> (x Lude..:? "UserPoolId")
-            Lude.<*> (x Lude..:? "Identifier")
-            Lude.<*> (x Lude..:? "Scopes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "ResourceServerType" Core.$
+      \x ->
+        ResourceServerType'
+          Core.<$> (x Core..:? "Identifier")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Scopes")
+          Core.<*> (x Core..:? "UserPoolId")

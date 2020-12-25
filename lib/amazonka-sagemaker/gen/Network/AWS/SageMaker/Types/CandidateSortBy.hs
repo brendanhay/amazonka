@@ -13,51 +13,56 @@
 module Network.AWS.SageMaker.Types.CandidateSortBy
   ( CandidateSortBy
       ( CandidateSortBy',
-        CSBCreationTime,
-        CSBStatus,
-        CSBFinalObjectiveMetricValue
+        CandidateSortByCreationTime,
+        CandidateSortByStatus,
+        CandidateSortByFinalObjectiveMetricValue,
+        fromCandidateSortBy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CandidateSortBy = CandidateSortBy' Lude.Text
+newtype CandidateSortBy = CandidateSortBy'
+  { fromCandidateSortBy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSBCreationTime :: CandidateSortBy
-pattern CSBCreationTime = CandidateSortBy' "CreationTime"
+pattern CandidateSortByCreationTime :: CandidateSortBy
+pattern CandidateSortByCreationTime = CandidateSortBy' "CreationTime"
 
-pattern CSBStatus :: CandidateSortBy
-pattern CSBStatus = CandidateSortBy' "Status"
+pattern CandidateSortByStatus :: CandidateSortBy
+pattern CandidateSortByStatus = CandidateSortBy' "Status"
 
-pattern CSBFinalObjectiveMetricValue :: CandidateSortBy
-pattern CSBFinalObjectiveMetricValue = CandidateSortBy' "FinalObjectiveMetricValue"
+pattern CandidateSortByFinalObjectiveMetricValue :: CandidateSortBy
+pattern CandidateSortByFinalObjectiveMetricValue = CandidateSortBy' "FinalObjectiveMetricValue"
 
 {-# COMPLETE
-  CSBCreationTime,
-  CSBStatus,
-  CSBFinalObjectiveMetricValue,
+  CandidateSortByCreationTime,
+  CandidateSortByStatus,
+  CandidateSortByFinalObjectiveMetricValue,
   CandidateSortBy'
   #-}

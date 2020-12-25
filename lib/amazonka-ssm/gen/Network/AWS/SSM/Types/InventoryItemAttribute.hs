@@ -23,53 +23,49 @@ module Network.AWS.SSM.Types.InventoryItemAttribute
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.InventoryAttributeDataType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.InventoryAttributeDataType as Types
+import qualified Network.AWS.SSM.Types.InventoryItemAttributeName as Types
 
 -- | Attributes are the entries within the inventory item content. It contains name and value.
 --
 -- /See:/ 'mkInventoryItemAttribute' smart constructor.
 data InventoryItemAttribute = InventoryItemAttribute'
   { -- | Name of the inventory item attribute.
-    name :: Lude.Text,
+    name :: Types.InventoryItemAttributeName,
     -- | The data type of the inventory item attribute.
-    dataType :: InventoryAttributeDataType
+    dataType :: Types.InventoryAttributeDataType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventoryItemAttribute' with the minimum fields required to make a request.
---
--- * 'name' - Name of the inventory item attribute.
--- * 'dataType' - The data type of the inventory item attribute.
+-- | Creates a 'InventoryItemAttribute' value with any optional fields omitted.
 mkInventoryItemAttribute ::
   -- | 'name'
-  Lude.Text ->
+  Types.InventoryItemAttributeName ->
   -- | 'dataType'
-  InventoryAttributeDataType ->
+  Types.InventoryAttributeDataType ->
   InventoryItemAttribute
-mkInventoryItemAttribute pName_ pDataType_ =
-  InventoryItemAttribute' {name = pName_, dataType = pDataType_}
+mkInventoryItemAttribute name dataType =
+  InventoryItemAttribute' {name, dataType}
 
 -- | Name of the inventory item attribute.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiaName :: Lens.Lens' InventoryItemAttribute Lude.Text
-iiaName = Lens.lens (name :: InventoryItemAttribute -> Lude.Text) (\s a -> s {name = a} :: InventoryItemAttribute)
+iiaName :: Lens.Lens' InventoryItemAttribute Types.InventoryItemAttributeName
+iiaName = Lens.field @"name"
 {-# DEPRECATED iiaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The data type of the inventory item attribute.
 --
 -- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiaDataType :: Lens.Lens' InventoryItemAttribute InventoryAttributeDataType
-iiaDataType = Lens.lens (dataType :: InventoryItemAttribute -> InventoryAttributeDataType) (\s a -> s {dataType = a} :: InventoryItemAttribute)
+iiaDataType :: Lens.Lens' InventoryItemAttribute Types.InventoryAttributeDataType
+iiaDataType = Lens.field @"dataType"
 {-# DEPRECATED iiaDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
-instance Lude.FromJSON InventoryItemAttribute where
+instance Core.FromJSON InventoryItemAttribute where
   parseJSON =
-    Lude.withObject
-      "InventoryItemAttribute"
-      ( \x ->
-          InventoryItemAttribute'
-            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..: "DataType")
-      )
+    Core.withObject "InventoryItemAttribute" Core.$
+      \x ->
+        InventoryItemAttribute'
+          Core.<$> (x Core..: "Name") Core.<*> (x Core..: "DataType")

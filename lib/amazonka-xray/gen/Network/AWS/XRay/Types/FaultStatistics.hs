@@ -23,51 +23,46 @@ module Network.AWS.XRay.Types.FaultStatistics
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about requests that failed with a 5xx Server Error status code.
 --
 -- /See:/ 'mkFaultStatistics' smart constructor.
 data FaultStatistics = FaultStatistics'
   { -- | The number of requests that failed with untracked 5xx Server Error status codes.
-    otherCount :: Lude.Maybe Lude.Integer,
+    otherCount :: Core.Maybe Core.Integer,
     -- | The total number of requests that failed with a 5xx Server Error status code.
-    totalCount :: Lude.Maybe Lude.Integer
+    totalCount :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FaultStatistics' with the minimum fields required to make a request.
---
--- * 'otherCount' - The number of requests that failed with untracked 5xx Server Error status codes.
--- * 'totalCount' - The total number of requests that failed with a 5xx Server Error status code.
+-- | Creates a 'FaultStatistics' value with any optional fields omitted.
 mkFaultStatistics ::
   FaultStatistics
 mkFaultStatistics =
   FaultStatistics'
-    { otherCount = Lude.Nothing,
-      totalCount = Lude.Nothing
+    { otherCount = Core.Nothing,
+      totalCount = Core.Nothing
     }
 
 -- | The number of requests that failed with untracked 5xx Server Error status codes.
 --
 -- /Note:/ Consider using 'otherCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsOtherCount :: Lens.Lens' FaultStatistics (Lude.Maybe Lude.Integer)
-fsOtherCount = Lens.lens (otherCount :: FaultStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {otherCount = a} :: FaultStatistics)
+fsOtherCount :: Lens.Lens' FaultStatistics (Core.Maybe Core.Integer)
+fsOtherCount = Lens.field @"otherCount"
 {-# DEPRECATED fsOtherCount "Use generic-lens or generic-optics with 'otherCount' instead." #-}
 
 -- | The total number of requests that failed with a 5xx Server Error status code.
 --
 -- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsTotalCount :: Lens.Lens' FaultStatistics (Lude.Maybe Lude.Integer)
-fsTotalCount = Lens.lens (totalCount :: FaultStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {totalCount = a} :: FaultStatistics)
+fsTotalCount :: Lens.Lens' FaultStatistics (Core.Maybe Core.Integer)
+fsTotalCount = Lens.field @"totalCount"
 {-# DEPRECATED fsTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
-instance Lude.FromJSON FaultStatistics where
+instance Core.FromJSON FaultStatistics where
   parseJSON =
-    Lude.withObject
-      "FaultStatistics"
-      ( \x ->
-          FaultStatistics'
-            Lude.<$> (x Lude..:? "OtherCount") Lude.<*> (x Lude..:? "TotalCount")
-      )
+    Core.withObject "FaultStatistics" Core.$
+      \x ->
+        FaultStatistics'
+          Core.<$> (x Core..:? "OtherCount") Core.<*> (x Core..:? "TotalCount")

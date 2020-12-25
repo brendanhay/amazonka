@@ -33,232 +33,207 @@ module Network.AWS.Support.CreateCase
     -- ** Request lenses
     ccSubject,
     ccCommunicationBody,
-    ccSeverityCode,
-    ccIssueType,
-    ccCcEmailAddresses,
-    ccLanguage,
-    ccCategoryCode,
-    ccServiceCode,
     ccAttachmentSetId,
+    ccCategoryCode,
+    ccCcEmailAddresses,
+    ccIssueType,
+    ccLanguage,
+    ccServiceCode,
+    ccSeverityCode,
 
     -- * Destructuring the response
     CreateCaseResponse (..),
     mkCreateCaseResponse,
 
     -- ** Response lenses
-    ccrsCaseId,
-    ccrsResponseStatus,
+    ccrrsCaseId,
+    ccrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Support.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Support.Types as Types
 
 -- | /See:/ 'mkCreateCase' smart constructor.
 data CreateCase = CreateCase'
   { -- | The title of the AWS Support case. The title appears in the __Subject__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
-    subject :: Lude.Text,
+    subject :: Types.Subject,
     -- | The communication body text that describes the issue. This text appears in the __Description__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
-    communicationBody :: Lude.Text,
+    communicationBody :: Types.CommunicationBody,
+    -- | The ID of a set of one or more attachments for the case. Create the set by using the 'AddAttachmentsToSet' operation.
+    attachmentSetId :: Core.Maybe Types.AttachmentSetId,
+    -- | The category of problem for the AWS Support case. You also use the 'DescribeServices' operation to get the category code for a service. Each AWS service defines its own set of category codes.
+    categoryCode :: Core.Maybe Types.CategoryCode,
+    -- | A list of email addresses that AWS Support copies on case correspondence. AWS Support identifies the account that creates the case when you specify your AWS credentials in an HTTP POST method or use the <http://aws.amazon.com/tools/ AWS SDKs> .
+    ccEmailAddresses :: Core.Maybe [Types.CcEmailAddress],
+    -- | The type of issue for the case. You can specify @customer-service@ or @technical@ . If you don't specify a value, the default is @technical@ .
+    issueType :: Core.Maybe Types.IssueType,
+    -- | The language in which AWS Support handles the case. You must specify the ISO 639-1 code for the @language@ parameter if you want support in that language. Currently, English ("en") and Japanese ("ja") are supported.
+    language :: Core.Maybe Types.Language,
+    -- | The code for the AWS service. You can use the 'DescribeServices' operation to get the possible @serviceCode@ values.
+    serviceCode :: Core.Maybe Types.ServiceCode,
     -- | A value that indicates the urgency of the case. This value determines the response time according to your service level agreement with AWS Support. You can use the 'DescribeSeverityLevels' operation to get the possible values for @severityCode@ .
     --
     -- For more information, see 'SeverityLevel' and <https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity> in the /AWS Support User Guide/ .
-    severityCode :: Lude.Maybe Lude.Text,
-    -- | The type of issue for the case. You can specify @customer-service@ or @technical@ . If you don't specify a value, the default is @technical@ .
-    issueType :: Lude.Maybe Lude.Text,
-    -- | A list of email addresses that AWS Support copies on case correspondence. AWS Support identifies the account that creates the case when you specify your AWS credentials in an HTTP POST method or use the <http://aws.amazon.com/tools/ AWS SDKs> .
-    ccEmailAddresses :: Lude.Maybe [Lude.Text],
-    -- | The language in which AWS Support handles the case. You must specify the ISO 639-1 code for the @language@ parameter if you want support in that language. Currently, English ("en") and Japanese ("ja") are supported.
-    language :: Lude.Maybe Lude.Text,
-    -- | The category of problem for the AWS Support case. You also use the 'DescribeServices' operation to get the category code for a service. Each AWS service defines its own set of category codes.
-    categoryCode :: Lude.Maybe Lude.Text,
-    -- | The code for the AWS service. You can use the 'DescribeServices' operation to get the possible @serviceCode@ values.
-    serviceCode :: Lude.Maybe Lude.Text,
-    -- | The ID of a set of one or more attachments for the case. Create the set by using the 'AddAttachmentsToSet' operation.
-    attachmentSetId :: Lude.Maybe Lude.Text
+    severityCode :: Core.Maybe Types.SeverityCode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCase' with the minimum fields required to make a request.
---
--- * 'subject' - The title of the AWS Support case. The title appears in the __Subject__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
--- * 'communicationBody' - The communication body text that describes the issue. This text appears in the __Description__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
--- * 'severityCode' - A value that indicates the urgency of the case. This value determines the response time according to your service level agreement with AWS Support. You can use the 'DescribeSeverityLevels' operation to get the possible values for @severityCode@ .
---
--- For more information, see 'SeverityLevel' and <https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity> in the /AWS Support User Guide/ .
--- * 'issueType' - The type of issue for the case. You can specify @customer-service@ or @technical@ . If you don't specify a value, the default is @technical@ .
--- * 'ccEmailAddresses' - A list of email addresses that AWS Support copies on case correspondence. AWS Support identifies the account that creates the case when you specify your AWS credentials in an HTTP POST method or use the <http://aws.amazon.com/tools/ AWS SDKs> .
--- * 'language' - The language in which AWS Support handles the case. You must specify the ISO 639-1 code for the @language@ parameter if you want support in that language. Currently, English ("en") and Japanese ("ja") are supported.
--- * 'categoryCode' - The category of problem for the AWS Support case. You also use the 'DescribeServices' operation to get the category code for a service. Each AWS service defines its own set of category codes.
--- * 'serviceCode' - The code for the AWS service. You can use the 'DescribeServices' operation to get the possible @serviceCode@ values.
--- * 'attachmentSetId' - The ID of a set of one or more attachments for the case. Create the set by using the 'AddAttachmentsToSet' operation.
+-- | Creates a 'CreateCase' value with any optional fields omitted.
 mkCreateCase ::
   -- | 'subject'
-  Lude.Text ->
+  Types.Subject ->
   -- | 'communicationBody'
-  Lude.Text ->
+  Types.CommunicationBody ->
   CreateCase
-mkCreateCase pSubject_ pCommunicationBody_ =
+mkCreateCase subject communicationBody =
   CreateCase'
-    { subject = pSubject_,
-      communicationBody = pCommunicationBody_,
-      severityCode = Lude.Nothing,
-      issueType = Lude.Nothing,
-      ccEmailAddresses = Lude.Nothing,
-      language = Lude.Nothing,
-      categoryCode = Lude.Nothing,
-      serviceCode = Lude.Nothing,
-      attachmentSetId = Lude.Nothing
+    { subject,
+      communicationBody,
+      attachmentSetId = Core.Nothing,
+      categoryCode = Core.Nothing,
+      ccEmailAddresses = Core.Nothing,
+      issueType = Core.Nothing,
+      language = Core.Nothing,
+      serviceCode = Core.Nothing,
+      severityCode = Core.Nothing
     }
 
 -- | The title of the AWS Support case. The title appears in the __Subject__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
 --
 -- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccSubject :: Lens.Lens' CreateCase Lude.Text
-ccSubject = Lens.lens (subject :: CreateCase -> Lude.Text) (\s a -> s {subject = a} :: CreateCase)
+ccSubject :: Lens.Lens' CreateCase Types.Subject
+ccSubject = Lens.field @"subject"
 {-# DEPRECATED ccSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
 -- | The communication body text that describes the issue. This text appears in the __Description__ field on the AWS Support Center <https://console.aws.amazon.com/support/home#/case/create Create Case> page.
 --
 -- /Note:/ Consider using 'communicationBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCommunicationBody :: Lens.Lens' CreateCase Lude.Text
-ccCommunicationBody = Lens.lens (communicationBody :: CreateCase -> Lude.Text) (\s a -> s {communicationBody = a} :: CreateCase)
+ccCommunicationBody :: Lens.Lens' CreateCase Types.CommunicationBody
+ccCommunicationBody = Lens.field @"communicationBody"
 {-# DEPRECATED ccCommunicationBody "Use generic-lens or generic-optics with 'communicationBody' instead." #-}
+
+-- | The ID of a set of one or more attachments for the case. Create the set by using the 'AddAttachmentsToSet' operation.
+--
+-- /Note:/ Consider using 'attachmentSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccAttachmentSetId :: Lens.Lens' CreateCase (Core.Maybe Types.AttachmentSetId)
+ccAttachmentSetId = Lens.field @"attachmentSetId"
+{-# DEPRECATED ccAttachmentSetId "Use generic-lens or generic-optics with 'attachmentSetId' instead." #-}
+
+-- | The category of problem for the AWS Support case. You also use the 'DescribeServices' operation to get the category code for a service. Each AWS service defines its own set of category codes.
+--
+-- /Note:/ Consider using 'categoryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCategoryCode :: Lens.Lens' CreateCase (Core.Maybe Types.CategoryCode)
+ccCategoryCode = Lens.field @"categoryCode"
+{-# DEPRECATED ccCategoryCode "Use generic-lens or generic-optics with 'categoryCode' instead." #-}
+
+-- | A list of email addresses that AWS Support copies on case correspondence. AWS Support identifies the account that creates the case when you specify your AWS credentials in an HTTP POST method or use the <http://aws.amazon.com/tools/ AWS SDKs> .
+--
+-- /Note:/ Consider using 'ccEmailAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccCcEmailAddresses :: Lens.Lens' CreateCase (Core.Maybe [Types.CcEmailAddress])
+ccCcEmailAddresses = Lens.field @"ccEmailAddresses"
+{-# DEPRECATED ccCcEmailAddresses "Use generic-lens or generic-optics with 'ccEmailAddresses' instead." #-}
+
+-- | The type of issue for the case. You can specify @customer-service@ or @technical@ . If you don't specify a value, the default is @technical@ .
+--
+-- /Note:/ Consider using 'issueType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccIssueType :: Lens.Lens' CreateCase (Core.Maybe Types.IssueType)
+ccIssueType = Lens.field @"issueType"
+{-# DEPRECATED ccIssueType "Use generic-lens or generic-optics with 'issueType' instead." #-}
+
+-- | The language in which AWS Support handles the case. You must specify the ISO 639-1 code for the @language@ parameter if you want support in that language. Currently, English ("en") and Japanese ("ja") are supported.
+--
+-- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccLanguage :: Lens.Lens' CreateCase (Core.Maybe Types.Language)
+ccLanguage = Lens.field @"language"
+{-# DEPRECATED ccLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
+
+-- | The code for the AWS service. You can use the 'DescribeServices' operation to get the possible @serviceCode@ values.
+--
+-- /Note:/ Consider using 'serviceCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccServiceCode :: Lens.Lens' CreateCase (Core.Maybe Types.ServiceCode)
+ccServiceCode = Lens.field @"serviceCode"
+{-# DEPRECATED ccServiceCode "Use generic-lens or generic-optics with 'serviceCode' instead." #-}
 
 -- | A value that indicates the urgency of the case. This value determines the response time according to your service level agreement with AWS Support. You can use the 'DescribeSeverityLevels' operation to get the possible values for @severityCode@ .
 --
 -- For more information, see 'SeverityLevel' and <https://docs.aws.amazon.com/awssupport/latest/user/getting-started.html#choosing-severity Choosing a Severity> in the /AWS Support User Guide/ .
 --
 -- /Note:/ Consider using 'severityCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccSeverityCode :: Lens.Lens' CreateCase (Lude.Maybe Lude.Text)
-ccSeverityCode = Lens.lens (severityCode :: CreateCase -> Lude.Maybe Lude.Text) (\s a -> s {severityCode = a} :: CreateCase)
+ccSeverityCode :: Lens.Lens' CreateCase (Core.Maybe Types.SeverityCode)
+ccSeverityCode = Lens.field @"severityCode"
 {-# DEPRECATED ccSeverityCode "Use generic-lens or generic-optics with 'severityCode' instead." #-}
 
--- | The type of issue for the case. You can specify @customer-service@ or @technical@ . If you don't specify a value, the default is @technical@ .
---
--- /Note:/ Consider using 'issueType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccIssueType :: Lens.Lens' CreateCase (Lude.Maybe Lude.Text)
-ccIssueType = Lens.lens (issueType :: CreateCase -> Lude.Maybe Lude.Text) (\s a -> s {issueType = a} :: CreateCase)
-{-# DEPRECATED ccIssueType "Use generic-lens or generic-optics with 'issueType' instead." #-}
+instance Core.FromJSON CreateCase where
+  toJSON CreateCase {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("subject" Core..= subject),
+            Core.Just ("communicationBody" Core..= communicationBody),
+            ("attachmentSetId" Core..=) Core.<$> attachmentSetId,
+            ("categoryCode" Core..=) Core.<$> categoryCode,
+            ("ccEmailAddresses" Core..=) Core.<$> ccEmailAddresses,
+            ("issueType" Core..=) Core.<$> issueType,
+            ("language" Core..=) Core.<$> language,
+            ("serviceCode" Core..=) Core.<$> serviceCode,
+            ("severityCode" Core..=) Core.<$> severityCode
+          ]
+      )
 
--- | A list of email addresses that AWS Support copies on case correspondence. AWS Support identifies the account that creates the case when you specify your AWS credentials in an HTTP POST method or use the <http://aws.amazon.com/tools/ AWS SDKs> .
---
--- /Note:/ Consider using 'ccEmailAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCcEmailAddresses :: Lens.Lens' CreateCase (Lude.Maybe [Lude.Text])
-ccCcEmailAddresses = Lens.lens (ccEmailAddresses :: CreateCase -> Lude.Maybe [Lude.Text]) (\s a -> s {ccEmailAddresses = a} :: CreateCase)
-{-# DEPRECATED ccCcEmailAddresses "Use generic-lens or generic-optics with 'ccEmailAddresses' instead." #-}
-
--- | The language in which AWS Support handles the case. You must specify the ISO 639-1 code for the @language@ parameter if you want support in that language. Currently, English ("en") and Japanese ("ja") are supported.
---
--- /Note:/ Consider using 'language' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccLanguage :: Lens.Lens' CreateCase (Lude.Maybe Lude.Text)
-ccLanguage = Lens.lens (language :: CreateCase -> Lude.Maybe Lude.Text) (\s a -> s {language = a} :: CreateCase)
-{-# DEPRECATED ccLanguage "Use generic-lens or generic-optics with 'language' instead." #-}
-
--- | The category of problem for the AWS Support case. You also use the 'DescribeServices' operation to get the category code for a service. Each AWS service defines its own set of category codes.
---
--- /Note:/ Consider using 'categoryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCategoryCode :: Lens.Lens' CreateCase (Lude.Maybe Lude.Text)
-ccCategoryCode = Lens.lens (categoryCode :: CreateCase -> Lude.Maybe Lude.Text) (\s a -> s {categoryCode = a} :: CreateCase)
-{-# DEPRECATED ccCategoryCode "Use generic-lens or generic-optics with 'categoryCode' instead." #-}
-
--- | The code for the AWS service. You can use the 'DescribeServices' operation to get the possible @serviceCode@ values.
---
--- /Note:/ Consider using 'serviceCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccServiceCode :: Lens.Lens' CreateCase (Lude.Maybe Lude.Text)
-ccServiceCode = Lens.lens (serviceCode :: CreateCase -> Lude.Maybe Lude.Text) (\s a -> s {serviceCode = a} :: CreateCase)
-{-# DEPRECATED ccServiceCode "Use generic-lens or generic-optics with 'serviceCode' instead." #-}
-
--- | The ID of a set of one or more attachments for the case. Create the set by using the 'AddAttachmentsToSet' operation.
---
--- /Note:/ Consider using 'attachmentSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccAttachmentSetId :: Lens.Lens' CreateCase (Lude.Maybe Lude.Text)
-ccAttachmentSetId = Lens.lens (attachmentSetId :: CreateCase -> Lude.Maybe Lude.Text) (\s a -> s {attachmentSetId = a} :: CreateCase)
-{-# DEPRECATED ccAttachmentSetId "Use generic-lens or generic-optics with 'attachmentSetId' instead." #-}
-
-instance Lude.AWSRequest CreateCase where
+instance Core.AWSRequest CreateCase where
   type Rs CreateCase = CreateCaseResponse
-  request = Req.postJSON supportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSSupport_20130415.CreateCase")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateCaseResponse'
-            Lude.<$> (x Lude..?> "caseId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "caseId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateCase where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSSupport_20130415.CreateCase" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateCase where
-  toJSON CreateCase' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("subject" Lude..= subject),
-            Lude.Just ("communicationBody" Lude..= communicationBody),
-            ("severityCode" Lude..=) Lude.<$> severityCode,
-            ("issueType" Lude..=) Lude.<$> issueType,
-            ("ccEmailAddresses" Lude..=) Lude.<$> ccEmailAddresses,
-            ("language" Lude..=) Lude.<$> language,
-            ("categoryCode" Lude..=) Lude.<$> categoryCode,
-            ("serviceCode" Lude..=) Lude.<$> serviceCode,
-            ("attachmentSetId" Lude..=) Lude.<$> attachmentSetId
-          ]
-      )
-
-instance Lude.ToPath CreateCase where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateCase where
-  toQuery = Lude.const Lude.mempty
 
 -- | The AWS Support case ID returned by a successful completion of the 'CreateCase' operation.
 --
 -- /See:/ 'mkCreateCaseResponse' smart constructor.
 data CreateCaseResponse = CreateCaseResponse'
   { -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string in the following format: case-/12345678910-2013-c4c1d2bf33c5cf47/
-    caseId :: Lude.Maybe Lude.Text,
+    caseId :: Core.Maybe Types.CaseId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCaseResponse' with the minimum fields required to make a request.
---
--- * 'caseId' - The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string in the following format: case-/12345678910-2013-c4c1d2bf33c5cf47/
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateCaseResponse' value with any optional fields omitted.
 mkCreateCaseResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateCaseResponse
-mkCreateCaseResponse pResponseStatus_ =
-  CreateCaseResponse'
-    { caseId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateCaseResponse responseStatus =
+  CreateCaseResponse' {caseId = Core.Nothing, responseStatus}
 
 -- | The AWS Support case ID requested or returned in the call. The case ID is an alphanumeric string in the following format: case-/12345678910-2013-c4c1d2bf33c5cf47/
 --
 -- /Note:/ Consider using 'caseId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsCaseId :: Lens.Lens' CreateCaseResponse (Lude.Maybe Lude.Text)
-ccrsCaseId = Lens.lens (caseId :: CreateCaseResponse -> Lude.Maybe Lude.Text) (\s a -> s {caseId = a} :: CreateCaseResponse)
-{-# DEPRECATED ccrsCaseId "Use generic-lens or generic-optics with 'caseId' instead." #-}
+ccrrsCaseId :: Lens.Lens' CreateCaseResponse (Core.Maybe Types.CaseId)
+ccrrsCaseId = Lens.field @"caseId"
+{-# DEPRECATED ccrrsCaseId "Use generic-lens or generic-optics with 'caseId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsResponseStatus :: Lens.Lens' CreateCaseResponse Lude.Int
-ccrsResponseStatus = Lens.lens (responseStatus :: CreateCaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCaseResponse)
-{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccrrsResponseStatus :: Lens.Lens' CreateCaseResponse Core.Int
+ccrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

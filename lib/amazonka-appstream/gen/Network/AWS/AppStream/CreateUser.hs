@@ -20,159 +20,144 @@ module Network.AWS.AppStream.CreateUser
     mkCreateUser,
 
     -- ** Request lenses
+    cuUserName,
+    cuAuthenticationType,
+    cuFirstName,
     cuLastName,
     cuMessageAction,
-    cuUserName,
-    cuFirstName,
-    cuAuthenticationType,
 
     -- * Destructuring the response
     CreateUserResponse (..),
     mkCreateUserResponse,
 
     -- ** Response lenses
-    cursResponseStatus,
+    currsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateUser' smart constructor.
 data CreateUser = CreateUser'
-  { -- | The last name, or surname, of the user.
-    lastName :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.
-    messageAction :: Lude.Maybe MessageAction,
-    -- | The email address of the user.
-    userName :: Lude.Sensitive Lude.Text,
-    -- | The first name, or given name, of the user.
-    firstName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The email address of the user.
+    userName :: Types.Username,
     -- | The authentication type for the user. You must specify USERPOOL.
-    authenticationType :: AuthenticationType
+    authenticationType :: Types.AuthenticationType,
+    -- | The first name, or given name, of the user.
+    firstName :: Core.Maybe Types.FirstName,
+    -- | The last name, or surname, of the user.
+    lastName :: Core.Maybe Types.LastName,
+    -- | The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.
+    messageAction :: Core.Maybe Types.MessageAction
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUser' with the minimum fields required to make a request.
---
--- * 'lastName' - The last name, or surname, of the user.
--- * 'messageAction' - The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.
--- * 'userName' - The email address of the user.
--- * 'firstName' - The first name, or given name, of the user.
--- * 'authenticationType' - The authentication type for the user. You must specify USERPOOL.
+-- | Creates a 'CreateUser' value with any optional fields omitted.
 mkCreateUser ::
   -- | 'userName'
-  Lude.Sensitive Lude.Text ->
+  Types.Username ->
   -- | 'authenticationType'
-  AuthenticationType ->
+  Types.AuthenticationType ->
   CreateUser
-mkCreateUser pUserName_ pAuthenticationType_ =
+mkCreateUser userName authenticationType =
   CreateUser'
-    { lastName = Lude.Nothing,
-      messageAction = Lude.Nothing,
-      userName = pUserName_,
-      firstName = Lude.Nothing,
-      authenticationType = pAuthenticationType_
+    { userName,
+      authenticationType,
+      firstName = Core.Nothing,
+      lastName = Core.Nothing,
+      messageAction = Core.Nothing
     }
+
+-- | The email address of the user.
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuUserName :: Lens.Lens' CreateUser Types.Username
+cuUserName = Lens.field @"userName"
+{-# DEPRECATED cuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+-- | The authentication type for the user. You must specify USERPOOL.
+--
+-- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuAuthenticationType :: Lens.Lens' CreateUser Types.AuthenticationType
+cuAuthenticationType = Lens.field @"authenticationType"
+{-# DEPRECATED cuAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
+
+-- | The first name, or given name, of the user.
+--
+-- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cuFirstName :: Lens.Lens' CreateUser (Core.Maybe Types.FirstName)
+cuFirstName = Lens.field @"firstName"
+{-# DEPRECATED cuFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
 
 -- | The last name, or surname, of the user.
 --
 -- /Note:/ Consider using 'lastName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuLastName :: Lens.Lens' CreateUser (Lude.Maybe (Lude.Sensitive Lude.Text))
-cuLastName = Lens.lens (lastName :: CreateUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {lastName = a} :: CreateUser)
+cuLastName :: Lens.Lens' CreateUser (Core.Maybe Types.LastName)
+cuLastName = Lens.field @"lastName"
 {-# DEPRECATED cuLastName "Use generic-lens or generic-optics with 'lastName' instead." #-}
 
 -- | The action to take for the welcome email that is sent to a user after the user is created in the user pool. If you specify SUPPRESS, no email is sent. If you specify RESEND, do not specify the first name or last name of the user. If the value is null, the email is sent.
 --
 -- /Note:/ Consider using 'messageAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuMessageAction :: Lens.Lens' CreateUser (Lude.Maybe MessageAction)
-cuMessageAction = Lens.lens (messageAction :: CreateUser -> Lude.Maybe MessageAction) (\s a -> s {messageAction = a} :: CreateUser)
+cuMessageAction :: Lens.Lens' CreateUser (Core.Maybe Types.MessageAction)
+cuMessageAction = Lens.field @"messageAction"
 {-# DEPRECATED cuMessageAction "Use generic-lens or generic-optics with 'messageAction' instead." #-}
 
--- | The email address of the user.
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuUserName :: Lens.Lens' CreateUser (Lude.Sensitive Lude.Text)
-cuUserName = Lens.lens (userName :: CreateUser -> Lude.Sensitive Lude.Text) (\s a -> s {userName = a} :: CreateUser)
-{-# DEPRECATED cuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+instance Core.FromJSON CreateUser where
+  toJSON CreateUser {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserName" Core..= userName),
+            Core.Just ("AuthenticationType" Core..= authenticationType),
+            ("FirstName" Core..=) Core.<$> firstName,
+            ("LastName" Core..=) Core.<$> lastName,
+            ("MessageAction" Core..=) Core.<$> messageAction
+          ]
+      )
 
--- | The first name, or given name, of the user.
---
--- /Note:/ Consider using 'firstName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuFirstName :: Lens.Lens' CreateUser (Lude.Maybe (Lude.Sensitive Lude.Text))
-cuFirstName = Lens.lens (firstName :: CreateUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {firstName = a} :: CreateUser)
-{-# DEPRECATED cuFirstName "Use generic-lens or generic-optics with 'firstName' instead." #-}
-
--- | The authentication type for the user. You must specify USERPOOL.
---
--- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cuAuthenticationType :: Lens.Lens' CreateUser AuthenticationType
-cuAuthenticationType = Lens.lens (authenticationType :: CreateUser -> AuthenticationType) (\s a -> s {authenticationType = a} :: CreateUser)
-{-# DEPRECATED cuAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
-
-instance Lude.AWSRequest CreateUser where
+instance Core.AWSRequest CreateUser where
   type Rs CreateUser = CreateUserResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "PhotonAdminProxyService.CreateUser")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CreateUserResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreateUserResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateUser where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.CreateUser" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateUser where
-  toJSON CreateUser' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("LastName" Lude..=) Lude.<$> lastName,
-            ("MessageAction" Lude..=) Lude.<$> messageAction,
-            Lude.Just ("UserName" Lude..= userName),
-            ("FirstName" Lude..=) Lude.<$> firstName,
-            Lude.Just ("AuthenticationType" Lude..= authenticationType)
-          ]
-      )
-
-instance Lude.ToPath CreateUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateUser where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateUserResponse' smart constructor.
 newtype CreateUserResponse = CreateUserResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateUserResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateUserResponse' value with any optional fields omitted.
 mkCreateUserResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateUserResponse
-mkCreateUserResponse pResponseStatus_ =
-  CreateUserResponse' {responseStatus = pResponseStatus_}
+mkCreateUserResponse responseStatus =
+  CreateUserResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cursResponseStatus :: Lens.Lens' CreateUserResponse Lude.Int
-cursResponseStatus = Lens.lens (responseStatus :: CreateUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateUserResponse)
-{-# DEPRECATED cursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+currsResponseStatus :: Lens.Lens' CreateUserResponse Core.Int
+currsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED currsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,7 +20,7 @@ module Network.AWS.ELBv2.DescribeTargetHealth
     mkDescribeTargetHealth,
 
     -- ** Request lenses
-    dthTargetGroupARN,
+    dthTargetGroupArn,
     dthTargets,
 
     -- * Destructuring the response
@@ -28,120 +28,116 @@ module Network.AWS.ELBv2.DescribeTargetHealth
     mkDescribeTargetHealthResponse,
 
     -- ** Response lenses
-    dthrsTargetHealthDescriptions,
-    dthrsResponseStatus,
+    dthrrsTargetHealthDescriptions,
+    dthrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTargetHealth' smart constructor.
 data DescribeTargetHealth = DescribeTargetHealth'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupARN :: Lude.Text,
+    targetGroupArn :: Types.TargetGroupArn,
     -- | The targets.
-    targets :: Lude.Maybe [TargetDescription]
+    targets :: Core.Maybe [Types.TargetDescription]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTargetHealth' with the minimum fields required to make a request.
---
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
--- * 'targets' - The targets.
+-- | Creates a 'DescribeTargetHealth' value with any optional fields omitted.
 mkDescribeTargetHealth ::
-  -- | 'targetGroupARN'
-  Lude.Text ->
+  -- | 'targetGroupArn'
+  Types.TargetGroupArn ->
   DescribeTargetHealth
-mkDescribeTargetHealth pTargetGroupARN_ =
-  DescribeTargetHealth'
-    { targetGroupARN = pTargetGroupARN_,
-      targets = Lude.Nothing
-    }
+mkDescribeTargetHealth targetGroupArn =
+  DescribeTargetHealth' {targetGroupArn, targets = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the target group.
 --
--- /Note:/ Consider using 'targetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dthTargetGroupARN :: Lens.Lens' DescribeTargetHealth Lude.Text
-dthTargetGroupARN = Lens.lens (targetGroupARN :: DescribeTargetHealth -> Lude.Text) (\s a -> s {targetGroupARN = a} :: DescribeTargetHealth)
-{-# DEPRECATED dthTargetGroupARN "Use generic-lens or generic-optics with 'targetGroupARN' instead." #-}
+-- /Note:/ Consider using 'targetGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dthTargetGroupArn :: Lens.Lens' DescribeTargetHealth Types.TargetGroupArn
+dthTargetGroupArn = Lens.field @"targetGroupArn"
+{-# DEPRECATED dthTargetGroupArn "Use generic-lens or generic-optics with 'targetGroupArn' instead." #-}
 
 -- | The targets.
 --
 -- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dthTargets :: Lens.Lens' DescribeTargetHealth (Lude.Maybe [TargetDescription])
-dthTargets = Lens.lens (targets :: DescribeTargetHealth -> Lude.Maybe [TargetDescription]) (\s a -> s {targets = a} :: DescribeTargetHealth)
+dthTargets :: Lens.Lens' DescribeTargetHealth (Core.Maybe [Types.TargetDescription])
+dthTargets = Lens.field @"targets"
 {-# DEPRECATED dthTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
-instance Lude.AWSRequest DescribeTargetHealth where
+instance Core.AWSRequest DescribeTargetHealth where
   type Rs DescribeTargetHealth = DescribeTargetHealthResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeTargetHealth")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "TargetGroupArn" targetGroupArn)
+                Core.<> ( Core.toQueryValue
+                            "Targets"
+                            (Core.toQueryList "member" Core.<$> targets)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeTargetHealthResult"
       ( \s h x ->
           DescribeTargetHealthResponse'
-            Lude.<$> ( x Lude..@? "TargetHealthDescriptions" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "TargetHealthDescriptions"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTargetHealth where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeTargetHealth where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTargetHealth where
-  toQuery DescribeTargetHealth' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeTargetHealth" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "TargetGroupArn" Lude.=: targetGroupARN,
-        "Targets"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> targets)
-      ]
 
 -- | /See:/ 'mkDescribeTargetHealthResponse' smart constructor.
 data DescribeTargetHealthResponse = DescribeTargetHealthResponse'
   { -- | Information about the health of the targets.
-    targetHealthDescriptions :: Lude.Maybe [TargetHealthDescription],
+    targetHealthDescriptions :: Core.Maybe [Types.TargetHealthDescription],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTargetHealthResponse' with the minimum fields required to make a request.
---
--- * 'targetHealthDescriptions' - Information about the health of the targets.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTargetHealthResponse' value with any optional fields omitted.
 mkDescribeTargetHealthResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTargetHealthResponse
-mkDescribeTargetHealthResponse pResponseStatus_ =
+mkDescribeTargetHealthResponse responseStatus =
   DescribeTargetHealthResponse'
     { targetHealthDescriptions =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the health of the targets.
 --
 -- /Note:/ Consider using 'targetHealthDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dthrsTargetHealthDescriptions :: Lens.Lens' DescribeTargetHealthResponse (Lude.Maybe [TargetHealthDescription])
-dthrsTargetHealthDescriptions = Lens.lens (targetHealthDescriptions :: DescribeTargetHealthResponse -> Lude.Maybe [TargetHealthDescription]) (\s a -> s {targetHealthDescriptions = a} :: DescribeTargetHealthResponse)
-{-# DEPRECATED dthrsTargetHealthDescriptions "Use generic-lens or generic-optics with 'targetHealthDescriptions' instead." #-}
+dthrrsTargetHealthDescriptions :: Lens.Lens' DescribeTargetHealthResponse (Core.Maybe [Types.TargetHealthDescription])
+dthrrsTargetHealthDescriptions = Lens.field @"targetHealthDescriptions"
+{-# DEPRECATED dthrrsTargetHealthDescriptions "Use generic-lens or generic-optics with 'targetHealthDescriptions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dthrsResponseStatus :: Lens.Lens' DescribeTargetHealthResponse Lude.Int
-dthrsResponseStatus = Lens.lens (responseStatus :: DescribeTargetHealthResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTargetHealthResponse)
-{-# DEPRECATED dthrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dthrrsResponseStatus :: Lens.Lens' DescribeTargetHealthResponse Core.Int
+dthrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dthrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

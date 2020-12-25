@@ -27,118 +27,112 @@ module Network.AWS.CloudFront.GetStreamingDistributionConfig
     mkGetStreamingDistributionConfigResponse,
 
     -- ** Response lenses
-    gsdcrsStreamingDistributionConfig,
-    gsdcrsETag,
-    gsdcrsResponseStatus,
+    gsdcrrsETag,
+    gsdcrrsStreamingDistributionConfig,
+    gsdcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | To request to get a streaming distribution configuration.
 --
 -- /See:/ 'mkGetStreamingDistributionConfig' smart constructor.
 newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig'
   { -- | The streaming distribution's ID.
-    id :: Lude.Text
+    id :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetStreamingDistributionConfig' with the minimum fields required to make a request.
---
--- * 'id' - The streaming distribution's ID.
+-- | Creates a 'GetStreamingDistributionConfig' value with any optional fields omitted.
 mkGetStreamingDistributionConfig ::
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   GetStreamingDistributionConfig
-mkGetStreamingDistributionConfig pId_ =
-  GetStreamingDistributionConfig' {id = pId_}
+mkGetStreamingDistributionConfig id =
+  GetStreamingDistributionConfig' {id}
 
 -- | The streaming distribution's ID.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsdcId :: Lens.Lens' GetStreamingDistributionConfig Lude.Text
-gsdcId = Lens.lens (id :: GetStreamingDistributionConfig -> Lude.Text) (\s a -> s {id = a} :: GetStreamingDistributionConfig)
+gsdcId :: Lens.Lens' GetStreamingDistributionConfig Types.String
+gsdcId = Lens.field @"id"
 {-# DEPRECATED gsdcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest GetStreamingDistributionConfig where
+instance Core.AWSRequest GetStreamingDistributionConfig where
   type
     Rs GetStreamingDistributionConfig =
       GetStreamingDistributionConfigResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-05-31/streaming-distribution/" Core.<> (Core.toText id)
+                Core.<> ("/config")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetStreamingDistributionConfigResponse'
-            Lude.<$> (Lude.parseXML x)
-            Lude.<*> (h Lude..#? "ETag")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetStreamingDistributionConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetStreamingDistributionConfig where
-  toPath GetStreamingDistributionConfig' {..} =
-    Lude.mconcat
-      ["/2020-05-31/streaming-distribution/", Lude.toBS id, "/config"]
-
-instance Lude.ToQuery GetStreamingDistributionConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | The returned result of the corresponding request.
 --
 -- /See:/ 'mkGetStreamingDistributionConfigResponse' smart constructor.
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse'
-  { -- | The streaming distribution's configuration information.
-    streamingDistributionConfig :: Lude.Maybe StreamingDistributionConfig,
-    -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
-    eTag :: Lude.Maybe Lude.Text,
+  { -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
+    eTag :: Core.Maybe Types.String,
+    -- | The streaming distribution's configuration information.
+    streamingDistributionConfig :: Core.Maybe Types.StreamingDistributionConfig,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetStreamingDistributionConfigResponse' with the minimum fields required to make a request.
---
--- * 'streamingDistributionConfig' - The streaming distribution's configuration information.
--- * 'eTag' - The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetStreamingDistributionConfigResponse' value with any optional fields omitted.
 mkGetStreamingDistributionConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetStreamingDistributionConfigResponse
-mkGetStreamingDistributionConfigResponse pResponseStatus_ =
+mkGetStreamingDistributionConfigResponse responseStatus =
   GetStreamingDistributionConfigResponse'
-    { streamingDistributionConfig =
-        Lude.Nothing,
-      eTag = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { eTag = Core.Nothing,
+      streamingDistributionConfig = Core.Nothing,
+      responseStatus
     }
-
--- | The streaming distribution's configuration information.
---
--- /Note:/ Consider using 'streamingDistributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsdcrsStreamingDistributionConfig :: Lens.Lens' GetStreamingDistributionConfigResponse (Lude.Maybe StreamingDistributionConfig)
-gsdcrsStreamingDistributionConfig = Lens.lens (streamingDistributionConfig :: GetStreamingDistributionConfigResponse -> Lude.Maybe StreamingDistributionConfig) (\s a -> s {streamingDistributionConfig = a} :: GetStreamingDistributionConfigResponse)
-{-# DEPRECATED gsdcrsStreamingDistributionConfig "Use generic-lens or generic-optics with 'streamingDistributionConfig' instead." #-}
 
 -- | The current version of the configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsdcrsETag :: Lens.Lens' GetStreamingDistributionConfigResponse (Lude.Maybe Lude.Text)
-gsdcrsETag = Lens.lens (eTag :: GetStreamingDistributionConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: GetStreamingDistributionConfigResponse)
-{-# DEPRECATED gsdcrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+gsdcrrsETag :: Lens.Lens' GetStreamingDistributionConfigResponse (Core.Maybe Types.String)
+gsdcrrsETag = Lens.field @"eTag"
+{-# DEPRECATED gsdcrrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+
+-- | The streaming distribution's configuration information.
+--
+-- /Note:/ Consider using 'streamingDistributionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsdcrrsStreamingDistributionConfig :: Lens.Lens' GetStreamingDistributionConfigResponse (Core.Maybe Types.StreamingDistributionConfig)
+gsdcrrsStreamingDistributionConfig = Lens.field @"streamingDistributionConfig"
+{-# DEPRECATED gsdcrrsStreamingDistributionConfig "Use generic-lens or generic-optics with 'streamingDistributionConfig' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsdcrsResponseStatus :: Lens.Lens' GetStreamingDistributionConfigResponse Lude.Int
-gsdcrsResponseStatus = Lens.lens (responseStatus :: GetStreamingDistributionConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetStreamingDistributionConfigResponse)
-{-# DEPRECATED gsdcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsdcrrsResponseStatus :: Lens.Lens' GetStreamingDistributionConfigResponse Core.Int
+gsdcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsdcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

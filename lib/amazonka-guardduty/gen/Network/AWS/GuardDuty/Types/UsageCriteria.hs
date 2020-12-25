@@ -17,71 +17,69 @@ module Network.AWS.GuardDuty.Types.UsageCriteria
     mkUsageCriteria,
 
     -- * Lenses
-    ucAccountIds,
     ucDataSources,
+    ucAccountIds,
     ucResources,
   )
 where
 
-import Network.AWS.GuardDuty.Types.DataSource
+import qualified Network.AWS.GuardDuty.Types.AccountId as Types
+import qualified Network.AWS.GuardDuty.Types.DataSource as Types
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the criteria used to query usage statistics.
 --
 -- /See:/ 'mkUsageCriteria' smart constructor.
 data UsageCriteria = UsageCriteria'
-  { -- | The account IDs to aggregate usage statistics from.
-    accountIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | The data sources to aggregate usage statistics from.
-    dataSources :: [DataSource],
+  { -- | The data sources to aggregate usage statistics from.
+    dataSources :: [Types.DataSource],
+    -- | The account IDs to aggregate usage statistics from.
+    accountIds :: Core.Maybe (Core.NonEmpty Types.AccountId),
     -- | The resources to aggregate usage statistics from. Only accepts exact resource names.
-    resources :: Lude.Maybe [Lude.Text]
+    resources :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UsageCriteria' with the minimum fields required to make a request.
---
--- * 'accountIds' - The account IDs to aggregate usage statistics from.
--- * 'dataSources' - The data sources to aggregate usage statistics from.
--- * 'resources' - The resources to aggregate usage statistics from. Only accepts exact resource names.
+-- | Creates a 'UsageCriteria' value with any optional fields omitted.
 mkUsageCriteria ::
   UsageCriteria
 mkUsageCriteria =
   UsageCriteria'
-    { accountIds = Lude.Nothing,
-      dataSources = Lude.mempty,
-      resources = Lude.Nothing
+    { dataSources = Core.mempty,
+      accountIds = Core.Nothing,
+      resources = Core.Nothing
     }
-
--- | The account IDs to aggregate usage statistics from.
---
--- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucAccountIds :: Lens.Lens' UsageCriteria (Lude.Maybe (Lude.NonEmpty Lude.Text))
-ucAccountIds = Lens.lens (accountIds :: UsageCriteria -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {accountIds = a} :: UsageCriteria)
-{-# DEPRECATED ucAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
 -- | The data sources to aggregate usage statistics from.
 --
 -- /Note:/ Consider using 'dataSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucDataSources :: Lens.Lens' UsageCriteria [DataSource]
-ucDataSources = Lens.lens (dataSources :: UsageCriteria -> [DataSource]) (\s a -> s {dataSources = a} :: UsageCriteria)
+ucDataSources :: Lens.Lens' UsageCriteria [Types.DataSource]
+ucDataSources = Lens.field @"dataSources"
 {-# DEPRECATED ucDataSources "Use generic-lens or generic-optics with 'dataSources' instead." #-}
+
+-- | The account IDs to aggregate usage statistics from.
+--
+-- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucAccountIds :: Lens.Lens' UsageCriteria (Core.Maybe (Core.NonEmpty Types.AccountId))
+ucAccountIds = Lens.field @"accountIds"
+{-# DEPRECATED ucAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
 
 -- | The resources to aggregate usage statistics from. Only accepts exact resource names.
 --
 -- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucResources :: Lens.Lens' UsageCriteria (Lude.Maybe [Lude.Text])
-ucResources = Lens.lens (resources :: UsageCriteria -> Lude.Maybe [Lude.Text]) (\s a -> s {resources = a} :: UsageCriteria)
+ucResources :: Lens.Lens' UsageCriteria (Core.Maybe [Types.String])
+ucResources = Lens.field @"resources"
 {-# DEPRECATED ucResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
-instance Lude.ToJSON UsageCriteria where
-  toJSON UsageCriteria' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("accountIds" Lude..=) Lude.<$> accountIds,
-            Lude.Just ("dataSources" Lude..= dataSources),
-            ("resources" Lude..=) Lude.<$> resources
+instance Core.FromJSON UsageCriteria where
+  toJSON UsageCriteria {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("dataSources" Core..= dataSources),
+            ("accountIds" Core..=) Core.<$> accountIds,
+            ("resources" Core..=) Core.<$> resources
           ]
       )

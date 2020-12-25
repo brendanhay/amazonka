@@ -13,50 +13,55 @@
 module Network.AWS.MediaLive.Types.InputSourceType
   ( InputSourceType
       ( InputSourceType',
-        ISTStatic,
-        ISTDynamic
+        InputSourceTypeStatic,
+        InputSourceTypeDynamic,
+        fromInputSourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | There are two types of input sources, static and dynamic. If an input source is dynamic you can
 --
 -- change the source url of the input dynamically using an input switch action. However, the only input type
 -- to support a dynamic url at this time is MP4_FILE. By default all input sources are static.
-newtype InputSourceType = InputSourceType' Lude.Text
+newtype InputSourceType = InputSourceType'
+  { fromInputSourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISTStatic :: InputSourceType
-pattern ISTStatic = InputSourceType' "STATIC"
+pattern InputSourceTypeStatic :: InputSourceType
+pattern InputSourceTypeStatic = InputSourceType' "STATIC"
 
-pattern ISTDynamic :: InputSourceType
-pattern ISTDynamic = InputSourceType' "DYNAMIC"
+pattern InputSourceTypeDynamic :: InputSourceType
+pattern InputSourceTypeDynamic = InputSourceType' "DYNAMIC"
 
 {-# COMPLETE
-  ISTStatic,
-  ISTDynamic,
+  InputSourceTypeStatic,
+  InputSourceTypeDynamic,
   InputSourceType'
   #-}

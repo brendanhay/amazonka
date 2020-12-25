@@ -22,113 +22,97 @@ module Network.AWS.Comprehend.StopTrainingEntityRecognizer
     mkStopTrainingEntityRecognizer,
 
     -- ** Request lenses
-    sterEntityRecognizerARN,
+    sterEntityRecognizerArn,
 
     -- * Destructuring the response
     StopTrainingEntityRecognizerResponse (..),
     mkStopTrainingEntityRecognizerResponse,
 
     -- ** Response lenses
-    sterrsResponseStatus,
+    sterrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopTrainingEntityRecognizer' smart constructor.
 newtype StopTrainingEntityRecognizer = StopTrainingEntityRecognizer'
   { -- | The Amazon Resource Name (ARN) that identifies the entity recognizer currently being trained.
-    entityRecognizerARN :: Lude.Text
+    entityRecognizerArn :: Types.EntityRecognizerArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTrainingEntityRecognizer' with the minimum fields required to make a request.
---
--- * 'entityRecognizerARN' - The Amazon Resource Name (ARN) that identifies the entity recognizer currently being trained.
+-- | Creates a 'StopTrainingEntityRecognizer' value with any optional fields omitted.
 mkStopTrainingEntityRecognizer ::
-  -- | 'entityRecognizerARN'
-  Lude.Text ->
+  -- | 'entityRecognizerArn'
+  Types.EntityRecognizerArn ->
   StopTrainingEntityRecognizer
-mkStopTrainingEntityRecognizer pEntityRecognizerARN_ =
-  StopTrainingEntityRecognizer'
-    { entityRecognizerARN =
-        pEntityRecognizerARN_
-    }
+mkStopTrainingEntityRecognizer entityRecognizerArn =
+  StopTrainingEntityRecognizer' {entityRecognizerArn}
 
 -- | The Amazon Resource Name (ARN) that identifies the entity recognizer currently being trained.
 --
--- /Note:/ Consider using 'entityRecognizerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sterEntityRecognizerARN :: Lens.Lens' StopTrainingEntityRecognizer Lude.Text
-sterEntityRecognizerARN = Lens.lens (entityRecognizerARN :: StopTrainingEntityRecognizer -> Lude.Text) (\s a -> s {entityRecognizerARN = a} :: StopTrainingEntityRecognizer)
-{-# DEPRECATED sterEntityRecognizerARN "Use generic-lens or generic-optics with 'entityRecognizerARN' instead." #-}
+-- /Note:/ Consider using 'entityRecognizerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sterEntityRecognizerArn :: Lens.Lens' StopTrainingEntityRecognizer Types.EntityRecognizerArn
+sterEntityRecognizerArn = Lens.field @"entityRecognizerArn"
+{-# DEPRECATED sterEntityRecognizerArn "Use generic-lens or generic-optics with 'entityRecognizerArn' instead." #-}
 
-instance Lude.AWSRequest StopTrainingEntityRecognizer where
+instance Core.FromJSON StopTrainingEntityRecognizer where
+  toJSON StopTrainingEntityRecognizer {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EntityRecognizerArn" Core..= entityRecognizerArn)]
+      )
+
+instance Core.AWSRequest StopTrainingEntityRecognizer where
   type
     Rs StopTrainingEntityRecognizer =
       StopTrainingEntityRecognizerResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Comprehend_20171127.StopTrainingEntityRecognizer"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           StopTrainingEntityRecognizerResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopTrainingEntityRecognizer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.StopTrainingEntityRecognizer" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopTrainingEntityRecognizer where
-  toJSON StopTrainingEntityRecognizer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("EntityRecognizerArn" Lude..= entityRecognizerARN)]
-      )
-
-instance Lude.ToPath StopTrainingEntityRecognizer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopTrainingEntityRecognizer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopTrainingEntityRecognizerResponse' smart constructor.
 newtype StopTrainingEntityRecognizerResponse = StopTrainingEntityRecognizerResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTrainingEntityRecognizerResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopTrainingEntityRecognizerResponse' value with any optional fields omitted.
 mkStopTrainingEntityRecognizerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopTrainingEntityRecognizerResponse
-mkStopTrainingEntityRecognizerResponse pResponseStatus_ =
-  StopTrainingEntityRecognizerResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkStopTrainingEntityRecognizerResponse responseStatus =
+  StopTrainingEntityRecognizerResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sterrsResponseStatus :: Lens.Lens' StopTrainingEntityRecognizerResponse Lude.Int
-sterrsResponseStatus = Lens.lens (responseStatus :: StopTrainingEntityRecognizerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopTrainingEntityRecognizerResponse)
-{-# DEPRECATED sterrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sterrrsResponseStatus :: Lens.Lens' StopTrainingEntityRecognizerResponse Core.Int
+sterrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sterrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

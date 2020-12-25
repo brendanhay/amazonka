@@ -22,56 +22,51 @@ module Network.AWS.IoT.Types.SecurityProfileTargetMapping
   )
 where
 
-import Network.AWS.IoT.Types.SecurityProfileIdentifier
-import Network.AWS.IoT.Types.SecurityProfileTarget
+import qualified Network.AWS.IoT.Types.SecurityProfileIdentifier as Types
+import qualified Network.AWS.IoT.Types.SecurityProfileTarget as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a security profile and the target associated with it.
 --
 -- /See:/ 'mkSecurityProfileTargetMapping' smart constructor.
 data SecurityProfileTargetMapping = SecurityProfileTargetMapping'
   { -- | Information that identifies the security profile.
-    securityProfileIdentifier :: Lude.Maybe SecurityProfileIdentifier,
+    securityProfileIdentifier :: Core.Maybe Types.SecurityProfileIdentifier,
     -- | Information about the target (thing group) associated with the security profile.
-    target :: Lude.Maybe SecurityProfileTarget
+    target :: Core.Maybe Types.SecurityProfileTarget
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SecurityProfileTargetMapping' with the minimum fields required to make a request.
---
--- * 'securityProfileIdentifier' - Information that identifies the security profile.
--- * 'target' - Information about the target (thing group) associated with the security profile.
+-- | Creates a 'SecurityProfileTargetMapping' value with any optional fields omitted.
 mkSecurityProfileTargetMapping ::
   SecurityProfileTargetMapping
 mkSecurityProfileTargetMapping =
   SecurityProfileTargetMapping'
     { securityProfileIdentifier =
-        Lude.Nothing,
-      target = Lude.Nothing
+        Core.Nothing,
+      target = Core.Nothing
     }
 
 -- | Information that identifies the security profile.
 --
 -- /Note:/ Consider using 'securityProfileIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sptmSecurityProfileIdentifier :: Lens.Lens' SecurityProfileTargetMapping (Lude.Maybe SecurityProfileIdentifier)
-sptmSecurityProfileIdentifier = Lens.lens (securityProfileIdentifier :: SecurityProfileTargetMapping -> Lude.Maybe SecurityProfileIdentifier) (\s a -> s {securityProfileIdentifier = a} :: SecurityProfileTargetMapping)
+sptmSecurityProfileIdentifier :: Lens.Lens' SecurityProfileTargetMapping (Core.Maybe Types.SecurityProfileIdentifier)
+sptmSecurityProfileIdentifier = Lens.field @"securityProfileIdentifier"
 {-# DEPRECATED sptmSecurityProfileIdentifier "Use generic-lens or generic-optics with 'securityProfileIdentifier' instead." #-}
 
 -- | Information about the target (thing group) associated with the security profile.
 --
 -- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sptmTarget :: Lens.Lens' SecurityProfileTargetMapping (Lude.Maybe SecurityProfileTarget)
-sptmTarget = Lens.lens (target :: SecurityProfileTargetMapping -> Lude.Maybe SecurityProfileTarget) (\s a -> s {target = a} :: SecurityProfileTargetMapping)
+sptmTarget :: Lens.Lens' SecurityProfileTargetMapping (Core.Maybe Types.SecurityProfileTarget)
+sptmTarget = Lens.field @"target"
 {-# DEPRECATED sptmTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
-instance Lude.FromJSON SecurityProfileTargetMapping where
+instance Core.FromJSON SecurityProfileTargetMapping where
   parseJSON =
-    Lude.withObject
-      "SecurityProfileTargetMapping"
-      ( \x ->
-          SecurityProfileTargetMapping'
-            Lude.<$> (x Lude..:? "securityProfileIdentifier")
-            Lude.<*> (x Lude..:? "target")
-      )
+    Core.withObject "SecurityProfileTargetMapping" Core.$
+      \x ->
+        SecurityProfileTargetMapping'
+          Core.<$> (x Core..:? "securityProfileIdentifier")
+          Core.<*> (x Core..:? "target")

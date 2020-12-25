@@ -13,67 +13,69 @@
 module Network.AWS.MediaLive.Types.H264Profile
   ( H264Profile
       ( H264Profile',
-        HPBaseline,
-        HPHigh,
-        HPHigh10BIT,
-        HPHigh422,
-        HPHigh42210BIT,
-        HPMain
+        H264ProfileBaseline,
+        H264ProfileHigh,
+        H264ProfileHigh10BIT,
+        H264ProfileHigh422,
+        H264ProfileHigh42210BIT,
+        H264ProfileMain,
+        fromH264Profile
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H264 Profile
-newtype H264Profile = H264Profile' Lude.Text
+newtype H264Profile = H264Profile' {fromH264Profile :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HPBaseline :: H264Profile
-pattern HPBaseline = H264Profile' "BASELINE"
+pattern H264ProfileBaseline :: H264Profile
+pattern H264ProfileBaseline = H264Profile' "BASELINE"
 
-pattern HPHigh :: H264Profile
-pattern HPHigh = H264Profile' "HIGH"
+pattern H264ProfileHigh :: H264Profile
+pattern H264ProfileHigh = H264Profile' "HIGH"
 
-pattern HPHigh10BIT :: H264Profile
-pattern HPHigh10BIT = H264Profile' "HIGH_10BIT"
+pattern H264ProfileHigh10BIT :: H264Profile
+pattern H264ProfileHigh10BIT = H264Profile' "HIGH_10BIT"
 
-pattern HPHigh422 :: H264Profile
-pattern HPHigh422 = H264Profile' "HIGH_422"
+pattern H264ProfileHigh422 :: H264Profile
+pattern H264ProfileHigh422 = H264Profile' "HIGH_422"
 
-pattern HPHigh42210BIT :: H264Profile
-pattern HPHigh42210BIT = H264Profile' "HIGH_422_10BIT"
+pattern H264ProfileHigh42210BIT :: H264Profile
+pattern H264ProfileHigh42210BIT = H264Profile' "HIGH_422_10BIT"
 
-pattern HPMain :: H264Profile
-pattern HPMain = H264Profile' "MAIN"
+pattern H264ProfileMain :: H264Profile
+pattern H264ProfileMain = H264Profile' "MAIN"
 
 {-# COMPLETE
-  HPBaseline,
-  HPHigh,
-  HPHigh10BIT,
-  HPHigh422,
-  HPHigh42210BIT,
-  HPMain,
+  H264ProfileBaseline,
+  H264ProfileHigh,
+  H264ProfileHigh10BIT,
+  H264ProfileHigh422,
+  H264ProfileHigh42210BIT,
+  H264ProfileMain,
   H264Profile'
   #-}

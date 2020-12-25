@@ -17,75 +17,70 @@ module Network.AWS.SWF.Types.WorkflowExecutionFailedEventAttributes
     mkWorkflowExecutionFailedEventAttributes,
 
     -- * Lenses
-    wefeaReason,
-    wefeaDetails,
     wefeaDecisionTaskCompletedEventId,
+    wefeaDetails,
+    wefeaReason,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Data as Types
+import qualified Network.AWS.SWF.Types.FailureReason as Types
 
 -- | Provides the details of the @WorkflowExecutionFailed@ event.
 --
 -- /See:/ 'mkWorkflowExecutionFailedEventAttributes' smart constructor.
 data WorkflowExecutionFailedEventAttributes = WorkflowExecutionFailedEventAttributes'
-  { -- | The descriptive reason provided for the failure.
-    reason :: Lude.Maybe Lude.Text,
+  { -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @FailWorkflowExecution@ decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    decisionTaskCompletedEventId :: Core.Integer,
     -- | The details of the failure.
-    details :: Lude.Maybe Lude.Text,
-    -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @FailWorkflowExecution@ decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    decisionTaskCompletedEventId :: Lude.Integer
+    details :: Core.Maybe Types.Data,
+    -- | The descriptive reason provided for the failure.
+    reason :: Core.Maybe Types.FailureReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WorkflowExecutionFailedEventAttributes' with the minimum fields required to make a request.
---
--- * 'reason' - The descriptive reason provided for the failure.
--- * 'details' - The details of the failure.
--- * 'decisionTaskCompletedEventId' - The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @FailWorkflowExecution@ decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | Creates a 'WorkflowExecutionFailedEventAttributes' value with any optional fields omitted.
 mkWorkflowExecutionFailedEventAttributes ::
   -- | 'decisionTaskCompletedEventId'
-  Lude.Integer ->
+  Core.Integer ->
   WorkflowExecutionFailedEventAttributes
 mkWorkflowExecutionFailedEventAttributes
-  pDecisionTaskCompletedEventId_ =
+  decisionTaskCompletedEventId =
     WorkflowExecutionFailedEventAttributes'
-      { reason = Lude.Nothing,
-        details = Lude.Nothing,
-        decisionTaskCompletedEventId =
-          pDecisionTaskCompletedEventId_
+      { decisionTaskCompletedEventId,
+        details = Core.Nothing,
+        reason = Core.Nothing
       }
-
--- | The descriptive reason provided for the failure.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wefeaReason :: Lens.Lens' WorkflowExecutionFailedEventAttributes (Lude.Maybe Lude.Text)
-wefeaReason = Lens.lens (reason :: WorkflowExecutionFailedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: WorkflowExecutionFailedEventAttributes)
-{-# DEPRECATED wefeaReason "Use generic-lens or generic-optics with 'reason' instead." #-}
-
--- | The details of the failure.
---
--- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wefeaDetails :: Lens.Lens' WorkflowExecutionFailedEventAttributes (Lude.Maybe Lude.Text)
-wefeaDetails = Lens.lens (details :: WorkflowExecutionFailedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: WorkflowExecutionFailedEventAttributes)
-{-# DEPRECATED wefeaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The ID of the @DecisionTaskCompleted@ event corresponding to the decision task that resulted in the @FailWorkflowExecution@ decision to fail this execution. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
 -- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wefeaDecisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionFailedEventAttributes Lude.Integer
-wefeaDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: WorkflowExecutionFailedEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: WorkflowExecutionFailedEventAttributes)
+wefeaDecisionTaskCompletedEventId :: Lens.Lens' WorkflowExecutionFailedEventAttributes Core.Integer
+wefeaDecisionTaskCompletedEventId = Lens.field @"decisionTaskCompletedEventId"
 {-# DEPRECATED wefeaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
 
-instance Lude.FromJSON WorkflowExecutionFailedEventAttributes where
+-- | The details of the failure.
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wefeaDetails :: Lens.Lens' WorkflowExecutionFailedEventAttributes (Core.Maybe Types.Data)
+wefeaDetails = Lens.field @"details"
+{-# DEPRECATED wefeaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
+
+-- | The descriptive reason provided for the failure.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wefeaReason :: Lens.Lens' WorkflowExecutionFailedEventAttributes (Core.Maybe Types.FailureReason)
+wefeaReason = Lens.field @"reason"
+{-# DEPRECATED wefeaReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+instance Core.FromJSON WorkflowExecutionFailedEventAttributes where
   parseJSON =
-    Lude.withObject
-      "WorkflowExecutionFailedEventAttributes"
-      ( \x ->
-          WorkflowExecutionFailedEventAttributes'
-            Lude.<$> (x Lude..:? "reason")
-            Lude.<*> (x Lude..:? "details")
-            Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
-      )
+    Core.withObject "WorkflowExecutionFailedEventAttributes" Core.$
+      \x ->
+        WorkflowExecutionFailedEventAttributes'
+          Core.<$> (x Core..: "decisionTaskCompletedEventId")
+          Core.<*> (x Core..:? "details")
+          Core.<*> (x Core..:? "reason")

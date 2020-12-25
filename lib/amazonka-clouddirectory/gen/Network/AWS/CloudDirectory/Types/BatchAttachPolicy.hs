@@ -22,57 +22,51 @@ module Network.AWS.CloudDirectory.Types.BatchAttachPolicy
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Attaches a policy object to a regular object inside a 'BatchRead' operation. For more information, see 'AttachPolicy' and 'BatchReadRequest$Operations' .
 --
 -- /See:/ 'mkBatchAttachPolicy' smart constructor.
 data BatchAttachPolicy = BatchAttachPolicy'
   { -- | The reference that is associated with the policy object.
-    policyReference :: ObjectReference,
+    policyReference :: Types.ObjectReference,
     -- | The reference that identifies the object to which the policy will be attached.
-    objectReference :: ObjectReference
+    objectReference :: Types.ObjectReference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchAttachPolicy' with the minimum fields required to make a request.
---
--- * 'policyReference' - The reference that is associated with the policy object.
--- * 'objectReference' - The reference that identifies the object to which the policy will be attached.
+-- | Creates a 'BatchAttachPolicy' value with any optional fields omitted.
 mkBatchAttachPolicy ::
   -- | 'policyReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   BatchAttachPolicy
-mkBatchAttachPolicy pPolicyReference_ pObjectReference_ =
-  BatchAttachPolicy'
-    { policyReference = pPolicyReference_,
-      objectReference = pObjectReference_
-    }
+mkBatchAttachPolicy policyReference objectReference =
+  BatchAttachPolicy' {policyReference, objectReference}
 
 -- | The reference that is associated with the policy object.
 --
 -- /Note:/ Consider using 'policyReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bapPolicyReference :: Lens.Lens' BatchAttachPolicy ObjectReference
-bapPolicyReference = Lens.lens (policyReference :: BatchAttachPolicy -> ObjectReference) (\s a -> s {policyReference = a} :: BatchAttachPolicy)
+bapPolicyReference :: Lens.Lens' BatchAttachPolicy Types.ObjectReference
+bapPolicyReference = Lens.field @"policyReference"
 {-# DEPRECATED bapPolicyReference "Use generic-lens or generic-optics with 'policyReference' instead." #-}
 
 -- | The reference that identifies the object to which the policy will be attached.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bapObjectReference :: Lens.Lens' BatchAttachPolicy ObjectReference
-bapObjectReference = Lens.lens (objectReference :: BatchAttachPolicy -> ObjectReference) (\s a -> s {objectReference = a} :: BatchAttachPolicy)
+bapObjectReference :: Lens.Lens' BatchAttachPolicy Types.ObjectReference
+bapObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED bapObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Lude.ToJSON BatchAttachPolicy where
-  toJSON BatchAttachPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PolicyReference" Lude..= policyReference),
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+instance Core.FromJSON BatchAttachPolicy where
+  toJSON BatchAttachPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyReference" Core..= policyReference),
+            Core.Just ("ObjectReference" Core..= objectReference)
           ]
       )

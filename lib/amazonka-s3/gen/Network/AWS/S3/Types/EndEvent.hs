@@ -21,20 +21,20 @@ module Network.AWS.S3.Types.EndEvent
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- | A message that indicates the request is complete and no more messages will be sent. You should not assume that the request is complete until the client receives an @EndEvent@ .
 --
 -- /See:/ 'mkEndEvent' smart constructor.
 data EndEvent = EndEvent'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndEvent' with the minimum fields required to make a request.
+-- | Creates a 'EndEvent' value with any optional fields omitted.
 mkEndEvent ::
   EndEvent
 mkEndEvent = EndEvent'
 
-instance Lude.FromXML EndEvent where
-  parseXML = Lude.const (Lude.pure EndEvent')
+instance Core.FromXML EndEvent where
+  parseXML x = Core.pure EndEvent'

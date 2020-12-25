@@ -24,162 +24,160 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     mkAuthorizeClusterSecurityGroupIngress,
 
     -- ** Request lenses
-    acsgiEC2SecurityGroupOwnerId,
     acsgiClusterSecurityGroupName,
+    acsgiCIDRIP,
     acsgiEC2SecurityGroupName,
-    acsgiCIdRIP,
+    acsgiEC2SecurityGroupOwnerId,
 
     -- * Destructuring the response
     AuthorizeClusterSecurityGroupIngressResponse (..),
     mkAuthorizeClusterSecurityGroupIngressResponse,
 
     -- ** Response lenses
-    acsgirsClusterSecurityGroup,
-    acsgirsResponseStatus,
+    acsgirrsClusterSecurityGroup,
+    acsgirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkAuthorizeClusterSecurityGroupIngress' smart constructor.
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
-  { -- | The AWS account number of the owner of the security group specified by the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an acceptable value.
+  { -- | The name of the security group to which the ingress rule is added.
+    clusterSecurityGroupName :: Types.String,
+    -- | The IP range to be added the Amazon Redshift security group.
+    cidrip :: Core.Maybe Types.String,
+    -- | The EC2 security group to be added the Amazon Redshift security group.
+    eC2SecurityGroupName :: Core.Maybe Types.String,
+    -- | The AWS account number of the owner of the security group specified by the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an acceptable value.
     --
     -- Example: @111122223333@
-    ec2SecurityGroupOwnerId :: Lude.Maybe Lude.Text,
-    -- | The name of the security group to which the ingress rule is added.
-    clusterSecurityGroupName :: Lude.Text,
-    -- | The EC2 security group to be added the Amazon Redshift security group.
-    ec2SecurityGroupName :: Lude.Maybe Lude.Text,
-    -- | The IP range to be added the Amazon Redshift security group.
-    cIdRIP :: Lude.Maybe Lude.Text
+    eC2SecurityGroupOwnerId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuthorizeClusterSecurityGroupIngress' with the minimum fields required to make a request.
---
--- * 'ec2SecurityGroupOwnerId' - The AWS account number of the owner of the security group specified by the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an acceptable value.
---
--- Example: @111122223333@
--- * 'clusterSecurityGroupName' - The name of the security group to which the ingress rule is added.
--- * 'ec2SecurityGroupName' - The EC2 security group to be added the Amazon Redshift security group.
--- * 'cIdRIP' - The IP range to be added the Amazon Redshift security group.
+-- | Creates a 'AuthorizeClusterSecurityGroupIngress' value with any optional fields omitted.
 mkAuthorizeClusterSecurityGroupIngress ::
   -- | 'clusterSecurityGroupName'
-  Lude.Text ->
+  Types.String ->
   AuthorizeClusterSecurityGroupIngress
-mkAuthorizeClusterSecurityGroupIngress pClusterSecurityGroupName_ =
+mkAuthorizeClusterSecurityGroupIngress clusterSecurityGroupName =
   AuthorizeClusterSecurityGroupIngress'
-    { ec2SecurityGroupOwnerId =
-        Lude.Nothing,
-      clusterSecurityGroupName = pClusterSecurityGroupName_,
-      ec2SecurityGroupName = Lude.Nothing,
-      cIdRIP = Lude.Nothing
+    { clusterSecurityGroupName,
+      cidrip = Core.Nothing,
+      eC2SecurityGroupName = Core.Nothing,
+      eC2SecurityGroupOwnerId = Core.Nothing
     }
+
+-- | The name of the security group to which the ingress rule is added.
+--
+-- /Note:/ Consider using 'clusterSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsgiClusterSecurityGroupName :: Lens.Lens' AuthorizeClusterSecurityGroupIngress Types.String
+acsgiClusterSecurityGroupName = Lens.field @"clusterSecurityGroupName"
+{-# DEPRECATED acsgiClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
+
+-- | The IP range to be added the Amazon Redshift security group.
+--
+-- /Note:/ Consider using 'cidrip' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsgiCIDRIP :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Core.Maybe Types.String)
+acsgiCIDRIP = Lens.field @"cidrip"
+{-# DEPRECATED acsgiCIDRIP "Use generic-lens or generic-optics with 'cidrip' instead." #-}
+
+-- | The EC2 security group to be added the Amazon Redshift security group.
+--
+-- /Note:/ Consider using 'eC2SecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsgiEC2SecurityGroupName :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Core.Maybe Types.String)
+acsgiEC2SecurityGroupName = Lens.field @"eC2SecurityGroupName"
+{-# DEPRECATED acsgiEC2SecurityGroupName "Use generic-lens or generic-optics with 'eC2SecurityGroupName' instead." #-}
 
 -- | The AWS account number of the owner of the security group specified by the /EC2SecurityGroupName/ parameter. The AWS Access Key ID is not an acceptable value.
 --
 -- Example: @111122223333@
 --
--- /Note:/ Consider using 'ec2SecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsgiEC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Lude.Maybe Lude.Text)
-acsgiEC2SecurityGroupOwnerId = Lens.lens (ec2SecurityGroupOwnerId :: AuthorizeClusterSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupOwnerId = a} :: AuthorizeClusterSecurityGroupIngress)
-{-# DEPRECATED acsgiEC2SecurityGroupOwnerId "Use generic-lens or generic-optics with 'ec2SecurityGroupOwnerId' instead." #-}
+-- /Note:/ Consider using 'eC2SecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsgiEC2SecurityGroupOwnerId :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Core.Maybe Types.String)
+acsgiEC2SecurityGroupOwnerId = Lens.field @"eC2SecurityGroupOwnerId"
+{-# DEPRECATED acsgiEC2SecurityGroupOwnerId "Use generic-lens or generic-optics with 'eC2SecurityGroupOwnerId' instead." #-}
 
--- | The name of the security group to which the ingress rule is added.
---
--- /Note:/ Consider using 'clusterSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsgiClusterSecurityGroupName :: Lens.Lens' AuthorizeClusterSecurityGroupIngress Lude.Text
-acsgiClusterSecurityGroupName = Lens.lens (clusterSecurityGroupName :: AuthorizeClusterSecurityGroupIngress -> Lude.Text) (\s a -> s {clusterSecurityGroupName = a} :: AuthorizeClusterSecurityGroupIngress)
-{-# DEPRECATED acsgiClusterSecurityGroupName "Use generic-lens or generic-optics with 'clusterSecurityGroupName' instead." #-}
-
--- | The EC2 security group to be added the Amazon Redshift security group.
---
--- /Note:/ Consider using 'ec2SecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsgiEC2SecurityGroupName :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Lude.Maybe Lude.Text)
-acsgiEC2SecurityGroupName = Lens.lens (ec2SecurityGroupName :: AuthorizeClusterSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {ec2SecurityGroupName = a} :: AuthorizeClusterSecurityGroupIngress)
-{-# DEPRECATED acsgiEC2SecurityGroupName "Use generic-lens or generic-optics with 'ec2SecurityGroupName' instead." #-}
-
--- | The IP range to be added the Amazon Redshift security group.
---
--- /Note:/ Consider using 'cIdRIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsgiCIdRIP :: Lens.Lens' AuthorizeClusterSecurityGroupIngress (Lude.Maybe Lude.Text)
-acsgiCIdRIP = Lens.lens (cIdRIP :: AuthorizeClusterSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {cIdRIP = a} :: AuthorizeClusterSecurityGroupIngress)
-{-# DEPRECATED acsgiCIdRIP "Use generic-lens or generic-optics with 'cIdRIP' instead." #-}
-
-instance Lude.AWSRequest AuthorizeClusterSecurityGroupIngress where
+instance Core.AWSRequest AuthorizeClusterSecurityGroupIngress where
   type
     Rs AuthorizeClusterSecurityGroupIngress =
       AuthorizeClusterSecurityGroupIngressResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AuthorizeClusterSecurityGroupIngress")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "ClusterSecurityGroupName"
+                            clusterSecurityGroupName
+                        )
+                Core.<> (Core.toQueryValue "CIDRIP" Core.<$> cidrip)
+                Core.<> ( Core.toQueryValue "EC2SecurityGroupName"
+                            Core.<$> eC2SecurityGroupName
+                        )
+                Core.<> ( Core.toQueryValue "EC2SecurityGroupOwnerId"
+                            Core.<$> eC2SecurityGroupOwnerId
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "AuthorizeClusterSecurityGroupIngressResult"
       ( \s h x ->
           AuthorizeClusterSecurityGroupIngressResponse'
-            Lude.<$> (x Lude..@? "ClusterSecurityGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ClusterSecurityGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AuthorizeClusterSecurityGroupIngress where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AuthorizeClusterSecurityGroupIngress where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AuthorizeClusterSecurityGroupIngress where
-  toQuery AuthorizeClusterSecurityGroupIngress' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("AuthorizeClusterSecurityGroupIngress" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "EC2SecurityGroupOwnerId" Lude.=: ec2SecurityGroupOwnerId,
-        "ClusterSecurityGroupName" Lude.=: clusterSecurityGroupName,
-        "EC2SecurityGroupName" Lude.=: ec2SecurityGroupName,
-        "CIDRIP" Lude.=: cIdRIP
-      ]
 
 -- | /See:/ 'mkAuthorizeClusterSecurityGroupIngressResponse' smart constructor.
 data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'
-  { clusterSecurityGroup :: Lude.Maybe ClusterSecurityGroup,
+  { clusterSecurityGroup :: Core.Maybe Types.ClusterSecurityGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuthorizeClusterSecurityGroupIngressResponse' with the minimum fields required to make a request.
---
--- * 'clusterSecurityGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AuthorizeClusterSecurityGroupIngressResponse' value with any optional fields omitted.
 mkAuthorizeClusterSecurityGroupIngressResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AuthorizeClusterSecurityGroupIngressResponse
-mkAuthorizeClusterSecurityGroupIngressResponse pResponseStatus_ =
+mkAuthorizeClusterSecurityGroupIngressResponse responseStatus =
   AuthorizeClusterSecurityGroupIngressResponse'
     { clusterSecurityGroup =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'clusterSecurityGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsgirsClusterSecurityGroup :: Lens.Lens' AuthorizeClusterSecurityGroupIngressResponse (Lude.Maybe ClusterSecurityGroup)
-acsgirsClusterSecurityGroup = Lens.lens (clusterSecurityGroup :: AuthorizeClusterSecurityGroupIngressResponse -> Lude.Maybe ClusterSecurityGroup) (\s a -> s {clusterSecurityGroup = a} :: AuthorizeClusterSecurityGroupIngressResponse)
-{-# DEPRECATED acsgirsClusterSecurityGroup "Use generic-lens or generic-optics with 'clusterSecurityGroup' instead." #-}
+acsgirrsClusterSecurityGroup :: Lens.Lens' AuthorizeClusterSecurityGroupIngressResponse (Core.Maybe Types.ClusterSecurityGroup)
+acsgirrsClusterSecurityGroup = Lens.field @"clusterSecurityGroup"
+{-# DEPRECATED acsgirrsClusterSecurityGroup "Use generic-lens or generic-optics with 'clusterSecurityGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsgirsResponseStatus :: Lens.Lens' AuthorizeClusterSecurityGroupIngressResponse Lude.Int
-acsgirsResponseStatus = Lens.lens (responseStatus :: AuthorizeClusterSecurityGroupIngressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AuthorizeClusterSecurityGroupIngressResponse)
-{-# DEPRECATED acsgirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+acsgirrsResponseStatus :: Lens.Lens' AuthorizeClusterSecurityGroupIngressResponse Core.Int
+acsgirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED acsgirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

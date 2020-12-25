@@ -17,54 +17,50 @@ module Network.AWS.Comprehend.Types.DocumentLabel
     mkDocumentLabel,
 
     -- * Lenses
-    dScore,
     dName,
+    dScore,
   )
 where
 
+import qualified Network.AWS.Comprehend.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies one of the label or labels that categorize the document being analyzed.
 --
 -- /See:/ 'mkDocumentLabel' smart constructor.
 data DocumentLabel = DocumentLabel'
-  { -- | The confidence score that Amazon Comprehend has this label correctly attributed.
-    score :: Lude.Maybe Lude.Double,
-    -- | The name of the label.
-    name :: Lude.Maybe Lude.Text
+  { -- | The name of the label.
+    name :: Core.Maybe Types.String,
+    -- | The confidence score that Amazon Comprehend has this label correctly attributed.
+    score :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DocumentLabel' with the minimum fields required to make a request.
---
--- * 'score' - The confidence score that Amazon Comprehend has this label correctly attributed.
--- * 'name' - The name of the label.
+-- | Creates a 'DocumentLabel' value with any optional fields omitted.
 mkDocumentLabel ::
   DocumentLabel
 mkDocumentLabel =
-  DocumentLabel' {score = Lude.Nothing, name = Lude.Nothing}
-
--- | The confidence score that Amazon Comprehend has this label correctly attributed.
---
--- /Note:/ Consider using 'score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dScore :: Lens.Lens' DocumentLabel (Lude.Maybe Lude.Double)
-dScore = Lens.lens (score :: DocumentLabel -> Lude.Maybe Lude.Double) (\s a -> s {score = a} :: DocumentLabel)
-{-# DEPRECATED dScore "Use generic-lens or generic-optics with 'score' instead." #-}
+  DocumentLabel' {name = Core.Nothing, score = Core.Nothing}
 
 -- | The name of the label.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' DocumentLabel (Lude.Maybe Lude.Text)
-dName = Lens.lens (name :: DocumentLabel -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DocumentLabel)
+dName :: Lens.Lens' DocumentLabel (Core.Maybe Types.String)
+dName = Lens.field @"name"
 {-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON DocumentLabel where
+-- | The confidence score that Amazon Comprehend has this label correctly attributed.
+--
+-- /Note:/ Consider using 'score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dScore :: Lens.Lens' DocumentLabel (Core.Maybe Core.Double)
+dScore = Lens.field @"score"
+{-# DEPRECATED dScore "Use generic-lens or generic-optics with 'score' instead." #-}
+
+instance Core.FromJSON DocumentLabel where
   parseJSON =
-    Lude.withObject
-      "DocumentLabel"
-      ( \x ->
-          DocumentLabel'
-            Lude.<$> (x Lude..:? "Score") Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "DocumentLabel" Core.$
+      \x ->
+        DocumentLabel'
+          Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Score")

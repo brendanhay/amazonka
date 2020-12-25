@@ -17,54 +17,53 @@ module Network.AWS.ELB.Types.PolicyAttributeDescription
     mkPolicyAttributeDescription,
 
     -- * Lenses
-    padAttributeValue,
     padAttributeName,
+    padAttributeValue,
   )
 where
 
-import Network.AWS.ELB.Internal
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.AttributeName as Types
+import qualified Network.AWS.ELB.Types.AttributeValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a policy attribute.
 --
 -- /See:/ 'mkPolicyAttributeDescription' smart constructor.
 data PolicyAttributeDescription = PolicyAttributeDescription'
-  { -- | The value of the attribute.
-    attributeValue :: Lude.Maybe Lude.Text,
-    -- | The name of the attribute.
-    attributeName :: Lude.Maybe Lude.Text
+  { -- | The name of the attribute.
+    attributeName :: Core.Maybe Types.AttributeName,
+    -- | The value of the attribute.
+    attributeValue :: Core.Maybe Types.AttributeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PolicyAttributeDescription' with the minimum fields required to make a request.
---
--- * 'attributeValue' - The value of the attribute.
--- * 'attributeName' - The name of the attribute.
+-- | Creates a 'PolicyAttributeDescription' value with any optional fields omitted.
 mkPolicyAttributeDescription ::
   PolicyAttributeDescription
 mkPolicyAttributeDescription =
   PolicyAttributeDescription'
-    { attributeValue = Lude.Nothing,
-      attributeName = Lude.Nothing
+    { attributeName = Core.Nothing,
+      attributeValue = Core.Nothing
     }
-
--- | The value of the attribute.
---
--- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-padAttributeValue :: Lens.Lens' PolicyAttributeDescription (Lude.Maybe Lude.Text)
-padAttributeValue = Lens.lens (attributeValue :: PolicyAttributeDescription -> Lude.Maybe Lude.Text) (\s a -> s {attributeValue = a} :: PolicyAttributeDescription)
-{-# DEPRECATED padAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
 -- | The name of the attribute.
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-padAttributeName :: Lens.Lens' PolicyAttributeDescription (Lude.Maybe Lude.Text)
-padAttributeName = Lens.lens (attributeName :: PolicyAttributeDescription -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: PolicyAttributeDescription)
+padAttributeName :: Lens.Lens' PolicyAttributeDescription (Core.Maybe Types.AttributeName)
+padAttributeName = Lens.field @"attributeName"
 {-# DEPRECATED padAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance Lude.FromXML PolicyAttributeDescription where
+-- | The value of the attribute.
+--
+-- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padAttributeValue :: Lens.Lens' PolicyAttributeDescription (Core.Maybe Types.AttributeValue)
+padAttributeValue = Lens.field @"attributeValue"
+{-# DEPRECATED padAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
+
+instance Core.FromXML PolicyAttributeDescription where
   parseXML x =
     PolicyAttributeDescription'
-      Lude.<$> (x Lude..@? "AttributeValue") Lude.<*> (x Lude..@? "AttributeName")
+      Core.<$> (x Core..@? "AttributeName") Core.<*> (x Core..@? "AttributeValue")

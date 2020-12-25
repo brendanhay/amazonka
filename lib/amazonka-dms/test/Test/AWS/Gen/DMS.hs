@@ -690,7 +690,7 @@ responseDeleteReplicationInstance =
   res
     "DeleteReplicationInstanceResponse"
     "fixture/DeleteReplicationInstanceResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteReplicationInstance)
 
 responseRebootReplicationInstance :: RebootReplicationInstanceResponse -> TestTree
@@ -698,7 +698,7 @@ responseRebootReplicationInstance =
   res
     "RebootReplicationInstanceResponse"
     "fixture/RebootReplicationInstanceResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy RebootReplicationInstance)
 
 responseReloadTables :: ReloadTablesResponse -> TestTree
@@ -706,7 +706,7 @@ responseReloadTables =
   res
     "ReloadTablesResponse"
     "fixture/ReloadTablesResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy ReloadTables)
 
 responseStartReplicationTaskAssessment :: StartReplicationTaskAssessmentResponse -> TestTree
@@ -714,7 +714,7 @@ responseStartReplicationTaskAssessment =
   res
     "StartReplicationTaskAssessmentResponse"
     "fixture/StartReplicationTaskAssessmentResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy StartReplicationTaskAssessment)
 
 responseDeleteReplicationTaskAssessmentRun :: DeleteReplicationTaskAssessmentRunResponse -> TestTree
@@ -722,7 +722,7 @@ responseDeleteReplicationTaskAssessmentRun =
   res
     "DeleteReplicationTaskAssessmentRunResponse"
     "fixture/DeleteReplicationTaskAssessmentRunResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteReplicationTaskAssessmentRun)
 
 responseCreateEndpoint :: CreateEndpointResponse -> TestTree
@@ -730,7 +730,7 @@ responseCreateEndpoint =
   res
     "CreateEndpointResponse"
     "fixture/CreateEndpointResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy CreateEndpoint)
 
 responseDescribeSchemas :: DescribeSchemasResponse -> TestTree
@@ -738,7 +738,7 @@ responseDescribeSchemas =
   res
     "DescribeSchemasResponse"
     "fixture/DescribeSchemasResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSchemas)
 
 responseDeleteConnection :: DeleteConnectionResponse -> TestTree
@@ -746,7 +746,7 @@ responseDeleteConnection =
   res
     "DeleteConnectionResponse"
     "fixture/DeleteConnectionResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteConnection)
 
 responseModifyEventSubscription :: ModifyEventSubscriptionResponse -> TestTree
@@ -754,7 +754,7 @@ responseModifyEventSubscription =
   res
     "ModifyEventSubscriptionResponse"
     "fixture/ModifyEventSubscriptionResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyEventSubscription)
 
 responseDescribeReplicationInstanceTaskLogs :: DescribeReplicationInstanceTaskLogsResponse -> TestTree
@@ -762,7 +762,7 @@ responseDescribeReplicationInstanceTaskLogs =
   res
     "DescribeReplicationInstanceTaskLogsResponse"
     "fixture/DescribeReplicationInstanceTaskLogsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReplicationInstanceTaskLogs)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
@@ -770,7 +770,7 @@ responseDescribeEvents =
   res
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEvents)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
@@ -778,7 +778,7 @@ responseDeleteEndpoint =
   res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEndpoint)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -786,7 +786,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseDescribeEndpointTypes :: DescribeEndpointTypesResponse -> TestTree
@@ -794,7 +794,7 @@ responseDescribeEndpointTypes =
   res
     "DescribeEndpointTypesResponse"
     "fixture/DescribeEndpointTypesResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEndpointTypes)
 
 responseDeleteReplicationTask :: DeleteReplicationTaskResponse -> TestTree
@@ -802,7 +802,7 @@ responseDeleteReplicationTask =
   res
     "DeleteReplicationTaskResponse"
     "fixture/DeleteReplicationTaskResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteReplicationTask)
 
 responseDescribeReplicationTaskAssessmentRuns :: DescribeReplicationTaskAssessmentRunsResponse -> TestTree
@@ -810,7 +810,7 @@ responseDescribeReplicationTaskAssessmentRuns =
   res
     "DescribeReplicationTaskAssessmentRunsResponse"
     "fixture/DescribeReplicationTaskAssessmentRunsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReplicationTaskAssessmentRuns)
 
 responseDescribeReplicationTaskAssessmentResults :: DescribeReplicationTaskAssessmentResultsResponse -> TestTree
@@ -818,7 +818,7 @@ responseDescribeReplicationTaskAssessmentResults =
   res
     "DescribeReplicationTaskAssessmentResultsResponse"
     "fixture/DescribeReplicationTaskAssessmentResultsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReplicationTaskAssessmentResults)
 
 responseTestConnection :: TestConnectionResponse -> TestTree
@@ -826,7 +826,7 @@ responseTestConnection =
   res
     "TestConnectionResponse"
     "fixture/TestConnectionResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy TestConnection)
 
 responseDescribeConnections :: DescribeConnectionsResponse -> TestTree
@@ -834,7 +834,7 @@ responseDescribeConnections =
   res
     "DescribeConnectionsResponse"
     "fixture/DescribeConnectionsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeConnections)
 
 responseMoveReplicationTask :: MoveReplicationTaskResponse -> TestTree
@@ -842,7 +842,7 @@ responseMoveReplicationTask =
   res
     "MoveReplicationTaskResponse"
     "fixture/MoveReplicationTaskResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy MoveReplicationTask)
 
 responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
@@ -850,7 +850,7 @@ responseRemoveTagsFromResource =
   res
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy RemoveTagsFromResource)
 
 responseModifyEndpoint :: ModifyEndpointResponse -> TestTree
@@ -858,7 +858,7 @@ responseModifyEndpoint =
   res
     "ModifyEndpointResponse"
     "fixture/ModifyEndpointResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyEndpoint)
 
 responseCreateEventSubscription :: CreateEventSubscriptionResponse -> TestTree
@@ -866,7 +866,7 @@ responseCreateEventSubscription =
   res
     "CreateEventSubscriptionResponse"
     "fixture/CreateEventSubscriptionResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy CreateEventSubscription)
 
 responseDescribeCertificates :: DescribeCertificatesResponse -> TestTree
@@ -874,7 +874,7 @@ responseDescribeCertificates =
   res
     "DescribeCertificatesResponse"
     "fixture/DescribeCertificatesResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCertificates)
 
 responseStartReplicationTaskAssessmentRun :: StartReplicationTaskAssessmentRunResponse -> TestTree
@@ -882,7 +882,7 @@ responseStartReplicationTaskAssessmentRun =
   res
     "StartReplicationTaskAssessmentRunResponse"
     "fixture/StartReplicationTaskAssessmentRunResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy StartReplicationTaskAssessmentRun)
 
 responseDeleteEventSubscription :: DeleteEventSubscriptionResponse -> TestTree
@@ -890,7 +890,7 @@ responseDeleteEventSubscription =
   res
     "DeleteEventSubscriptionResponse"
     "fixture/DeleteEventSubscriptionResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEventSubscription)
 
 responseDescribeTableStatistics :: DescribeTableStatisticsResponse -> TestTree
@@ -898,7 +898,7 @@ responseDescribeTableStatistics =
   res
     "DescribeTableStatisticsResponse"
     "fixture/DescribeTableStatisticsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTableStatistics)
 
 responseDescribeReplicationSubnetGroups :: DescribeReplicationSubnetGroupsResponse -> TestTree
@@ -906,7 +906,7 @@ responseDescribeReplicationSubnetGroups =
   res
     "DescribeReplicationSubnetGroupsResponse"
     "fixture/DescribeReplicationSubnetGroupsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReplicationSubnetGroups)
 
 responseStartReplicationTask :: StartReplicationTaskResponse -> TestTree
@@ -914,7 +914,7 @@ responseStartReplicationTask =
   res
     "StartReplicationTaskResponse"
     "fixture/StartReplicationTaskResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy StartReplicationTask)
 
 responseDescribeEventSubscriptions :: DescribeEventSubscriptionsResponse -> TestTree
@@ -922,7 +922,7 @@ responseDescribeEventSubscriptions =
   res
     "DescribeEventSubscriptionsResponse"
     "fixture/DescribeEventSubscriptionsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEventSubscriptions)
 
 responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
@@ -930,7 +930,7 @@ responseAddTagsToResource =
   res
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy AddTagsToResource)
 
 responseCreateReplicationSubnetGroup :: CreateReplicationSubnetGroupResponse -> TestTree
@@ -938,7 +938,7 @@ responseCreateReplicationSubnetGroup =
   res
     "CreateReplicationSubnetGroupResponse"
     "fixture/CreateReplicationSubnetGroupResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy CreateReplicationSubnetGroup)
 
 responseDescribeApplicableIndividualAssessments :: DescribeApplicableIndividualAssessmentsResponse -> TestTree
@@ -946,7 +946,7 @@ responseDescribeApplicableIndividualAssessments =
   res
     "DescribeApplicableIndividualAssessmentsResponse"
     "fixture/DescribeApplicableIndividualAssessmentsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeApplicableIndividualAssessments)
 
 responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
@@ -954,7 +954,7 @@ responseDeleteCertificate =
   res
     "DeleteCertificateResponse"
     "fixture/DeleteCertificateResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCertificate)
 
 responseRefreshSchemas :: RefreshSchemasResponse -> TestTree
@@ -962,7 +962,7 @@ responseRefreshSchemas =
   res
     "RefreshSchemasResponse"
     "fixture/RefreshSchemasResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy RefreshSchemas)
 
 responseDescribeReplicationTasks :: DescribeReplicationTasksResponse -> TestTree
@@ -970,7 +970,7 @@ responseDescribeReplicationTasks =
   res
     "DescribeReplicationTasksResponse"
     "fixture/DescribeReplicationTasksResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReplicationTasks)
 
 responseDescribeEventCategories :: DescribeEventCategoriesResponse -> TestTree
@@ -978,7 +978,7 @@ responseDescribeEventCategories =
   res
     "DescribeEventCategoriesResponse"
     "fixture/DescribeEventCategoriesResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEventCategories)
 
 responseDescribeOrderableReplicationInstances :: DescribeOrderableReplicationInstancesResponse -> TestTree
@@ -986,7 +986,7 @@ responseDescribeOrderableReplicationInstances =
   res
     "DescribeOrderableReplicationInstancesResponse"
     "fixture/DescribeOrderableReplicationInstancesResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeOrderableReplicationInstances)
 
 responseDescribePendingMaintenanceActions :: DescribePendingMaintenanceActionsResponse -> TestTree
@@ -994,7 +994,7 @@ responseDescribePendingMaintenanceActions =
   res
     "DescribePendingMaintenanceActionsResponse"
     "fixture/DescribePendingMaintenanceActionsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribePendingMaintenanceActions)
 
 responseCreateReplicationTask :: CreateReplicationTaskResponse -> TestTree
@@ -1002,7 +1002,7 @@ responseCreateReplicationTask =
   res
     "CreateReplicationTaskResponse"
     "fixture/CreateReplicationTaskResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy CreateReplicationTask)
 
 responseDescribeEndpoints :: DescribeEndpointsResponse -> TestTree
@@ -1010,7 +1010,7 @@ responseDescribeEndpoints =
   res
     "DescribeEndpointsResponse"
     "fixture/DescribeEndpointsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEndpoints)
 
 responseModifyReplicationInstance :: ModifyReplicationInstanceResponse -> TestTree
@@ -1018,7 +1018,7 @@ responseModifyReplicationInstance =
   res
     "ModifyReplicationInstanceResponse"
     "fixture/ModifyReplicationInstanceResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyReplicationInstance)
 
 responseImportCertificate :: ImportCertificateResponse -> TestTree
@@ -1026,7 +1026,7 @@ responseImportCertificate =
   res
     "ImportCertificateResponse"
     "fixture/ImportCertificateResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy ImportCertificate)
 
 responseCancelReplicationTaskAssessmentRun :: CancelReplicationTaskAssessmentRunResponse -> TestTree
@@ -1034,7 +1034,7 @@ responseCancelReplicationTaskAssessmentRun =
   res
     "CancelReplicationTaskAssessmentRunResponse"
     "fixture/CancelReplicationTaskAssessmentRunResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy CancelReplicationTaskAssessmentRun)
 
 responseModifyReplicationSubnetGroup :: ModifyReplicationSubnetGroupResponse -> TestTree
@@ -1042,7 +1042,7 @@ responseModifyReplicationSubnetGroup =
   res
     "ModifyReplicationSubnetGroupResponse"
     "fixture/ModifyReplicationSubnetGroupResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyReplicationSubnetGroup)
 
 responseDescribeReplicationTaskIndividualAssessments :: DescribeReplicationTaskIndividualAssessmentsResponse -> TestTree
@@ -1050,7 +1050,7 @@ responseDescribeReplicationTaskIndividualAssessments =
   res
     "DescribeReplicationTaskIndividualAssessmentsResponse"
     "fixture/DescribeReplicationTaskIndividualAssessmentsResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReplicationTaskIndividualAssessments)
 
 responseApplyPendingMaintenanceAction :: ApplyPendingMaintenanceActionResponse -> TestTree
@@ -1058,7 +1058,7 @@ responseApplyPendingMaintenanceAction =
   res
     "ApplyPendingMaintenanceActionResponse"
     "fixture/ApplyPendingMaintenanceActionResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy ApplyPendingMaintenanceAction)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
@@ -1066,7 +1066,7 @@ responseDescribeAccountAttributes =
   res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccountAttributes)
 
 responseDescribeReplicationInstances :: DescribeReplicationInstancesResponse -> TestTree
@@ -1074,7 +1074,7 @@ responseDescribeReplicationInstances =
   res
     "DescribeReplicationInstancesResponse"
     "fixture/DescribeReplicationInstancesResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReplicationInstances)
 
 responseDescribeRefreshSchemasStatus :: DescribeRefreshSchemasStatusResponse -> TestTree
@@ -1082,7 +1082,7 @@ responseDescribeRefreshSchemasStatus =
   res
     "DescribeRefreshSchemasStatusResponse"
     "fixture/DescribeRefreshSchemasStatusResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeRefreshSchemasStatus)
 
 responseStopReplicationTask :: StopReplicationTaskResponse -> TestTree
@@ -1090,7 +1090,7 @@ responseStopReplicationTask =
   res
     "StopReplicationTaskResponse"
     "fixture/StopReplicationTaskResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy StopReplicationTask)
 
 responseModifyReplicationTask :: ModifyReplicationTaskResponse -> TestTree
@@ -1098,7 +1098,7 @@ responseModifyReplicationTask =
   res
     "ModifyReplicationTaskResponse"
     "fixture/ModifyReplicationTaskResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyReplicationTask)
 
 responseCreateReplicationInstance :: CreateReplicationInstanceResponse -> TestTree
@@ -1106,7 +1106,7 @@ responseCreateReplicationInstance =
   res
     "CreateReplicationInstanceResponse"
     "fixture/CreateReplicationInstanceResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy CreateReplicationInstance)
 
 responseDeleteReplicationSubnetGroup :: DeleteReplicationSubnetGroupResponse -> TestTree
@@ -1114,5 +1114,5 @@ responseDeleteReplicationSubnetGroup =
   res
     "DeleteReplicationSubnetGroupResponse"
     "fixture/DeleteReplicationSubnetGroupResponse.proto"
-    dmsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteReplicationSubnetGroup)

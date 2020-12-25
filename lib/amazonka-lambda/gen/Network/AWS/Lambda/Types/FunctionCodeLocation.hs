@@ -22,52 +22,48 @@ module Network.AWS.Lambda.Types.FunctionCodeLocation
   )
 where
 
+import qualified Network.AWS.Lambda.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about a function's deployment package.
 --
 -- /See:/ 'mkFunctionCodeLocation' smart constructor.
 data FunctionCodeLocation = FunctionCodeLocation'
   { -- | A presigned URL that you can use to download the deployment package.
-    location :: Lude.Maybe Lude.Text,
+    location :: Core.Maybe Types.String,
     -- | The service that's hosting the file.
-    repositoryType :: Lude.Maybe Lude.Text
+    repositoryType :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FunctionCodeLocation' with the minimum fields required to make a request.
---
--- * 'location' - A presigned URL that you can use to download the deployment package.
--- * 'repositoryType' - The service that's hosting the file.
+-- | Creates a 'FunctionCodeLocation' value with any optional fields omitted.
 mkFunctionCodeLocation ::
   FunctionCodeLocation
 mkFunctionCodeLocation =
   FunctionCodeLocation'
-    { location = Lude.Nothing,
-      repositoryType = Lude.Nothing
+    { location = Core.Nothing,
+      repositoryType = Core.Nothing
     }
 
 -- | A presigned URL that you can use to download the deployment package.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fclLocation :: Lens.Lens' FunctionCodeLocation (Lude.Maybe Lude.Text)
-fclLocation = Lens.lens (location :: FunctionCodeLocation -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: FunctionCodeLocation)
+fclLocation :: Lens.Lens' FunctionCodeLocation (Core.Maybe Types.String)
+fclLocation = Lens.field @"location"
 {-# DEPRECATED fclLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The service that's hosting the file.
 --
 -- /Note:/ Consider using 'repositoryType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fclRepositoryType :: Lens.Lens' FunctionCodeLocation (Lude.Maybe Lude.Text)
-fclRepositoryType = Lens.lens (repositoryType :: FunctionCodeLocation -> Lude.Maybe Lude.Text) (\s a -> s {repositoryType = a} :: FunctionCodeLocation)
+fclRepositoryType :: Lens.Lens' FunctionCodeLocation (Core.Maybe Types.String)
+fclRepositoryType = Lens.field @"repositoryType"
 {-# DEPRECATED fclRepositoryType "Use generic-lens or generic-optics with 'repositoryType' instead." #-}
 
-instance Lude.FromJSON FunctionCodeLocation where
+instance Core.FromJSON FunctionCodeLocation where
   parseJSON =
-    Lude.withObject
-      "FunctionCodeLocation"
-      ( \x ->
-          FunctionCodeLocation'
-            Lude.<$> (x Lude..:? "Location") Lude.<*> (x Lude..:? "RepositoryType")
-      )
+    Core.withObject "FunctionCodeLocation" Core.$
+      \x ->
+        FunctionCodeLocation'
+          Core.<$> (x Core..:? "Location") Core.<*> (x Core..:? "RepositoryType")

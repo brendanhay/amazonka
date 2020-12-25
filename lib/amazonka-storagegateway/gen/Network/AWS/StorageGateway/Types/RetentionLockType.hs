@@ -13,51 +13,56 @@
 module Network.AWS.StorageGateway.Types.RetentionLockType
   ( RetentionLockType
       ( RetentionLockType',
-        Compliance,
-        Governance,
-        None
+        RetentionLockTypeCompliance,
+        RetentionLockTypeGovernance,
+        RetentionLockTypeNone,
+        fromRetentionLockType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RetentionLockType = RetentionLockType' Lude.Text
+newtype RetentionLockType = RetentionLockType'
+  { fromRetentionLockType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Compliance :: RetentionLockType
-pattern Compliance = RetentionLockType' "COMPLIANCE"
+pattern RetentionLockTypeCompliance :: RetentionLockType
+pattern RetentionLockTypeCompliance = RetentionLockType' "COMPLIANCE"
 
-pattern Governance :: RetentionLockType
-pattern Governance = RetentionLockType' "GOVERNANCE"
+pattern RetentionLockTypeGovernance :: RetentionLockType
+pattern RetentionLockTypeGovernance = RetentionLockType' "GOVERNANCE"
 
-pattern None :: RetentionLockType
-pattern None = RetentionLockType' "NONE"
+pattern RetentionLockTypeNone :: RetentionLockType
+pattern RetentionLockTypeNone = RetentionLockType' "NONE"
 
 {-# COMPLETE
-  Compliance,
-  Governance,
-  None,
+  RetentionLockTypeCompliance,
+  RetentionLockTypeGovernance,
+  RetentionLockTypeNone,
   RetentionLockType'
   #-}

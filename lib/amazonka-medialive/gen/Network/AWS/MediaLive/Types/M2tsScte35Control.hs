@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.M2tsScte35Control
   ( M2tsScte35Control
       ( M2tsScte35Control',
-        MSCNone,
-        MSCPassthrough
+        M2tsScte35ControlNone,
+        M2tsScte35ControlPassthrough,
+        fromM2tsScte35Control
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Scte35 Control
-newtype M2tsScte35Control = M2tsScte35Control' Lude.Text
+newtype M2tsScte35Control = M2tsScte35Control'
+  { fromM2tsScte35Control ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MSCNone :: M2tsScte35Control
-pattern MSCNone = M2tsScte35Control' "NONE"
+pattern M2tsScte35ControlNone :: M2tsScte35Control
+pattern M2tsScte35ControlNone = M2tsScte35Control' "NONE"
 
-pattern MSCPassthrough :: M2tsScte35Control
-pattern MSCPassthrough = M2tsScte35Control' "PASSTHROUGH"
+pattern M2tsScte35ControlPassthrough :: M2tsScte35Control
+pattern M2tsScte35ControlPassthrough = M2tsScte35Control' "PASSTHROUGH"
 
 {-# COMPLETE
-  MSCNone,
-  MSCPassthrough,
+  M2tsScte35ControlNone,
+  M2tsScte35ControlPassthrough,
   M2tsScte35Control'
   #-}

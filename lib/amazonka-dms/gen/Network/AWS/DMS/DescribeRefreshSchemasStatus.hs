@@ -20,125 +20,112 @@ module Network.AWS.DMS.DescribeRefreshSchemasStatus
     mkDescribeRefreshSchemasStatus,
 
     -- ** Request lenses
-    drssEndpointARN,
+    drssEndpointArn,
 
     -- * Destructuring the response
     DescribeRefreshSchemasStatusResponse (..),
     mkDescribeRefreshSchemasStatusResponse,
 
     -- ** Response lenses
-    drssrsRefreshSchemasStatus,
-    drssrsResponseStatus,
+    drssrrsRefreshSchemasStatus,
+    drssrrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeRefreshSchemasStatus' smart constructor.
 newtype DescribeRefreshSchemasStatus = DescribeRefreshSchemasStatus'
   { -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-    endpointARN :: Lude.Text
+    endpointArn :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeRefreshSchemasStatus' with the minimum fields required to make a request.
---
--- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+-- | Creates a 'DescribeRefreshSchemasStatus' value with any optional fields omitted.
 mkDescribeRefreshSchemasStatus ::
-  -- | 'endpointARN'
-  Lude.Text ->
+  -- | 'endpointArn'
+  Types.String ->
   DescribeRefreshSchemasStatus
-mkDescribeRefreshSchemasStatus pEndpointARN_ =
-  DescribeRefreshSchemasStatus' {endpointARN = pEndpointARN_}
+mkDescribeRefreshSchemasStatus endpointArn =
+  DescribeRefreshSchemasStatus' {endpointArn}
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drssEndpointARN :: Lens.Lens' DescribeRefreshSchemasStatus Lude.Text
-drssEndpointARN = Lens.lens (endpointARN :: DescribeRefreshSchemasStatus -> Lude.Text) (\s a -> s {endpointARN = a} :: DescribeRefreshSchemasStatus)
-{-# DEPRECATED drssEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
+-- /Note:/ Consider using 'endpointArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drssEndpointArn :: Lens.Lens' DescribeRefreshSchemasStatus Types.String
+drssEndpointArn = Lens.field @"endpointArn"
+{-# DEPRECATED drssEndpointArn "Use generic-lens or generic-optics with 'endpointArn' instead." #-}
 
-instance Lude.AWSRequest DescribeRefreshSchemasStatus where
+instance Core.FromJSON DescribeRefreshSchemasStatus where
+  toJSON DescribeRefreshSchemasStatus {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("EndpointArn" Core..= endpointArn)])
+
+instance Core.AWSRequest DescribeRefreshSchemasStatus where
   type
     Rs DescribeRefreshSchemasStatus =
       DescribeRefreshSchemasStatusResponse
-  request = Req.postJSON dmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonDMSv20160101.DescribeRefreshSchemasStatus")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeRefreshSchemasStatusResponse'
-            Lude.<$> (x Lude..?> "RefreshSchemasStatus")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RefreshSchemasStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeRefreshSchemasStatus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonDMSv20160101.DescribeRefreshSchemasStatus" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeRefreshSchemasStatus where
-  toJSON DescribeRefreshSchemasStatus' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("EndpointArn" Lude..= endpointARN)])
-
-instance Lude.ToPath DescribeRefreshSchemasStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeRefreshSchemasStatus where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkDescribeRefreshSchemasStatusResponse' smart constructor.
 data DescribeRefreshSchemasStatusResponse = DescribeRefreshSchemasStatusResponse'
   { -- | The status of the schema.
-    refreshSchemasStatus :: Lude.Maybe RefreshSchemasStatus,
+    refreshSchemasStatus :: Core.Maybe Types.RefreshSchemasStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeRefreshSchemasStatusResponse' with the minimum fields required to make a request.
---
--- * 'refreshSchemasStatus' - The status of the schema.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeRefreshSchemasStatusResponse' value with any optional fields omitted.
 mkDescribeRefreshSchemasStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeRefreshSchemasStatusResponse
-mkDescribeRefreshSchemasStatusResponse pResponseStatus_ =
+mkDescribeRefreshSchemasStatusResponse responseStatus =
   DescribeRefreshSchemasStatusResponse'
     { refreshSchemasStatus =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The status of the schema.
 --
 -- /Note:/ Consider using 'refreshSchemasStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drssrsRefreshSchemasStatus :: Lens.Lens' DescribeRefreshSchemasStatusResponse (Lude.Maybe RefreshSchemasStatus)
-drssrsRefreshSchemasStatus = Lens.lens (refreshSchemasStatus :: DescribeRefreshSchemasStatusResponse -> Lude.Maybe RefreshSchemasStatus) (\s a -> s {refreshSchemasStatus = a} :: DescribeRefreshSchemasStatusResponse)
-{-# DEPRECATED drssrsRefreshSchemasStatus "Use generic-lens or generic-optics with 'refreshSchemasStatus' instead." #-}
+drssrrsRefreshSchemasStatus :: Lens.Lens' DescribeRefreshSchemasStatusResponse (Core.Maybe Types.RefreshSchemasStatus)
+drssrrsRefreshSchemasStatus = Lens.field @"refreshSchemasStatus"
+{-# DEPRECATED drssrrsRefreshSchemasStatus "Use generic-lens or generic-optics with 'refreshSchemasStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drssrsResponseStatus :: Lens.Lens' DescribeRefreshSchemasStatusResponse Lude.Int
-drssrsResponseStatus = Lens.lens (responseStatus :: DescribeRefreshSchemasStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRefreshSchemasStatusResponse)
-{-# DEPRECATED drssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drssrrsResponseStatus :: Lens.Lens' DescribeRefreshSchemasStatusResponse Core.Int
+drssrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

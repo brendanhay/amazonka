@@ -30,111 +30,99 @@ module Network.AWS.StorageGateway.DisableGateway
     mkDisableGatewayResponse,
 
     -- ** Response lenses
-    dgrsGatewayARN,
-    dgrsResponseStatus,
+    dgrfrsGatewayARN,
+    dgrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | DisableGatewayInput
 --
 -- /See:/ 'mkDisableGateway' smart constructor.
 newtype DisableGateway = DisableGateway'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableGateway' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'DisableGateway' value with any optional fields omitted.
 mkDisableGateway ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   DisableGateway
-mkDisableGateway pGatewayARN_ =
-  DisableGateway' {gatewayARN = pGatewayARN_}
+mkDisableGateway gatewayARN = DisableGateway' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dGatewayARN :: Lens.Lens' DisableGateway Lude.Text
-dGatewayARN = Lens.lens (gatewayARN :: DisableGateway -> Lude.Text) (\s a -> s {gatewayARN = a} :: DisableGateway)
+dGatewayARN :: Lens.Lens' DisableGateway Types.GatewayARN
+dGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED dGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest DisableGateway where
+instance Core.FromJSON DisableGateway where
+  toJSON DisableGateway {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest DisableGateway where
   type Rs DisableGateway = DisableGatewayResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.DisableGateway")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DisableGatewayResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisableGateway where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.DisableGateway" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisableGateway where
-  toJSON DisableGateway' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath DisableGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisableGateway where
-  toQuery = Lude.const Lude.mempty
 
 -- | DisableGatewayOutput
 --
 -- /See:/ 'mkDisableGatewayResponse' smart constructor.
 data DisableGatewayResponse = DisableGatewayResponse'
   { -- | The unique Amazon Resource Name (ARN) of the disabled gateway.
-    gatewayARN :: Lude.Maybe Lude.Text,
+    gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableGatewayResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' - The unique Amazon Resource Name (ARN) of the disabled gateway.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisableGatewayResponse' value with any optional fields omitted.
 mkDisableGatewayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisableGatewayResponse
-mkDisableGatewayResponse pResponseStatus_ =
+mkDisableGatewayResponse responseStatus =
   DisableGatewayResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      responseStatus
     }
 
 -- | The unique Amazon Resource Name (ARN) of the disabled gateway.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrsGatewayARN :: Lens.Lens' DisableGatewayResponse (Lude.Maybe Lude.Text)
-dgrsGatewayARN = Lens.lens (gatewayARN :: DisableGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DisableGatewayResponse)
-{-# DEPRECATED dgrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+dgrfrsGatewayARN :: Lens.Lens' DisableGatewayResponse (Core.Maybe Types.GatewayARN)
+dgrfrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED dgrfrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrsResponseStatus :: Lens.Lens' DisableGatewayResponse Lude.Int
-dgrsResponseStatus = Lens.lens (responseStatus :: DisableGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableGatewayResponse)
-{-# DEPRECATED dgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgrfrsResponseStatus :: Lens.Lens' DisableGatewayResponse Core.Int
+dgrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dgrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

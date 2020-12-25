@@ -13,1181 +13,1183 @@
 module Network.AWS.Route53Domains.Types.CountryCode
   ( CountryCode
       ( CountryCode',
-        AD,
-        AE,
-        AF,
-        AG,
-        AI,
-        AL,
-        AM,
-        AN,
-        AO,
-        AQ,
-        AR,
-        AS,
-        AT,
-        AU,
-        AW,
-        AZ,
-        BA,
-        BB,
-        BD,
-        BE,
-        BF,
-        BG,
-        BH,
-        BI,
-        BJ,
-        BL,
-        BM,
-        BN,
-        BO,
-        BR,
-        BS,
-        BT,
-        BW,
-        BY,
-        BZ,
-        CA,
-        CC,
-        CD,
-        CF,
-        CG,
-        CH,
-        CI,
-        CK,
-        CL,
-        CM,
-        CN,
-        CO,
-        CR,
-        CU,
-        CV,
-        CX,
-        CY,
-        CZ,
-        DE,
-        DJ,
-        DK,
-        DM,
-        DO,
-        DZ,
-        EC,
-        EE,
-        EG,
-        ER,
-        ES,
-        ET,
-        FI,
-        FJ,
-        FK,
-        FM,
-        FO,
-        FR,
-        GA,
-        GB,
-        GD,
-        GE,
-        GH,
-        GI,
-        GL,
-        GM,
-        GN,
-        GQ,
-        GR,
-        GT,
-        GU,
-        GW,
-        GY,
-        HK,
-        HN,
-        HR,
-        HT,
-        HU,
-        Id,
-        IE,
-        IL,
-        IM,
-        IN,
-        IQ,
-        IR,
-        IS,
-        IT,
-        JM,
-        JO,
-        JP,
-        KE,
-        KG,
-        KH,
-        KI,
-        KM,
-        KN,
-        KP,
-        KR,
-        KW,
-        KY,
-        KZ,
-        LA,
-        LB,
-        LC,
-        LI,
-        LK,
-        LR,
-        LS,
-        LT,
-        LU,
-        LV,
-        LY,
-        MA,
-        MC,
-        MD,
-        ME,
-        MF,
-        MG,
-        MH,
-        MK,
-        ML,
-        MM,
-        MN,
-        MO,
-        MP,
-        MR,
-        MS,
-        MT,
-        MU,
-        MV,
-        MW,
-        MX,
-        MY,
-        MZ,
-        NA,
-        NC,
-        NE,
-        NG,
-        NI,
-        NL,
-        NO,
-        NP,
-        NR,
-        NU,
-        NZ,
-        OM,
-        PA,
-        PE,
-        PF,
-        PG,
-        PH,
-        PK,
-        PL,
-        PM,
-        PN,
-        PR,
-        PT,
-        PW,
-        PY,
-        QA,
-        RO,
-        RS,
-        RU,
-        RW,
-        SA,
-        SB,
-        SC,
-        SD,
-        SE,
-        SG,
-        SH,
-        SI,
-        SK,
-        SL,
-        SM,
-        SN,
-        SO,
-        SR,
-        ST,
-        SV,
-        SY,
-        SZ,
-        TC,
-        TD,
-        TG,
-        TH,
-        TJ,
-        TK,
-        TL,
-        TM,
-        TN,
-        TO,
-        TR,
-        TT,
-        TV,
-        TW,
-        TZ,
-        UA,
-        UG,
-        US,
-        UY,
-        UZ,
-        VA,
-        VC,
-        VE,
-        VG,
-        VI,
-        VN,
-        VU,
-        WF,
-        WS,
-        YE,
-        YT,
-        ZA,
-        ZM,
-        ZW
+        CountryCodeAD,
+        CountryCodeAE,
+        CountryCodeAF,
+        CountryCodeAG,
+        CountryCodeAI,
+        CountryCodeAL,
+        CountryCodeAM,
+        CountryCodeAN,
+        CountryCodeAO,
+        CountryCodeAQ,
+        CountryCodeAR,
+        CountryCodeAS,
+        CountryCodeAT,
+        CountryCodeAU,
+        CountryCodeAW,
+        CountryCodeAZ,
+        CountryCodeBA,
+        CountryCodeBB,
+        CountryCodeBD,
+        CountryCodeBE,
+        CountryCodeBF,
+        CountryCodeBG,
+        CountryCodeBH,
+        CountryCodeBI,
+        CountryCodeBJ,
+        CountryCodeBL,
+        CountryCodeBM,
+        CountryCodeBN,
+        CountryCodeBO,
+        CountryCodeBR,
+        CountryCodeBS,
+        CountryCodeBT,
+        CountryCodeBW,
+        CountryCodeBY,
+        CountryCodeBZ,
+        CountryCodeCA,
+        CountryCodeCC,
+        CountryCodeCD,
+        CountryCodeCF,
+        CountryCodeCG,
+        CountryCodeCH,
+        CountryCodeCI,
+        CountryCodeCK,
+        CountryCodeCL,
+        CountryCodeCM,
+        CountryCodeCN,
+        CountryCodeCO,
+        CountryCodeCR,
+        CountryCodeCU,
+        CountryCodeCV,
+        CountryCodeCX,
+        CountryCodeCY,
+        CountryCodeCZ,
+        CountryCodeDE,
+        CountryCodeDJ,
+        CountryCodeDK,
+        CountryCodeDM,
+        CountryCodeDO,
+        CountryCodeDZ,
+        CountryCodeEC,
+        CountryCodeEE,
+        CountryCodeEG,
+        CountryCodeER,
+        CountryCodeES,
+        CountryCodeET,
+        CountryCodeFI,
+        CountryCodeFJ,
+        CountryCodeFK,
+        CountryCodeFM,
+        CountryCodeFO,
+        CountryCodeFR,
+        CountryCodeGA,
+        CountryCodeGB,
+        CountryCodeGD,
+        CountryCodeGE,
+        CountryCodeGH,
+        CountryCodeGI,
+        CountryCodeGL,
+        CountryCodeGM,
+        CountryCodeGN,
+        CountryCodeGQ,
+        CountryCodeGR,
+        CountryCodeGT,
+        CountryCodeGU,
+        CountryCodeGW,
+        CountryCodeGY,
+        CountryCodeHK,
+        CountryCodeHN,
+        CountryCodeHR,
+        CountryCodeHT,
+        CountryCodeHU,
+        CountryCodeID,
+        CountryCodeIE,
+        CountryCodeIL,
+        CountryCodeIM,
+        CountryCodeIN,
+        CountryCodeIQ,
+        CountryCodeIR,
+        CountryCodeIS,
+        CountryCodeIT,
+        CountryCodeJM,
+        CountryCodeJO,
+        CountryCodeJP,
+        CountryCodeKE,
+        CountryCodeKG,
+        CountryCodeKH,
+        CountryCodeKI,
+        CountryCodeKM,
+        CountryCodeKN,
+        CountryCodeKP,
+        CountryCodeKR,
+        CountryCodeKW,
+        CountryCodeKY,
+        CountryCodeKZ,
+        CountryCodeLA,
+        CountryCodeLB,
+        CountryCodeLC,
+        CountryCodeLI,
+        CountryCodeLK,
+        CountryCodeLR,
+        CountryCodeLS,
+        CountryCodeLT,
+        CountryCodeLU,
+        CountryCodeLV,
+        CountryCodeLY,
+        CountryCodeMA,
+        CountryCodeMC,
+        CountryCodeMD,
+        CountryCodeME,
+        CountryCodeMF,
+        CountryCodeMG,
+        CountryCodeMH,
+        CountryCodeMK,
+        CountryCodeML,
+        CountryCodeMM,
+        CountryCodeMN,
+        CountryCodeMO,
+        CountryCodeMP,
+        CountryCodeMR,
+        CountryCodeMS,
+        CountryCodeMT,
+        CountryCodeMU,
+        CountryCodeMV,
+        CountryCodeMW,
+        CountryCodeMX,
+        CountryCodeMY,
+        CountryCodeMZ,
+        CountryCodeNA,
+        CountryCodeNC,
+        CountryCodeNE,
+        CountryCodeNG,
+        CountryCodeNI,
+        CountryCodeNL,
+        CountryCodeNO,
+        CountryCodeNP,
+        CountryCodeNR,
+        CountryCodeNU,
+        CountryCodeNZ,
+        CountryCodeOM,
+        CountryCodePA,
+        CountryCodePE,
+        CountryCodePF,
+        CountryCodePG,
+        CountryCodePH,
+        CountryCodePK,
+        CountryCodePL,
+        CountryCodePM,
+        CountryCodePN,
+        CountryCodePR,
+        CountryCodePT,
+        CountryCodePW,
+        CountryCodePY,
+        CountryCodeQA,
+        CountryCodeRO,
+        CountryCodeRS,
+        CountryCodeRU,
+        CountryCodeRW,
+        CountryCodeSA,
+        CountryCodeSB,
+        CountryCodeSC,
+        CountryCodeSD,
+        CountryCodeSE,
+        CountryCodeSG,
+        CountryCodeSH,
+        CountryCodeSI,
+        CountryCodeSK,
+        CountryCodeSL,
+        CountryCodeSM,
+        CountryCodeSN,
+        CountryCodeSO,
+        CountryCodeSR,
+        CountryCodeST,
+        CountryCodeSV,
+        CountryCodeSY,
+        CountryCodeSZ,
+        CountryCodeTC,
+        CountryCodeTD,
+        CountryCodeTG,
+        CountryCodeTH,
+        CountryCodeTJ,
+        CountryCodeTK,
+        CountryCodeTL,
+        CountryCodeTM,
+        CountryCodeTN,
+        CountryCodeTO,
+        CountryCodeTR,
+        CountryCodeTT,
+        CountryCodeTV,
+        CountryCodeTW,
+        CountryCodeTZ,
+        CountryCodeUA,
+        CountryCodeUG,
+        CountryCodeUS,
+        CountryCodeUY,
+        CountryCodeUZ,
+        CountryCodeVA,
+        CountryCodeVC,
+        CountryCodeVE,
+        CountryCodeVG,
+        CountryCodeVI,
+        CountryCodeVN,
+        CountryCodeVU,
+        CountryCodeWF,
+        CountryCodeWS,
+        CountryCodeYE,
+        CountryCodeYT,
+        CountryCodeZA,
+        CountryCodeZM,
+        CountryCodeZW,
+        fromCountryCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CountryCode = CountryCode' Lude.Text
+newtype CountryCode = CountryCode' {fromCountryCode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AD :: CountryCode
-pattern AD = CountryCode' "AD"
+pattern CountryCodeAD :: CountryCode
+pattern CountryCodeAD = CountryCode' "AD"
 
-pattern AE :: CountryCode
-pattern AE = CountryCode' "AE"
+pattern CountryCodeAE :: CountryCode
+pattern CountryCodeAE = CountryCode' "AE"
 
-pattern AF :: CountryCode
-pattern AF = CountryCode' "AF"
+pattern CountryCodeAF :: CountryCode
+pattern CountryCodeAF = CountryCode' "AF"
 
-pattern AG :: CountryCode
-pattern AG = CountryCode' "AG"
+pattern CountryCodeAG :: CountryCode
+pattern CountryCodeAG = CountryCode' "AG"
 
-pattern AI :: CountryCode
-pattern AI = CountryCode' "AI"
+pattern CountryCodeAI :: CountryCode
+pattern CountryCodeAI = CountryCode' "AI"
 
-pattern AL :: CountryCode
-pattern AL = CountryCode' "AL"
+pattern CountryCodeAL :: CountryCode
+pattern CountryCodeAL = CountryCode' "AL"
 
-pattern AM :: CountryCode
-pattern AM = CountryCode' "AM"
+pattern CountryCodeAM :: CountryCode
+pattern CountryCodeAM = CountryCode' "AM"
 
-pattern AN :: CountryCode
-pattern AN = CountryCode' "AN"
+pattern CountryCodeAN :: CountryCode
+pattern CountryCodeAN = CountryCode' "AN"
 
-pattern AO :: CountryCode
-pattern AO = CountryCode' "AO"
+pattern CountryCodeAO :: CountryCode
+pattern CountryCodeAO = CountryCode' "AO"
 
-pattern AQ :: CountryCode
-pattern AQ = CountryCode' "AQ"
+pattern CountryCodeAQ :: CountryCode
+pattern CountryCodeAQ = CountryCode' "AQ"
 
-pattern AR :: CountryCode
-pattern AR = CountryCode' "AR"
+pattern CountryCodeAR :: CountryCode
+pattern CountryCodeAR = CountryCode' "AR"
 
-pattern AS :: CountryCode
-pattern AS = CountryCode' "AS"
+pattern CountryCodeAS :: CountryCode
+pattern CountryCodeAS = CountryCode' "AS"
 
-pattern AT :: CountryCode
-pattern AT = CountryCode' "AT"
+pattern CountryCodeAT :: CountryCode
+pattern CountryCodeAT = CountryCode' "AT"
 
-pattern AU :: CountryCode
-pattern AU = CountryCode' "AU"
+pattern CountryCodeAU :: CountryCode
+pattern CountryCodeAU = CountryCode' "AU"
 
-pattern AW :: CountryCode
-pattern AW = CountryCode' "AW"
+pattern CountryCodeAW :: CountryCode
+pattern CountryCodeAW = CountryCode' "AW"
 
-pattern AZ :: CountryCode
-pattern AZ = CountryCode' "AZ"
+pattern CountryCodeAZ :: CountryCode
+pattern CountryCodeAZ = CountryCode' "AZ"
 
-pattern BA :: CountryCode
-pattern BA = CountryCode' "BA"
+pattern CountryCodeBA :: CountryCode
+pattern CountryCodeBA = CountryCode' "BA"
 
-pattern BB :: CountryCode
-pattern BB = CountryCode' "BB"
+pattern CountryCodeBB :: CountryCode
+pattern CountryCodeBB = CountryCode' "BB"
 
-pattern BD :: CountryCode
-pattern BD = CountryCode' "BD"
+pattern CountryCodeBD :: CountryCode
+pattern CountryCodeBD = CountryCode' "BD"
 
-pattern BE :: CountryCode
-pattern BE = CountryCode' "BE"
+pattern CountryCodeBE :: CountryCode
+pattern CountryCodeBE = CountryCode' "BE"
 
-pattern BF :: CountryCode
-pattern BF = CountryCode' "BF"
+pattern CountryCodeBF :: CountryCode
+pattern CountryCodeBF = CountryCode' "BF"
 
-pattern BG :: CountryCode
-pattern BG = CountryCode' "BG"
+pattern CountryCodeBG :: CountryCode
+pattern CountryCodeBG = CountryCode' "BG"
 
-pattern BH :: CountryCode
-pattern BH = CountryCode' "BH"
+pattern CountryCodeBH :: CountryCode
+pattern CountryCodeBH = CountryCode' "BH"
 
-pattern BI :: CountryCode
-pattern BI = CountryCode' "BI"
+pattern CountryCodeBI :: CountryCode
+pattern CountryCodeBI = CountryCode' "BI"
 
-pattern BJ :: CountryCode
-pattern BJ = CountryCode' "BJ"
+pattern CountryCodeBJ :: CountryCode
+pattern CountryCodeBJ = CountryCode' "BJ"
 
-pattern BL :: CountryCode
-pattern BL = CountryCode' "BL"
+pattern CountryCodeBL :: CountryCode
+pattern CountryCodeBL = CountryCode' "BL"
 
-pattern BM :: CountryCode
-pattern BM = CountryCode' "BM"
+pattern CountryCodeBM :: CountryCode
+pattern CountryCodeBM = CountryCode' "BM"
 
-pattern BN :: CountryCode
-pattern BN = CountryCode' "BN"
+pattern CountryCodeBN :: CountryCode
+pattern CountryCodeBN = CountryCode' "BN"
 
-pattern BO :: CountryCode
-pattern BO = CountryCode' "BO"
+pattern CountryCodeBO :: CountryCode
+pattern CountryCodeBO = CountryCode' "BO"
 
-pattern BR :: CountryCode
-pattern BR = CountryCode' "BR"
+pattern CountryCodeBR :: CountryCode
+pattern CountryCodeBR = CountryCode' "BR"
 
-pattern BS :: CountryCode
-pattern BS = CountryCode' "BS"
+pattern CountryCodeBS :: CountryCode
+pattern CountryCodeBS = CountryCode' "BS"
 
-pattern BT :: CountryCode
-pattern BT = CountryCode' "BT"
+pattern CountryCodeBT :: CountryCode
+pattern CountryCodeBT = CountryCode' "BT"
 
-pattern BW :: CountryCode
-pattern BW = CountryCode' "BW"
+pattern CountryCodeBW :: CountryCode
+pattern CountryCodeBW = CountryCode' "BW"
 
-pattern BY :: CountryCode
-pattern BY = CountryCode' "BY"
+pattern CountryCodeBY :: CountryCode
+pattern CountryCodeBY = CountryCode' "BY"
 
-pattern BZ :: CountryCode
-pattern BZ = CountryCode' "BZ"
+pattern CountryCodeBZ :: CountryCode
+pattern CountryCodeBZ = CountryCode' "BZ"
 
-pattern CA :: CountryCode
-pattern CA = CountryCode' "CA"
+pattern CountryCodeCA :: CountryCode
+pattern CountryCodeCA = CountryCode' "CA"
 
-pattern CC :: CountryCode
-pattern CC = CountryCode' "CC"
+pattern CountryCodeCC :: CountryCode
+pattern CountryCodeCC = CountryCode' "CC"
 
-pattern CD :: CountryCode
-pattern CD = CountryCode' "CD"
+pattern CountryCodeCD :: CountryCode
+pattern CountryCodeCD = CountryCode' "CD"
 
-pattern CF :: CountryCode
-pattern CF = CountryCode' "CF"
+pattern CountryCodeCF :: CountryCode
+pattern CountryCodeCF = CountryCode' "CF"
 
-pattern CG :: CountryCode
-pattern CG = CountryCode' "CG"
+pattern CountryCodeCG :: CountryCode
+pattern CountryCodeCG = CountryCode' "CG"
 
-pattern CH :: CountryCode
-pattern CH = CountryCode' "CH"
+pattern CountryCodeCH :: CountryCode
+pattern CountryCodeCH = CountryCode' "CH"
 
-pattern CI :: CountryCode
-pattern CI = CountryCode' "CI"
+pattern CountryCodeCI :: CountryCode
+pattern CountryCodeCI = CountryCode' "CI"
 
-pattern CK :: CountryCode
-pattern CK = CountryCode' "CK"
+pattern CountryCodeCK :: CountryCode
+pattern CountryCodeCK = CountryCode' "CK"
 
-pattern CL :: CountryCode
-pattern CL = CountryCode' "CL"
+pattern CountryCodeCL :: CountryCode
+pattern CountryCodeCL = CountryCode' "CL"
 
-pattern CM :: CountryCode
-pattern CM = CountryCode' "CM"
+pattern CountryCodeCM :: CountryCode
+pattern CountryCodeCM = CountryCode' "CM"
 
-pattern CN :: CountryCode
-pattern CN = CountryCode' "CN"
+pattern CountryCodeCN :: CountryCode
+pattern CountryCodeCN = CountryCode' "CN"
 
-pattern CO :: CountryCode
-pattern CO = CountryCode' "CO"
+pattern CountryCodeCO :: CountryCode
+pattern CountryCodeCO = CountryCode' "CO"
 
-pattern CR :: CountryCode
-pattern CR = CountryCode' "CR"
+pattern CountryCodeCR :: CountryCode
+pattern CountryCodeCR = CountryCode' "CR"
 
-pattern CU :: CountryCode
-pattern CU = CountryCode' "CU"
+pattern CountryCodeCU :: CountryCode
+pattern CountryCodeCU = CountryCode' "CU"
 
-pattern CV :: CountryCode
-pattern CV = CountryCode' "CV"
+pattern CountryCodeCV :: CountryCode
+pattern CountryCodeCV = CountryCode' "CV"
 
-pattern CX :: CountryCode
-pattern CX = CountryCode' "CX"
+pattern CountryCodeCX :: CountryCode
+pattern CountryCodeCX = CountryCode' "CX"
 
-pattern CY :: CountryCode
-pattern CY = CountryCode' "CY"
+pattern CountryCodeCY :: CountryCode
+pattern CountryCodeCY = CountryCode' "CY"
 
-pattern CZ :: CountryCode
-pattern CZ = CountryCode' "CZ"
+pattern CountryCodeCZ :: CountryCode
+pattern CountryCodeCZ = CountryCode' "CZ"
 
-pattern DE :: CountryCode
-pattern DE = CountryCode' "DE"
+pattern CountryCodeDE :: CountryCode
+pattern CountryCodeDE = CountryCode' "DE"
 
-pattern DJ :: CountryCode
-pattern DJ = CountryCode' "DJ"
+pattern CountryCodeDJ :: CountryCode
+pattern CountryCodeDJ = CountryCode' "DJ"
 
-pattern DK :: CountryCode
-pattern DK = CountryCode' "DK"
+pattern CountryCodeDK :: CountryCode
+pattern CountryCodeDK = CountryCode' "DK"
 
-pattern DM :: CountryCode
-pattern DM = CountryCode' "DM"
+pattern CountryCodeDM :: CountryCode
+pattern CountryCodeDM = CountryCode' "DM"
 
-pattern DO :: CountryCode
-pattern DO = CountryCode' "DO"
+pattern CountryCodeDO :: CountryCode
+pattern CountryCodeDO = CountryCode' "DO"
 
-pattern DZ :: CountryCode
-pattern DZ = CountryCode' "DZ"
+pattern CountryCodeDZ :: CountryCode
+pattern CountryCodeDZ = CountryCode' "DZ"
 
-pattern EC :: CountryCode
-pattern EC = CountryCode' "EC"
+pattern CountryCodeEC :: CountryCode
+pattern CountryCodeEC = CountryCode' "EC"
 
-pattern EE :: CountryCode
-pattern EE = CountryCode' "EE"
+pattern CountryCodeEE :: CountryCode
+pattern CountryCodeEE = CountryCode' "EE"
 
-pattern EG :: CountryCode
-pattern EG = CountryCode' "EG"
+pattern CountryCodeEG :: CountryCode
+pattern CountryCodeEG = CountryCode' "EG"
 
-pattern ER :: CountryCode
-pattern ER = CountryCode' "ER"
+pattern CountryCodeER :: CountryCode
+pattern CountryCodeER = CountryCode' "ER"
 
-pattern ES :: CountryCode
-pattern ES = CountryCode' "ES"
+pattern CountryCodeES :: CountryCode
+pattern CountryCodeES = CountryCode' "ES"
 
-pattern ET :: CountryCode
-pattern ET = CountryCode' "ET"
+pattern CountryCodeET :: CountryCode
+pattern CountryCodeET = CountryCode' "ET"
 
-pattern FI :: CountryCode
-pattern FI = CountryCode' "FI"
+pattern CountryCodeFI :: CountryCode
+pattern CountryCodeFI = CountryCode' "FI"
 
-pattern FJ :: CountryCode
-pattern FJ = CountryCode' "FJ"
+pattern CountryCodeFJ :: CountryCode
+pattern CountryCodeFJ = CountryCode' "FJ"
 
-pattern FK :: CountryCode
-pattern FK = CountryCode' "FK"
+pattern CountryCodeFK :: CountryCode
+pattern CountryCodeFK = CountryCode' "FK"
 
-pattern FM :: CountryCode
-pattern FM = CountryCode' "FM"
+pattern CountryCodeFM :: CountryCode
+pattern CountryCodeFM = CountryCode' "FM"
 
-pattern FO :: CountryCode
-pattern FO = CountryCode' "FO"
+pattern CountryCodeFO :: CountryCode
+pattern CountryCodeFO = CountryCode' "FO"
 
-pattern FR :: CountryCode
-pattern FR = CountryCode' "FR"
+pattern CountryCodeFR :: CountryCode
+pattern CountryCodeFR = CountryCode' "FR"
 
-pattern GA :: CountryCode
-pattern GA = CountryCode' "GA"
+pattern CountryCodeGA :: CountryCode
+pattern CountryCodeGA = CountryCode' "GA"
 
-pattern GB :: CountryCode
-pattern GB = CountryCode' "GB"
+pattern CountryCodeGB :: CountryCode
+pattern CountryCodeGB = CountryCode' "GB"
 
-pattern GD :: CountryCode
-pattern GD = CountryCode' "GD"
+pattern CountryCodeGD :: CountryCode
+pattern CountryCodeGD = CountryCode' "GD"
 
-pattern GE :: CountryCode
-pattern GE = CountryCode' "GE"
+pattern CountryCodeGE :: CountryCode
+pattern CountryCodeGE = CountryCode' "GE"
 
-pattern GH :: CountryCode
-pattern GH = CountryCode' "GH"
+pattern CountryCodeGH :: CountryCode
+pattern CountryCodeGH = CountryCode' "GH"
 
-pattern GI :: CountryCode
-pattern GI = CountryCode' "GI"
+pattern CountryCodeGI :: CountryCode
+pattern CountryCodeGI = CountryCode' "GI"
 
-pattern GL :: CountryCode
-pattern GL = CountryCode' "GL"
+pattern CountryCodeGL :: CountryCode
+pattern CountryCodeGL = CountryCode' "GL"
 
-pattern GM :: CountryCode
-pattern GM = CountryCode' "GM"
+pattern CountryCodeGM :: CountryCode
+pattern CountryCodeGM = CountryCode' "GM"
 
-pattern GN :: CountryCode
-pattern GN = CountryCode' "GN"
+pattern CountryCodeGN :: CountryCode
+pattern CountryCodeGN = CountryCode' "GN"
 
-pattern GQ :: CountryCode
-pattern GQ = CountryCode' "GQ"
+pattern CountryCodeGQ :: CountryCode
+pattern CountryCodeGQ = CountryCode' "GQ"
 
-pattern GR :: CountryCode
-pattern GR = CountryCode' "GR"
+pattern CountryCodeGR :: CountryCode
+pattern CountryCodeGR = CountryCode' "GR"
 
-pattern GT :: CountryCode
-pattern GT = CountryCode' "GT"
+pattern CountryCodeGT :: CountryCode
+pattern CountryCodeGT = CountryCode' "GT"
 
-pattern GU :: CountryCode
-pattern GU = CountryCode' "GU"
+pattern CountryCodeGU :: CountryCode
+pattern CountryCodeGU = CountryCode' "GU"
 
-pattern GW :: CountryCode
-pattern GW = CountryCode' "GW"
+pattern CountryCodeGW :: CountryCode
+pattern CountryCodeGW = CountryCode' "GW"
 
-pattern GY :: CountryCode
-pattern GY = CountryCode' "GY"
+pattern CountryCodeGY :: CountryCode
+pattern CountryCodeGY = CountryCode' "GY"
 
-pattern HK :: CountryCode
-pattern HK = CountryCode' "HK"
+pattern CountryCodeHK :: CountryCode
+pattern CountryCodeHK = CountryCode' "HK"
 
-pattern HN :: CountryCode
-pattern HN = CountryCode' "HN"
+pattern CountryCodeHN :: CountryCode
+pattern CountryCodeHN = CountryCode' "HN"
 
-pattern HR :: CountryCode
-pattern HR = CountryCode' "HR"
+pattern CountryCodeHR :: CountryCode
+pattern CountryCodeHR = CountryCode' "HR"
 
-pattern HT :: CountryCode
-pattern HT = CountryCode' "HT"
+pattern CountryCodeHT :: CountryCode
+pattern CountryCodeHT = CountryCode' "HT"
 
-pattern HU :: CountryCode
-pattern HU = CountryCode' "HU"
+pattern CountryCodeHU :: CountryCode
+pattern CountryCodeHU = CountryCode' "HU"
 
-pattern Id :: CountryCode
-pattern Id = CountryCode' "ID"
+pattern CountryCodeID :: CountryCode
+pattern CountryCodeID = CountryCode' "ID"
 
-pattern IE :: CountryCode
-pattern IE = CountryCode' "IE"
+pattern CountryCodeIE :: CountryCode
+pattern CountryCodeIE = CountryCode' "IE"
 
-pattern IL :: CountryCode
-pattern IL = CountryCode' "IL"
+pattern CountryCodeIL :: CountryCode
+pattern CountryCodeIL = CountryCode' "IL"
 
-pattern IM :: CountryCode
-pattern IM = CountryCode' "IM"
+pattern CountryCodeIM :: CountryCode
+pattern CountryCodeIM = CountryCode' "IM"
 
-pattern IN :: CountryCode
-pattern IN = CountryCode' "IN"
+pattern CountryCodeIN :: CountryCode
+pattern CountryCodeIN = CountryCode' "IN"
 
-pattern IQ :: CountryCode
-pattern IQ = CountryCode' "IQ"
+pattern CountryCodeIQ :: CountryCode
+pattern CountryCodeIQ = CountryCode' "IQ"
 
-pattern IR :: CountryCode
-pattern IR = CountryCode' "IR"
+pattern CountryCodeIR :: CountryCode
+pattern CountryCodeIR = CountryCode' "IR"
 
-pattern IS :: CountryCode
-pattern IS = CountryCode' "IS"
+pattern CountryCodeIS :: CountryCode
+pattern CountryCodeIS = CountryCode' "IS"
 
-pattern IT :: CountryCode
-pattern IT = CountryCode' "IT"
+pattern CountryCodeIT :: CountryCode
+pattern CountryCodeIT = CountryCode' "IT"
 
-pattern JM :: CountryCode
-pattern JM = CountryCode' "JM"
+pattern CountryCodeJM :: CountryCode
+pattern CountryCodeJM = CountryCode' "JM"
 
-pattern JO :: CountryCode
-pattern JO = CountryCode' "JO"
+pattern CountryCodeJO :: CountryCode
+pattern CountryCodeJO = CountryCode' "JO"
 
-pattern JP :: CountryCode
-pattern JP = CountryCode' "JP"
+pattern CountryCodeJP :: CountryCode
+pattern CountryCodeJP = CountryCode' "JP"
 
-pattern KE :: CountryCode
-pattern KE = CountryCode' "KE"
+pattern CountryCodeKE :: CountryCode
+pattern CountryCodeKE = CountryCode' "KE"
 
-pattern KG :: CountryCode
-pattern KG = CountryCode' "KG"
+pattern CountryCodeKG :: CountryCode
+pattern CountryCodeKG = CountryCode' "KG"
 
-pattern KH :: CountryCode
-pattern KH = CountryCode' "KH"
+pattern CountryCodeKH :: CountryCode
+pattern CountryCodeKH = CountryCode' "KH"
 
-pattern KI :: CountryCode
-pattern KI = CountryCode' "KI"
+pattern CountryCodeKI :: CountryCode
+pattern CountryCodeKI = CountryCode' "KI"
 
-pattern KM :: CountryCode
-pattern KM = CountryCode' "KM"
+pattern CountryCodeKM :: CountryCode
+pattern CountryCodeKM = CountryCode' "KM"
 
-pattern KN :: CountryCode
-pattern KN = CountryCode' "KN"
+pattern CountryCodeKN :: CountryCode
+pattern CountryCodeKN = CountryCode' "KN"
 
-pattern KP :: CountryCode
-pattern KP = CountryCode' "KP"
+pattern CountryCodeKP :: CountryCode
+pattern CountryCodeKP = CountryCode' "KP"
 
-pattern KR :: CountryCode
-pattern KR = CountryCode' "KR"
+pattern CountryCodeKR :: CountryCode
+pattern CountryCodeKR = CountryCode' "KR"
 
-pattern KW :: CountryCode
-pattern KW = CountryCode' "KW"
+pattern CountryCodeKW :: CountryCode
+pattern CountryCodeKW = CountryCode' "KW"
 
-pattern KY :: CountryCode
-pattern KY = CountryCode' "KY"
+pattern CountryCodeKY :: CountryCode
+pattern CountryCodeKY = CountryCode' "KY"
 
-pattern KZ :: CountryCode
-pattern KZ = CountryCode' "KZ"
+pattern CountryCodeKZ :: CountryCode
+pattern CountryCodeKZ = CountryCode' "KZ"
 
-pattern LA :: CountryCode
-pattern LA = CountryCode' "LA"
+pattern CountryCodeLA :: CountryCode
+pattern CountryCodeLA = CountryCode' "LA"
 
-pattern LB :: CountryCode
-pattern LB = CountryCode' "LB"
+pattern CountryCodeLB :: CountryCode
+pattern CountryCodeLB = CountryCode' "LB"
 
-pattern LC :: CountryCode
-pattern LC = CountryCode' "LC"
+pattern CountryCodeLC :: CountryCode
+pattern CountryCodeLC = CountryCode' "LC"
 
-pattern LI :: CountryCode
-pattern LI = CountryCode' "LI"
+pattern CountryCodeLI :: CountryCode
+pattern CountryCodeLI = CountryCode' "LI"
 
-pattern LK :: CountryCode
-pattern LK = CountryCode' "LK"
+pattern CountryCodeLK :: CountryCode
+pattern CountryCodeLK = CountryCode' "LK"
 
-pattern LR :: CountryCode
-pattern LR = CountryCode' "LR"
+pattern CountryCodeLR :: CountryCode
+pattern CountryCodeLR = CountryCode' "LR"
 
-pattern LS :: CountryCode
-pattern LS = CountryCode' "LS"
+pattern CountryCodeLS :: CountryCode
+pattern CountryCodeLS = CountryCode' "LS"
 
-pattern LT :: CountryCode
-pattern LT = CountryCode' "LT"
+pattern CountryCodeLT :: CountryCode
+pattern CountryCodeLT = CountryCode' "LT"
 
-pattern LU :: CountryCode
-pattern LU = CountryCode' "LU"
+pattern CountryCodeLU :: CountryCode
+pattern CountryCodeLU = CountryCode' "LU"
 
-pattern LV :: CountryCode
-pattern LV = CountryCode' "LV"
+pattern CountryCodeLV :: CountryCode
+pattern CountryCodeLV = CountryCode' "LV"
 
-pattern LY :: CountryCode
-pattern LY = CountryCode' "LY"
+pattern CountryCodeLY :: CountryCode
+pattern CountryCodeLY = CountryCode' "LY"
 
-pattern MA :: CountryCode
-pattern MA = CountryCode' "MA"
+pattern CountryCodeMA :: CountryCode
+pattern CountryCodeMA = CountryCode' "MA"
 
-pattern MC :: CountryCode
-pattern MC = CountryCode' "MC"
+pattern CountryCodeMC :: CountryCode
+pattern CountryCodeMC = CountryCode' "MC"
 
-pattern MD :: CountryCode
-pattern MD = CountryCode' "MD"
+pattern CountryCodeMD :: CountryCode
+pattern CountryCodeMD = CountryCode' "MD"
 
-pattern ME :: CountryCode
-pattern ME = CountryCode' "ME"
+pattern CountryCodeME :: CountryCode
+pattern CountryCodeME = CountryCode' "ME"
 
-pattern MF :: CountryCode
-pattern MF = CountryCode' "MF"
+pattern CountryCodeMF :: CountryCode
+pattern CountryCodeMF = CountryCode' "MF"
 
-pattern MG :: CountryCode
-pattern MG = CountryCode' "MG"
+pattern CountryCodeMG :: CountryCode
+pattern CountryCodeMG = CountryCode' "MG"
 
-pattern MH :: CountryCode
-pattern MH = CountryCode' "MH"
+pattern CountryCodeMH :: CountryCode
+pattern CountryCodeMH = CountryCode' "MH"
 
-pattern MK :: CountryCode
-pattern MK = CountryCode' "MK"
+pattern CountryCodeMK :: CountryCode
+pattern CountryCodeMK = CountryCode' "MK"
 
-pattern ML :: CountryCode
-pattern ML = CountryCode' "ML"
+pattern CountryCodeML :: CountryCode
+pattern CountryCodeML = CountryCode' "ML"
 
-pattern MM :: CountryCode
-pattern MM = CountryCode' "MM"
+pattern CountryCodeMM :: CountryCode
+pattern CountryCodeMM = CountryCode' "MM"
 
-pattern MN :: CountryCode
-pattern MN = CountryCode' "MN"
+pattern CountryCodeMN :: CountryCode
+pattern CountryCodeMN = CountryCode' "MN"
 
-pattern MO :: CountryCode
-pattern MO = CountryCode' "MO"
+pattern CountryCodeMO :: CountryCode
+pattern CountryCodeMO = CountryCode' "MO"
 
-pattern MP :: CountryCode
-pattern MP = CountryCode' "MP"
+pattern CountryCodeMP :: CountryCode
+pattern CountryCodeMP = CountryCode' "MP"
 
-pattern MR :: CountryCode
-pattern MR = CountryCode' "MR"
+pattern CountryCodeMR :: CountryCode
+pattern CountryCodeMR = CountryCode' "MR"
 
-pattern MS :: CountryCode
-pattern MS = CountryCode' "MS"
+pattern CountryCodeMS :: CountryCode
+pattern CountryCodeMS = CountryCode' "MS"
 
-pattern MT :: CountryCode
-pattern MT = CountryCode' "MT"
+pattern CountryCodeMT :: CountryCode
+pattern CountryCodeMT = CountryCode' "MT"
 
-pattern MU :: CountryCode
-pattern MU = CountryCode' "MU"
+pattern CountryCodeMU :: CountryCode
+pattern CountryCodeMU = CountryCode' "MU"
 
-pattern MV :: CountryCode
-pattern MV = CountryCode' "MV"
+pattern CountryCodeMV :: CountryCode
+pattern CountryCodeMV = CountryCode' "MV"
 
-pattern MW :: CountryCode
-pattern MW = CountryCode' "MW"
+pattern CountryCodeMW :: CountryCode
+pattern CountryCodeMW = CountryCode' "MW"
 
-pattern MX :: CountryCode
-pattern MX = CountryCode' "MX"
+pattern CountryCodeMX :: CountryCode
+pattern CountryCodeMX = CountryCode' "MX"
 
-pattern MY :: CountryCode
-pattern MY = CountryCode' "MY"
+pattern CountryCodeMY :: CountryCode
+pattern CountryCodeMY = CountryCode' "MY"
 
-pattern MZ :: CountryCode
-pattern MZ = CountryCode' "MZ"
+pattern CountryCodeMZ :: CountryCode
+pattern CountryCodeMZ = CountryCode' "MZ"
 
-pattern NA :: CountryCode
-pattern NA = CountryCode' "NA"
+pattern CountryCodeNA :: CountryCode
+pattern CountryCodeNA = CountryCode' "NA"
 
-pattern NC :: CountryCode
-pattern NC = CountryCode' "NC"
+pattern CountryCodeNC :: CountryCode
+pattern CountryCodeNC = CountryCode' "NC"
 
-pattern NE :: CountryCode
-pattern NE = CountryCode' "NE"
+pattern CountryCodeNE :: CountryCode
+pattern CountryCodeNE = CountryCode' "NE"
 
-pattern NG :: CountryCode
-pattern NG = CountryCode' "NG"
+pattern CountryCodeNG :: CountryCode
+pattern CountryCodeNG = CountryCode' "NG"
 
-pattern NI :: CountryCode
-pattern NI = CountryCode' "NI"
+pattern CountryCodeNI :: CountryCode
+pattern CountryCodeNI = CountryCode' "NI"
 
-pattern NL :: CountryCode
-pattern NL = CountryCode' "NL"
+pattern CountryCodeNL :: CountryCode
+pattern CountryCodeNL = CountryCode' "NL"
 
-pattern NO :: CountryCode
-pattern NO = CountryCode' "NO"
+pattern CountryCodeNO :: CountryCode
+pattern CountryCodeNO = CountryCode' "NO"
 
-pattern NP :: CountryCode
-pattern NP = CountryCode' "NP"
+pattern CountryCodeNP :: CountryCode
+pattern CountryCodeNP = CountryCode' "NP"
 
-pattern NR :: CountryCode
-pattern NR = CountryCode' "NR"
+pattern CountryCodeNR :: CountryCode
+pattern CountryCodeNR = CountryCode' "NR"
 
-pattern NU :: CountryCode
-pattern NU = CountryCode' "NU"
+pattern CountryCodeNU :: CountryCode
+pattern CountryCodeNU = CountryCode' "NU"
 
-pattern NZ :: CountryCode
-pattern NZ = CountryCode' "NZ"
+pattern CountryCodeNZ :: CountryCode
+pattern CountryCodeNZ = CountryCode' "NZ"
 
-pattern OM :: CountryCode
-pattern OM = CountryCode' "OM"
+pattern CountryCodeOM :: CountryCode
+pattern CountryCodeOM = CountryCode' "OM"
 
-pattern PA :: CountryCode
-pattern PA = CountryCode' "PA"
+pattern CountryCodePA :: CountryCode
+pattern CountryCodePA = CountryCode' "PA"
 
-pattern PE :: CountryCode
-pattern PE = CountryCode' "PE"
+pattern CountryCodePE :: CountryCode
+pattern CountryCodePE = CountryCode' "PE"
 
-pattern PF :: CountryCode
-pattern PF = CountryCode' "PF"
+pattern CountryCodePF :: CountryCode
+pattern CountryCodePF = CountryCode' "PF"
 
-pattern PG :: CountryCode
-pattern PG = CountryCode' "PG"
+pattern CountryCodePG :: CountryCode
+pattern CountryCodePG = CountryCode' "PG"
 
-pattern PH :: CountryCode
-pattern PH = CountryCode' "PH"
+pattern CountryCodePH :: CountryCode
+pattern CountryCodePH = CountryCode' "PH"
 
-pattern PK :: CountryCode
-pattern PK = CountryCode' "PK"
+pattern CountryCodePK :: CountryCode
+pattern CountryCodePK = CountryCode' "PK"
 
-pattern PL :: CountryCode
-pattern PL = CountryCode' "PL"
+pattern CountryCodePL :: CountryCode
+pattern CountryCodePL = CountryCode' "PL"
 
-pattern PM :: CountryCode
-pattern PM = CountryCode' "PM"
+pattern CountryCodePM :: CountryCode
+pattern CountryCodePM = CountryCode' "PM"
 
-pattern PN :: CountryCode
-pattern PN = CountryCode' "PN"
+pattern CountryCodePN :: CountryCode
+pattern CountryCodePN = CountryCode' "PN"
 
-pattern PR :: CountryCode
-pattern PR = CountryCode' "PR"
+pattern CountryCodePR :: CountryCode
+pattern CountryCodePR = CountryCode' "PR"
 
-pattern PT :: CountryCode
-pattern PT = CountryCode' "PT"
+pattern CountryCodePT :: CountryCode
+pattern CountryCodePT = CountryCode' "PT"
 
-pattern PW :: CountryCode
-pattern PW = CountryCode' "PW"
+pattern CountryCodePW :: CountryCode
+pattern CountryCodePW = CountryCode' "PW"
 
-pattern PY :: CountryCode
-pattern PY = CountryCode' "PY"
+pattern CountryCodePY :: CountryCode
+pattern CountryCodePY = CountryCode' "PY"
 
-pattern QA :: CountryCode
-pattern QA = CountryCode' "QA"
+pattern CountryCodeQA :: CountryCode
+pattern CountryCodeQA = CountryCode' "QA"
 
-pattern RO :: CountryCode
-pattern RO = CountryCode' "RO"
+pattern CountryCodeRO :: CountryCode
+pattern CountryCodeRO = CountryCode' "RO"
 
-pattern RS :: CountryCode
-pattern RS = CountryCode' "RS"
+pattern CountryCodeRS :: CountryCode
+pattern CountryCodeRS = CountryCode' "RS"
 
-pattern RU :: CountryCode
-pattern RU = CountryCode' "RU"
+pattern CountryCodeRU :: CountryCode
+pattern CountryCodeRU = CountryCode' "RU"
 
-pattern RW :: CountryCode
-pattern RW = CountryCode' "RW"
+pattern CountryCodeRW :: CountryCode
+pattern CountryCodeRW = CountryCode' "RW"
 
-pattern SA :: CountryCode
-pattern SA = CountryCode' "SA"
+pattern CountryCodeSA :: CountryCode
+pattern CountryCodeSA = CountryCode' "SA"
 
-pattern SB :: CountryCode
-pattern SB = CountryCode' "SB"
+pattern CountryCodeSB :: CountryCode
+pattern CountryCodeSB = CountryCode' "SB"
 
-pattern SC :: CountryCode
-pattern SC = CountryCode' "SC"
+pattern CountryCodeSC :: CountryCode
+pattern CountryCodeSC = CountryCode' "SC"
 
-pattern SD :: CountryCode
-pattern SD = CountryCode' "SD"
+pattern CountryCodeSD :: CountryCode
+pattern CountryCodeSD = CountryCode' "SD"
 
-pattern SE :: CountryCode
-pattern SE = CountryCode' "SE"
+pattern CountryCodeSE :: CountryCode
+pattern CountryCodeSE = CountryCode' "SE"
 
-pattern SG :: CountryCode
-pattern SG = CountryCode' "SG"
+pattern CountryCodeSG :: CountryCode
+pattern CountryCodeSG = CountryCode' "SG"
 
-pattern SH :: CountryCode
-pattern SH = CountryCode' "SH"
+pattern CountryCodeSH :: CountryCode
+pattern CountryCodeSH = CountryCode' "SH"
 
-pattern SI :: CountryCode
-pattern SI = CountryCode' "SI"
+pattern CountryCodeSI :: CountryCode
+pattern CountryCodeSI = CountryCode' "SI"
 
-pattern SK :: CountryCode
-pattern SK = CountryCode' "SK"
+pattern CountryCodeSK :: CountryCode
+pattern CountryCodeSK = CountryCode' "SK"
 
-pattern SL :: CountryCode
-pattern SL = CountryCode' "SL"
+pattern CountryCodeSL :: CountryCode
+pattern CountryCodeSL = CountryCode' "SL"
 
-pattern SM :: CountryCode
-pattern SM = CountryCode' "SM"
+pattern CountryCodeSM :: CountryCode
+pattern CountryCodeSM = CountryCode' "SM"
 
-pattern SN :: CountryCode
-pattern SN = CountryCode' "SN"
+pattern CountryCodeSN :: CountryCode
+pattern CountryCodeSN = CountryCode' "SN"
 
-pattern SO :: CountryCode
-pattern SO = CountryCode' "SO"
+pattern CountryCodeSO :: CountryCode
+pattern CountryCodeSO = CountryCode' "SO"
 
-pattern SR :: CountryCode
-pattern SR = CountryCode' "SR"
+pattern CountryCodeSR :: CountryCode
+pattern CountryCodeSR = CountryCode' "SR"
 
-pattern ST :: CountryCode
-pattern ST = CountryCode' "ST"
+pattern CountryCodeST :: CountryCode
+pattern CountryCodeST = CountryCode' "ST"
 
-pattern SV :: CountryCode
-pattern SV = CountryCode' "SV"
+pattern CountryCodeSV :: CountryCode
+pattern CountryCodeSV = CountryCode' "SV"
 
-pattern SY :: CountryCode
-pattern SY = CountryCode' "SY"
+pattern CountryCodeSY :: CountryCode
+pattern CountryCodeSY = CountryCode' "SY"
 
-pattern SZ :: CountryCode
-pattern SZ = CountryCode' "SZ"
+pattern CountryCodeSZ :: CountryCode
+pattern CountryCodeSZ = CountryCode' "SZ"
 
-pattern TC :: CountryCode
-pattern TC = CountryCode' "TC"
+pattern CountryCodeTC :: CountryCode
+pattern CountryCodeTC = CountryCode' "TC"
 
-pattern TD :: CountryCode
-pattern TD = CountryCode' "TD"
+pattern CountryCodeTD :: CountryCode
+pattern CountryCodeTD = CountryCode' "TD"
 
-pattern TG :: CountryCode
-pattern TG = CountryCode' "TG"
+pattern CountryCodeTG :: CountryCode
+pattern CountryCodeTG = CountryCode' "TG"
 
-pattern TH :: CountryCode
-pattern TH = CountryCode' "TH"
+pattern CountryCodeTH :: CountryCode
+pattern CountryCodeTH = CountryCode' "TH"
 
-pattern TJ :: CountryCode
-pattern TJ = CountryCode' "TJ"
+pattern CountryCodeTJ :: CountryCode
+pattern CountryCodeTJ = CountryCode' "TJ"
 
-pattern TK :: CountryCode
-pattern TK = CountryCode' "TK"
+pattern CountryCodeTK :: CountryCode
+pattern CountryCodeTK = CountryCode' "TK"
 
-pattern TL :: CountryCode
-pattern TL = CountryCode' "TL"
+pattern CountryCodeTL :: CountryCode
+pattern CountryCodeTL = CountryCode' "TL"
 
-pattern TM :: CountryCode
-pattern TM = CountryCode' "TM"
+pattern CountryCodeTM :: CountryCode
+pattern CountryCodeTM = CountryCode' "TM"
 
-pattern TN :: CountryCode
-pattern TN = CountryCode' "TN"
+pattern CountryCodeTN :: CountryCode
+pattern CountryCodeTN = CountryCode' "TN"
 
-pattern TO :: CountryCode
-pattern TO = CountryCode' "TO"
+pattern CountryCodeTO :: CountryCode
+pattern CountryCodeTO = CountryCode' "TO"
 
-pattern TR :: CountryCode
-pattern TR = CountryCode' "TR"
+pattern CountryCodeTR :: CountryCode
+pattern CountryCodeTR = CountryCode' "TR"
 
-pattern TT :: CountryCode
-pattern TT = CountryCode' "TT"
+pattern CountryCodeTT :: CountryCode
+pattern CountryCodeTT = CountryCode' "TT"
 
-pattern TV :: CountryCode
-pattern TV = CountryCode' "TV"
+pattern CountryCodeTV :: CountryCode
+pattern CountryCodeTV = CountryCode' "TV"
 
-pattern TW :: CountryCode
-pattern TW = CountryCode' "TW"
+pattern CountryCodeTW :: CountryCode
+pattern CountryCodeTW = CountryCode' "TW"
 
-pattern TZ :: CountryCode
-pattern TZ = CountryCode' "TZ"
+pattern CountryCodeTZ :: CountryCode
+pattern CountryCodeTZ = CountryCode' "TZ"
 
-pattern UA :: CountryCode
-pattern UA = CountryCode' "UA"
+pattern CountryCodeUA :: CountryCode
+pattern CountryCodeUA = CountryCode' "UA"
 
-pattern UG :: CountryCode
-pattern UG = CountryCode' "UG"
+pattern CountryCodeUG :: CountryCode
+pattern CountryCodeUG = CountryCode' "UG"
 
-pattern US :: CountryCode
-pattern US = CountryCode' "US"
+pattern CountryCodeUS :: CountryCode
+pattern CountryCodeUS = CountryCode' "US"
 
-pattern UY :: CountryCode
-pattern UY = CountryCode' "UY"
+pattern CountryCodeUY :: CountryCode
+pattern CountryCodeUY = CountryCode' "UY"
 
-pattern UZ :: CountryCode
-pattern UZ = CountryCode' "UZ"
+pattern CountryCodeUZ :: CountryCode
+pattern CountryCodeUZ = CountryCode' "UZ"
 
-pattern VA :: CountryCode
-pattern VA = CountryCode' "VA"
+pattern CountryCodeVA :: CountryCode
+pattern CountryCodeVA = CountryCode' "VA"
 
-pattern VC :: CountryCode
-pattern VC = CountryCode' "VC"
+pattern CountryCodeVC :: CountryCode
+pattern CountryCodeVC = CountryCode' "VC"
 
-pattern VE :: CountryCode
-pattern VE = CountryCode' "VE"
+pattern CountryCodeVE :: CountryCode
+pattern CountryCodeVE = CountryCode' "VE"
 
-pattern VG :: CountryCode
-pattern VG = CountryCode' "VG"
+pattern CountryCodeVG :: CountryCode
+pattern CountryCodeVG = CountryCode' "VG"
 
-pattern VI :: CountryCode
-pattern VI = CountryCode' "VI"
+pattern CountryCodeVI :: CountryCode
+pattern CountryCodeVI = CountryCode' "VI"
 
-pattern VN :: CountryCode
-pattern VN = CountryCode' "VN"
+pattern CountryCodeVN :: CountryCode
+pattern CountryCodeVN = CountryCode' "VN"
 
-pattern VU :: CountryCode
-pattern VU = CountryCode' "VU"
+pattern CountryCodeVU :: CountryCode
+pattern CountryCodeVU = CountryCode' "VU"
 
-pattern WF :: CountryCode
-pattern WF = CountryCode' "WF"
+pattern CountryCodeWF :: CountryCode
+pattern CountryCodeWF = CountryCode' "WF"
 
-pattern WS :: CountryCode
-pattern WS = CountryCode' "WS"
+pattern CountryCodeWS :: CountryCode
+pattern CountryCodeWS = CountryCode' "WS"
 
-pattern YE :: CountryCode
-pattern YE = CountryCode' "YE"
+pattern CountryCodeYE :: CountryCode
+pattern CountryCodeYE = CountryCode' "YE"
 
-pattern YT :: CountryCode
-pattern YT = CountryCode' "YT"
+pattern CountryCodeYT :: CountryCode
+pattern CountryCodeYT = CountryCode' "YT"
 
-pattern ZA :: CountryCode
-pattern ZA = CountryCode' "ZA"
+pattern CountryCodeZA :: CountryCode
+pattern CountryCodeZA = CountryCode' "ZA"
 
-pattern ZM :: CountryCode
-pattern ZM = CountryCode' "ZM"
+pattern CountryCodeZM :: CountryCode
+pattern CountryCodeZM = CountryCode' "ZM"
 
-pattern ZW :: CountryCode
-pattern ZW = CountryCode' "ZW"
+pattern CountryCodeZW :: CountryCode
+pattern CountryCodeZW = CountryCode' "ZW"
 
 {-# COMPLETE
-  AD,
-  AE,
-  AF,
-  AG,
-  AI,
-  AL,
-  AM,
-  AN,
-  AO,
-  AQ,
-  AR,
-  AS,
-  AT,
-  AU,
-  AW,
-  AZ,
-  BA,
-  BB,
-  BD,
-  BE,
-  BF,
-  BG,
-  BH,
-  BI,
-  BJ,
-  BL,
-  BM,
-  BN,
-  BO,
-  BR,
-  BS,
-  BT,
-  BW,
-  BY,
-  BZ,
-  CA,
-  CC,
-  CD,
-  CF,
-  CG,
-  CH,
-  CI,
-  CK,
-  CL,
-  CM,
-  CN,
-  CO,
-  CR,
-  CU,
-  CV,
-  CX,
-  CY,
-  CZ,
-  DE,
-  DJ,
-  DK,
-  DM,
-  DO,
-  DZ,
-  EC,
-  EE,
-  EG,
-  ER,
-  ES,
-  ET,
-  FI,
-  FJ,
-  FK,
-  FM,
-  FO,
-  FR,
-  GA,
-  GB,
-  GD,
-  GE,
-  GH,
-  GI,
-  GL,
-  GM,
-  GN,
-  GQ,
-  GR,
-  GT,
-  GU,
-  GW,
-  GY,
-  HK,
-  HN,
-  HR,
-  HT,
-  HU,
-  Id,
-  IE,
-  IL,
-  IM,
-  IN,
-  IQ,
-  IR,
-  IS,
-  IT,
-  JM,
-  JO,
-  JP,
-  KE,
-  KG,
-  KH,
-  KI,
-  KM,
-  KN,
-  KP,
-  KR,
-  KW,
-  KY,
-  KZ,
-  LA,
-  LB,
-  LC,
-  LI,
-  LK,
-  LR,
-  LS,
-  LT,
-  LU,
-  LV,
-  LY,
-  MA,
-  MC,
-  MD,
-  ME,
-  MF,
-  MG,
-  MH,
-  MK,
-  ML,
-  MM,
-  MN,
-  MO,
-  MP,
-  MR,
-  MS,
-  MT,
-  MU,
-  MV,
-  MW,
-  MX,
-  MY,
-  MZ,
-  NA,
-  NC,
-  NE,
-  NG,
-  NI,
-  NL,
-  NO,
-  NP,
-  NR,
-  NU,
-  NZ,
-  OM,
-  PA,
-  PE,
-  PF,
-  PG,
-  PH,
-  PK,
-  PL,
-  PM,
-  PN,
-  PR,
-  PT,
-  PW,
-  PY,
-  QA,
-  RO,
-  RS,
-  RU,
-  RW,
-  SA,
-  SB,
-  SC,
-  SD,
-  SE,
-  SG,
-  SH,
-  SI,
-  SK,
-  SL,
-  SM,
-  SN,
-  SO,
-  SR,
-  ST,
-  SV,
-  SY,
-  SZ,
-  TC,
-  TD,
-  TG,
-  TH,
-  TJ,
-  TK,
-  TL,
-  TM,
-  TN,
-  TO,
-  TR,
-  TT,
-  TV,
-  TW,
-  TZ,
-  UA,
-  UG,
-  US,
-  UY,
-  UZ,
-  VA,
-  VC,
-  VE,
-  VG,
-  VI,
-  VN,
-  VU,
-  WF,
-  WS,
-  YE,
-  YT,
-  ZA,
-  ZM,
-  ZW,
+  CountryCodeAD,
+  CountryCodeAE,
+  CountryCodeAF,
+  CountryCodeAG,
+  CountryCodeAI,
+  CountryCodeAL,
+  CountryCodeAM,
+  CountryCodeAN,
+  CountryCodeAO,
+  CountryCodeAQ,
+  CountryCodeAR,
+  CountryCodeAS,
+  CountryCodeAT,
+  CountryCodeAU,
+  CountryCodeAW,
+  CountryCodeAZ,
+  CountryCodeBA,
+  CountryCodeBB,
+  CountryCodeBD,
+  CountryCodeBE,
+  CountryCodeBF,
+  CountryCodeBG,
+  CountryCodeBH,
+  CountryCodeBI,
+  CountryCodeBJ,
+  CountryCodeBL,
+  CountryCodeBM,
+  CountryCodeBN,
+  CountryCodeBO,
+  CountryCodeBR,
+  CountryCodeBS,
+  CountryCodeBT,
+  CountryCodeBW,
+  CountryCodeBY,
+  CountryCodeBZ,
+  CountryCodeCA,
+  CountryCodeCC,
+  CountryCodeCD,
+  CountryCodeCF,
+  CountryCodeCG,
+  CountryCodeCH,
+  CountryCodeCI,
+  CountryCodeCK,
+  CountryCodeCL,
+  CountryCodeCM,
+  CountryCodeCN,
+  CountryCodeCO,
+  CountryCodeCR,
+  CountryCodeCU,
+  CountryCodeCV,
+  CountryCodeCX,
+  CountryCodeCY,
+  CountryCodeCZ,
+  CountryCodeDE,
+  CountryCodeDJ,
+  CountryCodeDK,
+  CountryCodeDM,
+  CountryCodeDO,
+  CountryCodeDZ,
+  CountryCodeEC,
+  CountryCodeEE,
+  CountryCodeEG,
+  CountryCodeER,
+  CountryCodeES,
+  CountryCodeET,
+  CountryCodeFI,
+  CountryCodeFJ,
+  CountryCodeFK,
+  CountryCodeFM,
+  CountryCodeFO,
+  CountryCodeFR,
+  CountryCodeGA,
+  CountryCodeGB,
+  CountryCodeGD,
+  CountryCodeGE,
+  CountryCodeGH,
+  CountryCodeGI,
+  CountryCodeGL,
+  CountryCodeGM,
+  CountryCodeGN,
+  CountryCodeGQ,
+  CountryCodeGR,
+  CountryCodeGT,
+  CountryCodeGU,
+  CountryCodeGW,
+  CountryCodeGY,
+  CountryCodeHK,
+  CountryCodeHN,
+  CountryCodeHR,
+  CountryCodeHT,
+  CountryCodeHU,
+  CountryCodeID,
+  CountryCodeIE,
+  CountryCodeIL,
+  CountryCodeIM,
+  CountryCodeIN,
+  CountryCodeIQ,
+  CountryCodeIR,
+  CountryCodeIS,
+  CountryCodeIT,
+  CountryCodeJM,
+  CountryCodeJO,
+  CountryCodeJP,
+  CountryCodeKE,
+  CountryCodeKG,
+  CountryCodeKH,
+  CountryCodeKI,
+  CountryCodeKM,
+  CountryCodeKN,
+  CountryCodeKP,
+  CountryCodeKR,
+  CountryCodeKW,
+  CountryCodeKY,
+  CountryCodeKZ,
+  CountryCodeLA,
+  CountryCodeLB,
+  CountryCodeLC,
+  CountryCodeLI,
+  CountryCodeLK,
+  CountryCodeLR,
+  CountryCodeLS,
+  CountryCodeLT,
+  CountryCodeLU,
+  CountryCodeLV,
+  CountryCodeLY,
+  CountryCodeMA,
+  CountryCodeMC,
+  CountryCodeMD,
+  CountryCodeME,
+  CountryCodeMF,
+  CountryCodeMG,
+  CountryCodeMH,
+  CountryCodeMK,
+  CountryCodeML,
+  CountryCodeMM,
+  CountryCodeMN,
+  CountryCodeMO,
+  CountryCodeMP,
+  CountryCodeMR,
+  CountryCodeMS,
+  CountryCodeMT,
+  CountryCodeMU,
+  CountryCodeMV,
+  CountryCodeMW,
+  CountryCodeMX,
+  CountryCodeMY,
+  CountryCodeMZ,
+  CountryCodeNA,
+  CountryCodeNC,
+  CountryCodeNE,
+  CountryCodeNG,
+  CountryCodeNI,
+  CountryCodeNL,
+  CountryCodeNO,
+  CountryCodeNP,
+  CountryCodeNR,
+  CountryCodeNU,
+  CountryCodeNZ,
+  CountryCodeOM,
+  CountryCodePA,
+  CountryCodePE,
+  CountryCodePF,
+  CountryCodePG,
+  CountryCodePH,
+  CountryCodePK,
+  CountryCodePL,
+  CountryCodePM,
+  CountryCodePN,
+  CountryCodePR,
+  CountryCodePT,
+  CountryCodePW,
+  CountryCodePY,
+  CountryCodeQA,
+  CountryCodeRO,
+  CountryCodeRS,
+  CountryCodeRU,
+  CountryCodeRW,
+  CountryCodeSA,
+  CountryCodeSB,
+  CountryCodeSC,
+  CountryCodeSD,
+  CountryCodeSE,
+  CountryCodeSG,
+  CountryCodeSH,
+  CountryCodeSI,
+  CountryCodeSK,
+  CountryCodeSL,
+  CountryCodeSM,
+  CountryCodeSN,
+  CountryCodeSO,
+  CountryCodeSR,
+  CountryCodeST,
+  CountryCodeSV,
+  CountryCodeSY,
+  CountryCodeSZ,
+  CountryCodeTC,
+  CountryCodeTD,
+  CountryCodeTG,
+  CountryCodeTH,
+  CountryCodeTJ,
+  CountryCodeTK,
+  CountryCodeTL,
+  CountryCodeTM,
+  CountryCodeTN,
+  CountryCodeTO,
+  CountryCodeTR,
+  CountryCodeTT,
+  CountryCodeTV,
+  CountryCodeTW,
+  CountryCodeTZ,
+  CountryCodeUA,
+  CountryCodeUG,
+  CountryCodeUS,
+  CountryCodeUY,
+  CountryCodeUZ,
+  CountryCodeVA,
+  CountryCodeVC,
+  CountryCodeVE,
+  CountryCodeVG,
+  CountryCodeVI,
+  CountryCodeVN,
+  CountryCodeVU,
+  CountryCodeWF,
+  CountryCodeWS,
+  CountryCodeYE,
+  CountryCodeYT,
+  CountryCodeZA,
+  CountryCodeZM,
+  CountryCodeZW,
   CountryCode'
   #-}

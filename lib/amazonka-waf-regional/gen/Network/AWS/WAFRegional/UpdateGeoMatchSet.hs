@@ -45,29 +45,31 @@ module Network.AWS.WAFRegional.UpdateGeoMatchSet
 
     -- ** Request lenses
     ugmsGeoMatchSetId,
-    ugmsUpdates,
     ugmsChangeToken,
+    ugmsUpdates,
 
     -- * Destructuring the response
     UpdateGeoMatchSetResponse (..),
     mkUpdateGeoMatchSetResponse,
 
     -- ** Response lenses
-    ugmsrsChangeToken,
-    ugmsrsResponseStatus,
+    ugmsrrsChangeToken,
+    ugmsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkUpdateGeoMatchSet' smart constructor.
 data UpdateGeoMatchSet = UpdateGeoMatchSet'
   { -- | The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to update. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
-    geoMatchSetId :: Lude.Text,
+    geoMatchSetId :: Types.ResourceId,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
+    changeToken :: Types.ChangeToken,
     -- | An array of @GeoMatchSetUpdate@ objects that you want to insert into or delete from an 'GeoMatchSet' . For more information, see the applicable data types:
     --
     --
@@ -76,48 +78,36 @@ data UpdateGeoMatchSet = UpdateGeoMatchSet'
     --
     --     * 'GeoMatchConstraint' : Contains @Type@ and @Value@
     -- You can have only one @Type@ and @Value@ per @GeoMatchConstraint@ . To add multiple countries, include multiple @GeoMatchSetUpdate@ objects in your request.
-    updates :: Lude.NonEmpty GeoMatchSetUpdate,
-    -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    updates :: Core.NonEmpty Types.GeoMatchSetUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateGeoMatchSet' with the minimum fields required to make a request.
---
--- * 'geoMatchSetId' - The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to update. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
--- * 'updates' - An array of @GeoMatchSetUpdate@ objects that you want to insert into or delete from an 'GeoMatchSet' . For more information, see the applicable data types:
---
---
---     * 'GeoMatchSetUpdate' : Contains @Action@ and @GeoMatchConstraint@
---
---
---     * 'GeoMatchConstraint' : Contains @Type@ and @Value@
--- You can have only one @Type@ and @Value@ per @GeoMatchConstraint@ . To add multiple countries, include multiple @GeoMatchSetUpdate@ objects in your request.
---
---
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'UpdateGeoMatchSet' value with any optional fields omitted.
 mkUpdateGeoMatchSet ::
   -- | 'geoMatchSetId'
-  Lude.Text ->
-  -- | 'updates'
-  Lude.NonEmpty GeoMatchSetUpdate ->
+  Types.ResourceId ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
+  -- | 'updates'
+  Core.NonEmpty Types.GeoMatchSetUpdate ->
   UpdateGeoMatchSet
-mkUpdateGeoMatchSet pGeoMatchSetId_ pUpdates_ pChangeToken_ =
-  UpdateGeoMatchSet'
-    { geoMatchSetId = pGeoMatchSetId_,
-      updates = pUpdates_,
-      changeToken = pChangeToken_
-    }
+mkUpdateGeoMatchSet geoMatchSetId changeToken updates =
+  UpdateGeoMatchSet' {geoMatchSetId, changeToken, updates}
 
 -- | The @GeoMatchSetId@ of the 'GeoMatchSet' that you want to update. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
 --
 -- /Note:/ Consider using 'geoMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugmsGeoMatchSetId :: Lens.Lens' UpdateGeoMatchSet Lude.Text
-ugmsGeoMatchSetId = Lens.lens (geoMatchSetId :: UpdateGeoMatchSet -> Lude.Text) (\s a -> s {geoMatchSetId = a} :: UpdateGeoMatchSet)
+ugmsGeoMatchSetId :: Lens.Lens' UpdateGeoMatchSet Types.ResourceId
+ugmsGeoMatchSetId = Lens.field @"geoMatchSetId"
 {-# DEPRECATED ugmsGeoMatchSetId "Use generic-lens or generic-optics with 'geoMatchSetId' instead." #-}
+
+-- | The value returned by the most recent call to 'GetChangeToken' .
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugmsChangeToken :: Lens.Lens' UpdateGeoMatchSet Types.ChangeToken
+ugmsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED ugmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | An array of @GeoMatchSetUpdate@ objects that you want to insert into or delete from an 'GeoMatchSet' . For more information, see the applicable data types:
 --
@@ -131,88 +121,72 @@ ugmsGeoMatchSetId = Lens.lens (geoMatchSetId :: UpdateGeoMatchSet -> Lude.Text) 
 --
 --
 -- /Note:/ Consider using 'updates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugmsUpdates :: Lens.Lens' UpdateGeoMatchSet (Lude.NonEmpty GeoMatchSetUpdate)
-ugmsUpdates = Lens.lens (updates :: UpdateGeoMatchSet -> Lude.NonEmpty GeoMatchSetUpdate) (\s a -> s {updates = a} :: UpdateGeoMatchSet)
+ugmsUpdates :: Lens.Lens' UpdateGeoMatchSet (Core.NonEmpty Types.GeoMatchSetUpdate)
+ugmsUpdates = Lens.field @"updates"
 {-# DEPRECATED ugmsUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
 
--- | The value returned by the most recent call to 'GetChangeToken' .
---
--- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugmsChangeToken :: Lens.Lens' UpdateGeoMatchSet Lude.Text
-ugmsChangeToken = Lens.lens (changeToken :: UpdateGeoMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateGeoMatchSet)
-{-# DEPRECATED ugmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+instance Core.FromJSON UpdateGeoMatchSet where
+  toJSON UpdateGeoMatchSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GeoMatchSetId" Core..= geoMatchSetId),
+            Core.Just ("ChangeToken" Core..= changeToken),
+            Core.Just ("Updates" Core..= updates)
+          ]
+      )
 
-instance Lude.AWSRequest UpdateGeoMatchSet where
+instance Core.AWSRequest UpdateGeoMatchSet where
   type Rs UpdateGeoMatchSet = UpdateGeoMatchSetResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_Regional_20161128.UpdateGeoMatchSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateGeoMatchSetResponse'
-            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateGeoMatchSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.UpdateGeoMatchSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateGeoMatchSet where
-  toJSON UpdateGeoMatchSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GeoMatchSetId" Lude..= geoMatchSetId),
-            Lude.Just ("Updates" Lude..= updates),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath UpdateGeoMatchSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateGeoMatchSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateGeoMatchSetResponse' smart constructor.
 data UpdateGeoMatchSetResponse = UpdateGeoMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateGeoMatchSetResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @UpdateGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateGeoMatchSetResponse' value with any optional fields omitted.
 mkUpdateGeoMatchSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateGeoMatchSetResponse
-mkUpdateGeoMatchSetResponse pResponseStatus_ =
+mkUpdateGeoMatchSetResponse responseStatus =
   UpdateGeoMatchSetResponse'
-    { changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugmsrsChangeToken :: Lens.Lens' UpdateGeoMatchSetResponse (Lude.Maybe Lude.Text)
-ugmsrsChangeToken = Lens.lens (changeToken :: UpdateGeoMatchSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: UpdateGeoMatchSetResponse)
-{-# DEPRECATED ugmsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+ugmsrrsChangeToken :: Lens.Lens' UpdateGeoMatchSetResponse (Core.Maybe Types.ChangeToken)
+ugmsrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED ugmsrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugmsrsResponseStatus :: Lens.Lens' UpdateGeoMatchSetResponse Lude.Int
-ugmsrsResponseStatus = Lens.lens (responseStatus :: UpdateGeoMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGeoMatchSetResponse)
-{-# DEPRECATED ugmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ugmsrrsResponseStatus :: Lens.Lens' UpdateGeoMatchSetResponse Core.Int
+ugmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ugmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

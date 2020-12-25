@@ -21,42 +21,39 @@ module Network.AWS.Config.Types.StaticValue
   )
 where
 
+import qualified Network.AWS.Config.Types.StringWithCharLimit256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The static value of the resource.
 --
 -- /See:/ 'mkStaticValue' smart constructor.
 newtype StaticValue = StaticValue'
   { -- | A list of values. For example, the ARN of the assumed role.
-    values :: [Lude.Text]
+    values :: [Types.StringWithCharLimit256]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StaticValue' with the minimum fields required to make a request.
---
--- * 'values' - A list of values. For example, the ARN of the assumed role.
+-- | Creates a 'StaticValue' value with any optional fields omitted.
 mkStaticValue ::
   StaticValue
-mkStaticValue = StaticValue' {values = Lude.mempty}
+mkStaticValue = StaticValue' {values = Core.mempty}
 
 -- | A list of values. For example, the ARN of the assumed role.
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svValues :: Lens.Lens' StaticValue [Lude.Text]
-svValues = Lens.lens (values :: StaticValue -> [Lude.Text]) (\s a -> s {values = a} :: StaticValue)
+svValues :: Lens.Lens' StaticValue [Types.StringWithCharLimit256]
+svValues = Lens.field @"values"
 {-# DEPRECATED svValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Lude.FromJSON StaticValue where
-  parseJSON =
-    Lude.withObject
-      "StaticValue"
-      ( \x ->
-          StaticValue' Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON StaticValue where
+  toJSON StaticValue {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Values" Core..= values)])
 
-instance Lude.ToJSON StaticValue where
-  toJSON StaticValue' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Values" Lude..= values)])
+instance Core.FromJSON StaticValue where
+  parseJSON =
+    Core.withObject "StaticValue" Core.$
+      \x ->
+        StaticValue' Core.<$> (x Core..:? "Values" Core..!= Core.mempty)

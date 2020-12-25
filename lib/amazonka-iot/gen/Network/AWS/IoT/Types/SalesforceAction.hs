@@ -17,65 +17,61 @@ module Network.AWS.IoT.Types.SalesforceAction
     mkSalesforceAction,
 
     -- * Lenses
-    saUrl,
     saToken,
+    saUrl,
   )
 where
 
+import qualified Network.AWS.IoT.Types.SalesforceEndpoint as Types
+import qualified Network.AWS.IoT.Types.Token as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an action to write a message to a Salesforce IoT Cloud Input Stream.
 --
 -- /See:/ 'mkSalesforceAction' smart constructor.
 data SalesforceAction = SalesforceAction'
-  { -- | The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
-    url :: Lude.Text,
-    -- | The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
-    token :: Lude.Text
+  { -- | The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+    token :: Types.Token,
+    -- | The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+    url :: Types.SalesforceEndpoint
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SalesforceAction' with the minimum fields required to make a request.
---
--- * 'url' - The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
--- * 'token' - The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+-- | Creates a 'SalesforceAction' value with any optional fields omitted.
 mkSalesforceAction ::
-  -- | 'url'
-  Lude.Text ->
   -- | 'token'
-  Lude.Text ->
+  Types.Token ->
+  -- | 'url'
+  Types.SalesforceEndpoint ->
   SalesforceAction
-mkSalesforceAction pUrl_ pToken_ =
-  SalesforceAction' {url = pUrl_, token = pToken_}
-
--- | The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
---
--- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saUrl :: Lens.Lens' SalesforceAction Lude.Text
-saUrl = Lens.lens (url :: SalesforceAction -> Lude.Text) (\s a -> s {url = a} :: SalesforceAction)
-{-# DEPRECATED saUrl "Use generic-lens or generic-optics with 'url' instead." #-}
+mkSalesforceAction token url = SalesforceAction' {token, url}
 
 -- | The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
 --
 -- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saToken :: Lens.Lens' SalesforceAction Lude.Text
-saToken = Lens.lens (token :: SalesforceAction -> Lude.Text) (\s a -> s {token = a} :: SalesforceAction)
+saToken :: Lens.Lens' SalesforceAction Types.Token
+saToken = Lens.field @"token"
 {-# DEPRECATED saToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
-instance Lude.FromJSON SalesforceAction where
-  parseJSON =
-    Lude.withObject
-      "SalesforceAction"
-      ( \x ->
-          SalesforceAction'
-            Lude.<$> (x Lude..: "url") Lude.<*> (x Lude..: "token")
+-- | The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saUrl :: Lens.Lens' SalesforceAction Types.SalesforceEndpoint
+saUrl = Lens.field @"url"
+{-# DEPRECATED saUrl "Use generic-lens or generic-optics with 'url' instead." #-}
+
+instance Core.FromJSON SalesforceAction where
+  toJSON SalesforceAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("token" Core..= token), Core.Just ("url" Core..= url)]
       )
 
-instance Lude.ToJSON SalesforceAction where
-  toJSON SalesforceAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("url" Lude..= url), Lude.Just ("token" Lude..= token)]
-      )
+instance Core.FromJSON SalesforceAction where
+  parseJSON =
+    Core.withObject "SalesforceAction" Core.$
+      \x ->
+        SalesforceAction'
+          Core.<$> (x Core..: "token") Core.<*> (x Core..: "url")

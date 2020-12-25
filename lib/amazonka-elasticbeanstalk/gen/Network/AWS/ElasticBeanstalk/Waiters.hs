@@ -23,106 +23,112 @@ module Network.AWS.ElasticBeanstalk.Waiters
 where
 
 import Network.AWS.ElasticBeanstalk.DescribeEnvironments
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
-mkEnvironmentExists :: Wait.Wait DescribeEnvironments
+mkEnvironmentExists :: Waiter.Wait DescribeEnvironments
 mkEnvironmentExists =
-  Wait.Wait
-    { Wait._waitName = "EnvironmentExists",
-      Wait._waitAttempts = 20,
-      Wait._waitDelay = 20,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "EnvironmentExists",
+      Waiter._waitAttempts = 20,
+      Waiter._waitDelay = 20,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "Ready"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (edmEnvironments Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"environments" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. eStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "Launching"
-            Wait.AcceptRetry
+            Waiter.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf
-                    (edmEnvironments Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"environments" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. eStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
-mkEnvironmentUpdated :: Wait.Wait DescribeEnvironments
+mkEnvironmentUpdated :: Waiter.Wait DescribeEnvironments
 mkEnvironmentUpdated =
-  Wait.Wait
-    { Wait._waitName = "EnvironmentUpdated",
-      Wait._waitAttempts = 20,
-      Wait._waitDelay = 20,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "EnvironmentUpdated",
+      Waiter._waitAttempts = 20,
+      Waiter._waitDelay = 20,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "Ready"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (edmEnvironments Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"environments" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. eStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "Updating"
-            Wait.AcceptRetry
+            Waiter.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf
-                    (edmEnvironments Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"environments" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. eStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.ElasticBeanstalk.DescribeEnvironments' every 20 seconds until a successful state is reached. An error is returned after 20 failed checks.
-mkEnvironmentTerminated :: Wait.Wait DescribeEnvironments
+mkEnvironmentTerminated :: Waiter.Wait DescribeEnvironments
 mkEnvironmentTerminated =
-  Wait.Wait
-    { Wait._waitName = "EnvironmentTerminated",
-      Wait._waitAttempts = 20,
-      Wait._waitDelay = 20,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "EnvironmentTerminated",
+      Waiter._waitAttempts = 20,
+      Waiter._waitDelay = 20,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "Terminated"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (edmEnvironments Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"environments" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. eStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "Terminating"
-            Wait.AcceptRetry
+            Waiter.AcceptRetry
             ( Lens.folding
                 ( Lens.concatOf
-                    (edmEnvironments Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"environments" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. eStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }

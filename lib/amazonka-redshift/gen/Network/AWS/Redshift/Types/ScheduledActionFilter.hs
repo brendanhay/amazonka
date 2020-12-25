@@ -17,56 +17,47 @@ module Network.AWS.Redshift.Types.ScheduledActionFilter
     mkScheduledActionFilter,
 
     -- * Lenses
-    safValues,
     safName,
+    safValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.ScheduledActionFilterName
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.ScheduledActionFilterName as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | A set of elements to filter the returned scheduled actions.
 --
 -- /See:/ 'mkScheduledActionFilter' smart constructor.
 data ScheduledActionFilter = ScheduledActionFilter'
-  { -- | List of values. Compare if the value (of type defined by @Name@ ) equals an item in the list of scheduled actions.
-    values :: [Lude.Text],
-    -- | The type of element to filter.
-    name :: ScheduledActionFilterName
+  { -- | The type of element to filter.
+    name :: Types.ScheduledActionFilterName,
+    -- | List of values. Compare if the value (of type defined by @Name@ ) equals an item in the list of scheduled actions.
+    values :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduledActionFilter' with the minimum fields required to make a request.
---
--- * 'values' - List of values. Compare if the value (of type defined by @Name@ ) equals an item in the list of scheduled actions.
--- * 'name' - The type of element to filter.
+-- | Creates a 'ScheduledActionFilter' value with any optional fields omitted.
 mkScheduledActionFilter ::
   -- | 'name'
-  ScheduledActionFilterName ->
+  Types.ScheduledActionFilterName ->
   ScheduledActionFilter
-mkScheduledActionFilter pName_ =
-  ScheduledActionFilter' {values = Lude.mempty, name = pName_}
-
--- | List of values. Compare if the value (of type defined by @Name@ ) equals an item in the list of scheduled actions.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-safValues :: Lens.Lens' ScheduledActionFilter [Lude.Text]
-safValues = Lens.lens (values :: ScheduledActionFilter -> [Lude.Text]) (\s a -> s {values = a} :: ScheduledActionFilter)
-{-# DEPRECATED safValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkScheduledActionFilter name =
+  ScheduledActionFilter' {name, values = Core.mempty}
 
 -- | The type of element to filter.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-safName :: Lens.Lens' ScheduledActionFilter ScheduledActionFilterName
-safName = Lens.lens (name :: ScheduledActionFilter -> ScheduledActionFilterName) (\s a -> s {name = a} :: ScheduledActionFilter)
+safName :: Lens.Lens' ScheduledActionFilter Types.ScheduledActionFilterName
+safName = Lens.field @"name"
 {-# DEPRECATED safName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToQuery ScheduledActionFilter where
-  toQuery ScheduledActionFilter' {..} =
-    Lude.mconcat
-      [ "Values" Lude.=: Lude.toQueryList "item" values,
-        "Name" Lude.=: name
-      ]
+-- | List of values. Compare if the value (of type defined by @Name@ ) equals an item in the list of scheduled actions.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+safValues :: Lens.Lens' ScheduledActionFilter [Types.String]
+safValues = Lens.field @"values"
+{-# DEPRECATED safValues "Use generic-lens or generic-optics with 'values' instead." #-}

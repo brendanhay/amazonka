@@ -23,50 +23,45 @@ module Network.AWS.ElasticSearch.Types.InstanceCountLimits
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | InstanceCountLimits represents the limits on number of instances that be created in Amazon Elasticsearch for given InstanceType.
 --
 -- /See:/ 'mkInstanceCountLimits' smart constructor.
 data InstanceCountLimits = InstanceCountLimits'
-  { maximumInstanceCount :: Lude.Maybe Lude.Int,
-    minimumInstanceCount :: Lude.Maybe Lude.Int
+  { maximumInstanceCount :: Core.Maybe Core.Int,
+    minimumInstanceCount :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceCountLimits' with the minimum fields required to make a request.
---
--- * 'maximumInstanceCount' -
--- * 'minimumInstanceCount' -
+-- | Creates a 'InstanceCountLimits' value with any optional fields omitted.
 mkInstanceCountLimits ::
   InstanceCountLimits
 mkInstanceCountLimits =
   InstanceCountLimits'
-    { maximumInstanceCount = Lude.Nothing,
-      minimumInstanceCount = Lude.Nothing
+    { maximumInstanceCount = Core.Nothing,
+      minimumInstanceCount = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'maximumInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iclMaximumInstanceCount :: Lens.Lens' InstanceCountLimits (Lude.Maybe Lude.Int)
-iclMaximumInstanceCount = Lens.lens (maximumInstanceCount :: InstanceCountLimits -> Lude.Maybe Lude.Int) (\s a -> s {maximumInstanceCount = a} :: InstanceCountLimits)
+iclMaximumInstanceCount :: Lens.Lens' InstanceCountLimits (Core.Maybe Core.Int)
+iclMaximumInstanceCount = Lens.field @"maximumInstanceCount"
 {-# DEPRECATED iclMaximumInstanceCount "Use generic-lens or generic-optics with 'maximumInstanceCount' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'minimumInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iclMinimumInstanceCount :: Lens.Lens' InstanceCountLimits (Lude.Maybe Lude.Int)
-iclMinimumInstanceCount = Lens.lens (minimumInstanceCount :: InstanceCountLimits -> Lude.Maybe Lude.Int) (\s a -> s {minimumInstanceCount = a} :: InstanceCountLimits)
+iclMinimumInstanceCount :: Lens.Lens' InstanceCountLimits (Core.Maybe Core.Int)
+iclMinimumInstanceCount = Lens.field @"minimumInstanceCount"
 {-# DEPRECATED iclMinimumInstanceCount "Use generic-lens or generic-optics with 'minimumInstanceCount' instead." #-}
 
-instance Lude.FromJSON InstanceCountLimits where
+instance Core.FromJSON InstanceCountLimits where
   parseJSON =
-    Lude.withObject
-      "InstanceCountLimits"
-      ( \x ->
-          InstanceCountLimits'
-            Lude.<$> (x Lude..:? "MaximumInstanceCount")
-            Lude.<*> (x Lude..:? "MinimumInstanceCount")
-      )
+    Core.withObject "InstanceCountLimits" Core.$
+      \x ->
+        InstanceCountLimits'
+          Core.<$> (x Core..:? "MaximumInstanceCount")
+          Core.<*> (x Core..:? "MinimumInstanceCount")

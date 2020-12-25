@@ -20,325 +20,304 @@ module Network.AWS.EC2.ExportImage
     mkExportImage,
 
     -- ** Request lenses
-    eiClientToken,
-    eiRoleName,
-    eiTagSpecifications,
+    eiDiskImageFormat,
     eiImageId,
+    eiS3ExportLocation,
+    eiClientToken,
     eiDescription,
     eiDryRun,
-    eiS3ExportLocation,
-    eiDiskImageFormat,
+    eiRoleName,
+    eiTagSpecifications,
 
     -- * Destructuring the response
     ExportImageResponse (..),
     mkExportImageResponse,
 
     -- ** Response lenses
-    eirsStatus,
-    eirsProgress,
-    eirsExportImageTaskId,
-    eirsRoleName,
-    eirsStatusMessage,
-    eirsImageId,
-    eirsDescription,
-    eirsTags,
-    eirsS3ExportLocation,
-    eirsDiskImageFormat,
-    eirsResponseStatus,
+    eirrsDescription,
+    eirrsDiskImageFormat,
+    eirrsExportImageTaskId,
+    eirrsImageId,
+    eirrsProgress,
+    eirrsRoleName,
+    eirrsS3ExportLocation,
+    eirrsStatus,
+    eirrsStatusMessage,
+    eirrsTags,
+    eirrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkExportImage' smart constructor.
 data ExportImage = ExportImage'
-  { -- | Token to enable idempotency for export image requests.
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.
-    roleName :: Lude.Maybe Lude.Text,
-    -- | The tags to apply to the image being exported.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
+  { -- | The disk image format.
+    diskImageFormat :: Types.DiskImageFormat,
     -- | The ID of the image.
-    imageId :: Lude.Text,
-    -- | A description of the image being exported. The maximum length is 255 characters.
-    description :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    imageId :: Types.ImageId,
     -- | Information about the destination Amazon S3 bucket. The bucket must exist and grant WRITE and READ_ACP permissions to the AWS account vm-import-export@amazon.com.
-    s3ExportLocation :: ExportTaskS3LocationRequest,
-    -- | The disk image format.
-    diskImageFormat :: DiskImageFormat
+    s3ExportLocation :: Types.ExportTaskS3LocationRequest,
+    -- | Token to enable idempotency for export image requests.
+    clientToken :: Core.Maybe Types.ClientToken,
+    -- | A description of the image being exported. The maximum length is 255 characters.
+    description :: Core.Maybe Types.Description,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.
+    roleName :: Core.Maybe Types.RoleName,
+    -- | The tags to apply to the image being exported.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportImage' with the minimum fields required to make a request.
---
--- * 'clientToken' - Token to enable idempotency for export image requests.
--- * 'roleName' - The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.
--- * 'tagSpecifications' - The tags to apply to the image being exported.
--- * 'imageId' - The ID of the image.
--- * 'description' - A description of the image being exported. The maximum length is 255 characters.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 's3ExportLocation' - Information about the destination Amazon S3 bucket. The bucket must exist and grant WRITE and READ_ACP permissions to the AWS account vm-import-export@amazon.com.
--- * 'diskImageFormat' - The disk image format.
+-- | Creates a 'ExportImage' value with any optional fields omitted.
 mkExportImage ::
-  -- | 'imageId'
-  Lude.Text ->
-  -- | 's3ExportLocation'
-  ExportTaskS3LocationRequest ->
   -- | 'diskImageFormat'
-  DiskImageFormat ->
+  Types.DiskImageFormat ->
+  -- | 'imageId'
+  Types.ImageId ->
+  -- | 's3ExportLocation'
+  Types.ExportTaskS3LocationRequest ->
   ExportImage
-mkExportImage pImageId_ pS3ExportLocation_ pDiskImageFormat_ =
+mkExportImage diskImageFormat imageId s3ExportLocation =
   ExportImage'
-    { clientToken = Lude.Nothing,
-      roleName = Lude.Nothing,
-      tagSpecifications = Lude.Nothing,
-      imageId = pImageId_,
-      description = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      s3ExportLocation = pS3ExportLocation_,
-      diskImageFormat = pDiskImageFormat_
+    { diskImageFormat,
+      imageId,
+      s3ExportLocation,
+      clientToken = Core.Nothing,
+      description = Core.Nothing,
+      dryRun = Core.Nothing,
+      roleName = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
 
--- | Token to enable idempotency for export image requests.
+-- | The disk image format.
 --
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiClientToken :: Lens.Lens' ExportImage (Lude.Maybe Lude.Text)
-eiClientToken = Lens.lens (clientToken :: ExportImage -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: ExportImage)
-{-# DEPRECATED eiClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiRoleName :: Lens.Lens' ExportImage (Lude.Maybe Lude.Text)
-eiRoleName = Lens.lens (roleName :: ExportImage -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: ExportImage)
-{-# DEPRECATED eiRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
-
--- | The tags to apply to the image being exported.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiTagSpecifications :: Lens.Lens' ExportImage (Lude.Maybe [TagSpecification])
-eiTagSpecifications = Lens.lens (tagSpecifications :: ExportImage -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: ExportImage)
-{-# DEPRECATED eiTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+-- /Note:/ Consider using 'diskImageFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiDiskImageFormat :: Lens.Lens' ExportImage Types.DiskImageFormat
+eiDiskImageFormat = Lens.field @"diskImageFormat"
+{-# DEPRECATED eiDiskImageFormat "Use generic-lens or generic-optics with 'diskImageFormat' instead." #-}
 
 -- | The ID of the image.
 --
 -- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiImageId :: Lens.Lens' ExportImage Lude.Text
-eiImageId = Lens.lens (imageId :: ExportImage -> Lude.Text) (\s a -> s {imageId = a} :: ExportImage)
+eiImageId :: Lens.Lens' ExportImage Types.ImageId
+eiImageId = Lens.field @"imageId"
 {-# DEPRECATED eiImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
+-- | Information about the destination Amazon S3 bucket. The bucket must exist and grant WRITE and READ_ACP permissions to the AWS account vm-import-export@amazon.com.
+--
+-- /Note:/ Consider using 's3ExportLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiS3ExportLocation :: Lens.Lens' ExportImage Types.ExportTaskS3LocationRequest
+eiS3ExportLocation = Lens.field @"s3ExportLocation"
+{-# DEPRECATED eiS3ExportLocation "Use generic-lens or generic-optics with 's3ExportLocation' instead." #-}
+
+-- | Token to enable idempotency for export image requests.
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiClientToken :: Lens.Lens' ExportImage (Core.Maybe Types.ClientToken)
+eiClientToken = Lens.field @"clientToken"
+{-# DEPRECATED eiClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | A description of the image being exported. The maximum length is 255 characters.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiDescription :: Lens.Lens' ExportImage (Lude.Maybe Lude.Text)
-eiDescription = Lens.lens (description :: ExportImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ExportImage)
+eiDescription :: Lens.Lens' ExportImage (Core.Maybe Types.Description)
+eiDescription = Lens.field @"description"
 {-# DEPRECATED eiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiDryRun :: Lens.Lens' ExportImage (Lude.Maybe Lude.Bool)
-eiDryRun = Lens.lens (dryRun :: ExportImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ExportImage)
+eiDryRun :: Lens.Lens' ExportImage (Core.Maybe Core.Bool)
+eiDryRun = Lens.field @"dryRun"
 {-# DEPRECATED eiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | Information about the destination Amazon S3 bucket. The bucket must exist and grant WRITE and READ_ACP permissions to the AWS account vm-import-export@amazon.com.
+-- | The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.
 --
--- /Note:/ Consider using 's3ExportLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiS3ExportLocation :: Lens.Lens' ExportImage ExportTaskS3LocationRequest
-eiS3ExportLocation = Lens.lens (s3ExportLocation :: ExportImage -> ExportTaskS3LocationRequest) (\s a -> s {s3ExportLocation = a} :: ExportImage)
-{-# DEPRECATED eiS3ExportLocation "Use generic-lens or generic-optics with 's3ExportLocation' instead." #-}
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiRoleName :: Lens.Lens' ExportImage (Core.Maybe Types.RoleName)
+eiRoleName = Lens.field @"roleName"
+{-# DEPRECATED eiRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
--- | The disk image format.
+-- | The tags to apply to the image being exported.
 --
--- /Note:/ Consider using 'diskImageFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiDiskImageFormat :: Lens.Lens' ExportImage DiskImageFormat
-eiDiskImageFormat = Lens.lens (diskImageFormat :: ExportImage -> DiskImageFormat) (\s a -> s {diskImageFormat = a} :: ExportImage)
-{-# DEPRECATED eiDiskImageFormat "Use generic-lens or generic-optics with 'diskImageFormat' instead." #-}
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eiTagSpecifications :: Lens.Lens' ExportImage (Core.Maybe [Types.TagSpecification])
+eiTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED eiTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
-instance Lude.AWSRequest ExportImage where
+instance Core.AWSRequest ExportImage where
   type Rs ExportImage = ExportImageResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ExportImage")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DiskImageFormat" diskImageFormat)
+                Core.<> (Core.toQueryValue "ImageId" imageId)
+                Core.<> (Core.toQueryValue "S3ExportLocation" s3ExportLocation)
+                Core.<> (Core.toQueryValue "ClientToken" Core.<$> clientToken)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "RoleName" Core.<$> roleName)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ExportImageResponse'
-            Lude.<$> (x Lude..@? "status")
-            Lude.<*> (x Lude..@? "progress")
-            Lude.<*> (x Lude..@? "exportImageTaskId")
-            Lude.<*> (x Lude..@? "roleName")
-            Lude.<*> (x Lude..@? "statusMessage")
-            Lude.<*> (x Lude..@? "imageId")
-            Lude.<*> (x Lude..@? "description")
-            Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (x Lude..@? "s3ExportLocation")
-            Lude.<*> (x Lude..@? "diskImageFormat")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "description")
+            Core.<*> (x Core..@? "diskImageFormat")
+            Core.<*> (x Core..@? "exportImageTaskId")
+            Core.<*> (x Core..@? "imageId")
+            Core.<*> (x Core..@? "progress")
+            Core.<*> (x Core..@? "roleName")
+            Core.<*> (x Core..@? "s3ExportLocation")
+            Core.<*> (x Core..@? "status")
+            Core.<*> (x Core..@? "statusMessage")
+            Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ExportImage where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ExportImage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ExportImage where
-  toQuery ExportImage' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ExportImage" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "ClientToken" Lude.=: clientToken,
-        "RoleName" Lude.=: roleName,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "ImageId" Lude.=: imageId,
-        "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun,
-        "S3ExportLocation" Lude.=: s3ExportLocation,
-        "DiskImageFormat" Lude.=: diskImageFormat
-      ]
 
 -- | /See:/ 'mkExportImageResponse' smart constructor.
 data ExportImageResponse = ExportImageResponse'
-  { -- | The status of the export image task. The possible values are @active@ , @completed@ , @deleting@ , and @deleted@ .
-    status :: Lude.Maybe Lude.Text,
-    -- | The percent complete of the export image task.
-    progress :: Lude.Maybe Lude.Text,
-    -- | The ID of the export image task.
-    exportImageTaskId :: Lude.Maybe Lude.Text,
-    -- | The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket.
-    roleName :: Lude.Maybe Lude.Text,
-    -- | The status message for the export image task.
-    statusMessage :: Lude.Maybe Lude.Text,
-    -- | The ID of the image.
-    imageId :: Lude.Maybe Lude.Text,
-    -- | A description of the image being exported.
-    description :: Lude.Maybe Lude.Text,
-    -- | Any tags assigned to the image being exported.
-    tags :: Lude.Maybe [Tag],
-    -- | Information about the destination Amazon S3 bucket.
-    s3ExportLocation :: Lude.Maybe ExportTaskS3Location,
+  { -- | A description of the image being exported.
+    description :: Core.Maybe Types.Description,
     -- | The disk image format for the exported image.
-    diskImageFormat :: Lude.Maybe DiskImageFormat,
+    diskImageFormat :: Core.Maybe Types.DiskImageFormat,
+    -- | The ID of the export image task.
+    exportImageTaskId :: Core.Maybe Types.ExportImageTaskId,
+    -- | The ID of the image.
+    imageId :: Core.Maybe Types.ImageId,
+    -- | The percent complete of the export image task.
+    progress :: Core.Maybe Types.Progress,
+    -- | The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket.
+    roleName :: Core.Maybe Types.RoleName,
+    -- | Information about the destination Amazon S3 bucket.
+    s3ExportLocation :: Core.Maybe Types.ExportTaskS3Location,
+    -- | The status of the export image task. The possible values are @active@ , @completed@ , @deleting@ , and @deleted@ .
+    status :: Core.Maybe Types.String,
+    -- | The status message for the export image task.
+    statusMessage :: Core.Maybe Types.StatusMessage,
+    -- | Any tags assigned to the image being exported.
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportImageResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the export image task. The possible values are @active@ , @completed@ , @deleting@ , and @deleted@ .
--- * 'progress' - The percent complete of the export image task.
--- * 'exportImageTaskId' - The ID of the export image task.
--- * 'roleName' - The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket.
--- * 'statusMessage' - The status message for the export image task.
--- * 'imageId' - The ID of the image.
--- * 'description' - A description of the image being exported.
--- * 'tags' - Any tags assigned to the image being exported.
--- * 's3ExportLocation' - Information about the destination Amazon S3 bucket.
--- * 'diskImageFormat' - The disk image format for the exported image.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ExportImageResponse' value with any optional fields omitted.
 mkExportImageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ExportImageResponse
-mkExportImageResponse pResponseStatus_ =
+mkExportImageResponse responseStatus =
   ExportImageResponse'
-    { status = Lude.Nothing,
-      progress = Lude.Nothing,
-      exportImageTaskId = Lude.Nothing,
-      roleName = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      imageId = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing,
-      s3ExportLocation = Lude.Nothing,
-      diskImageFormat = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { description = Core.Nothing,
+      diskImageFormat = Core.Nothing,
+      exportImageTaskId = Core.Nothing,
+      imageId = Core.Nothing,
+      progress = Core.Nothing,
+      roleName = Core.Nothing,
+      s3ExportLocation = Core.Nothing,
+      status = Core.Nothing,
+      statusMessage = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
-
--- | The status of the export image task. The possible values are @active@ , @completed@ , @deleting@ , and @deleted@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eirsStatus :: Lens.Lens' ExportImageResponse (Lude.Maybe Lude.Text)
-eirsStatus = Lens.lens (status :: ExportImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: ExportImageResponse)
-{-# DEPRECATED eirsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The percent complete of the export image task.
---
--- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eirsProgress :: Lens.Lens' ExportImageResponse (Lude.Maybe Lude.Text)
-eirsProgress = Lens.lens (progress :: ExportImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {progress = a} :: ExportImageResponse)
-{-# DEPRECATED eirsProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
-
--- | The ID of the export image task.
---
--- /Note:/ Consider using 'exportImageTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eirsExportImageTaskId :: Lens.Lens' ExportImageResponse (Lude.Maybe Lude.Text)
-eirsExportImageTaskId = Lens.lens (exportImageTaskId :: ExportImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {exportImageTaskId = a} :: ExportImageResponse)
-{-# DEPRECATED eirsExportImageTaskId "Use generic-lens or generic-optics with 'exportImageTaskId' instead." #-}
-
--- | The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket.
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eirsRoleName :: Lens.Lens' ExportImageResponse (Lude.Maybe Lude.Text)
-eirsRoleName = Lens.lens (roleName :: ExportImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: ExportImageResponse)
-{-# DEPRECATED eirsRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
-
--- | The status message for the export image task.
---
--- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eirsStatusMessage :: Lens.Lens' ExportImageResponse (Lude.Maybe Lude.Text)
-eirsStatusMessage = Lens.lens (statusMessage :: ExportImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ExportImageResponse)
-{-# DEPRECATED eirsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
-
--- | The ID of the image.
---
--- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eirsImageId :: Lens.Lens' ExportImageResponse (Lude.Maybe Lude.Text)
-eirsImageId = Lens.lens (imageId :: ExportImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: ExportImageResponse)
-{-# DEPRECATED eirsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | A description of the image being exported.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eirsDescription :: Lens.Lens' ExportImageResponse (Lude.Maybe Lude.Text)
-eirsDescription = Lens.lens (description :: ExportImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ExportImageResponse)
-{-# DEPRECATED eirsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Any tags assigned to the image being exported.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eirsTags :: Lens.Lens' ExportImageResponse (Lude.Maybe [Tag])
-eirsTags = Lens.lens (tags :: ExportImageResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ExportImageResponse)
-{-# DEPRECATED eirsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | Information about the destination Amazon S3 bucket.
---
--- /Note:/ Consider using 's3ExportLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eirsS3ExportLocation :: Lens.Lens' ExportImageResponse (Lude.Maybe ExportTaskS3Location)
-eirsS3ExportLocation = Lens.lens (s3ExportLocation :: ExportImageResponse -> Lude.Maybe ExportTaskS3Location) (\s a -> s {s3ExportLocation = a} :: ExportImageResponse)
-{-# DEPRECATED eirsS3ExportLocation "Use generic-lens or generic-optics with 's3ExportLocation' instead." #-}
+eirrsDescription :: Lens.Lens' ExportImageResponse (Core.Maybe Types.Description)
+eirrsDescription = Lens.field @"description"
+{-# DEPRECATED eirrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The disk image format for the exported image.
 --
 -- /Note:/ Consider using 'diskImageFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eirsDiskImageFormat :: Lens.Lens' ExportImageResponse (Lude.Maybe DiskImageFormat)
-eirsDiskImageFormat = Lens.lens (diskImageFormat :: ExportImageResponse -> Lude.Maybe DiskImageFormat) (\s a -> s {diskImageFormat = a} :: ExportImageResponse)
-{-# DEPRECATED eirsDiskImageFormat "Use generic-lens or generic-optics with 'diskImageFormat' instead." #-}
+eirrsDiskImageFormat :: Lens.Lens' ExportImageResponse (Core.Maybe Types.DiskImageFormat)
+eirrsDiskImageFormat = Lens.field @"diskImageFormat"
+{-# DEPRECATED eirrsDiskImageFormat "Use generic-lens or generic-optics with 'diskImageFormat' instead." #-}
+
+-- | The ID of the export image task.
+--
+-- /Note:/ Consider using 'exportImageTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eirrsExportImageTaskId :: Lens.Lens' ExportImageResponse (Core.Maybe Types.ExportImageTaskId)
+eirrsExportImageTaskId = Lens.field @"exportImageTaskId"
+{-# DEPRECATED eirrsExportImageTaskId "Use generic-lens or generic-optics with 'exportImageTaskId' instead." #-}
+
+-- | The ID of the image.
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eirrsImageId :: Lens.Lens' ExportImageResponse (Core.Maybe Types.ImageId)
+eirrsImageId = Lens.field @"imageId"
+{-# DEPRECATED eirrsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
+-- | The percent complete of the export image task.
+--
+-- /Note:/ Consider using 'progress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eirrsProgress :: Lens.Lens' ExportImageResponse (Core.Maybe Types.Progress)
+eirrsProgress = Lens.field @"progress"
+{-# DEPRECATED eirrsProgress "Use generic-lens or generic-optics with 'progress' instead." #-}
+
+-- | The name of the role that grants VM Import/Export permission to export images to your Amazon S3 bucket.
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eirrsRoleName :: Lens.Lens' ExportImageResponse (Core.Maybe Types.RoleName)
+eirrsRoleName = Lens.field @"roleName"
+{-# DEPRECATED eirrsRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+
+-- | Information about the destination Amazon S3 bucket.
+--
+-- /Note:/ Consider using 's3ExportLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eirrsS3ExportLocation :: Lens.Lens' ExportImageResponse (Core.Maybe Types.ExportTaskS3Location)
+eirrsS3ExportLocation = Lens.field @"s3ExportLocation"
+{-# DEPRECATED eirrsS3ExportLocation "Use generic-lens or generic-optics with 's3ExportLocation' instead." #-}
+
+-- | The status of the export image task. The possible values are @active@ , @completed@ , @deleting@ , and @deleted@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eirrsStatus :: Lens.Lens' ExportImageResponse (Core.Maybe Types.String)
+eirrsStatus = Lens.field @"status"
+{-# DEPRECATED eirrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The status message for the export image task.
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eirrsStatusMessage :: Lens.Lens' ExportImageResponse (Core.Maybe Types.StatusMessage)
+eirrsStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED eirrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+
+-- | Any tags assigned to the image being exported.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eirrsTags :: Lens.Lens' ExportImageResponse (Core.Maybe [Types.Tag])
+eirrsTags = Lens.field @"tags"
+{-# DEPRECATED eirrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eirsResponseStatus :: Lens.Lens' ExportImageResponse Lude.Int
-eirsResponseStatus = Lens.lens (responseStatus :: ExportImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExportImageResponse)
-{-# DEPRECATED eirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+eirrsResponseStatus :: Lens.Lens' ExportImageResponse Core.Int
+eirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED eirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,99 +17,94 @@ module Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation
     mkFailedServiceActionAssociation,
 
     -- * Lenses
-    fsaaProvisioningArtifactId,
     fsaaErrorCode,
     fsaaErrorMessage,
-    fsaaServiceActionId,
     fsaaProductId,
+    fsaaProvisioningArtifactId,
+    fsaaServiceActionId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.ProductId as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisioningArtifactId as Types
+import qualified Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode as Types
+import qualified Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorMessage as Types
+import qualified Network.AWS.ServiceCatalog.Types.ServiceActionId as Types
 
 -- | An object containing information about the error, along with identifying information about the self-service action and its associations.
 --
 -- /See:/ 'mkFailedServiceActionAssociation' smart constructor.
 data FailedServiceActionAssociation = FailedServiceActionAssociation'
-  { -- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
-    provisioningArtifactId :: Lude.Maybe Lude.Text,
-    -- | The error code. Valid values are listed below.
-    errorCode :: Lude.Maybe ServiceActionAssociationErrorCode,
+  { -- | The error code. Valid values are listed below.
+    errorCode :: Core.Maybe Types.ServiceActionAssociationErrorCode,
     -- | A text description of the error.
-    errorMessage :: Lude.Maybe Lude.Text,
-    -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
-    serviceActionId :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.ServiceActionAssociationErrorMessage,
     -- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
-    productId :: Lude.Maybe Lude.Text
+    productId :: Core.Maybe Types.ProductId,
+    -- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+    provisioningArtifactId :: Core.Maybe Types.ProvisioningArtifactId,
+    -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+    serviceActionId :: Core.Maybe Types.ServiceActionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailedServiceActionAssociation' with the minimum fields required to make a request.
---
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
--- * 'errorCode' - The error code. Valid values are listed below.
--- * 'errorMessage' - A text description of the error.
--- * 'serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
--- * 'productId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
+-- | Creates a 'FailedServiceActionAssociation' value with any optional fields omitted.
 mkFailedServiceActionAssociation ::
   FailedServiceActionAssociation
 mkFailedServiceActionAssociation =
   FailedServiceActionAssociation'
-    { provisioningArtifactId =
-        Lude.Nothing,
-      errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      serviceActionId = Lude.Nothing,
-      productId = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      productId = Core.Nothing,
+      provisioningArtifactId = Core.Nothing,
+      serviceActionId = Core.Nothing
     }
-
--- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
---
--- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsaaProvisioningArtifactId :: Lens.Lens' FailedServiceActionAssociation (Lude.Maybe Lude.Text)
-fsaaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: FailedServiceActionAssociation -> Lude.Maybe Lude.Text) (\s a -> s {provisioningArtifactId = a} :: FailedServiceActionAssociation)
-{-# DEPRECATED fsaaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | The error code. Valid values are listed below.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsaaErrorCode :: Lens.Lens' FailedServiceActionAssociation (Lude.Maybe ServiceActionAssociationErrorCode)
-fsaaErrorCode = Lens.lens (errorCode :: FailedServiceActionAssociation -> Lude.Maybe ServiceActionAssociationErrorCode) (\s a -> s {errorCode = a} :: FailedServiceActionAssociation)
+fsaaErrorCode :: Lens.Lens' FailedServiceActionAssociation (Core.Maybe Types.ServiceActionAssociationErrorCode)
+fsaaErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED fsaaErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | A text description of the error.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsaaErrorMessage :: Lens.Lens' FailedServiceActionAssociation (Lude.Maybe Lude.Text)
-fsaaErrorMessage = Lens.lens (errorMessage :: FailedServiceActionAssociation -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: FailedServiceActionAssociation)
+fsaaErrorMessage :: Lens.Lens' FailedServiceActionAssociation (Core.Maybe Types.ServiceActionAssociationErrorMessage)
+fsaaErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED fsaaErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
-
--- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
---
--- /Note:/ Consider using 'serviceActionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsaaServiceActionId :: Lens.Lens' FailedServiceActionAssociation (Lude.Maybe Lude.Text)
-fsaaServiceActionId = Lens.lens (serviceActionId :: FailedServiceActionAssociation -> Lude.Maybe Lude.Text) (\s a -> s {serviceActionId = a} :: FailedServiceActionAssociation)
-{-# DEPRECATED fsaaServiceActionId "Use generic-lens or generic-optics with 'serviceActionId' instead." #-}
 
 -- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
 --
 -- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsaaProductId :: Lens.Lens' FailedServiceActionAssociation (Lude.Maybe Lude.Text)
-fsaaProductId = Lens.lens (productId :: FailedServiceActionAssociation -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: FailedServiceActionAssociation)
+fsaaProductId :: Lens.Lens' FailedServiceActionAssociation (Core.Maybe Types.ProductId)
+fsaaProductId = Lens.field @"productId"
 {-# DEPRECATED fsaaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
-instance Lude.FromJSON FailedServiceActionAssociation where
+-- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsaaProvisioningArtifactId :: Lens.Lens' FailedServiceActionAssociation (Core.Maybe Types.ProvisioningArtifactId)
+fsaaProvisioningArtifactId = Lens.field @"provisioningArtifactId"
+{-# DEPRECATED fsaaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
+
+-- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+--
+-- /Note:/ Consider using 'serviceActionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fsaaServiceActionId :: Lens.Lens' FailedServiceActionAssociation (Core.Maybe Types.ServiceActionId)
+fsaaServiceActionId = Lens.field @"serviceActionId"
+{-# DEPRECATED fsaaServiceActionId "Use generic-lens or generic-optics with 'serviceActionId' instead." #-}
+
+instance Core.FromJSON FailedServiceActionAssociation where
   parseJSON =
-    Lude.withObject
-      "FailedServiceActionAssociation"
-      ( \x ->
-          FailedServiceActionAssociation'
-            Lude.<$> (x Lude..:? "ProvisioningArtifactId")
-            Lude.<*> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-            Lude.<*> (x Lude..:? "ServiceActionId")
-            Lude.<*> (x Lude..:? "ProductId")
-      )
+    Core.withObject "FailedServiceActionAssociation" Core.$
+      \x ->
+        FailedServiceActionAssociation'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "ProductId")
+          Core.<*> (x Core..:? "ProvisioningArtifactId")
+          Core.<*> (x Core..:? "ServiceActionId")

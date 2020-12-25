@@ -20,158 +20,156 @@ module Network.AWS.EC2.CreateLocalGatewayRoute
     mkCreateLocalGatewayRoute,
 
     -- ** Request lenses
+    clgrDestinationCidrBlock,
     clgrLocalGatewayRouteTableId,
     clgrLocalGatewayVirtualInterfaceGroupId,
     clgrDryRun,
-    clgrDestinationCidrBlock,
 
     -- * Destructuring the response
     CreateLocalGatewayRouteResponse (..),
     mkCreateLocalGatewayRouteResponse,
 
     -- ** Response lenses
-    clgrrsRoute,
-    clgrrsResponseStatus,
+    clgrrrsRoute,
+    clgrrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateLocalGatewayRoute' smart constructor.
 data CreateLocalGatewayRoute = CreateLocalGatewayRoute'
-  { -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Lude.Text,
+  { -- | The CIDR range used for destination matches. Routing decisions are based on the most specific match.
+    destinationCidrBlock :: Types.String,
+    -- | The ID of the local gateway route table.
+    localGatewayRouteTableId :: Types.LocalGatewayRouteTableId,
     -- | The ID of the virtual interface group.
-    localGatewayVirtualInterfaceGroupId :: Lude.Text,
+    localGatewayVirtualInterfaceGroupId :: Types.LocalGatewayVirtualInterfaceGroupId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The CIDR range used for destination matches. Routing decisions are based on the most specific match.
-    destinationCidrBlock :: Lude.Text
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLocalGatewayRoute' with the minimum fields required to make a request.
---
--- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
--- * 'localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'destinationCidrBlock' - The CIDR range used for destination matches. Routing decisions are based on the most specific match.
+-- | Creates a 'CreateLocalGatewayRoute' value with any optional fields omitted.
 mkCreateLocalGatewayRoute ::
-  -- | 'localGatewayRouteTableId'
-  Lude.Text ->
-  -- | 'localGatewayVirtualInterfaceGroupId'
-  Lude.Text ->
   -- | 'destinationCidrBlock'
-  Lude.Text ->
+  Types.String ->
+  -- | 'localGatewayRouteTableId'
+  Types.LocalGatewayRouteTableId ->
+  -- | 'localGatewayVirtualInterfaceGroupId'
+  Types.LocalGatewayVirtualInterfaceGroupId ->
   CreateLocalGatewayRoute
 mkCreateLocalGatewayRoute
-  pLocalGatewayRouteTableId_
-  pLocalGatewayVirtualInterfaceGroupId_
-  pDestinationCidrBlock_ =
+  destinationCidrBlock
+  localGatewayRouteTableId
+  localGatewayVirtualInterfaceGroupId =
     CreateLocalGatewayRoute'
-      { localGatewayRouteTableId =
-          pLocalGatewayRouteTableId_,
-        localGatewayVirtualInterfaceGroupId =
-          pLocalGatewayVirtualInterfaceGroupId_,
-        dryRun = Lude.Nothing,
-        destinationCidrBlock = pDestinationCidrBlock_
+      { destinationCidrBlock,
+        localGatewayRouteTableId,
+        localGatewayVirtualInterfaceGroupId,
+        dryRun = Core.Nothing
       }
+
+-- | The CIDR range used for destination matches. Routing decisions are based on the most specific match.
+--
+-- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clgrDestinationCidrBlock :: Lens.Lens' CreateLocalGatewayRoute Types.String
+clgrDestinationCidrBlock = Lens.field @"destinationCidrBlock"
+{-# DEPRECATED clgrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
 -- | The ID of the local gateway route table.
 --
 -- /Note:/ Consider using 'localGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clgrLocalGatewayRouteTableId :: Lens.Lens' CreateLocalGatewayRoute Lude.Text
-clgrLocalGatewayRouteTableId = Lens.lens (localGatewayRouteTableId :: CreateLocalGatewayRoute -> Lude.Text) (\s a -> s {localGatewayRouteTableId = a} :: CreateLocalGatewayRoute)
+clgrLocalGatewayRouteTableId :: Lens.Lens' CreateLocalGatewayRoute Types.LocalGatewayRouteTableId
+clgrLocalGatewayRouteTableId = Lens.field @"localGatewayRouteTableId"
 {-# DEPRECATED clgrLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
 
 -- | The ID of the virtual interface group.
 --
 -- /Note:/ Consider using 'localGatewayVirtualInterfaceGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clgrLocalGatewayVirtualInterfaceGroupId :: Lens.Lens' CreateLocalGatewayRoute Lude.Text
-clgrLocalGatewayVirtualInterfaceGroupId = Lens.lens (localGatewayVirtualInterfaceGroupId :: CreateLocalGatewayRoute -> Lude.Text) (\s a -> s {localGatewayVirtualInterfaceGroupId = a} :: CreateLocalGatewayRoute)
+clgrLocalGatewayVirtualInterfaceGroupId :: Lens.Lens' CreateLocalGatewayRoute Types.LocalGatewayVirtualInterfaceGroupId
+clgrLocalGatewayVirtualInterfaceGroupId = Lens.field @"localGatewayVirtualInterfaceGroupId"
 {-# DEPRECATED clgrLocalGatewayVirtualInterfaceGroupId "Use generic-lens or generic-optics with 'localGatewayVirtualInterfaceGroupId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clgrDryRun :: Lens.Lens' CreateLocalGatewayRoute (Lude.Maybe Lude.Bool)
-clgrDryRun = Lens.lens (dryRun :: CreateLocalGatewayRoute -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateLocalGatewayRoute)
+clgrDryRun :: Lens.Lens' CreateLocalGatewayRoute (Core.Maybe Core.Bool)
+clgrDryRun = Lens.field @"dryRun"
 {-# DEPRECATED clgrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
--- | The CIDR range used for destination matches. Routing decisions are based on the most specific match.
---
--- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clgrDestinationCidrBlock :: Lens.Lens' CreateLocalGatewayRoute Lude.Text
-clgrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: CreateLocalGatewayRoute -> Lude.Text) (\s a -> s {destinationCidrBlock = a} :: CreateLocalGatewayRoute)
-{-# DEPRECATED clgrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
-
-instance Lude.AWSRequest CreateLocalGatewayRoute where
+instance Core.AWSRequest CreateLocalGatewayRoute where
   type Rs CreateLocalGatewayRoute = CreateLocalGatewayRouteResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateLocalGatewayRoute")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DestinationCidrBlock" destinationCidrBlock)
+                Core.<> ( Core.toQueryValue
+                            "LocalGatewayRouteTableId"
+                            localGatewayRouteTableId
+                        )
+                Core.<> ( Core.toQueryValue
+                            "LocalGatewayVirtualInterfaceGroupId"
+                            localGatewayVirtualInterfaceGroupId
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateLocalGatewayRouteResponse'
-            Lude.<$> (x Lude..@? "route") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "route") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateLocalGatewayRoute where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateLocalGatewayRoute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateLocalGatewayRoute where
-  toQuery CreateLocalGatewayRoute' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateLocalGatewayRoute" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "LocalGatewayRouteTableId" Lude.=: localGatewayRouteTableId,
-        "LocalGatewayVirtualInterfaceGroupId"
-          Lude.=: localGatewayVirtualInterfaceGroupId,
-        "DryRun" Lude.=: dryRun,
-        "DestinationCidrBlock" Lude.=: destinationCidrBlock
-      ]
 
 -- | /See:/ 'mkCreateLocalGatewayRouteResponse' smart constructor.
 data CreateLocalGatewayRouteResponse = CreateLocalGatewayRouteResponse'
   { -- | Information about the route.
-    route :: Lude.Maybe LocalGatewayRoute,
+    route :: Core.Maybe Types.LocalGatewayRoute,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLocalGatewayRouteResponse' with the minimum fields required to make a request.
---
--- * 'route' - Information about the route.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateLocalGatewayRouteResponse' value with any optional fields omitted.
 mkCreateLocalGatewayRouteResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateLocalGatewayRouteResponse
-mkCreateLocalGatewayRouteResponse pResponseStatus_ =
+mkCreateLocalGatewayRouteResponse responseStatus =
   CreateLocalGatewayRouteResponse'
-    { route = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { route = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the route.
 --
 -- /Note:/ Consider using 'route' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clgrrsRoute :: Lens.Lens' CreateLocalGatewayRouteResponse (Lude.Maybe LocalGatewayRoute)
-clgrrsRoute = Lens.lens (route :: CreateLocalGatewayRouteResponse -> Lude.Maybe LocalGatewayRoute) (\s a -> s {route = a} :: CreateLocalGatewayRouteResponse)
-{-# DEPRECATED clgrrsRoute "Use generic-lens or generic-optics with 'route' instead." #-}
+clgrrrsRoute :: Lens.Lens' CreateLocalGatewayRouteResponse (Core.Maybe Types.LocalGatewayRoute)
+clgrrrsRoute = Lens.field @"route"
+{-# DEPRECATED clgrrrsRoute "Use generic-lens or generic-optics with 'route' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clgrrsResponseStatus :: Lens.Lens' CreateLocalGatewayRouteResponse Lude.Int
-clgrrsResponseStatus = Lens.lens (responseStatus :: CreateLocalGatewayRouteResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLocalGatewayRouteResponse)
-{-# DEPRECATED clgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+clgrrrsResponseStatus :: Lens.Lens' CreateLocalGatewayRouteResponse Core.Int
+clgrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED clgrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

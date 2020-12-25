@@ -23,35 +23,33 @@ module Network.AWS.DeviceFarm.ListArtifacts
 
     -- ** Request lenses
     laArn,
-    laNextToken,
     laType,
+    laNextToken,
 
     -- * Destructuring the response
     ListArtifactsResponse (..),
     mkListArtifactsResponse,
 
     -- ** Response lenses
-    larsArtifacts,
-    larsNextToken,
-    larsResponseStatus,
+    larrsArtifacts,
+    larrsNextToken,
+    larrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the list artifacts operation.
 --
 -- /See:/ 'mkListArtifacts' smart constructor.
 data ListArtifacts = ListArtifacts'
   { -- | The run, job, suite, or test ARN.
-    arn :: Lude.Text,
-    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+    arn :: Types.AmazonResourceName,
     -- | The artifacts' type.
     --
     -- Allowed values include:
@@ -63,52 +61,29 @@ data ListArtifacts = ListArtifacts'
     --
     --
     --     * SCREENSHOT
-    type' :: ArtifactCategory
+    type' :: Types.ArtifactCategory,
+    -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListArtifacts' with the minimum fields required to make a request.
---
--- * 'arn' - The run, job, suite, or test ARN.
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
--- * 'type'' - The artifacts' type.
---
--- Allowed values include:
---
---     * FILE
---
---
---     * LOG
---
---
---     * SCREENSHOT
+-- | Creates a 'ListArtifacts' value with any optional fields omitted.
 mkListArtifacts ::
   -- | 'arn'
-  Lude.Text ->
-  -- | 'type''
-  ArtifactCategory ->
+  Types.AmazonResourceName ->
+  -- | 'type\''
+  Types.ArtifactCategory ->
   ListArtifacts
-mkListArtifacts pArn_ pType_ =
-  ListArtifacts'
-    { arn = pArn_,
-      nextToken = Lude.Nothing,
-      type' = pType_
-    }
+mkListArtifacts arn type' =
+  ListArtifacts' {arn, type', nextToken = Core.Nothing}
 
 -- | The run, job, suite, or test ARN.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laArn :: Lens.Lens' ListArtifacts Lude.Text
-laArn = Lens.lens (arn :: ListArtifacts -> Lude.Text) (\s a -> s {arn = a} :: ListArtifacts)
+laArn :: Lens.Lens' ListArtifacts Types.AmazonResourceName
+laArn = Lens.field @"arn"
 {-# DEPRECATED laArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laNextToken :: Lens.Lens' ListArtifacts (Lude.Maybe Lude.Text)
-laNextToken = Lens.lens (nextToken :: ListArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListArtifacts)
-{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The artifacts' type.
 --
@@ -125,105 +100,103 @@ laNextToken = Lens.lens (nextToken :: ListArtifacts -> Lude.Maybe Lude.Text) (\s
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laType :: Lens.Lens' ListArtifacts ArtifactCategory
-laType = Lens.lens (type' :: ListArtifacts -> ArtifactCategory) (\s a -> s {type' = a} :: ListArtifacts)
+laType :: Lens.Lens' ListArtifacts Types.ArtifactCategory
+laType = Lens.field @"type'"
 {-# DEPRECATED laType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Page.AWSPager ListArtifacts where
-  page rq rs
-    | Page.stop (rs Lens.^. larsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. larsArtifacts) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& laNextToken Lens..~ rs Lens.^. larsNextToken
+-- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNextToken :: Lens.Lens' ListArtifacts (Core.Maybe Types.PaginationToken)
+laNextToken = Lens.field @"nextToken"
+{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListArtifacts where
+instance Core.FromJSON ListArtifacts where
+  toJSON ListArtifacts {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("arn" Core..= arn),
+            Core.Just ("type" Core..= type'),
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListArtifacts where
   type Rs ListArtifacts = ListArtifactsResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DeviceFarm_20150623.ListArtifacts")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListArtifactsResponse'
-            Lude.<$> (x Lude..?> "artifacts" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "artifacts")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListArtifacts where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.ListArtifacts" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListArtifacts where
-  toJSON ListArtifacts' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("arn" Lude..= arn),
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("type" Lude..= type')
-          ]
-      )
-
-instance Lude.ToPath ListArtifacts where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListArtifacts where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListArtifacts where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"artifacts" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the result of a list artifacts operation.
 --
 -- /See:/ 'mkListArtifactsResponse' smart constructor.
 data ListArtifactsResponse = ListArtifactsResponse'
   { -- | Information about the artifacts.
-    artifacts :: Lude.Maybe [Artifact],
+    artifacts :: Core.Maybe [Types.Artifact],
     -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListArtifactsResponse' with the minimum fields required to make a request.
---
--- * 'artifacts' - Information about the artifacts.
--- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListArtifactsResponse' value with any optional fields omitted.
 mkListArtifactsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListArtifactsResponse
-mkListArtifactsResponse pResponseStatus_ =
+mkListArtifactsResponse responseStatus =
   ListArtifactsResponse'
-    { artifacts = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { artifacts = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the artifacts.
 --
 -- /Note:/ Consider using 'artifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsArtifacts :: Lens.Lens' ListArtifactsResponse (Lude.Maybe [Artifact])
-larsArtifacts = Lens.lens (artifacts :: ListArtifactsResponse -> Lude.Maybe [Artifact]) (\s a -> s {artifacts = a} :: ListArtifactsResponse)
-{-# DEPRECATED larsArtifacts "Use generic-lens or generic-optics with 'artifacts' instead." #-}
+larrsArtifacts :: Lens.Lens' ListArtifactsResponse (Core.Maybe [Types.Artifact])
+larrsArtifacts = Lens.field @"artifacts"
+{-# DEPRECATED larrsArtifacts "Use generic-lens or generic-optics with 'artifacts' instead." #-}
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsNextToken :: Lens.Lens' ListArtifactsResponse (Lude.Maybe Lude.Text)
-larsNextToken = Lens.lens (nextToken :: ListArtifactsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListArtifactsResponse)
-{-# DEPRECATED larsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+larrsNextToken :: Lens.Lens' ListArtifactsResponse (Core.Maybe Types.PaginationToken)
+larrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED larrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsResponseStatus :: Lens.Lens' ListArtifactsResponse Lude.Int
-larsResponseStatus = Lens.lens (responseStatus :: ListArtifactsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListArtifactsResponse)
-{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+larrsResponseStatus :: Lens.Lens' ListArtifactsResponse Core.Int
+larrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED larrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

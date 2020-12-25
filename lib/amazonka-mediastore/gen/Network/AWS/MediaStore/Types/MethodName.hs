@@ -13,56 +13,58 @@
 module Network.AWS.MediaStore.Types.MethodName
   ( MethodName
       ( MethodName',
-        Put,
-        Get,
-        Delete,
-        Head
+        MethodNamePut,
+        MethodNameGet,
+        MethodNameDelete,
+        MethodNameHead,
+        fromMethodName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MethodName = MethodName' Lude.Text
+newtype MethodName = MethodName' {fromMethodName :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Put :: MethodName
-pattern Put = MethodName' "PUT"
+pattern MethodNamePut :: MethodName
+pattern MethodNamePut = MethodName' "PUT"
 
-pattern Get :: MethodName
-pattern Get = MethodName' "GET"
+pattern MethodNameGet :: MethodName
+pattern MethodNameGet = MethodName' "GET"
 
-pattern Delete :: MethodName
-pattern Delete = MethodName' "DELETE"
+pattern MethodNameDelete :: MethodName
+pattern MethodNameDelete = MethodName' "DELETE"
 
-pattern Head :: MethodName
-pattern Head = MethodName' "HEAD"
+pattern MethodNameHead :: MethodName
+pattern MethodNameHead = MethodName' "HEAD"
 
 {-# COMPLETE
-  Put,
-  Get,
-  Delete,
-  Head,
+  MethodNamePut,
+  MethodNameGet,
+  MethodNameDelete,
+  MethodNameHead,
   MethodName'
   #-}

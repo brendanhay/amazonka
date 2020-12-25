@@ -20,128 +20,111 @@ module Network.AWS.MechanicalTurk.SendTestEventNotification
     mkSendTestEventNotification,
 
     -- ** Request lenses
-    stenTestEventType,
     stenNotification,
+    stenTestEventType,
 
     -- * Destructuring the response
     SendTestEventNotificationResponse (..),
     mkSendTestEventNotificationResponse,
 
     -- ** Response lenses
-    stenrsResponseStatus,
+    stenrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSendTestEventNotification' smart constructor.
 data SendTestEventNotification = SendTestEventNotification'
-  { -- | The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event.
-    testEventType :: EventType,
-    -- | The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type.
-    notification :: NotificationSpecification
+  { -- | The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type.
+    notification :: Types.NotificationSpecification,
+    -- | The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event.
+    testEventType :: Types.EventType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendTestEventNotification' with the minimum fields required to make a request.
---
--- * 'testEventType' - The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event.
--- * 'notification' - The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type.
+-- | Creates a 'SendTestEventNotification' value with any optional fields omitted.
 mkSendTestEventNotification ::
-  -- | 'testEventType'
-  EventType ->
   -- | 'notification'
-  NotificationSpecification ->
+  Types.NotificationSpecification ->
+  -- | 'testEventType'
+  Types.EventType ->
   SendTestEventNotification
-mkSendTestEventNotification pTestEventType_ pNotification_ =
-  SendTestEventNotification'
-    { testEventType = pTestEventType_,
-      notification = pNotification_
-    }
-
--- | The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event.
---
--- /Note:/ Consider using 'testEventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stenTestEventType :: Lens.Lens' SendTestEventNotification EventType
-stenTestEventType = Lens.lens (testEventType :: SendTestEventNotification -> EventType) (\s a -> s {testEventType = a} :: SendTestEventNotification)
-{-# DEPRECATED stenTestEventType "Use generic-lens or generic-optics with 'testEventType' instead." #-}
+mkSendTestEventNotification notification testEventType =
+  SendTestEventNotification' {notification, testEventType}
 
 -- | The notification specification to test. This value is identical to the value you would provide to the UpdateNotificationSettings operation when you establish the notification specification for a HIT type.
 --
 -- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stenNotification :: Lens.Lens' SendTestEventNotification NotificationSpecification
-stenNotification = Lens.lens (notification :: SendTestEventNotification -> NotificationSpecification) (\s a -> s {notification = a} :: SendTestEventNotification)
+stenNotification :: Lens.Lens' SendTestEventNotification Types.NotificationSpecification
+stenNotification = Lens.field @"notification"
 {-# DEPRECATED stenNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
 
-instance Lude.AWSRequest SendTestEventNotification where
+-- | The event to simulate to test the notification specification. This event is included in the test message even if the notification specification does not include the event type. The notification specification does not filter out the test event.
+--
+-- /Note:/ Consider using 'testEventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stenTestEventType :: Lens.Lens' SendTestEventNotification Types.EventType
+stenTestEventType = Lens.field @"testEventType"
+{-# DEPRECATED stenTestEventType "Use generic-lens or generic-optics with 'testEventType' instead." #-}
+
+instance Core.FromJSON SendTestEventNotification where
+  toJSON SendTestEventNotification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Notification" Core..= notification),
+            Core.Just ("TestEventType" Core..= testEventType)
+          ]
+      )
+
+instance Core.AWSRequest SendTestEventNotification where
   type
     Rs SendTestEventNotification =
       SendTestEventNotificationResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.SendTestEventNotification"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           SendTestEventNotificationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SendTestEventNotification where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.SendTestEventNotification" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SendTestEventNotification where
-  toJSON SendTestEventNotification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TestEventType" Lude..= testEventType),
-            Lude.Just ("Notification" Lude..= notification)
-          ]
-      )
-
-instance Lude.ToPath SendTestEventNotification where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SendTestEventNotification where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSendTestEventNotificationResponse' smart constructor.
 newtype SendTestEventNotificationResponse = SendTestEventNotificationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendTestEventNotificationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SendTestEventNotificationResponse' value with any optional fields omitted.
 mkSendTestEventNotificationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SendTestEventNotificationResponse
-mkSendTestEventNotificationResponse pResponseStatus_ =
-  SendTestEventNotificationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkSendTestEventNotificationResponse responseStatus =
+  SendTestEventNotificationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stenrsResponseStatus :: Lens.Lens' SendTestEventNotificationResponse Lude.Int
-stenrsResponseStatus = Lens.lens (responseStatus :: SendTestEventNotificationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendTestEventNotificationResponse)
-{-# DEPRECATED stenrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+stenrrsResponseStatus :: Lens.Lens' SendTestEventNotificationResponse Core.Int
+stenrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED stenrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

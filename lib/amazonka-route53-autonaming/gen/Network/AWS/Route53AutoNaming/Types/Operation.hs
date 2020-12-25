@@ -17,56 +17,33 @@ module Network.AWS.Route53AutoNaming.Types.Operation
     mkOperation,
 
     -- * Lenses
-    oStatus,
-    oUpdateDate,
     oCreateDate,
-    oTargets,
     oErrorCode,
-    oId,
-    oType,
     oErrorMessage,
+    oId,
+    oStatus,
+    oTargets,
+    oType,
+    oUpdateDate,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53AutoNaming.Types.OperationStatus
-import Network.AWS.Route53AutoNaming.Types.OperationTargetType
-import Network.AWS.Route53AutoNaming.Types.OperationType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53AutoNaming.Types.ErrorCode as Types
+import qualified Network.AWS.Route53AutoNaming.Types.ErrorMessage as Types
+import qualified Network.AWS.Route53AutoNaming.Types.Id as Types
+import qualified Network.AWS.Route53AutoNaming.Types.OperationStatus as Types
+import qualified Network.AWS.Route53AutoNaming.Types.OperationTargetType as Types
+import qualified Network.AWS.Route53AutoNaming.Types.OperationType as Types
+import qualified Network.AWS.Route53AutoNaming.Types.ResourceId as Types
 
 -- | A complex type that contains information about a specified operation.
 --
 -- /See:/ 'mkOperation' smart constructor.
 data Operation = Operation'
-  { -- | The status of the operation. Values include the following:
-    --
-    --
-    --     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
-    --
-    --
-    --     * __PENDING__ : AWS Cloud Map is performing the operation.
-    --
-    --
-    --     * __SUCCESS__ : The operation succeeded.
-    --
-    --
-    --     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
-    status :: Lude.Maybe OperationStatus,
-    -- | The date and time that the value of @Status@ changed to the current value, in Unix date/time format and Coordinated Universal Time (UTC). The value of @UpdateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
-    updateDate :: Lude.Maybe Lude.Timestamp,
-    -- | The date and time that the request was submitted, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
-    createDate :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the target entity that is associated with the operation:
-    --
-    --
-    --     * __NAMESPACE__ : The namespace ID is returned in the @ResourceId@ property.
-    --
-    --
-    --     * __SERVICE__ : The service ID is returned in the @ResourceId@ property.
-    --
-    --
-    --     * __INSTANCE__ : The instance ID is returned in the @ResourceId@ property.
-    targets :: Lude.Maybe (Lude.HashMap OperationTargetType (Lude.Text)),
+  { -- | The date and time that the request was submitted, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
+    createDate :: Core.Maybe Core.NominalDiffTime,
     -- | The code associated with @ErrorMessage@ . Values for @ErrorCode@ include the following:
     --
     --
@@ -89,141 +66,65 @@ data Operation = Operation'
     --
     --
     --     * @THROTTLED_REQUEST@
-    errorCode :: Lude.Maybe Lude.Text,
-    -- | The ID of the operation that you want to get information about.
-    id :: Lude.Maybe Lude.Text,
-    -- | The name of the operation that is associated with the specified ID.
-    type' :: Lude.Maybe OperationType,
+    errorCode :: Core.Maybe Types.ErrorCode,
     -- | If the value of @Status@ is @FAIL@ , the reason that the operation failed.
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.ErrorMessage,
+    -- | The ID of the operation that you want to get information about.
+    id :: Core.Maybe Types.Id,
+    -- | The status of the operation. Values include the following:
+    --
+    --
+    --     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
+    --
+    --
+    --     * __PENDING__ : AWS Cloud Map is performing the operation.
+    --
+    --
+    --     * __SUCCESS__ : The operation succeeded.
+    --
+    --
+    --     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+    status :: Core.Maybe Types.OperationStatus,
+    -- | The name of the target entity that is associated with the operation:
+    --
+    --
+    --     * __NAMESPACE__ : The namespace ID is returned in the @ResourceId@ property.
+    --
+    --
+    --     * __SERVICE__ : The service ID is returned in the @ResourceId@ property.
+    --
+    --
+    --     * __INSTANCE__ : The instance ID is returned in the @ResourceId@ property.
+    targets :: Core.Maybe (Core.HashMap Types.OperationTargetType Types.ResourceId),
+    -- | The name of the operation that is associated with the specified ID.
+    type' :: Core.Maybe Types.OperationType,
+    -- | The date and time that the value of @Status@ changed to the current value, in Unix date/time format and Coordinated Universal Time (UTC). The value of @UpdateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
+    updateDate :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Operation' with the minimum fields required to make a request.
---
--- * 'status' - The status of the operation. Values include the following:
---
---
---     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
---
---
---     * __PENDING__ : AWS Cloud Map is performing the operation.
---
---
---     * __SUCCESS__ : The operation succeeded.
---
---
---     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
---
---
--- * 'updateDate' - The date and time that the value of @Status@ changed to the current value, in Unix date/time format and Coordinated Universal Time (UTC). The value of @UpdateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
--- * 'createDate' - The date and time that the request was submitted, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
--- * 'targets' - The name of the target entity that is associated with the operation:
---
---
---     * __NAMESPACE__ : The namespace ID is returned in the @ResourceId@ property.
---
---
---     * __SERVICE__ : The service ID is returned in the @ResourceId@ property.
---
---
---     * __INSTANCE__ : The instance ID is returned in the @ResourceId@ property.
---
---
--- * 'errorCode' - The code associated with @ErrorMessage@ . Values for @ErrorCode@ include the following:
---
---
---     * @ACCESS_DENIED@
---
---
---     * @CANNOT_CREATE_HOSTED_ZONE@
---
---
---     * @EXPIRED_TOKEN@
---
---
---     * @HOSTED_ZONE_NOT_FOUND@
---
---
---     * @INTERNAL_FAILURE@
---
---
---     * @INVALID_CHANGE_BATCH@
---
---
---     * @THROTTLED_REQUEST@
---
---
--- * 'id' - The ID of the operation that you want to get information about.
--- * 'type'' - The name of the operation that is associated with the specified ID.
--- * 'errorMessage' - If the value of @Status@ is @FAIL@ , the reason that the operation failed.
+-- | Creates a 'Operation' value with any optional fields omitted.
 mkOperation ::
   Operation
 mkOperation =
   Operation'
-    { status = Lude.Nothing,
-      updateDate = Lude.Nothing,
-      createDate = Lude.Nothing,
-      targets = Lude.Nothing,
-      errorCode = Lude.Nothing,
-      id = Lude.Nothing,
-      type' = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { createDate = Core.Nothing,
+      errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      id = Core.Nothing,
+      status = Core.Nothing,
+      targets = Core.Nothing,
+      type' = Core.Nothing,
+      updateDate = Core.Nothing
     }
-
--- | The status of the operation. Values include the following:
---
---
---     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
---
---
---     * __PENDING__ : AWS Cloud Map is performing the operation.
---
---
---     * __SUCCESS__ : The operation succeeded.
---
---
---     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
---
---
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oStatus :: Lens.Lens' Operation (Lude.Maybe OperationStatus)
-oStatus = Lens.lens (status :: Operation -> Lude.Maybe OperationStatus) (\s a -> s {status = a} :: Operation)
-{-# DEPRECATED oStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The date and time that the value of @Status@ changed to the current value, in Unix date/time format and Coordinated Universal Time (UTC). The value of @UpdateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
---
--- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oUpdateDate :: Lens.Lens' Operation (Lude.Maybe Lude.Timestamp)
-oUpdateDate = Lens.lens (updateDate :: Operation -> Lude.Maybe Lude.Timestamp) (\s a -> s {updateDate = a} :: Operation)
-{-# DEPRECATED oUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | The date and time that the request was submitted, in Unix date/time format and Coordinated Universal Time (UTC). The value of @CreateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oCreateDate :: Lens.Lens' Operation (Lude.Maybe Lude.Timestamp)
-oCreateDate = Lens.lens (createDate :: Operation -> Lude.Maybe Lude.Timestamp) (\s a -> s {createDate = a} :: Operation)
+oCreateDate :: Lens.Lens' Operation (Core.Maybe Core.NominalDiffTime)
+oCreateDate = Lens.field @"createDate"
 {-# DEPRECATED oCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
-
--- | The name of the target entity that is associated with the operation:
---
---
---     * __NAMESPACE__ : The namespace ID is returned in the @ResourceId@ property.
---
---
---     * __SERVICE__ : The service ID is returned in the @ResourceId@ property.
---
---
---     * __INSTANCE__ : The instance ID is returned in the @ResourceId@ property.
---
---
---
--- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oTargets :: Lens.Lens' Operation (Lude.Maybe (Lude.HashMap OperationTargetType (Lude.Text)))
-oTargets = Lens.lens (targets :: Operation -> Lude.Maybe (Lude.HashMap OperationTargetType (Lude.Text))) (\s a -> s {targets = a} :: Operation)
-{-# DEPRECATED oTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | The code associated with @ErrorMessage@ . Values for @ErrorCode@ include the following:
 --
@@ -251,43 +152,87 @@ oTargets = Lens.lens (targets :: Operation -> Lude.Maybe (Lude.HashMap Operation
 --
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oErrorCode :: Lens.Lens' Operation (Lude.Maybe Lude.Text)
-oErrorCode = Lens.lens (errorCode :: Operation -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: Operation)
+oErrorCode :: Lens.Lens' Operation (Core.Maybe Types.ErrorCode)
+oErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED oErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
-
--- | The ID of the operation that you want to get information about.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oId :: Lens.Lens' Operation (Lude.Maybe Lude.Text)
-oId = Lens.lens (id :: Operation -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Operation)
-{-# DEPRECATED oId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The name of the operation that is associated with the specified ID.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oType :: Lens.Lens' Operation (Lude.Maybe OperationType)
-oType = Lens.lens (type' :: Operation -> Lude.Maybe OperationType) (\s a -> s {type' = a} :: Operation)
-{-# DEPRECATED oType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | If the value of @Status@ is @FAIL@ , the reason that the operation failed.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oErrorMessage :: Lens.Lens' Operation (Lude.Maybe Lude.Text)
-oErrorMessage = Lens.lens (errorMessage :: Operation -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: Operation)
+oErrorMessage :: Lens.Lens' Operation (Core.Maybe Types.ErrorMessage)
+oErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED oErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON Operation where
+-- | The ID of the operation that you want to get information about.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oId :: Lens.Lens' Operation (Core.Maybe Types.Id)
+oId = Lens.field @"id"
+{-# DEPRECATED oId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The status of the operation. Values include the following:
+--
+--
+--     * __SUBMITTED__ : This is the initial state immediately after you submit a request.
+--
+--
+--     * __PENDING__ : AWS Cloud Map is performing the operation.
+--
+--
+--     * __SUCCESS__ : The operation succeeded.
+--
+--
+--     * __FAIL__ : The operation failed. For the failure reason, see @ErrorMessage@ .
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oStatus :: Lens.Lens' Operation (Core.Maybe Types.OperationStatus)
+oStatus = Lens.field @"status"
+{-# DEPRECATED oStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The name of the target entity that is associated with the operation:
+--
+--
+--     * __NAMESPACE__ : The namespace ID is returned in the @ResourceId@ property.
+--
+--
+--     * __SERVICE__ : The service ID is returned in the @ResourceId@ property.
+--
+--
+--     * __INSTANCE__ : The instance ID is returned in the @ResourceId@ property.
+--
+--
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oTargets :: Lens.Lens' Operation (Core.Maybe (Core.HashMap Types.OperationTargetType Types.ResourceId))
+oTargets = Lens.field @"targets"
+{-# DEPRECATED oTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
+
+-- | The name of the operation that is associated with the specified ID.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oType :: Lens.Lens' Operation (Core.Maybe Types.OperationType)
+oType = Lens.field @"type'"
+{-# DEPRECATED oType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+-- | The date and time that the value of @Status@ changed to the current value, in Unix date/time format and Coordinated Universal Time (UTC). The value of @UpdateDate@ is accurate to milliseconds. For example, the value @1516925490.087@ represents Friday, January 26, 2018 12:11:30.087 AM.
+--
+-- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oUpdateDate :: Lens.Lens' Operation (Core.Maybe Core.NominalDiffTime)
+oUpdateDate = Lens.field @"updateDate"
+{-# DEPRECATED oUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
+
+instance Core.FromJSON Operation where
   parseJSON =
-    Lude.withObject
-      "Operation"
-      ( \x ->
-          Operation'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "UpdateDate")
-            Lude.<*> (x Lude..:? "CreateDate")
-            Lude.<*> (x Lude..:? "Targets" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-      )
+    Core.withObject "Operation" Core.$
+      \x ->
+        Operation'
+          Core.<$> (x Core..:? "CreateDate")
+          Core.<*> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "Targets")
+          Core.<*> (x Core..:? "Type")
+          Core.<*> (x Core..:? "UpdateDate")

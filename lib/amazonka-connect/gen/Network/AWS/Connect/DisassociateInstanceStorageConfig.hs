@@ -20,8 +20,8 @@ module Network.AWS.Connect.DisassociateInstanceStorageConfig
     mkDisassociateInstanceStorageConfig,
 
     -- ** Request lenses
-    discfAssociationId,
     discfInstanceId,
+    discfAssociationId,
     discfResourceType,
 
     -- * Destructuring the response
@@ -30,105 +30,92 @@ module Network.AWS.Connect.DisassociateInstanceStorageConfig
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateInstanceStorageConfig' smart constructor.
 data DisassociateInstanceStorageConfig = DisassociateInstanceStorageConfig'
-  { -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-    associationId :: Lude.Text,
-    -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+  { -- | The identifier of the Amazon Connect instance.
+    instanceId :: Types.InstanceId,
+    -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+    associationId :: Types.AssociationId,
     -- | A valid resource type.
-    resourceType :: InstanceStorageResourceType
+    resourceType :: Types.InstanceStorageResourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateInstanceStorageConfig' with the minimum fields required to make a request.
---
--- * 'associationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'resourceType' - A valid resource type.
+-- | Creates a 'DisassociateInstanceStorageConfig' value with any optional fields omitted.
 mkDisassociateInstanceStorageConfig ::
-  -- | 'associationId'
-  Lude.Text ->
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
+  -- | 'associationId'
+  Types.AssociationId ->
   -- | 'resourceType'
-  InstanceStorageResourceType ->
+  Types.InstanceStorageResourceType ->
   DisassociateInstanceStorageConfig
 mkDisassociateInstanceStorageConfig
-  pAssociationId_
-  pInstanceId_
-  pResourceType_ =
+  instanceId
+  associationId
+  resourceType =
     DisassociateInstanceStorageConfig'
-      { associationId =
-          pAssociationId_,
-        instanceId = pInstanceId_,
-        resourceType = pResourceType_
+      { instanceId,
+        associationId,
+        resourceType
       }
-
--- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
---
--- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-discfAssociationId :: Lens.Lens' DisassociateInstanceStorageConfig Lude.Text
-discfAssociationId = Lens.lens (associationId :: DisassociateInstanceStorageConfig -> Lude.Text) (\s a -> s {associationId = a} :: DisassociateInstanceStorageConfig)
-{-# DEPRECATED discfAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-discfInstanceId :: Lens.Lens' DisassociateInstanceStorageConfig Lude.Text
-discfInstanceId = Lens.lens (instanceId :: DisassociateInstanceStorageConfig -> Lude.Text) (\s a -> s {instanceId = a} :: DisassociateInstanceStorageConfig)
+discfInstanceId :: Lens.Lens' DisassociateInstanceStorageConfig Types.InstanceId
+discfInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED discfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
+--
+-- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+discfAssociationId :: Lens.Lens' DisassociateInstanceStorageConfig Types.AssociationId
+discfAssociationId = Lens.field @"associationId"
+{-# DEPRECATED discfAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | A valid resource type.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-discfResourceType :: Lens.Lens' DisassociateInstanceStorageConfig InstanceStorageResourceType
-discfResourceType = Lens.lens (resourceType :: DisassociateInstanceStorageConfig -> InstanceStorageResourceType) (\s a -> s {resourceType = a} :: DisassociateInstanceStorageConfig)
+discfResourceType :: Lens.Lens' DisassociateInstanceStorageConfig Types.InstanceStorageResourceType
+discfResourceType = Lens.field @"resourceType"
 {-# DEPRECATED discfResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
-instance Lude.AWSRequest DisassociateInstanceStorageConfig where
+instance Core.AWSRequest DisassociateInstanceStorageConfig where
   type
     Rs DisassociateInstanceStorageConfig =
       DisassociateInstanceStorageConfigResponse
-  request = Req.delete connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/instance/" Core.<> (Core.toText instanceId)
+                Core.<> ("/storage-config/")
+                Core.<> (Core.toText associationId)
+            ),
+        Core._rqQuery = Core.toQueryValue "resourceType" resourceType,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveNull DisassociateInstanceStorageConfigResponse'
-
-instance Lude.ToHeaders DisassociateInstanceStorageConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DisassociateInstanceStorageConfig where
-  toPath DisassociateInstanceStorageConfig' {..} =
-    Lude.mconcat
-      [ "/instance/",
-        Lude.toBS instanceId,
-        "/storage-config/",
-        Lude.toBS associationId
-      ]
-
-instance Lude.ToQuery DisassociateInstanceStorageConfig where
-  toQuery DisassociateInstanceStorageConfig' {..} =
-    Lude.mconcat ["resourceType" Lude.=: resourceType]
+    Response.receiveNull DisassociateInstanceStorageConfigResponse'
 
 -- | /See:/ 'mkDisassociateInstanceStorageConfigResponse' smart constructor.
 data DisassociateInstanceStorageConfigResponse = DisassociateInstanceStorageConfigResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateInstanceStorageConfigResponse' with the minimum fields required to make a request.
+-- | Creates a 'DisassociateInstanceStorageConfigResponse' value with any optional fields omitted.
 mkDisassociateInstanceStorageConfigResponse ::
   DisassociateInstanceStorageConfigResponse
 mkDisassociateInstanceStorageConfigResponse =

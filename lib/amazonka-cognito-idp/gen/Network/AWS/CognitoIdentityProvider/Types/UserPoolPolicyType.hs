@@ -21,44 +21,41 @@ module Network.AWS.CognitoIdentityProvider.Types.UserPoolPolicyType
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.PasswordPolicyType
+import qualified Network.AWS.CognitoIdentityProvider.Types.PasswordPolicyType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The policy associated with a user pool.
 --
 -- /See:/ 'mkUserPoolPolicyType' smart constructor.
 newtype UserPoolPolicyType = UserPoolPolicyType'
   { -- | The password policy.
-    passwordPolicy :: Lude.Maybe PasswordPolicyType
+    passwordPolicy :: Core.Maybe Types.PasswordPolicyType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserPoolPolicyType' with the minimum fields required to make a request.
---
--- * 'passwordPolicy' - The password policy.
+-- | Creates a 'UserPoolPolicyType' value with any optional fields omitted.
 mkUserPoolPolicyType ::
   UserPoolPolicyType
 mkUserPoolPolicyType =
-  UserPoolPolicyType' {passwordPolicy = Lude.Nothing}
+  UserPoolPolicyType' {passwordPolicy = Core.Nothing}
 
 -- | The password policy.
 --
 -- /Note:/ Consider using 'passwordPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upptPasswordPolicy :: Lens.Lens' UserPoolPolicyType (Lude.Maybe PasswordPolicyType)
-upptPasswordPolicy = Lens.lens (passwordPolicy :: UserPoolPolicyType -> Lude.Maybe PasswordPolicyType) (\s a -> s {passwordPolicy = a} :: UserPoolPolicyType)
+upptPasswordPolicy :: Lens.Lens' UserPoolPolicyType (Core.Maybe Types.PasswordPolicyType)
+upptPasswordPolicy = Lens.field @"passwordPolicy"
 {-# DEPRECATED upptPasswordPolicy "Use generic-lens or generic-optics with 'passwordPolicy' instead." #-}
 
-instance Lude.FromJSON UserPoolPolicyType where
-  parseJSON =
-    Lude.withObject
-      "UserPoolPolicyType"
-      (\x -> UserPoolPolicyType' Lude.<$> (x Lude..:? "PasswordPolicy"))
-
-instance Lude.ToJSON UserPoolPolicyType where
-  toJSON UserPoolPolicyType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("PasswordPolicy" Lude..=) Lude.<$> passwordPolicy]
+instance Core.FromJSON UserPoolPolicyType where
+  toJSON UserPoolPolicyType {..} =
+    Core.object
+      ( Core.catMaybes
+          [("PasswordPolicy" Core..=) Core.<$> passwordPolicy]
       )
+
+instance Core.FromJSON UserPoolPolicyType where
+  parseJSON =
+    Core.withObject "UserPoolPolicyType" Core.$
+      \x -> UserPoolPolicyType' Core.<$> (x Core..:? "PasswordPolicy")

@@ -1158,7 +1158,7 @@ responseSearchUsers =
   res
     "SearchUsersResponse"
     "fixture/SearchUsersResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy SearchUsers)
 
 responsePutConferencePreference :: PutConferencePreferenceResponse -> TestTree
@@ -1166,7 +1166,7 @@ responsePutConferencePreference =
   res
     "PutConferencePreferenceResponse"
     "fixture/PutConferencePreferenceResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy PutConferencePreference)
 
 responseUpdateNetworkProfile :: UpdateNetworkProfileResponse -> TestTree
@@ -1174,7 +1174,7 @@ responseUpdateNetworkProfile =
   res
     "UpdateNetworkProfileResponse"
     "fixture/UpdateNetworkProfileResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UpdateNetworkProfile)
 
 responseDeleteNetworkProfile :: DeleteNetworkProfileResponse -> TestTree
@@ -1182,7 +1182,7 @@ responseDeleteNetworkProfile =
   res
     "DeleteNetworkProfileResponse"
     "fixture/DeleteNetworkProfileResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteNetworkProfile)
 
 responseUpdateBusinessReportSchedule :: UpdateBusinessReportScheduleResponse -> TestTree
@@ -1190,7 +1190,7 @@ responseUpdateBusinessReportSchedule =
   res
     "UpdateBusinessReportScheduleResponse"
     "fixture/UpdateBusinessReportScheduleResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UpdateBusinessReportSchedule)
 
 responseDeleteBusinessReportSchedule :: DeleteBusinessReportScheduleResponse -> TestTree
@@ -1198,7 +1198,7 @@ responseDeleteBusinessReportSchedule =
   res
     "DeleteBusinessReportScheduleResponse"
     "fixture/DeleteBusinessReportScheduleResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBusinessReportSchedule)
 
 responseAssociateSkillGroupWithRoom :: AssociateSkillGroupWithRoomResponse -> TestTree
@@ -1206,7 +1206,7 @@ responseAssociateSkillGroupWithRoom =
   res
     "AssociateSkillGroupWithRoomResponse"
     "fixture/AssociateSkillGroupWithRoomResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy AssociateSkillGroupWithRoom)
 
 responseListSmartHomeAppliances :: ListSmartHomeAppliancesResponse -> TestTree
@@ -1214,7 +1214,7 @@ responseListSmartHomeAppliances =
   res
     "ListSmartHomeAppliancesResponse"
     "fixture/ListSmartHomeAppliancesResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ListSmartHomeAppliances)
 
 responseDeleteProfile :: DeleteProfileResponse -> TestTree
@@ -1222,7 +1222,7 @@ responseDeleteProfile =
   res
     "DeleteProfileResponse"
     "fixture/DeleteProfileResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProfile)
 
 responseUpdateProfile :: UpdateProfileResponse -> TestTree
@@ -1230,7 +1230,7 @@ responseUpdateProfile =
   res
     "UpdateProfileResponse"
     "fixture/UpdateProfileResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UpdateProfile)
 
 responseSearchRooms :: SearchRoomsResponse -> TestTree
@@ -1238,7 +1238,7 @@ responseSearchRooms =
   res
     "SearchRoomsResponse"
     "fixture/SearchRoomsResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy SearchRooms)
 
 responseAssociateSkillWithUsers :: AssociateSkillWithUsersResponse -> TestTree
@@ -1246,7 +1246,7 @@ responseAssociateSkillWithUsers =
   res
     "AssociateSkillWithUsersResponse"
     "fixture/AssociateSkillWithUsersResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy AssociateSkillWithUsers)
 
 responseRegisterAVSDevice :: RegisterAVSDeviceResponse -> TestTree
@@ -1254,7 +1254,7 @@ responseRegisterAVSDevice =
   res
     "RegisterAVSDeviceResponse"
     "fixture/RegisterAVSDeviceResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy RegisterAVSDevice)
 
 responseForgetSmartHomeAppliances :: ForgetSmartHomeAppliancesResponse -> TestTree
@@ -1262,7 +1262,7 @@ responseForgetSmartHomeAppliances =
   res
     "ForgetSmartHomeAppliancesResponse"
     "fixture/ForgetSmartHomeAppliancesResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ForgetSmartHomeAppliances)
 
 responsePutInvitationConfiguration :: PutInvitationConfigurationResponse -> TestTree
@@ -1270,7 +1270,7 @@ responsePutInvitationConfiguration =
   res
     "PutInvitationConfigurationResponse"
     "fixture/PutInvitationConfigurationResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy PutInvitationConfiguration)
 
 responseDisassociateContactFromAddressBook :: DisassociateContactFromAddressBookResponse -> TestTree
@@ -1278,7 +1278,7 @@ responseDisassociateContactFromAddressBook =
   res
     "DisassociateContactFromAddressBookResponse"
     "fixture/DisassociateContactFromAddressBookResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateContactFromAddressBook)
 
 responseGetNetworkProfile :: GetNetworkProfileResponse -> TestTree
@@ -1286,7 +1286,7 @@ responseGetNetworkProfile =
   res
     "GetNetworkProfileResponse"
     "fixture/GetNetworkProfileResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetNetworkProfile)
 
 responseGetConferencePreference :: GetConferencePreferenceResponse -> TestTree
@@ -1294,7 +1294,7 @@ responseGetConferencePreference =
   res
     "GetConferencePreferenceResponse"
     "fixture/GetConferencePreferenceResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetConferencePreference)
 
 responseDisassociateSkillFromSkillGroup :: DisassociateSkillFromSkillGroupResponse -> TestTree
@@ -1302,7 +1302,7 @@ responseDisassociateSkillFromSkillGroup =
   res
     "DisassociateSkillFromSkillGroupResponse"
     "fixture/DisassociateSkillFromSkillGroupResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateSkillFromSkillGroup)
 
 responseCreateAddressBook :: CreateAddressBookResponse -> TestTree
@@ -1310,7 +1310,7 @@ responseCreateAddressBook =
   res
     "CreateAddressBookResponse"
     "fixture/CreateAddressBookResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy CreateAddressBook)
 
 responseDeleteAddressBook :: DeleteAddressBookResponse -> TestTree
@@ -1318,7 +1318,7 @@ responseDeleteAddressBook =
   res
     "DeleteAddressBookResponse"
     "fixture/DeleteAddressBookResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAddressBook)
 
 responseUpdateAddressBook :: UpdateAddressBookResponse -> TestTree
@@ -1326,7 +1326,7 @@ responseUpdateAddressBook =
   res
     "UpdateAddressBookResponse"
     "fixture/UpdateAddressBookResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UpdateAddressBook)
 
 responseDeleteGatewayGroup :: DeleteGatewayGroupResponse -> TestTree
@@ -1334,7 +1334,7 @@ responseDeleteGatewayGroup =
   res
     "DeleteGatewayGroupResponse"
     "fixture/DeleteGatewayGroupResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteGatewayGroup)
 
 responseUpdateGatewayGroup :: UpdateGatewayGroupResponse -> TestTree
@@ -1342,7 +1342,7 @@ responseUpdateGatewayGroup =
   res
     "UpdateGatewayGroupResponse"
     "fixture/UpdateGatewayGroupResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UpdateGatewayGroup)
 
 responseUpdateRoom :: UpdateRoomResponse -> TestTree
@@ -1350,7 +1350,7 @@ responseUpdateRoom =
   res
     "UpdateRoomResponse"
     "fixture/UpdateRoomResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UpdateRoom)
 
 responseDeleteRoom :: DeleteRoomResponse -> TestTree
@@ -1358,7 +1358,7 @@ responseDeleteRoom =
   res
     "DeleteRoomResponse"
     "fixture/DeleteRoomResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRoom)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
@@ -1366,7 +1366,7 @@ responseGetDevice =
   res
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetDevice)
 
 responseGetGateway :: GetGatewayResponse -> TestTree
@@ -1374,7 +1374,7 @@ responseGetGateway =
   res
     "GetGatewayResponse"
     "fixture/GetGatewayResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetGateway)
 
 responseListSkillsStoreSkillsByCategory :: ListSkillsStoreSkillsByCategoryResponse -> TestTree
@@ -1382,7 +1382,7 @@ responseListSkillsStoreSkillsByCategory =
   res
     "ListSkillsStoreSkillsByCategoryResponse"
     "fixture/ListSkillsStoreSkillsByCategoryResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ListSkillsStoreSkillsByCategory)
 
 responseDeleteConferenceProvider :: DeleteConferenceProviderResponse -> TestTree
@@ -1390,7 +1390,7 @@ responseDeleteConferenceProvider =
   res
     "DeleteConferenceProviderResponse"
     "fixture/DeleteConferenceProviderResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteConferenceProvider)
 
 responseUpdateConferenceProvider :: UpdateConferenceProviderResponse -> TestTree
@@ -1398,7 +1398,7 @@ responseUpdateConferenceProvider =
   res
     "UpdateConferenceProviderResponse"
     "fixture/UpdateConferenceProviderResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UpdateConferenceProvider)
 
 responseGetContact :: GetContactResponse -> TestTree
@@ -1406,7 +1406,7 @@ responseGetContact =
   res
     "GetContactResponse"
     "fixture/GetContactResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetContact)
 
 responseApproveSkill :: ApproveSkillResponse -> TestTree
@@ -1414,7 +1414,7 @@ responseApproveSkill =
   res
     "ApproveSkillResponse"
     "fixture/ApproveSkillResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ApproveSkill)
 
 responseCreateNetworkProfile :: CreateNetworkProfileResponse -> TestTree
@@ -1422,7 +1422,7 @@ responseCreateNetworkProfile =
   res
     "CreateNetworkProfileResponse"
     "fixture/CreateNetworkProfileResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy CreateNetworkProfile)
 
 responseAssociateDeviceWithRoom :: AssociateDeviceWithRoomResponse -> TestTree
@@ -1430,7 +1430,7 @@ responseAssociateDeviceWithRoom =
   res
     "AssociateDeviceWithRoomResponse"
     "fixture/AssociateDeviceWithRoomResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy AssociateDeviceWithRoom)
 
 responseGetRoomSkillParameter :: GetRoomSkillParameterResponse -> TestTree
@@ -1438,7 +1438,7 @@ responseGetRoomSkillParameter =
   res
     "GetRoomSkillParameterResponse"
     "fixture/GetRoomSkillParameterResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetRoomSkillParameter)
 
 responseUpdateGateway :: UpdateGatewayResponse -> TestTree
@@ -1446,7 +1446,7 @@ responseUpdateGateway =
   res
     "UpdateGatewayResponse"
     "fixture/UpdateGatewayResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UpdateGateway)
 
 responseCreateBusinessReportSchedule :: CreateBusinessReportScheduleResponse -> TestTree
@@ -1454,7 +1454,7 @@ responseCreateBusinessReportSchedule =
   res
     "CreateBusinessReportScheduleResponse"
     "fixture/CreateBusinessReportScheduleResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy CreateBusinessReportSchedule)
 
 responseDeleteContact :: DeleteContactResponse -> TestTree
@@ -1462,7 +1462,7 @@ responseDeleteContact =
   res
     "DeleteContactResponse"
     "fixture/DeleteContactResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteContact)
 
 responseUpdateContact :: UpdateContactResponse -> TestTree
@@ -1470,7 +1470,7 @@ responseUpdateContact =
   res
     "UpdateContactResponse"
     "fixture/UpdateContactResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UpdateContact)
 
 responseGetAddressBook :: GetAddressBookResponse -> TestTree
@@ -1478,7 +1478,7 @@ responseGetAddressBook =
   res
     "GetAddressBookResponse"
     "fixture/GetAddressBookResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetAddressBook)
 
 responseListBusinessReportSchedules :: ListBusinessReportSchedulesResponse -> TestTree
@@ -1486,7 +1486,7 @@ responseListBusinessReportSchedules =
   res
     "ListBusinessReportSchedulesResponse"
     "fixture/ListBusinessReportSchedulesResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ListBusinessReportSchedules)
 
 responseDeleteDeviceUsageData :: DeleteDeviceUsageDataResponse -> TestTree
@@ -1494,7 +1494,7 @@ responseDeleteDeviceUsageData =
   res
     "DeleteDeviceUsageDataResponse"
     "fixture/DeleteDeviceUsageDataResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDeviceUsageData)
 
 responseCreateContact :: CreateContactResponse -> TestTree
@@ -1502,7 +1502,7 @@ responseCreateContact =
   res
     "CreateContactResponse"
     "fixture/CreateContactResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy CreateContact)
 
 responseCreateProfile :: CreateProfileResponse -> TestTree
@@ -1510,7 +1510,7 @@ responseCreateProfile =
   res
     "CreateProfileResponse"
     "fixture/CreateProfileResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy CreateProfile)
 
 responseDeleteSkillGroup :: DeleteSkillGroupResponse -> TestTree
@@ -1518,7 +1518,7 @@ responseDeleteSkillGroup =
   res
     "DeleteSkillGroupResponse"
     "fixture/DeleteSkillGroupResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSkillGroup)
 
 responseUpdateSkillGroup :: UpdateSkillGroupResponse -> TestTree
@@ -1526,7 +1526,7 @@ responseUpdateSkillGroup =
   res
     "UpdateSkillGroupResponse"
     "fixture/UpdateSkillGroupResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UpdateSkillGroup)
 
 responseStartDeviceSync :: StartDeviceSyncResponse -> TestTree
@@ -1534,7 +1534,7 @@ responseStartDeviceSync =
   res
     "StartDeviceSyncResponse"
     "fixture/StartDeviceSyncResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy StartDeviceSync)
 
 responseGetInvitationConfiguration :: GetInvitationConfigurationResponse -> TestTree
@@ -1542,7 +1542,7 @@ responseGetInvitationConfiguration =
   res
     "GetInvitationConfigurationResponse"
     "fixture/GetInvitationConfigurationResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetInvitationConfiguration)
 
 responseDisassociateSkillFromUsers :: DisassociateSkillFromUsersResponse -> TestTree
@@ -1550,7 +1550,7 @@ responseDisassociateSkillFromUsers =
   res
     "DisassociateSkillFromUsersResponse"
     "fixture/DisassociateSkillFromUsersResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateSkillFromUsers)
 
 responseSearchAddressBooks :: SearchAddressBooksResponse -> TestTree
@@ -1558,7 +1558,7 @@ responseSearchAddressBooks =
   res
     "SearchAddressBooksResponse"
     "fixture/SearchAddressBooksResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy SearchAddressBooks)
 
 responseCreateSkillGroup :: CreateSkillGroupResponse -> TestTree
@@ -1566,7 +1566,7 @@ responseCreateSkillGroup =
   res
     "CreateSkillGroupResponse"
     "fixture/CreateSkillGroupResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy CreateSkillGroup)
 
 responseGetProfile :: GetProfileResponse -> TestTree
@@ -1574,7 +1574,7 @@ responseGetProfile =
   res
     "GetProfileResponse"
     "fixture/GetProfileResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetProfile)
 
 responseDisassociateSkillGroupFromRoom :: DisassociateSkillGroupFromRoomResponse -> TestTree
@@ -1582,7 +1582,7 @@ responseDisassociateSkillGroupFromRoom =
   res
     "DisassociateSkillGroupFromRoomResponse"
     "fixture/DisassociateSkillGroupFromRoomResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateSkillGroupFromRoom)
 
 responseSendInvitation :: SendInvitationResponse -> TestTree
@@ -1590,7 +1590,7 @@ responseSendInvitation =
   res
     "SendInvitationResponse"
     "fixture/SendInvitationResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy SendInvitation)
 
 responseListDeviceEvents :: ListDeviceEventsResponse -> TestTree
@@ -1598,7 +1598,7 @@ responseListDeviceEvents =
   res
     "ListDeviceEventsResponse"
     "fixture/ListDeviceEventsResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ListDeviceEvents)
 
 responseCreateUser :: CreateUserResponse -> TestTree
@@ -1606,7 +1606,7 @@ responseCreateUser =
   res
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy CreateUser)
 
 responseSearchDevices :: SearchDevicesResponse -> TestTree
@@ -1614,7 +1614,7 @@ responseSearchDevices =
   res
     "SearchDevicesResponse"
     "fixture/SearchDevicesResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy SearchDevices)
 
 responseSearchContacts :: SearchContactsResponse -> TestTree
@@ -1622,7 +1622,7 @@ responseSearchContacts =
   res
     "SearchContactsResponse"
     "fixture/SearchContactsResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy SearchContacts)
 
 responseSendAnnouncement :: SendAnnouncementResponse -> TestTree
@@ -1630,7 +1630,7 @@ responseSendAnnouncement =
   res
     "SendAnnouncementResponse"
     "fixture/SendAnnouncementResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy SendAnnouncement)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
@@ -1638,7 +1638,7 @@ responseDeleteUser =
   res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUser)
 
 responseSearchNetworkProfiles :: SearchNetworkProfilesResponse -> TestTree
@@ -1646,7 +1646,7 @@ responseSearchNetworkProfiles =
   res
     "SearchNetworkProfilesResponse"
     "fixture/SearchNetworkProfilesResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy SearchNetworkProfiles)
 
 responseGetSkillGroup :: GetSkillGroupResponse -> TestTree
@@ -1654,7 +1654,7 @@ responseGetSkillGroup =
   res
     "GetSkillGroupResponse"
     "fixture/GetSkillGroupResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetSkillGroup)
 
 responseListSkills :: ListSkillsResponse -> TestTree
@@ -1662,7 +1662,7 @@ responseListSkills =
   res
     "ListSkillsResponse"
     "fixture/ListSkillsResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ListSkills)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1670,7 +1670,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseDisassociateDeviceFromRoom :: DisassociateDeviceFromRoomResponse -> TestTree
@@ -1678,7 +1678,7 @@ responseDisassociateDeviceFromRoom =
   res
     "DisassociateDeviceFromRoomResponse"
     "fixture/DisassociateDeviceFromRoomResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateDeviceFromRoom)
 
 responseSearchSkillGroups :: SearchSkillGroupsResponse -> TestTree
@@ -1686,7 +1686,7 @@ responseSearchSkillGroups =
   res
     "SearchSkillGroupsResponse"
     "fixture/SearchSkillGroupsResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy SearchSkillGroups)
 
 responsePutSkillAuthorization :: PutSkillAuthorizationResponse -> TestTree
@@ -1694,7 +1694,7 @@ responsePutSkillAuthorization =
   res
     "PutSkillAuthorizationResponse"
     "fixture/PutSkillAuthorizationResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy PutSkillAuthorization)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -1702,7 +1702,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ListTags)
 
 responseDeleteSkillAuthorization :: DeleteSkillAuthorizationResponse -> TestTree
@@ -1710,7 +1710,7 @@ responseDeleteSkillAuthorization =
   res
     "DeleteSkillAuthorizationResponse"
     "fixture/DeleteSkillAuthorizationResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSkillAuthorization)
 
 responseAssociateDeviceWithNetworkProfile :: AssociateDeviceWithNetworkProfileResponse -> TestTree
@@ -1718,7 +1718,7 @@ responseAssociateDeviceWithNetworkProfile =
   res
     "AssociateDeviceWithNetworkProfileResponse"
     "fixture/AssociateDeviceWithNetworkProfileResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy AssociateDeviceWithNetworkProfile)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1726,7 +1726,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseCreateConferenceProvider :: CreateConferenceProviderResponse -> TestTree
@@ -1734,7 +1734,7 @@ responseCreateConferenceProvider =
   res
     "CreateConferenceProviderResponse"
     "fixture/CreateConferenceProviderResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy CreateConferenceProvider)
 
 responseResolveRoom :: ResolveRoomResponse -> TestTree
@@ -1742,7 +1742,7 @@ responseResolveRoom =
   res
     "ResolveRoomResponse"
     "fixture/ResolveRoomResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ResolveRoom)
 
 responseCreateGatewayGroup :: CreateGatewayGroupResponse -> TestTree
@@ -1750,7 +1750,7 @@ responseCreateGatewayGroup =
   res
     "CreateGatewayGroupResponse"
     "fixture/CreateGatewayGroupResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy CreateGatewayGroup)
 
 responseCreateRoom :: CreateRoomResponse -> TestTree
@@ -1758,7 +1758,7 @@ responseCreateRoom =
   res
     "CreateRoomResponse"
     "fixture/CreateRoomResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy CreateRoom)
 
 responseDeleteRoomSkillParameter :: DeleteRoomSkillParameterResponse -> TestTree
@@ -1766,7 +1766,7 @@ responseDeleteRoomSkillParameter =
   res
     "DeleteRoomSkillParameterResponse"
     "fixture/DeleteRoomSkillParameterResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRoomSkillParameter)
 
 responseListGatewayGroups :: ListGatewayGroupsResponse -> TestTree
@@ -1774,7 +1774,7 @@ responseListGatewayGroups =
   res
     "ListGatewayGroupsResponse"
     "fixture/ListGatewayGroupsResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ListGatewayGroups)
 
 responsePutRoomSkillParameter :: PutRoomSkillParameterResponse -> TestTree
@@ -1782,7 +1782,7 @@ responsePutRoomSkillParameter =
   res
     "PutRoomSkillParameterResponse"
     "fixture/PutRoomSkillParameterResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy PutRoomSkillParameter)
 
 responseSearchProfiles :: SearchProfilesResponse -> TestTree
@@ -1790,7 +1790,7 @@ responseSearchProfiles =
   res
     "SearchProfilesResponse"
     "fixture/SearchProfilesResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy SearchProfiles)
 
 responseRejectSkill :: RejectSkillResponse -> TestTree
@@ -1798,7 +1798,7 @@ responseRejectSkill =
   res
     "RejectSkillResponse"
     "fixture/RejectSkillResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy RejectSkill)
 
 responseListConferenceProviders :: ListConferenceProvidersResponse -> TestTree
@@ -1806,7 +1806,7 @@ responseListConferenceProviders =
   res
     "ListConferenceProvidersResponse"
     "fixture/ListConferenceProvidersResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ListConferenceProviders)
 
 responseRevokeInvitation :: RevokeInvitationResponse -> TestTree
@@ -1814,7 +1814,7 @@ responseRevokeInvitation =
   res
     "RevokeInvitationResponse"
     "fixture/RevokeInvitationResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy RevokeInvitation)
 
 responseListGateways :: ListGatewaysResponse -> TestTree
@@ -1822,7 +1822,7 @@ responseListGateways =
   res
     "ListGatewaysResponse"
     "fixture/ListGatewaysResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ListGateways)
 
 responseDeleteDevice :: DeleteDeviceResponse -> TestTree
@@ -1830,7 +1830,7 @@ responseDeleteDevice =
   res
     "DeleteDeviceResponse"
     "fixture/DeleteDeviceResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDevice)
 
 responseUpdateDevice :: UpdateDeviceResponse -> TestTree
@@ -1838,7 +1838,7 @@ responseUpdateDevice =
   res
     "UpdateDeviceResponse"
     "fixture/UpdateDeviceResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDevice)
 
 responseAssociateSkillWithSkillGroup :: AssociateSkillWithSkillGroupResponse -> TestTree
@@ -1846,7 +1846,7 @@ responseAssociateSkillWithSkillGroup =
   res
     "AssociateSkillWithSkillGroupResponse"
     "fixture/AssociateSkillWithSkillGroupResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy AssociateSkillWithSkillGroup)
 
 responseGetConferenceProvider :: GetConferenceProviderResponse -> TestTree
@@ -1854,7 +1854,7 @@ responseGetConferenceProvider =
   res
     "GetConferenceProviderResponse"
     "fixture/GetConferenceProviderResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetConferenceProvider)
 
 responseGetRoom :: GetRoomResponse -> TestTree
@@ -1862,7 +1862,7 @@ responseGetRoom =
   res
     "GetRoomResponse"
     "fixture/GetRoomResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetRoom)
 
 responseGetGatewayGroup :: GetGatewayGroupResponse -> TestTree
@@ -1870,7 +1870,7 @@ responseGetGatewayGroup =
   res
     "GetGatewayGroupResponse"
     "fixture/GetGatewayGroupResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy GetGatewayGroup)
 
 responseListSkillsStoreCategories :: ListSkillsStoreCategoriesResponse -> TestTree
@@ -1878,7 +1878,7 @@ responseListSkillsStoreCategories =
   res
     "ListSkillsStoreCategoriesResponse"
     "fixture/ListSkillsStoreCategoriesResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy ListSkillsStoreCategories)
 
 responseStartSmartHomeApplianceDiscovery :: StartSmartHomeApplianceDiscoveryResponse -> TestTree
@@ -1886,7 +1886,7 @@ responseStartSmartHomeApplianceDiscovery =
   res
     "StartSmartHomeApplianceDiscoveryResponse"
     "fixture/StartSmartHomeApplianceDiscoveryResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy StartSmartHomeApplianceDiscovery)
 
 responseAssociateContactWithAddressBook :: AssociateContactWithAddressBookResponse -> TestTree
@@ -1894,5 +1894,5 @@ responseAssociateContactWithAddressBook =
   res
     "AssociateContactWithAddressBookResponse"
     "fixture/AssociateContactWithAddressBookResponse.proto"
-    alexaBusinessService
+    mkServiceConfig
     (Proxy :: Proxy AssociateContactWithAddressBook)

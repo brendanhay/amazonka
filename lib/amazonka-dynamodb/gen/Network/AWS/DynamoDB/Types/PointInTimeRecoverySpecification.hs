@@ -22,43 +22,38 @@ module Network.AWS.DynamoDB.Types.PointInTimeRecoverySpecification
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the settings used to enable point in time recovery.
 --
 -- /See:/ 'mkPointInTimeRecoverySpecification' smart constructor.
 newtype PointInTimeRecoverySpecification = PointInTimeRecoverySpecification'
   { -- | Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
-    pointInTimeRecoveryEnabled :: Lude.Bool
+    pointInTimeRecoveryEnabled :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PointInTimeRecoverySpecification' with the minimum fields required to make a request.
---
--- * 'pointInTimeRecoveryEnabled' - Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+-- | Creates a 'PointInTimeRecoverySpecification' value with any optional fields omitted.
 mkPointInTimeRecoverySpecification ::
   -- | 'pointInTimeRecoveryEnabled'
-  Lude.Bool ->
+  Core.Bool ->
   PointInTimeRecoverySpecification
-mkPointInTimeRecoverySpecification pPointInTimeRecoveryEnabled_ =
-  PointInTimeRecoverySpecification'
-    { pointInTimeRecoveryEnabled =
-        pPointInTimeRecoveryEnabled_
-    }
+mkPointInTimeRecoverySpecification pointInTimeRecoveryEnabled =
+  PointInTimeRecoverySpecification' {pointInTimeRecoveryEnabled}
 
 -- | Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 --
 -- /Note:/ Consider using 'pointInTimeRecoveryEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pitrsPointInTimeRecoveryEnabled :: Lens.Lens' PointInTimeRecoverySpecification Lude.Bool
-pitrsPointInTimeRecoveryEnabled = Lens.lens (pointInTimeRecoveryEnabled :: PointInTimeRecoverySpecification -> Lude.Bool) (\s a -> s {pointInTimeRecoveryEnabled = a} :: PointInTimeRecoverySpecification)
+pitrsPointInTimeRecoveryEnabled :: Lens.Lens' PointInTimeRecoverySpecification Core.Bool
+pitrsPointInTimeRecoveryEnabled = Lens.field @"pointInTimeRecoveryEnabled"
 {-# DEPRECATED pitrsPointInTimeRecoveryEnabled "Use generic-lens or generic-optics with 'pointInTimeRecoveryEnabled' instead." #-}
 
-instance Lude.ToJSON PointInTimeRecoverySpecification where
-  toJSON PointInTimeRecoverySpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("PointInTimeRecoveryEnabled" Lude..= pointInTimeRecoveryEnabled)
+instance Core.FromJSON PointInTimeRecoverySpecification where
+  toJSON PointInTimeRecoverySpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("PointInTimeRecoveryEnabled" Core..= pointInTimeRecoveryEnabled)
           ]
       )

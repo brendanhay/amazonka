@@ -20,141 +20,122 @@ module Network.AWS.WorkMail.UpdatePrimaryEmailAddress
     mkUpdatePrimaryEmailAddress,
 
     -- ** Request lenses
-    upeaEmail,
-    upeaEntityId,
     upeaOrganizationId,
+    upeaEntityId,
+    upeaEmail,
 
     -- * Destructuring the response
     UpdatePrimaryEmailAddressResponse (..),
     mkUpdatePrimaryEmailAddressResponse,
 
     -- ** Response lenses
-    upearsResponseStatus,
+    upearrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkUpdatePrimaryEmailAddress' smart constructor.
 data UpdatePrimaryEmailAddress = UpdatePrimaryEmailAddress'
-  { -- | The value of the email to be updated as primary.
-    email :: Lude.Text,
+  { -- | The organization that contains the user, group, or resource to update.
+    organizationId :: Types.OrganizationId,
     -- | The user, group, or resource to update.
-    entityId :: Lude.Text,
-    -- | The organization that contains the user, group, or resource to update.
-    organizationId :: Lude.Text
+    entityId :: Types.WorkMailIdentifier,
+    -- | The value of the email to be updated as primary.
+    email :: Types.EmailAddress
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdatePrimaryEmailAddress' with the minimum fields required to make a request.
---
--- * 'email' - The value of the email to be updated as primary.
--- * 'entityId' - The user, group, or resource to update.
--- * 'organizationId' - The organization that contains the user, group, or resource to update.
+-- | Creates a 'UpdatePrimaryEmailAddress' value with any optional fields omitted.
 mkUpdatePrimaryEmailAddress ::
-  -- | 'email'
-  Lude.Text ->
-  -- | 'entityId'
-  Lude.Text ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'entityId'
+  Types.WorkMailIdentifier ->
+  -- | 'email'
+  Types.EmailAddress ->
   UpdatePrimaryEmailAddress
-mkUpdatePrimaryEmailAddress pEmail_ pEntityId_ pOrganizationId_ =
-  UpdatePrimaryEmailAddress'
-    { email = pEmail_,
-      entityId = pEntityId_,
-      organizationId = pOrganizationId_
-    }
-
--- | The value of the email to be updated as primary.
---
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upeaEmail :: Lens.Lens' UpdatePrimaryEmailAddress Lude.Text
-upeaEmail = Lens.lens (email :: UpdatePrimaryEmailAddress -> Lude.Text) (\s a -> s {email = a} :: UpdatePrimaryEmailAddress)
-{-# DEPRECATED upeaEmail "Use generic-lens or generic-optics with 'email' instead." #-}
-
--- | The user, group, or resource to update.
---
--- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upeaEntityId :: Lens.Lens' UpdatePrimaryEmailAddress Lude.Text
-upeaEntityId = Lens.lens (entityId :: UpdatePrimaryEmailAddress -> Lude.Text) (\s a -> s {entityId = a} :: UpdatePrimaryEmailAddress)
-{-# DEPRECATED upeaEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
+mkUpdatePrimaryEmailAddress organizationId entityId email =
+  UpdatePrimaryEmailAddress' {organizationId, entityId, email}
 
 -- | The organization that contains the user, group, or resource to update.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upeaOrganizationId :: Lens.Lens' UpdatePrimaryEmailAddress Lude.Text
-upeaOrganizationId = Lens.lens (organizationId :: UpdatePrimaryEmailAddress -> Lude.Text) (\s a -> s {organizationId = a} :: UpdatePrimaryEmailAddress)
+upeaOrganizationId :: Lens.Lens' UpdatePrimaryEmailAddress Types.OrganizationId
+upeaOrganizationId = Lens.field @"organizationId"
 {-# DEPRECATED upeaOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Lude.AWSRequest UpdatePrimaryEmailAddress where
+-- | The user, group, or resource to update.
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upeaEntityId :: Lens.Lens' UpdatePrimaryEmailAddress Types.WorkMailIdentifier
+upeaEntityId = Lens.field @"entityId"
+{-# DEPRECATED upeaEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
+
+-- | The value of the email to be updated as primary.
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upeaEmail :: Lens.Lens' UpdatePrimaryEmailAddress Types.EmailAddress
+upeaEmail = Lens.field @"email"
+{-# DEPRECATED upeaEmail "Use generic-lens or generic-optics with 'email' instead." #-}
+
+instance Core.FromJSON UpdatePrimaryEmailAddress where
+  toJSON UpdatePrimaryEmailAddress {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("EntityId" Core..= entityId),
+            Core.Just ("Email" Core..= email)
+          ]
+      )
+
+instance Core.AWSRequest UpdatePrimaryEmailAddress where
   type
     Rs UpdatePrimaryEmailAddress =
       UpdatePrimaryEmailAddressResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "WorkMailService.UpdatePrimaryEmailAddress")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdatePrimaryEmailAddressResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdatePrimaryEmailAddress where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.UpdatePrimaryEmailAddress" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdatePrimaryEmailAddress where
-  toJSON UpdatePrimaryEmailAddress' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Email" Lude..= email),
-            Lude.Just ("EntityId" Lude..= entityId),
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath UpdatePrimaryEmailAddress where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdatePrimaryEmailAddress where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdatePrimaryEmailAddressResponse' smart constructor.
 newtype UpdatePrimaryEmailAddressResponse = UpdatePrimaryEmailAddressResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdatePrimaryEmailAddressResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdatePrimaryEmailAddressResponse' value with any optional fields omitted.
 mkUpdatePrimaryEmailAddressResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdatePrimaryEmailAddressResponse
-mkUpdatePrimaryEmailAddressResponse pResponseStatus_ =
-  UpdatePrimaryEmailAddressResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdatePrimaryEmailAddressResponse responseStatus =
+  UpdatePrimaryEmailAddressResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upearsResponseStatus :: Lens.Lens' UpdatePrimaryEmailAddressResponse Lude.Int
-upearsResponseStatus = Lens.lens (responseStatus :: UpdatePrimaryEmailAddressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePrimaryEmailAddressResponse)
-{-# DEPRECATED upearsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+upearrsResponseStatus :: Lens.Lens' UpdatePrimaryEmailAddressResponse Core.Int
+upearrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED upearrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

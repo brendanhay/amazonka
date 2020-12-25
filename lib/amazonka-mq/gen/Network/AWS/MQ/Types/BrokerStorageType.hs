@@ -13,47 +13,52 @@
 module Network.AWS.MQ.Types.BrokerStorageType
   ( BrokerStorageType
       ( BrokerStorageType',
-        EBS,
-        Efs
+        BrokerStorageTypeEbs,
+        BrokerStorageTypeEfs,
+        fromBrokerStorageType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /Important:/ EFS is currently not Supported for RabbitMQ engine type.
-newtype BrokerStorageType = BrokerStorageType' Lude.Text
+newtype BrokerStorageType = BrokerStorageType'
+  { fromBrokerStorageType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EBS :: BrokerStorageType
-pattern EBS = BrokerStorageType' "EBS"
+pattern BrokerStorageTypeEbs :: BrokerStorageType
+pattern BrokerStorageTypeEbs = BrokerStorageType' "EBS"
 
-pattern Efs :: BrokerStorageType
-pattern Efs = BrokerStorageType' "EFS"
+pattern BrokerStorageTypeEfs :: BrokerStorageType
+pattern BrokerStorageTypeEfs = BrokerStorageType' "EFS"
 
 {-# COMPLETE
-  EBS,
-  Efs,
+  BrokerStorageTypeEbs,
+  BrokerStorageTypeEfs,
   BrokerStorageType'
   #-}

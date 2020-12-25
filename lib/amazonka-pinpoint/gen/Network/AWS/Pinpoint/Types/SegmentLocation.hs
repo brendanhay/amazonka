@@ -23,59 +23,54 @@ module Network.AWS.Pinpoint.Types.SegmentLocation
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.GPSPointDimension
-import Network.AWS.Pinpoint.Types.SetDimension
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.GPSPointDimension as Types
+import qualified Network.AWS.Pinpoint.Types.SetDimension as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies geographical dimension settings for a segment.
 --
 -- /See:/ 'mkSegmentLocation' smart constructor.
 data SegmentLocation = SegmentLocation'
   { -- | The country or region code, in ISO 3166-1 alpha-2 format, for the segment.
-    country :: Lude.Maybe SetDimension,
+    country :: Core.Maybe Types.SetDimension,
     -- | The GPS location and range for the segment.
-    gPSPoint :: Lude.Maybe GPSPointDimension
+    gPSPoint :: Core.Maybe Types.GPSPointDimension
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SegmentLocation' with the minimum fields required to make a request.
---
--- * 'country' - The country or region code, in ISO 3166-1 alpha-2 format, for the segment.
--- * 'gPSPoint' - The GPS location and range for the segment.
+-- | Creates a 'SegmentLocation' value with any optional fields omitted.
 mkSegmentLocation ::
   SegmentLocation
 mkSegmentLocation =
-  SegmentLocation' {country = Lude.Nothing, gPSPoint = Lude.Nothing}
+  SegmentLocation' {country = Core.Nothing, gPSPoint = Core.Nothing}
 
 -- | The country or region code, in ISO 3166-1 alpha-2 format, for the segment.
 --
 -- /Note:/ Consider using 'country' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slCountry :: Lens.Lens' SegmentLocation (Lude.Maybe SetDimension)
-slCountry = Lens.lens (country :: SegmentLocation -> Lude.Maybe SetDimension) (\s a -> s {country = a} :: SegmentLocation)
+slCountry :: Lens.Lens' SegmentLocation (Core.Maybe Types.SetDimension)
+slCountry = Lens.field @"country"
 {-# DEPRECATED slCountry "Use generic-lens or generic-optics with 'country' instead." #-}
 
 -- | The GPS location and range for the segment.
 --
 -- /Note:/ Consider using 'gPSPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slGPSPoint :: Lens.Lens' SegmentLocation (Lude.Maybe GPSPointDimension)
-slGPSPoint = Lens.lens (gPSPoint :: SegmentLocation -> Lude.Maybe GPSPointDimension) (\s a -> s {gPSPoint = a} :: SegmentLocation)
+slGPSPoint :: Lens.Lens' SegmentLocation (Core.Maybe Types.GPSPointDimension)
+slGPSPoint = Lens.field @"gPSPoint"
 {-# DEPRECATED slGPSPoint "Use generic-lens or generic-optics with 'gPSPoint' instead." #-}
 
-instance Lude.FromJSON SegmentLocation where
-  parseJSON =
-    Lude.withObject
-      "SegmentLocation"
-      ( \x ->
-          SegmentLocation'
-            Lude.<$> (x Lude..:? "Country") Lude.<*> (x Lude..:? "GPSPoint")
-      )
-
-instance Lude.ToJSON SegmentLocation where
-  toJSON SegmentLocation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Country" Lude..=) Lude.<$> country,
-            ("GPSPoint" Lude..=) Lude.<$> gPSPoint
+instance Core.FromJSON SegmentLocation where
+  toJSON SegmentLocation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Country" Core..=) Core.<$> country,
+            ("GPSPoint" Core..=) Core.<$> gPSPoint
           ]
       )
+
+instance Core.FromJSON SegmentLocation where
+  parseJSON =
+    Core.withObject "SegmentLocation" Core.$
+      \x ->
+        SegmentLocation'
+          Core.<$> (x Core..:? "Country") Core.<*> (x Core..:? "GPSPoint")

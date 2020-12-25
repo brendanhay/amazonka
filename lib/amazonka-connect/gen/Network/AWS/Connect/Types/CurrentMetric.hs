@@ -22,58 +22,53 @@ module Network.AWS.Connect.Types.CurrentMetric
   )
 where
 
-import Network.AWS.Connect.Types.CurrentMetricName
-import Network.AWS.Connect.Types.Unit
+import qualified Network.AWS.Connect.Types.CurrentMetricName as Types
+import qualified Network.AWS.Connect.Types.Unit as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a real-time metric. For a description of each metric, see <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html Real-time Metrics Definitions> in the /Amazon Connect Administrator Guide/ .
 --
 -- /See:/ 'mkCurrentMetric' smart constructor.
 data CurrentMetric = CurrentMetric'
   { -- | The name of the metric.
-    name :: Lude.Maybe CurrentMetricName,
+    name :: Core.Maybe Types.CurrentMetricName,
     -- | The unit for the metric.
-    unit :: Lude.Maybe Unit
+    unit :: Core.Maybe Types.Unit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CurrentMetric' with the minimum fields required to make a request.
---
--- * 'name' - The name of the metric.
--- * 'unit' - The unit for the metric.
+-- | Creates a 'CurrentMetric' value with any optional fields omitted.
 mkCurrentMetric ::
   CurrentMetric
 mkCurrentMetric =
-  CurrentMetric' {name = Lude.Nothing, unit = Lude.Nothing}
+  CurrentMetric' {name = Core.Nothing, unit = Core.Nothing}
 
 -- | The name of the metric.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmName :: Lens.Lens' CurrentMetric (Lude.Maybe CurrentMetricName)
-cmName = Lens.lens (name :: CurrentMetric -> Lude.Maybe CurrentMetricName) (\s a -> s {name = a} :: CurrentMetric)
+cmName :: Lens.Lens' CurrentMetric (Core.Maybe Types.CurrentMetricName)
+cmName = Lens.field @"name"
 {-# DEPRECATED cmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The unit for the metric.
 --
 -- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmUnit :: Lens.Lens' CurrentMetric (Lude.Maybe Unit)
-cmUnit = Lens.lens (unit :: CurrentMetric -> Lude.Maybe Unit) (\s a -> s {unit = a} :: CurrentMetric)
+cmUnit :: Lens.Lens' CurrentMetric (Core.Maybe Types.Unit)
+cmUnit = Lens.field @"unit"
 {-# DEPRECATED cmUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance Lude.FromJSON CurrentMetric where
-  parseJSON =
-    Lude.withObject
-      "CurrentMetric"
-      ( \x ->
-          CurrentMetric'
-            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "Unit")
+instance Core.FromJSON CurrentMetric where
+  toJSON CurrentMetric {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Name" Core..=) Core.<$> name, ("Unit" Core..=) Core.<$> unit]
       )
 
-instance Lude.ToJSON CurrentMetric where
-  toJSON CurrentMetric' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Name" Lude..=) Lude.<$> name, ("Unit" Lude..=) Lude.<$> unit]
-      )
+instance Core.FromJSON CurrentMetric where
+  parseJSON =
+    Core.withObject "CurrentMetric" Core.$
+      \x ->
+        CurrentMetric'
+          Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Unit")

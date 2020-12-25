@@ -13,81 +13,86 @@
 module Network.AWS.CodeBuild.Types.ReportGroupTrendFieldType
   ( ReportGroupTrendFieldType
       ( ReportGroupTrendFieldType',
-        PassRate,
-        Duration,
-        Total,
-        LineCoverage,
-        LinesCovered,
-        LinesMissed,
-        BranchCoverage,
-        BranchesCovered,
-        BranchesMissed
+        ReportGroupTrendFieldTypePassRate,
+        ReportGroupTrendFieldTypeDuration,
+        ReportGroupTrendFieldTypeTotal,
+        ReportGroupTrendFieldTypeLineCoverage,
+        ReportGroupTrendFieldTypeLinesCovered,
+        ReportGroupTrendFieldTypeLinesMissed,
+        ReportGroupTrendFieldTypeBranchCoverage,
+        ReportGroupTrendFieldTypeBranchesCovered,
+        ReportGroupTrendFieldTypeBranchesMissed,
+        fromReportGroupTrendFieldType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReportGroupTrendFieldType = ReportGroupTrendFieldType' Lude.Text
+newtype ReportGroupTrendFieldType = ReportGroupTrendFieldType'
+  { fromReportGroupTrendFieldType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PassRate :: ReportGroupTrendFieldType
-pattern PassRate = ReportGroupTrendFieldType' "PASS_RATE"
+pattern ReportGroupTrendFieldTypePassRate :: ReportGroupTrendFieldType
+pattern ReportGroupTrendFieldTypePassRate = ReportGroupTrendFieldType' "PASS_RATE"
 
-pattern Duration :: ReportGroupTrendFieldType
-pattern Duration = ReportGroupTrendFieldType' "DURATION"
+pattern ReportGroupTrendFieldTypeDuration :: ReportGroupTrendFieldType
+pattern ReportGroupTrendFieldTypeDuration = ReportGroupTrendFieldType' "DURATION"
 
-pattern Total :: ReportGroupTrendFieldType
-pattern Total = ReportGroupTrendFieldType' "TOTAL"
+pattern ReportGroupTrendFieldTypeTotal :: ReportGroupTrendFieldType
+pattern ReportGroupTrendFieldTypeTotal = ReportGroupTrendFieldType' "TOTAL"
 
-pattern LineCoverage :: ReportGroupTrendFieldType
-pattern LineCoverage = ReportGroupTrendFieldType' "LINE_COVERAGE"
+pattern ReportGroupTrendFieldTypeLineCoverage :: ReportGroupTrendFieldType
+pattern ReportGroupTrendFieldTypeLineCoverage = ReportGroupTrendFieldType' "LINE_COVERAGE"
 
-pattern LinesCovered :: ReportGroupTrendFieldType
-pattern LinesCovered = ReportGroupTrendFieldType' "LINES_COVERED"
+pattern ReportGroupTrendFieldTypeLinesCovered :: ReportGroupTrendFieldType
+pattern ReportGroupTrendFieldTypeLinesCovered = ReportGroupTrendFieldType' "LINES_COVERED"
 
-pattern LinesMissed :: ReportGroupTrendFieldType
-pattern LinesMissed = ReportGroupTrendFieldType' "LINES_MISSED"
+pattern ReportGroupTrendFieldTypeLinesMissed :: ReportGroupTrendFieldType
+pattern ReportGroupTrendFieldTypeLinesMissed = ReportGroupTrendFieldType' "LINES_MISSED"
 
-pattern BranchCoverage :: ReportGroupTrendFieldType
-pattern BranchCoverage = ReportGroupTrendFieldType' "BRANCH_COVERAGE"
+pattern ReportGroupTrendFieldTypeBranchCoverage :: ReportGroupTrendFieldType
+pattern ReportGroupTrendFieldTypeBranchCoverage = ReportGroupTrendFieldType' "BRANCH_COVERAGE"
 
-pattern BranchesCovered :: ReportGroupTrendFieldType
-pattern BranchesCovered = ReportGroupTrendFieldType' "BRANCHES_COVERED"
+pattern ReportGroupTrendFieldTypeBranchesCovered :: ReportGroupTrendFieldType
+pattern ReportGroupTrendFieldTypeBranchesCovered = ReportGroupTrendFieldType' "BRANCHES_COVERED"
 
-pattern BranchesMissed :: ReportGroupTrendFieldType
-pattern BranchesMissed = ReportGroupTrendFieldType' "BRANCHES_MISSED"
+pattern ReportGroupTrendFieldTypeBranchesMissed :: ReportGroupTrendFieldType
+pattern ReportGroupTrendFieldTypeBranchesMissed = ReportGroupTrendFieldType' "BRANCHES_MISSED"
 
 {-# COMPLETE
-  PassRate,
-  Duration,
-  Total,
-  LineCoverage,
-  LinesCovered,
-  LinesMissed,
-  BranchCoverage,
-  BranchesCovered,
-  BranchesMissed,
+  ReportGroupTrendFieldTypePassRate,
+  ReportGroupTrendFieldTypeDuration,
+  ReportGroupTrendFieldTypeTotal,
+  ReportGroupTrendFieldTypeLineCoverage,
+  ReportGroupTrendFieldTypeLinesCovered,
+  ReportGroupTrendFieldTypeLinesMissed,
+  ReportGroupTrendFieldTypeBranchCoverage,
+  ReportGroupTrendFieldTypeBranchesCovered,
+  ReportGroupTrendFieldTypeBranchesMissed,
   ReportGroupTrendFieldType'
   #-}

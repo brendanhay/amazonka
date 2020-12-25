@@ -17,51 +17,49 @@ module Network.AWS.EMR.Types.KeyValue
     mkKeyValue,
 
     -- * Lenses
-    kvValue,
     kvKey,
+    kvValue,
   )
 where
 
+import qualified Network.AWS.EMR.Types.XmlString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A key-value pair.
 --
 -- /See:/ 'mkKeyValue' smart constructor.
 data KeyValue = KeyValue'
-  { -- | The value part of the identified key.
-    value :: Lude.Maybe Lude.Text,
-    -- | The unique identifier of a key-value pair.
-    key :: Lude.Maybe Lude.Text
+  { -- | The unique identifier of a key-value pair.
+    key :: Core.Maybe Types.XmlString,
+    -- | The value part of the identified key.
+    value :: Core.Maybe Types.XmlString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeyValue' with the minimum fields required to make a request.
---
--- * 'value' - The value part of the identified key.
--- * 'key' - The unique identifier of a key-value pair.
+-- | Creates a 'KeyValue' value with any optional fields omitted.
 mkKeyValue ::
   KeyValue
-mkKeyValue = KeyValue' {value = Lude.Nothing, key = Lude.Nothing}
-
--- | The value part of the identified key.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kvValue :: Lens.Lens' KeyValue (Lude.Maybe Lude.Text)
-kvValue = Lens.lens (value :: KeyValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: KeyValue)
-{-# DEPRECATED kvValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkKeyValue = KeyValue' {key = Core.Nothing, value = Core.Nothing}
 
 -- | The unique identifier of a key-value pair.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kvKey :: Lens.Lens' KeyValue (Lude.Maybe Lude.Text)
-kvKey = Lens.lens (key :: KeyValue -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: KeyValue)
+kvKey :: Lens.Lens' KeyValue (Core.Maybe Types.XmlString)
+kvKey = Lens.field @"key"
 {-# DEPRECATED kvKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON KeyValue where
-  toJSON KeyValue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Value" Lude..=) Lude.<$> value, ("Key" Lude..=) Lude.<$> key]
+-- | The value part of the identified key.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kvValue :: Lens.Lens' KeyValue (Core.Maybe Types.XmlString)
+kvValue = Lens.field @"value"
+{-# DEPRECATED kvValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON KeyValue where
+  toJSON KeyValue {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Value" Core..=) Core.<$> value]
       )

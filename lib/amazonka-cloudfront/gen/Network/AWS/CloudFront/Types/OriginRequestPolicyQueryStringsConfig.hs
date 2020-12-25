@@ -22,10 +22,10 @@ module Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringsConfig
   )
 where
 
-import Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringBehavior
-import Network.AWS.CloudFront.Types.QueryStringNames
+import qualified Network.AWS.CloudFront.Types.OriginRequestPolicyQueryStringBehavior as Types
+import qualified Network.AWS.CloudFront.Types.QueryStringNames as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in requests that CloudFront sends to the origin.
 --
@@ -41,37 +41,22 @@ data OriginRequestPolicyQueryStringsConfig = OriginRequestPolicyQueryStringsConf
     --
     --
     --     * @all@ – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
-    queryStringBehavior :: OriginRequestPolicyQueryStringBehavior,
+    queryStringBehavior :: Types.OriginRequestPolicyQueryStringBehavior,
     -- | Contains a list of the query strings in viewer requests that are included in requests that CloudFront sends to the origin.
-    queryStrings :: Lude.Maybe QueryStringNames
+    queryStrings :: Core.Maybe Types.QueryStringNames
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OriginRequestPolicyQueryStringsConfig' with the minimum fields required to make a request.
---
--- * 'queryStringBehavior' - Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
---
---
---     * @none@ – Query strings in viewer requests are not included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any query strings that are listed in a @CachePolicy@ /are/ included in origin requests.
---
---
---     * @whitelist@ – The query strings in viewer requests that are listed in the @QueryStringNames@ type are included in requests that CloudFront sends to the origin.
---
---
---     * @all@ – All query strings in viewer requests are included in requests that CloudFront sends to the origin.
---
---
--- * 'queryStrings' - Contains a list of the query strings in viewer requests that are included in requests that CloudFront sends to the origin.
+-- | Creates a 'OriginRequestPolicyQueryStringsConfig' value with any optional fields omitted.
 mkOriginRequestPolicyQueryStringsConfig ::
   -- | 'queryStringBehavior'
-  OriginRequestPolicyQueryStringBehavior ->
+  Types.OriginRequestPolicyQueryStringBehavior ->
   OriginRequestPolicyQueryStringsConfig
-mkOriginRequestPolicyQueryStringsConfig pQueryStringBehavior_ =
+mkOriginRequestPolicyQueryStringsConfig queryStringBehavior =
   OriginRequestPolicyQueryStringsConfig'
-    { queryStringBehavior =
-        pQueryStringBehavior_,
-      queryStrings = Lude.Nothing
+    { queryStringBehavior,
+      queryStrings = Core.Nothing
     }
 
 -- | Determines whether any URL query strings in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
@@ -88,26 +73,24 @@ mkOriginRequestPolicyQueryStringsConfig pQueryStringBehavior_ =
 --
 --
 -- /Note:/ Consider using 'queryStringBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpqscQueryStringBehavior :: Lens.Lens' OriginRequestPolicyQueryStringsConfig OriginRequestPolicyQueryStringBehavior
-orpqscQueryStringBehavior = Lens.lens (queryStringBehavior :: OriginRequestPolicyQueryStringsConfig -> OriginRequestPolicyQueryStringBehavior) (\s a -> s {queryStringBehavior = a} :: OriginRequestPolicyQueryStringsConfig)
+orpqscQueryStringBehavior :: Lens.Lens' OriginRequestPolicyQueryStringsConfig Types.OriginRequestPolicyQueryStringBehavior
+orpqscQueryStringBehavior = Lens.field @"queryStringBehavior"
 {-# DEPRECATED orpqscQueryStringBehavior "Use generic-lens or generic-optics with 'queryStringBehavior' instead." #-}
 
 -- | Contains a list of the query strings in viewer requests that are included in requests that CloudFront sends to the origin.
 --
 -- /Note:/ Consider using 'queryStrings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpqscQueryStrings :: Lens.Lens' OriginRequestPolicyQueryStringsConfig (Lude.Maybe QueryStringNames)
-orpqscQueryStrings = Lens.lens (queryStrings :: OriginRequestPolicyQueryStringsConfig -> Lude.Maybe QueryStringNames) (\s a -> s {queryStrings = a} :: OriginRequestPolicyQueryStringsConfig)
+orpqscQueryStrings :: Lens.Lens' OriginRequestPolicyQueryStringsConfig (Core.Maybe Types.QueryStringNames)
+orpqscQueryStrings = Lens.field @"queryStrings"
 {-# DEPRECATED orpqscQueryStrings "Use generic-lens or generic-optics with 'queryStrings' instead." #-}
 
-instance Lude.FromXML OriginRequestPolicyQueryStringsConfig where
+instance Core.ToXML OriginRequestPolicyQueryStringsConfig where
+  toXML OriginRequestPolicyQueryStringsConfig {..} =
+    Core.toXMLNode "QueryStringBehavior" queryStringBehavior
+      Core.<> Core.toXMLNode "QueryStrings" Core.<$> queryStrings
+
+instance Core.FromXML OriginRequestPolicyQueryStringsConfig where
   parseXML x =
     OriginRequestPolicyQueryStringsConfig'
-      Lude.<$> (x Lude..@ "QueryStringBehavior")
-      Lude.<*> (x Lude..@? "QueryStrings")
-
-instance Lude.ToXML OriginRequestPolicyQueryStringsConfig where
-  toXML OriginRequestPolicyQueryStringsConfig' {..} =
-    Lude.mconcat
-      [ "QueryStringBehavior" Lude.@= queryStringBehavior,
-        "QueryStrings" Lude.@= queryStrings
-      ]
+      Core.<$> (x Core..@ "QueryStringBehavior")
+      Core.<*> (x Core..@? "QueryStrings")

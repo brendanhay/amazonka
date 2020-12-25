@@ -28,114 +28,105 @@ module Network.AWS.EC2.DeleteFpgaImage
     mkDeleteFpgaImageResponse,
 
     -- ** Response lenses
-    dfifrsReturn,
-    dfifrsResponseStatus,
+    dfirrsReturn,
+    dfirrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFpgaImage' smart constructor.
 data DeleteFpgaImage = DeleteFpgaImage'
   { -- | The ID of the AFI.
-    fpgaImageId :: Lude.Text,
+    fpgaImageId :: Types.FpgaImageId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFpgaImage' with the minimum fields required to make a request.
---
--- * 'fpgaImageId' - The ID of the AFI.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteFpgaImage' value with any optional fields omitted.
 mkDeleteFpgaImage ::
   -- | 'fpgaImageId'
-  Lude.Text ->
+  Types.FpgaImageId ->
   DeleteFpgaImage
-mkDeleteFpgaImage pFpgaImageId_ =
-  DeleteFpgaImage'
-    { fpgaImageId = pFpgaImageId_,
-      dryRun = Lude.Nothing
-    }
+mkDeleteFpgaImage fpgaImageId =
+  DeleteFpgaImage' {fpgaImageId, dryRun = Core.Nothing}
 
 -- | The ID of the AFI.
 --
 -- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfiFpgaImageId :: Lens.Lens' DeleteFpgaImage Lude.Text
-dfiFpgaImageId = Lens.lens (fpgaImageId :: DeleteFpgaImage -> Lude.Text) (\s a -> s {fpgaImageId = a} :: DeleteFpgaImage)
+dfiFpgaImageId :: Lens.Lens' DeleteFpgaImage Types.FpgaImageId
+dfiFpgaImageId = Lens.field @"fpgaImageId"
 {-# DEPRECATED dfiFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfiDryRun :: Lens.Lens' DeleteFpgaImage (Lude.Maybe Lude.Bool)
-dfiDryRun = Lens.lens (dryRun :: DeleteFpgaImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteFpgaImage)
+dfiDryRun :: Lens.Lens' DeleteFpgaImage (Core.Maybe Core.Bool)
+dfiDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dfiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteFpgaImage where
+instance Core.AWSRequest DeleteFpgaImage where
   type Rs DeleteFpgaImage = DeleteFpgaImageResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteFpgaImage")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "FpgaImageId" fpgaImageId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DeleteFpgaImageResponse'
-            Lude.<$> (x Lude..@? "return") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "return") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteFpgaImage where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteFpgaImage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteFpgaImage where
-  toQuery DeleteFpgaImage' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteFpgaImage" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "FpgaImageId" Lude.=: fpgaImageId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkDeleteFpgaImageResponse' smart constructor.
 data DeleteFpgaImageResponse = DeleteFpgaImageResponse'
   { -- | Is @true@ if the request succeeds, and an error otherwise.
-    return :: Lude.Maybe Lude.Bool,
+    return :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFpgaImageResponse' with the minimum fields required to make a request.
---
--- * 'return' - Is @true@ if the request succeeds, and an error otherwise.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteFpgaImageResponse' value with any optional fields omitted.
 mkDeleteFpgaImageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteFpgaImageResponse
-mkDeleteFpgaImageResponse pResponseStatus_ =
-  DeleteFpgaImageResponse'
-    { return = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteFpgaImageResponse responseStatus =
+  DeleteFpgaImageResponse' {return = Core.Nothing, responseStatus}
 
 -- | Is @true@ if the request succeeds, and an error otherwise.
 --
 -- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfifrsReturn :: Lens.Lens' DeleteFpgaImageResponse (Lude.Maybe Lude.Bool)
-dfifrsReturn = Lens.lens (return :: DeleteFpgaImageResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: DeleteFpgaImageResponse)
-{-# DEPRECATED dfifrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
+dfirrsReturn :: Lens.Lens' DeleteFpgaImageResponse (Core.Maybe Core.Bool)
+dfirrsReturn = Lens.field @"return"
+{-# DEPRECATED dfirrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfifrsResponseStatus :: Lens.Lens' DeleteFpgaImageResponse Lude.Int
-dfifrsResponseStatus = Lens.lens (responseStatus :: DeleteFpgaImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteFpgaImageResponse)
-{-# DEPRECATED dfifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfirrsResponseStatus :: Lens.Lens' DeleteFpgaImageResponse Core.Int
+dfirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,56 +17,54 @@ module Network.AWS.SNS.Types.PlatformApplication
     mkPlatformApplication,
 
     -- * Lenses
-    paPlatformApplicationARN,
     paAttributes,
+    paPlatformApplicationArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SNS.Types.String as Types
 
 -- | Platform application object.
 --
 -- /See:/ 'mkPlatformApplication' smart constructor.
 data PlatformApplication = PlatformApplication'
-  { -- | PlatformApplicationArn for platform application object.
-    platformApplicationARN :: Lude.Maybe Lude.Text,
-    -- | Attributes for platform application object.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | Attributes for platform application object.
+    attributes :: Core.Maybe (Core.HashMap Types.String Types.String),
+    -- | PlatformApplicationArn for platform application object.
+    platformApplicationArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PlatformApplication' with the minimum fields required to make a request.
---
--- * 'platformApplicationARN' - PlatformApplicationArn for platform application object.
--- * 'attributes' - Attributes for platform application object.
+-- | Creates a 'PlatformApplication' value with any optional fields omitted.
 mkPlatformApplication ::
   PlatformApplication
 mkPlatformApplication =
   PlatformApplication'
-    { platformApplicationARN = Lude.Nothing,
-      attributes = Lude.Nothing
+    { attributes = Core.Nothing,
+      platformApplicationArn = Core.Nothing
     }
-
--- | PlatformApplicationArn for platform application object.
---
--- /Note:/ Consider using 'platformApplicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paPlatformApplicationARN :: Lens.Lens' PlatformApplication (Lude.Maybe Lude.Text)
-paPlatformApplicationARN = Lens.lens (platformApplicationARN :: PlatformApplication -> Lude.Maybe Lude.Text) (\s a -> s {platformApplicationARN = a} :: PlatformApplication)
-{-# DEPRECATED paPlatformApplicationARN "Use generic-lens or generic-optics with 'platformApplicationARN' instead." #-}
 
 -- | Attributes for platform application object.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paAttributes :: Lens.Lens' PlatformApplication (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-paAttributes = Lens.lens (attributes :: PlatformApplication -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: PlatformApplication)
+paAttributes :: Lens.Lens' PlatformApplication (Core.Maybe (Core.HashMap Types.String Types.String))
+paAttributes = Lens.field @"attributes"
 {-# DEPRECATED paAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance Lude.FromXML PlatformApplication where
+-- | PlatformApplicationArn for platform application object.
+--
+-- /Note:/ Consider using 'platformApplicationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paPlatformApplicationArn :: Lens.Lens' PlatformApplication (Core.Maybe Types.String)
+paPlatformApplicationArn = Lens.field @"platformApplicationArn"
+{-# DEPRECATED paPlatformApplicationArn "Use generic-lens or generic-optics with 'platformApplicationArn' instead." #-}
+
+instance Core.FromXML PlatformApplication where
   parseXML x =
     PlatformApplication'
-      Lude.<$> (x Lude..@? "PlatformApplicationArn")
-      Lude.<*> ( x Lude..@? "Attributes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
+      Core.<$> ( x Core..@? "Attributes"
+                   Core..<@> Core.parseXMLMap "entry" "key" "value"
                )
+      Core.<*> (x Core..@? "PlatformApplicationArn")

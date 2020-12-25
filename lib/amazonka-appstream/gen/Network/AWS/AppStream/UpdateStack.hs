@@ -20,264 +20,238 @@ module Network.AWS.AppStream.UpdateStack
     mkUpdateStack,
 
     -- ** Request lenses
-    usUserSettings,
+    usName,
+    usAccessEndpoints,
     usApplicationSettings,
-    usFeedbackURL,
     usAttributesToDelete,
     usDeleteStorageConnectors,
-    usStorageConnectors,
-    usAccessEndpoints,
-    usName,
+    usDescription,
     usDisplayName,
     usEmbedHostDomains,
-    usDescription,
+    usFeedbackURL,
     usRedirectURL,
+    usStorageConnectors,
+    usUserSettings,
 
     -- * Destructuring the response
     UpdateStackResponse (..),
     mkUpdateStackResponse,
 
     -- ** Response lenses
-    usrsStack,
-    usrsResponseStatus,
+    usrrsStack,
+    usrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateStack' smart constructor.
 data UpdateStack = UpdateStack'
-  { -- | The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
-    userSettings :: Lude.Maybe (Lude.NonEmpty UserSetting),
-    -- | The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
-    applicationSettings :: Lude.Maybe ApplicationSettings,
-    -- | The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
-    feedbackURL :: Lude.Maybe Lude.Text,
-    -- | The stack attributes to delete.
-    attributesToDelete :: Lude.Maybe [StackAttribute],
-    -- | Deletes the storage connectors currently enabled for the stack.
-    deleteStorageConnectors :: Lude.Maybe Lude.Bool,
-    -- | The storage connectors to enable.
-    storageConnectors :: Lude.Maybe [StorageConnector],
+  { -- | The name of the stack.
+    name :: Types.String,
     -- | The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
-    accessEndpoints :: Lude.Maybe (Lude.NonEmpty AccessEndpoint),
-    -- | The name of the stack.
-    name :: Lude.Text,
-    -- | The stack name to display.
-    displayName :: Lude.Maybe Lude.Text,
-    -- | The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
-    embedHostDomains :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    accessEndpoints :: Core.Maybe (Core.NonEmpty Types.AccessEndpoint),
+    -- | The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
+    applicationSettings :: Core.Maybe Types.ApplicationSettings,
+    -- | The stack attributes to delete.
+    attributesToDelete :: Core.Maybe [Types.StackAttribute],
+    -- | Deletes the storage connectors currently enabled for the stack.
+    deleteStorageConnectors :: Core.Maybe Core.Bool,
     -- | The description to display.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
+    -- | The stack name to display.
+    displayName :: Core.Maybe Types.DisplayName,
+    -- | The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
+    embedHostDomains :: Core.Maybe (Core.NonEmpty Types.EmbedHostDomain),
+    -- | The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
+    feedbackURL :: Core.Maybe Types.FeedbackURL,
     -- | The URL that users are redirected to after their streaming session ends.
-    redirectURL :: Lude.Maybe Lude.Text
+    redirectURL :: Core.Maybe Types.RedirectURL,
+    -- | The storage connectors to enable.
+    storageConnectors :: Core.Maybe [Types.StorageConnector],
+    -- | The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+    userSettings :: Core.Maybe (Core.NonEmpty Types.UserSetting)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateStack' with the minimum fields required to make a request.
---
--- * 'userSettings' - The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
--- * 'applicationSettings' - The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
--- * 'feedbackURL' - The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
--- * 'attributesToDelete' - The stack attributes to delete.
--- * 'deleteStorageConnectors' - Deletes the storage connectors currently enabled for the stack.
--- * 'storageConnectors' - The storage connectors to enable.
--- * 'accessEndpoints' - The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
--- * 'name' - The name of the stack.
--- * 'displayName' - The stack name to display.
--- * 'embedHostDomains' - The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
--- * 'description' - The description to display.
--- * 'redirectURL' - The URL that users are redirected to after their streaming session ends.
+-- | Creates a 'UpdateStack' value with any optional fields omitted.
 mkUpdateStack ::
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
   UpdateStack
-mkUpdateStack pName_ =
+mkUpdateStack name =
   UpdateStack'
-    { userSettings = Lude.Nothing,
-      applicationSettings = Lude.Nothing,
-      feedbackURL = Lude.Nothing,
-      attributesToDelete = Lude.Nothing,
-      deleteStorageConnectors = Lude.Nothing,
-      storageConnectors = Lude.Nothing,
-      accessEndpoints = Lude.Nothing,
-      name = pName_,
-      displayName = Lude.Nothing,
-      embedHostDomains = Lude.Nothing,
-      description = Lude.Nothing,
-      redirectURL = Lude.Nothing
+    { name,
+      accessEndpoints = Core.Nothing,
+      applicationSettings = Core.Nothing,
+      attributesToDelete = Core.Nothing,
+      deleteStorageConnectors = Core.Nothing,
+      description = Core.Nothing,
+      displayName = Core.Nothing,
+      embedHostDomains = Core.Nothing,
+      feedbackURL = Core.Nothing,
+      redirectURL = Core.Nothing,
+      storageConnectors = Core.Nothing,
+      userSettings = Core.Nothing
     }
 
--- | The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+-- | The name of the stack.
 --
--- /Note:/ Consider using 'userSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usUserSettings :: Lens.Lens' UpdateStack (Lude.Maybe (Lude.NonEmpty UserSetting))
-usUserSettings = Lens.lens (userSettings :: UpdateStack -> Lude.Maybe (Lude.NonEmpty UserSetting)) (\s a -> s {userSettings = a} :: UpdateStack)
-{-# DEPRECATED usUserSettings "Use generic-lens or generic-optics with 'userSettings' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usName :: Lens.Lens' UpdateStack Types.String
+usName = Lens.field @"name"
+{-# DEPRECATED usName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
+--
+-- /Note:/ Consider using 'accessEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usAccessEndpoints :: Lens.Lens' UpdateStack (Core.Maybe (Core.NonEmpty Types.AccessEndpoint))
+usAccessEndpoints = Lens.field @"accessEndpoints"
+{-# DEPRECATED usAccessEndpoints "Use generic-lens or generic-optics with 'accessEndpoints' instead." #-}
 
 -- | The persistent application settings for users of a stack. When these settings are enabled, changes that users make to applications and Windows settings are automatically saved after each session and applied to the next session.
 --
 -- /Note:/ Consider using 'applicationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usApplicationSettings :: Lens.Lens' UpdateStack (Lude.Maybe ApplicationSettings)
-usApplicationSettings = Lens.lens (applicationSettings :: UpdateStack -> Lude.Maybe ApplicationSettings) (\s a -> s {applicationSettings = a} :: UpdateStack)
+usApplicationSettings :: Lens.Lens' UpdateStack (Core.Maybe Types.ApplicationSettings)
+usApplicationSettings = Lens.field @"applicationSettings"
 {-# DEPRECATED usApplicationSettings "Use generic-lens or generic-optics with 'applicationSettings' instead." #-}
-
--- | The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
---
--- /Note:/ Consider using 'feedbackURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usFeedbackURL :: Lens.Lens' UpdateStack (Lude.Maybe Lude.Text)
-usFeedbackURL = Lens.lens (feedbackURL :: UpdateStack -> Lude.Maybe Lude.Text) (\s a -> s {feedbackURL = a} :: UpdateStack)
-{-# DEPRECATED usFeedbackURL "Use generic-lens or generic-optics with 'feedbackURL' instead." #-}
 
 -- | The stack attributes to delete.
 --
 -- /Note:/ Consider using 'attributesToDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usAttributesToDelete :: Lens.Lens' UpdateStack (Lude.Maybe [StackAttribute])
-usAttributesToDelete = Lens.lens (attributesToDelete :: UpdateStack -> Lude.Maybe [StackAttribute]) (\s a -> s {attributesToDelete = a} :: UpdateStack)
+usAttributesToDelete :: Lens.Lens' UpdateStack (Core.Maybe [Types.StackAttribute])
+usAttributesToDelete = Lens.field @"attributesToDelete"
 {-# DEPRECATED usAttributesToDelete "Use generic-lens or generic-optics with 'attributesToDelete' instead." #-}
 
 -- | Deletes the storage connectors currently enabled for the stack.
 --
 -- /Note:/ Consider using 'deleteStorageConnectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usDeleteStorageConnectors :: Lens.Lens' UpdateStack (Lude.Maybe Lude.Bool)
-usDeleteStorageConnectors = Lens.lens (deleteStorageConnectors :: UpdateStack -> Lude.Maybe Lude.Bool) (\s a -> s {deleteStorageConnectors = a} :: UpdateStack)
+usDeleteStorageConnectors :: Lens.Lens' UpdateStack (Core.Maybe Core.Bool)
+usDeleteStorageConnectors = Lens.field @"deleteStorageConnectors"
 {-# DEPRECATED usDeleteStorageConnectors "Use generic-lens or generic-optics with 'deleteStorageConnectors' instead." #-}
 
--- | The storage connectors to enable.
+-- | The description to display.
 --
--- /Note:/ Consider using 'storageConnectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usStorageConnectors :: Lens.Lens' UpdateStack (Lude.Maybe [StorageConnector])
-usStorageConnectors = Lens.lens (storageConnectors :: UpdateStack -> Lude.Maybe [StorageConnector]) (\s a -> s {storageConnectors = a} :: UpdateStack)
-{-# DEPRECATED usStorageConnectors "Use generic-lens or generic-optics with 'storageConnectors' instead." #-}
-
--- | The list of interface VPC endpoint (interface endpoint) objects. Users of the stack can connect to AppStream 2.0 only through the specified endpoints.
---
--- /Note:/ Consider using 'accessEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usAccessEndpoints :: Lens.Lens' UpdateStack (Lude.Maybe (Lude.NonEmpty AccessEndpoint))
-usAccessEndpoints = Lens.lens (accessEndpoints :: UpdateStack -> Lude.Maybe (Lude.NonEmpty AccessEndpoint)) (\s a -> s {accessEndpoints = a} :: UpdateStack)
-{-# DEPRECATED usAccessEndpoints "Use generic-lens or generic-optics with 'accessEndpoints' instead." #-}
-
--- | The name of the stack.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usName :: Lens.Lens' UpdateStack Lude.Text
-usName = Lens.lens (name :: UpdateStack -> Lude.Text) (\s a -> s {name = a} :: UpdateStack)
-{-# DEPRECATED usName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usDescription :: Lens.Lens' UpdateStack (Core.Maybe Types.Description)
+usDescription = Lens.field @"description"
+{-# DEPRECATED usDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The stack name to display.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usDisplayName :: Lens.Lens' UpdateStack (Lude.Maybe Lude.Text)
-usDisplayName = Lens.lens (displayName :: UpdateStack -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: UpdateStack)
+usDisplayName :: Lens.Lens' UpdateStack (Core.Maybe Types.DisplayName)
+usDisplayName = Lens.field @"displayName"
 {-# DEPRECATED usDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The domains where AppStream 2.0 streaming sessions can be embedded in an iframe. You must approve the domains that you want to host embedded AppStream 2.0 streaming sessions.
 --
 -- /Note:/ Consider using 'embedHostDomains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usEmbedHostDomains :: Lens.Lens' UpdateStack (Lude.Maybe (Lude.NonEmpty Lude.Text))
-usEmbedHostDomains = Lens.lens (embedHostDomains :: UpdateStack -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {embedHostDomains = a} :: UpdateStack)
+usEmbedHostDomains :: Lens.Lens' UpdateStack (Core.Maybe (Core.NonEmpty Types.EmbedHostDomain))
+usEmbedHostDomains = Lens.field @"embedHostDomains"
 {-# DEPRECATED usEmbedHostDomains "Use generic-lens or generic-optics with 'embedHostDomains' instead." #-}
 
--- | The description to display.
+-- | The URL that users are redirected to after they choose the Send Feedback link. If no URL is specified, no Send Feedback link is displayed.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usDescription :: Lens.Lens' UpdateStack (Lude.Maybe Lude.Text)
-usDescription = Lens.lens (description :: UpdateStack -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateStack)
-{-# DEPRECATED usDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'feedbackURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usFeedbackURL :: Lens.Lens' UpdateStack (Core.Maybe Types.FeedbackURL)
+usFeedbackURL = Lens.field @"feedbackURL"
+{-# DEPRECATED usFeedbackURL "Use generic-lens or generic-optics with 'feedbackURL' instead." #-}
 
 -- | The URL that users are redirected to after their streaming session ends.
 --
 -- /Note:/ Consider using 'redirectURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usRedirectURL :: Lens.Lens' UpdateStack (Lude.Maybe Lude.Text)
-usRedirectURL = Lens.lens (redirectURL :: UpdateStack -> Lude.Maybe Lude.Text) (\s a -> s {redirectURL = a} :: UpdateStack)
+usRedirectURL :: Lens.Lens' UpdateStack (Core.Maybe Types.RedirectURL)
+usRedirectURL = Lens.field @"redirectURL"
 {-# DEPRECATED usRedirectURL "Use generic-lens or generic-optics with 'redirectURL' instead." #-}
 
-instance Lude.AWSRequest UpdateStack where
+-- | The storage connectors to enable.
+--
+-- /Note:/ Consider using 'storageConnectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usStorageConnectors :: Lens.Lens' UpdateStack (Core.Maybe [Types.StorageConnector])
+usStorageConnectors = Lens.field @"storageConnectors"
+{-# DEPRECATED usStorageConnectors "Use generic-lens or generic-optics with 'storageConnectors' instead." #-}
+
+-- | The actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled.
+--
+-- /Note:/ Consider using 'userSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usUserSettings :: Lens.Lens' UpdateStack (Core.Maybe (Core.NonEmpty Types.UserSetting))
+usUserSettings = Lens.field @"userSettings"
+{-# DEPRECATED usUserSettings "Use generic-lens or generic-optics with 'userSettings' instead." #-}
+
+instance Core.FromJSON UpdateStack where
+  toJSON UpdateStack {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("AccessEndpoints" Core..=) Core.<$> accessEndpoints,
+            ("ApplicationSettings" Core..=) Core.<$> applicationSettings,
+            ("AttributesToDelete" Core..=) Core.<$> attributesToDelete,
+            ("DeleteStorageConnectors" Core..=)
+              Core.<$> deleteStorageConnectors,
+            ("Description" Core..=) Core.<$> description,
+            ("DisplayName" Core..=) Core.<$> displayName,
+            ("EmbedHostDomains" Core..=) Core.<$> embedHostDomains,
+            ("FeedbackURL" Core..=) Core.<$> feedbackURL,
+            ("RedirectURL" Core..=) Core.<$> redirectURL,
+            ("StorageConnectors" Core..=) Core.<$> storageConnectors,
+            ("UserSettings" Core..=) Core.<$> userSettings
+          ]
+      )
+
+instance Core.AWSRequest UpdateStack where
   type Rs UpdateStack = UpdateStackResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "PhotonAdminProxyService.UpdateStack")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateStackResponse'
-            Lude.<$> (x Lude..?> "Stack") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Stack") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateStack where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.UpdateStack" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateStack where
-  toJSON UpdateStack' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("UserSettings" Lude..=) Lude.<$> userSettings,
-            ("ApplicationSettings" Lude..=) Lude.<$> applicationSettings,
-            ("FeedbackURL" Lude..=) Lude.<$> feedbackURL,
-            ("AttributesToDelete" Lude..=) Lude.<$> attributesToDelete,
-            ("DeleteStorageConnectors" Lude..=)
-              Lude.<$> deleteStorageConnectors,
-            ("StorageConnectors" Lude..=) Lude.<$> storageConnectors,
-            ("AccessEndpoints" Lude..=) Lude.<$> accessEndpoints,
-            Lude.Just ("Name" Lude..= name),
-            ("DisplayName" Lude..=) Lude.<$> displayName,
-            ("EmbedHostDomains" Lude..=) Lude.<$> embedHostDomains,
-            ("Description" Lude..=) Lude.<$> description,
-            ("RedirectURL" Lude..=) Lude.<$> redirectURL
-          ]
-      )
-
-instance Lude.ToPath UpdateStack where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateStack where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateStackResponse' smart constructor.
 data UpdateStackResponse = UpdateStackResponse'
   { -- | Information about the stack.
-    stack :: Lude.Maybe Stack,
+    stack :: Core.Maybe Types.Stack,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateStackResponse' with the minimum fields required to make a request.
---
--- * 'stack' - Information about the stack.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateStackResponse' value with any optional fields omitted.
 mkUpdateStackResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateStackResponse
-mkUpdateStackResponse pResponseStatus_ =
-  UpdateStackResponse'
-    { stack = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateStackResponse responseStatus =
+  UpdateStackResponse' {stack = Core.Nothing, responseStatus}
 
 -- | Information about the stack.
 --
 -- /Note:/ Consider using 'stack' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsStack :: Lens.Lens' UpdateStackResponse (Lude.Maybe Stack)
-usrsStack = Lens.lens (stack :: UpdateStackResponse -> Lude.Maybe Stack) (\s a -> s {stack = a} :: UpdateStackResponse)
-{-# DEPRECATED usrsStack "Use generic-lens or generic-optics with 'stack' instead." #-}
+usrrsStack :: Lens.Lens' UpdateStackResponse (Core.Maybe Types.Stack)
+usrrsStack = Lens.field @"stack"
+{-# DEPRECATED usrrsStack "Use generic-lens or generic-optics with 'stack' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsResponseStatus :: Lens.Lens' UpdateStackResponse Lude.Int
-usrsResponseStatus = Lens.lens (responseStatus :: UpdateStackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateStackResponse)
-{-# DEPRECATED usrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usrrsResponseStatus :: Lens.Lens' UpdateStackResponse Core.Int
+usrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

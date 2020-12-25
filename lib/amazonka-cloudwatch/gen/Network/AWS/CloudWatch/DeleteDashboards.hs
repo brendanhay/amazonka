@@ -27,84 +27,86 @@ module Network.AWS.CloudWatch.DeleteDashboards
     mkDeleteDashboardsResponse,
 
     -- ** Response lenses
-    ddrsResponseStatus,
+    ddrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDashboards' smart constructor.
 newtype DeleteDashboards = DeleteDashboards'
   { -- | The dashboards to be deleted. This parameter is required.
-    dashboardNames :: [Lude.Text]
+    dashboardNames :: [Types.DashboardName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDashboards' with the minimum fields required to make a request.
---
--- * 'dashboardNames' - The dashboards to be deleted. This parameter is required.
+-- | Creates a 'DeleteDashboards' value with any optional fields omitted.
 mkDeleteDashboards ::
   DeleteDashboards
 mkDeleteDashboards =
-  DeleteDashboards' {dashboardNames = Lude.mempty}
+  DeleteDashboards' {dashboardNames = Core.mempty}
 
 -- | The dashboards to be deleted. This parameter is required.
 --
 -- /Note:/ Consider using 'dashboardNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDashboardNames :: Lens.Lens' DeleteDashboards [Lude.Text]
-ddDashboardNames = Lens.lens (dashboardNames :: DeleteDashboards -> [Lude.Text]) (\s a -> s {dashboardNames = a} :: DeleteDashboards)
+ddDashboardNames :: Lens.Lens' DeleteDashboards [Types.DashboardName]
+ddDashboardNames = Lens.field @"dashboardNames"
 {-# DEPRECATED ddDashboardNames "Use generic-lens or generic-optics with 'dashboardNames' instead." #-}
 
-instance Lude.AWSRequest DeleteDashboards where
+instance Core.AWSRequest DeleteDashboards where
   type Rs DeleteDashboards = DeleteDashboardsResponse
-  request = Req.postQuery cloudWatchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteDashboards")
+                Core.<> (Core.pure ("Version", "2010-08-01"))
+                Core.<> ( Core.toQueryValue
+                            "DashboardNames"
+                            (Core.toQueryList "member" dashboardNames)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteDashboardsResult"
       ( \s h x ->
-          DeleteDashboardsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteDashboardsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDashboards where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteDashboards where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDashboards where
-  toQuery DeleteDashboards' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteDashboards" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
-        "DashboardNames" Lude.=: Lude.toQueryList "member" dashboardNames
-      ]
 
 -- | /See:/ 'mkDeleteDashboardsResponse' smart constructor.
 newtype DeleteDashboardsResponse = DeleteDashboardsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDashboardsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDashboardsResponse' value with any optional fields omitted.
 mkDeleteDashboardsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDashboardsResponse
-mkDeleteDashboardsResponse pResponseStatus_ =
-  DeleteDashboardsResponse' {responseStatus = pResponseStatus_}
+mkDeleteDashboardsResponse responseStatus =
+  DeleteDashboardsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsResponseStatus :: Lens.Lens' DeleteDashboardsResponse Lude.Int
-ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDashboardsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDashboardsResponse)
-{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrrsResponseStatus :: Lens.Lens' DeleteDashboardsResponse Core.Int
+ddrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

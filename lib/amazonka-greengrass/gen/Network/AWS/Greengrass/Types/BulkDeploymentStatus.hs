@@ -13,67 +13,72 @@
 module Network.AWS.Greengrass.Types.BulkDeploymentStatus
   ( BulkDeploymentStatus
       ( BulkDeploymentStatus',
-        Initializing,
-        Running,
-        Completed,
-        Stopping,
-        Stopped,
-        Failed
+        BulkDeploymentStatusInitializing,
+        BulkDeploymentStatusRunning,
+        BulkDeploymentStatusCompleted,
+        BulkDeploymentStatusStopping,
+        BulkDeploymentStatusStopped,
+        BulkDeploymentStatusFailed,
+        fromBulkDeploymentStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The current status of the bulk deployment.
-newtype BulkDeploymentStatus = BulkDeploymentStatus' Lude.Text
+newtype BulkDeploymentStatus = BulkDeploymentStatus'
+  { fromBulkDeploymentStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Initializing :: BulkDeploymentStatus
-pattern Initializing = BulkDeploymentStatus' "Initializing"
+pattern BulkDeploymentStatusInitializing :: BulkDeploymentStatus
+pattern BulkDeploymentStatusInitializing = BulkDeploymentStatus' "Initializing"
 
-pattern Running :: BulkDeploymentStatus
-pattern Running = BulkDeploymentStatus' "Running"
+pattern BulkDeploymentStatusRunning :: BulkDeploymentStatus
+pattern BulkDeploymentStatusRunning = BulkDeploymentStatus' "Running"
 
-pattern Completed :: BulkDeploymentStatus
-pattern Completed = BulkDeploymentStatus' "Completed"
+pattern BulkDeploymentStatusCompleted :: BulkDeploymentStatus
+pattern BulkDeploymentStatusCompleted = BulkDeploymentStatus' "Completed"
 
-pattern Stopping :: BulkDeploymentStatus
-pattern Stopping = BulkDeploymentStatus' "Stopping"
+pattern BulkDeploymentStatusStopping :: BulkDeploymentStatus
+pattern BulkDeploymentStatusStopping = BulkDeploymentStatus' "Stopping"
 
-pattern Stopped :: BulkDeploymentStatus
-pattern Stopped = BulkDeploymentStatus' "Stopped"
+pattern BulkDeploymentStatusStopped :: BulkDeploymentStatus
+pattern BulkDeploymentStatusStopped = BulkDeploymentStatus' "Stopped"
 
-pattern Failed :: BulkDeploymentStatus
-pattern Failed = BulkDeploymentStatus' "Failed"
+pattern BulkDeploymentStatusFailed :: BulkDeploymentStatus
+pattern BulkDeploymentStatusFailed = BulkDeploymentStatus' "Failed"
 
 {-# COMPLETE
-  Initializing,
-  Running,
-  Completed,
-  Stopping,
-  Stopped,
-  Failed,
+  BulkDeploymentStatusInitializing,
+  BulkDeploymentStatusRunning,
+  BulkDeploymentStatusCompleted,
+  BulkDeploymentStatusStopping,
+  BulkDeploymentStatusStopped,
+  BulkDeploymentStatusFailed,
   BulkDeploymentStatus'
   #-}

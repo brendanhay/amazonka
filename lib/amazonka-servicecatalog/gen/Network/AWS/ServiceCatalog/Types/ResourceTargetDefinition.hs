@@ -18,72 +18,67 @@ module Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition
 
     -- * Lenses
     rtdAttribute,
-    rtdRequiresRecreation,
     rtdName,
+    rtdRequiresRecreation,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.RequiresRecreation
-import Network.AWS.ServiceCatalog.Types.ResourceAttribute
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.PropertyName as Types
+import qualified Network.AWS.ServiceCatalog.Types.RequiresRecreation as Types
+import qualified Network.AWS.ServiceCatalog.Types.ResourceAttribute as Types
 
 -- | Information about a change to a resource attribute.
 --
 -- /See:/ 'mkResourceTargetDefinition' smart constructor.
 data ResourceTargetDefinition = ResourceTargetDefinition'
   { -- | The attribute to be changed.
-    attribute :: Lude.Maybe ResourceAttribute,
-    -- | If the attribute is @Properties@ , indicates whether a change to this property causes the resource to be re-created.
-    requiresRecreation :: Lude.Maybe RequiresRecreation,
+    attribute :: Core.Maybe Types.ResourceAttribute,
     -- | If the attribute is @Properties@ , the value is the name of the property. Otherwise, the value is null.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.PropertyName,
+    -- | If the attribute is @Properties@ , indicates whether a change to this property causes the resource to be re-created.
+    requiresRecreation :: Core.Maybe Types.RequiresRecreation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceTargetDefinition' with the minimum fields required to make a request.
---
--- * 'attribute' - The attribute to be changed.
--- * 'requiresRecreation' - If the attribute is @Properties@ , indicates whether a change to this property causes the resource to be re-created.
--- * 'name' - If the attribute is @Properties@ , the value is the name of the property. Otherwise, the value is null.
+-- | Creates a 'ResourceTargetDefinition' value with any optional fields omitted.
 mkResourceTargetDefinition ::
   ResourceTargetDefinition
 mkResourceTargetDefinition =
   ResourceTargetDefinition'
-    { attribute = Lude.Nothing,
-      requiresRecreation = Lude.Nothing,
-      name = Lude.Nothing
+    { attribute = Core.Nothing,
+      name = Core.Nothing,
+      requiresRecreation = Core.Nothing
     }
 
 -- | The attribute to be changed.
 --
 -- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtdAttribute :: Lens.Lens' ResourceTargetDefinition (Lude.Maybe ResourceAttribute)
-rtdAttribute = Lens.lens (attribute :: ResourceTargetDefinition -> Lude.Maybe ResourceAttribute) (\s a -> s {attribute = a} :: ResourceTargetDefinition)
+rtdAttribute :: Lens.Lens' ResourceTargetDefinition (Core.Maybe Types.ResourceAttribute)
+rtdAttribute = Lens.field @"attribute"
 {-# DEPRECATED rtdAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
-
--- | If the attribute is @Properties@ , indicates whether a change to this property causes the resource to be re-created.
---
--- /Note:/ Consider using 'requiresRecreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtdRequiresRecreation :: Lens.Lens' ResourceTargetDefinition (Lude.Maybe RequiresRecreation)
-rtdRequiresRecreation = Lens.lens (requiresRecreation :: ResourceTargetDefinition -> Lude.Maybe RequiresRecreation) (\s a -> s {requiresRecreation = a} :: ResourceTargetDefinition)
-{-# DEPRECATED rtdRequiresRecreation "Use generic-lens or generic-optics with 'requiresRecreation' instead." #-}
 
 -- | If the attribute is @Properties@ , the value is the name of the property. Otherwise, the value is null.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtdName :: Lens.Lens' ResourceTargetDefinition (Lude.Maybe Lude.Text)
-rtdName = Lens.lens (name :: ResourceTargetDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ResourceTargetDefinition)
+rtdName :: Lens.Lens' ResourceTargetDefinition (Core.Maybe Types.PropertyName)
+rtdName = Lens.field @"name"
 {-# DEPRECATED rtdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON ResourceTargetDefinition where
+-- | If the attribute is @Properties@ , indicates whether a change to this property causes the resource to be re-created.
+--
+-- /Note:/ Consider using 'requiresRecreation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtdRequiresRecreation :: Lens.Lens' ResourceTargetDefinition (Core.Maybe Types.RequiresRecreation)
+rtdRequiresRecreation = Lens.field @"requiresRecreation"
+{-# DEPRECATED rtdRequiresRecreation "Use generic-lens or generic-optics with 'requiresRecreation' instead." #-}
+
+instance Core.FromJSON ResourceTargetDefinition where
   parseJSON =
-    Lude.withObject
-      "ResourceTargetDefinition"
-      ( \x ->
-          ResourceTargetDefinition'
-            Lude.<$> (x Lude..:? "Attribute")
-            Lude.<*> (x Lude..:? "RequiresRecreation")
-            Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "ResourceTargetDefinition" Core.$
+      \x ->
+        ResourceTargetDefinition'
+          Core.<$> (x Core..:? "Attribute")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "RequiresRecreation")

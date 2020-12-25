@@ -13,46 +13,51 @@
 module Network.AWS.WorkSpaces.Types.OperatingSystemType
   ( OperatingSystemType
       ( OperatingSystemType',
-        Windows,
-        Linux
+        OperatingSystemTypeWindows,
+        OperatingSystemTypeLinux,
+        fromOperatingSystemType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OperatingSystemType = OperatingSystemType' Lude.Text
+newtype OperatingSystemType = OperatingSystemType'
+  { fromOperatingSystemType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Windows :: OperatingSystemType
-pattern Windows = OperatingSystemType' "WINDOWS"
+pattern OperatingSystemTypeWindows :: OperatingSystemType
+pattern OperatingSystemTypeWindows = OperatingSystemType' "WINDOWS"
 
-pattern Linux :: OperatingSystemType
-pattern Linux = OperatingSystemType' "LINUX"
+pattern OperatingSystemTypeLinux :: OperatingSystemType
+pattern OperatingSystemTypeLinux = OperatingSystemType' "LINUX"
 
 {-# COMPLETE
-  Windows,
-  Linux,
+  OperatingSystemTypeWindows,
+  OperatingSystemTypeLinux,
   OperatingSystemType'
   #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -49,10 +48,349 @@
 --     * <https://forums.aws.amazon.com/forum.jspa?forumID=179 AWS CodeDeploy Developer Forum>
 module Network.AWS.CodeDeploy
   ( -- * Service configuration
-    codeDeployService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** LifecycleHookLimitExceededException
+    _LifecycleHookLimitExceededException,
+
+    -- ** InvalidTimeRangeException
+    _InvalidTimeRangeException,
+
+    -- ** InvalidComputePlatformException
+    _InvalidComputePlatformException,
+
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** InvalidFileExistsBehaviorException
+    _InvalidFileExistsBehaviorException,
+
+    -- ** InvalidAlarmConfigException
+    _InvalidAlarmConfigException,
+
+    -- ** InstanceNameAlreadyRegisteredException
+    _InstanceNameAlreadyRegisteredException,
+
+    -- ** IamUserArnRequiredException
+    _IamUserArnRequiredException,
+
+    -- ** InvalidDeploymentGroupNameException
+    _InvalidDeploymentGroupNameException,
+
+    -- ** InvalidInstanceTypeException
+    _InvalidInstanceTypeException,
+
+    -- ** IamSessionArnAlreadyRegisteredException
+    _IamSessionArnAlreadyRegisteredException,
+
+    -- ** InvalidTrafficRoutingConfigurationException
+    _InvalidTrafficRoutingConfigurationException,
+
+    -- ** DescriptionTooLongException
+    _DescriptionTooLongException,
+
+    -- ** InvalidIamUserArnException
+    _InvalidIamUserArnException,
+
+    -- ** InvalidOnPremisesTagCombinationException
+    _InvalidOnPremisesTagCombinationException,
+
+    -- ** DeploymentNotStartedException
+    _DeploymentNotStartedException,
+
+    -- ** DeploymentConfigLimitExceededException
+    _DeploymentConfigLimitExceededException,
+
+    -- ** RoleRequiredException
+    _RoleRequiredException,
+
+    -- ** InvalidLoadBalancerInfoException
+    _InvalidLoadBalancerInfoException,
+
+    -- ** InvalidBlueGreenDeploymentConfigurationException
+    _InvalidBlueGreenDeploymentConfigurationException,
+
+    -- ** InvalidRoleException
+    _InvalidRoleException,
+
+    -- ** DeploymentConfigAlreadyExistsException
+    _DeploymentConfigAlreadyExistsException,
+
+    -- ** InvalidTargetInstancesException
+    _InvalidTargetInstancesException,
+
+    -- ** InvalidTagsToAddException
+    _InvalidTagsToAddException,
+
+    -- ** DeploymentLimitExceededException
+    _DeploymentLimitExceededException,
+
+    -- ** IamUserArnAlreadyRegisteredException
+    _IamUserArnAlreadyRegisteredException,
+
+    -- ** InvalidIamSessionArnException
+    _InvalidIamSessionArnException,
+
+    -- ** InstanceLimitExceededException
+    _InstanceLimitExceededException,
+
+    -- ** InvalidLifecycleEventHookExecutionIdException
+    _InvalidLifecycleEventHookExecutionIdException,
+
+    -- ** InvalidDeploymentStyleException
+    _InvalidDeploymentStyleException,
+
+    -- ** InvalidTargetFilterNameException
+    _InvalidTargetFilterNameException,
+
+    -- ** DeploymentTargetListSizeExceededException
+    _DeploymentTargetListSizeExceededException,
+
+    -- ** InvalidDeployedStateFilterException
+    _InvalidDeployedStateFilterException,
+
+    -- ** InvalidAutoScalingGroupException
+    _InvalidAutoScalingGroupException,
+
+    -- ** InvalidApplicationNameException
+    _InvalidApplicationNameException,
+
+    -- ** GitHubAccountTokenDoesNotExistException
+    _GitHubAccountTokenDoesNotExistException,
+
+    -- ** ApplicationDoesNotExistException
+    _ApplicationDoesNotExistException,
+
+    -- ** InvalidMinimumHealthyHostValueException
+    _InvalidMinimumHealthyHostValueException,
+
+    -- ** UnsupportedActionForDeploymentTypeException
+    _UnsupportedActionForDeploymentTypeException,
+
+    -- ** ResourceValidationException
+    _ResourceValidationException,
+
+    -- ** ArnNotSupportedException
+    _ArnNotSupportedException,
+
+    -- ** InvalidGitHubAccountTokenException
+    _InvalidGitHubAccountTokenException,
+
+    -- ** InvalidEC2TagCombinationException
+    _InvalidEC2TagCombinationException,
+
+    -- ** InvalidLifecycleEventHookExecutionStatusException
+    _InvalidLifecycleEventHookExecutionStatusException,
+
+    -- ** AlarmsLimitExceededException
+    _AlarmsLimitExceededException,
+
+    -- ** OperationNotSupportedException
+    _OperationNotSupportedException,
+
+    -- ** DeploymentTargetDoesNotExistException
+    _DeploymentTargetDoesNotExistException,
+
+    -- ** InvalidTagFilterException
+    _InvalidTagFilterException,
+
+    -- ** InvalidTriggerConfigException
+    _InvalidTriggerConfigException,
+
+    -- ** InvalidDeploymentWaitTypeException
+    _InvalidDeploymentWaitTypeException,
+
+    -- ** InvalidIgnoreApplicationStopFailuresValueException
+    _InvalidIgnoreApplicationStopFailuresValueException,
+
+    -- ** InvalidUpdateOutdatedInstancesOnlyValueException
+    _InvalidUpdateOutdatedInstancesOnlyValueException,
+
+    -- ** TagRequiredException
+    _TagRequiredException,
+
+    -- ** DeploymentGroupNameRequiredException
+    _DeploymentGroupNameRequiredException,
+
+    -- ** BucketNameFilterRequiredException
+    _BucketNameFilterRequiredException,
+
+    -- ** DeploymentConfigDoesNotExistException
+    _DeploymentConfigDoesNotExistException,
+
+    -- ** InvalidBucketNameFilterException
+    _InvalidBucketNameFilterException,
+
+    -- ** DeploymentGroupAlreadyExistsException
+    _DeploymentGroupAlreadyExistsException,
+
+    -- ** InvalidSortByException
+    _InvalidSortByException,
+
+    -- ** RevisionDoesNotExistException
+    _RevisionDoesNotExistException,
+
+    -- ** InvalidTargetException
+    _InvalidTargetException,
+
+    -- ** DeploymentGroupLimitExceededException
+    _DeploymentGroupLimitExceededException,
+
+    -- ** DeploymentGroupDoesNotExistException
+    _DeploymentGroupDoesNotExistException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidDeploymentConfigNameException
+    _InvalidDeploymentConfigNameException,
+
+    -- ** DeploymentConfigNameRequiredException
+    _DeploymentConfigNameRequiredException,
+
+    -- ** DeploymentIdRequiredException
+    _DeploymentIdRequiredException,
+
+    -- ** InvalidInstanceIdException
+    _InvalidInstanceIdException,
+
+    -- ** DeploymentIsNotInReadyStateException
+    _DeploymentIsNotInReadyStateException,
+
+    -- ** InvalidTargetGroupPairException
+    _InvalidTargetGroupPairException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** InstanceIdRequiredException
+    _InstanceIdRequiredException,
+
+    -- ** InvalidDeploymentIdException
+    _InvalidDeploymentIdException,
+
+    -- ** InvalidSortOrderException
+    _InvalidSortOrderException,
+
+    -- ** InvalidAutoRollbackConfigException
+    _InvalidAutoRollbackConfigException,
+
+    -- ** DeploymentAlreadyCompletedException
+    _DeploymentAlreadyCompletedException,
+
+    -- ** ECSServiceMappingLimitExceededException
+    _ECSServiceMappingLimitExceededException,
+
+    -- ** DeploymentDoesNotExistException
+    _DeploymentDoesNotExistException,
+
+    -- ** BatchLimitExceededException
+    _BatchLimitExceededException,
+
+    -- ** InvalidRevisionException
+    _InvalidRevisionException,
+
+    -- ** RevisionRequiredException
+    _RevisionRequiredException,
+
+    -- ** InstanceDoesNotExistException
+    _InstanceDoesNotExistException,
+
+    -- ** DeploymentConfigInUseException
+    _DeploymentConfigInUseException,
+
+    -- ** InvalidDeploymentConfigIdException
+    _InvalidDeploymentConfigIdException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** InvalidEC2TagException
+    _InvalidEC2TagException,
+
+    -- ** InvalidInstanceNameException
+    _InvalidInstanceNameException,
+
+    -- ** InstanceNameRequiredException
+    _InstanceNameRequiredException,
+
+    -- ** MultipleIamArnsProvidedException
+    _MultipleIamArnsProvidedException,
+
+    -- ** TriggerTargetsLimitExceededException
+    _TriggerTargetsLimitExceededException,
+
+    -- ** InvalidDeploymentStatusException
+    _InvalidDeploymentStatusException,
+
+    -- ** InvalidRegistrationStatusException
+    _InvalidRegistrationStatusException,
+
+    -- ** ApplicationNameRequiredException
+    _ApplicationNameRequiredException,
+
+    -- ** InstanceNotRegisteredException
+    _InstanceNotRegisteredException,
+
+    -- ** ApplicationAlreadyExistsException
+    _ApplicationAlreadyExistsException,
+
+    -- ** InvalidInstanceStatusException
+    _InvalidInstanceStatusException,
+
+    -- ** InvalidDeploymentTargetIdException
+    _InvalidDeploymentTargetIdException,
+
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
+
+    -- ** ApplicationLimitExceededException
+    _ApplicationLimitExceededException,
+
+    -- ** TagSetListLimitExceededException
+    _TagSetListLimitExceededException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
+    -- ** DeploymentTargetIdRequiredException
+    _DeploymentTargetIdRequiredException,
+
+    -- ** GitHubAccountTokenNameRequiredException
+    _GitHubAccountTokenNameRequiredException,
+
+    -- ** InvalidECSServiceException
+    _InvalidECSServiceException,
+
+    -- ** InvalidDeploymentInstanceTypeException
+    _InvalidDeploymentInstanceTypeException,
+
+    -- ** InvalidExternalIdException
+    _InvalidExternalIdException,
+
+    -- ** IamArnRequiredException
+    _IamArnRequiredException,
+
+    -- ** InvalidGitHubAccountTokenNameException
+    _InvalidGitHubAccountTokenNameException,
+
+    -- ** LifecycleEventAlreadyCompletedException
+    _LifecycleEventAlreadyCompletedException,
+
+    -- ** InvalidKeyPrefixFilterException
+    _InvalidKeyPrefixFilterException,
+
+    -- ** ResourceArnRequiredException
+    _ResourceArnRequiredException,
+
+    -- ** DeploymentAlreadyStartedException
+    _DeploymentAlreadyStartedException,
 
     -- * Waiters
     -- $waiters
@@ -194,135 +532,322 @@ module Network.AWS.CodeDeploy
 
     -- * Types
 
-    -- ** ApplicationRevisionSortBy
-    ApplicationRevisionSortBy (..),
+    -- ** CommitId
+    CommitId (..),
 
-    -- ** AutoRollbackEvent
-    AutoRollbackEvent (..),
+    -- ** AlarmName
+    AlarmName (..),
 
-    -- ** BundleType
-    BundleType (..),
+    -- ** TrafficRoute
+    TrafficRoute (..),
+    mkTrafficRoute,
+    trListenerArns,
 
-    -- ** ComputePlatform
-    ComputePlatform (..),
-
-    -- ** DeployErrorCode
-    DeployErrorCode (..),
-
-    -- ** DeploymentCreator
-    DeploymentCreator (..),
-
-    -- ** DeploymentOption
-    DeploymentOption (..),
-
-    -- ** DeploymentReadyAction
-    DeploymentReadyAction (..),
-
-    -- ** DeploymentStatus
-    DeploymentStatus (..),
-
-    -- ** DeploymentTargetType
-    DeploymentTargetType (..),
-
-    -- ** DeploymentType
-    DeploymentType (..),
-
-    -- ** DeploymentWaitType
-    DeploymentWaitType (..),
-
-    -- ** EC2TagFilterType
-    EC2TagFilterType (..),
-
-    -- ** FileExistsBehavior
-    FileExistsBehavior (..),
-
-    -- ** GreenFleetProvisioningAction
-    GreenFleetProvisioningAction (..),
-
-    -- ** InstanceAction
-    InstanceAction (..),
-
-    -- ** LifecycleErrorCode
-    LifecycleErrorCode (..),
-
-    -- ** LifecycleEventStatus
-    LifecycleEventStatus (..),
-
-    -- ** ListStateFilterAction
-    ListStateFilterAction (..),
-
-    -- ** MinimumHealthyHostsType
-    MinimumHealthyHostsType (..),
-
-    -- ** RegistrationStatus
-    RegistrationStatus (..),
-
-    -- ** RevisionLocationType
-    RevisionLocationType (..),
-
-    -- ** SortOrder
-    SortOrder (..),
-
-    -- ** StopStatus
-    StopStatus (..),
-
-    -- ** TagFilterType
-    TagFilterType (..),
-
-    -- ** TargetFilterName
-    TargetFilterName (..),
-
-    -- ** TargetLabel
-    TargetLabel (..),
-
-    -- ** TargetStatus
-    TargetStatus (..),
-
-    -- ** TrafficRoutingType
-    TrafficRoutingType (..),
+    -- ** DeploymentId
+    DeploymentId (..),
 
     -- ** TriggerEventType
     TriggerEventType (..),
 
-    -- ** Alarm
-    Alarm (..),
-    mkAlarm,
-    aName,
+    -- ** GenericRevisionInfo
+    GenericRevisionInfo (..),
+    mkGenericRevisionInfo,
+    griDeploymentGroups,
+    griDescription,
+    griFirstUsedTime,
+    griLastUsedTime,
+    griRegisterTime,
 
-    -- ** AlarmConfiguration
-    AlarmConfiguration (..),
-    mkAlarmConfiguration,
-    acIgnorePollAlarmFailure,
-    acEnabled,
-    acAlarms,
+    -- ** EC2TagSet
+    EC2TagSet (..),
+    mkEC2TagSet,
+    ectsEc2TagSetList,
 
-    -- ** AppSpecContent
-    AppSpecContent (..),
-    mkAppSpecContent,
-    ascContent,
-    ascSha256,
+    -- ** TargetId
+    TargetId (..),
+
+    -- ** DeploymentConfigName
+    DeploymentConfigName (..),
+
+    -- ** TargetArn
+    TargetArn (..),
+
+    -- ** InstanceArn
+    InstanceArn (..),
 
     -- ** ApplicationInfo
     ApplicationInfo (..),
     mkApplicationInfo,
-    aiLinkedToGitHub,
-    aiComputePlatform,
     aiApplicationId,
     aiApplicationName,
-    aiGitHubAccountName,
+    aiComputePlatform,
     aiCreateTime,
+    aiGitHubAccountName,
+    aiLinkedToGitHub,
 
-    -- ** AutoRollbackConfiguration
-    AutoRollbackConfiguration (..),
-    mkAutoRollbackConfiguration,
-    arcEnabled,
-    arcEvents,
+    -- ** DeploymentReadyAction
+    DeploymentReadyAction (..),
+
+    -- ** BundleType
+    BundleType (..),
+
+    -- ** TriggerName
+    TriggerName (..),
+
+    -- ** ETag
+    ETag (..),
+
+    -- ** OnPremisesTagSet
+    OnPremisesTagSet (..),
+    mkOnPremisesTagSet,
+    optsOnPremisesTagSetList,
+
+    -- ** ECSServiceName
+    ECSServiceName (..),
+
+    -- ** InstanceAction
+    InstanceAction (..),
+
+    -- ** TargetLabel
+    TargetLabel (..),
+
+    -- ** VersionId
+    VersionId (..),
+
+    -- ** S3Key
+    S3Key (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** Repository
+    Repository (..),
+
+    -- ** TimeBasedCanary
+    TimeBasedCanary (..),
+    mkTimeBasedCanary,
+    tbcCanaryInterval,
+    tbcCanaryPercentage,
+
+    -- ** DeploymentOption
+    DeploymentOption (..),
+
+    -- ** TagFilterType
+    TagFilterType (..),
+
+    -- ** DeploymentWaitType
+    DeploymentWaitType (..),
+
+    -- ** TimeRange
+    TimeRange (..),
+    mkTimeRange,
+    trEnd,
+    trStart,
+
+    -- ** LambdaFunctionName
+    LambdaFunctionName (..),
+
+    -- ** ComputePlatform
+    ComputePlatform (..),
+
+    -- ** DeploymentCreator
+    DeploymentCreator (..),
+
+    -- ** LifecycleEventName
+    LifecycleEventName (..),
+
+    -- ** LastDeploymentInfo
+    LastDeploymentInfo (..),
+    mkLastDeploymentInfo,
+    ldiCreateTime,
+    ldiDeploymentId,
+    ldiEndTime,
+    ldiStatus,
 
     -- ** AutoScalingGroup
     AutoScalingGroup (..),
     mkAutoScalingGroup,
     asgHook,
     asgName,
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** ELBInfo
+    ELBInfo (..),
+    mkELBInfo,
+    elbiName,
+
+    -- ** AutoRollbackEvent
+    AutoRollbackEvent (..),
+
+    -- ** LifecycleMessage
+    LifecycleMessage (..),
+
+    -- ** DeploymentGroupInfo
+    DeploymentGroupInfo (..),
+    mkDeploymentGroupInfo,
+    dgiAlarmConfiguration,
+    dgiApplicationName,
+    dgiAutoRollbackConfiguration,
+    dgiAutoScalingGroups,
+    dgiBlueGreenDeploymentConfiguration,
+    dgiComputePlatform,
+    dgiDeploymentConfigName,
+    dgiDeploymentGroupId,
+    dgiDeploymentGroupName,
+    dgiDeploymentStyle,
+    dgiEc2TagFilters,
+    dgiEc2TagSet,
+    dgiEcsServices,
+    dgiLastAttemptedDeployment,
+    dgiLastSuccessfulDeployment,
+    dgiLoadBalancerInfo,
+    dgiOnPremisesInstanceTagFilters,
+    dgiOnPremisesTagSet,
+    dgiServiceRoleArn,
+    dgiTargetRevision,
+    dgiTriggerConfigurations,
+
+    -- ** ApplicationRevisionSortBy
+    ApplicationRevisionSortBy (..),
+
+    -- ** ECSClusterName
+    ECSClusterName (..),
+
+    -- ** MinimumHealthyHosts
+    MinimumHealthyHosts (..),
+    mkMinimumHealthyHosts,
+    mhhType,
+    mhhValue,
+
+    -- ** InstanceTarget
+    InstanceTarget (..),
+    mkInstanceTarget,
+    itDeploymentId,
+    itInstanceLabel,
+    itLastUpdatedAt,
+    itLifecycleEvents,
+    itStatus,
+    itTargetArn,
+    itTargetId,
+
+    -- ** TargetGroupInfo
+    TargetGroupInfo (..),
+    mkTargetGroupInfo,
+    tgiName,
+
+    -- ** DeploymentTarget
+    DeploymentTarget (..),
+    mkDeploymentTarget,
+    dtCloudFormationTarget,
+    dtDeploymentTargetType,
+    dtEcsTarget,
+    dtInstanceTarget,
+    dtLambdaTarget,
+
+    -- ** ListStateFilterAction
+    ListStateFilterAction (..),
+
+    -- ** CloudFormationTarget
+    CloudFormationTarget (..),
+    mkCloudFormationTarget,
+    cftDeploymentId,
+    cftLastUpdatedAt,
+    cftLifecycleEvents,
+    cftResourceType,
+    cftStatus,
+    cftTargetId,
+    cftTargetVersionWeight,
+
+    -- ** Value
+    Value (..),
+
+    -- ** LifecycleErrorCode
+    LifecycleErrorCode (..),
+
+    -- ** ListenerArn
+    ListenerArn (..),
+
+    -- ** RevisionLocation
+    RevisionLocation (..),
+    mkRevisionLocation,
+    rlAppSpecContent,
+    rlGitHubLocation,
+    rlRevisionType,
+    rlS3Location,
+    rlString,
+
+    -- ** LifecycleEventStatus
+    LifecycleEventStatus (..),
+
+    -- ** EC2TagFilter
+    EC2TagFilter (..),
+    mkEC2TagFilter,
+    ectfKey,
+    ectfType,
+    ectfValue,
+
+    -- ** ECSTaskSetStatus
+    ECSTaskSetStatus (..),
+
+    -- ** TargetFilterName
+    TargetFilterName (..),
+
+    -- ** DeploymentReadyOption
+    DeploymentReadyOption (..),
+    mkDeploymentReadyOption,
+    droActionOnTimeout,
+    droWaitTimeInMinutes,
+
+    -- ** TimeBasedLinear
+    TimeBasedLinear (..),
+    mkTimeBasedLinear,
+    tblLinearInterval,
+    tblLinearPercentage,
+
+    -- ** IamUserArn
+    IamUserArn (..),
+
+    -- ** DeploymentType
+    DeploymentType (..),
+
+    -- ** TrafficRoutingType
+    TrafficRoutingType (..),
+
+    -- ** RawString
+    RawString (..),
+    mkRawString,
+    rsContent,
+    rsSha256,
+
+    -- ** ECSTarget
+    ECSTarget (..),
+    mkECSTarget,
+    ecstDeploymentId,
+    ecstLastUpdatedAt,
+    ecstLifecycleEvents,
+    ecstStatus,
+    ecstTargetArn,
+    ecstTargetId,
+    ecstTaskSetsInfo,
+
+    -- ** Diagnostics
+    Diagnostics (..),
+    mkDiagnostics,
+    dErrorCode,
+    dLogTail,
+    dMessage,
+    dScriptName,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** TriggerTargetArn
+    TriggerTargetArn (..),
 
     -- ** BlueGreenDeploymentConfiguration
     BlueGreenDeploymentConfiguration (..),
@@ -331,174 +856,11 @@ module Network.AWS.CodeDeploy
     bgdcGreenFleetProvisioningOption,
     bgdcTerminateBlueInstancesOnDeploymentSuccess,
 
-    -- ** BlueInstanceTerminationOption
-    BlueInstanceTerminationOption (..),
-    mkBlueInstanceTerminationOption,
-    bitoAction,
-    bitoTerminationWaitTimeInMinutes,
+    -- ** LogTail
+    LogTail (..),
 
-    -- ** CloudFormationTarget
-    CloudFormationTarget (..),
-    mkCloudFormationTarget,
-    cftTargetId,
-    cftStatus,
-    cftDeploymentId,
-    cftResourceType,
-    cftLastUpdatedAt,
-    cftLifecycleEvents,
-    cftTargetVersionWeight,
-
-    -- ** DeploymentConfigInfo
-    DeploymentConfigInfo (..),
-    mkDeploymentConfigInfo,
-    dciDeploymentConfigName,
-    dciComputePlatform,
-    dciMinimumHealthyHosts,
-    dciTrafficRoutingConfig,
-    dciDeploymentConfigId,
-    dciCreateTime,
-
-    -- ** DeploymentGroupInfo
-    DeploymentGroupInfo (..),
-    mkDeploymentGroupInfo,
-    dgiServiceRoleARN,
-    dgiEc2TagSet,
-    dgiDeploymentConfigName,
-    dgiLastAttemptedDeployment,
-    dgiOnPremisesTagSet,
-    dgiComputePlatform,
-    dgiTargetRevision,
-    dgiEc2TagFilters,
-    dgiEcsServices,
-    dgiBlueGreenDeploymentConfiguration,
-    dgiLoadBalancerInfo,
-    dgiOnPremisesInstanceTagFilters,
-    dgiLastSuccessfulDeployment,
-    dgiApplicationName,
-    dgiAlarmConfiguration,
-    dgiTriggerConfigurations,
-    dgiDeploymentGroupId,
-    dgiAutoScalingGroups,
-    dgiDeploymentStyle,
-    dgiAutoRollbackConfiguration,
-    dgiDeploymentGroupName,
-
-    -- ** DeploymentInfo
-    DeploymentInfo (..),
-    mkDeploymentInfo,
-    diCreator,
-    diStatus,
-    diDeploymentId,
-    diDeploymentConfigName,
-    diComputePlatform,
-    diPreviousRevision,
-    diInstanceTerminationWaitTimeStarted,
-    diDeploymentStatusMessages,
-    diStartTime,
-    diCompleteTime,
-    diBlueGreenDeploymentConfiguration,
-    diErrorInformation,
-    diLoadBalancerInfo,
-    diAdditionalDeploymentStatusInfo,
-    diDeploymentOverview,
-    diFileExistsBehavior,
-    diApplicationName,
-    diRollbackInfo,
-    diExternalId,
-    diTargetInstances,
-    diRevision,
-    diDescription,
-    diDeploymentStyle,
-    diCreateTime,
-    diAutoRollbackConfiguration,
-    diUpdateOutdatedInstancesOnly,
-    diDeploymentGroupName,
-    diIgnoreApplicationStopFailures,
-
-    -- ** DeploymentOverview
-    DeploymentOverview (..),
-    mkDeploymentOverview,
-    doPending,
-    doSkipped,
-    doInProgress,
-    doSucceeded,
-    doReady,
-    doFailed,
-
-    -- ** DeploymentReadyOption
-    DeploymentReadyOption (..),
-    mkDeploymentReadyOption,
-    droActionOnTimeout,
-    droWaitTimeInMinutes,
-
-    -- ** DeploymentStyle
-    DeploymentStyle (..),
-    mkDeploymentStyle,
-    dsDeploymentOption,
-    dsDeploymentType,
-
-    -- ** DeploymentTarget
-    DeploymentTarget (..),
-    mkDeploymentTarget,
-    dtInstanceTarget,
-    dtCloudFormationTarget,
-    dtEcsTarget,
-    dtDeploymentTargetType,
-    dtLambdaTarget,
-
-    -- ** Diagnostics
-    Diagnostics (..),
-    mkDiagnostics,
-    dLogTail,
-    dErrorCode,
-    dScriptName,
-    dMessage,
-
-    -- ** EC2TagFilter
-    EC2TagFilter (..),
-    mkEC2TagFilter,
-    etfValue,
-    etfKey,
-    etfType,
-
-    -- ** EC2TagSet
-    EC2TagSet (..),
-    mkEC2TagSet,
-    etsEc2TagSetList,
-
-    -- ** ECSService
-    ECSService (..),
-    mkECSService,
-    ecssServiceName,
-    ecssClusterName,
-
-    -- ** ECSTarget
-    ECSTarget (..),
-    mkECSTarget,
-    ecstTargetARN,
-    ecstTargetId,
-    ecstStatus,
-    ecstDeploymentId,
-    ecstLastUpdatedAt,
-    ecstTaskSetsInfo,
-    ecstLifecycleEvents,
-
-    -- ** ECSTaskSet
-    ECSTaskSet (..),
-    mkECSTaskSet,
-    ecstsRunningCount,
-    ecstsStatus,
-    ecstsIdentifer,
-    ecstsDesiredCount,
-    ecstsPendingCount,
-    ecstsTrafficWeight,
-    ecstsTargetGroup,
-    ecstsTaskSetLabel,
-
-    -- ** ELBInfo
-    ELBInfo (..),
-    mkELBInfo,
-    elbiName,
+    -- ** StopStatus
+    StopStatus (..),
 
     -- ** ErrorInformation
     ErrorInformation (..),
@@ -506,14 +868,219 @@ module Network.AWS.CodeDeploy
     eiCode,
     eiMessage,
 
-    -- ** GenericRevisionInfo
-    GenericRevisionInfo (..),
-    mkGenericRevisionInfo,
-    griRegisterTime,
-    griFirstUsedTime,
-    griDeploymentGroups,
-    griLastUsedTime,
-    griDescription,
+    -- ** LoadBalancerInfo
+    LoadBalancerInfo (..),
+    mkLoadBalancerInfo,
+    lbiElbInfoList,
+    lbiTargetGroupInfoList,
+    lbiTargetGroupPairInfoList,
+
+    -- ** SortOrder
+    SortOrder (..),
+
+    -- ** ApplicationId
+    ApplicationId (..),
+
+    -- ** InstanceInfo
+    InstanceInfo (..),
+    mkInstanceInfo,
+    iiDeregisterTime,
+    iiIamSessionArn,
+    iiIamUserArn,
+    iiInstanceArn,
+    iiInstanceName,
+    iiRegisterTime,
+    iiTags,
+
+    -- ** GreenFleetProvisioningOption
+    GreenFleetProvisioningOption (..),
+    mkGreenFleetProvisioningOption,
+    gfpoAction,
+
+    -- ** Key
+    Key (..),
+
+    -- ** DeploymentInfo
+    DeploymentInfo (..),
+    mkDeploymentInfo,
+    diAdditionalDeploymentStatusInfo,
+    diApplicationName,
+    diAutoRollbackConfiguration,
+    diBlueGreenDeploymentConfiguration,
+    diCompleteTime,
+    diComputePlatform,
+    diCreateTime,
+    diCreator,
+    diDeploymentConfigName,
+    diDeploymentGroupName,
+    diDeploymentId,
+    diDeploymentOverview,
+    diDeploymentStatusMessages,
+    diDeploymentStyle,
+    diDescription,
+    diErrorInformation,
+    diExternalId,
+    diFileExistsBehavior,
+    diIgnoreApplicationStopFailures,
+    diInstanceTerminationWaitTimeStarted,
+    diLoadBalancerInfo,
+    diPreviousRevision,
+    diRevision,
+    diRollbackInfo,
+    diStartTime,
+    diStatus,
+    diTargetInstances,
+    diUpdateOutdatedInstancesOnly,
+
+    -- ** GreenFleetProvisioningAction
+    GreenFleetProvisioningAction (..),
+
+    -- ** RawStringSha256
+    RawStringSha256 (..),
+
+    -- ** TargetGroupPairInfo
+    TargetGroupPairInfo (..),
+    mkTargetGroupPairInfo,
+    tgpiProdTrafficRoute,
+    tgpiTargetGroups,
+    tgpiTestTrafficRoute,
+
+    -- ** FileExistsBehavior
+    FileExistsBehavior (..),
+
+    -- ** AutoScalingGroupName
+    AutoScalingGroupName (..),
+
+    -- ** TagFilter
+    TagFilter (..),
+    mkTagFilter,
+    tfKey,
+    tfType,
+    tfValue,
+
+    -- ** Version
+    Version (..),
+
+    -- ** LifecycleEvent
+    LifecycleEvent (..),
+    mkLifecycleEvent,
+    leDiagnostics,
+    leEndTime,
+    leLifecycleEventName,
+    leStartTime,
+    leStatus,
+
+    -- ** AdditionalDeploymentStatusInfo
+    AdditionalDeploymentStatusInfo (..),
+
+    -- ** ECSTaskSet
+    ECSTaskSet (..),
+    mkECSTaskSet,
+    ecstsDesiredCount,
+    ecstsIdentifer,
+    ecstsPendingCount,
+    ecstsRunningCount,
+    ecstsStatus,
+    ecstsTargetGroup,
+    ecstsTaskSetLabel,
+    ecstsTrafficWeight,
+
+    -- ** TriggerConfig
+    TriggerConfig (..),
+    mkTriggerConfig,
+    tcTriggerEvents,
+    tcTriggerName,
+    tcTriggerTargetArn,
+
+    -- ** DeploymentOverview
+    DeploymentOverview (..),
+    mkDeploymentOverview,
+    doFailed,
+    doInProgress,
+    doPending,
+    doReady,
+    doSkipped,
+    doSucceeded,
+
+    -- ** AppSpecContent
+    AppSpecContent (..),
+    mkAppSpecContent,
+    ascContent,
+    ascSha256,
+
+    -- ** DeployErrorCode
+    DeployErrorCode (..),
+
+    -- ** ApplicationName
+    ApplicationName (..),
+
+    -- ** DeploymentConfigInfo
+    DeploymentConfigInfo (..),
+    mkDeploymentConfigInfo,
+    dciComputePlatform,
+    dciCreateTime,
+    dciDeploymentConfigId,
+    dciDeploymentConfigName,
+    dciMinimumHealthyHosts,
+    dciTrafficRoutingConfig,
+
+    -- ** RevisionInfo
+    RevisionInfo (..),
+    mkRevisionInfo,
+    riGenericRevisionInfo,
+    riRevisionLocation,
+
+    -- ** TargetStatus
+    TargetStatus (..),
+
+    -- ** DeploymentStatus
+    DeploymentStatus (..),
+
+    -- ** RegistrationStatus
+    RegistrationStatus (..),
+
+    -- ** S3Location
+    S3Location (..),
+    mkS3Location,
+    slBucket,
+    slBundleType,
+    slETag,
+    slKey,
+    slVersion,
+
+    -- ** ScriptName
+    ScriptName (..),
+
+    -- ** ECSService
+    ECSService (..),
+    mkECSService,
+    ecssClusterName,
+    ecssServiceName,
+
+    -- ** BlueInstanceTerminationOption
+    BlueInstanceTerminationOption (..),
+    mkBlueInstanceTerminationOption,
+    bitoAction,
+    bitoTerminationWaitTimeInMinutes,
+
+    -- ** RollbackInfo
+    RollbackInfo (..),
+    mkRollbackInfo,
+    riRollbackDeploymentId,
+    riRollbackMessage,
+    riRollbackTriggeringDeploymentId,
+
+    -- ** DeploymentTargetType
+    DeploymentTargetType (..),
+
+    -- ** MinimumHealthyHostsType
+    MinimumHealthyHostsType (..),
+
+    -- ** GitHubAccountTokenName
+    GitHubAccountTokenName (..),
+
+    -- ** ExternalId
+    ExternalId (..),
 
     -- ** GitHubLocation
     GitHubLocation (..),
@@ -521,32 +1088,15 @@ module Network.AWS.CodeDeploy
     ghlCommitId,
     ghlRepository,
 
-    -- ** GreenFleetProvisioningOption
-    GreenFleetProvisioningOption (..),
-    mkGreenFleetProvisioningOption,
-    gfpoAction,
+    -- ** TrafficRoutingConfig
+    TrafficRoutingConfig (..),
+    mkTrafficRoutingConfig,
+    trcTimeBasedCanary,
+    trcTimeBasedLinear,
+    trcType,
 
-    -- ** InstanceInfo
-    InstanceInfo (..),
-    mkInstanceInfo,
-    iiRegisterTime,
-    iiInstanceARN,
-    iiDeregisterTime,
-    iiIamUserARN,
-    iiInstanceName,
-    iiIamSessionARN,
-    iiTags,
-
-    -- ** InstanceTarget
-    InstanceTarget (..),
-    mkInstanceTarget,
-    itTargetARN,
-    itTargetId,
-    itStatus,
-    itDeploymentId,
-    itInstanceLabel,
-    itLastUpdatedAt,
-    itLifecycleEvents,
+    -- ** FilterValue
+    FilterValue (..),
 
     -- ** LambdaFunctionInfo
     LambdaFunctionInfo (..),
@@ -557,167 +1107,139 @@ module Network.AWS.CodeDeploy
     lfiTargetVersion,
     lfiTargetVersionWeight,
 
-    -- ** LambdaTarget
-    LambdaTarget (..),
-    mkLambdaTarget,
-    ltTargetARN,
-    ltTargetId,
-    ltStatus,
-    ltDeploymentId,
-    ltLastUpdatedAt,
-    ltLifecycleEvents,
-    ltLambdaFunctionInfo,
+    -- ** DeploymentGroupId
+    DeploymentGroupId (..),
 
-    -- ** LastDeploymentInfo
-    LastDeploymentInfo (..),
-    mkLastDeploymentInfo,
-    ldiStatus,
-    ldiDeploymentId,
-    ldiEndTime,
-    ldiCreateTime,
+    -- ** ErrorMessage
+    ErrorMessage (..),
 
-    -- ** LifecycleEvent
-    LifecycleEvent (..),
-    mkLifecycleEvent,
-    leStatus,
-    leLifecycleEventName,
-    leStartTime,
-    leDiagnostics,
-    leEndTime,
+    -- ** Message
+    Message (..),
 
-    -- ** LoadBalancerInfo
-    LoadBalancerInfo (..),
-    mkLoadBalancerInfo,
-    lbiElbInfoList,
-    lbiTargetGroupInfoList,
-    lbiTargetGroupPairInfoList,
+    -- ** Alarm
+    Alarm (..),
+    mkAlarm,
+    aName,
 
-    -- ** MinimumHealthyHosts
-    MinimumHealthyHosts (..),
-    mkMinimumHealthyHosts,
-    mhhValue,
-    mhhType,
-
-    -- ** OnPremisesTagSet
-    OnPremisesTagSet (..),
-    mkOnPremisesTagSet,
-    optsOnPremisesTagSetList,
-
-    -- ** RawString
-    RawString (..),
-    mkRawString,
-    rsContent,
-    rsSha256,
-
-    -- ** RevisionInfo
-    RevisionInfo (..),
-    mkRevisionInfo,
-    riGenericRevisionInfo,
-    riRevisionLocation,
-
-    -- ** RevisionLocation
-    RevisionLocation (..),
-    mkRevisionLocation,
-    rlString,
-    rlRevisionType,
-    rlS3Location,
-    rlAppSpecContent,
-    rlGitHubLocation,
-
-    -- ** RollbackInfo
-    RollbackInfo (..),
-    mkRollbackInfo,
-    riRollbackTriggeringDeploymentId,
-    riRollbackMessage,
-    riRollbackDeploymentId,
-
-    -- ** S3Location
-    S3Location (..),
-    mkS3Location,
-    slBundleType,
-    slETag,
-    slBucket,
-    slKey,
-    slVersion,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- ** TagFilter
-    TagFilter (..),
-    mkTagFilter,
-    tfValue,
-    tfKey,
-    tfType,
-
-    -- ** TargetGroupInfo
-    TargetGroupInfo (..),
-    mkTargetGroupInfo,
-    tgiName,
-
-    -- ** TargetGroupPairInfo
-    TargetGroupPairInfo (..),
-    mkTargetGroupPairInfo,
-    tgpiProdTrafficRoute,
-    tgpiTestTrafficRoute,
-    tgpiTargetGroups,
+    -- ** AlarmConfiguration
+    AlarmConfiguration (..),
+    mkAlarmConfiguration,
+    acAlarms,
+    acEnabled,
+    acIgnorePollAlarmFailure,
 
     -- ** TargetInstances
     TargetInstances (..),
     mkTargetInstances,
+    tiAutoScalingGroups,
     tiEc2TagSet,
     tiTagFilters,
-    tiAutoScalingGroups,
 
-    -- ** TimeBasedCanary
-    TimeBasedCanary (..),
-    mkTimeBasedCanary,
-    tbcCanaryInterval,
-    tbcCanaryPercentage,
+    -- ** LifecycleEventHookExecutionId
+    LifecycleEventHookExecutionId (..),
 
-    -- ** TimeBasedLinear
-    TimeBasedLinear (..),
-    mkTimeBasedLinear,
-    tblLinearInterval,
-    tblLinearPercentage,
+    -- ** Description
+    Description (..),
 
-    -- ** TimeRange
-    TimeRange (..),
-    mkTimeRange,
-    trStart,
-    trEnd,
+    -- ** InstanceName
+    InstanceName (..),
 
-    -- ** TrafficRoute
-    TrafficRoute (..),
-    mkTrafficRoute,
-    trListenerARNs,
+    -- ** RevisionLocationType
+    RevisionLocationType (..),
 
-    -- ** TrafficRoutingConfig
-    TrafficRoutingConfig (..),
-    mkTrafficRoutingConfig,
-    trcTimeBasedCanary,
-    trcTimeBasedLinear,
-    trcType,
+    -- ** DeploymentConfigId
+    DeploymentConfigId (..),
 
-    -- ** TriggerConfig
-    TriggerConfig (..),
-    mkTriggerConfig,
-    tcTriggerName,
-    tcTriggerEvents,
-    tcTriggerTargetARN,
+    -- ** DeploymentStyle
+    DeploymentStyle (..),
+    mkDeploymentStyle,
+    dsDeploymentOption,
+    dsDeploymentType,
+
+    -- ** LambdaTarget
+    LambdaTarget (..),
+    mkLambdaTarget,
+    ltDeploymentId,
+    ltLambdaFunctionInfo,
+    ltLastUpdatedAt,
+    ltLifecycleEvents,
+    ltStatus,
+    ltTargetArn,
+    ltTargetId,
+
+    -- ** EC2TagFilterType
+    EC2TagFilterType (..),
+
+    -- ** S3Bucket
+    S3Bucket (..),
+
+    -- ** IamSessionArn
+    IamSessionArn (..),
+
+    -- ** AutoRollbackConfiguration
+    AutoRollbackConfiguration (..),
+    mkAutoRollbackConfiguration,
+    arcEnabled,
+    arcEvents,
+
+    -- ** DeploymentGroupName
+    DeploymentGroupName (..),
+
+    -- ** ServiceRoleArn
+    ServiceRoleArn (..),
+
+    -- ** GitHubAccountName
+    GitHubAccountName (..),
+
+    -- ** Hook
+    Hook (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** NewApplicationName
+    NewApplicationName (..),
+
+    -- ** TokenName
+    TokenName (..),
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** StatusMessage
+    StatusMessage (..),
+
+    -- ** CurrentDeploymentGroupName
+    CurrentDeploymentGroupName (..),
+
+    -- ** NewDeploymentGroupName
+    NewDeploymentGroupName (..),
+
+    -- ** Content
+    Content (..),
+
+    -- ** Sha256
+    Sha256 (..),
+
+    -- ** Identifer
+    Identifer (..),
+
+    -- ** Bucket
+    Bucket (..),
+
+    -- ** RollbackMessage
+    RollbackMessage (..),
+
+    -- ** FunctionAlias
+    FunctionAlias (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -22,59 +22,55 @@ module Network.AWS.Batch.Types.JobDependency
   )
 where
 
-import Network.AWS.Batch.Types.ArrayJobDependency
+import qualified Network.AWS.Batch.Types.ArrayJobDependency as Types
+import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing an AWS Batch job dependency.
 --
 -- /See:/ 'mkJobDependency' smart constructor.
 data JobDependency = JobDependency'
   { -- | The job ID of the AWS Batch job associated with this dependency.
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.String,
     -- | The type of the job dependency.
-    type' :: Lude.Maybe ArrayJobDependency
+    type' :: Core.Maybe Types.ArrayJobDependency
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobDependency' with the minimum fields required to make a request.
---
--- * 'jobId' - The job ID of the AWS Batch job associated with this dependency.
--- * 'type'' - The type of the job dependency.
+-- | Creates a 'JobDependency' value with any optional fields omitted.
 mkJobDependency ::
   JobDependency
 mkJobDependency =
-  JobDependency' {jobId = Lude.Nothing, type' = Lude.Nothing}
+  JobDependency' {jobId = Core.Nothing, type' = Core.Nothing}
 
 -- | The job ID of the AWS Batch job associated with this dependency.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jJobId :: Lens.Lens' JobDependency (Lude.Maybe Lude.Text)
-jJobId = Lens.lens (jobId :: JobDependency -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: JobDependency)
+jJobId :: Lens.Lens' JobDependency (Core.Maybe Types.String)
+jJobId = Lens.field @"jobId"
 {-# DEPRECATED jJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The type of the job dependency.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jType :: Lens.Lens' JobDependency (Lude.Maybe ArrayJobDependency)
-jType = Lens.lens (type' :: JobDependency -> Lude.Maybe ArrayJobDependency) (\s a -> s {type' = a} :: JobDependency)
+jType :: Lens.Lens' JobDependency (Core.Maybe Types.ArrayJobDependency)
+jType = Lens.field @"type'"
 {-# DEPRECATED jType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON JobDependency where
-  parseJSON =
-    Lude.withObject
-      "JobDependency"
-      ( \x ->
-          JobDependency'
-            Lude.<$> (x Lude..:? "jobId") Lude.<*> (x Lude..:? "type")
-      )
-
-instance Lude.ToJSON JobDependency where
-  toJSON JobDependency' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("jobId" Lude..=) Lude.<$> jobId,
-            ("type" Lude..=) Lude.<$> type'
+instance Core.FromJSON JobDependency where
+  toJSON JobDependency {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("jobId" Core..=) Core.<$> jobId,
+            ("type" Core..=) Core.<$> type'
           ]
       )
+
+instance Core.FromJSON JobDependency where
+  parseJSON =
+    Core.withObject "JobDependency" Core.$
+      \x ->
+        JobDependency'
+          Core.<$> (x Core..:? "jobId") Core.<*> (x Core..:? "type")

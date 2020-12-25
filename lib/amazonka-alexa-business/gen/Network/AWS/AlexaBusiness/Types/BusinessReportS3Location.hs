@@ -17,57 +17,54 @@ module Network.AWS.AlexaBusiness.Types.BusinessReportS3Location
     mkBusinessReportS3Location,
 
     -- * Lenses
-    brslPath,
     brslBucketName,
+    brslPath,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.BucketName as Types
+import qualified Network.AWS.AlexaBusiness.Types.Path as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The S3 location of the output reports.
 --
 -- /See:/ 'mkBusinessReportS3Location' smart constructor.
 data BusinessReportS3Location = BusinessReportS3Location'
-  { -- | The path of the business report.
-    path :: Lude.Maybe Lude.Text,
-    -- | The S3 bucket name of the output reports.
-    bucketName :: Lude.Maybe Lude.Text
+  { -- | The S3 bucket name of the output reports.
+    bucketName :: Core.Maybe Types.BucketName,
+    -- | The path of the business report.
+    path :: Core.Maybe Types.Path
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BusinessReportS3Location' with the minimum fields required to make a request.
---
--- * 'path' - The path of the business report.
--- * 'bucketName' - The S3 bucket name of the output reports.
+-- | Creates a 'BusinessReportS3Location' value with any optional fields omitted.
 mkBusinessReportS3Location ::
   BusinessReportS3Location
 mkBusinessReportS3Location =
   BusinessReportS3Location'
-    { path = Lude.Nothing,
-      bucketName = Lude.Nothing
+    { bucketName = Core.Nothing,
+      path = Core.Nothing
     }
-
--- | The path of the business report.
---
--- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brslPath :: Lens.Lens' BusinessReportS3Location (Lude.Maybe Lude.Text)
-brslPath = Lens.lens (path :: BusinessReportS3Location -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: BusinessReportS3Location)
-{-# DEPRECATED brslPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
 -- | The S3 bucket name of the output reports.
 --
 -- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brslBucketName :: Lens.Lens' BusinessReportS3Location (Lude.Maybe Lude.Text)
-brslBucketName = Lens.lens (bucketName :: BusinessReportS3Location -> Lude.Maybe Lude.Text) (\s a -> s {bucketName = a} :: BusinessReportS3Location)
+brslBucketName :: Lens.Lens' BusinessReportS3Location (Core.Maybe Types.BucketName)
+brslBucketName = Lens.field @"bucketName"
 {-# DEPRECATED brslBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
-instance Lude.FromJSON BusinessReportS3Location where
+-- | The path of the business report.
+--
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brslPath :: Lens.Lens' BusinessReportS3Location (Core.Maybe Types.Path)
+brslPath = Lens.field @"path"
+{-# DEPRECATED brslPath "Use generic-lens or generic-optics with 'path' instead." #-}
+
+instance Core.FromJSON BusinessReportS3Location where
   parseJSON =
-    Lude.withObject
-      "BusinessReportS3Location"
-      ( \x ->
-          BusinessReportS3Location'
-            Lude.<$> (x Lude..:? "Path") Lude.<*> (x Lude..:? "BucketName")
-      )
+    Core.withObject "BusinessReportS3Location" Core.$
+      \x ->
+        BusinessReportS3Location'
+          Core.<$> (x Core..:? "BucketName") Core.<*> (x Core..:? "Path")

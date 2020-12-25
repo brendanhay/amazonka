@@ -17,96 +17,90 @@ module Network.AWS.Pinpoint.Types.VoiceMessage
     mkVoiceMessage,
 
     -- * Lenses
-    vmSubstitutions,
+    vmBody,
     vmLanguageCode,
     vmOriginationNumber,
-    vmBody,
+    vmSubstitutions,
     vmVoiceId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the settings for a one-time voice message that's sent directly to an endpoint through the voice channel.
 --
 -- /See:/ 'mkVoiceMessage' smart constructor.
 data VoiceMessage = VoiceMessage'
-  { -- | The default message variables to use in the voice message. You can override the default variables with individual address variables.
-    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
+  { -- | The text of the script to use for the voice message.
+    body :: Core.Maybe Core.Text,
     -- | The code for the language to use when synthesizing the text of the message script. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
-    languageCode :: Lude.Maybe Lude.Text,
+    languageCode :: Core.Maybe Core.Text,
     -- | The long code to send the voice message from. This value should be one of the dedicated long codes that's assigned to your AWS account. Although it isn't required, we recommend that you specify the long code in E.164 format, for example +12065550100, to ensure prompt and accurate delivery of the message.
-    originationNumber :: Lude.Maybe Lude.Text,
-    -- | The text of the script to use for the voice message.
-    body :: Lude.Maybe Lude.Text,
+    originationNumber :: Core.Maybe Core.Text,
+    -- | The default message variables to use in the voice message. You can override the default variables with individual address variables.
+    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text]),
     -- | The name of the voice to use when delivering the message. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
-    voiceId :: Lude.Maybe Lude.Text
+    voiceId :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VoiceMessage' with the minimum fields required to make a request.
---
--- * 'substitutions' - The default message variables to use in the voice message. You can override the default variables with individual address variables.
--- * 'languageCode' - The code for the language to use when synthesizing the text of the message script. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
--- * 'originationNumber' - The long code to send the voice message from. This value should be one of the dedicated long codes that's assigned to your AWS account. Although it isn't required, we recommend that you specify the long code in E.164 format, for example +12065550100, to ensure prompt and accurate delivery of the message.
--- * 'body' - The text of the script to use for the voice message.
--- * 'voiceId' - The name of the voice to use when delivering the message. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
+-- | Creates a 'VoiceMessage' value with any optional fields omitted.
 mkVoiceMessage ::
   VoiceMessage
 mkVoiceMessage =
   VoiceMessage'
-    { substitutions = Lude.Nothing,
-      languageCode = Lude.Nothing,
-      originationNumber = Lude.Nothing,
-      body = Lude.Nothing,
-      voiceId = Lude.Nothing
+    { body = Core.Nothing,
+      languageCode = Core.Nothing,
+      originationNumber = Core.Nothing,
+      substitutions = Core.Nothing,
+      voiceId = Core.Nothing
     }
 
--- | The default message variables to use in the voice message. You can override the default variables with individual address variables.
+-- | The text of the script to use for the voice message.
 --
--- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmSubstitutions :: Lens.Lens' VoiceMessage (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-vmSubstitutions = Lens.lens (substitutions :: VoiceMessage -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {substitutions = a} :: VoiceMessage)
-{-# DEPRECATED vmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmBody :: Lens.Lens' VoiceMessage (Core.Maybe Core.Text)
+vmBody = Lens.field @"body"
+{-# DEPRECATED vmBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | The code for the language to use when synthesizing the text of the message script. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
 --
 -- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmLanguageCode :: Lens.Lens' VoiceMessage (Lude.Maybe Lude.Text)
-vmLanguageCode = Lens.lens (languageCode :: VoiceMessage -> Lude.Maybe Lude.Text) (\s a -> s {languageCode = a} :: VoiceMessage)
+vmLanguageCode :: Lens.Lens' VoiceMessage (Core.Maybe Core.Text)
+vmLanguageCode = Lens.field @"languageCode"
 {-# DEPRECATED vmLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The long code to send the voice message from. This value should be one of the dedicated long codes that's assigned to your AWS account. Although it isn't required, we recommend that you specify the long code in E.164 format, for example +12065550100, to ensure prompt and accurate delivery of the message.
 --
 -- /Note:/ Consider using 'originationNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmOriginationNumber :: Lens.Lens' VoiceMessage (Lude.Maybe Lude.Text)
-vmOriginationNumber = Lens.lens (originationNumber :: VoiceMessage -> Lude.Maybe Lude.Text) (\s a -> s {originationNumber = a} :: VoiceMessage)
+vmOriginationNumber :: Lens.Lens' VoiceMessage (Core.Maybe Core.Text)
+vmOriginationNumber = Lens.field @"originationNumber"
 {-# DEPRECATED vmOriginationNumber "Use generic-lens or generic-optics with 'originationNumber' instead." #-}
 
--- | The text of the script to use for the voice message.
+-- | The default message variables to use in the voice message. You can override the default variables with individual address variables.
 --
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmBody :: Lens.Lens' VoiceMessage (Lude.Maybe Lude.Text)
-vmBody = Lens.lens (body :: VoiceMessage -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: VoiceMessage)
-{-# DEPRECATED vmBody "Use generic-lens or generic-optics with 'body' instead." #-}
+-- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmSubstitutions :: Lens.Lens' VoiceMessage (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+vmSubstitutions = Lens.field @"substitutions"
+{-# DEPRECATED vmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
 
 -- | The name of the voice to use when delivering the message. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
 --
 -- /Note:/ Consider using 'voiceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmVoiceId :: Lens.Lens' VoiceMessage (Lude.Maybe Lude.Text)
-vmVoiceId = Lens.lens (voiceId :: VoiceMessage -> Lude.Maybe Lude.Text) (\s a -> s {voiceId = a} :: VoiceMessage)
+vmVoiceId :: Lens.Lens' VoiceMessage (Core.Maybe Core.Text)
+vmVoiceId = Lens.field @"voiceId"
 {-# DEPRECATED vmVoiceId "Use generic-lens or generic-optics with 'voiceId' instead." #-}
 
-instance Lude.ToJSON VoiceMessage where
-  toJSON VoiceMessage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Substitutions" Lude..=) Lude.<$> substitutions,
-            ("LanguageCode" Lude..=) Lude.<$> languageCode,
-            ("OriginationNumber" Lude..=) Lude.<$> originationNumber,
-            ("Body" Lude..=) Lude.<$> body,
-            ("VoiceId" Lude..=) Lude.<$> voiceId
+instance Core.FromJSON VoiceMessage where
+  toJSON VoiceMessage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Body" Core..=) Core.<$> body,
+            ("LanguageCode" Core..=) Core.<$> languageCode,
+            ("OriginationNumber" Core..=) Core.<$> originationNumber,
+            ("Substitutions" Core..=) Core.<$> substitutions,
+            ("VoiceId" Core..=) Core.<$> voiceId
           ]
       )

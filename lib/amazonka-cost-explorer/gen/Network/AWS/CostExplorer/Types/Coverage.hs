@@ -17,74 +17,68 @@ module Network.AWS.CostExplorer.Types.Coverage
     mkCoverage,
 
     -- * Lenses
-    cCoverageNormalizedUnits,
-    cCoverageHours,
     cCoverageCost,
+    cCoverageHours,
+    cCoverageNormalizedUnits,
   )
 where
 
-import Network.AWS.CostExplorer.Types.CoverageCost
-import Network.AWS.CostExplorer.Types.CoverageHours
-import Network.AWS.CostExplorer.Types.CoverageNormalizedUnits
+import qualified Network.AWS.CostExplorer.Types.CoverageCost as Types
+import qualified Network.AWS.CostExplorer.Types.CoverageHours as Types
+import qualified Network.AWS.CostExplorer.Types.CoverageNormalizedUnits as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The amount of instance usage that a reservation covered.
 --
 -- /See:/ 'mkCoverage' smart constructor.
 data Coverage = Coverage'
-  { -- | The amount of instance usage that the reservation covered, in normalized units.
-    coverageNormalizedUnits :: Lude.Maybe CoverageNormalizedUnits,
+  { -- | The amount of cost that the reservation covered.
+    coverageCost :: Core.Maybe Types.CoverageCost,
     -- | The amount of instance usage that the reservation covered, in hours.
-    coverageHours :: Lude.Maybe CoverageHours,
-    -- | The amount of cost that the reservation covered.
-    coverageCost :: Lude.Maybe CoverageCost
+    coverageHours :: Core.Maybe Types.CoverageHours,
+    -- | The amount of instance usage that the reservation covered, in normalized units.
+    coverageNormalizedUnits :: Core.Maybe Types.CoverageNormalizedUnits
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Coverage' with the minimum fields required to make a request.
---
--- * 'coverageNormalizedUnits' - The amount of instance usage that the reservation covered, in normalized units.
--- * 'coverageHours' - The amount of instance usage that the reservation covered, in hours.
--- * 'coverageCost' - The amount of cost that the reservation covered.
+-- | Creates a 'Coverage' value with any optional fields omitted.
 mkCoverage ::
   Coverage
 mkCoverage =
   Coverage'
-    { coverageNormalizedUnits = Lude.Nothing,
-      coverageHours = Lude.Nothing,
-      coverageCost = Lude.Nothing
+    { coverageCost = Core.Nothing,
+      coverageHours = Core.Nothing,
+      coverageNormalizedUnits = Core.Nothing
     }
-
--- | The amount of instance usage that the reservation covered, in normalized units.
---
--- /Note:/ Consider using 'coverageNormalizedUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCoverageNormalizedUnits :: Lens.Lens' Coverage (Lude.Maybe CoverageNormalizedUnits)
-cCoverageNormalizedUnits = Lens.lens (coverageNormalizedUnits :: Coverage -> Lude.Maybe CoverageNormalizedUnits) (\s a -> s {coverageNormalizedUnits = a} :: Coverage)
-{-# DEPRECATED cCoverageNormalizedUnits "Use generic-lens or generic-optics with 'coverageNormalizedUnits' instead." #-}
-
--- | The amount of instance usage that the reservation covered, in hours.
---
--- /Note:/ Consider using 'coverageHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCoverageHours :: Lens.Lens' Coverage (Lude.Maybe CoverageHours)
-cCoverageHours = Lens.lens (coverageHours :: Coverage -> Lude.Maybe CoverageHours) (\s a -> s {coverageHours = a} :: Coverage)
-{-# DEPRECATED cCoverageHours "Use generic-lens or generic-optics with 'coverageHours' instead." #-}
 
 -- | The amount of cost that the reservation covered.
 --
 -- /Note:/ Consider using 'coverageCost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCoverageCost :: Lens.Lens' Coverage (Lude.Maybe CoverageCost)
-cCoverageCost = Lens.lens (coverageCost :: Coverage -> Lude.Maybe CoverageCost) (\s a -> s {coverageCost = a} :: Coverage)
+cCoverageCost :: Lens.Lens' Coverage (Core.Maybe Types.CoverageCost)
+cCoverageCost = Lens.field @"coverageCost"
 {-# DEPRECATED cCoverageCost "Use generic-lens or generic-optics with 'coverageCost' instead." #-}
 
-instance Lude.FromJSON Coverage where
+-- | The amount of instance usage that the reservation covered, in hours.
+--
+-- /Note:/ Consider using 'coverageHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCoverageHours :: Lens.Lens' Coverage (Core.Maybe Types.CoverageHours)
+cCoverageHours = Lens.field @"coverageHours"
+{-# DEPRECATED cCoverageHours "Use generic-lens or generic-optics with 'coverageHours' instead." #-}
+
+-- | The amount of instance usage that the reservation covered, in normalized units.
+--
+-- /Note:/ Consider using 'coverageNormalizedUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCoverageNormalizedUnits :: Lens.Lens' Coverage (Core.Maybe Types.CoverageNormalizedUnits)
+cCoverageNormalizedUnits = Lens.field @"coverageNormalizedUnits"
+{-# DEPRECATED cCoverageNormalizedUnits "Use generic-lens or generic-optics with 'coverageNormalizedUnits' instead." #-}
+
+instance Core.FromJSON Coverage where
   parseJSON =
-    Lude.withObject
-      "Coverage"
-      ( \x ->
-          Coverage'
-            Lude.<$> (x Lude..:? "CoverageNormalizedUnits")
-            Lude.<*> (x Lude..:? "CoverageHours")
-            Lude.<*> (x Lude..:? "CoverageCost")
-      )
+    Core.withObject "Coverage" Core.$
+      \x ->
+        Coverage'
+          Core.<$> (x Core..:? "CoverageCost")
+          Core.<*> (x Core..:? "CoverageHours")
+          Core.<*> (x Core..:? "CoverageNormalizedUnits")

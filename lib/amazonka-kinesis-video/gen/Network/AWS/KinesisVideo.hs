@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -12,10 +11,49 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideo
   ( -- * Service configuration
-    kinesisVideoService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
+    -- ** TagsPerResourceExceededLimitException
+    _TagsPerResourceExceededLimitException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** ClientLimitExceededException
+    _ClientLimitExceededException,
+
+    -- ** AccountChannelLimitExceededException
+    _AccountChannelLimitExceededException,
+
+    -- ** InvalidDeviceException
+    _InvalidDeviceException,
+
+    -- ** VersionMismatchException
+    _VersionMismatchException,
+
+    -- ** AccountStreamLimitExceededException
+    _AccountStreamLimitExceededException,
+
+    -- ** InvalidResourceFormatException
+    _InvalidResourceFormatException,
+
+    -- ** DeviceStreamLimitExceededException
+    _DeviceStreamLimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -82,37 +120,11 @@ module Network.AWS.KinesisVideo
 
     -- * Types
 
-    -- ** APIName
-    APIName (..),
-
-    -- ** ChannelProtocol
-    ChannelProtocol (..),
-
-    -- ** ChannelRole
-    ChannelRole (..),
-
-    -- ** ChannelType
-    ChannelType (..),
-
-    -- ** ComparisonOperator
-    ComparisonOperator (..),
-
     -- ** StreamStatus
     StreamStatus (..),
 
-    -- ** UpdateDataRetentionOperation
-    UpdateDataRetentionOperation (..),
-
-    -- ** ChannelInfo
-    ChannelInfo (..),
-    mkChannelInfo,
-    ciCreationTime,
-    ciChannelStatus,
-    ciChannelARN,
-    ciSingleMasterConfiguration,
-    ciChannelName,
-    ciVersion,
-    ciChannelType,
+    -- ** MediaType
+    MediaType (..),
 
     -- ** ChannelNameCondition
     ChannelNameCondition (..),
@@ -120,35 +132,85 @@ module Network.AWS.KinesisVideo
     cncComparisonOperator,
     cncComparisonValue,
 
+    -- ** APIName
+    APIName (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** StreamInfo
+    StreamInfo (..),
+    mkStreamInfo,
+    siCreationTime,
+    siDataRetentionInHours,
+    siDeviceName,
+    siKmsKeyId,
+    siMediaType,
+    siStatus,
+    siStreamARN,
+    siStreamName,
+    siVersion,
+
+    -- ** ChannelInfo
+    ChannelInfo (..),
+    mkChannelInfo,
+    ciChannelARN,
+    ciChannelName,
+    ciChannelStatus,
+    ciChannelType,
+    ciCreationTime,
+    ciSingleMasterConfiguration,
+    ciVersion,
+
     -- ** ResourceEndpointListItem
     ResourceEndpointListItem (..),
     mkResourceEndpointListItem,
     reliProtocol,
     reliResourceEndpoint,
 
-    -- ** SingleMasterChannelEndpointConfiguration
-    SingleMasterChannelEndpointConfiguration (..),
-    mkSingleMasterChannelEndpointConfiguration,
-    smcecProtocols,
-    smcecRole,
-
     -- ** SingleMasterConfiguration
     SingleMasterConfiguration (..),
     mkSingleMasterConfiguration,
     smcMessageTtlSeconds,
 
-    -- ** StreamInfo
-    StreamInfo (..),
-    mkStreamInfo,
-    siCreationTime,
-    siStatus,
-    siMediaType,
-    siDataRetentionInHours,
-    siStreamARN,
-    siKMSKeyId,
-    siDeviceName,
-    siVersion,
-    siStreamName,
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** ComparisonOperator
+    ComparisonOperator (..),
+
+    -- ** ResourceEndpoint
+    ResourceEndpoint (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ChannelName
+    ChannelName (..),
+
+    -- ** ChannelRole
+    ChannelRole (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** DeviceName
+    DeviceName (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** ChannelProtocol
+    ChannelProtocol (..),
+
+    -- ** TagKey
+    TagKey (..),
 
     -- ** StreamNameCondition
     StreamNameCondition (..),
@@ -156,21 +218,49 @@ module Network.AWS.KinesisVideo
     sncComparisonOperator,
     sncComparisonValue,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** UpdateDataRetentionOperation
+    UpdateDataRetentionOperation (..),
+
+    -- ** DataEndpoint
+    DataEndpoint (..),
+
+    -- ** StreamName
+    StreamName (..),
+
+    -- ** ChannelType
+    ChannelType (..),
+
+    -- ** SingleMasterChannelEndpointConfiguration
+    SingleMasterChannelEndpointConfiguration (..),
+    mkSingleMasterChannelEndpointConfiguration,
+    smcecProtocols,
+    smcecRole,
+
+    -- ** StreamARN
+    StreamARN (..),
+
+    -- ** ComparisonValue
+    ComparisonValue (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ChannelARN
+    ChannelARN (..),
+
+    -- ** CurrentVersion
+    CurrentVersion (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

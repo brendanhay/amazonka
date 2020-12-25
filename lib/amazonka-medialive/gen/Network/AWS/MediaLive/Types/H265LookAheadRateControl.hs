@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.H265LookAheadRateControl
   ( H265LookAheadRateControl
       ( H265LookAheadRateControl',
-        High,
-        Low,
-        Medium
+        H265LookAheadRateControlHigh,
+        H265LookAheadRateControlLow,
+        H265LookAheadRateControlMedium,
+        fromH265LookAheadRateControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H265 Look Ahead Rate Control
-newtype H265LookAheadRateControl = H265LookAheadRateControl' Lude.Text
+newtype H265LookAheadRateControl = H265LookAheadRateControl'
+  { fromH265LookAheadRateControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern High :: H265LookAheadRateControl
-pattern High = H265LookAheadRateControl' "HIGH"
+pattern H265LookAheadRateControlHigh :: H265LookAheadRateControl
+pattern H265LookAheadRateControlHigh = H265LookAheadRateControl' "HIGH"
 
-pattern Low :: H265LookAheadRateControl
-pattern Low = H265LookAheadRateControl' "LOW"
+pattern H265LookAheadRateControlLow :: H265LookAheadRateControl
+pattern H265LookAheadRateControlLow = H265LookAheadRateControl' "LOW"
 
-pattern Medium :: H265LookAheadRateControl
-pattern Medium = H265LookAheadRateControl' "MEDIUM"
+pattern H265LookAheadRateControlMedium :: H265LookAheadRateControl
+pattern H265LookAheadRateControlMedium = H265LookAheadRateControl' "MEDIUM"
 
 {-# COMPLETE
-  High,
-  Low,
-  Medium,
+  H265LookAheadRateControlHigh,
+  H265LookAheadRateControlLow,
+  H265LookAheadRateControlMedium,
   H265LookAheadRateControl'
   #-}

@@ -17,164 +17,152 @@ module Network.AWS.GuardDuty.Types.NetworkInterface
     mkNetworkInterface,
 
     -- * Lenses
-    niPrivateIPAddresses,
-    niPublicDNSName,
-    niSecurityGroups,
-    niVPCId,
+    niIpv6Addresses,
     niNetworkInterfaceId,
+    niPrivateDnsName,
+    niPrivateIpAddress,
+    niPrivateIpAddresses,
+    niPublicDnsName,
+    niPublicIp,
+    niSecurityGroups,
     niSubnetId,
-    niPrivateIPAddress,
-    niPublicIP,
-    niPrivateDNSName,
-    niIPv6Addresses,
+    niVpcId,
   )
 where
 
-import Network.AWS.GuardDuty.Types.PrivateIPAddressDetails
-import Network.AWS.GuardDuty.Types.SecurityGroup
+import qualified Network.AWS.GuardDuty.Types.PrivateIpAddressDetails as Types
+import qualified Network.AWS.GuardDuty.Types.SecurityGroup as Types
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the elastic network interface of the EC2 instance.
 --
 -- /See:/ 'mkNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { -- | Other private IP address information of the EC2 instance.
-    privateIPAddresses :: Lude.Maybe [PrivateIPAddressDetails],
-    -- | The public DNS name of the EC2 instance.
-    publicDNSName :: Lude.Maybe Lude.Text,
-    -- | The security groups associated with the EC2 instance.
-    securityGroups :: Lude.Maybe [SecurityGroup],
-    -- | The VPC ID of the EC2 instance.
-    vpcId :: Lude.Maybe Lude.Text,
+  { -- | A list of IPv6 addresses for the EC2 instance.
+    ipv6Addresses :: Core.Maybe [Types.String],
     -- | The ID of the network interface.
-    networkInterfaceId :: Lude.Maybe Lude.Text,
-    -- | The subnet ID of the EC2 instance.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | The private IP address of the EC2 instance.
-    privateIPAddress :: Lude.Maybe Lude.Text,
-    -- | The public IP address of the EC2 instance.
-    publicIP :: Lude.Maybe Lude.Text,
+    networkInterfaceId :: Core.Maybe Types.String,
     -- | The private DNS name of the EC2 instance.
-    privateDNSName :: Lude.Maybe Lude.Text,
-    -- | A list of IPv6 addresses for the EC2 instance.
-    ipv6Addresses :: Lude.Maybe [Lude.Text]
+    privateDnsName :: Core.Maybe Types.String,
+    -- | The private IP address of the EC2 instance.
+    privateIpAddress :: Core.Maybe Types.String,
+    -- | Other private IP address information of the EC2 instance.
+    privateIpAddresses :: Core.Maybe [Types.PrivateIpAddressDetails],
+    -- | The public DNS name of the EC2 instance.
+    publicDnsName :: Core.Maybe Types.String,
+    -- | The public IP address of the EC2 instance.
+    publicIp :: Core.Maybe Types.String,
+    -- | The security groups associated with the EC2 instance.
+    securityGroups :: Core.Maybe [Types.SecurityGroup],
+    -- | The subnet ID of the EC2 instance.
+    subnetId :: Core.Maybe Types.String,
+    -- | The VPC ID of the EC2 instance.
+    vpcId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
---
--- * 'privateIPAddresses' - Other private IP address information of the EC2 instance.
--- * 'publicDNSName' - The public DNS name of the EC2 instance.
--- * 'securityGroups' - The security groups associated with the EC2 instance.
--- * 'vpcId' - The VPC ID of the EC2 instance.
--- * 'networkInterfaceId' - The ID of the network interface.
--- * 'subnetId' - The subnet ID of the EC2 instance.
--- * 'privateIPAddress' - The private IP address of the EC2 instance.
--- * 'publicIP' - The public IP address of the EC2 instance.
--- * 'privateDNSName' - The private DNS name of the EC2 instance.
--- * 'ipv6Addresses' - A list of IPv6 addresses for the EC2 instance.
+-- | Creates a 'NetworkInterface' value with any optional fields omitted.
 mkNetworkInterface ::
   NetworkInterface
 mkNetworkInterface =
   NetworkInterface'
-    { privateIPAddresses = Lude.Nothing,
-      publicDNSName = Lude.Nothing,
-      securityGroups = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      networkInterfaceId = Lude.Nothing,
-      subnetId = Lude.Nothing,
-      privateIPAddress = Lude.Nothing,
-      publicIP = Lude.Nothing,
-      privateDNSName = Lude.Nothing,
-      ipv6Addresses = Lude.Nothing
+    { ipv6Addresses = Core.Nothing,
+      networkInterfaceId = Core.Nothing,
+      privateDnsName = Core.Nothing,
+      privateIpAddress = Core.Nothing,
+      privateIpAddresses = Core.Nothing,
+      publicDnsName = Core.Nothing,
+      publicIp = Core.Nothing,
+      securityGroups = Core.Nothing,
+      subnetId = Core.Nothing,
+      vpcId = Core.Nothing
     }
-
--- | Other private IP address information of the EC2 instance.
---
--- /Note:/ Consider using 'privateIPAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niPrivateIPAddresses :: Lens.Lens' NetworkInterface (Lude.Maybe [PrivateIPAddressDetails])
-niPrivateIPAddresses = Lens.lens (privateIPAddresses :: NetworkInterface -> Lude.Maybe [PrivateIPAddressDetails]) (\s a -> s {privateIPAddresses = a} :: NetworkInterface)
-{-# DEPRECATED niPrivateIPAddresses "Use generic-lens or generic-optics with 'privateIPAddresses' instead." #-}
-
--- | The public DNS name of the EC2 instance.
---
--- /Note:/ Consider using 'publicDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niPublicDNSName :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niPublicDNSName = Lens.lens (publicDNSName :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {publicDNSName = a} :: NetworkInterface)
-{-# DEPRECATED niPublicDNSName "Use generic-lens or generic-optics with 'publicDNSName' instead." #-}
-
--- | The security groups associated with the EC2 instance.
---
--- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niSecurityGroups :: Lens.Lens' NetworkInterface (Lude.Maybe [SecurityGroup])
-niSecurityGroups = Lens.lens (securityGroups :: NetworkInterface -> Lude.Maybe [SecurityGroup]) (\s a -> s {securityGroups = a} :: NetworkInterface)
-{-# DEPRECATED niSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
-
--- | The VPC ID of the EC2 instance.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niVPCId :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niVPCId = Lens.lens (vpcId :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: NetworkInterface)
-{-# DEPRECATED niVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | The ID of the network interface.
---
--- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niNetworkInterfaceId :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niNetworkInterfaceId = Lens.lens (networkInterfaceId :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {networkInterfaceId = a} :: NetworkInterface)
-{-# DEPRECATED niNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
-
--- | The subnet ID of the EC2 instance.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niSubnetId :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niSubnetId = Lens.lens (subnetId :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: NetworkInterface)
-{-# DEPRECATED niSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | The private IP address of the EC2 instance.
---
--- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niPrivateIPAddress :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niPrivateIPAddress = Lens.lens (privateIPAddress :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: NetworkInterface)
-{-# DEPRECATED niPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
-
--- | The public IP address of the EC2 instance.
---
--- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niPublicIP :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niPublicIP = Lens.lens (publicIP :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: NetworkInterface)
-{-# DEPRECATED niPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
-
--- | The private DNS name of the EC2 instance.
---
--- /Note:/ Consider using 'privateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niPrivateDNSName :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niPrivateDNSName = Lens.lens (privateDNSName :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {privateDNSName = a} :: NetworkInterface)
-{-# DEPRECATED niPrivateDNSName "Use generic-lens or generic-optics with 'privateDNSName' instead." #-}
 
 -- | A list of IPv6 addresses for the EC2 instance.
 --
 -- /Note:/ Consider using 'ipv6Addresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niIPv6Addresses :: Lens.Lens' NetworkInterface (Lude.Maybe [Lude.Text])
-niIPv6Addresses = Lens.lens (ipv6Addresses :: NetworkInterface -> Lude.Maybe [Lude.Text]) (\s a -> s {ipv6Addresses = a} :: NetworkInterface)
-{-# DEPRECATED niIPv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
+niIpv6Addresses :: Lens.Lens' NetworkInterface (Core.Maybe [Types.String])
+niIpv6Addresses = Lens.field @"ipv6Addresses"
+{-# DEPRECATED niIpv6Addresses "Use generic-lens or generic-optics with 'ipv6Addresses' instead." #-}
 
-instance Lude.FromJSON NetworkInterface where
+-- | The ID of the network interface.
+--
+-- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niNetworkInterfaceId :: Lens.Lens' NetworkInterface (Core.Maybe Types.String)
+niNetworkInterfaceId = Lens.field @"networkInterfaceId"
+{-# DEPRECATED niNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+
+-- | The private DNS name of the EC2 instance.
+--
+-- /Note:/ Consider using 'privateDnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niPrivateDnsName :: Lens.Lens' NetworkInterface (Core.Maybe Types.String)
+niPrivateDnsName = Lens.field @"privateDnsName"
+{-# DEPRECATED niPrivateDnsName "Use generic-lens or generic-optics with 'privateDnsName' instead." #-}
+
+-- | The private IP address of the EC2 instance.
+--
+-- /Note:/ Consider using 'privateIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niPrivateIpAddress :: Lens.Lens' NetworkInterface (Core.Maybe Types.String)
+niPrivateIpAddress = Lens.field @"privateIpAddress"
+{-# DEPRECATED niPrivateIpAddress "Use generic-lens or generic-optics with 'privateIpAddress' instead." #-}
+
+-- | Other private IP address information of the EC2 instance.
+--
+-- /Note:/ Consider using 'privateIpAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niPrivateIpAddresses :: Lens.Lens' NetworkInterface (Core.Maybe [Types.PrivateIpAddressDetails])
+niPrivateIpAddresses = Lens.field @"privateIpAddresses"
+{-# DEPRECATED niPrivateIpAddresses "Use generic-lens or generic-optics with 'privateIpAddresses' instead." #-}
+
+-- | The public DNS name of the EC2 instance.
+--
+-- /Note:/ Consider using 'publicDnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niPublicDnsName :: Lens.Lens' NetworkInterface (Core.Maybe Types.String)
+niPublicDnsName = Lens.field @"publicDnsName"
+{-# DEPRECATED niPublicDnsName "Use generic-lens or generic-optics with 'publicDnsName' instead." #-}
+
+-- | The public IP address of the EC2 instance.
+--
+-- /Note:/ Consider using 'publicIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niPublicIp :: Lens.Lens' NetworkInterface (Core.Maybe Types.String)
+niPublicIp = Lens.field @"publicIp"
+{-# DEPRECATED niPublicIp "Use generic-lens or generic-optics with 'publicIp' instead." #-}
+
+-- | The security groups associated with the EC2 instance.
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niSecurityGroups :: Lens.Lens' NetworkInterface (Core.Maybe [Types.SecurityGroup])
+niSecurityGroups = Lens.field @"securityGroups"
+{-# DEPRECATED niSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+
+-- | The subnet ID of the EC2 instance.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niSubnetId :: Lens.Lens' NetworkInterface (Core.Maybe Types.String)
+niSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED niSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
+
+-- | The VPC ID of the EC2 instance.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niVpcId :: Lens.Lens' NetworkInterface (Core.Maybe Types.String)
+niVpcId = Lens.field @"vpcId"
+{-# DEPRECATED niVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+instance Core.FromJSON NetworkInterface where
   parseJSON =
-    Lude.withObject
-      "NetworkInterface"
-      ( \x ->
-          NetworkInterface'
-            Lude.<$> (x Lude..:? "privateIpAddresses" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "publicDnsName")
-            Lude.<*> (x Lude..:? "securityGroups" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "vpcId")
-            Lude.<*> (x Lude..:? "networkInterfaceId")
-            Lude.<*> (x Lude..:? "subnetId")
-            Lude.<*> (x Lude..:? "privateIpAddress")
-            Lude.<*> (x Lude..:? "publicIp")
-            Lude.<*> (x Lude..:? "privateDnsName")
-            Lude.<*> (x Lude..:? "ipv6Addresses" Lude..!= Lude.mempty)
-      )
+    Core.withObject "NetworkInterface" Core.$
+      \x ->
+        NetworkInterface'
+          Core.<$> (x Core..:? "ipv6Addresses")
+          Core.<*> (x Core..:? "networkInterfaceId")
+          Core.<*> (x Core..:? "privateDnsName")
+          Core.<*> (x Core..:? "privateIpAddress")
+          Core.<*> (x Core..:? "privateIpAddresses")
+          Core.<*> (x Core..:? "publicDnsName")
+          Core.<*> (x Core..:? "publicIp")
+          Core.<*> (x Core..:? "securityGroups")
+          Core.<*> (x Core..:? "subnetId")
+          Core.<*> (x Core..:? "vpcId")

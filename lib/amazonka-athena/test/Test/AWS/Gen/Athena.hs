@@ -378,7 +378,7 @@ responseListDatabases =
   res
     "ListDatabasesResponse"
     "fixture/ListDatabasesResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy ListDatabases)
 
 responseDeleteWorkGroup :: DeleteWorkGroupResponse -> TestTree
@@ -386,7 +386,7 @@ responseDeleteWorkGroup =
   res
     "DeleteWorkGroupResponse"
     "fixture/DeleteWorkGroupResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteWorkGroup)
 
 responseUpdateWorkGroup :: UpdateWorkGroupResponse -> TestTree
@@ -394,7 +394,7 @@ responseUpdateWorkGroup =
   res
     "UpdateWorkGroupResponse"
     "fixture/UpdateWorkGroupResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy UpdateWorkGroup)
 
 responseGetNamedQuery :: GetNamedQueryResponse -> TestTree
@@ -402,7 +402,7 @@ responseGetNamedQuery =
   res
     "GetNamedQueryResponse"
     "fixture/GetNamedQueryResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy GetNamedQuery)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -410,7 +410,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseDeleteDataCatalog :: DeleteDataCatalogResponse -> TestTree
@@ -418,7 +418,7 @@ responseDeleteDataCatalog =
   res
     "DeleteDataCatalogResponse"
     "fixture/DeleteDataCatalogResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDataCatalog)
 
 responseUpdateDataCatalog :: UpdateDataCatalogResponse -> TestTree
@@ -426,7 +426,7 @@ responseUpdateDataCatalog =
   res
     "UpdateDataCatalogResponse"
     "fixture/UpdateDataCatalogResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDataCatalog)
 
 responseListDataCatalogs :: ListDataCatalogsResponse -> TestTree
@@ -434,7 +434,7 @@ responseListDataCatalogs =
   res
     "ListDataCatalogsResponse"
     "fixture/ListDataCatalogsResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy ListDataCatalogs)
 
 responseCreateNamedQuery :: CreateNamedQueryResponse -> TestTree
@@ -442,7 +442,7 @@ responseCreateNamedQuery =
   res
     "CreateNamedQueryResponse"
     "fixture/CreateNamedQueryResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy CreateNamedQuery)
 
 responseGetTableMetadata :: GetTableMetadataResponse -> TestTree
@@ -450,7 +450,7 @@ responseGetTableMetadata =
   res
     "GetTableMetadataResponse"
     "fixture/GetTableMetadataResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy GetTableMetadata)
 
 responseListNamedQueries :: ListNamedQueriesResponse -> TestTree
@@ -458,7 +458,7 @@ responseListNamedQueries =
   res
     "ListNamedQueriesResponse"
     "fixture/ListNamedQueriesResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy ListNamedQueries)
 
 responseDeleteNamedQuery :: DeleteNamedQueryResponse -> TestTree
@@ -466,7 +466,7 @@ responseDeleteNamedQuery =
   res
     "DeleteNamedQueryResponse"
     "fixture/DeleteNamedQueryResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteNamedQuery)
 
 responseStartQueryExecution :: StartQueryExecutionResponse -> TestTree
@@ -474,7 +474,7 @@ responseStartQueryExecution =
   res
     "StartQueryExecutionResponse"
     "fixture/StartQueryExecutionResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy StartQueryExecution)
 
 responseBatchGetNamedQuery :: BatchGetNamedQueryResponse -> TestTree
@@ -482,7 +482,7 @@ responseBatchGetNamedQuery =
   res
     "BatchGetNamedQueryResponse"
     "fixture/BatchGetNamedQueryResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetNamedQuery)
 
 responseGetQueryExecution :: GetQueryExecutionResponse -> TestTree
@@ -490,7 +490,7 @@ responseGetQueryExecution =
   res
     "GetQueryExecutionResponse"
     "fixture/GetQueryExecutionResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy GetQueryExecution)
 
 responseCreateDataCatalog :: CreateDataCatalogResponse -> TestTree
@@ -498,7 +498,7 @@ responseCreateDataCatalog =
   res
     "CreateDataCatalogResponse"
     "fixture/CreateDataCatalogResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy CreateDataCatalog)
 
 responseListWorkGroups :: ListWorkGroupsResponse -> TestTree
@@ -506,7 +506,7 @@ responseListWorkGroups =
   res
     "ListWorkGroupsResponse"
     "fixture/ListWorkGroupsResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy ListWorkGroups)
 
 responseCreateWorkGroup :: CreateWorkGroupResponse -> TestTree
@@ -514,7 +514,7 @@ responseCreateWorkGroup =
   res
     "CreateWorkGroupResponse"
     "fixture/CreateWorkGroupResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy CreateWorkGroup)
 
 responseBatchGetQueryExecution :: BatchGetQueryExecutionResponse -> TestTree
@@ -522,7 +522,7 @@ responseBatchGetQueryExecution =
   res
     "BatchGetQueryExecutionResponse"
     "fixture/BatchGetQueryExecutionResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetQueryExecution)
 
 responseGetDataCatalog :: GetDataCatalogResponse -> TestTree
@@ -530,7 +530,7 @@ responseGetDataCatalog =
   res
     "GetDataCatalogResponse"
     "fixture/GetDataCatalogResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy GetDataCatalog)
 
 responseStopQueryExecution :: StopQueryExecutionResponse -> TestTree
@@ -538,7 +538,7 @@ responseStopQueryExecution =
   res
     "StopQueryExecutionResponse"
     "fixture/StopQueryExecutionResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy StopQueryExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -546,7 +546,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseGetWorkGroup :: GetWorkGroupResponse -> TestTree
@@ -554,7 +554,7 @@ responseGetWorkGroup =
   res
     "GetWorkGroupResponse"
     "fixture/GetWorkGroupResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy GetWorkGroup)
 
 responseGetDatabase :: GetDatabaseResponse -> TestTree
@@ -562,7 +562,7 @@ responseGetDatabase =
   res
     "GetDatabaseResponse"
     "fixture/GetDatabaseResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy GetDatabase)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -570,7 +570,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseGetQueryResults :: GetQueryResultsResponse -> TestTree
@@ -578,7 +578,7 @@ responseGetQueryResults =
   res
     "GetQueryResultsResponse"
     "fixture/GetQueryResultsResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy GetQueryResults)
 
 responseListTableMetadata :: ListTableMetadataResponse -> TestTree
@@ -586,7 +586,7 @@ responseListTableMetadata =
   res
     "ListTableMetadataResponse"
     "fixture/ListTableMetadataResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy ListTableMetadata)
 
 responseListQueryExecutions :: ListQueryExecutionsResponse -> TestTree
@@ -594,5 +594,5 @@ responseListQueryExecutions =
   res
     "ListQueryExecutionsResponse"
     "fixture/ListQueryExecutionsResponse.proto"
-    athenaService
+    mkServiceConfig
     (Proxy :: Proxy ListQueryExecutions)

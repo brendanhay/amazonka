@@ -20,128 +20,119 @@ module Network.AWS.CloudSearch.DefineExpression
     mkDefineExpression,
 
     -- ** Request lenses
-    defDomainName,
-    defExpression,
+    dDomainName,
+    dExpression,
 
     -- * Destructuring the response
     DefineExpressionResponse (..),
     mkDefineExpressionResponse,
 
     -- ** Response lenses
-    dersExpression,
-    dersResponseStatus,
+    derrsExpression,
+    derrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DefineExpression' @ operation. Specifies the name of the domain you want to update and the expression you want to configure.
 --
 -- /See:/ 'mkDefineExpression' smart constructor.
 data DefineExpression = DefineExpression'
-  { domainName :: Lude.Text,
-    expression :: Expression
+  { domainName :: Types.DomainName,
+    expression :: Types.Expression
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DefineExpression' with the minimum fields required to make a request.
---
--- * 'domainName' -
--- * 'expression' -
+-- | Creates a 'DefineExpression' value with any optional fields omitted.
 mkDefineExpression ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   -- | 'expression'
-  Expression ->
+  Types.Expression ->
   DefineExpression
-mkDefineExpression pDomainName_ pExpression_ =
-  DefineExpression'
-    { domainName = pDomainName_,
-      expression = pExpression_
-    }
+mkDefineExpression domainName expression =
+  DefineExpression' {domainName, expression}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defDomainName :: Lens.Lens' DefineExpression Lude.Text
-defDomainName = Lens.lens (domainName :: DefineExpression -> Lude.Text) (\s a -> s {domainName = a} :: DefineExpression)
-{-# DEPRECATED defDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+dDomainName :: Lens.Lens' DefineExpression Types.DomainName
+dDomainName = Lens.field @"domainName"
+{-# DEPRECATED dDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defExpression :: Lens.Lens' DefineExpression Expression
-defExpression = Lens.lens (expression :: DefineExpression -> Expression) (\s a -> s {expression = a} :: DefineExpression)
-{-# DEPRECATED defExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
+dExpression :: Lens.Lens' DefineExpression Types.Expression
+dExpression = Lens.field @"expression"
+{-# DEPRECATED dExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
-instance Lude.AWSRequest DefineExpression where
+instance Core.AWSRequest DefineExpression where
   type Rs DefineExpression = DefineExpressionResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DefineExpression")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryValue "Expression" expression)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DefineExpressionResult"
       ( \s h x ->
           DefineExpressionResponse'
-            Lude.<$> (x Lude..@ "Expression") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "Expression") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DefineExpression where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DefineExpression where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DefineExpression where
-  toQuery DefineExpression' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DefineExpression" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName,
-        "Expression" Lude.=: expression
-      ]
 
 -- | The result of a @DefineExpression@ request. Contains the status of the newly-configured expression.
 --
 -- /See:/ 'mkDefineExpressionResponse' smart constructor.
 data DefineExpressionResponse = DefineExpressionResponse'
-  { expression :: ExpressionStatus,
+  { expression :: Types.ExpressionStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DefineExpressionResponse' with the minimum fields required to make a request.
---
--- * 'expression' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DefineExpressionResponse' value with any optional fields omitted.
 mkDefineExpressionResponse ::
   -- | 'expression'
-  ExpressionStatus ->
+  Types.ExpressionStatus ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DefineExpressionResponse
-mkDefineExpressionResponse pExpression_ pResponseStatus_ =
-  DefineExpressionResponse'
-    { expression = pExpression_,
-      responseStatus = pResponseStatus_
-    }
+mkDefineExpressionResponse expression responseStatus =
+  DefineExpressionResponse' {expression, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersExpression :: Lens.Lens' DefineExpressionResponse ExpressionStatus
-dersExpression = Lens.lens (expression :: DefineExpressionResponse -> ExpressionStatus) (\s a -> s {expression = a} :: DefineExpressionResponse)
-{-# DEPRECATED dersExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
+derrsExpression :: Lens.Lens' DefineExpressionResponse Types.ExpressionStatus
+derrsExpression = Lens.field @"expression"
+{-# DEPRECATED derrsExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersResponseStatus :: Lens.Lens' DefineExpressionResponse Lude.Int
-dersResponseStatus = Lens.lens (responseStatus :: DefineExpressionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DefineExpressionResponse)
-{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+derrsResponseStatus :: Lens.Lens' DefineExpressionResponse Core.Int
+derrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

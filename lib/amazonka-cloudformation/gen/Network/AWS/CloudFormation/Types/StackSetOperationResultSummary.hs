@@ -17,25 +17,37 @@ module Network.AWS.CloudFormation.Types.StackSetOperationResultSummary
     mkStackSetOperationResultSummary,
 
     -- * Lenses
-    ssorsStatus,
     ssorsAccount,
     ssorsAccountGateResult,
     ssorsOrganizationalUnitId,
     ssorsRegion,
+    ssorsStatus,
     ssorsStatusReason,
   )
 where
 
-import Network.AWS.CloudFormation.Types.AccountGateResult
-import Network.AWS.CloudFormation.Types.StackSetOperationResultStatus
+import qualified Network.AWS.CloudFormation.Types.Account as Types
+import qualified Network.AWS.CloudFormation.Types.AccountGateResult as Types
+import qualified Network.AWS.CloudFormation.Types.OrganizationalUnitId as Types
+import qualified Network.AWS.CloudFormation.Types.Region as Types
+import qualified Network.AWS.CloudFormation.Types.StackSetOperationResultStatus as Types
+import qualified Network.AWS.CloudFormation.Types.StatusReason as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The structure that contains information about a specified operation's results for a given account in a given Region.
 --
 -- /See:/ 'mkStackSetOperationResultSummary' smart constructor.
 data StackSetOperationResultSummary = StackSetOperationResultSummary'
-  { -- | The result status of the stack set operation for the given account in the given Region.
+  { -- | [@Self-managed@ permissions] The name of the AWS account for this operation result.
+    account :: Core.Maybe Types.Account,
+    -- | The results of the account gate function AWS CloudFormation invokes, if present, before proceeding with stack set operations in an account
+    accountGateResult :: Core.Maybe Types.AccountGateResult,
+    -- | [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
+    organizationalUnitId :: Core.Maybe Types.OrganizationalUnitId,
+    -- | The name of the AWS Region for this operation result.
+    region :: Core.Maybe Types.Region,
+    -- | The result status of the stack set operation for the given account in the given Region.
     --
     --
     --     * @CANCELLED@ : The operation in the specified account and Region has been cancelled. This is either because a user has stopped the stack set operation, or because the failure tolerance of the stack set operation has been exceeded.
@@ -52,58 +64,53 @@ data StackSetOperationResultSummary = StackSetOperationResultSummary'
     --
     --
     --     * @SUCCEEDED@ : The operation in the specified account and Region completed successfully.
-    status :: Lude.Maybe StackSetOperationResultStatus,
-    -- | [@Self-managed@ permissions] The name of the AWS account for this operation result.
-    account :: Lude.Maybe Lude.Text,
-    -- | The results of the account gate function AWS CloudFormation invokes, if present, before proceeding with stack set operations in an account
-    accountGateResult :: Lude.Maybe AccountGateResult,
-    -- | [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
-    organizationalUnitId :: Lude.Maybe Lude.Text,
-    -- | The name of the AWS Region for this operation result.
-    region :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.StackSetOperationResultStatus,
     -- | The reason for the assigned result status.
-    statusReason :: Lude.Maybe Lude.Text
+    statusReason :: Core.Maybe Types.StatusReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StackSetOperationResultSummary' with the minimum fields required to make a request.
---
--- * 'status' - The result status of the stack set operation for the given account in the given Region.
---
---
---     * @CANCELLED@ : The operation in the specified account and Region has been cancelled. This is either because a user has stopped the stack set operation, or because the failure tolerance of the stack set operation has been exceeded.
---
---
---     * @FAILED@ : The operation in the specified account and Region failed.
--- If the stack set operation fails in enough accounts within a Region, the failure tolerance for the stack set operation as a whole might be exceeded.
---
---
---     * @RUNNING@ : The operation in the specified account and Region is currently in progress.
---
---
---     * @PENDING@ : The operation in the specified account and Region has yet to start.
---
---
---     * @SUCCEEDED@ : The operation in the specified account and Region completed successfully.
---
---
--- * 'account' - [@Self-managed@ permissions] The name of the AWS account for this operation result.
--- * 'accountGateResult' - The results of the account gate function AWS CloudFormation invokes, if present, before proceeding with stack set operations in an account
--- * 'organizationalUnitId' - [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
--- * 'region' - The name of the AWS Region for this operation result.
--- * 'statusReason' - The reason for the assigned result status.
+-- | Creates a 'StackSetOperationResultSummary' value with any optional fields omitted.
 mkStackSetOperationResultSummary ::
   StackSetOperationResultSummary
 mkStackSetOperationResultSummary =
   StackSetOperationResultSummary'
-    { status = Lude.Nothing,
-      account = Lude.Nothing,
-      accountGateResult = Lude.Nothing,
-      organizationalUnitId = Lude.Nothing,
-      region = Lude.Nothing,
-      statusReason = Lude.Nothing
+    { account = Core.Nothing,
+      accountGateResult = Core.Nothing,
+      organizationalUnitId = Core.Nothing,
+      region = Core.Nothing,
+      status = Core.Nothing,
+      statusReason = Core.Nothing
     }
+
+-- | [@Self-managed@ permissions] The name of the AWS account for this operation result.
+--
+-- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssorsAccount :: Lens.Lens' StackSetOperationResultSummary (Core.Maybe Types.Account)
+ssorsAccount = Lens.field @"account"
+{-# DEPRECATED ssorsAccount "Use generic-lens or generic-optics with 'account' instead." #-}
+
+-- | The results of the account gate function AWS CloudFormation invokes, if present, before proceeding with stack set operations in an account
+--
+-- /Note:/ Consider using 'accountGateResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssorsAccountGateResult :: Lens.Lens' StackSetOperationResultSummary (Core.Maybe Types.AccountGateResult)
+ssorsAccountGateResult = Lens.field @"accountGateResult"
+{-# DEPRECATED ssorsAccountGateResult "Use generic-lens or generic-optics with 'accountGateResult' instead." #-}
+
+-- | [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
+--
+-- /Note:/ Consider using 'organizationalUnitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssorsOrganizationalUnitId :: Lens.Lens' StackSetOperationResultSummary (Core.Maybe Types.OrganizationalUnitId)
+ssorsOrganizationalUnitId = Lens.field @"organizationalUnitId"
+{-# DEPRECATED ssorsOrganizationalUnitId "Use generic-lens or generic-optics with 'organizationalUnitId' instead." #-}
+
+-- | The name of the AWS Region for this operation result.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssorsRegion :: Lens.Lens' StackSetOperationResultSummary (Core.Maybe Types.Region)
+ssorsRegion = Lens.field @"region"
+{-# DEPRECATED ssorsRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The result status of the stack set operation for the given account in the given Region.
 --
@@ -126,51 +133,23 @@ mkStackSetOperationResultSummary =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssorsStatus :: Lens.Lens' StackSetOperationResultSummary (Lude.Maybe StackSetOperationResultStatus)
-ssorsStatus = Lens.lens (status :: StackSetOperationResultSummary -> Lude.Maybe StackSetOperationResultStatus) (\s a -> s {status = a} :: StackSetOperationResultSummary)
+ssorsStatus :: Lens.Lens' StackSetOperationResultSummary (Core.Maybe Types.StackSetOperationResultStatus)
+ssorsStatus = Lens.field @"status"
 {-# DEPRECATED ssorsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | [@Self-managed@ permissions] The name of the AWS account for this operation result.
---
--- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssorsAccount :: Lens.Lens' StackSetOperationResultSummary (Lude.Maybe Lude.Text)
-ssorsAccount = Lens.lens (account :: StackSetOperationResultSummary -> Lude.Maybe Lude.Text) (\s a -> s {account = a} :: StackSetOperationResultSummary)
-{-# DEPRECATED ssorsAccount "Use generic-lens or generic-optics with 'account' instead." #-}
-
--- | The results of the account gate function AWS CloudFormation invokes, if present, before proceeding with stack set operations in an account
---
--- /Note:/ Consider using 'accountGateResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssorsAccountGateResult :: Lens.Lens' StackSetOperationResultSummary (Lude.Maybe AccountGateResult)
-ssorsAccountGateResult = Lens.lens (accountGateResult :: StackSetOperationResultSummary -> Lude.Maybe AccountGateResult) (\s a -> s {accountGateResult = a} :: StackSetOperationResultSummary)
-{-# DEPRECATED ssorsAccountGateResult "Use generic-lens or generic-optics with 'accountGateResult' instead." #-}
-
--- | [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
---
--- /Note:/ Consider using 'organizationalUnitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssorsOrganizationalUnitId :: Lens.Lens' StackSetOperationResultSummary (Lude.Maybe Lude.Text)
-ssorsOrganizationalUnitId = Lens.lens (organizationalUnitId :: StackSetOperationResultSummary -> Lude.Maybe Lude.Text) (\s a -> s {organizationalUnitId = a} :: StackSetOperationResultSummary)
-{-# DEPRECATED ssorsOrganizationalUnitId "Use generic-lens or generic-optics with 'organizationalUnitId' instead." #-}
-
--- | The name of the AWS Region for this operation result.
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssorsRegion :: Lens.Lens' StackSetOperationResultSummary (Lude.Maybe Lude.Text)
-ssorsRegion = Lens.lens (region :: StackSetOperationResultSummary -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: StackSetOperationResultSummary)
-{-# DEPRECATED ssorsRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The reason for the assigned result status.
 --
 -- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssorsStatusReason :: Lens.Lens' StackSetOperationResultSummary (Lude.Maybe Lude.Text)
-ssorsStatusReason = Lens.lens (statusReason :: StackSetOperationResultSummary -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: StackSetOperationResultSummary)
+ssorsStatusReason :: Lens.Lens' StackSetOperationResultSummary (Core.Maybe Types.StatusReason)
+ssorsStatusReason = Lens.field @"statusReason"
 {-# DEPRECATED ssorsStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
-instance Lude.FromXML StackSetOperationResultSummary where
+instance Core.FromXML StackSetOperationResultSummary where
   parseXML x =
     StackSetOperationResultSummary'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "Account")
-      Lude.<*> (x Lude..@? "AccountGateResult")
-      Lude.<*> (x Lude..@? "OrganizationalUnitId")
-      Lude.<*> (x Lude..@? "Region")
-      Lude.<*> (x Lude..@? "StatusReason")
+      Core.<$> (x Core..@? "Account")
+      Core.<*> (x Core..@? "AccountGateResult")
+      Core.<*> (x Core..@? "OrganizationalUnitId")
+      Core.<*> (x Core..@? "Region")
+      Core.<*> (x Core..@? "Status")
+      Core.<*> (x Core..@? "StatusReason")

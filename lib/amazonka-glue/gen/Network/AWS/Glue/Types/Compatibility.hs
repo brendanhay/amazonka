@@ -13,76 +13,81 @@
 module Network.AWS.Glue.Types.Compatibility
   ( Compatibility
       ( Compatibility',
-        CNone,
-        CDisabled,
-        CBackward,
-        CBackwardAll,
-        CForward,
-        CForwardAll,
-        CFull,
-        CFullAll
+        CompatibilityNone,
+        CompatibilityDisabled,
+        CompatibilityBackward,
+        CompatibilityBackwardAll,
+        CompatibilityForward,
+        CompatibilityForwardAll,
+        CompatibilityFull,
+        CompatibilityFullAll,
+        fromCompatibility
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Compatibility = Compatibility' Lude.Text
+newtype Compatibility = Compatibility'
+  { fromCompatibility ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CNone :: Compatibility
-pattern CNone = Compatibility' "NONE"
+pattern CompatibilityNone :: Compatibility
+pattern CompatibilityNone = Compatibility' "NONE"
 
-pattern CDisabled :: Compatibility
-pattern CDisabled = Compatibility' "DISABLED"
+pattern CompatibilityDisabled :: Compatibility
+pattern CompatibilityDisabled = Compatibility' "DISABLED"
 
-pattern CBackward :: Compatibility
-pattern CBackward = Compatibility' "BACKWARD"
+pattern CompatibilityBackward :: Compatibility
+pattern CompatibilityBackward = Compatibility' "BACKWARD"
 
-pattern CBackwardAll :: Compatibility
-pattern CBackwardAll = Compatibility' "BACKWARD_ALL"
+pattern CompatibilityBackwardAll :: Compatibility
+pattern CompatibilityBackwardAll = Compatibility' "BACKWARD_ALL"
 
-pattern CForward :: Compatibility
-pattern CForward = Compatibility' "FORWARD"
+pattern CompatibilityForward :: Compatibility
+pattern CompatibilityForward = Compatibility' "FORWARD"
 
-pattern CForwardAll :: Compatibility
-pattern CForwardAll = Compatibility' "FORWARD_ALL"
+pattern CompatibilityForwardAll :: Compatibility
+pattern CompatibilityForwardAll = Compatibility' "FORWARD_ALL"
 
-pattern CFull :: Compatibility
-pattern CFull = Compatibility' "FULL"
+pattern CompatibilityFull :: Compatibility
+pattern CompatibilityFull = Compatibility' "FULL"
 
-pattern CFullAll :: Compatibility
-pattern CFullAll = Compatibility' "FULL_ALL"
+pattern CompatibilityFullAll :: Compatibility
+pattern CompatibilityFullAll = Compatibility' "FULL_ALL"
 
 {-# COMPLETE
-  CNone,
-  CDisabled,
-  CBackward,
-  CBackwardAll,
-  CForward,
-  CForwardAll,
-  CFull,
-  CFullAll,
+  CompatibilityNone,
+  CompatibilityDisabled,
+  CompatibilityBackward,
+  CompatibilityBackwardAll,
+  CompatibilityForward,
+  CompatibilityForwardAll,
+  CompatibilityFull,
+  CompatibilityFullAll,
   Compatibility'
   #-}

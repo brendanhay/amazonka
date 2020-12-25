@@ -13,46 +13,48 @@
 module Network.AWS.CodeDeploy.Types.StopStatus
   ( StopStatus
       ( StopStatus',
-        SSPending,
-        SSSucceeded
+        StopStatusPending,
+        StopStatusSucceeded,
+        fromStopStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StopStatus = StopStatus' Lude.Text
+newtype StopStatus = StopStatus' {fromStopStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSPending :: StopStatus
-pattern SSPending = StopStatus' "Pending"
+pattern StopStatusPending :: StopStatus
+pattern StopStatusPending = StopStatus' "Pending"
 
-pattern SSSucceeded :: StopStatus
-pattern SSSucceeded = StopStatus' "Succeeded"
+pattern StopStatusSucceeded :: StopStatus
+pattern StopStatusSucceeded = StopStatus' "Succeeded"
 
 {-# COMPLETE
-  SSPending,
-  SSSucceeded,
+  StopStatusPending,
+  StopStatusSucceeded,
   StopStatus'
   #-}

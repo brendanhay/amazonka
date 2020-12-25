@@ -23,8 +23,8 @@ module Network.AWS.MachineLearning.CreateEvaluation
     mkCreateEvaluation,
 
     -- ** Request lenses
-    ceMLModelId,
     ceEvaluationId,
+    ceMLModelId,
     ceEvaluationDataSourceId,
     ceEvaluationName,
 
@@ -33,128 +33,111 @@ module Network.AWS.MachineLearning.CreateEvaluation
     mkCreateEvaluationResponse,
 
     -- ** Response lenses
-    cersEvaluationId,
-    cersResponseStatus,
+    cerrsEvaluationId,
+    cerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateEvaluation' smart constructor.
 data CreateEvaluation = CreateEvaluation'
-  { -- | The ID of the @MLModel@ to evaluate.
+  { -- | A user-supplied ID that uniquely identifies the @Evaluation@ .
+    evaluationId :: Types.EvaluationId,
+    -- | The ID of the @MLModel@ to evaluate.
     --
     -- The schema used in creating the @MLModel@ must match the schema of the @DataSource@ used in the @Evaluation@ .
-    mLModelId :: Lude.Text,
-    -- | A user-supplied ID that uniquely identifies the @Evaluation@ .
-    evaluationId :: Lude.Text,
+    mLModelId :: Types.MLModelId,
     -- | The ID of the @DataSource@ for the evaluation. The schema of the @DataSource@ must match the schema used to create the @MLModel@ .
-    evaluationDataSourceId :: Lude.Text,
+    evaluationDataSourceId :: Types.EvaluationDataSourceId,
     -- | A user-supplied name or description of the @Evaluation@ .
-    evaluationName :: Lude.Maybe Lude.Text
+    evaluationName :: Core.Maybe Types.EvaluationName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateEvaluation' with the minimum fields required to make a request.
---
--- * 'mLModelId' - The ID of the @MLModel@ to evaluate.
---
--- The schema used in creating the @MLModel@ must match the schema of the @DataSource@ used in the @Evaluation@ .
--- * 'evaluationId' - A user-supplied ID that uniquely identifies the @Evaluation@ .
--- * 'evaluationDataSourceId' - The ID of the @DataSource@ for the evaluation. The schema of the @DataSource@ must match the schema used to create the @MLModel@ .
--- * 'evaluationName' - A user-supplied name or description of the @Evaluation@ .
+-- | Creates a 'CreateEvaluation' value with any optional fields omitted.
 mkCreateEvaluation ::
-  -- | 'mLModelId'
-  Lude.Text ->
   -- | 'evaluationId'
-  Lude.Text ->
+  Types.EvaluationId ->
+  -- | 'mLModelId'
+  Types.MLModelId ->
   -- | 'evaluationDataSourceId'
-  Lude.Text ->
+  Types.EvaluationDataSourceId ->
   CreateEvaluation
-mkCreateEvaluation
-  pMLModelId_
-  pEvaluationId_
-  pEvaluationDataSourceId_ =
-    CreateEvaluation'
-      { mLModelId = pMLModelId_,
-        evaluationId = pEvaluationId_,
-        evaluationDataSourceId = pEvaluationDataSourceId_,
-        evaluationName = Lude.Nothing
-      }
+mkCreateEvaluation evaluationId mLModelId evaluationDataSourceId =
+  CreateEvaluation'
+    { evaluationId,
+      mLModelId,
+      evaluationDataSourceId,
+      evaluationName = Core.Nothing
+    }
+
+-- | A user-supplied ID that uniquely identifies the @Evaluation@ .
+--
+-- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceEvaluationId :: Lens.Lens' CreateEvaluation Types.EvaluationId
+ceEvaluationId = Lens.field @"evaluationId"
+{-# DEPRECATED ceEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
 
 -- | The ID of the @MLModel@ to evaluate.
 --
 -- The schema used in creating the @MLModel@ must match the schema of the @DataSource@ used in the @Evaluation@ .
 --
 -- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceMLModelId :: Lens.Lens' CreateEvaluation Lude.Text
-ceMLModelId = Lens.lens (mLModelId :: CreateEvaluation -> Lude.Text) (\s a -> s {mLModelId = a} :: CreateEvaluation)
+ceMLModelId :: Lens.Lens' CreateEvaluation Types.MLModelId
+ceMLModelId = Lens.field @"mLModelId"
 {-# DEPRECATED ceMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
-
--- | A user-supplied ID that uniquely identifies the @Evaluation@ .
---
--- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceEvaluationId :: Lens.Lens' CreateEvaluation Lude.Text
-ceEvaluationId = Lens.lens (evaluationId :: CreateEvaluation -> Lude.Text) (\s a -> s {evaluationId = a} :: CreateEvaluation)
-{-# DEPRECATED ceEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
 
 -- | The ID of the @DataSource@ for the evaluation. The schema of the @DataSource@ must match the schema used to create the @MLModel@ .
 --
 -- /Note:/ Consider using 'evaluationDataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceEvaluationDataSourceId :: Lens.Lens' CreateEvaluation Lude.Text
-ceEvaluationDataSourceId = Lens.lens (evaluationDataSourceId :: CreateEvaluation -> Lude.Text) (\s a -> s {evaluationDataSourceId = a} :: CreateEvaluation)
+ceEvaluationDataSourceId :: Lens.Lens' CreateEvaluation Types.EvaluationDataSourceId
+ceEvaluationDataSourceId = Lens.field @"evaluationDataSourceId"
 {-# DEPRECATED ceEvaluationDataSourceId "Use generic-lens or generic-optics with 'evaluationDataSourceId' instead." #-}
 
 -- | A user-supplied name or description of the @Evaluation@ .
 --
 -- /Note:/ Consider using 'evaluationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceEvaluationName :: Lens.Lens' CreateEvaluation (Lude.Maybe Lude.Text)
-ceEvaluationName = Lens.lens (evaluationName :: CreateEvaluation -> Lude.Maybe Lude.Text) (\s a -> s {evaluationName = a} :: CreateEvaluation)
+ceEvaluationName :: Lens.Lens' CreateEvaluation (Core.Maybe Types.EvaluationName)
+ceEvaluationName = Lens.field @"evaluationName"
 {-# DEPRECATED ceEvaluationName "Use generic-lens or generic-optics with 'evaluationName' instead." #-}
 
-instance Lude.AWSRequest CreateEvaluation where
+instance Core.FromJSON CreateEvaluation where
+  toJSON CreateEvaluation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EvaluationId" Core..= evaluationId),
+            Core.Just ("MLModelId" Core..= mLModelId),
+            Core.Just
+              ("EvaluationDataSourceId" Core..= evaluationDataSourceId),
+            ("EvaluationName" Core..=) Core.<$> evaluationName
+          ]
+      )
+
+instance Core.AWSRequest CreateEvaluation where
   type Rs CreateEvaluation = CreateEvaluationResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonML_20141212.CreateEvaluation")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateEvaluationResponse'
-            Lude.<$> (x Lude..?> "EvaluationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "EvaluationId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateEvaluation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.CreateEvaluation" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateEvaluation where
-  toJSON CreateEvaluation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MLModelId" Lude..= mLModelId),
-            Lude.Just ("EvaluationId" Lude..= evaluationId),
-            Lude.Just
-              ("EvaluationDataSourceId" Lude..= evaluationDataSourceId),
-            ("EvaluationName" Lude..=) Lude.<$> evaluationName
-          ]
-      )
-
-instance Lude.ToPath CreateEvaluation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateEvaluation where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @CreateEvaluation@ operation, and is an acknowledgement that Amazon ML received the request.
 --
@@ -163,37 +146,34 @@ instance Lude.ToQuery CreateEvaluation where
 -- /See:/ 'mkCreateEvaluationResponse' smart constructor.
 data CreateEvaluationResponse = CreateEvaluationResponse'
   { -- | The user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
-    evaluationId :: Lude.Maybe Lude.Text,
+    evaluationId :: Core.Maybe Types.EvaluationId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateEvaluationResponse' with the minimum fields required to make a request.
---
--- * 'evaluationId' - The user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateEvaluationResponse' value with any optional fields omitted.
 mkCreateEvaluationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateEvaluationResponse
-mkCreateEvaluationResponse pResponseStatus_ =
+mkCreateEvaluationResponse responseStatus =
   CreateEvaluationResponse'
-    { evaluationId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { evaluationId = Core.Nothing,
+      responseStatus
     }
 
 -- | The user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
 --
 -- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cersEvaluationId :: Lens.Lens' CreateEvaluationResponse (Lude.Maybe Lude.Text)
-cersEvaluationId = Lens.lens (evaluationId :: CreateEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {evaluationId = a} :: CreateEvaluationResponse)
-{-# DEPRECATED cersEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
+cerrsEvaluationId :: Lens.Lens' CreateEvaluationResponse (Core.Maybe Types.EvaluationId)
+cerrsEvaluationId = Lens.field @"evaluationId"
+{-# DEPRECATED cerrsEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cersResponseStatus :: Lens.Lens' CreateEvaluationResponse Lude.Int
-cersResponseStatus = Lens.lens (responseStatus :: CreateEvaluationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEvaluationResponse)
-{-# DEPRECATED cersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cerrsResponseStatus :: Lens.Lens' CreateEvaluationResponse Core.Int
+cerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

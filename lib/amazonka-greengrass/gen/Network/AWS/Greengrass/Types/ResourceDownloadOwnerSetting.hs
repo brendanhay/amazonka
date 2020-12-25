@@ -22,66 +22,58 @@ module Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting
   )
 where
 
-import Network.AWS.Greengrass.Types.Permission
+import qualified Network.AWS.Greengrass.Types.Permission as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The owner setting for downloaded machine learning resources.
 --
 -- /See:/ 'mkResourceDownloadOwnerSetting' smart constructor.
 data ResourceDownloadOwnerSetting = ResourceDownloadOwnerSetting'
   { -- | The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process.
-    groupOwner :: Lude.Text,
+    groupOwner :: Core.Text,
     -- | The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
-    groupPermission :: Permission
+    groupPermission :: Types.Permission
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceDownloadOwnerSetting' with the minimum fields required to make a request.
---
--- * 'groupOwner' - The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process.
--- * 'groupPermission' - The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
+-- | Creates a 'ResourceDownloadOwnerSetting' value with any optional fields omitted.
 mkResourceDownloadOwnerSetting ::
   -- | 'groupOwner'
-  Lude.Text ->
+  Core.Text ->
   -- | 'groupPermission'
-  Permission ->
+  Types.Permission ->
   ResourceDownloadOwnerSetting
-mkResourceDownloadOwnerSetting pGroupOwner_ pGroupPermission_ =
-  ResourceDownloadOwnerSetting'
-    { groupOwner = pGroupOwner_,
-      groupPermission = pGroupPermission_
-    }
+mkResourceDownloadOwnerSetting groupOwner groupPermission =
+  ResourceDownloadOwnerSetting' {groupOwner, groupPermission}
 
 -- | The group owner of the resource. This is the name of an existing Linux OS group on the system or a GID. The group's permissions are added to the Lambda process.
 --
 -- /Note:/ Consider using 'groupOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdosGroupOwner :: Lens.Lens' ResourceDownloadOwnerSetting Lude.Text
-rdosGroupOwner = Lens.lens (groupOwner :: ResourceDownloadOwnerSetting -> Lude.Text) (\s a -> s {groupOwner = a} :: ResourceDownloadOwnerSetting)
+rdosGroupOwner :: Lens.Lens' ResourceDownloadOwnerSetting Core.Text
+rdosGroupOwner = Lens.field @"groupOwner"
 {-# DEPRECATED rdosGroupOwner "Use generic-lens or generic-optics with 'groupOwner' instead." #-}
 
 -- | The permissions that the group owner has to the resource. Valid values are ''rw'' (read/write) or ''ro'' (read-only).
 --
 -- /Note:/ Consider using 'groupPermission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdosGroupPermission :: Lens.Lens' ResourceDownloadOwnerSetting Permission
-rdosGroupPermission = Lens.lens (groupPermission :: ResourceDownloadOwnerSetting -> Permission) (\s a -> s {groupPermission = a} :: ResourceDownloadOwnerSetting)
+rdosGroupPermission :: Lens.Lens' ResourceDownloadOwnerSetting Types.Permission
+rdosGroupPermission = Lens.field @"groupPermission"
 {-# DEPRECATED rdosGroupPermission "Use generic-lens or generic-optics with 'groupPermission' instead." #-}
 
-instance Lude.FromJSON ResourceDownloadOwnerSetting where
-  parseJSON =
-    Lude.withObject
-      "ResourceDownloadOwnerSetting"
-      ( \x ->
-          ResourceDownloadOwnerSetting'
-            Lude.<$> (x Lude..: "GroupOwner") Lude.<*> (x Lude..: "GroupPermission")
-      )
-
-instance Lude.ToJSON ResourceDownloadOwnerSetting where
-  toJSON ResourceDownloadOwnerSetting' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GroupOwner" Lude..= groupOwner),
-            Lude.Just ("GroupPermission" Lude..= groupPermission)
+instance Core.FromJSON ResourceDownloadOwnerSetting where
+  toJSON ResourceDownloadOwnerSetting {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GroupOwner" Core..= groupOwner),
+            Core.Just ("GroupPermission" Core..= groupPermission)
           ]
       )
+
+instance Core.FromJSON ResourceDownloadOwnerSetting where
+  parseJSON =
+    Core.withObject "ResourceDownloadOwnerSetting" Core.$
+      \x ->
+        ResourceDownloadOwnerSetting'
+          Core.<$> (x Core..: "GroupOwner") Core.<*> (x Core..: "GroupPermission")

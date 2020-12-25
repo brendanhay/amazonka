@@ -21,183 +21,166 @@ module Network.AWS.AlexaBusiness.SearchContacts
 
     -- ** Request lenses
     scFilters,
-    scSortCriteria,
-    scNextToken,
     scMaxResults,
+    scNextToken,
+    scSortCriteria,
 
     -- * Destructuring the response
     SearchContactsResponse (..),
     mkSearchContactsResponse,
 
     -- ** Response lenses
-    scrsNextToken,
-    scrsContacts,
-    scrsTotalCount,
-    scrsResponseStatus,
+    scrrsContacts,
+    scrrsNextToken,
+    scrrsTotalCount,
+    scrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSearchContacts' smart constructor.
 data SearchContacts = SearchContacts'
   { -- | The filters to use to list a specified set of address books. The supported filter keys are DisplayName, FirstName, LastName, and AddressBookArns.
-    filters :: Lude.Maybe [Filter],
-    -- | The sort order to use in listing the specified set of contacts. The supported sort keys are DisplayName, FirstName, and LastName.
-    sortCriteria :: Lude.Maybe [Sort],
-    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The sort order to use in listing the specified set of contacts. The supported sort keys are DisplayName, FirstName, and LastName.
+    sortCriteria :: Core.Maybe [Types.Sort]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SearchContacts' with the minimum fields required to make a request.
---
--- * 'filters' - The filters to use to list a specified set of address books. The supported filter keys are DisplayName, FirstName, LastName, and AddressBookArns.
--- * 'sortCriteria' - The sort order to use in listing the specified set of contacts. The supported sort keys are DisplayName, FirstName, and LastName.
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
--- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
+-- | Creates a 'SearchContacts' value with any optional fields omitted.
 mkSearchContacts ::
   SearchContacts
 mkSearchContacts =
   SearchContacts'
-    { filters = Lude.Nothing,
-      sortCriteria = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortCriteria = Core.Nothing
     }
 
 -- | The filters to use to list a specified set of address books. The supported filter keys are DisplayName, FirstName, LastName, and AddressBookArns.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scFilters :: Lens.Lens' SearchContacts (Lude.Maybe [Filter])
-scFilters = Lens.lens (filters :: SearchContacts -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: SearchContacts)
+scFilters :: Lens.Lens' SearchContacts (Core.Maybe [Types.Filter])
+scFilters = Lens.field @"filters"
 {-# DEPRECATED scFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The sort order to use in listing the specified set of contacts. The supported sort keys are DisplayName, FirstName, and LastName.
---
--- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scSortCriteria :: Lens.Lens' SearchContacts (Lude.Maybe [Sort])
-scSortCriteria = Lens.lens (sortCriteria :: SearchContacts -> Lude.Maybe [Sort]) (\s a -> s {sortCriteria = a} :: SearchContacts)
-{-# DEPRECATED scSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
-
--- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scNextToken :: Lens.Lens' SearchContacts (Lude.Maybe Lude.Text)
-scNextToken = Lens.lens (nextToken :: SearchContacts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchContacts)
-{-# DEPRECATED scNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to include in the response. If more results exist than the specified MaxResults value, a token is included in the response so that the remaining results can be retrieved.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scMaxResults :: Lens.Lens' SearchContacts (Lude.Maybe Lude.Natural)
-scMaxResults = Lens.lens (maxResults :: SearchContacts -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchContacts)
+scMaxResults :: Lens.Lens' SearchContacts (Core.Maybe Core.Natural)
+scMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED scMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest SearchContacts where
+-- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response only includes results beyond the token, up to the value specified by MaxResults.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scNextToken :: Lens.Lens' SearchContacts (Core.Maybe Types.NextToken)
+scNextToken = Lens.field @"nextToken"
+{-# DEPRECATED scNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The sort order to use in listing the specified set of contacts. The supported sort keys are DisplayName, FirstName, and LastName.
+--
+-- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scSortCriteria :: Lens.Lens' SearchContacts (Core.Maybe [Types.Sort])
+scSortCriteria = Lens.field @"sortCriteria"
+{-# DEPRECATED scSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
+
+instance Core.FromJSON SearchContacts where
+  toJSON SearchContacts {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortCriteria" Core..=) Core.<$> sortCriteria
+          ]
+      )
+
+instance Core.AWSRequest SearchContacts where
   type Rs SearchContacts = SearchContactsResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.SearchContacts")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SearchContactsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Contacts" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "TotalCount")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Contacts")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "TotalCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SearchContacts where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.SearchContacts" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SearchContacts where
-  toJSON SearchContacts' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("SortCriteria" Lude..=) Lude.<$> sortCriteria,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath SearchContacts where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SearchContacts where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSearchContactsResponse' smart constructor.
 data SearchContactsResponse = SearchContactsResponse'
-  { -- | The token returned to indicate that there is more data available.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The contacts that meet the specified set of filter criteria, in sort order.
-    contacts :: Lude.Maybe [ContactData],
+  { -- | The contacts that meet the specified set of filter criteria, in sort order.
+    contacts :: Core.Maybe [Types.ContactData],
+    -- | The token returned to indicate that there is more data available.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The total number of contacts returned.
-    totalCount :: Lude.Maybe Lude.Int,
+    totalCount :: Core.Maybe Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SearchContactsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token returned to indicate that there is more data available.
--- * 'contacts' - The contacts that meet the specified set of filter criteria, in sort order.
--- * 'totalCount' - The total number of contacts returned.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SearchContactsResponse' value with any optional fields omitted.
 mkSearchContactsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SearchContactsResponse
-mkSearchContactsResponse pResponseStatus_ =
+mkSearchContactsResponse responseStatus =
   SearchContactsResponse'
-    { nextToken = Lude.Nothing,
-      contacts = Lude.Nothing,
-      totalCount = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { contacts = Core.Nothing,
+      nextToken = Core.Nothing,
+      totalCount = Core.Nothing,
+      responseStatus
     }
-
--- | The token returned to indicate that there is more data available.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrsNextToken :: Lens.Lens' SearchContactsResponse (Lude.Maybe Lude.Text)
-scrsNextToken = Lens.lens (nextToken :: SearchContactsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchContactsResponse)
-{-# DEPRECATED scrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The contacts that meet the specified set of filter criteria, in sort order.
 --
 -- /Note:/ Consider using 'contacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrsContacts :: Lens.Lens' SearchContactsResponse (Lude.Maybe [ContactData])
-scrsContacts = Lens.lens (contacts :: SearchContactsResponse -> Lude.Maybe [ContactData]) (\s a -> s {contacts = a} :: SearchContactsResponse)
-{-# DEPRECATED scrsContacts "Use generic-lens or generic-optics with 'contacts' instead." #-}
+scrrsContacts :: Lens.Lens' SearchContactsResponse (Core.Maybe [Types.ContactData])
+scrrsContacts = Lens.field @"contacts"
+{-# DEPRECATED scrrsContacts "Use generic-lens or generic-optics with 'contacts' instead." #-}
+
+-- | The token returned to indicate that there is more data available.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scrrsNextToken :: Lens.Lens' SearchContactsResponse (Core.Maybe Types.NextToken)
+scrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED scrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of contacts returned.
 --
 -- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrsTotalCount :: Lens.Lens' SearchContactsResponse (Lude.Maybe Lude.Int)
-scrsTotalCount = Lens.lens (totalCount :: SearchContactsResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalCount = a} :: SearchContactsResponse)
-{-# DEPRECATED scrsTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
+scrrsTotalCount :: Lens.Lens' SearchContactsResponse (Core.Maybe Core.Int)
+scrrsTotalCount = Lens.field @"totalCount"
+{-# DEPRECATED scrrsTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scrsResponseStatus :: Lens.Lens' SearchContactsResponse Lude.Int
-scrsResponseStatus = Lens.lens (responseStatus :: SearchContactsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchContactsResponse)
-{-# DEPRECATED scrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+scrrsResponseStatus :: Lens.Lens' SearchContactsResponse Core.Int
+scrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED scrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

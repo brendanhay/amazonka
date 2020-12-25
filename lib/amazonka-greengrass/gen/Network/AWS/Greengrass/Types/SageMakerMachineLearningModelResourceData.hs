@@ -17,82 +17,76 @@ module Network.AWS.Greengrass.Types.SageMakerMachineLearningModelResourceData
     mkSageMakerMachineLearningModelResourceData,
 
     -- * Lenses
-    smmlmrdOwnerSetting,
-    smmlmrdSageMakerJobARN,
     smmlmrdDestinationPath,
+    smmlmrdOwnerSetting,
+    smmlmrdSageMakerJobArn,
   )
 where
 
-import Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting
+import qualified Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Attributes that define an Amazon SageMaker machine learning resource.
 --
 -- /See:/ 'mkSageMakerMachineLearningModelResourceData' smart constructor.
 data SageMakerMachineLearningModelResourceData = SageMakerMachineLearningModelResourceData'
-  { ownerSetting :: Lude.Maybe ResourceDownloadOwnerSetting,
+  { -- | The absolute local path of the resource inside the Lambda environment.
+    destinationPath :: Core.Maybe Core.Text,
+    ownerSetting :: Core.Maybe Types.ResourceDownloadOwnerSetting,
     -- | The ARN of the Amazon SageMaker training job that represents the source model.
-    sageMakerJobARN :: Lude.Maybe Lude.Text,
-    -- | The absolute local path of the resource inside the Lambda environment.
-    destinationPath :: Lude.Maybe Lude.Text
+    sageMakerJobArn :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SageMakerMachineLearningModelResourceData' with the minimum fields required to make a request.
---
--- * 'ownerSetting' -
--- * 'sageMakerJobARN' - The ARN of the Amazon SageMaker training job that represents the source model.
--- * 'destinationPath' - The absolute local path of the resource inside the Lambda environment.
+-- | Creates a 'SageMakerMachineLearningModelResourceData' value with any optional fields omitted.
 mkSageMakerMachineLearningModelResourceData ::
   SageMakerMachineLearningModelResourceData
 mkSageMakerMachineLearningModelResourceData =
   SageMakerMachineLearningModelResourceData'
-    { ownerSetting =
-        Lude.Nothing,
-      sageMakerJobARN = Lude.Nothing,
-      destinationPath = Lude.Nothing
+    { destinationPath =
+        Core.Nothing,
+      ownerSetting = Core.Nothing,
+      sageMakerJobArn = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'ownerSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smmlmrdOwnerSetting :: Lens.Lens' SageMakerMachineLearningModelResourceData (Lude.Maybe ResourceDownloadOwnerSetting)
-smmlmrdOwnerSetting = Lens.lens (ownerSetting :: SageMakerMachineLearningModelResourceData -> Lude.Maybe ResourceDownloadOwnerSetting) (\s a -> s {ownerSetting = a} :: SageMakerMachineLearningModelResourceData)
-{-# DEPRECATED smmlmrdOwnerSetting "Use generic-lens or generic-optics with 'ownerSetting' instead." #-}
-
--- | The ARN of the Amazon SageMaker training job that represents the source model.
---
--- /Note:/ Consider using 'sageMakerJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smmlmrdSageMakerJobARN :: Lens.Lens' SageMakerMachineLearningModelResourceData (Lude.Maybe Lude.Text)
-smmlmrdSageMakerJobARN = Lens.lens (sageMakerJobARN :: SageMakerMachineLearningModelResourceData -> Lude.Maybe Lude.Text) (\s a -> s {sageMakerJobARN = a} :: SageMakerMachineLearningModelResourceData)
-{-# DEPRECATED smmlmrdSageMakerJobARN "Use generic-lens or generic-optics with 'sageMakerJobARN' instead." #-}
 
 -- | The absolute local path of the resource inside the Lambda environment.
 --
 -- /Note:/ Consider using 'destinationPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smmlmrdDestinationPath :: Lens.Lens' SageMakerMachineLearningModelResourceData (Lude.Maybe Lude.Text)
-smmlmrdDestinationPath = Lens.lens (destinationPath :: SageMakerMachineLearningModelResourceData -> Lude.Maybe Lude.Text) (\s a -> s {destinationPath = a} :: SageMakerMachineLearningModelResourceData)
+smmlmrdDestinationPath :: Lens.Lens' SageMakerMachineLearningModelResourceData (Core.Maybe Core.Text)
+smmlmrdDestinationPath = Lens.field @"destinationPath"
 {-# DEPRECATED smmlmrdDestinationPath "Use generic-lens or generic-optics with 'destinationPath' instead." #-}
 
-instance Lude.FromJSON SageMakerMachineLearningModelResourceData where
-  parseJSON =
-    Lude.withObject
-      "SageMakerMachineLearningModelResourceData"
-      ( \x ->
-          SageMakerMachineLearningModelResourceData'
-            Lude.<$> (x Lude..:? "OwnerSetting")
-            Lude.<*> (x Lude..:? "SageMakerJobArn")
-            Lude.<*> (x Lude..:? "DestinationPath")
-      )
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ownerSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smmlmrdOwnerSetting :: Lens.Lens' SageMakerMachineLearningModelResourceData (Core.Maybe Types.ResourceDownloadOwnerSetting)
+smmlmrdOwnerSetting = Lens.field @"ownerSetting"
+{-# DEPRECATED smmlmrdOwnerSetting "Use generic-lens or generic-optics with 'ownerSetting' instead." #-}
 
-instance Lude.ToJSON SageMakerMachineLearningModelResourceData where
-  toJSON SageMakerMachineLearningModelResourceData' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("OwnerSetting" Lude..=) Lude.<$> ownerSetting,
-            ("SageMakerJobArn" Lude..=) Lude.<$> sageMakerJobARN,
-            ("DestinationPath" Lude..=) Lude.<$> destinationPath
+-- | The ARN of the Amazon SageMaker training job that represents the source model.
+--
+-- /Note:/ Consider using 'sageMakerJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smmlmrdSageMakerJobArn :: Lens.Lens' SageMakerMachineLearningModelResourceData (Core.Maybe Core.Text)
+smmlmrdSageMakerJobArn = Lens.field @"sageMakerJobArn"
+{-# DEPRECATED smmlmrdSageMakerJobArn "Use generic-lens or generic-optics with 'sageMakerJobArn' instead." #-}
+
+instance Core.FromJSON SageMakerMachineLearningModelResourceData where
+  toJSON SageMakerMachineLearningModelResourceData {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DestinationPath" Core..=) Core.<$> destinationPath,
+            ("OwnerSetting" Core..=) Core.<$> ownerSetting,
+            ("SageMakerJobArn" Core..=) Core.<$> sageMakerJobArn
           ]
       )
+
+instance Core.FromJSON SageMakerMachineLearningModelResourceData where
+  parseJSON =
+    Core.withObject "SageMakerMachineLearningModelResourceData" Core.$
+      \x ->
+        SageMakerMachineLearningModelResourceData'
+          Core.<$> (x Core..:? "DestinationPath")
+          Core.<*> (x Core..:? "OwnerSetting")
+          Core.<*> (x Core..:? "SageMakerJobArn")

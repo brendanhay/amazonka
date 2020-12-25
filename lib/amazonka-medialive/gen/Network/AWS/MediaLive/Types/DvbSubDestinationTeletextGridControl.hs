@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.DvbSubDestinationTeletextGridControl
   ( DvbSubDestinationTeletextGridControl
       ( DvbSubDestinationTeletextGridControl',
-        DSDTGCFixed,
-        DSDTGCScaled
+        DvbSubDestinationTeletextGridControlFixed,
+        DvbSubDestinationTeletextGridControlScaled,
+        fromDvbSubDestinationTeletextGridControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Dvb Sub Destination Teletext Grid Control
-newtype DvbSubDestinationTeletextGridControl = DvbSubDestinationTeletextGridControl' Lude.Text
+newtype DvbSubDestinationTeletextGridControl = DvbSubDestinationTeletextGridControl'
+  { fromDvbSubDestinationTeletextGridControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSDTGCFixed :: DvbSubDestinationTeletextGridControl
-pattern DSDTGCFixed = DvbSubDestinationTeletextGridControl' "FIXED"
+pattern DvbSubDestinationTeletextGridControlFixed :: DvbSubDestinationTeletextGridControl
+pattern DvbSubDestinationTeletextGridControlFixed = DvbSubDestinationTeletextGridControl' "FIXED"
 
-pattern DSDTGCScaled :: DvbSubDestinationTeletextGridControl
-pattern DSDTGCScaled = DvbSubDestinationTeletextGridControl' "SCALED"
+pattern DvbSubDestinationTeletextGridControlScaled :: DvbSubDestinationTeletextGridControl
+pattern DvbSubDestinationTeletextGridControlScaled = DvbSubDestinationTeletextGridControl' "SCALED"
 
 {-# COMPLETE
-  DSDTGCFixed,
-  DSDTGCScaled,
+  DvbSubDestinationTeletextGridControlFixed,
+  DvbSubDestinationTeletextGridControlScaled,
   DvbSubDestinationTeletextGridControl'
   #-}

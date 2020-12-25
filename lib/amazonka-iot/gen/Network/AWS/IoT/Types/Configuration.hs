@@ -22,39 +22,36 @@ module Network.AWS.IoT.Types.Configuration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration.
 --
 -- /See:/ 'mkConfiguration' smart constructor.
 newtype Configuration = Configuration'
   { -- | True to enable the configuration.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Configuration' with the minimum fields required to make a request.
---
--- * 'enabled' - True to enable the configuration.
+-- | Creates a 'Configuration' value with any optional fields omitted.
 mkConfiguration ::
   Configuration
-mkConfiguration = Configuration' {enabled = Lude.Nothing}
+mkConfiguration = Configuration' {enabled = Core.Nothing}
 
 -- | True to enable the configuration.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cEnabled :: Lens.Lens' Configuration (Lude.Maybe Lude.Bool)
-cEnabled = Lens.lens (enabled :: Configuration -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: Configuration)
+cEnabled :: Lens.Lens' Configuration (Core.Maybe Core.Bool)
+cEnabled = Lens.field @"enabled"
 {-# DEPRECATED cEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.FromJSON Configuration where
-  parseJSON =
-    Lude.withObject
-      "Configuration"
-      (\x -> Configuration' Lude.<$> (x Lude..:? "Enabled"))
+instance Core.FromJSON Configuration where
+  toJSON Configuration {..} =
+    Core.object
+      (Core.catMaybes [("Enabled" Core..=) Core.<$> enabled])
 
-instance Lude.ToJSON Configuration where
-  toJSON Configuration' {..} =
-    Lude.object
-      (Lude.catMaybes [("Enabled" Lude..=) Lude.<$> enabled])
+instance Core.FromJSON Configuration where
+  parseJSON =
+    Core.withObject "Configuration" Core.$
+      \x -> Configuration' Core.<$> (x Core..:? "Enabled")

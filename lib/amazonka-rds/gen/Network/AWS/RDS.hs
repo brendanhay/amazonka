@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -39,10 +38,349 @@
 --     * For more information about how to use the Query API, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Using_the_Query_API.html Using the Query API> .
 module Network.AWS.RDS
   ( -- * Service configuration
-    rdsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** PointInTimeRestoreNotEnabledFault
+    _PointInTimeRestoreNotEnabledFault,
+
+    -- ** InvalidDBParameterGroupStateFault
+    _InvalidDBParameterGroupStateFault,
+
+    -- ** ReservedDBInstanceQuotaExceededFault
+    _ReservedDBInstanceQuotaExceededFault,
+
+    -- ** SourceNotFoundFault
+    _SourceNotFoundFault,
+
+    -- ** CertificateNotFoundFault
+    _CertificateNotFoundFault,
+
+    -- ** AuthorizationQuotaExceededFault
+    _AuthorizationQuotaExceededFault,
+
+    -- ** DBClusterSnapshotAlreadyExistsFault
+    _DBClusterSnapshotAlreadyExistsFault,
+
+    -- ** DBParameterGroupAlreadyExistsFault
+    _DBParameterGroupAlreadyExistsFault,
+
+    -- ** DBInstanceRoleQuotaExceededFault
+    _DBInstanceRoleQuotaExceededFault,
+
+    -- ** DBInstanceRoleAlreadyExistsFault
+    _DBInstanceRoleAlreadyExistsFault,
+
+    -- ** DBParameterGroupQuotaExceededFault
+    _DBParameterGroupQuotaExceededFault,
+
+    -- ** BackupPolicyNotFoundFault
+    _BackupPolicyNotFoundFault,
+
+    -- ** InsufficientDBClusterCapacityFault
+    _InsufficientDBClusterCapacityFault,
+
+    -- ** ReservedDBInstanceAlreadyExistsFault
+    _ReservedDBInstanceAlreadyExistsFault,
+
+    -- ** ProvisionedIopsNotAvailableInAZFault
+    _ProvisionedIopsNotAvailableInAZFault,
+
+    -- ** DBProxyTargetAlreadyRegisteredFault
+    _DBProxyTargetAlreadyRegisteredFault,
+
+    -- ** AuthorizationAlreadyExistsFault
+    _AuthorizationAlreadyExistsFault,
+
+    -- ** SubscriptionCategoryNotFoundFault
+    _SubscriptionCategoryNotFoundFault,
+
+    -- ** DBProxyTargetNotFoundFault
+    _DBProxyTargetNotFoundFault,
+
+    -- ** SubscriptionNotFoundFault
+    _SubscriptionNotFoundFault,
+
+    -- ** InvalidSubnet
+    _InvalidSubnet,
+
+    -- ** SharedSnapshotQuotaExceededFault
+    _SharedSnapshotQuotaExceededFault,
+
+    -- ** DBSubnetQuotaExceededFault
+    _DBSubnetQuotaExceededFault,
+
+    -- ** GlobalClusterAlreadyExistsFault
+    _GlobalClusterAlreadyExistsFault,
+
+    -- ** OptionGroupNotFoundFault
+    _OptionGroupNotFoundFault,
+
+    -- ** DBClusterNotFoundFault
+    _DBClusterNotFoundFault,
+
+    -- ** DBLogFileNotFoundFault
+    _DBLogFileNotFoundFault,
+
+    -- ** DBProxyTargetGroupNotFoundFault
+    _DBProxyTargetGroupNotFoundFault,
+
+    -- ** InvalidS3BucketFault
+    _InvalidS3BucketFault,
+
+    -- ** DBProxyQuotaExceededFault
+    _DBProxyQuotaExceededFault,
+
+    -- ** IamRoleNotFoundFault
+    _IamRoleNotFoundFault,
+
+    -- ** DBClusterAlreadyExistsFault
+    _DBClusterAlreadyExistsFault,
+
+    -- ** StorageTypeNotSupportedFault
+    _StorageTypeNotSupportedFault,
+
+    -- ** DBSecurityGroupQuotaExceededFault
+    _DBSecurityGroupQuotaExceededFault,
+
+    -- ** OptionGroupAlreadyExistsFault
+    _OptionGroupAlreadyExistsFault,
+
+    -- ** ExportTaskNotFoundFault
+    _ExportTaskNotFoundFault,
+
+    -- ** InsufficientAvailableIPsInSubnetFault
+    _InsufficientAvailableIPsInSubnetFault,
+
+    -- ** DBProxyNotFoundFault
+    _DBProxyNotFoundFault,
+
+    -- ** OptionGroupQuotaExceededFault
+    _OptionGroupQuotaExceededFault,
+
+    -- ** DBSecurityGroupAlreadyExistsFault
+    _DBSecurityGroupAlreadyExistsFault,
+
+    -- ** SNSTopicArnNotFoundFault
+    _SNSTopicArnNotFoundFault,
+
+    -- ** InvalidDBClusterEndpointStateFault
+    _InvalidDBClusterEndpointStateFault,
+
+    -- ** InvalidEventSubscriptionStateFault
+    _InvalidEventSubscriptionStateFault,
+
+    -- ** InvalidDBInstanceAutomatedBackupStateFault
+    _InvalidDBInstanceAutomatedBackupStateFault,
+
+    -- ** KMSKeyNotAccessibleFault
+    _KMSKeyNotAccessibleFault,
+
+    -- ** DBSnapshotNotFoundFault
+    _DBSnapshotNotFoundFault,
+
+    -- ** DBClusterParameterGroupNotFoundFault
+    _DBClusterParameterGroupNotFoundFault,
+
+    -- ** DBClusterQuotaExceededFault
+    _DBClusterQuotaExceededFault,
+
+    -- ** InvalidExportOnlyFault
+    _InvalidExportOnlyFault,
+
+    -- ** SnapshotQuotaExceededFault
+    _SnapshotQuotaExceededFault,
+
+    -- ** InvalidDBClusterCapacityFault
+    _InvalidDBClusterCapacityFault,
+
+    -- ** DBSubnetGroupAlreadyExistsFault
+    _DBSubnetGroupAlreadyExistsFault,
+
+    -- ** SNSNoAuthorizationFault
+    _SNSNoAuthorizationFault,
+
+    -- ** DBSecurityGroupNotFoundFault
+    _DBSecurityGroupNotFoundFault,
+
+    -- ** DBSecurityGroupNotSupportedFault
+    _DBSecurityGroupNotSupportedFault,
+
+    -- ** InvalidDBProxyStateFault
+    _InvalidDBProxyStateFault,
+
+    -- ** InstanceQuotaExceededFault
+    _InstanceQuotaExceededFault,
+
+    -- ** DBClusterBacktrackNotFoundFault
+    _DBClusterBacktrackNotFoundFault,
+
+    -- ** DomainNotFoundFault
+    _DomainNotFoundFault,
+
+    -- ** DBParameterGroupNotFoundFault
+    _DBParameterGroupNotFoundFault,
+
+    -- ** InvalidDBSubnetGroupFault
+    _InvalidDBSubnetGroupFault,
+
+    -- ** ReservedDBInstancesOfferingNotFoundFault
+    _ReservedDBInstancesOfferingNotFoundFault,
+
+    -- ** InvalidDBSubnetStateFault
+    _InvalidDBSubnetStateFault,
+
+    -- ** DBClusterSnapshotNotFoundFault
+    _DBClusterSnapshotNotFoundFault,
+
+    -- ** SNSInvalidTopicFault
+    _SNSInvalidTopicFault,
+
+    -- ** InsufficientDBInstanceCapacityFault
+    _InsufficientDBInstanceCapacityFault,
+
+    -- ** InvalidDBClusterSnapshotStateFault
+    _InvalidDBClusterSnapshotStateFault,
+
+    -- ** InstallationMediaAlreadyExistsFault
+    _InstallationMediaAlreadyExistsFault,
+
+    -- ** SubscriptionAlreadyExistFault
+    _SubscriptionAlreadyExistFault,
+
+    -- ** DBClusterRoleAlreadyExistsFault
+    _DBClusterRoleAlreadyExistsFault,
+
+    -- ** IamRoleMissingPermissionsFault
+    _IamRoleMissingPermissionsFault,
+
+    -- ** DBClusterRoleQuotaExceededFault
+    _DBClusterRoleQuotaExceededFault,
+
+    -- ** InvalidVPCNetworkStateFault
+    _InvalidVPCNetworkStateFault,
+
+    -- ** DBInstanceRoleNotFoundFault
+    _DBInstanceRoleNotFoundFault,
+
+    -- ** AuthorizationNotFoundFault
+    _AuthorizationNotFoundFault,
+
+    -- ** ReservedDBInstanceNotFoundFault
+    _ReservedDBInstanceNotFoundFault,
+
+    -- ** DBSubnetGroupQuotaExceededFault
+    _DBSubnetGroupQuotaExceededFault,
+
+    -- ** CustomAvailabilityZoneNotFoundFault
+    _CustomAvailabilityZoneNotFoundFault,
+
+    -- ** InvalidGlobalClusterStateFault
+    _InvalidGlobalClusterStateFault,
+
+    -- ** DBSubnetGroupNotAllowedFault
+    _DBSubnetGroupNotAllowedFault,
+
+    -- ** InvalidExportTaskStateFault
+    _InvalidExportTaskStateFault,
+
+    -- ** InvalidExportSourceStateFault
+    _InvalidExportSourceStateFault,
+
+    -- ** ExportTaskAlreadyExistsFault
+    _ExportTaskAlreadyExistsFault,
+
+    -- ** EventSubscriptionQuotaExceededFault
+    _EventSubscriptionQuotaExceededFault,
+
+    -- ** InsufficientStorageClusterCapacityFault
+    _InsufficientStorageClusterCapacityFault,
+
+    -- ** DBClusterEndpointQuotaExceededFault
+    _DBClusterEndpointQuotaExceededFault,
+
+    -- ** InvalidOptionGroupStateFault
+    _InvalidOptionGroupStateFault,
+
+    -- ** DBInstanceAutomatedBackupQuotaExceededFault
+    _DBInstanceAutomatedBackupQuotaExceededFault,
+
+    -- ** CustomAvailabilityZoneAlreadyExistsFault
+    _CustomAvailabilityZoneAlreadyExistsFault,
+
+    -- ** InvalidDBClusterStateFault
+    _InvalidDBClusterStateFault,
+
+    -- ** GlobalClusterNotFoundFault
+    _GlobalClusterNotFoundFault,
+
+    -- ** DBInstanceAlreadyExistsFault
+    _DBInstanceAlreadyExistsFault,
+
+    -- ** InvalidRestoreFault
+    _InvalidRestoreFault,
+
+    -- ** InvalidDBSecurityGroupStateFault
+    _InvalidDBSecurityGroupStateFault,
+
+    -- ** ResourceNotFoundFault
+    _ResourceNotFoundFault,
+
+    -- ** DBSubnetGroupNotFoundFault
+    _DBSubnetGroupNotFoundFault,
+
+    -- ** DBUpgradeDependencyFailureFault
+    _DBUpgradeDependencyFailureFault,
+
+    -- ** CustomAvailabilityZoneQuotaExceededFault
+    _CustomAvailabilityZoneQuotaExceededFault,
+
+    -- ** InvalidDBInstanceStateFault
+    _InvalidDBInstanceStateFault,
+
+    -- ** DBClusterEndpointAlreadyExistsFault
+    _DBClusterEndpointAlreadyExistsFault,
+
+    -- ** DBSnapshotAlreadyExistsFault
+    _DBSnapshotAlreadyExistsFault,
+
+    -- ** DBInstanceNotFoundFault
+    _DBInstanceNotFoundFault,
+
+    -- ** StorageQuotaExceededFault
+    _StorageQuotaExceededFault,
+
+    -- ** DBProxyAlreadyExistsFault
+    _DBProxyAlreadyExistsFault,
+
+    -- ** DBInstanceAutomatedBackupNotFoundFault
+    _DBInstanceAutomatedBackupNotFoundFault,
+
+    -- ** InvalidDBSnapshotStateFault
+    _InvalidDBSnapshotStateFault,
+
+    -- ** InvalidDBSubnetGroupStateFault
+    _InvalidDBSubnetGroupStateFault,
+
+    -- ** GlobalClusterQuotaExceededFault
+    _GlobalClusterQuotaExceededFault,
+
+    -- ** DBClusterEndpointNotFoundFault
+    _DBClusterEndpointNotFoundFault,
+
+    -- ** InstallationMediaNotFoundFault
+    _InstallationMediaNotFoundFault,
+
+    -- ** DBSubnetGroupDoesNotCoverEnoughAZs
+    _DBSubnetGroupDoesNotCoverEnoughAZs,
+
+    -- ** SubnetAlreadyInUse
+    _SubnetAlreadyInUse,
+
+    -- ** DBClusterRoleNotFoundFault
+    _DBClusterRoleNotFoundFault,
 
     -- * Waiters
     -- $waiters
@@ -463,81 +801,427 @@ module Network.AWS.RDS
 
     -- * Types
 
-    -- ** ActivityStreamMode
-    ActivityStreamMode (..),
+    -- ** RestoreWindow
+    RestoreWindow (..),
+    mkRestoreWindow,
+    rwEarliestTime,
+    rwLatestTime,
 
-    -- ** ActivityStreamStatus
-    ActivityStreamStatus (..),
+    -- ** DBProxyTargetGroup
+    DBProxyTargetGroup (..),
+    mkDBProxyTargetGroup,
+    dbptgConnectionPoolConfig,
+    dbptgCreatedDate,
+    dbptgDBProxyName,
+    dbptgIsDefault,
+    dbptgStatus,
+    dbptgTargetGroupArn,
+    dbptgTargetGroupName,
+    dbptgUpdatedDate,
 
-    -- ** ApplyMethod
-    ApplyMethod (..),
+    -- ** PendingMaintenanceAction
+    PendingMaintenanceAction (..),
+    mkPendingMaintenanceAction,
+    pmaAction,
+    pmaAutoAppliedAfterDate,
+    pmaCurrentApplyDate,
+    pmaDescription,
+    pmaForcedApplyDate,
+    pmaOptInStatus,
 
-    -- ** AuthScheme
-    AuthScheme (..),
+    -- ** DBCluster
+    DBCluster (..),
+    mkDBCluster,
+    dbcActivityStreamKinesisStreamName,
+    dbcActivityStreamKmsKeyId,
+    dbcActivityStreamMode,
+    dbcActivityStreamStatus,
+    dbcAllocatedStorage,
+    dbcAssociatedRoles,
+    dbcAvailabilityZones,
+    dbcBacktrackConsumedChangeRecords,
+    dbcBacktrackWindow,
+    dbcBackupRetentionPeriod,
+    dbcCapacity,
+    dbcCharacterSetName,
+    dbcCloneGroupId,
+    dbcClusterCreateTime,
+    dbcCopyTagsToSnapshot,
+    dbcCrossAccountClone,
+    dbcCustomEndpoints,
+    dbcDBClusterArn,
+    dbcDBClusterIdentifier,
+    dbcDBClusterMembers,
+    dbcDBClusterOptionGroupMemberships,
+    dbcDBClusterParameterGroup,
+    dbcDBSubnetGroup,
+    dbcDatabaseName,
+    dbcDbClusterResourceId,
+    dbcDeletionProtection,
+    dbcDomainMemberships,
+    dbcEarliestBacktrackTime,
+    dbcEarliestRestorableTime,
+    dbcEnabledCloudwatchLogsExports,
+    dbcEndpoint,
+    dbcEngine,
+    dbcEngineMode,
+    dbcEngineVersion,
+    dbcGlobalWriteForwardingRequested,
+    dbcGlobalWriteForwardingStatus,
+    dbcHostedZoneId,
+    dbcHttpEndpointEnabled,
+    dbcIAMDatabaseAuthenticationEnabled,
+    dbcKmsKeyId,
+    dbcLatestRestorableTime,
+    dbcMasterUsername,
+    dbcMultiAZ,
+    dbcPercentProgress,
+    dbcPort,
+    dbcPreferredBackupWindow,
+    dbcPreferredMaintenanceWindow,
+    dbcReadReplicaIdentifiers,
+    dbcReaderEndpoint,
+    dbcReplicationSourceIdentifier,
+    dbcScalingConfigurationInfo,
+    dbcStatus,
+    dbcStorageEncrypted,
+    dbcTagList,
+    dbcVpcSecurityGroups,
 
-    -- ** DBProxyStatus
-    DBProxyStatus (..),
+    -- ** DBClusterSnapshotAttribute
+    DBClusterSnapshotAttribute (..),
+    mkDBClusterSnapshotAttribute,
+    dbcsaAttributeName,
+    dbcsaAttributeValues,
 
-    -- ** EngineFamily
-    EngineFamily (..),
+    -- ** OptionGroup
+    OptionGroup (..),
+    mkOptionGroup,
+    ogAllowsVpcAndNonVpcInstanceMemberships,
+    ogEngineName,
+    ogMajorEngineVersion,
+    ogOptionGroupArn,
+    ogOptionGroupDescription,
+    ogOptionGroupName,
+    ogOptions,
+    ogVpcId,
 
-    -- ** IAMAuthMode
-    IAMAuthMode (..),
+    -- ** DBClusterOptionGroupStatus
+    DBClusterOptionGroupStatus (..),
+    mkDBClusterOptionGroupStatus,
+    dbcogsDBClusterOptionGroupName,
+    dbcogsStatus,
 
-    -- ** ReplicaMode
-    ReplicaMode (..),
+    -- ** DBParameterGroupStatus
+    DBParameterGroupStatus (..),
+    mkDBParameterGroupStatus,
+    dbpgsDBParameterGroupName,
+    dbpgsParameterApplyStatus,
+
+    -- ** Event
+    Event (..),
+    mkEvent,
+    eDate,
+    eEventCategories,
+    eMessage,
+    eSourceArn,
+    eSourceIdentifier,
+    eSourceType,
+
+    -- ** DBSecurityGroup
+    DBSecurityGroup (..),
+    mkDBSecurityGroup,
+    dbsgDBSecurityGroupArn,
+    dbsgDBSecurityGroupDescription,
+    dbsgDBSecurityGroupName,
+    dbsgEC2SecurityGroups,
+    dbsgIPRanges,
+    dbsgOwnerId,
+    dbsgVpcId,
+
+    -- ** ValidDBInstanceModificationsMessage
+    ValidDBInstanceModificationsMessage (..),
+    mkValidDBInstanceModificationsMessage,
+    vdbimmStorage,
+    vdbimmValidProcessorFeatures,
+
+    -- ** ValidStorageOptions
+    ValidStorageOptions (..),
+    mkValidStorageOptions,
+    vsoIopsToStorageRatio,
+    vsoProvisionedIops,
+    vsoStorageSize,
+    vsoStorageType,
+    vsoSupportsStorageAutoscaling,
+
+    -- ** DomainMembership
+    DomainMembership (..),
+    mkDomainMembership,
+    dmDomain,
+    dmFQDN,
+    dmIAMRoleName,
+    dmStatus,
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** VpnDetails
+    VpnDetails (..),
+    mkVpnDetails,
+    vdVpnGatewayIp,
+    vdVpnId,
+    vdVpnName,
+    vdVpnPSK,
+    vdVpnState,
+    vdVpnTunnelOriginatorIP,
+
+    -- ** DBEngineVersion
+    DBEngineVersion (..),
+    mkDBEngineVersion,
+    dbevDBEngineDescription,
+    dbevDBEngineVersionDescription,
+    dbevDBParameterGroupFamily,
+    dbevDefaultCharacterSet,
+    dbevEngine,
+    dbevEngineVersion,
+    dbevExportableLogTypes,
+    dbevStatus,
+    dbevSupportedCharacterSets,
+    dbevSupportedEngineModes,
+    dbevSupportedFeatureNames,
+    dbevSupportedNcharCharacterSets,
+    dbevSupportedTimezones,
+    dbevSupportsGlobalDatabases,
+    dbevSupportsLogExportsToCloudwatchLogs,
+    dbevSupportsParallelQuery,
+    dbevSupportsReadReplica,
+    dbevValidUpgradeTarget,
+
+    -- ** DBProxy
+    DBProxy (..),
+    mkDBProxy,
+    dbpAuth,
+    dbpCreatedDate,
+    dbpDBProxyArn,
+    dbpDBProxyName,
+    dbpDebugLogging,
+    dbpEndpoint,
+    dbpEngineFamily,
+    dbpIdleClientTimeout,
+    dbpRequireTLS,
+    dbpRoleArn,
+    dbpStatus,
+    dbpUpdatedDate,
+    dbpVpcSecurityGroupIds,
+    dbpVpcSubnetIds,
+
+    -- ** DBClusterParameterGroup
+    DBClusterParameterGroup (..),
+    mkDBClusterParameterGroup,
+    dbcpgDBClusterParameterGroupArn,
+    dbcpgDBClusterParameterGroupName,
+    dbcpgDBParameterGroupFamily,
+    dbcpgDescription,
+
+    -- ** DoubleRange
+    DoubleRange (..),
+    mkDoubleRange,
+    drFrom,
+    drTo,
+
+    -- ** DBSnapshot
+    DBSnapshot (..),
+    mkDBSnapshot,
+    dbsAllocatedStorage,
+    dbsAvailabilityZone,
+    dbsDBInstanceIdentifier,
+    dbsDBSnapshotArn,
+    dbsDBSnapshotIdentifier,
+    dbsDbiResourceId,
+    dbsEncrypted,
+    dbsEngine,
+    dbsEngineVersion,
+    dbsIAMDatabaseAuthenticationEnabled,
+    dbsInstanceCreateTime,
+    dbsIops,
+    dbsKmsKeyId,
+    dbsLicenseModel,
+    dbsMasterUsername,
+    dbsOptionGroupName,
+    dbsPercentProgress,
+    dbsPort,
+    dbsProcessorFeatures,
+    dbsSnapshotCreateTime,
+    dbsSnapshotType,
+    dbsSourceDBSnapshotIdentifier,
+    dbsSourceRegion,
+    dbsStatus,
+    dbsStorageType,
+    dbsTagList,
+    dbsTdeCredentialArn,
+    dbsTimezone,
+    dbsVpcId,
+
+    -- ** DBSecurityGroupMembership
+    DBSecurityGroupMembership (..),
+    mkDBSecurityGroupMembership,
+    dbsgmDBSecurityGroupName,
+    dbsgmStatus,
+
+    -- ** TargetHealth
+    TargetHealth (..),
+    mkTargetHealth,
+    thDescription,
+    thReason,
+    thState,
+
+    -- ** SourceRegion
+    SourceRegion (..),
+    mkSourceRegion,
+    srEndpoint,
+    srRegionName,
+    srStatus,
+
+    -- ** EC2SecurityGroup
+    EC2SecurityGroup (..),
+    mkEC2SecurityGroup,
+    ecsgEC2SecurityGroupId,
+    ecsgEC2SecurityGroupName,
+    ecsgEC2SecurityGroupOwnerId,
+    ecsgStatus,
+
+    -- ** String
+    String (..),
+
+    -- ** UserAuthConfigInfo
+    UserAuthConfigInfo (..),
+    mkUserAuthConfigInfo,
+    uaciAuthScheme,
+    uaciDescription,
+    uaciIAMAuth,
+    uaciSecretArn,
+    uaciUserName,
 
     -- ** SourceType
     SourceType (..),
 
-    -- ** TargetHealthReason
-    TargetHealthReason (..),
+    -- ** ResourcePendingMaintenanceActions
+    ResourcePendingMaintenanceActions (..),
+    mkResourcePendingMaintenanceActions,
+    rpmaPendingMaintenanceActionDetails,
+    rpmaResourceIdentifier,
 
-    -- ** TargetState
-    TargetState (..),
+    -- ** DBParameterGroup
+    DBParameterGroup (..),
+    mkDBParameterGroup,
+    dbpgDBParameterGroupArn,
+    dbpgDBParameterGroupFamily,
+    dbpgDBParameterGroupName,
+    dbpgDescription,
 
-    -- ** TargetType
-    TargetType (..),
+    -- ** EngineFamily
+    EngineFamily (..),
 
-    -- ** WriteForwardingStatus
-    WriteForwardingStatus (..),
+    -- ** DBClusterBacktrack
+    DBClusterBacktrack (..),
+    mkDBClusterBacktrack,
+    dbcbBacktrackIdentifier,
+    dbcbBacktrackRequestCreationTime,
+    dbcbBacktrackTo,
+    dbcbBacktrackedFrom,
+    dbcbDBClusterIdentifier,
+    dbcbStatus,
 
-    -- ** AccountQuota
-    AccountQuota (..),
-    mkAccountQuota,
-    aqMax,
-    aqUsed,
-    aqAccountQuotaName,
+    -- ** ReservedDBInstancesOffering
+    ReservedDBInstancesOffering (..),
+    mkReservedDBInstancesOffering,
+    rdbioCurrencyCode,
+    rdbioDBInstanceClass,
+    rdbioDuration,
+    rdbioFixedPrice,
+    rdbioMultiAZ,
+    rdbioOfferingType,
+    rdbioProductDescription,
+    rdbioRecurringCharges,
+    rdbioReservedDBInstancesOfferingId,
+    rdbioUsagePrice,
 
-    -- ** AvailabilityZone
-    AvailabilityZone (..),
-    mkAvailabilityZone,
-    azName,
+    -- ** DBClusterSnapshot
+    DBClusterSnapshot (..),
+    mkDBClusterSnapshot,
+    dbcsAllocatedStorage,
+    dbcsAvailabilityZones,
+    dbcsClusterCreateTime,
+    dbcsDBClusterIdentifier,
+    dbcsDBClusterSnapshotArn,
+    dbcsDBClusterSnapshotIdentifier,
+    dbcsEngine,
+    dbcsEngineVersion,
+    dbcsIAMDatabaseAuthenticationEnabled,
+    dbcsKmsKeyId,
+    dbcsLicenseModel,
+    dbcsMasterUsername,
+    dbcsPercentProgress,
+    dbcsPort,
+    dbcsSnapshotCreateTime,
+    dbcsSnapshotType,
+    dbcsSourceDBClusterSnapshotArn,
+    dbcsStatus,
+    dbcsStorageEncrypted,
+    dbcsTagList,
+    dbcsVpcId,
 
-    -- ** AvailableProcessorFeature
-    AvailableProcessorFeature (..),
-    mkAvailableProcessorFeature,
-    apfName,
-    apfDefaultValue,
-    apfAllowedValues,
+    -- ** ApplyMethod
+    ApplyMethod (..),
 
-    -- ** Certificate
-    Certificate (..),
-    mkCertificate,
-    cCertificateType,
-    cCustomerOverride,
-    cCertificateARN,
-    cCustomerOverrideValidTill,
-    cValidTill,
-    cCertificateIdentifier,
-    cThumbprint,
-    cValidFrom,
+    -- ** ReplicaMode
+    ReplicaMode (..),
+
+    -- ** UserAuthConfig
+    UserAuthConfig (..),
+    mkUserAuthConfig,
+    uacAuthScheme,
+    uacDescription,
+    uacIAMAuth,
+    uacSecretArn,
+    uacUserName,
 
     -- ** CharacterSet
     CharacterSet (..),
     mkCharacterSet,
-    csCharacterSetName,
     csCharacterSetDescription,
+    csCharacterSetName,
+
+    -- ** Subnet
+    Subnet (..),
+    mkSubnet,
+    sSubnetAvailabilityZone,
+    sSubnetIdentifier,
+    sSubnetOutpost,
+    sSubnetStatus,
+
+    -- ** ReservedDBInstance
+    ReservedDBInstance (..),
+    mkReservedDBInstance,
+    rdbiCurrencyCode,
+    rdbiDBInstanceClass,
+    rdbiDBInstanceCount,
+    rdbiDuration,
+    rdbiFixedPrice,
+    rdbiLeaseId,
+    rdbiMultiAZ,
+    rdbiOfferingType,
+    rdbiProductDescription,
+    rdbiRecurringCharges,
+    rdbiReservedDBInstanceArn,
+    rdbiReservedDBInstanceId,
+    rdbiReservedDBInstancesOfferingId,
+    rdbiStartTime,
+    rdbiState,
+    rdbiUsagePrice,
 
     -- ** CloudwatchLogsExportConfiguration
     CloudwatchLogsExportConfiguration (..),
@@ -545,482 +1229,31 @@ module Network.AWS.RDS
     clecDisableLogTypes,
     clecEnableLogTypes,
 
-    -- ** ConnectionPoolConfiguration
-    ConnectionPoolConfiguration (..),
-    mkConnectionPoolConfiguration,
-    cpcMaxIdleConnectionsPercent,
-    cpcSessionPinningFilters,
-    cpcMaxConnectionsPercent,
-    cpcConnectionBorrowTimeout,
-    cpcInitQuery,
-
-    -- ** ConnectionPoolConfigurationInfo
-    ConnectionPoolConfigurationInfo (..),
-    mkConnectionPoolConfigurationInfo,
-    cpciMaxIdleConnectionsPercent,
-    cpciSessionPinningFilters,
-    cpciMaxConnectionsPercent,
-    cpciConnectionBorrowTimeout,
-    cpciInitQuery,
-
-    -- ** CustomAvailabilityZone
-    CustomAvailabilityZone (..),
-    mkCustomAvailabilityZone,
-    cazVPNDetails,
-    cazCustomAvailabilityZoneName,
-    cazCustomAvailabilityZoneId,
-    cazCustomAvailabilityZoneStatus,
-
-    -- ** DBCluster
-    DBCluster (..),
-    mkDBCluster,
-    dcBacktrackConsumedChangeRecords,
-    dcEngineVersion,
-    dcStatus,
-    dcDeletionProtection,
-    dcStorageEncrypted,
-    dcDBClusterIdentifier,
-    dcDBClusterMembers,
-    dcReadReplicaIdentifiers,
-    dcReplicationSourceIdentifier,
-    dcActivityStreamKinesisStreamName,
-    dcHostedZoneId,
-    dcDBClusterParameterGroup,
-    dcMasterUsername,
-    dcIAMDatabaseAuthenticationEnabled,
-    dcGlobalWriteForwardingRequested,
-    dcEarliestBacktrackTime,
-    dcBacktrackWindow,
-    dcTagList,
-    dcDBClusterResourceId,
-    dcEarliestRestorableTime,
-    dcCustomEndpoints,
-    dcEngine,
-    dcHTTPEndpointEnabled,
-    dcDBClusterARN,
-    dcCloneGroupId,
-    dcLatestRestorableTime,
-    dcCrossAccountClone,
-    dcCapacity,
-    dcPreferredMaintenanceWindow,
-    dcAvailabilityZones,
-    dcCharacterSetName,
-    dcKMSKeyId,
-    dcPreferredBackupWindow,
-    dcAssociatedRoles,
-    dcVPCSecurityGroups,
-    dcBackupRetentionPeriod,
-    dcDBSubnetGroup,
-    dcActivityStreamMode,
-    dcDatabaseName,
-    dcMultiAZ,
-    dcEngineMode,
-    dcEnabledCloudwatchLogsExports,
-    dcActivityStreamStatus,
-    dcAllocatedStorage,
-    dcCopyTagsToSnapshot,
-    dcClusterCreateTime,
-    dcEndpoint,
-    dcScalingConfigurationInfo,
-    dcActivityStreamKMSKeyId,
-    dcPercentProgress,
-    dcReaderEndpoint,
-    dcGlobalWriteForwardingStatus,
-    dcPort,
-    dcDomainMemberships,
-    dcDBClusterOptionGroupMemberships,
-
-    -- ** DBClusterBacktrack
-    DBClusterBacktrack (..),
-    mkDBClusterBacktrack,
-    dcbStatus,
-    dcbBacktrackIdentifier,
-    dcbBacktrackTo,
-    dcbDBClusterIdentifier,
-    dcbBacktrackedFrom,
-    dcbBacktrackRequestCreationTime,
-
-    -- ** DBClusterEndpoint
-    DBClusterEndpoint (..),
-    mkDBClusterEndpoint,
-    dceStatus,
-    dceDBClusterIdentifier,
-    dceDBClusterEndpointARN,
-    dceCustomEndpointType,
-    dceStaticMembers,
-    dceEndpointType,
-    dceDBClusterEndpointIdentifier,
-    dceEndpoint,
-    dceDBClusterEndpointResourceIdentifier,
-    dceExcludedMembers,
-
-    -- ** DBClusterMember
-    DBClusterMember (..),
-    mkDBClusterMember,
-    dcmPromotionTier,
-    dcmDBInstanceIdentifier,
-    dcmIsClusterWriter,
-    dcmDBClusterParameterGroupStatus,
-
-    -- ** DBClusterOptionGroupStatus
-    DBClusterOptionGroupStatus (..),
-    mkDBClusterOptionGroupStatus,
-    dcogsStatus,
-    dcogsDBClusterOptionGroupName,
-
-    -- ** DBClusterParameterGroup
-    DBClusterParameterGroup (..),
-    mkDBClusterParameterGroup,
-    dcpgDBClusterParameterGroupARN,
-    dcpgDBParameterGroupFamily,
-    dcpgDBClusterParameterGroupName,
-    dcpgDescription,
-
-    -- ** DBClusterParameterGroupNameMessage
-    DBClusterParameterGroupNameMessage (..),
-    mkDBClusterParameterGroupNameMessage,
-    dcpgnmDBClusterParameterGroupName,
-
-    -- ** DBClusterRole
-    DBClusterRole (..),
-    mkDBClusterRole,
-    dcrStatus,
-    dcrFeatureName,
-    dcrRoleARN,
-
-    -- ** DBClusterSnapshot
-    DBClusterSnapshot (..),
-    mkDBClusterSnapshot,
-    dcsEngineVersion,
-    dcsStatus,
-    dcsStorageEncrypted,
-    dcsDBClusterIdentifier,
-    dcsMasterUsername,
-    dcsIAMDatabaseAuthenticationEnabled,
-    dcsDBClusterSnapshotARN,
-    dcsVPCId,
-    dcsTagList,
-    dcsDBClusterSnapshotIdentifier,
-    dcsEngine,
-    dcsLicenseModel,
-    dcsAvailabilityZones,
-    dcsSnapshotType,
-    dcsKMSKeyId,
-    dcsSnapshotCreateTime,
-    dcsAllocatedStorage,
-    dcsSourceDBClusterSnapshotARN,
-    dcsClusterCreateTime,
-    dcsPercentProgress,
-    dcsPort,
-
-    -- ** DBClusterSnapshotAttribute
-    DBClusterSnapshotAttribute (..),
-    mkDBClusterSnapshotAttribute,
-    dcsaAttributeValues,
-    dcsaAttributeName,
-
-    -- ** DBClusterSnapshotAttributesResult
-    DBClusterSnapshotAttributesResult (..),
-    mkDBClusterSnapshotAttributesResult,
-    dcsarDBClusterSnapshotIdentifier,
-    dcsarDBClusterSnapshotAttributes,
-
-    -- ** DBEngineVersion
-    DBEngineVersion (..),
-    mkDBEngineVersion,
-    devEngineVersion,
-    devStatus,
-    devDBEngineVersionDescription,
-    devSupportedEngineModes,
-    devDefaultCharacterSet,
-    devEngine,
-    devDBParameterGroupFamily,
-    devSupportedCharacterSets,
-    devDBEngineDescription,
-    devSupportsGlobalDatabases,
-    devValidUpgradeTarget,
-    devSupportsParallelQuery,
-    devSupportedNcharCharacterSets,
-    devSupportsLogExportsToCloudwatchLogs,
-    devSupportsReadReplica,
-    devSupportedFeatureNames,
-    devSupportedTimezones,
-    devExportableLogTypes,
-
-    -- ** DBInstance
-    DBInstance (..),
-    mkDBInstance,
-    diEngineVersion,
-    diDBSecurityGroups,
-    diDeletionProtection,
-    diStorageEncrypted,
-    diDBClusterIdentifier,
-    diPubliclyAccessible,
-    diAutoMinorVersionUpgrade,
-    diDBInstanceARN,
-    diMasterUsername,
-    diReadReplicaDBInstanceIdentifiers,
-    diIAMDatabaseAuthenticationEnabled,
-    diMonitoringRoleARN,
-    diIOPS,
-    diInstanceCreateTime,
-    diTagList,
-    diReadReplicaSourceDBInstanceIdentifier,
-    diReplicaMode,
-    diMonitoringInterval,
-    diEngine,
-    diProcessorFeatures,
-    diLatestRestorableTime,
-    diDBInstanceClass,
-    diPromotionTier,
-    diLicenseModel,
-    diPreferredMaintenanceWindow,
-    diPerformanceInsightsRetentionPeriod,
-    diCACertificateIdentifier,
-    diDBInstanceIdentifier,
-    diCharacterSetName,
-    diMaxAllocatedStorage,
-    diKMSKeyId,
-    diPreferredBackupWindow,
-    diAssociatedRoles,
-    diAvailabilityZone,
-    diVPCSecurityGroups,
-    diBackupRetentionPeriod,
-    diNcharCharacterSetName,
-    diPerformanceInsightsKMSKeyId,
-    diDBSubnetGroup,
-    diMultiAZ,
-    diListenerEndpoint,
-    diOptionGroupMemberships,
-    diEnabledCloudwatchLogsExports,
-    diEnhancedMonitoringResourceARN,
-    diSecondaryAvailabilityZone,
-    diPerformanceInsightsEnabled,
-    diAllocatedStorage,
-    diDBiResourceId,
-    diDBParameterGroups,
-    diCopyTagsToSnapshot,
-    diTimezone,
-    diTDECredentialARN,
-    diEndpoint,
-    diDBInstanceStatus,
-    diDBInstancePort,
-    diPendingModifiedValues,
-    diReadReplicaDBClusterIdentifiers,
-    diStorageType,
-    diStatusInfos,
-    diDomainMemberships,
-    diDBName,
-
-    -- ** DBInstanceAutomatedBackup
-    DBInstanceAutomatedBackup (..),
-    mkDBInstanceAutomatedBackup,
-    diabRestoreWindow,
-    diabEngineVersion,
-    diabStatus,
-    diabDBInstanceARN,
-    diabMasterUsername,
-    diabIAMDatabaseAuthenticationEnabled,
-    diabIOPS,
-    diabVPCId,
-    diabInstanceCreateTime,
-    diabEngine,
-    diabEncrypted,
-    diabLicenseModel,
-    diabDBInstanceIdentifier,
-    diabKMSKeyId,
-    diabAvailabilityZone,
-    diabRegion,
-    diabAllocatedStorage,
-    diabDBiResourceId,
-    diabOptionGroupName,
-    diabTimezone,
-    diabTDECredentialARN,
-    diabPort,
-    diabStorageType,
+    -- ** AvailableProcessorFeature
+    AvailableProcessorFeature (..),
+    mkAvailableProcessorFeature,
+    apfAllowedValues,
+    apfDefaultValue,
+    apfName,
 
     -- ** DBInstanceRole
     DBInstanceRole (..),
     mkDBInstanceRole,
-    dirStatus,
-    dirFeatureName,
-    dirRoleARN,
+    dbirFeatureName,
+    dbirRoleArn,
+    dbirStatus,
 
-    -- ** DBInstanceStatusInfo
-    DBInstanceStatusInfo (..),
-    mkDBInstanceStatusInfo,
-    disiStatus,
-    disiNormal,
-    disiStatusType,
-    disiMessage,
+    -- ** DBClusterSnapshotAttributesResult
+    DBClusterSnapshotAttributesResult (..),
+    mkDBClusterSnapshotAttributesResult,
+    dbcsarDBClusterSnapshotAttributes,
+    dbcsarDBClusterSnapshotIdentifier,
 
-    -- ** DBParameterGroup
-    DBParameterGroup (..),
-    mkDBParameterGroup,
-    dpgDBParameterGroupARN,
-    dpgDBParameterGroupFamily,
-    dpgDBParameterGroupName,
-    dpgDescription,
-
-    -- ** DBParameterGroupNameMessage
-    DBParameterGroupNameMessage (..),
-    mkDBParameterGroupNameMessage,
-    dpgnmDBParameterGroupName,
-
-    -- ** DBParameterGroupStatus
-    DBParameterGroupStatus (..),
-    mkDBParameterGroupStatus,
-    dpgsDBParameterGroupName,
-    dpgsParameterApplyStatus,
-
-    -- ** DBProxy
-    DBProxy (..),
-    mkDBProxy,
-    dpStatus,
-    dpDBProxyARN,
-    dpDebugLogging,
-    dpVPCSubnetIds,
-    dpEngineFamily,
-    dpAuth,
-    dpRequireTLS,
-    dpIdleClientTimeout,
-    dpUpdatedDate,
-    dpCreatedDate,
-    dpVPCSecurityGroupIds,
-    dpDBProxyName,
-    dpEndpoint,
-    dpRoleARN,
-
-    -- ** DBProxyTarget
-    DBProxyTarget (..),
-    mkDBProxyTarget,
-    dptTargetARN,
-    dptTargetHealth,
-    dptTrackedClusterId,
-    dptRDSResourceId,
-    dptType,
-    dptEndpoint,
-    dptPort,
-
-    -- ** DBProxyTargetGroup
-    DBProxyTargetGroup (..),
-    mkDBProxyTargetGroup,
-    dptgStatus,
-    dptgConnectionPoolConfig,
-    dptgTargetGroupARN,
-    dptgUpdatedDate,
-    dptgCreatedDate,
-    dptgDBProxyName,
-    dptgTargetGroupName,
-    dptgIsDefault,
-
-    -- ** DBSecurityGroup
-    DBSecurityGroup (..),
-    mkDBSecurityGroup,
-    dsgVPCId,
-    dsgOwnerId,
-    dsgDBSecurityGroupARN,
-    dsgIPRanges,
-    dsgDBSecurityGroupName,
-    dsgEC2SecurityGroups,
-    dsgDBSecurityGroupDescription,
-
-    -- ** DBSecurityGroupMembership
-    DBSecurityGroupMembership (..),
-    mkDBSecurityGroupMembership,
-    dsgmStatus,
-    dsgmDBSecurityGroupName,
-
-    -- ** DBSnapshot
-    DBSnapshot (..),
-    mkDBSnapshot,
-    dsEngineVersion,
-    dsStatus,
-    dsDBSnapshotARN,
-    dsMasterUsername,
-    dsSourceRegion,
-    dsIAMDatabaseAuthenticationEnabled,
-    dsIOPS,
-    dsVPCId,
-    dsInstanceCreateTime,
-    dsTagList,
-    dsEngine,
-    dsEncrypted,
-    dsDBSnapshotIdentifier,
-    dsProcessorFeatures,
-    dsLicenseModel,
-    dsSourceDBSnapshotIdentifier,
-    dsSnapshotType,
-    dsDBInstanceIdentifier,
-    dsKMSKeyId,
-    dsAvailabilityZone,
-    dsSnapshotCreateTime,
-    dsAllocatedStorage,
-    dsDBiResourceId,
-    dsOptionGroupName,
-    dsTimezone,
-    dsTDECredentialARN,
-    dsPercentProgress,
-    dsPort,
-    dsStorageType,
-
-    -- ** DBSnapshotAttribute
-    DBSnapshotAttribute (..),
-    mkDBSnapshotAttribute,
-    dsaAttributeValues,
-    dsaAttributeName,
-
-    -- ** DBSnapshotAttributesResult
-    DBSnapshotAttributesResult (..),
-    mkDBSnapshotAttributesResult,
-    dsarDBSnapshotIdentifier,
-    dsarDBSnapshotAttributes,
-
-    -- ** DBSubnetGroup
-    DBSubnetGroup (..),
-    mkDBSubnetGroup,
-    dbsgDBSubnetGroupName,
-    dbsgVPCId,
-    dbsgSubnets,
-    dbsgDBSubnetGroupDescription,
-    dbsgDBSubnetGroupARN,
-    dbsgSubnetGroupStatus,
-
-    -- ** DescribeDBLogFilesDetails
-    DescribeDBLogFilesDetails (..),
-    mkDescribeDBLogFilesDetails,
-    ddlfdLastWritten,
-    ddlfdSize,
-    ddlfdLogFileName,
-
-    -- ** DomainMembership
-    DomainMembership (..),
-    mkDomainMembership,
-    dmStatus,
-    dmFQDN,
-    dmDomain,
-    dmIAMRoleName,
-
-    -- ** DoubleRange
-    DoubleRange (..),
-    mkDoubleRange,
-    drTo,
-    drFrom,
-
-    -- ** EC2SecurityGroup
-    EC2SecurityGroup (..),
-    mkEC2SecurityGroup,
-    esgStatus,
-    esgEC2SecurityGroupOwnerId,
-    esgEC2SecurityGroupName,
-    esgEC2SecurityGroupId,
-
-    -- ** Endpoint
-    Endpoint (..),
-    mkEndpoint,
-    eHostedZoneId,
-    eAddress,
-    ePort,
+    -- ** MinimumEngineVersionPerAllowedValue
+    MinimumEngineVersionPerAllowedValue (..),
+    mkMinimumEngineVersionPerAllowedValue,
+    mevpavAllowedValue,
+    mevpavMinimumEngineVersion,
 
     -- ** EngineDefaults
     EngineDefaults (..),
@@ -1029,473 +1262,885 @@ module Network.AWS.RDS
     edMarker,
     edParameters,
 
-    -- ** Event
-    Event (..),
-    mkEvent,
-    eSourceType,
-    eSourceARN,
-    eSourceIdentifier,
-    eDate,
-    eEventCategories,
-    eMessage,
-
-    -- ** EventCategoriesMap
-    EventCategoriesMap (..),
-    mkEventCategoriesMap,
-    ecmSourceType,
-    ecmEventCategories,
-
-    -- ** EventSubscription
-    EventSubscription (..),
-    mkEventSubscription,
-    esStatus,
-    esCustomerAWSId,
-    esCustSubscriptionId,
-    esSNSTopicARN,
-    esEventSubscriptionARN,
-    esEnabled,
-    esSourceType,
-    esSubscriptionCreationTime,
-    esEventCategoriesList,
-    esSourceIdsList,
-
-    -- ** ExportTask
-    ExportTask (..),
-    mkExportTask,
-    etTotalExtractedDataInGB,
-    etStatus,
-    etIAMRoleARN,
-    etSourceARN,
-    etExportOnly,
-    etTaskStartTime,
-    etWarningMessage,
-    etSnapshotTime,
-    etKMSKeyId,
-    etTaskEndTime,
-    etExportTaskIdentifier,
-    etS3Prefix,
-    etPercentProgress,
-    etS3Bucket,
-    etFailureCause,
-
-    -- ** Filter
-    Filter (..),
-    mkFilter,
-    fValues,
-    fName,
-
-    -- ** GlobalCluster
-    GlobalCluster (..),
-    mkGlobalCluster,
-    gcEngineVersion,
-    gcStatus,
-    gcDeletionProtection,
-    gcStorageEncrypted,
-    gcGlobalClusterIdentifier,
-    gcEngine,
-    gcGlobalClusterARN,
-    gcDatabaseName,
-    gcGlobalClusterMembers,
-    gcGlobalClusterResourceId,
-
-    -- ** GlobalClusterMember
-    GlobalClusterMember (..),
-    mkGlobalClusterMember,
-    gcmReaders,
-    gcmDBClusterARN,
-    gcmIsWriter,
-    gcmGlobalWriteForwardingStatus,
-
-    -- ** IPRange
-    IPRange (..),
-    mkIPRange,
-    irStatus,
-    irCIdRIP,
-
-    -- ** InstallationMedia
-    InstallationMedia (..),
-    mkInstallationMedia,
-    imEngineVersion,
-    imStatus,
-    imInstallationMediaId,
-    imEngineInstallationMediaPath,
-    imEngine,
-    imOSInstallationMediaPath,
-    imCustomAvailabilityZoneId,
-    imFailureCause,
+    -- ** DBClusterParameterGroupNameMessage
+    DBClusterParameterGroupNameMessage (..),
+    mkDBClusterParameterGroupNameMessage,
+    dbcpgnmDBClusterParameterGroupName,
 
     -- ** InstallationMediaFailureCause
     InstallationMediaFailureCause (..),
     mkInstallationMediaFailureCause,
     imfcMessage,
 
-    -- ** MinimumEngineVersionPerAllowedValue
-    MinimumEngineVersionPerAllowedValue (..),
-    mkMinimumEngineVersionPerAllowedValue,
-    mevpavMinimumEngineVersion,
-    mevpavAllowedValue,
+    -- ** GlobalCluster
+    GlobalCluster (..),
+    mkGlobalCluster,
+    gcDatabaseName,
+    gcDeletionProtection,
+    gcEngine,
+    gcEngineVersion,
+    gcGlobalClusterArn,
+    gcGlobalClusterIdentifier,
+    gcGlobalClusterMembers,
+    gcGlobalClusterResourceId,
+    gcStatus,
+    gcStorageEncrypted,
 
-    -- ** Option
-    Option (..),
-    mkOption,
-    oOptionName,
-    oPermanent,
-    oPersistent,
-    oOptionDescription,
-    oOptionSettings,
-    oVPCSecurityGroupMemberships,
-    oDBSecurityGroupMemberships,
-    oOptionVersion,
-    oPort,
+    -- ** TargetType
+    TargetType (..),
 
-    -- ** OptionConfiguration
-    OptionConfiguration (..),
-    mkOptionConfiguration,
-    ocOptionName,
-    ocOptionSettings,
-    ocVPCSecurityGroupMemberships,
-    ocDBSecurityGroupMemberships,
-    ocOptionVersion,
-    ocPort,
+    -- ** DBParameterGroupNameMessage
+    DBParameterGroupNameMessage (..),
+    mkDBParameterGroupNameMessage,
+    dbpgnmDBParameterGroupName,
 
-    -- ** OptionGroup
-    OptionGroup (..),
-    mkOptionGroup,
-    ogOptionGroupDescription,
-    ogVPCId,
-    ogAllowsVPCAndNonVPCInstanceMemberships,
-    ogEngineName,
-    ogOptionGroupARN,
-    ogMajorEngineVersion,
-    ogOptions,
-    ogOptionGroupName,
+    -- ** CustomAvailabilityZone
+    CustomAvailabilityZone (..),
+    mkCustomAvailabilityZone,
+    cazCustomAvailabilityZoneId,
+    cazCustomAvailabilityZoneName,
+    cazCustomAvailabilityZoneStatus,
+    cazVpnDetails,
 
-    -- ** OptionGroupMembership
-    OptionGroupMembership (..),
-    mkOptionGroupMembership,
-    ogmStatus,
-    ogmOptionGroupName,
+    -- ** DBSnapshotAttributesResult
+    DBSnapshotAttributesResult (..),
+    mkDBSnapshotAttributesResult,
+    dbsarDBSnapshotAttributes,
+    dbsarDBSnapshotIdentifier,
+
+    -- ** ConnectionPoolConfigurationInfo
+    ConnectionPoolConfigurationInfo (..),
+    mkConnectionPoolConfigurationInfo,
+    cpciConnectionBorrowTimeout,
+    cpciInitQuery,
+    cpciMaxConnectionsPercent,
+    cpciMaxIdleConnectionsPercent,
+    cpciSessionPinningFilters,
+
+    -- ** DBClusterMember
+    DBClusterMember (..),
+    mkDBClusterMember,
+    dbcmDBClusterParameterGroupStatus,
+    dbcmDBInstanceIdentifier,
+    dbcmIsClusterWriter,
+    dbcmPromotionTier,
 
     -- ** OptionGroupOption
     OptionGroupOption (..),
     mkOptionGroupOption,
-    ogoMinimumRequiredMinorEngineVersion,
-    ogoOptionsConflictsWith,
-    ogoPermanent,
-    ogoPersistent,
-    ogoOptionGroupOptionVersions,
+    ogoDefaultPort,
+    ogoDescription,
     ogoEngineName,
     ogoMajorEngineVersion,
+    ogoMinimumRequiredMinorEngineVersion,
     ogoName,
-    ogoSupportsOptionVersionDowngrade,
-    ogoDefaultPort,
     ogoOptionGroupOptionSettings,
-    ogoRequiresAutoMinorEngineVersionUpgrade,
-    ogoPortRequired,
-    ogoDescription,
+    ogoOptionGroupOptionVersions,
+    ogoOptionsConflictsWith,
     ogoOptionsDependedOn,
-    ogoVPCOnly,
-
-    -- ** OptionGroupOptionSetting
-    OptionGroupOptionSetting (..),
-    mkOptionGroupOptionSetting,
-    ogosApplyType,
-    ogosMinimumEngineVersionPerAllowedValue,
-    ogosSettingName,
-    ogosDefaultValue,
-    ogosIsModifiable,
-    ogosSettingDescription,
-    ogosAllowedValues,
-    ogosIsRequired,
-
-    -- ** OptionSetting
-    OptionSetting (..),
-    mkOptionSetting,
-    osIsCollection,
-    osApplyType,
-    osValue,
-    osName,
-    osDefaultValue,
-    osIsModifiable,
-    osDataType,
-    osAllowedValues,
-    osDescription,
-
-    -- ** OptionVersion
-    OptionVersion (..),
-    mkOptionVersion,
-    ovVersion,
-    ovIsDefault,
-
-    -- ** OrderableDBInstanceOption
-    OrderableDBInstanceOption (..),
-    mkOrderableDBInstanceOption,
-    odioEngineVersion,
-    odioMinIOPSPerGib,
-    odioSupportsIAMDatabaseAuthentication,
-    odioMinIOPSPerDBInstance,
-    odioMultiAZCapable,
-    odioMaxStorageSize,
-    odioSupportedEngineModes,
-    odioAvailabilityZoneGroup,
-    odioAvailableProcessorFeatures,
-    odioEngine,
-    odioMinStorageSize,
-    odioOutpostCapable,
-    odioSupportsIOPS,
-    odioSupportsKerberosAuthentication,
-    odioSupportsPerformanceInsights,
-    odioDBInstanceClass,
-    odioSupportsGlobalDatabases,
-    odioLicenseModel,
-    odioAvailabilityZones,
-    odioSupportsStorageAutoscaling,
-    odioSupportsStorageEncryption,
-    odioReadReplicaCapable,
-    odioMaxIOPSPerGib,
-    odioVPC,
-    odioSupportsEnhancedMonitoring,
-    odioMaxIOPSPerDBInstance,
-    odioStorageType,
-
-    -- ** Outpost
-    Outpost (..),
-    mkOutpost,
-    oARN,
-
-    -- ** Parameter
-    Parameter (..),
-    mkParameter,
-    pApplyType,
-    pParameterValue,
-    pSupportedEngineModes,
-    pApplyMethod,
-    pMinimumEngineVersion,
-    pSource,
-    pIsModifiable,
-    pDataType,
-    pAllowedValues,
-    pParameterName,
-    pDescription,
-
-    -- ** PendingCloudwatchLogsExports
-    PendingCloudwatchLogsExports (..),
-    mkPendingCloudwatchLogsExports,
-    pcleLogTypesToEnable,
-    pcleLogTypesToDisable,
-
-    -- ** PendingMaintenanceAction
-    PendingMaintenanceAction (..),
-    mkPendingMaintenanceAction,
-    pmaAutoAppliedAfterDate,
-    pmaAction,
-    pmaOptInStatus,
-    pmaDescription,
-    pmaForcedApplyDate,
-    pmaCurrentApplyDate,
-
-    -- ** PendingModifiedValues
-    PendingModifiedValues (..),
-    mkPendingModifiedValues,
-    pmvEngineVersion,
-    pmvMasterUserPassword,
-    pmvDBSubnetGroupName,
-    pmvIOPS,
-    pmvProcessorFeatures,
-    pmvDBInstanceClass,
-    pmvLicenseModel,
-    pmvCACertificateIdentifier,
-    pmvDBInstanceIdentifier,
-    pmvPendingCloudwatchLogsExports,
-    pmvBackupRetentionPeriod,
-    pmvMultiAZ,
-    pmvAllocatedStorage,
-    pmvPort,
-    pmvStorageType,
-
-    -- ** ProcessorFeature
-    ProcessorFeature (..),
-    mkProcessorFeature,
-    pfValue,
-    pfName,
+    ogoPermanent,
+    ogoPersistent,
+    ogoPortRequired,
+    ogoRequiresAutoMinorEngineVersionUpgrade,
+    ogoSupportsOptionVersionDowngrade,
+    ogoVpcOnly,
 
     -- ** Range
     Range (..),
     mkRange,
-    rTo,
     rFrom,
     rStep,
+    rTo,
 
-    -- ** RecurringCharge
-    RecurringCharge (..),
-    mkRecurringCharge,
-    rcRecurringChargeFrequency,
-    rcRecurringChargeAmount,
+    -- ** DBInstance
+    DBInstance (..),
+    mkDBInstance,
+    dbiAllocatedStorage,
+    dbiAssociatedRoles,
+    dbiAutoMinorVersionUpgrade,
+    dbiAvailabilityZone,
+    dbiBackupRetentionPeriod,
+    dbiCACertificateIdentifier,
+    dbiCharacterSetName,
+    dbiCopyTagsToSnapshot,
+    dbiDBClusterIdentifier,
+    dbiDBInstanceArn,
+    dbiDBInstanceClass,
+    dbiDBInstanceIdentifier,
+    dbiDBInstanceStatus,
+    dbiDBName,
+    dbiDBParameterGroups,
+    dbiDBSecurityGroups,
+    dbiDBSubnetGroup,
+    dbiDbInstancePort,
+    dbiDbiResourceId,
+    dbiDeletionProtection,
+    dbiDomainMemberships,
+    dbiEnabledCloudwatchLogsExports,
+    dbiEndpoint,
+    dbiEngine,
+    dbiEngineVersion,
+    dbiEnhancedMonitoringResourceArn,
+    dbiIAMDatabaseAuthenticationEnabled,
+    dbiInstanceCreateTime,
+    dbiIops,
+    dbiKmsKeyId,
+    dbiLatestRestorableTime,
+    dbiLicenseModel,
+    dbiListenerEndpoint,
+    dbiMasterUsername,
+    dbiMaxAllocatedStorage,
+    dbiMonitoringInterval,
+    dbiMonitoringRoleArn,
+    dbiMultiAZ,
+    dbiNcharCharacterSetName,
+    dbiOptionGroupMemberships,
+    dbiPendingModifiedValues,
+    dbiPerformanceInsightsEnabled,
+    dbiPerformanceInsightsKMSKeyId,
+    dbiPerformanceInsightsRetentionPeriod,
+    dbiPreferredBackupWindow,
+    dbiPreferredMaintenanceWindow,
+    dbiProcessorFeatures,
+    dbiPromotionTier,
+    dbiPubliclyAccessible,
+    dbiReadReplicaDBClusterIdentifiers,
+    dbiReadReplicaDBInstanceIdentifiers,
+    dbiReadReplicaSourceDBInstanceIdentifier,
+    dbiReplicaMode,
+    dbiSecondaryAvailabilityZone,
+    dbiStatusInfos,
+    dbiStorageEncrypted,
+    dbiStorageType,
+    dbiTagList,
+    dbiTdeCredentialArn,
+    dbiTimezone,
+    dbiVpcSecurityGroups,
 
-    -- ** ReservedDBInstance
-    ReservedDBInstance (..),
-    mkReservedDBInstance,
-    rdiDBInstanceCount,
-    rdiState,
-    rdiCurrencyCode,
-    rdiStartTime,
-    rdiProductDescription,
-    rdiLeaseId,
-    rdiReservedDBInstanceId,
-    rdiReservedDBInstanceARN,
-    rdiDBInstanceClass,
-    rdiMultiAZ,
-    rdiReservedDBInstancesOfferingId,
-    rdiRecurringCharges,
-    rdiOfferingType,
-    rdiUsagePrice,
-    rdiFixedPrice,
-    rdiDuration,
+    -- ** PendingCloudwatchLogsExports
+    PendingCloudwatchLogsExports (..),
+    mkPendingCloudwatchLogsExports,
+    pcleLogTypesToDisable,
+    pcleLogTypesToEnable,
 
-    -- ** ReservedDBInstancesOffering
-    ReservedDBInstancesOffering (..),
-    mkReservedDBInstancesOffering,
-    rdioCurrencyCode,
-    rdioProductDescription,
-    rdioDBInstanceClass,
-    rdioMultiAZ,
-    rdioReservedDBInstancesOfferingId,
-    rdioRecurringCharges,
-    rdioOfferingType,
-    rdioUsagePrice,
-    rdioFixedPrice,
-    rdioDuration,
+    -- ** AccountQuota
+    AccountQuota (..),
+    mkAccountQuota,
+    aqAccountQuotaName,
+    aqMax,
+    aqUsed,
 
-    -- ** ResourcePendingMaintenanceActions
-    ResourcePendingMaintenanceActions (..),
-    mkResourcePendingMaintenanceActions,
-    rpmaPendingMaintenanceActionDetails,
-    rpmaResourceIdentifier,
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+    mkAvailabilityZone,
+    azName,
 
-    -- ** RestoreWindow
-    RestoreWindow (..),
-    mkRestoreWindow,
-    rwLatestTime,
-    rwEarliestTime,
+    -- ** DBClusterEndpoint
+    DBClusterEndpoint (..),
+    mkDBClusterEndpoint,
+    dbceCustomEndpointType,
+    dbceDBClusterEndpointArn,
+    dbceDBClusterEndpointIdentifier,
+    dbceDBClusterEndpointResourceIdentifier,
+    dbceDBClusterIdentifier,
+    dbceEndpoint,
+    dbceEndpointType,
+    dbceExcludedMembers,
+    dbceStaticMembers,
+    dbceStatus,
+
+    -- ** EventSubscription
+    EventSubscription (..),
+    mkEventSubscription,
+    esCustSubscriptionId,
+    esCustomerAwsId,
+    esEnabled,
+    esEventCategoriesList,
+    esEventSubscriptionArn,
+    esSnsTopicArn,
+    esSourceIdsList,
+    esSourceType,
+    esStatus,
+    esSubscriptionCreationTime,
+
+    -- ** DBInstanceAutomatedBackup
+    DBInstanceAutomatedBackup (..),
+    mkDBInstanceAutomatedBackup,
+    dbiabAllocatedStorage,
+    dbiabAvailabilityZone,
+    dbiabDBInstanceArn,
+    dbiabDBInstanceIdentifier,
+    dbiabDbiResourceId,
+    dbiabEncrypted,
+    dbiabEngine,
+    dbiabEngineVersion,
+    dbiabIAMDatabaseAuthenticationEnabled,
+    dbiabInstanceCreateTime,
+    dbiabIops,
+    dbiabKmsKeyId,
+    dbiabLicenseModel,
+    dbiabMasterUsername,
+    dbiabOptionGroupName,
+    dbiabPort,
+    dbiabRegion,
+    dbiabRestoreWindow,
+    dbiabStatus,
+    dbiabStorageType,
+    dbiabTdeCredentialArn,
+    dbiabTimezone,
+    dbiabVpcId,
+
+    -- ** ConnectionPoolConfiguration
+    ConnectionPoolConfiguration (..),
+    mkConnectionPoolConfiguration,
+    cpcConnectionBorrowTimeout,
+    cpcInitQuery,
+    cpcMaxConnectionsPercent,
+    cpcMaxIdleConnectionsPercent,
+    cpcSessionPinningFilters,
+
+    -- ** ProcessorFeature
+    ProcessorFeature (..),
+    mkProcessorFeature,
+    pfName,
+    pfValue,
+
+    -- ** DBSubnetGroup
+    DBSubnetGroup (..),
+    mkDBSubnetGroup,
+    dDBSubnetGroupArn,
+    dDBSubnetGroupDescription,
+    dDBSubnetGroupName,
+    dSubnetGroupStatus,
+    dSubnets,
+    dVpcId,
+
+    -- ** ActivityStreamMode
+    ActivityStreamMode (..),
+
+    -- ** WriteForwardingStatus
+    WriteForwardingStatus (..),
+
+    -- ** Certificate
+    Certificate (..),
+    mkCertificate,
+    cCertificateArn,
+    cCertificateIdentifier,
+    cCertificateType,
+    cCustomerOverride,
+    cCustomerOverrideValidTill,
+    cThumbprint,
+    cValidFrom,
+    cValidTill,
+
+    -- ** AuthScheme
+    AuthScheme (..),
+
+    -- ** DBInstanceStatusInfo
+    DBInstanceStatusInfo (..),
+    mkDBInstanceStatusInfo,
+    dbisiMessage,
+    dbisiNormal,
+    dbisiStatus,
+    dbisiStatusType,
+
+    -- ** OptionSetting
+    OptionSetting (..),
+    mkOptionSetting,
+    osAllowedValues,
+    osApplyType,
+    osDataType,
+    osDefaultValue,
+    osDescription,
+    osIsCollection,
+    osIsModifiable,
+    osName,
+    osValue,
+
+    -- ** ActivityStreamStatus
+    ActivityStreamStatus (..),
 
     -- ** ScalingConfiguration
     ScalingConfiguration (..),
     mkScalingConfiguration,
-    scSecondsUntilAutoPause,
-    scTimeoutAction,
     scAutoPause,
     scMaxCapacity,
     scMinCapacity,
+    scSecondsUntilAutoPause,
+    scTimeoutAction,
 
-    -- ** ScalingConfigurationInfo
-    ScalingConfigurationInfo (..),
-    mkScalingConfigurationInfo,
-    sciSecondsUntilAutoPause,
-    sciTimeoutAction,
-    sciAutoPause,
-    sciMaxCapacity,
-    sciMinCapacity,
+    -- ** DescribeDBLogFilesDetails
+    DescribeDBLogFilesDetails (..),
+    mkDescribeDBLogFilesDetails,
+    ddblfdLastWritten,
+    ddblfdLogFileName,
+    ddblfdSize,
 
-    -- ** SourceRegion
-    SourceRegion (..),
-    mkSourceRegion,
-    srStatus,
-    srRegionName,
-    srEndpoint,
+    -- ** OrderableDBInstanceOption
+    OrderableDBInstanceOption (..),
+    mkOrderableDBInstanceOption,
+    odbioAvailabilityZoneGroup,
+    odbioAvailabilityZones,
+    odbioAvailableProcessorFeatures,
+    odbioDBInstanceClass,
+    odbioEngine,
+    odbioEngineVersion,
+    odbioLicenseModel,
+    odbioMaxIopsPerDbInstance,
+    odbioMaxIopsPerGib,
+    odbioMaxStorageSize,
+    odbioMinIopsPerDbInstance,
+    odbioMinIopsPerGib,
+    odbioMinStorageSize,
+    odbioMultiAZCapable,
+    odbioOutpostCapable,
+    odbioReadReplicaCapable,
+    odbioStorageType,
+    odbioSupportedEngineModes,
+    odbioSupportsEnhancedMonitoring,
+    odbioSupportsGlobalDatabases,
+    odbioSupportsIAMDatabaseAuthentication,
+    odbioSupportsIops,
+    odbioSupportsKerberosAuthentication,
+    odbioSupportsPerformanceInsights,
+    odbioSupportsStorageAutoscaling,
+    odbioSupportsStorageEncryption,
+    odbioVpc,
 
-    -- ** Subnet
-    Subnet (..),
-    mkSubnet,
-    sSubnetStatus,
-    sSubnetIdentifier,
-    sSubnetAvailabilityZone,
-    sSubnetOutpost,
+    -- ** DBClusterRole
+    DBClusterRole (..),
+    mkDBClusterRole,
+    dbcrFeatureName,
+    dbcrRoleArn,
+    dbcrStatus,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** InstallationMedia
+    InstallationMedia (..),
+    mkInstallationMedia,
+    imCustomAvailabilityZoneId,
+    imEngine,
+    imEngineInstallationMediaPath,
+    imEngineVersion,
+    imFailureCause,
+    imInstallationMediaId,
+    imOSInstallationMediaPath,
+    imStatus,
 
-    -- ** TargetHealth
-    TargetHealth (..),
-    mkTargetHealth,
-    thState,
-    thReason,
-    thDescription,
+    -- ** Filter
+    Filter (..),
+    mkFilter,
+    fName,
+    fValues,
+
+    -- ** RecurringCharge
+    RecurringCharge (..),
+    mkRecurringCharge,
+    rcRecurringChargeAmount,
+    rcRecurringChargeFrequency,
 
     -- ** Timezone
     Timezone (..),
     mkTimezone,
     tTimezoneName,
 
+    -- ** DBProxyTarget
+    DBProxyTarget (..),
+    mkDBProxyTarget,
+    dbptEndpoint,
+    dbptPort,
+    dbptRdsResourceId,
+    dbptTargetArn,
+    dbptTargetHealth,
+    dbptTrackedClusterId,
+    dbptType,
+
+    -- ** Endpoint
+    Endpoint (..),
+    mkEndpoint,
+    eAddress,
+    eHostedZoneId,
+    ePort,
+
+    -- ** ScalingConfigurationInfo
+    ScalingConfigurationInfo (..),
+    mkScalingConfigurationInfo,
+    sciAutoPause,
+    sciMaxCapacity,
+    sciMinCapacity,
+    sciSecondsUntilAutoPause,
+    sciTimeoutAction,
+
+    -- ** OptionConfiguration
+    OptionConfiguration (..),
+    mkOptionConfiguration,
+    ocOptionName,
+    ocDBSecurityGroupMemberships,
+    ocOptionSettings,
+    ocOptionVersion,
+    ocPort,
+    ocVpcSecurityGroupMemberships,
+
+    -- ** Option
+    Option (..),
+    mkOption,
+    oDBSecurityGroupMemberships,
+    oOptionDescription,
+    oOptionName,
+    oOptionSettings,
+    oOptionVersion,
+    oPermanent,
+    oPersistent,
+    oPort,
+    oVpcSecurityGroupMemberships,
+
+    -- ** IPRange
+    IPRange (..),
+    mkIPRange,
+    iprCIDRIP,
+    iprStatus,
+
+    -- ** IAMAuthMode
+    IAMAuthMode (..),
+
+    -- ** OptionGroupMembership
+    OptionGroupMembership (..),
+    mkOptionGroupMembership,
+    ogmOptionGroupName,
+    ogmStatus,
+
+    -- ** EventCategoriesMap
+    EventCategoriesMap (..),
+    mkEventCategoriesMap,
+    ecmEventCategories,
+    ecmSourceType,
+
+    -- ** DBSnapshotAttribute
+    DBSnapshotAttribute (..),
+    mkDBSnapshotAttribute,
+    dbsaAttributeName,
+    dbsaAttributeValues,
+
+    -- ** DBProxyStatus
+    DBProxyStatus (..),
+
+    -- ** TargetState
+    TargetState (..),
+
+    -- ** PendingModifiedValues
+    PendingModifiedValues (..),
+    mkPendingModifiedValues,
+    pmvAllocatedStorage,
+    pmvBackupRetentionPeriod,
+    pmvCACertificateIdentifier,
+    pmvDBInstanceClass,
+    pmvDBInstanceIdentifier,
+    pmvDBSubnetGroupName,
+    pmvEngineVersion,
+    pmvIops,
+    pmvLicenseModel,
+    pmvMasterUserPassword,
+    pmvMultiAZ,
+    pmvPendingCloudwatchLogsExports,
+    pmvPort,
+    pmvProcessorFeatures,
+    pmvStorageType,
+
+    -- ** VpcSecurityGroupMembership
+    VpcSecurityGroupMembership (..),
+    mkVpcSecurityGroupMembership,
+    vsgmStatus,
+    vsgmVpcSecurityGroupId,
+
+    -- ** Outpost
+    Outpost (..),
+    mkOutpost,
+    oArn,
+
     -- ** UpgradeTarget
     UpgradeTarget (..),
     mkUpgradeTarget,
-    utEngineVersion,
-    utIsMajorVersionUpgrade,
-    utEngine,
     utAutoUpgrade,
     utDescription,
+    utEngine,
+    utEngineVersion,
+    utIsMajorVersionUpgrade,
 
-    -- ** UserAuthConfig
-    UserAuthConfig (..),
-    mkUserAuthConfig,
-    uacIAMAuth,
-    uacUserName,
-    uacAuthScheme,
-    uacSecretARN,
-    uacDescription,
+    -- ** Parameter
+    Parameter (..),
+    mkParameter,
+    pAllowedValues,
+    pApplyMethod,
+    pApplyType,
+    pDataType,
+    pDescription,
+    pIsModifiable,
+    pMinimumEngineVersion,
+    pParameterName,
+    pParameterValue,
+    pSource,
+    pSupportedEngineModes,
 
-    -- ** UserAuthConfigInfo
-    UserAuthConfigInfo (..),
-    mkUserAuthConfigInfo,
-    uaciIAMAuth,
-    uaciUserName,
-    uaciAuthScheme,
-    uaciSecretARN,
-    uaciDescription,
+    -- ** OptionVersion
+    OptionVersion (..),
+    mkOptionVersion,
+    ovIsDefault,
+    ovVersion,
 
-    -- ** VPCSecurityGroupMembership
-    VPCSecurityGroupMembership (..),
-    mkVPCSecurityGroupMembership,
-    vsgmStatus,
-    vsgmVPCSecurityGroupId,
+    -- ** OptionGroupOptionSetting
+    OptionGroupOptionSetting (..),
+    mkOptionGroupOptionSetting,
+    ogosAllowedValues,
+    ogosApplyType,
+    ogosDefaultValue,
+    ogosIsModifiable,
+    ogosIsRequired,
+    ogosMinimumEngineVersionPerAllowedValue,
+    ogosSettingDescription,
+    ogosSettingName,
 
-    -- ** VPNDetails
-    VPNDetails (..),
-    mkVPNDetails,
-    vdVPNName,
-    vdVPNTunnelOriginatorIP,
-    vdVPNId,
-    vdVPNState,
-    vdVPNPSK,
-    vdVPNGatewayIP,
+    -- ** ExportTask
+    ExportTask (..),
+    mkExportTask,
+    etExportOnly,
+    etExportTaskIdentifier,
+    etFailureCause,
+    etIamRoleArn,
+    etKmsKeyId,
+    etPercentProgress,
+    etS3Bucket,
+    etS3Prefix,
+    etSnapshotTime,
+    etSourceArn,
+    etStatus,
+    etTaskEndTime,
+    etTaskStartTime,
+    etTotalExtractedDataInGB,
+    etWarningMessage,
 
-    -- ** ValidDBInstanceModificationsMessage
-    ValidDBInstanceModificationsMessage (..),
-    mkValidDBInstanceModificationsMessage,
-    vdimmValidProcessorFeatures,
-    vdimmStorage,
+    -- ** TargetHealthReason
+    TargetHealthReason (..),
 
-    -- ** ValidStorageOptions
-    ValidStorageOptions (..),
-    mkValidStorageOptions,
-    vsoStorageSize,
-    vsoProvisionedIOPS,
-    vsoIOPSToStorageRatio,
-    vsoSupportsStorageAutoscaling,
-    vsoStorageType,
+    -- ** GlobalClusterMember
+    GlobalClusterMember (..),
+    mkGlobalClusterMember,
+    gcmDBClusterArn,
+    gcmGlobalWriteForwardingStatus,
+    gcmIsWriter,
+    gcmReaders,
+
+    -- ** SubscriptionName
+    SubscriptionName (..),
+
+    -- ** SourceIdentifier
+    SourceIdentifier (..),
+
+    -- ** DBInstanceIdentifier
+    DBInstanceIdentifier (..),
+
+    -- ** CACertificateIdentifier
+    CACertificateIdentifier (..),
+
+    -- ** DBInstanceClass
+    DBInstanceClass (..),
+
+    -- ** DBParameterGroupName
+    DBParameterGroupName (..),
+
+    -- ** DBSubnetGroupName
+    DBSubnetGroupName (..),
+
+    -- ** Domain
+    Domain (..),
+
+    -- ** DomainIAMRoleName
+    DomainIAMRoleName (..),
+
+    -- ** EngineVersion
+    EngineVersion (..),
+
+    -- ** LicenseModel
+    LicenseModel (..),
+
+    -- ** MasterUserPassword
+    MasterUserPassword (..),
+
+    -- ** MonitoringRoleArn
+    MonitoringRoleArn (..),
+
+    -- ** NewDBInstanceIdentifier
+    NewDBInstanceIdentifier (..),
+
+    -- ** OptionGroupName
+    OptionGroupName (..),
+
+    -- ** PerformanceInsightsKMSKeyId
+    PerformanceInsightsKMSKeyId (..),
+
+    -- ** PreferredBackupWindow
+    PreferredBackupWindow (..),
+
+    -- ** PreferredMaintenanceWindow
+    PreferredMaintenanceWindow (..),
+
+    -- ** StorageType
+    StorageType (..),
+
+    -- ** TdeCredentialArn
+    TdeCredentialArn (..),
+
+    -- ** TdeCredentialPassword
+    TdeCredentialPassword (..),
+
+    -- ** SnsTopicArn
+    SnsTopicArn (..),
+
+    -- ** DBProxyName
+    DBProxyName (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** TargetGroupArn
+    TargetGroupArn (..),
+
+    -- ** TargetGroupName
+    TargetGroupName (..),
+
+    -- ** Action
+    Action (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** OptInStatus
+    OptInStatus (..),
+
+    -- ** SourceDBSnapshotIdentifier
+    SourceDBSnapshotIdentifier (..),
+
+    -- ** TargetDBSnapshotIdentifier
+    TargetDBSnapshotIdentifier (..),
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** PreSignedUrl
+    PreSignedUrl (..),
+
+    -- ** TargetCustomAvailabilityZone
+    TargetCustomAvailabilityZone (..),
+
+    -- ** DBSnapshotIdentifier
+    DBSnapshotIdentifier (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** ActivityStreamKinesisStreamName
+    ActivityStreamKinesisStreamName (..),
+
+    -- ** ActivityStreamKmsKeyId
+    ActivityStreamKmsKeyId (..),
+
+    -- ** CharacterSetName
+    CharacterSetName (..),
+
+    -- ** CloneGroupId
+    CloneGroupId (..),
+
+    -- ** DBClusterArn
+    DBClusterArn (..),
+
+    -- ** DBClusterIdentifier
+    DBClusterIdentifier (..),
+
+    -- ** DatabaseName
+    DatabaseName (..),
+
+    -- ** DbClusterResourceId
+    DbClusterResourceId (..),
+
+    -- ** Engine
+    Engine (..),
+
+    -- ** EngineMode
+    EngineMode (..),
+
+    -- ** HostedZoneId
+    HostedZoneId (..),
+
+    -- ** MasterUsername
+    MasterUsername (..),
+
+    -- ** PercentProgress
+    PercentProgress (..),
+
+    -- ** ReaderEndpoint
+    ReaderEndpoint (..),
+
+    -- ** ReplicationSourceIdentifier
+    ReplicationSourceIdentifier (..),
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** DBClusterEndpointIdentifier
+    DBClusterEndpointIdentifier (..),
+
+    -- ** EndpointType
+    EndpointType (..),
+
+    -- ** DBClusterParameterGroupName
+    DBClusterParameterGroupName (..),
+
+    -- ** EngineName
+    EngineName (..),
+
+    -- ** MajorEngineVersion
+    MajorEngineVersion (..),
+
+    -- ** OptionGroupArn
+    OptionGroupArn (..),
+
+    -- ** OptionGroupDescription
+    OptionGroupDescription (..),
+
+    -- ** VpcId
+    VpcId (..),
+
+    -- ** DBClusterOptionGroupName
+    DBClusterOptionGroupName (..),
+
+    -- ** ParameterApplyStatus
+    ParameterApplyStatus (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** SourceArn
+    SourceArn (..),
+
+    -- ** DBSecurityGroupArn
+    DBSecurityGroupArn (..),
+
+    -- ** DBSecurityGroupDescription
+    DBSecurityGroupDescription (..),
+
+    -- ** DBSecurityGroupName
+    DBSecurityGroupName (..),
+
+    -- ** OwnerId
+    OwnerId (..),
+
+    -- ** DbiResourceId
+    DbiResourceId (..),
+
+    -- ** SnapshotType
+    SnapshotType (..),
+
+    -- ** DBClusterSnapshotIdentifier
+    DBClusterSnapshotIdentifier (..),
+
+    -- ** DBParameterGroupFamily
+    DBParameterGroupFamily (..),
+
+    -- ** DBInstanceParameterGroupName
+    DBInstanceParameterGroupName (..),
+
+    -- ** NewDBClusterIdentifier
+    NewDBClusterIdentifier (..),
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** FQDN
+    FQDN (..),
+
+    -- ** IAMRoleName
+    IAMRoleName (..),
+
+    -- ** FeatureName
+    FeatureName (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Source
+    Source (..),
+
+    -- ** VpnGatewayIp
+    VpnGatewayIp (..),
+
+    -- ** VpnId
+    VpnId (..),
+
+    -- ** VpnName
+    VpnName (..),
+
+    -- ** VpnPSK
+    VpnPSK (..),
+
+    -- ** VpnState
+    VpnState (..),
+
+    -- ** VpnTunnelOriginatorIP
+    VpnTunnelOriginatorIP (..),
+
+    -- ** DbClusterIdentifier
+    DbClusterIdentifier (..),
+
+    -- ** GlobalClusterIdentifier
+    GlobalClusterIdentifier (..),
+
+    -- ** DBEngineDescription
+    DBEngineDescription (..),
+
+    -- ** DBEngineVersionDescription
+    DBEngineVersionDescription (..),
+
+    -- ** KinesisStreamName
+    KinesisStreamName (..),
+
+    -- ** DBProxyArn
+    DBProxyArn (..),
+
+    -- ** DBClusterParameterGroupArn
+    DBClusterParameterGroupArn (..),
+
+    -- ** DBSnapshotArn
+    DBSnapshotArn (..),
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** RegionName
+    RegionName (..),
+
+    -- ** AvailabilityZoneGroup
+    AvailabilityZoneGroup (..),
+
+    -- ** NewName
+    NewName (..),
+
+    -- ** EC2SecurityGroupId
+    EC2SecurityGroupId (..),
+
+    -- ** EC2SecurityGroupName
+    EC2SecurityGroupName (..),
+
+    -- ** EC2SecurityGroupOwnerId
+    EC2SecurityGroupOwnerId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -21,35 +21,34 @@ module Network.AWS.EC2.Types.DirectoryServiceAuthentication
   )
 where
 
+import qualified Network.AWS.EC2.Types.DirectoryId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an Active Directory.
 --
 -- /See:/ 'mkDirectoryServiceAuthentication' smart constructor.
 newtype DirectoryServiceAuthentication = DirectoryServiceAuthentication'
   { -- | The ID of the Active Directory used for authentication.
-    directoryId :: Lude.Maybe Lude.Text
+    directoryId :: Core.Maybe Types.DirectoryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DirectoryServiceAuthentication' with the minimum fields required to make a request.
---
--- * 'directoryId' - The ID of the Active Directory used for authentication.
+-- | Creates a 'DirectoryServiceAuthentication' value with any optional fields omitted.
 mkDirectoryServiceAuthentication ::
   DirectoryServiceAuthentication
 mkDirectoryServiceAuthentication =
-  DirectoryServiceAuthentication' {directoryId = Lude.Nothing}
+  DirectoryServiceAuthentication' {directoryId = Core.Nothing}
 
 -- | The ID of the Active Directory used for authentication.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaDirectoryId :: Lens.Lens' DirectoryServiceAuthentication (Lude.Maybe Lude.Text)
-dsaDirectoryId = Lens.lens (directoryId :: DirectoryServiceAuthentication -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: DirectoryServiceAuthentication)
+dsaDirectoryId :: Lens.Lens' DirectoryServiceAuthentication (Core.Maybe Types.DirectoryId)
+dsaDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED dsaDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance Lude.FromXML DirectoryServiceAuthentication where
+instance Core.FromXML DirectoryServiceAuthentication where
   parseXML x =
     DirectoryServiceAuthentication'
-      Lude.<$> (x Lude..@? "directoryId")
+      Core.<$> (x Core..@? "directoryId")

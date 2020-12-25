@@ -17,56 +17,51 @@ module Network.AWS.Translate.Types.AppliedTerminology
     mkAppliedTerminology,
 
     -- * Lenses
-    atTerms,
     atName,
+    atTerms,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Translate.Types.Term
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Translate.Types.ResourceName as Types
+import qualified Network.AWS.Translate.Types.Term as Types
 
 -- | The custom terminology applied to the input text by Amazon Translate for the translated text response. This is optional in the response and will only be present if you specified terminology input in the request. Currently, only one terminology can be applied per TranslateText request.
 --
 -- /See:/ 'mkAppliedTerminology' smart constructor.
 data AppliedTerminology = AppliedTerminology'
-  { -- | The specific terms of the custom terminology applied to the input text by Amazon Translate for the translated text response. A maximum of 250 terms will be returned, and the specific terms applied will be the first 250 terms in the source text.
-    terms :: Lude.Maybe [Term],
-    -- | The name of the custom terminology applied to the input text by Amazon Translate for the translated text response.
-    name :: Lude.Maybe Lude.Text
+  { -- | The name of the custom terminology applied to the input text by Amazon Translate for the translated text response.
+    name :: Core.Maybe Types.ResourceName,
+    -- | The specific terms of the custom terminology applied to the input text by Amazon Translate for the translated text response. A maximum of 250 terms will be returned, and the specific terms applied will be the first 250 terms in the source text.
+    terms :: Core.Maybe [Types.Term]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AppliedTerminology' with the minimum fields required to make a request.
---
--- * 'terms' - The specific terms of the custom terminology applied to the input text by Amazon Translate for the translated text response. A maximum of 250 terms will be returned, and the specific terms applied will be the first 250 terms in the source text.
--- * 'name' - The name of the custom terminology applied to the input text by Amazon Translate for the translated text response.
+-- | Creates a 'AppliedTerminology' value with any optional fields omitted.
 mkAppliedTerminology ::
   AppliedTerminology
 mkAppliedTerminology =
-  AppliedTerminology' {terms = Lude.Nothing, name = Lude.Nothing}
-
--- | The specific terms of the custom terminology applied to the input text by Amazon Translate for the translated text response. A maximum of 250 terms will be returned, and the specific terms applied will be the first 250 terms in the source text.
---
--- /Note:/ Consider using 'terms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atTerms :: Lens.Lens' AppliedTerminology (Lude.Maybe [Term])
-atTerms = Lens.lens (terms :: AppliedTerminology -> Lude.Maybe [Term]) (\s a -> s {terms = a} :: AppliedTerminology)
-{-# DEPRECATED atTerms "Use generic-lens or generic-optics with 'terms' instead." #-}
+  AppliedTerminology' {name = Core.Nothing, terms = Core.Nothing}
 
 -- | The name of the custom terminology applied to the input text by Amazon Translate for the translated text response.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atName :: Lens.Lens' AppliedTerminology (Lude.Maybe Lude.Text)
-atName = Lens.lens (name :: AppliedTerminology -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AppliedTerminology)
+atName :: Lens.Lens' AppliedTerminology (Core.Maybe Types.ResourceName)
+atName = Lens.field @"name"
 {-# DEPRECATED atName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON AppliedTerminology where
+-- | The specific terms of the custom terminology applied to the input text by Amazon Translate for the translated text response. A maximum of 250 terms will be returned, and the specific terms applied will be the first 250 terms in the source text.
+--
+-- /Note:/ Consider using 'terms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atTerms :: Lens.Lens' AppliedTerminology (Core.Maybe [Types.Term])
+atTerms = Lens.field @"terms"
+{-# DEPRECATED atTerms "Use generic-lens or generic-optics with 'terms' instead." #-}
+
+instance Core.FromJSON AppliedTerminology where
   parseJSON =
-    Lude.withObject
-      "AppliedTerminology"
-      ( \x ->
-          AppliedTerminology'
-            Lude.<$> (x Lude..:? "Terms" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "AppliedTerminology" Core.$
+      \x ->
+        AppliedTerminology'
+          Core.<$> (x Core..:? "Name") Core.<*> (x Core..:? "Terms")

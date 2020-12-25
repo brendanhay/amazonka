@@ -24,261 +24,243 @@ module Network.AWS.WorkDocs.DescribeUsers
     mkDescribeUsers,
 
     -- ** Request lenses
-    dusInclude,
-    dusUserIds,
-    dusAuthenticationToken,
-    dusSort,
-    dusMarker,
-    dusQuery,
-    dusLimit,
-    dusOrder,
-    dusOrganizationId,
-    dusFields,
+    duAuthenticationToken,
+    duFields,
+    duInclude,
+    duLimit,
+    duMarker,
+    duOrder,
+    duOrganizationId,
+    duQuery,
+    duSort,
+    duUserIds,
 
     -- * Destructuring the response
     DescribeUsersResponse (..),
     mkDescribeUsersResponse,
 
     -- ** Response lenses
-    dursUsers,
-    dursTotalNumberOfUsers,
-    dursMarker,
-    dursResponseStatus,
+    durrsMarker,
+    durrsTotalNumberOfUsers,
+    durrsUsers,
+    durrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDescribeUsers' smart constructor.
 data DescribeUsers = DescribeUsers'
-  { -- | The state of the users. Specify "ALL" to include inactive users.
-    include :: Lude.Maybe UserFilterType,
-    -- | The IDs of the users.
-    userIds :: Lude.Maybe Lude.Text,
-    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The sorting criteria.
-    sort :: Lude.Maybe UserSortType,
-    -- | The marker for the next set of results. (You received this marker from a previous call.)
-    marker :: Lude.Maybe Lude.Text,
-    -- | A query to filter users by user name.
-    query :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The maximum number of items to return.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | The order for the results.
-    order :: Lude.Maybe OrderType,
-    -- | The ID of the organization.
-    organizationId :: Lude.Maybe Lude.Text,
+  { -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType,
     -- | A comma-separated list of values. Specify "STORAGE_METADATA" to include the user storage quota and utilization information.
-    fields :: Lude.Maybe Lude.Text
+    fields :: Core.Maybe Types.Fields,
+    -- | The state of the users. Specify "ALL" to include inactive users.
+    include :: Core.Maybe Types.UserFilterType,
+    -- | The maximum number of items to return.
+    limit :: Core.Maybe Core.Natural,
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
+    marker :: Core.Maybe Types.PageMarkerType,
+    -- | The order for the results.
+    order :: Core.Maybe Types.OrderType,
+    -- | The ID of the organization.
+    organizationId :: Core.Maybe Types.IdType,
+    -- | A query to filter users by user name.
+    query :: Core.Maybe Types.SearchQueryType,
+    -- | The sorting criteria.
+    sort :: Core.Maybe Types.UserSortType,
+    -- | The IDs of the users.
+    userIds :: Core.Maybe Types.UserIdsType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUsers' with the minimum fields required to make a request.
---
--- * 'include' - The state of the users. Specify "ALL" to include inactive users.
--- * 'userIds' - The IDs of the users.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'sort' - The sorting criteria.
--- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'query' - A query to filter users by user name.
--- * 'limit' - The maximum number of items to return.
--- * 'order' - The order for the results.
--- * 'organizationId' - The ID of the organization.
--- * 'fields' - A comma-separated list of values. Specify "STORAGE_METADATA" to include the user storage quota and utilization information.
+-- | Creates a 'DescribeUsers' value with any optional fields omitted.
 mkDescribeUsers ::
   DescribeUsers
 mkDescribeUsers =
   DescribeUsers'
-    { include = Lude.Nothing,
-      userIds = Lude.Nothing,
-      authenticationToken = Lude.Nothing,
-      sort = Lude.Nothing,
-      marker = Lude.Nothing,
-      query = Lude.Nothing,
-      limit = Lude.Nothing,
-      order = Lude.Nothing,
-      organizationId = Lude.Nothing,
-      fields = Lude.Nothing
+    { authenticationToken = Core.Nothing,
+      fields = Core.Nothing,
+      include = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing,
+      order = Core.Nothing,
+      organizationId = Core.Nothing,
+      query = Core.Nothing,
+      sort = Core.Nothing,
+      userIds = Core.Nothing
     }
-
--- | The state of the users. Specify "ALL" to include inactive users.
---
--- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusInclude :: Lens.Lens' DescribeUsers (Lude.Maybe UserFilterType)
-dusInclude = Lens.lens (include :: DescribeUsers -> Lude.Maybe UserFilterType) (\s a -> s {include = a} :: DescribeUsers)
-{-# DEPRECATED dusInclude "Use generic-lens or generic-optics with 'include' instead." #-}
-
--- | The IDs of the users.
---
--- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusUserIds :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Text)
-dusUserIds = Lens.lens (userIds :: DescribeUsers -> Lude.Maybe Lude.Text) (\s a -> s {userIds = a} :: DescribeUsers)
-{-# DEPRECATED dusUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusAuthenticationToken :: Lens.Lens' DescribeUsers (Lude.Maybe (Lude.Sensitive Lude.Text))
-dusAuthenticationToken = Lens.lens (authenticationToken :: DescribeUsers -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DescribeUsers)
-{-# DEPRECATED dusAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
-
--- | The sorting criteria.
---
--- /Note:/ Consider using 'sort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusSort :: Lens.Lens' DescribeUsers (Lude.Maybe UserSortType)
-dusSort = Lens.lens (sort :: DescribeUsers -> Lude.Maybe UserSortType) (\s a -> s {sort = a} :: DescribeUsers)
-{-# DEPRECATED dusSort "Use generic-lens or generic-optics with 'sort' instead." #-}
-
--- | The marker for the next set of results. (You received this marker from a previous call.)
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusMarker :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Text)
-dusMarker = Lens.lens (marker :: DescribeUsers -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeUsers)
-{-# DEPRECATED dusMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | A query to filter users by user name.
---
--- /Note:/ Consider using 'query' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusQuery :: Lens.Lens' DescribeUsers (Lude.Maybe (Lude.Sensitive Lude.Text))
-dusQuery = Lens.lens (query :: DescribeUsers -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {query = a} :: DescribeUsers)
-{-# DEPRECATED dusQuery "Use generic-lens or generic-optics with 'query' instead." #-}
-
--- | The maximum number of items to return.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusLimit :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Natural)
-dusLimit = Lens.lens (limit :: DescribeUsers -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeUsers)
-{-# DEPRECATED dusLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The order for the results.
---
--- /Note:/ Consider using 'order' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusOrder :: Lens.Lens' DescribeUsers (Lude.Maybe OrderType)
-dusOrder = Lens.lens (order :: DescribeUsers -> Lude.Maybe OrderType) (\s a -> s {order = a} :: DescribeUsers)
-{-# DEPRECATED dusOrder "Use generic-lens or generic-optics with 'order' instead." #-}
-
--- | The ID of the organization.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusOrganizationId :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Text)
-dusOrganizationId = Lens.lens (organizationId :: DescribeUsers -> Lude.Maybe Lude.Text) (\s a -> s {organizationId = a} :: DescribeUsers)
-{-# DEPRECATED dusOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+duAuthenticationToken :: Lens.Lens' DescribeUsers (Core.Maybe Types.AuthenticationHeaderType)
+duAuthenticationToken = Lens.field @"authenticationToken"
+{-# DEPRECATED duAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | A comma-separated list of values. Specify "STORAGE_METADATA" to include the user storage quota and utilization information.
 --
 -- /Note:/ Consider using 'fields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusFields :: Lens.Lens' DescribeUsers (Lude.Maybe Lude.Text)
-dusFields = Lens.lens (fields :: DescribeUsers -> Lude.Maybe Lude.Text) (\s a -> s {fields = a} :: DescribeUsers)
-{-# DEPRECATED dusFields "Use generic-lens or generic-optics with 'fields' instead." #-}
+duFields :: Lens.Lens' DescribeUsers (Core.Maybe Types.Fields)
+duFields = Lens.field @"fields"
+{-# DEPRECATED duFields "Use generic-lens or generic-optics with 'fields' instead." #-}
 
-instance Page.AWSPager DescribeUsers where
-  page rq rs
-    | Page.stop (rs Lens.^. dursMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dursUsers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dusMarker Lens..~ rs Lens.^. dursMarker
+-- | The state of the users. Specify "ALL" to include inactive users.
+--
+-- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duInclude :: Lens.Lens' DescribeUsers (Core.Maybe Types.UserFilterType)
+duInclude = Lens.field @"include"
+{-# DEPRECATED duInclude "Use generic-lens or generic-optics with 'include' instead." #-}
 
-instance Lude.AWSRequest DescribeUsers where
+-- | The maximum number of items to return.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duLimit :: Lens.Lens' DescribeUsers (Core.Maybe Core.Natural)
+duLimit = Lens.field @"limit"
+{-# DEPRECATED duLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | The marker for the next set of results. (You received this marker from a previous call.)
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duMarker :: Lens.Lens' DescribeUsers (Core.Maybe Types.PageMarkerType)
+duMarker = Lens.field @"marker"
+{-# DEPRECATED duMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The order for the results.
+--
+-- /Note:/ Consider using 'order' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duOrder :: Lens.Lens' DescribeUsers (Core.Maybe Types.OrderType)
+duOrder = Lens.field @"order"
+{-# DEPRECATED duOrder "Use generic-lens or generic-optics with 'order' instead." #-}
+
+-- | The ID of the organization.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duOrganizationId :: Lens.Lens' DescribeUsers (Core.Maybe Types.IdType)
+duOrganizationId = Lens.field @"organizationId"
+{-# DEPRECATED duOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+
+-- | A query to filter users by user name.
+--
+-- /Note:/ Consider using 'query' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duQuery :: Lens.Lens' DescribeUsers (Core.Maybe Types.SearchQueryType)
+duQuery = Lens.field @"query"
+{-# DEPRECATED duQuery "Use generic-lens or generic-optics with 'query' instead." #-}
+
+-- | The sorting criteria.
+--
+-- /Note:/ Consider using 'sort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duSort :: Lens.Lens' DescribeUsers (Core.Maybe Types.UserSortType)
+duSort = Lens.field @"sort"
+{-# DEPRECATED duSort "Use generic-lens or generic-optics with 'sort' instead." #-}
+
+-- | The IDs of the users.
+--
+-- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duUserIds :: Lens.Lens' DescribeUsers (Core.Maybe Types.UserIdsType)
+duUserIds = Lens.field @"userIds"
+{-# DEPRECATED duUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
+
+instance Core.AWSRequest DescribeUsers where
   type Rs DescribeUsers = DescribeUsersResponse
-  request = Req.get workDocsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/api/v1/users",
+        Core._rqQuery =
+          Core.toQueryValue "fields" Core.<$> fields
+            Core.<> (Core.toQueryValue "include" Core.<$> include)
+            Core.<> (Core.toQueryValue "limit" Core.<$> limit)
+            Core.<> (Core.toQueryValue "marker" Core.<$> marker)
+            Core.<> (Core.toQueryValue "order" Core.<$> order)
+            Core.<> (Core.toQueryValue "organizationId" Core.<$> organizationId)
+            Core.<> (Core.toQueryValue "query" Core.<$> query)
+            Core.<> (Core.toQueryValue "sort" Core.<$> sort)
+            Core.<> (Core.toQueryValue "userIds" Core.<$> userIds),
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeUsersResponse'
-            Lude.<$> (x Lude..?> "Users" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "TotalNumberOfUsers")
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "TotalNumberOfUsers")
+            Core.<*> (x Core..:? "Users")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeUsers where
-  toHeaders DescribeUsers' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath DescribeUsers where
-  toPath = Lude.const "/api/v1/users"
-
-instance Lude.ToQuery DescribeUsers where
-  toQuery DescribeUsers' {..} =
-    Lude.mconcat
-      [ "include" Lude.=: include,
-        "userIds" Lude.=: userIds,
-        "sort" Lude.=: sort,
-        "marker" Lude.=: marker,
-        "query" Lude.=: query,
-        "limit" Lude.=: limit,
-        "order" Lude.=: order,
-        "organizationId" Lude.=: organizationId,
-        "fields" Lude.=: fields
-      ]
+instance Pager.AWSPager DescribeUsers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"users" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkDescribeUsersResponse' smart constructor.
 data DescribeUsersResponse = DescribeUsersResponse'
-  { -- | The users.
-    users :: Lude.Maybe [User],
+  { -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
+    marker :: Core.Maybe Types.Marker,
     -- | The total number of users included in the results.
-    totalNumberOfUsers :: Lude.Maybe Lude.Integer,
-    -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
-    marker :: Lude.Maybe Lude.Text,
+    totalNumberOfUsers :: Core.Maybe Core.Integer,
+    -- | The users.
+    users :: Core.Maybe [Types.User],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeUsersResponse' with the minimum fields required to make a request.
---
--- * 'users' - The users.
--- * 'totalNumberOfUsers' - The total number of users included in the results.
--- * 'marker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeUsersResponse' value with any optional fields omitted.
 mkDescribeUsersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeUsersResponse
-mkDescribeUsersResponse pResponseStatus_ =
+mkDescribeUsersResponse responseStatus =
   DescribeUsersResponse'
-    { users = Lude.Nothing,
-      totalNumberOfUsers = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      totalNumberOfUsers = Core.Nothing,
+      users = Core.Nothing,
+      responseStatus
     }
-
--- | The users.
---
--- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursUsers :: Lens.Lens' DescribeUsersResponse (Lude.Maybe [User])
-dursUsers = Lens.lens (users :: DescribeUsersResponse -> Lude.Maybe [User]) (\s a -> s {users = a} :: DescribeUsersResponse)
-{-# DEPRECATED dursUsers "Use generic-lens or generic-optics with 'users' instead." #-}
-
--- | The total number of users included in the results.
---
--- /Note:/ Consider using 'totalNumberOfUsers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursTotalNumberOfUsers :: Lens.Lens' DescribeUsersResponse (Lude.Maybe Lude.Integer)
-dursTotalNumberOfUsers = Lens.lens (totalNumberOfUsers :: DescribeUsersResponse -> Lude.Maybe Lude.Integer) (\s a -> s {totalNumberOfUsers = a} :: DescribeUsersResponse)
-{-# DEPRECATED dursTotalNumberOfUsers "Use generic-lens or generic-optics with 'totalNumberOfUsers' instead." #-}
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursMarker :: Lens.Lens' DescribeUsersResponse (Lude.Maybe Lude.Text)
-dursMarker = Lens.lens (marker :: DescribeUsersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeUsersResponse)
-{-# DEPRECATED dursMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+durrsMarker :: Lens.Lens' DescribeUsersResponse (Core.Maybe Types.Marker)
+durrsMarker = Lens.field @"marker"
+{-# DEPRECATED durrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The total number of users included in the results.
+--
+-- /Note:/ Consider using 'totalNumberOfUsers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsTotalNumberOfUsers :: Lens.Lens' DescribeUsersResponse (Core.Maybe Core.Integer)
+durrsTotalNumberOfUsers = Lens.field @"totalNumberOfUsers"
+{-# DEPRECATED durrsTotalNumberOfUsers "Use generic-lens or generic-optics with 'totalNumberOfUsers' instead." #-}
+
+-- | The users.
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+durrsUsers :: Lens.Lens' DescribeUsersResponse (Core.Maybe [Types.User])
+durrsUsers = Lens.field @"users"
+{-# DEPRECATED durrsUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dursResponseStatus :: Lens.Lens' DescribeUsersResponse Lude.Int
-dursResponseStatus = Lens.lens (responseStatus :: DescribeUsersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUsersResponse)
-{-# DEPRECATED dursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+durrsResponseStatus :: Lens.Lens' DescribeUsersResponse Core.Int
+durrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED durrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

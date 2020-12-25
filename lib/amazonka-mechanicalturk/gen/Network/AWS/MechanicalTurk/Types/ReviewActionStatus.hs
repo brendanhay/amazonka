@@ -13,56 +13,61 @@
 module Network.AWS.MechanicalTurk.Types.ReviewActionStatus
   ( ReviewActionStatus
       ( ReviewActionStatus',
-        Intended,
-        Succeeded,
-        Failed,
-        Cancelled
+        ReviewActionStatusIntended,
+        ReviewActionStatusSucceeded,
+        ReviewActionStatusFailed,
+        ReviewActionStatusCancelled,
+        fromReviewActionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReviewActionStatus = ReviewActionStatus' Lude.Text
+newtype ReviewActionStatus = ReviewActionStatus'
+  { fromReviewActionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Intended :: ReviewActionStatus
-pattern Intended = ReviewActionStatus' "Intended"
+pattern ReviewActionStatusIntended :: ReviewActionStatus
+pattern ReviewActionStatusIntended = ReviewActionStatus' "Intended"
 
-pattern Succeeded :: ReviewActionStatus
-pattern Succeeded = ReviewActionStatus' "Succeeded"
+pattern ReviewActionStatusSucceeded :: ReviewActionStatus
+pattern ReviewActionStatusSucceeded = ReviewActionStatus' "Succeeded"
 
-pattern Failed :: ReviewActionStatus
-pattern Failed = ReviewActionStatus' "Failed"
+pattern ReviewActionStatusFailed :: ReviewActionStatus
+pattern ReviewActionStatusFailed = ReviewActionStatus' "Failed"
 
-pattern Cancelled :: ReviewActionStatus
-pattern Cancelled = ReviewActionStatus' "Cancelled"
+pattern ReviewActionStatusCancelled :: ReviewActionStatus
+pattern ReviewActionStatusCancelled = ReviewActionStatus' "Cancelled"
 
 {-# COMPLETE
-  Intended,
-  Succeeded,
-  Failed,
-  Cancelled,
+  ReviewActionStatusIntended,
+  ReviewActionStatusSucceeded,
+  ReviewActionStatusFailed,
+  ReviewActionStatusCancelled,
   ReviewActionStatus'
   #-}

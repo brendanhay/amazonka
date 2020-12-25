@@ -21,40 +21,38 @@ module Network.AWS.CloudDirectory.Types.BatchDeleteObject
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'DeleteObject' operation.
 --
 -- /See:/ 'mkBatchDeleteObject' smart constructor.
 newtype BatchDeleteObject = BatchDeleteObject'
   { -- | The reference that identifies the object.
-    objectReference :: ObjectReference
+    objectReference :: Types.ObjectReference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteObject' with the minimum fields required to make a request.
---
--- * 'objectReference' - The reference that identifies the object.
+-- | Creates a 'BatchDeleteObject' value with any optional fields omitted.
 mkBatchDeleteObject ::
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   BatchDeleteObject
-mkBatchDeleteObject pObjectReference_ =
-  BatchDeleteObject' {objectReference = pObjectReference_}
+mkBatchDeleteObject objectReference =
+  BatchDeleteObject' {objectReference}
 
 -- | The reference that identifies the object.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdoObjectReference :: Lens.Lens' BatchDeleteObject ObjectReference
-bdoObjectReference = Lens.lens (objectReference :: BatchDeleteObject -> ObjectReference) (\s a -> s {objectReference = a} :: BatchDeleteObject)
+bdoObjectReference :: Lens.Lens' BatchDeleteObject Types.ObjectReference
+bdoObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED bdoObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Lude.ToJSON BatchDeleteObject where
-  toJSON BatchDeleteObject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ObjectReference" Lude..= objectReference)]
+instance Core.FromJSON BatchDeleteObject where
+  toJSON BatchDeleteObject {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ObjectReference" Core..= objectReference)]
       )

@@ -22,54 +22,50 @@ module Network.AWS.DynamoDB.Types.AutoScalingPolicyDescription
   )
 where
 
-import Network.AWS.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+import qualified Network.AWS.DynamoDB.Types.AutoScalingPolicyName as Types
+import qualified Network.AWS.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationDescription as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the properties of the scaling policy.
 --
 -- /See:/ 'mkAutoScalingPolicyDescription' smart constructor.
 data AutoScalingPolicyDescription = AutoScalingPolicyDescription'
   { -- | The name of the scaling policy.
-    policyName :: Lude.Maybe Lude.Text,
+    policyName :: Core.Maybe Types.AutoScalingPolicyName,
     -- | Represents a target tracking scaling policy configuration.
-    targetTrackingScalingPolicyConfiguration :: Lude.Maybe AutoScalingTargetTrackingScalingPolicyConfigurationDescription
+    targetTrackingScalingPolicyConfiguration :: Core.Maybe Types.AutoScalingTargetTrackingScalingPolicyConfigurationDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoScalingPolicyDescription' with the minimum fields required to make a request.
---
--- * 'policyName' - The name of the scaling policy.
--- * 'targetTrackingScalingPolicyConfiguration' - Represents a target tracking scaling policy configuration.
+-- | Creates a 'AutoScalingPolicyDescription' value with any optional fields omitted.
 mkAutoScalingPolicyDescription ::
   AutoScalingPolicyDescription
 mkAutoScalingPolicyDescription =
   AutoScalingPolicyDescription'
-    { policyName = Lude.Nothing,
-      targetTrackingScalingPolicyConfiguration = Lude.Nothing
+    { policyName = Core.Nothing,
+      targetTrackingScalingPolicyConfiguration = Core.Nothing
     }
 
 -- | The name of the scaling policy.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aspdPolicyName :: Lens.Lens' AutoScalingPolicyDescription (Lude.Maybe Lude.Text)
-aspdPolicyName = Lens.lens (policyName :: AutoScalingPolicyDescription -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: AutoScalingPolicyDescription)
+aspdPolicyName :: Lens.Lens' AutoScalingPolicyDescription (Core.Maybe Types.AutoScalingPolicyName)
+aspdPolicyName = Lens.field @"policyName"
 {-# DEPRECATED aspdPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | Represents a target tracking scaling policy configuration.
 --
 -- /Note:/ Consider using 'targetTrackingScalingPolicyConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aspdTargetTrackingScalingPolicyConfiguration :: Lens.Lens' AutoScalingPolicyDescription (Lude.Maybe AutoScalingTargetTrackingScalingPolicyConfigurationDescription)
-aspdTargetTrackingScalingPolicyConfiguration = Lens.lens (targetTrackingScalingPolicyConfiguration :: AutoScalingPolicyDescription -> Lude.Maybe AutoScalingTargetTrackingScalingPolicyConfigurationDescription) (\s a -> s {targetTrackingScalingPolicyConfiguration = a} :: AutoScalingPolicyDescription)
+aspdTargetTrackingScalingPolicyConfiguration :: Lens.Lens' AutoScalingPolicyDescription (Core.Maybe Types.AutoScalingTargetTrackingScalingPolicyConfigurationDescription)
+aspdTargetTrackingScalingPolicyConfiguration = Lens.field @"targetTrackingScalingPolicyConfiguration"
 {-# DEPRECATED aspdTargetTrackingScalingPolicyConfiguration "Use generic-lens or generic-optics with 'targetTrackingScalingPolicyConfiguration' instead." #-}
 
-instance Lude.FromJSON AutoScalingPolicyDescription where
+instance Core.FromJSON AutoScalingPolicyDescription where
   parseJSON =
-    Lude.withObject
-      "AutoScalingPolicyDescription"
-      ( \x ->
-          AutoScalingPolicyDescription'
-            Lude.<$> (x Lude..:? "PolicyName")
-            Lude.<*> (x Lude..:? "TargetTrackingScalingPolicyConfiguration")
-      )
+    Core.withObject "AutoScalingPolicyDescription" Core.$
+      \x ->
+        AutoScalingPolicyDescription'
+          Core.<$> (x Core..:? "PolicyName")
+          Core.<*> (x Core..:? "TargetTrackingScalingPolicyConfiguration")

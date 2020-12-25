@@ -17,95 +17,89 @@ module Network.AWS.GameLift.Types.AttributeValue
     mkAttributeValue,
 
     -- * Lenses
-    avSL,
-    avSDM,
     avN,
     avS,
+    avSDM,
+    avSL,
   )
 where
 
+import qualified Network.AWS.GameLift.Types.NonZeroAndMaxString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Values for use in 'Player' attribute key-value pairs. This object lets you specify an attribute value using any of the valid data types: string, number, string array, or data map. Each @AttributeValue@ object can use only one of the available properties.
 --
 -- /See:/ 'mkAttributeValue' smart constructor.
 data AttributeValue = AttributeValue'
-  { -- | For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
-    sL :: Lude.Maybe [Lude.Text],
-    -- | For a map of up to 10 data type:value pairs. Maximum length for each string value is 100 characters.
-    sDM :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)),
-    -- | For number values, expressed as double.
-    n :: Lude.Maybe Lude.Double,
+  { -- | For number values, expressed as double.
+    n :: Core.Maybe Core.Double,
     -- | For single string values. Maximum string length is 100 characters.
-    s :: Lude.Maybe Lude.Text
+    s :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | For a map of up to 10 data type:value pairs. Maximum length for each string value is 100 characters.
+    sdm :: Core.Maybe (Core.HashMap Types.NonZeroAndMaxString Core.Double),
+    -- | For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
+    sl :: Core.Maybe [Types.NonZeroAndMaxString]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttributeValue' with the minimum fields required to make a request.
---
--- * 'sL' - For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
--- * 'sDM' - For a map of up to 10 data type:value pairs. Maximum length for each string value is 100 characters.
--- * 'n' - For number values, expressed as double.
--- * 's' - For single string values. Maximum string length is 100 characters.
+-- | Creates a 'AttributeValue' value with any optional fields omitted.
 mkAttributeValue ::
   AttributeValue
 mkAttributeValue =
   AttributeValue'
-    { sL = Lude.Nothing,
-      sDM = Lude.Nothing,
-      n = Lude.Nothing,
-      s = Lude.Nothing
+    { n = Core.Nothing,
+      s = Core.Nothing,
+      sdm = Core.Nothing,
+      sl = Core.Nothing
     }
-
--- | For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
---
--- /Note:/ Consider using 'sL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avSL :: Lens.Lens' AttributeValue (Lude.Maybe [Lude.Text])
-avSL = Lens.lens (sL :: AttributeValue -> Lude.Maybe [Lude.Text]) (\s a -> s {sL = a} :: AttributeValue)
-{-# DEPRECATED avSL "Use generic-lens or generic-optics with 'sL' instead." #-}
-
--- | For a map of up to 10 data type:value pairs. Maximum length for each string value is 100 characters.
---
--- /Note:/ Consider using 'sDM' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avSDM :: Lens.Lens' AttributeValue (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double)))
-avSDM = Lens.lens (sDM :: AttributeValue -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Double))) (\s a -> s {sDM = a} :: AttributeValue)
-{-# DEPRECATED avSDM "Use generic-lens or generic-optics with 'sDM' instead." #-}
 
 -- | For number values, expressed as double.
 --
 -- /Note:/ Consider using 'n' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avN :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Double)
-avN = Lens.lens (n :: AttributeValue -> Lude.Maybe Lude.Double) (\s a -> s {n = a} :: AttributeValue)
+avN :: Lens.Lens' AttributeValue (Core.Maybe Core.Double)
+avN = Lens.field @"n"
 {-# DEPRECATED avN "Use generic-lens or generic-optics with 'n' instead." #-}
 
 -- | For single string values. Maximum string length is 100 characters.
 --
 -- /Note:/ Consider using 's' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avS :: Lens.Lens' AttributeValue (Lude.Maybe Lude.Text)
-avS = Lens.lens (s :: AttributeValue -> Lude.Maybe Lude.Text) (\s a -> s {s = a} :: AttributeValue)
+avS :: Lens.Lens' AttributeValue (Core.Maybe Types.NonZeroAndMaxString)
+avS = Lens.field @"s"
 {-# DEPRECATED avS "Use generic-lens or generic-optics with 's' instead." #-}
 
-instance Lude.FromJSON AttributeValue where
-  parseJSON =
-    Lude.withObject
-      "AttributeValue"
-      ( \x ->
-          AttributeValue'
-            Lude.<$> (x Lude..:? "SL" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "SDM" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "N")
-            Lude.<*> (x Lude..:? "S")
-      )
+-- | For a map of up to 10 data type:value pairs. Maximum length for each string value is 100 characters.
+--
+-- /Note:/ Consider using 'sdm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avSDM :: Lens.Lens' AttributeValue (Core.Maybe (Core.HashMap Types.NonZeroAndMaxString Core.Double))
+avSDM = Lens.field @"sdm"
+{-# DEPRECATED avSDM "Use generic-lens or generic-optics with 'sdm' instead." #-}
 
-instance Lude.ToJSON AttributeValue where
-  toJSON AttributeValue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SL" Lude..=) Lude.<$> sL,
-            ("SDM" Lude..=) Lude.<$> sDM,
-            ("N" Lude..=) Lude.<$> n,
-            ("S" Lude..=) Lude.<$> s
+-- | For a list of up to 10 strings. Maximum length for each string is 100 characters. Duplicate values are not recognized; all occurrences of the repeated value after the first of a repeated value are ignored.
+--
+-- /Note:/ Consider using 'sl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avSL :: Lens.Lens' AttributeValue (Core.Maybe [Types.NonZeroAndMaxString])
+avSL = Lens.field @"sl"
+{-# DEPRECATED avSL "Use generic-lens or generic-optics with 'sl' instead." #-}
+
+instance Core.FromJSON AttributeValue where
+  toJSON AttributeValue {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("N" Core..=) Core.<$> n,
+            ("S" Core..=) Core.<$> s,
+            ("SDM" Core..=) Core.<$> sdm,
+            ("SL" Core..=) Core.<$> sl
           ]
       )
+
+instance Core.FromJSON AttributeValue where
+  parseJSON =
+    Core.withObject "AttributeValue" Core.$
+      \x ->
+        AttributeValue'
+          Core.<$> (x Core..:? "N")
+          Core.<*> (x Core..:? "S")
+          Core.<*> (x Core..:? "SDM")
+          Core.<*> (x Core..:? "SL")

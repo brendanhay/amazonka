@@ -17,90 +17,84 @@ module Network.AWS.Glue.Types.BooleanColumnStatisticsData
     mkBooleanColumnStatisticsData,
 
     -- * Lenses
-    bNumberOfFalses,
     bNumberOfTrues,
+    bNumberOfFalses,
     bNumberOfNulls,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Defines column statistics supported for Boolean data columns.
 --
 -- /See:/ 'mkBooleanColumnStatisticsData' smart constructor.
 data BooleanColumnStatisticsData = BooleanColumnStatisticsData'
-  { -- | The number of false values in the column.
-    numberOfFalses :: Lude.Natural,
-    -- | The number of true values in the column.
-    numberOfTrues :: Lude.Natural,
+  { -- | The number of true values in the column.
+    numberOfTrues :: Core.Natural,
+    -- | The number of false values in the column.
+    numberOfFalses :: Core.Natural,
     -- | The number of null values in the column.
-    numberOfNulls :: Lude.Natural
+    numberOfNulls :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BooleanColumnStatisticsData' with the minimum fields required to make a request.
---
--- * 'numberOfFalses' - The number of false values in the column.
--- * 'numberOfTrues' - The number of true values in the column.
--- * 'numberOfNulls' - The number of null values in the column.
+-- | Creates a 'BooleanColumnStatisticsData' value with any optional fields omitted.
 mkBooleanColumnStatisticsData ::
-  -- | 'numberOfFalses'
-  Lude.Natural ->
   -- | 'numberOfTrues'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'numberOfFalses'
+  Core.Natural ->
   -- | 'numberOfNulls'
-  Lude.Natural ->
+  Core.Natural ->
   BooleanColumnStatisticsData
 mkBooleanColumnStatisticsData
-  pNumberOfFalses_
-  pNumberOfTrues_
-  pNumberOfNulls_ =
+  numberOfTrues
+  numberOfFalses
+  numberOfNulls =
     BooleanColumnStatisticsData'
-      { numberOfFalses = pNumberOfFalses_,
-        numberOfTrues = pNumberOfTrues_,
-        numberOfNulls = pNumberOfNulls_
+      { numberOfTrues,
+        numberOfFalses,
+        numberOfNulls
       }
-
--- | The number of false values in the column.
---
--- /Note:/ Consider using 'numberOfFalses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bNumberOfFalses :: Lens.Lens' BooleanColumnStatisticsData Lude.Natural
-bNumberOfFalses = Lens.lens (numberOfFalses :: BooleanColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfFalses = a} :: BooleanColumnStatisticsData)
-{-# DEPRECATED bNumberOfFalses "Use generic-lens or generic-optics with 'numberOfFalses' instead." #-}
 
 -- | The number of true values in the column.
 --
 -- /Note:/ Consider using 'numberOfTrues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bNumberOfTrues :: Lens.Lens' BooleanColumnStatisticsData Lude.Natural
-bNumberOfTrues = Lens.lens (numberOfTrues :: BooleanColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfTrues = a} :: BooleanColumnStatisticsData)
+bNumberOfTrues :: Lens.Lens' BooleanColumnStatisticsData Core.Natural
+bNumberOfTrues = Lens.field @"numberOfTrues"
 {-# DEPRECATED bNumberOfTrues "Use generic-lens or generic-optics with 'numberOfTrues' instead." #-}
+
+-- | The number of false values in the column.
+--
+-- /Note:/ Consider using 'numberOfFalses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bNumberOfFalses :: Lens.Lens' BooleanColumnStatisticsData Core.Natural
+bNumberOfFalses = Lens.field @"numberOfFalses"
+{-# DEPRECATED bNumberOfFalses "Use generic-lens or generic-optics with 'numberOfFalses' instead." #-}
 
 -- | The number of null values in the column.
 --
 -- /Note:/ Consider using 'numberOfNulls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bNumberOfNulls :: Lens.Lens' BooleanColumnStatisticsData Lude.Natural
-bNumberOfNulls = Lens.lens (numberOfNulls :: BooleanColumnStatisticsData -> Lude.Natural) (\s a -> s {numberOfNulls = a} :: BooleanColumnStatisticsData)
+bNumberOfNulls :: Lens.Lens' BooleanColumnStatisticsData Core.Natural
+bNumberOfNulls = Lens.field @"numberOfNulls"
 {-# DEPRECATED bNumberOfNulls "Use generic-lens or generic-optics with 'numberOfNulls' instead." #-}
 
-instance Lude.FromJSON BooleanColumnStatisticsData where
-  parseJSON =
-    Lude.withObject
-      "BooleanColumnStatisticsData"
-      ( \x ->
-          BooleanColumnStatisticsData'
-            Lude.<$> (x Lude..: "NumberOfFalses")
-            Lude.<*> (x Lude..: "NumberOfTrues")
-            Lude.<*> (x Lude..: "NumberOfNulls")
-      )
-
-instance Lude.ToJSON BooleanColumnStatisticsData where
-  toJSON BooleanColumnStatisticsData' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("NumberOfFalses" Lude..= numberOfFalses),
-            Lude.Just ("NumberOfTrues" Lude..= numberOfTrues),
-            Lude.Just ("NumberOfNulls" Lude..= numberOfNulls)
+instance Core.FromJSON BooleanColumnStatisticsData where
+  toJSON BooleanColumnStatisticsData {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("NumberOfTrues" Core..= numberOfTrues),
+            Core.Just ("NumberOfFalses" Core..= numberOfFalses),
+            Core.Just ("NumberOfNulls" Core..= numberOfNulls)
           ]
       )
+
+instance Core.FromJSON BooleanColumnStatisticsData where
+  parseJSON =
+    Core.withObject "BooleanColumnStatisticsData" Core.$
+      \x ->
+        BooleanColumnStatisticsData'
+          Core.<$> (x Core..: "NumberOfTrues")
+          Core.<*> (x Core..: "NumberOfFalses")
+          Core.<*> (x Core..: "NumberOfNulls")

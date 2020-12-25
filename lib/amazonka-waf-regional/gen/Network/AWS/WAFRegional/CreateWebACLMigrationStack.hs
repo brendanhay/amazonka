@@ -22,32 +22,30 @@ module Network.AWS.WAFRegional.CreateWebACLMigrationStack
     mkCreateWebACLMigrationStack,
 
     -- ** Request lenses
-    cwamsIgnoreUnsupportedType,
-    cwamsWebACLId,
-    cwamsS3BucketName,
+    cwaclmsWebACLId,
+    cwaclmsS3BucketName,
+    cwaclmsIgnoreUnsupportedType,
 
     -- * Destructuring the response
     CreateWebACLMigrationStackResponse (..),
     mkCreateWebACLMigrationStackResponse,
 
     -- ** Response lenses
-    cwamsrsS3ObjectURL,
-    cwamsrsResponseStatus,
+    cwaclmsrrsS3ObjectUrl,
+    cwaclmsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkCreateWebACLMigrationStack' smart constructor.
 data CreateWebACLMigrationStack = CreateWebACLMigrationStack'
-  { -- | Indicates whether to exclude entities that can't be migrated or to stop the migration. Set this to true to ignore unsupported entities in the web ACL during the migration. Otherwise, if AWS WAF encounters unsupported entities, it stops the process and throws an exception.
-    ignoreUnsupportedType :: Lude.Bool,
-    -- | The UUID of the WAF Classic web ACL that you want to migrate to WAF v2.
-    webACLId :: Lude.Text,
+  { -- | The UUID of the WAF Classic web ACL that you want to migrate to WAF v2.
+    webACLId :: Types.ResourceId,
     -- | The name of the Amazon S3 bucket to store the CloudFormation template in. The S3 bucket must be configured as follows for the migration:
     --
     --
@@ -58,57 +56,38 @@ data CreateWebACLMigrationStack = CreateWebACLMigrationStack'
     --
     --
     --     * The bucket policies must permit the migration process to write data. For listings of the bucket policies, see the Examples section.
-    s3BucketName :: Lude.Text
+    s3BucketName :: Types.S3BucketName,
+    -- | Indicates whether to exclude entities that can't be migrated or to stop the migration. Set this to true to ignore unsupported entities in the web ACL during the migration. Otherwise, if AWS WAF encounters unsupported entities, it stops the process and throws an exception.
+    ignoreUnsupportedType :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateWebACLMigrationStack' with the minimum fields required to make a request.
---
--- * 'ignoreUnsupportedType' - Indicates whether to exclude entities that can't be migrated or to stop the migration. Set this to true to ignore unsupported entities in the web ACL during the migration. Otherwise, if AWS WAF encounters unsupported entities, it stops the process and throws an exception.
--- * 'webACLId' - The UUID of the WAF Classic web ACL that you want to migrate to WAF v2.
--- * 's3BucketName' - The name of the Amazon S3 bucket to store the CloudFormation template in. The S3 bucket must be configured as follows for the migration:
---
---
---     * The bucket name must start with @aws-waf-migration-@ . For example, @aws-waf-migration-my-web-acl@ .
---
---
---     * The bucket must be in the Region where you are deploying the template. For example, for a web ACL in us-west-2, you must use an Amazon S3 bucket in us-west-2 and you must deploy the template stack to us-west-2.
---
---
---     * The bucket policies must permit the migration process to write data. For listings of the bucket policies, see the Examples section.
+-- | Creates a 'CreateWebACLMigrationStack' value with any optional fields omitted.
 mkCreateWebACLMigrationStack ::
-  -- | 'ignoreUnsupportedType'
-  Lude.Bool ->
   -- | 'webACLId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 's3BucketName'
-  Lude.Text ->
+  Types.S3BucketName ->
+  -- | 'ignoreUnsupportedType'
+  Core.Bool ->
   CreateWebACLMigrationStack
 mkCreateWebACLMigrationStack
-  pIgnoreUnsupportedType_
-  pWebACLId_
-  pS3BucketName_ =
+  webACLId
+  s3BucketName
+  ignoreUnsupportedType =
     CreateWebACLMigrationStack'
-      { ignoreUnsupportedType =
-          pIgnoreUnsupportedType_,
-        webACLId = pWebACLId_,
-        s3BucketName = pS3BucketName_
+      { webACLId,
+        s3BucketName,
+        ignoreUnsupportedType
       }
-
--- | Indicates whether to exclude entities that can't be migrated or to stop the migration. Set this to true to ignore unsupported entities in the web ACL during the migration. Otherwise, if AWS WAF encounters unsupported entities, it stops the process and throws an exception.
---
--- /Note:/ Consider using 'ignoreUnsupportedType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwamsIgnoreUnsupportedType :: Lens.Lens' CreateWebACLMigrationStack Lude.Bool
-cwamsIgnoreUnsupportedType = Lens.lens (ignoreUnsupportedType :: CreateWebACLMigrationStack -> Lude.Bool) (\s a -> s {ignoreUnsupportedType = a} :: CreateWebACLMigrationStack)
-{-# DEPRECATED cwamsIgnoreUnsupportedType "Use generic-lens or generic-optics with 'ignoreUnsupportedType' instead." #-}
 
 -- | The UUID of the WAF Classic web ACL that you want to migrate to WAF v2.
 --
 -- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwamsWebACLId :: Lens.Lens' CreateWebACLMigrationStack Lude.Text
-cwamsWebACLId = Lens.lens (webACLId :: CreateWebACLMigrationStack -> Lude.Text) (\s a -> s {webACLId = a} :: CreateWebACLMigrationStack)
-{-# DEPRECATED cwamsWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
+cwaclmsWebACLId :: Lens.Lens' CreateWebACLMigrationStack Types.ResourceId
+cwaclmsWebACLId = Lens.field @"webACLId"
+{-# DEPRECATED cwaclmsWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
 -- | The name of the Amazon S3 bucket to store the CloudFormation template in. The S3 bucket must be configured as follows for the migration:
 --
@@ -124,87 +103,82 @@ cwamsWebACLId = Lens.lens (webACLId :: CreateWebACLMigrationStack -> Lude.Text) 
 --
 --
 -- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwamsS3BucketName :: Lens.Lens' CreateWebACLMigrationStack Lude.Text
-cwamsS3BucketName = Lens.lens (s3BucketName :: CreateWebACLMigrationStack -> Lude.Text) (\s a -> s {s3BucketName = a} :: CreateWebACLMigrationStack)
-{-# DEPRECATED cwamsS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
+cwaclmsS3BucketName :: Lens.Lens' CreateWebACLMigrationStack Types.S3BucketName
+cwaclmsS3BucketName = Lens.field @"s3BucketName"
+{-# DEPRECATED cwaclmsS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
-instance Lude.AWSRequest CreateWebACLMigrationStack where
+-- | Indicates whether to exclude entities that can't be migrated or to stop the migration. Set this to true to ignore unsupported entities in the web ACL during the migration. Otherwise, if AWS WAF encounters unsupported entities, it stops the process and throws an exception.
+--
+-- /Note:/ Consider using 'ignoreUnsupportedType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwaclmsIgnoreUnsupportedType :: Lens.Lens' CreateWebACLMigrationStack Core.Bool
+cwaclmsIgnoreUnsupportedType = Lens.field @"ignoreUnsupportedType"
+{-# DEPRECATED cwaclmsIgnoreUnsupportedType "Use generic-lens or generic-optics with 'ignoreUnsupportedType' instead." #-}
+
+instance Core.FromJSON CreateWebACLMigrationStack where
+  toJSON CreateWebACLMigrationStack {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("WebACLId" Core..= webACLId),
+            Core.Just ("S3BucketName" Core..= s3BucketName),
+            Core.Just ("IgnoreUnsupportedType" Core..= ignoreUnsupportedType)
+          ]
+      )
+
+instance Core.AWSRequest CreateWebACLMigrationStack where
   type
     Rs CreateWebACLMigrationStack =
       CreateWebACLMigrationStackResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSWAF_Regional_20161128.CreateWebACLMigrationStack"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateWebACLMigrationStackResponse'
-            Lude.<$> (x Lude..:> "S3ObjectUrl") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "S3ObjectUrl") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateWebACLMigrationStack where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSWAF_Regional_20161128.CreateWebACLMigrationStack" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateWebACLMigrationStack where
-  toJSON CreateWebACLMigrationStack' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("IgnoreUnsupportedType" Lude..= ignoreUnsupportedType),
-            Lude.Just ("WebACLId" Lude..= webACLId),
-            Lude.Just ("S3BucketName" Lude..= s3BucketName)
-          ]
-      )
-
-instance Lude.ToPath CreateWebACLMigrationStack where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateWebACLMigrationStack where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateWebACLMigrationStackResponse' smart constructor.
 data CreateWebACLMigrationStackResponse = CreateWebACLMigrationStackResponse'
   { -- | The URL of the template created in Amazon S3.
-    s3ObjectURL :: Lude.Text,
+    s3ObjectUrl :: Types.S3ObjectUrl,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateWebACLMigrationStackResponse' with the minimum fields required to make a request.
---
--- * 's3ObjectURL' - The URL of the template created in Amazon S3.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateWebACLMigrationStackResponse' value with any optional fields omitted.
 mkCreateWebACLMigrationStackResponse ::
-  -- | 's3ObjectURL'
-  Lude.Text ->
+  -- | 's3ObjectUrl'
+  Types.S3ObjectUrl ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateWebACLMigrationStackResponse
-mkCreateWebACLMigrationStackResponse pS3ObjectURL_ pResponseStatus_ =
-  CreateWebACLMigrationStackResponse'
-    { s3ObjectURL = pS3ObjectURL_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateWebACLMigrationStackResponse s3ObjectUrl responseStatus =
+  CreateWebACLMigrationStackResponse' {s3ObjectUrl, responseStatus}
 
 -- | The URL of the template created in Amazon S3.
 --
--- /Note:/ Consider using 's3ObjectURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwamsrsS3ObjectURL :: Lens.Lens' CreateWebACLMigrationStackResponse Lude.Text
-cwamsrsS3ObjectURL = Lens.lens (s3ObjectURL :: CreateWebACLMigrationStackResponse -> Lude.Text) (\s a -> s {s3ObjectURL = a} :: CreateWebACLMigrationStackResponse)
-{-# DEPRECATED cwamsrsS3ObjectURL "Use generic-lens or generic-optics with 's3ObjectURL' instead." #-}
+-- /Note:/ Consider using 's3ObjectUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwaclmsrrsS3ObjectUrl :: Lens.Lens' CreateWebACLMigrationStackResponse Types.S3ObjectUrl
+cwaclmsrrsS3ObjectUrl = Lens.field @"s3ObjectUrl"
+{-# DEPRECATED cwaclmsrrsS3ObjectUrl "Use generic-lens or generic-optics with 's3ObjectUrl' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwamsrsResponseStatus :: Lens.Lens' CreateWebACLMigrationStackResponse Lude.Int
-cwamsrsResponseStatus = Lens.lens (responseStatus :: CreateWebACLMigrationStackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateWebACLMigrationStackResponse)
-{-# DEPRECATED cwamsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cwaclmsrrsResponseStatus :: Lens.Lens' CreateWebACLMigrationStackResponse Core.Int
+cwaclmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cwaclmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

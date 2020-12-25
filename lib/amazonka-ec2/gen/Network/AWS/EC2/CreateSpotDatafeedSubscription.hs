@@ -20,144 +20,139 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     mkCreateSpotDatafeedSubscription,
 
     -- ** Request lenses
-    csdsPrefix,
     csdsBucket,
     csdsDryRun,
+    csdsPrefix,
 
     -- * Destructuring the response
     CreateSpotDatafeedSubscriptionResponse (..),
     mkCreateSpotDatafeedSubscriptionResponse,
 
     -- ** Response lenses
-    csdsrsSpotDatafeedSubscription,
-    csdsrsResponseStatus,
+    csdsrrsSpotDatafeedSubscription,
+    csdsrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CreateSpotDatafeedSubscription.
 --
 -- /See:/ 'mkCreateSpotDatafeedSubscription' smart constructor.
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
-  { -- | The prefix for the data feed file names.
-    prefix :: Lude.Maybe Lude.Text,
-    -- | The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For more information about bucket names, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules Rules for bucket naming> in the /Amazon S3 Developer Guide/ .
-    bucket :: Lude.Text,
+  { -- | The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For more information about bucket names, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules Rules for bucket naming> in the /Amazon S3 Developer Guide/ .
+    bucket :: Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The prefix for the data feed file names.
+    prefix :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSpotDatafeedSubscription' with the minimum fields required to make a request.
---
--- * 'prefix' - The prefix for the data feed file names.
--- * 'bucket' - The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For more information about bucket names, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules Rules for bucket naming> in the /Amazon S3 Developer Guide/ .
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateSpotDatafeedSubscription' value with any optional fields omitted.
 mkCreateSpotDatafeedSubscription ::
   -- | 'bucket'
-  Lude.Text ->
+  Types.String ->
   CreateSpotDatafeedSubscription
-mkCreateSpotDatafeedSubscription pBucket_ =
+mkCreateSpotDatafeedSubscription bucket =
   CreateSpotDatafeedSubscription'
-    { prefix = Lude.Nothing,
-      bucket = pBucket_,
-      dryRun = Lude.Nothing
+    { bucket,
+      dryRun = Core.Nothing,
+      prefix = Core.Nothing
     }
-
--- | The prefix for the data feed file names.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdsPrefix :: Lens.Lens' CreateSpotDatafeedSubscription (Lude.Maybe Lude.Text)
-csdsPrefix = Lens.lens (prefix :: CreateSpotDatafeedSubscription -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: CreateSpotDatafeedSubscription)
-{-# DEPRECATED csdsPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For more information about bucket names, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules Rules for bucket naming> in the /Amazon S3 Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdsBucket :: Lens.Lens' CreateSpotDatafeedSubscription Lude.Text
-csdsBucket = Lens.lens (bucket :: CreateSpotDatafeedSubscription -> Lude.Text) (\s a -> s {bucket = a} :: CreateSpotDatafeedSubscription)
+csdsBucket :: Lens.Lens' CreateSpotDatafeedSubscription Types.String
+csdsBucket = Lens.field @"bucket"
 {-# DEPRECATED csdsBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdsDryRun :: Lens.Lens' CreateSpotDatafeedSubscription (Lude.Maybe Lude.Bool)
-csdsDryRun = Lens.lens (dryRun :: CreateSpotDatafeedSubscription -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateSpotDatafeedSubscription)
+csdsDryRun :: Lens.Lens' CreateSpotDatafeedSubscription (Core.Maybe Core.Bool)
+csdsDryRun = Lens.field @"dryRun"
 {-# DEPRECATED csdsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateSpotDatafeedSubscription where
+-- | The prefix for the data feed file names.
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csdsPrefix :: Lens.Lens' CreateSpotDatafeedSubscription (Core.Maybe Types.String)
+csdsPrefix = Lens.field @"prefix"
+{-# DEPRECATED csdsPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+instance Core.AWSRequest CreateSpotDatafeedSubscription where
   type
     Rs CreateSpotDatafeedSubscription =
       CreateSpotDatafeedSubscriptionResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateSpotDatafeedSubscription")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "Bucket" bucket)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "Prefix" Core.<$> prefix)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateSpotDatafeedSubscriptionResponse'
-            Lude.<$> (x Lude..@? "spotDatafeedSubscription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "spotDatafeedSubscription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateSpotDatafeedSubscription where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateSpotDatafeedSubscription where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateSpotDatafeedSubscription where
-  toQuery CreateSpotDatafeedSubscription' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("CreateSpotDatafeedSubscription" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Prefix" Lude.=: prefix,
-        "Bucket" Lude.=: bucket,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | Contains the output of CreateSpotDatafeedSubscription.
 --
 -- /See:/ 'mkCreateSpotDatafeedSubscriptionResponse' smart constructor.
 data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'
   { -- | The Spot Instance data feed subscription.
-    spotDatafeedSubscription :: Lude.Maybe SpotDatafeedSubscription,
+    spotDatafeedSubscription :: Core.Maybe Types.SpotDatafeedSubscription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSpotDatafeedSubscriptionResponse' with the minimum fields required to make a request.
---
--- * 'spotDatafeedSubscription' - The Spot Instance data feed subscription.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSpotDatafeedSubscriptionResponse' value with any optional fields omitted.
 mkCreateSpotDatafeedSubscriptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSpotDatafeedSubscriptionResponse
-mkCreateSpotDatafeedSubscriptionResponse pResponseStatus_ =
+mkCreateSpotDatafeedSubscriptionResponse responseStatus =
   CreateSpotDatafeedSubscriptionResponse'
     { spotDatafeedSubscription =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The Spot Instance data feed subscription.
 --
 -- /Note:/ Consider using 'spotDatafeedSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdsrsSpotDatafeedSubscription :: Lens.Lens' CreateSpotDatafeedSubscriptionResponse (Lude.Maybe SpotDatafeedSubscription)
-csdsrsSpotDatafeedSubscription = Lens.lens (spotDatafeedSubscription :: CreateSpotDatafeedSubscriptionResponse -> Lude.Maybe SpotDatafeedSubscription) (\s a -> s {spotDatafeedSubscription = a} :: CreateSpotDatafeedSubscriptionResponse)
-{-# DEPRECATED csdsrsSpotDatafeedSubscription "Use generic-lens or generic-optics with 'spotDatafeedSubscription' instead." #-}
+csdsrrsSpotDatafeedSubscription :: Lens.Lens' CreateSpotDatafeedSubscriptionResponse (Core.Maybe Types.SpotDatafeedSubscription)
+csdsrrsSpotDatafeedSubscription = Lens.field @"spotDatafeedSubscription"
+{-# DEPRECATED csdsrrsSpotDatafeedSubscription "Use generic-lens or generic-optics with 'spotDatafeedSubscription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdsrsResponseStatus :: Lens.Lens' CreateSpotDatafeedSubscriptionResponse Lude.Int
-csdsrsResponseStatus = Lens.lens (responseStatus :: CreateSpotDatafeedSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSpotDatafeedSubscriptionResponse)
-{-# DEPRECATED csdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csdsrrsResponseStatus :: Lens.Lens' CreateSpotDatafeedSubscriptionResponse Core.Int
+csdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

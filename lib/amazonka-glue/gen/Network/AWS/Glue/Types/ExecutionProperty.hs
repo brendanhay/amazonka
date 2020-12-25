@@ -22,44 +22,39 @@ module Network.AWS.Glue.Types.ExecutionProperty
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An execution property of a job.
 --
 -- /See:/ 'mkExecutionProperty' smart constructor.
 newtype ExecutionProperty = ExecutionProperty'
   { -- | The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
-    maxConcurrentRuns :: Lude.Maybe Lude.Int
+    maxConcurrentRuns :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExecutionProperty' with the minimum fields required to make a request.
---
--- * 'maxConcurrentRuns' - The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+-- | Creates a 'ExecutionProperty' value with any optional fields omitted.
 mkExecutionProperty ::
   ExecutionProperty
 mkExecutionProperty =
-  ExecutionProperty' {maxConcurrentRuns = Lude.Nothing}
+  ExecutionProperty' {maxConcurrentRuns = Core.Nothing}
 
 -- | The maximum number of concurrent runs allowed for the job. The default is 1. An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
 --
 -- /Note:/ Consider using 'maxConcurrentRuns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epMaxConcurrentRuns :: Lens.Lens' ExecutionProperty (Lude.Maybe Lude.Int)
-epMaxConcurrentRuns = Lens.lens (maxConcurrentRuns :: ExecutionProperty -> Lude.Maybe Lude.Int) (\s a -> s {maxConcurrentRuns = a} :: ExecutionProperty)
+epMaxConcurrentRuns :: Lens.Lens' ExecutionProperty (Core.Maybe Core.Int)
+epMaxConcurrentRuns = Lens.field @"maxConcurrentRuns"
 {-# DEPRECATED epMaxConcurrentRuns "Use generic-lens or generic-optics with 'maxConcurrentRuns' instead." #-}
 
-instance Lude.FromJSON ExecutionProperty where
-  parseJSON =
-    Lude.withObject
-      "ExecutionProperty"
-      ( \x ->
-          ExecutionProperty' Lude.<$> (x Lude..:? "MaxConcurrentRuns")
+instance Core.FromJSON ExecutionProperty where
+  toJSON ExecutionProperty {..} =
+    Core.object
+      ( Core.catMaybes
+          [("MaxConcurrentRuns" Core..=) Core.<$> maxConcurrentRuns]
       )
 
-instance Lude.ToJSON ExecutionProperty where
-  toJSON ExecutionProperty' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("MaxConcurrentRuns" Lude..=) Lude.<$> maxConcurrentRuns]
-      )
+instance Core.FromJSON ExecutionProperty where
+  parseJSON =
+    Core.withObject "ExecutionProperty" Core.$
+      \x -> ExecutionProperty' Core.<$> (x Core..:? "MaxConcurrentRuns")

@@ -22,10 +22,10 @@ module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     mkUnlinkDeveloperIdentity,
 
     -- ** Request lenses
-    udiDeveloperUserIdentifier,
+    udiIdentityId,
     udiIdentityPoolId,
     udiDeveloperProviderName,
-    udiIdentityId,
+    udiDeveloperUserIdentifier,
 
     -- * Destructuring the response
     UnlinkDeveloperIdentityResponse (..),
@@ -33,127 +33,115 @@ module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
   )
 where
 
-import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.CognitoIdentity.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to the @UnlinkDeveloperIdentity@ action.
 --
 -- /See:/ 'mkUnlinkDeveloperIdentity' smart constructor.
 data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
-  { -- | A unique ID used by your backend authentication process to identify a user.
-    developerUserIdentifier :: Lude.Text,
+  { -- | A unique identifier in the format REGION:GUID.
+    identityId :: Types.IdentityId,
     -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Lude.Text,
+    identityPoolId :: Types.IdentityPoolId,
     -- | The "domain" by which Cognito will refer to your users.
-    developerProviderName :: Lude.Text,
-    -- | A unique identifier in the format REGION:GUID.
-    identityId :: Lude.Text
+    developerProviderName :: Types.DeveloperProviderName,
+    -- | A unique ID used by your backend authentication process to identify a user.
+    developerUserIdentifier :: Types.DeveloperUserIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnlinkDeveloperIdentity' with the minimum fields required to make a request.
---
--- * 'developerUserIdentifier' - A unique ID used by your backend authentication process to identify a user.
--- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
--- * 'developerProviderName' - The "domain" by which Cognito will refer to your users.
--- * 'identityId' - A unique identifier in the format REGION:GUID.
+-- | Creates a 'UnlinkDeveloperIdentity' value with any optional fields omitted.
 mkUnlinkDeveloperIdentity ::
-  -- | 'developerUserIdentifier'
-  Lude.Text ->
-  -- | 'identityPoolId'
-  Lude.Text ->
-  -- | 'developerProviderName'
-  Lude.Text ->
   -- | 'identityId'
-  Lude.Text ->
+  Types.IdentityId ->
+  -- | 'identityPoolId'
+  Types.IdentityPoolId ->
+  -- | 'developerProviderName'
+  Types.DeveloperProviderName ->
+  -- | 'developerUserIdentifier'
+  Types.DeveloperUserIdentifier ->
   UnlinkDeveloperIdentity
 mkUnlinkDeveloperIdentity
-  pDeveloperUserIdentifier_
-  pIdentityPoolId_
-  pDeveloperProviderName_
-  pIdentityId_ =
+  identityId
+  identityPoolId
+  developerProviderName
+  developerUserIdentifier =
     UnlinkDeveloperIdentity'
-      { developerUserIdentifier =
-          pDeveloperUserIdentifier_,
-        identityPoolId = pIdentityPoolId_,
-        developerProviderName = pDeveloperProviderName_,
-        identityId = pIdentityId_
+      { identityId,
+        identityPoolId,
+        developerProviderName,
+        developerUserIdentifier
       }
 
--- | A unique ID used by your backend authentication process to identify a user.
+-- | A unique identifier in the format REGION:GUID.
 --
--- /Note:/ Consider using 'developerUserIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udiDeveloperUserIdentifier :: Lens.Lens' UnlinkDeveloperIdentity Lude.Text
-udiDeveloperUserIdentifier = Lens.lens (developerUserIdentifier :: UnlinkDeveloperIdentity -> Lude.Text) (\s a -> s {developerUserIdentifier = a} :: UnlinkDeveloperIdentity)
-{-# DEPRECATED udiDeveloperUserIdentifier "Use generic-lens or generic-optics with 'developerUserIdentifier' instead." #-}
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udiIdentityId :: Lens.Lens' UnlinkDeveloperIdentity Types.IdentityId
+udiIdentityId = Lens.field @"identityId"
+{-# DEPRECATED udiIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | An identity pool ID in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udiIdentityPoolId :: Lens.Lens' UnlinkDeveloperIdentity Lude.Text
-udiIdentityPoolId = Lens.lens (identityPoolId :: UnlinkDeveloperIdentity -> Lude.Text) (\s a -> s {identityPoolId = a} :: UnlinkDeveloperIdentity)
+udiIdentityPoolId :: Lens.Lens' UnlinkDeveloperIdentity Types.IdentityPoolId
+udiIdentityPoolId = Lens.field @"identityPoolId"
 {-# DEPRECATED udiIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | The "domain" by which Cognito will refer to your users.
 --
 -- /Note:/ Consider using 'developerProviderName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udiDeveloperProviderName :: Lens.Lens' UnlinkDeveloperIdentity Lude.Text
-udiDeveloperProviderName = Lens.lens (developerProviderName :: UnlinkDeveloperIdentity -> Lude.Text) (\s a -> s {developerProviderName = a} :: UnlinkDeveloperIdentity)
+udiDeveloperProviderName :: Lens.Lens' UnlinkDeveloperIdentity Types.DeveloperProviderName
+udiDeveloperProviderName = Lens.field @"developerProviderName"
 {-# DEPRECATED udiDeveloperProviderName "Use generic-lens or generic-optics with 'developerProviderName' instead." #-}
 
--- | A unique identifier in the format REGION:GUID.
+-- | A unique ID used by your backend authentication process to identify a user.
 --
--- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udiIdentityId :: Lens.Lens' UnlinkDeveloperIdentity Lude.Text
-udiIdentityId = Lens.lens (identityId :: UnlinkDeveloperIdentity -> Lude.Text) (\s a -> s {identityId = a} :: UnlinkDeveloperIdentity)
-{-# DEPRECATED udiIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
+-- /Note:/ Consider using 'developerUserIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udiDeveloperUserIdentifier :: Lens.Lens' UnlinkDeveloperIdentity Types.DeveloperUserIdentifier
+udiDeveloperUserIdentifier = Lens.field @"developerUserIdentifier"
+{-# DEPRECATED udiDeveloperUserIdentifier "Use generic-lens or generic-optics with 'developerUserIdentifier' instead." #-}
 
-instance Lude.AWSRequest UnlinkDeveloperIdentity where
+instance Core.FromJSON UnlinkDeveloperIdentity where
+  toJSON UnlinkDeveloperIdentity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("IdentityId" Core..= identityId),
+            Core.Just ("IdentityPoolId" Core..= identityPoolId),
+            Core.Just ("DeveloperProviderName" Core..= developerProviderName),
+            Core.Just
+              ("DeveloperUserIdentifier" Core..= developerUserIdentifier)
+          ]
+      )
+
+instance Core.AWSRequest UnlinkDeveloperIdentity where
   type Rs UnlinkDeveloperIdentity = UnlinkDeveloperIdentityResponse
-  request = Req.postJSON cognitoIdentityService
-  response = Res.receiveNull UnlinkDeveloperIdentityResponse'
-
-instance Lude.ToHeaders UnlinkDeveloperIdentity where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityService.UnlinkDeveloperIdentity" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UnlinkDeveloperIdentity where
-  toJSON UnlinkDeveloperIdentity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("DeveloperUserIdentifier" Lude..= developerUserIdentifier),
-            Lude.Just ("IdentityPoolId" Lude..= identityPoolId),
-            Lude.Just ("DeveloperProviderName" Lude..= developerProviderName),
-            Lude.Just ("IdentityId" Lude..= identityId)
-          ]
-      )
-
-instance Lude.ToPath UnlinkDeveloperIdentity where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UnlinkDeveloperIdentity where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityService.UnlinkDeveloperIdentity"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UnlinkDeveloperIdentityResponse'
 
 -- | /See:/ 'mkUnlinkDeveloperIdentityResponse' smart constructor.
 data UnlinkDeveloperIdentityResponse = UnlinkDeveloperIdentityResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnlinkDeveloperIdentityResponse' with the minimum fields required to make a request.
+-- | Creates a 'UnlinkDeveloperIdentityResponse' value with any optional fields omitted.
 mkUnlinkDeveloperIdentityResponse ::
   UnlinkDeveloperIdentityResponse
 mkUnlinkDeveloperIdentityResponse =

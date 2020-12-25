@@ -20,9 +20,9 @@ module Network.AWS.Lambda.UpdateCodeSigningConfig
     mkUpdateCodeSigningConfig,
 
     -- ** Request lenses
+    ucscCodeSigningConfigArn,
     ucscAllowedPublishers,
     ucscCodeSigningPolicies,
-    ucscCodeSigningConfigARN,
     ucscDescription,
 
     -- * Destructuring the response
@@ -30,150 +30,138 @@ module Network.AWS.Lambda.UpdateCodeSigningConfig
     mkUpdateCodeSigningConfigResponse,
 
     -- ** Response lenses
-    ucscrsCodeSigningConfig,
-    ucscrsResponseStatus,
+    ucscrrsCodeSigningConfig,
+    ucscrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateCodeSigningConfig' smart constructor.
 data UpdateCodeSigningConfig = UpdateCodeSigningConfig'
-  { -- | Signing profiles for this code signing configuration.
-    allowedPublishers :: Lude.Maybe AllowedPublishers,
+  { -- | The The Amazon Resource Name (ARN) of the code signing configuration.
+    codeSigningConfigArn :: Types.CodeSigningConfigArn,
+    -- | Signing profiles for this code signing configuration.
+    allowedPublishers :: Core.Maybe Types.AllowedPublishers,
     -- | The code signing policy.
-    codeSigningPolicies :: Lude.Maybe CodeSigningPolicies,
-    -- | The The Amazon Resource Name (ARN) of the code signing configuration.
-    codeSigningConfigARN :: Lude.Text,
+    codeSigningPolicies :: Core.Maybe Types.CodeSigningPolicies,
     -- | Descriptive name for this code signing configuration.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCodeSigningConfig' with the minimum fields required to make a request.
---
--- * 'allowedPublishers' - Signing profiles for this code signing configuration.
--- * 'codeSigningPolicies' - The code signing policy.
--- * 'codeSigningConfigARN' - The The Amazon Resource Name (ARN) of the code signing configuration.
--- * 'description' - Descriptive name for this code signing configuration.
+-- | Creates a 'UpdateCodeSigningConfig' value with any optional fields omitted.
 mkUpdateCodeSigningConfig ::
-  -- | 'codeSigningConfigARN'
-  Lude.Text ->
+  -- | 'codeSigningConfigArn'
+  Types.CodeSigningConfigArn ->
   UpdateCodeSigningConfig
-mkUpdateCodeSigningConfig pCodeSigningConfigARN_ =
+mkUpdateCodeSigningConfig codeSigningConfigArn =
   UpdateCodeSigningConfig'
-    { allowedPublishers = Lude.Nothing,
-      codeSigningPolicies = Lude.Nothing,
-      codeSigningConfigARN = pCodeSigningConfigARN_,
-      description = Lude.Nothing
+    { codeSigningConfigArn,
+      allowedPublishers = Core.Nothing,
+      codeSigningPolicies = Core.Nothing,
+      description = Core.Nothing
     }
+
+-- | The The Amazon Resource Name (ARN) of the code signing configuration.
+--
+-- /Note:/ Consider using 'codeSigningConfigArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucscCodeSigningConfigArn :: Lens.Lens' UpdateCodeSigningConfig Types.CodeSigningConfigArn
+ucscCodeSigningConfigArn = Lens.field @"codeSigningConfigArn"
+{-# DEPRECATED ucscCodeSigningConfigArn "Use generic-lens or generic-optics with 'codeSigningConfigArn' instead." #-}
 
 -- | Signing profiles for this code signing configuration.
 --
 -- /Note:/ Consider using 'allowedPublishers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucscAllowedPublishers :: Lens.Lens' UpdateCodeSigningConfig (Lude.Maybe AllowedPublishers)
-ucscAllowedPublishers = Lens.lens (allowedPublishers :: UpdateCodeSigningConfig -> Lude.Maybe AllowedPublishers) (\s a -> s {allowedPublishers = a} :: UpdateCodeSigningConfig)
+ucscAllowedPublishers :: Lens.Lens' UpdateCodeSigningConfig (Core.Maybe Types.AllowedPublishers)
+ucscAllowedPublishers = Lens.field @"allowedPublishers"
 {-# DEPRECATED ucscAllowedPublishers "Use generic-lens or generic-optics with 'allowedPublishers' instead." #-}
 
 -- | The code signing policy.
 --
 -- /Note:/ Consider using 'codeSigningPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucscCodeSigningPolicies :: Lens.Lens' UpdateCodeSigningConfig (Lude.Maybe CodeSigningPolicies)
-ucscCodeSigningPolicies = Lens.lens (codeSigningPolicies :: UpdateCodeSigningConfig -> Lude.Maybe CodeSigningPolicies) (\s a -> s {codeSigningPolicies = a} :: UpdateCodeSigningConfig)
+ucscCodeSigningPolicies :: Lens.Lens' UpdateCodeSigningConfig (Core.Maybe Types.CodeSigningPolicies)
+ucscCodeSigningPolicies = Lens.field @"codeSigningPolicies"
 {-# DEPRECATED ucscCodeSigningPolicies "Use generic-lens or generic-optics with 'codeSigningPolicies' instead." #-}
-
--- | The The Amazon Resource Name (ARN) of the code signing configuration.
---
--- /Note:/ Consider using 'codeSigningConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucscCodeSigningConfigARN :: Lens.Lens' UpdateCodeSigningConfig Lude.Text
-ucscCodeSigningConfigARN = Lens.lens (codeSigningConfigARN :: UpdateCodeSigningConfig -> Lude.Text) (\s a -> s {codeSigningConfigARN = a} :: UpdateCodeSigningConfig)
-{-# DEPRECATED ucscCodeSigningConfigARN "Use generic-lens or generic-optics with 'codeSigningConfigARN' instead." #-}
 
 -- | Descriptive name for this code signing configuration.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucscDescription :: Lens.Lens' UpdateCodeSigningConfig (Lude.Maybe Lude.Text)
-ucscDescription = Lens.lens (description :: UpdateCodeSigningConfig -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateCodeSigningConfig)
+ucscDescription :: Lens.Lens' UpdateCodeSigningConfig (Core.Maybe Types.Description)
+ucscDescription = Lens.field @"description"
 {-# DEPRECATED ucscDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest UpdateCodeSigningConfig where
-  type Rs UpdateCodeSigningConfig = UpdateCodeSigningConfigResponse
-  request = Req.putJSON lambdaService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateCodeSigningConfigResponse'
-            Lude.<$> (x Lude..:> "CodeSigningConfig")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateCodeSigningConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateCodeSigningConfig where
-  toJSON UpdateCodeSigningConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AllowedPublishers" Lude..=) Lude.<$> allowedPublishers,
-            ("CodeSigningPolicies" Lude..=) Lude.<$> codeSigningPolicies,
-            ("Description" Lude..=) Lude.<$> description
+instance Core.FromJSON UpdateCodeSigningConfig where
+  toJSON UpdateCodeSigningConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AllowedPublishers" Core..=) Core.<$> allowedPublishers,
+            ("CodeSigningPolicies" Core..=) Core.<$> codeSigningPolicies,
+            ("Description" Core..=) Core.<$> description
           ]
       )
 
-instance Lude.ToPath UpdateCodeSigningConfig where
-  toPath UpdateCodeSigningConfig' {..} =
-    Lude.mconcat
-      [ "/2020-04-22/code-signing-configs/",
-        Lude.toBS codeSigningConfigARN
-      ]
-
-instance Lude.ToQuery UpdateCodeSigningConfig where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateCodeSigningConfig where
+  type Rs UpdateCodeSigningConfig = UpdateCodeSigningConfigResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-04-22/code-signing-configs/"
+                Core.<> (Core.toText codeSigningConfigArn)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateCodeSigningConfigResponse'
+            Core.<$> (x Core..: "CodeSigningConfig")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateCodeSigningConfigResponse' smart constructor.
 data UpdateCodeSigningConfigResponse = UpdateCodeSigningConfigResponse'
   { -- | The code signing configuration
-    codeSigningConfig :: CodeSigningConfig,
+    codeSigningConfig :: Types.CodeSigningConfig,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCodeSigningConfigResponse' with the minimum fields required to make a request.
---
--- * 'codeSigningConfig' - The code signing configuration
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateCodeSigningConfigResponse' value with any optional fields omitted.
 mkUpdateCodeSigningConfigResponse ::
   -- | 'codeSigningConfig'
-  CodeSigningConfig ->
+  Types.CodeSigningConfig ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateCodeSigningConfigResponse
-mkUpdateCodeSigningConfigResponse
-  pCodeSigningConfig_
-  pResponseStatus_ =
-    UpdateCodeSigningConfigResponse'
-      { codeSigningConfig =
-          pCodeSigningConfig_,
-        responseStatus = pResponseStatus_
-      }
+mkUpdateCodeSigningConfigResponse codeSigningConfig responseStatus =
+  UpdateCodeSigningConfigResponse'
+    { codeSigningConfig,
+      responseStatus
+    }
 
 -- | The code signing configuration
 --
 -- /Note:/ Consider using 'codeSigningConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucscrsCodeSigningConfig :: Lens.Lens' UpdateCodeSigningConfigResponse CodeSigningConfig
-ucscrsCodeSigningConfig = Lens.lens (codeSigningConfig :: UpdateCodeSigningConfigResponse -> CodeSigningConfig) (\s a -> s {codeSigningConfig = a} :: UpdateCodeSigningConfigResponse)
-{-# DEPRECATED ucscrsCodeSigningConfig "Use generic-lens or generic-optics with 'codeSigningConfig' instead." #-}
+ucscrrsCodeSigningConfig :: Lens.Lens' UpdateCodeSigningConfigResponse Types.CodeSigningConfig
+ucscrrsCodeSigningConfig = Lens.field @"codeSigningConfig"
+{-# DEPRECATED ucscrrsCodeSigningConfig "Use generic-lens or generic-optics with 'codeSigningConfig' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucscrsResponseStatus :: Lens.Lens' UpdateCodeSigningConfigResponse Lude.Int
-ucscrsResponseStatus = Lens.lens (responseStatus :: UpdateCodeSigningConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateCodeSigningConfigResponse)
-{-# DEPRECATED ucscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucscrrsResponseStatus :: Lens.Lens' UpdateCodeSigningConfigResponse Core.Int
+ucscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

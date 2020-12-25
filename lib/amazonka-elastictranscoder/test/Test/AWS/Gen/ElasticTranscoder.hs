@@ -234,7 +234,7 @@ responseDeletePreset =
   res
     "DeletePresetResponse"
     "fixture/DeletePresetResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy DeletePreset)
 
 responseUpdatePipelineStatus :: UpdatePipelineStatusResponse -> TestTree
@@ -242,7 +242,7 @@ responseUpdatePipelineStatus =
   res
     "UpdatePipelineStatusResponse"
     "fixture/UpdatePipelineStatusResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePipelineStatus)
 
 responseListJobsByPipeline :: ListJobsByPipelineResponse -> TestTree
@@ -250,7 +250,7 @@ responseListJobsByPipeline =
   res
     "ListJobsByPipelineResponse"
     "fixture/ListJobsByPipelineResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy ListJobsByPipeline)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
@@ -258,7 +258,7 @@ responseUpdatePipeline =
   res
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePipeline)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
@@ -266,7 +266,7 @@ responseDeletePipeline =
   res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy DeletePipeline)
 
 responseCreateJob :: CreateJobResponse -> TestTree
@@ -274,7 +274,7 @@ responseCreateJob =
   res
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy CreateJob)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
@@ -282,7 +282,7 @@ responseListPipelines =
   res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy ListPipelines)
 
 responseCreatePreset :: CreatePresetResponse -> TestTree
@@ -290,7 +290,7 @@ responseCreatePreset =
   res
     "CreatePresetResponse"
     "fixture/CreatePresetResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy CreatePreset)
 
 responseListPresets :: ListPresetsResponse -> TestTree
@@ -298,7 +298,7 @@ responseListPresets =
   res
     "ListPresetsResponse"
     "fixture/ListPresetsResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy ListPresets)
 
 responseReadPreset :: ReadPresetResponse -> TestTree
@@ -306,7 +306,7 @@ responseReadPreset =
   res
     "ReadPresetResponse"
     "fixture/ReadPresetResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy ReadPreset)
 
 responseReadJob :: ReadJobResponse -> TestTree
@@ -314,7 +314,7 @@ responseReadJob =
   res
     "ReadJobResponse"
     "fixture/ReadJobResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy ReadJob)
 
 responseUpdatePipelineNotifications :: UpdatePipelineNotificationsResponse -> TestTree
@@ -322,7 +322,7 @@ responseUpdatePipelineNotifications =
   res
     "UpdatePipelineNotificationsResponse"
     "fixture/UpdatePipelineNotificationsResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePipelineNotifications)
 
 responseReadPipeline :: ReadPipelineResponse -> TestTree
@@ -330,7 +330,7 @@ responseReadPipeline =
   res
     "ReadPipelineResponse"
     "fixture/ReadPipelineResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy ReadPipeline)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
@@ -338,7 +338,7 @@ responseCreatePipeline =
   res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy CreatePipeline)
 
 responseListJobsByStatus :: ListJobsByStatusResponse -> TestTree
@@ -346,7 +346,7 @@ responseListJobsByStatus =
   res
     "ListJobsByStatusResponse"
     "fixture/ListJobsByStatusResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy ListJobsByStatus)
 
 responseCancelJob :: CancelJobResponse -> TestTree
@@ -354,5 +354,5 @@ responseCancelJob =
   res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
-    elasticTranscoderService
+    mkServiceConfig
     (Proxy :: Proxy CancelJob)

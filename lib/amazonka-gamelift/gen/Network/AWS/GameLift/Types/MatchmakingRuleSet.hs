@@ -17,15 +17,18 @@ module Network.AWS.GameLift.Types.MatchmakingRuleSet
     mkMatchmakingRuleSet,
 
     -- * Lenses
-    mrsCreationTime,
-    mrsRuleSetName,
     mrsRuleSetBody,
-    mrsRuleSetARN,
+    mrsCreationTime,
+    mrsRuleSetArn,
+    mrsRuleSetName,
   )
 where
 
+import qualified Network.AWS.GameLift.Types.MatchmakingRuleSetArn as Types
+import qualified Network.AWS.GameLift.Types.RuleSetBody as Types
+import qualified Network.AWS.GameLift.Types.RuleSetName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Set of rule statements, used with FlexMatch, that determine how to build your player matches. Each rule set describes a type of group to be created and defines the parameters for acceptable player matches. Rule sets are used in 'MatchmakingConfiguration' objects.
 --
@@ -46,72 +49,65 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMatchmakingRuleSet' smart constructor.
 data MatchmakingRuleSet = MatchmakingRuleSet'
-  { -- | The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | A unique identifier for a matchmaking rule set
-    ruleSetName :: Lude.Maybe Lude.Text,
-    -- | A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
-    ruleSetBody :: Lude.Text,
+  { -- | A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
+    ruleSetBody :: Types.RuleSetBody,
+    -- | The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift matchmaking rule set resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
-    ruleSetARN :: Lude.Maybe Lude.Text
+    ruleSetArn :: Core.Maybe Types.MatchmakingRuleSetArn,
+    -- | A unique identifier for a matchmaking rule set
+    ruleSetName :: Core.Maybe Types.RuleSetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MatchmakingRuleSet' with the minimum fields required to make a request.
---
--- * 'creationTime' - The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
--- * 'ruleSetName' - A unique identifier for a matchmaking rule set
--- * 'ruleSetBody' - A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
--- * 'ruleSetARN' - Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift matchmaking rule set resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
+-- | Creates a 'MatchmakingRuleSet' value with any optional fields omitted.
 mkMatchmakingRuleSet ::
   -- | 'ruleSetBody'
-  Lude.Text ->
+  Types.RuleSetBody ->
   MatchmakingRuleSet
-mkMatchmakingRuleSet pRuleSetBody_ =
+mkMatchmakingRuleSet ruleSetBody =
   MatchmakingRuleSet'
-    { creationTime = Lude.Nothing,
-      ruleSetName = Lude.Nothing,
-      ruleSetBody = pRuleSetBody_,
-      ruleSetARN = Lude.Nothing
+    { ruleSetBody,
+      creationTime = Core.Nothing,
+      ruleSetArn = Core.Nothing,
+      ruleSetName = Core.Nothing
     }
-
--- | The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrsCreationTime :: Lens.Lens' MatchmakingRuleSet (Lude.Maybe Lude.Timestamp)
-mrsCreationTime = Lens.lens (creationTime :: MatchmakingRuleSet -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: MatchmakingRuleSet)
-{-# DEPRECATED mrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | A unique identifier for a matchmaking rule set
---
--- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrsRuleSetName :: Lens.Lens' MatchmakingRuleSet (Lude.Maybe Lude.Text)
-mrsRuleSetName = Lens.lens (ruleSetName :: MatchmakingRuleSet -> Lude.Maybe Lude.Text) (\s a -> s {ruleSetName = a} :: MatchmakingRuleSet)
-{-# DEPRECATED mrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
 -- | A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
 --
 -- /Note:/ Consider using 'ruleSetBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrsRuleSetBody :: Lens.Lens' MatchmakingRuleSet Lude.Text
-mrsRuleSetBody = Lens.lens (ruleSetBody :: MatchmakingRuleSet -> Lude.Text) (\s a -> s {ruleSetBody = a} :: MatchmakingRuleSet)
+mrsRuleSetBody :: Lens.Lens' MatchmakingRuleSet Types.RuleSetBody
+mrsRuleSetBody = Lens.field @"ruleSetBody"
 {-# DEPRECATED mrsRuleSetBody "Use generic-lens or generic-optics with 'ruleSetBody' instead." #-}
+
+-- | The time stamp indicating when this data object was created. The format is a number expressed in Unix time as milliseconds (for example "1469498468.057").
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrsCreationTime :: Lens.Lens' MatchmakingRuleSet (Core.Maybe Core.NominalDiffTime)
+mrsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED mrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | Amazon Resource Name (<https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html ARN> ) that is assigned to a GameLift matchmaking rule set resource and uniquely identifies it. ARNs are unique across all Regions. In a GameLift rule set ARN, the resource ID matches the /RuleSetName/ value.
 --
--- /Note:/ Consider using 'ruleSetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mrsRuleSetARN :: Lens.Lens' MatchmakingRuleSet (Lude.Maybe Lude.Text)
-mrsRuleSetARN = Lens.lens (ruleSetARN :: MatchmakingRuleSet -> Lude.Maybe Lude.Text) (\s a -> s {ruleSetARN = a} :: MatchmakingRuleSet)
-{-# DEPRECATED mrsRuleSetARN "Use generic-lens or generic-optics with 'ruleSetARN' instead." #-}
+-- /Note:/ Consider using 'ruleSetArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrsRuleSetArn :: Lens.Lens' MatchmakingRuleSet (Core.Maybe Types.MatchmakingRuleSetArn)
+mrsRuleSetArn = Lens.field @"ruleSetArn"
+{-# DEPRECATED mrsRuleSetArn "Use generic-lens or generic-optics with 'ruleSetArn' instead." #-}
 
-instance Lude.FromJSON MatchmakingRuleSet where
+-- | A unique identifier for a matchmaking rule set
+--
+-- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mrsRuleSetName :: Lens.Lens' MatchmakingRuleSet (Core.Maybe Types.RuleSetName)
+mrsRuleSetName = Lens.field @"ruleSetName"
+{-# DEPRECATED mrsRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
+
+instance Core.FromJSON MatchmakingRuleSet where
   parseJSON =
-    Lude.withObject
-      "MatchmakingRuleSet"
-      ( \x ->
-          MatchmakingRuleSet'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "RuleSetName")
-            Lude.<*> (x Lude..: "RuleSetBody")
-            Lude.<*> (x Lude..:? "RuleSetArn")
-      )
+    Core.withObject "MatchmakingRuleSet" Core.$
+      \x ->
+        MatchmakingRuleSet'
+          Core.<$> (x Core..: "RuleSetBody")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "RuleSetArn")
+          Core.<*> (x Core..:? "RuleSetName")

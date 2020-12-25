@@ -13,61 +13,66 @@
 module Network.AWS.Glue.Types.WorkflowRunStatus
   ( WorkflowRunStatus
       ( WorkflowRunStatus',
-        WRSRunning,
-        WRSCompleted,
-        WRSStopping,
-        WRSStopped,
-        WRSError
+        WorkflowRunStatusRunning,
+        WorkflowRunStatusCompleted,
+        WorkflowRunStatusStopping,
+        WorkflowRunStatusStopped,
+        WorkflowRunStatusError,
+        fromWorkflowRunStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WorkflowRunStatus = WorkflowRunStatus' Lude.Text
+newtype WorkflowRunStatus = WorkflowRunStatus'
+  { fromWorkflowRunStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern WRSRunning :: WorkflowRunStatus
-pattern WRSRunning = WorkflowRunStatus' "RUNNING"
+pattern WorkflowRunStatusRunning :: WorkflowRunStatus
+pattern WorkflowRunStatusRunning = WorkflowRunStatus' "RUNNING"
 
-pattern WRSCompleted :: WorkflowRunStatus
-pattern WRSCompleted = WorkflowRunStatus' "COMPLETED"
+pattern WorkflowRunStatusCompleted :: WorkflowRunStatus
+pattern WorkflowRunStatusCompleted = WorkflowRunStatus' "COMPLETED"
 
-pattern WRSStopping :: WorkflowRunStatus
-pattern WRSStopping = WorkflowRunStatus' "STOPPING"
+pattern WorkflowRunStatusStopping :: WorkflowRunStatus
+pattern WorkflowRunStatusStopping = WorkflowRunStatus' "STOPPING"
 
-pattern WRSStopped :: WorkflowRunStatus
-pattern WRSStopped = WorkflowRunStatus' "STOPPED"
+pattern WorkflowRunStatusStopped :: WorkflowRunStatus
+pattern WorkflowRunStatusStopped = WorkflowRunStatus' "STOPPED"
 
-pattern WRSError :: WorkflowRunStatus
-pattern WRSError = WorkflowRunStatus' "ERROR"
+pattern WorkflowRunStatusError :: WorkflowRunStatus
+pattern WorkflowRunStatusError = WorkflowRunStatus' "ERROR"
 
 {-# COMPLETE
-  WRSRunning,
-  WRSCompleted,
-  WRSStopping,
-  WRSStopped,
-  WRSError,
+  WorkflowRunStatusRunning,
+  WorkflowRunStatusCompleted,
+  WorkflowRunStatusStopping,
+  WorkflowRunStatusStopped,
+  WorkflowRunStatusError,
   WorkflowRunStatus'
   #-}

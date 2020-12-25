@@ -17,23 +17,29 @@ module Network.AWS.CodeDeploy.Types.S3Location
     mkS3Location,
 
     -- * Lenses
+    slBucket,
     slBundleType,
     slETag,
-    slBucket,
     slKey,
     slVersion,
   )
 where
 
-import Network.AWS.CodeDeploy.Types.BundleType
+import qualified Network.AWS.CodeDeploy.Types.Bucket as Types
+import qualified Network.AWS.CodeDeploy.Types.BundleType as Types
+import qualified Network.AWS.CodeDeploy.Types.ETag as Types
+import qualified Network.AWS.CodeDeploy.Types.S3Key as Types
+import qualified Network.AWS.CodeDeploy.Types.VersionId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the location of application artifacts stored in Amazon S3.
 --
 -- /See:/ 'mkS3Location' smart constructor.
 data S3Location = S3Location'
-  { -- | The file type of the application revision. Must be one of the following:
+  { -- | The name of the Amazon S3 bucket where the application revision is stored.
+    bucket :: Core.Maybe Types.Bucket,
+    -- | The file type of the application revision. Must be one of the following:
     --
     --
     --     * @tar@ : A tar archive file.
@@ -43,55 +49,39 @@ data S3Location = S3Location'
     --
     --
     --     * @zip@ : A zip archive file.
-    bundleType :: Lude.Maybe BundleType,
+    bundleType :: Core.Maybe Types.BundleType,
     -- | The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision.
     --
     -- If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
-    eTag :: Lude.Maybe Lude.Text,
-    -- | The name of the Amazon S3 bucket where the application revision is stored.
-    bucket :: Lude.Maybe Lude.Text,
+    eTag :: Core.Maybe Types.ETag,
     -- | The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
-    key :: Lude.Maybe Lude.Text,
+    key :: Core.Maybe Types.S3Key,
     -- | A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision.
     --
     -- If the version is not specified, the system uses the most recent version by default.
-    version :: Lude.Maybe Lude.Text
+    version :: Core.Maybe Types.VersionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3Location' with the minimum fields required to make a request.
---
--- * 'bundleType' - The file type of the application revision. Must be one of the following:
---
---
---     * @tar@ : A tar archive file.
---
---
---     * @tgz@ : A compressed tar archive file.
---
---
---     * @zip@ : A zip archive file.
---
---
--- * 'eTag' - The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision.
---
--- If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
--- * 'bucket' - The name of the Amazon S3 bucket where the application revision is stored.
--- * 'key' - The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
--- * 'version' - A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision.
---
--- If the version is not specified, the system uses the most recent version by default.
+-- | Creates a 'S3Location' value with any optional fields omitted.
 mkS3Location ::
   S3Location
 mkS3Location =
   S3Location'
-    { bundleType = Lude.Nothing,
-      eTag = Lude.Nothing,
-      bucket = Lude.Nothing,
-      key = Lude.Nothing,
-      version = Lude.Nothing
+    { bucket = Core.Nothing,
+      bundleType = Core.Nothing,
+      eTag = Core.Nothing,
+      key = Core.Nothing,
+      version = Core.Nothing
     }
+
+-- | The name of the Amazon S3 bucket where the application revision is stored.
+--
+-- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slBucket :: Lens.Lens' S3Location (Core.Maybe Types.Bucket)
+slBucket = Lens.field @"bucket"
+{-# DEPRECATED slBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The file type of the application revision. Must be one of the following:
 --
@@ -107,8 +97,8 @@ mkS3Location =
 --
 --
 -- /Note:/ Consider using 'bundleType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slBundleType :: Lens.Lens' S3Location (Lude.Maybe BundleType)
-slBundleType = Lens.lens (bundleType :: S3Location -> Lude.Maybe BundleType) (\s a -> s {bundleType = a} :: S3Location)
+slBundleType :: Lens.Lens' S3Location (Core.Maybe Types.BundleType)
+slBundleType = Lens.field @"bundleType"
 {-# DEPRECATED slBundleType "Use generic-lens or generic-optics with 'bundleType' instead." #-}
 
 -- | The ETag of the Amazon S3 object that represents the bundled artifacts for the application revision.
@@ -116,22 +106,15 @@ slBundleType = Lens.lens (bundleType :: S3Location -> Lude.Maybe BundleType) (\s
 -- If the ETag is not specified as an input parameter, ETag validation of the object is skipped.
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slETag :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
-slETag = Lens.lens (eTag :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: S3Location)
+slETag :: Lens.Lens' S3Location (Core.Maybe Types.ETag)
+slETag = Lens.field @"eTag"
 {-# DEPRECATED slETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
-
--- | The name of the Amazon S3 bucket where the application revision is stored.
---
--- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slBucket :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
-slBucket = Lens.lens (bucket :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {bucket = a} :: S3Location)
-{-# DEPRECATED slBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The name of the Amazon S3 object that represents the bundled artifacts for the application revision.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slKey :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
-slKey = Lens.lens (key :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: S3Location)
+slKey :: Lens.Lens' S3Location (Core.Maybe Types.S3Key)
+slKey = Lens.field @"key"
 {-# DEPRECATED slKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | A specific version of the Amazon S3 object that represents the bundled artifacts for the application revision.
@@ -139,31 +122,29 @@ slKey = Lens.lens (key :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {key = 
 -- If the version is not specified, the system uses the most recent version by default.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slVersion :: Lens.Lens' S3Location (Lude.Maybe Lude.Text)
-slVersion = Lens.lens (version :: S3Location -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: S3Location)
+slVersion :: Lens.Lens' S3Location (Core.Maybe Types.VersionId)
+slVersion = Lens.field @"version"
 {-# DEPRECATED slVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromJSON S3Location where
-  parseJSON =
-    Lude.withObject
-      "S3Location"
-      ( \x ->
-          S3Location'
-            Lude.<$> (x Lude..:? "bundleType")
-            Lude.<*> (x Lude..:? "eTag")
-            Lude.<*> (x Lude..:? "bucket")
-            Lude.<*> (x Lude..:? "key")
-            Lude.<*> (x Lude..:? "version")
-      )
-
-instance Lude.ToJSON S3Location where
-  toJSON S3Location' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("bundleType" Lude..=) Lude.<$> bundleType,
-            ("eTag" Lude..=) Lude.<$> eTag,
-            ("bucket" Lude..=) Lude.<$> bucket,
-            ("key" Lude..=) Lude.<$> key,
-            ("version" Lude..=) Lude.<$> version
+instance Core.FromJSON S3Location where
+  toJSON S3Location {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("bucket" Core..=) Core.<$> bucket,
+            ("bundleType" Core..=) Core.<$> bundleType,
+            ("eTag" Core..=) Core.<$> eTag,
+            ("key" Core..=) Core.<$> key,
+            ("version" Core..=) Core.<$> version
           ]
       )
+
+instance Core.FromJSON S3Location where
+  parseJSON =
+    Core.withObject "S3Location" Core.$
+      \x ->
+        S3Location'
+          Core.<$> (x Core..:? "bucket")
+          Core.<*> (x Core..:? "bundleType")
+          Core.<*> (x Core..:? "eTag")
+          Core.<*> (x Core..:? "key")
+          Core.<*> (x Core..:? "version")

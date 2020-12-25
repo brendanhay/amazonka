@@ -27,103 +27,88 @@ module Network.AWS.Batch.DescribeJobs
     mkDescribeJobsResponse,
 
     -- ** Response lenses
-    djrsJobs,
-    djrsResponseStatus,
+    djrrsJobs,
+    djrrsResponseStatus,
   )
 where
 
-import Network.AWS.Batch.Types
+import qualified Network.AWS.Batch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeJobs' smart constructor.
 newtype DescribeJobs = DescribeJobs'
   { -- | A list of up to 100 job IDs.
-    jobs :: [Lude.Text]
+    jobs :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeJobs' with the minimum fields required to make a request.
---
--- * 'jobs' - A list of up to 100 job IDs.
+-- | Creates a 'DescribeJobs' value with any optional fields omitted.
 mkDescribeJobs ::
   DescribeJobs
-mkDescribeJobs = DescribeJobs' {jobs = Lude.mempty}
+mkDescribeJobs = DescribeJobs' {jobs = Core.mempty}
 
 -- | A list of up to 100 job IDs.
 --
 -- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djJobs :: Lens.Lens' DescribeJobs [Lude.Text]
-djJobs = Lens.lens (jobs :: DescribeJobs -> [Lude.Text]) (\s a -> s {jobs = a} :: DescribeJobs)
+djJobs :: Lens.Lens' DescribeJobs [Types.String]
+djJobs = Lens.field @"jobs"
 {-# DEPRECATED djJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
 
-instance Lude.AWSRequest DescribeJobs where
+instance Core.FromJSON DescribeJobs where
+  toJSON DescribeJobs {..} =
+    Core.object (Core.catMaybes [Core.Just ("jobs" Core..= jobs)])
+
+instance Core.AWSRequest DescribeJobs where
   type Rs DescribeJobs = DescribeJobsResponse
-  request = Req.postJSON batchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/v1/describejobs",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeJobsResponse'
-            Lude.<$> (x Lude..?> "jobs" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "jobs") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeJobs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeJobs where
-  toJSON DescribeJobs' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("jobs" Lude..= jobs)])
-
-instance Lude.ToPath DescribeJobs where
-  toPath = Lude.const "/v1/describejobs"
-
-instance Lude.ToQuery DescribeJobs where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeJobsResponse' smart constructor.
 data DescribeJobsResponse = DescribeJobsResponse'
   { -- | The list of jobs.
-    jobs :: Lude.Maybe [JobDetail],
+    jobs :: Core.Maybe [Types.JobDetail],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeJobsResponse' with the minimum fields required to make a request.
---
--- * 'jobs' - The list of jobs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeJobsResponse' value with any optional fields omitted.
 mkDescribeJobsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeJobsResponse
-mkDescribeJobsResponse pResponseStatus_ =
-  DescribeJobsResponse'
-    { jobs = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeJobsResponse responseStatus =
+  DescribeJobsResponse' {jobs = Core.Nothing, responseStatus}
 
 -- | The list of jobs.
 --
 -- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djrsJobs :: Lens.Lens' DescribeJobsResponse (Lude.Maybe [JobDetail])
-djrsJobs = Lens.lens (jobs :: DescribeJobsResponse -> Lude.Maybe [JobDetail]) (\s a -> s {jobs = a} :: DescribeJobsResponse)
-{-# DEPRECATED djrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
+djrrsJobs :: Lens.Lens' DescribeJobsResponse (Core.Maybe [Types.JobDetail])
+djrrsJobs = Lens.field @"jobs"
+{-# DEPRECATED djrrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djrsResponseStatus :: Lens.Lens' DescribeJobsResponse Lude.Int
-djrsResponseStatus = Lens.lens (responseStatus :: DescribeJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeJobsResponse)
-{-# DEPRECATED djrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+djrrsResponseStatus :: Lens.Lens' DescribeJobsResponse Core.Int
+djrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED djrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

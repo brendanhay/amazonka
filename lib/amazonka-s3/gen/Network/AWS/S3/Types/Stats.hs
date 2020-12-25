@@ -17,68 +17,64 @@ module Network.AWS.S3.Types.Stats
     mkStats,
 
     -- * Lenses
+    sBytesProcessed,
     sBytesReturned,
     sBytesScanned,
-    sBytesProcessed,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- | Container for the stats details.
 --
 -- /See:/ 'mkStats' smart constructor.
 data Stats = Stats'
-  { -- | The total number of bytes of records payload data returned.
-    bytesReturned :: Lude.Maybe Lude.Integer,
+  { -- | The total number of uncompressed object bytes processed.
+    bytesProcessed :: Core.Maybe Core.Integer,
+    -- | The total number of bytes of records payload data returned.
+    bytesReturned :: Core.Maybe Core.Integer,
     -- | The total number of object bytes scanned.
-    bytesScanned :: Lude.Maybe Lude.Integer,
-    -- | The total number of uncompressed object bytes processed.
-    bytesProcessed :: Lude.Maybe Lude.Integer
+    bytesScanned :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Stats' with the minimum fields required to make a request.
---
--- * 'bytesReturned' - The total number of bytes of records payload data returned.
--- * 'bytesScanned' - The total number of object bytes scanned.
--- * 'bytesProcessed' - The total number of uncompressed object bytes processed.
+-- | Creates a 'Stats' value with any optional fields omitted.
 mkStats ::
   Stats
 mkStats =
   Stats'
-    { bytesReturned = Lude.Nothing,
-      bytesScanned = Lude.Nothing,
-      bytesProcessed = Lude.Nothing
+    { bytesProcessed = Core.Nothing,
+      bytesReturned = Core.Nothing,
+      bytesScanned = Core.Nothing
     }
+
+-- | The total number of uncompressed object bytes processed.
+--
+-- /Note:/ Consider using 'bytesProcessed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sBytesProcessed :: Lens.Lens' Stats (Core.Maybe Core.Integer)
+sBytesProcessed = Lens.field @"bytesProcessed"
+{-# DEPRECATED sBytesProcessed "Use generic-lens or generic-optics with 'bytesProcessed' instead." #-}
 
 -- | The total number of bytes of records payload data returned.
 --
 -- /Note:/ Consider using 'bytesReturned' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sBytesReturned :: Lens.Lens' Stats (Lude.Maybe Lude.Integer)
-sBytesReturned = Lens.lens (bytesReturned :: Stats -> Lude.Maybe Lude.Integer) (\s a -> s {bytesReturned = a} :: Stats)
+sBytesReturned :: Lens.Lens' Stats (Core.Maybe Core.Integer)
+sBytesReturned = Lens.field @"bytesReturned"
 {-# DEPRECATED sBytesReturned "Use generic-lens or generic-optics with 'bytesReturned' instead." #-}
 
 -- | The total number of object bytes scanned.
 --
 -- /Note:/ Consider using 'bytesScanned' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sBytesScanned :: Lens.Lens' Stats (Lude.Maybe Lude.Integer)
-sBytesScanned = Lens.lens (bytesScanned :: Stats -> Lude.Maybe Lude.Integer) (\s a -> s {bytesScanned = a} :: Stats)
+sBytesScanned :: Lens.Lens' Stats (Core.Maybe Core.Integer)
+sBytesScanned = Lens.field @"bytesScanned"
 {-# DEPRECATED sBytesScanned "Use generic-lens or generic-optics with 'bytesScanned' instead." #-}
 
--- | The total number of uncompressed object bytes processed.
---
--- /Note:/ Consider using 'bytesProcessed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sBytesProcessed :: Lens.Lens' Stats (Lude.Maybe Lude.Integer)
-sBytesProcessed = Lens.lens (bytesProcessed :: Stats -> Lude.Maybe Lude.Integer) (\s a -> s {bytesProcessed = a} :: Stats)
-{-# DEPRECATED sBytesProcessed "Use generic-lens or generic-optics with 'bytesProcessed' instead." #-}
-
-instance Lude.FromXML Stats where
+instance Core.FromXML Stats where
   parseXML x =
     Stats'
-      Lude.<$> (x Lude..@? "BytesReturned")
-      Lude.<*> (x Lude..@? "BytesScanned")
-      Lude.<*> (x Lude..@? "BytesProcessed")
+      Core.<$> (x Core..@? "BytesProcessed")
+      Core.<*> (x Core..@? "BytesReturned")
+      Core.<*> (x Core..@? "BytesScanned")

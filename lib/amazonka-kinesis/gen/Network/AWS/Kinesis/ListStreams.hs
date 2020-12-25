@@ -26,164 +26,153 @@ module Network.AWS.Kinesis.ListStreams
     mkListStreams,
 
     -- ** Request lenses
-    lsLimit,
     lsExclusiveStartStreamName,
+    lsLimit,
 
     -- * Destructuring the response
     ListStreamsResponse (..),
     mkListStreamsResponse,
 
     -- ** Response lenses
-    lsrsHasMoreStreams,
-    lsrsStreamNames,
-    lsrsResponseStatus,
+    lrsStreamNames,
+    lrsHasMoreStreams,
+    lrsResponseStatus,
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for @ListStreams@ .
 --
 -- /See:/ 'mkListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { -- | The maximum number of streams to list.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | The name of the stream to start the list with.
-    exclusiveStartStreamName :: Lude.Maybe Lude.Text
+  { -- | The name of the stream to start the list with.
+    exclusiveStartStreamName :: Core.Maybe Types.ExclusiveStartStreamName,
+    -- | The maximum number of streams to list.
+    limit :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListStreams' with the minimum fields required to make a request.
---
--- * 'limit' - The maximum number of streams to list.
--- * 'exclusiveStartStreamName' - The name of the stream to start the list with.
+-- | Creates a 'ListStreams' value with any optional fields omitted.
 mkListStreams ::
   ListStreams
 mkListStreams =
   ListStreams'
-    { limit = Lude.Nothing,
-      exclusiveStartStreamName = Lude.Nothing
+    { exclusiveStartStreamName = Core.Nothing,
+      limit = Core.Nothing
     }
-
--- | The maximum number of streams to list.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsLimit :: Lens.Lens' ListStreams (Lude.Maybe Lude.Natural)
-lsLimit = Lens.lens (limit :: ListStreams -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListStreams)
-{-# DEPRECATED lsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of the stream to start the list with.
 --
 -- /Note:/ Consider using 'exclusiveStartStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsExclusiveStartStreamName :: Lens.Lens' ListStreams (Lude.Maybe Lude.Text)
-lsExclusiveStartStreamName = Lens.lens (exclusiveStartStreamName :: ListStreams -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartStreamName = a} :: ListStreams)
+lsExclusiveStartStreamName :: Lens.Lens' ListStreams (Core.Maybe Types.ExclusiveStartStreamName)
+lsExclusiveStartStreamName = Lens.field @"exclusiveStartStreamName"
 {-# DEPRECATED lsExclusiveStartStreamName "Use generic-lens or generic-optics with 'exclusiveStartStreamName' instead." #-}
 
-instance Page.AWSPager ListStreams where
-  page rq rs
-    | Page.stop (rs Lens.^. lsrsHasMoreStreams) = Lude.Nothing
-    | Lude.isNothing (rs Lens.^? lsrsStreamNames Lude.. Lens._last) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lsExclusiveStartStreamName
-          Lens..~ rs Lens.^? lsrsStreamNames Lude.. Lens._last
+-- | The maximum number of streams to list.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsLimit :: Lens.Lens' ListStreams (Core.Maybe Core.Natural)
+lsLimit = Lens.field @"limit"
+{-# DEPRECATED lsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest ListStreams where
+instance Core.FromJSON ListStreams where
+  toJSON ListStreams {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ExclusiveStartStreamName" Core..=)
+              Core.<$> exclusiveStartStreamName,
+            ("Limit" Core..=) Core.<$> limit
+          ]
+      )
+
+instance Core.AWSRequest ListStreams where
   type Rs ListStreams = ListStreamsResponse
-  request = Req.postJSON kinesisService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.ListStreams")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListStreamsResponse'
-            Lude.<$> (x Lude..:> "HasMoreStreams")
-            Lude.<*> (x Lude..?> "StreamNames" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "StreamNames" Core..!= Core.mempty)
+            Core.<*> (x Core..: "HasMoreStreams")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListStreams where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.ListStreams" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListStreams where
-  toJSON ListStreams' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Limit" Lude..=) Lude.<$> limit,
-            ("ExclusiveStartStreamName" Lude..=)
-              Lude.<$> exclusiveStartStreamName
-          ]
-      )
-
-instance Lude.ToPath ListStreams where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListStreams where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListStreams where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"hasMoreStreams") =
+      Core.Nothing
+    | Core.isNothing
+        (rs Lens.^? Lens.field @"streamNames" Core.. Lens._last) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"exclusiveStartStreamName"
+            Lens..~ rs Lens.^? Lens.field @"streamNames" Core.. Lens._last
+        )
 
 -- | Represents the output for @ListStreams@ .
 --
 -- /See:/ 'mkListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-  { -- | If set to @true@ , there are more streams available to list.
-    hasMoreStreams :: Lude.Bool,
-    -- | The names of the streams that are associated with the AWS account making the @ListStreams@ request.
-    streamNames :: [Lude.Text],
+  { -- | The names of the streams that are associated with the AWS account making the @ListStreams@ request.
+    streamNames :: [Types.StreamName],
+    -- | If set to @true@ , there are more streams available to list.
+    hasMoreStreams :: Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
---
--- * 'hasMoreStreams' - If set to @true@ , there are more streams available to list.
--- * 'streamNames' - The names of the streams that are associated with the AWS account making the @ListStreams@ request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListStreamsResponse' value with any optional fields omitted.
 mkListStreamsResponse ::
   -- | 'hasMoreStreams'
-  Lude.Bool ->
+  Core.Bool ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListStreamsResponse
-mkListStreamsResponse pHasMoreStreams_ pResponseStatus_ =
+mkListStreamsResponse hasMoreStreams responseStatus =
   ListStreamsResponse'
-    { hasMoreStreams = pHasMoreStreams_,
-      streamNames = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { streamNames = Core.mempty,
+      hasMoreStreams,
+      responseStatus
     }
-
--- | If set to @true@ , there are more streams available to list.
---
--- /Note:/ Consider using 'hasMoreStreams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsHasMoreStreams :: Lens.Lens' ListStreamsResponse Lude.Bool
-lsrsHasMoreStreams = Lens.lens (hasMoreStreams :: ListStreamsResponse -> Lude.Bool) (\s a -> s {hasMoreStreams = a} :: ListStreamsResponse)
-{-# DEPRECATED lsrsHasMoreStreams "Use generic-lens or generic-optics with 'hasMoreStreams' instead." #-}
 
 -- | The names of the streams that are associated with the AWS account making the @ListStreams@ request.
 --
 -- /Note:/ Consider using 'streamNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsStreamNames :: Lens.Lens' ListStreamsResponse [Lude.Text]
-lsrsStreamNames = Lens.lens (streamNames :: ListStreamsResponse -> [Lude.Text]) (\s a -> s {streamNames = a} :: ListStreamsResponse)
-{-# DEPRECATED lsrsStreamNames "Use generic-lens or generic-optics with 'streamNames' instead." #-}
+lrsStreamNames :: Lens.Lens' ListStreamsResponse [Types.StreamName]
+lrsStreamNames = Lens.field @"streamNames"
+{-# DEPRECATED lrsStreamNames "Use generic-lens or generic-optics with 'streamNames' instead." #-}
+
+-- | If set to @true@ , there are more streams available to list.
+--
+-- /Note:/ Consider using 'hasMoreStreams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrsHasMoreStreams :: Lens.Lens' ListStreamsResponse Core.Bool
+lrsHasMoreStreams = Lens.field @"hasMoreStreams"
+{-# DEPRECATED lrsHasMoreStreams "Use generic-lens or generic-optics with 'hasMoreStreams' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsResponseStatus :: Lens.Lens' ListStreamsResponse Lude.Int
-lsrsResponseStatus = Lens.lens (responseStatus :: ListStreamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStreamsResponse)
-{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrsResponseStatus :: Lens.Lens' ListStreamsResponse Core.Int
+lrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

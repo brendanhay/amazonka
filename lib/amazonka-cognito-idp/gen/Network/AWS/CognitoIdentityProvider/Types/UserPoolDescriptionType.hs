@@ -17,112 +17,105 @@ module Network.AWS.CognitoIdentityProvider.Types.UserPoolDescriptionType
     mkUserPoolDescriptionType,
 
     -- * Lenses
-    updtStatus,
+    updtCreationDate,
+    updtId,
+    updtLambdaConfig,
     updtLastModifiedDate,
     updtName,
-    updtId,
-    updtCreationDate,
-    updtLambdaConfig,
+    updtStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType
-import Network.AWS.CognitoIdentityProvider.Types.StatusType
+import qualified Network.AWS.CognitoIdentityProvider.Types.LambdaConfigType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.StatusType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.UserPoolIdType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.UserPoolNameType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A user pool description.
 --
 -- /See:/ 'mkUserPoolDescriptionType' smart constructor.
 data UserPoolDescriptionType = UserPoolDescriptionType'
-  { -- | The user pool status in a user pool description.
-    status :: Lude.Maybe StatusType,
-    -- | The date the user pool description was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The name in a user pool description.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The date the user pool description was created.
+    creationDate :: Core.Maybe Core.NominalDiffTime,
     -- | The ID in a user pool description.
-    id :: Lude.Maybe Lude.Text,
-    -- | The date the user pool description was created.
-    creationDate :: Lude.Maybe Lude.Timestamp,
+    id :: Core.Maybe Types.UserPoolIdType,
     -- | The AWS Lambda configuration information in a user pool description.
-    lambdaConfig :: Lude.Maybe LambdaConfigType
+    lambdaConfig :: Core.Maybe Types.LambdaConfigType,
+    -- | The date the user pool description was last modified.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The name in a user pool description.
+    name :: Core.Maybe Types.UserPoolNameType,
+    -- | The user pool status in a user pool description.
+    status :: Core.Maybe Types.StatusType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UserPoolDescriptionType' with the minimum fields required to make a request.
---
--- * 'status' - The user pool status in a user pool description.
--- * 'lastModifiedDate' - The date the user pool description was last modified.
--- * 'name' - The name in a user pool description.
--- * 'id' - The ID in a user pool description.
--- * 'creationDate' - The date the user pool description was created.
--- * 'lambdaConfig' - The AWS Lambda configuration information in a user pool description.
+-- | Creates a 'UserPoolDescriptionType' value with any optional fields omitted.
 mkUserPoolDescriptionType ::
   UserPoolDescriptionType
 mkUserPoolDescriptionType =
   UserPoolDescriptionType'
-    { status = Lude.Nothing,
-      lastModifiedDate = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      lambdaConfig = Lude.Nothing
+    { creationDate = Core.Nothing,
+      id = Core.Nothing,
+      lambdaConfig = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      name = Core.Nothing,
+      status = Core.Nothing
     }
 
--- | The user pool status in a user pool description.
+-- | The date the user pool description was created.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-updtStatus :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe StatusType)
-updtStatus = Lens.lens (status :: UserPoolDescriptionType -> Lude.Maybe StatusType) (\s a -> s {status = a} :: UserPoolDescriptionType)
-{-# DEPRECATED updtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updtCreationDate :: Lens.Lens' UserPoolDescriptionType (Core.Maybe Core.NominalDiffTime)
+updtCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED updtCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The ID in a user pool description.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updtId :: Lens.Lens' UserPoolDescriptionType (Core.Maybe Types.UserPoolIdType)
+updtId = Lens.field @"id"
+{-# DEPRECATED updtId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The AWS Lambda configuration information in a user pool description.
+--
+-- /Note:/ Consider using 'lambdaConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updtLambdaConfig :: Lens.Lens' UserPoolDescriptionType (Core.Maybe Types.LambdaConfigType)
+updtLambdaConfig = Lens.field @"lambdaConfig"
+{-# DEPRECATED updtLambdaConfig "Use generic-lens or generic-optics with 'lambdaConfig' instead." #-}
 
 -- | The date the user pool description was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-updtLastModifiedDate :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe Lude.Timestamp)
-updtLastModifiedDate = Lens.lens (lastModifiedDate :: UserPoolDescriptionType -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: UserPoolDescriptionType)
+updtLastModifiedDate :: Lens.Lens' UserPoolDescriptionType (Core.Maybe Core.NominalDiffTime)
+updtLastModifiedDate = Lens.field @"lastModifiedDate"
 {-# DEPRECATED updtLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The name in a user pool description.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-updtName :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe Lude.Text)
-updtName = Lens.lens (name :: UserPoolDescriptionType -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UserPoolDescriptionType)
+updtName :: Lens.Lens' UserPoolDescriptionType (Core.Maybe Types.UserPoolNameType)
+updtName = Lens.field @"name"
 {-# DEPRECATED updtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The ID in a user pool description.
+-- | The user pool status in a user pool description.
 --
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-updtId :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe Lude.Text)
-updtId = Lens.lens (id :: UserPoolDescriptionType -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: UserPoolDescriptionType)
-{-# DEPRECATED updtId "Use generic-lens or generic-optics with 'id' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+updtStatus :: Lens.Lens' UserPoolDescriptionType (Core.Maybe Types.StatusType)
+updtStatus = Lens.field @"status"
+{-# DEPRECATED updtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The date the user pool description was created.
---
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-updtCreationDate :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe Lude.Timestamp)
-updtCreationDate = Lens.lens (creationDate :: UserPoolDescriptionType -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: UserPoolDescriptionType)
-{-# DEPRECATED updtCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
-
--- | The AWS Lambda configuration information in a user pool description.
---
--- /Note:/ Consider using 'lambdaConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-updtLambdaConfig :: Lens.Lens' UserPoolDescriptionType (Lude.Maybe LambdaConfigType)
-updtLambdaConfig = Lens.lens (lambdaConfig :: UserPoolDescriptionType -> Lude.Maybe LambdaConfigType) (\s a -> s {lambdaConfig = a} :: UserPoolDescriptionType)
-{-# DEPRECATED updtLambdaConfig "Use generic-lens or generic-optics with 'lambdaConfig' instead." #-}
-
-instance Lude.FromJSON UserPoolDescriptionType where
+instance Core.FromJSON UserPoolDescriptionType where
   parseJSON =
-    Lude.withObject
-      "UserPoolDescriptionType"
-      ( \x ->
-          UserPoolDescriptionType'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "LastModifiedDate")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "CreationDate")
-            Lude.<*> (x Lude..:? "LambdaConfig")
-      )
+    Core.withObject "UserPoolDescriptionType" Core.$
+      \x ->
+        UserPoolDescriptionType'
+          Core.<$> (x Core..:? "CreationDate")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "LambdaConfig")
+          Core.<*> (x Core..:? "LastModifiedDate")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Status")

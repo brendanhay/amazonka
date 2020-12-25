@@ -17,16 +17,16 @@ module Network.AWS.EC2.Types.TargetCapacitySpecificationRequest
     mkTargetCapacitySpecificationRequest,
 
     -- * Lenses
-    tcsrOnDemandTargetCapacity,
-    tcsrDefaultTargetCapacityType,
     tcsrTotalTargetCapacity,
+    tcsrDefaultTargetCapacityType,
+    tcsrOnDemandTargetCapacity,
     tcsrSpotTargetCapacity,
   )
 where
 
-import Network.AWS.EC2.Types.DefaultTargetCapacityType
+import qualified Network.AWS.EC2.Types.DefaultTargetCapacityType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The number of units to request. You can choose to set the target capacity as the number of instances. Or you can set the target capacity to a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is @maintain@ , you can specify a target capacity of 0 and add capacity later.
 --
@@ -34,70 +34,55 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTargetCapacitySpecificationRequest' smart constructor.
 data TargetCapacitySpecificationRequest = TargetCapacitySpecificationRequest'
-  { -- | The number of On-Demand units to request.
-    onDemandTargetCapacity :: Lude.Maybe Lude.Int,
+  { -- | The number of units to request, filled using @DefaultTargetCapacityType@ .
+    totalTargetCapacity :: Core.Int,
     -- | The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
-    defaultTargetCapacityType :: Lude.Maybe DefaultTargetCapacityType,
-    -- | The number of units to request, filled using @DefaultTargetCapacityType@ .
-    totalTargetCapacity :: Lude.Int,
+    defaultTargetCapacityType :: Core.Maybe Types.DefaultTargetCapacityType,
+    -- | The number of On-Demand units to request.
+    onDemandTargetCapacity :: Core.Maybe Core.Int,
     -- | The number of Spot units to request.
-    spotTargetCapacity :: Lude.Maybe Lude.Int
+    spotTargetCapacity :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetCapacitySpecificationRequest' with the minimum fields required to make a request.
---
--- * 'onDemandTargetCapacity' - The number of On-Demand units to request.
--- * 'defaultTargetCapacityType' - The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
--- * 'totalTargetCapacity' - The number of units to request, filled using @DefaultTargetCapacityType@ .
--- * 'spotTargetCapacity' - The number of Spot units to request.
+-- | Creates a 'TargetCapacitySpecificationRequest' value with any optional fields omitted.
 mkTargetCapacitySpecificationRequest ::
   -- | 'totalTargetCapacity'
-  Lude.Int ->
+  Core.Int ->
   TargetCapacitySpecificationRequest
-mkTargetCapacitySpecificationRequest pTotalTargetCapacity_ =
+mkTargetCapacitySpecificationRequest totalTargetCapacity =
   TargetCapacitySpecificationRequest'
-    { onDemandTargetCapacity =
-        Lude.Nothing,
-      defaultTargetCapacityType = Lude.Nothing,
-      totalTargetCapacity = pTotalTargetCapacity_,
-      spotTargetCapacity = Lude.Nothing
+    { totalTargetCapacity,
+      defaultTargetCapacityType = Core.Nothing,
+      onDemandTargetCapacity = Core.Nothing,
+      spotTargetCapacity = Core.Nothing
     }
-
--- | The number of On-Demand units to request.
---
--- /Note:/ Consider using 'onDemandTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsrOnDemandTargetCapacity :: Lens.Lens' TargetCapacitySpecificationRequest (Lude.Maybe Lude.Int)
-tcsrOnDemandTargetCapacity = Lens.lens (onDemandTargetCapacity :: TargetCapacitySpecificationRequest -> Lude.Maybe Lude.Int) (\s a -> s {onDemandTargetCapacity = a} :: TargetCapacitySpecificationRequest)
-{-# DEPRECATED tcsrOnDemandTargetCapacity "Use generic-lens or generic-optics with 'onDemandTargetCapacity' instead." #-}
-
--- | The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
---
--- /Note:/ Consider using 'defaultTargetCapacityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsrDefaultTargetCapacityType :: Lens.Lens' TargetCapacitySpecificationRequest (Lude.Maybe DefaultTargetCapacityType)
-tcsrDefaultTargetCapacityType = Lens.lens (defaultTargetCapacityType :: TargetCapacitySpecificationRequest -> Lude.Maybe DefaultTargetCapacityType) (\s a -> s {defaultTargetCapacityType = a} :: TargetCapacitySpecificationRequest)
-{-# DEPRECATED tcsrDefaultTargetCapacityType "Use generic-lens or generic-optics with 'defaultTargetCapacityType' instead." #-}
 
 -- | The number of units to request, filled using @DefaultTargetCapacityType@ .
 --
 -- /Note:/ Consider using 'totalTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsrTotalTargetCapacity :: Lens.Lens' TargetCapacitySpecificationRequest Lude.Int
-tcsrTotalTargetCapacity = Lens.lens (totalTargetCapacity :: TargetCapacitySpecificationRequest -> Lude.Int) (\s a -> s {totalTargetCapacity = a} :: TargetCapacitySpecificationRequest)
+tcsrTotalTargetCapacity :: Lens.Lens' TargetCapacitySpecificationRequest Core.Int
+tcsrTotalTargetCapacity = Lens.field @"totalTargetCapacity"
 {-# DEPRECATED tcsrTotalTargetCapacity "Use generic-lens or generic-optics with 'totalTargetCapacity' instead." #-}
+
+-- | The default @TotalTargetCapacity@ , which is either @Spot@ or @On-Demand@ .
+--
+-- /Note:/ Consider using 'defaultTargetCapacityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcsrDefaultTargetCapacityType :: Lens.Lens' TargetCapacitySpecificationRequest (Core.Maybe Types.DefaultTargetCapacityType)
+tcsrDefaultTargetCapacityType = Lens.field @"defaultTargetCapacityType"
+{-# DEPRECATED tcsrDefaultTargetCapacityType "Use generic-lens or generic-optics with 'defaultTargetCapacityType' instead." #-}
+
+-- | The number of On-Demand units to request.
+--
+-- /Note:/ Consider using 'onDemandTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcsrOnDemandTargetCapacity :: Lens.Lens' TargetCapacitySpecificationRequest (Core.Maybe Core.Int)
+tcsrOnDemandTargetCapacity = Lens.field @"onDemandTargetCapacity"
+{-# DEPRECATED tcsrOnDemandTargetCapacity "Use generic-lens or generic-optics with 'onDemandTargetCapacity' instead." #-}
 
 -- | The number of Spot units to request.
 --
 -- /Note:/ Consider using 'spotTargetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcsrSpotTargetCapacity :: Lens.Lens' TargetCapacitySpecificationRequest (Lude.Maybe Lude.Int)
-tcsrSpotTargetCapacity = Lens.lens (spotTargetCapacity :: TargetCapacitySpecificationRequest -> Lude.Maybe Lude.Int) (\s a -> s {spotTargetCapacity = a} :: TargetCapacitySpecificationRequest)
+tcsrSpotTargetCapacity :: Lens.Lens' TargetCapacitySpecificationRequest (Core.Maybe Core.Int)
+tcsrSpotTargetCapacity = Lens.field @"spotTargetCapacity"
 {-# DEPRECATED tcsrSpotTargetCapacity "Use generic-lens or generic-optics with 'spotTargetCapacity' instead." #-}
-
-instance Lude.ToQuery TargetCapacitySpecificationRequest where
-  toQuery TargetCapacitySpecificationRequest' {..} =
-    Lude.mconcat
-      [ "OnDemandTargetCapacity" Lude.=: onDemandTargetCapacity,
-        "DefaultTargetCapacityType" Lude.=: defaultTargetCapacityType,
-        "TotalTargetCapacity" Lude.=: totalTargetCapacity,
-        "SpotTargetCapacity" Lude.=: spotTargetCapacity
-      ]

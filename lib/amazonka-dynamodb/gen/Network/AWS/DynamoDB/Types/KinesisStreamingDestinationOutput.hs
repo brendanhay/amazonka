@@ -18,70 +18,66 @@ module Network.AWS.DynamoDB.Types.KinesisStreamingDestinationOutput
 
     -- * Lenses
     ksdoDestinationStatus,
-    ksdoStreamARN,
+    ksdoStreamArn,
     ksdoTableName,
   )
 where
 
-import Network.AWS.DynamoDB.Types.DestinationStatus
+import qualified Network.AWS.DynamoDB.Types.DestinationStatus as Types
+import qualified Network.AWS.DynamoDB.Types.StreamArn as Types
+import qualified Network.AWS.DynamoDB.Types.TableName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkKinesisStreamingDestinationOutput' smart constructor.
 data KinesisStreamingDestinationOutput = KinesisStreamingDestinationOutput'
   { -- | The current status of the replication.
-    destinationStatus :: Lude.Maybe DestinationStatus,
+    destinationStatus :: Core.Maybe Types.DestinationStatus,
     -- | The ARN for the specific Kinesis data stream.
-    streamARN :: Lude.Maybe Lude.Text,
+    streamArn :: Core.Maybe Types.StreamArn,
     -- | The name of the table being modified.
-    tableName :: Lude.Maybe Lude.Text
+    tableName :: Core.Maybe Types.TableName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KinesisStreamingDestinationOutput' with the minimum fields required to make a request.
---
--- * 'destinationStatus' - The current status of the replication.
--- * 'streamARN' - The ARN for the specific Kinesis data stream.
--- * 'tableName' - The name of the table being modified.
+-- | Creates a 'KinesisStreamingDestinationOutput' value with any optional fields omitted.
 mkKinesisStreamingDestinationOutput ::
   KinesisStreamingDestinationOutput
 mkKinesisStreamingDestinationOutput =
   KinesisStreamingDestinationOutput'
     { destinationStatus =
-        Lude.Nothing,
-      streamARN = Lude.Nothing,
-      tableName = Lude.Nothing
+        Core.Nothing,
+      streamArn = Core.Nothing,
+      tableName = Core.Nothing
     }
 
 -- | The current status of the replication.
 --
 -- /Note:/ Consider using 'destinationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ksdoDestinationStatus :: Lens.Lens' KinesisStreamingDestinationOutput (Lude.Maybe DestinationStatus)
-ksdoDestinationStatus = Lens.lens (destinationStatus :: KinesisStreamingDestinationOutput -> Lude.Maybe DestinationStatus) (\s a -> s {destinationStatus = a} :: KinesisStreamingDestinationOutput)
+ksdoDestinationStatus :: Lens.Lens' KinesisStreamingDestinationOutput (Core.Maybe Types.DestinationStatus)
+ksdoDestinationStatus = Lens.field @"destinationStatus"
 {-# DEPRECATED ksdoDestinationStatus "Use generic-lens or generic-optics with 'destinationStatus' instead." #-}
 
 -- | The ARN for the specific Kinesis data stream.
 --
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ksdoStreamARN :: Lens.Lens' KinesisStreamingDestinationOutput (Lude.Maybe Lude.Text)
-ksdoStreamARN = Lens.lens (streamARN :: KinesisStreamingDestinationOutput -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: KinesisStreamingDestinationOutput)
-{-# DEPRECATED ksdoStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+-- /Note:/ Consider using 'streamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ksdoStreamArn :: Lens.Lens' KinesisStreamingDestinationOutput (Core.Maybe Types.StreamArn)
+ksdoStreamArn = Lens.field @"streamArn"
+{-# DEPRECATED ksdoStreamArn "Use generic-lens or generic-optics with 'streamArn' instead." #-}
 
 -- | The name of the table being modified.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ksdoTableName :: Lens.Lens' KinesisStreamingDestinationOutput (Lude.Maybe Lude.Text)
-ksdoTableName = Lens.lens (tableName :: KinesisStreamingDestinationOutput -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: KinesisStreamingDestinationOutput)
+ksdoTableName :: Lens.Lens' KinesisStreamingDestinationOutput (Core.Maybe Types.TableName)
+ksdoTableName = Lens.field @"tableName"
 {-# DEPRECATED ksdoTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.FromJSON KinesisStreamingDestinationOutput where
+instance Core.FromJSON KinesisStreamingDestinationOutput where
   parseJSON =
-    Lude.withObject
-      "KinesisStreamingDestinationOutput"
-      ( \x ->
-          KinesisStreamingDestinationOutput'
-            Lude.<$> (x Lude..:? "DestinationStatus")
-            Lude.<*> (x Lude..:? "StreamArn")
-            Lude.<*> (x Lude..:? "TableName")
-      )
+    Core.withObject "KinesisStreamingDestinationOutput" Core.$
+      \x ->
+        KinesisStreamingDestinationOutput'
+          Core.<$> (x Core..:? "DestinationStatus")
+          Core.<*> (x Core..:? "StreamArn")
+          Core.<*> (x Core..:? "TableName")

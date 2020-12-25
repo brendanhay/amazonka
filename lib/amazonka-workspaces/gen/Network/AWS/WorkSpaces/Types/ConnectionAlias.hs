@@ -17,99 +17,94 @@ module Network.AWS.WorkSpaces.Types.ConnectionAlias
     mkConnectionAlias,
 
     -- * Lenses
-    caState,
-    caOwnerAccountId,
     caAliasId,
     caAssociations,
     caConnectionString,
+    caOwnerAccountId,
+    caState,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkSpaces.Types.ConnectionAliasAssociation
-import Network.AWS.WorkSpaces.Types.ConnectionAliasState
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.AliasId as Types
+import qualified Network.AWS.WorkSpaces.Types.ConnectionAliasAssociation as Types
+import qualified Network.AWS.WorkSpaces.Types.ConnectionAliasState as Types
+import qualified Network.AWS.WorkSpaces.Types.ConnectionString as Types
+import qualified Network.AWS.WorkSpaces.Types.OwnerAccountId as Types
 
 -- | Describes a connection alias. Connection aliases are used for cross-Region redirection. For more information, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html Cross-Region Redirection for Amazon WorkSpaces> .
 --
 -- /See:/ 'mkConnectionAlias' smart constructor.
 data ConnectionAlias = ConnectionAlias'
-  { -- | The current state of the connection alias.
-    state :: Lude.Maybe ConnectionAliasState,
-    -- | The identifier of the AWS account that owns the connection alias.
-    ownerAccountId :: Lude.Maybe Lude.Text,
-    -- | The identifier of the connection alias.
-    aliasId :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the connection alias.
+    aliasId :: Core.Maybe Types.AliasId,
     -- | The association status of the connection alias.
-    associations :: Lude.Maybe (Lude.NonEmpty ConnectionAliasAssociation),
+    associations :: Core.Maybe (Core.NonEmpty Types.ConnectionAliasAssociation),
     -- | The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as @www.example.com@ .
-    connectionString :: Lude.Maybe Lude.Text
+    connectionString :: Core.Maybe Types.ConnectionString,
+    -- | The identifier of the AWS account that owns the connection alias.
+    ownerAccountId :: Core.Maybe Types.OwnerAccountId,
+    -- | The current state of the connection alias.
+    state :: Core.Maybe Types.ConnectionAliasState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConnectionAlias' with the minimum fields required to make a request.
---
--- * 'state' - The current state of the connection alias.
--- * 'ownerAccountId' - The identifier of the AWS account that owns the connection alias.
--- * 'aliasId' - The identifier of the connection alias.
--- * 'associations' - The association status of the connection alias.
--- * 'connectionString' - The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as @www.example.com@ .
+-- | Creates a 'ConnectionAlias' value with any optional fields omitted.
 mkConnectionAlias ::
   ConnectionAlias
 mkConnectionAlias =
   ConnectionAlias'
-    { state = Lude.Nothing,
-      ownerAccountId = Lude.Nothing,
-      aliasId = Lude.Nothing,
-      associations = Lude.Nothing,
-      connectionString = Lude.Nothing
+    { aliasId = Core.Nothing,
+      associations = Core.Nothing,
+      connectionString = Core.Nothing,
+      ownerAccountId = Core.Nothing,
+      state = Core.Nothing
     }
-
--- | The current state of the connection alias.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caState :: Lens.Lens' ConnectionAlias (Lude.Maybe ConnectionAliasState)
-caState = Lens.lens (state :: ConnectionAlias -> Lude.Maybe ConnectionAliasState) (\s a -> s {state = a} :: ConnectionAlias)
-{-# DEPRECATED caState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The identifier of the AWS account that owns the connection alias.
---
--- /Note:/ Consider using 'ownerAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caOwnerAccountId :: Lens.Lens' ConnectionAlias (Lude.Maybe Lude.Text)
-caOwnerAccountId = Lens.lens (ownerAccountId :: ConnectionAlias -> Lude.Maybe Lude.Text) (\s a -> s {ownerAccountId = a} :: ConnectionAlias)
-{-# DEPRECATED caOwnerAccountId "Use generic-lens or generic-optics with 'ownerAccountId' instead." #-}
 
 -- | The identifier of the connection alias.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAliasId :: Lens.Lens' ConnectionAlias (Lude.Maybe Lude.Text)
-caAliasId = Lens.lens (aliasId :: ConnectionAlias -> Lude.Maybe Lude.Text) (\s a -> s {aliasId = a} :: ConnectionAlias)
+caAliasId :: Lens.Lens' ConnectionAlias (Core.Maybe Types.AliasId)
+caAliasId = Lens.field @"aliasId"
 {-# DEPRECATED caAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
 -- | The association status of the connection alias.
 --
 -- /Note:/ Consider using 'associations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAssociations :: Lens.Lens' ConnectionAlias (Lude.Maybe (Lude.NonEmpty ConnectionAliasAssociation))
-caAssociations = Lens.lens (associations :: ConnectionAlias -> Lude.Maybe (Lude.NonEmpty ConnectionAliasAssociation)) (\s a -> s {associations = a} :: ConnectionAlias)
+caAssociations :: Lens.Lens' ConnectionAlias (Core.Maybe (Core.NonEmpty Types.ConnectionAliasAssociation))
+caAssociations = Lens.field @"associations"
 {-# DEPRECATED caAssociations "Use generic-lens or generic-optics with 'associations' instead." #-}
 
 -- | The connection string specified for the connection alias. The connection string must be in the form of a fully qualified domain name (FQDN), such as @www.example.com@ .
 --
 -- /Note:/ Consider using 'connectionString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caConnectionString :: Lens.Lens' ConnectionAlias (Lude.Maybe Lude.Text)
-caConnectionString = Lens.lens (connectionString :: ConnectionAlias -> Lude.Maybe Lude.Text) (\s a -> s {connectionString = a} :: ConnectionAlias)
+caConnectionString :: Lens.Lens' ConnectionAlias (Core.Maybe Types.ConnectionString)
+caConnectionString = Lens.field @"connectionString"
 {-# DEPRECATED caConnectionString "Use generic-lens or generic-optics with 'connectionString' instead." #-}
 
-instance Lude.FromJSON ConnectionAlias where
+-- | The identifier of the AWS account that owns the connection alias.
+--
+-- /Note:/ Consider using 'ownerAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caOwnerAccountId :: Lens.Lens' ConnectionAlias (Core.Maybe Types.OwnerAccountId)
+caOwnerAccountId = Lens.field @"ownerAccountId"
+{-# DEPRECATED caOwnerAccountId "Use generic-lens or generic-optics with 'ownerAccountId' instead." #-}
+
+-- | The current state of the connection alias.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caState :: Lens.Lens' ConnectionAlias (Core.Maybe Types.ConnectionAliasState)
+caState = Lens.field @"state"
+{-# DEPRECATED caState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON ConnectionAlias where
   parseJSON =
-    Lude.withObject
-      "ConnectionAlias"
-      ( \x ->
-          ConnectionAlias'
-            Lude.<$> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "OwnerAccountId")
-            Lude.<*> (x Lude..:? "AliasId")
-            Lude.<*> (x Lude..:? "Associations")
-            Lude.<*> (x Lude..:? "ConnectionString")
-      )
+    Core.withObject "ConnectionAlias" Core.$
+      \x ->
+        ConnectionAlias'
+          Core.<$> (x Core..:? "AliasId")
+          Core.<*> (x Core..:? "Associations")
+          Core.<*> (x Core..:? "ConnectionString")
+          Core.<*> (x Core..:? "OwnerAccountId")
+          Core.<*> (x Core..:? "State")

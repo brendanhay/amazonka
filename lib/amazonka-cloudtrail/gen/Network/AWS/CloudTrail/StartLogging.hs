@@ -31,11 +31,11 @@ module Network.AWS.CloudTrail.StartLogging
   )
 where
 
-import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.CloudTrail.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to CloudTrail to start logging AWS API calls for an account.
 --
@@ -44,86 +44,74 @@ newtype StartLogging = StartLogging'
   { -- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
-    name :: Lude.Text
+    name :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartLogging' with the minimum fields required to make a request.
---
--- * 'name' - Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is:
---
--- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+-- | Creates a 'StartLogging' value with any optional fields omitted.
 mkStartLogging ::
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
   StartLogging
-mkStartLogging pName_ = StartLogging' {name = pName_}
+mkStartLogging name = StartLogging' {name}
 
 -- | Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs AWS API calls. The format of a trail ARN is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' StartLogging Lude.Text
-sName = Lens.lens (name :: StartLogging -> Lude.Text) (\s a -> s {name = a} :: StartLogging)
+sName :: Lens.Lens' StartLogging Types.String
+sName = Lens.field @"name"
 {-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest StartLogging where
+instance Core.FromJSON StartLogging where
+  toJSON StartLogging {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest StartLogging where
   type Rs StartLogging = StartLoggingResponse
-  request = Req.postJSON cloudTrailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartLogging"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          StartLoggingResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          StartLoggingResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartLogging where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.StartLogging" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartLogging where
-  toJSON StartLogging' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath StartLogging where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartLogging where
-  toQuery = Lude.const Lude.mempty
 
 -- | Returns the objects or data listed below if successful. Otherwise, returns an error.
 --
 -- /See:/ 'mkStartLoggingResponse' smart constructor.
 newtype StartLoggingResponse = StartLoggingResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartLoggingResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartLoggingResponse' value with any optional fields omitted.
 mkStartLoggingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartLoggingResponse
-mkStartLoggingResponse pResponseStatus_ =
-  StartLoggingResponse' {responseStatus = pResponseStatus_}
+mkStartLoggingResponse responseStatus =
+  StartLoggingResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StartLoggingResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StartLoggingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartLoggingResponse)
+srsResponseStatus :: Lens.Lens' StartLoggingResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

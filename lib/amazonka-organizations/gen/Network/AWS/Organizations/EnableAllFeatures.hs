@@ -30,91 +30,82 @@ module Network.AWS.Organizations.EnableAllFeatures
     mkEnableAllFeaturesResponse,
 
     -- ** Response lenses
-    eafrsHandshake,
-    eafrsResponseStatus,
+    eafrrsHandshake,
+    eafrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnableAllFeatures' smart constructor.
 data EnableAllFeatures = EnableAllFeatures'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableAllFeatures' with the minimum fields required to make a request.
+-- | Creates a 'EnableAllFeatures' value with any optional fields omitted.
 mkEnableAllFeatures ::
   EnableAllFeatures
 mkEnableAllFeatures = EnableAllFeatures'
 
-instance Lude.AWSRequest EnableAllFeatures where
+instance Core.FromJSON EnableAllFeatures where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest EnableAllFeatures where
   type Rs EnableAllFeatures = EnableAllFeaturesResponse
-  request = Req.postJSON organizationsService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSOrganizationsV20161128.EnableAllFeatures")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           EnableAllFeaturesResponse'
-            Lude.<$> (x Lude..?> "Handshake") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Handshake") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders EnableAllFeatures where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSOrganizationsV20161128.EnableAllFeatures" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON EnableAllFeatures where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath EnableAllFeatures where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableAllFeatures where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkEnableAllFeaturesResponse' smart constructor.
 data EnableAllFeaturesResponse = EnableAllFeaturesResponse'
   { -- | A structure that contains details about the handshake created to support this request to enable all features in the organization.
-    handshake :: Lude.Maybe Handshake,
+    handshake :: Core.Maybe Types.Handshake,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EnableAllFeaturesResponse' with the minimum fields required to make a request.
---
--- * 'handshake' - A structure that contains details about the handshake created to support this request to enable all features in the organization.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'EnableAllFeaturesResponse' value with any optional fields omitted.
 mkEnableAllFeaturesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   EnableAllFeaturesResponse
-mkEnableAllFeaturesResponse pResponseStatus_ =
+mkEnableAllFeaturesResponse responseStatus =
   EnableAllFeaturesResponse'
-    { handshake = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { handshake = Core.Nothing,
+      responseStatus
     }
 
 -- | A structure that contains details about the handshake created to support this request to enable all features in the organization.
 --
 -- /Note:/ Consider using 'handshake' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eafrsHandshake :: Lens.Lens' EnableAllFeaturesResponse (Lude.Maybe Handshake)
-eafrsHandshake = Lens.lens (handshake :: EnableAllFeaturesResponse -> Lude.Maybe Handshake) (\s a -> s {handshake = a} :: EnableAllFeaturesResponse)
-{-# DEPRECATED eafrsHandshake "Use generic-lens or generic-optics with 'handshake' instead." #-}
+eafrrsHandshake :: Lens.Lens' EnableAllFeaturesResponse (Core.Maybe Types.Handshake)
+eafrrsHandshake = Lens.field @"handshake"
+{-# DEPRECATED eafrrsHandshake "Use generic-lens or generic-optics with 'handshake' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eafrsResponseStatus :: Lens.Lens' EnableAllFeaturesResponse Lude.Int
-eafrsResponseStatus = Lens.lens (responseStatus :: EnableAllFeaturesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableAllFeaturesResponse)
-{-# DEPRECATED eafrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+eafrrsResponseStatus :: Lens.Lens' EnableAllFeaturesResponse Core.Int
+eafrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED eafrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

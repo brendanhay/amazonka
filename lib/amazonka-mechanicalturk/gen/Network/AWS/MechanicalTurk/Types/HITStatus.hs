@@ -13,61 +13,63 @@
 module Network.AWS.MechanicalTurk.Types.HITStatus
   ( HITStatus
       ( HITStatus',
-        Assignable,
-        Unassignable,
-        Reviewable,
-        Reviewing,
-        Disposed
+        HITStatusAssignable,
+        HITStatusUnassignable,
+        HITStatusReviewable,
+        HITStatusReviewing,
+        HITStatusDisposed,
+        fromHITStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HITStatus = HITStatus' Lude.Text
+newtype HITStatus = HITStatus' {fromHITStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Assignable :: HITStatus
-pattern Assignable = HITStatus' "Assignable"
+pattern HITStatusAssignable :: HITStatus
+pattern HITStatusAssignable = HITStatus' "Assignable"
 
-pattern Unassignable :: HITStatus
-pattern Unassignable = HITStatus' "Unassignable"
+pattern HITStatusUnassignable :: HITStatus
+pattern HITStatusUnassignable = HITStatus' "Unassignable"
 
-pattern Reviewable :: HITStatus
-pattern Reviewable = HITStatus' "Reviewable"
+pattern HITStatusReviewable :: HITStatus
+pattern HITStatusReviewable = HITStatus' "Reviewable"
 
-pattern Reviewing :: HITStatus
-pattern Reviewing = HITStatus' "Reviewing"
+pattern HITStatusReviewing :: HITStatus
+pattern HITStatusReviewing = HITStatus' "Reviewing"
 
-pattern Disposed :: HITStatus
-pattern Disposed = HITStatus' "Disposed"
+pattern HITStatusDisposed :: HITStatus
+pattern HITStatusDisposed = HITStatus' "Disposed"
 
 {-# COMPLETE
-  Assignable,
-  Unassignable,
-  Reviewable,
-  Reviewing,
-  Disposed,
+  HITStatusAssignable,
+  HITStatusUnassignable,
+  HITStatusReviewable,
+  HITStatusReviewing,
+  HITStatusDisposed,
   HITStatus'
   #-}

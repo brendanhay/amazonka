@@ -22,57 +22,52 @@ module Network.AWS.Greengrass.Types.TelemetryConfiguration
   )
 where
 
-import Network.AWS.Greengrass.Types.ConfigurationSyncStatus
-import Network.AWS.Greengrass.Types.Telemetry
+import qualified Network.AWS.Greengrass.Types.ConfigurationSyncStatus as Types
+import qualified Network.AWS.Greengrass.Types.Telemetry as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration settings for running telemetry.
 --
 -- /See:/ 'mkTelemetryConfiguration' smart constructor.
 data TelemetryConfiguration = TelemetryConfiguration'
   { -- | Configure telemetry to be on or off.
-    telemetry :: Telemetry,
+    telemetry :: Types.Telemetry,
     -- | Synchronization status of the device reported configuration with the desired configuration.
-    configurationSyncStatus :: Lude.Maybe ConfigurationSyncStatus
+    configurationSyncStatus :: Core.Maybe Types.ConfigurationSyncStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TelemetryConfiguration' with the minimum fields required to make a request.
---
--- * 'telemetry' - Configure telemetry to be on or off.
--- * 'configurationSyncStatus' - Synchronization status of the device reported configuration with the desired configuration.
+-- | Creates a 'TelemetryConfiguration' value with any optional fields omitted.
 mkTelemetryConfiguration ::
   -- | 'telemetry'
-  Telemetry ->
+  Types.Telemetry ->
   TelemetryConfiguration
-mkTelemetryConfiguration pTelemetry_ =
+mkTelemetryConfiguration telemetry =
   TelemetryConfiguration'
-    { telemetry = pTelemetry_,
-      configurationSyncStatus = Lude.Nothing
+    { telemetry,
+      configurationSyncStatus = Core.Nothing
     }
 
 -- | Configure telemetry to be on or off.
 --
 -- /Note:/ Consider using 'telemetry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcTelemetry :: Lens.Lens' TelemetryConfiguration Telemetry
-tcTelemetry = Lens.lens (telemetry :: TelemetryConfiguration -> Telemetry) (\s a -> s {telemetry = a} :: TelemetryConfiguration)
+tcTelemetry :: Lens.Lens' TelemetryConfiguration Types.Telemetry
+tcTelemetry = Lens.field @"telemetry"
 {-# DEPRECATED tcTelemetry "Use generic-lens or generic-optics with 'telemetry' instead." #-}
 
 -- | Synchronization status of the device reported configuration with the desired configuration.
 --
 -- /Note:/ Consider using 'configurationSyncStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcConfigurationSyncStatus :: Lens.Lens' TelemetryConfiguration (Lude.Maybe ConfigurationSyncStatus)
-tcConfigurationSyncStatus = Lens.lens (configurationSyncStatus :: TelemetryConfiguration -> Lude.Maybe ConfigurationSyncStatus) (\s a -> s {configurationSyncStatus = a} :: TelemetryConfiguration)
+tcConfigurationSyncStatus :: Lens.Lens' TelemetryConfiguration (Core.Maybe Types.ConfigurationSyncStatus)
+tcConfigurationSyncStatus = Lens.field @"configurationSyncStatus"
 {-# DEPRECATED tcConfigurationSyncStatus "Use generic-lens or generic-optics with 'configurationSyncStatus' instead." #-}
 
-instance Lude.FromJSON TelemetryConfiguration where
+instance Core.FromJSON TelemetryConfiguration where
   parseJSON =
-    Lude.withObject
-      "TelemetryConfiguration"
-      ( \x ->
-          TelemetryConfiguration'
-            Lude.<$> (x Lude..: "Telemetry")
-            Lude.<*> (x Lude..:? "ConfigurationSyncStatus")
-      )
+    Core.withObject "TelemetryConfiguration" Core.$
+      \x ->
+        TelemetryConfiguration'
+          Core.<$> (x Core..: "Telemetry")
+          Core.<*> (x Core..:? "ConfigurationSyncStatus")

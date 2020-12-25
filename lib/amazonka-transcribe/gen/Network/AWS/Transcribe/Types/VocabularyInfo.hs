@@ -18,85 +18,79 @@ module Network.AWS.Transcribe.Types.VocabularyInfo
 
     -- * Lenses
     viLanguageCode,
-    viVocabularyName,
     viLastModifiedTime,
+    viVocabularyName,
     viVocabularyState,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Transcribe.Types.LanguageCode
-import Network.AWS.Transcribe.Types.VocabularyState
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Transcribe.Types.LanguageCode as Types
+import qualified Network.AWS.Transcribe.Types.VocabularyName as Types
+import qualified Network.AWS.Transcribe.Types.VocabularyState as Types
 
 -- | Provides information about a custom vocabulary.
 --
 -- /See:/ 'mkVocabularyInfo' smart constructor.
 data VocabularyInfo = VocabularyInfo'
   { -- | The language code of the vocabulary entries.
-    languageCode :: Lude.Maybe LanguageCode,
-    -- | The name of the vocabulary.
-    vocabularyName :: Lude.Maybe Lude.Text,
+    languageCode :: Core.Maybe Types.LanguageCode,
     -- | The date and time that the vocabulary was last modified.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the vocabulary.
+    vocabularyName :: Core.Maybe Types.VocabularyName,
     -- | The processing state of the vocabulary. If the state is @READY@ you can use the vocabulary in a @StartTranscriptionJob@ request.
-    vocabularyState :: Lude.Maybe VocabularyState
+    vocabularyState :: Core.Maybe Types.VocabularyState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'VocabularyInfo' with the minimum fields required to make a request.
---
--- * 'languageCode' - The language code of the vocabulary entries.
--- * 'vocabularyName' - The name of the vocabulary.
--- * 'lastModifiedTime' - The date and time that the vocabulary was last modified.
--- * 'vocabularyState' - The processing state of the vocabulary. If the state is @READY@ you can use the vocabulary in a @StartTranscriptionJob@ request.
+-- | Creates a 'VocabularyInfo' value with any optional fields omitted.
 mkVocabularyInfo ::
   VocabularyInfo
 mkVocabularyInfo =
   VocabularyInfo'
-    { languageCode = Lude.Nothing,
-      vocabularyName = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      vocabularyState = Lude.Nothing
+    { languageCode = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      vocabularyName = Core.Nothing,
+      vocabularyState = Core.Nothing
     }
 
 -- | The language code of the vocabulary entries.
 --
 -- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-viLanguageCode :: Lens.Lens' VocabularyInfo (Lude.Maybe LanguageCode)
-viLanguageCode = Lens.lens (languageCode :: VocabularyInfo -> Lude.Maybe LanguageCode) (\s a -> s {languageCode = a} :: VocabularyInfo)
+viLanguageCode :: Lens.Lens' VocabularyInfo (Core.Maybe Types.LanguageCode)
+viLanguageCode = Lens.field @"languageCode"
 {-# DEPRECATED viLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
-
--- | The name of the vocabulary.
---
--- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-viVocabularyName :: Lens.Lens' VocabularyInfo (Lude.Maybe Lude.Text)
-viVocabularyName = Lens.lens (vocabularyName :: VocabularyInfo -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyName = a} :: VocabularyInfo)
-{-# DEPRECATED viVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
 -- | The date and time that the vocabulary was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-viLastModifiedTime :: Lens.Lens' VocabularyInfo (Lude.Maybe Lude.Timestamp)
-viLastModifiedTime = Lens.lens (lastModifiedTime :: VocabularyInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: VocabularyInfo)
+viLastModifiedTime :: Lens.Lens' VocabularyInfo (Core.Maybe Core.NominalDiffTime)
+viLastModifiedTime = Lens.field @"lastModifiedTime"
 {-# DEPRECATED viLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | The name of the vocabulary.
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+viVocabularyName :: Lens.Lens' VocabularyInfo (Core.Maybe Types.VocabularyName)
+viVocabularyName = Lens.field @"vocabularyName"
+{-# DEPRECATED viVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
 
 -- | The processing state of the vocabulary. If the state is @READY@ you can use the vocabulary in a @StartTranscriptionJob@ request.
 --
 -- /Note:/ Consider using 'vocabularyState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-viVocabularyState :: Lens.Lens' VocabularyInfo (Lude.Maybe VocabularyState)
-viVocabularyState = Lens.lens (vocabularyState :: VocabularyInfo -> Lude.Maybe VocabularyState) (\s a -> s {vocabularyState = a} :: VocabularyInfo)
+viVocabularyState :: Lens.Lens' VocabularyInfo (Core.Maybe Types.VocabularyState)
+viVocabularyState = Lens.field @"vocabularyState"
 {-# DEPRECATED viVocabularyState "Use generic-lens or generic-optics with 'vocabularyState' instead." #-}
 
-instance Lude.FromJSON VocabularyInfo where
+instance Core.FromJSON VocabularyInfo where
   parseJSON =
-    Lude.withObject
-      "VocabularyInfo"
-      ( \x ->
-          VocabularyInfo'
-            Lude.<$> (x Lude..:? "LanguageCode")
-            Lude.<*> (x Lude..:? "VocabularyName")
-            Lude.<*> (x Lude..:? "LastModifiedTime")
-            Lude.<*> (x Lude..:? "VocabularyState")
-      )
+    Core.withObject "VocabularyInfo" Core.$
+      \x ->
+        VocabularyInfo'
+          Core.<$> (x Core..:? "LanguageCode")
+          Core.<*> (x Core..:? "LastModifiedTime")
+          Core.<*> (x Core..:? "VocabularyName")
+          Core.<*> (x Core..:? "VocabularyState")

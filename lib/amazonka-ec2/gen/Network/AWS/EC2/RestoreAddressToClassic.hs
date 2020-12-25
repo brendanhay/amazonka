@@ -20,7 +20,7 @@ module Network.AWS.EC2.RestoreAddressToClassic
     mkRestoreAddressToClassic,
 
     -- ** Request lenses
-    ratcPublicIP,
+    ratcPublicIp,
     ratcDryRun,
 
     -- * Destructuring the response
@@ -28,128 +28,121 @@ module Network.AWS.EC2.RestoreAddressToClassic
     mkRestoreAddressToClassicResponse,
 
     -- ** Response lenses
-    ratcrsStatus,
-    ratcrsPublicIP,
-    ratcrsResponseStatus,
+    ratcrrsPublicIp,
+    ratcrrsStatus,
+    ratcrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRestoreAddressToClassic' smart constructor.
 data RestoreAddressToClassic = RestoreAddressToClassic'
   { -- | The Elastic IP address.
-    publicIP :: Lude.Text,
+    publicIp :: Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RestoreAddressToClassic' with the minimum fields required to make a request.
---
--- * 'publicIP' - The Elastic IP address.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'RestoreAddressToClassic' value with any optional fields omitted.
 mkRestoreAddressToClassic ::
-  -- | 'publicIP'
-  Lude.Text ->
+  -- | 'publicIp'
+  Types.String ->
   RestoreAddressToClassic
-mkRestoreAddressToClassic pPublicIP_ =
-  RestoreAddressToClassic'
-    { publicIP = pPublicIP_,
-      dryRun = Lude.Nothing
-    }
+mkRestoreAddressToClassic publicIp =
+  RestoreAddressToClassic' {publicIp, dryRun = Core.Nothing}
 
 -- | The Elastic IP address.
 --
--- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratcPublicIP :: Lens.Lens' RestoreAddressToClassic Lude.Text
-ratcPublicIP = Lens.lens (publicIP :: RestoreAddressToClassic -> Lude.Text) (\s a -> s {publicIP = a} :: RestoreAddressToClassic)
-{-# DEPRECATED ratcPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
+-- /Note:/ Consider using 'publicIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ratcPublicIp :: Lens.Lens' RestoreAddressToClassic Types.String
+ratcPublicIp = Lens.field @"publicIp"
+{-# DEPRECATED ratcPublicIp "Use generic-lens or generic-optics with 'publicIp' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratcDryRun :: Lens.Lens' RestoreAddressToClassic (Lude.Maybe Lude.Bool)
-ratcDryRun = Lens.lens (dryRun :: RestoreAddressToClassic -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RestoreAddressToClassic)
+ratcDryRun :: Lens.Lens' RestoreAddressToClassic (Core.Maybe Core.Bool)
+ratcDryRun = Lens.field @"dryRun"
 {-# DEPRECATED ratcDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest RestoreAddressToClassic where
+instance Core.AWSRequest RestoreAddressToClassic where
   type Rs RestoreAddressToClassic = RestoreAddressToClassicResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RestoreAddressToClassic")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "PublicIp" publicIp)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           RestoreAddressToClassicResponse'
-            Lude.<$> (x Lude..@? "status")
-            Lude.<*> (x Lude..@? "publicIp")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "publicIp")
+            Core.<*> (x Core..@? "status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RestoreAddressToClassic where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RestoreAddressToClassic where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RestoreAddressToClassic where
-  toQuery RestoreAddressToClassic' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RestoreAddressToClassic" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "PublicIp" Lude.=: publicIP,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkRestoreAddressToClassicResponse' smart constructor.
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
-  { -- | The move status for the IP address.
-    status :: Lude.Maybe AddressStatus,
-    -- | The Elastic IP address.
-    publicIP :: Lude.Maybe Lude.Text,
+  { -- | The Elastic IP address.
+    publicIp :: Core.Maybe Types.String,
+    -- | The move status for the IP address.
+    status :: Core.Maybe Types.AddressStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RestoreAddressToClassicResponse' with the minimum fields required to make a request.
---
--- * 'status' - The move status for the IP address.
--- * 'publicIP' - The Elastic IP address.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RestoreAddressToClassicResponse' value with any optional fields omitted.
 mkRestoreAddressToClassicResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RestoreAddressToClassicResponse
-mkRestoreAddressToClassicResponse pResponseStatus_ =
+mkRestoreAddressToClassicResponse responseStatus =
   RestoreAddressToClassicResponse'
-    { status = Lude.Nothing,
-      publicIP = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { publicIp = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
+
+-- | The Elastic IP address.
+--
+-- /Note:/ Consider using 'publicIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ratcrrsPublicIp :: Lens.Lens' RestoreAddressToClassicResponse (Core.Maybe Types.String)
+ratcrrsPublicIp = Lens.field @"publicIp"
+{-# DEPRECATED ratcrrsPublicIp "Use generic-lens or generic-optics with 'publicIp' instead." #-}
 
 -- | The move status for the IP address.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratcrsStatus :: Lens.Lens' RestoreAddressToClassicResponse (Lude.Maybe AddressStatus)
-ratcrsStatus = Lens.lens (status :: RestoreAddressToClassicResponse -> Lude.Maybe AddressStatus) (\s a -> s {status = a} :: RestoreAddressToClassicResponse)
-{-# DEPRECATED ratcrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The Elastic IP address.
---
--- /Note:/ Consider using 'publicIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratcrsPublicIP :: Lens.Lens' RestoreAddressToClassicResponse (Lude.Maybe Lude.Text)
-ratcrsPublicIP = Lens.lens (publicIP :: RestoreAddressToClassicResponse -> Lude.Maybe Lude.Text) (\s a -> s {publicIP = a} :: RestoreAddressToClassicResponse)
-{-# DEPRECATED ratcrsPublicIP "Use generic-lens or generic-optics with 'publicIP' instead." #-}
+ratcrrsStatus :: Lens.Lens' RestoreAddressToClassicResponse (Core.Maybe Types.AddressStatus)
+ratcrrsStatus = Lens.field @"status"
+{-# DEPRECATED ratcrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratcrsResponseStatus :: Lens.Lens' RestoreAddressToClassicResponse Lude.Int
-ratcrsResponseStatus = Lens.lens (responseStatus :: RestoreAddressToClassicResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RestoreAddressToClassicResponse)
-{-# DEPRECATED ratcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ratcrrsResponseStatus :: Lens.Lens' RestoreAddressToClassicResponse Core.Int
+ratcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ratcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

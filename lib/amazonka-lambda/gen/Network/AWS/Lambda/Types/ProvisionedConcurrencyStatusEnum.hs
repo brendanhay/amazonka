@@ -13,51 +13,56 @@
 module Network.AWS.Lambda.Types.ProvisionedConcurrencyStatusEnum
   ( ProvisionedConcurrencyStatusEnum
       ( ProvisionedConcurrencyStatusEnum',
-        PCSEInProgress,
-        PCSEReady,
-        PCSEFailed
+        ProvisionedConcurrencyStatusEnumInProgress,
+        ProvisionedConcurrencyStatusEnumReady,
+        ProvisionedConcurrencyStatusEnumFailed,
+        fromProvisionedConcurrencyStatusEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProvisionedConcurrencyStatusEnum = ProvisionedConcurrencyStatusEnum' Lude.Text
+newtype ProvisionedConcurrencyStatusEnum = ProvisionedConcurrencyStatusEnum'
+  { fromProvisionedConcurrencyStatusEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PCSEInProgress :: ProvisionedConcurrencyStatusEnum
-pattern PCSEInProgress = ProvisionedConcurrencyStatusEnum' "IN_PROGRESS"
+pattern ProvisionedConcurrencyStatusEnumInProgress :: ProvisionedConcurrencyStatusEnum
+pattern ProvisionedConcurrencyStatusEnumInProgress = ProvisionedConcurrencyStatusEnum' "IN_PROGRESS"
 
-pattern PCSEReady :: ProvisionedConcurrencyStatusEnum
-pattern PCSEReady = ProvisionedConcurrencyStatusEnum' "READY"
+pattern ProvisionedConcurrencyStatusEnumReady :: ProvisionedConcurrencyStatusEnum
+pattern ProvisionedConcurrencyStatusEnumReady = ProvisionedConcurrencyStatusEnum' "READY"
 
-pattern PCSEFailed :: ProvisionedConcurrencyStatusEnum
-pattern PCSEFailed = ProvisionedConcurrencyStatusEnum' "FAILED"
+pattern ProvisionedConcurrencyStatusEnumFailed :: ProvisionedConcurrencyStatusEnum
+pattern ProvisionedConcurrencyStatusEnumFailed = ProvisionedConcurrencyStatusEnum' "FAILED"
 
 {-# COMPLETE
-  PCSEInProgress,
-  PCSEReady,
-  PCSEFailed,
+  ProvisionedConcurrencyStatusEnumInProgress,
+  ProvisionedConcurrencyStatusEnumReady,
+  ProvisionedConcurrencyStatusEnumFailed,
   ProvisionedConcurrencyStatusEnum'
   #-}

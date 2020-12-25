@@ -17,59 +17,54 @@ module Network.AWS.DMS.Types.ReplicationTaskAssessmentRunProgress
     mkReplicationTaskAssessmentRunProgress,
 
     -- * Lenses
-    rtarpIndividualAssessmentCount,
     rtarpIndividualAssessmentCompletedCount,
+    rtarpIndividualAssessmentCount,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The progress values reported by the @AssessmentProgress@ response element.
 --
 -- /See:/ 'mkReplicationTaskAssessmentRunProgress' smart constructor.
 data ReplicationTaskAssessmentRunProgress = ReplicationTaskAssessmentRunProgress'
-  { -- | The number of individual assessments that are specified to run.
-    individualAssessmentCount :: Lude.Maybe Lude.Int,
-    -- | The number of individual assessments that have completed, successfully or not.
-    individualAssessmentCompletedCount :: Lude.Maybe Lude.Int
+  { -- | The number of individual assessments that have completed, successfully or not.
+    individualAssessmentCompletedCount :: Core.Maybe Core.Int,
+    -- | The number of individual assessments that are specified to run.
+    individualAssessmentCount :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicationTaskAssessmentRunProgress' with the minimum fields required to make a request.
---
--- * 'individualAssessmentCount' - The number of individual assessments that are specified to run.
--- * 'individualAssessmentCompletedCount' - The number of individual assessments that have completed, successfully or not.
+-- | Creates a 'ReplicationTaskAssessmentRunProgress' value with any optional fields omitted.
 mkReplicationTaskAssessmentRunProgress ::
   ReplicationTaskAssessmentRunProgress
 mkReplicationTaskAssessmentRunProgress =
   ReplicationTaskAssessmentRunProgress'
-    { individualAssessmentCount =
-        Lude.Nothing,
-      individualAssessmentCompletedCount = Lude.Nothing
+    { individualAssessmentCompletedCount =
+        Core.Nothing,
+      individualAssessmentCount = Core.Nothing
     }
-
--- | The number of individual assessments that are specified to run.
---
--- /Note:/ Consider using 'individualAssessmentCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtarpIndividualAssessmentCount :: Lens.Lens' ReplicationTaskAssessmentRunProgress (Lude.Maybe Lude.Int)
-rtarpIndividualAssessmentCount = Lens.lens (individualAssessmentCount :: ReplicationTaskAssessmentRunProgress -> Lude.Maybe Lude.Int) (\s a -> s {individualAssessmentCount = a} :: ReplicationTaskAssessmentRunProgress)
-{-# DEPRECATED rtarpIndividualAssessmentCount "Use generic-lens or generic-optics with 'individualAssessmentCount' instead." #-}
 
 -- | The number of individual assessments that have completed, successfully or not.
 --
 -- /Note:/ Consider using 'individualAssessmentCompletedCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtarpIndividualAssessmentCompletedCount :: Lens.Lens' ReplicationTaskAssessmentRunProgress (Lude.Maybe Lude.Int)
-rtarpIndividualAssessmentCompletedCount = Lens.lens (individualAssessmentCompletedCount :: ReplicationTaskAssessmentRunProgress -> Lude.Maybe Lude.Int) (\s a -> s {individualAssessmentCompletedCount = a} :: ReplicationTaskAssessmentRunProgress)
+rtarpIndividualAssessmentCompletedCount :: Lens.Lens' ReplicationTaskAssessmentRunProgress (Core.Maybe Core.Int)
+rtarpIndividualAssessmentCompletedCount = Lens.field @"individualAssessmentCompletedCount"
 {-# DEPRECATED rtarpIndividualAssessmentCompletedCount "Use generic-lens or generic-optics with 'individualAssessmentCompletedCount' instead." #-}
 
-instance Lude.FromJSON ReplicationTaskAssessmentRunProgress where
+-- | The number of individual assessments that are specified to run.
+--
+-- /Note:/ Consider using 'individualAssessmentCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtarpIndividualAssessmentCount :: Lens.Lens' ReplicationTaskAssessmentRunProgress (Core.Maybe Core.Int)
+rtarpIndividualAssessmentCount = Lens.field @"individualAssessmentCount"
+{-# DEPRECATED rtarpIndividualAssessmentCount "Use generic-lens or generic-optics with 'individualAssessmentCount' instead." #-}
+
+instance Core.FromJSON ReplicationTaskAssessmentRunProgress where
   parseJSON =
-    Lude.withObject
-      "ReplicationTaskAssessmentRunProgress"
-      ( \x ->
-          ReplicationTaskAssessmentRunProgress'
-            Lude.<$> (x Lude..:? "IndividualAssessmentCount")
-            Lude.<*> (x Lude..:? "IndividualAssessmentCompletedCount")
-      )
+    Core.withObject "ReplicationTaskAssessmentRunProgress" Core.$
+      \x ->
+        ReplicationTaskAssessmentRunProgress'
+          Core.<$> (x Core..:? "IndividualAssessmentCompletedCount")
+          Core.<*> (x Core..:? "IndividualAssessmentCount")

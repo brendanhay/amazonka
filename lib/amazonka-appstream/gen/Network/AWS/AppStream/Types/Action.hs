@@ -13,61 +13,63 @@
 module Network.AWS.AppStream.Types.Action
   ( Action
       ( Action',
-        ClipboardCopyFromLocalDevice,
-        ClipboardCopyToLocalDevice,
-        FileUpload,
-        FileDownload,
-        PrintingToLocalDevice
+        ActionClipboardCopyFromLocalDevice,
+        ActionClipboardCopyToLocalDevice,
+        ActionFileUpload,
+        ActionFileDownload,
+        ActionPrintingToLocalDevice,
+        fromAction
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Action = Action' Lude.Text
+newtype Action = Action' {fromAction :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ClipboardCopyFromLocalDevice :: Action
-pattern ClipboardCopyFromLocalDevice = Action' "CLIPBOARD_COPY_FROM_LOCAL_DEVICE"
+pattern ActionClipboardCopyFromLocalDevice :: Action
+pattern ActionClipboardCopyFromLocalDevice = Action' "CLIPBOARD_COPY_FROM_LOCAL_DEVICE"
 
-pattern ClipboardCopyToLocalDevice :: Action
-pattern ClipboardCopyToLocalDevice = Action' "CLIPBOARD_COPY_TO_LOCAL_DEVICE"
+pattern ActionClipboardCopyToLocalDevice :: Action
+pattern ActionClipboardCopyToLocalDevice = Action' "CLIPBOARD_COPY_TO_LOCAL_DEVICE"
 
-pattern FileUpload :: Action
-pattern FileUpload = Action' "FILE_UPLOAD"
+pattern ActionFileUpload :: Action
+pattern ActionFileUpload = Action' "FILE_UPLOAD"
 
-pattern FileDownload :: Action
-pattern FileDownload = Action' "FILE_DOWNLOAD"
+pattern ActionFileDownload :: Action
+pattern ActionFileDownload = Action' "FILE_DOWNLOAD"
 
-pattern PrintingToLocalDevice :: Action
-pattern PrintingToLocalDevice = Action' "PRINTING_TO_LOCAL_DEVICE"
+pattern ActionPrintingToLocalDevice :: Action
+pattern ActionPrintingToLocalDevice = Action' "PRINTING_TO_LOCAL_DEVICE"
 
 {-# COMPLETE
-  ClipboardCopyFromLocalDevice,
-  ClipboardCopyToLocalDevice,
-  FileUpload,
-  FileDownload,
-  PrintingToLocalDevice,
+  ActionClipboardCopyFromLocalDevice,
+  ActionClipboardCopyToLocalDevice,
+  ActionFileUpload,
+  ActionFileDownload,
+  ActionPrintingToLocalDevice,
   Action'
   #-}

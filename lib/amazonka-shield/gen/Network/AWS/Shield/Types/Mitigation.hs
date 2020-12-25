@@ -22,34 +22,32 @@ module Network.AWS.Shield.Types.Mitigation
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Shield.Types.String as Types
 
 -- | The mitigation applied to a DDoS attack.
 --
 -- /See:/ 'mkMitigation' smart constructor.
 newtype Mitigation = Mitigation'
   { -- | The name of the mitigation taken for this attack.
-    mitigationName :: Lude.Maybe Lude.Text
+    mitigationName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Mitigation' with the minimum fields required to make a request.
---
--- * 'mitigationName' - The name of the mitigation taken for this attack.
+-- | Creates a 'Mitigation' value with any optional fields omitted.
 mkMitigation ::
   Mitigation
-mkMitigation = Mitigation' {mitigationName = Lude.Nothing}
+mkMitigation = Mitigation' {mitigationName = Core.Nothing}
 
 -- | The name of the mitigation taken for this attack.
 --
 -- /Note:/ Consider using 'mitigationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mMitigationName :: Lens.Lens' Mitigation (Lude.Maybe Lude.Text)
-mMitigationName = Lens.lens (mitigationName :: Mitigation -> Lude.Maybe Lude.Text) (\s a -> s {mitigationName = a} :: Mitigation)
+mMitigationName :: Lens.Lens' Mitigation (Core.Maybe Types.String)
+mMitigationName = Lens.field @"mitigationName"
 {-# DEPRECATED mMitigationName "Use generic-lens or generic-optics with 'mitigationName' instead." #-}
 
-instance Lude.FromJSON Mitigation where
+instance Core.FromJSON Mitigation where
   parseJSON =
-    Lude.withObject
-      "Mitigation"
-      (\x -> Mitigation' Lude.<$> (x Lude..:? "MitigationName"))
+    Core.withObject "Mitigation" Core.$
+      \x -> Mitigation' Core.<$> (x Core..:? "MitigationName")

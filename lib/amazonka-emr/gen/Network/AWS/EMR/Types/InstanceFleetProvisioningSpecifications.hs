@@ -17,70 +17,65 @@ module Network.AWS.EMR.Types.InstanceFleetProvisioningSpecifications
     mkInstanceFleetProvisioningSpecifications,
 
     -- * Lenses
-    ifpsSpotSpecification,
     ifpsOnDemandSpecification,
+    ifpsSpotSpecification,
   )
 where
 
-import Network.AWS.EMR.Types.OnDemandProvisioningSpecification
-import Network.AWS.EMR.Types.SpotProvisioningSpecification
+import qualified Network.AWS.EMR.Types.OnDemandProvisioningSpecification as Types
+import qualified Network.AWS.EMR.Types.SpotProvisioningSpecification as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The launch specification for Spot Instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
 --
 -- /See:/ 'mkInstanceFleetProvisioningSpecifications' smart constructor.
 data InstanceFleetProvisioningSpecifications = InstanceFleetProvisioningSpecifications'
-  { -- | The launch specification for Spot Instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
-    spotSpecification :: Lude.Maybe SpotProvisioningSpecification,
-    -- | The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
-    onDemandSpecification :: Lude.Maybe OnDemandProvisioningSpecification
+  { -- | The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+    onDemandSpecification :: Core.Maybe Types.OnDemandProvisioningSpecification,
+    -- | The launch specification for Spot Instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+    spotSpecification :: Core.Maybe Types.SpotProvisioningSpecification
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceFleetProvisioningSpecifications' with the minimum fields required to make a request.
---
--- * 'spotSpecification' - The launch specification for Spot Instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
--- * 'onDemandSpecification' - The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
+-- | Creates a 'InstanceFleetProvisioningSpecifications' value with any optional fields omitted.
 mkInstanceFleetProvisioningSpecifications ::
   InstanceFleetProvisioningSpecifications
 mkInstanceFleetProvisioningSpecifications =
   InstanceFleetProvisioningSpecifications'
-    { spotSpecification =
-        Lude.Nothing,
-      onDemandSpecification = Lude.Nothing
+    { onDemandSpecification =
+        Core.Nothing,
+      spotSpecification = Core.Nothing
     }
-
--- | The launch specification for Spot Instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
---
--- /Note:/ Consider using 'spotSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifpsSpotSpecification :: Lens.Lens' InstanceFleetProvisioningSpecifications (Lude.Maybe SpotProvisioningSpecification)
-ifpsSpotSpecification = Lens.lens (spotSpecification :: InstanceFleetProvisioningSpecifications -> Lude.Maybe SpotProvisioningSpecification) (\s a -> s {spotSpecification = a} :: InstanceFleetProvisioningSpecifications)
-{-# DEPRECATED ifpsSpotSpecification "Use generic-lens or generic-optics with 'spotSpecification' instead." #-}
 
 -- | The launch specification for On-Demand Instances in the instance fleet, which determines the allocation strategy.
 --
 -- /Note:/ Consider using 'onDemandSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifpsOnDemandSpecification :: Lens.Lens' InstanceFleetProvisioningSpecifications (Lude.Maybe OnDemandProvisioningSpecification)
-ifpsOnDemandSpecification = Lens.lens (onDemandSpecification :: InstanceFleetProvisioningSpecifications -> Lude.Maybe OnDemandProvisioningSpecification) (\s a -> s {onDemandSpecification = a} :: InstanceFleetProvisioningSpecifications)
+ifpsOnDemandSpecification :: Lens.Lens' InstanceFleetProvisioningSpecifications (Core.Maybe Types.OnDemandProvisioningSpecification)
+ifpsOnDemandSpecification = Lens.field @"onDemandSpecification"
 {-# DEPRECATED ifpsOnDemandSpecification "Use generic-lens or generic-optics with 'onDemandSpecification' instead." #-}
 
-instance Lude.FromJSON InstanceFleetProvisioningSpecifications where
-  parseJSON =
-    Lude.withObject
-      "InstanceFleetProvisioningSpecifications"
-      ( \x ->
-          InstanceFleetProvisioningSpecifications'
-            Lude.<$> (x Lude..:? "SpotSpecification")
-            Lude.<*> (x Lude..:? "OnDemandSpecification")
-      )
+-- | The launch specification for Spot Instances in the fleet, which determines the defined duration, provisioning timeout behavior, and allocation strategy.
+--
+-- /Note:/ Consider using 'spotSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifpsSpotSpecification :: Lens.Lens' InstanceFleetProvisioningSpecifications (Core.Maybe Types.SpotProvisioningSpecification)
+ifpsSpotSpecification = Lens.field @"spotSpecification"
+{-# DEPRECATED ifpsSpotSpecification "Use generic-lens or generic-optics with 'spotSpecification' instead." #-}
 
-instance Lude.ToJSON InstanceFleetProvisioningSpecifications where
-  toJSON InstanceFleetProvisioningSpecifications' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SpotSpecification" Lude..=) Lude.<$> spotSpecification,
-            ("OnDemandSpecification" Lude..=) Lude.<$> onDemandSpecification
+instance Core.FromJSON InstanceFleetProvisioningSpecifications where
+  toJSON InstanceFleetProvisioningSpecifications {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("OnDemandSpecification" Core..=) Core.<$> onDemandSpecification,
+            ("SpotSpecification" Core..=) Core.<$> spotSpecification
           ]
       )
+
+instance Core.FromJSON InstanceFleetProvisioningSpecifications where
+  parseJSON =
+    Core.withObject "InstanceFleetProvisioningSpecifications" Core.$
+      \x ->
+        InstanceFleetProvisioningSpecifications'
+          Core.<$> (x Core..:? "OnDemandSpecification")
+          Core.<*> (x Core..:? "SpotSpecification")

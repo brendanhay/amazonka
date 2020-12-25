@@ -21,40 +21,38 @@ module Network.AWS.IoTAnalytics.Types.Schedule
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.Expression as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The schedule for when to trigger an update.
 --
 -- /See:/ 'mkSchedule' smart constructor.
 newtype Schedule = Schedule'
   { -- | The expression that defines when to trigger an update. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html Schedule Expressions for Rules> in the /Amazon CloudWatch Events User Guide/ .
-    expression :: Lude.Maybe Lude.Text
+    expression :: Core.Maybe Types.Expression
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Schedule' with the minimum fields required to make a request.
---
--- * 'expression' - The expression that defines when to trigger an update. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html Schedule Expressions for Rules> in the /Amazon CloudWatch Events User Guide/ .
+-- | Creates a 'Schedule' value with any optional fields omitted.
 mkSchedule ::
   Schedule
-mkSchedule = Schedule' {expression = Lude.Nothing}
+mkSchedule = Schedule' {expression = Core.Nothing}
 
 -- | The expression that defines when to trigger an update. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html Schedule Expressions for Rules> in the /Amazon CloudWatch Events User Guide/ .
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sExpression :: Lens.Lens' Schedule (Lude.Maybe Lude.Text)
-sExpression = Lens.lens (expression :: Schedule -> Lude.Maybe Lude.Text) (\s a -> s {expression = a} :: Schedule)
+sExpression :: Lens.Lens' Schedule (Core.Maybe Types.Expression)
+sExpression = Lens.field @"expression"
 {-# DEPRECATED sExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
-instance Lude.FromJSON Schedule where
-  parseJSON =
-    Lude.withObject
-      "Schedule"
-      (\x -> Schedule' Lude.<$> (x Lude..:? "expression"))
+instance Core.FromJSON Schedule where
+  toJSON Schedule {..} =
+    Core.object
+      (Core.catMaybes [("expression" Core..=) Core.<$> expression])
 
-instance Lude.ToJSON Schedule where
-  toJSON Schedule' {..} =
-    Lude.object
-      (Lude.catMaybes [("expression" Lude..=) Lude.<$> expression])
+instance Core.FromJSON Schedule where
+  parseJSON =
+    Core.withObject "Schedule" Core.$
+      \x -> Schedule' Core.<$> (x Core..:? "expression")

@@ -28,118 +28,111 @@ module Network.AWS.EC2.DeleteFlowLogs
     mkDeleteFlowLogsResponse,
 
     -- ** Response lenses
-    dflrsUnsuccessful,
-    dflrsResponseStatus,
+    dflrrsUnsuccessful,
+    dflrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFlowLogs' smart constructor.
 data DeleteFlowLogs = DeleteFlowLogs'
   { -- | One or more flow log IDs.
     --
     -- Constraint: Maximum of 1000 flow log IDs.
-    flowLogIds :: [Lude.Text],
+    flowLogIds :: [Types.VpcFlowLogId],
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFlowLogs' with the minimum fields required to make a request.
---
--- * 'flowLogIds' - One or more flow log IDs.
---
--- Constraint: Maximum of 1000 flow log IDs.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteFlowLogs' value with any optional fields omitted.
 mkDeleteFlowLogs ::
   DeleteFlowLogs
 mkDeleteFlowLogs =
-  DeleteFlowLogs' {flowLogIds = Lude.mempty, dryRun = Lude.Nothing}
+  DeleteFlowLogs' {flowLogIds = Core.mempty, dryRun = Core.Nothing}
 
 -- | One or more flow log IDs.
 --
 -- Constraint: Maximum of 1000 flow log IDs.
 --
 -- /Note:/ Consider using 'flowLogIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflFlowLogIds :: Lens.Lens' DeleteFlowLogs [Lude.Text]
-dflFlowLogIds = Lens.lens (flowLogIds :: DeleteFlowLogs -> [Lude.Text]) (\s a -> s {flowLogIds = a} :: DeleteFlowLogs)
+dflFlowLogIds :: Lens.Lens' DeleteFlowLogs [Types.VpcFlowLogId]
+dflFlowLogIds = Lens.field @"flowLogIds"
 {-# DEPRECATED dflFlowLogIds "Use generic-lens or generic-optics with 'flowLogIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflDryRun :: Lens.Lens' DeleteFlowLogs (Lude.Maybe Lude.Bool)
-dflDryRun = Lens.lens (dryRun :: DeleteFlowLogs -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteFlowLogs)
+dflDryRun :: Lens.Lens' DeleteFlowLogs (Core.Maybe Core.Bool)
+dflDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dflDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteFlowLogs where
+instance Core.AWSRequest DeleteFlowLogs where
   type Rs DeleteFlowLogs = DeleteFlowLogsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteFlowLogs")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "FlowLogId" flowLogIds)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DeleteFlowLogsResponse'
-            Lude.<$> ( x Lude..@? "unsuccessful" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "unsuccessful" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteFlowLogs where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteFlowLogs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteFlowLogs where
-  toQuery DeleteFlowLogs' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteFlowLogs" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQueryList "FlowLogId" flowLogIds,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkDeleteFlowLogsResponse' smart constructor.
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
   { -- | Information about the flow logs that could not be deleted successfully.
-    unsuccessful :: Lude.Maybe [UnsuccessfulItem],
+    unsuccessful :: Core.Maybe [Types.UnsuccessfulItem],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFlowLogsResponse' with the minimum fields required to make a request.
---
--- * 'unsuccessful' - Information about the flow logs that could not be deleted successfully.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteFlowLogsResponse' value with any optional fields omitted.
 mkDeleteFlowLogsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteFlowLogsResponse
-mkDeleteFlowLogsResponse pResponseStatus_ =
+mkDeleteFlowLogsResponse responseStatus =
   DeleteFlowLogsResponse'
-    { unsuccessful = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { unsuccessful = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the flow logs that could not be deleted successfully.
 --
 -- /Note:/ Consider using 'unsuccessful' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflrsUnsuccessful :: Lens.Lens' DeleteFlowLogsResponse (Lude.Maybe [UnsuccessfulItem])
-dflrsUnsuccessful = Lens.lens (unsuccessful :: DeleteFlowLogsResponse -> Lude.Maybe [UnsuccessfulItem]) (\s a -> s {unsuccessful = a} :: DeleteFlowLogsResponse)
-{-# DEPRECATED dflrsUnsuccessful "Use generic-lens or generic-optics with 'unsuccessful' instead." #-}
+dflrrsUnsuccessful :: Lens.Lens' DeleteFlowLogsResponse (Core.Maybe [Types.UnsuccessfulItem])
+dflrrsUnsuccessful = Lens.field @"unsuccessful"
+{-# DEPRECATED dflrrsUnsuccessful "Use generic-lens or generic-optics with 'unsuccessful' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dflrsResponseStatus :: Lens.Lens' DeleteFlowLogsResponse Lude.Int
-dflrsResponseStatus = Lens.lens (responseStatus :: DeleteFlowLogsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteFlowLogsResponse)
-{-# DEPRECATED dflrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dflrrsResponseStatus :: Lens.Lens' DeleteFlowLogsResponse Core.Int
+dflrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dflrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

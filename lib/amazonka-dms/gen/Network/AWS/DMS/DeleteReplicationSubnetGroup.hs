@@ -27,114 +27,96 @@ module Network.AWS.DMS.DeleteReplicationSubnetGroup
     mkDeleteReplicationSubnetGroupResponse,
 
     -- ** Response lenses
-    drsgrsResponseStatus,
+    drsgrrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDeleteReplicationSubnetGroup' smart constructor.
 newtype DeleteReplicationSubnetGroup = DeleteReplicationSubnetGroup'
   { -- | The subnet group name of the replication instance.
-    replicationSubnetGroupIdentifier :: Lude.Text
+    replicationSubnetGroupIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReplicationSubnetGroup' with the minimum fields required to make a request.
---
--- * 'replicationSubnetGroupIdentifier' - The subnet group name of the replication instance.
+-- | Creates a 'DeleteReplicationSubnetGroup' value with any optional fields omitted.
 mkDeleteReplicationSubnetGroup ::
   -- | 'replicationSubnetGroupIdentifier'
-  Lude.Text ->
+  Types.String ->
   DeleteReplicationSubnetGroup
-mkDeleteReplicationSubnetGroup pReplicationSubnetGroupIdentifier_ =
-  DeleteReplicationSubnetGroup'
-    { replicationSubnetGroupIdentifier =
-        pReplicationSubnetGroupIdentifier_
-    }
+mkDeleteReplicationSubnetGroup replicationSubnetGroupIdentifier =
+  DeleteReplicationSubnetGroup' {replicationSubnetGroupIdentifier}
 
 -- | The subnet group name of the replication instance.
 --
 -- /Note:/ Consider using 'replicationSubnetGroupIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsgReplicationSubnetGroupIdentifier :: Lens.Lens' DeleteReplicationSubnetGroup Lude.Text
-drsgReplicationSubnetGroupIdentifier = Lens.lens (replicationSubnetGroupIdentifier :: DeleteReplicationSubnetGroup -> Lude.Text) (\s a -> s {replicationSubnetGroupIdentifier = a} :: DeleteReplicationSubnetGroup)
+drsgReplicationSubnetGroupIdentifier :: Lens.Lens' DeleteReplicationSubnetGroup Types.String
+drsgReplicationSubnetGroupIdentifier = Lens.field @"replicationSubnetGroupIdentifier"
 {-# DEPRECATED drsgReplicationSubnetGroupIdentifier "Use generic-lens or generic-optics with 'replicationSubnetGroupIdentifier' instead." #-}
 
-instance Lude.AWSRequest DeleteReplicationSubnetGroup where
-  type
-    Rs DeleteReplicationSubnetGroup =
-      DeleteReplicationSubnetGroupResponse
-  request = Req.postJSON dmsService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          DeleteReplicationSubnetGroupResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DeleteReplicationSubnetGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonDMSv20160101.DeleteReplicationSubnetGroup" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteReplicationSubnetGroup where
-  toJSON DeleteReplicationSubnetGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON DeleteReplicationSubnetGroup where
+  toJSON DeleteReplicationSubnetGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ReplicationSubnetGroupIdentifier"
-                  Lude..= replicationSubnetGroupIdentifier
+                  Core..= replicationSubnetGroupIdentifier
               )
           ]
       )
 
-instance Lude.ToPath DeleteReplicationSubnetGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteReplicationSubnetGroup where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DeleteReplicationSubnetGroup where
+  type
+    Rs DeleteReplicationSubnetGroup =
+      DeleteReplicationSubnetGroupResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonDMSv20160101.DeleteReplicationSubnetGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DeleteReplicationSubnetGroupResponse'
+            Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- |
 --
 -- /See:/ 'mkDeleteReplicationSubnetGroupResponse' smart constructor.
 newtype DeleteReplicationSubnetGroupResponse = DeleteReplicationSubnetGroupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReplicationSubnetGroupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteReplicationSubnetGroupResponse' value with any optional fields omitted.
 mkDeleteReplicationSubnetGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteReplicationSubnetGroupResponse
-mkDeleteReplicationSubnetGroupResponse pResponseStatus_ =
-  DeleteReplicationSubnetGroupResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteReplicationSubnetGroupResponse responseStatus =
+  DeleteReplicationSubnetGroupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsgrsResponseStatus :: Lens.Lens' DeleteReplicationSubnetGroupResponse Lude.Int
-drsgrsResponseStatus = Lens.lens (responseStatus :: DeleteReplicationSubnetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteReplicationSubnetGroupResponse)
-{-# DEPRECATED drsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsgrrsResponseStatus :: Lens.Lens' DeleteReplicationSubnetGroupResponse Core.Int
+drsgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

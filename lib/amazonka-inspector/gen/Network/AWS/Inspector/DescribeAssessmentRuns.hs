@@ -20,131 +20,119 @@ module Network.AWS.Inspector.DescribeAssessmentRuns
     mkDescribeAssessmentRuns,
 
     -- ** Request lenses
-    darAssessmentRunARNs,
+    darAssessmentRunArns,
 
     -- * Destructuring the response
     DescribeAssessmentRunsResponse (..),
     mkDescribeAssessmentRunsResponse,
 
     -- ** Response lenses
-    darrsAssessmentRuns,
-    darrsFailedItems,
-    darrsResponseStatus,
+    darrrsAssessmentRuns,
+    darrrsFailedItems,
+    darrrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAssessmentRuns' smart constructor.
 newtype DescribeAssessmentRuns = DescribeAssessmentRuns'
   { -- | The ARN that specifies the assessment run that you want to describe.
-    assessmentRunARNs :: Lude.NonEmpty Lude.Text
+    assessmentRunArns :: Core.NonEmpty Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAssessmentRuns' with the minimum fields required to make a request.
---
--- * 'assessmentRunARNs' - The ARN that specifies the assessment run that you want to describe.
+-- | Creates a 'DescribeAssessmentRuns' value with any optional fields omitted.
 mkDescribeAssessmentRuns ::
-  -- | 'assessmentRunARNs'
-  Lude.NonEmpty Lude.Text ->
+  -- | 'assessmentRunArns'
+  Core.NonEmpty Types.Arn ->
   DescribeAssessmentRuns
-mkDescribeAssessmentRuns pAssessmentRunARNs_ =
-  DescribeAssessmentRuns' {assessmentRunARNs = pAssessmentRunARNs_}
+mkDescribeAssessmentRuns assessmentRunArns =
+  DescribeAssessmentRuns' {assessmentRunArns}
 
 -- | The ARN that specifies the assessment run that you want to describe.
 --
--- /Note:/ Consider using 'assessmentRunARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darAssessmentRunARNs :: Lens.Lens' DescribeAssessmentRuns (Lude.NonEmpty Lude.Text)
-darAssessmentRunARNs = Lens.lens (assessmentRunARNs :: DescribeAssessmentRuns -> Lude.NonEmpty Lude.Text) (\s a -> s {assessmentRunARNs = a} :: DescribeAssessmentRuns)
-{-# DEPRECATED darAssessmentRunARNs "Use generic-lens or generic-optics with 'assessmentRunARNs' instead." #-}
+-- /Note:/ Consider using 'assessmentRunArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darAssessmentRunArns :: Lens.Lens' DescribeAssessmentRuns (Core.NonEmpty Types.Arn)
+darAssessmentRunArns = Lens.field @"assessmentRunArns"
+{-# DEPRECATED darAssessmentRunArns "Use generic-lens or generic-optics with 'assessmentRunArns' instead." #-}
 
-instance Lude.AWSRequest DescribeAssessmentRuns where
+instance Core.FromJSON DescribeAssessmentRuns where
+  toJSON DescribeAssessmentRuns {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("assessmentRunArns" Core..= assessmentRunArns)]
+      )
+
+instance Core.AWSRequest DescribeAssessmentRuns where
   type Rs DescribeAssessmentRuns = DescribeAssessmentRunsResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.DescribeAssessmentRuns")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAssessmentRunsResponse'
-            Lude.<$> (x Lude..?> "assessmentRuns" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "failedItems" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "assessmentRuns" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "failedItems" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAssessmentRuns where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.DescribeAssessmentRuns" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeAssessmentRuns where
-  toJSON DescribeAssessmentRuns' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("assessmentRunArns" Lude..= assessmentRunARNs)]
-      )
-
-instance Lude.ToPath DescribeAssessmentRuns where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAssessmentRuns where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeAssessmentRunsResponse' smart constructor.
 data DescribeAssessmentRunsResponse = DescribeAssessmentRunsResponse'
   { -- | Information about the assessment run.
-    assessmentRuns :: [AssessmentRun],
+    assessmentRuns :: [Types.AssessmentRun],
     -- | Assessment run details that cannot be described. An error code is provided for each failed item.
-    failedItems :: Lude.HashMap Lude.Text (FailedItemDetails),
+    failedItems :: Core.HashMap Types.Arn Types.FailedItemDetails,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAssessmentRunsResponse' with the minimum fields required to make a request.
---
--- * 'assessmentRuns' - Information about the assessment run.
--- * 'failedItems' - Assessment run details that cannot be described. An error code is provided for each failed item.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAssessmentRunsResponse' value with any optional fields omitted.
 mkDescribeAssessmentRunsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAssessmentRunsResponse
-mkDescribeAssessmentRunsResponse pResponseStatus_ =
+mkDescribeAssessmentRunsResponse responseStatus =
   DescribeAssessmentRunsResponse'
-    { assessmentRuns = Lude.mempty,
-      failedItems = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { assessmentRuns = Core.mempty,
+      failedItems = Core.mempty,
+      responseStatus
     }
 
 -- | Information about the assessment run.
 --
 -- /Note:/ Consider using 'assessmentRuns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darrsAssessmentRuns :: Lens.Lens' DescribeAssessmentRunsResponse [AssessmentRun]
-darrsAssessmentRuns = Lens.lens (assessmentRuns :: DescribeAssessmentRunsResponse -> [AssessmentRun]) (\s a -> s {assessmentRuns = a} :: DescribeAssessmentRunsResponse)
-{-# DEPRECATED darrsAssessmentRuns "Use generic-lens or generic-optics with 'assessmentRuns' instead." #-}
+darrrsAssessmentRuns :: Lens.Lens' DescribeAssessmentRunsResponse [Types.AssessmentRun]
+darrrsAssessmentRuns = Lens.field @"assessmentRuns"
+{-# DEPRECATED darrrsAssessmentRuns "Use generic-lens or generic-optics with 'assessmentRuns' instead." #-}
 
 -- | Assessment run details that cannot be described. An error code is provided for each failed item.
 --
 -- /Note:/ Consider using 'failedItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darrsFailedItems :: Lens.Lens' DescribeAssessmentRunsResponse (Lude.HashMap Lude.Text (FailedItemDetails))
-darrsFailedItems = Lens.lens (failedItems :: DescribeAssessmentRunsResponse -> Lude.HashMap Lude.Text (FailedItemDetails)) (\s a -> s {failedItems = a} :: DescribeAssessmentRunsResponse)
-{-# DEPRECATED darrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
+darrrsFailedItems :: Lens.Lens' DescribeAssessmentRunsResponse (Core.HashMap Types.Arn Types.FailedItemDetails)
+darrrsFailedItems = Lens.field @"failedItems"
+{-# DEPRECATED darrrsFailedItems "Use generic-lens or generic-optics with 'failedItems' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darrsResponseStatus :: Lens.Lens' DescribeAssessmentRunsResponse Lude.Int
-darrsResponseStatus = Lens.lens (responseStatus :: DescribeAssessmentRunsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAssessmentRunsResponse)
-{-# DEPRECATED darrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darrrsResponseStatus :: Lens.Lens' DescribeAssessmentRunsResponse Core.Int
+darrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

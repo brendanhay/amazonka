@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -24,10 +23,34 @@
 --     * <https://docs.aws.amazon.com/amazonglacier/latest/dev/amazon-glacier-getting-started.html Getting Started with Amazon S3 Glacier> - The Getting Started section walks you through the process of creating a vault, uploading archives, creating jobs to download archives, retrieving the job output, and deleting archives.
 module Network.AWS.Glacier
   ( -- * Service configuration
-    glacierService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** PolicyEnforcedException
+    _PolicyEnforcedException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** RequestTimeoutException
+    _RequestTimeoutException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** InsufficientCapacityException
+    _InsufficientCapacityException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** MissingParameterValueException
+    _MissingParameterValueException,
 
     -- * Waiters
     -- $waiters
@@ -142,36 +165,6 @@ module Network.AWS.Glacier
 
     -- * Types
 
-    -- ** ActionCode
-    ActionCode (..),
-
-    -- ** CannedACL
-    CannedACL (..),
-
-    -- ** EncryptionType
-    EncryptionType (..),
-
-    -- ** ExpressionType
-    ExpressionType (..),
-
-    -- ** FileHeaderInfo
-    FileHeaderInfo (..),
-
-    -- ** Permission
-    Permission (..),
-
-    -- ** QuoteFields
-    QuoteFields (..),
-
-    -- ** StatusCode
-    StatusCode (..),
-
-    -- ** StorageClass
-    StorageClass (..),
-
-    -- ** Type
-    Type (..),
-
     -- ** ArchiveCreationOutput
     ArchiveCreationOutput (..),
     mkArchiveCreationOutput,
@@ -179,180 +172,222 @@ module Network.AWS.Glacier
     acoChecksum,
     acoLocation,
 
-    -- ** CSVInput
-    CSVInput (..),
-    mkCSVInput,
-    ciQuoteCharacter,
-    ciRecordDelimiter,
-    ciFileHeaderInfo,
-    ciQuoteEscapeCharacter,
-    ciComments,
-    ciFieldDelimiter,
+    -- ** EncryptionType
+    EncryptionType (..),
 
-    -- ** CSVOutput
-    CSVOutput (..),
-    mkCSVOutput,
-    coQuoteCharacter,
-    coQuoteFields,
-    coRecordDelimiter,
-    coQuoteEscapeCharacter,
-    coFieldDelimiter,
+    -- ** UploadListElement
+    UploadListElement (..),
+    mkUploadListElement,
+    uleArchiveDescription,
+    uleCreationDate,
+    uleMultipartUploadId,
+    ulePartSizeInBytes,
+    uleVaultARN,
 
-    -- ** DataRetrievalPolicy
-    DataRetrievalPolicy (..),
-    mkDataRetrievalPolicy,
-    drpRules,
+    -- ** ExpressionType
+    ExpressionType (..),
 
-    -- ** DataRetrievalRule
-    DataRetrievalRule (..),
-    mkDataRetrievalRule,
-    drrStrategy,
-    drrBytesPerHour,
-
-    -- ** DescribeVaultOutput
-    DescribeVaultOutput (..),
-    mkDescribeVaultOutput,
-    dvoVaultName,
-    dvoSizeInBytes,
-    dvoLastInventoryDate,
-    dvoVaultARN,
-    dvoCreationDate,
-    dvoNumberOfArchives,
-
-    -- ** Encryption
-    Encryption (..),
-    mkEncryption,
-    eEncryptionType,
-    eKMSKeyId,
-    eKMSContext,
-
-    -- ** GlacierJobDescription
-    GlacierJobDescription (..),
-    mkGlacierJobDescription,
-    gjdSHA256TreeHash,
-    gjdArchiveId,
-    gjdSelectParameters,
-    gjdJobId,
-    gjdJobOutputPath,
-    gjdRetrievalByteRange,
-    gjdInventoryRetrievalParameters,
-    gjdAction,
-    gjdJobDescription,
-    gjdSNSTopic,
-    gjdStatusMessage,
-    gjdVaultARN,
-    gjdOutputLocation,
-    gjdTier,
-    gjdArchiveSHA256TreeHash,
-    gjdCreationDate,
-    gjdCompleted,
-    gjdCompletionDate,
-    gjdInventorySizeInBytes,
-    gjdArchiveSizeInBytes,
-    gjdStatusCode,
-
-    -- ** Grant
-    Grant (..),
-    mkGrant,
-    gPermission,
-    gGrantee,
-
-    -- ** Grantee
-    Grantee (..),
-    mkGrantee,
-    gURI,
-    gEmailAddress,
-    gDisplayName,
-    gId,
-    gType,
-
-    -- ** InputSerialization
-    InputSerialization (..),
-    mkInputSerialization,
-    isCsv,
+    -- ** SelectParameters
+    SelectParameters (..),
+    mkSelectParameters,
+    spExpression,
+    spExpressionType,
+    spInputSerialization,
+    spOutputSerialization,
 
     -- ** InventoryRetrievalJobDescription
     InventoryRetrievalJobDescription (..),
     mkInventoryRetrievalJobDescription,
-    irjdFormat,
     irjdEndDate,
-    irjdStartDate,
-    irjdMarker,
+    irjdFormat,
     irjdLimit,
+    irjdMarker,
+    irjdStartDate,
 
-    -- ** InventoryRetrievalJobInput
-    InventoryRetrievalJobInput (..),
-    mkInventoryRetrievalJobInput,
-    irjiEndDate,
-    irjiStartDate,
-    irjiMarker,
-    irjiLimit,
+    -- ** CannedACL
+    CannedACL (..),
 
     -- ** JobParameters
     JobParameters (..),
     mkJobParameters,
     jpArchiveId,
-    jpSelectParameters,
+    jpDescription,
     jpFormat,
-    jpRetrievalByteRange,
     jpInventoryRetrievalParameters,
-    jpSNSTopic,
     jpOutputLocation,
+    jpRetrievalByteRange,
+    jpSNSTopic,
+    jpSelectParameters,
     jpTier,
     jpType,
-    jpDescription,
 
-    -- ** OutputLocation
-    OutputLocation (..),
-    mkOutputLocation,
-    olS3,
+    -- ** String
+    String (..),
+
+    -- ** DescribeVaultOutput
+    DescribeVaultOutput (..),
+    mkDescribeVaultOutput,
+    dvoCreationDate,
+    dvoLastInventoryDate,
+    dvoNumberOfArchives,
+    dvoSizeInBytes,
+    dvoVaultARN,
+    dvoVaultName,
+
+    -- ** CSVInput
+    CSVInput (..),
+    mkCSVInput,
+    csviComments,
+    csviFieldDelimiter,
+    csviFileHeaderInfo,
+    csviQuoteCharacter,
+    csviQuoteEscapeCharacter,
+    csviRecordDelimiter,
+
+    -- ** DataRetrievalRule
+    DataRetrievalRule (..),
+    mkDataRetrievalRule,
+    drrBytesPerHour,
+    drrStrategy,
+
+    -- ** QuoteFields
+    QuoteFields (..),
+
+    -- ** ActionCode
+    ActionCode (..),
+
+    -- ** Grant
+    Grant (..),
+    mkGrant,
+    gGrantee,
+    gPermission,
+
+    -- ** TagValue
+    TagValue (..),
 
     -- ** OutputSerialization
     OutputSerialization (..),
     mkOutputSerialization,
     osCsv,
 
-    -- ** PartListElement
-    PartListElement (..),
-    mkPartListElement,
-    pleSHA256TreeHash,
-    pleRangeInBytes,
+    -- ** CSVOutput
+    CSVOutput (..),
+    mkCSVOutput,
+    csvoFieldDelimiter,
+    csvoQuoteCharacter,
+    csvoQuoteEscapeCharacter,
+    csvoQuoteFields,
+    csvoRecordDelimiter,
+
+    -- ** Encryption
+    Encryption (..),
+    mkEncryption,
+    eEncryptionType,
+    eKMSContext,
+    eKMSKeyId,
+
+    -- ** FileHeaderInfo
+    FileHeaderInfo (..),
+
+    -- ** StorageClass
+    StorageClass (..),
+
+    -- ** OutputLocation
+    OutputLocation (..),
+    mkOutputLocation,
+    olS3,
 
     -- ** ProvisionedCapacityDescription
     ProvisionedCapacityDescription (..),
     mkProvisionedCapacityDescription,
     pcdCapacityId,
-    pcdStartDate,
     pcdExpirationDate,
+    pcdStartDate,
+
+    -- ** VaultNotificationConfig
+    VaultNotificationConfig (..),
+    mkVaultNotificationConfig,
+    vncEvents,
+    vncSNSTopic,
+
+    -- ** InventoryRetrievalJobInput
+    InventoryRetrievalJobInput (..),
+    mkInventoryRetrievalJobInput,
+    irjiEndDate,
+    irjiLimit,
+    irjiMarker,
+    irjiStartDate,
+
+    -- ** TagKey
+    TagKey (..),
 
     -- ** S3Location
     S3Location (..),
     mkS3Location,
-    slCannedACL,
-    slPrefix,
-    slBucketName,
     slAccessControlList,
-    slUserMetadata,
+    slBucketName,
+    slCannedACL,
     slEncryption,
+    slPrefix,
     slStorageClass,
     slTagging,
+    slUserMetadata,
 
-    -- ** SelectParameters
-    SelectParameters (..),
-    mkSelectParameters,
-    spExpressionType,
-    spOutputSerialization,
-    spExpression,
-    spInputSerialization,
+    -- ** Type
+    Type (..),
 
-    -- ** UploadListElement
-    UploadListElement (..),
-    mkUploadListElement,
-    uleMultipartUploadId,
-    ulePartSizeInBytes,
-    uleArchiveDescription,
-    uleVaultARN,
-    uleCreationDate,
+    -- ** InputSerialization
+    InputSerialization (..),
+    mkInputSerialization,
+    isCsv,
+
+    -- ** PartListElement
+    PartListElement (..),
+    mkPartListElement,
+    pleRangeInBytes,
+    pleSHA256TreeHash,
+
+    -- ** Permission
+    Permission (..),
+
+    -- ** Grantee
+    Grantee (..),
+    mkGrantee,
+    gType,
+    gDisplayName,
+    gEmailAddress,
+    gID,
+    gURI,
+
+    -- ** DataRetrievalPolicy
+    DataRetrievalPolicy (..),
+    mkDataRetrievalPolicy,
+    drpRules,
+
+    -- ** GlacierJobDescription
+    GlacierJobDescription (..),
+    mkGlacierJobDescription,
+    gjdAction,
+    gjdArchiveId,
+    gjdArchiveSHA256TreeHash,
+    gjdArchiveSizeInBytes,
+    gjdCompleted,
+    gjdCompletionDate,
+    gjdCreationDate,
+    gjdInventoryRetrievalParameters,
+    gjdInventorySizeInBytes,
+    gjdJobDescription,
+    gjdJobId,
+    gjdJobOutputPath,
+    gjdOutputLocation,
+    gjdRetrievalByteRange,
+    gjdSHA256TreeHash,
+    gjdSNSTopic,
+    gjdSelectParameters,
+    gjdStatusCode,
+    gjdStatusMessage,
+    gjdTier,
+    gjdVaultARN,
 
     -- ** VaultAccessPolicy
     VaultAccessPolicy (..),
@@ -364,21 +399,85 @@ module Network.AWS.Glacier
     mkVaultLockPolicy,
     vlpPolicy,
 
-    -- ** VaultNotificationConfig
-    VaultNotificationConfig (..),
-    mkVaultNotificationConfig,
-    vncSNSTopic,
-    vncEvents,
+    -- ** StatusCode
+    StatusCode (..),
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** VaultName
+    VaultName (..),
+
+    -- ** JobId
+    JobId (..),
+
+    -- ** ArchiveId
+    ArchiveId (..),
+
+    -- ** Checksum
+    Checksum (..),
+
+    -- ** Location
+    Location (..),
+
+    -- ** ArchiveDescription
+    ArchiveDescription (..),
+
+    -- ** CreationDate
+    CreationDate (..),
+
+    -- ** MultipartUploadId
+    MultipartUploadId (..),
+
+    -- ** VaultARN
+    VaultARN (..),
+
+    -- ** Limit
+    Limit (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** UploadId
+    UploadId (..),
+
+    -- ** ArchiveSize
+    ArchiveSize (..),
+
+    -- ** Expression
+    Expression (..),
+
+    -- ** EndDate
+    EndDate (..),
+
+    -- ** Format
+    Format (..),
+
+    -- ** StartDate
+    StartDate (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** RetrievalByteRange
+    RetrievalByteRange (..),
+
+    -- ** SNSTopic
+    SNSTopic (..),
+
+    -- ** Tier
+    Tier (..),
+
+    -- ** LockId
+    LockId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

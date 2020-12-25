@@ -13,61 +13,66 @@
 module Network.AWS.Lightsail.Types.LoadBalancerState
   ( LoadBalancerState
       ( LoadBalancerState',
-        LBSActive,
-        LBSProvisioning,
-        LBSActiveImpaired,
-        LBSFailed,
-        LBSUnknown
+        LoadBalancerStateActive,
+        LoadBalancerStateProvisioning,
+        LoadBalancerStateActiveImpaired,
+        LoadBalancerStateFailed,
+        LoadBalancerStateUnknown,
+        fromLoadBalancerState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LoadBalancerState = LoadBalancerState' Lude.Text
+newtype LoadBalancerState = LoadBalancerState'
+  { fromLoadBalancerState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LBSActive :: LoadBalancerState
-pattern LBSActive = LoadBalancerState' "active"
+pattern LoadBalancerStateActive :: LoadBalancerState
+pattern LoadBalancerStateActive = LoadBalancerState' "active"
 
-pattern LBSProvisioning :: LoadBalancerState
-pattern LBSProvisioning = LoadBalancerState' "provisioning"
+pattern LoadBalancerStateProvisioning :: LoadBalancerState
+pattern LoadBalancerStateProvisioning = LoadBalancerState' "provisioning"
 
-pattern LBSActiveImpaired :: LoadBalancerState
-pattern LBSActiveImpaired = LoadBalancerState' "active_impaired"
+pattern LoadBalancerStateActiveImpaired :: LoadBalancerState
+pattern LoadBalancerStateActiveImpaired = LoadBalancerState' "active_impaired"
 
-pattern LBSFailed :: LoadBalancerState
-pattern LBSFailed = LoadBalancerState' "failed"
+pattern LoadBalancerStateFailed :: LoadBalancerState
+pattern LoadBalancerStateFailed = LoadBalancerState' "failed"
 
-pattern LBSUnknown :: LoadBalancerState
-pattern LBSUnknown = LoadBalancerState' "unknown"
+pattern LoadBalancerStateUnknown :: LoadBalancerState
+pattern LoadBalancerStateUnknown = LoadBalancerState' "unknown"
 
 {-# COMPLETE
-  LBSActive,
-  LBSProvisioning,
-  LBSActiveImpaired,
-  LBSFailed,
-  LBSUnknown,
+  LoadBalancerStateActive,
+  LoadBalancerStateProvisioning,
+  LoadBalancerStateActiveImpaired,
+  LoadBalancerStateFailed,
+  LoadBalancerStateUnknown,
   LoadBalancerState'
   #-}

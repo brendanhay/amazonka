@@ -17,62 +17,57 @@ module Network.AWS.MechanicalTurk.Types.ParameterMapEntry
     mkParameterMapEntry,
 
     -- * Lenses
-    pmeValues,
     pmeKey,
+    pmeValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MechanicalTurk.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | This data structure is the data type for the AnswerKey parameter of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
 --
 -- /See:/ 'mkParameterMapEntry' smart constructor.
 data ParameterMapEntry = ParameterMapEntry'
-  { -- | The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly.
-    values :: Lude.Maybe [Lude.Text],
-    -- | The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
-    key :: Lude.Maybe Lude.Text
+  { -- | The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
+    key :: Core.Maybe Types.String,
+    -- | The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly.
+    values :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParameterMapEntry' with the minimum fields required to make a request.
---
--- * 'values' - The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly.
--- * 'key' - The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
+-- | Creates a 'ParameterMapEntry' value with any optional fields omitted.
 mkParameterMapEntry ::
   ParameterMapEntry
 mkParameterMapEntry =
-  ParameterMapEntry' {values = Lude.Nothing, key = Lude.Nothing}
-
--- | The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmeValues :: Lens.Lens' ParameterMapEntry (Lude.Maybe [Lude.Text])
-pmeValues = Lens.lens (values :: ParameterMapEntry -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: ParameterMapEntry)
-{-# DEPRECATED pmeValues "Use generic-lens or generic-optics with 'values' instead." #-}
+  ParameterMapEntry' {key = Core.Nothing, values = Core.Nothing}
 
 -- | The QuestionID from the HIT that is used to identify which question requires Mechanical Turk to score as part of the ScoreMyKnownAnswers/2011-09-01 Review Policy.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmeKey :: Lens.Lens' ParameterMapEntry (Lude.Maybe Lude.Text)
-pmeKey = Lens.lens (key :: ParameterMapEntry -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ParameterMapEntry)
+pmeKey :: Lens.Lens' ParameterMapEntry (Core.Maybe Types.String)
+pmeKey = Lens.field @"key"
 {-# DEPRECATED pmeKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON ParameterMapEntry where
-  parseJSON =
-    Lude.withObject
-      "ParameterMapEntry"
-      ( \x ->
-          ParameterMapEntry'
-            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Key")
+-- | The list of answers to the question specified in the MapEntry Key element. The Worker must match all values in order for the answer to be scored correctly.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pmeValues :: Lens.Lens' ParameterMapEntry (Core.Maybe [Types.String])
+pmeValues = Lens.field @"values"
+{-# DEPRECATED pmeValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON ParameterMapEntry where
+  toJSON ParameterMapEntry {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Values" Core..=) Core.<$> values]
       )
 
-instance Lude.ToJSON ParameterMapEntry where
-  toJSON ParameterMapEntry' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Values" Lude..=) Lude.<$> values, ("Key" Lude..=) Lude.<$> key]
-      )
+instance Core.FromJSON ParameterMapEntry where
+  parseJSON =
+    Core.withObject "ParameterMapEntry" Core.$
+      \x ->
+        ParameterMapEntry'
+          Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Values")

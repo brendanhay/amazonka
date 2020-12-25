@@ -30,54 +30,46 @@ module Network.AWS.StorageGateway.RetrieveTapeArchive
     mkRetrieveTapeArchiveResponse,
 
     -- ** Response lenses
-    rtarsTapeARN,
-    rtarsResponseStatus,
+    rtarrsTapeARN,
+    rtarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | RetrieveTapeArchiveInput
 --
 -- /See:/ 'mkRetrieveTapeArchive' smart constructor.
 data RetrieveTapeArchive = RetrieveTapeArchive'
   { -- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual tape shelf (VTS).
-    tapeARN :: Lude.Text,
+    tapeARN :: Types.TapeARN,
     -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
     --
     -- You retrieve archived virtual tapes to only one gateway and the gateway must be a tape gateway.
-    gatewayARN :: Lude.Text
+    gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RetrieveTapeArchive' with the minimum fields required to make a request.
---
--- * 'tapeARN' - The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual tape shelf (VTS).
--- * 'gatewayARN' - The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
---
--- You retrieve archived virtual tapes to only one gateway and the gateway must be a tape gateway.
+-- | Creates a 'RetrieveTapeArchive' value with any optional fields omitted.
 mkRetrieveTapeArchive ::
   -- | 'tapeARN'
-  Lude.Text ->
+  Types.TapeARN ->
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   RetrieveTapeArchive
-mkRetrieveTapeArchive pTapeARN_ pGatewayARN_ =
-  RetrieveTapeArchive'
-    { tapeARN = pTapeARN_,
-      gatewayARN = pGatewayARN_
-    }
+mkRetrieveTapeArchive tapeARN gatewayARN =
+  RetrieveTapeArchive' {tapeARN, gatewayARN}
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve from the virtual tape shelf (VTS).
 --
 -- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtaTapeARN :: Lens.Lens' RetrieveTapeArchive Lude.Text
-rtaTapeARN = Lens.lens (tapeARN :: RetrieveTapeArchive -> Lude.Text) (\s a -> s {tapeARN = a} :: RetrieveTapeArchive)
+rtaTapeARN :: Lens.Lens' RetrieveTapeArchive Types.TapeARN
+rtaTapeARN = Lens.field @"tapeARN"
 {-# DEPRECATED rtaTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the virtual tape to. Use the 'ListGateways' operation to return a list of gateways for your account and AWS Region.
@@ -85,82 +77,73 @@ rtaTapeARN = Lens.lens (tapeARN :: RetrieveTapeArchive -> Lude.Text) (\s a -> s 
 -- You retrieve archived virtual tapes to only one gateway and the gateway must be a tape gateway.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtaGatewayARN :: Lens.Lens' RetrieveTapeArchive Lude.Text
-rtaGatewayARN = Lens.lens (gatewayARN :: RetrieveTapeArchive -> Lude.Text) (\s a -> s {gatewayARN = a} :: RetrieveTapeArchive)
+rtaGatewayARN :: Lens.Lens' RetrieveTapeArchive Types.GatewayARN
+rtaGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED rtaGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest RetrieveTapeArchive where
+instance Core.FromJSON RetrieveTapeArchive where
+  toJSON RetrieveTapeArchive {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TapeARN" Core..= tapeARN),
+            Core.Just ("GatewayARN" Core..= gatewayARN)
+          ]
+      )
+
+instance Core.AWSRequest RetrieveTapeArchive where
   type Rs RetrieveTapeArchive = RetrieveTapeArchiveResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.RetrieveTapeArchive")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RetrieveTapeArchiveResponse'
-            Lude.<$> (x Lude..?> "TapeARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TapeARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RetrieveTapeArchive where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.RetrieveTapeArchive" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RetrieveTapeArchive where
-  toJSON RetrieveTapeArchive' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TapeARN" Lude..= tapeARN),
-            Lude.Just ("GatewayARN" Lude..= gatewayARN)
-          ]
-      )
-
-instance Lude.ToPath RetrieveTapeArchive where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RetrieveTapeArchive where
-  toQuery = Lude.const Lude.mempty
 
 -- | RetrieveTapeArchiveOutput
 --
 -- /See:/ 'mkRetrieveTapeArchiveResponse' smart constructor.
 data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
   { -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
-    tapeARN :: Lude.Maybe Lude.Text,
+    tapeARN :: Core.Maybe Types.TapeARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RetrieveTapeArchiveResponse' with the minimum fields required to make a request.
---
--- * 'tapeARN' - The Amazon Resource Name (ARN) of the retrieved virtual tape.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RetrieveTapeArchiveResponse' value with any optional fields omitted.
 mkRetrieveTapeArchiveResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RetrieveTapeArchiveResponse
-mkRetrieveTapeArchiveResponse pResponseStatus_ =
+mkRetrieveTapeArchiveResponse responseStatus =
   RetrieveTapeArchiveResponse'
-    { tapeARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { tapeARN = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
 --
 -- /Note:/ Consider using 'tapeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtarsTapeARN :: Lens.Lens' RetrieveTapeArchiveResponse (Lude.Maybe Lude.Text)
-rtarsTapeARN = Lens.lens (tapeARN :: RetrieveTapeArchiveResponse -> Lude.Maybe Lude.Text) (\s a -> s {tapeARN = a} :: RetrieveTapeArchiveResponse)
-{-# DEPRECATED rtarsTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
+rtarrsTapeARN :: Lens.Lens' RetrieveTapeArchiveResponse (Core.Maybe Types.TapeARN)
+rtarrsTapeARN = Lens.field @"tapeARN"
+{-# DEPRECATED rtarrsTapeARN "Use generic-lens or generic-optics with 'tapeARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtarsResponseStatus :: Lens.Lens' RetrieveTapeArchiveResponse Lude.Int
-rtarsResponseStatus = Lens.lens (responseStatus :: RetrieveTapeArchiveResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RetrieveTapeArchiveResponse)
-{-# DEPRECATED rtarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtarrsResponseStatus :: Lens.Lens' RetrieveTapeArchiveResponse Core.Int
+rtarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

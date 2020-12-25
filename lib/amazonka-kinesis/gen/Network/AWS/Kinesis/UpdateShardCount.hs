@@ -45,32 +45,32 @@ module Network.AWS.Kinesis.UpdateShardCount
     mkUpdateShardCount,
 
     -- ** Request lenses
-    uscScalingType,
-    uscTargetShardCount,
     uscStreamName,
+    uscTargetShardCount,
+    uscScalingType,
 
     -- * Destructuring the response
     UpdateShardCountResponse (..),
     mkUpdateShardCountResponse,
 
     -- ** Response lenses
-    uscrsTargetShardCount,
-    uscrsStreamName,
-    uscrsCurrentShardCount,
-    uscrsResponseStatus,
+    uscrrsCurrentShardCount,
+    uscrrsStreamName,
+    uscrrsTargetShardCount,
+    uscrrsResponseStatus,
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateShardCount' smart constructor.
 data UpdateShardCount = UpdateShardCount'
-  { -- | The scaling type. Uniform scaling creates shards of equal size.
-    scalingType :: ScalingType,
+  { -- | The name of the stream.
+    streamName :: Types.StreamName,
     -- | The new number of shards. This value has the following default limits. By default, you cannot do the following:
     --
     --
@@ -84,53 +84,31 @@ data UpdateShardCount = UpdateShardCount'
     --
     --
     --     * Scale a stream with more than 500 shards down unless you set this value to less than 500 shards.
-    targetShardCount :: Lude.Natural,
-    -- | The name of the stream.
-    streamName :: Lude.Text
+    targetShardCount :: Core.Natural,
+    -- | The scaling type. Uniform scaling creates shards of equal size.
+    scalingType :: Types.ScalingType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateShardCount' with the minimum fields required to make a request.
---
--- * 'scalingType' - The scaling type. Uniform scaling creates shards of equal size.
--- * 'targetShardCount' - The new number of shards. This value has the following default limits. By default, you cannot do the following:
---
---
---     * Set this value to more than double your current shard count for a stream.
---
---
---     * Set this value below half your current shard count for a stream.
---
---
---     * Set this value to more than 500 shards in a stream (the default limit for shard count per stream is 500 per account per region), unless you request a limit increase.
---
---
---     * Scale a stream with more than 500 shards down unless you set this value to less than 500 shards.
---
---
--- * 'streamName' - The name of the stream.
+-- | Creates a 'UpdateShardCount' value with any optional fields omitted.
 mkUpdateShardCount ::
-  -- | 'scalingType'
-  ScalingType ->
-  -- | 'targetShardCount'
-  Lude.Natural ->
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
+  -- | 'targetShardCount'
+  Core.Natural ->
+  -- | 'scalingType'
+  Types.ScalingType ->
   UpdateShardCount
-mkUpdateShardCount pScalingType_ pTargetShardCount_ pStreamName_ =
-  UpdateShardCount'
-    { scalingType = pScalingType_,
-      targetShardCount = pTargetShardCount_,
-      streamName = pStreamName_
-    }
+mkUpdateShardCount streamName targetShardCount scalingType =
+  UpdateShardCount' {streamName, targetShardCount, scalingType}
 
--- | The scaling type. Uniform scaling creates shards of equal size.
+-- | The name of the stream.
 --
--- /Note:/ Consider using 'scalingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscScalingType :: Lens.Lens' UpdateShardCount ScalingType
-uscScalingType = Lens.lens (scalingType :: UpdateShardCount -> ScalingType) (\s a -> s {scalingType = a} :: UpdateShardCount)
-{-# DEPRECATED uscScalingType "Use generic-lens or generic-optics with 'scalingType' instead." #-}
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscStreamName :: Lens.Lens' UpdateShardCount Types.StreamName
+uscStreamName = Lens.field @"streamName"
+{-# DEPRECATED uscStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The new number of shards. This value has the following default limits. By default, you cannot do the following:
 --
@@ -149,113 +127,101 @@ uscScalingType = Lens.lens (scalingType :: UpdateShardCount -> ScalingType) (\s 
 --
 --
 -- /Note:/ Consider using 'targetShardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscTargetShardCount :: Lens.Lens' UpdateShardCount Lude.Natural
-uscTargetShardCount = Lens.lens (targetShardCount :: UpdateShardCount -> Lude.Natural) (\s a -> s {targetShardCount = a} :: UpdateShardCount)
+uscTargetShardCount :: Lens.Lens' UpdateShardCount Core.Natural
+uscTargetShardCount = Lens.field @"targetShardCount"
 {-# DEPRECATED uscTargetShardCount "Use generic-lens or generic-optics with 'targetShardCount' instead." #-}
 
--- | The name of the stream.
+-- | The scaling type. Uniform scaling creates shards of equal size.
 --
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscStreamName :: Lens.Lens' UpdateShardCount Lude.Text
-uscStreamName = Lens.lens (streamName :: UpdateShardCount -> Lude.Text) (\s a -> s {streamName = a} :: UpdateShardCount)
-{-# DEPRECATED uscStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+-- /Note:/ Consider using 'scalingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscScalingType :: Lens.Lens' UpdateShardCount Types.ScalingType
+uscScalingType = Lens.field @"scalingType"
+{-# DEPRECATED uscScalingType "Use generic-lens or generic-optics with 'scalingType' instead." #-}
 
-instance Lude.AWSRequest UpdateShardCount where
+instance Core.FromJSON UpdateShardCount where
+  toJSON UpdateShardCount {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("TargetShardCount" Core..= targetShardCount),
+            Core.Just ("ScalingType" Core..= scalingType)
+          ]
+      )
+
+instance Core.AWSRequest UpdateShardCount where
   type Rs UpdateShardCount = UpdateShardCountResponse
-  request = Req.postJSON kinesisService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.UpdateShardCount")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateShardCountResponse'
-            Lude.<$> (x Lude..?> "TargetShardCount")
-            Lude.<*> (x Lude..?> "StreamName")
-            Lude.<*> (x Lude..?> "CurrentShardCount")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CurrentShardCount")
+            Core.<*> (x Core..:? "StreamName")
+            Core.<*> (x Core..:? "TargetShardCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateShardCount where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.UpdateShardCount" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateShardCount where
-  toJSON UpdateShardCount' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ScalingType" Lude..= scalingType),
-            Lude.Just ("TargetShardCount" Lude..= targetShardCount),
-            Lude.Just ("StreamName" Lude..= streamName)
-          ]
-      )
-
-instance Lude.ToPath UpdateShardCount where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateShardCount where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateShardCountResponse' smart constructor.
 data UpdateShardCountResponse = UpdateShardCountResponse'
-  { -- | The updated number of shards.
-    targetShardCount :: Lude.Maybe Lude.Natural,
+  { -- | The current number of shards.
+    currentShardCount :: Core.Maybe Core.Natural,
     -- | The name of the stream.
-    streamName :: Lude.Maybe Lude.Text,
-    -- | The current number of shards.
-    currentShardCount :: Lude.Maybe Lude.Natural,
+    streamName :: Core.Maybe Types.StreamName,
+    -- | The updated number of shards.
+    targetShardCount :: Core.Maybe Core.Natural,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateShardCountResponse' with the minimum fields required to make a request.
---
--- * 'targetShardCount' - The updated number of shards.
--- * 'streamName' - The name of the stream.
--- * 'currentShardCount' - The current number of shards.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateShardCountResponse' value with any optional fields omitted.
 mkUpdateShardCountResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateShardCountResponse
-mkUpdateShardCountResponse pResponseStatus_ =
+mkUpdateShardCountResponse responseStatus =
   UpdateShardCountResponse'
-    { targetShardCount = Lude.Nothing,
-      streamName = Lude.Nothing,
-      currentShardCount = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { currentShardCount = Core.Nothing,
+      streamName = Core.Nothing,
+      targetShardCount = Core.Nothing,
+      responseStatus
     }
-
--- | The updated number of shards.
---
--- /Note:/ Consider using 'targetShardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscrsTargetShardCount :: Lens.Lens' UpdateShardCountResponse (Lude.Maybe Lude.Natural)
-uscrsTargetShardCount = Lens.lens (targetShardCount :: UpdateShardCountResponse -> Lude.Maybe Lude.Natural) (\s a -> s {targetShardCount = a} :: UpdateShardCountResponse)
-{-# DEPRECATED uscrsTargetShardCount "Use generic-lens or generic-optics with 'targetShardCount' instead." #-}
-
--- | The name of the stream.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscrsStreamName :: Lens.Lens' UpdateShardCountResponse (Lude.Maybe Lude.Text)
-uscrsStreamName = Lens.lens (streamName :: UpdateShardCountResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: UpdateShardCountResponse)
-{-# DEPRECATED uscrsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The current number of shards.
 --
 -- /Note:/ Consider using 'currentShardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscrsCurrentShardCount :: Lens.Lens' UpdateShardCountResponse (Lude.Maybe Lude.Natural)
-uscrsCurrentShardCount = Lens.lens (currentShardCount :: UpdateShardCountResponse -> Lude.Maybe Lude.Natural) (\s a -> s {currentShardCount = a} :: UpdateShardCountResponse)
-{-# DEPRECATED uscrsCurrentShardCount "Use generic-lens or generic-optics with 'currentShardCount' instead." #-}
+uscrrsCurrentShardCount :: Lens.Lens' UpdateShardCountResponse (Core.Maybe Core.Natural)
+uscrrsCurrentShardCount = Lens.field @"currentShardCount"
+{-# DEPRECATED uscrrsCurrentShardCount "Use generic-lens or generic-optics with 'currentShardCount' instead." #-}
+
+-- | The name of the stream.
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscrrsStreamName :: Lens.Lens' UpdateShardCountResponse (Core.Maybe Types.StreamName)
+uscrrsStreamName = Lens.field @"streamName"
+{-# DEPRECATED uscrrsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+
+-- | The updated number of shards.
+--
+-- /Note:/ Consider using 'targetShardCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscrrsTargetShardCount :: Lens.Lens' UpdateShardCountResponse (Core.Maybe Core.Natural)
+uscrrsTargetShardCount = Lens.field @"targetShardCount"
+{-# DEPRECATED uscrrsTargetShardCount "Use generic-lens or generic-optics with 'targetShardCount' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscrsResponseStatus :: Lens.Lens' UpdateShardCountResponse Lude.Int
-uscrsResponseStatus = Lens.lens (responseStatus :: UpdateShardCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateShardCountResponse)
-{-# DEPRECATED uscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uscrrsResponseStatus :: Lens.Lens' UpdateShardCountResponse Core.Int
+uscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

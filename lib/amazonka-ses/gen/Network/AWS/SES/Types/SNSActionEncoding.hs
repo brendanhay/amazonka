@@ -13,46 +13,51 @@
 module Network.AWS.SES.Types.SNSActionEncoding
   ( SNSActionEncoding
       ( SNSActionEncoding',
-        Utf8,
-        BASE64
+        SNSActionEncodingUtf8,
+        SNSActionEncodingBASE64,
+        fromSNSActionEncoding
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SNSActionEncoding = SNSActionEncoding' Lude.Text
+newtype SNSActionEncoding = SNSActionEncoding'
+  { fromSNSActionEncoding ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Utf8 :: SNSActionEncoding
-pattern Utf8 = SNSActionEncoding' "UTF-8"
+pattern SNSActionEncodingUtf8 :: SNSActionEncoding
+pattern SNSActionEncodingUtf8 = SNSActionEncoding' "UTF-8"
 
-pattern BASE64 :: SNSActionEncoding
-pattern BASE64 = SNSActionEncoding' "Base64"
+pattern SNSActionEncodingBASE64 :: SNSActionEncoding
+pattern SNSActionEncodingBASE64 = SNSActionEncoding' "Base64"
 
 {-# COMPLETE
-  Utf8,
-  BASE64,
+  SNSActionEncodingUtf8,
+  SNSActionEncodingBASE64,
   SNSActionEncoding'
   #-}

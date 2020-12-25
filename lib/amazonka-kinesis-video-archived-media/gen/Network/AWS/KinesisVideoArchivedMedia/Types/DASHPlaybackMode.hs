@@ -13,51 +13,56 @@
 module Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode
   ( DASHPlaybackMode
       ( DASHPlaybackMode',
-        DASHPMLive,
-        DASHPMLiveReplay,
-        DASHPMOnDemand
+        DASHPlaybackModeLive,
+        DASHPlaybackModeLiveReplay,
+        DASHPlaybackModeOnDemand,
+        fromDASHPlaybackMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DASHPlaybackMode = DASHPlaybackMode' Lude.Text
+newtype DASHPlaybackMode = DASHPlaybackMode'
+  { fromDASHPlaybackMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DASHPMLive :: DASHPlaybackMode
-pattern DASHPMLive = DASHPlaybackMode' "LIVE"
+pattern DASHPlaybackModeLive :: DASHPlaybackMode
+pattern DASHPlaybackModeLive = DASHPlaybackMode' "LIVE"
 
-pattern DASHPMLiveReplay :: DASHPlaybackMode
-pattern DASHPMLiveReplay = DASHPlaybackMode' "LIVE_REPLAY"
+pattern DASHPlaybackModeLiveReplay :: DASHPlaybackMode
+pattern DASHPlaybackModeLiveReplay = DASHPlaybackMode' "LIVE_REPLAY"
 
-pattern DASHPMOnDemand :: DASHPlaybackMode
-pattern DASHPMOnDemand = DASHPlaybackMode' "ON_DEMAND"
+pattern DASHPlaybackModeOnDemand :: DASHPlaybackMode
+pattern DASHPlaybackModeOnDemand = DASHPlaybackMode' "ON_DEMAND"
 
 {-# COMPLETE
-  DASHPMLive,
-  DASHPMLiveReplay,
-  DASHPMOnDemand,
+  DASHPlaybackModeLive,
+  DASHPlaybackModeLiveReplay,
+  DASHPlaybackModeOnDemand,
   DASHPlaybackMode'
   #-}

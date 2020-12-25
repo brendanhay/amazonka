@@ -17,85 +17,79 @@ module Network.AWS.OpsWorks.Types.LoadBasedAutoScalingConfiguration
     mkLoadBasedAutoScalingConfiguration,
 
     -- * Lenses
-    lbascUpScaling,
-    lbascEnable,
     lbascDownScaling,
+    lbascEnable,
     lbascLayerId,
+    lbascUpScaling,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.AutoScalingThresholds
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.AutoScalingThresholds as Types
+import qualified Network.AWS.OpsWorks.Types.LayerId as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a layer's load-based auto scaling configuration.
 --
 -- /See:/ 'mkLoadBasedAutoScalingConfiguration' smart constructor.
 data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
-  { -- | An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.
-    upScaling :: Lude.Maybe AutoScalingThresholds,
+  { -- | An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks Stacks reduces the number of instances.
+    downScaling :: Core.Maybe Types.AutoScalingThresholds,
     -- | Whether load-based auto scaling is enabled for the layer.
-    enable :: Lude.Maybe Lude.Bool,
-    -- | An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks Stacks reduces the number of instances.
-    downScaling :: Lude.Maybe AutoScalingThresholds,
+    enable :: Core.Maybe Core.Bool,
     -- | The layer ID.
-    layerId :: Lude.Maybe Lude.Text
+    layerId :: Core.Maybe Types.LayerId,
+    -- | An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.
+    upScaling :: Core.Maybe Types.AutoScalingThresholds
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoadBasedAutoScalingConfiguration' with the minimum fields required to make a request.
---
--- * 'upScaling' - An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.
--- * 'enable' - Whether load-based auto scaling is enabled for the layer.
--- * 'downScaling' - An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks Stacks reduces the number of instances.
--- * 'layerId' - The layer ID.
+-- | Creates a 'LoadBasedAutoScalingConfiguration' value with any optional fields omitted.
 mkLoadBasedAutoScalingConfiguration ::
   LoadBasedAutoScalingConfiguration
 mkLoadBasedAutoScalingConfiguration =
   LoadBasedAutoScalingConfiguration'
-    { upScaling = Lude.Nothing,
-      enable = Lude.Nothing,
-      downScaling = Lude.Nothing,
-      layerId = Lude.Nothing
+    { downScaling = Core.Nothing,
+      enable = Core.Nothing,
+      layerId = Core.Nothing,
+      upScaling = Core.Nothing
     }
-
--- | An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.
---
--- /Note:/ Consider using 'upScaling' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbascUpScaling :: Lens.Lens' LoadBasedAutoScalingConfiguration (Lude.Maybe AutoScalingThresholds)
-lbascUpScaling = Lens.lens (upScaling :: LoadBasedAutoScalingConfiguration -> Lude.Maybe AutoScalingThresholds) (\s a -> s {upScaling = a} :: LoadBasedAutoScalingConfiguration)
-{-# DEPRECATED lbascUpScaling "Use generic-lens or generic-optics with 'upScaling' instead." #-}
-
--- | Whether load-based auto scaling is enabled for the layer.
---
--- /Note:/ Consider using 'enable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbascEnable :: Lens.Lens' LoadBasedAutoScalingConfiguration (Lude.Maybe Lude.Bool)
-lbascEnable = Lens.lens (enable :: LoadBasedAutoScalingConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {enable = a} :: LoadBasedAutoScalingConfiguration)
-{-# DEPRECATED lbascEnable "Use generic-lens or generic-optics with 'enable' instead." #-}
 
 -- | An @AutoScalingThresholds@ object that describes the downscaling configuration, which defines how and when AWS OpsWorks Stacks reduces the number of instances.
 --
 -- /Note:/ Consider using 'downScaling' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbascDownScaling :: Lens.Lens' LoadBasedAutoScalingConfiguration (Lude.Maybe AutoScalingThresholds)
-lbascDownScaling = Lens.lens (downScaling :: LoadBasedAutoScalingConfiguration -> Lude.Maybe AutoScalingThresholds) (\s a -> s {downScaling = a} :: LoadBasedAutoScalingConfiguration)
+lbascDownScaling :: Lens.Lens' LoadBasedAutoScalingConfiguration (Core.Maybe Types.AutoScalingThresholds)
+lbascDownScaling = Lens.field @"downScaling"
 {-# DEPRECATED lbascDownScaling "Use generic-lens or generic-optics with 'downScaling' instead." #-}
+
+-- | Whether load-based auto scaling is enabled for the layer.
+--
+-- /Note:/ Consider using 'enable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbascEnable :: Lens.Lens' LoadBasedAutoScalingConfiguration (Core.Maybe Core.Bool)
+lbascEnable = Lens.field @"enable"
+{-# DEPRECATED lbascEnable "Use generic-lens or generic-optics with 'enable' instead." #-}
 
 -- | The layer ID.
 --
 -- /Note:/ Consider using 'layerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbascLayerId :: Lens.Lens' LoadBasedAutoScalingConfiguration (Lude.Maybe Lude.Text)
-lbascLayerId = Lens.lens (layerId :: LoadBasedAutoScalingConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {layerId = a} :: LoadBasedAutoScalingConfiguration)
+lbascLayerId :: Lens.Lens' LoadBasedAutoScalingConfiguration (Core.Maybe Types.LayerId)
+lbascLayerId = Lens.field @"layerId"
 {-# DEPRECATED lbascLayerId "Use generic-lens or generic-optics with 'layerId' instead." #-}
 
-instance Lude.FromJSON LoadBasedAutoScalingConfiguration where
+-- | An @AutoScalingThresholds@ object that describes the upscaling configuration, which defines how and when AWS OpsWorks Stacks increases the number of instances.
+--
+-- /Note:/ Consider using 'upScaling' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbascUpScaling :: Lens.Lens' LoadBasedAutoScalingConfiguration (Core.Maybe Types.AutoScalingThresholds)
+lbascUpScaling = Lens.field @"upScaling"
+{-# DEPRECATED lbascUpScaling "Use generic-lens or generic-optics with 'upScaling' instead." #-}
+
+instance Core.FromJSON LoadBasedAutoScalingConfiguration where
   parseJSON =
-    Lude.withObject
-      "LoadBasedAutoScalingConfiguration"
-      ( \x ->
-          LoadBasedAutoScalingConfiguration'
-            Lude.<$> (x Lude..:? "UpScaling")
-            Lude.<*> (x Lude..:? "Enable")
-            Lude.<*> (x Lude..:? "DownScaling")
-            Lude.<*> (x Lude..:? "LayerId")
-      )
+    Core.withObject "LoadBasedAutoScalingConfiguration" Core.$
+      \x ->
+        LoadBasedAutoScalingConfiguration'
+          Core.<$> (x Core..:? "DownScaling")
+          Core.<*> (x Core..:? "Enable")
+          Core.<*> (x Core..:? "LayerId")
+          Core.<*> (x Core..:? "UpScaling")

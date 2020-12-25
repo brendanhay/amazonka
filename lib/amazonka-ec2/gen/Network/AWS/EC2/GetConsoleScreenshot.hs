@@ -23,148 +23,143 @@ module Network.AWS.EC2.GetConsoleScreenshot
 
     -- ** Request lenses
     gcsInstanceId,
-    gcsWakeUp,
     gcsDryRun,
+    gcsWakeUp,
 
     -- * Destructuring the response
     GetConsoleScreenshotResponse (..),
     mkGetConsoleScreenshotResponse,
 
     -- ** Response lenses
-    gcsrsInstanceId,
-    gcsrsImageData,
-    gcsrsResponseStatus,
+    gcsrrsImageData,
+    gcsrrsInstanceId,
+    gcsrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetConsoleScreenshot' smart constructor.
 data GetConsoleScreenshot = GetConsoleScreenshot'
   { -- | The ID of the instance.
-    instanceId :: Lude.Text,
-    -- | When set to @true@ , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
-    wakeUp :: Lude.Maybe Lude.Bool,
+    instanceId :: Types.InstanceId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | When set to @true@ , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
+    wakeUp :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConsoleScreenshot' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'wakeUp' - When set to @true@ , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'GetConsoleScreenshot' value with any optional fields omitted.
 mkGetConsoleScreenshot ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   GetConsoleScreenshot
-mkGetConsoleScreenshot pInstanceId_ =
+mkGetConsoleScreenshot instanceId =
   GetConsoleScreenshot'
-    { instanceId = pInstanceId_,
-      wakeUp = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { instanceId,
+      dryRun = Core.Nothing,
+      wakeUp = Core.Nothing
     }
 
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsInstanceId :: Lens.Lens' GetConsoleScreenshot Lude.Text
-gcsInstanceId = Lens.lens (instanceId :: GetConsoleScreenshot -> Lude.Text) (\s a -> s {instanceId = a} :: GetConsoleScreenshot)
+gcsInstanceId :: Lens.Lens' GetConsoleScreenshot Types.InstanceId
+gcsInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED gcsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | When set to @true@ , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
---
--- /Note:/ Consider using 'wakeUp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsWakeUp :: Lens.Lens' GetConsoleScreenshot (Lude.Maybe Lude.Bool)
-gcsWakeUp = Lens.lens (wakeUp :: GetConsoleScreenshot -> Lude.Maybe Lude.Bool) (\s a -> s {wakeUp = a} :: GetConsoleScreenshot)
-{-# DEPRECATED gcsWakeUp "Use generic-lens or generic-optics with 'wakeUp' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsDryRun :: Lens.Lens' GetConsoleScreenshot (Lude.Maybe Lude.Bool)
-gcsDryRun = Lens.lens (dryRun :: GetConsoleScreenshot -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetConsoleScreenshot)
+gcsDryRun :: Lens.Lens' GetConsoleScreenshot (Core.Maybe Core.Bool)
+gcsDryRun = Lens.field @"dryRun"
 {-# DEPRECATED gcsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest GetConsoleScreenshot where
+-- | When set to @true@ , acts as keystroke input and wakes up an instance that's in standby or "sleep" mode.
+--
+-- /Note:/ Consider using 'wakeUp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsWakeUp :: Lens.Lens' GetConsoleScreenshot (Core.Maybe Core.Bool)
+gcsWakeUp = Lens.field @"wakeUp"
+{-# DEPRECATED gcsWakeUp "Use generic-lens or generic-optics with 'wakeUp' instead." #-}
+
+instance Core.AWSRequest GetConsoleScreenshot where
   type Rs GetConsoleScreenshot = GetConsoleScreenshotResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetConsoleScreenshot")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "WakeUp" Core.<$> wakeUp)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetConsoleScreenshotResponse'
-            Lude.<$> (x Lude..@? "instanceId")
-            Lude.<*> (x Lude..@? "imageData")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "imageData")
+            Core.<*> (x Core..@? "instanceId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetConsoleScreenshot where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetConsoleScreenshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetConsoleScreenshot where
-  toQuery GetConsoleScreenshot' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetConsoleScreenshot" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "WakeUp" Lude.=: wakeUp,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkGetConsoleScreenshotResponse' smart constructor.
 data GetConsoleScreenshotResponse = GetConsoleScreenshotResponse'
-  { -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The data that comprises the image.
-    imageData :: Lude.Maybe Lude.Text,
+  { -- | The data that comprises the image.
+    imageData :: Core.Maybe Types.String,
+    -- | The ID of the instance.
+    instanceId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConsoleScreenshotResponse' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'imageData' - The data that comprises the image.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetConsoleScreenshotResponse' value with any optional fields omitted.
 mkGetConsoleScreenshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetConsoleScreenshotResponse
-mkGetConsoleScreenshotResponse pResponseStatus_ =
+mkGetConsoleScreenshotResponse responseStatus =
   GetConsoleScreenshotResponse'
-    { instanceId = Lude.Nothing,
-      imageData = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { imageData = Core.Nothing,
+      instanceId = Core.Nothing,
+      responseStatus
     }
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsrsInstanceId :: Lens.Lens' GetConsoleScreenshotResponse (Lude.Maybe Lude.Text)
-gcsrsInstanceId = Lens.lens (instanceId :: GetConsoleScreenshotResponse -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: GetConsoleScreenshotResponse)
-{-# DEPRECATED gcsrsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The data that comprises the image.
 --
 -- /Note:/ Consider using 'imageData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsrsImageData :: Lens.Lens' GetConsoleScreenshotResponse (Lude.Maybe Lude.Text)
-gcsrsImageData = Lens.lens (imageData :: GetConsoleScreenshotResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageData = a} :: GetConsoleScreenshotResponse)
-{-# DEPRECATED gcsrsImageData "Use generic-lens or generic-optics with 'imageData' instead." #-}
+gcsrrsImageData :: Lens.Lens' GetConsoleScreenshotResponse (Core.Maybe Types.String)
+gcsrrsImageData = Lens.field @"imageData"
+{-# DEPRECATED gcsrrsImageData "Use generic-lens or generic-optics with 'imageData' instead." #-}
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsrrsInstanceId :: Lens.Lens' GetConsoleScreenshotResponse (Core.Maybe Types.String)
+gcsrrsInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED gcsrrsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsrsResponseStatus :: Lens.Lens' GetConsoleScreenshotResponse Lude.Int
-gcsrsResponseStatus = Lens.lens (responseStatus :: GetConsoleScreenshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConsoleScreenshotResponse)
-{-# DEPRECATED gcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcsrrsResponseStatus :: Lens.Lens' GetConsoleScreenshotResponse Core.Int
+gcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

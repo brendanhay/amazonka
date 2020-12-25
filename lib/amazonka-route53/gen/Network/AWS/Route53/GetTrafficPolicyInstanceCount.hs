@@ -24,92 +24,88 @@ module Network.AWS.Route53.GetTrafficPolicyInstanceCount
     mkGetTrafficPolicyInstanceCountResponse,
 
     -- ** Response lenses
-    gtpicrsTrafficPolicyInstanceCount,
-    gtpicrsResponseStatus,
+    gtpicrrsTrafficPolicyInstanceCount,
+    gtpicrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | Request to get the number of traffic policy instances that are associated with the current AWS account.
 --
 -- /See:/ 'mkGetTrafficPolicyInstanceCount' smart constructor.
 data GetTrafficPolicyInstanceCount = GetTrafficPolicyInstanceCount'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTrafficPolicyInstanceCount' with the minimum fields required to make a request.
+-- | Creates a 'GetTrafficPolicyInstanceCount' value with any optional fields omitted.
 mkGetTrafficPolicyInstanceCount ::
   GetTrafficPolicyInstanceCount
 mkGetTrafficPolicyInstanceCount = GetTrafficPolicyInstanceCount'
 
-instance Lude.AWSRequest GetTrafficPolicyInstanceCount where
+instance Core.AWSRequest GetTrafficPolicyInstanceCount where
   type
     Rs GetTrafficPolicyInstanceCount =
       GetTrafficPolicyInstanceCountResponse
-  request = Req.get route53Service
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath "/2013-04-01/trafficpolicyinstancecount",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetTrafficPolicyInstanceCountResponse'
-            Lude.<$> (x Lude..@ "TrafficPolicyInstanceCount")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "TrafficPolicyInstanceCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetTrafficPolicyInstanceCount where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetTrafficPolicyInstanceCount where
-  toPath = Lude.const "/2013-04-01/trafficpolicyinstancecount"
-
-instance Lude.ToQuery GetTrafficPolicyInstanceCount where
-  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contains information about the resource record sets that Amazon Route 53 created based on a specified traffic policy.
 --
 -- /See:/ 'mkGetTrafficPolicyInstanceCountResponse' smart constructor.
 data GetTrafficPolicyInstanceCountResponse = GetTrafficPolicyInstanceCountResponse'
   { -- | The number of traffic policy instances that are associated with the current AWS account.
-    trafficPolicyInstanceCount :: Lude.Int,
+    trafficPolicyInstanceCount :: Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTrafficPolicyInstanceCountResponse' with the minimum fields required to make a request.
---
--- * 'trafficPolicyInstanceCount' - The number of traffic policy instances that are associated with the current AWS account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTrafficPolicyInstanceCountResponse' value with any optional fields omitted.
 mkGetTrafficPolicyInstanceCountResponse ::
   -- | 'trafficPolicyInstanceCount'
-  Lude.Int ->
+  Core.Int ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTrafficPolicyInstanceCountResponse
 mkGetTrafficPolicyInstanceCountResponse
-  pTrafficPolicyInstanceCount_
-  pResponseStatus_ =
+  trafficPolicyInstanceCount
+  responseStatus =
     GetTrafficPolicyInstanceCountResponse'
-      { trafficPolicyInstanceCount =
-          pTrafficPolicyInstanceCount_,
-        responseStatus = pResponseStatus_
+      { trafficPolicyInstanceCount,
+        responseStatus
       }
 
 -- | The number of traffic policy instances that are associated with the current AWS account.
 --
 -- /Note:/ Consider using 'trafficPolicyInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtpicrsTrafficPolicyInstanceCount :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Lude.Int
-gtpicrsTrafficPolicyInstanceCount = Lens.lens (trafficPolicyInstanceCount :: GetTrafficPolicyInstanceCountResponse -> Lude.Int) (\s a -> s {trafficPolicyInstanceCount = a} :: GetTrafficPolicyInstanceCountResponse)
-{-# DEPRECATED gtpicrsTrafficPolicyInstanceCount "Use generic-lens or generic-optics with 'trafficPolicyInstanceCount' instead." #-}
+gtpicrrsTrafficPolicyInstanceCount :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Core.Int
+gtpicrrsTrafficPolicyInstanceCount = Lens.field @"trafficPolicyInstanceCount"
+{-# DEPRECATED gtpicrrsTrafficPolicyInstanceCount "Use generic-lens or generic-optics with 'trafficPolicyInstanceCount' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtpicrsResponseStatus :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Lude.Int
-gtpicrsResponseStatus = Lens.lens (responseStatus :: GetTrafficPolicyInstanceCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTrafficPolicyInstanceCountResponse)
-{-# DEPRECATED gtpicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtpicrrsResponseStatus :: Lens.Lens' GetTrafficPolicyInstanceCountResponse Core.Int
+gtpicrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtpicrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

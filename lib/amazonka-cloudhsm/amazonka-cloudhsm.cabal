@@ -46,56 +46,95 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CloudHSM
     Network.AWS.CloudHSM.AddTagsToResource
-    Network.AWS.CloudHSM.CreateHAPG
-    Network.AWS.CloudHSM.CreateHSM
+    Network.AWS.CloudHSM.CreateHapg
+    Network.AWS.CloudHSM.CreateHsm
     Network.AWS.CloudHSM.CreateLunaClient
-    Network.AWS.CloudHSM.DeleteHAPG
-    Network.AWS.CloudHSM.DeleteHSM
+    Network.AWS.CloudHSM.DeleteHapg
+    Network.AWS.CloudHSM.DeleteHsm
     Network.AWS.CloudHSM.DeleteLunaClient
-    Network.AWS.CloudHSM.DescribeHAPG
-    Network.AWS.CloudHSM.DescribeHSM
+    Network.AWS.CloudHSM.DescribeHapg
+    Network.AWS.CloudHSM.DescribeHsm
     Network.AWS.CloudHSM.DescribeLunaClient
     Network.AWS.CloudHSM.GetConfig
     Network.AWS.CloudHSM.ListAvailableZones
-    Network.AWS.CloudHSM.ListHAPGs
-    Network.AWS.CloudHSM.ListHSMs
+    Network.AWS.CloudHSM.ListHapgs
+    Network.AWS.CloudHSM.ListHsms
     Network.AWS.CloudHSM.ListLunaClients
     Network.AWS.CloudHSM.ListTagsForResource
-    Network.AWS.CloudHSM.ModifyHAPG
-    Network.AWS.CloudHSM.ModifyHSM
+    Network.AWS.CloudHSM.ModifyHapg
+    Network.AWS.CloudHSM.ModifyHsm
     Network.AWS.CloudHSM.ModifyLunaClient
     Network.AWS.CloudHSM.RemoveTagsFromResource
     Network.AWS.CloudHSM.Types
     Network.AWS.CloudHSM.Waiters
 
   other-modules:
+    Network.AWS.CloudHSM.Types.AvailabilityZone
+    Network.AWS.CloudHSM.Types.AZ
+    Network.AWS.CloudHSM.Types.Certificate
+    Network.AWS.CloudHSM.Types.CertificateFingerprint
+    Network.AWS.CloudHSM.Types.ClientArn
+    Network.AWS.CloudHSM.Types.ClientLabel
+    Network.AWS.CloudHSM.Types.ClientToken
     Network.AWS.CloudHSM.Types.ClientVersion
-    Network.AWS.CloudHSM.Types.CloudHSMObjectState
-    Network.AWS.CloudHSM.Types.HSMStatus
+    Network.AWS.CloudHSM.Types.CloudHsmObjectState
+    Network.AWS.CloudHSM.Types.EniId
+    Network.AWS.CloudHSM.Types.ExternalId
+    Network.AWS.CloudHSM.Types.HapgArn
+    Network.AWS.CloudHSM.Types.HsmArn
+    Network.AWS.CloudHSM.Types.HsmSerialNumber
+    Network.AWS.CloudHSM.Types.HsmStatus
+    Network.AWS.CloudHSM.Types.IamRoleArn
+    Network.AWS.CloudHSM.Types.IpAddress
+    Network.AWS.CloudHSM.Types.Key
+    Network.AWS.CloudHSM.Types.Label
+    Network.AWS.CloudHSM.Types.LastModifiedTimestamp
+    Network.AWS.CloudHSM.Types.NextToken
+    Network.AWS.CloudHSM.Types.PaginationToken
+    Network.AWS.CloudHSM.Types.PartitionArn
+    Network.AWS.CloudHSM.Types.PartitionSerial
+    Network.AWS.CloudHSM.Types.ResourceArn
+    Network.AWS.CloudHSM.Types.ServerCertLastUpdated
+    Network.AWS.CloudHSM.Types.SshKey
+    Network.AWS.CloudHSM.Types.SshKeyLastUpdated
+    Network.AWS.CloudHSM.Types.Status
+    Network.AWS.CloudHSM.Types.String
+    Network.AWS.CloudHSM.Types.SubnetId
+    Network.AWS.CloudHSM.Types.SubscriptionEndDate
+    Network.AWS.CloudHSM.Types.SubscriptionStartDate
     Network.AWS.CloudHSM.Types.SubscriptionType
     Network.AWS.CloudHSM.Types.Tag
+    Network.AWS.CloudHSM.Types.TagKey
+    Network.AWS.CloudHSM.Types.Value
+    Network.AWS.CloudHSM.Types.VpcId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

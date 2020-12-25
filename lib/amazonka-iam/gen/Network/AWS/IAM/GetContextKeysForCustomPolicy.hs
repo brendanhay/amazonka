@@ -25,19 +25,19 @@ module Network.AWS.IAM.GetContextKeysForCustomPolicy
     gckfcpPolicyInputList,
 
     -- * Destructuring the response
-    GetContextKeysForPolicyResponse (..),
-    mkGetContextKeysForPolicyResponse,
+    Types.GetContextKeysForPolicyResponse (..),
+    Types.mkGetContextKeysForPolicyResponse,
 
     -- ** Response lenses
-    gckfpContextKeyNames,
+    Types.gckfprContextKeyNames,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetContextKeysForCustomPolicy' smart constructor.
 newtype GetContextKeysForCustomPolicy = GetContextKeysForCustomPolicy'
@@ -52,28 +52,16 @@ newtype GetContextKeysForCustomPolicy = GetContextKeysForCustomPolicy'
     --
     --
     --     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
-    policyInputList :: [Lude.Text]
+    policyInputList :: [Types.PolicyDocumentType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetContextKeysForCustomPolicy' with the minimum fields required to make a request.
---
--- * 'policyInputList' - A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
---
---     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
---
---
---     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
---
---
---     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
+-- | Creates a 'GetContextKeysForCustomPolicy' value with any optional fields omitted.
 mkGetContextKeysForCustomPolicy ::
   GetContextKeysForCustomPolicy
 mkGetContextKeysForCustomPolicy =
-  GetContextKeysForCustomPolicy' {policyInputList = Lude.mempty}
+  GetContextKeysForCustomPolicy' {policyInputList = Core.mempty}
 
 -- | A list of policies for which you want the list of context keys referenced in those policies. Each document is specified as a string containing the complete, valid JSON text of an IAM policy.
 --
@@ -90,32 +78,36 @@ mkGetContextKeysForCustomPolicy =
 --
 --
 -- /Note:/ Consider using 'policyInputList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gckfcpPolicyInputList :: Lens.Lens' GetContextKeysForCustomPolicy [Lude.Text]
-gckfcpPolicyInputList = Lens.lens (policyInputList :: GetContextKeysForCustomPolicy -> [Lude.Text]) (\s a -> s {policyInputList = a} :: GetContextKeysForCustomPolicy)
+gckfcpPolicyInputList :: Lens.Lens' GetContextKeysForCustomPolicy [Types.PolicyDocumentType]
+gckfcpPolicyInputList = Lens.field @"policyInputList"
 {-# DEPRECATED gckfcpPolicyInputList "Use generic-lens or generic-optics with 'policyInputList' instead." #-}
 
-instance Lude.AWSRequest GetContextKeysForCustomPolicy where
+instance Core.AWSRequest GetContextKeysForCustomPolicy where
   type
     Rs GetContextKeysForCustomPolicy =
-      GetContextKeysForPolicyResponse
-  request = Req.postQuery iamService
+      Types.GetContextKeysForPolicyResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetContextKeysForCustomPolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> ( Core.toQueryValue
+                            "PolicyInputList"
+                            (Core.toQueryList "member" policyInputList)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetContextKeysForCustomPolicyResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders GetContextKeysForCustomPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetContextKeysForCustomPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetContextKeysForCustomPolicy where
-  toQuery GetContextKeysForCustomPolicy' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("GetContextKeysForCustomPolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyInputList"
-          Lude.=: Lude.toQueryList "member" policyInputList
-      ]
+      (\s h x -> Core.parseXML x)

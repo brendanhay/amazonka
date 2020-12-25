@@ -23,55 +23,51 @@ module Network.AWS.S3.Types.ReplicationTime
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.ReplicationTimeStatus
-import Network.AWS.S3.Types.ReplicationTimeValue
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.ReplicationTimeStatus as Types
+import qualified Network.AWS.S3.Types.ReplicationTimeValue as Types
 
 -- | A container specifying S3 Replication Time Control (S3 RTC) related information, including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a @Metrics@ block.
 --
 -- /See:/ 'mkReplicationTime' smart constructor.
 data ReplicationTime = ReplicationTime'
   { -- | Specifies whether the replication time is enabled.
-    status :: ReplicationTimeStatus,
+    status :: Types.ReplicationTimeStatus,
     -- | A container specifying the time by which replication should be complete for all objects and operations on objects.
-    time :: ReplicationTimeValue
+    time :: Types.ReplicationTimeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicationTime' with the minimum fields required to make a request.
---
--- * 'status' - Specifies whether the replication time is enabled.
--- * 'time' - A container specifying the time by which replication should be complete for all objects and operations on objects.
+-- | Creates a 'ReplicationTime' value with any optional fields omitted.
 mkReplicationTime ::
   -- | 'status'
-  ReplicationTimeStatus ->
+  Types.ReplicationTimeStatus ->
   -- | 'time'
-  ReplicationTimeValue ->
+  Types.ReplicationTimeValue ->
   ReplicationTime
-mkReplicationTime pStatus_ pTime_ =
-  ReplicationTime' {status = pStatus_, time = pTime_}
+mkReplicationTime status time = ReplicationTime' {status, time}
 
 -- | Specifies whether the replication time is enabled.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtStatus :: Lens.Lens' ReplicationTime ReplicationTimeStatus
-rtStatus = Lens.lens (status :: ReplicationTime -> ReplicationTimeStatus) (\s a -> s {status = a} :: ReplicationTime)
+rtStatus :: Lens.Lens' ReplicationTime Types.ReplicationTimeStatus
+rtStatus = Lens.field @"status"
 {-# DEPRECATED rtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A container specifying the time by which replication should be complete for all objects and operations on objects.
 --
 -- /Note:/ Consider using 'time' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtTime :: Lens.Lens' ReplicationTime ReplicationTimeValue
-rtTime = Lens.lens (time :: ReplicationTime -> ReplicationTimeValue) (\s a -> s {time = a} :: ReplicationTime)
+rtTime :: Lens.Lens' ReplicationTime Types.ReplicationTimeValue
+rtTime = Lens.field @"time"
 {-# DEPRECATED rtTime "Use generic-lens or generic-optics with 'time' instead." #-}
 
-instance Lude.FromXML ReplicationTime where
+instance Core.ToXML ReplicationTime where
+  toXML ReplicationTime {..} =
+    Core.toXMLNode "Status" status Core.<> Core.toXMLNode "Time" time
+
+instance Core.FromXML ReplicationTime where
   parseXML x =
     ReplicationTime'
-      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Time")
-
-instance Lude.ToXML ReplicationTime where
-  toXML ReplicationTime' {..} =
-    Lude.mconcat ["Status" Lude.@= status, "Time" Lude.@= time]
+      Core.<$> (x Core..@ "Status") Core.<*> (x Core..@ "Time")

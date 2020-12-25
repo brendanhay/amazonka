@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.EmbeddedScte20Detection
   ( EmbeddedScte20Detection
       ( EmbeddedScte20Detection',
-        ESDAuto,
-        ESDOff
+        EmbeddedScte20DetectionAuto,
+        EmbeddedScte20DetectionOff,
+        fromEmbeddedScte20Detection
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Embedded Scte20 Detection
-newtype EmbeddedScte20Detection = EmbeddedScte20Detection' Lude.Text
+newtype EmbeddedScte20Detection = EmbeddedScte20Detection'
+  { fromEmbeddedScte20Detection ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ESDAuto :: EmbeddedScte20Detection
-pattern ESDAuto = EmbeddedScte20Detection' "AUTO"
+pattern EmbeddedScte20DetectionAuto :: EmbeddedScte20Detection
+pattern EmbeddedScte20DetectionAuto = EmbeddedScte20Detection' "AUTO"
 
-pattern ESDOff :: EmbeddedScte20Detection
-pattern ESDOff = EmbeddedScte20Detection' "OFF"
+pattern EmbeddedScte20DetectionOff :: EmbeddedScte20Detection
+pattern EmbeddedScte20DetectionOff = EmbeddedScte20Detection' "OFF"
 
 {-# COMPLETE
-  ESDAuto,
-  ESDOff,
+  EmbeddedScte20DetectionAuto,
+  EmbeddedScte20DetectionOff,
   EmbeddedScte20Detection'
   #-}

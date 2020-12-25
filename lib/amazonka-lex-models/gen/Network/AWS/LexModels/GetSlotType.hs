@@ -30,233 +30,213 @@ module Network.AWS.LexModels.GetSlotType
     mkGetSlotTypeResponse,
 
     -- ** Response lenses
-    gstfrsParentSlotTypeSignature,
-    gstfrsSlotTypeConfigurations,
-    gstfrsChecksum,
-    gstfrsValueSelectionStrategy,
-    gstfrsCreatedDate,
-    gstfrsName,
-    gstfrsVersion,
-    gstfrsLastUpdatedDate,
-    gstfrsDescription,
-    gstfrsEnumerationValues,
-    gstfrsResponseStatus,
+    gstrfrsChecksum,
+    gstrfrsCreatedDate,
+    gstrfrsDescription,
+    gstrfrsEnumerationValues,
+    gstrfrsLastUpdatedDate,
+    gstrfrsName,
+    gstrfrsParentSlotTypeSignature,
+    gstrfrsSlotTypeConfigurations,
+    gstrfrsValueSelectionStrategy,
+    gstrfrsVersion,
+    gstrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetSlotType' smart constructor.
 data GetSlotType = GetSlotType'
   { -- | The name of the slot type. The name is case sensitive.
-    name :: Lude.Text,
+    name :: Types.SlotTypeName,
     -- | The version of the slot type.
-    version :: Lude.Text
+    version :: Types.Version
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSlotType' with the minimum fields required to make a request.
---
--- * 'name' - The name of the slot type. The name is case sensitive.
--- * 'version' - The version of the slot type.
+-- | Creates a 'GetSlotType' value with any optional fields omitted.
 mkGetSlotType ::
   -- | 'name'
-  Lude.Text ->
+  Types.SlotTypeName ->
   -- | 'version'
-  Lude.Text ->
+  Types.Version ->
   GetSlotType
-mkGetSlotType pName_ pVersion_ =
-  GetSlotType' {name = pName_, version = pVersion_}
+mkGetSlotType name version = GetSlotType' {name, version}
 
 -- | The name of the slot type. The name is case sensitive.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstName :: Lens.Lens' GetSlotType Lude.Text
-gstName = Lens.lens (name :: GetSlotType -> Lude.Text) (\s a -> s {name = a} :: GetSlotType)
+gstName :: Lens.Lens' GetSlotType Types.SlotTypeName
+gstName = Lens.field @"name"
 {-# DEPRECATED gstName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the slot type.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstVersion :: Lens.Lens' GetSlotType Lude.Text
-gstVersion = Lens.lens (version :: GetSlotType -> Lude.Text) (\s a -> s {version = a} :: GetSlotType)
+gstVersion :: Lens.Lens' GetSlotType Types.Version
+gstVersion = Lens.field @"version"
 {-# DEPRECATED gstVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.AWSRequest GetSlotType where
+instance Core.AWSRequest GetSlotType where
   type Rs GetSlotType = GetSlotTypeResponse
-  request = Req.get lexModelsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/slottypes/" Core.<> (Core.toText name) Core.<> ("/versions/")
+                Core.<> (Core.toText version)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSlotTypeResponse'
-            Lude.<$> (x Lude..?> "parentSlotTypeSignature")
-            Lude.<*> (x Lude..?> "slotTypeConfigurations" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "checksum")
-            Lude.<*> (x Lude..?> "valueSelectionStrategy")
-            Lude.<*> (x Lude..?> "createdDate")
-            Lude.<*> (x Lude..?> "name")
-            Lude.<*> (x Lude..?> "version")
-            Lude.<*> (x Lude..?> "lastUpdatedDate")
-            Lude.<*> (x Lude..?> "description")
-            Lude.<*> (x Lude..?> "enumerationValues" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "checksum")
+            Core.<*> (x Core..:? "createdDate")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "enumerationValues")
+            Core.<*> (x Core..:? "lastUpdatedDate")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "parentSlotTypeSignature")
+            Core.<*> (x Core..:? "slotTypeConfigurations")
+            Core.<*> (x Core..:? "valueSelectionStrategy")
+            Core.<*> (x Core..:? "version")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSlotType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetSlotType where
-  toPath GetSlotType' {..} =
-    Lude.mconcat
-      ["/slottypes/", Lude.toBS name, "/versions/", Lude.toBS version]
-
-instance Lude.ToQuery GetSlotType where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetSlotTypeResponse' smart constructor.
 data GetSlotTypeResponse = GetSlotTypeResponse'
-  { -- | The built-in slot type used as a parent for the slot type.
-    parentSlotTypeSignature :: Lude.Maybe Lude.Text,
-    -- | Configuration information that extends the parent built-in slot type.
-    slotTypeConfigurations :: Lude.Maybe [SlotTypeConfiguration],
-    -- | Checksum of the @> LATEST@ version of the slot type.
-    checksum :: Lude.Maybe Lude.Text,
-    -- | The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
-    valueSelectionStrategy :: Lude.Maybe SlotValueSelectionStrategy,
+  { -- | Checksum of the @> LATEST@ version of the slot type.
+    checksum :: Core.Maybe Types.String,
     -- | The date that the slot type was created.
-    createdDate :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the slot type.
-    name :: Lude.Maybe Lude.Text,
-    -- | The version of the slot type.
-    version :: Lude.Maybe Lude.Text,
-    -- | The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
-    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+    createdDate :: Core.Maybe Core.NominalDiffTime,
     -- | A description of the slot type.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
     -- | A list of @EnumerationValue@ objects that defines the values that the slot type can take.
-    enumerationValues :: Lude.Maybe [EnumerationValue],
+    enumerationValues :: Core.Maybe [Types.EnumerationValue],
+    -- | The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
+    lastUpdatedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the slot type.
+    name :: Core.Maybe Types.SlotTypeName,
+    -- | The built-in slot type used as a parent for the slot type.
+    parentSlotTypeSignature :: Core.Maybe Types.CustomOrBuiltinSlotTypeName,
+    -- | Configuration information that extends the parent built-in slot type.
+    slotTypeConfigurations :: Core.Maybe [Types.SlotTypeConfiguration],
+    -- | The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
+    valueSelectionStrategy :: Core.Maybe Types.SlotValueSelectionStrategy,
+    -- | The version of the slot type.
+    version :: Core.Maybe Types.Version,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetSlotTypeResponse' with the minimum fields required to make a request.
---
--- * 'parentSlotTypeSignature' - The built-in slot type used as a parent for the slot type.
--- * 'slotTypeConfigurations' - Configuration information that extends the parent built-in slot type.
--- * 'checksum' - Checksum of the @> LATEST@ version of the slot type.
--- * 'valueSelectionStrategy' - The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
--- * 'createdDate' - The date that the slot type was created.
--- * 'name' - The name of the slot type.
--- * 'version' - The version of the slot type.
--- * 'lastUpdatedDate' - The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
--- * 'description' - A description of the slot type.
--- * 'enumerationValues' - A list of @EnumerationValue@ objects that defines the values that the slot type can take.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSlotTypeResponse' value with any optional fields omitted.
 mkGetSlotTypeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSlotTypeResponse
-mkGetSlotTypeResponse pResponseStatus_ =
+mkGetSlotTypeResponse responseStatus =
   GetSlotTypeResponse'
-    { parentSlotTypeSignature = Lude.Nothing,
-      slotTypeConfigurations = Lude.Nothing,
-      checksum = Lude.Nothing,
-      valueSelectionStrategy = Lude.Nothing,
-      createdDate = Lude.Nothing,
-      name = Lude.Nothing,
-      version = Lude.Nothing,
-      lastUpdatedDate = Lude.Nothing,
-      description = Lude.Nothing,
-      enumerationValues = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { checksum = Core.Nothing,
+      createdDate = Core.Nothing,
+      description = Core.Nothing,
+      enumerationValues = Core.Nothing,
+      lastUpdatedDate = Core.Nothing,
+      name = Core.Nothing,
+      parentSlotTypeSignature = Core.Nothing,
+      slotTypeConfigurations = Core.Nothing,
+      valueSelectionStrategy = Core.Nothing,
+      version = Core.Nothing,
+      responseStatus
     }
-
--- | The built-in slot type used as a parent for the slot type.
---
--- /Note:/ Consider using 'parentSlotTypeSignature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstfrsParentSlotTypeSignature :: Lens.Lens' GetSlotTypeResponse (Lude.Maybe Lude.Text)
-gstfrsParentSlotTypeSignature = Lens.lens (parentSlotTypeSignature :: GetSlotTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {parentSlotTypeSignature = a} :: GetSlotTypeResponse)
-{-# DEPRECATED gstfrsParentSlotTypeSignature "Use generic-lens or generic-optics with 'parentSlotTypeSignature' instead." #-}
-
--- | Configuration information that extends the parent built-in slot type.
---
--- /Note:/ Consider using 'slotTypeConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstfrsSlotTypeConfigurations :: Lens.Lens' GetSlotTypeResponse (Lude.Maybe [SlotTypeConfiguration])
-gstfrsSlotTypeConfigurations = Lens.lens (slotTypeConfigurations :: GetSlotTypeResponse -> Lude.Maybe [SlotTypeConfiguration]) (\s a -> s {slotTypeConfigurations = a} :: GetSlotTypeResponse)
-{-# DEPRECATED gstfrsSlotTypeConfigurations "Use generic-lens or generic-optics with 'slotTypeConfigurations' instead." #-}
 
 -- | Checksum of the @> LATEST@ version of the slot type.
 --
 -- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstfrsChecksum :: Lens.Lens' GetSlotTypeResponse (Lude.Maybe Lude.Text)
-gstfrsChecksum = Lens.lens (checksum :: GetSlotTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: GetSlotTypeResponse)
-{-# DEPRECATED gstfrsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
-
--- | The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
---
--- /Note:/ Consider using 'valueSelectionStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstfrsValueSelectionStrategy :: Lens.Lens' GetSlotTypeResponse (Lude.Maybe SlotValueSelectionStrategy)
-gstfrsValueSelectionStrategy = Lens.lens (valueSelectionStrategy :: GetSlotTypeResponse -> Lude.Maybe SlotValueSelectionStrategy) (\s a -> s {valueSelectionStrategy = a} :: GetSlotTypeResponse)
-{-# DEPRECATED gstfrsValueSelectionStrategy "Use generic-lens or generic-optics with 'valueSelectionStrategy' instead." #-}
+gstrfrsChecksum :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Types.String)
+gstrfrsChecksum = Lens.field @"checksum"
+{-# DEPRECATED gstrfrsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | The date that the slot type was created.
 --
 -- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstfrsCreatedDate :: Lens.Lens' GetSlotTypeResponse (Lude.Maybe Lude.Timestamp)
-gstfrsCreatedDate = Lens.lens (createdDate :: GetSlotTypeResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: GetSlotTypeResponse)
-{-# DEPRECATED gstfrsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
-
--- | The name of the slot type.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstfrsName :: Lens.Lens' GetSlotTypeResponse (Lude.Maybe Lude.Text)
-gstfrsName = Lens.lens (name :: GetSlotTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetSlotTypeResponse)
-{-# DEPRECATED gstfrsName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The version of the slot type.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstfrsVersion :: Lens.Lens' GetSlotTypeResponse (Lude.Maybe Lude.Text)
-gstfrsVersion = Lens.lens (version :: GetSlotTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetSlotTypeResponse)
-{-# DEPRECATED gstfrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
---
--- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstfrsLastUpdatedDate :: Lens.Lens' GetSlotTypeResponse (Lude.Maybe Lude.Timestamp)
-gstfrsLastUpdatedDate = Lens.lens (lastUpdatedDate :: GetSlotTypeResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: GetSlotTypeResponse)
-{-# DEPRECATED gstfrsLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
+gstrfrsCreatedDate :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Core.NominalDiffTime)
+gstrfrsCreatedDate = Lens.field @"createdDate"
+{-# DEPRECATED gstrfrsCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | A description of the slot type.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstfrsDescription :: Lens.Lens' GetSlotTypeResponse (Lude.Maybe Lude.Text)
-gstfrsDescription = Lens.lens (description :: GetSlotTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GetSlotTypeResponse)
-{-# DEPRECATED gstfrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+gstrfrsDescription :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Types.Description)
+gstrfrsDescription = Lens.field @"description"
+{-# DEPRECATED gstrfrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A list of @EnumerationValue@ objects that defines the values that the slot type can take.
 --
 -- /Note:/ Consider using 'enumerationValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstfrsEnumerationValues :: Lens.Lens' GetSlotTypeResponse (Lude.Maybe [EnumerationValue])
-gstfrsEnumerationValues = Lens.lens (enumerationValues :: GetSlotTypeResponse -> Lude.Maybe [EnumerationValue]) (\s a -> s {enumerationValues = a} :: GetSlotTypeResponse)
-{-# DEPRECATED gstfrsEnumerationValues "Use generic-lens or generic-optics with 'enumerationValues' instead." #-}
+gstrfrsEnumerationValues :: Lens.Lens' GetSlotTypeResponse (Core.Maybe [Types.EnumerationValue])
+gstrfrsEnumerationValues = Lens.field @"enumerationValues"
+{-# DEPRECATED gstrfrsEnumerationValues "Use generic-lens or generic-optics with 'enumerationValues' instead." #-}
+
+-- | The date that the slot type was updated. When you create a resource, the creation date and last update date are the same.
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrfrsLastUpdatedDate :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Core.NominalDiffTime)
+gstrfrsLastUpdatedDate = Lens.field @"lastUpdatedDate"
+{-# DEPRECATED gstrfrsLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
+
+-- | The name of the slot type.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrfrsName :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Types.SlotTypeName)
+gstrfrsName = Lens.field @"name"
+{-# DEPRECATED gstrfrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The built-in slot type used as a parent for the slot type.
+--
+-- /Note:/ Consider using 'parentSlotTypeSignature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrfrsParentSlotTypeSignature :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Types.CustomOrBuiltinSlotTypeName)
+gstrfrsParentSlotTypeSignature = Lens.field @"parentSlotTypeSignature"
+{-# DEPRECATED gstrfrsParentSlotTypeSignature "Use generic-lens or generic-optics with 'parentSlotTypeSignature' instead." #-}
+
+-- | Configuration information that extends the parent built-in slot type.
+--
+-- /Note:/ Consider using 'slotTypeConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrfrsSlotTypeConfigurations :: Lens.Lens' GetSlotTypeResponse (Core.Maybe [Types.SlotTypeConfiguration])
+gstrfrsSlotTypeConfigurations = Lens.field @"slotTypeConfigurations"
+{-# DEPRECATED gstrfrsSlotTypeConfigurations "Use generic-lens or generic-optics with 'slotTypeConfigurations' instead." #-}
+
+-- | The strategy that Amazon Lex uses to determine the value of the slot. For more information, see 'PutSlotType' .
+--
+-- /Note:/ Consider using 'valueSelectionStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrfrsValueSelectionStrategy :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Types.SlotValueSelectionStrategy)
+gstrfrsValueSelectionStrategy = Lens.field @"valueSelectionStrategy"
+{-# DEPRECATED gstrfrsValueSelectionStrategy "Use generic-lens or generic-optics with 'valueSelectionStrategy' instead." #-}
+
+-- | The version of the slot type.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstrfrsVersion :: Lens.Lens' GetSlotTypeResponse (Core.Maybe Types.Version)
+gstrfrsVersion = Lens.field @"version"
+{-# DEPRECATED gstrfrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstfrsResponseStatus :: Lens.Lens' GetSlotTypeResponse Lude.Int
-gstfrsResponseStatus = Lens.lens (responseStatus :: GetSlotTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSlotTypeResponse)
-{-# DEPRECATED gstfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gstrfrsResponseStatus :: Lens.Lens' GetSlotTypeResponse Core.Int
+gstrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gstrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

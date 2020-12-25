@@ -20,158 +20,141 @@ module Network.AWS.Budgets.CreateSubscriber
     mkCreateSubscriber,
 
     -- ** Request lenses
-    csSubscriber,
-    csNotification,
     csAccountId,
     csBudgetName,
+    csNotification,
+    csSubscriber,
 
     -- * Destructuring the response
     CreateSubscriberResponse (..),
     mkCreateSubscriberResponse,
 
     -- ** Response lenses
-    csrsResponseStatus,
+    csrrsResponseStatus,
   )
 where
 
-import Network.AWS.Budgets.Types
+import qualified Network.AWS.Budgets.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request of CreateSubscriber
 --
 -- /See:/ 'mkCreateSubscriber' smart constructor.
 data CreateSubscriber = CreateSubscriber'
-  { -- | The subscriber that you want to associate with a budget notification.
-    subscriber :: Subscriber,
-    -- | The notification that you want to create a subscriber for.
-    notification :: Notification,
-    -- | The @accountId@ that is associated with the budget that you want to create a subscriber for.
-    accountId :: Lude.Text,
+  { -- | The @accountId@ that is associated with the budget that you want to create a subscriber for.
+    accountId :: Types.AccountId,
     -- | The name of the budget that you want to subscribe to. Budget names must be unique within an account.
-    budgetName :: Lude.Text
+    budgetName :: Types.BudgetName,
+    -- | The notification that you want to create a subscriber for.
+    notification :: Types.Notification,
+    -- | The subscriber that you want to associate with a budget notification.
+    subscriber :: Types.Subscriber
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSubscriber' with the minimum fields required to make a request.
---
--- * 'subscriber' - The subscriber that you want to associate with a budget notification.
--- * 'notification' - The notification that you want to create a subscriber for.
--- * 'accountId' - The @accountId@ that is associated with the budget that you want to create a subscriber for.
--- * 'budgetName' - The name of the budget that you want to subscribe to. Budget names must be unique within an account.
+-- | Creates a 'CreateSubscriber' value with any optional fields omitted.
 mkCreateSubscriber ::
-  -- | 'subscriber'
-  Subscriber ->
-  -- | 'notification'
-  Notification ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
   -- | 'budgetName'
-  Lude.Text ->
+  Types.BudgetName ->
+  -- | 'notification'
+  Types.Notification ->
+  -- | 'subscriber'
+  Types.Subscriber ->
   CreateSubscriber
-mkCreateSubscriber
-  pSubscriber_
-  pNotification_
-  pAccountId_
-  pBudgetName_ =
-    CreateSubscriber'
-      { subscriber = pSubscriber_,
-        notification = pNotification_,
-        accountId = pAccountId_,
-        budgetName = pBudgetName_
-      }
-
--- | The subscriber that you want to associate with a budget notification.
---
--- /Note:/ Consider using 'subscriber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csSubscriber :: Lens.Lens' CreateSubscriber Subscriber
-csSubscriber = Lens.lens (subscriber :: CreateSubscriber -> Subscriber) (\s a -> s {subscriber = a} :: CreateSubscriber)
-{-# DEPRECATED csSubscriber "Use generic-lens or generic-optics with 'subscriber' instead." #-}
-
--- | The notification that you want to create a subscriber for.
---
--- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csNotification :: Lens.Lens' CreateSubscriber Notification
-csNotification = Lens.lens (notification :: CreateSubscriber -> Notification) (\s a -> s {notification = a} :: CreateSubscriber)
-{-# DEPRECATED csNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
+mkCreateSubscriber accountId budgetName notification subscriber =
+  CreateSubscriber'
+    { accountId,
+      budgetName,
+      notification,
+      subscriber
+    }
 
 -- | The @accountId@ that is associated with the budget that you want to create a subscriber for.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csAccountId :: Lens.Lens' CreateSubscriber Lude.Text
-csAccountId = Lens.lens (accountId :: CreateSubscriber -> Lude.Text) (\s a -> s {accountId = a} :: CreateSubscriber)
+csAccountId :: Lens.Lens' CreateSubscriber Types.AccountId
+csAccountId = Lens.field @"accountId"
 {-# DEPRECATED csAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the budget that you want to subscribe to. Budget names must be unique within an account.
 --
 -- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csBudgetName :: Lens.Lens' CreateSubscriber Lude.Text
-csBudgetName = Lens.lens (budgetName :: CreateSubscriber -> Lude.Text) (\s a -> s {budgetName = a} :: CreateSubscriber)
+csBudgetName :: Lens.Lens' CreateSubscriber Types.BudgetName
+csBudgetName = Lens.field @"budgetName"
 {-# DEPRECATED csBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
-instance Lude.AWSRequest CreateSubscriber where
+-- | The notification that you want to create a subscriber for.
+--
+-- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csNotification :: Lens.Lens' CreateSubscriber Types.Notification
+csNotification = Lens.field @"notification"
+{-# DEPRECATED csNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
+
+-- | The subscriber that you want to associate with a budget notification.
+--
+-- /Note:/ Consider using 'subscriber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSubscriber :: Lens.Lens' CreateSubscriber Types.Subscriber
+csSubscriber = Lens.field @"subscriber"
+{-# DEPRECATED csSubscriber "Use generic-lens or generic-optics with 'subscriber' instead." #-}
+
+instance Core.FromJSON CreateSubscriber where
+  toJSON CreateSubscriber {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("BudgetName" Core..= budgetName),
+            Core.Just ("Notification" Core..= notification),
+            Core.Just ("Subscriber" Core..= subscriber)
+          ]
+      )
+
+instance Core.AWSRequest CreateSubscriber where
   type Rs CreateSubscriber = CreateSubscriberResponse
-  request = Req.postJSON budgetsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSBudgetServiceGateway.CreateSubscriber")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CreateSubscriberResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreateSubscriberResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateSubscriber where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSBudgetServiceGateway.CreateSubscriber" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateSubscriber where
-  toJSON CreateSubscriber' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Subscriber" Lude..= subscriber),
-            Lude.Just ("Notification" Lude..= notification),
-            Lude.Just ("AccountId" Lude..= accountId),
-            Lude.Just ("BudgetName" Lude..= budgetName)
-          ]
-      )
-
-instance Lude.ToPath CreateSubscriber where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateSubscriber where
-  toQuery = Lude.const Lude.mempty
 
 -- | Response of CreateSubscriber
 --
 -- /See:/ 'mkCreateSubscriberResponse' smart constructor.
 newtype CreateSubscriberResponse = CreateSubscriberResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSubscriberResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSubscriberResponse' value with any optional fields omitted.
 mkCreateSubscriberResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSubscriberResponse
-mkCreateSubscriberResponse pResponseStatus_ =
-  CreateSubscriberResponse' {responseStatus = pResponseStatus_}
+mkCreateSubscriberResponse responseStatus =
+  CreateSubscriberResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsResponseStatus :: Lens.Lens' CreateSubscriberResponse Lude.Int
-csrsResponseStatus = Lens.lens (responseStatus :: CreateSubscriberResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSubscriberResponse)
-{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csrrsResponseStatus :: Lens.Lens' CreateSubscriberResponse Core.Int
+csrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

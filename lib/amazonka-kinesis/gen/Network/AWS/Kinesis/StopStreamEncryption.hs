@@ -24,9 +24,9 @@ module Network.AWS.Kinesis.StopStreamEncryption
     mkStopStreamEncryption,
 
     -- ** Request lenses
+    sseStreamName,
     sseEncryptionType,
     sseKeyId,
-    sseStreamName,
 
     -- * Destructuring the response
     StopStreamEncryptionResponse (..),
@@ -34,16 +34,18 @@ module Network.AWS.Kinesis.StopStreamEncryption
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopStreamEncryption' smart constructor.
 data StopStreamEncryption = StopStreamEncryption'
-  { -- | The encryption type. The only valid value is @KMS@ .
-    encryptionType :: EncryptionType,
+  { -- | The name of the stream on which to stop encrypting records.
+    streamName :: Types.StreamName,
+    -- | The encryption type. The only valid value is @KMS@ .
+    encryptionType :: Types.EncryptionType,
     -- | The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .
     --
     --
@@ -60,55 +62,35 @@ data StopStreamEncryption = StopStreamEncryption'
     --
     --
     --     * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
-    keyId :: Lude.Text,
-    -- | The name of the stream on which to stop encrypting records.
-    streamName :: Lude.Text
+    keyId :: Types.KeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopStreamEncryption' with the minimum fields required to make a request.
---
--- * 'encryptionType' - The encryption type. The only valid value is @KMS@ .
--- * 'keyId' - The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .
---
---
---     * Key ARN example: @arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012@
---
---
---     * Alias ARN example: @arn:aws:kms:us-east-1:123456789012:alias/MyAliasName@
---
---
---     * Globally unique key ID example: @12345678-1234-1234-1234-123456789012@
---
---
---     * Alias name example: @alias/MyAliasName@
---
---
---     * Master key owned by Kinesis Data Streams: @alias/aws/kinesis@
---
---
--- * 'streamName' - The name of the stream on which to stop encrypting records.
+-- | Creates a 'StopStreamEncryption' value with any optional fields omitted.
 mkStopStreamEncryption ::
-  -- | 'encryptionType'
-  EncryptionType ->
-  -- | 'keyId'
-  Lude.Text ->
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
+  -- | 'encryptionType'
+  Types.EncryptionType ->
+  -- | 'keyId'
+  Types.KeyId ->
   StopStreamEncryption
-mkStopStreamEncryption pEncryptionType_ pKeyId_ pStreamName_ =
-  StopStreamEncryption'
-    { encryptionType = pEncryptionType_,
-      keyId = pKeyId_,
-      streamName = pStreamName_
-    }
+mkStopStreamEncryption streamName encryptionType keyId =
+  StopStreamEncryption' {streamName, encryptionType, keyId}
+
+-- | The name of the stream on which to stop encrypting records.
+--
+-- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sseStreamName :: Lens.Lens' StopStreamEncryption Types.StreamName
+sseStreamName = Lens.field @"streamName"
+{-# DEPRECATED sseStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
 -- | The encryption type. The only valid value is @KMS@ .
 --
 -- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sseEncryptionType :: Lens.Lens' StopStreamEncryption EncryptionType
-sseEncryptionType = Lens.lens (encryptionType :: StopStreamEncryption -> EncryptionType) (\s a -> s {encryptionType = a} :: StopStreamEncryption)
+sseEncryptionType :: Lens.Lens' StopStreamEncryption Types.EncryptionType
+sseEncryptionType = Lens.field @"encryptionType"
 {-# DEPRECATED sseEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
 
 -- | The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified Amazon Resource Name (ARN) to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias @aws/kinesis@ .
@@ -131,55 +113,41 @@ sseEncryptionType = Lens.lens (encryptionType :: StopStreamEncryption -> Encrypt
 --
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sseKeyId :: Lens.Lens' StopStreamEncryption Lude.Text
-sseKeyId = Lens.lens (keyId :: StopStreamEncryption -> Lude.Text) (\s a -> s {keyId = a} :: StopStreamEncryption)
+sseKeyId :: Lens.Lens' StopStreamEncryption Types.KeyId
+sseKeyId = Lens.field @"keyId"
 {-# DEPRECATED sseKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
--- | The name of the stream on which to stop encrypting records.
---
--- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sseStreamName :: Lens.Lens' StopStreamEncryption Lude.Text
-sseStreamName = Lens.lens (streamName :: StopStreamEncryption -> Lude.Text) (\s a -> s {streamName = a} :: StopStreamEncryption)
-{-# DEPRECATED sseStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+instance Core.FromJSON StopStreamEncryption where
+  toJSON StopStreamEncryption {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("EncryptionType" Core..= encryptionType),
+            Core.Just ("KeyId" Core..= keyId)
+          ]
+      )
 
-instance Lude.AWSRequest StopStreamEncryption where
+instance Core.AWSRequest StopStreamEncryption where
   type Rs StopStreamEncryption = StopStreamEncryptionResponse
-  request = Req.postJSON kinesisService
-  response = Res.receiveNull StopStreamEncryptionResponse'
-
-instance Lude.ToHeaders StopStreamEncryption where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.StopStreamEncryption" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopStreamEncryption where
-  toJSON StopStreamEncryption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("EncryptionType" Lude..= encryptionType),
-            Lude.Just ("KeyId" Lude..= keyId),
-            Lude.Just ("StreamName" Lude..= streamName)
-          ]
-      )
-
-instance Lude.ToPath StopStreamEncryption where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopStreamEncryption where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.StopStreamEncryption")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull StopStreamEncryptionResponse'
 
 -- | /See:/ 'mkStopStreamEncryptionResponse' smart constructor.
 data StopStreamEncryptionResponse = StopStreamEncryptionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopStreamEncryptionResponse' with the minimum fields required to make a request.
+-- | Creates a 'StopStreamEncryptionResponse' value with any optional fields omitted.
 mkStopStreamEncryptionResponse ::
   StopStreamEncryptionResponse
 mkStopStreamEncryptionResponse = StopStreamEncryptionResponse'

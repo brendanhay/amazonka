@@ -27,89 +27,81 @@ module Network.AWS.IoT.DeleteAccountAuditConfiguration
     mkDeleteAccountAuditConfigurationResponse,
 
     -- ** Response lenses
-    daacfrsResponseStatus,
+    daacrfrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAccountAuditConfiguration' smart constructor.
 newtype DeleteAccountAuditConfiguration = DeleteAccountAuditConfiguration'
   { -- | If true, all scheduled audits are deleted.
-    deleteScheduledAudits :: Lude.Maybe Lude.Bool
+    deleteScheduledAudits :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAccountAuditConfiguration' with the minimum fields required to make a request.
---
--- * 'deleteScheduledAudits' - If true, all scheduled audits are deleted.
+-- | Creates a 'DeleteAccountAuditConfiguration' value with any optional fields omitted.
 mkDeleteAccountAuditConfiguration ::
   DeleteAccountAuditConfiguration
 mkDeleteAccountAuditConfiguration =
   DeleteAccountAuditConfiguration'
     { deleteScheduledAudits =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | If true, all scheduled audits are deleted.
 --
 -- /Note:/ Consider using 'deleteScheduledAudits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daacDeleteScheduledAudits :: Lens.Lens' DeleteAccountAuditConfiguration (Lude.Maybe Lude.Bool)
-daacDeleteScheduledAudits = Lens.lens (deleteScheduledAudits :: DeleteAccountAuditConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {deleteScheduledAudits = a} :: DeleteAccountAuditConfiguration)
+daacDeleteScheduledAudits :: Lens.Lens' DeleteAccountAuditConfiguration (Core.Maybe Core.Bool)
+daacDeleteScheduledAudits = Lens.field @"deleteScheduledAudits"
 {-# DEPRECATED daacDeleteScheduledAudits "Use generic-lens or generic-optics with 'deleteScheduledAudits' instead." #-}
 
-instance Lude.AWSRequest DeleteAccountAuditConfiguration where
+instance Core.AWSRequest DeleteAccountAuditConfiguration where
   type
     Rs DeleteAccountAuditConfiguration =
       DeleteAccountAuditConfigurationResponse
-  request = Req.delete ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath "/audit/configuration",
+        Core._rqQuery =
+          Core.toQueryValue "deleteScheduledAudits"
+            Core.<$> deleteScheduledAudits,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteAccountAuditConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteAccountAuditConfiguration where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteAccountAuditConfiguration where
-  toPath = Lude.const "/audit/configuration"
-
-instance Lude.ToQuery DeleteAccountAuditConfiguration where
-  toQuery DeleteAccountAuditConfiguration' {..} =
-    Lude.mconcat
-      ["deleteScheduledAudits" Lude.=: deleteScheduledAudits]
 
 -- | /See:/ 'mkDeleteAccountAuditConfigurationResponse' smart constructor.
 newtype DeleteAccountAuditConfigurationResponse = DeleteAccountAuditConfigurationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAccountAuditConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteAccountAuditConfigurationResponse' value with any optional fields omitted.
 mkDeleteAccountAuditConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteAccountAuditConfigurationResponse
-mkDeleteAccountAuditConfigurationResponse pResponseStatus_ =
-  DeleteAccountAuditConfigurationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteAccountAuditConfigurationResponse responseStatus =
+  DeleteAccountAuditConfigurationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daacfrsResponseStatus :: Lens.Lens' DeleteAccountAuditConfigurationResponse Lude.Int
-daacfrsResponseStatus = Lens.lens (responseStatus :: DeleteAccountAuditConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAccountAuditConfigurationResponse)
-{-# DEPRECATED daacfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daacrfrsResponseStatus :: Lens.Lens' DeleteAccountAuditConfigurationResponse Core.Int
+daacrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daacrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

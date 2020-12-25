@@ -23,9 +23,11 @@ module Network.AWS.IAM.Types.ServerCertificate
   )
 where
 
-import Network.AWS.IAM.Types.ServerCertificateMetadata
+import qualified Network.AWS.IAM.Types.CertificateBodyType as Types
+import qualified Network.AWS.IAM.Types.CertificateChainType as Types
+import qualified Network.AWS.IAM.Types.ServerCertificateMetadata as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a server certificate.
 --
@@ -34,58 +36,53 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkServerCertificate' smart constructor.
 data ServerCertificate = ServerCertificate'
   { -- | The meta information of the server certificate, such as its name, path, ID, and ARN.
-    serverCertificateMetadata :: ServerCertificateMetadata,
+    serverCertificateMetadata :: Types.ServerCertificateMetadata,
     -- | The contents of the public key certificate.
-    certificateBody :: Lude.Text,
+    certificateBody :: Types.CertificateBodyType,
     -- | The contents of the public key certificate chain.
-    certificateChain :: Lude.Maybe Lude.Text
+    certificateChain :: Core.Maybe Types.CertificateChainType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ServerCertificate' with the minimum fields required to make a request.
---
--- * 'serverCertificateMetadata' - The meta information of the server certificate, such as its name, path, ID, and ARN.
--- * 'certificateBody' - The contents of the public key certificate.
--- * 'certificateChain' - The contents of the public key certificate chain.
+-- | Creates a 'ServerCertificate' value with any optional fields omitted.
 mkServerCertificate ::
   -- | 'serverCertificateMetadata'
-  ServerCertificateMetadata ->
+  Types.ServerCertificateMetadata ->
   -- | 'certificateBody'
-  Lude.Text ->
+  Types.CertificateBodyType ->
   ServerCertificate
-mkServerCertificate pServerCertificateMetadata_ pCertificateBody_ =
+mkServerCertificate serverCertificateMetadata certificateBody =
   ServerCertificate'
-    { serverCertificateMetadata =
-        pServerCertificateMetadata_,
-      certificateBody = pCertificateBody_,
-      certificateChain = Lude.Nothing
+    { serverCertificateMetadata,
+      certificateBody,
+      certificateChain = Core.Nothing
     }
 
 -- | The meta information of the server certificate, such as its name, path, ID, and ARN.
 --
 -- /Note:/ Consider using 'serverCertificateMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sServerCertificateMetadata :: Lens.Lens' ServerCertificate ServerCertificateMetadata
-sServerCertificateMetadata = Lens.lens (serverCertificateMetadata :: ServerCertificate -> ServerCertificateMetadata) (\s a -> s {serverCertificateMetadata = a} :: ServerCertificate)
+sServerCertificateMetadata :: Lens.Lens' ServerCertificate Types.ServerCertificateMetadata
+sServerCertificateMetadata = Lens.field @"serverCertificateMetadata"
 {-# DEPRECATED sServerCertificateMetadata "Use generic-lens or generic-optics with 'serverCertificateMetadata' instead." #-}
 
 -- | The contents of the public key certificate.
 --
 -- /Note:/ Consider using 'certificateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sCertificateBody :: Lens.Lens' ServerCertificate Lude.Text
-sCertificateBody = Lens.lens (certificateBody :: ServerCertificate -> Lude.Text) (\s a -> s {certificateBody = a} :: ServerCertificate)
+sCertificateBody :: Lens.Lens' ServerCertificate Types.CertificateBodyType
+sCertificateBody = Lens.field @"certificateBody"
 {-# DEPRECATED sCertificateBody "Use generic-lens or generic-optics with 'certificateBody' instead." #-}
 
 -- | The contents of the public key certificate chain.
 --
 -- /Note:/ Consider using 'certificateChain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sCertificateChain :: Lens.Lens' ServerCertificate (Lude.Maybe Lude.Text)
-sCertificateChain = Lens.lens (certificateChain :: ServerCertificate -> Lude.Maybe Lude.Text) (\s a -> s {certificateChain = a} :: ServerCertificate)
+sCertificateChain :: Lens.Lens' ServerCertificate (Core.Maybe Types.CertificateChainType)
+sCertificateChain = Lens.field @"certificateChain"
 {-# DEPRECATED sCertificateChain "Use generic-lens or generic-optics with 'certificateChain' instead." #-}
 
-instance Lude.FromXML ServerCertificate where
+instance Core.FromXML ServerCertificate where
   parseXML x =
     ServerCertificate'
-      Lude.<$> (x Lude..@ "ServerCertificateMetadata")
-      Lude.<*> (x Lude..@ "CertificateBody")
-      Lude.<*> (x Lude..@? "CertificateChain")
+      Core.<$> (x Core..@ "ServerCertificateMetadata")
+      Core.<*> (x Core..@ "CertificateBody")
+      Core.<*> (x Core..@? "CertificateChain")

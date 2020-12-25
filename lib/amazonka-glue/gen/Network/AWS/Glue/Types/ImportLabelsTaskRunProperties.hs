@@ -17,57 +17,53 @@ module Network.AWS.Glue.Types.ImportLabelsTaskRunProperties
     mkImportLabelsTaskRunProperties,
 
     -- * Lenses
-    iltrpReplace,
     iltrpInputS3Path,
+    iltrpReplace,
   )
 where
 
+import qualified Network.AWS.Glue.Types.InputS3Path as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies configuration properties for an importing labels task run.
 --
 -- /See:/ 'mkImportLabelsTaskRunProperties' smart constructor.
 data ImportLabelsTaskRunProperties = ImportLabelsTaskRunProperties'
-  { -- | Indicates whether to overwrite your existing labels.
-    replace :: Lude.Maybe Lude.Bool,
-    -- | The Amazon Simple Storage Service (Amazon S3) path from where you will import the labels.
-    inputS3Path :: Lude.Maybe Lude.Text
+  { -- | The Amazon Simple Storage Service (Amazon S3) path from where you will import the labels.
+    inputS3Path :: Core.Maybe Types.InputS3Path,
+    -- | Indicates whether to overwrite your existing labels.
+    replace :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportLabelsTaskRunProperties' with the minimum fields required to make a request.
---
--- * 'replace' - Indicates whether to overwrite your existing labels.
--- * 'inputS3Path' - The Amazon Simple Storage Service (Amazon S3) path from where you will import the labels.
+-- | Creates a 'ImportLabelsTaskRunProperties' value with any optional fields omitted.
 mkImportLabelsTaskRunProperties ::
   ImportLabelsTaskRunProperties
 mkImportLabelsTaskRunProperties =
   ImportLabelsTaskRunProperties'
-    { replace = Lude.Nothing,
-      inputS3Path = Lude.Nothing
+    { inputS3Path = Core.Nothing,
+      replace = Core.Nothing
     }
-
--- | Indicates whether to overwrite your existing labels.
---
--- /Note:/ Consider using 'replace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iltrpReplace :: Lens.Lens' ImportLabelsTaskRunProperties (Lude.Maybe Lude.Bool)
-iltrpReplace = Lens.lens (replace :: ImportLabelsTaskRunProperties -> Lude.Maybe Lude.Bool) (\s a -> s {replace = a} :: ImportLabelsTaskRunProperties)
-{-# DEPRECATED iltrpReplace "Use generic-lens or generic-optics with 'replace' instead." #-}
 
 -- | The Amazon Simple Storage Service (Amazon S3) path from where you will import the labels.
 --
 -- /Note:/ Consider using 'inputS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iltrpInputS3Path :: Lens.Lens' ImportLabelsTaskRunProperties (Lude.Maybe Lude.Text)
-iltrpInputS3Path = Lens.lens (inputS3Path :: ImportLabelsTaskRunProperties -> Lude.Maybe Lude.Text) (\s a -> s {inputS3Path = a} :: ImportLabelsTaskRunProperties)
+iltrpInputS3Path :: Lens.Lens' ImportLabelsTaskRunProperties (Core.Maybe Types.InputS3Path)
+iltrpInputS3Path = Lens.field @"inputS3Path"
 {-# DEPRECATED iltrpInputS3Path "Use generic-lens or generic-optics with 'inputS3Path' instead." #-}
 
-instance Lude.FromJSON ImportLabelsTaskRunProperties where
+-- | Indicates whether to overwrite your existing labels.
+--
+-- /Note:/ Consider using 'replace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iltrpReplace :: Lens.Lens' ImportLabelsTaskRunProperties (Core.Maybe Core.Bool)
+iltrpReplace = Lens.field @"replace"
+{-# DEPRECATED iltrpReplace "Use generic-lens or generic-optics with 'replace' instead." #-}
+
+instance Core.FromJSON ImportLabelsTaskRunProperties where
   parseJSON =
-    Lude.withObject
-      "ImportLabelsTaskRunProperties"
-      ( \x ->
-          ImportLabelsTaskRunProperties'
-            Lude.<$> (x Lude..:? "Replace") Lude.<*> (x Lude..:? "InputS3Path")
-      )
+    Core.withObject "ImportLabelsTaskRunProperties" Core.$
+      \x ->
+        ImportLabelsTaskRunProperties'
+          Core.<$> (x Core..:? "InputS3Path") Core.<*> (x Core..:? "Replace")

@@ -23,157 +23,139 @@ module Network.AWS.CognitoSync.SubscribeToDataset
 
     -- ** Request lenses
     stdIdentityPoolId,
+    stdIdentityId,
     stdDatasetName,
     stdDeviceId,
-    stdIdentityId,
 
     -- * Destructuring the response
     SubscribeToDatasetResponse (..),
     mkSubscribeToDatasetResponse,
 
     -- ** Response lenses
-    stdrsResponseStatus,
+    stdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoSync.Types
+import qualified Network.AWS.CognitoSync.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | A request to SubscribeToDatasetRequest.
 --
 -- /See:/ 'mkSubscribeToDataset' smart constructor.
 data SubscribeToDataset = SubscribeToDataset'
   { -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.
-    identityPoolId :: Lude.Text,
-    -- | The name of the dataset to subcribe to.
-    datasetName :: Lude.Text,
-    -- | The unique ID generated for this device by Cognito.
-    deviceId :: Lude.Text,
+    identityPoolId :: Types.IdentityPoolId,
     -- | Unique ID for this identity.
-    identityId :: Lude.Text
+    identityId :: Types.IdentityId,
+    -- | The name of the dataset to subcribe to.
+    datasetName :: Types.DatasetName,
+    -- | The unique ID generated for this device by Cognito.
+    deviceId :: Types.DeviceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SubscribeToDataset' with the minimum fields required to make a request.
---
--- * 'identityPoolId' - A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.
--- * 'datasetName' - The name of the dataset to subcribe to.
--- * 'deviceId' - The unique ID generated for this device by Cognito.
--- * 'identityId' - Unique ID for this identity.
+-- | Creates a 'SubscribeToDataset' value with any optional fields omitted.
 mkSubscribeToDataset ::
   -- | 'identityPoolId'
-  Lude.Text ->
-  -- | 'datasetName'
-  Lude.Text ->
-  -- | 'deviceId'
-  Lude.Text ->
+  Types.IdentityPoolId ->
   -- | 'identityId'
-  Lude.Text ->
+  Types.IdentityId ->
+  -- | 'datasetName'
+  Types.DatasetName ->
+  -- | 'deviceId'
+  Types.DeviceId ->
   SubscribeToDataset
-mkSubscribeToDataset
-  pIdentityPoolId_
-  pDatasetName_
-  pDeviceId_
-  pIdentityId_ =
-    SubscribeToDataset'
-      { identityPoolId = pIdentityPoolId_,
-        datasetName = pDatasetName_,
-        deviceId = pDeviceId_,
-        identityId = pIdentityId_
-      }
+mkSubscribeToDataset identityPoolId identityId datasetName deviceId =
+  SubscribeToDataset'
+    { identityPoolId,
+      identityId,
+      datasetName,
+      deviceId
+    }
 
 -- | A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. The ID of the pool to which the identity belongs.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdIdentityPoolId :: Lens.Lens' SubscribeToDataset Lude.Text
-stdIdentityPoolId = Lens.lens (identityPoolId :: SubscribeToDataset -> Lude.Text) (\s a -> s {identityPoolId = a} :: SubscribeToDataset)
+stdIdentityPoolId :: Lens.Lens' SubscribeToDataset Types.IdentityPoolId
+stdIdentityPoolId = Lens.field @"identityPoolId"
 {-# DEPRECATED stdIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
+
+-- | Unique ID for this identity.
+--
+-- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdIdentityId :: Lens.Lens' SubscribeToDataset Types.IdentityId
+stdIdentityId = Lens.field @"identityId"
+{-# DEPRECATED stdIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | The name of the dataset to subcribe to.
 --
 -- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdDatasetName :: Lens.Lens' SubscribeToDataset Lude.Text
-stdDatasetName = Lens.lens (datasetName :: SubscribeToDataset -> Lude.Text) (\s a -> s {datasetName = a} :: SubscribeToDataset)
+stdDatasetName :: Lens.Lens' SubscribeToDataset Types.DatasetName
+stdDatasetName = Lens.field @"datasetName"
 {-# DEPRECATED stdDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
 -- | The unique ID generated for this device by Cognito.
 --
 -- /Note:/ Consider using 'deviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdDeviceId :: Lens.Lens' SubscribeToDataset Lude.Text
-stdDeviceId = Lens.lens (deviceId :: SubscribeToDataset -> Lude.Text) (\s a -> s {deviceId = a} :: SubscribeToDataset)
+stdDeviceId :: Lens.Lens' SubscribeToDataset Types.DeviceId
+stdDeviceId = Lens.field @"deviceId"
 {-# DEPRECATED stdDeviceId "Use generic-lens or generic-optics with 'deviceId' instead." #-}
 
--- | Unique ID for this identity.
---
--- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdIdentityId :: Lens.Lens' SubscribeToDataset Lude.Text
-stdIdentityId = Lens.lens (identityId :: SubscribeToDataset -> Lude.Text) (\s a -> s {identityId = a} :: SubscribeToDataset)
-{-# DEPRECATED stdIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
+instance Core.FromJSON SubscribeToDataset where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.AWSRequest SubscribeToDataset where
+instance Core.AWSRequest SubscribeToDataset where
   type Rs SubscribeToDataset = SubscribeToDatasetResponse
-  request = Req.postJSON cognitoSyncService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/identitypools/" Core.<> (Core.toText identityPoolId)
+                Core.<> ("/identities/")
+                Core.<> (Core.toText identityId)
+                Core.<> ("/datasets/")
+                Core.<> (Core.toText datasetName)
+                Core.<> ("/subscriptions/")
+                Core.<> (Core.toText deviceId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          SubscribeToDatasetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          SubscribeToDatasetResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SubscribeToDataset where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SubscribeToDataset where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath SubscribeToDataset where
-  toPath SubscribeToDataset' {..} =
-    Lude.mconcat
-      [ "/identitypools/",
-        Lude.toBS identityPoolId,
-        "/identities/",
-        Lude.toBS identityId,
-        "/datasets/",
-        Lude.toBS datasetName,
-        "/subscriptions/",
-        Lude.toBS deviceId
-      ]
-
-instance Lude.ToQuery SubscribeToDataset where
-  toQuery = Lude.const Lude.mempty
 
 -- | Response to a SubscribeToDataset request.
 --
 -- /See:/ 'mkSubscribeToDatasetResponse' smart constructor.
 newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SubscribeToDatasetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SubscribeToDatasetResponse' value with any optional fields omitted.
 mkSubscribeToDatasetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SubscribeToDatasetResponse
-mkSubscribeToDatasetResponse pResponseStatus_ =
-  SubscribeToDatasetResponse' {responseStatus = pResponseStatus_}
+mkSubscribeToDatasetResponse responseStatus =
+  SubscribeToDatasetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdrsResponseStatus :: Lens.Lens' SubscribeToDatasetResponse Lude.Int
-stdrsResponseStatus = Lens.lens (responseStatus :: SubscribeToDatasetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SubscribeToDatasetResponse)
-{-# DEPRECATED stdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+stdrrsResponseStatus :: Lens.Lens' SubscribeToDatasetResponse Core.Int
+stdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED stdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

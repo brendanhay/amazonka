@@ -27,121 +27,106 @@ module Network.AWS.Transcribe.GetMedicalTranscriptionJob
     mkGetMedicalTranscriptionJobResponse,
 
     -- ** Response lenses
-    gmtjrsMedicalTranscriptionJob,
-    gmtjrsResponseStatus,
+    gmtjrrsMedicalTranscriptionJob,
+    gmtjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Transcribe.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Transcribe.Types as Types
 
 -- | /See:/ 'mkGetMedicalTranscriptionJob' smart constructor.
 newtype GetMedicalTranscriptionJob = GetMedicalTranscriptionJob'
   { -- | The name of the medical transcription job.
-    medicalTranscriptionJobName :: Lude.Text
+    medicalTranscriptionJobName :: Types.MedicalTranscriptionJobName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetMedicalTranscriptionJob' with the minimum fields required to make a request.
---
--- * 'medicalTranscriptionJobName' - The name of the medical transcription job.
+-- | Creates a 'GetMedicalTranscriptionJob' value with any optional fields omitted.
 mkGetMedicalTranscriptionJob ::
   -- | 'medicalTranscriptionJobName'
-  Lude.Text ->
+  Types.MedicalTranscriptionJobName ->
   GetMedicalTranscriptionJob
-mkGetMedicalTranscriptionJob pMedicalTranscriptionJobName_ =
-  GetMedicalTranscriptionJob'
-    { medicalTranscriptionJobName =
-        pMedicalTranscriptionJobName_
-    }
+mkGetMedicalTranscriptionJob medicalTranscriptionJobName =
+  GetMedicalTranscriptionJob' {medicalTranscriptionJobName}
 
 -- | The name of the medical transcription job.
 --
 -- /Note:/ Consider using 'medicalTranscriptionJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmtjMedicalTranscriptionJobName :: Lens.Lens' GetMedicalTranscriptionJob Lude.Text
-gmtjMedicalTranscriptionJobName = Lens.lens (medicalTranscriptionJobName :: GetMedicalTranscriptionJob -> Lude.Text) (\s a -> s {medicalTranscriptionJobName = a} :: GetMedicalTranscriptionJob)
+gmtjMedicalTranscriptionJobName :: Lens.Lens' GetMedicalTranscriptionJob Types.MedicalTranscriptionJobName
+gmtjMedicalTranscriptionJobName = Lens.field @"medicalTranscriptionJobName"
 {-# DEPRECATED gmtjMedicalTranscriptionJobName "Use generic-lens or generic-optics with 'medicalTranscriptionJobName' instead." #-}
 
-instance Lude.AWSRequest GetMedicalTranscriptionJob where
-  type
-    Rs GetMedicalTranscriptionJob =
-      GetMedicalTranscriptionJobResponse
-  request = Req.postJSON transcribeService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          GetMedicalTranscriptionJobResponse'
-            Lude.<$> (x Lude..?> "MedicalTranscriptionJob")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders GetMedicalTranscriptionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Transcribe.GetMedicalTranscriptionJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetMedicalTranscriptionJob where
-  toJSON GetMedicalTranscriptionJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON GetMedicalTranscriptionJob where
+  toJSON GetMedicalTranscriptionJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "MedicalTranscriptionJobName"
-                  Lude..= medicalTranscriptionJobName
+                  Core..= medicalTranscriptionJobName
               )
           ]
       )
 
-instance Lude.ToPath GetMedicalTranscriptionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetMedicalTranscriptionJob where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest GetMedicalTranscriptionJob where
+  type
+    Rs GetMedicalTranscriptionJob =
+      GetMedicalTranscriptionJobResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Transcribe.GetMedicalTranscriptionJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetMedicalTranscriptionJobResponse'
+            Core.<$> (x Core..:? "MedicalTranscriptionJob")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkGetMedicalTranscriptionJobResponse' smart constructor.
 data GetMedicalTranscriptionJobResponse = GetMedicalTranscriptionJobResponse'
   { -- | An object that contains the results of the medical transcription job.
-    medicalTranscriptionJob :: Lude.Maybe MedicalTranscriptionJob,
+    medicalTranscriptionJob :: Core.Maybe Types.MedicalTranscriptionJob,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetMedicalTranscriptionJobResponse' with the minimum fields required to make a request.
---
--- * 'medicalTranscriptionJob' - An object that contains the results of the medical transcription job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetMedicalTranscriptionJobResponse' value with any optional fields omitted.
 mkGetMedicalTranscriptionJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetMedicalTranscriptionJobResponse
-mkGetMedicalTranscriptionJobResponse pResponseStatus_ =
+mkGetMedicalTranscriptionJobResponse responseStatus =
   GetMedicalTranscriptionJobResponse'
     { medicalTranscriptionJob =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An object that contains the results of the medical transcription job.
 --
 -- /Note:/ Consider using 'medicalTranscriptionJob' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmtjrsMedicalTranscriptionJob :: Lens.Lens' GetMedicalTranscriptionJobResponse (Lude.Maybe MedicalTranscriptionJob)
-gmtjrsMedicalTranscriptionJob = Lens.lens (medicalTranscriptionJob :: GetMedicalTranscriptionJobResponse -> Lude.Maybe MedicalTranscriptionJob) (\s a -> s {medicalTranscriptionJob = a} :: GetMedicalTranscriptionJobResponse)
-{-# DEPRECATED gmtjrsMedicalTranscriptionJob "Use generic-lens or generic-optics with 'medicalTranscriptionJob' instead." #-}
+gmtjrrsMedicalTranscriptionJob :: Lens.Lens' GetMedicalTranscriptionJobResponse (Core.Maybe Types.MedicalTranscriptionJob)
+gmtjrrsMedicalTranscriptionJob = Lens.field @"medicalTranscriptionJob"
+{-# DEPRECATED gmtjrrsMedicalTranscriptionJob "Use generic-lens or generic-optics with 'medicalTranscriptionJob' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmtjrsResponseStatus :: Lens.Lens' GetMedicalTranscriptionJobResponse Lude.Int
-gmtjrsResponseStatus = Lens.lens (responseStatus :: GetMedicalTranscriptionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMedicalTranscriptionJobResponse)
-{-# DEPRECATED gmtjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gmtjrrsResponseStatus :: Lens.Lens' GetMedicalTranscriptionJobResponse Core.Int
+gmtjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gmtjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

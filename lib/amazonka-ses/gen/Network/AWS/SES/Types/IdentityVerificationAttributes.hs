@@ -17,57 +17,55 @@ module Network.AWS.SES.Types.IdentityVerificationAttributes
     mkIdentityVerificationAttributes,
 
     -- * Lenses
-    ivaVerificationToken,
     ivaVerificationStatus,
+    ivaVerificationToken,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SES.Types.VerificationStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.VerificationStatus as Types
+import qualified Network.AWS.SES.Types.VerificationToken as Types
 
 -- | Represents the verification attributes of a single identity.
 --
 -- /See:/ 'mkIdentityVerificationAttributes' smart constructor.
 data IdentityVerificationAttributes = IdentityVerificationAttributes'
-  { -- | The verification token for a domain identity. Null for email address identities.
-    verificationToken :: Lude.Maybe Lude.Text,
-    -- | The verification status of the identity: "Pending", "Success", "Failed", or "TemporaryFailure".
-    verificationStatus :: VerificationStatus
+  { -- | The verification status of the identity: "Pending", "Success", "Failed", or "TemporaryFailure".
+    verificationStatus :: Types.VerificationStatus,
+    -- | The verification token for a domain identity. Null for email address identities.
+    verificationToken :: Core.Maybe Types.VerificationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IdentityVerificationAttributes' with the minimum fields required to make a request.
---
--- * 'verificationToken' - The verification token for a domain identity. Null for email address identities.
--- * 'verificationStatus' - The verification status of the identity: "Pending", "Success", "Failed", or "TemporaryFailure".
+-- | Creates a 'IdentityVerificationAttributes' value with any optional fields omitted.
 mkIdentityVerificationAttributes ::
   -- | 'verificationStatus'
-  VerificationStatus ->
+  Types.VerificationStatus ->
   IdentityVerificationAttributes
-mkIdentityVerificationAttributes pVerificationStatus_ =
+mkIdentityVerificationAttributes verificationStatus =
   IdentityVerificationAttributes'
-    { verificationToken = Lude.Nothing,
-      verificationStatus = pVerificationStatus_
+    { verificationStatus,
+      verificationToken = Core.Nothing
     }
-
--- | The verification token for a domain identity. Null for email address identities.
---
--- /Note:/ Consider using 'verificationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivaVerificationToken :: Lens.Lens' IdentityVerificationAttributes (Lude.Maybe Lude.Text)
-ivaVerificationToken = Lens.lens (verificationToken :: IdentityVerificationAttributes -> Lude.Maybe Lude.Text) (\s a -> s {verificationToken = a} :: IdentityVerificationAttributes)
-{-# DEPRECATED ivaVerificationToken "Use generic-lens or generic-optics with 'verificationToken' instead." #-}
 
 -- | The verification status of the identity: "Pending", "Success", "Failed", or "TemporaryFailure".
 --
 -- /Note:/ Consider using 'verificationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivaVerificationStatus :: Lens.Lens' IdentityVerificationAttributes VerificationStatus
-ivaVerificationStatus = Lens.lens (verificationStatus :: IdentityVerificationAttributes -> VerificationStatus) (\s a -> s {verificationStatus = a} :: IdentityVerificationAttributes)
+ivaVerificationStatus :: Lens.Lens' IdentityVerificationAttributes Types.VerificationStatus
+ivaVerificationStatus = Lens.field @"verificationStatus"
 {-# DEPRECATED ivaVerificationStatus "Use generic-lens or generic-optics with 'verificationStatus' instead." #-}
 
-instance Lude.FromXML IdentityVerificationAttributes where
+-- | The verification token for a domain identity. Null for email address identities.
+--
+-- /Note:/ Consider using 'verificationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivaVerificationToken :: Lens.Lens' IdentityVerificationAttributes (Core.Maybe Types.VerificationToken)
+ivaVerificationToken = Lens.field @"verificationToken"
+{-# DEPRECATED ivaVerificationToken "Use generic-lens or generic-optics with 'verificationToken' instead." #-}
+
+instance Core.FromXML IdentityVerificationAttributes where
   parseXML x =
     IdentityVerificationAttributes'
-      Lude.<$> (x Lude..@? "VerificationToken")
-      Lude.<*> (x Lude..@ "VerificationStatus")
+      Core.<$> (x Core..@ "VerificationStatus")
+      Core.<*> (x Core..@? "VerificationToken")

@@ -13,57 +13,59 @@
 module Network.AWS.MediaLive.Types.AudioType
   ( AudioType
       ( AudioType',
-        CleanEffects,
-        HearingImpaired,
-        Undefined,
-        VisualImpairedCommentary
+        AudioTypeCleanEffects,
+        AudioTypeHearingImpaired,
+        AudioTypeUndefined,
+        AudioTypeVisualImpairedCommentary,
+        fromAudioType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Audio Type
-newtype AudioType = AudioType' Lude.Text
+newtype AudioType = AudioType' {fromAudioType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CleanEffects :: AudioType
-pattern CleanEffects = AudioType' "CLEAN_EFFECTS"
+pattern AudioTypeCleanEffects :: AudioType
+pattern AudioTypeCleanEffects = AudioType' "CLEAN_EFFECTS"
 
-pattern HearingImpaired :: AudioType
-pattern HearingImpaired = AudioType' "HEARING_IMPAIRED"
+pattern AudioTypeHearingImpaired :: AudioType
+pattern AudioTypeHearingImpaired = AudioType' "HEARING_IMPAIRED"
 
-pattern Undefined :: AudioType
-pattern Undefined = AudioType' "UNDEFINED"
+pattern AudioTypeUndefined :: AudioType
+pattern AudioTypeUndefined = AudioType' "UNDEFINED"
 
-pattern VisualImpairedCommentary :: AudioType
-pattern VisualImpairedCommentary = AudioType' "VISUAL_IMPAIRED_COMMENTARY"
+pattern AudioTypeVisualImpairedCommentary :: AudioType
+pattern AudioTypeVisualImpairedCommentary = AudioType' "VISUAL_IMPAIRED_COMMENTARY"
 
 {-# COMPLETE
-  CleanEffects,
-  HearingImpaired,
-  Undefined,
-  VisualImpairedCommentary,
+  AudioTypeCleanEffects,
+  AudioTypeHearingImpaired,
+  AudioTypeUndefined,
+  AudioTypeVisualImpairedCommentary,
   AudioType'
   #-}

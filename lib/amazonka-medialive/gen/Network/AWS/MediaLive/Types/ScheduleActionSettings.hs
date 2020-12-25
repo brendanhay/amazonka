@@ -17,197 +17,184 @@ module Network.AWS.MediaLive.Types.ScheduleActionSettings
     mkScheduleActionSettings,
 
     -- * Lenses
-    sasStaticImageDeactivateSettings,
-    sasScte35SpliceInsertSettings,
-    sasStaticImageActivateSettings,
-    sasScte35TimeSignalSettings,
-    sasInputPrepareSettings,
     sasHlsId3SegmentTaggingSettings,
-    sasScte35ReturnToNetworkSettings,
-    sasPauseStateSettings,
     sasHlsTimedMetadataSettings,
+    sasInputPrepareSettings,
     sasInputSwitchSettings,
+    sasPauseStateSettings,
+    sasScte35ReturnToNetworkSettings,
+    sasScte35SpliceInsertSettings,
+    sasScte35TimeSignalSettings,
+    sasStaticImageActivateSettings,
+    sasStaticImageDeactivateSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings
-import Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings
-import Network.AWS.MediaLive.Types.InputPrepareScheduleActionSettings
-import Network.AWS.MediaLive.Types.InputSwitchScheduleActionSettings
-import Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings
-import Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings
-import Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings
-import Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings
-import Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings
-import Network.AWS.MediaLive.Types.StaticImageDeactivateScheduleActionSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.HlsId3SegmentTaggingScheduleActionSettings as Types
+import qualified Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings as Types
+import qualified Network.AWS.MediaLive.Types.InputPrepareScheduleActionSettings as Types
+import qualified Network.AWS.MediaLive.Types.InputSwitchScheduleActionSettings as Types
+import qualified Network.AWS.MediaLive.Types.PauseStateScheduleActionSettings as Types
+import qualified Network.AWS.MediaLive.Types.Scte35ReturnToNetworkScheduleActionSettings as Types
+import qualified Network.AWS.MediaLive.Types.Scte35SpliceInsertScheduleActionSettings as Types
+import qualified Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings as Types
+import qualified Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings as Types
+import qualified Network.AWS.MediaLive.Types.StaticImageDeactivateScheduleActionSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Holds the settings for a single schedule action.
 --
 -- /See:/ 'mkScheduleActionSettings' smart constructor.
 data ScheduleActionSettings = ScheduleActionSettings'
-  { -- | Action to deactivate a static image overlay
-    staticImageDeactivateSettings :: Lude.Maybe StaticImageDeactivateScheduleActionSettings,
-    -- | Action to insert SCTE-35 splice_insert message
-    scte35SpliceInsertSettings :: Lude.Maybe Scte35SpliceInsertScheduleActionSettings,
-    -- | Action to activate a static image overlay
-    staticImageActivateSettings :: Lude.Maybe StaticImageActivateScheduleActionSettings,
-    -- | Action to insert SCTE-35 time_signal message
-    scte35TimeSignalSettings :: Lude.Maybe Scte35TimeSignalScheduleActionSettings,
-    -- | Action to prepare an input for a future immediate input switch
-    inputPrepareSettings :: Lude.Maybe InputPrepareScheduleActionSettings,
-    -- | Action to insert HLS ID3 segment tagging
-    hlsId3SegmentTaggingSettings :: Lude.Maybe HlsId3SegmentTaggingScheduleActionSettings,
-    -- | Action to insert SCTE-35 return_to_network message
-    scte35ReturnToNetworkSettings :: Lude.Maybe Scte35ReturnToNetworkScheduleActionSettings,
-    -- | Action to pause or unpause one or both channel pipelines
-    pauseStateSettings :: Lude.Maybe PauseStateScheduleActionSettings,
+  { -- | Action to insert HLS ID3 segment tagging
+    hlsId3SegmentTaggingSettings :: Core.Maybe Types.HlsId3SegmentTaggingScheduleActionSettings,
     -- | Action to insert HLS metadata
-    hlsTimedMetadataSettings :: Lude.Maybe HlsTimedMetadataScheduleActionSettings,
+    hlsTimedMetadataSettings :: Core.Maybe Types.HlsTimedMetadataScheduleActionSettings,
+    -- | Action to prepare an input for a future immediate input switch
+    inputPrepareSettings :: Core.Maybe Types.InputPrepareScheduleActionSettings,
     -- | Action to switch the input
-    inputSwitchSettings :: Lude.Maybe InputSwitchScheduleActionSettings
+    inputSwitchSettings :: Core.Maybe Types.InputSwitchScheduleActionSettings,
+    -- | Action to pause or unpause one or both channel pipelines
+    pauseStateSettings :: Core.Maybe Types.PauseStateScheduleActionSettings,
+    -- | Action to insert SCTE-35 return_to_network message
+    scte35ReturnToNetworkSettings :: Core.Maybe Types.Scte35ReturnToNetworkScheduleActionSettings,
+    -- | Action to insert SCTE-35 splice_insert message
+    scte35SpliceInsertSettings :: Core.Maybe Types.Scte35SpliceInsertScheduleActionSettings,
+    -- | Action to insert SCTE-35 time_signal message
+    scte35TimeSignalSettings :: Core.Maybe Types.Scte35TimeSignalScheduleActionSettings,
+    -- | Action to activate a static image overlay
+    staticImageActivateSettings :: Core.Maybe Types.StaticImageActivateScheduleActionSettings,
+    -- | Action to deactivate a static image overlay
+    staticImageDeactivateSettings :: Core.Maybe Types.StaticImageDeactivateScheduleActionSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduleActionSettings' with the minimum fields required to make a request.
---
--- * 'staticImageDeactivateSettings' - Action to deactivate a static image overlay
--- * 'scte35SpliceInsertSettings' - Action to insert SCTE-35 splice_insert message
--- * 'staticImageActivateSettings' - Action to activate a static image overlay
--- * 'scte35TimeSignalSettings' - Action to insert SCTE-35 time_signal message
--- * 'inputPrepareSettings' - Action to prepare an input for a future immediate input switch
--- * 'hlsId3SegmentTaggingSettings' - Action to insert HLS ID3 segment tagging
--- * 'scte35ReturnToNetworkSettings' - Action to insert SCTE-35 return_to_network message
--- * 'pauseStateSettings' - Action to pause or unpause one or both channel pipelines
--- * 'hlsTimedMetadataSettings' - Action to insert HLS metadata
--- * 'inputSwitchSettings' - Action to switch the input
+-- | Creates a 'ScheduleActionSettings' value with any optional fields omitted.
 mkScheduleActionSettings ::
   ScheduleActionSettings
 mkScheduleActionSettings =
   ScheduleActionSettings'
-    { staticImageDeactivateSettings =
-        Lude.Nothing,
-      scte35SpliceInsertSettings = Lude.Nothing,
-      staticImageActivateSettings = Lude.Nothing,
-      scte35TimeSignalSettings = Lude.Nothing,
-      inputPrepareSettings = Lude.Nothing,
-      hlsId3SegmentTaggingSettings = Lude.Nothing,
-      scte35ReturnToNetworkSettings = Lude.Nothing,
-      pauseStateSettings = Lude.Nothing,
-      hlsTimedMetadataSettings = Lude.Nothing,
-      inputSwitchSettings = Lude.Nothing
+    { hlsId3SegmentTaggingSettings =
+        Core.Nothing,
+      hlsTimedMetadataSettings = Core.Nothing,
+      inputPrepareSettings = Core.Nothing,
+      inputSwitchSettings = Core.Nothing,
+      pauseStateSettings = Core.Nothing,
+      scte35ReturnToNetworkSettings = Core.Nothing,
+      scte35SpliceInsertSettings = Core.Nothing,
+      scte35TimeSignalSettings = Core.Nothing,
+      staticImageActivateSettings = Core.Nothing,
+      staticImageDeactivateSettings = Core.Nothing
     }
-
--- | Action to deactivate a static image overlay
---
--- /Note:/ Consider using 'staticImageDeactivateSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasStaticImageDeactivateSettings :: Lens.Lens' ScheduleActionSettings (Lude.Maybe StaticImageDeactivateScheduleActionSettings)
-sasStaticImageDeactivateSettings = Lens.lens (staticImageDeactivateSettings :: ScheduleActionSettings -> Lude.Maybe StaticImageDeactivateScheduleActionSettings) (\s a -> s {staticImageDeactivateSettings = a} :: ScheduleActionSettings)
-{-# DEPRECATED sasStaticImageDeactivateSettings "Use generic-lens or generic-optics with 'staticImageDeactivateSettings' instead." #-}
-
--- | Action to insert SCTE-35 splice_insert message
---
--- /Note:/ Consider using 'scte35SpliceInsertSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasScte35SpliceInsertSettings :: Lens.Lens' ScheduleActionSettings (Lude.Maybe Scte35SpliceInsertScheduleActionSettings)
-sasScte35SpliceInsertSettings = Lens.lens (scte35SpliceInsertSettings :: ScheduleActionSettings -> Lude.Maybe Scte35SpliceInsertScheduleActionSettings) (\s a -> s {scte35SpliceInsertSettings = a} :: ScheduleActionSettings)
-{-# DEPRECATED sasScte35SpliceInsertSettings "Use generic-lens or generic-optics with 'scte35SpliceInsertSettings' instead." #-}
-
--- | Action to activate a static image overlay
---
--- /Note:/ Consider using 'staticImageActivateSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasStaticImageActivateSettings :: Lens.Lens' ScheduleActionSettings (Lude.Maybe StaticImageActivateScheduleActionSettings)
-sasStaticImageActivateSettings = Lens.lens (staticImageActivateSettings :: ScheduleActionSettings -> Lude.Maybe StaticImageActivateScheduleActionSettings) (\s a -> s {staticImageActivateSettings = a} :: ScheduleActionSettings)
-{-# DEPRECATED sasStaticImageActivateSettings "Use generic-lens or generic-optics with 'staticImageActivateSettings' instead." #-}
-
--- | Action to insert SCTE-35 time_signal message
---
--- /Note:/ Consider using 'scte35TimeSignalSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasScte35TimeSignalSettings :: Lens.Lens' ScheduleActionSettings (Lude.Maybe Scte35TimeSignalScheduleActionSettings)
-sasScte35TimeSignalSettings = Lens.lens (scte35TimeSignalSettings :: ScheduleActionSettings -> Lude.Maybe Scte35TimeSignalScheduleActionSettings) (\s a -> s {scte35TimeSignalSettings = a} :: ScheduleActionSettings)
-{-# DEPRECATED sasScte35TimeSignalSettings "Use generic-lens or generic-optics with 'scte35TimeSignalSettings' instead." #-}
-
--- | Action to prepare an input for a future immediate input switch
---
--- /Note:/ Consider using 'inputPrepareSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasInputPrepareSettings :: Lens.Lens' ScheduleActionSettings (Lude.Maybe InputPrepareScheduleActionSettings)
-sasInputPrepareSettings = Lens.lens (inputPrepareSettings :: ScheduleActionSettings -> Lude.Maybe InputPrepareScheduleActionSettings) (\s a -> s {inputPrepareSettings = a} :: ScheduleActionSettings)
-{-# DEPRECATED sasInputPrepareSettings "Use generic-lens or generic-optics with 'inputPrepareSettings' instead." #-}
 
 -- | Action to insert HLS ID3 segment tagging
 --
 -- /Note:/ Consider using 'hlsId3SegmentTaggingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasHlsId3SegmentTaggingSettings :: Lens.Lens' ScheduleActionSettings (Lude.Maybe HlsId3SegmentTaggingScheduleActionSettings)
-sasHlsId3SegmentTaggingSettings = Lens.lens (hlsId3SegmentTaggingSettings :: ScheduleActionSettings -> Lude.Maybe HlsId3SegmentTaggingScheduleActionSettings) (\s a -> s {hlsId3SegmentTaggingSettings = a} :: ScheduleActionSettings)
+sasHlsId3SegmentTaggingSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Types.HlsId3SegmentTaggingScheduleActionSettings)
+sasHlsId3SegmentTaggingSettings = Lens.field @"hlsId3SegmentTaggingSettings"
 {-# DEPRECATED sasHlsId3SegmentTaggingSettings "Use generic-lens or generic-optics with 'hlsId3SegmentTaggingSettings' instead." #-}
-
--- | Action to insert SCTE-35 return_to_network message
---
--- /Note:/ Consider using 'scte35ReturnToNetworkSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasScte35ReturnToNetworkSettings :: Lens.Lens' ScheduleActionSettings (Lude.Maybe Scte35ReturnToNetworkScheduleActionSettings)
-sasScte35ReturnToNetworkSettings = Lens.lens (scte35ReturnToNetworkSettings :: ScheduleActionSettings -> Lude.Maybe Scte35ReturnToNetworkScheduleActionSettings) (\s a -> s {scte35ReturnToNetworkSettings = a} :: ScheduleActionSettings)
-{-# DEPRECATED sasScte35ReturnToNetworkSettings "Use generic-lens or generic-optics with 'scte35ReturnToNetworkSettings' instead." #-}
-
--- | Action to pause or unpause one or both channel pipelines
---
--- /Note:/ Consider using 'pauseStateSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasPauseStateSettings :: Lens.Lens' ScheduleActionSettings (Lude.Maybe PauseStateScheduleActionSettings)
-sasPauseStateSettings = Lens.lens (pauseStateSettings :: ScheduleActionSettings -> Lude.Maybe PauseStateScheduleActionSettings) (\s a -> s {pauseStateSettings = a} :: ScheduleActionSettings)
-{-# DEPRECATED sasPauseStateSettings "Use generic-lens or generic-optics with 'pauseStateSettings' instead." #-}
 
 -- | Action to insert HLS metadata
 --
 -- /Note:/ Consider using 'hlsTimedMetadataSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasHlsTimedMetadataSettings :: Lens.Lens' ScheduleActionSettings (Lude.Maybe HlsTimedMetadataScheduleActionSettings)
-sasHlsTimedMetadataSettings = Lens.lens (hlsTimedMetadataSettings :: ScheduleActionSettings -> Lude.Maybe HlsTimedMetadataScheduleActionSettings) (\s a -> s {hlsTimedMetadataSettings = a} :: ScheduleActionSettings)
+sasHlsTimedMetadataSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Types.HlsTimedMetadataScheduleActionSettings)
+sasHlsTimedMetadataSettings = Lens.field @"hlsTimedMetadataSettings"
 {-# DEPRECATED sasHlsTimedMetadataSettings "Use generic-lens or generic-optics with 'hlsTimedMetadataSettings' instead." #-}
+
+-- | Action to prepare an input for a future immediate input switch
+--
+-- /Note:/ Consider using 'inputPrepareSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasInputPrepareSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Types.InputPrepareScheduleActionSettings)
+sasInputPrepareSettings = Lens.field @"inputPrepareSettings"
+{-# DEPRECATED sasInputPrepareSettings "Use generic-lens or generic-optics with 'inputPrepareSettings' instead." #-}
 
 -- | Action to switch the input
 --
 -- /Note:/ Consider using 'inputSwitchSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasInputSwitchSettings :: Lens.Lens' ScheduleActionSettings (Lude.Maybe InputSwitchScheduleActionSettings)
-sasInputSwitchSettings = Lens.lens (inputSwitchSettings :: ScheduleActionSettings -> Lude.Maybe InputSwitchScheduleActionSettings) (\s a -> s {inputSwitchSettings = a} :: ScheduleActionSettings)
+sasInputSwitchSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Types.InputSwitchScheduleActionSettings)
+sasInputSwitchSettings = Lens.field @"inputSwitchSettings"
 {-# DEPRECATED sasInputSwitchSettings "Use generic-lens or generic-optics with 'inputSwitchSettings' instead." #-}
 
-instance Lude.FromJSON ScheduleActionSettings where
-  parseJSON =
-    Lude.withObject
-      "ScheduleActionSettings"
-      ( \x ->
-          ScheduleActionSettings'
-            Lude.<$> (x Lude..:? "staticImageDeactivateSettings")
-            Lude.<*> (x Lude..:? "scte35SpliceInsertSettings")
-            Lude.<*> (x Lude..:? "staticImageActivateSettings")
-            Lude.<*> (x Lude..:? "scte35TimeSignalSettings")
-            Lude.<*> (x Lude..:? "inputPrepareSettings")
-            Lude.<*> (x Lude..:? "hlsId3SegmentTaggingSettings")
-            Lude.<*> (x Lude..:? "scte35ReturnToNetworkSettings")
-            Lude.<*> (x Lude..:? "pauseStateSettings")
-            Lude.<*> (x Lude..:? "hlsTimedMetadataSettings")
-            Lude.<*> (x Lude..:? "inputSwitchSettings")
-      )
+-- | Action to pause or unpause one or both channel pipelines
+--
+-- /Note:/ Consider using 'pauseStateSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasPauseStateSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Types.PauseStateScheduleActionSettings)
+sasPauseStateSettings = Lens.field @"pauseStateSettings"
+{-# DEPRECATED sasPauseStateSettings "Use generic-lens or generic-optics with 'pauseStateSettings' instead." #-}
 
-instance Lude.ToJSON ScheduleActionSettings where
-  toJSON ScheduleActionSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("staticImageDeactivateSettings" Lude..=)
-              Lude.<$> staticImageDeactivateSettings,
-            ("scte35SpliceInsertSettings" Lude..=)
-              Lude.<$> scte35SpliceInsertSettings,
-            ("staticImageActivateSettings" Lude..=)
-              Lude.<$> staticImageActivateSettings,
-            ("scte35TimeSignalSettings" Lude..=)
-              Lude.<$> scte35TimeSignalSettings,
-            ("inputPrepareSettings" Lude..=) Lude.<$> inputPrepareSettings,
-            ("hlsId3SegmentTaggingSettings" Lude..=)
-              Lude.<$> hlsId3SegmentTaggingSettings,
-            ("scte35ReturnToNetworkSettings" Lude..=)
-              Lude.<$> scte35ReturnToNetworkSettings,
-            ("pauseStateSettings" Lude..=) Lude.<$> pauseStateSettings,
-            ("hlsTimedMetadataSettings" Lude..=)
-              Lude.<$> hlsTimedMetadataSettings,
-            ("inputSwitchSettings" Lude..=) Lude.<$> inputSwitchSettings
+-- | Action to insert SCTE-35 return_to_network message
+--
+-- /Note:/ Consider using 'scte35ReturnToNetworkSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasScte35ReturnToNetworkSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Types.Scte35ReturnToNetworkScheduleActionSettings)
+sasScte35ReturnToNetworkSettings = Lens.field @"scte35ReturnToNetworkSettings"
+{-# DEPRECATED sasScte35ReturnToNetworkSettings "Use generic-lens or generic-optics with 'scte35ReturnToNetworkSettings' instead." #-}
+
+-- | Action to insert SCTE-35 splice_insert message
+--
+-- /Note:/ Consider using 'scte35SpliceInsertSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasScte35SpliceInsertSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Types.Scte35SpliceInsertScheduleActionSettings)
+sasScte35SpliceInsertSettings = Lens.field @"scte35SpliceInsertSettings"
+{-# DEPRECATED sasScte35SpliceInsertSettings "Use generic-lens or generic-optics with 'scte35SpliceInsertSettings' instead." #-}
+
+-- | Action to insert SCTE-35 time_signal message
+--
+-- /Note:/ Consider using 'scte35TimeSignalSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasScte35TimeSignalSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Types.Scte35TimeSignalScheduleActionSettings)
+sasScte35TimeSignalSettings = Lens.field @"scte35TimeSignalSettings"
+{-# DEPRECATED sasScte35TimeSignalSettings "Use generic-lens or generic-optics with 'scte35TimeSignalSettings' instead." #-}
+
+-- | Action to activate a static image overlay
+--
+-- /Note:/ Consider using 'staticImageActivateSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasStaticImageActivateSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Types.StaticImageActivateScheduleActionSettings)
+sasStaticImageActivateSettings = Lens.field @"staticImageActivateSettings"
+{-# DEPRECATED sasStaticImageActivateSettings "Use generic-lens or generic-optics with 'staticImageActivateSettings' instead." #-}
+
+-- | Action to deactivate a static image overlay
+--
+-- /Note:/ Consider using 'staticImageDeactivateSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sasStaticImageDeactivateSettings :: Lens.Lens' ScheduleActionSettings (Core.Maybe Types.StaticImageDeactivateScheduleActionSettings)
+sasStaticImageDeactivateSettings = Lens.field @"staticImageDeactivateSettings"
+{-# DEPRECATED sasStaticImageDeactivateSettings "Use generic-lens or generic-optics with 'staticImageDeactivateSettings' instead." #-}
+
+instance Core.FromJSON ScheduleActionSettings where
+  toJSON ScheduleActionSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("hlsId3SegmentTaggingSettings" Core..=)
+              Core.<$> hlsId3SegmentTaggingSettings,
+            ("hlsTimedMetadataSettings" Core..=)
+              Core.<$> hlsTimedMetadataSettings,
+            ("inputPrepareSettings" Core..=) Core.<$> inputPrepareSettings,
+            ("inputSwitchSettings" Core..=) Core.<$> inputSwitchSettings,
+            ("pauseStateSettings" Core..=) Core.<$> pauseStateSettings,
+            ("scte35ReturnToNetworkSettings" Core..=)
+              Core.<$> scte35ReturnToNetworkSettings,
+            ("scte35SpliceInsertSettings" Core..=)
+              Core.<$> scte35SpliceInsertSettings,
+            ("scte35TimeSignalSettings" Core..=)
+              Core.<$> scte35TimeSignalSettings,
+            ("staticImageActivateSettings" Core..=)
+              Core.<$> staticImageActivateSettings,
+            ("staticImageDeactivateSettings" Core..=)
+              Core.<$> staticImageDeactivateSettings
           ]
       )
+
+instance Core.FromJSON ScheduleActionSettings where
+  parseJSON =
+    Core.withObject "ScheduleActionSettings" Core.$
+      \x ->
+        ScheduleActionSettings'
+          Core.<$> (x Core..:? "hlsId3SegmentTaggingSettings")
+          Core.<*> (x Core..:? "hlsTimedMetadataSettings")
+          Core.<*> (x Core..:? "inputPrepareSettings")
+          Core.<*> (x Core..:? "inputSwitchSettings")
+          Core.<*> (x Core..:? "pauseStateSettings")
+          Core.<*> (x Core..:? "scte35ReturnToNetworkSettings")
+          Core.<*> (x Core..:? "scte35SpliceInsertSettings")
+          Core.<*> (x Core..:? "scte35TimeSignalSettings")
+          Core.<*> (x Core..:? "staticImageActivateSettings")
+          Core.<*> (x Core..:? "staticImageDeactivateSettings")

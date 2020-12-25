@@ -23,65 +23,63 @@ module Network.AWS.AWSHealth.Types.EventTypeFilter
   )
 where
 
-import Network.AWS.AWSHealth.Types.EventTypeCategory
+import qualified Network.AWS.AWSHealth.Types.EventTypeCategory as Types
+import qualified Network.AWS.AWSHealth.Types.EventTypeCode as Types
+import qualified Network.AWS.AWSHealth.Types.Service as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The values to use to filter results from the <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventTypes.html DescribeEventTypes> operation.
 --
 -- /See:/ 'mkEventTypeFilter' smart constructor.
 data EventTypeFilter = EventTypeFilter'
   { -- | A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
-    eventTypeCategories :: Lude.Maybe (Lude.NonEmpty EventTypeCategory),
+    eventTypeCategories :: Core.Maybe (Core.NonEmpty Types.EventTypeCategory),
     -- | A list of event type codes.
-    eventTypeCodes :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    eventTypeCodes :: Core.Maybe (Core.NonEmpty Types.EventTypeCode),
     -- | The AWS services associated with the event. For example, @EC2@ , @RDS@ .
-    services :: Lude.Maybe (Lude.NonEmpty Lude.Text)
+    services :: Core.Maybe (Core.NonEmpty Types.Service)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventTypeFilter' with the minimum fields required to make a request.
---
--- * 'eventTypeCategories' - A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
--- * 'eventTypeCodes' - A list of event type codes.
--- * 'services' - The AWS services associated with the event. For example, @EC2@ , @RDS@ .
+-- | Creates a 'EventTypeFilter' value with any optional fields omitted.
 mkEventTypeFilter ::
   EventTypeFilter
 mkEventTypeFilter =
   EventTypeFilter'
-    { eventTypeCategories = Lude.Nothing,
-      eventTypeCodes = Lude.Nothing,
-      services = Lude.Nothing
+    { eventTypeCategories = Core.Nothing,
+      eventTypeCodes = Core.Nothing,
+      services = Core.Nothing
     }
 
 -- | A list of event type category codes (@issue@ , @scheduledChange@ , or @accountNotification@ ).
 --
 -- /Note:/ Consider using 'eventTypeCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etfEventTypeCategories :: Lens.Lens' EventTypeFilter (Lude.Maybe (Lude.NonEmpty EventTypeCategory))
-etfEventTypeCategories = Lens.lens (eventTypeCategories :: EventTypeFilter -> Lude.Maybe (Lude.NonEmpty EventTypeCategory)) (\s a -> s {eventTypeCategories = a} :: EventTypeFilter)
+etfEventTypeCategories :: Lens.Lens' EventTypeFilter (Core.Maybe (Core.NonEmpty Types.EventTypeCategory))
+etfEventTypeCategories = Lens.field @"eventTypeCategories"
 {-# DEPRECATED etfEventTypeCategories "Use generic-lens or generic-optics with 'eventTypeCategories' instead." #-}
 
 -- | A list of event type codes.
 --
 -- /Note:/ Consider using 'eventTypeCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etfEventTypeCodes :: Lens.Lens' EventTypeFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
-etfEventTypeCodes = Lens.lens (eventTypeCodes :: EventTypeFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {eventTypeCodes = a} :: EventTypeFilter)
+etfEventTypeCodes :: Lens.Lens' EventTypeFilter (Core.Maybe (Core.NonEmpty Types.EventTypeCode))
+etfEventTypeCodes = Lens.field @"eventTypeCodes"
 {-# DEPRECATED etfEventTypeCodes "Use generic-lens or generic-optics with 'eventTypeCodes' instead." #-}
 
 -- | The AWS services associated with the event. For example, @EC2@ , @RDS@ .
 --
 -- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etfServices :: Lens.Lens' EventTypeFilter (Lude.Maybe (Lude.NonEmpty Lude.Text))
-etfServices = Lens.lens (services :: EventTypeFilter -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {services = a} :: EventTypeFilter)
+etfServices :: Lens.Lens' EventTypeFilter (Core.Maybe (Core.NonEmpty Types.Service))
+etfServices = Lens.field @"services"
 {-# DEPRECATED etfServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
-instance Lude.ToJSON EventTypeFilter where
-  toJSON EventTypeFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("eventTypeCategories" Lude..=) Lude.<$> eventTypeCategories,
-            ("eventTypeCodes" Lude..=) Lude.<$> eventTypeCodes,
-            ("services" Lude..=) Lude.<$> services
+instance Core.FromJSON EventTypeFilter where
+  toJSON EventTypeFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("eventTypeCategories" Core..=) Core.<$> eventTypeCategories,
+            ("eventTypeCodes" Core..=) Core.<$> eventTypeCodes,
+            ("services" Core..=) Core.<$> services
           ]
       )

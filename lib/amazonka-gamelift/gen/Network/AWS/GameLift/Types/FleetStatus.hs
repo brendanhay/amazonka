@@ -13,81 +13,83 @@
 module Network.AWS.GameLift.Types.FleetStatus
   ( FleetStatus
       ( FleetStatus',
-        FSNew,
-        FSDownloading,
-        FSValidating,
-        FSBuilding,
-        FSActivating,
-        FSActive,
-        FSDeleting,
-        FSError,
-        FSTerminated
+        FleetStatusNew,
+        FleetStatusDownloading,
+        FleetStatusValidating,
+        FleetStatusBuilding,
+        FleetStatusActivating,
+        FleetStatusActive,
+        FleetStatusDeleting,
+        FleetStatusError,
+        FleetStatusTerminated,
+        fromFleetStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FleetStatus = FleetStatus' Lude.Text
+newtype FleetStatus = FleetStatus' {fromFleetStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FSNew :: FleetStatus
-pattern FSNew = FleetStatus' "NEW"
+pattern FleetStatusNew :: FleetStatus
+pattern FleetStatusNew = FleetStatus' "NEW"
 
-pattern FSDownloading :: FleetStatus
-pattern FSDownloading = FleetStatus' "DOWNLOADING"
+pattern FleetStatusDownloading :: FleetStatus
+pattern FleetStatusDownloading = FleetStatus' "DOWNLOADING"
 
-pattern FSValidating :: FleetStatus
-pattern FSValidating = FleetStatus' "VALIDATING"
+pattern FleetStatusValidating :: FleetStatus
+pattern FleetStatusValidating = FleetStatus' "VALIDATING"
 
-pattern FSBuilding :: FleetStatus
-pattern FSBuilding = FleetStatus' "BUILDING"
+pattern FleetStatusBuilding :: FleetStatus
+pattern FleetStatusBuilding = FleetStatus' "BUILDING"
 
-pattern FSActivating :: FleetStatus
-pattern FSActivating = FleetStatus' "ACTIVATING"
+pattern FleetStatusActivating :: FleetStatus
+pattern FleetStatusActivating = FleetStatus' "ACTIVATING"
 
-pattern FSActive :: FleetStatus
-pattern FSActive = FleetStatus' "ACTIVE"
+pattern FleetStatusActive :: FleetStatus
+pattern FleetStatusActive = FleetStatus' "ACTIVE"
 
-pattern FSDeleting :: FleetStatus
-pattern FSDeleting = FleetStatus' "DELETING"
+pattern FleetStatusDeleting :: FleetStatus
+pattern FleetStatusDeleting = FleetStatus' "DELETING"
 
-pattern FSError :: FleetStatus
-pattern FSError = FleetStatus' "ERROR"
+pattern FleetStatusError :: FleetStatus
+pattern FleetStatusError = FleetStatus' "ERROR"
 
-pattern FSTerminated :: FleetStatus
-pattern FSTerminated = FleetStatus' "TERMINATED"
+pattern FleetStatusTerminated :: FleetStatus
+pattern FleetStatusTerminated = FleetStatus' "TERMINATED"
 
 {-# COMPLETE
-  FSNew,
-  FSDownloading,
-  FSValidating,
-  FSBuilding,
-  FSActivating,
-  FSActive,
-  FSDeleting,
-  FSError,
-  FSTerminated,
+  FleetStatusNew,
+  FleetStatusDownloading,
+  FleetStatusValidating,
+  FleetStatusBuilding,
+  FleetStatusActivating,
+  FleetStatusActive,
+  FleetStatusDeleting,
+  FleetStatusError,
+  FleetStatusTerminated,
   FleetStatus'
   #-}

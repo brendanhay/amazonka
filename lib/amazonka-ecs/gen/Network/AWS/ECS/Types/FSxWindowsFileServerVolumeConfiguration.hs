@@ -17,15 +17,16 @@ module Network.AWS.ECS.Types.FSxWindowsFileServerVolumeConfiguration
     mkFSxWindowsFileServerVolumeConfiguration,
 
     -- * Lenses
-    fswfsvcRootDirectory,
     fswfsvcFileSystemId,
+    fswfsvcRootDirectory,
     fswfsvcAuthorizationConfig,
   )
 where
 
-import Network.AWS.ECS.Types.FSxWindowsFileServerAuthorizationConfig
+import qualified Network.AWS.ECS.Types.FSxWindowsFileServerAuthorizationConfig as Types
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This parameter is specified when you are using <https://docs.aws.amazon.com/fsx/latest/WindowsGuide/what-is.html Amazon FSx for Windows File Server> file system for task storage.
 --
@@ -33,78 +34,71 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFSxWindowsFileServerVolumeConfiguration' smart constructor.
 data FSxWindowsFileServerVolumeConfiguration = FSxWindowsFileServerVolumeConfiguration'
-  { -- | The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
-    rootDirectory :: Lude.Text,
-    -- | The Amazon FSx for Windows File Server file system ID to use.
-    fileSystemId :: Lude.Text,
+  { -- | The Amazon FSx for Windows File Server file system ID to use.
+    fileSystemId :: Types.String,
+    -- | The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+    rootDirectory :: Types.String,
     -- | The authorization configuration details for the Amazon FSx for Windows File Server file system.
-    authorizationConfig :: FSxWindowsFileServerAuthorizationConfig
+    authorizationConfig :: Types.FSxWindowsFileServerAuthorizationConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FSxWindowsFileServerVolumeConfiguration' with the minimum fields required to make a request.
---
--- * 'rootDirectory' - The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
--- * 'fileSystemId' - The Amazon FSx for Windows File Server file system ID to use.
--- * 'authorizationConfig' - The authorization configuration details for the Amazon FSx for Windows File Server file system.
+-- | Creates a 'FSxWindowsFileServerVolumeConfiguration' value with any optional fields omitted.
 mkFSxWindowsFileServerVolumeConfiguration ::
-  -- | 'rootDirectory'
-  Lude.Text ->
   -- | 'fileSystemId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'rootDirectory'
+  Types.String ->
   -- | 'authorizationConfig'
-  FSxWindowsFileServerAuthorizationConfig ->
+  Types.FSxWindowsFileServerAuthorizationConfig ->
   FSxWindowsFileServerVolumeConfiguration
 mkFSxWindowsFileServerVolumeConfiguration
-  pRootDirectory_
-  pFileSystemId_
-  pAuthorizationConfig_ =
+  fileSystemId
+  rootDirectory
+  authorizationConfig =
     FSxWindowsFileServerVolumeConfiguration'
-      { rootDirectory =
-          pRootDirectory_,
-        fileSystemId = pFileSystemId_,
-        authorizationConfig = pAuthorizationConfig_
+      { fileSystemId,
+        rootDirectory,
+        authorizationConfig
       }
-
--- | The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
---
--- /Note:/ Consider using 'rootDirectory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fswfsvcRootDirectory :: Lens.Lens' FSxWindowsFileServerVolumeConfiguration Lude.Text
-fswfsvcRootDirectory = Lens.lens (rootDirectory :: FSxWindowsFileServerVolumeConfiguration -> Lude.Text) (\s a -> s {rootDirectory = a} :: FSxWindowsFileServerVolumeConfiguration)
-{-# DEPRECATED fswfsvcRootDirectory "Use generic-lens or generic-optics with 'rootDirectory' instead." #-}
 
 -- | The Amazon FSx for Windows File Server file system ID to use.
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fswfsvcFileSystemId :: Lens.Lens' FSxWindowsFileServerVolumeConfiguration Lude.Text
-fswfsvcFileSystemId = Lens.lens (fileSystemId :: FSxWindowsFileServerVolumeConfiguration -> Lude.Text) (\s a -> s {fileSystemId = a} :: FSxWindowsFileServerVolumeConfiguration)
+fswfsvcFileSystemId :: Lens.Lens' FSxWindowsFileServerVolumeConfiguration Types.String
+fswfsvcFileSystemId = Lens.field @"fileSystemId"
 {-# DEPRECATED fswfsvcFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
+
+-- | The directory within the Amazon FSx for Windows File Server file system to mount as the root directory inside the host.
+--
+-- /Note:/ Consider using 'rootDirectory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fswfsvcRootDirectory :: Lens.Lens' FSxWindowsFileServerVolumeConfiguration Types.String
+fswfsvcRootDirectory = Lens.field @"rootDirectory"
+{-# DEPRECATED fswfsvcRootDirectory "Use generic-lens or generic-optics with 'rootDirectory' instead." #-}
 
 -- | The authorization configuration details for the Amazon FSx for Windows File Server file system.
 --
 -- /Note:/ Consider using 'authorizationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fswfsvcAuthorizationConfig :: Lens.Lens' FSxWindowsFileServerVolumeConfiguration FSxWindowsFileServerAuthorizationConfig
-fswfsvcAuthorizationConfig = Lens.lens (authorizationConfig :: FSxWindowsFileServerVolumeConfiguration -> FSxWindowsFileServerAuthorizationConfig) (\s a -> s {authorizationConfig = a} :: FSxWindowsFileServerVolumeConfiguration)
+fswfsvcAuthorizationConfig :: Lens.Lens' FSxWindowsFileServerVolumeConfiguration Types.FSxWindowsFileServerAuthorizationConfig
+fswfsvcAuthorizationConfig = Lens.field @"authorizationConfig"
 {-# DEPRECATED fswfsvcAuthorizationConfig "Use generic-lens or generic-optics with 'authorizationConfig' instead." #-}
 
-instance Lude.FromJSON FSxWindowsFileServerVolumeConfiguration where
-  parseJSON =
-    Lude.withObject
-      "FSxWindowsFileServerVolumeConfiguration"
-      ( \x ->
-          FSxWindowsFileServerVolumeConfiguration'
-            Lude.<$> (x Lude..: "rootDirectory")
-            Lude.<*> (x Lude..: "fileSystemId")
-            Lude.<*> (x Lude..: "authorizationConfig")
-      )
-
-instance Lude.ToJSON FSxWindowsFileServerVolumeConfiguration where
-  toJSON FSxWindowsFileServerVolumeConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("rootDirectory" Lude..= rootDirectory),
-            Lude.Just ("fileSystemId" Lude..= fileSystemId),
-            Lude.Just ("authorizationConfig" Lude..= authorizationConfig)
+instance Core.FromJSON FSxWindowsFileServerVolumeConfiguration where
+  toJSON FSxWindowsFileServerVolumeConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("fileSystemId" Core..= fileSystemId),
+            Core.Just ("rootDirectory" Core..= rootDirectory),
+            Core.Just ("authorizationConfig" Core..= authorizationConfig)
           ]
       )
+
+instance Core.FromJSON FSxWindowsFileServerVolumeConfiguration where
+  parseJSON =
+    Core.withObject "FSxWindowsFileServerVolumeConfiguration" Core.$
+      \x ->
+        FSxWindowsFileServerVolumeConfiguration'
+          Core.<$> (x Core..: "fileSystemId")
+          Core.<*> (x Core..: "rootDirectory")
+          Core.<*> (x Core..: "authorizationConfig")

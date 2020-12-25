@@ -17,60 +17,55 @@ module Network.AWS.ECS.Types.Scale
     mkScale,
 
     -- * Lenses
-    sValue,
     sUnit,
+    sValue,
   )
 where
 
-import Network.AWS.ECS.Types.ScaleUnit
+import qualified Network.AWS.ECS.Types.ScaleUnit as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A floating-point percentage of the desired number of tasks to place and keep running in the task set.
 --
 -- /See:/ 'mkScale' smart constructor.
 data Scale = Scale'
-  { -- | The value, specified as a percent total of a service's @desiredCount@ , to scale the task set. Accepted values are numbers between 0 and 100.
-    value :: Lude.Maybe Lude.Double,
-    -- | The unit of measure for the scale value.
-    unit :: Lude.Maybe ScaleUnit
+  { -- | The unit of measure for the scale value.
+    unit :: Core.Maybe Types.ScaleUnit,
+    -- | The value, specified as a percent total of a service's @desiredCount@ , to scale the task set. Accepted values are numbers between 0 and 100.
+    value :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Scale' with the minimum fields required to make a request.
---
--- * 'value' - The value, specified as a percent total of a service's @desiredCount@ , to scale the task set. Accepted values are numbers between 0 and 100.
--- * 'unit' - The unit of measure for the scale value.
+-- | Creates a 'Scale' value with any optional fields omitted.
 mkScale ::
   Scale
-mkScale = Scale' {value = Lude.Nothing, unit = Lude.Nothing}
-
--- | The value, specified as a percent total of a service's @desiredCount@ , to scale the task set. Accepted values are numbers between 0 and 100.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sValue :: Lens.Lens' Scale (Lude.Maybe Lude.Double)
-sValue = Lens.lens (value :: Scale -> Lude.Maybe Lude.Double) (\s a -> s {value = a} :: Scale)
-{-# DEPRECATED sValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkScale = Scale' {unit = Core.Nothing, value = Core.Nothing}
 
 -- | The unit of measure for the scale value.
 --
 -- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sUnit :: Lens.Lens' Scale (Lude.Maybe ScaleUnit)
-sUnit = Lens.lens (unit :: Scale -> Lude.Maybe ScaleUnit) (\s a -> s {unit = a} :: Scale)
+sUnit :: Lens.Lens' Scale (Core.Maybe Types.ScaleUnit)
+sUnit = Lens.field @"unit"
 {-# DEPRECATED sUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
-instance Lude.FromJSON Scale where
-  parseJSON =
-    Lude.withObject
-      "Scale"
-      ( \x ->
-          Scale' Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "unit")
+-- | The value, specified as a percent total of a service's @desiredCount@ , to scale the task set. Accepted values are numbers between 0 and 100.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sValue :: Lens.Lens' Scale (Core.Maybe Core.Double)
+sValue = Lens.field @"value"
+{-# DEPRECATED sValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Scale where
+  toJSON Scale {..} =
+    Core.object
+      ( Core.catMaybes
+          [("unit" Core..=) Core.<$> unit, ("value" Core..=) Core.<$> value]
       )
 
-instance Lude.ToJSON Scale where
-  toJSON Scale' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("value" Lude..=) Lude.<$> value, ("unit" Lude..=) Lude.<$> unit]
-      )
+instance Core.FromJSON Scale where
+  parseJSON =
+    Core.withObject "Scale" Core.$
+      \x ->
+        Scale' Core.<$> (x Core..:? "unit") Core.<*> (x Core..:? "value")

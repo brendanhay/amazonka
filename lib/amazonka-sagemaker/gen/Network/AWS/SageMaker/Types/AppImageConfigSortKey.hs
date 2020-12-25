@@ -13,51 +13,56 @@
 module Network.AWS.SageMaker.Types.AppImageConfigSortKey
   ( AppImageConfigSortKey
       ( AppImageConfigSortKey',
-        AICSKCreationTime,
-        AICSKLastModifiedTime,
-        AICSKName
+        AppImageConfigSortKeyCreationTime,
+        AppImageConfigSortKeyLastModifiedTime,
+        AppImageConfigSortKeyName,
+        fromAppImageConfigSortKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AppImageConfigSortKey = AppImageConfigSortKey' Lude.Text
+newtype AppImageConfigSortKey = AppImageConfigSortKey'
+  { fromAppImageConfigSortKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AICSKCreationTime :: AppImageConfigSortKey
-pattern AICSKCreationTime = AppImageConfigSortKey' "CreationTime"
+pattern AppImageConfigSortKeyCreationTime :: AppImageConfigSortKey
+pattern AppImageConfigSortKeyCreationTime = AppImageConfigSortKey' "CreationTime"
 
-pattern AICSKLastModifiedTime :: AppImageConfigSortKey
-pattern AICSKLastModifiedTime = AppImageConfigSortKey' "LastModifiedTime"
+pattern AppImageConfigSortKeyLastModifiedTime :: AppImageConfigSortKey
+pattern AppImageConfigSortKeyLastModifiedTime = AppImageConfigSortKey' "LastModifiedTime"
 
-pattern AICSKName :: AppImageConfigSortKey
-pattern AICSKName = AppImageConfigSortKey' "Name"
+pattern AppImageConfigSortKeyName :: AppImageConfigSortKey
+pattern AppImageConfigSortKeyName = AppImageConfigSortKey' "Name"
 
 {-# COMPLETE
-  AICSKCreationTime,
-  AICSKLastModifiedTime,
-  AICSKName,
+  AppImageConfigSortKeyCreationTime,
+  AppImageConfigSortKeyLastModifiedTime,
+  AppImageConfigSortKeyName,
   AppImageConfigSortKey'
   #-}

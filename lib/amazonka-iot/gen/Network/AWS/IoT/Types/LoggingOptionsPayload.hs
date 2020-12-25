@@ -17,60 +17,55 @@ module Network.AWS.IoT.Types.LoggingOptionsPayload
     mkLoggingOptionsPayload,
 
     -- * Lenses
+    lopRoleArn,
     lopLogLevel,
-    lopRoleARN,
   )
 where
 
-import Network.AWS.IoT.Types.LogLevel
+import qualified Network.AWS.IoT.Types.AwsArn as Types
+import qualified Network.AWS.IoT.Types.LogLevel as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the logging options payload.
 --
 -- /See:/ 'mkLoggingOptionsPayload' smart constructor.
 data LoggingOptionsPayload = LoggingOptionsPayload'
-  { -- | The log level.
-    logLevel :: Lude.Maybe LogLevel,
-    -- | The ARN of the IAM role that grants access.
-    roleARN :: Lude.Text
+  { -- | The ARN of the IAM role that grants access.
+    roleArn :: Types.AwsArn,
+    -- | The log level.
+    logLevel :: Core.Maybe Types.LogLevel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoggingOptionsPayload' with the minimum fields required to make a request.
---
--- * 'logLevel' - The log level.
--- * 'roleARN' - The ARN of the IAM role that grants access.
+-- | Creates a 'LoggingOptionsPayload' value with any optional fields omitted.
 mkLoggingOptionsPayload ::
-  -- | 'roleARN'
-  Lude.Text ->
+  -- | 'roleArn'
+  Types.AwsArn ->
   LoggingOptionsPayload
-mkLoggingOptionsPayload pRoleARN_ =
-  LoggingOptionsPayload'
-    { logLevel = Lude.Nothing,
-      roleARN = pRoleARN_
-    }
+mkLoggingOptionsPayload roleArn =
+  LoggingOptionsPayload' {roleArn, logLevel = Core.Nothing}
+
+-- | The ARN of the IAM role that grants access.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lopRoleArn :: Lens.Lens' LoggingOptionsPayload Types.AwsArn
+lopRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED lopRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The log level.
 --
 -- /Note:/ Consider using 'logLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopLogLevel :: Lens.Lens' LoggingOptionsPayload (Lude.Maybe LogLevel)
-lopLogLevel = Lens.lens (logLevel :: LoggingOptionsPayload -> Lude.Maybe LogLevel) (\s a -> s {logLevel = a} :: LoggingOptionsPayload)
+lopLogLevel :: Lens.Lens' LoggingOptionsPayload (Core.Maybe Types.LogLevel)
+lopLogLevel = Lens.field @"logLevel"
 {-# DEPRECATED lopLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
 
--- | The ARN of the IAM role that grants access.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lopRoleARN :: Lens.Lens' LoggingOptionsPayload Lude.Text
-lopRoleARN = Lens.lens (roleARN :: LoggingOptionsPayload -> Lude.Text) (\s a -> s {roleARN = a} :: LoggingOptionsPayload)
-{-# DEPRECATED lopRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.ToJSON LoggingOptionsPayload where
-  toJSON LoggingOptionsPayload' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("logLevel" Lude..=) Lude.<$> logLevel,
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON LoggingOptionsPayload where
+  toJSON LoggingOptionsPayload {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            ("logLevel" Core..=) Core.<$> logLevel
           ]
       )

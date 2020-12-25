@@ -26,85 +26,72 @@ module Network.AWS.Organizations.DescribeOrganization
     mkDescribeOrganizationResponse,
 
     -- ** Response lenses
-    dorsOrganization,
-    dorsResponseStatus,
+    dorrsOrganization,
+    dorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeOrganization' smart constructor.
 data DescribeOrganization = DescribeOrganization'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeOrganization' with the minimum fields required to make a request.
+-- | Creates a 'DescribeOrganization' value with any optional fields omitted.
 mkDescribeOrganization ::
   DescribeOrganization
 mkDescribeOrganization = DescribeOrganization'
 
-instance Lude.AWSRequest DescribeOrganization where
+instance Core.FromJSON DescribeOrganization where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DescribeOrganization where
   type Rs DescribeOrganization = DescribeOrganizationResponse
-  request = Req.postJSON organizationsService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSOrganizationsV20161128.DescribeOrganization")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeOrganizationResponse'
-            Lude.<$> (x Lude..?> "Organization") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Organization") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeOrganization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.DescribeOrganization" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeOrganization where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DescribeOrganization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeOrganization where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeOrganizationResponse' smart constructor.
 data DescribeOrganizationResponse = DescribeOrganizationResponse'
   { -- | A structure that contains information about the organization.
     --
     -- /Important:/ The @AvailablePolicyTypes@ part of the response is deprecated, and you shouldn't use it in your apps. It doesn't include any policy type supported by Organizations other than SCPs. To determine which policy types are enabled in your organization, use the @'ListRoots' @ operation.
-    organization :: Lude.Maybe Organization,
+    organization :: Core.Maybe Types.Organization,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeOrganizationResponse' with the minimum fields required to make a request.
---
--- * 'organization' - A structure that contains information about the organization.
---
--- /Important:/ The @AvailablePolicyTypes@ part of the response is deprecated, and you shouldn't use it in your apps. It doesn't include any policy type supported by Organizations other than SCPs. To determine which policy types are enabled in your organization, use the @'ListRoots' @ operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeOrganizationResponse' value with any optional fields omitted.
 mkDescribeOrganizationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeOrganizationResponse
-mkDescribeOrganizationResponse pResponseStatus_ =
+mkDescribeOrganizationResponse responseStatus =
   DescribeOrganizationResponse'
-    { organization = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { organization = Core.Nothing,
+      responseStatus
     }
 
 -- | A structure that contains information about the organization.
@@ -112,13 +99,13 @@ mkDescribeOrganizationResponse pResponseStatus_ =
 -- /Important:/ The @AvailablePolicyTypes@ part of the response is deprecated, and you shouldn't use it in your apps. It doesn't include any policy type supported by Organizations other than SCPs. To determine which policy types are enabled in your organization, use the @'ListRoots' @ operation.
 --
 -- /Note:/ Consider using 'organization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dorsOrganization :: Lens.Lens' DescribeOrganizationResponse (Lude.Maybe Organization)
-dorsOrganization = Lens.lens (organization :: DescribeOrganizationResponse -> Lude.Maybe Organization) (\s a -> s {organization = a} :: DescribeOrganizationResponse)
-{-# DEPRECATED dorsOrganization "Use generic-lens or generic-optics with 'organization' instead." #-}
+dorrsOrganization :: Lens.Lens' DescribeOrganizationResponse (Core.Maybe Types.Organization)
+dorrsOrganization = Lens.field @"organization"
+{-# DEPRECATED dorrsOrganization "Use generic-lens or generic-optics with 'organization' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dorsResponseStatus :: Lens.Lens' DescribeOrganizationResponse Lude.Int
-dorsResponseStatus = Lens.lens (responseStatus :: DescribeOrganizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOrganizationResponse)
-{-# DEPRECATED dorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dorrsResponseStatus :: Lens.Lens' DescribeOrganizationResponse Core.Int
+dorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

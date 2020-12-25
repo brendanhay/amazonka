@@ -24,118 +24,107 @@ module Network.AWS.Glacier.DescribeJob
     mkDescribeJob,
 
     -- ** Request lenses
-    djJobId,
-    djVaultName,
     djAccountId,
+    djVaultName,
+    djJobId,
 
     -- * Destructuring the response
-    GlacierJobDescription (..),
-    mkGlacierJobDescription,
+    Types.GlacierJobDescription (..),
+    Types.mkGlacierJobDescription,
 
     -- ** Response lenses
-    gjdSHA256TreeHash,
-    gjdArchiveId,
-    gjdSelectParameters,
-    gjdJobId,
-    gjdJobOutputPath,
-    gjdRetrievalByteRange,
-    gjdInventoryRetrievalParameters,
-    gjdAction,
-    gjdJobDescription,
-    gjdSNSTopic,
-    gjdStatusMessage,
-    gjdVaultARN,
-    gjdOutputLocation,
-    gjdTier,
-    gjdArchiveSHA256TreeHash,
-    gjdCreationDate,
-    gjdCompleted,
-    gjdCompletionDate,
-    gjdInventorySizeInBytes,
-    gjdArchiveSizeInBytes,
-    gjdStatusCode,
+    Types.gjdAction,
+    Types.gjdArchiveId,
+    Types.gjdArchiveSHA256TreeHash,
+    Types.gjdArchiveSizeInBytes,
+    Types.gjdCompleted,
+    Types.gjdCompletionDate,
+    Types.gjdCreationDate,
+    Types.gjdInventoryRetrievalParameters,
+    Types.gjdInventorySizeInBytes,
+    Types.gjdJobDescription,
+    Types.gjdJobId,
+    Types.gjdJobOutputPath,
+    Types.gjdOutputLocation,
+    Types.gjdRetrievalByteRange,
+    Types.gjdSHA256TreeHash,
+    Types.gjdSNSTopic,
+    Types.gjdSelectParameters,
+    Types.gjdStatusCode,
+    Types.gjdStatusMessage,
+    Types.gjdTier,
+    Types.gjdVaultARN,
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options for retrieving a job description.
 --
 -- /See:/ 'mkDescribeJob' smart constructor.
 data DescribeJob = DescribeJob'
-  { -- | The ID of the job to describe.
-    jobId :: Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.AccountId,
     -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text
+    vaultName :: Types.VaultName,
+    -- | The ID of the job to describe.
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The ID of the job to describe.
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- | Creates a 'DescribeJob' value with any optional fields omitted.
 mkDescribeJob ::
-  -- | 'jobId'
-  Lude.Text ->
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
+  -- | 'vaultName'
+  Types.VaultName ->
+  -- | 'jobId'
+  Types.JobId ->
   DescribeJob
-mkDescribeJob pJobId_ pVaultName_ pAccountId_ =
-  DescribeJob'
-    { jobId = pJobId_,
-      vaultName = pVaultName_,
-      accountId = pAccountId_
-    }
-
--- | The ID of the job to describe.
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djJobId :: Lens.Lens' DescribeJob Lude.Text
-djJobId = Lens.lens (jobId :: DescribeJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeJob)
-{-# DEPRECATED djJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djVaultName :: Lens.Lens' DescribeJob Lude.Text
-djVaultName = Lens.lens (vaultName :: DescribeJob -> Lude.Text) (\s a -> s {vaultName = a} :: DescribeJob)
-{-# DEPRECATED djVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+mkDescribeJob accountId vaultName jobId =
+  DescribeJob' {accountId, vaultName, jobId}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djAccountId :: Lens.Lens' DescribeJob Lude.Text
-djAccountId = Lens.lens (accountId :: DescribeJob -> Lude.Text) (\s a -> s {accountId = a} :: DescribeJob)
+djAccountId :: Lens.Lens' DescribeJob Types.AccountId
+djAccountId = Lens.field @"accountId"
 {-# DEPRECATED djAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.AWSRequest DescribeJob where
-  type Rs DescribeJob = GlacierJobDescription
-  request = Req.get glacierService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djVaultName :: Lens.Lens' DescribeJob Types.VaultName
+djVaultName = Lens.field @"vaultName"
+{-# DEPRECATED djVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
-instance Lude.ToHeaders DescribeJob where
-  toHeaders = Lude.const Lude.mempty
+-- | The ID of the job to describe.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+djJobId :: Lens.Lens' DescribeJob Types.JobId
+djJobId = Lens.field @"jobId"
+{-# DEPRECATED djJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.ToPath DescribeJob where
-  toPath DescribeJob' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/jobs/",
-        Lude.toBS jobId
-      ]
-
-instance Lude.ToQuery DescribeJob where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DescribeJob where
+  type Rs DescribeJob = Types.GlacierJobDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/jobs/")
+                Core.<> (Core.toText jobId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

@@ -13,91 +13,96 @@
 module Network.AWS.AppStream.Types.StackAttribute
   ( StackAttribute
       ( StackAttribute',
-        SAStorageConnectors,
-        SAStorageConnectorHomefolders,
-        SAStorageConnectorGoogleDrive,
-        SAStorageConnectorOneDrive,
-        SARedirectURL,
-        SAFeedbackURL,
-        SAThemeName,
-        SAUserSettings,
-        SAEmbedHostDomains,
-        SAIAMRoleARN,
-        SAAccessEndpoints
+        StackAttributeStorageConnectors,
+        StackAttributeStorageConnectorHomefolders,
+        StackAttributeStorageConnectorGoogleDrive,
+        StackAttributeStorageConnectorOneDrive,
+        StackAttributeRedirectUrl,
+        StackAttributeFeedbackUrl,
+        StackAttributeThemeName,
+        StackAttributeUserSettings,
+        StackAttributeEmbedHostDomains,
+        StackAttributeIamRoleArn,
+        StackAttributeAccessEndpoints,
+        fromStackAttribute
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StackAttribute = StackAttribute' Lude.Text
+newtype StackAttribute = StackAttribute'
+  { fromStackAttribute ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SAStorageConnectors :: StackAttribute
-pattern SAStorageConnectors = StackAttribute' "STORAGE_CONNECTORS"
+pattern StackAttributeStorageConnectors :: StackAttribute
+pattern StackAttributeStorageConnectors = StackAttribute' "STORAGE_CONNECTORS"
 
-pattern SAStorageConnectorHomefolders :: StackAttribute
-pattern SAStorageConnectorHomefolders = StackAttribute' "STORAGE_CONNECTOR_HOMEFOLDERS"
+pattern StackAttributeStorageConnectorHomefolders :: StackAttribute
+pattern StackAttributeStorageConnectorHomefolders = StackAttribute' "STORAGE_CONNECTOR_HOMEFOLDERS"
 
-pattern SAStorageConnectorGoogleDrive :: StackAttribute
-pattern SAStorageConnectorGoogleDrive = StackAttribute' "STORAGE_CONNECTOR_GOOGLE_DRIVE"
+pattern StackAttributeStorageConnectorGoogleDrive :: StackAttribute
+pattern StackAttributeStorageConnectorGoogleDrive = StackAttribute' "STORAGE_CONNECTOR_GOOGLE_DRIVE"
 
-pattern SAStorageConnectorOneDrive :: StackAttribute
-pattern SAStorageConnectorOneDrive = StackAttribute' "STORAGE_CONNECTOR_ONE_DRIVE"
+pattern StackAttributeStorageConnectorOneDrive :: StackAttribute
+pattern StackAttributeStorageConnectorOneDrive = StackAttribute' "STORAGE_CONNECTOR_ONE_DRIVE"
 
-pattern SARedirectURL :: StackAttribute
-pattern SARedirectURL = StackAttribute' "REDIRECT_URL"
+pattern StackAttributeRedirectUrl :: StackAttribute
+pattern StackAttributeRedirectUrl = StackAttribute' "REDIRECT_URL"
 
-pattern SAFeedbackURL :: StackAttribute
-pattern SAFeedbackURL = StackAttribute' "FEEDBACK_URL"
+pattern StackAttributeFeedbackUrl :: StackAttribute
+pattern StackAttributeFeedbackUrl = StackAttribute' "FEEDBACK_URL"
 
-pattern SAThemeName :: StackAttribute
-pattern SAThemeName = StackAttribute' "THEME_NAME"
+pattern StackAttributeThemeName :: StackAttribute
+pattern StackAttributeThemeName = StackAttribute' "THEME_NAME"
 
-pattern SAUserSettings :: StackAttribute
-pattern SAUserSettings = StackAttribute' "USER_SETTINGS"
+pattern StackAttributeUserSettings :: StackAttribute
+pattern StackAttributeUserSettings = StackAttribute' "USER_SETTINGS"
 
-pattern SAEmbedHostDomains :: StackAttribute
-pattern SAEmbedHostDomains = StackAttribute' "EMBED_HOST_DOMAINS"
+pattern StackAttributeEmbedHostDomains :: StackAttribute
+pattern StackAttributeEmbedHostDomains = StackAttribute' "EMBED_HOST_DOMAINS"
 
-pattern SAIAMRoleARN :: StackAttribute
-pattern SAIAMRoleARN = StackAttribute' "IAM_ROLE_ARN"
+pattern StackAttributeIamRoleArn :: StackAttribute
+pattern StackAttributeIamRoleArn = StackAttribute' "IAM_ROLE_ARN"
 
-pattern SAAccessEndpoints :: StackAttribute
-pattern SAAccessEndpoints = StackAttribute' "ACCESS_ENDPOINTS"
+pattern StackAttributeAccessEndpoints :: StackAttribute
+pattern StackAttributeAccessEndpoints = StackAttribute' "ACCESS_ENDPOINTS"
 
 {-# COMPLETE
-  SAStorageConnectors,
-  SAStorageConnectorHomefolders,
-  SAStorageConnectorGoogleDrive,
-  SAStorageConnectorOneDrive,
-  SARedirectURL,
-  SAFeedbackURL,
-  SAThemeName,
-  SAUserSettings,
-  SAEmbedHostDomains,
-  SAIAMRoleARN,
-  SAAccessEndpoints,
+  StackAttributeStorageConnectors,
+  StackAttributeStorageConnectorHomefolders,
+  StackAttributeStorageConnectorGoogleDrive,
+  StackAttributeStorageConnectorOneDrive,
+  StackAttributeRedirectUrl,
+  StackAttributeFeedbackUrl,
+  StackAttributeThemeName,
+  StackAttributeUserSettings,
+  StackAttributeEmbedHostDomains,
+  StackAttributeIamRoleArn,
+  StackAttributeAccessEndpoints,
   StackAttribute'
   #-}

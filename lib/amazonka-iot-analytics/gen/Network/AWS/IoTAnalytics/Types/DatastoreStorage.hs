@@ -17,69 +17,64 @@ module Network.AWS.IoTAnalytics.Types.DatastoreStorage
     mkDatastoreStorage,
 
     -- * Lenses
-    dsServiceManagedS3,
     dsCustomerManagedS3,
+    dsServiceManagedS3,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage
-import Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage
+import qualified Network.AWS.IoTAnalytics.Types.CustomerManagedDatastoreS3Storage as Types
+import qualified Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3Storage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Where data store data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the data store is created.
 --
 -- /See:/ 'mkDatastoreStorage' smart constructor.
 data DatastoreStorage = DatastoreStorage'
-  { -- | Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the data store is created.
-    serviceManagedS3 :: Lude.Maybe ServiceManagedDatastoreS3Storage,
-    -- | Use this to store data store data in an S3 bucket that you manage. When customer managed storage is selected, the @retentionPeriod@ parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
-    customerManagedS3 :: Lude.Maybe CustomerManagedDatastoreS3Storage
+  { -- | Use this to store data store data in an S3 bucket that you manage. When customer managed storage is selected, the @retentionPeriod@ parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+    customerManagedS3 :: Core.Maybe Types.CustomerManagedDatastoreS3Storage,
+    -- | Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the data store is created.
+    serviceManagedS3 :: Core.Maybe Types.ServiceManagedDatastoreS3Storage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DatastoreStorage' with the minimum fields required to make a request.
---
--- * 'serviceManagedS3' - Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the data store is created.
--- * 'customerManagedS3' - Use this to store data store data in an S3 bucket that you manage. When customer managed storage is selected, the @retentionPeriod@ parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
+-- | Creates a 'DatastoreStorage' value with any optional fields omitted.
 mkDatastoreStorage ::
   DatastoreStorage
 mkDatastoreStorage =
   DatastoreStorage'
-    { serviceManagedS3 = Lude.Nothing,
-      customerManagedS3 = Lude.Nothing
+    { customerManagedS3 = Core.Nothing,
+      serviceManagedS3 = Core.Nothing
     }
-
--- | Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the data store is created.
---
--- /Note:/ Consider using 'serviceManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsServiceManagedS3 :: Lens.Lens' DatastoreStorage (Lude.Maybe ServiceManagedDatastoreS3Storage)
-dsServiceManagedS3 = Lens.lens (serviceManagedS3 :: DatastoreStorage -> Lude.Maybe ServiceManagedDatastoreS3Storage) (\s a -> s {serviceManagedS3 = a} :: DatastoreStorage)
-{-# DEPRECATED dsServiceManagedS3 "Use generic-lens or generic-optics with 'serviceManagedS3' instead." #-}
 
 -- | Use this to store data store data in an S3 bucket that you manage. When customer managed storage is selected, the @retentionPeriod@ parameter is ignored. The choice of service-managed or customer-managed S3 storage cannot be changed after creation of the data store.
 --
 -- /Note:/ Consider using 'customerManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsCustomerManagedS3 :: Lens.Lens' DatastoreStorage (Lude.Maybe CustomerManagedDatastoreS3Storage)
-dsCustomerManagedS3 = Lens.lens (customerManagedS3 :: DatastoreStorage -> Lude.Maybe CustomerManagedDatastoreS3Storage) (\s a -> s {customerManagedS3 = a} :: DatastoreStorage)
+dsCustomerManagedS3 :: Lens.Lens' DatastoreStorage (Core.Maybe Types.CustomerManagedDatastoreS3Storage)
+dsCustomerManagedS3 = Lens.field @"customerManagedS3"
 {-# DEPRECATED dsCustomerManagedS3 "Use generic-lens or generic-optics with 'customerManagedS3' instead." #-}
 
-instance Lude.FromJSON DatastoreStorage where
-  parseJSON =
-    Lude.withObject
-      "DatastoreStorage"
-      ( \x ->
-          DatastoreStorage'
-            Lude.<$> (x Lude..:? "serviceManagedS3")
-            Lude.<*> (x Lude..:? "customerManagedS3")
-      )
+-- | Use this to store data store data in an S3 bucket managed by AWS IoT Analytics. You cannot change the choice of service-managed or customer-managed S3 storage after the data store is created.
+--
+-- /Note:/ Consider using 'serviceManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsServiceManagedS3 :: Lens.Lens' DatastoreStorage (Core.Maybe Types.ServiceManagedDatastoreS3Storage)
+dsServiceManagedS3 = Lens.field @"serviceManagedS3"
+{-# DEPRECATED dsServiceManagedS3 "Use generic-lens or generic-optics with 'serviceManagedS3' instead." #-}
 
-instance Lude.ToJSON DatastoreStorage where
-  toJSON DatastoreStorage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("serviceManagedS3" Lude..=) Lude.<$> serviceManagedS3,
-            ("customerManagedS3" Lude..=) Lude.<$> customerManagedS3
+instance Core.FromJSON DatastoreStorage where
+  toJSON DatastoreStorage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("customerManagedS3" Core..=) Core.<$> customerManagedS3,
+            ("serviceManagedS3" Core..=) Core.<$> serviceManagedS3
           ]
       )
+
+instance Core.FromJSON DatastoreStorage where
+  parseJSON =
+    Core.withObject "DatastoreStorage" Core.$
+      \x ->
+        DatastoreStorage'
+          Core.<$> (x Core..:? "customerManagedS3")
+          Core.<*> (x Core..:? "serviceManagedS3")

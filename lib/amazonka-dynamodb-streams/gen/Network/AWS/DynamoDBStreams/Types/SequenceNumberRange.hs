@@ -17,58 +17,54 @@ module Network.AWS.DynamoDBStreams.Types.SequenceNumberRange
     mkSequenceNumberRange,
 
     -- * Lenses
-    snrStartingSequenceNumber,
     snrEndingSequenceNumber,
+    snrStartingSequenceNumber,
   )
 where
 
+import qualified Network.AWS.DynamoDBStreams.Types.SequenceNumber as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The beginning and ending sequence numbers for the stream records contained within a shard.
 --
 -- /See:/ 'mkSequenceNumberRange' smart constructor.
 data SequenceNumberRange = SequenceNumberRange'
-  { -- | The first sequence number for the stream records contained within a shard. String contains numeric characters only.
-    startingSequenceNumber :: Lude.Maybe Lude.Text,
-    -- | The last sequence number for the stream records contained within a shard. String contains numeric characters only.
-    endingSequenceNumber :: Lude.Maybe Lude.Text
+  { -- | The last sequence number for the stream records contained within a shard. String contains numeric characters only.
+    endingSequenceNumber :: Core.Maybe Types.SequenceNumber,
+    -- | The first sequence number for the stream records contained within a shard. String contains numeric characters only.
+    startingSequenceNumber :: Core.Maybe Types.SequenceNumber
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SequenceNumberRange' with the minimum fields required to make a request.
---
--- * 'startingSequenceNumber' - The first sequence number for the stream records contained within a shard. String contains numeric characters only.
--- * 'endingSequenceNumber' - The last sequence number for the stream records contained within a shard. String contains numeric characters only.
+-- | Creates a 'SequenceNumberRange' value with any optional fields omitted.
 mkSequenceNumberRange ::
   SequenceNumberRange
 mkSequenceNumberRange =
   SequenceNumberRange'
-    { startingSequenceNumber = Lude.Nothing,
-      endingSequenceNumber = Lude.Nothing
+    { endingSequenceNumber = Core.Nothing,
+      startingSequenceNumber = Core.Nothing
     }
-
--- | The first sequence number for the stream records contained within a shard. String contains numeric characters only.
---
--- /Note:/ Consider using 'startingSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-snrStartingSequenceNumber :: Lens.Lens' SequenceNumberRange (Lude.Maybe Lude.Text)
-snrStartingSequenceNumber = Lens.lens (startingSequenceNumber :: SequenceNumberRange -> Lude.Maybe Lude.Text) (\s a -> s {startingSequenceNumber = a} :: SequenceNumberRange)
-{-# DEPRECATED snrStartingSequenceNumber "Use generic-lens or generic-optics with 'startingSequenceNumber' instead." #-}
 
 -- | The last sequence number for the stream records contained within a shard. String contains numeric characters only.
 --
 -- /Note:/ Consider using 'endingSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-snrEndingSequenceNumber :: Lens.Lens' SequenceNumberRange (Lude.Maybe Lude.Text)
-snrEndingSequenceNumber = Lens.lens (endingSequenceNumber :: SequenceNumberRange -> Lude.Maybe Lude.Text) (\s a -> s {endingSequenceNumber = a} :: SequenceNumberRange)
+snrEndingSequenceNumber :: Lens.Lens' SequenceNumberRange (Core.Maybe Types.SequenceNumber)
+snrEndingSequenceNumber = Lens.field @"endingSequenceNumber"
 {-# DEPRECATED snrEndingSequenceNumber "Use generic-lens or generic-optics with 'endingSequenceNumber' instead." #-}
 
-instance Lude.FromJSON SequenceNumberRange where
+-- | The first sequence number for the stream records contained within a shard. String contains numeric characters only.
+--
+-- /Note:/ Consider using 'startingSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+snrStartingSequenceNumber :: Lens.Lens' SequenceNumberRange (Core.Maybe Types.SequenceNumber)
+snrStartingSequenceNumber = Lens.field @"startingSequenceNumber"
+{-# DEPRECATED snrStartingSequenceNumber "Use generic-lens or generic-optics with 'startingSequenceNumber' instead." #-}
+
+instance Core.FromJSON SequenceNumberRange where
   parseJSON =
-    Lude.withObject
-      "SequenceNumberRange"
-      ( \x ->
-          SequenceNumberRange'
-            Lude.<$> (x Lude..:? "StartingSequenceNumber")
-            Lude.<*> (x Lude..:? "EndingSequenceNumber")
-      )
+    Core.withObject "SequenceNumberRange" Core.$
+      \x ->
+        SequenceNumberRange'
+          Core.<$> (x Core..:? "EndingSequenceNumber")
+          Core.<*> (x Core..:? "StartingSequenceNumber")

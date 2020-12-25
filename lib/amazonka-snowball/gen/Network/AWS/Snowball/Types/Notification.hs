@@ -17,15 +17,16 @@ module Network.AWS.Snowball.Types.Notification
     mkNotification,
 
     -- * Lenses
-    nNotifyAll,
-    nSNSTopicARN,
     nJobStatesToNotify,
+    nNotifyAll,
+    nSnsTopicARN,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Snowball.Types.JobState
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Snowball.Types.JobState as Types
+import qualified Network.AWS.Snowball.Types.SnsTopicARN as Types
 
 -- | The Amazon Simple Notification Service (Amazon SNS) notification settings associated with a specific job. The @Notification@ object is returned as a part of the response syntax of the @DescribeJob@ action in the @JobMetadata@ data type.
 --
@@ -33,39 +34,40 @@ import Network.AWS.Snowball.Types.JobState
 --
 -- /See:/ 'mkNotification' smart constructor.
 data Notification = Notification'
-  { -- | Any change in job state will trigger a notification for this job.
-    notifyAll :: Lude.Maybe Lude.Bool,
+  { -- | The list of job states that will trigger a notification for this job.
+    jobStatesToNotify :: Core.Maybe [Types.JobState],
+    -- | Any change in job state will trigger a notification for this job.
+    notifyAll :: Core.Maybe Core.Bool,
     -- | The new SNS @TopicArn@ that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic> Amazon SNS API action.
     --
     -- You can subscribe email addresses to an Amazon SNS topic through the AWS Management Console, or by using the <https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe> AWS Simple Notification Service (SNS) API action.
-    snsTopicARN :: Lude.Maybe Lude.Text,
-    -- | The list of job states that will trigger a notification for this job.
-    jobStatesToNotify :: Lude.Maybe [JobState]
+    snsTopicARN :: Core.Maybe Types.SnsTopicARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Notification' with the minimum fields required to make a request.
---
--- * 'notifyAll' - Any change in job state will trigger a notification for this job.
--- * 'snsTopicARN' - The new SNS @TopicArn@ that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic> Amazon SNS API action.
---
--- You can subscribe email addresses to an Amazon SNS topic through the AWS Management Console, or by using the <https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe> AWS Simple Notification Service (SNS) API action.
--- * 'jobStatesToNotify' - The list of job states that will trigger a notification for this job.
+-- | Creates a 'Notification' value with any optional fields omitted.
 mkNotification ::
   Notification
 mkNotification =
   Notification'
-    { notifyAll = Lude.Nothing,
-      snsTopicARN = Lude.Nothing,
-      jobStatesToNotify = Lude.Nothing
+    { jobStatesToNotify = Core.Nothing,
+      notifyAll = Core.Nothing,
+      snsTopicARN = Core.Nothing
     }
+
+-- | The list of job states that will trigger a notification for this job.
+--
+-- /Note:/ Consider using 'jobStatesToNotify' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nJobStatesToNotify :: Lens.Lens' Notification (Core.Maybe [Types.JobState])
+nJobStatesToNotify = Lens.field @"jobStatesToNotify"
+{-# DEPRECATED nJobStatesToNotify "Use generic-lens or generic-optics with 'jobStatesToNotify' instead." #-}
 
 -- | Any change in job state will trigger a notification for this job.
 --
 -- /Note:/ Consider using 'notifyAll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nNotifyAll :: Lens.Lens' Notification (Lude.Maybe Lude.Bool)
-nNotifyAll = Lens.lens (notifyAll :: Notification -> Lude.Maybe Lude.Bool) (\s a -> s {notifyAll = a} :: Notification)
+nNotifyAll :: Lens.Lens' Notification (Core.Maybe Core.Bool)
+nNotifyAll = Lens.field @"notifyAll"
 {-# DEPRECATED nNotifyAll "Use generic-lens or generic-optics with 'notifyAll' instead." #-}
 
 -- | The new SNS @TopicArn@ that you want to associate with this job. You can create Amazon Resource Names (ARNs) for topics by using the <https://docs.aws.amazon.com/sns/latest/api/API_CreateTopic.html CreateTopic> Amazon SNS API action.
@@ -73,34 +75,25 @@ nNotifyAll = Lens.lens (notifyAll :: Notification -> Lude.Maybe Lude.Bool) (\s a
 -- You can subscribe email addresses to an Amazon SNS topic through the AWS Management Console, or by using the <https://docs.aws.amazon.com/sns/latest/api/API_Subscribe.html Subscribe> AWS Simple Notification Service (SNS) API action.
 --
 -- /Note:/ Consider using 'snsTopicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nSNSTopicARN :: Lens.Lens' Notification (Lude.Maybe Lude.Text)
-nSNSTopicARN = Lens.lens (snsTopicARN :: Notification -> Lude.Maybe Lude.Text) (\s a -> s {snsTopicARN = a} :: Notification)
-{-# DEPRECATED nSNSTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
+nSnsTopicARN :: Lens.Lens' Notification (Core.Maybe Types.SnsTopicARN)
+nSnsTopicARN = Lens.field @"snsTopicARN"
+{-# DEPRECATED nSnsTopicARN "Use generic-lens or generic-optics with 'snsTopicARN' instead." #-}
 
--- | The list of job states that will trigger a notification for this job.
---
--- /Note:/ Consider using 'jobStatesToNotify' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nJobStatesToNotify :: Lens.Lens' Notification (Lude.Maybe [JobState])
-nJobStatesToNotify = Lens.lens (jobStatesToNotify :: Notification -> Lude.Maybe [JobState]) (\s a -> s {jobStatesToNotify = a} :: Notification)
-{-# DEPRECATED nJobStatesToNotify "Use generic-lens or generic-optics with 'jobStatesToNotify' instead." #-}
-
-instance Lude.FromJSON Notification where
-  parseJSON =
-    Lude.withObject
-      "Notification"
-      ( \x ->
-          Notification'
-            Lude.<$> (x Lude..:? "NotifyAll")
-            Lude.<*> (x Lude..:? "SnsTopicARN")
-            Lude.<*> (x Lude..:? "JobStatesToNotify" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON Notification where
-  toJSON Notification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NotifyAll" Lude..=) Lude.<$> notifyAll,
-            ("SnsTopicARN" Lude..=) Lude.<$> snsTopicARN,
-            ("JobStatesToNotify" Lude..=) Lude.<$> jobStatesToNotify
+instance Core.FromJSON Notification where
+  toJSON Notification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("JobStatesToNotify" Core..=) Core.<$> jobStatesToNotify,
+            ("NotifyAll" Core..=) Core.<$> notifyAll,
+            ("SnsTopicARN" Core..=) Core.<$> snsTopicARN
           ]
       )
+
+instance Core.FromJSON Notification where
+  parseJSON =
+    Core.withObject "Notification" Core.$
+      \x ->
+        Notification'
+          Core.<$> (x Core..:? "JobStatesToNotify")
+          Core.<*> (x Core..:? "NotifyAll")
+          Core.<*> (x Core..:? "SnsTopicARN")

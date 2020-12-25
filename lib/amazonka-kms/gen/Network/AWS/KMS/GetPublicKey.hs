@@ -43,21 +43,21 @@ module Network.AWS.KMS.GetPublicKey
     mkGetPublicKeyResponse,
 
     -- ** Response lenses
-    gpkrsKeyId,
-    gpkrsCustomerMasterKeySpec,
-    gpkrsEncryptionAlgorithms,
-    gpkrsPublicKey,
-    gpkrsSigningAlgorithms,
-    gpkrsKeyUsage,
-    gpkrsResponseStatus,
+    gpkrrsCustomerMasterKeySpec,
+    gpkrrsEncryptionAlgorithms,
+    gpkrrsKeyId,
+    gpkrrsKeyUsage,
+    gpkrrsPublicKey,
+    gpkrrsSigningAlgorithms,
+    gpkrrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPublicKey' smart constructor.
 data GetPublicKey = GetPublicKey'
@@ -79,44 +79,22 @@ data GetPublicKey = GetPublicKey'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
-    keyId :: Lude.Text,
+    keyId :: Types.KeyIdType,
     -- | A list of grant tokens.
     --
     -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
-    grantTokens :: Lude.Maybe [Lude.Text]
+    grantTokens :: Core.Maybe [Types.GrantTokenType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPublicKey' with the minimum fields required to make a request.
---
--- * 'keyId' - Identifies the asymmetric CMK that includes the public key.
---
--- To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. When using an alias name, prefix it with @"alias/"@ . To specify a CMK in a different AWS account, you must use the key ARN or alias ARN.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Alias name: @alias/ExampleAlias@
---
---
---     * Alias ARN: @arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
--- * 'grantTokens' - A list of grant tokens.
---
--- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
+-- | Creates a 'GetPublicKey' value with any optional fields omitted.
 mkGetPublicKey ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyIdType ->
   GetPublicKey
-mkGetPublicKey pKeyId_ =
-  GetPublicKey' {keyId = pKeyId_, grantTokens = Lude.Nothing}
+mkGetPublicKey keyId =
+  GetPublicKey' {keyId, grantTokens = Core.Nothing}
 
 -- | Identifies the asymmetric CMK that includes the public key.
 --
@@ -138,8 +116,8 @@ mkGetPublicKey pKeyId_ =
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' . To get the alias name and alias ARN, use 'ListAliases' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpkKeyId :: Lens.Lens' GetPublicKey Lude.Text
-gpkKeyId = Lens.lens (keyId :: GetPublicKey -> Lude.Text) (\s a -> s {keyId = a} :: GetPublicKey)
+gpkKeyId :: Lens.Lens' GetPublicKey Types.KeyIdType
+gpkKeyId = Lens.field @"keyId"
 {-# DEPRECATED gpkKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | A list of grant tokens.
@@ -147,128 +125,96 @@ gpkKeyId = Lens.lens (keyId :: GetPublicKey -> Lude.Text) (\s a -> s {keyId = a}
 -- For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens> in the /AWS Key Management Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'grantTokens' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpkGrantTokens :: Lens.Lens' GetPublicKey (Lude.Maybe [Lude.Text])
-gpkGrantTokens = Lens.lens (grantTokens :: GetPublicKey -> Lude.Maybe [Lude.Text]) (\s a -> s {grantTokens = a} :: GetPublicKey)
+gpkGrantTokens :: Lens.Lens' GetPublicKey (Core.Maybe [Types.GrantTokenType])
+gpkGrantTokens = Lens.field @"grantTokens"
 {-# DEPRECATED gpkGrantTokens "Use generic-lens or generic-optics with 'grantTokens' instead." #-}
 
-instance Lude.AWSRequest GetPublicKey where
+instance Core.FromJSON GetPublicKey where
+  toJSON GetPublicKey {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            ("GrantTokens" Core..=) Core.<$> grantTokens
+          ]
+      )
+
+instance Core.AWSRequest GetPublicKey where
   type Rs GetPublicKey = GetPublicKeyResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.GetPublicKey")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPublicKeyResponse'
-            Lude.<$> (x Lude..?> "KeyId")
-            Lude.<*> (x Lude..?> "CustomerMasterKeySpec")
-            Lude.<*> (x Lude..?> "EncryptionAlgorithms" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "PublicKey")
-            Lude.<*> (x Lude..?> "SigningAlgorithms" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "KeyUsage")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CustomerMasterKeySpec")
+            Core.<*> (x Core..:? "EncryptionAlgorithms")
+            Core.<*> (x Core..:? "KeyId")
+            Core.<*> (x Core..:? "KeyUsage")
+            Core.<*> (x Core..:? "PublicKey")
+            Core.<*> (x Core..:? "SigningAlgorithms")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPublicKey where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.GetPublicKey" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPublicKey where
-  toJSON GetPublicKey' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("KeyId" Lude..= keyId),
-            ("GrantTokens" Lude..=) Lude.<$> grantTokens
-          ]
-      )
-
-instance Lude.ToPath GetPublicKey where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPublicKey where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetPublicKeyResponse' smart constructor.
 data GetPublicKeyResponse = GetPublicKeyResponse'
-  { -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK from which the public key was downloaded.
-    keyId :: Lude.Maybe Lude.Text,
-    -- | The type of the of the public key that was downloaded.
-    customerMasterKeySpec :: Lude.Maybe CustomerMasterKeySpec,
+  { -- | The type of the of the public key that was downloaded.
+    customerMasterKeySpec :: Core.Maybe Types.CustomerMasterKeySpec,
     -- | The encryption algorithms that AWS KMS supports for this key.
     --
     -- This information is critical. If a public key encrypts data outside of AWS KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.
     -- This field appears in the response only when the @KeyUsage@ of the public key is @ENCRYPT_DECRYPT@ .
-    encryptionAlgorithms :: Lude.Maybe [EncryptionAlgorithmSpec],
-    -- | The exported public key.
-    --
-    -- The value is a DER-encoded X.509 public key, also known as @SubjectPublicKeyInfo@ (SPKI), as defined in <https://tools.ietf.org/html/rfc5280 RFC 5280> . When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
-    publicKey :: Lude.Maybe Lude.Base64,
-    -- | The signing algorithms that AWS KMS supports for this key.
-    --
-    -- This field appears in the response only when the @KeyUsage@ of the public key is @SIGN_VERIFY@ .
-    signingAlgorithms :: Lude.Maybe [SigningAlgorithmSpec],
+    encryptionAlgorithms :: Core.Maybe [Types.EncryptionAlgorithmSpec],
+    -- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK from which the public key was downloaded.
+    keyId :: Core.Maybe Types.KeyId,
     -- | The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@ .
     --
     -- This information is critical. If a public key with @SIGN_VERIFY@ key usage encrypts data outside of AWS KMS, the ciphertext cannot be decrypted.
-    keyUsage :: Lude.Maybe KeyUsageType,
+    keyUsage :: Core.Maybe Types.KeyUsageType,
+    -- | The exported public key.
+    --
+    -- The value is a DER-encoded X.509 public key, also known as @SubjectPublicKeyInfo@ (SPKI), as defined in <https://tools.ietf.org/html/rfc5280 RFC 5280> . When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
+    publicKey :: Core.Maybe Core.Base64,
+    -- | The signing algorithms that AWS KMS supports for this key.
+    --
+    -- This field appears in the response only when the @KeyUsage@ of the public key is @SIGN_VERIFY@ .
+    signingAlgorithms :: Core.Maybe [Types.SigningAlgorithmSpec],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPublicKeyResponse' with the minimum fields required to make a request.
---
--- * 'keyId' - The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK from which the public key was downloaded.
--- * 'customerMasterKeySpec' - The type of the of the public key that was downloaded.
--- * 'encryptionAlgorithms' - The encryption algorithms that AWS KMS supports for this key.
---
--- This information is critical. If a public key encrypts data outside of AWS KMS by using an unsupported encryption algorithm, the ciphertext cannot be decrypted.
--- This field appears in the response only when the @KeyUsage@ of the public key is @ENCRYPT_DECRYPT@ .
--- * 'publicKey' - The exported public key.
---
--- The value is a DER-encoded X.509 public key, also known as @SubjectPublicKeyInfo@ (SPKI), as defined in <https://tools.ietf.org/html/rfc5280 RFC 5280> . When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.
---
--- * 'signingAlgorithms' - The signing algorithms that AWS KMS supports for this key.
---
--- This field appears in the response only when the @KeyUsage@ of the public key is @SIGN_VERIFY@ .
--- * 'keyUsage' - The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@ .
---
--- This information is critical. If a public key with @SIGN_VERIFY@ key usage encrypts data outside of AWS KMS, the ciphertext cannot be decrypted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPublicKeyResponse' value with any optional fields omitted.
 mkGetPublicKeyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPublicKeyResponse
-mkGetPublicKeyResponse pResponseStatus_ =
+mkGetPublicKeyResponse responseStatus =
   GetPublicKeyResponse'
-    { keyId = Lude.Nothing,
-      customerMasterKeySpec = Lude.Nothing,
-      encryptionAlgorithms = Lude.Nothing,
-      publicKey = Lude.Nothing,
-      signingAlgorithms = Lude.Nothing,
-      keyUsage = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { customerMasterKeySpec = Core.Nothing,
+      encryptionAlgorithms = Core.Nothing,
+      keyId = Core.Nothing,
+      keyUsage = Core.Nothing,
+      publicKey = Core.Nothing,
+      signingAlgorithms = Core.Nothing,
+      responseStatus
     }
-
--- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK from which the public key was downloaded.
---
--- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpkrsKeyId :: Lens.Lens' GetPublicKeyResponse (Lude.Maybe Lude.Text)
-gpkrsKeyId = Lens.lens (keyId :: GetPublicKeyResponse -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: GetPublicKeyResponse)
-{-# DEPRECATED gpkrsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The type of the of the public key that was downloaded.
 --
 -- /Note:/ Consider using 'customerMasterKeySpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpkrsCustomerMasterKeySpec :: Lens.Lens' GetPublicKeyResponse (Lude.Maybe CustomerMasterKeySpec)
-gpkrsCustomerMasterKeySpec = Lens.lens (customerMasterKeySpec :: GetPublicKeyResponse -> Lude.Maybe CustomerMasterKeySpec) (\s a -> s {customerMasterKeySpec = a} :: GetPublicKeyResponse)
-{-# DEPRECATED gpkrsCustomerMasterKeySpec "Use generic-lens or generic-optics with 'customerMasterKeySpec' instead." #-}
+gpkrrsCustomerMasterKeySpec :: Lens.Lens' GetPublicKeyResponse (Core.Maybe Types.CustomerMasterKeySpec)
+gpkrrsCustomerMasterKeySpec = Lens.field @"customerMasterKeySpec"
+{-# DEPRECATED gpkrrsCustomerMasterKeySpec "Use generic-lens or generic-optics with 'customerMasterKeySpec' instead." #-}
 
 -- | The encryption algorithms that AWS KMS supports for this key.
 --
@@ -276,9 +222,25 @@ gpkrsCustomerMasterKeySpec = Lens.lens (customerMasterKeySpec :: GetPublicKeyRes
 -- This field appears in the response only when the @KeyUsage@ of the public key is @ENCRYPT_DECRYPT@ .
 --
 -- /Note:/ Consider using 'encryptionAlgorithms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpkrsEncryptionAlgorithms :: Lens.Lens' GetPublicKeyResponse (Lude.Maybe [EncryptionAlgorithmSpec])
-gpkrsEncryptionAlgorithms = Lens.lens (encryptionAlgorithms :: GetPublicKeyResponse -> Lude.Maybe [EncryptionAlgorithmSpec]) (\s a -> s {encryptionAlgorithms = a} :: GetPublicKeyResponse)
-{-# DEPRECATED gpkrsEncryptionAlgorithms "Use generic-lens or generic-optics with 'encryptionAlgorithms' instead." #-}
+gpkrrsEncryptionAlgorithms :: Lens.Lens' GetPublicKeyResponse (Core.Maybe [Types.EncryptionAlgorithmSpec])
+gpkrrsEncryptionAlgorithms = Lens.field @"encryptionAlgorithms"
+{-# DEPRECATED gpkrrsEncryptionAlgorithms "Use generic-lens or generic-optics with 'encryptionAlgorithms' instead." #-}
+
+-- | The Amazon Resource Name (<https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN key ARN> ) of the asymmetric CMK from which the public key was downloaded.
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpkrrsKeyId :: Lens.Lens' GetPublicKeyResponse (Core.Maybe Types.KeyId)
+gpkrrsKeyId = Lens.field @"keyId"
+{-# DEPRECATED gpkrrsKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
+
+-- | The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@ .
+--
+-- This information is critical. If a public key with @SIGN_VERIFY@ key usage encrypts data outside of AWS KMS, the ciphertext cannot be decrypted.
+--
+-- /Note:/ Consider using 'keyUsage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpkrrsKeyUsage :: Lens.Lens' GetPublicKeyResponse (Core.Maybe Types.KeyUsageType)
+gpkrrsKeyUsage = Lens.field @"keyUsage"
+{-# DEPRECATED gpkrrsKeyUsage "Use generic-lens or generic-optics with 'keyUsage' instead." #-}
 
 -- | The exported public key.
 --
@@ -291,31 +253,22 @@ gpkrsEncryptionAlgorithms = Lens.lens (encryptionAlgorithms :: GetPublicKeyRespo
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'publicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpkrsPublicKey :: Lens.Lens' GetPublicKeyResponse (Lude.Maybe Lude.Base64)
-gpkrsPublicKey = Lens.lens (publicKey :: GetPublicKeyResponse -> Lude.Maybe Lude.Base64) (\s a -> s {publicKey = a} :: GetPublicKeyResponse)
-{-# DEPRECATED gpkrsPublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
+gpkrrsPublicKey :: Lens.Lens' GetPublicKeyResponse (Core.Maybe Core.Base64)
+gpkrrsPublicKey = Lens.field @"publicKey"
+{-# DEPRECATED gpkrrsPublicKey "Use generic-lens or generic-optics with 'publicKey' instead." #-}
 
 -- | The signing algorithms that AWS KMS supports for this key.
 --
 -- This field appears in the response only when the @KeyUsage@ of the public key is @SIGN_VERIFY@ .
 --
 -- /Note:/ Consider using 'signingAlgorithms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpkrsSigningAlgorithms :: Lens.Lens' GetPublicKeyResponse (Lude.Maybe [SigningAlgorithmSpec])
-gpkrsSigningAlgorithms = Lens.lens (signingAlgorithms :: GetPublicKeyResponse -> Lude.Maybe [SigningAlgorithmSpec]) (\s a -> s {signingAlgorithms = a} :: GetPublicKeyResponse)
-{-# DEPRECATED gpkrsSigningAlgorithms "Use generic-lens or generic-optics with 'signingAlgorithms' instead." #-}
-
--- | The permitted use of the public key. Valid values are @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@ .
---
--- This information is critical. If a public key with @SIGN_VERIFY@ key usage encrypts data outside of AWS KMS, the ciphertext cannot be decrypted.
---
--- /Note:/ Consider using 'keyUsage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpkrsKeyUsage :: Lens.Lens' GetPublicKeyResponse (Lude.Maybe KeyUsageType)
-gpkrsKeyUsage = Lens.lens (keyUsage :: GetPublicKeyResponse -> Lude.Maybe KeyUsageType) (\s a -> s {keyUsage = a} :: GetPublicKeyResponse)
-{-# DEPRECATED gpkrsKeyUsage "Use generic-lens or generic-optics with 'keyUsage' instead." #-}
+gpkrrsSigningAlgorithms :: Lens.Lens' GetPublicKeyResponse (Core.Maybe [Types.SigningAlgorithmSpec])
+gpkrrsSigningAlgorithms = Lens.field @"signingAlgorithms"
+{-# DEPRECATED gpkrrsSigningAlgorithms "Use generic-lens or generic-optics with 'signingAlgorithms' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpkrsResponseStatus :: Lens.Lens' GetPublicKeyResponse Lude.Int
-gpkrsResponseStatus = Lens.lens (responseStatus :: GetPublicKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPublicKeyResponse)
-{-# DEPRECATED gpkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gpkrrsResponseStatus :: Lens.Lens' GetPublicKeyResponse Core.Int
+gpkrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gpkrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.MigrationHub
     Network.AWS.MigrationHub.AssociateCreatedArtifact
@@ -88,17 +94,30 @@ library
     Network.AWS.MigrationHub.Waiters
 
   other-modules:
+    Network.AWS.MigrationHub.Types.ApplicationId
     Network.AWS.MigrationHub.Types.ApplicationState
     Network.AWS.MigrationHub.Types.ApplicationStatus
+    Network.AWS.MigrationHub.Types.ConfigurationId
     Network.AWS.MigrationHub.Types.CreatedArtifact
+    Network.AWS.MigrationHub.Types.CreatedArtifactName
+    Network.AWS.MigrationHub.Types.Description
     Network.AWS.MigrationHub.Types.DiscoveredResource
     Network.AWS.MigrationHub.Types.MigrationStatus
     Network.AWS.MigrationHub.Types.MigrationTask
+    Network.AWS.MigrationHub.Types.MigrationTaskName
     Network.AWS.MigrationHub.Types.MigrationTaskSummary
+    Network.AWS.MigrationHub.Types.Name
+    Network.AWS.MigrationHub.Types.NextToken
+    Network.AWS.MigrationHub.Types.ProgressUpdateStream
+    Network.AWS.MigrationHub.Types.ProgressUpdateStreamName
     Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary
     Network.AWS.MigrationHub.Types.ResourceAttribute
     Network.AWS.MigrationHub.Types.ResourceAttributeType
+    Network.AWS.MigrationHub.Types.ResourceName
+    Network.AWS.MigrationHub.Types.StatusDetail
     Network.AWS.MigrationHub.Types.Task
+    Network.AWS.MigrationHub.Types.Token
+    Network.AWS.MigrationHub.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

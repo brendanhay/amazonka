@@ -17,285 +17,271 @@ module Network.AWS.SMS.Types.AppSummary
     mkAppSummary,
 
     -- * Lenses
-    asCreationTime,
-    asTotalServers,
-    asStatus,
-    asLaunchDetails,
-    asLaunchStatusMessage,
-    asReplicationConfigurationStatus,
-    asReplicationStatusMessage,
-    asTotalServerGroups,
-    asRoleName,
-    asLaunchConfigurationStatus,
-    asLaunchStatus,
     asAppId,
-    asName,
-    asStatusMessage,
-    asLatestReplicationTime,
-    asImportedAppId,
-    asReplicationStatus,
-    asLastModified,
+    asCreationTime,
     asDescription,
+    asImportedAppId,
+    asLastModified,
+    asLatestReplicationTime,
+    asLaunchConfigurationStatus,
+    asLaunchDetails,
+    asLaunchStatus,
+    asLaunchStatusMessage,
+    asName,
+    asReplicationConfigurationStatus,
+    asReplicationStatus,
+    asReplicationStatusMessage,
+    asRoleName,
+    asStatus,
+    asStatusMessage,
+    asTotalServerGroups,
+    asTotalServers,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.AppLaunchConfigurationStatus
-import Network.AWS.SMS.Types.AppLaunchStatus
-import Network.AWS.SMS.Types.AppReplicationConfigurationStatus
-import Network.AWS.SMS.Types.AppReplicationStatus
-import Network.AWS.SMS.Types.AppStatus
-import Network.AWS.SMS.Types.LaunchDetails
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.AppDescription as Types
+import qualified Network.AWS.SMS.Types.AppId as Types
+import qualified Network.AWS.SMS.Types.AppLaunchConfigurationStatus as Types
+import qualified Network.AWS.SMS.Types.AppLaunchStatus as Types
+import qualified Network.AWS.SMS.Types.AppName as Types
+import qualified Network.AWS.SMS.Types.AppReplicationConfigurationStatus as Types
+import qualified Network.AWS.SMS.Types.AppReplicationStatus as Types
+import qualified Network.AWS.SMS.Types.AppReplicationStatusMessage as Types
+import qualified Network.AWS.SMS.Types.AppStatus as Types
+import qualified Network.AWS.SMS.Types.ImportedAppId as Types
+import qualified Network.AWS.SMS.Types.LaunchDetails as Types
+import qualified Network.AWS.SMS.Types.LaunchStatusMessage as Types
+import qualified Network.AWS.SMS.Types.RoleName as Types
+import qualified Network.AWS.SMS.Types.StatusMessage as Types
 
 -- | Information about the application.
 --
 -- /See:/ 'mkAppSummary' smart constructor.
 data AppSummary = AppSummary'
-  { -- | The creation time of the application.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The number of servers present in the application.
-    totalServers :: Lude.Maybe Lude.Int,
-    -- | Status of the application.
-    status :: Lude.Maybe AppStatus,
-    -- | Details about the latest launch of the application.
-    launchDetails :: Lude.Maybe LaunchDetails,
-    -- | A message related to the launch status of the application.
-    launchStatusMessage :: Lude.Maybe Lude.Text,
-    -- | Status of the replication configuration.
-    replicationConfigurationStatus :: Lude.Maybe AppReplicationConfigurationStatus,
-    -- | A message related to the replication status of the application.
-    replicationStatusMessage :: Lude.Maybe Lude.Text,
-    -- | The number of server groups present in the application.
-    totalServerGroups :: Lude.Maybe Lude.Int,
-    -- | The name of the service role in the customer's account used by AWS SMS.
-    roleName :: Lude.Maybe Lude.Text,
-    -- | Status of the launch configuration.
-    launchConfigurationStatus :: Lude.Maybe AppLaunchConfigurationStatus,
-    -- | The launch status of the application.
-    launchStatus :: Lude.Maybe AppLaunchStatus,
-    -- | The unique ID of the application.
-    appId :: Lude.Maybe Lude.Text,
-    -- | The name of the application.
-    name :: Lude.Maybe Lude.Text,
-    -- | A message related to the status of the application
-    statusMessage :: Lude.Maybe Lude.Text,
-    -- | The timestamp of the application's most recent successful replication.
-    latestReplicationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The ID of the application.
-    importedAppId :: Lude.Maybe Lude.Text,
-    -- | The replication status of the application.
-    replicationStatus :: Lude.Maybe AppReplicationStatus,
-    -- | The last modified time of the application.
-    lastModified :: Lude.Maybe Lude.Timestamp,
+  { -- | The unique ID of the application.
+    appId :: Core.Maybe Types.AppId,
+    -- | The creation time of the application.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The description of the application.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.AppDescription,
+    -- | The ID of the application.
+    importedAppId :: Core.Maybe Types.ImportedAppId,
+    -- | The last modified time of the application.
+    lastModified :: Core.Maybe Core.NominalDiffTime,
+    -- | The timestamp of the application's most recent successful replication.
+    latestReplicationTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Status of the launch configuration.
+    launchConfigurationStatus :: Core.Maybe Types.AppLaunchConfigurationStatus,
+    -- | Details about the latest launch of the application.
+    launchDetails :: Core.Maybe Types.LaunchDetails,
+    -- | The launch status of the application.
+    launchStatus :: Core.Maybe Types.AppLaunchStatus,
+    -- | A message related to the launch status of the application.
+    launchStatusMessage :: Core.Maybe Types.LaunchStatusMessage,
+    -- | The name of the application.
+    name :: Core.Maybe Types.AppName,
+    -- | Status of the replication configuration.
+    replicationConfigurationStatus :: Core.Maybe Types.AppReplicationConfigurationStatus,
+    -- | The replication status of the application.
+    replicationStatus :: Core.Maybe Types.AppReplicationStatus,
+    -- | A message related to the replication status of the application.
+    replicationStatusMessage :: Core.Maybe Types.AppReplicationStatusMessage,
+    -- | The name of the service role in the customer's account used by AWS SMS.
+    roleName :: Core.Maybe Types.RoleName,
+    -- | Status of the application.
+    status :: Core.Maybe Types.AppStatus,
+    -- | A message related to the status of the application
+    statusMessage :: Core.Maybe Types.StatusMessage,
+    -- | The number of server groups present in the application.
+    totalServerGroups :: Core.Maybe Core.Int,
+    -- | The number of servers present in the application.
+    totalServers :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AppSummary' with the minimum fields required to make a request.
---
--- * 'creationTime' - The creation time of the application.
--- * 'totalServers' - The number of servers present in the application.
--- * 'status' - Status of the application.
--- * 'launchDetails' - Details about the latest launch of the application.
--- * 'launchStatusMessage' - A message related to the launch status of the application.
--- * 'replicationConfigurationStatus' - Status of the replication configuration.
--- * 'replicationStatusMessage' - A message related to the replication status of the application.
--- * 'totalServerGroups' - The number of server groups present in the application.
--- * 'roleName' - The name of the service role in the customer's account used by AWS SMS.
--- * 'launchConfigurationStatus' - Status of the launch configuration.
--- * 'launchStatus' - The launch status of the application.
--- * 'appId' - The unique ID of the application.
--- * 'name' - The name of the application.
--- * 'statusMessage' - A message related to the status of the application
--- * 'latestReplicationTime' - The timestamp of the application's most recent successful replication.
--- * 'importedAppId' - The ID of the application.
--- * 'replicationStatus' - The replication status of the application.
--- * 'lastModified' - The last modified time of the application.
--- * 'description' - The description of the application.
+-- | Creates a 'AppSummary' value with any optional fields omitted.
 mkAppSummary ::
   AppSummary
 mkAppSummary =
   AppSummary'
-    { creationTime = Lude.Nothing,
-      totalServers = Lude.Nothing,
-      status = Lude.Nothing,
-      launchDetails = Lude.Nothing,
-      launchStatusMessage = Lude.Nothing,
-      replicationConfigurationStatus = Lude.Nothing,
-      replicationStatusMessage = Lude.Nothing,
-      totalServerGroups = Lude.Nothing,
-      roleName = Lude.Nothing,
-      launchConfigurationStatus = Lude.Nothing,
-      launchStatus = Lude.Nothing,
-      appId = Lude.Nothing,
-      name = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      latestReplicationTime = Lude.Nothing,
-      importedAppId = Lude.Nothing,
-      replicationStatus = Lude.Nothing,
-      lastModified = Lude.Nothing,
-      description = Lude.Nothing
+    { appId = Core.Nothing,
+      creationTime = Core.Nothing,
+      description = Core.Nothing,
+      importedAppId = Core.Nothing,
+      lastModified = Core.Nothing,
+      latestReplicationTime = Core.Nothing,
+      launchConfigurationStatus = Core.Nothing,
+      launchDetails = Core.Nothing,
+      launchStatus = Core.Nothing,
+      launchStatusMessage = Core.Nothing,
+      name = Core.Nothing,
+      replicationConfigurationStatus = Core.Nothing,
+      replicationStatus = Core.Nothing,
+      replicationStatusMessage = Core.Nothing,
+      roleName = Core.Nothing,
+      status = Core.Nothing,
+      statusMessage = Core.Nothing,
+      totalServerGroups = Core.Nothing,
+      totalServers = Core.Nothing
     }
-
--- | The creation time of the application.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asCreationTime :: Lens.Lens' AppSummary (Lude.Maybe Lude.Timestamp)
-asCreationTime = Lens.lens (creationTime :: AppSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: AppSummary)
-{-# DEPRECATED asCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The number of servers present in the application.
---
--- /Note:/ Consider using 'totalServers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asTotalServers :: Lens.Lens' AppSummary (Lude.Maybe Lude.Int)
-asTotalServers = Lens.lens (totalServers :: AppSummary -> Lude.Maybe Lude.Int) (\s a -> s {totalServers = a} :: AppSummary)
-{-# DEPRECATED asTotalServers "Use generic-lens or generic-optics with 'totalServers' instead." #-}
-
--- | Status of the application.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asStatus :: Lens.Lens' AppSummary (Lude.Maybe AppStatus)
-asStatus = Lens.lens (status :: AppSummary -> Lude.Maybe AppStatus) (\s a -> s {status = a} :: AppSummary)
-{-# DEPRECATED asStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Details about the latest launch of the application.
---
--- /Note:/ Consider using 'launchDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asLaunchDetails :: Lens.Lens' AppSummary (Lude.Maybe LaunchDetails)
-asLaunchDetails = Lens.lens (launchDetails :: AppSummary -> Lude.Maybe LaunchDetails) (\s a -> s {launchDetails = a} :: AppSummary)
-{-# DEPRECATED asLaunchDetails "Use generic-lens or generic-optics with 'launchDetails' instead." #-}
-
--- | A message related to the launch status of the application.
---
--- /Note:/ Consider using 'launchStatusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asLaunchStatusMessage :: Lens.Lens' AppSummary (Lude.Maybe Lude.Text)
-asLaunchStatusMessage = Lens.lens (launchStatusMessage :: AppSummary -> Lude.Maybe Lude.Text) (\s a -> s {launchStatusMessage = a} :: AppSummary)
-{-# DEPRECATED asLaunchStatusMessage "Use generic-lens or generic-optics with 'launchStatusMessage' instead." #-}
-
--- | Status of the replication configuration.
---
--- /Note:/ Consider using 'replicationConfigurationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asReplicationConfigurationStatus :: Lens.Lens' AppSummary (Lude.Maybe AppReplicationConfigurationStatus)
-asReplicationConfigurationStatus = Lens.lens (replicationConfigurationStatus :: AppSummary -> Lude.Maybe AppReplicationConfigurationStatus) (\s a -> s {replicationConfigurationStatus = a} :: AppSummary)
-{-# DEPRECATED asReplicationConfigurationStatus "Use generic-lens or generic-optics with 'replicationConfigurationStatus' instead." #-}
-
--- | A message related to the replication status of the application.
---
--- /Note:/ Consider using 'replicationStatusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asReplicationStatusMessage :: Lens.Lens' AppSummary (Lude.Maybe Lude.Text)
-asReplicationStatusMessage = Lens.lens (replicationStatusMessage :: AppSummary -> Lude.Maybe Lude.Text) (\s a -> s {replicationStatusMessage = a} :: AppSummary)
-{-# DEPRECATED asReplicationStatusMessage "Use generic-lens or generic-optics with 'replicationStatusMessage' instead." #-}
-
--- | The number of server groups present in the application.
---
--- /Note:/ Consider using 'totalServerGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asTotalServerGroups :: Lens.Lens' AppSummary (Lude.Maybe Lude.Int)
-asTotalServerGroups = Lens.lens (totalServerGroups :: AppSummary -> Lude.Maybe Lude.Int) (\s a -> s {totalServerGroups = a} :: AppSummary)
-{-# DEPRECATED asTotalServerGroups "Use generic-lens or generic-optics with 'totalServerGroups' instead." #-}
-
--- | The name of the service role in the customer's account used by AWS SMS.
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asRoleName :: Lens.Lens' AppSummary (Lude.Maybe Lude.Text)
-asRoleName = Lens.lens (roleName :: AppSummary -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: AppSummary)
-{-# DEPRECATED asRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
-
--- | Status of the launch configuration.
---
--- /Note:/ Consider using 'launchConfigurationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asLaunchConfigurationStatus :: Lens.Lens' AppSummary (Lude.Maybe AppLaunchConfigurationStatus)
-asLaunchConfigurationStatus = Lens.lens (launchConfigurationStatus :: AppSummary -> Lude.Maybe AppLaunchConfigurationStatus) (\s a -> s {launchConfigurationStatus = a} :: AppSummary)
-{-# DEPRECATED asLaunchConfigurationStatus "Use generic-lens or generic-optics with 'launchConfigurationStatus' instead." #-}
-
--- | The launch status of the application.
---
--- /Note:/ Consider using 'launchStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asLaunchStatus :: Lens.Lens' AppSummary (Lude.Maybe AppLaunchStatus)
-asLaunchStatus = Lens.lens (launchStatus :: AppSummary -> Lude.Maybe AppLaunchStatus) (\s a -> s {launchStatus = a} :: AppSummary)
-{-# DEPRECATED asLaunchStatus "Use generic-lens or generic-optics with 'launchStatus' instead." #-}
 
 -- | The unique ID of the application.
 --
 -- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asAppId :: Lens.Lens' AppSummary (Lude.Maybe Lude.Text)
-asAppId = Lens.lens (appId :: AppSummary -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: AppSummary)
+asAppId :: Lens.Lens' AppSummary (Core.Maybe Types.AppId)
+asAppId = Lens.field @"appId"
 {-# DEPRECATED asAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
--- | The name of the application.
+-- | The creation time of the application.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asName :: Lens.Lens' AppSummary (Lude.Maybe Lude.Text)
-asName = Lens.lens (name :: AppSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AppSummary)
-{-# DEPRECATED asName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A message related to the status of the application
---
--- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asStatusMessage :: Lens.Lens' AppSummary (Lude.Maybe Lude.Text)
-asStatusMessage = Lens.lens (statusMessage :: AppSummary -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: AppSummary)
-{-# DEPRECATED asStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
-
--- | The timestamp of the application's most recent successful replication.
---
--- /Note:/ Consider using 'latestReplicationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asLatestReplicationTime :: Lens.Lens' AppSummary (Lude.Maybe Lude.Timestamp)
-asLatestReplicationTime = Lens.lens (latestReplicationTime :: AppSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {latestReplicationTime = a} :: AppSummary)
-{-# DEPRECATED asLatestReplicationTime "Use generic-lens or generic-optics with 'latestReplicationTime' instead." #-}
-
--- | The ID of the application.
---
--- /Note:/ Consider using 'importedAppId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asImportedAppId :: Lens.Lens' AppSummary (Lude.Maybe Lude.Text)
-asImportedAppId = Lens.lens (importedAppId :: AppSummary -> Lude.Maybe Lude.Text) (\s a -> s {importedAppId = a} :: AppSummary)
-{-# DEPRECATED asImportedAppId "Use generic-lens or generic-optics with 'importedAppId' instead." #-}
-
--- | The replication status of the application.
---
--- /Note:/ Consider using 'replicationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asReplicationStatus :: Lens.Lens' AppSummary (Lude.Maybe AppReplicationStatus)
-asReplicationStatus = Lens.lens (replicationStatus :: AppSummary -> Lude.Maybe AppReplicationStatus) (\s a -> s {replicationStatus = a} :: AppSummary)
-{-# DEPRECATED asReplicationStatus "Use generic-lens or generic-optics with 'replicationStatus' instead." #-}
-
--- | The last modified time of the application.
---
--- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asLastModified :: Lens.Lens' AppSummary (Lude.Maybe Lude.Timestamp)
-asLastModified = Lens.lens (lastModified :: AppSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModified = a} :: AppSummary)
-{-# DEPRECATED asLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asCreationTime :: Lens.Lens' AppSummary (Core.Maybe Core.NominalDiffTime)
+asCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED asCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The description of the application.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asDescription :: Lens.Lens' AppSummary (Lude.Maybe Lude.Text)
-asDescription = Lens.lens (description :: AppSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AppSummary)
+asDescription :: Lens.Lens' AppSummary (Core.Maybe Types.AppDescription)
+asDescription = Lens.field @"description"
 {-# DEPRECATED asDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON AppSummary where
+-- | The ID of the application.
+--
+-- /Note:/ Consider using 'importedAppId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asImportedAppId :: Lens.Lens' AppSummary (Core.Maybe Types.ImportedAppId)
+asImportedAppId = Lens.field @"importedAppId"
+{-# DEPRECATED asImportedAppId "Use generic-lens or generic-optics with 'importedAppId' instead." #-}
+
+-- | The last modified time of the application.
+--
+-- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asLastModified :: Lens.Lens' AppSummary (Core.Maybe Core.NominalDiffTime)
+asLastModified = Lens.field @"lastModified"
+{-# DEPRECATED asLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
+
+-- | The timestamp of the application's most recent successful replication.
+--
+-- /Note:/ Consider using 'latestReplicationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asLatestReplicationTime :: Lens.Lens' AppSummary (Core.Maybe Core.NominalDiffTime)
+asLatestReplicationTime = Lens.field @"latestReplicationTime"
+{-# DEPRECATED asLatestReplicationTime "Use generic-lens or generic-optics with 'latestReplicationTime' instead." #-}
+
+-- | Status of the launch configuration.
+--
+-- /Note:/ Consider using 'launchConfigurationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asLaunchConfigurationStatus :: Lens.Lens' AppSummary (Core.Maybe Types.AppLaunchConfigurationStatus)
+asLaunchConfigurationStatus = Lens.field @"launchConfigurationStatus"
+{-# DEPRECATED asLaunchConfigurationStatus "Use generic-lens or generic-optics with 'launchConfigurationStatus' instead." #-}
+
+-- | Details about the latest launch of the application.
+--
+-- /Note:/ Consider using 'launchDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asLaunchDetails :: Lens.Lens' AppSummary (Core.Maybe Types.LaunchDetails)
+asLaunchDetails = Lens.field @"launchDetails"
+{-# DEPRECATED asLaunchDetails "Use generic-lens or generic-optics with 'launchDetails' instead." #-}
+
+-- | The launch status of the application.
+--
+-- /Note:/ Consider using 'launchStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asLaunchStatus :: Lens.Lens' AppSummary (Core.Maybe Types.AppLaunchStatus)
+asLaunchStatus = Lens.field @"launchStatus"
+{-# DEPRECATED asLaunchStatus "Use generic-lens or generic-optics with 'launchStatus' instead." #-}
+
+-- | A message related to the launch status of the application.
+--
+-- /Note:/ Consider using 'launchStatusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asLaunchStatusMessage :: Lens.Lens' AppSummary (Core.Maybe Types.LaunchStatusMessage)
+asLaunchStatusMessage = Lens.field @"launchStatusMessage"
+{-# DEPRECATED asLaunchStatusMessage "Use generic-lens or generic-optics with 'launchStatusMessage' instead." #-}
+
+-- | The name of the application.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asName :: Lens.Lens' AppSummary (Core.Maybe Types.AppName)
+asName = Lens.field @"name"
+{-# DEPRECATED asName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Status of the replication configuration.
+--
+-- /Note:/ Consider using 'replicationConfigurationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asReplicationConfigurationStatus :: Lens.Lens' AppSummary (Core.Maybe Types.AppReplicationConfigurationStatus)
+asReplicationConfigurationStatus = Lens.field @"replicationConfigurationStatus"
+{-# DEPRECATED asReplicationConfigurationStatus "Use generic-lens or generic-optics with 'replicationConfigurationStatus' instead." #-}
+
+-- | The replication status of the application.
+--
+-- /Note:/ Consider using 'replicationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asReplicationStatus :: Lens.Lens' AppSummary (Core.Maybe Types.AppReplicationStatus)
+asReplicationStatus = Lens.field @"replicationStatus"
+{-# DEPRECATED asReplicationStatus "Use generic-lens or generic-optics with 'replicationStatus' instead." #-}
+
+-- | A message related to the replication status of the application.
+--
+-- /Note:/ Consider using 'replicationStatusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asReplicationStatusMessage :: Lens.Lens' AppSummary (Core.Maybe Types.AppReplicationStatusMessage)
+asReplicationStatusMessage = Lens.field @"replicationStatusMessage"
+{-# DEPRECATED asReplicationStatusMessage "Use generic-lens or generic-optics with 'replicationStatusMessage' instead." #-}
+
+-- | The name of the service role in the customer's account used by AWS SMS.
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asRoleName :: Lens.Lens' AppSummary (Core.Maybe Types.RoleName)
+asRoleName = Lens.field @"roleName"
+{-# DEPRECATED asRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
+
+-- | Status of the application.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asStatus :: Lens.Lens' AppSummary (Core.Maybe Types.AppStatus)
+asStatus = Lens.field @"status"
+{-# DEPRECATED asStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | A message related to the status of the application
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asStatusMessage :: Lens.Lens' AppSummary (Core.Maybe Types.StatusMessage)
+asStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED asStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+
+-- | The number of server groups present in the application.
+--
+-- /Note:/ Consider using 'totalServerGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asTotalServerGroups :: Lens.Lens' AppSummary (Core.Maybe Core.Int)
+asTotalServerGroups = Lens.field @"totalServerGroups"
+{-# DEPRECATED asTotalServerGroups "Use generic-lens or generic-optics with 'totalServerGroups' instead." #-}
+
+-- | The number of servers present in the application.
+--
+-- /Note:/ Consider using 'totalServers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asTotalServers :: Lens.Lens' AppSummary (Core.Maybe Core.Int)
+asTotalServers = Lens.field @"totalServers"
+{-# DEPRECATED asTotalServers "Use generic-lens or generic-optics with 'totalServers' instead." #-}
+
+instance Core.FromJSON AppSummary where
   parseJSON =
-    Lude.withObject
-      "AppSummary"
-      ( \x ->
-          AppSummary'
-            Lude.<$> (x Lude..:? "creationTime")
-            Lude.<*> (x Lude..:? "totalServers")
-            Lude.<*> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "launchDetails")
-            Lude.<*> (x Lude..:? "launchStatusMessage")
-            Lude.<*> (x Lude..:? "replicationConfigurationStatus")
-            Lude.<*> (x Lude..:? "replicationStatusMessage")
-            Lude.<*> (x Lude..:? "totalServerGroups")
-            Lude.<*> (x Lude..:? "roleName")
-            Lude.<*> (x Lude..:? "launchConfigurationStatus")
-            Lude.<*> (x Lude..:? "launchStatus")
-            Lude.<*> (x Lude..:? "appId")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "statusMessage")
-            Lude.<*> (x Lude..:? "latestReplicationTime")
-            Lude.<*> (x Lude..:? "importedAppId")
-            Lude.<*> (x Lude..:? "replicationStatus")
-            Lude.<*> (x Lude..:? "lastModified")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "AppSummary" Core.$
+      \x ->
+        AppSummary'
+          Core.<$> (x Core..:? "appId")
+          Core.<*> (x Core..:? "creationTime")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "importedAppId")
+          Core.<*> (x Core..:? "lastModified")
+          Core.<*> (x Core..:? "latestReplicationTime")
+          Core.<*> (x Core..:? "launchConfigurationStatus")
+          Core.<*> (x Core..:? "launchDetails")
+          Core.<*> (x Core..:? "launchStatus")
+          Core.<*> (x Core..:? "launchStatusMessage")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "replicationConfigurationStatus")
+          Core.<*> (x Core..:? "replicationStatus")
+          Core.<*> (x Core..:? "replicationStatusMessage")
+          Core.<*> (x Core..:? "roleName")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "statusMessage")
+          Core.<*> (x Core..:? "totalServerGroups")
+          Core.<*> (x Core..:? "totalServers")

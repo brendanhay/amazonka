@@ -24,93 +24,88 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     mkDescribeScalingProcessTypesResponse,
 
     -- ** Response lenses
-    dsptrsProcesses,
-    dsptrsResponseStatus,
+    dsptrrsProcesses,
+    dsptrrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeScalingProcessTypes' smart constructor.
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeScalingProcessTypes' with the minimum fields required to make a request.
+-- | Creates a 'DescribeScalingProcessTypes' value with any optional fields omitted.
 mkDescribeScalingProcessTypes ::
   DescribeScalingProcessTypes
 mkDescribeScalingProcessTypes = DescribeScalingProcessTypes'
 
-instance Lude.AWSRequest DescribeScalingProcessTypes where
+instance Core.AWSRequest DescribeScalingProcessTypes where
   type
     Rs DescribeScalingProcessTypes =
       DescribeScalingProcessTypesResponse
-  request = Req.postQuery autoScalingService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeScalingProcessTypes")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeScalingProcessTypesResult"
       ( \s h x ->
           DescribeScalingProcessTypesResponse'
-            Lude.<$> ( x Lude..@? "Processes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeScalingProcessTypes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeScalingProcessTypes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeScalingProcessTypes where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action"
-              Lude.=: ("DescribeScalingProcessTypes" :: Lude.ByteString),
-            "Version" Lude.=: ("2011-01-01" :: Lude.ByteString)
-          ]
+            Core.<$> (x Core..@? "Processes" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | /See:/ 'mkDescribeScalingProcessTypesResponse' smart constructor.
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
   { -- | The names of the process types.
-    processes :: Lude.Maybe [ProcessType],
+    processes :: Core.Maybe [Types.ProcessType],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeScalingProcessTypesResponse' with the minimum fields required to make a request.
---
--- * 'processes' - The names of the process types.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeScalingProcessTypesResponse' value with any optional fields omitted.
 mkDescribeScalingProcessTypesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeScalingProcessTypesResponse
-mkDescribeScalingProcessTypesResponse pResponseStatus_ =
+mkDescribeScalingProcessTypesResponse responseStatus =
   DescribeScalingProcessTypesResponse'
-    { processes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { processes = Core.Nothing,
+      responseStatus
     }
 
 -- | The names of the process types.
 --
 -- /Note:/ Consider using 'processes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsptrsProcesses :: Lens.Lens' DescribeScalingProcessTypesResponse (Lude.Maybe [ProcessType])
-dsptrsProcesses = Lens.lens (processes :: DescribeScalingProcessTypesResponse -> Lude.Maybe [ProcessType]) (\s a -> s {processes = a} :: DescribeScalingProcessTypesResponse)
-{-# DEPRECATED dsptrsProcesses "Use generic-lens or generic-optics with 'processes' instead." #-}
+dsptrrsProcesses :: Lens.Lens' DescribeScalingProcessTypesResponse (Core.Maybe [Types.ProcessType])
+dsptrrsProcesses = Lens.field @"processes"
+{-# DEPRECATED dsptrrsProcesses "Use generic-lens or generic-optics with 'processes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsptrsResponseStatus :: Lens.Lens' DescribeScalingProcessTypesResponse Lude.Int
-dsptrsResponseStatus = Lens.lens (responseStatus :: DescribeScalingProcessTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeScalingProcessTypesResponse)
-{-# DEPRECATED dsptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsptrrsResponseStatus :: Lens.Lens' DescribeScalingProcessTypesResponse Core.Int
+dsptrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsptrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

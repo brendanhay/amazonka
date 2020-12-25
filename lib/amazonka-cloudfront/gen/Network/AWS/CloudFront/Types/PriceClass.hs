@@ -13,51 +13,53 @@
 module Network.AWS.CloudFront.Types.PriceClass
   ( PriceClass
       ( PriceClass',
-        PriceClass100,
-        PriceClass200,
-        PriceClassAll
+        PriceClassPriceClass100,
+        PriceClassPriceClass200,
+        PriceClassPriceClassAll,
+        fromPriceClass
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PriceClass = PriceClass' Lude.Text
+newtype PriceClass = PriceClass' {fromPriceClass :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PriceClass100 :: PriceClass
-pattern PriceClass100 = PriceClass' "PriceClass_100"
+pattern PriceClassPriceClass100 :: PriceClass
+pattern PriceClassPriceClass100 = PriceClass' "PriceClass_100"
 
-pattern PriceClass200 :: PriceClass
-pattern PriceClass200 = PriceClass' "PriceClass_200"
+pattern PriceClassPriceClass200 :: PriceClass
+pattern PriceClassPriceClass200 = PriceClass' "PriceClass_200"
 
-pattern PriceClassAll :: PriceClass
-pattern PriceClassAll = PriceClass' "PriceClass_All"
+pattern PriceClassPriceClassAll :: PriceClass
+pattern PriceClassPriceClassAll = PriceClass' "PriceClass_All"
 
 {-# COMPLETE
-  PriceClass100,
-  PriceClass200,
-  PriceClassAll,
+  PriceClassPriceClass100,
+  PriceClassPriceClass200,
+  PriceClassPriceClassAll,
   PriceClass'
   #-}

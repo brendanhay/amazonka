@@ -32,111 +32,102 @@ module Network.AWS.S3.GetBucketRequestPayment
     mkGetBucketRequestPaymentResponse,
 
     -- ** Response lenses
-    gbrprsPayer,
-    gbrprsResponseStatus,
+    gbrprrsPayer,
+    gbrprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketRequestPayment' smart constructor.
 data GetBucketRequestPayment = GetBucketRequestPayment'
   { -- | The name of the bucket for which to get the payment request configuration
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketRequestPayment' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the bucket for which to get the payment request configuration
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetBucketRequestPayment' value with any optional fields omitted.
 mkGetBucketRequestPayment ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   GetBucketRequestPayment
-mkGetBucketRequestPayment pBucket_ =
+mkGetBucketRequestPayment bucket =
   GetBucketRequestPayment'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The name of the bucket for which to get the payment request configuration
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbrpBucket :: Lens.Lens' GetBucketRequestPayment BucketName
-gbrpBucket = Lens.lens (bucket :: GetBucketRequestPayment -> BucketName) (\s a -> s {bucket = a} :: GetBucketRequestPayment)
+gbrpBucket :: Lens.Lens' GetBucketRequestPayment Types.BucketName
+gbrpBucket = Lens.field @"bucket"
 {-# DEPRECATED gbrpBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbrpExpectedBucketOwner :: Lens.Lens' GetBucketRequestPayment (Lude.Maybe Lude.Text)
-gbrpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketRequestPayment -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketRequestPayment)
+gbrpExpectedBucketOwner :: Lens.Lens' GetBucketRequestPayment (Core.Maybe Types.ExpectedBucketOwner)
+gbrpExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED gbrpExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetBucketRequestPayment where
+instance Core.AWSRequest GetBucketRequestPayment where
   type Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("requestPayment", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetBucketRequestPaymentResponse'
-            Lude.<$> (x Lude..@? "Payer") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Payer") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBucketRequestPayment where
-  toHeaders GetBucketRequestPayment' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetBucketRequestPayment where
-  toPath GetBucketRequestPayment' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketRequestPayment where
-  toQuery = Lude.const (Lude.mconcat ["requestPayment"])
 
 -- | /See:/ 'mkGetBucketRequestPaymentResponse' smart constructor.
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
   { -- | Specifies who pays for the download and request fees.
-    payer :: Lude.Maybe Payer,
+    payer :: Core.Maybe Types.Payer,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketRequestPaymentResponse' with the minimum fields required to make a request.
---
--- * 'payer' - Specifies who pays for the download and request fees.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBucketRequestPaymentResponse' value with any optional fields omitted.
 mkGetBucketRequestPaymentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBucketRequestPaymentResponse
-mkGetBucketRequestPaymentResponse pResponseStatus_ =
+mkGetBucketRequestPaymentResponse responseStatus =
   GetBucketRequestPaymentResponse'
-    { payer = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { payer = Core.Nothing,
+      responseStatus
     }
 
 -- | Specifies who pays for the download and request fees.
 --
 -- /Note:/ Consider using 'payer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbrprsPayer :: Lens.Lens' GetBucketRequestPaymentResponse (Lude.Maybe Payer)
-gbrprsPayer = Lens.lens (payer :: GetBucketRequestPaymentResponse -> Lude.Maybe Payer) (\s a -> s {payer = a} :: GetBucketRequestPaymentResponse)
-{-# DEPRECATED gbrprsPayer "Use generic-lens or generic-optics with 'payer' instead." #-}
+gbrprrsPayer :: Lens.Lens' GetBucketRequestPaymentResponse (Core.Maybe Types.Payer)
+gbrprrsPayer = Lens.field @"payer"
+{-# DEPRECATED gbrprrsPayer "Use generic-lens or generic-optics with 'payer' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbrprsResponseStatus :: Lens.Lens' GetBucketRequestPaymentResponse Lude.Int
-gbrprsResponseStatus = Lens.lens (responseStatus :: GetBucketRequestPaymentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketRequestPaymentResponse)
-{-# DEPRECATED gbrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbrprrsResponseStatus :: Lens.Lens' GetBucketRequestPaymentResponse Core.Int
+gbrprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbrprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

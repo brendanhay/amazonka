@@ -13,101 +13,106 @@
 module Network.AWS.CloudDirectory.Types.BatchReadExceptionType
   ( BatchReadExceptionType
       ( BatchReadExceptionType',
-        ValidationException,
-        InvalidARNException,
-        ResourceNotFoundException,
-        InvalidNextTokenException,
-        AccessDeniedException,
-        NotNodeException,
-        FacetValidationException,
-        CannotListParentOfRootException,
-        NotIndexException,
-        NotPolicyException,
-        DirectoryNotEnabledException,
-        LimitExceededException,
-        InternalServiceException
+        BatchReadExceptionTypeValidationException,
+        BatchReadExceptionTypeInvalidArnException,
+        BatchReadExceptionTypeResourceNotFoundException,
+        BatchReadExceptionTypeInvalidNextTokenException,
+        BatchReadExceptionTypeAccessDeniedException,
+        BatchReadExceptionTypeNotNodeException,
+        BatchReadExceptionTypeFacetValidationException,
+        BatchReadExceptionTypeCannotListParentOfRootException,
+        BatchReadExceptionTypeNotIndexException,
+        BatchReadExceptionTypeNotPolicyException,
+        BatchReadExceptionTypeDirectoryNotEnabledException,
+        BatchReadExceptionTypeLimitExceededException,
+        BatchReadExceptionTypeInternalServiceException,
+        fromBatchReadExceptionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BatchReadExceptionType = BatchReadExceptionType' Lude.Text
+newtype BatchReadExceptionType = BatchReadExceptionType'
+  { fromBatchReadExceptionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ValidationException :: BatchReadExceptionType
-pattern ValidationException = BatchReadExceptionType' "ValidationException"
+pattern BatchReadExceptionTypeValidationException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeValidationException = BatchReadExceptionType' "ValidationException"
 
-pattern InvalidARNException :: BatchReadExceptionType
-pattern InvalidARNException = BatchReadExceptionType' "InvalidArnException"
+pattern BatchReadExceptionTypeInvalidArnException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeInvalidArnException = BatchReadExceptionType' "InvalidArnException"
 
-pattern ResourceNotFoundException :: BatchReadExceptionType
-pattern ResourceNotFoundException = BatchReadExceptionType' "ResourceNotFoundException"
+pattern BatchReadExceptionTypeResourceNotFoundException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeResourceNotFoundException = BatchReadExceptionType' "ResourceNotFoundException"
 
-pattern InvalidNextTokenException :: BatchReadExceptionType
-pattern InvalidNextTokenException = BatchReadExceptionType' "InvalidNextTokenException"
+pattern BatchReadExceptionTypeInvalidNextTokenException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeInvalidNextTokenException = BatchReadExceptionType' "InvalidNextTokenException"
 
-pattern AccessDeniedException :: BatchReadExceptionType
-pattern AccessDeniedException = BatchReadExceptionType' "AccessDeniedException"
+pattern BatchReadExceptionTypeAccessDeniedException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeAccessDeniedException = BatchReadExceptionType' "AccessDeniedException"
 
-pattern NotNodeException :: BatchReadExceptionType
-pattern NotNodeException = BatchReadExceptionType' "NotNodeException"
+pattern BatchReadExceptionTypeNotNodeException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeNotNodeException = BatchReadExceptionType' "NotNodeException"
 
-pattern FacetValidationException :: BatchReadExceptionType
-pattern FacetValidationException = BatchReadExceptionType' "FacetValidationException"
+pattern BatchReadExceptionTypeFacetValidationException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeFacetValidationException = BatchReadExceptionType' "FacetValidationException"
 
-pattern CannotListParentOfRootException :: BatchReadExceptionType
-pattern CannotListParentOfRootException = BatchReadExceptionType' "CannotListParentOfRootException"
+pattern BatchReadExceptionTypeCannotListParentOfRootException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeCannotListParentOfRootException = BatchReadExceptionType' "CannotListParentOfRootException"
 
-pattern NotIndexException :: BatchReadExceptionType
-pattern NotIndexException = BatchReadExceptionType' "NotIndexException"
+pattern BatchReadExceptionTypeNotIndexException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeNotIndexException = BatchReadExceptionType' "NotIndexException"
 
-pattern NotPolicyException :: BatchReadExceptionType
-pattern NotPolicyException = BatchReadExceptionType' "NotPolicyException"
+pattern BatchReadExceptionTypeNotPolicyException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeNotPolicyException = BatchReadExceptionType' "NotPolicyException"
 
-pattern DirectoryNotEnabledException :: BatchReadExceptionType
-pattern DirectoryNotEnabledException = BatchReadExceptionType' "DirectoryNotEnabledException"
+pattern BatchReadExceptionTypeDirectoryNotEnabledException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeDirectoryNotEnabledException = BatchReadExceptionType' "DirectoryNotEnabledException"
 
-pattern LimitExceededException :: BatchReadExceptionType
-pattern LimitExceededException = BatchReadExceptionType' "LimitExceededException"
+pattern BatchReadExceptionTypeLimitExceededException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeLimitExceededException = BatchReadExceptionType' "LimitExceededException"
 
-pattern InternalServiceException :: BatchReadExceptionType
-pattern InternalServiceException = BatchReadExceptionType' "InternalServiceException"
+pattern BatchReadExceptionTypeInternalServiceException :: BatchReadExceptionType
+pattern BatchReadExceptionTypeInternalServiceException = BatchReadExceptionType' "InternalServiceException"
 
 {-# COMPLETE
-  ValidationException,
-  InvalidARNException,
-  ResourceNotFoundException,
-  InvalidNextTokenException,
-  AccessDeniedException,
-  NotNodeException,
-  FacetValidationException,
-  CannotListParentOfRootException,
-  NotIndexException,
-  NotPolicyException,
-  DirectoryNotEnabledException,
-  LimitExceededException,
-  InternalServiceException,
+  BatchReadExceptionTypeValidationException,
+  BatchReadExceptionTypeInvalidArnException,
+  BatchReadExceptionTypeResourceNotFoundException,
+  BatchReadExceptionTypeInvalidNextTokenException,
+  BatchReadExceptionTypeAccessDeniedException,
+  BatchReadExceptionTypeNotNodeException,
+  BatchReadExceptionTypeFacetValidationException,
+  BatchReadExceptionTypeCannotListParentOfRootException,
+  BatchReadExceptionTypeNotIndexException,
+  BatchReadExceptionTypeNotPolicyException,
+  BatchReadExceptionTypeDirectoryNotEnabledException,
+  BatchReadExceptionTypeLimitExceededException,
+  BatchReadExceptionTypeInternalServiceException,
   BatchReadExceptionType'
   #-}

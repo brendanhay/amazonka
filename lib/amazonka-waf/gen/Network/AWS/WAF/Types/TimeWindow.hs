@@ -23,7 +23,7 @@ module Network.AWS.WAF.Types.TimeWindow
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | In a 'GetSampledRequests' request, the @StartTime@ and @EndTime@ objects specify the time range for which you want AWS WAF to return a sample of web requests.
 --
@@ -33,54 +33,48 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkTimeWindow' smart constructor.
 data TimeWindow = TimeWindow'
   { -- | The beginning of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
-    startTime :: Lude.Timestamp,
+    startTime :: Core.NominalDiffTime,
     -- | The end of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
-    endTime :: Lude.Timestamp
+    endTime :: Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TimeWindow' with the minimum fields required to make a request.
---
--- * 'startTime' - The beginning of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
--- * 'endTime' - The end of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
+-- | Creates a 'TimeWindow' value with any optional fields omitted.
 mkTimeWindow ::
   -- | 'startTime'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   -- | 'endTime'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   TimeWindow
-mkTimeWindow pStartTime_ pEndTime_ =
-  TimeWindow' {startTime = pStartTime_, endTime = pEndTime_}
+mkTimeWindow startTime endTime = TimeWindow' {startTime, endTime}
 
 -- | The beginning of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-twStartTime :: Lens.Lens' TimeWindow Lude.Timestamp
-twStartTime = Lens.lens (startTime :: TimeWindow -> Lude.Timestamp) (\s a -> s {startTime = a} :: TimeWindow)
+twStartTime :: Lens.Lens' TimeWindow Core.NominalDiffTime
+twStartTime = Lens.field @"startTime"
 {-# DEPRECATED twStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end of the time range from which you want @GetSampledRequests@ to return a sample of the requests that your AWS resource received. You must specify the date and time in Coordinated Universal Time (UTC) format. UTC format includes the special designator, @Z@ . For example, @"2016-09-27T14:50Z"@ . You can specify any time range in the previous three hours.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-twEndTime :: Lens.Lens' TimeWindow Lude.Timestamp
-twEndTime = Lens.lens (endTime :: TimeWindow -> Lude.Timestamp) (\s a -> s {endTime = a} :: TimeWindow)
+twEndTime :: Lens.Lens' TimeWindow Core.NominalDiffTime
+twEndTime = Lens.field @"endTime"
 {-# DEPRECATED twEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance Lude.FromJSON TimeWindow where
-  parseJSON =
-    Lude.withObject
-      "TimeWindow"
-      ( \x ->
-          TimeWindow'
-            Lude.<$> (x Lude..: "StartTime") Lude.<*> (x Lude..: "EndTime")
-      )
-
-instance Lude.ToJSON TimeWindow where
-  toJSON TimeWindow' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("StartTime" Lude..= startTime),
-            Lude.Just ("EndTime" Lude..= endTime)
+instance Core.FromJSON TimeWindow where
+  toJSON TimeWindow {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StartTime" Core..= startTime),
+            Core.Just ("EndTime" Core..= endTime)
           ]
       )
+
+instance Core.FromJSON TimeWindow where
+  parseJSON =
+    Core.withObject "TimeWindow" Core.$
+      \x ->
+        TimeWindow'
+          Core.<$> (x Core..: "StartTime") Core.<*> (x Core..: "EndTime")

@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.M2tsEbpAudioInterval
   ( M2tsEbpAudioInterval
       ( M2tsEbpAudioInterval',
-        VideoAndFixedIntervals,
-        VideoInterval
+        M2tsEbpAudioIntervalVideoAndFixedIntervals,
+        M2tsEbpAudioIntervalVideoInterval,
+        fromM2tsEbpAudioInterval
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. When set to VIDEO_INTERVAL, these additional markers will not be inserted. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
-newtype M2tsEbpAudioInterval = M2tsEbpAudioInterval' Lude.Text
+newtype M2tsEbpAudioInterval = M2tsEbpAudioInterval'
+  { fromM2tsEbpAudioInterval ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VideoAndFixedIntervals :: M2tsEbpAudioInterval
-pattern VideoAndFixedIntervals = M2tsEbpAudioInterval' "VIDEO_AND_FIXED_INTERVALS"
+pattern M2tsEbpAudioIntervalVideoAndFixedIntervals :: M2tsEbpAudioInterval
+pattern M2tsEbpAudioIntervalVideoAndFixedIntervals = M2tsEbpAudioInterval' "VIDEO_AND_FIXED_INTERVALS"
 
-pattern VideoInterval :: M2tsEbpAudioInterval
-pattern VideoInterval = M2tsEbpAudioInterval' "VIDEO_INTERVAL"
+pattern M2tsEbpAudioIntervalVideoInterval :: M2tsEbpAudioInterval
+pattern M2tsEbpAudioIntervalVideoInterval = M2tsEbpAudioInterval' "VIDEO_INTERVAL"
 
 {-# COMPLETE
-  VideoAndFixedIntervals,
-  VideoInterval,
+  M2tsEbpAudioIntervalVideoAndFixedIntervals,
+  M2tsEbpAudioIntervalVideoInterval,
   M2tsEbpAudioInterval'
   #-}

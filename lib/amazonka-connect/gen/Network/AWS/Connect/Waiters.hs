@@ -15,7 +15,7 @@ module Network.AWS.Connect.Waiters
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter

@@ -28,116 +28,102 @@ module Network.AWS.DirectoryService.UpdateRadius
     mkUpdateRadiusResponse,
 
     -- ** Response lenses
-    urrsResponseStatus,
+    urrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the inputs for the 'UpdateRadius' operation.
 --
 -- /See:/ 'mkUpdateRadius' smart constructor.
 data UpdateRadius = UpdateRadius'
   { -- | The identifier of the directory for which to update the RADIUS server information.
-    directoryId :: Lude.Text,
+    directoryId :: Types.DirectoryId,
     -- | A 'RadiusSettings' object that contains information about the RADIUS server.
-    radiusSettings :: RadiusSettings
+    radiusSettings :: Types.RadiusSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRadius' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory for which to update the RADIUS server information.
--- * 'radiusSettings' - A 'RadiusSettings' object that contains information about the RADIUS server.
+-- | Creates a 'UpdateRadius' value with any optional fields omitted.
 mkUpdateRadius ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   -- | 'radiusSettings'
-  RadiusSettings ->
+  Types.RadiusSettings ->
   UpdateRadius
-mkUpdateRadius pDirectoryId_ pRadiusSettings_ =
-  UpdateRadius'
-    { directoryId = pDirectoryId_,
-      radiusSettings = pRadiusSettings_
-    }
+mkUpdateRadius directoryId radiusSettings =
+  UpdateRadius' {directoryId, radiusSettings}
 
 -- | The identifier of the directory for which to update the RADIUS server information.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urDirectoryId :: Lens.Lens' UpdateRadius Lude.Text
-urDirectoryId = Lens.lens (directoryId :: UpdateRadius -> Lude.Text) (\s a -> s {directoryId = a} :: UpdateRadius)
+urDirectoryId :: Lens.Lens' UpdateRadius Types.DirectoryId
+urDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED urDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | A 'RadiusSettings' object that contains information about the RADIUS server.
 --
 -- /Note:/ Consider using 'radiusSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urRadiusSettings :: Lens.Lens' UpdateRadius RadiusSettings
-urRadiusSettings = Lens.lens (radiusSettings :: UpdateRadius -> RadiusSettings) (\s a -> s {radiusSettings = a} :: UpdateRadius)
+urRadiusSettings :: Lens.Lens' UpdateRadius Types.RadiusSettings
+urRadiusSettings = Lens.field @"radiusSettings"
 {-# DEPRECATED urRadiusSettings "Use generic-lens or generic-optics with 'radiusSettings' instead." #-}
 
-instance Lude.AWSRequest UpdateRadius where
+instance Core.FromJSON UpdateRadius where
+  toJSON UpdateRadius {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("RadiusSettings" Core..= radiusSettings)
+          ]
+      )
+
+instance Core.AWSRequest UpdateRadius where
   type Rs UpdateRadius = UpdateRadiusResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.UpdateRadius")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateRadiusResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateRadiusResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateRadius where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DirectoryService_20150416.UpdateRadius" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateRadius where
-  toJSON UpdateRadius' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            Lude.Just ("RadiusSettings" Lude..= radiusSettings)
-          ]
-      )
-
-instance Lude.ToPath UpdateRadius where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateRadius where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'UpdateRadius' operation.
 --
 -- /See:/ 'mkUpdateRadiusResponse' smart constructor.
 newtype UpdateRadiusResponse = UpdateRadiusResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRadiusResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateRadiusResponse' value with any optional fields omitted.
 mkUpdateRadiusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateRadiusResponse
-mkUpdateRadiusResponse pResponseStatus_ =
-  UpdateRadiusResponse' {responseStatus = pResponseStatus_}
+mkUpdateRadiusResponse responseStatus =
+  UpdateRadiusResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsResponseStatus :: Lens.Lens' UpdateRadiusResponse Lude.Int
-urrsResponseStatus = Lens.lens (responseStatus :: UpdateRadiusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRadiusResponse)
-{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urrrsResponseStatus :: Lens.Lens' UpdateRadiusResponse Core.Int
+urrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

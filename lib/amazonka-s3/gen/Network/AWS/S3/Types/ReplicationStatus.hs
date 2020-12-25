@@ -13,57 +13,62 @@
 module Network.AWS.S3.Types.ReplicationStatus
   ( ReplicationStatus
       ( ReplicationStatus',
-        Completed,
-        Pending,
-        Failed,
-        Replica
+        ReplicationStatusCompleted,
+        ReplicationStatusPending,
+        ReplicationStatusFailed,
+        ReplicationStatusReplica,
+        fromReplicationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype ReplicationStatus = ReplicationStatus' Lude.Text
+newtype ReplicationStatus = ReplicationStatus'
+  { fromReplicationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Completed :: ReplicationStatus
-pattern Completed = ReplicationStatus' "COMPLETED"
+pattern ReplicationStatusCompleted :: ReplicationStatus
+pattern ReplicationStatusCompleted = ReplicationStatus' "COMPLETED"
 
-pattern Pending :: ReplicationStatus
-pattern Pending = ReplicationStatus' "PENDING"
+pattern ReplicationStatusPending :: ReplicationStatus
+pattern ReplicationStatusPending = ReplicationStatus' "PENDING"
 
-pattern Failed :: ReplicationStatus
-pattern Failed = ReplicationStatus' "FAILED"
+pattern ReplicationStatusFailed :: ReplicationStatus
+pattern ReplicationStatusFailed = ReplicationStatus' "FAILED"
 
-pattern Replica :: ReplicationStatus
-pattern Replica = ReplicationStatus' "REPLICA"
+pattern ReplicationStatusReplica :: ReplicationStatus
+pattern ReplicationStatusReplica = ReplicationStatus' "REPLICA"
 
 {-# COMPLETE
-  Completed,
-  Pending,
-  Failed,
-  Replica,
+  ReplicationStatusCompleted,
+  ReplicationStatusPending,
+  ReplicationStatusFailed,
+  ReplicationStatusReplica,
   ReplicationStatus'
   #-}

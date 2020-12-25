@@ -23,160 +23,151 @@ module Network.AWS.Connect.ListLexBots
 
     -- ** Request lenses
     llbInstanceId,
-    llbNextToken,
     llbMaxResults,
+    llbNextToken,
 
     -- * Destructuring the response
     ListLexBotsResponse (..),
     mkListLexBotsResponse,
 
     -- ** Response lenses
-    llbrsNextToken,
-    llbrsLexBots,
-    llbrsResponseStatus,
+    llbrrsLexBots,
+    llbrrsNextToken,
+    llbrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListLexBots' smart constructor.
 data ListLexBots = ListLexBots'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
-    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The maximimum number of results to return per page.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListLexBots' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
--- * 'maxResults' - The maximimum number of results to return per page.
+-- | Creates a 'ListLexBots' value with any optional fields omitted.
 mkListLexBots ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   ListLexBots
-mkListLexBots pInstanceId_ =
+mkListLexBots instanceId =
   ListLexBots'
-    { instanceId = pInstanceId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { instanceId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llbInstanceId :: Lens.Lens' ListLexBots Lude.Text
-llbInstanceId = Lens.lens (instanceId :: ListLexBots -> Lude.Text) (\s a -> s {instanceId = a} :: ListLexBots)
+llbInstanceId :: Lens.Lens' ListLexBots Types.InstanceId
+llbInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED llbInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llbNextToken :: Lens.Lens' ListLexBots (Lude.Maybe Lude.Text)
-llbNextToken = Lens.lens (nextToken :: ListLexBots -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLexBots)
-{-# DEPRECATED llbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llbMaxResults :: Lens.Lens' ListLexBots (Lude.Maybe Lude.Natural)
-llbMaxResults = Lens.lens (maxResults :: ListLexBots -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListLexBots)
+llbMaxResults :: Lens.Lens' ListLexBots (Core.Maybe Core.Natural)
+llbMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED llbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListLexBots where
-  page rq rs
-    | Page.stop (rs Lens.^. llbrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. llbrsLexBots) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& llbNextToken Lens..~ rs Lens.^. llbrsNextToken
+-- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llbNextToken :: Lens.Lens' ListLexBots (Core.Maybe Types.NextToken)
+llbNextToken = Lens.field @"nextToken"
+{-# DEPRECATED llbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListLexBots where
+instance Core.AWSRequest ListLexBots where
   type Rs ListLexBots = ListLexBotsResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/instance/" Core.<> (Core.toText instanceId)
+                Core.<> ("/lex-bots")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListLexBotsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "LexBots" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "LexBots")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListLexBots where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListLexBots where
-  toPath ListLexBots' {..} =
-    Lude.mconcat ["/instance/", Lude.toBS instanceId, "/lex-bots"]
-
-instance Lude.ToQuery ListLexBots where
-  toQuery ListLexBots' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListLexBots where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"lexBots" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListLexBotsResponse' smart constructor.
 data ListLexBotsResponse = ListLexBotsResponse'
-  { -- | If there are additional results, this is the token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The the names and regions of the Amazon Lex bots associated with the specified instance.
-    lexBots :: Lude.Maybe [LexBot],
+  { -- | The the names and regions of the Amazon Lex bots associated with the specified instance.
+    lexBots :: Core.Maybe [Types.LexBot],
+    -- | If there are additional results, this is the token for the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListLexBotsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If there are additional results, this is the token for the next set of results.
--- * 'lexBots' - The the names and regions of the Amazon Lex bots associated with the specified instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListLexBotsResponse' value with any optional fields omitted.
 mkListLexBotsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListLexBotsResponse
-mkListLexBotsResponse pResponseStatus_ =
+mkListLexBotsResponse responseStatus =
   ListLexBotsResponse'
-    { nextToken = Lude.Nothing,
-      lexBots = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { lexBots = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | If there are additional results, this is the token for the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llbrsNextToken :: Lens.Lens' ListLexBotsResponse (Lude.Maybe Lude.Text)
-llbrsNextToken = Lens.lens (nextToken :: ListLexBotsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListLexBotsResponse)
-{-# DEPRECATED llbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The the names and regions of the Amazon Lex bots associated with the specified instance.
 --
 -- /Note:/ Consider using 'lexBots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llbrsLexBots :: Lens.Lens' ListLexBotsResponse (Lude.Maybe [LexBot])
-llbrsLexBots = Lens.lens (lexBots :: ListLexBotsResponse -> Lude.Maybe [LexBot]) (\s a -> s {lexBots = a} :: ListLexBotsResponse)
-{-# DEPRECATED llbrsLexBots "Use generic-lens or generic-optics with 'lexBots' instead." #-}
+llbrrsLexBots :: Lens.Lens' ListLexBotsResponse (Core.Maybe [Types.LexBot])
+llbrrsLexBots = Lens.field @"lexBots"
+{-# DEPRECATED llbrrsLexBots "Use generic-lens or generic-optics with 'lexBots' instead." #-}
+
+-- | If there are additional results, this is the token for the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+llbrrsNextToken :: Lens.Lens' ListLexBotsResponse (Core.Maybe Types.NextToken)
+llbrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED llbrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llbrsResponseStatus :: Lens.Lens' ListLexBotsResponse Lude.Int
-llbrsResponseStatus = Lens.lens (responseStatus :: ListLexBotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListLexBotsResponse)
-{-# DEPRECATED llbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+llbrrsResponseStatus :: Lens.Lens' ListLexBotsResponse Core.Int
+llbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED llbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

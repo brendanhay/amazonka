@@ -20,9 +20,9 @@ module Network.AWS.Connect.UpdateUserPhoneConfig
     mkUpdateUserPhoneConfig,
 
     -- ** Request lenses
-    uupcInstanceId,
-    uupcUserId,
     uupcPhoneConfig,
+    uupcUserId,
+    uupcInstanceId,
 
     -- * Destructuring the response
     UpdateUserPhoneConfigResponse (..),
@@ -30,103 +30,87 @@ module Network.AWS.Connect.UpdateUserPhoneConfig
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateUserPhoneConfig' smart constructor.
 data UpdateUserPhoneConfig = UpdateUserPhoneConfig'
-  { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+  { -- | Information about phone configuration settings for the user.
+    phoneConfig :: Types.UserPhoneConfig,
     -- | The identifier of the user account.
-    userId :: Lude.Text,
-    -- | Information about phone configuration settings for the user.
-    phoneConfig :: UserPhoneConfig
+    userId :: Types.UserId,
+    -- | The identifier of the Amazon Connect instance.
+    instanceId :: Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateUserPhoneConfig' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'userId' - The identifier of the user account.
--- * 'phoneConfig' - Information about phone configuration settings for the user.
+-- | Creates a 'UpdateUserPhoneConfig' value with any optional fields omitted.
 mkUpdateUserPhoneConfig ::
-  -- | 'instanceId'
-  Lude.Text ->
-  -- | 'userId'
-  Lude.Text ->
   -- | 'phoneConfig'
-  UserPhoneConfig ->
+  Types.UserPhoneConfig ->
+  -- | 'userId'
+  Types.UserId ->
+  -- | 'instanceId'
+  Types.InstanceId ->
   UpdateUserPhoneConfig
-mkUpdateUserPhoneConfig pInstanceId_ pUserId_ pPhoneConfig_ =
-  UpdateUserPhoneConfig'
-    { instanceId = pInstanceId_,
-      userId = pUserId_,
-      phoneConfig = pPhoneConfig_
-    }
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupcInstanceId :: Lens.Lens' UpdateUserPhoneConfig Lude.Text
-uupcInstanceId = Lens.lens (instanceId :: UpdateUserPhoneConfig -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateUserPhoneConfig)
-{-# DEPRECATED uupcInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The identifier of the user account.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupcUserId :: Lens.Lens' UpdateUserPhoneConfig Lude.Text
-uupcUserId = Lens.lens (userId :: UpdateUserPhoneConfig -> Lude.Text) (\s a -> s {userId = a} :: UpdateUserPhoneConfig)
-{-# DEPRECATED uupcUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+mkUpdateUserPhoneConfig phoneConfig userId instanceId =
+  UpdateUserPhoneConfig' {phoneConfig, userId, instanceId}
 
 -- | Information about phone configuration settings for the user.
 --
 -- /Note:/ Consider using 'phoneConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupcPhoneConfig :: Lens.Lens' UpdateUserPhoneConfig UserPhoneConfig
-uupcPhoneConfig = Lens.lens (phoneConfig :: UpdateUserPhoneConfig -> UserPhoneConfig) (\s a -> s {phoneConfig = a} :: UpdateUserPhoneConfig)
+uupcPhoneConfig :: Lens.Lens' UpdateUserPhoneConfig Types.UserPhoneConfig
+uupcPhoneConfig = Lens.field @"phoneConfig"
 {-# DEPRECATED uupcPhoneConfig "Use generic-lens or generic-optics with 'phoneConfig' instead." #-}
 
-instance Lude.AWSRequest UpdateUserPhoneConfig where
+-- | The identifier of the user account.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupcUserId :: Lens.Lens' UpdateUserPhoneConfig Types.UserId
+uupcUserId = Lens.field @"userId"
+{-# DEPRECATED uupcUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupcInstanceId :: Lens.Lens' UpdateUserPhoneConfig Types.InstanceId
+uupcInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED uupcInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+instance Core.FromJSON UpdateUserPhoneConfig where
+  toJSON UpdateUserPhoneConfig {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("PhoneConfig" Core..= phoneConfig)])
+
+instance Core.AWSRequest UpdateUserPhoneConfig where
   type Rs UpdateUserPhoneConfig = UpdateUserPhoneConfigResponse
-  request = Req.postJSON connectService
-  response = Res.receiveNull UpdateUserPhoneConfigResponse'
-
-instance Lude.ToHeaders UpdateUserPhoneConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateUserPhoneConfig where
-  toJSON UpdateUserPhoneConfig' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("PhoneConfig" Lude..= phoneConfig)])
-
-instance Lude.ToPath UpdateUserPhoneConfig where
-  toPath UpdateUserPhoneConfig' {..} =
-    Lude.mconcat
-      [ "/users/",
-        Lude.toBS instanceId,
-        "/",
-        Lude.toBS userId,
-        "/phone-config"
-      ]
-
-instance Lude.ToQuery UpdateUserPhoneConfig where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/users/" Core.<> (Core.toText instanceId) Core.<> ("/")
+                Core.<> (Core.toText userId)
+                Core.<> ("/phone-config")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UpdateUserPhoneConfigResponse'
 
 -- | /See:/ 'mkUpdateUserPhoneConfigResponse' smart constructor.
 data UpdateUserPhoneConfigResponse = UpdateUserPhoneConfigResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateUserPhoneConfigResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateUserPhoneConfigResponse' value with any optional fields omitted.
 mkUpdateUserPhoneConfigResponse ::
   UpdateUserPhoneConfigResponse
 mkUpdateUserPhoneConfigResponse = UpdateUserPhoneConfigResponse'

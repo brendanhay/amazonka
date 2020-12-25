@@ -23,12 +23,12 @@ module Network.AWS.CloudWatchLogs.StartQuery
     mkStartQuery,
 
     -- ** Request lenses
-    sqLogGroupNames,
     sqStartTime,
-    sqLogGroupName,
-    sqQueryString,
     sqEndTime,
+    sqQueryString,
     sqLimit,
+    sqLogGroupName,
+    sqLogGroupNames,
 
     -- * Destructuring the response
     StartQueryResponse (..),
@@ -40,184 +40,160 @@ module Network.AWS.CloudWatchLogs.StartQuery
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartQuery' smart constructor.
 data StartQuery = StartQuery'
-  { -- | The list of log groups to be queried. You can include up to 20 log groups.
-    --
-    -- A @StartQuery@ operation must include a @logGroupNames@ or a @logGroupName@ parameter, but not both.
-    logGroupNames :: Lude.Maybe [Lude.Text],
-    -- | The beginning of the time range to query. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
-    startTime :: Lude.Natural,
+  { -- | The beginning of the time range to query. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+    startTime :: Core.Natural,
+    -- | The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+    endTime :: Core.Natural,
+    -- | The query string to use. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
+    queryString :: Types.QueryString,
+    -- | The maximum number of log events to return in the query. If the query string uses the @fields@ command, only the specified fields and their values are returned. The default is 1000.
+    limit :: Core.Maybe Core.Natural,
     -- | The log group on which to perform the query.
     --
     -- A @StartQuery@ operation must include a @logGroupNames@ or a @logGroupName@ parameter, but not both.
-    logGroupName :: Lude.Maybe Lude.Text,
-    -- | The query string to use. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
-    queryString :: Lude.Text,
-    -- | The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
-    endTime :: Lude.Natural,
-    -- | The maximum number of log events to return in the query. If the query string uses the @fields@ command, only the specified fields and their values are returned. The default is 1000.
-    limit :: Lude.Maybe Lude.Natural
+    logGroupName :: Core.Maybe Types.LogGroupName,
+    -- | The list of log groups to be queried. You can include up to 20 log groups.
+    --
+    -- A @StartQuery@ operation must include a @logGroupNames@ or a @logGroupName@ parameter, but not both.
+    logGroupNames :: Core.Maybe [Types.LogGroupName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartQuery' with the minimum fields required to make a request.
---
--- * 'logGroupNames' - The list of log groups to be queried. You can include up to 20 log groups.
---
--- A @StartQuery@ operation must include a @logGroupNames@ or a @logGroupName@ parameter, but not both.
--- * 'startTime' - The beginning of the time range to query. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
--- * 'logGroupName' - The log group on which to perform the query.
---
--- A @StartQuery@ operation must include a @logGroupNames@ or a @logGroupName@ parameter, but not both.
--- * 'queryString' - The query string to use. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
--- * 'endTime' - The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
--- * 'limit' - The maximum number of log events to return in the query. If the query string uses the @fields@ command, only the specified fields and their values are returned. The default is 1000.
+-- | Creates a 'StartQuery' value with any optional fields omitted.
 mkStartQuery ::
   -- | 'startTime'
-  Lude.Natural ->
-  -- | 'queryString'
-  Lude.Text ->
+  Core.Natural ->
   -- | 'endTime'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'queryString'
+  Types.QueryString ->
   StartQuery
-mkStartQuery pStartTime_ pQueryString_ pEndTime_ =
+mkStartQuery startTime endTime queryString =
   StartQuery'
-    { logGroupNames = Lude.Nothing,
-      startTime = pStartTime_,
-      logGroupName = Lude.Nothing,
-      queryString = pQueryString_,
-      endTime = pEndTime_,
-      limit = Lude.Nothing
+    { startTime,
+      endTime,
+      queryString,
+      limit = Core.Nothing,
+      logGroupName = Core.Nothing,
+      logGroupNames = Core.Nothing
     }
-
--- | The list of log groups to be queried. You can include up to 20 log groups.
---
--- A @StartQuery@ operation must include a @logGroupNames@ or a @logGroupName@ parameter, but not both.
---
--- /Note:/ Consider using 'logGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqLogGroupNames :: Lens.Lens' StartQuery (Lude.Maybe [Lude.Text])
-sqLogGroupNames = Lens.lens (logGroupNames :: StartQuery -> Lude.Maybe [Lude.Text]) (\s a -> s {logGroupNames = a} :: StartQuery)
-{-# DEPRECATED sqLogGroupNames "Use generic-lens or generic-optics with 'logGroupNames' instead." #-}
 
 -- | The beginning of the time range to query. The range is inclusive, so the specified start time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqStartTime :: Lens.Lens' StartQuery Lude.Natural
-sqStartTime = Lens.lens (startTime :: StartQuery -> Lude.Natural) (\s a -> s {startTime = a} :: StartQuery)
+sqStartTime :: Lens.Lens' StartQuery Core.Natural
+sqStartTime = Lens.field @"startTime"
 {-# DEPRECATED sqStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sqEndTime :: Lens.Lens' StartQuery Core.Natural
+sqEndTime = Lens.field @"endTime"
+{-# DEPRECATED sqEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | The query string to use. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
+--
+-- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sqQueryString :: Lens.Lens' StartQuery Types.QueryString
+sqQueryString = Lens.field @"queryString"
+{-# DEPRECATED sqQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
+
+-- | The maximum number of log events to return in the query. If the query string uses the @fields@ command, only the specified fields and their values are returned. The default is 1000.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sqLimit :: Lens.Lens' StartQuery (Core.Maybe Core.Natural)
+sqLimit = Lens.field @"limit"
+{-# DEPRECATED sqLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The log group on which to perform the query.
 --
 -- A @StartQuery@ operation must include a @logGroupNames@ or a @logGroupName@ parameter, but not both.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqLogGroupName :: Lens.Lens' StartQuery (Lude.Maybe Lude.Text)
-sqLogGroupName = Lens.lens (logGroupName :: StartQuery -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: StartQuery)
+sqLogGroupName :: Lens.Lens' StartQuery (Core.Maybe Types.LogGroupName)
+sqLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED sqLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
--- | The query string to use. For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html CloudWatch Logs Insights Query Syntax> .
+-- | The list of log groups to be queried. You can include up to 20 log groups.
 --
--- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqQueryString :: Lens.Lens' StartQuery Lude.Text
-sqQueryString = Lens.lens (queryString :: StartQuery -> Lude.Text) (\s a -> s {queryString = a} :: StartQuery)
-{-# DEPRECATED sqQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
-
--- | The end of the time range to query. The range is inclusive, so the specified end time is included in the query. Specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
+-- A @StartQuery@ operation must include a @logGroupNames@ or a @logGroupName@ parameter, but not both.
 --
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqEndTime :: Lens.Lens' StartQuery Lude.Natural
-sqEndTime = Lens.lens (endTime :: StartQuery -> Lude.Natural) (\s a -> s {endTime = a} :: StartQuery)
-{-# DEPRECATED sqEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+-- /Note:/ Consider using 'logGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sqLogGroupNames :: Lens.Lens' StartQuery (Core.Maybe [Types.LogGroupName])
+sqLogGroupNames = Lens.field @"logGroupNames"
+{-# DEPRECATED sqLogGroupNames "Use generic-lens or generic-optics with 'logGroupNames' instead." #-}
 
--- | The maximum number of log events to return in the query. If the query string uses the @fields@ command, only the specified fields and their values are returned. The default is 1000.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqLimit :: Lens.Lens' StartQuery (Lude.Maybe Lude.Natural)
-sqLimit = Lens.lens (limit :: StartQuery -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: StartQuery)
-{-# DEPRECATED sqLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+instance Core.FromJSON StartQuery where
+  toJSON StartQuery {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("startTime" Core..= startTime),
+            Core.Just ("endTime" Core..= endTime),
+            Core.Just ("queryString" Core..= queryString),
+            ("limit" Core..=) Core.<$> limit,
+            ("logGroupName" Core..=) Core.<$> logGroupName,
+            ("logGroupNames" Core..=) Core.<$> logGroupNames
+          ]
+      )
 
-instance Lude.AWSRequest StartQuery where
+instance Core.AWSRequest StartQuery where
   type Rs StartQuery = StartQueryResponse
-  request = Req.postJSON cloudWatchLogsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.StartQuery")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartQueryResponse'
-            Lude.<$> (x Lude..?> "queryId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "queryId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartQuery where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.StartQuery" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartQuery where
-  toJSON StartQuery' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("logGroupNames" Lude..=) Lude.<$> logGroupNames,
-            Lude.Just ("startTime" Lude..= startTime),
-            ("logGroupName" Lude..=) Lude.<$> logGroupName,
-            Lude.Just ("queryString" Lude..= queryString),
-            Lude.Just ("endTime" Lude..= endTime),
-            ("limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath StartQuery where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartQuery where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartQueryResponse' smart constructor.
 data StartQueryResponse = StartQueryResponse'
   { -- | The unique ID of the query.
-    queryId :: Lude.Maybe Lude.Text,
+    queryId :: Core.Maybe Types.QueryId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartQueryResponse' with the minimum fields required to make a request.
---
--- * 'queryId' - The unique ID of the query.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartQueryResponse' value with any optional fields omitted.
 mkStartQueryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartQueryResponse
-mkStartQueryResponse pResponseStatus_ =
-  StartQueryResponse'
-    { queryId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkStartQueryResponse responseStatus =
+  StartQueryResponse' {queryId = Core.Nothing, responseStatus}
 
 -- | The unique ID of the query.
 --
 -- /Note:/ Consider using 'queryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsQueryId :: Lens.Lens' StartQueryResponse (Lude.Maybe Lude.Text)
-srsQueryId = Lens.lens (queryId :: StartQueryResponse -> Lude.Maybe Lude.Text) (\s a -> s {queryId = a} :: StartQueryResponse)
+srsQueryId :: Lens.Lens' StartQueryResponse (Core.Maybe Types.QueryId)
+srsQueryId = Lens.field @"queryId"
 {-# DEPRECATED srsQueryId "Use generic-lens or generic-optics with 'queryId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StartQueryResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StartQueryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartQueryResponse)
+srsResponseStatus :: Lens.Lens' StartQueryResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

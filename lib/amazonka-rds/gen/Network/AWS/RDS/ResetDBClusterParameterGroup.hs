@@ -23,100 +23,105 @@ module Network.AWS.RDS.ResetDBClusterParameterGroup
     mkResetDBClusterParameterGroup,
 
     -- ** Request lenses
-    rdcpgResetAllParameters,
-    rdcpgParameters,
-    rdcpgDBClusterParameterGroupName,
+    rdbcpgDBClusterParameterGroupName,
+    rdbcpgParameters,
+    rdbcpgResetAllParameters,
 
     -- * Destructuring the response
-    DBClusterParameterGroupNameMessage (..),
-    mkDBClusterParameterGroupNameMessage,
+    Types.DBClusterParameterGroupNameMessage (..),
+    Types.mkDBClusterParameterGroupNameMessage,
 
     -- ** Response lenses
-    dcpgnmDBClusterParameterGroupName,
+    Types.dbcpgnmDBClusterParameterGroupName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkResetDBClusterParameterGroup' smart constructor.
 data ResetDBClusterParameterGroup = ResetDBClusterParameterGroup'
-  { -- | A value that indicates whether to reset all parameters in the DB cluster parameter group to their default values. You can't use this parameter if there is a list of parameter names specified for the @Parameters@ parameter.
-    resetAllParameters :: Lude.Maybe Lude.Bool,
+  { -- | The name of the DB cluster parameter group to reset.
+    dBClusterParameterGroupName :: Types.DBClusterParameterGroupName,
     -- | A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the @ResetAllParameters@ parameter is enabled.
-    parameters :: Lude.Maybe [Parameter],
-    -- | The name of the DB cluster parameter group to reset.
-    dbClusterParameterGroupName :: Lude.Text
+    parameters :: Core.Maybe [Types.Parameter],
+    -- | A value that indicates whether to reset all parameters in the DB cluster parameter group to their default values. You can't use this parameter if there is a list of parameter names specified for the @Parameters@ parameter.
+    resetAllParameters :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetDBClusterParameterGroup' with the minimum fields required to make a request.
---
--- * 'resetAllParameters' - A value that indicates whether to reset all parameters in the DB cluster parameter group to their default values. You can't use this parameter if there is a list of parameter names specified for the @Parameters@ parameter.
--- * 'parameters' - A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the @ResetAllParameters@ parameter is enabled.
--- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group to reset.
+-- | Creates a 'ResetDBClusterParameterGroup' value with any optional fields omitted.
 mkResetDBClusterParameterGroup ::
-  -- | 'dbClusterParameterGroupName'
-  Lude.Text ->
+  -- | 'dBClusterParameterGroupName'
+  Types.DBClusterParameterGroupName ->
   ResetDBClusterParameterGroup
-mkResetDBClusterParameterGroup pDBClusterParameterGroupName_ =
+mkResetDBClusterParameterGroup dBClusterParameterGroupName =
   ResetDBClusterParameterGroup'
-    { resetAllParameters = Lude.Nothing,
-      parameters = Lude.Nothing,
-      dbClusterParameterGroupName = pDBClusterParameterGroupName_
+    { dBClusterParameterGroupName,
+      parameters = Core.Nothing,
+      resetAllParameters = Core.Nothing
     }
 
--- | A value that indicates whether to reset all parameters in the DB cluster parameter group to their default values. You can't use this parameter if there is a list of parameter names specified for the @Parameters@ parameter.
+-- | The name of the DB cluster parameter group to reset.
 --
--- /Note:/ Consider using 'resetAllParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdcpgResetAllParameters :: Lens.Lens' ResetDBClusterParameterGroup (Lude.Maybe Lude.Bool)
-rdcpgResetAllParameters = Lens.lens (resetAllParameters :: ResetDBClusterParameterGroup -> Lude.Maybe Lude.Bool) (\s a -> s {resetAllParameters = a} :: ResetDBClusterParameterGroup)
-{-# DEPRECATED rdcpgResetAllParameters "Use generic-lens or generic-optics with 'resetAllParameters' instead." #-}
+-- /Note:/ Consider using 'dBClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbcpgDBClusterParameterGroupName :: Lens.Lens' ResetDBClusterParameterGroup Types.DBClusterParameterGroupName
+rdbcpgDBClusterParameterGroupName = Lens.field @"dBClusterParameterGroupName"
+{-# DEPRECATED rdbcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dBClusterParameterGroupName' instead." #-}
 
 -- | A list of parameter names in the DB cluster parameter group to reset to the default values. You can't use this parameter if the @ResetAllParameters@ parameter is enabled.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdcpgParameters :: Lens.Lens' ResetDBClusterParameterGroup (Lude.Maybe [Parameter])
-rdcpgParameters = Lens.lens (parameters :: ResetDBClusterParameterGroup -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: ResetDBClusterParameterGroup)
-{-# DEPRECATED rdcpgParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+rdbcpgParameters :: Lens.Lens' ResetDBClusterParameterGroup (Core.Maybe [Types.Parameter])
+rdbcpgParameters = Lens.field @"parameters"
+{-# DEPRECATED rdbcpgParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | The name of the DB cluster parameter group to reset.
+-- | A value that indicates whether to reset all parameters in the DB cluster parameter group to their default values. You can't use this parameter if there is a list of parameter names specified for the @Parameters@ parameter.
 --
--- /Note:/ Consider using 'dbClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdcpgDBClusterParameterGroupName :: Lens.Lens' ResetDBClusterParameterGroup Lude.Text
-rdcpgDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: ResetDBClusterParameterGroup -> Lude.Text) (\s a -> s {dbClusterParameterGroupName = a} :: ResetDBClusterParameterGroup)
-{-# DEPRECATED rdcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dbClusterParameterGroupName' instead." #-}
+-- /Note:/ Consider using 'resetAllParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdbcpgResetAllParameters :: Lens.Lens' ResetDBClusterParameterGroup (Core.Maybe Core.Bool)
+rdbcpgResetAllParameters = Lens.field @"resetAllParameters"
+{-# DEPRECATED rdbcpgResetAllParameters "Use generic-lens or generic-optics with 'resetAllParameters' instead." #-}
 
-instance Lude.AWSRequest ResetDBClusterParameterGroup where
+instance Core.AWSRequest ResetDBClusterParameterGroup where
   type
     Rs ResetDBClusterParameterGroup =
-      DBClusterParameterGroupNameMessage
-  request = Req.postQuery rdsService
+      Types.DBClusterParameterGroupNameMessage
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ResetDBClusterParameterGroup")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue
+                            "DBClusterParameterGroupName"
+                            dBClusterParameterGroupName
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Parameters"
+                            (Core.toQueryList "Parameter" Core.<$> parameters)
+                        )
+                Core.<> ( Core.toQueryValue "ResetAllParameters"
+                            Core.<$> resetAllParameters
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ResetDBClusterParameterGroupResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders ResetDBClusterParameterGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ResetDBClusterParameterGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResetDBClusterParameterGroup where
-  toQuery ResetDBClusterParameterGroup' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ResetDBClusterParameterGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "ResetAllParameters" Lude.=: resetAllParameters,
-        "Parameters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Parameter" Lude.<$> parameters),
-        "DBClusterParameterGroupName" Lude.=: dbClusterParameterGroupName
-      ]
+      (\s h x -> Core.parseXML x)

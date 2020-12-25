@@ -13,56 +13,58 @@
 module Network.AWS.CloudFront.Types.EventType
   ( EventType
       ( EventType',
-        ViewerRequest,
-        ViewerResponse,
-        OriginRequest,
-        OriginResponse
+        EventTypeViewerRequest,
+        EventTypeViewerResponse,
+        EventTypeOriginRequest,
+        EventTypeOriginResponse,
+        fromEventType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EventType = EventType' Lude.Text
+newtype EventType = EventType' {fromEventType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ViewerRequest :: EventType
-pattern ViewerRequest = EventType' "viewer-request"
+pattern EventTypeViewerRequest :: EventType
+pattern EventTypeViewerRequest = EventType' "viewer-request"
 
-pattern ViewerResponse :: EventType
-pattern ViewerResponse = EventType' "viewer-response"
+pattern EventTypeViewerResponse :: EventType
+pattern EventTypeViewerResponse = EventType' "viewer-response"
 
-pattern OriginRequest :: EventType
-pattern OriginRequest = EventType' "origin-request"
+pattern EventTypeOriginRequest :: EventType
+pattern EventTypeOriginRequest = EventType' "origin-request"
 
-pattern OriginResponse :: EventType
-pattern OriginResponse = EventType' "origin-response"
+pattern EventTypeOriginResponse :: EventType
+pattern EventTypeOriginResponse = EventType' "origin-response"
 
 {-# COMPLETE
-  ViewerRequest,
-  ViewerResponse,
-  OriginRequest,
-  OriginResponse,
+  EventTypeViewerRequest,
+  EventTypeViewerResponse,
+  EventTypeOriginRequest,
+  EventTypeOriginResponse,
   EventType'
   #-}

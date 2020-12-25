@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.ArchitectureValues
   ( ArchitectureValues
       ( ArchitectureValues',
-        I386,
-        X86_64,
-        ARM64
+        ArchitectureValuesI386,
+        ArchitectureValuesX8664,
+        ArchitectureValuesARM64,
+        fromArchitectureValues
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ArchitectureValues = ArchitectureValues' Lude.Text
+newtype ArchitectureValues = ArchitectureValues'
+  { fromArchitectureValues ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern I386 :: ArchitectureValues
-pattern I386 = ArchitectureValues' "i386"
+pattern ArchitectureValuesI386 :: ArchitectureValues
+pattern ArchitectureValuesI386 = ArchitectureValues' "i386"
 
-pattern X86_64 :: ArchitectureValues
-pattern X86_64 = ArchitectureValues' "x86_64"
+pattern ArchitectureValuesX8664 :: ArchitectureValues
+pattern ArchitectureValuesX8664 = ArchitectureValues' "x86_64"
 
-pattern ARM64 :: ArchitectureValues
-pattern ARM64 = ArchitectureValues' "arm64"
+pattern ArchitectureValuesARM64 :: ArchitectureValues
+pattern ArchitectureValuesARM64 = ArchitectureValues' "arm64"
 
 {-# COMPLETE
-  I386,
-  X86_64,
-  ARM64,
+  ArchitectureValuesI386,
+  ArchitectureValuesX8664,
+  ArchitectureValuesARM64,
   ArchitectureValues'
   #-}

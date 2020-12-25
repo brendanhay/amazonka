@@ -17,114 +17,107 @@ module Network.AWS.AlexaBusiness.Types.ConferenceProvider
     mkConferenceProvider,
 
     -- * Lenses
-    cpMeetingSetting,
-    cpARN,
-    cpPSTNDialIn,
-    cpName,
-    cpType,
+    cpArn,
     cpIPDialIn,
+    cpMeetingSetting,
+    cpName,
+    cpPSTNDialIn,
+    cpType,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.ConferenceProviderType
-import Network.AWS.AlexaBusiness.Types.IPDialIn
-import Network.AWS.AlexaBusiness.Types.MeetingSetting
-import Network.AWS.AlexaBusiness.Types.PSTNDialIn
+import qualified Network.AWS.AlexaBusiness.Types.Arn as Types
+import qualified Network.AWS.AlexaBusiness.Types.ConferenceProviderType as Types
+import qualified Network.AWS.AlexaBusiness.Types.IPDialIn as Types
+import qualified Network.AWS.AlexaBusiness.Types.MeetingSetting as Types
+import qualified Network.AWS.AlexaBusiness.Types.Name as Types
+import qualified Network.AWS.AlexaBusiness.Types.PSTNDialIn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An entity that provides a conferencing solution. Alexa for Business acts as the voice interface and mediator that connects users to their preferred conference provider. Examples of conference providers include Amazon Chime, Zoom, Cisco, and Polycom.
 --
 -- /See:/ 'mkConferenceProvider' smart constructor.
 data ConferenceProvider = ConferenceProvider'
-  { -- | The meeting settings for the conference provider.
-    meetingSetting :: Lude.Maybe MeetingSetting,
-    -- | The ARN of the newly created conference provider.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The information for PSTN conferencing.
-    pSTNDialIn :: Lude.Maybe PSTNDialIn,
-    -- | The name of the conference provider.
-    name :: Lude.Maybe Lude.Text,
-    -- | The type of conference providers.
-    type' :: Lude.Maybe ConferenceProviderType,
+  { -- | The ARN of the newly created conference provider.
+    arn :: Core.Maybe Types.Arn,
     -- | The IP endpoint and protocol for calling.
-    ipDialIn :: Lude.Maybe IPDialIn
+    iPDialIn :: Core.Maybe Types.IPDialIn,
+    -- | The meeting settings for the conference provider.
+    meetingSetting :: Core.Maybe Types.MeetingSetting,
+    -- | The name of the conference provider.
+    name :: Core.Maybe Types.Name,
+    -- | The information for PSTN conferencing.
+    pSTNDialIn :: Core.Maybe Types.PSTNDialIn,
+    -- | The type of conference providers.
+    type' :: Core.Maybe Types.ConferenceProviderType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConferenceProvider' with the minimum fields required to make a request.
---
--- * 'meetingSetting' - The meeting settings for the conference provider.
--- * 'arn' - The ARN of the newly created conference provider.
--- * 'pSTNDialIn' - The information for PSTN conferencing.
--- * 'name' - The name of the conference provider.
--- * 'type'' - The type of conference providers.
--- * 'ipDialIn' - The IP endpoint and protocol for calling.
+-- | Creates a 'ConferenceProvider' value with any optional fields omitted.
 mkConferenceProvider ::
   ConferenceProvider
 mkConferenceProvider =
   ConferenceProvider'
-    { meetingSetting = Lude.Nothing,
-      arn = Lude.Nothing,
-      pSTNDialIn = Lude.Nothing,
-      name = Lude.Nothing,
-      type' = Lude.Nothing,
-      ipDialIn = Lude.Nothing
+    { arn = Core.Nothing,
+      iPDialIn = Core.Nothing,
+      meetingSetting = Core.Nothing,
+      name = Core.Nothing,
+      pSTNDialIn = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The meeting settings for the conference provider.
---
--- /Note:/ Consider using 'meetingSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpMeetingSetting :: Lens.Lens' ConferenceProvider (Lude.Maybe MeetingSetting)
-cpMeetingSetting = Lens.lens (meetingSetting :: ConferenceProvider -> Lude.Maybe MeetingSetting) (\s a -> s {meetingSetting = a} :: ConferenceProvider)
-{-# DEPRECATED cpMeetingSetting "Use generic-lens or generic-optics with 'meetingSetting' instead." #-}
 
 -- | The ARN of the newly created conference provider.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpARN :: Lens.Lens' ConferenceProvider (Lude.Maybe Lude.Text)
-cpARN = Lens.lens (arn :: ConferenceProvider -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ConferenceProvider)
-{-# DEPRECATED cpARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+cpArn :: Lens.Lens' ConferenceProvider (Core.Maybe Types.Arn)
+cpArn = Lens.field @"arn"
+{-# DEPRECATED cpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The information for PSTN conferencing.
+-- | The IP endpoint and protocol for calling.
 --
--- /Note:/ Consider using 'pSTNDialIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPSTNDialIn :: Lens.Lens' ConferenceProvider (Lude.Maybe PSTNDialIn)
-cpPSTNDialIn = Lens.lens (pSTNDialIn :: ConferenceProvider -> Lude.Maybe PSTNDialIn) (\s a -> s {pSTNDialIn = a} :: ConferenceProvider)
-{-# DEPRECATED cpPSTNDialIn "Use generic-lens or generic-optics with 'pSTNDialIn' instead." #-}
+-- /Note:/ Consider using 'iPDialIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpIPDialIn :: Lens.Lens' ConferenceProvider (Core.Maybe Types.IPDialIn)
+cpIPDialIn = Lens.field @"iPDialIn"
+{-# DEPRECATED cpIPDialIn "Use generic-lens or generic-optics with 'iPDialIn' instead." #-}
+
+-- | The meeting settings for the conference provider.
+--
+-- /Note:/ Consider using 'meetingSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpMeetingSetting :: Lens.Lens' ConferenceProvider (Core.Maybe Types.MeetingSetting)
+cpMeetingSetting = Lens.field @"meetingSetting"
+{-# DEPRECATED cpMeetingSetting "Use generic-lens or generic-optics with 'meetingSetting' instead." #-}
 
 -- | The name of the conference provider.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpName :: Lens.Lens' ConferenceProvider (Lude.Maybe Lude.Text)
-cpName = Lens.lens (name :: ConferenceProvider -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ConferenceProvider)
+cpName :: Lens.Lens' ConferenceProvider (Core.Maybe Types.Name)
+cpName = Lens.field @"name"
 {-# DEPRECATED cpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The information for PSTN conferencing.
+--
+-- /Note:/ Consider using 'pSTNDialIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpPSTNDialIn :: Lens.Lens' ConferenceProvider (Core.Maybe Types.PSTNDialIn)
+cpPSTNDialIn = Lens.field @"pSTNDialIn"
+{-# DEPRECATED cpPSTNDialIn "Use generic-lens or generic-optics with 'pSTNDialIn' instead." #-}
 
 -- | The type of conference providers.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpType :: Lens.Lens' ConferenceProvider (Lude.Maybe ConferenceProviderType)
-cpType = Lens.lens (type' :: ConferenceProvider -> Lude.Maybe ConferenceProviderType) (\s a -> s {type' = a} :: ConferenceProvider)
+cpType :: Lens.Lens' ConferenceProvider (Core.Maybe Types.ConferenceProviderType)
+cpType = Lens.field @"type'"
 {-# DEPRECATED cpType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The IP endpoint and protocol for calling.
---
--- /Note:/ Consider using 'ipDialIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpIPDialIn :: Lens.Lens' ConferenceProvider (Lude.Maybe IPDialIn)
-cpIPDialIn = Lens.lens (ipDialIn :: ConferenceProvider -> Lude.Maybe IPDialIn) (\s a -> s {ipDialIn = a} :: ConferenceProvider)
-{-# DEPRECATED cpIPDialIn "Use generic-lens or generic-optics with 'ipDialIn' instead." #-}
-
-instance Lude.FromJSON ConferenceProvider where
+instance Core.FromJSON ConferenceProvider where
   parseJSON =
-    Lude.withObject
-      "ConferenceProvider"
-      ( \x ->
-          ConferenceProvider'
-            Lude.<$> (x Lude..:? "MeetingSetting")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "PSTNDialIn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "IPDialIn")
-      )
+    Core.withObject "ConferenceProvider" Core.$
+      \x ->
+        ConferenceProvider'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "IPDialIn")
+          Core.<*> (x Core..:? "MeetingSetting")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "PSTNDialIn")
+          Core.<*> (x Core..:? "Type")

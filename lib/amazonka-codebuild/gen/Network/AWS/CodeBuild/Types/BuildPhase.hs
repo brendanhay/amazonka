@@ -18,28 +18,30 @@ module Network.AWS.CodeBuild.Types.BuildPhase
 
     -- * Lenses
     bpContexts,
-    bpStartTime,
+    bpDurationInSeconds,
+    bpEndTime,
     bpPhaseStatus,
     bpPhaseType,
-    bpEndTime,
-    bpDurationInSeconds,
+    bpStartTime,
   )
 where
 
-import Network.AWS.CodeBuild.Types.BuildPhaseType
-import Network.AWS.CodeBuild.Types.PhaseContext
-import Network.AWS.CodeBuild.Types.StatusType
+import qualified Network.AWS.CodeBuild.Types.BuildPhaseType as Types
+import qualified Network.AWS.CodeBuild.Types.PhaseContext as Types
+import qualified Network.AWS.CodeBuild.Types.StatusType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a stage for a build.
 --
 -- /See:/ 'mkBuildPhase' smart constructor.
 data BuildPhase = BuildPhase'
   { -- | Additional information about a build phase, especially to help troubleshoot a failed build.
-    contexts :: Lude.Maybe [PhaseContext],
-    -- | When the build phase started, expressed in Unix time format.
-    startTime :: Lude.Maybe Lude.Timestamp,
+    contexts :: Core.Maybe [Types.PhaseContext],
+    -- | How long, in seconds, between the starting and ending times of the build's phase.
+    durationInSeconds :: Core.Maybe Core.Integer,
+    -- | When the build phase ended, expressed in Unix time format.
+    endTime :: Core.Maybe Core.NominalDiffTime,
     -- | The current status of the build phase. Valid values include:
     --
     --
@@ -76,7 +78,7 @@ data BuildPhase = BuildPhase'
     --     * TIMED_OUT
     --
     --     * The build phase timed out.
-    phaseStatus :: Lude.Maybe StatusType,
+    phaseStatus :: Core.Maybe Types.StatusType,
     -- | The name of the build phase. Valid values include:
     --
     --
@@ -111,120 +113,46 @@ data BuildPhase = BuildPhase'
     --
     --
     --     * @UPLOAD_ARTIFACTS@ : Build output artifacts are being uploaded to the output location.
-    phaseType :: Lude.Maybe BuildPhaseType,
-    -- | When the build phase ended, expressed in Unix time format.
-    endTime :: Lude.Maybe Lude.Timestamp,
-    -- | How long, in seconds, between the starting and ending times of the build's phase.
-    durationInSeconds :: Lude.Maybe Lude.Integer
+    phaseType :: Core.Maybe Types.BuildPhaseType,
+    -- | When the build phase started, expressed in Unix time format.
+    startTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BuildPhase' with the minimum fields required to make a request.
---
--- * 'contexts' - Additional information about a build phase, especially to help troubleshoot a failed build.
--- * 'startTime' - When the build phase started, expressed in Unix time format.
--- * 'phaseStatus' - The current status of the build phase. Valid values include:
---
---
---     * FAILED
---
---     * The build phase failed.
---
---
---     * FAULT
---
---     * The build phase faulted.
---
---
---     * IN_PROGRESS
---
---     * The build phase is still in progress.
---
---
---     * QUEUED
---
---     * The build has been submitted and is queued behind other submitted builds.
---
---
---     * STOPPED
---
---     * The build phase stopped.
---
---
---     * SUCCEEDED
---
---     * The build phase succeeded.
---
---
---     * TIMED_OUT
---
---     * The build phase timed out.
---
---
--- * 'phaseType' - The name of the build phase. Valid values include:
---
---
---     * @BUILD@ : Core build activities typically occur in this build phase.
---
---
---     * @COMPLETED@ : The build has been completed.
---
---
---     * @DOWNLOAD_SOURCE@ : Source code is being downloaded in this build phase.
---
---
---     * @FINALIZING@ : The build process is completing in this build phase.
---
---
---     * @INSTALL@ : Installation activities typically occur in this build phase.
---
---
---     * @POST_BUILD@ : Post-build activities typically occur in this build phase.
---
---
---     * @PRE_BUILD@ : Pre-build activities typically occur in this build phase.
---
---
---     * @PROVISIONING@ : The build environment is being set up.
---
---
---     * @QUEUED@ : The build has been submitted and is queued behind other submitted builds.
---
---
---     * @SUBMITTED@ : The build has been submitted.
---
---
---     * @UPLOAD_ARTIFACTS@ : Build output artifacts are being uploaded to the output location.
---
---
--- * 'endTime' - When the build phase ended, expressed in Unix time format.
--- * 'durationInSeconds' - How long, in seconds, between the starting and ending times of the build's phase.
+-- | Creates a 'BuildPhase' value with any optional fields omitted.
 mkBuildPhase ::
   BuildPhase
 mkBuildPhase =
   BuildPhase'
-    { contexts = Lude.Nothing,
-      startTime = Lude.Nothing,
-      phaseStatus = Lude.Nothing,
-      phaseType = Lude.Nothing,
-      endTime = Lude.Nothing,
-      durationInSeconds = Lude.Nothing
+    { contexts = Core.Nothing,
+      durationInSeconds = Core.Nothing,
+      endTime = Core.Nothing,
+      phaseStatus = Core.Nothing,
+      phaseType = Core.Nothing,
+      startTime = Core.Nothing
     }
 
 -- | Additional information about a build phase, especially to help troubleshoot a failed build.
 --
 -- /Note:/ Consider using 'contexts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpContexts :: Lens.Lens' BuildPhase (Lude.Maybe [PhaseContext])
-bpContexts = Lens.lens (contexts :: BuildPhase -> Lude.Maybe [PhaseContext]) (\s a -> s {contexts = a} :: BuildPhase)
+bpContexts :: Lens.Lens' BuildPhase (Core.Maybe [Types.PhaseContext])
+bpContexts = Lens.field @"contexts"
 {-# DEPRECATED bpContexts "Use generic-lens or generic-optics with 'contexts' instead." #-}
 
--- | When the build phase started, expressed in Unix time format.
+-- | How long, in seconds, between the starting and ending times of the build's phase.
 --
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpStartTime :: Lens.Lens' BuildPhase (Lude.Maybe Lude.Timestamp)
-bpStartTime = Lens.lens (startTime :: BuildPhase -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: BuildPhase)
-{-# DEPRECATED bpStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+-- /Note:/ Consider using 'durationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpDurationInSeconds :: Lens.Lens' BuildPhase (Core.Maybe Core.Integer)
+bpDurationInSeconds = Lens.field @"durationInSeconds"
+{-# DEPRECATED bpDurationInSeconds "Use generic-lens or generic-optics with 'durationInSeconds' instead." #-}
+
+-- | When the build phase ended, expressed in Unix time format.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpEndTime :: Lens.Lens' BuildPhase (Core.Maybe Core.NominalDiffTime)
+bpEndTime = Lens.field @"endTime"
+{-# DEPRECATED bpEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The current status of the build phase. Valid values include:
 --
@@ -266,8 +194,8 @@ bpStartTime = Lens.lens (startTime :: BuildPhase -> Lude.Maybe Lude.Timestamp) (
 --
 --
 -- /Note:/ Consider using 'phaseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpPhaseStatus :: Lens.Lens' BuildPhase (Lude.Maybe StatusType)
-bpPhaseStatus = Lens.lens (phaseStatus :: BuildPhase -> Lude.Maybe StatusType) (\s a -> s {phaseStatus = a} :: BuildPhase)
+bpPhaseStatus :: Lens.Lens' BuildPhase (Core.Maybe Types.StatusType)
+bpPhaseStatus = Lens.field @"phaseStatus"
 {-# DEPRECATED bpPhaseStatus "Use generic-lens or generic-optics with 'phaseStatus' instead." #-}
 
 -- | The name of the build phase. Valid values include:
@@ -308,34 +236,25 @@ bpPhaseStatus = Lens.lens (phaseStatus :: BuildPhase -> Lude.Maybe StatusType) (
 --
 --
 -- /Note:/ Consider using 'phaseType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpPhaseType :: Lens.Lens' BuildPhase (Lude.Maybe BuildPhaseType)
-bpPhaseType = Lens.lens (phaseType :: BuildPhase -> Lude.Maybe BuildPhaseType) (\s a -> s {phaseType = a} :: BuildPhase)
+bpPhaseType :: Lens.Lens' BuildPhase (Core.Maybe Types.BuildPhaseType)
+bpPhaseType = Lens.field @"phaseType"
 {-# DEPRECATED bpPhaseType "Use generic-lens or generic-optics with 'phaseType' instead." #-}
 
--- | When the build phase ended, expressed in Unix time format.
+-- | When the build phase started, expressed in Unix time format.
 --
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpEndTime :: Lens.Lens' BuildPhase (Lude.Maybe Lude.Timestamp)
-bpEndTime = Lens.lens (endTime :: BuildPhase -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: BuildPhase)
-{-# DEPRECATED bpEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpStartTime :: Lens.Lens' BuildPhase (Core.Maybe Core.NominalDiffTime)
+bpStartTime = Lens.field @"startTime"
+{-# DEPRECATED bpStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
--- | How long, in seconds, between the starting and ending times of the build's phase.
---
--- /Note:/ Consider using 'durationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpDurationInSeconds :: Lens.Lens' BuildPhase (Lude.Maybe Lude.Integer)
-bpDurationInSeconds = Lens.lens (durationInSeconds :: BuildPhase -> Lude.Maybe Lude.Integer) (\s a -> s {durationInSeconds = a} :: BuildPhase)
-{-# DEPRECATED bpDurationInSeconds "Use generic-lens or generic-optics with 'durationInSeconds' instead." #-}
-
-instance Lude.FromJSON BuildPhase where
+instance Core.FromJSON BuildPhase where
   parseJSON =
-    Lude.withObject
-      "BuildPhase"
-      ( \x ->
-          BuildPhase'
-            Lude.<$> (x Lude..:? "contexts" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "startTime")
-            Lude.<*> (x Lude..:? "phaseStatus")
-            Lude.<*> (x Lude..:? "phaseType")
-            Lude.<*> (x Lude..:? "endTime")
-            Lude.<*> (x Lude..:? "durationInSeconds")
-      )
+    Core.withObject "BuildPhase" Core.$
+      \x ->
+        BuildPhase'
+          Core.<$> (x Core..:? "contexts")
+          Core.<*> (x Core..:? "durationInSeconds")
+          Core.<*> (x Core..:? "endTime")
+          Core.<*> (x Core..:? "phaseStatus")
+          Core.<*> (x Core..:? "phaseType")
+          Core.<*> (x Core..:? "startTime")

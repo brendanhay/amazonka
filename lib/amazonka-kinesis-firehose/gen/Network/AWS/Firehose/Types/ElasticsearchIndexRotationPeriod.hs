@@ -13,61 +13,66 @@
 module Network.AWS.Firehose.Types.ElasticsearchIndexRotationPeriod
   ( ElasticsearchIndexRotationPeriod
       ( ElasticsearchIndexRotationPeriod',
-        NoRotation,
-        OneHour,
-        OneDay,
-        OneWeek,
-        OneMonth
+        ElasticsearchIndexRotationPeriodNoRotation,
+        ElasticsearchIndexRotationPeriodOneHour,
+        ElasticsearchIndexRotationPeriodOneDay,
+        ElasticsearchIndexRotationPeriodOneWeek,
+        ElasticsearchIndexRotationPeriodOneMonth,
+        fromElasticsearchIndexRotationPeriod
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ElasticsearchIndexRotationPeriod = ElasticsearchIndexRotationPeriod' Lude.Text
+newtype ElasticsearchIndexRotationPeriod = ElasticsearchIndexRotationPeriod'
+  { fromElasticsearchIndexRotationPeriod ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NoRotation :: ElasticsearchIndexRotationPeriod
-pattern NoRotation = ElasticsearchIndexRotationPeriod' "NoRotation"
+pattern ElasticsearchIndexRotationPeriodNoRotation :: ElasticsearchIndexRotationPeriod
+pattern ElasticsearchIndexRotationPeriodNoRotation = ElasticsearchIndexRotationPeriod' "NoRotation"
 
-pattern OneHour :: ElasticsearchIndexRotationPeriod
-pattern OneHour = ElasticsearchIndexRotationPeriod' "OneHour"
+pattern ElasticsearchIndexRotationPeriodOneHour :: ElasticsearchIndexRotationPeriod
+pattern ElasticsearchIndexRotationPeriodOneHour = ElasticsearchIndexRotationPeriod' "OneHour"
 
-pattern OneDay :: ElasticsearchIndexRotationPeriod
-pattern OneDay = ElasticsearchIndexRotationPeriod' "OneDay"
+pattern ElasticsearchIndexRotationPeriodOneDay :: ElasticsearchIndexRotationPeriod
+pattern ElasticsearchIndexRotationPeriodOneDay = ElasticsearchIndexRotationPeriod' "OneDay"
 
-pattern OneWeek :: ElasticsearchIndexRotationPeriod
-pattern OneWeek = ElasticsearchIndexRotationPeriod' "OneWeek"
+pattern ElasticsearchIndexRotationPeriodOneWeek :: ElasticsearchIndexRotationPeriod
+pattern ElasticsearchIndexRotationPeriodOneWeek = ElasticsearchIndexRotationPeriod' "OneWeek"
 
-pattern OneMonth :: ElasticsearchIndexRotationPeriod
-pattern OneMonth = ElasticsearchIndexRotationPeriod' "OneMonth"
+pattern ElasticsearchIndexRotationPeriodOneMonth :: ElasticsearchIndexRotationPeriod
+pattern ElasticsearchIndexRotationPeriodOneMonth = ElasticsearchIndexRotationPeriod' "OneMonth"
 
 {-# COMPLETE
-  NoRotation,
-  OneHour,
-  OneDay,
-  OneWeek,
-  OneMonth,
+  ElasticsearchIndexRotationPeriodNoRotation,
+  ElasticsearchIndexRotationPeriodOneHour,
+  ElasticsearchIndexRotationPeriodOneDay,
+  ElasticsearchIndexRotationPeriodOneWeek,
+  ElasticsearchIndexRotationPeriodOneMonth,
   ElasticsearchIndexRotationPeriod'
   #-}

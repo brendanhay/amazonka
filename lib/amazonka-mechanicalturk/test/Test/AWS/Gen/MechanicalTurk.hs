@@ -510,7 +510,7 @@ responseApproveAssignment =
   res
     "ApproveAssignmentResponse"
     "fixture/ApproveAssignmentResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy ApproveAssignment)
 
 responseListReviewPolicyResultsForHIT :: ListReviewPolicyResultsForHITResponse -> TestTree
@@ -518,7 +518,7 @@ responseListReviewPolicyResultsForHIT =
   res
     "ListReviewPolicyResultsForHITResponse"
     "fixture/ListReviewPolicyResultsForHITResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy ListReviewPolicyResultsForHIT)
 
 responseListHITs :: ListHITsResponse -> TestTree
@@ -526,7 +526,7 @@ responseListHITs =
   res
     "ListHITsResponse"
     "fixture/ListHITsResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy ListHITs)
 
 responseListWorkersWithQualificationType :: ListWorkersWithQualificationTypeResponse -> TestTree
@@ -534,7 +534,7 @@ responseListWorkersWithQualificationType =
   res
     "ListWorkersWithQualificationTypeResponse"
     "fixture/ListWorkersWithQualificationTypeResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy ListWorkersWithQualificationType)
 
 responseDeleteHIT :: DeleteHITResponse -> TestTree
@@ -542,7 +542,7 @@ responseDeleteHIT =
   res
     "DeleteHITResponse"
     "fixture/DeleteHITResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy DeleteHIT)
 
 responseListReviewableHITs :: ListReviewableHITsResponse -> TestTree
@@ -550,7 +550,7 @@ responseListReviewableHITs =
   res
     "ListReviewableHITsResponse"
     "fixture/ListReviewableHITsResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy ListReviewableHITs)
 
 responseGetAssignment :: GetAssignmentResponse -> TestTree
@@ -558,7 +558,7 @@ responseGetAssignment =
   res
     "GetAssignmentResponse"
     "fixture/GetAssignmentResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy GetAssignment)
 
 responseDeleteQualificationType :: DeleteQualificationTypeResponse -> TestTree
@@ -566,7 +566,7 @@ responseDeleteQualificationType =
   res
     "DeleteQualificationTypeResponse"
     "fixture/DeleteQualificationTypeResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy DeleteQualificationType)
 
 responseUpdateQualificationType :: UpdateQualificationTypeResponse -> TestTree
@@ -574,7 +574,7 @@ responseUpdateQualificationType =
   res
     "UpdateQualificationTypeResponse"
     "fixture/UpdateQualificationTypeResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy UpdateQualificationType)
 
 responseListQualificationTypes :: ListQualificationTypesResponse -> TestTree
@@ -582,7 +582,7 @@ responseListQualificationTypes =
   res
     "ListQualificationTypesResponse"
     "fixture/ListQualificationTypesResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy ListQualificationTypes)
 
 responseUpdateHITTypeOfHIT :: UpdateHITTypeOfHITResponse -> TestTree
@@ -590,7 +590,7 @@ responseUpdateHITTypeOfHIT =
   res
     "UpdateHITTypeOfHITResponse"
     "fixture/UpdateHITTypeOfHITResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy UpdateHITTypeOfHIT)
 
 responseDisassociateQualificationFromWorker :: DisassociateQualificationFromWorkerResponse -> TestTree
@@ -598,7 +598,7 @@ responseDisassociateQualificationFromWorker =
   res
     "DisassociateQualificationFromWorkerResponse"
     "fixture/DisassociateQualificationFromWorkerResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateQualificationFromWorker)
 
 responseSendTestEventNotification :: SendTestEventNotificationResponse -> TestTree
@@ -606,7 +606,7 @@ responseSendTestEventNotification =
   res
     "SendTestEventNotificationResponse"
     "fixture/SendTestEventNotificationResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy SendTestEventNotification)
 
 responseNotifyWorkers :: NotifyWorkersResponse -> TestTree
@@ -614,7 +614,7 @@ responseNotifyWorkers =
   res
     "NotifyWorkersResponse"
     "fixture/NotifyWorkersResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy NotifyWorkers)
 
 responseCreateHITWithHITType :: CreateHITWithHITTypeResponse -> TestTree
@@ -622,7 +622,7 @@ responseCreateHITWithHITType =
   res
     "CreateHITWithHITTypeResponse"
     "fixture/CreateHITWithHITTypeResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy CreateHITWithHITType)
 
 responseCreateHITType :: CreateHITTypeResponse -> TestTree
@@ -630,7 +630,7 @@ responseCreateHITType =
   res
     "CreateHITTypeResponse"
     "fixture/CreateHITTypeResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy CreateHITType)
 
 responseSendBonus :: SendBonusResponse -> TestTree
@@ -638,7 +638,7 @@ responseSendBonus =
   res
     "SendBonusResponse"
     "fixture/SendBonusResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy SendBonus)
 
 responseListQualificationRequests :: ListQualificationRequestsResponse -> TestTree
@@ -646,7 +646,7 @@ responseListQualificationRequests =
   res
     "ListQualificationRequestsResponse"
     "fixture/ListQualificationRequestsResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy ListQualificationRequests)
 
 responseUpdateExpirationForHIT :: UpdateExpirationForHITResponse -> TestTree
@@ -654,7 +654,7 @@ responseUpdateExpirationForHIT =
   res
     "UpdateExpirationForHITResponse"
     "fixture/UpdateExpirationForHITResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy UpdateExpirationForHIT)
 
 responseRejectAssignment :: RejectAssignmentResponse -> TestTree
@@ -662,7 +662,7 @@ responseRejectAssignment =
   res
     "RejectAssignmentResponse"
     "fixture/RejectAssignmentResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy RejectAssignment)
 
 responseListAssignmentsForHIT :: ListAssignmentsForHITResponse -> TestTree
@@ -670,7 +670,7 @@ responseListAssignmentsForHIT =
   res
     "ListAssignmentsForHITResponse"
     "fixture/ListAssignmentsForHITResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy ListAssignmentsForHIT)
 
 responseRejectQualificationRequest :: RejectQualificationRequestResponse -> TestTree
@@ -678,7 +678,7 @@ responseRejectQualificationRequest =
   res
     "RejectQualificationRequestResponse"
     "fixture/RejectQualificationRequestResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy RejectQualificationRequest)
 
 responseGetQualificationScore :: GetQualificationScoreResponse -> TestTree
@@ -686,7 +686,7 @@ responseGetQualificationScore =
   res
     "GetQualificationScoreResponse"
     "fixture/GetQualificationScoreResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy GetQualificationScore)
 
 responseGetQualificationType :: GetQualificationTypeResponse -> TestTree
@@ -694,7 +694,7 @@ responseGetQualificationType =
   res
     "GetQualificationTypeResponse"
     "fixture/GetQualificationTypeResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy GetQualificationType)
 
 responseUpdateHITReviewStatus :: UpdateHITReviewStatusResponse -> TestTree
@@ -702,7 +702,7 @@ responseUpdateHITReviewStatus =
   res
     "UpdateHITReviewStatusResponse"
     "fixture/UpdateHITReviewStatusResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy UpdateHITReviewStatus)
 
 responseCreateQualificationType :: CreateQualificationTypeResponse -> TestTree
@@ -710,7 +710,7 @@ responseCreateQualificationType =
   res
     "CreateQualificationTypeResponse"
     "fixture/CreateQualificationTypeResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy CreateQualificationType)
 
 responseAcceptQualificationRequest :: AcceptQualificationRequestResponse -> TestTree
@@ -718,7 +718,7 @@ responseAcceptQualificationRequest =
   res
     "AcceptQualificationRequestResponse"
     "fixture/AcceptQualificationRequestResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy AcceptQualificationRequest)
 
 responseGetFileUploadURL :: GetFileUploadURLResponse -> TestTree
@@ -726,7 +726,7 @@ responseGetFileUploadURL =
   res
     "GetFileUploadURLResponse"
     "fixture/GetFileUploadURLResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy GetFileUploadURL)
 
 responseCreateAdditionalAssignmentsForHIT :: CreateAdditionalAssignmentsForHITResponse -> TestTree
@@ -734,7 +734,7 @@ responseCreateAdditionalAssignmentsForHIT =
   res
     "CreateAdditionalAssignmentsForHITResponse"
     "fixture/CreateAdditionalAssignmentsForHITResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy CreateAdditionalAssignmentsForHIT)
 
 responseGetHIT :: GetHITResponse -> TestTree
@@ -742,7 +742,7 @@ responseGetHIT =
   res
     "GetHITResponse"
     "fixture/GetHITResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy GetHIT)
 
 responseCreateWorkerBlock :: CreateWorkerBlockResponse -> TestTree
@@ -750,7 +750,7 @@ responseCreateWorkerBlock =
   res
     "CreateWorkerBlockResponse"
     "fixture/CreateWorkerBlockResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy CreateWorkerBlock)
 
 responseListHITsForQualificationType :: ListHITsForQualificationTypeResponse -> TestTree
@@ -758,7 +758,7 @@ responseListHITsForQualificationType =
   res
     "ListHITsForQualificationTypeResponse"
     "fixture/ListHITsForQualificationTypeResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy ListHITsForQualificationType)
 
 responseListBonusPayments :: ListBonusPaymentsResponse -> TestTree
@@ -766,7 +766,7 @@ responseListBonusPayments =
   res
     "ListBonusPaymentsResponse"
     "fixture/ListBonusPaymentsResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy ListBonusPayments)
 
 responseListWorkerBlocks :: ListWorkerBlocksResponse -> TestTree
@@ -774,7 +774,7 @@ responseListWorkerBlocks =
   res
     "ListWorkerBlocksResponse"
     "fixture/ListWorkerBlocksResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy ListWorkerBlocks)
 
 responseDeleteWorkerBlock :: DeleteWorkerBlockResponse -> TestTree
@@ -782,7 +782,7 @@ responseDeleteWorkerBlock =
   res
     "DeleteWorkerBlockResponse"
     "fixture/DeleteWorkerBlockResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy DeleteWorkerBlock)
 
 responseUpdateNotificationSettings :: UpdateNotificationSettingsResponse -> TestTree
@@ -790,7 +790,7 @@ responseUpdateNotificationSettings =
   res
     "UpdateNotificationSettingsResponse"
     "fixture/UpdateNotificationSettingsResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy UpdateNotificationSettings)
 
 responseAssociateQualificationWithWorker :: AssociateQualificationWithWorkerResponse -> TestTree
@@ -798,7 +798,7 @@ responseAssociateQualificationWithWorker =
   res
     "AssociateQualificationWithWorkerResponse"
     "fixture/AssociateQualificationWithWorkerResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy AssociateQualificationWithWorker)
 
 responseCreateHIT :: CreateHITResponse -> TestTree
@@ -806,7 +806,7 @@ responseCreateHIT =
   res
     "CreateHITResponse"
     "fixture/CreateHITResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy CreateHIT)
 
 responseGetAccountBalance :: GetAccountBalanceResponse -> TestTree
@@ -814,5 +814,5 @@ responseGetAccountBalance =
   res
     "GetAccountBalanceResponse"
     "fixture/GetAccountBalanceResponse.proto"
-    mechanicalTurkService
+    mkServiceConfig
     (Proxy :: Proxy GetAccountBalance)

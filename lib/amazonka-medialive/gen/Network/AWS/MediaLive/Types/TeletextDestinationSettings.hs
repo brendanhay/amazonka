@@ -21,25 +21,24 @@ module Network.AWS.MediaLive.Types.TeletextDestinationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Teletext Destination Settings
 --
 -- /See:/ 'mkTeletextDestinationSettings' smart constructor.
 data TeletextDestinationSettings = TeletextDestinationSettings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TeletextDestinationSettings' with the minimum fields required to make a request.
+-- | Creates a 'TeletextDestinationSettings' value with any optional fields omitted.
 mkTeletextDestinationSettings ::
   TeletextDestinationSettings
 mkTeletextDestinationSettings = TeletextDestinationSettings'
 
-instance Lude.FromJSON TeletextDestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "TeletextDestinationSettings"
-      (\x -> Lude.pure TeletextDestinationSettings')
+instance Core.FromJSON TeletextDestinationSettings where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.ToJSON TeletextDestinationSettings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
+instance Core.FromJSON TeletextDestinationSettings where
+  parseJSON =
+    Core.withObject "TeletextDestinationSettings" Core.$
+      \x -> Core.pure TeletextDestinationSettings'

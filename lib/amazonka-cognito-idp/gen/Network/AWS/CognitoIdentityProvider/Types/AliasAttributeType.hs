@@ -13,51 +13,56 @@
 module Network.AWS.CognitoIdentityProvider.Types.AliasAttributeType
   ( AliasAttributeType
       ( AliasAttributeType',
-        AATPhoneNumber,
-        AATEmail,
-        AATPreferredUsername
+        AliasAttributeTypePhoneNumber,
+        AliasAttributeTypeEmail,
+        AliasAttributeTypePreferredUsername,
+        fromAliasAttributeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AliasAttributeType = AliasAttributeType' Lude.Text
+newtype AliasAttributeType = AliasAttributeType'
+  { fromAliasAttributeType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AATPhoneNumber :: AliasAttributeType
-pattern AATPhoneNumber = AliasAttributeType' "phone_number"
+pattern AliasAttributeTypePhoneNumber :: AliasAttributeType
+pattern AliasAttributeTypePhoneNumber = AliasAttributeType' "phone_number"
 
-pattern AATEmail :: AliasAttributeType
-pattern AATEmail = AliasAttributeType' "email"
+pattern AliasAttributeTypeEmail :: AliasAttributeType
+pattern AliasAttributeTypeEmail = AliasAttributeType' "email"
 
-pattern AATPreferredUsername :: AliasAttributeType
-pattern AATPreferredUsername = AliasAttributeType' "preferred_username"
+pattern AliasAttributeTypePreferredUsername :: AliasAttributeType
+pattern AliasAttributeTypePreferredUsername = AliasAttributeType' "preferred_username"
 
 {-# COMPLETE
-  AATPhoneNumber,
-  AATEmail,
-  AATPreferredUsername,
+  AliasAttributeTypePhoneNumber,
+  AliasAttributeTypeEmail,
+  AliasAttributeTypePreferredUsername,
   AliasAttributeType'
   #-}

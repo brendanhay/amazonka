@@ -17,83 +17,78 @@ module Network.AWS.CostExplorer.Types.Subscriber
     mkSubscriber,
 
     -- * Lenses
-    sStatus,
     sAddress,
+    sStatus,
     sType,
   )
 where
 
-import Network.AWS.CostExplorer.Types.SubscriberStatus
-import Network.AWS.CostExplorer.Types.SubscriberType
+import qualified Network.AWS.CostExplorer.Types.Address as Types
+import qualified Network.AWS.CostExplorer.Types.SubscriberStatus as Types
+import qualified Network.AWS.CostExplorer.Types.SubscriberType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The recipient of @AnomalySubscription@ notifications.
 --
 -- /See:/ 'mkSubscriber' smart constructor.
 data Subscriber = Subscriber'
-  { -- | Indicates if the subscriber accepts the notifications.
-    status :: Lude.Maybe SubscriberStatus,
-    -- | The email address or SNS Amazon Resource Name (ARN), depending on the @Type@ .
-    address :: Lude.Maybe Lude.Text,
+  { -- | The email address or SNS Amazon Resource Name (ARN), depending on the @Type@ .
+    address :: Core.Maybe Types.Address,
+    -- | Indicates if the subscriber accepts the notifications.
+    status :: Core.Maybe Types.SubscriberStatus,
     -- | The notification delivery channel.
-    type' :: Lude.Maybe SubscriberType
+    type' :: Core.Maybe Types.SubscriberType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Subscriber' with the minimum fields required to make a request.
---
--- * 'status' - Indicates if the subscriber accepts the notifications.
--- * 'address' - The email address or SNS Amazon Resource Name (ARN), depending on the @Type@ .
--- * 'type'' - The notification delivery channel.
+-- | Creates a 'Subscriber' value with any optional fields omitted.
 mkSubscriber ::
   Subscriber
 mkSubscriber =
   Subscriber'
-    { status = Lude.Nothing,
-      address = Lude.Nothing,
-      type' = Lude.Nothing
+    { address = Core.Nothing,
+      status = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | Indicates if the subscriber accepts the notifications.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStatus :: Lens.Lens' Subscriber (Lude.Maybe SubscriberStatus)
-sStatus = Lens.lens (status :: Subscriber -> Lude.Maybe SubscriberStatus) (\s a -> s {status = a} :: Subscriber)
-{-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The email address or SNS Amazon Resource Name (ARN), depending on the @Type@ .
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sAddress :: Lens.Lens' Subscriber (Lude.Maybe Lude.Text)
-sAddress = Lens.lens (address :: Subscriber -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: Subscriber)
+sAddress :: Lens.Lens' Subscriber (Core.Maybe Types.Address)
+sAddress = Lens.field @"address"
 {-# DEPRECATED sAddress "Use generic-lens or generic-optics with 'address' instead." #-}
+
+-- | Indicates if the subscriber accepts the notifications.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStatus :: Lens.Lens' Subscriber (Core.Maybe Types.SubscriberStatus)
+sStatus = Lens.field @"status"
+{-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The notification delivery channel.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sType :: Lens.Lens' Subscriber (Lude.Maybe SubscriberType)
-sType = Lens.lens (type' :: Subscriber -> Lude.Maybe SubscriberType) (\s a -> s {type' = a} :: Subscriber)
+sType :: Lens.Lens' Subscriber (Core.Maybe Types.SubscriberType)
+sType = Lens.field @"type'"
 {-# DEPRECATED sType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Subscriber where
-  parseJSON =
-    Lude.withObject
-      "Subscriber"
-      ( \x ->
-          Subscriber'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "Address")
-            Lude.<*> (x Lude..:? "Type")
-      )
-
-instance Lude.ToJSON Subscriber where
-  toJSON Subscriber' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Status" Lude..=) Lude.<$> status,
-            ("Address" Lude..=) Lude.<$> address,
-            ("Type" Lude..=) Lude.<$> type'
+instance Core.FromJSON Subscriber where
+  toJSON Subscriber {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Address" Core..=) Core.<$> address,
+            ("Status" Core..=) Core.<$> status,
+            ("Type" Core..=) Core.<$> type'
           ]
       )
+
+instance Core.FromJSON Subscriber where
+  parseJSON =
+    Core.withObject "Subscriber" Core.$
+      \x ->
+        Subscriber'
+          Core.<$> (x Core..:? "Address")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "Type")

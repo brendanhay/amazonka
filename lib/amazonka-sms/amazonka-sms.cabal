@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.SMS
     Network.AWS.SMS.CreateApp
@@ -106,36 +112,72 @@ library
     Network.AWS.SMS.Waiters
 
   other-modules:
+    Network.AWS.SMS.Types.AmiId
+    Network.AWS.SMS.Types.AppDescription
+    Network.AWS.SMS.Types.AppId
+    Network.AWS.SMS.Types.AppIdWithValidation
     Network.AWS.SMS.Types.AppLaunchConfigurationStatus
     Network.AWS.SMS.Types.AppLaunchStatus
+    Network.AWS.SMS.Types.AppName
     Network.AWS.SMS.Types.AppReplicationConfigurationStatus
     Network.AWS.SMS.Types.AppReplicationStatus
+    Network.AWS.SMS.Types.AppReplicationStatusMessage
     Network.AWS.SMS.Types.AppStatus
     Network.AWS.SMS.Types.AppSummary
     Network.AWS.SMS.Types.AppValidationConfiguration
     Network.AWS.SMS.Types.AppValidationOutput
     Network.AWS.SMS.Types.AppValidationStrategy
+    Network.AWS.SMS.Types.Bucket
+    Network.AWS.SMS.Types.BucketName
+    Network.AWS.SMS.Types.ClientToken
+    Network.AWS.SMS.Types.Command
     Network.AWS.SMS.Types.Connector
     Network.AWS.SMS.Types.ConnectorCapability
+    Network.AWS.SMS.Types.ConnectorId
     Network.AWS.SMS.Types.ConnectorStatus
+    Network.AWS.SMS.Types.Description
+    Network.AWS.SMS.Types.EC2KeyName
+    Network.AWS.SMS.Types.IamInstanceProfileName
+    Network.AWS.SMS.Types.ImportedAppId
+    Network.AWS.SMS.Types.InstanceId
+    Network.AWS.SMS.Types.InstanceType
+    Network.AWS.SMS.Types.IpAddress
+    Network.AWS.SMS.Types.Key
+    Network.AWS.SMS.Types.KmsKeyId
+    Network.AWS.SMS.Types.LatestAmiId
     Network.AWS.SMS.Types.LaunchDetails
+    Network.AWS.SMS.Types.LaunchStatusMessage
     Network.AWS.SMS.Types.LicenseType
+    Network.AWS.SMS.Types.LogicalId
+    Network.AWS.SMS.Types.MacAddress
+    Network.AWS.SMS.Types.Name
+    Network.AWS.SMS.Types.NextToken
+    Network.AWS.SMS.Types.NonEmptyStringWithMaxLen255
     Network.AWS.SMS.Types.NotificationContext
     Network.AWS.SMS.Types.OutputFormat
     Network.AWS.SMS.Types.ReplicationJob
+    Network.AWS.SMS.Types.ReplicationJobId
     Network.AWS.SMS.Types.ReplicationJobState
+    Network.AWS.SMS.Types.ReplicationJobStatusMessage
     Network.AWS.SMS.Types.ReplicationRun
+    Network.AWS.SMS.Types.ReplicationRunId
     Network.AWS.SMS.Types.ReplicationRunStageDetails
+    Network.AWS.SMS.Types.ReplicationRunStageProgress
     Network.AWS.SMS.Types.ReplicationRunState
+    Network.AWS.SMS.Types.ReplicationRunStatusMessage
     Network.AWS.SMS.Types.ReplicationRunType
+    Network.AWS.SMS.Types.RoleName
     Network.AWS.SMS.Types.S3Location
     Network.AWS.SMS.Types.ScriptType
+    Network.AWS.SMS.Types.SecurityGroup
     Network.AWS.SMS.Types.Server
     Network.AWS.SMS.Types.ServerCatalogStatus
     Network.AWS.SMS.Types.ServerGroup
+    Network.AWS.SMS.Types.ServerGroupId
     Network.AWS.SMS.Types.ServerGroupLaunchConfiguration
     Network.AWS.SMS.Types.ServerGroupReplicationConfiguration
     Network.AWS.SMS.Types.ServerGroupValidationConfiguration
+    Network.AWS.SMS.Types.ServerId
     Network.AWS.SMS.Types.ServerLaunchConfiguration
     Network.AWS.SMS.Types.ServerReplicationConfiguration
     Network.AWS.SMS.Types.ServerReplicationParameters
@@ -146,14 +188,29 @@ library
     Network.AWS.SMS.Types.Source
     Network.AWS.SMS.Types.SSMOutput
     Network.AWS.SMS.Types.SSMValidationParameters
+    Network.AWS.SMS.Types.StackId
+    Network.AWS.SMS.Types.StackName
+    Network.AWS.SMS.Types.Stage
+    Network.AWS.SMS.Types.StatusMessage
+    Network.AWS.SMS.Types.Subnet
     Network.AWS.SMS.Types.Tag
     Network.AWS.SMS.Types.UserData
     Network.AWS.SMS.Types.UserDataValidationParameters
+    Network.AWS.SMS.Types.ValidationId
     Network.AWS.SMS.Types.ValidationOutput
     Network.AWS.SMS.Types.ValidationStatus
-    Network.AWS.SMS.Types.VMManagerType
-    Network.AWS.SMS.Types.VMServer
-    Network.AWS.SMS.Types.VMServerAddress
+    Network.AWS.SMS.Types.ValidationStatusMessage
+    Network.AWS.SMS.Types.Value
+    Network.AWS.SMS.Types.Version
+    Network.AWS.SMS.Types.VmId
+    Network.AWS.SMS.Types.VmManagerId
+    Network.AWS.SMS.Types.VmManagerName
+    Network.AWS.SMS.Types.VmManagerType
+    Network.AWS.SMS.Types.VmName
+    Network.AWS.SMS.Types.VmPath
+    Network.AWS.SMS.Types.VmServer
+    Network.AWS.SMS.Types.VmServerAddress
+    Network.AWS.SMS.Types.Vpc
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

@@ -17,116 +17,114 @@ module Network.AWS.DynamoDB.Types.Delete
     mkDelete,
 
     -- * Lenses
+    dKey,
+    dTableName,
+    dConditionExpression,
     dExpressionAttributeNames,
     dExpressionAttributeValues,
     dReturnValuesOnConditionCheckFailure,
-    dConditionExpression,
-    dKey,
-    dTableName,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AttributeValue
-import Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure
+import qualified Network.AWS.DynamoDB.Types.AttributeName as Types
+import qualified Network.AWS.DynamoDB.Types.AttributeValue as Types
+import qualified Network.AWS.DynamoDB.Types.ConditionExpression as Types
+import qualified Network.AWS.DynamoDB.Types.ExpressionAttributeNameVariable as Types
+import qualified Network.AWS.DynamoDB.Types.ExpressionAttributeValueVariable as Types
+import qualified Network.AWS.DynamoDB.Types.ReturnValuesOnConditionCheckFailure as Types
+import qualified Network.AWS.DynamoDB.Types.TableName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a request to perform a @DeleteItem@ operation.
 --
 -- /See:/ 'mkDelete' smart constructor.
 data Delete = Delete'
-  { -- | One or more substitution tokens for attribute names in an expression.
-    expressionAttributeNames :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | One or more values that can be substituted in an expression.
-    expressionAttributeValues :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
-    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
-    returnValuesOnConditionCheckFailure :: Lude.Maybe ReturnValuesOnConditionCheckFailure,
-    -- | A condition that must be satisfied in order for a conditional delete to succeed.
-    conditionExpression :: Lude.Maybe Lude.Text,
-    -- | The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.
-    key :: Lude.HashMap Lude.Text (AttributeValue),
+  { -- | The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.
+    key :: Core.HashMap Types.AttributeName Types.AttributeValue,
     -- | Name of the table in which the item to be deleted resides.
-    tableName :: Lude.Text
+    tableName :: Types.TableName,
+    -- | A condition that must be satisfied in order for a conditional delete to succeed.
+    conditionExpression :: Core.Maybe Types.ConditionExpression,
+    -- | One or more substitution tokens for attribute names in an expression.
+    expressionAttributeNames :: Core.Maybe (Core.HashMap Types.ExpressionAttributeNameVariable Types.AttributeName),
+    -- | One or more values that can be substituted in an expression.
+    expressionAttributeValues :: Core.Maybe (Core.HashMap Types.ExpressionAttributeValueVariable Types.AttributeValue),
+    -- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+    returnValuesOnConditionCheckFailure :: Core.Maybe Types.ReturnValuesOnConditionCheckFailure
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Delete' with the minimum fields required to make a request.
---
--- * 'expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.
--- * 'expressionAttributeValues' - One or more values that can be substituted in an expression.
--- * 'returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
--- * 'conditionExpression' - A condition that must be satisfied in order for a conditional delete to succeed.
--- * 'key' - The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.
--- * 'tableName' - Name of the table in which the item to be deleted resides.
+-- | Creates a 'Delete' value with any optional fields omitted.
 mkDelete ::
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   Delete
-mkDelete pTableName_ =
+mkDelete tableName =
   Delete'
-    { expressionAttributeNames = Lude.Nothing,
-      expressionAttributeValues = Lude.Nothing,
-      returnValuesOnConditionCheckFailure = Lude.Nothing,
-      conditionExpression = Lude.Nothing,
-      key = Lude.mempty,
-      tableName = pTableName_
+    { key = Core.mempty,
+      tableName,
+      conditionExpression = Core.Nothing,
+      expressionAttributeNames = Core.Nothing,
+      expressionAttributeValues = Core.Nothing,
+      returnValuesOnConditionCheckFailure = Core.Nothing
     }
-
--- | One or more substitution tokens for attribute names in an expression.
---
--- /Note:/ Consider using 'expressionAttributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dExpressionAttributeNames :: Lens.Lens' Delete (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-dExpressionAttributeNames = Lens.lens (expressionAttributeNames :: Delete -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {expressionAttributeNames = a} :: Delete)
-{-# DEPRECATED dExpressionAttributeNames "Use generic-lens or generic-optics with 'expressionAttributeNames' instead." #-}
-
--- | One or more values that can be substituted in an expression.
---
--- /Note:/ Consider using 'expressionAttributeValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dExpressionAttributeValues :: Lens.Lens' Delete (Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)))
-dExpressionAttributeValues = Lens.lens (expressionAttributeValues :: Delete -> Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))) (\s a -> s {expressionAttributeValues = a} :: Delete)
-{-# DEPRECATED dExpressionAttributeValues "Use generic-lens or generic-optics with 'expressionAttributeValues' instead." #-}
-
--- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
---
--- /Note:/ Consider using 'returnValuesOnConditionCheckFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dReturnValuesOnConditionCheckFailure :: Lens.Lens' Delete (Lude.Maybe ReturnValuesOnConditionCheckFailure)
-dReturnValuesOnConditionCheckFailure = Lens.lens (returnValuesOnConditionCheckFailure :: Delete -> Lude.Maybe ReturnValuesOnConditionCheckFailure) (\s a -> s {returnValuesOnConditionCheckFailure = a} :: Delete)
-{-# DEPRECATED dReturnValuesOnConditionCheckFailure "Use generic-lens or generic-optics with 'returnValuesOnConditionCheckFailure' instead." #-}
-
--- | A condition that must be satisfied in order for a conditional delete to succeed.
---
--- /Note:/ Consider using 'conditionExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dConditionExpression :: Lens.Lens' Delete (Lude.Maybe Lude.Text)
-dConditionExpression = Lens.lens (conditionExpression :: Delete -> Lude.Maybe Lude.Text) (\s a -> s {conditionExpression = a} :: Delete)
-{-# DEPRECATED dConditionExpression "Use generic-lens or generic-optics with 'conditionExpression' instead." #-}
 
 -- | The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dKey :: Lens.Lens' Delete (Lude.HashMap Lude.Text (AttributeValue))
-dKey = Lens.lens (key :: Delete -> Lude.HashMap Lude.Text (AttributeValue)) (\s a -> s {key = a} :: Delete)
+dKey :: Lens.Lens' Delete (Core.HashMap Types.AttributeName Types.AttributeValue)
+dKey = Lens.field @"key"
 {-# DEPRECATED dKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | Name of the table in which the item to be deleted resides.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dTableName :: Lens.Lens' Delete Lude.Text
-dTableName = Lens.lens (tableName :: Delete -> Lude.Text) (\s a -> s {tableName = a} :: Delete)
+dTableName :: Lens.Lens' Delete Types.TableName
+dTableName = Lens.field @"tableName"
 {-# DEPRECATED dTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.ToJSON Delete where
-  toJSON Delete' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ExpressionAttributeNames" Lude..=)
-              Lude.<$> expressionAttributeNames,
-            ("ExpressionAttributeValues" Lude..=)
-              Lude.<$> expressionAttributeValues,
-            ("ReturnValuesOnConditionCheckFailure" Lude..=)
-              Lude.<$> returnValuesOnConditionCheckFailure,
-            ("ConditionExpression" Lude..=) Lude.<$> conditionExpression,
-            Lude.Just ("Key" Lude..= key),
-            Lude.Just ("TableName" Lude..= tableName)
+-- | A condition that must be satisfied in order for a conditional delete to succeed.
+--
+-- /Note:/ Consider using 'conditionExpression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dConditionExpression :: Lens.Lens' Delete (Core.Maybe Types.ConditionExpression)
+dConditionExpression = Lens.field @"conditionExpression"
+{-# DEPRECATED dConditionExpression "Use generic-lens or generic-optics with 'conditionExpression' instead." #-}
+
+-- | One or more substitution tokens for attribute names in an expression.
+--
+-- /Note:/ Consider using 'expressionAttributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dExpressionAttributeNames :: Lens.Lens' Delete (Core.Maybe (Core.HashMap Types.ExpressionAttributeNameVariable Types.AttributeName))
+dExpressionAttributeNames = Lens.field @"expressionAttributeNames"
+{-# DEPRECATED dExpressionAttributeNames "Use generic-lens or generic-optics with 'expressionAttributeNames' instead." #-}
+
+-- | One or more values that can be substituted in an expression.
+--
+-- /Note:/ Consider using 'expressionAttributeValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dExpressionAttributeValues :: Lens.Lens' Delete (Core.Maybe (Core.HashMap Types.ExpressionAttributeValueVariable Types.AttributeValue))
+dExpressionAttributeValues = Lens.field @"expressionAttributeValues"
+{-# DEPRECATED dExpressionAttributeValues "Use generic-lens or generic-optics with 'expressionAttributeValues' instead." #-}
+
+-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if the @Delete@ condition fails. For @ReturnValuesOnConditionCheckFailure@ , the valid values are: NONE and ALL_OLD.
+--
+-- /Note:/ Consider using 'returnValuesOnConditionCheckFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dReturnValuesOnConditionCheckFailure :: Lens.Lens' Delete (Core.Maybe Types.ReturnValuesOnConditionCheckFailure)
+dReturnValuesOnConditionCheckFailure = Lens.field @"returnValuesOnConditionCheckFailure"
+{-# DEPRECATED dReturnValuesOnConditionCheckFailure "Use generic-lens or generic-optics with 'returnValuesOnConditionCheckFailure' instead." #-}
+
+instance Core.FromJSON Delete where
+  toJSON Delete {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Key" Core..= key),
+            Core.Just ("TableName" Core..= tableName),
+            ("ConditionExpression" Core..=) Core.<$> conditionExpression,
+            ("ExpressionAttributeNames" Core..=)
+              Core.<$> expressionAttributeNames,
+            ("ExpressionAttributeValues" Core..=)
+              Core.<$> expressionAttributeValues,
+            ("ReturnValuesOnConditionCheckFailure" Core..=)
+              Core.<$> returnValuesOnConditionCheckFailure
           ]
       )

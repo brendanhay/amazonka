@@ -17,23 +17,27 @@ module Network.AWS.CloudSearch.Types.OptionStatus
     mkOptionStatus,
 
     -- * Lenses
-    osState,
-    osUpdateDate,
-    osPendingDeletion,
     osCreationDate,
+    osUpdateDate,
+    osState,
+    osPendingDeletion,
     osUpdateVersion,
   )
 where
 
-import Network.AWS.CloudSearch.Types.OptionState
+import qualified Network.AWS.CloudSearch.Types.OptionState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of domain configuration option.
 --
 -- /See:/ 'mkOptionStatus' smart constructor.
 data OptionStatus = OptionStatus'
-  { -- | The state of processing a change to an option. Possible values:
+  { -- | A timestamp for when this option was created.
+    creationDate :: Core.UTCTime,
+    -- | A timestamp for when this option was last updated.
+    updateDate :: Core.UTCTime,
+    -- | The state of processing a change to an option. Possible values:
     --
     --
     --     * @RequiresIndexDocuments@ : the option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.
@@ -43,52 +47,46 @@ data OptionStatus = OptionStatus'
     --     * @Active@ : the option's latest value is completely deployed.
     --
     --     * @FailedToValidate@ : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
-    state :: OptionState,
-    -- | A timestamp for when this option was last updated.
-    updateDate :: Lude.DateTime,
+    state :: Types.OptionState,
     -- | Indicates that the option will be deleted once processing is complete.
-    pendingDeletion :: Lude.Maybe Lude.Bool,
-    -- | A timestamp for when this option was created.
-    creationDate :: Lude.DateTime,
+    pendingDeletion :: Core.Maybe Core.Bool,
     -- | A unique integer that indicates when this option was last updated.
-    updateVersion :: Lude.Maybe Lude.Natural
+    updateVersion :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OptionStatus' with the minimum fields required to make a request.
---
--- * 'state' - The state of processing a change to an option. Possible values:
---
---
---     * @RequiresIndexDocuments@ : the option's latest value will not be deployed until 'IndexDocuments' has been called and indexing is complete.
---
---     * @Processing@ : the option's latest value is in the process of being activated.
---
---     * @Active@ : the option's latest value is completely deployed.
---
---     * @FailedToValidate@ : the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
---
--- * 'updateDate' - A timestamp for when this option was last updated.
--- * 'pendingDeletion' - Indicates that the option will be deleted once processing is complete.
--- * 'creationDate' - A timestamp for when this option was created.
--- * 'updateVersion' - A unique integer that indicates when this option was last updated.
+-- | Creates a 'OptionStatus' value with any optional fields omitted.
 mkOptionStatus ::
-  -- | 'state'
-  OptionState ->
-  -- | 'updateDate'
-  Lude.DateTime ->
   -- | 'creationDate'
-  Lude.DateTime ->
+  Core.UTCTime ->
+  -- | 'updateDate'
+  Core.UTCTime ->
+  -- | 'state'
+  Types.OptionState ->
   OptionStatus
-mkOptionStatus pState_ pUpdateDate_ pCreationDate_ =
+mkOptionStatus creationDate updateDate state =
   OptionStatus'
-    { state = pState_,
-      updateDate = pUpdateDate_,
-      pendingDeletion = Lude.Nothing,
-      creationDate = pCreationDate_,
-      updateVersion = Lude.Nothing
+    { creationDate,
+      updateDate,
+      state,
+      pendingDeletion = Core.Nothing,
+      updateVersion = Core.Nothing
     }
+
+-- | A timestamp for when this option was created.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osCreationDate :: Lens.Lens' OptionStatus Core.UTCTime
+osCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED osCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | A timestamp for when this option was last updated.
+--
+-- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osUpdateDate :: Lens.Lens' OptionStatus Core.UTCTime
+osUpdateDate = Lens.field @"updateDate"
+{-# DEPRECATED osUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | The state of processing a change to an option. Possible values:
 --
@@ -103,43 +101,29 @@ mkOptionStatus pState_ pUpdateDate_ pCreationDate_ =
 --
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osState :: Lens.Lens' OptionStatus OptionState
-osState = Lens.lens (state :: OptionStatus -> OptionState) (\s a -> s {state = a} :: OptionStatus)
+osState :: Lens.Lens' OptionStatus Types.OptionState
+osState = Lens.field @"state"
 {-# DEPRECATED osState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | A timestamp for when this option was last updated.
---
--- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osUpdateDate :: Lens.Lens' OptionStatus Lude.DateTime
-osUpdateDate = Lens.lens (updateDate :: OptionStatus -> Lude.DateTime) (\s a -> s {updateDate = a} :: OptionStatus)
-{-# DEPRECATED osUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | Indicates that the option will be deleted once processing is complete.
 --
 -- /Note:/ Consider using 'pendingDeletion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osPendingDeletion :: Lens.Lens' OptionStatus (Lude.Maybe Lude.Bool)
-osPendingDeletion = Lens.lens (pendingDeletion :: OptionStatus -> Lude.Maybe Lude.Bool) (\s a -> s {pendingDeletion = a} :: OptionStatus)
+osPendingDeletion :: Lens.Lens' OptionStatus (Core.Maybe Core.Bool)
+osPendingDeletion = Lens.field @"pendingDeletion"
 {-# DEPRECATED osPendingDeletion "Use generic-lens or generic-optics with 'pendingDeletion' instead." #-}
-
--- | A timestamp for when this option was created.
---
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osCreationDate :: Lens.Lens' OptionStatus Lude.DateTime
-osCreationDate = Lens.lens (creationDate :: OptionStatus -> Lude.DateTime) (\s a -> s {creationDate = a} :: OptionStatus)
-{-# DEPRECATED osCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | A unique integer that indicates when this option was last updated.
 --
 -- /Note:/ Consider using 'updateVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osUpdateVersion :: Lens.Lens' OptionStatus (Lude.Maybe Lude.Natural)
-osUpdateVersion = Lens.lens (updateVersion :: OptionStatus -> Lude.Maybe Lude.Natural) (\s a -> s {updateVersion = a} :: OptionStatus)
+osUpdateVersion :: Lens.Lens' OptionStatus (Core.Maybe Core.Natural)
+osUpdateVersion = Lens.field @"updateVersion"
 {-# DEPRECATED osUpdateVersion "Use generic-lens or generic-optics with 'updateVersion' instead." #-}
 
-instance Lude.FromXML OptionStatus where
+instance Core.FromXML OptionStatus where
   parseXML x =
     OptionStatus'
-      Lude.<$> (x Lude..@ "State")
-      Lude.<*> (x Lude..@ "UpdateDate")
-      Lude.<*> (x Lude..@? "PendingDeletion")
-      Lude.<*> (x Lude..@ "CreationDate")
-      Lude.<*> (x Lude..@? "UpdateVersion")
+      Core.<$> (x Core..@ "CreationDate")
+      Core.<*> (x Core..@ "UpdateDate")
+      Core.<*> (x Core..@ "State")
+      Core.<*> (x Core..@? "PendingDeletion")
+      Core.<*> (x Core..@? "UpdateVersion")

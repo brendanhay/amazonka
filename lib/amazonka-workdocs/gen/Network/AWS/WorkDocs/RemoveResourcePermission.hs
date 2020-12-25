@@ -20,10 +20,10 @@ module Network.AWS.WorkDocs.RemoveResourcePermission
     mkRemoveResourcePermission,
 
     -- ** Request lenses
-    rrpPrincipalId,
     rrpResourceId,
-    rrpPrincipalType,
+    rrpPrincipalId,
     rrpAuthenticationToken,
+    rrpPrincipalType,
 
     -- * Destructuring the response
     RemoveResourcePermissionResponse (..),
@@ -32,105 +32,94 @@ module Network.AWS.WorkDocs.RemoveResourcePermission
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkRemoveResourcePermission' smart constructor.
 data RemoveResourcePermission = RemoveResourcePermission'
-  { -- | The principal ID of the resource.
-    principalId :: Lude.Text,
-    -- | The ID of the resource.
-    resourceId :: Lude.Text,
-    -- | The principal type of the resource.
-    principalType :: Lude.Maybe PrincipalType,
+  { -- | The ID of the resource.
+    resourceId :: Types.ResourceId,
+    -- | The principal ID of the resource.
+    principalId :: Types.IdType,
     -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text)
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType,
+    -- | The principal type of the resource.
+    principalType :: Core.Maybe Types.PrincipalType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveResourcePermission' with the minimum fields required to make a request.
---
--- * 'principalId' - The principal ID of the resource.
--- * 'resourceId' - The ID of the resource.
--- * 'principalType' - The principal type of the resource.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- | Creates a 'RemoveResourcePermission' value with any optional fields omitted.
 mkRemoveResourcePermission ::
-  -- | 'principalId'
-  Lude.Text ->
   -- | 'resourceId'
-  Lude.Text ->
+  Types.ResourceId ->
+  -- | 'principalId'
+  Types.IdType ->
   RemoveResourcePermission
-mkRemoveResourcePermission pPrincipalId_ pResourceId_ =
+mkRemoveResourcePermission resourceId principalId =
   RemoveResourcePermission'
-    { principalId = pPrincipalId_,
-      resourceId = pResourceId_,
-      principalType = Lude.Nothing,
-      authenticationToken = Lude.Nothing
+    { resourceId,
+      principalId,
+      authenticationToken = Core.Nothing,
+      principalType = Core.Nothing
     }
-
--- | The principal ID of the resource.
---
--- /Note:/ Consider using 'principalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrpPrincipalId :: Lens.Lens' RemoveResourcePermission Lude.Text
-rrpPrincipalId = Lens.lens (principalId :: RemoveResourcePermission -> Lude.Text) (\s a -> s {principalId = a} :: RemoveResourcePermission)
-{-# DEPRECATED rrpPrincipalId "Use generic-lens or generic-optics with 'principalId' instead." #-}
 
 -- | The ID of the resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrpResourceId :: Lens.Lens' RemoveResourcePermission Lude.Text
-rrpResourceId = Lens.lens (resourceId :: RemoveResourcePermission -> Lude.Text) (\s a -> s {resourceId = a} :: RemoveResourcePermission)
+rrpResourceId :: Lens.Lens' RemoveResourcePermission Types.ResourceId
+rrpResourceId = Lens.field @"resourceId"
 {-# DEPRECATED rrpResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
--- | The principal type of the resource.
+-- | The principal ID of the resource.
 --
--- /Note:/ Consider using 'principalType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrpPrincipalType :: Lens.Lens' RemoveResourcePermission (Lude.Maybe PrincipalType)
-rrpPrincipalType = Lens.lens (principalType :: RemoveResourcePermission -> Lude.Maybe PrincipalType) (\s a -> s {principalType = a} :: RemoveResourcePermission)
-{-# DEPRECATED rrpPrincipalType "Use generic-lens or generic-optics with 'principalType' instead." #-}
+-- /Note:/ Consider using 'principalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrpPrincipalId :: Lens.Lens' RemoveResourcePermission Types.IdType
+rrpPrincipalId = Lens.field @"principalId"
+{-# DEPRECATED rrpPrincipalId "Use generic-lens or generic-optics with 'principalId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrpAuthenticationToken :: Lens.Lens' RemoveResourcePermission (Lude.Maybe (Lude.Sensitive Lude.Text))
-rrpAuthenticationToken = Lens.lens (authenticationToken :: RemoveResourcePermission -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: RemoveResourcePermission)
+rrpAuthenticationToken :: Lens.Lens' RemoveResourcePermission (Core.Maybe Types.AuthenticationHeaderType)
+rrpAuthenticationToken = Lens.field @"authenticationToken"
 {-# DEPRECATED rrpAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
-instance Lude.AWSRequest RemoveResourcePermission where
+-- | The principal type of the resource.
+--
+-- /Note:/ Consider using 'principalType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrpPrincipalType :: Lens.Lens' RemoveResourcePermission (Core.Maybe Types.PrincipalType)
+rrpPrincipalType = Lens.field @"principalType"
+{-# DEPRECATED rrpPrincipalType "Use generic-lens or generic-optics with 'principalType' instead." #-}
+
+instance Core.AWSRequest RemoveResourcePermission where
   type Rs RemoveResourcePermission = RemoveResourcePermissionResponse
-  request = Req.delete workDocsService
-  response = Res.receiveNull RemoveResourcePermissionResponse'
-
-instance Lude.ToHeaders RemoveResourcePermission where
-  toHeaders RemoveResourcePermission' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath RemoveResourcePermission where
-  toPath RemoveResourcePermission' {..} =
-    Lude.mconcat
-      [ "/api/v1/resources/",
-        Lude.toBS resourceId,
-        "/permissions/",
-        Lude.toBS principalId
-      ]
-
-instance Lude.ToQuery RemoveResourcePermission where
-  toQuery RemoveResourcePermission' {..} =
-    Lude.mconcat ["type" Lude.=: principalType]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/api/v1/resources/" Core.<> (Core.toText resourceId)
+                Core.<> ("/permissions/")
+                Core.<> (Core.toText principalId)
+            ),
+        Core._rqQuery = Core.toQueryValue "type" Core.<$> principalType,
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull RemoveResourcePermissionResponse'
 
 -- | /See:/ 'mkRemoveResourcePermissionResponse' smart constructor.
 data RemoveResourcePermissionResponse = RemoveResourcePermissionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveResourcePermissionResponse' with the minimum fields required to make a request.
+-- | Creates a 'RemoveResourcePermissionResponse' value with any optional fields omitted.
 mkRemoveResourcePermissionResponse ::
   RemoveResourcePermissionResponse
 mkRemoveResourcePermissionResponse =

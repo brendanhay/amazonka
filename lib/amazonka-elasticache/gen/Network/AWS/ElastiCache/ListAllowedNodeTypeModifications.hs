@@ -30,17 +30,17 @@ module Network.AWS.ElastiCache.ListAllowedNodeTypeModifications
     mkListAllowedNodeTypeModificationsResponse,
 
     -- ** Response lenses
-    lantmrsScaleUpModifications,
-    lantmrsScaleDownModifications,
-    lantmrsResponseStatus,
+    lantmrrsScaleDownModifications,
+    lantmrrsScaleUpModifications,
+    lantmrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input parameters for the @ListAllowedNodeTypeModifications@ operation.
 --
@@ -49,29 +49,22 @@ data ListAllowedNodeTypeModifications = ListAllowedNodeTypeModifications'
   { -- | The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to.
     --
     -- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
-    cacheClusterId :: Lude.Maybe Lude.Text,
+    cacheClusterId :: Core.Maybe Types.String,
     -- | The name of the replication group want to scale up to a larger node type. ElastiCache uses the replication group id to identify the current node type being used by this replication group, and from that to create a list of node types you can scale up to.
     --
     -- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
-    replicationGroupId :: Lude.Maybe Lude.Text
+    replicationGroupId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAllowedNodeTypeModifications' with the minimum fields required to make a request.
---
--- * 'cacheClusterId' - The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to.
---
--- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
--- * 'replicationGroupId' - The name of the replication group want to scale up to a larger node type. ElastiCache uses the replication group id to identify the current node type being used by this replication group, and from that to create a list of node types you can scale up to.
---
--- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
+-- | Creates a 'ListAllowedNodeTypeModifications' value with any optional fields omitted.
 mkListAllowedNodeTypeModifications ::
   ListAllowedNodeTypeModifications
 mkListAllowedNodeTypeModifications =
   ListAllowedNodeTypeModifications'
-    { cacheClusterId = Lude.Nothing,
-      replicationGroupId = Lude.Nothing
+    { cacheClusterId = Core.Nothing,
+      replicationGroupId = Core.Nothing
     }
 
 -- | The name of the cluster you want to scale up to a larger node instanced type. ElastiCache uses the cluster id to identify the current node type of this cluster and from that to create a list of node types you can scale up to.
@@ -79,8 +72,8 @@ mkListAllowedNodeTypeModifications =
 -- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
 --
 -- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lantmCacheClusterId :: Lens.Lens' ListAllowedNodeTypeModifications (Lude.Maybe Lude.Text)
-lantmCacheClusterId = Lens.lens (cacheClusterId :: ListAllowedNodeTypeModifications -> Lude.Maybe Lude.Text) (\s a -> s {cacheClusterId = a} :: ListAllowedNodeTypeModifications)
+lantmCacheClusterId :: Lens.Lens' ListAllowedNodeTypeModifications (Core.Maybe Types.String)
+lantmCacheClusterId = Lens.field @"cacheClusterId"
 {-# DEPRECATED lantmCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
 
 -- | The name of the replication group want to scale up to a larger node type. ElastiCache uses the replication group id to identify the current node type being used by this replication group, and from that to create a list of node types you can scale up to.
@@ -88,99 +81,97 @@ lantmCacheClusterId = Lens.lens (cacheClusterId :: ListAllowedNodeTypeModificati
 -- /Important:/ You must provide a value for either the @CacheClusterId@ or the @ReplicationGroupId@ .
 --
 -- /Note:/ Consider using 'replicationGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lantmReplicationGroupId :: Lens.Lens' ListAllowedNodeTypeModifications (Lude.Maybe Lude.Text)
-lantmReplicationGroupId = Lens.lens (replicationGroupId :: ListAllowedNodeTypeModifications -> Lude.Maybe Lude.Text) (\s a -> s {replicationGroupId = a} :: ListAllowedNodeTypeModifications)
+lantmReplicationGroupId :: Lens.Lens' ListAllowedNodeTypeModifications (Core.Maybe Types.String)
+lantmReplicationGroupId = Lens.field @"replicationGroupId"
 {-# DEPRECATED lantmReplicationGroupId "Use generic-lens or generic-optics with 'replicationGroupId' instead." #-}
 
-instance Lude.AWSRequest ListAllowedNodeTypeModifications where
+instance Core.AWSRequest ListAllowedNodeTypeModifications where
   type
     Rs ListAllowedNodeTypeModifications =
       ListAllowedNodeTypeModificationsResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListAllowedNodeTypeModifications")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "CacheClusterId" Core.<$> cacheClusterId)
+                Core.<> ( Core.toQueryValue "ReplicationGroupId"
+                            Core.<$> replicationGroupId
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListAllowedNodeTypeModificationsResult"
       ( \s h x ->
           ListAllowedNodeTypeModificationsResponse'
-            Lude.<$> ( x Lude..@? "ScaleUpModifications" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "ScaleDownModifications"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> ( x Lude..@? "ScaleDownModifications" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<*> ( x Core..@? "ScaleUpModifications"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListAllowedNodeTypeModifications where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListAllowedNodeTypeModifications where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAllowedNodeTypeModifications where
-  toQuery ListAllowedNodeTypeModifications' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ListAllowedNodeTypeModifications" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheClusterId" Lude.=: cacheClusterId,
-        "ReplicationGroupId" Lude.=: replicationGroupId
-      ]
 
 -- | Represents the allowed node types you can use to modify your cluster or replication group.
 --
 -- /See:/ 'mkListAllowedNodeTypeModificationsResponse' smart constructor.
 data ListAllowedNodeTypeModificationsResponse = ListAllowedNodeTypeModificationsResponse'
-  { -- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group.
+  { -- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling down a Redis cluster or replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from this list for the CacheNodeType parameter.
+    scaleDownModifications :: Core.Maybe [Types.String],
+    -- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group.
     --
     -- When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
-    scaleUpModifications :: Lude.Maybe [Lude.Text],
-    -- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling down a Redis cluster or replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from this list for the CacheNodeType parameter.
-    scaleDownModifications :: Lude.Maybe [Lude.Text],
+    scaleUpModifications :: Core.Maybe [Types.String],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAllowedNodeTypeModificationsResponse' with the minimum fields required to make a request.
---
--- * 'scaleUpModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group.
---
--- When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
--- * 'scaleDownModifications' - A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling down a Redis cluster or replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from this list for the CacheNodeType parameter.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAllowedNodeTypeModificationsResponse' value with any optional fields omitted.
 mkListAllowedNodeTypeModificationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAllowedNodeTypeModificationsResponse
-mkListAllowedNodeTypeModificationsResponse pResponseStatus_ =
+mkListAllowedNodeTypeModificationsResponse responseStatus =
   ListAllowedNodeTypeModificationsResponse'
-    { scaleUpModifications =
-        Lude.Nothing,
-      scaleDownModifications = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { scaleDownModifications =
+        Core.Nothing,
+      scaleUpModifications = Core.Nothing,
+      responseStatus
     }
+
+-- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling down a Redis cluster or replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from this list for the CacheNodeType parameter.
+--
+-- /Note:/ Consider using 'scaleDownModifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lantmrrsScaleDownModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Core.Maybe [Types.String])
+lantmrrsScaleDownModifications = Lens.field @"scaleDownModifications"
+{-# DEPRECATED lantmrrsScaleDownModifications "Use generic-lens or generic-optics with 'scaleDownModifications' instead." #-}
 
 -- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group.
 --
 -- When scaling up a Redis cluster or replication group using @ModifyCacheCluster@ or @ModifyReplicationGroup@ , use a value from this list for the @CacheNodeType@ parameter.
 --
 -- /Note:/ Consider using 'scaleUpModifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lantmrsScaleUpModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Lude.Maybe [Lude.Text])
-lantmrsScaleUpModifications = Lens.lens (scaleUpModifications :: ListAllowedNodeTypeModificationsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {scaleUpModifications = a} :: ListAllowedNodeTypeModificationsResponse)
-{-# DEPRECATED lantmrsScaleUpModifications "Use generic-lens or generic-optics with 'scaleUpModifications' instead." #-}
-
--- | A string list, each element of which specifies a cache node type which you can use to scale your cluster or replication group. When scaling down a Redis cluster or replication group using ModifyCacheCluster or ModifyReplicationGroup, use a value from this list for the CacheNodeType parameter.
---
--- /Note:/ Consider using 'scaleDownModifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lantmrsScaleDownModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Lude.Maybe [Lude.Text])
-lantmrsScaleDownModifications = Lens.lens (scaleDownModifications :: ListAllowedNodeTypeModificationsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {scaleDownModifications = a} :: ListAllowedNodeTypeModificationsResponse)
-{-# DEPRECATED lantmrsScaleDownModifications "Use generic-lens or generic-optics with 'scaleDownModifications' instead." #-}
+lantmrrsScaleUpModifications :: Lens.Lens' ListAllowedNodeTypeModificationsResponse (Core.Maybe [Types.String])
+lantmrrsScaleUpModifications = Lens.field @"scaleUpModifications"
+{-# DEPRECATED lantmrrsScaleUpModifications "Use generic-lens or generic-optics with 'scaleUpModifications' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lantmrsResponseStatus :: Lens.Lens' ListAllowedNodeTypeModificationsResponse Lude.Int
-lantmrsResponseStatus = Lens.lens (responseStatus :: ListAllowedNodeTypeModificationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAllowedNodeTypeModificationsResponse)
-{-# DEPRECATED lantmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lantmrrsResponseStatus :: Lens.Lens' ListAllowedNodeTypeModificationsResponse Core.Int
+lantmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lantmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

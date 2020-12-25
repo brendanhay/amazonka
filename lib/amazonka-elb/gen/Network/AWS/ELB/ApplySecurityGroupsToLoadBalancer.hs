@@ -22,134 +22,131 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     mkApplySecurityGroupsToLoadBalancer,
 
     -- ** Request lenses
-    asgtlbSecurityGroups,
     asgtlbLoadBalancerName,
+    asgtlbSecurityGroups,
 
     -- * Destructuring the response
     ApplySecurityGroupsToLoadBalancerResponse (..),
     mkApplySecurityGroupsToLoadBalancerResponse,
 
     -- ** Response lenses
-    asgtlbrsSecurityGroups,
-    asgtlbrsResponseStatus,
+    asgtlbrrsSecurityGroups,
+    asgtlbrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ApplySecurityGroupsToLoadBalancer.
 --
 -- /See:/ 'mkApplySecurityGroupsToLoadBalancer' smart constructor.
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
-  { -- | The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
-    securityGroups :: [Lude.Text],
-    -- | The name of the load balancer.
-    loadBalancerName :: Lude.Text
+  { -- | The name of the load balancer.
+    loadBalancerName :: Types.AccessPointName,
+    -- | The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
+    securityGroups :: [Types.SecurityGroupId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplySecurityGroupsToLoadBalancer' with the minimum fields required to make a request.
---
--- * 'securityGroups' - The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
--- * 'loadBalancerName' - The name of the load balancer.
+-- | Creates a 'ApplySecurityGroupsToLoadBalancer' value with any optional fields omitted.
 mkApplySecurityGroupsToLoadBalancer ::
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.AccessPointName ->
   ApplySecurityGroupsToLoadBalancer
-mkApplySecurityGroupsToLoadBalancer pLoadBalancerName_ =
+mkApplySecurityGroupsToLoadBalancer loadBalancerName =
   ApplySecurityGroupsToLoadBalancer'
-    { securityGroups = Lude.mempty,
-      loadBalancerName = pLoadBalancerName_
+    { loadBalancerName,
+      securityGroups = Core.mempty
     }
-
--- | The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
---
--- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgtlbSecurityGroups :: Lens.Lens' ApplySecurityGroupsToLoadBalancer [Lude.Text]
-asgtlbSecurityGroups = Lens.lens (securityGroups :: ApplySecurityGroupsToLoadBalancer -> [Lude.Text]) (\s a -> s {securityGroups = a} :: ApplySecurityGroupsToLoadBalancer)
-{-# DEPRECATED asgtlbSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgtlbLoadBalancerName :: Lens.Lens' ApplySecurityGroupsToLoadBalancer Lude.Text
-asgtlbLoadBalancerName = Lens.lens (loadBalancerName :: ApplySecurityGroupsToLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: ApplySecurityGroupsToLoadBalancer)
+asgtlbLoadBalancerName :: Lens.Lens' ApplySecurityGroupsToLoadBalancer Types.AccessPointName
+asgtlbLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED asgtlbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
-instance Lude.AWSRequest ApplySecurityGroupsToLoadBalancer where
+-- | The IDs of the security groups to associate with the load balancer. Note that you cannot specify the name of the security group.
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgtlbSecurityGroups :: Lens.Lens' ApplySecurityGroupsToLoadBalancer [Types.SecurityGroupId]
+asgtlbSecurityGroups = Lens.field @"securityGroups"
+{-# DEPRECATED asgtlbSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+
+instance Core.AWSRequest ApplySecurityGroupsToLoadBalancer where
   type
     Rs ApplySecurityGroupsToLoadBalancer =
       ApplySecurityGroupsToLoadBalancerResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ApplySecurityGroupsToLoadBalancer")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
+                Core.<> ( Core.toQueryValue
+                            "SecurityGroups"
+                            (Core.toQueryList "member" securityGroups)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ApplySecurityGroupsToLoadBalancerResult"
       ( \s h x ->
           ApplySecurityGroupsToLoadBalancerResponse'
-            Lude.<$> ( x Lude..@? "SecurityGroups" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "SecurityGroups" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ApplySecurityGroupsToLoadBalancer where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ApplySecurityGroupsToLoadBalancer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ApplySecurityGroupsToLoadBalancer where
-  toQuery ApplySecurityGroupsToLoadBalancer' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ApplySecurityGroupsToLoadBalancer" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "SecurityGroups" Lude.=: Lude.toQueryList "member" securityGroups,
-        "LoadBalancerName" Lude.=: loadBalancerName
-      ]
 
 -- | Contains the output of ApplySecurityGroupsToLoadBalancer.
 --
 -- /See:/ 'mkApplySecurityGroupsToLoadBalancerResponse' smart constructor.
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
   { -- | The IDs of the security groups associated with the load balancer.
-    securityGroups :: Lude.Maybe [Lude.Text],
+    securityGroups :: Core.Maybe [Types.SecurityGroupId],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplySecurityGroupsToLoadBalancerResponse' with the minimum fields required to make a request.
---
--- * 'securityGroups' - The IDs of the security groups associated with the load balancer.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ApplySecurityGroupsToLoadBalancerResponse' value with any optional fields omitted.
 mkApplySecurityGroupsToLoadBalancerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ApplySecurityGroupsToLoadBalancerResponse
-mkApplySecurityGroupsToLoadBalancerResponse pResponseStatus_ =
+mkApplySecurityGroupsToLoadBalancerResponse responseStatus =
   ApplySecurityGroupsToLoadBalancerResponse'
     { securityGroups =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The IDs of the security groups associated with the load balancer.
 --
 -- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgtlbrsSecurityGroups :: Lens.Lens' ApplySecurityGroupsToLoadBalancerResponse (Lude.Maybe [Lude.Text])
-asgtlbrsSecurityGroups = Lens.lens (securityGroups :: ApplySecurityGroupsToLoadBalancerResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: ApplySecurityGroupsToLoadBalancerResponse)
-{-# DEPRECATED asgtlbrsSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+asgtlbrrsSecurityGroups :: Lens.Lens' ApplySecurityGroupsToLoadBalancerResponse (Core.Maybe [Types.SecurityGroupId])
+asgtlbrrsSecurityGroups = Lens.field @"securityGroups"
+{-# DEPRECATED asgtlbrrsSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgtlbrsResponseStatus :: Lens.Lens' ApplySecurityGroupsToLoadBalancerResponse Lude.Int
-asgtlbrsResponseStatus = Lens.lens (responseStatus :: ApplySecurityGroupsToLoadBalancerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ApplySecurityGroupsToLoadBalancerResponse)
-{-# DEPRECATED asgtlbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+asgtlbrrsResponseStatus :: Lens.Lens' ApplySecurityGroupsToLoadBalancerResponse Core.Int
+asgtlbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED asgtlbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

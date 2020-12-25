@@ -19,82 +19,77 @@ module Network.AWS.DeviceFarm.Types.TestGridProject
     -- * Lenses
     tgpArn,
     tgpCreated,
-    tgpName,
     tgpDescription,
+    tgpName,
   )
 where
 
+import qualified Network.AWS.DeviceFarm.Types.Arn as Types
+import qualified Network.AWS.DeviceFarm.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A Selenium testing project. Projects are used to collect and collate sessions.
 --
 -- /See:/ 'mkTestGridProject' smart constructor.
 data TestGridProject = TestGridProject'
   { -- | The ARN for the project.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | When the project was created.
-    created :: Lude.Maybe Lude.Timestamp,
-    -- | A human-readable name for the project.
-    name :: Lude.Maybe Lude.Text,
+    created :: Core.Maybe Core.NominalDiffTime,
     -- | A human-readable description for the project.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.String,
+    -- | A human-readable name for the project.
+    name :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TestGridProject' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN for the project.
--- * 'created' - When the project was created.
--- * 'name' - A human-readable name for the project.
--- * 'description' - A human-readable description for the project.
+-- | Creates a 'TestGridProject' value with any optional fields omitted.
 mkTestGridProject ::
   TestGridProject
 mkTestGridProject =
   TestGridProject'
-    { arn = Lude.Nothing,
-      created = Lude.Nothing,
-      name = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      created = Core.Nothing,
+      description = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The ARN for the project.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpArn :: Lens.Lens' TestGridProject (Lude.Maybe Lude.Text)
-tgpArn = Lens.lens (arn :: TestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: TestGridProject)
+tgpArn :: Lens.Lens' TestGridProject (Core.Maybe Types.Arn)
+tgpArn = Lens.field @"arn"
 {-# DEPRECATED tgpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | When the project was created.
 --
 -- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpCreated :: Lens.Lens' TestGridProject (Lude.Maybe Lude.Timestamp)
-tgpCreated = Lens.lens (created :: TestGridProject -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: TestGridProject)
+tgpCreated :: Lens.Lens' TestGridProject (Core.Maybe Core.NominalDiffTime)
+tgpCreated = Lens.field @"created"
 {-# DEPRECATED tgpCreated "Use generic-lens or generic-optics with 'created' instead." #-}
-
--- | A human-readable name for the project.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpName :: Lens.Lens' TestGridProject (Lude.Maybe Lude.Text)
-tgpName = Lens.lens (name :: TestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: TestGridProject)
-{-# DEPRECATED tgpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A human-readable description for the project.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgpDescription :: Lens.Lens' TestGridProject (Lude.Maybe Lude.Text)
-tgpDescription = Lens.lens (description :: TestGridProject -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: TestGridProject)
+tgpDescription :: Lens.Lens' TestGridProject (Core.Maybe Types.String)
+tgpDescription = Lens.field @"description"
 {-# DEPRECATED tgpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON TestGridProject where
+-- | A human-readable name for the project.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgpName :: Lens.Lens' TestGridProject (Core.Maybe Types.String)
+tgpName = Lens.field @"name"
+{-# DEPRECATED tgpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON TestGridProject where
   parseJSON =
-    Lude.withObject
-      "TestGridProject"
-      ( \x ->
-          TestGridProject'
-            Lude.<$> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "created")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "TestGridProject" Core.$
+      \x ->
+        TestGridProject'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "created")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "name")

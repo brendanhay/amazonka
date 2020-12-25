@@ -22,7 +22,7 @@ module Network.AWS.IAM.DeleteSAMLProvider
     mkDeleteSAMLProvider,
 
     -- ** Request lenses
-    dsamlpSAMLProviderARN,
+    dsamlpSAMLProviderArn,
 
     -- * Destructuring the response
     DeleteSAMLProviderResponse (..),
@@ -30,62 +30,63 @@ module Network.AWS.IAM.DeleteSAMLProvider
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSAMLProvider' smart constructor.
 newtype DeleteSAMLProvider = DeleteSAMLProvider'
   { -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
-    sAMLProviderARN :: Lude.Text
+    sAMLProviderArn :: Types.SAMLProviderArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSAMLProvider' with the minimum fields required to make a request.
---
--- * 'sAMLProviderARN' - The Amazon Resource Name (ARN) of the SAML provider to delete.
+-- | Creates a 'DeleteSAMLProvider' value with any optional fields omitted.
 mkDeleteSAMLProvider ::
-  -- | 'sAMLProviderARN'
-  Lude.Text ->
+  -- | 'sAMLProviderArn'
+  Types.SAMLProviderArn ->
   DeleteSAMLProvider
-mkDeleteSAMLProvider pSAMLProviderARN_ =
-  DeleteSAMLProvider' {sAMLProviderARN = pSAMLProviderARN_}
+mkDeleteSAMLProvider sAMLProviderArn =
+  DeleteSAMLProvider' {sAMLProviderArn}
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to delete.
 --
--- /Note:/ Consider using 'sAMLProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsamlpSAMLProviderARN :: Lens.Lens' DeleteSAMLProvider Lude.Text
-dsamlpSAMLProviderARN = Lens.lens (sAMLProviderARN :: DeleteSAMLProvider -> Lude.Text) (\s a -> s {sAMLProviderARN = a} :: DeleteSAMLProvider)
-{-# DEPRECATED dsamlpSAMLProviderARN "Use generic-lens or generic-optics with 'sAMLProviderARN' instead." #-}
+-- /Note:/ Consider using 'sAMLProviderArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsamlpSAMLProviderArn :: Lens.Lens' DeleteSAMLProvider Types.SAMLProviderArn
+dsamlpSAMLProviderArn = Lens.field @"sAMLProviderArn"
+{-# DEPRECATED dsamlpSAMLProviderArn "Use generic-lens or generic-optics with 'sAMLProviderArn' instead." #-}
 
-instance Lude.AWSRequest DeleteSAMLProvider where
+instance Core.AWSRequest DeleteSAMLProvider where
   type Rs DeleteSAMLProvider = DeleteSAMLProviderResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeleteSAMLProviderResponse'
-
-instance Lude.ToHeaders DeleteSAMLProvider where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteSAMLProvider where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSAMLProvider where
-  toQuery DeleteSAMLProvider' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteSAMLProvider" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "SAMLProviderArn" Lude.=: sAMLProviderARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteSAMLProvider")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "SAMLProviderArn" sAMLProviderArn)
+            )
+      }
+  response = Response.receiveNull DeleteSAMLProviderResponse'
 
 -- | /See:/ 'mkDeleteSAMLProviderResponse' smart constructor.
 data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSAMLProviderResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteSAMLProviderResponse' value with any optional fields omitted.
 mkDeleteSAMLProviderResponse ::
   DeleteSAMLProviderResponse
 mkDeleteSAMLProviderResponse = DeleteSAMLProviderResponse'

@@ -23,8 +23,8 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     mkCreateSnapshotFromVolumeRecoveryPoint,
 
     -- ** Request lenses
-    csfvrpSnapshotDescription,
     csfvrpVolumeARN,
+    csfvrpSnapshotDescription,
     csfvrpTags,
 
     -- * Destructuring the response
@@ -32,174 +32,158 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     mkCreateSnapshotFromVolumeRecoveryPointResponse,
 
     -- ** Response lenses
-    csfvrprsVolumeRecoveryPointTime,
-    csfvrprsVolumeARN,
-    csfvrprsSnapshotId,
-    csfvrprsResponseStatus,
+    csfvrprrsSnapshotId,
+    csfvrprrsVolumeARN,
+    csfvrprrsVolumeRecoveryPointTime,
+    csfvrprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkCreateSnapshotFromVolumeRecoveryPoint' smart constructor.
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint'
-  { -- | Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field.
-    snapshotDescription :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
-    volumeARN :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
+    volumeARN :: Types.VolumeARN,
+    -- | Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field.
+    snapshotDescription :: Types.SnapshotDescription,
     -- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSnapshotFromVolumeRecoveryPoint' with the minimum fields required to make a request.
---
--- * 'snapshotDescription' - Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field.
--- * 'volumeARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
--- * 'tags' - A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
+-- | Creates a 'CreateSnapshotFromVolumeRecoveryPoint' value with any optional fields omitted.
 mkCreateSnapshotFromVolumeRecoveryPoint ::
-  -- | 'snapshotDescription'
-  Lude.Text ->
   -- | 'volumeARN'
-  Lude.Text ->
+  Types.VolumeARN ->
+  -- | 'snapshotDescription'
+  Types.SnapshotDescription ->
   CreateSnapshotFromVolumeRecoveryPoint
 mkCreateSnapshotFromVolumeRecoveryPoint
-  pSnapshotDescription_
-  pVolumeARN_ =
+  volumeARN
+  snapshotDescription =
     CreateSnapshotFromVolumeRecoveryPoint'
-      { snapshotDescription =
-          pSnapshotDescription_,
-        volumeARN = pVolumeARN_,
-        tags = Lude.Nothing
+      { volumeARN,
+        snapshotDescription,
+        tags = Core.Nothing
       }
+
+-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
+--
+-- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfvrpVolumeARN :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Types.VolumeARN
+csfvrpVolumeARN = Lens.field @"volumeARN"
+{-# DEPRECATED csfvrpVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | Textual description of the snapshot that appears in the Amazon EC2 console, Elastic Block Store snapshots panel in the __Description__ field, and in the AWS Storage Gateway snapshot __Details__ pane, __Description__ field.
 --
 -- /Note:/ Consider using 'snapshotDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfvrpSnapshotDescription :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Lude.Text
-csfvrpSnapshotDescription = Lens.lens (snapshotDescription :: CreateSnapshotFromVolumeRecoveryPoint -> Lude.Text) (\s a -> s {snapshotDescription = a} :: CreateSnapshotFromVolumeRecoveryPoint)
+csfvrpSnapshotDescription :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Types.SnapshotDescription
+csfvrpSnapshotDescription = Lens.field @"snapshotDescription"
 {-# DEPRECATED csfvrpSnapshotDescription "Use generic-lens or generic-optics with 'snapshotDescription' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
---
--- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfvrpVolumeARN :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint Lude.Text
-csfvrpVolumeARN = Lens.lens (volumeARN :: CreateSnapshotFromVolumeRecoveryPoint -> Lude.Text) (\s a -> s {volumeARN = a} :: CreateSnapshotFromVolumeRecoveryPoint)
-{-# DEPRECATED csfvrpVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | A list of up to 50 tags that can be assigned to a snapshot. Each tag is a key-value pair.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfvrpTags :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint (Lude.Maybe [Tag])
-csfvrpTags = Lens.lens (tags :: CreateSnapshotFromVolumeRecoveryPoint -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSnapshotFromVolumeRecoveryPoint)
+csfvrpTags :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPoint (Core.Maybe [Types.Tag])
+csfvrpTags = Lens.field @"tags"
 {-# DEPRECATED csfvrpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
+instance Core.FromJSON CreateSnapshotFromVolumeRecoveryPoint where
+  toJSON CreateSnapshotFromVolumeRecoveryPoint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("VolumeARN" Core..= volumeARN),
+            Core.Just ("SnapshotDescription" Core..= snapshotDescription),
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateSnapshotFromVolumeRecoveryPoint where
   type
     Rs CreateSnapshotFromVolumeRecoveryPoint =
       CreateSnapshotFromVolumeRecoveryPointResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateSnapshotFromVolumeRecoveryPointResponse'
-            Lude.<$> (x Lude..?> "VolumeRecoveryPointTime")
-            Lude.<*> (x Lude..?> "VolumeARN")
-            Lude.<*> (x Lude..?> "SnapshotId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SnapshotId")
+            Core.<*> (x Core..:? "VolumeARN")
+            Core.<*> (x Core..:? "VolumeRecoveryPointTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateSnapshotFromVolumeRecoveryPoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.CreateSnapshotFromVolumeRecoveryPoint" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateSnapshotFromVolumeRecoveryPoint where
-  toJSON CreateSnapshotFromVolumeRecoveryPoint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SnapshotDescription" Lude..= snapshotDescription),
-            Lude.Just ("VolumeARN" Lude..= volumeARN),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateSnapshotFromVolumeRecoveryPoint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateSnapshotFromVolumeRecoveryPoint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateSnapshotFromVolumeRecoveryPointResponse' smart constructor.
 data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse'
-  { -- | The time the volume was created from the recovery point.
-    volumeRecoveryPointTime :: Lude.Maybe Lude.Text,
+  { -- | The ID of the snapshot.
+    snapshotId :: Core.Maybe Types.SnapshotId,
     -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
-    volumeARN :: Lude.Maybe Lude.Text,
-    -- | The ID of the snapshot.
-    snapshotId :: Lude.Maybe Lude.Text,
+    volumeARN :: Core.Maybe Types.VolumeARN,
+    -- | The time the volume was created from the recovery point.
+    volumeRecoveryPointTime :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSnapshotFromVolumeRecoveryPointResponse' with the minimum fields required to make a request.
---
--- * 'volumeRecoveryPointTime' - The time the volume was created from the recovery point.
--- * 'volumeARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
--- * 'snapshotId' - The ID of the snapshot.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSnapshotFromVolumeRecoveryPointResponse' value with any optional fields omitted.
 mkCreateSnapshotFromVolumeRecoveryPointResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSnapshotFromVolumeRecoveryPointResponse
-mkCreateSnapshotFromVolumeRecoveryPointResponse pResponseStatus_ =
+mkCreateSnapshotFromVolumeRecoveryPointResponse responseStatus =
   CreateSnapshotFromVolumeRecoveryPointResponse'
-    { volumeRecoveryPointTime =
-        Lude.Nothing,
-      volumeARN = Lude.Nothing,
-      snapshotId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { snapshotId =
+        Core.Nothing,
+      volumeARN = Core.Nothing,
+      volumeRecoveryPointTime = Core.Nothing,
+      responseStatus
     }
-
--- | The time the volume was created from the recovery point.
---
--- /Note:/ Consider using 'volumeRecoveryPointTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfvrprsVolumeRecoveryPointTime :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Lude.Maybe Lude.Text)
-csfvrprsVolumeRecoveryPointTime = Lens.lens (volumeRecoveryPointTime :: CreateSnapshotFromVolumeRecoveryPointResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeRecoveryPointTime = a} :: CreateSnapshotFromVolumeRecoveryPointResponse)
-{-# DEPRECATED csfvrprsVolumeRecoveryPointTime "Use generic-lens or generic-optics with 'volumeRecoveryPointTime' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
---
--- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfvrprsVolumeARN :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Lude.Maybe Lude.Text)
-csfvrprsVolumeARN = Lens.lens (volumeARN :: CreateSnapshotFromVolumeRecoveryPointResponse -> Lude.Maybe Lude.Text) (\s a -> s {volumeARN = a} :: CreateSnapshotFromVolumeRecoveryPointResponse)
-{-# DEPRECATED csfvrprsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
 
 -- | The ID of the snapshot.
 --
 -- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfvrprsSnapshotId :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Lude.Maybe Lude.Text)
-csfvrprsSnapshotId = Lens.lens (snapshotId :: CreateSnapshotFromVolumeRecoveryPointResponse -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: CreateSnapshotFromVolumeRecoveryPointResponse)
-{-# DEPRECATED csfvrprsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
+csfvrprrsSnapshotId :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Core.Maybe Types.SnapshotId)
+csfvrprrsSnapshotId = Lens.field @"snapshotId"
+{-# DEPRECATED csfvrprrsSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
+--
+-- /Note:/ Consider using 'volumeARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfvrprrsVolumeARN :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Core.Maybe Types.VolumeARN)
+csfvrprrsVolumeARN = Lens.field @"volumeARN"
+{-# DEPRECATED csfvrprrsVolumeARN "Use generic-lens or generic-optics with 'volumeARN' instead." #-}
+
+-- | The time the volume was created from the recovery point.
+--
+-- /Note:/ Consider using 'volumeRecoveryPointTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csfvrprrsVolumeRecoveryPointTime :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Core.Maybe Types.String)
+csfvrprrsVolumeRecoveryPointTime = Lens.field @"volumeRecoveryPointTime"
+{-# DEPRECATED csfvrprrsVolumeRecoveryPointTime "Use generic-lens or generic-optics with 'volumeRecoveryPointTime' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfvrprsResponseStatus :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse Lude.Int
-csfvrprsResponseStatus = Lens.lens (responseStatus :: CreateSnapshotFromVolumeRecoveryPointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSnapshotFromVolumeRecoveryPointResponse)
-{-# DEPRECATED csfvrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csfvrprrsResponseStatus :: Lens.Lens' CreateSnapshotFromVolumeRecoveryPointResponse Core.Int
+csfvrprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csfvrprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

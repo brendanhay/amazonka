@@ -20,136 +20,141 @@ module Network.AWS.IoT.CreateJob
     mkCreateJob,
 
     -- ** Request lenses
-    cjJobExecutionsRolloutConfig,
     cjJobId,
-    cjDocumentSource,
-    cjAbortConfig,
-    cjNamespaceId,
-    cjPresignedURLConfig,
-    cjDocument,
     cjTargets,
+    cjAbortConfig,
     cjDescription,
+    cjDocument,
+    cjDocumentSource,
+    cjJobExecutionsRolloutConfig,
+    cjNamespaceId,
+    cjPresignedUrlConfig,
+    cjTags,
     cjTargetSelection,
     cjTimeoutConfig,
-    cjTags,
 
     -- * Destructuring the response
     CreateJobResponse (..),
     mkCreateJobResponse,
 
     -- ** Response lenses
-    cjrsJobId,
-    cjrsJobARN,
-    cjrsDescription,
-    cjrsResponseStatus,
+    cjrrsDescription,
+    cjrrsJobArn,
+    cjrrsJobId,
+    cjrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateJob' smart constructor.
 data CreateJob = CreateJob'
-  { -- | Allows you to create a staged rollout of the job.
-    jobExecutionsRolloutConfig :: Lude.Maybe JobExecutionsRolloutConfig,
-    -- | A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, "-" and "_" are valid for use here.
-    jobId :: Lude.Text,
-    -- | An S3 link to the job document.
-    documentSource :: Lude.Maybe Lude.Text,
+  { -- | A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, "-" and "_" are valid for use here.
+    jobId :: Types.JobId,
+    -- | A list of things and thing groups to which the job should be sent.
+    targets :: Core.NonEmpty Types.TargetArn,
     -- | Allows you to create criteria to abort a job.
-    abortConfig :: Lude.Maybe AbortConfig,
+    abortConfig :: Core.Maybe Types.AbortConfig,
+    -- | A short text description of the job.
+    description :: Core.Maybe Types.Description,
+    -- | The job document.
+    document :: Core.Maybe Types.Document,
+    -- | An S3 link to the job document.
+    documentSource :: Core.Maybe Types.DocumentSource,
+    -- | Allows you to create a staged rollout of the job.
+    jobExecutionsRolloutConfig :: Core.Maybe Types.JobExecutionsRolloutConfig,
     -- | The namespace used to indicate that a job is a customer-managed job.
     --
     -- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
     -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
-    namespaceId :: Lude.Maybe Lude.Text,
+    namespaceId :: Core.Maybe Types.NamespaceId,
     -- | Configuration information for pre-signed S3 URLs.
-    presignedURLConfig :: Lude.Maybe PresignedURLConfig,
-    -- | The job document.
-    document :: Lude.Maybe Lude.Text,
-    -- | A list of things and thing groups to which the job should be sent.
-    targets :: Lude.NonEmpty Lude.Text,
-    -- | A short text description of the job.
-    description :: Lude.Maybe Lude.Text,
-    -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
-    targetSelection :: Lude.Maybe TargetSelection,
-    -- | Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the time expires, it will be automatically set to @TIMED_OUT@ .
-    timeoutConfig :: Lude.Maybe TimeoutConfig,
+    presignedUrlConfig :: Core.Maybe Types.PresignedUrlConfig,
     -- | Metadata which can be used to manage the job.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
+    targetSelection :: Core.Maybe Types.TargetSelection,
+    -- | Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the time expires, it will be automatically set to @TIMED_OUT@ .
+    timeoutConfig :: Core.Maybe Types.TimeoutConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateJob' with the minimum fields required to make a request.
---
--- * 'jobExecutionsRolloutConfig' - Allows you to create a staged rollout of the job.
--- * 'jobId' - A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, "-" and "_" are valid for use here.
--- * 'documentSource' - An S3 link to the job document.
--- * 'abortConfig' - Allows you to create criteria to abort a job.
--- * 'namespaceId' - The namespace used to indicate that a job is a customer-managed job.
---
--- When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.
--- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
--- * 'presignedURLConfig' - Configuration information for pre-signed S3 URLs.
--- * 'document' - The job document.
--- * 'targets' - A list of things and thing groups to which the job should be sent.
--- * 'description' - A short text description of the job.
--- * 'targetSelection' - Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
--- * 'timeoutConfig' - Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the time expires, it will be automatically set to @TIMED_OUT@ .
--- * 'tags' - Metadata which can be used to manage the job.
+-- | Creates a 'CreateJob' value with any optional fields omitted.
 mkCreateJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   -- | 'targets'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.TargetArn ->
   CreateJob
-mkCreateJob pJobId_ pTargets_ =
+mkCreateJob jobId targets =
   CreateJob'
-    { jobExecutionsRolloutConfig = Lude.Nothing,
-      jobId = pJobId_,
-      documentSource = Lude.Nothing,
-      abortConfig = Lude.Nothing,
-      namespaceId = Lude.Nothing,
-      presignedURLConfig = Lude.Nothing,
-      document = Lude.Nothing,
-      targets = pTargets_,
-      description = Lude.Nothing,
-      targetSelection = Lude.Nothing,
-      timeoutConfig = Lude.Nothing,
-      tags = Lude.Nothing
+    { jobId,
+      targets,
+      abortConfig = Core.Nothing,
+      description = Core.Nothing,
+      document = Core.Nothing,
+      documentSource = Core.Nothing,
+      jobExecutionsRolloutConfig = Core.Nothing,
+      namespaceId = Core.Nothing,
+      presignedUrlConfig = Core.Nothing,
+      tags = Core.Nothing,
+      targetSelection = Core.Nothing,
+      timeoutConfig = Core.Nothing
     }
-
--- | Allows you to create a staged rollout of the job.
---
--- /Note:/ Consider using 'jobExecutionsRolloutConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjJobExecutionsRolloutConfig :: Lens.Lens' CreateJob (Lude.Maybe JobExecutionsRolloutConfig)
-cjJobExecutionsRolloutConfig = Lens.lens (jobExecutionsRolloutConfig :: CreateJob -> Lude.Maybe JobExecutionsRolloutConfig) (\s a -> s {jobExecutionsRolloutConfig = a} :: CreateJob)
-{-# DEPRECATED cjJobExecutionsRolloutConfig "Use generic-lens or generic-optics with 'jobExecutionsRolloutConfig' instead." #-}
 
 -- | A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, "-" and "_" are valid for use here.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjJobId :: Lens.Lens' CreateJob Lude.Text
-cjJobId = Lens.lens (jobId :: CreateJob -> Lude.Text) (\s a -> s {jobId = a} :: CreateJob)
+cjJobId :: Lens.Lens' CreateJob Types.JobId
+cjJobId = Lens.field @"jobId"
 {-# DEPRECATED cjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
--- | An S3 link to the job document.
+-- | A list of things and thing groups to which the job should be sent.
 --
--- /Note:/ Consider using 'documentSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjDocumentSource :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
-cjDocumentSource = Lens.lens (documentSource :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {documentSource = a} :: CreateJob)
-{-# DEPRECATED cjDocumentSource "Use generic-lens or generic-optics with 'documentSource' instead." #-}
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjTargets :: Lens.Lens' CreateJob (Core.NonEmpty Types.TargetArn)
+cjTargets = Lens.field @"targets"
+{-# DEPRECATED cjTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
 
 -- | Allows you to create criteria to abort a job.
 --
 -- /Note:/ Consider using 'abortConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjAbortConfig :: Lens.Lens' CreateJob (Lude.Maybe AbortConfig)
-cjAbortConfig = Lens.lens (abortConfig :: CreateJob -> Lude.Maybe AbortConfig) (\s a -> s {abortConfig = a} :: CreateJob)
+cjAbortConfig :: Lens.Lens' CreateJob (Core.Maybe Types.AbortConfig)
+cjAbortConfig = Lens.field @"abortConfig"
 {-# DEPRECATED cjAbortConfig "Use generic-lens or generic-optics with 'abortConfig' instead." #-}
+
+-- | A short text description of the job.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjDescription :: Lens.Lens' CreateJob (Core.Maybe Types.Description)
+cjDescription = Lens.field @"description"
+{-# DEPRECATED cjDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The job document.
+--
+-- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjDocument :: Lens.Lens' CreateJob (Core.Maybe Types.Document)
+cjDocument = Lens.field @"document"
+{-# DEPRECATED cjDocument "Use generic-lens or generic-optics with 'document' instead." #-}
+
+-- | An S3 link to the job document.
+--
+-- /Note:/ Consider using 'documentSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjDocumentSource :: Lens.Lens' CreateJob (Core.Maybe Types.DocumentSource)
+cjDocumentSource = Lens.field @"documentSource"
+{-# DEPRECATED cjDocumentSource "Use generic-lens or generic-optics with 'documentSource' instead." #-}
+
+-- | Allows you to create a staged rollout of the job.
+--
+-- /Note:/ Consider using 'jobExecutionsRolloutConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjJobExecutionsRolloutConfig :: Lens.Lens' CreateJob (Core.Maybe Types.JobExecutionsRolloutConfig)
+cjJobExecutionsRolloutConfig = Lens.field @"jobExecutionsRolloutConfig"
+{-# DEPRECATED cjJobExecutionsRolloutConfig "Use generic-lens or generic-optics with 'jobExecutionsRolloutConfig' instead." #-}
 
 -- | The namespace used to indicate that a job is a customer-managed job.
 --
@@ -157,156 +162,129 @@ cjAbortConfig = Lens.lens (abortConfig :: CreateJob -> Lude.Maybe AbortConfig) (
 -- @> aws/things//THING_NAME/ /jobs//JOB_ID/ /notify-namespace-/NAMESPACE_ID/ /@
 --
 -- /Note:/ Consider using 'namespaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjNamespaceId :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
-cjNamespaceId = Lens.lens (namespaceId :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {namespaceId = a} :: CreateJob)
+cjNamespaceId :: Lens.Lens' CreateJob (Core.Maybe Types.NamespaceId)
+cjNamespaceId = Lens.field @"namespaceId"
 {-# DEPRECATED cjNamespaceId "Use generic-lens or generic-optics with 'namespaceId' instead." #-}
 
 -- | Configuration information for pre-signed S3 URLs.
 --
--- /Note:/ Consider using 'presignedURLConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjPresignedURLConfig :: Lens.Lens' CreateJob (Lude.Maybe PresignedURLConfig)
-cjPresignedURLConfig = Lens.lens (presignedURLConfig :: CreateJob -> Lude.Maybe PresignedURLConfig) (\s a -> s {presignedURLConfig = a} :: CreateJob)
-{-# DEPRECATED cjPresignedURLConfig "Use generic-lens or generic-optics with 'presignedURLConfig' instead." #-}
+-- /Note:/ Consider using 'presignedUrlConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjPresignedUrlConfig :: Lens.Lens' CreateJob (Core.Maybe Types.PresignedUrlConfig)
+cjPresignedUrlConfig = Lens.field @"presignedUrlConfig"
+{-# DEPRECATED cjPresignedUrlConfig "Use generic-lens or generic-optics with 'presignedUrlConfig' instead." #-}
 
--- | The job document.
+-- | Metadata which can be used to manage the job.
 --
--- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjDocument :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
-cjDocument = Lens.lens (document :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {document = a} :: CreateJob)
-{-# DEPRECATED cjDocument "Use generic-lens or generic-optics with 'document' instead." #-}
-
--- | A list of things and thing groups to which the job should be sent.
---
--- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjTargets :: Lens.Lens' CreateJob (Lude.NonEmpty Lude.Text)
-cjTargets = Lens.lens (targets :: CreateJob -> Lude.NonEmpty Lude.Text) (\s a -> s {targets = a} :: CreateJob)
-{-# DEPRECATED cjTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
-
--- | A short text description of the job.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjDescription :: Lens.Lens' CreateJob (Lude.Maybe Lude.Text)
-cjDescription = Lens.lens (description :: CreateJob -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateJob)
-{-# DEPRECATED cjDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjTags :: Lens.Lens' CreateJob (Core.Maybe [Types.Tag])
+cjTags = Lens.field @"tags"
+{-# DEPRECATED cjTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.
 --
 -- /Note:/ Consider using 'targetSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjTargetSelection :: Lens.Lens' CreateJob (Lude.Maybe TargetSelection)
-cjTargetSelection = Lens.lens (targetSelection :: CreateJob -> Lude.Maybe TargetSelection) (\s a -> s {targetSelection = a} :: CreateJob)
+cjTargetSelection :: Lens.Lens' CreateJob (Core.Maybe Types.TargetSelection)
+cjTargetSelection = Lens.field @"targetSelection"
 {-# DEPRECATED cjTargetSelection "Use generic-lens or generic-optics with 'targetSelection' instead." #-}
 
 -- | Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to @IN_PROGRESS@ . If the job execution status is not set to another terminal state before the time expires, it will be automatically set to @TIMED_OUT@ .
 --
 -- /Note:/ Consider using 'timeoutConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjTimeoutConfig :: Lens.Lens' CreateJob (Lude.Maybe TimeoutConfig)
-cjTimeoutConfig = Lens.lens (timeoutConfig :: CreateJob -> Lude.Maybe TimeoutConfig) (\s a -> s {timeoutConfig = a} :: CreateJob)
+cjTimeoutConfig :: Lens.Lens' CreateJob (Core.Maybe Types.TimeoutConfig)
+cjTimeoutConfig = Lens.field @"timeoutConfig"
 {-# DEPRECATED cjTimeoutConfig "Use generic-lens or generic-optics with 'timeoutConfig' instead." #-}
 
--- | Metadata which can be used to manage the job.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjTags :: Lens.Lens' CreateJob (Lude.Maybe [Tag])
-cjTags = Lens.lens (tags :: CreateJob -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateJob)
-{-# DEPRECATED cjTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
-instance Lude.AWSRequest CreateJob where
-  type Rs CreateJob = CreateJobResponse
-  request = Req.putJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateJobResponse'
-            Lude.<$> (x Lude..?> "jobId")
-            Lude.<*> (x Lude..?> "jobArn")
-            Lude.<*> (x Lude..?> "description")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateJob where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateJob where
-  toJSON CreateJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("jobExecutionsRolloutConfig" Lude..=)
-              Lude.<$> jobExecutionsRolloutConfig,
-            ("documentSource" Lude..=) Lude.<$> documentSource,
-            ("abortConfig" Lude..=) Lude.<$> abortConfig,
-            ("namespaceId" Lude..=) Lude.<$> namespaceId,
-            ("presignedUrlConfig" Lude..=) Lude.<$> presignedURLConfig,
-            ("document" Lude..=) Lude.<$> document,
-            Lude.Just ("targets" Lude..= targets),
-            ("description" Lude..=) Lude.<$> description,
-            ("targetSelection" Lude..=) Lude.<$> targetSelection,
-            ("timeoutConfig" Lude..=) Lude.<$> timeoutConfig,
-            ("tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreateJob where
+  toJSON CreateJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("targets" Core..= targets),
+            ("abortConfig" Core..=) Core.<$> abortConfig,
+            ("description" Core..=) Core.<$> description,
+            ("document" Core..=) Core.<$> document,
+            ("documentSource" Core..=) Core.<$> documentSource,
+            ("jobExecutionsRolloutConfig" Core..=)
+              Core.<$> jobExecutionsRolloutConfig,
+            ("namespaceId" Core..=) Core.<$> namespaceId,
+            ("presignedUrlConfig" Core..=) Core.<$> presignedUrlConfig,
+            ("tags" Core..=) Core.<$> tags,
+            ("targetSelection" Core..=) Core.<$> targetSelection,
+            ("timeoutConfig" Core..=) Core.<$> timeoutConfig
           ]
       )
 
-instance Lude.ToPath CreateJob where
-  toPath CreateJob' {..} = Lude.mconcat ["/jobs/", Lude.toBS jobId]
-
-instance Lude.ToQuery CreateJob where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateJob where
+  type Rs CreateJob = CreateJobResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath ("/jobs/" Core.<> (Core.toText jobId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateJobResponse'
+            Core.<$> (x Core..:? "description")
+            Core.<*> (x Core..:? "jobArn")
+            Core.<*> (x Core..:? "jobId")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateJobResponse' smart constructor.
 data CreateJobResponse = CreateJobResponse'
-  { -- | The unique identifier you assigned to this job.
-    jobId :: Lude.Maybe Lude.Text,
+  { -- | The job description.
+    description :: Core.Maybe Types.Description,
     -- | The job ARN.
-    jobARN :: Lude.Maybe Lude.Text,
-    -- | The job description.
-    description :: Lude.Maybe Lude.Text,
+    jobArn :: Core.Maybe Types.JobArn,
+    -- | The unique identifier you assigned to this job.
+    jobId :: Core.Maybe Types.JobId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateJobResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The unique identifier you assigned to this job.
--- * 'jobARN' - The job ARN.
--- * 'description' - The job description.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateJobResponse' value with any optional fields omitted.
 mkCreateJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateJobResponse
-mkCreateJobResponse pResponseStatus_ =
+mkCreateJobResponse responseStatus =
   CreateJobResponse'
-    { jobId = Lude.Nothing,
-      jobARN = Lude.Nothing,
-      description = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { description = Core.Nothing,
+      jobArn = Core.Nothing,
+      jobId = Core.Nothing,
+      responseStatus
     }
-
--- | The unique identifier you assigned to this job.
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsJobId :: Lens.Lens' CreateJobResponse (Lude.Maybe Lude.Text)
-cjrsJobId = Lens.lens (jobId :: CreateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
-
--- | The job ARN.
---
--- /Note:/ Consider using 'jobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsJobARN :: Lens.Lens' CreateJobResponse (Lude.Maybe Lude.Text)
-cjrsJobARN = Lens.lens (jobARN :: CreateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobARN = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsJobARN "Use generic-lens or generic-optics with 'jobARN' instead." #-}
 
 -- | The job description.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsDescription :: Lens.Lens' CreateJobResponse (Lude.Maybe Lude.Text)
-cjrsDescription = Lens.lens (description :: CreateJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+cjrrsDescription :: Lens.Lens' CreateJobResponse (Core.Maybe Types.Description)
+cjrrsDescription = Lens.field @"description"
+{-# DEPRECATED cjrrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The job ARN.
+--
+-- /Note:/ Consider using 'jobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjrrsJobArn :: Lens.Lens' CreateJobResponse (Core.Maybe Types.JobArn)
+cjrrsJobArn = Lens.field @"jobArn"
+{-# DEPRECATED cjrrsJobArn "Use generic-lens or generic-optics with 'jobArn' instead." #-}
+
+-- | The unique identifier you assigned to this job.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjrrsJobId :: Lens.Lens' CreateJobResponse (Core.Maybe Types.JobId)
+cjrrsJobId = Lens.field @"jobId"
+{-# DEPRECATED cjrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsResponseStatus :: Lens.Lens' CreateJobResponse Lude.Int
-cjrsResponseStatus = Lens.lens (responseStatus :: CreateJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateJobResponse)
-{-# DEPRECATED cjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cjrrsResponseStatus :: Lens.Lens' CreateJobResponse Core.Int
+cjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

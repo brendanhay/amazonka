@@ -21,37 +21,36 @@ module Network.AWS.CodePipeline.Types.ActionExecutionFilter
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.PipelineExecutionId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Filter values for the action execution.
 --
 -- /See:/ 'mkActionExecutionFilter' smart constructor.
 newtype ActionExecutionFilter = ActionExecutionFilter'
   { -- | The pipeline execution ID used to filter action execution history.
-    pipelineExecutionId :: Lude.Maybe Lude.Text
+    pipelineExecutionId :: Core.Maybe Types.PipelineExecutionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActionExecutionFilter' with the minimum fields required to make a request.
---
--- * 'pipelineExecutionId' - The pipeline execution ID used to filter action execution history.
+-- | Creates a 'ActionExecutionFilter' value with any optional fields omitted.
 mkActionExecutionFilter ::
   ActionExecutionFilter
 mkActionExecutionFilter =
-  ActionExecutionFilter' {pipelineExecutionId = Lude.Nothing}
+  ActionExecutionFilter' {pipelineExecutionId = Core.Nothing}
 
 -- | The pipeline execution ID used to filter action execution history.
 --
 -- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aefPipelineExecutionId :: Lens.Lens' ActionExecutionFilter (Lude.Maybe Lude.Text)
-aefPipelineExecutionId = Lens.lens (pipelineExecutionId :: ActionExecutionFilter -> Lude.Maybe Lude.Text) (\s a -> s {pipelineExecutionId = a} :: ActionExecutionFilter)
+aefPipelineExecutionId :: Lens.Lens' ActionExecutionFilter (Core.Maybe Types.PipelineExecutionId)
+aefPipelineExecutionId = Lens.field @"pipelineExecutionId"
 {-# DEPRECATED aefPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
 
-instance Lude.ToJSON ActionExecutionFilter where
-  toJSON ActionExecutionFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("pipelineExecutionId" Lude..=) Lude.<$> pipelineExecutionId]
+instance Core.FromJSON ActionExecutionFilter where
+  toJSON ActionExecutionFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [("pipelineExecutionId" Core..=) Core.<$> pipelineExecutionId]
       )

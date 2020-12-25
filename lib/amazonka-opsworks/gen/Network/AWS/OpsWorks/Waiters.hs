@@ -35,482 +35,519 @@ import qualified Network.AWS.Lens as Lens
 import Network.AWS.OpsWorks.DescribeApps
 import Network.AWS.OpsWorks.DescribeDeployments
 import Network.AWS.OpsWorks.DescribeInstances
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-mkInstanceTerminated :: Wait.Wait DescribeInstances
+mkInstanceTerminated :: Waiter.Wait DescribeInstances
 mkInstanceTerminated =
-  Wait.Wait
-    { Wait._waitName = "InstanceTerminated",
-      Wait._waitAttempts = 40,
-      Wait._waitDelay = 15,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "InstanceTerminated",
+      Waiter._waitAttempts = 40,
+      Waiter._waitDelay = 15,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "terminated"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchError "ResourceNotFoundException" Wait.AcceptSuccess,
-          Wait.matchAny
+          Waiter.matchError "ResourceNotFoundException" Waiter.AcceptSuccess,
+          Waiter.matchAny
             "booting"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "online"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "pending"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "rebooting"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "requested"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "running_setup"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "setup_failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "start_failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.OpsWorks.DescribeDeployments' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-mkDeploymentSuccessful :: Wait.Wait DescribeDeployments
+mkDeploymentSuccessful :: Waiter.Wait DescribeDeployments
 mkDeploymentSuccessful =
-  Wait.Wait
-    { Wait._waitName = "DeploymentSuccessful",
-      Wait._waitAttempts = 40,
-      Wait._waitDelay = 15,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "DeploymentSuccessful",
+      Waiter._waitAttempts = 40,
+      Waiter._waitDelay = 15,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "successful"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddrsDeployments Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"deployments" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (ddrsDeployments Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"deployments" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. dStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-mkInstanceStopped :: Wait.Wait DescribeInstances
+mkInstanceStopped :: Waiter.Wait DescribeInstances
 mkInstanceStopped =
-  Wait.Wait
-    { Wait._waitName = "InstanceStopped",
-      Wait._waitAttempts = 40,
-      Wait._waitDelay = 15,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "InstanceStopped",
+      Waiter._waitAttempts = 40,
+      Waiter._waitDelay = 15,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "stopped"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "booting"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "pending"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "rebooting"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "requested"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "running_setup"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "setup_failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "start_failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "stop_failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-mkInstanceOnline :: Wait.Wait DescribeInstances
+mkInstanceOnline :: Waiter.Wait DescribeInstances
 mkInstanceOnline =
-  Wait.Wait
-    { Wait._waitName = "InstanceOnline",
-      Wait._waitAttempts = 40,
-      Wait._waitDelay = 15,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "InstanceOnline",
+      Waiter._waitAttempts = 40,
+      Waiter._waitDelay = 15,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "online"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "setup_failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "shutting_down"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "start_failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "stopped"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "stopping"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "terminating"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "terminated"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "stop_failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }
 
 -- | Polls 'Network.AWS.OpsWorks.DescribeApps' every 1 seconds until a successful state is reached. An error is returned after 40 failed checks.
-mkAppExists :: Wait.Wait DescribeApps
+mkAppExists :: Waiter.Wait DescribeApps
 mkAppExists =
-  Wait.Wait
-    { Wait._waitName = "AppExists",
-      Wait._waitAttempts = 40,
-      Wait._waitDelay = 1,
-      Wait._waitAcceptors =
-        [ Wait.matchStatus 200 Wait.AcceptSuccess,
-          Wait.matchStatus 400 Wait.AcceptFailure
+  Waiter.Wait
+    { Waiter._waitName = "AppExists",
+      Waiter._waitAttempts = 40,
+      Waiter._waitDelay = 1,
+      Waiter._waitAcceptors =
+        [ Waiter.matchStatus 200 Waiter.AcceptSuccess,
+          Waiter.matchStatus 400 Waiter.AcceptFailure
         ]
     }
 
 -- | Polls 'Network.AWS.OpsWorks.DescribeInstances' every 15 seconds until a successful state is reached. An error is returned after 40 failed checks.
-mkInstanceRegistered :: Wait.Wait DescribeInstances
+mkInstanceRegistered :: Waiter.Wait DescribeInstances
 mkInstanceRegistered =
-  Wait.Wait
-    { Wait._waitName = "InstanceRegistered",
-      Wait._waitAttempts = 40,
-      Wait._waitDelay = 15,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "InstanceRegistered",
+      Waiter._waitAttempts = 40,
+      Waiter._waitDelay = 15,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "registered"
-            Wait.AcceptSuccess
+            Waiter.AcceptSuccess
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "setup_failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "shutting_down"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "stopped"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "stopping"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "terminating"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "terminated"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "stop_failed"
-            Wait.AcceptFailure
+            Waiter.AcceptFailure
             ( Lens.folding
                 ( Lens.concatOf
-                    (dirsInstances Lude.. Lens._Just Lude.. Lens.to Lude.toList)
+                    ( Lens.field @"instances" Core.. Lens._Just
+                        Core.. Lens.to Core.toList
+                    )
                 )
-                Lude.. iStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             )
         ]
     }

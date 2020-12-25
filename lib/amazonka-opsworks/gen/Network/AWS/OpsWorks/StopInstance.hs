@@ -32,83 +32,73 @@ module Network.AWS.OpsWorks.StopInstance
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopInstance' smart constructor.
 data StopInstance = StopInstance'
   { -- | The instance ID.
-    instanceId :: Lude.Text,
+    instanceId :: Types.String,
     -- | Specifies whether to force an instance to stop. If the instance's root device type is @ebs@ , or EBS-backed, adding the @Force@ parameter to the @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of /only/ the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.
-    force :: Lude.Maybe Lude.Bool
+    force :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance ID.
--- * 'force' - Specifies whether to force an instance to stop. If the instance's root device type is @ebs@ , or EBS-backed, adding the @Force@ parameter to the @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of /only/ the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.
+-- | Creates a 'StopInstance' value with any optional fields omitted.
 mkStopInstance ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.String ->
   StopInstance
-mkStopInstance pInstanceId_ =
-  StopInstance' {instanceId = pInstanceId_, force = Lude.Nothing}
+mkStopInstance instanceId =
+  StopInstance' {instanceId, force = Core.Nothing}
 
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siInstanceId :: Lens.Lens' StopInstance Lude.Text
-siInstanceId = Lens.lens (instanceId :: StopInstance -> Lude.Text) (\s a -> s {instanceId = a} :: StopInstance)
+siInstanceId :: Lens.Lens' StopInstance Types.String
+siInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED siInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Specifies whether to force an instance to stop. If the instance's root device type is @ebs@ , or EBS-backed, adding the @Force@ parameter to the @StopInstances@ API call disassociates the AWS OpsWorks Stacks instance from EC2, and forces deletion of /only/ the OpsWorks Stacks instance. You must also delete the formerly-associated instance in EC2 after troubleshooting and replacing the AWS OpsWorks Stacks instance with a new one.
 --
 -- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siForce :: Lens.Lens' StopInstance (Lude.Maybe Lude.Bool)
-siForce = Lens.lens (force :: StopInstance -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: StopInstance)
+siForce :: Lens.Lens' StopInstance (Core.Maybe Core.Bool)
+siForce = Lens.field @"force"
 {-# DEPRECATED siForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
-instance Lude.AWSRequest StopInstance where
+instance Core.FromJSON StopInstance where
+  toJSON StopInstance {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            ("Force" Core..=) Core.<$> force
+          ]
+      )
+
+instance Core.AWSRequest StopInstance where
   type Rs StopInstance = StopInstanceResponse
-  request = Req.postJSON opsWorksService
-  response = Res.receiveNull StopInstanceResponse'
-
-instance Lude.ToHeaders StopInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.StopInstance" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopInstance where
-  toJSON StopInstance' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            ("Force" Lude..=) Lude.<$> force
-          ]
-      )
-
-instance Lude.ToPath StopInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopInstance where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.StopInstance")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull StopInstanceResponse'
 
 -- | /See:/ 'mkStopInstanceResponse' smart constructor.
 data StopInstanceResponse = StopInstanceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopInstanceResponse' with the minimum fields required to make a request.
+-- | Creates a 'StopInstanceResponse' value with any optional fields omitted.
 mkStopInstanceResponse ::
   StopInstanceResponse
 mkStopInstanceResponse = StopInstanceResponse'

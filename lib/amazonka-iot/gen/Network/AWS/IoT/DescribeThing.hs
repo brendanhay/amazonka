@@ -20,205 +20,189 @@ module Network.AWS.IoT.DescribeThing
     mkDescribeThing,
 
     -- ** Request lenses
-    dThingName,
+    dtfThingName,
 
     -- * Destructuring the response
     DescribeThingResponse (..),
     mkDescribeThingResponse,
 
     -- ** Response lenses
-    dtrsDefaultClientId,
-    dtrsThingTypeName,
-    dtrsThingARN,
-    dtrsAttributes,
-    dtrsVersion,
-    dtrsThingName,
-    dtrsBillingGroupName,
-    dtrsThingId,
-    dtrsResponseStatus,
+    dtrrsAttributes,
+    dtrrsBillingGroupName,
+    dtrrsDefaultClientId,
+    dtrrsThingArn,
+    dtrrsThingId,
+    dtrrsThingName,
+    dtrrsThingTypeName,
+    dtrrsVersion,
+    dtrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DescribeThing operation.
 --
 -- /See:/ 'mkDescribeThing' smart constructor.
 newtype DescribeThing = DescribeThing'
   { -- | The name of the thing.
-    thingName :: Lude.Text
+    thingName :: Types.ThingName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeThing' with the minimum fields required to make a request.
---
--- * 'thingName' - The name of the thing.
+-- | Creates a 'DescribeThing' value with any optional fields omitted.
 mkDescribeThing ::
   -- | 'thingName'
-  Lude.Text ->
+  Types.ThingName ->
   DescribeThing
-mkDescribeThing pThingName_ =
-  DescribeThing' {thingName = pThingName_}
+mkDescribeThing thingName = DescribeThing' {thingName}
 
 -- | The name of the thing.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dThingName :: Lens.Lens' DescribeThing Lude.Text
-dThingName = Lens.lens (thingName :: DescribeThing -> Lude.Text) (\s a -> s {thingName = a} :: DescribeThing)
-{-# DEPRECATED dThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+dtfThingName :: Lens.Lens' DescribeThing Types.ThingName
+dtfThingName = Lens.field @"thingName"
+{-# DEPRECATED dtfThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance Lude.AWSRequest DescribeThing where
+instance Core.AWSRequest DescribeThing where
   type Rs DescribeThing = DescribeThingResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/things/" Core.<> (Core.toText thingName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeThingResponse'
-            Lude.<$> (x Lude..?> "defaultClientId")
-            Lude.<*> (x Lude..?> "thingTypeName")
-            Lude.<*> (x Lude..?> "thingArn")
-            Lude.<*> (x Lude..?> "attributes" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "version")
-            Lude.<*> (x Lude..?> "thingName")
-            Lude.<*> (x Lude..?> "billingGroupName")
-            Lude.<*> (x Lude..?> "thingId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "attributes")
+            Core.<*> (x Core..:? "billingGroupName")
+            Core.<*> (x Core..:? "defaultClientId")
+            Core.<*> (x Core..:? "thingArn")
+            Core.<*> (x Core..:? "thingId")
+            Core.<*> (x Core..:? "thingName")
+            Core.<*> (x Core..:? "thingTypeName")
+            Core.<*> (x Core..:? "version")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeThing where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeThing where
-  toPath DescribeThing' {..} =
-    Lude.mconcat ["/things/", Lude.toBS thingName]
-
-instance Lude.ToQuery DescribeThing where
-  toQuery = Lude.const Lude.mempty
 
 -- | The output from the DescribeThing operation.
 --
 -- /See:/ 'mkDescribeThingResponse' smart constructor.
 data DescribeThingResponse = DescribeThingResponse'
-  { -- | The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.
+  { -- | The thing attributes.
+    attributes :: Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue),
+    -- | The name of the billing group the thing belongs to.
+    billingGroupName :: Core.Maybe Types.BillingGroupName,
+    -- | The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.
     --
     -- This lets you better organize your AWS IoT fleet without removing the flexibility of the underlying device certificate model or shadows.
-    defaultClientId :: Lude.Maybe Lude.Text,
-    -- | The thing type name.
-    thingTypeName :: Lude.Maybe Lude.Text,
+    defaultClientId :: Core.Maybe Types.ClientId,
     -- | The ARN of the thing to describe.
-    thingARN :: Lude.Maybe Lude.Text,
-    -- | The thing attributes.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The current version of the thing record in the registry.
-    version :: Lude.Maybe Lude.Integer,
-    -- | The name of the thing.
-    thingName :: Lude.Maybe Lude.Text,
-    -- | The name of the billing group the thing belongs to.
-    billingGroupName :: Lude.Maybe Lude.Text,
+    thingArn :: Core.Maybe Types.ThingArn,
     -- | The ID of the thing to describe.
-    thingId :: Lude.Maybe Lude.Text,
+    thingId :: Core.Maybe Types.ThingId,
+    -- | The name of the thing.
+    thingName :: Core.Maybe Types.ThingName,
+    -- | The thing type name.
+    thingTypeName :: Core.Maybe Types.ThingTypeName,
+    -- | The current version of the thing record in the registry.
+    version :: Core.Maybe Core.Integer,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeThingResponse' with the minimum fields required to make a request.
---
--- * 'defaultClientId' - The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.
---
--- This lets you better organize your AWS IoT fleet without removing the flexibility of the underlying device certificate model or shadows.
--- * 'thingTypeName' - The thing type name.
--- * 'thingARN' - The ARN of the thing to describe.
--- * 'attributes' - The thing attributes.
--- * 'version' - The current version of the thing record in the registry.
--- * 'thingName' - The name of the thing.
--- * 'billingGroupName' - The name of the billing group the thing belongs to.
--- * 'thingId' - The ID of the thing to describe.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeThingResponse' value with any optional fields omitted.
 mkDescribeThingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeThingResponse
-mkDescribeThingResponse pResponseStatus_ =
+mkDescribeThingResponse responseStatus =
   DescribeThingResponse'
-    { defaultClientId = Lude.Nothing,
-      thingTypeName = Lude.Nothing,
-      thingARN = Lude.Nothing,
-      attributes = Lude.Nothing,
-      version = Lude.Nothing,
-      thingName = Lude.Nothing,
-      billingGroupName = Lude.Nothing,
-      thingId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { attributes = Core.Nothing,
+      billingGroupName = Core.Nothing,
+      defaultClientId = Core.Nothing,
+      thingArn = Core.Nothing,
+      thingId = Core.Nothing,
+      thingName = Core.Nothing,
+      thingTypeName = Core.Nothing,
+      version = Core.Nothing,
+      responseStatus
     }
+
+-- | The thing attributes.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsAttributes :: Lens.Lens' DescribeThingResponse (Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue))
+dtrrsAttributes = Lens.field @"attributes"
+{-# DEPRECATED dtrrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | The name of the billing group the thing belongs to.
+--
+-- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsBillingGroupName :: Lens.Lens' DescribeThingResponse (Core.Maybe Types.BillingGroupName)
+dtrrsBillingGroupName = Lens.field @"billingGroupName"
+{-# DEPRECATED dtrrsBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
 
 -- | The default MQTT client ID. For a typical device, the thing name is also used as the default MQTT client ID. Although we don’t require a mapping between a thing's registry name and its use of MQTT client IDs, certificates, or shadow state, we recommend that you choose a thing name and use it as the MQTT client ID for the registry and the Device Shadow service.
 --
 -- This lets you better organize your AWS IoT fleet without removing the flexibility of the underlying device certificate model or shadows.
 --
 -- /Note:/ Consider using 'defaultClientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsDefaultClientId :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
-dtrsDefaultClientId = Lens.lens (defaultClientId :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {defaultClientId = a} :: DescribeThingResponse)
-{-# DEPRECATED dtrsDefaultClientId "Use generic-lens or generic-optics with 'defaultClientId' instead." #-}
-
--- | The thing type name.
---
--- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsThingTypeName :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
-dtrsThingTypeName = Lens.lens (thingTypeName :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeName = a} :: DescribeThingResponse)
-{-# DEPRECATED dtrsThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
+dtrrsDefaultClientId :: Lens.Lens' DescribeThingResponse (Core.Maybe Types.ClientId)
+dtrrsDefaultClientId = Lens.field @"defaultClientId"
+{-# DEPRECATED dtrrsDefaultClientId "Use generic-lens or generic-optics with 'defaultClientId' instead." #-}
 
 -- | The ARN of the thing to describe.
 --
--- /Note:/ Consider using 'thingARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsThingARN :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
-dtrsThingARN = Lens.lens (thingARN :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingARN = a} :: DescribeThingResponse)
-{-# DEPRECATED dtrsThingARN "Use generic-lens or generic-optics with 'thingARN' instead." #-}
-
--- | The thing attributes.
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsAttributes :: Lens.Lens' DescribeThingResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-dtrsAttributes = Lens.lens (attributes :: DescribeThingResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: DescribeThingResponse)
-{-# DEPRECATED dtrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
-
--- | The current version of the thing record in the registry.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsVersion :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Integer)
-dtrsVersion = Lens.lens (version :: DescribeThingResponse -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: DescribeThingResponse)
-{-# DEPRECATED dtrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The name of the thing.
---
--- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsThingName :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
-dtrsThingName = Lens.lens (thingName :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: DescribeThingResponse)
-{-# DEPRECATED dtrsThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
-
--- | The name of the billing group the thing belongs to.
---
--- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsBillingGroupName :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
-dtrsBillingGroupName = Lens.lens (billingGroupName :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupName = a} :: DescribeThingResponse)
-{-# DEPRECATED dtrsBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
+-- /Note:/ Consider using 'thingArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsThingArn :: Lens.Lens' DescribeThingResponse (Core.Maybe Types.ThingArn)
+dtrrsThingArn = Lens.field @"thingArn"
+{-# DEPRECATED dtrrsThingArn "Use generic-lens or generic-optics with 'thingArn' instead." #-}
 
 -- | The ID of the thing to describe.
 --
 -- /Note:/ Consider using 'thingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsThingId :: Lens.Lens' DescribeThingResponse (Lude.Maybe Lude.Text)
-dtrsThingId = Lens.lens (thingId :: DescribeThingResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingId = a} :: DescribeThingResponse)
-{-# DEPRECATED dtrsThingId "Use generic-lens or generic-optics with 'thingId' instead." #-}
+dtrrsThingId :: Lens.Lens' DescribeThingResponse (Core.Maybe Types.ThingId)
+dtrrsThingId = Lens.field @"thingId"
+{-# DEPRECATED dtrrsThingId "Use generic-lens or generic-optics with 'thingId' instead." #-}
+
+-- | The name of the thing.
+--
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsThingName :: Lens.Lens' DescribeThingResponse (Core.Maybe Types.ThingName)
+dtrrsThingName = Lens.field @"thingName"
+{-# DEPRECATED dtrrsThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+
+-- | The thing type name.
+--
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsThingTypeName :: Lens.Lens' DescribeThingResponse (Core.Maybe Types.ThingTypeName)
+dtrrsThingTypeName = Lens.field @"thingTypeName"
+{-# DEPRECATED dtrrsThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
+
+-- | The current version of the thing record in the registry.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrrsVersion :: Lens.Lens' DescribeThingResponse (Core.Maybe Core.Integer)
+dtrrsVersion = Lens.field @"version"
+{-# DEPRECATED dtrrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DescribeThingResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DescribeThingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeThingResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrrsResponseStatus :: Lens.Lens' DescribeThingResponse Core.Int
+dtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

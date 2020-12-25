@@ -18,107 +18,103 @@ module Network.AWS.CloudWatch.Types.AlarmHistoryItem
 
     -- * Lenses
     ahiAlarmName,
-    ahiHistoryItemType,
-    ahiHistoryData,
     ahiAlarmType,
+    ahiHistoryData,
+    ahiHistoryItemType,
     ahiHistorySummary,
     ahiTimestamp,
   )
 where
 
-import Network.AWS.CloudWatch.Types.AlarmType
-import Network.AWS.CloudWatch.Types.HistoryItemType
+import qualified Network.AWS.CloudWatch.Types.AlarmName as Types
+import qualified Network.AWS.CloudWatch.Types.AlarmType as Types
+import qualified Network.AWS.CloudWatch.Types.HistoryData as Types
+import qualified Network.AWS.CloudWatch.Types.HistoryItemType as Types
+import qualified Network.AWS.CloudWatch.Types.HistorySummary as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the history of a specific alarm.
 --
 -- /See:/ 'mkAlarmHistoryItem' smart constructor.
 data AlarmHistoryItem = AlarmHistoryItem'
   { -- | The descriptive name for the alarm.
-    alarmName :: Lude.Maybe Lude.Text,
-    -- | The type of alarm history item.
-    historyItemType :: Lude.Maybe HistoryItemType,
-    -- | Data about the alarm, in JSON format.
-    historyData :: Lude.Maybe Lude.Text,
+    alarmName :: Core.Maybe Types.AlarmName,
     -- | The type of alarm, either metric alarm or composite alarm.
-    alarmType :: Lude.Maybe AlarmType,
+    alarmType :: Core.Maybe Types.AlarmType,
+    -- | Data about the alarm, in JSON format.
+    historyData :: Core.Maybe Types.HistoryData,
+    -- | The type of alarm history item.
+    historyItemType :: Core.Maybe Types.HistoryItemType,
     -- | A summary of the alarm history, in text format.
-    historySummary :: Lude.Maybe Lude.Text,
+    historySummary :: Core.Maybe Types.HistorySummary,
     -- | The time stamp for the alarm history item.
-    timestamp :: Lude.Maybe Lude.DateTime
+    timestamp :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AlarmHistoryItem' with the minimum fields required to make a request.
---
--- * 'alarmName' - The descriptive name for the alarm.
--- * 'historyItemType' - The type of alarm history item.
--- * 'historyData' - Data about the alarm, in JSON format.
--- * 'alarmType' - The type of alarm, either metric alarm or composite alarm.
--- * 'historySummary' - A summary of the alarm history, in text format.
--- * 'timestamp' - The time stamp for the alarm history item.
+-- | Creates a 'AlarmHistoryItem' value with any optional fields omitted.
 mkAlarmHistoryItem ::
   AlarmHistoryItem
 mkAlarmHistoryItem =
   AlarmHistoryItem'
-    { alarmName = Lude.Nothing,
-      historyItemType = Lude.Nothing,
-      historyData = Lude.Nothing,
-      alarmType = Lude.Nothing,
-      historySummary = Lude.Nothing,
-      timestamp = Lude.Nothing
+    { alarmName = Core.Nothing,
+      alarmType = Core.Nothing,
+      historyData = Core.Nothing,
+      historyItemType = Core.Nothing,
+      historySummary = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
 -- | The descriptive name for the alarm.
 --
 -- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahiAlarmName :: Lens.Lens' AlarmHistoryItem (Lude.Maybe Lude.Text)
-ahiAlarmName = Lens.lens (alarmName :: AlarmHistoryItem -> Lude.Maybe Lude.Text) (\s a -> s {alarmName = a} :: AlarmHistoryItem)
+ahiAlarmName :: Lens.Lens' AlarmHistoryItem (Core.Maybe Types.AlarmName)
+ahiAlarmName = Lens.field @"alarmName"
 {-# DEPRECATED ahiAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
-
--- | The type of alarm history item.
---
--- /Note:/ Consider using 'historyItemType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahiHistoryItemType :: Lens.Lens' AlarmHistoryItem (Lude.Maybe HistoryItemType)
-ahiHistoryItemType = Lens.lens (historyItemType :: AlarmHistoryItem -> Lude.Maybe HistoryItemType) (\s a -> s {historyItemType = a} :: AlarmHistoryItem)
-{-# DEPRECATED ahiHistoryItemType "Use generic-lens or generic-optics with 'historyItemType' instead." #-}
-
--- | Data about the alarm, in JSON format.
---
--- /Note:/ Consider using 'historyData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahiHistoryData :: Lens.Lens' AlarmHistoryItem (Lude.Maybe Lude.Text)
-ahiHistoryData = Lens.lens (historyData :: AlarmHistoryItem -> Lude.Maybe Lude.Text) (\s a -> s {historyData = a} :: AlarmHistoryItem)
-{-# DEPRECATED ahiHistoryData "Use generic-lens or generic-optics with 'historyData' instead." #-}
 
 -- | The type of alarm, either metric alarm or composite alarm.
 --
 -- /Note:/ Consider using 'alarmType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahiAlarmType :: Lens.Lens' AlarmHistoryItem (Lude.Maybe AlarmType)
-ahiAlarmType = Lens.lens (alarmType :: AlarmHistoryItem -> Lude.Maybe AlarmType) (\s a -> s {alarmType = a} :: AlarmHistoryItem)
+ahiAlarmType :: Lens.Lens' AlarmHistoryItem (Core.Maybe Types.AlarmType)
+ahiAlarmType = Lens.field @"alarmType"
 {-# DEPRECATED ahiAlarmType "Use generic-lens or generic-optics with 'alarmType' instead." #-}
+
+-- | Data about the alarm, in JSON format.
+--
+-- /Note:/ Consider using 'historyData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahiHistoryData :: Lens.Lens' AlarmHistoryItem (Core.Maybe Types.HistoryData)
+ahiHistoryData = Lens.field @"historyData"
+{-# DEPRECATED ahiHistoryData "Use generic-lens or generic-optics with 'historyData' instead." #-}
+
+-- | The type of alarm history item.
+--
+-- /Note:/ Consider using 'historyItemType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ahiHistoryItemType :: Lens.Lens' AlarmHistoryItem (Core.Maybe Types.HistoryItemType)
+ahiHistoryItemType = Lens.field @"historyItemType"
+{-# DEPRECATED ahiHistoryItemType "Use generic-lens or generic-optics with 'historyItemType' instead." #-}
 
 -- | A summary of the alarm history, in text format.
 --
 -- /Note:/ Consider using 'historySummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahiHistorySummary :: Lens.Lens' AlarmHistoryItem (Lude.Maybe Lude.Text)
-ahiHistorySummary = Lens.lens (historySummary :: AlarmHistoryItem -> Lude.Maybe Lude.Text) (\s a -> s {historySummary = a} :: AlarmHistoryItem)
+ahiHistorySummary :: Lens.Lens' AlarmHistoryItem (Core.Maybe Types.HistorySummary)
+ahiHistorySummary = Lens.field @"historySummary"
 {-# DEPRECATED ahiHistorySummary "Use generic-lens or generic-optics with 'historySummary' instead." #-}
 
 -- | The time stamp for the alarm history item.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ahiTimestamp :: Lens.Lens' AlarmHistoryItem (Lude.Maybe Lude.DateTime)
-ahiTimestamp = Lens.lens (timestamp :: AlarmHistoryItem -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: AlarmHistoryItem)
+ahiTimestamp :: Lens.Lens' AlarmHistoryItem (Core.Maybe Core.UTCTime)
+ahiTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED ahiTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromXML AlarmHistoryItem where
+instance Core.FromXML AlarmHistoryItem where
   parseXML x =
     AlarmHistoryItem'
-      Lude.<$> (x Lude..@? "AlarmName")
-      Lude.<*> (x Lude..@? "HistoryItemType")
-      Lude.<*> (x Lude..@? "HistoryData")
-      Lude.<*> (x Lude..@? "AlarmType")
-      Lude.<*> (x Lude..@? "HistorySummary")
-      Lude.<*> (x Lude..@? "Timestamp")
+      Core.<$> (x Core..@? "AlarmName")
+      Core.<*> (x Core..@? "AlarmType")
+      Core.<*> (x Core..@? "HistoryData")
+      Core.<*> (x Core..@? "HistoryItemType")
+      Core.<*> (x Core..@? "HistorySummary")
+      Core.<*> (x Core..@? "Timestamp")

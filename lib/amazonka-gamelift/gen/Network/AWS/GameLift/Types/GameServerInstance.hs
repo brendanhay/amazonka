@@ -17,16 +17,19 @@ module Network.AWS.GameLift.Types.GameServerInstance
     mkGameServerInstance,
 
     -- * Lenses
-    gsiInstanceId,
+    gsiGameServerGroupArn,
     gsiGameServerGroupName,
+    gsiInstanceId,
     gsiInstanceStatus,
-    gsiGameServerGroupARN,
   )
 where
 
-import Network.AWS.GameLift.Types.GameServerInstanceStatus
+import qualified Network.AWS.GameLift.Types.GameServerGroupArn as Types
+import qualified Network.AWS.GameLift.Types.GameServerGroupName as Types
+import qualified Network.AWS.GameLift.Types.GameServerInstanceId as Types
+import qualified Network.AWS.GameLift.Types.GameServerInstanceStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game server groups.__
 --
@@ -60,10 +63,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkGameServerInstance' smart constructor.
 data GameServerInstance = GameServerInstance'
-  { -- | The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
-    instanceId :: Lude.Maybe Lude.Text,
+  { -- | A generated unique identifier for the game server group that includes the game server instance.
+    gameServerGroupArn :: Core.Maybe Types.GameServerGroupArn,
     -- | A developer-defined identifier for the game server group that includes the game server instance. The name is unique for each Region in each AWS account.
-    gameServerGroupName :: Lude.Maybe Lude.Text,
+    gameServerGroupName :: Core.Maybe Types.GameServerGroupName,
+    -- | The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
+    instanceId :: Core.Maybe Types.GameServerInstanceId,
     -- | Current status of the game server instance.
     --
     --
@@ -74,53 +79,42 @@ data GameServerInstance = GameServerInstance'
     --
     --
     --     * __SPOT_TERMINATING__ -- The instance is in the process of shutting down due to a Spot instance interruption. No new game servers are started on this instance.
-    instanceStatus :: Lude.Maybe GameServerInstanceStatus,
-    -- | A generated unique identifier for the game server group that includes the game server instance.
-    gameServerGroupARN :: Lude.Maybe Lude.Text
+    instanceStatus :: Core.Maybe Types.GameServerInstanceStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GameServerInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
--- * 'gameServerGroupName' - A developer-defined identifier for the game server group that includes the game server instance. The name is unique for each Region in each AWS account.
--- * 'instanceStatus' - Current status of the game server instance.
---
---
---     * __ACTIVE__ -- The instance is viable for hosting game servers.
---
---
---     * __DRAINING__ -- The instance is not viable for hosting game servers. Existing game servers are in the process of ending, and new game servers are not started on this instance unless no other resources are available. When the instance is put in DRAINING, a new instance is started up to replace it. Once the instance has no UTILIZED game servers, it will be terminated in favor of the new instance.
---
---
---     * __SPOT_TERMINATING__ -- The instance is in the process of shutting down due to a Spot instance interruption. No new game servers are started on this instance.
---
---
--- * 'gameServerGroupARN' - A generated unique identifier for the game server group that includes the game server instance.
+-- | Creates a 'GameServerInstance' value with any optional fields omitted.
 mkGameServerInstance ::
   GameServerInstance
 mkGameServerInstance =
   GameServerInstance'
-    { instanceId = Lude.Nothing,
-      gameServerGroupName = Lude.Nothing,
-      instanceStatus = Lude.Nothing,
-      gameServerGroupARN = Lude.Nothing
+    { gameServerGroupArn = Core.Nothing,
+      gameServerGroupName = Core.Nothing,
+      instanceId = Core.Nothing,
+      instanceStatus = Core.Nothing
     }
 
--- | The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
+-- | A generated unique identifier for the game server group that includes the game server instance.
 --
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiInstanceId :: Lens.Lens' GameServerInstance (Lude.Maybe Lude.Text)
-gsiInstanceId = Lens.lens (instanceId :: GameServerInstance -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: GameServerInstance)
-{-# DEPRECATED gsiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+-- /Note:/ Consider using 'gameServerGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiGameServerGroupArn :: Lens.Lens' GameServerInstance (Core.Maybe Types.GameServerGroupArn)
+gsiGameServerGroupArn = Lens.field @"gameServerGroupArn"
+{-# DEPRECATED gsiGameServerGroupArn "Use generic-lens or generic-optics with 'gameServerGroupArn' instead." #-}
 
 -- | A developer-defined identifier for the game server group that includes the game server instance. The name is unique for each Region in each AWS account.
 --
 -- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiGameServerGroupName :: Lens.Lens' GameServerInstance (Lude.Maybe Lude.Text)
-gsiGameServerGroupName = Lens.lens (gameServerGroupName :: GameServerInstance -> Lude.Maybe Lude.Text) (\s a -> s {gameServerGroupName = a} :: GameServerInstance)
+gsiGameServerGroupName :: Lens.Lens' GameServerInstance (Core.Maybe Types.GameServerGroupName)
+gsiGameServerGroupName = Lens.field @"gameServerGroupName"
 {-# DEPRECATED gsiGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
+
+-- | The unique identifier for the instance where the game server is running. This ID is available in the instance metadata. EC2 instance IDs use a 17-character format, for example: @i-1234567890abcdef0@ .
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiInstanceId :: Lens.Lens' GameServerInstance (Core.Maybe Types.GameServerInstanceId)
+gsiInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED gsiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Current status of the game server instance.
 --
@@ -136,25 +130,16 @@ gsiGameServerGroupName = Lens.lens (gameServerGroupName :: GameServerInstance ->
 --
 --
 -- /Note:/ Consider using 'instanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiInstanceStatus :: Lens.Lens' GameServerInstance (Lude.Maybe GameServerInstanceStatus)
-gsiInstanceStatus = Lens.lens (instanceStatus :: GameServerInstance -> Lude.Maybe GameServerInstanceStatus) (\s a -> s {instanceStatus = a} :: GameServerInstance)
+gsiInstanceStatus :: Lens.Lens' GameServerInstance (Core.Maybe Types.GameServerInstanceStatus)
+gsiInstanceStatus = Lens.field @"instanceStatus"
 {-# DEPRECATED gsiInstanceStatus "Use generic-lens or generic-optics with 'instanceStatus' instead." #-}
 
--- | A generated unique identifier for the game server group that includes the game server instance.
---
--- /Note:/ Consider using 'gameServerGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiGameServerGroupARN :: Lens.Lens' GameServerInstance (Lude.Maybe Lude.Text)
-gsiGameServerGroupARN = Lens.lens (gameServerGroupARN :: GameServerInstance -> Lude.Maybe Lude.Text) (\s a -> s {gameServerGroupARN = a} :: GameServerInstance)
-{-# DEPRECATED gsiGameServerGroupARN "Use generic-lens or generic-optics with 'gameServerGroupARN' instead." #-}
-
-instance Lude.FromJSON GameServerInstance where
+instance Core.FromJSON GameServerInstance where
   parseJSON =
-    Lude.withObject
-      "GameServerInstance"
-      ( \x ->
-          GameServerInstance'
-            Lude.<$> (x Lude..:? "InstanceId")
-            Lude.<*> (x Lude..:? "GameServerGroupName")
-            Lude.<*> (x Lude..:? "InstanceStatus")
-            Lude.<*> (x Lude..:? "GameServerGroupArn")
-      )
+    Core.withObject "GameServerInstance" Core.$
+      \x ->
+        GameServerInstance'
+          Core.<$> (x Core..:? "GameServerGroupArn")
+          Core.<*> (x Core..:? "GameServerGroupName")
+          Core.<*> (x Core..:? "InstanceId")
+          Core.<*> (x Core..:? "InstanceStatus")

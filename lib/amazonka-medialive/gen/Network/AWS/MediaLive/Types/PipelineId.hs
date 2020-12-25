@@ -13,47 +13,49 @@
 module Network.AWS.MediaLive.Types.PipelineId
   ( PipelineId
       ( PipelineId',
-        PIPipeline0,
-        PIPipeline1
+        PipelineIdPipeline0,
+        PipelineIdPipeline1,
+        fromPipelineId
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Pipeline ID
-newtype PipelineId = PipelineId' Lude.Text
+newtype PipelineId = PipelineId' {fromPipelineId :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PIPipeline0 :: PipelineId
-pattern PIPipeline0 = PipelineId' "PIPELINE_0"
+pattern PipelineIdPipeline0 :: PipelineId
+pattern PipelineIdPipeline0 = PipelineId' "PIPELINE_0"
 
-pattern PIPipeline1 :: PipelineId
-pattern PIPipeline1 = PipelineId' "PIPELINE_1"
+pattern PipelineIdPipeline1 :: PipelineId
+pattern PipelineIdPipeline1 = PipelineId' "PIPELINE_1"
 
 {-# COMPLETE
-  PIPipeline0,
-  PIPipeline1,
+  PipelineIdPipeline0,
+  PipelineIdPipeline1,
   PipelineId'
   #-}

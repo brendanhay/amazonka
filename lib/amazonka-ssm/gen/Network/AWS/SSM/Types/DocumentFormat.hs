@@ -13,51 +13,56 @@
 module Network.AWS.SSM.Types.DocumentFormat
   ( DocumentFormat
       ( DocumentFormat',
-        Yaml,
-        JSON,
-        Text
+        DocumentFormatYaml,
+        DocumentFormatJson,
+        DocumentFormatText,
+        fromDocumentFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DocumentFormat = DocumentFormat' Lude.Text
+newtype DocumentFormat = DocumentFormat'
+  { fromDocumentFormat ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Yaml :: DocumentFormat
-pattern Yaml = DocumentFormat' "YAML"
+pattern DocumentFormatYaml :: DocumentFormat
+pattern DocumentFormatYaml = DocumentFormat' "YAML"
 
-pattern JSON :: DocumentFormat
-pattern JSON = DocumentFormat' "JSON"
+pattern DocumentFormatJson :: DocumentFormat
+pattern DocumentFormatJson = DocumentFormat' "JSON"
 
-pattern Text :: DocumentFormat
-pattern Text = DocumentFormat' "TEXT"
+pattern DocumentFormatText :: DocumentFormat
+pattern DocumentFormatText = DocumentFormat' "TEXT"
 
 {-# COMPLETE
-  Yaml,
-  JSON,
-  Text,
+  DocumentFormatYaml,
+  DocumentFormatJson,
+  DocumentFormatText,
   DocumentFormat'
   #-}

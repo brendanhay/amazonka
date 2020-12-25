@@ -22,147 +22,134 @@ module Network.AWS.AlexaBusiness.GetRoomSkillParameter
     -- ** Request lenses
     grspSkillId,
     grspParameterKey,
-    grspRoomARN,
+    grspRoomArn,
 
     -- * Destructuring the response
     GetRoomSkillParameterResponse (..),
     mkGetRoomSkillParameterResponse,
 
     -- ** Response lenses
-    grsprsRoomSkillParameter,
-    grsprsResponseStatus,
+    grsprrsRoomSkillParameter,
+    grsprrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetRoomSkillParameter' smart constructor.
 data GetRoomSkillParameter = GetRoomSkillParameter'
   { -- | The ARN of the skill from which to get the room skill parameter details. Required.
-    skillId :: Lude.Text,
+    skillId :: Types.SkillId,
     -- | The room skill parameter key for which to get details. Required.
-    parameterKey :: Lude.Text,
+    parameterKey :: Types.ParameterKey,
     -- | The ARN of the room from which to get the room skill parameter details.
-    roomARN :: Lude.Maybe Lude.Text
+    roomArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRoomSkillParameter' with the minimum fields required to make a request.
---
--- * 'skillId' - The ARN of the skill from which to get the room skill parameter details. Required.
--- * 'parameterKey' - The room skill parameter key for which to get details. Required.
--- * 'roomARN' - The ARN of the room from which to get the room skill parameter details.
+-- | Creates a 'GetRoomSkillParameter' value with any optional fields omitted.
 mkGetRoomSkillParameter ::
   -- | 'skillId'
-  Lude.Text ->
+  Types.SkillId ->
   -- | 'parameterKey'
-  Lude.Text ->
+  Types.ParameterKey ->
   GetRoomSkillParameter
-mkGetRoomSkillParameter pSkillId_ pParameterKey_ =
+mkGetRoomSkillParameter skillId parameterKey =
   GetRoomSkillParameter'
-    { skillId = pSkillId_,
-      parameterKey = pParameterKey_,
-      roomARN = Lude.Nothing
+    { skillId,
+      parameterKey,
+      roomArn = Core.Nothing
     }
 
 -- | The ARN of the skill from which to get the room skill parameter details. Required.
 --
 -- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grspSkillId :: Lens.Lens' GetRoomSkillParameter Lude.Text
-grspSkillId = Lens.lens (skillId :: GetRoomSkillParameter -> Lude.Text) (\s a -> s {skillId = a} :: GetRoomSkillParameter)
+grspSkillId :: Lens.Lens' GetRoomSkillParameter Types.SkillId
+grspSkillId = Lens.field @"skillId"
 {-# DEPRECATED grspSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
 -- | The room skill parameter key for which to get details. Required.
 --
 -- /Note:/ Consider using 'parameterKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grspParameterKey :: Lens.Lens' GetRoomSkillParameter Lude.Text
-grspParameterKey = Lens.lens (parameterKey :: GetRoomSkillParameter -> Lude.Text) (\s a -> s {parameterKey = a} :: GetRoomSkillParameter)
+grspParameterKey :: Lens.Lens' GetRoomSkillParameter Types.ParameterKey
+grspParameterKey = Lens.field @"parameterKey"
 {-# DEPRECATED grspParameterKey "Use generic-lens or generic-optics with 'parameterKey' instead." #-}
 
 -- | The ARN of the room from which to get the room skill parameter details.
 --
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grspRoomARN :: Lens.Lens' GetRoomSkillParameter (Lude.Maybe Lude.Text)
-grspRoomARN = Lens.lens (roomARN :: GetRoomSkillParameter -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: GetRoomSkillParameter)
-{-# DEPRECATED grspRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
+-- /Note:/ Consider using 'roomArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grspRoomArn :: Lens.Lens' GetRoomSkillParameter (Core.Maybe Types.Arn)
+grspRoomArn = Lens.field @"roomArn"
+{-# DEPRECATED grspRoomArn "Use generic-lens or generic-optics with 'roomArn' instead." #-}
 
-instance Lude.AWSRequest GetRoomSkillParameter where
+instance Core.FromJSON GetRoomSkillParameter where
+  toJSON GetRoomSkillParameter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SkillId" Core..= skillId),
+            Core.Just ("ParameterKey" Core..= parameterKey),
+            ("RoomArn" Core..=) Core.<$> roomArn
+          ]
+      )
+
+instance Core.AWSRequest GetRoomSkillParameter where
   type Rs GetRoomSkillParameter = GetRoomSkillParameterResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.GetRoomSkillParameter")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetRoomSkillParameterResponse'
-            Lude.<$> (x Lude..?> "RoomSkillParameter")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RoomSkillParameter")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetRoomSkillParameter where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.GetRoomSkillParameter" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetRoomSkillParameter where
-  toJSON GetRoomSkillParameter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SkillId" Lude..= skillId),
-            Lude.Just ("ParameterKey" Lude..= parameterKey),
-            ("RoomArn" Lude..=) Lude.<$> roomARN
-          ]
-      )
-
-instance Lude.ToPath GetRoomSkillParameter where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetRoomSkillParameter where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetRoomSkillParameterResponse' smart constructor.
 data GetRoomSkillParameterResponse = GetRoomSkillParameterResponse'
   { -- | The details of the room skill parameter requested. Required.
-    roomSkillParameter :: Lude.Maybe RoomSkillParameter,
+    roomSkillParameter :: Core.Maybe Types.RoomSkillParameter,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRoomSkillParameterResponse' with the minimum fields required to make a request.
---
--- * 'roomSkillParameter' - The details of the room skill parameter requested. Required.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetRoomSkillParameterResponse' value with any optional fields omitted.
 mkGetRoomSkillParameterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetRoomSkillParameterResponse
-mkGetRoomSkillParameterResponse pResponseStatus_ =
+mkGetRoomSkillParameterResponse responseStatus =
   GetRoomSkillParameterResponse'
-    { roomSkillParameter = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { roomSkillParameter = Core.Nothing,
+      responseStatus
     }
 
 -- | The details of the room skill parameter requested. Required.
 --
 -- /Note:/ Consider using 'roomSkillParameter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsprsRoomSkillParameter :: Lens.Lens' GetRoomSkillParameterResponse (Lude.Maybe RoomSkillParameter)
-grsprsRoomSkillParameter = Lens.lens (roomSkillParameter :: GetRoomSkillParameterResponse -> Lude.Maybe RoomSkillParameter) (\s a -> s {roomSkillParameter = a} :: GetRoomSkillParameterResponse)
-{-# DEPRECATED grsprsRoomSkillParameter "Use generic-lens or generic-optics with 'roomSkillParameter' instead." #-}
+grsprrsRoomSkillParameter :: Lens.Lens' GetRoomSkillParameterResponse (Core.Maybe Types.RoomSkillParameter)
+grsprrsRoomSkillParameter = Lens.field @"roomSkillParameter"
+{-# DEPRECATED grsprrsRoomSkillParameter "Use generic-lens or generic-optics with 'roomSkillParameter' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsprsResponseStatus :: Lens.Lens' GetRoomSkillParameterResponse Lude.Int
-grsprsResponseStatus = Lens.lens (responseStatus :: GetRoomSkillParameterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRoomSkillParameterResponse)
-{-# DEPRECATED grsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grsprrsResponseStatus :: Lens.Lens' GetRoomSkillParameterResponse Core.Int
+grsprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grsprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

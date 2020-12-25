@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.XRay
     Network.AWS.XRay.BatchGetTraces
@@ -98,44 +104,70 @@ library
     Network.AWS.XRay.Waiters
 
   other-modules:
+    Network.AWS.XRay.Types.AccountId
     Network.AWS.XRay.Types.Alias
+    Network.AWS.XRay.Types.AmazonResourceName
+    Network.AWS.XRay.Types.AnnotationKey
     Network.AWS.XRay.Types.AnnotationValue
     Network.AWS.XRay.Types.AnomalousService
+    Network.AWS.XRay.Types.AttributeKey
+    Network.AWS.XRay.Types.AttributeValue
     Network.AWS.XRay.Types.AvailabilityZoneDetail
     Network.AWS.XRay.Types.BackendConnectionErrors
+    Network.AWS.XRay.Types.ClientID
+    Network.AWS.XRay.Types.EC2InstanceId
     Network.AWS.XRay.Types.Edge
     Network.AWS.XRay.Types.EdgeStatistics
     Network.AWS.XRay.Types.EncryptionConfig
+    Network.AWS.XRay.Types.EncryptionKeyId
     Network.AWS.XRay.Types.EncryptionStatus
     Network.AWS.XRay.Types.EncryptionType
+    Network.AWS.XRay.Types.EntitySelectorExpression
+    Network.AWS.XRay.Types.ErrorCode
     Network.AWS.XRay.Types.ErrorRootCause
     Network.AWS.XRay.Types.ErrorRootCauseEntity
     Network.AWS.XRay.Types.ErrorRootCauseService
     Network.AWS.XRay.Types.ErrorStatistics
+    Network.AWS.XRay.Types.EventSummaryText
     Network.AWS.XRay.Types.FaultRootCause
     Network.AWS.XRay.Types.FaultRootCauseEntity
     Network.AWS.XRay.Types.FaultRootCauseService
     Network.AWS.XRay.Types.FaultStatistics
+    Network.AWS.XRay.Types.FilterExpression
     Network.AWS.XRay.Types.ForecastStatistics
     Network.AWS.XRay.Types.Group
+    Network.AWS.XRay.Types.GroupARN
+    Network.AWS.XRay.Types.GroupName
     Network.AWS.XRay.Types.GroupSummary
     Network.AWS.XRay.Types.HistogramEntry
-    Network.AWS.XRay.Types.HTTP
+    Network.AWS.XRay.Types.Host
+    Network.AWS.XRay.Types.Hostname
+    Network.AWS.XRay.Types.Http
+    Network.AWS.XRay.Types.HTTPMethod
+    Network.AWS.XRay.Types.Id
     Network.AWS.XRay.Types.Insight
     Network.AWS.XRay.Types.InsightCategory
     Network.AWS.XRay.Types.InsightEvent
+    Network.AWS.XRay.Types.InsightId
     Network.AWS.XRay.Types.InsightImpactGraphEdge
     Network.AWS.XRay.Types.InsightImpactGraphService
     Network.AWS.XRay.Types.InsightsConfiguration
     Network.AWS.XRay.Types.InsightState
     Network.AWS.XRay.Types.InsightSummary
+    Network.AWS.XRay.Types.InsightSummaryText
     Network.AWS.XRay.Types.InstanceIdDetail
+    Network.AWS.XRay.Types.Key
+    Network.AWS.XRay.Types.Message
+    Network.AWS.XRay.Types.Name
+    Network.AWS.XRay.Types.NextToken
     Network.AWS.XRay.Types.RequestImpactStatistics
+    Network.AWS.XRay.Types.ResourceARN
     Network.AWS.XRay.Types.ResourceARNDetail
     Network.AWS.XRay.Types.ResponseTimeRootCause
     Network.AWS.XRay.Types.ResponseTimeRootCauseEntity
     Network.AWS.XRay.Types.ResponseTimeRootCauseService
     Network.AWS.XRay.Types.RootCauseException
+    Network.AWS.XRay.Types.RuleName
     Network.AWS.XRay.Types.SamplingRule
     Network.AWS.XRay.Types.SamplingRuleRecord
     Network.AWS.XRay.Types.SamplingRuleUpdate
@@ -145,18 +177,30 @@ library
     Network.AWS.XRay.Types.SamplingStrategyName
     Network.AWS.XRay.Types.SamplingTargetDocument
     Network.AWS.XRay.Types.Segment
+    Network.AWS.XRay.Types.SegmentDocument
     Network.AWS.XRay.Types.ServiceId
     Network.AWS.XRay.Types.ServiceInfo
+    Network.AWS.XRay.Types.ServiceName
     Network.AWS.XRay.Types.ServiceStatistics
+    Network.AWS.XRay.Types.ServiceType
+    Network.AWS.XRay.Types.String
+    Network.AWS.XRay.Types.Summary
     Network.AWS.XRay.Types.Tag
+    Network.AWS.XRay.Types.TagKey
     Network.AWS.XRay.Types.TelemetryRecord
     Network.AWS.XRay.Types.TimeRangeType
     Network.AWS.XRay.Types.TimeSeriesServiceStatistics
+    Network.AWS.XRay.Types.Token
     Network.AWS.XRay.Types.Trace
+    Network.AWS.XRay.Types.TraceId
+    Network.AWS.XRay.Types.TraceSegmentDocument
     Network.AWS.XRay.Types.TraceSummary
     Network.AWS.XRay.Types.TraceUser
+    Network.AWS.XRay.Types.Type
     Network.AWS.XRay.Types.UnprocessedStatistics
     Network.AWS.XRay.Types.UnprocessedTraceSegment
+    Network.AWS.XRay.Types.URLPath
+    Network.AWS.XRay.Types.Value
     Network.AWS.XRay.Types.ValueWithServiceIds
 
   build-depends:   amazonka-core ==2.0.0.0.*

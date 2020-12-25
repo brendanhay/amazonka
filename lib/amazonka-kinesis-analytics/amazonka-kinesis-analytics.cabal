@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.KinesisAnalytics
     Network.AWS.KinesisAnalytics.AddApplicationCloudWatchLoggingOption
@@ -91,18 +97,31 @@ library
     Network.AWS.KinesisAnalytics.Waiters
 
   other-modules:
+    Network.AWS.KinesisAnalytics.Types.ApplicationCode
+    Network.AWS.KinesisAnalytics.Types.ApplicationDescription
     Network.AWS.KinesisAnalytics.Types.ApplicationDetail
+    Network.AWS.KinesisAnalytics.Types.ApplicationName
     Network.AWS.KinesisAnalytics.Types.ApplicationStatus
     Network.AWS.KinesisAnalytics.Types.ApplicationSummary
     Network.AWS.KinesisAnalytics.Types.ApplicationUpdate
+    Network.AWS.KinesisAnalytics.Types.BucketARN
+    Network.AWS.KinesisAnalytics.Types.BucketARNUpdate
     Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOption
     Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionDescription
+    Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionId
     Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate
     Network.AWS.KinesisAnalytics.Types.CSVMappingParameters
     Network.AWS.KinesisAnalytics.Types.DestinationSchema
+    Network.AWS.KinesisAnalytics.Types.ExclusiveStartApplicationName
+    Network.AWS.KinesisAnalytics.Types.FileKey
+    Network.AWS.KinesisAnalytics.Types.FileKeyUpdate
+    Network.AWS.KinesisAnalytics.Types.Id
+    Network.AWS.KinesisAnalytics.Types.InAppStreamName
+    Network.AWS.KinesisAnalytics.Types.InAppTableName
     Network.AWS.KinesisAnalytics.Types.Input
     Network.AWS.KinesisAnalytics.Types.InputConfiguration
     Network.AWS.KinesisAnalytics.Types.InputDescription
+    Network.AWS.KinesisAnalytics.Types.InputId
     Network.AWS.KinesisAnalytics.Types.InputLambdaProcessor
     Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorDescription
     Network.AWS.KinesisAnalytics.Types.InputLambdaProcessorUpdate
@@ -116,6 +135,8 @@ library
     Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration
     Network.AWS.KinesisAnalytics.Types.InputUpdate
     Network.AWS.KinesisAnalytics.Types.JSONMappingParameters
+    Network.AWS.KinesisAnalytics.Types.Key
+    Network.AWS.KinesisAnalytics.Types.KinesisAnalyticsARN
     Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInput
     Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputDescription
     Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputUpdate
@@ -131,22 +152,48 @@ library
     Network.AWS.KinesisAnalytics.Types.LambdaOutput
     Network.AWS.KinesisAnalytics.Types.LambdaOutputDescription
     Network.AWS.KinesisAnalytics.Types.LambdaOutputUpdate
+    Network.AWS.KinesisAnalytics.Types.LogStreamARN
     Network.AWS.KinesisAnalytics.Types.MappingParameters
+    Network.AWS.KinesisAnalytics.Types.Name
+    Network.AWS.KinesisAnalytics.Types.NamePrefix
+    Network.AWS.KinesisAnalytics.Types.NamePrefixUpdate
     Network.AWS.KinesisAnalytics.Types.Output
     Network.AWS.KinesisAnalytics.Types.OutputDescription
+    Network.AWS.KinesisAnalytics.Types.OutputId
     Network.AWS.KinesisAnalytics.Types.OutputUpdate
+    Network.AWS.KinesisAnalytics.Types.ParsedInputRecordField
+    Network.AWS.KinesisAnalytics.Types.ProcessedInputRecord
+    Network.AWS.KinesisAnalytics.Types.RawInputRecord
     Network.AWS.KinesisAnalytics.Types.RecordColumn
+    Network.AWS.KinesisAnalytics.Types.RecordColumnDelimiter
+    Network.AWS.KinesisAnalytics.Types.RecordColumnMapping
+    Network.AWS.KinesisAnalytics.Types.RecordColumnName
+    Network.AWS.KinesisAnalytics.Types.RecordColumnSqlType
+    Network.AWS.KinesisAnalytics.Types.RecordEncoding
     Network.AWS.KinesisAnalytics.Types.RecordFormat
     Network.AWS.KinesisAnalytics.Types.RecordFormatType
+    Network.AWS.KinesisAnalytics.Types.RecordRowDelimiter
+    Network.AWS.KinesisAnalytics.Types.RecordRowPath
     Network.AWS.KinesisAnalytics.Types.ReferenceDataSource
     Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceDescription
     Network.AWS.KinesisAnalytics.Types.ReferenceDataSourceUpdate
+    Network.AWS.KinesisAnalytics.Types.ReferenceId
+    Network.AWS.KinesisAnalytics.Types.ReferenceRoleARN
+    Network.AWS.KinesisAnalytics.Types.ReferenceRoleARNUpdate
+    Network.AWS.KinesisAnalytics.Types.ResourceARN
+    Network.AWS.KinesisAnalytics.Types.ResourceARNUpdate
+    Network.AWS.KinesisAnalytics.Types.RoleARN
+    Network.AWS.KinesisAnalytics.Types.RoleARNUpdate
     Network.AWS.KinesisAnalytics.Types.S3Configuration
     Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSource
     Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceDescription
     Network.AWS.KinesisAnalytics.Types.S3ReferenceDataSourceUpdate
     Network.AWS.KinesisAnalytics.Types.SourceSchema
+    Network.AWS.KinesisAnalytics.Types.TableName
+    Network.AWS.KinesisAnalytics.Types.TableNameUpdate
     Network.AWS.KinesisAnalytics.Types.Tag
+    Network.AWS.KinesisAnalytics.Types.TagKey
+    Network.AWS.KinesisAnalytics.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

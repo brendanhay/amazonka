@@ -17,56 +17,48 @@ module Network.AWS.ELB.Types.PolicyAttribute
     mkPolicyAttribute,
 
     -- * Lenses
-    paAttributeValue,
     paAttributeName,
+    paAttributeValue,
   )
 where
 
-import Network.AWS.ELB.Internal
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.AttributeName as Types
+import qualified Network.AWS.ELB.Types.AttributeValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a policy attribute.
 --
 -- /See:/ 'mkPolicyAttribute' smart constructor.
 data PolicyAttribute = PolicyAttribute'
-  { -- | The value of the attribute.
-    attributeValue :: Lude.Maybe Lude.Text,
-    -- | The name of the attribute.
-    attributeName :: Lude.Maybe Lude.Text
+  { -- | The name of the attribute.
+    attributeName :: Core.Maybe Types.AttributeName,
+    -- | The value of the attribute.
+    attributeValue :: Core.Maybe Types.AttributeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PolicyAttribute' with the minimum fields required to make a request.
---
--- * 'attributeValue' - The value of the attribute.
--- * 'attributeName' - The name of the attribute.
+-- | Creates a 'PolicyAttribute' value with any optional fields omitted.
 mkPolicyAttribute ::
   PolicyAttribute
 mkPolicyAttribute =
   PolicyAttribute'
-    { attributeValue = Lude.Nothing,
-      attributeName = Lude.Nothing
+    { attributeName = Core.Nothing,
+      attributeValue = Core.Nothing
     }
-
--- | The value of the attribute.
---
--- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paAttributeValue :: Lens.Lens' PolicyAttribute (Lude.Maybe Lude.Text)
-paAttributeValue = Lens.lens (attributeValue :: PolicyAttribute -> Lude.Maybe Lude.Text) (\s a -> s {attributeValue = a} :: PolicyAttribute)
-{-# DEPRECATED paAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}
 
 -- | The name of the attribute.
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paAttributeName :: Lens.Lens' PolicyAttribute (Lude.Maybe Lude.Text)
-paAttributeName = Lens.lens (attributeName :: PolicyAttribute -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: PolicyAttribute)
+paAttributeName :: Lens.Lens' PolicyAttribute (Core.Maybe Types.AttributeName)
+paAttributeName = Lens.field @"attributeName"
 {-# DEPRECATED paAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance Lude.ToQuery PolicyAttribute where
-  toQuery PolicyAttribute' {..} =
-    Lude.mconcat
-      [ "AttributeValue" Lude.=: attributeValue,
-        "AttributeName" Lude.=: attributeName
-      ]
+-- | The value of the attribute.
+--
+-- /Note:/ Consider using 'attributeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paAttributeValue :: Lens.Lens' PolicyAttribute (Core.Maybe Types.AttributeValue)
+paAttributeValue = Lens.field @"attributeValue"
+{-# DEPRECATED paAttributeValue "Use generic-lens or generic-optics with 'attributeValue' instead." #-}

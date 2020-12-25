@@ -29,85 +29,77 @@ module Network.AWS.Route53.DeleteQueryLoggingConfig
     mkDeleteQueryLoggingConfigResponse,
 
     -- ** Response lenses
-    dqlcrsResponseStatus,
+    dqlcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | /See:/ 'mkDeleteQueryLoggingConfig' smart constructor.
 newtype DeleteQueryLoggingConfig = DeleteQueryLoggingConfig'
   { -- | The ID of the configuration that you want to delete.
-    id :: Lude.Text
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteQueryLoggingConfig' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the configuration that you want to delete.
+-- | Creates a 'DeleteQueryLoggingConfig' value with any optional fields omitted.
 mkDeleteQueryLoggingConfig ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DeleteQueryLoggingConfig
-mkDeleteQueryLoggingConfig pId_ =
-  DeleteQueryLoggingConfig' {id = pId_}
+mkDeleteQueryLoggingConfig id = DeleteQueryLoggingConfig' {id}
 
 -- | The ID of the configuration that you want to delete.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dqlcId :: Lens.Lens' DeleteQueryLoggingConfig Lude.Text
-dqlcId = Lens.lens (id :: DeleteQueryLoggingConfig -> Lude.Text) (\s a -> s {id = a} :: DeleteQueryLoggingConfig)
+dqlcId :: Lens.Lens' DeleteQueryLoggingConfig Types.Id
+dqlcId = Lens.field @"id"
 {-# DEPRECATED dqlcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DeleteQueryLoggingConfig where
+instance Core.AWSRequest DeleteQueryLoggingConfig where
   type Rs DeleteQueryLoggingConfig = DeleteQueryLoggingConfigResponse
-  request = Req.delete route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/2013-04-01/queryloggingconfig/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteQueryLoggingConfigResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteQueryLoggingConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteQueryLoggingConfig where
-  toPath DeleteQueryLoggingConfig' {..} =
-    Lude.mconcat ["/2013-04-01/queryloggingconfig/", Lude.toBS id]
-
-instance Lude.ToQuery DeleteQueryLoggingConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteQueryLoggingConfigResponse' smart constructor.
 newtype DeleteQueryLoggingConfigResponse = DeleteQueryLoggingConfigResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteQueryLoggingConfigResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteQueryLoggingConfigResponse' value with any optional fields omitted.
 mkDeleteQueryLoggingConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteQueryLoggingConfigResponse
-mkDeleteQueryLoggingConfigResponse pResponseStatus_ =
-  DeleteQueryLoggingConfigResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteQueryLoggingConfigResponse responseStatus =
+  DeleteQueryLoggingConfigResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dqlcrsResponseStatus :: Lens.Lens' DeleteQueryLoggingConfigResponse Lude.Int
-dqlcrsResponseStatus = Lens.lens (responseStatus :: DeleteQueryLoggingConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteQueryLoggingConfigResponse)
-{-# DEPRECATED dqlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dqlcrrsResponseStatus :: Lens.Lens' DeleteQueryLoggingConfigResponse Core.Int
+dqlcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dqlcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

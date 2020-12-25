@@ -17,49 +17,42 @@ module Network.AWS.SES.Types.Body
     mkBody,
 
     -- * Lenses
+    bHtml,
     bText,
-    bHTML,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SES.Types.Content
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.Content as Types
 
 -- | Represents the body of the message. You can specify text, HTML, or both. If you use both, then the message should display correctly in the widest variety of email clients.
 --
 -- /See:/ 'mkBody' smart constructor.
 data Body = Body'
-  { -- | The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).
-    text :: Lude.Maybe Content,
-    -- | The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.
-    html :: Lude.Maybe Content
+  { -- | The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.
+    html :: Core.Maybe Types.Content,
+    -- | The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).
+    text :: Core.Maybe Types.Content
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Body' with the minimum fields required to make a request.
---
--- * 'text' - The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).
--- * 'html' - The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.
+-- | Creates a 'Body' value with any optional fields omitted.
 mkBody ::
   Body
-mkBody = Body' {text = Lude.Nothing, html = Lude.Nothing}
-
--- | The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).
---
--- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bText :: Lens.Lens' Body (Lude.Maybe Content)
-bText = Lens.lens (text :: Body -> Lude.Maybe Content) (\s a -> s {text = a} :: Body)
-{-# DEPRECATED bText "Use generic-lens or generic-optics with 'text' instead." #-}
+mkBody = Body' {html = Core.Nothing, text = Core.Nothing}
 
 -- | The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.
 --
 -- /Note:/ Consider using 'html' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bHTML :: Lens.Lens' Body (Lude.Maybe Content)
-bHTML = Lens.lens (html :: Body -> Lude.Maybe Content) (\s a -> s {html = a} :: Body)
-{-# DEPRECATED bHTML "Use generic-lens or generic-optics with 'html' instead." #-}
+bHtml :: Lens.Lens' Body (Core.Maybe Types.Content)
+bHtml = Lens.field @"html"
+{-# DEPRECATED bHtml "Use generic-lens or generic-optics with 'html' instead." #-}
 
-instance Lude.ToQuery Body where
-  toQuery Body' {..} =
-    Lude.mconcat ["Text" Lude.=: text, "Html" Lude.=: html]
+-- | The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).
+--
+-- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bText :: Lens.Lens' Body (Core.Maybe Types.Content)
+bText = Lens.field @"text"
+{-# DEPRECATED bText "Use generic-lens or generic-optics with 'text' instead." #-}

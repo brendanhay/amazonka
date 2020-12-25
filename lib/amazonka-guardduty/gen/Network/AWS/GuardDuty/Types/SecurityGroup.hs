@@ -22,49 +22,45 @@ module Network.AWS.GuardDuty.Types.SecurityGroup
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the security groups associated with the EC2 instance.
 --
 -- /See:/ 'mkSecurityGroup' smart constructor.
 data SecurityGroup = SecurityGroup'
   { -- | The security group ID of the EC2 instance.
-    groupId :: Lude.Maybe Lude.Text,
+    groupId :: Core.Maybe Types.String,
     -- | The security group name of the EC2 instance.
-    groupName :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SecurityGroup' with the minimum fields required to make a request.
---
--- * 'groupId' - The security group ID of the EC2 instance.
--- * 'groupName' - The security group name of the EC2 instance.
+-- | Creates a 'SecurityGroup' value with any optional fields omitted.
 mkSecurityGroup ::
   SecurityGroup
 mkSecurityGroup =
-  SecurityGroup' {groupId = Lude.Nothing, groupName = Lude.Nothing}
+  SecurityGroup' {groupId = Core.Nothing, groupName = Core.Nothing}
 
 -- | The security group ID of the EC2 instance.
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgGroupId :: Lens.Lens' SecurityGroup (Lude.Maybe Lude.Text)
-sgGroupId = Lens.lens (groupId :: SecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: SecurityGroup)
+sgGroupId :: Lens.Lens' SecurityGroup (Core.Maybe Types.String)
+sgGroupId = Lens.field @"groupId"
 {-# DEPRECATED sgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The security group name of the EC2 instance.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgGroupName :: Lens.Lens' SecurityGroup (Lude.Maybe Lude.Text)
-sgGroupName = Lens.lens (groupName :: SecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: SecurityGroup)
+sgGroupName :: Lens.Lens' SecurityGroup (Core.Maybe Types.String)
+sgGroupName = Lens.field @"groupName"
 {-# DEPRECATED sgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.FromJSON SecurityGroup where
+instance Core.FromJSON SecurityGroup where
   parseJSON =
-    Lude.withObject
-      "SecurityGroup"
-      ( \x ->
-          SecurityGroup'
-            Lude.<$> (x Lude..:? "groupId") Lude.<*> (x Lude..:? "groupName")
-      )
+    Core.withObject "SecurityGroup" Core.$
+      \x ->
+        SecurityGroup'
+          Core.<$> (x Core..:? "groupId") Core.<*> (x Core..:? "groupName")

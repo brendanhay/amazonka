@@ -30,105 +30,98 @@ module Network.AWS.CloudFront.ListKeyGroups
     mkListKeyGroupsResponse,
 
     -- ** Response lenses
-    lkgrsKeyGroupList,
-    lkgrsResponseStatus,
+    lkgrrsKeyGroupList,
+    lkgrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListKeyGroups' smart constructor.
 data ListKeyGroups = ListKeyGroups'
   { -- | Use this field when paginating results to indicate where to begin in your list of key groups. The response includes key groups in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of key groups that you want in the response.
-    maxItems :: Lude.Maybe Lude.Text
+    maxItems :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListKeyGroups' with the minimum fields required to make a request.
---
--- * 'marker' - Use this field when paginating results to indicate where to begin in your list of key groups. The response includes key groups in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
--- * 'maxItems' - The maximum number of key groups that you want in the response.
+-- | Creates a 'ListKeyGroups' value with any optional fields omitted.
 mkListKeyGroups ::
   ListKeyGroups
 mkListKeyGroups =
-  ListKeyGroups' {marker = Lude.Nothing, maxItems = Lude.Nothing}
+  ListKeyGroups' {marker = Core.Nothing, maxItems = Core.Nothing}
 
 -- | Use this field when paginating results to indicate where to begin in your list of key groups. The response includes key groups in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkgMarker :: Lens.Lens' ListKeyGroups (Lude.Maybe Lude.Text)
-lkgMarker = Lens.lens (marker :: ListKeyGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListKeyGroups)
+lkgMarker :: Lens.Lens' ListKeyGroups (Core.Maybe Types.String)
+lkgMarker = Lens.field @"marker"
 {-# DEPRECATED lkgMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of key groups that you want in the response.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkgMaxItems :: Lens.Lens' ListKeyGroups (Lude.Maybe Lude.Text)
-lkgMaxItems = Lens.lens (maxItems :: ListKeyGroups -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListKeyGroups)
+lkgMaxItems :: Lens.Lens' ListKeyGroups (Core.Maybe Types.String)
+lkgMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED lkgMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Lude.AWSRequest ListKeyGroups where
+instance Core.AWSRequest ListKeyGroups where
   type Rs ListKeyGroups = ListKeyGroupsResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2020-05-31/key-group",
+        Core._rqQuery =
+          Core.toQueryValue "Marker" Core.<$> marker
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListKeyGroupsResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListKeyGroups where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListKeyGroups where
-  toPath = Lude.const "/2020-05-31/key-group"
-
-instance Lude.ToQuery ListKeyGroups where
-  toQuery ListKeyGroups' {..} =
-    Lude.mconcat
-      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
 -- | /See:/ 'mkListKeyGroupsResponse' smart constructor.
 data ListKeyGroupsResponse = ListKeyGroupsResponse'
   { -- | A list of key groups.
-    keyGroupList :: Lude.Maybe KeyGroupList,
+    keyGroupList :: Core.Maybe Types.KeyGroupList,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListKeyGroupsResponse' with the minimum fields required to make a request.
---
--- * 'keyGroupList' - A list of key groups.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListKeyGroupsResponse' value with any optional fields omitted.
 mkListKeyGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListKeyGroupsResponse
-mkListKeyGroupsResponse pResponseStatus_ =
+mkListKeyGroupsResponse responseStatus =
   ListKeyGroupsResponse'
-    { keyGroupList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { keyGroupList = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of key groups.
 --
 -- /Note:/ Consider using 'keyGroupList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkgrsKeyGroupList :: Lens.Lens' ListKeyGroupsResponse (Lude.Maybe KeyGroupList)
-lkgrsKeyGroupList = Lens.lens (keyGroupList :: ListKeyGroupsResponse -> Lude.Maybe KeyGroupList) (\s a -> s {keyGroupList = a} :: ListKeyGroupsResponse)
-{-# DEPRECATED lkgrsKeyGroupList "Use generic-lens or generic-optics with 'keyGroupList' instead." #-}
+lkgrrsKeyGroupList :: Lens.Lens' ListKeyGroupsResponse (Core.Maybe Types.KeyGroupList)
+lkgrrsKeyGroupList = Lens.field @"keyGroupList"
+{-# DEPRECATED lkgrrsKeyGroupList "Use generic-lens or generic-optics with 'keyGroupList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkgrsResponseStatus :: Lens.Lens' ListKeyGroupsResponse Lude.Int
-lkgrsResponseStatus = Lens.lens (responseStatus :: ListKeyGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListKeyGroupsResponse)
-{-# DEPRECATED lkgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lkgrrsResponseStatus :: Lens.Lens' ListKeyGroupsResponse Core.Int
+lkgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lkgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

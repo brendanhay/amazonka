@@ -23,50 +23,45 @@ module Network.AWS.XRay.Types.TraceUser
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.XRay.Types.ServiceId
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.ServiceId as Types
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- | Information about a user recorded in segment documents.
 --
 -- /See:/ 'mkTraceUser' smart constructor.
 data TraceUser = TraceUser'
   { -- | Services that the user's request hit.
-    serviceIds :: Lude.Maybe [ServiceId],
+    serviceIds :: Core.Maybe [Types.ServiceId],
     -- | The user's name.
-    userName :: Lude.Maybe Lude.Text
+    userName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TraceUser' with the minimum fields required to make a request.
---
--- * 'serviceIds' - Services that the user's request hit.
--- * 'userName' - The user's name.
+-- | Creates a 'TraceUser' value with any optional fields omitted.
 mkTraceUser ::
   TraceUser
 mkTraceUser =
-  TraceUser' {serviceIds = Lude.Nothing, userName = Lude.Nothing}
+  TraceUser' {serviceIds = Core.Nothing, userName = Core.Nothing}
 
 -- | Services that the user's request hit.
 --
 -- /Note:/ Consider using 'serviceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tuServiceIds :: Lens.Lens' TraceUser (Lude.Maybe [ServiceId])
-tuServiceIds = Lens.lens (serviceIds :: TraceUser -> Lude.Maybe [ServiceId]) (\s a -> s {serviceIds = a} :: TraceUser)
+tuServiceIds :: Lens.Lens' TraceUser (Core.Maybe [Types.ServiceId])
+tuServiceIds = Lens.field @"serviceIds"
 {-# DEPRECATED tuServiceIds "Use generic-lens or generic-optics with 'serviceIds' instead." #-}
 
 -- | The user's name.
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tuUserName :: Lens.Lens' TraceUser (Lude.Maybe Lude.Text)
-tuUserName = Lens.lens (userName :: TraceUser -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: TraceUser)
+tuUserName :: Lens.Lens' TraceUser (Core.Maybe Types.String)
+tuUserName = Lens.field @"userName"
 {-# DEPRECATED tuUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance Lude.FromJSON TraceUser where
+instance Core.FromJSON TraceUser where
   parseJSON =
-    Lude.withObject
-      "TraceUser"
-      ( \x ->
-          TraceUser'
-            Lude.<$> (x Lude..:? "ServiceIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "UserName")
-      )
+    Core.withObject "TraceUser" Core.$
+      \x ->
+        TraceUser'
+          Core.<$> (x Core..:? "ServiceIds") Core.<*> (x Core..:? "UserName")

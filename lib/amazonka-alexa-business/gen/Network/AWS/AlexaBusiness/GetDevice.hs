@@ -20,112 +20,97 @@ module Network.AWS.AlexaBusiness.GetDevice
     mkGetDevice,
 
     -- ** Request lenses
-    gdDeviceARN,
+    gdDeviceArn,
 
     -- * Destructuring the response
     GetDeviceResponse (..),
     mkGetDeviceResponse,
 
     -- ** Response lenses
-    gdrsDevice,
-    gdrsResponseStatus,
+    gdrrsDevice,
+    gdrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDevice' smart constructor.
 newtype GetDevice = GetDevice'
   { -- | The ARN of the device for which to request details. Required.
-    deviceARN :: Lude.Maybe Lude.Text
+    deviceArn :: Core.Maybe Types.DeviceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDevice' with the minimum fields required to make a request.
---
--- * 'deviceARN' - The ARN of the device for which to request details. Required.
+-- | Creates a 'GetDevice' value with any optional fields omitted.
 mkGetDevice ::
   GetDevice
-mkGetDevice = GetDevice' {deviceARN = Lude.Nothing}
+mkGetDevice = GetDevice' {deviceArn = Core.Nothing}
 
 -- | The ARN of the device for which to request details. Required.
 --
--- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdDeviceARN :: Lens.Lens' GetDevice (Lude.Maybe Lude.Text)
-gdDeviceARN = Lens.lens (deviceARN :: GetDevice -> Lude.Maybe Lude.Text) (\s a -> s {deviceARN = a} :: GetDevice)
-{-# DEPRECATED gdDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
+-- /Note:/ Consider using 'deviceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdDeviceArn :: Lens.Lens' GetDevice (Core.Maybe Types.DeviceArn)
+gdDeviceArn = Lens.field @"deviceArn"
+{-# DEPRECATED gdDeviceArn "Use generic-lens or generic-optics with 'deviceArn' instead." #-}
 
-instance Lude.AWSRequest GetDevice where
+instance Core.FromJSON GetDevice where
+  toJSON GetDevice {..} =
+    Core.object
+      (Core.catMaybes [("DeviceArn" Core..=) Core.<$> deviceArn])
+
+instance Core.AWSRequest GetDevice where
   type Rs GetDevice = GetDeviceResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.GetDevice")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDeviceResponse'
-            Lude.<$> (x Lude..?> "Device") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Device") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDevice where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.GetDevice" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDevice where
-  toJSON GetDevice' {..} =
-    Lude.object
-      (Lude.catMaybes [("DeviceArn" Lude..=) Lude.<$> deviceARN])
-
-instance Lude.ToPath GetDevice where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDevice where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetDeviceResponse' smart constructor.
 data GetDeviceResponse = GetDeviceResponse'
   { -- | The details of the device requested. Required.
-    device :: Lude.Maybe Device,
+    device :: Core.Maybe Types.Device,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetDeviceResponse' with the minimum fields required to make a request.
---
--- * 'device' - The details of the device requested. Required.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDeviceResponse' value with any optional fields omitted.
 mkGetDeviceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDeviceResponse
-mkGetDeviceResponse pResponseStatus_ =
-  GetDeviceResponse'
-    { device = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetDeviceResponse responseStatus =
+  GetDeviceResponse' {device = Core.Nothing, responseStatus}
 
 -- | The details of the device requested. Required.
 --
 -- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsDevice :: Lens.Lens' GetDeviceResponse (Lude.Maybe Device)
-gdrsDevice = Lens.lens (device :: GetDeviceResponse -> Lude.Maybe Device) (\s a -> s {device = a} :: GetDeviceResponse)
-{-# DEPRECATED gdrsDevice "Use generic-lens or generic-optics with 'device' instead." #-}
+gdrrsDevice :: Lens.Lens' GetDeviceResponse (Core.Maybe Types.Device)
+gdrrsDevice = Lens.field @"device"
+{-# DEPRECATED gdrrsDevice "Use generic-lens or generic-optics with 'device' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsResponseStatus :: Lens.Lens' GetDeviceResponse Lude.Int
-gdrsResponseStatus = Lens.lens (responseStatus :: GetDeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDeviceResponse)
-{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdrrsResponseStatus :: Lens.Lens' GetDeviceResponse Core.Int
+gdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -28,245 +28,220 @@ module Network.AWS.Glue.GetMLTaskRun
     mkGetMLTaskRunResponse,
 
     -- ** Response lenses
-    gmltrrsCompletedOn,
-    gmltrrsStatus,
-    gmltrrsLastModifiedOn,
-    gmltrrsErrorString,
-    gmltrrsStartedOn,
-    gmltrrsLogGroupName,
-    gmltrrsExecutionTime,
-    gmltrrsProperties,
-    gmltrrsTransformId,
-    gmltrrsTaskRunId,
-    gmltrrsResponseStatus,
+    gmltrrrsCompletedOn,
+    gmltrrrsErrorString,
+    gmltrrrsExecutionTime,
+    gmltrrrsLastModifiedOn,
+    gmltrrrsLogGroupName,
+    gmltrrrsProperties,
+    gmltrrrsStartedOn,
+    gmltrrrsStatus,
+    gmltrrrsTaskRunId,
+    gmltrrrsTransformId,
+    gmltrrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetMLTaskRun' smart constructor.
 data GetMLTaskRun = GetMLTaskRun'
   { -- | The unique identifier of the machine learning transform.
-    transformId :: Lude.Text,
+    transformId :: Types.HashString,
     -- | The unique identifier of the task run.
-    taskRunId :: Lude.Text
+    taskRunId :: Types.HashString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetMLTaskRun' with the minimum fields required to make a request.
---
--- * 'transformId' - The unique identifier of the machine learning transform.
--- * 'taskRunId' - The unique identifier of the task run.
+-- | Creates a 'GetMLTaskRun' value with any optional fields omitted.
 mkGetMLTaskRun ::
   -- | 'transformId'
-  Lude.Text ->
+  Types.HashString ->
   -- | 'taskRunId'
-  Lude.Text ->
+  Types.HashString ->
   GetMLTaskRun
-mkGetMLTaskRun pTransformId_ pTaskRunId_ =
-  GetMLTaskRun'
-    { transformId = pTransformId_,
-      taskRunId = pTaskRunId_
-    }
+mkGetMLTaskRun transformId taskRunId =
+  GetMLTaskRun' {transformId, taskRunId}
 
 -- | The unique identifier of the machine learning transform.
 --
 -- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gTransformId :: Lens.Lens' GetMLTaskRun Lude.Text
-gTransformId = Lens.lens (transformId :: GetMLTaskRun -> Lude.Text) (\s a -> s {transformId = a} :: GetMLTaskRun)
+gTransformId :: Lens.Lens' GetMLTaskRun Types.HashString
+gTransformId = Lens.field @"transformId"
 {-# DEPRECATED gTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
 -- | The unique identifier of the task run.
 --
 -- /Note:/ Consider using 'taskRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gTaskRunId :: Lens.Lens' GetMLTaskRun Lude.Text
-gTaskRunId = Lens.lens (taskRunId :: GetMLTaskRun -> Lude.Text) (\s a -> s {taskRunId = a} :: GetMLTaskRun)
+gTaskRunId :: Lens.Lens' GetMLTaskRun Types.HashString
+gTaskRunId = Lens.field @"taskRunId"
 {-# DEPRECATED gTaskRunId "Use generic-lens or generic-optics with 'taskRunId' instead." #-}
 
-instance Lude.AWSRequest GetMLTaskRun where
+instance Core.FromJSON GetMLTaskRun where
+  toJSON GetMLTaskRun {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TransformId" Core..= transformId),
+            Core.Just ("TaskRunId" Core..= taskRunId)
+          ]
+      )
+
+instance Core.AWSRequest GetMLTaskRun where
   type Rs GetMLTaskRun = GetMLTaskRunResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetMLTaskRun")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetMLTaskRunResponse'
-            Lude.<$> (x Lude..?> "CompletedOn")
-            Lude.<*> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "LastModifiedOn")
-            Lude.<*> (x Lude..?> "ErrorString")
-            Lude.<*> (x Lude..?> "StartedOn")
-            Lude.<*> (x Lude..?> "LogGroupName")
-            Lude.<*> (x Lude..?> "ExecutionTime")
-            Lude.<*> (x Lude..?> "Properties")
-            Lude.<*> (x Lude..?> "TransformId")
-            Lude.<*> (x Lude..?> "TaskRunId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CompletedOn")
+            Core.<*> (x Core..:? "ErrorString")
+            Core.<*> (x Core..:? "ExecutionTime")
+            Core.<*> (x Core..:? "LastModifiedOn")
+            Core.<*> (x Core..:? "LogGroupName")
+            Core.<*> (x Core..:? "Properties")
+            Core.<*> (x Core..:? "StartedOn")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "TaskRunId")
+            Core.<*> (x Core..:? "TransformId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetMLTaskRun where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetMLTaskRun" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetMLTaskRun where
-  toJSON GetMLTaskRun' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TransformId" Lude..= transformId),
-            Lude.Just ("TaskRunId" Lude..= taskRunId)
-          ]
-      )
-
-instance Lude.ToPath GetMLTaskRun where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetMLTaskRun where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetMLTaskRunResponse' smart constructor.
 data GetMLTaskRunResponse = GetMLTaskRunResponse'
   { -- | The date and time when this task run was completed.
-    completedOn :: Lude.Maybe Lude.Timestamp,
-    -- | The status for this task run.
-    status :: Lude.Maybe TaskStatusType,
-    -- | The date and time when this task run was last modified.
-    lastModifiedOn :: Lude.Maybe Lude.Timestamp,
+    completedOn :: Core.Maybe Core.NominalDiffTime,
     -- | The error strings that are associated with the task run.
-    errorString :: Lude.Maybe Lude.Text,
-    -- | The date and time when this task run started.
-    startedOn :: Lude.Maybe Lude.Timestamp,
-    -- | The names of the log groups that are associated with the task run.
-    logGroupName :: Lude.Maybe Lude.Text,
+    errorString :: Core.Maybe Types.GenericString,
     -- | The amount of time (in seconds) that the task run consumed resources.
-    executionTime :: Lude.Maybe Lude.Int,
+    executionTime :: Core.Maybe Core.Int,
+    -- | The date and time when this task run was last modified.
+    lastModifiedOn :: Core.Maybe Core.NominalDiffTime,
+    -- | The names of the log groups that are associated with the task run.
+    logGroupName :: Core.Maybe Types.GenericString,
     -- | The list of properties that are associated with the task run.
-    properties :: Lude.Maybe TaskRunProperties,
-    -- | The unique identifier of the task run.
-    transformId :: Lude.Maybe Lude.Text,
+    properties :: Core.Maybe Types.TaskRunProperties,
+    -- | The date and time when this task run started.
+    startedOn :: Core.Maybe Core.NominalDiffTime,
+    -- | The status for this task run.
+    status :: Core.Maybe Types.TaskStatusType,
     -- | The unique run identifier associated with this run.
-    taskRunId :: Lude.Maybe Lude.Text,
+    taskRunId :: Core.Maybe Types.HashString,
+    -- | The unique identifier of the task run.
+    transformId :: Core.Maybe Types.HashString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetMLTaskRunResponse' with the minimum fields required to make a request.
---
--- * 'completedOn' - The date and time when this task run was completed.
--- * 'status' - The status for this task run.
--- * 'lastModifiedOn' - The date and time when this task run was last modified.
--- * 'errorString' - The error strings that are associated with the task run.
--- * 'startedOn' - The date and time when this task run started.
--- * 'logGroupName' - The names of the log groups that are associated with the task run.
--- * 'executionTime' - The amount of time (in seconds) that the task run consumed resources.
--- * 'properties' - The list of properties that are associated with the task run.
--- * 'transformId' - The unique identifier of the task run.
--- * 'taskRunId' - The unique run identifier associated with this run.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetMLTaskRunResponse' value with any optional fields omitted.
 mkGetMLTaskRunResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetMLTaskRunResponse
-mkGetMLTaskRunResponse pResponseStatus_ =
+mkGetMLTaskRunResponse responseStatus =
   GetMLTaskRunResponse'
-    { completedOn = Lude.Nothing,
-      status = Lude.Nothing,
-      lastModifiedOn = Lude.Nothing,
-      errorString = Lude.Nothing,
-      startedOn = Lude.Nothing,
-      logGroupName = Lude.Nothing,
-      executionTime = Lude.Nothing,
-      properties = Lude.Nothing,
-      transformId = Lude.Nothing,
-      taskRunId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { completedOn = Core.Nothing,
+      errorString = Core.Nothing,
+      executionTime = Core.Nothing,
+      lastModifiedOn = Core.Nothing,
+      logGroupName = Core.Nothing,
+      properties = Core.Nothing,
+      startedOn = Core.Nothing,
+      status = Core.Nothing,
+      taskRunId = Core.Nothing,
+      transformId = Core.Nothing,
+      responseStatus
     }
 
 -- | The date and time when this task run was completed.
 --
 -- /Note:/ Consider using 'completedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrrsCompletedOn :: Lens.Lens' GetMLTaskRunResponse (Lude.Maybe Lude.Timestamp)
-gmltrrsCompletedOn = Lens.lens (completedOn :: GetMLTaskRunResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {completedOn = a} :: GetMLTaskRunResponse)
-{-# DEPRECATED gmltrrsCompletedOn "Use generic-lens or generic-optics with 'completedOn' instead." #-}
-
--- | The status for this task run.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrrsStatus :: Lens.Lens' GetMLTaskRunResponse (Lude.Maybe TaskStatusType)
-gmltrrsStatus = Lens.lens (status :: GetMLTaskRunResponse -> Lude.Maybe TaskStatusType) (\s a -> s {status = a} :: GetMLTaskRunResponse)
-{-# DEPRECATED gmltrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The date and time when this task run was last modified.
---
--- /Note:/ Consider using 'lastModifiedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrrsLastModifiedOn :: Lens.Lens' GetMLTaskRunResponse (Lude.Maybe Lude.Timestamp)
-gmltrrsLastModifiedOn = Lens.lens (lastModifiedOn :: GetMLTaskRunResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedOn = a} :: GetMLTaskRunResponse)
-{-# DEPRECATED gmltrrsLastModifiedOn "Use generic-lens or generic-optics with 'lastModifiedOn' instead." #-}
+gmltrrrsCompletedOn :: Lens.Lens' GetMLTaskRunResponse (Core.Maybe Core.NominalDiffTime)
+gmltrrrsCompletedOn = Lens.field @"completedOn"
+{-# DEPRECATED gmltrrrsCompletedOn "Use generic-lens or generic-optics with 'completedOn' instead." #-}
 
 -- | The error strings that are associated with the task run.
 --
 -- /Note:/ Consider using 'errorString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrrsErrorString :: Lens.Lens' GetMLTaskRunResponse (Lude.Maybe Lude.Text)
-gmltrrsErrorString = Lens.lens (errorString :: GetMLTaskRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {errorString = a} :: GetMLTaskRunResponse)
-{-# DEPRECATED gmltrrsErrorString "Use generic-lens or generic-optics with 'errorString' instead." #-}
-
--- | The date and time when this task run started.
---
--- /Note:/ Consider using 'startedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrrsStartedOn :: Lens.Lens' GetMLTaskRunResponse (Lude.Maybe Lude.Timestamp)
-gmltrrsStartedOn = Lens.lens (startedOn :: GetMLTaskRunResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedOn = a} :: GetMLTaskRunResponse)
-{-# DEPRECATED gmltrrsStartedOn "Use generic-lens or generic-optics with 'startedOn' instead." #-}
-
--- | The names of the log groups that are associated with the task run.
---
--- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrrsLogGroupName :: Lens.Lens' GetMLTaskRunResponse (Lude.Maybe Lude.Text)
-gmltrrsLogGroupName = Lens.lens (logGroupName :: GetMLTaskRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: GetMLTaskRunResponse)
-{-# DEPRECATED gmltrrsLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
+gmltrrrsErrorString :: Lens.Lens' GetMLTaskRunResponse (Core.Maybe Types.GenericString)
+gmltrrrsErrorString = Lens.field @"errorString"
+{-# DEPRECATED gmltrrrsErrorString "Use generic-lens or generic-optics with 'errorString' instead." #-}
 
 -- | The amount of time (in seconds) that the task run consumed resources.
 --
 -- /Note:/ Consider using 'executionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrrsExecutionTime :: Lens.Lens' GetMLTaskRunResponse (Lude.Maybe Lude.Int)
-gmltrrsExecutionTime = Lens.lens (executionTime :: GetMLTaskRunResponse -> Lude.Maybe Lude.Int) (\s a -> s {executionTime = a} :: GetMLTaskRunResponse)
-{-# DEPRECATED gmltrrsExecutionTime "Use generic-lens or generic-optics with 'executionTime' instead." #-}
+gmltrrrsExecutionTime :: Lens.Lens' GetMLTaskRunResponse (Core.Maybe Core.Int)
+gmltrrrsExecutionTime = Lens.field @"executionTime"
+{-# DEPRECATED gmltrrrsExecutionTime "Use generic-lens or generic-optics with 'executionTime' instead." #-}
+
+-- | The date and time when this task run was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmltrrrsLastModifiedOn :: Lens.Lens' GetMLTaskRunResponse (Core.Maybe Core.NominalDiffTime)
+gmltrrrsLastModifiedOn = Lens.field @"lastModifiedOn"
+{-# DEPRECATED gmltrrrsLastModifiedOn "Use generic-lens or generic-optics with 'lastModifiedOn' instead." #-}
+
+-- | The names of the log groups that are associated with the task run.
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmltrrrsLogGroupName :: Lens.Lens' GetMLTaskRunResponse (Core.Maybe Types.GenericString)
+gmltrrrsLogGroupName = Lens.field @"logGroupName"
+{-# DEPRECATED gmltrrrsLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The list of properties that are associated with the task run.
 --
 -- /Note:/ Consider using 'properties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrrsProperties :: Lens.Lens' GetMLTaskRunResponse (Lude.Maybe TaskRunProperties)
-gmltrrsProperties = Lens.lens (properties :: GetMLTaskRunResponse -> Lude.Maybe TaskRunProperties) (\s a -> s {properties = a} :: GetMLTaskRunResponse)
-{-# DEPRECATED gmltrrsProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
+gmltrrrsProperties :: Lens.Lens' GetMLTaskRunResponse (Core.Maybe Types.TaskRunProperties)
+gmltrrrsProperties = Lens.field @"properties"
+{-# DEPRECATED gmltrrrsProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
 
--- | The unique identifier of the task run.
+-- | The date and time when this task run started.
 --
--- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrrsTransformId :: Lens.Lens' GetMLTaskRunResponse (Lude.Maybe Lude.Text)
-gmltrrsTransformId = Lens.lens (transformId :: GetMLTaskRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {transformId = a} :: GetMLTaskRunResponse)
-{-# DEPRECATED gmltrrsTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
+-- /Note:/ Consider using 'startedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmltrrrsStartedOn :: Lens.Lens' GetMLTaskRunResponse (Core.Maybe Core.NominalDiffTime)
+gmltrrrsStartedOn = Lens.field @"startedOn"
+{-# DEPRECATED gmltrrrsStartedOn "Use generic-lens or generic-optics with 'startedOn' instead." #-}
+
+-- | The status for this task run.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmltrrrsStatus :: Lens.Lens' GetMLTaskRunResponse (Core.Maybe Types.TaskStatusType)
+gmltrrrsStatus = Lens.field @"status"
+{-# DEPRECATED gmltrrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique run identifier associated with this run.
 --
 -- /Note:/ Consider using 'taskRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrrsTaskRunId :: Lens.Lens' GetMLTaskRunResponse (Lude.Maybe Lude.Text)
-gmltrrsTaskRunId = Lens.lens (taskRunId :: GetMLTaskRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskRunId = a} :: GetMLTaskRunResponse)
-{-# DEPRECATED gmltrrsTaskRunId "Use generic-lens or generic-optics with 'taskRunId' instead." #-}
+gmltrrrsTaskRunId :: Lens.Lens' GetMLTaskRunResponse (Core.Maybe Types.HashString)
+gmltrrrsTaskRunId = Lens.field @"taskRunId"
+{-# DEPRECATED gmltrrrsTaskRunId "Use generic-lens or generic-optics with 'taskRunId' instead." #-}
+
+-- | The unique identifier of the task run.
+--
+-- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmltrrrsTransformId :: Lens.Lens' GetMLTaskRunResponse (Core.Maybe Types.HashString)
+gmltrrrsTransformId = Lens.field @"transformId"
+{-# DEPRECATED gmltrrrsTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmltrrsResponseStatus :: Lens.Lens' GetMLTaskRunResponse Lude.Int
-gmltrrsResponseStatus = Lens.lens (responseStatus :: GetMLTaskRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMLTaskRunResponse)
-{-# DEPRECATED gmltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gmltrrrsResponseStatus :: Lens.Lens' GetMLTaskRunResponse Core.Int
+gmltrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gmltrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

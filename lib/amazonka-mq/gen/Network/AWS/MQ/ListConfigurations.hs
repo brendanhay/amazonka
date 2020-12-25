@@ -20,149 +20,135 @@ module Network.AWS.MQ.ListConfigurations
     mkListConfigurations,
 
     -- ** Request lenses
-    lcNextToken,
     lcMaxResults,
+    lcNextToken,
 
     -- * Destructuring the response
     ListConfigurationsResponse (..),
     mkListConfigurationsResponse,
 
     -- ** Response lenses
-    lcrsConfigurations,
-    lcrsNextToken,
-    lcrsMaxResults,
-    lcrsResponseStatus,
+    lcrrsConfigurations,
+    lcrrsMaxResults,
+    lcrrsNextToken,
+    lcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MQ.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListConfigurations' smart constructor.
 data ListConfigurations = ListConfigurations'
-  { -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListConfigurations' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
--- * 'maxResults' - The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
+-- | Creates a 'ListConfigurations' value with any optional fields omitted.
 mkListConfigurations ::
   ListConfigurations
 mkListConfigurations =
   ListConfigurations'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcNextToken :: Lens.Lens' ListConfigurations (Lude.Maybe Lude.Text)
-lcNextToken = Lens.lens (nextToken :: ListConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConfigurations)
-{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcMaxResults :: Lens.Lens' ListConfigurations (Lude.Maybe Lude.Natural)
-lcMaxResults = Lens.lens (maxResults :: ListConfigurations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListConfigurations)
+lcMaxResults :: Lens.Lens' ListConfigurations (Core.Maybe Core.Natural)
+lcMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListConfigurations where
+-- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcNextToken :: Lens.Lens' ListConfigurations (Core.Maybe Core.Text)
+lcNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest ListConfigurations where
   type Rs ListConfigurations = ListConfigurationsResponse
-  request = Req.get mqService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/v1/configurations",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListConfigurationsResponse'
-            Lude.<$> (x Lude..?> "configurations" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "maxResults")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "configurations")
+            Core.<*> (x Core..:? "maxResults")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListConfigurations where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListConfigurations where
-  toPath = Lude.const "/v1/configurations"
-
-instance Lude.ToQuery ListConfigurations where
-  toQuery ListConfigurations' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
 
 -- | /See:/ 'mkListConfigurationsResponse' smart constructor.
 data ListConfigurationsResponse = ListConfigurationsResponse'
   { -- | The list of all revisions for the specified configuration.
-    configurations :: Lude.Maybe [Configuration],
-    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-    nextToken :: Lude.Maybe Lude.Text,
+    configurations :: Core.Maybe [Types.Configuration],
     -- | The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
-    maxResults :: Lude.Maybe Lude.Int,
+    maxResults :: Core.Maybe Core.Int,
+    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListConfigurationsResponse' with the minimum fields required to make a request.
---
--- * 'configurations' - The list of all revisions for the specified configuration.
--- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
--- * 'maxResults' - The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListConfigurationsResponse' value with any optional fields omitted.
 mkListConfigurationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListConfigurationsResponse
-mkListConfigurationsResponse pResponseStatus_ =
+mkListConfigurationsResponse responseStatus =
   ListConfigurationsResponse'
-    { configurations = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { configurations = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of all revisions for the specified configuration.
 --
 -- /Note:/ Consider using 'configurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsConfigurations :: Lens.Lens' ListConfigurationsResponse (Lude.Maybe [Configuration])
-lcrsConfigurations = Lens.lens (configurations :: ListConfigurationsResponse -> Lude.Maybe [Configuration]) (\s a -> s {configurations = a} :: ListConfigurationsResponse)
-{-# DEPRECATED lcrsConfigurations "Use generic-lens or generic-optics with 'configurations' instead." #-}
-
--- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsNextToken :: Lens.Lens' ListConfigurationsResponse (Lude.Maybe Lude.Text)
-lcrsNextToken = Lens.lens (nextToken :: ListConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConfigurationsResponse)
-{-# DEPRECATED lcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lcrrsConfigurations :: Lens.Lens' ListConfigurationsResponse (Core.Maybe [Types.Configuration])
+lcrrsConfigurations = Lens.field @"configurations"
+{-# DEPRECATED lcrrsConfigurations "Use generic-lens or generic-optics with 'configurations' instead." #-}
 
 -- | The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsMaxResults :: Lens.Lens' ListConfigurationsResponse (Lude.Maybe Lude.Int)
-lcrsMaxResults = Lens.lens (maxResults :: ListConfigurationsResponse -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListConfigurationsResponse)
-{-# DEPRECATED lcrsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lcrrsMaxResults :: Lens.Lens' ListConfigurationsResponse (Core.Maybe Core.Int)
+lcrrsMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lcrrsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrrsNextToken :: Lens.Lens' ListConfigurationsResponse (Core.Maybe Core.Text)
+lcrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsResponseStatus :: Lens.Lens' ListConfigurationsResponse Lude.Int
-lcrsResponseStatus = Lens.lens (responseStatus :: ListConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListConfigurationsResponse)
-{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lcrrsResponseStatus :: Lens.Lens' ListConfigurationsResponse Core.Int
+lcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

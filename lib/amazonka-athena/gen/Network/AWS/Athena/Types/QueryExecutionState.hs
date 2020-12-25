@@ -13,61 +13,66 @@
 module Network.AWS.Athena.Types.QueryExecutionState
   ( QueryExecutionState
       ( QueryExecutionState',
-        Queued,
-        Running,
-        Succeeded,
-        Failed,
-        Cancelled
+        QueryExecutionStateQueued,
+        QueryExecutionStateRunning,
+        QueryExecutionStateSucceeded,
+        QueryExecutionStateFailed,
+        QueryExecutionStateCancelled,
+        fromQueryExecutionState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype QueryExecutionState = QueryExecutionState' Lude.Text
+newtype QueryExecutionState = QueryExecutionState'
+  { fromQueryExecutionState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Queued :: QueryExecutionState
-pattern Queued = QueryExecutionState' "QUEUED"
+pattern QueryExecutionStateQueued :: QueryExecutionState
+pattern QueryExecutionStateQueued = QueryExecutionState' "QUEUED"
 
-pattern Running :: QueryExecutionState
-pattern Running = QueryExecutionState' "RUNNING"
+pattern QueryExecutionStateRunning :: QueryExecutionState
+pattern QueryExecutionStateRunning = QueryExecutionState' "RUNNING"
 
-pattern Succeeded :: QueryExecutionState
-pattern Succeeded = QueryExecutionState' "SUCCEEDED"
+pattern QueryExecutionStateSucceeded :: QueryExecutionState
+pattern QueryExecutionStateSucceeded = QueryExecutionState' "SUCCEEDED"
 
-pattern Failed :: QueryExecutionState
-pattern Failed = QueryExecutionState' "FAILED"
+pattern QueryExecutionStateFailed :: QueryExecutionState
+pattern QueryExecutionStateFailed = QueryExecutionState' "FAILED"
 
-pattern Cancelled :: QueryExecutionState
-pattern Cancelled = QueryExecutionState' "CANCELLED"
+pattern QueryExecutionStateCancelled :: QueryExecutionState
+pattern QueryExecutionStateCancelled = QueryExecutionState' "CANCELLED"
 
 {-# COMPLETE
-  Queued,
-  Running,
-  Succeeded,
-  Failed,
-  Cancelled,
+  QueryExecutionStateQueued,
+  QueryExecutionStateRunning,
+  QueryExecutionStateSucceeded,
+  QueryExecutionStateFailed,
+  QueryExecutionStateCancelled,
   QueryExecutionState'
   #-}

@@ -17,71 +17,69 @@ module Network.AWS.Inspector.Types.AssessmentTemplateFilter
     mkAssessmentTemplateFilter,
 
     -- * Lenses
-    atfNamePattern,
-    atfRulesPackageARNs,
     atfDurationRange,
+    atfNamePattern,
+    atfRulesPackageArns,
   )
 where
 
-import Network.AWS.Inspector.Types.DurationRange
+import qualified Network.AWS.Inspector.Types.Arn as Types
+import qualified Network.AWS.Inspector.Types.DurationRange as Types
+import qualified Network.AWS.Inspector.Types.NamePattern as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Used as the request parameter in the 'ListAssessmentTemplates' action.
 --
 -- /See:/ 'mkAssessmentTemplateFilter' smart constructor.
 data AssessmentTemplateFilter = AssessmentTemplateFilter'
-  { -- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTemplateName__ property of the 'AssessmentTemplate' data type.
-    namePattern :: Lude.Maybe Lude.Text,
+  { -- | For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentTemplate' data type.
+    durationRange :: Core.Maybe Types.DurationRange,
+    -- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTemplateName__ property of the 'AssessmentTemplate' data type.
+    namePattern :: Core.Maybe Types.NamePattern,
     -- | For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the __rulesPackageArns__ property of the 'AssessmentTemplate' data type.
-    rulesPackageARNs :: Lude.Maybe [Lude.Text],
-    -- | For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentTemplate' data type.
-    durationRange :: Lude.Maybe DurationRange
+    rulesPackageArns :: Core.Maybe [Types.Arn]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssessmentTemplateFilter' with the minimum fields required to make a request.
---
--- * 'namePattern' - For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTemplateName__ property of the 'AssessmentTemplate' data type.
--- * 'rulesPackageARNs' - For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the __rulesPackageArns__ property of the 'AssessmentTemplate' data type.
--- * 'durationRange' - For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentTemplate' data type.
+-- | Creates a 'AssessmentTemplateFilter' value with any optional fields omitted.
 mkAssessmentTemplateFilter ::
   AssessmentTemplateFilter
 mkAssessmentTemplateFilter =
   AssessmentTemplateFilter'
-    { namePattern = Lude.Nothing,
-      rulesPackageARNs = Lude.Nothing,
-      durationRange = Lude.Nothing
+    { durationRange = Core.Nothing,
+      namePattern = Core.Nothing,
+      rulesPackageArns = Core.Nothing
     }
-
--- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTemplateName__ property of the 'AssessmentTemplate' data type.
---
--- /Note:/ Consider using 'namePattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atfNamePattern :: Lens.Lens' AssessmentTemplateFilter (Lude.Maybe Lude.Text)
-atfNamePattern = Lens.lens (namePattern :: AssessmentTemplateFilter -> Lude.Maybe Lude.Text) (\s a -> s {namePattern = a} :: AssessmentTemplateFilter)
-{-# DEPRECATED atfNamePattern "Use generic-lens or generic-optics with 'namePattern' instead." #-}
-
--- | For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the __rulesPackageArns__ property of the 'AssessmentTemplate' data type.
---
--- /Note:/ Consider using 'rulesPackageARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atfRulesPackageARNs :: Lens.Lens' AssessmentTemplateFilter (Lude.Maybe [Lude.Text])
-atfRulesPackageARNs = Lens.lens (rulesPackageARNs :: AssessmentTemplateFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {rulesPackageARNs = a} :: AssessmentTemplateFilter)
-{-# DEPRECATED atfRulesPackageARNs "Use generic-lens or generic-optics with 'rulesPackageARNs' instead." #-}
 
 -- | For a record to match a filter, the value specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentTemplate' data type.
 --
 -- /Note:/ Consider using 'durationRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atfDurationRange :: Lens.Lens' AssessmentTemplateFilter (Lude.Maybe DurationRange)
-atfDurationRange = Lens.lens (durationRange :: AssessmentTemplateFilter -> Lude.Maybe DurationRange) (\s a -> s {durationRange = a} :: AssessmentTemplateFilter)
+atfDurationRange :: Lens.Lens' AssessmentTemplateFilter (Core.Maybe Types.DurationRange)
+atfDurationRange = Lens.field @"durationRange"
 {-# DEPRECATED atfDurationRange "Use generic-lens or generic-optics with 'durationRange' instead." #-}
 
-instance Lude.ToJSON AssessmentTemplateFilter where
-  toJSON AssessmentTemplateFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("namePattern" Lude..=) Lude.<$> namePattern,
-            ("rulesPackageArns" Lude..=) Lude.<$> rulesPackageARNs,
-            ("durationRange" Lude..=) Lude.<$> durationRange
+-- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTemplateName__ property of the 'AssessmentTemplate' data type.
+--
+-- /Note:/ Consider using 'namePattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atfNamePattern :: Lens.Lens' AssessmentTemplateFilter (Core.Maybe Types.NamePattern)
+atfNamePattern = Lens.field @"namePattern"
+{-# DEPRECATED atfNamePattern "Use generic-lens or generic-optics with 'namePattern' instead." #-}
+
+-- | For a record to match a filter, the values that are specified for this data type property must be contained in the list of values of the __rulesPackageArns__ property of the 'AssessmentTemplate' data type.
+--
+-- /Note:/ Consider using 'rulesPackageArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atfRulesPackageArns :: Lens.Lens' AssessmentTemplateFilter (Core.Maybe [Types.Arn])
+atfRulesPackageArns = Lens.field @"rulesPackageArns"
+{-# DEPRECATED atfRulesPackageArns "Use generic-lens or generic-optics with 'rulesPackageArns' instead." #-}
+
+instance Core.FromJSON AssessmentTemplateFilter where
+  toJSON AssessmentTemplateFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("durationRange" Core..=) Core.<$> durationRange,
+            ("namePattern" Core..=) Core.<$> namePattern,
+            ("rulesPackageArns" Core..=) Core.<$> rulesPackageArns
           ]
       )

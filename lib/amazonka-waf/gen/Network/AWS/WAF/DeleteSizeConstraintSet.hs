@@ -39,128 +39,112 @@ module Network.AWS.WAF.DeleteSizeConstraintSet
     mkDeleteSizeConstraintSetResponse,
 
     -- ** Response lenses
-    dscsrsChangeToken,
-    dscsrsResponseStatus,
+    dscsrrsChangeToken,
+    dscsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkDeleteSizeConstraintSet' smart constructor.
 data DeleteSizeConstraintSet = DeleteSizeConstraintSet'
   { -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to delete. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
-    sizeConstraintSetId :: Lude.Text,
+    sizeConstraintSetId :: Types.ResourceId,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    changeToken :: Types.ChangeToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSizeConstraintSet' with the minimum fields required to make a request.
---
--- * 'sizeConstraintSetId' - The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to delete. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'DeleteSizeConstraintSet' value with any optional fields omitted.
 mkDeleteSizeConstraintSet ::
   -- | 'sizeConstraintSetId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   DeleteSizeConstraintSet
-mkDeleteSizeConstraintSet pSizeConstraintSetId_ pChangeToken_ =
-  DeleteSizeConstraintSet'
-    { sizeConstraintSetId =
-        pSizeConstraintSetId_,
-      changeToken = pChangeToken_
-    }
+mkDeleteSizeConstraintSet sizeConstraintSetId changeToken =
+  DeleteSizeConstraintSet' {sizeConstraintSetId, changeToken}
 
 -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to delete. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 --
 -- /Note:/ Consider using 'sizeConstraintSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscsSizeConstraintSetId :: Lens.Lens' DeleteSizeConstraintSet Lude.Text
-dscsSizeConstraintSetId = Lens.lens (sizeConstraintSetId :: DeleteSizeConstraintSet -> Lude.Text) (\s a -> s {sizeConstraintSetId = a} :: DeleteSizeConstraintSet)
+dscsSizeConstraintSetId :: Lens.Lens' DeleteSizeConstraintSet Types.ResourceId
+dscsSizeConstraintSetId = Lens.field @"sizeConstraintSetId"
 {-# DEPRECATED dscsSizeConstraintSetId "Use generic-lens or generic-optics with 'sizeConstraintSetId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscsChangeToken :: Lens.Lens' DeleteSizeConstraintSet Lude.Text
-dscsChangeToken = Lens.lens (changeToken :: DeleteSizeConstraintSet -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteSizeConstraintSet)
+dscsChangeToken :: Lens.Lens' DeleteSizeConstraintSet Types.ChangeToken
+dscsChangeToken = Lens.field @"changeToken"
 {-# DEPRECATED dscsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance Lude.AWSRequest DeleteSizeConstraintSet where
+instance Core.FromJSON DeleteSizeConstraintSet where
+  toJSON DeleteSizeConstraintSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SizeConstraintSetId" Core..= sizeConstraintSetId),
+            Core.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
+
+instance Core.AWSRequest DeleteSizeConstraintSet where
   type Rs DeleteSizeConstraintSet = DeleteSizeConstraintSetResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_20150824.DeleteSizeConstraintSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteSizeConstraintSetResponse'
-            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSizeConstraintSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.DeleteSizeConstraintSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteSizeConstraintSet where
-  toJSON DeleteSizeConstraintSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SizeConstraintSetId" Lude..= sizeConstraintSetId),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath DeleteSizeConstraintSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSizeConstraintSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteSizeConstraintSetResponse' smart constructor.
 data DeleteSizeConstraintSetResponse = DeleteSizeConstraintSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSizeConstraintSetResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @DeleteSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSizeConstraintSetResponse' value with any optional fields omitted.
 mkDeleteSizeConstraintSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSizeConstraintSetResponse
-mkDeleteSizeConstraintSetResponse pResponseStatus_ =
+mkDeleteSizeConstraintSetResponse responseStatus =
   DeleteSizeConstraintSetResponse'
-    { changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscsrsChangeToken :: Lens.Lens' DeleteSizeConstraintSetResponse (Lude.Maybe Lude.Text)
-dscsrsChangeToken = Lens.lens (changeToken :: DeleteSizeConstraintSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: DeleteSizeConstraintSetResponse)
-{-# DEPRECATED dscsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+dscsrrsChangeToken :: Lens.Lens' DeleteSizeConstraintSetResponse (Core.Maybe Types.ChangeToken)
+dscsrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED dscsrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscsrsResponseStatus :: Lens.Lens' DeleteSizeConstraintSetResponse Lude.Int
-dscsrsResponseStatus = Lens.lens (responseStatus :: DeleteSizeConstraintSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSizeConstraintSetResponse)
-{-# DEPRECATED dscsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dscsrrsResponseStatus :: Lens.Lens' DeleteSizeConstraintSetResponse Core.Int
+dscsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dscsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -23,56 +23,51 @@ module Network.AWS.S3.Types.RedirectAllRequestsTo
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.Protocol
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.HostName as Types
+import qualified Network.AWS.S3.Types.Protocol as Types
 
 -- | Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.
 --
 -- /See:/ 'mkRedirectAllRequestsTo' smart constructor.
 data RedirectAllRequestsTo = RedirectAllRequestsTo'
   { -- | Name of the host where requests are redirected.
-    hostName :: Lude.Text,
+    hostName :: Types.HostName,
     -- | Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
-    protocol :: Lude.Maybe Protocol
+    protocol :: Core.Maybe Types.Protocol
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RedirectAllRequestsTo' with the minimum fields required to make a request.
---
--- * 'hostName' - Name of the host where requests are redirected.
--- * 'protocol' - Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
+-- | Creates a 'RedirectAllRequestsTo' value with any optional fields omitted.
 mkRedirectAllRequestsTo ::
   -- | 'hostName'
-  Lude.Text ->
+  Types.HostName ->
   RedirectAllRequestsTo
-mkRedirectAllRequestsTo pHostName_ =
-  RedirectAllRequestsTo'
-    { hostName = pHostName_,
-      protocol = Lude.Nothing
-    }
+mkRedirectAllRequestsTo hostName =
+  RedirectAllRequestsTo' {hostName, protocol = Core.Nothing}
 
 -- | Name of the host where requests are redirected.
 --
 -- /Note:/ Consider using 'hostName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rartHostName :: Lens.Lens' RedirectAllRequestsTo Lude.Text
-rartHostName = Lens.lens (hostName :: RedirectAllRequestsTo -> Lude.Text) (\s a -> s {hostName = a} :: RedirectAllRequestsTo)
+rartHostName :: Lens.Lens' RedirectAllRequestsTo Types.HostName
+rartHostName = Lens.field @"hostName"
 {-# DEPRECATED rartHostName "Use generic-lens or generic-optics with 'hostName' instead." #-}
 
 -- | Protocol to use when redirecting requests. The default is the protocol that is used in the original request.
 --
 -- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rartProtocol :: Lens.Lens' RedirectAllRequestsTo (Lude.Maybe Protocol)
-rartProtocol = Lens.lens (protocol :: RedirectAllRequestsTo -> Lude.Maybe Protocol) (\s a -> s {protocol = a} :: RedirectAllRequestsTo)
+rartProtocol :: Lens.Lens' RedirectAllRequestsTo (Core.Maybe Types.Protocol)
+rartProtocol = Lens.field @"protocol"
 {-# DEPRECATED rartProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
-instance Lude.FromXML RedirectAllRequestsTo where
+instance Core.ToXML RedirectAllRequestsTo where
+  toXML RedirectAllRequestsTo {..} =
+    Core.toXMLNode "HostName" hostName
+      Core.<> Core.toXMLNode "Protocol" Core.<$> protocol
+
+instance Core.FromXML RedirectAllRequestsTo where
   parseXML x =
     RedirectAllRequestsTo'
-      Lude.<$> (x Lude..@ "HostName") Lude.<*> (x Lude..@? "Protocol")
-
-instance Lude.ToXML RedirectAllRequestsTo where
-  toXML RedirectAllRequestsTo' {..} =
-    Lude.mconcat
-      ["HostName" Lude.@= hostName, "Protocol" Lude.@= protocol]
+      Core.<$> (x Core..@ "HostName") Core.<*> (x Core..@? "Protocol")

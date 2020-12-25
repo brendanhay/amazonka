@@ -17,111 +17,106 @@ module Network.AWS.CertificateManagerPCA.Types.Permission
     mkPermission,
 
     -- * Lenses
-    pSourceAccount,
     pActions,
+    pCertificateAuthorityArn,
     pCreatedAt,
-    pPrincipal,
     pPolicy,
-    pCertificateAuthorityARN,
+    pPrincipal,
+    pSourceAccount,
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types.ActionType
+import qualified Network.AWS.CertificateManagerPCA.Types.AWSPolicy as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.AccountId as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.ActionType as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.Arn as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.Principal as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Permissions designate which private CA actions can be performed by an AWS service or entity. In order for ACM to automatically renew private certificates, you must give the ACM service principal all available permissions (@IssueCertificate@ , @GetCertificate@ , and @ListPermissions@ ). Permissions can be assigned with the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreatePermission.html CreatePermission> action, removed with the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeletePermission.html DeletePermission> action, and listed with the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ListPermissions.html ListPermissions> action.
 --
 -- /See:/ 'mkPermission' smart constructor.
 data Permission = Permission'
-  { -- | The ID of the account that assigned the permission.
-    sourceAccount :: Lude.Maybe Lude.Text,
-    -- | The private CA actions that can be performed by the designated AWS service.
-    actions :: Lude.Maybe (Lude.NonEmpty ActionType),
-    -- | The time at which the permission was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | The AWS service or entity that holds the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
-    principal :: Lude.Maybe Lude.Text,
-    -- | The name of the policy that is associated with the permission.
-    policy :: Lude.Maybe Lude.Text,
+  { -- | The private CA actions that can be performed by the designated AWS service.
+    actions :: Core.Maybe (Core.NonEmpty Types.ActionType),
     -- | The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
-    certificateAuthorityARN :: Lude.Maybe Lude.Text
+    certificateAuthorityArn :: Core.Maybe Types.Arn,
+    -- | The time at which the permission was created.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the policy that is associated with the permission.
+    policy :: Core.Maybe Types.AWSPolicy,
+    -- | The AWS service or entity that holds the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
+    principal :: Core.Maybe Types.Principal,
+    -- | The ID of the account that assigned the permission.
+    sourceAccount :: Core.Maybe Types.AccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Permission' with the minimum fields required to make a request.
---
--- * 'sourceAccount' - The ID of the account that assigned the permission.
--- * 'actions' - The private CA actions that can be performed by the designated AWS service.
--- * 'createdAt' - The time at which the permission was created.
--- * 'principal' - The AWS service or entity that holds the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
--- * 'policy' - The name of the policy that is associated with the permission.
--- * 'certificateAuthorityARN' - The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
+-- | Creates a 'Permission' value with any optional fields omitted.
 mkPermission ::
   Permission
 mkPermission =
   Permission'
-    { sourceAccount = Lude.Nothing,
-      actions = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      principal = Lude.Nothing,
-      policy = Lude.Nothing,
-      certificateAuthorityARN = Lude.Nothing
+    { actions = Core.Nothing,
+      certificateAuthorityArn = Core.Nothing,
+      createdAt = Core.Nothing,
+      policy = Core.Nothing,
+      principal = Core.Nothing,
+      sourceAccount = Core.Nothing
     }
-
--- | The ID of the account that assigned the permission.
---
--- /Note:/ Consider using 'sourceAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pSourceAccount :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
-pSourceAccount = Lens.lens (sourceAccount :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {sourceAccount = a} :: Permission)
-{-# DEPRECATED pSourceAccount "Use generic-lens or generic-optics with 'sourceAccount' instead." #-}
 
 -- | The private CA actions that can be performed by the designated AWS service.
 --
 -- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pActions :: Lens.Lens' Permission (Lude.Maybe (Lude.NonEmpty ActionType))
-pActions = Lens.lens (actions :: Permission -> Lude.Maybe (Lude.NonEmpty ActionType)) (\s a -> s {actions = a} :: Permission)
+pActions :: Lens.Lens' Permission (Core.Maybe (Core.NonEmpty Types.ActionType))
+pActions = Lens.field @"actions"
 {-# DEPRECATED pActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+
+-- | The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
+--
+-- /Note:/ Consider using 'certificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pCertificateAuthorityArn :: Lens.Lens' Permission (Core.Maybe Types.Arn)
+pCertificateAuthorityArn = Lens.field @"certificateAuthorityArn"
+{-# DEPRECATED pCertificateAuthorityArn "Use generic-lens or generic-optics with 'certificateAuthorityArn' instead." #-}
 
 -- | The time at which the permission was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pCreatedAt :: Lens.Lens' Permission (Lude.Maybe Lude.Timestamp)
-pCreatedAt = Lens.lens (createdAt :: Permission -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: Permission)
+pCreatedAt :: Lens.Lens' Permission (Core.Maybe Core.NominalDiffTime)
+pCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED pCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The AWS service or entity that holds the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
---
--- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPrincipal :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
-pPrincipal = Lens.lens (principal :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {principal = a} :: Permission)
-{-# DEPRECATED pPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
 -- | The name of the policy that is associated with the permission.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPolicy :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
-pPolicy = Lens.lens (policy :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: Permission)
+pPolicy :: Lens.Lens' Permission (Core.Maybe Types.AWSPolicy)
+pPolicy = Lens.field @"policy"
 {-# DEPRECATED pPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
--- | The Amazon Resource Number (ARN) of the private CA from which the permission was issued.
+-- | The AWS service or entity that holds the permission. At this time, the only valid principal is @acm.amazonaws.com@ .
 --
--- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pCertificateAuthorityARN :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
-pCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: Permission)
-{-# DEPRECATED pCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
+-- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPrincipal :: Lens.Lens' Permission (Core.Maybe Types.Principal)
+pPrincipal = Lens.field @"principal"
+{-# DEPRECATED pPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
 
-instance Lude.FromJSON Permission where
+-- | The ID of the account that assigned the permission.
+--
+-- /Note:/ Consider using 'sourceAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSourceAccount :: Lens.Lens' Permission (Core.Maybe Types.AccountId)
+pSourceAccount = Lens.field @"sourceAccount"
+{-# DEPRECATED pSourceAccount "Use generic-lens or generic-optics with 'sourceAccount' instead." #-}
+
+instance Core.FromJSON Permission where
   parseJSON =
-    Lude.withObject
-      "Permission"
-      ( \x ->
-          Permission'
-            Lude.<$> (x Lude..:? "SourceAccount")
-            Lude.<*> (x Lude..:? "Actions")
-            Lude.<*> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "Principal")
-            Lude.<*> (x Lude..:? "Policy")
-            Lude.<*> (x Lude..:? "CertificateAuthorityArn")
-      )
+    Core.withObject "Permission" Core.$
+      \x ->
+        Permission'
+          Core.<$> (x Core..:? "Actions")
+          Core.<*> (x Core..:? "CertificateAuthorityArn")
+          Core.<*> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "Policy")
+          Core.<*> (x Core..:? "Principal")
+          Core.<*> (x Core..:? "SourceAccount")

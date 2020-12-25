@@ -55,68 +55,81 @@ module Network.AWS.ElastiCache.CopySnapshot
     mkCopySnapshot,
 
     -- ** Request lenses
-    csTargetBucket,
-    csTargetSnapshotName,
-    csKMSKeyId,
     csSourceSnapshotName,
+    csTargetSnapshotName,
+    csKmsKeyId,
+    csTargetBucket,
 
     -- * Destructuring the response
     CopySnapshotResponse (..),
     mkCopySnapshotResponse,
 
     -- ** Response lenses
-    csrsSnapshot,
-    csrsResponseStatus,
+    csrrsSnapshot,
+    csrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @CopySnapshotMessage@ operation.
 --
 -- /See:/ 'mkCopySnapshot' smart constructor.
 data CopySnapshot = CopySnapshot'
-  { -- | The Amazon S3 bucket to which the snapshot is exported. This parameter is used only when exporting a snapshot for external access.
+  { -- | The name of an existing snapshot from which to make a copy.
+    sourceSnapshotName :: Types.SourceSnapshotName,
+    -- | A name for the snapshot copy. ElastiCache does not permit overwriting a snapshot, therefore this name must be unique within its context - ElastiCache or an Amazon S3 bucket if exporting.
+    targetSnapshotName :: Types.TargetSnapshotName,
+    -- | The ID of the KMS key used to encrypt the target snapshot.
+    kmsKeyId :: Core.Maybe Types.KmsKeyId,
+    -- | The Amazon S3 bucket to which the snapshot is exported. This parameter is used only when exporting a snapshot for external access.
     --
     -- When using this parameter to export a snapshot, be sure Amazon ElastiCache has the needed permissions to this S3 bucket. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket> in the /Amazon ElastiCache User Guide/ .
     -- For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html Exporting a Snapshot> in the /Amazon ElastiCache User Guide/ .
-    targetBucket :: Lude.Maybe Lude.Text,
-    -- | A name for the snapshot copy. ElastiCache does not permit overwriting a snapshot, therefore this name must be unique within its context - ElastiCache or an Amazon S3 bucket if exporting.
-    targetSnapshotName :: Lude.Text,
-    -- | The ID of the KMS key used to encrypt the target snapshot.
-    kmsKeyId :: Lude.Maybe Lude.Text,
-    -- | The name of an existing snapshot from which to make a copy.
-    sourceSnapshotName :: Lude.Text
+    targetBucket :: Core.Maybe Types.TargetBucket
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CopySnapshot' with the minimum fields required to make a request.
---
--- * 'targetBucket' - The Amazon S3 bucket to which the snapshot is exported. This parameter is used only when exporting a snapshot for external access.
---
--- When using this parameter to export a snapshot, be sure Amazon ElastiCache has the needed permissions to this S3 bucket. For more information, see <http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-grant-access Step 2: Grant ElastiCache Access to Your Amazon S3 Bucket> in the /Amazon ElastiCache User Guide/ .
--- For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html Exporting a Snapshot> in the /Amazon ElastiCache User Guide/ .
--- * 'targetSnapshotName' - A name for the snapshot copy. ElastiCache does not permit overwriting a snapshot, therefore this name must be unique within its context - ElastiCache or an Amazon S3 bucket if exporting.
--- * 'kmsKeyId' - The ID of the KMS key used to encrypt the target snapshot.
--- * 'sourceSnapshotName' - The name of an existing snapshot from which to make a copy.
+-- | Creates a 'CopySnapshot' value with any optional fields omitted.
 mkCopySnapshot ::
-  -- | 'targetSnapshotName'
-  Lude.Text ->
   -- | 'sourceSnapshotName'
-  Lude.Text ->
+  Types.SourceSnapshotName ->
+  -- | 'targetSnapshotName'
+  Types.TargetSnapshotName ->
   CopySnapshot
-mkCopySnapshot pTargetSnapshotName_ pSourceSnapshotName_ =
+mkCopySnapshot sourceSnapshotName targetSnapshotName =
   CopySnapshot'
-    { targetBucket = Lude.Nothing,
-      targetSnapshotName = pTargetSnapshotName_,
-      kmsKeyId = Lude.Nothing,
-      sourceSnapshotName = pSourceSnapshotName_
+    { sourceSnapshotName,
+      targetSnapshotName,
+      kmsKeyId = Core.Nothing,
+      targetBucket = Core.Nothing
     }
+
+-- | The name of an existing snapshot from which to make a copy.
+--
+-- /Note:/ Consider using 'sourceSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSourceSnapshotName :: Lens.Lens' CopySnapshot Types.SourceSnapshotName
+csSourceSnapshotName = Lens.field @"sourceSnapshotName"
+{-# DEPRECATED csSourceSnapshotName "Use generic-lens or generic-optics with 'sourceSnapshotName' instead." #-}
+
+-- | A name for the snapshot copy. ElastiCache does not permit overwriting a snapshot, therefore this name must be unique within its context - ElastiCache or an Amazon S3 bucket if exporting.
+--
+-- /Note:/ Consider using 'targetSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTargetSnapshotName :: Lens.Lens' CopySnapshot Types.TargetSnapshotName
+csTargetSnapshotName = Lens.field @"targetSnapshotName"
+{-# DEPRECATED csTargetSnapshotName "Use generic-lens or generic-optics with 'targetSnapshotName' instead." #-}
+
+-- | The ID of the KMS key used to encrypt the target snapshot.
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csKmsKeyId :: Lens.Lens' CopySnapshot (Core.Maybe Types.KmsKeyId)
+csKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED csKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The Amazon S3 bucket to which the snapshot is exported. This parameter is used only when exporting a snapshot for external access.
 --
@@ -124,92 +137,68 @@ mkCopySnapshot pTargetSnapshotName_ pSourceSnapshotName_ =
 -- For more information, see <https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Snapshots.Exporting.html Exporting a Snapshot> in the /Amazon ElastiCache User Guide/ .
 --
 -- /Note:/ Consider using 'targetBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csTargetBucket :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
-csTargetBucket = Lens.lens (targetBucket :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {targetBucket = a} :: CopySnapshot)
+csTargetBucket :: Lens.Lens' CopySnapshot (Core.Maybe Types.TargetBucket)
+csTargetBucket = Lens.field @"targetBucket"
 {-# DEPRECATED csTargetBucket "Use generic-lens or generic-optics with 'targetBucket' instead." #-}
 
--- | A name for the snapshot copy. ElastiCache does not permit overwriting a snapshot, therefore this name must be unique within its context - ElastiCache or an Amazon S3 bucket if exporting.
---
--- /Note:/ Consider using 'targetSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csTargetSnapshotName :: Lens.Lens' CopySnapshot Lude.Text
-csTargetSnapshotName = Lens.lens (targetSnapshotName :: CopySnapshot -> Lude.Text) (\s a -> s {targetSnapshotName = a} :: CopySnapshot)
-{-# DEPRECATED csTargetSnapshotName "Use generic-lens or generic-optics with 'targetSnapshotName' instead." #-}
-
--- | The ID of the KMS key used to encrypt the target snapshot.
---
--- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csKMSKeyId :: Lens.Lens' CopySnapshot (Lude.Maybe Lude.Text)
-csKMSKeyId = Lens.lens (kmsKeyId :: CopySnapshot -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CopySnapshot)
-{-# DEPRECATED csKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
-
--- | The name of an existing snapshot from which to make a copy.
---
--- /Note:/ Consider using 'sourceSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csSourceSnapshotName :: Lens.Lens' CopySnapshot Lude.Text
-csSourceSnapshotName = Lens.lens (sourceSnapshotName :: CopySnapshot -> Lude.Text) (\s a -> s {sourceSnapshotName = a} :: CopySnapshot)
-{-# DEPRECATED csSourceSnapshotName "Use generic-lens or generic-optics with 'sourceSnapshotName' instead." #-}
-
-instance Lude.AWSRequest CopySnapshot where
+instance Core.AWSRequest CopySnapshot where
   type Rs CopySnapshot = CopySnapshotResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CopySnapshot")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "SourceSnapshotName" sourceSnapshotName)
+                Core.<> (Core.toQueryValue "TargetSnapshotName" targetSnapshotName)
+                Core.<> (Core.toQueryValue "KmsKeyId" Core.<$> kmsKeyId)
+                Core.<> (Core.toQueryValue "TargetBucket" Core.<$> targetBucket)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CopySnapshotResult"
       ( \s h x ->
           CopySnapshotResponse'
-            Lude.<$> (x Lude..@? "Snapshot") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Snapshot") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CopySnapshot where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CopySnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CopySnapshot where
-  toQuery CopySnapshot' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CopySnapshot" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "TargetBucket" Lude.=: targetBucket,
-        "TargetSnapshotName" Lude.=: targetSnapshotName,
-        "KmsKeyId" Lude.=: kmsKeyId,
-        "SourceSnapshotName" Lude.=: sourceSnapshotName
-      ]
 
 -- | /See:/ 'mkCopySnapshotResponse' smart constructor.
 data CopySnapshotResponse = CopySnapshotResponse'
-  { snapshot :: Lude.Maybe Snapshot,
+  { snapshot :: Core.Maybe Types.Snapshot,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CopySnapshotResponse' with the minimum fields required to make a request.
---
--- * 'snapshot' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CopySnapshotResponse' value with any optional fields omitted.
 mkCopySnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CopySnapshotResponse
-mkCopySnapshotResponse pResponseStatus_ =
-  CopySnapshotResponse'
-    { snapshot = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCopySnapshotResponse responseStatus =
+  CopySnapshotResponse' {snapshot = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'snapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsSnapshot :: Lens.Lens' CopySnapshotResponse (Lude.Maybe Snapshot)
-csrsSnapshot = Lens.lens (snapshot :: CopySnapshotResponse -> Lude.Maybe Snapshot) (\s a -> s {snapshot = a} :: CopySnapshotResponse)
-{-# DEPRECATED csrsSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
+csrrsSnapshot :: Lens.Lens' CopySnapshotResponse (Core.Maybe Types.Snapshot)
+csrrsSnapshot = Lens.field @"snapshot"
+{-# DEPRECATED csrrsSnapshot "Use generic-lens or generic-optics with 'snapshot' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsResponseStatus :: Lens.Lens' CopySnapshotResponse Lude.Int
-csrsResponseStatus = Lens.lens (responseStatus :: CopySnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopySnapshotResponse)
-{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csrrsResponseStatus :: Lens.Lens' CopySnapshotResponse Core.Int
+csrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

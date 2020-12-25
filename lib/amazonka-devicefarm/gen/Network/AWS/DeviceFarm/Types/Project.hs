@@ -19,82 +19,77 @@ module Network.AWS.DeviceFarm.Types.Project
     -- * Lenses
     pArn,
     pCreated,
-    pName,
     pDefaultJobTimeoutMinutes,
+    pName,
   )
 where
 
+import qualified Network.AWS.DeviceFarm.Types.Arn as Types
+import qualified Network.AWS.DeviceFarm.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an operating-system neutral workspace for running and managing tests.
 --
 -- /See:/ 'mkProject' smart constructor.
 data Project = Project'
   { -- | The project's ARN.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | When the project was created.
-    created :: Lude.Maybe Lude.Timestamp,
-    -- | The project's name.
-    name :: Lude.Maybe Lude.Text,
+    created :: Core.Maybe Core.NominalDiffTime,
     -- | The default number of minutes (at the project level) a test run executes before it times out. The default value is 150 minutes.
-    defaultJobTimeoutMinutes :: Lude.Maybe Lude.Int
+    defaultJobTimeoutMinutes :: Core.Maybe Core.Int,
+    -- | The project's name.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Project' with the minimum fields required to make a request.
---
--- * 'arn' - The project's ARN.
--- * 'created' - When the project was created.
--- * 'name' - The project's name.
--- * 'defaultJobTimeoutMinutes' - The default number of minutes (at the project level) a test run executes before it times out. The default value is 150 minutes.
+-- | Creates a 'Project' value with any optional fields omitted.
 mkProject ::
   Project
 mkProject =
   Project'
-    { arn = Lude.Nothing,
-      created = Lude.Nothing,
-      name = Lude.Nothing,
-      defaultJobTimeoutMinutes = Lude.Nothing
+    { arn = Core.Nothing,
+      created = Core.Nothing,
+      defaultJobTimeoutMinutes = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The project's ARN.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pArn :: Lens.Lens' Project (Lude.Maybe Lude.Text)
-pArn = Lens.lens (arn :: Project -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Project)
+pArn :: Lens.Lens' Project (Core.Maybe Types.Arn)
+pArn = Lens.field @"arn"
 {-# DEPRECATED pArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | When the project was created.
 --
 -- /Note:/ Consider using 'created' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pCreated :: Lens.Lens' Project (Lude.Maybe Lude.Timestamp)
-pCreated = Lens.lens (created :: Project -> Lude.Maybe Lude.Timestamp) (\s a -> s {created = a} :: Project)
+pCreated :: Lens.Lens' Project (Core.Maybe Core.NominalDiffTime)
+pCreated = Lens.field @"created"
 {-# DEPRECATED pCreated "Use generic-lens or generic-optics with 'created' instead." #-}
-
--- | The project's name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pName :: Lens.Lens' Project (Lude.Maybe Lude.Text)
-pName = Lens.lens (name :: Project -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Project)
-{-# DEPRECATED pName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The default number of minutes (at the project level) a test run executes before it times out. The default value is 150 minutes.
 --
 -- /Note:/ Consider using 'defaultJobTimeoutMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDefaultJobTimeoutMinutes :: Lens.Lens' Project (Lude.Maybe Lude.Int)
-pDefaultJobTimeoutMinutes = Lens.lens (defaultJobTimeoutMinutes :: Project -> Lude.Maybe Lude.Int) (\s a -> s {defaultJobTimeoutMinutes = a} :: Project)
+pDefaultJobTimeoutMinutes :: Lens.Lens' Project (Core.Maybe Core.Int)
+pDefaultJobTimeoutMinutes = Lens.field @"defaultJobTimeoutMinutes"
 {-# DEPRECATED pDefaultJobTimeoutMinutes "Use generic-lens or generic-optics with 'defaultJobTimeoutMinutes' instead." #-}
 
-instance Lude.FromJSON Project where
+-- | The project's name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pName :: Lens.Lens' Project (Core.Maybe Types.Name)
+pName = Lens.field @"name"
+{-# DEPRECATED pName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON Project where
   parseJSON =
-    Lude.withObject
-      "Project"
-      ( \x ->
-          Project'
-            Lude.<$> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "created")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "defaultJobTimeoutMinutes")
-      )
+    Core.withObject "Project" Core.$
+      \x ->
+        Project'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "created")
+          Core.<*> (x Core..:? "defaultJobTimeoutMinutes")
+          Core.<*> (x Core..:? "name")

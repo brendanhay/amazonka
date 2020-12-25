@@ -13,61 +13,66 @@
 module Network.AWS.LexRuntime.Types.DialogActionType
   ( DialogActionType
       ( DialogActionType',
-        DATElicitIntent,
-        DATConfirmIntent,
-        DATElicitSlot,
-        DATClose,
-        DATDelegate
+        DialogActionTypeElicitIntent,
+        DialogActionTypeConfirmIntent,
+        DialogActionTypeElicitSlot,
+        DialogActionTypeClose,
+        DialogActionTypeDelegate,
+        fromDialogActionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DialogActionType = DialogActionType' Lude.Text
+newtype DialogActionType = DialogActionType'
+  { fromDialogActionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DATElicitIntent :: DialogActionType
-pattern DATElicitIntent = DialogActionType' "ElicitIntent"
+pattern DialogActionTypeElicitIntent :: DialogActionType
+pattern DialogActionTypeElicitIntent = DialogActionType' "ElicitIntent"
 
-pattern DATConfirmIntent :: DialogActionType
-pattern DATConfirmIntent = DialogActionType' "ConfirmIntent"
+pattern DialogActionTypeConfirmIntent :: DialogActionType
+pattern DialogActionTypeConfirmIntent = DialogActionType' "ConfirmIntent"
 
-pattern DATElicitSlot :: DialogActionType
-pattern DATElicitSlot = DialogActionType' "ElicitSlot"
+pattern DialogActionTypeElicitSlot :: DialogActionType
+pattern DialogActionTypeElicitSlot = DialogActionType' "ElicitSlot"
 
-pattern DATClose :: DialogActionType
-pattern DATClose = DialogActionType' "Close"
+pattern DialogActionTypeClose :: DialogActionType
+pattern DialogActionTypeClose = DialogActionType' "Close"
 
-pattern DATDelegate :: DialogActionType
-pattern DATDelegate = DialogActionType' "Delegate"
+pattern DialogActionTypeDelegate :: DialogActionType
+pattern DialogActionTypeDelegate = DialogActionType' "Delegate"
 
 {-# COMPLETE
-  DATElicitIntent,
-  DATConfirmIntent,
-  DATElicitSlot,
-  DATClose,
-  DATDelegate,
+  DialogActionTypeElicitIntent,
+  DialogActionTypeConfirmIntent,
+  DialogActionTypeElicitSlot,
+  DialogActionTypeClose,
+  DialogActionTypeDelegate,
   DialogActionType'
   #-}

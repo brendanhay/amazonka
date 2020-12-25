@@ -17,60 +17,54 @@ module Network.AWS.MQ.Types.BrokerEngineType
     mkBrokerEngineType,
 
     -- * Lenses
-    betEngineVersions,
     betEngineType,
+    betEngineVersions,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types.EngineType
-import Network.AWS.MQ.Types.EngineVersion
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MQ.Types.EngineType as Types
+import qualified Network.AWS.MQ.Types.EngineVersion as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Types of broker engines.
 --
 -- /See:/ 'mkBrokerEngineType' smart constructor.
 data BrokerEngineType = BrokerEngineType'
-  { -- | The list of engine versions.
-    engineVersions :: Lude.Maybe [EngineVersion],
-    -- | The type of broker engine.
-    engineType :: Lude.Maybe EngineType
+  { -- | The type of broker engine.
+    engineType :: Core.Maybe Types.EngineType,
+    -- | The list of engine versions.
+    engineVersions :: Core.Maybe [Types.EngineVersion]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BrokerEngineType' with the minimum fields required to make a request.
---
--- * 'engineVersions' - The list of engine versions.
--- * 'engineType' - The type of broker engine.
+-- | Creates a 'BrokerEngineType' value with any optional fields omitted.
 mkBrokerEngineType ::
   BrokerEngineType
 mkBrokerEngineType =
   BrokerEngineType'
-    { engineVersions = Lude.Nothing,
-      engineType = Lude.Nothing
+    { engineType = Core.Nothing,
+      engineVersions = Core.Nothing
     }
-
--- | The list of engine versions.
---
--- /Note:/ Consider using 'engineVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-betEngineVersions :: Lens.Lens' BrokerEngineType (Lude.Maybe [EngineVersion])
-betEngineVersions = Lens.lens (engineVersions :: BrokerEngineType -> Lude.Maybe [EngineVersion]) (\s a -> s {engineVersions = a} :: BrokerEngineType)
-{-# DEPRECATED betEngineVersions "Use generic-lens or generic-optics with 'engineVersions' instead." #-}
 
 -- | The type of broker engine.
 --
 -- /Note:/ Consider using 'engineType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-betEngineType :: Lens.Lens' BrokerEngineType (Lude.Maybe EngineType)
-betEngineType = Lens.lens (engineType :: BrokerEngineType -> Lude.Maybe EngineType) (\s a -> s {engineType = a} :: BrokerEngineType)
+betEngineType :: Lens.Lens' BrokerEngineType (Core.Maybe Types.EngineType)
+betEngineType = Lens.field @"engineType"
 {-# DEPRECATED betEngineType "Use generic-lens or generic-optics with 'engineType' instead." #-}
 
-instance Lude.FromJSON BrokerEngineType where
+-- | The list of engine versions.
+--
+-- /Note:/ Consider using 'engineVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+betEngineVersions :: Lens.Lens' BrokerEngineType (Core.Maybe [Types.EngineVersion])
+betEngineVersions = Lens.field @"engineVersions"
+{-# DEPRECATED betEngineVersions "Use generic-lens or generic-optics with 'engineVersions' instead." #-}
+
+instance Core.FromJSON BrokerEngineType where
   parseJSON =
-    Lude.withObject
-      "BrokerEngineType"
-      ( \x ->
-          BrokerEngineType'
-            Lude.<$> (x Lude..:? "engineVersions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "engineType")
-      )
+    Core.withObject "BrokerEngineType" Core.$
+      \x ->
+        BrokerEngineType'
+          Core.<$> (x Core..:? "engineType") Core.<*> (x Core..:? "engineVersions")

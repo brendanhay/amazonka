@@ -20,8 +20,8 @@ module Network.AWS.Glacier.AddTagsToVault
     mkAddTagsToVault,
 
     -- ** Request lenses
-    attvVaultName,
     attvAccountId,
+    attvVaultName,
     attvTags,
 
     -- * Destructuring the response
@@ -30,96 +30,85 @@ module Network.AWS.Glacier.AddTagsToVault
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input values for @AddTagsToVault@ .
 --
 -- /See:/ 'mkAddTagsToVault' smart constructor.
 data AddTagsToVault = AddTagsToVault'
-  { -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
+    -- | The name of the vault.
+    vaultName :: Types.String,
     -- | The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTagsToVault' with the minimum fields required to make a request.
---
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'tags' - The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
+-- | Creates a 'AddTagsToVault' value with any optional fields omitted.
 mkAddTagsToVault ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
   AddTagsToVault
-mkAddTagsToVault pVaultName_ pAccountId_ =
-  AddTagsToVault'
-    { vaultName = pVaultName_,
-      accountId = pAccountId_,
-      tags = Lude.Nothing
-    }
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attvVaultName :: Lens.Lens' AddTagsToVault Lude.Text
-attvVaultName = Lens.lens (vaultName :: AddTagsToVault -> Lude.Text) (\s a -> s {vaultName = a} :: AddTagsToVault)
-{-# DEPRECATED attvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+mkAddTagsToVault accountId vaultName =
+  AddTagsToVault' {accountId, vaultName, tags = Core.Nothing}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attvAccountId :: Lens.Lens' AddTagsToVault Lude.Text
-attvAccountId = Lens.lens (accountId :: AddTagsToVault -> Lude.Text) (\s a -> s {accountId = a} :: AddTagsToVault)
+attvAccountId :: Lens.Lens' AddTagsToVault Types.String
+attvAccountId = Lens.field @"accountId"
 {-# DEPRECATED attvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attvVaultName :: Lens.Lens' AddTagsToVault Types.String
+attvVaultName = Lens.field @"vaultName"
+{-# DEPRECATED attvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The tags to add to the vault. Each tag is composed of a key and a value. The value can be an empty string.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attvTags :: Lens.Lens' AddTagsToVault (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-attvTags = Lens.lens (tags :: AddTagsToVault -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: AddTagsToVault)
+attvTags :: Lens.Lens' AddTagsToVault (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+attvTags = Lens.field @"tags"
 {-# DEPRECATED attvTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest AddTagsToVault where
+instance Core.FromJSON AddTagsToVault where
+  toJSON AddTagsToVault {..} =
+    Core.object (Core.catMaybes [("Tags" Core..=) Core.<$> tags])
+
+instance Core.AWSRequest AddTagsToVault where
   type Rs AddTagsToVault = AddTagsToVaultResponse
-  request = Req.postJSON glacierService
-  response = Res.receiveNull AddTagsToVaultResponse'
-
-instance Lude.ToHeaders AddTagsToVault where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON AddTagsToVault where
-  toJSON AddTagsToVault' {..} =
-    Lude.object (Lude.catMaybes [("Tags" Lude..=) Lude.<$> tags])
-
-instance Lude.ToPath AddTagsToVault where
-  toPath AddTagsToVault' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/tags"
-      ]
-
-instance Lude.ToQuery AddTagsToVault where
-  toQuery = Lude.const (Lude.mconcat ["operation=add"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/tags")
+            ),
+        Core._rqQuery = Core.pure ("operation=add", ""),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull AddTagsToVaultResponse'
 
 -- | /See:/ 'mkAddTagsToVaultResponse' smart constructor.
 data AddTagsToVaultResponse = AddTagsToVaultResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTagsToVaultResponse' with the minimum fields required to make a request.
+-- | Creates a 'AddTagsToVaultResponse' value with any optional fields omitted.
 mkAddTagsToVaultResponse ::
   AddTagsToVaultResponse
 mkAddTagsToVaultResponse = AddTagsToVaultResponse'

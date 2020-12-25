@@ -23,179 +23,175 @@ module Network.AWS.EC2.GetGroupsForCapacityReservation
 
     -- ** Request lenses
     ggfcrCapacityReservationId,
-    ggfcrNextToken,
     ggfcrDryRun,
     ggfcrMaxResults,
+    ggfcrNextToken,
 
     -- * Destructuring the response
     GetGroupsForCapacityReservationResponse (..),
     mkGetGroupsForCapacityReservationResponse,
 
     -- ** Response lenses
-    ggfcrrsNextToken,
-    ggfcrrsCapacityReservationGroups,
-    ggfcrrsResponseStatus,
+    ggfcrrrsCapacityReservationGroups,
+    ggfcrrrsNextToken,
+    ggfcrrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetGroupsForCapacityReservation' smart constructor.
 data GetGroupsForCapacityReservation = GetGroupsForCapacityReservation'
   { -- | The ID of the Capacity Reservation.
-    capacityReservationId :: Lude.Text,
-    -- | The token to use to retrieve the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    capacityReservationId :: Types.CapacityReservationId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    dryRun :: Core.Maybe Core.Bool,
     -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token to use to retrieve the next page of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroupsForCapacityReservation' with the minimum fields required to make a request.
---
--- * 'capacityReservationId' - The ID of the Capacity Reservation.
--- * 'nextToken' - The token to use to retrieve the next page of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
+-- | Creates a 'GetGroupsForCapacityReservation' value with any optional fields omitted.
 mkGetGroupsForCapacityReservation ::
   -- | 'capacityReservationId'
-  Lude.Text ->
+  Types.CapacityReservationId ->
   GetGroupsForCapacityReservation
-mkGetGroupsForCapacityReservation pCapacityReservationId_ =
+mkGetGroupsForCapacityReservation capacityReservationId =
   GetGroupsForCapacityReservation'
-    { capacityReservationId =
-        pCapacityReservationId_,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { capacityReservationId,
+      dryRun = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The ID of the Capacity Reservation.
 --
 -- /Note:/ Consider using 'capacityReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggfcrCapacityReservationId :: Lens.Lens' GetGroupsForCapacityReservation Lude.Text
-ggfcrCapacityReservationId = Lens.lens (capacityReservationId :: GetGroupsForCapacityReservation -> Lude.Text) (\s a -> s {capacityReservationId = a} :: GetGroupsForCapacityReservation)
+ggfcrCapacityReservationId :: Lens.Lens' GetGroupsForCapacityReservation Types.CapacityReservationId
+ggfcrCapacityReservationId = Lens.field @"capacityReservationId"
 {-# DEPRECATED ggfcrCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
-
--- | The token to use to retrieve the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggfcrNextToken :: Lens.Lens' GetGroupsForCapacityReservation (Lude.Maybe Lude.Text)
-ggfcrNextToken = Lens.lens (nextToken :: GetGroupsForCapacityReservation -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetGroupsForCapacityReservation)
-{-# DEPRECATED ggfcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggfcrDryRun :: Lens.Lens' GetGroupsForCapacityReservation (Lude.Maybe Lude.Bool)
-ggfcrDryRun = Lens.lens (dryRun :: GetGroupsForCapacityReservation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetGroupsForCapacityReservation)
+ggfcrDryRun :: Lens.Lens' GetGroupsForCapacityReservation (Core.Maybe Core.Bool)
+ggfcrDryRun = Lens.field @"dryRun"
 {-# DEPRECATED ggfcrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned @nextToken@ value. This value can be between 5 and 500. If @maxResults@ is given a larger value than 500, you receive an error.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggfcrMaxResults :: Lens.Lens' GetGroupsForCapacityReservation (Lude.Maybe Lude.Natural)
-ggfcrMaxResults = Lens.lens (maxResults :: GetGroupsForCapacityReservation -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetGroupsForCapacityReservation)
+ggfcrMaxResults :: Lens.Lens' GetGroupsForCapacityReservation (Core.Maybe Core.Natural)
+ggfcrMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ggfcrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager GetGroupsForCapacityReservation where
-  page rq rs
-    | Page.stop (rs Lens.^. ggfcrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ggfcrrsCapacityReservationGroups) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ggfcrNextToken Lens..~ rs Lens.^. ggfcrrsNextToken
+-- | The token to use to retrieve the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggfcrNextToken :: Lens.Lens' GetGroupsForCapacityReservation (Core.Maybe Types.NextToken)
+ggfcrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ggfcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest GetGroupsForCapacityReservation where
+instance Core.AWSRequest GetGroupsForCapacityReservation where
   type
     Rs GetGroupsForCapacityReservation =
       GetGroupsForCapacityReservationResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetGroupsForCapacityReservation")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "CapacityReservationId" capacityReservationId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetGroupsForCapacityReservationResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "capacityReservationGroupSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "capacityReservationGroupSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetGroupsForCapacityReservation where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetGroupsForCapacityReservation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetGroupsForCapacityReservation where
-  toQuery GetGroupsForCapacityReservation' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("GetGroupsForCapacityReservation" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "CapacityReservationId" Lude.=: capacityReservationId,
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager GetGroupsForCapacityReservation where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"capacityReservationGroups" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetGroupsForCapacityReservationResponse' smart constructor.
 data GetGroupsForCapacityReservationResponse = GetGroupsForCapacityReservationResponse'
-  { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Information about the resource groups to which the Capacity Reservation has been added.
-    capacityReservationGroups :: Lude.Maybe [CapacityReservationGroup],
+  { -- | Information about the resource groups to which the Capacity Reservation has been added.
+    capacityReservationGroups :: Core.Maybe [Types.CapacityReservationGroup],
+    -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroupsForCapacityReservationResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'capacityReservationGroups' - Information about the resource groups to which the Capacity Reservation has been added.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetGroupsForCapacityReservationResponse' value with any optional fields omitted.
 mkGetGroupsForCapacityReservationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetGroupsForCapacityReservationResponse
-mkGetGroupsForCapacityReservationResponse pResponseStatus_ =
+mkGetGroupsForCapacityReservationResponse responseStatus =
   GetGroupsForCapacityReservationResponse'
-    { nextToken =
-        Lude.Nothing,
-      capacityReservationGroups = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { capacityReservationGroups =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggfcrrsNextToken :: Lens.Lens' GetGroupsForCapacityReservationResponse (Lude.Maybe Lude.Text)
-ggfcrrsNextToken = Lens.lens (nextToken :: GetGroupsForCapacityReservationResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetGroupsForCapacityReservationResponse)
-{-# DEPRECATED ggfcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the resource groups to which the Capacity Reservation has been added.
 --
 -- /Note:/ Consider using 'capacityReservationGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggfcrrsCapacityReservationGroups :: Lens.Lens' GetGroupsForCapacityReservationResponse (Lude.Maybe [CapacityReservationGroup])
-ggfcrrsCapacityReservationGroups = Lens.lens (capacityReservationGroups :: GetGroupsForCapacityReservationResponse -> Lude.Maybe [CapacityReservationGroup]) (\s a -> s {capacityReservationGroups = a} :: GetGroupsForCapacityReservationResponse)
-{-# DEPRECATED ggfcrrsCapacityReservationGroups "Use generic-lens or generic-optics with 'capacityReservationGroups' instead." #-}
+ggfcrrrsCapacityReservationGroups :: Lens.Lens' GetGroupsForCapacityReservationResponse (Core.Maybe [Types.CapacityReservationGroup])
+ggfcrrrsCapacityReservationGroups = Lens.field @"capacityReservationGroups"
+{-# DEPRECATED ggfcrrrsCapacityReservationGroups "Use generic-lens or generic-optics with 'capacityReservationGroups' instead." #-}
+
+-- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggfcrrrsNextToken :: Lens.Lens' GetGroupsForCapacityReservationResponse (Core.Maybe Types.NextToken)
+ggfcrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ggfcrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggfcrrsResponseStatus :: Lens.Lens' GetGroupsForCapacityReservationResponse Lude.Int
-ggfcrrsResponseStatus = Lens.lens (responseStatus :: GetGroupsForCapacityReservationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGroupsForCapacityReservationResponse)
-{-# DEPRECATED ggfcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ggfcrrrsResponseStatus :: Lens.Lens' GetGroupsForCapacityReservationResponse Core.Int
+ggfcrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ggfcrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

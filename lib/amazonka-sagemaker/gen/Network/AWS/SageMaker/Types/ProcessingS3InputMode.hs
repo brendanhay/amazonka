@@ -13,46 +13,51 @@
 module Network.AWS.SageMaker.Types.ProcessingS3InputMode
   ( ProcessingS3InputMode
       ( ProcessingS3InputMode',
-        Pipe,
-        File
+        ProcessingS3InputModePipe,
+        ProcessingS3InputModeFile,
+        fromProcessingS3InputMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProcessingS3InputMode = ProcessingS3InputMode' Lude.Text
+newtype ProcessingS3InputMode = ProcessingS3InputMode'
+  { fromProcessingS3InputMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Pipe :: ProcessingS3InputMode
-pattern Pipe = ProcessingS3InputMode' "Pipe"
+pattern ProcessingS3InputModePipe :: ProcessingS3InputMode
+pattern ProcessingS3InputModePipe = ProcessingS3InputMode' "Pipe"
 
-pattern File :: ProcessingS3InputMode
-pattern File = ProcessingS3InputMode' "File"
+pattern ProcessingS3InputModeFile :: ProcessingS3InputMode
+pattern ProcessingS3InputModeFile = ProcessingS3InputMode' "File"
 
 {-# COMPLETE
-  Pipe,
-  File,
+  ProcessingS3InputModePipe,
+  ProcessingS3InputModeFile,
   ProcessingS3InputMode'
   #-}

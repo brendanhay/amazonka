@@ -20,32 +20,34 @@ module Network.AWS.ServiceCatalog.UpdateConstraint
     mkUpdateConstraint,
 
     -- ** Request lenses
-    ucAcceptLanguage,
-    ucParameters,
     ucId,
+    ucAcceptLanguage,
     ucDescription,
+    ucParameters,
 
     -- * Destructuring the response
     UpdateConstraintResponse (..),
     mkUpdateConstraintResponse,
 
     -- ** Response lenses
-    ucrsStatus,
-    ucrsConstraintDetail,
-    ucrsConstraintParameters,
-    ucrsResponseStatus,
+    ucrrsConstraintDetail,
+    ucrrsConstraintParameters,
+    ucrrsStatus,
+    ucrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkUpdateConstraint' smart constructor.
 data UpdateConstraint = UpdateConstraint'
-  { -- | The language code.
+  { -- | The identifier of the constraint.
+    id :: Types.Id,
+    -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -55,7 +57,9 @@ data UpdateConstraint = UpdateConstraint'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
+    -- | The updated description of the constraint.
+    description :: Core.Maybe Types.ConstraintDescription,
     -- | The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
     --
     --
@@ -96,84 +100,30 @@ data UpdateConstraint = UpdateConstraint'
     --     * TEMPLATE
     --
     --     * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
-    parameters :: Lude.Maybe Lude.Text,
-    -- | The identifier of the constraint.
-    id :: Lude.Text,
-    -- | The updated description of the constraint.
-    description :: Lude.Maybe Lude.Text
+    parameters :: Core.Maybe Types.ConstraintParameters
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConstraint' with the minimum fields required to make a request.
---
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'parameters' - The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
---
---
---     * LAUNCH
---
---     * You are required to specify either the @RoleArn@ or the @LocalRoleName@ but can't use both.
--- Specify the @RoleArn@ property as follows:
--- @{"RoleArn" : "arn:aws:iam::123456789012:role/LaunchRole"}@
--- Specify the @LocalRoleName@ property as follows:
--- @{"LocalRoleName": "SCBasicLaunchRole"}@
--- If you specify the @LocalRoleName@ property, when an account uses the launch constraint, the IAM role with that name in the account will be used. This allows launch-role constraints to be account-agnostic so the administrator can create fewer resources per shared account.
--- You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
--- You also cannot have more than one @LAUNCH@ constraint on a product and portfolio.
---
---
---     * NOTIFICATION
---
---     * Specify the @NotificationArns@ property as follows:
--- @{"NotificationArns" : ["arn:aws:sns:us-east-1:123456789012:Topic"]}@
---
---
---     * RESOURCE_UPDATE
---
---     * Specify the @TagUpdatesOnProvisionedProduct@ property as follows:
--- @{"Version":"2.0","Properties":{"TagUpdateOnProvisionedProduct":"String"}}@
--- The @TagUpdatesOnProvisionedProduct@ property accepts a string value of @ALLOWED@ or @NOT_ALLOWED@ .
---
---
---     * STACKSET
---
---     * Specify the @Parameters@ property as follows:
--- @{"Version": "String", "Properties": {"AccountList": [ "String" ], "RegionList": [ "String" ], "AdminRole": "String", "ExecutionRole": "String"}}@
--- You cannot have both a @LAUNCH@ and a @STACKSET@ constraint.
--- You also cannot have more than one @STACKSET@ constraint on a product and portfolio.
--- Products with a @STACKSET@ constraint will launch an AWS CloudFormation stack set.
---
---
---     * TEMPLATE
---
---     * Specify the @Rules@ property. For more information, see <http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html Template Constraint Rules> .
---
---
--- * 'id' - The identifier of the constraint.
--- * 'description' - The updated description of the constraint.
+-- | Creates a 'UpdateConstraint' value with any optional fields omitted.
 mkUpdateConstraint ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   UpdateConstraint
-mkUpdateConstraint pId_ =
+mkUpdateConstraint id =
   UpdateConstraint'
-    { acceptLanguage = Lude.Nothing,
-      parameters = Lude.Nothing,
-      id = pId_,
-      description = Lude.Nothing
+    { id,
+      acceptLanguage = Core.Nothing,
+      description = Core.Nothing,
+      parameters = Core.Nothing
     }
+
+-- | The identifier of the constraint.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucId :: Lens.Lens' UpdateConstraint Types.Id
+ucId = Lens.field @"id"
+{-# DEPRECATED ucId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The language code.
 --
@@ -189,9 +139,16 @@ mkUpdateConstraint pId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucAcceptLanguage :: Lens.Lens' UpdateConstraint (Lude.Maybe Lude.Text)
-ucAcceptLanguage = Lens.lens (acceptLanguage :: UpdateConstraint -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: UpdateConstraint)
+ucAcceptLanguage :: Lens.Lens' UpdateConstraint (Core.Maybe Types.AcceptLanguage)
+ucAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED ucAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+
+-- | The updated description of the constraint.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucDescription :: Lens.Lens' UpdateConstraint (Core.Maybe Types.ConstraintDescription)
+ucDescription = Lens.field @"description"
+{-# DEPRECATED ucDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The constraint parameters, in JSON format. The syntax depends on the constraint type as follows:
 --
@@ -237,123 +194,96 @@ ucAcceptLanguage = Lens.lens (acceptLanguage :: UpdateConstraint -> Lude.Maybe L
 --
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucParameters :: Lens.Lens' UpdateConstraint (Lude.Maybe Lude.Text)
-ucParameters = Lens.lens (parameters :: UpdateConstraint -> Lude.Maybe Lude.Text) (\s a -> s {parameters = a} :: UpdateConstraint)
+ucParameters :: Lens.Lens' UpdateConstraint (Core.Maybe Types.ConstraintParameters)
+ucParameters = Lens.field @"parameters"
 {-# DEPRECATED ucParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
--- | The identifier of the constraint.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucId :: Lens.Lens' UpdateConstraint Lude.Text
-ucId = Lens.lens (id :: UpdateConstraint -> Lude.Text) (\s a -> s {id = a} :: UpdateConstraint)
-{-# DEPRECATED ucId "Use generic-lens or generic-optics with 'id' instead." #-}
+instance Core.FromJSON UpdateConstraint where
+  toJSON UpdateConstraint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("Description" Core..=) Core.<$> description,
+            ("Parameters" Core..=) Core.<$> parameters
+          ]
+      )
 
--- | The updated description of the constraint.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucDescription :: Lens.Lens' UpdateConstraint (Lude.Maybe Lude.Text)
-ucDescription = Lens.lens (description :: UpdateConstraint -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateConstraint)
-{-# DEPRECATED ucDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.AWSRequest UpdateConstraint where
+instance Core.AWSRequest UpdateConstraint where
   type Rs UpdateConstraint = UpdateConstraintResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.UpdateConstraint")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateConstraintResponse'
-            Lude.<$> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "ConstraintDetail")
-            Lude.<*> (x Lude..?> "ConstraintParameters")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ConstraintDetail")
+            Core.<*> (x Core..:? "ConstraintParameters")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateConstraint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.UpdateConstraint" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateConstraint where
-  toJSON UpdateConstraint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("Parameters" Lude..=) Lude.<$> parameters,
-            Lude.Just ("Id" Lude..= id),
-            ("Description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath UpdateConstraint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateConstraint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateConstraintResponse' smart constructor.
 data UpdateConstraintResponse = UpdateConstraintResponse'
-  { -- | The status of the current request.
-    status :: Lude.Maybe RequestStatus,
-    -- | Information about the constraint.
-    constraintDetail :: Lude.Maybe ConstraintDetail,
+  { -- | Information about the constraint.
+    constraintDetail :: Core.Maybe Types.ConstraintDetail,
     -- | The constraint parameters.
-    constraintParameters :: Lude.Maybe Lude.Text,
+    constraintParameters :: Core.Maybe Types.ConstraintParameters,
+    -- | The status of the current request.
+    status :: Core.Maybe Types.RequestStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConstraintResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the current request.
--- * 'constraintDetail' - Information about the constraint.
--- * 'constraintParameters' - The constraint parameters.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateConstraintResponse' value with any optional fields omitted.
 mkUpdateConstraintResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateConstraintResponse
-mkUpdateConstraintResponse pResponseStatus_ =
+mkUpdateConstraintResponse responseStatus =
   UpdateConstraintResponse'
-    { status = Lude.Nothing,
-      constraintDetail = Lude.Nothing,
-      constraintParameters = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { constraintDetail = Core.Nothing,
+      constraintParameters = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
-
--- | The status of the current request.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsStatus :: Lens.Lens' UpdateConstraintResponse (Lude.Maybe RequestStatus)
-ucrsStatus = Lens.lens (status :: UpdateConstraintResponse -> Lude.Maybe RequestStatus) (\s a -> s {status = a} :: UpdateConstraintResponse)
-{-# DEPRECATED ucrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Information about the constraint.
 --
 -- /Note:/ Consider using 'constraintDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsConstraintDetail :: Lens.Lens' UpdateConstraintResponse (Lude.Maybe ConstraintDetail)
-ucrsConstraintDetail = Lens.lens (constraintDetail :: UpdateConstraintResponse -> Lude.Maybe ConstraintDetail) (\s a -> s {constraintDetail = a} :: UpdateConstraintResponse)
-{-# DEPRECATED ucrsConstraintDetail "Use generic-lens or generic-optics with 'constraintDetail' instead." #-}
+ucrrsConstraintDetail :: Lens.Lens' UpdateConstraintResponse (Core.Maybe Types.ConstraintDetail)
+ucrrsConstraintDetail = Lens.field @"constraintDetail"
+{-# DEPRECATED ucrrsConstraintDetail "Use generic-lens or generic-optics with 'constraintDetail' instead." #-}
 
 -- | The constraint parameters.
 --
 -- /Note:/ Consider using 'constraintParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsConstraintParameters :: Lens.Lens' UpdateConstraintResponse (Lude.Maybe Lude.Text)
-ucrsConstraintParameters = Lens.lens (constraintParameters :: UpdateConstraintResponse -> Lude.Maybe Lude.Text) (\s a -> s {constraintParameters = a} :: UpdateConstraintResponse)
-{-# DEPRECATED ucrsConstraintParameters "Use generic-lens or generic-optics with 'constraintParameters' instead." #-}
+ucrrsConstraintParameters :: Lens.Lens' UpdateConstraintResponse (Core.Maybe Types.ConstraintParameters)
+ucrrsConstraintParameters = Lens.field @"constraintParameters"
+{-# DEPRECATED ucrrsConstraintParameters "Use generic-lens or generic-optics with 'constraintParameters' instead." #-}
+
+-- | The status of the current request.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrrsStatus :: Lens.Lens' UpdateConstraintResponse (Core.Maybe Types.RequestStatus)
+ucrrsStatus = Lens.field @"status"
+{-# DEPRECATED ucrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsResponseStatus :: Lens.Lens' UpdateConstraintResponse Lude.Int
-ucrsResponseStatus = Lens.lens (responseStatus :: UpdateConstraintResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateConstraintResponse)
-{-# DEPRECATED ucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucrrsResponseStatus :: Lens.Lens' UpdateConstraintResponse Core.Int
+ucrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

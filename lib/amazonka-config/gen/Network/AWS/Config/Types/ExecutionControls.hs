@@ -21,42 +21,39 @@ module Network.AWS.Config.Types.ExecutionControls
   )
 where
 
-import Network.AWS.Config.Types.SsmControls
+import qualified Network.AWS.Config.Types.SsmControls as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The controls that AWS Config uses for executing remediations.
 --
 -- /See:/ 'mkExecutionControls' smart constructor.
 newtype ExecutionControls = ExecutionControls'
   { -- | A SsmControls object.
-    ssmControls :: Lude.Maybe SsmControls
+    ssmControls :: Core.Maybe Types.SsmControls
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExecutionControls' with the minimum fields required to make a request.
---
--- * 'ssmControls' - A SsmControls object.
+-- | Creates a 'ExecutionControls' value with any optional fields omitted.
 mkExecutionControls ::
   ExecutionControls
 mkExecutionControls =
-  ExecutionControls' {ssmControls = Lude.Nothing}
+  ExecutionControls' {ssmControls = Core.Nothing}
 
 -- | A SsmControls object.
 --
 -- /Note:/ Consider using 'ssmControls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecSsmControls :: Lens.Lens' ExecutionControls (Lude.Maybe SsmControls)
-ecSsmControls = Lens.lens (ssmControls :: ExecutionControls -> Lude.Maybe SsmControls) (\s a -> s {ssmControls = a} :: ExecutionControls)
+ecSsmControls :: Lens.Lens' ExecutionControls (Core.Maybe Types.SsmControls)
+ecSsmControls = Lens.field @"ssmControls"
 {-# DEPRECATED ecSsmControls "Use generic-lens or generic-optics with 'ssmControls' instead." #-}
 
-instance Lude.FromJSON ExecutionControls where
-  parseJSON =
-    Lude.withObject
-      "ExecutionControls"
-      (\x -> ExecutionControls' Lude.<$> (x Lude..:? "SsmControls"))
+instance Core.FromJSON ExecutionControls where
+  toJSON ExecutionControls {..} =
+    Core.object
+      (Core.catMaybes [("SsmControls" Core..=) Core.<$> ssmControls])
 
-instance Lude.ToJSON ExecutionControls where
-  toJSON ExecutionControls' {..} =
-    Lude.object
-      (Lude.catMaybes [("SsmControls" Lude..=) Lude.<$> ssmControls])
+instance Core.FromJSON ExecutionControls where
+  parseJSON =
+    Core.withObject "ExecutionControls" Core.$
+      \x -> ExecutionControls' Core.<$> (x Core..:? "SsmControls")

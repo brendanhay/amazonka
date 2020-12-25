@@ -17,71 +17,66 @@ module Network.AWS.StorageGateway.Types.NetworkInterface
     mkNetworkInterface,
 
     -- * Lenses
-    niIPv6Address,
-    niMACAddress,
-    niIPv4Address,
+    niIpv4Address,
+    niIpv6Address,
+    niMacAddress,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StorageGateway.Types.String as Types
 
 -- | Describes a gateway's network interface.
 --
 -- /See:/ 'mkNetworkInterface' smart constructor.
 data NetworkInterface = NetworkInterface'
-  { -- | The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/ .
-    ipv6Address :: Lude.Maybe Lude.Text,
+  { -- | The Internet Protocol version 4 (IPv4) address of the interface.
+    ipv4Address :: Core.Maybe Types.String,
+    -- | The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/ .
+    ipv6Address :: Core.Maybe Types.String,
     -- | The Media Access Control (MAC) address of the interface.
-    mACAddress :: Lude.Maybe Lude.Text,
-    -- | The Internet Protocol version 4 (IPv4) address of the interface.
-    ipv4Address :: Lude.Maybe Lude.Text
+    macAddress :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NetworkInterface' with the minimum fields required to make a request.
---
--- * 'ipv6Address' - The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/ .
--- * 'mACAddress' - The Media Access Control (MAC) address of the interface.
--- * 'ipv4Address' - The Internet Protocol version 4 (IPv4) address of the interface.
+-- | Creates a 'NetworkInterface' value with any optional fields omitted.
 mkNetworkInterface ::
   NetworkInterface
 mkNetworkInterface =
   NetworkInterface'
-    { ipv6Address = Lude.Nothing,
-      mACAddress = Lude.Nothing,
-      ipv4Address = Lude.Nothing
+    { ipv4Address = Core.Nothing,
+      ipv6Address = Core.Nothing,
+      macAddress = Core.Nothing
     }
-
--- | The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/ .
---
--- /Note:/ Consider using 'ipv6Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niIPv6Address :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niIPv6Address = Lens.lens (ipv6Address :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {ipv6Address = a} :: NetworkInterface)
-{-# DEPRECATED niIPv6Address "Use generic-lens or generic-optics with 'ipv6Address' instead." #-}
-
--- | The Media Access Control (MAC) address of the interface.
---
--- /Note:/ Consider using 'mACAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niMACAddress :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niMACAddress = Lens.lens (mACAddress :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {mACAddress = a} :: NetworkInterface)
-{-# DEPRECATED niMACAddress "Use generic-lens or generic-optics with 'mACAddress' instead." #-}
 
 -- | The Internet Protocol version 4 (IPv4) address of the interface.
 --
 -- /Note:/ Consider using 'ipv4Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-niIPv4Address :: Lens.Lens' NetworkInterface (Lude.Maybe Lude.Text)
-niIPv4Address = Lens.lens (ipv4Address :: NetworkInterface -> Lude.Maybe Lude.Text) (\s a -> s {ipv4Address = a} :: NetworkInterface)
-{-# DEPRECATED niIPv4Address "Use generic-lens or generic-optics with 'ipv4Address' instead." #-}
+niIpv4Address :: Lens.Lens' NetworkInterface (Core.Maybe Types.String)
+niIpv4Address = Lens.field @"ipv4Address"
+{-# DEPRECATED niIpv4Address "Use generic-lens or generic-optics with 'ipv4Address' instead." #-}
 
-instance Lude.FromJSON NetworkInterface where
+-- | The Internet Protocol version 6 (IPv6) address of the interface. /Currently not supported/ .
+--
+-- /Note:/ Consider using 'ipv6Address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niIpv6Address :: Lens.Lens' NetworkInterface (Core.Maybe Types.String)
+niIpv6Address = Lens.field @"ipv6Address"
+{-# DEPRECATED niIpv6Address "Use generic-lens or generic-optics with 'ipv6Address' instead." #-}
+
+-- | The Media Access Control (MAC) address of the interface.
+--
+-- /Note:/ Consider using 'macAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+niMacAddress :: Lens.Lens' NetworkInterface (Core.Maybe Types.String)
+niMacAddress = Lens.field @"macAddress"
+{-# DEPRECATED niMacAddress "Use generic-lens or generic-optics with 'macAddress' instead." #-}
+
+instance Core.FromJSON NetworkInterface where
   parseJSON =
-    Lude.withObject
-      "NetworkInterface"
-      ( \x ->
-          NetworkInterface'
-            Lude.<$> (x Lude..:? "Ipv6Address")
-            Lude.<*> (x Lude..:? "MacAddress")
-            Lude.<*> (x Lude..:? "Ipv4Address")
-      )
+    Core.withObject "NetworkInterface" Core.$
+      \x ->
+        NetworkInterface'
+          Core.<$> (x Core..:? "Ipv4Address")
+          Core.<*> (x Core..:? "Ipv6Address")
+          Core.<*> (x Core..:? "MacAddress")

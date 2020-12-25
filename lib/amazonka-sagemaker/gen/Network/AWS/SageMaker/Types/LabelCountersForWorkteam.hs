@@ -17,71 +17,65 @@ module Network.AWS.SageMaker.Types.LabelCountersForWorkteam
     mkLabelCountersForWorkteam,
 
     -- * Lenses
+    lcfwHumanLabeled,
     lcfwPendingHuman,
     lcfwTotal,
-    lcfwHumanLabeled,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides counts for human-labeled tasks in the labeling job.
 --
 -- /See:/ 'mkLabelCountersForWorkteam' smart constructor.
 data LabelCountersForWorkteam = LabelCountersForWorkteam'
-  { -- | The total number of data objects that need to be labeled by a human worker.
-    pendingHuman :: Lude.Maybe Lude.Natural,
+  { -- | The total number of data objects labeled by a human worker.
+    humanLabeled :: Core.Maybe Core.Natural,
+    -- | The total number of data objects that need to be labeled by a human worker.
+    pendingHuman :: Core.Maybe Core.Natural,
     -- | The total number of tasks in the labeling job.
-    total :: Lude.Maybe Lude.Natural,
-    -- | The total number of data objects labeled by a human worker.
-    humanLabeled :: Lude.Maybe Lude.Natural
+    total :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LabelCountersForWorkteam' with the minimum fields required to make a request.
---
--- * 'pendingHuman' - The total number of data objects that need to be labeled by a human worker.
--- * 'total' - The total number of tasks in the labeling job.
--- * 'humanLabeled' - The total number of data objects labeled by a human worker.
+-- | Creates a 'LabelCountersForWorkteam' value with any optional fields omitted.
 mkLabelCountersForWorkteam ::
   LabelCountersForWorkteam
 mkLabelCountersForWorkteam =
   LabelCountersForWorkteam'
-    { pendingHuman = Lude.Nothing,
-      total = Lude.Nothing,
-      humanLabeled = Lude.Nothing
+    { humanLabeled = Core.Nothing,
+      pendingHuman = Core.Nothing,
+      total = Core.Nothing
     }
+
+-- | The total number of data objects labeled by a human worker.
+--
+-- /Note:/ Consider using 'humanLabeled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfwHumanLabeled :: Lens.Lens' LabelCountersForWorkteam (Core.Maybe Core.Natural)
+lcfwHumanLabeled = Lens.field @"humanLabeled"
+{-# DEPRECATED lcfwHumanLabeled "Use generic-lens or generic-optics with 'humanLabeled' instead." #-}
 
 -- | The total number of data objects that need to be labeled by a human worker.
 --
 -- /Note:/ Consider using 'pendingHuman' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfwPendingHuman :: Lens.Lens' LabelCountersForWorkteam (Lude.Maybe Lude.Natural)
-lcfwPendingHuman = Lens.lens (pendingHuman :: LabelCountersForWorkteam -> Lude.Maybe Lude.Natural) (\s a -> s {pendingHuman = a} :: LabelCountersForWorkteam)
+lcfwPendingHuman :: Lens.Lens' LabelCountersForWorkteam (Core.Maybe Core.Natural)
+lcfwPendingHuman = Lens.field @"pendingHuman"
 {-# DEPRECATED lcfwPendingHuman "Use generic-lens or generic-optics with 'pendingHuman' instead." #-}
 
 -- | The total number of tasks in the labeling job.
 --
 -- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfwTotal :: Lens.Lens' LabelCountersForWorkteam (Lude.Maybe Lude.Natural)
-lcfwTotal = Lens.lens (total :: LabelCountersForWorkteam -> Lude.Maybe Lude.Natural) (\s a -> s {total = a} :: LabelCountersForWorkteam)
+lcfwTotal :: Lens.Lens' LabelCountersForWorkteam (Core.Maybe Core.Natural)
+lcfwTotal = Lens.field @"total"
 {-# DEPRECATED lcfwTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
--- | The total number of data objects labeled by a human worker.
---
--- /Note:/ Consider using 'humanLabeled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfwHumanLabeled :: Lens.Lens' LabelCountersForWorkteam (Lude.Maybe Lude.Natural)
-lcfwHumanLabeled = Lens.lens (humanLabeled :: LabelCountersForWorkteam -> Lude.Maybe Lude.Natural) (\s a -> s {humanLabeled = a} :: LabelCountersForWorkteam)
-{-# DEPRECATED lcfwHumanLabeled "Use generic-lens or generic-optics with 'humanLabeled' instead." #-}
-
-instance Lude.FromJSON LabelCountersForWorkteam where
+instance Core.FromJSON LabelCountersForWorkteam where
   parseJSON =
-    Lude.withObject
-      "LabelCountersForWorkteam"
-      ( \x ->
-          LabelCountersForWorkteam'
-            Lude.<$> (x Lude..:? "PendingHuman")
-            Lude.<*> (x Lude..:? "Total")
-            Lude.<*> (x Lude..:? "HumanLabeled")
-      )
+    Core.withObject "LabelCountersForWorkteam" Core.$
+      \x ->
+        LabelCountersForWorkteam'
+          Core.<$> (x Core..:? "HumanLabeled")
+          Core.<*> (x Core..:? "PendingHuman")
+          Core.<*> (x Core..:? "Total")

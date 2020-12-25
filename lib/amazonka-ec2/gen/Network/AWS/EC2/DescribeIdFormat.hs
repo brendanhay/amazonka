@@ -30,100 +30,96 @@ module Network.AWS.EC2.DescribeIdFormat
     mkDescribeIdFormatResponse,
 
     -- ** Response lenses
-    difrsStatuses,
-    difrsResponseStatus,
+    difrrsStatuses,
+    difrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeIdFormat' smart constructor.
 newtype DescribeIdFormat = DescribeIdFormat'
   { -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
-    resource :: Lude.Maybe Lude.Text
+    resource :: Core.Maybe Types.Resource
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeIdFormat' with the minimum fields required to make a request.
---
--- * 'resource' - The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
+-- | Creates a 'DescribeIdFormat' value with any optional fields omitted.
 mkDescribeIdFormat ::
   DescribeIdFormat
-mkDescribeIdFormat = DescribeIdFormat' {resource = Lude.Nothing}
+mkDescribeIdFormat = DescribeIdFormat' {resource = Core.Nothing}
 
 -- | The type of resource: @bundle@ | @conversion-task@ | @customer-gateway@ | @dhcp-options@ | @elastic-ip-allocation@ | @elastic-ip-association@ | @export-task@ | @flow-log@ | @image@ | @import-task@ | @instance@ | @internet-gateway@ | @network-acl@ | @network-acl-association@ | @network-interface@ | @network-interface-attachment@ | @prefix-list@ | @reservation@ | @route-table@ | @route-table-association@ | @security-group@ | @snapshot@ | @subnet@ | @subnet-cidr-block-association@ | @volume@ | @vpc@ | @vpc-cidr-block-association@ | @vpc-endpoint@ | @vpc-peering-connection@ | @vpn-connection@ | @vpn-gateway@
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difResource :: Lens.Lens' DescribeIdFormat (Lude.Maybe Lude.Text)
-difResource = Lens.lens (resource :: DescribeIdFormat -> Lude.Maybe Lude.Text) (\s a -> s {resource = a} :: DescribeIdFormat)
+difResource :: Lens.Lens' DescribeIdFormat (Core.Maybe Types.Resource)
+difResource = Lens.field @"resource"
 {-# DEPRECATED difResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance Lude.AWSRequest DescribeIdFormat where
+instance Core.AWSRequest DescribeIdFormat where
   type Rs DescribeIdFormat = DescribeIdFormatResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeIdFormat")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "Resource" Core.<$> resource)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeIdFormatResponse'
-            Lude.<$> ( x Lude..@? "statusSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "statusSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeIdFormat where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeIdFormat where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeIdFormat where
-  toQuery DescribeIdFormat' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeIdFormat" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Resource" Lude.=: resource
-      ]
 
 -- | /See:/ 'mkDescribeIdFormatResponse' smart constructor.
 data DescribeIdFormatResponse = DescribeIdFormatResponse'
   { -- | Information about the ID format for the resource.
-    statuses :: Lude.Maybe [IdFormat],
+    statuses :: Core.Maybe [Types.IdFormat],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeIdFormatResponse' with the minimum fields required to make a request.
---
--- * 'statuses' - Information about the ID format for the resource.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeIdFormatResponse' value with any optional fields omitted.
 mkDescribeIdFormatResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeIdFormatResponse
-mkDescribeIdFormatResponse pResponseStatus_ =
+mkDescribeIdFormatResponse responseStatus =
   DescribeIdFormatResponse'
-    { statuses = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { statuses = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the ID format for the resource.
 --
 -- /Note:/ Consider using 'statuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difrsStatuses :: Lens.Lens' DescribeIdFormatResponse (Lude.Maybe [IdFormat])
-difrsStatuses = Lens.lens (statuses :: DescribeIdFormatResponse -> Lude.Maybe [IdFormat]) (\s a -> s {statuses = a} :: DescribeIdFormatResponse)
-{-# DEPRECATED difrsStatuses "Use generic-lens or generic-optics with 'statuses' instead." #-}
+difrrsStatuses :: Lens.Lens' DescribeIdFormatResponse (Core.Maybe [Types.IdFormat])
+difrrsStatuses = Lens.field @"statuses"
+{-# DEPRECATED difrrsStatuses "Use generic-lens or generic-optics with 'statuses' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difrsResponseStatus :: Lens.Lens' DescribeIdFormatResponse Lude.Int
-difrsResponseStatus = Lens.lens (responseStatus :: DescribeIdFormatResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIdFormatResponse)
-{-# DEPRECATED difrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+difrrsResponseStatus :: Lens.Lens' DescribeIdFormatResponse Core.Int
+difrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED difrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

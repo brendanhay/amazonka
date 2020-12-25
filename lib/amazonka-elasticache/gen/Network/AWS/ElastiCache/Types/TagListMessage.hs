@@ -21,37 +21,33 @@ module Network.AWS.ElastiCache.Types.TagListMessage
   )
 where
 
-import Network.AWS.ElastiCache.Types.Tag
+import qualified Network.AWS.ElastiCache.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output from the @AddTagsToResource@ , @ListTagsForResource@ , and @RemoveTagsFromResource@ operations.
 --
 -- /See:/ 'mkTagListMessage' smart constructor.
 newtype TagListMessage = TagListMessage'
   { -- | A list of cost allocation tags as key-value pairs.
-    tagList :: Lude.Maybe [Tag]
+    tagList :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagListMessage' with the minimum fields required to make a request.
---
--- * 'tagList' - A list of cost allocation tags as key-value pairs.
+-- | Creates a 'TagListMessage' value with any optional fields omitted.
 mkTagListMessage ::
   TagListMessage
-mkTagListMessage = TagListMessage' {tagList = Lude.Nothing}
+mkTagListMessage = TagListMessage' {tagList = Core.Nothing}
 
 -- | A list of cost allocation tags as key-value pairs.
 --
 -- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlmTagList :: Lens.Lens' TagListMessage (Lude.Maybe [Tag])
-tlmTagList = Lens.lens (tagList :: TagListMessage -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: TagListMessage)
+tlmTagList :: Lens.Lens' TagListMessage (Core.Maybe [Types.Tag])
+tlmTagList = Lens.field @"tagList"
 {-# DEPRECATED tlmTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
-instance Lude.FromXML TagListMessage where
+instance Core.FromXML TagListMessage where
   parseXML x =
     TagListMessage'
-      Lude.<$> ( x Lude..@? "TagList" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
-               )
+      Core.<$> (x Core..@? "TagList" Core..<@> Core.parseXMLList "Tag")

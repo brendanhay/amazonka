@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CloudTrail
     Network.AWS.CloudTrail.AddTags
@@ -89,23 +95,47 @@ library
     Network.AWS.CloudTrail.Waiters
 
   other-modules:
+    Network.AWS.CloudTrail.Types.AccessKeyId
     Network.AWS.CloudTrail.Types.AdvancedEventSelector
     Network.AWS.CloudTrail.Types.AdvancedFieldSelector
+    Network.AWS.CloudTrail.Types.CloudTrailEvent
+    Network.AWS.CloudTrail.Types.CloudWatchLogsLogGroupArn
+    Network.AWS.CloudTrail.Types.CloudWatchLogsRoleArn
     Network.AWS.CloudTrail.Types.DataResource
     Network.AWS.CloudTrail.Types.Event
     Network.AWS.CloudTrail.Types.EventCategory
+    Network.AWS.CloudTrail.Types.EventId
+    Network.AWS.CloudTrail.Types.EventName
     Network.AWS.CloudTrail.Types.EventSelector
+    Network.AWS.CloudTrail.Types.EventSource
+    Network.AWS.CloudTrail.Types.HomeRegion
     Network.AWS.CloudTrail.Types.InsightSelector
     Network.AWS.CloudTrail.Types.InsightType
+    Network.AWS.CloudTrail.Types.Key
+    Network.AWS.CloudTrail.Types.KmsKeyId
     Network.AWS.CloudTrail.Types.LookupAttribute
     Network.AWS.CloudTrail.Types.LookupAttributeKey
+    Network.AWS.CloudTrail.Types.Name
+    Network.AWS.CloudTrail.Types.NextToken
+    Network.AWS.CloudTrail.Types.OperatorValue
     Network.AWS.CloudTrail.Types.PublicKey
+    Network.AWS.CloudTrail.Types.ReadOnly
     Network.AWS.CloudTrail.Types.ReadWriteType
     Network.AWS.CloudTrail.Types.Resource
     Network.AWS.CloudTrail.Types.ResourceTag
+    Network.AWS.CloudTrail.Types.S3BucketName
+    Network.AWS.CloudTrail.Types.S3KeyPrefix
+    Network.AWS.CloudTrail.Types.SelectorField
+    Network.AWS.CloudTrail.Types.SnsTopicARN
+    Network.AWS.CloudTrail.Types.SnsTopicName
+    Network.AWS.CloudTrail.Types.String
     Network.AWS.CloudTrail.Types.Tag
     Network.AWS.CloudTrail.Types.Trail
+    Network.AWS.CloudTrail.Types.TrailARN
     Network.AWS.CloudTrail.Types.TrailInfo
+    Network.AWS.CloudTrail.Types.TrailName
+    Network.AWS.CloudTrail.Types.Username
+    Network.AWS.CloudTrail.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

@@ -22,209 +22,192 @@ module Network.AWS.Config.SelectAggregateResourceConfig
     mkSelectAggregateResourceConfig,
 
     -- ** Request lenses
-    sarcNextToken,
     sarcExpression,
-    sarcLimit,
     sarcConfigurationAggregatorName,
+    sarcLimit,
     sarcMaxResults,
+    sarcNextToken,
 
     -- * Destructuring the response
     SelectAggregateResourceConfigResponse (..),
     mkSelectAggregateResourceConfigResponse,
 
     -- ** Response lenses
-    sarcrsResults,
-    sarcrsQueryInfo,
-    sarcrsNextToken,
-    sarcrsResponseStatus,
+    sarcrrsNextToken,
+    sarcrrsQueryInfo,
+    sarcrrsResults,
+    sarcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSelectAggregateResourceConfig' smart constructor.
 data SelectAggregateResourceConfig = SelectAggregateResourceConfig'
-  { -- | The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The SQL query SELECT command.
-    expression :: Lude.Text,
-    -- | The maximum number of query results returned on each page.
-    limit :: Lude.Maybe Lude.Natural,
+  { -- | The SQL query SELECT command.
+    expression :: Types.Expression,
     -- | The name of the configuration aggregator.
-    configurationAggregatorName :: Lude.Text,
+    configurationAggregatorName :: Types.ConfigurationAggregatorName,
+    -- | The maximum number of query results returned on each page.
+    limit :: Core.Maybe Core.Natural,
     -- | The maximum number of query results returned on each page. AWS Config also allows the Limit request parameter.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SelectAggregateResourceConfig' with the minimum fields required to make a request.
---
--- * 'nextToken' - The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
--- * 'expression' - The SQL query SELECT command.
--- * 'limit' - The maximum number of query results returned on each page.
--- * 'configurationAggregatorName' - The name of the configuration aggregator.
--- * 'maxResults' - The maximum number of query results returned on each page. AWS Config also allows the Limit request parameter.
+-- | Creates a 'SelectAggregateResourceConfig' value with any optional fields omitted.
 mkSelectAggregateResourceConfig ::
   -- | 'expression'
-  Lude.Text ->
+  Types.Expression ->
   -- | 'configurationAggregatorName'
-  Lude.Text ->
+  Types.ConfigurationAggregatorName ->
   SelectAggregateResourceConfig
 mkSelectAggregateResourceConfig
-  pExpression_
-  pConfigurationAggregatorName_ =
+  expression
+  configurationAggregatorName =
     SelectAggregateResourceConfig'
-      { nextToken = Lude.Nothing,
-        expression = pExpression_,
-        limit = Lude.Nothing,
-        configurationAggregatorName = pConfigurationAggregatorName_,
-        maxResults = Lude.Nothing
+      { expression,
+        configurationAggregatorName,
+        limit = Core.Nothing,
+        maxResults = Core.Nothing,
+        nextToken = Core.Nothing
       }
-
--- | The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarcNextToken :: Lens.Lens' SelectAggregateResourceConfig (Lude.Maybe Lude.Text)
-sarcNextToken = Lens.lens (nextToken :: SelectAggregateResourceConfig -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SelectAggregateResourceConfig)
-{-# DEPRECATED sarcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The SQL query SELECT command.
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarcExpression :: Lens.Lens' SelectAggregateResourceConfig Lude.Text
-sarcExpression = Lens.lens (expression :: SelectAggregateResourceConfig -> Lude.Text) (\s a -> s {expression = a} :: SelectAggregateResourceConfig)
+sarcExpression :: Lens.Lens' SelectAggregateResourceConfig Types.Expression
+sarcExpression = Lens.field @"expression"
 {-# DEPRECATED sarcExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
-
--- | The maximum number of query results returned on each page.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarcLimit :: Lens.Lens' SelectAggregateResourceConfig (Lude.Maybe Lude.Natural)
-sarcLimit = Lens.lens (limit :: SelectAggregateResourceConfig -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: SelectAggregateResourceConfig)
-{-# DEPRECATED sarcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of the configuration aggregator.
 --
 -- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarcConfigurationAggregatorName :: Lens.Lens' SelectAggregateResourceConfig Lude.Text
-sarcConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: SelectAggregateResourceConfig -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: SelectAggregateResourceConfig)
+sarcConfigurationAggregatorName :: Lens.Lens' SelectAggregateResourceConfig Types.ConfigurationAggregatorName
+sarcConfigurationAggregatorName = Lens.field @"configurationAggregatorName"
 {-# DEPRECATED sarcConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
+
+-- | The maximum number of query results returned on each page.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarcLimit :: Lens.Lens' SelectAggregateResourceConfig (Core.Maybe Core.Natural)
+sarcLimit = Lens.field @"limit"
+{-# DEPRECATED sarcLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The maximum number of query results returned on each page. AWS Config also allows the Limit request parameter.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarcMaxResults :: Lens.Lens' SelectAggregateResourceConfig (Lude.Maybe Lude.Natural)
-sarcMaxResults = Lens.lens (maxResults :: SelectAggregateResourceConfig -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SelectAggregateResourceConfig)
+sarcMaxResults :: Lens.Lens' SelectAggregateResourceConfig (Core.Maybe Core.Natural)
+sarcMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED sarcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Lude.AWSRequest SelectAggregateResourceConfig where
-  type
-    Rs SelectAggregateResourceConfig =
-      SelectAggregateResourceConfigResponse
-  request = Req.postJSON configService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          SelectAggregateResourceConfigResponse'
-            Lude.<$> (x Lude..?> "Results" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "QueryInfo")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders SelectAggregateResourceConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.SelectAggregateResourceConfig" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SelectAggregateResourceConfig where
-  toJSON SelectAggregateResourceConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("Expression" Lude..= expression),
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just
-              ( "ConfigurationAggregatorName"
-                  Lude..= configurationAggregatorName
-              ),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath SelectAggregateResourceConfig where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SelectAggregateResourceConfig where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkSelectAggregateResourceConfigResponse' smart constructor.
-data SelectAggregateResourceConfigResponse = SelectAggregateResourceConfigResponse'
-  { -- | Returns the results for the SQL query.
-    results :: Lude.Maybe [Lude.Text],
-    queryInfo :: Lude.Maybe QueryInfo,
-    -- | The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'SelectAggregateResourceConfigResponse' with the minimum fields required to make a request.
---
--- * 'results' - Returns the results for the SQL query.
--- * 'queryInfo' -
--- * 'nextToken' - The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
--- * 'responseStatus' - The response status code.
-mkSelectAggregateResourceConfigResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  SelectAggregateResourceConfigResponse
-mkSelectAggregateResourceConfigResponse pResponseStatus_ =
-  SelectAggregateResourceConfigResponse'
-    { results = Lude.Nothing,
-      queryInfo = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
-
--- | Returns the results for the SQL query.
---
--- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarcrsResults :: Lens.Lens' SelectAggregateResourceConfigResponse (Lude.Maybe [Lude.Text])
-sarcrsResults = Lens.lens (results :: SelectAggregateResourceConfigResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {results = a} :: SelectAggregateResourceConfigResponse)
-{-# DEPRECATED sarcrsResults "Use generic-lens or generic-optics with 'results' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'queryInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarcrsQueryInfo :: Lens.Lens' SelectAggregateResourceConfigResponse (Lude.Maybe QueryInfo)
-sarcrsQueryInfo = Lens.lens (queryInfo :: SelectAggregateResourceConfigResponse -> Lude.Maybe QueryInfo) (\s a -> s {queryInfo = a} :: SelectAggregateResourceConfigResponse)
-{-# DEPRECATED sarcrsQueryInfo "Use generic-lens or generic-optics with 'queryInfo' instead." #-}
 
 -- | The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarcrsNextToken :: Lens.Lens' SelectAggregateResourceConfigResponse (Lude.Maybe Lude.Text)
-sarcrsNextToken = Lens.lens (nextToken :: SelectAggregateResourceConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SelectAggregateResourceConfigResponse)
-{-# DEPRECATED sarcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+sarcNextToken :: Lens.Lens' SelectAggregateResourceConfig (Core.Maybe Types.NextToken)
+sarcNextToken = Lens.field @"nextToken"
+{-# DEPRECATED sarcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON SelectAggregateResourceConfig where
+  toJSON SelectAggregateResourceConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Expression" Core..= expression),
+            Core.Just
+              ( "ConfigurationAggregatorName"
+                  Core..= configurationAggregatorName
+              ),
+            ("Limit" Core..=) Core.<$> limit,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest SelectAggregateResourceConfig where
+  type
+    Rs SelectAggregateResourceConfig =
+      SelectAggregateResourceConfigResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.SelectAggregateResourceConfig"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          SelectAggregateResourceConfigResponse'
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "QueryInfo")
+            Core.<*> (x Core..:? "Results")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+-- | /See:/ 'mkSelectAggregateResourceConfigResponse' smart constructor.
+data SelectAggregateResourceConfigResponse = SelectAggregateResourceConfigResponse'
+  { -- | The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
+    nextToken :: Core.Maybe Types.NextToken,
+    queryInfo :: Core.Maybe Types.QueryInfo,
+    -- | Returns the results for the SQL query.
+    results :: Core.Maybe [Types.String],
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'SelectAggregateResourceConfigResponse' value with any optional fields omitted.
+mkSelectAggregateResourceConfigResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  SelectAggregateResourceConfigResponse
+mkSelectAggregateResourceConfigResponse responseStatus =
+  SelectAggregateResourceConfigResponse'
+    { nextToken = Core.Nothing,
+      queryInfo = Core.Nothing,
+      results = Core.Nothing,
+      responseStatus
+    }
+
+-- | The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarcrrsNextToken :: Lens.Lens' SelectAggregateResourceConfigResponse (Core.Maybe Types.NextToken)
+sarcrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED sarcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'queryInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarcrrsQueryInfo :: Lens.Lens' SelectAggregateResourceConfigResponse (Core.Maybe Types.QueryInfo)
+sarcrrsQueryInfo = Lens.field @"queryInfo"
+{-# DEPRECATED sarcrrsQueryInfo "Use generic-lens or generic-optics with 'queryInfo' instead." #-}
+
+-- | Returns the results for the SQL query.
+--
+-- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sarcrrsResults :: Lens.Lens' SelectAggregateResourceConfigResponse (Core.Maybe [Types.String])
+sarcrrsResults = Lens.field @"results"
+{-# DEPRECATED sarcrrsResults "Use generic-lens or generic-optics with 'results' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sarcrsResponseStatus :: Lens.Lens' SelectAggregateResourceConfigResponse Lude.Int
-sarcrsResponseStatus = Lens.lens (responseStatus :: SelectAggregateResourceConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SelectAggregateResourceConfigResponse)
-{-# DEPRECATED sarcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sarcrrsResponseStatus :: Lens.Lens' SelectAggregateResourceConfigResponse Core.Int
+sarcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sarcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

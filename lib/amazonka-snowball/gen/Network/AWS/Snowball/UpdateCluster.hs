@@ -20,198 +20,179 @@ module Network.AWS.Snowball.UpdateCluster
     mkUpdateCluster,
 
     -- ** Request lenses
-    ucNotification,
-    ucForwardingAddressId,
-    ucAddressId,
-    ucShippingOption,
-    ucResources,
     ucClusterId,
+    ucAddressId,
     ucDescription,
+    ucForwardingAddressId,
+    ucNotification,
+    ucResources,
     ucRoleARN,
+    ucShippingOption,
 
     -- * Destructuring the response
     UpdateClusterResponse (..),
     mkUpdateClusterResponse,
 
     -- ** Response lenses
-    ucrsResponseStatus,
+    ucrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Snowball.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkUpdateCluster' smart constructor.
 data UpdateCluster = UpdateCluster'
-  { -- | The new or updated 'Notification' object.
-    notification :: Lude.Maybe Notification,
-    -- | The updated ID for the forwarding address for a cluster. This field is not supported in most regions.
-    forwardingAddressId :: Lude.Maybe Lude.Text,
+  { -- | The cluster ID of the cluster that you want to update, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
+    clusterId :: Types.ClusterId,
     -- | The ID of the updated 'Address' object.
-    addressId :: Lude.Maybe Lude.Text,
-    -- | The updated shipping option value of this cluster's 'ShippingDetails' object.
-    shippingOption :: Lude.Maybe ShippingOption,
-    -- | The updated arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
-    resources :: Lude.Maybe JobResource,
-    -- | The cluster ID of the cluster that you want to update, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
-    clusterId :: Lude.Text,
+    addressId :: Core.Maybe Types.AddressId,
     -- | The updated description of this cluster.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
+    -- | The updated ID for the forwarding address for a cluster. This field is not supported in most regions.
+    forwardingAddressId :: Core.Maybe Types.ForwardingAddressId,
+    -- | The new or updated 'Notification' object.
+    notification :: Core.Maybe Types.Notification,
+    -- | The updated arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
+    resources :: Core.Maybe Types.JobResource,
     -- | The new role Amazon Resource Name (ARN) that you want to associate with this cluster. To create a role ARN, use the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
-    roleARN :: Lude.Maybe Lude.Text
+    roleARN :: Core.Maybe Types.RoleARN,
+    -- | The updated shipping option value of this cluster's 'ShippingDetails' object.
+    shippingOption :: Core.Maybe Types.ShippingOption
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCluster' with the minimum fields required to make a request.
---
--- * 'notification' - The new or updated 'Notification' object.
--- * 'forwardingAddressId' - The updated ID for the forwarding address for a cluster. This field is not supported in most regions.
--- * 'addressId' - The ID of the updated 'Address' object.
--- * 'shippingOption' - The updated shipping option value of this cluster's 'ShippingDetails' object.
--- * 'resources' - The updated arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
--- * 'clusterId' - The cluster ID of the cluster that you want to update, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
--- * 'description' - The updated description of this cluster.
--- * 'roleARN' - The new role Amazon Resource Name (ARN) that you want to associate with this cluster. To create a role ARN, use the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
+-- | Creates a 'UpdateCluster' value with any optional fields omitted.
 mkUpdateCluster ::
   -- | 'clusterId'
-  Lude.Text ->
+  Types.ClusterId ->
   UpdateCluster
-mkUpdateCluster pClusterId_ =
+mkUpdateCluster clusterId =
   UpdateCluster'
-    { notification = Lude.Nothing,
-      forwardingAddressId = Lude.Nothing,
-      addressId = Lude.Nothing,
-      shippingOption = Lude.Nothing,
-      resources = Lude.Nothing,
-      clusterId = pClusterId_,
-      description = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { clusterId,
+      addressId = Core.Nothing,
+      description = Core.Nothing,
+      forwardingAddressId = Core.Nothing,
+      notification = Core.Nothing,
+      resources = Core.Nothing,
+      roleARN = Core.Nothing,
+      shippingOption = Core.Nothing
     }
-
--- | The new or updated 'Notification' object.
---
--- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucNotification :: Lens.Lens' UpdateCluster (Lude.Maybe Notification)
-ucNotification = Lens.lens (notification :: UpdateCluster -> Lude.Maybe Notification) (\s a -> s {notification = a} :: UpdateCluster)
-{-# DEPRECATED ucNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
-
--- | The updated ID for the forwarding address for a cluster. This field is not supported in most regions.
---
--- /Note:/ Consider using 'forwardingAddressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucForwardingAddressId :: Lens.Lens' UpdateCluster (Lude.Maybe Lude.Text)
-ucForwardingAddressId = Lens.lens (forwardingAddressId :: UpdateCluster -> Lude.Maybe Lude.Text) (\s a -> s {forwardingAddressId = a} :: UpdateCluster)
-{-# DEPRECATED ucForwardingAddressId "Use generic-lens or generic-optics with 'forwardingAddressId' instead." #-}
-
--- | The ID of the updated 'Address' object.
---
--- /Note:/ Consider using 'addressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucAddressId :: Lens.Lens' UpdateCluster (Lude.Maybe Lude.Text)
-ucAddressId = Lens.lens (addressId :: UpdateCluster -> Lude.Maybe Lude.Text) (\s a -> s {addressId = a} :: UpdateCluster)
-{-# DEPRECATED ucAddressId "Use generic-lens or generic-optics with 'addressId' instead." #-}
-
--- | The updated shipping option value of this cluster's 'ShippingDetails' object.
---
--- /Note:/ Consider using 'shippingOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucShippingOption :: Lens.Lens' UpdateCluster (Lude.Maybe ShippingOption)
-ucShippingOption = Lens.lens (shippingOption :: UpdateCluster -> Lude.Maybe ShippingOption) (\s a -> s {shippingOption = a} :: UpdateCluster)
-{-# DEPRECATED ucShippingOption "Use generic-lens or generic-optics with 'shippingOption' instead." #-}
-
--- | The updated arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
---
--- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucResources :: Lens.Lens' UpdateCluster (Lude.Maybe JobResource)
-ucResources = Lens.lens (resources :: UpdateCluster -> Lude.Maybe JobResource) (\s a -> s {resources = a} :: UpdateCluster)
-{-# DEPRECATED ucResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The cluster ID of the cluster that you want to update, for example @CID123e4567-e89b-12d3-a456-426655440000@ .
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucClusterId :: Lens.Lens' UpdateCluster Lude.Text
-ucClusterId = Lens.lens (clusterId :: UpdateCluster -> Lude.Text) (\s a -> s {clusterId = a} :: UpdateCluster)
+ucClusterId :: Lens.Lens' UpdateCluster Types.ClusterId
+ucClusterId = Lens.field @"clusterId"
 {-# DEPRECATED ucClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+
+-- | The ID of the updated 'Address' object.
+--
+-- /Note:/ Consider using 'addressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucAddressId :: Lens.Lens' UpdateCluster (Core.Maybe Types.AddressId)
+ucAddressId = Lens.field @"addressId"
+{-# DEPRECATED ucAddressId "Use generic-lens or generic-optics with 'addressId' instead." #-}
 
 -- | The updated description of this cluster.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucDescription :: Lens.Lens' UpdateCluster (Lude.Maybe Lude.Text)
-ucDescription = Lens.lens (description :: UpdateCluster -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateCluster)
+ucDescription :: Lens.Lens' UpdateCluster (Core.Maybe Types.Description)
+ucDescription = Lens.field @"description"
 {-# DEPRECATED ucDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The updated ID for the forwarding address for a cluster. This field is not supported in most regions.
+--
+-- /Note:/ Consider using 'forwardingAddressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucForwardingAddressId :: Lens.Lens' UpdateCluster (Core.Maybe Types.ForwardingAddressId)
+ucForwardingAddressId = Lens.field @"forwardingAddressId"
+{-# DEPRECATED ucForwardingAddressId "Use generic-lens or generic-optics with 'forwardingAddressId' instead." #-}
+
+-- | The new or updated 'Notification' object.
+--
+-- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucNotification :: Lens.Lens' UpdateCluster (Core.Maybe Types.Notification)
+ucNotification = Lens.field @"notification"
+{-# DEPRECATED ucNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
+
+-- | The updated arrays of 'JobResource' objects that can include updated 'S3Resource' objects or 'LambdaResource' objects.
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucResources :: Lens.Lens' UpdateCluster (Core.Maybe Types.JobResource)
+ucResources = Lens.field @"resources"
+{-# DEPRECATED ucResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The new role Amazon Resource Name (ARN) that you want to associate with this cluster. To create a role ARN, use the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> API action in AWS Identity and Access Management (IAM).
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucRoleARN :: Lens.Lens' UpdateCluster (Lude.Maybe Lude.Text)
-ucRoleARN = Lens.lens (roleARN :: UpdateCluster -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateCluster)
+ucRoleARN :: Lens.Lens' UpdateCluster (Core.Maybe Types.RoleARN)
+ucRoleARN = Lens.field @"roleARN"
 {-# DEPRECATED ucRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Lude.AWSRequest UpdateCluster where
+-- | The updated shipping option value of this cluster's 'ShippingDetails' object.
+--
+-- /Note:/ Consider using 'shippingOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucShippingOption :: Lens.Lens' UpdateCluster (Core.Maybe Types.ShippingOption)
+ucShippingOption = Lens.field @"shippingOption"
+{-# DEPRECATED ucShippingOption "Use generic-lens or generic-optics with 'shippingOption' instead." #-}
+
+instance Core.FromJSON UpdateCluster where
+  toJSON UpdateCluster {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            ("AddressId" Core..=) Core.<$> addressId,
+            ("Description" Core..=) Core.<$> description,
+            ("ForwardingAddressId" Core..=) Core.<$> forwardingAddressId,
+            ("Notification" Core..=) Core.<$> notification,
+            ("Resources" Core..=) Core.<$> resources,
+            ("RoleARN" Core..=) Core.<$> roleARN,
+            ("ShippingOption" Core..=) Core.<$> shippingOption
+          ]
+      )
+
+instance Core.AWSRequest UpdateCluster where
   type Rs UpdateCluster = UpdateClusterResponse
-  request = Req.postJSON snowballService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSIESnowballJobManagementService.UpdateCluster")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateClusterResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateClusterResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateCluster where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSIESnowballJobManagementService.UpdateCluster" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateCluster where
-  toJSON UpdateCluster' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Notification" Lude..=) Lude.<$> notification,
-            ("ForwardingAddressId" Lude..=) Lude.<$> forwardingAddressId,
-            ("AddressId" Lude..=) Lude.<$> addressId,
-            ("ShippingOption" Lude..=) Lude.<$> shippingOption,
-            ("Resources" Lude..=) Lude.<$> resources,
-            Lude.Just ("ClusterId" Lude..= clusterId),
-            ("Description" Lude..=) Lude.<$> description,
-            ("RoleARN" Lude..=) Lude.<$> roleARN
-          ]
-      )
-
-instance Lude.ToPath UpdateCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateCluster where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateClusterResponse' smart constructor.
 newtype UpdateClusterResponse = UpdateClusterResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateClusterResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateClusterResponse' value with any optional fields omitted.
 mkUpdateClusterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateClusterResponse
-mkUpdateClusterResponse pResponseStatus_ =
-  UpdateClusterResponse' {responseStatus = pResponseStatus_}
+mkUpdateClusterResponse responseStatus =
+  UpdateClusterResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrsResponseStatus :: Lens.Lens' UpdateClusterResponse Lude.Int
-ucrsResponseStatus = Lens.lens (responseStatus :: UpdateClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateClusterResponse)
-{-# DEPRECATED ucrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucrrsResponseStatus :: Lens.Lens' UpdateClusterResponse Core.Int
+ucrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -31,66 +31,59 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     mkDescribeCacheSecurityGroupsResponse,
 
     -- ** Response lenses
-    dcsgrsCacheSecurityGroups,
-    dcsgrsMarker,
-    dcsgrsResponseStatus,
+    dcsgrfrsCacheSecurityGroups,
+    dcsgrfrsMarker,
+    dcsgrfrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DescribeCacheSecurityGroups@ operation.
 --
 -- /See:/ 'mkDescribeCacheSecurityGroups' smart constructor.
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
   { -- | The name of the cache security group to return details for.
-    cacheSecurityGroupName :: Lude.Maybe Lude.Text,
+    cacheSecurityGroupName :: Core.Maybe Types.String,
     -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 100
     -- Constraints: minimum 20; maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeCacheSecurityGroups' with the minimum fields required to make a request.
---
--- * 'cacheSecurityGroupName' - The name of the cache security group to return details for.
--- * 'marker' - An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
--- Constraints: minimum 20; maximum 100.
+-- | Creates a 'DescribeCacheSecurityGroups' value with any optional fields omitted.
 mkDescribeCacheSecurityGroups ::
   DescribeCacheSecurityGroups
 mkDescribeCacheSecurityGroups =
   DescribeCacheSecurityGroups'
     { cacheSecurityGroupName =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+        Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The name of the cache security group to return details for.
 --
 -- /Note:/ Consider using 'cacheSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgsCacheSecurityGroupName :: Lens.Lens' DescribeCacheSecurityGroups (Lude.Maybe Lude.Text)
-dcsgsCacheSecurityGroupName = Lens.lens (cacheSecurityGroupName :: DescribeCacheSecurityGroups -> Lude.Maybe Lude.Text) (\s a -> s {cacheSecurityGroupName = a} :: DescribeCacheSecurityGroups)
+dcsgsCacheSecurityGroupName :: Lens.Lens' DescribeCacheSecurityGroups (Core.Maybe Types.String)
+dcsgsCacheSecurityGroupName = Lens.field @"cacheSecurityGroupName"
 {-# DEPRECATED dcsgsCacheSecurityGroupName "Use generic-lens or generic-optics with 'cacheSecurityGroupName' instead." #-}
 
 -- | An optional marker returned from a prior request. Use this marker for pagination of results from this operation. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgsMarker :: Lens.Lens' DescribeCacheSecurityGroups (Lude.Maybe Lude.Text)
-dcsgsMarker = Lens.lens (marker :: DescribeCacheSecurityGroups -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheSecurityGroups)
+dcsgsMarker :: Lens.Lens' DescribeCacheSecurityGroups (Core.Maybe Types.String)
+dcsgsMarker = Lens.field @"marker"
 {-# DEPRECATED dcsgsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a marker is included in the response so that the remaining results can be retrieved.
@@ -99,101 +92,104 @@ dcsgsMarker = Lens.lens (marker :: DescribeCacheSecurityGroups -> Lude.Maybe Lud
 -- Constraints: minimum 20; maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgsMaxRecords :: Lens.Lens' DescribeCacheSecurityGroups (Lude.Maybe Lude.Int)
-dcsgsMaxRecords = Lens.lens (maxRecords :: DescribeCacheSecurityGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeCacheSecurityGroups)
+dcsgsMaxRecords :: Lens.Lens' DescribeCacheSecurityGroups (Core.Maybe Core.Int)
+dcsgsMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dcsgsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeCacheSecurityGroups where
-  page rq rs
-    | Page.stop (rs Lens.^. dcsgrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcsgrsCacheSecurityGroups) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dcsgsMarker Lens..~ rs Lens.^. dcsgrsMarker
-
-instance Lude.AWSRequest DescribeCacheSecurityGroups where
+instance Core.AWSRequest DescribeCacheSecurityGroups where
   type
     Rs DescribeCacheSecurityGroups =
       DescribeCacheSecurityGroupsResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeCacheSecurityGroups")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> ( Core.toQueryValue "CacheSecurityGroupName"
+                            Core.<$> cacheSecurityGroupName
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeCacheSecurityGroupsResult"
       ( \s h x ->
           DescribeCacheSecurityGroupsResponse'
-            Lude.<$> ( x Lude..@? "CacheSecurityGroups" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "CacheSecurityGroup")
+            Core.<$> ( x Core..@? "CacheSecurityGroups"
+                         Core..<@> Core.parseXMLList "CacheSecurityGroup"
                      )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeCacheSecurityGroups where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeCacheSecurityGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeCacheSecurityGroups where
-  toQuery DescribeCacheSecurityGroups' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeCacheSecurityGroups" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheSecurityGroupName" Lude.=: cacheSecurityGroupName,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeCacheSecurityGroups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"cacheSecurityGroups" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Represents the output of a @DescribeCacheSecurityGroups@ operation.
 --
 -- /See:/ 'mkDescribeCacheSecurityGroupsResponse' smart constructor.
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
   { -- | A list of cache security groups. Each element in the list contains detailed information about one group.
-    cacheSecurityGroups :: Lude.Maybe [CacheSecurityGroup],
+    cacheSecurityGroups :: Core.Maybe [Types.CacheSecurityGroup],
     -- | Provides an identifier to allow retrieval of paginated results.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeCacheSecurityGroupsResponse' with the minimum fields required to make a request.
---
--- * 'cacheSecurityGroups' - A list of cache security groups. Each element in the list contains detailed information about one group.
--- * 'marker' - Provides an identifier to allow retrieval of paginated results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeCacheSecurityGroupsResponse' value with any optional fields omitted.
 mkDescribeCacheSecurityGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeCacheSecurityGroupsResponse
-mkDescribeCacheSecurityGroupsResponse pResponseStatus_ =
+mkDescribeCacheSecurityGroupsResponse responseStatus =
   DescribeCacheSecurityGroupsResponse'
     { cacheSecurityGroups =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of cache security groups. Each element in the list contains detailed information about one group.
 --
 -- /Note:/ Consider using 'cacheSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgrsCacheSecurityGroups :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Lude.Maybe [CacheSecurityGroup])
-dcsgrsCacheSecurityGroups = Lens.lens (cacheSecurityGroups :: DescribeCacheSecurityGroupsResponse -> Lude.Maybe [CacheSecurityGroup]) (\s a -> s {cacheSecurityGroups = a} :: DescribeCacheSecurityGroupsResponse)
-{-# DEPRECATED dcsgrsCacheSecurityGroups "Use generic-lens or generic-optics with 'cacheSecurityGroups' instead." #-}
+dcsgrfrsCacheSecurityGroups :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Core.Maybe [Types.CacheSecurityGroup])
+dcsgrfrsCacheSecurityGroups = Lens.field @"cacheSecurityGroups"
+{-# DEPRECATED dcsgrfrsCacheSecurityGroups "Use generic-lens or generic-optics with 'cacheSecurityGroups' instead." #-}
 
 -- | Provides an identifier to allow retrieval of paginated results.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgrsMarker :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Lude.Maybe Lude.Text)
-dcsgrsMarker = Lens.lens (marker :: DescribeCacheSecurityGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeCacheSecurityGroupsResponse)
-{-# DEPRECATED dcsgrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dcsgrfrsMarker :: Lens.Lens' DescribeCacheSecurityGroupsResponse (Core.Maybe Types.String)
+dcsgrfrsMarker = Lens.field @"marker"
+{-# DEPRECATED dcsgrfrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsgrsResponseStatus :: Lens.Lens' DescribeCacheSecurityGroupsResponse Lude.Int
-dcsgrsResponseStatus = Lens.lens (responseStatus :: DescribeCacheSecurityGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCacheSecurityGroupsResponse)
-{-# DEPRECATED dcsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcsgrfrsResponseStatus :: Lens.Lens' DescribeCacheSecurityGroupsResponse Core.Int
+dcsgrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcsgrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

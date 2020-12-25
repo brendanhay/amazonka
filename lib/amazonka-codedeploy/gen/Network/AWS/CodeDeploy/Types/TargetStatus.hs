@@ -13,71 +13,73 @@
 module Network.AWS.CodeDeploy.Types.TargetStatus
   ( TargetStatus
       ( TargetStatus',
-        TSPending,
-        TSInProgress,
-        TSSucceeded,
-        TSFailed,
-        TSSkipped,
-        TSUnknown,
-        TSReady
+        TargetStatusPending,
+        TargetStatusInProgress,
+        TargetStatusSucceeded,
+        TargetStatusFailed,
+        TargetStatusSkipped,
+        TargetStatusUnknown,
+        TargetStatusReady,
+        fromTargetStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TargetStatus = TargetStatus' Lude.Text
+newtype TargetStatus = TargetStatus' {fromTargetStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TSPending :: TargetStatus
-pattern TSPending = TargetStatus' "Pending"
+pattern TargetStatusPending :: TargetStatus
+pattern TargetStatusPending = TargetStatus' "Pending"
 
-pattern TSInProgress :: TargetStatus
-pattern TSInProgress = TargetStatus' "InProgress"
+pattern TargetStatusInProgress :: TargetStatus
+pattern TargetStatusInProgress = TargetStatus' "InProgress"
 
-pattern TSSucceeded :: TargetStatus
-pattern TSSucceeded = TargetStatus' "Succeeded"
+pattern TargetStatusSucceeded :: TargetStatus
+pattern TargetStatusSucceeded = TargetStatus' "Succeeded"
 
-pattern TSFailed :: TargetStatus
-pattern TSFailed = TargetStatus' "Failed"
+pattern TargetStatusFailed :: TargetStatus
+pattern TargetStatusFailed = TargetStatus' "Failed"
 
-pattern TSSkipped :: TargetStatus
-pattern TSSkipped = TargetStatus' "Skipped"
+pattern TargetStatusSkipped :: TargetStatus
+pattern TargetStatusSkipped = TargetStatus' "Skipped"
 
-pattern TSUnknown :: TargetStatus
-pattern TSUnknown = TargetStatus' "Unknown"
+pattern TargetStatusUnknown :: TargetStatus
+pattern TargetStatusUnknown = TargetStatus' "Unknown"
 
-pattern TSReady :: TargetStatus
-pattern TSReady = TargetStatus' "Ready"
+pattern TargetStatusReady :: TargetStatus
+pattern TargetStatusReady = TargetStatus' "Ready"
 
 {-# COMPLETE
-  TSPending,
-  TSInProgress,
-  TSSucceeded,
-  TSFailed,
-  TSSkipped,
-  TSUnknown,
-  TSReady,
+  TargetStatusPending,
+  TargetStatusInProgress,
+  TargetStatusSucceeded,
+  TargetStatusFailed,
+  TargetStatusSkipped,
+  TargetStatusUnknown,
+  TargetStatusReady,
   TargetStatus'
   #-}

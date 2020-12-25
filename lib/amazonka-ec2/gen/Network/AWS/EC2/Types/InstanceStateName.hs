@@ -13,66 +13,71 @@
 module Network.AWS.EC2.Types.InstanceStateName
   ( InstanceStateName
       ( InstanceStateName',
-        ISNPending,
-        ISNRunning,
-        ISNShuttingDown,
-        ISNTerminated,
-        ISNStopping,
-        ISNStopped
+        InstanceStateNamePending,
+        InstanceStateNameRunning,
+        InstanceStateNameShuttingDown,
+        InstanceStateNameTerminated,
+        InstanceStateNameStopping,
+        InstanceStateNameStopped,
+        fromInstanceStateName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceStateName = InstanceStateName' Lude.Text
+newtype InstanceStateName = InstanceStateName'
+  { fromInstanceStateName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISNPending :: InstanceStateName
-pattern ISNPending = InstanceStateName' "pending"
+pattern InstanceStateNamePending :: InstanceStateName
+pattern InstanceStateNamePending = InstanceStateName' "pending"
 
-pattern ISNRunning :: InstanceStateName
-pattern ISNRunning = InstanceStateName' "running"
+pattern InstanceStateNameRunning :: InstanceStateName
+pattern InstanceStateNameRunning = InstanceStateName' "running"
 
-pattern ISNShuttingDown :: InstanceStateName
-pattern ISNShuttingDown = InstanceStateName' "shutting-down"
+pattern InstanceStateNameShuttingDown :: InstanceStateName
+pattern InstanceStateNameShuttingDown = InstanceStateName' "shutting-down"
 
-pattern ISNTerminated :: InstanceStateName
-pattern ISNTerminated = InstanceStateName' "terminated"
+pattern InstanceStateNameTerminated :: InstanceStateName
+pattern InstanceStateNameTerminated = InstanceStateName' "terminated"
 
-pattern ISNStopping :: InstanceStateName
-pattern ISNStopping = InstanceStateName' "stopping"
+pattern InstanceStateNameStopping :: InstanceStateName
+pattern InstanceStateNameStopping = InstanceStateName' "stopping"
 
-pattern ISNStopped :: InstanceStateName
-pattern ISNStopped = InstanceStateName' "stopped"
+pattern InstanceStateNameStopped :: InstanceStateName
+pattern InstanceStateNameStopped = InstanceStateName' "stopped"
 
 {-# COMPLETE
-  ISNPending,
-  ISNRunning,
-  ISNShuttingDown,
-  ISNTerminated,
-  ISNStopping,
-  ISNStopped,
+  InstanceStateNamePending,
+  InstanceStateNameRunning,
+  InstanceStateNameShuttingDown,
+  InstanceStateNameTerminated,
+  InstanceStateNameStopping,
+  InstanceStateNameStopped,
   InstanceStateName'
   #-}

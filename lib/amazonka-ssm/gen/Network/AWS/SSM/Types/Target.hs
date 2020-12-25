@@ -17,13 +17,15 @@ module Network.AWS.SSM.Types.Target
     mkTarget,
 
     -- * Lenses
-    tValues,
     tKey,
+    tValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.TargetKey as Types
+import qualified Network.AWS.SSM.Types.TargetValue as Types
 
 -- | An array of search criteria that targets instances using a Key,Value combination that you specify.
 --
@@ -77,49 +79,42 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkTarget' smart constructor.
 data Target = Target'
-  { -- | User-defined criteria that maps to @Key@ . For example, if you specified @tag:ServerRole@ , you could specify @value:WebServer@ to run a command on instances that include EC2 tags of @ServerRole,WebServer@ .
-    values :: Lude.Maybe [Lude.Text],
-    -- | User-defined criteria for sending commands that target instances that meet the criteria.
-    key :: Lude.Maybe Lude.Text
+  { -- | User-defined criteria for sending commands that target instances that meet the criteria.
+    key :: Core.Maybe Types.TargetKey,
+    -- | User-defined criteria that maps to @Key@ . For example, if you specified @tag:ServerRole@ , you could specify @value:WebServer@ to run a command on instances that include EC2 tags of @ServerRole,WebServer@ .
+    values :: Core.Maybe [Types.TargetValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Target' with the minimum fields required to make a request.
---
--- * 'values' - User-defined criteria that maps to @Key@ . For example, if you specified @tag:ServerRole@ , you could specify @value:WebServer@ to run a command on instances that include EC2 tags of @ServerRole,WebServer@ .
--- * 'key' - User-defined criteria for sending commands that target instances that meet the criteria.
+-- | Creates a 'Target' value with any optional fields omitted.
 mkTarget ::
   Target
-mkTarget = Target' {values = Lude.Nothing, key = Lude.Nothing}
-
--- | User-defined criteria that maps to @Key@ . For example, if you specified @tag:ServerRole@ , you could specify @value:WebServer@ to run a command on instances that include EC2 tags of @ServerRole,WebServer@ .
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tValues :: Lens.Lens' Target (Lude.Maybe [Lude.Text])
-tValues = Lens.lens (values :: Target -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: Target)
-{-# DEPRECATED tValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkTarget = Target' {key = Core.Nothing, values = Core.Nothing}
 
 -- | User-defined criteria for sending commands that target instances that meet the criteria.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Target (Lude.Maybe Lude.Text)
-tKey = Lens.lens (key :: Target -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: Target)
+tKey :: Lens.Lens' Target (Core.Maybe Types.TargetKey)
+tKey = Lens.field @"key"
 {-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON Target where
-  parseJSON =
-    Lude.withObject
-      "Target"
-      ( \x ->
-          Target'
-            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Key")
+-- | User-defined criteria that maps to @Key@ . For example, if you specified @tag:ServerRole@ , you could specify @value:WebServer@ to run a command on instances that include EC2 tags of @ServerRole,WebServer@ .
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tValues :: Lens.Lens' Target (Core.Maybe [Types.TargetValue])
+tValues = Lens.field @"values"
+{-# DEPRECATED tValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON Target where
+  toJSON Target {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Values" Core..=) Core.<$> values]
       )
 
-instance Lude.ToJSON Target where
-  toJSON Target' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Values" Lude..=) Lude.<$> values, ("Key" Lude..=) Lude.<$> key]
-      )
+instance Core.FromJSON Target where
+  parseJSON =
+    Core.withObject "Target" Core.$
+      \x ->
+        Target' Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Values")

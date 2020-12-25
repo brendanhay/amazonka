@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -48,10 +47,109 @@
 --     * 'GenerateDataKeyWithoutPlaintext'
 module Network.AWS.KMS
   ( -- * Service configuration
-    kmsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidMarkerException
+    _InvalidMarkerException,
+
+    -- ** KMSInvalidStateException
+    _KMSInvalidStateException,
+
+    -- ** InvalidKeyUsageException
+    _InvalidKeyUsageException,
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
+
+    -- ** CustomKeyStoreNameInUseException
+    _CustomKeyStoreNameInUseException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
+
+    -- ** DisabledException
+    _DisabledException,
+
+    -- ** KeyUnavailableException
+    _KeyUnavailableException,
+
+    -- ** IncorrectKeyMaterialException
+    _IncorrectKeyMaterialException,
+
+    -- ** KMSInternalException
+    _KMSInternalException,
+
+    -- ** TagException
+    _TagException,
+
+    -- ** CustomKeyStoreHasCMKsException
+    _CustomKeyStoreHasCMKsException,
+
+    -- ** InvalidImportTokenException
+    _InvalidImportTokenException,
+
+    -- ** CloudHsmClusterNotRelatedException
+    _CloudHsmClusterNotRelatedException,
+
+    -- ** IncorrectTrustAnchorException
+    _IncorrectTrustAnchorException,
+
+    -- ** CloudHsmClusterInvalidConfigurationException
+    _CloudHsmClusterInvalidConfigurationException,
+
+    -- ** CloudHsmClusterNotActiveException
+    _CloudHsmClusterNotActiveException,
+
+    -- ** CloudHsmClusterNotFoundException
+    _CloudHsmClusterNotFoundException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** KMSInvalidSignatureException
+    _KMSInvalidSignatureException,
+
+    -- ** InvalidAliasNameException
+    _InvalidAliasNameException,
+
+    -- ** CustomKeyStoreNotFoundException
+    _CustomKeyStoreNotFoundException,
+
+    -- ** CustomKeyStoreInvalidStateException
+    _CustomKeyStoreInvalidStateException,
+
+    -- ** InvalidGrantIdException
+    _InvalidGrantIdException,
+
+    -- ** InvalidGrantTokenException
+    _InvalidGrantTokenException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** DependencyTimeoutException
+    _DependencyTimeoutException,
+
+    -- ** ExpiredImportTokenException
+    _ExpiredImportTokenException,
+
+    -- ** InvalidCiphertextException
+    _InvalidCiphertextException,
+
+    -- ** CloudHsmClusterInUseException
+    _CloudHsmClusterInUseException,
+
+    -- ** IncorrectKeyException
+    _IncorrectKeyException,
+
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -199,71 +297,67 @@ module Network.AWS.KMS
 
     -- * Types
 
-    -- ** AlgorithmSpec
-    AlgorithmSpec (..),
-
-    -- ** ConnectionErrorCodeType
-    ConnectionErrorCodeType (..),
-
-    -- ** ConnectionStateType
-    ConnectionStateType (..),
-
-    -- ** CustomerMasterKeySpec
-    CustomerMasterKeySpec (..),
-
-    -- ** DataKeyPairSpec
-    DataKeyPairSpec (..),
-
-    -- ** DataKeySpec
-    DataKeySpec (..),
-
-    -- ** EncryptionAlgorithmSpec
-    EncryptionAlgorithmSpec (..),
-
-    -- ** ExpirationModelType
-    ExpirationModelType (..),
-
-    -- ** GrantOperation
-    GrantOperation (..),
-
-    -- ** KeyManagerType
-    KeyManagerType (..),
-
-    -- ** KeyState
-    KeyState (..),
+    -- ** ListGrantsResponse
+    ListGrantsResponse (..),
+    mkListGrantsResponse,
+    lgrGrants,
+    lgrNextMarker,
+    lgrTruncated,
 
     -- ** KeyUsageType
     KeyUsageType (..),
 
-    -- ** MessageType
-    MessageType (..),
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tTagKey,
+    tTagValue,
 
-    -- ** OriginType
-    OriginType (..),
+    -- ** KeyMetadata
+    KeyMetadata (..),
+    mkKeyMetadata,
+    kmKeyId,
+    kmAWSAccountId,
+    kmArn,
+    kmCloudHsmClusterId,
+    kmCreationDate,
+    kmCustomKeyStoreId,
+    kmCustomerMasterKeySpec,
+    kmDeletionDate,
+    kmDescription,
+    kmEnabled,
+    kmEncryptionAlgorithms,
+    kmExpirationModel,
+    kmKeyManager,
+    kmKeyState,
+    kmKeyUsage,
+    kmOrigin,
+    kmSigningAlgorithms,
+    kmValidTo,
 
-    -- ** SigningAlgorithmSpec
-    SigningAlgorithmSpec (..),
+    -- ** MarkerType
+    MarkerType (..),
 
-    -- ** WrappingKeySpec
-    WrappingKeySpec (..),
+    -- ** DataKeySpec
+    DataKeySpec (..),
 
-    -- ** AliasListEntry
-    AliasListEntry (..),
-    mkAliasListEntry,
-    aleTargetKeyId,
-    aleAliasName,
-    aleAliasARN,
+    -- ** CustomerMasterKeySpec
+    CustomerMasterKeySpec (..),
 
-    -- ** CustomKeyStoresListEntry
-    CustomKeyStoresListEntry (..),
-    mkCustomKeyStoresListEntry,
-    cksleCustomKeyStoreName,
-    cksleTrustAnchorCertificate,
-    cksleConnectionErrorCode,
-    cksleCreationDate,
-    cksleCloudHSMClusterId,
-    cksleCustomKeyStoreId,
-    cksleConnectionState,
+    -- ** AlgorithmSpec
+    AlgorithmSpec (..),
+
+    -- ** GrantTokenType
+    GrantTokenType (..),
+
+    -- ** EncryptionAlgorithmSpec
+    EncryptionAlgorithmSpec (..),
+
+    -- ** TagKeyType
+    TagKeyType (..),
+
+    -- ** KeyState
+    KeyState (..),
 
     -- ** GrantConstraints
     GrantConstraints (..),
@@ -271,69 +365,188 @@ module Network.AWS.KMS
     gcEncryptionContextEquals,
     gcEncryptionContextSubset,
 
+    -- ** CloudHsmClusterIdType
+    CloudHsmClusterIdType (..),
+
+    -- ** AliasListEntry
+    AliasListEntry (..),
+    mkAliasListEntry,
+    aleAliasArn,
+    aleAliasName,
+    aleTargetKeyId,
+
     -- ** GrantListEntry
     GrantListEntry (..),
     mkGrantListEntry,
-    gleKeyId,
-    gleRetiringPrincipal,
-    gleIssuingAccount,
-    gleGrantId,
     gleConstraints,
-    gleGranteePrincipal,
-    gleName,
     gleCreationDate,
+    gleGrantId,
+    gleGranteePrincipal,
+    gleIssuingAccount,
+    gleKeyId,
+    gleName,
     gleOperations,
+    gleRetiringPrincipal,
+
+    -- ** PolicyType
+    PolicyType (..),
+
+    -- ** EncryptionContextValue
+    EncryptionContextValue (..),
+
+    -- ** MessageType
+    MessageType (..),
+
+    -- ** DescriptionType
+    DescriptionType (..),
+
+    -- ** CustomKeyStoreIdType
+    CustomKeyStoreIdType (..),
+
+    -- ** WrappingKeySpec
+    WrappingKeySpec (..),
+
+    -- ** ConnectionStateType
+    ConnectionStateType (..),
+
+    -- ** CustomKeyStoreNameType
+    CustomKeyStoreNameType (..),
+
+    -- ** ExpirationModelType
+    ExpirationModelType (..),
+
+    -- ** KeyManagerType
+    KeyManagerType (..),
+
+    -- ** OriginType
+    OriginType (..),
+
+    -- ** EncryptionContextKey
+    EncryptionContextKey (..),
+
+    -- ** PrincipalIdType
+    PrincipalIdType (..),
+
+    -- ** KeyStorePasswordType
+    KeyStorePasswordType (..),
+
+    -- ** PolicyNameType
+    PolicyNameType (..),
+
+    -- ** KeyIdType
+    KeyIdType (..),
+
+    -- ** ArnType
+    ArnType (..),
+
+    -- ** TrustAnchorCertificateType
+    TrustAnchorCertificateType (..),
+
+    -- ** DataKeyPairSpec
+    DataKeyPairSpec (..),
+
+    -- ** GrantOperation
+    GrantOperation (..),
+
+    -- ** ConnectionErrorCodeType
+    ConnectionErrorCodeType (..),
+
+    -- ** CustomKeyStoresListEntry
+    CustomKeyStoresListEntry (..),
+    mkCustomKeyStoresListEntry,
+    cksleCloudHsmClusterId,
+    cksleConnectionErrorCode,
+    cksleConnectionState,
+    cksleCreationDate,
+    cksleCustomKeyStoreId,
+    cksleCustomKeyStoreName,
+    cksleTrustAnchorCertificate,
+
+    -- ** SigningAlgorithmSpec
+    SigningAlgorithmSpec (..),
 
     -- ** KeyListEntry
     KeyListEntry (..),
     mkKeyListEntry,
+    kleKeyArn,
     kleKeyId,
-    kleKeyARN,
 
-    -- ** KeyMetadata
-    KeyMetadata (..),
-    mkKeyMetadata,
-    kmOrigin,
-    kmExpirationModel,
-    kmKeyManager,
-    kmKeyId,
-    kmCustomerMasterKeySpec,
-    kmEnabled,
-    kmValidTo,
-    kmARN,
-    kmKeyState,
-    kmEncryptionAlgorithms,
-    kmAWSAccountId,
-    kmSigningAlgorithms,
-    kmKeyUsage,
-    kmCreationDate,
-    kmDeletionDate,
-    kmCloudHSMClusterId,
-    kmDescription,
-    kmCustomKeyStoreId,
+    -- ** KeyId
+    KeyId (..),
 
-    -- ** ListGrantsResponse
-    ListGrantsResponse (..),
-    mkListGrantsResponse,
-    lgTruncated,
-    lgGrants,
-    lgNextMarker,
+    -- ** NextMarker
+    NextMarker (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tTagValue,
-    tTagKey,
+    -- ** CustomKeyStoreId
+    CustomKeyStoreId (..),
+
+    -- ** RetiringPrincipal
+    RetiringPrincipal (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** AWSAccountId
+    AWSAccountId (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** CloudHsmClusterId
+    CloudHsmClusterId (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** GrantId
+    GrantId (..),
+
+    -- ** GrantToken
+    GrantToken (..),
+
+    -- ** Policy
+    Policy (..),
+
+    -- ** AliasArn
+    AliasArn (..),
+
+    -- ** AliasName
+    AliasName (..),
+
+    -- ** TargetKeyId
+    TargetKeyId (..),
+
+    -- ** GranteePrincipal
+    GranteePrincipal (..),
+
+    -- ** IssuingAccount
+    IssuingAccount (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** DestinationKeyId
+    DestinationKeyId (..),
+
+    -- ** SourceKeyId
+    SourceKeyId (..),
+
+    -- ** PolicyName
+    PolicyName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

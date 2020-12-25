@@ -17,96 +17,92 @@ module Network.AWS.Config.Types.Scope
     mkScope,
 
     -- * Lenses
-    sComplianceResourceTypes,
     sComplianceResourceId,
-    sTagValue,
+    sComplianceResourceTypes,
     sTagKey,
+    sTagValue,
   )
 where
 
+import qualified Network.AWS.Config.Types.BaseResourceId as Types
+import qualified Network.AWS.Config.Types.StringWithCharLimit128 as Types
+import qualified Network.AWS.Config.Types.StringWithCharLimit256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Defines which resources trigger an evaluation for an AWS Config rule. The scope can include one or more resource types, a combination of a tag key and value, or a combination of one resource type and one resource ID. Specify a scope to constrain which resources trigger an evaluation for a rule. Otherwise, evaluations for the rule are triggered when any resource in your recording group changes in configuration.
 --
 -- /See:/ 'mkScope' smart constructor.
 data Scope = Scope'
-  { -- | The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for @ComplianceResourceId@ .
-    complianceResourceTypes :: Lude.Maybe [Lude.Text],
-    -- | The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for @ComplianceResourceTypes@ .
-    complianceResourceId :: Lude.Maybe Lude.Text,
-    -- | The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for @TagValue@ , you must also specify a value for @TagKey@ .
-    tagValue :: Lude.Maybe Lude.Text,
+  { -- | The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for @ComplianceResourceTypes@ .
+    complianceResourceId :: Core.Maybe Types.BaseResourceId,
+    -- | The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for @ComplianceResourceId@ .
+    complianceResourceTypes :: Core.Maybe [Types.StringWithCharLimit256],
     -- | The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
-    tagKey :: Lude.Maybe Lude.Text
+    tagKey :: Core.Maybe Types.StringWithCharLimit128,
+    -- | The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for @TagValue@ , you must also specify a value for @TagKey@ .
+    tagValue :: Core.Maybe Types.StringWithCharLimit256
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Scope' with the minimum fields required to make a request.
---
--- * 'complianceResourceTypes' - The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for @ComplianceResourceId@ .
--- * 'complianceResourceId' - The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for @ComplianceResourceTypes@ .
--- * 'tagValue' - The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for @TagValue@ , you must also specify a value for @TagKey@ .
--- * 'tagKey' - The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
+-- | Creates a 'Scope' value with any optional fields omitted.
 mkScope ::
   Scope
 mkScope =
   Scope'
-    { complianceResourceTypes = Lude.Nothing,
-      complianceResourceId = Lude.Nothing,
-      tagValue = Lude.Nothing,
-      tagKey = Lude.Nothing
+    { complianceResourceId = Core.Nothing,
+      complianceResourceTypes = Core.Nothing,
+      tagKey = Core.Nothing,
+      tagValue = Core.Nothing
     }
-
--- | The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for @ComplianceResourceId@ .
---
--- /Note:/ Consider using 'complianceResourceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sComplianceResourceTypes :: Lens.Lens' Scope (Lude.Maybe [Lude.Text])
-sComplianceResourceTypes = Lens.lens (complianceResourceTypes :: Scope -> Lude.Maybe [Lude.Text]) (\s a -> s {complianceResourceTypes = a} :: Scope)
-{-# DEPRECATED sComplianceResourceTypes "Use generic-lens or generic-optics with 'complianceResourceTypes' instead." #-}
 
 -- | The ID of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for @ComplianceResourceTypes@ .
 --
 -- /Note:/ Consider using 'complianceResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sComplianceResourceId :: Lens.Lens' Scope (Lude.Maybe Lude.Text)
-sComplianceResourceId = Lens.lens (complianceResourceId :: Scope -> Lude.Maybe Lude.Text) (\s a -> s {complianceResourceId = a} :: Scope)
+sComplianceResourceId :: Lens.Lens' Scope (Core.Maybe Types.BaseResourceId)
+sComplianceResourceId = Lens.field @"complianceResourceId"
 {-# DEPRECATED sComplianceResourceId "Use generic-lens or generic-optics with 'complianceResourceId' instead." #-}
 
--- | The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for @TagValue@ , you must also specify a value for @TagKey@ .
+-- | The resource types of only those AWS resources that you want to trigger an evaluation for the rule. You can only specify one type if you also specify a resource ID for @ComplianceResourceId@ .
 --
--- /Note:/ Consider using 'tagValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTagValue :: Lens.Lens' Scope (Lude.Maybe Lude.Text)
-sTagValue = Lens.lens (tagValue :: Scope -> Lude.Maybe Lude.Text) (\s a -> s {tagValue = a} :: Scope)
-{-# DEPRECATED sTagValue "Use generic-lens or generic-optics with 'tagValue' instead." #-}
+-- /Note:/ Consider using 'complianceResourceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sComplianceResourceTypes :: Lens.Lens' Scope (Core.Maybe [Types.StringWithCharLimit256])
+sComplianceResourceTypes = Lens.field @"complianceResourceTypes"
+{-# DEPRECATED sComplianceResourceTypes "Use generic-lens or generic-optics with 'complianceResourceTypes' instead." #-}
 
 -- | The tag key that is applied to only those AWS resources that you want to trigger an evaluation for the rule.
 --
 -- /Note:/ Consider using 'tagKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTagKey :: Lens.Lens' Scope (Lude.Maybe Lude.Text)
-sTagKey = Lens.lens (tagKey :: Scope -> Lude.Maybe Lude.Text) (\s a -> s {tagKey = a} :: Scope)
+sTagKey :: Lens.Lens' Scope (Core.Maybe Types.StringWithCharLimit128)
+sTagKey = Lens.field @"tagKey"
 {-# DEPRECATED sTagKey "Use generic-lens or generic-optics with 'tagKey' instead." #-}
 
-instance Lude.FromJSON Scope where
-  parseJSON =
-    Lude.withObject
-      "Scope"
-      ( \x ->
-          Scope'
-            Lude.<$> (x Lude..:? "ComplianceResourceTypes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ComplianceResourceId")
-            Lude.<*> (x Lude..:? "TagValue")
-            Lude.<*> (x Lude..:? "TagKey")
-      )
+-- | The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule. If you specify a value for @TagValue@ , you must also specify a value for @TagKey@ .
+--
+-- /Note:/ Consider using 'tagValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTagValue :: Lens.Lens' Scope (Core.Maybe Types.StringWithCharLimit256)
+sTagValue = Lens.field @"tagValue"
+{-# DEPRECATED sTagValue "Use generic-lens or generic-optics with 'tagValue' instead." #-}
 
-instance Lude.ToJSON Scope where
-  toJSON Scope' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ComplianceResourceTypes" Lude..=)
-              Lude.<$> complianceResourceTypes,
-            ("ComplianceResourceId" Lude..=) Lude.<$> complianceResourceId,
-            ("TagValue" Lude..=) Lude.<$> tagValue,
-            ("TagKey" Lude..=) Lude.<$> tagKey
+instance Core.FromJSON Scope where
+  toJSON Scope {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ComplianceResourceId" Core..=) Core.<$> complianceResourceId,
+            ("ComplianceResourceTypes" Core..=)
+              Core.<$> complianceResourceTypes,
+            ("TagKey" Core..=) Core.<$> tagKey,
+            ("TagValue" Core..=) Core.<$> tagValue
           ]
       )
+
+instance Core.FromJSON Scope where
+  parseJSON =
+    Core.withObject "Scope" Core.$
+      \x ->
+        Scope'
+          Core.<$> (x Core..:? "ComplianceResourceId")
+          Core.<*> (x Core..:? "ComplianceResourceTypes")
+          Core.<*> (x Core..:? "TagKey")
+          Core.<*> (x Core..:? "TagValue")

@@ -13,46 +13,51 @@
 module Network.AWS.Firehose.Types.ParquetWriterVersion
   ( ParquetWriterVersion
       ( ParquetWriterVersion',
-        V1,
-        V2
+        ParquetWriterVersionV1,
+        ParquetWriterVersionV2,
+        fromParquetWriterVersion
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ParquetWriterVersion = ParquetWriterVersion' Lude.Text
+newtype ParquetWriterVersion = ParquetWriterVersion'
+  { fromParquetWriterVersion ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern V1 :: ParquetWriterVersion
-pattern V1 = ParquetWriterVersion' "V1"
+pattern ParquetWriterVersionV1 :: ParquetWriterVersion
+pattern ParquetWriterVersionV1 = ParquetWriterVersion' "V1"
 
-pattern V2 :: ParquetWriterVersion
-pattern V2 = ParquetWriterVersion' "V2"
+pattern ParquetWriterVersionV2 :: ParquetWriterVersion
+pattern ParquetWriterVersionV2 = ParquetWriterVersion' "V2"
 
 {-# COMPLETE
-  V1,
-  V2,
+  ParquetWriterVersionV1,
+  ParquetWriterVersionV2,
   ParquetWriterVersion'
   #-}

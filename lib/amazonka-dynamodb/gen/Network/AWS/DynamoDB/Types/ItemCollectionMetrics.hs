@@ -22,43 +22,39 @@ module Network.AWS.DynamoDB.Types.ItemCollectionMetrics
   )
 where
 
-import Network.AWS.DynamoDB.Types.AttributeValue
+import qualified Network.AWS.DynamoDB.Types.AttributeName as Types
+import qualified Network.AWS.DynamoDB.Types.AttributeValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about item collections, if any, that were affected by the operation. @ItemCollectionMetrics@ is only returned if the request asked for it. If the table does not have any local secondary indexes, this information is not returned in the response.
 --
 -- /See:/ 'mkItemCollectionMetrics' smart constructor.
 data ItemCollectionMetrics = ItemCollectionMetrics'
   { -- | The partition key value of the item collection. This value is the same as the partition key value of the item.
-    itemCollectionKey :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
+    itemCollectionKey :: Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue),
     -- | An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.
     --
     -- The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
-    sizeEstimateRangeGB :: Lude.Maybe [Lude.Double]
+    sizeEstimateRangeGB :: Core.Maybe [Core.Double]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ItemCollectionMetrics' with the minimum fields required to make a request.
---
--- * 'itemCollectionKey' - The partition key value of the item collection. This value is the same as the partition key value of the item.
--- * 'sizeEstimateRangeGB' - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.
---
--- The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
+-- | Creates a 'ItemCollectionMetrics' value with any optional fields omitted.
 mkItemCollectionMetrics ::
   ItemCollectionMetrics
 mkItemCollectionMetrics =
   ItemCollectionMetrics'
-    { itemCollectionKey = Lude.Nothing,
-      sizeEstimateRangeGB = Lude.Nothing
+    { itemCollectionKey = Core.Nothing,
+      sizeEstimateRangeGB = Core.Nothing
     }
 
 -- | The partition key value of the item collection. This value is the same as the partition key value of the item.
 --
 -- /Note:/ Consider using 'itemCollectionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icmItemCollectionKey :: Lens.Lens' ItemCollectionMetrics (Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)))
-icmItemCollectionKey = Lens.lens (itemCollectionKey :: ItemCollectionMetrics -> Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))) (\s a -> s {itemCollectionKey = a} :: ItemCollectionMetrics)
+icmItemCollectionKey :: Lens.Lens' ItemCollectionMetrics (Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue))
+icmItemCollectionKey = Lens.field @"itemCollectionKey"
 {-# DEPRECATED icmItemCollectionKey "Use generic-lens or generic-optics with 'itemCollectionKey' instead." #-}
 
 -- | An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.
@@ -66,16 +62,14 @@ icmItemCollectionKey = Lens.lens (itemCollectionKey :: ItemCollectionMetrics -> 
 -- The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.
 --
 -- /Note:/ Consider using 'sizeEstimateRangeGB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icmSizeEstimateRangeGB :: Lens.Lens' ItemCollectionMetrics (Lude.Maybe [Lude.Double])
-icmSizeEstimateRangeGB = Lens.lens (sizeEstimateRangeGB :: ItemCollectionMetrics -> Lude.Maybe [Lude.Double]) (\s a -> s {sizeEstimateRangeGB = a} :: ItemCollectionMetrics)
+icmSizeEstimateRangeGB :: Lens.Lens' ItemCollectionMetrics (Core.Maybe [Core.Double])
+icmSizeEstimateRangeGB = Lens.field @"sizeEstimateRangeGB"
 {-# DEPRECATED icmSizeEstimateRangeGB "Use generic-lens or generic-optics with 'sizeEstimateRangeGB' instead." #-}
 
-instance Lude.FromJSON ItemCollectionMetrics where
+instance Core.FromJSON ItemCollectionMetrics where
   parseJSON =
-    Lude.withObject
-      "ItemCollectionMetrics"
-      ( \x ->
-          ItemCollectionMetrics'
-            Lude.<$> (x Lude..:? "ItemCollectionKey" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "SizeEstimateRangeGB" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ItemCollectionMetrics" Core.$
+      \x ->
+        ItemCollectionMetrics'
+          Core.<$> (x Core..:? "ItemCollectionKey")
+          Core.<*> (x Core..:? "SizeEstimateRangeGB")

@@ -17,13 +17,15 @@ module Network.AWS.IAM.Types.RoleUsageType
     mkRoleUsageType,
 
     -- * Lenses
-    rutResources,
     rutRegion,
+    rutResources,
   )
 where
 
+import qualified Network.AWS.IAM.Types.ArnType as Types
+import qualified Network.AWS.IAM.Types.RegionNameType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that contains details about how a service-linked role is used, if that information is returned by the service.
 --
@@ -31,41 +33,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRoleUsageType' smart constructor.
 data RoleUsageType = RoleUsageType'
-  { -- | The name of the resource that is using the service-linked role.
-    resources :: Lude.Maybe [Lude.Text],
-    -- | The name of the Region where the service-linked role is being used.
-    region :: Lude.Maybe Lude.Text
+  { -- | The name of the Region where the service-linked role is being used.
+    region :: Core.Maybe Types.RegionNameType,
+    -- | The name of the resource that is using the service-linked role.
+    resources :: Core.Maybe [Types.ArnType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RoleUsageType' with the minimum fields required to make a request.
---
--- * 'resources' - The name of the resource that is using the service-linked role.
--- * 'region' - The name of the Region where the service-linked role is being used.
+-- | Creates a 'RoleUsageType' value with any optional fields omitted.
 mkRoleUsageType ::
   RoleUsageType
 mkRoleUsageType =
-  RoleUsageType' {resources = Lude.Nothing, region = Lude.Nothing}
-
--- | The name of the resource that is using the service-linked role.
---
--- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rutResources :: Lens.Lens' RoleUsageType (Lude.Maybe [Lude.Text])
-rutResources = Lens.lens (resources :: RoleUsageType -> Lude.Maybe [Lude.Text]) (\s a -> s {resources = a} :: RoleUsageType)
-{-# DEPRECATED rutResources "Use generic-lens or generic-optics with 'resources' instead." #-}
+  RoleUsageType' {region = Core.Nothing, resources = Core.Nothing}
 
 -- | The name of the Region where the service-linked role is being used.
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rutRegion :: Lens.Lens' RoleUsageType (Lude.Maybe Lude.Text)
-rutRegion = Lens.lens (region :: RoleUsageType -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: RoleUsageType)
+rutRegion :: Lens.Lens' RoleUsageType (Core.Maybe Types.RegionNameType)
+rutRegion = Lens.field @"region"
 {-# DEPRECATED rutRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance Lude.FromXML RoleUsageType where
+-- | The name of the resource that is using the service-linked role.
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rutResources :: Lens.Lens' RoleUsageType (Core.Maybe [Types.ArnType])
+rutResources = Lens.field @"resources"
+{-# DEPRECATED rutResources "Use generic-lens or generic-optics with 'resources' instead." #-}
+
+instance Core.FromXML RoleUsageType where
   parseXML x =
     RoleUsageType'
-      Lude.<$> ( x Lude..@? "Resources" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "Region")
+      Core.<$> (x Core..@? "Region")
+      Core.<*> (x Core..@? "Resources" Core..<@> Core.parseXMLList "member")

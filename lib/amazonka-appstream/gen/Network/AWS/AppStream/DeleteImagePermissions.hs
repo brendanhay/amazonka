@@ -20,126 +20,107 @@ module Network.AWS.AppStream.DeleteImagePermissions
     mkDeleteImagePermissions,
 
     -- ** Request lenses
-    dipSharedAccountId,
     dipName,
+    dipSharedAccountId,
 
     -- * Destructuring the response
     DeleteImagePermissionsResponse (..),
     mkDeleteImagePermissionsResponse,
 
     -- ** Response lenses
-    diprsResponseStatus,
+    diprrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteImagePermissions' smart constructor.
 data DeleteImagePermissions = DeleteImagePermissions'
-  { -- | The 12-digit identifier of the AWS account for which to delete image permissions.
-    sharedAccountId :: Lude.Text,
-    -- | The name of the private image.
-    name :: Lude.Text
+  { -- | The name of the private image.
+    name :: Types.Name,
+    -- | The 12-digit identifier of the AWS account for which to delete image permissions.
+    sharedAccountId :: Types.SharedAccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteImagePermissions' with the minimum fields required to make a request.
---
--- * 'sharedAccountId' - The 12-digit identifier of the AWS account for which to delete image permissions.
--- * 'name' - The name of the private image.
+-- | Creates a 'DeleteImagePermissions' value with any optional fields omitted.
 mkDeleteImagePermissions ::
-  -- | 'sharedAccountId'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'sharedAccountId'
+  Types.SharedAccountId ->
   DeleteImagePermissions
-mkDeleteImagePermissions pSharedAccountId_ pName_ =
-  DeleteImagePermissions'
-    { sharedAccountId = pSharedAccountId_,
-      name = pName_
-    }
-
--- | The 12-digit identifier of the AWS account for which to delete image permissions.
---
--- /Note:/ Consider using 'sharedAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipSharedAccountId :: Lens.Lens' DeleteImagePermissions Lude.Text
-dipSharedAccountId = Lens.lens (sharedAccountId :: DeleteImagePermissions -> Lude.Text) (\s a -> s {sharedAccountId = a} :: DeleteImagePermissions)
-{-# DEPRECATED dipSharedAccountId "Use generic-lens or generic-optics with 'sharedAccountId' instead." #-}
+mkDeleteImagePermissions name sharedAccountId =
+  DeleteImagePermissions' {name, sharedAccountId}
 
 -- | The name of the private image.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipName :: Lens.Lens' DeleteImagePermissions Lude.Text
-dipName = Lens.lens (name :: DeleteImagePermissions -> Lude.Text) (\s a -> s {name = a} :: DeleteImagePermissions)
+dipName :: Lens.Lens' DeleteImagePermissions Types.Name
+dipName = Lens.field @"name"
 {-# DEPRECATED dipName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteImagePermissions where
+-- | The 12-digit identifier of the AWS account for which to delete image permissions.
+--
+-- /Note:/ Consider using 'sharedAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dipSharedAccountId :: Lens.Lens' DeleteImagePermissions Types.SharedAccountId
+dipSharedAccountId = Lens.field @"sharedAccountId"
+{-# DEPRECATED dipSharedAccountId "Use generic-lens or generic-optics with 'sharedAccountId' instead." #-}
+
+instance Core.FromJSON DeleteImagePermissions where
+  toJSON DeleteImagePermissions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("SharedAccountId" Core..= sharedAccountId)
+          ]
+      )
+
+instance Core.AWSRequest DeleteImagePermissions where
   type Rs DeleteImagePermissions = DeleteImagePermissionsResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "PhotonAdminProxyService.DeleteImagePermissions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteImagePermissionsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteImagePermissions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "PhotonAdminProxyService.DeleteImagePermissions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteImagePermissions where
-  toJSON DeleteImagePermissions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SharedAccountId" Lude..= sharedAccountId),
-            Lude.Just ("Name" Lude..= name)
-          ]
-      )
-
-instance Lude.ToPath DeleteImagePermissions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteImagePermissions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteImagePermissionsResponse' smart constructor.
 newtype DeleteImagePermissionsResponse = DeleteImagePermissionsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteImagePermissionsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteImagePermissionsResponse' value with any optional fields omitted.
 mkDeleteImagePermissionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteImagePermissionsResponse
-mkDeleteImagePermissionsResponse pResponseStatus_ =
-  DeleteImagePermissionsResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteImagePermissionsResponse responseStatus =
+  DeleteImagePermissionsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diprsResponseStatus :: Lens.Lens' DeleteImagePermissionsResponse Lude.Int
-diprsResponseStatus = Lens.lens (responseStatus :: DeleteImagePermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteImagePermissionsResponse)
-{-# DEPRECATED diprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+diprrsResponseStatus :: Lens.Lens' DeleteImagePermissionsResponse Core.Int
+diprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED diprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

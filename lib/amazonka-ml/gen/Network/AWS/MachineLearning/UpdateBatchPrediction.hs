@@ -22,102 +22,89 @@ module Network.AWS.MachineLearning.UpdateBatchPrediction
     mkUpdateBatchPrediction,
 
     -- ** Request lenses
-    ubpBatchPredictionName,
     ubpBatchPredictionId,
+    ubpBatchPredictionName,
 
     -- * Destructuring the response
     UpdateBatchPredictionResponse (..),
     mkUpdateBatchPredictionResponse,
 
     -- ** Response lenses
-    ubprsBatchPredictionId,
-    ubprsResponseStatus,
+    ubprrsBatchPredictionId,
+    ubprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateBatchPrediction' smart constructor.
 data UpdateBatchPrediction = UpdateBatchPrediction'
-  { -- | A new user-supplied name or description of the @BatchPrediction@ .
-    batchPredictionName :: Lude.Text,
-    -- | The ID assigned to the @BatchPrediction@ during creation.
-    batchPredictionId :: Lude.Text
+  { -- | The ID assigned to the @BatchPrediction@ during creation.
+    batchPredictionId :: Types.BatchPredictionId,
+    -- | A new user-supplied name or description of the @BatchPrediction@ .
+    batchPredictionName :: Types.EntityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateBatchPrediction' with the minimum fields required to make a request.
---
--- * 'batchPredictionName' - A new user-supplied name or description of the @BatchPrediction@ .
--- * 'batchPredictionId' - The ID assigned to the @BatchPrediction@ during creation.
+-- | Creates a 'UpdateBatchPrediction' value with any optional fields omitted.
 mkUpdateBatchPrediction ::
-  -- | 'batchPredictionName'
-  Lude.Text ->
   -- | 'batchPredictionId'
-  Lude.Text ->
+  Types.BatchPredictionId ->
+  -- | 'batchPredictionName'
+  Types.EntityName ->
   UpdateBatchPrediction
-mkUpdateBatchPrediction pBatchPredictionName_ pBatchPredictionId_ =
-  UpdateBatchPrediction'
-    { batchPredictionName =
-        pBatchPredictionName_,
-      batchPredictionId = pBatchPredictionId_
-    }
-
--- | A new user-supplied name or description of the @BatchPrediction@ .
---
--- /Note:/ Consider using 'batchPredictionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubpBatchPredictionName :: Lens.Lens' UpdateBatchPrediction Lude.Text
-ubpBatchPredictionName = Lens.lens (batchPredictionName :: UpdateBatchPrediction -> Lude.Text) (\s a -> s {batchPredictionName = a} :: UpdateBatchPrediction)
-{-# DEPRECATED ubpBatchPredictionName "Use generic-lens or generic-optics with 'batchPredictionName' instead." #-}
+mkUpdateBatchPrediction batchPredictionId batchPredictionName =
+  UpdateBatchPrediction' {batchPredictionId, batchPredictionName}
 
 -- | The ID assigned to the @BatchPrediction@ during creation.
 --
 -- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubpBatchPredictionId :: Lens.Lens' UpdateBatchPrediction Lude.Text
-ubpBatchPredictionId = Lens.lens (batchPredictionId :: UpdateBatchPrediction -> Lude.Text) (\s a -> s {batchPredictionId = a} :: UpdateBatchPrediction)
+ubpBatchPredictionId :: Lens.Lens' UpdateBatchPrediction Types.BatchPredictionId
+ubpBatchPredictionId = Lens.field @"batchPredictionId"
 {-# DEPRECATED ubpBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
 
-instance Lude.AWSRequest UpdateBatchPrediction where
+-- | A new user-supplied name or description of the @BatchPrediction@ .
+--
+-- /Note:/ Consider using 'batchPredictionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubpBatchPredictionName :: Lens.Lens' UpdateBatchPrediction Types.EntityName
+ubpBatchPredictionName = Lens.field @"batchPredictionName"
+{-# DEPRECATED ubpBatchPredictionName "Use generic-lens or generic-optics with 'batchPredictionName' instead." #-}
+
+instance Core.FromJSON UpdateBatchPrediction where
+  toJSON UpdateBatchPrediction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("BatchPredictionId" Core..= batchPredictionId),
+            Core.Just ("BatchPredictionName" Core..= batchPredictionName)
+          ]
+      )
+
+instance Core.AWSRequest UpdateBatchPrediction where
   type Rs UpdateBatchPrediction = UpdateBatchPredictionResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonML_20141212.UpdateBatchPrediction")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateBatchPredictionResponse'
-            Lude.<$> (x Lude..?> "BatchPredictionId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "BatchPredictionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateBatchPrediction where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.UpdateBatchPrediction" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateBatchPrediction where
-  toJSON UpdateBatchPrediction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("BatchPredictionName" Lude..= batchPredictionName),
-            Lude.Just ("BatchPredictionId" Lude..= batchPredictionId)
-          ]
-      )
-
-instance Lude.ToPath UpdateBatchPrediction where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateBatchPrediction where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of an @UpdateBatchPrediction@ operation.
 --
@@ -126,37 +113,34 @@ instance Lude.ToQuery UpdateBatchPrediction where
 -- /See:/ 'mkUpdateBatchPredictionResponse' smart constructor.
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
   { -- | The ID assigned to the @BatchPrediction@ during creation. This value should be identical to the value of the @BatchPredictionId@ in the request.
-    batchPredictionId :: Lude.Maybe Lude.Text,
+    batchPredictionId :: Core.Maybe Types.BatchPredictionId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateBatchPredictionResponse' with the minimum fields required to make a request.
---
--- * 'batchPredictionId' - The ID assigned to the @BatchPrediction@ during creation. This value should be identical to the value of the @BatchPredictionId@ in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateBatchPredictionResponse' value with any optional fields omitted.
 mkUpdateBatchPredictionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateBatchPredictionResponse
-mkUpdateBatchPredictionResponse pResponseStatus_ =
+mkUpdateBatchPredictionResponse responseStatus =
   UpdateBatchPredictionResponse'
-    { batchPredictionId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { batchPredictionId = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID assigned to the @BatchPrediction@ during creation. This value should be identical to the value of the @BatchPredictionId@ in the request.
 --
 -- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubprsBatchPredictionId :: Lens.Lens' UpdateBatchPredictionResponse (Lude.Maybe Lude.Text)
-ubprsBatchPredictionId = Lens.lens (batchPredictionId :: UpdateBatchPredictionResponse -> Lude.Maybe Lude.Text) (\s a -> s {batchPredictionId = a} :: UpdateBatchPredictionResponse)
-{-# DEPRECATED ubprsBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
+ubprrsBatchPredictionId :: Lens.Lens' UpdateBatchPredictionResponse (Core.Maybe Types.BatchPredictionId)
+ubprrsBatchPredictionId = Lens.field @"batchPredictionId"
+{-# DEPRECATED ubprrsBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubprsResponseStatus :: Lens.Lens' UpdateBatchPredictionResponse Lude.Int
-ubprsResponseStatus = Lens.lens (responseStatus :: UpdateBatchPredictionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateBatchPredictionResponse)
-{-# DEPRECATED ubprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ubprrsResponseStatus :: Lens.Lens' UpdateBatchPredictionResponse Core.Int
+ubprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ubprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

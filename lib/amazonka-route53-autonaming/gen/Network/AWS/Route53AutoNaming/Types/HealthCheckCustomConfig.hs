@@ -22,7 +22,7 @@ module Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that contains information about an optional custom health check. A custom health check, which requires that you use a third-party health checker to evaluate the health of your resources, is useful in the following circumstances:
 --
@@ -66,21 +66,16 @@ newtype HealthCheckCustomConfig = HealthCheckCustomConfig'
     --
     -- The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an @UpdateInstanceCustomHealthStatus@ request before it changes the health status of a service instance.
     -- Sending a second or subsequent @UpdateInstanceCustomHealthStatus@ request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits @30@ seconds after the first request to make the change.
-    failureThreshold :: Lude.Maybe Lude.Natural
+    failureThreshold :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HealthCheckCustomConfig' with the minimum fields required to make a request.
---
--- * 'failureThreshold' - /Important:/ This parameter has been deprecated and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an @UpdateInstanceCustomHealthStatus@ request before changing the status of the service instance.
---
--- The number of 30-second intervals that you want AWS Cloud Map to wait after receiving an @UpdateInstanceCustomHealthStatus@ request before it changes the health status of a service instance.
--- Sending a second or subsequent @UpdateInstanceCustomHealthStatus@ request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits @30@ seconds after the first request to make the change.
+-- | Creates a 'HealthCheckCustomConfig' value with any optional fields omitted.
 mkHealthCheckCustomConfig ::
   HealthCheckCustomConfig
 mkHealthCheckCustomConfig =
-  HealthCheckCustomConfig' {failureThreshold = Lude.Nothing}
+  HealthCheckCustomConfig' {failureThreshold = Core.Nothing}
 
 -- | /Important:/ This parameter has been deprecated and is always set to 1. AWS Cloud Map waits for approximately 30 seconds after receiving an @UpdateInstanceCustomHealthStatus@ request before changing the status of the service instance.
 --
@@ -88,21 +83,19 @@ mkHealthCheckCustomConfig =
 -- Sending a second or subsequent @UpdateInstanceCustomHealthStatus@ request with the same value before 30 seconds has passed doesn't accelerate the change. AWS Cloud Map still waits @30@ seconds after the first request to make the change.
 --
 -- /Note:/ Consider using 'failureThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcccFailureThreshold :: Lens.Lens' HealthCheckCustomConfig (Lude.Maybe Lude.Natural)
-hcccFailureThreshold = Lens.lens (failureThreshold :: HealthCheckCustomConfig -> Lude.Maybe Lude.Natural) (\s a -> s {failureThreshold = a} :: HealthCheckCustomConfig)
+hcccFailureThreshold :: Lens.Lens' HealthCheckCustomConfig (Core.Maybe Core.Natural)
+hcccFailureThreshold = Lens.field @"failureThreshold"
 {-# DEPRECATED hcccFailureThreshold "Use generic-lens or generic-optics with 'failureThreshold' instead." #-}
 
-instance Lude.FromJSON HealthCheckCustomConfig where
-  parseJSON =
-    Lude.withObject
-      "HealthCheckCustomConfig"
-      ( \x ->
-          HealthCheckCustomConfig' Lude.<$> (x Lude..:? "FailureThreshold")
+instance Core.FromJSON HealthCheckCustomConfig where
+  toJSON HealthCheckCustomConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [("FailureThreshold" Core..=) Core.<$> failureThreshold]
       )
 
-instance Lude.ToJSON HealthCheckCustomConfig where
-  toJSON HealthCheckCustomConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("FailureThreshold" Lude..=) Lude.<$> failureThreshold]
-      )
+instance Core.FromJSON HealthCheckCustomConfig where
+  parseJSON =
+    Core.withObject "HealthCheckCustomConfig" Core.$
+      \x ->
+        HealthCheckCustomConfig' Core.<$> (x Core..:? "FailureThreshold")

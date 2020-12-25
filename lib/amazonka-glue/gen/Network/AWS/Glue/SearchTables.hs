@@ -22,94 +22,104 @@ module Network.AWS.Glue.SearchTables
     mkSearchTables,
 
     -- ** Request lenses
+    stCatalogId,
+    stFilters,
+    stMaxResults,
+    stNextToken,
     stResourceShareType,
     stSearchText,
-    stFilters,
-    stCatalogId,
     stSortCriteria,
-    stNextToken,
-    stMaxResults,
 
     -- * Destructuring the response
     SearchTablesResponse (..),
     mkSearchTablesResponse,
 
     -- ** Response lenses
-    stsrsTableList,
-    stsrsNextToken,
-    stsrsResponseStatus,
+    strfrsNextToken,
+    strfrsTableList,
+    strfrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSearchTables' smart constructor.
 data SearchTables = SearchTables'
-  { -- | Allows you to specify that you want to search the tables shared with your account. The allowable values are @FOREIGN@ or @ALL@ .
+  { -- | A unique identifier, consisting of @/account_id/ @ .
+    catalogId :: Core.Maybe Types.CatalogId,
+    -- | A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.
+    --
+    -- The @Comparator@ member of the @PropertyPredicate@ struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when @Key=Name@ , a fuzzy match algorithm is used. The @Key@ field (for example, the value of the @Name@ field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the @Value@ member of @PropertyPredicate@ . For example, if @Key=Name@ and @Value=link@ , tables named @customer-link@ and @xx-link-yy@ are returned, but @xxlinkyy@ is not returned.
+    filters :: Core.Maybe [Types.PropertyPredicate],
+    -- | The maximum number of tables to return in a single response.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A continuation token, included if this is a continuation call.
+    nextToken :: Core.Maybe Types.Token,
+    -- | Allows you to specify that you want to search the tables shared with your account. The allowable values are @FOREIGN@ or @ALL@ .
     --
     --
     --     * If set to @FOREIGN@ , will search the tables shared with your account.
     --
     --
     --     * If set to @ALL@ , will search the tables shared with your account, as well as the tables in yor local account.
-    resourceShareType :: Lude.Maybe ResourceShareType,
+    resourceShareType :: Core.Maybe Types.ResourceShareType,
     -- | A string used for a text search.
     --
     -- Specifying a value in quotes filters based on an exact match to the value.
-    searchText :: Lude.Maybe Lude.Text,
-    -- | A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.
-    --
-    -- The @Comparator@ member of the @PropertyPredicate@ struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when @Key=Name@ , a fuzzy match algorithm is used. The @Key@ field (for example, the value of the @Name@ field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the @Value@ member of @PropertyPredicate@ . For example, if @Key=Name@ and @Value=link@ , tables named @customer-link@ and @xx-link-yy@ are returned, but @xxlinkyy@ is not returned.
-    filters :: Lude.Maybe [PropertyPredicate],
-    -- | A unique identifier, consisting of @/account_id/ @ .
-    catalogId :: Lude.Maybe Lude.Text,
+    searchText :: Core.Maybe Types.SearchText,
     -- | A list of criteria for sorting the results by a field name, in an ascending or descending order.
-    sortCriteria :: Lude.Maybe [SortCriterion],
-    -- | A continuation token, included if this is a continuation call.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of tables to return in a single response.
-    maxResults :: Lude.Maybe Lude.Natural
+    sortCriteria :: Core.Maybe [Types.SortCriterion]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SearchTables' with the minimum fields required to make a request.
---
--- * 'resourceShareType' - Allows you to specify that you want to search the tables shared with your account. The allowable values are @FOREIGN@ or @ALL@ .
---
---
---     * If set to @FOREIGN@ , will search the tables shared with your account.
---
---
---     * If set to @ALL@ , will search the tables shared with your account, as well as the tables in yor local account.
---
---
--- * 'searchText' - A string used for a text search.
---
--- Specifying a value in quotes filters based on an exact match to the value.
--- * 'filters' - A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.
---
--- The @Comparator@ member of the @PropertyPredicate@ struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when @Key=Name@ , a fuzzy match algorithm is used. The @Key@ field (for example, the value of the @Name@ field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the @Value@ member of @PropertyPredicate@ . For example, if @Key=Name@ and @Value=link@ , tables named @customer-link@ and @xx-link-yy@ are returned, but @xxlinkyy@ is not returned.
--- * 'catalogId' - A unique identifier, consisting of @/account_id/ @ .
--- * 'sortCriteria' - A list of criteria for sorting the results by a field name, in an ascending or descending order.
--- * 'nextToken' - A continuation token, included if this is a continuation call.
--- * 'maxResults' - The maximum number of tables to return in a single response.
+-- | Creates a 'SearchTables' value with any optional fields omitted.
 mkSearchTables ::
   SearchTables
 mkSearchTables =
   SearchTables'
-    { resourceShareType = Lude.Nothing,
-      searchText = Lude.Nothing,
-      filters = Lude.Nothing,
-      catalogId = Lude.Nothing,
-      sortCriteria = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { catalogId = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      resourceShareType = Core.Nothing,
+      searchText = Core.Nothing,
+      sortCriteria = Core.Nothing
     }
+
+-- | A unique identifier, consisting of @/account_id/ @ .
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stCatalogId :: Lens.Lens' SearchTables (Core.Maybe Types.CatalogId)
+stCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED stCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+-- | A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.
+--
+-- The @Comparator@ member of the @PropertyPredicate@ struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when @Key=Name@ , a fuzzy match algorithm is used. The @Key@ field (for example, the value of the @Name@ field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the @Value@ member of @PropertyPredicate@ . For example, if @Key=Name@ and @Value=link@ , tables named @customer-link@ and @xx-link-yy@ are returned, but @xxlinkyy@ is not returned.
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stFilters :: Lens.Lens' SearchTables (Core.Maybe [Types.PropertyPredicate])
+stFilters = Lens.field @"filters"
+{-# DEPRECATED stFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | The maximum number of tables to return in a single response.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stMaxResults :: Lens.Lens' SearchTables (Core.Maybe Core.Natural)
+stMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED stMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A continuation token, included if this is a continuation call.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stNextToken :: Lens.Lens' SearchTables (Core.Maybe Types.Token)
+stNextToken = Lens.field @"nextToken"
+{-# DEPRECATED stNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Allows you to specify that you want to search the tables shared with your account. The allowable values are @FOREIGN@ or @ALL@ .
 --
@@ -122,8 +132,8 @@ mkSearchTables =
 --
 --
 -- /Note:/ Consider using 'resourceShareType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stResourceShareType :: Lens.Lens' SearchTables (Lude.Maybe ResourceShareType)
-stResourceShareType = Lens.lens (resourceShareType :: SearchTables -> Lude.Maybe ResourceShareType) (\s a -> s {resourceShareType = a} :: SearchTables)
+stResourceShareType :: Lens.Lens' SearchTables (Core.Maybe Types.ResourceShareType)
+stResourceShareType = Lens.field @"resourceShareType"
 {-# DEPRECATED stResourceShareType "Use generic-lens or generic-optics with 'resourceShareType' instead." #-}
 
 -- | A string used for a text search.
@@ -131,135 +141,94 @@ stResourceShareType = Lens.lens (resourceShareType :: SearchTables -> Lude.Maybe
 -- Specifying a value in quotes filters based on an exact match to the value.
 --
 -- /Note:/ Consider using 'searchText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stSearchText :: Lens.Lens' SearchTables (Lude.Maybe Lude.Text)
-stSearchText = Lens.lens (searchText :: SearchTables -> Lude.Maybe Lude.Text) (\s a -> s {searchText = a} :: SearchTables)
+stSearchText :: Lens.Lens' SearchTables (Core.Maybe Types.SearchText)
+stSearchText = Lens.field @"searchText"
 {-# DEPRECATED stSearchText "Use generic-lens or generic-optics with 'searchText' instead." #-}
-
--- | A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.
---
--- The @Comparator@ member of the @PropertyPredicate@ struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when @Key=Name@ , a fuzzy match algorithm is used. The @Key@ field (for example, the value of the @Name@ field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the @Value@ member of @PropertyPredicate@ . For example, if @Key=Name@ and @Value=link@ , tables named @customer-link@ and @xx-link-yy@ are returned, but @xxlinkyy@ is not returned.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stFilters :: Lens.Lens' SearchTables (Lude.Maybe [PropertyPredicate])
-stFilters = Lens.lens (filters :: SearchTables -> Lude.Maybe [PropertyPredicate]) (\s a -> s {filters = a} :: SearchTables)
-{-# DEPRECATED stFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | A unique identifier, consisting of @/account_id/ @ .
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stCatalogId :: Lens.Lens' SearchTables (Lude.Maybe Lude.Text)
-stCatalogId = Lens.lens (catalogId :: SearchTables -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: SearchTables)
-{-# DEPRECATED stCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | A list of criteria for sorting the results by a field name, in an ascending or descending order.
 --
 -- /Note:/ Consider using 'sortCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stSortCriteria :: Lens.Lens' SearchTables (Lude.Maybe [SortCriterion])
-stSortCriteria = Lens.lens (sortCriteria :: SearchTables -> Lude.Maybe [SortCriterion]) (\s a -> s {sortCriteria = a} :: SearchTables)
+stSortCriteria :: Lens.Lens' SearchTables (Core.Maybe [Types.SortCriterion])
+stSortCriteria = Lens.field @"sortCriteria"
 {-# DEPRECATED stSortCriteria "Use generic-lens or generic-optics with 'sortCriteria' instead." #-}
 
--- | A continuation token, included if this is a continuation call.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stNextToken :: Lens.Lens' SearchTables (Lude.Maybe Lude.Text)
-stNextToken = Lens.lens (nextToken :: SearchTables -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchTables)
-{-# DEPRECATED stNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+instance Core.FromJSON SearchTables where
+  toJSON SearchTables {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("ResourceShareType" Core..=) Core.<$> resourceShareType,
+            ("SearchText" Core..=) Core.<$> searchText,
+            ("SortCriteria" Core..=) Core.<$> sortCriteria
+          ]
+      )
 
--- | The maximum number of tables to return in a single response.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stMaxResults :: Lens.Lens' SearchTables (Lude.Maybe Lude.Natural)
-stMaxResults = Lens.lens (maxResults :: SearchTables -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: SearchTables)
-{-# DEPRECATED stMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Lude.AWSRequest SearchTables where
+instance Core.AWSRequest SearchTables where
   type Rs SearchTables = SearchTablesResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.SearchTables")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SearchTablesResponse'
-            Lude.<$> (x Lude..?> "TableList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "TableList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SearchTables where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.SearchTables" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SearchTables where
-  toJSON SearchTables' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ResourceShareType" Lude..=) Lude.<$> resourceShareType,
-            ("SearchText" Lude..=) Lude.<$> searchText,
-            ("Filters" Lude..=) Lude.<$> filters,
-            ("CatalogId" Lude..=) Lude.<$> catalogId,
-            ("SortCriteria" Lude..=) Lude.<$> sortCriteria,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath SearchTables where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SearchTables where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSearchTablesResponse' smart constructor.
 data SearchTablesResponse = SearchTablesResponse'
-  { -- | A list of the requested @Table@ objects. The @SearchTables@ response returns only the tables that you have access to.
-    tableList :: Lude.Maybe [Table],
-    -- | A continuation token, present if the current list segment is not the last.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A continuation token, present if the current list segment is not the last.
+    nextToken :: Core.Maybe Types.Token,
+    -- | A list of the requested @Table@ objects. The @SearchTables@ response returns only the tables that you have access to.
+    tableList :: Core.Maybe [Types.Table],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SearchTablesResponse' with the minimum fields required to make a request.
---
--- * 'tableList' - A list of the requested @Table@ objects. The @SearchTables@ response returns only the tables that you have access to.
--- * 'nextToken' - A continuation token, present if the current list segment is not the last.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SearchTablesResponse' value with any optional fields omitted.
 mkSearchTablesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SearchTablesResponse
-mkSearchTablesResponse pResponseStatus_ =
+mkSearchTablesResponse responseStatus =
   SearchTablesResponse'
-    { tableList = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      tableList = Core.Nothing,
+      responseStatus
     }
-
--- | A list of the requested @Table@ objects. The @SearchTables@ response returns only the tables that you have access to.
---
--- /Note:/ Consider using 'tableList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsrsTableList :: Lens.Lens' SearchTablesResponse (Lude.Maybe [Table])
-stsrsTableList = Lens.lens (tableList :: SearchTablesResponse -> Lude.Maybe [Table]) (\s a -> s {tableList = a} :: SearchTablesResponse)
-{-# DEPRECATED stsrsTableList "Use generic-lens or generic-optics with 'tableList' instead." #-}
 
 -- | A continuation token, present if the current list segment is not the last.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsrsNextToken :: Lens.Lens' SearchTablesResponse (Lude.Maybe Lude.Text)
-stsrsNextToken = Lens.lens (nextToken :: SearchTablesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: SearchTablesResponse)
-{-# DEPRECATED stsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+strfrsNextToken :: Lens.Lens' SearchTablesResponse (Core.Maybe Types.Token)
+strfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED strfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of the requested @Table@ objects. The @SearchTables@ response returns only the tables that you have access to.
+--
+-- /Note:/ Consider using 'tableList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+strfrsTableList :: Lens.Lens' SearchTablesResponse (Core.Maybe [Types.Table])
+strfrsTableList = Lens.field @"tableList"
+{-# DEPRECATED strfrsTableList "Use generic-lens or generic-optics with 'tableList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stsrsResponseStatus :: Lens.Lens' SearchTablesResponse Lude.Int
-stsrsResponseStatus = Lens.lens (responseStatus :: SearchTablesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SearchTablesResponse)
-{-# DEPRECATED stsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+strfrsResponseStatus :: Lens.Lens' SearchTablesResponse Core.Int
+strfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED strfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

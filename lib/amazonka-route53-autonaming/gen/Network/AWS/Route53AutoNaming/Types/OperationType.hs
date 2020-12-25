@@ -13,61 +13,66 @@
 module Network.AWS.Route53AutoNaming.Types.OperationType
   ( OperationType
       ( OperationType',
-        CreateNamespace,
-        DeleteNamespace,
-        UpdateService,
-        RegisterInstance,
-        DeregisterInstance
+        OperationTypeCreateNamespace,
+        OperationTypeDeleteNamespace,
+        OperationTypeUpdateService,
+        OperationTypeRegisterInstance,
+        OperationTypeDeregisterInstance,
+        fromOperationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OperationType = OperationType' Lude.Text
+newtype OperationType = OperationType'
+  { fromOperationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CreateNamespace :: OperationType
-pattern CreateNamespace = OperationType' "CREATE_NAMESPACE"
+pattern OperationTypeCreateNamespace :: OperationType
+pattern OperationTypeCreateNamespace = OperationType' "CREATE_NAMESPACE"
 
-pattern DeleteNamespace :: OperationType
-pattern DeleteNamespace = OperationType' "DELETE_NAMESPACE"
+pattern OperationTypeDeleteNamespace :: OperationType
+pattern OperationTypeDeleteNamespace = OperationType' "DELETE_NAMESPACE"
 
-pattern UpdateService :: OperationType
-pattern UpdateService = OperationType' "UPDATE_SERVICE"
+pattern OperationTypeUpdateService :: OperationType
+pattern OperationTypeUpdateService = OperationType' "UPDATE_SERVICE"
 
-pattern RegisterInstance :: OperationType
-pattern RegisterInstance = OperationType' "REGISTER_INSTANCE"
+pattern OperationTypeRegisterInstance :: OperationType
+pattern OperationTypeRegisterInstance = OperationType' "REGISTER_INSTANCE"
 
-pattern DeregisterInstance :: OperationType
-pattern DeregisterInstance = OperationType' "DEREGISTER_INSTANCE"
+pattern OperationTypeDeregisterInstance :: OperationType
+pattern OperationTypeDeregisterInstance = OperationType' "DEREGISTER_INSTANCE"
 
 {-# COMPLETE
-  CreateNamespace,
-  DeleteNamespace,
-  UpdateService,
-  RegisterInstance,
-  DeregisterInstance,
+  OperationTypeCreateNamespace,
+  OperationTypeDeleteNamespace,
+  OperationTypeUpdateService,
+  OperationTypeRegisterInstance,
+  OperationTypeDeregisterInstance,
   OperationType'
   #-}

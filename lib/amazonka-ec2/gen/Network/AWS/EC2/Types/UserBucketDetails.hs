@@ -17,50 +17,48 @@ module Network.AWS.EC2.Types.UserBucketDetails
     mkUserBucketDetails,
 
     -- * Lenses
-    ubdS3Key,
     ubdS3Bucket,
+    ubdS3Key,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the Amazon S3 bucket for the disk image.
 --
 -- /See:/ 'mkUserBucketDetails' smart constructor.
 data UserBucketDetails = UserBucketDetails'
-  { -- | The file name of the disk image.
-    s3Key :: Lude.Maybe Lude.Text,
-    -- | The Amazon S3 bucket from which the disk image was created.
-    s3Bucket :: Lude.Maybe Lude.Text
+  { -- | The Amazon S3 bucket from which the disk image was created.
+    s3Bucket :: Core.Maybe Types.String,
+    -- | The file name of the disk image.
+    s3Key :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserBucketDetails' with the minimum fields required to make a request.
---
--- * 's3Key' - The file name of the disk image.
--- * 's3Bucket' - The Amazon S3 bucket from which the disk image was created.
+-- | Creates a 'UserBucketDetails' value with any optional fields omitted.
 mkUserBucketDetails ::
   UserBucketDetails
 mkUserBucketDetails =
-  UserBucketDetails' {s3Key = Lude.Nothing, s3Bucket = Lude.Nothing}
-
--- | The file name of the disk image.
---
--- /Note:/ Consider using 's3Key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubdS3Key :: Lens.Lens' UserBucketDetails (Lude.Maybe Lude.Text)
-ubdS3Key = Lens.lens (s3Key :: UserBucketDetails -> Lude.Maybe Lude.Text) (\s a -> s {s3Key = a} :: UserBucketDetails)
-{-# DEPRECATED ubdS3Key "Use generic-lens or generic-optics with 's3Key' instead." #-}
+  UserBucketDetails' {s3Bucket = Core.Nothing, s3Key = Core.Nothing}
 
 -- | The Amazon S3 bucket from which the disk image was created.
 --
 -- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubdS3Bucket :: Lens.Lens' UserBucketDetails (Lude.Maybe Lude.Text)
-ubdS3Bucket = Lens.lens (s3Bucket :: UserBucketDetails -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: UserBucketDetails)
+ubdS3Bucket :: Lens.Lens' UserBucketDetails (Core.Maybe Types.String)
+ubdS3Bucket = Lens.field @"s3Bucket"
 {-# DEPRECATED ubdS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
-instance Lude.FromXML UserBucketDetails where
+-- | The file name of the disk image.
+--
+-- /Note:/ Consider using 's3Key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubdS3Key :: Lens.Lens' UserBucketDetails (Core.Maybe Types.String)
+ubdS3Key = Lens.field @"s3Key"
+{-# DEPRECATED ubdS3Key "Use generic-lens or generic-optics with 's3Key' instead." #-}
+
+instance Core.FromXML UserBucketDetails where
   parseXML x =
     UserBucketDetails'
-      Lude.<$> (x Lude..@? "s3Key") Lude.<*> (x Lude..@? "s3Bucket")
+      Core.<$> (x Core..@? "s3Bucket") Core.<*> (x Core..@? "s3Key")

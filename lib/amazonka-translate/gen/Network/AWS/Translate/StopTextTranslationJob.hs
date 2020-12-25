@@ -30,123 +30,110 @@ module Network.AWS.Translate.StopTextTranslationJob
     mkStopTextTranslationJobResponse,
 
     -- ** Response lenses
-    sttjrsJobId,
-    sttjrsJobStatus,
-    sttjrsResponseStatus,
+    sttjrrsJobId,
+    sttjrrsJobStatus,
+    sttjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Translate.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Translate.Types as Types
 
 -- | /See:/ 'mkStopTextTranslationJob' smart constructor.
 newtype StopTextTranslationJob = StopTextTranslationJob'
   { -- | The job ID of the job to be stopped.
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTextTranslationJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The job ID of the job to be stopped.
+-- | Creates a 'StopTextTranslationJob' value with any optional fields omitted.
 mkStopTextTranslationJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   StopTextTranslationJob
-mkStopTextTranslationJob pJobId_ =
-  StopTextTranslationJob' {jobId = pJobId_}
+mkStopTextTranslationJob jobId = StopTextTranslationJob' {jobId}
 
 -- | The job ID of the job to be stopped.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjJobId :: Lens.Lens' StopTextTranslationJob Lude.Text
-sttjJobId = Lens.lens (jobId :: StopTextTranslationJob -> Lude.Text) (\s a -> s {jobId = a} :: StopTextTranslationJob)
+sttjJobId :: Lens.Lens' StopTextTranslationJob Types.JobId
+sttjJobId = Lens.field @"jobId"
 {-# DEPRECATED sttjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest StopTextTranslationJob where
+instance Core.FromJSON StopTextTranslationJob where
+  toJSON StopTextTranslationJob {..} =
+    Core.object (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.AWSRequest StopTextTranslationJob where
   type Rs StopTextTranslationJob = StopTextTranslationJobResponse
-  request = Req.postJSON translateService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSShineFrontendService_20170701.StopTextTranslationJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopTextTranslationJobResponse'
-            Lude.<$> (x Lude..?> "JobId")
-            Lude.<*> (x Lude..?> "JobStatus")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobId")
+            Core.<*> (x Core..:? "JobStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopTextTranslationJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShineFrontendService_20170701.StopTextTranslationJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopTextTranslationJob where
-  toJSON StopTextTranslationJob' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
-
-instance Lude.ToPath StopTextTranslationJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopTextTranslationJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopTextTranslationJobResponse' smart constructor.
 data StopTextTranslationJobResponse = StopTextTranslationJobResponse'
   { -- | The job ID of the stopped batch translation job.
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | The status of the designated job. Upon successful completion, the job's status will be @STOPPED@ .
-    jobStatus :: Lude.Maybe JobStatus,
+    jobStatus :: Core.Maybe Types.JobStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTextTranslationJobResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The job ID of the stopped batch translation job.
--- * 'jobStatus' - The status of the designated job. Upon successful completion, the job's status will be @STOPPED@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopTextTranslationJobResponse' value with any optional fields omitted.
 mkStopTextTranslationJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopTextTranslationJobResponse
-mkStopTextTranslationJobResponse pResponseStatus_ =
+mkStopTextTranslationJobResponse responseStatus =
   StopTextTranslationJobResponse'
-    { jobId = Lude.Nothing,
-      jobStatus = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      jobStatus = Core.Nothing,
+      responseStatus
     }
 
 -- | The job ID of the stopped batch translation job.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjrsJobId :: Lens.Lens' StopTextTranslationJobResponse (Lude.Maybe Lude.Text)
-sttjrsJobId = Lens.lens (jobId :: StopTextTranslationJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StopTextTranslationJobResponse)
-{-# DEPRECATED sttjrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+sttjrrsJobId :: Lens.Lens' StopTextTranslationJobResponse (Core.Maybe Types.JobId)
+sttjrrsJobId = Lens.field @"jobId"
+{-# DEPRECATED sttjrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The status of the designated job. Upon successful completion, the job's status will be @STOPPED@ .
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjrsJobStatus :: Lens.Lens' StopTextTranslationJobResponse (Lude.Maybe JobStatus)
-sttjrsJobStatus = Lens.lens (jobStatus :: StopTextTranslationJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StopTextTranslationJobResponse)
-{-# DEPRECATED sttjrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+sttjrrsJobStatus :: Lens.Lens' StopTextTranslationJobResponse (Core.Maybe Types.JobStatus)
+sttjrrsJobStatus = Lens.field @"jobStatus"
+{-# DEPRECATED sttjrrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sttjrsResponseStatus :: Lens.Lens' StopTextTranslationJobResponse Lude.Int
-sttjrsResponseStatus = Lens.lens (responseStatus :: StopTextTranslationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopTextTranslationJobResponse)
-{-# DEPRECATED sttjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sttjrrsResponseStatus :: Lens.Lens' StopTextTranslationJobResponse Core.Int
+sttjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sttjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

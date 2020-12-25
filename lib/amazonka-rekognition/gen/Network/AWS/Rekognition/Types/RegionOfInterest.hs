@@ -22,8 +22,8 @@ module Network.AWS.Rekognition.Types.RegionOfInterest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.BoundingBox
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.BoundingBox as Types
 
 -- | Specifies a location within the frame that Rekognition checks for text. Uses a @BoundingBox@ object to set a region of the screen.
 --
@@ -32,26 +32,24 @@ import Network.AWS.Rekognition.Types.BoundingBox
 -- /See:/ 'mkRegionOfInterest' smart constructor.
 newtype RegionOfInterest = RegionOfInterest'
   { -- | The box representing a region of interest on screen.
-    boundingBox :: Lude.Maybe BoundingBox
+    boundingBox :: Core.Maybe Types.BoundingBox
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegionOfInterest' with the minimum fields required to make a request.
---
--- * 'boundingBox' - The box representing a region of interest on screen.
+-- | Creates a 'RegionOfInterest' value with any optional fields omitted.
 mkRegionOfInterest ::
   RegionOfInterest
-mkRegionOfInterest = RegionOfInterest' {boundingBox = Lude.Nothing}
+mkRegionOfInterest = RegionOfInterest' {boundingBox = Core.Nothing}
 
 -- | The box representing a region of interest on screen.
 --
 -- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roiBoundingBox :: Lens.Lens' RegionOfInterest (Lude.Maybe BoundingBox)
-roiBoundingBox = Lens.lens (boundingBox :: RegionOfInterest -> Lude.Maybe BoundingBox) (\s a -> s {boundingBox = a} :: RegionOfInterest)
+roiBoundingBox :: Lens.Lens' RegionOfInterest (Core.Maybe Types.BoundingBox)
+roiBoundingBox = Lens.field @"boundingBox"
 {-# DEPRECATED roiBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
 
-instance Lude.ToJSON RegionOfInterest where
-  toJSON RegionOfInterest' {..} =
-    Lude.object
-      (Lude.catMaybes [("BoundingBox" Lude..=) Lude.<$> boundingBox])
+instance Core.FromJSON RegionOfInterest where
+  toJSON RegionOfInterest {..} =
+    Core.object
+      (Core.catMaybes [("BoundingBox" Core..=) Core.<$> boundingBox])

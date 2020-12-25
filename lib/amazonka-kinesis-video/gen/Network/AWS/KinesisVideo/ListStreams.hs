@@ -22,160 +22,154 @@ module Network.AWS.KinesisVideo.ListStreams
     mkListStreams,
 
     -- ** Request lenses
+    lsMaxResults,
     lsNextToken,
     lsStreamNameCondition,
-    lsMaxResults,
 
     -- * Destructuring the response
     ListStreamsResponse (..),
     mkListStreamsResponse,
 
     -- ** Response lenses
-    lsrsStreamInfoList,
-    lsrsNextToken,
-    lsrsResponseStatus,
+    lsrrsNextToken,
+    lsrrsStreamInfoList,
+    lsrrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisVideo.Types
+import qualified Network.AWS.KinesisVideo.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListStreams' smart constructor.
 data ListStreams = ListStreams'
-  { -- | If you specify this parameter, when the result of a @ListStreams@ operation is truncated, the call returns the @NextToken@ in the response. To get another batch of streams, provide this token in your next request.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The maximum number of streams to return in the response. The default is 10,000.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If you specify this parameter, when the result of a @ListStreams@ operation is truncated, the call returns the @NextToken@ in the response. To get another batch of streams, provide this token in your next request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Optional: Returns only streams that satisfy a specific condition. Currently, you can specify only the prefix of a stream name as a condition.
-    streamNameCondition :: Lude.Maybe StreamNameCondition,
-    -- | The maximum number of streams to return in the response. The default is 10,000.
-    maxResults :: Lude.Maybe Lude.Natural
+    streamNameCondition :: Core.Maybe Types.StreamNameCondition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListStreams' with the minimum fields required to make a request.
---
--- * 'nextToken' - If you specify this parameter, when the result of a @ListStreams@ operation is truncated, the call returns the @NextToken@ in the response. To get another batch of streams, provide this token in your next request.
--- * 'streamNameCondition' - Optional: Returns only streams that satisfy a specific condition. Currently, you can specify only the prefix of a stream name as a condition.
--- * 'maxResults' - The maximum number of streams to return in the response. The default is 10,000.
+-- | Creates a 'ListStreams' value with any optional fields omitted.
 mkListStreams ::
   ListStreams
 mkListStreams =
   ListStreams'
-    { nextToken = Lude.Nothing,
-      streamNameCondition = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      streamNameCondition = Core.Nothing
     }
+
+-- | The maximum number of streams to return in the response. The default is 10,000.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsMaxResults :: Lens.Lens' ListStreams (Core.Maybe Core.Natural)
+lsMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | If you specify this parameter, when the result of a @ListStreams@ operation is truncated, the call returns the @NextToken@ in the response. To get another batch of streams, provide this token in your next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsNextToken :: Lens.Lens' ListStreams (Lude.Maybe Lude.Text)
-lsNextToken = Lens.lens (nextToken :: ListStreams -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStreams)
+lsNextToken :: Lens.Lens' ListStreams (Core.Maybe Types.NextToken)
+lsNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Optional: Returns only streams that satisfy a specific condition. Currently, you can specify only the prefix of a stream name as a condition.
 --
 -- /Note:/ Consider using 'streamNameCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsStreamNameCondition :: Lens.Lens' ListStreams (Lude.Maybe StreamNameCondition)
-lsStreamNameCondition = Lens.lens (streamNameCondition :: ListStreams -> Lude.Maybe StreamNameCondition) (\s a -> s {streamNameCondition = a} :: ListStreams)
+lsStreamNameCondition :: Lens.Lens' ListStreams (Core.Maybe Types.StreamNameCondition)
+lsStreamNameCondition = Lens.field @"streamNameCondition"
 {-# DEPRECATED lsStreamNameCondition "Use generic-lens or generic-optics with 'streamNameCondition' instead." #-}
 
--- | The maximum number of streams to return in the response. The default is 10,000.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsMaxResults :: Lens.Lens' ListStreams (Lude.Maybe Lude.Natural)
-lsMaxResults = Lens.lens (maxResults :: ListStreams -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListStreams)
-{-# DEPRECATED lsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListStreams where
-  page rq rs
-    | Page.stop (rs Lens.^. lsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsrsStreamInfoList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lsNextToken Lens..~ rs Lens.^. lsrsNextToken
-
-instance Lude.AWSRequest ListStreams where
-  type Rs ListStreams = ListStreamsResponse
-  request = Req.postJSON kinesisVideoService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListStreamsResponse'
-            Lude.<$> (x Lude..?> "StreamInfoList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListStreams where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON ListStreams where
-  toJSON ListStreams' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("StreamNameCondition" Lude..=) Lude.<$> streamNameCondition,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
+instance Core.FromJSON ListStreams where
+  toJSON ListStreams {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("StreamNameCondition" Core..=) Core.<$> streamNameCondition
           ]
       )
 
-instance Lude.ToPath ListStreams where
-  toPath = Lude.const "/listStreams"
+instance Core.AWSRequest ListStreams where
+  type Rs ListStreams = ListStreamsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/listStreams",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListStreamsResponse'
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "StreamInfoList")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
-instance Lude.ToQuery ListStreams where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListStreams where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"streamInfoList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListStreamsResponse' smart constructor.
 data ListStreamsResponse = ListStreamsResponse'
-  { -- | An array of @StreamInfo@ objects.
-    streamInfoList :: Lude.Maybe [StreamInfo],
-    -- | If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | An array of @StreamInfo@ objects.
+    streamInfoList :: Core.Maybe [Types.StreamInfo],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListStreamsResponse' with the minimum fields required to make a request.
---
--- * 'streamInfoList' - An array of @StreamInfo@ objects.
--- * 'nextToken' - If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListStreamsResponse' value with any optional fields omitted.
 mkListStreamsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListStreamsResponse
-mkListStreamsResponse pResponseStatus_ =
+mkListStreamsResponse responseStatus =
   ListStreamsResponse'
-    { streamInfoList = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      streamInfoList = Core.Nothing,
+      responseStatus
     }
-
--- | An array of @StreamInfo@ objects.
---
--- /Note:/ Consider using 'streamInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsStreamInfoList :: Lens.Lens' ListStreamsResponse (Lude.Maybe [StreamInfo])
-lsrsStreamInfoList = Lens.lens (streamInfoList :: ListStreamsResponse -> Lude.Maybe [StreamInfo]) (\s a -> s {streamInfoList = a} :: ListStreamsResponse)
-{-# DEPRECATED lsrsStreamInfoList "Use generic-lens or generic-optics with 'streamInfoList' instead." #-}
 
 -- | If the response is truncated, the call returns this element with a token. To get the next batch of streams, use this token in your next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsNextToken :: Lens.Lens' ListStreamsResponse (Lude.Maybe Lude.Text)
-lsrsNextToken = Lens.lens (nextToken :: ListStreamsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListStreamsResponse)
-{-# DEPRECATED lsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lsrrsNextToken :: Lens.Lens' ListStreamsResponse (Core.Maybe Types.NextToken)
+lsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | An array of @StreamInfo@ objects.
+--
+-- /Note:/ Consider using 'streamInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrrsStreamInfoList :: Lens.Lens' ListStreamsResponse (Core.Maybe [Types.StreamInfo])
+lsrrsStreamInfoList = Lens.field @"streamInfoList"
+{-# DEPRECATED lsrrsStreamInfoList "Use generic-lens or generic-optics with 'streamInfoList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsResponseStatus :: Lens.Lens' ListStreamsResponse Lude.Int
-lsrsResponseStatus = Lens.lens (responseStatus :: ListStreamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStreamsResponse)
-{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsrrsResponseStatus :: Lens.Lens' ListStreamsResponse Core.Int
+lsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

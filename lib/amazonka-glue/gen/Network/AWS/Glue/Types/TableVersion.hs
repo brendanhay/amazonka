@@ -17,55 +17,51 @@ module Network.AWS.Glue.Types.TableVersion
     mkTableVersion,
 
     -- * Lenses
-    tvVersionId,
     tvTable,
+    tvVersionId,
   )
 where
 
-import Network.AWS.Glue.Types.Table
+import qualified Network.AWS.Glue.Types.Table as Types
+import qualified Network.AWS.Glue.Types.VersionString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a version of a table.
 --
 -- /See:/ 'mkTableVersion' smart constructor.
 data TableVersion = TableVersion'
-  { -- | The ID value that identifies this table version. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
-    versionId :: Lude.Maybe Lude.Text,
-    -- | The table in question.
-    table :: Lude.Maybe Table
+  { -- | The table in question.
+    table :: Core.Maybe Types.Table,
+    -- | The ID value that identifies this table version. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
+    versionId :: Core.Maybe Types.VersionString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TableVersion' with the minimum fields required to make a request.
---
--- * 'versionId' - The ID value that identifies this table version. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
--- * 'table' - The table in question.
+-- | Creates a 'TableVersion' value with any optional fields omitted.
 mkTableVersion ::
   TableVersion
 mkTableVersion =
-  TableVersion' {versionId = Lude.Nothing, table = Lude.Nothing}
-
--- | The ID value that identifies this table version. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvVersionId :: Lens.Lens' TableVersion (Lude.Maybe Lude.Text)
-tvVersionId = Lens.lens (versionId :: TableVersion -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: TableVersion)
-{-# DEPRECATED tvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+  TableVersion' {table = Core.Nothing, versionId = Core.Nothing}
 
 -- | The table in question.
 --
 -- /Note:/ Consider using 'table' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvTable :: Lens.Lens' TableVersion (Lude.Maybe Table)
-tvTable = Lens.lens (table :: TableVersion -> Lude.Maybe Table) (\s a -> s {table = a} :: TableVersion)
+tvTable :: Lens.Lens' TableVersion (Core.Maybe Types.Table)
+tvTable = Lens.field @"table"
 {-# DEPRECATED tvTable "Use generic-lens or generic-optics with 'table' instead." #-}
 
-instance Lude.FromJSON TableVersion where
+-- | The ID value that identifies this table version. A @VersionId@ is a string representation of an integer. Each version is incremented by 1.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvVersionId :: Lens.Lens' TableVersion (Core.Maybe Types.VersionString)
+tvVersionId = Lens.field @"versionId"
+{-# DEPRECATED tvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+instance Core.FromJSON TableVersion where
   parseJSON =
-    Lude.withObject
-      "TableVersion"
-      ( \x ->
-          TableVersion'
-            Lude.<$> (x Lude..:? "VersionId") Lude.<*> (x Lude..:? "Table")
-      )
+    Core.withObject "TableVersion" Core.$
+      \x ->
+        TableVersion'
+          Core.<$> (x Core..:? "Table") Core.<*> (x Core..:? "VersionId")

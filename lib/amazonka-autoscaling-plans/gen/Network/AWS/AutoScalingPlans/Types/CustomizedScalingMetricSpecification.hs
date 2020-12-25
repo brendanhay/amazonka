@@ -19,16 +19,19 @@ module Network.AWS.AutoScalingPlans.Types.CustomizedScalingMetricSpecification
     -- * Lenses
     csmsMetricName,
     csmsNamespace,
+    csmsStatistic,
     csmsDimensions,
     csmsUnit,
-    csmsStatistic,
   )
 where
 
-import Network.AWS.AutoScalingPlans.Types.MetricDimension
-import Network.AWS.AutoScalingPlans.Types.MetricStatistic
+import qualified Network.AWS.AutoScalingPlans.Types.MetricDimension as Types
+import qualified Network.AWS.AutoScalingPlans.Types.MetricName as Types
+import qualified Network.AWS.AutoScalingPlans.Types.MetricNamespace as Types
+import qualified Network.AWS.AutoScalingPlans.Types.MetricStatistic as Types
+import qualified Network.AWS.AutoScalingPlans.Types.MetricUnit as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a CloudWatch metric of your choosing that can be used for dynamic scaling as part of a target tracking scaling policy.
 --
@@ -45,108 +48,98 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkCustomizedScalingMetricSpecification' smart constructor.
 data CustomizedScalingMetricSpecification = CustomizedScalingMetricSpecification'
   { -- | The name of the metric.
-    metricName :: Lude.Text,
+    metricName :: Types.MetricName,
     -- | The namespace of the metric.
-    namespace :: Lude.Text,
+    namespace :: Types.MetricNamespace,
+    -- | The statistic of the metric.
+    statistic :: Types.MetricStatistic,
     -- | The dimensions of the metric.
     --
     -- Conditional: If you published your metric with dimensions, you must specify the same dimensions in your customized scaling metric specification.
-    dimensions :: Lude.Maybe [MetricDimension],
+    dimensions :: Core.Maybe [Types.MetricDimension],
     -- | The unit of the metric.
-    unit :: Lude.Maybe Lude.Text,
-    -- | The statistic of the metric.
-    statistic :: MetricStatistic
+    unit :: Core.Maybe Types.MetricUnit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CustomizedScalingMetricSpecification' with the minimum fields required to make a request.
---
--- * 'metricName' - The name of the metric.
--- * 'namespace' - The namespace of the metric.
--- * 'dimensions' - The dimensions of the metric.
---
--- Conditional: If you published your metric with dimensions, you must specify the same dimensions in your customized scaling metric specification.
--- * 'unit' - The unit of the metric.
--- * 'statistic' - The statistic of the metric.
+-- | Creates a 'CustomizedScalingMetricSpecification' value with any optional fields omitted.
 mkCustomizedScalingMetricSpecification ::
   -- | 'metricName'
-  Lude.Text ->
+  Types.MetricName ->
   -- | 'namespace'
-  Lude.Text ->
+  Types.MetricNamespace ->
   -- | 'statistic'
-  MetricStatistic ->
+  Types.MetricStatistic ->
   CustomizedScalingMetricSpecification
 mkCustomizedScalingMetricSpecification
-  pMetricName_
-  pNamespace_
-  pStatistic_ =
+  metricName
+  namespace
+  statistic =
     CustomizedScalingMetricSpecification'
-      { metricName = pMetricName_,
-        namespace = pNamespace_,
-        dimensions = Lude.Nothing,
-        unit = Lude.Nothing,
-        statistic = pStatistic_
+      { metricName,
+        namespace,
+        statistic,
+        dimensions = Core.Nothing,
+        unit = Core.Nothing
       }
 
 -- | The name of the metric.
 --
 -- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmsMetricName :: Lens.Lens' CustomizedScalingMetricSpecification Lude.Text
-csmsMetricName = Lens.lens (metricName :: CustomizedScalingMetricSpecification -> Lude.Text) (\s a -> s {metricName = a} :: CustomizedScalingMetricSpecification)
+csmsMetricName :: Lens.Lens' CustomizedScalingMetricSpecification Types.MetricName
+csmsMetricName = Lens.field @"metricName"
 {-# DEPRECATED csmsMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The namespace of the metric.
 --
 -- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmsNamespace :: Lens.Lens' CustomizedScalingMetricSpecification Lude.Text
-csmsNamespace = Lens.lens (namespace :: CustomizedScalingMetricSpecification -> Lude.Text) (\s a -> s {namespace = a} :: CustomizedScalingMetricSpecification)
+csmsNamespace :: Lens.Lens' CustomizedScalingMetricSpecification Types.MetricNamespace
+csmsNamespace = Lens.field @"namespace"
 {-# DEPRECATED csmsNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
+
+-- | The statistic of the metric.
+--
+-- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csmsStatistic :: Lens.Lens' CustomizedScalingMetricSpecification Types.MetricStatistic
+csmsStatistic = Lens.field @"statistic"
+{-# DEPRECATED csmsStatistic "Use generic-lens or generic-optics with 'statistic' instead." #-}
 
 -- | The dimensions of the metric.
 --
 -- Conditional: If you published your metric with dimensions, you must specify the same dimensions in your customized scaling metric specification.
 --
 -- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmsDimensions :: Lens.Lens' CustomizedScalingMetricSpecification (Lude.Maybe [MetricDimension])
-csmsDimensions = Lens.lens (dimensions :: CustomizedScalingMetricSpecification -> Lude.Maybe [MetricDimension]) (\s a -> s {dimensions = a} :: CustomizedScalingMetricSpecification)
+csmsDimensions :: Lens.Lens' CustomizedScalingMetricSpecification (Core.Maybe [Types.MetricDimension])
+csmsDimensions = Lens.field @"dimensions"
 {-# DEPRECATED csmsDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
 -- | The unit of the metric.
 --
 -- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmsUnit :: Lens.Lens' CustomizedScalingMetricSpecification (Lude.Maybe Lude.Text)
-csmsUnit = Lens.lens (unit :: CustomizedScalingMetricSpecification -> Lude.Maybe Lude.Text) (\s a -> s {unit = a} :: CustomizedScalingMetricSpecification)
+csmsUnit :: Lens.Lens' CustomizedScalingMetricSpecification (Core.Maybe Types.MetricUnit)
+csmsUnit = Lens.field @"unit"
 {-# DEPRECATED csmsUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
--- | The statistic of the metric.
---
--- /Note:/ Consider using 'statistic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csmsStatistic :: Lens.Lens' CustomizedScalingMetricSpecification MetricStatistic
-csmsStatistic = Lens.lens (statistic :: CustomizedScalingMetricSpecification -> MetricStatistic) (\s a -> s {statistic = a} :: CustomizedScalingMetricSpecification)
-{-# DEPRECATED csmsStatistic "Use generic-lens or generic-optics with 'statistic' instead." #-}
-
-instance Lude.FromJSON CustomizedScalingMetricSpecification where
-  parseJSON =
-    Lude.withObject
-      "CustomizedScalingMetricSpecification"
-      ( \x ->
-          CustomizedScalingMetricSpecification'
-            Lude.<$> (x Lude..: "MetricName")
-            Lude.<*> (x Lude..: "Namespace")
-            Lude.<*> (x Lude..:? "Dimensions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Unit")
-            Lude.<*> (x Lude..: "Statistic")
-      )
-
-instance Lude.ToJSON CustomizedScalingMetricSpecification where
-  toJSON CustomizedScalingMetricSpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MetricName" Lude..= metricName),
-            Lude.Just ("Namespace" Lude..= namespace),
-            ("Dimensions" Lude..=) Lude.<$> dimensions,
-            ("Unit" Lude..=) Lude.<$> unit,
-            Lude.Just ("Statistic" Lude..= statistic)
+instance Core.FromJSON CustomizedScalingMetricSpecification where
+  toJSON CustomizedScalingMetricSpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MetricName" Core..= metricName),
+            Core.Just ("Namespace" Core..= namespace),
+            Core.Just ("Statistic" Core..= statistic),
+            ("Dimensions" Core..=) Core.<$> dimensions,
+            ("Unit" Core..=) Core.<$> unit
           ]
       )
+
+instance Core.FromJSON CustomizedScalingMetricSpecification where
+  parseJSON =
+    Core.withObject "CustomizedScalingMetricSpecification" Core.$
+      \x ->
+        CustomizedScalingMetricSpecification'
+          Core.<$> (x Core..: "MetricName")
+          Core.<*> (x Core..: "Namespace")
+          Core.<*> (x Core..: "Statistic")
+          Core.<*> (x Core..:? "Dimensions")
+          Core.<*> (x Core..:? "Unit")

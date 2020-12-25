@@ -24,95 +24,86 @@ module Network.AWS.OpsWorks.DescribeOperatingSystems
     mkDescribeOperatingSystemsResponse,
 
     -- ** Response lenses
-    dosrsOperatingSystems,
-    dosrsResponseStatus,
+    dosrrsOperatingSystems,
+    dosrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeOperatingSystems' smart constructor.
 data DescribeOperatingSystems = DescribeOperatingSystems'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeOperatingSystems' with the minimum fields required to make a request.
+-- | Creates a 'DescribeOperatingSystems' value with any optional fields omitted.
 mkDescribeOperatingSystems ::
   DescribeOperatingSystems
 mkDescribeOperatingSystems = DescribeOperatingSystems'
 
-instance Lude.AWSRequest DescribeOperatingSystems where
+instance Core.FromJSON DescribeOperatingSystems where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DescribeOperatingSystems where
   type Rs DescribeOperatingSystems = DescribeOperatingSystemsResponse
-  request = Req.postJSON opsWorksService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OpsWorks_20130218.DescribeOperatingSystems")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeOperatingSystemsResponse'
-            Lude.<$> (x Lude..?> "OperatingSystems" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "OperatingSystems")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeOperatingSystems where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.DescribeOperatingSystems" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeOperatingSystems where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DescribeOperatingSystems where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeOperatingSystems where
-  toQuery = Lude.const Lude.mempty
 
 -- | The response to a @DescribeOperatingSystems@ request.
 --
 -- /See:/ 'mkDescribeOperatingSystemsResponse' smart constructor.
 data DescribeOperatingSystemsResponse = DescribeOperatingSystemsResponse'
   { -- | Contains information in response to a @DescribeOperatingSystems@ request.
-    operatingSystems :: Lude.Maybe [OperatingSystem],
+    operatingSystems :: Core.Maybe [Types.OperatingSystem],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeOperatingSystemsResponse' with the minimum fields required to make a request.
---
--- * 'operatingSystems' - Contains information in response to a @DescribeOperatingSystems@ request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeOperatingSystemsResponse' value with any optional fields omitted.
 mkDescribeOperatingSystemsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeOperatingSystemsResponse
-mkDescribeOperatingSystemsResponse pResponseStatus_ =
+mkDescribeOperatingSystemsResponse responseStatus =
   DescribeOperatingSystemsResponse'
     { operatingSystems =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Contains information in response to a @DescribeOperatingSystems@ request.
 --
 -- /Note:/ Consider using 'operatingSystems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dosrsOperatingSystems :: Lens.Lens' DescribeOperatingSystemsResponse (Lude.Maybe [OperatingSystem])
-dosrsOperatingSystems = Lens.lens (operatingSystems :: DescribeOperatingSystemsResponse -> Lude.Maybe [OperatingSystem]) (\s a -> s {operatingSystems = a} :: DescribeOperatingSystemsResponse)
-{-# DEPRECATED dosrsOperatingSystems "Use generic-lens or generic-optics with 'operatingSystems' instead." #-}
+dosrrsOperatingSystems :: Lens.Lens' DescribeOperatingSystemsResponse (Core.Maybe [Types.OperatingSystem])
+dosrrsOperatingSystems = Lens.field @"operatingSystems"
+{-# DEPRECATED dosrrsOperatingSystems "Use generic-lens or generic-optics with 'operatingSystems' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dosrsResponseStatus :: Lens.Lens' DescribeOperatingSystemsResponse Lude.Int
-dosrsResponseStatus = Lens.lens (responseStatus :: DescribeOperatingSystemsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOperatingSystemsResponse)
-{-# DEPRECATED dosrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dosrrsResponseStatus :: Lens.Lens' DescribeOperatingSystemsResponse Core.Int
+dosrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dosrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

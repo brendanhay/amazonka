@@ -22,7 +22,7 @@ module Network.AWS.IoTAnalytics.DeleteDataset
     mkDeleteDataset,
 
     -- ** Request lenses
-    ddDatasetName,
+    dDatasetName,
 
     -- * Destructuring the response
     DeleteDatasetResponse (..),
@@ -30,58 +30,54 @@ module Network.AWS.IoTAnalytics.DeleteDataset
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDataset' smart constructor.
 newtype DeleteDataset = DeleteDataset'
   { -- | The name of the data set to delete.
-    datasetName :: Lude.Text
+    datasetName :: Types.DatasetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDataset' with the minimum fields required to make a request.
---
--- * 'datasetName' - The name of the data set to delete.
+-- | Creates a 'DeleteDataset' value with any optional fields omitted.
 mkDeleteDataset ::
   -- | 'datasetName'
-  Lude.Text ->
+  Types.DatasetName ->
   DeleteDataset
-mkDeleteDataset pDatasetName_ =
-  DeleteDataset' {datasetName = pDatasetName_}
+mkDeleteDataset datasetName = DeleteDataset' {datasetName}
 
 -- | The name of the data set to delete.
 --
 -- /Note:/ Consider using 'datasetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDatasetName :: Lens.Lens' DeleteDataset Lude.Text
-ddDatasetName = Lens.lens (datasetName :: DeleteDataset -> Lude.Text) (\s a -> s {datasetName = a} :: DeleteDataset)
-{-# DEPRECATED ddDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
+dDatasetName :: Lens.Lens' DeleteDataset Types.DatasetName
+dDatasetName = Lens.field @"datasetName"
+{-# DEPRECATED dDatasetName "Use generic-lens or generic-optics with 'datasetName' instead." #-}
 
-instance Lude.AWSRequest DeleteDataset where
+instance Core.AWSRequest DeleteDataset where
   type Rs DeleteDataset = DeleteDatasetResponse
-  request = Req.delete ioTAnalyticsService
-  response = Res.receiveNull DeleteDatasetResponse'
-
-instance Lude.ToHeaders DeleteDataset where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteDataset where
-  toPath DeleteDataset' {..} =
-    Lude.mconcat ["/datasets/", Lude.toBS datasetName]
-
-instance Lude.ToQuery DeleteDataset where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/datasets/" Core.<> (Core.toText datasetName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteDatasetResponse'
 
 -- | /See:/ 'mkDeleteDatasetResponse' smart constructor.
 data DeleteDatasetResponse = DeleteDatasetResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDatasetResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteDatasetResponse' value with any optional fields omitted.
 mkDeleteDatasetResponse ::
   DeleteDatasetResponse
 mkDeleteDatasetResponse = DeleteDatasetResponse'

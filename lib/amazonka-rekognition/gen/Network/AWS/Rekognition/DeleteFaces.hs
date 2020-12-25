@@ -30,124 +30,108 @@ module Network.AWS.Rekognition.DeleteFaces
     mkDeleteFacesResponse,
 
     -- ** Response lenses
-    dfsrsDeletedFaces,
-    dfsrsResponseStatus,
+    dfrfrsDeletedFaces,
+    dfrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFaces' smart constructor.
 data DeleteFaces = DeleteFaces'
   { -- | Collection from which to remove the specific faces.
-    collectionId :: Lude.Text,
+    collectionId :: Types.CollectionId,
     -- | An array of face IDs to delete.
-    faceIds :: Lude.NonEmpty Lude.Text
+    faceIds :: Core.NonEmpty Types.FaceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFaces' with the minimum fields required to make a request.
---
--- * 'collectionId' - Collection from which to remove the specific faces.
--- * 'faceIds' - An array of face IDs to delete.
+-- | Creates a 'DeleteFaces' value with any optional fields omitted.
 mkDeleteFaces ::
   -- | 'collectionId'
-  Lude.Text ->
+  Types.CollectionId ->
   -- | 'faceIds'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.FaceId ->
   DeleteFaces
-mkDeleteFaces pCollectionId_ pFaceIds_ =
-  DeleteFaces' {collectionId = pCollectionId_, faceIds = pFaceIds_}
+mkDeleteFaces collectionId faceIds =
+  DeleteFaces' {collectionId, faceIds}
 
 -- | Collection from which to remove the specific faces.
 --
 -- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfCollectionId :: Lens.Lens' DeleteFaces Lude.Text
-dfCollectionId = Lens.lens (collectionId :: DeleteFaces -> Lude.Text) (\s a -> s {collectionId = a} :: DeleteFaces)
+dfCollectionId :: Lens.Lens' DeleteFaces Types.CollectionId
+dfCollectionId = Lens.field @"collectionId"
 {-# DEPRECATED dfCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
 -- | An array of face IDs to delete.
 --
 -- /Note:/ Consider using 'faceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfFaceIds :: Lens.Lens' DeleteFaces (Lude.NonEmpty Lude.Text)
-dfFaceIds = Lens.lens (faceIds :: DeleteFaces -> Lude.NonEmpty Lude.Text) (\s a -> s {faceIds = a} :: DeleteFaces)
+dfFaceIds :: Lens.Lens' DeleteFaces (Core.NonEmpty Types.FaceId)
+dfFaceIds = Lens.field @"faceIds"
 {-# DEPRECATED dfFaceIds "Use generic-lens or generic-optics with 'faceIds' instead." #-}
 
-instance Lude.AWSRequest DeleteFaces where
+instance Core.FromJSON DeleteFaces where
+  toJSON DeleteFaces {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CollectionId" Core..= collectionId),
+            Core.Just ("FaceIds" Core..= faceIds)
+          ]
+      )
+
+instance Core.AWSRequest DeleteFaces where
   type Rs DeleteFaces = DeleteFacesResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.DeleteFaces")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteFacesResponse'
-            Lude.<$> (x Lude..?> "DeletedFaces") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DeletedFaces") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteFaces where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.DeleteFaces" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteFaces where
-  toJSON DeleteFaces' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("CollectionId" Lude..= collectionId),
-            Lude.Just ("FaceIds" Lude..= faceIds)
-          ]
-      )
-
-instance Lude.ToPath DeleteFaces where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteFaces where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteFacesResponse' smart constructor.
 data DeleteFacesResponse = DeleteFacesResponse'
   { -- | An array of strings (face IDs) of the faces that were deleted.
-    deletedFaces :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    deletedFaces :: Core.Maybe (Core.NonEmpty Types.FaceId),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFacesResponse' with the minimum fields required to make a request.
---
--- * 'deletedFaces' - An array of strings (face IDs) of the faces that were deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteFacesResponse' value with any optional fields omitted.
 mkDeleteFacesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteFacesResponse
-mkDeleteFacesResponse pResponseStatus_ =
-  DeleteFacesResponse'
-    { deletedFaces = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteFacesResponse responseStatus =
+  DeleteFacesResponse' {deletedFaces = Core.Nothing, responseStatus}
 
 -- | An array of strings (face IDs) of the faces that were deleted.
 --
 -- /Note:/ Consider using 'deletedFaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrsDeletedFaces :: Lens.Lens' DeleteFacesResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-dfsrsDeletedFaces = Lens.lens (deletedFaces :: DeleteFacesResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {deletedFaces = a} :: DeleteFacesResponse)
-{-# DEPRECATED dfsrsDeletedFaces "Use generic-lens or generic-optics with 'deletedFaces' instead." #-}
+dfrfrsDeletedFaces :: Lens.Lens' DeleteFacesResponse (Core.Maybe (Core.NonEmpty Types.FaceId))
+dfrfrsDeletedFaces = Lens.field @"deletedFaces"
+{-# DEPRECATED dfrfrsDeletedFaces "Use generic-lens or generic-optics with 'deletedFaces' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfsrsResponseStatus :: Lens.Lens' DeleteFacesResponse Lude.Int
-dfsrsResponseStatus = Lens.lens (responseStatus :: DeleteFacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteFacesResponse)
-{-# DEPRECATED dfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfrfrsResponseStatus :: Lens.Lens' DeleteFacesResponse Core.Int
+dfrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

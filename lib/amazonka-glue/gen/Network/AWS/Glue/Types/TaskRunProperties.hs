@@ -17,102 +17,94 @@ module Network.AWS.Glue.Types.TaskRunProperties
     mkTaskRunProperties,
 
     -- * Lenses
-    trpTaskType,
     trpExportLabelsTaskRunProperties,
-    trpLabelingSetGenerationTaskRunProperties,
     trpFindMatchesTaskRunProperties,
     trpImportLabelsTaskRunProperties,
+    trpLabelingSetGenerationTaskRunProperties,
+    trpTaskType,
   )
 where
 
-import Network.AWS.Glue.Types.ExportLabelsTaskRunProperties
-import Network.AWS.Glue.Types.FindMatchesTaskRunProperties
-import Network.AWS.Glue.Types.ImportLabelsTaskRunProperties
-import Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties
-import Network.AWS.Glue.Types.TaskType
+import qualified Network.AWS.Glue.Types.ExportLabelsTaskRunProperties as Types
+import qualified Network.AWS.Glue.Types.FindMatchesTaskRunProperties as Types
+import qualified Network.AWS.Glue.Types.ImportLabelsTaskRunProperties as Types
+import qualified Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties as Types
+import qualified Network.AWS.Glue.Types.TaskType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The configuration properties for the task run.
 --
 -- /See:/ 'mkTaskRunProperties' smart constructor.
 data TaskRunProperties = TaskRunProperties'
-  { -- | The type of task run.
-    taskType :: Lude.Maybe TaskType,
-    -- | The configuration properties for an exporting labels task run.
-    exportLabelsTaskRunProperties :: Lude.Maybe ExportLabelsTaskRunProperties,
-    -- | The configuration properties for a labeling set generation task run.
-    labelingSetGenerationTaskRunProperties :: Lude.Maybe LabelingSetGenerationTaskRunProperties,
+  { -- | The configuration properties for an exporting labels task run.
+    exportLabelsTaskRunProperties :: Core.Maybe Types.ExportLabelsTaskRunProperties,
     -- | The configuration properties for a find matches task run.
-    findMatchesTaskRunProperties :: Lude.Maybe FindMatchesTaskRunProperties,
+    findMatchesTaskRunProperties :: Core.Maybe Types.FindMatchesTaskRunProperties,
     -- | The configuration properties for an importing labels task run.
-    importLabelsTaskRunProperties :: Lude.Maybe ImportLabelsTaskRunProperties
+    importLabelsTaskRunProperties :: Core.Maybe Types.ImportLabelsTaskRunProperties,
+    -- | The configuration properties for a labeling set generation task run.
+    labelingSetGenerationTaskRunProperties :: Core.Maybe Types.LabelingSetGenerationTaskRunProperties,
+    -- | The type of task run.
+    taskType :: Core.Maybe Types.TaskType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TaskRunProperties' with the minimum fields required to make a request.
---
--- * 'taskType' - The type of task run.
--- * 'exportLabelsTaskRunProperties' - The configuration properties for an exporting labels task run.
--- * 'labelingSetGenerationTaskRunProperties' - The configuration properties for a labeling set generation task run.
--- * 'findMatchesTaskRunProperties' - The configuration properties for a find matches task run.
--- * 'importLabelsTaskRunProperties' - The configuration properties for an importing labels task run.
+-- | Creates a 'TaskRunProperties' value with any optional fields omitted.
 mkTaskRunProperties ::
   TaskRunProperties
 mkTaskRunProperties =
   TaskRunProperties'
-    { taskType = Lude.Nothing,
-      exportLabelsTaskRunProperties = Lude.Nothing,
-      labelingSetGenerationTaskRunProperties = Lude.Nothing,
-      findMatchesTaskRunProperties = Lude.Nothing,
-      importLabelsTaskRunProperties = Lude.Nothing
+    { exportLabelsTaskRunProperties = Core.Nothing,
+      findMatchesTaskRunProperties = Core.Nothing,
+      importLabelsTaskRunProperties = Core.Nothing,
+      labelingSetGenerationTaskRunProperties = Core.Nothing,
+      taskType = Core.Nothing
     }
-
--- | The type of task run.
---
--- /Note:/ Consider using 'taskType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trpTaskType :: Lens.Lens' TaskRunProperties (Lude.Maybe TaskType)
-trpTaskType = Lens.lens (taskType :: TaskRunProperties -> Lude.Maybe TaskType) (\s a -> s {taskType = a} :: TaskRunProperties)
-{-# DEPRECATED trpTaskType "Use generic-lens or generic-optics with 'taskType' instead." #-}
 
 -- | The configuration properties for an exporting labels task run.
 --
 -- /Note:/ Consider using 'exportLabelsTaskRunProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trpExportLabelsTaskRunProperties :: Lens.Lens' TaskRunProperties (Lude.Maybe ExportLabelsTaskRunProperties)
-trpExportLabelsTaskRunProperties = Lens.lens (exportLabelsTaskRunProperties :: TaskRunProperties -> Lude.Maybe ExportLabelsTaskRunProperties) (\s a -> s {exportLabelsTaskRunProperties = a} :: TaskRunProperties)
+trpExportLabelsTaskRunProperties :: Lens.Lens' TaskRunProperties (Core.Maybe Types.ExportLabelsTaskRunProperties)
+trpExportLabelsTaskRunProperties = Lens.field @"exportLabelsTaskRunProperties"
 {-# DEPRECATED trpExportLabelsTaskRunProperties "Use generic-lens or generic-optics with 'exportLabelsTaskRunProperties' instead." #-}
-
--- | The configuration properties for a labeling set generation task run.
---
--- /Note:/ Consider using 'labelingSetGenerationTaskRunProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trpLabelingSetGenerationTaskRunProperties :: Lens.Lens' TaskRunProperties (Lude.Maybe LabelingSetGenerationTaskRunProperties)
-trpLabelingSetGenerationTaskRunProperties = Lens.lens (labelingSetGenerationTaskRunProperties :: TaskRunProperties -> Lude.Maybe LabelingSetGenerationTaskRunProperties) (\s a -> s {labelingSetGenerationTaskRunProperties = a} :: TaskRunProperties)
-{-# DEPRECATED trpLabelingSetGenerationTaskRunProperties "Use generic-lens or generic-optics with 'labelingSetGenerationTaskRunProperties' instead." #-}
 
 -- | The configuration properties for a find matches task run.
 --
 -- /Note:/ Consider using 'findMatchesTaskRunProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trpFindMatchesTaskRunProperties :: Lens.Lens' TaskRunProperties (Lude.Maybe FindMatchesTaskRunProperties)
-trpFindMatchesTaskRunProperties = Lens.lens (findMatchesTaskRunProperties :: TaskRunProperties -> Lude.Maybe FindMatchesTaskRunProperties) (\s a -> s {findMatchesTaskRunProperties = a} :: TaskRunProperties)
+trpFindMatchesTaskRunProperties :: Lens.Lens' TaskRunProperties (Core.Maybe Types.FindMatchesTaskRunProperties)
+trpFindMatchesTaskRunProperties = Lens.field @"findMatchesTaskRunProperties"
 {-# DEPRECATED trpFindMatchesTaskRunProperties "Use generic-lens or generic-optics with 'findMatchesTaskRunProperties' instead." #-}
 
 -- | The configuration properties for an importing labels task run.
 --
 -- /Note:/ Consider using 'importLabelsTaskRunProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trpImportLabelsTaskRunProperties :: Lens.Lens' TaskRunProperties (Lude.Maybe ImportLabelsTaskRunProperties)
-trpImportLabelsTaskRunProperties = Lens.lens (importLabelsTaskRunProperties :: TaskRunProperties -> Lude.Maybe ImportLabelsTaskRunProperties) (\s a -> s {importLabelsTaskRunProperties = a} :: TaskRunProperties)
+trpImportLabelsTaskRunProperties :: Lens.Lens' TaskRunProperties (Core.Maybe Types.ImportLabelsTaskRunProperties)
+trpImportLabelsTaskRunProperties = Lens.field @"importLabelsTaskRunProperties"
 {-# DEPRECATED trpImportLabelsTaskRunProperties "Use generic-lens or generic-optics with 'importLabelsTaskRunProperties' instead." #-}
 
-instance Lude.FromJSON TaskRunProperties where
+-- | The configuration properties for a labeling set generation task run.
+--
+-- /Note:/ Consider using 'labelingSetGenerationTaskRunProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trpLabelingSetGenerationTaskRunProperties :: Lens.Lens' TaskRunProperties (Core.Maybe Types.LabelingSetGenerationTaskRunProperties)
+trpLabelingSetGenerationTaskRunProperties = Lens.field @"labelingSetGenerationTaskRunProperties"
+{-# DEPRECATED trpLabelingSetGenerationTaskRunProperties "Use generic-lens or generic-optics with 'labelingSetGenerationTaskRunProperties' instead." #-}
+
+-- | The type of task run.
+--
+-- /Note:/ Consider using 'taskType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trpTaskType :: Lens.Lens' TaskRunProperties (Core.Maybe Types.TaskType)
+trpTaskType = Lens.field @"taskType"
+{-# DEPRECATED trpTaskType "Use generic-lens or generic-optics with 'taskType' instead." #-}
+
+instance Core.FromJSON TaskRunProperties where
   parseJSON =
-    Lude.withObject
-      "TaskRunProperties"
-      ( \x ->
-          TaskRunProperties'
-            Lude.<$> (x Lude..:? "TaskType")
-            Lude.<*> (x Lude..:? "ExportLabelsTaskRunProperties")
-            Lude.<*> (x Lude..:? "LabelingSetGenerationTaskRunProperties")
-            Lude.<*> (x Lude..:? "FindMatchesTaskRunProperties")
-            Lude.<*> (x Lude..:? "ImportLabelsTaskRunProperties")
-      )
+    Core.withObject "TaskRunProperties" Core.$
+      \x ->
+        TaskRunProperties'
+          Core.<$> (x Core..:? "ExportLabelsTaskRunProperties")
+          Core.<*> (x Core..:? "FindMatchesTaskRunProperties")
+          Core.<*> (x Core..:? "ImportLabelsTaskRunProperties")
+          Core.<*> (x Core..:? "LabelingSetGenerationTaskRunProperties")
+          Core.<*> (x Core..:? "TaskType")

@@ -17,85 +17,84 @@ module Network.AWS.Glue.Types.UpdateGrokClassifierRequest
     mkUpdateGrokClassifierRequest,
 
     -- * Lenses
-    ugcrClassification,
     ugcrName,
+    ugcrClassification,
     ugcrCustomPatterns,
     ugcrGrokPattern,
   )
 where
 
+import qualified Network.AWS.Glue.Types.Classification as Types
+import qualified Network.AWS.Glue.Types.CustomPatterns as Types
+import qualified Network.AWS.Glue.Types.GrokPattern as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a grok classifier to update when passed to @UpdateClassifier@ .
 --
 -- /See:/ 'mkUpdateGrokClassifierRequest' smart constructor.
 data UpdateGrokClassifierRequest = UpdateGrokClassifierRequest'
-  { -- | An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
-    classification :: Lude.Maybe Lude.Text,
-    -- | The name of the @GrokClassifier@ .
-    name :: Lude.Text,
+  { -- | The name of the @GrokClassifier@ .
+    name :: Types.NameString,
+    -- | An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
+    classification :: Core.Maybe Types.Classification,
     -- | Optional custom grok patterns used by this classifier.
-    customPatterns :: Lude.Maybe Lude.Text,
+    customPatterns :: Core.Maybe Types.CustomPatterns,
     -- | The grok pattern used by this classifier.
-    grokPattern :: Lude.Maybe Lude.Text
+    grokPattern :: Core.Maybe Types.GrokPattern
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateGrokClassifierRequest' with the minimum fields required to make a request.
---
--- * 'classification' - An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
--- * 'name' - The name of the @GrokClassifier@ .
--- * 'customPatterns' - Optional custom grok patterns used by this classifier.
--- * 'grokPattern' - The grok pattern used by this classifier.
+-- | Creates a 'UpdateGrokClassifierRequest' value with any optional fields omitted.
 mkUpdateGrokClassifierRequest ::
   -- | 'name'
-  Lude.Text ->
+  Types.NameString ->
   UpdateGrokClassifierRequest
-mkUpdateGrokClassifierRequest pName_ =
+mkUpdateGrokClassifierRequest name =
   UpdateGrokClassifierRequest'
-    { classification = Lude.Nothing,
-      name = pName_,
-      customPatterns = Lude.Nothing,
-      grokPattern = Lude.Nothing
+    { name,
+      classification = Core.Nothing,
+      customPatterns = Core.Nothing,
+      grokPattern = Core.Nothing
     }
-
--- | An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
---
--- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugcrClassification :: Lens.Lens' UpdateGrokClassifierRequest (Lude.Maybe Lude.Text)
-ugcrClassification = Lens.lens (classification :: UpdateGrokClassifierRequest -> Lude.Maybe Lude.Text) (\s a -> s {classification = a} :: UpdateGrokClassifierRequest)
-{-# DEPRECATED ugcrClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
 
 -- | The name of the @GrokClassifier@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugcrName :: Lens.Lens' UpdateGrokClassifierRequest Lude.Text
-ugcrName = Lens.lens (name :: UpdateGrokClassifierRequest -> Lude.Text) (\s a -> s {name = a} :: UpdateGrokClassifierRequest)
+ugcrName :: Lens.Lens' UpdateGrokClassifierRequest Types.NameString
+ugcrName = Lens.field @"name"
 {-# DEPRECATED ugcrName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | An identifier of the data format that the classifier matches, such as Twitter, JSON, Omniture logs, Amazon CloudWatch Logs, and so on.
+--
+-- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugcrClassification :: Lens.Lens' UpdateGrokClassifierRequest (Core.Maybe Types.Classification)
+ugcrClassification = Lens.field @"classification"
+{-# DEPRECATED ugcrClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
 
 -- | Optional custom grok patterns used by this classifier.
 --
 -- /Note:/ Consider using 'customPatterns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugcrCustomPatterns :: Lens.Lens' UpdateGrokClassifierRequest (Lude.Maybe Lude.Text)
-ugcrCustomPatterns = Lens.lens (customPatterns :: UpdateGrokClassifierRequest -> Lude.Maybe Lude.Text) (\s a -> s {customPatterns = a} :: UpdateGrokClassifierRequest)
+ugcrCustomPatterns :: Lens.Lens' UpdateGrokClassifierRequest (Core.Maybe Types.CustomPatterns)
+ugcrCustomPatterns = Lens.field @"customPatterns"
 {-# DEPRECATED ugcrCustomPatterns "Use generic-lens or generic-optics with 'customPatterns' instead." #-}
 
 -- | The grok pattern used by this classifier.
 --
 -- /Note:/ Consider using 'grokPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugcrGrokPattern :: Lens.Lens' UpdateGrokClassifierRequest (Lude.Maybe Lude.Text)
-ugcrGrokPattern = Lens.lens (grokPattern :: UpdateGrokClassifierRequest -> Lude.Maybe Lude.Text) (\s a -> s {grokPattern = a} :: UpdateGrokClassifierRequest)
+ugcrGrokPattern :: Lens.Lens' UpdateGrokClassifierRequest (Core.Maybe Types.GrokPattern)
+ugcrGrokPattern = Lens.field @"grokPattern"
 {-# DEPRECATED ugcrGrokPattern "Use generic-lens or generic-optics with 'grokPattern' instead." #-}
 
-instance Lude.ToJSON UpdateGrokClassifierRequest where
-  toJSON UpdateGrokClassifierRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Classification" Lude..=) Lude.<$> classification,
-            Lude.Just ("Name" Lude..= name),
-            ("CustomPatterns" Lude..=) Lude.<$> customPatterns,
-            ("GrokPattern" Lude..=) Lude.<$> grokPattern
+instance Core.FromJSON UpdateGrokClassifierRequest where
+  toJSON UpdateGrokClassifierRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("Classification" Core..=) Core.<$> classification,
+            ("CustomPatterns" Core..=) Core.<$> customPatterns,
+            ("GrokPattern" Core..=) Core.<$> grokPattern
           ]
       )

@@ -22,52 +22,45 @@ module Network.AWS.SageMaker.Types.TuningJobCompletionCriteria
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The job completion criteria.
 --
 -- /See:/ 'mkTuningJobCompletionCriteria' smart constructor.
 newtype TuningJobCompletionCriteria = TuningJobCompletionCriteria'
   { -- | The value of the objective metric.
-    targetObjectiveMetricValue :: Lude.Double
+    targetObjectiveMetricValue :: Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TuningJobCompletionCriteria' with the minimum fields required to make a request.
---
--- * 'targetObjectiveMetricValue' - The value of the objective metric.
+-- | Creates a 'TuningJobCompletionCriteria' value with any optional fields omitted.
 mkTuningJobCompletionCriteria ::
   -- | 'targetObjectiveMetricValue'
-  Lude.Double ->
+  Core.Double ->
   TuningJobCompletionCriteria
-mkTuningJobCompletionCriteria pTargetObjectiveMetricValue_ =
-  TuningJobCompletionCriteria'
-    { targetObjectiveMetricValue =
-        pTargetObjectiveMetricValue_
-    }
+mkTuningJobCompletionCriteria targetObjectiveMetricValue =
+  TuningJobCompletionCriteria' {targetObjectiveMetricValue}
 
 -- | The value of the objective metric.
 --
 -- /Note:/ Consider using 'targetObjectiveMetricValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjccTargetObjectiveMetricValue :: Lens.Lens' TuningJobCompletionCriteria Lude.Double
-tjccTargetObjectiveMetricValue = Lens.lens (targetObjectiveMetricValue :: TuningJobCompletionCriteria -> Lude.Double) (\s a -> s {targetObjectiveMetricValue = a} :: TuningJobCompletionCriteria)
+tjccTargetObjectiveMetricValue :: Lens.Lens' TuningJobCompletionCriteria Core.Double
+tjccTargetObjectiveMetricValue = Lens.field @"targetObjectiveMetricValue"
 {-# DEPRECATED tjccTargetObjectiveMetricValue "Use generic-lens or generic-optics with 'targetObjectiveMetricValue' instead." #-}
 
-instance Lude.FromJSON TuningJobCompletionCriteria where
-  parseJSON =
-    Lude.withObject
-      "TuningJobCompletionCriteria"
-      ( \x ->
-          TuningJobCompletionCriteria'
-            Lude.<$> (x Lude..: "TargetObjectiveMetricValue")
-      )
-
-instance Lude.ToJSON TuningJobCompletionCriteria where
-  toJSON TuningJobCompletionCriteria' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("TargetObjectiveMetricValue" Lude..= targetObjectiveMetricValue)
+instance Core.FromJSON TuningJobCompletionCriteria where
+  toJSON TuningJobCompletionCriteria {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("TargetObjectiveMetricValue" Core..= targetObjectiveMetricValue)
           ]
       )
+
+instance Core.FromJSON TuningJobCompletionCriteria where
+  parseJSON =
+    Core.withObject "TuningJobCompletionCriteria" Core.$
+      \x ->
+        TuningJobCompletionCriteria'
+          Core.<$> (x Core..: "TargetObjectiveMetricValue")

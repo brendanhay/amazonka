@@ -27,108 +27,92 @@ module Network.AWS.Lightsail.GetKeyPair
     mkGetKeyPairResponse,
 
     -- ** Response lenses
-    gkprsKeyPair,
-    gkprsResponseStatus,
+    gkprfrsKeyPair,
+    gkprfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetKeyPair' smart constructor.
 newtype GetKeyPair = GetKeyPair'
   { -- | The name of the key pair for which you are requesting information.
-    keyPairName :: Lude.Text
+    keyPairName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetKeyPair' with the minimum fields required to make a request.
---
--- * 'keyPairName' - The name of the key pair for which you are requesting information.
+-- | Creates a 'GetKeyPair' value with any optional fields omitted.
 mkGetKeyPair ::
   -- | 'keyPairName'
-  Lude.Text ->
+  Types.ResourceName ->
   GetKeyPair
-mkGetKeyPair pKeyPairName_ =
-  GetKeyPair' {keyPairName = pKeyPairName_}
+mkGetKeyPair keyPairName = GetKeyPair' {keyPairName}
 
 -- | The name of the key pair for which you are requesting information.
 --
 -- /Note:/ Consider using 'keyPairName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkpKeyPairName :: Lens.Lens' GetKeyPair Lude.Text
-gkpKeyPairName = Lens.lens (keyPairName :: GetKeyPair -> Lude.Text) (\s a -> s {keyPairName = a} :: GetKeyPair)
+gkpKeyPairName :: Lens.Lens' GetKeyPair Types.ResourceName
+gkpKeyPairName = Lens.field @"keyPairName"
 {-# DEPRECATED gkpKeyPairName "Use generic-lens or generic-optics with 'keyPairName' instead." #-}
 
-instance Lude.AWSRequest GetKeyPair where
+instance Core.FromJSON GetKeyPair where
+  toJSON GetKeyPair {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("keyPairName" Core..= keyPairName)])
+
+instance Core.AWSRequest GetKeyPair where
   type Rs GetKeyPair = GetKeyPairResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.GetKeyPair")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetKeyPairResponse'
-            Lude.<$> (x Lude..?> "keyPair") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "keyPair") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetKeyPair where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetKeyPair" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetKeyPair where
-  toJSON GetKeyPair' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("keyPairName" Lude..= keyPairName)])
-
-instance Lude.ToPath GetKeyPair where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetKeyPair where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetKeyPairResponse' smart constructor.
 data GetKeyPairResponse = GetKeyPairResponse'
   { -- | An array of key-value pairs containing information about the key pair.
-    keyPair :: Lude.Maybe KeyPair,
+    keyPair :: Core.Maybe Types.KeyPair,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetKeyPairResponse' with the minimum fields required to make a request.
---
--- * 'keyPair' - An array of key-value pairs containing information about the key pair.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetKeyPairResponse' value with any optional fields omitted.
 mkGetKeyPairResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetKeyPairResponse
-mkGetKeyPairResponse pResponseStatus_ =
-  GetKeyPairResponse'
-    { keyPair = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetKeyPairResponse responseStatus =
+  GetKeyPairResponse' {keyPair = Core.Nothing, responseStatus}
 
 -- | An array of key-value pairs containing information about the key pair.
 --
 -- /Note:/ Consider using 'keyPair' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkprsKeyPair :: Lens.Lens' GetKeyPairResponse (Lude.Maybe KeyPair)
-gkprsKeyPair = Lens.lens (keyPair :: GetKeyPairResponse -> Lude.Maybe KeyPair) (\s a -> s {keyPair = a} :: GetKeyPairResponse)
-{-# DEPRECATED gkprsKeyPair "Use generic-lens or generic-optics with 'keyPair' instead." #-}
+gkprfrsKeyPair :: Lens.Lens' GetKeyPairResponse (Core.Maybe Types.KeyPair)
+gkprfrsKeyPair = Lens.field @"keyPair"
+{-# DEPRECATED gkprfrsKeyPair "Use generic-lens or generic-optics with 'keyPair' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gkprsResponseStatus :: Lens.Lens' GetKeyPairResponse Lude.Int
-gkprsResponseStatus = Lens.lens (responseStatus :: GetKeyPairResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetKeyPairResponse)
-{-# DEPRECATED gkprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gkprfrsResponseStatus :: Lens.Lens' GetKeyPairResponse Core.Int
+gkprfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gkprfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

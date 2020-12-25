@@ -13,51 +13,56 @@
 module Network.AWS.WorkDocs.Types.CommentStatusType
   ( CommentStatusType
       ( CommentStatusType',
-        Draft,
-        Published,
-        Deleted
+        CommentStatusTypeDraft,
+        CommentStatusTypePublished,
+        CommentStatusTypeDeleted,
+        fromCommentStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CommentStatusType = CommentStatusType' Lude.Text
+newtype CommentStatusType = CommentStatusType'
+  { fromCommentStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Draft :: CommentStatusType
-pattern Draft = CommentStatusType' "DRAFT"
+pattern CommentStatusTypeDraft :: CommentStatusType
+pattern CommentStatusTypeDraft = CommentStatusType' "DRAFT"
 
-pattern Published :: CommentStatusType
-pattern Published = CommentStatusType' "PUBLISHED"
+pattern CommentStatusTypePublished :: CommentStatusType
+pattern CommentStatusTypePublished = CommentStatusType' "PUBLISHED"
 
-pattern Deleted :: CommentStatusType
-pattern Deleted = CommentStatusType' "DELETED"
+pattern CommentStatusTypeDeleted :: CommentStatusType
+pattern CommentStatusTypeDeleted = CommentStatusType' "DELETED"
 
 {-# COMPLETE
-  Draft,
-  Published,
-  Deleted,
+  CommentStatusTypeDraft,
+  CommentStatusTypePublished,
+  CommentStatusTypeDeleted,
   CommentStatusType'
   #-}

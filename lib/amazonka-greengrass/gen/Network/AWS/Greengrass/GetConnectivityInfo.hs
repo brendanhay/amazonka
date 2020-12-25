@@ -27,117 +27,106 @@ module Network.AWS.Greengrass.GetConnectivityInfo
     mkGetConnectivityInfoResponse,
 
     -- ** Response lenses
-    gcirsMessage,
-    gcirsConnectivityInfo,
-    gcirsResponseStatus,
+    gcirrsConnectivityInfo,
+    gcirrsMessage,
+    gcirrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetConnectivityInfo' smart constructor.
 newtype GetConnectivityInfo = GetConnectivityInfo'
   { -- | The thing name.
-    thingName :: Lude.Text
+    thingName :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConnectivityInfo' with the minimum fields required to make a request.
---
--- * 'thingName' - The thing name.
+-- | Creates a 'GetConnectivityInfo' value with any optional fields omitted.
 mkGetConnectivityInfo ::
   -- | 'thingName'
-  Lude.Text ->
+  Core.Text ->
   GetConnectivityInfo
-mkGetConnectivityInfo pThingName_ =
-  GetConnectivityInfo' {thingName = pThingName_}
+mkGetConnectivityInfo thingName = GetConnectivityInfo' {thingName}
 
 -- | The thing name.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gciThingName :: Lens.Lens' GetConnectivityInfo Lude.Text
-gciThingName = Lens.lens (thingName :: GetConnectivityInfo -> Lude.Text) (\s a -> s {thingName = a} :: GetConnectivityInfo)
+gciThingName :: Lens.Lens' GetConnectivityInfo Core.Text
+gciThingName = Lens.field @"thingName"
 {-# DEPRECATED gciThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance Lude.AWSRequest GetConnectivityInfo where
+instance Core.AWSRequest GetConnectivityInfo where
   type Rs GetConnectivityInfo = GetConnectivityInfoResponse
-  request = Req.get greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/things/" Core.<> (Core.toText thingName)
+                Core.<> ("/connectivityInfo")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetConnectivityInfoResponse'
-            Lude.<$> (x Lude..?> "message")
-            Lude.<*> (x Lude..?> "ConnectivityInfo" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ConnectivityInfo")
+            Core.<*> (x Core..:? "message")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetConnectivityInfo where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetConnectivityInfo where
-  toPath GetConnectivityInfo' {..} =
-    Lude.mconcat
-      ["/greengrass/things/", Lude.toBS thingName, "/connectivityInfo"]
-
-instance Lude.ToQuery GetConnectivityInfo where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetConnectivityInfoResponse' smart constructor.
 data GetConnectivityInfoResponse = GetConnectivityInfoResponse'
-  { -- | A message about the connectivity info request.
-    message :: Lude.Maybe Lude.Text,
-    -- | Connectivity info list.
-    connectivityInfo :: Lude.Maybe [ConnectivityInfo],
+  { -- | Connectivity info list.
+    connectivityInfo :: Core.Maybe [Types.ConnectivityInfo],
+    -- | A message about the connectivity info request.
+    message :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConnectivityInfoResponse' with the minimum fields required to make a request.
---
--- * 'message' - A message about the connectivity info request.
--- * 'connectivityInfo' - Connectivity info list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetConnectivityInfoResponse' value with any optional fields omitted.
 mkGetConnectivityInfoResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetConnectivityInfoResponse
-mkGetConnectivityInfoResponse pResponseStatus_ =
+mkGetConnectivityInfoResponse responseStatus =
   GetConnectivityInfoResponse'
-    { message = Lude.Nothing,
-      connectivityInfo = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { connectivityInfo = Core.Nothing,
+      message = Core.Nothing,
+      responseStatus
     }
-
--- | A message about the connectivity info request.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcirsMessage :: Lens.Lens' GetConnectivityInfoResponse (Lude.Maybe Lude.Text)
-gcirsMessage = Lens.lens (message :: GetConnectivityInfoResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: GetConnectivityInfoResponse)
-{-# DEPRECATED gcirsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | Connectivity info list.
 --
 -- /Note:/ Consider using 'connectivityInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcirsConnectivityInfo :: Lens.Lens' GetConnectivityInfoResponse (Lude.Maybe [ConnectivityInfo])
-gcirsConnectivityInfo = Lens.lens (connectivityInfo :: GetConnectivityInfoResponse -> Lude.Maybe [ConnectivityInfo]) (\s a -> s {connectivityInfo = a} :: GetConnectivityInfoResponse)
-{-# DEPRECATED gcirsConnectivityInfo "Use generic-lens or generic-optics with 'connectivityInfo' instead." #-}
+gcirrsConnectivityInfo :: Lens.Lens' GetConnectivityInfoResponse (Core.Maybe [Types.ConnectivityInfo])
+gcirrsConnectivityInfo = Lens.field @"connectivityInfo"
+{-# DEPRECATED gcirrsConnectivityInfo "Use generic-lens or generic-optics with 'connectivityInfo' instead." #-}
+
+-- | A message about the connectivity info request.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcirrsMessage :: Lens.Lens' GetConnectivityInfoResponse (Core.Maybe Core.Text)
+gcirrsMessage = Lens.field @"message"
+{-# DEPRECATED gcirrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcirsResponseStatus :: Lens.Lens' GetConnectivityInfoResponse Lude.Int
-gcirsResponseStatus = Lens.lens (responseStatus :: GetConnectivityInfoResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetConnectivityInfoResponse)
-{-# DEPRECATED gcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcirrsResponseStatus :: Lens.Lens' GetConnectivityInfoResponse Core.Int
+gcirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

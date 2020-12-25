@@ -23,163 +23,151 @@ module Network.AWS.MediaLive.ListInputDeviceTransfers
 
     -- ** Request lenses
     lidtTransferType,
-    lidtNextToken,
     lidtMaxResults,
+    lidtNextToken,
 
     -- * Destructuring the response
     ListInputDeviceTransfersResponse (..),
     mkListInputDeviceTransfersResponse,
 
     -- ** Response lenses
-    lidtrsNextToken,
-    lidtrsInputDeviceTransfers,
-    lidtrsResponseStatus,
+    lidtrrsInputDeviceTransfers,
+    lidtrrsNextToken,
+    lidtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for ListInputDeviceTransfersRequest
 --
 -- /See:/ 'mkListInputDeviceTransfers' smart constructor.
 data ListInputDeviceTransfers = ListInputDeviceTransfers'
-  { transferType :: Lude.Text,
-    nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural
+  { transferType :: Core.Text,
+    maxResults :: Core.Maybe Core.Natural,
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListInputDeviceTransfers' with the minimum fields required to make a request.
---
--- * 'transferType' -
--- * 'nextToken' -
--- * 'maxResults' -
+-- | Creates a 'ListInputDeviceTransfers' value with any optional fields omitted.
 mkListInputDeviceTransfers ::
   -- | 'transferType'
-  Lude.Text ->
+  Core.Text ->
   ListInputDeviceTransfers
-mkListInputDeviceTransfers pTransferType_ =
+mkListInputDeviceTransfers transferType =
   ListInputDeviceTransfers'
-    { transferType = pTransferType_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { transferType,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'transferType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lidtTransferType :: Lens.Lens' ListInputDeviceTransfers Lude.Text
-lidtTransferType = Lens.lens (transferType :: ListInputDeviceTransfers -> Lude.Text) (\s a -> s {transferType = a} :: ListInputDeviceTransfers)
+lidtTransferType :: Lens.Lens' ListInputDeviceTransfers Core.Text
+lidtTransferType = Lens.field @"transferType"
 {-# DEPRECATED lidtTransferType "Use generic-lens or generic-optics with 'transferType' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lidtNextToken :: Lens.Lens' ListInputDeviceTransfers (Lude.Maybe Lude.Text)
-lidtNextToken = Lens.lens (nextToken :: ListInputDeviceTransfers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInputDeviceTransfers)
-{-# DEPRECATED lidtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lidtMaxResults :: Lens.Lens' ListInputDeviceTransfers (Core.Maybe Core.Natural)
+lidtMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lidtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lidtMaxResults :: Lens.Lens' ListInputDeviceTransfers (Lude.Maybe Lude.Natural)
-lidtMaxResults = Lens.lens (maxResults :: ListInputDeviceTransfers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInputDeviceTransfers)
-{-# DEPRECATED lidtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lidtNextToken :: Lens.Lens' ListInputDeviceTransfers (Core.Maybe Core.Text)
+lidtNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lidtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager ListInputDeviceTransfers where
-  page rq rs
-    | Page.stop (rs Lens.^. lidtrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lidtrsInputDeviceTransfers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lidtNextToken Lens..~ rs Lens.^. lidtrsNextToken
-
-instance Lude.AWSRequest ListInputDeviceTransfers where
+instance Core.AWSRequest ListInputDeviceTransfers where
   type Rs ListInputDeviceTransfers = ListInputDeviceTransfersResponse
-  request = Req.get mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/prod/inputDeviceTransfers",
+        Core._rqQuery =
+          Core.toQueryValue "transferType" transferType
+            Core.<> (Core.toQueryValue "maxResults" Core.<$> maxResults)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListInputDeviceTransfersResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "inputDeviceTransfers" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "inputDeviceTransfers")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListInputDeviceTransfers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListInputDeviceTransfers where
-  toPath = Lude.const "/prod/inputDeviceTransfers"
-
-instance Lude.ToQuery ListInputDeviceTransfers where
-  toQuery ListInputDeviceTransfers' {..} =
-    Lude.mconcat
-      [ "transferType" Lude.=: transferType,
-        "nextToken" Lude.=: nextToken,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListInputDeviceTransfers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"inputDeviceTransfers" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Placeholder documentation for ListInputDeviceTransfersResponse
 --
 -- /See:/ 'mkListInputDeviceTransfersResponse' smart constructor.
 data ListInputDeviceTransfersResponse = ListInputDeviceTransfersResponse'
-  { -- | A token to get additional list results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The list of devices that you are transferring or are being transferred to you.
-    inputDeviceTransfers :: Lude.Maybe [TransferringInputDeviceSummary],
+  { -- | The list of devices that you are transferring or are being transferred to you.
+    inputDeviceTransfers :: Core.Maybe [Types.TransferringInputDeviceSummary],
+    -- | A token to get additional list results.
+    nextToken :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListInputDeviceTransfersResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A token to get additional list results.
--- * 'inputDeviceTransfers' - The list of devices that you are transferring or are being transferred to you.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListInputDeviceTransfersResponse' value with any optional fields omitted.
 mkListInputDeviceTransfersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListInputDeviceTransfersResponse
-mkListInputDeviceTransfersResponse pResponseStatus_ =
+mkListInputDeviceTransfersResponse responseStatus =
   ListInputDeviceTransfersResponse'
-    { nextToken = Lude.Nothing,
-      inputDeviceTransfers = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { inputDeviceTransfers =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | A token to get additional list results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lidtrsNextToken :: Lens.Lens' ListInputDeviceTransfersResponse (Lude.Maybe Lude.Text)
-lidtrsNextToken = Lens.lens (nextToken :: ListInputDeviceTransfersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInputDeviceTransfersResponse)
-{-# DEPRECATED lidtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of devices that you are transferring or are being transferred to you.
 --
 -- /Note:/ Consider using 'inputDeviceTransfers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lidtrsInputDeviceTransfers :: Lens.Lens' ListInputDeviceTransfersResponse (Lude.Maybe [TransferringInputDeviceSummary])
-lidtrsInputDeviceTransfers = Lens.lens (inputDeviceTransfers :: ListInputDeviceTransfersResponse -> Lude.Maybe [TransferringInputDeviceSummary]) (\s a -> s {inputDeviceTransfers = a} :: ListInputDeviceTransfersResponse)
-{-# DEPRECATED lidtrsInputDeviceTransfers "Use generic-lens or generic-optics with 'inputDeviceTransfers' instead." #-}
+lidtrrsInputDeviceTransfers :: Lens.Lens' ListInputDeviceTransfersResponse (Core.Maybe [Types.TransferringInputDeviceSummary])
+lidtrrsInputDeviceTransfers = Lens.field @"inputDeviceTransfers"
+{-# DEPRECATED lidtrrsInputDeviceTransfers "Use generic-lens or generic-optics with 'inputDeviceTransfers' instead." #-}
+
+-- | A token to get additional list results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lidtrrsNextToken :: Lens.Lens' ListInputDeviceTransfersResponse (Core.Maybe Core.Text)
+lidtrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lidtrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lidtrsResponseStatus :: Lens.Lens' ListInputDeviceTransfersResponse Lude.Int
-lidtrsResponseStatus = Lens.lens (responseStatus :: ListInputDeviceTransfersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInputDeviceTransfersResponse)
-{-# DEPRECATED lidtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lidtrrsResponseStatus :: Lens.Lens' ListInputDeviceTransfersResponse Core.Int
+lidtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lidtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

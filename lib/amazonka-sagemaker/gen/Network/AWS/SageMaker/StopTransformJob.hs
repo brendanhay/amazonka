@@ -31,71 +31,62 @@ module Network.AWS.SageMaker.StopTransformJob
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkStopTransformJob' smart constructor.
 newtype StopTransformJob = StopTransformJob'
   { -- | The name of the transform job to stop.
-    transformJobName :: Lude.Text
+    transformJobName :: Types.TransformJobName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTransformJob' with the minimum fields required to make a request.
---
--- * 'transformJobName' - The name of the transform job to stop.
+-- | Creates a 'StopTransformJob' value with any optional fields omitted.
 mkStopTransformJob ::
   -- | 'transformJobName'
-  Lude.Text ->
+  Types.TransformJobName ->
   StopTransformJob
-mkStopTransformJob pTransformJobName_ =
-  StopTransformJob' {transformJobName = pTransformJobName_}
+mkStopTransformJob transformJobName =
+  StopTransformJob' {transformJobName}
 
 -- | The name of the transform job to stop.
 --
 -- /Note:/ Consider using 'transformJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stjTransformJobName :: Lens.Lens' StopTransformJob Lude.Text
-stjTransformJobName = Lens.lens (transformJobName :: StopTransformJob -> Lude.Text) (\s a -> s {transformJobName = a} :: StopTransformJob)
+stjTransformJobName :: Lens.Lens' StopTransformJob Types.TransformJobName
+stjTransformJobName = Lens.field @"transformJobName"
 {-# DEPRECATED stjTransformJobName "Use generic-lens or generic-optics with 'transformJobName' instead." #-}
 
-instance Lude.AWSRequest StopTransformJob where
+instance Core.FromJSON StopTransformJob where
+  toJSON StopTransformJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("TransformJobName" Core..= transformJobName)]
+      )
+
+instance Core.AWSRequest StopTransformJob where
   type Rs StopTransformJob = StopTransformJobResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull StopTransformJobResponse'
-
-instance Lude.ToHeaders StopTransformJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.StopTransformJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopTransformJob where
-  toJSON StopTransformJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("TransformJobName" Lude..= transformJobName)]
-      )
-
-instance Lude.ToPath StopTransformJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopTransformJob where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.StopTransformJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull StopTransformJobResponse'
 
 -- | /See:/ 'mkStopTransformJobResponse' smart constructor.
 data StopTransformJobResponse = StopTransformJobResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopTransformJobResponse' with the minimum fields required to make a request.
+-- | Creates a 'StopTransformJobResponse' value with any optional fields omitted.
 mkStopTransformJobResponse ::
   StopTransformJobResponse
 mkStopTransformJobResponse = StopTransformJobResponse'

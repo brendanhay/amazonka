@@ -22,37 +22,32 @@ module Network.AWS.Lightsail.Types.MonthlyTransfer
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the monthly data transfer in and out of your virtual private server (or /instance/ ).
 --
 -- /See:/ 'mkMonthlyTransfer' smart constructor.
 newtype MonthlyTransfer = MonthlyTransfer'
   { -- | The amount allocated per month (in GB).
-    gbPerMonthAllocated :: Lude.Maybe Lude.Int
+    gbPerMonthAllocated :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MonthlyTransfer' with the minimum fields required to make a request.
---
--- * 'gbPerMonthAllocated' - The amount allocated per month (in GB).
+-- | Creates a 'MonthlyTransfer' value with any optional fields omitted.
 mkMonthlyTransfer ::
   MonthlyTransfer
 mkMonthlyTransfer =
-  MonthlyTransfer' {gbPerMonthAllocated = Lude.Nothing}
+  MonthlyTransfer' {gbPerMonthAllocated = Core.Nothing}
 
 -- | The amount allocated per month (in GB).
 --
 -- /Note:/ Consider using 'gbPerMonthAllocated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtGbPerMonthAllocated :: Lens.Lens' MonthlyTransfer (Lude.Maybe Lude.Int)
-mtGbPerMonthAllocated = Lens.lens (gbPerMonthAllocated :: MonthlyTransfer -> Lude.Maybe Lude.Int) (\s a -> s {gbPerMonthAllocated = a} :: MonthlyTransfer)
+mtGbPerMonthAllocated :: Lens.Lens' MonthlyTransfer (Core.Maybe Core.Int)
+mtGbPerMonthAllocated = Lens.field @"gbPerMonthAllocated"
 {-# DEPRECATED mtGbPerMonthAllocated "Use generic-lens or generic-optics with 'gbPerMonthAllocated' instead." #-}
 
-instance Lude.FromJSON MonthlyTransfer where
+instance Core.FromJSON MonthlyTransfer where
   parseJSON =
-    Lude.withObject
-      "MonthlyTransfer"
-      ( \x ->
-          MonthlyTransfer' Lude.<$> (x Lude..:? "gbPerMonthAllocated")
-      )
+    Core.withObject "MonthlyTransfer" Core.$
+      \x -> MonthlyTransfer' Core.<$> (x Core..:? "gbPerMonthAllocated")

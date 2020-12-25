@@ -17,36 +17,30 @@ module Network.AWS.ElasticTranscoder.Waiters
 where
 
 import Network.AWS.ElasticTranscoder.ReadJob
-import Network.AWS.ElasticTranscoder.Types
+import qualified Network.AWS.ElasticTranscoder.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.ElasticTranscoder.ReadJob' every 30 seconds until a successful state is reached. An error is returned after 120 failed checks.
-mkJobComplete :: Wait.Wait ReadJob
+mkJobComplete :: Waiter.Wait ReadJob
 mkJobComplete =
-  Wait.Wait
-    { Wait._waitName = "JobComplete",
-      Wait._waitAttempts = 120,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "JobComplete",
+      Waiter._waitAttempts = 120,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "Complete"
-            Wait.AcceptSuccess
-            ( rjrsJob Lude.. jStatus Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
-            ),
-          Wait.matchAll
+            Waiter.AcceptSuccess
+            (Lens.field @"job" Core.. Lens.field @"status" Core.. Lens._Just),
+          Waiter.matchAll
             "Canceled"
-            Wait.AcceptFailure
-            ( rjrsJob Lude.. jStatus Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
-            ),
-          Wait.matchAll
+            Waiter.AcceptFailure
+            (Lens.field @"job" Core.. Lens.field @"status" Core.. Lens._Just),
+          Waiter.matchAll
             "Error"
-            Wait.AcceptFailure
-            ( rjrsJob Lude.. jStatus Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
-            )
+            Waiter.AcceptFailure
+            (Lens.field @"job" Core.. Lens.field @"status" Core.. Lens._Just)
         ]
     }

@@ -13,51 +13,56 @@
 module Network.AWS.CloudFormation.Types.StackSetDriftStatus
   ( StackSetDriftStatus
       ( StackSetDriftStatus',
-        Drifted,
-        InSync,
-        NotChecked
+        StackSetDriftStatusDrifted,
+        StackSetDriftStatusInSync,
+        StackSetDriftStatusNotChecked,
+        fromStackSetDriftStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StackSetDriftStatus = StackSetDriftStatus' Lude.Text
+newtype StackSetDriftStatus = StackSetDriftStatus'
+  { fromStackSetDriftStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Drifted :: StackSetDriftStatus
-pattern Drifted = StackSetDriftStatus' "DRIFTED"
+pattern StackSetDriftStatusDrifted :: StackSetDriftStatus
+pattern StackSetDriftStatusDrifted = StackSetDriftStatus' "DRIFTED"
 
-pattern InSync :: StackSetDriftStatus
-pattern InSync = StackSetDriftStatus' "IN_SYNC"
+pattern StackSetDriftStatusInSync :: StackSetDriftStatus
+pattern StackSetDriftStatusInSync = StackSetDriftStatus' "IN_SYNC"
 
-pattern NotChecked :: StackSetDriftStatus
-pattern NotChecked = StackSetDriftStatus' "NOT_CHECKED"
+pattern StackSetDriftStatusNotChecked :: StackSetDriftStatus
+pattern StackSetDriftStatusNotChecked = StackSetDriftStatus' "NOT_CHECKED"
 
 {-# COMPLETE
-  Drifted,
-  InSync,
-  NotChecked,
+  StackSetDriftStatusDrifted,
+  StackSetDriftStatusInSync,
+  StackSetDriftStatusNotChecked,
   StackSetDriftStatus'
   #-}

@@ -13,61 +13,63 @@
 module Network.AWS.KMS.Types.KeyState
   ( KeyState
       ( KeyState',
-        Enabled,
-        Disabled,
-        PendingDeletion,
-        PendingImport,
-        Unavailable
+        KeyStateEnabled,
+        KeyStateDisabled,
+        KeyStatePendingDeletion,
+        KeyStatePendingImport,
+        KeyStateUnavailable,
+        fromKeyState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype KeyState = KeyState' Lude.Text
+newtype KeyState = KeyState' {fromKeyState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enabled :: KeyState
-pattern Enabled = KeyState' "Enabled"
+pattern KeyStateEnabled :: KeyState
+pattern KeyStateEnabled = KeyState' "Enabled"
 
-pattern Disabled :: KeyState
-pattern Disabled = KeyState' "Disabled"
+pattern KeyStateDisabled :: KeyState
+pattern KeyStateDisabled = KeyState' "Disabled"
 
-pattern PendingDeletion :: KeyState
-pattern PendingDeletion = KeyState' "PendingDeletion"
+pattern KeyStatePendingDeletion :: KeyState
+pattern KeyStatePendingDeletion = KeyState' "PendingDeletion"
 
-pattern PendingImport :: KeyState
-pattern PendingImport = KeyState' "PendingImport"
+pattern KeyStatePendingImport :: KeyState
+pattern KeyStatePendingImport = KeyState' "PendingImport"
 
-pattern Unavailable :: KeyState
-pattern Unavailable = KeyState' "Unavailable"
+pattern KeyStateUnavailable :: KeyState
+pattern KeyStateUnavailable = KeyState' "Unavailable"
 
 {-# COMPLETE
-  Enabled,
-  Disabled,
-  PendingDeletion,
-  PendingImport,
-  Unavailable,
+  KeyStateEnabled,
+  KeyStateDisabled,
+  KeyStatePendingDeletion,
+  KeyStatePendingImport,
+  KeyStateUnavailable,
   KeyState'
   #-}

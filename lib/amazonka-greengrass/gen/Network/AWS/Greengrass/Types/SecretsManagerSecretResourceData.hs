@@ -17,71 +17,63 @@ module Network.AWS.Greengrass.Types.SecretsManagerSecretResourceData
     mkSecretsManagerSecretResourceData,
 
     -- * Lenses
-    smsrdAdditionalStagingLabelsToDownload,
     smsrdARN,
+    smsrdAdditionalStagingLabelsToDownload,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Attributes that define a secret resource, which references a secret from AWS Secrets Manager. AWS IoT Greengrass stores a local, encrypted copy of the secret on the Greengrass core, where it can be securely accessed by connectors and Lambda functions.
 --
 -- /See:/ 'mkSecretsManagerSecretResourceData' smart constructor.
 data SecretsManagerSecretResourceData = SecretsManagerSecretResourceData'
-  { -- | Optional. The staging labels whose values you want to make available on the core, in addition to ''AWSCURRENT''.
-    additionalStagingLabelsToDownload :: Lude.Maybe [Lude.Text],
-    -- | The ARN of the Secrets Manager secret to make available on the core. The value of the secret's latest version (represented by the ''AWSCURRENT'' staging label) is included by default.
-    arn :: Lude.Maybe Lude.Text
+  { -- | The ARN of the Secrets Manager secret to make available on the core. The value of the secret's latest version (represented by the ''AWSCURRENT'' staging label) is included by default.
+    arn :: Core.Maybe Core.Text,
+    -- | Optional. The staging labels whose values you want to make available on the core, in addition to ''AWSCURRENT''.
+    additionalStagingLabelsToDownload :: Core.Maybe [Core.Text]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SecretsManagerSecretResourceData' with the minimum fields required to make a request.
---
--- * 'additionalStagingLabelsToDownload' - Optional. The staging labels whose values you want to make available on the core, in addition to ''AWSCURRENT''.
--- * 'arn' - The ARN of the Secrets Manager secret to make available on the core. The value of the secret's latest version (represented by the ''AWSCURRENT'' staging label) is included by default.
+-- | Creates a 'SecretsManagerSecretResourceData' value with any optional fields omitted.
 mkSecretsManagerSecretResourceData ::
   SecretsManagerSecretResourceData
 mkSecretsManagerSecretResourceData =
   SecretsManagerSecretResourceData'
-    { additionalStagingLabelsToDownload =
-        Lude.Nothing,
-      arn = Lude.Nothing
+    { arn = Core.Nothing,
+      additionalStagingLabelsToDownload = Core.Nothing
     }
-
--- | Optional. The staging labels whose values you want to make available on the core, in addition to ''AWSCURRENT''.
---
--- /Note:/ Consider using 'additionalStagingLabelsToDownload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smsrdAdditionalStagingLabelsToDownload :: Lens.Lens' SecretsManagerSecretResourceData (Lude.Maybe [Lude.Text])
-smsrdAdditionalStagingLabelsToDownload = Lens.lens (additionalStagingLabelsToDownload :: SecretsManagerSecretResourceData -> Lude.Maybe [Lude.Text]) (\s a -> s {additionalStagingLabelsToDownload = a} :: SecretsManagerSecretResourceData)
-{-# DEPRECATED smsrdAdditionalStagingLabelsToDownload "Use generic-lens or generic-optics with 'additionalStagingLabelsToDownload' instead." #-}
 
 -- | The ARN of the Secrets Manager secret to make available on the core. The value of the secret's latest version (represented by the ''AWSCURRENT'' staging label) is included by default.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smsrdARN :: Lens.Lens' SecretsManagerSecretResourceData (Lude.Maybe Lude.Text)
-smsrdARN = Lens.lens (arn :: SecretsManagerSecretResourceData -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: SecretsManagerSecretResourceData)
+smsrdARN :: Lens.Lens' SecretsManagerSecretResourceData (Core.Maybe Core.Text)
+smsrdARN = Lens.field @"arn"
 {-# DEPRECATED smsrdARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.FromJSON SecretsManagerSecretResourceData where
-  parseJSON =
-    Lude.withObject
-      "SecretsManagerSecretResourceData"
-      ( \x ->
-          SecretsManagerSecretResourceData'
-            Lude.<$> ( x Lude..:? "AdditionalStagingLabelsToDownload"
-                         Lude..!= Lude.mempty
-                     )
-            Lude.<*> (x Lude..:? "ARN")
-      )
+-- | Optional. The staging labels whose values you want to make available on the core, in addition to ''AWSCURRENT''.
+--
+-- /Note:/ Consider using 'additionalStagingLabelsToDownload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsrdAdditionalStagingLabelsToDownload :: Lens.Lens' SecretsManagerSecretResourceData (Core.Maybe [Core.Text])
+smsrdAdditionalStagingLabelsToDownload = Lens.field @"additionalStagingLabelsToDownload"
+{-# DEPRECATED smsrdAdditionalStagingLabelsToDownload "Use generic-lens or generic-optics with 'additionalStagingLabelsToDownload' instead." #-}
 
-instance Lude.ToJSON SecretsManagerSecretResourceData where
-  toJSON SecretsManagerSecretResourceData' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AdditionalStagingLabelsToDownload" Lude..=)
-              Lude.<$> additionalStagingLabelsToDownload,
-            ("ARN" Lude..=) Lude.<$> arn
+instance Core.FromJSON SecretsManagerSecretResourceData where
+  toJSON SecretsManagerSecretResourceData {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ARN" Core..=) Core.<$> arn,
+            ("AdditionalStagingLabelsToDownload" Core..=)
+              Core.<$> additionalStagingLabelsToDownload
           ]
       )
+
+instance Core.FromJSON SecretsManagerSecretResourceData where
+  parseJSON =
+    Core.withObject "SecretsManagerSecretResourceData" Core.$
+      \x ->
+        SecretsManagerSecretResourceData'
+          Core.<$> (x Core..:? "ARN")
+          Core.<*> (x Core..:? "AdditionalStagingLabelsToDownload")

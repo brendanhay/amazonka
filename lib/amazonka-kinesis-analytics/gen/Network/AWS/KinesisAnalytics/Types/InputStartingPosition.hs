@@ -13,51 +13,56 @@
 module Network.AWS.KinesisAnalytics.Types.InputStartingPosition
   ( InputStartingPosition
       ( InputStartingPosition',
-        Now,
-        TrimHorizon,
-        LastStoppedPoint
+        InputStartingPositionNow,
+        InputStartingPositionTrimHorizon,
+        InputStartingPositionLastStoppedPoint,
+        fromInputStartingPosition
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InputStartingPosition = InputStartingPosition' Lude.Text
+newtype InputStartingPosition = InputStartingPosition'
+  { fromInputStartingPosition ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Now :: InputStartingPosition
-pattern Now = InputStartingPosition' "NOW"
+pattern InputStartingPositionNow :: InputStartingPosition
+pattern InputStartingPositionNow = InputStartingPosition' "NOW"
 
-pattern TrimHorizon :: InputStartingPosition
-pattern TrimHorizon = InputStartingPosition' "TRIM_HORIZON"
+pattern InputStartingPositionTrimHorizon :: InputStartingPosition
+pattern InputStartingPositionTrimHorizon = InputStartingPosition' "TRIM_HORIZON"
 
-pattern LastStoppedPoint :: InputStartingPosition
-pattern LastStoppedPoint = InputStartingPosition' "LAST_STOPPED_POINT"
+pattern InputStartingPositionLastStoppedPoint :: InputStartingPosition
+pattern InputStartingPositionLastStoppedPoint = InputStartingPosition' "LAST_STOPPED_POINT"
 
 {-# COMPLETE
-  Now,
-  TrimHorizon,
-  LastStoppedPoint,
+  InputStartingPositionNow,
+  InputStartingPositionTrimHorizon,
+  InputStartingPositionLastStoppedPoint,
   InputStartingPosition'
   #-}

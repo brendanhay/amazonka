@@ -42,117 +42,105 @@ module Network.AWS.GameLift.StopFleetActions
     mkStopFleetActions,
 
     -- ** Request lenses
-    sActions,
     sFleetId,
+    sActions,
 
     -- * Destructuring the response
     StopFleetActionsResponse (..),
     mkStopFleetActionsResponse,
 
     -- ** Response lenses
-    sfarsResponseStatus,
+    sfarfrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopFleetActions' smart constructor.
 data StopFleetActions = StopFleetActions'
-  { -- | List of actions to suspend on the fleet.
-    actions :: Lude.NonEmpty FleetAction,
-    -- | A unique identifier for a fleet to stop actions on. You can use either the fleet ID or ARN value.
-    fleetId :: Lude.Text
+  { -- | A unique identifier for a fleet to stop actions on. You can use either the fleet ID or ARN value.
+    fleetId :: Types.FleetIdOrArn,
+    -- | List of actions to suspend on the fleet.
+    actions :: Core.NonEmpty Types.FleetAction
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopFleetActions' with the minimum fields required to make a request.
---
--- * 'actions' - List of actions to suspend on the fleet.
--- * 'fleetId' - A unique identifier for a fleet to stop actions on. You can use either the fleet ID or ARN value.
+-- | Creates a 'StopFleetActions' value with any optional fields omitted.
 mkStopFleetActions ::
-  -- | 'actions'
-  Lude.NonEmpty FleetAction ->
   -- | 'fleetId'
-  Lude.Text ->
+  Types.FleetIdOrArn ->
+  -- | 'actions'
+  Core.NonEmpty Types.FleetAction ->
   StopFleetActions
-mkStopFleetActions pActions_ pFleetId_ =
-  StopFleetActions' {actions = pActions_, fleetId = pFleetId_}
-
--- | List of actions to suspend on the fleet.
---
--- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sActions :: Lens.Lens' StopFleetActions (Lude.NonEmpty FleetAction)
-sActions = Lens.lens (actions :: StopFleetActions -> Lude.NonEmpty FleetAction) (\s a -> s {actions = a} :: StopFleetActions)
-{-# DEPRECATED sActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+mkStopFleetActions fleetId actions =
+  StopFleetActions' {fleetId, actions}
 
 -- | A unique identifier for a fleet to stop actions on. You can use either the fleet ID or ARN value.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sFleetId :: Lens.Lens' StopFleetActions Lude.Text
-sFleetId = Lens.lens (fleetId :: StopFleetActions -> Lude.Text) (\s a -> s {fleetId = a} :: StopFleetActions)
+sFleetId :: Lens.Lens' StopFleetActions Types.FleetIdOrArn
+sFleetId = Lens.field @"fleetId"
 {-# DEPRECATED sFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance Lude.AWSRequest StopFleetActions where
+-- | List of actions to suspend on the fleet.
+--
+-- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sActions :: Lens.Lens' StopFleetActions (Core.NonEmpty Types.FleetAction)
+sActions = Lens.field @"actions"
+{-# DEPRECATED sActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+
+instance Core.FromJSON StopFleetActions where
+  toJSON StopFleetActions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FleetId" Core..= fleetId),
+            Core.Just ("Actions" Core..= actions)
+          ]
+      )
+
+instance Core.AWSRequest StopFleetActions where
   type Rs StopFleetActions = StopFleetActionsResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.StopFleetActions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          StopFleetActionsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          StopFleetActionsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopFleetActions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.StopFleetActions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopFleetActions where
-  toJSON StopFleetActions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Actions" Lude..= actions),
-            Lude.Just ("FleetId" Lude..= fleetId)
-          ]
-      )
-
-instance Lude.ToPath StopFleetActions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopFleetActions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopFleetActionsResponse' smart constructor.
 newtype StopFleetActionsResponse = StopFleetActionsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopFleetActionsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopFleetActionsResponse' value with any optional fields omitted.
 mkStopFleetActionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopFleetActionsResponse
-mkStopFleetActionsResponse pResponseStatus_ =
-  StopFleetActionsResponse' {responseStatus = pResponseStatus_}
+mkStopFleetActionsResponse responseStatus =
+  StopFleetActionsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfarsResponseStatus :: Lens.Lens' StopFleetActionsResponse Lude.Int
-sfarsResponseStatus = Lens.lens (responseStatus :: StopFleetActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopFleetActionsResponse)
-{-# DEPRECATED sfarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sfarfrsResponseStatus :: Lens.Lens' StopFleetActionsResponse Core.Int
+sfarfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sfarfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

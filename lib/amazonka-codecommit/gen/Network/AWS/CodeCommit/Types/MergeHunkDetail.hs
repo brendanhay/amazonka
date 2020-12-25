@@ -17,71 +17,66 @@ module Network.AWS.CodeCommit.Types.MergeHunkDetail
     mkMergeHunkDetail,
 
     -- * Lenses
-    mhdStartLine,
     mhdEndLine,
     mhdHunkContent,
+    mhdStartLine,
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.HunkContent as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the details of a merge hunk that contains a conflict in a merge or pull request operation.
 --
 -- /See:/ 'mkMergeHunkDetail' smart constructor.
 data MergeHunkDetail = MergeHunkDetail'
-  { -- | The start position of the hunk in the merge result.
-    startLine :: Lude.Maybe Lude.Int,
-    -- | The end position of the hunk in the merge result.
-    endLine :: Lude.Maybe Lude.Int,
+  { -- | The end position of the hunk in the merge result.
+    endLine :: Core.Maybe Core.Int,
     -- | The base-64 encoded content of the hunk merged region that might contain a conflict.
-    hunkContent :: Lude.Maybe Lude.Text
+    hunkContent :: Core.Maybe Types.HunkContent,
+    -- | The start position of the hunk in the merge result.
+    startLine :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MergeHunkDetail' with the minimum fields required to make a request.
---
--- * 'startLine' - The start position of the hunk in the merge result.
--- * 'endLine' - The end position of the hunk in the merge result.
--- * 'hunkContent' - The base-64 encoded content of the hunk merged region that might contain a conflict.
+-- | Creates a 'MergeHunkDetail' value with any optional fields omitted.
 mkMergeHunkDetail ::
   MergeHunkDetail
 mkMergeHunkDetail =
   MergeHunkDetail'
-    { startLine = Lude.Nothing,
-      endLine = Lude.Nothing,
-      hunkContent = Lude.Nothing
+    { endLine = Core.Nothing,
+      hunkContent = Core.Nothing,
+      startLine = Core.Nothing
     }
-
--- | The start position of the hunk in the merge result.
---
--- /Note:/ Consider using 'startLine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mhdStartLine :: Lens.Lens' MergeHunkDetail (Lude.Maybe Lude.Int)
-mhdStartLine = Lens.lens (startLine :: MergeHunkDetail -> Lude.Maybe Lude.Int) (\s a -> s {startLine = a} :: MergeHunkDetail)
-{-# DEPRECATED mhdStartLine "Use generic-lens or generic-optics with 'startLine' instead." #-}
 
 -- | The end position of the hunk in the merge result.
 --
 -- /Note:/ Consider using 'endLine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mhdEndLine :: Lens.Lens' MergeHunkDetail (Lude.Maybe Lude.Int)
-mhdEndLine = Lens.lens (endLine :: MergeHunkDetail -> Lude.Maybe Lude.Int) (\s a -> s {endLine = a} :: MergeHunkDetail)
+mhdEndLine :: Lens.Lens' MergeHunkDetail (Core.Maybe Core.Int)
+mhdEndLine = Lens.field @"endLine"
 {-# DEPRECATED mhdEndLine "Use generic-lens or generic-optics with 'endLine' instead." #-}
 
 -- | The base-64 encoded content of the hunk merged region that might contain a conflict.
 --
 -- /Note:/ Consider using 'hunkContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mhdHunkContent :: Lens.Lens' MergeHunkDetail (Lude.Maybe Lude.Text)
-mhdHunkContent = Lens.lens (hunkContent :: MergeHunkDetail -> Lude.Maybe Lude.Text) (\s a -> s {hunkContent = a} :: MergeHunkDetail)
+mhdHunkContent :: Lens.Lens' MergeHunkDetail (Core.Maybe Types.HunkContent)
+mhdHunkContent = Lens.field @"hunkContent"
 {-# DEPRECATED mhdHunkContent "Use generic-lens or generic-optics with 'hunkContent' instead." #-}
 
-instance Lude.FromJSON MergeHunkDetail where
+-- | The start position of the hunk in the merge result.
+--
+-- /Note:/ Consider using 'startLine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhdStartLine :: Lens.Lens' MergeHunkDetail (Core.Maybe Core.Int)
+mhdStartLine = Lens.field @"startLine"
+{-# DEPRECATED mhdStartLine "Use generic-lens or generic-optics with 'startLine' instead." #-}
+
+instance Core.FromJSON MergeHunkDetail where
   parseJSON =
-    Lude.withObject
-      "MergeHunkDetail"
-      ( \x ->
-          MergeHunkDetail'
-            Lude.<$> (x Lude..:? "startLine")
-            Lude.<*> (x Lude..:? "endLine")
-            Lude.<*> (x Lude..:? "hunkContent")
-      )
+    Core.withObject "MergeHunkDetail" Core.$
+      \x ->
+        MergeHunkDetail'
+          Core.<$> (x Core..:? "endLine")
+          Core.<*> (x Core..:? "hunkContent")
+          Core.<*> (x Core..:? "startLine")

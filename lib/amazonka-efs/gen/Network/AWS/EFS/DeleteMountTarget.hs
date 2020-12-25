@@ -30,7 +30,7 @@ module Network.AWS.EFS.DeleteMountTarget
     mkDeleteMountTarget,
 
     -- ** Request lenses
-    dmtMountTargetId,
+    dMountTargetId,
 
     -- * Destructuring the response
     DeleteMountTargetResponse (..),
@@ -38,61 +38,58 @@ module Network.AWS.EFS.DeleteMountTarget
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDeleteMountTarget' smart constructor.
 newtype DeleteMountTarget = DeleteMountTarget'
   { -- | The ID of the mount target to delete (String).
-    mountTargetId :: Lude.Text
+    mountTargetId :: Types.MountTargetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMountTarget' with the minimum fields required to make a request.
---
--- * 'mountTargetId' - The ID of the mount target to delete (String).
+-- | Creates a 'DeleteMountTarget' value with any optional fields omitted.
 mkDeleteMountTarget ::
   -- | 'mountTargetId'
-  Lude.Text ->
+  Types.MountTargetId ->
   DeleteMountTarget
-mkDeleteMountTarget pMountTargetId_ =
-  DeleteMountTarget' {mountTargetId = pMountTargetId_}
+mkDeleteMountTarget mountTargetId =
+  DeleteMountTarget' {mountTargetId}
 
 -- | The ID of the mount target to delete (String).
 --
 -- /Note:/ Consider using 'mountTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmtMountTargetId :: Lens.Lens' DeleteMountTarget Lude.Text
-dmtMountTargetId = Lens.lens (mountTargetId :: DeleteMountTarget -> Lude.Text) (\s a -> s {mountTargetId = a} :: DeleteMountTarget)
-{-# DEPRECATED dmtMountTargetId "Use generic-lens or generic-optics with 'mountTargetId' instead." #-}
+dMountTargetId :: Lens.Lens' DeleteMountTarget Types.MountTargetId
+dMountTargetId = Lens.field @"mountTargetId"
+{-# DEPRECATED dMountTargetId "Use generic-lens or generic-optics with 'mountTargetId' instead." #-}
 
-instance Lude.AWSRequest DeleteMountTarget where
+instance Core.AWSRequest DeleteMountTarget where
   type Rs DeleteMountTarget = DeleteMountTargetResponse
-  request = Req.delete efsService
-  response = Res.receiveNull DeleteMountTargetResponse'
-
-instance Lude.ToHeaders DeleteMountTarget where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteMountTarget where
-  toPath DeleteMountTarget' {..} =
-    Lude.mconcat
-      ["/2015-02-01/mount-targets/", Lude.toBS mountTargetId]
-
-instance Lude.ToQuery DeleteMountTarget where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/2015-02-01/mount-targets/" Core.<> (Core.toText mountTargetId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteMountTargetResponse'
 
 -- | /See:/ 'mkDeleteMountTargetResponse' smart constructor.
 data DeleteMountTargetResponse = DeleteMountTargetResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMountTargetResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteMountTargetResponse' value with any optional fields omitted.
 mkDeleteMountTargetResponse ::
   DeleteMountTargetResponse
 mkDeleteMountTargetResponse = DeleteMountTargetResponse'

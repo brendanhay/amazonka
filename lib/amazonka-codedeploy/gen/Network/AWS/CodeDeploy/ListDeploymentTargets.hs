@@ -23,31 +23,33 @@ module Network.AWS.CodeDeploy.ListDeploymentTargets
 
     -- ** Request lenses
     ldtDeploymentId,
-    ldtTargetFilters,
     ldtNextToken,
+    ldtTargetFilters,
 
     -- * Destructuring the response
     ListDeploymentTargetsResponse (..),
     mkListDeploymentTargetsResponse,
 
     -- ** Response lenses
-    ldtrsNextToken,
-    ldtrsTargetIds,
-    ldtrsResponseStatus,
+    ldtrrsNextToken,
+    ldtrrsTargetIds,
+    ldtrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDeploymentTargets' smart constructor.
 data ListDeploymentTargets = ListDeploymentTargets'
   { -- | The unique ID of a deployment.
-    deploymentId :: Lude.Maybe Lude.Text,
+    deploymentId :: Core.Maybe Types.DeploymentId,
+    -- | A token identifier returned from the previous @ListDeploymentTargets@ call. It can be used to return the next set of deployment targets in the list.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A key used to filter the returned targets. The two valid values are:
     --
     --
@@ -55,41 +57,34 @@ data ListDeploymentTargets = ListDeploymentTargets'
     --
     --
     --     * @ServerInstanceLabel@ - A @ServerInstanceLabel@ filter string can be @Blue@ or @Green@ .
-    targetFilters :: Lude.Maybe (Lude.HashMap TargetFilterName ([Lude.Text])),
-    -- | A token identifier returned from the previous @ListDeploymentTargets@ call. It can be used to return the next set of deployment targets in the list.
-    nextToken :: Lude.Maybe Lude.Text
+    targetFilters :: Core.Maybe (Core.HashMap Types.TargetFilterName [Types.FilterValue])
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDeploymentTargets' with the minimum fields required to make a request.
---
--- * 'deploymentId' - The unique ID of a deployment.
--- * 'targetFilters' - A key used to filter the returned targets. The two valid values are:
---
---
---     * @TargetStatus@ - A @TargetStatus@ filter string can be @Failed@ , @InProgress@ , @Pending@ , @Ready@ , @Skipped@ , @Succeeded@ , or @Unknown@ .
---
---
---     * @ServerInstanceLabel@ - A @ServerInstanceLabel@ filter string can be @Blue@ or @Green@ .
---
---
--- * 'nextToken' - A token identifier returned from the previous @ListDeploymentTargets@ call. It can be used to return the next set of deployment targets in the list.
+-- | Creates a 'ListDeploymentTargets' value with any optional fields omitted.
 mkListDeploymentTargets ::
   ListDeploymentTargets
 mkListDeploymentTargets =
   ListDeploymentTargets'
-    { deploymentId = Lude.Nothing,
-      targetFilters = Lude.Nothing,
-      nextToken = Lude.Nothing
+    { deploymentId = Core.Nothing,
+      nextToken = Core.Nothing,
+      targetFilters = Core.Nothing
     }
 
 -- | The unique ID of a deployment.
 --
 -- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldtDeploymentId :: Lens.Lens' ListDeploymentTargets (Lude.Maybe Lude.Text)
-ldtDeploymentId = Lens.lens (deploymentId :: ListDeploymentTargets -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: ListDeploymentTargets)
+ldtDeploymentId :: Lens.Lens' ListDeploymentTargets (Core.Maybe Types.DeploymentId)
+ldtDeploymentId = Lens.field @"deploymentId"
 {-# DEPRECATED ldtDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
+
+-- | A token identifier returned from the previous @ListDeploymentTargets@ call. It can be used to return the next set of deployment targets in the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldtNextToken :: Lens.Lens' ListDeploymentTargets (Core.Maybe Types.NextToken)
+ldtNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A key used to filter the returned targets. The two valid values are:
 --
@@ -102,110 +97,95 @@ ldtDeploymentId = Lens.lens (deploymentId :: ListDeploymentTargets -> Lude.Maybe
 --
 --
 -- /Note:/ Consider using 'targetFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldtTargetFilters :: Lens.Lens' ListDeploymentTargets (Lude.Maybe (Lude.HashMap TargetFilterName ([Lude.Text])))
-ldtTargetFilters = Lens.lens (targetFilters :: ListDeploymentTargets -> Lude.Maybe (Lude.HashMap TargetFilterName ([Lude.Text]))) (\s a -> s {targetFilters = a} :: ListDeploymentTargets)
+ldtTargetFilters :: Lens.Lens' ListDeploymentTargets (Core.Maybe (Core.HashMap Types.TargetFilterName [Types.FilterValue]))
+ldtTargetFilters = Lens.field @"targetFilters"
 {-# DEPRECATED ldtTargetFilters "Use generic-lens or generic-optics with 'targetFilters' instead." #-}
 
--- | A token identifier returned from the previous @ListDeploymentTargets@ call. It can be used to return the next set of deployment targets in the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldtNextToken :: Lens.Lens' ListDeploymentTargets (Lude.Maybe Lude.Text)
-ldtNextToken = Lens.lens (nextToken :: ListDeploymentTargets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeploymentTargets)
-{-# DEPRECATED ldtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+instance Core.FromJSON ListDeploymentTargets where
+  toJSON ListDeploymentTargets {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("deploymentId" Core..=) Core.<$> deploymentId,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("targetFilters" Core..=) Core.<$> targetFilters
+          ]
+      )
 
-instance Page.AWSPager ListDeploymentTargets where
-  page rq rs
-    | Page.stop (rs Lens.^. ldtrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ldtrsTargetIds) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ldtNextToken Lens..~ rs Lens.^. ldtrsNextToken
-
-instance Lude.AWSRequest ListDeploymentTargets where
+instance Core.AWSRequest ListDeploymentTargets where
   type Rs ListDeploymentTargets = ListDeploymentTargetsResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeDeploy_20141006.ListDeploymentTargets")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListDeploymentTargetsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "targetIds" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "targetIds")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListDeploymentTargets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeDeploy_20141006.ListDeploymentTargets" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListDeploymentTargets where
-  toJSON ListDeploymentTargets' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("deploymentId" Lude..=) Lude.<$> deploymentId,
-            ("targetFilters" Lude..=) Lude.<$> targetFilters,
-            ("nextToken" Lude..=) Lude.<$> nextToken
-          ]
-      )
-
-instance Lude.ToPath ListDeploymentTargets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListDeploymentTargets where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListDeploymentTargets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"targetIds" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListDeploymentTargetsResponse' smart constructor.
 data ListDeploymentTargetsResponse = ListDeploymentTargetsResponse'
   { -- | If a large amount of information is returned, a token identifier is also returned. It can be used in a subsequent @ListDeploymentTargets@ call to return the next set of deployment targets in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The unique IDs of deployment targets.
-    targetIds :: Lude.Maybe [Lude.Text],
+    targetIds :: Core.Maybe [Types.TargetId],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDeploymentTargetsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If a large amount of information is returned, a token identifier is also returned. It can be used in a subsequent @ListDeploymentTargets@ call to return the next set of deployment targets in the list.
--- * 'targetIds' - The unique IDs of deployment targets.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDeploymentTargetsResponse' value with any optional fields omitted.
 mkListDeploymentTargetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDeploymentTargetsResponse
-mkListDeploymentTargetsResponse pResponseStatus_ =
+mkListDeploymentTargetsResponse responseStatus =
   ListDeploymentTargetsResponse'
-    { nextToken = Lude.Nothing,
-      targetIds = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      targetIds = Core.Nothing,
+      responseStatus
     }
 
 -- | If a large amount of information is returned, a token identifier is also returned. It can be used in a subsequent @ListDeploymentTargets@ call to return the next set of deployment targets in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldtrsNextToken :: Lens.Lens' ListDeploymentTargetsResponse (Lude.Maybe Lude.Text)
-ldtrsNextToken = Lens.lens (nextToken :: ListDeploymentTargetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDeploymentTargetsResponse)
-{-# DEPRECATED ldtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ldtrrsNextToken :: Lens.Lens' ListDeploymentTargetsResponse (Core.Maybe Types.NextToken)
+ldtrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldtrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The unique IDs of deployment targets.
 --
 -- /Note:/ Consider using 'targetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldtrsTargetIds :: Lens.Lens' ListDeploymentTargetsResponse (Lude.Maybe [Lude.Text])
-ldtrsTargetIds = Lens.lens (targetIds :: ListDeploymentTargetsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {targetIds = a} :: ListDeploymentTargetsResponse)
-{-# DEPRECATED ldtrsTargetIds "Use generic-lens or generic-optics with 'targetIds' instead." #-}
+ldtrrsTargetIds :: Lens.Lens' ListDeploymentTargetsResponse (Core.Maybe [Types.TargetId])
+ldtrrsTargetIds = Lens.field @"targetIds"
+{-# DEPRECATED ldtrrsTargetIds "Use generic-lens or generic-optics with 'targetIds' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldtrsResponseStatus :: Lens.Lens' ListDeploymentTargetsResponse Lude.Int
-ldtrsResponseStatus = Lens.lens (responseStatus :: ListDeploymentTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDeploymentTargetsResponse)
-{-# DEPRECATED ldtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldtrrsResponseStatus :: Lens.Lens' ListDeploymentTargetsResponse Core.Int
+ldtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

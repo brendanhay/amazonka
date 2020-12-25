@@ -17,48 +17,46 @@ module Network.AWS.ElasticBeanstalk.Types.Queue
     mkQueue,
 
     -- * Lenses
-    qURL,
     qName,
+    qURL,
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a queue.
 --
 -- /See:/ 'mkQueue' smart constructor.
 data Queue = Queue'
-  { -- | The URL of the queue.
-    url :: Lude.Maybe Lude.Text,
-    -- | The name of the queue.
-    name :: Lude.Maybe Lude.Text
+  { -- | The name of the queue.
+    name :: Core.Maybe Types.String,
+    -- | The URL of the queue.
+    url :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Queue' with the minimum fields required to make a request.
---
--- * 'url' - The URL of the queue.
--- * 'name' - The name of the queue.
+-- | Creates a 'Queue' value with any optional fields omitted.
 mkQueue ::
   Queue
-mkQueue = Queue' {url = Lude.Nothing, name = Lude.Nothing}
-
--- | The URL of the queue.
---
--- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qURL :: Lens.Lens' Queue (Lude.Maybe Lude.Text)
-qURL = Lens.lens (url :: Queue -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: Queue)
-{-# DEPRECATED qURL "Use generic-lens or generic-optics with 'url' instead." #-}
+mkQueue = Queue' {name = Core.Nothing, url = Core.Nothing}
 
 -- | The name of the queue.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qName :: Lens.Lens' Queue (Lude.Maybe Lude.Text)
-qName = Lens.lens (name :: Queue -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Queue)
+qName :: Lens.Lens' Queue (Core.Maybe Types.String)
+qName = Lens.field @"name"
 {-# DEPRECATED qName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML Queue where
+-- | The URL of the queue.
+--
+-- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qURL :: Lens.Lens' Queue (Core.Maybe Types.String)
+qURL = Lens.field @"url"
+{-# DEPRECATED qURL "Use generic-lens or generic-optics with 'url' instead." #-}
+
+instance Core.FromXML Queue where
   parseXML x =
-    Queue' Lude.<$> (x Lude..@? "URL") Lude.<*> (x Lude..@? "Name")
+    Queue' Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "URL")

@@ -17,23 +17,30 @@ module Network.AWS.ElasticBeanstalk.Types.ValidationMessage
     mkValidationMessage,
 
     -- * Lenses
+    vmMessage,
+    vmNamespace,
     vmOptionName,
     vmSeverity,
-    vmNamespace,
-    vmMessage,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.ValidationSeverity
+import qualified Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.OptionNamespace as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ValidationMessageString as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ValidationSeverity as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An error or warning for a desired configuration option value.
 --
 -- /See:/ 'mkValidationMessage' smart constructor.
 data ValidationMessage = ValidationMessage'
-  { -- | The name of the option.
-    optionName :: Lude.Maybe Lude.Text,
+  { -- | A message describing the error or warning.
+    message :: Core.Maybe Types.ValidationMessageString,
+    -- | The namespace to which the option belongs.
+    namespace :: Core.Maybe Types.OptionNamespace,
+    -- | The name of the option.
+    optionName :: Core.Maybe Types.ConfigurationOptionName,
     -- | An indication of the severity of this message:
     --
     --
@@ -41,44 +48,41 @@ data ValidationMessage = ValidationMessage'
     --
     --
     --     * @warning@ : This message is providing information you should take into account.
-    severity :: Lude.Maybe ValidationSeverity,
-    -- | The namespace to which the option belongs.
-    namespace :: Lude.Maybe Lude.Text,
-    -- | A message describing the error or warning.
-    message :: Lude.Maybe Lude.Text
+    severity :: Core.Maybe Types.ValidationSeverity
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidationMessage' with the minimum fields required to make a request.
---
--- * 'optionName' - The name of the option.
--- * 'severity' - An indication of the severity of this message:
---
---
---     * @error@ : This message indicates that this is not a valid setting for an option.
---
---
---     * @warning@ : This message is providing information you should take into account.
---
---
--- * 'namespace' - The namespace to which the option belongs.
--- * 'message' - A message describing the error or warning.
+-- | Creates a 'ValidationMessage' value with any optional fields omitted.
 mkValidationMessage ::
   ValidationMessage
 mkValidationMessage =
   ValidationMessage'
-    { optionName = Lude.Nothing,
-      severity = Lude.Nothing,
-      namespace = Lude.Nothing,
-      message = Lude.Nothing
+    { message = Core.Nothing,
+      namespace = Core.Nothing,
+      optionName = Core.Nothing,
+      severity = Core.Nothing
     }
+
+-- | A message describing the error or warning.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmMessage :: Lens.Lens' ValidationMessage (Core.Maybe Types.ValidationMessageString)
+vmMessage = Lens.field @"message"
+{-# DEPRECATED vmMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | The namespace to which the option belongs.
+--
+-- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vmNamespace :: Lens.Lens' ValidationMessage (Core.Maybe Types.OptionNamespace)
+vmNamespace = Lens.field @"namespace"
+{-# DEPRECATED vmNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | The name of the option.
 --
 -- /Note:/ Consider using 'optionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmOptionName :: Lens.Lens' ValidationMessage (Lude.Maybe Lude.Text)
-vmOptionName = Lens.lens (optionName :: ValidationMessage -> Lude.Maybe Lude.Text) (\s a -> s {optionName = a} :: ValidationMessage)
+vmOptionName :: Lens.Lens' ValidationMessage (Core.Maybe Types.ConfigurationOptionName)
+vmOptionName = Lens.field @"optionName"
 {-# DEPRECATED vmOptionName "Use generic-lens or generic-optics with 'optionName' instead." #-}
 
 -- | An indication of the severity of this message:
@@ -92,28 +96,14 @@ vmOptionName = Lens.lens (optionName :: ValidationMessage -> Lude.Maybe Lude.Tex
 --
 --
 -- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmSeverity :: Lens.Lens' ValidationMessage (Lude.Maybe ValidationSeverity)
-vmSeverity = Lens.lens (severity :: ValidationMessage -> Lude.Maybe ValidationSeverity) (\s a -> s {severity = a} :: ValidationMessage)
+vmSeverity :: Lens.Lens' ValidationMessage (Core.Maybe Types.ValidationSeverity)
+vmSeverity = Lens.field @"severity"
 {-# DEPRECATED vmSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
 
--- | The namespace to which the option belongs.
---
--- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmNamespace :: Lens.Lens' ValidationMessage (Lude.Maybe Lude.Text)
-vmNamespace = Lens.lens (namespace :: ValidationMessage -> Lude.Maybe Lude.Text) (\s a -> s {namespace = a} :: ValidationMessage)
-{-# DEPRECATED vmNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
-
--- | A message describing the error or warning.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmMessage :: Lens.Lens' ValidationMessage (Lude.Maybe Lude.Text)
-vmMessage = Lens.lens (message :: ValidationMessage -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ValidationMessage)
-{-# DEPRECATED vmMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
-instance Lude.FromXML ValidationMessage where
+instance Core.FromXML ValidationMessage where
   parseXML x =
     ValidationMessage'
-      Lude.<$> (x Lude..@? "OptionName")
-      Lude.<*> (x Lude..@? "Severity")
-      Lude.<*> (x Lude..@? "Namespace")
-      Lude.<*> (x Lude..@? "Message")
+      Core.<$> (x Core..@? "Message")
+      Core.<*> (x Core..@? "Namespace")
+      Core.<*> (x Core..@? "OptionName")
+      Core.<*> (x Core..@? "Severity")

@@ -22,49 +22,46 @@ module Network.AWS.CodeBuild.Types.BuildNotDeleted
   )
 where
 
+import qualified Network.AWS.CodeBuild.Types.Id as Types
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a build that could not be successfully deleted.
 --
 -- /See:/ 'mkBuildNotDeleted' smart constructor.
 data BuildNotDeleted = BuildNotDeleted'
   { -- | The ID of the build that could not be successfully deleted.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.Id,
     -- | Additional information about the build that could not be successfully deleted.
-    statusCode :: Lude.Maybe Lude.Text
+    statusCode :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BuildNotDeleted' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the build that could not be successfully deleted.
--- * 'statusCode' - Additional information about the build that could not be successfully deleted.
+-- | Creates a 'BuildNotDeleted' value with any optional fields omitted.
 mkBuildNotDeleted ::
   BuildNotDeleted
 mkBuildNotDeleted =
-  BuildNotDeleted' {id = Lude.Nothing, statusCode = Lude.Nothing}
+  BuildNotDeleted' {id = Core.Nothing, statusCode = Core.Nothing}
 
 -- | The ID of the build that could not be successfully deleted.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bndId :: Lens.Lens' BuildNotDeleted (Lude.Maybe Lude.Text)
-bndId = Lens.lens (id :: BuildNotDeleted -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: BuildNotDeleted)
+bndId :: Lens.Lens' BuildNotDeleted (Core.Maybe Types.Id)
+bndId = Lens.field @"id"
 {-# DEPRECATED bndId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Additional information about the build that could not be successfully deleted.
 --
 -- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bndStatusCode :: Lens.Lens' BuildNotDeleted (Lude.Maybe Lude.Text)
-bndStatusCode = Lens.lens (statusCode :: BuildNotDeleted -> Lude.Maybe Lude.Text) (\s a -> s {statusCode = a} :: BuildNotDeleted)
+bndStatusCode :: Lens.Lens' BuildNotDeleted (Core.Maybe Types.String)
+bndStatusCode = Lens.field @"statusCode"
 {-# DEPRECATED bndStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance Lude.FromJSON BuildNotDeleted where
+instance Core.FromJSON BuildNotDeleted where
   parseJSON =
-    Lude.withObject
-      "BuildNotDeleted"
-      ( \x ->
-          BuildNotDeleted'
-            Lude.<$> (x Lude..:? "id") Lude.<*> (x Lude..:? "statusCode")
-      )
+    Core.withObject "BuildNotDeleted" Core.$
+      \x ->
+        BuildNotDeleted'
+          Core.<$> (x Core..:? "id") Core.<*> (x Core..:? "statusCode")

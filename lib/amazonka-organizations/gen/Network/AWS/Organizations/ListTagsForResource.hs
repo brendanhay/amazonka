@@ -46,18 +46,18 @@ module Network.AWS.Organizations.ListTagsForResource
     mkListTagsForResourceResponse,
 
     -- ** Response lenses
-    ltfrrsNextToken,
-    ltfrrsTags,
-    ltfrrsResponseStatus,
+    ltfrrrsNextToken,
+    ltfrrrsTags,
+    ltfrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 data ListTagsForResource = ListTagsForResource'
@@ -75,41 +75,20 @@ data ListTagsForResource = ListTagsForResource'
     --
     --
     --     * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @
-    resourceId :: Lude.Text,
+    resourceId :: Types.TaggableResourceId,
     -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource with the tags to list.
---
--- You can specify any of the following taggable resources.
---
---     * AWS account – specify the account ID number.
---
---
---     * Organizational unit – specify the OU ID that begins with @ou-@ and looks similar to: @ou-/1a2b-34uvwxyz/ @
---
---
---     * Root – specify the root ID that begins with @r-@ and looks similar to: @r-/1a2b/ @
---
---
---     * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @
---
---
--- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+-- | Creates a 'ListTagsForResource' value with any optional fields omitted.
 mkListTagsForResource ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.TaggableResourceId ->
   ListTagsForResource
-mkListTagsForResource pResourceId_ =
-  ListTagsForResource'
-    { resourceId = pResourceId_,
-      nextToken = Lude.Nothing
-    }
+mkListTagsForResource resourceId =
+  ListTagsForResource' {resourceId, nextToken = Core.Nothing}
 
 -- | The ID of the resource with the tags to list.
 --
@@ -129,111 +108,101 @@ mkListTagsForResource pResourceId_ =
 --
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrResourceId :: Lens.Lens' ListTagsForResource Lude.Text
-ltfrResourceId = Lens.lens (resourceId :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceId = a} :: ListTagsForResource)
+ltfrResourceId :: Lens.Lens' ListTagsForResource Types.TaggableResourceId
+ltfrResourceId = Lens.field @"resourceId"
 {-# DEPRECATED ltfrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrNextToken :: Lens.Lens' ListTagsForResource (Lude.Maybe Lude.Text)
-ltfrNextToken = Lens.lens (nextToken :: ListTagsForResource -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForResource)
+ltfrNextToken :: Lens.Lens' ListTagsForResource (Core.Maybe Types.NextToken)
+ltfrNextToken = Lens.field @"nextToken"
 {-# DEPRECATED ltfrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager ListTagsForResource where
-  page rq rs
-    | Page.stop (rs Lens.^. ltfrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ltfrrsTags) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ltfrNextToken Lens..~ rs Lens.^. ltfrrsNextToken
+instance Core.FromJSON ListTagsForResource where
+  toJSON ListTagsForResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Lude.AWSRequest ListTagsForResource where
+instance Core.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
-  request = Req.postJSON organizationsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSOrganizationsV20161128.ListTagsForResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListTagsForResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.ListTagsForResource" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListTagsForResource where
-  toJSON ListTagsForResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            ("NextToken" Lude..=) Lude.<$> nextToken
-          ]
-      )
-
-instance Lude.ToPath ListTagsForResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListTagsForResource where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListTagsForResource where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"tags" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The tags that are assigned to the resource.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
--- * 'tags' - The tags that are assigned to the resource.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTagsForResourceResponse' value with any optional fields omitted.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTagsForResourceResponse
-mkListTagsForResourceResponse pResponseStatus_ =
+mkListTagsForResourceResponse responseStatus =
   ListTagsForResourceResponse'
-    { nextToken = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
 
 -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrrsNextToken :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe Lude.Text)
-ltfrrsNextToken = Lens.lens (nextToken :: ListTagsForResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForResourceResponse)
-{-# DEPRECATED ltfrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltfrrrsNextToken :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe Types.NextToken)
+ltfrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltfrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The tags that are assigned to the resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrrsTags :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe [Tag])
-ltfrrsTags = Lens.lens (tags :: ListTagsForResourceResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ListTagsForResourceResponse)
-{-# DEPRECATED ltfrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+ltfrrrsTags :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe [Types.Tag])
+ltfrrrsTags = Lens.field @"tags"
+{-# DEPRECATED ltfrrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Lude.Int
-ltfrrsResponseStatus = Lens.lens (responseStatus :: ListTagsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForResourceResponse)
-{-# DEPRECATED ltfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltfrrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
+ltfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,76 +13,78 @@
 module Network.AWS.EC2.Types.State
   ( State
       ( State',
-        SfPendingAcceptance,
-        SfPending,
-        SfAvailable,
-        SfDeleting,
-        SfDeleted,
-        SfRejected,
-        SfFailed,
-        SfExpired
+        StatePendingAcceptance,
+        StatePending,
+        StateAvailable,
+        StateDeleting,
+        StateDeleted,
+        StateRejected,
+        StateFailed,
+        StateExpired,
+        fromState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype State = State' Lude.Text
+newtype State = State' {fromState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SfPendingAcceptance :: State
-pattern SfPendingAcceptance = State' "PendingAcceptance"
+pattern StatePendingAcceptance :: State
+pattern StatePendingAcceptance = State' "PendingAcceptance"
 
-pattern SfPending :: State
-pattern SfPending = State' "Pending"
+pattern StatePending :: State
+pattern StatePending = State' "Pending"
 
-pattern SfAvailable :: State
-pattern SfAvailable = State' "Available"
+pattern StateAvailable :: State
+pattern StateAvailable = State' "Available"
 
-pattern SfDeleting :: State
-pattern SfDeleting = State' "Deleting"
+pattern StateDeleting :: State
+pattern StateDeleting = State' "Deleting"
 
-pattern SfDeleted :: State
-pattern SfDeleted = State' "Deleted"
+pattern StateDeleted :: State
+pattern StateDeleted = State' "Deleted"
 
-pattern SfRejected :: State
-pattern SfRejected = State' "Rejected"
+pattern StateRejected :: State
+pattern StateRejected = State' "Rejected"
 
-pattern SfFailed :: State
-pattern SfFailed = State' "Failed"
+pattern StateFailed :: State
+pattern StateFailed = State' "Failed"
 
-pattern SfExpired :: State
-pattern SfExpired = State' "Expired"
+pattern StateExpired :: State
+pattern StateExpired = State' "Expired"
 
 {-# COMPLETE
-  SfPendingAcceptance,
-  SfPending,
-  SfAvailable,
-  SfDeleting,
-  SfDeleted,
-  SfRejected,
-  SfFailed,
-  SfExpired,
+  StatePendingAcceptance,
+  StatePending,
+  StateAvailable,
+  StateDeleting,
+  StateDeleted,
+  StateRejected,
+  StateFailed,
+  StateExpired,
   State'
   #-}

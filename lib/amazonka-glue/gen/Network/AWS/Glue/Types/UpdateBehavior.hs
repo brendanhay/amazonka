@@ -13,46 +13,51 @@
 module Network.AWS.Glue.Types.UpdateBehavior
   ( UpdateBehavior
       ( UpdateBehavior',
-        UBLog,
-        UBUpdateInDatabase
+        UpdateBehaviorLog,
+        UpdateBehaviorUpdateInDatabase,
+        fromUpdateBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UpdateBehavior = UpdateBehavior' Lude.Text
+newtype UpdateBehavior = UpdateBehavior'
+  { fromUpdateBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UBLog :: UpdateBehavior
-pattern UBLog = UpdateBehavior' "LOG"
+pattern UpdateBehaviorLog :: UpdateBehavior
+pattern UpdateBehaviorLog = UpdateBehavior' "LOG"
 
-pattern UBUpdateInDatabase :: UpdateBehavior
-pattern UBUpdateInDatabase = UpdateBehavior' "UPDATE_IN_DATABASE"
+pattern UpdateBehaviorUpdateInDatabase :: UpdateBehavior
+pattern UpdateBehaviorUpdateInDatabase = UpdateBehavior' "UPDATE_IN_DATABASE"
 
 {-# COMPLETE
-  UBLog,
-  UBUpdateInDatabase,
+  UpdateBehaviorLog,
+  UpdateBehaviorUpdateInDatabase,
   UpdateBehavior'
   #-}

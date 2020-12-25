@@ -17,61 +17,66 @@ module Network.AWS.Lambda.Types.FunctionCode
     mkFunctionCode,
 
     -- * Lenses
-    fcS3ObjectVersion,
-    fcS3Key,
-    fcZipFile,
     fcS3Bucket,
+    fcS3Key,
+    fcS3ObjectVersion,
+    fcZipFile,
   )
 where
 
+import qualified Network.AWS.Lambda.Types.S3Bucket as Types
+import qualified Network.AWS.Lambda.Types.S3Key as Types
+import qualified Network.AWS.Lambda.Types.S3ObjectVersion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.
 --
 -- /See:/ 'mkFunctionCode' smart constructor.
 data FunctionCode = FunctionCode'
-  { -- | For versioned objects, the version of the deployment package object to use.
-    s3ObjectVersion :: Lude.Maybe Lude.Text,
+  { -- | An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+    s3Bucket :: Core.Maybe Types.S3Bucket,
     -- | The Amazon S3 key of the deployment package.
-    s3Key :: Lude.Maybe Lude.Text,
+    s3Key :: Core.Maybe Types.S3Key,
+    -- | For versioned objects, the version of the deployment package object to use.
+    s3ObjectVersion :: Core.Maybe Types.S3ObjectVersion,
     -- | The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.
-    zipFile :: Lude.Maybe (Lude.Sensitive Lude.Base64),
-    -- | An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
-    s3Bucket :: Lude.Maybe Lude.Text
+    zipFile :: Core.Maybe (Core.Sensitive Core.Base64)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FunctionCode' with the minimum fields required to make a request.
---
--- * 's3ObjectVersion' - For versioned objects, the version of the deployment package object to use.
--- * 's3Key' - The Amazon S3 key of the deployment package.
--- * 'zipFile' - The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.
--- * 's3Bucket' - An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
+-- | Creates a 'FunctionCode' value with any optional fields omitted.
 mkFunctionCode ::
   FunctionCode
 mkFunctionCode =
   FunctionCode'
-    { s3ObjectVersion = Lude.Nothing,
-      s3Key = Lude.Nothing,
-      zipFile = Lude.Nothing,
-      s3Bucket = Lude.Nothing
+    { s3Bucket = Core.Nothing,
+      s3Key = Core.Nothing,
+      s3ObjectVersion = Core.Nothing,
+      zipFile = Core.Nothing
     }
 
--- | For versioned objects, the version of the deployment package object to use.
+-- | An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
 --
--- /Note:/ Consider using 's3ObjectVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcS3ObjectVersion :: Lens.Lens' FunctionCode (Lude.Maybe Lude.Text)
-fcS3ObjectVersion = Lens.lens (s3ObjectVersion :: FunctionCode -> Lude.Maybe Lude.Text) (\s a -> s {s3ObjectVersion = a} :: FunctionCode)
-{-# DEPRECATED fcS3ObjectVersion "Use generic-lens or generic-optics with 's3ObjectVersion' instead." #-}
+-- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcS3Bucket :: Lens.Lens' FunctionCode (Core.Maybe Types.S3Bucket)
+fcS3Bucket = Lens.field @"s3Bucket"
+{-# DEPRECATED fcS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
 -- | The Amazon S3 key of the deployment package.
 --
 -- /Note:/ Consider using 's3Key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcS3Key :: Lens.Lens' FunctionCode (Lude.Maybe Lude.Text)
-fcS3Key = Lens.lens (s3Key :: FunctionCode -> Lude.Maybe Lude.Text) (\s a -> s {s3Key = a} :: FunctionCode)
+fcS3Key :: Lens.Lens' FunctionCode (Core.Maybe Types.S3Key)
+fcS3Key = Lens.field @"s3Key"
 {-# DEPRECATED fcS3Key "Use generic-lens or generic-optics with 's3Key' instead." #-}
+
+-- | For versioned objects, the version of the deployment package object to use.
+--
+-- /Note:/ Consider using 's3ObjectVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fcS3ObjectVersion :: Lens.Lens' FunctionCode (Core.Maybe Types.S3ObjectVersion)
+fcS3ObjectVersion = Lens.field @"s3ObjectVersion"
+{-# DEPRECATED fcS3ObjectVersion "Use generic-lens or generic-optics with 's3ObjectVersion' instead." #-}
 
 -- | The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -80,24 +85,17 @@ fcS3Key = Lens.lens (s3Key :: FunctionCode -> Lude.Maybe Lude.Text) (\s a -> s {
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'zipFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcZipFile :: Lens.Lens' FunctionCode (Lude.Maybe (Lude.Sensitive Lude.Base64))
-fcZipFile = Lens.lens (zipFile :: FunctionCode -> Lude.Maybe (Lude.Sensitive Lude.Base64)) (\s a -> s {zipFile = a} :: FunctionCode)
+fcZipFile :: Lens.Lens' FunctionCode (Core.Maybe (Core.Sensitive Core.Base64))
+fcZipFile = Lens.field @"zipFile"
 {-# DEPRECATED fcZipFile "Use generic-lens or generic-optics with 'zipFile' instead." #-}
 
--- | An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.
---
--- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcS3Bucket :: Lens.Lens' FunctionCode (Lude.Maybe Lude.Text)
-fcS3Bucket = Lens.lens (s3Bucket :: FunctionCode -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: FunctionCode)
-{-# DEPRECATED fcS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
-
-instance Lude.ToJSON FunctionCode where
-  toJSON FunctionCode' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("S3ObjectVersion" Lude..=) Lude.<$> s3ObjectVersion,
-            ("S3Key" Lude..=) Lude.<$> s3Key,
-            ("ZipFile" Lude..=) Lude.<$> zipFile,
-            ("S3Bucket" Lude..=) Lude.<$> s3Bucket
+instance Core.FromJSON FunctionCode where
+  toJSON FunctionCode {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("S3Bucket" Core..=) Core.<$> s3Bucket,
+            ("S3Key" Core..=) Core.<$> s3Key,
+            ("S3ObjectVersion" Core..=) Core.<$> s3ObjectVersion,
+            ("ZipFile" Core..=) Core.<$> zipFile
           ]
       )

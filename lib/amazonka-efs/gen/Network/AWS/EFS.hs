@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,91 @@
 -- Amazon Elastic File System (Amazon EFS) provides simple, scalable file storage for use with Amazon EC2 instances in the AWS Cloud. With Amazon EFS, storage capacity is elastic, growing and shrinking automatically as you add and remove files, so your applications have the storage they need, when they need it. For more information, see the <https://docs.aws.amazon.com/efs/latest/ug/api-reference.html User Guide> .
 module Network.AWS.EFS
   ( -- * Service configuration
-    efsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** MountTargetNotFound
+    _MountTargetNotFound,
+
+    -- ** SecurityGroupLimitExceeded
+    _SecurityGroupLimitExceeded,
+
+    -- ** SecurityGroupNotFound
+    _SecurityGroupNotFound,
+
+    -- ** MountTargetConflict
+    _MountTargetConflict,
+
+    -- ** UnsupportedAvailabilityZone
+    _UnsupportedAvailabilityZone,
+
+    -- ** FileSystemLimitExceeded
+    _FileSystemLimitExceeded,
+
+    -- ** TooManyRequests
+    _TooManyRequests,
+
+    -- ** NetworkInterfaceLimitExceeded
+    _NetworkInterfaceLimitExceeded,
+
+    -- ** FileSystemAlreadyExists
+    _FileSystemAlreadyExists,
+
+    -- ** SubnetNotFound
+    _SubnetNotFound,
+
+    -- ** FileSystemNotFound
+    _FileSystemNotFound,
+
+    -- ** IncorrectFileSystemLifeCycleState
+    _IncorrectFileSystemLifeCycleState,
+
+    -- ** BadRequest
+    _BadRequest,
+
+    -- ** NoFreeAddressesInSubnet
+    _NoFreeAddressesInSubnet,
+
+    -- ** ThroughputLimitExceeded
+    _ThroughputLimitExceeded,
+
+    -- ** DependencyTimeout
+    _DependencyTimeout,
+
+    -- ** FileSystemInUse
+    _FileSystemInUse,
+
+    -- ** IncorrectMountTargetState
+    _IncorrectMountTargetState,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** IpAddressInUse
+    _IpAddressInUse,
+
+    -- ** PolicyNotFound
+    _PolicyNotFound,
+
+    -- ** AccessPointNotFound
+    _AccessPointNotFound,
+
+    -- ** InsufficientThroughputCapacity
+    _InsufficientThroughputCapacity,
+
+    -- ** InvalidPolicyException
+    _InvalidPolicyException,
+
+    -- ** AccessPointAlreadyExists
+    _AccessPointAlreadyExists,
+
+    -- ** AccessPointLimitExceeded
+    _AccessPointLimitExceeded,
 
     -- * Waiters
     -- $waiters
@@ -95,115 +175,15 @@ module Network.AWS.EFS
 
     -- * Types
 
-    -- ** LifeCycleState
-    LifeCycleState (..),
-
-    -- ** PerformanceMode
-    PerformanceMode (..),
-
-    -- ** Status
-    Status (..),
-
-    -- ** ThroughputMode
-    ThroughputMode (..),
-
-    -- ** TransitionToIARules
-    TransitionToIARules (..),
-
-    -- ** AccessPointDescription
-    AccessPointDescription (..),
-    mkAccessPointDescription,
-    apdPosixUser,
-    apdRootDirectory,
-    apdClientToken,
-    apdAccessPointId,
-    apdFileSystemId,
-    apdOwnerId,
-    apdName,
-    apdAccessPointARN,
-    apdLifeCycleState,
-    apdTags,
-
-    -- ** BackupPolicy
-    BackupPolicy (..),
-    mkBackupPolicy,
-    bpStatus,
-
-    -- ** BackupPolicyDescription
-    BackupPolicyDescription (..),
-    mkBackupPolicyDescription,
-    bpdBackupPolicy,
-
-    -- ** CreationInfo
-    CreationInfo (..),
-    mkCreationInfo,
-    ciOwnerGid,
-    ciPermissions,
-    ciOwnerUid,
-
-    -- ** FileSystemDescription
-    FileSystemDescription (..),
-    mkFileSystemDescription,
-    fsdCreationTime,
-    fsdNumberOfMountTargets,
-    fsdProvisionedThroughputInMibps,
-    fsdPerformanceMode,
-    fsdSizeInBytes,
-    fsdFileSystemId,
-    fsdFileSystemARN,
-    fsdEncrypted,
-    fsdThroughputMode,
-    fsdOwnerId,
-    fsdKMSKeyId,
-    fsdName,
-    fsdCreationToken,
-    fsdLifeCycleState,
-    fsdTags,
-
-    -- ** FileSystemPolicyDescription
-    FileSystemPolicyDescription (..),
-    mkFileSystemPolicyDescription,
-    fspdFileSystemId,
-    fspdPolicy,
-
-    -- ** FileSystemSize
-    FileSystemSize (..),
-    mkFileSystemSize,
-    fssValue,
-    fssValueInIA,
-    fssValueInStandard,
-    fssTimestamp,
-
-    -- ** LifecycleConfigurationDescription
-    LifecycleConfigurationDescription (..),
-    mkLifecycleConfigurationDescription,
-    lcdLifecyclePolicies,
-
-    -- ** LifecyclePolicy
-    LifecyclePolicy (..),
-    mkLifecyclePolicy,
-    lpTransitionToIA,
-
-    -- ** MountTargetDescription
-    MountTargetDescription (..),
-    mkMountTargetDescription,
-    mtdIPAddress,
-    mtdAvailabilityZoneId,
-    mtdVPCId,
-    mtdAvailabilityZoneName,
-    mtdNetworkInterfaceId,
-    mtdFileSystemId,
-    mtdSubnetId,
-    mtdOwnerId,
-    mtdLifeCycleState,
-    mtdMountTargetId,
-
     -- ** PosixUser
     PosixUser (..),
     mkPosixUser,
     puUid,
-    puSecondaryGids,
     puGid,
+    puSecondaryGids,
+
+    -- ** Status
+    Status (..),
 
     -- ** RootDirectory
     RootDirectory (..),
@@ -211,21 +191,209 @@ module Network.AWS.EFS
     rdCreationInfo,
     rdPath,
 
+    -- ** CreationInfo
+    CreationInfo (..),
+    mkCreationInfo,
+    ciOwnerUid,
+    ciOwnerGid,
+    ciPermissions,
+
+    -- ** IpAddress
+    IpAddress (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
     -- ** Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
+
+    -- ** MountTargetDescription
+    MountTargetDescription (..),
+    mkMountTargetDescription,
+    mtdMountTargetId,
+    mtdFileSystemId,
+    mtdSubnetId,
+    mtdLifeCycleState,
+    mtdAvailabilityZoneId,
+    mtdAvailabilityZoneName,
+    mtdIpAddress,
+    mtdNetworkInterfaceId,
+    mtdOwnerId,
+    mtdVpcId,
+
+    -- ** ClientToken
+    ClientToken (..),
+
+    -- ** AvailabilityZoneId
+    AvailabilityZoneId (..),
+
+    -- ** FileSystemPolicyDescription
+    FileSystemPolicyDescription (..),
+    mkFileSystemPolicyDescription,
+    fspdFileSystemId,
+    fspdPolicy,
+
+    -- ** Path
+    Path (..),
+
+    -- ** AccessPointId
+    AccessPointId (..),
+
+    -- ** VpcId
+    VpcId (..),
+
+    -- ** LifecycleConfigurationDescription
+    LifecycleConfigurationDescription (..),
+    mkLifecycleConfigurationDescription,
+    lcdLifecyclePolicies,
+
+    -- ** AvailabilityZoneName
+    AvailabilityZoneName (..),
+
+    -- ** BackupPolicyDescription
+    BackupPolicyDescription (..),
+    mkBackupPolicyDescription,
+    bpdBackupPolicy,
+
+    -- ** Token
+    Token (..),
+
+    -- ** PerformanceMode
+    PerformanceMode (..),
+
+    -- ** NetworkInterfaceId
+    NetworkInterfaceId (..),
+
+    -- ** FileSystemId
+    FileSystemId (..),
+
+    -- ** FileSystemArn
+    FileSystemArn (..),
+
+    -- ** AccessPointDescription
+    AccessPointDescription (..),
+    mkAccessPointDescription,
+    apdAccessPointArn,
+    apdAccessPointId,
+    apdClientToken,
+    apdFileSystemId,
+    apdLifeCycleState,
+    apdName,
+    apdOwnerId,
+    apdPosixUser,
+    apdRootDirectory,
+    apdTags,
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** AwsAccountId
+    AwsAccountId (..),
+
+    -- ** ThroughputMode
+    ThroughputMode (..),
+
+    -- ** TransitionToIARules
+    TransitionToIARules (..),
+
+    -- ** SecurityGroup
+    SecurityGroup (..),
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** CreationToken
+    CreationToken (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** FileSystemDescription
+    FileSystemDescription (..),
+    mkFileSystemDescription,
+    fsdOwnerId,
+    fsdCreationToken,
+    fsdFileSystemId,
+    fsdCreationTime,
+    fsdLifeCycleState,
+    fsdNumberOfMountTargets,
+    fsdSizeInBytes,
+    fsdPerformanceMode,
+    fsdTags,
+    fsdEncrypted,
+    fsdFileSystemArn,
+    fsdKmsKeyId,
+    fsdName,
+    fsdProvisionedThroughputInMibps,
+    fsdThroughputMode,
+
+    -- ** AccessPointArn
+    AccessPointArn (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Policy
+    Policy (..),
+
+    -- ** Permissions
+    Permissions (..),
+
+    -- ** FileSystemSize
+    FileSystemSize (..),
+    mkFileSystemSize,
+    fssValue,
+    fssTimestamp,
+    fssValueInIA,
+    fssValueInStandard,
+
+    -- ** BackupPolicy
+    BackupPolicy (..),
+    mkBackupPolicy,
+    bpStatus,
+
+    -- ** LifecyclePolicy
+    LifecyclePolicy (..),
+    mkLifecyclePolicy,
+    lpTransitionToIA,
+
+    -- ** LifeCycleState
+    LifeCycleState (..),
+
+    -- ** MountTargetId
+    MountTargetId (..),
+
+    -- ** NextMarker
+    NextMarker (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** OwnerId
+    OwnerId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

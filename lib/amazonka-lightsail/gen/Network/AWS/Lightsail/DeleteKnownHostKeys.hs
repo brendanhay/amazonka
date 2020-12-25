@@ -29,109 +29,97 @@ module Network.AWS.Lightsail.DeleteKnownHostKeys
     mkDeleteKnownHostKeysResponse,
 
     -- ** Response lenses
-    dkhkrsOperations,
-    dkhkrsResponseStatus,
+    dkhkrrsOperations,
+    dkhkrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteKnownHostKeys' smart constructor.
 newtype DeleteKnownHostKeys = DeleteKnownHostKeys'
   { -- | The name of the instance for which you want to reset the host key or certificate.
-    instanceName :: Lude.Text
+    instanceName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteKnownHostKeys' with the minimum fields required to make a request.
---
--- * 'instanceName' - The name of the instance for which you want to reset the host key or certificate.
+-- | Creates a 'DeleteKnownHostKeys' value with any optional fields omitted.
 mkDeleteKnownHostKeys ::
   -- | 'instanceName'
-  Lude.Text ->
+  Types.ResourceName ->
   DeleteKnownHostKeys
-mkDeleteKnownHostKeys pInstanceName_ =
-  DeleteKnownHostKeys' {instanceName = pInstanceName_}
+mkDeleteKnownHostKeys instanceName =
+  DeleteKnownHostKeys' {instanceName}
 
 -- | The name of the instance for which you want to reset the host key or certificate.
 --
 -- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkhkInstanceName :: Lens.Lens' DeleteKnownHostKeys Lude.Text
-dkhkInstanceName = Lens.lens (instanceName :: DeleteKnownHostKeys -> Lude.Text) (\s a -> s {instanceName = a} :: DeleteKnownHostKeys)
+dkhkInstanceName :: Lens.Lens' DeleteKnownHostKeys Types.ResourceName
+dkhkInstanceName = Lens.field @"instanceName"
 {-# DEPRECATED dkhkInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance Lude.AWSRequest DeleteKnownHostKeys where
+instance Core.FromJSON DeleteKnownHostKeys where
+  toJSON DeleteKnownHostKeys {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("instanceName" Core..= instanceName)])
+
+instance Core.AWSRequest DeleteKnownHostKeys where
   type Rs DeleteKnownHostKeys = DeleteKnownHostKeysResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.DeleteKnownHostKeys")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteKnownHostKeysResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteKnownHostKeys where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.DeleteKnownHostKeys" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteKnownHostKeys where
-  toJSON DeleteKnownHostKeys' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("instanceName" Lude..= instanceName)])
-
-instance Lude.ToPath DeleteKnownHostKeys where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteKnownHostKeys where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteKnownHostKeysResponse' smart constructor.
 data DeleteKnownHostKeysResponse = DeleteKnownHostKeysResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteKnownHostKeysResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteKnownHostKeysResponse' value with any optional fields omitted.
 mkDeleteKnownHostKeysResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteKnownHostKeysResponse
-mkDeleteKnownHostKeysResponse pResponseStatus_ =
+mkDeleteKnownHostKeysResponse responseStatus =
   DeleteKnownHostKeysResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operations = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkhkrsOperations :: Lens.Lens' DeleteKnownHostKeysResponse (Lude.Maybe [Operation])
-dkhkrsOperations = Lens.lens (operations :: DeleteKnownHostKeysResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteKnownHostKeysResponse)
-{-# DEPRECATED dkhkrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+dkhkrrsOperations :: Lens.Lens' DeleteKnownHostKeysResponse (Core.Maybe [Types.Operation])
+dkhkrrsOperations = Lens.field @"operations"
+{-# DEPRECATED dkhkrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dkhkrsResponseStatus :: Lens.Lens' DeleteKnownHostKeysResponse Lude.Int
-dkhkrsResponseStatus = Lens.lens (responseStatus :: DeleteKnownHostKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteKnownHostKeysResponse)
-{-# DEPRECATED dkhkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dkhkrrsResponseStatus :: Lens.Lens' DeleteKnownHostKeysResponse Core.Int
+dkhkrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dkhkrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

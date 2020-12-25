@@ -31,87 +31,76 @@ module Network.AWS.Glue.DeleteClassifier
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteClassifier' smart constructor.
 newtype DeleteClassifier = DeleteClassifier'
   { -- | Name of the classifier to remove.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteClassifier' with the minimum fields required to make a request.
---
--- * 'name' - Name of the classifier to remove.
+-- | Creates a 'DeleteClassifier' value with any optional fields omitted.
 mkDeleteClassifier ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   DeleteClassifier
-mkDeleteClassifier pName_ = DeleteClassifier' {name = pName_}
+mkDeleteClassifier name = DeleteClassifier' {name}
 
 -- | Name of the classifier to remove.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfName :: Lens.Lens' DeleteClassifier Lude.Text
-dcfName = Lens.lens (name :: DeleteClassifier -> Lude.Text) (\s a -> s {name = a} :: DeleteClassifier)
+dcfName :: Lens.Lens' DeleteClassifier Types.Name
+dcfName = Lens.field @"name"
 {-# DEPRECATED dcfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteClassifier where
+instance Core.FromJSON DeleteClassifier where
+  toJSON DeleteClassifier {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteClassifier where
   type Rs DeleteClassifier = DeleteClassifierResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.DeleteClassifier")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteClassifierResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteClassifierResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteClassifier where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.DeleteClassifier" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteClassifier where
-  toJSON DeleteClassifier' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteClassifier where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteClassifier where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteClassifierResponse' smart constructor.
 newtype DeleteClassifierResponse = DeleteClassifierResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteClassifierResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteClassifierResponse' value with any optional fields omitted.
 mkDeleteClassifierResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteClassifierResponse
-mkDeleteClassifierResponse pResponseStatus_ =
-  DeleteClassifierResponse' {responseStatus = pResponseStatus_}
+mkDeleteClassifierResponse responseStatus =
+  DeleteClassifierResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteClassifierResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteClassifierResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteClassifierResponse)
+drsResponseStatus :: Lens.Lens' DeleteClassifierResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

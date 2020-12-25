@@ -22,61 +22,57 @@ module Network.AWS.ECS.Types.InferenceAcceleratorOverride
   )
 where
 
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details on an Elastic Inference accelerator task override. This parameter is used to override the Elastic Inference accelerator specified in the task definition. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html Working with Amazon Elastic Inference on Amazon ECS> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /See:/ 'mkInferenceAcceleratorOverride' smart constructor.
 data InferenceAcceleratorOverride = InferenceAcceleratorOverride'
   { -- | The Elastic Inference accelerator device name to override for the task. This parameter must match a @deviceName@ specified in the task definition.
-    deviceName :: Lude.Maybe Lude.Text,
+    deviceName :: Core.Maybe Types.String,
     -- | The Elastic Inference accelerator type to use.
-    deviceType :: Lude.Maybe Lude.Text
+    deviceType :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InferenceAcceleratorOverride' with the minimum fields required to make a request.
---
--- * 'deviceName' - The Elastic Inference accelerator device name to override for the task. This parameter must match a @deviceName@ specified in the task definition.
--- * 'deviceType' - The Elastic Inference accelerator type to use.
+-- | Creates a 'InferenceAcceleratorOverride' value with any optional fields omitted.
 mkInferenceAcceleratorOverride ::
   InferenceAcceleratorOverride
 mkInferenceAcceleratorOverride =
   InferenceAcceleratorOverride'
-    { deviceName = Lude.Nothing,
-      deviceType = Lude.Nothing
+    { deviceName = Core.Nothing,
+      deviceType = Core.Nothing
     }
 
 -- | The Elastic Inference accelerator device name to override for the task. This parameter must match a @deviceName@ specified in the task definition.
 --
 -- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaoDeviceName :: Lens.Lens' InferenceAcceleratorOverride (Lude.Maybe Lude.Text)
-iaoDeviceName = Lens.lens (deviceName :: InferenceAcceleratorOverride -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: InferenceAcceleratorOverride)
+iaoDeviceName :: Lens.Lens' InferenceAcceleratorOverride (Core.Maybe Types.String)
+iaoDeviceName = Lens.field @"deviceName"
 {-# DEPRECATED iaoDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
 -- | The Elastic Inference accelerator type to use.
 --
 -- /Note:/ Consider using 'deviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaoDeviceType :: Lens.Lens' InferenceAcceleratorOverride (Lude.Maybe Lude.Text)
-iaoDeviceType = Lens.lens (deviceType :: InferenceAcceleratorOverride -> Lude.Maybe Lude.Text) (\s a -> s {deviceType = a} :: InferenceAcceleratorOverride)
+iaoDeviceType :: Lens.Lens' InferenceAcceleratorOverride (Core.Maybe Types.String)
+iaoDeviceType = Lens.field @"deviceType"
 {-# DEPRECATED iaoDeviceType "Use generic-lens or generic-optics with 'deviceType' instead." #-}
 
-instance Lude.FromJSON InferenceAcceleratorOverride where
-  parseJSON =
-    Lude.withObject
-      "InferenceAcceleratorOverride"
-      ( \x ->
-          InferenceAcceleratorOverride'
-            Lude.<$> (x Lude..:? "deviceName") Lude.<*> (x Lude..:? "deviceType")
-      )
-
-instance Lude.ToJSON InferenceAcceleratorOverride where
-  toJSON InferenceAcceleratorOverride' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("deviceName" Lude..=) Lude.<$> deviceName,
-            ("deviceType" Lude..=) Lude.<$> deviceType
+instance Core.FromJSON InferenceAcceleratorOverride where
+  toJSON InferenceAcceleratorOverride {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("deviceName" Core..=) Core.<$> deviceName,
+            ("deviceType" Core..=) Core.<$> deviceType
           ]
       )
+
+instance Core.FromJSON InferenceAcceleratorOverride where
+  parseJSON =
+    Core.withObject "InferenceAcceleratorOverride" Core.$
+      \x ->
+        InferenceAcceleratorOverride'
+          Core.<$> (x Core..:? "deviceName") Core.<*> (x Core..:? "deviceType")

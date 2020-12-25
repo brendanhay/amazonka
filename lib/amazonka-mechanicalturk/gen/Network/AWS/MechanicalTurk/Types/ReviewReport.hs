@@ -23,54 +23,48 @@ module Network.AWS.MechanicalTurk.Types.ReviewReport
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types.ReviewActionDetail
-import Network.AWS.MechanicalTurk.Types.ReviewResultDetail
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MechanicalTurk.Types.ReviewActionDetail as Types
+import qualified Network.AWS.MechanicalTurk.Types.ReviewResultDetail as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains both ReviewResult and ReviewAction elements for a particular HIT.
 --
 -- /See:/ 'mkReviewReport' smart constructor.
 data ReviewReport = ReviewReport'
   { -- | A list of ReviewAction objects for each action specified in the Review Policy.
-    reviewActions :: Lude.Maybe [ReviewActionDetail],
+    reviewActions :: Core.Maybe [Types.ReviewActionDetail],
     -- | A list of ReviewResults objects for each action specified in the Review Policy.
-    reviewResults :: Lude.Maybe [ReviewResultDetail]
+    reviewResults :: Core.Maybe [Types.ReviewResultDetail]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ReviewReport' with the minimum fields required to make a request.
---
--- * 'reviewActions' - A list of ReviewAction objects for each action specified in the Review Policy.
--- * 'reviewResults' - A list of ReviewResults objects for each action specified in the Review Policy.
+-- | Creates a 'ReviewReport' value with any optional fields omitted.
 mkReviewReport ::
   ReviewReport
 mkReviewReport =
   ReviewReport'
-    { reviewActions = Lude.Nothing,
-      reviewResults = Lude.Nothing
+    { reviewActions = Core.Nothing,
+      reviewResults = Core.Nothing
     }
 
 -- | A list of ReviewAction objects for each action specified in the Review Policy.
 --
 -- /Note:/ Consider using 'reviewActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrReviewActions :: Lens.Lens' ReviewReport (Lude.Maybe [ReviewActionDetail])
-rrReviewActions = Lens.lens (reviewActions :: ReviewReport -> Lude.Maybe [ReviewActionDetail]) (\s a -> s {reviewActions = a} :: ReviewReport)
+rrReviewActions :: Lens.Lens' ReviewReport (Core.Maybe [Types.ReviewActionDetail])
+rrReviewActions = Lens.field @"reviewActions"
 {-# DEPRECATED rrReviewActions "Use generic-lens or generic-optics with 'reviewActions' instead." #-}
 
 -- | A list of ReviewResults objects for each action specified in the Review Policy.
 --
 -- /Note:/ Consider using 'reviewResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrReviewResults :: Lens.Lens' ReviewReport (Lude.Maybe [ReviewResultDetail])
-rrReviewResults = Lens.lens (reviewResults :: ReviewReport -> Lude.Maybe [ReviewResultDetail]) (\s a -> s {reviewResults = a} :: ReviewReport)
+rrReviewResults :: Lens.Lens' ReviewReport (Core.Maybe [Types.ReviewResultDetail])
+rrReviewResults = Lens.field @"reviewResults"
 {-# DEPRECATED rrReviewResults "Use generic-lens or generic-optics with 'reviewResults' instead." #-}
 
-instance Lude.FromJSON ReviewReport where
+instance Core.FromJSON ReviewReport where
   parseJSON =
-    Lude.withObject
-      "ReviewReport"
-      ( \x ->
-          ReviewReport'
-            Lude.<$> (x Lude..:? "ReviewActions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ReviewResults" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ReviewReport" Core.$
+      \x ->
+        ReviewReport'
+          Core.<$> (x Core..:? "ReviewActions") Core.<*> (x Core..:? "ReviewResults")

@@ -23,82 +23,73 @@ module Network.AWS.DirectConnect.DeleteLag
     dLagId,
 
     -- * Destructuring the response
-    Lag (..),
-    mkLag,
+    Types.Lag (..),
+    Types.mkLag,
 
     -- ** Response lenses
-    lfLagId,
-    lfConnectionsBandwidth,
-    lfMinimumLinks,
-    lfLagName,
-    lfLocation,
-    lfConnections,
-    lfAwsDevice,
-    lfHasLogicalRedundancy,
-    lfAllowsHostedConnections,
-    lfNumberOfConnections,
-    lfJumboFrameCapable,
-    lfLagState,
-    lfOwnerAccount,
-    lfRegion,
-    lfProviderName,
-    lfAwsDeviceV2,
-    lfTags,
+    Types.lfAllowsHostedConnections,
+    Types.lfAwsDevice,
+    Types.lfAwsDeviceV2,
+    Types.lfConnections,
+    Types.lfConnectionsBandwidth,
+    Types.lfHasLogicalRedundancy,
+    Types.lfJumboFrameCapable,
+    Types.lfLagId,
+    Types.lfLagName,
+    Types.lfLagState,
+    Types.lfLocation,
+    Types.lfMinimumLinks,
+    Types.lfNumberOfConnections,
+    Types.lfOwnerAccount,
+    Types.lfProviderName,
+    Types.lfRegion,
+    Types.lfTags,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLag' smart constructor.
 newtype DeleteLag = DeleteLag'
   { -- | The ID of the LAG.
-    lagId :: Lude.Text
+    lagId :: Types.LagId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLag' with the minimum fields required to make a request.
---
--- * 'lagId' - The ID of the LAG.
+-- | Creates a 'DeleteLag' value with any optional fields omitted.
 mkDeleteLag ::
   -- | 'lagId'
-  Lude.Text ->
+  Types.LagId ->
   DeleteLag
-mkDeleteLag pLagId_ = DeleteLag' {lagId = pLagId_}
+mkDeleteLag lagId = DeleteLag' {lagId}
 
 -- | The ID of the LAG.
 --
 -- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLagId :: Lens.Lens' DeleteLag Lude.Text
-dLagId = Lens.lens (lagId :: DeleteLag -> Lude.Text) (\s a -> s {lagId = a} :: DeleteLag)
+dLagId :: Lens.Lens' DeleteLag Types.LagId
+dLagId = Lens.field @"lagId"
 {-# DEPRECATED dLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
-instance Lude.AWSRequest DeleteLag where
-  type Rs DeleteLag = Lag
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+instance Core.FromJSON DeleteLag where
+  toJSON DeleteLag {..} =
+    Core.object (Core.catMaybes [Core.Just ("lagId" Core..= lagId)])
 
-instance Lude.ToHeaders DeleteLag where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.DeleteLag" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteLag where
-  toJSON DeleteLag' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("lagId" Lude..= lagId)])
-
-instance Lude.ToPath DeleteLag where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteLag where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DeleteLag where
+  type Rs DeleteLag = Types.Lag
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OvertureService.DeleteLag")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

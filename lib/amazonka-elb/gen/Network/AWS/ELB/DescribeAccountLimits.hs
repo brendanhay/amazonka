@@ -32,139 +32,135 @@ module Network.AWS.ELB.DescribeAccountLimits
     mkDescribeAccountLimitsResponse,
 
     -- ** Response lenses
-    dalrsLimits,
-    dalrsNextMarker,
-    dalrsResponseStatus,
+    dalrrsLimits,
+    dalrrsNextMarker,
+    dalrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAccountLimits' smart constructor.
 data DescribeAccountLimits = DescribeAccountLimits'
   { -- | The marker for the next set of results. (You received this marker from a previous call.)
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | The maximum number of results to return with this call.
-    pageSize :: Lude.Maybe Lude.Natural
+    pageSize :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAccountLimits' with the minimum fields required to make a request.
---
--- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'pageSize' - The maximum number of results to return with this call.
+-- | Creates a 'DescribeAccountLimits' value with any optional fields omitted.
 mkDescribeAccountLimits ::
   DescribeAccountLimits
 mkDescribeAccountLimits =
   DescribeAccountLimits'
-    { marker = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { marker = Core.Nothing,
+      pageSize = Core.Nothing
     }
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dalMarker :: Lens.Lens' DescribeAccountLimits (Lude.Maybe Lude.Text)
-dalMarker = Lens.lens (marker :: DescribeAccountLimits -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeAccountLimits)
+dalMarker :: Lens.Lens' DescribeAccountLimits (Core.Maybe Types.Marker)
+dalMarker = Lens.field @"marker"
 {-# DEPRECATED dalMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of results to return with this call.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dalPageSize :: Lens.Lens' DescribeAccountLimits (Lude.Maybe Lude.Natural)
-dalPageSize = Lens.lens (pageSize :: DescribeAccountLimits -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: DescribeAccountLimits)
+dalPageSize :: Lens.Lens' DescribeAccountLimits (Core.Maybe Core.Natural)
+dalPageSize = Lens.field @"pageSize"
 {-# DEPRECATED dalPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Page.AWSPager DescribeAccountLimits where
-  page rq rs
-    | Page.stop (rs Lens.^. dalrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dalrsLimits) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dalMarker Lens..~ rs Lens.^. dalrsNextMarker
-
-instance Lude.AWSRequest DescribeAccountLimits where
+instance Core.AWSRequest DescribeAccountLimits where
   type Rs DescribeAccountLimits = DescribeAccountLimitsResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeAccountLimits")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "PageSize" Core.<$> pageSize)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeAccountLimitsResult"
       ( \s h x ->
           DescribeAccountLimitsResponse'
-            Lude.<$> ( x Lude..@? "Limits" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Limits" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeAccountLimits where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAccountLimits where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAccountLimits where
-  toQuery DescribeAccountLimits' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeAccountLimits" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "Marker" Lude.=: marker,
-        "PageSize" Lude.=: pageSize
-      ]
+instance Pager.AWSPager DescribeAccountLimits where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"limits" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkDescribeAccountLimitsResponse' smart constructor.
 data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
   { -- | Information about the limits.
-    limits :: Lude.Maybe [Limit],
+    limits :: Core.Maybe [Types.Limit],
     -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.NextMarker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAccountLimitsResponse' with the minimum fields required to make a request.
---
--- * 'limits' - Information about the limits.
--- * 'nextMarker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAccountLimitsResponse' value with any optional fields omitted.
 mkDescribeAccountLimitsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAccountLimitsResponse
-mkDescribeAccountLimitsResponse pResponseStatus_ =
+mkDescribeAccountLimitsResponse responseStatus =
   DescribeAccountLimitsResponse'
-    { limits = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { limits = Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the limits.
 --
 -- /Note:/ Consider using 'limits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dalrsLimits :: Lens.Lens' DescribeAccountLimitsResponse (Lude.Maybe [Limit])
-dalrsLimits = Lens.lens (limits :: DescribeAccountLimitsResponse -> Lude.Maybe [Limit]) (\s a -> s {limits = a} :: DescribeAccountLimitsResponse)
-{-# DEPRECATED dalrsLimits "Use generic-lens or generic-optics with 'limits' instead." #-}
+dalrrsLimits :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe [Types.Limit])
+dalrrsLimits = Lens.field @"limits"
+{-# DEPRECATED dalrrsLimits "Use generic-lens or generic-optics with 'limits' instead." #-}
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dalrsNextMarker :: Lens.Lens' DescribeAccountLimitsResponse (Lude.Maybe Lude.Text)
-dalrsNextMarker = Lens.lens (nextMarker :: DescribeAccountLimitsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeAccountLimitsResponse)
-{-# DEPRECATED dalrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+dalrrsNextMarker :: Lens.Lens' DescribeAccountLimitsResponse (Core.Maybe Types.NextMarker)
+dalrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED dalrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dalrsResponseStatus :: Lens.Lens' DescribeAccountLimitsResponse Lude.Int
-dalrsResponseStatus = Lens.lens (responseStatus :: DescribeAccountLimitsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccountLimitsResponse)
-{-# DEPRECATED dalrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dalrrsResponseStatus :: Lens.Lens' DescribeAccountLimitsResponse Core.Int
+dalrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dalrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

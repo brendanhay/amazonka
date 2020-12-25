@@ -22,183 +22,170 @@ module Network.AWS.SSM.GetParameterHistory
     mkGetParameterHistory,
 
     -- ** Request lenses
-    gphWithDecryption,
-    gphNextToken,
     gphName,
     gphMaxResults,
+    gphNextToken,
+    gphWithDecryption,
 
     -- * Destructuring the response
     GetParameterHistoryResponse (..),
     mkGetParameterHistoryResponse,
 
     -- ** Response lenses
-    gphrsNextToken,
-    gphrsParameters,
-    gphrsResponseStatus,
+    gphrrsNextToken,
+    gphrrsParameters,
+    gphrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkGetParameterHistory' smart constructor.
 data GetParameterHistory = GetParameterHistory'
-  { -- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
-    withDecryption :: Lude.Maybe Lude.Bool,
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name of the parameter for which you want to review history.
-    name :: Lude.Text,
+  { -- | The name of the parameter for which you want to review history.
+    name :: Types.PSParameterName,
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
+    withDecryption :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetParameterHistory' with the minimum fields required to make a request.
---
--- * 'withDecryption' - Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'name' - The name of the parameter for which you want to review history.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | Creates a 'GetParameterHistory' value with any optional fields omitted.
 mkGetParameterHistory ::
   -- | 'name'
-  Lude.Text ->
+  Types.PSParameterName ->
   GetParameterHistory
-mkGetParameterHistory pName_ =
+mkGetParameterHistory name =
   GetParameterHistory'
-    { withDecryption = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      name = pName_,
-      maxResults = Lude.Nothing
+    { name,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      withDecryption = Core.Nothing
     }
-
--- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
---
--- /Note:/ Consider using 'withDecryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gphWithDecryption :: Lens.Lens' GetParameterHistory (Lude.Maybe Lude.Bool)
-gphWithDecryption = Lens.lens (withDecryption :: GetParameterHistory -> Lude.Maybe Lude.Bool) (\s a -> s {withDecryption = a} :: GetParameterHistory)
-{-# DEPRECATED gphWithDecryption "Use generic-lens or generic-optics with 'withDecryption' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gphNextToken :: Lens.Lens' GetParameterHistory (Lude.Maybe Lude.Text)
-gphNextToken = Lens.lens (nextToken :: GetParameterHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetParameterHistory)
-{-# DEPRECATED gphNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the parameter for which you want to review history.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gphName :: Lens.Lens' GetParameterHistory Lude.Text
-gphName = Lens.lens (name :: GetParameterHistory -> Lude.Text) (\s a -> s {name = a} :: GetParameterHistory)
+gphName :: Lens.Lens' GetParameterHistory Types.PSParameterName
+gphName = Lens.field @"name"
 {-# DEPRECATED gphName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gphMaxResults :: Lens.Lens' GetParameterHistory (Lude.Maybe Lude.Natural)
-gphMaxResults = Lens.lens (maxResults :: GetParameterHistory -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetParameterHistory)
+gphMaxResults :: Lens.Lens' GetParameterHistory (Core.Maybe Core.Natural)
+gphMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED gphMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager GetParameterHistory where
-  page rq rs
-    | Page.stop (rs Lens.^. gphrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gphrsParameters) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gphNextToken Lens..~ rs Lens.^. gphrsNextToken
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gphNextToken :: Lens.Lens' GetParameterHistory (Core.Maybe Types.NextToken)
+gphNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gphNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest GetParameterHistory where
+-- | Return decrypted values for secure string parameters. This flag is ignored for String and StringList parameter types.
+--
+-- /Note:/ Consider using 'withDecryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gphWithDecryption :: Lens.Lens' GetParameterHistory (Core.Maybe Core.Bool)
+gphWithDecryption = Lens.field @"withDecryption"
+{-# DEPRECATED gphWithDecryption "Use generic-lens or generic-optics with 'withDecryption' instead." #-}
+
+instance Core.FromJSON GetParameterHistory where
+  toJSON GetParameterHistory {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("WithDecryption" Core..=) Core.<$> withDecryption
+          ]
+      )
+
+instance Core.AWSRequest GetParameterHistory where
   type Rs GetParameterHistory = GetParameterHistoryResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.GetParameterHistory")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetParameterHistoryResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Parameters" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Parameters")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetParameterHistory where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.GetParameterHistory" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetParameterHistory where
-  toJSON GetParameterHistory' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("WithDecryption" Lude..=) Lude.<$> withDecryption,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("Name" Lude..= name),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath GetParameterHistory where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetParameterHistory where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetParameterHistory where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"parameters" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetParameterHistoryResponse' smart constructor.
 data GetParameterHistoryResponse = GetParameterHistoryResponse'
   { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A list of parameters returned by the request.
-    parameters :: Lude.Maybe [ParameterHistory],
+    parameters :: Core.Maybe [Types.ParameterHistory],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetParameterHistoryResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
--- * 'parameters' - A list of parameters returned by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetParameterHistoryResponse' value with any optional fields omitted.
 mkGetParameterHistoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetParameterHistoryResponse
-mkGetParameterHistoryResponse pResponseStatus_ =
+mkGetParameterHistoryResponse responseStatus =
   GetParameterHistoryResponse'
-    { nextToken = Lude.Nothing,
-      parameters = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      parameters = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gphrsNextToken :: Lens.Lens' GetParameterHistoryResponse (Lude.Maybe Lude.Text)
-gphrsNextToken = Lens.lens (nextToken :: GetParameterHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetParameterHistoryResponse)
-{-# DEPRECATED gphrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gphrrsNextToken :: Lens.Lens' GetParameterHistoryResponse (Core.Maybe Types.NextToken)
+gphrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gphrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of parameters returned by the request.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gphrsParameters :: Lens.Lens' GetParameterHistoryResponse (Lude.Maybe [ParameterHistory])
-gphrsParameters = Lens.lens (parameters :: GetParameterHistoryResponse -> Lude.Maybe [ParameterHistory]) (\s a -> s {parameters = a} :: GetParameterHistoryResponse)
-{-# DEPRECATED gphrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+gphrrsParameters :: Lens.Lens' GetParameterHistoryResponse (Core.Maybe [Types.ParameterHistory])
+gphrrsParameters = Lens.field @"parameters"
+{-# DEPRECATED gphrrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gphrsResponseStatus :: Lens.Lens' GetParameterHistoryResponse Lude.Int
-gphrsResponseStatus = Lens.lens (responseStatus :: GetParameterHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetParameterHistoryResponse)
-{-# DEPRECATED gphrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gphrrsResponseStatus :: Lens.Lens' GetParameterHistoryResponse Core.Int
+gphrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gphrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

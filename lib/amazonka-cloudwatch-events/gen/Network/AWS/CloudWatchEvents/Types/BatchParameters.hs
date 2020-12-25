@@ -17,101 +17,95 @@ module Network.AWS.CloudWatchEvents.Types.BatchParameters
     mkBatchParameters,
 
     -- * Lenses
-    bpJobName,
-    bpRetryStrategy,
     bpJobDefinition,
+    bpJobName,
     bpArrayProperties,
+    bpRetryStrategy,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types.BatchArrayProperties
-import Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy
+import qualified Network.AWS.CloudWatchEvents.Types.BatchArrayProperties as Types
+import qualified Network.AWS.CloudWatchEvents.Types.BatchRetryStrategy as Types
+import qualified Network.AWS.CloudWatchEvents.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The custom parameters to be used when the target is an AWS Batch job.
 --
 -- /See:/ 'mkBatchParameters' smart constructor.
 data BatchParameters = BatchParameters'
-  { -- | The name to use for this execution of the job, if the target is an AWS Batch job.
-    jobName :: Lude.Text,
-    -- | The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
-    retryStrategy :: Lude.Maybe BatchRetryStrategy,
-    -- | The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-    jobDefinition :: Lude.Text,
+  { -- | The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
+    jobDefinition :: Types.String,
+    -- | The name to use for this execution of the job, if the target is an AWS Batch job.
+    jobName :: Types.String,
     -- | The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
-    arrayProperties :: Lude.Maybe BatchArrayProperties
+    arrayProperties :: Core.Maybe Types.BatchArrayProperties,
+    -- | The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+    retryStrategy :: Core.Maybe Types.BatchRetryStrategy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchParameters' with the minimum fields required to make a request.
---
--- * 'jobName' - The name to use for this execution of the job, if the target is an AWS Batch job.
--- * 'retryStrategy' - The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
--- * 'jobDefinition' - The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
--- * 'arrayProperties' - The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
+-- | Creates a 'BatchParameters' value with any optional fields omitted.
 mkBatchParameters ::
-  -- | 'jobName'
-  Lude.Text ->
   -- | 'jobDefinition'
-  Lude.Text ->
+  Types.String ->
+  -- | 'jobName'
+  Types.String ->
   BatchParameters
-mkBatchParameters pJobName_ pJobDefinition_ =
+mkBatchParameters jobDefinition jobName =
   BatchParameters'
-    { jobName = pJobName_,
-      retryStrategy = Lude.Nothing,
-      jobDefinition = pJobDefinition_,
-      arrayProperties = Lude.Nothing
+    { jobDefinition,
+      jobName,
+      arrayProperties = Core.Nothing,
+      retryStrategy = Core.Nothing
     }
-
--- | The name to use for this execution of the job, if the target is an AWS Batch job.
---
--- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpJobName :: Lens.Lens' BatchParameters Lude.Text
-bpJobName = Lens.lens (jobName :: BatchParameters -> Lude.Text) (\s a -> s {jobName = a} :: BatchParameters)
-{-# DEPRECATED bpJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
-
--- | The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
---
--- /Note:/ Consider using 'retryStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpRetryStrategy :: Lens.Lens' BatchParameters (Lude.Maybe BatchRetryStrategy)
-bpRetryStrategy = Lens.lens (retryStrategy :: BatchParameters -> Lude.Maybe BatchRetryStrategy) (\s a -> s {retryStrategy = a} :: BatchParameters)
-{-# DEPRECATED bpRetryStrategy "Use generic-lens or generic-optics with 'retryStrategy' instead." #-}
 
 -- | The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
 --
 -- /Note:/ Consider using 'jobDefinition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpJobDefinition :: Lens.Lens' BatchParameters Lude.Text
-bpJobDefinition = Lens.lens (jobDefinition :: BatchParameters -> Lude.Text) (\s a -> s {jobDefinition = a} :: BatchParameters)
+bpJobDefinition :: Lens.Lens' BatchParameters Types.String
+bpJobDefinition = Lens.field @"jobDefinition"
 {-# DEPRECATED bpJobDefinition "Use generic-lens or generic-optics with 'jobDefinition' instead." #-}
+
+-- | The name to use for this execution of the job, if the target is an AWS Batch job.
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpJobName :: Lens.Lens' BatchParameters Types.String
+bpJobName = Lens.field @"jobName"
+{-# DEPRECATED bpJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The array properties for the submitted job, such as the size of the array. The array size can be between 2 and 10,000. If you specify array properties for a job, it becomes an array job. This parameter is used only if the target is an AWS Batch job.
 --
 -- /Note:/ Consider using 'arrayProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpArrayProperties :: Lens.Lens' BatchParameters (Lude.Maybe BatchArrayProperties)
-bpArrayProperties = Lens.lens (arrayProperties :: BatchParameters -> Lude.Maybe BatchArrayProperties) (\s a -> s {arrayProperties = a} :: BatchParameters)
+bpArrayProperties :: Lens.Lens' BatchParameters (Core.Maybe Types.BatchArrayProperties)
+bpArrayProperties = Lens.field @"arrayProperties"
 {-# DEPRECATED bpArrayProperties "Use generic-lens or generic-optics with 'arrayProperties' instead." #-}
 
-instance Lude.FromJSON BatchParameters where
-  parseJSON =
-    Lude.withObject
-      "BatchParameters"
-      ( \x ->
-          BatchParameters'
-            Lude.<$> (x Lude..: "JobName")
-            Lude.<*> (x Lude..:? "RetryStrategy")
-            Lude.<*> (x Lude..: "JobDefinition")
-            Lude.<*> (x Lude..:? "ArrayProperties")
-      )
+-- | The retry strategy to use for failed jobs, if the target is an AWS Batch job. The retry strategy is the number of times to retry the failed job execution. Valid values are 1–10. When you specify a retry strategy here, it overrides the retry strategy defined in the job definition.
+--
+-- /Note:/ Consider using 'retryStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpRetryStrategy :: Lens.Lens' BatchParameters (Core.Maybe Types.BatchRetryStrategy)
+bpRetryStrategy = Lens.field @"retryStrategy"
+{-# DEPRECATED bpRetryStrategy "Use generic-lens or generic-optics with 'retryStrategy' instead." #-}
 
-instance Lude.ToJSON BatchParameters where
-  toJSON BatchParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("JobName" Lude..= jobName),
-            ("RetryStrategy" Lude..=) Lude.<$> retryStrategy,
-            Lude.Just ("JobDefinition" Lude..= jobDefinition),
-            ("ArrayProperties" Lude..=) Lude.<$> arrayProperties
+instance Core.FromJSON BatchParameters where
+  toJSON BatchParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobDefinition" Core..= jobDefinition),
+            Core.Just ("JobName" Core..= jobName),
+            ("ArrayProperties" Core..=) Core.<$> arrayProperties,
+            ("RetryStrategy" Core..=) Core.<$> retryStrategy
           ]
       )
+
+instance Core.FromJSON BatchParameters where
+  parseJSON =
+    Core.withObject "BatchParameters" Core.$
+      \x ->
+        BatchParameters'
+          Core.<$> (x Core..: "JobDefinition")
+          Core.<*> (x Core..: "JobName")
+          Core.<*> (x Core..:? "ArrayProperties")
+          Core.<*> (x Core..:? "RetryStrategy")

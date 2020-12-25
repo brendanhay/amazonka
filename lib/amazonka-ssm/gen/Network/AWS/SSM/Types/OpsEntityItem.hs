@@ -17,58 +17,55 @@ module Network.AWS.SSM.Types.OpsEntityItem
     mkOpsEntityItem,
 
     -- * Lenses
-    oeiContent,
     oeiCaptureTime,
+    oeiContent,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.AttributeName as Types
+import qualified Network.AWS.SSM.Types.AttributeValue as Types
+import qualified Network.AWS.SSM.Types.CaptureTime as Types
 
 -- | The OpsItem summaries result item.
 --
 -- /See:/ 'mkOpsEntityItem' smart constructor.
 data OpsEntityItem = OpsEntityItem'
-  { -- | The detailed data content for an OpsItem summaries result item.
-    content :: Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
-    -- | The time OpsItem data was captured.
-    captureTime :: Lude.Maybe Lude.Text
+  { -- | The time OpsItem data was captured.
+    captureTime :: Core.Maybe Types.CaptureTime,
+    -- | The detailed data content for an OpsItem summaries result item.
+    content :: Core.Maybe [Core.HashMap Types.AttributeName Types.AttributeValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OpsEntityItem' with the minimum fields required to make a request.
---
--- * 'content' - The detailed data content for an OpsItem summaries result item.
--- * 'captureTime' - The time OpsItem data was captured.
+-- | Creates a 'OpsEntityItem' value with any optional fields omitted.
 mkOpsEntityItem ::
   OpsEntityItem
 mkOpsEntityItem =
   OpsEntityItem'
-    { content = Lude.Nothing,
-      captureTime = Lude.Nothing
+    { captureTime = Core.Nothing,
+      content = Core.Nothing
     }
-
--- | The detailed data content for an OpsItem summaries result item.
---
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oeiContent :: Lens.Lens' OpsEntityItem (Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)])
-oeiContent = Lens.lens (content :: OpsEntityItem -> Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)]) (\s a -> s {content = a} :: OpsEntityItem)
-{-# DEPRECATED oeiContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The time OpsItem data was captured.
 --
 -- /Note:/ Consider using 'captureTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oeiCaptureTime :: Lens.Lens' OpsEntityItem (Lude.Maybe Lude.Text)
-oeiCaptureTime = Lens.lens (captureTime :: OpsEntityItem -> Lude.Maybe Lude.Text) (\s a -> s {captureTime = a} :: OpsEntityItem)
+oeiCaptureTime :: Lens.Lens' OpsEntityItem (Core.Maybe Types.CaptureTime)
+oeiCaptureTime = Lens.field @"captureTime"
 {-# DEPRECATED oeiCaptureTime "Use generic-lens or generic-optics with 'captureTime' instead." #-}
 
-instance Lude.FromJSON OpsEntityItem where
+-- | The detailed data content for an OpsItem summaries result item.
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oeiContent :: Lens.Lens' OpsEntityItem (Core.Maybe [Core.HashMap Types.AttributeName Types.AttributeValue])
+oeiContent = Lens.field @"content"
+{-# DEPRECATED oeiContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
+instance Core.FromJSON OpsEntityItem where
   parseJSON =
-    Lude.withObject
-      "OpsEntityItem"
-      ( \x ->
-          OpsEntityItem'
-            Lude.<$> (x Lude..:? "Content" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CaptureTime")
-      )
+    Core.withObject "OpsEntityItem" Core.$
+      \x ->
+        OpsEntityItem'
+          Core.<$> (x Core..:? "CaptureTime") Core.<*> (x Core..:? "Content")

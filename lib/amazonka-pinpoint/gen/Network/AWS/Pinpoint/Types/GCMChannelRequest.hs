@@ -17,56 +17,53 @@ module Network.AWS.Pinpoint.Types.GCMChannelRequest
     mkGCMChannelRequest,
 
     -- * Lenses
-    gcrAPIKey,
-    gcrEnabled,
+    gApiKey,
+    gEnabled,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the status and settings of the GCM channel for an application. This channel enables Amazon Pinpoint to send push notifications through the Firebase Cloud Messaging (FCM), formerly Google Cloud Messaging (GCM), service.
 --
 -- /See:/ 'mkGCMChannelRequest' smart constructor.
 data GCMChannelRequest = GCMChannelRequest'
   { -- | The Web API Key, also referred to as an /API_KEY/ or /server key/ , that you received from Google to communicate with Google services.
-    apiKey :: Lude.Text,
+    apiKey :: Core.Text,
     -- | Specifies whether to enable the GCM channel for the application.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GCMChannelRequest' with the minimum fields required to make a request.
---
--- * 'apiKey' - The Web API Key, also referred to as an /API_KEY/ or /server key/ , that you received from Google to communicate with Google services.
--- * 'enabled' - Specifies whether to enable the GCM channel for the application.
+-- | Creates a 'GCMChannelRequest' value with any optional fields omitted.
 mkGCMChannelRequest ::
   -- | 'apiKey'
-  Lude.Text ->
+  Core.Text ->
   GCMChannelRequest
-mkGCMChannelRequest pAPIKey_ =
-  GCMChannelRequest' {apiKey = pAPIKey_, enabled = Lude.Nothing}
+mkGCMChannelRequest apiKey =
+  GCMChannelRequest' {apiKey, enabled = Core.Nothing}
 
 -- | The Web API Key, also referred to as an /API_KEY/ or /server key/ , that you received from Google to communicate with Google services.
 --
 -- /Note:/ Consider using 'apiKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrAPIKey :: Lens.Lens' GCMChannelRequest Lude.Text
-gcrAPIKey = Lens.lens (apiKey :: GCMChannelRequest -> Lude.Text) (\s a -> s {apiKey = a} :: GCMChannelRequest)
-{-# DEPRECATED gcrAPIKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
+gApiKey :: Lens.Lens' GCMChannelRequest Core.Text
+gApiKey = Lens.field @"apiKey"
+{-# DEPRECATED gApiKey "Use generic-lens or generic-optics with 'apiKey' instead." #-}
 
 -- | Specifies whether to enable the GCM channel for the application.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrEnabled :: Lens.Lens' GCMChannelRequest (Lude.Maybe Lude.Bool)
-gcrEnabled = Lens.lens (enabled :: GCMChannelRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: GCMChannelRequest)
-{-# DEPRECATED gcrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+gEnabled :: Lens.Lens' GCMChannelRequest (Core.Maybe Core.Bool)
+gEnabled = Lens.field @"enabled"
+{-# DEPRECATED gEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.ToJSON GCMChannelRequest where
-  toJSON GCMChannelRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ApiKey" Lude..= apiKey),
-            ("Enabled" Lude..=) Lude.<$> enabled
+instance Core.FromJSON GCMChannelRequest where
+  toJSON GCMChannelRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ApiKey" Core..= apiKey),
+            ("Enabled" Core..=) Core.<$> enabled
           ]
       )

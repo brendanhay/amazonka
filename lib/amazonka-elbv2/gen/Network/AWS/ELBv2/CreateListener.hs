@@ -33,45 +33,37 @@ module Network.AWS.ELBv2.CreateListener
     mkCreateListener,
 
     -- ** Request lenses
-    clSSLPolicy,
-    clProtocol,
+    clLoadBalancerArn,
     clDefaultActions,
-    clCertificates,
-    clLoadBalancerARN,
     clAlpnPolicy,
-    clTags,
+    clCertificates,
     clPort,
+    clProtocol,
+    clSslPolicy,
+    clTags,
 
     -- * Destructuring the response
     CreateListenerResponse (..),
     mkCreateListenerResponse,
 
     -- ** Response lenses
-    clrsListeners,
-    clrsResponseStatus,
+    clrrsListeners,
+    clrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateListener' smart constructor.
 data CreateListener = CreateListener'
-  { -- | [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
-    --
-    -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies> in the /Application Load Balancers Guide/ and <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies> in the /Network Load Balancers Guide/ .
-    sslPolicy :: Lude.Maybe Lude.Text,
-    -- | The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
-    protocol :: Lude.Maybe ProtocolEnum,
+  { -- | The Amazon Resource Name (ARN) of the load balancer.
+    loadBalancerArn :: Types.LoadBalancerArn,
     -- | The actions for the default rule.
-    defaultActions :: [Action],
-    -- | [HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
-    certificates :: Lude.Maybe [Certificate],
-    -- | The Amazon Resource Name (ARN) of the load balancer.
-    loadBalancerARN :: Lude.Text,
+    defaultActions :: [Types.Action],
     -- | [TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:
     --
     --
@@ -91,97 +83,53 @@ data CreateListener = CreateListener'
     --
     --
     -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies> in the /Network Load Balancers Guide/ .
-    alpnPolicy :: Lude.Maybe [Lude.Text],
-    -- | The tags to assign to the listener.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag),
+    alpnPolicy :: Core.Maybe [Types.AlpnPolicyValue],
+    -- | [HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
+    certificates :: Core.Maybe [Types.Certificate],
     -- | The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
-    port :: Lude.Maybe Lude.Natural
+    port :: Core.Maybe Core.Natural,
+    -- | The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+    protocol :: Core.Maybe Types.ProtocolEnum,
+    -- | [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies> in the /Application Load Balancers Guide/ and <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies> in the /Network Load Balancers Guide/ .
+    sslPolicy :: Core.Maybe Types.SslPolicyName,
+    -- | The tags to assign to the listener.
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateListener' with the minimum fields required to make a request.
---
--- * 'sslPolicy' - [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
---
--- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies> in the /Application Load Balancers Guide/ and <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies> in the /Network Load Balancers Guide/ .
--- * 'protocol' - The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
--- * 'defaultActions' - The actions for the default rule.
--- * 'certificates' - [HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
--- * 'loadBalancerARN' - The Amazon Resource Name (ARN) of the load balancer.
--- * 'alpnPolicy' - [TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:
---
---
---     * @HTTP1Only@
---
---
---     * @HTTP2Only@
---
---
---     * @HTTP2Optional@
---
---
---     * @HTTP2Preferred@
---
---
---     * @None@
---
---
--- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies> in the /Network Load Balancers Guide/ .
--- * 'tags' - The tags to assign to the listener.
--- * 'port' - The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
+-- | Creates a 'CreateListener' value with any optional fields omitted.
 mkCreateListener ::
-  -- | 'loadBalancerARN'
-  Lude.Text ->
+  -- | 'loadBalancerArn'
+  Types.LoadBalancerArn ->
   CreateListener
-mkCreateListener pLoadBalancerARN_ =
+mkCreateListener loadBalancerArn =
   CreateListener'
-    { sslPolicy = Lude.Nothing,
-      protocol = Lude.Nothing,
-      defaultActions = Lude.mempty,
-      certificates = Lude.Nothing,
-      loadBalancerARN = pLoadBalancerARN_,
-      alpnPolicy = Lude.Nothing,
-      tags = Lude.Nothing,
-      port = Lude.Nothing
+    { loadBalancerArn,
+      defaultActions = Core.mempty,
+      alpnPolicy = Core.Nothing,
+      certificates = Core.Nothing,
+      port = Core.Nothing,
+      protocol = Core.Nothing,
+      sslPolicy = Core.Nothing,
+      tags = Core.Nothing
     }
 
--- | [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+-- | The Amazon Resource Name (ARN) of the load balancer.
 --
--- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies> in the /Application Load Balancers Guide/ and <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies> in the /Network Load Balancers Guide/ .
---
--- /Note:/ Consider using 'sslPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clSSLPolicy :: Lens.Lens' CreateListener (Lude.Maybe Lude.Text)
-clSSLPolicy = Lens.lens (sslPolicy :: CreateListener -> Lude.Maybe Lude.Text) (\s a -> s {sslPolicy = a} :: CreateListener)
-{-# DEPRECATED clSSLPolicy "Use generic-lens or generic-optics with 'sslPolicy' instead." #-}
-
--- | The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clProtocol :: Lens.Lens' CreateListener (Lude.Maybe ProtocolEnum)
-clProtocol = Lens.lens (protocol :: CreateListener -> Lude.Maybe ProtocolEnum) (\s a -> s {protocol = a} :: CreateListener)
-{-# DEPRECATED clProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+-- /Note:/ Consider using 'loadBalancerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clLoadBalancerArn :: Lens.Lens' CreateListener Types.LoadBalancerArn
+clLoadBalancerArn = Lens.field @"loadBalancerArn"
+{-# DEPRECATED clLoadBalancerArn "Use generic-lens or generic-optics with 'loadBalancerArn' instead." #-}
 
 -- | The actions for the default rule.
 --
 -- /Note:/ Consider using 'defaultActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clDefaultActions :: Lens.Lens' CreateListener [Action]
-clDefaultActions = Lens.lens (defaultActions :: CreateListener -> [Action]) (\s a -> s {defaultActions = a} :: CreateListener)
+clDefaultActions :: Lens.Lens' CreateListener [Types.Action]
+clDefaultActions = Lens.field @"defaultActions"
 {-# DEPRECATED clDefaultActions "Use generic-lens or generic-optics with 'defaultActions' instead." #-}
-
--- | [HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
---
--- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clCertificates :: Lens.Lens' CreateListener (Lude.Maybe [Certificate])
-clCertificates = Lens.lens (certificates :: CreateListener -> Lude.Maybe [Certificate]) (\s a -> s {certificates = a} :: CreateListener)
-{-# DEPRECATED clCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the load balancer.
---
--- /Note:/ Consider using 'loadBalancerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clLoadBalancerARN :: Lens.Lens' CreateListener Lude.Text
-clLoadBalancerARN = Lens.lens (loadBalancerARN :: CreateListener -> Lude.Text) (\s a -> s {loadBalancerARN = a} :: CreateListener)
-{-# DEPRECATED clLoadBalancerARN "Use generic-lens or generic-optics with 'loadBalancerARN' instead." #-}
 
 -- | [TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:
 --
@@ -204,96 +152,123 @@ clLoadBalancerARN = Lens.lens (loadBalancerARN :: CreateListener -> Lude.Text) (
 -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies ALPN policies> in the /Network Load Balancers Guide/ .
 --
 -- /Note:/ Consider using 'alpnPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clAlpnPolicy :: Lens.Lens' CreateListener (Lude.Maybe [Lude.Text])
-clAlpnPolicy = Lens.lens (alpnPolicy :: CreateListener -> Lude.Maybe [Lude.Text]) (\s a -> s {alpnPolicy = a} :: CreateListener)
+clAlpnPolicy :: Lens.Lens' CreateListener (Core.Maybe [Types.AlpnPolicyValue])
+clAlpnPolicy = Lens.field @"alpnPolicy"
 {-# DEPRECATED clAlpnPolicy "Use generic-lens or generic-optics with 'alpnPolicy' instead." #-}
 
--- | The tags to assign to the listener.
+-- | [HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set @CertificateArn@ to the certificate ARN but do not set @IsDefault@ .
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clTags :: Lens.Lens' CreateListener (Lude.Maybe (Lude.NonEmpty Tag))
-clTags = Lens.lens (tags :: CreateListener -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateListener)
-{-# DEPRECATED clTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'certificates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clCertificates :: Lens.Lens' CreateListener (Core.Maybe [Types.Certificate])
+clCertificates = Lens.field @"certificates"
+{-# DEPRECATED clCertificates "Use generic-lens or generic-optics with 'certificates' instead." #-}
 
 -- | The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.
 --
 -- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clPort :: Lens.Lens' CreateListener (Lude.Maybe Lude.Natural)
-clPort = Lens.lens (port :: CreateListener -> Lude.Maybe Lude.Natural) (\s a -> s {port = a} :: CreateListener)
+clPort :: Lens.Lens' CreateListener (Core.Maybe Core.Natural)
+clPort = Lens.field @"port"
 {-# DEPRECATED clPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance Lude.AWSRequest CreateListener where
+-- | The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load Balancer.
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clProtocol :: Lens.Lens' CreateListener (Core.Maybe Types.ProtocolEnum)
+clProtocol = Lens.field @"protocol"
+{-# DEPRECATED clProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
+
+-- | [HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.
+--
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies Security policies> in the /Application Load Balancers Guide/ and <https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies Security policies> in the /Network Load Balancers Guide/ .
+--
+-- /Note:/ Consider using 'sslPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clSslPolicy :: Lens.Lens' CreateListener (Core.Maybe Types.SslPolicyName)
+clSslPolicy = Lens.field @"sslPolicy"
+{-# DEPRECATED clSslPolicy "Use generic-lens or generic-optics with 'sslPolicy' instead." #-}
+
+-- | The tags to assign to the listener.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clTags :: Lens.Lens' CreateListener (Core.Maybe (Core.NonEmpty Types.Tag))
+clTags = Lens.field @"tags"
+{-# DEPRECATED clTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+instance Core.AWSRequest CreateListener where
   type Rs CreateListener = CreateListenerResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateListener")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerArn" loadBalancerArn)
+                Core.<> ( Core.toQueryValue
+                            "DefaultActions"
+                            (Core.toQueryList "member" defaultActions)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "AlpnPolicy"
+                            (Core.toQueryList "member" Core.<$> alpnPolicy)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Certificates"
+                            (Core.toQueryList "member" Core.<$> certificates)
+                        )
+                Core.<> (Core.toQueryValue "Port" Core.<$> port)
+                Core.<> (Core.toQueryValue "Protocol" Core.<$> protocol)
+                Core.<> (Core.toQueryValue "SslPolicy" Core.<$> sslPolicy)
+                Core.<> ( Core.toQueryValue
+                            "Tags"
+                            (Core.toQueryList "member" Core.<$> tags)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateListenerResult"
       ( \s h x ->
           CreateListenerResponse'
-            Lude.<$> ( x Lude..@? "Listeners" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Listeners" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateListener where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateListener where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateListener where
-  toQuery CreateListener' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateListener" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "SslPolicy" Lude.=: sslPolicy,
-        "Protocol" Lude.=: protocol,
-        "DefaultActions" Lude.=: Lude.toQueryList "member" defaultActions,
-        "Certificates"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> certificates),
-        "LoadBalancerArn" Lude.=: loadBalancerARN,
-        "AlpnPolicy"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> alpnPolicy),
-        "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags),
-        "Port" Lude.=: port
-      ]
 
 -- | /See:/ 'mkCreateListenerResponse' smart constructor.
 data CreateListenerResponse = CreateListenerResponse'
   { -- | Information about the listener.
-    listeners :: Lude.Maybe [Listener],
+    listeners :: Core.Maybe [Types.Listener],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateListenerResponse' with the minimum fields required to make a request.
---
--- * 'listeners' - Information about the listener.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateListenerResponse' value with any optional fields omitted.
 mkCreateListenerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateListenerResponse
-mkCreateListenerResponse pResponseStatus_ =
-  CreateListenerResponse'
-    { listeners = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateListenerResponse responseStatus =
+  CreateListenerResponse' {listeners = Core.Nothing, responseStatus}
 
 -- | Information about the listener.
 --
 -- /Note:/ Consider using 'listeners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clrsListeners :: Lens.Lens' CreateListenerResponse (Lude.Maybe [Listener])
-clrsListeners = Lens.lens (listeners :: CreateListenerResponse -> Lude.Maybe [Listener]) (\s a -> s {listeners = a} :: CreateListenerResponse)
-{-# DEPRECATED clrsListeners "Use generic-lens or generic-optics with 'listeners' instead." #-}
+clrrsListeners :: Lens.Lens' CreateListenerResponse (Core.Maybe [Types.Listener])
+clrrsListeners = Lens.field @"listeners"
+{-# DEPRECATED clrrsListeners "Use generic-lens or generic-optics with 'listeners' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clrsResponseStatus :: Lens.Lens' CreateListenerResponse Lude.Int
-clrsResponseStatus = Lens.lens (responseStatus :: CreateListenerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateListenerResponse)
-{-# DEPRECATED clrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+clrrsResponseStatus :: Lens.Lens' CreateListenerResponse Core.Int
+clrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED clrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,7 +20,7 @@ module Network.AWS.Glue.StopCrawler
     mkStopCrawler,
 
     -- ** Request lenses
-    sName,
+    scgName,
 
     -- * Destructuring the response
     StopCrawlerResponse (..),
@@ -31,86 +31,76 @@ module Network.AWS.Glue.StopCrawler
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopCrawler' smart constructor.
 newtype StopCrawler = StopCrawler'
   { -- | Name of the crawler to stop.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopCrawler' with the minimum fields required to make a request.
---
--- * 'name' - Name of the crawler to stop.
+-- | Creates a 'StopCrawler' value with any optional fields omitted.
 mkStopCrawler ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   StopCrawler
-mkStopCrawler pName_ = StopCrawler' {name = pName_}
+mkStopCrawler name = StopCrawler' {name}
 
 -- | Name of the crawler to stop.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' StopCrawler Lude.Text
-sName = Lens.lens (name :: StopCrawler -> Lude.Text) (\s a -> s {name = a} :: StopCrawler)
-{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+scgName :: Lens.Lens' StopCrawler Types.Name
+scgName = Lens.field @"name"
+{-# DEPRECATED scgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest StopCrawler where
+instance Core.FromJSON StopCrawler where
+  toJSON StopCrawler {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest StopCrawler where
   type Rs StopCrawler = StopCrawlerResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.StopCrawler")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          StopCrawlerResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          StopCrawlerResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopCrawler where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSGlue.StopCrawler" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopCrawler where
-  toJSON StopCrawler' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath StopCrawler where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopCrawler where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopCrawlerResponse' smart constructor.
 newtype StopCrawlerResponse = StopCrawlerResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopCrawlerResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopCrawlerResponse' value with any optional fields omitted.
 mkStopCrawlerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopCrawlerResponse
-mkStopCrawlerResponse pResponseStatus_ =
-  StopCrawlerResponse' {responseStatus = pResponseStatus_}
+mkStopCrawlerResponse responseStatus =
+  StopCrawlerResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StopCrawlerResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StopCrawlerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopCrawlerResponse)
+srsResponseStatus :: Lens.Lens' StopCrawlerResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

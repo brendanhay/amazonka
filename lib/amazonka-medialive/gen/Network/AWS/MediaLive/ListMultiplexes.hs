@@ -22,150 +22,140 @@ module Network.AWS.MediaLive.ListMultiplexes
     mkListMultiplexes,
 
     -- ** Request lenses
-    lmNextToken,
     lmMaxResults,
+    lmNextToken,
 
     -- * Destructuring the response
     ListMultiplexesResponse (..),
     mkListMultiplexesResponse,
 
     -- ** Response lenses
-    lmrsNextToken,
-    lmrsMultiplexes,
-    lmrsResponseStatus,
+    lmrrsMultiplexes,
+    lmrrsNextToken,
+    lmrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for ListMultiplexesRequest
 --
 -- /See:/ 'mkListMultiplexes' smart constructor.
 data ListMultiplexes = ListMultiplexes'
-  { -- | The token to retrieve the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of items to return.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of items to return.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token to retrieve the next page of results.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMultiplexes' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to retrieve the next page of results.
--- * 'maxResults' - The maximum number of items to return.
+-- | Creates a 'ListMultiplexes' value with any optional fields omitted.
 mkListMultiplexes ::
   ListMultiplexes
 mkListMultiplexes =
   ListMultiplexes'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token to retrieve the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmNextToken :: Lens.Lens' ListMultiplexes (Lude.Maybe Lude.Text)
-lmNextToken = Lens.lens (nextToken :: ListMultiplexes -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMultiplexes)
-{-# DEPRECATED lmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmMaxResults :: Lens.Lens' ListMultiplexes (Lude.Maybe Lude.Natural)
-lmMaxResults = Lens.lens (maxResults :: ListMultiplexes -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMultiplexes)
+lmMaxResults :: Lens.Lens' ListMultiplexes (Core.Maybe Core.Natural)
+lmMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lmMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListMultiplexes where
-  page rq rs
-    | Page.stop (rs Lens.^. lmrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lmrsMultiplexes) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lmNextToken Lens..~ rs Lens.^. lmrsNextToken
+-- | The token to retrieve the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmNextToken :: Lens.Lens' ListMultiplexes (Core.Maybe Core.Text)
+lmNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListMultiplexes where
+instance Core.AWSRequest ListMultiplexes where
   type Rs ListMultiplexes = ListMultiplexesResponse
-  request = Req.get mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/prod/multiplexes",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListMultiplexesResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "multiplexes" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "multiplexes")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListMultiplexes where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListMultiplexes where
-  toPath = Lude.const "/prod/multiplexes"
-
-instance Lude.ToQuery ListMultiplexes where
-  toQuery ListMultiplexes' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListMultiplexes where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"multiplexes" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Placeholder documentation for ListMultiplexesResponse
 --
 -- /See:/ 'mkListMultiplexesResponse' smart constructor.
 data ListMultiplexesResponse = ListMultiplexesResponse'
-  { -- | Token for the next ListMultiplexes request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | List of multiplexes.
-    multiplexes :: Lude.Maybe [MultiplexSummary],
+  { -- | List of multiplexes.
+    multiplexes :: Core.Maybe [Types.MultiplexSummary],
+    -- | Token for the next ListMultiplexes request.
+    nextToken :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMultiplexesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Token for the next ListMultiplexes request.
--- * 'multiplexes' - List of multiplexes.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListMultiplexesResponse' value with any optional fields omitted.
 mkListMultiplexesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListMultiplexesResponse
-mkListMultiplexesResponse pResponseStatus_ =
+mkListMultiplexesResponse responseStatus =
   ListMultiplexesResponse'
-    { nextToken = Lude.Nothing,
-      multiplexes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { multiplexes = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | Token for the next ListMultiplexes request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmrsNextToken :: Lens.Lens' ListMultiplexesResponse (Lude.Maybe Lude.Text)
-lmrsNextToken = Lens.lens (nextToken :: ListMultiplexesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMultiplexesResponse)
-{-# DEPRECATED lmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of multiplexes.
 --
 -- /Note:/ Consider using 'multiplexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmrsMultiplexes :: Lens.Lens' ListMultiplexesResponse (Lude.Maybe [MultiplexSummary])
-lmrsMultiplexes = Lens.lens (multiplexes :: ListMultiplexesResponse -> Lude.Maybe [MultiplexSummary]) (\s a -> s {multiplexes = a} :: ListMultiplexesResponse)
-{-# DEPRECATED lmrsMultiplexes "Use generic-lens or generic-optics with 'multiplexes' instead." #-}
+lmrrsMultiplexes :: Lens.Lens' ListMultiplexesResponse (Core.Maybe [Types.MultiplexSummary])
+lmrrsMultiplexes = Lens.field @"multiplexes"
+{-# DEPRECATED lmrrsMultiplexes "Use generic-lens or generic-optics with 'multiplexes' instead." #-}
+
+-- | Token for the next ListMultiplexes request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmrrsNextToken :: Lens.Lens' ListMultiplexesResponse (Core.Maybe Core.Text)
+lmrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmrsResponseStatus :: Lens.Lens' ListMultiplexesResponse Lude.Int
-lmrsResponseStatus = Lens.lens (responseStatus :: ListMultiplexesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMultiplexesResponse)
-{-# DEPRECATED lmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lmrrsResponseStatus :: Lens.Lens' ListMultiplexesResponse Core.Int
+lmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

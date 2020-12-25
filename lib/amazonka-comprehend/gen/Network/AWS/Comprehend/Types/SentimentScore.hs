@@ -25,76 +25,69 @@ module Network.AWS.Comprehend.Types.SentimentScore
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the level of confidence that Amazon Comprehend has in the accuracy of its detection of sentiments.
 --
 -- /See:/ 'mkSentimentScore' smart constructor.
 data SentimentScore = SentimentScore'
   { -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @MIXED@ sentiment.
-    mixed :: Lude.Maybe Lude.Double,
+    mixed :: Core.Maybe Core.Double,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEGATIVE@ sentiment.
-    negative :: Lude.Maybe Lude.Double,
+    negative :: Core.Maybe Core.Double,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEUTRAL@ sentiment.
-    neutral :: Lude.Maybe Lude.Double,
+    neutral :: Core.Maybe Core.Double,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @POSITIVE@ sentiment.
-    positive :: Lude.Maybe Lude.Double
+    positive :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SentimentScore' with the minimum fields required to make a request.
---
--- * 'mixed' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @MIXED@ sentiment.
--- * 'negative' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEGATIVE@ sentiment.
--- * 'neutral' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEUTRAL@ sentiment.
--- * 'positive' - The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @POSITIVE@ sentiment.
+-- | Creates a 'SentimentScore' value with any optional fields omitted.
 mkSentimentScore ::
   SentimentScore
 mkSentimentScore =
   SentimentScore'
-    { mixed = Lude.Nothing,
-      negative = Lude.Nothing,
-      neutral = Lude.Nothing,
-      positive = Lude.Nothing
+    { mixed = Core.Nothing,
+      negative = Core.Nothing,
+      neutral = Core.Nothing,
+      positive = Core.Nothing
     }
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @MIXED@ sentiment.
 --
 -- /Note:/ Consider using 'mixed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssMixed :: Lens.Lens' SentimentScore (Lude.Maybe Lude.Double)
-ssMixed = Lens.lens (mixed :: SentimentScore -> Lude.Maybe Lude.Double) (\s a -> s {mixed = a} :: SentimentScore)
+ssMixed :: Lens.Lens' SentimentScore (Core.Maybe Core.Double)
+ssMixed = Lens.field @"mixed"
 {-# DEPRECATED ssMixed "Use generic-lens or generic-optics with 'mixed' instead." #-}
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEGATIVE@ sentiment.
 --
 -- /Note:/ Consider using 'negative' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssNegative :: Lens.Lens' SentimentScore (Lude.Maybe Lude.Double)
-ssNegative = Lens.lens (negative :: SentimentScore -> Lude.Maybe Lude.Double) (\s a -> s {negative = a} :: SentimentScore)
+ssNegative :: Lens.Lens' SentimentScore (Core.Maybe Core.Double)
+ssNegative = Lens.field @"negative"
 {-# DEPRECATED ssNegative "Use generic-lens or generic-optics with 'negative' instead." #-}
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @NEUTRAL@ sentiment.
 --
 -- /Note:/ Consider using 'neutral' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssNeutral :: Lens.Lens' SentimentScore (Lude.Maybe Lude.Double)
-ssNeutral = Lens.lens (neutral :: SentimentScore -> Lude.Maybe Lude.Double) (\s a -> s {neutral = a} :: SentimentScore)
+ssNeutral :: Lens.Lens' SentimentScore (Core.Maybe Core.Double)
+ssNeutral = Lens.field @"neutral"
 {-# DEPRECATED ssNeutral "Use generic-lens or generic-optics with 'neutral' instead." #-}
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of its detection of the @POSITIVE@ sentiment.
 --
 -- /Note:/ Consider using 'positive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssPositive :: Lens.Lens' SentimentScore (Lude.Maybe Lude.Double)
-ssPositive = Lens.lens (positive :: SentimentScore -> Lude.Maybe Lude.Double) (\s a -> s {positive = a} :: SentimentScore)
+ssPositive :: Lens.Lens' SentimentScore (Core.Maybe Core.Double)
+ssPositive = Lens.field @"positive"
 {-# DEPRECATED ssPositive "Use generic-lens or generic-optics with 'positive' instead." #-}
 
-instance Lude.FromJSON SentimentScore where
+instance Core.FromJSON SentimentScore where
   parseJSON =
-    Lude.withObject
-      "SentimentScore"
-      ( \x ->
-          SentimentScore'
-            Lude.<$> (x Lude..:? "Mixed")
-            Lude.<*> (x Lude..:? "Negative")
-            Lude.<*> (x Lude..:? "Neutral")
-            Lude.<*> (x Lude..:? "Positive")
-      )
+    Core.withObject "SentimentScore" Core.$
+      \x ->
+        SentimentScore'
+          Core.<$> (x Core..:? "Mixed")
+          Core.<*> (x Core..:? "Negative")
+          Core.<*> (x Core..:? "Neutral")
+          Core.<*> (x Core..:? "Positive")

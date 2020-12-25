@@ -18,68 +18,65 @@ module Network.AWS.Redshift.Types.DeferredMaintenanceWindow
 
     -- * Lenses
     dmwDeferMaintenanceEndTime,
-    dmwDeferMaintenanceStartTime,
     dmwDeferMaintenanceIdentifier,
+    dmwDeferMaintenanceStartTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes a deferred maintenance window
 --
 -- /See:/ 'mkDeferredMaintenanceWindow' smart constructor.
 data DeferredMaintenanceWindow = DeferredMaintenanceWindow'
   { -- | A timestamp for the end of the time period when we defer maintenance.
-    deferMaintenanceEndTime :: Lude.Maybe Lude.DateTime,
-    -- | A timestamp for the beginning of the time period when we defer maintenance.
-    deferMaintenanceStartTime :: Lude.Maybe Lude.DateTime,
+    deferMaintenanceEndTime :: Core.Maybe Core.UTCTime,
     -- | A unique identifier for the maintenance window.
-    deferMaintenanceIdentifier :: Lude.Maybe Lude.Text
+    deferMaintenanceIdentifier :: Core.Maybe Types.String,
+    -- | A timestamp for the beginning of the time period when we defer maintenance.
+    deferMaintenanceStartTime :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeferredMaintenanceWindow' with the minimum fields required to make a request.
---
--- * 'deferMaintenanceEndTime' - A timestamp for the end of the time period when we defer maintenance.
--- * 'deferMaintenanceStartTime' - A timestamp for the beginning of the time period when we defer maintenance.
--- * 'deferMaintenanceIdentifier' - A unique identifier for the maintenance window.
+-- | Creates a 'DeferredMaintenanceWindow' value with any optional fields omitted.
 mkDeferredMaintenanceWindow ::
   DeferredMaintenanceWindow
 mkDeferredMaintenanceWindow =
   DeferredMaintenanceWindow'
     { deferMaintenanceEndTime =
-        Lude.Nothing,
-      deferMaintenanceStartTime = Lude.Nothing,
-      deferMaintenanceIdentifier = Lude.Nothing
+        Core.Nothing,
+      deferMaintenanceIdentifier = Core.Nothing,
+      deferMaintenanceStartTime = Core.Nothing
     }
 
 -- | A timestamp for the end of the time period when we defer maintenance.
 --
 -- /Note:/ Consider using 'deferMaintenanceEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwDeferMaintenanceEndTime :: Lens.Lens' DeferredMaintenanceWindow (Lude.Maybe Lude.DateTime)
-dmwDeferMaintenanceEndTime = Lens.lens (deferMaintenanceEndTime :: DeferredMaintenanceWindow -> Lude.Maybe Lude.DateTime) (\s a -> s {deferMaintenanceEndTime = a} :: DeferredMaintenanceWindow)
+dmwDeferMaintenanceEndTime :: Lens.Lens' DeferredMaintenanceWindow (Core.Maybe Core.UTCTime)
+dmwDeferMaintenanceEndTime = Lens.field @"deferMaintenanceEndTime"
 {-# DEPRECATED dmwDeferMaintenanceEndTime "Use generic-lens or generic-optics with 'deferMaintenanceEndTime' instead." #-}
-
--- | A timestamp for the beginning of the time period when we defer maintenance.
---
--- /Note:/ Consider using 'deferMaintenanceStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwDeferMaintenanceStartTime :: Lens.Lens' DeferredMaintenanceWindow (Lude.Maybe Lude.DateTime)
-dmwDeferMaintenanceStartTime = Lens.lens (deferMaintenanceStartTime :: DeferredMaintenanceWindow -> Lude.Maybe Lude.DateTime) (\s a -> s {deferMaintenanceStartTime = a} :: DeferredMaintenanceWindow)
-{-# DEPRECATED dmwDeferMaintenanceStartTime "Use generic-lens or generic-optics with 'deferMaintenanceStartTime' instead." #-}
 
 -- | A unique identifier for the maintenance window.
 --
 -- /Note:/ Consider using 'deferMaintenanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwDeferMaintenanceIdentifier :: Lens.Lens' DeferredMaintenanceWindow (Lude.Maybe Lude.Text)
-dmwDeferMaintenanceIdentifier = Lens.lens (deferMaintenanceIdentifier :: DeferredMaintenanceWindow -> Lude.Maybe Lude.Text) (\s a -> s {deferMaintenanceIdentifier = a} :: DeferredMaintenanceWindow)
+dmwDeferMaintenanceIdentifier :: Lens.Lens' DeferredMaintenanceWindow (Core.Maybe Types.String)
+dmwDeferMaintenanceIdentifier = Lens.field @"deferMaintenanceIdentifier"
 {-# DEPRECATED dmwDeferMaintenanceIdentifier "Use generic-lens or generic-optics with 'deferMaintenanceIdentifier' instead." #-}
 
-instance Lude.FromXML DeferredMaintenanceWindow where
+-- | A timestamp for the beginning of the time period when we defer maintenance.
+--
+-- /Note:/ Consider using 'deferMaintenanceStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmwDeferMaintenanceStartTime :: Lens.Lens' DeferredMaintenanceWindow (Core.Maybe Core.UTCTime)
+dmwDeferMaintenanceStartTime = Lens.field @"deferMaintenanceStartTime"
+{-# DEPRECATED dmwDeferMaintenanceStartTime "Use generic-lens or generic-optics with 'deferMaintenanceStartTime' instead." #-}
+
+instance Core.FromXML DeferredMaintenanceWindow where
   parseXML x =
     DeferredMaintenanceWindow'
-      Lude.<$> (x Lude..@? "DeferMaintenanceEndTime")
-      Lude.<*> (x Lude..@? "DeferMaintenanceStartTime")
-      Lude.<*> (x Lude..@? "DeferMaintenanceIdentifier")
+      Core.<$> (x Core..@? "DeferMaintenanceEndTime")
+      Core.<*> (x Core..@? "DeferMaintenanceIdentifier")
+      Core.<*> (x Core..@? "DeferMaintenanceStartTime")

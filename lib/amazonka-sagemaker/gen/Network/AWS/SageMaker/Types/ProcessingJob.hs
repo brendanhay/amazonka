@@ -17,321 +17,306 @@ module Network.AWS.SageMaker.Types.ProcessingJob
     mkProcessingJob,
 
     -- * Lenses
-    pjCreationTime,
-    pjFailureReason,
-    pjMonitoringScheduleARN,
     pjAppSpecification,
-    pjProcessingResources,
+    pjAutoMLJobArn,
+    pjCreationTime,
     pjEnvironment,
-    pjProcessingJobName,
-    pjStoppingCondition,
-    pjExperimentConfig,
-    pjLastModifiedTime,
-    pjProcessingInputs,
-    pjNetworkConfig,
-    pjAutoMLJobARN,
-    pjTrainingJobARN,
-    pjProcessingJobStatus,
     pjExitMessage,
-    pjProcessingOutputConfig,
-    pjProcessingStartTime,
+    pjExperimentConfig,
+    pjFailureReason,
+    pjLastModifiedTime,
+    pjMonitoringScheduleArn,
+    pjNetworkConfig,
     pjProcessingEndTime,
+    pjProcessingInputs,
+    pjProcessingJobArn,
+    pjProcessingJobName,
+    pjProcessingJobStatus,
+    pjProcessingOutputConfig,
+    pjProcessingResources,
+    pjProcessingStartTime,
+    pjRoleArn,
+    pjStoppingCondition,
     pjTags,
-    pjProcessingJobARN,
-    pjRoleARN,
+    pjTrainingJobArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.AppSpecification
-import Network.AWS.SageMaker.Types.ExperimentConfig
-import Network.AWS.SageMaker.Types.NetworkConfig
-import Network.AWS.SageMaker.Types.ProcessingInput
-import Network.AWS.SageMaker.Types.ProcessingJobStatus
-import Network.AWS.SageMaker.Types.ProcessingOutputConfig
-import Network.AWS.SageMaker.Types.ProcessingResources
-import Network.AWS.SageMaker.Types.ProcessingStoppingCondition
-import Network.AWS.SageMaker.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.AppSpecification as Types
+import qualified Network.AWS.SageMaker.Types.AutoMLJobArn as Types
+import qualified Network.AWS.SageMaker.Types.ExitMessage as Types
+import qualified Network.AWS.SageMaker.Types.ExperimentConfig as Types
+import qualified Network.AWS.SageMaker.Types.FailureReason as Types
+import qualified Network.AWS.SageMaker.Types.MonitoringScheduleArn as Types
+import qualified Network.AWS.SageMaker.Types.NetworkConfig as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingEnvironmentKey as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingEnvironmentValue as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingInput as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingJobArn as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingJobName as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingJobStatus as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingOutputConfig as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingResources as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingStoppingCondition as Types
+import qualified Network.AWS.SageMaker.Types.RoleArn as Types
+import qualified Network.AWS.SageMaker.Types.Tag as Types
+import qualified Network.AWS.SageMaker.Types.TrainingJobArn as Types
 
 -- | An Amazon SageMaker processing job that is used to analyze data and evaluate models. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/processing-job.html Process Data and Evaluate Models> .
 --
 -- /See:/ 'mkProcessingJob' smart constructor.
 data ProcessingJob = ProcessingJob'
-  { -- | The time the processing job was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | A string, up to one KB in size, that contains the reason a processing job failed, if it failed.
-    failureReason :: Lude.Maybe Lude.Text,
-    -- | The ARN of a monitoring schedule for an endpoint associated with this processing job.
-    monitoringScheduleARN :: Lude.Maybe Lude.Text,
-    appSpecification :: Lude.Maybe AppSpecification,
-    processingResources :: Lude.Maybe ProcessingResources,
-    -- | Sets the environment variables in the Docker container.
-    environment :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The name of the processing job.
-    processingJobName :: Lude.Maybe Lude.Text,
-    stoppingCondition :: Lude.Maybe ProcessingStoppingCondition,
-    experimentConfig :: Lude.Maybe ExperimentConfig,
-    -- | The time the processing job was last modified.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
-    -- | For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
-    processingInputs :: Lude.Maybe [ProcessingInput],
-    networkConfig :: Lude.Maybe NetworkConfig,
+  { appSpecification :: Core.Maybe Types.AppSpecification,
     -- | The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.
-    autoMLJobARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the training job associated with this processing job.
-    trainingJobARN :: Lude.Maybe Lude.Text,
-    -- | The status of the processing job.
-    processingJobStatus :: Lude.Maybe ProcessingJobStatus,
+    autoMLJobArn :: Core.Maybe Types.AutoMLJobArn,
+    -- | The time the processing job was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Sets the environment variables in the Docker container.
+    environment :: Core.Maybe (Core.HashMap Types.ProcessingEnvironmentKey Types.ProcessingEnvironmentValue),
     -- | A string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
-    exitMessage :: Lude.Maybe Lude.Text,
-    processingOutputConfig :: Lude.Maybe ProcessingOutputConfig,
-    -- | The time that the processing job started.
-    processingStartTime :: Lude.Maybe Lude.Timestamp,
+    exitMessage :: Core.Maybe Types.ExitMessage,
+    experimentConfig :: Core.Maybe Types.ExperimentConfig,
+    -- | A string, up to one KB in size, that contains the reason a processing job failed, if it failed.
+    failureReason :: Core.Maybe Types.FailureReason,
+    -- | The time the processing job was last modified.
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The ARN of a monitoring schedule for an endpoint associated with this processing job.
+    monitoringScheduleArn :: Core.Maybe Types.MonitoringScheduleArn,
+    networkConfig :: Core.Maybe Types.NetworkConfig,
     -- | The time that the processing job ended.
-    processingEndTime :: Lude.Maybe Lude.Timestamp,
-    -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
-    tags :: Lude.Maybe [Tag],
+    processingEndTime :: Core.Maybe Core.NominalDiffTime,
+    -- | For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
+    processingInputs :: Core.Maybe [Types.ProcessingInput],
     -- | The ARN of the processing job.
-    processingJobARN :: Lude.Maybe Lude.Text,
+    processingJobArn :: Core.Maybe Types.ProcessingJobArn,
+    -- | The name of the processing job.
+    processingJobName :: Core.Maybe Types.ProcessingJobName,
+    -- | The status of the processing job.
+    processingJobStatus :: Core.Maybe Types.ProcessingJobStatus,
+    processingOutputConfig :: Core.Maybe Types.ProcessingOutputConfig,
+    processingResources :: Core.Maybe Types.ProcessingResources,
+    -- | The time that the processing job started.
+    processingStartTime :: Core.Maybe Core.NominalDiffTime,
     -- | The ARN of the role used to create the processing job.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn,
+    stoppingCondition :: Core.Maybe Types.ProcessingStoppingCondition,
+    -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+    tags :: Core.Maybe [Types.Tag],
+    -- | The ARN of the training job associated with this processing job.
+    trainingJobArn :: Core.Maybe Types.TrainingJobArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ProcessingJob' with the minimum fields required to make a request.
---
--- * 'creationTime' - The time the processing job was created.
--- * 'failureReason' - A string, up to one KB in size, that contains the reason a processing job failed, if it failed.
--- * 'monitoringScheduleARN' - The ARN of a monitoring schedule for an endpoint associated with this processing job.
--- * 'appSpecification' -
--- * 'processingResources' -
--- * 'environment' - Sets the environment variables in the Docker container.
--- * 'processingJobName' - The name of the processing job.
--- * 'stoppingCondition' -
--- * 'experimentConfig' -
--- * 'lastModifiedTime' - The time the processing job was last modified.
--- * 'processingInputs' - For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
--- * 'networkConfig' -
--- * 'autoMLJobARN' - The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.
--- * 'trainingJobARN' - The ARN of the training job associated with this processing job.
--- * 'processingJobStatus' - The status of the processing job.
--- * 'exitMessage' - A string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
--- * 'processingOutputConfig' -
--- * 'processingStartTime' - The time that the processing job started.
--- * 'processingEndTime' - The time that the processing job ended.
--- * 'tags' - An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
--- * 'processingJobARN' - The ARN of the processing job.
--- * 'roleARN' - The ARN of the role used to create the processing job.
+-- | Creates a 'ProcessingJob' value with any optional fields omitted.
 mkProcessingJob ::
   ProcessingJob
 mkProcessingJob =
   ProcessingJob'
-    { creationTime = Lude.Nothing,
-      failureReason = Lude.Nothing,
-      monitoringScheduleARN = Lude.Nothing,
-      appSpecification = Lude.Nothing,
-      processingResources = Lude.Nothing,
-      environment = Lude.Nothing,
-      processingJobName = Lude.Nothing,
-      stoppingCondition = Lude.Nothing,
-      experimentConfig = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      processingInputs = Lude.Nothing,
-      networkConfig = Lude.Nothing,
-      autoMLJobARN = Lude.Nothing,
-      trainingJobARN = Lude.Nothing,
-      processingJobStatus = Lude.Nothing,
-      exitMessage = Lude.Nothing,
-      processingOutputConfig = Lude.Nothing,
-      processingStartTime = Lude.Nothing,
-      processingEndTime = Lude.Nothing,
-      tags = Lude.Nothing,
-      processingJobARN = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { appSpecification = Core.Nothing,
+      autoMLJobArn = Core.Nothing,
+      creationTime = Core.Nothing,
+      environment = Core.Nothing,
+      exitMessage = Core.Nothing,
+      experimentConfig = Core.Nothing,
+      failureReason = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      monitoringScheduleArn = Core.Nothing,
+      networkConfig = Core.Nothing,
+      processingEndTime = Core.Nothing,
+      processingInputs = Core.Nothing,
+      processingJobArn = Core.Nothing,
+      processingJobName = Core.Nothing,
+      processingJobStatus = Core.Nothing,
+      processingOutputConfig = Core.Nothing,
+      processingResources = Core.Nothing,
+      processingStartTime = Core.Nothing,
+      roleArn = Core.Nothing,
+      stoppingCondition = Core.Nothing,
+      tags = Core.Nothing,
+      trainingJobArn = Core.Nothing
     }
-
--- | The time the processing job was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjCreationTime :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Timestamp)
-pjCreationTime = Lens.lens (creationTime :: ProcessingJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: ProcessingJob)
-{-# DEPRECATED pjCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | A string, up to one KB in size, that contains the reason a processing job failed, if it failed.
---
--- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjFailureReason :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Text)
-pjFailureReason = Lens.lens (failureReason :: ProcessingJob -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: ProcessingJob)
-{-# DEPRECATED pjFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
-
--- | The ARN of a monitoring schedule for an endpoint associated with this processing job.
---
--- /Note:/ Consider using 'monitoringScheduleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjMonitoringScheduleARN :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Text)
-pjMonitoringScheduleARN = Lens.lens (monitoringScheduleARN :: ProcessingJob -> Lude.Maybe Lude.Text) (\s a -> s {monitoringScheduleARN = a} :: ProcessingJob)
-{-# DEPRECATED pjMonitoringScheduleARN "Use generic-lens or generic-optics with 'monitoringScheduleARN' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'appSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjAppSpecification :: Lens.Lens' ProcessingJob (Lude.Maybe AppSpecification)
-pjAppSpecification = Lens.lens (appSpecification :: ProcessingJob -> Lude.Maybe AppSpecification) (\s a -> s {appSpecification = a} :: ProcessingJob)
+pjAppSpecification :: Lens.Lens' ProcessingJob (Core.Maybe Types.AppSpecification)
+pjAppSpecification = Lens.field @"appSpecification"
 {-# DEPRECATED pjAppSpecification "Use generic-lens or generic-optics with 'appSpecification' instead." #-}
 
--- | Undocumented field.
+-- | The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.
 --
--- /Note:/ Consider using 'processingResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjProcessingResources :: Lens.Lens' ProcessingJob (Lude.Maybe ProcessingResources)
-pjProcessingResources = Lens.lens (processingResources :: ProcessingJob -> Lude.Maybe ProcessingResources) (\s a -> s {processingResources = a} :: ProcessingJob)
-{-# DEPRECATED pjProcessingResources "Use generic-lens or generic-optics with 'processingResources' instead." #-}
+-- /Note:/ Consider using 'autoMLJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjAutoMLJobArn :: Lens.Lens' ProcessingJob (Core.Maybe Types.AutoMLJobArn)
+pjAutoMLJobArn = Lens.field @"autoMLJobArn"
+{-# DEPRECATED pjAutoMLJobArn "Use generic-lens or generic-optics with 'autoMLJobArn' instead." #-}
+
+-- | The time the processing job was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjCreationTime :: Lens.Lens' ProcessingJob (Core.Maybe Core.NominalDiffTime)
+pjCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED pjCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | Sets the environment variables in the Docker container.
 --
 -- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjEnvironment :: Lens.Lens' ProcessingJob (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-pjEnvironment = Lens.lens (environment :: ProcessingJob -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {environment = a} :: ProcessingJob)
+pjEnvironment :: Lens.Lens' ProcessingJob (Core.Maybe (Core.HashMap Types.ProcessingEnvironmentKey Types.ProcessingEnvironmentValue))
+pjEnvironment = Lens.field @"environment"
 {-# DEPRECATED pjEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
-
--- | The name of the processing job.
---
--- /Note:/ Consider using 'processingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjProcessingJobName :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Text)
-pjProcessingJobName = Lens.lens (processingJobName :: ProcessingJob -> Lude.Maybe Lude.Text) (\s a -> s {processingJobName = a} :: ProcessingJob)
-{-# DEPRECATED pjProcessingJobName "Use generic-lens or generic-optics with 'processingJobName' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjStoppingCondition :: Lens.Lens' ProcessingJob (Lude.Maybe ProcessingStoppingCondition)
-pjStoppingCondition = Lens.lens (stoppingCondition :: ProcessingJob -> Lude.Maybe ProcessingStoppingCondition) (\s a -> s {stoppingCondition = a} :: ProcessingJob)
-{-# DEPRECATED pjStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'experimentConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjExperimentConfig :: Lens.Lens' ProcessingJob (Lude.Maybe ExperimentConfig)
-pjExperimentConfig = Lens.lens (experimentConfig :: ProcessingJob -> Lude.Maybe ExperimentConfig) (\s a -> s {experimentConfig = a} :: ProcessingJob)
-{-# DEPRECATED pjExperimentConfig "Use generic-lens or generic-optics with 'experimentConfig' instead." #-}
-
--- | The time the processing job was last modified.
---
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjLastModifiedTime :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Timestamp)
-pjLastModifiedTime = Lens.lens (lastModifiedTime :: ProcessingJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: ProcessingJob)
-{-# DEPRECATED pjLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
-
--- | For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
---
--- /Note:/ Consider using 'processingInputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjProcessingInputs :: Lens.Lens' ProcessingJob (Lude.Maybe [ProcessingInput])
-pjProcessingInputs = Lens.lens (processingInputs :: ProcessingJob -> Lude.Maybe [ProcessingInput]) (\s a -> s {processingInputs = a} :: ProcessingJob)
-{-# DEPRECATED pjProcessingInputs "Use generic-lens or generic-optics with 'processingInputs' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'networkConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjNetworkConfig :: Lens.Lens' ProcessingJob (Lude.Maybe NetworkConfig)
-pjNetworkConfig = Lens.lens (networkConfig :: ProcessingJob -> Lude.Maybe NetworkConfig) (\s a -> s {networkConfig = a} :: ProcessingJob)
-{-# DEPRECATED pjNetworkConfig "Use generic-lens or generic-optics with 'networkConfig' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the AutoML job associated with this processing job.
---
--- /Note:/ Consider using 'autoMLJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjAutoMLJobARN :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Text)
-pjAutoMLJobARN = Lens.lens (autoMLJobARN :: ProcessingJob -> Lude.Maybe Lude.Text) (\s a -> s {autoMLJobARN = a} :: ProcessingJob)
-{-# DEPRECATED pjAutoMLJobARN "Use generic-lens or generic-optics with 'autoMLJobARN' instead." #-}
-
--- | The ARN of the training job associated with this processing job.
---
--- /Note:/ Consider using 'trainingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjTrainingJobARN :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Text)
-pjTrainingJobARN = Lens.lens (trainingJobARN :: ProcessingJob -> Lude.Maybe Lude.Text) (\s a -> s {trainingJobARN = a} :: ProcessingJob)
-{-# DEPRECATED pjTrainingJobARN "Use generic-lens or generic-optics with 'trainingJobARN' instead." #-}
-
--- | The status of the processing job.
---
--- /Note:/ Consider using 'processingJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjProcessingJobStatus :: Lens.Lens' ProcessingJob (Lude.Maybe ProcessingJobStatus)
-pjProcessingJobStatus = Lens.lens (processingJobStatus :: ProcessingJob -> Lude.Maybe ProcessingJobStatus) (\s a -> s {processingJobStatus = a} :: ProcessingJob)
-{-# DEPRECATED pjProcessingJobStatus "Use generic-lens or generic-optics with 'processingJobStatus' instead." #-}
 
 -- | A string, up to one KB in size, that contains metadata from the processing container when the processing job exits.
 --
 -- /Note:/ Consider using 'exitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjExitMessage :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Text)
-pjExitMessage = Lens.lens (exitMessage :: ProcessingJob -> Lude.Maybe Lude.Text) (\s a -> s {exitMessage = a} :: ProcessingJob)
+pjExitMessage :: Lens.Lens' ProcessingJob (Core.Maybe Types.ExitMessage)
+pjExitMessage = Lens.field @"exitMessage"
 {-# DEPRECATED pjExitMessage "Use generic-lens or generic-optics with 'exitMessage' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'processingOutputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjProcessingOutputConfig :: Lens.Lens' ProcessingJob (Lude.Maybe ProcessingOutputConfig)
-pjProcessingOutputConfig = Lens.lens (processingOutputConfig :: ProcessingJob -> Lude.Maybe ProcessingOutputConfig) (\s a -> s {processingOutputConfig = a} :: ProcessingJob)
-{-# DEPRECATED pjProcessingOutputConfig "Use generic-lens or generic-optics with 'processingOutputConfig' instead." #-}
+-- /Note:/ Consider using 'experimentConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjExperimentConfig :: Lens.Lens' ProcessingJob (Core.Maybe Types.ExperimentConfig)
+pjExperimentConfig = Lens.field @"experimentConfig"
+{-# DEPRECATED pjExperimentConfig "Use generic-lens or generic-optics with 'experimentConfig' instead." #-}
 
--- | The time that the processing job started.
+-- | A string, up to one KB in size, that contains the reason a processing job failed, if it failed.
 --
--- /Note:/ Consider using 'processingStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjProcessingStartTime :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Timestamp)
-pjProcessingStartTime = Lens.lens (processingStartTime :: ProcessingJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {processingStartTime = a} :: ProcessingJob)
-{-# DEPRECATED pjProcessingStartTime "Use generic-lens or generic-optics with 'processingStartTime' instead." #-}
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjFailureReason :: Lens.Lens' ProcessingJob (Core.Maybe Types.FailureReason)
+pjFailureReason = Lens.field @"failureReason"
+{-# DEPRECATED pjFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
+
+-- | The time the processing job was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjLastModifiedTime :: Lens.Lens' ProcessingJob (Core.Maybe Core.NominalDiffTime)
+pjLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED pjLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | The ARN of a monitoring schedule for an endpoint associated with this processing job.
+--
+-- /Note:/ Consider using 'monitoringScheduleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjMonitoringScheduleArn :: Lens.Lens' ProcessingJob (Core.Maybe Types.MonitoringScheduleArn)
+pjMonitoringScheduleArn = Lens.field @"monitoringScheduleArn"
+{-# DEPRECATED pjMonitoringScheduleArn "Use generic-lens or generic-optics with 'monitoringScheduleArn' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'networkConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjNetworkConfig :: Lens.Lens' ProcessingJob (Core.Maybe Types.NetworkConfig)
+pjNetworkConfig = Lens.field @"networkConfig"
+{-# DEPRECATED pjNetworkConfig "Use generic-lens or generic-optics with 'networkConfig' instead." #-}
 
 -- | The time that the processing job ended.
 --
 -- /Note:/ Consider using 'processingEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjProcessingEndTime :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Timestamp)
-pjProcessingEndTime = Lens.lens (processingEndTime :: ProcessingJob -> Lude.Maybe Lude.Timestamp) (\s a -> s {processingEndTime = a} :: ProcessingJob)
+pjProcessingEndTime :: Lens.Lens' ProcessingJob (Core.Maybe Core.NominalDiffTime)
+pjProcessingEndTime = Lens.field @"processingEndTime"
 {-# DEPRECATED pjProcessingEndTime "Use generic-lens or generic-optics with 'processingEndTime' instead." #-}
+
+-- | For each input, data is downloaded from S3 into the processing container before the processing job begins running if "S3InputMode" is set to @File@ .
+--
+-- /Note:/ Consider using 'processingInputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjProcessingInputs :: Lens.Lens' ProcessingJob (Core.Maybe [Types.ProcessingInput])
+pjProcessingInputs = Lens.field @"processingInputs"
+{-# DEPRECATED pjProcessingInputs "Use generic-lens or generic-optics with 'processingInputs' instead." #-}
+
+-- | The ARN of the processing job.
+--
+-- /Note:/ Consider using 'processingJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjProcessingJobArn :: Lens.Lens' ProcessingJob (Core.Maybe Types.ProcessingJobArn)
+pjProcessingJobArn = Lens.field @"processingJobArn"
+{-# DEPRECATED pjProcessingJobArn "Use generic-lens or generic-optics with 'processingJobArn' instead." #-}
+
+-- | The name of the processing job.
+--
+-- /Note:/ Consider using 'processingJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjProcessingJobName :: Lens.Lens' ProcessingJob (Core.Maybe Types.ProcessingJobName)
+pjProcessingJobName = Lens.field @"processingJobName"
+{-# DEPRECATED pjProcessingJobName "Use generic-lens or generic-optics with 'processingJobName' instead." #-}
+
+-- | The status of the processing job.
+--
+-- /Note:/ Consider using 'processingJobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjProcessingJobStatus :: Lens.Lens' ProcessingJob (Core.Maybe Types.ProcessingJobStatus)
+pjProcessingJobStatus = Lens.field @"processingJobStatus"
+{-# DEPRECATED pjProcessingJobStatus "Use generic-lens or generic-optics with 'processingJobStatus' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'processingOutputConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjProcessingOutputConfig :: Lens.Lens' ProcessingJob (Core.Maybe Types.ProcessingOutputConfig)
+pjProcessingOutputConfig = Lens.field @"processingOutputConfig"
+{-# DEPRECATED pjProcessingOutputConfig "Use generic-lens or generic-optics with 'processingOutputConfig' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'processingResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjProcessingResources :: Lens.Lens' ProcessingJob (Core.Maybe Types.ProcessingResources)
+pjProcessingResources = Lens.field @"processingResources"
+{-# DEPRECATED pjProcessingResources "Use generic-lens or generic-optics with 'processingResources' instead." #-}
+
+-- | The time that the processing job started.
+--
+-- /Note:/ Consider using 'processingStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjProcessingStartTime :: Lens.Lens' ProcessingJob (Core.Maybe Core.NominalDiffTime)
+pjProcessingStartTime = Lens.field @"processingStartTime"
+{-# DEPRECATED pjProcessingStartTime "Use generic-lens or generic-optics with 'processingStartTime' instead." #-}
+
+-- | The ARN of the role used to create the processing job.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjRoleArn :: Lens.Lens' ProcessingJob (Core.Maybe Types.RoleArn)
+pjRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED pjRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'stoppingCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjStoppingCondition :: Lens.Lens' ProcessingJob (Core.Maybe Types.ProcessingStoppingCondition)
+pjStoppingCondition = Lens.field @"stoppingCondition"
+{-# DEPRECATED pjStoppingCondition "Use generic-lens or generic-optics with 'stoppingCondition' instead." #-}
 
 -- | An array of key-value pairs. For more information, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjTags :: Lens.Lens' ProcessingJob (Lude.Maybe [Tag])
-pjTags = Lens.lens (tags :: ProcessingJob -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ProcessingJob)
+pjTags :: Lens.Lens' ProcessingJob (Core.Maybe [Types.Tag])
+pjTags = Lens.field @"tags"
 {-# DEPRECATED pjTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The ARN of the processing job.
+-- | The ARN of the training job associated with this processing job.
 --
--- /Note:/ Consider using 'processingJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjProcessingJobARN :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Text)
-pjProcessingJobARN = Lens.lens (processingJobARN :: ProcessingJob -> Lude.Maybe Lude.Text) (\s a -> s {processingJobARN = a} :: ProcessingJob)
-{-# DEPRECATED pjProcessingJobARN "Use generic-lens or generic-optics with 'processingJobARN' instead." #-}
+-- /Note:/ Consider using 'trainingJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pjTrainingJobArn :: Lens.Lens' ProcessingJob (Core.Maybe Types.TrainingJobArn)
+pjTrainingJobArn = Lens.field @"trainingJobArn"
+{-# DEPRECATED pjTrainingJobArn "Use generic-lens or generic-optics with 'trainingJobArn' instead." #-}
 
--- | The ARN of the role used to create the processing job.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pjRoleARN :: Lens.Lens' ProcessingJob (Lude.Maybe Lude.Text)
-pjRoleARN = Lens.lens (roleARN :: ProcessingJob -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: ProcessingJob)
-{-# DEPRECATED pjRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.FromJSON ProcessingJob where
+instance Core.FromJSON ProcessingJob where
   parseJSON =
-    Lude.withObject
-      "ProcessingJob"
-      ( \x ->
-          ProcessingJob'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "FailureReason")
-            Lude.<*> (x Lude..:? "MonitoringScheduleArn")
-            Lude.<*> (x Lude..:? "AppSpecification")
-            Lude.<*> (x Lude..:? "ProcessingResources")
-            Lude.<*> (x Lude..:? "Environment" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ProcessingJobName")
-            Lude.<*> (x Lude..:? "StoppingCondition")
-            Lude.<*> (x Lude..:? "ExperimentConfig")
-            Lude.<*> (x Lude..:? "LastModifiedTime")
-            Lude.<*> (x Lude..:? "ProcessingInputs" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "NetworkConfig")
-            Lude.<*> (x Lude..:? "AutoMLJobArn")
-            Lude.<*> (x Lude..:? "TrainingJobArn")
-            Lude.<*> (x Lude..:? "ProcessingJobStatus")
-            Lude.<*> (x Lude..:? "ExitMessage")
-            Lude.<*> (x Lude..:? "ProcessingOutputConfig")
-            Lude.<*> (x Lude..:? "ProcessingStartTime")
-            Lude.<*> (x Lude..:? "ProcessingEndTime")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ProcessingJobArn")
-            Lude.<*> (x Lude..:? "RoleArn")
-      )
+    Core.withObject "ProcessingJob" Core.$
+      \x ->
+        ProcessingJob'
+          Core.<$> (x Core..:? "AppSpecification")
+          Core.<*> (x Core..:? "AutoMLJobArn")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "Environment")
+          Core.<*> (x Core..:? "ExitMessage")
+          Core.<*> (x Core..:? "ExperimentConfig")
+          Core.<*> (x Core..:? "FailureReason")
+          Core.<*> (x Core..:? "LastModifiedTime")
+          Core.<*> (x Core..:? "MonitoringScheduleArn")
+          Core.<*> (x Core..:? "NetworkConfig")
+          Core.<*> (x Core..:? "ProcessingEndTime")
+          Core.<*> (x Core..:? "ProcessingInputs")
+          Core.<*> (x Core..:? "ProcessingJobArn")
+          Core.<*> (x Core..:? "ProcessingJobName")
+          Core.<*> (x Core..:? "ProcessingJobStatus")
+          Core.<*> (x Core..:? "ProcessingOutputConfig")
+          Core.<*> (x Core..:? "ProcessingResources")
+          Core.<*> (x Core..:? "ProcessingStartTime")
+          Core.<*> (x Core..:? "RoleArn")
+          Core.<*> (x Core..:? "StoppingCondition")
+          Core.<*> (x Core..:? "Tags")
+          Core.<*> (x Core..:? "TrainingJobArn")

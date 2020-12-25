@@ -27,95 +27,88 @@ module Network.AWS.IoT.DescribeAuditFinding
     mkDescribeAuditFindingResponse,
 
     -- ** Response lenses
-    daffrsFinding,
-    daffrsResponseStatus,
+    dafrrsFinding,
+    dafrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAuditFinding' smart constructor.
 newtype DescribeAuditFinding = DescribeAuditFinding'
   { -- | A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.
-    findingId :: Lude.Text
+    findingId :: Types.FindingId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAuditFinding' with the minimum fields required to make a request.
---
--- * 'findingId' - A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.
+-- | Creates a 'DescribeAuditFinding' value with any optional fields omitted.
 mkDescribeAuditFinding ::
   -- | 'findingId'
-  Lude.Text ->
+  Types.FindingId ->
   DescribeAuditFinding
-mkDescribeAuditFinding pFindingId_ =
-  DescribeAuditFinding' {findingId = pFindingId_}
+mkDescribeAuditFinding findingId = DescribeAuditFinding' {findingId}
 
 -- | A unique identifier for a single audit finding. You can use this identifier to apply mitigation actions to the finding.
 --
 -- /Note:/ Consider using 'findingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dafFindingId :: Lens.Lens' DescribeAuditFinding Lude.Text
-dafFindingId = Lens.lens (findingId :: DescribeAuditFinding -> Lude.Text) (\s a -> s {findingId = a} :: DescribeAuditFinding)
+dafFindingId :: Lens.Lens' DescribeAuditFinding Types.FindingId
+dafFindingId = Lens.field @"findingId"
 {-# DEPRECATED dafFindingId "Use generic-lens or generic-optics with 'findingId' instead." #-}
 
-instance Lude.AWSRequest DescribeAuditFinding where
+instance Core.AWSRequest DescribeAuditFinding where
   type Rs DescribeAuditFinding = DescribeAuditFindingResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/audit/findings/" Core.<> (Core.toText findingId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAuditFindingResponse'
-            Lude.<$> (x Lude..?> "finding") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "finding") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAuditFinding where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAuditFinding where
-  toPath DescribeAuditFinding' {..} =
-    Lude.mconcat ["/audit/findings/", Lude.toBS findingId]
-
-instance Lude.ToQuery DescribeAuditFinding where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeAuditFindingResponse' smart constructor.
 data DescribeAuditFindingResponse = DescribeAuditFindingResponse'
-  { finding :: Lude.Maybe AuditFinding,
+  { finding :: Core.Maybe Types.AuditFinding,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAuditFindingResponse' with the minimum fields required to make a request.
---
--- * 'finding' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAuditFindingResponse' value with any optional fields omitted.
 mkDescribeAuditFindingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAuditFindingResponse
-mkDescribeAuditFindingResponse pResponseStatus_ =
+mkDescribeAuditFindingResponse responseStatus =
   DescribeAuditFindingResponse'
-    { finding = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { finding = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'finding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daffrsFinding :: Lens.Lens' DescribeAuditFindingResponse (Lude.Maybe AuditFinding)
-daffrsFinding = Lens.lens (finding :: DescribeAuditFindingResponse -> Lude.Maybe AuditFinding) (\s a -> s {finding = a} :: DescribeAuditFindingResponse)
-{-# DEPRECATED daffrsFinding "Use generic-lens or generic-optics with 'finding' instead." #-}
+dafrrsFinding :: Lens.Lens' DescribeAuditFindingResponse (Core.Maybe Types.AuditFinding)
+dafrrsFinding = Lens.field @"finding"
+{-# DEPRECATED dafrrsFinding "Use generic-lens or generic-optics with 'finding' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daffrsResponseStatus :: Lens.Lens' DescribeAuditFindingResponse Lude.Int
-daffrsResponseStatus = Lens.lens (responseStatus :: DescribeAuditFindingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAuditFindingResponse)
-{-# DEPRECATED daffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dafrrsResponseStatus :: Lens.Lens' DescribeAuditFindingResponse Core.Int
+dafrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dafrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

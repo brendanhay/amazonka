@@ -17,83 +17,76 @@ module Network.AWS.DataPipeline.Types.Field
     mkField,
 
     -- * Lenses
+    fKey,
     fRefValue,
     fStringValue,
-    fKey,
   )
 where
 
+import qualified Network.AWS.DataPipeline.Types.Key as Types
+import qualified Network.AWS.DataPipeline.Types.RefValue as Types
+import qualified Network.AWS.DataPipeline.Types.StringValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A key-value pair that describes a property of a pipeline object. The value is specified as either a string value (@StringValue@ ) or a reference to another object (@RefValue@ ) but not as both.
 --
 -- /See:/ 'mkField' smart constructor.
 data Field = Field'
-  { -- | The field value, expressed as the identifier of another object.
-    refValue :: Lude.Maybe Lude.Text,
+  { -- | The field identifier.
+    key :: Types.Key,
+    -- | The field value, expressed as the identifier of another object.
+    refValue :: Core.Maybe Types.RefValue,
     -- | The field value, expressed as a String.
-    stringValue :: Lude.Maybe Lude.Text,
-    -- | The field identifier.
-    key :: Lude.Text
+    stringValue :: Core.Maybe Types.StringValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Field' with the minimum fields required to make a request.
---
--- * 'refValue' - The field value, expressed as the identifier of another object.
--- * 'stringValue' - The field value, expressed as a String.
--- * 'key' - The field identifier.
+-- | Creates a 'Field' value with any optional fields omitted.
 mkField ::
   -- | 'key'
-  Lude.Text ->
+  Types.Key ->
   Field
-mkField pKey_ =
-  Field'
-    { refValue = Lude.Nothing,
-      stringValue = Lude.Nothing,
-      key = pKey_
-    }
+mkField key =
+  Field' {key, refValue = Core.Nothing, stringValue = Core.Nothing}
+
+-- | The field identifier.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fKey :: Lens.Lens' Field Types.Key
+fKey = Lens.field @"key"
+{-# DEPRECATED fKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The field value, expressed as the identifier of another object.
 --
 -- /Note:/ Consider using 'refValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fRefValue :: Lens.Lens' Field (Lude.Maybe Lude.Text)
-fRefValue = Lens.lens (refValue :: Field -> Lude.Maybe Lude.Text) (\s a -> s {refValue = a} :: Field)
+fRefValue :: Lens.Lens' Field (Core.Maybe Types.RefValue)
+fRefValue = Lens.field @"refValue"
 {-# DEPRECATED fRefValue "Use generic-lens or generic-optics with 'refValue' instead." #-}
 
 -- | The field value, expressed as a String.
 --
 -- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fStringValue :: Lens.Lens' Field (Lude.Maybe Lude.Text)
-fStringValue = Lens.lens (stringValue :: Field -> Lude.Maybe Lude.Text) (\s a -> s {stringValue = a} :: Field)
+fStringValue :: Lens.Lens' Field (Core.Maybe Types.StringValue)
+fStringValue = Lens.field @"stringValue"
 {-# DEPRECATED fStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
--- | The field identifier.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fKey :: Lens.Lens' Field Lude.Text
-fKey = Lens.lens (key :: Field -> Lude.Text) (\s a -> s {key = a} :: Field)
-{-# DEPRECATED fKey "Use generic-lens or generic-optics with 'key' instead." #-}
-
-instance Lude.FromJSON Field where
-  parseJSON =
-    Lude.withObject
-      "Field"
-      ( \x ->
-          Field'
-            Lude.<$> (x Lude..:? "refValue")
-            Lude.<*> (x Lude..:? "stringValue")
-            Lude.<*> (x Lude..: "key")
-      )
-
-instance Lude.ToJSON Field where
-  toJSON Field' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("refValue" Lude..=) Lude.<$> refValue,
-            ("stringValue" Lude..=) Lude.<$> stringValue,
-            Lude.Just ("key" Lude..= key)
+instance Core.FromJSON Field where
+  toJSON Field {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("key" Core..= key),
+            ("refValue" Core..=) Core.<$> refValue,
+            ("stringValue" Core..=) Core.<$> stringValue
           ]
       )
+
+instance Core.FromJSON Field where
+  parseJSON =
+    Core.withObject "Field" Core.$
+      \x ->
+        Field'
+          Core.<$> (x Core..: "key")
+          Core.<*> (x Core..:? "refValue")
+          Core.<*> (x Core..:? "stringValue")

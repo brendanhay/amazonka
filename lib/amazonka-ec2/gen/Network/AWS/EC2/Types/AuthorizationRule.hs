@@ -17,107 +17,101 @@ module Network.AWS.EC2.Types.AuthorizationRule
     mkAuthorizationRule,
 
     -- * Lenses
-    arStatus,
     arAccessAll,
-    arClientVPNEndpointId,
-    arGroupId,
-    arDestinationCidr,
+    arClientVpnEndpointId,
     arDescription,
+    arDestinationCidr,
+    arGroupId,
+    arStatus,
   )
 where
 
-import Network.AWS.EC2.Types.ClientVPNAuthorizationRuleStatus
+import qualified Network.AWS.EC2.Types.ClientVpnAuthorizationRuleStatus as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an authorization rule.
 --
 -- /See:/ 'mkAuthorizationRule' smart constructor.
 data AuthorizationRule = AuthorizationRule'
-  { -- | The current state of the authorization rule.
-    status :: Lude.Maybe ClientVPNAuthorizationRuleStatus,
-    -- | Indicates whether the authorization rule grants access to all clients.
-    accessAll :: Lude.Maybe Lude.Bool,
+  { -- | Indicates whether the authorization rule grants access to all clients.
+    accessAll :: Core.Maybe Core.Bool,
     -- | The ID of the Client VPN endpoint with which the authorization rule is associated.
-    clientVPNEndpointId :: Lude.Maybe Lude.Text,
-    -- | The ID of the Active Directory group to which the authorization rule grants access.
-    groupId :: Lude.Maybe Lude.Text,
-    -- | The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
-    destinationCidr :: Lude.Maybe Lude.Text,
+    clientVpnEndpointId :: Core.Maybe Types.String,
     -- | A brief description of the authorization rule.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.String,
+    -- | The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+    destinationCidr :: Core.Maybe Types.String,
+    -- | The ID of the Active Directory group to which the authorization rule grants access.
+    groupId :: Core.Maybe Types.String,
+    -- | The current state of the authorization rule.
+    status :: Core.Maybe Types.ClientVpnAuthorizationRuleStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuthorizationRule' with the minimum fields required to make a request.
---
--- * 'status' - The current state of the authorization rule.
--- * 'accessAll' - Indicates whether the authorization rule grants access to all clients.
--- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint with which the authorization rule is associated.
--- * 'groupId' - The ID of the Active Directory group to which the authorization rule grants access.
--- * 'destinationCidr' - The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
--- * 'description' - A brief description of the authorization rule.
+-- | Creates a 'AuthorizationRule' value with any optional fields omitted.
 mkAuthorizationRule ::
   AuthorizationRule
 mkAuthorizationRule =
   AuthorizationRule'
-    { status = Lude.Nothing,
-      accessAll = Lude.Nothing,
-      clientVPNEndpointId = Lude.Nothing,
-      groupId = Lude.Nothing,
-      destinationCidr = Lude.Nothing,
-      description = Lude.Nothing
+    { accessAll = Core.Nothing,
+      clientVpnEndpointId = Core.Nothing,
+      description = Core.Nothing,
+      destinationCidr = Core.Nothing,
+      groupId = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The current state of the authorization rule.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arStatus :: Lens.Lens' AuthorizationRule (Lude.Maybe ClientVPNAuthorizationRuleStatus)
-arStatus = Lens.lens (status :: AuthorizationRule -> Lude.Maybe ClientVPNAuthorizationRuleStatus) (\s a -> s {status = a} :: AuthorizationRule)
-{-# DEPRECATED arStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Indicates whether the authorization rule grants access to all clients.
 --
 -- /Note:/ Consider using 'accessAll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arAccessAll :: Lens.Lens' AuthorizationRule (Lude.Maybe Lude.Bool)
-arAccessAll = Lens.lens (accessAll :: AuthorizationRule -> Lude.Maybe Lude.Bool) (\s a -> s {accessAll = a} :: AuthorizationRule)
+arAccessAll :: Lens.Lens' AuthorizationRule (Core.Maybe Core.Bool)
+arAccessAll = Lens.field @"accessAll"
 {-# DEPRECATED arAccessAll "Use generic-lens or generic-optics with 'accessAll' instead." #-}
 
 -- | The ID of the Client VPN endpoint with which the authorization rule is associated.
 --
--- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arClientVPNEndpointId :: Lens.Lens' AuthorizationRule (Lude.Maybe Lude.Text)
-arClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: AuthorizationRule -> Lude.Maybe Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: AuthorizationRule)
-{-# DEPRECATED arClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
-
--- | The ID of the Active Directory group to which the authorization rule grants access.
---
--- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arGroupId :: Lens.Lens' AuthorizationRule (Lude.Maybe Lude.Text)
-arGroupId = Lens.lens (groupId :: AuthorizationRule -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: AuthorizationRule)
-{-# DEPRECATED arGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
-
--- | The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
---
--- /Note:/ Consider using 'destinationCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arDestinationCidr :: Lens.Lens' AuthorizationRule (Lude.Maybe Lude.Text)
-arDestinationCidr = Lens.lens (destinationCidr :: AuthorizationRule -> Lude.Maybe Lude.Text) (\s a -> s {destinationCidr = a} :: AuthorizationRule)
-{-# DEPRECATED arDestinationCidr "Use generic-lens or generic-optics with 'destinationCidr' instead." #-}
+-- /Note:/ Consider using 'clientVpnEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arClientVpnEndpointId :: Lens.Lens' AuthorizationRule (Core.Maybe Types.String)
+arClientVpnEndpointId = Lens.field @"clientVpnEndpointId"
+{-# DEPRECATED arClientVpnEndpointId "Use generic-lens or generic-optics with 'clientVpnEndpointId' instead." #-}
 
 -- | A brief description of the authorization rule.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arDescription :: Lens.Lens' AuthorizationRule (Lude.Maybe Lude.Text)
-arDescription = Lens.lens (description :: AuthorizationRule -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AuthorizationRule)
+arDescription :: Lens.Lens' AuthorizationRule (Core.Maybe Types.String)
+arDescription = Lens.field @"description"
 {-# DEPRECATED arDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML AuthorizationRule where
+-- | The IPv4 address range, in CIDR notation, of the network to which the authorization rule applies.
+--
+-- /Note:/ Consider using 'destinationCidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arDestinationCidr :: Lens.Lens' AuthorizationRule (Core.Maybe Types.String)
+arDestinationCidr = Lens.field @"destinationCidr"
+{-# DEPRECATED arDestinationCidr "Use generic-lens or generic-optics with 'destinationCidr' instead." #-}
+
+-- | The ID of the Active Directory group to which the authorization rule grants access.
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arGroupId :: Lens.Lens' AuthorizationRule (Core.Maybe Types.String)
+arGroupId = Lens.field @"groupId"
+{-# DEPRECATED arGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
+
+-- | The current state of the authorization rule.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arStatus :: Lens.Lens' AuthorizationRule (Core.Maybe Types.ClientVpnAuthorizationRuleStatus)
+arStatus = Lens.field @"status"
+{-# DEPRECATED arStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML AuthorizationRule where
   parseXML x =
     AuthorizationRule'
-      Lude.<$> (x Lude..@? "status")
-      Lude.<*> (x Lude..@? "accessAll")
-      Lude.<*> (x Lude..@? "clientVpnEndpointId")
-      Lude.<*> (x Lude..@? "groupId")
-      Lude.<*> (x Lude..@? "destinationCidr")
-      Lude.<*> (x Lude..@? "description")
+      Core.<$> (x Core..@? "accessAll")
+      Core.<*> (x Core..@? "clientVpnEndpointId")
+      Core.<*> (x Core..@? "description")
+      Core.<*> (x Core..@? "destinationCidr")
+      Core.<*> (x Core..@? "groupId")
+      Core.<*> (x Core..@? "status")

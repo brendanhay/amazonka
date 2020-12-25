@@ -20,34 +20,32 @@ module Network.AWS.Lambda.GetAlias
     mkGetAlias,
 
     -- ** Request lenses
-    gaName,
     gaFunctionName,
+    gaName,
 
     -- * Destructuring the response
-    AliasConfiguration (..),
-    mkAliasConfiguration,
+    Types.AliasConfiguration (..),
+    Types.mkAliasConfiguration,
 
     -- ** Response lenses
-    acRoutingConfig,
-    acName,
-    acFunctionVersion,
-    acAliasARN,
-    acDescription,
-    acRevisionId,
+    Types.acAliasArn,
+    Types.acDescription,
+    Types.acFunctionVersion,
+    Types.acName,
+    Types.acRevisionId,
+    Types.acRoutingConfig,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetAlias' smart constructor.
 data GetAlias = GetAlias'
-  { -- | The name of the alias.
-    name :: Lude.Text,
-    -- | The name of the Lambda function.
+  { -- | The name of the Lambda function.
     --
     -- __Name formats__
     --
@@ -61,43 +59,21 @@ data GetAlias = GetAlias'
     --
     --
     -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-    functionName :: Lude.Text
+    functionName :: Types.FunctionName,
+    -- | The name of the alias.
+    name :: Types.Alias
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAlias' with the minimum fields required to make a request.
---
--- * 'name' - The name of the alias.
--- * 'functionName' - The name of the Lambda function.
---
--- __Name formats__
---
---     * __Function name__ - @MyFunction@ .
---
---
---     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
---
---
---     * __Partial ARN__ - @123456789012:function:MyFunction@ .
---
---
--- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
+-- | Creates a 'GetAlias' value with any optional fields omitted.
 mkGetAlias ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'functionName'
-  Lude.Text ->
+  Types.FunctionName ->
+  -- | 'name'
+  Types.Alias ->
   GetAlias
-mkGetAlias pName_ pFunctionName_ =
-  GetAlias' {name = pName_, functionName = pFunctionName_}
-
--- | The name of the alias.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaName :: Lens.Lens' GetAlias Lude.Text
-gaName = Lens.lens (name :: GetAlias -> Lude.Text) (\s a -> s {name = a} :: GetAlias)
-{-# DEPRECATED gaName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkGetAlias functionName name = GetAlias' {functionName, name}
 
 -- | The name of the Lambda function.
 --
@@ -115,26 +91,31 @@ gaName = Lens.lens (name :: GetAlias -> Lude.Text) (\s a -> s {name = a} :: GetA
 -- The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaFunctionName :: Lens.Lens' GetAlias Lude.Text
-gaFunctionName = Lens.lens (functionName :: GetAlias -> Lude.Text) (\s a -> s {functionName = a} :: GetAlias)
+gaFunctionName :: Lens.Lens' GetAlias Types.FunctionName
+gaFunctionName = Lens.field @"functionName"
 {-# DEPRECATED gaFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance Lude.AWSRequest GetAlias where
-  type Rs GetAlias = AliasConfiguration
-  request = Req.get lambdaService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | The name of the alias.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gaName :: Lens.Lens' GetAlias Types.Alias
+gaName = Lens.field @"name"
+{-# DEPRECATED gaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToHeaders GetAlias where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetAlias where
-  toPath GetAlias' {..} =
-    Lude.mconcat
-      [ "/2015-03-31/functions/",
-        Lude.toBS functionName,
-        "/aliases/",
-        Lude.toBS name
-      ]
-
-instance Lude.ToQuery GetAlias where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest GetAlias where
+  type Rs GetAlias = Types.AliasConfiguration
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-03-31/functions/" Core.<> (Core.toText functionName)
+                Core.<> ("/aliases/")
+                Core.<> (Core.toText name)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

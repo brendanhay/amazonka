@@ -17,58 +17,54 @@ module Network.AWS.DAX.Types.SecurityGroupMembership
     mkSecurityGroupMembership,
 
     -- * Lenses
-    sgmStatus,
     sgmSecurityGroupIdentifier,
+    sgmStatus,
   )
 where
 
+import qualified Network.AWS.DAX.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An individual VPC security group and its status.
 --
 -- /See:/ 'mkSecurityGroupMembership' smart constructor.
 data SecurityGroupMembership = SecurityGroupMembership'
-  { -- | The status of this security group.
-    status :: Lude.Maybe Lude.Text,
-    -- | The unique ID for this security group.
-    securityGroupIdentifier :: Lude.Maybe Lude.Text
+  { -- | The unique ID for this security group.
+    securityGroupIdentifier :: Core.Maybe Types.String,
+    -- | The status of this security group.
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SecurityGroupMembership' with the minimum fields required to make a request.
---
--- * 'status' - The status of this security group.
--- * 'securityGroupIdentifier' - The unique ID for this security group.
+-- | Creates a 'SecurityGroupMembership' value with any optional fields omitted.
 mkSecurityGroupMembership ::
   SecurityGroupMembership
 mkSecurityGroupMembership =
   SecurityGroupMembership'
-    { status = Lude.Nothing,
-      securityGroupIdentifier = Lude.Nothing
+    { securityGroupIdentifier = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of this security group.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgmStatus :: Lens.Lens' SecurityGroupMembership (Lude.Maybe Lude.Text)
-sgmStatus = Lens.lens (status :: SecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: SecurityGroupMembership)
-{-# DEPRECATED sgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique ID for this security group.
 --
 -- /Note:/ Consider using 'securityGroupIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgmSecurityGroupIdentifier :: Lens.Lens' SecurityGroupMembership (Lude.Maybe Lude.Text)
-sgmSecurityGroupIdentifier = Lens.lens (securityGroupIdentifier :: SecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {securityGroupIdentifier = a} :: SecurityGroupMembership)
+sgmSecurityGroupIdentifier :: Lens.Lens' SecurityGroupMembership (Core.Maybe Types.String)
+sgmSecurityGroupIdentifier = Lens.field @"securityGroupIdentifier"
 {-# DEPRECATED sgmSecurityGroupIdentifier "Use generic-lens or generic-optics with 'securityGroupIdentifier' instead." #-}
 
-instance Lude.FromJSON SecurityGroupMembership where
+-- | The status of this security group.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgmStatus :: Lens.Lens' SecurityGroupMembership (Core.Maybe Types.String)
+sgmStatus = Lens.field @"status"
+{-# DEPRECATED sgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON SecurityGroupMembership where
   parseJSON =
-    Lude.withObject
-      "SecurityGroupMembership"
-      ( \x ->
-          SecurityGroupMembership'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "SecurityGroupIdentifier")
-      )
+    Core.withObject "SecurityGroupMembership" Core.$
+      \x ->
+        SecurityGroupMembership'
+          Core.<$> (x Core..:? "SecurityGroupIdentifier")
+          Core.<*> (x Core..:? "Status")

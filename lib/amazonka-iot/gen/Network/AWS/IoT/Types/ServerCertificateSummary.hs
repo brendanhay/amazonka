@@ -17,73 +17,68 @@ module Network.AWS.IoT.Types.ServerCertificateSummary
     mkServerCertificateSummary,
 
     -- * Lenses
-    scsServerCertificateStatusDetail,
+    scsServerCertificateArn,
     scsServerCertificateStatus,
-    scsServerCertificateARN,
+    scsServerCertificateStatusDetail,
   )
 where
 
-import Network.AWS.IoT.Types.ServerCertificateStatus
+import qualified Network.AWS.IoT.Types.AcmCertificateArn as Types
+import qualified Network.AWS.IoT.Types.ServerCertificateStatus as Types
+import qualified Network.AWS.IoT.Types.ServerCertificateStatusDetail as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that contains information about a server certificate.
 --
 -- /See:/ 'mkServerCertificateSummary' smart constructor.
 data ServerCertificateSummary = ServerCertificateSummary'
-  { -- | Details that explain the status of the server certificate.
-    serverCertificateStatusDetail :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the server certificate.
+    serverCertificateArn :: Core.Maybe Types.AcmCertificateArn,
     -- | The status of the server certificate.
-    serverCertificateStatus :: Lude.Maybe ServerCertificateStatus,
-    -- | The ARN of the server certificate.
-    serverCertificateARN :: Lude.Maybe Lude.Text
+    serverCertificateStatus :: Core.Maybe Types.ServerCertificateStatus,
+    -- | Details that explain the status of the server certificate.
+    serverCertificateStatusDetail :: Core.Maybe Types.ServerCertificateStatusDetail
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServerCertificateSummary' with the minimum fields required to make a request.
---
--- * 'serverCertificateStatusDetail' - Details that explain the status of the server certificate.
--- * 'serverCertificateStatus' - The status of the server certificate.
--- * 'serverCertificateARN' - The ARN of the server certificate.
+-- | Creates a 'ServerCertificateSummary' value with any optional fields omitted.
 mkServerCertificateSummary ::
   ServerCertificateSummary
 mkServerCertificateSummary =
   ServerCertificateSummary'
-    { serverCertificateStatusDetail =
-        Lude.Nothing,
-      serverCertificateStatus = Lude.Nothing,
-      serverCertificateARN = Lude.Nothing
+    { serverCertificateArn = Core.Nothing,
+      serverCertificateStatus = Core.Nothing,
+      serverCertificateStatusDetail = Core.Nothing
     }
 
--- | Details that explain the status of the server certificate.
+-- | The ARN of the server certificate.
 --
--- /Note:/ Consider using 'serverCertificateStatusDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scsServerCertificateStatusDetail :: Lens.Lens' ServerCertificateSummary (Lude.Maybe Lude.Text)
-scsServerCertificateStatusDetail = Lens.lens (serverCertificateStatusDetail :: ServerCertificateSummary -> Lude.Maybe Lude.Text) (\s a -> s {serverCertificateStatusDetail = a} :: ServerCertificateSummary)
-{-# DEPRECATED scsServerCertificateStatusDetail "Use generic-lens or generic-optics with 'serverCertificateStatusDetail' instead." #-}
+-- /Note:/ Consider using 'serverCertificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scsServerCertificateArn :: Lens.Lens' ServerCertificateSummary (Core.Maybe Types.AcmCertificateArn)
+scsServerCertificateArn = Lens.field @"serverCertificateArn"
+{-# DEPRECATED scsServerCertificateArn "Use generic-lens or generic-optics with 'serverCertificateArn' instead." #-}
 
 -- | The status of the server certificate.
 --
 -- /Note:/ Consider using 'serverCertificateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scsServerCertificateStatus :: Lens.Lens' ServerCertificateSummary (Lude.Maybe ServerCertificateStatus)
-scsServerCertificateStatus = Lens.lens (serverCertificateStatus :: ServerCertificateSummary -> Lude.Maybe ServerCertificateStatus) (\s a -> s {serverCertificateStatus = a} :: ServerCertificateSummary)
+scsServerCertificateStatus :: Lens.Lens' ServerCertificateSummary (Core.Maybe Types.ServerCertificateStatus)
+scsServerCertificateStatus = Lens.field @"serverCertificateStatus"
 {-# DEPRECATED scsServerCertificateStatus "Use generic-lens or generic-optics with 'serverCertificateStatus' instead." #-}
 
--- | The ARN of the server certificate.
+-- | Details that explain the status of the server certificate.
 --
--- /Note:/ Consider using 'serverCertificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scsServerCertificateARN :: Lens.Lens' ServerCertificateSummary (Lude.Maybe Lude.Text)
-scsServerCertificateARN = Lens.lens (serverCertificateARN :: ServerCertificateSummary -> Lude.Maybe Lude.Text) (\s a -> s {serverCertificateARN = a} :: ServerCertificateSummary)
-{-# DEPRECATED scsServerCertificateARN "Use generic-lens or generic-optics with 'serverCertificateARN' instead." #-}
+-- /Note:/ Consider using 'serverCertificateStatusDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scsServerCertificateStatusDetail :: Lens.Lens' ServerCertificateSummary (Core.Maybe Types.ServerCertificateStatusDetail)
+scsServerCertificateStatusDetail = Lens.field @"serverCertificateStatusDetail"
+{-# DEPRECATED scsServerCertificateStatusDetail "Use generic-lens or generic-optics with 'serverCertificateStatusDetail' instead." #-}
 
-instance Lude.FromJSON ServerCertificateSummary where
+instance Core.FromJSON ServerCertificateSummary where
   parseJSON =
-    Lude.withObject
-      "ServerCertificateSummary"
-      ( \x ->
-          ServerCertificateSummary'
-            Lude.<$> (x Lude..:? "serverCertificateStatusDetail")
-            Lude.<*> (x Lude..:? "serverCertificateStatus")
-            Lude.<*> (x Lude..:? "serverCertificateArn")
-      )
+    Core.withObject "ServerCertificateSummary" Core.$
+      \x ->
+        ServerCertificateSummary'
+          Core.<$> (x Core..:? "serverCertificateArn")
+          Core.<*> (x Core..:? "serverCertificateStatus")
+          Core.<*> (x Core..:? "serverCertificateStatusDetail")

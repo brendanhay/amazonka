@@ -17,57 +17,54 @@ module Network.AWS.CodePipeline.Types.ActionContext
     mkActionContext,
 
     -- * Lenses
-    acName,
     acActionExecutionId,
+    acName,
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.ActionExecutionId as Types
+import qualified Network.AWS.CodePipeline.Types.ActionName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the context of an action in the stage of a pipeline to a job worker.
 --
 -- /See:/ 'mkActionContext' smart constructor.
 data ActionContext = ActionContext'
-  { -- | The name of the action in the context of a job.
-    name :: Lude.Maybe Lude.Text,
-    -- | The system-generated unique ID that corresponds to an action's execution.
-    actionExecutionId :: Lude.Maybe Lude.Text
+  { -- | The system-generated unique ID that corresponds to an action's execution.
+    actionExecutionId :: Core.Maybe Types.ActionExecutionId,
+    -- | The name of the action in the context of a job.
+    name :: Core.Maybe Types.ActionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActionContext' with the minimum fields required to make a request.
---
--- * 'name' - The name of the action in the context of a job.
--- * 'actionExecutionId' - The system-generated unique ID that corresponds to an action's execution.
+-- | Creates a 'ActionContext' value with any optional fields omitted.
 mkActionContext ::
   ActionContext
 mkActionContext =
   ActionContext'
-    { name = Lude.Nothing,
-      actionExecutionId = Lude.Nothing
+    { actionExecutionId = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The name of the action in the context of a job.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acName :: Lens.Lens' ActionContext (Lude.Maybe Lude.Text)
-acName = Lens.lens (name :: ActionContext -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ActionContext)
-{-# DEPRECATED acName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The system-generated unique ID that corresponds to an action's execution.
 --
 -- /Note:/ Consider using 'actionExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acActionExecutionId :: Lens.Lens' ActionContext (Lude.Maybe Lude.Text)
-acActionExecutionId = Lens.lens (actionExecutionId :: ActionContext -> Lude.Maybe Lude.Text) (\s a -> s {actionExecutionId = a} :: ActionContext)
+acActionExecutionId :: Lens.Lens' ActionContext (Core.Maybe Types.ActionExecutionId)
+acActionExecutionId = Lens.field @"actionExecutionId"
 {-# DEPRECATED acActionExecutionId "Use generic-lens or generic-optics with 'actionExecutionId' instead." #-}
 
-instance Lude.FromJSON ActionContext where
+-- | The name of the action in the context of a job.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acName :: Lens.Lens' ActionContext (Core.Maybe Types.ActionName)
+acName = Lens.field @"name"
+{-# DEPRECATED acName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON ActionContext where
   parseJSON =
-    Lude.withObject
-      "ActionContext"
-      ( \x ->
-          ActionContext'
-            Lude.<$> (x Lude..:? "name") Lude.<*> (x Lude..:? "actionExecutionId")
-      )
+    Core.withObject "ActionContext" Core.$
+      \x ->
+        ActionContext'
+          Core.<$> (x Core..:? "actionExecutionId") Core.<*> (x Core..:? "name")

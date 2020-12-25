@@ -17,108 +17,92 @@ module Network.AWS.Redshift.Types.ScheduledAction
     mkScheduledAction,
 
     -- * Lenses
+    saEndTime,
+    saIamRole,
+    saNextInvocations,
+    saSchedule,
+    saScheduledActionDescription,
+    saScheduledActionName,
+    saStartTime,
     saState,
     saTargetAction,
-    saStartTime,
-    saSchedule,
-    saScheduledActionName,
-    saScheduledActionDescription,
-    saNextInvocations,
-    saEndTime,
-    saIAMRole,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.ScheduledActionState
-import Network.AWS.Redshift.Types.ScheduledActionType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.ScheduledActionState as Types
+import qualified Network.AWS.Redshift.Types.ScheduledActionType as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes a scheduled action. You can use a scheduled action to trigger some Amazon Redshift API operations on a schedule. For information about which API operations can be scheduled, see 'ScheduledActionType' .
 --
 -- /See:/ 'mkScheduledAction' smart constructor.
 data ScheduledAction = ScheduledAction'
-  { -- | The state of the scheduled action. For example, @DISABLED@ .
-    state :: Lude.Maybe ScheduledActionState,
-    -- | A JSON format string of the Amazon Redshift API operation with input parameters.
-    --
-    -- "@{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}@ ".
-    targetAction :: Lude.Maybe ScheduledActionType,
-    -- | The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.
-    startTime :: Lude.Maybe Lude.DateTime,
+  { -- | The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.
+    endTime :: Core.Maybe Core.UTCTime,
+    -- | The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift> in the /Amazon Redshift Cluster Management Guide/ .
+    iamRole :: Core.Maybe Types.String,
+    -- | List of times when the scheduled action will run.
+    nextInvocations :: Core.Maybe [Core.UTCTime],
     -- | The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.
     --
     -- Format of at expressions is "@at(yyyy-mm-ddThh:mm:ss)@ ". For example, "@at(2016-03-04T17:27:00)@ ".
     -- Format of cron expressions is "@cron(Minutes Hours Day-of-month Month Day-of-week Year)@ ". For example, "@cron(0 10 ? * MON *)@ ". For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions> in the /Amazon CloudWatch Events User Guide/ .
-    schedule :: Lude.Maybe Lude.Text,
-    -- | The name of the scheduled action.
-    scheduledActionName :: Lude.Maybe Lude.Text,
+    schedule :: Core.Maybe Types.String,
     -- | The description of the scheduled action.
-    scheduledActionDescription :: Lude.Maybe Lude.Text,
-    -- | List of times when the scheduled action will run.
-    nextInvocations :: Lude.Maybe [Lude.DateTime],
-    -- | The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.
-    endTime :: Lude.Maybe Lude.DateTime,
-    -- | The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift> in the /Amazon Redshift Cluster Management Guide/ .
-    iamRole :: Lude.Maybe Lude.Text
+    scheduledActionDescription :: Core.Maybe Types.String,
+    -- | The name of the scheduled action.
+    scheduledActionName :: Core.Maybe Types.String,
+    -- | The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.
+    startTime :: Core.Maybe Core.UTCTime,
+    -- | The state of the scheduled action. For example, @DISABLED@ .
+    state :: Core.Maybe Types.ScheduledActionState,
+    -- | A JSON format string of the Amazon Redshift API operation with input parameters.
+    --
+    -- "@{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}@ ".
+    targetAction :: Core.Maybe Types.ScheduledActionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ScheduledAction' with the minimum fields required to make a request.
---
--- * 'state' - The state of the scheduled action. For example, @DISABLED@ .
--- * 'targetAction' - A JSON format string of the Amazon Redshift API operation with input parameters.
---
--- "@{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}@ ".
--- * 'startTime' - The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.
--- * 'schedule' - The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.
---
--- Format of at expressions is "@at(yyyy-mm-ddThh:mm:ss)@ ". For example, "@at(2016-03-04T17:27:00)@ ".
--- Format of cron expressions is "@cron(Minutes Hours Day-of-month Month Day-of-week Year)@ ". For example, "@cron(0 10 ? * MON *)@ ". For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions> in the /Amazon CloudWatch Events User Guide/ .
--- * 'scheduledActionName' - The name of the scheduled action.
--- * 'scheduledActionDescription' - The description of the scheduled action.
--- * 'nextInvocations' - List of times when the scheduled action will run.
--- * 'endTime' - The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.
--- * 'iamRole' - The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift> in the /Amazon Redshift Cluster Management Guide/ .
+-- | Creates a 'ScheduledAction' value with any optional fields omitted.
 mkScheduledAction ::
   ScheduledAction
 mkScheduledAction =
   ScheduledAction'
-    { state = Lude.Nothing,
-      targetAction = Lude.Nothing,
-      startTime = Lude.Nothing,
-      schedule = Lude.Nothing,
-      scheduledActionName = Lude.Nothing,
-      scheduledActionDescription = Lude.Nothing,
-      nextInvocations = Lude.Nothing,
-      endTime = Lude.Nothing,
-      iamRole = Lude.Nothing
+    { endTime = Core.Nothing,
+      iamRole = Core.Nothing,
+      nextInvocations = Core.Nothing,
+      schedule = Core.Nothing,
+      scheduledActionDescription = Core.Nothing,
+      scheduledActionName = Core.Nothing,
+      startTime = Core.Nothing,
+      state = Core.Nothing,
+      targetAction = Core.Nothing
     }
 
--- | The state of the scheduled action. For example, @DISABLED@ .
+-- | The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.
 --
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saState :: Lens.Lens' ScheduledAction (Lude.Maybe ScheduledActionState)
-saState = Lens.lens (state :: ScheduledAction -> Lude.Maybe ScheduledActionState) (\s a -> s {state = a} :: ScheduledAction)
-{-# DEPRECATED saState "Use generic-lens or generic-optics with 'state' instead." #-}
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saEndTime :: Lens.Lens' ScheduledAction (Core.Maybe Core.UTCTime)
+saEndTime = Lens.field @"endTime"
+{-# DEPRECATED saEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
--- | A JSON format string of the Amazon Redshift API operation with input parameters.
+-- | The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift> in the /Amazon Redshift Cluster Management Guide/ .
 --
--- "@{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}@ ".
---
--- /Note:/ Consider using 'targetAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saTargetAction :: Lens.Lens' ScheduledAction (Lude.Maybe ScheduledActionType)
-saTargetAction = Lens.lens (targetAction :: ScheduledAction -> Lude.Maybe ScheduledActionType) (\s a -> s {targetAction = a} :: ScheduledAction)
-{-# DEPRECATED saTargetAction "Use generic-lens or generic-optics with 'targetAction' instead." #-}
+-- /Note:/ Consider using 'iamRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saIamRole :: Lens.Lens' ScheduledAction (Core.Maybe Types.String)
+saIamRole = Lens.field @"iamRole"
+{-# DEPRECATED saIamRole "Use generic-lens or generic-optics with 'iamRole' instead." #-}
 
--- | The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.
+-- | List of times when the scheduled action will run.
 --
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saStartTime :: Lens.Lens' ScheduledAction (Lude.Maybe Lude.DateTime)
-saStartTime = Lens.lens (startTime :: ScheduledAction -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: ScheduledAction)
-{-# DEPRECATED saStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+-- /Note:/ Consider using 'nextInvocations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saNextInvocations :: Lens.Lens' ScheduledAction (Core.Maybe [Core.UTCTime])
+saNextInvocations = Lens.field @"nextInvocations"
+{-# DEPRECATED saNextInvocations "Use generic-lens or generic-optics with 'nextInvocations' instead." #-}
 
 -- | The schedule for a one-time (at format) or recurring (cron format) scheduled action. Schedule invocations must be separated by at least one hour.
 --
@@ -126,56 +110,58 @@ saStartTime = Lens.lens (startTime :: ScheduledAction -> Lude.Maybe Lude.DateTim
 -- Format of cron expressions is "@cron(Minutes Hours Day-of-month Month Day-of-week Year)@ ". For example, "@cron(0 10 ? * MON *)@ ". For more information, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions Cron Expressions> in the /Amazon CloudWatch Events User Guide/ .
 --
 -- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saSchedule :: Lens.Lens' ScheduledAction (Lude.Maybe Lude.Text)
-saSchedule = Lens.lens (schedule :: ScheduledAction -> Lude.Maybe Lude.Text) (\s a -> s {schedule = a} :: ScheduledAction)
+saSchedule :: Lens.Lens' ScheduledAction (Core.Maybe Types.String)
+saSchedule = Lens.field @"schedule"
 {-# DEPRECATED saSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
-
--- | The name of the scheduled action.
---
--- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saScheduledActionName :: Lens.Lens' ScheduledAction (Lude.Maybe Lude.Text)
-saScheduledActionName = Lens.lens (scheduledActionName :: ScheduledAction -> Lude.Maybe Lude.Text) (\s a -> s {scheduledActionName = a} :: ScheduledAction)
-{-# DEPRECATED saScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
 
 -- | The description of the scheduled action.
 --
 -- /Note:/ Consider using 'scheduledActionDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saScheduledActionDescription :: Lens.Lens' ScheduledAction (Lude.Maybe Lude.Text)
-saScheduledActionDescription = Lens.lens (scheduledActionDescription :: ScheduledAction -> Lude.Maybe Lude.Text) (\s a -> s {scheduledActionDescription = a} :: ScheduledAction)
+saScheduledActionDescription :: Lens.Lens' ScheduledAction (Core.Maybe Types.String)
+saScheduledActionDescription = Lens.field @"scheduledActionDescription"
 {-# DEPRECATED saScheduledActionDescription "Use generic-lens or generic-optics with 'scheduledActionDescription' instead." #-}
 
--- | List of times when the scheduled action will run.
+-- | The name of the scheduled action.
 --
--- /Note:/ Consider using 'nextInvocations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saNextInvocations :: Lens.Lens' ScheduledAction (Lude.Maybe [Lude.DateTime])
-saNextInvocations = Lens.lens (nextInvocations :: ScheduledAction -> Lude.Maybe [Lude.DateTime]) (\s a -> s {nextInvocations = a} :: ScheduledAction)
-{-# DEPRECATED saNextInvocations "Use generic-lens or generic-optics with 'nextInvocations' instead." #-}
+-- /Note:/ Consider using 'scheduledActionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saScheduledActionName :: Lens.Lens' ScheduledAction (Core.Maybe Types.String)
+saScheduledActionName = Lens.field @"scheduledActionName"
+{-# DEPRECATED saScheduledActionName "Use generic-lens or generic-optics with 'scheduledActionName' instead." #-}
 
--- | The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger.
+-- | The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger.
 --
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saEndTime :: Lens.Lens' ScheduledAction (Lude.Maybe Lude.DateTime)
-saEndTime = Lens.lens (endTime :: ScheduledAction -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: ScheduledAction)
-{-# DEPRECATED saEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saStartTime :: Lens.Lens' ScheduledAction (Core.Maybe Core.UTCTime)
+saStartTime = Lens.field @"startTime"
+{-# DEPRECATED saStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
--- | The IAM role to assume to run the scheduled action. This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action. This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf. For more information about the IAM role to use with the Amazon Redshift scheduler, see <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-identity-based.html Using Identity-Based Policies for Amazon Redshift> in the /Amazon Redshift Cluster Management Guide/ .
+-- | The state of the scheduled action. For example, @DISABLED@ .
 --
--- /Note:/ Consider using 'iamRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saIAMRole :: Lens.Lens' ScheduledAction (Lude.Maybe Lude.Text)
-saIAMRole = Lens.lens (iamRole :: ScheduledAction -> Lude.Maybe Lude.Text) (\s a -> s {iamRole = a} :: ScheduledAction)
-{-# DEPRECATED saIAMRole "Use generic-lens or generic-optics with 'iamRole' instead." #-}
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saState :: Lens.Lens' ScheduledAction (Core.Maybe Types.ScheduledActionState)
+saState = Lens.field @"state"
+{-# DEPRECATED saState "Use generic-lens or generic-optics with 'state' instead." #-}
 
-instance Lude.FromXML ScheduledAction where
+-- | A JSON format string of the Amazon Redshift API operation with input parameters.
+--
+-- "@{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}@ ".
+--
+-- /Note:/ Consider using 'targetAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saTargetAction :: Lens.Lens' ScheduledAction (Core.Maybe Types.ScheduledActionType)
+saTargetAction = Lens.field @"targetAction"
+{-# DEPRECATED saTargetAction "Use generic-lens or generic-optics with 'targetAction' instead." #-}
+
+instance Core.FromXML ScheduledAction where
   parseXML x =
     ScheduledAction'
-      Lude.<$> (x Lude..@? "State")
-      Lude.<*> (x Lude..@? "TargetAction")
-      Lude.<*> (x Lude..@? "StartTime")
-      Lude.<*> (x Lude..@? "Schedule")
-      Lude.<*> (x Lude..@? "ScheduledActionName")
-      Lude.<*> (x Lude..@? "ScheduledActionDescription")
-      Lude.<*> ( x Lude..@? "NextInvocations" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "ScheduledActionTime")
+      Core.<$> (x Core..@? "EndTime")
+      Core.<*> (x Core..@? "IamRole")
+      Core.<*> ( x Core..@? "NextInvocations"
+                   Core..<@> Core.parseXMLList "ScheduledActionTime"
                )
-      Lude.<*> (x Lude..@? "EndTime")
-      Lude.<*> (x Lude..@? "IamRole")
+      Core.<*> (x Core..@? "Schedule")
+      Core.<*> (x Core..@? "ScheduledActionDescription")
+      Core.<*> (x Core..@? "ScheduledActionName")
+      Core.<*> (x Core..@? "StartTime")
+      Core.<*> (x Core..@? "State")
+      Core.<*> (x Core..@? "TargetAction")

@@ -22,33 +22,31 @@ module Network.AWS.Pinpoint.Types.EndpointBatchRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.EndpointBatchItem
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.EndpointBatchItem as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a batch of endpoints to create or update and the settings and attributes to set or change for each endpoint.
 --
 -- /See:/ 'mkEndpointBatchRequest' smart constructor.
 newtype EndpointBatchRequest = EndpointBatchRequest'
   { -- | An array that defines the endpoints to create or update and, for each endpoint, the property values to set or change. An array can contain a maximum of 100 items.
-    item :: [EndpointBatchItem]
+    item :: [Types.EndpointBatchItem]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndpointBatchRequest' with the minimum fields required to make a request.
---
--- * 'item' - An array that defines the endpoints to create or update and, for each endpoint, the property values to set or change. An array can contain a maximum of 100 items.
+-- | Creates a 'EndpointBatchRequest' value with any optional fields omitted.
 mkEndpointBatchRequest ::
   EndpointBatchRequest
-mkEndpointBatchRequest = EndpointBatchRequest' {item = Lude.mempty}
+mkEndpointBatchRequest = EndpointBatchRequest' {item = Core.mempty}
 
 -- | An array that defines the endpoints to create or update and, for each endpoint, the property values to set or change. An array can contain a maximum of 100 items.
 --
 -- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ebrItem :: Lens.Lens' EndpointBatchRequest [EndpointBatchItem]
-ebrItem = Lens.lens (item :: EndpointBatchRequest -> [EndpointBatchItem]) (\s a -> s {item = a} :: EndpointBatchRequest)
+ebrItem :: Lens.Lens' EndpointBatchRequest [Types.EndpointBatchItem]
+ebrItem = Lens.field @"item"
 {-# DEPRECATED ebrItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance Lude.ToJSON EndpointBatchRequest where
-  toJSON EndpointBatchRequest' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Item" Lude..= item)])
+instance Core.FromJSON EndpointBatchRequest where
+  toJSON EndpointBatchRequest {..} =
+    Core.object (Core.catMaybes [Core.Just ("Item" Core..= item)])

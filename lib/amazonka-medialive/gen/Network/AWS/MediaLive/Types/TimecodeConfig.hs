@@ -23,8 +23,8 @@ module Network.AWS.MediaLive.Types.TimecodeConfig
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.TimecodeConfigSource
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.TimecodeConfigSource as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Timecode Config
 --
@@ -35,27 +35,20 @@ data TimecodeConfig = TimecodeConfig'
     -- -Embedded (embedded): Initialize the output timecode with timecode from the the source.  If no embedded timecode is detected in the source, the system falls back to using "Start at 0" (zerobased).
     -- -System Clock (systemclock): Use the UTC time.
     -- -Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00.
-    source :: TimecodeConfigSource,
+    source :: Types.TimecodeConfigSource,
     -- | Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
-    syncThreshold :: Lude.Maybe Lude.Natural
+    syncThreshold :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TimecodeConfig' with the minimum fields required to make a request.
---
--- * 'source' - Identifies the source for the timecode that will be associated with the events outputs.
---
--- -Embedded (embedded): Initialize the output timecode with timecode from the the source.  If no embedded timecode is detected in the source, the system falls back to using "Start at 0" (zerobased).
--- -System Clock (systemclock): Use the UTC time.
--- -Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00.
--- * 'syncThreshold' - Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
+-- | Creates a 'TimecodeConfig' value with any optional fields omitted.
 mkTimecodeConfig ::
   -- | 'source'
-  TimecodeConfigSource ->
+  Types.TimecodeConfigSource ->
   TimecodeConfig
-mkTimecodeConfig pSource_ =
-  TimecodeConfig' {source = pSource_, syncThreshold = Lude.Nothing}
+mkTimecodeConfig source =
+  TimecodeConfig' {source, syncThreshold = Core.Nothing}
 
 -- | Identifies the source for the timecode that will be associated with the events outputs.
 --
@@ -64,31 +57,29 @@ mkTimecodeConfig pSource_ =
 -- -Start at 0 (zerobased): The time of the first frame of the event will be 00:00:00:00.
 --
 -- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcSource :: Lens.Lens' TimecodeConfig TimecodeConfigSource
-tcSource = Lens.lens (source :: TimecodeConfig -> TimecodeConfigSource) (\s a -> s {source = a} :: TimecodeConfig)
+tcSource :: Lens.Lens' TimecodeConfig Types.TimecodeConfigSource
+tcSource = Lens.field @"source"
 {-# DEPRECATED tcSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | Threshold in frames beyond which output timecode is resynchronized to the input timecode. Discrepancies below this threshold are permitted to avoid unnecessary discontinuities in the output timecode. No timecode sync when this is not specified.
 --
 -- /Note:/ Consider using 'syncThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcSyncThreshold :: Lens.Lens' TimecodeConfig (Lude.Maybe Lude.Natural)
-tcSyncThreshold = Lens.lens (syncThreshold :: TimecodeConfig -> Lude.Maybe Lude.Natural) (\s a -> s {syncThreshold = a} :: TimecodeConfig)
+tcSyncThreshold :: Lens.Lens' TimecodeConfig (Core.Maybe Core.Natural)
+tcSyncThreshold = Lens.field @"syncThreshold"
 {-# DEPRECATED tcSyncThreshold "Use generic-lens or generic-optics with 'syncThreshold' instead." #-}
 
-instance Lude.FromJSON TimecodeConfig where
-  parseJSON =
-    Lude.withObject
-      "TimecodeConfig"
-      ( \x ->
-          TimecodeConfig'
-            Lude.<$> (x Lude..: "source") Lude.<*> (x Lude..:? "syncThreshold")
-      )
-
-instance Lude.ToJSON TimecodeConfig where
-  toJSON TimecodeConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("source" Lude..= source),
-            ("syncThreshold" Lude..=) Lude.<$> syncThreshold
+instance Core.FromJSON TimecodeConfig where
+  toJSON TimecodeConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("source" Core..= source),
+            ("syncThreshold" Core..=) Core.<$> syncThreshold
           ]
       )
+
+instance Core.FromJSON TimecodeConfig where
+  parseJSON =
+    Core.withObject "TimecodeConfig" Core.$
+      \x ->
+        TimecodeConfig'
+          Core.<$> (x Core..: "source") Core.<*> (x Core..:? "syncThreshold")

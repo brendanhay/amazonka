@@ -17,13 +17,15 @@ module Network.AWS.IAM.Types.PolicyUser
     mkPolicyUser,
 
     -- * Lenses
-    puUserName,
     puUserId,
+    puUserName,
   )
 where
 
+import qualified Network.AWS.IAM.Types.IdType as Types
+import qualified Network.AWS.IAM.Types.UserNameType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a user that a managed policy is attached to.
 --
@@ -32,38 +34,35 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyUser' smart constructor.
 data PolicyUser = PolicyUser'
-  { -- | The name (friendly name, not ARN) identifying the user.
-    userName :: Lude.Maybe Lude.Text,
-    -- | The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
-    userId :: Lude.Maybe Lude.Text
+  { -- | The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+    userId :: Core.Maybe Types.IdType,
+    -- | The name (friendly name, not ARN) identifying the user.
+    userName :: Core.Maybe Types.UserNameType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PolicyUser' with the minimum fields required to make a request.
---
--- * 'userName' - The name (friendly name, not ARN) identifying the user.
--- * 'userId' - The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
+-- | Creates a 'PolicyUser' value with any optional fields omitted.
 mkPolicyUser ::
   PolicyUser
 mkPolicyUser =
-  PolicyUser' {userName = Lude.Nothing, userId = Lude.Nothing}
-
--- | The name (friendly name, not ARN) identifying the user.
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-puUserName :: Lens.Lens' PolicyUser (Lude.Maybe Lude.Text)
-puUserName = Lens.lens (userName :: PolicyUser -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: PolicyUser)
-{-# DEPRECATED puUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+  PolicyUser' {userId = Core.Nothing, userName = Core.Nothing}
 
 -- | The stable and unique string identifying the user. For more information about IDs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-puUserId :: Lens.Lens' PolicyUser (Lude.Maybe Lude.Text)
-puUserId = Lens.lens (userId :: PolicyUser -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: PolicyUser)
+puUserId :: Lens.Lens' PolicyUser (Core.Maybe Types.IdType)
+puUserId = Lens.field @"userId"
 {-# DEPRECATED puUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.FromXML PolicyUser where
+-- | The name (friendly name, not ARN) identifying the user.
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+puUserName :: Lens.Lens' PolicyUser (Core.Maybe Types.UserNameType)
+puUserName = Lens.field @"userName"
+{-# DEPRECATED puUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+instance Core.FromXML PolicyUser where
   parseXML x =
     PolicyUser'
-      Lude.<$> (x Lude..@? "UserName") Lude.<*> (x Lude..@? "UserId")
+      Core.<$> (x Core..@? "UserId") Core.<*> (x Core..@? "UserName")

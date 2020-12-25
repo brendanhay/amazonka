@@ -17,92 +17,84 @@ module Network.AWS.CostExplorer.Types.SavingsPlansUtilizationByTime
     mkSavingsPlansUtilizationByTime,
 
     -- * Lenses
-    spubtAmortizedCommitment,
     spubtTimePeriod,
-    spubtSavings,
     spubtUtilization,
+    spubtAmortizedCommitment,
+    spubtSavings,
   )
 where
 
-import Network.AWS.CostExplorer.Types.DateInterval
-import Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment
-import Network.AWS.CostExplorer.Types.SavingsPlansSavings
-import Network.AWS.CostExplorer.Types.SavingsPlansUtilization
+import qualified Network.AWS.CostExplorer.Types.DateInterval as Types
+import qualified Network.AWS.CostExplorer.Types.SavingsPlansAmortizedCommitment as Types
+import qualified Network.AWS.CostExplorer.Types.SavingsPlansSavings as Types
+import qualified Network.AWS.CostExplorer.Types.SavingsPlansUtilization as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The amount of Savings Plans utilization, in hours.
 --
 -- /See:/ 'mkSavingsPlansUtilizationByTime' smart constructor.
 data SavingsPlansUtilizationByTime = SavingsPlansUtilizationByTime'
-  { -- | The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.
-    amortizedCommitment :: Lude.Maybe SavingsPlansAmortizedCommitment,
-    timePeriod :: DateInterval,
-    -- | The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans as well as the @onDemandCostEquivalent@ of the Savings Plans when considering the utilization rate.
-    savings :: Lude.Maybe SavingsPlansSavings,
+  { timePeriod :: Types.DateInterval,
     -- | A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.
-    utilization :: SavingsPlansUtilization
+    utilization :: Types.SavingsPlansUtilization,
+    -- | The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.
+    amortizedCommitment :: Core.Maybe Types.SavingsPlansAmortizedCommitment,
+    -- | The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans as well as the @onDemandCostEquivalent@ of the Savings Plans when considering the utilization rate.
+    savings :: Core.Maybe Types.SavingsPlansSavings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SavingsPlansUtilizationByTime' with the minimum fields required to make a request.
---
--- * 'amortizedCommitment' - The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.
--- * 'timePeriod' -
--- * 'savings' - The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans as well as the @onDemandCostEquivalent@ of the Savings Plans when considering the utilization rate.
--- * 'utilization' - A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.
+-- | Creates a 'SavingsPlansUtilizationByTime' value with any optional fields omitted.
 mkSavingsPlansUtilizationByTime ::
   -- | 'timePeriod'
-  DateInterval ->
+  Types.DateInterval ->
   -- | 'utilization'
-  SavingsPlansUtilization ->
+  Types.SavingsPlansUtilization ->
   SavingsPlansUtilizationByTime
-mkSavingsPlansUtilizationByTime pTimePeriod_ pUtilization_ =
+mkSavingsPlansUtilizationByTime timePeriod utilization =
   SavingsPlansUtilizationByTime'
-    { amortizedCommitment =
-        Lude.Nothing,
-      timePeriod = pTimePeriod_,
-      savings = Lude.Nothing,
-      utilization = pUtilization_
+    { timePeriod,
+      utilization,
+      amortizedCommitment = Core.Nothing,
+      savings = Core.Nothing
     }
-
--- | The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.
---
--- /Note:/ Consider using 'amortizedCommitment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spubtAmortizedCommitment :: Lens.Lens' SavingsPlansUtilizationByTime (Lude.Maybe SavingsPlansAmortizedCommitment)
-spubtAmortizedCommitment = Lens.lens (amortizedCommitment :: SavingsPlansUtilizationByTime -> Lude.Maybe SavingsPlansAmortizedCommitment) (\s a -> s {amortizedCommitment = a} :: SavingsPlansUtilizationByTime)
-{-# DEPRECATED spubtAmortizedCommitment "Use generic-lens or generic-optics with 'amortizedCommitment' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spubtTimePeriod :: Lens.Lens' SavingsPlansUtilizationByTime DateInterval
-spubtTimePeriod = Lens.lens (timePeriod :: SavingsPlansUtilizationByTime -> DateInterval) (\s a -> s {timePeriod = a} :: SavingsPlansUtilizationByTime)
+spubtTimePeriod :: Lens.Lens' SavingsPlansUtilizationByTime Types.DateInterval
+spubtTimePeriod = Lens.field @"timePeriod"
 {-# DEPRECATED spubtTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
-
--- | The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans as well as the @onDemandCostEquivalent@ of the Savings Plans when considering the utilization rate.
---
--- /Note:/ Consider using 'savings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spubtSavings :: Lens.Lens' SavingsPlansUtilizationByTime (Lude.Maybe SavingsPlansSavings)
-spubtSavings = Lens.lens (savings :: SavingsPlansUtilizationByTime -> Lude.Maybe SavingsPlansSavings) (\s a -> s {savings = a} :: SavingsPlansUtilizationByTime)
-{-# DEPRECATED spubtSavings "Use generic-lens or generic-optics with 'savings' instead." #-}
 
 -- | A ratio of your effectiveness of using existing Savings Plans to apply to workloads that are Savings Plans eligible.
 --
 -- /Note:/ Consider using 'utilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spubtUtilization :: Lens.Lens' SavingsPlansUtilizationByTime SavingsPlansUtilization
-spubtUtilization = Lens.lens (utilization :: SavingsPlansUtilizationByTime -> SavingsPlansUtilization) (\s a -> s {utilization = a} :: SavingsPlansUtilizationByTime)
+spubtUtilization :: Lens.Lens' SavingsPlansUtilizationByTime Types.SavingsPlansUtilization
+spubtUtilization = Lens.field @"utilization"
 {-# DEPRECATED spubtUtilization "Use generic-lens or generic-optics with 'utilization' instead." #-}
 
-instance Lude.FromJSON SavingsPlansUtilizationByTime where
+-- | The total amortized commitment for a Savings Plans. This includes the sum of the upfront and recurring Savings Plans fees.
+--
+-- /Note:/ Consider using 'amortizedCommitment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spubtAmortizedCommitment :: Lens.Lens' SavingsPlansUtilizationByTime (Core.Maybe Types.SavingsPlansAmortizedCommitment)
+spubtAmortizedCommitment = Lens.field @"amortizedCommitment"
+{-# DEPRECATED spubtAmortizedCommitment "Use generic-lens or generic-optics with 'amortizedCommitment' instead." #-}
+
+-- | The amount saved by using existing Savings Plans. Savings returns both net savings from Savings Plans as well as the @onDemandCostEquivalent@ of the Savings Plans when considering the utilization rate.
+--
+-- /Note:/ Consider using 'savings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spubtSavings :: Lens.Lens' SavingsPlansUtilizationByTime (Core.Maybe Types.SavingsPlansSavings)
+spubtSavings = Lens.field @"savings"
+{-# DEPRECATED spubtSavings "Use generic-lens or generic-optics with 'savings' instead." #-}
+
+instance Core.FromJSON SavingsPlansUtilizationByTime where
   parseJSON =
-    Lude.withObject
-      "SavingsPlansUtilizationByTime"
-      ( \x ->
-          SavingsPlansUtilizationByTime'
-            Lude.<$> (x Lude..:? "AmortizedCommitment")
-            Lude.<*> (x Lude..: "TimePeriod")
-            Lude.<*> (x Lude..:? "Savings")
-            Lude.<*> (x Lude..: "Utilization")
-      )
+    Core.withObject "SavingsPlansUtilizationByTime" Core.$
+      \x ->
+        SavingsPlansUtilizationByTime'
+          Core.<$> (x Core..: "TimePeriod")
+          Core.<*> (x Core..: "Utilization")
+          Core.<*> (x Core..:? "AmortizedCommitment")
+          Core.<*> (x Core..:? "Savings")

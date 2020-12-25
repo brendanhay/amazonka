@@ -22,137 +22,129 @@ module Network.AWS.CloudFront.ListDistributionsByOriginRequestPolicyId
     mkListDistributionsByOriginRequestPolicyId,
 
     -- ** Request lenses
+    ldborpiOriginRequestPolicyId,
     ldborpiMarker,
     ldborpiMaxItems,
-    ldborpiOriginRequestPolicyId,
 
     -- * Destructuring the response
     ListDistributionsByOriginRequestPolicyIdResponse (..),
     mkListDistributionsByOriginRequestPolicyIdResponse,
 
     -- ** Response lenses
-    ldborpirsDistributionIdList,
-    ldborpirsResponseStatus,
+    ldborpirrsDistributionIdList,
+    ldborpirrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDistributionsByOriginRequestPolicyId' smart constructor.
 data ListDistributionsByOriginRequestPolicyId = ListDistributionsByOriginRequestPolicyId'
-  { -- | Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The ID of the origin request policy whose associated distribution IDs you want to list.
+    originRequestPolicyId :: Types.String,
+    -- | Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of distribution IDs that you want in the response.
-    maxItems :: Lude.Maybe Lude.Text,
-    -- | The ID of the origin request policy whose associated distribution IDs you want to list.
-    originRequestPolicyId :: Lude.Text
+    maxItems :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDistributionsByOriginRequestPolicyId' with the minimum fields required to make a request.
---
--- * 'marker' - Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
--- * 'maxItems' - The maximum number of distribution IDs that you want in the response.
--- * 'originRequestPolicyId' - The ID of the origin request policy whose associated distribution IDs you want to list.
+-- | Creates a 'ListDistributionsByOriginRequestPolicyId' value with any optional fields omitted.
 mkListDistributionsByOriginRequestPolicyId ::
   -- | 'originRequestPolicyId'
-  Lude.Text ->
+  Types.String ->
   ListDistributionsByOriginRequestPolicyId
-mkListDistributionsByOriginRequestPolicyId pOriginRequestPolicyId_ =
+mkListDistributionsByOriginRequestPolicyId originRequestPolicyId =
   ListDistributionsByOriginRequestPolicyId'
-    { marker = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      originRequestPolicyId = pOriginRequestPolicyId_
+    { originRequestPolicyId,
+      marker = Core.Nothing,
+      maxItems = Core.Nothing
     }
+
+-- | The ID of the origin request policy whose associated distribution IDs you want to list.
+--
+-- /Note:/ Consider using 'originRequestPolicyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldborpiOriginRequestPolicyId :: Lens.Lens' ListDistributionsByOriginRequestPolicyId Types.String
+ldborpiOriginRequestPolicyId = Lens.field @"originRequestPolicyId"
+{-# DEPRECATED ldborpiOriginRequestPolicyId "Use generic-lens or generic-optics with 'originRequestPolicyId' instead." #-}
 
 -- | Use this field when paginating results to indicate where to begin in your list of distribution IDs. The response includes distribution IDs in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldborpiMarker :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Lude.Maybe Lude.Text)
-ldborpiMarker = Lens.lens (marker :: ListDistributionsByOriginRequestPolicyId -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListDistributionsByOriginRequestPolicyId)
+ldborpiMarker :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Core.Maybe Types.String)
+ldborpiMarker = Lens.field @"marker"
 {-# DEPRECATED ldborpiMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of distribution IDs that you want in the response.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldborpiMaxItems :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Lude.Maybe Lude.Text)
-ldborpiMaxItems = Lens.lens (maxItems :: ListDistributionsByOriginRequestPolicyId -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListDistributionsByOriginRequestPolicyId)
+ldborpiMaxItems :: Lens.Lens' ListDistributionsByOriginRequestPolicyId (Core.Maybe Types.String)
+ldborpiMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED ldborpiMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | The ID of the origin request policy whose associated distribution IDs you want to list.
---
--- /Note:/ Consider using 'originRequestPolicyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldborpiOriginRequestPolicyId :: Lens.Lens' ListDistributionsByOriginRequestPolicyId Lude.Text
-ldborpiOriginRequestPolicyId = Lens.lens (originRequestPolicyId :: ListDistributionsByOriginRequestPolicyId -> Lude.Text) (\s a -> s {originRequestPolicyId = a} :: ListDistributionsByOriginRequestPolicyId)
-{-# DEPRECATED ldborpiOriginRequestPolicyId "Use generic-lens or generic-optics with 'originRequestPolicyId' instead." #-}
-
-instance Lude.AWSRequest ListDistributionsByOriginRequestPolicyId where
+instance Core.AWSRequest ListDistributionsByOriginRequestPolicyId where
   type
     Rs ListDistributionsByOriginRequestPolicyId =
       ListDistributionsByOriginRequestPolicyIdResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-05-31/distributionsByOriginRequestPolicyId/"
+                Core.<> (Core.toText originRequestPolicyId)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "Marker" Core.<$> marker
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListDistributionsByOriginRequestPolicyIdResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListDistributionsByOriginRequestPolicyId where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListDistributionsByOriginRequestPolicyId where
-  toPath ListDistributionsByOriginRequestPolicyId' {..} =
-    Lude.mconcat
-      [ "/2020-05-31/distributionsByOriginRequestPolicyId/",
-        Lude.toBS originRequestPolicyId
-      ]
-
-instance Lude.ToQuery ListDistributionsByOriginRequestPolicyId where
-  toQuery ListDistributionsByOriginRequestPolicyId' {..} =
-    Lude.mconcat
-      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
 -- | /See:/ 'mkListDistributionsByOriginRequestPolicyIdResponse' smart constructor.
 data ListDistributionsByOriginRequestPolicyIdResponse = ListDistributionsByOriginRequestPolicyIdResponse'
   { -- | A list of distribution IDs.
-    distributionIdList :: Lude.Maybe DistributionIdList,
+    distributionIdList :: Core.Maybe Types.DistributionIdList,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDistributionsByOriginRequestPolicyIdResponse' with the minimum fields required to make a request.
---
--- * 'distributionIdList' - A list of distribution IDs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDistributionsByOriginRequestPolicyIdResponse' value with any optional fields omitted.
 mkListDistributionsByOriginRequestPolicyIdResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDistributionsByOriginRequestPolicyIdResponse
-mkListDistributionsByOriginRequestPolicyIdResponse pResponseStatus_ =
+mkListDistributionsByOriginRequestPolicyIdResponse responseStatus =
   ListDistributionsByOriginRequestPolicyIdResponse'
     { distributionIdList =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of distribution IDs.
 --
 -- /Note:/ Consider using 'distributionIdList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldborpirsDistributionIdList :: Lens.Lens' ListDistributionsByOriginRequestPolicyIdResponse (Lude.Maybe DistributionIdList)
-ldborpirsDistributionIdList = Lens.lens (distributionIdList :: ListDistributionsByOriginRequestPolicyIdResponse -> Lude.Maybe DistributionIdList) (\s a -> s {distributionIdList = a} :: ListDistributionsByOriginRequestPolicyIdResponse)
-{-# DEPRECATED ldborpirsDistributionIdList "Use generic-lens or generic-optics with 'distributionIdList' instead." #-}
+ldborpirrsDistributionIdList :: Lens.Lens' ListDistributionsByOriginRequestPolicyIdResponse (Core.Maybe Types.DistributionIdList)
+ldborpirrsDistributionIdList = Lens.field @"distributionIdList"
+{-# DEPRECATED ldborpirrsDistributionIdList "Use generic-lens or generic-optics with 'distributionIdList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldborpirsResponseStatus :: Lens.Lens' ListDistributionsByOriginRequestPolicyIdResponse Lude.Int
-ldborpirsResponseStatus = Lens.lens (responseStatus :: ListDistributionsByOriginRequestPolicyIdResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDistributionsByOriginRequestPolicyIdResponse)
-{-# DEPRECATED ldborpirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldborpirrsResponseStatus :: Lens.Lens' ListDistributionsByOriginRequestPolicyIdResponse Core.Int
+ldborpirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldborpirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

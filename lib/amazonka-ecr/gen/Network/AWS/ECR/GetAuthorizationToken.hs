@@ -29,109 +29,98 @@ module Network.AWS.ECR.GetAuthorizationToken
     mkGetAuthorizationTokenResponse,
 
     -- ** Response lenses
-    gatrsAuthorizationData,
-    gatrsResponseStatus,
+    gatrrsAuthorizationData,
+    gatrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECR.Types
+import qualified Network.AWS.ECR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetAuthorizationToken' smart constructor.
 newtype GetAuthorizationToken = GetAuthorizationToken'
   { -- | A list of AWS account IDs that are associated with the registries for which to get AuthorizationData objects. If you do not specify a registry, the default registry is assumed.
-    registryIds :: Lude.Maybe (Lude.NonEmpty Lude.Text)
+    registryIds :: Core.Maybe (Core.NonEmpty Types.RegistryId)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAuthorizationToken' with the minimum fields required to make a request.
---
--- * 'registryIds' - A list of AWS account IDs that are associated with the registries for which to get AuthorizationData objects. If you do not specify a registry, the default registry is assumed.
+-- | Creates a 'GetAuthorizationToken' value with any optional fields omitted.
 mkGetAuthorizationToken ::
   GetAuthorizationToken
 mkGetAuthorizationToken =
-  GetAuthorizationToken' {registryIds = Lude.Nothing}
+  GetAuthorizationToken' {registryIds = Core.Nothing}
 
 -- | A list of AWS account IDs that are associated with the registries for which to get AuthorizationData objects. If you do not specify a registry, the default registry is assumed.
 --
 -- /Note:/ Consider using 'registryIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gatRegistryIds :: Lens.Lens' GetAuthorizationToken (Lude.Maybe (Lude.NonEmpty Lude.Text))
-gatRegistryIds = Lens.lens (registryIds :: GetAuthorizationToken -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {registryIds = a} :: GetAuthorizationToken)
+gatRegistryIds :: Lens.Lens' GetAuthorizationToken (Core.Maybe (Core.NonEmpty Types.RegistryId))
+gatRegistryIds = Lens.field @"registryIds"
 {-# DEPRECATED gatRegistryIds "Use generic-lens or generic-optics with 'registryIds' instead." #-}
 
-instance Lude.AWSRequest GetAuthorizationToken where
+instance Core.FromJSON GetAuthorizationToken where
+  toJSON GetAuthorizationToken {..} =
+    Core.object
+      (Core.catMaybes [("registryIds" Core..=) Core.<$> registryIds])
+
+instance Core.AWSRequest GetAuthorizationToken where
   type Rs GetAuthorizationToken = GetAuthorizationTokenResponse
-  request = Req.postJSON ecrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetAuthorizationTokenResponse'
-            Lude.<$> (x Lude..?> "authorizationData" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "authorizationData")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetAuthorizationToken where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetAuthorizationToken where
-  toJSON GetAuthorizationToken' {..} =
-    Lude.object
-      (Lude.catMaybes [("registryIds" Lude..=) Lude.<$> registryIds])
-
-instance Lude.ToPath GetAuthorizationToken where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetAuthorizationToken where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetAuthorizationTokenResponse' smart constructor.
 data GetAuthorizationTokenResponse = GetAuthorizationTokenResponse'
   { -- | A list of authorization token data objects that correspond to the @registryIds@ values in the request.
-    authorizationData :: Lude.Maybe [AuthorizationData],
+    authorizationData :: Core.Maybe [Types.AuthorizationData],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetAuthorizationTokenResponse' with the minimum fields required to make a request.
---
--- * 'authorizationData' - A list of authorization token data objects that correspond to the @registryIds@ values in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAuthorizationTokenResponse' value with any optional fields omitted.
 mkGetAuthorizationTokenResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAuthorizationTokenResponse
-mkGetAuthorizationTokenResponse pResponseStatus_ =
+mkGetAuthorizationTokenResponse responseStatus =
   GetAuthorizationTokenResponse'
-    { authorizationData = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { authorizationData = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of authorization token data objects that correspond to the @registryIds@ values in the request.
 --
 -- /Note:/ Consider using 'authorizationData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gatrsAuthorizationData :: Lens.Lens' GetAuthorizationTokenResponse (Lude.Maybe [AuthorizationData])
-gatrsAuthorizationData = Lens.lens (authorizationData :: GetAuthorizationTokenResponse -> Lude.Maybe [AuthorizationData]) (\s a -> s {authorizationData = a} :: GetAuthorizationTokenResponse)
-{-# DEPRECATED gatrsAuthorizationData "Use generic-lens or generic-optics with 'authorizationData' instead." #-}
+gatrrsAuthorizationData :: Lens.Lens' GetAuthorizationTokenResponse (Core.Maybe [Types.AuthorizationData])
+gatrrsAuthorizationData = Lens.field @"authorizationData"
+{-# DEPRECATED gatrrsAuthorizationData "Use generic-lens or generic-optics with 'authorizationData' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gatrsResponseStatus :: Lens.Lens' GetAuthorizationTokenResponse Lude.Int
-gatrsResponseStatus = Lens.lens (responseStatus :: GetAuthorizationTokenResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAuthorizationTokenResponse)
-{-# DEPRECATED gatrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gatrrsResponseStatus :: Lens.Lens' GetAuthorizationTokenResponse Core.Int
+gatrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gatrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

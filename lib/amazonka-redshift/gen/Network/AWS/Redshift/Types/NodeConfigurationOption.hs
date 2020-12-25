@@ -17,82 +17,79 @@ module Network.AWS.Redshift.Types.NodeConfigurationOption
     mkNodeConfigurationOption,
 
     -- * Lenses
-    ncoMode,
-    ncoNumberOfNodes,
-    ncoNodeType,
     ncoEstimatedDiskUtilizationPercent,
+    ncoMode,
+    ncoNodeType,
+    ncoNumberOfNodes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.Mode
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.Mode as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | A list of node configurations.
 --
 -- /See:/ 'mkNodeConfigurationOption' smart constructor.
 data NodeConfigurationOption = NodeConfigurationOption'
-  { -- | The category of the node configuration recommendation.
-    mode :: Lude.Maybe Mode,
-    -- | The number of nodes.
-    numberOfNodes :: Lude.Maybe Lude.Int,
+  { -- | The estimated disk utilizaton percentage.
+    estimatedDiskUtilizationPercent :: Core.Maybe Core.Double,
+    -- | The category of the node configuration recommendation.
+    mode :: Core.Maybe Types.Mode,
     -- | The node type, such as, "ds2.8xlarge".
-    nodeType :: Lude.Maybe Lude.Text,
-    -- | The estimated disk utilizaton percentage.
-    estimatedDiskUtilizationPercent :: Lude.Maybe Lude.Double
+    nodeType :: Core.Maybe Types.String,
+    -- | The number of nodes.
+    numberOfNodes :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NodeConfigurationOption' with the minimum fields required to make a request.
---
--- * 'mode' - The category of the node configuration recommendation.
--- * 'numberOfNodes' - The number of nodes.
--- * 'nodeType' - The node type, such as, "ds2.8xlarge".
--- * 'estimatedDiskUtilizationPercent' - The estimated disk utilizaton percentage.
+-- | Creates a 'NodeConfigurationOption' value with any optional fields omitted.
 mkNodeConfigurationOption ::
   NodeConfigurationOption
 mkNodeConfigurationOption =
   NodeConfigurationOption'
-    { mode = Lude.Nothing,
-      numberOfNodes = Lude.Nothing,
-      nodeType = Lude.Nothing,
-      estimatedDiskUtilizationPercent = Lude.Nothing
+    { estimatedDiskUtilizationPercent =
+        Core.Nothing,
+      mode = Core.Nothing,
+      nodeType = Core.Nothing,
+      numberOfNodes = Core.Nothing
     }
-
--- | The category of the node configuration recommendation.
---
--- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncoMode :: Lens.Lens' NodeConfigurationOption (Lude.Maybe Mode)
-ncoMode = Lens.lens (mode :: NodeConfigurationOption -> Lude.Maybe Mode) (\s a -> s {mode = a} :: NodeConfigurationOption)
-{-# DEPRECATED ncoMode "Use generic-lens or generic-optics with 'mode' instead." #-}
-
--- | The number of nodes.
---
--- /Note:/ Consider using 'numberOfNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncoNumberOfNodes :: Lens.Lens' NodeConfigurationOption (Lude.Maybe Lude.Int)
-ncoNumberOfNodes = Lens.lens (numberOfNodes :: NodeConfigurationOption -> Lude.Maybe Lude.Int) (\s a -> s {numberOfNodes = a} :: NodeConfigurationOption)
-{-# DEPRECATED ncoNumberOfNodes "Use generic-lens or generic-optics with 'numberOfNodes' instead." #-}
-
--- | The node type, such as, "ds2.8xlarge".
---
--- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncoNodeType :: Lens.Lens' NodeConfigurationOption (Lude.Maybe Lude.Text)
-ncoNodeType = Lens.lens (nodeType :: NodeConfigurationOption -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: NodeConfigurationOption)
-{-# DEPRECATED ncoNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
 -- | The estimated disk utilizaton percentage.
 --
 -- /Note:/ Consider using 'estimatedDiskUtilizationPercent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncoEstimatedDiskUtilizationPercent :: Lens.Lens' NodeConfigurationOption (Lude.Maybe Lude.Double)
-ncoEstimatedDiskUtilizationPercent = Lens.lens (estimatedDiskUtilizationPercent :: NodeConfigurationOption -> Lude.Maybe Lude.Double) (\s a -> s {estimatedDiskUtilizationPercent = a} :: NodeConfigurationOption)
+ncoEstimatedDiskUtilizationPercent :: Lens.Lens' NodeConfigurationOption (Core.Maybe Core.Double)
+ncoEstimatedDiskUtilizationPercent = Lens.field @"estimatedDiskUtilizationPercent"
 {-# DEPRECATED ncoEstimatedDiskUtilizationPercent "Use generic-lens or generic-optics with 'estimatedDiskUtilizationPercent' instead." #-}
 
-instance Lude.FromXML NodeConfigurationOption where
+-- | The category of the node configuration recommendation.
+--
+-- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncoMode :: Lens.Lens' NodeConfigurationOption (Core.Maybe Types.Mode)
+ncoMode = Lens.field @"mode"
+{-# DEPRECATED ncoMode "Use generic-lens or generic-optics with 'mode' instead." #-}
+
+-- | The node type, such as, "ds2.8xlarge".
+--
+-- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncoNodeType :: Lens.Lens' NodeConfigurationOption (Core.Maybe Types.String)
+ncoNodeType = Lens.field @"nodeType"
+{-# DEPRECATED ncoNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
+
+-- | The number of nodes.
+--
+-- /Note:/ Consider using 'numberOfNodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncoNumberOfNodes :: Lens.Lens' NodeConfigurationOption (Core.Maybe Core.Int)
+ncoNumberOfNodes = Lens.field @"numberOfNodes"
+{-# DEPRECATED ncoNumberOfNodes "Use generic-lens or generic-optics with 'numberOfNodes' instead." #-}
+
+instance Core.FromXML NodeConfigurationOption where
   parseXML x =
     NodeConfigurationOption'
-      Lude.<$> (x Lude..@? "Mode")
-      Lude.<*> (x Lude..@? "NumberOfNodes")
-      Lude.<*> (x Lude..@? "NodeType")
-      Lude.<*> (x Lude..@? "EstimatedDiskUtilizationPercent")
+      Core.<$> (x Core..@? "EstimatedDiskUtilizationPercent")
+      Core.<*> (x Core..@? "Mode")
+      Core.<*> (x Core..@? "NodeType")
+      Core.<*> (x Core..@? "NumberOfNodes")

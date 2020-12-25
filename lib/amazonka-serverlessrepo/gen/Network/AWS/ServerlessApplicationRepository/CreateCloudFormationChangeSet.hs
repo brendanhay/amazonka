@@ -20,59 +20,45 @@ module Network.AWS.ServerlessApplicationRepository.CreateCloudFormationChangeSet
     mkCreateCloudFormationChangeSet,
 
     -- ** Request lenses
-    ccfcsClientToken,
-    ccfcsTemplateId,
-    ccfcsSemanticVersion,
-    ccfcsNotificationARNs,
-    ccfcsChangeSetName,
     ccfcsApplicationId,
-    ccfcsDescription,
-    ccfcsCapabilities,
-    ccfcsParameterOverrides,
-    ccfcsRollbackConfiguration,
-    ccfcsResourceTypes,
-    ccfcsTags,
     ccfcsStackName,
+    ccfcsCapabilities,
+    ccfcsChangeSetName,
+    ccfcsClientToken,
+    ccfcsDescription,
+    ccfcsNotificationArns,
+    ccfcsParameterOverrides,
+    ccfcsResourceTypes,
+    ccfcsRollbackConfiguration,
+    ccfcsSemanticVersion,
+    ccfcsTags,
+    ccfcsTemplateId,
 
     -- * Destructuring the response
     CreateCloudFormationChangeSetResponse (..),
     mkCreateCloudFormationChangeSetResponse,
 
     -- ** Response lenses
-    ccfcsrsSemanticVersion,
-    ccfcsrsChangeSetId,
-    ccfcsrsApplicationId,
-    ccfcsrsStackId,
-    ccfcsrsResponseStatus,
+    ccfcsrrsApplicationId,
+    ccfcsrrsChangeSetId,
+    ccfcsrrsSemanticVersion,
+    ccfcsrrsStackId,
+    ccfcsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServerlessApplicationRepository.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServerlessApplicationRepository.Types as Types
 
 -- | /See:/ 'mkCreateCloudFormationChangeSet' smart constructor.
 data CreateCloudFormationChangeSet = CreateCloudFormationChangeSet'
-  { -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | The UUID returned by CreateCloudFormationTemplate.
-    --
-    -- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
-    templateId :: Lude.Maybe Lude.Text,
-    -- | The semantic version of the application:
-    --
-    -- <https://semver.org/ https://semver.org/>
-    semanticVersion :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the application.
+    applicationId :: Core.Text,
     -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
-    notificationARNs :: Lude.Maybe [Lude.Text],
-    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
-    changeSetName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the application.
-    applicationId :: Lude.Text,
-    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
-    description :: Lude.Maybe Lude.Text,
+    stackName :: Core.Text,
     -- | A list of values that you must specify before you can deploy certain applications.
     --
     --  Some applications might include resources that can affect permissions in your AWS
@@ -102,143 +88,72 @@ data CreateCloudFormationChangeSet = CreateCloudFormationChangeSet'
     -- If your application template contains any of the above resources, we recommend that you review
     --  all permissions associated with the application before deploying. If you don't specify
     --  this parameter for an application that requires capabilities, the call will fail.
-    capabilities :: Lude.Maybe [Lude.Text],
+    capabilities :: Core.Maybe [Core.Text],
+    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+    changeSetName :: Core.Maybe Core.Text,
+    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+    clientToken :: Core.Maybe Core.Text,
+    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+    description :: Core.Maybe Core.Text,
+    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+    notificationArns :: Core.Maybe [Core.Text],
     -- | A list of parameter values for the parameters of the application.
-    parameterOverrides :: Lude.Maybe [ParameterValue],
+    parameterOverrides :: Core.Maybe [Types.ParameterValue],
     -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
-    rollbackConfiguration :: Lude.Maybe RollbackConfiguration,
+    resourceTypes :: Core.Maybe [Core.Text],
     -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
-    resourceTypes :: Lude.Maybe [Lude.Text],
+    rollbackConfiguration :: Core.Maybe Types.RollbackConfiguration,
+    -- | The semantic version of the application:
+    --
+    -- <https://semver.org/ https://semver.org/>
+    semanticVersion :: Core.Maybe Core.Text,
     -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
-    tags :: Lude.Maybe [Tag],
-    -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
-    stackName :: Lude.Text
+    tags :: Core.Maybe [Types.Tag],
+    -- | The UUID returned by CreateCloudFormationTemplate.
+    --
+    -- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
+    templateId :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCloudFormationChangeSet' with the minimum fields required to make a request.
---
--- * 'clientToken' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'templateId' - The UUID returned by CreateCloudFormationTemplate.
---
--- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
--- * 'semanticVersion' - The semantic version of the application:
---
--- <https://semver.org/ https://semver.org/>
--- * 'notificationARNs' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'changeSetName' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'applicationId' - The Amazon Resource Name (ARN) of the application.
--- * 'description' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'capabilities' - A list of values that you must specify before you can deploy certain applications.
---
---  Some applications might include resources that can affect permissions in your AWS
---  account, for example, by creating new AWS Identity and Access Management (IAM) users.
---  For those applications, you must explicitly acknowledge their capabilities by
---  specifying this parameter.
--- The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM,
---  CAPABILITY_RESOURCE_POLICY, and CAPABILITY_AUTO_EXPAND.
--- The following resources require you to specify CAPABILITY_IAM or
---  CAPABILITY_NAMED_IAM:
---  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group> ,
---  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile> ,
---  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM::Policy> , and
---  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role> .
---  If the application contains IAM resources, you can specify either CAPABILITY_IAM
---  or CAPABILITY_NAMED_IAM. If the application contains IAM resources
---  with custom names, you must specify CAPABILITY_NAMED_IAM.
--- The following resources require you to specify CAPABILITY_RESOURCE_POLICY:
---  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html AWS::Lambda::Permission> ,
---  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html AWS::IAM:Policy> ,
---  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html AWS::ApplicationAutoScaling::ScalingPolicy> ,
---  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html AWS::S3::BucketPolicy> ,
---  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html AWS::SQS::QueuePolicy> , and
---  <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html AWS::SNS:TopicPolicy> .
--- Applications that contain one or more nested applications require you to specify
---  CAPABILITY_AUTO_EXPAND.
--- If your application template contains any of the above resources, we recommend that you review
---  all permissions associated with the application before deploying. If you don't specify
---  this parameter for an application that requires capabilities, the call will fail.
--- * 'parameterOverrides' - A list of parameter values for the parameters of the application.
--- * 'rollbackConfiguration' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'resourceTypes' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'tags' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
--- * 'stackName' - This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+-- | Creates a 'CreateCloudFormationChangeSet' value with any optional fields omitted.
 mkCreateCloudFormationChangeSet ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'stackName'
-  Lude.Text ->
+  Core.Text ->
   CreateCloudFormationChangeSet
-mkCreateCloudFormationChangeSet pApplicationId_ pStackName_ =
+mkCreateCloudFormationChangeSet applicationId stackName =
   CreateCloudFormationChangeSet'
-    { clientToken = Lude.Nothing,
-      templateId = Lude.Nothing,
-      semanticVersion = Lude.Nothing,
-      notificationARNs = Lude.Nothing,
-      changeSetName = Lude.Nothing,
-      applicationId = pApplicationId_,
-      description = Lude.Nothing,
-      capabilities = Lude.Nothing,
-      parameterOverrides = Lude.Nothing,
-      rollbackConfiguration = Lude.Nothing,
-      resourceTypes = Lude.Nothing,
-      tags = Lude.Nothing,
-      stackName = pStackName_
+    { applicationId,
+      stackName,
+      capabilities = Core.Nothing,
+      changeSetName = Core.Nothing,
+      clientToken = Core.Nothing,
+      description = Core.Nothing,
+      notificationArns = Core.Nothing,
+      parameterOverrides = Core.Nothing,
+      resourceTypes = Core.Nothing,
+      rollbackConfiguration = Core.Nothing,
+      semanticVersion = Core.Nothing,
+      tags = Core.Nothing,
+      templateId = Core.Nothing
     }
-
--- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsClientToken :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe Lude.Text)
-ccfcsClientToken = Lens.lens (clientToken :: CreateCloudFormationChangeSet -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateCloudFormationChangeSet)
-{-# DEPRECATED ccfcsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The UUID returned by CreateCloudFormationTemplate.
---
--- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
---
--- /Note:/ Consider using 'templateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsTemplateId :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe Lude.Text)
-ccfcsTemplateId = Lens.lens (templateId :: CreateCloudFormationChangeSet -> Lude.Maybe Lude.Text) (\s a -> s {templateId = a} :: CreateCloudFormationChangeSet)
-{-# DEPRECATED ccfcsTemplateId "Use generic-lens or generic-optics with 'templateId' instead." #-}
-
--- | The semantic version of the application:
---
--- <https://semver.org/ https://semver.org/>
---
--- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsSemanticVersion :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe Lude.Text)
-ccfcsSemanticVersion = Lens.lens (semanticVersion :: CreateCloudFormationChangeSet -> Lude.Maybe Lude.Text) (\s a -> s {semanticVersion = a} :: CreateCloudFormationChangeSet)
-{-# DEPRECATED ccfcsSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
-
--- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
---
--- /Note:/ Consider using 'notificationARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsNotificationARNs :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe [Lude.Text])
-ccfcsNotificationARNs = Lens.lens (notificationARNs :: CreateCloudFormationChangeSet -> Lude.Maybe [Lude.Text]) (\s a -> s {notificationARNs = a} :: CreateCloudFormationChangeSet)
-{-# DEPRECATED ccfcsNotificationARNs "Use generic-lens or generic-optics with 'notificationARNs' instead." #-}
-
--- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
---
--- /Note:/ Consider using 'changeSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsChangeSetName :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe Lude.Text)
-ccfcsChangeSetName = Lens.lens (changeSetName :: CreateCloudFormationChangeSet -> Lude.Maybe Lude.Text) (\s a -> s {changeSetName = a} :: CreateCloudFormationChangeSet)
-{-# DEPRECATED ccfcsChangeSetName "Use generic-lens or generic-optics with 'changeSetName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the application.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsApplicationId :: Lens.Lens' CreateCloudFormationChangeSet Lude.Text
-ccfcsApplicationId = Lens.lens (applicationId :: CreateCloudFormationChangeSet -> Lude.Text) (\s a -> s {applicationId = a} :: CreateCloudFormationChangeSet)
+ccfcsApplicationId :: Lens.Lens' CreateCloudFormationChangeSet Core.Text
+ccfcsApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED ccfcsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsDescription :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe Lude.Text)
-ccfcsDescription = Lens.lens (description :: CreateCloudFormationChangeSet -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateCloudFormationChangeSet)
-{-# DEPRECATED ccfcsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfcsStackName :: Lens.Lens' CreateCloudFormationChangeSet Core.Text
+ccfcsStackName = Lens.field @"stackName"
+{-# DEPRECATED ccfcsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
 -- | A list of values that you must specify before you can deploy certain applications.
 --
@@ -271,152 +186,174 @@ ccfcsDescription = Lens.lens (description :: CreateCloudFormationChangeSet -> Lu
 --  this parameter for an application that requires capabilities, the call will fail.
 --
 -- /Note:/ Consider using 'capabilities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsCapabilities :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe [Lude.Text])
-ccfcsCapabilities = Lens.lens (capabilities :: CreateCloudFormationChangeSet -> Lude.Maybe [Lude.Text]) (\s a -> s {capabilities = a} :: CreateCloudFormationChangeSet)
+ccfcsCapabilities :: Lens.Lens' CreateCloudFormationChangeSet (Core.Maybe [Core.Text])
+ccfcsCapabilities = Lens.field @"capabilities"
 {-# DEPRECATED ccfcsCapabilities "Use generic-lens or generic-optics with 'capabilities' instead." #-}
+
+-- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+--
+-- /Note:/ Consider using 'changeSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfcsChangeSetName :: Lens.Lens' CreateCloudFormationChangeSet (Core.Maybe Core.Text)
+ccfcsChangeSetName = Lens.field @"changeSetName"
+{-# DEPRECATED ccfcsChangeSetName "Use generic-lens or generic-optics with 'changeSetName' instead." #-}
+
+-- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfcsClientToken :: Lens.Lens' CreateCloudFormationChangeSet (Core.Maybe Core.Text)
+ccfcsClientToken = Lens.field @"clientToken"
+{-# DEPRECATED ccfcsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfcsDescription :: Lens.Lens' CreateCloudFormationChangeSet (Core.Maybe Core.Text)
+ccfcsDescription = Lens.field @"description"
+{-# DEPRECATED ccfcsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+--
+-- /Note:/ Consider using 'notificationArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfcsNotificationArns :: Lens.Lens' CreateCloudFormationChangeSet (Core.Maybe [Core.Text])
+ccfcsNotificationArns = Lens.field @"notificationArns"
+{-# DEPRECATED ccfcsNotificationArns "Use generic-lens or generic-optics with 'notificationArns' instead." #-}
 
 -- | A list of parameter values for the parameters of the application.
 --
 -- /Note:/ Consider using 'parameterOverrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsParameterOverrides :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe [ParameterValue])
-ccfcsParameterOverrides = Lens.lens (parameterOverrides :: CreateCloudFormationChangeSet -> Lude.Maybe [ParameterValue]) (\s a -> s {parameterOverrides = a} :: CreateCloudFormationChangeSet)
+ccfcsParameterOverrides :: Lens.Lens' CreateCloudFormationChangeSet (Core.Maybe [Types.ParameterValue])
+ccfcsParameterOverrides = Lens.field @"parameterOverrides"
 {-# DEPRECATED ccfcsParameterOverrides "Use generic-lens or generic-optics with 'parameterOverrides' instead." #-}
 
 -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
 --
--- /Note:/ Consider using 'rollbackConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsRollbackConfiguration :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe RollbackConfiguration)
-ccfcsRollbackConfiguration = Lens.lens (rollbackConfiguration :: CreateCloudFormationChangeSet -> Lude.Maybe RollbackConfiguration) (\s a -> s {rollbackConfiguration = a} :: CreateCloudFormationChangeSet)
-{-# DEPRECATED ccfcsRollbackConfiguration "Use generic-lens or generic-optics with 'rollbackConfiguration' instead." #-}
-
--- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
---
 -- /Note:/ Consider using 'resourceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsResourceTypes :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe [Lude.Text])
-ccfcsResourceTypes = Lens.lens (resourceTypes :: CreateCloudFormationChangeSet -> Lude.Maybe [Lude.Text]) (\s a -> s {resourceTypes = a} :: CreateCloudFormationChangeSet)
+ccfcsResourceTypes :: Lens.Lens' CreateCloudFormationChangeSet (Core.Maybe [Core.Text])
+ccfcsResourceTypes = Lens.field @"resourceTypes"
 {-# DEPRECATED ccfcsResourceTypes "Use generic-lens or generic-optics with 'resourceTypes' instead." #-}
 
 -- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsTags :: Lens.Lens' CreateCloudFormationChangeSet (Lude.Maybe [Tag])
-ccfcsTags = Lens.lens (tags :: CreateCloudFormationChangeSet -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateCloudFormationChangeSet)
-{-# DEPRECATED ccfcsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
--- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
---
--- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsStackName :: Lens.Lens' CreateCloudFormationChangeSet Lude.Text
-ccfcsStackName = Lens.lens (stackName :: CreateCloudFormationChangeSet -> Lude.Text) (\s a -> s {stackName = a} :: CreateCloudFormationChangeSet)
-{-# DEPRECATED ccfcsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
-
-instance Lude.AWSRequest CreateCloudFormationChangeSet where
-  type
-    Rs CreateCloudFormationChangeSet =
-      CreateCloudFormationChangeSetResponse
-  request = Req.postJSON serverlessApplicationRepositoryService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateCloudFormationChangeSetResponse'
-            Lude.<$> (x Lude..?> "semanticVersion")
-            Lude.<*> (x Lude..?> "changeSetId")
-            Lude.<*> (x Lude..?> "applicationId")
-            Lude.<*> (x Lude..?> "stackId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateCloudFormationChangeSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateCloudFormationChangeSet where
-  toJSON CreateCloudFormationChangeSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("clientToken" Lude..=) Lude.<$> clientToken,
-            ("templateId" Lude..=) Lude.<$> templateId,
-            ("semanticVersion" Lude..=) Lude.<$> semanticVersion,
-            ("notificationArns" Lude..=) Lude.<$> notificationARNs,
-            ("changeSetName" Lude..=) Lude.<$> changeSetName,
-            ("description" Lude..=) Lude.<$> description,
-            ("capabilities" Lude..=) Lude.<$> capabilities,
-            ("parameterOverrides" Lude..=) Lude.<$> parameterOverrides,
-            ("rollbackConfiguration" Lude..=) Lude.<$> rollbackConfiguration,
-            ("resourceTypes" Lude..=) Lude.<$> resourceTypes,
-            ("tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("stackName" Lude..= stackName)
-          ]
-      )
-
-instance Lude.ToPath CreateCloudFormationChangeSet where
-  toPath CreateCloudFormationChangeSet' {..} =
-    Lude.mconcat
-      ["/applications/", Lude.toBS applicationId, "/changesets"]
-
-instance Lude.ToQuery CreateCloudFormationChangeSet where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkCreateCloudFormationChangeSetResponse' smart constructor.
-data CreateCloudFormationChangeSetResponse = CreateCloudFormationChangeSetResponse'
-  { -- | The semantic version of the application:
-    --
-    -- <https://semver.org/ https://semver.org/>
-    semanticVersion :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the change set.
-    --
-    -- Length constraints: Minimum length of 1.
-    -- Pattern: ARN:[-a-zA-Z0-9:/]*
-    changeSetId :: Lude.Maybe Lude.Text,
-    -- | The application Amazon Resource Name (ARN).
-    applicationId :: Lude.Maybe Lude.Text,
-    -- | The unique ID of the stack.
-    stackId :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'CreateCloudFormationChangeSetResponse' with the minimum fields required to make a request.
---
--- * 'semanticVersion' - The semantic version of the application:
---
--- <https://semver.org/ https://semver.org/>
--- * 'changeSetId' - The Amazon Resource Name (ARN) of the change set.
---
--- Length constraints: Minimum length of 1.
--- Pattern: ARN:[-a-zA-Z0-9:/]*
--- * 'applicationId' - The application Amazon Resource Name (ARN).
--- * 'stackId' - The unique ID of the stack.
--- * 'responseStatus' - The response status code.
-mkCreateCloudFormationChangeSetResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  CreateCloudFormationChangeSetResponse
-mkCreateCloudFormationChangeSetResponse pResponseStatus_ =
-  CreateCloudFormationChangeSetResponse'
-    { semanticVersion =
-        Lude.Nothing,
-      changeSetId = Lude.Nothing,
-      applicationId = Lude.Nothing,
-      stackId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+-- /Note:/ Consider using 'rollbackConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfcsRollbackConfiguration :: Lens.Lens' CreateCloudFormationChangeSet (Core.Maybe Types.RollbackConfiguration)
+ccfcsRollbackConfiguration = Lens.field @"rollbackConfiguration"
+{-# DEPRECATED ccfcsRollbackConfiguration "Use generic-lens or generic-optics with 'rollbackConfiguration' instead." #-}
 
 -- | The semantic version of the application:
 --
 -- <https://semver.org/ https://semver.org/>
 --
 -- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsrsSemanticVersion :: Lens.Lens' CreateCloudFormationChangeSetResponse (Lude.Maybe Lude.Text)
-ccfcsrsSemanticVersion = Lens.lens (semanticVersion :: CreateCloudFormationChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {semanticVersion = a} :: CreateCloudFormationChangeSetResponse)
-{-# DEPRECATED ccfcsrsSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
+ccfcsSemanticVersion :: Lens.Lens' CreateCloudFormationChangeSet (Core.Maybe Core.Text)
+ccfcsSemanticVersion = Lens.field @"semanticVersion"
+{-# DEPRECATED ccfcsSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
+
+-- | This property corresponds to the parameter of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/CreateChangeSet CreateChangeSet> / API.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfcsTags :: Lens.Lens' CreateCloudFormationChangeSet (Core.Maybe [Types.Tag])
+ccfcsTags = Lens.field @"tags"
+{-# DEPRECATED ccfcsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | The UUID returned by CreateCloudFormationTemplate.
+--
+-- Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}
+--
+-- /Note:/ Consider using 'templateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfcsTemplateId :: Lens.Lens' CreateCloudFormationChangeSet (Core.Maybe Core.Text)
+ccfcsTemplateId = Lens.field @"templateId"
+{-# DEPRECATED ccfcsTemplateId "Use generic-lens or generic-optics with 'templateId' instead." #-}
+
+instance Core.FromJSON CreateCloudFormationChangeSet where
+  toJSON CreateCloudFormationChangeSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("stackName" Core..= stackName),
+            ("capabilities" Core..=) Core.<$> capabilities,
+            ("changeSetName" Core..=) Core.<$> changeSetName,
+            ("clientToken" Core..=) Core.<$> clientToken,
+            ("description" Core..=) Core.<$> description,
+            ("notificationArns" Core..=) Core.<$> notificationArns,
+            ("parameterOverrides" Core..=) Core.<$> parameterOverrides,
+            ("resourceTypes" Core..=) Core.<$> resourceTypes,
+            ("rollbackConfiguration" Core..=) Core.<$> rollbackConfiguration,
+            ("semanticVersion" Core..=) Core.<$> semanticVersion,
+            ("tags" Core..=) Core.<$> tags,
+            ("templateId" Core..=) Core.<$> templateId
+          ]
+      )
+
+instance Core.AWSRequest CreateCloudFormationChangeSet where
+  type
+    Rs CreateCloudFormationChangeSet =
+      CreateCloudFormationChangeSetResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/applications/" Core.<> (Core.toText applicationId)
+                Core.<> ("/changesets")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateCloudFormationChangeSetResponse'
+            Core.<$> (x Core..:? "applicationId")
+            Core.<*> (x Core..:? "changeSetId")
+            Core.<*> (x Core..:? "semanticVersion")
+            Core.<*> (x Core..:? "stackId")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+-- | /See:/ 'mkCreateCloudFormationChangeSetResponse' smart constructor.
+data CreateCloudFormationChangeSetResponse = CreateCloudFormationChangeSetResponse'
+  { -- | The application Amazon Resource Name (ARN).
+    applicationId :: Core.Maybe Core.Text,
+    -- | The Amazon Resource Name (ARN) of the change set.
+    --
+    -- Length constraints: Minimum length of 1.
+    -- Pattern: ARN:[-a-zA-Z0-9:/]*
+    changeSetId :: Core.Maybe Core.Text,
+    -- | The semantic version of the application:
+    --
+    -- <https://semver.org/ https://semver.org/>
+    semanticVersion :: Core.Maybe Core.Text,
+    -- | The unique ID of the stack.
+    stackId :: Core.Maybe Core.Text,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'CreateCloudFormationChangeSetResponse' value with any optional fields omitted.
+mkCreateCloudFormationChangeSetResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  CreateCloudFormationChangeSetResponse
+mkCreateCloudFormationChangeSetResponse responseStatus =
+  CreateCloudFormationChangeSetResponse'
+    { applicationId =
+        Core.Nothing,
+      changeSetId = Core.Nothing,
+      semanticVersion = Core.Nothing,
+      stackId = Core.Nothing,
+      responseStatus
+    }
+
+-- | The application Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfcsrrsApplicationId :: Lens.Lens' CreateCloudFormationChangeSetResponse (Core.Maybe Core.Text)
+ccfcsrrsApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED ccfcsrrsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the change set.
 --
@@ -424,27 +361,29 @@ ccfcsrsSemanticVersion = Lens.lens (semanticVersion :: CreateCloudFormationChang
 -- Pattern: ARN:[-a-zA-Z0-9:/]*
 --
 -- /Note:/ Consider using 'changeSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsrsChangeSetId :: Lens.Lens' CreateCloudFormationChangeSetResponse (Lude.Maybe Lude.Text)
-ccfcsrsChangeSetId = Lens.lens (changeSetId :: CreateCloudFormationChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeSetId = a} :: CreateCloudFormationChangeSetResponse)
-{-# DEPRECATED ccfcsrsChangeSetId "Use generic-lens or generic-optics with 'changeSetId' instead." #-}
+ccfcsrrsChangeSetId :: Lens.Lens' CreateCloudFormationChangeSetResponse (Core.Maybe Core.Text)
+ccfcsrrsChangeSetId = Lens.field @"changeSetId"
+{-# DEPRECATED ccfcsrrsChangeSetId "Use generic-lens or generic-optics with 'changeSetId' instead." #-}
 
--- | The application Amazon Resource Name (ARN).
+-- | The semantic version of the application:
 --
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsrsApplicationId :: Lens.Lens' CreateCloudFormationChangeSetResponse (Lude.Maybe Lude.Text)
-ccfcsrsApplicationId = Lens.lens (applicationId :: CreateCloudFormationChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: CreateCloudFormationChangeSetResponse)
-{-# DEPRECATED ccfcsrsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+-- <https://semver.org/ https://semver.org/>
+--
+-- /Note:/ Consider using 'semanticVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccfcsrrsSemanticVersion :: Lens.Lens' CreateCloudFormationChangeSetResponse (Core.Maybe Core.Text)
+ccfcsrrsSemanticVersion = Lens.field @"semanticVersion"
+{-# DEPRECATED ccfcsrrsSemanticVersion "Use generic-lens or generic-optics with 'semanticVersion' instead." #-}
 
 -- | The unique ID of the stack.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsrsStackId :: Lens.Lens' CreateCloudFormationChangeSetResponse (Lude.Maybe Lude.Text)
-ccfcsrsStackId = Lens.lens (stackId :: CreateCloudFormationChangeSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: CreateCloudFormationChangeSetResponse)
-{-# DEPRECATED ccfcsrsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+ccfcsrrsStackId :: Lens.Lens' CreateCloudFormationChangeSetResponse (Core.Maybe Core.Text)
+ccfcsrrsStackId = Lens.field @"stackId"
+{-# DEPRECATED ccfcsrrsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccfcsrsResponseStatus :: Lens.Lens' CreateCloudFormationChangeSetResponse Lude.Int
-ccfcsrsResponseStatus = Lens.lens (responseStatus :: CreateCloudFormationChangeSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCloudFormationChangeSetResponse)
-{-# DEPRECATED ccfcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccfcsrrsResponseStatus :: Lens.Lens' CreateCloudFormationChangeSetResponse Core.Int
+ccfcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccfcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

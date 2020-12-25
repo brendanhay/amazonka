@@ -23,50 +23,46 @@ module Network.AWS.SSM.Types.InventoryResultEntity
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.InventoryResultItem
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.Id as Types
+import qualified Network.AWS.SSM.Types.InventoryResultItem as Types
+import qualified Network.AWS.SSM.Types.InventoryResultItemKey as Types
 
 -- | Inventory query results.
 --
 -- /See:/ 'mkInventoryResultEntity' smart constructor.
 data InventoryResultEntity = InventoryResultEntity'
   { -- | The data section in the inventory result entity JSON.
-    data' :: Lude.Maybe (Lude.HashMap Lude.Text (InventoryResultItem)),
+    data' :: Core.Maybe (Core.HashMap Types.InventoryResultItemKey Types.InventoryResultItem),
     -- | ID of the inventory result entity. For example, for managed instance inventory the result will be the managed instance ID. For EC2 instance inventory, the result will be the instance ID.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventoryResultEntity' with the minimum fields required to make a request.
---
--- * 'data'' - The data section in the inventory result entity JSON.
--- * 'id' - ID of the inventory result entity. For example, for managed instance inventory the result will be the managed instance ID. For EC2 instance inventory, the result will be the instance ID.
+-- | Creates a 'InventoryResultEntity' value with any optional fields omitted.
 mkInventoryResultEntity ::
   InventoryResultEntity
 mkInventoryResultEntity =
-  InventoryResultEntity' {data' = Lude.Nothing, id = Lude.Nothing}
+  InventoryResultEntity' {data' = Core.Nothing, id = Core.Nothing}
 
 -- | The data section in the inventory result entity JSON.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ireData :: Lens.Lens' InventoryResultEntity (Lude.Maybe (Lude.HashMap Lude.Text (InventoryResultItem)))
-ireData = Lens.lens (data' :: InventoryResultEntity -> Lude.Maybe (Lude.HashMap Lude.Text (InventoryResultItem))) (\s a -> s {data' = a} :: InventoryResultEntity)
+ireData :: Lens.Lens' InventoryResultEntity (Core.Maybe (Core.HashMap Types.InventoryResultItemKey Types.InventoryResultItem))
+ireData = Lens.field @"data'"
 {-# DEPRECATED ireData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
 -- | ID of the inventory result entity. For example, for managed instance inventory the result will be the managed instance ID. For EC2 instance inventory, the result will be the instance ID.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ireId :: Lens.Lens' InventoryResultEntity (Lude.Maybe Lude.Text)
-ireId = Lens.lens (id :: InventoryResultEntity -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: InventoryResultEntity)
+ireId :: Lens.Lens' InventoryResultEntity (Core.Maybe Types.Id)
+ireId = Lens.field @"id"
 {-# DEPRECATED ireId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON InventoryResultEntity where
+instance Core.FromJSON InventoryResultEntity where
   parseJSON =
-    Lude.withObject
-      "InventoryResultEntity"
-      ( \x ->
-          InventoryResultEntity'
-            Lude.<$> (x Lude..:? "Data" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "InventoryResultEntity" Core.$
+      \x ->
+        InventoryResultEntity'
+          Core.<$> (x Core..:? "Data") Core.<*> (x Core..:? "Id")

@@ -13,81 +13,83 @@
 module Network.AWS.CloudHSMv2.Types.ClusterState
   ( ClusterState
       ( ClusterState',
-        CSCreateInProgress,
-        CSUninitialized,
-        CSInitializeInProgress,
-        CSInitialized,
-        CSActive,
-        CSUpdateInProgress,
-        CSDeleteInProgress,
-        CSDeleted,
-        CSDegraded
+        ClusterStateCreateInProgress,
+        ClusterStateUninitialized,
+        ClusterStateInitializeInProgress,
+        ClusterStateInitialized,
+        ClusterStateActive,
+        ClusterStateUpdateInProgress,
+        ClusterStateDeleteInProgress,
+        ClusterStateDeleted,
+        ClusterStateDegraded,
+        fromClusterState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ClusterState = ClusterState' Lude.Text
+newtype ClusterState = ClusterState' {fromClusterState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSCreateInProgress :: ClusterState
-pattern CSCreateInProgress = ClusterState' "CREATE_IN_PROGRESS"
+pattern ClusterStateCreateInProgress :: ClusterState
+pattern ClusterStateCreateInProgress = ClusterState' "CREATE_IN_PROGRESS"
 
-pattern CSUninitialized :: ClusterState
-pattern CSUninitialized = ClusterState' "UNINITIALIZED"
+pattern ClusterStateUninitialized :: ClusterState
+pattern ClusterStateUninitialized = ClusterState' "UNINITIALIZED"
 
-pattern CSInitializeInProgress :: ClusterState
-pattern CSInitializeInProgress = ClusterState' "INITIALIZE_IN_PROGRESS"
+pattern ClusterStateInitializeInProgress :: ClusterState
+pattern ClusterStateInitializeInProgress = ClusterState' "INITIALIZE_IN_PROGRESS"
 
-pattern CSInitialized :: ClusterState
-pattern CSInitialized = ClusterState' "INITIALIZED"
+pattern ClusterStateInitialized :: ClusterState
+pattern ClusterStateInitialized = ClusterState' "INITIALIZED"
 
-pattern CSActive :: ClusterState
-pattern CSActive = ClusterState' "ACTIVE"
+pattern ClusterStateActive :: ClusterState
+pattern ClusterStateActive = ClusterState' "ACTIVE"
 
-pattern CSUpdateInProgress :: ClusterState
-pattern CSUpdateInProgress = ClusterState' "UPDATE_IN_PROGRESS"
+pattern ClusterStateUpdateInProgress :: ClusterState
+pattern ClusterStateUpdateInProgress = ClusterState' "UPDATE_IN_PROGRESS"
 
-pattern CSDeleteInProgress :: ClusterState
-pattern CSDeleteInProgress = ClusterState' "DELETE_IN_PROGRESS"
+pattern ClusterStateDeleteInProgress :: ClusterState
+pattern ClusterStateDeleteInProgress = ClusterState' "DELETE_IN_PROGRESS"
 
-pattern CSDeleted :: ClusterState
-pattern CSDeleted = ClusterState' "DELETED"
+pattern ClusterStateDeleted :: ClusterState
+pattern ClusterStateDeleted = ClusterState' "DELETED"
 
-pattern CSDegraded :: ClusterState
-pattern CSDegraded = ClusterState' "DEGRADED"
+pattern ClusterStateDegraded :: ClusterState
+pattern ClusterStateDegraded = ClusterState' "DEGRADED"
 
 {-# COMPLETE
-  CSCreateInProgress,
-  CSUninitialized,
-  CSInitializeInProgress,
-  CSInitialized,
-  CSActive,
-  CSUpdateInProgress,
-  CSDeleteInProgress,
-  CSDeleted,
-  CSDegraded,
+  ClusterStateCreateInProgress,
+  ClusterStateUninitialized,
+  ClusterStateInitializeInProgress,
+  ClusterStateInitialized,
+  ClusterStateActive,
+  ClusterStateUpdateInProgress,
+  ClusterStateDeleteInProgress,
+  ClusterStateDeleted,
+  ClusterStateDegraded,
   ClusterState'
   #-}

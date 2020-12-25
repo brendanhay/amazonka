@@ -21,9 +21,9 @@ module Network.AWS.AlexaBusiness.Types.MeetingSetting
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.RequirePin
+import qualified Network.AWS.AlexaBusiness.Types.RequirePin as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The values that indicate whether a pin is always required (YES), never required (NO), or OPTIONAL.
 --
@@ -41,35 +41,31 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkMeetingSetting' smart constructor.
 newtype MeetingSetting = MeetingSetting'
   { -- | The values that indicate whether the pin is always required.
-    requirePin :: RequirePin
+    requirePin :: Types.RequirePin
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MeetingSetting' with the minimum fields required to make a request.
---
--- * 'requirePin' - The values that indicate whether the pin is always required.
+-- | Creates a 'MeetingSetting' value with any optional fields omitted.
 mkMeetingSetting ::
   -- | 'requirePin'
-  RequirePin ->
+  Types.RequirePin ->
   MeetingSetting
-mkMeetingSetting pRequirePin_ =
-  MeetingSetting' {requirePin = pRequirePin_}
+mkMeetingSetting requirePin = MeetingSetting' {requirePin}
 
 -- | The values that indicate whether the pin is always required.
 --
 -- /Note:/ Consider using 'requirePin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msRequirePin :: Lens.Lens' MeetingSetting RequirePin
-msRequirePin = Lens.lens (requirePin :: MeetingSetting -> RequirePin) (\s a -> s {requirePin = a} :: MeetingSetting)
+msRequirePin :: Lens.Lens' MeetingSetting Types.RequirePin
+msRequirePin = Lens.field @"requirePin"
 {-# DEPRECATED msRequirePin "Use generic-lens or generic-optics with 'requirePin' instead." #-}
 
-instance Lude.FromJSON MeetingSetting where
-  parseJSON =
-    Lude.withObject
-      "MeetingSetting"
-      (\x -> MeetingSetting' Lude.<$> (x Lude..: "RequirePin"))
+instance Core.FromJSON MeetingSetting where
+  toJSON MeetingSetting {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("RequirePin" Core..= requirePin)])
 
-instance Lude.ToJSON MeetingSetting where
-  toJSON MeetingSetting' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("RequirePin" Lude..= requirePin)])
+instance Core.FromJSON MeetingSetting where
+  parseJSON =
+    Core.withObject "MeetingSetting" Core.$
+      \x -> MeetingSetting' Core.<$> (x Core..: "RequirePin")

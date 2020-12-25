@@ -27,99 +27,84 @@ module Network.AWS.Route53Domains.DisableDomainAutoRenew
     mkDisableDomainAutoRenewResponse,
 
     -- ** Response lenses
-    ddarrsResponseStatus,
+    ddarrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53Domains.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53Domains.Types as Types
 
 -- | /See:/ 'mkDisableDomainAutoRenew' smart constructor.
 newtype DisableDomainAutoRenew = DisableDomainAutoRenew'
   { -- | The name of the domain that you want to disable automatic renewal for.
-    domainName :: Lude.Text
+    domainName :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableDomainAutoRenew' with the minimum fields required to make a request.
---
--- * 'domainName' - The name of the domain that you want to disable automatic renewal for.
+-- | Creates a 'DisableDomainAutoRenew' value with any optional fields omitted.
 mkDisableDomainAutoRenew ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   DisableDomainAutoRenew
-mkDisableDomainAutoRenew pDomainName_ =
-  DisableDomainAutoRenew' {domainName = pDomainName_}
+mkDisableDomainAutoRenew domainName =
+  DisableDomainAutoRenew' {domainName}
 
 -- | The name of the domain that you want to disable automatic renewal for.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddarDomainName :: Lens.Lens' DisableDomainAutoRenew Lude.Text
-ddarDomainName = Lens.lens (domainName :: DisableDomainAutoRenew -> Lude.Text) (\s a -> s {domainName = a} :: DisableDomainAutoRenew)
+ddarDomainName :: Lens.Lens' DisableDomainAutoRenew Types.DomainName
+ddarDomainName = Lens.field @"domainName"
 {-# DEPRECATED ddarDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest DisableDomainAutoRenew where
+instance Core.FromJSON DisableDomainAutoRenew where
+  toJSON DisableDomainAutoRenew {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DomainName" Core..= domainName)])
+
+instance Core.AWSRequest DisableDomainAutoRenew where
   type Rs DisableDomainAutoRenew = DisableDomainAutoRenewResponse
-  request = Req.postJSON route53DomainsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53Domains_v20140515.DisableDomainAutoRenew")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisableDomainAutoRenewResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisableDomainAutoRenew where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Route53Domains_v20140515.DisableDomainAutoRenew" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisableDomainAutoRenew where
-  toJSON DisableDomainAutoRenew' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DomainName" Lude..= domainName)])
-
-instance Lude.ToPath DisableDomainAutoRenew where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisableDomainAutoRenew where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisableDomainAutoRenewResponse' smart constructor.
 newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableDomainAutoRenewResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisableDomainAutoRenewResponse' value with any optional fields omitted.
 mkDisableDomainAutoRenewResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisableDomainAutoRenewResponse
-mkDisableDomainAutoRenewResponse pResponseStatus_ =
-  DisableDomainAutoRenewResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDisableDomainAutoRenewResponse responseStatus =
+  DisableDomainAutoRenewResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddarrsResponseStatus :: Lens.Lens' DisableDomainAutoRenewResponse Lude.Int
-ddarrsResponseStatus = Lens.lens (responseStatus :: DisableDomainAutoRenewResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableDomainAutoRenewResponse)
-{-# DEPRECATED ddarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddarrrsResponseStatus :: Lens.Lens' DisableDomainAutoRenewResponse Core.Int
+ddarrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddarrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

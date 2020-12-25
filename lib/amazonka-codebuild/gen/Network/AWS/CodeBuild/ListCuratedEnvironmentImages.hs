@@ -24,96 +24,84 @@ module Network.AWS.CodeBuild.ListCuratedEnvironmentImages
     mkListCuratedEnvironmentImagesResponse,
 
     -- ** Response lenses
-    lceirsPlatforms,
-    lceirsResponseStatus,
+    lceirrsPlatforms,
+    lceirrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListCuratedEnvironmentImages' smart constructor.
 data ListCuratedEnvironmentImages = ListCuratedEnvironmentImages'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListCuratedEnvironmentImages' with the minimum fields required to make a request.
+-- | Creates a 'ListCuratedEnvironmentImages' value with any optional fields omitted.
 mkListCuratedEnvironmentImages ::
   ListCuratedEnvironmentImages
 mkListCuratedEnvironmentImages = ListCuratedEnvironmentImages'
 
-instance Lude.AWSRequest ListCuratedEnvironmentImages where
+instance Core.FromJSON ListCuratedEnvironmentImages where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest ListCuratedEnvironmentImages where
   type
     Rs ListCuratedEnvironmentImages =
       ListCuratedEnvironmentImagesResponse
-  request = Req.postJSON codeBuildService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeBuild_20161006.ListCuratedEnvironmentImages")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListCuratedEnvironmentImagesResponse'
-            Lude.<$> (x Lude..?> "platforms" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "platforms") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListCuratedEnvironmentImages where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeBuild_20161006.ListCuratedEnvironmentImages" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListCuratedEnvironmentImages where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath ListCuratedEnvironmentImages where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListCuratedEnvironmentImages where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListCuratedEnvironmentImagesResponse' smart constructor.
 data ListCuratedEnvironmentImagesResponse = ListCuratedEnvironmentImagesResponse'
   { -- | Information about supported platforms for Docker images that are managed by AWS CodeBuild.
-    platforms :: Lude.Maybe [EnvironmentPlatform],
+    platforms :: Core.Maybe [Types.EnvironmentPlatform],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListCuratedEnvironmentImagesResponse' with the minimum fields required to make a request.
---
--- * 'platforms' - Information about supported platforms for Docker images that are managed by AWS CodeBuild.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListCuratedEnvironmentImagesResponse' value with any optional fields omitted.
 mkListCuratedEnvironmentImagesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListCuratedEnvironmentImagesResponse
-mkListCuratedEnvironmentImagesResponse pResponseStatus_ =
+mkListCuratedEnvironmentImagesResponse responseStatus =
   ListCuratedEnvironmentImagesResponse'
-    { platforms = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { platforms = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about supported platforms for Docker images that are managed by AWS CodeBuild.
 --
 -- /Note:/ Consider using 'platforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lceirsPlatforms :: Lens.Lens' ListCuratedEnvironmentImagesResponse (Lude.Maybe [EnvironmentPlatform])
-lceirsPlatforms = Lens.lens (platforms :: ListCuratedEnvironmentImagesResponse -> Lude.Maybe [EnvironmentPlatform]) (\s a -> s {platforms = a} :: ListCuratedEnvironmentImagesResponse)
-{-# DEPRECATED lceirsPlatforms "Use generic-lens or generic-optics with 'platforms' instead." #-}
+lceirrsPlatforms :: Lens.Lens' ListCuratedEnvironmentImagesResponse (Core.Maybe [Types.EnvironmentPlatform])
+lceirrsPlatforms = Lens.field @"platforms"
+{-# DEPRECATED lceirrsPlatforms "Use generic-lens or generic-optics with 'platforms' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lceirsResponseStatus :: Lens.Lens' ListCuratedEnvironmentImagesResponse Lude.Int
-lceirsResponseStatus = Lens.lens (responseStatus :: ListCuratedEnvironmentImagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCuratedEnvironmentImagesResponse)
-{-# DEPRECATED lceirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lceirrsResponseStatus :: Lens.Lens' ListCuratedEnvironmentImagesResponse Core.Int
+lceirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lceirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

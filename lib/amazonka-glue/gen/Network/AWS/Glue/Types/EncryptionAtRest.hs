@@ -17,70 +17,66 @@ module Network.AWS.Glue.Types.EncryptionAtRest
     mkEncryptionAtRest,
 
     -- * Lenses
-    earSseAWSKMSKeyId,
     earCatalogEncryptionMode,
+    earSseAwsKmsKeyId,
   )
 where
 
-import Network.AWS.Glue.Types.CatalogEncryptionMode
+import qualified Network.AWS.Glue.Types.CatalogEncryptionMode as Types
+import qualified Network.AWS.Glue.Types.SseAwsKmsKeyId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the encryption-at-rest configuration for the Data Catalog.
 --
 -- /See:/ 'mkEncryptionAtRest' smart constructor.
 data EncryptionAtRest = EncryptionAtRest'
-  { -- | The ID of the AWS KMS key to use for encryption at rest.
-    sseAWSKMSKeyId :: Lude.Maybe Lude.Text,
-    -- | The encryption-at-rest mode for encrypting Data Catalog data.
-    catalogEncryptionMode :: CatalogEncryptionMode
+  { -- | The encryption-at-rest mode for encrypting Data Catalog data.
+    catalogEncryptionMode :: Types.CatalogEncryptionMode,
+    -- | The ID of the AWS KMS key to use for encryption at rest.
+    sseAwsKmsKeyId :: Core.Maybe Types.SseAwsKmsKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EncryptionAtRest' with the minimum fields required to make a request.
---
--- * 'sseAWSKMSKeyId' - The ID of the AWS KMS key to use for encryption at rest.
--- * 'catalogEncryptionMode' - The encryption-at-rest mode for encrypting Data Catalog data.
+-- | Creates a 'EncryptionAtRest' value with any optional fields omitted.
 mkEncryptionAtRest ::
   -- | 'catalogEncryptionMode'
-  CatalogEncryptionMode ->
+  Types.CatalogEncryptionMode ->
   EncryptionAtRest
-mkEncryptionAtRest pCatalogEncryptionMode_ =
+mkEncryptionAtRest catalogEncryptionMode =
   EncryptionAtRest'
-    { sseAWSKMSKeyId = Lude.Nothing,
-      catalogEncryptionMode = pCatalogEncryptionMode_
+    { catalogEncryptionMode,
+      sseAwsKmsKeyId = Core.Nothing
     }
-
--- | The ID of the AWS KMS key to use for encryption at rest.
---
--- /Note:/ Consider using 'sseAWSKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-earSseAWSKMSKeyId :: Lens.Lens' EncryptionAtRest (Lude.Maybe Lude.Text)
-earSseAWSKMSKeyId = Lens.lens (sseAWSKMSKeyId :: EncryptionAtRest -> Lude.Maybe Lude.Text) (\s a -> s {sseAWSKMSKeyId = a} :: EncryptionAtRest)
-{-# DEPRECATED earSseAWSKMSKeyId "Use generic-lens or generic-optics with 'sseAWSKMSKeyId' instead." #-}
 
 -- | The encryption-at-rest mode for encrypting Data Catalog data.
 --
 -- /Note:/ Consider using 'catalogEncryptionMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-earCatalogEncryptionMode :: Lens.Lens' EncryptionAtRest CatalogEncryptionMode
-earCatalogEncryptionMode = Lens.lens (catalogEncryptionMode :: EncryptionAtRest -> CatalogEncryptionMode) (\s a -> s {catalogEncryptionMode = a} :: EncryptionAtRest)
+earCatalogEncryptionMode :: Lens.Lens' EncryptionAtRest Types.CatalogEncryptionMode
+earCatalogEncryptionMode = Lens.field @"catalogEncryptionMode"
 {-# DEPRECATED earCatalogEncryptionMode "Use generic-lens or generic-optics with 'catalogEncryptionMode' instead." #-}
 
-instance Lude.FromJSON EncryptionAtRest where
-  parseJSON =
-    Lude.withObject
-      "EncryptionAtRest"
-      ( \x ->
-          EncryptionAtRest'
-            Lude.<$> (x Lude..:? "SseAwsKmsKeyId")
-            Lude.<*> (x Lude..: "CatalogEncryptionMode")
-      )
+-- | The ID of the AWS KMS key to use for encryption at rest.
+--
+-- /Note:/ Consider using 'sseAwsKmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+earSseAwsKmsKeyId :: Lens.Lens' EncryptionAtRest (Core.Maybe Types.SseAwsKmsKeyId)
+earSseAwsKmsKeyId = Lens.field @"sseAwsKmsKeyId"
+{-# DEPRECATED earSseAwsKmsKeyId "Use generic-lens or generic-optics with 'sseAwsKmsKeyId' instead." #-}
 
-instance Lude.ToJSON EncryptionAtRest where
-  toJSON EncryptionAtRest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SseAwsKmsKeyId" Lude..=) Lude.<$> sseAWSKMSKeyId,
-            Lude.Just ("CatalogEncryptionMode" Lude..= catalogEncryptionMode)
+instance Core.FromJSON EncryptionAtRest where
+  toJSON EncryptionAtRest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CatalogEncryptionMode" Core..= catalogEncryptionMode),
+            ("SseAwsKmsKeyId" Core..=) Core.<$> sseAwsKmsKeyId
           ]
       )
+
+instance Core.FromJSON EncryptionAtRest where
+  parseJSON =
+    Core.withObject "EncryptionAtRest" Core.$
+      \x ->
+        EncryptionAtRest'
+          Core.<$> (x Core..: "CatalogEncryptionMode")
+          Core.<*> (x Core..:? "SseAwsKmsKeyId")

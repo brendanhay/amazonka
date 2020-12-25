@@ -17,72 +17,66 @@ module Network.AWS.MQ.Types.Configurations
     mkConfigurations,
 
     -- * Lenses
-    cPending,
-    cHistory,
     cCurrent,
+    cHistory,
+    cPending,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types.ConfigurationId
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MQ.Types.ConfigurationId as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Broker configuration information
 --
 -- /See:/ 'mkConfigurations' smart constructor.
 data Configurations = Configurations'
-  { -- | The pending configuration of the broker.
-    pending :: Lude.Maybe ConfigurationId,
+  { -- | The current configuration of the broker.
+    current :: Core.Maybe Types.ConfigurationId,
     -- | The history of configurations applied to the broker.
-    history :: Lude.Maybe [ConfigurationId],
-    -- | The current configuration of the broker.
-    current :: Lude.Maybe ConfigurationId
+    history :: Core.Maybe [Types.ConfigurationId],
+    -- | The pending configuration of the broker.
+    pending :: Core.Maybe Types.ConfigurationId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Configurations' with the minimum fields required to make a request.
---
--- * 'pending' - The pending configuration of the broker.
--- * 'history' - The history of configurations applied to the broker.
--- * 'current' - The current configuration of the broker.
+-- | Creates a 'Configurations' value with any optional fields omitted.
 mkConfigurations ::
   Configurations
 mkConfigurations =
   Configurations'
-    { pending = Lude.Nothing,
-      history = Lude.Nothing,
-      current = Lude.Nothing
+    { current = Core.Nothing,
+      history = Core.Nothing,
+      pending = Core.Nothing
     }
-
--- | The pending configuration of the broker.
---
--- /Note:/ Consider using 'pending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cPending :: Lens.Lens' Configurations (Lude.Maybe ConfigurationId)
-cPending = Lens.lens (pending :: Configurations -> Lude.Maybe ConfigurationId) (\s a -> s {pending = a} :: Configurations)
-{-# DEPRECATED cPending "Use generic-lens or generic-optics with 'pending' instead." #-}
-
--- | The history of configurations applied to the broker.
---
--- /Note:/ Consider using 'history' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cHistory :: Lens.Lens' Configurations (Lude.Maybe [ConfigurationId])
-cHistory = Lens.lens (history :: Configurations -> Lude.Maybe [ConfigurationId]) (\s a -> s {history = a} :: Configurations)
-{-# DEPRECATED cHistory "Use generic-lens or generic-optics with 'history' instead." #-}
 
 -- | The current configuration of the broker.
 --
 -- /Note:/ Consider using 'current' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCurrent :: Lens.Lens' Configurations (Lude.Maybe ConfigurationId)
-cCurrent = Lens.lens (current :: Configurations -> Lude.Maybe ConfigurationId) (\s a -> s {current = a} :: Configurations)
+cCurrent :: Lens.Lens' Configurations (Core.Maybe Types.ConfigurationId)
+cCurrent = Lens.field @"current"
 {-# DEPRECATED cCurrent "Use generic-lens or generic-optics with 'current' instead." #-}
 
-instance Lude.FromJSON Configurations where
+-- | The history of configurations applied to the broker.
+--
+-- /Note:/ Consider using 'history' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cHistory :: Lens.Lens' Configurations (Core.Maybe [Types.ConfigurationId])
+cHistory = Lens.field @"history"
+{-# DEPRECATED cHistory "Use generic-lens or generic-optics with 'history' instead." #-}
+
+-- | The pending configuration of the broker.
+--
+-- /Note:/ Consider using 'pending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPending :: Lens.Lens' Configurations (Core.Maybe Types.ConfigurationId)
+cPending = Lens.field @"pending"
+{-# DEPRECATED cPending "Use generic-lens or generic-optics with 'pending' instead." #-}
+
+instance Core.FromJSON Configurations where
   parseJSON =
-    Lude.withObject
-      "Configurations"
-      ( \x ->
-          Configurations'
-            Lude.<$> (x Lude..:? "pending")
-            Lude.<*> (x Lude..:? "history" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "current")
-      )
+    Core.withObject "Configurations" Core.$
+      \x ->
+        Configurations'
+          Core.<$> (x Core..:? "current")
+          Core.<*> (x Core..:? "history")
+          Core.<*> (x Core..:? "pending")

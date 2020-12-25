@@ -22,47 +22,42 @@ module Network.AWS.MediaLive.Types.Mpeg2FilterSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.TemporalFilterSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.TemporalFilterSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Mpeg2 Filter Settings
 --
 -- /See:/ 'mkMpeg2FilterSettings' smart constructor.
 newtype Mpeg2FilterSettings = Mpeg2FilterSettings'
-  { temporalFilterSettings :: Lude.Maybe TemporalFilterSettings
+  { temporalFilterSettings :: Core.Maybe Types.TemporalFilterSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Mpeg2FilterSettings' with the minimum fields required to make a request.
---
--- * 'temporalFilterSettings' -
+-- | Creates a 'Mpeg2FilterSettings' value with any optional fields omitted.
 mkMpeg2FilterSettings ::
   Mpeg2FilterSettings
 mkMpeg2FilterSettings =
-  Mpeg2FilterSettings' {temporalFilterSettings = Lude.Nothing}
+  Mpeg2FilterSettings' {temporalFilterSettings = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'temporalFilterSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mfsTemporalFilterSettings :: Lens.Lens' Mpeg2FilterSettings (Lude.Maybe TemporalFilterSettings)
-mfsTemporalFilterSettings = Lens.lens (temporalFilterSettings :: Mpeg2FilterSettings -> Lude.Maybe TemporalFilterSettings) (\s a -> s {temporalFilterSettings = a} :: Mpeg2FilterSettings)
+mfsTemporalFilterSettings :: Lens.Lens' Mpeg2FilterSettings (Core.Maybe Types.TemporalFilterSettings)
+mfsTemporalFilterSettings = Lens.field @"temporalFilterSettings"
 {-# DEPRECATED mfsTemporalFilterSettings "Use generic-lens or generic-optics with 'temporalFilterSettings' instead." #-}
 
-instance Lude.FromJSON Mpeg2FilterSettings where
-  parseJSON =
-    Lude.withObject
-      "Mpeg2FilterSettings"
-      ( \x ->
-          Mpeg2FilterSettings'
-            Lude.<$> (x Lude..:? "temporalFilterSettings")
-      )
-
-instance Lude.ToJSON Mpeg2FilterSettings where
-  toJSON Mpeg2FilterSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("temporalFilterSettings" Lude..=)
-              Lude.<$> temporalFilterSettings
+instance Core.FromJSON Mpeg2FilterSettings where
+  toJSON Mpeg2FilterSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("temporalFilterSettings" Core..=)
+              Core.<$> temporalFilterSettings
           ]
       )
+
+instance Core.FromJSON Mpeg2FilterSettings where
+  parseJSON =
+    Core.withObject "Mpeg2FilterSettings" Core.$
+      \x ->
+        Mpeg2FilterSettings' Core.<$> (x Core..:? "temporalFilterSettings")

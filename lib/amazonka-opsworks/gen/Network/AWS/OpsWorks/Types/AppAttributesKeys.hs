@@ -13,56 +13,61 @@
 module Network.AWS.OpsWorks.Types.AppAttributesKeys
   ( AppAttributesKeys
       ( AppAttributesKeys',
-        DocumentRoot,
-        RailsEnv,
-        AutoBundleOnDeploy,
-        AWSFlowRubySettings
+        AppAttributesKeysDocumentRoot,
+        AppAttributesKeysRailsEnv,
+        AppAttributesKeysAutoBundleOnDeploy,
+        AppAttributesKeysAwsFlowRubySettings,
+        fromAppAttributesKeys
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AppAttributesKeys = AppAttributesKeys' Lude.Text
+newtype AppAttributesKeys = AppAttributesKeys'
+  { fromAppAttributesKeys ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DocumentRoot :: AppAttributesKeys
-pattern DocumentRoot = AppAttributesKeys' "DocumentRoot"
+pattern AppAttributesKeysDocumentRoot :: AppAttributesKeys
+pattern AppAttributesKeysDocumentRoot = AppAttributesKeys' "DocumentRoot"
 
-pattern RailsEnv :: AppAttributesKeys
-pattern RailsEnv = AppAttributesKeys' "RailsEnv"
+pattern AppAttributesKeysRailsEnv :: AppAttributesKeys
+pattern AppAttributesKeysRailsEnv = AppAttributesKeys' "RailsEnv"
 
-pattern AutoBundleOnDeploy :: AppAttributesKeys
-pattern AutoBundleOnDeploy = AppAttributesKeys' "AutoBundleOnDeploy"
+pattern AppAttributesKeysAutoBundleOnDeploy :: AppAttributesKeys
+pattern AppAttributesKeysAutoBundleOnDeploy = AppAttributesKeys' "AutoBundleOnDeploy"
 
-pattern AWSFlowRubySettings :: AppAttributesKeys
-pattern AWSFlowRubySettings = AppAttributesKeys' "AwsFlowRubySettings"
+pattern AppAttributesKeysAwsFlowRubySettings :: AppAttributesKeys
+pattern AppAttributesKeysAwsFlowRubySettings = AppAttributesKeys' "AwsFlowRubySettings"
 
 {-# COMPLETE
-  DocumentRoot,
-  RailsEnv,
-  AutoBundleOnDeploy,
-  AWSFlowRubySettings,
+  AppAttributesKeysDocumentRoot,
+  AppAttributesKeysRailsEnv,
+  AppAttributesKeysAutoBundleOnDeploy,
+  AppAttributesKeysAwsFlowRubySettings,
   AppAttributesKeys'
   #-}

@@ -13,51 +13,56 @@
 module Network.AWS.WorkDocs.Types.DocumentThumbnailType
   ( DocumentThumbnailType
       ( DocumentThumbnailType',
-        Small,
-        SmallHq,
-        Large
+        DocumentThumbnailTypeSmall,
+        DocumentThumbnailTypeSmallHq,
+        DocumentThumbnailTypeLarge,
+        fromDocumentThumbnailType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DocumentThumbnailType = DocumentThumbnailType' Lude.Text
+newtype DocumentThumbnailType = DocumentThumbnailType'
+  { fromDocumentThumbnailType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Small :: DocumentThumbnailType
-pattern Small = DocumentThumbnailType' "SMALL"
+pattern DocumentThumbnailTypeSmall :: DocumentThumbnailType
+pattern DocumentThumbnailTypeSmall = DocumentThumbnailType' "SMALL"
 
-pattern SmallHq :: DocumentThumbnailType
-pattern SmallHq = DocumentThumbnailType' "SMALL_HQ"
+pattern DocumentThumbnailTypeSmallHq :: DocumentThumbnailType
+pattern DocumentThumbnailTypeSmallHq = DocumentThumbnailType' "SMALL_HQ"
 
-pattern Large :: DocumentThumbnailType
-pattern Large = DocumentThumbnailType' "LARGE"
+pattern DocumentThumbnailTypeLarge :: DocumentThumbnailType
+pattern DocumentThumbnailTypeLarge = DocumentThumbnailType' "LARGE"
 
 {-# COMPLETE
-  Small,
-  SmallHq,
-  Large,
+  DocumentThumbnailTypeSmall,
+  DocumentThumbnailTypeSmallHq,
+  DocumentThumbnailTypeLarge,
   DocumentThumbnailType'
   #-}

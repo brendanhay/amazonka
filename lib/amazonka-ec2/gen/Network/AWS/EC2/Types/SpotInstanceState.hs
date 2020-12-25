@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.SpotInstanceState
   ( SpotInstanceState
       ( SpotInstanceState',
-        SISOpen,
-        SISActive,
-        SISClosed,
-        SISCancelled,
-        SISFailed
+        SpotInstanceStateOpen,
+        SpotInstanceStateActive,
+        SpotInstanceStateClosed,
+        SpotInstanceStateCancelled,
+        SpotInstanceStateFailed,
+        fromSpotInstanceState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SpotInstanceState = SpotInstanceState' Lude.Text
+newtype SpotInstanceState = SpotInstanceState'
+  { fromSpotInstanceState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SISOpen :: SpotInstanceState
-pattern SISOpen = SpotInstanceState' "open"
+pattern SpotInstanceStateOpen :: SpotInstanceState
+pattern SpotInstanceStateOpen = SpotInstanceState' "open"
 
-pattern SISActive :: SpotInstanceState
-pattern SISActive = SpotInstanceState' "active"
+pattern SpotInstanceStateActive :: SpotInstanceState
+pattern SpotInstanceStateActive = SpotInstanceState' "active"
 
-pattern SISClosed :: SpotInstanceState
-pattern SISClosed = SpotInstanceState' "closed"
+pattern SpotInstanceStateClosed :: SpotInstanceState
+pattern SpotInstanceStateClosed = SpotInstanceState' "closed"
 
-pattern SISCancelled :: SpotInstanceState
-pattern SISCancelled = SpotInstanceState' "cancelled"
+pattern SpotInstanceStateCancelled :: SpotInstanceState
+pattern SpotInstanceStateCancelled = SpotInstanceState' "cancelled"
 
-pattern SISFailed :: SpotInstanceState
-pattern SISFailed = SpotInstanceState' "failed"
+pattern SpotInstanceStateFailed :: SpotInstanceState
+pattern SpotInstanceStateFailed = SpotInstanceState' "failed"
 
 {-# COMPLETE
-  SISOpen,
-  SISActive,
-  SISClosed,
-  SISCancelled,
-  SISFailed,
+  SpotInstanceStateOpen,
+  SpotInstanceStateActive,
+  SpotInstanceStateClosed,
+  SpotInstanceStateCancelled,
+  SpotInstanceStateFailed,
   SpotInstanceState'
   #-}

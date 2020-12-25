@@ -33,151 +33,146 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     mkListJobsByPipelineResponse,
 
     -- ** Response lenses
-    ljbprsNextPageToken,
-    ljbprsJobs,
-    ljbprsResponseStatus,
+    ljbprrsJobs,
+    ljbprrsNextPageToken,
+    ljbprrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticTranscoder.Types
+import qualified Network.AWS.ElasticTranscoder.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The @ListJobsByPipelineRequest@ structure.
 --
 -- /See:/ 'mkListJobsByPipeline' smart constructor.
 data ListJobsByPipeline = ListJobsByPipeline'
   { -- | The ID of the pipeline for which you want to get job information.
-    pipelineId :: Lude.Text,
+    pipelineId :: Types.Id,
     -- | To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
-    ascending :: Lude.Maybe Lude.Text,
+    ascending :: Core.Maybe Types.Ascending,
     -- | When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
-    pageToken :: Lude.Maybe Lude.Text
+    pageToken :: Core.Maybe Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListJobsByPipeline' with the minimum fields required to make a request.
---
--- * 'pipelineId' - The ID of the pipeline for which you want to get job information.
--- * 'ascending' - To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
--- * 'pageToken' - When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
+-- | Creates a 'ListJobsByPipeline' value with any optional fields omitted.
 mkListJobsByPipeline ::
   -- | 'pipelineId'
-  Lude.Text ->
+  Types.Id ->
   ListJobsByPipeline
-mkListJobsByPipeline pPipelineId_ =
+mkListJobsByPipeline pipelineId =
   ListJobsByPipeline'
-    { pipelineId = pPipelineId_,
-      ascending = Lude.Nothing,
-      pageToken = Lude.Nothing
+    { pipelineId,
+      ascending = Core.Nothing,
+      pageToken = Core.Nothing
     }
 
 -- | The ID of the pipeline for which you want to get job information.
 --
 -- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljbpPipelineId :: Lens.Lens' ListJobsByPipeline Lude.Text
-ljbpPipelineId = Lens.lens (pipelineId :: ListJobsByPipeline -> Lude.Text) (\s a -> s {pipelineId = a} :: ListJobsByPipeline)
+ljbpPipelineId :: Lens.Lens' ListJobsByPipeline Types.Id
+ljbpPipelineId = Lens.field @"pipelineId"
 {-# DEPRECATED ljbpPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | To list jobs in chronological order by the date and time that they were submitted, enter @true@ . To list jobs in reverse chronological order, enter @false@ .
 --
 -- /Note:/ Consider using 'ascending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljbpAscending :: Lens.Lens' ListJobsByPipeline (Lude.Maybe Lude.Text)
-ljbpAscending = Lens.lens (ascending :: ListJobsByPipeline -> Lude.Maybe Lude.Text) (\s a -> s {ascending = a} :: ListJobsByPipeline)
+ljbpAscending :: Lens.Lens' ListJobsByPipeline (Core.Maybe Types.Ascending)
+ljbpAscending = Lens.field @"ascending"
 {-# DEPRECATED ljbpAscending "Use generic-lens or generic-optics with 'ascending' instead." #-}
 
 -- | When Elastic Transcoder returns more than one page of results, use @pageToken@ in subsequent @GET@ requests to get each successive page of results.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljbpPageToken :: Lens.Lens' ListJobsByPipeline (Lude.Maybe Lude.Text)
-ljbpPageToken = Lens.lens (pageToken :: ListJobsByPipeline -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListJobsByPipeline)
+ljbpPageToken :: Lens.Lens' ListJobsByPipeline (Core.Maybe Types.Id)
+ljbpPageToken = Lens.field @"pageToken"
 {-# DEPRECATED ljbpPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Page.AWSPager ListJobsByPipeline where
-  page rq rs
-    | Page.stop (rs Lens.^. ljbprsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ljbprsJobs) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ljbpPageToken Lens..~ rs Lens.^. ljbprsNextPageToken
-
-instance Lude.AWSRequest ListJobsByPipeline where
+instance Core.AWSRequest ListJobsByPipeline where
   type Rs ListJobsByPipeline = ListJobsByPipelineResponse
-  request = Req.get elasticTranscoderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/2012-09-25/jobsByPipeline/" Core.<> (Core.toText pipelineId)),
+        Core._rqQuery =
+          Core.toQueryValue "Ascending" Core.<$> ascending
+            Core.<> (Core.toQueryValue "PageToken" Core.<$> pageToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListJobsByPipelineResponse'
-            Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "Jobs" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Jobs")
+            Core.<*> (x Core..:? "NextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListJobsByPipeline where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListJobsByPipeline where
-  toPath ListJobsByPipeline' {..} =
-    Lude.mconcat
-      ["/2012-09-25/jobsByPipeline/", Lude.toBS pipelineId]
-
-instance Lude.ToQuery ListJobsByPipeline where
-  toQuery ListJobsByPipeline' {..} =
-    Lude.mconcat
-      ["Ascending" Lude.=: ascending, "PageToken" Lude.=: pageToken]
+instance Pager.AWSPager ListJobsByPipeline where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"jobs" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | The @ListJobsByPipelineResponse@ structure.
 --
 -- /See:/ 'mkListJobsByPipelineResponse' smart constructor.
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
-  { -- | A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | An array of @Job@ objects that are in the specified pipeline.
-    jobs :: Lude.Maybe [Job'],
+  { -- | An array of @Job@ objects that are in the specified pipeline.
+    jobs :: Core.Maybe [Types.Job'],
+    -- | A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListJobsByPipelineResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
--- * 'jobs' - An array of @Job@ objects that are in the specified pipeline.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListJobsByPipelineResponse' value with any optional fields omitted.
 mkListJobsByPipelineResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListJobsByPipelineResponse
-mkListJobsByPipelineResponse pResponseStatus_ =
+mkListJobsByPipelineResponse responseStatus =
   ListJobsByPipelineResponse'
-    { nextPageToken = Lude.Nothing,
-      jobs = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobs = Core.Nothing,
+      nextPageToken = Core.Nothing,
+      responseStatus
     }
-
--- | A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
---
--- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljbprsNextPageToken :: Lens.Lens' ListJobsByPipelineResponse (Lude.Maybe Lude.Text)
-ljbprsNextPageToken = Lens.lens (nextPageToken :: ListJobsByPipelineResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListJobsByPipelineResponse)
-{-# DEPRECATED ljbprsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of @Job@ objects that are in the specified pipeline.
 --
 -- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljbprsJobs :: Lens.Lens' ListJobsByPipelineResponse (Lude.Maybe [Job'])
-ljbprsJobs = Lens.lens (jobs :: ListJobsByPipelineResponse -> Lude.Maybe [Job']) (\s a -> s {jobs = a} :: ListJobsByPipelineResponse)
-{-# DEPRECATED ljbprsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
+ljbprrsJobs :: Lens.Lens' ListJobsByPipelineResponse (Core.Maybe [Types.Job'])
+ljbprrsJobs = Lens.field @"jobs"
+{-# DEPRECATED ljbprrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
+
+-- | A value that you use to access the second and subsequent pages of results, if any. When the jobs in the specified pipeline fit on one page or when you've reached the last page of results, the value of @NextPageToken@ is @null@ .
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljbprrsNextPageToken :: Lens.Lens' ListJobsByPipelineResponse (Core.Maybe Types.NextPageToken)
+ljbprrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED ljbprrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljbprsResponseStatus :: Lens.Lens' ListJobsByPipelineResponse Lude.Int
-ljbprsResponseStatus = Lens.lens (responseStatus :: ListJobsByPipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListJobsByPipelineResponse)
-{-# DEPRECATED ljbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ljbprrsResponseStatus :: Lens.Lens' ListJobsByPipelineResponse Core.Int
+ljbprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ljbprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

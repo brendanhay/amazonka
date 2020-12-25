@@ -23,8 +23,8 @@ module Network.AWS.AutoScaling.ExitStandby
     mkExitStandby,
 
     -- ** Request lenses
-    eInstanceIds,
     eAutoScalingGroupName,
+    eInstanceIds,
 
     -- * Destructuring the response
     ExitStandbyResponse (..),
@@ -36,114 +36,105 @@ module Network.AWS.AutoScaling.ExitStandby
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkExitStandby' smart constructor.
 data ExitStandby = ExitStandby'
-  { -- | The IDs of the instances. You can specify up to 20 instances.
-    instanceIds :: Lude.Maybe [Lude.Text],
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Types.ResourceName,
+    -- | The IDs of the instances. You can specify up to 20 instances.
+    instanceIds :: Core.Maybe [Types.XmlStringMaxLen19]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExitStandby' with the minimum fields required to make a request.
---
--- * 'instanceIds' - The IDs of the instances. You can specify up to 20 instances.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'ExitStandby' value with any optional fields omitted.
 mkExitStandby ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.ResourceName ->
   ExitStandby
-mkExitStandby pAutoScalingGroupName_ =
-  ExitStandby'
-    { instanceIds = Lude.Nothing,
-      autoScalingGroupName = pAutoScalingGroupName_
-    }
-
--- | The IDs of the instances. You can specify up to 20 instances.
---
--- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eInstanceIds :: Lens.Lens' ExitStandby (Lude.Maybe [Lude.Text])
-eInstanceIds = Lens.lens (instanceIds :: ExitStandby -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIds = a} :: ExitStandby)
-{-# DEPRECATED eInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+mkExitStandby autoScalingGroupName =
+  ExitStandby' {autoScalingGroupName, instanceIds = Core.Nothing}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eAutoScalingGroupName :: Lens.Lens' ExitStandby Lude.Text
-eAutoScalingGroupName = Lens.lens (autoScalingGroupName :: ExitStandby -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: ExitStandby)
+eAutoScalingGroupName :: Lens.Lens' ExitStandby Types.ResourceName
+eAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED eAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance Lude.AWSRequest ExitStandby where
+-- | The IDs of the instances. You can specify up to 20 instances.
+--
+-- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eInstanceIds :: Lens.Lens' ExitStandby (Core.Maybe [Types.XmlStringMaxLen19])
+eInstanceIds = Lens.field @"instanceIds"
+{-# DEPRECATED eInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
+
+instance Core.AWSRequest ExitStandby where
   type Rs ExitStandby = ExitStandbyResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ExitStandby")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> ( Core.toQueryValue
+                            "InstanceIds"
+                            (Core.toQueryList "member" Core.<$> instanceIds)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ExitStandbyResult"
       ( \s h x ->
           ExitStandbyResponse'
-            Lude.<$> ( x Lude..@? "Activities" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Activities" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ExitStandby where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ExitStandby where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ExitStandby where
-  toQuery ExitStandby' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ExitStandby" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "InstanceIds"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> instanceIds),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
 
 -- | /See:/ 'mkExitStandbyResponse' smart constructor.
 data ExitStandbyResponse = ExitStandbyResponse'
   { -- | The activities related to moving instances out of @Standby@ mode.
-    activities :: Lude.Maybe [Activity],
+    activities :: Core.Maybe [Types.Activity],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ExitStandbyResponse' with the minimum fields required to make a request.
---
--- * 'activities' - The activities related to moving instances out of @Standby@ mode.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ExitStandbyResponse' value with any optional fields omitted.
 mkExitStandbyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ExitStandbyResponse
-mkExitStandbyResponse pResponseStatus_ =
-  ExitStandbyResponse'
-    { activities = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkExitStandbyResponse responseStatus =
+  ExitStandbyResponse' {activities = Core.Nothing, responseStatus}
 
 -- | The activities related to moving instances out of @Standby@ mode.
 --
 -- /Note:/ Consider using 'activities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ersActivities :: Lens.Lens' ExitStandbyResponse (Lude.Maybe [Activity])
-ersActivities = Lens.lens (activities :: ExitStandbyResponse -> Lude.Maybe [Activity]) (\s a -> s {activities = a} :: ExitStandbyResponse)
+ersActivities :: Lens.Lens' ExitStandbyResponse (Core.Maybe [Types.Activity])
+ersActivities = Lens.field @"activities"
 {-# DEPRECATED ersActivities "Use generic-lens or generic-optics with 'activities' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ersResponseStatus :: Lens.Lens' ExitStandbyResponse Lude.Int
-ersResponseStatus = Lens.lens (responseStatus :: ExitStandbyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExitStandbyResponse)
+ersResponseStatus :: Lens.Lens' ExitStandbyResponse Core.Int
+ersResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED ersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

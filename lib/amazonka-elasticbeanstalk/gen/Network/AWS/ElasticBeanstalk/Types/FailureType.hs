@@ -13,71 +13,73 @@
 module Network.AWS.ElasticBeanstalk.Types.FailureType
   ( FailureType
       ( FailureType',
-        UpdateCancelled,
-        CancellationFailed,
-        RollbackFailed,
-        RollbackSuccessful,
-        InternalFailure,
-        InvalidEnvironmentState,
-        PermissionsError
+        FailureTypeUpdateCancelled,
+        FailureTypeCancellationFailed,
+        FailureTypeRollbackFailed,
+        FailureTypeRollbackSuccessful,
+        FailureTypeInternalFailure,
+        FailureTypeInvalidEnvironmentState,
+        FailureTypePermissionsError,
+        fromFailureType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FailureType = FailureType' Lude.Text
+newtype FailureType = FailureType' {fromFailureType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UpdateCancelled :: FailureType
-pattern UpdateCancelled = FailureType' "UpdateCancelled"
+pattern FailureTypeUpdateCancelled :: FailureType
+pattern FailureTypeUpdateCancelled = FailureType' "UpdateCancelled"
 
-pattern CancellationFailed :: FailureType
-pattern CancellationFailed = FailureType' "CancellationFailed"
+pattern FailureTypeCancellationFailed :: FailureType
+pattern FailureTypeCancellationFailed = FailureType' "CancellationFailed"
 
-pattern RollbackFailed :: FailureType
-pattern RollbackFailed = FailureType' "RollbackFailed"
+pattern FailureTypeRollbackFailed :: FailureType
+pattern FailureTypeRollbackFailed = FailureType' "RollbackFailed"
 
-pattern RollbackSuccessful :: FailureType
-pattern RollbackSuccessful = FailureType' "RollbackSuccessful"
+pattern FailureTypeRollbackSuccessful :: FailureType
+pattern FailureTypeRollbackSuccessful = FailureType' "RollbackSuccessful"
 
-pattern InternalFailure :: FailureType
-pattern InternalFailure = FailureType' "InternalFailure"
+pattern FailureTypeInternalFailure :: FailureType
+pattern FailureTypeInternalFailure = FailureType' "InternalFailure"
 
-pattern InvalidEnvironmentState :: FailureType
-pattern InvalidEnvironmentState = FailureType' "InvalidEnvironmentState"
+pattern FailureTypeInvalidEnvironmentState :: FailureType
+pattern FailureTypeInvalidEnvironmentState = FailureType' "InvalidEnvironmentState"
 
-pattern PermissionsError :: FailureType
-pattern PermissionsError = FailureType' "PermissionsError"
+pattern FailureTypePermissionsError :: FailureType
+pattern FailureTypePermissionsError = FailureType' "PermissionsError"
 
 {-# COMPLETE
-  UpdateCancelled,
-  CancellationFailed,
-  RollbackFailed,
-  RollbackSuccessful,
-  InternalFailure,
-  InvalidEnvironmentState,
-  PermissionsError,
+  FailureTypeUpdateCancelled,
+  FailureTypeCancellationFailed,
+  FailureTypeRollbackFailed,
+  FailureTypeRollbackSuccessful,
+  FailureTypeInternalFailure,
+  FailureTypeInvalidEnvironmentState,
+  FailureTypePermissionsError,
   FailureType'
   #-}

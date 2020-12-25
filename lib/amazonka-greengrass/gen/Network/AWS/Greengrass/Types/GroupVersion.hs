@@ -17,144 +17,134 @@ module Network.AWS.Greengrass.Types.GroupVersion
     mkGroupVersion,
 
     -- * Lenses
-    gvResourceDefinitionVersionARN,
-    gvSubscriptionDefinitionVersionARN,
-    gvCoreDefinitionVersionARN,
-    gvDeviceDefinitionVersionARN,
-    gvFunctionDefinitionVersionARN,
-    gvLoggerDefinitionVersionARN,
-    gvConnectorDefinitionVersionARN,
+    gvConnectorDefinitionVersionArn,
+    gvCoreDefinitionVersionArn,
+    gvDeviceDefinitionVersionArn,
+    gvFunctionDefinitionVersionArn,
+    gvLoggerDefinitionVersionArn,
+    gvResourceDefinitionVersionArn,
+    gvSubscriptionDefinitionVersionArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a group version.
 --
 -- /See:/ 'mkGroupVersion' smart constructor.
 data GroupVersion = GroupVersion'
-  { -- | The ARN of the resource definition version for this group.
-    resourceDefinitionVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the subscription definition version for this group.
-    subscriptionDefinitionVersionARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the connector definition version for this group.
+    connectorDefinitionVersionArn :: Core.Maybe Core.Text,
     -- | The ARN of the core definition version for this group.
-    coreDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    coreDefinitionVersionArn :: Core.Maybe Core.Text,
     -- | The ARN of the device definition version for this group.
-    deviceDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    deviceDefinitionVersionArn :: Core.Maybe Core.Text,
     -- | The ARN of the function definition version for this group.
-    functionDefinitionVersionARN :: Lude.Maybe Lude.Text,
+    functionDefinitionVersionArn :: Core.Maybe Core.Text,
     -- | The ARN of the logger definition version for this group.
-    loggerDefinitionVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the connector definition version for this group.
-    connectorDefinitionVersionARN :: Lude.Maybe Lude.Text
+    loggerDefinitionVersionArn :: Core.Maybe Core.Text,
+    -- | The ARN of the resource definition version for this group.
+    resourceDefinitionVersionArn :: Core.Maybe Core.Text,
+    -- | The ARN of the subscription definition version for this group.
+    subscriptionDefinitionVersionArn :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GroupVersion' with the minimum fields required to make a request.
---
--- * 'resourceDefinitionVersionARN' - The ARN of the resource definition version for this group.
--- * 'subscriptionDefinitionVersionARN' - The ARN of the subscription definition version for this group.
--- * 'coreDefinitionVersionARN' - The ARN of the core definition version for this group.
--- * 'deviceDefinitionVersionARN' - The ARN of the device definition version for this group.
--- * 'functionDefinitionVersionARN' - The ARN of the function definition version for this group.
--- * 'loggerDefinitionVersionARN' - The ARN of the logger definition version for this group.
--- * 'connectorDefinitionVersionARN' - The ARN of the connector definition version for this group.
+-- | Creates a 'GroupVersion' value with any optional fields omitted.
 mkGroupVersion ::
   GroupVersion
 mkGroupVersion =
   GroupVersion'
-    { resourceDefinitionVersionARN = Lude.Nothing,
-      subscriptionDefinitionVersionARN = Lude.Nothing,
-      coreDefinitionVersionARN = Lude.Nothing,
-      deviceDefinitionVersionARN = Lude.Nothing,
-      functionDefinitionVersionARN = Lude.Nothing,
-      loggerDefinitionVersionARN = Lude.Nothing,
-      connectorDefinitionVersionARN = Lude.Nothing
+    { connectorDefinitionVersionArn = Core.Nothing,
+      coreDefinitionVersionArn = Core.Nothing,
+      deviceDefinitionVersionArn = Core.Nothing,
+      functionDefinitionVersionArn = Core.Nothing,
+      loggerDefinitionVersionArn = Core.Nothing,
+      resourceDefinitionVersionArn = Core.Nothing,
+      subscriptionDefinitionVersionArn = Core.Nothing
     }
-
--- | The ARN of the resource definition version for this group.
---
--- /Note:/ Consider using 'resourceDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvResourceDefinitionVersionARN :: Lens.Lens' GroupVersion (Lude.Maybe Lude.Text)
-gvResourceDefinitionVersionARN = Lens.lens (resourceDefinitionVersionARN :: GroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {resourceDefinitionVersionARN = a} :: GroupVersion)
-{-# DEPRECATED gvResourceDefinitionVersionARN "Use generic-lens or generic-optics with 'resourceDefinitionVersionARN' instead." #-}
-
--- | The ARN of the subscription definition version for this group.
---
--- /Note:/ Consider using 'subscriptionDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvSubscriptionDefinitionVersionARN :: Lens.Lens' GroupVersion (Lude.Maybe Lude.Text)
-gvSubscriptionDefinitionVersionARN = Lens.lens (subscriptionDefinitionVersionARN :: GroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionDefinitionVersionARN = a} :: GroupVersion)
-{-# DEPRECATED gvSubscriptionDefinitionVersionARN "Use generic-lens or generic-optics with 'subscriptionDefinitionVersionARN' instead." #-}
-
--- | The ARN of the core definition version for this group.
---
--- /Note:/ Consider using 'coreDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvCoreDefinitionVersionARN :: Lens.Lens' GroupVersion (Lude.Maybe Lude.Text)
-gvCoreDefinitionVersionARN = Lens.lens (coreDefinitionVersionARN :: GroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {coreDefinitionVersionARN = a} :: GroupVersion)
-{-# DEPRECATED gvCoreDefinitionVersionARN "Use generic-lens or generic-optics with 'coreDefinitionVersionARN' instead." #-}
-
--- | The ARN of the device definition version for this group.
---
--- /Note:/ Consider using 'deviceDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvDeviceDefinitionVersionARN :: Lens.Lens' GroupVersion (Lude.Maybe Lude.Text)
-gvDeviceDefinitionVersionARN = Lens.lens (deviceDefinitionVersionARN :: GroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {deviceDefinitionVersionARN = a} :: GroupVersion)
-{-# DEPRECATED gvDeviceDefinitionVersionARN "Use generic-lens or generic-optics with 'deviceDefinitionVersionARN' instead." #-}
-
--- | The ARN of the function definition version for this group.
---
--- /Note:/ Consider using 'functionDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvFunctionDefinitionVersionARN :: Lens.Lens' GroupVersion (Lude.Maybe Lude.Text)
-gvFunctionDefinitionVersionARN = Lens.lens (functionDefinitionVersionARN :: GroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {functionDefinitionVersionARN = a} :: GroupVersion)
-{-# DEPRECATED gvFunctionDefinitionVersionARN "Use generic-lens or generic-optics with 'functionDefinitionVersionARN' instead." #-}
-
--- | The ARN of the logger definition version for this group.
---
--- /Note:/ Consider using 'loggerDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvLoggerDefinitionVersionARN :: Lens.Lens' GroupVersion (Lude.Maybe Lude.Text)
-gvLoggerDefinitionVersionARN = Lens.lens (loggerDefinitionVersionARN :: GroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {loggerDefinitionVersionARN = a} :: GroupVersion)
-{-# DEPRECATED gvLoggerDefinitionVersionARN "Use generic-lens or generic-optics with 'loggerDefinitionVersionARN' instead." #-}
 
 -- | The ARN of the connector definition version for this group.
 --
--- /Note:/ Consider using 'connectorDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvConnectorDefinitionVersionARN :: Lens.Lens' GroupVersion (Lude.Maybe Lude.Text)
-gvConnectorDefinitionVersionARN = Lens.lens (connectorDefinitionVersionARN :: GroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {connectorDefinitionVersionARN = a} :: GroupVersion)
-{-# DEPRECATED gvConnectorDefinitionVersionARN "Use generic-lens or generic-optics with 'connectorDefinitionVersionARN' instead." #-}
+-- /Note:/ Consider using 'connectorDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvConnectorDefinitionVersionArn :: Lens.Lens' GroupVersion (Core.Maybe Core.Text)
+gvConnectorDefinitionVersionArn = Lens.field @"connectorDefinitionVersionArn"
+{-# DEPRECATED gvConnectorDefinitionVersionArn "Use generic-lens or generic-optics with 'connectorDefinitionVersionArn' instead." #-}
 
-instance Lude.FromJSON GroupVersion where
-  parseJSON =
-    Lude.withObject
-      "GroupVersion"
-      ( \x ->
-          GroupVersion'
-            Lude.<$> (x Lude..:? "ResourceDefinitionVersionArn")
-            Lude.<*> (x Lude..:? "SubscriptionDefinitionVersionArn")
-            Lude.<*> (x Lude..:? "CoreDefinitionVersionArn")
-            Lude.<*> (x Lude..:? "DeviceDefinitionVersionArn")
-            Lude.<*> (x Lude..:? "FunctionDefinitionVersionArn")
-            Lude.<*> (x Lude..:? "LoggerDefinitionVersionArn")
-            Lude.<*> (x Lude..:? "ConnectorDefinitionVersionArn")
-      )
+-- | The ARN of the core definition version for this group.
+--
+-- /Note:/ Consider using 'coreDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvCoreDefinitionVersionArn :: Lens.Lens' GroupVersion (Core.Maybe Core.Text)
+gvCoreDefinitionVersionArn = Lens.field @"coreDefinitionVersionArn"
+{-# DEPRECATED gvCoreDefinitionVersionArn "Use generic-lens or generic-optics with 'coreDefinitionVersionArn' instead." #-}
 
-instance Lude.ToJSON GroupVersion where
-  toJSON GroupVersion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ResourceDefinitionVersionArn" Lude..=)
-              Lude.<$> resourceDefinitionVersionARN,
-            ("SubscriptionDefinitionVersionArn" Lude..=)
-              Lude.<$> subscriptionDefinitionVersionARN,
-            ("CoreDefinitionVersionArn" Lude..=)
-              Lude.<$> coreDefinitionVersionARN,
-            ("DeviceDefinitionVersionArn" Lude..=)
-              Lude.<$> deviceDefinitionVersionARN,
-            ("FunctionDefinitionVersionArn" Lude..=)
-              Lude.<$> functionDefinitionVersionARN,
-            ("LoggerDefinitionVersionArn" Lude..=)
-              Lude.<$> loggerDefinitionVersionARN,
-            ("ConnectorDefinitionVersionArn" Lude..=)
-              Lude.<$> connectorDefinitionVersionARN
+-- | The ARN of the device definition version for this group.
+--
+-- /Note:/ Consider using 'deviceDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvDeviceDefinitionVersionArn :: Lens.Lens' GroupVersion (Core.Maybe Core.Text)
+gvDeviceDefinitionVersionArn = Lens.field @"deviceDefinitionVersionArn"
+{-# DEPRECATED gvDeviceDefinitionVersionArn "Use generic-lens or generic-optics with 'deviceDefinitionVersionArn' instead." #-}
+
+-- | The ARN of the function definition version for this group.
+--
+-- /Note:/ Consider using 'functionDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvFunctionDefinitionVersionArn :: Lens.Lens' GroupVersion (Core.Maybe Core.Text)
+gvFunctionDefinitionVersionArn = Lens.field @"functionDefinitionVersionArn"
+{-# DEPRECATED gvFunctionDefinitionVersionArn "Use generic-lens or generic-optics with 'functionDefinitionVersionArn' instead." #-}
+
+-- | The ARN of the logger definition version for this group.
+--
+-- /Note:/ Consider using 'loggerDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvLoggerDefinitionVersionArn :: Lens.Lens' GroupVersion (Core.Maybe Core.Text)
+gvLoggerDefinitionVersionArn = Lens.field @"loggerDefinitionVersionArn"
+{-# DEPRECATED gvLoggerDefinitionVersionArn "Use generic-lens or generic-optics with 'loggerDefinitionVersionArn' instead." #-}
+
+-- | The ARN of the resource definition version for this group.
+--
+-- /Note:/ Consider using 'resourceDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvResourceDefinitionVersionArn :: Lens.Lens' GroupVersion (Core.Maybe Core.Text)
+gvResourceDefinitionVersionArn = Lens.field @"resourceDefinitionVersionArn"
+{-# DEPRECATED gvResourceDefinitionVersionArn "Use generic-lens or generic-optics with 'resourceDefinitionVersionArn' instead." #-}
+
+-- | The ARN of the subscription definition version for this group.
+--
+-- /Note:/ Consider using 'subscriptionDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvSubscriptionDefinitionVersionArn :: Lens.Lens' GroupVersion (Core.Maybe Core.Text)
+gvSubscriptionDefinitionVersionArn = Lens.field @"subscriptionDefinitionVersionArn"
+{-# DEPRECATED gvSubscriptionDefinitionVersionArn "Use generic-lens or generic-optics with 'subscriptionDefinitionVersionArn' instead." #-}
+
+instance Core.FromJSON GroupVersion where
+  toJSON GroupVersion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ConnectorDefinitionVersionArn" Core..=)
+              Core.<$> connectorDefinitionVersionArn,
+            ("CoreDefinitionVersionArn" Core..=)
+              Core.<$> coreDefinitionVersionArn,
+            ("DeviceDefinitionVersionArn" Core..=)
+              Core.<$> deviceDefinitionVersionArn,
+            ("FunctionDefinitionVersionArn" Core..=)
+              Core.<$> functionDefinitionVersionArn,
+            ("LoggerDefinitionVersionArn" Core..=)
+              Core.<$> loggerDefinitionVersionArn,
+            ("ResourceDefinitionVersionArn" Core..=)
+              Core.<$> resourceDefinitionVersionArn,
+            ("SubscriptionDefinitionVersionArn" Core..=)
+              Core.<$> subscriptionDefinitionVersionArn
           ]
       )
+
+instance Core.FromJSON GroupVersion where
+  parseJSON =
+    Core.withObject "GroupVersion" Core.$
+      \x ->
+        GroupVersion'
+          Core.<$> (x Core..:? "ConnectorDefinitionVersionArn")
+          Core.<*> (x Core..:? "CoreDefinitionVersionArn")
+          Core.<*> (x Core..:? "DeviceDefinitionVersionArn")
+          Core.<*> (x Core..:? "FunctionDefinitionVersionArn")
+          Core.<*> (x Core..:? "LoggerDefinitionVersionArn")
+          Core.<*> (x Core..:? "ResourceDefinitionVersionArn")
+          Core.<*> (x Core..:? "SubscriptionDefinitionVersionArn")

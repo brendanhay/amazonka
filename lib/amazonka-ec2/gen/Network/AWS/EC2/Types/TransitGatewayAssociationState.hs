@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.TransitGatewayAssociationState
   ( TransitGatewayAssociationState
       ( TransitGatewayAssociationState',
-        Associating,
-        Associated,
-        Disassociating,
-        Disassociated
+        TransitGatewayAssociationStateAssociating,
+        TransitGatewayAssociationStateAssociated,
+        TransitGatewayAssociationStateDisassociating,
+        TransitGatewayAssociationStateDisassociated,
+        fromTransitGatewayAssociationState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TransitGatewayAssociationState = TransitGatewayAssociationState' Lude.Text
+newtype TransitGatewayAssociationState = TransitGatewayAssociationState'
+  { fromTransitGatewayAssociationState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Associating :: TransitGatewayAssociationState
-pattern Associating = TransitGatewayAssociationState' "associating"
+pattern TransitGatewayAssociationStateAssociating :: TransitGatewayAssociationState
+pattern TransitGatewayAssociationStateAssociating = TransitGatewayAssociationState' "associating"
 
-pattern Associated :: TransitGatewayAssociationState
-pattern Associated = TransitGatewayAssociationState' "associated"
+pattern TransitGatewayAssociationStateAssociated :: TransitGatewayAssociationState
+pattern TransitGatewayAssociationStateAssociated = TransitGatewayAssociationState' "associated"
 
-pattern Disassociating :: TransitGatewayAssociationState
-pattern Disassociating = TransitGatewayAssociationState' "disassociating"
+pattern TransitGatewayAssociationStateDisassociating :: TransitGatewayAssociationState
+pattern TransitGatewayAssociationStateDisassociating = TransitGatewayAssociationState' "disassociating"
 
-pattern Disassociated :: TransitGatewayAssociationState
-pattern Disassociated = TransitGatewayAssociationState' "disassociated"
+pattern TransitGatewayAssociationStateDisassociated :: TransitGatewayAssociationState
+pattern TransitGatewayAssociationStateDisassociated = TransitGatewayAssociationState' "disassociated"
 
 {-# COMPLETE
-  Associating,
-  Associated,
-  Disassociating,
-  Disassociated,
+  TransitGatewayAssociationStateAssociating,
+  TransitGatewayAssociationStateAssociated,
+  TransitGatewayAssociationStateDisassociating,
+  TransitGatewayAssociationStateDisassociated,
   TransitGatewayAssociationState'
   #-}

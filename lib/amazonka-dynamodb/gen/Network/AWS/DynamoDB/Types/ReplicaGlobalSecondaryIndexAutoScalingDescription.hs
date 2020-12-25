@@ -17,23 +17,26 @@ module Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingDescript
     mkReplicaGlobalSecondaryIndexAutoScalingDescription,
 
     -- * Lenses
-    rgsiasdIndexStatus,
-    rgsiasdProvisionedWriteCapacityAutoScalingSettings,
-    rgsiasdProvisionedReadCapacityAutoScalingSettings,
     rgsiasdIndexName,
+    rgsiasdIndexStatus,
+    rgsiasdProvisionedReadCapacityAutoScalingSettings,
+    rgsiasdProvisionedWriteCapacityAutoScalingSettings,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription
-import Network.AWS.DynamoDB.Types.IndexStatus
+import qualified Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription as Types
+import qualified Network.AWS.DynamoDB.Types.IndexName as Types
+import qualified Network.AWS.DynamoDB.Types.IndexStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the auto scaling configuration for a replica global secondary index.
 --
 -- /See:/ 'mkReplicaGlobalSecondaryIndexAutoScalingDescription' smart constructor.
 data ReplicaGlobalSecondaryIndexAutoScalingDescription = ReplicaGlobalSecondaryIndexAutoScalingDescription'
-  { -- | The current state of the replica global secondary index:
+  { -- | The name of the global secondary index.
+    indexName :: Core.Maybe Types.IndexName,
+    -- | The current state of the replica global secondary index:
     --
     --
     --     * @CREATING@ - The index is being created.
@@ -46,47 +49,33 @@ data ReplicaGlobalSecondaryIndexAutoScalingDescription = ReplicaGlobalSecondaryI
     --
     --
     --     * @ACTIVE@ - The index is ready for use.
-    indexStatus :: Lude.Maybe IndexStatus,
-    provisionedWriteCapacityAutoScalingSettings :: Lude.Maybe AutoScalingSettingsDescription,
-    provisionedReadCapacityAutoScalingSettings :: Lude.Maybe AutoScalingSettingsDescription,
-    -- | The name of the global secondary index.
-    indexName :: Lude.Maybe Lude.Text
+    indexStatus :: Core.Maybe Types.IndexStatus,
+    provisionedReadCapacityAutoScalingSettings :: Core.Maybe Types.AutoScalingSettingsDescription,
+    provisionedWriteCapacityAutoScalingSettings :: Core.Maybe Types.AutoScalingSettingsDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicaGlobalSecondaryIndexAutoScalingDescription' with the minimum fields required to make a request.
---
--- * 'indexStatus' - The current state of the replica global secondary index:
---
---
---     * @CREATING@ - The index is being created.
---
---
---     * @UPDATING@ - The index is being updated.
---
---
---     * @DELETING@ - The index is being deleted.
---
---
---     * @ACTIVE@ - The index is ready for use.
---
---
--- * 'provisionedWriteCapacityAutoScalingSettings' -
--- * 'provisionedReadCapacityAutoScalingSettings' -
--- * 'indexName' - The name of the global secondary index.
+-- | Creates a 'ReplicaGlobalSecondaryIndexAutoScalingDescription' value with any optional fields omitted.
 mkReplicaGlobalSecondaryIndexAutoScalingDescription ::
   ReplicaGlobalSecondaryIndexAutoScalingDescription
 mkReplicaGlobalSecondaryIndexAutoScalingDescription =
   ReplicaGlobalSecondaryIndexAutoScalingDescription'
-    { indexStatus =
-        Lude.Nothing,
-      provisionedWriteCapacityAutoScalingSettings =
-        Lude.Nothing,
+    { indexName =
+        Core.Nothing,
+      indexStatus = Core.Nothing,
       provisionedReadCapacityAutoScalingSettings =
-        Lude.Nothing,
-      indexName = Lude.Nothing
+        Core.Nothing,
+      provisionedWriteCapacityAutoScalingSettings =
+        Core.Nothing
     }
+
+-- | The name of the global secondary index.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsiasdIndexName :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Core.Maybe Types.IndexName)
+rgsiasdIndexName = Lens.field @"indexName"
+{-# DEPRECATED rgsiasdIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The current state of the replica global secondary index:
 --
@@ -105,42 +94,34 @@ mkReplicaGlobalSecondaryIndexAutoScalingDescription =
 --
 --
 -- /Note:/ Consider using 'indexStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsiasdIndexStatus :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Lude.Maybe IndexStatus)
-rgsiasdIndexStatus = Lens.lens (indexStatus :: ReplicaGlobalSecondaryIndexAutoScalingDescription -> Lude.Maybe IndexStatus) (\s a -> s {indexStatus = a} :: ReplicaGlobalSecondaryIndexAutoScalingDescription)
+rgsiasdIndexStatus :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Core.Maybe Types.IndexStatus)
+rgsiasdIndexStatus = Lens.field @"indexStatus"
 {-# DEPRECATED rgsiasdIndexStatus "Use generic-lens or generic-optics with 'indexStatus' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'provisionedWriteCapacityAutoScalingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsiasdProvisionedWriteCapacityAutoScalingSettings :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Lude.Maybe AutoScalingSettingsDescription)
-rgsiasdProvisionedWriteCapacityAutoScalingSettings = Lens.lens (provisionedWriteCapacityAutoScalingSettings :: ReplicaGlobalSecondaryIndexAutoScalingDescription -> Lude.Maybe AutoScalingSettingsDescription) (\s a -> s {provisionedWriteCapacityAutoScalingSettings = a} :: ReplicaGlobalSecondaryIndexAutoScalingDescription)
-{-# DEPRECATED rgsiasdProvisionedWriteCapacityAutoScalingSettings "Use generic-lens or generic-optics with 'provisionedWriteCapacityAutoScalingSettings' instead." #-}
+-- /Note:/ Consider using 'provisionedReadCapacityAutoScalingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsiasdProvisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Core.Maybe Types.AutoScalingSettingsDescription)
+rgsiasdProvisionedReadCapacityAutoScalingSettings = Lens.field @"provisionedReadCapacityAutoScalingSettings"
+{-# DEPRECATED rgsiasdProvisionedReadCapacityAutoScalingSettings "Use generic-lens or generic-optics with 'provisionedReadCapacityAutoScalingSettings' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'provisionedReadCapacityAutoScalingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsiasdProvisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Lude.Maybe AutoScalingSettingsDescription)
-rgsiasdProvisionedReadCapacityAutoScalingSettings = Lens.lens (provisionedReadCapacityAutoScalingSettings :: ReplicaGlobalSecondaryIndexAutoScalingDescription -> Lude.Maybe AutoScalingSettingsDescription) (\s a -> s {provisionedReadCapacityAutoScalingSettings = a} :: ReplicaGlobalSecondaryIndexAutoScalingDescription)
-{-# DEPRECATED rgsiasdProvisionedReadCapacityAutoScalingSettings "Use generic-lens or generic-optics with 'provisionedReadCapacityAutoScalingSettings' instead." #-}
-
--- | The name of the global secondary index.
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsiasdIndexName :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Lude.Maybe Lude.Text)
-rgsiasdIndexName = Lens.lens (indexName :: ReplicaGlobalSecondaryIndexAutoScalingDescription -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: ReplicaGlobalSecondaryIndexAutoScalingDescription)
-{-# DEPRECATED rgsiasdIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+-- /Note:/ Consider using 'provisionedWriteCapacityAutoScalingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsiasdProvisionedWriteCapacityAutoScalingSettings :: Lens.Lens' ReplicaGlobalSecondaryIndexAutoScalingDescription (Core.Maybe Types.AutoScalingSettingsDescription)
+rgsiasdProvisionedWriteCapacityAutoScalingSettings = Lens.field @"provisionedWriteCapacityAutoScalingSettings"
+{-# DEPRECATED rgsiasdProvisionedWriteCapacityAutoScalingSettings "Use generic-lens or generic-optics with 'provisionedWriteCapacityAutoScalingSettings' instead." #-}
 
 instance
-  Lude.FromJSON
+  Core.FromJSON
     ReplicaGlobalSecondaryIndexAutoScalingDescription
   where
   parseJSON =
-    Lude.withObject
+    Core.withObject
       "ReplicaGlobalSecondaryIndexAutoScalingDescription"
-      ( \x ->
-          ReplicaGlobalSecondaryIndexAutoScalingDescription'
-            Lude.<$> (x Lude..:? "IndexStatus")
-            Lude.<*> (x Lude..:? "ProvisionedWriteCapacityAutoScalingSettings")
-            Lude.<*> (x Lude..:? "ProvisionedReadCapacityAutoScalingSettings")
-            Lude.<*> (x Lude..:? "IndexName")
-      )
+      Core.$ \x ->
+        ReplicaGlobalSecondaryIndexAutoScalingDescription'
+          Core.<$> (x Core..:? "IndexName")
+          Core.<*> (x Core..:? "IndexStatus")
+          Core.<*> (x Core..:? "ProvisionedReadCapacityAutoScalingSettings")
+          Core.<*> (x Core..:? "ProvisionedWriteCapacityAutoScalingSettings")

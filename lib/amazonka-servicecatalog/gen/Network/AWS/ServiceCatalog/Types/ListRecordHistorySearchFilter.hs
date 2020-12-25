@@ -17,56 +17,42 @@ module Network.AWS.ServiceCatalog.Types.ListRecordHistorySearchFilter
     mkListRecordHistorySearchFilter,
 
     -- * Lenses
-    lrhsfValue,
     lrhsfKey,
+    lrhsfValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.SearchFilterKey as Types
+import qualified Network.AWS.ServiceCatalog.Types.SearchFilterValue as Types
 
 -- | The search filter to use when listing history records.
 --
 -- /See:/ 'mkListRecordHistorySearchFilter' smart constructor.
 data ListRecordHistorySearchFilter = ListRecordHistorySearchFilter'
-  { -- | The filter value.
-    value :: Lude.Maybe Lude.Text,
-    -- | The filter key.
+  { -- | The filter key.
     --
     --
     --     * @product@ - Filter results based on the specified product identifier.
     --
     --
     --     * @provisionedproduct@ - Filter results based on the provisioned product identifier.
-    key :: Lude.Maybe Lude.Text
+    key :: Core.Maybe Types.SearchFilterKey,
+    -- | The filter value.
+    value :: Core.Maybe Types.SearchFilterValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRecordHistorySearchFilter' with the minimum fields required to make a request.
---
--- * 'value' - The filter value.
--- * 'key' - The filter key.
---
---
---     * @product@ - Filter results based on the specified product identifier.
---
---
---     * @provisionedproduct@ - Filter results based on the provisioned product identifier.
+-- | Creates a 'ListRecordHistorySearchFilter' value with any optional fields omitted.
 mkListRecordHistorySearchFilter ::
   ListRecordHistorySearchFilter
 mkListRecordHistorySearchFilter =
   ListRecordHistorySearchFilter'
-    { value = Lude.Nothing,
-      key = Lude.Nothing
+    { key = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The filter value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrhsfValue :: Lens.Lens' ListRecordHistorySearchFilter (Lude.Maybe Lude.Text)
-lrhsfValue = Lens.lens (value :: ListRecordHistorySearchFilter -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ListRecordHistorySearchFilter)
-{-# DEPRECATED lrhsfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The filter key.
 --
@@ -79,13 +65,20 @@ lrhsfValue = Lens.lens (value :: ListRecordHistorySearchFilter -> Lude.Maybe Lud
 --
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrhsfKey :: Lens.Lens' ListRecordHistorySearchFilter (Lude.Maybe Lude.Text)
-lrhsfKey = Lens.lens (key :: ListRecordHistorySearchFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ListRecordHistorySearchFilter)
+lrhsfKey :: Lens.Lens' ListRecordHistorySearchFilter (Core.Maybe Types.SearchFilterKey)
+lrhsfKey = Lens.field @"key"
 {-# DEPRECATED lrhsfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON ListRecordHistorySearchFilter where
-  toJSON ListRecordHistorySearchFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Value" Lude..=) Lude.<$> value, ("Key" Lude..=) Lude.<$> key]
+-- | The filter value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhsfValue :: Lens.Lens' ListRecordHistorySearchFilter (Core.Maybe Types.SearchFilterValue)
+lrhsfValue = Lens.field @"value"
+{-# DEPRECATED lrhsfValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON ListRecordHistorySearchFilter where
+  toJSON ListRecordHistorySearchFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Value" Core..=) Core.<$> value]
       )

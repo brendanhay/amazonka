@@ -22,191 +22,181 @@ module Network.AWS.EC2.CreateTransitGatewayPeeringAttachment
     mkCreateTransitGatewayPeeringAttachment,
 
     -- ** Request lenses
-    ctgpaPeerAccountId,
-    ctgpaTagSpecifications,
-    ctgpaPeerRegion,
     ctgpaTransitGatewayId,
     ctgpaPeerTransitGatewayId,
+    ctgpaPeerAccountId,
+    ctgpaPeerRegion,
     ctgpaDryRun,
+    ctgpaTagSpecifications,
 
     -- * Destructuring the response
     CreateTransitGatewayPeeringAttachmentResponse (..),
     mkCreateTransitGatewayPeeringAttachmentResponse,
 
     -- ** Response lenses
-    ctgparsTransitGatewayPeeringAttachment,
-    ctgparsResponseStatus,
+    ctgparrsTransitGatewayPeeringAttachment,
+    ctgparrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateTransitGatewayPeeringAttachment' smart constructor.
 data CreateTransitGatewayPeeringAttachment = CreateTransitGatewayPeeringAttachment'
-  { -- | The AWS account ID of the owner of the peer transit gateway.
-    peerAccountId :: Lude.Text,
-    -- | The tags to apply to the transit gateway peering attachment.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    -- | The Region where the peer transit gateway is located.
-    peerRegion :: Lude.Text,
-    -- | The ID of the transit gateway.
-    transitGatewayId :: Lude.Text,
+  { -- | The ID of the transit gateway.
+    transitGatewayId :: Types.TransitGatewayId,
     -- | The ID of the peer transit gateway with which to create the peering attachment.
-    peerTransitGatewayId :: Lude.Text,
+    peerTransitGatewayId :: Types.TransitAssociationGatewayId,
+    -- | The AWS account ID of the owner of the peer transit gateway.
+    peerAccountId :: Types.String,
+    -- | The Region where the peer transit gateway is located.
+    peerRegion :: Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The tags to apply to the transit gateway peering attachment.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTransitGatewayPeeringAttachment' with the minimum fields required to make a request.
---
--- * 'peerAccountId' - The AWS account ID of the owner of the peer transit gateway.
--- * 'tagSpecifications' - The tags to apply to the transit gateway peering attachment.
--- * 'peerRegion' - The Region where the peer transit gateway is located.
--- * 'transitGatewayId' - The ID of the transit gateway.
--- * 'peerTransitGatewayId' - The ID of the peer transit gateway with which to create the peering attachment.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateTransitGatewayPeeringAttachment' value with any optional fields omitted.
 mkCreateTransitGatewayPeeringAttachment ::
-  -- | 'peerAccountId'
-  Lude.Text ->
-  -- | 'peerRegion'
-  Lude.Text ->
   -- | 'transitGatewayId'
-  Lude.Text ->
+  Types.TransitGatewayId ->
   -- | 'peerTransitGatewayId'
-  Lude.Text ->
+  Types.TransitAssociationGatewayId ->
+  -- | 'peerAccountId'
+  Types.String ->
+  -- | 'peerRegion'
+  Types.String ->
   CreateTransitGatewayPeeringAttachment
 mkCreateTransitGatewayPeeringAttachment
-  pPeerAccountId_
-  pPeerRegion_
-  pTransitGatewayId_
-  pPeerTransitGatewayId_ =
+  transitGatewayId
+  peerTransitGatewayId
+  peerAccountId
+  peerRegion =
     CreateTransitGatewayPeeringAttachment'
-      { peerAccountId =
-          pPeerAccountId_,
-        tagSpecifications = Lude.Nothing,
-        peerRegion = pPeerRegion_,
-        transitGatewayId = pTransitGatewayId_,
-        peerTransitGatewayId = pPeerTransitGatewayId_,
-        dryRun = Lude.Nothing
+      { transitGatewayId,
+        peerTransitGatewayId,
+        peerAccountId,
+        peerRegion,
+        dryRun = Core.Nothing,
+        tagSpecifications = Core.Nothing
       }
-
--- | The AWS account ID of the owner of the peer transit gateway.
---
--- /Note:/ Consider using 'peerAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgpaPeerAccountId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Lude.Text
-ctgpaPeerAccountId = Lens.lens (peerAccountId :: CreateTransitGatewayPeeringAttachment -> Lude.Text) (\s a -> s {peerAccountId = a} :: CreateTransitGatewayPeeringAttachment)
-{-# DEPRECATED ctgpaPeerAccountId "Use generic-lens or generic-optics with 'peerAccountId' instead." #-}
-
--- | The tags to apply to the transit gateway peering attachment.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgpaTagSpecifications :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Lude.Maybe [TagSpecification])
-ctgpaTagSpecifications = Lens.lens (tagSpecifications :: CreateTransitGatewayPeeringAttachment -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateTransitGatewayPeeringAttachment)
-{-# DEPRECATED ctgpaTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
-
--- | The Region where the peer transit gateway is located.
---
--- /Note:/ Consider using 'peerRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgpaPeerRegion :: Lens.Lens' CreateTransitGatewayPeeringAttachment Lude.Text
-ctgpaPeerRegion = Lens.lens (peerRegion :: CreateTransitGatewayPeeringAttachment -> Lude.Text) (\s a -> s {peerRegion = a} :: CreateTransitGatewayPeeringAttachment)
-{-# DEPRECATED ctgpaPeerRegion "Use generic-lens or generic-optics with 'peerRegion' instead." #-}
 
 -- | The ID of the transit gateway.
 --
 -- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgpaTransitGatewayId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Lude.Text
-ctgpaTransitGatewayId = Lens.lens (transitGatewayId :: CreateTransitGatewayPeeringAttachment -> Lude.Text) (\s a -> s {transitGatewayId = a} :: CreateTransitGatewayPeeringAttachment)
+ctgpaTransitGatewayId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Types.TransitGatewayId
+ctgpaTransitGatewayId = Lens.field @"transitGatewayId"
 {-# DEPRECATED ctgpaTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
 -- | The ID of the peer transit gateway with which to create the peering attachment.
 --
 -- /Note:/ Consider using 'peerTransitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgpaPeerTransitGatewayId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Lude.Text
-ctgpaPeerTransitGatewayId = Lens.lens (peerTransitGatewayId :: CreateTransitGatewayPeeringAttachment -> Lude.Text) (\s a -> s {peerTransitGatewayId = a} :: CreateTransitGatewayPeeringAttachment)
+ctgpaPeerTransitGatewayId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Types.TransitAssociationGatewayId
+ctgpaPeerTransitGatewayId = Lens.field @"peerTransitGatewayId"
 {-# DEPRECATED ctgpaPeerTransitGatewayId "Use generic-lens or generic-optics with 'peerTransitGatewayId' instead." #-}
+
+-- | The AWS account ID of the owner of the peer transit gateway.
+--
+-- /Note:/ Consider using 'peerAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgpaPeerAccountId :: Lens.Lens' CreateTransitGatewayPeeringAttachment Types.String
+ctgpaPeerAccountId = Lens.field @"peerAccountId"
+{-# DEPRECATED ctgpaPeerAccountId "Use generic-lens or generic-optics with 'peerAccountId' instead." #-}
+
+-- | The Region where the peer transit gateway is located.
+--
+-- /Note:/ Consider using 'peerRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgpaPeerRegion :: Lens.Lens' CreateTransitGatewayPeeringAttachment Types.String
+ctgpaPeerRegion = Lens.field @"peerRegion"
+{-# DEPRECATED ctgpaPeerRegion "Use generic-lens or generic-optics with 'peerRegion' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgpaDryRun :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Lude.Maybe Lude.Bool)
-ctgpaDryRun = Lens.lens (dryRun :: CreateTransitGatewayPeeringAttachment -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTransitGatewayPeeringAttachment)
+ctgpaDryRun :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Core.Maybe Core.Bool)
+ctgpaDryRun = Lens.field @"dryRun"
 {-# DEPRECATED ctgpaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateTransitGatewayPeeringAttachment where
+-- | The tags to apply to the transit gateway peering attachment.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgpaTagSpecifications :: Lens.Lens' CreateTransitGatewayPeeringAttachment (Core.Maybe [Types.TagSpecification])
+ctgpaTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED ctgpaTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreateTransitGatewayPeeringAttachment where
   type
     Rs CreateTransitGatewayPeeringAttachment =
       CreateTransitGatewayPeeringAttachmentResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateTransitGatewayPeeringAttachment")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "TransitGatewayId" transitGatewayId)
+                Core.<> (Core.toQueryValue "PeerTransitGatewayId" peerTransitGatewayId)
+                Core.<> (Core.toQueryValue "PeerAccountId" peerAccountId)
+                Core.<> (Core.toQueryValue "PeerRegion" peerRegion)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayPeeringAttachmentResponse'
-            Lude.<$> (x Lude..@? "transitGatewayPeeringAttachment")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "transitGatewayPeeringAttachment")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTransitGatewayPeeringAttachment where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateTransitGatewayPeeringAttachment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTransitGatewayPeeringAttachment where
-  toQuery CreateTransitGatewayPeeringAttachment' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("CreateTransitGatewayPeeringAttachment" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "PeerAccountId" Lude.=: peerAccountId,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "PeerRegion" Lude.=: peerRegion,
-        "TransitGatewayId" Lude.=: transitGatewayId,
-        "PeerTransitGatewayId" Lude.=: peerTransitGatewayId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCreateTransitGatewayPeeringAttachmentResponse' smart constructor.
 data CreateTransitGatewayPeeringAttachmentResponse = CreateTransitGatewayPeeringAttachmentResponse'
   { -- | The transit gateway peering attachment.
-    transitGatewayPeeringAttachment :: Lude.Maybe TransitGatewayPeeringAttachment,
+    transitGatewayPeeringAttachment :: Core.Maybe Types.TransitGatewayPeeringAttachment,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateTransitGatewayPeeringAttachmentResponse' with the minimum fields required to make a request.
---
--- * 'transitGatewayPeeringAttachment' - The transit gateway peering attachment.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTransitGatewayPeeringAttachmentResponse' value with any optional fields omitted.
 mkCreateTransitGatewayPeeringAttachmentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTransitGatewayPeeringAttachmentResponse
-mkCreateTransitGatewayPeeringAttachmentResponse pResponseStatus_ =
+mkCreateTransitGatewayPeeringAttachmentResponse responseStatus =
   CreateTransitGatewayPeeringAttachmentResponse'
     { transitGatewayPeeringAttachment =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The transit gateway peering attachment.
 --
 -- /Note:/ Consider using 'transitGatewayPeeringAttachment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgparsTransitGatewayPeeringAttachment :: Lens.Lens' CreateTransitGatewayPeeringAttachmentResponse (Lude.Maybe TransitGatewayPeeringAttachment)
-ctgparsTransitGatewayPeeringAttachment = Lens.lens (transitGatewayPeeringAttachment :: CreateTransitGatewayPeeringAttachmentResponse -> Lude.Maybe TransitGatewayPeeringAttachment) (\s a -> s {transitGatewayPeeringAttachment = a} :: CreateTransitGatewayPeeringAttachmentResponse)
-{-# DEPRECATED ctgparsTransitGatewayPeeringAttachment "Use generic-lens or generic-optics with 'transitGatewayPeeringAttachment' instead." #-}
+ctgparrsTransitGatewayPeeringAttachment :: Lens.Lens' CreateTransitGatewayPeeringAttachmentResponse (Core.Maybe Types.TransitGatewayPeeringAttachment)
+ctgparrsTransitGatewayPeeringAttachment = Lens.field @"transitGatewayPeeringAttachment"
+{-# DEPRECATED ctgparrsTransitGatewayPeeringAttachment "Use generic-lens or generic-optics with 'transitGatewayPeeringAttachment' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgparsResponseStatus :: Lens.Lens' CreateTransitGatewayPeeringAttachmentResponse Lude.Int
-ctgparsResponseStatus = Lens.lens (responseStatus :: CreateTransitGatewayPeeringAttachmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTransitGatewayPeeringAttachmentResponse)
-{-# DEPRECATED ctgparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctgparrsResponseStatus :: Lens.Lens' CreateTransitGatewayPeeringAttachmentResponse Core.Int
+ctgparrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctgparrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

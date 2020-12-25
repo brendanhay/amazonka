@@ -20,7 +20,7 @@ module Network.AWS.IAM.DeleteVirtualMFADevice
     mkDeleteVirtualMFADevice,
 
     -- ** Request lenses
-    dvmdSerialNumber,
+    dvmfadSerialNumber,
 
     -- * Destructuring the response
     DeleteVirtualMFADeviceResponse (..),
@@ -28,68 +28,67 @@ module Network.AWS.IAM.DeleteVirtualMFADevice
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteVirtualMFADevice' smart constructor.
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'
   { -- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
-    serialNumber :: Lude.Text
+    serialNumber :: Types.SerialNumberType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVirtualMFADevice' with the minimum fields required to make a request.
---
--- * 'serialNumber' - The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
+-- | Creates a 'DeleteVirtualMFADevice' value with any optional fields omitted.
 mkDeleteVirtualMFADevice ::
   -- | 'serialNumber'
-  Lude.Text ->
+  Types.SerialNumberType ->
   DeleteVirtualMFADevice
-mkDeleteVirtualMFADevice pSerialNumber_ =
-  DeleteVirtualMFADevice' {serialNumber = pSerialNumber_}
+mkDeleteVirtualMFADevice serialNumber =
+  DeleteVirtualMFADevice' {serialNumber}
 
 -- | The serial number that uniquely identifies the MFA device. For virtual MFA devices, the serial number is the same as the ARN.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@:/-
 --
 -- /Note:/ Consider using 'serialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvmdSerialNumber :: Lens.Lens' DeleteVirtualMFADevice Lude.Text
-dvmdSerialNumber = Lens.lens (serialNumber :: DeleteVirtualMFADevice -> Lude.Text) (\s a -> s {serialNumber = a} :: DeleteVirtualMFADevice)
-{-# DEPRECATED dvmdSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
+dvmfadSerialNumber :: Lens.Lens' DeleteVirtualMFADevice Types.SerialNumberType
+dvmfadSerialNumber = Lens.field @"serialNumber"
+{-# DEPRECATED dvmfadSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
 
-instance Lude.AWSRequest DeleteVirtualMFADevice where
+instance Core.AWSRequest DeleteVirtualMFADevice where
   type Rs DeleteVirtualMFADevice = DeleteVirtualMFADeviceResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeleteVirtualMFADeviceResponse'
-
-instance Lude.ToHeaders DeleteVirtualMFADevice where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteVirtualMFADevice where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteVirtualMFADevice where
-  toQuery DeleteVirtualMFADevice' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteVirtualMFADevice" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "SerialNumber" Lude.=: serialNumber
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteVirtualMFADevice")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "SerialNumber" serialNumber)
+            )
+      }
+  response = Response.receiveNull DeleteVirtualMFADeviceResponse'
 
 -- | /See:/ 'mkDeleteVirtualMFADeviceResponse' smart constructor.
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVirtualMFADeviceResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteVirtualMFADeviceResponse' value with any optional fields omitted.
 mkDeleteVirtualMFADeviceResponse ::
   DeleteVirtualMFADeviceResponse
 mkDeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse'

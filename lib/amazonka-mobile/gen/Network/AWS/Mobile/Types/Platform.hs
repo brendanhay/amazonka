@@ -13,72 +13,74 @@
 module Network.AWS.Mobile.Types.Platform
   ( Platform
       ( Platform',
-        OSx,
-        Windows,
-        Linux,
-        Objc,
-        Swift,
-        Android,
-        Javascript
+        PlatformOsx,
+        PlatformWindows,
+        PlatformLinux,
+        PlatformObjc,
+        PlatformSwift,
+        PlatformAndroid,
+        PlatformJavascript,
+        fromPlatform
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Developer desktop or target mobile app or website platform.
-newtype Platform = Platform' Lude.Text
+newtype Platform = Platform' {fromPlatform :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OSx :: Platform
-pattern OSx = Platform' "OSX"
+pattern PlatformOsx :: Platform
+pattern PlatformOsx = Platform' "OSX"
 
-pattern Windows :: Platform
-pattern Windows = Platform' "WINDOWS"
+pattern PlatformWindows :: Platform
+pattern PlatformWindows = Platform' "WINDOWS"
 
-pattern Linux :: Platform
-pattern Linux = Platform' "LINUX"
+pattern PlatformLinux :: Platform
+pattern PlatformLinux = Platform' "LINUX"
 
-pattern Objc :: Platform
-pattern Objc = Platform' "OBJC"
+pattern PlatformObjc :: Platform
+pattern PlatformObjc = Platform' "OBJC"
 
-pattern Swift :: Platform
-pattern Swift = Platform' "SWIFT"
+pattern PlatformSwift :: Platform
+pattern PlatformSwift = Platform' "SWIFT"
 
-pattern Android :: Platform
-pattern Android = Platform' "ANDROID"
+pattern PlatformAndroid :: Platform
+pattern PlatformAndroid = Platform' "ANDROID"
 
-pattern Javascript :: Platform
-pattern Javascript = Platform' "JAVASCRIPT"
+pattern PlatformJavascript :: Platform
+pattern PlatformJavascript = Platform' "JAVASCRIPT"
 
 {-# COMPLETE
-  OSx,
-  Windows,
-  Linux,
-  Objc,
-  Swift,
-  Android,
-  Javascript,
+  PlatformOsx,
+  PlatformWindows,
+  PlatformLinux,
+  PlatformObjc,
+  PlatformSwift,
+  PlatformAndroid,
+  PlatformJavascript,
   Platform'
   #-}

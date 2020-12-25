@@ -22,55 +22,50 @@ module Network.AWS.Config.Types.EvaluationResultIdentifier
   )
 where
 
-import Network.AWS.Config.Types.EvaluationResultQualifier
+import qualified Network.AWS.Config.Types.EvaluationResultQualifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Uniquely identifies an evaluation result.
 --
 -- /See:/ 'mkEvaluationResultIdentifier' smart constructor.
 data EvaluationResultIdentifier = EvaluationResultIdentifier'
   { -- | Identifies an AWS Config rule used to evaluate an AWS resource, and provides the type and ID of the evaluated resource.
-    evaluationResultQualifier :: Lude.Maybe EvaluationResultQualifier,
+    evaluationResultQualifier :: Core.Maybe Types.EvaluationResultQualifier,
     -- | The time of the event that triggered the evaluation of your AWS resources. The time can indicate when AWS Config delivered a configuration item change notification, or it can indicate when AWS Config delivered the configuration snapshot, depending on which event triggered the evaluation.
-    orderingTimestamp :: Lude.Maybe Lude.Timestamp
+    orderingTimestamp :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EvaluationResultIdentifier' with the minimum fields required to make a request.
---
--- * 'evaluationResultQualifier' - Identifies an AWS Config rule used to evaluate an AWS resource, and provides the type and ID of the evaluated resource.
--- * 'orderingTimestamp' - The time of the event that triggered the evaluation of your AWS resources. The time can indicate when AWS Config delivered a configuration item change notification, or it can indicate when AWS Config delivered the configuration snapshot, depending on which event triggered the evaluation.
+-- | Creates a 'EvaluationResultIdentifier' value with any optional fields omitted.
 mkEvaluationResultIdentifier ::
   EvaluationResultIdentifier
 mkEvaluationResultIdentifier =
   EvaluationResultIdentifier'
     { evaluationResultQualifier =
-        Lude.Nothing,
-      orderingTimestamp = Lude.Nothing
+        Core.Nothing,
+      orderingTimestamp = Core.Nothing
     }
 
 -- | Identifies an AWS Config rule used to evaluate an AWS resource, and provides the type and ID of the evaluated resource.
 --
 -- /Note:/ Consider using 'evaluationResultQualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eriEvaluationResultQualifier :: Lens.Lens' EvaluationResultIdentifier (Lude.Maybe EvaluationResultQualifier)
-eriEvaluationResultQualifier = Lens.lens (evaluationResultQualifier :: EvaluationResultIdentifier -> Lude.Maybe EvaluationResultQualifier) (\s a -> s {evaluationResultQualifier = a} :: EvaluationResultIdentifier)
+eriEvaluationResultQualifier :: Lens.Lens' EvaluationResultIdentifier (Core.Maybe Types.EvaluationResultQualifier)
+eriEvaluationResultQualifier = Lens.field @"evaluationResultQualifier"
 {-# DEPRECATED eriEvaluationResultQualifier "Use generic-lens or generic-optics with 'evaluationResultQualifier' instead." #-}
 
 -- | The time of the event that triggered the evaluation of your AWS resources. The time can indicate when AWS Config delivered a configuration item change notification, or it can indicate when AWS Config delivered the configuration snapshot, depending on which event triggered the evaluation.
 --
 -- /Note:/ Consider using 'orderingTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eriOrderingTimestamp :: Lens.Lens' EvaluationResultIdentifier (Lude.Maybe Lude.Timestamp)
-eriOrderingTimestamp = Lens.lens (orderingTimestamp :: EvaluationResultIdentifier -> Lude.Maybe Lude.Timestamp) (\s a -> s {orderingTimestamp = a} :: EvaluationResultIdentifier)
+eriOrderingTimestamp :: Lens.Lens' EvaluationResultIdentifier (Core.Maybe Core.NominalDiffTime)
+eriOrderingTimestamp = Lens.field @"orderingTimestamp"
 {-# DEPRECATED eriOrderingTimestamp "Use generic-lens or generic-optics with 'orderingTimestamp' instead." #-}
 
-instance Lude.FromJSON EvaluationResultIdentifier where
+instance Core.FromJSON EvaluationResultIdentifier where
   parseJSON =
-    Lude.withObject
-      "EvaluationResultIdentifier"
-      ( \x ->
-          EvaluationResultIdentifier'
-            Lude.<$> (x Lude..:? "EvaluationResultQualifier")
-            Lude.<*> (x Lude..:? "OrderingTimestamp")
-      )
+    Core.withObject "EvaluationResultIdentifier" Core.$
+      \x ->
+        EvaluationResultIdentifier'
+          Core.<$> (x Core..:? "EvaluationResultQualifier")
+          Core.<*> (x Core..:? "OrderingTimestamp")

@@ -23,27 +23,27 @@ module Network.AWS.DMS.DescribeReplicationTasks
 
     -- ** Request lenses
     drtFilters,
-    drtWithoutSettings,
     drtMarker,
     drtMaxRecords,
+    drtWithoutSettings,
 
     -- * Destructuring the response
     DescribeReplicationTasksResponse (..),
     mkDescribeReplicationTasksResponse,
 
     -- ** Response lenses
-    drtsrsReplicationTasks,
-    drtsrsMarker,
-    drtsrsResponseStatus,
+    drtrfrsMarker,
+    drtrfrsReplicationTasks,
+    drtrfrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -52,39 +52,29 @@ data DescribeReplicationTasks = DescribeReplicationTasks'
   { -- | Filters applied to replication tasks.
     --
     -- Valid filter names: replication-task-arn | replication-task-id | migration-type | endpoint-arn | replication-instance-arn
-    filters :: Lude.Maybe [Filter],
-    -- | An option to set to avoid returning information about settings. Use this to reduce overhead when setting information is too large. To use this option, choose @true@ ; otherwise, choose @false@ (the default).
-    withoutSettings :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int,
+    -- | An option to set to avoid returning information about settings. Use this to reduce overhead when setting information is too large. To use this option, choose @true@ ; otherwise, choose @false@ (the default).
+    withoutSettings :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReplicationTasks' with the minimum fields required to make a request.
---
--- * 'filters' - Filters applied to replication tasks.
---
--- Valid filter names: replication-task-arn | replication-task-id | migration-type | endpoint-arn | replication-instance-arn
--- * 'withoutSettings' - An option to set to avoid returning information about settings. Use this to reduce overhead when setting information is too large. To use this option, choose @true@ ; otherwise, choose @false@ (the default).
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
+-- | Creates a 'DescribeReplicationTasks' value with any optional fields omitted.
 mkDescribeReplicationTasks ::
   DescribeReplicationTasks
 mkDescribeReplicationTasks =
   DescribeReplicationTasks'
-    { filters = Lude.Nothing,
-      withoutSettings = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      withoutSettings = Core.Nothing
     }
 
 -- | Filters applied to replication tasks.
@@ -92,22 +82,15 @@ mkDescribeReplicationTasks =
 -- Valid filter names: replication-task-arn | replication-task-id | migration-type | endpoint-arn | replication-instance-arn
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtFilters :: Lens.Lens' DescribeReplicationTasks (Lude.Maybe [Filter])
-drtFilters = Lens.lens (filters :: DescribeReplicationTasks -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeReplicationTasks)
+drtFilters :: Lens.Lens' DescribeReplicationTasks (Core.Maybe [Types.Filter])
+drtFilters = Lens.field @"filters"
 {-# DEPRECATED drtFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | An option to set to avoid returning information about settings. Use this to reduce overhead when setting information is too large. To use this option, choose @true@ ; otherwise, choose @false@ (the default).
---
--- /Note:/ Consider using 'withoutSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtWithoutSettings :: Lens.Lens' DescribeReplicationTasks (Lude.Maybe Lude.Bool)
-drtWithoutSettings = Lens.lens (withoutSettings :: DescribeReplicationTasks -> Lude.Maybe Lude.Bool) (\s a -> s {withoutSettings = a} :: DescribeReplicationTasks)
-{-# DEPRECATED drtWithoutSettings "Use generic-lens or generic-optics with 'withoutSettings' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtMarker :: Lens.Lens' DescribeReplicationTasks (Lude.Maybe Lude.Text)
-drtMarker = Lens.lens (marker :: DescribeReplicationTasks -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationTasks)
+drtMarker :: Lens.Lens' DescribeReplicationTasks (Core.Maybe Types.String)
+drtMarker = Lens.field @"marker"
 {-# DEPRECATED drtMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
@@ -116,107 +99,106 @@ drtMarker = Lens.lens (marker :: DescribeReplicationTasks -> Lude.Maybe Lude.Tex
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtMaxRecords :: Lens.Lens' DescribeReplicationTasks (Lude.Maybe Lude.Int)
-drtMaxRecords = Lens.lens (maxRecords :: DescribeReplicationTasks -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeReplicationTasks)
+drtMaxRecords :: Lens.Lens' DescribeReplicationTasks (Core.Maybe Core.Int)
+drtMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED drtMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeReplicationTasks where
-  page rq rs
-    | Page.stop (rs Lens.^. drtsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. drtsrsReplicationTasks) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& drtMarker Lens..~ rs Lens.^. drtsrsMarker
+-- | An option to set to avoid returning information about settings. Use this to reduce overhead when setting information is too large. To use this option, choose @true@ ; otherwise, choose @false@ (the default).
+--
+-- /Note:/ Consider using 'withoutSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtWithoutSettings :: Lens.Lens' DescribeReplicationTasks (Core.Maybe Core.Bool)
+drtWithoutSettings = Lens.field @"withoutSettings"
+{-# DEPRECATED drtWithoutSettings "Use generic-lens or generic-optics with 'withoutSettings' instead." #-}
 
-instance Lude.AWSRequest DescribeReplicationTasks where
+instance Core.FromJSON DescribeReplicationTasks where
+  toJSON DescribeReplicationTasks {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("Marker" Core..=) Core.<$> marker,
+            ("MaxRecords" Core..=) Core.<$> maxRecords,
+            ("WithoutSettings" Core..=) Core.<$> withoutSettings
+          ]
+      )
+
+instance Core.AWSRequest DescribeReplicationTasks where
   type Rs DescribeReplicationTasks = DescribeReplicationTasksResponse
-  request = Req.postJSON dmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonDMSv20160101.DescribeReplicationTasks")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeReplicationTasksResponse'
-            Lude.<$> (x Lude..?> "ReplicationTasks" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "ReplicationTasks")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeReplicationTasks where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDMSv20160101.DescribeReplicationTasks" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeReplicationTasks where
-  toJSON DescribeReplicationTasks' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("WithoutSettings" Lude..=) Lude.<$> withoutSettings,
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("MaxRecords" Lude..=) Lude.<$> maxRecords
-          ]
-      )
-
-instance Lude.ToPath DescribeReplicationTasks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeReplicationTasks where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeReplicationTasks where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"replicationTasks" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- |
 --
 -- /See:/ 'mkDescribeReplicationTasksResponse' smart constructor.
 data DescribeReplicationTasksResponse = DescribeReplicationTasksResponse'
-  { -- | A description of the replication tasks.
-    replicationTasks :: Lude.Maybe [ReplicationTask],
-    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
+    -- | A description of the replication tasks.
+    replicationTasks :: Core.Maybe [Types.ReplicationTask],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeReplicationTasksResponse' with the minimum fields required to make a request.
---
--- * 'replicationTasks' - A description of the replication tasks.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeReplicationTasksResponse' value with any optional fields omitted.
 mkDescribeReplicationTasksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeReplicationTasksResponse
-mkDescribeReplicationTasksResponse pResponseStatus_ =
+mkDescribeReplicationTasksResponse responseStatus =
   DescribeReplicationTasksResponse'
-    { replicationTasks =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      replicationTasks = Core.Nothing,
+      responseStatus
     }
-
--- | A description of the replication tasks.
---
--- /Note:/ Consider using 'replicationTasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtsrsReplicationTasks :: Lens.Lens' DescribeReplicationTasksResponse (Lude.Maybe [ReplicationTask])
-drtsrsReplicationTasks = Lens.lens (replicationTasks :: DescribeReplicationTasksResponse -> Lude.Maybe [ReplicationTask]) (\s a -> s {replicationTasks = a} :: DescribeReplicationTasksResponse)
-{-# DEPRECATED drtsrsReplicationTasks "Use generic-lens or generic-optics with 'replicationTasks' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtsrsMarker :: Lens.Lens' DescribeReplicationTasksResponse (Lude.Maybe Lude.Text)
-drtsrsMarker = Lens.lens (marker :: DescribeReplicationTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationTasksResponse)
-{-# DEPRECATED drtsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+drtrfrsMarker :: Lens.Lens' DescribeReplicationTasksResponse (Core.Maybe Types.String)
+drtrfrsMarker = Lens.field @"marker"
+{-# DEPRECATED drtrfrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | A description of the replication tasks.
+--
+-- /Note:/ Consider using 'replicationTasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drtrfrsReplicationTasks :: Lens.Lens' DescribeReplicationTasksResponse (Core.Maybe [Types.ReplicationTask])
+drtrfrsReplicationTasks = Lens.field @"replicationTasks"
+{-# DEPRECATED drtrfrsReplicationTasks "Use generic-lens or generic-optics with 'replicationTasks' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drtsrsResponseStatus :: Lens.Lens' DescribeReplicationTasksResponse Lude.Int
-drtsrsResponseStatus = Lens.lens (responseStatus :: DescribeReplicationTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReplicationTasksResponse)
-{-# DEPRECATED drtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drtrfrsResponseStatus :: Lens.Lens' DescribeReplicationTasksResponse Core.Int
+drtrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drtrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

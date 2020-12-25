@@ -24,239 +24,226 @@ module Network.AWS.WorkDocs.DescribeFolderContents
     mkDescribeFolderContents,
 
     -- ** Request lenses
-    dInclude,
-    dAuthenticationToken,
-    dFolderId,
-    dSort,
-    dMarker,
-    dLimit,
-    dType,
-    dOrder,
+    dfcsFolderId,
+    dfcsAuthenticationToken,
+    dfcsInclude,
+    dfcsLimit,
+    dfcsMarker,
+    dfcsOrder,
+    dfcsSort,
+    dfcsType,
 
     -- * Destructuring the response
     DescribeFolderContentsResponse (..),
     mkDescribeFolderContentsResponse,
 
     -- ** Response lenses
-    dfcrsFolders,
-    dfcrsDocuments,
-    dfcrsMarker,
-    dfcrsResponseStatus,
+    dfcrrsDocuments,
+    dfcrrsFolders,
+    dfcrrsMarker,
+    dfcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDescribeFolderContents' smart constructor.
 data DescribeFolderContents = DescribeFolderContents'
-  { -- | The contents to include. Specify "INITIALIZED" to include initialized documents.
-    include :: Lude.Maybe Lude.Text,
+  { -- | The ID of the folder.
+    folderId :: Types.FolderId,
     -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The ID of the folder.
-    folderId :: Lude.Text,
-    -- | The sorting criteria.
-    sort :: Lude.Maybe ResourceSortType,
-    -- | The marker for the next set of results. This marker was received from a previous call.
-    marker :: Lude.Maybe Lude.Text,
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType,
+    -- | The contents to include. Specify "INITIALIZED" to include initialized documents.
+    include :: Core.Maybe Types.Include,
     -- | The maximum number of items to return with this call.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | The type of items.
-    type' :: Lude.Maybe FolderContentType,
+    limit :: Core.Maybe Core.Natural,
+    -- | The marker for the next set of results. This marker was received from a previous call.
+    marker :: Core.Maybe Types.Marker,
     -- | The order for the contents of the folder.
-    order :: Lude.Maybe OrderType
+    order :: Core.Maybe Types.OrderType,
+    -- | The sorting criteria.
+    sort :: Core.Maybe Types.ResourceSortType,
+    -- | The type of items.
+    type' :: Core.Maybe Types.FolderContentType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeFolderContents' with the minimum fields required to make a request.
---
--- * 'include' - The contents to include. Specify "INITIALIZED" to include initialized documents.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'folderId' - The ID of the folder.
--- * 'sort' - The sorting criteria.
--- * 'marker' - The marker for the next set of results. This marker was received from a previous call.
--- * 'limit' - The maximum number of items to return with this call.
--- * 'type'' - The type of items.
--- * 'order' - The order for the contents of the folder.
+-- | Creates a 'DescribeFolderContents' value with any optional fields omitted.
 mkDescribeFolderContents ::
   -- | 'folderId'
-  Lude.Text ->
+  Types.FolderId ->
   DescribeFolderContents
-mkDescribeFolderContents pFolderId_ =
+mkDescribeFolderContents folderId =
   DescribeFolderContents'
-    { include = Lude.Nothing,
-      authenticationToken = Lude.Nothing,
-      folderId = pFolderId_,
-      sort = Lude.Nothing,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      type' = Lude.Nothing,
-      order = Lude.Nothing
+    { folderId,
+      authenticationToken = Core.Nothing,
+      include = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing,
+      order = Core.Nothing,
+      sort = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The contents to include. Specify "INITIALIZED" to include initialized documents.
---
--- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInclude :: Lens.Lens' DescribeFolderContents (Lude.Maybe Lude.Text)
-dInclude = Lens.lens (include :: DescribeFolderContents -> Lude.Maybe Lude.Text) (\s a -> s {include = a} :: DescribeFolderContents)
-{-# DEPRECATED dInclude "Use generic-lens or generic-optics with 'include' instead." #-}
-
--- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAuthenticationToken :: Lens.Lens' DescribeFolderContents (Lude.Maybe (Lude.Sensitive Lude.Text))
-dAuthenticationToken = Lens.lens (authenticationToken :: DescribeFolderContents -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DescribeFolderContents)
-{-# DEPRECATED dAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The ID of the folder.
 --
 -- /Note:/ Consider using 'folderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dFolderId :: Lens.Lens' DescribeFolderContents Lude.Text
-dFolderId = Lens.lens (folderId :: DescribeFolderContents -> Lude.Text) (\s a -> s {folderId = a} :: DescribeFolderContents)
-{-# DEPRECATED dFolderId "Use generic-lens or generic-optics with 'folderId' instead." #-}
+dfcsFolderId :: Lens.Lens' DescribeFolderContents Types.FolderId
+dfcsFolderId = Lens.field @"folderId"
+{-# DEPRECATED dfcsFolderId "Use generic-lens or generic-optics with 'folderId' instead." #-}
 
--- | The sorting criteria.
+-- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
--- /Note:/ Consider using 'sort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSort :: Lens.Lens' DescribeFolderContents (Lude.Maybe ResourceSortType)
-dSort = Lens.lens (sort :: DescribeFolderContents -> Lude.Maybe ResourceSortType) (\s a -> s {sort = a} :: DescribeFolderContents)
-{-# DEPRECATED dSort "Use generic-lens or generic-optics with 'sort' instead." #-}
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcsAuthenticationToken :: Lens.Lens' DescribeFolderContents (Core.Maybe Types.AuthenticationHeaderType)
+dfcsAuthenticationToken = Lens.field @"authenticationToken"
+{-# DEPRECATED dfcsAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
--- | The marker for the next set of results. This marker was received from a previous call.
+-- | The contents to include. Specify "INITIALIZED" to include initialized documents.
 --
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMarker :: Lens.Lens' DescribeFolderContents (Lude.Maybe Lude.Text)
-dMarker = Lens.lens (marker :: DescribeFolderContents -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeFolderContents)
-{-# DEPRECATED dMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+-- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcsInclude :: Lens.Lens' DescribeFolderContents (Core.Maybe Types.Include)
+dfcsInclude = Lens.field @"include"
+{-# DEPRECATED dfcsInclude "Use generic-lens or generic-optics with 'include' instead." #-}
 
 -- | The maximum number of items to return with this call.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLimit :: Lens.Lens' DescribeFolderContents (Lude.Maybe Lude.Natural)
-dLimit = Lens.lens (limit :: DescribeFolderContents -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeFolderContents)
-{-# DEPRECATED dLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+dfcsLimit :: Lens.Lens' DescribeFolderContents (Core.Maybe Core.Natural)
+dfcsLimit = Lens.field @"limit"
+{-# DEPRECATED dfcsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | The type of items.
+-- | The marker for the next set of results. This marker was received from a previous call.
 --
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dType :: Lens.Lens' DescribeFolderContents (Lude.Maybe FolderContentType)
-dType = Lens.lens (type' :: DescribeFolderContents -> Lude.Maybe FolderContentType) (\s a -> s {type' = a} :: DescribeFolderContents)
-{-# DEPRECATED dType "Use generic-lens or generic-optics with 'type'' instead." #-}
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcsMarker :: Lens.Lens' DescribeFolderContents (Core.Maybe Types.Marker)
+dfcsMarker = Lens.field @"marker"
+{-# DEPRECATED dfcsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The order for the contents of the folder.
 --
 -- /Note:/ Consider using 'order' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dOrder :: Lens.Lens' DescribeFolderContents (Lude.Maybe OrderType)
-dOrder = Lens.lens (order :: DescribeFolderContents -> Lude.Maybe OrderType) (\s a -> s {order = a} :: DescribeFolderContents)
-{-# DEPRECATED dOrder "Use generic-lens or generic-optics with 'order' instead." #-}
+dfcsOrder :: Lens.Lens' DescribeFolderContents (Core.Maybe Types.OrderType)
+dfcsOrder = Lens.field @"order"
+{-# DEPRECATED dfcsOrder "Use generic-lens or generic-optics with 'order' instead." #-}
 
-instance Page.AWSPager DescribeFolderContents where
-  page rq rs
-    | Page.stop (rs Lens.^. dfcrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dfcrsFolders) = Lude.Nothing
-    | Page.stop (rs Lens.^. dfcrsDocuments) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dMarker Lens..~ rs Lens.^. dfcrsMarker
+-- | The sorting criteria.
+--
+-- /Note:/ Consider using 'sort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcsSort :: Lens.Lens' DescribeFolderContents (Core.Maybe Types.ResourceSortType)
+dfcsSort = Lens.field @"sort"
+{-# DEPRECATED dfcsSort "Use generic-lens or generic-optics with 'sort' instead." #-}
 
-instance Lude.AWSRequest DescribeFolderContents where
+-- | The type of items.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcsType :: Lens.Lens' DescribeFolderContents (Core.Maybe Types.FolderContentType)
+dfcsType = Lens.field @"type'"
+{-# DEPRECATED dfcsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.AWSRequest DescribeFolderContents where
   type Rs DescribeFolderContents = DescribeFolderContentsResponse
-  request = Req.get workDocsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/api/v1/folders/" Core.<> (Core.toText folderId)
+                Core.<> ("/contents")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "include" Core.<$> include
+            Core.<> (Core.toQueryValue "limit" Core.<$> limit)
+            Core.<> (Core.toQueryValue "marker" Core.<$> marker)
+            Core.<> (Core.toQueryValue "order" Core.<$> order)
+            Core.<> (Core.toQueryValue "sort" Core.<$> sort)
+            Core.<> (Core.toQueryValue "type" Core.<$> type'),
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeFolderContentsResponse'
-            Lude.<$> (x Lude..?> "Folders" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Documents" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Documents")
+            Core.<*> (x Core..:? "Folders")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeFolderContents where
-  toHeaders DescribeFolderContents' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath DescribeFolderContents where
-  toPath DescribeFolderContents' {..} =
-    Lude.mconcat
-      ["/api/v1/folders/", Lude.toBS folderId, "/contents"]
-
-instance Lude.ToQuery DescribeFolderContents where
-  toQuery DescribeFolderContents' {..} =
-    Lude.mconcat
-      [ "include" Lude.=: include,
-        "sort" Lude.=: sort,
-        "marker" Lude.=: marker,
-        "limit" Lude.=: limit,
-        "type" Lude.=: type',
-        "order" Lude.=: order
-      ]
+instance Pager.AWSPager DescribeFolderContents where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"folders" Core.. Lens._Just) =
+      Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"documents" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkDescribeFolderContentsResponse' smart constructor.
 data DescribeFolderContentsResponse = DescribeFolderContentsResponse'
-  { -- | The subfolders in the specified folder.
-    folders :: Lude.Maybe [FolderMetadata],
-    -- | The documents in the specified folder.
-    documents :: Lude.Maybe [DocumentMetadata],
+  { -- | The documents in the specified folder.
+    documents :: Core.Maybe [Types.DocumentMetadata],
+    -- | The subfolders in the specified folder.
+    folders :: Core.Maybe [Types.FolderMetadata],
     -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeFolderContentsResponse' with the minimum fields required to make a request.
---
--- * 'folders' - The subfolders in the specified folder.
--- * 'documents' - The documents in the specified folder.
--- * 'marker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeFolderContentsResponse' value with any optional fields omitted.
 mkDescribeFolderContentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeFolderContentsResponse
-mkDescribeFolderContentsResponse pResponseStatus_ =
+mkDescribeFolderContentsResponse responseStatus =
   DescribeFolderContentsResponse'
-    { folders = Lude.Nothing,
-      documents = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { documents = Core.Nothing,
+      folders = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
-
--- | The subfolders in the specified folder.
---
--- /Note:/ Consider using 'folders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfcrsFolders :: Lens.Lens' DescribeFolderContentsResponse (Lude.Maybe [FolderMetadata])
-dfcrsFolders = Lens.lens (folders :: DescribeFolderContentsResponse -> Lude.Maybe [FolderMetadata]) (\s a -> s {folders = a} :: DescribeFolderContentsResponse)
-{-# DEPRECATED dfcrsFolders "Use generic-lens or generic-optics with 'folders' instead." #-}
 
 -- | The documents in the specified folder.
 --
 -- /Note:/ Consider using 'documents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfcrsDocuments :: Lens.Lens' DescribeFolderContentsResponse (Lude.Maybe [DocumentMetadata])
-dfcrsDocuments = Lens.lens (documents :: DescribeFolderContentsResponse -> Lude.Maybe [DocumentMetadata]) (\s a -> s {documents = a} :: DescribeFolderContentsResponse)
-{-# DEPRECATED dfcrsDocuments "Use generic-lens or generic-optics with 'documents' instead." #-}
+dfcrrsDocuments :: Lens.Lens' DescribeFolderContentsResponse (Core.Maybe [Types.DocumentMetadata])
+dfcrrsDocuments = Lens.field @"documents"
+{-# DEPRECATED dfcrrsDocuments "Use generic-lens or generic-optics with 'documents' instead." #-}
+
+-- | The subfolders in the specified folder.
+--
+-- /Note:/ Consider using 'folders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfcrrsFolders :: Lens.Lens' DescribeFolderContentsResponse (Core.Maybe [Types.FolderMetadata])
+dfcrrsFolders = Lens.field @"folders"
+{-# DEPRECATED dfcrrsFolders "Use generic-lens or generic-optics with 'folders' instead." #-}
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfcrsMarker :: Lens.Lens' DescribeFolderContentsResponse (Lude.Maybe Lude.Text)
-dfcrsMarker = Lens.lens (marker :: DescribeFolderContentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeFolderContentsResponse)
-{-# DEPRECATED dfcrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dfcrrsMarker :: Lens.Lens' DescribeFolderContentsResponse (Core.Maybe Types.Marker)
+dfcrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dfcrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfcrsResponseStatus :: Lens.Lens' DescribeFolderContentsResponse Lude.Int
-dfcrsResponseStatus = Lens.lens (responseStatus :: DescribeFolderContentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFolderContentsResponse)
-{-# DEPRECATED dfcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfcrrsResponseStatus :: Lens.Lens' DescribeFolderContentsResponse Core.Int
+dfcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

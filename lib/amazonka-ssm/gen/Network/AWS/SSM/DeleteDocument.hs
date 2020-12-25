@@ -22,144 +22,130 @@ module Network.AWS.SSM.DeleteDocument
     mkDeleteDocument,
 
     -- ** Request lenses
-    ddfVersionName,
-    ddfForce,
     ddfName,
     ddfDocumentVersion,
+    ddfForce,
+    ddfVersionName,
 
     -- * Destructuring the response
     DeleteDocumentResponse (..),
     mkDeleteDocumentResponse,
 
     -- ** Response lenses
-    ddrsResponseStatus,
+    ddrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDeleteDocument' smart constructor.
 data DeleteDocument = DeleteDocument'
-  { -- | The version name of the document that you want to delete. If not provided, all versions of the document are deleted.
-    versionName :: Lude.Maybe Lude.Text,
-    -- | Some SSM document types require that you specify a @Force@ flag before you can delete the document. For example, you must specify a @Force@ flag to delete a document of type @ApplicationConfigurationSchema@ . You can restrict access to the @Force@ flag in an AWS Identity and Access Management (IAM) policy.
-    force :: Lude.Maybe Lude.Bool,
-    -- | The name of the document.
-    name :: Lude.Text,
+  { -- | The name of the document.
+    name :: Types.DocumentName,
     -- | The version of the document that you want to delete. If not provided, all versions of the document are deleted.
-    documentVersion :: Lude.Maybe Lude.Text
+    documentVersion :: Core.Maybe Types.DocumentVersion,
+    -- | Some SSM document types require that you specify a @Force@ flag before you can delete the document. For example, you must specify a @Force@ flag to delete a document of type @ApplicationConfigurationSchema@ . You can restrict access to the @Force@ flag in an AWS Identity and Access Management (IAM) policy.
+    force :: Core.Maybe Core.Bool,
+    -- | The version name of the document that you want to delete. If not provided, all versions of the document are deleted.
+    versionName :: Core.Maybe Types.DocumentVersionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDocument' with the minimum fields required to make a request.
---
--- * 'versionName' - The version name of the document that you want to delete. If not provided, all versions of the document are deleted.
--- * 'force' - Some SSM document types require that you specify a @Force@ flag before you can delete the document. For example, you must specify a @Force@ flag to delete a document of type @ApplicationConfigurationSchema@ . You can restrict access to the @Force@ flag in an AWS Identity and Access Management (IAM) policy.
--- * 'name' - The name of the document.
--- * 'documentVersion' - The version of the document that you want to delete. If not provided, all versions of the document are deleted.
+-- | Creates a 'DeleteDocument' value with any optional fields omitted.
 mkDeleteDocument ::
   -- | 'name'
-  Lude.Text ->
+  Types.DocumentName ->
   DeleteDocument
-mkDeleteDocument pName_ =
+mkDeleteDocument name =
   DeleteDocument'
-    { versionName = Lude.Nothing,
-      force = Lude.Nothing,
-      name = pName_,
-      documentVersion = Lude.Nothing
+    { name,
+      documentVersion = Core.Nothing,
+      force = Core.Nothing,
+      versionName = Core.Nothing
     }
-
--- | The version name of the document that you want to delete. If not provided, all versions of the document are deleted.
---
--- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddfVersionName :: Lens.Lens' DeleteDocument (Lude.Maybe Lude.Text)
-ddfVersionName = Lens.lens (versionName :: DeleteDocument -> Lude.Maybe Lude.Text) (\s a -> s {versionName = a} :: DeleteDocument)
-{-# DEPRECATED ddfVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
-
--- | Some SSM document types require that you specify a @Force@ flag before you can delete the document. For example, you must specify a @Force@ flag to delete a document of type @ApplicationConfigurationSchema@ . You can restrict access to the @Force@ flag in an AWS Identity and Access Management (IAM) policy.
---
--- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddfForce :: Lens.Lens' DeleteDocument (Lude.Maybe Lude.Bool)
-ddfForce = Lens.lens (force :: DeleteDocument -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteDocument)
-{-# DEPRECATED ddfForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The name of the document.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddfName :: Lens.Lens' DeleteDocument Lude.Text
-ddfName = Lens.lens (name :: DeleteDocument -> Lude.Text) (\s a -> s {name = a} :: DeleteDocument)
+ddfName :: Lens.Lens' DeleteDocument Types.DocumentName
+ddfName = Lens.field @"name"
 {-# DEPRECATED ddfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the document that you want to delete. If not provided, all versions of the document are deleted.
 --
 -- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddfDocumentVersion :: Lens.Lens' DeleteDocument (Lude.Maybe Lude.Text)
-ddfDocumentVersion = Lens.lens (documentVersion :: DeleteDocument -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: DeleteDocument)
+ddfDocumentVersion :: Lens.Lens' DeleteDocument (Core.Maybe Types.DocumentVersion)
+ddfDocumentVersion = Lens.field @"documentVersion"
 {-# DEPRECATED ddfDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
-instance Lude.AWSRequest DeleteDocument where
+-- | Some SSM document types require that you specify a @Force@ flag before you can delete the document. For example, you must specify a @Force@ flag to delete a document of type @ApplicationConfigurationSchema@ . You can restrict access to the @Force@ flag in an AWS Identity and Access Management (IAM) policy.
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddfForce :: Lens.Lens' DeleteDocument (Core.Maybe Core.Bool)
+ddfForce = Lens.field @"force"
+{-# DEPRECATED ddfForce "Use generic-lens or generic-optics with 'force' instead." #-}
+
+-- | The version name of the document that you want to delete. If not provided, all versions of the document are deleted.
+--
+-- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddfVersionName :: Lens.Lens' DeleteDocument (Core.Maybe Types.DocumentVersionName)
+ddfVersionName = Lens.field @"versionName"
+{-# DEPRECATED ddfVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
+
+instance Core.FromJSON DeleteDocument where
+  toJSON DeleteDocument {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("DocumentVersion" Core..=) Core.<$> documentVersion,
+            ("Force" Core..=) Core.<$> force,
+            ("VersionName" Core..=) Core.<$> versionName
+          ]
+      )
+
+instance Core.AWSRequest DeleteDocument where
   type Rs DeleteDocument = DeleteDocumentResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.DeleteDocument")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteDocumentResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteDocumentResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDocument where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.DeleteDocument" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteDocument where
-  toJSON DeleteDocument' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("VersionName" Lude..=) Lude.<$> versionName,
-            ("Force" Lude..=) Lude.<$> force,
-            Lude.Just ("Name" Lude..= name),
-            ("DocumentVersion" Lude..=) Lude.<$> documentVersion
-          ]
-      )
-
-instance Lude.ToPath DeleteDocument where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDocument where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteDocumentResponse' smart constructor.
 newtype DeleteDocumentResponse = DeleteDocumentResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDocumentResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDocumentResponse' value with any optional fields omitted.
 mkDeleteDocumentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDocumentResponse
-mkDeleteDocumentResponse pResponseStatus_ =
-  DeleteDocumentResponse' {responseStatus = pResponseStatus_}
+mkDeleteDocumentResponse responseStatus =
+  DeleteDocumentResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsResponseStatus :: Lens.Lens' DeleteDocumentResponse Lude.Int
-ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDocumentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDocumentResponse)
-{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrfrsResponseStatus :: Lens.Lens' DeleteDocumentResponse Core.Int
+ddrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,51 +13,56 @@
 module Network.AWS.GuardDuty.Types.FindingPublishingFrequency
   ( FindingPublishingFrequency
       ( FindingPublishingFrequency',
-        FifteenMinutes,
-        OneHour,
-        SixHours
+        FindingPublishingFrequencyFifteenMinutes,
+        FindingPublishingFrequencyOneHour,
+        FindingPublishingFrequencySixHours,
+        fromFindingPublishingFrequency
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FindingPublishingFrequency = FindingPublishingFrequency' Lude.Text
+newtype FindingPublishingFrequency = FindingPublishingFrequency'
+  { fromFindingPublishingFrequency ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FifteenMinutes :: FindingPublishingFrequency
-pattern FifteenMinutes = FindingPublishingFrequency' "FIFTEEN_MINUTES"
+pattern FindingPublishingFrequencyFifteenMinutes :: FindingPublishingFrequency
+pattern FindingPublishingFrequencyFifteenMinutes = FindingPublishingFrequency' "FIFTEEN_MINUTES"
 
-pattern OneHour :: FindingPublishingFrequency
-pattern OneHour = FindingPublishingFrequency' "ONE_HOUR"
+pattern FindingPublishingFrequencyOneHour :: FindingPublishingFrequency
+pattern FindingPublishingFrequencyOneHour = FindingPublishingFrequency' "ONE_HOUR"
 
-pattern SixHours :: FindingPublishingFrequency
-pattern SixHours = FindingPublishingFrequency' "SIX_HOURS"
+pattern FindingPublishingFrequencySixHours :: FindingPublishingFrequency
+pattern FindingPublishingFrequencySixHours = FindingPublishingFrequency' "SIX_HOURS"
 
 {-# COMPLETE
-  FifteenMinutes,
-  OneHour,
-  SixHours,
+  FindingPublishingFrequencyFifteenMinutes,
+  FindingPublishingFrequencyOneHour,
+  FindingPublishingFrequencySixHours,
   FindingPublishingFrequency'
   #-}

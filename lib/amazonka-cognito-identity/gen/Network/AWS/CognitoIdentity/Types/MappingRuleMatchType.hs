@@ -13,56 +13,61 @@
 module Network.AWS.CognitoIdentity.Types.MappingRuleMatchType
   ( MappingRuleMatchType
       ( MappingRuleMatchType',
-        Equals,
-        Contains,
-        StartsWith,
-        NotEqual
+        MappingRuleMatchTypeEquals,
+        MappingRuleMatchTypeContains,
+        MappingRuleMatchTypeStartsWith,
+        MappingRuleMatchTypeNotEqual,
+        fromMappingRuleMatchType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MappingRuleMatchType = MappingRuleMatchType' Lude.Text
+newtype MappingRuleMatchType = MappingRuleMatchType'
+  { fromMappingRuleMatchType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Equals :: MappingRuleMatchType
-pattern Equals = MappingRuleMatchType' "Equals"
+pattern MappingRuleMatchTypeEquals :: MappingRuleMatchType
+pattern MappingRuleMatchTypeEquals = MappingRuleMatchType' "Equals"
 
-pattern Contains :: MappingRuleMatchType
-pattern Contains = MappingRuleMatchType' "Contains"
+pattern MappingRuleMatchTypeContains :: MappingRuleMatchType
+pattern MappingRuleMatchTypeContains = MappingRuleMatchType' "Contains"
 
-pattern StartsWith :: MappingRuleMatchType
-pattern StartsWith = MappingRuleMatchType' "StartsWith"
+pattern MappingRuleMatchTypeStartsWith :: MappingRuleMatchType
+pattern MappingRuleMatchTypeStartsWith = MappingRuleMatchType' "StartsWith"
 
-pattern NotEqual :: MappingRuleMatchType
-pattern NotEqual = MappingRuleMatchType' "NotEqual"
+pattern MappingRuleMatchTypeNotEqual :: MappingRuleMatchType
+pattern MappingRuleMatchTypeNotEqual = MappingRuleMatchType' "NotEqual"
 
 {-# COMPLETE
-  Equals,
-  Contains,
-  StartsWith,
-  NotEqual,
+  MappingRuleMatchTypeEquals,
+  MappingRuleMatchTypeContains,
+  MappingRuleMatchTypeStartsWith,
+  MappingRuleMatchTypeNotEqual,
   MappingRuleMatchType'
   #-}

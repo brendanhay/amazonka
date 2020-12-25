@@ -13,62 +13,67 @@
 module Network.AWS.MediaConvert.Types.Eac3AtmosMeteringMode
   ( Eac3AtmosMeteringMode
       ( Eac3AtmosMeteringMode',
-        EAMMLeqA,
-        EAMMItuBs17701,
-        EAMMItuBs17702,
-        EAMMItuBs17703,
-        EAMMItuBs17704
+        Eac3AtmosMeteringModeLeqA,
+        Eac3AtmosMeteringModeItuBs17701,
+        Eac3AtmosMeteringModeItuBs17702,
+        Eac3AtmosMeteringModeItuBs17703,
+        Eac3AtmosMeteringModeItuBs17704,
+        fromEac3AtmosMeteringMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose how the service meters the loudness of your audio.
-newtype Eac3AtmosMeteringMode = Eac3AtmosMeteringMode' Lude.Text
+newtype Eac3AtmosMeteringMode = Eac3AtmosMeteringMode'
+  { fromEac3AtmosMeteringMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EAMMLeqA :: Eac3AtmosMeteringMode
-pattern EAMMLeqA = Eac3AtmosMeteringMode' "LEQ_A"
+pattern Eac3AtmosMeteringModeLeqA :: Eac3AtmosMeteringMode
+pattern Eac3AtmosMeteringModeLeqA = Eac3AtmosMeteringMode' "LEQ_A"
 
-pattern EAMMItuBs17701 :: Eac3AtmosMeteringMode
-pattern EAMMItuBs17701 = Eac3AtmosMeteringMode' "ITU_BS_1770_1"
+pattern Eac3AtmosMeteringModeItuBs17701 :: Eac3AtmosMeteringMode
+pattern Eac3AtmosMeteringModeItuBs17701 = Eac3AtmosMeteringMode' "ITU_BS_1770_1"
 
-pattern EAMMItuBs17702 :: Eac3AtmosMeteringMode
-pattern EAMMItuBs17702 = Eac3AtmosMeteringMode' "ITU_BS_1770_2"
+pattern Eac3AtmosMeteringModeItuBs17702 :: Eac3AtmosMeteringMode
+pattern Eac3AtmosMeteringModeItuBs17702 = Eac3AtmosMeteringMode' "ITU_BS_1770_2"
 
-pattern EAMMItuBs17703 :: Eac3AtmosMeteringMode
-pattern EAMMItuBs17703 = Eac3AtmosMeteringMode' "ITU_BS_1770_3"
+pattern Eac3AtmosMeteringModeItuBs17703 :: Eac3AtmosMeteringMode
+pattern Eac3AtmosMeteringModeItuBs17703 = Eac3AtmosMeteringMode' "ITU_BS_1770_3"
 
-pattern EAMMItuBs17704 :: Eac3AtmosMeteringMode
-pattern EAMMItuBs17704 = Eac3AtmosMeteringMode' "ITU_BS_1770_4"
+pattern Eac3AtmosMeteringModeItuBs17704 :: Eac3AtmosMeteringMode
+pattern Eac3AtmosMeteringModeItuBs17704 = Eac3AtmosMeteringMode' "ITU_BS_1770_4"
 
 {-# COMPLETE
-  EAMMLeqA,
-  EAMMItuBs17701,
-  EAMMItuBs17702,
-  EAMMItuBs17703,
-  EAMMItuBs17704,
+  Eac3AtmosMeteringModeLeqA,
+  Eac3AtmosMeteringModeItuBs17701,
+  Eac3AtmosMeteringModeItuBs17702,
+  Eac3AtmosMeteringModeItuBs17703,
+  Eac3AtmosMeteringModeItuBs17704,
   Eac3AtmosMeteringMode'
   #-}

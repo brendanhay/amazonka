@@ -23,61 +23,57 @@ module Network.AWS.SWF.Types.ActivityType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Name as Types
+import qualified Network.AWS.SWF.Types.Version as Types
 
 -- | Represents an activity type.
 --
 -- /See:/ 'mkActivityType' smart constructor.
 data ActivityType = ActivityType'
   { -- | The name of this activity.
-    name :: Lude.Text,
+    name :: Types.Name,
     -- | The version of this activity.
-    version :: Lude.Text
+    version :: Types.Version
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActivityType' with the minimum fields required to make a request.
---
--- * 'name' - The name of this activity.
--- * 'version' - The version of this activity.
+-- | Creates a 'ActivityType' value with any optional fields omitted.
 mkActivityType ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   -- | 'version'
-  Lude.Text ->
+  Types.Version ->
   ActivityType
-mkActivityType pName_ pVersion_ =
-  ActivityType' {name = pName_, version = pVersion_}
+mkActivityType name version = ActivityType' {name, version}
 
 -- | The name of this activity.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atName :: Lens.Lens' ActivityType Lude.Text
-atName = Lens.lens (name :: ActivityType -> Lude.Text) (\s a -> s {name = a} :: ActivityType)
+atName :: Lens.Lens' ActivityType Types.Name
+atName = Lens.field @"name"
 {-# DEPRECATED atName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of this activity.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atVersion :: Lens.Lens' ActivityType Lude.Text
-atVersion = Lens.lens (version :: ActivityType -> Lude.Text) (\s a -> s {version = a} :: ActivityType)
+atVersion :: Lens.Lens' ActivityType Types.Version
+atVersion = Lens.field @"version"
 {-# DEPRECATED atVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromJSON ActivityType where
-  parseJSON =
-    Lude.withObject
-      "ActivityType"
-      ( \x ->
-          ActivityType'
-            Lude.<$> (x Lude..: "name") Lude.<*> (x Lude..: "version")
-      )
-
-instance Lude.ToJSON ActivityType where
-  toJSON ActivityType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("name" Lude..= name),
-            Lude.Just ("version" Lude..= version)
+instance Core.FromJSON ActivityType where
+  toJSON ActivityType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("version" Core..= version)
           ]
       )
+
+instance Core.FromJSON ActivityType where
+  parseJSON =
+    Core.withObject "ActivityType" Core.$
+      \x ->
+        ActivityType'
+          Core.<$> (x Core..: "name") Core.<*> (x Core..: "version")

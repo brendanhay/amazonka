@@ -17,39 +17,35 @@ module Network.AWS.EC2.Types.TargetGroup
     mkTargetGroup,
 
     -- * Lenses
-    tgARN,
+    tgArn,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a load balancer target group.
 --
 -- /See:/ 'mkTargetGroup' smart constructor.
 newtype TargetGroup = TargetGroup'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    arn :: Lude.Maybe Lude.Text
+    arn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetGroup' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the target group.
+-- | Creates a 'TargetGroup' value with any optional fields omitted.
 mkTargetGroup ::
   TargetGroup
-mkTargetGroup = TargetGroup' {arn = Lude.Nothing}
+mkTargetGroup = TargetGroup' {arn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the target group.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgARN :: Lens.Lens' TargetGroup (Lude.Maybe Lude.Text)
-tgARN = Lens.lens (arn :: TargetGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: TargetGroup)
-{-# DEPRECATED tgARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+tgArn :: Lens.Lens' TargetGroup (Core.Maybe Types.String)
+tgArn = Lens.field @"arn"
+{-# DEPRECATED tgArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.FromXML TargetGroup where
-  parseXML x = TargetGroup' Lude.<$> (x Lude..@? "arn")
-
-instance Lude.ToQuery TargetGroup where
-  toQuery TargetGroup' {..} = Lude.mconcat ["Arn" Lude.=: arn]
+instance Core.FromXML TargetGroup where
+  parseXML x = TargetGroup' Core.<$> (x Core..@? "arn")

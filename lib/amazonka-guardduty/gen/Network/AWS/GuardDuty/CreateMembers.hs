@@ -23,133 +23,121 @@ module Network.AWS.GuardDuty.CreateMembers
     mkCreateMembers,
 
     -- ** Request lenses
-    cmAccountDetails,
     cmDetectorId,
+    cmAccountDetails,
 
     -- * Destructuring the response
     CreateMembersResponse (..),
     mkCreateMembersResponse,
 
     -- ** Response lenses
-    cmrsUnprocessedAccounts,
-    cmrsResponseStatus,
+    cmrrsUnprocessedAccounts,
+    cmrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateMembers' smart constructor.
 data CreateMembers = CreateMembers'
-  { -- | A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account.
-    accountDetails :: Lude.NonEmpty AccountDetail,
-    -- | The unique ID of the detector of the GuardDuty account that you want to associate member accounts with.
-    detectorId :: Lude.Text
+  { -- | The unique ID of the detector of the GuardDuty account that you want to associate member accounts with.
+    detectorId :: Types.DetectorId,
+    -- | A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account.
+    accountDetails :: Core.NonEmpty Types.AccountDetail
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateMembers' with the minimum fields required to make a request.
---
--- * 'accountDetails' - A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account.
--- * 'detectorId' - The unique ID of the detector of the GuardDuty account that you want to associate member accounts with.
+-- | Creates a 'CreateMembers' value with any optional fields omitted.
 mkCreateMembers ::
-  -- | 'accountDetails'
-  Lude.NonEmpty AccountDetail ->
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
+  -- | 'accountDetails'
+  Core.NonEmpty Types.AccountDetail ->
   CreateMembers
-mkCreateMembers pAccountDetails_ pDetectorId_ =
-  CreateMembers'
-    { accountDetails = pAccountDetails_,
-      detectorId = pDetectorId_
-    }
-
--- | A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account.
---
--- /Note:/ Consider using 'accountDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmAccountDetails :: Lens.Lens' CreateMembers (Lude.NonEmpty AccountDetail)
-cmAccountDetails = Lens.lens (accountDetails :: CreateMembers -> Lude.NonEmpty AccountDetail) (\s a -> s {accountDetails = a} :: CreateMembers)
-{-# DEPRECATED cmAccountDetails "Use generic-lens or generic-optics with 'accountDetails' instead." #-}
+mkCreateMembers detectorId accountDetails =
+  CreateMembers' {detectorId, accountDetails}
 
 -- | The unique ID of the detector of the GuardDuty account that you want to associate member accounts with.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmDetectorId :: Lens.Lens' CreateMembers Lude.Text
-cmDetectorId = Lens.lens (detectorId :: CreateMembers -> Lude.Text) (\s a -> s {detectorId = a} :: CreateMembers)
+cmDetectorId :: Lens.Lens' CreateMembers Types.DetectorId
+cmDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED cmDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance Lude.AWSRequest CreateMembers where
+-- | A list of account ID and email address pairs of the accounts that you want to associate with the master GuardDuty account.
+--
+-- /Note:/ Consider using 'accountDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmAccountDetails :: Lens.Lens' CreateMembers (Core.NonEmpty Types.AccountDetail)
+cmAccountDetails = Lens.field @"accountDetails"
+{-# DEPRECATED cmAccountDetails "Use generic-lens or generic-optics with 'accountDetails' instead." #-}
+
+instance Core.FromJSON CreateMembers where
+  toJSON CreateMembers {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("accountDetails" Core..= accountDetails)]
+      )
+
+instance Core.AWSRequest CreateMembers where
   type Rs CreateMembers = CreateMembersResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/member")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateMembersResponse'
-            Lude.<$> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "unprocessedAccounts" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateMembers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateMembers where
-  toJSON CreateMembers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("accountDetails" Lude..= accountDetails)]
-      )
-
-instance Lude.ToPath CreateMembers where
-  toPath CreateMembers' {..} =
-    Lude.mconcat ["/detector/", Lude.toBS detectorId, "/member"]
-
-instance Lude.ToQuery CreateMembers where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateMembersResponse' smart constructor.
 data CreateMembersResponse = CreateMembersResponse'
   { -- | A list of objects that include the @accountIds@ of the unprocessed accounts and a result string that explains why each was unprocessed.
-    unprocessedAccounts :: [UnprocessedAccount],
+    unprocessedAccounts :: [Types.UnprocessedAccount],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateMembersResponse' with the minimum fields required to make a request.
---
--- * 'unprocessedAccounts' - A list of objects that include the @accountIds@ of the unprocessed accounts and a result string that explains why each was unprocessed.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateMembersResponse' value with any optional fields omitted.
 mkCreateMembersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateMembersResponse
-mkCreateMembersResponse pResponseStatus_ =
+mkCreateMembersResponse responseStatus =
   CreateMembersResponse'
-    { unprocessedAccounts = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { unprocessedAccounts = Core.mempty,
+      responseStatus
     }
 
 -- | A list of objects that include the @accountIds@ of the unprocessed accounts and a result string that explains why each was unprocessed.
 --
 -- /Note:/ Consider using 'unprocessedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsUnprocessedAccounts :: Lens.Lens' CreateMembersResponse [UnprocessedAccount]
-cmrsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: CreateMembersResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: CreateMembersResponse)
-{-# DEPRECATED cmrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
+cmrrsUnprocessedAccounts :: Lens.Lens' CreateMembersResponse [Types.UnprocessedAccount]
+cmrrsUnprocessedAccounts = Lens.field @"unprocessedAccounts"
+{-# DEPRECATED cmrrsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsResponseStatus :: Lens.Lens' CreateMembersResponse Lude.Int
-cmrsResponseStatus = Lens.lens (responseStatus :: CreateMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMembersResponse)
-{-# DEPRECATED cmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cmrrsResponseStatus :: Lens.Lens' CreateMembersResponse Core.Int
+cmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

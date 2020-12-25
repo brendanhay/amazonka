@@ -28,120 +28,118 @@ module Network.AWS.EC2.DeleteTrafficMirrorFilterRule
     mkDeleteTrafficMirrorFilterRuleResponse,
 
     -- ** Response lenses
-    dtmfrrsTrafficMirrorFilterRuleId,
-    dtmfrrsResponseStatus,
+    dtmfrrrsTrafficMirrorFilterRuleId,
+    dtmfrrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteTrafficMirrorFilterRule' smart constructor.
 data DeleteTrafficMirrorFilterRule = DeleteTrafficMirrorFilterRule'
   { -- | The ID of the Traffic Mirror rule.
-    trafficMirrorFilterRuleId :: Lude.Text,
+    trafficMirrorFilterRuleId :: Types.TrafficMirrorFilterRuleId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTrafficMirrorFilterRule' with the minimum fields required to make a request.
---
--- * 'trafficMirrorFilterRuleId' - The ID of the Traffic Mirror rule.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteTrafficMirrorFilterRule' value with any optional fields omitted.
 mkDeleteTrafficMirrorFilterRule ::
   -- | 'trafficMirrorFilterRuleId'
-  Lude.Text ->
+  Types.TrafficMirrorFilterRuleId ->
   DeleteTrafficMirrorFilterRule
-mkDeleteTrafficMirrorFilterRule pTrafficMirrorFilterRuleId_ =
+mkDeleteTrafficMirrorFilterRule trafficMirrorFilterRuleId =
   DeleteTrafficMirrorFilterRule'
-    { trafficMirrorFilterRuleId =
-        pTrafficMirrorFilterRuleId_,
-      dryRun = Lude.Nothing
+    { trafficMirrorFilterRuleId,
+      dryRun = Core.Nothing
     }
 
 -- | The ID of the Traffic Mirror rule.
 --
 -- /Note:/ Consider using 'trafficMirrorFilterRuleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfrTrafficMirrorFilterRuleId :: Lens.Lens' DeleteTrafficMirrorFilterRule Lude.Text
-dtmfrTrafficMirrorFilterRuleId = Lens.lens (trafficMirrorFilterRuleId :: DeleteTrafficMirrorFilterRule -> Lude.Text) (\s a -> s {trafficMirrorFilterRuleId = a} :: DeleteTrafficMirrorFilterRule)
+dtmfrTrafficMirrorFilterRuleId :: Lens.Lens' DeleteTrafficMirrorFilterRule Types.TrafficMirrorFilterRuleId
+dtmfrTrafficMirrorFilterRuleId = Lens.field @"trafficMirrorFilterRuleId"
 {-# DEPRECATED dtmfrTrafficMirrorFilterRuleId "Use generic-lens or generic-optics with 'trafficMirrorFilterRuleId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfrDryRun :: Lens.Lens' DeleteTrafficMirrorFilterRule (Lude.Maybe Lude.Bool)
-dtmfrDryRun = Lens.lens (dryRun :: DeleteTrafficMirrorFilterRule -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTrafficMirrorFilterRule)
+dtmfrDryRun :: Lens.Lens' DeleteTrafficMirrorFilterRule (Core.Maybe Core.Bool)
+dtmfrDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dtmfrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteTrafficMirrorFilterRule where
+instance Core.AWSRequest DeleteTrafficMirrorFilterRule where
   type
     Rs DeleteTrafficMirrorFilterRule =
       DeleteTrafficMirrorFilterRuleResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteTrafficMirrorFilterRule")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> ( Core.toQueryValue
+                            "TrafficMirrorFilterRuleId"
+                            trafficMirrorFilterRuleId
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DeleteTrafficMirrorFilterRuleResponse'
-            Lude.<$> (x Lude..@? "trafficMirrorFilterRuleId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "trafficMirrorFilterRuleId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteTrafficMirrorFilterRule where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteTrafficMirrorFilterRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTrafficMirrorFilterRule where
-  toQuery DeleteTrafficMirrorFilterRule' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeleteTrafficMirrorFilterRule" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "TrafficMirrorFilterRuleId" Lude.=: trafficMirrorFilterRuleId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkDeleteTrafficMirrorFilterRuleResponse' smart constructor.
 data DeleteTrafficMirrorFilterRuleResponse = DeleteTrafficMirrorFilterRuleResponse'
   { -- | The ID of the deleted Traffic Mirror rule.
-    trafficMirrorFilterRuleId :: Lude.Maybe Lude.Text,
+    trafficMirrorFilterRuleId :: Core.Maybe Types.TrafficMirrorFilterRuleId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTrafficMirrorFilterRuleResponse' with the minimum fields required to make a request.
---
--- * 'trafficMirrorFilterRuleId' - The ID of the deleted Traffic Mirror rule.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteTrafficMirrorFilterRuleResponse' value with any optional fields omitted.
 mkDeleteTrafficMirrorFilterRuleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteTrafficMirrorFilterRuleResponse
-mkDeleteTrafficMirrorFilterRuleResponse pResponseStatus_ =
+mkDeleteTrafficMirrorFilterRuleResponse responseStatus =
   DeleteTrafficMirrorFilterRuleResponse'
     { trafficMirrorFilterRuleId =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the deleted Traffic Mirror rule.
 --
 -- /Note:/ Consider using 'trafficMirrorFilterRuleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfrrsTrafficMirrorFilterRuleId :: Lens.Lens' DeleteTrafficMirrorFilterRuleResponse (Lude.Maybe Lude.Text)
-dtmfrrsTrafficMirrorFilterRuleId = Lens.lens (trafficMirrorFilterRuleId :: DeleteTrafficMirrorFilterRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {trafficMirrorFilterRuleId = a} :: DeleteTrafficMirrorFilterRuleResponse)
-{-# DEPRECATED dtmfrrsTrafficMirrorFilterRuleId "Use generic-lens or generic-optics with 'trafficMirrorFilterRuleId' instead." #-}
+dtmfrrrsTrafficMirrorFilterRuleId :: Lens.Lens' DeleteTrafficMirrorFilterRuleResponse (Core.Maybe Types.TrafficMirrorFilterRuleId)
+dtmfrrrsTrafficMirrorFilterRuleId = Lens.field @"trafficMirrorFilterRuleId"
+{-# DEPRECATED dtmfrrrsTrafficMirrorFilterRuleId "Use generic-lens or generic-optics with 'trafficMirrorFilterRuleId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmfrrsResponseStatus :: Lens.Lens' DeleteTrafficMirrorFilterRuleResponse Lude.Int
-dtmfrrsResponseStatus = Lens.lens (responseStatus :: DeleteTrafficMirrorFilterRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTrafficMirrorFilterRuleResponse)
-{-# DEPRECATED dtmfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtmfrrrsResponseStatus :: Lens.Lens' DeleteTrafficMirrorFilterRuleResponse Core.Int
+dtmfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtmfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

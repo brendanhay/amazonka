@@ -24,105 +24,93 @@ module Network.AWS.AWSHealth.DescribeHealthServiceStatusForOrganization
     mkDescribeHealthServiceStatusForOrganizationResponse,
 
     -- ** Response lenses
-    dhssforsHealthServiceAccessStatusForOrganization,
-    dhssforsResponseStatus,
+    dhssforrsHealthServiceAccessStatusForOrganization,
+    dhssforrsResponseStatus,
   )
 where
 
-import Network.AWS.AWSHealth.Types
+import qualified Network.AWS.AWSHealth.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeHealthServiceStatusForOrganization' smart constructor.
 data DescribeHealthServiceStatusForOrganization = DescribeHealthServiceStatusForOrganization'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeHealthServiceStatusForOrganization' with the minimum fields required to make a request.
+-- | Creates a 'DescribeHealthServiceStatusForOrganization' value with any optional fields omitted.
 mkDescribeHealthServiceStatusForOrganization ::
   DescribeHealthServiceStatusForOrganization
 mkDescribeHealthServiceStatusForOrganization =
   DescribeHealthServiceStatusForOrganization'
 
-instance Lude.AWSRequest DescribeHealthServiceStatusForOrganization where
+instance Core.FromJSON DescribeHealthServiceStatusForOrganization where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DescribeHealthServiceStatusForOrganization where
   type
     Rs DescribeHealthServiceStatusForOrganization =
       DescribeHealthServiceStatusForOrganizationResponse
-  request = Req.postJSON awsHealthService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeHealthServiceStatusForOrganizationResponse'
-            Lude.<$> (x Lude..?> "healthServiceAccessStatusForOrganization")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "healthServiceAccessStatusForOrganization")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeHealthServiceStatusForOrganization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSHealth_20160804.DescribeHealthServiceStatusForOrganization" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeHealthServiceStatusForOrganization where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DescribeHealthServiceStatusForOrganization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeHealthServiceStatusForOrganization where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeHealthServiceStatusForOrganizationResponse' smart constructor.
 data DescribeHealthServiceStatusForOrganizationResponse = DescribeHealthServiceStatusForOrganizationResponse'
   { -- | Information about the status of enabling or disabling AWS Health Organizational View in your organization.
     --
     -- Valid values are @ENABLED | DISABLED | PENDING@ .
-    healthServiceAccessStatusForOrganization :: Lude.Maybe Lude.Text,
+    healthServiceAccessStatusForOrganization :: Core.Maybe Types.HealthServiceAccessStatusForOrganization,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeHealthServiceStatusForOrganizationResponse' with the minimum fields required to make a request.
---
--- * 'healthServiceAccessStatusForOrganization' - Information about the status of enabling or disabling AWS Health Organizational View in your organization.
---
--- Valid values are @ENABLED | DISABLED | PENDING@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeHealthServiceStatusForOrganizationResponse' value with any optional fields omitted.
 mkDescribeHealthServiceStatusForOrganizationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeHealthServiceStatusForOrganizationResponse
-mkDescribeHealthServiceStatusForOrganizationResponse
-  pResponseStatus_ =
-    DescribeHealthServiceStatusForOrganizationResponse'
-      { healthServiceAccessStatusForOrganization =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_
-      }
+mkDescribeHealthServiceStatusForOrganizationResponse responseStatus =
+  DescribeHealthServiceStatusForOrganizationResponse'
+    { healthServiceAccessStatusForOrganization =
+        Core.Nothing,
+      responseStatus
+    }
 
 -- | Information about the status of enabling or disabling AWS Health Organizational View in your organization.
 --
 -- Valid values are @ENABLED | DISABLED | PENDING@ .
 --
 -- /Note:/ Consider using 'healthServiceAccessStatusForOrganization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhssforsHealthServiceAccessStatusForOrganization :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse (Lude.Maybe Lude.Text)
-dhssforsHealthServiceAccessStatusForOrganization = Lens.lens (healthServiceAccessStatusForOrganization :: DescribeHealthServiceStatusForOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {healthServiceAccessStatusForOrganization = a} :: DescribeHealthServiceStatusForOrganizationResponse)
-{-# DEPRECATED dhssforsHealthServiceAccessStatusForOrganization "Use generic-lens or generic-optics with 'healthServiceAccessStatusForOrganization' instead." #-}
+dhssforrsHealthServiceAccessStatusForOrganization :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse (Core.Maybe Types.HealthServiceAccessStatusForOrganization)
+dhssforrsHealthServiceAccessStatusForOrganization = Lens.field @"healthServiceAccessStatusForOrganization"
+{-# DEPRECATED dhssforrsHealthServiceAccessStatusForOrganization "Use generic-lens or generic-optics with 'healthServiceAccessStatusForOrganization' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhssforsResponseStatus :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse Lude.Int
-dhssforsResponseStatus = Lens.lens (responseStatus :: DescribeHealthServiceStatusForOrganizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeHealthServiceStatusForOrganizationResponse)
-{-# DEPRECATED dhssforsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dhssforrsResponseStatus :: Lens.Lens' DescribeHealthServiceStatusForOrganizationResponse Core.Int
+dhssforrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dhssforrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

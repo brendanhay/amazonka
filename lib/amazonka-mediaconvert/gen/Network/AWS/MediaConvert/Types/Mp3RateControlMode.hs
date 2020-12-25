@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Mp3RateControlMode
   ( Mp3RateControlMode
       ( Mp3RateControlMode',
-        MCbr,
-        MVbr
+        Mp3RateControlModeCbr,
+        Mp3RateControlModeVbr,
+        fromMp3RateControlMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify whether the service encodes this MP3 audio output with a constant bitrate (CBR) or a variable bitrate (VBR).
-newtype Mp3RateControlMode = Mp3RateControlMode' Lude.Text
+newtype Mp3RateControlMode = Mp3RateControlMode'
+  { fromMp3RateControlMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MCbr :: Mp3RateControlMode
-pattern MCbr = Mp3RateControlMode' "CBR"
+pattern Mp3RateControlModeCbr :: Mp3RateControlMode
+pattern Mp3RateControlModeCbr = Mp3RateControlMode' "CBR"
 
-pattern MVbr :: Mp3RateControlMode
-pattern MVbr = Mp3RateControlMode' "VBR"
+pattern Mp3RateControlModeVbr :: Mp3RateControlMode
+pattern Mp3RateControlModeVbr = Mp3RateControlMode' "VBR"
 
 {-# COMPLETE
-  MCbr,
-  MVbr,
+  Mp3RateControlModeCbr,
+  Mp3RateControlModeVbr,
   Mp3RateControlMode'
   #-}

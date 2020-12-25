@@ -13,46 +13,51 @@
 module Network.AWS.Lightsail.Types.InstanceAccessProtocol
   ( InstanceAccessProtocol
       ( InstanceAccessProtocol',
-        SSH,
-        Rdp
+        InstanceAccessProtocolSsh,
+        InstanceAccessProtocolRdp,
+        fromInstanceAccessProtocol
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceAccessProtocol = InstanceAccessProtocol' Lude.Text
+newtype InstanceAccessProtocol = InstanceAccessProtocol'
+  { fromInstanceAccessProtocol ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSH :: InstanceAccessProtocol
-pattern SSH = InstanceAccessProtocol' "ssh"
+pattern InstanceAccessProtocolSsh :: InstanceAccessProtocol
+pattern InstanceAccessProtocolSsh = InstanceAccessProtocol' "ssh"
 
-pattern Rdp :: InstanceAccessProtocol
-pattern Rdp = InstanceAccessProtocol' "rdp"
+pattern InstanceAccessProtocolRdp :: InstanceAccessProtocol
+pattern InstanceAccessProtocolRdp = InstanceAccessProtocol' "rdp"
 
 {-# COMPLETE
-  SSH,
-  Rdp,
+  InstanceAccessProtocolSsh,
+  InstanceAccessProtocolRdp,
   InstanceAccessProtocol'
   #-}

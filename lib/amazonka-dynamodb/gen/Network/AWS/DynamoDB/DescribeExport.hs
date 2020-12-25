@@ -20,116 +20,103 @@ module Network.AWS.DynamoDB.DescribeExport
     mkDescribeExport,
 
     -- ** Request lenses
-    deExportARN,
+    deExportArn,
 
     -- * Destructuring the response
     DescribeExportResponse (..),
     mkDescribeExportResponse,
 
     -- ** Response lenses
-    defrsExportDescription,
-    defrsResponseStatus,
+    derfrsExportDescription,
+    derfrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeExport' smart constructor.
 newtype DescribeExport = DescribeExport'
   { -- | The Amazon Resource Name (ARN) associated with the export.
-    exportARN :: Lude.Text
+    exportArn :: Types.ExportArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeExport' with the minimum fields required to make a request.
---
--- * 'exportARN' - The Amazon Resource Name (ARN) associated with the export.
+-- | Creates a 'DescribeExport' value with any optional fields omitted.
 mkDescribeExport ::
-  -- | 'exportARN'
-  Lude.Text ->
+  -- | 'exportArn'
+  Types.ExportArn ->
   DescribeExport
-mkDescribeExport pExportARN_ =
-  DescribeExport' {exportARN = pExportARN_}
+mkDescribeExport exportArn = DescribeExport' {exportArn}
 
 -- | The Amazon Resource Name (ARN) associated with the export.
 --
--- /Note:/ Consider using 'exportARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deExportARN :: Lens.Lens' DescribeExport Lude.Text
-deExportARN = Lens.lens (exportARN :: DescribeExport -> Lude.Text) (\s a -> s {exportARN = a} :: DescribeExport)
-{-# DEPRECATED deExportARN "Use generic-lens or generic-optics with 'exportARN' instead." #-}
+-- /Note:/ Consider using 'exportArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deExportArn :: Lens.Lens' DescribeExport Types.ExportArn
+deExportArn = Lens.field @"exportArn"
+{-# DEPRECATED deExportArn "Use generic-lens or generic-optics with 'exportArn' instead." #-}
 
-instance Lude.AWSRequest DescribeExport where
+instance Core.FromJSON DescribeExport where
+  toJSON DescribeExport {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ExportArn" Core..= exportArn)])
+
+instance Core.AWSRequest DescribeExport where
   type Rs DescribeExport = DescribeExportResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DynamoDB_20120810.DescribeExport")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeExportResponse'
-            Lude.<$> (x Lude..?> "ExportDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ExportDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeExport where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.DescribeExport" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeExport where
-  toJSON DescribeExport' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ExportArn" Lude..= exportARN)])
-
-instance Lude.ToPath DescribeExport where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeExport where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeExportResponse' smart constructor.
 data DescribeExportResponse = DescribeExportResponse'
   { -- | Represents the properties of the export.
-    exportDescription :: Lude.Maybe ExportDescription,
+    exportDescription :: Core.Maybe Types.ExportDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeExportResponse' with the minimum fields required to make a request.
---
--- * 'exportDescription' - Represents the properties of the export.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeExportResponse' value with any optional fields omitted.
 mkDescribeExportResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeExportResponse
-mkDescribeExportResponse pResponseStatus_ =
+mkDescribeExportResponse responseStatus =
   DescribeExportResponse'
-    { exportDescription = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { exportDescription = Core.Nothing,
+      responseStatus
     }
 
 -- | Represents the properties of the export.
 --
 -- /Note:/ Consider using 'exportDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defrsExportDescription :: Lens.Lens' DescribeExportResponse (Lude.Maybe ExportDescription)
-defrsExportDescription = Lens.lens (exportDescription :: DescribeExportResponse -> Lude.Maybe ExportDescription) (\s a -> s {exportDescription = a} :: DescribeExportResponse)
-{-# DEPRECATED defrsExportDescription "Use generic-lens or generic-optics with 'exportDescription' instead." #-}
+derfrsExportDescription :: Lens.Lens' DescribeExportResponse (Core.Maybe Types.ExportDescription)
+derfrsExportDescription = Lens.field @"exportDescription"
+{-# DEPRECATED derfrsExportDescription "Use generic-lens or generic-optics with 'exportDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-defrsResponseStatus :: Lens.Lens' DescribeExportResponse Lude.Int
-defrsResponseStatus = Lens.lens (responseStatus :: DescribeExportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExportResponse)
-{-# DEPRECATED defrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+derfrsResponseStatus :: Lens.Lens' DescribeExportResponse Core.Int
+derfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED derfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

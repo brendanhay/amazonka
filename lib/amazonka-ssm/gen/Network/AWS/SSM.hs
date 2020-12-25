@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +18,349 @@
 -- For information about other API actions you can perform on EC2 instances, see the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ Amazon EC2 API Reference> . For information about how to use a Query API, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html Making API requests> .
 module Network.AWS.SSM
   ( -- * Service configuration
-    ssmService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** AutomationDefinitionVersionNotFoundException
+    _AutomationDefinitionVersionNotFoundException,
+
+    -- ** InvalidDocumentVersion
+    _InvalidDocumentVersion,
+
+    -- ** HierarchyTypeMismatchException
+    _HierarchyTypeMismatchException,
+
+    -- ** InvalidSchedule
+    _InvalidSchedule,
+
+    -- ** UnsupportedParameterType
+    _UnsupportedParameterType,
+
+    -- ** InvalidAutomationStatusUpdateException
+    _InvalidAutomationStatusUpdateException,
+
+    -- ** InvalidPluginName
+    _InvalidPluginName,
+
+    -- ** UnsupportedFeatureRequiredException
+    _UnsupportedFeatureRequiredException,
+
+    -- ** InvalidAggregatorException
+    _InvalidAggregatorException,
+
+    -- ** FeatureNotAvailableException
+    _FeatureNotAvailableException,
+
+    -- ** InvalidAutomationSignalException
+    _InvalidAutomationSignalException,
+
+    -- ** ResourceDataSyncCountExceededException
+    _ResourceDataSyncCountExceededException,
+
+    -- ** UnsupportedPlatformType
+    _UnsupportedPlatformType,
+
+    -- ** InvalidFilterValue
+    _InvalidFilterValue,
+
+    -- ** InvalidItemContentException
+    _InvalidItemContentException,
+
+    -- ** InvalidFilterOption
+    _InvalidFilterOption,
+
+    -- ** ParameterPatternMismatchException
+    _ParameterPatternMismatchException,
+
+    -- ** InvalidPermissionType
+    _InvalidPermissionType,
+
+    -- ** AssociatedInstances
+    _AssociatedInstances,
+
+    -- ** UnsupportedOperatingSystem
+    _UnsupportedOperatingSystem,
+
+    -- ** InvalidInstanceId
+    _InvalidInstanceId,
+
+    -- ** StatusUnchanged
+    _StatusUnchanged,
+
+    -- ** InvalidNextToken
+    _InvalidNextToken,
+
+    -- ** InvalidInventoryRequestException
+    _InvalidInventoryRequestException,
+
+    -- ** InvalidAssociation
+    _InvalidAssociation,
+
+    -- ** OpsItemAlreadyExistsException
+    _OpsItemAlreadyExistsException,
+
+    -- ** InvalidOutputFolder
+    _InvalidOutputFolder,
+
+    -- ** OpsItemLimitExceededException
+    _OpsItemLimitExceededException,
+
+    -- ** InvalidActivationId
+    _InvalidActivationId,
+
+    -- ** ServiceSettingNotFound
+    _ServiceSettingNotFound,
+
+    -- ** InvalidResultAttributeException
+    _InvalidResultAttributeException,
+
+    -- ** TargetNotConnected
+    _TargetNotConnected,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** ParameterVersionLabelLimitExceeded
+    _ParameterVersionLabelLimitExceeded,
+
+    -- ** ResourceDataSyncInvalidConfigurationException
+    _ResourceDataSyncInvalidConfigurationException,
+
+    -- ** InvalidCommandId
+    _InvalidCommandId,
+
+    -- ** DuplicateInstanceId
+    _DuplicateInstanceId,
+
+    -- ** InvalidResourceType
+    _InvalidResourceType,
+
+    -- ** UnsupportedInventorySchemaVersionException
+    _UnsupportedInventorySchemaVersionException,
+
+    -- ** InvalidDocument
+    _InvalidDocument,
+
+    -- ** IncompatiblePolicyException
+    _IncompatiblePolicyException,
+
+    -- ** AutomationDefinitionNotFoundException
+    _AutomationDefinitionNotFoundException,
+
+    -- ** InvalidPolicyTypeException
+    _InvalidPolicyTypeException,
+
+    -- ** InvalidFilterKey
+    _InvalidFilterKey,
+
+    -- ** InvalidAutomationExecutionParametersException
+    _InvalidAutomationExecutionParametersException,
+
+    -- ** AutomationExecutionNotFoundException
+    _AutomationExecutionNotFoundException,
+
+    -- ** InvalidTypeNameException
+    _InvalidTypeNameException,
+
+    -- ** ResourceDataSyncNotFoundException
+    _ResourceDataSyncNotFoundException,
+
+    -- ** ParameterMaxVersionLimitExceeded
+    _ParameterMaxVersionLimitExceeded,
+
+    -- ** ItemSizeLimitExceededException
+    _ItemSizeLimitExceededException,
+
+    -- ** ResourceDataSyncAlreadyExistsException
+    _ResourceDataSyncAlreadyExistsException,
+
+    -- ** DoesNotExistException
+    _DoesNotExistException,
+
+    -- ** ResourceDataSyncConflictException
+    _ResourceDataSyncConflictException,
+
+    -- ** AutomationExecutionLimitExceededException
+    _AutomationExecutionLimitExceededException,
+
+    -- ** IdempotentParameterMismatch
+    _IdempotentParameterMismatch,
+
+    -- ** InvalidInstanceInformationFilterValue
+    _InvalidInstanceInformationFilterValue,
+
+    -- ** ItemContentMismatchException
+    _ItemContentMismatchException,
+
+    -- ** ParameterAlreadyExists
+    _ParameterAlreadyExists,
+
+    -- ** AssociationAlreadyExists
+    _AssociationAlreadyExists,
+
+    -- ** ComplianceTypeCountLimitExceededException
+    _ComplianceTypeCountLimitExceededException,
+
+    -- ** InvalidDeleteInventoryParametersException
+    _InvalidDeleteInventoryParametersException,
+
+    -- ** InvalidDeletionIdException
+    _InvalidDeletionIdException,
+
+    -- ** PoliciesLimitExceededException
+    _PoliciesLimitExceededException,
+
+    -- ** InvalidDocumentContent
+    _InvalidDocumentContent,
+
+    -- ** ParameterLimitExceeded
+    _ParameterLimitExceeded,
+
+    -- ** AssociationLimitExceeded
+    _AssociationLimitExceeded,
+
+    -- ** InvalidAssociationVersion
+    _InvalidAssociationVersion,
+
+    -- ** AssociationDoesNotExist
+    _AssociationDoesNotExist,
+
+    -- ** InvalidPolicyAttributeException
+    _InvalidPolicyAttributeException,
+
+    -- ** ParameterNotFound
+    _ParameterNotFound,
+
+    -- ** TargetInUseException
+    _TargetInUseException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** UnsupportedInventoryItemContextException
+    _UnsupportedInventoryItemContextException,
+
+    -- ** AssociationVersionLimitExceeded
+    _AssociationVersionLimitExceeded,
+
+    -- ** InvalidRole
+    _InvalidRole,
+
+    -- ** TooManyUpdates
+    _TooManyUpdates,
+
+    -- ** DuplicateDocumentVersionName
+    _DuplicateDocumentVersionName,
+
+    -- ** OpsItemNotFoundException
+    _OpsItemNotFoundException,
+
+    -- ** InvalidActivation
+    _InvalidActivation,
+
+    -- ** InvalidOptionException
+    _InvalidOptionException,
+
+    -- ** InvalidDocumentSchemaVersion
+    _InvalidDocumentSchemaVersion,
+
+    -- ** MaxDocumentSizeExceeded
+    _MaxDocumentSizeExceeded,
+
+    -- ** ParameterVersionNotFound
+    _ParameterVersionNotFound,
+
+    -- ** UnsupportedCalendarException
+    _UnsupportedCalendarException,
+
+    -- ** InvalidUpdate
+    _InvalidUpdate,
+
+    -- ** CustomSchemaCountLimitExceededException
+    _CustomSchemaCountLimitExceededException,
+
+    -- ** AssociationExecutionDoesNotExist
+    _AssociationExecutionDoesNotExist,
+
+    -- ** InvalidTarget
+    _InvalidTarget,
+
+    -- ** HierarchyLevelLimitExceededException
+    _HierarchyLevelLimitExceededException,
+
+    -- ** InvalidInventoryGroupException
+    _InvalidInventoryGroupException,
+
+    -- ** InvalidDocumentOperation
+    _InvalidDocumentOperation,
+
+    -- ** InvocationDoesNotExist
+    _InvocationDoesNotExist,
+
+    -- ** DocumentVersionLimitExceeded
+    _DocumentVersionLimitExceeded,
+
+    -- ** InvalidOutputLocation
+    _InvalidOutputLocation,
+
+    -- ** InvalidKeyId
+    _InvalidKeyId,
+
+    -- ** InvalidParameters
+    _InvalidParameters,
+
+    -- ** OpsItemInvalidParameterException
+    _OpsItemInvalidParameterException,
+
+    -- ** InvalidResourceId
+    _InvalidResourceId,
+
+    -- ** InvalidAllowedPatternException
+    _InvalidAllowedPatternException,
+
+    -- ** InvalidNotificationConfig
+    _InvalidNotificationConfig,
+
+    -- ** InvalidInventoryItemContextException
+    _InvalidInventoryItemContextException,
+
+    -- ** TotalSizeLimitExceededException
+    _TotalSizeLimitExceededException,
+
+    -- ** SubTypeCountLimitExceededException
+    _SubTypeCountLimitExceededException,
+
+    -- ** InvalidDocumentType
+    _InvalidDocumentType,
+
+    -- ** TooManyTagsError
+    _TooManyTagsError,
+
+    -- ** DocumentPermissionLimit
+    _DocumentPermissionLimit,
+
+    -- ** AutomationStepNotFoundException
+    _AutomationStepNotFoundException,
+
+    -- ** DuplicateDocumentContent
+    _DuplicateDocumentContent,
+
+    -- ** DocumentAlreadyExists
+    _DocumentAlreadyExists,
+
+    -- ** DocumentLimitExceeded
+    _DocumentLimitExceeded,
+
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
+
+    -- ** InvalidFilter
+    _InvalidFilter,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -401,1036 +739,8 @@ module Network.AWS.SSM
 
     -- * Types
 
-    -- ** AssociationComplianceSeverity
-    AssociationComplianceSeverity (..),
-
     -- ** AssociationExecutionFilterKey
     AssociationExecutionFilterKey (..),
-
-    -- ** AssociationExecutionTargetsFilterKey
-    AssociationExecutionTargetsFilterKey (..),
-
-    -- ** AssociationFilterKey
-    AssociationFilterKey (..),
-
-    -- ** AssociationFilterOperatorType
-    AssociationFilterOperatorType (..),
-
-    -- ** AssociationStatusName
-    AssociationStatusName (..),
-
-    -- ** AssociationSyncCompliance
-    AssociationSyncCompliance (..),
-
-    -- ** AttachmentHashType
-    AttachmentHashType (..),
-
-    -- ** AttachmentsSourceKey
-    AttachmentsSourceKey (..),
-
-    -- ** AutomationExecutionFilterKey
-    AutomationExecutionFilterKey (..),
-
-    -- ** AutomationExecutionStatus
-    AutomationExecutionStatus (..),
-
-    -- ** AutomationType
-    AutomationType (..),
-
-    -- ** CalendarState
-    CalendarState (..),
-
-    -- ** CommandFilterKey
-    CommandFilterKey (..),
-
-    -- ** CommandInvocationStatus
-    CommandInvocationStatus (..),
-
-    -- ** CommandPluginStatus
-    CommandPluginStatus (..),
-
-    -- ** CommandStatus
-    CommandStatus (..),
-
-    -- ** ComplianceQueryOperatorType
-    ComplianceQueryOperatorType (..),
-
-    -- ** ComplianceSeverity
-    ComplianceSeverity (..),
-
-    -- ** ComplianceStatus
-    ComplianceStatus (..),
-
-    -- ** ComplianceUploadType
-    ComplianceUploadType (..),
-
-    -- ** ConnectionStatus
-    ConnectionStatus (..),
-
-    -- ** DescribeActivationsFilterKeys
-    DescribeActivationsFilterKeys (..),
-
-    -- ** DocumentFilterKey
-    DocumentFilterKey (..),
-
-    -- ** DocumentFormat
-    DocumentFormat (..),
-
-    -- ** DocumentHashType
-    DocumentHashType (..),
-
-    -- ** DocumentParameterType
-    DocumentParameterType (..),
-
-    -- ** DocumentPermissionType
-    DocumentPermissionType (..),
-
-    -- ** DocumentStatus
-    DocumentStatus (..),
-
-    -- ** DocumentType
-    DocumentType (..),
-
-    -- ** ExecutionMode
-    ExecutionMode (..),
-
-    -- ** Fault
-    Fault (..),
-
-    -- ** InstanceInformationFilterKey
-    InstanceInformationFilterKey (..),
-
-    -- ** InstancePatchStateOperatorType
-    InstancePatchStateOperatorType (..),
-
-    -- ** InventoryAttributeDataType
-    InventoryAttributeDataType (..),
-
-    -- ** InventoryDeletionStatus
-    InventoryDeletionStatus (..),
-
-    -- ** InventoryQueryOperatorType
-    InventoryQueryOperatorType (..),
-
-    -- ** InventorySchemaDeleteOption
-    InventorySchemaDeleteOption (..),
-
-    -- ** LastResourceDataSyncStatus
-    LastResourceDataSyncStatus (..),
-
-    -- ** MaintenanceWindowExecutionStatus
-    MaintenanceWindowExecutionStatus (..),
-
-    -- ** MaintenanceWindowResourceType
-    MaintenanceWindowResourceType (..),
-
-    -- ** MaintenanceWindowTaskType
-    MaintenanceWindowTaskType (..),
-
-    -- ** NotificationEvent
-    NotificationEvent (..),
-
-    -- ** NotificationType
-    NotificationType (..),
-
-    -- ** OperatingSystem
-    OperatingSystem (..),
-
-    -- ** OpsFilterOperatorType
-    OpsFilterOperatorType (..),
-
-    -- ** OpsItemDataType
-    OpsItemDataType (..),
-
-    -- ** OpsItemFilterKey
-    OpsItemFilterKey (..),
-
-    -- ** OpsItemFilterOperator
-    OpsItemFilterOperator (..),
-
-    -- ** OpsItemStatus
-    OpsItemStatus (..),
-
-    -- ** ParameterTier
-    ParameterTier (..),
-
-    -- ** ParameterType
-    ParameterType (..),
-
-    -- ** ParametersFilterKey
-    ParametersFilterKey (..),
-
-    -- ** PatchAction
-    PatchAction (..),
-
-    -- ** PatchComplianceDataState
-    PatchComplianceDataState (..),
-
-    -- ** PatchComplianceLevel
-    PatchComplianceLevel (..),
-
-    -- ** PatchDeploymentStatus
-    PatchDeploymentStatus (..),
-
-    -- ** PatchFilterKey
-    PatchFilterKey (..),
-
-    -- ** PatchOperationType
-    PatchOperationType (..),
-
-    -- ** PatchProperty
-    PatchProperty (..),
-
-    -- ** PatchSet
-    PatchSet (..),
-
-    -- ** PingStatus
-    PingStatus (..),
-
-    -- ** PlatformType
-    PlatformType (..),
-
-    -- ** RebootOption
-    RebootOption (..),
-
-    -- ** ResourceDataSyncS3Format
-    ResourceDataSyncS3Format (..),
-
-    -- ** ResourceType
-    ResourceType (..),
-
-    -- ** ResourceTypeForTagging
-    ResourceTypeForTagging (..),
-
-    -- ** SessionFilterKey
-    SessionFilterKey (..),
-
-    -- ** SessionState
-    SessionState (..),
-
-    -- ** SessionStatus
-    SessionStatus (..),
-
-    -- ** SignalType
-    SignalType (..),
-
-    -- ** StepExecutionFilterKey
-    StepExecutionFilterKey (..),
-
-    -- ** StopType
-    StopType (..),
-
-    -- ** AccountSharingInfo
-    AccountSharingInfo (..),
-    mkAccountSharingInfo,
-    asiSharedDocumentVersion,
-    asiAccountId,
-
-    -- ** Activation
-    Activation (..),
-    mkActivation,
-    aExpired,
-    aDefaultInstanceName,
-    aActivationId,
-    aCreatedDate,
-    aRegistrationLimit,
-    aExpirationDate,
-    aDescription,
-    aTags,
-    aRegistrationsCount,
-    aIAMRole,
-
-    -- ** Association
-    Association (..),
-    mkAssociation,
-    afAssociationId,
-    afInstanceId,
-    afOverview,
-    afLastExecutionDate,
-    afScheduleExpression,
-    afName,
-    afTargets,
-    afDocumentVersion,
-    afAssociationVersion,
-    afAssociationName,
-
-    -- ** AssociationDescription
-    AssociationDescription (..),
-    mkAssociationDescription,
-    adAssociationId,
-    adInstanceId,
-    adStatus,
-    adApplyOnlyAtCronInterval,
-    adLastSuccessfulExecutionDate,
-    adOverview,
-    adLastUpdateAssociationDate,
-    adDate,
-    adLastExecutionDate,
-    adMaxErrors,
-    adScheduleExpression,
-    adName,
-    adOutputLocation,
-    adSyncCompliance,
-    adTargets,
-    adParameters,
-    adDocumentVersion,
-    adAutomationTargetParameterName,
-    adAssociationVersion,
-    adAssociationName,
-    adComplianceSeverity,
-    adMaxConcurrency,
-
-    -- ** AssociationExecution
-    AssociationExecution (..),
-    mkAssociationExecution,
-    aeAssociationId,
-    aeDetailedStatus,
-    aeStatus,
-    aeExecutionId,
-    aeCreatedTime,
-    aeResourceCountByStatus,
-    aeLastExecutionDate,
-    aeAssociationVersion,
-
-    -- ** AssociationExecutionFilter
-    AssociationExecutionFilter (..),
-    mkAssociationExecutionFilter,
-    aefValue,
-    aefKey,
-    aefType,
-
-    -- ** AssociationExecutionTarget
-    AssociationExecutionTarget (..),
-    mkAssociationExecutionTarget,
-    aetAssociationId,
-    aetDetailedStatus,
-    aetStatus,
-    aetExecutionId,
-    aetResourceId,
-    aetResourceType,
-    aetOutputSource,
-    aetLastExecutionDate,
-    aetAssociationVersion,
-
-    -- ** AssociationExecutionTargetsFilter
-    AssociationExecutionTargetsFilter (..),
-    mkAssociationExecutionTargetsFilter,
-    aetfValue,
-    aetfKey,
-
-    -- ** AssociationFilter
-    AssociationFilter (..),
-    mkAssociationFilter,
-    afValue,
-    afKey,
-
-    -- ** AssociationOverview
-    AssociationOverview (..),
-    mkAssociationOverview,
-    aoDetailedStatus,
-    aoStatus,
-    aoAssociationStatusAggregatedCount,
-
-    -- ** AssociationStatus
-    AssociationStatus (..),
-    mkAssociationStatus,
-    asAdditionalInfo,
-    asDate,
-    asName,
-    asMessage,
-
-    -- ** AssociationVersionInfo
-    AssociationVersionInfo (..),
-    mkAssociationVersionInfo,
-    aviAssociationId,
-    aviApplyOnlyAtCronInterval,
-    aviCreatedDate,
-    aviMaxErrors,
-    aviScheduleExpression,
-    aviName,
-    aviOutputLocation,
-    aviSyncCompliance,
-    aviTargets,
-    aviParameters,
-    aviDocumentVersion,
-    aviAssociationVersion,
-    aviAssociationName,
-    aviComplianceSeverity,
-    aviMaxConcurrency,
-
-    -- ** AttachmentContent
-    AttachmentContent (..),
-    mkAttachmentContent,
-    acHash,
-    acSize,
-    acURL,
-    acName,
-    acHashType,
-
-    -- ** AttachmentInformation
-    AttachmentInformation (..),
-    mkAttachmentInformation,
-    aiName,
-
-    -- ** AttachmentsSource
-    AttachmentsSource (..),
-    mkAttachmentsSource,
-    aValues,
-    aKey,
-    aName,
-
-    -- ** AutomationExecution
-    AutomationExecution (..),
-    mkAutomationExecution,
-    aeCurrentStepName,
-    aeTargetParameterName,
-    aeTargetLocations,
-    aeProgressCounters,
-    aeExecutedBy,
-    aeDocumentName,
-    aeExecutionEndTime,
-    aeFailureMessage,
-    aeMode,
-    aeTargetMaps,
-    aeStepExecutionsTruncated,
-    aeAutomationExecutionStatus,
-    aeParentAutomationExecutionId,
-    aeOutputs,
-    aeMaxErrors,
-    aeExecutionStartTime,
-    aeCurrentAction,
-    aeTargets,
-    aeResolvedTargets,
-    aeParameters,
-    aeDocumentVersion,
-    aeAutomationExecutionId,
-    aeStepExecutions,
-    aeMaxConcurrency,
-    aeTarget,
-
-    -- ** AutomationExecutionFilter
-    AutomationExecutionFilter (..),
-    mkAutomationExecutionFilter,
-    aeffValues,
-    aeffKey,
-
-    -- ** AutomationExecutionMetadata
-    AutomationExecutionMetadata (..),
-    mkAutomationExecutionMetadata,
-    aemCurrentStepName,
-    aemTargetParameterName,
-    aemLogFile,
-    aemExecutedBy,
-    aemDocumentName,
-    aemExecutionEndTime,
-    aemFailureMessage,
-    aemMode,
-    aemTargetMaps,
-    aemAutomationExecutionStatus,
-    aemParentAutomationExecutionId,
-    aemOutputs,
-    aemMaxErrors,
-    aemExecutionStartTime,
-    aemAutomationType,
-    aemCurrentAction,
-    aemTargets,
-    aemResolvedTargets,
-    aemDocumentVersion,
-    aemAutomationExecutionId,
-    aemMaxConcurrency,
-    aemTarget,
-
-    -- ** CloudWatchOutputConfig
-    CloudWatchOutputConfig (..),
-    mkCloudWatchOutputConfig,
-    cwocCloudWatchLogGroupName,
-    cwocCloudWatchOutputEnabled,
-
-    -- ** Command
-    Command (..),
-    mkCommand,
-    cStatus,
-    cExpiresAfter,
-    cNotificationConfig,
-    cTargetCount,
-    cCloudWatchOutputConfig,
-    cDeliveryTimedOutCount,
-    cOutputS3KeyPrefix,
-    cDocumentName,
-    cErrorCount,
-    cStatusDetails,
-    cMaxErrors,
-    cInstanceIds,
-    cOutputS3Region,
-    cTargets,
-    cCommandId,
-    cParameters,
-    cDocumentVersion,
-    cTimeoutSeconds,
-    cComment,
-    cCompletedCount,
-    cOutputS3BucketName,
-    cMaxConcurrency,
-    cRequestedDateTime,
-    cServiceRole,
-
-    -- ** CommandFilter
-    CommandFilter (..),
-    mkCommandFilter,
-    cfValue,
-    cfKey,
-
-    -- ** CommandInvocation
-    CommandInvocation (..),
-    mkCommandInvocation,
-    cifInstanceId,
-    cifStatus,
-    cifNotificationConfig,
-    cifCommandPlugins,
-    cifCloudWatchOutputConfig,
-    cifDocumentName,
-    cifStandardErrorURL,
-    cifStatusDetails,
-    cifStandardOutputURL,
-    cifCommandId,
-    cifDocumentVersion,
-    cifComment,
-    cifTraceOutput,
-    cifInstanceName,
-    cifRequestedDateTime,
-    cifServiceRole,
-
-    -- ** CommandPlugin
-    CommandPlugin (..),
-    mkCommandPlugin,
-    cpStatus,
-    cpResponseStartDateTime,
-    cpOutputS3KeyPrefix,
-    cpStandardErrorURL,
-    cpResponseCode,
-    cpStatusDetails,
-    cpOutput,
-    cpStandardOutputURL,
-    cpName,
-    cpOutputS3Region,
-    cpOutputS3BucketName,
-    cpResponseFinishDateTime,
-
-    -- ** ComplianceExecutionSummary
-    ComplianceExecutionSummary (..),
-    mkComplianceExecutionSummary,
-    cesExecutionId,
-    cesExecutionType,
-    cesExecutionTime,
-
-    -- ** ComplianceItem
-    ComplianceItem (..),
-    mkComplianceItem,
-    ciStatus,
-    ciResourceId,
-    ciResourceType,
-    ciSeverity,
-    ciExecutionSummary,
-    ciDetails,
-    ciId,
-    ciComplianceType,
-    ciTitle,
-
-    -- ** ComplianceItemEntry
-    ComplianceItemEntry (..),
-    mkComplianceItemEntry,
-    cieStatus,
-    cieSeverity,
-    cieDetails,
-    cieId,
-    cieTitle,
-
-    -- ** ComplianceStringFilter
-    ComplianceStringFilter (..),
-    mkComplianceStringFilter,
-    csfValues,
-    csfKey,
-    csfType,
-
-    -- ** ComplianceSummaryItem
-    ComplianceSummaryItem (..),
-    mkComplianceSummaryItem,
-    csiNonCompliantSummary,
-    csiCompliantSummary,
-    csiComplianceType,
-
-    -- ** CompliantSummary
-    CompliantSummary (..),
-    mkCompliantSummary,
-    csCompliantCount,
-    csSeveritySummary,
-
-    -- ** CreateAssociationBatchRequestEntry
-    CreateAssociationBatchRequestEntry (..),
-    mkCreateAssociationBatchRequestEntry,
-    cabreInstanceId,
-    cabreApplyOnlyAtCronInterval,
-    cabreMaxErrors,
-    cabreScheduleExpression,
-    cabreName,
-    cabreOutputLocation,
-    cabreSyncCompliance,
-    cabreTargets,
-    cabreParameters,
-    cabreDocumentVersion,
-    cabreAutomationTargetParameterName,
-    cabreAssociationName,
-    cabreComplianceSeverity,
-    cabreMaxConcurrency,
-
-    -- ** DescribeActivationsFilter
-    DescribeActivationsFilter (..),
-    mkDescribeActivationsFilter,
-    dafFilterKey,
-    dafFilterValues,
-
-    -- ** DocumentDefaultVersionDescription
-    DocumentDefaultVersionDescription (..),
-    mkDocumentDefaultVersionDescription,
-    ddvdDefaultVersionName,
-    ddvdDefaultVersion,
-    ddvdName,
-
-    -- ** DocumentDescription
-    DocumentDescription (..),
-    mkDocumentDescription,
-    ddStatus,
-    ddDocumentType,
-    ddHash,
-    ddVersionName,
-    ddSchemaVersion,
-    ddSha1,
-    ddAttachmentsInformation,
-    ddDefaultVersion,
-    ddTargetType,
-    ddOwner,
-    ddPlatformTypes,
-    ddCreatedDate,
-    ddDocumentFormat,
-    ddName,
-    ddHashType,
-    ddParameters,
-    ddDocumentVersion,
-    ddStatusInformation,
-    ddDescription,
-    ddRequires,
-    ddTags,
-    ddLatestVersion,
-
-    -- ** DocumentFilter
-    DocumentFilter (..),
-    mkDocumentFilter,
-    dfValue,
-    dfKey,
-
-    -- ** DocumentIdentifier
-    DocumentIdentifier (..),
-    mkDocumentIdentifier,
-    diDocumentType,
-    diVersionName,
-    diSchemaVersion,
-    diTargetType,
-    diOwner,
-    diPlatformTypes,
-    diDocumentFormat,
-    diName,
-    diDocumentVersion,
-    diRequires,
-    diTags,
-
-    -- ** DocumentKeyValuesFilter
-    DocumentKeyValuesFilter (..),
-    mkDocumentKeyValuesFilter,
-    dkvfValues,
-    dkvfKey,
-
-    -- ** DocumentParameter
-    DocumentParameter (..),
-    mkDocumentParameter,
-    dpName,
-    dpDefaultValue,
-    dpType,
-    dpDescription,
-
-    -- ** DocumentRequires
-    DocumentRequires (..),
-    mkDocumentRequires,
-    drName,
-    drVersion,
-
-    -- ** DocumentVersionInfo
-    DocumentVersionInfo (..),
-    mkDocumentVersionInfo,
-    dviStatus,
-    dviVersionName,
-    dviCreatedDate,
-    dviDocumentFormat,
-    dviName,
-    dviDocumentVersion,
-    dviStatusInformation,
-    dviIsDefaultVersion,
-
-    -- ** EffectivePatch
-    EffectivePatch (..),
-    mkEffectivePatch,
-    epPatch,
-    epPatchStatus,
-
-    -- ** FailedCreateAssociation
-    FailedCreateAssociation (..),
-    mkFailedCreateAssociation,
-    fcaEntry,
-    fcaFault,
-    fcaMessage,
-
-    -- ** FailureDetails
-    FailureDetails (..),
-    mkFailureDetails,
-    fdFailureType,
-    fdFailureStage,
-    fdDetails,
-
-    -- ** InstanceAggregatedAssociationOverview
-    InstanceAggregatedAssociationOverview (..),
-    mkInstanceAggregatedAssociationOverview,
-    iaaoDetailedStatus,
-    iaaoInstanceAssociationStatusAggregatedCount,
-
-    -- ** InstanceAssociation
-    InstanceAssociation (..),
-    mkInstanceAssociation,
-    iaAssociationId,
-    iaInstanceId,
-    iaContent,
-    iaAssociationVersion,
-
-    -- ** InstanceAssociationOutputLocation
-    InstanceAssociationOutputLocation (..),
-    mkInstanceAssociationOutputLocation,
-    iaolS3Location,
-
-    -- ** InstanceAssociationOutputURL
-    InstanceAssociationOutputURL (..),
-    mkInstanceAssociationOutputURL,
-    iaouS3OutputURL,
-
-    -- ** InstanceAssociationStatusInfo
-    InstanceAssociationStatusInfo (..),
-    mkInstanceAssociationStatusInfo,
-    iasiAssociationId,
-    iasiInstanceId,
-    iasiDetailedStatus,
-    iasiStatus,
-    iasiOutputURL,
-    iasiExecutionSummary,
-    iasiName,
-    iasiErrorCode,
-    iasiDocumentVersion,
-    iasiAssociationVersion,
-    iasiExecutionDate,
-    iasiAssociationName,
-
-    -- ** InstanceInformation
-    InstanceInformation (..),
-    mkInstanceInformation,
-    iiInstanceId,
-    iiPingStatus,
-    iiIPAddress,
-    iiResourceType,
-    iiRegistrationDate,
-    iiPlatformVersion,
-    iiIsLatestVersion,
-    iiAgentVersion,
-    iiLastPingDateTime,
-    iiLastSuccessfulAssociationExecutionDate,
-    iiActivationId,
-    iiName,
-    iiPlatformType,
-    iiAssociationOverview,
-    iiAssociationStatus,
-    iiLastAssociationExecutionDate,
-    iiPlatformName,
-    iiComputerName,
-    iiIAMRole,
-
-    -- ** InstanceInformationFilter
-    InstanceInformationFilter (..),
-    mkInstanceInformationFilter,
-    iifKey,
-    iifValueSet,
-
-    -- ** InstanceInformationStringFilter
-    InstanceInformationStringFilter (..),
-    mkInstanceInformationStringFilter,
-    iisfValues,
-    iisfKey,
-
-    -- ** InstancePatchState
-    InstancePatchState (..),
-    mkInstancePatchState,
-    ipsInstanceId,
-    ipsUnreportedNotApplicableCount,
-    ipsOperationEndTime,
-    ipsRebootOption,
-    ipsInstalledPendingRebootCount,
-    ipsOwnerInformation,
-    ipsOperation,
-    ipsInstalledRejectedCount,
-    ipsFailedCount,
-    ipsInstalledOtherCount,
-    ipsMissingCount,
-    ipsInstallOverrideList,
-    ipsOperationStartTime,
-    ipsNotApplicableCount,
-    ipsInstalledCount,
-    ipsLastNoRebootInstallOperationTime,
-    ipsBaselineId,
-    ipsPatchGroup,
-    ipsSnapshotId,
-
-    -- ** InstancePatchStateFilter
-    InstancePatchStateFilter (..),
-    mkInstancePatchStateFilter,
-    ipsfValues,
-    ipsfKey,
-    ipsfType,
-
-    -- ** InventoryAggregator
-    InventoryAggregator (..),
-    mkInventoryAggregator,
-    iaGroups,
-    iaAggregators,
-    iaExpression,
-
-    -- ** InventoryDeletionStatusItem
-    InventoryDeletionStatusItem (..),
-    mkInventoryDeletionStatusItem,
-    idsiTypeName,
-    idsiLastStatusUpdateTime,
-    idsiLastStatusMessage,
-    idsiDeletionSummary,
-    idsiLastStatus,
-    idsiDeletionStartTime,
-    idsiDeletionId,
-
-    -- ** InventoryDeletionSummary
-    InventoryDeletionSummary (..),
-    mkInventoryDeletionSummary,
-    idsRemainingCount,
-    idsSummaryItems,
-    idsTotalCount,
-
-    -- ** InventoryDeletionSummaryItem
-    InventoryDeletionSummaryItem (..),
-    mkInventoryDeletionSummaryItem,
-    idsiRemainingCount,
-    idsiCount,
-    idsiVersion,
-
-    -- ** InventoryFilter
-    InventoryFilter (..),
-    mkInventoryFilter,
-    ifValues,
-    ifKey,
-    ifType,
-
-    -- ** InventoryGroup
-    InventoryGroup (..),
-    mkInventoryGroup,
-    igFilters,
-    igName,
-
-    -- ** InventoryItem
-    InventoryItem (..),
-    mkInventoryItem,
-    iiContext,
-    iiTypeName,
-    iiContentHash,
-    iiSchemaVersion,
-    iiContent,
-    iiCaptureTime,
-
-    -- ** InventoryItemAttribute
-    InventoryItemAttribute (..),
-    mkInventoryItemAttribute,
-    iiaName,
-    iiaDataType,
-
-    -- ** InventoryItemSchema
-    InventoryItemSchema (..),
-    mkInventoryItemSchema,
-    iisTypeName,
-    iisAttributes,
-    iisVersion,
-    iisDisplayName,
-
-    -- ** InventoryResultEntity
-    InventoryResultEntity (..),
-    mkInventoryResultEntity,
-    ireData,
-    ireId,
-
-    -- ** InventoryResultItem
-    InventoryResultItem (..),
-    mkInventoryResultItem,
-    iriTypeName,
-    iriContentHash,
-    iriSchemaVersion,
-    iriContent,
-    iriCaptureTime,
-
-    -- ** LoggingInfo
-    LoggingInfo (..),
-    mkLoggingInfo,
-    liS3KeyPrefix,
-    liS3Region,
-    liS3BucketName,
-
-    -- ** MaintenanceWindowAutomationParameters
-    MaintenanceWindowAutomationParameters (..),
-    mkMaintenanceWindowAutomationParameters,
-    mwapParameters,
-    mwapDocumentVersion,
-
-    -- ** MaintenanceWindowExecution
-    MaintenanceWindowExecution (..),
-    mkMaintenanceWindowExecution,
-    mweStatus,
-    mweStartTime,
-    mweWindowExecutionId,
-    mweStatusDetails,
-    mweEndTime,
-    mweWindowId,
-
-    -- ** MaintenanceWindowExecutionTaskIdentity
-    MaintenanceWindowExecutionTaskIdentity (..),
-    mkMaintenanceWindowExecutionTaskIdentity,
-    mwetiStatus,
-    mwetiTaskExecutionId,
-    mwetiStartTime,
-    mwetiTaskType,
-    mwetiTaskARN,
-    mwetiWindowExecutionId,
-    mwetiStatusDetails,
-    mwetiEndTime,
-
-    -- ** MaintenanceWindowExecutionTaskInvocationIdentity
-    MaintenanceWindowExecutionTaskInvocationIdentity (..),
-    mkMaintenanceWindowExecutionTaskInvocationIdentity,
-    mwetiiStatus,
-    mwetiiExecutionId,
-    mwetiiTaskExecutionId,
-    mwetiiStartTime,
-    mwetiiInvocationId,
-    mwetiiOwnerInformation,
-    mwetiiTaskType,
-    mwetiiWindowTargetId,
-    mwetiiWindowExecutionId,
-    mwetiiStatusDetails,
-    mwetiiEndTime,
-    mwetiiParameters,
-
-    -- ** MaintenanceWindowFilter
-    MaintenanceWindowFilter (..),
-    mkMaintenanceWindowFilter,
-    mwfValues,
-    mwfKey,
-
-    -- ** MaintenanceWindowIdentity
-    MaintenanceWindowIdentity (..),
-    mkMaintenanceWindowIdentity,
-    mwiEnabled,
-    mwiSchedule,
-    mwiNextExecutionTime,
-    mwiScheduleOffset,
-    mwiEndDate,
-    mwiScheduleTimezone,
-    mwiStartDate,
-    mwiName,
-    mwiCutoff,
-    mwiDescription,
-    mwiDuration,
-    mwiWindowId,
-
-    -- ** MaintenanceWindowIdentityForTarget
-    MaintenanceWindowIdentityForTarget (..),
-    mkMaintenanceWindowIdentityForTarget,
-    mwiftName,
-    mwiftWindowId,
-
-    -- ** MaintenanceWindowLambdaParameters
-    MaintenanceWindowLambdaParameters (..),
-    mkMaintenanceWindowLambdaParameters,
-    mwlpPayload,
-    mwlpQualifier,
-    mwlpClientContext,
-
-    -- ** MaintenanceWindowRunCommandParameters
-    MaintenanceWindowRunCommandParameters (..),
-    mkMaintenanceWindowRunCommandParameters,
-    mwrcpServiceRoleARN,
-    mwrcpNotificationConfig,
-    mwrcpDocumentHashType,
-    mwrcpCloudWatchOutputConfig,
-    mwrcpOutputS3KeyPrefix,
-    mwrcpParameters,
-    mwrcpDocumentHash,
-    mwrcpDocumentVersion,
-    mwrcpTimeoutSeconds,
-    mwrcpComment,
-    mwrcpOutputS3BucketName,
-
-    -- ** MaintenanceWindowStepFunctionsParameters
-    MaintenanceWindowStepFunctionsParameters (..),
-    mkMaintenanceWindowStepFunctionsParameters,
-    mwsfpInput,
-    mwsfpName,
-
-    -- ** MaintenanceWindowTarget
-    MaintenanceWindowTarget (..),
-    mkMaintenanceWindowTarget,
-    mResourceType,
-    mOwnerInformation,
-    mWindowTargetId,
-    mName,
-    mTargets,
-    mDescription,
-    mWindowId,
-
-    -- ** MaintenanceWindowTask
-    MaintenanceWindowTask (..),
-    mkMaintenanceWindowTask,
-    mwtServiceRoleARN,
-    mwtWindowTaskId,
-    mwtTaskParameters,
-    mwtPriority,
-    mwtTaskARN,
-    mwtMaxErrors,
-    mwtName,
-    mwtTargets,
-    mwtLoggingInfo,
-    mwtType,
-    mwtDescription,
-    mwtMaxConcurrency,
-    mwtWindowId,
-
-    -- ** MaintenanceWindowTaskInvocationParameters
-    MaintenanceWindowTaskInvocationParameters (..),
-    mkMaintenanceWindowTaskInvocationParameters,
-    mwtipAutomation,
-    mwtipStepFunctions,
-    mwtipRunCommand,
-    mwtipLambda,
-
-    -- ** MaintenanceWindowTaskParameterValueExpression
-    MaintenanceWindowTaskParameterValueExpression (..),
-    mkMaintenanceWindowTaskParameterValueExpression,
-    mwtpveValues,
 
     -- ** NonCompliantSummary
     NonCompliantSummary (..),
@@ -1438,375 +748,226 @@ module Network.AWS.SSM
     ncsNonCompliantCount,
     ncsSeveritySummary,
 
-    -- ** NotificationConfig
-    NotificationConfig (..),
-    mkNotificationConfig,
-    ncNotificationEvents,
-    ncNotificationType,
-    ncNotificationARN,
+    -- ** BaselineName
+    BaselineName (..),
 
-    -- ** OpsAggregator
-    OpsAggregator (..),
-    mkOpsAggregator,
-    oaTypeName,
-    oaAggregators,
-    oaValues,
-    oaFilters,
-    oaAttributeName,
-    oaAggregatorType,
+    -- ** MaintenanceWindowLambdaParameters
+    MaintenanceWindowLambdaParameters (..),
+    mkMaintenanceWindowLambdaParameters,
+    mwlpClientContext,
+    mwlpPayload,
+    mwlpQualifier,
 
-    -- ** OpsEntity
-    OpsEntity (..),
-    mkOpsEntity,
-    oeData,
-    oeId,
+    -- ** PatchComplianceDataState
+    PatchComplianceDataState (..),
 
-    -- ** OpsEntityItem
-    OpsEntityItem (..),
-    mkOpsEntityItem,
-    oeiContent,
-    oeiCaptureTime,
+    -- ** AssociationId
+    AssociationId (..),
 
-    -- ** OpsFilter
-    OpsFilter (..),
-    mkOpsFilter,
-    ofValues,
-    ofKey,
-    ofType,
+    -- ** PatchLanguage
+    PatchLanguage (..),
 
-    -- ** OpsItem
-    OpsItem (..),
-    mkOpsItem,
-    oiOpsItemId,
-    oiStatus,
-    oiPriority,
-    oiCreatedTime,
-    oiCategory,
-    oiSeverity,
-    oiCreatedBy,
-    oiLastModifiedTime,
-    oiVersion,
-    oiSource,
-    oiRelatedOpsItems,
-    oiTitle,
-    oiLastModifiedBy,
-    oiOperationalData,
-    oiDescription,
-    oiNotifications,
+    -- ** SharedDocumentVersion
+    SharedDocumentVersion (..),
 
-    -- ** OpsItemDataValue
-    OpsItemDataValue (..),
-    mkOpsItemDataValue,
-    oidvValue,
-    oidvType,
+    -- ** OpsFilterOperatorType
+    OpsFilterOperatorType (..),
 
-    -- ** OpsItemFilter
-    OpsItemFilter (..),
-    mkOpsItemFilter,
-    oifValues,
-    oifOperator,
-    oifKey,
+    -- ** OpsItemId
+    OpsItemId (..),
 
-    -- ** OpsItemNotification
-    OpsItemNotification (..),
-    mkOpsItemNotification,
-    oinARN,
+    -- ** IdempotencyToken
+    IdempotencyToken (..),
 
-    -- ** OpsItemSummary
-    OpsItemSummary (..),
-    mkOpsItemSummary,
-    oisOpsItemId,
-    oisStatus,
-    oisPriority,
-    oisCreatedTime,
-    oisCategory,
-    oisSeverity,
-    oisCreatedBy,
-    oisLastModifiedTime,
-    oisSource,
-    oisTitle,
-    oisLastModifiedBy,
-    oisOperationalData,
+    -- ** InstanceId
+    InstanceId (..),
 
-    -- ** OpsResultAttribute
-    OpsResultAttribute (..),
-    mkOpsResultAttribute,
-    oraTypeName,
+    -- ** MaintenanceWindowSchedule
+    MaintenanceWindowSchedule (..),
 
-    -- ** OutputSource
-    OutputSource (..),
-    mkOutputSource,
-    osOutputSourceId,
-    osOutputSourceType,
+    -- ** ComplianceSummaryItem
+    ComplianceSummaryItem (..),
+    mkComplianceSummaryItem,
+    csiComplianceType,
+    csiCompliantSummary,
+    csiNonCompliantSummary,
 
-    -- ** Parameter
-    Parameter (..),
-    mkParameter,
-    pLastModifiedDate,
-    pSelector,
-    pARN,
-    pValue,
-    pSourceResult,
-    pName,
-    pVersion,
-    pType,
-    pDataType,
+    -- ** InventoryItemAttributeName
+    InventoryItemAttributeName (..),
 
-    -- ** ParameterHistory
-    ParameterHistory (..),
-    mkParameterHistory,
-    phLastModifiedDate,
-    phKeyId,
-    phValue,
-    phName,
-    phTier,
-    phVersion,
-    phLastModifiedUser,
-    phLabels,
-    phAllowedPattern,
-    phType,
-    phDataType,
-    phDescription,
-    phPolicies,
+    -- ** CloudWatchLogGroupName
+    CloudWatchLogGroupName (..),
 
-    -- ** ParameterInlinePolicy
-    ParameterInlinePolicy (..),
-    mkParameterInlinePolicy,
-    pipPolicyType,
-    pipPolicyStatus,
-    pipPolicyText,
+    -- ** PingStatus
+    PingStatus (..),
+
+    -- ** AttachmentsSourceValue
+    AttachmentsSourceValue (..),
+
+    -- ** MaintenanceWindowStepFunctionsInput
+    MaintenanceWindowStepFunctionsInput (..),
+
+    -- ** ComplianceItemEntry
+    ComplianceItemEntry (..),
+    mkComplianceItemEntry,
+    cieSeverity,
+    cieStatus,
+    cieDetails,
+    cieId,
+    cieTitle,
 
     -- ** ParameterMetadata
     ParameterMetadata (..),
     mkParameterMetadata,
-    pmLastModifiedDate,
-    pmKeyId,
-    pmName,
-    pmTier,
-    pmVersion,
-    pmLastModifiedUser,
     pmAllowedPattern,
-    pmType,
     pmDataType,
     pmDescription,
+    pmKeyId,
+    pmLastModifiedDate,
+    pmLastModifiedUser,
+    pmName,
     pmPolicies,
+    pmTier,
+    pmType,
+    pmVersion,
+
+    -- ** MaintenanceWindowTaskType
+    MaintenanceWindowTaskType (..),
 
     -- ** ParameterStringFilter
     ParameterStringFilter (..),
     mkParameterStringFilter,
-    psfValues,
     psfKey,
     psfOption,
+    psfValues,
 
-    -- ** ParametersFilter
-    ParametersFilter (..),
-    mkParametersFilter,
-    pValues,
-    pKey,
+    -- ** DocumentSchemaVersion
+    DocumentSchemaVersion (..),
 
-    -- ** Patch
-    Patch (..),
-    mkPatch,
-    pfBugzillaIds,
-    pfVendor,
-    pfMsrcSeverity,
-    pfRepository,
-    pfProductFamily,
-    pfSeverity,
-    pfAdvisoryIds,
-    pfCVEIds,
-    pfClassification,
-    pfRelease,
-    pfMsrcNumber,
-    pfName,
-    pfVersion,
-    pfLanguage,
-    pfKbNumber,
-    pfContentURL,
-    pfId,
-    pfReleaseDate,
-    pfTitle,
-    pfArch,
-    pfProduct,
-    pfDescription,
-    pfEpoch,
+    -- ** PatchVersion
+    PatchVersion (..),
 
-    -- ** PatchBaselineIdentity
-    PatchBaselineIdentity (..),
-    mkPatchBaselineIdentity,
-    pbiBaselineName,
-    pbiBaselineDescription,
-    pbiOperatingSystem,
-    pbiDefaultBaseline,
-    pbiBaselineId,
+    -- ** PatchContentUrl
+    PatchContentUrl (..),
 
-    -- ** PatchComplianceData
-    PatchComplianceData (..),
-    mkPatchComplianceData,
-    pcdState,
-    pcdSeverity,
-    pcdCVEIds,
-    pcdClassification,
-    pcdKBId,
-    pcdInstalledTime,
-    pcdTitle,
+    -- ** CommandFilterValue
+    CommandFilterValue (..),
 
-    -- ** PatchFilter
-    PatchFilter (..),
-    mkPatchFilter,
-    pfValues,
-    pfKey,
+    -- ** OpsItemSource
+    OpsItemSource (..),
 
-    -- ** PatchFilterGroup
-    PatchFilterGroup (..),
-    mkPatchFilterGroup,
-    pfgPatchFilters,
+    -- ** MaintenanceWindowTaskParameterValueExpression
+    MaintenanceWindowTaskParameterValueExpression (..),
+    mkMaintenanceWindowTaskParameterValueExpression,
+    mwtpveValues,
 
-    -- ** PatchGroupPatchBaselineMapping
-    PatchGroupPatchBaselineMapping (..),
-    mkPatchGroupPatchBaselineMapping,
-    pgpbmBaselineIdentity,
-    pgpbmPatchGroup,
+    -- ** CreateAssociationBatchRequestEntry
+    CreateAssociationBatchRequestEntry (..),
+    mkCreateAssociationBatchRequestEntry,
+    cabreName,
+    cabreApplyOnlyAtCronInterval,
+    cabreAssociationName,
+    cabreAutomationTargetParameterName,
+    cabreComplianceSeverity,
+    cabreDocumentVersion,
+    cabreInstanceId,
+    cabreMaxConcurrency,
+    cabreMaxErrors,
+    cabreOutputLocation,
+    cabreParameters,
+    cabreScheduleExpression,
+    cabreSyncCompliance,
+    cabreTargets,
 
-    -- ** PatchOrchestratorFilter
-    PatchOrchestratorFilter (..),
-    mkPatchOrchestratorFilter,
-    pofValues,
-    pofKey,
+    -- ** PatchKbNumber
+    PatchKbNumber (..),
 
-    -- ** PatchRule
-    PatchRule (..),
-    mkPatchRule,
-    prApproveAfterDays,
-    prApproveUntilDate,
-    prPatchFilterGroup,
-    prEnableNonSecurity,
-    prComplianceLevel,
+    -- ** AgentErrorCode
+    AgentErrorCode (..),
 
-    -- ** PatchRuleGroup
-    PatchRuleGroup (..),
-    mkPatchRuleGroup,
-    prgPatchRules,
+    -- ** ComplianceStringFilterKey
+    ComplianceStringFilterKey (..),
 
-    -- ** PatchSource
-    PatchSource (..),
-    mkPatchSource,
-    psName,
-    psConfiguration,
-    psProducts,
+    -- ** OpsItemDataValueString
+    OpsItemDataValueString (..),
 
-    -- ** PatchStatus
-    PatchStatus (..),
-    mkPatchStatus,
-    psApprovalDate,
-    psDeploymentStatus,
-    psComplianceLevel,
+    -- ** AccountSharingInfo
+    AccountSharingInfo (..),
+    mkAccountSharingInfo,
+    asiAccountId,
+    asiSharedDocumentVersion,
 
-    -- ** ProgressCounters
-    ProgressCounters (..),
-    mkProgressCounters,
-    pcFailedSteps,
-    pcCancelledSteps,
-    pcSuccessSteps,
-    pcTotalSteps,
-    pcTimedOutSteps,
+    -- ** Command
+    Command (..),
+    mkCommand,
+    cCloudWatchOutputConfig,
+    cCommandId,
+    cComment,
+    cCompletedCount,
+    cDeliveryTimedOutCount,
+    cDocumentName,
+    cDocumentVersion,
+    cErrorCount,
+    cExpiresAfter,
+    cInstanceIds,
+    cMaxConcurrency,
+    cMaxErrors,
+    cNotificationConfig,
+    cOutputS3BucketName,
+    cOutputS3KeyPrefix,
+    cOutputS3Region,
+    cParameters,
+    cRequestedDateTime,
+    cServiceRole,
+    cStatus,
+    cStatusDetails,
+    cTargetCount,
+    cTargets,
+    cTimeoutSeconds,
 
-    -- ** RelatedOpsItem
-    RelatedOpsItem (..),
-    mkRelatedOpsItem,
-    roiOpsItemId,
+    -- ** ParameterLabel
+    ParameterLabel (..),
 
-    -- ** ResolvedTargets
-    ResolvedTargets (..),
-    mkResolvedTargets,
-    rtTruncated,
-    rtParameterValues,
+    -- ** SessionManagerParameterValue
+    SessionManagerParameterValue (..),
 
-    -- ** ResourceComplianceSummaryItem
-    ResourceComplianceSummaryItem (..),
-    mkResourceComplianceSummaryItem,
-    rcsiNonCompliantSummary,
-    rcsiStatus,
-    rcsiResourceId,
-    rcsiResourceType,
-    rcsiCompliantSummary,
-    rcsiExecutionSummary,
-    rcsiOverallSeverity,
-    rcsiComplianceType,
+    -- ** ComplianceResourceType
+    ComplianceResourceType (..),
 
-    -- ** ResourceDataSyncAWSOrganizationsSource
-    ResourceDataSyncAWSOrganizationsSource (..),
-    mkResourceDataSyncAWSOrganizationsSource,
-    rdsaosOrganizationSourceType,
-    rdsaosOrganizationalUnits,
+    -- ** SessionOwner
+    SessionOwner (..),
 
-    -- ** ResourceDataSyncDestinationDataSharing
-    ResourceDataSyncDestinationDataSharing (..),
-    mkResourceDataSyncDestinationDataSharing,
-    rdsddsDestinationDataSharingType,
+    -- ** MaintenanceWindowIdentity
+    MaintenanceWindowIdentity (..),
+    mkMaintenanceWindowIdentity,
+    mwiCutoff,
+    mwiDescription,
+    mwiDuration,
+    mwiEnabled,
+    mwiEndDate,
+    mwiName,
+    mwiNextExecutionTime,
+    mwiSchedule,
+    mwiScheduleOffset,
+    mwiScheduleTimezone,
+    mwiStartDate,
+    mwiWindowId,
 
-    -- ** ResourceDataSyncItem
-    ResourceDataSyncItem (..),
-    mkResourceDataSyncItem,
-    rdsiSyncType,
-    rdsiSyncSource,
-    rdsiLastSyncStatusMessage,
-    rdsiSyncCreatedTime,
-    rdsiLastSyncTime,
-    rdsiSyncName,
-    rdsiLastStatus,
-    rdsiSyncLastModifiedTime,
-    rdsiS3Destination,
-    rdsiLastSuccessfulSyncTime,
+    -- ** InventoryDeletionSummaryItem
+    InventoryDeletionSummaryItem (..),
+    mkInventoryDeletionSummaryItem,
+    idsiCount,
+    idsiRemainingCount,
+    idsiVersion,
 
-    -- ** ResourceDataSyncOrganizationalUnit
-    ResourceDataSyncOrganizationalUnit (..),
-    mkResourceDataSyncOrganizationalUnit,
-    rdsouOrganizationalUnitId,
+    -- ** MaintenanceWindowExecutionStatus
+    MaintenanceWindowExecutionStatus (..),
 
-    -- ** ResourceDataSyncS3Destination
-    ResourceDataSyncS3Destination (..),
-    mkResourceDataSyncS3Destination,
-    rdssdPrefix,
-    rdssdBucketName,
-    rdssdDestinationDataSharing,
-    rdssdSyncFormat,
-    rdssdAWSKMSKeyARN,
-    rdssdRegion,
-
-    -- ** ResourceDataSyncSource
-    ResourceDataSyncSource (..),
-    mkResourceDataSyncSource,
-    rdssIncludeFutureRegions,
-    rdssSourceType,
-    rdssAWSOrganizationsSource,
-    rdssSourceRegions,
-
-    -- ** ResourceDataSyncSourceWithState
-    ResourceDataSyncSourceWithState (..),
-    mkResourceDataSyncSourceWithState,
-    rdsswsState,
-    rdsswsIncludeFutureRegions,
-    rdsswsSourceType,
-    rdsswsAWSOrganizationsSource,
-    rdsswsSourceRegions,
-
-    -- ** ResultAttribute
-    ResultAttribute (..),
-    mkResultAttribute,
-    raTypeName,
-
-    -- ** S3OutputLocation
-    S3OutputLocation (..),
-    mkS3OutputLocation,
-    solOutputS3KeyPrefix,
-    solOutputS3Region,
-    solOutputS3BucketName,
-
-    -- ** S3OutputURL
-    S3OutputURL (..),
-    mkS3OutputURL,
-    souOutputURL,
+    -- ** DocumentFilter
+    DocumentFilter (..),
+    mkDocumentFilter,
+    dfKey,
+    dfValue,
 
     -- ** ScheduledWindowExecution
     ScheduledWindowExecution (..),
@@ -1815,113 +976,2149 @@ module Network.AWS.SSM
     sweName,
     sweWindowId,
 
-    -- ** ServiceSetting
-    ServiceSetting (..),
-    mkServiceSetting,
-    ssStatus,
-    ssLastModifiedDate,
-    ssARN,
-    ssSettingId,
-    ssLastModifiedUser,
-    ssSettingValue,
+    -- ** StreamUrl
+    StreamUrl (..),
 
-    -- ** Session
-    Session (..),
-    mkSession,
-    sStatus,
-    sOutputURL,
-    sDocumentName,
-    sEndDate,
-    sOwner,
-    sStartDate,
-    sDetails,
-    sSessionId,
-    sTarget,
+    -- ** InstancePatchStateFilterKey
+    InstancePatchStateFilterKey (..),
 
-    -- ** SessionFilter
-    SessionFilter (..),
-    mkSessionFilter,
-    sfValue,
-    sfKey,
+    -- ** StepExecutionFilterKey
+    StepExecutionFilterKey (..),
 
-    -- ** SessionManagerOutputURL
-    SessionManagerOutputURL (..),
-    mkSessionManagerOutputURL,
-    smouS3OutputURL,
-    smouCloudWatchOutputURL,
+    -- ** PatchRuleGroup
+    PatchRuleGroup (..),
+    mkPatchRuleGroup,
+    prgPatchRules,
 
-    -- ** SeveritySummary
-    SeveritySummary (..),
-    mkSeveritySummary,
-    ssLowCount,
-    ssUnspecifiedCount,
-    ssHighCount,
-    ssMediumCount,
-    ssInformationalCount,
-    ssCriticalCount,
+    -- ** OpsItemDescription
+    OpsItemDescription (..),
 
-    -- ** StepExecution
-    StepExecution (..),
-    mkStepExecution,
-    seFailureDetails,
-    seIsEnd,
-    seInputs,
-    seStepName,
-    seExecutionEndTime,
-    seFailureMessage,
-    seResponse,
-    seAction,
-    seResponseCode,
-    seStepStatus,
-    seTargetLocation,
-    seOverriddenParameters,
-    seOutputs,
-    seExecutionStartTime,
-    seMaxAttempts,
-    seTargets,
-    seNextStep,
-    seStepExecutionId,
-    seValidNextSteps,
-    seTimeoutSeconds,
-    seOnFailure,
-    seIsCritical,
+    -- ** ParameterStringFilterValue
+    ParameterStringFilterValue (..),
 
-    -- ** StepExecutionFilter
-    StepExecutionFilter (..),
-    mkStepExecutionFilter,
-    sefValues,
-    sefKey,
+    -- ** IPAddress
+    IPAddress (..),
+
+    -- ** InventoryItem
+    InventoryItem (..),
+    mkInventoryItem,
+    iiTypeName,
+    iiSchemaVersion,
+    iiCaptureTime,
+    iiContent,
+    iiContentHash,
+    iiContext,
+
+    -- ** DocumentType
+    DocumentType (..),
+
+    -- ** NotificationConfig
+    NotificationConfig (..),
+    mkNotificationConfig,
+    ncNotificationArn,
+    ncNotificationEvents,
+    ncNotificationType,
+
+    -- ** AttributeValue
+    AttributeValue (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** ParameterDescription
+    ParameterDescription (..),
+
+    -- ** AssociationDescription
+    AssociationDescription (..),
+    mkAssociationDescription,
+    adApplyOnlyAtCronInterval,
+    adAssociationId,
+    adAssociationName,
+    adAssociationVersion,
+    adAutomationTargetParameterName,
+    adComplianceSeverity,
+    adDate,
+    adDocumentVersion,
+    adInstanceId,
+    adLastExecutionDate,
+    adLastSuccessfulExecutionDate,
+    adLastUpdateAssociationDate,
+    adMaxConcurrency,
+    adMaxErrors,
+    adName,
+    adOutputLocation,
+    adOverview,
+    adParameters,
+    adScheduleExpression,
+    adStatus,
+    adSyncCompliance,
+    adTargets,
+
+    -- ** InventoryDeletionStatusItem
+    InventoryDeletionStatusItem (..),
+    mkInventoryDeletionStatusItem,
+    idsiDeletionId,
+    idsiDeletionStartTime,
+    idsiDeletionSummary,
+    idsiLastStatus,
+    idsiLastStatusMessage,
+    idsiLastStatusUpdateTime,
+    idsiTypeName,
+
+    -- ** S3KeyPrefix
+    S3KeyPrefix (..),
+
+    -- ** ComplianceTypeName
+    ComplianceTypeName (..),
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tfValue,
     tfKey,
+    tfValue,
 
-    -- ** Target
-    Target (..),
-    mkTarget,
-    tValues,
-    tKey,
+    -- ** ProgressCounters
+    ProgressCounters (..),
+    mkProgressCounters,
+    pcCancelledSteps,
+    pcFailedSteps,
+    pcSuccessSteps,
+    pcTimedOutSteps,
+    pcTotalSteps,
+
+    -- ** AssociationExecutionTarget
+    AssociationExecutionTarget (..),
+    mkAssociationExecutionTarget,
+    aetAssociationId,
+    aetAssociationVersion,
+    aetDetailedStatus,
+    aetExecutionId,
+    aetLastExecutionDate,
+    aetOutputSource,
+    aetResourceId,
+    aetResourceType,
+    aetStatus,
+
+    -- ** InstanceAssociationOutputLocation
+    InstanceAssociationOutputLocation (..),
+    mkInstanceAssociationOutputLocation,
+    iaolS3Location,
+
+    -- ** PatchStringDateTime
+    PatchStringDateTime (..),
+
+    -- ** OpsItemDataValue
+    OpsItemDataValue (..),
+    mkOpsItemDataValue,
+    oidvType,
+    oidvValue,
+
+    -- ** DocumentVersionName
+    DocumentVersionName (..),
+
+    -- ** InventoryFilter
+    InventoryFilter (..),
+    mkInventoryFilter,
+    ifKey,
+    ifValues,
+    ifType,
+
+    -- ** TargetValue
+    TargetValue (..),
+
+    -- ** OpsEntityItem
+    OpsEntityItem (..),
+    mkOpsEntityItem,
+    oeiCaptureTime,
+    oeiContent,
+
+    -- ** AttachmentIdentifier
+    AttachmentIdentifier (..),
+
+    -- ** InstanceInformationFilterKey
+    InstanceInformationFilterKey (..),
+
+    -- ** AssociationStatusName
+    AssociationStatusName (..),
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** InventoryGroupName
+    InventoryGroupName (..),
+
+    -- ** DocumentARN
+    DocumentARN (..),
+
+    -- ** StandardErrorContent
+    StandardErrorContent (..),
+
+    -- ** ParametersFilter
+    ParametersFilter (..),
+    mkParametersFilter,
+    pKey,
+    pValues,
+
+    -- ** MaintenanceWindowFilterValue
+    MaintenanceWindowFilterValue (..),
+
+    -- ** PatchMsrcNumber
+    PatchMsrcNumber (..),
+
+    -- ** FailureDetails
+    FailureDetails (..),
+    mkFailureDetails,
+    fdDetails,
+    fdFailureStage,
+    fdFailureType,
+
+    -- ** ClientToken
+    ClientToken (..),
+
+    -- ** ParameterValue
+    ParameterValue (..),
+
+    -- ** ComplianceResourceId
+    ComplianceResourceId (..),
+
+    -- ** OpsEntityId
+    OpsEntityId (..),
+
+    -- ** OutputSource
+    OutputSource (..),
+    mkOutputSource,
+    osOutputSourceId,
+    osOutputSourceType,
+
+    -- ** S3OutputLocation
+    S3OutputLocation (..),
+    mkS3OutputLocation,
+    solOutputS3BucketName,
+    solOutputS3KeyPrefix,
+    solOutputS3Region,
+
+    -- ** SessionStatus
+    SessionStatus (..),
+
+    -- ** RebootOption
+    RebootOption (..),
+
+    -- ** PatchFilterValue
+    PatchFilterValue (..),
+
+    -- ** ComplianceItemId
+    ComplianceItemId (..),
+
+    -- ** PatchProduct
+    PatchProduct (..),
+
+    -- ** AttachmentInformation
+    AttachmentInformation (..),
+    mkAttachmentInformation,
+    aiName,
+
+    -- ** ResourceDataSyncOrganizationalUnit
+    ResourceDataSyncOrganizationalUnit (..),
+    mkResourceDataSyncOrganizationalUnit,
+    rdsouOrganizationalUnitId,
+
+    -- ** MaintenanceWindowStepFunctionsName
+    MaintenanceWindowStepFunctionsName (..),
+
+    -- ** DocumentHashType
+    DocumentHashType (..),
+
+    -- ** MaintenanceWindowExecutionStatusDetails
+    MaintenanceWindowExecutionStatusDetails (..),
+
+    -- ** OpsAggregator
+    OpsAggregator (..),
+    mkOpsAggregator,
+    oaAggregatorType,
+    oaAggregators,
+    oaAttributeName,
+    oaFilters,
+    oaTypeName,
+    oaValues,
+
+    -- ** ResourceDataSyncS3Region
+    ResourceDataSyncS3Region (..),
+
+    -- ** MaintenanceWindowTargetId
+    MaintenanceWindowTargetId (..),
+
+    -- ** OwnerInformation
+    OwnerInformation (..),
+
+    -- ** AutomationExecution
+    AutomationExecution (..),
+    mkAutomationExecution,
+    aeAutomationExecutionId,
+    aeAutomationExecutionStatus,
+    aeCurrentAction,
+    aeCurrentStepName,
+    aeDocumentName,
+    aeDocumentVersion,
+    aeExecutedBy,
+    aeExecutionEndTime,
+    aeExecutionStartTime,
+    aeFailureMessage,
+    aeMaxConcurrency,
+    aeMaxErrors,
+    aeMode,
+    aeOutputs,
+    aeParameters,
+    aeParentAutomationExecutionId,
+    aeProgressCounters,
+    aeResolvedTargets,
+    aeStepExecutions,
+    aeStepExecutionsTruncated,
+    aeTarget,
+    aeTargetLocations,
+    aeTargetMaps,
+    aeTargetParameterName,
+    aeTargets,
+
+    -- ** CloudWatchOutputConfig
+    CloudWatchOutputConfig (..),
+    mkCloudWatchOutputConfig,
+    cwocCloudWatchLogGroupName,
+    cwocCloudWatchOutputEnabled,
+
+    -- ** String
+    String (..),
+
+    -- ** OpsItemSummary
+    OpsItemSummary (..),
+    mkOpsItemSummary,
+    oisCategory,
+    oisCreatedBy,
+    oisCreatedTime,
+    oisLastModifiedBy,
+    oisLastModifiedTime,
+    oisOperationalData,
+    oisOpsItemId,
+    oisPriority,
+    oisSeverity,
+    oisSource,
+    oisStatus,
+    oisTitle,
+
+    -- ** InstanceInformationFilter
+    InstanceInformationFilter (..),
+    mkInstanceInformationFilter,
+    iifKey,
+    iifValueSet,
+
+    -- ** AutomationParameterValue
+    AutomationParameterValue (..),
+
+    -- ** PSParameterName
+    PSParameterName (..),
+
+    -- ** PatchComplianceLevel
+    PatchComplianceLevel (..),
+
+    -- ** UUID
+    UUID (..),
+
+    -- ** MaintenanceWindowRunCommandParameters
+    MaintenanceWindowRunCommandParameters (..),
+    mkMaintenanceWindowRunCommandParameters,
+    mwrcpCloudWatchOutputConfig,
+    mwrcpComment,
+    mwrcpDocumentHash,
+    mwrcpDocumentHashType,
+    mwrcpDocumentVersion,
+    mwrcpNotificationConfig,
+    mwrcpOutputS3BucketName,
+    mwrcpOutputS3KeyPrefix,
+    mwrcpParameters,
+    mwrcpServiceRoleArn,
+    mwrcpTimeoutSeconds,
+
+    -- ** DefaultInstanceName
+    DefaultInstanceName (..),
+
+    -- ** BaselineDescription
+    BaselineDescription (..),
+
+    -- ** OperatingSystem
+    OperatingSystem (..),
+
+    -- ** InventoryResultEntity
+    InventoryResultEntity (..),
+    mkInventoryResultEntity,
+    ireData,
+    ireId,
+
+    -- ** PatchOrchestratorFilter
+    PatchOrchestratorFilter (..),
+    mkPatchOrchestratorFilter,
+    pofKey,
+    pofValues,
+
+    -- ** S3Region
+    S3Region (..),
+
+    -- ** PatchClassification
+    PatchClassification (..),
+
+    -- ** StepExecution
+    StepExecution (..),
+    mkStepExecution,
+    seAction,
+    seExecutionEndTime,
+    seExecutionStartTime,
+    seFailureDetails,
+    seFailureMessage,
+    seInputs,
+    seIsCritical,
+    seIsEnd,
+    seMaxAttempts,
+    seNextStep,
+    seOnFailure,
+    seOutputs,
+    seOverriddenParameters,
+    seResponse,
+    seResponseCode,
+    seStepExecutionId,
+    seStepName,
+    seStepStatus,
+    seTargetLocation,
+    seTargets,
+    seTimeoutSeconds,
+    seValidNextSteps,
+
+    -- ** PatchRule
+    PatchRule (..),
+    mkPatchRule,
+    prPatchFilterGroup,
+    prApproveAfterDays,
+    prApproveUntilDate,
+    prComplianceLevel,
+    prEnableNonSecurity,
+
+    -- ** InventoryItemTypeName
+    InventoryItemTypeName (..),
+
+    -- ** InstancePatchState
+    InstancePatchState (..),
+    mkInstancePatchState,
+    ipsInstanceId,
+    ipsPatchGroup,
+    ipsBaselineId,
+    ipsOperationStartTime,
+    ipsOperationEndTime,
+    ipsOperation,
+    ipsFailedCount,
+    ipsInstallOverrideList,
+    ipsInstalledCount,
+    ipsInstalledOtherCount,
+    ipsInstalledPendingRebootCount,
+    ipsInstalledRejectedCount,
+    ipsLastNoRebootInstallOperationTime,
+    ipsMissingCount,
+    ipsNotApplicableCount,
+    ipsOwnerInformation,
+    ipsRebootOption,
+    ipsSnapshotId,
+    ipsUnreportedNotApplicableCount,
+
+    -- ** MaintenanceWindowExecutionTaskInvocationIdentity
+    MaintenanceWindowExecutionTaskInvocationIdentity (..),
+    mkMaintenanceWindowExecutionTaskInvocationIdentity,
+    mwetiiEndTime,
+    mwetiiExecutionId,
+    mwetiiInvocationId,
+    mwetiiOwnerInformation,
+    mwetiiParameters,
+    mwetiiStartTime,
+    mwetiiStatus,
+    mwetiiStatusDetails,
+    mwetiiTaskExecutionId,
+    mwetiiTaskType,
+    mwetiiWindowExecutionId,
+    mwetiiWindowTargetId,
+
+    -- ** PatchCVEIds
+    PatchCVEIds (..),
+
+    -- ** ResourceDataSyncSourceType
+    ResourceDataSyncSourceType (..),
+
+    -- ** DocumentName
+    DocumentName (..),
+
+    -- ** StopType
+    StopType (..),
+
+    -- ** InstanceInformationStringFilter
+    InstanceInformationStringFilter (..),
+    mkInstanceInformationStringFilter,
+    iisfKey,
+    iisfValues,
+
+    -- ** PatchSourceProduct
+    PatchSourceProduct (..),
+
+    -- ** DocumentKeyValuesFilter
+    DocumentKeyValuesFilter (..),
+    mkDocumentKeyValuesFilter,
+    dkvfKey,
+    dkvfValues,
+
+    -- ** DocumentFilterKey
+    DocumentFilterKey (..),
+
+    -- ** MaintenanceWindowStepFunctionsParameters
+    MaintenanceWindowStepFunctionsParameters (..),
+    mkMaintenanceWindowStepFunctionsParameters,
+    mwsfpInput,
+    mwsfpName,
+
+    -- ** ResourceDataSyncSourceRegion
+    ResourceDataSyncSourceRegion (..),
+
+    -- ** ComplianceItemTitle
+    ComplianceItemTitle (..),
+
+    -- ** PatchAction
+    PatchAction (..),
+
+    -- ** ParameterInlinePolicy
+    ParameterInlinePolicy (..),
+    mkParameterInlinePolicy,
+    pipPolicyStatus,
+    pipPolicyText,
+    pipPolicyType,
+
+    -- ** AttachmentHash
+    AttachmentHash (..),
+
+    -- ** PatchOperationType
+    PatchOperationType (..),
+
+    -- ** ParameterKeyId
+    ParameterKeyId (..),
+
+    -- ** PatchOrchestratorFilterValue
+    PatchOrchestratorFilterValue (..),
+
+    -- ** AssociationExecutionFilter
+    AssociationExecutionFilter (..),
+    mkAssociationExecutionFilter,
+    aefKey,
+    aefValue,
+    aefType,
+
+    -- ** ParameterTier
+    ParameterTier (..),
+
+    -- ** OpsDataTypeName
+    OpsDataTypeName (..),
+
+    -- ** CommandStatus
+    CommandStatus (..),
+
+    -- ** PatchId
+    PatchId (..),
+
+    -- ** MaintenanceWindowExecution
+    MaintenanceWindowExecution (..),
+    mkMaintenanceWindowExecution,
+    mweEndTime,
+    mweStartTime,
+    mweStatus,
+    mweStatusDetails,
+    mweWindowExecutionId,
+    mweWindowId,
+
+    -- ** MaintenanceWindowExecutionTaskId
+    MaintenanceWindowExecutionTaskId (..),
+
+    -- ** PatchSource
+    PatchSource (..),
+    mkPatchSource,
+    psName,
+    psProducts,
+    psConfiguration,
+
+    -- ** MaintenanceWindowResourceType
+    MaintenanceWindowResourceType (..),
+
+    -- ** Url
+    Url (..),
+
+    -- ** PatchBaselineIdentity
+    PatchBaselineIdentity (..),
+    mkPatchBaselineIdentity,
+    pbiBaselineDescription,
+    pbiBaselineId,
+    pbiBaselineName,
+    pbiDefaultBaseline,
+    pbiOperatingSystem,
+
+    -- ** CompliantSummary
+    CompliantSummary (..),
+    mkCompliantSummary,
+    csCompliantCount,
+    csSeveritySummary,
+
+    -- ** ParameterHistory
+    ParameterHistory (..),
+    mkParameterHistory,
+    phAllowedPattern,
+    phDataType,
+    phDescription,
+    phKeyId,
+    phLabels,
+    phLastModifiedDate,
+    phLastModifiedUser,
+    phName,
+    phPolicies,
+    phTier,
+    phType,
+    phValue,
+    phVersion,
+
+    -- ** StatusAdditionalInfo
+    StatusAdditionalInfo (..),
+
+    -- ** OpsFilterKey
+    OpsFilterKey (..),
+
+    -- ** AssociationSyncCompliance
+    AssociationSyncCompliance (..),
+
+    -- ** DocumentKeyValuesFilterValue
+    DocumentKeyValuesFilterValue (..),
+
+    -- ** ServiceSetting
+    ServiceSetting (..),
+    mkServiceSetting,
+    ssARN,
+    ssLastModifiedDate,
+    ssLastModifiedUser,
+    ssSettingId,
+    ssSettingValue,
+    ssStatus,
+
+    -- ** PatchCVEId
+    PatchCVEId (..),
+
+    -- ** PatchDeploymentStatus
+    PatchDeploymentStatus (..),
+
+    -- ** ResourceCountByStatus
+    ResourceCountByStatus (..),
+
+    -- ** MaintenanceWindowName
+    MaintenanceWindowName (..),
+
+    -- ** CommandPlugin
+    CommandPlugin (..),
+    mkCommandPlugin,
+    cpName,
+    cpOutput,
+    cpOutputS3BucketName,
+    cpOutputS3KeyPrefix,
+    cpOutputS3Region,
+    cpResponseCode,
+    cpResponseFinishDateTime,
+    cpResponseStartDateTime,
+    cpStandardErrorUrl,
+    cpStandardOutputUrl,
+    cpStatus,
+    cpStatusDetails,
+
+    -- ** InvocationTraceOutput
+    InvocationTraceOutput (..),
+
+    -- ** MaintenanceWindowExecutionId
+    MaintenanceWindowExecutionId (..),
+
+    -- ** ResourceDataSyncS3Format
+    ResourceDataSyncS3Format (..),
+
+    -- ** ServiceSettingId
+    ServiceSettingId (..),
+
+    -- ** OpsItemDataKey
+    OpsItemDataKey (..),
+
+    -- ** Patch
+    Patch (..),
+    mkPatch,
+    pAdvisoryIds,
+    pArch,
+    pBugzillaIds,
+    pCVEIds,
+    pClassification,
+    pContentUrl,
+    pDescription,
+    pEpoch,
+    pId,
+    pKbNumber,
+    pLanguage,
+    pMsrcNumber,
+    pMsrcSeverity,
+    pName,
+    pProduct,
+    pProductFamily,
+    pRelease,
+    pReleaseDate,
+    pRepository,
+    pSeverity,
+    pTitle,
+    pVendor,
+    pVersion,
+
+    -- ** MaintenanceWindowTaskInvocationParameters
+    MaintenanceWindowTaskInvocationParameters (..),
+    mkMaintenanceWindowTaskInvocationParameters,
+    mwtipAutomation,
+    mwtipLambda,
+    mwtipRunCommand,
+    mwtipStepFunctions,
+
+    -- ** SessionFilter
+    SessionFilter (..),
+    mkSessionFilter,
+    sfKey,
+    sfValue,
+
+    -- ** SignalType
+    SignalType (..),
+
+    -- ** AttachmentName
+    AttachmentName (..),
+
+    -- ** MaintenanceWindowTaskParameterValue
+    MaintenanceWindowTaskParameterValue (..),
+
+    -- ** InventoryItemCaptureTime
+    InventoryItemCaptureTime (..),
+
+    -- ** InstanceInformationFilterValue
+    InstanceInformationFilterValue (..),
+
+    -- ** DocumentParameter
+    DocumentParameter (..),
+    mkDocumentParameter,
+    dpDefaultValue,
+    dpDescription,
+    dpName,
+    dpType,
+
+    -- ** MaintenanceWindowFilterKey
+    MaintenanceWindowFilterKey (..),
+
+    -- ** ResourceComplianceSummaryItem
+    ResourceComplianceSummaryItem (..),
+    mkResourceComplianceSummaryItem,
+    rcsiComplianceType,
+    rcsiCompliantSummary,
+    rcsiExecutionSummary,
+    rcsiNonCompliantSummary,
+    rcsiOverallSeverity,
+    rcsiResourceId,
+    rcsiResourceType,
+    rcsiStatus,
+
+    -- ** StatusDetails
+    StatusDetails (..),
+
+    -- ** TargetKey
+    TargetKey (..),
+
+    -- ** OpsAggregatorValue
+    OpsAggregatorValue (..),
+
+    -- ** InventoryFilterValue
+    InventoryFilterValue (..),
+
+    -- ** OpsItemFilter
+    OpsItemFilter (..),
+    mkOpsItemFilter,
+    oifKey,
+    oifValues,
+    oifOperator,
+
+    -- ** ResourceDataSyncDestinationDataSharingType
+    ResourceDataSyncDestinationDataSharingType (..),
+
+    -- ** ActivationId
+    ActivationId (..),
+
+    -- ** DocumentDescription
+    DocumentDescription (..),
+    mkDocumentDescription,
+    ddAttachmentsInformation,
+    ddCreatedDate,
+    ddDefaultVersion,
+    ddDescription,
+    ddDocumentFormat,
+    ddDocumentType,
+    ddDocumentVersion,
+    ddHash,
+    ddHashType,
+    ddLatestVersion,
+    ddName,
+    ddOwner,
+    ddParameters,
+    ddPlatformTypes,
+    ddRequires,
+    ddSchemaVersion,
+    ddSha1,
+    ddStatus,
+    ddStatusInformation,
+    ddTags,
+    ddTargetType,
+    ddVersionName,
+
+    -- ** ParameterType
+    ParameterType (..),
+
+    -- ** AssociationExecutionTargetsFilter
+    AssociationExecutionTargetsFilter (..),
+    mkAssociationExecutionTargetsFilter,
+    aetfKey,
+    aetfValue,
+
+    -- ** ComplianceStatus
+    ComplianceStatus (..),
+
+    -- ** ParameterDataType
+    ParameterDataType (..),
+
+    -- ** MaintenanceWindowTaskId
+    MaintenanceWindowTaskId (..),
+
+    -- ** ParametersFilterValue
+    ParametersFilterValue (..),
+
+    -- ** SessionManagerS3OutputUrl
+    SessionManagerS3OutputUrl (..),
+
+    -- ** SessionManagerCloudWatchOutputUrl
+    SessionManagerCloudWatchOutputUrl (..),
+
+    -- ** InventoryAggregatorExpression
+    InventoryAggregatorExpression (..),
+
+    -- ** SessionState
+    SessionState (..),
+
+    -- ** SessionFilterKey
+    SessionFilterKey (..),
+
+    -- ** AutomationExecutionStatus
+    AutomationExecutionStatus (..),
+
+    -- ** TargetType
+    TargetType (..),
+
+    -- ** OpsItemFilterOperator
+    OpsItemFilterOperator (..),
+
+    -- ** ActivationCode
+    ActivationCode (..),
+
+    -- ** PatchFilterGroup
+    PatchFilterGroup (..),
+    mkPatchFilterGroup,
+    pfgPatchFilters,
+
+    -- ** Account
+    Account (..),
+
+    -- ** OpsItemDataType
+    OpsItemDataType (..),
+
+    -- ** AssociationFilter
+    AssociationFilter (..),
+    mkAssociationFilter,
+    afKey,
+    afValue,
+
+    -- ** ResourceDataSyncS3Destination
+    ResourceDataSyncS3Destination (..),
+    mkResourceDataSyncS3Destination,
+    rdssdBucketName,
+    rdssdSyncFormat,
+    rdssdRegion,
+    rdssdAWSKMSKeyARN,
+    rdssdDestinationDataSharing,
+    rdssdPrefix,
+
+    -- ** OpsAggregatorValueKey
+    OpsAggregatorValueKey (..),
 
     -- ** TargetLocation
     TargetLocation (..),
     mkTargetLocation,
     tlAccounts,
+    tlExecutionRoleName,
+    tlRegions,
     tlTargetLocationMaxConcurrency,
     tlTargetLocationMaxErrors,
-    tlRegions,
-    tlExecutionRoleName,
+
+    -- ** ResourceTypeForTagging
+    ResourceTypeForTagging (..),
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** LastResourceDataSyncMessage
+    LastResourceDataSyncMessage (..),
+
+    -- ** PatchSet
+    PatchSet (..),
+
+    -- ** MaintenanceWindowExecutionTaskInvocationParameters
+    MaintenanceWindowExecutionTaskInvocationParameters (..),
+
+    -- ** Activation
+    Activation (..),
+    mkActivation,
+    aActivationId,
+    aCreatedDate,
+    aDefaultInstanceName,
+    aDescription,
+    aExpirationDate,
+    aExpired,
+    aIamRole,
+    aRegistrationLimit,
+    aRegistrationsCount,
+    aTags,
+
+    -- ** InventoryItemContentHash
+    InventoryItemContentHash (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** InstanceAssociationOutputUrl
+    InstanceAssociationOutputUrl (..),
+    mkInstanceAssociationOutputUrl,
+    iaouS3OutputUrl,
+
+    -- ** InstanceTagName
+    InstanceTagName (..),
+
+    -- ** OpsFilter
+    OpsFilter (..),
+    mkOpsFilter,
+    ofKey,
+    ofValues,
+    ofType,
+
+    -- ** DocumentPermissionType
+    DocumentPermissionType (..),
+
+    -- ** SessionDetails
+    SessionDetails (..),
+
+    -- ** MaintenanceWindowAutomationParameters
+    MaintenanceWindowAutomationParameters (..),
+    mkMaintenanceWindowAutomationParameters,
+    mwapDocumentVersion,
+    mwapParameters,
+
+    -- ** MaintenanceWindowTask
+    MaintenanceWindowTask (..),
+    mkMaintenanceWindowTask,
+    mwtDescription,
+    mwtLoggingInfo,
+    mwtMaxConcurrency,
+    mwtMaxErrors,
+    mwtName,
+    mwtPriority,
+    mwtServiceRoleArn,
+    mwtTargets,
+    mwtTaskArn,
+    mwtTaskParameters,
+    mwtType,
+    mwtWindowId,
+    mwtWindowTaskId,
+
+    -- ** S3OutputUrl
+    S3OutputUrl (..),
+    mkS3OutputUrl,
+    souOutputUrl,
+
+    -- ** OpsItemNotification
+    OpsItemNotification (..),
+    mkOpsItemNotification,
+    oinArn,
+
+    -- ** MaintenanceWindowId
+    MaintenanceWindowId (..),
+
+    -- ** DocumentIdentifier
+    DocumentIdentifier (..),
+    mkDocumentIdentifier,
+    diDocumentFormat,
+    diDocumentType,
+    diDocumentVersion,
+    diName,
+    diOwner,
+    diPlatformTypes,
+    diRequires,
+    diSchemaVersion,
+    diTags,
+    diTargetType,
+    diVersionName,
+
+    -- ** DocumentFormat
+    DocumentFormat (..),
+
+    -- ** InventoryItemSchemaVersion
+    InventoryItemSchemaVersion (..),
+
+    -- ** CommandInvocation
+    CommandInvocation (..),
+    mkCommandInvocation,
+    ciCloudWatchOutputConfig,
+    ciCommandId,
+    ciCommandPlugins,
+    ciComment,
+    ciDocumentName,
+    ciDocumentVersion,
+    ciInstanceId,
+    ciInstanceName,
+    ciNotificationConfig,
+    ciRequestedDateTime,
+    ciServiceRole,
+    ciStandardErrorUrl,
+    ciStandardOutputUrl,
+    ciStatus,
+    ciStatusDetails,
+    ciTraceOutput,
+
+    -- ** MaxErrors
+    MaxErrors (..),
+
+    -- ** ComplianceQueryOperatorType
+    ComplianceQueryOperatorType (..),
+
+    -- ** SeveritySummary
+    SeveritySummary (..),
+    mkSeveritySummary,
+    ssCriticalCount,
+    ssHighCount,
+    ssInformationalCount,
+    ssLowCount,
+    ssMediumCount,
+    ssUnspecifiedCount,
+
+    -- ** InventoryTypeDisplayName
+    InventoryTypeDisplayName (..),
+
+    -- ** MaintenanceWindowDescription
+    MaintenanceWindowDescription (..),
+
+    -- ** CommandFilter
+    CommandFilter (..),
+    mkCommandFilter,
+    cfKey,
+    cfValue,
+
+    -- ** SessionTarget
+    SessionTarget (..),
+
+    -- ** DocumentStatusInformation
+    DocumentStatusInformation (..),
+
+    -- ** OpsFilterValue
+    OpsFilterValue (..),
+
+    -- ** InstallOverrideList
+    InstallOverrideList (..),
+
+    -- ** AttachmentsSource
+    AttachmentsSource (..),
+    mkAttachmentsSource,
+    asfKey,
+    asfName,
+    asfValues,
+
+    -- ** PSParameterSelector
+    PSParameterSelector (..),
+
+    -- ** OpsEntity
+    OpsEntity (..),
+    mkOpsEntity,
+    oeData,
+    oeId,
+
+    -- ** AutomationType
+    AutomationType (..),
+
+    -- ** StatusMessage
+    StatusMessage (..),
+
+    -- ** ScheduleExpression
+    ScheduleExpression (..),
+
+    -- ** AssociationComplianceSeverity
+    AssociationComplianceSeverity (..),
+
+    -- ** ComplianceExecutionType
+    ComplianceExecutionType (..),
+
+    -- ** OpsDataAttributeName
+    OpsDataAttributeName (..),
+
+    -- ** PlatformType
+    PlatformType (..),
+
+    -- ** BatchErrorMessage
+    BatchErrorMessage (..),
+
+    -- ** OutputSourceId
+    OutputSourceId (..),
+
+    -- ** MaintenanceWindowTimezone
+    MaintenanceWindowTimezone (..),
+
+    -- ** AttachmentUrl
+    AttachmentUrl (..),
+
+    -- ** InstanceAssociationStatusInfo
+    InstanceAssociationStatusInfo (..),
+    mkInstanceAssociationStatusInfo,
+    iasiAssociationId,
+    iasiAssociationName,
+    iasiAssociationVersion,
+    iasiDetailedStatus,
+    iasiDocumentVersion,
+    iasiErrorCode,
+    iasiExecutionDate,
+    iasiExecutionSummary,
+    iasiInstanceId,
+    iasiName,
+    iasiOutputUrl,
+    iasiStatus,
+
+    -- ** ComplianceExecutionId
+    ComplianceExecutionId (..),
+
+    -- ** TargetMapKey
+    TargetMapKey (..),
+
+    -- ** InventoryDeletionStatus
+    InventoryDeletionStatus (..),
+
+    -- ** OutputSourceType
+    OutputSourceType (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** CommandId
+    CommandId (..),
+
+    -- ** ConnectionStatus
+    ConnectionStatus (..),
+
+    -- ** AssociationOverview
+    AssociationOverview (..),
+    mkAssociationOverview,
+    aoAssociationStatusAggregatedCount,
+    aoDetailedStatus,
+    aoStatus,
+
+    -- ** InventoryDeletionSummary
+    InventoryDeletionSummary (..),
+    mkInventoryDeletionSummary,
+    idsRemainingCount,
+    idsSummaryItems,
+    idsTotalCount,
+
+    -- ** MaintenanceWindowTaskParameterName
+    MaintenanceWindowTaskParameterName (..),
+
+    -- ** ActivationDescription
+    ActivationDescription (..),
+
+    -- ** PatchStatus
+    PatchStatus (..),
+    mkPatchStatus,
+    psApprovalDate,
+    psComplianceLevel,
+    psDeploymentStatus,
+
+    -- ** Fault
+    Fault (..),
+
+    -- ** OpsItemSeverity
+    OpsItemSeverity (..),
+
+    -- ** CommandPluginStatus
+    CommandPluginStatus (..),
+
+    -- ** AutomationExecutionFilterKey
+    AutomationExecutionFilterKey (..),
+
+    -- ** ResourceDataSyncState
+    ResourceDataSyncState (..),
+
+    -- ** OpsItemFilterValue
+    OpsItemFilterValue (..),
+
+    -- ** DescribeActivationsFilter
+    DescribeActivationsFilter (..),
+    mkDescribeActivationsFilter,
+    dafFilterKey,
+    dafFilterValues,
+
+    -- ** ResourceDataSyncName
+    ResourceDataSyncName (..),
+
+    -- ** ResolvedTargets
+    ResolvedTargets (..),
+    mkResolvedTargets,
+    rtParameterValues,
+    rtTruncated,
+
+    -- ** OpsItemStatus
+    OpsItemStatus (..),
+
+    -- ** DocumentHash
+    DocumentHash (..),
+
+    -- ** DocumentVersion
+    DocumentVersion (..),
+
+    -- ** AssociationVersionInfo
+    AssociationVersionInfo (..),
+    mkAssociationVersionInfo,
+    aviApplyOnlyAtCronInterval,
+    aviAssociationId,
+    aviAssociationName,
+    aviAssociationVersion,
+    aviComplianceSeverity,
+    aviCreatedDate,
+    aviDocumentVersion,
+    aviMaxConcurrency,
+    aviMaxErrors,
+    aviName,
+    aviOutputLocation,
+    aviParameters,
+    aviScheduleExpression,
+    aviSyncCompliance,
+    aviTargets,
+
+    -- ** InstanceInformation
+    InstanceInformation (..),
+    mkInstanceInformation,
+    iiActivationId,
+    iiAgentVersion,
+    iiAssociationOverview,
+    iiAssociationStatus,
+    iiComputerName,
+    iiIPAddress,
+    iiIamRole,
+    iiInstanceId,
+    iiIsLatestVersion,
+    iiLastAssociationExecutionDate,
+    iiLastPingDateTime,
+    iiLastSuccessfulAssociationExecutionDate,
+    iiName,
+    iiPingStatus,
+    iiPlatformName,
+    iiPlatformType,
+    iiPlatformVersion,
+    iiRegistrationDate,
+    iiResourceType,
+
+    -- ** MaintenanceWindowStringDateTime
+    MaintenanceWindowStringDateTime (..),
+
+    -- ** AssociationStatus
+    AssociationStatus (..),
+    mkAssociationStatus,
+    asDate,
+    asName,
+    asMessage,
+    asAdditionalInfo,
+
+    -- ** CalendarNameOrARN
+    CalendarNameOrARN (..),
+
+    -- ** ResourceDataSyncSourceWithState
+    ResourceDataSyncSourceWithState (..),
+    mkResourceDataSyncSourceWithState,
+    rdsswsAwsOrganizationsSource,
+    rdsswsIncludeFutureRegions,
+    rdsswsSourceRegions,
+    rdsswsSourceType,
+    rdsswsState,
+
+    -- ** ResultAttribute
+    ResultAttribute (..),
+    mkResultAttribute,
+    raTypeName,
+
+    -- ** PatchSeverity
+    PatchSeverity (..),
+
+    -- ** CalendarState
+    CalendarState (..),
+
+    -- ** ResourceDataSyncAwsOrganizationsSource
+    ResourceDataSyncAwsOrganizationsSource (..),
+    mkResourceDataSyncAwsOrganizationsSource,
+    rdsaosOrganizationSourceType,
+    rdsaosOrganizationalUnits,
+
+    -- ** OpsEntityItemKey
+    OpsEntityItemKey (..),
+
+    -- ** AutomationExecutionFilter
+    AutomationExecutionFilter (..),
+    mkAutomationExecutionFilter,
+    aKey,
+    aValues,
+
+    -- ** LoggingInfo
+    LoggingInfo (..),
+    mkLoggingInfo,
+    liS3BucketName,
+    liS3Region,
+    liS3KeyPrefix,
+
+    -- ** InventoryGroup
+    InventoryGroup (..),
+    mkInventoryGroup,
+    igName,
+    igFilters,
+
+    -- ** MaintenanceWindowIdentityForTarget
+    MaintenanceWindowIdentityForTarget (..),
+    mkMaintenanceWindowIdentityForTarget,
+    mwiftName,
+    mwiftWindowId,
+
+    -- ** ResourceDataSyncType
+    ResourceDataSyncType (..),
+
+    -- ** ParametersFilterKey
+    ParametersFilterKey (..),
+
+    -- ** StandardOutputContent
+    StandardOutputContent (..),
+
+    -- ** NotificationType
+    NotificationType (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** CommandFilterKey
+    CommandFilterKey (..),
+
+    -- ** ResourceDataSyncSource
+    ResourceDataSyncSource (..),
+    mkResourceDataSyncSource,
+    rdssSourceType,
+    rdssSourceRegions,
+    rdssAwsOrganizationsSource,
+    rdssIncludeFutureRegions,
+
+    -- ** Region
+    Region (..),
+
+    -- ** AttachmentsSourceKey
+    AttachmentsSourceKey (..),
+
+    -- ** NotificationArn
+    NotificationArn (..),
+
+    -- ** AllowedPattern
+    AllowedPattern (..),
+
+    -- ** MaintenanceWindowExecutionTaskIdentity
+    MaintenanceWindowExecutionTaskIdentity (..),
+    mkMaintenanceWindowExecutionTaskIdentity,
+    mwetiEndTime,
+    mwetiStartTime,
+    mwetiStatus,
+    mwetiStatusDetails,
+    mwetiTaskArn,
+    mwetiTaskExecutionId,
+    mwetiTaskType,
+    mwetiWindowExecutionId,
+
+    -- ** ComplianceStringFilter
+    ComplianceStringFilter (..),
+    mkComplianceStringFilter,
+    csfKey,
+    csfType,
+    csfValues,
+
+    -- ** AutomationExecutionMetadata
+    AutomationExecutionMetadata (..),
+    mkAutomationExecutionMetadata,
+    aemAutomationExecutionId,
+    aemAutomationExecutionStatus,
+    aemAutomationType,
+    aemCurrentAction,
+    aemCurrentStepName,
+    aemDocumentName,
+    aemDocumentVersion,
+    aemExecutedBy,
+    aemExecutionEndTime,
+    aemExecutionStartTime,
+    aemFailureMessage,
+    aemLogFile,
+    aemMaxConcurrency,
+    aemMaxErrors,
+    aemMode,
+    aemOutputs,
+    aemParentAutomationExecutionId,
+    aemResolvedTargets,
+    aemTarget,
+    aemTargetMaps,
+    aemTargetParameterName,
+    aemTargets,
+
+    -- ** InstancePatchStateOperatorType
+    InstancePatchStateOperatorType (..),
+
+    -- ** MaintenanceWindowTarget
+    MaintenanceWindowTarget (..),
+    mkMaintenanceWindowTarget,
+    mDescription,
+    mName,
+    mOwnerInformation,
+    mResourceType,
+    mTargets,
+    mWindowId,
+    mWindowTargetId,
+
+    -- ** InstancePatchStateFilter
+    InstancePatchStateFilter (..),
+    mkInstancePatchStateFilter,
+    ipsfKey,
+    ipsfValues,
+    ipsfType,
+
+    -- ** StepExecutionFilter
+    StepExecutionFilter (..),
+    mkStepExecutionFilter,
+    sefKey,
+    sefValues,
+
+    -- ** ComputerName
+    ComputerName (..),
+
+    -- ** InventoryQueryOperatorType
+    InventoryQueryOperatorType (..),
+
+    -- ** TokenValue
+    TokenValue (..),
+
+    -- ** AutomationExecutionId
+    AutomationExecutionId (..),
+
+    -- ** DocumentDefaultVersionDescription
+    DocumentDefaultVersionDescription (..),
+    mkDocumentDefaultVersionDescription,
+    ddvdDefaultVersion,
+    ddvdDefaultVersionName,
+    ddvdName,
+
+    -- ** AttachmentContent
+    AttachmentContent (..),
+    mkAttachmentContent,
+    acHash,
+    acHashType,
+    acName,
+    acSize,
+    acUrl,
+
+    -- ** MaintenanceWindowTaskTargetId
+    MaintenanceWindowTaskTargetId (..),
+
+    -- ** ComplianceItem
+    ComplianceItem (..),
+    mkComplianceItem,
+    cifComplianceType,
+    cifDetails,
+    cifExecutionSummary,
+    cifId,
+    cifResourceId,
+    cifResourceType,
+    cifSeverity,
+    cifStatus,
+    cifTitle,
+
+    -- ** ResourceDataSyncItem
+    ResourceDataSyncItem (..),
+    mkResourceDataSyncItem,
+    rdsiLastStatus,
+    rdsiLastSuccessfulSyncTime,
+    rdsiLastSyncStatusMessage,
+    rdsiLastSyncTime,
+    rdsiS3Destination,
+    rdsiSyncCreatedTime,
+    rdsiSyncLastModifiedTime,
+    rdsiSyncName,
+    rdsiSyncSource,
+    rdsiSyncType,
+
+    -- ** InstanceAssociation
+    InstanceAssociation (..),
+    mkInstanceAssociation,
+    iaAssociationId,
+    iaAssociationVersion,
+    iaContent,
+    iaInstanceId,
+
+    -- ** PatchGroupPatchBaselineMapping
+    PatchGroupPatchBaselineMapping (..),
+    mkPatchGroupPatchBaselineMapping,
+    pgpbmBaselineIdentity,
+    pgpbmPatchGroup,
+
+    -- ** AutomationTargetParameterName
+    AutomationTargetParameterName (..),
+
+    -- ** InventoryItemAttribute
+    InventoryItemAttribute (..),
+    mkInventoryItemAttribute,
+    iiaName,
+    iiaDataType,
+
+    -- ** ComplianceItemContentHash
+    ComplianceItemContentHash (..),
+
+    -- ** AssociationVersion
+    AssociationVersion (..),
+
+    -- ** StepExecutionFilterValue
+    StepExecutionFilterValue (..),
+
+    -- ** AssociationResourceType
+    AssociationResourceType (..),
+
+    -- ** AttachmentHashType
+    AttachmentHashType (..),
+
+    -- ** MaintenanceWindowExecutionTaskInvocationId
+    MaintenanceWindowExecutionTaskInvocationId (..),
+
+    -- ** ComplianceExecutionSummary
+    ComplianceExecutionSummary (..),
+    mkComplianceExecutionSummary,
+    cesExecutionTime,
+    cesExecutionId,
+    cesExecutionType,
+
+    -- ** InstancePatchStateFilterValue
+    InstancePatchStateFilterValue (..),
+
+    -- ** CommandInvocationStatus
+    CommandInvocationStatus (..),
+
+    -- ** ValidNextStep
+    ValidNextStep (..),
+
+    -- ** LastResourceDataSyncStatus
+    LastResourceDataSyncStatus (..),
+
+    -- ** DocumentStatus
+    DocumentStatus (..),
+
+    -- ** Product
+    Product (..),
+
+    -- ** SessionManagerParameterName
+    SessionManagerParameterName (..),
+
+    -- ** DocumentVersionInfo
+    DocumentVersionInfo (..),
+    mkDocumentVersionInfo,
+    dviCreatedDate,
+    dviDocumentFormat,
+    dviDocumentVersion,
+    dviIsDefaultVersion,
+    dviName,
+    dviStatus,
+    dviStatusInformation,
+    dviVersionName,
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** SnapshotDownloadUrl
+    SnapshotDownloadUrl (..),
+
+    -- ** StatusName
+    StatusName (..),
+
+    -- ** PatchComplianceData
+    PatchComplianceData (..),
+    mkPatchComplianceData,
+    pcdTitle,
+    pcdKBId,
+    pcdClassification,
+    pcdSeverity,
+    pcdState,
+    pcdInstalledTime,
+    pcdCVEIds,
+
+    -- ** AssociationExecution
+    AssociationExecution (..),
+    mkAssociationExecution,
+    aeAssociationId,
+    aeAssociationVersion,
+    aeCreatedTime,
+    aeDetailedStatus,
+    aeExecutionId,
+    aeLastExecutionDate,
+    aeResourceCountByStatus,
+    aeStatus,
+
+    -- ** InventoryAggregator
+    InventoryAggregator (..),
+    mkInventoryAggregator,
+    iaAggregators,
+    iaExpression,
+    iaGroups,
+
+    -- ** SessionId
+    SessionId (..),
+
+    -- ** EffectivePatch
+    EffectivePatch (..),
+    mkEffectivePatch,
+    epPatch,
+    epPatchStatus,
+
+    -- ** Comment
+    Comment (..),
+
+    -- ** TargetMapValue
+    TargetMapValue (..),
+
+    -- ** AssociationExecutionTargetsFilterKey
+    AssociationExecutionTargetsFilterKey (..),
+
+    -- ** ParameterName
+    ParameterName (..),
+
+    -- ** InventoryItemSchema
+    InventoryItemSchema (..),
+    mkInventoryItemSchema,
+    iisTypeName,
+    iisAttributes,
+    iisDisplayName,
+    iisVersion,
+
+    -- ** AssociationName
+    AssociationName (..),
+
+    -- ** RelatedOpsItem
+    RelatedOpsItem (..),
+    mkRelatedOpsItem,
+    roiOpsItemId,
+
+    -- ** DocumentParameterType
+    DocumentParameterType (..),
+
+    -- ** InstanceAggregatedAssociationOverview
+    InstanceAggregatedAssociationOverview (..),
+    mkInstanceAggregatedAssociationOverview,
+    iaaoDetailedStatus,
+    iaaoInstanceAssociationStatusAggregatedCount,
+
+    -- ** BaselineId
+    BaselineId (..),
+
+    -- ** OpsItemFilterKey
+    OpsItemFilterKey (..),
+
+    -- ** DocumentVersionNumber
+    DocumentVersionNumber (..),
+
+    -- ** ComplianceUploadType
+    ComplianceUploadType (..),
+
+    -- ** InventoryResultItem
+    InventoryResultItem (..),
+    mkInventoryResultItem,
+    iriTypeName,
+    iriSchemaVersion,
+    iriContent,
+    iriCaptureTime,
+    iriContentHash,
+
+    -- ** AssociationFilterKey
+    AssociationFilterKey (..),
+
+    -- ** Session
+    Session (..),
+    mkSession,
+    sDetails,
+    sDocumentName,
+    sEndDate,
+    sOutputUrl,
+    sOwner,
+    sSessionId,
+    sStartDate,
+    sStatus,
+    sTarget,
+
+    -- ** AutomationExecutionFilterValue
+    AutomationExecutionFilterValue (..),
+
+    -- ** ComplianceSeverity
+    ComplianceSeverity (..),
+
+    -- ** ComplianceFilterValue
+    ComplianceFilterValue (..),
+
+    -- ** PatchFilter
+    PatchFilter (..),
+    mkPatchFilter,
+    pfKey,
+    pfValues,
+
+    -- ** InventoryAttributeDataType
+    InventoryAttributeDataType (..),
+
+    -- ** DescribeActivationsFilterKeys
+    DescribeActivationsFilterKeys (..),
+
+    -- ** FailedCreateAssociation
+    FailedCreateAssociation (..),
+    mkFailedCreateAssociation,
+    fcaEntry,
+    fcaFault,
+    fcaMessage,
+
+    -- ** PatchAdvisoryId
+    PatchAdvisoryId (..),
+
+    -- ** MaintenanceWindowExecutionTaskExecutionId
+    MaintenanceWindowExecutionTaskExecutionId (..),
+
+    -- ** ResourceDataSyncDestinationDataSharing
+    ResourceDataSyncDestinationDataSharing (..),
+    mkResourceDataSyncDestinationDataSharing,
+    rdsddsDestinationDataSharingType,
+
+    -- ** PSParameterValue
+    PSParameterValue (..),
+
+    -- ** S3BucketName
+    S3BucketName (..),
+
+    -- ** PatchGroup
+    PatchGroup (..),
+
+    -- ** PatchProperty
+    PatchProperty (..),
+
+    -- ** Parameter
+    Parameter (..),
+    mkParameter,
+    pfARN,
+    pfDataType,
+    pfLastModifiedDate,
+    pfName,
+    pfSelector,
+    pfSourceResult,
+    pfType,
+    pfValue,
+    pfVersion,
+
+    -- ** Association
+    Association (..),
+    mkAssociation,
+    aAssociationId,
+    aAssociationName,
+    aAssociationVersion,
+    aDocumentVersion,
+    aInstanceId,
+    aLastExecutionDate,
+    aName,
+    aOverview,
+    aScheduleExpression,
+    aTargets,
+
+    -- ** OpsItemCategory
+    OpsItemCategory (..),
+
+    -- ** MaxConcurrency
+    MaxConcurrency (..),
+
+    -- ** InventoryResultItemKey
+    InventoryResultItemKey (..),
+
+    -- ** DocumentRequires
+    DocumentRequires (..),
+    mkDocumentRequires,
+    drName,
+    drVersion,
+
+    -- ** OpsItem
+    OpsItem (..),
+    mkOpsItem,
+    oiCategory,
+    oiCreatedBy,
+    oiCreatedTime,
+    oiDescription,
+    oiLastModifiedBy,
+    oiLastModifiedTime,
+    oiNotifications,
+    oiOperationalData,
+    oiOpsItemId,
+    oiPriority,
+    oiRelatedOpsItems,
+    oiSeverity,
+    oiSource,
+    oiStatus,
+    oiTitle,
+    oiVersion,
+
+    -- ** PatchFilterKey
+    PatchFilterKey (..),
+
+    -- ** AssociationFilterOperatorType
+    AssociationFilterOperatorType (..),
+
+    -- ** SnapshotId
+    SnapshotId (..),
+
+    -- ** NotificationEvent
+    NotificationEvent (..),
+
+    -- ** InventorySchemaDeleteOption
+    InventorySchemaDeleteOption (..),
+
+    -- ** ExecutionRoleName
+    ExecutionRoleName (..),
+
+    -- ** Target
+    Target (..),
+    mkTarget,
+    tKey,
+    tValues,
+
+    -- ** PatchBugzillaId
+    PatchBugzillaId (..),
+
+    -- ** OpsResultAttribute
+    OpsResultAttribute (..),
+    mkOpsResultAttribute,
+    oraTypeName,
+
+    -- ** MaintenanceWindowFilter
+    MaintenanceWindowFilter (..),
+    mkMaintenanceWindowFilter,
+    mwfKey,
+    mwfValues,
+
+    -- ** ExecutionMode
+    ExecutionMode (..),
+
+    -- ** IamRole
+    IamRole (..),
+
+    -- ** SessionManagerOutputUrl
+    SessionManagerOutputUrl (..),
+    mkSessionManagerOutputUrl,
+    smouCloudWatchOutputUrl,
+    smouS3OutputUrl,
+
+    -- ** ServiceRole
+    ServiceRole (..),
+
+    -- ** AutomationParameterKey
+    AutomationParameterKey (..),
+
+    -- ** WindowId
+    WindowId (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** ClientContext
+    ClientContext (..),
+
+    -- ** Qualifier
+    Qualifier (..),
+
+    -- ** WindowExecutionId
+    WindowExecutionId (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** ComplianceType
+    ComplianceType (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** Source
+    Source (..),
+
+    -- ** Title
+    Title (..),
+
+    -- ** Category
+    Category (..),
+
+    -- ** Severity
+    Severity (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** DataType
+    DataType (..),
+
+    -- ** KeyId
+    KeyId (..),
+
+    -- ** LastModifiedUser
+    LastModifiedUser (..),
+
+    -- ** TypeName
+    TypeName (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Option
+    Option (..),
+
+    -- ** TargetParameterName
+    TargetParameterName (..),
+
+    -- ** SyncName
+    SyncName (..),
+
+    -- ** OutputS3BucketName
+    OutputS3BucketName (..),
+
+    -- ** OutputS3KeyPrefix
+    OutputS3KeyPrefix (..),
+
+    -- ** OutputS3Region
+    OutputS3Region (..),
+
+    -- ** EndDate
+    EndDate (..),
+
+    -- ** NextExecutionTime
+    NextExecutionTime (..),
+
+    -- ** ScheduleTimezone
+    ScheduleTimezone (..),
+
+    -- ** StartDate
+    StartDate (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ExecutionTime
+    ExecutionTime (..),
+
+    -- ** WindowTargetId
+    WindowTargetId (..),
+
+    -- ** SettingId
+    SettingId (..),
+
+    -- ** SchemaVersion
+    SchemaVersion (..),
+
+    -- ** CaptureTime
+    CaptureTime (..),
+
+    -- ** ContentHash
+    ContentHash (..),
+
+    -- ** DeletionId
+    DeletionId (..),
+
+    -- ** LastStatusMessage
+    LastStatusMessage (..),
+
+    -- ** Content
+    Content (..),
+
+    -- ** VersionName
+    VersionName (..),
+
+    -- ** AtTime
+    AtTime (..),
+
+    -- ** DetailedStatus
+    DetailedStatus (..),
+
+    -- ** ExecutionId
+    ExecutionId (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** FailureStage
+    FailureStage (..),
+
+    -- ** FailureType
+    FailureType (..),
+
+    -- ** OrganizationalUnitId
+    OrganizationalUnitId (..),
+
+    -- ** AggregatorType
+    AggregatorType (..),
+
+    -- ** CurrentAction
+    CurrentAction (..),
+
+    -- ** CurrentStepName
+    CurrentStepName (..),
+
+    -- ** ExecutedBy
+    ExecutedBy (..),
+
+    -- ** FailureMessage
+    FailureMessage (..),
+
+    -- ** ParentAutomationExecutionId
+    ParentAutomationExecutionId (..),
+
+    -- ** ServiceRoleArn
+    ServiceRoleArn (..),
+
+    -- ** SyncType
+    SyncType (..),
+
+    -- ** Action
+    Action (..),
+
+    -- ** StatusInformation
+    StatusInformation (..),
+
+    -- ** InvocationId
+    InvocationId (..),
+
+    -- ** TaskExecutionId
+    TaskExecutionId (..),
+
+    -- ** ExecutionElapsedTime
+    ExecutionElapsedTime (..),
+
+    -- ** ExecutionEndDateTime
+    ExecutionEndDateTime (..),
+
+    -- ** ExecutionStartDateTime
+    ExecutionStartDateTime (..),
+
+    -- ** PluginName
+    PluginName (..),
+
+    -- ** StandardErrorUrl
+    StandardErrorUrl (..),
+
+    -- ** StandardOutputUrl
+    StandardOutputUrl (..),
+
+    -- ** NextTransitionTime
+    NextTransitionTime (..),
+
+    -- ** TaskArn
+    TaskArn (..),
+
+    -- ** WindowTaskId
+    WindowTaskId (..),
+
+    -- ** SettingValue
+    SettingValue (..),
+
+    -- ** Configuration
+    Configuration (..),
+
+    -- ** Output
+    Output (..),
+
+    -- ** Arch
+    Arch (..),
+
+    -- ** MsrcSeverity
+    MsrcSeverity (..),
+
+    -- ** ProductFamily
+    ProductFamily (..),
+
+    -- ** Release
+    Release (..),
+
+    -- ** Repository
+    Repository (..),
+
+    -- ** Vendor
+    Vendor (..),
+
+    -- ** DefaultValue
+    DefaultValue (..),
+
+    -- ** Policies
+    Policies (..),
+
+    -- ** DefaultVersion
+    DefaultVersion (..),
+
+    -- ** Hash
+    Hash (..),
+
+    -- ** LatestVersion
+    LatestVersion (..),
+
+    -- ** Owner
+    Owner (..),
+
+    -- ** Sha1
+    Sha1 (..),
+
+    -- ** BucketName
+    BucketName (..),
+
+    -- ** AWSKMSKeyARN
+    AWSKMSKeyARN (..),
+
+    -- ** Prefix
+    Prefix (..),
+
+    -- ** TargetLocationMaxConcurrency
+    TargetLocationMaxConcurrency (..),
+
+    -- ** TargetLocationMaxErrors
+    TargetLocationMaxErrors (..),
+
+    -- ** ExecutionSummary
+    ExecutionSummary (..),
+
+    -- ** OrganizationSourceType
+    OrganizationSourceType (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

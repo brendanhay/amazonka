@@ -22,117 +22,105 @@ module Network.AWS.SageMaker.DeleteTags
     mkDeleteTags,
 
     -- ** Request lenses
+    dtResourceArn,
     dtTagKeys,
-    dtResourceARN,
 
     -- * Destructuring the response
     DeleteTagsResponse (..),
     mkDeleteTagsResponse,
 
     -- ** Response lenses
-    dtsrsResponseStatus,
+    dtrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
-  { -- | An array or one or more tag keys to delete.
-    tagKeys :: Lude.NonEmpty Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the resource whose tags you want to delete.
-    resourceARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the resource whose tags you want to delete.
+    resourceArn :: Types.ResourceArn,
+    -- | An array or one or more tag keys to delete.
+    tagKeys :: Core.NonEmpty Types.TagKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
---
--- * 'tagKeys' - An array or one or more tag keys to delete.
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource whose tags you want to delete.
+-- | Creates a 'DeleteTags' value with any optional fields omitted.
 mkDeleteTags ::
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   -- | 'tagKeys'
-  Lude.NonEmpty Lude.Text ->
-  -- | 'resourceARN'
-  Lude.Text ->
+  Core.NonEmpty Types.TagKey ->
   DeleteTags
-mkDeleteTags pTagKeys_ pResourceARN_ =
-  DeleteTags' {tagKeys = pTagKeys_, resourceARN = pResourceARN_}
+mkDeleteTags resourceArn tagKeys =
+  DeleteTags' {resourceArn, tagKeys}
+
+-- | The Amazon Resource Name (ARN) of the resource whose tags you want to delete.
+--
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtResourceArn :: Lens.Lens' DeleteTags Types.ResourceArn
+dtResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED dtResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | An array or one or more tag keys to delete.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtTagKeys :: Lens.Lens' DeleteTags (Lude.NonEmpty Lude.Text)
-dtTagKeys = Lens.lens (tagKeys :: DeleteTags -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeys = a} :: DeleteTags)
+dtTagKeys :: Lens.Lens' DeleteTags (Core.NonEmpty Types.TagKey)
+dtTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED dtTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the resource whose tags you want to delete.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtResourceARN :: Lens.Lens' DeleteTags Lude.Text
-dtResourceARN = Lens.lens (resourceARN :: DeleteTags -> Lude.Text) (\s a -> s {resourceARN = a} :: DeleteTags)
-{-# DEPRECATED dtResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+instance Core.FromJSON DeleteTags where
+  toJSON DeleteTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceArn" Core..= resourceArn),
+            Core.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
 
-instance Lude.AWSRequest DeleteTags where
+instance Core.AWSRequest DeleteTags where
   type Rs DeleteTags = DeleteTagsResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteTagsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteTags where
-  toJSON DeleteTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TagKeys" Lude..= tagKeys),
-            Lude.Just ("ResourceArn" Lude..= resourceARN)
-          ]
-      )
-
-instance Lude.ToPath DeleteTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteTagsResponse' smart constructor.
 newtype DeleteTagsResponse = DeleteTagsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteTagsResponse' value with any optional fields omitted.
 mkDeleteTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteTagsResponse
-mkDeleteTagsResponse pResponseStatus_ =
-  DeleteTagsResponse' {responseStatus = pResponseStatus_}
+mkDeleteTagsResponse responseStatus =
+  DeleteTagsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsResponseStatus :: Lens.Lens' DeleteTagsResponse Lude.Int
-dtsrsResponseStatus = Lens.lens (responseStatus :: DeleteTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTagsResponse)
-{-# DEPRECATED dtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrfrsResponseStatus :: Lens.Lens' DeleteTagsResponse Core.Int
+dtrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -57,8 +57,8 @@ import Test.Tasty
 --         , requestModifyEventSubscription $
 --             mkModifyEventSubscription
 --
---         , requestModifyClusterDBRevision $
---             mkModifyClusterDBRevision
+--         , requestModifyClusterDbRevision $
+--             mkModifyClusterDbRevision
 --
 --         , requestDeleteClusterSnapshot $
 --             mkDeleteClusterSnapshot
@@ -120,8 +120,8 @@ import Test.Tasty
 --         , requestModifySnapshotCopyRetentionPeriod $
 --             mkModifySnapshotCopyRetentionPeriod
 --
---         , requestModifyClusterIAMRoles $
---             mkModifyClusterIAMRoles
+--         , requestModifyClusterIamRoles $
+--             mkModifyClusterIamRoles
 --
 --         , requestAuthorizeSnapshotAccess $
 --             mkAuthorizeSnapshotAccess
@@ -150,8 +150,8 @@ import Test.Tasty
 --         , requestCreateCluster $
 --             mkCreateCluster
 --
---         , requestCreateHSMClientCertificate $
---             mkCreateHSMClientCertificate
+--         , requestCreateHsmClientCertificate $
+--             mkCreateHsmClientCertificate
 --
 --         , requestRestoreTableFromClusterSnapshot $
 --             mkRestoreTableFromClusterSnapshot
@@ -177,8 +177,8 @@ import Test.Tasty
 --         , requestDescribeEventSubscriptions $
 --             mkDescribeEventSubscriptions
 --
---         , requestDescribeClusterDBRevisions $
---             mkDescribeClusterDBRevisions
+--         , requestDescribeClusterDbRevisions $
+--             mkDescribeClusterDbRevisions
 --
 --         , requestBatchModifyClusterSnapshots $
 --             mkBatchModifyClusterSnapshots
@@ -189,8 +189,8 @@ import Test.Tasty
 --         , requestRevokeClusterSecurityGroupIngress $
 --             mkRevokeClusterSecurityGroupIngress
 --
---         , requestDescribeHSMClientCertificates $
---             mkDescribeHSMClientCertificates
+--         , requestDescribeHsmClientCertificates $
+--             mkDescribeHsmClientCertificates
 --
 --         , requestModifyClusterParameterGroup $
 --             mkModifyClusterParameterGroup
@@ -210,8 +210,8 @@ import Test.Tasty
 --         , requestDescribeResize $
 --             mkDescribeResize
 --
---         , requestDeleteHSMConfiguration $
---             mkDeleteHSMConfiguration
+--         , requestDeleteHsmConfiguration $
+--             mkDeleteHsmConfiguration
 --
 --         , requestAcceptReservedNodeExchange $
 --             mkAcceptReservedNodeExchange
@@ -225,8 +225,8 @@ import Test.Tasty
 --         , requestCreateClusterSnapshot $
 --             mkCreateClusterSnapshot
 --
---         , requestCreateHSMConfiguration $
---             mkCreateHSMConfiguration
+--         , requestCreateHsmConfiguration $
+--             mkCreateHsmConfiguration
 --
 --         , requestDescribeLoggingStatus $
 --             mkDescribeLoggingStatus
@@ -264,8 +264,8 @@ import Test.Tasty
 --         , requestRevokeSnapshotAccess $
 --             mkRevokeSnapshotAccess
 --
---         , requestDescribeHSMConfigurations $
---             mkDescribeHSMConfigurations
+--         , requestDescribeHsmConfigurations $
+--             mkDescribeHsmConfigurations
 --
 --         , requestDescribeAccountAttributes $
 --             mkDescribeAccountAttributes
@@ -276,8 +276,8 @@ import Test.Tasty
 --         , requestCopyClusterSnapshot $
 --             mkCopyClusterSnapshot
 --
---         , requestDeleteHSMClientCertificate $
---             mkDeleteHSMClientCertificate
+--         , requestDeleteHsmClientCertificate $
+--             mkDeleteHsmClientCertificate
 --
 --         , requestModifyClusterSnapshotSchedule $
 --             mkModifyClusterSnapshotSchedule
@@ -336,8 +336,8 @@ import Test.Tasty
 --         , responseModifyEventSubscription $
 --             mkModifyEventSubscriptionResponse
 --
---         , responseModifyClusterDBRevision $
---             mkModifyClusterDBRevisionResponse
+--         , responseModifyClusterDbRevision $
+--             mkModifyClusterDbRevisionResponse
 --
 --         , responseDeleteClusterSnapshot $
 --             mkDeleteClusterSnapshotResponse
@@ -399,8 +399,8 @@ import Test.Tasty
 --         , responseModifySnapshotCopyRetentionPeriod $
 --             mkModifySnapshotCopyRetentionPeriodResponse
 --
---         , responseModifyClusterIAMRoles $
---             mkModifyClusterIAMRolesResponse
+--         , responseModifyClusterIamRoles $
+--             mkModifyClusterIamRolesResponse
 --
 --         , responseAuthorizeSnapshotAccess $
 --             mkAuthorizeSnapshotAccessResponse
@@ -429,8 +429,8 @@ import Test.Tasty
 --         , responseCreateCluster $
 --             mkCreateClusterResponse
 --
---         , responseCreateHSMClientCertificate $
---             mkCreateHSMClientCertificateResponse
+--         , responseCreateHsmClientCertificate $
+--             mkCreateHsmClientCertificateResponse
 --
 --         , responseRestoreTableFromClusterSnapshot $
 --             mkRestoreTableFromClusterSnapshotResponse
@@ -456,8 +456,8 @@ import Test.Tasty
 --         , responseDescribeEventSubscriptions $
 --             mkDescribeEventSubscriptionsResponse
 --
---         , responseDescribeClusterDBRevisions $
---             mkDescribeClusterDBRevisionsResponse
+--         , responseDescribeClusterDbRevisions $
+--             mkDescribeClusterDbRevisionsResponse
 --
 --         , responseBatchModifyClusterSnapshots $
 --             mkBatchModifyClusterSnapshotsResponse
@@ -468,8 +468,8 @@ import Test.Tasty
 --         , responseRevokeClusterSecurityGroupIngress $
 --             mkRevokeClusterSecurityGroupIngressResponse
 --
---         , responseDescribeHSMClientCertificates $
---             mkDescribeHSMClientCertificatesResponse
+--         , responseDescribeHsmClientCertificates $
+--             mkDescribeHsmClientCertificatesResponse
 --
 --         , responseModifyClusterParameterGroup $
 --             mkClusterParameterGroupNameMessage
@@ -489,8 +489,8 @@ import Test.Tasty
 --         , responseDescribeResize $
 --             mkResizeProgressMessage
 --
---         , responseDeleteHSMConfiguration $
---             mkDeleteHSMConfigurationResponse
+--         , responseDeleteHsmConfiguration $
+--             mkDeleteHsmConfigurationResponse
 --
 --         , responseAcceptReservedNodeExchange $
 --             mkAcceptReservedNodeExchangeResponse
@@ -504,8 +504,8 @@ import Test.Tasty
 --         , responseCreateClusterSnapshot $
 --             mkCreateClusterSnapshotResponse
 --
---         , responseCreateHSMConfiguration $
---             mkCreateHSMConfigurationResponse
+--         , responseCreateHsmConfiguration $
+--             mkCreateHsmConfigurationResponse
 --
 --         , responseDescribeLoggingStatus $
 --             mkLoggingStatus
@@ -543,8 +543,8 @@ import Test.Tasty
 --         , responseRevokeSnapshotAccess $
 --             mkRevokeSnapshotAccessResponse
 --
---         , responseDescribeHSMConfigurations $
---             mkDescribeHSMConfigurationsResponse
+--         , responseDescribeHsmConfigurations $
+--             mkDescribeHsmConfigurationsResponse
 --
 --         , responseDescribeAccountAttributes $
 --             mkDescribeAccountAttributesResponse
@@ -555,8 +555,8 @@ import Test.Tasty
 --         , responseCopyClusterSnapshot $
 --             mkCopyClusterSnapshotResponse
 --
---         , responseDeleteHSMClientCertificate $
---             mkDeleteHSMClientCertificateResponse
+--         , responseDeleteHsmClientCertificate $
+--             mkDeleteHsmClientCertificateResponse
 --
 --         , responseModifyClusterSnapshotSchedule $
 --             mkModifyClusterSnapshotScheduleResponse
@@ -647,11 +647,11 @@ requestModifyEventSubscription =
     "ModifyEventSubscription"
     "fixture/ModifyEventSubscription.yaml"
 
-requestModifyClusterDBRevision :: ModifyClusterDBRevision -> TestTree
-requestModifyClusterDBRevision =
+requestModifyClusterDbRevision :: ModifyClusterDbRevision -> TestTree
+requestModifyClusterDbRevision =
   req
-    "ModifyClusterDBRevision"
-    "fixture/ModifyClusterDBRevision.yaml"
+    "ModifyClusterDbRevision"
+    "fixture/ModifyClusterDbRevision.yaml"
 
 requestDeleteClusterSnapshot :: DeleteClusterSnapshot -> TestTree
 requestDeleteClusterSnapshot =
@@ -773,11 +773,11 @@ requestModifySnapshotCopyRetentionPeriod =
     "ModifySnapshotCopyRetentionPeriod"
     "fixture/ModifySnapshotCopyRetentionPeriod.yaml"
 
-requestModifyClusterIAMRoles :: ModifyClusterIAMRoles -> TestTree
-requestModifyClusterIAMRoles =
+requestModifyClusterIamRoles :: ModifyClusterIamRoles -> TestTree
+requestModifyClusterIamRoles =
   req
-    "ModifyClusterIAMRoles"
-    "fixture/ModifyClusterIAMRoles.yaml"
+    "ModifyClusterIamRoles"
+    "fixture/ModifyClusterIamRoles.yaml"
 
 requestAuthorizeSnapshotAccess :: AuthorizeSnapshotAccess -> TestTree
 requestAuthorizeSnapshotAccess =
@@ -833,11 +833,11 @@ requestCreateCluster =
     "CreateCluster"
     "fixture/CreateCluster.yaml"
 
-requestCreateHSMClientCertificate :: CreateHSMClientCertificate -> TestTree
-requestCreateHSMClientCertificate =
+requestCreateHsmClientCertificate :: CreateHsmClientCertificate -> TestTree
+requestCreateHsmClientCertificate =
   req
-    "CreateHSMClientCertificate"
-    "fixture/CreateHSMClientCertificate.yaml"
+    "CreateHsmClientCertificate"
+    "fixture/CreateHsmClientCertificate.yaml"
 
 requestRestoreTableFromClusterSnapshot :: RestoreTableFromClusterSnapshot -> TestTree
 requestRestoreTableFromClusterSnapshot =
@@ -887,11 +887,11 @@ requestDescribeEventSubscriptions =
     "DescribeEventSubscriptions"
     "fixture/DescribeEventSubscriptions.yaml"
 
-requestDescribeClusterDBRevisions :: DescribeClusterDBRevisions -> TestTree
-requestDescribeClusterDBRevisions =
+requestDescribeClusterDbRevisions :: DescribeClusterDbRevisions -> TestTree
+requestDescribeClusterDbRevisions =
   req
-    "DescribeClusterDBRevisions"
-    "fixture/DescribeClusterDBRevisions.yaml"
+    "DescribeClusterDbRevisions"
+    "fixture/DescribeClusterDbRevisions.yaml"
 
 requestBatchModifyClusterSnapshots :: BatchModifyClusterSnapshots -> TestTree
 requestBatchModifyClusterSnapshots =
@@ -911,11 +911,11 @@ requestRevokeClusterSecurityGroupIngress =
     "RevokeClusterSecurityGroupIngress"
     "fixture/RevokeClusterSecurityGroupIngress.yaml"
 
-requestDescribeHSMClientCertificates :: DescribeHSMClientCertificates -> TestTree
-requestDescribeHSMClientCertificates =
+requestDescribeHsmClientCertificates :: DescribeHsmClientCertificates -> TestTree
+requestDescribeHsmClientCertificates =
   req
-    "DescribeHSMClientCertificates"
-    "fixture/DescribeHSMClientCertificates.yaml"
+    "DescribeHsmClientCertificates"
+    "fixture/DescribeHsmClientCertificates.yaml"
 
 requestModifyClusterParameterGroup :: ModifyClusterParameterGroup -> TestTree
 requestModifyClusterParameterGroup =
@@ -953,11 +953,11 @@ requestDescribeResize =
     "DescribeResize"
     "fixture/DescribeResize.yaml"
 
-requestDeleteHSMConfiguration :: DeleteHSMConfiguration -> TestTree
-requestDeleteHSMConfiguration =
+requestDeleteHsmConfiguration :: DeleteHsmConfiguration -> TestTree
+requestDeleteHsmConfiguration =
   req
-    "DeleteHSMConfiguration"
-    "fixture/DeleteHSMConfiguration.yaml"
+    "DeleteHsmConfiguration"
+    "fixture/DeleteHsmConfiguration.yaml"
 
 requestAcceptReservedNodeExchange :: AcceptReservedNodeExchange -> TestTree
 requestAcceptReservedNodeExchange =
@@ -983,11 +983,11 @@ requestCreateClusterSnapshot =
     "CreateClusterSnapshot"
     "fixture/CreateClusterSnapshot.yaml"
 
-requestCreateHSMConfiguration :: CreateHSMConfiguration -> TestTree
-requestCreateHSMConfiguration =
+requestCreateHsmConfiguration :: CreateHsmConfiguration -> TestTree
+requestCreateHsmConfiguration =
   req
-    "CreateHSMConfiguration"
-    "fixture/CreateHSMConfiguration.yaml"
+    "CreateHsmConfiguration"
+    "fixture/CreateHsmConfiguration.yaml"
 
 requestDescribeLoggingStatus :: DescribeLoggingStatus -> TestTree
 requestDescribeLoggingStatus =
@@ -1061,11 +1061,11 @@ requestRevokeSnapshotAccess =
     "RevokeSnapshotAccess"
     "fixture/RevokeSnapshotAccess.yaml"
 
-requestDescribeHSMConfigurations :: DescribeHSMConfigurations -> TestTree
-requestDescribeHSMConfigurations =
+requestDescribeHsmConfigurations :: DescribeHsmConfigurations -> TestTree
+requestDescribeHsmConfigurations =
   req
-    "DescribeHSMConfigurations"
-    "fixture/DescribeHSMConfigurations.yaml"
+    "DescribeHsmConfigurations"
+    "fixture/DescribeHsmConfigurations.yaml"
 
 requestDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
 requestDescribeAccountAttributes =
@@ -1085,11 +1085,11 @@ requestCopyClusterSnapshot =
     "CopyClusterSnapshot"
     "fixture/CopyClusterSnapshot.yaml"
 
-requestDeleteHSMClientCertificate :: DeleteHSMClientCertificate -> TestTree
-requestDeleteHSMClientCertificate =
+requestDeleteHsmClientCertificate :: DeleteHsmClientCertificate -> TestTree
+requestDeleteHsmClientCertificate =
   req
-    "DeleteHSMClientCertificate"
-    "fixture/DeleteHSMClientCertificate.yaml"
+    "DeleteHsmClientCertificate"
+    "fixture/DeleteHsmClientCertificate.yaml"
 
 requestModifyClusterSnapshotSchedule :: ModifyClusterSnapshotSchedule -> TestTree
 requestModifyClusterSnapshotSchedule =
@@ -1146,7 +1146,7 @@ responseCancelResize =
   res
     "CancelResizeResponse"
     "fixture/CancelResizeResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CancelResize)
 
 responseDescribeStorage :: DescribeStorageResponse -> TestTree
@@ -1154,7 +1154,7 @@ responseDescribeStorage =
   res
     "DescribeStorageResponse"
     "fixture/DescribeStorageResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStorage)
 
 responseDescribeClusters :: DescribeClustersResponse -> TestTree
@@ -1162,7 +1162,7 @@ responseDescribeClusters =
   res
     "DescribeClustersResponse"
     "fixture/DescribeClustersResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeClusters)
 
 responseDescribeTags :: DescribeTagsResponse -> TestTree
@@ -1170,7 +1170,7 @@ responseDescribeTags =
   res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTags)
 
 responseCreateUsageLimit :: UsageLimit -> TestTree
@@ -1178,7 +1178,7 @@ responseCreateUsageLimit =
   res
     "CreateUsageLimitResponse"
     "fixture/CreateUsageLimitResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CreateUsageLimit)
 
 responseDeleteClusterSubnetGroup :: DeleteClusterSubnetGroupResponse -> TestTree
@@ -1186,7 +1186,7 @@ responseDeleteClusterSubnetGroup =
   res
     "DeleteClusterSubnetGroupResponse"
     "fixture/DeleteClusterSubnetGroupResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DeleteClusterSubnetGroup)
 
 responseModifyScheduledAction :: ScheduledAction -> TestTree
@@ -1194,7 +1194,7 @@ responseModifyScheduledAction =
   res
     "ModifyScheduledActionResponse"
     "fixture/ModifyScheduledActionResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ModifyScheduledAction)
 
 responseDisableLogging :: LoggingStatus -> TestTree
@@ -1202,7 +1202,7 @@ responseDisableLogging =
   res
     "DisableLoggingResponse"
     "fixture/DisableLoggingResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DisableLogging)
 
 responseDescribeSnapshotSchedules :: DescribeSnapshotSchedulesResponse -> TestTree
@@ -1210,7 +1210,7 @@ responseDescribeSnapshotSchedules =
   res
     "DescribeSnapshotSchedulesResponse"
     "fixture/DescribeSnapshotSchedulesResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSnapshotSchedules)
 
 responseModifyEventSubscription :: ModifyEventSubscriptionResponse -> TestTree
@@ -1218,23 +1218,23 @@ responseModifyEventSubscription =
   res
     "ModifyEventSubscriptionResponse"
     "fixture/ModifyEventSubscriptionResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ModifyEventSubscription)
 
-responseModifyClusterDBRevision :: ModifyClusterDBRevisionResponse -> TestTree
-responseModifyClusterDBRevision =
+responseModifyClusterDbRevision :: ModifyClusterDbRevisionResponse -> TestTree
+responseModifyClusterDbRevision =
   res
-    "ModifyClusterDBRevisionResponse"
-    "fixture/ModifyClusterDBRevisionResponse.proto"
-    redshiftService
-    (Proxy :: Proxy ModifyClusterDBRevision)
+    "ModifyClusterDbRevisionResponse"
+    "fixture/ModifyClusterDbRevisionResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy ModifyClusterDbRevision)
 
 responseDeleteClusterSnapshot :: DeleteClusterSnapshotResponse -> TestTree
 responseDeleteClusterSnapshot =
   res
     "DeleteClusterSnapshotResponse"
     "fixture/DeleteClusterSnapshotResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DeleteClusterSnapshot)
 
 responsePurchaseReservedNodeOffering :: PurchaseReservedNodeOfferingResponse -> TestTree
@@ -1242,7 +1242,7 @@ responsePurchaseReservedNodeOffering =
   res
     "PurchaseReservedNodeOfferingResponse"
     "fixture/PurchaseReservedNodeOfferingResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy PurchaseReservedNodeOffering)
 
 responseDescribeReservedNodeOfferings :: DescribeReservedNodeOfferingsResponse -> TestTree
@@ -1250,7 +1250,7 @@ responseDescribeReservedNodeOfferings =
   res
     "DescribeReservedNodeOfferingsResponse"
     "fixture/DescribeReservedNodeOfferingsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReservedNodeOfferings)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
@@ -1258,7 +1258,7 @@ responseDescribeEvents =
   res
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEvents)
 
 responseDescribeReservedNodes :: DescribeReservedNodesResponse -> TestTree
@@ -1266,7 +1266,7 @@ responseDescribeReservedNodes =
   res
     "DescribeReservedNodesResponse"
     "fixture/DescribeReservedNodesResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReservedNodes)
 
 responseGetReservedNodeExchangeOfferings :: GetReservedNodeExchangeOfferingsResponse -> TestTree
@@ -1274,7 +1274,7 @@ responseGetReservedNodeExchangeOfferings =
   res
     "GetReservedNodeExchangeOfferingsResponse"
     "fixture/GetReservedNodeExchangeOfferingsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy GetReservedNodeExchangeOfferings)
 
 responseDescribeClusterParameterGroups :: DescribeClusterParameterGroupsResponse -> TestTree
@@ -1282,7 +1282,7 @@ responseDescribeClusterParameterGroups =
   res
     "DescribeClusterParameterGroupsResponse"
     "fixture/DescribeClusterParameterGroupsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeClusterParameterGroups)
 
 responseEnableLogging :: LoggingStatus -> TestTree
@@ -1290,7 +1290,7 @@ responseEnableLogging =
   res
     "EnableLoggingResponse"
     "fixture/EnableLoggingResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy EnableLogging)
 
 responseCreateClusterSubnetGroup :: CreateClusterSubnetGroupResponse -> TestTree
@@ -1298,7 +1298,7 @@ responseCreateClusterSubnetGroup =
   res
     "CreateClusterSubnetGroupResponse"
     "fixture/CreateClusterSubnetGroupResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CreateClusterSubnetGroup)
 
 responseDeleteClusterParameterGroup :: DeleteClusterParameterGroupResponse -> TestTree
@@ -1306,7 +1306,7 @@ responseDeleteClusterParameterGroup =
   res
     "DeleteClusterParameterGroupResponse"
     "fixture/DeleteClusterParameterGroupResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DeleteClusterParameterGroup)
 
 responseDescribeClusterSecurityGroups :: DescribeClusterSecurityGroupsResponse -> TestTree
@@ -1314,7 +1314,7 @@ responseDescribeClusterSecurityGroups =
   res
     "DescribeClusterSecurityGroupsResponse"
     "fixture/DescribeClusterSecurityGroupsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeClusterSecurityGroups)
 
 responseCreateTags :: CreateTagsResponse -> TestTree
@@ -1322,7 +1322,7 @@ responseCreateTags =
   res
     "CreateTagsResponse"
     "fixture/CreateTagsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CreateTags)
 
 responseEnableSnapshotCopy :: EnableSnapshotCopyResponse -> TestTree
@@ -1330,7 +1330,7 @@ responseEnableSnapshotCopy =
   res
     "EnableSnapshotCopyResponse"
     "fixture/EnableSnapshotCopyResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy EnableSnapshotCopy)
 
 responseDescribeClusterSnapshots :: DescribeClusterSnapshotsResponse -> TestTree
@@ -1338,7 +1338,7 @@ responseDescribeClusterSnapshots =
   res
     "DescribeClusterSnapshotsResponse"
     "fixture/DescribeClusterSnapshotsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeClusterSnapshots)
 
 responseBatchDeleteClusterSnapshots :: BatchDeleteClusterSnapshotsResponse -> TestTree
@@ -1346,7 +1346,7 @@ responseBatchDeleteClusterSnapshots =
   res
     "BatchDeleteClusterSnapshotsResponse"
     "fixture/BatchDeleteClusterSnapshotsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy BatchDeleteClusterSnapshots)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
@@ -1354,7 +1354,7 @@ responseDeleteTags =
   res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTags)
 
 responseModifyUsageLimit :: UsageLimit -> TestTree
@@ -1362,7 +1362,7 @@ responseModifyUsageLimit =
   res
     "ModifyUsageLimitResponse"
     "fixture/ModifyUsageLimitResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ModifyUsageLimit)
 
 responseDescribeClusterSubnetGroups :: DescribeClusterSubnetGroupsResponse -> TestTree
@@ -1370,7 +1370,7 @@ responseDescribeClusterSubnetGroups =
   res
     "DescribeClusterSubnetGroupsResponse"
     "fixture/DescribeClusterSubnetGroupsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeClusterSubnetGroups)
 
 responseResizeCluster :: ResizeClusterResponse -> TestTree
@@ -1378,7 +1378,7 @@ responseResizeCluster =
   res
     "ResizeClusterResponse"
     "fixture/ResizeClusterResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ResizeCluster)
 
 responseModifySnapshotCopyRetentionPeriod :: ModifySnapshotCopyRetentionPeriodResponse -> TestTree
@@ -1386,23 +1386,23 @@ responseModifySnapshotCopyRetentionPeriod =
   res
     "ModifySnapshotCopyRetentionPeriodResponse"
     "fixture/ModifySnapshotCopyRetentionPeriodResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ModifySnapshotCopyRetentionPeriod)
 
-responseModifyClusterIAMRoles :: ModifyClusterIAMRolesResponse -> TestTree
-responseModifyClusterIAMRoles =
+responseModifyClusterIamRoles :: ModifyClusterIamRolesResponse -> TestTree
+responseModifyClusterIamRoles =
   res
-    "ModifyClusterIAMRolesResponse"
-    "fixture/ModifyClusterIAMRolesResponse.proto"
-    redshiftService
-    (Proxy :: Proxy ModifyClusterIAMRoles)
+    "ModifyClusterIamRolesResponse"
+    "fixture/ModifyClusterIamRolesResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy ModifyClusterIamRoles)
 
 responseAuthorizeSnapshotAccess :: AuthorizeSnapshotAccessResponse -> TestTree
 responseAuthorizeSnapshotAccess =
   res
     "AuthorizeSnapshotAccessResponse"
     "fixture/AuthorizeSnapshotAccessResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy AuthorizeSnapshotAccess)
 
 responseRebootCluster :: RebootClusterResponse -> TestTree
@@ -1410,7 +1410,7 @@ responseRebootCluster =
   res
     "RebootClusterResponse"
     "fixture/RebootClusterResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy RebootCluster)
 
 responseResumeCluster :: ResumeClusterResponse -> TestTree
@@ -1418,7 +1418,7 @@ responseResumeCluster =
   res
     "ResumeClusterResponse"
     "fixture/ResumeClusterResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ResumeCluster)
 
 responseDeleteCluster :: DeleteClusterResponse -> TestTree
@@ -1426,7 +1426,7 @@ responseDeleteCluster =
   res
     "DeleteClusterResponse"
     "fixture/DeleteClusterResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCluster)
 
 responseCreateEventSubscription :: CreateEventSubscriptionResponse -> TestTree
@@ -1434,7 +1434,7 @@ responseCreateEventSubscription =
   res
     "CreateEventSubscriptionResponse"
     "fixture/CreateEventSubscriptionResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CreateEventSubscription)
 
 responseCreateScheduledAction :: ScheduledAction -> TestTree
@@ -1442,7 +1442,7 @@ responseCreateScheduledAction =
   res
     "CreateScheduledActionResponse"
     "fixture/CreateScheduledActionResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CreateScheduledAction)
 
 responseDescribeOrderableClusterOptions :: DescribeOrderableClusterOptionsResponse -> TestTree
@@ -1450,7 +1450,7 @@ responseDescribeOrderableClusterOptions =
   res
     "DescribeOrderableClusterOptionsResponse"
     "fixture/DescribeOrderableClusterOptionsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeOrderableClusterOptions)
 
 responseDescribeClusterTracks :: DescribeClusterTracksResponse -> TestTree
@@ -1458,7 +1458,7 @@ responseDescribeClusterTracks =
   res
     "DescribeClusterTracksResponse"
     "fixture/DescribeClusterTracksResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeClusterTracks)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
@@ -1466,23 +1466,23 @@ responseCreateCluster =
   res
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CreateCluster)
 
-responseCreateHSMClientCertificate :: CreateHSMClientCertificateResponse -> TestTree
-responseCreateHSMClientCertificate =
+responseCreateHsmClientCertificate :: CreateHsmClientCertificateResponse -> TestTree
+responseCreateHsmClientCertificate =
   res
-    "CreateHSMClientCertificateResponse"
-    "fixture/CreateHSMClientCertificateResponse.proto"
-    redshiftService
-    (Proxy :: Proxy CreateHSMClientCertificate)
+    "CreateHsmClientCertificateResponse"
+    "fixture/CreateHsmClientCertificateResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy CreateHsmClientCertificate)
 
 responseRestoreTableFromClusterSnapshot :: RestoreTableFromClusterSnapshotResponse -> TestTree
 responseRestoreTableFromClusterSnapshot =
   res
     "RestoreTableFromClusterSnapshotResponse"
     "fixture/RestoreTableFromClusterSnapshotResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy RestoreTableFromClusterSnapshot)
 
 responseDeleteScheduledAction :: DeleteScheduledActionResponse -> TestTree
@@ -1490,7 +1490,7 @@ responseDeleteScheduledAction =
   res
     "DeleteScheduledActionResponse"
     "fixture/DeleteScheduledActionResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DeleteScheduledAction)
 
 responseDescribeDefaultClusterParameters :: DescribeDefaultClusterParametersResponse -> TestTree
@@ -1498,7 +1498,7 @@ responseDescribeDefaultClusterParameters =
   res
     "DescribeDefaultClusterParametersResponse"
     "fixture/DescribeDefaultClusterParametersResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDefaultClusterParameters)
 
 responseDeleteEventSubscription :: DeleteEventSubscriptionResponse -> TestTree
@@ -1506,7 +1506,7 @@ responseDeleteEventSubscription =
   res
     "DeleteEventSubscriptionResponse"
     "fixture/DeleteEventSubscriptionResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEventSubscription)
 
 responseModifyClusterSnapshot :: ModifyClusterSnapshotResponse -> TestTree
@@ -1514,7 +1514,7 @@ responseModifyClusterSnapshot =
   res
     "ModifyClusterSnapshotResponse"
     "fixture/ModifyClusterSnapshotResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ModifyClusterSnapshot)
 
 responseResetClusterParameterGroup :: ClusterParameterGroupNameMessage -> TestTree
@@ -1522,7 +1522,7 @@ responseResetClusterParameterGroup =
   res
     "ResetClusterParameterGroupResponse"
     "fixture/ResetClusterParameterGroupResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ResetClusterParameterGroup)
 
 responseDescribeScheduledActions :: DescribeScheduledActionsResponse -> TestTree
@@ -1530,7 +1530,7 @@ responseDescribeScheduledActions =
   res
     "DescribeScheduledActionsResponse"
     "fixture/DescribeScheduledActionsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeScheduledActions)
 
 responseDescribeEventSubscriptions :: DescribeEventSubscriptionsResponse -> TestTree
@@ -1538,23 +1538,23 @@ responseDescribeEventSubscriptions =
   res
     "DescribeEventSubscriptionsResponse"
     "fixture/DescribeEventSubscriptionsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEventSubscriptions)
 
-responseDescribeClusterDBRevisions :: DescribeClusterDBRevisionsResponse -> TestTree
-responseDescribeClusterDBRevisions =
+responseDescribeClusterDbRevisions :: DescribeClusterDbRevisionsResponse -> TestTree
+responseDescribeClusterDbRevisions =
   res
-    "DescribeClusterDBRevisionsResponse"
-    "fixture/DescribeClusterDBRevisionsResponse.proto"
-    redshiftService
-    (Proxy :: Proxy DescribeClusterDBRevisions)
+    "DescribeClusterDbRevisionsResponse"
+    "fixture/DescribeClusterDbRevisionsResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DescribeClusterDbRevisions)
 
 responseBatchModifyClusterSnapshots :: BatchModifyClusterSnapshotsResponse -> TestTree
 responseBatchModifyClusterSnapshots =
   res
     "BatchModifyClusterSnapshotsResponse"
     "fixture/BatchModifyClusterSnapshotsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy BatchModifyClusterSnapshots)
 
 responseDeleteUsageLimit :: DeleteUsageLimitResponse -> TestTree
@@ -1562,7 +1562,7 @@ responseDeleteUsageLimit =
   res
     "DeleteUsageLimitResponse"
     "fixture/DeleteUsageLimitResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUsageLimit)
 
 responseRevokeClusterSecurityGroupIngress :: RevokeClusterSecurityGroupIngressResponse -> TestTree
@@ -1570,23 +1570,23 @@ responseRevokeClusterSecurityGroupIngress =
   res
     "RevokeClusterSecurityGroupIngressResponse"
     "fixture/RevokeClusterSecurityGroupIngressResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy RevokeClusterSecurityGroupIngress)
 
-responseDescribeHSMClientCertificates :: DescribeHSMClientCertificatesResponse -> TestTree
-responseDescribeHSMClientCertificates =
+responseDescribeHsmClientCertificates :: DescribeHsmClientCertificatesResponse -> TestTree
+responseDescribeHsmClientCertificates =
   res
-    "DescribeHSMClientCertificatesResponse"
-    "fixture/DescribeHSMClientCertificatesResponse.proto"
-    redshiftService
-    (Proxy :: Proxy DescribeHSMClientCertificates)
+    "DescribeHsmClientCertificatesResponse"
+    "fixture/DescribeHsmClientCertificatesResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DescribeHsmClientCertificates)
 
 responseModifyClusterParameterGroup :: ClusterParameterGroupNameMessage -> TestTree
 responseModifyClusterParameterGroup =
   res
     "ModifyClusterParameterGroupResponse"
     "fixture/ModifyClusterParameterGroupResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ModifyClusterParameterGroup)
 
 responseGetClusterCredentials :: GetClusterCredentialsResponse -> TestTree
@@ -1594,7 +1594,7 @@ responseGetClusterCredentials =
   res
     "GetClusterCredentialsResponse"
     "fixture/GetClusterCredentialsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy GetClusterCredentials)
 
 responseModifyClusterMaintenance :: ModifyClusterMaintenanceResponse -> TestTree
@@ -1602,7 +1602,7 @@ responseModifyClusterMaintenance =
   res
     "ModifyClusterMaintenanceResponse"
     "fixture/ModifyClusterMaintenanceResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ModifyClusterMaintenance)
 
 responseCreateClusterSecurityGroup :: CreateClusterSecurityGroupResponse -> TestTree
@@ -1610,7 +1610,7 @@ responseCreateClusterSecurityGroup =
   res
     "CreateClusterSecurityGroupResponse"
     "fixture/CreateClusterSecurityGroupResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CreateClusterSecurityGroup)
 
 responseDescribeEventCategories :: DescribeEventCategoriesResponse -> TestTree
@@ -1618,7 +1618,7 @@ responseDescribeEventCategories =
   res
     "DescribeEventCategoriesResponse"
     "fixture/DescribeEventCategoriesResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEventCategories)
 
 responseDescribeResize :: ResizeProgressMessage -> TestTree
@@ -1626,23 +1626,23 @@ responseDescribeResize =
   res
     "DescribeResizeResponse"
     "fixture/DescribeResizeResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeResize)
 
-responseDeleteHSMConfiguration :: DeleteHSMConfigurationResponse -> TestTree
-responseDeleteHSMConfiguration =
+responseDeleteHsmConfiguration :: DeleteHsmConfigurationResponse -> TestTree
+responseDeleteHsmConfiguration =
   res
-    "DeleteHSMConfigurationResponse"
-    "fixture/DeleteHSMConfigurationResponse.proto"
-    redshiftService
-    (Proxy :: Proxy DeleteHSMConfiguration)
+    "DeleteHsmConfigurationResponse"
+    "fixture/DeleteHsmConfigurationResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DeleteHsmConfiguration)
 
 responseAcceptReservedNodeExchange :: AcceptReservedNodeExchangeResponse -> TestTree
 responseAcceptReservedNodeExchange =
   res
     "AcceptReservedNodeExchangeResponse"
     "fixture/AcceptReservedNodeExchangeResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy AcceptReservedNodeExchange)
 
 responseAuthorizeClusterSecurityGroupIngress :: AuthorizeClusterSecurityGroupIngressResponse -> TestTree
@@ -1650,7 +1650,7 @@ responseAuthorizeClusterSecurityGroupIngress =
   res
     "AuthorizeClusterSecurityGroupIngressResponse"
     "fixture/AuthorizeClusterSecurityGroupIngressResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy AuthorizeClusterSecurityGroupIngress)
 
 responseDescribeTableRestoreStatus :: DescribeTableRestoreStatusResponse -> TestTree
@@ -1658,7 +1658,7 @@ responseDescribeTableRestoreStatus =
   res
     "DescribeTableRestoreStatusResponse"
     "fixture/DescribeTableRestoreStatusResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTableRestoreStatus)
 
 responseCreateClusterSnapshot :: CreateClusterSnapshotResponse -> TestTree
@@ -1666,23 +1666,23 @@ responseCreateClusterSnapshot =
   res
     "CreateClusterSnapshotResponse"
     "fixture/CreateClusterSnapshotResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CreateClusterSnapshot)
 
-responseCreateHSMConfiguration :: CreateHSMConfigurationResponse -> TestTree
-responseCreateHSMConfiguration =
+responseCreateHsmConfiguration :: CreateHsmConfigurationResponse -> TestTree
+responseCreateHsmConfiguration =
   res
-    "CreateHSMConfigurationResponse"
-    "fixture/CreateHSMConfigurationResponse.proto"
-    redshiftService
-    (Proxy :: Proxy CreateHSMConfiguration)
+    "CreateHsmConfigurationResponse"
+    "fixture/CreateHsmConfigurationResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy CreateHsmConfiguration)
 
 responseDescribeLoggingStatus :: LoggingStatus -> TestTree
 responseDescribeLoggingStatus =
   res
     "DescribeLoggingStatusResponse"
     "fixture/DescribeLoggingStatusResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLoggingStatus)
 
 responseModifyCluster :: ModifyClusterResponse -> TestTree
@@ -1690,7 +1690,7 @@ responseModifyCluster =
   res
     "ModifyClusterResponse"
     "fixture/ModifyClusterResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ModifyCluster)
 
 responseDeleteClusterSecurityGroup :: DeleteClusterSecurityGroupResponse -> TestTree
@@ -1698,7 +1698,7 @@ responseDeleteClusterSecurityGroup =
   res
     "DeleteClusterSecurityGroupResponse"
     "fixture/DeleteClusterSecurityGroupResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DeleteClusterSecurityGroup)
 
 responseCreateSnapshotSchedule :: SnapshotSchedule -> TestTree
@@ -1706,7 +1706,7 @@ responseCreateSnapshotSchedule =
   res
     "CreateSnapshotScheduleResponse"
     "fixture/CreateSnapshotScheduleResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CreateSnapshotSchedule)
 
 responseDescribeNodeConfigurationOptions :: DescribeNodeConfigurationOptionsResponse -> TestTree
@@ -1714,7 +1714,7 @@ responseDescribeNodeConfigurationOptions =
   res
     "DescribeNodeConfigurationOptionsResponse"
     "fixture/DescribeNodeConfigurationOptionsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeNodeConfigurationOptions)
 
 responseDisableSnapshotCopy :: DisableSnapshotCopyResponse -> TestTree
@@ -1722,7 +1722,7 @@ responseDisableSnapshotCopy =
   res
     "DisableSnapshotCopyResponse"
     "fixture/DisableSnapshotCopyResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DisableSnapshotCopy)
 
 responseDescribeClusterParameters :: DescribeClusterParametersResponse -> TestTree
@@ -1730,7 +1730,7 @@ responseDescribeClusterParameters =
   res
     "DescribeClusterParametersResponse"
     "fixture/DescribeClusterParametersResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeClusterParameters)
 
 responsePauseCluster :: PauseClusterResponse -> TestTree
@@ -1738,7 +1738,7 @@ responsePauseCluster =
   res
     "PauseClusterResponse"
     "fixture/PauseClusterResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy PauseCluster)
 
 responseDeleteSnapshotSchedule :: DeleteSnapshotScheduleResponse -> TestTree
@@ -1746,7 +1746,7 @@ responseDeleteSnapshotSchedule =
   res
     "DeleteSnapshotScheduleResponse"
     "fixture/DeleteSnapshotScheduleResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSnapshotSchedule)
 
 responseRestoreFromClusterSnapshot :: RestoreFromClusterSnapshotResponse -> TestTree
@@ -1754,7 +1754,7 @@ responseRestoreFromClusterSnapshot =
   res
     "RestoreFromClusterSnapshotResponse"
     "fixture/RestoreFromClusterSnapshotResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy RestoreFromClusterSnapshot)
 
 responseCreateClusterParameterGroup :: CreateClusterParameterGroupResponse -> TestTree
@@ -1762,7 +1762,7 @@ responseCreateClusterParameterGroup =
   res
     "CreateClusterParameterGroupResponse"
     "fixture/CreateClusterParameterGroupResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CreateClusterParameterGroup)
 
 responseRevokeSnapshotAccess :: RevokeSnapshotAccessResponse -> TestTree
@@ -1770,23 +1770,23 @@ responseRevokeSnapshotAccess =
   res
     "RevokeSnapshotAccessResponse"
     "fixture/RevokeSnapshotAccessResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy RevokeSnapshotAccess)
 
-responseDescribeHSMConfigurations :: DescribeHSMConfigurationsResponse -> TestTree
-responseDescribeHSMConfigurations =
+responseDescribeHsmConfigurations :: DescribeHsmConfigurationsResponse -> TestTree
+responseDescribeHsmConfigurations =
   res
-    "DescribeHSMConfigurationsResponse"
-    "fixture/DescribeHSMConfigurationsResponse.proto"
-    redshiftService
-    (Proxy :: Proxy DescribeHSMConfigurations)
+    "DescribeHsmConfigurationsResponse"
+    "fixture/DescribeHsmConfigurationsResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DescribeHsmConfigurations)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
 responseDescribeAccountAttributes =
   res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccountAttributes)
 
 responseCreateSnapshotCopyGrant :: CreateSnapshotCopyGrantResponse -> TestTree
@@ -1794,7 +1794,7 @@ responseCreateSnapshotCopyGrant =
   res
     "CreateSnapshotCopyGrantResponse"
     "fixture/CreateSnapshotCopyGrantResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CreateSnapshotCopyGrant)
 
 responseCopyClusterSnapshot :: CopyClusterSnapshotResponse -> TestTree
@@ -1802,23 +1802,23 @@ responseCopyClusterSnapshot =
   res
     "CopyClusterSnapshotResponse"
     "fixture/CopyClusterSnapshotResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy CopyClusterSnapshot)
 
-responseDeleteHSMClientCertificate :: DeleteHSMClientCertificateResponse -> TestTree
-responseDeleteHSMClientCertificate =
+responseDeleteHsmClientCertificate :: DeleteHsmClientCertificateResponse -> TestTree
+responseDeleteHsmClientCertificate =
   res
-    "DeleteHSMClientCertificateResponse"
-    "fixture/DeleteHSMClientCertificateResponse.proto"
-    redshiftService
-    (Proxy :: Proxy DeleteHSMClientCertificate)
+    "DeleteHsmClientCertificateResponse"
+    "fixture/DeleteHsmClientCertificateResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy DeleteHsmClientCertificate)
 
 responseModifyClusterSnapshotSchedule :: ModifyClusterSnapshotScheduleResponse -> TestTree
 responseModifyClusterSnapshotSchedule =
   res
     "ModifyClusterSnapshotScheduleResponse"
     "fixture/ModifyClusterSnapshotScheduleResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ModifyClusterSnapshotSchedule)
 
 responseDeleteSnapshotCopyGrant :: DeleteSnapshotCopyGrantResponse -> TestTree
@@ -1826,7 +1826,7 @@ responseDeleteSnapshotCopyGrant =
   res
     "DeleteSnapshotCopyGrantResponse"
     "fixture/DeleteSnapshotCopyGrantResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSnapshotCopyGrant)
 
 responseDescribeClusterVersions :: DescribeClusterVersionsResponse -> TestTree
@@ -1834,7 +1834,7 @@ responseDescribeClusterVersions =
   res
     "DescribeClusterVersionsResponse"
     "fixture/DescribeClusterVersionsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeClusterVersions)
 
 responseModifyClusterSubnetGroup :: ModifyClusterSubnetGroupResponse -> TestTree
@@ -1842,7 +1842,7 @@ responseModifyClusterSubnetGroup =
   res
     "ModifyClusterSubnetGroupResponse"
     "fixture/ModifyClusterSubnetGroupResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ModifyClusterSubnetGroup)
 
 responseDescribeUsageLimits :: DescribeUsageLimitsResponse -> TestTree
@@ -1850,7 +1850,7 @@ responseDescribeUsageLimits =
   res
     "DescribeUsageLimitsResponse"
     "fixture/DescribeUsageLimitsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUsageLimits)
 
 responseModifySnapshotSchedule :: SnapshotSchedule -> TestTree
@@ -1858,7 +1858,7 @@ responseModifySnapshotSchedule =
   res
     "ModifySnapshotScheduleResponse"
     "fixture/ModifySnapshotScheduleResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy ModifySnapshotSchedule)
 
 responseRotateEncryptionKey :: RotateEncryptionKeyResponse -> TestTree
@@ -1866,7 +1866,7 @@ responseRotateEncryptionKey =
   res
     "RotateEncryptionKeyResponse"
     "fixture/RotateEncryptionKeyResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy RotateEncryptionKey)
 
 responseDescribeSnapshotCopyGrants :: DescribeSnapshotCopyGrantsResponse -> TestTree
@@ -1874,5 +1874,5 @@ responseDescribeSnapshotCopyGrants =
   res
     "DescribeSnapshotCopyGrantsResponse"
     "fixture/DescribeSnapshotCopyGrantsResponse.proto"
-    redshiftService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSnapshotCopyGrants)

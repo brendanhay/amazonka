@@ -20,9 +20,9 @@ module Network.AWS.EC2.AttachInternetGateway
     mkAttachInternetGateway,
 
     -- ** Request lenses
-    aigVPCId,
-    aigDryRun,
     aigInternetGatewayId,
+    aigVpcId,
+    aigDryRun,
 
     -- * Destructuring the response
     AttachInternetGatewayResponse (..),
@@ -30,90 +30,89 @@ module Network.AWS.EC2.AttachInternetGateway
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAttachInternetGateway' smart constructor.
 data AttachInternetGateway = AttachInternetGateway'
-  { -- | The ID of the VPC.
-    vpcId :: Lude.Text,
+  { -- | The ID of the internet gateway.
+    internetGatewayId :: Types.InternetGatewayId,
+    -- | The ID of the VPC.
+    vpcId :: Types.VpcId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The ID of the internet gateway.
-    internetGatewayId :: Lude.Text
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachInternetGateway' with the minimum fields required to make a request.
---
--- * 'vpcId' - The ID of the VPC.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'internetGatewayId' - The ID of the internet gateway.
+-- | Creates a 'AttachInternetGateway' value with any optional fields omitted.
 mkAttachInternetGateway ::
-  -- | 'vpcId'
-  Lude.Text ->
   -- | 'internetGatewayId'
-  Lude.Text ->
+  Types.InternetGatewayId ->
+  -- | 'vpcId'
+  Types.VpcId ->
   AttachInternetGateway
-mkAttachInternetGateway pVPCId_ pInternetGatewayId_ =
+mkAttachInternetGateway internetGatewayId vpcId =
   AttachInternetGateway'
-    { vpcId = pVPCId_,
-      dryRun = Lude.Nothing,
-      internetGatewayId = pInternetGatewayId_
+    { internetGatewayId,
+      vpcId,
+      dryRun = Core.Nothing
     }
-
--- | The ID of the VPC.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aigVPCId :: Lens.Lens' AttachInternetGateway Lude.Text
-aigVPCId = Lens.lens (vpcId :: AttachInternetGateway -> Lude.Text) (\s a -> s {vpcId = a} :: AttachInternetGateway)
-{-# DEPRECATED aigVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aigDryRun :: Lens.Lens' AttachInternetGateway (Lude.Maybe Lude.Bool)
-aigDryRun = Lens.lens (dryRun :: AttachInternetGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AttachInternetGateway)
-{-# DEPRECATED aigDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the internet gateway.
 --
 -- /Note:/ Consider using 'internetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aigInternetGatewayId :: Lens.Lens' AttachInternetGateway Lude.Text
-aigInternetGatewayId = Lens.lens (internetGatewayId :: AttachInternetGateway -> Lude.Text) (\s a -> s {internetGatewayId = a} :: AttachInternetGateway)
+aigInternetGatewayId :: Lens.Lens' AttachInternetGateway Types.InternetGatewayId
+aigInternetGatewayId = Lens.field @"internetGatewayId"
 {-# DEPRECATED aigInternetGatewayId "Use generic-lens or generic-optics with 'internetGatewayId' instead." #-}
 
-instance Lude.AWSRequest AttachInternetGateway where
+-- | The ID of the VPC.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aigVpcId :: Lens.Lens' AttachInternetGateway Types.VpcId
+aigVpcId = Lens.field @"vpcId"
+{-# DEPRECATED aigVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aigDryRun :: Lens.Lens' AttachInternetGateway (Core.Maybe Core.Bool)
+aigDryRun = Lens.field @"dryRun"
+{-# DEPRECATED aigDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+instance Core.AWSRequest AttachInternetGateway where
   type Rs AttachInternetGateway = AttachInternetGatewayResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull AttachInternetGatewayResponse'
-
-instance Lude.ToHeaders AttachInternetGateway where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AttachInternetGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AttachInternetGateway where
-  toQuery AttachInternetGateway' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AttachInternetGateway" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "VpcId" Lude.=: vpcId,
-        "DryRun" Lude.=: dryRun,
-        "InternetGatewayId" Lude.=: internetGatewayId
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AttachInternetGateway")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InternetGatewayId" internetGatewayId)
+                Core.<> (Core.toQueryValue "VpcId" vpcId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull AttachInternetGatewayResponse'
 
 -- | /See:/ 'mkAttachInternetGatewayResponse' smart constructor.
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachInternetGatewayResponse' with the minimum fields required to make a request.
+-- | Creates a 'AttachInternetGatewayResponse' value with any optional fields omitted.
 mkAttachInternetGatewayResponse ::
   AttachInternetGatewayResponse
 mkAttachInternetGatewayResponse = AttachInternetGatewayResponse'

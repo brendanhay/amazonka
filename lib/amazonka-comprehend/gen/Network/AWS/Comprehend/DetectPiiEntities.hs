@@ -20,133 +20,119 @@ module Network.AWS.Comprehend.DetectPiiEntities
     mkDetectPiiEntities,
 
     -- ** Request lenses
-    dpeLanguageCode,
     dpeText,
+    dpeLanguageCode,
 
     -- * Destructuring the response
     DetectPiiEntitiesResponse (..),
     mkDetectPiiEntitiesResponse,
 
     -- ** Response lenses
-    dpersEntities,
-    dpersResponseStatus,
+    dperrsEntities,
+    dperrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetectPiiEntities' smart constructor.
 data DetectPiiEntities = DetectPiiEntities'
-  { -- | The language of the input documents.
-    languageCode :: LanguageCode,
-    -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-    text :: Lude.Text
+  { -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+    text :: Types.String,
+    -- | The language of the input documents.
+    languageCode :: Types.LanguageCode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectPiiEntities' with the minimum fields required to make a request.
---
--- * 'languageCode' - The language of the input documents.
--- * 'text' - A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+-- | Creates a 'DetectPiiEntities' value with any optional fields omitted.
 mkDetectPiiEntities ::
-  -- | 'languageCode'
-  LanguageCode ->
   -- | 'text'
-  Lude.Text ->
+  Types.String ->
+  -- | 'languageCode'
+  Types.LanguageCode ->
   DetectPiiEntities
-mkDetectPiiEntities pLanguageCode_ pText_ =
-  DetectPiiEntities' {languageCode = pLanguageCode_, text = pText_}
-
--- | The language of the input documents.
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpeLanguageCode :: Lens.Lens' DetectPiiEntities LanguageCode
-dpeLanguageCode = Lens.lens (languageCode :: DetectPiiEntities -> LanguageCode) (\s a -> s {languageCode = a} :: DetectPiiEntities)
-{-# DEPRECATED dpeLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+mkDetectPiiEntities text languageCode =
+  DetectPiiEntities' {text, languageCode}
 
 -- | A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.
 --
 -- /Note:/ Consider using 'text' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpeText :: Lens.Lens' DetectPiiEntities Lude.Text
-dpeText = Lens.lens (text :: DetectPiiEntities -> Lude.Text) (\s a -> s {text = a} :: DetectPiiEntities)
+dpeText :: Lens.Lens' DetectPiiEntities Types.String
+dpeText = Lens.field @"text"
 {-# DEPRECATED dpeText "Use generic-lens or generic-optics with 'text' instead." #-}
 
-instance Lude.AWSRequest DetectPiiEntities where
+-- | The language of the input documents.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpeLanguageCode :: Lens.Lens' DetectPiiEntities Types.LanguageCode
+dpeLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED dpeLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+instance Core.FromJSON DetectPiiEntities where
+  toJSON DetectPiiEntities {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Text" Core..= text),
+            Core.Just ("LanguageCode" Core..= languageCode)
+          ]
+      )
+
+instance Core.AWSRequest DetectPiiEntities where
   type Rs DetectPiiEntities = DetectPiiEntitiesResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Comprehend_20171127.DetectPiiEntities")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DetectPiiEntitiesResponse'
-            Lude.<$> (x Lude..?> "Entities" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Entities") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetectPiiEntities where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Comprehend_20171127.DetectPiiEntities" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DetectPiiEntities where
-  toJSON DetectPiiEntities' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("LanguageCode" Lude..= languageCode),
-            Lude.Just ("Text" Lude..= text)
-          ]
-      )
-
-instance Lude.ToPath DetectPiiEntities where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetectPiiEntities where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDetectPiiEntitiesResponse' smart constructor.
 data DetectPiiEntitiesResponse = DetectPiiEntitiesResponse'
   { -- | A collection of PII entities identified in the input text. For each entity, the response provides the entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection.
-    entities :: Lude.Maybe [PiiEntity],
+    entities :: Core.Maybe [Types.PiiEntity],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectPiiEntitiesResponse' with the minimum fields required to make a request.
---
--- * 'entities' - A collection of PII entities identified in the input text. For each entity, the response provides the entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetectPiiEntitiesResponse' value with any optional fields omitted.
 mkDetectPiiEntitiesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetectPiiEntitiesResponse
-mkDetectPiiEntitiesResponse pResponseStatus_ =
+mkDetectPiiEntitiesResponse responseStatus =
   DetectPiiEntitiesResponse'
-    { entities = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { entities = Core.Nothing,
+      responseStatus
     }
 
 -- | A collection of PII entities identified in the input text. For each entity, the response provides the entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection.
 --
 -- /Note:/ Consider using 'entities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpersEntities :: Lens.Lens' DetectPiiEntitiesResponse (Lude.Maybe [PiiEntity])
-dpersEntities = Lens.lens (entities :: DetectPiiEntitiesResponse -> Lude.Maybe [PiiEntity]) (\s a -> s {entities = a} :: DetectPiiEntitiesResponse)
-{-# DEPRECATED dpersEntities "Use generic-lens or generic-optics with 'entities' instead." #-}
+dperrsEntities :: Lens.Lens' DetectPiiEntitiesResponse (Core.Maybe [Types.PiiEntity])
+dperrsEntities = Lens.field @"entities"
+{-# DEPRECATED dperrsEntities "Use generic-lens or generic-optics with 'entities' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpersResponseStatus :: Lens.Lens' DetectPiiEntitiesResponse Lude.Int
-dpersResponseStatus = Lens.lens (responseStatus :: DetectPiiEntitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectPiiEntitiesResponse)
-{-# DEPRECATED dpersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dperrsResponseStatus :: Lens.Lens' DetectPiiEntitiesResponse Core.Int
+dperrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dperrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

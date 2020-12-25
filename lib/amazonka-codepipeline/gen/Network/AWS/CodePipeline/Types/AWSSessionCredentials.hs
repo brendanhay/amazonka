@@ -17,80 +17,74 @@ module Network.AWS.CodePipeline.Types.AWSSessionCredentials
     mkAWSSessionCredentials,
 
     -- * Lenses
-    ascSecretAccessKey,
-    ascSessionToken,
-    ascAccessKeyId,
+    awsscAccessKeyId,
+    awsscSecretAccessKey,
+    awsscSessionToken,
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.AccessKeyId as Types
+import qualified Network.AWS.CodePipeline.Types.SecretAccessKey as Types
+import qualified Network.AWS.CodePipeline.Types.SessionToken as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an AWS session credentials object. These credentials are temporary credentials that are issued by AWS Secure Token Service (STS). They can be used to access input and output artifacts in the S3 bucket used to store artifact for the pipeline in AWS CodePipeline.
 --
 -- /See:/ 'mkAWSSessionCredentials' smart constructor.
 data AWSSessionCredentials = AWSSessionCredentials'
-  { -- | The secret access key for the session.
-    secretAccessKey :: Lude.Text,
+  { -- | The access key for the session.
+    accessKeyId :: Types.AccessKeyId,
+    -- | The secret access key for the session.
+    secretAccessKey :: Types.SecretAccessKey,
     -- | The token for the session.
-    sessionToken :: Lude.Text,
-    -- | The access key for the session.
-    accessKeyId :: Lude.Text
+    sessionToken :: Types.SessionToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AWSSessionCredentials' with the minimum fields required to make a request.
---
--- * 'secretAccessKey' - The secret access key for the session.
--- * 'sessionToken' - The token for the session.
--- * 'accessKeyId' - The access key for the session.
+-- | Creates a 'AWSSessionCredentials' value with any optional fields omitted.
 mkAWSSessionCredentials ::
-  -- | 'secretAccessKey'
-  Lude.Text ->
-  -- | 'sessionToken'
-  Lude.Text ->
   -- | 'accessKeyId'
-  Lude.Text ->
+  Types.AccessKeyId ->
+  -- | 'secretAccessKey'
+  Types.SecretAccessKey ->
+  -- | 'sessionToken'
+  Types.SessionToken ->
   AWSSessionCredentials
-mkAWSSessionCredentials
-  pSecretAccessKey_
-  pSessionToken_
-  pAccessKeyId_ =
-    AWSSessionCredentials'
-      { secretAccessKey = pSecretAccessKey_,
-        sessionToken = pSessionToken_,
-        accessKeyId = pAccessKeyId_
-      }
-
--- | The secret access key for the session.
---
--- /Note:/ Consider using 'secretAccessKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ascSecretAccessKey :: Lens.Lens' AWSSessionCredentials Lude.Text
-ascSecretAccessKey = Lens.lens (secretAccessKey :: AWSSessionCredentials -> Lude.Text) (\s a -> s {secretAccessKey = a} :: AWSSessionCredentials)
-{-# DEPRECATED ascSecretAccessKey "Use generic-lens or generic-optics with 'secretAccessKey' instead." #-}
-
--- | The token for the session.
---
--- /Note:/ Consider using 'sessionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ascSessionToken :: Lens.Lens' AWSSessionCredentials Lude.Text
-ascSessionToken = Lens.lens (sessionToken :: AWSSessionCredentials -> Lude.Text) (\s a -> s {sessionToken = a} :: AWSSessionCredentials)
-{-# DEPRECATED ascSessionToken "Use generic-lens or generic-optics with 'sessionToken' instead." #-}
+mkAWSSessionCredentials accessKeyId secretAccessKey sessionToken =
+  AWSSessionCredentials'
+    { accessKeyId,
+      secretAccessKey,
+      sessionToken
+    }
 
 -- | The access key for the session.
 --
 -- /Note:/ Consider using 'accessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ascAccessKeyId :: Lens.Lens' AWSSessionCredentials Lude.Text
-ascAccessKeyId = Lens.lens (accessKeyId :: AWSSessionCredentials -> Lude.Text) (\s a -> s {accessKeyId = a} :: AWSSessionCredentials)
-{-# DEPRECATED ascAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
+awsscAccessKeyId :: Lens.Lens' AWSSessionCredentials Types.AccessKeyId
+awsscAccessKeyId = Lens.field @"accessKeyId"
+{-# DEPRECATED awsscAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
 
-instance Lude.FromJSON AWSSessionCredentials where
+-- | The secret access key for the session.
+--
+-- /Note:/ Consider using 'secretAccessKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+awsscSecretAccessKey :: Lens.Lens' AWSSessionCredentials Types.SecretAccessKey
+awsscSecretAccessKey = Lens.field @"secretAccessKey"
+{-# DEPRECATED awsscSecretAccessKey "Use generic-lens or generic-optics with 'secretAccessKey' instead." #-}
+
+-- | The token for the session.
+--
+-- /Note:/ Consider using 'sessionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+awsscSessionToken :: Lens.Lens' AWSSessionCredentials Types.SessionToken
+awsscSessionToken = Lens.field @"sessionToken"
+{-# DEPRECATED awsscSessionToken "Use generic-lens or generic-optics with 'sessionToken' instead." #-}
+
+instance Core.FromJSON AWSSessionCredentials where
   parseJSON =
-    Lude.withObject
-      "AWSSessionCredentials"
-      ( \x ->
-          AWSSessionCredentials'
-            Lude.<$> (x Lude..: "secretAccessKey")
-            Lude.<*> (x Lude..: "sessionToken")
-            Lude.<*> (x Lude..: "accessKeyId")
-      )
+    Core.withObject "AWSSessionCredentials" Core.$
+      \x ->
+        AWSSessionCredentials'
+          Core.<$> (x Core..: "accessKeyId")
+          Core.<*> (x Core..: "secretAccessKey")
+          Core.<*> (x Core..: "sessionToken")

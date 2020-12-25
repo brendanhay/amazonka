@@ -13,46 +13,51 @@
 module Network.AWS.ElastiCache.Types.AuthenticationType
   ( AuthenticationType
       ( AuthenticationType',
-        Password,
-        NoPassword
+        AuthenticationTypePassword,
+        AuthenticationTypeNoPassword,
+        fromAuthenticationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuthenticationType = AuthenticationType' Lude.Text
+newtype AuthenticationType = AuthenticationType'
+  { fromAuthenticationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Password :: AuthenticationType
-pattern Password = AuthenticationType' "password"
+pattern AuthenticationTypePassword :: AuthenticationType
+pattern AuthenticationTypePassword = AuthenticationType' "password"
 
-pattern NoPassword :: AuthenticationType
-pattern NoPassword = AuthenticationType' "no-password"
+pattern AuthenticationTypeNoPassword :: AuthenticationType
+pattern AuthenticationTypeNoPassword = AuthenticationType' "no-password"
 
 {-# COMPLETE
-  Password,
-  NoPassword,
+  AuthenticationTypePassword,
+  AuthenticationTypeNoPassword,
   AuthenticationType'
   #-}

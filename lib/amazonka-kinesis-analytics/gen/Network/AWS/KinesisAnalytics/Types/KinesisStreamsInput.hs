@@ -22,56 +22,52 @@ module Network.AWS.KinesisAnalytics.Types.KinesisStreamsInput
   )
 where
 
+import qualified Network.AWS.KinesisAnalytics.Types.ResourceARN as Types
+import qualified Network.AWS.KinesisAnalytics.Types.RoleARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies an Amazon Kinesis stream as the streaming source. You provide the stream's Amazon Resource Name (ARN) and an IAM role ARN that enables Amazon Kinesis Analytics to access the stream on your behalf.
 --
 -- /See:/ 'mkKinesisStreamsInput' smart constructor.
 data KinesisStreamsInput = KinesisStreamsInput'
   { -- | ARN of the input Amazon Kinesis stream to read.
-    resourceARN :: Lude.Text,
+    resourceARN :: Types.ResourceARN,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
-    roleARN :: Lude.Text
+    roleARN :: Types.RoleARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KinesisStreamsInput' with the minimum fields required to make a request.
---
--- * 'resourceARN' - ARN of the input Amazon Kinesis stream to read.
--- * 'roleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
+-- | Creates a 'KinesisStreamsInput' value with any optional fields omitted.
 mkKinesisStreamsInput ::
   -- | 'resourceARN'
-  Lude.Text ->
+  Types.ResourceARN ->
   -- | 'roleARN'
-  Lude.Text ->
+  Types.RoleARN ->
   KinesisStreamsInput
-mkKinesisStreamsInput pResourceARN_ pRoleARN_ =
-  KinesisStreamsInput'
-    { resourceARN = pResourceARN_,
-      roleARN = pRoleARN_
-    }
+mkKinesisStreamsInput resourceARN roleARN =
+  KinesisStreamsInput' {resourceARN, roleARN}
 
 -- | ARN of the input Amazon Kinesis stream to read.
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ksiResourceARN :: Lens.Lens' KinesisStreamsInput Lude.Text
-ksiResourceARN = Lens.lens (resourceARN :: KinesisStreamsInput -> Lude.Text) (\s a -> s {resourceARN = a} :: KinesisStreamsInput)
+ksiResourceARN :: Lens.Lens' KinesisStreamsInput Types.ResourceARN
+ksiResourceARN = Lens.field @"resourceARN"
 {-# DEPRECATED ksiResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ksiRoleARN :: Lens.Lens' KinesisStreamsInput Lude.Text
-ksiRoleARN = Lens.lens (roleARN :: KinesisStreamsInput -> Lude.Text) (\s a -> s {roleARN = a} :: KinesisStreamsInput)
+ksiRoleARN :: Lens.Lens' KinesisStreamsInput Types.RoleARN
+ksiRoleARN = Lens.field @"roleARN"
 {-# DEPRECATED ksiRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Lude.ToJSON KinesisStreamsInput where
-  toJSON KinesisStreamsInput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceARN" Lude..= resourceARN),
-            Lude.Just ("RoleARN" Lude..= roleARN)
+instance Core.FromJSON KinesisStreamsInput where
+  toJSON KinesisStreamsInput {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceARN" Core..= resourceARN),
+            Core.Just ("RoleARN" Core..= roleARN)
           ]
       )

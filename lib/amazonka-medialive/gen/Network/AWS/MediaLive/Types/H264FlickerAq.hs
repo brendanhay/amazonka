@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.H264FlickerAq
   ( H264FlickerAq
       ( H264FlickerAq',
-        Disabled,
-        Enabled
+        H264FlickerAqDisabled,
+        H264FlickerAqEnabled,
+        fromH264FlickerAq
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H264 Flicker Aq
-newtype H264FlickerAq = H264FlickerAq' Lude.Text
+newtype H264FlickerAq = H264FlickerAq'
+  { fromH264FlickerAq ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Disabled :: H264FlickerAq
-pattern Disabled = H264FlickerAq' "DISABLED"
+pattern H264FlickerAqDisabled :: H264FlickerAq
+pattern H264FlickerAqDisabled = H264FlickerAq' "DISABLED"
 
-pattern Enabled :: H264FlickerAq
-pattern Enabled = H264FlickerAq' "ENABLED"
+pattern H264FlickerAqEnabled :: H264FlickerAq
+pattern H264FlickerAqEnabled = H264FlickerAq' "ENABLED"
 
 {-# COMPLETE
-  Disabled,
-  Enabled,
+  H264FlickerAqDisabled,
+  H264FlickerAqEnabled,
   H264FlickerAq'
   #-}

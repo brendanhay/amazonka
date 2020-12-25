@@ -22,45 +22,39 @@ module Network.AWS.CostExplorer.Types.CostCategoryRule
   )
 where
 
-import Network.AWS.CostExplorer.Types.Expression
+import qualified Network.AWS.CostExplorer.Types.Expression as Types
+import qualified Network.AWS.CostExplorer.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Rules are processed in order. If there are multiple rules that match the line item, then the first rule to match is used to determine that Cost Category value.
 --
 -- /See:/ 'mkCostCategoryRule' smart constructor.
 data CostCategoryRule = CostCategoryRule'
-  { value :: Lude.Text,
+  { value :: Types.Value,
     -- | An <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object used to categorize costs. This supports dimensions, tags, and nested expressions. Currently the only dimensions supported are @LINKED_ACCOUNT@ , @SERVICE_CODE@ , @RECORD_TYPE@ , and @LINKED_ACCOUNT_NAME@ .
     --
     -- Root level @OR@ is not supported. We recommend that you create a separate rule instead.
     -- @RECORD_TYPE@ is a dimension used for Cost Explorer APIs, and is also supported for Cost Category expressions. This dimension uses different terms, depending on whether you're using the console or API/JSON editor. For a detailed comparison, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html#cost-categories-terms Term Comparisons> in the /AWS Billing and Cost Management User Guide/ .
-    rule :: Expression
+    rule :: Types.Expression
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CostCategoryRule' with the minimum fields required to make a request.
---
--- * 'value' -
--- * 'rule' - An <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object used to categorize costs. This supports dimensions, tags, and nested expressions. Currently the only dimensions supported are @LINKED_ACCOUNT@ , @SERVICE_CODE@ , @RECORD_TYPE@ , and @LINKED_ACCOUNT_NAME@ .
---
--- Root level @OR@ is not supported. We recommend that you create a separate rule instead.
--- @RECORD_TYPE@ is a dimension used for Cost Explorer APIs, and is also supported for Cost Category expressions. This dimension uses different terms, depending on whether you're using the console or API/JSON editor. For a detailed comparison, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html#cost-categories-terms Term Comparisons> in the /AWS Billing and Cost Management User Guide/ .
+-- | Creates a 'CostCategoryRule' value with any optional fields omitted.
 mkCostCategoryRule ::
   -- | 'value'
-  Lude.Text ->
+  Types.Value ->
   -- | 'rule'
-  Expression ->
+  Types.Expression ->
   CostCategoryRule
-mkCostCategoryRule pValue_ pRule_ =
-  CostCategoryRule' {value = pValue_, rule = pRule_}
+mkCostCategoryRule value rule = CostCategoryRule' {value, rule}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrValue :: Lens.Lens' CostCategoryRule Lude.Text
-ccrValue = Lens.lens (value :: CostCategoryRule -> Lude.Text) (\s a -> s {value = a} :: CostCategoryRule)
+ccrValue :: Lens.Lens' CostCategoryRule Types.Value
+ccrValue = Lens.field @"value"
 {-# DEPRECATED ccrValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | An <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object used to categorize costs. This supports dimensions, tags, and nested expressions. Currently the only dimensions supported are @LINKED_ACCOUNT@ , @SERVICE_CODE@ , @RECORD_TYPE@ , and @LINKED_ACCOUNT_NAME@ .
@@ -69,24 +63,22 @@ ccrValue = Lens.lens (value :: CostCategoryRule -> Lude.Text) (\s a -> s {value 
 -- @RECORD_TYPE@ is a dimension used for Cost Explorer APIs, and is also supported for Cost Category expressions. This dimension uses different terms, depending on whether you're using the console or API/JSON editor. For a detailed comparison, see <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/manage-cost-categories.html#cost-categories-terms Term Comparisons> in the /AWS Billing and Cost Management User Guide/ .
 --
 -- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrRule :: Lens.Lens' CostCategoryRule Expression
-ccrRule = Lens.lens (rule :: CostCategoryRule -> Expression) (\s a -> s {rule = a} :: CostCategoryRule)
+ccrRule :: Lens.Lens' CostCategoryRule Types.Expression
+ccrRule = Lens.field @"rule"
 {-# DEPRECATED ccrRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
-instance Lude.FromJSON CostCategoryRule where
-  parseJSON =
-    Lude.withObject
-      "CostCategoryRule"
-      ( \x ->
-          CostCategoryRule'
-            Lude.<$> (x Lude..: "Value") Lude.<*> (x Lude..: "Rule")
-      )
-
-instance Lude.ToJSON CostCategoryRule where
-  toJSON CostCategoryRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Value" Lude..= value),
-            Lude.Just ("Rule" Lude..= rule)
+instance Core.FromJSON CostCategoryRule where
+  toJSON CostCategoryRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Value" Core..= value),
+            Core.Just ("Rule" Core..= rule)
           ]
       )
+
+instance Core.FromJSON CostCategoryRule where
+  parseJSON =
+    Core.withObject "CostCategoryRule" Core.$
+      \x ->
+        CostCategoryRule'
+          Core.<$> (x Core..: "Value") Core.<*> (x Core..: "Rule")

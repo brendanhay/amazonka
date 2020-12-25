@@ -17,80 +17,79 @@ module Network.AWS.SageMaker.Types.UserSettings
     mkUserSettings,
 
     -- * Lenses
-    usTensorBoardAppSettings,
+    usExecutionRole,
+    usJupyterServerAppSettings,
     usKernelGatewayAppSettings,
     usSecurityGroups,
-    usJupyterServerAppSettings,
     usSharingSettings,
-    usExecutionRole,
+    usTensorBoardAppSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.JupyterServerAppSettings
-import Network.AWS.SageMaker.Types.KernelGatewayAppSettings
-import Network.AWS.SageMaker.Types.SharingSettings
-import Network.AWS.SageMaker.Types.TensorBoardAppSettings
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ExecutionRole as Types
+import qualified Network.AWS.SageMaker.Types.JupyterServerAppSettings as Types
+import qualified Network.AWS.SageMaker.Types.KernelGatewayAppSettings as Types
+import qualified Network.AWS.SageMaker.Types.SecurityGroupId as Types
+import qualified Network.AWS.SageMaker.Types.SharingSettings as Types
+import qualified Network.AWS.SageMaker.Types.TensorBoardAppSettings as Types
 
 -- | A collection of settings.
 --
 -- /See:/ 'mkUserSettings' smart constructor.
 data UserSettings = UserSettings'
-  { -- | The TensorBoard app settings.
-    tensorBoardAppSettings :: Lude.Maybe TensorBoardAppSettings,
+  { -- | The execution role for the user.
+    executionRole :: Core.Maybe Types.ExecutionRole,
+    -- | The Jupyter server's app settings.
+    jupyterServerAppSettings :: Core.Maybe Types.JupyterServerAppSettings,
     -- | The kernel gateway app settings.
-    kernelGatewayAppSettings :: Lude.Maybe KernelGatewayAppSettings,
+    kernelGatewayAppSettings :: Core.Maybe Types.KernelGatewayAppSettings,
     -- | The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
     --
     -- Optional when the @CreateDomain.AppNetworkAccessType@ parameter is set to @PublicInternetOnly@ .
     -- Required when the @CreateDomain.AppNetworkAccessType@ parameter is set to @VpcOnly@ .
-    securityGroups :: Lude.Maybe [Lude.Text],
-    -- | The Jupyter server's app settings.
-    jupyterServerAppSettings :: Lude.Maybe JupyterServerAppSettings,
+    securityGroups :: Core.Maybe [Types.SecurityGroupId],
     -- | The sharing settings.
-    sharingSettings :: Lude.Maybe SharingSettings,
-    -- | The execution role for the user.
-    executionRole :: Lude.Maybe Lude.Text
+    sharingSettings :: Core.Maybe Types.SharingSettings,
+    -- | The TensorBoard app settings.
+    tensorBoardAppSettings :: Core.Maybe Types.TensorBoardAppSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserSettings' with the minimum fields required to make a request.
---
--- * 'tensorBoardAppSettings' - The TensorBoard app settings.
--- * 'kernelGatewayAppSettings' - The kernel gateway app settings.
--- * 'securityGroups' - The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
---
--- Optional when the @CreateDomain.AppNetworkAccessType@ parameter is set to @PublicInternetOnly@ .
--- Required when the @CreateDomain.AppNetworkAccessType@ parameter is set to @VpcOnly@ .
--- * 'jupyterServerAppSettings' - The Jupyter server's app settings.
--- * 'sharingSettings' - The sharing settings.
--- * 'executionRole' - The execution role for the user.
+-- | Creates a 'UserSettings' value with any optional fields omitted.
 mkUserSettings ::
   UserSettings
 mkUserSettings =
   UserSettings'
-    { tensorBoardAppSettings = Lude.Nothing,
-      kernelGatewayAppSettings = Lude.Nothing,
-      securityGroups = Lude.Nothing,
-      jupyterServerAppSettings = Lude.Nothing,
-      sharingSettings = Lude.Nothing,
-      executionRole = Lude.Nothing
+    { executionRole = Core.Nothing,
+      jupyterServerAppSettings = Core.Nothing,
+      kernelGatewayAppSettings = Core.Nothing,
+      securityGroups = Core.Nothing,
+      sharingSettings = Core.Nothing,
+      tensorBoardAppSettings = Core.Nothing
     }
 
--- | The TensorBoard app settings.
+-- | The execution role for the user.
 --
--- /Note:/ Consider using 'tensorBoardAppSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usTensorBoardAppSettings :: Lens.Lens' UserSettings (Lude.Maybe TensorBoardAppSettings)
-usTensorBoardAppSettings = Lens.lens (tensorBoardAppSettings :: UserSettings -> Lude.Maybe TensorBoardAppSettings) (\s a -> s {tensorBoardAppSettings = a} :: UserSettings)
-{-# DEPRECATED usTensorBoardAppSettings "Use generic-lens or generic-optics with 'tensorBoardAppSettings' instead." #-}
+-- /Note:/ Consider using 'executionRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usExecutionRole :: Lens.Lens' UserSettings (Core.Maybe Types.ExecutionRole)
+usExecutionRole = Lens.field @"executionRole"
+{-# DEPRECATED usExecutionRole "Use generic-lens or generic-optics with 'executionRole' instead." #-}
+
+-- | The Jupyter server's app settings.
+--
+-- /Note:/ Consider using 'jupyterServerAppSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usJupyterServerAppSettings :: Lens.Lens' UserSettings (Core.Maybe Types.JupyterServerAppSettings)
+usJupyterServerAppSettings = Lens.field @"jupyterServerAppSettings"
+{-# DEPRECATED usJupyterServerAppSettings "Use generic-lens or generic-optics with 'jupyterServerAppSettings' instead." #-}
 
 -- | The kernel gateway app settings.
 --
 -- /Note:/ Consider using 'kernelGatewayAppSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usKernelGatewayAppSettings :: Lens.Lens' UserSettings (Lude.Maybe KernelGatewayAppSettings)
-usKernelGatewayAppSettings = Lens.lens (kernelGatewayAppSettings :: UserSettings -> Lude.Maybe KernelGatewayAppSettings) (\s a -> s {kernelGatewayAppSettings = a} :: UserSettings)
+usKernelGatewayAppSettings :: Lens.Lens' UserSettings (Core.Maybe Types.KernelGatewayAppSettings)
+usKernelGatewayAppSettings = Lens.field @"kernelGatewayAppSettings"
 {-# DEPRECATED usKernelGatewayAppSettings "Use generic-lens or generic-optics with 'kernelGatewayAppSettings' instead." #-}
 
 -- | The security groups for the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
@@ -99,57 +98,48 @@ usKernelGatewayAppSettings = Lens.lens (kernelGatewayAppSettings :: UserSettings
 -- Required when the @CreateDomain.AppNetworkAccessType@ parameter is set to @VpcOnly@ .
 --
 -- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usSecurityGroups :: Lens.Lens' UserSettings (Lude.Maybe [Lude.Text])
-usSecurityGroups = Lens.lens (securityGroups :: UserSettings -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: UserSettings)
+usSecurityGroups :: Lens.Lens' UserSettings (Core.Maybe [Types.SecurityGroupId])
+usSecurityGroups = Lens.field @"securityGroups"
 {-# DEPRECATED usSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
-
--- | The Jupyter server's app settings.
---
--- /Note:/ Consider using 'jupyterServerAppSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usJupyterServerAppSettings :: Lens.Lens' UserSettings (Lude.Maybe JupyterServerAppSettings)
-usJupyterServerAppSettings = Lens.lens (jupyterServerAppSettings :: UserSettings -> Lude.Maybe JupyterServerAppSettings) (\s a -> s {jupyterServerAppSettings = a} :: UserSettings)
-{-# DEPRECATED usJupyterServerAppSettings "Use generic-lens or generic-optics with 'jupyterServerAppSettings' instead." #-}
 
 -- | The sharing settings.
 --
 -- /Note:/ Consider using 'sharingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usSharingSettings :: Lens.Lens' UserSettings (Lude.Maybe SharingSettings)
-usSharingSettings = Lens.lens (sharingSettings :: UserSettings -> Lude.Maybe SharingSettings) (\s a -> s {sharingSettings = a} :: UserSettings)
+usSharingSettings :: Lens.Lens' UserSettings (Core.Maybe Types.SharingSettings)
+usSharingSettings = Lens.field @"sharingSettings"
 {-# DEPRECATED usSharingSettings "Use generic-lens or generic-optics with 'sharingSettings' instead." #-}
 
--- | The execution role for the user.
+-- | The TensorBoard app settings.
 --
--- /Note:/ Consider using 'executionRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usExecutionRole :: Lens.Lens' UserSettings (Lude.Maybe Lude.Text)
-usExecutionRole = Lens.lens (executionRole :: UserSettings -> Lude.Maybe Lude.Text) (\s a -> s {executionRole = a} :: UserSettings)
-{-# DEPRECATED usExecutionRole "Use generic-lens or generic-optics with 'executionRole' instead." #-}
+-- /Note:/ Consider using 'tensorBoardAppSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usTensorBoardAppSettings :: Lens.Lens' UserSettings (Core.Maybe Types.TensorBoardAppSettings)
+usTensorBoardAppSettings = Lens.field @"tensorBoardAppSettings"
+{-# DEPRECATED usTensorBoardAppSettings "Use generic-lens or generic-optics with 'tensorBoardAppSettings' instead." #-}
 
-instance Lude.FromJSON UserSettings where
-  parseJSON =
-    Lude.withObject
-      "UserSettings"
-      ( \x ->
-          UserSettings'
-            Lude.<$> (x Lude..:? "TensorBoardAppSettings")
-            Lude.<*> (x Lude..:? "KernelGatewayAppSettings")
-            Lude.<*> (x Lude..:? "SecurityGroups" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "JupyterServerAppSettings")
-            Lude.<*> (x Lude..:? "SharingSettings")
-            Lude.<*> (x Lude..:? "ExecutionRole")
-      )
-
-instance Lude.ToJSON UserSettings where
-  toJSON UserSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TensorBoardAppSettings" Lude..=)
-              Lude.<$> tensorBoardAppSettings,
-            ("KernelGatewayAppSettings" Lude..=)
-              Lude.<$> kernelGatewayAppSettings,
-            ("SecurityGroups" Lude..=) Lude.<$> securityGroups,
-            ("JupyterServerAppSettings" Lude..=)
-              Lude.<$> jupyterServerAppSettings,
-            ("SharingSettings" Lude..=) Lude.<$> sharingSettings,
-            ("ExecutionRole" Lude..=) Lude.<$> executionRole
+instance Core.FromJSON UserSettings where
+  toJSON UserSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ExecutionRole" Core..=) Core.<$> executionRole,
+            ("JupyterServerAppSettings" Core..=)
+              Core.<$> jupyterServerAppSettings,
+            ("KernelGatewayAppSettings" Core..=)
+              Core.<$> kernelGatewayAppSettings,
+            ("SecurityGroups" Core..=) Core.<$> securityGroups,
+            ("SharingSettings" Core..=) Core.<$> sharingSettings,
+            ("TensorBoardAppSettings" Core..=)
+              Core.<$> tensorBoardAppSettings
           ]
       )
+
+instance Core.FromJSON UserSettings where
+  parseJSON =
+    Core.withObject "UserSettings" Core.$
+      \x ->
+        UserSettings'
+          Core.<$> (x Core..:? "ExecutionRole")
+          Core.<*> (x Core..:? "JupyterServerAppSettings")
+          Core.<*> (x Core..:? "KernelGatewayAppSettings")
+          Core.<*> (x Core..:? "SecurityGroups")
+          Core.<*> (x Core..:? "SharingSettings")
+          Core.<*> (x Core..:? "TensorBoardAppSettings")

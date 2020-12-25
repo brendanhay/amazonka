@@ -25,44 +25,44 @@ module Network.AWS.ElasticSearch.DeleteElasticsearchServiceRole
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteElasticsearchServiceRole' smart constructor.
 data DeleteElasticsearchServiceRole = DeleteElasticsearchServiceRole'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteElasticsearchServiceRole' with the minimum fields required to make a request.
+-- | Creates a 'DeleteElasticsearchServiceRole' value with any optional fields omitted.
 mkDeleteElasticsearchServiceRole ::
   DeleteElasticsearchServiceRole
 mkDeleteElasticsearchServiceRole = DeleteElasticsearchServiceRole'
 
-instance Lude.AWSRequest DeleteElasticsearchServiceRole where
+instance Core.AWSRequest DeleteElasticsearchServiceRole where
   type
     Rs DeleteElasticsearchServiceRole =
       DeleteElasticsearchServiceRoleResponse
-  request = Req.delete elasticSearchService
-  response = Res.receiveNull DeleteElasticsearchServiceRoleResponse'
-
-instance Lude.ToHeaders DeleteElasticsearchServiceRole where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteElasticsearchServiceRole where
-  toPath = Lude.const "/2015-01-01/es/role"
-
-instance Lude.ToQuery DeleteElasticsearchServiceRole where
-  toQuery = Lude.const Lude.mempty
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath "/2015-01-01/es/role",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveNull DeleteElasticsearchServiceRoleResponse'
 
 -- | /See:/ 'mkDeleteElasticsearchServiceRoleResponse' smart constructor.
 data DeleteElasticsearchServiceRoleResponse = DeleteElasticsearchServiceRoleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteElasticsearchServiceRoleResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteElasticsearchServiceRoleResponse' value with any optional fields omitted.
 mkDeleteElasticsearchServiceRoleResponse ::
   DeleteElasticsearchServiceRoleResponse
 mkDeleteElasticsearchServiceRoleResponse =

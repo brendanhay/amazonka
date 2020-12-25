@@ -13,51 +13,56 @@
 module Network.AWS.Config.Types.DeliveryStatus
   ( DeliveryStatus
       ( DeliveryStatus',
-        DSSuccess,
-        DSFailure,
-        DSNotApplicable
+        DeliveryStatusSuccess,
+        DeliveryStatusFailure,
+        DeliveryStatusNotApplicable,
+        fromDeliveryStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeliveryStatus = DeliveryStatus' Lude.Text
+newtype DeliveryStatus = DeliveryStatus'
+  { fromDeliveryStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSSuccess :: DeliveryStatus
-pattern DSSuccess = DeliveryStatus' "Success"
+pattern DeliveryStatusSuccess :: DeliveryStatus
+pattern DeliveryStatusSuccess = DeliveryStatus' "Success"
 
-pattern DSFailure :: DeliveryStatus
-pattern DSFailure = DeliveryStatus' "Failure"
+pattern DeliveryStatusFailure :: DeliveryStatus
+pattern DeliveryStatusFailure = DeliveryStatus' "Failure"
 
-pattern DSNotApplicable :: DeliveryStatus
-pattern DSNotApplicable = DeliveryStatus' "Not_Applicable"
+pattern DeliveryStatusNotApplicable :: DeliveryStatus
+pattern DeliveryStatusNotApplicable = DeliveryStatus' "Not_Applicable"
 
 {-# COMPLETE
-  DSSuccess,
-  DSFailure,
-  DSNotApplicable,
+  DeliveryStatusSuccess,
+  DeliveryStatusFailure,
+  DeliveryStatusNotApplicable,
   DeliveryStatus'
   #-}

@@ -17,85 +17,78 @@ module Network.AWS.IoT.Types.KinesisAction
     mkKinesisAction,
 
     -- * Lenses
-    kaPartitionKey,
+    kaRoleArn,
     kaStreamName,
-    kaRoleARN,
+    kaPartitionKey,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AwsArn as Types
+import qualified Network.AWS.IoT.Types.PartitionKey as Types
+import qualified Network.AWS.IoT.Types.StreamName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an action to write data to an Amazon Kinesis stream.
 --
 -- /See:/ 'mkKinesisAction' smart constructor.
 data KinesisAction = KinesisAction'
-  { -- | The partition key.
-    partitionKey :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+    roleArn :: Types.AwsArn,
     -- | The name of the Amazon Kinesis stream.
-    streamName :: Lude.Text,
-    -- | The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-    roleARN :: Lude.Text
+    streamName :: Types.StreamName,
+    -- | The partition key.
+    partitionKey :: Core.Maybe Types.PartitionKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KinesisAction' with the minimum fields required to make a request.
---
--- * 'partitionKey' - The partition key.
--- * 'streamName' - The name of the Amazon Kinesis stream.
--- * 'roleARN' - The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+-- | Creates a 'KinesisAction' value with any optional fields omitted.
 mkKinesisAction ::
+  -- | 'roleArn'
+  Types.AwsArn ->
   -- | 'streamName'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.StreamName ->
   KinesisAction
-mkKinesisAction pStreamName_ pRoleARN_ =
-  KinesisAction'
-    { partitionKey = Lude.Nothing,
-      streamName = pStreamName_,
-      roleARN = pRoleARN_
-    }
+mkKinesisAction roleArn streamName =
+  KinesisAction' {roleArn, streamName, partitionKey = Core.Nothing}
 
--- | The partition key.
+-- | The ARN of the IAM role that grants access to the Amazon Kinesis stream.
 --
--- /Note:/ Consider using 'partitionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kaPartitionKey :: Lens.Lens' KinesisAction (Lude.Maybe Lude.Text)
-kaPartitionKey = Lens.lens (partitionKey :: KinesisAction -> Lude.Maybe Lude.Text) (\s a -> s {partitionKey = a} :: KinesisAction)
-{-# DEPRECATED kaPartitionKey "Use generic-lens or generic-optics with 'partitionKey' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kaRoleArn :: Lens.Lens' KinesisAction Types.AwsArn
+kaRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED kaRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The name of the Amazon Kinesis stream.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kaStreamName :: Lens.Lens' KinesisAction Lude.Text
-kaStreamName = Lens.lens (streamName :: KinesisAction -> Lude.Text) (\s a -> s {streamName = a} :: KinesisAction)
+kaStreamName :: Lens.Lens' KinesisAction Types.StreamName
+kaStreamName = Lens.field @"streamName"
 {-# DEPRECATED kaStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
--- | The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+-- | The partition key.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kaRoleARN :: Lens.Lens' KinesisAction Lude.Text
-kaRoleARN = Lens.lens (roleARN :: KinesisAction -> Lude.Text) (\s a -> s {roleARN = a} :: KinesisAction)
-{-# DEPRECATED kaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'partitionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kaPartitionKey :: Lens.Lens' KinesisAction (Core.Maybe Types.PartitionKey)
+kaPartitionKey = Lens.field @"partitionKey"
+{-# DEPRECATED kaPartitionKey "Use generic-lens or generic-optics with 'partitionKey' instead." #-}
 
-instance Lude.FromJSON KinesisAction where
-  parseJSON =
-    Lude.withObject
-      "KinesisAction"
-      ( \x ->
-          KinesisAction'
-            Lude.<$> (x Lude..:? "partitionKey")
-            Lude.<*> (x Lude..: "streamName")
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON KinesisAction where
-  toJSON KinesisAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("partitionKey" Lude..=) Lude.<$> partitionKey,
-            Lude.Just ("streamName" Lude..= streamName),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON KinesisAction where
+  toJSON KinesisAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("streamName" Core..= streamName),
+            ("partitionKey" Core..=) Core.<$> partitionKey
           ]
       )
+
+instance Core.FromJSON KinesisAction where
+  parseJSON =
+    Core.withObject "KinesisAction" Core.$
+      \x ->
+        KinesisAction'
+          Core.<$> (x Core..: "roleArn")
+          Core.<*> (x Core..: "streamName")
+          Core.<*> (x Core..:? "partitionKey")

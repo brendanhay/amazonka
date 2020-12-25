@@ -17,65 +17,61 @@ module Network.AWS.CognitoIdentityProvider.Types.AttributeType
     mkAttributeType,
 
     -- * Lenses
-    atValue,
     atName,
+    atValue,
   )
 where
 
+import qualified Network.AWS.CognitoIdentityProvider.Types.AttributeNameType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies whether the attribute is standard or custom.
 --
 -- /See:/ 'mkAttributeType' smart constructor.
 data AttributeType = AttributeType'
-  { -- | The value of the attribute.
-    value :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The name of the attribute.
-    name :: Lude.Text
+  { -- | The name of the attribute.
+    name :: Types.AttributeNameType,
+    -- | The value of the attribute.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttributeType' with the minimum fields required to make a request.
---
--- * 'value' - The value of the attribute.
--- * 'name' - The name of the attribute.
+-- | Creates a 'AttributeType' value with any optional fields omitted.
 mkAttributeType ::
   -- | 'name'
-  Lude.Text ->
+  Types.AttributeNameType ->
   AttributeType
-mkAttributeType pName_ =
-  AttributeType' {value = Lude.Nothing, name = pName_}
-
--- | The value of the attribute.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atValue :: Lens.Lens' AttributeType (Lude.Maybe (Lude.Sensitive Lude.Text))
-atValue = Lens.lens (value :: AttributeType -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {value = a} :: AttributeType)
-{-# DEPRECATED atValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkAttributeType name = AttributeType' {name, value = Core.Nothing}
 
 -- | The name of the attribute.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atName :: Lens.Lens' AttributeType Lude.Text
-atName = Lens.lens (name :: AttributeType -> Lude.Text) (\s a -> s {name = a} :: AttributeType)
+atName :: Lens.Lens' AttributeType Types.AttributeNameType
+atName = Lens.field @"name"
 {-# DEPRECATED atName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON AttributeType where
-  parseJSON =
-    Lude.withObject
-      "AttributeType"
-      ( \x ->
-          AttributeType'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..: "Name")
-      )
+-- | The value of the attribute.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atValue :: Lens.Lens' AttributeType (Core.Maybe Types.Value)
+atValue = Lens.field @"value"
+{-# DEPRECATED atValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToJSON AttributeType where
-  toJSON AttributeType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Value" Lude..=) Lude.<$> value,
-            Lude.Just ("Name" Lude..= name)
+instance Core.FromJSON AttributeType where
+  toJSON AttributeType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("Value" Core..=) Core.<$> value
           ]
       )
+
+instance Core.FromJSON AttributeType where
+  parseJSON =
+    Core.withObject "AttributeType" Core.$
+      \x ->
+        AttributeType'
+          Core.<$> (x Core..: "Name") Core.<*> (x Core..:? "Value")

@@ -28,115 +28,99 @@ module Network.AWS.DirectoryService.CancelSchemaExtension
     mkCancelSchemaExtensionResponse,
 
     -- ** Response lenses
-    csersResponseStatus,
+    cserrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCancelSchemaExtension' smart constructor.
 data CancelSchemaExtension = CancelSchemaExtension'
   { -- | The identifier of the directory whose schema extension will be canceled.
-    directoryId :: Lude.Text,
+    directoryId :: Types.DirectoryId,
     -- | The identifier of the schema extension that will be canceled.
-    schemaExtensionId :: Lude.Text
+    schemaExtensionId :: Types.SchemaExtensionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelSchemaExtension' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory whose schema extension will be canceled.
--- * 'schemaExtensionId' - The identifier of the schema extension that will be canceled.
+-- | Creates a 'CancelSchemaExtension' value with any optional fields omitted.
 mkCancelSchemaExtension ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   -- | 'schemaExtensionId'
-  Lude.Text ->
+  Types.SchemaExtensionId ->
   CancelSchemaExtension
-mkCancelSchemaExtension pDirectoryId_ pSchemaExtensionId_ =
-  CancelSchemaExtension'
-    { directoryId = pDirectoryId_,
-      schemaExtensionId = pSchemaExtensionId_
-    }
+mkCancelSchemaExtension directoryId schemaExtensionId =
+  CancelSchemaExtension' {directoryId, schemaExtensionId}
 
 -- | The identifier of the directory whose schema extension will be canceled.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cseDirectoryId :: Lens.Lens' CancelSchemaExtension Lude.Text
-cseDirectoryId = Lens.lens (directoryId :: CancelSchemaExtension -> Lude.Text) (\s a -> s {directoryId = a} :: CancelSchemaExtension)
+cseDirectoryId :: Lens.Lens' CancelSchemaExtension Types.DirectoryId
+cseDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED cseDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The identifier of the schema extension that will be canceled.
 --
 -- /Note:/ Consider using 'schemaExtensionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cseSchemaExtensionId :: Lens.Lens' CancelSchemaExtension Lude.Text
-cseSchemaExtensionId = Lens.lens (schemaExtensionId :: CancelSchemaExtension -> Lude.Text) (\s a -> s {schemaExtensionId = a} :: CancelSchemaExtension)
+cseSchemaExtensionId :: Lens.Lens' CancelSchemaExtension Types.SchemaExtensionId
+cseSchemaExtensionId = Lens.field @"schemaExtensionId"
 {-# DEPRECATED cseSchemaExtensionId "Use generic-lens or generic-optics with 'schemaExtensionId' instead." #-}
 
-instance Lude.AWSRequest CancelSchemaExtension where
+instance Core.FromJSON CancelSchemaExtension where
+  toJSON CancelSchemaExtension {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("SchemaExtensionId" Core..= schemaExtensionId)
+          ]
+      )
+
+instance Core.AWSRequest CancelSchemaExtension where
   type Rs CancelSchemaExtension = CancelSchemaExtensionResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.CancelSchemaExtension")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           CancelSchemaExtensionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelSchemaExtension where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DirectoryService_20150416.CancelSchemaExtension" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CancelSchemaExtension where
-  toJSON CancelSchemaExtension' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            Lude.Just ("SchemaExtensionId" Lude..= schemaExtensionId)
-          ]
-      )
-
-instance Lude.ToPath CancelSchemaExtension where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelSchemaExtension where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCancelSchemaExtensionResponse' smart constructor.
 newtype CancelSchemaExtensionResponse = CancelSchemaExtensionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelSchemaExtensionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelSchemaExtensionResponse' value with any optional fields omitted.
 mkCancelSchemaExtensionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelSchemaExtensionResponse
-mkCancelSchemaExtensionResponse pResponseStatus_ =
-  CancelSchemaExtensionResponse' {responseStatus = pResponseStatus_}
+mkCancelSchemaExtensionResponse responseStatus =
+  CancelSchemaExtensionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csersResponseStatus :: Lens.Lens' CancelSchemaExtensionResponse Lude.Int
-csersResponseStatus = Lens.lens (responseStatus :: CancelSchemaExtensionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelSchemaExtensionResponse)
-{-# DEPRECATED csersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cserrsResponseStatus :: Lens.Lens' CancelSchemaExtensionResponse Core.Int
+cserrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cserrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

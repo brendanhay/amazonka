@@ -20,110 +20,104 @@ module Network.AWS.CloudDirectory.GetAppliedSchemaVersion
     mkGetAppliedSchemaVersion,
 
     -- ** Request lenses
-    gasvSchemaARN,
+    gasvSchemaArn,
 
     -- * Destructuring the response
     GetAppliedSchemaVersionResponse (..),
     mkGetAppliedSchemaVersionResponse,
 
     -- ** Response lenses
-    gasvrsAppliedSchemaARN,
-    gasvrsResponseStatus,
+    gasvrrsAppliedSchemaArn,
+    gasvrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetAppliedSchemaVersion' smart constructor.
 newtype GetAppliedSchemaVersion = GetAppliedSchemaVersion'
   { -- | The ARN of the applied schema.
-    schemaARN :: Lude.Text
+    schemaArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAppliedSchemaVersion' with the minimum fields required to make a request.
---
--- * 'schemaARN' - The ARN of the applied schema.
+-- | Creates a 'GetAppliedSchemaVersion' value with any optional fields omitted.
 mkGetAppliedSchemaVersion ::
-  -- | 'schemaARN'
-  Lude.Text ->
+  -- | 'schemaArn'
+  Types.Arn ->
   GetAppliedSchemaVersion
-mkGetAppliedSchemaVersion pSchemaARN_ =
-  GetAppliedSchemaVersion' {schemaARN = pSchemaARN_}
+mkGetAppliedSchemaVersion schemaArn =
+  GetAppliedSchemaVersion' {schemaArn}
 
 -- | The ARN of the applied schema.
 --
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gasvSchemaARN :: Lens.Lens' GetAppliedSchemaVersion Lude.Text
-gasvSchemaARN = Lens.lens (schemaARN :: GetAppliedSchemaVersion -> Lude.Text) (\s a -> s {schemaARN = a} :: GetAppliedSchemaVersion)
-{-# DEPRECATED gasvSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasvSchemaArn :: Lens.Lens' GetAppliedSchemaVersion Types.Arn
+gasvSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED gasvSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
-instance Lude.AWSRequest GetAppliedSchemaVersion where
+instance Core.FromJSON GetAppliedSchemaVersion where
+  toJSON GetAppliedSchemaVersion {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("SchemaArn" Core..= schemaArn)])
+
+instance Core.AWSRequest GetAppliedSchemaVersion where
   type Rs GetAppliedSchemaVersion = GetAppliedSchemaVersionResponse
-  request = Req.postJSON cloudDirectoryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            "/amazonclouddirectory/2017-01-11/schema/getappliedschema",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetAppliedSchemaVersionResponse'
-            Lude.<$> (x Lude..?> "AppliedSchemaArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AppliedSchemaArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetAppliedSchemaVersion where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetAppliedSchemaVersion where
-  toJSON GetAppliedSchemaVersion' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("SchemaArn" Lude..= schemaARN)])
-
-instance Lude.ToPath GetAppliedSchemaVersion where
-  toPath =
-    Lude.const
-      "/amazonclouddirectory/2017-01-11/schema/getappliedschema"
-
-instance Lude.ToQuery GetAppliedSchemaVersion where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetAppliedSchemaVersionResponse' smart constructor.
 data GetAppliedSchemaVersionResponse = GetAppliedSchemaVersionResponse'
   { -- | Current applied schema ARN, including the minor version in use if one was provided.
-    appliedSchemaARN :: Lude.Maybe Lude.Text,
+    appliedSchemaArn :: Core.Maybe Types.Arn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAppliedSchemaVersionResponse' with the minimum fields required to make a request.
---
--- * 'appliedSchemaARN' - Current applied schema ARN, including the minor version in use if one was provided.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAppliedSchemaVersionResponse' value with any optional fields omitted.
 mkGetAppliedSchemaVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAppliedSchemaVersionResponse
-mkGetAppliedSchemaVersionResponse pResponseStatus_ =
+mkGetAppliedSchemaVersionResponse responseStatus =
   GetAppliedSchemaVersionResponse'
-    { appliedSchemaARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { appliedSchemaArn = Core.Nothing,
+      responseStatus
     }
 
 -- | Current applied schema ARN, including the minor version in use if one was provided.
 --
--- /Note:/ Consider using 'appliedSchemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gasvrsAppliedSchemaARN :: Lens.Lens' GetAppliedSchemaVersionResponse (Lude.Maybe Lude.Text)
-gasvrsAppliedSchemaARN = Lens.lens (appliedSchemaARN :: GetAppliedSchemaVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {appliedSchemaARN = a} :: GetAppliedSchemaVersionResponse)
-{-# DEPRECATED gasvrsAppliedSchemaARN "Use generic-lens or generic-optics with 'appliedSchemaARN' instead." #-}
+-- /Note:/ Consider using 'appliedSchemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gasvrrsAppliedSchemaArn :: Lens.Lens' GetAppliedSchemaVersionResponse (Core.Maybe Types.Arn)
+gasvrrsAppliedSchemaArn = Lens.field @"appliedSchemaArn"
+{-# DEPRECATED gasvrrsAppliedSchemaArn "Use generic-lens or generic-optics with 'appliedSchemaArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gasvrsResponseStatus :: Lens.Lens' GetAppliedSchemaVersionResponse Lude.Int
-gasvrsResponseStatus = Lens.lens (responseStatus :: GetAppliedSchemaVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppliedSchemaVersionResponse)
-{-# DEPRECATED gasvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gasvrrsResponseStatus :: Lens.Lens' GetAppliedSchemaVersionResponse Core.Int
+gasvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gasvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,55 +17,50 @@ module Network.AWS.CloudDirectory.Types.BatchListObjectParentsResponse
     mkBatchListObjectParentsResponse,
 
     -- * Lenses
-    blopNextToken,
-    blopParentLinks,
+    bloprNextToken,
+    bloprParentLinks,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
+import qualified Network.AWS.CloudDirectory.Types.NextToken as Types
+import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkBatchListObjectParentsResponse' smart constructor.
 data BatchListObjectParentsResponse = BatchListObjectParentsResponse'
-  { nextToken :: Lude.Maybe Lude.Text,
-    parentLinks :: Lude.Maybe [ObjectIdentifierAndLinkNameTuple]
+  { nextToken :: Core.Maybe Types.NextToken,
+    parentLinks :: Core.Maybe [Types.ObjectIdentifierAndLinkNameTuple]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchListObjectParentsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' -
--- * 'parentLinks' -
+-- | Creates a 'BatchListObjectParentsResponse' value with any optional fields omitted.
 mkBatchListObjectParentsResponse ::
   BatchListObjectParentsResponse
 mkBatchListObjectParentsResponse =
   BatchListObjectParentsResponse'
-    { nextToken = Lude.Nothing,
-      parentLinks = Lude.Nothing
+    { nextToken = Core.Nothing,
+      parentLinks = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blopNextToken :: Lens.Lens' BatchListObjectParentsResponse (Lude.Maybe Lude.Text)
-blopNextToken = Lens.lens (nextToken :: BatchListObjectParentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListObjectParentsResponse)
-{-# DEPRECATED blopNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+bloprNextToken :: Lens.Lens' BatchListObjectParentsResponse (Core.Maybe Types.NextToken)
+bloprNextToken = Lens.field @"nextToken"
+{-# DEPRECATED bloprNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'parentLinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blopParentLinks :: Lens.Lens' BatchListObjectParentsResponse (Lude.Maybe [ObjectIdentifierAndLinkNameTuple])
-blopParentLinks = Lens.lens (parentLinks :: BatchListObjectParentsResponse -> Lude.Maybe [ObjectIdentifierAndLinkNameTuple]) (\s a -> s {parentLinks = a} :: BatchListObjectParentsResponse)
-{-# DEPRECATED blopParentLinks "Use generic-lens or generic-optics with 'parentLinks' instead." #-}
+bloprParentLinks :: Lens.Lens' BatchListObjectParentsResponse (Core.Maybe [Types.ObjectIdentifierAndLinkNameTuple])
+bloprParentLinks = Lens.field @"parentLinks"
+{-# DEPRECATED bloprParentLinks "Use generic-lens or generic-optics with 'parentLinks' instead." #-}
 
-instance Lude.FromJSON BatchListObjectParentsResponse where
+instance Core.FromJSON BatchListObjectParentsResponse where
   parseJSON =
-    Lude.withObject
-      "BatchListObjectParentsResponse"
-      ( \x ->
-          BatchListObjectParentsResponse'
-            Lude.<$> (x Lude..:? "NextToken")
-            Lude.<*> (x Lude..:? "ParentLinks" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BatchListObjectParentsResponse" Core.$
+      \x ->
+        BatchListObjectParentsResponse'
+          Core.<$> (x Core..:? "NextToken") Core.<*> (x Core..:? "ParentLinks")

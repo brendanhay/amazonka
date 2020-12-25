@@ -31,157 +31,143 @@ module Network.AWS.AWSHealth.DescribeEventDetailsForOrganization
     mkDescribeEventDetailsForOrganization,
 
     -- ** Request lenses
-    dedfoLocale,
     dedfoOrganizationEventDetailFilters,
+    dedfoLocale,
 
     -- * Destructuring the response
     DescribeEventDetailsForOrganizationResponse (..),
     mkDescribeEventDetailsForOrganizationResponse,
 
     -- ** Response lenses
-    dedforsSuccessfulSet,
-    dedforsFailedSet,
-    dedforsResponseStatus,
+    dedforrsFailedSet,
+    dedforrsSuccessfulSet,
+    dedforrsResponseStatus,
   )
 where
 
-import Network.AWS.AWSHealth.Types
+import qualified Network.AWS.AWSHealth.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeEventDetailsForOrganization' smart constructor.
 data DescribeEventDetailsForOrganization = DescribeEventDetailsForOrganization'
-  { -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
-    locale :: Lude.Maybe Lude.Text,
-    -- | A set of JSON elements that includes the @awsAccountId@ and the @eventArn@ .
-    organizationEventDetailFilters :: Lude.NonEmpty EventAccountFilter
+  { -- | A set of JSON elements that includes the @awsAccountId@ and the @eventArn@ .
+    organizationEventDetailFilters :: Core.NonEmpty Types.EventAccountFilter,
+    -- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+    locale :: Core.Maybe Types.Locale
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEventDetailsForOrganization' with the minimum fields required to make a request.
---
--- * 'locale' - The locale (language) to return information in. English (en) is the default and the only supported value at this time.
--- * 'organizationEventDetailFilters' - A set of JSON elements that includes the @awsAccountId@ and the @eventArn@ .
+-- | Creates a 'DescribeEventDetailsForOrganization' value with any optional fields omitted.
 mkDescribeEventDetailsForOrganization ::
   -- | 'organizationEventDetailFilters'
-  Lude.NonEmpty EventAccountFilter ->
+  Core.NonEmpty Types.EventAccountFilter ->
   DescribeEventDetailsForOrganization
 mkDescribeEventDetailsForOrganization
-  pOrganizationEventDetailFilters_ =
+  organizationEventDetailFilters =
     DescribeEventDetailsForOrganization'
-      { locale = Lude.Nothing,
-        organizationEventDetailFilters =
-          pOrganizationEventDetailFilters_
+      { organizationEventDetailFilters,
+        locale = Core.Nothing
       }
-
--- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
---
--- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedfoLocale :: Lens.Lens' DescribeEventDetailsForOrganization (Lude.Maybe Lude.Text)
-dedfoLocale = Lens.lens (locale :: DescribeEventDetailsForOrganization -> Lude.Maybe Lude.Text) (\s a -> s {locale = a} :: DescribeEventDetailsForOrganization)
-{-# DEPRECATED dedfoLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
 
 -- | A set of JSON elements that includes the @awsAccountId@ and the @eventArn@ .
 --
 -- /Note:/ Consider using 'organizationEventDetailFilters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedfoOrganizationEventDetailFilters :: Lens.Lens' DescribeEventDetailsForOrganization (Lude.NonEmpty EventAccountFilter)
-dedfoOrganizationEventDetailFilters = Lens.lens (organizationEventDetailFilters :: DescribeEventDetailsForOrganization -> Lude.NonEmpty EventAccountFilter) (\s a -> s {organizationEventDetailFilters = a} :: DescribeEventDetailsForOrganization)
+dedfoOrganizationEventDetailFilters :: Lens.Lens' DescribeEventDetailsForOrganization (Core.NonEmpty Types.EventAccountFilter)
+dedfoOrganizationEventDetailFilters = Lens.field @"organizationEventDetailFilters"
 {-# DEPRECATED dedfoOrganizationEventDetailFilters "Use generic-lens or generic-optics with 'organizationEventDetailFilters' instead." #-}
 
-instance Lude.AWSRequest DescribeEventDetailsForOrganization where
+-- | The locale (language) to return information in. English (en) is the default and the only supported value at this time.
+--
+-- /Note:/ Consider using 'locale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedfoLocale :: Lens.Lens' DescribeEventDetailsForOrganization (Core.Maybe Types.Locale)
+dedfoLocale = Lens.field @"locale"
+{-# DEPRECATED dedfoLocale "Use generic-lens or generic-optics with 'locale' instead." #-}
+
+instance Core.FromJSON DescribeEventDetailsForOrganization where
+  toJSON DescribeEventDetailsForOrganization {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ( "organizationEventDetailFilters"
+                  Core..= organizationEventDetailFilters
+              ),
+            ("locale" Core..=) Core.<$> locale
+          ]
+      )
+
+instance Core.AWSRequest DescribeEventDetailsForOrganization where
   type
     Rs DescribeEventDetailsForOrganization =
       DescribeEventDetailsForOrganizationResponse
-  request = Req.postJSON awsHealthService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSHealth_20160804.DescribeEventDetailsForOrganization"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeEventDetailsForOrganizationResponse'
-            Lude.<$> (x Lude..?> "successfulSet" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "failedSet" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "failedSet")
+            Core.<*> (x Core..:? "successfulSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeEventDetailsForOrganization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSHealth_20160804.DescribeEventDetailsForOrganization" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeEventDetailsForOrganization where
-  toJSON DescribeEventDetailsForOrganization' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("locale" Lude..=) Lude.<$> locale,
-            Lude.Just
-              ( "organizationEventDetailFilters"
-                  Lude..= organizationEventDetailFilters
-              )
-          ]
-      )
-
-instance Lude.ToPath DescribeEventDetailsForOrganization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEventDetailsForOrganization where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeEventDetailsForOrganizationResponse' smart constructor.
 data DescribeEventDetailsForOrganizationResponse = DescribeEventDetailsForOrganizationResponse'
-  { -- | Information about the events that could be retrieved.
-    successfulSet :: Lude.Maybe [OrganizationEventDetails],
-    -- | Error messages for any events that could not be retrieved.
-    failedSet :: Lude.Maybe [OrganizationEventDetailsErrorItem],
+  { -- | Error messages for any events that could not be retrieved.
+    failedSet :: Core.Maybe [Types.OrganizationEventDetailsErrorItem],
+    -- | Information about the events that could be retrieved.
+    successfulSet :: Core.Maybe [Types.OrganizationEventDetails],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeEventDetailsForOrganizationResponse' with the minimum fields required to make a request.
---
--- * 'successfulSet' - Information about the events that could be retrieved.
--- * 'failedSet' - Error messages for any events that could not be retrieved.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEventDetailsForOrganizationResponse' value with any optional fields omitted.
 mkDescribeEventDetailsForOrganizationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEventDetailsForOrganizationResponse
-mkDescribeEventDetailsForOrganizationResponse pResponseStatus_ =
+mkDescribeEventDetailsForOrganizationResponse responseStatus =
   DescribeEventDetailsForOrganizationResponse'
-    { successfulSet =
-        Lude.Nothing,
-      failedSet = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failedSet =
+        Core.Nothing,
+      successfulSet = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the events that could be retrieved.
---
--- /Note:/ Consider using 'successfulSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedforsSuccessfulSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Lude.Maybe [OrganizationEventDetails])
-dedforsSuccessfulSet = Lens.lens (successfulSet :: DescribeEventDetailsForOrganizationResponse -> Lude.Maybe [OrganizationEventDetails]) (\s a -> s {successfulSet = a} :: DescribeEventDetailsForOrganizationResponse)
-{-# DEPRECATED dedforsSuccessfulSet "Use generic-lens or generic-optics with 'successfulSet' instead." #-}
 
 -- | Error messages for any events that could not be retrieved.
 --
 -- /Note:/ Consider using 'failedSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedforsFailedSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Lude.Maybe [OrganizationEventDetailsErrorItem])
-dedforsFailedSet = Lens.lens (failedSet :: DescribeEventDetailsForOrganizationResponse -> Lude.Maybe [OrganizationEventDetailsErrorItem]) (\s a -> s {failedSet = a} :: DescribeEventDetailsForOrganizationResponse)
-{-# DEPRECATED dedforsFailedSet "Use generic-lens or generic-optics with 'failedSet' instead." #-}
+dedforrsFailedSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Core.Maybe [Types.OrganizationEventDetailsErrorItem])
+dedforrsFailedSet = Lens.field @"failedSet"
+{-# DEPRECATED dedforrsFailedSet "Use generic-lens or generic-optics with 'failedSet' instead." #-}
+
+-- | Information about the events that could be retrieved.
+--
+-- /Note:/ Consider using 'successfulSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dedforrsSuccessfulSet :: Lens.Lens' DescribeEventDetailsForOrganizationResponse (Core.Maybe [Types.OrganizationEventDetails])
+dedforrsSuccessfulSet = Lens.field @"successfulSet"
+{-# DEPRECATED dedforrsSuccessfulSet "Use generic-lens or generic-optics with 'successfulSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dedforsResponseStatus :: Lens.Lens' DescribeEventDetailsForOrganizationResponse Lude.Int
-dedforsResponseStatus = Lens.lens (responseStatus :: DescribeEventDetailsForOrganizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventDetailsForOrganizationResponse)
-{-# DEPRECATED dedforsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dedforrsResponseStatus :: Lens.Lens' DescribeEventDetailsForOrganizationResponse Core.Int
+dedforrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dedforrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

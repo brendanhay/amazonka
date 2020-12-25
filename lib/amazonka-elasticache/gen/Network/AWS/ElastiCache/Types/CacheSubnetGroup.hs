@@ -17,17 +17,18 @@ module Network.AWS.ElastiCache.Types.CacheSubnetGroup
     mkCacheSubnetGroup,
 
     -- * Lenses
-    cARN,
-    cVPCId,
-    cSubnets,
-    cCacheSubnetGroupName,
-    cCacheSubnetGroupDescription,
+    csgARN,
+    csgCacheSubnetGroupDescription,
+    csgCacheSubnetGroupName,
+    csgSubnets,
+    csgVpcId,
   )
 where
 
-import Network.AWS.ElastiCache.Types.Subnet
+import qualified Network.AWS.ElastiCache.Types.String as Types
+import qualified Network.AWS.ElastiCache.Types.Subnet as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of one of the following operations:
 --
@@ -42,79 +43,71 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkCacheSubnetGroup' smart constructor.
 data CacheSubnetGroup = CacheSubnetGroup'
   { -- | The ARN (Amazon Resource Name) of the cache subnet group.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
-    vpcId :: Lude.Maybe Lude.Text,
-    -- | A list of subnets associated with the cache subnet group.
-    subnets :: Lude.Maybe [Subnet],
-    -- | The name of the cache subnet group.
-    cacheSubnetGroupName :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.String,
     -- | The description of the cache subnet group.
-    cacheSubnetGroupDescription :: Lude.Maybe Lude.Text
+    cacheSubnetGroupDescription :: Core.Maybe Types.String,
+    -- | The name of the cache subnet group.
+    cacheSubnetGroupName :: Core.Maybe Types.String,
+    -- | A list of subnets associated with the cache subnet group.
+    subnets :: Core.Maybe [Types.Subnet],
+    -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+    vpcId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CacheSubnetGroup' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN (Amazon Resource Name) of the cache subnet group.
--- * 'vpcId' - The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
--- * 'subnets' - A list of subnets associated with the cache subnet group.
--- * 'cacheSubnetGroupName' - The name of the cache subnet group.
--- * 'cacheSubnetGroupDescription' - The description of the cache subnet group.
+-- | Creates a 'CacheSubnetGroup' value with any optional fields omitted.
 mkCacheSubnetGroup ::
   CacheSubnetGroup
 mkCacheSubnetGroup =
   CacheSubnetGroup'
-    { arn = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      subnets = Lude.Nothing,
-      cacheSubnetGroupName = Lude.Nothing,
-      cacheSubnetGroupDescription = Lude.Nothing
+    { arn = Core.Nothing,
+      cacheSubnetGroupDescription = Core.Nothing,
+      cacheSubnetGroupName = Core.Nothing,
+      subnets = Core.Nothing,
+      vpcId = Core.Nothing
     }
 
 -- | The ARN (Amazon Resource Name) of the cache subnet group.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cARN :: Lens.Lens' CacheSubnetGroup (Lude.Maybe Lude.Text)
-cARN = Lens.lens (arn :: CacheSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CacheSubnetGroup)
-{-# DEPRECATED cARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cVPCId :: Lens.Lens' CacheSubnetGroup (Lude.Maybe Lude.Text)
-cVPCId = Lens.lens (vpcId :: CacheSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: CacheSubnetGroup)
-{-# DEPRECATED cVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | A list of subnets associated with the cache subnet group.
---
--- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cSubnets :: Lens.Lens' CacheSubnetGroup (Lude.Maybe [Subnet])
-cSubnets = Lens.lens (subnets :: CacheSubnetGroup -> Lude.Maybe [Subnet]) (\s a -> s {subnets = a} :: CacheSubnetGroup)
-{-# DEPRECATED cSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
-
--- | The name of the cache subnet group.
---
--- /Note:/ Consider using 'cacheSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCacheSubnetGroupName :: Lens.Lens' CacheSubnetGroup (Lude.Maybe Lude.Text)
-cCacheSubnetGroupName = Lens.lens (cacheSubnetGroupName :: CacheSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {cacheSubnetGroupName = a} :: CacheSubnetGroup)
-{-# DEPRECATED cCacheSubnetGroupName "Use generic-lens or generic-optics with 'cacheSubnetGroupName' instead." #-}
+csgARN :: Lens.Lens' CacheSubnetGroup (Core.Maybe Types.String)
+csgARN = Lens.field @"arn"
+{-# DEPRECATED csgARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The description of the cache subnet group.
 --
 -- /Note:/ Consider using 'cacheSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCacheSubnetGroupDescription :: Lens.Lens' CacheSubnetGroup (Lude.Maybe Lude.Text)
-cCacheSubnetGroupDescription = Lens.lens (cacheSubnetGroupDescription :: CacheSubnetGroup -> Lude.Maybe Lude.Text) (\s a -> s {cacheSubnetGroupDescription = a} :: CacheSubnetGroup)
-{-# DEPRECATED cCacheSubnetGroupDescription "Use generic-lens or generic-optics with 'cacheSubnetGroupDescription' instead." #-}
+csgCacheSubnetGroupDescription :: Lens.Lens' CacheSubnetGroup (Core.Maybe Types.String)
+csgCacheSubnetGroupDescription = Lens.field @"cacheSubnetGroupDescription"
+{-# DEPRECATED csgCacheSubnetGroupDescription "Use generic-lens or generic-optics with 'cacheSubnetGroupDescription' instead." #-}
 
-instance Lude.FromXML CacheSubnetGroup where
+-- | The name of the cache subnet group.
+--
+-- /Note:/ Consider using 'cacheSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgCacheSubnetGroupName :: Lens.Lens' CacheSubnetGroup (Core.Maybe Types.String)
+csgCacheSubnetGroupName = Lens.field @"cacheSubnetGroupName"
+{-# DEPRECATED csgCacheSubnetGroupName "Use generic-lens or generic-optics with 'cacheSubnetGroupName' instead." #-}
+
+-- | A list of subnets associated with the cache subnet group.
+--
+-- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgSubnets :: Lens.Lens' CacheSubnetGroup (Core.Maybe [Types.Subnet])
+csgSubnets = Lens.field @"subnets"
+{-# DEPRECATED csgSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
+
+-- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgVpcId :: Lens.Lens' CacheSubnetGroup (Core.Maybe Types.String)
+csgVpcId = Lens.field @"vpcId"
+{-# DEPRECATED csgVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+instance Core.FromXML CacheSubnetGroup where
   parseXML x =
     CacheSubnetGroup'
-      Lude.<$> (x Lude..@? "ARN")
-      Lude.<*> (x Lude..@? "VpcId")
-      Lude.<*> ( x Lude..@? "Subnets" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Subnet")
-               )
-      Lude.<*> (x Lude..@? "CacheSubnetGroupName")
-      Lude.<*> (x Lude..@? "CacheSubnetGroupDescription")
+      Core.<$> (x Core..@? "ARN")
+      Core.<*> (x Core..@? "CacheSubnetGroupDescription")
+      Core.<*> (x Core..@? "CacheSubnetGroupName")
+      Core.<*> (x Core..@? "Subnets" Core..<@> Core.parseXMLList "Subnet")
+      Core.<*> (x Core..@? "VpcId")

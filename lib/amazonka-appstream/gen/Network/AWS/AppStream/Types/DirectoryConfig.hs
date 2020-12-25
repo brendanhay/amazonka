@@ -17,89 +17,82 @@ module Network.AWS.AppStream.Types.DirectoryConfig
     mkDirectoryConfig,
 
     -- * Lenses
-    dcCreatedTime,
-    dcServiceAccountCredentials,
-    dcOrganizationalUnitDistinguishedNames,
     dcDirectoryName,
+    dcCreatedTime,
+    dcOrganizationalUnitDistinguishedNames,
+    dcServiceAccountCredentials,
   )
 where
 
-import Network.AWS.AppStream.Types.ServiceAccountCredentials
+import qualified Network.AWS.AppStream.Types.DirectoryName as Types
+import qualified Network.AWS.AppStream.Types.OrganizationalUnitDistinguishedName as Types
+import qualified Network.AWS.AppStream.Types.ServiceAccountCredentials as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the configuration information required to join fleets and image builders to Microsoft Active Directory domains.
 --
 -- /See:/ 'mkDirectoryConfig' smart constructor.
 data DirectoryConfig = DirectoryConfig'
-  { -- | The time the directory configuration was created.
-    createdTime :: Lude.Maybe Lude.Timestamp,
-    -- | The credentials for the service account used by the fleet or image builder to connect to the directory.
-    serviceAccountCredentials :: Lude.Maybe ServiceAccountCredentials,
+  { -- | The fully qualified name of the directory (for example, corp.example.com).
+    directoryName :: Types.DirectoryName,
+    -- | The time the directory configuration was created.
+    createdTime :: Core.Maybe Core.NominalDiffTime,
     -- | The distinguished names of the organizational units for computer accounts.
-    organizationalUnitDistinguishedNames :: Lude.Maybe [Lude.Text],
-    -- | The fully qualified name of the directory (for example, corp.example.com).
-    directoryName :: Lude.Text
+    organizationalUnitDistinguishedNames :: Core.Maybe [Types.OrganizationalUnitDistinguishedName],
+    -- | The credentials for the service account used by the fleet or image builder to connect to the directory.
+    serviceAccountCredentials :: Core.Maybe Types.ServiceAccountCredentials
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DirectoryConfig' with the minimum fields required to make a request.
---
--- * 'createdTime' - The time the directory configuration was created.
--- * 'serviceAccountCredentials' - The credentials for the service account used by the fleet or image builder to connect to the directory.
--- * 'organizationalUnitDistinguishedNames' - The distinguished names of the organizational units for computer accounts.
--- * 'directoryName' - The fully qualified name of the directory (for example, corp.example.com).
+-- | Creates a 'DirectoryConfig' value with any optional fields omitted.
 mkDirectoryConfig ::
   -- | 'directoryName'
-  Lude.Text ->
+  Types.DirectoryName ->
   DirectoryConfig
-mkDirectoryConfig pDirectoryName_ =
+mkDirectoryConfig directoryName =
   DirectoryConfig'
-    { createdTime = Lude.Nothing,
-      serviceAccountCredentials = Lude.Nothing,
-      organizationalUnitDistinguishedNames = Lude.Nothing,
-      directoryName = pDirectoryName_
+    { directoryName,
+      createdTime = Core.Nothing,
+      organizationalUnitDistinguishedNames = Core.Nothing,
+      serviceAccountCredentials = Core.Nothing
     }
-
--- | The time the directory configuration was created.
---
--- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcCreatedTime :: Lens.Lens' DirectoryConfig (Lude.Maybe Lude.Timestamp)
-dcCreatedTime = Lens.lens (createdTime :: DirectoryConfig -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: DirectoryConfig)
-{-# DEPRECATED dcCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
-
--- | The credentials for the service account used by the fleet or image builder to connect to the directory.
---
--- /Note:/ Consider using 'serviceAccountCredentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcServiceAccountCredentials :: Lens.Lens' DirectoryConfig (Lude.Maybe ServiceAccountCredentials)
-dcServiceAccountCredentials = Lens.lens (serviceAccountCredentials :: DirectoryConfig -> Lude.Maybe ServiceAccountCredentials) (\s a -> s {serviceAccountCredentials = a} :: DirectoryConfig)
-{-# DEPRECATED dcServiceAccountCredentials "Use generic-lens or generic-optics with 'serviceAccountCredentials' instead." #-}
-
--- | The distinguished names of the organizational units for computer accounts.
---
--- /Note:/ Consider using 'organizationalUnitDistinguishedNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcOrganizationalUnitDistinguishedNames :: Lens.Lens' DirectoryConfig (Lude.Maybe [Lude.Text])
-dcOrganizationalUnitDistinguishedNames = Lens.lens (organizationalUnitDistinguishedNames :: DirectoryConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {organizationalUnitDistinguishedNames = a} :: DirectoryConfig)
-{-# DEPRECATED dcOrganizationalUnitDistinguishedNames "Use generic-lens or generic-optics with 'organizationalUnitDistinguishedNames' instead." #-}
 
 -- | The fully qualified name of the directory (for example, corp.example.com).
 --
 -- /Note:/ Consider using 'directoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcDirectoryName :: Lens.Lens' DirectoryConfig Lude.Text
-dcDirectoryName = Lens.lens (directoryName :: DirectoryConfig -> Lude.Text) (\s a -> s {directoryName = a} :: DirectoryConfig)
+dcDirectoryName :: Lens.Lens' DirectoryConfig Types.DirectoryName
+dcDirectoryName = Lens.field @"directoryName"
 {-# DEPRECATED dcDirectoryName "Use generic-lens or generic-optics with 'directoryName' instead." #-}
 
-instance Lude.FromJSON DirectoryConfig where
+-- | The time the directory configuration was created.
+--
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcCreatedTime :: Lens.Lens' DirectoryConfig (Core.Maybe Core.NominalDiffTime)
+dcCreatedTime = Lens.field @"createdTime"
+{-# DEPRECATED dcCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
+
+-- | The distinguished names of the organizational units for computer accounts.
+--
+-- /Note:/ Consider using 'organizationalUnitDistinguishedNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcOrganizationalUnitDistinguishedNames :: Lens.Lens' DirectoryConfig (Core.Maybe [Types.OrganizationalUnitDistinguishedName])
+dcOrganizationalUnitDistinguishedNames = Lens.field @"organizationalUnitDistinguishedNames"
+{-# DEPRECATED dcOrganizationalUnitDistinguishedNames "Use generic-lens or generic-optics with 'organizationalUnitDistinguishedNames' instead." #-}
+
+-- | The credentials for the service account used by the fleet or image builder to connect to the directory.
+--
+-- /Note:/ Consider using 'serviceAccountCredentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcServiceAccountCredentials :: Lens.Lens' DirectoryConfig (Core.Maybe Types.ServiceAccountCredentials)
+dcServiceAccountCredentials = Lens.field @"serviceAccountCredentials"
+{-# DEPRECATED dcServiceAccountCredentials "Use generic-lens or generic-optics with 'serviceAccountCredentials' instead." #-}
+
+instance Core.FromJSON DirectoryConfig where
   parseJSON =
-    Lude.withObject
-      "DirectoryConfig"
-      ( \x ->
-          DirectoryConfig'
-            Lude.<$> (x Lude..:? "CreatedTime")
-            Lude.<*> (x Lude..:? "ServiceAccountCredentials")
-            Lude.<*> ( x Lude..:? "OrganizationalUnitDistinguishedNames"
-                         Lude..!= Lude.mempty
-                     )
-            Lude.<*> (x Lude..: "DirectoryName")
-      )
+    Core.withObject "DirectoryConfig" Core.$
+      \x ->
+        DirectoryConfig'
+          Core.<$> (x Core..: "DirectoryName")
+          Core.<*> (x Core..:? "CreatedTime")
+          Core.<*> (x Core..:? "OrganizationalUnitDistinguishedNames")
+          Core.<*> (x Core..:? "ServiceAccountCredentials")

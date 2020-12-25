@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.H265ColorMetadata
   ( H265ColorMetadata
       ( H265ColorMetadata',
-        HCMIgnore,
-        HCMInsert
+        H265ColorMetadataIgnore,
+        H265ColorMetadataInsert,
+        fromH265ColorMetadata
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H265 Color Metadata
-newtype H265ColorMetadata = H265ColorMetadata' Lude.Text
+newtype H265ColorMetadata = H265ColorMetadata'
+  { fromH265ColorMetadata ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HCMIgnore :: H265ColorMetadata
-pattern HCMIgnore = H265ColorMetadata' "IGNORE"
+pattern H265ColorMetadataIgnore :: H265ColorMetadata
+pattern H265ColorMetadataIgnore = H265ColorMetadata' "IGNORE"
 
-pattern HCMInsert :: H265ColorMetadata
-pattern HCMInsert = H265ColorMetadata' "INSERT"
+pattern H265ColorMetadataInsert :: H265ColorMetadata
+pattern H265ColorMetadataInsert = H265ColorMetadata' "INSERT"
 
 {-# COMPLETE
-  HCMIgnore,
-  HCMInsert,
+  H265ColorMetadataIgnore,
+  H265ColorMetadataInsert,
   H265ColorMetadata'
   #-}

@@ -17,120 +17,115 @@ module Network.AWS.SWF.Types.LambdaFunctionScheduledEventAttributes
     mkLambdaFunctionScheduledEventAttributes,
 
     -- * Lenses
+    lfseaId,
+    lfseaName,
+    lfseaDecisionTaskCompletedEventId,
     lfseaControl,
     lfseaInput,
-    lfseaName,
-    lfseaId,
     lfseaStartToCloseTimeout,
-    lfseaDecisionTaskCompletedEventId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Data as Types
+import qualified Network.AWS.SWF.Types.DurationInSecondsOptional as Types
+import qualified Network.AWS.SWF.Types.FunctionId as Types
+import qualified Network.AWS.SWF.Types.FunctionInput as Types
+import qualified Network.AWS.SWF.Types.FunctionName as Types
 
 -- | Provides the details of the @LambdaFunctionScheduled@ event. It isn't set for other event types.
 --
 -- /See:/ 'mkLambdaFunctionScheduledEventAttributes' smart constructor.
 data LambdaFunctionScheduledEventAttributes = LambdaFunctionScheduledEventAttributes'
-  { -- | Data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
-    control :: Lude.Maybe Lude.Text,
-    -- | The input provided to the Lambda task.
-    input :: Lude.Maybe Lude.Text,
+  { -- | The unique ID of the Lambda task.
+    id :: Types.FunctionId,
     -- | The name of the Lambda function.
-    name :: Lude.Text,
-    -- | The unique ID of the Lambda task.
-    id :: Lude.Text,
-    -- | The maximum amount of time a worker can take to process the Lambda task.
-    startToCloseTimeout :: Lude.Maybe Lude.Text,
+    name :: Types.FunctionName,
     -- | The ID of the @LambdaFunctionCompleted@ event corresponding to the decision that resulted in scheduling this activity task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
-    decisionTaskCompletedEventId :: Lude.Integer
+    decisionTaskCompletedEventId :: Core.Integer,
+    -- | Data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
+    control :: Core.Maybe Types.Data,
+    -- | The input provided to the Lambda task.
+    input :: Core.Maybe Types.FunctionInput,
+    -- | The maximum amount of time a worker can take to process the Lambda task.
+    startToCloseTimeout :: Core.Maybe Types.DurationInSecondsOptional
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LambdaFunctionScheduledEventAttributes' with the minimum fields required to make a request.
---
--- * 'control' - Data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
--- * 'input' - The input provided to the Lambda task.
--- * 'name' - The name of the Lambda function.
--- * 'id' - The unique ID of the Lambda task.
--- * 'startToCloseTimeout' - The maximum amount of time a worker can take to process the Lambda task.
--- * 'decisionTaskCompletedEventId' - The ID of the @LambdaFunctionCompleted@ event corresponding to the decision that resulted in scheduling this activity task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+-- | Creates a 'LambdaFunctionScheduledEventAttributes' value with any optional fields omitted.
 mkLambdaFunctionScheduledEventAttributes ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'id'
-  Lude.Text ->
+  Types.FunctionId ->
+  -- | 'name'
+  Types.FunctionName ->
   -- | 'decisionTaskCompletedEventId'
-  Lude.Integer ->
+  Core.Integer ->
   LambdaFunctionScheduledEventAttributes
 mkLambdaFunctionScheduledEventAttributes
-  pName_
-  pId_
-  pDecisionTaskCompletedEventId_ =
+  id
+  name
+  decisionTaskCompletedEventId =
     LambdaFunctionScheduledEventAttributes'
-      { control = Lude.Nothing,
-        input = Lude.Nothing,
-        name = pName_,
-        id = pId_,
-        startToCloseTimeout = Lude.Nothing,
-        decisionTaskCompletedEventId =
-          pDecisionTaskCompletedEventId_
+      { id,
+        name,
+        decisionTaskCompletedEventId,
+        control = Core.Nothing,
+        input = Core.Nothing,
+        startToCloseTimeout = Core.Nothing
       }
+
+-- | The unique ID of the Lambda task.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfseaId :: Lens.Lens' LambdaFunctionScheduledEventAttributes Types.FunctionId
+lfseaId = Lens.field @"id"
+{-# DEPRECATED lfseaId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The name of the Lambda function.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfseaName :: Lens.Lens' LambdaFunctionScheduledEventAttributes Types.FunctionName
+lfseaName = Lens.field @"name"
+{-# DEPRECATED lfseaName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The ID of the @LambdaFunctionCompleted@ event corresponding to the decision that resulted in scheduling this activity task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
+--
+-- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfseaDecisionTaskCompletedEventId :: Lens.Lens' LambdaFunctionScheduledEventAttributes Core.Integer
+lfseaDecisionTaskCompletedEventId = Lens.field @"decisionTaskCompletedEventId"
+{-# DEPRECATED lfseaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
 
 -- | Data attached to the event that the decider can use in subsequent workflow tasks. This data isn't sent to the Lambda task.
 --
 -- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfseaControl :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Lude.Maybe Lude.Text)
-lfseaControl = Lens.lens (control :: LambdaFunctionScheduledEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {control = a} :: LambdaFunctionScheduledEventAttributes)
+lfseaControl :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Core.Maybe Types.Data)
+lfseaControl = Lens.field @"control"
 {-# DEPRECATED lfseaControl "Use generic-lens or generic-optics with 'control' instead." #-}
 
 -- | The input provided to the Lambda task.
 --
 -- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfseaInput :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Lude.Maybe Lude.Text)
-lfseaInput = Lens.lens (input :: LambdaFunctionScheduledEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {input = a} :: LambdaFunctionScheduledEventAttributes)
+lfseaInput :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Core.Maybe Types.FunctionInput)
+lfseaInput = Lens.field @"input"
 {-# DEPRECATED lfseaInput "Use generic-lens or generic-optics with 'input' instead." #-}
-
--- | The name of the Lambda function.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfseaName :: Lens.Lens' LambdaFunctionScheduledEventAttributes Lude.Text
-lfseaName = Lens.lens (name :: LambdaFunctionScheduledEventAttributes -> Lude.Text) (\s a -> s {name = a} :: LambdaFunctionScheduledEventAttributes)
-{-# DEPRECATED lfseaName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The unique ID of the Lambda task.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfseaId :: Lens.Lens' LambdaFunctionScheduledEventAttributes Lude.Text
-lfseaId = Lens.lens (id :: LambdaFunctionScheduledEventAttributes -> Lude.Text) (\s a -> s {id = a} :: LambdaFunctionScheduledEventAttributes)
-{-# DEPRECATED lfseaId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The maximum amount of time a worker can take to process the Lambda task.
 --
 -- /Note:/ Consider using 'startToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfseaStartToCloseTimeout :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Lude.Maybe Lude.Text)
-lfseaStartToCloseTimeout = Lens.lens (startToCloseTimeout :: LambdaFunctionScheduledEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {startToCloseTimeout = a} :: LambdaFunctionScheduledEventAttributes)
+lfseaStartToCloseTimeout :: Lens.Lens' LambdaFunctionScheduledEventAttributes (Core.Maybe Types.DurationInSecondsOptional)
+lfseaStartToCloseTimeout = Lens.field @"startToCloseTimeout"
 {-# DEPRECATED lfseaStartToCloseTimeout "Use generic-lens or generic-optics with 'startToCloseTimeout' instead." #-}
 
--- | The ID of the @LambdaFunctionCompleted@ event corresponding to the decision that resulted in scheduling this activity task. To help diagnose issues, use this information to trace back the chain of events leading up to this event.
---
--- /Note:/ Consider using 'decisionTaskCompletedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfseaDecisionTaskCompletedEventId :: Lens.Lens' LambdaFunctionScheduledEventAttributes Lude.Integer
-lfseaDecisionTaskCompletedEventId = Lens.lens (decisionTaskCompletedEventId :: LambdaFunctionScheduledEventAttributes -> Lude.Integer) (\s a -> s {decisionTaskCompletedEventId = a} :: LambdaFunctionScheduledEventAttributes)
-{-# DEPRECATED lfseaDecisionTaskCompletedEventId "Use generic-lens or generic-optics with 'decisionTaskCompletedEventId' instead." #-}
-
-instance Lude.FromJSON LambdaFunctionScheduledEventAttributes where
+instance Core.FromJSON LambdaFunctionScheduledEventAttributes where
   parseJSON =
-    Lude.withObject
-      "LambdaFunctionScheduledEventAttributes"
-      ( \x ->
-          LambdaFunctionScheduledEventAttributes'
-            Lude.<$> (x Lude..:? "control")
-            Lude.<*> (x Lude..:? "input")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "id")
-            Lude.<*> (x Lude..:? "startToCloseTimeout")
-            Lude.<*> (x Lude..: "decisionTaskCompletedEventId")
-      )
+    Core.withObject "LambdaFunctionScheduledEventAttributes" Core.$
+      \x ->
+        LambdaFunctionScheduledEventAttributes'
+          Core.<$> (x Core..: "id")
+          Core.<*> (x Core..: "name")
+          Core.<*> (x Core..: "decisionTaskCompletedEventId")
+          Core.<*> (x Core..:? "control")
+          Core.<*> (x Core..:? "input")
+          Core.<*> (x Core..:? "startToCloseTimeout")

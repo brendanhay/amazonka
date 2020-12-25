@@ -20,149 +20,135 @@ module Network.AWS.SageMaker.UpdateUserProfile
     mkUpdateUserProfile,
 
     -- ** Request lenses
-    uupUserSettings,
-    uupUserProfileName,
     uupDomainId,
+    uupUserProfileName,
+    uupUserSettings,
 
     -- * Destructuring the response
     UpdateUserProfileResponse (..),
     mkUpdateUserProfileResponse,
 
     -- ** Response lenses
-    uuprsUserProfileARN,
-    uuprsResponseStatus,
+    uuprrsUserProfileArn,
+    uuprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkUpdateUserProfile' smart constructor.
 data UpdateUserProfile = UpdateUserProfile'
-  { -- | A collection of settings.
-    userSettings :: Lude.Maybe UserSettings,
+  { -- | The domain ID.
+    domainId :: Types.DomainId,
     -- | The user profile name.
-    userProfileName :: Lude.Text,
-    -- | The domain ID.
-    domainId :: Lude.Text
+    userProfileName :: Types.UserProfileName,
+    -- | A collection of settings.
+    userSettings :: Core.Maybe Types.UserSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateUserProfile' with the minimum fields required to make a request.
---
--- * 'userSettings' - A collection of settings.
--- * 'userProfileName' - The user profile name.
--- * 'domainId' - The domain ID.
+-- | Creates a 'UpdateUserProfile' value with any optional fields omitted.
 mkUpdateUserProfile ::
-  -- | 'userProfileName'
-  Lude.Text ->
   -- | 'domainId'
-  Lude.Text ->
+  Types.DomainId ->
+  -- | 'userProfileName'
+  Types.UserProfileName ->
   UpdateUserProfile
-mkUpdateUserProfile pUserProfileName_ pDomainId_ =
+mkUpdateUserProfile domainId userProfileName =
   UpdateUserProfile'
-    { userSettings = Lude.Nothing,
-      userProfileName = pUserProfileName_,
-      domainId = pDomainId_
+    { domainId,
+      userProfileName,
+      userSettings = Core.Nothing
     }
-
--- | A collection of settings.
---
--- /Note:/ Consider using 'userSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupUserSettings :: Lens.Lens' UpdateUserProfile (Lude.Maybe UserSettings)
-uupUserSettings = Lens.lens (userSettings :: UpdateUserProfile -> Lude.Maybe UserSettings) (\s a -> s {userSettings = a} :: UpdateUserProfile)
-{-# DEPRECATED uupUserSettings "Use generic-lens or generic-optics with 'userSettings' instead." #-}
-
--- | The user profile name.
---
--- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupUserProfileName :: Lens.Lens' UpdateUserProfile Lude.Text
-uupUserProfileName = Lens.lens (userProfileName :: UpdateUserProfile -> Lude.Text) (\s a -> s {userProfileName = a} :: UpdateUserProfile)
-{-# DEPRECATED uupUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
 -- | The domain ID.
 --
 -- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uupDomainId :: Lens.Lens' UpdateUserProfile Lude.Text
-uupDomainId = Lens.lens (domainId :: UpdateUserProfile -> Lude.Text) (\s a -> s {domainId = a} :: UpdateUserProfile)
+uupDomainId :: Lens.Lens' UpdateUserProfile Types.DomainId
+uupDomainId = Lens.field @"domainId"
 {-# DEPRECATED uupDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
-instance Lude.AWSRequest UpdateUserProfile where
+-- | The user profile name.
+--
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupUserProfileName :: Lens.Lens' UpdateUserProfile Types.UserProfileName
+uupUserProfileName = Lens.field @"userProfileName"
+{-# DEPRECATED uupUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
+
+-- | A collection of settings.
+--
+-- /Note:/ Consider using 'userSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uupUserSettings :: Lens.Lens' UpdateUserProfile (Core.Maybe Types.UserSettings)
+uupUserSettings = Lens.field @"userSettings"
+{-# DEPRECATED uupUserSettings "Use generic-lens or generic-optics with 'userSettings' instead." #-}
+
+instance Core.FromJSON UpdateUserProfile where
+  toJSON UpdateUserProfile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DomainId" Core..= domainId),
+            Core.Just ("UserProfileName" Core..= userProfileName),
+            ("UserSettings" Core..=) Core.<$> userSettings
+          ]
+      )
+
+instance Core.AWSRequest UpdateUserProfile where
   type Rs UpdateUserProfile = UpdateUserProfileResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.UpdateUserProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateUserProfileResponse'
-            Lude.<$> (x Lude..?> "UserProfileArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "UserProfileArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateUserProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.UpdateUserProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateUserProfile where
-  toJSON UpdateUserProfile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("UserSettings" Lude..=) Lude.<$> userSettings,
-            Lude.Just ("UserProfileName" Lude..= userProfileName),
-            Lude.Just ("DomainId" Lude..= domainId)
-          ]
-      )
-
-instance Lude.ToPath UpdateUserProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateUserProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateUserProfileResponse' smart constructor.
 data UpdateUserProfileResponse = UpdateUserProfileResponse'
   { -- | The user profile Amazon Resource Name (ARN).
-    userProfileARN :: Lude.Maybe Lude.Text,
+    userProfileArn :: Core.Maybe Types.UserProfileArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateUserProfileResponse' with the minimum fields required to make a request.
---
--- * 'userProfileARN' - The user profile Amazon Resource Name (ARN).
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateUserProfileResponse' value with any optional fields omitted.
 mkUpdateUserProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateUserProfileResponse
-mkUpdateUserProfileResponse pResponseStatus_ =
+mkUpdateUserProfileResponse responseStatus =
   UpdateUserProfileResponse'
-    { userProfileARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { userProfileArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The user profile Amazon Resource Name (ARN).
 --
--- /Note:/ Consider using 'userProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuprsUserProfileARN :: Lens.Lens' UpdateUserProfileResponse (Lude.Maybe Lude.Text)
-uuprsUserProfileARN = Lens.lens (userProfileARN :: UpdateUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {userProfileARN = a} :: UpdateUserProfileResponse)
-{-# DEPRECATED uuprsUserProfileARN "Use generic-lens or generic-optics with 'userProfileARN' instead." #-}
+-- /Note:/ Consider using 'userProfileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uuprrsUserProfileArn :: Lens.Lens' UpdateUserProfileResponse (Core.Maybe Types.UserProfileArn)
+uuprrsUserProfileArn = Lens.field @"userProfileArn"
+{-# DEPRECATED uuprrsUserProfileArn "Use generic-lens or generic-optics with 'userProfileArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uuprsResponseStatus :: Lens.Lens' UpdateUserProfileResponse Lude.Int
-uuprsResponseStatus = Lens.lens (responseStatus :: UpdateUserProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateUserProfileResponse)
-{-# DEPRECATED uuprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uuprrsResponseStatus :: Lens.Lens' UpdateUserProfileResponse Core.Int
+uuprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uuprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

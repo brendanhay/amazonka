@@ -22,49 +22,45 @@ module Network.AWS.DynamoDBStreams.Types.Identity
   )
 where
 
+import qualified Network.AWS.DynamoDBStreams.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains details about the type of identity that made the request.
 --
 -- /See:/ 'mkIdentity' smart constructor.
 data Identity = Identity'
   { -- | A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
-    principalId :: Lude.Maybe Lude.Text,
+    principalId :: Core.Maybe Types.String,
     -- | The type of the identity. For Time To Live, the type is "Service".
-    type' :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Identity' with the minimum fields required to make a request.
---
--- * 'principalId' - A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
--- * 'type'' - The type of the identity. For Time To Live, the type is "Service".
+-- | Creates a 'Identity' value with any optional fields omitted.
 mkIdentity ::
   Identity
 mkIdentity =
-  Identity' {principalId = Lude.Nothing, type' = Lude.Nothing}
+  Identity' {principalId = Core.Nothing, type' = Core.Nothing}
 
 -- | A unique identifier for the entity that made the call. For Time To Live, the principalId is "dynamodb.amazonaws.com".
 --
 -- /Note:/ Consider using 'principalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iPrincipalId :: Lens.Lens' Identity (Lude.Maybe Lude.Text)
-iPrincipalId = Lens.lens (principalId :: Identity -> Lude.Maybe Lude.Text) (\s a -> s {principalId = a} :: Identity)
+iPrincipalId :: Lens.Lens' Identity (Core.Maybe Types.String)
+iPrincipalId = Lens.field @"principalId"
 {-# DEPRECATED iPrincipalId "Use generic-lens or generic-optics with 'principalId' instead." #-}
 
 -- | The type of the identity. For Time To Live, the type is "Service".
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iType :: Lens.Lens' Identity (Lude.Maybe Lude.Text)
-iType = Lens.lens (type' :: Identity -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Identity)
+iType :: Lens.Lens' Identity (Core.Maybe Types.String)
+iType = Lens.field @"type'"
 {-# DEPRECATED iType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Identity where
+instance Core.FromJSON Identity where
   parseJSON =
-    Lude.withObject
-      "Identity"
-      ( \x ->
-          Identity'
-            Lude.<$> (x Lude..:? "PrincipalId") Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "Identity" Core.$
+      \x ->
+        Identity'
+          Core.<$> (x Core..:? "PrincipalId") Core.<*> (x Core..:? "Type")

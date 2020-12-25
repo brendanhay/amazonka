@@ -13,66 +13,71 @@
 module Network.AWS.ECS.Types.AgentUpdateStatus
   ( AgentUpdateStatus
       ( AgentUpdateStatus',
-        AUSPending,
-        AUSStaging,
-        AUSStaged,
-        AUSUpdating,
-        AUSUpdated,
-        AUSFailed
+        AgentUpdateStatusPending,
+        AgentUpdateStatusStaging,
+        AgentUpdateStatusStaged,
+        AgentUpdateStatusUpdating,
+        AgentUpdateStatusUpdated,
+        AgentUpdateStatusFailed,
+        fromAgentUpdateStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AgentUpdateStatus = AgentUpdateStatus' Lude.Text
+newtype AgentUpdateStatus = AgentUpdateStatus'
+  { fromAgentUpdateStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AUSPending :: AgentUpdateStatus
-pattern AUSPending = AgentUpdateStatus' "PENDING"
+pattern AgentUpdateStatusPending :: AgentUpdateStatus
+pattern AgentUpdateStatusPending = AgentUpdateStatus' "PENDING"
 
-pattern AUSStaging :: AgentUpdateStatus
-pattern AUSStaging = AgentUpdateStatus' "STAGING"
+pattern AgentUpdateStatusStaging :: AgentUpdateStatus
+pattern AgentUpdateStatusStaging = AgentUpdateStatus' "STAGING"
 
-pattern AUSStaged :: AgentUpdateStatus
-pattern AUSStaged = AgentUpdateStatus' "STAGED"
+pattern AgentUpdateStatusStaged :: AgentUpdateStatus
+pattern AgentUpdateStatusStaged = AgentUpdateStatus' "STAGED"
 
-pattern AUSUpdating :: AgentUpdateStatus
-pattern AUSUpdating = AgentUpdateStatus' "UPDATING"
+pattern AgentUpdateStatusUpdating :: AgentUpdateStatus
+pattern AgentUpdateStatusUpdating = AgentUpdateStatus' "UPDATING"
 
-pattern AUSUpdated :: AgentUpdateStatus
-pattern AUSUpdated = AgentUpdateStatus' "UPDATED"
+pattern AgentUpdateStatusUpdated :: AgentUpdateStatus
+pattern AgentUpdateStatusUpdated = AgentUpdateStatus' "UPDATED"
 
-pattern AUSFailed :: AgentUpdateStatus
-pattern AUSFailed = AgentUpdateStatus' "FAILED"
+pattern AgentUpdateStatusFailed :: AgentUpdateStatus
+pattern AgentUpdateStatusFailed = AgentUpdateStatus' "FAILED"
 
 {-# COMPLETE
-  AUSPending,
-  AUSStaging,
-  AUSStaged,
-  AUSUpdating,
-  AUSUpdated,
-  AUSFailed,
+  AgentUpdateStatusPending,
+  AgentUpdateStatusStaging,
+  AgentUpdateStatusStaged,
+  AgentUpdateStatusUpdating,
+  AgentUpdateStatusUpdated,
+  AgentUpdateStatusFailed,
   AgentUpdateStatus'
   #-}

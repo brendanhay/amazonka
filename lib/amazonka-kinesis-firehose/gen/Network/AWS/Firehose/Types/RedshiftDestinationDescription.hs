@@ -17,183 +17,173 @@ module Network.AWS.Firehose.Types.RedshiftDestinationDescription
     mkRedshiftDestinationDescription,
 
     -- * Lenses
-    rddS3BackupMode,
-    rddS3BackupDescription,
-    rddCloudWatchLoggingOptions,
+    rddRoleARN,
+    rddClusterJDBCURL,
+    rddCopyCommand,
     rddUsername,
     rddS3DestinationDescription,
-    rddCopyCommand,
-    rddRetryOptions,
+    rddCloudWatchLoggingOptions,
     rddProcessingConfiguration,
-    rddClusterJDBCURL,
-    rddRoleARN,
+    rddRetryOptions,
+    rddS3BackupDescription,
+    rddS3BackupMode,
   )
 where
 
-import Network.AWS.Firehose.Types.CloudWatchLoggingOptions
-import Network.AWS.Firehose.Types.CopyCommand
-import Network.AWS.Firehose.Types.ProcessingConfiguration
-import Network.AWS.Firehose.Types.RedshiftRetryOptions
-import Network.AWS.Firehose.Types.RedshiftS3BackupMode
-import Network.AWS.Firehose.Types.S3DestinationDescription
+import qualified Network.AWS.Firehose.Types.CloudWatchLoggingOptions as Types
+import qualified Network.AWS.Firehose.Types.ClusterJDBCURL as Types
+import qualified Network.AWS.Firehose.Types.CopyCommand as Types
+import qualified Network.AWS.Firehose.Types.ProcessingConfiguration as Types
+import qualified Network.AWS.Firehose.Types.RedshiftRetryOptions as Types
+import qualified Network.AWS.Firehose.Types.RedshiftS3BackupMode as Types
+import qualified Network.AWS.Firehose.Types.RoleARN as Types
+import qualified Network.AWS.Firehose.Types.S3DestinationDescription as Types
+import qualified Network.AWS.Firehose.Types.Username as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a destination in Amazon Redshift.
 --
 -- /See:/ 'mkRedshiftDestinationDescription' smart constructor.
 data RedshiftDestinationDescription = RedshiftDestinationDescription'
-  { -- | The Amazon S3 backup mode.
-    s3BackupMode :: Lude.Maybe RedshiftS3BackupMode,
-    -- | The configuration for backup in Amazon S3.
-    s3BackupDescription :: Lude.Maybe S3DestinationDescription,
-    -- | The Amazon CloudWatch logging options for your delivery stream.
-    cloudWatchLoggingOptions :: Lude.Maybe CloudWatchLoggingOptions,
-    -- | The name of the user.
-    username :: Lude.Sensitive Lude.Text,
-    -- | The Amazon S3 destination.
-    s3DestinationDescription :: S3DestinationDescription,
-    -- | The @COPY@ command.
-    copyCommand :: CopyCommand,
-    -- | The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
-    retryOptions :: Lude.Maybe RedshiftRetryOptions,
-    -- | The data processing configuration.
-    processingConfiguration :: Lude.Maybe ProcessingConfiguration,
+  { -- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+    roleARN :: Types.RoleARN,
     -- | The database connection string.
-    clusterJDBCURL :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-    roleARN :: Lude.Text
+    clusterJDBCURL :: Types.ClusterJDBCURL,
+    -- | The @COPY@ command.
+    copyCommand :: Types.CopyCommand,
+    -- | The name of the user.
+    username :: Types.Username,
+    -- | The Amazon S3 destination.
+    s3DestinationDescription :: Types.S3DestinationDescription,
+    -- | The Amazon CloudWatch logging options for your delivery stream.
+    cloudWatchLoggingOptions :: Core.Maybe Types.CloudWatchLoggingOptions,
+    -- | The data processing configuration.
+    processingConfiguration :: Core.Maybe Types.ProcessingConfiguration,
+    -- | The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
+    retryOptions :: Core.Maybe Types.RedshiftRetryOptions,
+    -- | The configuration for backup in Amazon S3.
+    s3BackupDescription :: Core.Maybe Types.S3DestinationDescription,
+    -- | The Amazon S3 backup mode.
+    s3BackupMode :: Core.Maybe Types.RedshiftS3BackupMode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RedshiftDestinationDescription' with the minimum fields required to make a request.
---
--- * 's3BackupMode' - The Amazon S3 backup mode.
--- * 's3BackupDescription' - The configuration for backup in Amazon S3.
--- * 'cloudWatchLoggingOptions' - The Amazon CloudWatch logging options for your delivery stream.
--- * 'username' - The name of the user.
--- * 's3DestinationDescription' - The Amazon S3 destination.
--- * 'copyCommand' - The @COPY@ command.
--- * 'retryOptions' - The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
--- * 'processingConfiguration' - The data processing configuration.
--- * 'clusterJDBCURL' - The database connection string.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | Creates a 'RedshiftDestinationDescription' value with any optional fields omitted.
 mkRedshiftDestinationDescription ::
-  -- | 'username'
-  Lude.Sensitive Lude.Text ->
-  -- | 's3DestinationDescription'
-  S3DestinationDescription ->
-  -- | 'copyCommand'
-  CopyCommand ->
-  -- | 'clusterJDBCURL'
-  Lude.Text ->
   -- | 'roleARN'
-  Lude.Text ->
+  Types.RoleARN ->
+  -- | 'clusterJDBCURL'
+  Types.ClusterJDBCURL ->
+  -- | 'copyCommand'
+  Types.CopyCommand ->
+  -- | 'username'
+  Types.Username ->
+  -- | 's3DestinationDescription'
+  Types.S3DestinationDescription ->
   RedshiftDestinationDescription
 mkRedshiftDestinationDescription
-  pUsername_
-  pS3DestinationDescription_
-  pCopyCommand_
-  pClusterJDBCURL_
-  pRoleARN_ =
+  roleARN
+  clusterJDBCURL
+  copyCommand
+  username
+  s3DestinationDescription =
     RedshiftDestinationDescription'
-      { s3BackupMode = Lude.Nothing,
-        s3BackupDescription = Lude.Nothing,
-        cloudWatchLoggingOptions = Lude.Nothing,
-        username = pUsername_,
-        s3DestinationDescription = pS3DestinationDescription_,
-        copyCommand = pCopyCommand_,
-        retryOptions = Lude.Nothing,
-        processingConfiguration = Lude.Nothing,
-        clusterJDBCURL = pClusterJDBCURL_,
-        roleARN = pRoleARN_
+      { roleARN,
+        clusterJDBCURL,
+        copyCommand,
+        username,
+        s3DestinationDescription,
+        cloudWatchLoggingOptions = Core.Nothing,
+        processingConfiguration = Core.Nothing,
+        retryOptions = Core.Nothing,
+        s3BackupDescription = Core.Nothing,
+        s3BackupMode = Core.Nothing
       }
 
--- | The Amazon S3 backup mode.
+-- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
--- /Note:/ Consider using 's3BackupMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rddS3BackupMode :: Lens.Lens' RedshiftDestinationDescription (Lude.Maybe RedshiftS3BackupMode)
-rddS3BackupMode = Lens.lens (s3BackupMode :: RedshiftDestinationDescription -> Lude.Maybe RedshiftS3BackupMode) (\s a -> s {s3BackupMode = a} :: RedshiftDestinationDescription)
-{-# DEPRECATED rddS3BackupMode "Use generic-lens or generic-optics with 's3BackupMode' instead." #-}
+-- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rddRoleARN :: Lens.Lens' RedshiftDestinationDescription Types.RoleARN
+rddRoleARN = Lens.field @"roleARN"
+{-# DEPRECATED rddRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
--- | The configuration for backup in Amazon S3.
+-- | The database connection string.
 --
--- /Note:/ Consider using 's3BackupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rddS3BackupDescription :: Lens.Lens' RedshiftDestinationDescription (Lude.Maybe S3DestinationDescription)
-rddS3BackupDescription = Lens.lens (s3BackupDescription :: RedshiftDestinationDescription -> Lude.Maybe S3DestinationDescription) (\s a -> s {s3BackupDescription = a} :: RedshiftDestinationDescription)
-{-# DEPRECATED rddS3BackupDescription "Use generic-lens or generic-optics with 's3BackupDescription' instead." #-}
+-- /Note:/ Consider using 'clusterJDBCURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rddClusterJDBCURL :: Lens.Lens' RedshiftDestinationDescription Types.ClusterJDBCURL
+rddClusterJDBCURL = Lens.field @"clusterJDBCURL"
+{-# DEPRECATED rddClusterJDBCURL "Use generic-lens or generic-optics with 'clusterJDBCURL' instead." #-}
 
--- | The Amazon CloudWatch logging options for your delivery stream.
+-- | The @COPY@ command.
 --
--- /Note:/ Consider using 'cloudWatchLoggingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rddCloudWatchLoggingOptions :: Lens.Lens' RedshiftDestinationDescription (Lude.Maybe CloudWatchLoggingOptions)
-rddCloudWatchLoggingOptions = Lens.lens (cloudWatchLoggingOptions :: RedshiftDestinationDescription -> Lude.Maybe CloudWatchLoggingOptions) (\s a -> s {cloudWatchLoggingOptions = a} :: RedshiftDestinationDescription)
-{-# DEPRECATED rddCloudWatchLoggingOptions "Use generic-lens or generic-optics with 'cloudWatchLoggingOptions' instead." #-}
+-- /Note:/ Consider using 'copyCommand' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rddCopyCommand :: Lens.Lens' RedshiftDestinationDescription Types.CopyCommand
+rddCopyCommand = Lens.field @"copyCommand"
+{-# DEPRECATED rddCopyCommand "Use generic-lens or generic-optics with 'copyCommand' instead." #-}
 
 -- | The name of the user.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rddUsername :: Lens.Lens' RedshiftDestinationDescription (Lude.Sensitive Lude.Text)
-rddUsername = Lens.lens (username :: RedshiftDestinationDescription -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: RedshiftDestinationDescription)
+rddUsername :: Lens.Lens' RedshiftDestinationDescription Types.Username
+rddUsername = Lens.field @"username"
 {-# DEPRECATED rddUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The Amazon S3 destination.
 --
 -- /Note:/ Consider using 's3DestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rddS3DestinationDescription :: Lens.Lens' RedshiftDestinationDescription S3DestinationDescription
-rddS3DestinationDescription = Lens.lens (s3DestinationDescription :: RedshiftDestinationDescription -> S3DestinationDescription) (\s a -> s {s3DestinationDescription = a} :: RedshiftDestinationDescription)
+rddS3DestinationDescription :: Lens.Lens' RedshiftDestinationDescription Types.S3DestinationDescription
+rddS3DestinationDescription = Lens.field @"s3DestinationDescription"
 {-# DEPRECATED rddS3DestinationDescription "Use generic-lens or generic-optics with 's3DestinationDescription' instead." #-}
 
--- | The @COPY@ command.
+-- | The Amazon CloudWatch logging options for your delivery stream.
 --
--- /Note:/ Consider using 'copyCommand' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rddCopyCommand :: Lens.Lens' RedshiftDestinationDescription CopyCommand
-rddCopyCommand = Lens.lens (copyCommand :: RedshiftDestinationDescription -> CopyCommand) (\s a -> s {copyCommand = a} :: RedshiftDestinationDescription)
-{-# DEPRECATED rddCopyCommand "Use generic-lens or generic-optics with 'copyCommand' instead." #-}
-
--- | The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
---
--- /Note:/ Consider using 'retryOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rddRetryOptions :: Lens.Lens' RedshiftDestinationDescription (Lude.Maybe RedshiftRetryOptions)
-rddRetryOptions = Lens.lens (retryOptions :: RedshiftDestinationDescription -> Lude.Maybe RedshiftRetryOptions) (\s a -> s {retryOptions = a} :: RedshiftDestinationDescription)
-{-# DEPRECATED rddRetryOptions "Use generic-lens or generic-optics with 'retryOptions' instead." #-}
+-- /Note:/ Consider using 'cloudWatchLoggingOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rddCloudWatchLoggingOptions :: Lens.Lens' RedshiftDestinationDescription (Core.Maybe Types.CloudWatchLoggingOptions)
+rddCloudWatchLoggingOptions = Lens.field @"cloudWatchLoggingOptions"
+{-# DEPRECATED rddCloudWatchLoggingOptions "Use generic-lens or generic-optics with 'cloudWatchLoggingOptions' instead." #-}
 
 -- | The data processing configuration.
 --
 -- /Note:/ Consider using 'processingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rddProcessingConfiguration :: Lens.Lens' RedshiftDestinationDescription (Lude.Maybe ProcessingConfiguration)
-rddProcessingConfiguration = Lens.lens (processingConfiguration :: RedshiftDestinationDescription -> Lude.Maybe ProcessingConfiguration) (\s a -> s {processingConfiguration = a} :: RedshiftDestinationDescription)
+rddProcessingConfiguration :: Lens.Lens' RedshiftDestinationDescription (Core.Maybe Types.ProcessingConfiguration)
+rddProcessingConfiguration = Lens.field @"processingConfiguration"
 {-# DEPRECATED rddProcessingConfiguration "Use generic-lens or generic-optics with 'processingConfiguration' instead." #-}
 
--- | The database connection string.
+-- | The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).
 --
--- /Note:/ Consider using 'clusterJDBCURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rddClusterJDBCURL :: Lens.Lens' RedshiftDestinationDescription Lude.Text
-rddClusterJDBCURL = Lens.lens (clusterJDBCURL :: RedshiftDestinationDescription -> Lude.Text) (\s a -> s {clusterJDBCURL = a} :: RedshiftDestinationDescription)
-{-# DEPRECATED rddClusterJDBCURL "Use generic-lens or generic-optics with 'clusterJDBCURL' instead." #-}
+-- /Note:/ Consider using 'retryOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rddRetryOptions :: Lens.Lens' RedshiftDestinationDescription (Core.Maybe Types.RedshiftRetryOptions)
+rddRetryOptions = Lens.field @"retryOptions"
+{-# DEPRECATED rddRetryOptions "Use generic-lens or generic-optics with 'retryOptions' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the AWS credentials. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | The configuration for backup in Amazon S3.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rddRoleARN :: Lens.Lens' RedshiftDestinationDescription Lude.Text
-rddRoleARN = Lens.lens (roleARN :: RedshiftDestinationDescription -> Lude.Text) (\s a -> s {roleARN = a} :: RedshiftDestinationDescription)
-{-# DEPRECATED rddRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 's3BackupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rddS3BackupDescription :: Lens.Lens' RedshiftDestinationDescription (Core.Maybe Types.S3DestinationDescription)
+rddS3BackupDescription = Lens.field @"s3BackupDescription"
+{-# DEPRECATED rddS3BackupDescription "Use generic-lens or generic-optics with 's3BackupDescription' instead." #-}
 
-instance Lude.FromJSON RedshiftDestinationDescription where
+-- | The Amazon S3 backup mode.
+--
+-- /Note:/ Consider using 's3BackupMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rddS3BackupMode :: Lens.Lens' RedshiftDestinationDescription (Core.Maybe Types.RedshiftS3BackupMode)
+rddS3BackupMode = Lens.field @"s3BackupMode"
+{-# DEPRECATED rddS3BackupMode "Use generic-lens or generic-optics with 's3BackupMode' instead." #-}
+
+instance Core.FromJSON RedshiftDestinationDescription where
   parseJSON =
-    Lude.withObject
-      "RedshiftDestinationDescription"
-      ( \x ->
-          RedshiftDestinationDescription'
-            Lude.<$> (x Lude..:? "S3BackupMode")
-            Lude.<*> (x Lude..:? "S3BackupDescription")
-            Lude.<*> (x Lude..:? "CloudWatchLoggingOptions")
-            Lude.<*> (x Lude..: "Username")
-            Lude.<*> (x Lude..: "S3DestinationDescription")
-            Lude.<*> (x Lude..: "CopyCommand")
-            Lude.<*> (x Lude..:? "RetryOptions")
-            Lude.<*> (x Lude..:? "ProcessingConfiguration")
-            Lude.<*> (x Lude..: "ClusterJDBCURL")
-            Lude.<*> (x Lude..: "RoleARN")
-      )
+    Core.withObject "RedshiftDestinationDescription" Core.$
+      \x ->
+        RedshiftDestinationDescription'
+          Core.<$> (x Core..: "RoleARN")
+          Core.<*> (x Core..: "ClusterJDBCURL")
+          Core.<*> (x Core..: "CopyCommand")
+          Core.<*> (x Core..: "Username")
+          Core.<*> (x Core..: "S3DestinationDescription")
+          Core.<*> (x Core..:? "CloudWatchLoggingOptions")
+          Core.<*> (x Core..:? "ProcessingConfiguration")
+          Core.<*> (x Core..:? "RetryOptions")
+          Core.<*> (x Core..:? "S3BackupDescription")
+          Core.<*> (x Core..:? "S3BackupMode")

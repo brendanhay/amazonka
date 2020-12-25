@@ -22,8 +22,8 @@ module Network.AWS.KinesisAnalytics.DeleteApplication
     mkDeleteApplication,
 
     -- ** Request lenses
-    daCreateTimestamp,
-    daApplicationName,
+    dApplicationName,
+    dCreateTimestamp,
 
     -- * Destructuring the response
     DeleteApplicationResponse (..),
@@ -34,112 +34,98 @@ module Network.AWS.KinesisAnalytics.DeleteApplication
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types
+import qualified Network.AWS.KinesisAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDeleteApplication' smart constructor.
 data DeleteApplication = DeleteApplication'
-  { -- | You can use the @DescribeApplication@ operation to get this value.
-    createTimestamp :: Lude.Timestamp,
-    -- | Name of the Amazon Kinesis Analytics application to delete.
-    applicationName :: Lude.Text
+  { -- | Name of the Amazon Kinesis Analytics application to delete.
+    applicationName :: Types.ApplicationName,
+    -- | You can use the @DescribeApplication@ operation to get this value.
+    createTimestamp :: Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteApplication' with the minimum fields required to make a request.
---
--- * 'createTimestamp' - You can use the @DescribeApplication@ operation to get this value.
--- * 'applicationName' - Name of the Amazon Kinesis Analytics application to delete.
+-- | Creates a 'DeleteApplication' value with any optional fields omitted.
 mkDeleteApplication ::
-  -- | 'createTimestamp'
-  Lude.Timestamp ->
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
+  -- | 'createTimestamp'
+  Core.NominalDiffTime ->
   DeleteApplication
-mkDeleteApplication pCreateTimestamp_ pApplicationName_ =
-  DeleteApplication'
-    { createTimestamp = pCreateTimestamp_,
-      applicationName = pApplicationName_
-    }
-
--- | You can use the @DescribeApplication@ operation to get this value.
---
--- /Note:/ Consider using 'createTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daCreateTimestamp :: Lens.Lens' DeleteApplication Lude.Timestamp
-daCreateTimestamp = Lens.lens (createTimestamp :: DeleteApplication -> Lude.Timestamp) (\s a -> s {createTimestamp = a} :: DeleteApplication)
-{-# DEPRECATED daCreateTimestamp "Use generic-lens or generic-optics with 'createTimestamp' instead." #-}
+mkDeleteApplication applicationName createTimestamp =
+  DeleteApplication' {applicationName, createTimestamp}
 
 -- | Name of the Amazon Kinesis Analytics application to delete.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daApplicationName :: Lens.Lens' DeleteApplication Lude.Text
-daApplicationName = Lens.lens (applicationName :: DeleteApplication -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteApplication)
-{-# DEPRECATED daApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+dApplicationName :: Lens.Lens' DeleteApplication Types.ApplicationName
+dApplicationName = Lens.field @"applicationName"
+{-# DEPRECATED dApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance Lude.AWSRequest DeleteApplication where
+-- | You can use the @DescribeApplication@ operation to get this value.
+--
+-- /Note:/ Consider using 'createTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCreateTimestamp :: Lens.Lens' DeleteApplication Core.NominalDiffTime
+dCreateTimestamp = Lens.field @"createTimestamp"
+{-# DEPRECATED dCreateTimestamp "Use generic-lens or generic-optics with 'createTimestamp' instead." #-}
+
+instance Core.FromJSON DeleteApplication where
+  toJSON DeleteApplication {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ApplicationName" Core..= applicationName),
+            Core.Just ("CreateTimestamp" Core..= createTimestamp)
+          ]
+      )
+
+instance Core.AWSRequest DeleteApplication where
   type Rs DeleteApplication = DeleteApplicationResponse
-  request = Req.postJSON kinesisAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "KinesisAnalytics_20150814.DeleteApplication")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteApplicationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteApplicationResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteApplication where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("KinesisAnalytics_20150814.DeleteApplication" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteApplication where
-  toJSON DeleteApplication' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("CreateTimestamp" Lude..= createTimestamp),
-            Lude.Just ("ApplicationName" Lude..= applicationName)
-          ]
-      )
-
-instance Lude.ToPath DeleteApplication where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteApplication where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkDeleteApplicationResponse' smart constructor.
 newtype DeleteApplicationResponse = DeleteApplicationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteApplicationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteApplicationResponse' value with any optional fields omitted.
 mkDeleteApplicationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteApplicationResponse
-mkDeleteApplicationResponse pResponseStatus_ =
-  DeleteApplicationResponse' {responseStatus = pResponseStatus_}
+mkDeleteApplicationResponse responseStatus =
+  DeleteApplicationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteApplicationResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteApplicationResponse)
+drsResponseStatus :: Lens.Lens' DeleteApplicationResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

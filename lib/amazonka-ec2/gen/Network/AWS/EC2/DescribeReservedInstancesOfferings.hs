@@ -25,50 +25,48 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     mkDescribeReservedInstancesOfferings,
 
     -- ** Request lenses
-    drioMaxDuration,
-    drioProductDescription,
+    drioAvailabilityZone,
+    drioDryRun,
     drioFilters,
     drioIncludeMarketplace,
-    drioInstanceType,
-    drioNextToken,
-    drioMinDuration,
-    drioAvailabilityZone,
-    drioOfferingType,
-    drioReservedInstancesOfferingIds,
     drioInstanceTenancy,
-    drioOfferingClass,
+    drioInstanceType,
+    drioMaxDuration,
     drioMaxInstanceCount,
-    drioDryRun,
     drioMaxResults,
+    drioMinDuration,
+    drioNextToken,
+    drioOfferingClass,
+    drioOfferingType,
+    drioProductDescription,
+    drioReservedInstancesOfferingIds,
 
     -- * Destructuring the response
     DescribeReservedInstancesOfferingsResponse (..),
     mkDescribeReservedInstancesOfferingsResponse,
 
     -- ** Response lenses
-    driorsNextToken,
-    driorsReservedInstancesOfferings,
-    driorsResponseStatus,
+    driorrsNextToken,
+    driorrsReservedInstancesOfferings,
+    driorrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeReservedInstancesOfferings.
 --
 -- /See:/ 'mkDescribeReservedInstancesOfferings' smart constructor.
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
-  { -- | The maximum duration (in seconds) to filter when searching for offerings.
-    --
-    -- Default: 94608000 (3 years)
-    maxDuration :: Lude.Maybe Lude.Integer,
-    -- | The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the description are for use with Amazon VPC.
-    productDescription :: Lude.Maybe RIProductDescription,
+  { -- | The Availability Zone in which the Reserved Instance can be used.
+    availabilityZone :: Core.Maybe Types.String,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | One or more filters.
     --
     --
@@ -97,137 +95,82 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     --
     --
     --     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
-    filters :: Lude.Maybe [Filter],
+    filters :: Core.Maybe [Types.Filter],
     -- | Include Reserved Instance Marketplace offerings in the response.
-    includeMarketplace :: Lude.Maybe Lude.Bool,
-    -- | The instance type that the reservation will cover (for example, @m1.small@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
-    instanceType :: Lude.Maybe InstanceType,
-    -- | The token to retrieve the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The minimum duration (in seconds) to filter when searching for offerings.
-    --
-    -- Default: 2592000 (1 month)
-    minDuration :: Lude.Maybe Lude.Integer,
-    -- | The Availability Zone in which the Reserved Instance can be used.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the @Medium Utilization@ Reserved Instance offering type.
-    offeringType :: Lude.Maybe OfferingTypeValues,
-    -- | One or more Reserved Instances offering IDs.
-    reservedInstancesOfferingIds :: Lude.Maybe [Lude.Text],
+    includeMarketplace :: Core.Maybe Core.Bool,
     -- | The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of @dedicated@ is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances).
     --
     -- __Important:__ The @host@ value cannot be used with this parameter. Use the @default@ or @dedicated@ values only.
     -- Default: @default@
-    instanceTenancy :: Lude.Maybe Tenancy,
-    -- | The offering class of the Reserved Instance. Can be @standard@ or @convertible@ .
-    offeringClass :: Lude.Maybe OfferingClassType,
+    instanceTenancy :: Core.Maybe Types.Tenancy,
+    -- | The instance type that the reservation will cover (for example, @m1.small@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+    instanceType :: Core.Maybe Types.InstanceType,
+    -- | The maximum duration (in seconds) to filter when searching for offerings.
+    --
+    -- Default: 94608000 (3 years)
+    maxDuration :: Core.Maybe Core.Integer,
     -- | The maximum number of instances to filter when searching for offerings.
     --
     -- Default: 20
-    maxInstanceCount :: Lude.Maybe Lude.Int,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    maxInstanceCount :: Core.Maybe Core.Int,
     -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. The maximum is 100.
     --
     -- Default: 100
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | The minimum duration (in seconds) to filter when searching for offerings.
+    --
+    -- Default: 2592000 (1 month)
+    minDuration :: Core.Maybe Core.Integer,
+    -- | The token to retrieve the next page of results.
+    nextToken :: Core.Maybe Types.String,
+    -- | The offering class of the Reserved Instance. Can be @standard@ or @convertible@ .
+    offeringClass :: Core.Maybe Types.OfferingClassType,
+    -- | The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the @Medium Utilization@ Reserved Instance offering type.
+    offeringType :: Core.Maybe Types.OfferingTypeValues,
+    -- | The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the description are for use with Amazon VPC.
+    productDescription :: Core.Maybe Types.RIProductDescription,
+    -- | One or more Reserved Instances offering IDs.
+    reservedInstancesOfferingIds :: Core.Maybe [Types.ReservedInstancesOfferingId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReservedInstancesOfferings' with the minimum fields required to make a request.
---
--- * 'maxDuration' - The maximum duration (in seconds) to filter when searching for offerings.
---
--- Default: 94608000 (3 years)
--- * 'productDescription' - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the description are for use with Amazon VPC.
--- * 'filters' - One or more filters.
---
---
---     * @availability-zone@ - The Availability Zone where the Reserved Instance can be used.
---
---
---     * @duration@ - The duration of the Reserved Instance (for example, one year or three years), in seconds (@31536000@ | @94608000@ ).
---
---
---     * @fixed-price@ - The purchase price of the Reserved Instance (for example, 9800.0).
---
---
---     * @instance-type@ - The instance type that is covered by the reservation.
---
---
---     * @marketplace@ - Set to @true@ to show only Reserved Instance Marketplace offerings. When this filter is not used, which is the default behavior, all offerings from both AWS and the Reserved Instance Marketplace are listed.
---
---
---     * @product-description@ - The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the product platform description will only be displayed to EC2-Classic account holders and are for use with Amazon VPC. (@Linux/UNIX@ | @Linux/UNIX (Amazon VPC)@ | @SUSE Linux@ | @SUSE Linux (Amazon VPC)@ | @Red Hat Enterprise Linux@ | @Red Hat Enterprise Linux (Amazon VPC)@ | @Windows@ | @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ | @Windows with SQL Server Standard (Amazon VPC)@ | @Windows with SQL Server Web@ | @Windows with SQL Server Web (Amazon VPC)@ | @Windows with SQL Server Enterprise@ | @Windows with SQL Server Enterprise (Amazon VPC)@ )
---
---
---     * @reserved-instances-offering-id@ - The Reserved Instances offering ID.
---
---
---     * @scope@ - The scope of the Reserved Instance (@Availability Zone@ or @Region@ ).
---
---
---     * @usage-price@ - The usage price of the Reserved Instance, per hour (for example, 0.84).
---
---
--- * 'includeMarketplace' - Include Reserved Instance Marketplace offerings in the response.
--- * 'instanceType' - The instance type that the reservation will cover (for example, @m1.small@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'nextToken' - The token to retrieve the next page of results.
--- * 'minDuration' - The minimum duration (in seconds) to filter when searching for offerings.
---
--- Default: 2592000 (1 month)
--- * 'availabilityZone' - The Availability Zone in which the Reserved Instance can be used.
--- * 'offeringType' - The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the @Medium Utilization@ Reserved Instance offering type.
--- * 'reservedInstancesOfferingIds' - One or more Reserved Instances offering IDs.
--- * 'instanceTenancy' - The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of @dedicated@ is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances).
---
--- __Important:__ The @host@ value cannot be used with this parameter. Use the @default@ or @dedicated@ values only.
--- Default: @default@
--- * 'offeringClass' - The offering class of the Reserved Instance. Can be @standard@ or @convertible@ .
--- * 'maxInstanceCount' - The maximum number of instances to filter when searching for offerings.
---
--- Default: 20
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. The maximum is 100.
---
--- Default: 100
+-- | Creates a 'DescribeReservedInstancesOfferings' value with any optional fields omitted.
 mkDescribeReservedInstancesOfferings ::
   DescribeReservedInstancesOfferings
 mkDescribeReservedInstancesOfferings =
   DescribeReservedInstancesOfferings'
-    { maxDuration = Lude.Nothing,
-      productDescription = Lude.Nothing,
-      filters = Lude.Nothing,
-      includeMarketplace = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      minDuration = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      offeringType = Lude.Nothing,
-      reservedInstancesOfferingIds = Lude.Nothing,
-      instanceTenancy = Lude.Nothing,
-      offeringClass = Lude.Nothing,
-      maxInstanceCount = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { availabilityZone =
+        Core.Nothing,
+      dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      includeMarketplace = Core.Nothing,
+      instanceTenancy = Core.Nothing,
+      instanceType = Core.Nothing,
+      maxDuration = Core.Nothing,
+      maxInstanceCount = Core.Nothing,
+      maxResults = Core.Nothing,
+      minDuration = Core.Nothing,
+      nextToken = Core.Nothing,
+      offeringClass = Core.Nothing,
+      offeringType = Core.Nothing,
+      productDescription = Core.Nothing,
+      reservedInstancesOfferingIds = Core.Nothing
     }
 
--- | The maximum duration (in seconds) to filter when searching for offerings.
+-- | The Availability Zone in which the Reserved Instance can be used.
 --
--- Default: 94608000 (3 years)
---
--- /Note:/ Consider using 'maxDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioMaxDuration :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe Lude.Integer)
-drioMaxDuration = Lens.lens (maxDuration :: DescribeReservedInstancesOfferings -> Lude.Maybe Lude.Integer) (\s a -> s {maxDuration = a} :: DescribeReservedInstancesOfferings)
-{-# DEPRECATED drioMaxDuration "Use generic-lens or generic-optics with 'maxDuration' instead." #-}
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drioAvailabilityZone :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Types.String)
+drioAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED drioAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the description are for use with Amazon VPC.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioProductDescription :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe RIProductDescription)
-drioProductDescription = Lens.lens (productDescription :: DescribeReservedInstancesOfferings -> Lude.Maybe RIProductDescription) (\s a -> s {productDescription = a} :: DescribeReservedInstancesOfferings)
-{-# DEPRECATED drioProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drioDryRun :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Bool)
+drioDryRun = Lens.field @"dryRun"
+{-# DEPRECATED drioDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters.
 --
@@ -261,60 +204,16 @@ drioProductDescription = Lens.lens (productDescription :: DescribeReservedInstan
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioFilters :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe [Filter])
-drioFilters = Lens.lens (filters :: DescribeReservedInstancesOfferings -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeReservedInstancesOfferings)
+drioFilters :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe [Types.Filter])
+drioFilters = Lens.field @"filters"
 {-# DEPRECATED drioFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | Include Reserved Instance Marketplace offerings in the response.
 --
 -- /Note:/ Consider using 'includeMarketplace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioIncludeMarketplace :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe Lude.Bool)
-drioIncludeMarketplace = Lens.lens (includeMarketplace :: DescribeReservedInstancesOfferings -> Lude.Maybe Lude.Bool) (\s a -> s {includeMarketplace = a} :: DescribeReservedInstancesOfferings)
+drioIncludeMarketplace :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Bool)
+drioIncludeMarketplace = Lens.field @"includeMarketplace"
 {-# DEPRECATED drioIncludeMarketplace "Use generic-lens or generic-optics with 'includeMarketplace' instead." #-}
-
--- | The instance type that the reservation will cover (for example, @m1.small@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioInstanceType :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe InstanceType)
-drioInstanceType = Lens.lens (instanceType :: DescribeReservedInstancesOfferings -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: DescribeReservedInstancesOfferings)
-{-# DEPRECATED drioInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | The token to retrieve the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioNextToken :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe Lude.Text)
-drioNextToken = Lens.lens (nextToken :: DescribeReservedInstancesOfferings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeReservedInstancesOfferings)
-{-# DEPRECATED drioNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The minimum duration (in seconds) to filter when searching for offerings.
---
--- Default: 2592000 (1 month)
---
--- /Note:/ Consider using 'minDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioMinDuration :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe Lude.Integer)
-drioMinDuration = Lens.lens (minDuration :: DescribeReservedInstancesOfferings -> Lude.Maybe Lude.Integer) (\s a -> s {minDuration = a} :: DescribeReservedInstancesOfferings)
-{-# DEPRECATED drioMinDuration "Use generic-lens or generic-optics with 'minDuration' instead." #-}
-
--- | The Availability Zone in which the Reserved Instance can be used.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioAvailabilityZone :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe Lude.Text)
-drioAvailabilityZone = Lens.lens (availabilityZone :: DescribeReservedInstancesOfferings -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: DescribeReservedInstancesOfferings)
-{-# DEPRECATED drioAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the @Medium Utilization@ Reserved Instance offering type.
---
--- /Note:/ Consider using 'offeringType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioOfferingType :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe OfferingTypeValues)
-drioOfferingType = Lens.lens (offeringType :: DescribeReservedInstancesOfferings -> Lude.Maybe OfferingTypeValues) (\s a -> s {offeringType = a} :: DescribeReservedInstancesOfferings)
-{-# DEPRECATED drioOfferingType "Use generic-lens or generic-optics with 'offeringType' instead." #-}
-
--- | One or more Reserved Instances offering IDs.
---
--- /Note:/ Consider using 'reservedInstancesOfferingIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioReservedInstancesOfferingIds :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe [Lude.Text])
-drioReservedInstancesOfferingIds = Lens.lens (reservedInstancesOfferingIds :: DescribeReservedInstancesOfferings -> Lude.Maybe [Lude.Text]) (\s a -> s {reservedInstancesOfferingIds = a} :: DescribeReservedInstancesOfferings)
-{-# DEPRECATED drioReservedInstancesOfferingIds "Use generic-lens or generic-optics with 'reservedInstancesOfferingIds' instead." #-}
 
 -- | The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy of @dedicated@ is applied to instances that run in a VPC on single-tenant hardware (i.e., Dedicated Instances).
 --
@@ -322,148 +221,199 @@ drioReservedInstancesOfferingIds = Lens.lens (reservedInstancesOfferingIds :: De
 -- Default: @default@
 --
 -- /Note:/ Consider using 'instanceTenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioInstanceTenancy :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe Tenancy)
-drioInstanceTenancy = Lens.lens (instanceTenancy :: DescribeReservedInstancesOfferings -> Lude.Maybe Tenancy) (\s a -> s {instanceTenancy = a} :: DescribeReservedInstancesOfferings)
+drioInstanceTenancy :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Types.Tenancy)
+drioInstanceTenancy = Lens.field @"instanceTenancy"
 {-# DEPRECATED drioInstanceTenancy "Use generic-lens or generic-optics with 'instanceTenancy' instead." #-}
 
--- | The offering class of the Reserved Instance. Can be @standard@ or @convertible@ .
+-- | The instance type that the reservation will cover (for example, @m1.small@ ). For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- /Note:/ Consider using 'offeringClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioOfferingClass :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe OfferingClassType)
-drioOfferingClass = Lens.lens (offeringClass :: DescribeReservedInstancesOfferings -> Lude.Maybe OfferingClassType) (\s a -> s {offeringClass = a} :: DescribeReservedInstancesOfferings)
-{-# DEPRECATED drioOfferingClass "Use generic-lens or generic-optics with 'offeringClass' instead." #-}
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drioInstanceType :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Types.InstanceType)
+drioInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED drioInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The maximum duration (in seconds) to filter when searching for offerings.
+--
+-- Default: 94608000 (3 years)
+--
+-- /Note:/ Consider using 'maxDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drioMaxDuration :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Integer)
+drioMaxDuration = Lens.field @"maxDuration"
+{-# DEPRECATED drioMaxDuration "Use generic-lens or generic-optics with 'maxDuration' instead." #-}
 
 -- | The maximum number of instances to filter when searching for offerings.
 --
 -- Default: 20
 --
 -- /Note:/ Consider using 'maxInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioMaxInstanceCount :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe Lude.Int)
-drioMaxInstanceCount = Lens.lens (maxInstanceCount :: DescribeReservedInstancesOfferings -> Lude.Maybe Lude.Int) (\s a -> s {maxInstanceCount = a} :: DescribeReservedInstancesOfferings)
+drioMaxInstanceCount :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Int)
+drioMaxInstanceCount = Lens.field @"maxInstanceCount"
 {-# DEPRECATED drioMaxInstanceCount "Use generic-lens or generic-optics with 'maxInstanceCount' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioDryRun :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe Lude.Bool)
-drioDryRun = Lens.lens (dryRun :: DescribeReservedInstancesOfferings -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeReservedInstancesOfferings)
-{-# DEPRECATED drioDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned @NextToken@ value. The maximum is 100.
 --
 -- Default: 100
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drioMaxResults :: Lens.Lens' DescribeReservedInstancesOfferings (Lude.Maybe Lude.Int)
-drioMaxResults = Lens.lens (maxResults :: DescribeReservedInstancesOfferings -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeReservedInstancesOfferings)
+drioMaxResults :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Int)
+drioMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED drioMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeReservedInstancesOfferings where
-  page rq rs
-    | Page.stop (rs Lens.^. driorsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. driorsReservedInstancesOfferings) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& drioNextToken Lens..~ rs Lens.^. driorsNextToken
+-- | The minimum duration (in seconds) to filter when searching for offerings.
+--
+-- Default: 2592000 (1 month)
+--
+-- /Note:/ Consider using 'minDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drioMinDuration :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Core.Integer)
+drioMinDuration = Lens.field @"minDuration"
+{-# DEPRECATED drioMinDuration "Use generic-lens or generic-optics with 'minDuration' instead." #-}
 
-instance Lude.AWSRequest DescribeReservedInstancesOfferings where
+-- | The token to retrieve the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drioNextToken :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Types.String)
+drioNextToken = Lens.field @"nextToken"
+{-# DEPRECATED drioNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The offering class of the Reserved Instance. Can be @standard@ or @convertible@ .
+--
+-- /Note:/ Consider using 'offeringClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drioOfferingClass :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Types.OfferingClassType)
+drioOfferingClass = Lens.field @"offeringClass"
+{-# DEPRECATED drioOfferingClass "Use generic-lens or generic-optics with 'offeringClass' instead." #-}
+
+-- | The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API version, you only have access to the @Medium Utilization@ Reserved Instance offering type.
+--
+-- /Note:/ Consider using 'offeringType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drioOfferingType :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Types.OfferingTypeValues)
+drioOfferingType = Lens.field @"offeringType"
+{-# DEPRECATED drioOfferingType "Use generic-lens or generic-optics with 'offeringType' instead." #-}
+
+-- | The Reserved Instance product platform description. Instances that include @(Amazon VPC)@ in the description are for use with Amazon VPC.
+--
+-- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drioProductDescription :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe Types.RIProductDescription)
+drioProductDescription = Lens.field @"productDescription"
+{-# DEPRECATED drioProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
+
+-- | One or more Reserved Instances offering IDs.
+--
+-- /Note:/ Consider using 'reservedInstancesOfferingIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drioReservedInstancesOfferingIds :: Lens.Lens' DescribeReservedInstancesOfferings (Core.Maybe [Types.ReservedInstancesOfferingId])
+drioReservedInstancesOfferingIds = Lens.field @"reservedInstancesOfferingIds"
+{-# DEPRECATED drioReservedInstancesOfferingIds "Use generic-lens or generic-optics with 'reservedInstancesOfferingIds' instead." #-}
+
+instance Core.AWSRequest DescribeReservedInstancesOfferings where
   type
     Rs DescribeReservedInstancesOfferings =
       DescribeReservedInstancesOfferingsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeReservedInstancesOfferings")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "AvailabilityZone" Core.<$> availabilityZone)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> ( Core.toQueryValue "IncludeMarketplace"
+                            Core.<$> includeMarketplace
+                        )
+                Core.<> (Core.toQueryValue "InstanceTenancy" Core.<$> instanceTenancy)
+                Core.<> (Core.toQueryValue "InstanceType" Core.<$> instanceType)
+                Core.<> (Core.toQueryValue "MaxDuration" Core.<$> maxDuration)
+                Core.<> (Core.toQueryValue "MaxInstanceCount" Core.<$> maxInstanceCount)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "MinDuration" Core.<$> minDuration)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> (Core.toQueryValue "OfferingClass" Core.<$> offeringClass)
+                Core.<> (Core.toQueryValue "OfferingType" Core.<$> offeringType)
+                Core.<> ( Core.toQueryValue "ProductDescription"
+                            Core.<$> productDescription
+                        )
+                Core.<> ( Core.toQueryList "ReservedInstancesOfferingId"
+                            Core.<$> reservedInstancesOfferingIds
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeReservedInstancesOfferingsResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "reservedInstancesOfferingsSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> ( x Core..@? "reservedInstancesOfferingsSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeReservedInstancesOfferings where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeReservedInstancesOfferings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeReservedInstancesOfferings where
-  toQuery DescribeReservedInstancesOfferings' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeReservedInstancesOfferings" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "MaxDuration" Lude.=: maxDuration,
-        "ProductDescription" Lude.=: productDescription,
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "IncludeMarketplace" Lude.=: includeMarketplace,
-        "InstanceType" Lude.=: instanceType,
-        "NextToken" Lude.=: nextToken,
-        "MinDuration" Lude.=: minDuration,
-        "AvailabilityZone" Lude.=: availabilityZone,
-        "OfferingType" Lude.=: offeringType,
-        Lude.toQuery
-          ( Lude.toQueryList "ReservedInstancesOfferingId"
-              Lude.<$> reservedInstancesOfferingIds
-          ),
-        "InstanceTenancy" Lude.=: instanceTenancy,
-        "OfferingClass" Lude.=: offeringClass,
-        "MaxInstanceCount" Lude.=: maxInstanceCount,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeReservedInstancesOfferings where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"reservedInstancesOfferings" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Contains the output of DescribeReservedInstancesOfferings.
 --
 -- /See:/ 'mkDescribeReservedInstancesOfferingsResponse' smart constructor.
 data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'
   { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | A list of Reserved Instances offerings.
-    reservedInstancesOfferings :: Lude.Maybe [ReservedInstancesOffering],
+    reservedInstancesOfferings :: Core.Maybe [Types.ReservedInstancesOffering],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReservedInstancesOfferingsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'reservedInstancesOfferings' - A list of Reserved Instances offerings.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeReservedInstancesOfferingsResponse' value with any optional fields omitted.
 mkDescribeReservedInstancesOfferingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeReservedInstancesOfferingsResponse
-mkDescribeReservedInstancesOfferingsResponse pResponseStatus_ =
+mkDescribeReservedInstancesOfferingsResponse responseStatus =
   DescribeReservedInstancesOfferingsResponse'
     { nextToken =
-        Lude.Nothing,
-      reservedInstancesOfferings = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      reservedInstancesOfferings = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-driorsNextToken :: Lens.Lens' DescribeReservedInstancesOfferingsResponse (Lude.Maybe Lude.Text)
-driorsNextToken = Lens.lens (nextToken :: DescribeReservedInstancesOfferingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeReservedInstancesOfferingsResponse)
-{-# DEPRECATED driorsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+driorrsNextToken :: Lens.Lens' DescribeReservedInstancesOfferingsResponse (Core.Maybe Types.String)
+driorrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED driorrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of Reserved Instances offerings.
 --
 -- /Note:/ Consider using 'reservedInstancesOfferings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-driorsReservedInstancesOfferings :: Lens.Lens' DescribeReservedInstancesOfferingsResponse (Lude.Maybe [ReservedInstancesOffering])
-driorsReservedInstancesOfferings = Lens.lens (reservedInstancesOfferings :: DescribeReservedInstancesOfferingsResponse -> Lude.Maybe [ReservedInstancesOffering]) (\s a -> s {reservedInstancesOfferings = a} :: DescribeReservedInstancesOfferingsResponse)
-{-# DEPRECATED driorsReservedInstancesOfferings "Use generic-lens or generic-optics with 'reservedInstancesOfferings' instead." #-}
+driorrsReservedInstancesOfferings :: Lens.Lens' DescribeReservedInstancesOfferingsResponse (Core.Maybe [Types.ReservedInstancesOffering])
+driorrsReservedInstancesOfferings = Lens.field @"reservedInstancesOfferings"
+{-# DEPRECATED driorrsReservedInstancesOfferings "Use generic-lens or generic-optics with 'reservedInstancesOfferings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-driorsResponseStatus :: Lens.Lens' DescribeReservedInstancesOfferingsResponse Lude.Int
-driorsResponseStatus = Lens.lens (responseStatus :: DescribeReservedInstancesOfferingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReservedInstancesOfferingsResponse)
-{-# DEPRECATED driorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+driorrsResponseStatus :: Lens.Lens' DescribeReservedInstancesOfferingsResponse Core.Int
+driorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED driorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

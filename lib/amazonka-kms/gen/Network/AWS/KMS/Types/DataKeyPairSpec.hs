@@ -13,71 +13,76 @@
 module Network.AWS.KMS.Types.DataKeyPairSpec
   ( DataKeyPairSpec
       ( DataKeyPairSpec',
-        Rsa2048,
-        Rsa3072,
-        Rsa4096,
-        EccNistP256,
-        EccNistP384,
-        EccNistP521,
-        EccSecgP256K1
+        DataKeyPairSpecRsa2048,
+        DataKeyPairSpecRsa3072,
+        DataKeyPairSpecRsa4096,
+        DataKeyPairSpecEccNistP256,
+        DataKeyPairSpecEccNistP384,
+        DataKeyPairSpecEccNistP521,
+        DataKeyPairSpecEccSecgP256K1,
+        fromDataKeyPairSpec
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DataKeyPairSpec = DataKeyPairSpec' Lude.Text
+newtype DataKeyPairSpec = DataKeyPairSpec'
+  { fromDataKeyPairSpec ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Rsa2048 :: DataKeyPairSpec
-pattern Rsa2048 = DataKeyPairSpec' "RSA_2048"
+pattern DataKeyPairSpecRsa2048 :: DataKeyPairSpec
+pattern DataKeyPairSpecRsa2048 = DataKeyPairSpec' "RSA_2048"
 
-pattern Rsa3072 :: DataKeyPairSpec
-pattern Rsa3072 = DataKeyPairSpec' "RSA_3072"
+pattern DataKeyPairSpecRsa3072 :: DataKeyPairSpec
+pattern DataKeyPairSpecRsa3072 = DataKeyPairSpec' "RSA_3072"
 
-pattern Rsa4096 :: DataKeyPairSpec
-pattern Rsa4096 = DataKeyPairSpec' "RSA_4096"
+pattern DataKeyPairSpecRsa4096 :: DataKeyPairSpec
+pattern DataKeyPairSpecRsa4096 = DataKeyPairSpec' "RSA_4096"
 
-pattern EccNistP256 :: DataKeyPairSpec
-pattern EccNistP256 = DataKeyPairSpec' "ECC_NIST_P256"
+pattern DataKeyPairSpecEccNistP256 :: DataKeyPairSpec
+pattern DataKeyPairSpecEccNistP256 = DataKeyPairSpec' "ECC_NIST_P256"
 
-pattern EccNistP384 :: DataKeyPairSpec
-pattern EccNistP384 = DataKeyPairSpec' "ECC_NIST_P384"
+pattern DataKeyPairSpecEccNistP384 :: DataKeyPairSpec
+pattern DataKeyPairSpecEccNistP384 = DataKeyPairSpec' "ECC_NIST_P384"
 
-pattern EccNistP521 :: DataKeyPairSpec
-pattern EccNistP521 = DataKeyPairSpec' "ECC_NIST_P521"
+pattern DataKeyPairSpecEccNistP521 :: DataKeyPairSpec
+pattern DataKeyPairSpecEccNistP521 = DataKeyPairSpec' "ECC_NIST_P521"
 
-pattern EccSecgP256K1 :: DataKeyPairSpec
-pattern EccSecgP256K1 = DataKeyPairSpec' "ECC_SECG_P256K1"
+pattern DataKeyPairSpecEccSecgP256K1 :: DataKeyPairSpec
+pattern DataKeyPairSpecEccSecgP256K1 = DataKeyPairSpec' "ECC_SECG_P256K1"
 
 {-# COMPLETE
-  Rsa2048,
-  Rsa3072,
-  Rsa4096,
-  EccNistP256,
-  EccNistP384,
-  EccNistP521,
-  EccSecgP256K1,
+  DataKeyPairSpecRsa2048,
+  DataKeyPairSpecRsa3072,
+  DataKeyPairSpecRsa4096,
+  DataKeyPairSpecEccNistP256,
+  DataKeyPairSpecEccNistP384,
+  DataKeyPairSpecEccNistP521,
+  DataKeyPairSpecEccSecgP256K1,
   DataKeyPairSpec'
   #-}

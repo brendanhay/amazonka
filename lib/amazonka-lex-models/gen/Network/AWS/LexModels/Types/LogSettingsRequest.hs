@@ -17,91 +17,88 @@ module Network.AWS.LexModels.Types.LogSettingsRequest
     mkLogSettingsRequest,
 
     -- * Lenses
-    lsrDestination,
-    lsrKmsKeyARN,
-    lsrLogType,
-    lsrResourceARN,
+    lLogType,
+    lDestination,
+    lResourceArn,
+    lKmsKeyArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.Destination
-import Network.AWS.LexModels.Types.LogType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.Destination as Types
+import qualified Network.AWS.LexModels.Types.KmsKeyArn as Types
+import qualified Network.AWS.LexModels.Types.LogType as Types
+import qualified Network.AWS.LexModels.Types.ResourceArn as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings used to configure delivery mode and destination for conversation logs.
 --
 -- /See:/ 'mkLogSettingsRequest' smart constructor.
 data LogSettingsRequest = LogSettingsRequest'
-  { -- | Where the logs will be delivered. Text logs are delivered to a CloudWatch Logs log group. Audio logs are delivered to an S3 bucket.
-    destination :: Destination,
-    -- | The Amazon Resource Name (ARN) of the AWS KMS customer managed key for encrypting audio logs delivered to an S3 bucket. The key does not apply to CloudWatch Logs and is optional for S3 buckets.
-    kmsKeyARN :: Lude.Maybe Lude.Text,
-    -- | The type of logging to enable. Text logs are delivered to a CloudWatch Logs log group. Audio logs are delivered to an S3 bucket.
-    logType :: LogType,
+  { -- | The type of logging to enable. Text logs are delivered to a CloudWatch Logs log group. Audio logs are delivered to an S3 bucket.
+    logType :: Types.LogType,
+    -- | Where the logs will be delivered. Text logs are delivered to a CloudWatch Logs log group. Audio logs are delivered to an S3 bucket.
+    destination :: Types.Destination,
     -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs should be delivered.
-    resourceARN :: Lude.Text
+    resourceArn :: Types.ResourceArn,
+    -- | The Amazon Resource Name (ARN) of the AWS KMS customer managed key for encrypting audio logs delivered to an S3 bucket. The key does not apply to CloudWatch Logs and is optional for S3 buckets.
+    kmsKeyArn :: Core.Maybe Types.KmsKeyArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LogSettingsRequest' with the minimum fields required to make a request.
---
--- * 'destination' - Where the logs will be delivered. Text logs are delivered to a CloudWatch Logs log group. Audio logs are delivered to an S3 bucket.
--- * 'kmsKeyARN' - The Amazon Resource Name (ARN) of the AWS KMS customer managed key for encrypting audio logs delivered to an S3 bucket. The key does not apply to CloudWatch Logs and is optional for S3 buckets.
--- * 'logType' - The type of logging to enable. Text logs are delivered to a CloudWatch Logs log group. Audio logs are delivered to an S3 bucket.
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs should be delivered.
+-- | Creates a 'LogSettingsRequest' value with any optional fields omitted.
 mkLogSettingsRequest ::
-  -- | 'destination'
-  Destination ->
   -- | 'logType'
-  LogType ->
-  -- | 'resourceARN'
-  Lude.Text ->
+  Types.LogType ->
+  -- | 'destination'
+  Types.Destination ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   LogSettingsRequest
-mkLogSettingsRequest pDestination_ pLogType_ pResourceARN_ =
+mkLogSettingsRequest logType destination resourceArn =
   LogSettingsRequest'
-    { destination = pDestination_,
-      kmsKeyARN = Lude.Nothing,
-      logType = pLogType_,
-      resourceARN = pResourceARN_
+    { logType,
+      destination,
+      resourceArn,
+      kmsKeyArn = Core.Nothing
     }
-
--- | Where the logs will be delivered. Text logs are delivered to a CloudWatch Logs log group. Audio logs are delivered to an S3 bucket.
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrDestination :: Lens.Lens' LogSettingsRequest Destination
-lsrDestination = Lens.lens (destination :: LogSettingsRequest -> Destination) (\s a -> s {destination = a} :: LogSettingsRequest)
-{-# DEPRECATED lsrDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the AWS KMS customer managed key for encrypting audio logs delivered to an S3 bucket. The key does not apply to CloudWatch Logs and is optional for S3 buckets.
---
--- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrKmsKeyARN :: Lens.Lens' LogSettingsRequest (Lude.Maybe Lude.Text)
-lsrKmsKeyARN = Lens.lens (kmsKeyARN :: LogSettingsRequest -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: LogSettingsRequest)
-{-# DEPRECATED lsrKmsKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
 
 -- | The type of logging to enable. Text logs are delivered to a CloudWatch Logs log group. Audio logs are delivered to an S3 bucket.
 --
 -- /Note:/ Consider using 'logType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrLogType :: Lens.Lens' LogSettingsRequest LogType
-lsrLogType = Lens.lens (logType :: LogSettingsRequest -> LogType) (\s a -> s {logType = a} :: LogSettingsRequest)
-{-# DEPRECATED lsrLogType "Use generic-lens or generic-optics with 'logType' instead." #-}
+lLogType :: Lens.Lens' LogSettingsRequest Types.LogType
+lLogType = Lens.field @"logType"
+{-# DEPRECATED lLogType "Use generic-lens or generic-optics with 'logType' instead." #-}
+
+-- | Where the logs will be delivered. Text logs are delivered to a CloudWatch Logs log group. Audio logs are delivered to an S3 bucket.
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lDestination :: Lens.Lens' LogSettingsRequest Types.Destination
+lDestination = Lens.field @"destination"
+{-# DEPRECATED lDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs should be delivered.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrResourceARN :: Lens.Lens' LogSettingsRequest Lude.Text
-lsrResourceARN = Lens.lens (resourceARN :: LogSettingsRequest -> Lude.Text) (\s a -> s {resourceARN = a} :: LogSettingsRequest)
-{-# DEPRECATED lsrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lResourceArn :: Lens.Lens' LogSettingsRequest Types.ResourceArn
+lResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED lResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
-instance Lude.ToJSON LogSettingsRequest where
-  toJSON LogSettingsRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("destination" Lude..= destination),
-            ("kmsKeyArn" Lude..=) Lude.<$> kmsKeyARN,
-            Lude.Just ("logType" Lude..= logType),
-            Lude.Just ("resourceArn" Lude..= resourceARN)
+-- | The Amazon Resource Name (ARN) of the AWS KMS customer managed key for encrypting audio logs delivered to an S3 bucket. The key does not apply to CloudWatch Logs and is optional for S3 buckets.
+--
+-- /Note:/ Consider using 'kmsKeyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lKmsKeyArn :: Lens.Lens' LogSettingsRequest (Core.Maybe Types.KmsKeyArn)
+lKmsKeyArn = Lens.field @"kmsKeyArn"
+{-# DEPRECATED lKmsKeyArn "Use generic-lens or generic-optics with 'kmsKeyArn' instead." #-}
+
+instance Core.FromJSON LogSettingsRequest where
+  toJSON LogSettingsRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logType" Core..= logType),
+            Core.Just ("destination" Core..= destination),
+            Core.Just ("resourceArn" Core..= resourceArn),
+            ("kmsKeyArn" Core..=) Core.<$> kmsKeyArn
           ]
       )

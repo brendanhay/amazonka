@@ -17,151 +17,144 @@ module Network.AWS.SSM.Types.Session
     mkSession,
 
     -- * Lenses
-    sStatus,
-    sOutputURL,
+    sDetails,
     sDocumentName,
     sEndDate,
+    sOutputUrl,
     sOwner,
-    sStartDate,
-    sDetails,
     sSessionId,
+    sStartDate,
+    sStatus,
     sTarget,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.SessionManagerOutputURL
-import Network.AWS.SSM.Types.SessionStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.DocumentName as Types
+import qualified Network.AWS.SSM.Types.SessionDetails as Types
+import qualified Network.AWS.SSM.Types.SessionId as Types
+import qualified Network.AWS.SSM.Types.SessionManagerOutputUrl as Types
+import qualified Network.AWS.SSM.Types.SessionOwner as Types
+import qualified Network.AWS.SSM.Types.SessionStatus as Types
+import qualified Network.AWS.SSM.Types.SessionTarget as Types
 
 -- | Information about a Session Manager connection to an instance.
 --
 -- /See:/ 'mkSession' smart constructor.
 data Session = Session'
-  { -- | The status of the session. For example, "Connected" or "Terminated".
-    status :: Lude.Maybe SessionStatus,
-    -- | Reserved for future use.
-    outputURL :: Lude.Maybe SessionManagerOutputURL,
+  { -- | Reserved for future use.
+    details :: Core.Maybe Types.SessionDetails,
     -- | The name of the Session Manager SSM document used to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ .
-    documentName :: Lude.Maybe Lude.Text,
+    documentName :: Core.Maybe Types.DocumentName,
     -- | The date and time, in ISO-8601 Extended format, when the session was terminated.
-    endDate :: Lude.Maybe Lude.Timestamp,
-    -- | The ID of the AWS user account that started the session.
-    owner :: Lude.Maybe Lude.Text,
-    -- | The date and time, in ISO-8601 Extended format, when the session began.
-    startDate :: Lude.Maybe Lude.Timestamp,
+    endDate :: Core.Maybe Core.NominalDiffTime,
     -- | Reserved for future use.
-    details :: Lude.Maybe Lude.Text,
+    outputUrl :: Core.Maybe Types.SessionManagerOutputUrl,
+    -- | The ID of the AWS user account that started the session.
+    owner :: Core.Maybe Types.SessionOwner,
     -- | The ID of the session.
-    sessionId :: Lude.Maybe Lude.Text,
+    sessionId :: Core.Maybe Types.SessionId,
+    -- | The date and time, in ISO-8601 Extended format, when the session began.
+    startDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the session. For example, "Connected" or "Terminated".
+    status :: Core.Maybe Types.SessionStatus,
     -- | The instance that the Session Manager session connected to.
-    target :: Lude.Maybe Lude.Text
+    target :: Core.Maybe Types.SessionTarget
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Session' with the minimum fields required to make a request.
---
--- * 'status' - The status of the session. For example, "Connected" or "Terminated".
--- * 'outputURL' - Reserved for future use.
--- * 'documentName' - The name of the Session Manager SSM document used to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ .
--- * 'endDate' - The date and time, in ISO-8601 Extended format, when the session was terminated.
--- * 'owner' - The ID of the AWS user account that started the session.
--- * 'startDate' - The date and time, in ISO-8601 Extended format, when the session began.
--- * 'details' - Reserved for future use.
--- * 'sessionId' - The ID of the session.
--- * 'target' - The instance that the Session Manager session connected to.
+-- | Creates a 'Session' value with any optional fields omitted.
 mkSession ::
   Session
 mkSession =
   Session'
-    { status = Lude.Nothing,
-      outputURL = Lude.Nothing,
-      documentName = Lude.Nothing,
-      endDate = Lude.Nothing,
-      owner = Lude.Nothing,
-      startDate = Lude.Nothing,
-      details = Lude.Nothing,
-      sessionId = Lude.Nothing,
-      target = Lude.Nothing
+    { details = Core.Nothing,
+      documentName = Core.Nothing,
+      endDate = Core.Nothing,
+      outputUrl = Core.Nothing,
+      owner = Core.Nothing,
+      sessionId = Core.Nothing,
+      startDate = Core.Nothing,
+      status = Core.Nothing,
+      target = Core.Nothing
     }
-
--- | The status of the session. For example, "Connected" or "Terminated".
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStatus :: Lens.Lens' Session (Lude.Maybe SessionStatus)
-sStatus = Lens.lens (status :: Session -> Lude.Maybe SessionStatus) (\s a -> s {status = a} :: Session)
-{-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Reserved for future use.
 --
--- /Note:/ Consider using 'outputURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sOutputURL :: Lens.Lens' Session (Lude.Maybe SessionManagerOutputURL)
-sOutputURL = Lens.lens (outputURL :: Session -> Lude.Maybe SessionManagerOutputURL) (\s a -> s {outputURL = a} :: Session)
-{-# DEPRECATED sOutputURL "Use generic-lens or generic-optics with 'outputURL' instead." #-}
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDetails :: Lens.Lens' Session (Core.Maybe Types.SessionDetails)
+sDetails = Lens.field @"details"
+{-# DEPRECATED sDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The name of the Session Manager SSM document used to define the parameters and plugin settings for the session. For example, @SSM-SessionManagerRunShell@ .
 --
 -- /Note:/ Consider using 'documentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDocumentName :: Lens.Lens' Session (Lude.Maybe Lude.Text)
-sDocumentName = Lens.lens (documentName :: Session -> Lude.Maybe Lude.Text) (\s a -> s {documentName = a} :: Session)
+sDocumentName :: Lens.Lens' Session (Core.Maybe Types.DocumentName)
+sDocumentName = Lens.field @"documentName"
 {-# DEPRECATED sDocumentName "Use generic-lens or generic-optics with 'documentName' instead." #-}
 
 -- | The date and time, in ISO-8601 Extended format, when the session was terminated.
 --
 -- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sEndDate :: Lens.Lens' Session (Lude.Maybe Lude.Timestamp)
-sEndDate = Lens.lens (endDate :: Session -> Lude.Maybe Lude.Timestamp) (\s a -> s {endDate = a} :: Session)
+sEndDate :: Lens.Lens' Session (Core.Maybe Core.NominalDiffTime)
+sEndDate = Lens.field @"endDate"
 {-# DEPRECATED sEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
+
+-- | Reserved for future use.
+--
+-- /Note:/ Consider using 'outputUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sOutputUrl :: Lens.Lens' Session (Core.Maybe Types.SessionManagerOutputUrl)
+sOutputUrl = Lens.field @"outputUrl"
+{-# DEPRECATED sOutputUrl "Use generic-lens or generic-optics with 'outputUrl' instead." #-}
 
 -- | The ID of the AWS user account that started the session.
 --
 -- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sOwner :: Lens.Lens' Session (Lude.Maybe Lude.Text)
-sOwner = Lens.lens (owner :: Session -> Lude.Maybe Lude.Text) (\s a -> s {owner = a} :: Session)
+sOwner :: Lens.Lens' Session (Core.Maybe Types.SessionOwner)
+sOwner = Lens.field @"owner"
 {-# DEPRECATED sOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
-
--- | The date and time, in ISO-8601 Extended format, when the session began.
---
--- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStartDate :: Lens.Lens' Session (Lude.Maybe Lude.Timestamp)
-sStartDate = Lens.lens (startDate :: Session -> Lude.Maybe Lude.Timestamp) (\s a -> s {startDate = a} :: Session)
-{-# DEPRECATED sStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
-
--- | Reserved for future use.
---
--- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDetails :: Lens.Lens' Session (Lude.Maybe Lude.Text)
-sDetails = Lens.lens (details :: Session -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: Session)
-{-# DEPRECATED sDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The ID of the session.
 --
 -- /Note:/ Consider using 'sessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSessionId :: Lens.Lens' Session (Lude.Maybe Lude.Text)
-sSessionId = Lens.lens (sessionId :: Session -> Lude.Maybe Lude.Text) (\s a -> s {sessionId = a} :: Session)
+sSessionId :: Lens.Lens' Session (Core.Maybe Types.SessionId)
+sSessionId = Lens.field @"sessionId"
 {-# DEPRECATED sSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
+
+-- | The date and time, in ISO-8601 Extended format, when the session began.
+--
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStartDate :: Lens.Lens' Session (Core.Maybe Core.NominalDiffTime)
+sStartDate = Lens.field @"startDate"
+{-# DEPRECATED sStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
+
+-- | The status of the session. For example, "Connected" or "Terminated".
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStatus :: Lens.Lens' Session (Core.Maybe Types.SessionStatus)
+sStatus = Lens.field @"status"
+{-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The instance that the Session Manager session connected to.
 --
 -- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTarget :: Lens.Lens' Session (Lude.Maybe Lude.Text)
-sTarget = Lens.lens (target :: Session -> Lude.Maybe Lude.Text) (\s a -> s {target = a} :: Session)
+sTarget :: Lens.Lens' Session (Core.Maybe Types.SessionTarget)
+sTarget = Lens.field @"target"
 {-# DEPRECATED sTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
-instance Lude.FromJSON Session where
+instance Core.FromJSON Session where
   parseJSON =
-    Lude.withObject
-      "Session"
-      ( \x ->
-          Session'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "OutputUrl")
-            Lude.<*> (x Lude..:? "DocumentName")
-            Lude.<*> (x Lude..:? "EndDate")
-            Lude.<*> (x Lude..:? "Owner")
-            Lude.<*> (x Lude..:? "StartDate")
-            Lude.<*> (x Lude..:? "Details")
-            Lude.<*> (x Lude..:? "SessionId")
-            Lude.<*> (x Lude..:? "Target")
-      )
+    Core.withObject "Session" Core.$
+      \x ->
+        Session'
+          Core.<$> (x Core..:? "Details")
+          Core.<*> (x Core..:? "DocumentName")
+          Core.<*> (x Core..:? "EndDate")
+          Core.<*> (x Core..:? "OutputUrl")
+          Core.<*> (x Core..:? "Owner")
+          Core.<*> (x Core..:? "SessionId")
+          Core.<*> (x Core..:? "StartDate")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "Target")

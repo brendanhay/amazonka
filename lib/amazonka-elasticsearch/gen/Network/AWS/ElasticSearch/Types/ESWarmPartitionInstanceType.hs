@@ -13,46 +13,51 @@
 module Network.AWS.ElasticSearch.Types.ESWarmPartitionInstanceType
   ( ESWarmPartitionInstanceType
       ( ESWarmPartitionInstanceType',
-        ESWPITULTRAWARM1_Medium_Elasticsearch,
-        ESWPITULTRAWARM1_Large_Elasticsearch
+        ESWarmPartitionInstanceTypeULTRAWARM1_Medium_Elasticsearch,
+        ESWarmPartitionInstanceTypeULTRAWARM1_Large_Elasticsearch,
+        fromESWarmPartitionInstanceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ESWarmPartitionInstanceType = ESWarmPartitionInstanceType' Lude.Text
+newtype ESWarmPartitionInstanceType = ESWarmPartitionInstanceType'
+  { fromESWarmPartitionInstanceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ESWPITULTRAWARM1_Medium_Elasticsearch :: ESWarmPartitionInstanceType
-pattern ESWPITULTRAWARM1_Medium_Elasticsearch = ESWarmPartitionInstanceType' "ultrawarm1.medium.elasticsearch"
+pattern ESWarmPartitionInstanceTypeULTRAWARM1_Medium_Elasticsearch :: ESWarmPartitionInstanceType
+pattern ESWarmPartitionInstanceTypeULTRAWARM1_Medium_Elasticsearch = ESWarmPartitionInstanceType' "ultrawarm1.medium.elasticsearch"
 
-pattern ESWPITULTRAWARM1_Large_Elasticsearch :: ESWarmPartitionInstanceType
-pattern ESWPITULTRAWARM1_Large_Elasticsearch = ESWarmPartitionInstanceType' "ultrawarm1.large.elasticsearch"
+pattern ESWarmPartitionInstanceTypeULTRAWARM1_Large_Elasticsearch :: ESWarmPartitionInstanceType
+pattern ESWarmPartitionInstanceTypeULTRAWARM1_Large_Elasticsearch = ESWarmPartitionInstanceType' "ultrawarm1.large.elasticsearch"
 
 {-# COMPLETE
-  ESWPITULTRAWARM1_Medium_Elasticsearch,
-  ESWPITULTRAWARM1_Large_Elasticsearch,
+  ESWarmPartitionInstanceTypeULTRAWARM1_Medium_Elasticsearch,
+  ESWarmPartitionInstanceTypeULTRAWARM1_Large_Elasticsearch,
   ESWarmPartitionInstanceType'
   #-}

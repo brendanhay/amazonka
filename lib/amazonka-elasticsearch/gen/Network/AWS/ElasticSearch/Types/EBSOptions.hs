@@ -17,96 +17,89 @@ module Network.AWS.ElasticSearch.Types.EBSOptions
     mkEBSOptions,
 
     -- * Lenses
-    eoVolumeSize,
-    eoIOPS,
-    eoVolumeType,
-    eoEBSEnabled,
+    ebsoEBSEnabled,
+    ebsoIops,
+    ebsoVolumeSize,
+    ebsoVolumeType,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.VolumeType
+import qualified Network.AWS.ElasticSearch.Types.VolumeType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Options to enable, disable, and specify the properties of EBS storage volumes. For more information, see <http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html#es-createdomain-configure-ebs Configuring EBS-based Storage> .
 --
 -- /See:/ 'mkEBSOptions' smart constructor.
 data EBSOptions = EBSOptions'
-  { -- | Integer to specify the size of an EBS volume.
-    volumeSize :: Lude.Maybe Lude.Int,
+  { -- | Specifies whether EBS-based storage is enabled.
+    eBSEnabled :: Core.Maybe Core.Bool,
     -- | Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
-    iops :: Lude.Maybe Lude.Int,
+    iops :: Core.Maybe Core.Int,
+    -- | Integer to specify the size of an EBS volume.
+    volumeSize :: Core.Maybe Core.Int,
     -- | Specifies the volume type for EBS-based storage.
-    volumeType :: Lude.Maybe VolumeType,
-    -- | Specifies whether EBS-based storage is enabled.
-    ebsEnabled :: Lude.Maybe Lude.Bool
+    volumeType :: Core.Maybe Types.VolumeType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EBSOptions' with the minimum fields required to make a request.
---
--- * 'volumeSize' - Integer to specify the size of an EBS volume.
--- * 'iops' - Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
--- * 'volumeType' - Specifies the volume type for EBS-based storage.
--- * 'ebsEnabled' - Specifies whether EBS-based storage is enabled.
+-- | Creates a 'EBSOptions' value with any optional fields omitted.
 mkEBSOptions ::
   EBSOptions
 mkEBSOptions =
   EBSOptions'
-    { volumeSize = Lude.Nothing,
-      iops = Lude.Nothing,
-      volumeType = Lude.Nothing,
-      ebsEnabled = Lude.Nothing
+    { eBSEnabled = Core.Nothing,
+      iops = Core.Nothing,
+      volumeSize = Core.Nothing,
+      volumeType = Core.Nothing
     }
 
--- | Integer to specify the size of an EBS volume.
+-- | Specifies whether EBS-based storage is enabled.
 --
--- /Note:/ Consider using 'volumeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eoVolumeSize :: Lens.Lens' EBSOptions (Lude.Maybe Lude.Int)
-eoVolumeSize = Lens.lens (volumeSize :: EBSOptions -> Lude.Maybe Lude.Int) (\s a -> s {volumeSize = a} :: EBSOptions)
-{-# DEPRECATED eoVolumeSize "Use generic-lens or generic-optics with 'volumeSize' instead." #-}
+-- /Note:/ Consider using 'eBSEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebsoEBSEnabled :: Lens.Lens' EBSOptions (Core.Maybe Core.Bool)
+ebsoEBSEnabled = Lens.field @"eBSEnabled"
+{-# DEPRECATED ebsoEBSEnabled "Use generic-lens or generic-optics with 'eBSEnabled' instead." #-}
 
 -- | Specifies the IOPD for a Provisioned IOPS EBS volume (SSD).
 --
 -- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eoIOPS :: Lens.Lens' EBSOptions (Lude.Maybe Lude.Int)
-eoIOPS = Lens.lens (iops :: EBSOptions -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: EBSOptions)
-{-# DEPRECATED eoIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
+ebsoIops :: Lens.Lens' EBSOptions (Core.Maybe Core.Int)
+ebsoIops = Lens.field @"iops"
+{-# DEPRECATED ebsoIops "Use generic-lens or generic-optics with 'iops' instead." #-}
+
+-- | Integer to specify the size of an EBS volume.
+--
+-- /Note:/ Consider using 'volumeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ebsoVolumeSize :: Lens.Lens' EBSOptions (Core.Maybe Core.Int)
+ebsoVolumeSize = Lens.field @"volumeSize"
+{-# DEPRECATED ebsoVolumeSize "Use generic-lens or generic-optics with 'volumeSize' instead." #-}
 
 -- | Specifies the volume type for EBS-based storage.
 --
 -- /Note:/ Consider using 'volumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eoVolumeType :: Lens.Lens' EBSOptions (Lude.Maybe VolumeType)
-eoVolumeType = Lens.lens (volumeType :: EBSOptions -> Lude.Maybe VolumeType) (\s a -> s {volumeType = a} :: EBSOptions)
-{-# DEPRECATED eoVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
+ebsoVolumeType :: Lens.Lens' EBSOptions (Core.Maybe Types.VolumeType)
+ebsoVolumeType = Lens.field @"volumeType"
+{-# DEPRECATED ebsoVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
 
--- | Specifies whether EBS-based storage is enabled.
---
--- /Note:/ Consider using 'ebsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eoEBSEnabled :: Lens.Lens' EBSOptions (Lude.Maybe Lude.Bool)
-eoEBSEnabled = Lens.lens (ebsEnabled :: EBSOptions -> Lude.Maybe Lude.Bool) (\s a -> s {ebsEnabled = a} :: EBSOptions)
-{-# DEPRECATED eoEBSEnabled "Use generic-lens or generic-optics with 'ebsEnabled' instead." #-}
-
-instance Lude.FromJSON EBSOptions where
-  parseJSON =
-    Lude.withObject
-      "EBSOptions"
-      ( \x ->
-          EBSOptions'
-            Lude.<$> (x Lude..:? "VolumeSize")
-            Lude.<*> (x Lude..:? "Iops")
-            Lude.<*> (x Lude..:? "VolumeType")
-            Lude.<*> (x Lude..:? "EBSEnabled")
-      )
-
-instance Lude.ToJSON EBSOptions where
-  toJSON EBSOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("VolumeSize" Lude..=) Lude.<$> volumeSize,
-            ("Iops" Lude..=) Lude.<$> iops,
-            ("VolumeType" Lude..=) Lude.<$> volumeType,
-            ("EBSEnabled" Lude..=) Lude.<$> ebsEnabled
+instance Core.FromJSON EBSOptions where
+  toJSON EBSOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EBSEnabled" Core..=) Core.<$> eBSEnabled,
+            ("Iops" Core..=) Core.<$> iops,
+            ("VolumeSize" Core..=) Core.<$> volumeSize,
+            ("VolumeType" Core..=) Core.<$> volumeType
           ]
       )
+
+instance Core.FromJSON EBSOptions where
+  parseJSON =
+    Core.withObject "EBSOptions" Core.$
+      \x ->
+        EBSOptions'
+          Core.<$> (x Core..:? "EBSEnabled")
+          Core.<*> (x Core..:? "Iops")
+          Core.<*> (x Core..:? "VolumeSize")
+          Core.<*> (x Core..:? "VolumeType")

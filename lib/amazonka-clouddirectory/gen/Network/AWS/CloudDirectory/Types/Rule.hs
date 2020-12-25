@@ -22,59 +22,55 @@ module Network.AWS.CloudDirectory.Types.Rule
   )
 where
 
-import Network.AWS.CloudDirectory.Types.RuleType
+import qualified Network.AWS.CloudDirectory.Types.RuleParameterKey as Types
+import qualified Network.AWS.CloudDirectory.Types.RuleParameterValue as Types
+import qualified Network.AWS.CloudDirectory.Types.RuleType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains an Amazon Resource Name (ARN) and parameters that are associated with the rule.
 --
 -- /See:/ 'mkRule' smart constructor.
 data Rule = Rule'
   { -- | The minimum and maximum parameters that are associated with the rule.
-    parameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    parameters :: Core.Maybe (Core.HashMap Types.RuleParameterKey Types.RuleParameterValue),
     -- | The type of attribute validation rule.
-    type' :: Lude.Maybe RuleType
+    type' :: Core.Maybe Types.RuleType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Rule' with the minimum fields required to make a request.
---
--- * 'parameters' - The minimum and maximum parameters that are associated with the rule.
--- * 'type'' - The type of attribute validation rule.
+-- | Creates a 'Rule' value with any optional fields omitted.
 mkRule ::
   Rule
-mkRule = Rule' {parameters = Lude.Nothing, type' = Lude.Nothing}
+mkRule = Rule' {parameters = Core.Nothing, type' = Core.Nothing}
 
 -- | The minimum and maximum parameters that are associated with the rule.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rParameters :: Lens.Lens' Rule (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-rParameters = Lens.lens (parameters :: Rule -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {parameters = a} :: Rule)
+rParameters :: Lens.Lens' Rule (Core.Maybe (Core.HashMap Types.RuleParameterKey Types.RuleParameterValue))
+rParameters = Lens.field @"parameters"
 {-# DEPRECATED rParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The type of attribute validation rule.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rType :: Lens.Lens' Rule (Lude.Maybe RuleType)
-rType = Lens.lens (type' :: Rule -> Lude.Maybe RuleType) (\s a -> s {type' = a} :: Rule)
+rType :: Lens.Lens' Rule (Core.Maybe Types.RuleType)
+rType = Lens.field @"type'"
 {-# DEPRECATED rType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Rule where
-  parseJSON =
-    Lude.withObject
-      "Rule"
-      ( \x ->
-          Rule'
-            Lude.<$> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Type")
-      )
-
-instance Lude.ToJSON Rule where
-  toJSON Rule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Parameters" Lude..=) Lude.<$> parameters,
-            ("Type" Lude..=) Lude.<$> type'
+instance Core.FromJSON Rule where
+  toJSON Rule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Parameters" Core..=) Core.<$> parameters,
+            ("Type" Core..=) Core.<$> type'
           ]
       )
+
+instance Core.FromJSON Rule where
+  parseJSON =
+    Core.withObject "Rule" Core.$
+      \x ->
+        Rule'
+          Core.<$> (x Core..:? "Parameters") Core.<*> (x Core..:? "Type")

@@ -13,66 +13,71 @@
 module Network.AWS.Firehose.Types.DeliveryStreamEncryptionStatus
   ( DeliveryStreamEncryptionStatus
       ( DeliveryStreamEncryptionStatus',
-        DSESEnabled,
-        DSESEnabling,
-        DSESEnablingFailed,
-        DSESDisabled,
-        DSESDisabling,
-        DSESDisablingFailed
+        DeliveryStreamEncryptionStatusEnabled,
+        DeliveryStreamEncryptionStatusEnabling,
+        DeliveryStreamEncryptionStatusEnablingFailed,
+        DeliveryStreamEncryptionStatusDisabled,
+        DeliveryStreamEncryptionStatusDisabling,
+        DeliveryStreamEncryptionStatusDisablingFailed,
+        fromDeliveryStreamEncryptionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeliveryStreamEncryptionStatus = DeliveryStreamEncryptionStatus' Lude.Text
+newtype DeliveryStreamEncryptionStatus = DeliveryStreamEncryptionStatus'
+  { fromDeliveryStreamEncryptionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSESEnabled :: DeliveryStreamEncryptionStatus
-pattern DSESEnabled = DeliveryStreamEncryptionStatus' "ENABLED"
+pattern DeliveryStreamEncryptionStatusEnabled :: DeliveryStreamEncryptionStatus
+pattern DeliveryStreamEncryptionStatusEnabled = DeliveryStreamEncryptionStatus' "ENABLED"
 
-pattern DSESEnabling :: DeliveryStreamEncryptionStatus
-pattern DSESEnabling = DeliveryStreamEncryptionStatus' "ENABLING"
+pattern DeliveryStreamEncryptionStatusEnabling :: DeliveryStreamEncryptionStatus
+pattern DeliveryStreamEncryptionStatusEnabling = DeliveryStreamEncryptionStatus' "ENABLING"
 
-pattern DSESEnablingFailed :: DeliveryStreamEncryptionStatus
-pattern DSESEnablingFailed = DeliveryStreamEncryptionStatus' "ENABLING_FAILED"
+pattern DeliveryStreamEncryptionStatusEnablingFailed :: DeliveryStreamEncryptionStatus
+pattern DeliveryStreamEncryptionStatusEnablingFailed = DeliveryStreamEncryptionStatus' "ENABLING_FAILED"
 
-pattern DSESDisabled :: DeliveryStreamEncryptionStatus
-pattern DSESDisabled = DeliveryStreamEncryptionStatus' "DISABLED"
+pattern DeliveryStreamEncryptionStatusDisabled :: DeliveryStreamEncryptionStatus
+pattern DeliveryStreamEncryptionStatusDisabled = DeliveryStreamEncryptionStatus' "DISABLED"
 
-pattern DSESDisabling :: DeliveryStreamEncryptionStatus
-pattern DSESDisabling = DeliveryStreamEncryptionStatus' "DISABLING"
+pattern DeliveryStreamEncryptionStatusDisabling :: DeliveryStreamEncryptionStatus
+pattern DeliveryStreamEncryptionStatusDisabling = DeliveryStreamEncryptionStatus' "DISABLING"
 
-pattern DSESDisablingFailed :: DeliveryStreamEncryptionStatus
-pattern DSESDisablingFailed = DeliveryStreamEncryptionStatus' "DISABLING_FAILED"
+pattern DeliveryStreamEncryptionStatusDisablingFailed :: DeliveryStreamEncryptionStatus
+pattern DeliveryStreamEncryptionStatusDisablingFailed = DeliveryStreamEncryptionStatus' "DISABLING_FAILED"
 
 {-# COMPLETE
-  DSESEnabled,
-  DSESEnabling,
-  DSESEnablingFailed,
-  DSESDisabled,
-  DSESDisabling,
-  DSESDisablingFailed,
+  DeliveryStreamEncryptionStatusEnabled,
+  DeliveryStreamEncryptionStatusEnabling,
+  DeliveryStreamEncryptionStatusEnablingFailed,
+  DeliveryStreamEncryptionStatusDisabled,
+  DeliveryStreamEncryptionStatusDisabling,
+  DeliveryStreamEncryptionStatusDisablingFailed,
   DeliveryStreamEncryptionStatus'
   #-}

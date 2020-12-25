@@ -24,64 +24,58 @@ module Network.AWS.EMR.Types.StepTimeline
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The timeline of the cluster step lifecycle.
 --
 -- /See:/ 'mkStepTimeline' smart constructor.
 data StepTimeline = StepTimeline'
   { -- | The date and time when the cluster step was created.
-    creationDateTime :: Lude.Maybe Lude.Timestamp,
+    creationDateTime :: Core.Maybe Core.NominalDiffTime,
     -- | The date and time when the cluster step execution completed or failed.
-    endDateTime :: Lude.Maybe Lude.Timestamp,
+    endDateTime :: Core.Maybe Core.NominalDiffTime,
     -- | The date and time when the cluster step execution started.
-    startDateTime :: Lude.Maybe Lude.Timestamp
+    startDateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StepTimeline' with the minimum fields required to make a request.
---
--- * 'creationDateTime' - The date and time when the cluster step was created.
--- * 'endDateTime' - The date and time when the cluster step execution completed or failed.
--- * 'startDateTime' - The date and time when the cluster step execution started.
+-- | Creates a 'StepTimeline' value with any optional fields omitted.
 mkStepTimeline ::
   StepTimeline
 mkStepTimeline =
   StepTimeline'
-    { creationDateTime = Lude.Nothing,
-      endDateTime = Lude.Nothing,
-      startDateTime = Lude.Nothing
+    { creationDateTime = Core.Nothing,
+      endDateTime = Core.Nothing,
+      startDateTime = Core.Nothing
     }
 
 -- | The date and time when the cluster step was created.
 --
 -- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stCreationDateTime :: Lens.Lens' StepTimeline (Lude.Maybe Lude.Timestamp)
-stCreationDateTime = Lens.lens (creationDateTime :: StepTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: StepTimeline)
+stCreationDateTime :: Lens.Lens' StepTimeline (Core.Maybe Core.NominalDiffTime)
+stCreationDateTime = Lens.field @"creationDateTime"
 {-# DEPRECATED stCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The date and time when the cluster step execution completed or failed.
 --
 -- /Note:/ Consider using 'endDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stEndDateTime :: Lens.Lens' StepTimeline (Lude.Maybe Lude.Timestamp)
-stEndDateTime = Lens.lens (endDateTime :: StepTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {endDateTime = a} :: StepTimeline)
+stEndDateTime :: Lens.Lens' StepTimeline (Core.Maybe Core.NominalDiffTime)
+stEndDateTime = Lens.field @"endDateTime"
 {-# DEPRECATED stEndDateTime "Use generic-lens or generic-optics with 'endDateTime' instead." #-}
 
 -- | The date and time when the cluster step execution started.
 --
 -- /Note:/ Consider using 'startDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stStartDateTime :: Lens.Lens' StepTimeline (Lude.Maybe Lude.Timestamp)
-stStartDateTime = Lens.lens (startDateTime :: StepTimeline -> Lude.Maybe Lude.Timestamp) (\s a -> s {startDateTime = a} :: StepTimeline)
+stStartDateTime :: Lens.Lens' StepTimeline (Core.Maybe Core.NominalDiffTime)
+stStartDateTime = Lens.field @"startDateTime"
 {-# DEPRECATED stStartDateTime "Use generic-lens or generic-optics with 'startDateTime' instead." #-}
 
-instance Lude.FromJSON StepTimeline where
+instance Core.FromJSON StepTimeline where
   parseJSON =
-    Lude.withObject
-      "StepTimeline"
-      ( \x ->
-          StepTimeline'
-            Lude.<$> (x Lude..:? "CreationDateTime")
-            Lude.<*> (x Lude..:? "EndDateTime")
-            Lude.<*> (x Lude..:? "StartDateTime")
-      )
+    Core.withObject "StepTimeline" Core.$
+      \x ->
+        StepTimeline'
+          Core.<$> (x Core..:? "CreationDateTime")
+          Core.<*> (x Core..:? "EndDateTime")
+          Core.<*> (x Core..:? "StartDateTime")

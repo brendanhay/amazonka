@@ -24,7 +24,7 @@ module Network.AWS.IAM.AttachUserPolicy
 
     -- ** Request lenses
     aupUserName,
-    aupPolicyARN,
+    aupPolicyArn,
 
     -- * Destructuring the response
     AttachUserPolicyResponse (..),
@@ -32,87 +32,83 @@ module Network.AWS.IAM.AttachUserPolicy
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAttachUserPolicy' smart constructor.
 data AttachUserPolicy = AttachUserPolicy'
   { -- | The name (friendly name, not ARN) of the IAM user to attach the policy to.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Text,
+    userName :: Types.UserName,
     -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
     --
     -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-    policyARN :: Lude.Text
+    policyArn :: Types.PolicyArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachUserPolicy' with the minimum fields required to make a request.
---
--- * 'userName' - The name (friendly name, not ARN) of the IAM user to attach the policy to.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to attach.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- | Creates a 'AttachUserPolicy' value with any optional fields omitted.
 mkAttachUserPolicy ::
   -- | 'userName'
-  Lude.Text ->
-  -- | 'policyARN'
-  Lude.Text ->
+  Types.UserName ->
+  -- | 'policyArn'
+  Types.PolicyArn ->
   AttachUserPolicy
-mkAttachUserPolicy pUserName_ pPolicyARN_ =
-  AttachUserPolicy' {userName = pUserName_, policyARN = pPolicyARN_}
+mkAttachUserPolicy userName policyArn =
+  AttachUserPolicy' {userName, policyArn}
 
 -- | The name (friendly name, not ARN) of the IAM user to attach the policy to.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aupUserName :: Lens.Lens' AttachUserPolicy Lude.Text
-aupUserName = Lens.lens (userName :: AttachUserPolicy -> Lude.Text) (\s a -> s {userName = a} :: AttachUserPolicy)
+aupUserName :: Lens.Lens' AttachUserPolicy Types.UserName
+aupUserName = Lens.field @"userName"
 {-# DEPRECATED aupUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aupPolicyARN :: Lens.Lens' AttachUserPolicy Lude.Text
-aupPolicyARN = Lens.lens (policyARN :: AttachUserPolicy -> Lude.Text) (\s a -> s {policyARN = a} :: AttachUserPolicy)
-{-# DEPRECATED aupPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
+-- /Note:/ Consider using 'policyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aupPolicyArn :: Lens.Lens' AttachUserPolicy Types.PolicyArn
+aupPolicyArn = Lens.field @"policyArn"
+{-# DEPRECATED aupPolicyArn "Use generic-lens or generic-optics with 'policyArn' instead." #-}
 
-instance Lude.AWSRequest AttachUserPolicy where
+instance Core.AWSRequest AttachUserPolicy where
   type Rs AttachUserPolicy = AttachUserPolicyResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull AttachUserPolicyResponse'
-
-instance Lude.ToHeaders AttachUserPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AttachUserPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AttachUserPolicy where
-  toQuery AttachUserPolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AttachUserPolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "PolicyArn" Lude.=: policyARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AttachUserPolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" userName)
+                Core.<> (Core.toQueryValue "PolicyArn" policyArn)
+            )
+      }
+  response = Response.receiveNull AttachUserPolicyResponse'
 
 -- | /See:/ 'mkAttachUserPolicyResponse' smart constructor.
 data AttachUserPolicyResponse = AttachUserPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachUserPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'AttachUserPolicyResponse' value with any optional fields omitted.
 mkAttachUserPolicyResponse ::
   AttachUserPolicyResponse
 mkAttachUserPolicyResponse = AttachUserPolicyResponse'

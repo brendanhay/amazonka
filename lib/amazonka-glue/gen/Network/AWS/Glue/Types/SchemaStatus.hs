@@ -13,51 +13,53 @@
 module Network.AWS.Glue.Types.SchemaStatus
   ( SchemaStatus
       ( SchemaStatus',
-        SSAvailable,
-        SSPending,
-        SSDeleting
+        SchemaStatusAvailable,
+        SchemaStatusPending,
+        SchemaStatusDeleting,
+        fromSchemaStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SchemaStatus = SchemaStatus' Lude.Text
+newtype SchemaStatus = SchemaStatus' {fromSchemaStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSAvailable :: SchemaStatus
-pattern SSAvailable = SchemaStatus' "AVAILABLE"
+pattern SchemaStatusAvailable :: SchemaStatus
+pattern SchemaStatusAvailable = SchemaStatus' "AVAILABLE"
 
-pattern SSPending :: SchemaStatus
-pattern SSPending = SchemaStatus' "PENDING"
+pattern SchemaStatusPending :: SchemaStatus
+pattern SchemaStatusPending = SchemaStatus' "PENDING"
 
-pattern SSDeleting :: SchemaStatus
-pattern SSDeleting = SchemaStatus' "DELETING"
+pattern SchemaStatusDeleting :: SchemaStatus
+pattern SchemaStatusDeleting = SchemaStatus' "DELETING"
 
 {-# COMPLETE
-  SSAvailable,
-  SSPending,
-  SSDeleting,
+  SchemaStatusAvailable,
+  SchemaStatusPending,
+  SchemaStatusDeleting,
   SchemaStatus'
   #-}

@@ -17,137 +17,134 @@ module Network.AWS.Connect.Types.RoutingProfile
     mkRoutingProfile,
 
     -- * Lenses
-    rpInstanceId,
-    rpRoutingProfileARN,
-    rpRoutingProfileId,
     rpDefaultOutboundQueueId,
-    rpName,
-    rpMediaConcurrencies,
     rpDescription,
+    rpInstanceId,
+    rpMediaConcurrencies,
+    rpName,
+    rpRoutingProfileArn,
+    rpRoutingProfileId,
     rpTags,
   )
 where
 
-import Network.AWS.Connect.Types.MediaConcurrency
+import qualified Network.AWS.Connect.Types.ARN as Types
+import qualified Network.AWS.Connect.Types.InstanceId as Types
+import qualified Network.AWS.Connect.Types.MediaConcurrency as Types
+import qualified Network.AWS.Connect.Types.QueueId as Types
+import qualified Network.AWS.Connect.Types.RoutingProfileDescription as Types
+import qualified Network.AWS.Connect.Types.RoutingProfileId as Types
+import qualified Network.AWS.Connect.Types.RoutingProfileName as Types
+import qualified Network.AWS.Connect.Types.TagKey as Types
+import qualified Network.AWS.Connect.Types.TagValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a routing profile.
 --
 -- /See:/ 'mkRoutingProfile' smart constructor.
 data RoutingProfile = RoutingProfile'
-  { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the routing profile.
-    routingProfileARN :: Lude.Maybe Lude.Text,
-    -- | The identifier of the routing profile.
-    routingProfileId :: Lude.Maybe Lude.Text,
-    -- | The identifier of the default outbound queue for this routing profile.
-    defaultOutboundQueueId :: Lude.Maybe Lude.Text,
-    -- | The name of the routing profile.
-    name :: Lude.Maybe Lude.Text,
-    -- | The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
-    mediaConcurrencies :: Lude.Maybe [MediaConcurrency],
+  { -- | The identifier of the default outbound queue for this routing profile.
+    defaultOutboundQueueId :: Core.Maybe Types.QueueId,
     -- | The description of the routing profile.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.RoutingProfileDescription,
+    -- | The identifier of the Amazon Connect instance.
+    instanceId :: Core.Maybe Types.InstanceId,
+    -- | The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+    mediaConcurrencies :: Core.Maybe [Types.MediaConcurrency],
+    -- | The name of the routing profile.
+    name :: Core.Maybe Types.RoutingProfileName,
+    -- | The Amazon Resource Name (ARN) of the routing profile.
+    routingProfileArn :: Core.Maybe Types.ARN,
+    -- | The identifier of the routing profile.
+    routingProfileId :: Core.Maybe Types.RoutingProfileId,
     -- | One or more tags.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RoutingProfile' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'routingProfileARN' - The Amazon Resource Name (ARN) of the routing profile.
--- * 'routingProfileId' - The identifier of the routing profile.
--- * 'defaultOutboundQueueId' - The identifier of the default outbound queue for this routing profile.
--- * 'name' - The name of the routing profile.
--- * 'mediaConcurrencies' - The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
--- * 'description' - The description of the routing profile.
--- * 'tags' - One or more tags.
+-- | Creates a 'RoutingProfile' value with any optional fields omitted.
 mkRoutingProfile ::
   RoutingProfile
 mkRoutingProfile =
   RoutingProfile'
-    { instanceId = Lude.Nothing,
-      routingProfileARN = Lude.Nothing,
-      routingProfileId = Lude.Nothing,
-      defaultOutboundQueueId = Lude.Nothing,
-      name = Lude.Nothing,
-      mediaConcurrencies = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing
+    { defaultOutboundQueueId = Core.Nothing,
+      description = Core.Nothing,
+      instanceId = Core.Nothing,
+      mediaConcurrencies = Core.Nothing,
+      name = Core.Nothing,
+      routingProfileArn = Core.Nothing,
+      routingProfileId = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The identifier of the Amazon Connect instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpInstanceId :: Lens.Lens' RoutingProfile (Lude.Maybe Lude.Text)
-rpInstanceId = Lens.lens (instanceId :: RoutingProfile -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: RoutingProfile)
-{-# DEPRECATED rpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the routing profile.
---
--- /Note:/ Consider using 'routingProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpRoutingProfileARN :: Lens.Lens' RoutingProfile (Lude.Maybe Lude.Text)
-rpRoutingProfileARN = Lens.lens (routingProfileARN :: RoutingProfile -> Lude.Maybe Lude.Text) (\s a -> s {routingProfileARN = a} :: RoutingProfile)
-{-# DEPRECATED rpRoutingProfileARN "Use generic-lens or generic-optics with 'routingProfileARN' instead." #-}
-
--- | The identifier of the routing profile.
---
--- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpRoutingProfileId :: Lens.Lens' RoutingProfile (Lude.Maybe Lude.Text)
-rpRoutingProfileId = Lens.lens (routingProfileId :: RoutingProfile -> Lude.Maybe Lude.Text) (\s a -> s {routingProfileId = a} :: RoutingProfile)
-{-# DEPRECATED rpRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
 
 -- | The identifier of the default outbound queue for this routing profile.
 --
 -- /Note:/ Consider using 'defaultOutboundQueueId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpDefaultOutboundQueueId :: Lens.Lens' RoutingProfile (Lude.Maybe Lude.Text)
-rpDefaultOutboundQueueId = Lens.lens (defaultOutboundQueueId :: RoutingProfile -> Lude.Maybe Lude.Text) (\s a -> s {defaultOutboundQueueId = a} :: RoutingProfile)
+rpDefaultOutboundQueueId :: Lens.Lens' RoutingProfile (Core.Maybe Types.QueueId)
+rpDefaultOutboundQueueId = Lens.field @"defaultOutboundQueueId"
 {-# DEPRECATED rpDefaultOutboundQueueId "Use generic-lens or generic-optics with 'defaultOutboundQueueId' instead." #-}
-
--- | The name of the routing profile.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpName :: Lens.Lens' RoutingProfile (Lude.Maybe Lude.Text)
-rpName = Lens.lens (name :: RoutingProfile -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RoutingProfile)
-{-# DEPRECATED rpName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
---
--- /Note:/ Consider using 'mediaConcurrencies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpMediaConcurrencies :: Lens.Lens' RoutingProfile (Lude.Maybe [MediaConcurrency])
-rpMediaConcurrencies = Lens.lens (mediaConcurrencies :: RoutingProfile -> Lude.Maybe [MediaConcurrency]) (\s a -> s {mediaConcurrencies = a} :: RoutingProfile)
-{-# DEPRECATED rpMediaConcurrencies "Use generic-lens or generic-optics with 'mediaConcurrencies' instead." #-}
 
 -- | The description of the routing profile.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpDescription :: Lens.Lens' RoutingProfile (Lude.Maybe Lude.Text)
-rpDescription = Lens.lens (description :: RoutingProfile -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RoutingProfile)
+rpDescription :: Lens.Lens' RoutingProfile (Core.Maybe Types.RoutingProfileDescription)
+rpDescription = Lens.field @"description"
 {-# DEPRECATED rpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The identifier of the Amazon Connect instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpInstanceId :: Lens.Lens' RoutingProfile (Core.Maybe Types.InstanceId)
+rpInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED rpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.
+--
+-- /Note:/ Consider using 'mediaConcurrencies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpMediaConcurrencies :: Lens.Lens' RoutingProfile (Core.Maybe [Types.MediaConcurrency])
+rpMediaConcurrencies = Lens.field @"mediaConcurrencies"
+{-# DEPRECATED rpMediaConcurrencies "Use generic-lens or generic-optics with 'mediaConcurrencies' instead." #-}
+
+-- | The name of the routing profile.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpName :: Lens.Lens' RoutingProfile (Core.Maybe Types.RoutingProfileName)
+rpName = Lens.field @"name"
+{-# DEPRECATED rpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the routing profile.
+--
+-- /Note:/ Consider using 'routingProfileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpRoutingProfileArn :: Lens.Lens' RoutingProfile (Core.Maybe Types.ARN)
+rpRoutingProfileArn = Lens.field @"routingProfileArn"
+{-# DEPRECATED rpRoutingProfileArn "Use generic-lens or generic-optics with 'routingProfileArn' instead." #-}
+
+-- | The identifier of the routing profile.
+--
+-- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpRoutingProfileId :: Lens.Lens' RoutingProfile (Core.Maybe Types.RoutingProfileId)
+rpRoutingProfileId = Lens.field @"routingProfileId"
+{-# DEPRECATED rpRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
 
 -- | One or more tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpTags :: Lens.Lens' RoutingProfile (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-rpTags = Lens.lens (tags :: RoutingProfile -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: RoutingProfile)
+rpTags :: Lens.Lens' RoutingProfile (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+rpTags = Lens.field @"tags"
 {-# DEPRECATED rpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON RoutingProfile where
+instance Core.FromJSON RoutingProfile where
   parseJSON =
-    Lude.withObject
-      "RoutingProfile"
-      ( \x ->
-          RoutingProfile'
-            Lude.<$> (x Lude..:? "InstanceId")
-            Lude.<*> (x Lude..:? "RoutingProfileArn")
-            Lude.<*> (x Lude..:? "RoutingProfileId")
-            Lude.<*> (x Lude..:? "DefaultOutboundQueueId")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "MediaConcurrencies" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "RoutingProfile" Core.$
+      \x ->
+        RoutingProfile'
+          Core.<$> (x Core..:? "DefaultOutboundQueueId")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "InstanceId")
+          Core.<*> (x Core..:? "MediaConcurrencies")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "RoutingProfileArn")
+          Core.<*> (x Core..:? "RoutingProfileId")
+          Core.<*> (x Core..:? "Tags")

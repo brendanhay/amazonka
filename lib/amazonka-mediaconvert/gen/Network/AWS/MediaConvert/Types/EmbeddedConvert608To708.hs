@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.EmbeddedConvert608To708
   ( EmbeddedConvert608To708
       ( EmbeddedConvert608To708',
-        ECTUpconvert,
-        ECTDisabled
+        EmbeddedConvert608To708Upconvert,
+        EmbeddedConvert608To708Disabled,
+        fromEmbeddedConvert608To708
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
-newtype EmbeddedConvert608To708 = EmbeddedConvert608To708' Lude.Text
+newtype EmbeddedConvert608To708 = EmbeddedConvert608To708'
+  { fromEmbeddedConvert608To708 ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ECTUpconvert :: EmbeddedConvert608To708
-pattern ECTUpconvert = EmbeddedConvert608To708' "UPCONVERT"
+pattern EmbeddedConvert608To708Upconvert :: EmbeddedConvert608To708
+pattern EmbeddedConvert608To708Upconvert = EmbeddedConvert608To708' "UPCONVERT"
 
-pattern ECTDisabled :: EmbeddedConvert608To708
-pattern ECTDisabled = EmbeddedConvert608To708' "DISABLED"
+pattern EmbeddedConvert608To708Disabled :: EmbeddedConvert608To708
+pattern EmbeddedConvert608To708Disabled = EmbeddedConvert608To708' "DISABLED"
 
 {-# COMPLETE
-  ECTUpconvert,
-  ECTDisabled,
+  EmbeddedConvert608To708Upconvert,
+  EmbeddedConvert608To708Disabled,
   EmbeddedConvert608To708'
   #-}

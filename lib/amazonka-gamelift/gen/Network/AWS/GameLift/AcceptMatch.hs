@@ -42,135 +42,118 @@ module Network.AWS.GameLift.AcceptMatch
     mkAcceptMatch,
 
     -- ** Request lenses
-    amAcceptanceType,
     amTicketId,
     amPlayerIds,
+    amAcceptanceType,
 
     -- * Destructuring the response
     AcceptMatchResponse (..),
     mkAcceptMatchResponse,
 
     -- ** Response lenses
-    amrsResponseStatus,
+    amrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkAcceptMatch' smart constructor.
 data AcceptMatch = AcceptMatch'
-  { -- | Player response to the proposed match.
-    acceptanceType :: AcceptanceType,
-    -- | A unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
-    ticketId :: Lude.Text,
+  { -- | A unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
+    ticketId :: Types.TicketId,
     -- | A unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
-    playerIds :: [Lude.Text]
+    playerIds :: [Types.NonZeroAndMaxString],
+    -- | Player response to the proposed match.
+    acceptanceType :: Types.AcceptanceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AcceptMatch' with the minimum fields required to make a request.
---
--- * 'acceptanceType' - Player response to the proposed match.
--- * 'ticketId' - A unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
--- * 'playerIds' - A unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
+-- | Creates a 'AcceptMatch' value with any optional fields omitted.
 mkAcceptMatch ::
-  -- | 'acceptanceType'
-  AcceptanceType ->
   -- | 'ticketId'
-  Lude.Text ->
+  Types.TicketId ->
+  -- | 'acceptanceType'
+  Types.AcceptanceType ->
   AcceptMatch
-mkAcceptMatch pAcceptanceType_ pTicketId_ =
-  AcceptMatch'
-    { acceptanceType = pAcceptanceType_,
-      ticketId = pTicketId_,
-      playerIds = Lude.mempty
-    }
-
--- | Player response to the proposed match.
---
--- /Note:/ Consider using 'acceptanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amAcceptanceType :: Lens.Lens' AcceptMatch AcceptanceType
-amAcceptanceType = Lens.lens (acceptanceType :: AcceptMatch -> AcceptanceType) (\s a -> s {acceptanceType = a} :: AcceptMatch)
-{-# DEPRECATED amAcceptanceType "Use generic-lens or generic-optics with 'acceptanceType' instead." #-}
+mkAcceptMatch ticketId acceptanceType =
+  AcceptMatch' {ticketId, playerIds = Core.mempty, acceptanceType}
 
 -- | A unique identifier for a matchmaking ticket. The ticket must be in status @REQUIRES_ACCEPTANCE@ ; otherwise this request will fail.
 --
 -- /Note:/ Consider using 'ticketId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amTicketId :: Lens.Lens' AcceptMatch Lude.Text
-amTicketId = Lens.lens (ticketId :: AcceptMatch -> Lude.Text) (\s a -> s {ticketId = a} :: AcceptMatch)
+amTicketId :: Lens.Lens' AcceptMatch Types.TicketId
+amTicketId = Lens.field @"ticketId"
 {-# DEPRECATED amTicketId "Use generic-lens or generic-optics with 'ticketId' instead." #-}
 
 -- | A unique identifier for a player delivering the response. This parameter can include one or multiple player IDs.
 --
 -- /Note:/ Consider using 'playerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amPlayerIds :: Lens.Lens' AcceptMatch [Lude.Text]
-amPlayerIds = Lens.lens (playerIds :: AcceptMatch -> [Lude.Text]) (\s a -> s {playerIds = a} :: AcceptMatch)
+amPlayerIds :: Lens.Lens' AcceptMatch [Types.NonZeroAndMaxString]
+amPlayerIds = Lens.field @"playerIds"
 {-# DEPRECATED amPlayerIds "Use generic-lens or generic-optics with 'playerIds' instead." #-}
 
-instance Lude.AWSRequest AcceptMatch where
+-- | Player response to the proposed match.
+--
+-- /Note:/ Consider using 'acceptanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amAcceptanceType :: Lens.Lens' AcceptMatch Types.AcceptanceType
+amAcceptanceType = Lens.field @"acceptanceType"
+{-# DEPRECATED amAcceptanceType "Use generic-lens or generic-optics with 'acceptanceType' instead." #-}
+
+instance Core.FromJSON AcceptMatch where
+  toJSON AcceptMatch {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TicketId" Core..= ticketId),
+            Core.Just ("PlayerIds" Core..= playerIds),
+            Core.Just ("AcceptanceType" Core..= acceptanceType)
+          ]
+      )
+
+instance Core.AWSRequest AcceptMatch where
   type Rs AcceptMatch = AcceptMatchResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.AcceptMatch")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          AcceptMatchResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          AcceptMatchResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AcceptMatch where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.AcceptMatch" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AcceptMatch where
-  toJSON AcceptMatch' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AcceptanceType" Lude..= acceptanceType),
-            Lude.Just ("TicketId" Lude..= ticketId),
-            Lude.Just ("PlayerIds" Lude..= playerIds)
-          ]
-      )
-
-instance Lude.ToPath AcceptMatch where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AcceptMatch where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAcceptMatchResponse' smart constructor.
 newtype AcceptMatchResponse = AcceptMatchResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AcceptMatchResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AcceptMatchResponse' value with any optional fields omitted.
 mkAcceptMatchResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AcceptMatchResponse
-mkAcceptMatchResponse pResponseStatus_ =
-  AcceptMatchResponse' {responseStatus = pResponseStatus_}
+mkAcceptMatchResponse responseStatus =
+  AcceptMatchResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amrsResponseStatus :: Lens.Lens' AcceptMatchResponse Lude.Int
-amrsResponseStatus = Lens.lens (responseStatus :: AcceptMatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AcceptMatchResponse)
-{-# DEPRECATED amrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+amrrsResponseStatus :: Lens.Lens' AcceptMatchResponse Core.Int
+amrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED amrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

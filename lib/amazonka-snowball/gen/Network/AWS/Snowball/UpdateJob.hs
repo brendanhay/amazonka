@@ -21,13 +21,13 @@ module Network.AWS.Snowball.UpdateJob
 
     -- ** Request lenses
     ujJobId,
-    ujNotification,
-    ujForwardingAddressId,
     ujAddressId,
-    ujShippingOption,
-    ujResources,
     ujDescription,
+    ujForwardingAddressId,
+    ujNotification,
+    ujResources,
     ujRoleARN,
+    ujShippingOption,
     ujSnowballCapacityPreference,
 
     -- * Destructuring the response
@@ -35,195 +35,177 @@ module Network.AWS.Snowball.UpdateJob
     mkUpdateJobResponse,
 
     -- ** Response lenses
-    ujrsResponseStatus,
+    ujrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Snowball.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkUpdateJob' smart constructor.
 data UpdateJob = UpdateJob'
   { -- | The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-    jobId :: Lude.Text,
-    -- | The new or updated 'Notification' object.
-    notification :: Lude.Maybe Notification,
-    -- | The updated ID for the forwarding address for a job. This field is not supported in most regions.
-    forwardingAddressId :: Lude.Maybe Lude.Text,
+    jobId :: Types.JobId,
     -- | The ID of the updated 'Address' object.
-    addressId :: Lude.Maybe Lude.Text,
-    -- | The updated shipping option value of this job's 'ShippingDetails' object.
-    shippingOption :: Lude.Maybe ShippingOption,
-    -- | The updated @JobResource@ object, or the updated 'JobResource' object.
-    resources :: Lude.Maybe JobResource,
+    addressId :: Core.Maybe Types.AddressId,
     -- | The updated description of this job's 'JobMetadata' object.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
+    -- | The updated ID for the forwarding address for a job. This field is not supported in most regions.
+    forwardingAddressId :: Core.Maybe Types.ForwardingAddressId,
+    -- | The new or updated 'Notification' object.
+    notification :: Core.Maybe Types.Notification,
+    -- | The updated @JobResource@ object, or the updated 'JobResource' object.
+    resources :: Core.Maybe Types.JobResource,
     -- | The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
-    roleARN :: Lude.Maybe Lude.Text,
+    roleARN :: Core.Maybe Types.RoleARN,
+    -- | The updated shipping option value of this job's 'ShippingDetails' object.
+    shippingOption :: Core.Maybe Types.ShippingOption,
     -- | The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. The 50 TB Snowballs are only available in the US regions.
-    snowballCapacityPreference :: Lude.Maybe SnowballCapacity
+    snowballCapacityPreference :: Core.Maybe Types.SnowballCapacity
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
--- * 'notification' - The new or updated 'Notification' object.
--- * 'forwardingAddressId' - The updated ID for the forwarding address for a job. This field is not supported in most regions.
--- * 'addressId' - The ID of the updated 'Address' object.
--- * 'shippingOption' - The updated shipping option value of this job's 'ShippingDetails' object.
--- * 'resources' - The updated @JobResource@ object, or the updated 'JobResource' object.
--- * 'description' - The updated description of this job's 'JobMetadata' object.
--- * 'roleARN' - The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
--- * 'snowballCapacityPreference' - The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. The 50 TB Snowballs are only available in the US regions.
+-- | Creates a 'UpdateJob' value with any optional fields omitted.
 mkUpdateJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   UpdateJob
-mkUpdateJob pJobId_ =
+mkUpdateJob jobId =
   UpdateJob'
-    { jobId = pJobId_,
-      notification = Lude.Nothing,
-      forwardingAddressId = Lude.Nothing,
-      addressId = Lude.Nothing,
-      shippingOption = Lude.Nothing,
-      resources = Lude.Nothing,
-      description = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      snowballCapacityPreference = Lude.Nothing
+    { jobId,
+      addressId = Core.Nothing,
+      description = Core.Nothing,
+      forwardingAddressId = Core.Nothing,
+      notification = Core.Nothing,
+      resources = Core.Nothing,
+      roleARN = Core.Nothing,
+      shippingOption = Core.Nothing,
+      snowballCapacityPreference = Core.Nothing
     }
 
 -- | The job ID of the job that you want to update, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujJobId :: Lens.Lens' UpdateJob Lude.Text
-ujJobId = Lens.lens (jobId :: UpdateJob -> Lude.Text) (\s a -> s {jobId = a} :: UpdateJob)
+ujJobId :: Lens.Lens' UpdateJob Types.JobId
+ujJobId = Lens.field @"jobId"
 {-# DEPRECATED ujJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
-
--- | The new or updated 'Notification' object.
---
--- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujNotification :: Lens.Lens' UpdateJob (Lude.Maybe Notification)
-ujNotification = Lens.lens (notification :: UpdateJob -> Lude.Maybe Notification) (\s a -> s {notification = a} :: UpdateJob)
-{-# DEPRECATED ujNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
-
--- | The updated ID for the forwarding address for a job. This field is not supported in most regions.
---
--- /Note:/ Consider using 'forwardingAddressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujForwardingAddressId :: Lens.Lens' UpdateJob (Lude.Maybe Lude.Text)
-ujForwardingAddressId = Lens.lens (forwardingAddressId :: UpdateJob -> Lude.Maybe Lude.Text) (\s a -> s {forwardingAddressId = a} :: UpdateJob)
-{-# DEPRECATED ujForwardingAddressId "Use generic-lens or generic-optics with 'forwardingAddressId' instead." #-}
 
 -- | The ID of the updated 'Address' object.
 --
 -- /Note:/ Consider using 'addressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujAddressId :: Lens.Lens' UpdateJob (Lude.Maybe Lude.Text)
-ujAddressId = Lens.lens (addressId :: UpdateJob -> Lude.Maybe Lude.Text) (\s a -> s {addressId = a} :: UpdateJob)
+ujAddressId :: Lens.Lens' UpdateJob (Core.Maybe Types.AddressId)
+ujAddressId = Lens.field @"addressId"
 {-# DEPRECATED ujAddressId "Use generic-lens or generic-optics with 'addressId' instead." #-}
-
--- | The updated shipping option value of this job's 'ShippingDetails' object.
---
--- /Note:/ Consider using 'shippingOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujShippingOption :: Lens.Lens' UpdateJob (Lude.Maybe ShippingOption)
-ujShippingOption = Lens.lens (shippingOption :: UpdateJob -> Lude.Maybe ShippingOption) (\s a -> s {shippingOption = a} :: UpdateJob)
-{-# DEPRECATED ujShippingOption "Use generic-lens or generic-optics with 'shippingOption' instead." #-}
-
--- | The updated @JobResource@ object, or the updated 'JobResource' object.
---
--- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujResources :: Lens.Lens' UpdateJob (Lude.Maybe JobResource)
-ujResources = Lens.lens (resources :: UpdateJob -> Lude.Maybe JobResource) (\s a -> s {resources = a} :: UpdateJob)
-{-# DEPRECATED ujResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The updated description of this job's 'JobMetadata' object.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujDescription :: Lens.Lens' UpdateJob (Lude.Maybe Lude.Text)
-ujDescription = Lens.lens (description :: UpdateJob -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateJob)
+ujDescription :: Lens.Lens' UpdateJob (Core.Maybe Types.Description)
+ujDescription = Lens.field @"description"
 {-# DEPRECATED ujDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The updated ID for the forwarding address for a job. This field is not supported in most regions.
+--
+-- /Note:/ Consider using 'forwardingAddressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujForwardingAddressId :: Lens.Lens' UpdateJob (Core.Maybe Types.ForwardingAddressId)
+ujForwardingAddressId = Lens.field @"forwardingAddressId"
+{-# DEPRECATED ujForwardingAddressId "Use generic-lens or generic-optics with 'forwardingAddressId' instead." #-}
+
+-- | The new or updated 'Notification' object.
+--
+-- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujNotification :: Lens.Lens' UpdateJob (Core.Maybe Types.Notification)
+ujNotification = Lens.field @"notification"
+{-# DEPRECATED ujNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
+
+-- | The updated @JobResource@ object, or the updated 'JobResource' object.
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujResources :: Lens.Lens' UpdateJob (Core.Maybe Types.JobResource)
+ujResources = Lens.field @"resources"
+{-# DEPRECATED ujResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The new role Amazon Resource Name (ARN) that you want to associate with this job. To create a role ARN, use the <https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html CreateRole> AWS Identity and Access Management (IAM) API action.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujRoleARN :: Lens.Lens' UpdateJob (Lude.Maybe Lude.Text)
-ujRoleARN = Lens.lens (roleARN :: UpdateJob -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateJob)
+ujRoleARN :: Lens.Lens' UpdateJob (Core.Maybe Types.RoleARN)
+ujRoleARN = Lens.field @"roleARN"
 {-# DEPRECATED ujRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+
+-- | The updated shipping option value of this job's 'ShippingDetails' object.
+--
+-- /Note:/ Consider using 'shippingOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ujShippingOption :: Lens.Lens' UpdateJob (Core.Maybe Types.ShippingOption)
+ujShippingOption = Lens.field @"shippingOption"
+{-# DEPRECATED ujShippingOption "Use generic-lens or generic-optics with 'shippingOption' instead." #-}
 
 -- | The updated @SnowballCapacityPreference@ of this job's 'JobMetadata' object. The 50 TB Snowballs are only available in the US regions.
 --
 -- /Note:/ Consider using 'snowballCapacityPreference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujSnowballCapacityPreference :: Lens.Lens' UpdateJob (Lude.Maybe SnowballCapacity)
-ujSnowballCapacityPreference = Lens.lens (snowballCapacityPreference :: UpdateJob -> Lude.Maybe SnowballCapacity) (\s a -> s {snowballCapacityPreference = a} :: UpdateJob)
+ujSnowballCapacityPreference :: Lens.Lens' UpdateJob (Core.Maybe Types.SnowballCapacity)
+ujSnowballCapacityPreference = Lens.field @"snowballCapacityPreference"
 {-# DEPRECATED ujSnowballCapacityPreference "Use generic-lens or generic-optics with 'snowballCapacityPreference' instead." #-}
 
-instance Lude.AWSRequest UpdateJob where
+instance Core.FromJSON UpdateJob where
+  toJSON UpdateJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobId" Core..= jobId),
+            ("AddressId" Core..=) Core.<$> addressId,
+            ("Description" Core..=) Core.<$> description,
+            ("ForwardingAddressId" Core..=) Core.<$> forwardingAddressId,
+            ("Notification" Core..=) Core.<$> notification,
+            ("Resources" Core..=) Core.<$> resources,
+            ("RoleARN" Core..=) Core.<$> roleARN,
+            ("ShippingOption" Core..=) Core.<$> shippingOption,
+            ("SnowballCapacityPreference" Core..=)
+              Core.<$> snowballCapacityPreference
+          ]
+      )
+
+instance Core.AWSRequest UpdateJob where
   type Rs UpdateJob = UpdateJobResponse
-  request = Req.postJSON snowballService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSIESnowballJobManagementService.UpdateJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateJobResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateJobResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSIESnowballJobManagementService.UpdateJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateJob where
-  toJSON UpdateJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("JobId" Lude..= jobId),
-            ("Notification" Lude..=) Lude.<$> notification,
-            ("ForwardingAddressId" Lude..=) Lude.<$> forwardingAddressId,
-            ("AddressId" Lude..=) Lude.<$> addressId,
-            ("ShippingOption" Lude..=) Lude.<$> shippingOption,
-            ("Resources" Lude..=) Lude.<$> resources,
-            ("Description" Lude..=) Lude.<$> description,
-            ("RoleARN" Lude..=) Lude.<$> roleARN,
-            ("SnowballCapacityPreference" Lude..=)
-              Lude.<$> snowballCapacityPreference
-          ]
-      )
-
-instance Lude.ToPath UpdateJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateJobResponse' smart constructor.
 newtype UpdateJobResponse = UpdateJobResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateJobResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateJobResponse' value with any optional fields omitted.
 mkUpdateJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateJobResponse
-mkUpdateJobResponse pResponseStatus_ =
-  UpdateJobResponse' {responseStatus = pResponseStatus_}
+mkUpdateJobResponse responseStatus =
+  UpdateJobResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ujrsResponseStatus :: Lens.Lens' UpdateJobResponse Lude.Int
-ujrsResponseStatus = Lens.lens (responseStatus :: UpdateJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateJobResponse)
-{-# DEPRECATED ujrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ujrrsResponseStatus :: Lens.Lens' UpdateJobResponse Core.Int
+ujrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ujrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

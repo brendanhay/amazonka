@@ -13,51 +13,56 @@
 module Network.AWS.Shield.Types.ProactiveEngagementStatus
   ( ProactiveEngagementStatus
       ( ProactiveEngagementStatus',
-        PESEnabled,
-        PESDisabled,
-        PESPending
+        ProactiveEngagementStatusEnabled,
+        ProactiveEngagementStatusDisabled,
+        ProactiveEngagementStatusPending,
+        fromProactiveEngagementStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProactiveEngagementStatus = ProactiveEngagementStatus' Lude.Text
+newtype ProactiveEngagementStatus = ProactiveEngagementStatus'
+  { fromProactiveEngagementStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PESEnabled :: ProactiveEngagementStatus
-pattern PESEnabled = ProactiveEngagementStatus' "ENABLED"
+pattern ProactiveEngagementStatusEnabled :: ProactiveEngagementStatus
+pattern ProactiveEngagementStatusEnabled = ProactiveEngagementStatus' "ENABLED"
 
-pattern PESDisabled :: ProactiveEngagementStatus
-pattern PESDisabled = ProactiveEngagementStatus' "DISABLED"
+pattern ProactiveEngagementStatusDisabled :: ProactiveEngagementStatus
+pattern ProactiveEngagementStatusDisabled = ProactiveEngagementStatus' "DISABLED"
 
-pattern PESPending :: ProactiveEngagementStatus
-pattern PESPending = ProactiveEngagementStatus' "PENDING"
+pattern ProactiveEngagementStatusPending :: ProactiveEngagementStatus
+pattern ProactiveEngagementStatusPending = ProactiveEngagementStatus' "PENDING"
 
 {-# COMPLETE
-  PESEnabled,
-  PESDisabled,
-  PESPending,
+  ProactiveEngagementStatusEnabled,
+  ProactiveEngagementStatusDisabled,
+  ProactiveEngagementStatusPending,
   ProactiveEngagementStatus'
   #-}

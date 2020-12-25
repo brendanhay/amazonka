@@ -17,64 +17,58 @@ module Network.AWS.DeviceFarm.Types.Device
     mkDevice,
 
     -- * Lenses
-    dCarrier,
-    dImage,
-    dManufacturer,
-    dPlatform,
-    dModelId,
-    dRemoteAccessEnabled,
     dArn,
-    dFormFactor,
-    dFleetType,
-    dResolution,
     dAvailability,
-    dMemory,
-    dRadio,
-    dOs,
-    dName,
-    dModel,
-    dInstances,
-    dRemoteDebugEnabled,
+    dCarrier,
     dCpu,
-    dHeapSize,
     dFleetName,
+    dFleetType,
+    dFormFactor,
+    dHeapSize,
+    dImage,
+    dInstances,
+    dManufacturer,
+    dMemory,
+    dModel,
+    dModelId,
+    dName,
+    dOs,
+    dPlatform,
+    dRadio,
+    dRemoteAccessEnabled,
+    dRemoteDebugEnabled,
+    dResolution,
   )
 where
 
-import Network.AWS.DeviceFarm.Types.CPU
-import Network.AWS.DeviceFarm.Types.DeviceAvailability
-import Network.AWS.DeviceFarm.Types.DeviceFormFactor
-import Network.AWS.DeviceFarm.Types.DeviceInstance
-import Network.AWS.DeviceFarm.Types.DevicePlatform
-import Network.AWS.DeviceFarm.Types.Resolution
+import qualified Network.AWS.DeviceFarm.Types.Arn as Types
+import qualified Network.AWS.DeviceFarm.Types.CPU as Types
+import qualified Network.AWS.DeviceFarm.Types.DeviceAvailability as Types
+import qualified Network.AWS.DeviceFarm.Types.DeviceFormFactor as Types
+import qualified Network.AWS.DeviceFarm.Types.DeviceInstance as Types
+import qualified Network.AWS.DeviceFarm.Types.DevicePlatform as Types
+import qualified Network.AWS.DeviceFarm.Types.Name as Types
+import qualified Network.AWS.DeviceFarm.Types.Resolution as Types
+import qualified Network.AWS.DeviceFarm.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a device type that an app is tested against.
 --
 -- /See:/ 'mkDevice' smart constructor.
 data Device = Device'
-  { -- | The device's carrier.
-    carrier :: Lude.Maybe Lude.Text,
-    -- | The device's image name.
-    image :: Lude.Maybe Lude.Text,
-    -- | The device's manufacturer name.
-    manufacturer :: Lude.Maybe Lude.Text,
-    -- | The device's platform.
-    --
-    -- Allowed values include:
-    --
-    --     * ANDROID
-    --
-    --
-    --     * IOS
-    platform :: Lude.Maybe DevicePlatform,
-    -- | The device's model ID.
-    modelId :: Lude.Maybe Lude.Text,
-    -- | Specifies whether remote access has been enabled for the specified device.
-    remoteAccessEnabled :: Lude.Maybe Lude.Bool,
-    -- | The device's ARN.
-    arn :: Lude.Maybe Lude.Text,
+  { -- | The device's ARN.
+    arn :: Core.Maybe Types.Arn,
+    -- | Indicates how likely a device is available for a test run. Currently available in the 'ListDevices' and GetDevice API methods.
+    availability :: Core.Maybe Types.DeviceAvailability,
+    -- | The device's carrier.
+    carrier :: Core.Maybe Types.String,
+    -- | Information about the device's CPU.
+    cpu :: Core.Maybe Types.CPU,
+    -- | The name of the fleet to which this device belongs.
+    fleetName :: Core.Maybe Types.String,
+    -- | The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.
+    fleetType :: Core.Maybe Types.String,
     -- | The device's form factor.
     --
     -- Allowed values include:
@@ -83,166 +77,117 @@ data Device = Device'
     --
     --
     --     * TABLET
-    formFactor :: Lude.Maybe DeviceFormFactor,
-    -- | The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.
-    fleetType :: Lude.Maybe Lude.Text,
-    -- | The resolution of the device.
-    resolution :: Lude.Maybe Resolution,
-    -- | Indicates how likely a device is available for a test run. Currently available in the 'ListDevices' and GetDevice API methods.
-    availability :: Lude.Maybe DeviceAvailability,
-    -- | The device's total memory size, expressed in bytes.
-    memory :: Lude.Maybe Lude.Integer,
-    -- | The device's radio.
-    radio :: Lude.Maybe Lude.Text,
-    -- | The device's operating system type.
-    os :: Lude.Maybe Lude.Text,
-    -- | The device's display name.
-    name :: Lude.Maybe Lude.Text,
-    -- | The device's model name.
-    model :: Lude.Maybe Lude.Text,
+    formFactor :: Core.Maybe Types.DeviceFormFactor,
+    -- | The device's heap size, expressed in bytes.
+    heapSize :: Core.Maybe Core.Integer,
+    -- | The device's image name.
+    image :: Core.Maybe Types.String,
     -- | The instances that belong to this device.
-    instances :: Lude.Maybe [DeviceInstance],
+    instances :: Core.Maybe [Types.DeviceInstance],
+    -- | The device's manufacturer name.
+    manufacturer :: Core.Maybe Types.String,
+    -- | The device's total memory size, expressed in bytes.
+    memory :: Core.Maybe Core.Integer,
+    -- | The device's model name.
+    model :: Core.Maybe Types.String,
+    -- | The device's model ID.
+    modelId :: Core.Maybe Types.String,
+    -- | The device's display name.
+    name :: Core.Maybe Types.Name,
+    -- | The device's operating system type.
+    os :: Core.Maybe Types.String,
+    -- | The device's platform.
+    --
+    -- Allowed values include:
+    --
+    --     * ANDROID
+    --
+    --
+    --     * IOS
+    platform :: Core.Maybe Types.DevicePlatform,
+    -- | The device's radio.
+    radio :: Core.Maybe Types.String,
+    -- | Specifies whether remote access has been enabled for the specified device.
+    remoteAccessEnabled :: Core.Maybe Core.Bool,
     -- | This flag is set to @true@ if remote debugging is enabled for the device.
     --
     -- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
-    remoteDebugEnabled :: Lude.Maybe Lude.Bool,
-    -- | Information about the device's CPU.
-    cpu :: Lude.Maybe CPU,
-    -- | The device's heap size, expressed in bytes.
-    heapSize :: Lude.Maybe Lude.Integer,
-    -- | The name of the fleet to which this device belongs.
-    fleetName :: Lude.Maybe Lude.Text
+    remoteDebugEnabled :: Core.Maybe Core.Bool,
+    -- | The resolution of the device.
+    resolution :: Core.Maybe Types.Resolution
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Device' with the minimum fields required to make a request.
---
--- * 'carrier' - The device's carrier.
--- * 'image' - The device's image name.
--- * 'manufacturer' - The device's manufacturer name.
--- * 'platform' - The device's platform.
---
--- Allowed values include:
---
---     * ANDROID
---
---
---     * IOS
---
---
--- * 'modelId' - The device's model ID.
--- * 'remoteAccessEnabled' - Specifies whether remote access has been enabled for the specified device.
--- * 'arn' - The device's ARN.
--- * 'formFactor' - The device's form factor.
---
--- Allowed values include:
---
---     * PHONE
---
---
---     * TABLET
---
---
--- * 'fleetType' - The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.
--- * 'resolution' - The resolution of the device.
--- * 'availability' - Indicates how likely a device is available for a test run. Currently available in the 'ListDevices' and GetDevice API methods.
--- * 'memory' - The device's total memory size, expressed in bytes.
--- * 'radio' - The device's radio.
--- * 'os' - The device's operating system type.
--- * 'name' - The device's display name.
--- * 'model' - The device's model name.
--- * 'instances' - The instances that belong to this device.
--- * 'remoteDebugEnabled' - This flag is set to @true@ if remote debugging is enabled for the device.
---
--- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
--- * 'cpu' - Information about the device's CPU.
--- * 'heapSize' - The device's heap size, expressed in bytes.
--- * 'fleetName' - The name of the fleet to which this device belongs.
+-- | Creates a 'Device' value with any optional fields omitted.
 mkDevice ::
   Device
 mkDevice =
   Device'
-    { carrier = Lude.Nothing,
-      image = Lude.Nothing,
-      manufacturer = Lude.Nothing,
-      platform = Lude.Nothing,
-      modelId = Lude.Nothing,
-      remoteAccessEnabled = Lude.Nothing,
-      arn = Lude.Nothing,
-      formFactor = Lude.Nothing,
-      fleetType = Lude.Nothing,
-      resolution = Lude.Nothing,
-      availability = Lude.Nothing,
-      memory = Lude.Nothing,
-      radio = Lude.Nothing,
-      os = Lude.Nothing,
-      name = Lude.Nothing,
-      model = Lude.Nothing,
-      instances = Lude.Nothing,
-      remoteDebugEnabled = Lude.Nothing,
-      cpu = Lude.Nothing,
-      heapSize = Lude.Nothing,
-      fleetName = Lude.Nothing
+    { arn = Core.Nothing,
+      availability = Core.Nothing,
+      carrier = Core.Nothing,
+      cpu = Core.Nothing,
+      fleetName = Core.Nothing,
+      fleetType = Core.Nothing,
+      formFactor = Core.Nothing,
+      heapSize = Core.Nothing,
+      image = Core.Nothing,
+      instances = Core.Nothing,
+      manufacturer = Core.Nothing,
+      memory = Core.Nothing,
+      model = Core.Nothing,
+      modelId = Core.Nothing,
+      name = Core.Nothing,
+      os = Core.Nothing,
+      platform = Core.Nothing,
+      radio = Core.Nothing,
+      remoteAccessEnabled = Core.Nothing,
+      remoteDebugEnabled = Core.Nothing,
+      resolution = Core.Nothing
     }
-
--- | The device's carrier.
---
--- /Note:/ Consider using 'carrier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCarrier :: Lens.Lens' Device (Lude.Maybe Lude.Text)
-dCarrier = Lens.lens (carrier :: Device -> Lude.Maybe Lude.Text) (\s a -> s {carrier = a} :: Device)
-{-# DEPRECATED dCarrier "Use generic-lens or generic-optics with 'carrier' instead." #-}
-
--- | The device's image name.
---
--- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dImage :: Lens.Lens' Device (Lude.Maybe Lude.Text)
-dImage = Lens.lens (image :: Device -> Lude.Maybe Lude.Text) (\s a -> s {image = a} :: Device)
-{-# DEPRECATED dImage "Use generic-lens or generic-optics with 'image' instead." #-}
-
--- | The device's manufacturer name.
---
--- /Note:/ Consider using 'manufacturer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dManufacturer :: Lens.Lens' Device (Lude.Maybe Lude.Text)
-dManufacturer = Lens.lens (manufacturer :: Device -> Lude.Maybe Lude.Text) (\s a -> s {manufacturer = a} :: Device)
-{-# DEPRECATED dManufacturer "Use generic-lens or generic-optics with 'manufacturer' instead." #-}
-
--- | The device's platform.
---
--- Allowed values include:
---
---     * ANDROID
---
---
---     * IOS
---
---
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPlatform :: Lens.Lens' Device (Lude.Maybe DevicePlatform)
-dPlatform = Lens.lens (platform :: Device -> Lude.Maybe DevicePlatform) (\s a -> s {platform = a} :: Device)
-{-# DEPRECATED dPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
--- | The device's model ID.
---
--- /Note:/ Consider using 'modelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dModelId :: Lens.Lens' Device (Lude.Maybe Lude.Text)
-dModelId = Lens.lens (modelId :: Device -> Lude.Maybe Lude.Text) (\s a -> s {modelId = a} :: Device)
-{-# DEPRECATED dModelId "Use generic-lens or generic-optics with 'modelId' instead." #-}
-
--- | Specifies whether remote access has been enabled for the specified device.
---
--- /Note:/ Consider using 'remoteAccessEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRemoteAccessEnabled :: Lens.Lens' Device (Lude.Maybe Lude.Bool)
-dRemoteAccessEnabled = Lens.lens (remoteAccessEnabled :: Device -> Lude.Maybe Lude.Bool) (\s a -> s {remoteAccessEnabled = a} :: Device)
-{-# DEPRECATED dRemoteAccessEnabled "Use generic-lens or generic-optics with 'remoteAccessEnabled' instead." #-}
 
 -- | The device's ARN.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dArn :: Lens.Lens' Device (Lude.Maybe Lude.Text)
-dArn = Lens.lens (arn :: Device -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Device)
+dArn :: Lens.Lens' Device (Core.Maybe Types.Arn)
+dArn = Lens.field @"arn"
 {-# DEPRECATED dArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | Indicates how likely a device is available for a test run. Currently available in the 'ListDevices' and GetDevice API methods.
+--
+-- /Note:/ Consider using 'availability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAvailability :: Lens.Lens' Device (Core.Maybe Types.DeviceAvailability)
+dAvailability = Lens.field @"availability"
+{-# DEPRECATED dAvailability "Use generic-lens or generic-optics with 'availability' instead." #-}
+
+-- | The device's carrier.
+--
+-- /Note:/ Consider using 'carrier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCarrier :: Lens.Lens' Device (Core.Maybe Types.String)
+dCarrier = Lens.field @"carrier"
+{-# DEPRECATED dCarrier "Use generic-lens or generic-optics with 'carrier' instead." #-}
+
+-- | Information about the device's CPU.
+--
+-- /Note:/ Consider using 'cpu' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCpu :: Lens.Lens' Device (Core.Maybe Types.CPU)
+dCpu = Lens.field @"cpu"
+{-# DEPRECATED dCpu "Use generic-lens or generic-optics with 'cpu' instead." #-}
+
+-- | The name of the fleet to which this device belongs.
+--
+-- /Note:/ Consider using 'fleetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dFleetName :: Lens.Lens' Device (Core.Maybe Types.String)
+dFleetName = Lens.field @"fleetName"
+{-# DEPRECATED dFleetName "Use generic-lens or generic-optics with 'fleetName' instead." #-}
+
+-- | The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.
+--
+-- /Note:/ Consider using 'fleetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dFleetType :: Lens.Lens' Device (Core.Maybe Types.String)
+dFleetType = Lens.field @"fleetType"
+{-# DEPRECATED dFleetType "Use generic-lens or generic-optics with 'fleetType' instead." #-}
 
 -- | The device's form factor.
 --
@@ -256,128 +201,142 @@ dArn = Lens.lens (arn :: Device -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} ::
 --
 --
 -- /Note:/ Consider using 'formFactor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dFormFactor :: Lens.Lens' Device (Lude.Maybe DeviceFormFactor)
-dFormFactor = Lens.lens (formFactor :: Device -> Lude.Maybe DeviceFormFactor) (\s a -> s {formFactor = a} :: Device)
+dFormFactor :: Lens.Lens' Device (Core.Maybe Types.DeviceFormFactor)
+dFormFactor = Lens.field @"formFactor"
 {-# DEPRECATED dFormFactor "Use generic-lens or generic-optics with 'formFactor' instead." #-}
 
--- | The type of fleet to which this device belongs. Possible values are PRIVATE and PUBLIC.
+-- | The device's heap size, expressed in bytes.
 --
--- /Note:/ Consider using 'fleetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dFleetType :: Lens.Lens' Device (Lude.Maybe Lude.Text)
-dFleetType = Lens.lens (fleetType :: Device -> Lude.Maybe Lude.Text) (\s a -> s {fleetType = a} :: Device)
-{-# DEPRECATED dFleetType "Use generic-lens or generic-optics with 'fleetType' instead." #-}
+-- /Note:/ Consider using 'heapSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dHeapSize :: Lens.Lens' Device (Core.Maybe Core.Integer)
+dHeapSize = Lens.field @"heapSize"
+{-# DEPRECATED dHeapSize "Use generic-lens or generic-optics with 'heapSize' instead." #-}
 
--- | The resolution of the device.
+-- | The device's image name.
 --
--- /Note:/ Consider using 'resolution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dResolution :: Lens.Lens' Device (Lude.Maybe Resolution)
-dResolution = Lens.lens (resolution :: Device -> Lude.Maybe Resolution) (\s a -> s {resolution = a} :: Device)
-{-# DEPRECATED dResolution "Use generic-lens or generic-optics with 'resolution' instead." #-}
-
--- | Indicates how likely a device is available for a test run. Currently available in the 'ListDevices' and GetDevice API methods.
---
--- /Note:/ Consider using 'availability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAvailability :: Lens.Lens' Device (Lude.Maybe DeviceAvailability)
-dAvailability = Lens.lens (availability :: Device -> Lude.Maybe DeviceAvailability) (\s a -> s {availability = a} :: Device)
-{-# DEPRECATED dAvailability "Use generic-lens or generic-optics with 'availability' instead." #-}
-
--- | The device's total memory size, expressed in bytes.
---
--- /Note:/ Consider using 'memory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMemory :: Lens.Lens' Device (Lude.Maybe Lude.Integer)
-dMemory = Lens.lens (memory :: Device -> Lude.Maybe Lude.Integer) (\s a -> s {memory = a} :: Device)
-{-# DEPRECATED dMemory "Use generic-lens or generic-optics with 'memory' instead." #-}
-
--- | The device's radio.
---
--- /Note:/ Consider using 'radio' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRadio :: Lens.Lens' Device (Lude.Maybe Lude.Text)
-dRadio = Lens.lens (radio :: Device -> Lude.Maybe Lude.Text) (\s a -> s {radio = a} :: Device)
-{-# DEPRECATED dRadio "Use generic-lens or generic-optics with 'radio' instead." #-}
-
--- | The device's operating system type.
---
--- /Note:/ Consider using 'os' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dOs :: Lens.Lens' Device (Lude.Maybe Lude.Text)
-dOs = Lens.lens (os :: Device -> Lude.Maybe Lude.Text) (\s a -> s {os = a} :: Device)
-{-# DEPRECATED dOs "Use generic-lens or generic-optics with 'os' instead." #-}
-
--- | The device's display name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' Device (Lude.Maybe Lude.Text)
-dName = Lens.lens (name :: Device -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Device)
-{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The device's model name.
---
--- /Note:/ Consider using 'model' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dModel :: Lens.Lens' Device (Lude.Maybe Lude.Text)
-dModel = Lens.lens (model :: Device -> Lude.Maybe Lude.Text) (\s a -> s {model = a} :: Device)
-{-# DEPRECATED dModel "Use generic-lens or generic-optics with 'model' instead." #-}
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dImage :: Lens.Lens' Device (Core.Maybe Types.String)
+dImage = Lens.field @"image"
+{-# DEPRECATED dImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 -- | The instances that belong to this device.
 --
 -- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInstances :: Lens.Lens' Device (Lude.Maybe [DeviceInstance])
-dInstances = Lens.lens (instances :: Device -> Lude.Maybe [DeviceInstance]) (\s a -> s {instances = a} :: Device)
+dInstances :: Lens.Lens' Device (Core.Maybe [Types.DeviceInstance])
+dInstances = Lens.field @"instances"
 {-# DEPRECATED dInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
+
+-- | The device's manufacturer name.
+--
+-- /Note:/ Consider using 'manufacturer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dManufacturer :: Lens.Lens' Device (Core.Maybe Types.String)
+dManufacturer = Lens.field @"manufacturer"
+{-# DEPRECATED dManufacturer "Use generic-lens or generic-optics with 'manufacturer' instead." #-}
+
+-- | The device's total memory size, expressed in bytes.
+--
+-- /Note:/ Consider using 'memory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMemory :: Lens.Lens' Device (Core.Maybe Core.Integer)
+dMemory = Lens.field @"memory"
+{-# DEPRECATED dMemory "Use generic-lens or generic-optics with 'memory' instead." #-}
+
+-- | The device's model name.
+--
+-- /Note:/ Consider using 'model' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dModel :: Lens.Lens' Device (Core.Maybe Types.String)
+dModel = Lens.field @"model"
+{-# DEPRECATED dModel "Use generic-lens or generic-optics with 'model' instead." #-}
+
+-- | The device's model ID.
+--
+-- /Note:/ Consider using 'modelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dModelId :: Lens.Lens' Device (Core.Maybe Types.String)
+dModelId = Lens.field @"modelId"
+{-# DEPRECATED dModelId "Use generic-lens or generic-optics with 'modelId' instead." #-}
+
+-- | The device's display name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dName :: Lens.Lens' Device (Core.Maybe Types.Name)
+dName = Lens.field @"name"
+{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The device's operating system type.
+--
+-- /Note:/ Consider using 'os' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dOs :: Lens.Lens' Device (Core.Maybe Types.String)
+dOs = Lens.field @"os"
+{-# DEPRECATED dOs "Use generic-lens or generic-optics with 'os' instead." #-}
+
+-- | The device's platform.
+--
+-- Allowed values include:
+--
+--     * ANDROID
+--
+--
+--     * IOS
+--
+--
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPlatform :: Lens.Lens' Device (Core.Maybe Types.DevicePlatform)
+dPlatform = Lens.field @"platform"
+{-# DEPRECATED dPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
+
+-- | The device's radio.
+--
+-- /Note:/ Consider using 'radio' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRadio :: Lens.Lens' Device (Core.Maybe Types.String)
+dRadio = Lens.field @"radio"
+{-# DEPRECATED dRadio "Use generic-lens or generic-optics with 'radio' instead." #-}
+
+-- | Specifies whether remote access has been enabled for the specified device.
+--
+-- /Note:/ Consider using 'remoteAccessEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRemoteAccessEnabled :: Lens.Lens' Device (Core.Maybe Core.Bool)
+dRemoteAccessEnabled = Lens.field @"remoteAccessEnabled"
+{-# DEPRECATED dRemoteAccessEnabled "Use generic-lens or generic-optics with 'remoteAccessEnabled' instead." #-}
 
 -- | This flag is set to @true@ if remote debugging is enabled for the device.
 --
 -- Remote debugging is <https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported> .
 --
 -- /Note:/ Consider using 'remoteDebugEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRemoteDebugEnabled :: Lens.Lens' Device (Lude.Maybe Lude.Bool)
-dRemoteDebugEnabled = Lens.lens (remoteDebugEnabled :: Device -> Lude.Maybe Lude.Bool) (\s a -> s {remoteDebugEnabled = a} :: Device)
+dRemoteDebugEnabled :: Lens.Lens' Device (Core.Maybe Core.Bool)
+dRemoteDebugEnabled = Lens.field @"remoteDebugEnabled"
 {-# DEPRECATED dRemoteDebugEnabled "Use generic-lens or generic-optics with 'remoteDebugEnabled' instead." #-}
 
--- | Information about the device's CPU.
+-- | The resolution of the device.
 --
--- /Note:/ Consider using 'cpu' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCpu :: Lens.Lens' Device (Lude.Maybe CPU)
-dCpu = Lens.lens (cpu :: Device -> Lude.Maybe CPU) (\s a -> s {cpu = a} :: Device)
-{-# DEPRECATED dCpu "Use generic-lens or generic-optics with 'cpu' instead." #-}
+-- /Note:/ Consider using 'resolution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dResolution :: Lens.Lens' Device (Core.Maybe Types.Resolution)
+dResolution = Lens.field @"resolution"
+{-# DEPRECATED dResolution "Use generic-lens or generic-optics with 'resolution' instead." #-}
 
--- | The device's heap size, expressed in bytes.
---
--- /Note:/ Consider using 'heapSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dHeapSize :: Lens.Lens' Device (Lude.Maybe Lude.Integer)
-dHeapSize = Lens.lens (heapSize :: Device -> Lude.Maybe Lude.Integer) (\s a -> s {heapSize = a} :: Device)
-{-# DEPRECATED dHeapSize "Use generic-lens or generic-optics with 'heapSize' instead." #-}
-
--- | The name of the fleet to which this device belongs.
---
--- /Note:/ Consider using 'fleetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dFleetName :: Lens.Lens' Device (Lude.Maybe Lude.Text)
-dFleetName = Lens.lens (fleetName :: Device -> Lude.Maybe Lude.Text) (\s a -> s {fleetName = a} :: Device)
-{-# DEPRECATED dFleetName "Use generic-lens or generic-optics with 'fleetName' instead." #-}
-
-instance Lude.FromJSON Device where
+instance Core.FromJSON Device where
   parseJSON =
-    Lude.withObject
-      "Device"
-      ( \x ->
-          Device'
-            Lude.<$> (x Lude..:? "carrier")
-            Lude.<*> (x Lude..:? "image")
-            Lude.<*> (x Lude..:? "manufacturer")
-            Lude.<*> (x Lude..:? "platform")
-            Lude.<*> (x Lude..:? "modelId")
-            Lude.<*> (x Lude..:? "remoteAccessEnabled")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "formFactor")
-            Lude.<*> (x Lude..:? "fleetType")
-            Lude.<*> (x Lude..:? "resolution")
-            Lude.<*> (x Lude..:? "availability")
-            Lude.<*> (x Lude..:? "memory")
-            Lude.<*> (x Lude..:? "radio")
-            Lude.<*> (x Lude..:? "os")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "model")
-            Lude.<*> (x Lude..:? "instances" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "remoteDebugEnabled")
-            Lude.<*> (x Lude..:? "cpu")
-            Lude.<*> (x Lude..:? "heapSize")
-            Lude.<*> (x Lude..:? "fleetName")
-      )
+    Core.withObject "Device" Core.$
+      \x ->
+        Device'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "availability")
+          Core.<*> (x Core..:? "carrier")
+          Core.<*> (x Core..:? "cpu")
+          Core.<*> (x Core..:? "fleetName")
+          Core.<*> (x Core..:? "fleetType")
+          Core.<*> (x Core..:? "formFactor")
+          Core.<*> (x Core..:? "heapSize")
+          Core.<*> (x Core..:? "image")
+          Core.<*> (x Core..:? "instances")
+          Core.<*> (x Core..:? "manufacturer")
+          Core.<*> (x Core..:? "memory")
+          Core.<*> (x Core..:? "model")
+          Core.<*> (x Core..:? "modelId")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "os")
+          Core.<*> (x Core..:? "platform")
+          Core.<*> (x Core..:? "radio")
+          Core.<*> (x Core..:? "remoteAccessEnabled")
+          Core.<*> (x Core..:? "remoteDebugEnabled")
+          Core.<*> (x Core..:? "resolution")

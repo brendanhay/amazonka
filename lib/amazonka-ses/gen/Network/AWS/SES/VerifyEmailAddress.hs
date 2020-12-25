@@ -29,63 +29,64 @@ module Network.AWS.SES.VerifyEmailAddress
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkVerifyEmailAddress' smart constructor.
 newtype VerifyEmailAddress = VerifyEmailAddress'
   { -- | The email address to be verified.
-    emailAddress :: Lude.Text
+    emailAddress :: Types.Address
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VerifyEmailAddress' with the minimum fields required to make a request.
---
--- * 'emailAddress' - The email address to be verified.
+-- | Creates a 'VerifyEmailAddress' value with any optional fields omitted.
 mkVerifyEmailAddress ::
   -- | 'emailAddress'
-  Lude.Text ->
+  Types.Address ->
   VerifyEmailAddress
-mkVerifyEmailAddress pEmailAddress_ =
-  VerifyEmailAddress' {emailAddress = pEmailAddress_}
+mkVerifyEmailAddress emailAddress =
+  VerifyEmailAddress' {emailAddress}
 
 -- | The email address to be verified.
 --
 -- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-veaEmailAddress :: Lens.Lens' VerifyEmailAddress Lude.Text
-veaEmailAddress = Lens.lens (emailAddress :: VerifyEmailAddress -> Lude.Text) (\s a -> s {emailAddress = a} :: VerifyEmailAddress)
+veaEmailAddress :: Lens.Lens' VerifyEmailAddress Types.Address
+veaEmailAddress = Lens.field @"emailAddress"
 {-# DEPRECATED veaEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
 
-instance Lude.AWSRequest VerifyEmailAddress where
+instance Core.AWSRequest VerifyEmailAddress where
   type Rs VerifyEmailAddress = VerifyEmailAddressResponse
-  request = Req.postQuery sesService
-  response = Res.receiveNull VerifyEmailAddressResponse'
-
-instance Lude.ToHeaders VerifyEmailAddress where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath VerifyEmailAddress where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery VerifyEmailAddress where
-  toQuery VerifyEmailAddress' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("VerifyEmailAddress" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "EmailAddress" Lude.=: emailAddress
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "VerifyEmailAddress")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "EmailAddress" emailAddress)
+            )
+      }
+  response = Response.receiveNull VerifyEmailAddressResponse'
 
 -- | /See:/ 'mkVerifyEmailAddressResponse' smart constructor.
 data VerifyEmailAddressResponse = VerifyEmailAddressResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VerifyEmailAddressResponse' with the minimum fields required to make a request.
+-- | Creates a 'VerifyEmailAddressResponse' value with any optional fields omitted.
 mkVerifyEmailAddressResponse ::
   VerifyEmailAddressResponse
 mkVerifyEmailAddressResponse = VerifyEmailAddressResponse'

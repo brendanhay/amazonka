@@ -13,62 +13,64 @@
 module Network.AWS.S3.Types.Permission
   ( Permission
       ( Permission',
-        PFullControl,
-        PWrite,
-        PWriteAcp,
-        PRead,
-        PReadAcp
+        PermissionFullControl,
+        PermissionWrite,
+        PermissionWriteAcp,
+        PermissionRead,
+        PermissionReadAcp,
+        fromPermission
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype Permission = Permission' Lude.Text
+newtype Permission = Permission' {fromPermission :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PFullControl :: Permission
-pattern PFullControl = Permission' "FULL_CONTROL"
+pattern PermissionFullControl :: Permission
+pattern PermissionFullControl = Permission' "FULL_CONTROL"
 
-pattern PWrite :: Permission
-pattern PWrite = Permission' "WRITE"
+pattern PermissionWrite :: Permission
+pattern PermissionWrite = Permission' "WRITE"
 
-pattern PWriteAcp :: Permission
-pattern PWriteAcp = Permission' "WRITE_ACP"
+pattern PermissionWriteAcp :: Permission
+pattern PermissionWriteAcp = Permission' "WRITE_ACP"
 
-pattern PRead :: Permission
-pattern PRead = Permission' "READ"
+pattern PermissionRead :: Permission
+pattern PermissionRead = Permission' "READ"
 
-pattern PReadAcp :: Permission
-pattern PReadAcp = Permission' "READ_ACP"
+pattern PermissionReadAcp :: Permission
+pattern PermissionReadAcp = Permission' "READ_ACP"
 
 {-# COMPLETE
-  PFullControl,
-  PWrite,
-  PWriteAcp,
-  PRead,
-  PReadAcp,
+  PermissionFullControl,
+  PermissionWrite,
+  PermissionWriteAcp,
+  PermissionRead,
+  PermissionReadAcp,
   Permission'
   #-}

@@ -1,6 +1,3 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE RankNTypes #-}
-
 -- |
 -- Module      : Network.AWS.Pager
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -18,7 +15,7 @@ where
 
 import Control.Applicative
 import Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as Map
+import qualified Data.HashMap.Strict as HashMap
 import Data.Maybe (fromMaybe, isJust)
 import Data.Text (Text)
 import Network.AWS.Data.Text (ToText (..))

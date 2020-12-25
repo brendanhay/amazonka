@@ -17,107 +17,104 @@ module Network.AWS.AlexaBusiness.Types.PSTNDialIn
     mkPSTNDialIn,
 
     -- * Lenses
+    pstndiCountryCode,
+    pstndiPhoneNumber,
     pstndiOneClickIdDelay,
     pstndiOneClickPinDelay,
-    pstndiPhoneNumber,
-    pstndiCountryCode,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.CountryCode as Types
+import qualified Network.AWS.AlexaBusiness.Types.OneClickIdDelay as Types
+import qualified Network.AWS.AlexaBusiness.Types.OneClickPinDelay as Types
+import qualified Network.AWS.AlexaBusiness.Types.OutboundPhoneNumber as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The information for public switched telephone network (PSTN) conferencing.
 --
 -- /See:/ 'mkPSTNDialIn' smart constructor.
 data PSTNDialIn = PSTNDialIn'
-  { -- | The delay duration before Alexa enters the conference ID with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.
-    oneClickIdDelay :: Lude.Text,
-    -- | The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.
-    oneClickPinDelay :: Lude.Text,
+  { -- | The zip code.
+    countryCode :: Types.CountryCode,
     -- | The phone number to call to join the conference.
-    phoneNumber :: Lude.Text,
-    -- | The zip code.
-    countryCode :: Lude.Text
+    phoneNumber :: Types.OutboundPhoneNumber,
+    -- | The delay duration before Alexa enters the conference ID with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.
+    oneClickIdDelay :: Types.OneClickIdDelay,
+    -- | The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.
+    oneClickPinDelay :: Types.OneClickPinDelay
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PSTNDialIn' with the minimum fields required to make a request.
---
--- * 'oneClickIdDelay' - The delay duration before Alexa enters the conference ID with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.
--- * 'oneClickPinDelay' - The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.
--- * 'phoneNumber' - The phone number to call to join the conference.
--- * 'countryCode' - The zip code.
+-- | Creates a 'PSTNDialIn' value with any optional fields omitted.
 mkPSTNDialIn ::
-  -- | 'oneClickIdDelay'
-  Lude.Text ->
-  -- | 'oneClickPinDelay'
-  Lude.Text ->
-  -- | 'phoneNumber'
-  Lude.Text ->
   -- | 'countryCode'
-  Lude.Text ->
+  Types.CountryCode ->
+  -- | 'phoneNumber'
+  Types.OutboundPhoneNumber ->
+  -- | 'oneClickIdDelay'
+  Types.OneClickIdDelay ->
+  -- | 'oneClickPinDelay'
+  Types.OneClickPinDelay ->
   PSTNDialIn
 mkPSTNDialIn
-  pOneClickIdDelay_
-  pOneClickPinDelay_
-  pPhoneNumber_
-  pCountryCode_ =
+  countryCode
+  phoneNumber
+  oneClickIdDelay
+  oneClickPinDelay =
     PSTNDialIn'
-      { oneClickIdDelay = pOneClickIdDelay_,
-        oneClickPinDelay = pOneClickPinDelay_,
-        phoneNumber = pPhoneNumber_,
-        countryCode = pCountryCode_
+      { countryCode,
+        phoneNumber,
+        oneClickIdDelay,
+        oneClickPinDelay
       }
+
+-- | The zip code.
+--
+-- /Note:/ Consider using 'countryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pstndiCountryCode :: Lens.Lens' PSTNDialIn Types.CountryCode
+pstndiCountryCode = Lens.field @"countryCode"
+{-# DEPRECATED pstndiCountryCode "Use generic-lens or generic-optics with 'countryCode' instead." #-}
+
+-- | The phone number to call to join the conference.
+--
+-- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pstndiPhoneNumber :: Lens.Lens' PSTNDialIn Types.OutboundPhoneNumber
+pstndiPhoneNumber = Lens.field @"phoneNumber"
+{-# DEPRECATED pstndiPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
 -- | The delay duration before Alexa enters the conference ID with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.
 --
 -- /Note:/ Consider using 'oneClickIdDelay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pstndiOneClickIdDelay :: Lens.Lens' PSTNDialIn Lude.Text
-pstndiOneClickIdDelay = Lens.lens (oneClickIdDelay :: PSTNDialIn -> Lude.Text) (\s a -> s {oneClickIdDelay = a} :: PSTNDialIn)
+pstndiOneClickIdDelay :: Lens.Lens' PSTNDialIn Types.OneClickIdDelay
+pstndiOneClickIdDelay = Lens.field @"oneClickIdDelay"
 {-# DEPRECATED pstndiOneClickIdDelay "Use generic-lens or generic-optics with 'oneClickIdDelay' instead." #-}
 
 -- | The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.
 --
 -- /Note:/ Consider using 'oneClickPinDelay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pstndiOneClickPinDelay :: Lens.Lens' PSTNDialIn Lude.Text
-pstndiOneClickPinDelay = Lens.lens (oneClickPinDelay :: PSTNDialIn -> Lude.Text) (\s a -> s {oneClickPinDelay = a} :: PSTNDialIn)
+pstndiOneClickPinDelay :: Lens.Lens' PSTNDialIn Types.OneClickPinDelay
+pstndiOneClickPinDelay = Lens.field @"oneClickPinDelay"
 {-# DEPRECATED pstndiOneClickPinDelay "Use generic-lens or generic-optics with 'oneClickPinDelay' instead." #-}
 
--- | The phone number to call to join the conference.
---
--- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pstndiPhoneNumber :: Lens.Lens' PSTNDialIn Lude.Text
-pstndiPhoneNumber = Lens.lens (phoneNumber :: PSTNDialIn -> Lude.Text) (\s a -> s {phoneNumber = a} :: PSTNDialIn)
-{-# DEPRECATED pstndiPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
-
--- | The zip code.
---
--- /Note:/ Consider using 'countryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pstndiCountryCode :: Lens.Lens' PSTNDialIn Lude.Text
-pstndiCountryCode = Lens.lens (countryCode :: PSTNDialIn -> Lude.Text) (\s a -> s {countryCode = a} :: PSTNDialIn)
-{-# DEPRECATED pstndiCountryCode "Use generic-lens or generic-optics with 'countryCode' instead." #-}
-
-instance Lude.FromJSON PSTNDialIn where
-  parseJSON =
-    Lude.withObject
-      "PSTNDialIn"
-      ( \x ->
-          PSTNDialIn'
-            Lude.<$> (x Lude..: "OneClickIdDelay")
-            Lude.<*> (x Lude..: "OneClickPinDelay")
-            Lude.<*> (x Lude..: "PhoneNumber")
-            Lude.<*> (x Lude..: "CountryCode")
-      )
-
-instance Lude.ToJSON PSTNDialIn where
-  toJSON PSTNDialIn' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("OneClickIdDelay" Lude..= oneClickIdDelay),
-            Lude.Just ("OneClickPinDelay" Lude..= oneClickPinDelay),
-            Lude.Just ("PhoneNumber" Lude..= phoneNumber),
-            Lude.Just ("CountryCode" Lude..= countryCode)
+instance Core.FromJSON PSTNDialIn where
+  toJSON PSTNDialIn {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CountryCode" Core..= countryCode),
+            Core.Just ("PhoneNumber" Core..= phoneNumber),
+            Core.Just ("OneClickIdDelay" Core..= oneClickIdDelay),
+            Core.Just ("OneClickPinDelay" Core..= oneClickPinDelay)
           ]
       )
+
+instance Core.FromJSON PSTNDialIn where
+  parseJSON =
+    Core.withObject "PSTNDialIn" Core.$
+      \x ->
+        PSTNDialIn'
+          Core.<$> (x Core..: "CountryCode")
+          Core.<*> (x Core..: "PhoneNumber")
+          Core.<*> (x Core..: "OneClickIdDelay")
+          Core.<*> (x Core..: "OneClickPinDelay")

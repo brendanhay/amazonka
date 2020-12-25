@@ -15,7 +15,7 @@ module Network.AWS.IoT.Waiters
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter

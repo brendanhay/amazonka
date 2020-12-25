@@ -22,33 +22,31 @@ module Network.AWS.EC2.Types.FpgaDeviceMemoryInfo
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the memory for the FPGA accelerator for the instance type.
 --
 -- /See:/ 'mkFpgaDeviceMemoryInfo' smart constructor.
 newtype FpgaDeviceMemoryInfo = FpgaDeviceMemoryInfo'
   { -- | The size of the memory available to the FPGA accelerator, in MiB.
-    sizeInMiB :: Lude.Maybe Lude.Int
+    sizeInMiB :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FpgaDeviceMemoryInfo' with the minimum fields required to make a request.
---
--- * 'sizeInMiB' - The size of the memory available to the FPGA accelerator, in MiB.
+-- | Creates a 'FpgaDeviceMemoryInfo' value with any optional fields omitted.
 mkFpgaDeviceMemoryInfo ::
   FpgaDeviceMemoryInfo
 mkFpgaDeviceMemoryInfo =
-  FpgaDeviceMemoryInfo' {sizeInMiB = Lude.Nothing}
+  FpgaDeviceMemoryInfo' {sizeInMiB = Core.Nothing}
 
 -- | The size of the memory available to the FPGA accelerator, in MiB.
 --
 -- /Note:/ Consider using 'sizeInMiB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdmiSizeInMiB :: Lens.Lens' FpgaDeviceMemoryInfo (Lude.Maybe Lude.Int)
-fdmiSizeInMiB = Lens.lens (sizeInMiB :: FpgaDeviceMemoryInfo -> Lude.Maybe Lude.Int) (\s a -> s {sizeInMiB = a} :: FpgaDeviceMemoryInfo)
+fdmiSizeInMiB :: Lens.Lens' FpgaDeviceMemoryInfo (Core.Maybe Core.Int)
+fdmiSizeInMiB = Lens.field @"sizeInMiB"
 {-# DEPRECATED fdmiSizeInMiB "Use generic-lens or generic-optics with 'sizeInMiB' instead." #-}
 
-instance Lude.FromXML FpgaDeviceMemoryInfo where
+instance Core.FromXML FpgaDeviceMemoryInfo where
   parseXML x =
-    FpgaDeviceMemoryInfo' Lude.<$> (x Lude..@? "sizeInMiB")
+    FpgaDeviceMemoryInfo' Core.<$> (x Core..@? "sizeInMiB")

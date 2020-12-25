@@ -17,123 +17,118 @@ module Network.AWS.ElasticSearch.Types.SAMLOptionsInput
     mkSAMLOptionsInput,
 
     -- * Lenses
-    samloiMasterUserName,
     samloiEnabled,
     samloiIdp,
-    samloiRolesKey,
     samloiMasterBackendRole,
+    samloiMasterUserName,
+    samloiRolesKey,
     samloiSessionTimeoutMinutes,
     samloiSubjectKey,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.SAMLIdp
+import qualified Network.AWS.ElasticSearch.Types.BackendRole as Types
+import qualified Network.AWS.ElasticSearch.Types.SAMLIdp as Types
+import qualified Network.AWS.ElasticSearch.Types.String as Types
+import qualified Network.AWS.ElasticSearch.Types.Username as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the SAML application configuration for the domain.
 --
 -- /See:/ 'mkSAMLOptionsInput' smart constructor.
 data SAMLOptionsInput = SAMLOptionsInput'
-  { -- | The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.
-    masterUserName :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | True if SAML is enabled.
-    enabled :: Lude.Maybe Lude.Bool,
+  { -- | True if SAML is enabled.
+    enabled :: Core.Maybe Core.Bool,
     -- | Specifies the SAML Identity Provider's information.
-    idp :: Lude.Maybe SAMLIdp,
-    -- | The key to use for matching the SAML Roles attribute.
-    rolesKey :: Lude.Maybe Lude.Text,
+    idp :: Core.Maybe Types.SAMLIdp,
     -- | The backend role to which the SAML master user is mapped to.
-    masterBackendRole :: Lude.Maybe Lude.Text,
+    masterBackendRole :: Core.Maybe Types.BackendRole,
+    -- | The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.
+    masterUserName :: Core.Maybe Types.Username,
+    -- | The key to use for matching the SAML Roles attribute.
+    rolesKey :: Core.Maybe Types.String,
     -- | The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
-    sessionTimeoutMinutes :: Lude.Maybe Lude.Int,
+    sessionTimeoutMinutes :: Core.Maybe Core.Int,
     -- | The key to use for matching the SAML Subject attribute.
-    subjectKey :: Lude.Maybe Lude.Text
+    subjectKey :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SAMLOptionsInput' with the minimum fields required to make a request.
---
--- * 'masterUserName' - The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.
--- * 'enabled' - True if SAML is enabled.
--- * 'idp' - Specifies the SAML Identity Provider's information.
--- * 'rolesKey' - The key to use for matching the SAML Roles attribute.
--- * 'masterBackendRole' - The backend role to which the SAML master user is mapped to.
--- * 'sessionTimeoutMinutes' - The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
--- * 'subjectKey' - The key to use for matching the SAML Subject attribute.
+-- | Creates a 'SAMLOptionsInput' value with any optional fields omitted.
 mkSAMLOptionsInput ::
   SAMLOptionsInput
 mkSAMLOptionsInput =
   SAMLOptionsInput'
-    { masterUserName = Lude.Nothing,
-      enabled = Lude.Nothing,
-      idp = Lude.Nothing,
-      rolesKey = Lude.Nothing,
-      masterBackendRole = Lude.Nothing,
-      sessionTimeoutMinutes = Lude.Nothing,
-      subjectKey = Lude.Nothing
+    { enabled = Core.Nothing,
+      idp = Core.Nothing,
+      masterBackendRole = Core.Nothing,
+      masterUserName = Core.Nothing,
+      rolesKey = Core.Nothing,
+      sessionTimeoutMinutes = Core.Nothing,
+      subjectKey = Core.Nothing
     }
-
--- | The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.
---
--- /Note:/ Consider using 'masterUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samloiMasterUserName :: Lens.Lens' SAMLOptionsInput (Lude.Maybe (Lude.Sensitive Lude.Text))
-samloiMasterUserName = Lens.lens (masterUserName :: SAMLOptionsInput -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {masterUserName = a} :: SAMLOptionsInput)
-{-# DEPRECATED samloiMasterUserName "Use generic-lens or generic-optics with 'masterUserName' instead." #-}
 
 -- | True if SAML is enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samloiEnabled :: Lens.Lens' SAMLOptionsInput (Lude.Maybe Lude.Bool)
-samloiEnabled = Lens.lens (enabled :: SAMLOptionsInput -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: SAMLOptionsInput)
+samloiEnabled :: Lens.Lens' SAMLOptionsInput (Core.Maybe Core.Bool)
+samloiEnabled = Lens.field @"enabled"
 {-# DEPRECATED samloiEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | Specifies the SAML Identity Provider's information.
 --
 -- /Note:/ Consider using 'idp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samloiIdp :: Lens.Lens' SAMLOptionsInput (Lude.Maybe SAMLIdp)
-samloiIdp = Lens.lens (idp :: SAMLOptionsInput -> Lude.Maybe SAMLIdp) (\s a -> s {idp = a} :: SAMLOptionsInput)
+samloiIdp :: Lens.Lens' SAMLOptionsInput (Core.Maybe Types.SAMLIdp)
+samloiIdp = Lens.field @"idp"
 {-# DEPRECATED samloiIdp "Use generic-lens or generic-optics with 'idp' instead." #-}
-
--- | The key to use for matching the SAML Roles attribute.
---
--- /Note:/ Consider using 'rolesKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samloiRolesKey :: Lens.Lens' SAMLOptionsInput (Lude.Maybe Lude.Text)
-samloiRolesKey = Lens.lens (rolesKey :: SAMLOptionsInput -> Lude.Maybe Lude.Text) (\s a -> s {rolesKey = a} :: SAMLOptionsInput)
-{-# DEPRECATED samloiRolesKey "Use generic-lens or generic-optics with 'rolesKey' instead." #-}
 
 -- | The backend role to which the SAML master user is mapped to.
 --
 -- /Note:/ Consider using 'masterBackendRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samloiMasterBackendRole :: Lens.Lens' SAMLOptionsInput (Lude.Maybe Lude.Text)
-samloiMasterBackendRole = Lens.lens (masterBackendRole :: SAMLOptionsInput -> Lude.Maybe Lude.Text) (\s a -> s {masterBackendRole = a} :: SAMLOptionsInput)
+samloiMasterBackendRole :: Lens.Lens' SAMLOptionsInput (Core.Maybe Types.BackendRole)
+samloiMasterBackendRole = Lens.field @"masterBackendRole"
 {-# DEPRECATED samloiMasterBackendRole "Use generic-lens or generic-optics with 'masterBackendRole' instead." #-}
+
+-- | The SAML master username, which is stored in the Amazon Elasticsearch Service domain's internal database.
+--
+-- /Note:/ Consider using 'masterUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samloiMasterUserName :: Lens.Lens' SAMLOptionsInput (Core.Maybe Types.Username)
+samloiMasterUserName = Lens.field @"masterUserName"
+{-# DEPRECATED samloiMasterUserName "Use generic-lens or generic-optics with 'masterUserName' instead." #-}
+
+-- | The key to use for matching the SAML Roles attribute.
+--
+-- /Note:/ Consider using 'rolesKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+samloiRolesKey :: Lens.Lens' SAMLOptionsInput (Core.Maybe Types.String)
+samloiRolesKey = Lens.field @"rolesKey"
+{-# DEPRECATED samloiRolesKey "Use generic-lens or generic-optics with 'rolesKey' instead." #-}
 
 -- | The duration, in minutes, after which a user session becomes inactive. Acceptable values are between 1 and 1440, and the default value is 60.
 --
 -- /Note:/ Consider using 'sessionTimeoutMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samloiSessionTimeoutMinutes :: Lens.Lens' SAMLOptionsInput (Lude.Maybe Lude.Int)
-samloiSessionTimeoutMinutes = Lens.lens (sessionTimeoutMinutes :: SAMLOptionsInput -> Lude.Maybe Lude.Int) (\s a -> s {sessionTimeoutMinutes = a} :: SAMLOptionsInput)
+samloiSessionTimeoutMinutes :: Lens.Lens' SAMLOptionsInput (Core.Maybe Core.Int)
+samloiSessionTimeoutMinutes = Lens.field @"sessionTimeoutMinutes"
 {-# DEPRECATED samloiSessionTimeoutMinutes "Use generic-lens or generic-optics with 'sessionTimeoutMinutes' instead." #-}
 
 -- | The key to use for matching the SAML Subject attribute.
 --
 -- /Note:/ Consider using 'subjectKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samloiSubjectKey :: Lens.Lens' SAMLOptionsInput (Lude.Maybe Lude.Text)
-samloiSubjectKey = Lens.lens (subjectKey :: SAMLOptionsInput -> Lude.Maybe Lude.Text) (\s a -> s {subjectKey = a} :: SAMLOptionsInput)
+samloiSubjectKey :: Lens.Lens' SAMLOptionsInput (Core.Maybe Types.String)
+samloiSubjectKey = Lens.field @"subjectKey"
 {-# DEPRECATED samloiSubjectKey "Use generic-lens or generic-optics with 'subjectKey' instead." #-}
 
-instance Lude.ToJSON SAMLOptionsInput where
-  toJSON SAMLOptionsInput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MasterUserName" Lude..=) Lude.<$> masterUserName,
-            ("Enabled" Lude..=) Lude.<$> enabled,
-            ("Idp" Lude..=) Lude.<$> idp,
-            ("RolesKey" Lude..=) Lude.<$> rolesKey,
-            ("MasterBackendRole" Lude..=) Lude.<$> masterBackendRole,
-            ("SessionTimeoutMinutes" Lude..=) Lude.<$> sessionTimeoutMinutes,
-            ("SubjectKey" Lude..=) Lude.<$> subjectKey
+instance Core.FromJSON SAMLOptionsInput where
+  toJSON SAMLOptionsInput {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Enabled" Core..=) Core.<$> enabled,
+            ("Idp" Core..=) Core.<$> idp,
+            ("MasterBackendRole" Core..=) Core.<$> masterBackendRole,
+            ("MasterUserName" Core..=) Core.<$> masterUserName,
+            ("RolesKey" Core..=) Core.<$> rolesKey,
+            ("SessionTimeoutMinutes" Core..=) Core.<$> sessionTimeoutMinutes,
+            ("SubjectKey" Core..=) Core.<$> subjectKey
           ]
       )

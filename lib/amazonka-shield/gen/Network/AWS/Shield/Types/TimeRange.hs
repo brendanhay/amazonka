@@ -23,60 +23,55 @@ module Network.AWS.Shield.Types.TimeRange
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The time range.
 --
 -- /See:/ 'mkTimeRange' smart constructor.
 data TimeRange = TimeRange'
   { -- | The start time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
-    fromInclusive :: Lude.Maybe Lude.Timestamp,
+    fromInclusive :: Core.Maybe Core.NominalDiffTime,
     -- | The end time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
-    toExclusive :: Lude.Maybe Lude.Timestamp
+    toExclusive :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TimeRange' with the minimum fields required to make a request.
---
--- * 'fromInclusive' - The start time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
--- * 'toExclusive' - The end time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
+-- | Creates a 'TimeRange' value with any optional fields omitted.
 mkTimeRange ::
   TimeRange
 mkTimeRange =
   TimeRange'
-    { fromInclusive = Lude.Nothing,
-      toExclusive = Lude.Nothing
+    { fromInclusive = Core.Nothing,
+      toExclusive = Core.Nothing
     }
 
 -- | The start time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
 --
 -- /Note:/ Consider using 'fromInclusive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trFromInclusive :: Lens.Lens' TimeRange (Lude.Maybe Lude.Timestamp)
-trFromInclusive = Lens.lens (fromInclusive :: TimeRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {fromInclusive = a} :: TimeRange)
+trFromInclusive :: Lens.Lens' TimeRange (Core.Maybe Core.NominalDiffTime)
+trFromInclusive = Lens.field @"fromInclusive"
 {-# DEPRECATED trFromInclusive "Use generic-lens or generic-optics with 'fromInclusive' instead." #-}
 
 -- | The end time, in Unix time in seconds. For more information see <http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types timestamp> .
 --
 -- /Note:/ Consider using 'toExclusive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trToExclusive :: Lens.Lens' TimeRange (Lude.Maybe Lude.Timestamp)
-trToExclusive = Lens.lens (toExclusive :: TimeRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {toExclusive = a} :: TimeRange)
+trToExclusive :: Lens.Lens' TimeRange (Core.Maybe Core.NominalDiffTime)
+trToExclusive = Lens.field @"toExclusive"
 {-# DEPRECATED trToExclusive "Use generic-lens or generic-optics with 'toExclusive' instead." #-}
 
-instance Lude.FromJSON TimeRange where
-  parseJSON =
-    Lude.withObject
-      "TimeRange"
-      ( \x ->
-          TimeRange'
-            Lude.<$> (x Lude..:? "FromInclusive") Lude.<*> (x Lude..:? "ToExclusive")
-      )
-
-instance Lude.ToJSON TimeRange where
-  toJSON TimeRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("FromInclusive" Lude..=) Lude.<$> fromInclusive,
-            ("ToExclusive" Lude..=) Lude.<$> toExclusive
+instance Core.FromJSON TimeRange where
+  toJSON TimeRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("FromInclusive" Core..=) Core.<$> fromInclusive,
+            ("ToExclusive" Core..=) Core.<$> toExclusive
           ]
       )
+
+instance Core.FromJSON TimeRange where
+  parseJSON =
+    Core.withObject "TimeRange" Core.$
+      \x ->
+        TimeRange'
+          Core.<$> (x Core..:? "FromInclusive") Core.<*> (x Core..:? "ToExclusive")

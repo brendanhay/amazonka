@@ -17,51 +17,48 @@ module Network.AWS.S3.Types.Delete
     mkDelete,
 
     -- * Lenses
-    dQuiet,
     dObjects,
+    dQuiet,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.ObjectIdentifier
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.ObjectIdentifier as Types
 
 -- | Container for the objects to delete.
 --
 -- /See:/ 'mkDelete' smart constructor.
 data Delete = Delete'
-  { -- | Element to enable quiet mode for the request. When you add this element, you must set its value to true.
-    quiet :: Lude.Maybe Lude.Bool,
-    -- | The objects to delete.
-    objects :: [ObjectIdentifier]
+  { -- | The objects to delete.
+    objects :: [Types.ObjectIdentifier],
+    -- | Element to enable quiet mode for the request. When you add this element, you must set its value to true.
+    quiet :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Delete' with the minimum fields required to make a request.
---
--- * 'quiet' - Element to enable quiet mode for the request. When you add this element, you must set its value to true.
--- * 'objects' - The objects to delete.
+-- | Creates a 'Delete' value with any optional fields omitted.
 mkDelete ::
   Delete
-mkDelete = Delete' {quiet = Lude.Nothing, objects = Lude.mempty}
-
--- | Element to enable quiet mode for the request. When you add this element, you must set its value to true.
---
--- /Note:/ Consider using 'quiet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dQuiet :: Lens.Lens' Delete (Lude.Maybe Lude.Bool)
-dQuiet = Lens.lens (quiet :: Delete -> Lude.Maybe Lude.Bool) (\s a -> s {quiet = a} :: Delete)
-{-# DEPRECATED dQuiet "Use generic-lens or generic-optics with 'quiet' instead." #-}
+mkDelete = Delete' {objects = Core.mempty, quiet = Core.Nothing}
 
 -- | The objects to delete.
 --
 -- /Note:/ Consider using 'objects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dObjects :: Lens.Lens' Delete [ObjectIdentifier]
-dObjects = Lens.lens (objects :: Delete -> [ObjectIdentifier]) (\s a -> s {objects = a} :: Delete)
+dObjects :: Lens.Lens' Delete [Types.ObjectIdentifier]
+dObjects = Lens.field @"objects"
 {-# DEPRECATED dObjects "Use generic-lens or generic-optics with 'objects' instead." #-}
 
-instance Lude.ToXML Delete where
-  toXML Delete' {..} =
-    Lude.mconcat
-      ["Quiet" Lude.@= quiet, Lude.toXMLList "Object" objects]
+-- | Element to enable quiet mode for the request. When you add this element, you must set its value to true.
+--
+-- /Note:/ Consider using 'quiet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dQuiet :: Lens.Lens' Delete (Core.Maybe Core.Bool)
+dQuiet = Lens.field @"quiet"
+{-# DEPRECATED dQuiet "Use generic-lens or generic-optics with 'quiet' instead." #-}
+
+instance Core.ToXML Delete where
+  toXML Delete {..} =
+    Core.toXMLList "Object" objects
+      Core.<> Core.toXMLNode "Quiet" Core.<$> quiet

@@ -22,29 +22,31 @@ module Network.AWS.RDS.ModifyDBSnapshot
     mkModifyDBSnapshot,
 
     -- ** Request lenses
-    mdsEngineVersion,
-    mdsDBSnapshotIdentifier,
-    mdsOptionGroupName,
+    mdbsDBSnapshotIdentifier,
+    mdbsEngineVersion,
+    mdbsOptionGroupName,
 
     -- * Destructuring the response
     ModifyDBSnapshotResponse (..),
     mkModifyDBSnapshotResponse,
 
     -- ** Response lenses
-    mdsrsDBSnapshot,
-    mdsrsResponseStatus,
+    mdbsrrsDBSnapshot,
+    mdbsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyDBSnapshot' smart constructor.
 data ModifyDBSnapshot = ModifyDBSnapshot'
-  { -- | The engine version to upgrade the DB snapshot to.
+  { -- | The identifier of the DB snapshot to modify.
+    dBSnapshotIdentifier :: Types.String,
+    -- | The engine version to upgrade the DB snapshot to.
     --
     -- The following are the database engines and engine versions that are available when you upgrade a DB snapshot.
     -- __MySQL__
@@ -65,54 +67,33 @@ data ModifyDBSnapshot = ModifyDBSnapshot'
     --
     -- __PostgreSQL__
     -- For the list of engine versions that are available for upgrading a DB snapshot, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS> .
-    engineVersion :: Lude.Maybe Lude.Text,
-    -- | The identifier of the DB snapshot to modify.
-    dbSnapshotIdentifier :: Lude.Text,
+    engineVersion :: Core.Maybe Types.String,
     -- | The option group to identify with the upgraded DB snapshot.
     --
     -- You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option Group Considerations> in the /Amazon RDS User Guide./
-    optionGroupName :: Lude.Maybe Lude.Text
+    optionGroupName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyDBSnapshot' with the minimum fields required to make a request.
---
--- * 'engineVersion' - The engine version to upgrade the DB snapshot to.
---
--- The following are the database engines and engine versions that are available when you upgrade a DB snapshot.
--- __MySQL__
---
---     * @5.5.46@ (supported for 5.1 DB snapshots)
---
---
--- __Oracle__
---
---     * @12.1.0.2.v8@ (supported for 12.1.0.1 DB snapshots)
---
---
---     * @11.2.0.4.v12@ (supported for 11.2.0.2 DB snapshots)
---
---
---     * @11.2.0.4.v11@ (supported for 11.2.0.3 DB snapshots)
---
---
--- __PostgreSQL__
--- For the list of engine versions that are available for upgrading a DB snapshot, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS> .
--- * 'dbSnapshotIdentifier' - The identifier of the DB snapshot to modify.
--- * 'optionGroupName' - The option group to identify with the upgraded DB snapshot.
---
--- You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option Group Considerations> in the /Amazon RDS User Guide./
+-- | Creates a 'ModifyDBSnapshot' value with any optional fields omitted.
 mkModifyDBSnapshot ::
-  -- | 'dbSnapshotIdentifier'
-  Lude.Text ->
+  -- | 'dBSnapshotIdentifier'
+  Types.String ->
   ModifyDBSnapshot
-mkModifyDBSnapshot pDBSnapshotIdentifier_ =
+mkModifyDBSnapshot dBSnapshotIdentifier =
   ModifyDBSnapshot'
-    { engineVersion = Lude.Nothing,
-      dbSnapshotIdentifier = pDBSnapshotIdentifier_,
-      optionGroupName = Lude.Nothing
+    { dBSnapshotIdentifier,
+      engineVersion = Core.Nothing,
+      optionGroupName = Core.Nothing
     }
+
+-- | The identifier of the DB snapshot to modify.
+--
+-- /Note:/ Consider using 'dBSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdbsDBSnapshotIdentifier :: Lens.Lens' ModifyDBSnapshot Types.String
+mdbsDBSnapshotIdentifier = Lens.field @"dBSnapshotIdentifier"
+{-# DEPRECATED mdbsDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dBSnapshotIdentifier' instead." #-}
 
 -- | The engine version to upgrade the DB snapshot to.
 --
@@ -137,86 +118,79 @@ mkModifyDBSnapshot pDBSnapshotIdentifier_ =
 -- For the list of engine versions that are available for upgrading a DB snapshot, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html#USER_UpgradeDBInstance.PostgreSQL.MajorVersion Upgrading the PostgreSQL DB Engine for Amazon RDS> .
 --
 -- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdsEngineVersion :: Lens.Lens' ModifyDBSnapshot (Lude.Maybe Lude.Text)
-mdsEngineVersion = Lens.lens (engineVersion :: ModifyDBSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: ModifyDBSnapshot)
-{-# DEPRECATED mdsEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
-
--- | The identifier of the DB snapshot to modify.
---
--- /Note:/ Consider using 'dbSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdsDBSnapshotIdentifier :: Lens.Lens' ModifyDBSnapshot Lude.Text
-mdsDBSnapshotIdentifier = Lens.lens (dbSnapshotIdentifier :: ModifyDBSnapshot -> Lude.Text) (\s a -> s {dbSnapshotIdentifier = a} :: ModifyDBSnapshot)
-{-# DEPRECATED mdsDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dbSnapshotIdentifier' instead." #-}
+mdbsEngineVersion :: Lens.Lens' ModifyDBSnapshot (Core.Maybe Types.String)
+mdbsEngineVersion = Lens.field @"engineVersion"
+{-# DEPRECATED mdbsEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
 
 -- | The option group to identify with the upgraded DB snapshot.
 --
 -- You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance. For more information, see <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG Option Group Considerations> in the /Amazon RDS User Guide./
 --
 -- /Note:/ Consider using 'optionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdsOptionGroupName :: Lens.Lens' ModifyDBSnapshot (Lude.Maybe Lude.Text)
-mdsOptionGroupName = Lens.lens (optionGroupName :: ModifyDBSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {optionGroupName = a} :: ModifyDBSnapshot)
-{-# DEPRECATED mdsOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
+mdbsOptionGroupName :: Lens.Lens' ModifyDBSnapshot (Core.Maybe Types.String)
+mdbsOptionGroupName = Lens.field @"optionGroupName"
+{-# DEPRECATED mdbsOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
 
-instance Lude.AWSRequest ModifyDBSnapshot where
+instance Core.AWSRequest ModifyDBSnapshot where
   type Rs ModifyDBSnapshot = ModifyDBSnapshotResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyDBSnapshot")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBSnapshotIdentifier" dBSnapshotIdentifier)
+                Core.<> (Core.toQueryValue "EngineVersion" Core.<$> engineVersion)
+                Core.<> (Core.toQueryValue "OptionGroupName" Core.<$> optionGroupName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ModifyDBSnapshotResult"
       ( \s h x ->
           ModifyDBSnapshotResponse'
-            Lude.<$> (x Lude..@? "DBSnapshot") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBSnapshot") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyDBSnapshot where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyDBSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyDBSnapshot where
-  toQuery ModifyDBSnapshot' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifyDBSnapshot" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "EngineVersion" Lude.=: engineVersion,
-        "DBSnapshotIdentifier" Lude.=: dbSnapshotIdentifier,
-        "OptionGroupName" Lude.=: optionGroupName
-      ]
 
 -- | /See:/ 'mkModifyDBSnapshotResponse' smart constructor.
 data ModifyDBSnapshotResponse = ModifyDBSnapshotResponse'
-  { dbSnapshot :: Lude.Maybe DBSnapshot,
+  { dBSnapshot :: Core.Maybe Types.DBSnapshot,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ModifyDBSnapshotResponse' with the minimum fields required to make a request.
---
--- * 'dbSnapshot' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyDBSnapshotResponse' value with any optional fields omitted.
 mkModifyDBSnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyDBSnapshotResponse
-mkModifyDBSnapshotResponse pResponseStatus_ =
+mkModifyDBSnapshotResponse responseStatus =
   ModifyDBSnapshotResponse'
-    { dbSnapshot = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBSnapshot = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'dbSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdsrsDBSnapshot :: Lens.Lens' ModifyDBSnapshotResponse (Lude.Maybe DBSnapshot)
-mdsrsDBSnapshot = Lens.lens (dbSnapshot :: ModifyDBSnapshotResponse -> Lude.Maybe DBSnapshot) (\s a -> s {dbSnapshot = a} :: ModifyDBSnapshotResponse)
-{-# DEPRECATED mdsrsDBSnapshot "Use generic-lens or generic-optics with 'dbSnapshot' instead." #-}
+-- /Note:/ Consider using 'dBSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdbsrrsDBSnapshot :: Lens.Lens' ModifyDBSnapshotResponse (Core.Maybe Types.DBSnapshot)
+mdbsrrsDBSnapshot = Lens.field @"dBSnapshot"
+{-# DEPRECATED mdbsrrsDBSnapshot "Use generic-lens or generic-optics with 'dBSnapshot' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdsrsResponseStatus :: Lens.Lens' ModifyDBSnapshotResponse Lude.Int
-mdsrsResponseStatus = Lens.lens (responseStatus :: ModifyDBSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyDBSnapshotResponse)
-{-# DEPRECATED mdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mdbsrrsResponseStatus :: Lens.Lens' ModifyDBSnapshotResponse Core.Int
+mdbsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mdbsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

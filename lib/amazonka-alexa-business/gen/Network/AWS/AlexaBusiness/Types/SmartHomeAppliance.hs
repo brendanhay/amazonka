@@ -17,71 +17,68 @@ module Network.AWS.AlexaBusiness.Types.SmartHomeAppliance
     mkSmartHomeAppliance,
 
     -- * Lenses
+    shaDescription,
     shaFriendlyName,
     shaManufacturerName,
-    shaDescription,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.ApplianceFriendlyName as Types
+import qualified Network.AWS.AlexaBusiness.Types.Description as Types
+import qualified Network.AWS.AlexaBusiness.Types.ManufacturerName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A smart home appliance that can connect to a central system. Any domestic device can be a smart appliance.
 --
 -- /See:/ 'mkSmartHomeAppliance' smart constructor.
 data SmartHomeAppliance = SmartHomeAppliance'
-  { -- | The friendly name of the smart home appliance.
-    friendlyName :: Lude.Maybe Lude.Text,
+  { -- | The description of the smart home appliance.
+    description :: Core.Maybe Types.Description,
+    -- | The friendly name of the smart home appliance.
+    friendlyName :: Core.Maybe Types.ApplianceFriendlyName,
     -- | The name of the manufacturer of the smart home appliance.
-    manufacturerName :: Lude.Maybe Lude.Text,
-    -- | The description of the smart home appliance.
-    description :: Lude.Maybe Lude.Text
+    manufacturerName :: Core.Maybe Types.ManufacturerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SmartHomeAppliance' with the minimum fields required to make a request.
---
--- * 'friendlyName' - The friendly name of the smart home appliance.
--- * 'manufacturerName' - The name of the manufacturer of the smart home appliance.
--- * 'description' - The description of the smart home appliance.
+-- | Creates a 'SmartHomeAppliance' value with any optional fields omitted.
 mkSmartHomeAppliance ::
   SmartHomeAppliance
 mkSmartHomeAppliance =
   SmartHomeAppliance'
-    { friendlyName = Lude.Nothing,
-      manufacturerName = Lude.Nothing,
-      description = Lude.Nothing
+    { description = Core.Nothing,
+      friendlyName = Core.Nothing,
+      manufacturerName = Core.Nothing
     }
+
+-- | The description of the smart home appliance.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+shaDescription :: Lens.Lens' SmartHomeAppliance (Core.Maybe Types.Description)
+shaDescription = Lens.field @"description"
+{-# DEPRECATED shaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The friendly name of the smart home appliance.
 --
 -- /Note:/ Consider using 'friendlyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-shaFriendlyName :: Lens.Lens' SmartHomeAppliance (Lude.Maybe Lude.Text)
-shaFriendlyName = Lens.lens (friendlyName :: SmartHomeAppliance -> Lude.Maybe Lude.Text) (\s a -> s {friendlyName = a} :: SmartHomeAppliance)
+shaFriendlyName :: Lens.Lens' SmartHomeAppliance (Core.Maybe Types.ApplianceFriendlyName)
+shaFriendlyName = Lens.field @"friendlyName"
 {-# DEPRECATED shaFriendlyName "Use generic-lens or generic-optics with 'friendlyName' instead." #-}
 
 -- | The name of the manufacturer of the smart home appliance.
 --
 -- /Note:/ Consider using 'manufacturerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-shaManufacturerName :: Lens.Lens' SmartHomeAppliance (Lude.Maybe Lude.Text)
-shaManufacturerName = Lens.lens (manufacturerName :: SmartHomeAppliance -> Lude.Maybe Lude.Text) (\s a -> s {manufacturerName = a} :: SmartHomeAppliance)
+shaManufacturerName :: Lens.Lens' SmartHomeAppliance (Core.Maybe Types.ManufacturerName)
+shaManufacturerName = Lens.field @"manufacturerName"
 {-# DEPRECATED shaManufacturerName "Use generic-lens or generic-optics with 'manufacturerName' instead." #-}
 
--- | The description of the smart home appliance.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-shaDescription :: Lens.Lens' SmartHomeAppliance (Lude.Maybe Lude.Text)
-shaDescription = Lens.lens (description :: SmartHomeAppliance -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SmartHomeAppliance)
-{-# DEPRECATED shaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.FromJSON SmartHomeAppliance where
+instance Core.FromJSON SmartHomeAppliance where
   parseJSON =
-    Lude.withObject
-      "SmartHomeAppliance"
-      ( \x ->
-          SmartHomeAppliance'
-            Lude.<$> (x Lude..:? "FriendlyName")
-            Lude.<*> (x Lude..:? "ManufacturerName")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "SmartHomeAppliance" Core.$
+      \x ->
+        SmartHomeAppliance'
+          Core.<$> (x Core..:? "Description")
+          Core.<*> (x Core..:? "FriendlyName")
+          Core.<*> (x Core..:? "ManufacturerName")

@@ -28,63 +28,60 @@ module Network.AWS.IoT.EnableTopicRule
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the EnableTopicRuleRequest operation.
 --
 -- /See:/ 'mkEnableTopicRule' smart constructor.
 newtype EnableTopicRule = EnableTopicRule'
   { -- | The name of the topic rule to enable.
-    ruleName :: Lude.Text
+    ruleName :: Types.RuleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableTopicRule' with the minimum fields required to make a request.
---
--- * 'ruleName' - The name of the topic rule to enable.
+-- | Creates a 'EnableTopicRule' value with any optional fields omitted.
 mkEnableTopicRule ::
   -- | 'ruleName'
-  Lude.Text ->
+  Types.RuleName ->
   EnableTopicRule
-mkEnableTopicRule pRuleName_ =
-  EnableTopicRule' {ruleName = pRuleName_}
+mkEnableTopicRule ruleName = EnableTopicRule' {ruleName}
 
 -- | The name of the topic rule to enable.
 --
 -- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etrRuleName :: Lens.Lens' EnableTopicRule Lude.Text
-etrRuleName = Lens.lens (ruleName :: EnableTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: EnableTopicRule)
+etrRuleName :: Lens.Lens' EnableTopicRule Types.RuleName
+etrRuleName = Lens.field @"ruleName"
 {-# DEPRECATED etrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
-instance Lude.AWSRequest EnableTopicRule where
+instance Core.FromJSON EnableTopicRule where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest EnableTopicRule where
   type Rs EnableTopicRule = EnableTopicRuleResponse
-  request = Req.postJSON ioTService
-  response = Res.receiveNull EnableTopicRuleResponse'
-
-instance Lude.ToHeaders EnableTopicRule where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON EnableTopicRule where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath EnableTopicRule where
-  toPath EnableTopicRule' {..} =
-    Lude.mconcat ["/rules/", Lude.toBS ruleName, "/enable"]
-
-instance Lude.ToQuery EnableTopicRule where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ("/rules/" Core.<> (Core.toText ruleName) Core.<> ("/enable")),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull EnableTopicRuleResponse'
 
 -- | /See:/ 'mkEnableTopicRuleResponse' smart constructor.
 data EnableTopicRuleResponse = EnableTopicRuleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableTopicRuleResponse' with the minimum fields required to make a request.
+-- | Creates a 'EnableTopicRuleResponse' value with any optional fields omitted.
 mkEnableTopicRuleResponse ::
   EnableTopicRuleResponse
 mkEnableTopicRuleResponse = EnableTopicRuleResponse'

@@ -20,102 +20,105 @@ module Network.AWS.ElastiCache.ModifyUserGroup
     mkModifyUserGroup,
 
     -- ** Request lenses
-    mugUserIdsToAdd,
     mugUserGroupId,
+    mugUserIdsToAdd,
     mugUserIdsToRemove,
 
     -- * Destructuring the response
-    UserGroup (..),
-    mkUserGroup,
+    Types.UserGroup (..),
+    Types.mkUserGroup,
 
     -- ** Response lenses
-    ugStatus,
-    ugUserIds,
-    ugARN,
-    ugUserGroupId,
-    ugEngine,
-    ugPendingChanges,
-    ugReplicationGroups,
+    Types.ugARN,
+    Types.ugEngine,
+    Types.ugPendingChanges,
+    Types.ugReplicationGroups,
+    Types.ugStatus,
+    Types.ugUserGroupId,
+    Types.ugUserIds,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyUserGroup' smart constructor.
 data ModifyUserGroup = ModifyUserGroup'
-  { -- | The list of user IDs to add to the user group.
-    userIdsToAdd :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | The ID of the user group.
-    userGroupId :: Lude.Text,
+  { -- | The ID of the user group.
+    userGroupId :: Types.String,
+    -- | The list of user IDs to add to the user group.
+    userIdsToAdd :: Core.Maybe (Core.NonEmpty Types.UserId),
     -- | The list of user IDs to remove from the user group.
-    userIdsToRemove :: Lude.Maybe (Lude.NonEmpty Lude.Text)
+    userIdsToRemove :: Core.Maybe (Core.NonEmpty Types.UserId)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyUserGroup' with the minimum fields required to make a request.
---
--- * 'userIdsToAdd' - The list of user IDs to add to the user group.
--- * 'userGroupId' - The ID of the user group.
--- * 'userIdsToRemove' - The list of user IDs to remove from the user group.
+-- | Creates a 'ModifyUserGroup' value with any optional fields omitted.
 mkModifyUserGroup ::
   -- | 'userGroupId'
-  Lude.Text ->
+  Types.String ->
   ModifyUserGroup
-mkModifyUserGroup pUserGroupId_ =
+mkModifyUserGroup userGroupId =
   ModifyUserGroup'
-    { userIdsToAdd = Lude.Nothing,
-      userGroupId = pUserGroupId_,
-      userIdsToRemove = Lude.Nothing
+    { userGroupId,
+      userIdsToAdd = Core.Nothing,
+      userIdsToRemove = Core.Nothing
     }
-
--- | The list of user IDs to add to the user group.
---
--- /Note:/ Consider using 'userIdsToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mugUserIdsToAdd :: Lens.Lens' ModifyUserGroup (Lude.Maybe (Lude.NonEmpty Lude.Text))
-mugUserIdsToAdd = Lens.lens (userIdsToAdd :: ModifyUserGroup -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {userIdsToAdd = a} :: ModifyUserGroup)
-{-# DEPRECATED mugUserIdsToAdd "Use generic-lens or generic-optics with 'userIdsToAdd' instead." #-}
 
 -- | The ID of the user group.
 --
 -- /Note:/ Consider using 'userGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mugUserGroupId :: Lens.Lens' ModifyUserGroup Lude.Text
-mugUserGroupId = Lens.lens (userGroupId :: ModifyUserGroup -> Lude.Text) (\s a -> s {userGroupId = a} :: ModifyUserGroup)
+mugUserGroupId :: Lens.Lens' ModifyUserGroup Types.String
+mugUserGroupId = Lens.field @"userGroupId"
 {-# DEPRECATED mugUserGroupId "Use generic-lens or generic-optics with 'userGroupId' instead." #-}
+
+-- | The list of user IDs to add to the user group.
+--
+-- /Note:/ Consider using 'userIdsToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mugUserIdsToAdd :: Lens.Lens' ModifyUserGroup (Core.Maybe (Core.NonEmpty Types.UserId))
+mugUserIdsToAdd = Lens.field @"userIdsToAdd"
+{-# DEPRECATED mugUserIdsToAdd "Use generic-lens or generic-optics with 'userIdsToAdd' instead." #-}
 
 -- | The list of user IDs to remove from the user group.
 --
 -- /Note:/ Consider using 'userIdsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mugUserIdsToRemove :: Lens.Lens' ModifyUserGroup (Lude.Maybe (Lude.NonEmpty Lude.Text))
-mugUserIdsToRemove = Lens.lens (userIdsToRemove :: ModifyUserGroup -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {userIdsToRemove = a} :: ModifyUserGroup)
+mugUserIdsToRemove :: Lens.Lens' ModifyUserGroup (Core.Maybe (Core.NonEmpty Types.UserId))
+mugUserIdsToRemove = Lens.field @"userIdsToRemove"
 {-# DEPRECATED mugUserIdsToRemove "Use generic-lens or generic-optics with 'userIdsToRemove' instead." #-}
 
-instance Lude.AWSRequest ModifyUserGroup where
-  type Rs ModifyUserGroup = UserGroup
-  request = Req.postQuery elastiCacheService
+instance Core.AWSRequest ModifyUserGroup where
+  type Rs ModifyUserGroup = Types.UserGroup
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyUserGroup")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "UserGroupId" userGroupId)
+                Core.<> ( Core.toQueryValue
+                            "UserIdsToAdd"
+                            (Core.toQueryList "member" Core.<$> userIdsToAdd)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "UserIdsToRemove"
+                            (Core.toQueryList "member" Core.<$> userIdsToRemove)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ModifyUserGroupResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders ModifyUserGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyUserGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyUserGroup where
-  toQuery ModifyUserGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifyUserGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "UserIdsToAdd"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> userIdsToAdd),
-        "UserGroupId" Lude.=: userGroupId,
-        "UserIdsToRemove"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> userIdsToRemove)
-      ]
+      (\s h x -> Core.parseXML x)

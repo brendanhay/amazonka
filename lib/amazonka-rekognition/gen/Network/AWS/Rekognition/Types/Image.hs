@@ -17,14 +17,14 @@ module Network.AWS.Rekognition.Types.Image
     mkImage,
 
     -- * Lenses
-    iS3Object,
     iBytes,
+    iS3Object,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.S3Object
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.S3Object as Types
 
 -- | Provides the input image either as bytes or an S3 object.
 --
@@ -37,28 +37,18 @@ import Network.AWS.Rekognition.Types.S3Object
 --
 -- /See:/ 'mkImage' smart constructor.
 data Image = Image'
-  { -- | Identifies an S3 object as the image source.
-    s3Object :: Lude.Maybe S3Object,
-    -- | Blob of image bytes up to 5 MBs.
-    bytes :: Lude.Maybe Lude.Base64
+  { -- | Blob of image bytes up to 5 MBs.
+    bytes :: Core.Maybe Core.Base64,
+    -- | Identifies an S3 object as the image source.
+    s3Object :: Core.Maybe Types.S3Object
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Image' with the minimum fields required to make a request.
---
--- * 's3Object' - Identifies an S3 object as the image source.
--- * 'bytes' - Blob of image bytes up to 5 MBs.
+-- | Creates a 'Image' value with any optional fields omitted.
 mkImage ::
   Image
-mkImage = Image' {s3Object = Lude.Nothing, bytes = Lude.Nothing}
-
--- | Identifies an S3 object as the image source.
---
--- /Note:/ Consider using 's3Object' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iS3Object :: Lens.Lens' Image (Lude.Maybe S3Object)
-iS3Object = Lens.lens (s3Object :: Image -> Lude.Maybe S3Object) (\s a -> s {s3Object = a} :: Image)
-{-# DEPRECATED iS3Object "Use generic-lens or generic-optics with 's3Object' instead." #-}
+mkImage = Image' {bytes = Core.Nothing, s3Object = Core.Nothing}
 
 -- | Blob of image bytes up to 5 MBs.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -67,15 +57,22 @@ iS3Object = Lens.lens (s3Object :: Image -> Lude.Maybe S3Object) (\s a -> s {s3O
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'bytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iBytes :: Lens.Lens' Image (Lude.Maybe Lude.Base64)
-iBytes = Lens.lens (bytes :: Image -> Lude.Maybe Lude.Base64) (\s a -> s {bytes = a} :: Image)
+iBytes :: Lens.Lens' Image (Core.Maybe Core.Base64)
+iBytes = Lens.field @"bytes"
 {-# DEPRECATED iBytes "Use generic-lens or generic-optics with 'bytes' instead." #-}
 
-instance Lude.ToJSON Image where
-  toJSON Image' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("S3Object" Lude..=) Lude.<$> s3Object,
-            ("Bytes" Lude..=) Lude.<$> bytes
+-- | Identifies an S3 object as the image source.
+--
+-- /Note:/ Consider using 's3Object' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iS3Object :: Lens.Lens' Image (Core.Maybe Types.S3Object)
+iS3Object = Lens.field @"s3Object"
+{-# DEPRECATED iS3Object "Use generic-lens or generic-optics with 's3Object' instead." #-}
+
+instance Core.FromJSON Image where
+  toJSON Image {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Bytes" Core..=) Core.<$> bytes,
+            ("S3Object" Core..=) Core.<$> s3Object
           ]
       )

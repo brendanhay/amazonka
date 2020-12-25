@@ -22,43 +22,39 @@ module Network.AWS.MediaConvert.Types.AudioChannelTaggingSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AudioChannelTag
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.AudioChannelTag as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | When you mimic a multi-channel audio layout with multiple mono-channel tracks, you can tag each channel layout manually. For example, you would tag the tracks that contain your left, right, and center audio with Left (L), Right (R), and Center (C), respectively. When you don't specify a value, MediaConvert labels your track as Center (C) by default. To use audio layout tagging, your output must be in a QuickTime (.mov) container; your audio codec must be AAC, WAV, or AIFF; and you must set up your audio track to have only one channel.
 --
 -- /See:/ 'mkAudioChannelTaggingSettings' smart constructor.
 newtype AudioChannelTaggingSettings = AudioChannelTaggingSettings'
   { -- | You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).
-    channelTag :: Lude.Maybe AudioChannelTag
+    channelTag :: Core.Maybe Types.AudioChannelTag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AudioChannelTaggingSettings' with the minimum fields required to make a request.
---
--- * 'channelTag' - You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).
+-- | Creates a 'AudioChannelTaggingSettings' value with any optional fields omitted.
 mkAudioChannelTaggingSettings ::
   AudioChannelTaggingSettings
 mkAudioChannelTaggingSettings =
-  AudioChannelTaggingSettings' {channelTag = Lude.Nothing}
+  AudioChannelTaggingSettings' {channelTag = Core.Nothing}
 
 -- | You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).
 --
 -- /Note:/ Consider using 'channelTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actsChannelTag :: Lens.Lens' AudioChannelTaggingSettings (Lude.Maybe AudioChannelTag)
-actsChannelTag = Lens.lens (channelTag :: AudioChannelTaggingSettings -> Lude.Maybe AudioChannelTag) (\s a -> s {channelTag = a} :: AudioChannelTaggingSettings)
+actsChannelTag :: Lens.Lens' AudioChannelTaggingSettings (Core.Maybe Types.AudioChannelTag)
+actsChannelTag = Lens.field @"channelTag"
 {-# DEPRECATED actsChannelTag "Use generic-lens or generic-optics with 'channelTag' instead." #-}
 
-instance Lude.FromJSON AudioChannelTaggingSettings where
-  parseJSON =
-    Lude.withObject
-      "AudioChannelTaggingSettings"
-      ( \x ->
-          AudioChannelTaggingSettings' Lude.<$> (x Lude..:? "channelTag")
-      )
+instance Core.FromJSON AudioChannelTaggingSettings where
+  toJSON AudioChannelTaggingSettings {..} =
+    Core.object
+      (Core.catMaybes [("channelTag" Core..=) Core.<$> channelTag])
 
-instance Lude.ToJSON AudioChannelTaggingSettings where
-  toJSON AudioChannelTaggingSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("channelTag" Lude..=) Lude.<$> channelTag])
+instance Core.FromJSON AudioChannelTaggingSettings where
+  parseJSON =
+    Core.withObject "AudioChannelTaggingSettings" Core.$
+      \x ->
+        AudioChannelTaggingSettings' Core.<$> (x Core..:? "channelTag")

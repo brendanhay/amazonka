@@ -13,47 +13,49 @@
 module Network.AWS.MediaConvert.Types.PricingPlan
   ( PricingPlan
       ( PricingPlan',
-        OnDemand,
-        Reserved
+        PricingPlanOnDemand,
+        PricingPlanReserved,
+        fromPricingPlan
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies whether the pricing plan for the queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue, regardless of how much or how little you use it. Reserved pricing requires a 12-month commitment.
-newtype PricingPlan = PricingPlan' Lude.Text
+newtype PricingPlan = PricingPlan' {fromPricingPlan :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OnDemand :: PricingPlan
-pattern OnDemand = PricingPlan' "ON_DEMAND"
+pattern PricingPlanOnDemand :: PricingPlan
+pattern PricingPlanOnDemand = PricingPlan' "ON_DEMAND"
 
-pattern Reserved :: PricingPlan
-pattern Reserved = PricingPlan' "RESERVED"
+pattern PricingPlanReserved :: PricingPlan
+pattern PricingPlanReserved = PricingPlan' "RESERVED"
 
 {-# COMPLETE
-  OnDemand,
-  Reserved,
+  PricingPlanOnDemand,
+  PricingPlanReserved,
   PricingPlan'
   #-}

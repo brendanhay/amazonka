@@ -13,71 +13,73 @@
 module Network.AWS.DirectConnect.Types.LagState
   ( LagState
       ( LagState',
-        LSRequested,
-        LSPending,
-        LSAvailable,
-        LSDown,
-        LSDeleting,
-        LSDeleted,
-        LSUnknown
+        LagStateRequested,
+        LagStatePending,
+        LagStateAvailable,
+        LagStateDown,
+        LagStateDeleting,
+        LagStateDeleted,
+        LagStateUnknown,
+        fromLagState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LagState = LagState' Lude.Text
+newtype LagState = LagState' {fromLagState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LSRequested :: LagState
-pattern LSRequested = LagState' "requested"
+pattern LagStateRequested :: LagState
+pattern LagStateRequested = LagState' "requested"
 
-pattern LSPending :: LagState
-pattern LSPending = LagState' "pending"
+pattern LagStatePending :: LagState
+pattern LagStatePending = LagState' "pending"
 
-pattern LSAvailable :: LagState
-pattern LSAvailable = LagState' "available"
+pattern LagStateAvailable :: LagState
+pattern LagStateAvailable = LagState' "available"
 
-pattern LSDown :: LagState
-pattern LSDown = LagState' "down"
+pattern LagStateDown :: LagState
+pattern LagStateDown = LagState' "down"
 
-pattern LSDeleting :: LagState
-pattern LSDeleting = LagState' "deleting"
+pattern LagStateDeleting :: LagState
+pattern LagStateDeleting = LagState' "deleting"
 
-pattern LSDeleted :: LagState
-pattern LSDeleted = LagState' "deleted"
+pattern LagStateDeleted :: LagState
+pattern LagStateDeleted = LagState' "deleted"
 
-pattern LSUnknown :: LagState
-pattern LSUnknown = LagState' "unknown"
+pattern LagStateUnknown :: LagState
+pattern LagStateUnknown = LagState' "unknown"
 
 {-# COMPLETE
-  LSRequested,
-  LSPending,
-  LSAvailable,
-  LSDown,
-  LSDeleting,
-  LSDeleted,
-  LSUnknown,
+  LagStateRequested,
+  LagStatePending,
+  LagStateAvailable,
+  LagStateDown,
+  LagStateDeleting,
+  LagStateDeleted,
+  LagStateUnknown,
   LagState'
   #-}

@@ -17,55 +17,54 @@ module Network.AWS.SSM.Types.PatchOrchestratorFilter
     mkPatchOrchestratorFilter,
 
     -- * Lenses
-    pofValues,
     pofKey,
+    pofValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.Key as Types
+import qualified Network.AWS.SSM.Types.PatchOrchestratorFilterValue as Types
 
 -- | Defines a filter used in Patch Manager APIs.
 --
 -- /See:/ 'mkPatchOrchestratorFilter' smart constructor.
 data PatchOrchestratorFilter = PatchOrchestratorFilter'
-  { -- | The value for the filter.
-    values :: Lude.Maybe [Lude.Text],
-    -- | The key for the filter.
-    key :: Lude.Maybe Lude.Text
+  { -- | The key for the filter.
+    key :: Core.Maybe Types.Key,
+    -- | The value for the filter.
+    values :: Core.Maybe [Types.PatchOrchestratorFilterValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PatchOrchestratorFilter' with the minimum fields required to make a request.
---
--- * 'values' - The value for the filter.
--- * 'key' - The key for the filter.
+-- | Creates a 'PatchOrchestratorFilter' value with any optional fields omitted.
 mkPatchOrchestratorFilter ::
   PatchOrchestratorFilter
 mkPatchOrchestratorFilter =
   PatchOrchestratorFilter'
-    { values = Lude.Nothing,
-      key = Lude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing
     }
-
--- | The value for the filter.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pofValues :: Lens.Lens' PatchOrchestratorFilter (Lude.Maybe [Lude.Text])
-pofValues = Lens.lens (values :: PatchOrchestratorFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: PatchOrchestratorFilter)
-{-# DEPRECATED pofValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The key for the filter.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pofKey :: Lens.Lens' PatchOrchestratorFilter (Lude.Maybe Lude.Text)
-pofKey = Lens.lens (key :: PatchOrchestratorFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: PatchOrchestratorFilter)
+pofKey :: Lens.Lens' PatchOrchestratorFilter (Core.Maybe Types.Key)
+pofKey = Lens.field @"key"
 {-# DEPRECATED pofKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON PatchOrchestratorFilter where
-  toJSON PatchOrchestratorFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Values" Lude..=) Lude.<$> values, ("Key" Lude..=) Lude.<$> key]
+-- | The value for the filter.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pofValues :: Lens.Lens' PatchOrchestratorFilter (Core.Maybe [Types.PatchOrchestratorFilterValue])
+pofValues = Lens.field @"values"
+{-# DEPRECATED pofValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON PatchOrchestratorFilter where
+  toJSON PatchOrchestratorFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Values" Core..=) Core.<$> values]
       )

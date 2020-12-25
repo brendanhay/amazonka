@@ -17,140 +17,130 @@ module Network.AWS.GuardDuty.Types.S3BucketDetail
     mkS3BucketDetail,
 
     -- * Lenses
-    sbdARN,
+    sbdArn,
     sbdCreatedAt,
-    sbdOwner,
-    sbdName,
     sbdDefaultServerSideEncryption,
+    sbdName,
+    sbdOwner,
     sbdPublicAccess,
-    sbdType,
     sbdTags,
+    sbdType,
   )
 where
 
-import Network.AWS.GuardDuty.Types.DefaultServerSideEncryption
-import Network.AWS.GuardDuty.Types.Owner
-import Network.AWS.GuardDuty.Types.PublicAccess
-import Network.AWS.GuardDuty.Types.Tag
+import qualified Network.AWS.GuardDuty.Types.DefaultServerSideEncryption as Types
+import qualified Network.AWS.GuardDuty.Types.Owner as Types
+import qualified Network.AWS.GuardDuty.Types.PublicAccess as Types
+import qualified Network.AWS.GuardDuty.Types.String as Types
+import qualified Network.AWS.GuardDuty.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information on the S3 bucket.
 --
 -- /See:/ 'mkS3BucketDetail' smart constructor.
 data S3BucketDetail = S3BucketDetail'
   { -- | The Amazon Resource Name (ARN) of the S3 bucket.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.String,
     -- | The date and time the bucket was created at.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | The owner of the S3 bucket.
-    owner :: Lude.Maybe Owner,
-    -- | The name of the S3 bucket.
-    name :: Lude.Maybe Lude.Text,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | Describes the server side encryption method used in the S3 bucket.
-    defaultServerSideEncryption :: Lude.Maybe DefaultServerSideEncryption,
+    defaultServerSideEncryption :: Core.Maybe Types.DefaultServerSideEncryption,
+    -- | The name of the S3 bucket.
+    name :: Core.Maybe Types.String,
+    -- | The owner of the S3 bucket.
+    owner :: Core.Maybe Types.Owner,
     -- | Describes the public access policies that apply to the S3 bucket.
-    publicAccess :: Lude.Maybe PublicAccess,
-    -- | Describes whether the bucket is a source or destination bucket.
-    type' :: Lude.Maybe Lude.Text,
+    publicAccess :: Core.Maybe Types.PublicAccess,
     -- | All tags attached to the S3 bucket
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | Describes whether the bucket is a source or destination bucket.
+    type' :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'S3BucketDetail' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the S3 bucket.
--- * 'createdAt' - The date and time the bucket was created at.
--- * 'owner' - The owner of the S3 bucket.
--- * 'name' - The name of the S3 bucket.
--- * 'defaultServerSideEncryption' - Describes the server side encryption method used in the S3 bucket.
--- * 'publicAccess' - Describes the public access policies that apply to the S3 bucket.
--- * 'type'' - Describes whether the bucket is a source or destination bucket.
--- * 'tags' - All tags attached to the S3 bucket
+-- | Creates a 'S3BucketDetail' value with any optional fields omitted.
 mkS3BucketDetail ::
   S3BucketDetail
 mkS3BucketDetail =
   S3BucketDetail'
-    { arn = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      owner = Lude.Nothing,
-      name = Lude.Nothing,
-      defaultServerSideEncryption = Lude.Nothing,
-      publicAccess = Lude.Nothing,
-      type' = Lude.Nothing,
-      tags = Lude.Nothing
+    { arn = Core.Nothing,
+      createdAt = Core.Nothing,
+      defaultServerSideEncryption = Core.Nothing,
+      name = Core.Nothing,
+      owner = Core.Nothing,
+      publicAccess = Core.Nothing,
+      tags = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the S3 bucket.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbdARN :: Lens.Lens' S3BucketDetail (Lude.Maybe Lude.Text)
-sbdARN = Lens.lens (arn :: S3BucketDetail -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: S3BucketDetail)
-{-# DEPRECATED sbdARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+sbdArn :: Lens.Lens' S3BucketDetail (Core.Maybe Types.String)
+sbdArn = Lens.field @"arn"
+{-# DEPRECATED sbdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date and time the bucket was created at.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbdCreatedAt :: Lens.Lens' S3BucketDetail (Lude.Maybe Lude.Timestamp)
-sbdCreatedAt = Lens.lens (createdAt :: S3BucketDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: S3BucketDetail)
+sbdCreatedAt :: Lens.Lens' S3BucketDetail (Core.Maybe Core.NominalDiffTime)
+sbdCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED sbdCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The owner of the S3 bucket.
---
--- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbdOwner :: Lens.Lens' S3BucketDetail (Lude.Maybe Owner)
-sbdOwner = Lens.lens (owner :: S3BucketDetail -> Lude.Maybe Owner) (\s a -> s {owner = a} :: S3BucketDetail)
-{-# DEPRECATED sbdOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
-
--- | The name of the S3 bucket.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbdName :: Lens.Lens' S3BucketDetail (Lude.Maybe Lude.Text)
-sbdName = Lens.lens (name :: S3BucketDetail -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: S3BucketDetail)
-{-# DEPRECATED sbdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Describes the server side encryption method used in the S3 bucket.
 --
 -- /Note:/ Consider using 'defaultServerSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbdDefaultServerSideEncryption :: Lens.Lens' S3BucketDetail (Lude.Maybe DefaultServerSideEncryption)
-sbdDefaultServerSideEncryption = Lens.lens (defaultServerSideEncryption :: S3BucketDetail -> Lude.Maybe DefaultServerSideEncryption) (\s a -> s {defaultServerSideEncryption = a} :: S3BucketDetail)
+sbdDefaultServerSideEncryption :: Lens.Lens' S3BucketDetail (Core.Maybe Types.DefaultServerSideEncryption)
+sbdDefaultServerSideEncryption = Lens.field @"defaultServerSideEncryption"
 {-# DEPRECATED sbdDefaultServerSideEncryption "Use generic-lens or generic-optics with 'defaultServerSideEncryption' instead." #-}
+
+-- | The name of the S3 bucket.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbdName :: Lens.Lens' S3BucketDetail (Core.Maybe Types.String)
+sbdName = Lens.field @"name"
+{-# DEPRECATED sbdName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The owner of the S3 bucket.
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbdOwner :: Lens.Lens' S3BucketDetail (Core.Maybe Types.Owner)
+sbdOwner = Lens.field @"owner"
+{-# DEPRECATED sbdOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | Describes the public access policies that apply to the S3 bucket.
 --
 -- /Note:/ Consider using 'publicAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbdPublicAccess :: Lens.Lens' S3BucketDetail (Lude.Maybe PublicAccess)
-sbdPublicAccess = Lens.lens (publicAccess :: S3BucketDetail -> Lude.Maybe PublicAccess) (\s a -> s {publicAccess = a} :: S3BucketDetail)
+sbdPublicAccess :: Lens.Lens' S3BucketDetail (Core.Maybe Types.PublicAccess)
+sbdPublicAccess = Lens.field @"publicAccess"
 {-# DEPRECATED sbdPublicAccess "Use generic-lens or generic-optics with 'publicAccess' instead." #-}
-
--- | Describes whether the bucket is a source or destination bucket.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbdType :: Lens.Lens' S3BucketDetail (Lude.Maybe Lude.Text)
-sbdType = Lens.lens (type' :: S3BucketDetail -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: S3BucketDetail)
-{-# DEPRECATED sbdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | All tags attached to the S3 bucket
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sbdTags :: Lens.Lens' S3BucketDetail (Lude.Maybe [Tag])
-sbdTags = Lens.lens (tags :: S3BucketDetail -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: S3BucketDetail)
+sbdTags :: Lens.Lens' S3BucketDetail (Core.Maybe [Types.Tag])
+sbdTags = Lens.field @"tags"
 {-# DEPRECATED sbdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON S3BucketDetail where
+-- | Describes whether the bucket is a source or destination bucket.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sbdType :: Lens.Lens' S3BucketDetail (Core.Maybe Types.String)
+sbdType = Lens.field @"type'"
+{-# DEPRECATED sbdType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.FromJSON S3BucketDetail where
   parseJSON =
-    Lude.withObject
-      "S3BucketDetail"
-      ( \x ->
-          S3BucketDetail'
-            Lude.<$> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "owner")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "defaultServerSideEncryption")
-            Lude.<*> (x Lude..:? "publicAccess")
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "S3BucketDetail" Core.$
+      \x ->
+        S3BucketDetail'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "defaultServerSideEncryption")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "owner")
+          Core.<*> (x Core..:? "publicAccess")
+          Core.<*> (x Core..:? "tags")
+          Core.<*> (x Core..:? "type")

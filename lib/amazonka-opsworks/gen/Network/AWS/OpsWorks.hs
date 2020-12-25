@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -91,10 +90,16 @@
 -- When you call 'CreateStack' , 'CloneStack' , or 'UpdateStack' we recommend you use the @ConfigurationManager@ parameter to specify the Chef version. The recommended and default value for Linux stacks is currently 12. Windows stacks use Chef 12.2. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-chef11.html Chef Versions> .
 module Network.AWS.OpsWorks
   ( -- * Service configuration
-    opsWorksService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -120,8 +125,8 @@ module Network.AWS.OpsWorks
     -- * Operations
     -- $operations
 
-    -- ** DescribeRDSDBInstances
-    module Network.AWS.OpsWorks.DescribeRDSDBInstances,
+    -- ** DescribeRdsDbInstances
+    module Network.AWS.OpsWorks.DescribeRdsDbInstances,
 
     -- ** DeleteStack
     module Network.AWS.OpsWorks.DeleteStack,
@@ -135,8 +140,8 @@ module Network.AWS.OpsWorks
     -- ** SetLoadBasedAutoScaling
     module Network.AWS.OpsWorks.SetLoadBasedAutoScaling,
 
-    -- ** DeregisterRDSDBInstance
-    module Network.AWS.OpsWorks.DeregisterRDSDBInstance,
+    -- ** DeregisterRdsDbInstance
+    module Network.AWS.OpsWorks.DeregisterRdsDbInstance,
 
     -- ** UnassignVolume
     module Network.AWS.OpsWorks.UnassignVolume,
@@ -147,8 +152,8 @@ module Network.AWS.OpsWorks
     -- ** DescribeLayers
     module Network.AWS.OpsWorks.DescribeLayers,
 
-    -- ** RegisterElasticIP
-    module Network.AWS.OpsWorks.RegisterElasticIP,
+    -- ** RegisterElasticIp
+    module Network.AWS.OpsWorks.RegisterElasticIp,
 
     -- ** DescribeAgentVersions
     module Network.AWS.OpsWorks.DescribeAgentVersions,
@@ -180,8 +185,8 @@ module Network.AWS.OpsWorks
     -- ** UpdateApp
     module Network.AWS.OpsWorks.UpdateApp,
 
-    -- ** UpdateRDSDBInstance
-    module Network.AWS.OpsWorks.UpdateRDSDBInstance,
+    -- ** UpdateRdsDbInstance
+    module Network.AWS.OpsWorks.UpdateRdsDbInstance,
 
     -- ** DescribeTimeBasedAutoScaling
     module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling,
@@ -192,8 +197,8 @@ module Network.AWS.OpsWorks
     -- ** DescribeVolumes
     module Network.AWS.OpsWorks.DescribeVolumes,
 
-    -- ** DisassociateElasticIP
-    module Network.AWS.OpsWorks.DisassociateElasticIP,
+    -- ** DisassociateElasticIp
+    module Network.AWS.OpsWorks.DisassociateElasticIp,
 
     -- ** RegisterEcsCluster
     module Network.AWS.OpsWorks.RegisterEcsCluster,
@@ -213,8 +218,8 @@ module Network.AWS.OpsWorks
     -- ** AttachElasticLoadBalancer
     module Network.AWS.OpsWorks.AttachElasticLoadBalancer,
 
-    -- ** DeregisterElasticIP
-    module Network.AWS.OpsWorks.DeregisterElasticIP,
+    -- ** DeregisterElasticIp
+    module Network.AWS.OpsWorks.DeregisterElasticIp,
 
     -- ** DeregisterEcsCluster
     module Network.AWS.OpsWorks.DeregisterEcsCluster,
@@ -234,8 +239,8 @@ module Network.AWS.OpsWorks
     -- ** DescribeDeployments
     module Network.AWS.OpsWorks.DescribeDeployments,
 
-    -- ** DescribeElasticIPs
-    module Network.AWS.OpsWorks.DescribeElasticIPs,
+    -- ** DescribeElasticIps
+    module Network.AWS.OpsWorks.DescribeElasticIps,
 
     -- ** GrantAccess
     module Network.AWS.OpsWorks.GrantAccess,
@@ -249,8 +254,8 @@ module Network.AWS.OpsWorks
     -- ** CreateStack
     module Network.AWS.OpsWorks.CreateStack,
 
-    -- ** UpdateElasticIP
-    module Network.AWS.OpsWorks.UpdateElasticIP,
+    -- ** UpdateElasticIp
+    module Network.AWS.OpsWorks.UpdateElasticIp,
 
     -- ** CreateApp
     module Network.AWS.OpsWorks.CreateApp,
@@ -270,8 +275,8 @@ module Network.AWS.OpsWorks
     -- ** RegisterInstance
     module Network.AWS.OpsWorks.RegisterInstance,
 
-    -- ** AssociateElasticIP
-    module Network.AWS.OpsWorks.AssociateElasticIP,
+    -- ** AssociateElasticIp
+    module Network.AWS.OpsWorks.AssociateElasticIp,
 
     -- ** DescribeLoadBasedAutoScaling
     module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling,
@@ -300,8 +305,8 @@ module Network.AWS.OpsWorks
     -- ** DescribeServiceErrors
     module Network.AWS.OpsWorks.DescribeServiceErrors,
 
-    -- ** RegisterRDSDBInstance
-    module Network.AWS.OpsWorks.RegisterRDSDBInstance,
+    -- ** RegisterRdsDbInstance
+    module Network.AWS.OpsWorks.RegisterRdsDbInstance,
 
     -- ** UntagResource
     module Network.AWS.OpsWorks.UntagResource,
@@ -333,8 +338,8 @@ module Network.AWS.OpsWorks
     -- ** DescribeEcsClusters (Paginated)
     module Network.AWS.OpsWorks.DescribeEcsClusters,
 
-    -- ** DescribeRAIDArrays
-    module Network.AWS.OpsWorks.DescribeRAIDArrays,
+    -- ** DescribeRaidArrays
+    module Network.AWS.OpsWorks.DescribeRaidArrays,
 
     -- ** UpdateVolume
     module Network.AWS.OpsWorks.UpdateVolume,
@@ -344,99 +349,59 @@ module Network.AWS.OpsWorks
 
     -- * Types
 
-    -- ** AppAttributesKeys
-    AppAttributesKeys (..),
-
-    -- ** AppType
-    AppType (..),
-
-    -- ** Architecture
-    Architecture (..),
-
-    -- ** AutoScalingType
-    AutoScalingType (..),
-
-    -- ** CloudWatchLogsEncoding
-    CloudWatchLogsEncoding (..),
-
-    -- ** CloudWatchLogsInitialPosition
-    CloudWatchLogsInitialPosition (..),
-
-    -- ** CloudWatchLogsTimeZone
-    CloudWatchLogsTimeZone (..),
-
-    -- ** DeploymentCommandName
-    DeploymentCommandName (..),
-
-    -- ** LayerAttributesKeys
-    LayerAttributesKeys (..),
-
-    -- ** LayerType
-    LayerType (..),
-
-    -- ** RootDeviceType
-    RootDeviceType (..),
-
-    -- ** SourceType
-    SourceType (..),
-
-    -- ** StackAttributesKeys
-    StackAttributesKeys (..),
+    -- ** SslConfiguration
+    SslConfiguration (..),
+    mkSslConfiguration,
+    scCertificate,
+    scPrivateKey,
+    scChain,
 
     -- ** VirtualizationType
     VirtualizationType (..),
 
-    -- ** VolumeType
-    VolumeType (..),
+    -- ** Command
+    Command (..),
+    mkCommand,
+    cAcknowledgedAt,
+    cCommandId,
+    cCompletedAt,
+    cCreatedAt,
+    cDeploymentId,
+    cExitCode,
+    cInstanceId,
+    cLogUrl,
+    cStatus,
+    cType,
 
-    -- ** AgentVersion
-    AgentVersion (..),
-    mkAgentVersion,
-    avVersion,
-    avConfigurationManager,
+    -- ** RaidArray
+    RaidArray (..),
+    mkRaidArray,
+    raAvailabilityZone,
+    raCreatedAt,
+    raDevice,
+    raInstanceId,
+    raIops,
+    raMountPoint,
+    raName,
+    raNumberOfDisks,
+    raRaidArrayId,
+    raRaidLevel,
+    raSize,
+    raStackId,
+    raVolumeType,
 
-    -- ** App
-    App (..),
-    mkApp,
-    aSSLConfiguration,
-    aEnvironment,
-    aEnableSSL,
-    aCreatedAt,
-    aShortname,
-    aDataSources,
-    aAppSource,
-    aAppId,
-    aAttributes,
-    aName,
-    aType,
-    aStackId,
-    aDomains,
-    aDescription,
-
-    -- ** AutoScalingThresholds
-    AutoScalingThresholds (..),
-    mkAutoScalingThresholds,
-    astInstanceCount,
-    astIgnoreMetricsTime,
-    astLoadThreshold,
-    astThresholdsWaitTime,
-    astAlarms,
-    astMemoryThreshold,
-    astCPUThreshold,
-
-    -- ** BlockDeviceMapping
-    BlockDeviceMapping (..),
-    mkBlockDeviceMapping,
-    bdmVirtualName,
-    bdmNoDevice,
-    bdmEBS,
-    bdmDeviceName,
-
-    -- ** ChefConfiguration
-    ChefConfiguration (..),
-    mkChefConfiguration,
-    ccBerkshelfVersion,
-    ccManageBerkshelf,
+    -- ** ElasticLoadBalancer
+    ElasticLoadBalancer (..),
+    mkElasticLoadBalancer,
+    elbAvailabilityZones,
+    elbDnsName,
+    elbEc2InstanceIds,
+    elbElasticLoadBalancerName,
+    elbLayerId,
+    elbRegion,
+    elbStackId,
+    elbSubnetIds,
+    elbVpcId,
 
     -- ** CloudWatchLogsConfiguration
     CloudWatchLogsConfiguration (..),
@@ -444,363 +409,231 @@ module Network.AWS.OpsWorks
     cwlcEnabled,
     cwlcLogStreams,
 
-    -- ** CloudWatchLogsLogStream
-    CloudWatchLogsLogStream (..),
-    mkCloudWatchLogsLogStream,
-    cwllsBatchCount,
-    cwllsFileFingerprintLines,
-    cwllsBufferDuration,
-    cwllsBatchSize,
-    cwllsLogGroupName,
-    cwllsMultiLineStartPattern,
-    cwllsInitialPosition,
-    cwllsDatetimeFormat,
-    cwllsEncoding,
-    cwllsTimeZone,
-    cwllsFile,
-
-    -- ** Command
-    Command (..),
-    mkCommand,
-    cDeploymentId,
-    cInstanceId,
-    cStatus,
-    cLogURL,
-    cCreatedAt,
-    cCommandId,
-    cExitCode,
-    cType,
-    cCompletedAt,
-    cAcknowledgedAt,
-
-    -- ** DataSource
-    DataSource (..),
-    mkDataSource,
-    dsARN,
-    dsDatabaseName,
-    dsType,
-
-    -- ** Deployment
-    Deployment (..),
-    mkDeployment,
-    dDeploymentId,
-    dStatus,
-    dCommand,
-    dCreatedAt,
-    dCustomJSON,
-    dIAMUserARN,
-    dAppId,
-    dInstanceIds,
-    dCompletedAt,
-    dStackId,
-    dComment,
-    dDuration,
-
-    -- ** DeploymentCommand
-    DeploymentCommand (..),
-    mkDeploymentCommand,
-    dcArgs,
-    dcName,
-
-    -- ** EBSBlockDevice
-    EBSBlockDevice (..),
-    mkEBSBlockDevice,
-    ebdDeleteOnTermination,
-    ebdVolumeSize,
-    ebdIOPS,
-    ebdVolumeType,
-    ebdSnapshotId,
-
-    -- ** EcsCluster
-    EcsCluster (..),
-    mkEcsCluster,
-    ecEcsClusterARN,
-    ecEcsClusterName,
-    ecRegisteredAt,
-    ecStackId,
-
-    -- ** ElasticIP
-    ElasticIP (..),
-    mkElasticIP,
-    eiInstanceId,
-    eiDomain,
-    eiIP,
-    eiName,
-    eiRegion,
-
-    -- ** ElasticLoadBalancer
-    ElasticLoadBalancer (..),
-    mkElasticLoadBalancer,
-    elbSubnetIds,
-    elbVPCId,
-    elbAvailabilityZones,
-    elbRegion,
-    elbElasticLoadBalancerName,
-    elbStackId,
-    elbEC2InstanceIds,
-    elbLayerId,
-    elbDNSName,
-
-    -- ** EnvironmentVariable
-    EnvironmentVariable (..),
-    mkEnvironmentVariable,
-    evSecure,
-    evValue,
-    evKey,
-
-    -- ** Instance
-    Instance (..),
-    mkInstance,
-    iPrivateDNS,
-    iReportedAgentVersion,
-    iInstanceId,
-    iStatus,
-    iPrivateIP,
-    iInstallUpdatesOnBoot,
-    iVirtualizationType,
-    iInstanceProfileARN,
-    iPlatform,
-    iHostname,
-    iSSHHostRsaKeyFingerprint,
-    iSecurityGroupIds,
-    iEcsClusterARN,
-    iARN,
-    iCreatedAt,
-    iEC2InstanceId,
-    iSSHKeyName,
-    iAgentVersion,
-    iRootDeviceVolumeId,
-    iSubnetId,
-    iInfrastructureClass,
-    iSSHHostDsaKeyFingerprint,
-    iInstanceType,
-    iEBSOptimized,
-    iElasticIP,
-    iOS,
-    iAvailabilityZone,
-    iLastServiceErrorId,
-    iTenancy,
-    iAutoScalingType,
-    iLayerIds,
-    iArchitecture,
-    iPublicDNS,
-    iAMIId,
-    iPublicIP,
-    iReportedOS,
-    iRegisteredBy,
-    iStackId,
-    iRootDeviceType,
-    iEcsContainerInstanceARN,
-    iBlockDeviceMappings,
-
-    -- ** InstanceIdentity
-    InstanceIdentity (..),
-    mkInstanceIdentity,
-    iiSignature,
-    iiDocument,
-
-    -- ** InstancesCount
-    InstancesCount (..),
-    mkInstancesCount,
-    icTerminating,
-    icPending,
-    icOnline,
-    icUnassigning,
-    icDeregistering,
-    icRunningSetup,
-    icRequested,
-    icStopFailed,
-    icBooting,
-    icStopped,
-    icRebooting,
-    icAssigning,
-    icShuttingDown,
-    icSetupFailed,
-    icConnectionLost,
-    icTerminated,
-    icStopping,
-    icRegistered,
-    icStartFailed,
-    icRegistering,
-
-    -- ** Layer
-    Layer (..),
-    mkLayer,
-    lCustomInstanceProfileARN,
-    lCustomSecurityGroupIds,
-    lInstallUpdatesOnBoot,
-    lCloudWatchLogsConfiguration,
-    lLifecycleEventConfiguration,
-    lARN,
-    lCreatedAt,
-    lShortname,
-    lDefaultRecipes,
-    lCustomRecipes,
-    lCustomJSON,
-    lVolumeConfigurations,
-    lEnableAutoHealing,
-    lPackages,
-    lAttributes,
-    lName,
-    lAutoAssignPublicIPs,
-    lType,
-    lUseEBSOptimizedInstances,
-    lStackId,
-    lLayerId,
-    lDefaultSecurityGroupNames,
-    lAutoAssignElasticIPs,
+    -- ** Switch
+    Switch (..),
 
     -- ** LifecycleEventConfiguration
     LifecycleEventConfiguration (..),
     mkLifecycleEventConfiguration,
     lecShutdown,
 
+    -- ** RdsDbInstance
+    RdsDbInstance (..),
+    mkRdsDbInstance,
+    rdiAddress,
+    rdiDbInstanceIdentifier,
+    rdiDbPassword,
+    rdiDbUser,
+    rdiEngine,
+    rdiMissingOnRds,
+    rdiRdsDbInstanceArn,
+    rdiRegion,
+    rdiStackId,
+
+    -- ** AppAttributesKeys
+    AppAttributesKeys (..),
+
+    -- ** StackSummary
+    StackSummary (..),
+    mkStackSummary,
+    ssAppsCount,
+    ssArn,
+    ssInstancesCount,
+    ssLayersCount,
+    ssName,
+    ssStackId,
+
+    -- ** BlockDeviceMapping
+    BlockDeviceMapping (..),
+    mkBlockDeviceMapping,
+    bdmDeviceName,
+    bdmEbs,
+    bdmNoDevice,
+    bdmVirtualName,
+
+    -- ** StackAttributesKeys
+    StackAttributesKeys (..),
+
     -- ** LoadBasedAutoScalingConfiguration
     LoadBasedAutoScalingConfiguration (..),
     mkLoadBasedAutoScalingConfiguration,
-    lbascUpScaling,
-    lbascEnable,
     lbascDownScaling,
+    lbascEnable,
     lbascLayerId,
+    lbascUpScaling,
+
+    -- ** String
+    String (..),
+
+    -- ** SourceType
+    SourceType (..),
 
     -- ** OperatingSystem
     OperatingSystem (..),
     mkOperatingSystem,
+    osConfigurationManagers,
+    osId,
+    osName,
+    osReportedName,
     osReportedVersion,
     osSupported,
-    osName,
-    osId,
-    osConfigurationManagers,
     osType,
-    osReportedName,
 
-    -- ** OperatingSystemConfigurationManager
-    OperatingSystemConfigurationManager (..),
-    mkOperatingSystemConfigurationManager,
-    oscmName,
-    oscmVersion,
+    -- ** Volume
+    Volume (..),
+    mkVolume,
+    vAvailabilityZone,
+    vDevice,
+    vEc2VolumeId,
+    vEncrypted,
+    vInstanceId,
+    vIops,
+    vMountPoint,
+    vName,
+    vRaidArrayId,
+    vRegion,
+    vSize,
+    vStatus,
+    vVolumeId,
+    vVolumeType,
 
-    -- ** Permission
-    Permission (..),
-    mkPermission,
-    pIAMUserARN,
-    pAllowSudo,
-    pStackId,
-    pLevel,
-    pAllowSSH,
+    -- ** CloudWatchLogsInitialPosition
+    CloudWatchLogsInitialPosition (..),
 
-    -- ** RAIDArray
-    RAIDArray (..),
-    mkRAIDArray,
-    raiaInstanceId,
-    raiaSize,
-    raiaIOPS,
-    raiaCreatedAt,
-    raiaRAIDLevel,
-    raiaDevice,
-    raiaNumberOfDisks,
-    raiaAvailabilityZone,
-    raiaName,
-    raiaRAIDArrayId,
-    raiaVolumeType,
-    raiaStackId,
-    raiaMountPoint,
+    -- ** ChefConfiguration
+    ChefConfiguration (..),
+    mkChefConfiguration,
+    ccBerkshelfVersion,
+    ccManageBerkshelf,
 
-    -- ** RDSDBInstance
-    RDSDBInstance (..),
-    mkRDSDBInstance,
-    rdiRDSDBInstanceARN,
-    rdiDBUser,
-    rdiMissingOnRDS,
-    rdiEngine,
-    rdiAddress,
-    rdiDBInstanceIdentifier,
-    rdiRegion,
-    rdiStackId,
-    rdiDBPassword,
+    -- ** AgentVersion
+    AgentVersion (..),
+    mkAgentVersion,
+    avConfigurationManager,
+    avVersion,
 
-    -- ** Recipes
-    Recipes (..),
-    mkRecipes,
-    rSetup,
-    rShutdown,
-    rUndeploy,
-    rConfigure,
-    rDeploy,
+    -- ** LayerType
+    LayerType (..),
 
-    -- ** ReportedOS
-    ReportedOS (..),
-    mkReportedOS,
-    roFamily,
-    roName,
-    roVersion,
+    -- ** AutoScalingThresholds
+    AutoScalingThresholds (..),
+    mkAutoScalingThresholds,
+    astAlarms,
+    astCpuThreshold,
+    astIgnoreMetricsTime,
+    astInstanceCount,
+    astLoadThreshold,
+    astMemoryThreshold,
+    astThresholdsWaitTime,
 
-    -- ** SSLConfiguration
-    SSLConfiguration (..),
-    mkSSLConfiguration,
-    scPrivateKey,
-    scCertificate,
-    scChain,
+    -- ** TagValue
+    TagValue (..),
 
-    -- ** SelfUserProfile
-    SelfUserProfile (..),
-    mkSelfUserProfile,
-    supSSHPublicKey,
-    supSSHUsername,
-    supIAMUserARN,
-    supName,
+    -- ** App
+    App (..),
+    mkApp,
+    aAppId,
+    aAppSource,
+    aAttributes,
+    aCreatedAt,
+    aDataSources,
+    aDescription,
+    aDomains,
+    aEnableSsl,
+    aEnvironment,
+    aName,
+    aShortname,
+    aSslConfiguration,
+    aStackId,
+    aType,
 
-    -- ** ServiceError'
-    ServiceError' (..),
-    mkServiceError',
-    seInstanceId,
-    seCreatedAt,
-    seServiceErrorId,
-    seType,
-    seStackId,
-    seMessage,
+    -- ** ElasticIp
+    ElasticIp (..),
+    mkElasticIp,
+    eiDomain,
+    eiInstanceId,
+    eiIp,
+    eiName,
+    eiRegion,
+
+    -- ** CloudWatchLogsEncoding
+    CloudWatchLogsEncoding (..),
+
+    -- ** NextToken
+    NextToken (..),
 
     -- ** ShutdownEventConfiguration
     ShutdownEventConfiguration (..),
     mkShutdownEventConfiguration,
-    secExecutionTimeout,
     secDelayUntilElbConnectionsDrained,
+    secExecutionTimeout,
+
+    -- ** CloudWatchLogsTimeZone
+    CloudWatchLogsTimeZone (..),
+
+    -- ** CloudWatchLogsLogStream
+    CloudWatchLogsLogStream (..),
+    mkCloudWatchLogsLogStream,
+    cwllsBatchCount,
+    cwllsBatchSize,
+    cwllsBufferDuration,
+    cwllsDatetimeFormat,
+    cwllsEncoding,
+    cwllsFile,
+    cwllsFileFingerprintLines,
+    cwllsInitialPosition,
+    cwllsLogGroupName,
+    cwllsMultiLineStartPattern,
+    cwllsTimeZone,
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** EcsCluster
+    EcsCluster (..),
+    mkEcsCluster,
+    ecEcsClusterArn,
+    ecEcsClusterName,
+    ecRegisteredAt,
+    ecStackId,
+
+    -- ** InstanceIdentity
+    InstanceIdentity (..),
+    mkInstanceIdentity,
+    iiDocument,
+    iiSignature,
+
+    -- ** UserProfile
+    UserProfile (..),
+    mkUserProfile,
+    upAllowSelfManagement,
+    upIamUserArn,
+    upName,
+    upSshPublicKey,
+    upSshUsername,
+
+    -- ** AutoScalingType
+    AutoScalingType (..),
 
     -- ** Source
     Source (..),
     mkSource,
-    sURL,
-    sUsername,
-    sSSHKey,
     sPassword,
-    sType,
     sRevision,
+    sSshKey,
+    sType,
+    sUrl,
+    sUsername,
 
-    -- ** Stack
-    Stack (..),
-    mkStack,
-    sfDefaultInstanceProfileARN,
-    sfServiceRoleARN,
-    sfDefaultRootDeviceType,
-    sfARN,
-    sfCreatedAt,
-    sfVPCId,
-    sfChefConfiguration,
-    sfAgentVersion,
-    sfDefaultSSHKeyName,
-    sfCustomJSON,
-    sfCustomCookbooksSource,
-    sfDefaultAvailabilityZone,
-    sfAttributes,
-    sfName,
-    sfDefaultOS,
-    sfUseOpsworksSecurityGroups,
-    sfUseCustomCookbooks,
-    sfDefaultSubnetId,
-    sfRegion,
-    sfConfigurationManager,
-    sfStackId,
-    sfHostnameTheme,
+    -- ** DataSource
+    DataSource (..),
+    mkDataSource,
+    dsArn,
+    dsDatabaseName,
+    dsType,
+
+    -- ** Architecture
+    Architecture (..),
 
     -- ** StackConfigurationManager
     StackConfigurationManager (..),
@@ -808,94 +641,426 @@ module Network.AWS.OpsWorks
     scmName,
     scmVersion,
 
-    -- ** StackSummary
-    StackSummary (..),
-    mkStackSummary,
-    sARN,
-    sAppsCount,
-    sName,
-    sStackId,
-    sLayersCount,
-    sInstancesCount,
+    -- ** EbsBlockDevice
+    EbsBlockDevice (..),
+    mkEbsBlockDevice,
+    ebdDeleteOnTermination,
+    ebdIops,
+    ebdSnapshotId,
+    ebdVolumeSize,
+    ebdVolumeType,
+
+    -- ** ServiceError'
+    ServiceError' (..),
+    mkServiceError',
+    seCreatedAt,
+    seInstanceId,
+    seMessage,
+    seServiceErrorId,
+    seStackId,
+    seType,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Hour
+    Hour (..),
+
+    -- ** LayerAttributesKeys
+    LayerAttributesKeys (..),
 
     -- ** TemporaryCredential
     TemporaryCredential (..),
     mkTemporaryCredential,
     tcInstanceId,
-    tcUsername,
     tcPassword,
+    tcUsername,
     tcValidForInMinutes,
-
-    -- ** TimeBasedAutoScalingConfiguration
-    TimeBasedAutoScalingConfiguration (..),
-    mkTimeBasedAutoScalingConfiguration,
-    tbascInstanceId,
-    tbascAutoScalingSchedule,
-
-    -- ** UserProfile
-    UserProfile (..),
-    mkUserProfile,
-    upAllowSelfManagement,
-    upSSHPublicKey,
-    upSSHUsername,
-    upIAMUserARN,
-    upName,
-
-    -- ** Volume
-    Volume (..),
-    mkVolume,
-    vInstanceId,
-    vStatus,
-    vSize,
-    vIOPS,
-    vDevice,
-    vEncrypted,
-    vAvailabilityZone,
-    vName,
-    vRAIDArrayId,
-    vVolumeId,
-    vRegion,
-    vVolumeType,
-    vEC2VolumeId,
-    vMountPoint,
 
     -- ** VolumeConfiguration
     VolumeConfiguration (..),
     mkVolumeConfiguration,
-    vcSize,
-    vcIOPS,
-    vcRAIDLevel,
-    vcEncrypted,
-    vcNumberOfDisks,
-    vcVolumeType,
     vcMountPoint,
+    vcNumberOfDisks,
+    vcSize,
+    vcEncrypted,
+    vcIops,
+    vcRaidLevel,
+    vcVolumeType,
+
+    -- ** VolumeType
+    VolumeType (..),
+
+    -- ** ReportedOs
+    ReportedOs (..),
+    mkReportedOs,
+    roFamily,
+    roName,
+    roVersion,
+
+    -- ** Permission
+    Permission (..),
+    mkPermission,
+    pAllowSsh,
+    pAllowSudo,
+    pIamUserArn,
+    pLevel,
+    pStackId,
+
+    -- ** EnvironmentVariable
+    EnvironmentVariable (..),
+    mkEnvironmentVariable,
+    evKey,
+    evValue,
+    evSecure,
+
+    -- ** OperatingSystemConfigurationManager
+    OperatingSystemConfigurationManager (..),
+    mkOperatingSystemConfigurationManager,
+    oscmName,
+    oscmVersion,
+
+    -- ** Layer
+    Layer (..),
+    mkLayer,
+    lArn,
+    lAttributes,
+    lAutoAssignElasticIps,
+    lAutoAssignPublicIps,
+    lCloudWatchLogsConfiguration,
+    lCreatedAt,
+    lCustomInstanceProfileArn,
+    lCustomJson,
+    lCustomRecipes,
+    lCustomSecurityGroupIds,
+    lDefaultRecipes,
+    lDefaultSecurityGroupNames,
+    lEnableAutoHealing,
+    lInstallUpdatesOnBoot,
+    lLayerId,
+    lLifecycleEventConfiguration,
+    lName,
+    lPackages,
+    lShortname,
+    lStackId,
+    lType,
+    lUseEbsOptimizedInstances,
+    lVolumeConfigurations,
+
+    -- ** Recipes
+    Recipes (..),
+    mkRecipes,
+    rConfigure,
+    rDeploy,
+    rSetup,
+    rShutdown,
+    rUndeploy,
+
+    -- ** TimeBasedAutoScalingConfiguration
+    TimeBasedAutoScalingConfiguration (..),
+    mkTimeBasedAutoScalingConfiguration,
+    tbascAutoScalingSchedule,
+    tbascInstanceId,
+
+    -- ** SelfUserProfile
+    SelfUserProfile (..),
+    mkSelfUserProfile,
+    supIamUserArn,
+    supName,
+    supSshPublicKey,
+    supSshUsername,
+
+    -- ** RootDeviceType
+    RootDeviceType (..),
+
+    -- ** Stack
+    Stack (..),
+    mkStack,
+    sAgentVersion,
+    sArn,
+    sAttributes,
+    sChefConfiguration,
+    sConfigurationManager,
+    sCreatedAt,
+    sCustomCookbooksSource,
+    sCustomJson,
+    sDefaultAvailabilityZone,
+    sDefaultInstanceProfileArn,
+    sDefaultOs,
+    sDefaultRootDeviceType,
+    sDefaultSshKeyName,
+    sDefaultSubnetId,
+    sHostnameTheme,
+    sName,
+    sRegion,
+    sServiceRoleArn,
+    sStackId,
+    sUseCustomCookbooks,
+    sUseOpsworksSecurityGroups,
+    sVpcId,
+
+    -- ** DeploymentCommand
+    DeploymentCommand (..),
+    mkDeploymentCommand,
+    dcName,
+    dcArgs,
 
     -- ** WeeklyAutoScalingSchedule
     WeeklyAutoScalingSchedule (..),
     mkWeeklyAutoScalingSchedule,
-    wassThursday,
-    wassWednesday,
-    wassSaturday,
-    wassMonday,
     wassFriday,
+    wassMonday,
+    wassSaturday,
     wassSunday,
+    wassThursday,
     wassTuesday,
+    wassWednesday,
+
+    -- ** DeploymentCommandName
+    DeploymentCommandName (..),
+
+    -- ** DateTime
+    DateTime (..),
+
+    -- ** Instance
+    Instance (..),
+    mkInstance,
+    iAgentVersion,
+    iAmiId,
+    iArchitecture,
+    iArn,
+    iAutoScalingType,
+    iAvailabilityZone,
+    iBlockDeviceMappings,
+    iCreatedAt,
+    iEbsOptimized,
+    iEc2InstanceId,
+    iEcsClusterArn,
+    iEcsContainerInstanceArn,
+    iElasticIp,
+    iHostname,
+    iInfrastructureClass,
+    iInstallUpdatesOnBoot,
+    iInstanceId,
+    iInstanceProfileArn,
+    iInstanceType,
+    iLastServiceErrorId,
+    iLayerIds,
+    iOs,
+    iPlatform,
+    iPrivateDns,
+    iPrivateIp,
+    iPublicDns,
+    iPublicIp,
+    iRegisteredBy,
+    iReportedAgentVersion,
+    iReportedOs,
+    iRootDeviceType,
+    iRootDeviceVolumeId,
+    iSecurityGroupIds,
+    iSshHostDsaKeyFingerprint,
+    iSshHostRsaKeyFingerprint,
+    iSshKeyName,
+    iStackId,
+    iStatus,
+    iSubnetId,
+    iTenancy,
+    iVirtualizationType,
+
+    -- ** Deployment
+    Deployment (..),
+    mkDeployment,
+    dAppId,
+    dCommand,
+    dComment,
+    dCompletedAt,
+    dCreatedAt,
+    dCustomJson,
+    dDeploymentId,
+    dDuration,
+    dIamUserArn,
+    dInstanceIds,
+    dStackId,
+    dStatus,
+
+    -- ** InstancesCount
+    InstancesCount (..),
+    mkInstancesCount,
+    icAssigning,
+    icBooting,
+    icConnectionLost,
+    icDeregistering,
+    icOnline,
+    icPending,
+    icRebooting,
+    icRegistered,
+    icRegistering,
+    icRequested,
+    icRunningSetup,
+    icSetupFailed,
+    icShuttingDown,
+    icStartFailed,
+    icStopFailed,
+    icStopped,
+    icStopping,
+    icTerminated,
+    icTerminating,
+    icUnassigning,
+
+    -- ** AppType
+    AppType (..),
+
+    -- ** StackId
+    StackId (..),
+
+    -- ** DeploymentId
+    DeploymentId (..),
+
+    -- ** InstanceId
+    InstanceId (..),
+
+    -- ** AppId
+    AppId (..),
+
+    -- ** Comment
+    Comment (..),
+
+    -- ** CustomJson
+    CustomJson (..),
+
+    -- ** Certificate
+    Certificate (..),
+
+    -- ** PrivateKey
+    PrivateKey (..),
+
+    -- ** Chain
+    Chain (..),
+
+    -- ** InstanceType
+    InstanceType (..),
+
+    -- ** AmiId
+    AmiId (..),
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+
+    -- ** Hostname
+    Hostname (..),
+
+    -- ** Os
+    Os (..),
+
+    -- ** SshKeyName
+    SshKeyName (..),
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** Tenancy
+    Tenancy (..),
+
+    -- ** AcknowledgedAt
+    AcknowledgedAt (..),
+
+    -- ** CommandId
+    CommandId (..),
+
+    -- ** CompletedAt
+    CompletedAt (..),
+
+    -- ** CreatedAt
+    CreatedAt (..),
+
+    -- ** LogUrl
+    LogUrl (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** Type
+    Type (..),
+
+    -- ** RaidArrayId
+    RaidArrayId (..),
+
+    -- ** Device
+    Device (..),
+
+    -- ** MountPoint
+    MountPoint (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** IamUserArn
+    IamUserArn (..),
+
+    -- ** DnsName
+    DnsName (..),
+
+    -- ** ElasticLoadBalancerName
+    ElasticLoadBalancerName (..),
+
+    -- ** LayerId
+    LayerId (..),
+
+    -- ** Region
+    Region (..),
+
+    -- ** VpcId
+    VpcId (..),
+
+    -- ** EcsClusterArn
+    EcsClusterArn (..),
+
+    -- ** RdsDbInstanceArn
+    RdsDbInstanceArn (..),
+
+    -- ** DbPassword
+    DbPassword (..),
+
+    -- ** DbUser
+    DbUser (..),
+
+    -- ** Address
+    Address (..),
+
+    -- ** DbInstanceIdentifier
+    DbInstanceIdentifier (..),
+
+    -- ** Engine
+    Engine (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** DeviceName
+    DeviceName (..),
+
+    -- ** NoDevice
+    NoDevice (..),
+
+    -- ** VirtualName
+    VirtualName (..),
+
+    -- ** RegisteredAt
+    RegisteredAt (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
 import Network.AWS.OpsWorks.AssignInstance
 import Network.AWS.OpsWorks.AssignVolume
-import Network.AWS.OpsWorks.AssociateElasticIP
+import Network.AWS.OpsWorks.AssociateElasticIp
 import Network.AWS.OpsWorks.AttachElasticLoadBalancer
 import Network.AWS.OpsWorks.CloneStack
 import Network.AWS.OpsWorks.CreateApp
@@ -910,16 +1075,16 @@ import Network.AWS.OpsWorks.DeleteLayer
 import Network.AWS.OpsWorks.DeleteStack
 import Network.AWS.OpsWorks.DeleteUserProfile
 import Network.AWS.OpsWorks.DeregisterEcsCluster
-import Network.AWS.OpsWorks.DeregisterElasticIP
+import Network.AWS.OpsWorks.DeregisterElasticIp
 import Network.AWS.OpsWorks.DeregisterInstance
-import Network.AWS.OpsWorks.DeregisterRDSDBInstance
+import Network.AWS.OpsWorks.DeregisterRdsDbInstance
 import Network.AWS.OpsWorks.DeregisterVolume
 import Network.AWS.OpsWorks.DescribeAgentVersions
 import Network.AWS.OpsWorks.DescribeApps
 import Network.AWS.OpsWorks.DescribeCommands
 import Network.AWS.OpsWorks.DescribeDeployments
 import Network.AWS.OpsWorks.DescribeEcsClusters
-import Network.AWS.OpsWorks.DescribeElasticIPs
+import Network.AWS.OpsWorks.DescribeElasticIps
 import Network.AWS.OpsWorks.DescribeElasticLoadBalancers
 import Network.AWS.OpsWorks.DescribeInstances
 import Network.AWS.OpsWorks.DescribeLayers
@@ -927,8 +1092,8 @@ import Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
 import Network.AWS.OpsWorks.DescribeMyUserProfile
 import Network.AWS.OpsWorks.DescribeOperatingSystems
 import Network.AWS.OpsWorks.DescribePermissions
-import Network.AWS.OpsWorks.DescribeRAIDArrays
-import Network.AWS.OpsWorks.DescribeRDSDBInstances
+import Network.AWS.OpsWorks.DescribeRaidArrays
+import Network.AWS.OpsWorks.DescribeRdsDbInstances
 import Network.AWS.OpsWorks.DescribeServiceErrors
 import Network.AWS.OpsWorks.DescribeStackProvisioningParameters
 import Network.AWS.OpsWorks.DescribeStackSummary
@@ -937,15 +1102,15 @@ import Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
 import Network.AWS.OpsWorks.DescribeUserProfiles
 import Network.AWS.OpsWorks.DescribeVolumes
 import Network.AWS.OpsWorks.DetachElasticLoadBalancer
-import Network.AWS.OpsWorks.DisassociateElasticIP
+import Network.AWS.OpsWorks.DisassociateElasticIp
 import Network.AWS.OpsWorks.GetHostnameSuggestion
 import Network.AWS.OpsWorks.GrantAccess
 import Network.AWS.OpsWorks.ListTags
 import Network.AWS.OpsWorks.RebootInstance
 import Network.AWS.OpsWorks.RegisterEcsCluster
-import Network.AWS.OpsWorks.RegisterElasticIP
+import Network.AWS.OpsWorks.RegisterElasticIp
 import Network.AWS.OpsWorks.RegisterInstance
-import Network.AWS.OpsWorks.RegisterRDSDBInstance
+import Network.AWS.OpsWorks.RegisterRdsDbInstance
 import Network.AWS.OpsWorks.RegisterVolume
 import Network.AWS.OpsWorks.SetLoadBasedAutoScaling
 import Network.AWS.OpsWorks.SetPermission
@@ -960,11 +1125,11 @@ import Network.AWS.OpsWorks.UnassignInstance
 import Network.AWS.OpsWorks.UnassignVolume
 import Network.AWS.OpsWorks.UntagResource
 import Network.AWS.OpsWorks.UpdateApp
-import Network.AWS.OpsWorks.UpdateElasticIP
+import Network.AWS.OpsWorks.UpdateElasticIp
 import Network.AWS.OpsWorks.UpdateInstance
 import Network.AWS.OpsWorks.UpdateLayer
 import Network.AWS.OpsWorks.UpdateMyUserProfile
-import Network.AWS.OpsWorks.UpdateRDSDBInstance
+import Network.AWS.OpsWorks.UpdateRdsDbInstance
 import Network.AWS.OpsWorks.UpdateStack
 import Network.AWS.OpsWorks.UpdateUserProfile
 import Network.AWS.OpsWorks.UpdateVolume

@@ -22,7 +22,7 @@ module Network.AWS.SNS.DeleteEndpoint
     mkDeleteEndpoint,
 
     -- ** Request lenses
-    deEndpointARN,
+    deEndpointArn,
 
     -- * Destructuring the response
     DeleteEndpointResponse (..),
@@ -31,63 +31,63 @@ module Network.AWS.SNS.DeleteEndpoint
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | Input for DeleteEndpoint action.
 --
 -- /See:/ 'mkDeleteEndpoint' smart constructor.
 newtype DeleteEndpoint = DeleteEndpoint'
   { -- | EndpointArn of endpoint to delete.
-    endpointARN :: Lude.Text
+    endpointArn :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEndpoint' with the minimum fields required to make a request.
---
--- * 'endpointARN' - EndpointArn of endpoint to delete.
+-- | Creates a 'DeleteEndpoint' value with any optional fields omitted.
 mkDeleteEndpoint ::
-  -- | 'endpointARN'
-  Lude.Text ->
+  -- | 'endpointArn'
+  Types.String ->
   DeleteEndpoint
-mkDeleteEndpoint pEndpointARN_ =
-  DeleteEndpoint' {endpointARN = pEndpointARN_}
+mkDeleteEndpoint endpointArn = DeleteEndpoint' {endpointArn}
 
 -- | EndpointArn of endpoint to delete.
 --
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEndpointARN :: Lens.Lens' DeleteEndpoint Lude.Text
-deEndpointARN = Lens.lens (endpointARN :: DeleteEndpoint -> Lude.Text) (\s a -> s {endpointARN = a} :: DeleteEndpoint)
-{-# DEPRECATED deEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
+-- /Note:/ Consider using 'endpointArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deEndpointArn :: Lens.Lens' DeleteEndpoint Types.String
+deEndpointArn = Lens.field @"endpointArn"
+{-# DEPRECATED deEndpointArn "Use generic-lens or generic-optics with 'endpointArn' instead." #-}
 
-instance Lude.AWSRequest DeleteEndpoint where
+instance Core.AWSRequest DeleteEndpoint where
   type Rs DeleteEndpoint = DeleteEndpointResponse
-  request = Req.postQuery snsService
-  response = Res.receiveNull DeleteEndpointResponse'
-
-instance Lude.ToHeaders DeleteEndpoint where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteEndpoint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteEndpoint where
-  toQuery DeleteEndpoint' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteEndpoint" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "EndpointArn" Lude.=: endpointARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteEndpoint")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "EndpointArn" endpointArn)
+            )
+      }
+  response = Response.receiveNull DeleteEndpointResponse'
 
 -- | /See:/ 'mkDeleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse = DeleteEndpointResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEndpointResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteEndpointResponse' value with any optional fields omitted.
 mkDeleteEndpointResponse ::
   DeleteEndpointResponse
 mkDeleteEndpointResponse = DeleteEndpointResponse'

@@ -17,126 +17,119 @@ module Network.AWS.CodeDeploy.Types.InstanceTarget
     mkInstanceTarget,
 
     -- * Lenses
-    itTargetARN,
-    itTargetId,
-    itStatus,
     itDeploymentId,
     itInstanceLabel,
     itLastUpdatedAt,
     itLifecycleEvents,
+    itStatus,
+    itTargetArn,
+    itTargetId,
   )
 where
 
-import Network.AWS.CodeDeploy.Types.LifecycleEvent
-import Network.AWS.CodeDeploy.Types.TargetLabel
-import Network.AWS.CodeDeploy.Types.TargetStatus
+import qualified Network.AWS.CodeDeploy.Types.DeploymentId as Types
+import qualified Network.AWS.CodeDeploy.Types.LifecycleEvent as Types
+import qualified Network.AWS.CodeDeploy.Types.TargetArn as Types
+import qualified Network.AWS.CodeDeploy.Types.TargetId as Types
+import qualified Network.AWS.CodeDeploy.Types.TargetLabel as Types
+import qualified Network.AWS.CodeDeploy.Types.TargetStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A target Amazon EC2 or on-premises instance during a deployment that uses the EC2/On-premises compute platform.
 --
 -- /See:/ 'mkInstanceTarget' smart constructor.
 data InstanceTarget = InstanceTarget'
-  { -- | The Amazon Resource Name (ARN) of the target.
-    targetARN :: Lude.Maybe Lude.Text,
-    -- | The unique ID of a deployment target that has a type of @instanceTarget@ .
-    targetId :: Lude.Maybe Lude.Text,
-    -- | The status an EC2/On-premises deployment's target instance.
-    status :: Lude.Maybe TargetStatus,
-    -- | The unique ID of a deployment.
-    deploymentId :: Lude.Maybe Lude.Text,
+  { -- | The unique ID of a deployment.
+    deploymentId :: Core.Maybe Types.DeploymentId,
     -- | A label that identifies whether the instance is an original target (@BLUE@ ) or a replacement target (@GREEN@ ).
-    instanceLabel :: Lude.Maybe TargetLabel,
+    instanceLabel :: Core.Maybe Types.TargetLabel,
     -- | The date and time when the target instance was updated by a deployment.
-    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+    lastUpdatedAt :: Core.Maybe Core.NominalDiffTime,
     -- | The lifecycle events of the deployment to this target instance.
-    lifecycleEvents :: Lude.Maybe [LifecycleEvent]
+    lifecycleEvents :: Core.Maybe [Types.LifecycleEvent],
+    -- | The status an EC2/On-premises deployment's target instance.
+    status :: Core.Maybe Types.TargetStatus,
+    -- | The Amazon Resource Name (ARN) of the target.
+    targetArn :: Core.Maybe Types.TargetArn,
+    -- | The unique ID of a deployment target that has a type of @instanceTarget@ .
+    targetId :: Core.Maybe Types.TargetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceTarget' with the minimum fields required to make a request.
---
--- * 'targetARN' - The Amazon Resource Name (ARN) of the target.
--- * 'targetId' - The unique ID of a deployment target that has a type of @instanceTarget@ .
--- * 'status' - The status an EC2/On-premises deployment's target instance.
--- * 'deploymentId' - The unique ID of a deployment.
--- * 'instanceLabel' - A label that identifies whether the instance is an original target (@BLUE@ ) or a replacement target (@GREEN@ ).
--- * 'lastUpdatedAt' - The date and time when the target instance was updated by a deployment.
--- * 'lifecycleEvents' - The lifecycle events of the deployment to this target instance.
+-- | Creates a 'InstanceTarget' value with any optional fields omitted.
 mkInstanceTarget ::
   InstanceTarget
 mkInstanceTarget =
   InstanceTarget'
-    { targetARN = Lude.Nothing,
-      targetId = Lude.Nothing,
-      status = Lude.Nothing,
-      deploymentId = Lude.Nothing,
-      instanceLabel = Lude.Nothing,
-      lastUpdatedAt = Lude.Nothing,
-      lifecycleEvents = Lude.Nothing
+    { deploymentId = Core.Nothing,
+      instanceLabel = Core.Nothing,
+      lastUpdatedAt = Core.Nothing,
+      lifecycleEvents = Core.Nothing,
+      status = Core.Nothing,
+      targetArn = Core.Nothing,
+      targetId = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the target.
---
--- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itTargetARN :: Lens.Lens' InstanceTarget (Lude.Maybe Lude.Text)
-itTargetARN = Lens.lens (targetARN :: InstanceTarget -> Lude.Maybe Lude.Text) (\s a -> s {targetARN = a} :: InstanceTarget)
-{-# DEPRECATED itTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
-
--- | The unique ID of a deployment target that has a type of @instanceTarget@ .
---
--- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itTargetId :: Lens.Lens' InstanceTarget (Lude.Maybe Lude.Text)
-itTargetId = Lens.lens (targetId :: InstanceTarget -> Lude.Maybe Lude.Text) (\s a -> s {targetId = a} :: InstanceTarget)
-{-# DEPRECATED itTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
-
--- | The status an EC2/On-premises deployment's target instance.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itStatus :: Lens.Lens' InstanceTarget (Lude.Maybe TargetStatus)
-itStatus = Lens.lens (status :: InstanceTarget -> Lude.Maybe TargetStatus) (\s a -> s {status = a} :: InstanceTarget)
-{-# DEPRECATED itStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique ID of a deployment.
 --
 -- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itDeploymentId :: Lens.Lens' InstanceTarget (Lude.Maybe Lude.Text)
-itDeploymentId = Lens.lens (deploymentId :: InstanceTarget -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: InstanceTarget)
+itDeploymentId :: Lens.Lens' InstanceTarget (Core.Maybe Types.DeploymentId)
+itDeploymentId = Lens.field @"deploymentId"
 {-# DEPRECATED itDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | A label that identifies whether the instance is an original target (@BLUE@ ) or a replacement target (@GREEN@ ).
 --
 -- /Note:/ Consider using 'instanceLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itInstanceLabel :: Lens.Lens' InstanceTarget (Lude.Maybe TargetLabel)
-itInstanceLabel = Lens.lens (instanceLabel :: InstanceTarget -> Lude.Maybe TargetLabel) (\s a -> s {instanceLabel = a} :: InstanceTarget)
+itInstanceLabel :: Lens.Lens' InstanceTarget (Core.Maybe Types.TargetLabel)
+itInstanceLabel = Lens.field @"instanceLabel"
 {-# DEPRECATED itInstanceLabel "Use generic-lens or generic-optics with 'instanceLabel' instead." #-}
 
 -- | The date and time when the target instance was updated by a deployment.
 --
 -- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itLastUpdatedAt :: Lens.Lens' InstanceTarget (Lude.Maybe Lude.Timestamp)
-itLastUpdatedAt = Lens.lens (lastUpdatedAt :: InstanceTarget -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: InstanceTarget)
+itLastUpdatedAt :: Lens.Lens' InstanceTarget (Core.Maybe Core.NominalDiffTime)
+itLastUpdatedAt = Lens.field @"lastUpdatedAt"
 {-# DEPRECATED itLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | The lifecycle events of the deployment to this target instance.
 --
 -- /Note:/ Consider using 'lifecycleEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itLifecycleEvents :: Lens.Lens' InstanceTarget (Lude.Maybe [LifecycleEvent])
-itLifecycleEvents = Lens.lens (lifecycleEvents :: InstanceTarget -> Lude.Maybe [LifecycleEvent]) (\s a -> s {lifecycleEvents = a} :: InstanceTarget)
+itLifecycleEvents :: Lens.Lens' InstanceTarget (Core.Maybe [Types.LifecycleEvent])
+itLifecycleEvents = Lens.field @"lifecycleEvents"
 {-# DEPRECATED itLifecycleEvents "Use generic-lens or generic-optics with 'lifecycleEvents' instead." #-}
 
-instance Lude.FromJSON InstanceTarget where
+-- | The status an EC2/On-premises deployment's target instance.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itStatus :: Lens.Lens' InstanceTarget (Core.Maybe Types.TargetStatus)
+itStatus = Lens.field @"status"
+{-# DEPRECATED itStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the target.
+--
+-- /Note:/ Consider using 'targetArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itTargetArn :: Lens.Lens' InstanceTarget (Core.Maybe Types.TargetArn)
+itTargetArn = Lens.field @"targetArn"
+{-# DEPRECATED itTargetArn "Use generic-lens or generic-optics with 'targetArn' instead." #-}
+
+-- | The unique ID of a deployment target that has a type of @instanceTarget@ .
+--
+-- /Note:/ Consider using 'targetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itTargetId :: Lens.Lens' InstanceTarget (Core.Maybe Types.TargetId)
+itTargetId = Lens.field @"targetId"
+{-# DEPRECATED itTargetId "Use generic-lens or generic-optics with 'targetId' instead." #-}
+
+instance Core.FromJSON InstanceTarget where
   parseJSON =
-    Lude.withObject
-      "InstanceTarget"
-      ( \x ->
-          InstanceTarget'
-            Lude.<$> (x Lude..:? "targetArn")
-            Lude.<*> (x Lude..:? "targetId")
-            Lude.<*> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "deploymentId")
-            Lude.<*> (x Lude..:? "instanceLabel")
-            Lude.<*> (x Lude..:? "lastUpdatedAt")
-            Lude.<*> (x Lude..:? "lifecycleEvents" Lude..!= Lude.mempty)
-      )
+    Core.withObject "InstanceTarget" Core.$
+      \x ->
+        InstanceTarget'
+          Core.<$> (x Core..:? "deploymentId")
+          Core.<*> (x Core..:? "instanceLabel")
+          Core.<*> (x Core..:? "lastUpdatedAt")
+          Core.<*> (x Core..:? "lifecycleEvents")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "targetArn")
+          Core.<*> (x Core..:? "targetId")

@@ -24,105 +24,95 @@ module Network.AWS.Lightsail.DownloadDefaultKeyPair
     mkDownloadDefaultKeyPairResponse,
 
     -- ** Response lenses
-    ddkprsPublicKeyBase64,
-    ddkprsPrivateKeyBase64,
-    ddkprsResponseStatus,
+    ddkprrsPrivateKeyBase64,
+    ddkprrsPublicKeyBase64,
+    ddkprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDownloadDefaultKeyPair' smart constructor.
 data DownloadDefaultKeyPair = DownloadDefaultKeyPair'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DownloadDefaultKeyPair' with the minimum fields required to make a request.
+-- | Creates a 'DownloadDefaultKeyPair' value with any optional fields omitted.
 mkDownloadDefaultKeyPair ::
   DownloadDefaultKeyPair
 mkDownloadDefaultKeyPair = DownloadDefaultKeyPair'
 
-instance Lude.AWSRequest DownloadDefaultKeyPair where
+instance Core.FromJSON DownloadDefaultKeyPair where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DownloadDefaultKeyPair where
   type Rs DownloadDefaultKeyPair = DownloadDefaultKeyPairResponse
-  request = Req.postJSON lightsailService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.DownloadDefaultKeyPair")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DownloadDefaultKeyPairResponse'
-            Lude.<$> (x Lude..?> "publicKeyBase64")
-            Lude.<*> (x Lude..?> "privateKeyBase64")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "privateKeyBase64")
+            Core.<*> (x Core..:? "publicKeyBase64")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DownloadDefaultKeyPair where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.DownloadDefaultKeyPair" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DownloadDefaultKeyPair where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DownloadDefaultKeyPair where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DownloadDefaultKeyPair where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDownloadDefaultKeyPairResponse' smart constructor.
 data DownloadDefaultKeyPairResponse = DownloadDefaultKeyPairResponse'
-  { -- | A base64-encoded public key of the @ssh-rsa@ type.
-    publicKeyBase64 :: Lude.Maybe Lude.Text,
-    -- | A base64-encoded RSA private key.
-    privateKeyBase64 :: Lude.Maybe Lude.Text,
+  { -- | A base64-encoded RSA private key.
+    privateKeyBase64 :: Core.Maybe Types.PrivateKeyBase64,
+    -- | A base64-encoded public key of the @ssh-rsa@ type.
+    publicKeyBase64 :: Core.Maybe Types.PublicKeyBase64,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DownloadDefaultKeyPairResponse' with the minimum fields required to make a request.
---
--- * 'publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
--- * 'privateKeyBase64' - A base64-encoded RSA private key.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DownloadDefaultKeyPairResponse' value with any optional fields omitted.
 mkDownloadDefaultKeyPairResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DownloadDefaultKeyPairResponse
-mkDownloadDefaultKeyPairResponse pResponseStatus_ =
+mkDownloadDefaultKeyPairResponse responseStatus =
   DownloadDefaultKeyPairResponse'
-    { publicKeyBase64 = Lude.Nothing,
-      privateKeyBase64 = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { privateKeyBase64 = Core.Nothing,
+      publicKeyBase64 = Core.Nothing,
+      responseStatus
     }
-
--- | A base64-encoded public key of the @ssh-rsa@ type.
---
--- /Note:/ Consider using 'publicKeyBase64' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddkprsPublicKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Lude.Maybe Lude.Text)
-ddkprsPublicKeyBase64 = Lens.lens (publicKeyBase64 :: DownloadDefaultKeyPairResponse -> Lude.Maybe Lude.Text) (\s a -> s {publicKeyBase64 = a} :: DownloadDefaultKeyPairResponse)
-{-# DEPRECATED ddkprsPublicKeyBase64 "Use generic-lens or generic-optics with 'publicKeyBase64' instead." #-}
 
 -- | A base64-encoded RSA private key.
 --
 -- /Note:/ Consider using 'privateKeyBase64' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddkprsPrivateKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Lude.Maybe Lude.Text)
-ddkprsPrivateKeyBase64 = Lens.lens (privateKeyBase64 :: DownloadDefaultKeyPairResponse -> Lude.Maybe Lude.Text) (\s a -> s {privateKeyBase64 = a} :: DownloadDefaultKeyPairResponse)
-{-# DEPRECATED ddkprsPrivateKeyBase64 "Use generic-lens or generic-optics with 'privateKeyBase64' instead." #-}
+ddkprrsPrivateKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Core.Maybe Types.PrivateKeyBase64)
+ddkprrsPrivateKeyBase64 = Lens.field @"privateKeyBase64"
+{-# DEPRECATED ddkprrsPrivateKeyBase64 "Use generic-lens or generic-optics with 'privateKeyBase64' instead." #-}
+
+-- | A base64-encoded public key of the @ssh-rsa@ type.
+--
+-- /Note:/ Consider using 'publicKeyBase64' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddkprrsPublicKeyBase64 :: Lens.Lens' DownloadDefaultKeyPairResponse (Core.Maybe Types.PublicKeyBase64)
+ddkprrsPublicKeyBase64 = Lens.field @"publicKeyBase64"
+{-# DEPRECATED ddkprrsPublicKeyBase64 "Use generic-lens or generic-optics with 'publicKeyBase64' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddkprsResponseStatus :: Lens.Lens' DownloadDefaultKeyPairResponse Lude.Int
-ddkprsResponseStatus = Lens.lens (responseStatus :: DownloadDefaultKeyPairResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DownloadDefaultKeyPairResponse)
-{-# DEPRECATED ddkprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddkprrsResponseStatus :: Lens.Lens' DownloadDefaultKeyPairResponse Core.Int
+ddkprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddkprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

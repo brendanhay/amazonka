@@ -13,41 +13,46 @@
 module Network.AWS.ResourceGroups.Types.ResourceFilterName
   ( ResourceFilterName
       ( ResourceFilterName',
-        ResourceType
+        ResourceFilterNameResourceType,
+        fromResourceFilterName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceFilterName = ResourceFilterName' Lude.Text
+newtype ResourceFilterName = ResourceFilterName'
+  { fromResourceFilterName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ResourceType :: ResourceFilterName
-pattern ResourceType = ResourceFilterName' "resource-type"
+pattern ResourceFilterNameResourceType :: ResourceFilterName
+pattern ResourceFilterNameResourceType = ResourceFilterName' "resource-type"
 
 {-# COMPLETE
-  ResourceType,
+  ResourceFilterNameResourceType,
   ResourceFilterName'
   #-}

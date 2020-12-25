@@ -23,173 +23,158 @@ module Network.AWS.MediaConvert.ListQueues
 
     -- ** Request lenses
     lqListBy,
+    lqMaxResults,
     lqNextToken,
     lqOrder,
-    lqMaxResults,
 
     -- * Destructuring the response
     ListQueuesResponse (..),
     mkListQueuesResponse,
 
     -- ** Response lenses
-    lqrsQueues,
-    lqrsNextToken,
-    lqrsResponseStatus,
+    lqrrsNextToken,
+    lqrrsQueues,
+    lqrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaConvert.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListQueues' smart constructor.
 data ListQueues = ListQueues'
   { -- | Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
-    listBy :: Lude.Maybe QueueListBy,
-    -- | Use this string, provided with the response to a previous request, to request the next batch of queues.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
-    order :: Lude.Maybe Order,
+    listBy :: Core.Maybe Types.QueueListBy,
     -- | Optional. Number of queues, up to twenty, that will be returned at one time.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Use this string, provided with the response to a previous request, to request the next batch of queues.
+    nextToken :: Core.Maybe Core.Text,
+    -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
+    order :: Core.Maybe Types.Order
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListQueues' with the minimum fields required to make a request.
---
--- * 'listBy' - Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
--- * 'nextToken' - Use this string, provided with the response to a previous request, to request the next batch of queues.
--- * 'order' - Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
--- * 'maxResults' - Optional. Number of queues, up to twenty, that will be returned at one time.
+-- | Creates a 'ListQueues' value with any optional fields omitted.
 mkListQueues ::
   ListQueues
 mkListQueues =
   ListQueues'
-    { listBy = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      order = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { listBy = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      order = Core.Nothing
     }
 
 -- | Optional. When you request a list of queues, you can choose to list them alphabetically by NAME or chronologically by CREATION_DATE. If you don't specify, the service will list them by creation date.
 --
 -- /Note:/ Consider using 'listBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lqListBy :: Lens.Lens' ListQueues (Lude.Maybe QueueListBy)
-lqListBy = Lens.lens (listBy :: ListQueues -> Lude.Maybe QueueListBy) (\s a -> s {listBy = a} :: ListQueues)
+lqListBy :: Lens.Lens' ListQueues (Core.Maybe Types.QueueListBy)
+lqListBy = Lens.field @"listBy"
 {-# DEPRECATED lqListBy "Use generic-lens or generic-optics with 'listBy' instead." #-}
+
+-- | Optional. Number of queues, up to twenty, that will be returned at one time.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqMaxResults :: Lens.Lens' ListQueues (Core.Maybe Core.Natural)
+lqMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lqMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Use this string, provided with the response to a previous request, to request the next batch of queues.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lqNextToken :: Lens.Lens' ListQueues (Lude.Maybe Lude.Text)
-lqNextToken = Lens.lens (nextToken :: ListQueues -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListQueues)
+lqNextToken :: Lens.Lens' ListQueues (Core.Maybe Core.Text)
+lqNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lqNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
 --
 -- /Note:/ Consider using 'order' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lqOrder :: Lens.Lens' ListQueues (Lude.Maybe Order)
-lqOrder = Lens.lens (order :: ListQueues -> Lude.Maybe Order) (\s a -> s {order = a} :: ListQueues)
+lqOrder :: Lens.Lens' ListQueues (Core.Maybe Types.Order)
+lqOrder = Lens.field @"order"
 {-# DEPRECATED lqOrder "Use generic-lens or generic-optics with 'order' instead." #-}
 
--- | Optional. Number of queues, up to twenty, that will be returned at one time.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lqMaxResults :: Lens.Lens' ListQueues (Lude.Maybe Lude.Natural)
-lqMaxResults = Lens.lens (maxResults :: ListQueues -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListQueues)
-{-# DEPRECATED lqMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListQueues where
-  page rq rs
-    | Page.stop (rs Lens.^. lqrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lqrsQueues) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lqNextToken Lens..~ rs Lens.^. lqrsNextToken
-
-instance Lude.AWSRequest ListQueues where
+instance Core.AWSRequest ListQueues where
   type Rs ListQueues = ListQueuesResponse
-  request = Req.get mediaConvertService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2017-08-29/queues",
+        Core._rqQuery =
+          Core.toQueryValue "listBy" Core.<$> listBy
+            Core.<> (Core.toQueryValue "maxResults" Core.<$> maxResults)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "order" Core.<$> order),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListQueuesResponse'
-            Lude.<$> (x Lude..?> "queues" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "queues")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListQueues where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListQueues where
-  toPath = Lude.const "/2017-08-29/queues"
-
-instance Lude.ToQuery ListQueues where
-  toQuery ListQueues' {..} =
-    Lude.mconcat
-      [ "listBy" Lude.=: listBy,
-        "nextToken" Lude.=: nextToken,
-        "order" Lude.=: order,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListQueues where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"queues" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListQueuesResponse' smart constructor.
 data ListQueuesResponse = ListQueuesResponse'
-  { -- | List of queues.
-    queues :: Lude.Maybe [Queue],
-    -- | Use this string to request the next batch of queues.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | Use this string to request the next batch of queues.
+    nextToken :: Core.Maybe Core.Text,
+    -- | List of queues.
+    queues :: Core.Maybe [Types.Queue],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListQueuesResponse' with the minimum fields required to make a request.
---
--- * 'queues' - List of queues.
--- * 'nextToken' - Use this string to request the next batch of queues.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListQueuesResponse' value with any optional fields omitted.
 mkListQueuesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListQueuesResponse
-mkListQueuesResponse pResponseStatus_ =
+mkListQueuesResponse responseStatus =
   ListQueuesResponse'
-    { queues = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      queues = Core.Nothing,
+      responseStatus
     }
-
--- | List of queues.
---
--- /Note:/ Consider using 'queues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lqrsQueues :: Lens.Lens' ListQueuesResponse (Lude.Maybe [Queue])
-lqrsQueues = Lens.lens (queues :: ListQueuesResponse -> Lude.Maybe [Queue]) (\s a -> s {queues = a} :: ListQueuesResponse)
-{-# DEPRECATED lqrsQueues "Use generic-lens or generic-optics with 'queues' instead." #-}
 
 -- | Use this string to request the next batch of queues.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lqrsNextToken :: Lens.Lens' ListQueuesResponse (Lude.Maybe Lude.Text)
-lqrsNextToken = Lens.lens (nextToken :: ListQueuesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListQueuesResponse)
-{-# DEPRECATED lqrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lqrrsNextToken :: Lens.Lens' ListQueuesResponse (Core.Maybe Core.Text)
+lqrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lqrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | List of queues.
+--
+-- /Note:/ Consider using 'queues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lqrrsQueues :: Lens.Lens' ListQueuesResponse (Core.Maybe [Types.Queue])
+lqrrsQueues = Lens.field @"queues"
+{-# DEPRECATED lqrrsQueues "Use generic-lens or generic-optics with 'queues' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lqrsResponseStatus :: Lens.Lens' ListQueuesResponse Lude.Int
-lqrsResponseStatus = Lens.lens (responseStatus :: ListQueuesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListQueuesResponse)
-{-# DEPRECATED lqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lqrrsResponseStatus :: Lens.Lens' ListQueuesResponse Core.Int
+lqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

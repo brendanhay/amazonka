@@ -23,48 +23,44 @@ module Network.AWS.Lightsail.Types.LogEvent
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a database log event.
 --
 -- /See:/ 'mkLogEvent' smart constructor.
 data LogEvent = LogEvent'
   { -- | The timestamp when the database log event was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | The message of the database log event.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LogEvent' with the minimum fields required to make a request.
---
--- * 'createdAt' - The timestamp when the database log event was created.
--- * 'message' - The message of the database log event.
+-- | Creates a 'LogEvent' value with any optional fields omitted.
 mkLogEvent ::
   LogEvent
 mkLogEvent =
-  LogEvent' {createdAt = Lude.Nothing, message = Lude.Nothing}
+  LogEvent' {createdAt = Core.Nothing, message = Core.Nothing}
 
 -- | The timestamp when the database log event was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leCreatedAt :: Lens.Lens' LogEvent (Lude.Maybe Lude.Timestamp)
-leCreatedAt = Lens.lens (createdAt :: LogEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: LogEvent)
+leCreatedAt :: Lens.Lens' LogEvent (Core.Maybe Core.NominalDiffTime)
+leCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED leCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The message of the database log event.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leMessage :: Lens.Lens' LogEvent (Lude.Maybe Lude.Text)
-leMessage = Lens.lens (message :: LogEvent -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: LogEvent)
+leMessage :: Lens.Lens' LogEvent (Core.Maybe Types.String)
+leMessage = Lens.field @"message"
 {-# DEPRECATED leMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON LogEvent where
+instance Core.FromJSON LogEvent where
   parseJSON =
-    Lude.withObject
-      "LogEvent"
-      ( \x ->
-          LogEvent'
-            Lude.<$> (x Lude..:? "createdAt") Lude.<*> (x Lude..:? "message")
-      )
+    Core.withObject "LogEvent" Core.$
+      \x ->
+        LogEvent'
+          Core.<$> (x Core..:? "createdAt") Core.<*> (x Core..:? "message")

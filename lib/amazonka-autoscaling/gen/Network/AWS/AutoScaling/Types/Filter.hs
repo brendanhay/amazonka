@@ -17,13 +17,14 @@ module Network.AWS.AutoScaling.Types.Filter
     mkFilter,
 
     -- * Lenses
-    fValues,
     fName,
+    fValues,
   )
 where
 
+import qualified Network.AWS.AutoScaling.Types.XmlString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a filter that is used to return a more specific list of results when describing tags.
 --
@@ -31,42 +32,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkFilter' smart constructor.
 data Filter = Filter'
-  { -- | One or more filter values. Filter values are case-sensitive.
-    values :: Lude.Maybe [Lude.Text],
-    -- | The name of the filter. The valid values are: @auto-scaling-group@ , @key@ , @value@ , and @propagate-at-launch@ .
-    name :: Lude.Text
+  { -- | The name of the filter. The valid values are: @auto-scaling-group@ , @key@ , @value@ , and @propagate-at-launch@ .
+    name :: Types.XmlString,
+    -- | One or more filter values. Filter values are case-sensitive.
+    values :: Core.Maybe [Types.XmlString]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Filter' with the minimum fields required to make a request.
---
--- * 'values' - One or more filter values. Filter values are case-sensitive.
--- * 'name' - The name of the filter. The valid values are: @auto-scaling-group@ , @key@ , @value@ , and @propagate-at-launch@ .
+-- | Creates a 'Filter' value with any optional fields omitted.
 mkFilter ::
   -- | 'name'
-  Lude.Text ->
+  Types.XmlString ->
   Filter
-mkFilter pName_ = Filter' {values = Lude.Nothing, name = pName_}
-
--- | One or more filter values. Filter values are case-sensitive.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fValues :: Lens.Lens' Filter (Lude.Maybe [Lude.Text])
-fValues = Lens.lens (values :: Filter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: Filter)
-{-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkFilter name = Filter' {name, values = Core.Nothing}
 
 -- | The name of the filter. The valid values are: @auto-scaling-group@ , @key@ , @value@ , and @propagate-at-launch@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fName :: Lens.Lens' Filter Lude.Text
-fName = Lens.lens (name :: Filter -> Lude.Text) (\s a -> s {name = a} :: Filter)
+fName :: Lens.Lens' Filter Types.XmlString
+fName = Lens.field @"name"
 {-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToQuery Filter where
-  toQuery Filter' {..} =
-    Lude.mconcat
-      [ "Values"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> values),
-        "Name" Lude.=: name
-      ]
+-- | One or more filter values. Filter values are case-sensitive.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fValues :: Lens.Lens' Filter (Core.Maybe [Types.XmlString])
+fValues = Lens.field @"values"
+{-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}

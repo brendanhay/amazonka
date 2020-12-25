@@ -17,69 +17,62 @@ module Network.AWS.IoT.Types.MetricToRetain
     mkMetricToRetain,
 
     -- * Lenses
-    mtrMetricDimension,
     mtrMetric,
+    mtrMetricDimension,
   )
 where
 
-import Network.AWS.IoT.Types.MetricDimension
+import qualified Network.AWS.IoT.Types.BehaviorMetric as Types
+import qualified Network.AWS.IoT.Types.MetricDimension as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The metric you want to retain. Dimensions are optional.
 --
 -- /See:/ 'mkMetricToRetain' smart constructor.
 data MetricToRetain = MetricToRetain'
-  { -- | The dimension of a metric.
-    metricDimension :: Lude.Maybe MetricDimension,
-    -- | What is measured by the behavior.
-    metric :: Lude.Text
+  { -- | What is measured by the behavior.
+    metric :: Types.BehaviorMetric,
+    -- | The dimension of a metric.
+    metricDimension :: Core.Maybe Types.MetricDimension
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MetricToRetain' with the minimum fields required to make a request.
---
--- * 'metricDimension' - The dimension of a metric.
--- * 'metric' - What is measured by the behavior.
+-- | Creates a 'MetricToRetain' value with any optional fields omitted.
 mkMetricToRetain ::
   -- | 'metric'
-  Lude.Text ->
+  Types.BehaviorMetric ->
   MetricToRetain
-mkMetricToRetain pMetric_ =
-  MetricToRetain'
-    { metricDimension = Lude.Nothing,
-      metric = pMetric_
-    }
-
--- | The dimension of a metric.
---
--- /Note:/ Consider using 'metricDimension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtrMetricDimension :: Lens.Lens' MetricToRetain (Lude.Maybe MetricDimension)
-mtrMetricDimension = Lens.lens (metricDimension :: MetricToRetain -> Lude.Maybe MetricDimension) (\s a -> s {metricDimension = a} :: MetricToRetain)
-{-# DEPRECATED mtrMetricDimension "Use generic-lens or generic-optics with 'metricDimension' instead." #-}
+mkMetricToRetain metric =
+  MetricToRetain' {metric, metricDimension = Core.Nothing}
 
 -- | What is measured by the behavior.
 --
 -- /Note:/ Consider using 'metric' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtrMetric :: Lens.Lens' MetricToRetain Lude.Text
-mtrMetric = Lens.lens (metric :: MetricToRetain -> Lude.Text) (\s a -> s {metric = a} :: MetricToRetain)
+mtrMetric :: Lens.Lens' MetricToRetain Types.BehaviorMetric
+mtrMetric = Lens.field @"metric"
 {-# DEPRECATED mtrMetric "Use generic-lens or generic-optics with 'metric' instead." #-}
 
-instance Lude.FromJSON MetricToRetain where
-  parseJSON =
-    Lude.withObject
-      "MetricToRetain"
-      ( \x ->
-          MetricToRetain'
-            Lude.<$> (x Lude..:? "metricDimension") Lude.<*> (x Lude..: "metric")
-      )
+-- | The dimension of a metric.
+--
+-- /Note:/ Consider using 'metricDimension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtrMetricDimension :: Lens.Lens' MetricToRetain (Core.Maybe Types.MetricDimension)
+mtrMetricDimension = Lens.field @"metricDimension"
+{-# DEPRECATED mtrMetricDimension "Use generic-lens or generic-optics with 'metricDimension' instead." #-}
 
-instance Lude.ToJSON MetricToRetain where
-  toJSON MetricToRetain' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("metricDimension" Lude..=) Lude.<$> metricDimension,
-            Lude.Just ("metric" Lude..= metric)
+instance Core.FromJSON MetricToRetain where
+  toJSON MetricToRetain {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("metric" Core..= metric),
+            ("metricDimension" Core..=) Core.<$> metricDimension
           ]
       )
+
+instance Core.FromJSON MetricToRetain where
+  parseJSON =
+    Core.withObject "MetricToRetain" Core.$
+      \x ->
+        MetricToRetain'
+          Core.<$> (x Core..: "metric") Core.<*> (x Core..:? "metricDimension")

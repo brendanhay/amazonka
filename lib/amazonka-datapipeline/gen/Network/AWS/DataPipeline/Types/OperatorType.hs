@@ -13,61 +13,63 @@
 module Network.AWS.DataPipeline.Types.OperatorType
   ( OperatorType
       ( OperatorType',
-        OperatorEQ,
-        OperatorRefEQ,
-        OperatorLE,
-        OperatorGE,
-        OperatorBetween
+        OperatorTypeOperatorEQ,
+        OperatorTypeOperatorRefEq,
+        OperatorTypeOperatorLE,
+        OperatorTypeOperatorGE,
+        OperatorTypeOperatorBetween,
+        fromOperatorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OperatorType = OperatorType' Lude.Text
+newtype OperatorType = OperatorType' {fromOperatorType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OperatorEQ :: OperatorType
-pattern OperatorEQ = OperatorType' "EQ"
+pattern OperatorTypeOperatorEQ :: OperatorType
+pattern OperatorTypeOperatorEQ = OperatorType' "EQ"
 
-pattern OperatorRefEQ :: OperatorType
-pattern OperatorRefEQ = OperatorType' "REF_EQ"
+pattern OperatorTypeOperatorRefEq :: OperatorType
+pattern OperatorTypeOperatorRefEq = OperatorType' "REF_EQ"
 
-pattern OperatorLE :: OperatorType
-pattern OperatorLE = OperatorType' "LE"
+pattern OperatorTypeOperatorLE :: OperatorType
+pattern OperatorTypeOperatorLE = OperatorType' "LE"
 
-pattern OperatorGE :: OperatorType
-pattern OperatorGE = OperatorType' "GE"
+pattern OperatorTypeOperatorGE :: OperatorType
+pattern OperatorTypeOperatorGE = OperatorType' "GE"
 
-pattern OperatorBetween :: OperatorType
-pattern OperatorBetween = OperatorType' "BETWEEN"
+pattern OperatorTypeOperatorBetween :: OperatorType
+pattern OperatorTypeOperatorBetween = OperatorType' "BETWEEN"
 
 {-# COMPLETE
-  OperatorEQ,
-  OperatorRefEQ,
-  OperatorLE,
-  OperatorGE,
-  OperatorBetween,
+  OperatorTypeOperatorEQ,
+  OperatorTypeOperatorRefEq,
+  OperatorTypeOperatorLE,
+  OperatorTypeOperatorGE,
+  OperatorTypeOperatorBetween,
   OperatorType'
   #-}

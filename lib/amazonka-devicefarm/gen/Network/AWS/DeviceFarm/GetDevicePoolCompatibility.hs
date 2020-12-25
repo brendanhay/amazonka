@@ -20,39 +20,41 @@ module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
     mkGetDevicePoolCompatibility,
 
     -- ** Request lenses
-    gdpcTest,
-    gdpcAppARN,
+    gdpcDevicePoolArn,
+    gdpcAppArn,
     gdpcConfiguration,
+    gdpcTest,
     gdpcTestType,
-    gdpcDevicePoolARN,
 
     -- * Destructuring the response
     GetDevicePoolCompatibilityResponse (..),
     mkGetDevicePoolCompatibilityResponse,
 
     -- ** Response lenses
-    gdpcrsIncompatibleDevices,
-    gdpcrsCompatibleDevices,
-    gdpcrsResponseStatus,
+    gdpcrrsCompatibleDevices,
+    gdpcrrsIncompatibleDevices,
+    gdpcrrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents a request to the get device pool compatibility operation.
 --
 -- /See:/ 'mkGetDevicePoolCompatibility' smart constructor.
 data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
-  { -- | Information about the uploaded test to be run against the device pool.
-    test :: Lude.Maybe ScheduleRunTest,
+  { -- | The device pool's ARN.
+    devicePoolArn :: Types.DevicePoolArn,
     -- | The ARN of the app that is associated with the specified device pool.
-    appARN :: Lude.Maybe Lude.Text,
+    appArn :: Core.Maybe Types.AppArn,
     -- | An object that contains information about the settings for a run.
-    configuration :: Lude.Maybe ScheduleRunConfiguration,
+    configuration :: Core.Maybe Types.ScheduleRunConfiguration,
+    -- | Information about the uploaded test to be run against the device pool.
+    test :: Core.Maybe Types.ScheduleRunTest,
     -- | The test type for the specified device pool.
     --
     -- Allowed values include the following:
@@ -109,110 +111,52 @@ data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
     --
     --
     --     * XCTEST_UI.
-    testType :: Lude.Maybe TestType,
-    -- | The device pool's ARN.
-    devicePoolARN :: Lude.Text
+    testType :: Core.Maybe Types.TestType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDevicePoolCompatibility' with the minimum fields required to make a request.
---
--- * 'test' - Information about the uploaded test to be run against the device pool.
--- * 'appARN' - The ARN of the app that is associated with the specified device pool.
--- * 'configuration' - An object that contains information about the settings for a run.
--- * 'testType' - The test type for the specified device pool.
---
--- Allowed values include the following:
---
---     * BUILTIN_FUZZ.
---
---
---     * BUILTIN_EXPLORER. For Android, an app explorer that traverses an Android app, interacting with it and capturing screenshots at the same time.
---
---
---     * APPIUM_JAVA_JUNIT.
---
---
---     * APPIUM_JAVA_TESTNG.
---
---
---     * APPIUM_PYTHON.
---
---
---     * APPIUM_NODE.
---
---
---     * APPIUM_RUBY.
---
---
---     * APPIUM_WEB_JAVA_JUNIT.
---
---
---     * APPIUM_WEB_JAVA_TESTNG.
---
---
---     * APPIUM_WEB_PYTHON.
---
---
---     * APPIUM_WEB_NODE.
---
---
---     * APPIUM_WEB_RUBY.
---
---
---     * CALABASH.
---
---
---     * INSTRUMENTATION.
---
---
---     * UIAUTOMATION.
---
---
---     * UIAUTOMATOR.
---
---
---     * XCTEST.
---
---
---     * XCTEST_UI.
---
---
--- * 'devicePoolARN' - The device pool's ARN.
+-- | Creates a 'GetDevicePoolCompatibility' value with any optional fields omitted.
 mkGetDevicePoolCompatibility ::
-  -- | 'devicePoolARN'
-  Lude.Text ->
+  -- | 'devicePoolArn'
+  Types.DevicePoolArn ->
   GetDevicePoolCompatibility
-mkGetDevicePoolCompatibility pDevicePoolARN_ =
+mkGetDevicePoolCompatibility devicePoolArn =
   GetDevicePoolCompatibility'
-    { test = Lude.Nothing,
-      appARN = Lude.Nothing,
-      configuration = Lude.Nothing,
-      testType = Lude.Nothing,
-      devicePoolARN = pDevicePoolARN_
+    { devicePoolArn,
+      appArn = Core.Nothing,
+      configuration = Core.Nothing,
+      test = Core.Nothing,
+      testType = Core.Nothing
     }
 
--- | Information about the uploaded test to be run against the device pool.
+-- | The device pool's ARN.
 --
--- /Note:/ Consider using 'test' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpcTest :: Lens.Lens' GetDevicePoolCompatibility (Lude.Maybe ScheduleRunTest)
-gdpcTest = Lens.lens (test :: GetDevicePoolCompatibility -> Lude.Maybe ScheduleRunTest) (\s a -> s {test = a} :: GetDevicePoolCompatibility)
-{-# DEPRECATED gdpcTest "Use generic-lens or generic-optics with 'test' instead." #-}
+-- /Note:/ Consider using 'devicePoolArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpcDevicePoolArn :: Lens.Lens' GetDevicePoolCompatibility Types.DevicePoolArn
+gdpcDevicePoolArn = Lens.field @"devicePoolArn"
+{-# DEPRECATED gdpcDevicePoolArn "Use generic-lens or generic-optics with 'devicePoolArn' instead." #-}
 
 -- | The ARN of the app that is associated with the specified device pool.
 --
--- /Note:/ Consider using 'appARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpcAppARN :: Lens.Lens' GetDevicePoolCompatibility (Lude.Maybe Lude.Text)
-gdpcAppARN = Lens.lens (appARN :: GetDevicePoolCompatibility -> Lude.Maybe Lude.Text) (\s a -> s {appARN = a} :: GetDevicePoolCompatibility)
-{-# DEPRECATED gdpcAppARN "Use generic-lens or generic-optics with 'appARN' instead." #-}
+-- /Note:/ Consider using 'appArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpcAppArn :: Lens.Lens' GetDevicePoolCompatibility (Core.Maybe Types.AppArn)
+gdpcAppArn = Lens.field @"appArn"
+{-# DEPRECATED gdpcAppArn "Use generic-lens or generic-optics with 'appArn' instead." #-}
 
 -- | An object that contains information about the settings for a run.
 --
 -- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpcConfiguration :: Lens.Lens' GetDevicePoolCompatibility (Lude.Maybe ScheduleRunConfiguration)
-gdpcConfiguration = Lens.lens (configuration :: GetDevicePoolCompatibility -> Lude.Maybe ScheduleRunConfiguration) (\s a -> s {configuration = a} :: GetDevicePoolCompatibility)
+gdpcConfiguration :: Lens.Lens' GetDevicePoolCompatibility (Core.Maybe Types.ScheduleRunConfiguration)
+gdpcConfiguration = Lens.field @"configuration"
 {-# DEPRECATED gdpcConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
+
+-- | Information about the uploaded test to be run against the device pool.
+--
+-- /Note:/ Consider using 'test' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpcTest :: Lens.Lens' GetDevicePoolCompatibility (Core.Maybe Types.ScheduleRunTest)
+gdpcTest = Lens.field @"test"
+{-# DEPRECATED gdpcTest "Use generic-lens or generic-optics with 'test' instead." #-}
 
 -- | The test type for the specified device pool.
 --
@@ -274,110 +218,91 @@ gdpcConfiguration = Lens.lens (configuration :: GetDevicePoolCompatibility -> Lu
 --
 --
 -- /Note:/ Consider using 'testType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpcTestType :: Lens.Lens' GetDevicePoolCompatibility (Lude.Maybe TestType)
-gdpcTestType = Lens.lens (testType :: GetDevicePoolCompatibility -> Lude.Maybe TestType) (\s a -> s {testType = a} :: GetDevicePoolCompatibility)
+gdpcTestType :: Lens.Lens' GetDevicePoolCompatibility (Core.Maybe Types.TestType)
+gdpcTestType = Lens.field @"testType"
 {-# DEPRECATED gdpcTestType "Use generic-lens or generic-optics with 'testType' instead." #-}
 
--- | The device pool's ARN.
---
--- /Note:/ Consider using 'devicePoolARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpcDevicePoolARN :: Lens.Lens' GetDevicePoolCompatibility Lude.Text
-gdpcDevicePoolARN = Lens.lens (devicePoolARN :: GetDevicePoolCompatibility -> Lude.Text) (\s a -> s {devicePoolARN = a} :: GetDevicePoolCompatibility)
-{-# DEPRECATED gdpcDevicePoolARN "Use generic-lens or generic-optics with 'devicePoolARN' instead." #-}
+instance Core.FromJSON GetDevicePoolCompatibility where
+  toJSON GetDevicePoolCompatibility {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("devicePoolArn" Core..= devicePoolArn),
+            ("appArn" Core..=) Core.<$> appArn,
+            ("configuration" Core..=) Core.<$> configuration,
+            ("test" Core..=) Core.<$> test,
+            ("testType" Core..=) Core.<$> testType
+          ]
+      )
 
-instance Lude.AWSRequest GetDevicePoolCompatibility where
+instance Core.AWSRequest GetDevicePoolCompatibility where
   type
     Rs GetDevicePoolCompatibility =
       GetDevicePoolCompatibilityResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DeviceFarm_20150623.GetDevicePoolCompatibility")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDevicePoolCompatibilityResponse'
-            Lude.<$> (x Lude..?> "incompatibleDevices" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "compatibleDevices" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "compatibleDevices")
+            Core.<*> (x Core..:? "incompatibleDevices")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDevicePoolCompatibility where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DeviceFarm_20150623.GetDevicePoolCompatibility" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDevicePoolCompatibility where
-  toJSON GetDevicePoolCompatibility' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("test" Lude..=) Lude.<$> test,
-            ("appArn" Lude..=) Lude.<$> appARN,
-            ("configuration" Lude..=) Lude.<$> configuration,
-            ("testType" Lude..=) Lude.<$> testType,
-            Lude.Just ("devicePoolArn" Lude..= devicePoolARN)
-          ]
-      )
-
-instance Lude.ToPath GetDevicePoolCompatibility where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDevicePoolCompatibility where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the result of describe device pool compatibility request.
 --
 -- /See:/ 'mkGetDevicePoolCompatibilityResponse' smart constructor.
 data GetDevicePoolCompatibilityResponse = GetDevicePoolCompatibilityResponse'
-  { -- | Information about incompatible devices.
-    incompatibleDevices :: Lude.Maybe [DevicePoolCompatibilityResult],
-    -- | Information about compatible devices.
-    compatibleDevices :: Lude.Maybe [DevicePoolCompatibilityResult],
+  { -- | Information about compatible devices.
+    compatibleDevices :: Core.Maybe [Types.DevicePoolCompatibilityResult],
+    -- | Information about incompatible devices.
+    incompatibleDevices :: Core.Maybe [Types.DevicePoolCompatibilityResult],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDevicePoolCompatibilityResponse' with the minimum fields required to make a request.
---
--- * 'incompatibleDevices' - Information about incompatible devices.
--- * 'compatibleDevices' - Information about compatible devices.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDevicePoolCompatibilityResponse' value with any optional fields omitted.
 mkGetDevicePoolCompatibilityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDevicePoolCompatibilityResponse
-mkGetDevicePoolCompatibilityResponse pResponseStatus_ =
+mkGetDevicePoolCompatibilityResponse responseStatus =
   GetDevicePoolCompatibilityResponse'
-    { incompatibleDevices =
-        Lude.Nothing,
-      compatibleDevices = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { compatibleDevices =
+        Core.Nothing,
+      incompatibleDevices = Core.Nothing,
+      responseStatus
     }
-
--- | Information about incompatible devices.
---
--- /Note:/ Consider using 'incompatibleDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpcrsIncompatibleDevices :: Lens.Lens' GetDevicePoolCompatibilityResponse (Lude.Maybe [DevicePoolCompatibilityResult])
-gdpcrsIncompatibleDevices = Lens.lens (incompatibleDevices :: GetDevicePoolCompatibilityResponse -> Lude.Maybe [DevicePoolCompatibilityResult]) (\s a -> s {incompatibleDevices = a} :: GetDevicePoolCompatibilityResponse)
-{-# DEPRECATED gdpcrsIncompatibleDevices "Use generic-lens or generic-optics with 'incompatibleDevices' instead." #-}
 
 -- | Information about compatible devices.
 --
 -- /Note:/ Consider using 'compatibleDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpcrsCompatibleDevices :: Lens.Lens' GetDevicePoolCompatibilityResponse (Lude.Maybe [DevicePoolCompatibilityResult])
-gdpcrsCompatibleDevices = Lens.lens (compatibleDevices :: GetDevicePoolCompatibilityResponse -> Lude.Maybe [DevicePoolCompatibilityResult]) (\s a -> s {compatibleDevices = a} :: GetDevicePoolCompatibilityResponse)
-{-# DEPRECATED gdpcrsCompatibleDevices "Use generic-lens or generic-optics with 'compatibleDevices' instead." #-}
+gdpcrrsCompatibleDevices :: Lens.Lens' GetDevicePoolCompatibilityResponse (Core.Maybe [Types.DevicePoolCompatibilityResult])
+gdpcrrsCompatibleDevices = Lens.field @"compatibleDevices"
+{-# DEPRECATED gdpcrrsCompatibleDevices "Use generic-lens or generic-optics with 'compatibleDevices' instead." #-}
+
+-- | Information about incompatible devices.
+--
+-- /Note:/ Consider using 'incompatibleDevices' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdpcrrsIncompatibleDevices :: Lens.Lens' GetDevicePoolCompatibilityResponse (Core.Maybe [Types.DevicePoolCompatibilityResult])
+gdpcrrsIncompatibleDevices = Lens.field @"incompatibleDevices"
+{-# DEPRECATED gdpcrrsIncompatibleDevices "Use generic-lens or generic-optics with 'incompatibleDevices' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdpcrsResponseStatus :: Lens.Lens' GetDevicePoolCompatibilityResponse Lude.Int
-gdpcrsResponseStatus = Lens.lens (responseStatus :: GetDevicePoolCompatibilityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDevicePoolCompatibilityResponse)
-{-# DEPRECATED gdpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdpcrrsResponseStatus :: Lens.Lens' GetDevicePoolCompatibilityResponse Core.Int
+gdpcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdpcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

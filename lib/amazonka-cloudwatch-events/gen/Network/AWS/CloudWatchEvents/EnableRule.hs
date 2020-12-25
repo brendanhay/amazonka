@@ -22,8 +22,8 @@ module Network.AWS.CloudWatchEvents.EnableRule
     mkEnableRule,
 
     -- ** Request lenses
-    erEventBusName,
     erName,
+    erEventBusName,
 
     -- * Destructuring the response
     EnableRuleResponse (..),
@@ -31,84 +31,73 @@ module Network.AWS.CloudWatchEvents.EnableRule
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnableRule' smart constructor.
 data EnableRule = EnableRule'
-  { -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
-    eventBusName :: Lude.Maybe Lude.Text,
-    -- | The name of the rule.
-    name :: Lude.Text
+  { -- | The name of the rule.
+    name :: Types.Name,
+    -- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+    eventBusName :: Core.Maybe Types.EventBusNameOrArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableRule' with the minimum fields required to make a request.
---
--- * 'eventBusName' - The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
--- * 'name' - The name of the rule.
+-- | Creates a 'EnableRule' value with any optional fields omitted.
 mkEnableRule ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   EnableRule
-mkEnableRule pName_ =
-  EnableRule' {eventBusName = Lude.Nothing, name = pName_}
-
--- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
---
--- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erEventBusName :: Lens.Lens' EnableRule (Lude.Maybe Lude.Text)
-erEventBusName = Lens.lens (eventBusName :: EnableRule -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: EnableRule)
-{-# DEPRECATED erEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
+mkEnableRule name = EnableRule' {name, eventBusName = Core.Nothing}
 
 -- | The name of the rule.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erName :: Lens.Lens' EnableRule Lude.Text
-erName = Lens.lens (name :: EnableRule -> Lude.Text) (\s a -> s {name = a} :: EnableRule)
+erName :: Lens.Lens' EnableRule Types.Name
+erName = Lens.field @"name"
 {-# DEPRECATED erName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest EnableRule where
+-- | The name or ARN of the event bus associated with the rule. If you omit this, the default event bus is used.
+--
+-- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erEventBusName :: Lens.Lens' EnableRule (Core.Maybe Types.EventBusNameOrArn)
+erEventBusName = Lens.field @"eventBusName"
+{-# DEPRECATED erEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
+
+instance Core.FromJSON EnableRule where
+  toJSON EnableRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("EventBusName" Core..=) Core.<$> eventBusName
+          ]
+      )
+
+instance Core.AWSRequest EnableRule where
   type Rs EnableRule = EnableRuleResponse
-  request = Req.postJSON cloudWatchEventsService
-  response = Res.receiveNull EnableRuleResponse'
-
-instance Lude.ToHeaders EnableRule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.EnableRule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON EnableRule where
-  toJSON EnableRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EventBusName" Lude..=) Lude.<$> eventBusName,
-            Lude.Just ("Name" Lude..= name)
-          ]
-      )
-
-instance Lude.ToPath EnableRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableRule where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.EnableRule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull EnableRuleResponse'
 
 -- | /See:/ 'mkEnableRuleResponse' smart constructor.
 data EnableRuleResponse = EnableRuleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableRuleResponse' with the minimum fields required to make a request.
+-- | Creates a 'EnableRuleResponse' value with any optional fields omitted.
 mkEnableRuleResponse ::
   EnableRuleResponse
 mkEnableRuleResponse = EnableRuleResponse'

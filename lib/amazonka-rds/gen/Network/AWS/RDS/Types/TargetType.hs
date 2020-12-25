@@ -13,51 +13,53 @@
 module Network.AWS.RDS.Types.TargetType
   ( TargetType
       ( TargetType',
-        RDSInstance,
-        RDSServerlessEndpoint,
-        TrackedCluster
+        TargetTypeRdsInstance,
+        TargetTypeRdsServerlessEndpoint,
+        TargetTypeTrackedCluster,
+        fromTargetType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TargetType = TargetType' Lude.Text
+newtype TargetType = TargetType' {fromTargetType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RDSInstance :: TargetType
-pattern RDSInstance = TargetType' "RDS_INSTANCE"
+pattern TargetTypeRdsInstance :: TargetType
+pattern TargetTypeRdsInstance = TargetType' "RDS_INSTANCE"
 
-pattern RDSServerlessEndpoint :: TargetType
-pattern RDSServerlessEndpoint = TargetType' "RDS_SERVERLESS_ENDPOINT"
+pattern TargetTypeRdsServerlessEndpoint :: TargetType
+pattern TargetTypeRdsServerlessEndpoint = TargetType' "RDS_SERVERLESS_ENDPOINT"
 
-pattern TrackedCluster :: TargetType
-pattern TrackedCluster = TargetType' "TRACKED_CLUSTER"
+pattern TargetTypeTrackedCluster :: TargetType
+pattern TargetTypeTrackedCluster = TargetType' "TRACKED_CLUSTER"
 
 {-# COMPLETE
-  RDSInstance,
-  RDSServerlessEndpoint,
-  TrackedCluster,
+  TargetTypeRdsInstance,
+  TargetTypeRdsServerlessEndpoint,
+  TargetTypeTrackedCluster,
   TargetType'
   #-}

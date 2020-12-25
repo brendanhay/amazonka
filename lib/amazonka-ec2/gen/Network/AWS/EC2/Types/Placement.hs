@@ -17,20 +17,21 @@ module Network.AWS.EC2.Types.Placement
     mkPlacement,
 
     -- * Lenses
-    pfAffinity,
-    pfHostId,
-    pfPartitionNumber,
-    pfSpreadDomain,
-    pfAvailabilityZone,
-    pfTenancy,
-    pfGroupName,
-    pfHostResourceGroupARN,
+    pAffinity,
+    pAvailabilityZone,
+    pGroupName,
+    pHostId,
+    pHostResourceGroupArn,
+    pPartitionNumber,
+    pSpreadDomain,
+    pTenancy,
   )
 where
 
-import Network.AWS.EC2.Types.Tenancy
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tenancy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the placement of an instance.
 --
@@ -39,75 +40,51 @@ data Placement = Placement'
   { -- | The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
     --
     -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
-    affinity :: Lude.Maybe Lude.Text,
-    -- | The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
-    --
-    -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
-    hostId :: Lude.Maybe Lude.Text,
-    -- | The number of the partition the instance is in. Valid only if the placement group strategy is set to @partition@ .
-    --
-    -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
-    partitionNumber :: Lude.Maybe Lude.Int,
-    -- | Reserved for future use.
-    --
-    -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
-    spreadDomain :: Lude.Maybe Lude.Text,
+    affinity :: Core.Maybe Types.String,
     -- | The Availability Zone of the instance.
     --
     -- If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
     -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
+    availabilityZone :: Core.Maybe Types.String,
+    -- | The name of the placement group the instance is in.
+    groupName :: Core.Maybe Types.String,
+    -- | The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
     --
     -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
-    tenancy :: Lude.Maybe Tenancy,
-    -- | The name of the placement group the instance is in.
-    groupName :: Lude.Maybe Lude.Text,
+    hostId :: Core.Maybe Types.String,
     -- | The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the __Tenancy__ parameter or set it to @host@ .
     --
     -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
-    hostResourceGroupARN :: Lude.Maybe Lude.Text
+    hostResourceGroupArn :: Core.Maybe Types.String,
+    -- | The number of the partition the instance is in. Valid only if the placement group strategy is set to @partition@ .
+    --
+    -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
+    partitionNumber :: Core.Maybe Core.Int,
+    -- | Reserved for future use.
+    --
+    -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
+    spreadDomain :: Core.Maybe Types.String,
+    -- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
+    --
+    -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
+    tenancy :: Core.Maybe Types.Tenancy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Placement' with the minimum fields required to make a request.
---
--- * 'affinity' - The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
---
--- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
--- * 'hostId' - The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
---
--- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
--- * 'partitionNumber' - The number of the partition the instance is in. Valid only if the placement group strategy is set to @partition@ .
---
--- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
--- * 'spreadDomain' - Reserved for future use.
---
--- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
--- * 'availabilityZone' - The Availability Zone of the instance.
---
--- If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.
--- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
--- * 'tenancy' - The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
---
--- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
--- * 'groupName' - The name of the placement group the instance is in.
--- * 'hostResourceGroupARN' - The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the __Tenancy__ parameter or set it to @host@ .
---
--- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
+-- | Creates a 'Placement' value with any optional fields omitted.
 mkPlacement ::
   Placement
 mkPlacement =
   Placement'
-    { affinity = Lude.Nothing,
-      hostId = Lude.Nothing,
-      partitionNumber = Lude.Nothing,
-      spreadDomain = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      tenancy = Lude.Nothing,
-      groupName = Lude.Nothing,
-      hostResourceGroupARN = Lude.Nothing
+    { affinity = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      groupName = Core.Nothing,
+      hostId = Core.Nothing,
+      hostResourceGroupArn = Core.Nothing,
+      partitionNumber = Core.Nothing,
+      spreadDomain = Core.Nothing,
+      tenancy = Core.Nothing
     }
 
 -- | The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
@@ -115,36 +92,9 @@ mkPlacement =
 -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
 --
 -- /Note:/ Consider using 'affinity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfAffinity :: Lens.Lens' Placement (Lude.Maybe Lude.Text)
-pfAffinity = Lens.lens (affinity :: Placement -> Lude.Maybe Lude.Text) (\s a -> s {affinity = a} :: Placement)
-{-# DEPRECATED pfAffinity "Use generic-lens or generic-optics with 'affinity' instead." #-}
-
--- | The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
---
--- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
---
--- /Note:/ Consider using 'hostId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfHostId :: Lens.Lens' Placement (Lude.Maybe Lude.Text)
-pfHostId = Lens.lens (hostId :: Placement -> Lude.Maybe Lude.Text) (\s a -> s {hostId = a} :: Placement)
-{-# DEPRECATED pfHostId "Use generic-lens or generic-optics with 'hostId' instead." #-}
-
--- | The number of the partition the instance is in. Valid only if the placement group strategy is set to @partition@ .
---
--- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
---
--- /Note:/ Consider using 'partitionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfPartitionNumber :: Lens.Lens' Placement (Lude.Maybe Lude.Int)
-pfPartitionNumber = Lens.lens (partitionNumber :: Placement -> Lude.Maybe Lude.Int) (\s a -> s {partitionNumber = a} :: Placement)
-{-# DEPRECATED pfPartitionNumber "Use generic-lens or generic-optics with 'partitionNumber' instead." #-}
-
--- | Reserved for future use.
---
--- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
---
--- /Note:/ Consider using 'spreadDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfSpreadDomain :: Lens.Lens' Placement (Lude.Maybe Lude.Text)
-pfSpreadDomain = Lens.lens (spreadDomain :: Placement -> Lude.Maybe Lude.Text) (\s a -> s {spreadDomain = a} :: Placement)
-{-# DEPRECATED pfSpreadDomain "Use generic-lens or generic-optics with 'spreadDomain' instead." #-}
+pAffinity :: Lens.Lens' Placement (Core.Maybe Types.String)
+pAffinity = Lens.field @"affinity"
+{-# DEPRECATED pAffinity "Use generic-lens or generic-optics with 'affinity' instead." #-}
 
 -- | The Availability Zone of the instance.
 --
@@ -152,56 +102,70 @@ pfSpreadDomain = Lens.lens (spreadDomain :: Placement -> Lude.Maybe Lude.Text) (
 -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfAvailabilityZone :: Lens.Lens' Placement (Lude.Maybe Lude.Text)
-pfAvailabilityZone = Lens.lens (availabilityZone :: Placement -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: Placement)
-{-# DEPRECATED pfAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+pAvailabilityZone :: Lens.Lens' Placement (Core.Maybe Types.String)
+pAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED pAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | The name of the placement group the instance is in.
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pGroupName :: Lens.Lens' Placement (Core.Maybe Types.String)
+pGroupName = Lens.field @"groupName"
+{-# DEPRECATED pGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+
+-- | The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
+--
+-- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
+--
+-- /Note:/ Consider using 'hostId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pHostId :: Lens.Lens' Placement (Core.Maybe Types.String)
+pHostId = Lens.field @"hostId"
+{-# DEPRECATED pHostId "Use generic-lens or generic-optics with 'hostId' instead." #-}
+
+-- | The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the __Tenancy__ parameter or set it to @host@ .
+--
+-- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
+--
+-- /Note:/ Consider using 'hostResourceGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pHostResourceGroupArn :: Lens.Lens' Placement (Core.Maybe Types.String)
+pHostResourceGroupArn = Lens.field @"hostResourceGroupArn"
+{-# DEPRECATED pHostResourceGroupArn "Use generic-lens or generic-optics with 'hostResourceGroupArn' instead." #-}
+
+-- | The number of the partition the instance is in. Valid only if the placement group strategy is set to @partition@ .
+--
+-- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
+--
+-- /Note:/ Consider using 'partitionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPartitionNumber :: Lens.Lens' Placement (Core.Maybe Core.Int)
+pPartitionNumber = Lens.field @"partitionNumber"
+{-# DEPRECATED pPartitionNumber "Use generic-lens or generic-optics with 'partitionNumber' instead." #-}
+
+-- | Reserved for future use.
+--
+-- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
+--
+-- /Note:/ Consider using 'spreadDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSpreadDomain :: Lens.Lens' Placement (Core.Maybe Types.String)
+pSpreadDomain = Lens.field @"spreadDomain"
+{-# DEPRECATED pSpreadDomain "Use generic-lens or generic-optics with 'spreadDomain' instead." #-}
 
 -- | The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of @dedicated@ runs on single-tenant hardware. The @host@ tenancy is not supported for the <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html ImportInstance> command.
 --
 -- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
 --
 -- /Note:/ Consider using 'tenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfTenancy :: Lens.Lens' Placement (Lude.Maybe Tenancy)
-pfTenancy = Lens.lens (tenancy :: Placement -> Lude.Maybe Tenancy) (\s a -> s {tenancy = a} :: Placement)
-{-# DEPRECATED pfTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
+pTenancy :: Lens.Lens' Placement (Core.Maybe Types.Tenancy)
+pTenancy = Lens.field @"tenancy"
+{-# DEPRECATED pTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
 
--- | The name of the placement group the instance is in.
---
--- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfGroupName :: Lens.Lens' Placement (Lude.Maybe Lude.Text)
-pfGroupName = Lens.lens (groupName :: Placement -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: Placement)
-{-# DEPRECATED pfGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
-
--- | The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the __Tenancy__ parameter or set it to @host@ .
---
--- This parameter is not supported by <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet CreateFleet> .
---
--- /Note:/ Consider using 'hostResourceGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfHostResourceGroupARN :: Lens.Lens' Placement (Lude.Maybe Lude.Text)
-pfHostResourceGroupARN = Lens.lens (hostResourceGroupARN :: Placement -> Lude.Maybe Lude.Text) (\s a -> s {hostResourceGroupARN = a} :: Placement)
-{-# DEPRECATED pfHostResourceGroupARN "Use generic-lens or generic-optics with 'hostResourceGroupARN' instead." #-}
-
-instance Lude.FromXML Placement where
+instance Core.FromXML Placement where
   parseXML x =
     Placement'
-      Lude.<$> (x Lude..@? "affinity")
-      Lude.<*> (x Lude..@? "hostId")
-      Lude.<*> (x Lude..@? "partitionNumber")
-      Lude.<*> (x Lude..@? "spreadDomain")
-      Lude.<*> (x Lude..@? "availabilityZone")
-      Lude.<*> (x Lude..@? "tenancy")
-      Lude.<*> (x Lude..@? "groupName")
-      Lude.<*> (x Lude..@? "hostResourceGroupArn")
-
-instance Lude.ToQuery Placement where
-  toQuery Placement' {..} =
-    Lude.mconcat
-      [ "Affinity" Lude.=: affinity,
-        "HostId" Lude.=: hostId,
-        "PartitionNumber" Lude.=: partitionNumber,
-        "SpreadDomain" Lude.=: spreadDomain,
-        "AvailabilityZone" Lude.=: availabilityZone,
-        "Tenancy" Lude.=: tenancy,
-        "GroupName" Lude.=: groupName,
-        "HostResourceGroupArn" Lude.=: hostResourceGroupARN
-      ]
+      Core.<$> (x Core..@? "affinity")
+      Core.<*> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "groupName")
+      Core.<*> (x Core..@? "hostId")
+      Core.<*> (x Core..@? "hostResourceGroupArn")
+      Core.<*> (x Core..@? "partitionNumber")
+      Core.<*> (x Core..@? "spreadDomain")
+      Core.<*> (x Core..@? "tenancy")

@@ -17,41 +17,38 @@ module Network.AWS.IAM.Types.GetContextKeysForPolicyResponse
     mkGetContextKeysForPolicyResponse,
 
     -- * Lenses
-    gckfpContextKeyNames,
+    gckfprContextKeyNames,
   )
 where
 
+import qualified Network.AWS.IAM.Types.ContextKeyNameType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the response to a successful 'GetContextKeysForPrincipalPolicy' or 'GetContextKeysForCustomPolicy' request.
 --
 -- /See:/ 'mkGetContextKeysForPolicyResponse' smart constructor.
 newtype GetContextKeysForPolicyResponse = GetContextKeysForPolicyResponse'
   { -- | The list of context keys that are referenced in the input policies.
-    contextKeyNames :: Lude.Maybe [Lude.Text]
+    contextKeyNames :: Core.Maybe [Types.ContextKeyNameType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetContextKeysForPolicyResponse' with the minimum fields required to make a request.
---
--- * 'contextKeyNames' - The list of context keys that are referenced in the input policies.
+-- | Creates a 'GetContextKeysForPolicyResponse' value with any optional fields omitted.
 mkGetContextKeysForPolicyResponse ::
   GetContextKeysForPolicyResponse
 mkGetContextKeysForPolicyResponse =
-  GetContextKeysForPolicyResponse' {contextKeyNames = Lude.Nothing}
+  GetContextKeysForPolicyResponse' {contextKeyNames = Core.Nothing}
 
 -- | The list of context keys that are referenced in the input policies.
 --
 -- /Note:/ Consider using 'contextKeyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gckfpContextKeyNames :: Lens.Lens' GetContextKeysForPolicyResponse (Lude.Maybe [Lude.Text])
-gckfpContextKeyNames = Lens.lens (contextKeyNames :: GetContextKeysForPolicyResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {contextKeyNames = a} :: GetContextKeysForPolicyResponse)
-{-# DEPRECATED gckfpContextKeyNames "Use generic-lens or generic-optics with 'contextKeyNames' instead." #-}
+gckfprContextKeyNames :: Lens.Lens' GetContextKeysForPolicyResponse (Core.Maybe [Types.ContextKeyNameType])
+gckfprContextKeyNames = Lens.field @"contextKeyNames"
+{-# DEPRECATED gckfprContextKeyNames "Use generic-lens or generic-optics with 'contextKeyNames' instead." #-}
 
-instance Lude.FromXML GetContextKeysForPolicyResponse where
+instance Core.FromXML GetContextKeysForPolicyResponse where
   parseXML x =
     GetContextKeysForPolicyResponse'
-      Lude.<$> ( x Lude..@? "ContextKeyNames" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
+      Core.<$> (x Core..@? "ContextKeyNames" Core..<@> Core.parseXMLList "member")

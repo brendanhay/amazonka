@@ -17,57 +17,52 @@ module Network.AWS.IoT.Types.CertificateValidity
     mkCertificateValidity,
 
     -- * Lenses
-    cvNotBefore,
     cvNotAfter,
+    cvNotBefore,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When the certificate is valid.
 --
 -- /See:/ 'mkCertificateValidity' smart constructor.
 data CertificateValidity = CertificateValidity'
-  { -- | The certificate is not valid before this date.
-    notBefore :: Lude.Maybe Lude.Timestamp,
-    -- | The certificate is not valid after this date.
-    notAfter :: Lude.Maybe Lude.Timestamp
+  { -- | The certificate is not valid after this date.
+    notAfter :: Core.Maybe Core.NominalDiffTime,
+    -- | The certificate is not valid before this date.
+    notBefore :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CertificateValidity' with the minimum fields required to make a request.
---
--- * 'notBefore' - The certificate is not valid before this date.
--- * 'notAfter' - The certificate is not valid after this date.
+-- | Creates a 'CertificateValidity' value with any optional fields omitted.
 mkCertificateValidity ::
   CertificateValidity
 mkCertificateValidity =
   CertificateValidity'
-    { notBefore = Lude.Nothing,
-      notAfter = Lude.Nothing
+    { notAfter = Core.Nothing,
+      notBefore = Core.Nothing
     }
-
--- | The certificate is not valid before this date.
---
--- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvNotBefore :: Lens.Lens' CertificateValidity (Lude.Maybe Lude.Timestamp)
-cvNotBefore = Lens.lens (notBefore :: CertificateValidity -> Lude.Maybe Lude.Timestamp) (\s a -> s {notBefore = a} :: CertificateValidity)
-{-# DEPRECATED cvNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
 
 -- | The certificate is not valid after this date.
 --
 -- /Note:/ Consider using 'notAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvNotAfter :: Lens.Lens' CertificateValidity (Lude.Maybe Lude.Timestamp)
-cvNotAfter = Lens.lens (notAfter :: CertificateValidity -> Lude.Maybe Lude.Timestamp) (\s a -> s {notAfter = a} :: CertificateValidity)
+cvNotAfter :: Lens.Lens' CertificateValidity (Core.Maybe Core.NominalDiffTime)
+cvNotAfter = Lens.field @"notAfter"
 {-# DEPRECATED cvNotAfter "Use generic-lens or generic-optics with 'notAfter' instead." #-}
 
-instance Lude.FromJSON CertificateValidity where
+-- | The certificate is not valid before this date.
+--
+-- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvNotBefore :: Lens.Lens' CertificateValidity (Core.Maybe Core.NominalDiffTime)
+cvNotBefore = Lens.field @"notBefore"
+{-# DEPRECATED cvNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
+
+instance Core.FromJSON CertificateValidity where
   parseJSON =
-    Lude.withObject
-      "CertificateValidity"
-      ( \x ->
-          CertificateValidity'
-            Lude.<$> (x Lude..:? "notBefore") Lude.<*> (x Lude..:? "notAfter")
-      )
+    Core.withObject "CertificateValidity" Core.$
+      \x ->
+        CertificateValidity'
+          Core.<$> (x Core..:? "notAfter") Core.<*> (x Core..:? "notBefore")

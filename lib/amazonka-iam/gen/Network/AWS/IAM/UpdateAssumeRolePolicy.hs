@@ -20,8 +20,8 @@ module Network.AWS.IAM.UpdateAssumeRolePolicy
     mkUpdateAssumeRolePolicy,
 
     -- ** Request lenses
-    uarpPolicyDocument,
     uarpRoleName,
+    uarpPolicyDocument,
 
     -- * Destructuring the response
     UpdateAssumeRolePolicyResponse (..),
@@ -29,15 +29,19 @@ module Network.AWS.IAM.UpdateAssumeRolePolicy
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateAssumeRolePolicy' smart constructor.
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
-  { -- | The policy that grants an entity permission to assume the role.
+  { -- | The name of the role to update with the new policy.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    roleName :: Types.RoleName,
+    -- | The policy that grants an entity permission to assume the role.
     --
     -- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
@@ -49,45 +53,29 @@ data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
     --
     --
     --     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
-    policyDocument :: Lude.Text,
-    -- | The name of the role to update with the new policy.
-    --
-    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    roleName :: Lude.Text
+    policyDocument :: Types.PolicyDocument
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAssumeRolePolicy' with the minimum fields required to make a request.
---
--- * 'policyDocument' - The policy that grants an entity permission to assume the role.
---
--- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
---
---     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
---
---
---     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
---
---
---     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
---
---
--- * 'roleName' - The name of the role to update with the new policy.
+-- | Creates a 'UpdateAssumeRolePolicy' value with any optional fields omitted.
+mkUpdateAssumeRolePolicy ::
+  -- | 'roleName'
+  Types.RoleName ->
+  -- | 'policyDocument'
+  Types.PolicyDocument ->
+  UpdateAssumeRolePolicy
+mkUpdateAssumeRolePolicy roleName policyDocument =
+  UpdateAssumeRolePolicy' {roleName, policyDocument}
+
+-- | The name of the role to update with the new policy.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-mkUpdateAssumeRolePolicy ::
-  -- | 'policyDocument'
-  Lude.Text ->
-  -- | 'roleName'
-  Lude.Text ->
-  UpdateAssumeRolePolicy
-mkUpdateAssumeRolePolicy pPolicyDocument_ pRoleName_ =
-  UpdateAssumeRolePolicy'
-    { policyDocument = pPolicyDocument_,
-      roleName = pRoleName_
-    }
+--
+-- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uarpRoleName :: Lens.Lens' UpdateAssumeRolePolicy Types.RoleName
+uarpRoleName = Lens.field @"roleName"
+{-# DEPRECATED uarpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The policy that grants an entity permission to assume the role.
 --
@@ -105,45 +93,39 @@ mkUpdateAssumeRolePolicy pPolicyDocument_ pRoleName_ =
 --
 --
 -- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarpPolicyDocument :: Lens.Lens' UpdateAssumeRolePolicy Lude.Text
-uarpPolicyDocument = Lens.lens (policyDocument :: UpdateAssumeRolePolicy -> Lude.Text) (\s a -> s {policyDocument = a} :: UpdateAssumeRolePolicy)
+uarpPolicyDocument :: Lens.Lens' UpdateAssumeRolePolicy Types.PolicyDocument
+uarpPolicyDocument = Lens.field @"policyDocument"
 {-# DEPRECATED uarpPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
--- | The name of the role to update with the new policy.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarpRoleName :: Lens.Lens' UpdateAssumeRolePolicy Lude.Text
-uarpRoleName = Lens.lens (roleName :: UpdateAssumeRolePolicy -> Lude.Text) (\s a -> s {roleName = a} :: UpdateAssumeRolePolicy)
-{-# DEPRECATED uarpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
-
-instance Lude.AWSRequest UpdateAssumeRolePolicy where
+instance Core.AWSRequest UpdateAssumeRolePolicy where
   type Rs UpdateAssumeRolePolicy = UpdateAssumeRolePolicyResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull UpdateAssumeRolePolicyResponse'
-
-instance Lude.ToHeaders UpdateAssumeRolePolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateAssumeRolePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateAssumeRolePolicy where
-  toQuery UpdateAssumeRolePolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UpdateAssumeRolePolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyDocument" Lude.=: policyDocument,
-        "RoleName" Lude.=: roleName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateAssumeRolePolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+                Core.<> (Core.toQueryValue "PolicyDocument" policyDocument)
+            )
+      }
+  response = Response.receiveNull UpdateAssumeRolePolicyResponse'
 
 -- | /See:/ 'mkUpdateAssumeRolePolicyResponse' smart constructor.
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAssumeRolePolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateAssumeRolePolicyResponse' value with any optional fields omitted.
 mkUpdateAssumeRolePolicyResponse ::
   UpdateAssumeRolePolicyResponse
 mkUpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse'

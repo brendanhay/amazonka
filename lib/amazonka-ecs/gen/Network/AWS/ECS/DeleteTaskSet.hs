@@ -20,9 +20,9 @@ module Network.AWS.ECS.DeleteTaskSet
     mkDeleteTaskSet,
 
     -- ** Request lenses
-    dtsTaskSet,
     dtsCluster,
     dtsService,
+    dtsTaskSet,
     dtsForce,
 
     -- * Destructuring the response
@@ -30,154 +30,132 @@ module Network.AWS.ECS.DeleteTaskSet
     mkDeleteTaskSetResponse,
 
     -- ** Response lenses
-    dtsrsTaskSet,
-    dtsrsResponseStatus,
+    dtsrrsTaskSet,
+    dtsrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteTaskSet' smart constructor.
 data DeleteTaskSet = DeleteTaskSet'
-  { -- | The task set ID or full Amazon Resource Name (ARN) of the task set to delete.
-    taskSet :: Lude.Text,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in to delete.
-    cluster :: Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in to delete.
+    cluster :: Types.String,
     -- | The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.
-    service :: Lude.Text,
+    service :: Types.String,
+    -- | The task set ID or full Amazon Resource Name (ARN) of the task set to delete.
+    taskSet :: Types.String,
     -- | If @true@ , this allows you to delete a task set even if it hasn't been scaled down to zero.
-    force :: Lude.Maybe Lude.Bool
+    force :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTaskSet' with the minimum fields required to make a request.
---
--- * 'taskSet' - The task set ID or full Amazon Resource Name (ARN) of the task set to delete.
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in to delete.
--- * 'service' - The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.
--- * 'force' - If @true@ , this allows you to delete a task set even if it hasn't been scaled down to zero.
+-- | Creates a 'DeleteTaskSet' value with any optional fields omitted.
 mkDeleteTaskSet ::
-  -- | 'taskSet'
-  Lude.Text ->
   -- | 'cluster'
-  Lude.Text ->
+  Types.String ->
   -- | 'service'
-  Lude.Text ->
+  Types.String ->
+  -- | 'taskSet'
+  Types.String ->
   DeleteTaskSet
-mkDeleteTaskSet pTaskSet_ pCluster_ pService_ =
-  DeleteTaskSet'
-    { taskSet = pTaskSet_,
-      cluster = pCluster_,
-      service = pService_,
-      force = Lude.Nothing
-    }
-
--- | The task set ID or full Amazon Resource Name (ARN) of the task set to delete.
---
--- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsTaskSet :: Lens.Lens' DeleteTaskSet Lude.Text
-dtsTaskSet = Lens.lens (taskSet :: DeleteTaskSet -> Lude.Text) (\s a -> s {taskSet = a} :: DeleteTaskSet)
-{-# DEPRECATED dtsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
+mkDeleteTaskSet cluster service taskSet =
+  DeleteTaskSet' {cluster, service, taskSet, force = Core.Nothing}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in to delete.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsCluster :: Lens.Lens' DeleteTaskSet Lude.Text
-dtsCluster = Lens.lens (cluster :: DeleteTaskSet -> Lude.Text) (\s a -> s {cluster = a} :: DeleteTaskSet)
+dtsCluster :: Lens.Lens' DeleteTaskSet Types.String
+dtsCluster = Lens.field @"cluster"
 {-# DEPRECATED dtsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the service that hosts the task set to delete.
 --
 -- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsService :: Lens.Lens' DeleteTaskSet Lude.Text
-dtsService = Lens.lens (service :: DeleteTaskSet -> Lude.Text) (\s a -> s {service = a} :: DeleteTaskSet)
+dtsService :: Lens.Lens' DeleteTaskSet Types.String
+dtsService = Lens.field @"service"
 {-# DEPRECATED dtsService "Use generic-lens or generic-optics with 'service' instead." #-}
+
+-- | The task set ID or full Amazon Resource Name (ARN) of the task set to delete.
+--
+-- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtsTaskSet :: Lens.Lens' DeleteTaskSet Types.String
+dtsTaskSet = Lens.field @"taskSet"
+{-# DEPRECATED dtsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
 
 -- | If @true@ , this allows you to delete a task set even if it hasn't been scaled down to zero.
 --
 -- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsForce :: Lens.Lens' DeleteTaskSet (Lude.Maybe Lude.Bool)
-dtsForce = Lens.lens (force :: DeleteTaskSet -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteTaskSet)
+dtsForce :: Lens.Lens' DeleteTaskSet (Core.Maybe Core.Bool)
+dtsForce = Lens.field @"force"
 {-# DEPRECATED dtsForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
-instance Lude.AWSRequest DeleteTaskSet where
+instance Core.FromJSON DeleteTaskSet where
+  toJSON DeleteTaskSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("cluster" Core..= cluster),
+            Core.Just ("service" Core..= service),
+            Core.Just ("taskSet" Core..= taskSet),
+            ("force" Core..=) Core.<$> force
+          ]
+      )
+
+instance Core.AWSRequest DeleteTaskSet where
   type Rs DeleteTaskSet = DeleteTaskSetResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.DeleteTaskSet"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteTaskSetResponse'
-            Lude.<$> (x Lude..?> "taskSet") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "taskSet") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteTaskSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DeleteTaskSet" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteTaskSet where
-  toJSON DeleteTaskSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("taskSet" Lude..= taskSet),
-            Lude.Just ("cluster" Lude..= cluster),
-            Lude.Just ("service" Lude..= service),
-            ("force" Lude..=) Lude.<$> force
-          ]
-      )
-
-instance Lude.ToPath DeleteTaskSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTaskSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteTaskSetResponse' smart constructor.
 data DeleteTaskSetResponse = DeleteTaskSetResponse'
-  { taskSet :: Lude.Maybe TaskSet,
+  { taskSet :: Core.Maybe Types.TaskSet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteTaskSetResponse' with the minimum fields required to make a request.
---
--- * 'taskSet' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteTaskSetResponse' value with any optional fields omitted.
 mkDeleteTaskSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteTaskSetResponse
-mkDeleteTaskSetResponse pResponseStatus_ =
-  DeleteTaskSetResponse'
-    { taskSet = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteTaskSetResponse responseStatus =
+  DeleteTaskSetResponse' {taskSet = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsTaskSet :: Lens.Lens' DeleteTaskSetResponse (Lude.Maybe TaskSet)
-dtsrsTaskSet = Lens.lens (taskSet :: DeleteTaskSetResponse -> Lude.Maybe TaskSet) (\s a -> s {taskSet = a} :: DeleteTaskSetResponse)
-{-# DEPRECATED dtsrsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
+dtsrrsTaskSet :: Lens.Lens' DeleteTaskSetResponse (Core.Maybe Types.TaskSet)
+dtsrrsTaskSet = Lens.field @"taskSet"
+{-# DEPRECATED dtsrrsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsResponseStatus :: Lens.Lens' DeleteTaskSetResponse Lude.Int
-dtsrsResponseStatus = Lens.lens (responseStatus :: DeleteTaskSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTaskSetResponse)
-{-# DEPRECATED dtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtsrrsResponseStatus :: Lens.Lens' DeleteTaskSetResponse Core.Int
+dtsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

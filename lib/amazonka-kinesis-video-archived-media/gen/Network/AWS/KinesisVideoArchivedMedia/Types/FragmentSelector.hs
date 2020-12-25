@@ -22,10 +22,10 @@ module Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector
   )
 where
 
-import Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType
-import Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
+import qualified Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType as Types
+import qualified Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the timestamp range and timestamp origin of a range of fragments.
 --
@@ -48,48 +48,42 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkFragmentSelector' smart constructor.
 data FragmentSelector = FragmentSelector'
   { -- | The origin of the timestamps to use (Server or Producer).
-    fragmentSelectorType :: FragmentSelectorType,
+    fragmentSelectorType :: Types.FragmentSelectorType,
     -- | The range of timestamps to return.
-    timestampRange :: TimestampRange
+    timestampRange :: Types.TimestampRange
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'FragmentSelector' with the minimum fields required to make a request.
---
--- * 'fragmentSelectorType' - The origin of the timestamps to use (Server or Producer).
--- * 'timestampRange' - The range of timestamps to return.
+-- | Creates a 'FragmentSelector' value with any optional fields omitted.
 mkFragmentSelector ::
   -- | 'fragmentSelectorType'
-  FragmentSelectorType ->
+  Types.FragmentSelectorType ->
   -- | 'timestampRange'
-  TimestampRange ->
+  Types.TimestampRange ->
   FragmentSelector
-mkFragmentSelector pFragmentSelectorType_ pTimestampRange_ =
-  FragmentSelector'
-    { fragmentSelectorType = pFragmentSelectorType_,
-      timestampRange = pTimestampRange_
-    }
+mkFragmentSelector fragmentSelectorType timestampRange =
+  FragmentSelector' {fragmentSelectorType, timestampRange}
 
 -- | The origin of the timestamps to use (Server or Producer).
 --
 -- /Note:/ Consider using 'fragmentSelectorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsFragmentSelectorType :: Lens.Lens' FragmentSelector FragmentSelectorType
-fsFragmentSelectorType = Lens.lens (fragmentSelectorType :: FragmentSelector -> FragmentSelectorType) (\s a -> s {fragmentSelectorType = a} :: FragmentSelector)
+fsFragmentSelectorType :: Lens.Lens' FragmentSelector Types.FragmentSelectorType
+fsFragmentSelectorType = Lens.field @"fragmentSelectorType"
 {-# DEPRECATED fsFragmentSelectorType "Use generic-lens or generic-optics with 'fragmentSelectorType' instead." #-}
 
 -- | The range of timestamps to return.
 --
 -- /Note:/ Consider using 'timestampRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fsTimestampRange :: Lens.Lens' FragmentSelector TimestampRange
-fsTimestampRange = Lens.lens (timestampRange :: FragmentSelector -> TimestampRange) (\s a -> s {timestampRange = a} :: FragmentSelector)
+fsTimestampRange :: Lens.Lens' FragmentSelector Types.TimestampRange
+fsTimestampRange = Lens.field @"timestampRange"
 {-# DEPRECATED fsTimestampRange "Use generic-lens or generic-optics with 'timestampRange' instead." #-}
 
-instance Lude.ToJSON FragmentSelector where
-  toJSON FragmentSelector' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("FragmentSelectorType" Lude..= fragmentSelectorType),
-            Lude.Just ("TimestampRange" Lude..= timestampRange)
+instance Core.FromJSON FragmentSelector where
+  toJSON FragmentSelector {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FragmentSelectorType" Core..= fragmentSelectorType),
+            Core.Just ("TimestampRange" Core..= timestampRange)
           ]
       )

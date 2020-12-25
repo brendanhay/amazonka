@@ -22,221 +22,203 @@ module Network.AWS.SageMaker.ListModelPackages
     mkListModelPackages,
 
     -- ** Request lenses
-    lmpNameContains,
     lmpCreationTimeAfter,
-    lmpNextToken,
-    lmpSortOrder,
     lmpCreationTimeBefore,
     lmpMaxResults,
+    lmpNameContains,
+    lmpNextToken,
     lmpSortBy,
+    lmpSortOrder,
 
     -- * Destructuring the response
     ListModelPackagesResponse (..),
     mkListModelPackagesResponse,
 
     -- ** Response lenses
-    lmprsModelPackageSummaryList,
-    lmprsNextToken,
-    lmprsResponseStatus,
+    lmprrsModelPackageSummaryList,
+    lmprrsNextToken,
+    lmprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListModelPackages' smart constructor.
 data ListModelPackages = ListModelPackages'
-  { -- | A string in the model package name. This filter returns only model packages whose name contains the specified string.
-    nameContains :: Lude.Maybe Lude.Text,
-    -- | A filter that returns only model packages created after the specified time (timestamp).
-    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
-    -- | If the response to a previous @ListModelPackages@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of model packages, use the token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sort order for the results. The default is @Ascending@ .
-    sortOrder :: Lude.Maybe SortOrder,
+  { -- | A filter that returns only model packages created after the specified time (timestamp).
+    creationTimeAfter :: Core.Maybe Core.NominalDiffTime,
     -- | A filter that returns only model packages created before the specified time (timestamp).
-    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    creationTimeBefore :: Core.Maybe Core.NominalDiffTime,
     -- | The maximum number of model packages to return in the response.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A string in the model package name. This filter returns only model packages whose name contains the specified string.
+    nameContains :: Core.Maybe Types.NameContains,
+    -- | If the response to a previous @ListModelPackages@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of model packages, use the token in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The parameter by which to sort the results. The default is @CreationTime@ .
-    sortBy :: Lude.Maybe ModelPackageSortBy
+    sortBy :: Core.Maybe Types.ModelPackageSortBy,
+    -- | The sort order for the results. The default is @Ascending@ .
+    sortOrder :: Core.Maybe Types.SortOrder
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListModelPackages' with the minimum fields required to make a request.
---
--- * 'nameContains' - A string in the model package name. This filter returns only model packages whose name contains the specified string.
--- * 'creationTimeAfter' - A filter that returns only model packages created after the specified time (timestamp).
--- * 'nextToken' - If the response to a previous @ListModelPackages@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of model packages, use the token in the next request.
--- * 'sortOrder' - The sort order for the results. The default is @Ascending@ .
--- * 'creationTimeBefore' - A filter that returns only model packages created before the specified time (timestamp).
--- * 'maxResults' - The maximum number of model packages to return in the response.
--- * 'sortBy' - The parameter by which to sort the results. The default is @CreationTime@ .
+-- | Creates a 'ListModelPackages' value with any optional fields omitted.
 mkListModelPackages ::
   ListModelPackages
 mkListModelPackages =
   ListModelPackages'
-    { nameContains = Lude.Nothing,
-      creationTimeAfter = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      creationTimeBefore = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { creationTimeAfter = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      maxResults = Core.Nothing,
+      nameContains = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing
     }
-
--- | A string in the model package name. This filter returns only model packages whose name contains the specified string.
---
--- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmpNameContains :: Lens.Lens' ListModelPackages (Lude.Maybe Lude.Text)
-lmpNameContains = Lens.lens (nameContains :: ListModelPackages -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListModelPackages)
-{-# DEPRECATED lmpNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A filter that returns only model packages created after the specified time (timestamp).
 --
 -- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmpCreationTimeAfter :: Lens.Lens' ListModelPackages (Lude.Maybe Lude.Timestamp)
-lmpCreationTimeAfter = Lens.lens (creationTimeAfter :: ListModelPackages -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListModelPackages)
+lmpCreationTimeAfter :: Lens.Lens' ListModelPackages (Core.Maybe Core.NominalDiffTime)
+lmpCreationTimeAfter = Lens.field @"creationTimeAfter"
 {-# DEPRECATED lmpCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
-
--- | If the response to a previous @ListModelPackages@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of model packages, use the token in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmpNextToken :: Lens.Lens' ListModelPackages (Lude.Maybe Lude.Text)
-lmpNextToken = Lens.lens (nextToken :: ListModelPackages -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListModelPackages)
-{-# DEPRECATED lmpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sort order for the results. The default is @Ascending@ .
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmpSortOrder :: Lens.Lens' ListModelPackages (Lude.Maybe SortOrder)
-lmpSortOrder = Lens.lens (sortOrder :: ListModelPackages -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListModelPackages)
-{-# DEPRECATED lmpSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
 -- | A filter that returns only model packages created before the specified time (timestamp).
 --
 -- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmpCreationTimeBefore :: Lens.Lens' ListModelPackages (Lude.Maybe Lude.Timestamp)
-lmpCreationTimeBefore = Lens.lens (creationTimeBefore :: ListModelPackages -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListModelPackages)
+lmpCreationTimeBefore :: Lens.Lens' ListModelPackages (Core.Maybe Core.NominalDiffTime)
+lmpCreationTimeBefore = Lens.field @"creationTimeBefore"
 {-# DEPRECATED lmpCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
 -- | The maximum number of model packages to return in the response.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmpMaxResults :: Lens.Lens' ListModelPackages (Lude.Maybe Lude.Natural)
-lmpMaxResults = Lens.lens (maxResults :: ListModelPackages -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListModelPackages)
+lmpMaxResults :: Lens.Lens' ListModelPackages (Core.Maybe Core.Natural)
+lmpMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lmpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A string in the model package name. This filter returns only model packages whose name contains the specified string.
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmpNameContains :: Lens.Lens' ListModelPackages (Core.Maybe Types.NameContains)
+lmpNameContains = Lens.field @"nameContains"
+{-# DEPRECATED lmpNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
+
+-- | If the response to a previous @ListModelPackages@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of model packages, use the token in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmpNextToken :: Lens.Lens' ListModelPackages (Core.Maybe Types.NextToken)
+lmpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The parameter by which to sort the results. The default is @CreationTime@ .
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmpSortBy :: Lens.Lens' ListModelPackages (Lude.Maybe ModelPackageSortBy)
-lmpSortBy = Lens.lens (sortBy :: ListModelPackages -> Lude.Maybe ModelPackageSortBy) (\s a -> s {sortBy = a} :: ListModelPackages)
+lmpSortBy :: Lens.Lens' ListModelPackages (Core.Maybe Types.ModelPackageSortBy)
+lmpSortBy = Lens.field @"sortBy"
 {-# DEPRECATED lmpSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager ListModelPackages where
-  page rq rs
-    | Page.stop (rs Lens.^. lmprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lmprsModelPackageSummaryList) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lmpNextToken Lens..~ rs Lens.^. lmprsNextToken
+-- | The sort order for the results. The default is @Ascending@ .
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmpSortOrder :: Lens.Lens' ListModelPackages (Core.Maybe Types.SortOrder)
+lmpSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED lmpSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest ListModelPackages where
+instance Core.FromJSON ListModelPackages where
+  toJSON ListModelPackages {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CreationTimeAfter" Core..=) Core.<$> creationTimeAfter,
+            ("CreationTimeBefore" Core..=) Core.<$> creationTimeBefore,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("SortOrder" Core..=) Core.<$> sortOrder
+          ]
+      )
+
+instance Core.AWSRequest ListModelPackages where
   type Rs ListModelPackages = ListModelPackagesResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListModelPackages")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListModelPackagesResponse'
-            Lude.<$> (x Lude..?> "ModelPackageSummaryList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ModelPackageSummaryList" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListModelPackages where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.ListModelPackages" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListModelPackages where
-  toJSON ListModelPackages' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NameContains" Lude..=) Lude.<$> nameContains,
-            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListModelPackages where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListModelPackages where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListModelPackages where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"modelPackageSummaryList") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListModelPackagesResponse' smart constructor.
 data ListModelPackagesResponse = ListModelPackagesResponse'
   { -- | An array of @ModelPackageSummary@ objects, each of which lists a model package.
-    modelPackageSummaryList :: [ModelPackageSummary],
+    modelPackageSummaryList :: [Types.ModelPackageSummary],
     -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of model packages, use it in the subsequent request.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListModelPackagesResponse' with the minimum fields required to make a request.
---
--- * 'modelPackageSummaryList' - An array of @ModelPackageSummary@ objects, each of which lists a model package.
--- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of model packages, use it in the subsequent request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListModelPackagesResponse' value with any optional fields omitted.
 mkListModelPackagesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListModelPackagesResponse
-mkListModelPackagesResponse pResponseStatus_ =
+mkListModelPackagesResponse responseStatus =
   ListModelPackagesResponse'
-    { modelPackageSummaryList = Lude.mempty,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { modelPackageSummaryList = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of @ModelPackageSummary@ objects, each of which lists a model package.
 --
 -- /Note:/ Consider using 'modelPackageSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmprsModelPackageSummaryList :: Lens.Lens' ListModelPackagesResponse [ModelPackageSummary]
-lmprsModelPackageSummaryList = Lens.lens (modelPackageSummaryList :: ListModelPackagesResponse -> [ModelPackageSummary]) (\s a -> s {modelPackageSummaryList = a} :: ListModelPackagesResponse)
-{-# DEPRECATED lmprsModelPackageSummaryList "Use generic-lens or generic-optics with 'modelPackageSummaryList' instead." #-}
+lmprrsModelPackageSummaryList :: Lens.Lens' ListModelPackagesResponse [Types.ModelPackageSummary]
+lmprrsModelPackageSummaryList = Lens.field @"modelPackageSummaryList"
+{-# DEPRECATED lmprrsModelPackageSummaryList "Use generic-lens or generic-optics with 'modelPackageSummaryList' instead." #-}
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of model packages, use it in the subsequent request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmprsNextToken :: Lens.Lens' ListModelPackagesResponse (Lude.Maybe Lude.Text)
-lmprsNextToken = Lens.lens (nextToken :: ListModelPackagesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListModelPackagesResponse)
-{-# DEPRECATED lmprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lmprrsNextToken :: Lens.Lens' ListModelPackagesResponse (Core.Maybe Types.NextToken)
+lmprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmprsResponseStatus :: Lens.Lens' ListModelPackagesResponse Lude.Int
-lmprsResponseStatus = Lens.lens (responseStatus :: ListModelPackagesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListModelPackagesResponse)
-{-# DEPRECATED lmprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lmprrsResponseStatus :: Lens.Lens' ListModelPackagesResponse Core.Int
+lmprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lmprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

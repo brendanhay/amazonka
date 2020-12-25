@@ -17,53 +17,46 @@ module Network.AWS.EC2.Types.PortRange
     mkPortRange,
 
     -- * Lenses
-    prTo,
     prFrom,
+    prTo,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a range of ports.
 --
 -- /See:/ 'mkPortRange' smart constructor.
 data PortRange = PortRange'
-  { -- | The last port in the range.
-    to :: Lude.Maybe Lude.Int,
-    -- | The first port in the range.
-    from :: Lude.Maybe Lude.Int
+  { -- | The first port in the range.
+    from :: Core.Maybe Core.Int,
+    -- | The last port in the range.
+    to :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PortRange' with the minimum fields required to make a request.
---
--- * 'to' - The last port in the range.
--- * 'from' - The first port in the range.
+-- | Creates a 'PortRange' value with any optional fields omitted.
 mkPortRange ::
   PortRange
-mkPortRange = PortRange' {to = Lude.Nothing, from = Lude.Nothing}
-
--- | The last port in the range.
---
--- /Note:/ Consider using 'to' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prTo :: Lens.Lens' PortRange (Lude.Maybe Lude.Int)
-prTo = Lens.lens (to :: PortRange -> Lude.Maybe Lude.Int) (\s a -> s {to = a} :: PortRange)
-{-# DEPRECATED prTo "Use generic-lens or generic-optics with 'to' instead." #-}
+mkPortRange = PortRange' {from = Core.Nothing, to = Core.Nothing}
 
 -- | The first port in the range.
 --
 -- /Note:/ Consider using 'from' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prFrom :: Lens.Lens' PortRange (Lude.Maybe Lude.Int)
-prFrom = Lens.lens (from :: PortRange -> Lude.Maybe Lude.Int) (\s a -> s {from = a} :: PortRange)
+prFrom :: Lens.Lens' PortRange (Core.Maybe Core.Int)
+prFrom = Lens.field @"from"
 {-# DEPRECATED prFrom "Use generic-lens or generic-optics with 'from' instead." #-}
 
-instance Lude.FromXML PortRange where
+-- | The last port in the range.
+--
+-- /Note:/ Consider using 'to' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prTo :: Lens.Lens' PortRange (Core.Maybe Core.Int)
+prTo = Lens.field @"to"
+{-# DEPRECATED prTo "Use generic-lens or generic-optics with 'to' instead." #-}
+
+instance Core.FromXML PortRange where
   parseXML x =
     PortRange'
-      Lude.<$> (x Lude..@? "to") Lude.<*> (x Lude..@? "from")
-
-instance Lude.ToQuery PortRange where
-  toQuery PortRange' {..} =
-    Lude.mconcat ["To" Lude.=: to, "From" Lude.=: from]
+      Core.<$> (x Core..@? "from") Core.<*> (x Core..@? "to")

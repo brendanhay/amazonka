@@ -17,75 +17,71 @@ module Network.AWS.CodeStar.Types.TeamMember
     mkTeamMember,
 
     -- * Lenses
-    tmUserARN,
-    tmRemoteAccessAllowed,
+    tmUserArn,
     tmProjectRole,
+    tmRemoteAccessAllowed,
   )
 where
 
+import qualified Network.AWS.CodeStar.Types.ProjectRole as Types
+import qualified Network.AWS.CodeStar.Types.UserArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a team member in a project.
 --
 -- /See:/ 'mkTeamMember' smart constructor.
 data TeamMember = TeamMember'
   { -- | The Amazon Resource Name (ARN) of the user in IAM.
-    userARN :: Lude.Text,
-    -- | Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
-    remoteAccessAllowed :: Lude.Maybe Lude.Bool,
+    userArn :: Types.UserArn,
     -- | The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
-    projectRole :: Lude.Text
+    projectRole :: Types.ProjectRole,
+    -- | Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
+    remoteAccessAllowed :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TeamMember' with the minimum fields required to make a request.
---
--- * 'userARN' - The Amazon Resource Name (ARN) of the user in IAM.
--- * 'remoteAccessAllowed' - Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
--- * 'projectRole' - The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
+-- | Creates a 'TeamMember' value with any optional fields omitted.
 mkTeamMember ::
-  -- | 'userARN'
-  Lude.Text ->
+  -- | 'userArn'
+  Types.UserArn ->
   -- | 'projectRole'
-  Lude.Text ->
+  Types.ProjectRole ->
   TeamMember
-mkTeamMember pUserARN_ pProjectRole_ =
+mkTeamMember userArn projectRole =
   TeamMember'
-    { userARN = pUserARN_,
-      remoteAccessAllowed = Lude.Nothing,
-      projectRole = pProjectRole_
+    { userArn,
+      projectRole,
+      remoteAccessAllowed = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the user in IAM.
 --
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmUserARN :: Lens.Lens' TeamMember Lude.Text
-tmUserARN = Lens.lens (userARN :: TeamMember -> Lude.Text) (\s a -> s {userARN = a} :: TeamMember)
-{-# DEPRECATED tmUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
-
--- | Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
---
--- /Note:/ Consider using 'remoteAccessAllowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmRemoteAccessAllowed :: Lens.Lens' TeamMember (Lude.Maybe Lude.Bool)
-tmRemoteAccessAllowed = Lens.lens (remoteAccessAllowed :: TeamMember -> Lude.Maybe Lude.Bool) (\s a -> s {remoteAccessAllowed = a} :: TeamMember)
-{-# DEPRECATED tmRemoteAccessAllowed "Use generic-lens or generic-optics with 'remoteAccessAllowed' instead." #-}
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmUserArn :: Lens.Lens' TeamMember Types.UserArn
+tmUserArn = Lens.field @"userArn"
+{-# DEPRECATED tmUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
 
 -- | The role assigned to the user in the project. Project roles have different levels of access. For more information, see <http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html Working with Teams> in the /AWS CodeStar User Guide/ .
 --
 -- /Note:/ Consider using 'projectRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmProjectRole :: Lens.Lens' TeamMember Lude.Text
-tmProjectRole = Lens.lens (projectRole :: TeamMember -> Lude.Text) (\s a -> s {projectRole = a} :: TeamMember)
+tmProjectRole :: Lens.Lens' TeamMember Types.ProjectRole
+tmProjectRole = Lens.field @"projectRole"
 {-# DEPRECATED tmProjectRole "Use generic-lens or generic-optics with 'projectRole' instead." #-}
 
-instance Lude.FromJSON TeamMember where
+-- | Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
+--
+-- /Note:/ Consider using 'remoteAccessAllowed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmRemoteAccessAllowed :: Lens.Lens' TeamMember (Core.Maybe Core.Bool)
+tmRemoteAccessAllowed = Lens.field @"remoteAccessAllowed"
+{-# DEPRECATED tmRemoteAccessAllowed "Use generic-lens or generic-optics with 'remoteAccessAllowed' instead." #-}
+
+instance Core.FromJSON TeamMember where
   parseJSON =
-    Lude.withObject
-      "TeamMember"
-      ( \x ->
-          TeamMember'
-            Lude.<$> (x Lude..: "userArn")
-            Lude.<*> (x Lude..:? "remoteAccessAllowed")
-            Lude.<*> (x Lude..: "projectRole")
-      )
+    Core.withObject "TeamMember" Core.$
+      \x ->
+        TeamMember'
+          Core.<$> (x Core..: "userArn")
+          Core.<*> (x Core..: "projectRole")
+          Core.<*> (x Core..:? "remoteAccessAllowed")

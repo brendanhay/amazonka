@@ -13,42 +13,47 @@
 module Network.AWS.CostExplorer.Types.CostCategoryRuleVersion
   ( CostCategoryRuleVersion
       ( CostCategoryRuleVersion',
-        CostCategoryExpression_V1
+        CostCategoryRuleVersionCostCategoryExpression_V1,
+        fromCostCategoryRuleVersion
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The rule schema version in this particular Cost Category.
-newtype CostCategoryRuleVersion = CostCategoryRuleVersion' Lude.Text
+newtype CostCategoryRuleVersion = CostCategoryRuleVersion'
+  { fromCostCategoryRuleVersion ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CostCategoryExpression_V1 :: CostCategoryRuleVersion
-pattern CostCategoryExpression_V1 = CostCategoryRuleVersion' "CostCategoryExpression.v1"
+pattern CostCategoryRuleVersionCostCategoryExpression_V1 :: CostCategoryRuleVersion
+pattern CostCategoryRuleVersionCostCategoryExpression_V1 = CostCategoryRuleVersion' "CostCategoryExpression.v1"
 
 {-# COMPLETE
-  CostCategoryExpression_V1,
+  CostCategoryRuleVersionCostCategoryExpression_V1,
   CostCategoryRuleVersion'
   #-}

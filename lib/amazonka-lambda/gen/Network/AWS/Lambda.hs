@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,112 @@
 -- This is the /AWS Lambda API Reference/ . The AWS Lambda Developer Guide provides additional information. For the service overview, see <https://docs.aws.amazon.com/lambda/latest/dg/welcome.html What is AWS Lambda> , and for information about how the service works, see <https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the __AWS Lambda Developer Guide__ .
 module Network.AWS.Lambda
   ( -- * Service configuration
-    lambdaService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** KMSInvalidStateException
+    _KMSInvalidStateException,
+
+    -- ** EC2ThrottledException
+    _EC2ThrottledException,
+
+    -- ** EFSMountConnectivityException
+    _EFSMountConnectivityException,
+
+    -- ** InvalidRuntimeException
+    _InvalidRuntimeException,
+
+    -- ** EFSMountFailureException
+    _EFSMountFailureException,
+
+    -- ** PolicyLengthExceededException
+    _PolicyLengthExceededException,
+
+    -- ** PreconditionFailedException
+    _PreconditionFailedException,
+
+    -- ** EC2AccessDeniedException
+    _EC2AccessDeniedException,
+
+    -- ** InvalidSubnetIDException
+    _InvalidSubnetIDException,
+
+    -- ** CodeVerificationFailedException
+    _CodeVerificationFailedException,
+
+    -- ** UnsupportedMediaTypeException
+    _UnsupportedMediaTypeException,
+
+    -- ** InvalidRequestContentException
+    _InvalidRequestContentException,
+
+    -- ** KMSNotFoundException
+    _KMSNotFoundException,
+
+    -- ** ENILimitReachedException
+    _ENILimitReachedException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** RequestTooLargeException
+    _RequestTooLargeException,
+
+    -- ** InvalidCodeSignatureException
+    _InvalidCodeSignatureException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InvalidSecurityGroupIDException
+    _InvalidSecurityGroupIDException,
+
+    -- ** KMSDisabledException
+    _KMSDisabledException,
+
+    -- ** SubnetIPAddressLimitReachedException
+    _SubnetIPAddressLimitReachedException,
+
+    -- ** ServiceException
+    _ServiceException,
+
+    -- ** CodeStorageExceededException
+    _CodeStorageExceededException,
+
+    -- ** CodeSigningConfigNotFoundException
+    _CodeSigningConfigNotFoundException,
+
+    -- ** InvalidZipFileException
+    _InvalidZipFileException,
+
+    -- ** ProvisionedConcurrencyConfigNotFoundException
+    _ProvisionedConcurrencyConfigNotFoundException,
+
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** ResourceNotReadyException
+    _ResourceNotReadyException,
+
+    -- ** EC2UnexpectedException
+    _EC2UnexpectedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** EFSIOException
+    _EFSIOException,
+
+    -- ** EFSMountTimeoutException
+    _EFSMountTimeoutException,
+
+    -- ** KMSAccessDeniedException
+    _KMSAccessDeniedException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -112,8 +213,8 @@ module Network.AWS.Lambda
     -- ** DeleteFunctionConcurrency
     module Network.AWS.Lambda.DeleteFunctionConcurrency,
 
-    -- ** GetLayerVersionByARN
-    module Network.AWS.Lambda.GetLayerVersionByARN,
+    -- ** GetLayerVersionByArn
+    module Network.AWS.Lambda.GetLayerVersionByArn,
 
     -- ** GetFunctionConcurrency
     module Network.AWS.Lambda.GetFunctionConcurrency,
@@ -210,164 +311,273 @@ module Network.AWS.Lambda
 
     -- * Types
 
-    -- ** CodeSigningPolicy
-    CodeSigningPolicy (..),
+    -- ** LayerName
+    LayerName (..),
 
-    -- ** EventSourcePosition
-    EventSourcePosition (..),
-
-    -- ** FunctionVersion
-    FunctionVersion (..),
-
-    -- ** InvocationType
-    InvocationType (..),
-
-    -- ** LastUpdateStatus
-    LastUpdateStatus (..),
-
-    -- ** LastUpdateStatusReasonCode
-    LastUpdateStatusReasonCode (..),
-
-    -- ** LogType
-    LogType (..),
-
-    -- ** ProvisionedConcurrencyStatusEnum
-    ProvisionedConcurrencyStatusEnum (..),
-
-    -- ** Runtime
-    Runtime (..),
-
-    -- ** SourceAccessType
-    SourceAccessType (..),
-
-    -- ** State
-    State (..),
-
-    -- ** StateReasonCode
-    StateReasonCode (..),
-
-    -- ** TracingMode
-    TracingMode (..),
+    -- ** MasterRegion
+    MasterRegion (..),
 
     -- ** AccountLimit
     AccountLimit (..),
     mkAccountLimit,
+    alCodeSizeUnzipped,
+    alCodeSizeZipped,
     alConcurrentExecutions,
     alTotalCodeSize,
     alUnreservedConcurrentExecutions,
-    alCodeSizeUnzipped,
-    alCodeSizeZipped,
 
-    -- ** AccountUsage
-    AccountUsage (..),
-    mkAccountUsage,
-    auTotalCodeSize,
-    auFunctionCount,
-
-    -- ** AliasConfiguration
-    AliasConfiguration (..),
-    mkAliasConfiguration,
-    acRoutingConfig,
-    acName,
-    acFunctionVersion,
-    acAliasARN,
-    acDescription,
-    acRevisionId,
-
-    -- ** AliasRoutingConfiguration
-    AliasRoutingConfiguration (..),
-    mkAliasRoutingConfiguration,
-    arcAdditionalVersionWeights,
-
-    -- ** AllowedPublishers
-    AllowedPublishers (..),
-    mkAllowedPublishers,
-    apSigningProfileVersionARNs,
+    -- ** SourceOwner
+    SourceOwner (..),
 
     -- ** CodeSigningConfig
     CodeSigningConfig (..),
     mkCodeSigningConfig,
+    cscCodeSigningConfigId,
+    cscCodeSigningConfigArn,
     cscAllowedPublishers,
     cscCodeSigningPolicies,
-    cscCodeSigningConfigARN,
     cscLastModified,
     cscDescription,
-    cscCodeSigningConfigId,
 
-    -- ** CodeSigningPolicies
-    CodeSigningPolicies (..),
-    mkCodeSigningPolicies,
-    cspUntrustedArtifactOnDeployment,
+    -- ** GetLayerVersionResponse
+    GetLayerVersionResponse (..),
+    mkGetLayerVersionResponse,
+    glvrCompatibleRuntimes,
+    glvrContent,
+    glvrCreatedDate,
+    glvrDescription,
+    glvrLayerArn,
+    glvrLayerVersionArn,
+    glvrLicenseInfo,
+    glvrVersion,
 
-    -- ** Concurrency
-    Concurrency (..),
-    mkConcurrency,
-    cReservedConcurrentExecutions,
+    -- ** EnvironmentVariableName
+    EnvironmentVariableName (..),
 
-    -- ** DeadLetterConfig
-    DeadLetterConfig (..),
-    mkDeadLetterConfig,
-    dlcTargetARN,
+    -- ** LayerVersionArn
+    LayerVersionArn (..),
 
-    -- ** DestinationConfig
-    DestinationConfig (..),
-    mkDestinationConfig,
-    dcOnSuccess,
-    dcOnFailure,
+    -- ** Runtime
+    Runtime (..),
+
+    -- ** AccountUsage
+    AccountUsage (..),
+    mkAccountUsage,
+    auFunctionCount,
+    auTotalCodeSize,
+
+    -- ** FunctionEventInvokeConfig
+    FunctionEventInvokeConfig (..),
+    mkFunctionEventInvokeConfig,
+    feicDestinationConfig,
+    feicFunctionArn,
+    feicLastModified,
+    feicMaximumEventAgeInSeconds,
+    feicMaximumRetryAttempts,
+
+    -- ** State
+    State (..),
+
+    -- ** NamespacedStatementId
+    NamespacedStatementId (..),
+
+    -- ** TracingMode
+    TracingMode (..),
+
+    -- ** LastUpdateStatus
+    LastUpdateStatus (..),
+
+    -- ** S3ObjectVersion
+    S3ObjectVersion (..),
+
+    -- ** LayersListItem
+    LayersListItem (..),
+    mkLayersListItem,
+    lliLatestMatchingVersion,
+    lliLayerArn,
+    lliLayerName,
+
+    -- ** S3Key
+    S3Key (..),
+
+    -- ** FunctionArn
+    FunctionArn (..),
+
+    -- ** KMSKeyArn
+    KMSKeyArn (..),
+
+    -- ** EventSourceToken
+    EventSourceToken (..),
+
+    -- ** OnSuccess
+    OnSuccess (..),
+    mkOnSuccess,
+    osDestination,
+
+    -- ** LayerPermissionAllowedPrincipal
+    LayerPermissionAllowedPrincipal (..),
+
+    -- ** ProvisionedConcurrencyStatusEnum
+    ProvisionedConcurrencyStatusEnum (..),
+
+    -- ** TracingConfigResponse
+    TracingConfigResponse (..),
+    mkTracingConfigResponse,
+    tcrMode,
 
     -- ** Environment
     Environment (..),
     mkEnvironment,
     eVariables,
 
-    -- ** EnvironmentError
-    EnvironmentError (..),
-    mkEnvironmentError,
-    eeErrorCode,
-    eeMessage,
+    -- ** Arn
+    Arn (..),
 
-    -- ** EnvironmentResponse
-    EnvironmentResponse (..),
-    mkEnvironmentResponse,
-    efVariables,
-    efError,
+    -- ** AllowedPublishers
+    AllowedPublishers (..),
+    mkAllowedPublishers,
+    apSigningProfileVersionArns,
 
-    -- ** EventSourceMappingConfiguration
-    EventSourceMappingConfiguration (..),
-    mkEventSourceMappingConfiguration,
-    esmcEventSourceARN,
-    esmcState,
-    esmcStartingPositionTimestamp,
-    esmcFunctionARN,
-    esmcTopics,
-    esmcQueues,
-    esmcBisectBatchOnFunctionError,
-    esmcUUId,
-    esmcParallelizationFactor,
-    esmcLastProcessingResult,
-    esmcMaximumRetryAttempts,
-    esmcBatchSize,
-    esmcStateTransitionReason,
-    esmcMaximumBatchingWindowInSeconds,
-    esmcSourceAccessConfigurations,
-    esmcMaximumRecordAgeInSeconds,
-    esmcLastModified,
-    esmcDestinationConfig,
-    esmcStartingPosition,
+    -- ** String
+    String (..),
+
+    -- ** LocalMountPath
+    LocalMountPath (..),
+
+    -- ** LayerVersionsListItem
+    LayerVersionsListItem (..),
+    mkLayerVersionsListItem,
+    lvliCompatibleRuntimes,
+    lvliCreatedDate,
+    lvliDescription,
+    lvliLayerVersionArn,
+    lvliLicenseInfo,
+    lvliVersion,
+
+    -- ** EnvironmentVariableValue
+    EnvironmentVariableValue (..),
+
+    -- ** EventSourcePosition
+    EventSourcePosition (..),
+
+    -- ** VpcId
+    VpcId (..),
+
+    -- ** ProvisionedConcurrencyConfigListItem
+    ProvisionedConcurrencyConfigListItem (..),
+    mkProvisionedConcurrencyConfigListItem,
+    pccliAllocatedProvisionedConcurrentExecutions,
+    pccliAvailableProvisionedConcurrentExecutions,
+    pccliFunctionArn,
+    pccliLastModified,
+    pccliRequestedProvisionedConcurrentExecutions,
+    pccliStatus,
+    pccliStatusReason,
+
+    -- ** CodeSigningPolicies
+    CodeSigningPolicies (..),
+    mkCodeSigningPolicies,
+    cspUntrustedArtifactOnDeployment,
+
+    -- ** InvocationType
+    InvocationType (..),
+
+    -- ** DeadLetterConfig
+    DeadLetterConfig (..),
+    mkDeadLetterConfig,
+    dlcTargetArn,
+
+    -- ** AdditionalVersion
+    AdditionalVersion (..),
+
+    -- ** Action
+    Action (..),
+
+    -- ** Alias
+    Alias (..),
+
+    -- ** LayerVersionContentInput
+    LayerVersionContentInput (..),
+    mkLayerVersionContentInput,
+    lvciS3Bucket,
+    lvciS3Key,
+    lvciS3ObjectVersion,
+    lvciZipFile,
+
+    -- ** FileSystemArn
+    FileSystemArn (..),
+
+    -- ** CodeSigningPolicy
+    CodeSigningPolicy (..),
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** SourceAccessType
+    SourceAccessType (..),
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** CodeSigningConfigArn
+    CodeSigningConfigArn (..),
+
+    -- ** Queue
+    Queue (..),
+
+    -- ** SensitiveString
+    SensitiveString (..),
+
+    -- ** Topic
+    Topic (..),
+
+    -- ** DestinationArn
+    DestinationArn (..),
 
     -- ** FileSystemConfig
     FileSystemConfig (..),
     mkFileSystemConfig,
-    fscARN,
+    fscArn,
     fscLocalMountPath,
+
+    -- ** SecurityGroupId
+    SecurityGroupId (..),
+
+    -- ** LogType
+    LogType (..),
+
+    -- ** VpcConfigResponse
+    VpcConfigResponse (..),
+    mkVpcConfigResponse,
+    vcrSecurityGroupIds,
+    vcrSubnetIds,
+    vcrVpcId,
+
+    -- ** VpcConfig
+    VpcConfig (..),
+    mkVpcConfig,
+    vcSecurityGroupIds,
+    vcSubnetIds,
 
     -- ** FunctionCode
     FunctionCode (..),
     mkFunctionCode,
-    fcS3ObjectVersion,
-    fcS3Key,
-    fcZipFile,
     fcS3Bucket,
+    fcS3Key,
+    fcS3ObjectVersion,
+    fcZipFile,
+
+    -- ** LayerVersionContentOutput
+    LayerVersionContentOutput (..),
+    mkLayerVersionContentOutput,
+    lvcoCodeSha256,
+    lvcoCodeSize,
+    lvcoLocation,
+    lvcoSigningJobArn,
+    lvcoSigningProfileVersionArn,
+
+    -- ** Principal
+    Principal (..),
 
     -- ** FunctionCodeLocation
     FunctionCodeLocation (..),
@@ -375,161 +585,221 @@ module Network.AWS.Lambda
     fclLocation,
     fclRepositoryType,
 
+    -- ** Version
+    Version (..),
+
     -- ** FunctionConfiguration
     FunctionConfiguration (..),
     mkFunctionConfiguration,
-    fcMemorySize,
-    fcRuntime,
-    fcState,
-    fcSigningProfileVersionARN,
-    fcLastUpdateStatus,
-    fcFunctionARN,
-    fcKMSKeyARN,
-    fcFileSystemConfigs,
-    fcEnvironment,
-    fcDeadLetterConfig,
-    fcSigningJobARN,
-    fcRole,
-    fcVPCConfig,
-    fcVersion,
-    fcFunctionName,
-    fcLayers,
-    fcCodeSize,
-    fcHandler,
-    fcTimeout,
-    fcLastUpdateStatusReason,
-    fcStateReason,
-    fcLastModified,
     fcCodeSha256,
-    fcTracingConfig,
-    fcStateReasonCode,
+    fcCodeSize,
+    fcDeadLetterConfig,
     fcDescription,
+    fcEnvironment,
+    fcFileSystemConfigs,
+    fcFunctionArn,
+    fcFunctionName,
+    fcHandler,
+    fcKMSKeyArn,
+    fcLastModified,
+    fcLastUpdateStatus,
+    fcLastUpdateStatusReason,
     fcLastUpdateStatusReasonCode,
+    fcLayers,
+    fcMasterArn,
+    fcMemorySize,
     fcRevisionId,
-    fcMasterARN,
+    fcRole,
+    fcRuntime,
+    fcSigningJobArn,
+    fcSigningProfileVersionArn,
+    fcState,
+    fcStateReason,
+    fcStateReasonCode,
+    fcTimeout,
+    fcTracingConfig,
+    fcVersion,
+    fcVpcConfig,
 
-    -- ** FunctionEventInvokeConfig
-    FunctionEventInvokeConfig (..),
-    mkFunctionEventInvokeConfig,
-    feicFunctionARN,
-    feicMaximumEventAgeInSeconds,
-    feicMaximumRetryAttempts,
-    feicLastModified,
-    feicDestinationConfig,
+    -- ** AliasRoutingConfiguration
+    AliasRoutingConfiguration (..),
+    mkAliasRoutingConfiguration,
+    arcAdditionalVersionWeights,
 
-    -- ** GetLayerVersionResponse
-    GetLayerVersionResponse (..),
-    mkGetLayerVersionResponse,
-    glvLayerVersionARN,
-    glvContent,
-    glvCreatedDate,
-    glvVersion,
-    glvLicenseInfo,
-    glvLayerARN,
-    glvDescription,
-    glvCompatibleRuntimes,
+    -- ** NamespacedFunctionName
+    NamespacedFunctionName (..),
+
+    -- ** FunctionName
+    FunctionName (..),
+
+    -- ** EnvironmentError
+    EnvironmentError (..),
+    mkEnvironmentError,
+    eeErrorCode,
+    eeMessage,
+
+    -- ** EventSourceMappingConfiguration
+    EventSourceMappingConfiguration (..),
+    mkEventSourceMappingConfiguration,
+    esmcBatchSize,
+    esmcBisectBatchOnFunctionError,
+    esmcDestinationConfig,
+    esmcEventSourceArn,
+    esmcFunctionArn,
+    esmcLastModified,
+    esmcLastProcessingResult,
+    esmcMaximumBatchingWindowInSeconds,
+    esmcMaximumRecordAgeInSeconds,
+    esmcMaximumRetryAttempts,
+    esmcParallelizationFactor,
+    esmcQueues,
+    esmcSourceAccessConfigurations,
+    esmcStartingPosition,
+    esmcStartingPositionTimestamp,
+    esmcState,
+    esmcStateTransitionReason,
+    esmcTopics,
+    esmcUUID,
+
+    -- ** Concurrency
+    Concurrency (..),
+    mkConcurrency,
+    cReservedConcurrentExecutions,
+
+    -- ** LicenseInfo
+    LicenseInfo (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Qualifier
+    Qualifier (..),
+
+    -- ** FunctionVersion
+    FunctionVersion (..),
+
+    -- ** Handler
+    Handler (..),
+
+    -- ** StatementId
+    StatementId (..),
+
+    -- ** LastUpdateStatusReason
+    LastUpdateStatusReason (..),
+
+    -- ** StateReason
+    StateReason (..),
 
     -- ** Layer
     Layer (..),
     mkLayer,
-    lSigningProfileVersionARN,
-    lARN,
-    lSigningJobARN,
+    lArn,
     lCodeSize,
+    lSigningJobArn,
+    lSigningProfileVersionArn,
 
-    -- ** LayerVersionContentInput
-    LayerVersionContentInput (..),
-    mkLayerVersionContentInput,
-    lvciS3ObjectVersion,
-    lvciS3Key,
-    lvciZipFile,
-    lvciS3Bucket,
-
-    -- ** LayerVersionContentOutput
-    LayerVersionContentOutput (..),
-    mkLayerVersionContentOutput,
-    lvcoSigningProfileVersionARN,
-    lvcoLocation,
-    lvcoSigningJobARN,
-    lvcoCodeSize,
-    lvcoCodeSha256,
-
-    -- ** LayerVersionsListItem
-    LayerVersionsListItem (..),
-    mkLayerVersionsListItem,
-    lvliLayerVersionARN,
-    lvliCreatedDate,
-    lvliVersion,
-    lvliLicenseInfo,
-    lvliDescription,
-    lvliCompatibleRuntimes,
-
-    -- ** LayersListItem
-    LayersListItem (..),
-    mkLayersListItem,
-    lliLayerName,
-    lliLatestMatchingVersion,
-    lliLayerARN,
-
-    -- ** OnFailure
-    OnFailure (..),
-    mkOnFailure,
-    ofDestination,
-
-    -- ** OnSuccess
-    OnSuccess (..),
-    mkOnSuccess,
-    osDestination,
-
-    -- ** ProvisionedConcurrencyConfigListItem
-    ProvisionedConcurrencyConfigListItem (..),
-    mkProvisionedConcurrencyConfigListItem,
-    pccliStatus,
-    pccliFunctionARN,
-    pccliRequestedProvisionedConcurrentExecutions,
-    pccliAvailableProvisionedConcurrentExecutions,
-    pccliStatusReason,
-    pccliAllocatedProvisionedConcurrentExecutions,
-    pccliLastModified,
-
-    -- ** SourceAccessConfiguration
-    SourceAccessConfiguration (..),
-    mkSourceAccessConfiguration,
-    sacURI,
-    sacType,
+    -- ** LayerArn
+    LayerArn (..),
 
     -- ** TracingConfig
     TracingConfig (..),
     mkTracingConfig,
     tcMode,
 
-    -- ** TracingConfigResponse
-    TracingConfigResponse (..),
-    mkTracingConfigResponse,
-    tMode,
+    -- ** StateReasonCode
+    StateReasonCode (..),
 
-    -- ** VPCConfig
-    VPCConfig (..),
-    mkVPCConfig,
-    vcSecurityGroupIds,
-    vcSubnetIds,
+    -- ** Description
+    Description (..),
 
-    -- ** VPCConfigResponse
-    VPCConfigResponse (..),
-    mkVPCConfigResponse,
-    vpccSecurityGroupIds,
-    vpccSubnetIds,
-    vpccVPCId,
+    -- ** LayerPermissionAllowedAction
+    LayerPermissionAllowedAction (..),
+
+    -- ** S3Bucket
+    S3Bucket (..),
+
+    -- ** LastUpdateStatusReasonCode
+    LastUpdateStatusReasonCode (..),
+
+    -- ** AliasConfiguration
+    AliasConfiguration (..),
+    mkAliasConfiguration,
+    acAliasArn,
+    acDescription,
+    acFunctionVersion,
+    acName,
+    acRevisionId,
+    acRoutingConfig,
+
+    -- ** DestinationConfig
+    DestinationConfig (..),
+    mkDestinationConfig,
+    dcOnFailure,
+    dcOnSuccess,
+
+    -- ** EnvironmentResponse
+    EnvironmentResponse (..),
+    mkEnvironmentResponse,
+    erError,
+    erVariables,
+
+    -- ** OrganizationId
+    OrganizationId (..),
+
+    -- ** OnFailure
+    OnFailure (..),
+    mkOnFailure,
+    ofDestination,
+
+    -- ** SourceAccessConfiguration
+    SourceAccessConfiguration (..),
+    mkSourceAccessConfiguration,
+    sacType,
+    sacURI,
+
+    -- ** CodeSigningConfigId
+    CodeSigningConfigId (..),
+
+    -- ** RevisionId
+    RevisionId (..),
+
+    -- ** LastModified
+    LastModified (..),
+
+    -- ** CreatedDate
+    CreatedDate (..),
+
+    -- ** Role
+    Role (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** Destination
+    Destination (..),
+
+    -- ** StatusReason
+    StatusReason (..),
+
+    -- ** UUID
+    UUID (..),
+
+    -- ** EventSourceArn
+    EventSourceArn (..),
+
+    -- ** TargetArn
+    TargetArn (..),
+
+    -- ** Name
+    Name (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -558,7 +828,7 @@ import Network.AWS.Lambda.GetFunctionConcurrency
 import Network.AWS.Lambda.GetFunctionConfiguration
 import Network.AWS.Lambda.GetFunctionEventInvokeConfig
 import Network.AWS.Lambda.GetLayerVersion
-import Network.AWS.Lambda.GetLayerVersionByARN
+import Network.AWS.Lambda.GetLayerVersionByArn
 import Network.AWS.Lambda.GetLayerVersionPolicy
 import Network.AWS.Lambda.GetPolicy
 import Network.AWS.Lambda.GetProvisionedConcurrencyConfig

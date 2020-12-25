@@ -13,61 +13,66 @@
 module Network.AWS.Firehose.Types.ProcessorParameterName
   ( ProcessorParameterName
       ( ProcessorParameterName',
-        LambdaARN,
-        NumberOfRetries,
-        RoleARN,
-        BufferSizeInMBs,
-        BufferIntervalInSeconds
+        ProcessorParameterNameLambdaArn,
+        ProcessorParameterNameNumberOfRetries,
+        ProcessorParameterNameRoleArn,
+        ProcessorParameterNameBufferSizeInMBs,
+        ProcessorParameterNameBufferIntervalInSeconds,
+        fromProcessorParameterName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProcessorParameterName = ProcessorParameterName' Lude.Text
+newtype ProcessorParameterName = ProcessorParameterName'
+  { fromProcessorParameterName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LambdaARN :: ProcessorParameterName
-pattern LambdaARN = ProcessorParameterName' "LambdaArn"
+pattern ProcessorParameterNameLambdaArn :: ProcessorParameterName
+pattern ProcessorParameterNameLambdaArn = ProcessorParameterName' "LambdaArn"
 
-pattern NumberOfRetries :: ProcessorParameterName
-pattern NumberOfRetries = ProcessorParameterName' "NumberOfRetries"
+pattern ProcessorParameterNameNumberOfRetries :: ProcessorParameterName
+pattern ProcessorParameterNameNumberOfRetries = ProcessorParameterName' "NumberOfRetries"
 
-pattern RoleARN :: ProcessorParameterName
-pattern RoleARN = ProcessorParameterName' "RoleArn"
+pattern ProcessorParameterNameRoleArn :: ProcessorParameterName
+pattern ProcessorParameterNameRoleArn = ProcessorParameterName' "RoleArn"
 
-pattern BufferSizeInMBs :: ProcessorParameterName
-pattern BufferSizeInMBs = ProcessorParameterName' "BufferSizeInMBs"
+pattern ProcessorParameterNameBufferSizeInMBs :: ProcessorParameterName
+pattern ProcessorParameterNameBufferSizeInMBs = ProcessorParameterName' "BufferSizeInMBs"
 
-pattern BufferIntervalInSeconds :: ProcessorParameterName
-pattern BufferIntervalInSeconds = ProcessorParameterName' "BufferIntervalInSeconds"
+pattern ProcessorParameterNameBufferIntervalInSeconds :: ProcessorParameterName
+pattern ProcessorParameterNameBufferIntervalInSeconds = ProcessorParameterName' "BufferIntervalInSeconds"
 
 {-# COMPLETE
-  LambdaARN,
-  NumberOfRetries,
-  RoleARN,
-  BufferSizeInMBs,
-  BufferIntervalInSeconds,
+  ProcessorParameterNameLambdaArn,
+  ProcessorParameterNameNumberOfRetries,
+  ProcessorParameterNameRoleArn,
+  ProcessorParameterNameBufferSizeInMBs,
+  ProcessorParameterNameBufferIntervalInSeconds,
   ProcessorParameterName'
   #-}

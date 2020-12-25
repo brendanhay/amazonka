@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ECS
     Network.AWS.ECS.CreateCapacityProvider
@@ -121,21 +127,26 @@ library
     Network.AWS.ECS.Waiters
 
   other-modules:
+    Network.AWS.ECS.Types.Acknowledgment
     Network.AWS.ECS.Types.AgentUpdateStatus
-    Network.AWS.ECS.Types.AssignPublicIP
+    Network.AWS.ECS.Types.AssignPublicIp
     Network.AWS.ECS.Types.Attachment
+    Network.AWS.ECS.Types.AttachmentsStatus
     Network.AWS.ECS.Types.AttachmentStateChange
     Network.AWS.ECS.Types.Attribute
     Network.AWS.ECS.Types.AutoScalingGroupProvider
     Network.AWS.ECS.Types.AutoScalingGroupProviderUpdate
-    Network.AWS.ECS.Types.AWSVPCConfiguration
+    Network.AWS.ECS.Types.AwsVpcConfiguration
+    Network.AWS.ECS.Types.BindIP
     Network.AWS.ECS.Types.CapacityProvider
     Network.AWS.ECS.Types.CapacityProviderField
     Network.AWS.ECS.Types.CapacityProviderStatus
     Network.AWS.ECS.Types.CapacityProviderStrategyItem
     Network.AWS.ECS.Types.CapacityProviderUpdateStatus
     Network.AWS.ECS.Types.Cluster
+    Network.AWS.ECS.Types.ClusterArn
     Network.AWS.ECS.Types.ClusterField
+    Network.AWS.ECS.Types.ClusterName
     Network.AWS.ECS.Types.ClusterSetting
     Network.AWS.ECS.Types.ClusterSettingName
     Network.AWS.ECS.Types.Compatibility
@@ -150,6 +161,7 @@ library
     Network.AWS.ECS.Types.ContainerOverride
     Network.AWS.ECS.Types.ContainerService
     Network.AWS.ECS.Types.ContainerStateChange
+    Network.AWS.ECS.Types.CredentialsParameter
     Network.AWS.ECS.Types.Deployment
     Network.AWS.ECS.Types.DeploymentCircuitBreaker
     Network.AWS.ECS.Types.DeploymentConfiguration
@@ -160,13 +172,18 @@ library
     Network.AWS.ECS.Types.Device
     Network.AWS.ECS.Types.DeviceCgroupPermission
     Network.AWS.ECS.Types.DockerVolumeConfiguration
+    Network.AWS.ECS.Types.Driver
     Network.AWS.ECS.Types.EFSAuthorizationConfig
     Network.AWS.ECS.Types.EFSAuthorizationConfigIAM
     Network.AWS.ECS.Types.EFSTransitEncryption
     Network.AWS.ECS.Types.EFSVolumeConfiguration
+    Network.AWS.ECS.Types.Endpoint
     Network.AWS.ECS.Types.EnvironmentFile
     Network.AWS.ECS.Types.EnvironmentFileType
+    Network.AWS.ECS.Types.Expression
+    Network.AWS.ECS.Types.ExternalId
     Network.AWS.ECS.Types.Failure
+    Network.AWS.ECS.Types.Family
     Network.AWS.ECS.Types.FirelensConfiguration
     Network.AWS.ECS.Types.FirelensConfigurationType
     Network.AWS.ECS.Types.FSxWindowsFileServerAuthorizationConfig
@@ -174,11 +191,15 @@ library
     Network.AWS.ECS.Types.HealthCheck
     Network.AWS.ECS.Types.HealthStatus
     Network.AWS.ECS.Types.HostEntry
+    Network.AWS.ECS.Types.Hostname
     Network.AWS.ECS.Types.HostVolumeProperties
+    Network.AWS.ECS.Types.Id
     Network.AWS.ECS.Types.InferenceAccelerator
     Network.AWS.ECS.Types.InferenceAcceleratorOverride
-    Network.AWS.ECS.Types.IPcMode
+    Network.AWS.ECS.Types.IpAddress
+    Network.AWS.ECS.Types.IpcMode
     Network.AWS.ECS.Types.KernelCapabilities
+    Network.AWS.ECS.Types.Key
     Network.AWS.ECS.Types.KeyValuePair
     Network.AWS.ECS.Types.LaunchType
     Network.AWS.ECS.Types.LinuxParameters
@@ -189,10 +210,12 @@ library
     Network.AWS.ECS.Types.ManagedScalingStatus
     Network.AWS.ECS.Types.ManagedTerminationProtection
     Network.AWS.ECS.Types.MountPoint
+    Network.AWS.ECS.Types.Name
     Network.AWS.ECS.Types.NetworkBinding
     Network.AWS.ECS.Types.NetworkConfiguration
     Network.AWS.ECS.Types.NetworkInterface
     Network.AWS.ECS.Types.NetworkMode
+    Network.AWS.ECS.Types.NextToken
     Network.AWS.ECS.Types.PidMode
     Network.AWS.ECS.Types.PlacementConstraint
     Network.AWS.ECS.Types.PlacementConstraintType
@@ -200,10 +223,13 @@ library
     Network.AWS.ECS.Types.PlacementStrategyType
     Network.AWS.ECS.Types.PlatformDevice
     Network.AWS.ECS.Types.PlatformDeviceType
+    Network.AWS.ECS.Types.PlatformVersion
     Network.AWS.ECS.Types.PortMapping
+    Network.AWS.ECS.Types.PrincipalArn
     Network.AWS.ECS.Types.PropagateTags
     Network.AWS.ECS.Types.ProxyConfiguration
     Network.AWS.ECS.Types.ProxyConfigurationType
+    Network.AWS.ECS.Types.Reason
     Network.AWS.ECS.Types.RepositoryCredentials
     Network.AWS.ECS.Types.Resource
     Network.AWS.ECS.Types.ResourceRequirement
@@ -213,15 +239,22 @@ library
     Network.AWS.ECS.Types.SchedulingStrategy
     Network.AWS.ECS.Types.Scope
     Network.AWS.ECS.Types.Secret
+    Network.AWS.ECS.Types.ServiceArn
     Network.AWS.ECS.Types.ServiceEvent
     Network.AWS.ECS.Types.ServiceField
+    Network.AWS.ECS.Types.ServiceName
     Network.AWS.ECS.Types.ServiceRegistry
     Network.AWS.ECS.Types.Setting
     Network.AWS.ECS.Types.SettingName
     Network.AWS.ECS.Types.SortOrder
     Network.AWS.ECS.Types.StabilityStatus
+    Network.AWS.ECS.Types.StartedBy
+    Network.AWS.ECS.Types.Status
+    Network.AWS.ECS.Types.String
     Network.AWS.ECS.Types.SystemControl
     Network.AWS.ECS.Types.Tag
+    Network.AWS.ECS.Types.TagKey
+    Network.AWS.ECS.Types.TargetId
     Network.AWS.ECS.Types.TargetType
     Network.AWS.ECS.Types.Task
     Network.AWS.ECS.Types.TaskDefinition
@@ -233,12 +266,15 @@ library
     Network.AWS.ECS.Types.TaskField
     Network.AWS.ECS.Types.TaskOverride
     Network.AWS.ECS.Types.TaskSet
+    Network.AWS.ECS.Types.TaskSetArn
     Network.AWS.ECS.Types.TaskSetField
     Network.AWS.ECS.Types.TaskStopCode
+    Network.AWS.ECS.Types.TelemetryEndpoint
     Network.AWS.ECS.Types.Tmpfs
     Network.AWS.ECS.Types.TransportProtocol
     Network.AWS.ECS.Types.Ulimit
     Network.AWS.ECS.Types.UlimitName
+    Network.AWS.ECS.Types.Value
     Network.AWS.ECS.Types.VersionInfo
     Network.AWS.ECS.Types.Volume
     Network.AWS.ECS.Types.VolumeFrom

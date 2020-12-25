@@ -13,67 +13,72 @@
 module Network.AWS.MediaLive.Types.M2tsSegmentationMarkers
   ( M2tsSegmentationMarkers
       ( M2tsSegmentationMarkers',
-        MSMEbp,
-        MSMEbpLegacy,
-        MSMNone,
-        MSMPsiSegstart,
-        MSMRaiAdapt,
-        MSMRaiSegstart
+        M2tsSegmentationMarkersEbp,
+        M2tsSegmentationMarkersEbpLegacy,
+        M2tsSegmentationMarkersNone,
+        M2tsSegmentationMarkersPsiSegstart,
+        M2tsSegmentationMarkersRaiAdapt,
+        M2tsSegmentationMarkersRaiSegstart,
+        fromM2tsSegmentationMarkers
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Segmentation Markers
-newtype M2tsSegmentationMarkers = M2tsSegmentationMarkers' Lude.Text
+newtype M2tsSegmentationMarkers = M2tsSegmentationMarkers'
+  { fromM2tsSegmentationMarkers ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MSMEbp :: M2tsSegmentationMarkers
-pattern MSMEbp = M2tsSegmentationMarkers' "EBP"
+pattern M2tsSegmentationMarkersEbp :: M2tsSegmentationMarkers
+pattern M2tsSegmentationMarkersEbp = M2tsSegmentationMarkers' "EBP"
 
-pattern MSMEbpLegacy :: M2tsSegmentationMarkers
-pattern MSMEbpLegacy = M2tsSegmentationMarkers' "EBP_LEGACY"
+pattern M2tsSegmentationMarkersEbpLegacy :: M2tsSegmentationMarkers
+pattern M2tsSegmentationMarkersEbpLegacy = M2tsSegmentationMarkers' "EBP_LEGACY"
 
-pattern MSMNone :: M2tsSegmentationMarkers
-pattern MSMNone = M2tsSegmentationMarkers' "NONE"
+pattern M2tsSegmentationMarkersNone :: M2tsSegmentationMarkers
+pattern M2tsSegmentationMarkersNone = M2tsSegmentationMarkers' "NONE"
 
-pattern MSMPsiSegstart :: M2tsSegmentationMarkers
-pattern MSMPsiSegstart = M2tsSegmentationMarkers' "PSI_SEGSTART"
+pattern M2tsSegmentationMarkersPsiSegstart :: M2tsSegmentationMarkers
+pattern M2tsSegmentationMarkersPsiSegstart = M2tsSegmentationMarkers' "PSI_SEGSTART"
 
-pattern MSMRaiAdapt :: M2tsSegmentationMarkers
-pattern MSMRaiAdapt = M2tsSegmentationMarkers' "RAI_ADAPT"
+pattern M2tsSegmentationMarkersRaiAdapt :: M2tsSegmentationMarkers
+pattern M2tsSegmentationMarkersRaiAdapt = M2tsSegmentationMarkers' "RAI_ADAPT"
 
-pattern MSMRaiSegstart :: M2tsSegmentationMarkers
-pattern MSMRaiSegstart = M2tsSegmentationMarkers' "RAI_SEGSTART"
+pattern M2tsSegmentationMarkersRaiSegstart :: M2tsSegmentationMarkers
+pattern M2tsSegmentationMarkersRaiSegstart = M2tsSegmentationMarkers' "RAI_SEGSTART"
 
 {-# COMPLETE
-  MSMEbp,
-  MSMEbpLegacy,
-  MSMNone,
-  MSMPsiSegstart,
-  MSMRaiAdapt,
-  MSMRaiSegstart,
+  M2tsSegmentationMarkersEbp,
+  M2tsSegmentationMarkersEbpLegacy,
+  M2tsSegmentationMarkersNone,
+  M2tsSegmentationMarkersPsiSegstart,
+  M2tsSegmentationMarkersRaiAdapt,
+  M2tsSegmentationMarkersRaiSegstart,
   M2tsSegmentationMarkers'
   #-}

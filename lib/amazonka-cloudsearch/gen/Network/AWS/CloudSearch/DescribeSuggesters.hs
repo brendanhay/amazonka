@@ -20,144 +20,142 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     mkDescribeSuggesters,
 
     -- ** Request lenses
-    dDeployed,
-    dSuggesterNames,
-    dDomainName,
+    dssDomainName,
+    dssDeployed,
+    dssSuggesterNames,
 
     -- * Destructuring the response
     DescribeSuggestersResponse (..),
     mkDescribeSuggestersResponse,
 
     -- ** Response lenses
-    dssrsSuggesters,
-    dssrsResponseStatus,
+    dsrfrsSuggesters,
+    dsrfrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DescribeSuggester' @ operation. Specifies the name of the domain you want to describe. To restrict the response to particular suggesters, specify the names of the suggesters you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
 --
 -- /See:/ 'mkDescribeSuggesters' smart constructor.
 data DescribeSuggesters = DescribeSuggesters'
-  { -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
-    deployed :: Lude.Maybe Lude.Bool,
+  { -- | The name of the domain you want to describe.
+    domainName :: Types.DomainName,
+    -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+    deployed :: Core.Maybe Core.Bool,
     -- | The suggesters you want to describe.
-    suggesterNames :: Lude.Maybe [Lude.Text],
-    -- | The name of the domain you want to describe.
-    domainName :: Lude.Text
+    suggesterNames :: Core.Maybe [Types.StandardName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSuggesters' with the minimum fields required to make a request.
---
--- * 'deployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
--- * 'suggesterNames' - The suggesters you want to describe.
--- * 'domainName' - The name of the domain you want to describe.
+-- | Creates a 'DescribeSuggesters' value with any optional fields omitted.
 mkDescribeSuggesters ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   DescribeSuggesters
-mkDescribeSuggesters pDomainName_ =
+mkDescribeSuggesters domainName =
   DescribeSuggesters'
-    { deployed = Lude.Nothing,
-      suggesterNames = Lude.Nothing,
-      domainName = pDomainName_
+    { domainName,
+      deployed = Core.Nothing,
+      suggesterNames = Core.Nothing
     }
-
--- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
---
--- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDeployed :: Lens.Lens' DescribeSuggesters (Lude.Maybe Lude.Bool)
-dDeployed = Lens.lens (deployed :: DescribeSuggesters -> Lude.Maybe Lude.Bool) (\s a -> s {deployed = a} :: DescribeSuggesters)
-{-# DEPRECATED dDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
-
--- | The suggesters you want to describe.
---
--- /Note:/ Consider using 'suggesterNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSuggesterNames :: Lens.Lens' DescribeSuggesters (Lude.Maybe [Lude.Text])
-dSuggesterNames = Lens.lens (suggesterNames :: DescribeSuggesters -> Lude.Maybe [Lude.Text]) (\s a -> s {suggesterNames = a} :: DescribeSuggesters)
-{-# DEPRECATED dSuggesterNames "Use generic-lens or generic-optics with 'suggesterNames' instead." #-}
 
 -- | The name of the domain you want to describe.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDomainName :: Lens.Lens' DescribeSuggesters Lude.Text
-dDomainName = Lens.lens (domainName :: DescribeSuggesters -> Lude.Text) (\s a -> s {domainName = a} :: DescribeSuggesters)
-{-# DEPRECATED dDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+dssDomainName :: Lens.Lens' DescribeSuggesters Types.DomainName
+dssDomainName = Lens.field @"domainName"
+{-# DEPRECATED dssDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest DescribeSuggesters where
+-- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+--
+-- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssDeployed :: Lens.Lens' DescribeSuggesters (Core.Maybe Core.Bool)
+dssDeployed = Lens.field @"deployed"
+{-# DEPRECATED dssDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
+
+-- | The suggesters you want to describe.
+--
+-- /Note:/ Consider using 'suggesterNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dssSuggesterNames :: Lens.Lens' DescribeSuggesters (Core.Maybe [Types.StandardName])
+dssSuggesterNames = Lens.field @"suggesterNames"
+{-# DEPRECATED dssSuggesterNames "Use generic-lens or generic-optics with 'suggesterNames' instead." #-}
+
+instance Core.AWSRequest DescribeSuggesters where
   type Rs DescribeSuggesters = DescribeSuggestersResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeSuggesters")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryValue "Deployed" Core.<$> deployed)
+                Core.<> ( Core.toQueryValue
+                            "SuggesterNames"
+                            (Core.toQueryList "member" Core.<$> suggesterNames)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeSuggestersResult"
       ( \s h x ->
           DescribeSuggestersResponse'
-            Lude.<$> ( x Lude..@? "Suggesters" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "member"
+            Core.<$> ( x Core..@? "Suggesters" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeSuggesters where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeSuggesters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSuggesters where
-  toQuery DescribeSuggesters' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeSuggesters" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "Deployed" Lude.=: deployed,
-        "SuggesterNames"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> suggesterNames),
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | The result of a @DescribeSuggesters@ request.
 --
 -- /See:/ 'mkDescribeSuggestersResponse' smart constructor.
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
   { -- | The suggesters configured for the domain specified in the request.
-    suggesters :: [SuggesterStatus],
+    suggesters :: [Types.SuggesterStatus],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeSuggestersResponse' with the minimum fields required to make a request.
---
--- * 'suggesters' - The suggesters configured for the domain specified in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSuggestersResponse' value with any optional fields omitted.
 mkDescribeSuggestersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSuggestersResponse
-mkDescribeSuggestersResponse pResponseStatus_ =
+mkDescribeSuggestersResponse responseStatus =
   DescribeSuggestersResponse'
-    { suggesters = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { suggesters = Core.mempty,
+      responseStatus
     }
 
 -- | The suggesters configured for the domain specified in the request.
 --
 -- /Note:/ Consider using 'suggesters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssrsSuggesters :: Lens.Lens' DescribeSuggestersResponse [SuggesterStatus]
-dssrsSuggesters = Lens.lens (suggesters :: DescribeSuggestersResponse -> [SuggesterStatus]) (\s a -> s {suggesters = a} :: DescribeSuggestersResponse)
-{-# DEPRECATED dssrsSuggesters "Use generic-lens or generic-optics with 'suggesters' instead." #-}
+dsrfrsSuggesters :: Lens.Lens' DescribeSuggestersResponse [Types.SuggesterStatus]
+dsrfrsSuggesters = Lens.field @"suggesters"
+{-# DEPRECATED dsrfrsSuggesters "Use generic-lens or generic-optics with 'suggesters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssrsResponseStatus :: Lens.Lens' DescribeSuggestersResponse Lude.Int
-dssrsResponseStatus = Lens.lens (responseStatus :: DescribeSuggestersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSuggestersResponse)
-{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrfrsResponseStatus :: Lens.Lens' DescribeSuggestersResponse Core.Int
+dsrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

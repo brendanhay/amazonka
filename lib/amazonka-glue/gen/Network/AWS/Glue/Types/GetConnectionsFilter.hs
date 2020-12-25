@@ -17,58 +17,56 @@ module Network.AWS.Glue.Types.GetConnectionsFilter
     mkGetConnectionsFilter,
 
     -- * Lenses
-    gcfMatchCriteria,
     gcfConnectionType,
+    gcfMatchCriteria,
   )
 where
 
-import Network.AWS.Glue.Types.ConnectionType
+import qualified Network.AWS.Glue.Types.ConnectionType as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Filters the connection definitions that are returned by the @GetConnections@ API operation.
 --
 -- /See:/ 'mkGetConnectionsFilter' smart constructor.
 data GetConnectionsFilter = GetConnectionsFilter'
-  { -- | A criteria string that must match the criteria recorded in the connection definition for that connection definition to be returned.
-    matchCriteria :: Lude.Maybe [Lude.Text],
-    -- | The type of connections to return. Currently, SFTP is not supported.
-    connectionType :: Lude.Maybe ConnectionType
+  { -- | The type of connections to return. Currently, SFTP is not supported.
+    connectionType :: Core.Maybe Types.ConnectionType,
+    -- | A criteria string that must match the criteria recorded in the connection definition for that connection definition to be returned.
+    matchCriteria :: Core.Maybe [Types.NameString]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetConnectionsFilter' with the minimum fields required to make a request.
---
--- * 'matchCriteria' - A criteria string that must match the criteria recorded in the connection definition for that connection definition to be returned.
--- * 'connectionType' - The type of connections to return. Currently, SFTP is not supported.
+-- | Creates a 'GetConnectionsFilter' value with any optional fields omitted.
 mkGetConnectionsFilter ::
   GetConnectionsFilter
 mkGetConnectionsFilter =
   GetConnectionsFilter'
-    { matchCriteria = Lude.Nothing,
-      connectionType = Lude.Nothing
+    { connectionType = Core.Nothing,
+      matchCriteria = Core.Nothing
     }
-
--- | A criteria string that must match the criteria recorded in the connection definition for that connection definition to be returned.
---
--- /Note:/ Consider using 'matchCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfMatchCriteria :: Lens.Lens' GetConnectionsFilter (Lude.Maybe [Lude.Text])
-gcfMatchCriteria = Lens.lens (matchCriteria :: GetConnectionsFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {matchCriteria = a} :: GetConnectionsFilter)
-{-# DEPRECATED gcfMatchCriteria "Use generic-lens or generic-optics with 'matchCriteria' instead." #-}
 
 -- | The type of connections to return. Currently, SFTP is not supported.
 --
 -- /Note:/ Consider using 'connectionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfConnectionType :: Lens.Lens' GetConnectionsFilter (Lude.Maybe ConnectionType)
-gcfConnectionType = Lens.lens (connectionType :: GetConnectionsFilter -> Lude.Maybe ConnectionType) (\s a -> s {connectionType = a} :: GetConnectionsFilter)
+gcfConnectionType :: Lens.Lens' GetConnectionsFilter (Core.Maybe Types.ConnectionType)
+gcfConnectionType = Lens.field @"connectionType"
 {-# DEPRECATED gcfConnectionType "Use generic-lens or generic-optics with 'connectionType' instead." #-}
 
-instance Lude.ToJSON GetConnectionsFilter where
-  toJSON GetConnectionsFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MatchCriteria" Lude..=) Lude.<$> matchCriteria,
-            ("ConnectionType" Lude..=) Lude.<$> connectionType
+-- | A criteria string that must match the criteria recorded in the connection definition for that connection definition to be returned.
+--
+-- /Note:/ Consider using 'matchCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfMatchCriteria :: Lens.Lens' GetConnectionsFilter (Core.Maybe [Types.NameString])
+gcfMatchCriteria = Lens.field @"matchCriteria"
+{-# DEPRECATED gcfMatchCriteria "Use generic-lens or generic-optics with 'matchCriteria' instead." #-}
+
+instance Core.FromJSON GetConnectionsFilter where
+  toJSON GetConnectionsFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ConnectionType" Core..=) Core.<$> connectionType,
+            ("MatchCriteria" Core..=) Core.<$> matchCriteria
           ]
       )

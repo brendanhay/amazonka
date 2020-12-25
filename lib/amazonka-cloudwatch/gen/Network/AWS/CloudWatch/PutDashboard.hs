@@ -32,52 +32,44 @@ module Network.AWS.CloudWatch.PutDashboard
     mkPutDashboardResponse,
 
     -- ** Response lenses
-    pdrsDashboardValidationMessages,
-    pdrsResponseStatus,
+    pdrrsDashboardValidationMessages,
+    pdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutDashboard' smart constructor.
 data PutDashboard = PutDashboard'
   { -- | The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, "-", and "_". This parameter is required.
-    dashboardName :: Lude.Text,
+    dashboardName :: Types.DashboardName,
     -- | The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard. This parameter is required.
     --
     -- For more information about the syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax> .
-    dashboardBody :: Lude.Text
+    dashboardBody :: Types.DashboardBody
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutDashboard' with the minimum fields required to make a request.
---
--- * 'dashboardName' - The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, "-", and "_". This parameter is required.
--- * 'dashboardBody' - The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard. This parameter is required.
---
--- For more information about the syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax> .
+-- | Creates a 'PutDashboard' value with any optional fields omitted.
 mkPutDashboard ::
   -- | 'dashboardName'
-  Lude.Text ->
+  Types.DashboardName ->
   -- | 'dashboardBody'
-  Lude.Text ->
+  Types.DashboardBody ->
   PutDashboard
-mkPutDashboard pDashboardName_ pDashboardBody_ =
-  PutDashboard'
-    { dashboardName = pDashboardName_,
-      dashboardBody = pDashboardBody_
-    }
+mkPutDashboard dashboardName dashboardBody =
+  PutDashboard' {dashboardName, dashboardBody}
 
 -- | The name of the dashboard. If a dashboard with this name already exists, this call modifies that dashboard, replacing its current contents. Otherwise, a new dashboard is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, "-", and "_". This parameter is required.
 --
 -- /Note:/ Consider using 'dashboardName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDashboardName :: Lens.Lens' PutDashboard Lude.Text
-pdDashboardName = Lens.lens (dashboardName :: PutDashboard -> Lude.Text) (\s a -> s {dashboardName = a} :: PutDashboard)
+pdDashboardName :: Lens.Lens' PutDashboard Types.DashboardName
+pdDashboardName = Lens.field @"dashboardName"
 {-# DEPRECATED pdDashboardName "Use generic-lens or generic-optics with 'dashboardName' instead." #-}
 
 -- | The detailed information about the dashboard in JSON format, including the widgets to include and their location on the dashboard. This parameter is required.
@@ -85,38 +77,41 @@ pdDashboardName = Lens.lens (dashboardName :: PutDashboard -> Lude.Text) (\s a -
 -- For more information about the syntax, see <https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html Dashboard Body Structure and Syntax> .
 --
 -- /Note:/ Consider using 'dashboardBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDashboardBody :: Lens.Lens' PutDashboard Lude.Text
-pdDashboardBody = Lens.lens (dashboardBody :: PutDashboard -> Lude.Text) (\s a -> s {dashboardBody = a} :: PutDashboard)
+pdDashboardBody :: Lens.Lens' PutDashboard Types.DashboardBody
+pdDashboardBody = Lens.field @"dashboardBody"
 {-# DEPRECATED pdDashboardBody "Use generic-lens or generic-optics with 'dashboardBody' instead." #-}
 
-instance Lude.AWSRequest PutDashboard where
+instance Core.AWSRequest PutDashboard where
   type Rs PutDashboard = PutDashboardResponse
-  request = Req.postQuery cloudWatchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PutDashboard")
+                Core.<> (Core.pure ("Version", "2010-08-01"))
+                Core.<> (Core.toQueryValue "DashboardName" dashboardName)
+                Core.<> (Core.toQueryValue "DashboardBody" dashboardBody)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "PutDashboardResult"
       ( \s h x ->
           PutDashboardResponse'
-            Lude.<$> ( x Lude..@? "DashboardValidationMessages" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "DashboardValidationMessages"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutDashboard where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PutDashboard where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutDashboard where
-  toQuery PutDashboard' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("PutDashboard" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
-        "DashboardName" Lude.=: dashboardName,
-        "DashboardBody" Lude.=: dashboardBody
-      ]
 
 -- | /See:/ 'mkPutDashboardResponse' smart constructor.
 data PutDashboardResponse = PutDashboardResponse'
@@ -124,28 +119,22 @@ data PutDashboardResponse = PutDashboardResponse'
     --
     -- If this result includes only warning messages, then the input was valid enough for the dashboard to be created or modified, but some elements of the dashboard might not render.
     -- If this result includes error messages, the input was not valid and the operation failed.
-    dashboardValidationMessages :: Lude.Maybe [DashboardValidationMessage],
+    dashboardValidationMessages :: Core.Maybe [Types.DashboardValidationMessage],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutDashboardResponse' with the minimum fields required to make a request.
---
--- * 'dashboardValidationMessages' - If the input for @PutDashboard@ was correct and the dashboard was successfully created or modified, this result is empty.
---
--- If this result includes only warning messages, then the input was valid enough for the dashboard to be created or modified, but some elements of the dashboard might not render.
--- If this result includes error messages, the input was not valid and the operation failed.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutDashboardResponse' value with any optional fields omitted.
 mkPutDashboardResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutDashboardResponse
-mkPutDashboardResponse pResponseStatus_ =
+mkPutDashboardResponse responseStatus =
   PutDashboardResponse'
-    { dashboardValidationMessages = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dashboardValidationMessages = Core.Nothing,
+      responseStatus
     }
 
 -- | If the input for @PutDashboard@ was correct and the dashboard was successfully created or modified, this result is empty.
@@ -154,13 +143,13 @@ mkPutDashboardResponse pResponseStatus_ =
 -- If this result includes error messages, the input was not valid and the operation failed.
 --
 -- /Note:/ Consider using 'dashboardValidationMessages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdrsDashboardValidationMessages :: Lens.Lens' PutDashboardResponse (Lude.Maybe [DashboardValidationMessage])
-pdrsDashboardValidationMessages = Lens.lens (dashboardValidationMessages :: PutDashboardResponse -> Lude.Maybe [DashboardValidationMessage]) (\s a -> s {dashboardValidationMessages = a} :: PutDashboardResponse)
-{-# DEPRECATED pdrsDashboardValidationMessages "Use generic-lens or generic-optics with 'dashboardValidationMessages' instead." #-}
+pdrrsDashboardValidationMessages :: Lens.Lens' PutDashboardResponse (Core.Maybe [Types.DashboardValidationMessage])
+pdrrsDashboardValidationMessages = Lens.field @"dashboardValidationMessages"
+{-# DEPRECATED pdrrsDashboardValidationMessages "Use generic-lens or generic-optics with 'dashboardValidationMessages' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdrsResponseStatus :: Lens.Lens' PutDashboardResponse Lude.Int
-pdrsResponseStatus = Lens.lens (responseStatus :: PutDashboardResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutDashboardResponse)
-{-# DEPRECATED pdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pdrrsResponseStatus :: Lens.Lens' PutDashboardResponse Core.Int
+pdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

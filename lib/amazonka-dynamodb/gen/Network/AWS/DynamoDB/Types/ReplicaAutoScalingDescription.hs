@@ -17,25 +17,32 @@ module Network.AWS.DynamoDB.Types.ReplicaAutoScalingDescription
     mkReplicaAutoScalingDescription,
 
     -- * Lenses
-    rasdReplicaStatus,
-    rasdRegionName,
     rasdGlobalSecondaryIndexes,
-    rasdReplicaProvisionedWriteCapacityAutoScalingSettings,
+    rasdRegionName,
     rasdReplicaProvisionedReadCapacityAutoScalingSettings,
+    rasdReplicaProvisionedWriteCapacityAutoScalingSettings,
+    rasdReplicaStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription
-import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingDescription
-import Network.AWS.DynamoDB.Types.ReplicaStatus
+import qualified Network.AWS.DynamoDB.Types.AutoScalingSettingsDescription as Types
+import qualified Network.AWS.DynamoDB.Types.RegionName as Types
+import qualified Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingDescription as Types
+import qualified Network.AWS.DynamoDB.Types.ReplicaStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the auto scaling settings of the replica.
 --
 -- /See:/ 'mkReplicaAutoScalingDescription' smart constructor.
 data ReplicaAutoScalingDescription = ReplicaAutoScalingDescription'
-  { -- | The current state of the replica:
+  { -- | Replica-specific global secondary index auto scaling settings.
+    globalSecondaryIndexes :: Core.Maybe [Types.ReplicaGlobalSecondaryIndexAutoScalingDescription],
+    -- | The Region where the replica exists.
+    regionName :: Core.Maybe Types.RegionName,
+    replicaProvisionedReadCapacityAutoScalingSettings :: Core.Maybe Types.AutoScalingSettingsDescription,
+    replicaProvisionedWriteCapacityAutoScalingSettings :: Core.Maybe Types.AutoScalingSettingsDescription,
+    -- | The current state of the replica:
     --
     --
     --     * @CREATING@ - The replica is being created.
@@ -48,49 +55,52 @@ data ReplicaAutoScalingDescription = ReplicaAutoScalingDescription'
     --
     --
     --     * @ACTIVE@ - The replica is ready for use.
-    replicaStatus :: Lude.Maybe ReplicaStatus,
-    -- | The Region where the replica exists.
-    regionName :: Lude.Maybe Lude.Text,
-    -- | Replica-specific global secondary index auto scaling settings.
-    globalSecondaryIndexes :: Lude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription],
-    replicaProvisionedWriteCapacityAutoScalingSettings :: Lude.Maybe AutoScalingSettingsDescription,
-    replicaProvisionedReadCapacityAutoScalingSettings :: Lude.Maybe AutoScalingSettingsDescription
+    replicaStatus :: Core.Maybe Types.ReplicaStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicaAutoScalingDescription' with the minimum fields required to make a request.
---
--- * 'replicaStatus' - The current state of the replica:
---
---
---     * @CREATING@ - The replica is being created.
---
---
---     * @UPDATING@ - The replica is being updated.
---
---
---     * @DELETING@ - The replica is being deleted.
---
---
---     * @ACTIVE@ - The replica is ready for use.
---
---
--- * 'regionName' - The Region where the replica exists.
--- * 'globalSecondaryIndexes' - Replica-specific global secondary index auto scaling settings.
--- * 'replicaProvisionedWriteCapacityAutoScalingSettings' -
--- * 'replicaProvisionedReadCapacityAutoScalingSettings' -
+-- | Creates a 'ReplicaAutoScalingDescription' value with any optional fields omitted.
 mkReplicaAutoScalingDescription ::
   ReplicaAutoScalingDescription
 mkReplicaAutoScalingDescription =
   ReplicaAutoScalingDescription'
-    { replicaStatus = Lude.Nothing,
-      regionName = Lude.Nothing,
-      globalSecondaryIndexes = Lude.Nothing,
+    { globalSecondaryIndexes =
+        Core.Nothing,
+      regionName = Core.Nothing,
+      replicaProvisionedReadCapacityAutoScalingSettings = Core.Nothing,
       replicaProvisionedWriteCapacityAutoScalingSettings =
-        Lude.Nothing,
-      replicaProvisionedReadCapacityAutoScalingSettings = Lude.Nothing
+        Core.Nothing,
+      replicaStatus = Core.Nothing
     }
+
+-- | Replica-specific global secondary index auto scaling settings.
+--
+-- /Note:/ Consider using 'globalSecondaryIndexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasdGlobalSecondaryIndexes :: Lens.Lens' ReplicaAutoScalingDescription (Core.Maybe [Types.ReplicaGlobalSecondaryIndexAutoScalingDescription])
+rasdGlobalSecondaryIndexes = Lens.field @"globalSecondaryIndexes"
+{-# DEPRECATED rasdGlobalSecondaryIndexes "Use generic-lens or generic-optics with 'globalSecondaryIndexes' instead." #-}
+
+-- | The Region where the replica exists.
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasdRegionName :: Lens.Lens' ReplicaAutoScalingDescription (Core.Maybe Types.RegionName)
+rasdRegionName = Lens.field @"regionName"
+{-# DEPRECATED rasdRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'replicaProvisionedReadCapacityAutoScalingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasdReplicaProvisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaAutoScalingDescription (Core.Maybe Types.AutoScalingSettingsDescription)
+rasdReplicaProvisionedReadCapacityAutoScalingSettings = Lens.field @"replicaProvisionedReadCapacityAutoScalingSettings"
+{-# DEPRECATED rasdReplicaProvisionedReadCapacityAutoScalingSettings "Use generic-lens or generic-optics with 'replicaProvisionedReadCapacityAutoScalingSettings' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'replicaProvisionedWriteCapacityAutoScalingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasdReplicaProvisionedWriteCapacityAutoScalingSettings :: Lens.Lens' ReplicaAutoScalingDescription (Core.Maybe Types.AutoScalingSettingsDescription)
+rasdReplicaProvisionedWriteCapacityAutoScalingSettings = Lens.field @"replicaProvisionedWriteCapacityAutoScalingSettings"
+{-# DEPRECATED rasdReplicaProvisionedWriteCapacityAutoScalingSettings "Use generic-lens or generic-optics with 'replicaProvisionedWriteCapacityAutoScalingSettings' instead." #-}
 
 -- | The current state of the replica:
 --
@@ -109,47 +119,17 @@ mkReplicaAutoScalingDescription =
 --
 --
 -- /Note:/ Consider using 'replicaStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasdReplicaStatus :: Lens.Lens' ReplicaAutoScalingDescription (Lude.Maybe ReplicaStatus)
-rasdReplicaStatus = Lens.lens (replicaStatus :: ReplicaAutoScalingDescription -> Lude.Maybe ReplicaStatus) (\s a -> s {replicaStatus = a} :: ReplicaAutoScalingDescription)
+rasdReplicaStatus :: Lens.Lens' ReplicaAutoScalingDescription (Core.Maybe Types.ReplicaStatus)
+rasdReplicaStatus = Lens.field @"replicaStatus"
 {-# DEPRECATED rasdReplicaStatus "Use generic-lens or generic-optics with 'replicaStatus' instead." #-}
 
--- | The Region where the replica exists.
---
--- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasdRegionName :: Lens.Lens' ReplicaAutoScalingDescription (Lude.Maybe Lude.Text)
-rasdRegionName = Lens.lens (regionName :: ReplicaAutoScalingDescription -> Lude.Maybe Lude.Text) (\s a -> s {regionName = a} :: ReplicaAutoScalingDescription)
-{-# DEPRECATED rasdRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
-
--- | Replica-specific global secondary index auto scaling settings.
---
--- /Note:/ Consider using 'globalSecondaryIndexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasdGlobalSecondaryIndexes :: Lens.Lens' ReplicaAutoScalingDescription (Lude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription])
-rasdGlobalSecondaryIndexes = Lens.lens (globalSecondaryIndexes :: ReplicaAutoScalingDescription -> Lude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingDescription]) (\s a -> s {globalSecondaryIndexes = a} :: ReplicaAutoScalingDescription)
-{-# DEPRECATED rasdGlobalSecondaryIndexes "Use generic-lens or generic-optics with 'globalSecondaryIndexes' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'replicaProvisionedWriteCapacityAutoScalingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasdReplicaProvisionedWriteCapacityAutoScalingSettings :: Lens.Lens' ReplicaAutoScalingDescription (Lude.Maybe AutoScalingSettingsDescription)
-rasdReplicaProvisionedWriteCapacityAutoScalingSettings = Lens.lens (replicaProvisionedWriteCapacityAutoScalingSettings :: ReplicaAutoScalingDescription -> Lude.Maybe AutoScalingSettingsDescription) (\s a -> s {replicaProvisionedWriteCapacityAutoScalingSettings = a} :: ReplicaAutoScalingDescription)
-{-# DEPRECATED rasdReplicaProvisionedWriteCapacityAutoScalingSettings "Use generic-lens or generic-optics with 'replicaProvisionedWriteCapacityAutoScalingSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'replicaProvisionedReadCapacityAutoScalingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasdReplicaProvisionedReadCapacityAutoScalingSettings :: Lens.Lens' ReplicaAutoScalingDescription (Lude.Maybe AutoScalingSettingsDescription)
-rasdReplicaProvisionedReadCapacityAutoScalingSettings = Lens.lens (replicaProvisionedReadCapacityAutoScalingSettings :: ReplicaAutoScalingDescription -> Lude.Maybe AutoScalingSettingsDescription) (\s a -> s {replicaProvisionedReadCapacityAutoScalingSettings = a} :: ReplicaAutoScalingDescription)
-{-# DEPRECATED rasdReplicaProvisionedReadCapacityAutoScalingSettings "Use generic-lens or generic-optics with 'replicaProvisionedReadCapacityAutoScalingSettings' instead." #-}
-
-instance Lude.FromJSON ReplicaAutoScalingDescription where
+instance Core.FromJSON ReplicaAutoScalingDescription where
   parseJSON =
-    Lude.withObject
-      "ReplicaAutoScalingDescription"
-      ( \x ->
-          ReplicaAutoScalingDescription'
-            Lude.<$> (x Lude..:? "ReplicaStatus")
-            Lude.<*> (x Lude..:? "RegionName")
-            Lude.<*> (x Lude..:? "GlobalSecondaryIndexes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings")
-            Lude.<*> (x Lude..:? "ReplicaProvisionedReadCapacityAutoScalingSettings")
-      )
+    Core.withObject "ReplicaAutoScalingDescription" Core.$
+      \x ->
+        ReplicaAutoScalingDescription'
+          Core.<$> (x Core..:? "GlobalSecondaryIndexes")
+          Core.<*> (x Core..:? "RegionName")
+          Core.<*> (x Core..:? "ReplicaProvisionedReadCapacityAutoScalingSettings")
+          Core.<*> (x Core..:? "ReplicaProvisionedWriteCapacityAutoScalingSettings")
+          Core.<*> (x Core..:? "ReplicaStatus")

@@ -27,110 +27,99 @@ module Network.AWS.Glue.GetDataCatalogEncryptionSettings
     mkGetDataCatalogEncryptionSettingsResponse,
 
     -- ** Response lenses
-    gdcesrsDataCatalogEncryptionSettings,
-    gdcesrsResponseStatus,
+    gdcesrrsDataCatalogEncryptionSettings,
+    gdcesrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDataCatalogEncryptionSettings' smart constructor.
 newtype GetDataCatalogEncryptionSettings = GetDataCatalogEncryptionSettings'
   { -- | The ID of the Data Catalog to retrieve the security configuration for. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text
+    catalogId :: Core.Maybe Types.CatalogIdString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDataCatalogEncryptionSettings' with the minimum fields required to make a request.
---
--- * 'catalogId' - The ID of the Data Catalog to retrieve the security configuration for. If none is provided, the AWS account ID is used by default.
+-- | Creates a 'GetDataCatalogEncryptionSettings' value with any optional fields omitted.
 mkGetDataCatalogEncryptionSettings ::
   GetDataCatalogEncryptionSettings
 mkGetDataCatalogEncryptionSettings =
-  GetDataCatalogEncryptionSettings' {catalogId = Lude.Nothing}
+  GetDataCatalogEncryptionSettings' {catalogId = Core.Nothing}
 
 -- | The ID of the Data Catalog to retrieve the security configuration for. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcesCatalogId :: Lens.Lens' GetDataCatalogEncryptionSettings (Lude.Maybe Lude.Text)
-gdcesCatalogId = Lens.lens (catalogId :: GetDataCatalogEncryptionSettings -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetDataCatalogEncryptionSettings)
+gdcesCatalogId :: Lens.Lens' GetDataCatalogEncryptionSettings (Core.Maybe Types.CatalogIdString)
+gdcesCatalogId = Lens.field @"catalogId"
 {-# DEPRECATED gdcesCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
-instance Lude.AWSRequest GetDataCatalogEncryptionSettings where
+instance Core.FromJSON GetDataCatalogEncryptionSettings where
+  toJSON GetDataCatalogEncryptionSettings {..} =
+    Core.object
+      (Core.catMaybes [("CatalogId" Core..=) Core.<$> catalogId])
+
+instance Core.AWSRequest GetDataCatalogEncryptionSettings where
   type
     Rs GetDataCatalogEncryptionSettings =
       GetDataCatalogEncryptionSettingsResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSGlue.GetDataCatalogEncryptionSettings")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDataCatalogEncryptionSettingsResponse'
-            Lude.<$> (x Lude..?> "DataCatalogEncryptionSettings")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DataCatalogEncryptionSettings")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDataCatalogEncryptionSettings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetDataCatalogEncryptionSettings" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDataCatalogEncryptionSettings where
-  toJSON GetDataCatalogEncryptionSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("CatalogId" Lude..=) Lude.<$> catalogId])
-
-instance Lude.ToPath GetDataCatalogEncryptionSettings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDataCatalogEncryptionSettings where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetDataCatalogEncryptionSettingsResponse' smart constructor.
 data GetDataCatalogEncryptionSettingsResponse = GetDataCatalogEncryptionSettingsResponse'
   { -- | The requested security configuration.
-    dataCatalogEncryptionSettings :: Lude.Maybe DataCatalogEncryptionSettings,
+    dataCatalogEncryptionSettings :: Core.Maybe Types.DataCatalogEncryptionSettings,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDataCatalogEncryptionSettingsResponse' with the minimum fields required to make a request.
---
--- * 'dataCatalogEncryptionSettings' - The requested security configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDataCatalogEncryptionSettingsResponse' value with any optional fields omitted.
 mkGetDataCatalogEncryptionSettingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDataCatalogEncryptionSettingsResponse
-mkGetDataCatalogEncryptionSettingsResponse pResponseStatus_ =
+mkGetDataCatalogEncryptionSettingsResponse responseStatus =
   GetDataCatalogEncryptionSettingsResponse'
     { dataCatalogEncryptionSettings =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The requested security configuration.
 --
 -- /Note:/ Consider using 'dataCatalogEncryptionSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcesrsDataCatalogEncryptionSettings :: Lens.Lens' GetDataCatalogEncryptionSettingsResponse (Lude.Maybe DataCatalogEncryptionSettings)
-gdcesrsDataCatalogEncryptionSettings = Lens.lens (dataCatalogEncryptionSettings :: GetDataCatalogEncryptionSettingsResponse -> Lude.Maybe DataCatalogEncryptionSettings) (\s a -> s {dataCatalogEncryptionSettings = a} :: GetDataCatalogEncryptionSettingsResponse)
-{-# DEPRECATED gdcesrsDataCatalogEncryptionSettings "Use generic-lens or generic-optics with 'dataCatalogEncryptionSettings' instead." #-}
+gdcesrrsDataCatalogEncryptionSettings :: Lens.Lens' GetDataCatalogEncryptionSettingsResponse (Core.Maybe Types.DataCatalogEncryptionSettings)
+gdcesrrsDataCatalogEncryptionSettings = Lens.field @"dataCatalogEncryptionSettings"
+{-# DEPRECATED gdcesrrsDataCatalogEncryptionSettings "Use generic-lens or generic-optics with 'dataCatalogEncryptionSettings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdcesrsResponseStatus :: Lens.Lens' GetDataCatalogEncryptionSettingsResponse Lude.Int
-gdcesrsResponseStatus = Lens.lens (responseStatus :: GetDataCatalogEncryptionSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDataCatalogEncryptionSettingsResponse)
-{-# DEPRECATED gdcesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdcesrrsResponseStatus :: Lens.Lens' GetDataCatalogEncryptionSettingsResponse Core.Int
+gdcesrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdcesrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

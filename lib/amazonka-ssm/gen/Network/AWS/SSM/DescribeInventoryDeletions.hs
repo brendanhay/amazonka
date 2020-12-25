@@ -22,171 +22,159 @@ module Network.AWS.SSM.DescribeInventoryDeletions
     mkDescribeInventoryDeletions,
 
     -- ** Request lenses
-    didNextToken,
-    didMaxResults,
     didDeletionId,
+    didMaxResults,
+    didNextToken,
 
     -- * Destructuring the response
     DescribeInventoryDeletionsResponse (..),
     mkDescribeInventoryDeletionsResponse,
 
     -- ** Response lenses
-    didrsInventoryDeletions,
-    didrsNextToken,
-    didrsResponseStatus,
+    didrrsInventoryDeletions,
+    didrrsNextToken,
+    didrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDescribeInventoryDeletions' smart constructor.
 data DescribeInventoryDeletions = DescribeInventoryDeletions'
-  { -- | A token to start the list. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | Specify the delete inventory ID for which you want information. This ID was returned by the @DeleteInventory@ action.
+    deletionId :: Core.Maybe Types.UUID,
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural,
-    -- | Specify the delete inventory ID for which you want information. This ID was returned by the @DeleteInventory@ action.
-    deletionId :: Lude.Maybe Lude.Text
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A token to start the list. Use this token to get the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeInventoryDeletions' with the minimum fields required to make a request.
---
--- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'deletionId' - Specify the delete inventory ID for which you want information. This ID was returned by the @DeleteInventory@ action.
+-- | Creates a 'DescribeInventoryDeletions' value with any optional fields omitted.
 mkDescribeInventoryDeletions ::
   DescribeInventoryDeletions
 mkDescribeInventoryDeletions =
   DescribeInventoryDeletions'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      deletionId = Lude.Nothing
+    { deletionId = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | A token to start the list. Use this token to get the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-didNextToken :: Lens.Lens' DescribeInventoryDeletions (Lude.Maybe Lude.Text)
-didNextToken = Lens.lens (nextToken :: DescribeInventoryDeletions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInventoryDeletions)
-{-# DEPRECATED didNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-didMaxResults :: Lens.Lens' DescribeInventoryDeletions (Lude.Maybe Lude.Natural)
-didMaxResults = Lens.lens (maxResults :: DescribeInventoryDeletions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInventoryDeletions)
-{-# DEPRECATED didMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Specify the delete inventory ID for which you want information. This ID was returned by the @DeleteInventory@ action.
 --
 -- /Note:/ Consider using 'deletionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-didDeletionId :: Lens.Lens' DescribeInventoryDeletions (Lude.Maybe Lude.Text)
-didDeletionId = Lens.lens (deletionId :: DescribeInventoryDeletions -> Lude.Maybe Lude.Text) (\s a -> s {deletionId = a} :: DescribeInventoryDeletions)
+didDeletionId :: Lens.Lens' DescribeInventoryDeletions (Core.Maybe Types.UUID)
+didDeletionId = Lens.field @"deletionId"
 {-# DEPRECATED didDeletionId "Use generic-lens or generic-optics with 'deletionId' instead." #-}
 
-instance Page.AWSPager DescribeInventoryDeletions where
-  page rq rs
-    | Page.stop (rs Lens.^. didrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. didrsInventoryDeletions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& didNextToken Lens..~ rs Lens.^. didrsNextToken
+-- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didMaxResults :: Lens.Lens' DescribeInventoryDeletions (Core.Maybe Core.Natural)
+didMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED didMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest DescribeInventoryDeletions where
+-- | A token to start the list. Use this token to get the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+didNextToken :: Lens.Lens' DescribeInventoryDeletions (Core.Maybe Types.NextToken)
+didNextToken = Lens.field @"nextToken"
+{-# DEPRECATED didNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON DescribeInventoryDeletions where
+  toJSON DescribeInventoryDeletions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DeletionId" Core..=) Core.<$> deletionId,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeInventoryDeletions where
   type
     Rs DescribeInventoryDeletions =
       DescribeInventoryDeletionsResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.DescribeInventoryDeletions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeInventoryDeletionsResponse'
-            Lude.<$> (x Lude..?> "InventoryDeletions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InventoryDeletions")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeInventoryDeletions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.DescribeInventoryDeletions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeInventoryDeletions where
-  toJSON DescribeInventoryDeletions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("DeletionId" Lude..=) Lude.<$> deletionId
-          ]
-      )
-
-instance Lude.ToPath DescribeInventoryDeletions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeInventoryDeletions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeInventoryDeletions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"inventoryDeletions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeInventoryDeletionsResponse' smart constructor.
 data DescribeInventoryDeletionsResponse = DescribeInventoryDeletionsResponse'
   { -- | A list of status items for deleted inventory.
-    inventoryDeletions :: Lude.Maybe [InventoryDeletionStatusItem],
+    inventoryDeletions :: Core.Maybe [Types.InventoryDeletionStatusItem],
     -- | The token for the next set of items to return. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeInventoryDeletionsResponse' with the minimum fields required to make a request.
---
--- * 'inventoryDeletions' - A list of status items for deleted inventory.
--- * 'nextToken' - The token for the next set of items to return. Use this token to get the next set of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeInventoryDeletionsResponse' value with any optional fields omitted.
 mkDescribeInventoryDeletionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeInventoryDeletionsResponse
-mkDescribeInventoryDeletionsResponse pResponseStatus_ =
+mkDescribeInventoryDeletionsResponse responseStatus =
   DescribeInventoryDeletionsResponse'
     { inventoryDeletions =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of status items for deleted inventory.
 --
 -- /Note:/ Consider using 'inventoryDeletions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-didrsInventoryDeletions :: Lens.Lens' DescribeInventoryDeletionsResponse (Lude.Maybe [InventoryDeletionStatusItem])
-didrsInventoryDeletions = Lens.lens (inventoryDeletions :: DescribeInventoryDeletionsResponse -> Lude.Maybe [InventoryDeletionStatusItem]) (\s a -> s {inventoryDeletions = a} :: DescribeInventoryDeletionsResponse)
-{-# DEPRECATED didrsInventoryDeletions "Use generic-lens or generic-optics with 'inventoryDeletions' instead." #-}
+didrrsInventoryDeletions :: Lens.Lens' DescribeInventoryDeletionsResponse (Core.Maybe [Types.InventoryDeletionStatusItem])
+didrrsInventoryDeletions = Lens.field @"inventoryDeletions"
+{-# DEPRECATED didrrsInventoryDeletions "Use generic-lens or generic-optics with 'inventoryDeletions' instead." #-}
 
 -- | The token for the next set of items to return. Use this token to get the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-didrsNextToken :: Lens.Lens' DescribeInventoryDeletionsResponse (Lude.Maybe Lude.Text)
-didrsNextToken = Lens.lens (nextToken :: DescribeInventoryDeletionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInventoryDeletionsResponse)
-{-# DEPRECATED didrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+didrrsNextToken :: Lens.Lens' DescribeInventoryDeletionsResponse (Core.Maybe Types.NextToken)
+didrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED didrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-didrsResponseStatus :: Lens.Lens' DescribeInventoryDeletionsResponse Lude.Int
-didrsResponseStatus = Lens.lens (responseStatus :: DescribeInventoryDeletionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInventoryDeletionsResponse)
-{-# DEPRECATED didrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+didrrsResponseStatus :: Lens.Lens' DescribeInventoryDeletionsResponse Core.Int
+didrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED didrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

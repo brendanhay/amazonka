@@ -22,8 +22,10 @@ module Network.AWS.IoT.Types.AttributePayload
   )
 where
 
+import qualified Network.AWS.IoT.Types.AttributeName as Types
+import qualified Network.AWS.IoT.Types.AttributeValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The attribute payload.
 --
@@ -32,29 +34,22 @@ data AttributePayload = AttributePayload'
   { -- | A JSON string containing up to three key-value pair in JSON format. For example:
     --
     -- @{\"attributes\":{\"string1\":\"string2\"}}@
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    attributes :: Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue),
     -- | Specifies whether the list of attributes provided in the @AttributePayload@ is merged with the attributes stored in the registry, instead of overwriting them.
     --
     -- To remove an attribute, call @UpdateThing@ with an empty attribute value.
-    merge :: Lude.Maybe Lude.Bool
+    merge :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttributePayload' with the minimum fields required to make a request.
---
--- * 'attributes' - A JSON string containing up to three key-value pair in JSON format. For example:
---
--- @{\"attributes\":{\"string1\":\"string2\"}}@
--- * 'merge' - Specifies whether the list of attributes provided in the @AttributePayload@ is merged with the attributes stored in the registry, instead of overwriting them.
---
--- To remove an attribute, call @UpdateThing@ with an empty attribute value.
+-- | Creates a 'AttributePayload' value with any optional fields omitted.
 mkAttributePayload ::
   AttributePayload
 mkAttributePayload =
   AttributePayload'
-    { attributes = Lude.Nothing,
-      merge = Lude.Nothing
+    { attributes = Core.Nothing,
+      merge = Core.Nothing
     }
 
 -- | A JSON string containing up to three key-value pair in JSON format. For example:
@@ -62,8 +57,8 @@ mkAttributePayload =
 -- @{\"attributes\":{\"string1\":\"string2\"}}@
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apAttributes :: Lens.Lens' AttributePayload (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-apAttributes = Lens.lens (attributes :: AttributePayload -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: AttributePayload)
+apAttributes :: Lens.Lens' AttributePayload (Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue))
+apAttributes = Lens.field @"attributes"
 {-# DEPRECATED apAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | Specifies whether the list of attributes provided in the @AttributePayload@ is merged with the attributes stored in the registry, instead of overwriting them.
@@ -71,25 +66,22 @@ apAttributes = Lens.lens (attributes :: AttributePayload -> Lude.Maybe (Lude.Has
 -- To remove an attribute, call @UpdateThing@ with an empty attribute value.
 --
 -- /Note:/ Consider using 'merge' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apMerge :: Lens.Lens' AttributePayload (Lude.Maybe Lude.Bool)
-apMerge = Lens.lens (merge :: AttributePayload -> Lude.Maybe Lude.Bool) (\s a -> s {merge = a} :: AttributePayload)
+apMerge :: Lens.Lens' AttributePayload (Core.Maybe Core.Bool)
+apMerge = Lens.field @"merge"
 {-# DEPRECATED apMerge "Use generic-lens or generic-optics with 'merge' instead." #-}
 
-instance Lude.FromJSON AttributePayload where
-  parseJSON =
-    Lude.withObject
-      "AttributePayload"
-      ( \x ->
-          AttributePayload'
-            Lude.<$> (x Lude..:? "attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "merge")
-      )
-
-instance Lude.ToJSON AttributePayload where
-  toJSON AttributePayload' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("attributes" Lude..=) Lude.<$> attributes,
-            ("merge" Lude..=) Lude.<$> merge
+instance Core.FromJSON AttributePayload where
+  toJSON AttributePayload {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("attributes" Core..=) Core.<$> attributes,
+            ("merge" Core..=) Core.<$> merge
           ]
       )
+
+instance Core.FromJSON AttributePayload where
+  parseJSON =
+    Core.withObject "AttributePayload" Core.$
+      \x ->
+        AttributePayload'
+          Core.<$> (x Core..:? "attributes") Core.<*> (x Core..:? "merge")

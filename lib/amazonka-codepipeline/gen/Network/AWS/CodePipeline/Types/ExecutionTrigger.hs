@@ -17,58 +17,54 @@ module Network.AWS.CodePipeline.Types.ExecutionTrigger
     mkExecutionTrigger,
 
     -- * Lenses
-    etTriggerType,
     etTriggerDetail,
+    etTriggerType,
   )
 where
 
-import Network.AWS.CodePipeline.Types.TriggerType
+import qualified Network.AWS.CodePipeline.Types.TriggerDetail as Types
+import qualified Network.AWS.CodePipeline.Types.TriggerType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The interaction or event that started a pipeline execution.
 --
 -- /See:/ 'mkExecutionTrigger' smart constructor.
 data ExecutionTrigger = ExecutionTrigger'
-  { -- | The type of change-detection method, command, or user interaction that started a pipeline execution.
-    triggerType :: Lude.Maybe TriggerType,
-    -- | Detail related to the event that started a pipeline execution, such as the webhook ARN of the webhook that triggered the pipeline execution or the user ARN for a user-initiated @start-pipeline-execution@ CLI command.
-    triggerDetail :: Lude.Maybe Lude.Text
+  { -- | Detail related to the event that started a pipeline execution, such as the webhook ARN of the webhook that triggered the pipeline execution or the user ARN for a user-initiated @start-pipeline-execution@ CLI command.
+    triggerDetail :: Core.Maybe Types.TriggerDetail,
+    -- | The type of change-detection method, command, or user interaction that started a pipeline execution.
+    triggerType :: Core.Maybe Types.TriggerType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExecutionTrigger' with the minimum fields required to make a request.
---
--- * 'triggerType' - The type of change-detection method, command, or user interaction that started a pipeline execution.
--- * 'triggerDetail' - Detail related to the event that started a pipeline execution, such as the webhook ARN of the webhook that triggered the pipeline execution or the user ARN for a user-initiated @start-pipeline-execution@ CLI command.
+-- | Creates a 'ExecutionTrigger' value with any optional fields omitted.
 mkExecutionTrigger ::
   ExecutionTrigger
 mkExecutionTrigger =
   ExecutionTrigger'
-    { triggerType = Lude.Nothing,
-      triggerDetail = Lude.Nothing
+    { triggerDetail = Core.Nothing,
+      triggerType = Core.Nothing
     }
-
--- | The type of change-detection method, command, or user interaction that started a pipeline execution.
---
--- /Note:/ Consider using 'triggerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etTriggerType :: Lens.Lens' ExecutionTrigger (Lude.Maybe TriggerType)
-etTriggerType = Lens.lens (triggerType :: ExecutionTrigger -> Lude.Maybe TriggerType) (\s a -> s {triggerType = a} :: ExecutionTrigger)
-{-# DEPRECATED etTriggerType "Use generic-lens or generic-optics with 'triggerType' instead." #-}
 
 -- | Detail related to the event that started a pipeline execution, such as the webhook ARN of the webhook that triggered the pipeline execution or the user ARN for a user-initiated @start-pipeline-execution@ CLI command.
 --
 -- /Note:/ Consider using 'triggerDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etTriggerDetail :: Lens.Lens' ExecutionTrigger (Lude.Maybe Lude.Text)
-etTriggerDetail = Lens.lens (triggerDetail :: ExecutionTrigger -> Lude.Maybe Lude.Text) (\s a -> s {triggerDetail = a} :: ExecutionTrigger)
+etTriggerDetail :: Lens.Lens' ExecutionTrigger (Core.Maybe Types.TriggerDetail)
+etTriggerDetail = Lens.field @"triggerDetail"
 {-# DEPRECATED etTriggerDetail "Use generic-lens or generic-optics with 'triggerDetail' instead." #-}
 
-instance Lude.FromJSON ExecutionTrigger where
+-- | The type of change-detection method, command, or user interaction that started a pipeline execution.
+--
+-- /Note:/ Consider using 'triggerType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etTriggerType :: Lens.Lens' ExecutionTrigger (Core.Maybe Types.TriggerType)
+etTriggerType = Lens.field @"triggerType"
+{-# DEPRECATED etTriggerType "Use generic-lens or generic-optics with 'triggerType' instead." #-}
+
+instance Core.FromJSON ExecutionTrigger where
   parseJSON =
-    Lude.withObject
-      "ExecutionTrigger"
-      ( \x ->
-          ExecutionTrigger'
-            Lude.<$> (x Lude..:? "triggerType") Lude.<*> (x Lude..:? "triggerDetail")
-      )
+    Core.withObject "ExecutionTrigger" Core.$
+      \x ->
+        ExecutionTrigger'
+          Core.<$> (x Core..:? "triggerDetail") Core.<*> (x Core..:? "triggerType")

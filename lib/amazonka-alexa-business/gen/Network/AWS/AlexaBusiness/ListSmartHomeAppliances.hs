@@ -22,171 +22,159 @@ module Network.AWS.AlexaBusiness.ListSmartHomeAppliances
     mkListSmartHomeAppliances,
 
     -- ** Request lenses
-    lshaNextToken,
-    lshaRoomARN,
+    lshaRoomArn,
     lshaMaxResults,
+    lshaNextToken,
 
     -- * Destructuring the response
     ListSmartHomeAppliancesResponse (..),
     mkListSmartHomeAppliancesResponse,
 
     -- ** Response lenses
-    lsharsSmartHomeAppliances,
-    lsharsNextToken,
-    lsharsResponseStatus,
+    lsharrsNextToken,
+    lsharrsSmartHomeAppliances,
+    lsharrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListSmartHomeAppliances' smart constructor.
 data ListSmartHomeAppliances = ListSmartHomeAppliances'
-  { -- | The tokens used for pagination.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The room that the appliances are associated with.
-    roomARN :: Lude.Text,
+  { -- | The room that the appliances are associated with.
+    roomArn :: Types.Arn,
     -- | The maximum number of appliances to be returned, per paginated calls.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The tokens used for pagination.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSmartHomeAppliances' with the minimum fields required to make a request.
---
--- * 'nextToken' - The tokens used for pagination.
--- * 'roomARN' - The room that the appliances are associated with.
--- * 'maxResults' - The maximum number of appliances to be returned, per paginated calls.
+-- | Creates a 'ListSmartHomeAppliances' value with any optional fields omitted.
 mkListSmartHomeAppliances ::
-  -- | 'roomARN'
-  Lude.Text ->
+  -- | 'roomArn'
+  Types.Arn ->
   ListSmartHomeAppliances
-mkListSmartHomeAppliances pRoomARN_ =
+mkListSmartHomeAppliances roomArn =
   ListSmartHomeAppliances'
-    { nextToken = Lude.Nothing,
-      roomARN = pRoomARN_,
-      maxResults = Lude.Nothing
+    { roomArn,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The tokens used for pagination.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lshaNextToken :: Lens.Lens' ListSmartHomeAppliances (Lude.Maybe Lude.Text)
-lshaNextToken = Lens.lens (nextToken :: ListSmartHomeAppliances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSmartHomeAppliances)
-{-# DEPRECATED lshaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The room that the appliances are associated with.
 --
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lshaRoomARN :: Lens.Lens' ListSmartHomeAppliances Lude.Text
-lshaRoomARN = Lens.lens (roomARN :: ListSmartHomeAppliances -> Lude.Text) (\s a -> s {roomARN = a} :: ListSmartHomeAppliances)
-{-# DEPRECATED lshaRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
+-- /Note:/ Consider using 'roomArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lshaRoomArn :: Lens.Lens' ListSmartHomeAppliances Types.Arn
+lshaRoomArn = Lens.field @"roomArn"
+{-# DEPRECATED lshaRoomArn "Use generic-lens or generic-optics with 'roomArn' instead." #-}
 
 -- | The maximum number of appliances to be returned, per paginated calls.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lshaMaxResults :: Lens.Lens' ListSmartHomeAppliances (Lude.Maybe Lude.Natural)
-lshaMaxResults = Lens.lens (maxResults :: ListSmartHomeAppliances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSmartHomeAppliances)
+lshaMaxResults :: Lens.Lens' ListSmartHomeAppliances (Core.Maybe Core.Natural)
+lshaMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lshaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListSmartHomeAppliances where
-  page rq rs
-    | Page.stop (rs Lens.^. lsharsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsharsSmartHomeAppliances) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lshaNextToken Lens..~ rs Lens.^. lsharsNextToken
-
-instance Lude.AWSRequest ListSmartHomeAppliances where
-  type Rs ListSmartHomeAppliances = ListSmartHomeAppliancesResponse
-  request = Req.postJSON alexaBusinessService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListSmartHomeAppliancesResponse'
-            Lude.<$> (x Lude..?> "SmartHomeAppliances" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListSmartHomeAppliances where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.ListSmartHomeAppliances" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListSmartHomeAppliances where
-  toJSON ListSmartHomeAppliances' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("RoomArn" Lude..= roomARN),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListSmartHomeAppliances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListSmartHomeAppliances where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkListSmartHomeAppliancesResponse' smart constructor.
-data ListSmartHomeAppliancesResponse = ListSmartHomeAppliancesResponse'
-  { -- | The smart home appliances.
-    smartHomeAppliances :: Lude.Maybe [SmartHomeAppliance],
-    -- | The tokens used for pagination.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListSmartHomeAppliancesResponse' with the minimum fields required to make a request.
---
--- * 'smartHomeAppliances' - The smart home appliances.
--- * 'nextToken' - The tokens used for pagination.
--- * 'responseStatus' - The response status code.
-mkListSmartHomeAppliancesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListSmartHomeAppliancesResponse
-mkListSmartHomeAppliancesResponse pResponseStatus_ =
-  ListSmartHomeAppliancesResponse'
-    { smartHomeAppliances =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
-
--- | The smart home appliances.
---
--- /Note:/ Consider using 'smartHomeAppliances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsharsSmartHomeAppliances :: Lens.Lens' ListSmartHomeAppliancesResponse (Lude.Maybe [SmartHomeAppliance])
-lsharsSmartHomeAppliances = Lens.lens (smartHomeAppliances :: ListSmartHomeAppliancesResponse -> Lude.Maybe [SmartHomeAppliance]) (\s a -> s {smartHomeAppliances = a} :: ListSmartHomeAppliancesResponse)
-{-# DEPRECATED lsharsSmartHomeAppliances "Use generic-lens or generic-optics with 'smartHomeAppliances' instead." #-}
 
 -- | The tokens used for pagination.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsharsNextToken :: Lens.Lens' ListSmartHomeAppliancesResponse (Lude.Maybe Lude.Text)
-lsharsNextToken = Lens.lens (nextToken :: ListSmartHomeAppliancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSmartHomeAppliancesResponse)
-{-# DEPRECATED lsharsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lshaNextToken :: Lens.Lens' ListSmartHomeAppliances (Core.Maybe Types.NextToken)
+lshaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lshaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListSmartHomeAppliances where
+  toJSON ListSmartHomeAppliances {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RoomArn" Core..= roomArn),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListSmartHomeAppliances where
+  type Rs ListSmartHomeAppliances = ListSmartHomeAppliancesResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.ListSmartHomeAppliances")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListSmartHomeAppliancesResponse'
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "SmartHomeAppliances")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListSmartHomeAppliances where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"smartHomeAppliances" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListSmartHomeAppliancesResponse' smart constructor.
+data ListSmartHomeAppliancesResponse = ListSmartHomeAppliancesResponse'
+  { -- | The tokens used for pagination.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The smart home appliances.
+    smartHomeAppliances :: Core.Maybe [Types.SmartHomeAppliance],
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'ListSmartHomeAppliancesResponse' value with any optional fields omitted.
+mkListSmartHomeAppliancesResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListSmartHomeAppliancesResponse
+mkListSmartHomeAppliancesResponse responseStatus =
+  ListSmartHomeAppliancesResponse'
+    { nextToken = Core.Nothing,
+      smartHomeAppliances = Core.Nothing,
+      responseStatus
+    }
+
+-- | The tokens used for pagination.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsharrsNextToken :: Lens.Lens' ListSmartHomeAppliancesResponse (Core.Maybe Types.NextToken)
+lsharrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsharrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The smart home appliances.
+--
+-- /Note:/ Consider using 'smartHomeAppliances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsharrsSmartHomeAppliances :: Lens.Lens' ListSmartHomeAppliancesResponse (Core.Maybe [Types.SmartHomeAppliance])
+lsharrsSmartHomeAppliances = Lens.field @"smartHomeAppliances"
+{-# DEPRECATED lsharrsSmartHomeAppliances "Use generic-lens or generic-optics with 'smartHomeAppliances' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsharsResponseStatus :: Lens.Lens' ListSmartHomeAppliancesResponse Lude.Int
-lsharsResponseStatus = Lens.lens (responseStatus :: ListSmartHomeAppliancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSmartHomeAppliancesResponse)
-{-# DEPRECATED lsharsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsharrsResponseStatus :: Lens.Lens' ListSmartHomeAppliancesResponse Core.Int
+lsharrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsharrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

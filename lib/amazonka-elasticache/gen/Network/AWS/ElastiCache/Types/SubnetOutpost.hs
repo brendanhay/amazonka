@@ -17,37 +17,36 @@ module Network.AWS.ElastiCache.Types.SubnetOutpost
     mkSubnetOutpost,
 
     -- * Lenses
-    soSubnetOutpostARN,
+    soSubnetOutpostArn,
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The ID of the outpost subnet.
 --
 -- /See:/ 'mkSubnetOutpost' smart constructor.
 newtype SubnetOutpost = SubnetOutpost'
   { -- | The outpost ARN of the subnet.
-    subnetOutpostARN :: Lude.Maybe Lude.Text
+    subnetOutpostArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SubnetOutpost' with the minimum fields required to make a request.
---
--- * 'subnetOutpostARN' - The outpost ARN of the subnet.
+-- | Creates a 'SubnetOutpost' value with any optional fields omitted.
 mkSubnetOutpost ::
   SubnetOutpost
-mkSubnetOutpost = SubnetOutpost' {subnetOutpostARN = Lude.Nothing}
+mkSubnetOutpost = SubnetOutpost' {subnetOutpostArn = Core.Nothing}
 
 -- | The outpost ARN of the subnet.
 --
--- /Note:/ Consider using 'subnetOutpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-soSubnetOutpostARN :: Lens.Lens' SubnetOutpost (Lude.Maybe Lude.Text)
-soSubnetOutpostARN = Lens.lens (subnetOutpostARN :: SubnetOutpost -> Lude.Maybe Lude.Text) (\s a -> s {subnetOutpostARN = a} :: SubnetOutpost)
-{-# DEPRECATED soSubnetOutpostARN "Use generic-lens or generic-optics with 'subnetOutpostARN' instead." #-}
+-- /Note:/ Consider using 'subnetOutpostArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+soSubnetOutpostArn :: Lens.Lens' SubnetOutpost (Core.Maybe Types.String)
+soSubnetOutpostArn = Lens.field @"subnetOutpostArn"
+{-# DEPRECATED soSubnetOutpostArn "Use generic-lens or generic-optics with 'subnetOutpostArn' instead." #-}
 
-instance Lude.FromXML SubnetOutpost where
+instance Core.FromXML SubnetOutpost where
   parseXML x =
-    SubnetOutpost' Lude.<$> (x Lude..@? "SubnetOutpostArn")
+    SubnetOutpost' Core.<$> (x Core..@? "SubnetOutpostArn")

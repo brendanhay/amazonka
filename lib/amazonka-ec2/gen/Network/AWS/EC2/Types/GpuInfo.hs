@@ -17,54 +17,49 @@ module Network.AWS.EC2.Types.GpuInfo
     mkGpuInfo,
 
     -- * Lenses
-    giTotalGpuMemoryInMiB,
     giGpus,
+    giTotalGpuMemoryInMiB,
   )
 where
 
-import Network.AWS.EC2.Types.GpuDeviceInfo
+import qualified Network.AWS.EC2.Types.GpuDeviceInfo as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the GPU accelerators for the instance type.
 --
 -- /See:/ 'mkGpuInfo' smart constructor.
 data GpuInfo = GpuInfo'
-  { -- | The total size of the memory for the GPU accelerators for the instance type, in MiB.
-    totalGpuMemoryInMiB :: Lude.Maybe Lude.Int,
-    -- | Describes the GPU accelerators for the instance type.
-    gpus :: Lude.Maybe [GpuDeviceInfo]
+  { -- | Describes the GPU accelerators for the instance type.
+    gpus :: Core.Maybe [Types.GpuDeviceInfo],
+    -- | The total size of the memory for the GPU accelerators for the instance type, in MiB.
+    totalGpuMemoryInMiB :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GpuInfo' with the minimum fields required to make a request.
---
--- * 'totalGpuMemoryInMiB' - The total size of the memory for the GPU accelerators for the instance type, in MiB.
--- * 'gpus' - Describes the GPU accelerators for the instance type.
+-- | Creates a 'GpuInfo' value with any optional fields omitted.
 mkGpuInfo ::
   GpuInfo
 mkGpuInfo =
-  GpuInfo' {totalGpuMemoryInMiB = Lude.Nothing, gpus = Lude.Nothing}
-
--- | The total size of the memory for the GPU accelerators for the instance type, in MiB.
---
--- /Note:/ Consider using 'totalGpuMemoryInMiB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giTotalGpuMemoryInMiB :: Lens.Lens' GpuInfo (Lude.Maybe Lude.Int)
-giTotalGpuMemoryInMiB = Lens.lens (totalGpuMemoryInMiB :: GpuInfo -> Lude.Maybe Lude.Int) (\s a -> s {totalGpuMemoryInMiB = a} :: GpuInfo)
-{-# DEPRECATED giTotalGpuMemoryInMiB "Use generic-lens or generic-optics with 'totalGpuMemoryInMiB' instead." #-}
+  GpuInfo' {gpus = Core.Nothing, totalGpuMemoryInMiB = Core.Nothing}
 
 -- | Describes the GPU accelerators for the instance type.
 --
 -- /Note:/ Consider using 'gpus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giGpus :: Lens.Lens' GpuInfo (Lude.Maybe [GpuDeviceInfo])
-giGpus = Lens.lens (gpus :: GpuInfo -> Lude.Maybe [GpuDeviceInfo]) (\s a -> s {gpus = a} :: GpuInfo)
+giGpus :: Lens.Lens' GpuInfo (Core.Maybe [Types.GpuDeviceInfo])
+giGpus = Lens.field @"gpus"
 {-# DEPRECATED giGpus "Use generic-lens or generic-optics with 'gpus' instead." #-}
 
-instance Lude.FromXML GpuInfo where
+-- | The total size of the memory for the GPU accelerators for the instance type, in MiB.
+--
+-- /Note:/ Consider using 'totalGpuMemoryInMiB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giTotalGpuMemoryInMiB :: Lens.Lens' GpuInfo (Core.Maybe Core.Int)
+giTotalGpuMemoryInMiB = Lens.field @"totalGpuMemoryInMiB"
+{-# DEPRECATED giTotalGpuMemoryInMiB "Use generic-lens or generic-optics with 'totalGpuMemoryInMiB' instead." #-}
+
+instance Core.FromXML GpuInfo where
   parseXML x =
     GpuInfo'
-      Lude.<$> (x Lude..@? "totalGpuMemoryInMiB")
-      Lude.<*> ( x Lude..@? "gpus" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "gpus" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "totalGpuMemoryInMiB")

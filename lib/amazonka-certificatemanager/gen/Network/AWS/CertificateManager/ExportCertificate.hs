@@ -22,60 +22,59 @@ module Network.AWS.CertificateManager.ExportCertificate
     mkExportCertificate,
 
     -- ** Request lenses
+    ecCertificateArn,
     ecPassphrase,
-    ecCertificateARN,
 
     -- * Destructuring the response
     ExportCertificateResponse (..),
     mkExportCertificateResponse,
 
     -- ** Response lenses
-    ecrsPrivateKey,
-    ecrsCertificate,
-    ecrsCertificateChain,
-    ecrsResponseStatus,
+    ecrrsCertificate,
+    ecrrsCertificateChain,
+    ecrrsPrivateKey,
+    ecrrsResponseStatus,
   )
 where
 
-import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.CertificateManager.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkExportCertificate' smart constructor.
 data ExportCertificate = ExportCertificate'
-  { -- | Passphrase to associate with the encrypted exported private key. If you want to later decrypt the private key, you must have the passphrase. You can use the following OpenSSL command to decrypt a private key:
-    --
-    -- @openssl rsa -in encrypted_key.pem -out decrypted_key.pem@
-    passphrase :: Lude.Sensitive Lude.Base64,
-    -- | An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:
+  { -- | An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:
     --
     -- @arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012@
-    certificateARN :: Lude.Text
+    certificateArn :: Types.Arn,
+    -- | Passphrase to associate with the encrypted exported private key. If you want to later decrypt the private key, you must have the passphrase. You can use the following OpenSSL command to decrypt a private key:
+    --
+    -- @openssl rsa -in encrypted_key.pem -out decrypted_key.pem@
+    passphrase :: Core.Sensitive Core.Base64
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportCertificate' with the minimum fields required to make a request.
---
--- * 'passphrase' - Passphrase to associate with the encrypted exported private key. If you want to later decrypt the private key, you must have the passphrase. You can use the following OpenSSL command to decrypt a private key:
---
--- @openssl rsa -in encrypted_key.pem -out decrypted_key.pem@
--- * 'certificateARN' - An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:
+-- | Creates a 'ExportCertificate' value with any optional fields omitted.
+mkExportCertificate ::
+  -- | 'certificateArn'
+  Types.Arn ->
+  -- | 'passphrase'
+  Core.Sensitive Core.Base64 ->
+  ExportCertificate
+mkExportCertificate certificateArn passphrase =
+  ExportCertificate' {certificateArn, passphrase}
+
+-- | An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:
 --
 -- @arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012@
-mkExportCertificate ::
-  -- | 'passphrase'
-  Lude.Sensitive Lude.Base64 ->
-  -- | 'certificateARN'
-  Lude.Text ->
-  ExportCertificate
-mkExportCertificate pPassphrase_ pCertificateARN_ =
-  ExportCertificate'
-    { passphrase = pPassphrase_,
-      certificateARN = pCertificateARN_
-    }
+--
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecCertificateArn :: Lens.Lens' ExportCertificate Types.Arn
+ecCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED ecCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
 -- | Passphrase to associate with the encrypted exported private key. If you want to later decrypt the private key, you must have the passphrase. You can use the following OpenSSL command to decrypt a private key:
 --
@@ -86,114 +85,93 @@ mkExportCertificate pPassphrase_ pCertificateARN_ =
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'passphrase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecPassphrase :: Lens.Lens' ExportCertificate (Lude.Sensitive Lude.Base64)
-ecPassphrase = Lens.lens (passphrase :: ExportCertificate -> Lude.Sensitive Lude.Base64) (\s a -> s {passphrase = a} :: ExportCertificate)
+ecPassphrase :: Lens.Lens' ExportCertificate (Core.Sensitive Core.Base64)
+ecPassphrase = Lens.field @"passphrase"
 {-# DEPRECATED ecPassphrase "Use generic-lens or generic-optics with 'passphrase' instead." #-}
 
--- | An Amazon Resource Name (ARN) of the issued certificate. This must be of the form:
---
--- @arn:aws:acm:region:account:certificate/12345678-1234-1234-1234-123456789012@
---
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecCertificateARN :: Lens.Lens' ExportCertificate Lude.Text
-ecCertificateARN = Lens.lens (certificateARN :: ExportCertificate -> Lude.Text) (\s a -> s {certificateARN = a} :: ExportCertificate)
-{-# DEPRECATED ecCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+instance Core.FromJSON ExportCertificate where
+  toJSON ExportCertificate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CertificateArn" Core..= certificateArn),
+            Core.Just ("Passphrase" Core..= passphrase)
+          ]
+      )
 
-instance Lude.AWSRequest ExportCertificate where
+instance Core.AWSRequest ExportCertificate where
   type Rs ExportCertificate = ExportCertificateResponse
-  request = Req.postJSON certificateManagerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CertificateManager.ExportCertificate")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ExportCertificateResponse'
-            Lude.<$> (x Lude..?> "PrivateKey")
-            Lude.<*> (x Lude..?> "Certificate")
-            Lude.<*> (x Lude..?> "CertificateChain")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Certificate")
+            Core.<*> (x Core..:? "CertificateChain")
+            Core.<*> (x Core..:? "PrivateKey")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ExportCertificate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CertificateManager.ExportCertificate" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ExportCertificate where
-  toJSON ExportCertificate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Passphrase" Lude..= passphrase),
-            Lude.Just ("CertificateArn" Lude..= certificateARN)
-          ]
-      )
-
-instance Lude.ToPath ExportCertificate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ExportCertificate where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkExportCertificateResponse' smart constructor.
 data ExportCertificateResponse = ExportCertificateResponse'
-  { -- | The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded.
-    privateKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The base64 PEM-encoded certificate.
-    certificate :: Lude.Maybe Lude.Text,
+  { -- | The base64 PEM-encoded certificate.
+    certificate :: Core.Maybe Types.Certificate,
     -- | The base64 PEM-encoded certificate chain. This does not include the certificate that you are exporting.
-    certificateChain :: Lude.Maybe Lude.Text,
+    certificateChain :: Core.Maybe Types.CertificateChain,
+    -- | The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded.
+    privateKey :: Core.Maybe Types.PrivateKey,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportCertificateResponse' with the minimum fields required to make a request.
---
--- * 'privateKey' - The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded.
--- * 'certificate' - The base64 PEM-encoded certificate.
--- * 'certificateChain' - The base64 PEM-encoded certificate chain. This does not include the certificate that you are exporting.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ExportCertificateResponse' value with any optional fields omitted.
 mkExportCertificateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ExportCertificateResponse
-mkExportCertificateResponse pResponseStatus_ =
+mkExportCertificateResponse responseStatus =
   ExportCertificateResponse'
-    { privateKey = Lude.Nothing,
-      certificate = Lude.Nothing,
-      certificateChain = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { certificate = Core.Nothing,
+      certificateChain = Core.Nothing,
+      privateKey = Core.Nothing,
+      responseStatus
     }
-
--- | The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded.
---
--- /Note:/ Consider using 'privateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecrsPrivateKey :: Lens.Lens' ExportCertificateResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-ecrsPrivateKey = Lens.lens (privateKey :: ExportCertificateResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {privateKey = a} :: ExportCertificateResponse)
-{-# DEPRECATED ecrsPrivateKey "Use generic-lens or generic-optics with 'privateKey' instead." #-}
 
 -- | The base64 PEM-encoded certificate.
 --
 -- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecrsCertificate :: Lens.Lens' ExportCertificateResponse (Lude.Maybe Lude.Text)
-ecrsCertificate = Lens.lens (certificate :: ExportCertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificate = a} :: ExportCertificateResponse)
-{-# DEPRECATED ecrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
+ecrrsCertificate :: Lens.Lens' ExportCertificateResponse (Core.Maybe Types.Certificate)
+ecrrsCertificate = Lens.field @"certificate"
+{-# DEPRECATED ecrrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | The base64 PEM-encoded certificate chain. This does not include the certificate that you are exporting.
 --
 -- /Note:/ Consider using 'certificateChain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecrsCertificateChain :: Lens.Lens' ExportCertificateResponse (Lude.Maybe Lude.Text)
-ecrsCertificateChain = Lens.lens (certificateChain :: ExportCertificateResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateChain = a} :: ExportCertificateResponse)
-{-# DEPRECATED ecrsCertificateChain "Use generic-lens or generic-optics with 'certificateChain' instead." #-}
+ecrrsCertificateChain :: Lens.Lens' ExportCertificateResponse (Core.Maybe Types.CertificateChain)
+ecrrsCertificateChain = Lens.field @"certificateChain"
+{-# DEPRECATED ecrrsCertificateChain "Use generic-lens or generic-optics with 'certificateChain' instead." #-}
+
+-- | The encrypted private key associated with the public key in the certificate. The key is output in PKCS #8 format and is base64 PEM-encoded.
+--
+-- /Note:/ Consider using 'privateKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecrrsPrivateKey :: Lens.Lens' ExportCertificateResponse (Core.Maybe Types.PrivateKey)
+ecrrsPrivateKey = Lens.field @"privateKey"
+{-# DEPRECATED ecrrsPrivateKey "Use generic-lens or generic-optics with 'privateKey' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecrsResponseStatus :: Lens.Lens' ExportCertificateResponse Lude.Int
-ecrsResponseStatus = Lens.lens (responseStatus :: ExportCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExportCertificateResponse)
-{-# DEPRECATED ecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ecrrsResponseStatus :: Lens.Lens' ExportCertificateResponse Core.Int
+ecrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ecrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

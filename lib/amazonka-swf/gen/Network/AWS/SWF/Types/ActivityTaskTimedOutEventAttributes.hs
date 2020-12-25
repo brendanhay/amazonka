@@ -17,95 +17,88 @@ module Network.AWS.SWF.Types.ActivityTaskTimedOutEventAttributes
     mkActivityTaskTimedOutEventAttributes,
 
     -- * Lenses
-    attoeaScheduledEventId,
     attoeaTimeoutType,
-    attoeaDetails,
+    attoeaScheduledEventId,
     attoeaStartedEventId,
+    attoeaDetails,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SWF.Types.ActivityTaskTimeoutType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.ActivityTaskTimeoutType as Types
+import qualified Network.AWS.SWF.Types.LimitedData as Types
 
 -- | Provides the details of the @ActivityTaskTimedOut@ event.
 --
 -- /See:/ 'mkActivityTaskTimedOutEventAttributes' smart constructor.
 data ActivityTaskTimedOutEventAttributes = ActivityTaskTimedOutEventAttributes'
-  { -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    scheduledEventId :: Lude.Integer,
-    -- | The type of the timeout that caused this event.
-    timeoutType :: ActivityTaskTimeoutType,
-    -- | Contains the content of the @details@ parameter for the last call made by the activity to @RecordActivityTaskHeartbeat@ .
-    details :: Lude.Maybe Lude.Text,
+  { -- | The type of the timeout that caused this event.
+    timeoutType :: Types.ActivityTaskTimeoutType,
+    -- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    scheduledEventId :: Core.Integer,
     -- | The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    startedEventId :: Lude.Integer
+    startedEventId :: Core.Integer,
+    -- | Contains the content of the @details@ parameter for the last call made by the activity to @RecordActivityTaskHeartbeat@ .
+    details :: Core.Maybe Types.LimitedData
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActivityTaskTimedOutEventAttributes' with the minimum fields required to make a request.
---
--- * 'scheduledEventId' - The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'timeoutType' - The type of the timeout that caused this event.
--- * 'details' - Contains the content of the @details@ parameter for the last call made by the activity to @RecordActivityTaskHeartbeat@ .
--- * 'startedEventId' - The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+-- | Creates a 'ActivityTaskTimedOutEventAttributes' value with any optional fields omitted.
 mkActivityTaskTimedOutEventAttributes ::
-  -- | 'scheduledEventId'
-  Lude.Integer ->
   -- | 'timeoutType'
-  ActivityTaskTimeoutType ->
+  Types.ActivityTaskTimeoutType ->
+  -- | 'scheduledEventId'
+  Core.Integer ->
   -- | 'startedEventId'
-  Lude.Integer ->
+  Core.Integer ->
   ActivityTaskTimedOutEventAttributes
 mkActivityTaskTimedOutEventAttributes
-  pScheduledEventId_
-  pTimeoutType_
-  pStartedEventId_ =
+  timeoutType
+  scheduledEventId
+  startedEventId =
     ActivityTaskTimedOutEventAttributes'
-      { scheduledEventId =
-          pScheduledEventId_,
-        timeoutType = pTimeoutType_,
-        details = Lude.Nothing,
-        startedEventId = pStartedEventId_
+      { timeoutType,
+        scheduledEventId,
+        startedEventId,
+        details = Core.Nothing
       }
-
--- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
---
--- /Note:/ Consider using 'scheduledEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attoeaScheduledEventId :: Lens.Lens' ActivityTaskTimedOutEventAttributes Lude.Integer
-attoeaScheduledEventId = Lens.lens (scheduledEventId :: ActivityTaskTimedOutEventAttributes -> Lude.Integer) (\s a -> s {scheduledEventId = a} :: ActivityTaskTimedOutEventAttributes)
-{-# DEPRECATED attoeaScheduledEventId "Use generic-lens or generic-optics with 'scheduledEventId' instead." #-}
 
 -- | The type of the timeout that caused this event.
 --
 -- /Note:/ Consider using 'timeoutType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attoeaTimeoutType :: Lens.Lens' ActivityTaskTimedOutEventAttributes ActivityTaskTimeoutType
-attoeaTimeoutType = Lens.lens (timeoutType :: ActivityTaskTimedOutEventAttributes -> ActivityTaskTimeoutType) (\s a -> s {timeoutType = a} :: ActivityTaskTimedOutEventAttributes)
+attoeaTimeoutType :: Lens.Lens' ActivityTaskTimedOutEventAttributes Types.ActivityTaskTimeoutType
+attoeaTimeoutType = Lens.field @"timeoutType"
 {-# DEPRECATED attoeaTimeoutType "Use generic-lens or generic-optics with 'timeoutType' instead." #-}
 
--- | Contains the content of the @details@ parameter for the last call made by the activity to @RecordActivityTaskHeartbeat@ .
+-- | The ID of the @ActivityTaskScheduled@ event that was recorded when this activity task was scheduled. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
--- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attoeaDetails :: Lens.Lens' ActivityTaskTimedOutEventAttributes (Lude.Maybe Lude.Text)
-attoeaDetails = Lens.lens (details :: ActivityTaskTimedOutEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: ActivityTaskTimedOutEventAttributes)
-{-# DEPRECATED attoeaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
+-- /Note:/ Consider using 'scheduledEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attoeaScheduledEventId :: Lens.Lens' ActivityTaskTimedOutEventAttributes Core.Integer
+attoeaScheduledEventId = Lens.field @"scheduledEventId"
+{-# DEPRECATED attoeaScheduledEventId "Use generic-lens or generic-optics with 'scheduledEventId' instead." #-}
 
 -- | The ID of the @ActivityTaskStarted@ event recorded when this activity task was started. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
 --
 -- /Note:/ Consider using 'startedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attoeaStartedEventId :: Lens.Lens' ActivityTaskTimedOutEventAttributes Lude.Integer
-attoeaStartedEventId = Lens.lens (startedEventId :: ActivityTaskTimedOutEventAttributes -> Lude.Integer) (\s a -> s {startedEventId = a} :: ActivityTaskTimedOutEventAttributes)
+attoeaStartedEventId :: Lens.Lens' ActivityTaskTimedOutEventAttributes Core.Integer
+attoeaStartedEventId = Lens.field @"startedEventId"
 {-# DEPRECATED attoeaStartedEventId "Use generic-lens or generic-optics with 'startedEventId' instead." #-}
 
-instance Lude.FromJSON ActivityTaskTimedOutEventAttributes where
+-- | Contains the content of the @details@ parameter for the last call made by the activity to @RecordActivityTaskHeartbeat@ .
+--
+-- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+attoeaDetails :: Lens.Lens' ActivityTaskTimedOutEventAttributes (Core.Maybe Types.LimitedData)
+attoeaDetails = Lens.field @"details"
+{-# DEPRECATED attoeaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
+
+instance Core.FromJSON ActivityTaskTimedOutEventAttributes where
   parseJSON =
-    Lude.withObject
-      "ActivityTaskTimedOutEventAttributes"
-      ( \x ->
-          ActivityTaskTimedOutEventAttributes'
-            Lude.<$> (x Lude..: "scheduledEventId")
-            Lude.<*> (x Lude..: "timeoutType")
-            Lude.<*> (x Lude..:? "details")
-            Lude.<*> (x Lude..: "startedEventId")
-      )
+    Core.withObject "ActivityTaskTimedOutEventAttributes" Core.$
+      \x ->
+        ActivityTaskTimedOutEventAttributes'
+          Core.<$> (x Core..: "timeoutType")
+          Core.<*> (x Core..: "scheduledEventId")
+          Core.<*> (x Core..: "startedEventId")
+          Core.<*> (x Core..:? "details")

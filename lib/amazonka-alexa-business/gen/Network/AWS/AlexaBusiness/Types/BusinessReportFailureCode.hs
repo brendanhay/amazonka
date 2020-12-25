@@ -13,51 +13,56 @@
 module Network.AWS.AlexaBusiness.Types.BusinessReportFailureCode
   ( BusinessReportFailureCode
       ( BusinessReportFailureCode',
-        AccessDenied,
-        NoSuchBucket,
-        InternalFailure
+        BusinessReportFailureCodeAccessDenied,
+        BusinessReportFailureCodeNoSuchBucket,
+        BusinessReportFailureCodeInternalFailure,
+        fromBusinessReportFailureCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BusinessReportFailureCode = BusinessReportFailureCode' Lude.Text
+newtype BusinessReportFailureCode = BusinessReportFailureCode'
+  { fromBusinessReportFailureCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AccessDenied :: BusinessReportFailureCode
-pattern AccessDenied = BusinessReportFailureCode' "ACCESS_DENIED"
+pattern BusinessReportFailureCodeAccessDenied :: BusinessReportFailureCode
+pattern BusinessReportFailureCodeAccessDenied = BusinessReportFailureCode' "ACCESS_DENIED"
 
-pattern NoSuchBucket :: BusinessReportFailureCode
-pattern NoSuchBucket = BusinessReportFailureCode' "NO_SUCH_BUCKET"
+pattern BusinessReportFailureCodeNoSuchBucket :: BusinessReportFailureCode
+pattern BusinessReportFailureCodeNoSuchBucket = BusinessReportFailureCode' "NO_SUCH_BUCKET"
 
-pattern InternalFailure :: BusinessReportFailureCode
-pattern InternalFailure = BusinessReportFailureCode' "INTERNAL_FAILURE"
+pattern BusinessReportFailureCodeInternalFailure :: BusinessReportFailureCode
+pattern BusinessReportFailureCodeInternalFailure = BusinessReportFailureCode' "INTERNAL_FAILURE"
 
 {-# COMPLETE
-  AccessDenied,
-  NoSuchBucket,
-  InternalFailure,
+  BusinessReportFailureCodeAccessDenied,
+  BusinessReportFailureCodeNoSuchBucket,
+  BusinessReportFailureCodeInternalFailure,
   BusinessReportFailureCode'
   #-}

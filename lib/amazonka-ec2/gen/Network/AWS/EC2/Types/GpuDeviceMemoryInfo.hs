@@ -22,32 +22,30 @@ module Network.AWS.EC2.Types.GpuDeviceMemoryInfo
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the memory available to the GPU accelerator.
 --
 -- /See:/ 'mkGpuDeviceMemoryInfo' smart constructor.
 newtype GpuDeviceMemoryInfo = GpuDeviceMemoryInfo'
   { -- | The size of the memory available to the GPU accelerator, in MiB.
-    sizeInMiB :: Lude.Maybe Lude.Int
+    sizeInMiB :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GpuDeviceMemoryInfo' with the minimum fields required to make a request.
---
--- * 'sizeInMiB' - The size of the memory available to the GPU accelerator, in MiB.
+-- | Creates a 'GpuDeviceMemoryInfo' value with any optional fields omitted.
 mkGpuDeviceMemoryInfo ::
   GpuDeviceMemoryInfo
 mkGpuDeviceMemoryInfo =
-  GpuDeviceMemoryInfo' {sizeInMiB = Lude.Nothing}
+  GpuDeviceMemoryInfo' {sizeInMiB = Core.Nothing}
 
 -- | The size of the memory available to the GPU accelerator, in MiB.
 --
 -- /Note:/ Consider using 'sizeInMiB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdmiSizeInMiB :: Lens.Lens' GpuDeviceMemoryInfo (Lude.Maybe Lude.Int)
-gdmiSizeInMiB = Lens.lens (sizeInMiB :: GpuDeviceMemoryInfo -> Lude.Maybe Lude.Int) (\s a -> s {sizeInMiB = a} :: GpuDeviceMemoryInfo)
+gdmiSizeInMiB :: Lens.Lens' GpuDeviceMemoryInfo (Core.Maybe Core.Int)
+gdmiSizeInMiB = Lens.field @"sizeInMiB"
 {-# DEPRECATED gdmiSizeInMiB "Use generic-lens or generic-optics with 'sizeInMiB' instead." #-}
 
-instance Lude.FromXML GpuDeviceMemoryInfo where
-  parseXML x = GpuDeviceMemoryInfo' Lude.<$> (x Lude..@? "sizeInMiB")
+instance Core.FromXML GpuDeviceMemoryInfo where
+  parseXML x = GpuDeviceMemoryInfo' Core.<$> (x Core..@? "sizeInMiB")

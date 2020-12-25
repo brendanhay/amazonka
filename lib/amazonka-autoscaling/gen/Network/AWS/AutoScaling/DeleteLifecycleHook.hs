@@ -22,111 +22,106 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     mkDeleteLifecycleHook,
 
     -- ** Request lenses
-    dlhLifecycleHookName,
-    dlhAutoScalingGroupName,
+    dlhfLifecycleHookName,
+    dlhfAutoScalingGroupName,
 
     -- * Destructuring the response
     DeleteLifecycleHookResponse (..),
     mkDeleteLifecycleHookResponse,
 
     -- ** Response lenses
-    dlhrsResponseStatus,
+    dlhrfrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLifecycleHook' smart constructor.
 data DeleteLifecycleHook = DeleteLifecycleHook'
   { -- | The name of the lifecycle hook.
-    lifecycleHookName :: Lude.Text,
+    lifecycleHookName :: Types.LifecycleHookName,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text
+    autoScalingGroupName :: Types.AutoScalingGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLifecycleHook' with the minimum fields required to make a request.
---
--- * 'lifecycleHookName' - The name of the lifecycle hook.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'DeleteLifecycleHook' value with any optional fields omitted.
 mkDeleteLifecycleHook ::
   -- | 'lifecycleHookName'
-  Lude.Text ->
+  Types.LifecycleHookName ->
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.AutoScalingGroupName ->
   DeleteLifecycleHook
-mkDeleteLifecycleHook pLifecycleHookName_ pAutoScalingGroupName_ =
-  DeleteLifecycleHook'
-    { lifecycleHookName = pLifecycleHookName_,
-      autoScalingGroupName = pAutoScalingGroupName_
-    }
+mkDeleteLifecycleHook lifecycleHookName autoScalingGroupName =
+  DeleteLifecycleHook' {lifecycleHookName, autoScalingGroupName}
 
 -- | The name of the lifecycle hook.
 --
 -- /Note:/ Consider using 'lifecycleHookName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlhLifecycleHookName :: Lens.Lens' DeleteLifecycleHook Lude.Text
-dlhLifecycleHookName = Lens.lens (lifecycleHookName :: DeleteLifecycleHook -> Lude.Text) (\s a -> s {lifecycleHookName = a} :: DeleteLifecycleHook)
-{-# DEPRECATED dlhLifecycleHookName "Use generic-lens or generic-optics with 'lifecycleHookName' instead." #-}
+dlhfLifecycleHookName :: Lens.Lens' DeleteLifecycleHook Types.LifecycleHookName
+dlhfLifecycleHookName = Lens.field @"lifecycleHookName"
+{-# DEPRECATED dlhfLifecycleHookName "Use generic-lens or generic-optics with 'lifecycleHookName' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlhAutoScalingGroupName :: Lens.Lens' DeleteLifecycleHook Lude.Text
-dlhAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DeleteLifecycleHook -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DeleteLifecycleHook)
-{-# DEPRECATED dlhAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+dlhfAutoScalingGroupName :: Lens.Lens' DeleteLifecycleHook Types.AutoScalingGroupName
+dlhfAutoScalingGroupName = Lens.field @"autoScalingGroupName"
+{-# DEPRECATED dlhfAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteLifecycleHook where
+instance Core.AWSRequest DeleteLifecycleHook where
   type Rs DeleteLifecycleHook = DeleteLifecycleHookResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteLifecycleHook")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "LifecycleHookName" lifecycleHookName)
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteLifecycleHookResult"
       ( \s h x ->
           DeleteLifecycleHookResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteLifecycleHook where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteLifecycleHook where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteLifecycleHook where
-  toQuery DeleteLifecycleHook' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteLifecycleHook" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "LifecycleHookName" Lude.=: lifecycleHookName,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
 
 -- | /See:/ 'mkDeleteLifecycleHookResponse' smart constructor.
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLifecycleHookResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteLifecycleHookResponse' value with any optional fields omitted.
 mkDeleteLifecycleHookResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteLifecycleHookResponse
-mkDeleteLifecycleHookResponse pResponseStatus_ =
-  DeleteLifecycleHookResponse' {responseStatus = pResponseStatus_}
+mkDeleteLifecycleHookResponse responseStatus =
+  DeleteLifecycleHookResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlhrsResponseStatus :: Lens.Lens' DeleteLifecycleHookResponse Lude.Int
-dlhrsResponseStatus = Lens.lens (responseStatus :: DeleteLifecycleHookResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLifecycleHookResponse)
-{-# DEPRECATED dlhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlhrfrsResponseStatus :: Lens.Lens' DeleteLifecycleHookResponse Core.Int
+dlhrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlhrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

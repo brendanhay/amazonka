@@ -28,126 +28,119 @@ module Network.AWS.CloudSearch.UpdateDomainEndpointOptions
     mkUpdateDomainEndpointOptionsResponse,
 
     -- ** Response lenses
-    udeorsDomainEndpointOptions,
-    udeorsResponseStatus,
+    udeorrsDomainEndpointOptions,
+    udeorrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'UpdateDomainEndpointOptions' @ operation. Specifies the name of the domain you want to update and the domain endpoint options.
 --
 -- /See:/ 'mkUpdateDomainEndpointOptions' smart constructor.
 data UpdateDomainEndpointOptions = UpdateDomainEndpointOptions'
   { -- | A string that represents the name of a domain.
-    domainName :: Lude.Text,
+    domainName :: Types.DomainName,
     -- | Whether to require that all requests to the domain arrive over HTTPS. We recommend Policy-Min-TLS-1-2-2019-07 for TLSSecurityPolicy. For compatibility with older clients, the default is Policy-Min-TLS-1-0-2019-07.
-    domainEndpointOptions :: DomainEndpointOptions
+    domainEndpointOptions :: Types.DomainEndpointOptions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDomainEndpointOptions' with the minimum fields required to make a request.
---
--- * 'domainName' - A string that represents the name of a domain.
--- * 'domainEndpointOptions' - Whether to require that all requests to the domain arrive over HTTPS. We recommend Policy-Min-TLS-1-2-2019-07 for TLSSecurityPolicy. For compatibility with older clients, the default is Policy-Min-TLS-1-0-2019-07.
+-- | Creates a 'UpdateDomainEndpointOptions' value with any optional fields omitted.
 mkUpdateDomainEndpointOptions ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   -- | 'domainEndpointOptions'
-  DomainEndpointOptions ->
+  Types.DomainEndpointOptions ->
   UpdateDomainEndpointOptions
-mkUpdateDomainEndpointOptions pDomainName_ pDomainEndpointOptions_ =
-  UpdateDomainEndpointOptions'
-    { domainName = pDomainName_,
-      domainEndpointOptions = pDomainEndpointOptions_
-    }
+mkUpdateDomainEndpointOptions domainName domainEndpointOptions =
+  UpdateDomainEndpointOptions' {domainName, domainEndpointOptions}
 
 -- | A string that represents the name of a domain.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udeoDomainName :: Lens.Lens' UpdateDomainEndpointOptions Lude.Text
-udeoDomainName = Lens.lens (domainName :: UpdateDomainEndpointOptions -> Lude.Text) (\s a -> s {domainName = a} :: UpdateDomainEndpointOptions)
+udeoDomainName :: Lens.Lens' UpdateDomainEndpointOptions Types.DomainName
+udeoDomainName = Lens.field @"domainName"
 {-# DEPRECATED udeoDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Whether to require that all requests to the domain arrive over HTTPS. We recommend Policy-Min-TLS-1-2-2019-07 for TLSSecurityPolicy. For compatibility with older clients, the default is Policy-Min-TLS-1-0-2019-07.
 --
 -- /Note:/ Consider using 'domainEndpointOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udeoDomainEndpointOptions :: Lens.Lens' UpdateDomainEndpointOptions DomainEndpointOptions
-udeoDomainEndpointOptions = Lens.lens (domainEndpointOptions :: UpdateDomainEndpointOptions -> DomainEndpointOptions) (\s a -> s {domainEndpointOptions = a} :: UpdateDomainEndpointOptions)
+udeoDomainEndpointOptions :: Lens.Lens' UpdateDomainEndpointOptions Types.DomainEndpointOptions
+udeoDomainEndpointOptions = Lens.field @"domainEndpointOptions"
 {-# DEPRECATED udeoDomainEndpointOptions "Use generic-lens or generic-optics with 'domainEndpointOptions' instead." #-}
 
-instance Lude.AWSRequest UpdateDomainEndpointOptions where
+instance Core.AWSRequest UpdateDomainEndpointOptions where
   type
     Rs UpdateDomainEndpointOptions =
       UpdateDomainEndpointOptionsResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateDomainEndpointOptions")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryValue "DomainEndpointOptions" domainEndpointOptions)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UpdateDomainEndpointOptionsResult"
       ( \s h x ->
           UpdateDomainEndpointOptionsResponse'
-            Lude.<$> (x Lude..@? "DomainEndpointOptions")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DomainEndpointOptions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateDomainEndpointOptions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateDomainEndpointOptions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateDomainEndpointOptions where
-  toQuery UpdateDomainEndpointOptions' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("UpdateDomainEndpointOptions" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName,
-        "DomainEndpointOptions" Lude.=: domainEndpointOptions
-      ]
 
 -- | The result of a @UpdateDomainEndpointOptions@ request. Contains the configuration and status of the domain's endpoint options.
 --
 -- /See:/ 'mkUpdateDomainEndpointOptionsResponse' smart constructor.
 data UpdateDomainEndpointOptionsResponse = UpdateDomainEndpointOptionsResponse'
   { -- | The newly-configured domain endpoint options.
-    domainEndpointOptions :: Lude.Maybe DomainEndpointOptionsStatus,
+    domainEndpointOptions :: Core.Maybe Types.DomainEndpointOptionsStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateDomainEndpointOptionsResponse' with the minimum fields required to make a request.
---
--- * 'domainEndpointOptions' - The newly-configured domain endpoint options.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateDomainEndpointOptionsResponse' value with any optional fields omitted.
 mkUpdateDomainEndpointOptionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateDomainEndpointOptionsResponse
-mkUpdateDomainEndpointOptionsResponse pResponseStatus_ =
+mkUpdateDomainEndpointOptionsResponse responseStatus =
   UpdateDomainEndpointOptionsResponse'
     { domainEndpointOptions =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The newly-configured domain endpoint options.
 --
 -- /Note:/ Consider using 'domainEndpointOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udeorsDomainEndpointOptions :: Lens.Lens' UpdateDomainEndpointOptionsResponse (Lude.Maybe DomainEndpointOptionsStatus)
-udeorsDomainEndpointOptions = Lens.lens (domainEndpointOptions :: UpdateDomainEndpointOptionsResponse -> Lude.Maybe DomainEndpointOptionsStatus) (\s a -> s {domainEndpointOptions = a} :: UpdateDomainEndpointOptionsResponse)
-{-# DEPRECATED udeorsDomainEndpointOptions "Use generic-lens or generic-optics with 'domainEndpointOptions' instead." #-}
+udeorrsDomainEndpointOptions :: Lens.Lens' UpdateDomainEndpointOptionsResponse (Core.Maybe Types.DomainEndpointOptionsStatus)
+udeorrsDomainEndpointOptions = Lens.field @"domainEndpointOptions"
+{-# DEPRECATED udeorrsDomainEndpointOptions "Use generic-lens or generic-optics with 'domainEndpointOptions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udeorsResponseStatus :: Lens.Lens' UpdateDomainEndpointOptionsResponse Lude.Int
-udeorsResponseStatus = Lens.lens (responseStatus :: UpdateDomainEndpointOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDomainEndpointOptionsResponse)
-{-# DEPRECATED udeorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udeorrsResponseStatus :: Lens.Lens' UpdateDomainEndpointOptionsResponse Core.Int
+udeorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udeorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,51 +13,56 @@
 module Network.AWS.SSM.Types.AssociationStatusName
   ( AssociationStatusName
       ( AssociationStatusName',
-        Pending,
-        Success,
-        Failed
+        AssociationStatusNamePending,
+        AssociationStatusNameSuccess,
+        AssociationStatusNameFailed,
+        fromAssociationStatusName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AssociationStatusName = AssociationStatusName' Lude.Text
+newtype AssociationStatusName = AssociationStatusName'
+  { fromAssociationStatusName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Pending :: AssociationStatusName
-pattern Pending = AssociationStatusName' "Pending"
+pattern AssociationStatusNamePending :: AssociationStatusName
+pattern AssociationStatusNamePending = AssociationStatusName' "Pending"
 
-pattern Success :: AssociationStatusName
-pattern Success = AssociationStatusName' "Success"
+pattern AssociationStatusNameSuccess :: AssociationStatusName
+pattern AssociationStatusNameSuccess = AssociationStatusName' "Success"
 
-pattern Failed :: AssociationStatusName
-pattern Failed = AssociationStatusName' "Failed"
+pattern AssociationStatusNameFailed :: AssociationStatusName
+pattern AssociationStatusNameFailed = AssociationStatusName' "Failed"
 
 {-# COMPLETE
-  Pending,
-  Success,
-  Failed,
+  AssociationStatusNamePending,
+  AssociationStatusNameSuccess,
+  AssociationStatusNameFailed,
   AssociationStatusName'
   #-}

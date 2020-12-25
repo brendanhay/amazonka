@@ -31,61 +31,55 @@ module Network.AWS.MachineLearning.UpdateMLModel
     mkUpdateMLModelResponse,
 
     -- ** Response lenses
-    umlmrsMLModelId,
-    umlmrsResponseStatus,
+    umlmrrsMLModelId,
+    umlmrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateMLModel' smart constructor.
 data UpdateMLModel = UpdateMLModel'
   { -- | The ID assigned to the @MLModel@ during creation.
-    mLModelId :: Lude.Text,
+    mLModelId :: Types.EntityId,
     -- | A user-supplied name or description of the @MLModel@ .
-    mLModelName :: Lude.Maybe Lude.Text,
+    mLModelName :: Core.Maybe Types.EntityName,
     -- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks the boundary between a positive prediction and a negative prediction.
     --
     -- Output values greater than or equal to the @ScoreThreshold@ receive a positive result from the @MLModel@ , such as @true@ . Output values less than the @ScoreThreshold@ receive a negative response from the @MLModel@ , such as @false@ .
-    scoreThreshold :: Lude.Maybe Lude.Double
+    scoreThreshold :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMLModel' with the minimum fields required to make a request.
---
--- * 'mLModelId' - The ID assigned to the @MLModel@ during creation.
--- * 'mLModelName' - A user-supplied name or description of the @MLModel@ .
--- * 'scoreThreshold' - The @ScoreThreshold@ used in binary classification @MLModel@ that marks the boundary between a positive prediction and a negative prediction.
---
--- Output values greater than or equal to the @ScoreThreshold@ receive a positive result from the @MLModel@ , such as @true@ . Output values less than the @ScoreThreshold@ receive a negative response from the @MLModel@ , such as @false@ .
+-- | Creates a 'UpdateMLModel' value with any optional fields omitted.
 mkUpdateMLModel ::
   -- | 'mLModelId'
-  Lude.Text ->
+  Types.EntityId ->
   UpdateMLModel
-mkUpdateMLModel pMLModelId_ =
+mkUpdateMLModel mLModelId =
   UpdateMLModel'
-    { mLModelId = pMLModelId_,
-      mLModelName = Lude.Nothing,
-      scoreThreshold = Lude.Nothing
+    { mLModelId,
+      mLModelName = Core.Nothing,
+      scoreThreshold = Core.Nothing
     }
 
 -- | The ID assigned to the @MLModel@ during creation.
 --
 -- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umlmMLModelId :: Lens.Lens' UpdateMLModel Lude.Text
-umlmMLModelId = Lens.lens (mLModelId :: UpdateMLModel -> Lude.Text) (\s a -> s {mLModelId = a} :: UpdateMLModel)
+umlmMLModelId :: Lens.Lens' UpdateMLModel Types.EntityId
+umlmMLModelId = Lens.field @"mLModelId"
 {-# DEPRECATED umlmMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
 -- | A user-supplied name or description of the @MLModel@ .
 --
 -- /Note:/ Consider using 'mLModelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umlmMLModelName :: Lens.Lens' UpdateMLModel (Lude.Maybe Lude.Text)
-umlmMLModelName = Lens.lens (mLModelName :: UpdateMLModel -> Lude.Maybe Lude.Text) (\s a -> s {mLModelName = a} :: UpdateMLModel)
+umlmMLModelName :: Lens.Lens' UpdateMLModel (Core.Maybe Types.EntityName)
+umlmMLModelName = Lens.field @"mLModelName"
 {-# DEPRECATED umlmMLModelName "Use generic-lens or generic-optics with 'mLModelName' instead." #-}
 
 -- | The @ScoreThreshold@ used in binary classification @MLModel@ that marks the boundary between a positive prediction and a negative prediction.
@@ -93,46 +87,39 @@ umlmMLModelName = Lens.lens (mLModelName :: UpdateMLModel -> Lude.Maybe Lude.Tex
 -- Output values greater than or equal to the @ScoreThreshold@ receive a positive result from the @MLModel@ , such as @true@ . Output values less than the @ScoreThreshold@ receive a negative response from the @MLModel@ , such as @false@ .
 --
 -- /Note:/ Consider using 'scoreThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umlmScoreThreshold :: Lens.Lens' UpdateMLModel (Lude.Maybe Lude.Double)
-umlmScoreThreshold = Lens.lens (scoreThreshold :: UpdateMLModel -> Lude.Maybe Lude.Double) (\s a -> s {scoreThreshold = a} :: UpdateMLModel)
+umlmScoreThreshold :: Lens.Lens' UpdateMLModel (Core.Maybe Core.Double)
+umlmScoreThreshold = Lens.field @"scoreThreshold"
 {-# DEPRECATED umlmScoreThreshold "Use generic-lens or generic-optics with 'scoreThreshold' instead." #-}
 
-instance Lude.AWSRequest UpdateMLModel where
+instance Core.FromJSON UpdateMLModel where
+  toJSON UpdateMLModel {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MLModelId" Core..= mLModelId),
+            ("MLModelName" Core..=) Core.<$> mLModelName,
+            ("ScoreThreshold" Core..=) Core.<$> scoreThreshold
+          ]
+      )
+
+instance Core.AWSRequest UpdateMLModel where
   type Rs UpdateMLModel = UpdateMLModelResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonML_20141212.UpdateMLModel")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateMLModelResponse'
-            Lude.<$> (x Lude..?> "MLModelId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "MLModelId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateMLModel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.UpdateMLModel" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateMLModel where
-  toJSON UpdateMLModel' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MLModelId" Lude..= mLModelId),
-            ("MLModelName" Lude..=) Lude.<$> mLModelName,
-            ("ScoreThreshold" Lude..=) Lude.<$> scoreThreshold
-          ]
-      )
-
-instance Lude.ToPath UpdateMLModel where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateMLModel where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of an @UpdateMLModel@ operation.
 --
@@ -141,37 +128,31 @@ instance Lude.ToQuery UpdateMLModel where
 -- /See:/ 'mkUpdateMLModelResponse' smart constructor.
 data UpdateMLModelResponse = UpdateMLModelResponse'
   { -- | The ID assigned to the @MLModel@ during creation. This value should be identical to the value of the @MLModelID@ in the request.
-    mLModelId :: Lude.Maybe Lude.Text,
+    mLModelId :: Core.Maybe Types.MLModelId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMLModelResponse' with the minimum fields required to make a request.
---
--- * 'mLModelId' - The ID assigned to the @MLModel@ during creation. This value should be identical to the value of the @MLModelID@ in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateMLModelResponse' value with any optional fields omitted.
 mkUpdateMLModelResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateMLModelResponse
-mkUpdateMLModelResponse pResponseStatus_ =
-  UpdateMLModelResponse'
-    { mLModelId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateMLModelResponse responseStatus =
+  UpdateMLModelResponse' {mLModelId = Core.Nothing, responseStatus}
 
 -- | The ID assigned to the @MLModel@ during creation. This value should be identical to the value of the @MLModelID@ in the request.
 --
 -- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umlmrsMLModelId :: Lens.Lens' UpdateMLModelResponse (Lude.Maybe Lude.Text)
-umlmrsMLModelId = Lens.lens (mLModelId :: UpdateMLModelResponse -> Lude.Maybe Lude.Text) (\s a -> s {mLModelId = a} :: UpdateMLModelResponse)
-{-# DEPRECATED umlmrsMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
+umlmrrsMLModelId :: Lens.Lens' UpdateMLModelResponse (Core.Maybe Types.MLModelId)
+umlmrrsMLModelId = Lens.field @"mLModelId"
+{-# DEPRECATED umlmrrsMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umlmrsResponseStatus :: Lens.Lens' UpdateMLModelResponse Lude.Int
-umlmrsResponseStatus = Lens.lens (responseStatus :: UpdateMLModelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMLModelResponse)
-{-# DEPRECATED umlmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+umlmrrsResponseStatus :: Lens.Lens' UpdateMLModelResponse Core.Int
+umlmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED umlmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

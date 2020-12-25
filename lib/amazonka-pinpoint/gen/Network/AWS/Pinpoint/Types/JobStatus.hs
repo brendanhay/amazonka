@@ -13,81 +13,83 @@
 module Network.AWS.Pinpoint.Types.JobStatus
   ( JobStatus
       ( JobStatus',
-        JSCreated,
-        JSPreparingForInitialization,
-        JSInitializing,
-        JSProcessing,
-        JSPendingJob,
-        JSCompleting,
-        JSCompleted,
-        JSFailing,
-        JSFailed
+        JobStatusCreated,
+        JobStatusPreparingForInitialization,
+        JobStatusInitializing,
+        JobStatusProcessing,
+        JobStatusPendingJob,
+        JobStatusCompleting,
+        JobStatusCompleted,
+        JobStatusFailing,
+        JobStatusFailed,
+        fromJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype JobStatus = JobStatus' Lude.Text
+newtype JobStatus = JobStatus' {fromJobStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JSCreated :: JobStatus
-pattern JSCreated = JobStatus' "CREATED"
+pattern JobStatusCreated :: JobStatus
+pattern JobStatusCreated = JobStatus' "CREATED"
 
-pattern JSPreparingForInitialization :: JobStatus
-pattern JSPreparingForInitialization = JobStatus' "PREPARING_FOR_INITIALIZATION"
+pattern JobStatusPreparingForInitialization :: JobStatus
+pattern JobStatusPreparingForInitialization = JobStatus' "PREPARING_FOR_INITIALIZATION"
 
-pattern JSInitializing :: JobStatus
-pattern JSInitializing = JobStatus' "INITIALIZING"
+pattern JobStatusInitializing :: JobStatus
+pattern JobStatusInitializing = JobStatus' "INITIALIZING"
 
-pattern JSProcessing :: JobStatus
-pattern JSProcessing = JobStatus' "PROCESSING"
+pattern JobStatusProcessing :: JobStatus
+pattern JobStatusProcessing = JobStatus' "PROCESSING"
 
-pattern JSPendingJob :: JobStatus
-pattern JSPendingJob = JobStatus' "PENDING_JOB"
+pattern JobStatusPendingJob :: JobStatus
+pattern JobStatusPendingJob = JobStatus' "PENDING_JOB"
 
-pattern JSCompleting :: JobStatus
-pattern JSCompleting = JobStatus' "COMPLETING"
+pattern JobStatusCompleting :: JobStatus
+pattern JobStatusCompleting = JobStatus' "COMPLETING"
 
-pattern JSCompleted :: JobStatus
-pattern JSCompleted = JobStatus' "COMPLETED"
+pattern JobStatusCompleted :: JobStatus
+pattern JobStatusCompleted = JobStatus' "COMPLETED"
 
-pattern JSFailing :: JobStatus
-pattern JSFailing = JobStatus' "FAILING"
+pattern JobStatusFailing :: JobStatus
+pattern JobStatusFailing = JobStatus' "FAILING"
 
-pattern JSFailed :: JobStatus
-pattern JSFailed = JobStatus' "FAILED"
+pattern JobStatusFailed :: JobStatus
+pattern JobStatusFailed = JobStatus' "FAILED"
 
 {-# COMPLETE
-  JSCreated,
-  JSPreparingForInitialization,
-  JSInitializing,
-  JSProcessing,
-  JSPendingJob,
-  JSCompleting,
-  JSCompleted,
-  JSFailing,
-  JSFailed,
+  JobStatusCreated,
+  JobStatusPreparingForInitialization,
+  JobStatusInitializing,
+  JobStatusProcessing,
+  JobStatusPendingJob,
+  JobStatusCompleting,
+  JobStatusCompleted,
+  JobStatusFailing,
+  JobStatusFailed,
   JobStatus'
   #-}

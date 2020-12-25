@@ -20,10 +20,10 @@ module Network.AWS.StorageGateway.CreateTapePool
     mkCreateTapePool,
 
     -- ** Request lenses
-    ctpRetentionLockType,
-    ctpRetentionLockTimeInDays,
     ctpPoolName,
     ctpStorageClass,
+    ctpRetentionLockTimeInDays,
+    ctpRetentionLockType,
     ctpTags,
 
     -- * Destructuring the response
@@ -31,164 +31,146 @@ module Network.AWS.StorageGateway.CreateTapePool
     mkCreateTapePoolResponse,
 
     -- ** Response lenses
-    ctprsPoolARN,
-    ctprsResponseStatus,
+    ctprrsPoolARN,
+    ctprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkCreateTapePool' smart constructor.
 data CreateTapePool = CreateTapePool'
-  { -- | Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account.
-    retentionLockType :: Lude.Maybe RetentionLockType,
-    -- | Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).
-    retentionLockTimeInDays :: Lude.Maybe Lude.Natural,
-    -- | The name of the new custom tape pool.
-    poolName :: Lude.Text,
+  { -- | The name of the new custom tape pool.
+    poolName :: Types.PoolName,
     -- | The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
-    storageClass :: TapeStorageClass,
+    storageClass :: Types.TapeStorageClass,
+    -- | Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).
+    retentionLockTimeInDays :: Core.Maybe Core.Natural,
+    -- | Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account.
+    retentionLockType :: Core.Maybe Types.RetentionLockType,
     -- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a key-value pair.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTapePool' with the minimum fields required to make a request.
---
--- * 'retentionLockType' - Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account.
--- * 'retentionLockTimeInDays' - Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).
--- * 'poolName' - The name of the new custom tape pool.
--- * 'storageClass' - The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
--- * 'tags' - A list of up to 50 tags that can be assigned to tape pool. Each tag is a key-value pair.
+-- | Creates a 'CreateTapePool' value with any optional fields omitted.
 mkCreateTapePool ::
   -- | 'poolName'
-  Lude.Text ->
+  Types.PoolName ->
   -- | 'storageClass'
-  TapeStorageClass ->
+  Types.TapeStorageClass ->
   CreateTapePool
-mkCreateTapePool pPoolName_ pStorageClass_ =
+mkCreateTapePool poolName storageClass =
   CreateTapePool'
-    { retentionLockType = Lude.Nothing,
-      retentionLockTimeInDays = Lude.Nothing,
-      poolName = pPoolName_,
-      storageClass = pStorageClass_,
-      tags = Lude.Nothing
+    { poolName,
+      storageClass,
+      retentionLockTimeInDays = Core.Nothing,
+      retentionLockType = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account.
---
--- /Note:/ Consider using 'retentionLockType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpRetentionLockType :: Lens.Lens' CreateTapePool (Lude.Maybe RetentionLockType)
-ctpRetentionLockType = Lens.lens (retentionLockType :: CreateTapePool -> Lude.Maybe RetentionLockType) (\s a -> s {retentionLockType = a} :: CreateTapePool)
-{-# DEPRECATED ctpRetentionLockType "Use generic-lens or generic-optics with 'retentionLockType' instead." #-}
-
--- | Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).
---
--- /Note:/ Consider using 'retentionLockTimeInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpRetentionLockTimeInDays :: Lens.Lens' CreateTapePool (Lude.Maybe Lude.Natural)
-ctpRetentionLockTimeInDays = Lens.lens (retentionLockTimeInDays :: CreateTapePool -> Lude.Maybe Lude.Natural) (\s a -> s {retentionLockTimeInDays = a} :: CreateTapePool)
-{-# DEPRECATED ctpRetentionLockTimeInDays "Use generic-lens or generic-optics with 'retentionLockTimeInDays' instead." #-}
 
 -- | The name of the new custom tape pool.
 --
 -- /Note:/ Consider using 'poolName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpPoolName :: Lens.Lens' CreateTapePool Lude.Text
-ctpPoolName = Lens.lens (poolName :: CreateTapePool -> Lude.Text) (\s a -> s {poolName = a} :: CreateTapePool)
+ctpPoolName :: Lens.Lens' CreateTapePool Types.PoolName
+ctpPoolName = Lens.field @"poolName"
 {-# DEPRECATED ctpPoolName "Use generic-lens or generic-optics with 'poolName' instead." #-}
 
 -- | The storage class that is associated with the new custom pool. When you use your backup application to eject the tape, the tape is archived directly into the storage class (S3 Glacier or S3 Glacier Deep Archive) that corresponds to the pool.
 --
 -- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpStorageClass :: Lens.Lens' CreateTapePool TapeStorageClass
-ctpStorageClass = Lens.lens (storageClass :: CreateTapePool -> TapeStorageClass) (\s a -> s {storageClass = a} :: CreateTapePool)
+ctpStorageClass :: Lens.Lens' CreateTapePool Types.TapeStorageClass
+ctpStorageClass = Lens.field @"storageClass"
 {-# DEPRECATED ctpStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
+
+-- | Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days).
+--
+-- /Note:/ Consider using 'retentionLockTimeInDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpRetentionLockTimeInDays :: Lens.Lens' CreateTapePool (Core.Maybe Core.Natural)
+ctpRetentionLockTimeInDays = Lens.field @"retentionLockTimeInDays"
+{-# DEPRECATED ctpRetentionLockTimeInDays "Use generic-lens or generic-optics with 'retentionLockTimeInDays' instead." #-}
+
+-- | Tape retention lock can be configured in two modes. When configured in governance mode, AWS accounts with specific IAM permissions are authorized to remove the tape retention lock from archived virtual tapes. When configured in compliance mode, the tape retention lock cannot be removed by any user, including the root AWS account.
+--
+-- /Note:/ Consider using 'retentionLockType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctpRetentionLockType :: Lens.Lens' CreateTapePool (Core.Maybe Types.RetentionLockType)
+ctpRetentionLockType = Lens.field @"retentionLockType"
+{-# DEPRECATED ctpRetentionLockType "Use generic-lens or generic-optics with 'retentionLockType' instead." #-}
 
 -- | A list of up to 50 tags that can be assigned to tape pool. Each tag is a key-value pair.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctpTags :: Lens.Lens' CreateTapePool (Lude.Maybe [Tag])
-ctpTags = Lens.lens (tags :: CreateTapePool -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTapePool)
+ctpTags :: Lens.Lens' CreateTapePool (Core.Maybe [Types.Tag])
+ctpTags = Lens.field @"tags"
 {-# DEPRECATED ctpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateTapePool where
+instance Core.FromJSON CreateTapePool where
+  toJSON CreateTapePool {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PoolName" Core..= poolName),
+            Core.Just ("StorageClass" Core..= storageClass),
+            ("RetentionLockTimeInDays" Core..=)
+              Core.<$> retentionLockTimeInDays,
+            ("RetentionLockType" Core..=) Core.<$> retentionLockType,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateTapePool where
   type Rs CreateTapePool = CreateTapePoolResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.CreateTapePool")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateTapePoolResponse'
-            Lude.<$> (x Lude..?> "PoolARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PoolARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTapePool where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.CreateTapePool" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateTapePool where
-  toJSON CreateTapePool' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RetentionLockType" Lude..=) Lude.<$> retentionLockType,
-            ("RetentionLockTimeInDays" Lude..=)
-              Lude.<$> retentionLockTimeInDays,
-            Lude.Just ("PoolName" Lude..= poolName),
-            Lude.Just ("StorageClass" Lude..= storageClass),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateTapePool where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTapePool where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateTapePoolResponse' smart constructor.
 data CreateTapePoolResponse = CreateTapePoolResponse'
   { -- | The unique Amazon Resource Name (ARN) that represents the custom tape pool. Use the 'ListTapePools' operation to return a list of tape pools for your account and AWS Region.
-    poolARN :: Lude.Maybe Lude.Text,
+    poolARN :: Core.Maybe Types.PoolARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTapePoolResponse' with the minimum fields required to make a request.
---
--- * 'poolARN' - The unique Amazon Resource Name (ARN) that represents the custom tape pool. Use the 'ListTapePools' operation to return a list of tape pools for your account and AWS Region.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTapePoolResponse' value with any optional fields omitted.
 mkCreateTapePoolResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTapePoolResponse
-mkCreateTapePoolResponse pResponseStatus_ =
-  CreateTapePoolResponse'
-    { poolARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateTapePoolResponse responseStatus =
+  CreateTapePoolResponse' {poolARN = Core.Nothing, responseStatus}
 
 -- | The unique Amazon Resource Name (ARN) that represents the custom tape pool. Use the 'ListTapePools' operation to return a list of tape pools for your account and AWS Region.
 --
 -- /Note:/ Consider using 'poolARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctprsPoolARN :: Lens.Lens' CreateTapePoolResponse (Lude.Maybe Lude.Text)
-ctprsPoolARN = Lens.lens (poolARN :: CreateTapePoolResponse -> Lude.Maybe Lude.Text) (\s a -> s {poolARN = a} :: CreateTapePoolResponse)
-{-# DEPRECATED ctprsPoolARN "Use generic-lens or generic-optics with 'poolARN' instead." #-}
+ctprrsPoolARN :: Lens.Lens' CreateTapePoolResponse (Core.Maybe Types.PoolARN)
+ctprrsPoolARN = Lens.field @"poolARN"
+{-# DEPRECATED ctprrsPoolARN "Use generic-lens or generic-optics with 'poolARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctprsResponseStatus :: Lens.Lens' CreateTapePoolResponse Lude.Int
-ctprsResponseStatus = Lens.lens (responseStatus :: CreateTapePoolResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTapePoolResponse)
-{-# DEPRECATED ctprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctprrsResponseStatus :: Lens.Lens' CreateTapePoolResponse Core.Int
+ctprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

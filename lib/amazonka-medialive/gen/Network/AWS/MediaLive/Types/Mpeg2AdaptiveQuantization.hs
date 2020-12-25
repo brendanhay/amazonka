@@ -13,62 +13,67 @@
 module Network.AWS.MediaLive.Types.Mpeg2AdaptiveQuantization
   ( Mpeg2AdaptiveQuantization
       ( Mpeg2AdaptiveQuantization',
-        MAQAuto,
-        MAQHigh,
-        MAQLow,
-        MAQMedium,
-        MAQOff
+        Mpeg2AdaptiveQuantizationAuto,
+        Mpeg2AdaptiveQuantizationHigh,
+        Mpeg2AdaptiveQuantizationLow,
+        Mpeg2AdaptiveQuantizationMedium,
+        Mpeg2AdaptiveQuantizationOff,
+        fromMpeg2AdaptiveQuantization
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Mpeg2 Adaptive Quantization
-newtype Mpeg2AdaptiveQuantization = Mpeg2AdaptiveQuantization' Lude.Text
+newtype Mpeg2AdaptiveQuantization = Mpeg2AdaptiveQuantization'
+  { fromMpeg2AdaptiveQuantization ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MAQAuto :: Mpeg2AdaptiveQuantization
-pattern MAQAuto = Mpeg2AdaptiveQuantization' "AUTO"
+pattern Mpeg2AdaptiveQuantizationAuto :: Mpeg2AdaptiveQuantization
+pattern Mpeg2AdaptiveQuantizationAuto = Mpeg2AdaptiveQuantization' "AUTO"
 
-pattern MAQHigh :: Mpeg2AdaptiveQuantization
-pattern MAQHigh = Mpeg2AdaptiveQuantization' "HIGH"
+pattern Mpeg2AdaptiveQuantizationHigh :: Mpeg2AdaptiveQuantization
+pattern Mpeg2AdaptiveQuantizationHigh = Mpeg2AdaptiveQuantization' "HIGH"
 
-pattern MAQLow :: Mpeg2AdaptiveQuantization
-pattern MAQLow = Mpeg2AdaptiveQuantization' "LOW"
+pattern Mpeg2AdaptiveQuantizationLow :: Mpeg2AdaptiveQuantization
+pattern Mpeg2AdaptiveQuantizationLow = Mpeg2AdaptiveQuantization' "LOW"
 
-pattern MAQMedium :: Mpeg2AdaptiveQuantization
-pattern MAQMedium = Mpeg2AdaptiveQuantization' "MEDIUM"
+pattern Mpeg2AdaptiveQuantizationMedium :: Mpeg2AdaptiveQuantization
+pattern Mpeg2AdaptiveQuantizationMedium = Mpeg2AdaptiveQuantization' "MEDIUM"
 
-pattern MAQOff :: Mpeg2AdaptiveQuantization
-pattern MAQOff = Mpeg2AdaptiveQuantization' "OFF"
+pattern Mpeg2AdaptiveQuantizationOff :: Mpeg2AdaptiveQuantization
+pattern Mpeg2AdaptiveQuantizationOff = Mpeg2AdaptiveQuantization' "OFF"
 
 {-# COMPLETE
-  MAQAuto,
-  MAQHigh,
-  MAQLow,
-  MAQMedium,
-  MAQOff,
+  Mpeg2AdaptiveQuantizationAuto,
+  Mpeg2AdaptiveQuantizationHigh,
+  Mpeg2AdaptiveQuantizationLow,
+  Mpeg2AdaptiveQuantizationMedium,
+  Mpeg2AdaptiveQuantizationOff,
   Mpeg2AdaptiveQuantization'
   #-}

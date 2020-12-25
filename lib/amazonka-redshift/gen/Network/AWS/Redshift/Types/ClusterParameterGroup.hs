@@ -17,84 +17,80 @@ module Network.AWS.Redshift.Types.ClusterParameterGroup
     mkClusterParameterGroup,
 
     -- * Lenses
-    cpgParameterGroupFamily,
     cpgDescription,
-    cpgTags,
+    cpgParameterGroupFamily,
     cpgParameterGroupName,
+    cpgTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.Description as Types
+import qualified Network.AWS.Redshift.Types.ParameterGroupFamily as Types
+import qualified Network.AWS.Redshift.Types.ParameterGroupName as Types
+import qualified Network.AWS.Redshift.Types.Tag as Types
 
 -- | Describes a parameter group.
 --
 -- /See:/ 'mkClusterParameterGroup' smart constructor.
 data ClusterParameterGroup = ClusterParameterGroup'
-  { -- | The name of the cluster parameter group family that this cluster parameter group is compatible with.
-    parameterGroupFamily :: Lude.Maybe Lude.Text,
-    -- | The description of the parameter group.
-    description :: Lude.Maybe Lude.Text,
-    -- | The list of tags for the cluster parameter group.
-    tags :: Lude.Maybe [Tag],
+  { -- | The description of the parameter group.
+    description :: Core.Maybe Types.Description,
+    -- | The name of the cluster parameter group family that this cluster parameter group is compatible with.
+    parameterGroupFamily :: Core.Maybe Types.ParameterGroupFamily,
     -- | The name of the cluster parameter group.
-    parameterGroupName :: Lude.Maybe Lude.Text
+    parameterGroupName :: Core.Maybe Types.ParameterGroupName,
+    -- | The list of tags for the cluster parameter group.
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClusterParameterGroup' with the minimum fields required to make a request.
---
--- * 'parameterGroupFamily' - The name of the cluster parameter group family that this cluster parameter group is compatible with.
--- * 'description' - The description of the parameter group.
--- * 'tags' - The list of tags for the cluster parameter group.
--- * 'parameterGroupName' - The name of the cluster parameter group.
+-- | Creates a 'ClusterParameterGroup' value with any optional fields omitted.
 mkClusterParameterGroup ::
   ClusterParameterGroup
 mkClusterParameterGroup =
   ClusterParameterGroup'
-    { parameterGroupFamily = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing,
-      parameterGroupName = Lude.Nothing
+    { description = Core.Nothing,
+      parameterGroupFamily = Core.Nothing,
+      parameterGroupName = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The name of the cluster parameter group family that this cluster parameter group is compatible with.
---
--- /Note:/ Consider using 'parameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgParameterGroupFamily :: Lens.Lens' ClusterParameterGroup (Lude.Maybe Lude.Text)
-cpgParameterGroupFamily = Lens.lens (parameterGroupFamily :: ClusterParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupFamily = a} :: ClusterParameterGroup)
-{-# DEPRECATED cpgParameterGroupFamily "Use generic-lens or generic-optics with 'parameterGroupFamily' instead." #-}
 
 -- | The description of the parameter group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgDescription :: Lens.Lens' ClusterParameterGroup (Lude.Maybe Lude.Text)
-cpgDescription = Lens.lens (description :: ClusterParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ClusterParameterGroup)
+cpgDescription :: Lens.Lens' ClusterParameterGroup (Core.Maybe Types.Description)
+cpgDescription = Lens.field @"description"
 {-# DEPRECATED cpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The list of tags for the cluster parameter group.
+-- | The name of the cluster parameter group family that this cluster parameter group is compatible with.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgTags :: Lens.Lens' ClusterParameterGroup (Lude.Maybe [Tag])
-cpgTags = Lens.lens (tags :: ClusterParameterGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ClusterParameterGroup)
-{-# DEPRECATED cpgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'parameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgParameterGroupFamily :: Lens.Lens' ClusterParameterGroup (Core.Maybe Types.ParameterGroupFamily)
+cpgParameterGroupFamily = Lens.field @"parameterGroupFamily"
+{-# DEPRECATED cpgParameterGroupFamily "Use generic-lens or generic-optics with 'parameterGroupFamily' instead." #-}
 
 -- | The name of the cluster parameter group.
 --
 -- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgParameterGroupName :: Lens.Lens' ClusterParameterGroup (Lude.Maybe Lude.Text)
-cpgParameterGroupName = Lens.lens (parameterGroupName :: ClusterParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: ClusterParameterGroup)
+cpgParameterGroupName :: Lens.Lens' ClusterParameterGroup (Core.Maybe Types.ParameterGroupName)
+cpgParameterGroupName = Lens.field @"parameterGroupName"
 {-# DEPRECATED cpgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance Lude.FromXML ClusterParameterGroup where
+-- | The list of tags for the cluster parameter group.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgTags :: Lens.Lens' ClusterParameterGroup (Core.Maybe [Types.Tag])
+cpgTags = Lens.field @"tags"
+{-# DEPRECATED cpgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+instance Core.FromXML ClusterParameterGroup where
   parseXML x =
     ClusterParameterGroup'
-      Lude.<$> (x Lude..@? "ParameterGroupFamily")
-      Lude.<*> (x Lude..@? "Description")
-      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
-               )
-      Lude.<*> (x Lude..@? "ParameterGroupName")
+      Core.<$> (x Core..@? "Description")
+      Core.<*> (x Core..@? "ParameterGroupFamily")
+      Core.<*> (x Core..@? "ParameterGroupName")
+      Core.<*> (x Core..@? "Tags" Core..<@> Core.parseXMLList "Tag")

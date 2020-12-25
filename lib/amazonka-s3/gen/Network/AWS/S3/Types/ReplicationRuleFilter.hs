@@ -17,77 +17,50 @@ module Network.AWS.S3.Types.ReplicationRuleFilter
     mkReplicationRuleFilter,
 
     -- * Lenses
-    rrfTag,
-    rrfPrefix,
     rrfAnd,
+    rrfPrefix,
+    rrfTag,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.ReplicationRuleAndOperator
-import Network.AWS.S3.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Prefix as Types
+import qualified Network.AWS.S3.Types.ReplicationRuleAndOperator as Types
+import qualified Network.AWS.S3.Types.Tag as Types
 
 -- | A filter that identifies the subset of objects to which the replication rule applies. A @Filter@ must specify exactly one @Prefix@ , @Tag@ , or an @And@ child element.
 --
 -- /See:/ 'mkReplicationRuleFilter' smart constructor.
 data ReplicationRuleFilter = ReplicationRuleFilter'
-  { -- | A container for specifying a tag key and value.
-    --
-    -- The rule applies only to objects that have the tag in their tag set.
-    tag :: Lude.Maybe Tag,
-    -- | An object key name prefix that identifies the subset of objects to which the rule applies.
-    prefix :: Lude.Maybe Lude.Text,
-    -- | A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:
+  { -- | A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:
     --
     --
     --     * If you specify both a @Prefix@ and a @Tag@ filter, wrap these filters in an @And@ tag.
     --
     --
     --     * If you specify a filter based on multiple tags, wrap the @Tag@ elements in an @And@ tag.
-    and :: Lude.Maybe ReplicationRuleAndOperator
+    and :: Core.Maybe Types.ReplicationRuleAndOperator,
+    -- | An object key name prefix that identifies the subset of objects to which the rule applies.
+    prefix :: Core.Maybe Types.Prefix,
+    -- | A container for specifying a tag key and value.
+    --
+    -- The rule applies only to objects that have the tag in their tag set.
+    tag :: Core.Maybe Types.Tag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicationRuleFilter' with the minimum fields required to make a request.
---
--- * 'tag' - A container for specifying a tag key and value.
---
--- The rule applies only to objects that have the tag in their tag set.
--- * 'prefix' - An object key name prefix that identifies the subset of objects to which the rule applies.
--- * 'and' - A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:
---
---
---     * If you specify both a @Prefix@ and a @Tag@ filter, wrap these filters in an @And@ tag.
---
---
---     * If you specify a filter based on multiple tags, wrap the @Tag@ elements in an @And@ tag.
+-- | Creates a 'ReplicationRuleFilter' value with any optional fields omitted.
 mkReplicationRuleFilter ::
   ReplicationRuleFilter
 mkReplicationRuleFilter =
   ReplicationRuleFilter'
-    { tag = Lude.Nothing,
-      prefix = Lude.Nothing,
-      and = Lude.Nothing
+    { and = Core.Nothing,
+      prefix = Core.Nothing,
+      tag = Core.Nothing
     }
-
--- | A container for specifying a tag key and value.
---
--- The rule applies only to objects that have the tag in their tag set.
---
--- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrfTag :: Lens.Lens' ReplicationRuleFilter (Lude.Maybe Tag)
-rrfTag = Lens.lens (tag :: ReplicationRuleFilter -> Lude.Maybe Tag) (\s a -> s {tag = a} :: ReplicationRuleFilter)
-{-# DEPRECATED rrfTag "Use generic-lens or generic-optics with 'tag' instead." #-}
-
--- | An object key name prefix that identifies the subset of objects to which the rule applies.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrfPrefix :: Lens.Lens' ReplicationRuleFilter (Lude.Maybe Lude.Text)
-rrfPrefix = Lens.lens (prefix :: ReplicationRuleFilter -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: ReplicationRuleFilter)
-{-# DEPRECATED rrfPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:
 --
@@ -100,18 +73,35 @@ rrfPrefix = Lens.lens (prefix :: ReplicationRuleFilter -> Lude.Maybe Lude.Text) 
 --
 --
 -- /Note:/ Consider using 'and' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrfAnd :: Lens.Lens' ReplicationRuleFilter (Lude.Maybe ReplicationRuleAndOperator)
-rrfAnd = Lens.lens (and :: ReplicationRuleFilter -> Lude.Maybe ReplicationRuleAndOperator) (\s a -> s {and = a} :: ReplicationRuleFilter)
+rrfAnd :: Lens.Lens' ReplicationRuleFilter (Core.Maybe Types.ReplicationRuleAndOperator)
+rrfAnd = Lens.field @"and"
 {-# DEPRECATED rrfAnd "Use generic-lens or generic-optics with 'and' instead." #-}
 
-instance Lude.FromXML ReplicationRuleFilter where
+-- | An object key name prefix that identifies the subset of objects to which the rule applies.
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrfPrefix :: Lens.Lens' ReplicationRuleFilter (Core.Maybe Types.Prefix)
+rrfPrefix = Lens.field @"prefix"
+{-# DEPRECATED rrfPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+-- | A container for specifying a tag key and value.
+--
+-- The rule applies only to objects that have the tag in their tag set.
+--
+-- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrfTag :: Lens.Lens' ReplicationRuleFilter (Core.Maybe Types.Tag)
+rrfTag = Lens.field @"tag"
+{-# DEPRECATED rrfTag "Use generic-lens or generic-optics with 'tag' instead." #-}
+
+instance Core.ToXML ReplicationRuleFilter where
+  toXML ReplicationRuleFilter {..} =
+    Core.toXMLNode "And" Core.<$> and
+      Core.<> Core.toXMLNode "Prefix" Core.<$> prefix
+      Core.<> Core.toXMLNode "Tag" Core.<$> tag
+
+instance Core.FromXML ReplicationRuleFilter where
   parseXML x =
     ReplicationRuleFilter'
-      Lude.<$> (x Lude..@? "Tag")
-      Lude.<*> (x Lude..@? "Prefix")
-      Lude.<*> (x Lude..@? "And")
-
-instance Lude.ToXML ReplicationRuleFilter where
-  toXML ReplicationRuleFilter' {..} =
-    Lude.mconcat
-      ["Tag" Lude.@= tag, "Prefix" Lude.@= prefix, "And" Lude.@= and]
+      Core.<$> (x Core..@? "And")
+      Core.<*> (x Core..@? "Prefix")
+      Core.<*> (x Core..@? "Tag")

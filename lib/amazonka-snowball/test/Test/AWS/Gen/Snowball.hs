@@ -306,7 +306,7 @@ responseCancelCluster =
   res
     "CancelClusterResponse"
     "fixture/CancelClusterResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy CancelCluster)
 
 responseDescribeCluster :: DescribeClusterResponse -> TestTree
@@ -314,7 +314,7 @@ responseDescribeCluster =
   res
     "DescribeClusterResponse"
     "fixture/DescribeClusterResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCluster)
 
 responseCreateAddress :: CreateAddressResponse -> TestTree
@@ -322,7 +322,7 @@ responseCreateAddress =
   res
     "CreateAddressResponse"
     "fixture/CreateAddressResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy CreateAddress)
 
 responseCreateReturnShippingLabel :: CreateReturnShippingLabelResponse -> TestTree
@@ -330,7 +330,7 @@ responseCreateReturnShippingLabel =
   res
     "CreateReturnShippingLabelResponse"
     "fixture/CreateReturnShippingLabelResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy CreateReturnShippingLabel)
 
 responseGetSnowballUsage :: GetSnowballUsageResponse -> TestTree
@@ -338,7 +338,7 @@ responseGetSnowballUsage =
   res
     "GetSnowballUsageResponse"
     "fixture/GetSnowballUsageResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy GetSnowballUsage)
 
 responseDescribeAddresses :: DescribeAddressesResponse -> TestTree
@@ -346,7 +346,7 @@ responseDescribeAddresses =
   res
     "DescribeAddressesResponse"
     "fixture/DescribeAddressesResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAddresses)
 
 responseListCompatibleImages :: ListCompatibleImagesResponse -> TestTree
@@ -354,7 +354,7 @@ responseListCompatibleImages =
   res
     "ListCompatibleImagesResponse"
     "fixture/ListCompatibleImagesResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy ListCompatibleImages)
 
 responseUpdateCluster :: UpdateClusterResponse -> TestTree
@@ -362,7 +362,7 @@ responseUpdateCluster =
   res
     "UpdateClusterResponse"
     "fixture/UpdateClusterResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy UpdateCluster)
 
 responseGetSoftwareUpdates :: GetSoftwareUpdatesResponse -> TestTree
@@ -370,7 +370,7 @@ responseGetSoftwareUpdates =
   res
     "GetSoftwareUpdatesResponse"
     "fixture/GetSoftwareUpdatesResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy GetSoftwareUpdates)
 
 responseCreateJob :: CreateJobResponse -> TestTree
@@ -378,7 +378,7 @@ responseCreateJob =
   res
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy CreateJob)
 
 responseGetJobManifest :: GetJobManifestResponse -> TestTree
@@ -386,7 +386,7 @@ responseGetJobManifest =
   res
     "GetJobManifestResponse"
     "fixture/GetJobManifestResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy GetJobManifest)
 
 responseCreateCluster :: CreateClusterResponse -> TestTree
@@ -394,7 +394,7 @@ responseCreateCluster =
   res
     "CreateClusterResponse"
     "fixture/CreateClusterResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy CreateCluster)
 
 responseListJobs :: ListJobsResponse -> TestTree
@@ -402,7 +402,7 @@ responseListJobs =
   res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy ListJobs)
 
 responseUpdateJob :: UpdateJobResponse -> TestTree
@@ -410,7 +410,7 @@ responseUpdateJob =
   res
     "UpdateJobResponse"
     "fixture/UpdateJobResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy UpdateJob)
 
 responseUpdateJobShipmentState :: UpdateJobShipmentStateResponse -> TestTree
@@ -418,7 +418,7 @@ responseUpdateJobShipmentState =
   res
     "UpdateJobShipmentStateResponse"
     "fixture/UpdateJobShipmentStateResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy UpdateJobShipmentState)
 
 responseGetJobUnlockCode :: GetJobUnlockCodeResponse -> TestTree
@@ -426,7 +426,7 @@ responseGetJobUnlockCode =
   res
     "GetJobUnlockCodeResponse"
     "fixture/GetJobUnlockCodeResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy GetJobUnlockCode)
 
 responseListClusterJobs :: ListClusterJobsResponse -> TestTree
@@ -434,7 +434,7 @@ responseListClusterJobs =
   res
     "ListClusterJobsResponse"
     "fixture/ListClusterJobsResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy ListClusterJobs)
 
 responseDescribeJob :: DescribeJobResponse -> TestTree
@@ -442,7 +442,7 @@ responseDescribeJob =
   res
     "DescribeJobResponse"
     "fixture/DescribeJobResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy DescribeJob)
 
 responseListClusters :: ListClustersResponse -> TestTree
@@ -450,7 +450,7 @@ responseListClusters =
   res
     "ListClustersResponse"
     "fixture/ListClustersResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy ListClusters)
 
 responseDescribeAddress :: DescribeAddressResponse -> TestTree
@@ -458,7 +458,7 @@ responseDescribeAddress =
   res
     "DescribeAddressResponse"
     "fixture/DescribeAddressResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAddress)
 
 responseDescribeReturnShippingLabel :: DescribeReturnShippingLabelResponse -> TestTree
@@ -466,7 +466,7 @@ responseDescribeReturnShippingLabel =
   res
     "DescribeReturnShippingLabelResponse"
     "fixture/DescribeReturnShippingLabelResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReturnShippingLabel)
 
 responseCancelJob :: CancelJobResponse -> TestTree
@@ -474,5 +474,5 @@ responseCancelJob =
   res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
-    snowballService
+    mkServiceConfig
     (Proxy :: Proxy CancelJob)

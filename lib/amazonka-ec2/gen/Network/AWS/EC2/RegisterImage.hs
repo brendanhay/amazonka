@@ -36,179 +36,184 @@ module Network.AWS.EC2.RegisterImage
     mkRegisterImage,
 
     -- ** Request lenses
-    riVirtualizationType,
-    riImageLocation,
-    riEnaSupport,
-    riBillingProducts,
-    riRAMDiskId,
-    riKernelId,
-    riRootDeviceName,
-    riSRIOVNetSupport,
     riName,
     riArchitecture,
-    riDescription,
+    riBillingProducts,
     riBlockDeviceMappings,
+    riDescription,
     riDryRun,
+    riEnaSupport,
+    riImageLocation,
+    riKernelId,
+    riRamdiskId,
+    riRootDeviceName,
+    riSriovNetSupport,
+    riVirtualizationType,
 
     -- * Destructuring the response
     RegisterImageResponse (..),
     mkRegisterImageResponse,
 
     -- ** Response lenses
-    rirsImageId,
-    rirsResponseStatus,
+    rirrsImageId,
+    rirrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for RegisterImage.
 --
 -- /See:/ 'mkRegisterImage' smart constructor.
 data RegisterImage = RegisterImage'
-  { -- | The type of virtualization (@hvm@ | @paravirtual@ ).
+  { -- | A name for your AMI.
     --
-    -- Default: @paravirtual@
-    virtualizationType :: Lude.Maybe Lude.Text,
-    -- | The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the @aws-exec-read@ canned access control list (ACL) to ensure that it can be accessed by Amazon EC2. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs> in the /Amazon S3 Service Developer Guide/ .
-    imageLocation :: Lude.Maybe Lude.Text,
+    -- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
+    name :: Types.Name,
+    -- | The architecture of the AMI.
+    --
+    -- Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
+    architecture :: Core.Maybe Types.ArchitectureValues,
+    -- | The billing product codes. Your account must be authorized to specify billing product codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.
+    billingProducts :: Core.Maybe [Types.String],
+    -- | The block device mapping entries.
+    blockDeviceMappings :: Core.Maybe [Types.BlockDeviceMapping],
+    -- | A description for your AMI.
+    description :: Core.Maybe Types.Description,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | Set to @true@ to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.
     --
     -- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
-    enaSupport :: Lude.Maybe Lude.Bool,
-    -- | The billing product codes. Your account must be authorized to specify billing product codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.
-    billingProducts :: Lude.Maybe [Lude.Text],
-    -- | The ID of the RAM disk.
-    ramdiskId :: Lude.Maybe Lude.Text,
+    enaSupport :: Core.Maybe Core.Bool,
+    -- | The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the @aws-exec-read@ canned access control list (ACL) to ensure that it can be accessed by Amazon EC2. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs> in the /Amazon S3 Service Developer Guide/ .
+    imageLocation :: Core.Maybe Types.ImageLocation,
     -- | The ID of the kernel.
-    kernelId :: Lude.Maybe Lude.Text,
+    kernelId :: Core.Maybe Types.KernelId,
+    -- | The ID of the RAM disk.
+    ramdiskId :: Core.Maybe Types.RamdiskId,
     -- | The device name of the root device volume (for example, @/dev/sda1@ ).
-    rootDeviceName :: Lude.Maybe Lude.Text,
+    rootDeviceName :: Core.Maybe Types.RootDeviceName,
     -- | Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.
     --
     -- There is no way to disable @sriovNetSupport@ at this time.
     -- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
-    sriovNetSupport :: Lude.Maybe Lude.Text,
-    -- | A name for your AMI.
+    sriovNetSupport :: Core.Maybe Types.SriovNetSupport,
+    -- | The type of virtualization (@hvm@ | @paravirtual@ ).
     --
-    -- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
-    name :: Lude.Text,
-    -- | The architecture of the AMI.
-    --
-    -- Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
-    architecture :: Lude.Maybe ArchitectureValues,
-    -- | A description for your AMI.
-    description :: Lude.Maybe Lude.Text,
-    -- | The block device mapping entries.
-    blockDeviceMappings :: Lude.Maybe [BlockDeviceMapping],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    -- Default: @paravirtual@
+    virtualizationType :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterImage' with the minimum fields required to make a request.
---
--- * 'virtualizationType' - The type of virtualization (@hvm@ | @paravirtual@ ).
---
--- Default: @paravirtual@
--- * 'imageLocation' - The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the @aws-exec-read@ canned access control list (ACL) to ensure that it can be accessed by Amazon EC2. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs> in the /Amazon S3 Service Developer Guide/ .
--- * 'enaSupport' - Set to @true@ to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.
---
--- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
--- * 'billingProducts' - The billing product codes. Your account must be authorized to specify billing product codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.
--- * 'ramdiskId' - The ID of the RAM disk.
--- * 'kernelId' - The ID of the kernel.
--- * 'rootDeviceName' - The device name of the root device volume (for example, @/dev/sda1@ ).
--- * 'sriovNetSupport' - Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.
---
--- There is no way to disable @sriovNetSupport@ at this time.
--- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
--- * 'name' - A name for your AMI.
---
--- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
--- * 'architecture' - The architecture of the AMI.
---
--- Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
--- * 'description' - A description for your AMI.
--- * 'blockDeviceMappings' - The block device mapping entries.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'RegisterImage' value with any optional fields omitted.
 mkRegisterImage ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   RegisterImage
-mkRegisterImage pName_ =
+mkRegisterImage name =
   RegisterImage'
-    { virtualizationType = Lude.Nothing,
-      imageLocation = Lude.Nothing,
-      enaSupport = Lude.Nothing,
-      billingProducts = Lude.Nothing,
-      ramdiskId = Lude.Nothing,
-      kernelId = Lude.Nothing,
-      rootDeviceName = Lude.Nothing,
-      sriovNetSupport = Lude.Nothing,
-      name = pName_,
-      architecture = Lude.Nothing,
-      description = Lude.Nothing,
-      blockDeviceMappings = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { name,
+      architecture = Core.Nothing,
+      billingProducts = Core.Nothing,
+      blockDeviceMappings = Core.Nothing,
+      description = Core.Nothing,
+      dryRun = Core.Nothing,
+      enaSupport = Core.Nothing,
+      imageLocation = Core.Nothing,
+      kernelId = Core.Nothing,
+      ramdiskId = Core.Nothing,
+      rootDeviceName = Core.Nothing,
+      sriovNetSupport = Core.Nothing,
+      virtualizationType = Core.Nothing
     }
 
--- | The type of virtualization (@hvm@ | @paravirtual@ ).
+-- | A name for your AMI.
 --
--- Default: @paravirtual@
+-- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
 --
--- /Note:/ Consider using 'virtualizationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riVirtualizationType :: Lens.Lens' RegisterImage (Lude.Maybe Lude.Text)
-riVirtualizationType = Lens.lens (virtualizationType :: RegisterImage -> Lude.Maybe Lude.Text) (\s a -> s {virtualizationType = a} :: RegisterImage)
-{-# DEPRECATED riVirtualizationType "Use generic-lens or generic-optics with 'virtualizationType' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riName :: Lens.Lens' RegisterImage Types.Name
+riName = Lens.field @"name"
+{-# DEPRECATED riName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the @aws-exec-read@ canned access control list (ACL) to ensure that it can be accessed by Amazon EC2. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs> in the /Amazon S3 Service Developer Guide/ .
+-- | The architecture of the AMI.
 --
--- /Note:/ Consider using 'imageLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riImageLocation :: Lens.Lens' RegisterImage (Lude.Maybe Lude.Text)
-riImageLocation = Lens.lens (imageLocation :: RegisterImage -> Lude.Maybe Lude.Text) (\s a -> s {imageLocation = a} :: RegisterImage)
-{-# DEPRECATED riImageLocation "Use generic-lens or generic-optics with 'imageLocation' instead." #-}
+-- Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
+--
+-- /Note:/ Consider using 'architecture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riArchitecture :: Lens.Lens' RegisterImage (Core.Maybe Types.ArchitectureValues)
+riArchitecture = Lens.field @"architecture"
+{-# DEPRECATED riArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
+
+-- | The billing product codes. Your account must be authorized to specify billing product codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.
+--
+-- /Note:/ Consider using 'billingProducts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riBillingProducts :: Lens.Lens' RegisterImage (Core.Maybe [Types.String])
+riBillingProducts = Lens.field @"billingProducts"
+{-# DEPRECATED riBillingProducts "Use generic-lens or generic-optics with 'billingProducts' instead." #-}
+
+-- | The block device mapping entries.
+--
+-- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riBlockDeviceMappings :: Lens.Lens' RegisterImage (Core.Maybe [Types.BlockDeviceMapping])
+riBlockDeviceMappings = Lens.field @"blockDeviceMappings"
+{-# DEPRECATED riBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
+
+-- | A description for your AMI.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riDescription :: Lens.Lens' RegisterImage (Core.Maybe Types.Description)
+riDescription = Lens.field @"description"
+{-# DEPRECATED riDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riDryRun :: Lens.Lens' RegisterImage (Core.Maybe Core.Bool)
+riDryRun = Lens.field @"dryRun"
+{-# DEPRECATED riDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | Set to @true@ to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.
 --
 -- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 --
 -- /Note:/ Consider using 'enaSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riEnaSupport :: Lens.Lens' RegisterImage (Lude.Maybe Lude.Bool)
-riEnaSupport = Lens.lens (enaSupport :: RegisterImage -> Lude.Maybe Lude.Bool) (\s a -> s {enaSupport = a} :: RegisterImage)
+riEnaSupport :: Lens.Lens' RegisterImage (Core.Maybe Core.Bool)
+riEnaSupport = Lens.field @"enaSupport"
 {-# DEPRECATED riEnaSupport "Use generic-lens or generic-optics with 'enaSupport' instead." #-}
 
--- | The billing product codes. Your account must be authorized to specify billing product codes. Otherwise, you can use the AWS Marketplace to bill for the use of an AMI.
+-- | The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the @aws-exec-read@ canned access control list (ACL) to ensure that it can be accessed by Amazon EC2. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl Canned ACLs> in the /Amazon S3 Service Developer Guide/ .
 --
--- /Note:/ Consider using 'billingProducts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riBillingProducts :: Lens.Lens' RegisterImage (Lude.Maybe [Lude.Text])
-riBillingProducts = Lens.lens (billingProducts :: RegisterImage -> Lude.Maybe [Lude.Text]) (\s a -> s {billingProducts = a} :: RegisterImage)
-{-# DEPRECATED riBillingProducts "Use generic-lens or generic-optics with 'billingProducts' instead." #-}
-
--- | The ID of the RAM disk.
---
--- /Note:/ Consider using 'ramdiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riRAMDiskId :: Lens.Lens' RegisterImage (Lude.Maybe Lude.Text)
-riRAMDiskId = Lens.lens (ramdiskId :: RegisterImage -> Lude.Maybe Lude.Text) (\s a -> s {ramdiskId = a} :: RegisterImage)
-{-# DEPRECATED riRAMDiskId "Use generic-lens or generic-optics with 'ramdiskId' instead." #-}
+-- /Note:/ Consider using 'imageLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riImageLocation :: Lens.Lens' RegisterImage (Core.Maybe Types.ImageLocation)
+riImageLocation = Lens.field @"imageLocation"
+{-# DEPRECATED riImageLocation "Use generic-lens or generic-optics with 'imageLocation' instead." #-}
 
 -- | The ID of the kernel.
 --
 -- /Note:/ Consider using 'kernelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riKernelId :: Lens.Lens' RegisterImage (Lude.Maybe Lude.Text)
-riKernelId = Lens.lens (kernelId :: RegisterImage -> Lude.Maybe Lude.Text) (\s a -> s {kernelId = a} :: RegisterImage)
+riKernelId :: Lens.Lens' RegisterImage (Core.Maybe Types.KernelId)
+riKernelId = Lens.field @"kernelId"
 {-# DEPRECATED riKernelId "Use generic-lens or generic-optics with 'kernelId' instead." #-}
+
+-- | The ID of the RAM disk.
+--
+-- /Note:/ Consider using 'ramdiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riRamdiskId :: Lens.Lens' RegisterImage (Core.Maybe Types.RamdiskId)
+riRamdiskId = Lens.field @"ramdiskId"
+{-# DEPRECATED riRamdiskId "Use generic-lens or generic-optics with 'ramdiskId' instead." #-}
 
 -- | The device name of the root device volume (for example, @/dev/sda1@ ).
 --
 -- /Note:/ Consider using 'rootDeviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riRootDeviceName :: Lens.Lens' RegisterImage (Lude.Maybe Lude.Text)
-riRootDeviceName = Lens.lens (rootDeviceName :: RegisterImage -> Lude.Maybe Lude.Text) (\s a -> s {rootDeviceName = a} :: RegisterImage)
+riRootDeviceName :: Lens.Lens' RegisterImage (Core.Maybe Types.RootDeviceName)
+riRootDeviceName = Lens.field @"rootDeviceName"
 {-# DEPRECATED riRootDeviceName "Use generic-lens or generic-optics with 'rootDeviceName' instead." #-}
 
 -- | Set to @simple@ to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.
@@ -217,125 +222,92 @@ riRootDeviceName = Lens.lens (rootDeviceName :: RegisterImage -> Lude.Maybe Lude
 -- This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.
 --
 -- /Note:/ Consider using 'sriovNetSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riSRIOVNetSupport :: Lens.Lens' RegisterImage (Lude.Maybe Lude.Text)
-riSRIOVNetSupport = Lens.lens (sriovNetSupport :: RegisterImage -> Lude.Maybe Lude.Text) (\s a -> s {sriovNetSupport = a} :: RegisterImage)
-{-# DEPRECATED riSRIOVNetSupport "Use generic-lens or generic-optics with 'sriovNetSupport' instead." #-}
+riSriovNetSupport :: Lens.Lens' RegisterImage (Core.Maybe Types.SriovNetSupport)
+riSriovNetSupport = Lens.field @"sriovNetSupport"
+{-# DEPRECATED riSriovNetSupport "Use generic-lens or generic-optics with 'sriovNetSupport' instead." #-}
 
--- | A name for your AMI.
+-- | The type of virtualization (@hvm@ | @paravirtual@ ).
 --
--- Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)
+-- Default: @paravirtual@
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riName :: Lens.Lens' RegisterImage Lude.Text
-riName = Lens.lens (name :: RegisterImage -> Lude.Text) (\s a -> s {name = a} :: RegisterImage)
-{-# DEPRECATED riName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'virtualizationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riVirtualizationType :: Lens.Lens' RegisterImage (Core.Maybe Types.String)
+riVirtualizationType = Lens.field @"virtualizationType"
+{-# DEPRECATED riVirtualizationType "Use generic-lens or generic-optics with 'virtualizationType' instead." #-}
 
--- | The architecture of the AMI.
---
--- Default: For Amazon EBS-backed AMIs, @i386@ . For instance store-backed AMIs, the architecture specified in the manifest file.
---
--- /Note:/ Consider using 'architecture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riArchitecture :: Lens.Lens' RegisterImage (Lude.Maybe ArchitectureValues)
-riArchitecture = Lens.lens (architecture :: RegisterImage -> Lude.Maybe ArchitectureValues) (\s a -> s {architecture = a} :: RegisterImage)
-{-# DEPRECATED riArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
-
--- | A description for your AMI.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riDescription :: Lens.Lens' RegisterImage (Lude.Maybe Lude.Text)
-riDescription = Lens.lens (description :: RegisterImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RegisterImage)
-{-# DEPRECATED riDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The block device mapping entries.
---
--- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riBlockDeviceMappings :: Lens.Lens' RegisterImage (Lude.Maybe [BlockDeviceMapping])
-riBlockDeviceMappings = Lens.lens (blockDeviceMappings :: RegisterImage -> Lude.Maybe [BlockDeviceMapping]) (\s a -> s {blockDeviceMappings = a} :: RegisterImage)
-{-# DEPRECATED riBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riDryRun :: Lens.Lens' RegisterImage (Lude.Maybe Lude.Bool)
-riDryRun = Lens.lens (dryRun :: RegisterImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RegisterImage)
-{-# DEPRECATED riDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
-instance Lude.AWSRequest RegisterImage where
+instance Core.AWSRequest RegisterImage where
   type Rs RegisterImage = RegisterImageResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RegisterImage")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "Name" name)
+                Core.<> (Core.toQueryValue "Architecture" Core.<$> architecture)
+                Core.<> (Core.toQueryList "BillingProduct" Core.<$> billingProducts)
+                Core.<> ( Core.toQueryList "BlockDeviceMapping"
+                            Core.<$> blockDeviceMappings
+                        )
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "EnaSupport" Core.<$> enaSupport)
+                Core.<> (Core.toQueryValue "ImageLocation" Core.<$> imageLocation)
+                Core.<> (Core.toQueryValue "KernelId" Core.<$> kernelId)
+                Core.<> (Core.toQueryValue "RamdiskId" Core.<$> ramdiskId)
+                Core.<> (Core.toQueryValue "RootDeviceName" Core.<$> rootDeviceName)
+                Core.<> (Core.toQueryValue "SriovNetSupport" Core.<$> sriovNetSupport)
+                Core.<> ( Core.toQueryValue "VirtualizationType"
+                            Core.<$> virtualizationType
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           RegisterImageResponse'
-            Lude.<$> (x Lude..@? "imageId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "imageId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RegisterImage where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RegisterImage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterImage where
-  toQuery RegisterImage' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RegisterImage" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "VirtualizationType" Lude.=: virtualizationType,
-        "ImageLocation" Lude.=: imageLocation,
-        "EnaSupport" Lude.=: enaSupport,
-        Lude.toQuery
-          (Lude.toQueryList "BillingProduct" Lude.<$> billingProducts),
-        "RamdiskId" Lude.=: ramdiskId,
-        "KernelId" Lude.=: kernelId,
-        "RootDeviceName" Lude.=: rootDeviceName,
-        "SriovNetSupport" Lude.=: sriovNetSupport,
-        "Name" Lude.=: name,
-        "Architecture" Lude.=: architecture,
-        "Description" Lude.=: description,
-        Lude.toQuery
-          ( Lude.toQueryList "BlockDeviceMapping"
-              Lude.<$> blockDeviceMappings
-          ),
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | Contains the output of RegisterImage.
 --
 -- /See:/ 'mkRegisterImageResponse' smart constructor.
 data RegisterImageResponse = RegisterImageResponse'
   { -- | The ID of the newly registered AMI.
-    imageId :: Lude.Maybe Lude.Text,
+    imageId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterImageResponse' with the minimum fields required to make a request.
---
--- * 'imageId' - The ID of the newly registered AMI.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RegisterImageResponse' value with any optional fields omitted.
 mkRegisterImageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RegisterImageResponse
-mkRegisterImageResponse pResponseStatus_ =
-  RegisterImageResponse'
-    { imageId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkRegisterImageResponse responseStatus =
+  RegisterImageResponse' {imageId = Core.Nothing, responseStatus}
 
 -- | The ID of the newly registered AMI.
 --
 -- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rirsImageId :: Lens.Lens' RegisterImageResponse (Lude.Maybe Lude.Text)
-rirsImageId = Lens.lens (imageId :: RegisterImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: RegisterImageResponse)
-{-# DEPRECATED rirsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+rirrsImageId :: Lens.Lens' RegisterImageResponse (Core.Maybe Types.String)
+rirrsImageId = Lens.field @"imageId"
+{-# DEPRECATED rirrsImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rirsResponseStatus :: Lens.Lens' RegisterImageResponse Lude.Int
-rirsResponseStatus = Lens.lens (responseStatus :: RegisterImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterImageResponse)
-{-# DEPRECATED rirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rirrsResponseStatus :: Lens.Lens' RegisterImageResponse Core.Int
+rirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

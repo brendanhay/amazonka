@@ -17,64 +17,53 @@ module Network.AWS.CloudFormation.Types.LoggingConfig
     mkLoggingConfig,
 
     -- * Lenses
+    lcLogRoleArn,
     lcLogGroupName,
-    lcLogRoleARN,
   )
 where
 
+import qualified Network.AWS.CloudFormation.Types.LogGroupName as Types
+import qualified Network.AWS.CloudFormation.Types.LogRoleArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains logging configuration information for a type.
 --
 -- /See:/ 'mkLoggingConfig' smart constructor.
 data LoggingConfig = LoggingConfig'
-  { -- | The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
-    logGroupName :: Lude.Text,
-    -- | The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
-    logRoleARN :: Lude.Text
+  { -- | The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+    logRoleArn :: Types.LogRoleArn,
+    -- | The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
+    logGroupName :: Types.LogGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoggingConfig' with the minimum fields required to make a request.
---
--- * 'logGroupName' - The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
--- * 'logRoleARN' - The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+-- | Creates a 'LoggingConfig' value with any optional fields omitted.
 mkLoggingConfig ::
+  -- | 'logRoleArn'
+  Types.LogRoleArn ->
   -- | 'logGroupName'
-  Lude.Text ->
-  -- | 'logRoleARN'
-  Lude.Text ->
+  Types.LogGroupName ->
   LoggingConfig
-mkLoggingConfig pLogGroupName_ pLogRoleARN_ =
-  LoggingConfig'
-    { logGroupName = pLogGroupName_,
-      logRoleARN = pLogRoleARN_
-    }
+mkLoggingConfig logRoleArn logGroupName =
+  LoggingConfig' {logRoleArn, logGroupName}
+
+-- | The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
+--
+-- /Note:/ Consider using 'logRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcLogRoleArn :: Lens.Lens' LoggingConfig Types.LogRoleArn
+lcLogRoleArn = Lens.field @"logRoleArn"
+{-# DEPRECATED lcLogRoleArn "Use generic-lens or generic-optics with 'logRoleArn' instead." #-}
 
 -- | The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcLogGroupName :: Lens.Lens' LoggingConfig Lude.Text
-lcLogGroupName = Lens.lens (logGroupName :: LoggingConfig -> Lude.Text) (\s a -> s {logGroupName = a} :: LoggingConfig)
+lcLogGroupName :: Lens.Lens' LoggingConfig Types.LogGroupName
+lcLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED lcLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
--- | The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.
---
--- /Note:/ Consider using 'logRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcLogRoleARN :: Lens.Lens' LoggingConfig Lude.Text
-lcLogRoleARN = Lens.lens (logRoleARN :: LoggingConfig -> Lude.Text) (\s a -> s {logRoleARN = a} :: LoggingConfig)
-{-# DEPRECATED lcLogRoleARN "Use generic-lens or generic-optics with 'logRoleARN' instead." #-}
-
-instance Lude.FromXML LoggingConfig where
+instance Core.FromXML LoggingConfig where
   parseXML x =
     LoggingConfig'
-      Lude.<$> (x Lude..@ "LogGroupName") Lude.<*> (x Lude..@ "LogRoleArn")
-
-instance Lude.ToQuery LoggingConfig where
-  toQuery LoggingConfig' {..} =
-    Lude.mconcat
-      [ "LogGroupName" Lude.=: logGroupName,
-        "LogRoleArn" Lude.=: logRoleARN
-      ]
+      Core.<$> (x Core..@ "LogRoleArn") Core.<*> (x Core..@ "LogGroupName")

@@ -46,15 +46,15 @@ module Network.AWS.Organizations.TagResource
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The ID of the resource to add a tag to.
-    resourceId :: Lude.Text,
+    resourceId :: Types.ResourceId,
     -- | A list of tags to add to the specified resource.
     --
     -- You can specify any of the following taggable resources.
@@ -72,43 +72,24 @@ data TagResource = TagResource'
     --
     --
     -- For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ .
-    tags :: [Tag]
+    tags :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResource' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource to add a tag to.
--- * 'tags' - A list of tags to add to the specified resource.
---
--- You can specify any of the following taggable resources.
---
---     * AWS account – specify the account ID number.
---
---
---     * Organizational unit – specify the OU ID that begins with @ou-@ and looks similar to: @ou-/1a2b-34uvwxyz/ @
---
---
---     * Root – specify the root ID that begins with @r-@ and looks similar to: @r-/1a2b/ @
---
---
---     * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @
---
---
--- For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ .
+-- | Creates a 'TagResource' value with any optional fields omitted.
 mkTagResource ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.ResourceId ->
   TagResource
-mkTagResource pResourceId_ =
-  TagResource' {resourceId = pResourceId_, tags = Lude.mempty}
+mkTagResource resourceId =
+  TagResource' {resourceId, tags = Core.mempty}
 
 -- | The ID of the resource to add a tag to.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trResourceId :: Lens.Lens' TagResource Lude.Text
-trResourceId = Lens.lens (resourceId :: TagResource -> Lude.Text) (\s a -> s {resourceId = a} :: TagResource)
+trResourceId :: Lens.Lens' TagResource Types.ResourceId
+trResourceId = Lens.field @"resourceId"
 {-# DEPRECATED trResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | A list of tags to add to the specified resource.
@@ -130,47 +111,40 @@ trResourceId = Lens.lens (resourceId :: TagResource -> Lude.Text) (\s a -> s {re
 -- For each tag in the list, you must specify both a tag key and a value. You can set the value to an empty string, but you can't set it to @null@ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trTags :: Lens.Lens' TagResource [Tag]
-trTags = Lens.lens (tags :: TagResource -> [Tag]) (\s a -> s {tags = a} :: TagResource)
+trTags :: Lens.Lens' TagResource [Types.Tag]
+trTags = Lens.field @"tags"
 {-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagResource where
+instance Core.FromJSON TagResource where
+  toJSON TagResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("Tags" Core..= tags)
+          ]
+      )
+
+instance Core.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = Req.postJSON organizationsService
-  response = Res.receiveNull TagResourceResponse'
-
-instance Lude.ToHeaders TagResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSOrganizationsV20161128.TagResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TagResource where
-  toJSON TagResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("Tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath TagResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TagResource where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSOrganizationsV20161128.TagResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull TagResourceResponse'
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
+-- | Creates a 'TagResourceResponse' value with any optional fields omitted.
 mkTagResourceResponse ::
   TagResourceResponse
 mkTagResourceResponse = TagResourceResponse'

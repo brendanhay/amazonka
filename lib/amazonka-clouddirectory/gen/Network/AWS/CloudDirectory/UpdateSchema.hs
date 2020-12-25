@@ -20,7 +20,7 @@ module Network.AWS.CloudDirectory.UpdateSchema
     mkUpdateSchema,
 
     -- ** Request lenses
-    usSchemaARN,
+    usSchemaArn,
     usName,
 
     -- * Destructuring the response
@@ -28,113 +28,101 @@ module Network.AWS.CloudDirectory.UpdateSchema
     mkUpdateSchemaResponse,
 
     -- ** Response lenses
-    usrsSchemaARN,
-    usrsResponseStatus,
+    usrrsSchemaArn,
+    usrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateSchema' smart constructor.
 data UpdateSchema = UpdateSchema'
   { -- | The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
-    schemaARN :: Lude.Text,
+    schemaArn :: Types.Arn,
     -- | The name of the schema.
-    name :: Lude.Text
+    name :: Types.SchemaName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSchema' with the minimum fields required to make a request.
---
--- * 'schemaARN' - The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
--- * 'name' - The name of the schema.
+-- | Creates a 'UpdateSchema' value with any optional fields omitted.
 mkUpdateSchema ::
-  -- | 'schemaARN'
-  Lude.Text ->
+  -- | 'schemaArn'
+  Types.Arn ->
   -- | 'name'
-  Lude.Text ->
+  Types.SchemaName ->
   UpdateSchema
-mkUpdateSchema pSchemaARN_ pName_ =
-  UpdateSchema' {schemaARN = pSchemaARN_, name = pName_}
+mkUpdateSchema schemaArn name = UpdateSchema' {schemaArn, name}
 
 -- | The Amazon Resource Name (ARN) of the development schema. For more information, see 'arns' .
 --
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usSchemaARN :: Lens.Lens' UpdateSchema Lude.Text
-usSchemaARN = Lens.lens (schemaARN :: UpdateSchema -> Lude.Text) (\s a -> s {schemaARN = a} :: UpdateSchema)
-{-# DEPRECATED usSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usSchemaArn :: Lens.Lens' UpdateSchema Types.Arn
+usSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED usSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
 -- | The name of the schema.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usName :: Lens.Lens' UpdateSchema Lude.Text
-usName = Lens.lens (name :: UpdateSchema -> Lude.Text) (\s a -> s {name = a} :: UpdateSchema)
+usName :: Lens.Lens' UpdateSchema Types.SchemaName
+usName = Lens.field @"name"
 {-# DEPRECATED usName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest UpdateSchema where
+instance Core.FromJSON UpdateSchema where
+  toJSON UpdateSchema {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest UpdateSchema where
   type Rs UpdateSchema = UpdateSchemaResponse
-  request = Req.putJSON cloudDirectoryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/schema/update",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "x-amz-data-partition" schemaArn,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateSchemaResponse'
-            Lude.<$> (x Lude..?> "SchemaArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SchemaArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateSchema where
-  toHeaders UpdateSchema' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
-
-instance Lude.ToJSON UpdateSchema where
-  toJSON UpdateSchema' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath UpdateSchema where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/schema/update"
-
-instance Lude.ToQuery UpdateSchema where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateSchemaResponse' smart constructor.
 data UpdateSchemaResponse = UpdateSchemaResponse'
   { -- | The ARN that is associated with the updated schema. For more information, see 'arns' .
-    schemaARN :: Lude.Maybe Lude.Text,
+    schemaArn :: Core.Maybe Types.Arn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSchemaResponse' with the minimum fields required to make a request.
---
--- * 'schemaARN' - The ARN that is associated with the updated schema. For more information, see 'arns' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateSchemaResponse' value with any optional fields omitted.
 mkUpdateSchemaResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateSchemaResponse
-mkUpdateSchemaResponse pResponseStatus_ =
-  UpdateSchemaResponse'
-    { schemaARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateSchemaResponse responseStatus =
+  UpdateSchemaResponse' {schemaArn = Core.Nothing, responseStatus}
 
 -- | The ARN that is associated with the updated schema. For more information, see 'arns' .
 --
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsSchemaARN :: Lens.Lens' UpdateSchemaResponse (Lude.Maybe Lude.Text)
-usrsSchemaARN = Lens.lens (schemaARN :: UpdateSchemaResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: UpdateSchemaResponse)
-{-# DEPRECATED usrsSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usrrsSchemaArn :: Lens.Lens' UpdateSchemaResponse (Core.Maybe Types.Arn)
+usrrsSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED usrrsSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usrsResponseStatus :: Lens.Lens' UpdateSchemaResponse Lude.Int
-usrsResponseStatus = Lens.lens (responseStatus :: UpdateSchemaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSchemaResponse)
-{-# DEPRECATED usrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usrrsResponseStatus :: Lens.Lens' UpdateSchemaResponse Core.Int
+usrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

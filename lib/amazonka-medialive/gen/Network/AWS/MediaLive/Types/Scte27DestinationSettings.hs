@@ -21,25 +21,24 @@ module Network.AWS.MediaLive.Types.Scte27DestinationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Scte27 Destination Settings
 --
 -- /See:/ 'mkScte27DestinationSettings' smart constructor.
 data Scte27DestinationSettings = Scte27DestinationSettings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Scte27DestinationSettings' with the minimum fields required to make a request.
+-- | Creates a 'Scte27DestinationSettings' value with any optional fields omitted.
 mkScte27DestinationSettings ::
   Scte27DestinationSettings
 mkScte27DestinationSettings = Scte27DestinationSettings'
 
-instance Lude.FromJSON Scte27DestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "Scte27DestinationSettings"
-      (\x -> Lude.pure Scte27DestinationSettings')
+instance Core.FromJSON Scte27DestinationSettings where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.ToJSON Scte27DestinationSettings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
+instance Core.FromJSON Scte27DestinationSettings where
+  parseJSON =
+    Core.withObject "Scte27DestinationSettings" Core.$
+      \x -> Core.pure Scte27DestinationSettings'

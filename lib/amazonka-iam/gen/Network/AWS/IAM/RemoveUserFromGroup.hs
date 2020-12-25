@@ -20,8 +20,8 @@ module Network.AWS.IAM.RemoveUserFromGroup
     mkRemoveUserFromGroup,
 
     -- ** Request lenses
-    rufgUserName,
     rufgGroupName,
+    rufgUserName,
 
     -- * Destructuring the response
     RemoveUserFromGroupResponse (..),
@@ -29,90 +29,83 @@ module Network.AWS.IAM.RemoveUserFromGroup
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveUserFromGroup' smart constructor.
 data RemoveUserFromGroup = RemoveUserFromGroup'
-  { -- | The name of the user to remove.
+  { -- | The name of the group to update.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Text,
-    -- | The name of the group to update.
+    groupName :: Types.GroupName,
+    -- | The name of the user to remove.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    groupName :: Lude.Text
+    userName :: Types.UserName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveUserFromGroup' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the user to remove.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'groupName' - The name of the group to update.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'RemoveUserFromGroup' value with any optional fields omitted.
 mkRemoveUserFromGroup ::
-  -- | 'userName'
-  Lude.Text ->
   -- | 'groupName'
-  Lude.Text ->
+  Types.GroupName ->
+  -- | 'userName'
+  Types.UserName ->
   RemoveUserFromGroup
-mkRemoveUserFromGroup pUserName_ pGroupName_ =
-  RemoveUserFromGroup'
-    { userName = pUserName_,
-      groupName = pGroupName_
-    }
-
--- | The name of the user to remove.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rufgUserName :: Lens.Lens' RemoveUserFromGroup Lude.Text
-rufgUserName = Lens.lens (userName :: RemoveUserFromGroup -> Lude.Text) (\s a -> s {userName = a} :: RemoveUserFromGroup)
-{-# DEPRECATED rufgUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+mkRemoveUserFromGroup groupName userName =
+  RemoveUserFromGroup' {groupName, userName}
 
 -- | The name of the group to update.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rufgGroupName :: Lens.Lens' RemoveUserFromGroup Lude.Text
-rufgGroupName = Lens.lens (groupName :: RemoveUserFromGroup -> Lude.Text) (\s a -> s {groupName = a} :: RemoveUserFromGroup)
+rufgGroupName :: Lens.Lens' RemoveUserFromGroup Types.GroupName
+rufgGroupName = Lens.field @"groupName"
 {-# DEPRECATED rufgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.AWSRequest RemoveUserFromGroup where
+-- | The name of the user to remove.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rufgUserName :: Lens.Lens' RemoveUserFromGroup Types.UserName
+rufgUserName = Lens.field @"userName"
+{-# DEPRECATED rufgUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+instance Core.AWSRequest RemoveUserFromGroup where
   type Rs RemoveUserFromGroup = RemoveUserFromGroupResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull RemoveUserFromGroupResponse'
-
-instance Lude.ToHeaders RemoveUserFromGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RemoveUserFromGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveUserFromGroup where
-  toQuery RemoveUserFromGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RemoveUserFromGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "GroupName" Lude.=: groupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RemoveUserFromGroup")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "GroupName" groupName)
+                Core.<> (Core.toQueryValue "UserName" userName)
+            )
+      }
+  response = Response.receiveNull RemoveUserFromGroupResponse'
 
 -- | /See:/ 'mkRemoveUserFromGroupResponse' smart constructor.
 data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveUserFromGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'RemoveUserFromGroupResponse' value with any optional fields omitted.
 mkRemoveUserFromGroupResponse ::
   RemoveUserFromGroupResponse
 mkRemoveUserFromGroupResponse = RemoveUserFromGroupResponse'

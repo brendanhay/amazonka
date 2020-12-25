@@ -27,107 +27,105 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     mkDescribeApplicationsResponse,
 
     -- ** Response lenses
-    darsApplications,
-    darsResponseStatus,
+    darrsApplications,
+    darrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to describe one or more applications.
 --
 -- /See:/ 'mkDescribeApplications' smart constructor.
 newtype DescribeApplications = DescribeApplications'
   { -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names.
-    applicationNames :: Lude.Maybe [Lude.Text]
+    applicationNames :: Core.Maybe [Types.ApplicationName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeApplications' with the minimum fields required to make a request.
---
--- * 'applicationNames' - If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names.
+-- | Creates a 'DescribeApplications' value with any optional fields omitted.
 mkDescribeApplications ::
   DescribeApplications
 mkDescribeApplications =
-  DescribeApplications' {applicationNames = Lude.Nothing}
+  DescribeApplications' {applicationNames = Core.Nothing}
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions to only include those with the specified names.
 --
 -- /Note:/ Consider using 'applicationNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daApplicationNames :: Lens.Lens' DescribeApplications (Lude.Maybe [Lude.Text])
-daApplicationNames = Lens.lens (applicationNames :: DescribeApplications -> Lude.Maybe [Lude.Text]) (\s a -> s {applicationNames = a} :: DescribeApplications)
+daApplicationNames :: Lens.Lens' DescribeApplications (Core.Maybe [Types.ApplicationName])
+daApplicationNames = Lens.field @"applicationNames"
 {-# DEPRECATED daApplicationNames "Use generic-lens or generic-optics with 'applicationNames' instead." #-}
 
-instance Lude.AWSRequest DescribeApplications where
+instance Core.AWSRequest DescribeApplications where
   type Rs DescribeApplications = DescribeApplicationsResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeApplications")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "ApplicationNames"
+                            (Core.toQueryList "member" Core.<$> applicationNames)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeApplicationsResult"
       ( \s h x ->
           DescribeApplicationsResponse'
-            Lude.<$> ( x Lude..@? "Applications" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Applications" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeApplications where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeApplications where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeApplications where
-  toQuery DescribeApplications' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeApplications" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "ApplicationNames"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> applicationNames)
-      ]
 
 -- | Result message containing a list of application descriptions.
 --
 -- /See:/ 'mkDescribeApplicationsResponse' smart constructor.
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
   { -- | This parameter contains a list of 'ApplicationDescription' .
-    applications :: Lude.Maybe [ApplicationDescription],
+    applications :: Core.Maybe [Types.ApplicationDescription],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeApplicationsResponse' with the minimum fields required to make a request.
---
--- * 'applications' - This parameter contains a list of 'ApplicationDescription' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeApplicationsResponse' value with any optional fields omitted.
 mkDescribeApplicationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeApplicationsResponse
-mkDescribeApplicationsResponse pResponseStatus_ =
+mkDescribeApplicationsResponse responseStatus =
   DescribeApplicationsResponse'
-    { applications = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { applications = Core.Nothing,
+      responseStatus
     }
 
 -- | This parameter contains a list of 'ApplicationDescription' .
 --
 -- /Note:/ Consider using 'applications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsApplications :: Lens.Lens' DescribeApplicationsResponse (Lude.Maybe [ApplicationDescription])
-darsApplications = Lens.lens (applications :: DescribeApplicationsResponse -> Lude.Maybe [ApplicationDescription]) (\s a -> s {applications = a} :: DescribeApplicationsResponse)
-{-# DEPRECATED darsApplications "Use generic-lens or generic-optics with 'applications' instead." #-}
+darrsApplications :: Lens.Lens' DescribeApplicationsResponse (Core.Maybe [Types.ApplicationDescription])
+darrsApplications = Lens.field @"applications"
+{-# DEPRECATED darrsApplications "Use generic-lens or generic-optics with 'applications' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsResponseStatus :: Lens.Lens' DescribeApplicationsResponse Lude.Int
-darsResponseStatus = Lens.lens (responseStatus :: DescribeApplicationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeApplicationsResponse)
-{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darrsResponseStatus :: Lens.Lens' DescribeApplicationsResponse Core.Int
+darrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -23,167 +23,154 @@ module Network.AWS.SSM.DescribeAvailablePatches
 
     -- ** Request lenses
     dapFilters,
-    dapNextToken,
     dapMaxResults,
+    dapNextToken,
 
     -- * Destructuring the response
     DescribeAvailablePatchesResponse (..),
     mkDescribeAvailablePatchesResponse,
 
     -- ** Response lenses
-    daprsPatches,
-    daprsNextToken,
-    daprsResponseStatus,
+    daprrsNextToken,
+    daprrsPatches,
+    daprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDescribeAvailablePatches' smart constructor.
 data DescribeAvailablePatches = DescribeAvailablePatches'
   { -- | Filters used to scope down the returned patches.
-    filters :: Lude.Maybe [PatchOrchestratorFilter],
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.PatchOrchestratorFilter],
     -- | The maximum number of patches to return (per page).
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAvailablePatches' with the minimum fields required to make a request.
---
--- * 'filters' - Filters used to scope down the returned patches.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'maxResults' - The maximum number of patches to return (per page).
+-- | Creates a 'DescribeAvailablePatches' value with any optional fields omitted.
 mkDescribeAvailablePatches ::
   DescribeAvailablePatches
 mkDescribeAvailablePatches =
   DescribeAvailablePatches'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Filters used to scope down the returned patches.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dapFilters :: Lens.Lens' DescribeAvailablePatches (Lude.Maybe [PatchOrchestratorFilter])
-dapFilters = Lens.lens (filters :: DescribeAvailablePatches -> Lude.Maybe [PatchOrchestratorFilter]) (\s a -> s {filters = a} :: DescribeAvailablePatches)
+dapFilters :: Lens.Lens' DescribeAvailablePatches (Core.Maybe [Types.PatchOrchestratorFilter])
+dapFilters = Lens.field @"filters"
 {-# DEPRECATED dapFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dapNextToken :: Lens.Lens' DescribeAvailablePatches (Lude.Maybe Lude.Text)
-dapNextToken = Lens.lens (nextToken :: DescribeAvailablePatches -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAvailablePatches)
-{-# DEPRECATED dapNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of patches to return (per page).
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dapMaxResults :: Lens.Lens' DescribeAvailablePatches (Lude.Maybe Lude.Natural)
-dapMaxResults = Lens.lens (maxResults :: DescribeAvailablePatches -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeAvailablePatches)
+dapMaxResults :: Lens.Lens' DescribeAvailablePatches (Core.Maybe Core.Natural)
+dapMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dapMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeAvailablePatches where
-  page rq rs
-    | Page.stop (rs Lens.^. daprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. daprsPatches) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dapNextToken Lens..~ rs Lens.^. daprsNextToken
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dapNextToken :: Lens.Lens' DescribeAvailablePatches (Core.Maybe Types.NextToken)
+dapNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dapNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeAvailablePatches where
+instance Core.FromJSON DescribeAvailablePatches where
+  toJSON DescribeAvailablePatches {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeAvailablePatches where
   type Rs DescribeAvailablePatches = DescribeAvailablePatchesResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.DescribeAvailablePatches")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAvailablePatchesResponse'
-            Lude.<$> (x Lude..?> "Patches" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Patches")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeAvailablePatches where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.DescribeAvailablePatches" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeAvailablePatches where
-  toJSON DescribeAvailablePatches' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeAvailablePatches where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAvailablePatches where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeAvailablePatches where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"patches" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeAvailablePatchesResponse' smart constructor.
 data DescribeAvailablePatchesResponse = DescribeAvailablePatchesResponse'
-  { -- | An array of patches. Each entry in the array is a patch structure.
-    patches :: Lude.Maybe [Patch],
-    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | An array of patches. Each entry in the array is a patch structure.
+    patches :: Core.Maybe [Types.Patch],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAvailablePatchesResponse' with the minimum fields required to make a request.
---
--- * 'patches' - An array of patches. Each entry in the array is a patch structure.
--- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAvailablePatchesResponse' value with any optional fields omitted.
 mkDescribeAvailablePatchesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAvailablePatchesResponse
-mkDescribeAvailablePatchesResponse pResponseStatus_ =
+mkDescribeAvailablePatchesResponse responseStatus =
   DescribeAvailablePatchesResponse'
-    { patches = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      patches = Core.Nothing,
+      responseStatus
     }
-
--- | An array of patches. Each entry in the array is a patch structure.
---
--- /Note:/ Consider using 'patches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daprsPatches :: Lens.Lens' DescribeAvailablePatchesResponse (Lude.Maybe [Patch])
-daprsPatches = Lens.lens (patches :: DescribeAvailablePatchesResponse -> Lude.Maybe [Patch]) (\s a -> s {patches = a} :: DescribeAvailablePatchesResponse)
-{-# DEPRECATED daprsPatches "Use generic-lens or generic-optics with 'patches' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daprsNextToken :: Lens.Lens' DescribeAvailablePatchesResponse (Lude.Maybe Lude.Text)
-daprsNextToken = Lens.lens (nextToken :: DescribeAvailablePatchesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAvailablePatchesResponse)
-{-# DEPRECATED daprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+daprrsNextToken :: Lens.Lens' DescribeAvailablePatchesResponse (Core.Maybe Types.NextToken)
+daprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED daprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | An array of patches. Each entry in the array is a patch structure.
+--
+-- /Note:/ Consider using 'patches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daprrsPatches :: Lens.Lens' DescribeAvailablePatchesResponse (Core.Maybe [Types.Patch])
+daprrsPatches = Lens.field @"patches"
+{-# DEPRECATED daprrsPatches "Use generic-lens or generic-optics with 'patches' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daprsResponseStatus :: Lens.Lens' DescribeAvailablePatchesResponse Lude.Int
-daprsResponseStatus = Lens.lens (responseStatus :: DescribeAvailablePatchesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAvailablePatchesResponse)
-{-# DEPRECATED daprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daprrsResponseStatus :: Lens.Lens' DescribeAvailablePatchesResponse Core.Int
+daprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

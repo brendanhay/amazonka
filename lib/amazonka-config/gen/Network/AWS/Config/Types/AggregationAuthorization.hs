@@ -17,84 +17,81 @@ module Network.AWS.Config.Types.AggregationAuthorization
     mkAggregationAuthorization,
 
     -- * Lenses
-    aaCreationTime,
-    aaAuthorizedAWSRegion,
-    aaAggregationAuthorizationARN,
+    aaAggregationAuthorizationArn,
     aaAuthorizedAccountId,
+    aaAuthorizedAwsRegion,
+    aaCreationTime,
   )
 where
 
+import qualified Network.AWS.Config.Types.AccountId as Types
+import qualified Network.AWS.Config.Types.AuthorizedAwsRegion as Types
+import qualified Network.AWS.Config.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that represents the authorizations granted to aggregator accounts and regions.
 --
 -- /See:/ 'mkAggregationAuthorization' smart constructor.
 data AggregationAuthorization = AggregationAuthorization'
-  { -- | The time stamp when the aggregation authorization was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The region authorized to collect aggregated data.
-    authorizedAWSRegion :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the aggregation object.
-    aggregationAuthorizationARN :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the aggregation object.
+    aggregationAuthorizationArn :: Core.Maybe Types.String,
     -- | The 12-digit account ID of the account authorized to aggregate data.
-    authorizedAccountId :: Lude.Maybe Lude.Text
+    authorizedAccountId :: Core.Maybe Types.AccountId,
+    -- | The region authorized to collect aggregated data.
+    authorizedAwsRegion :: Core.Maybe Types.AuthorizedAwsRegion,
+    -- | The time stamp when the aggregation authorization was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AggregationAuthorization' with the minimum fields required to make a request.
---
--- * 'creationTime' - The time stamp when the aggregation authorization was created.
--- * 'authorizedAWSRegion' - The region authorized to collect aggregated data.
--- * 'aggregationAuthorizationARN' - The Amazon Resource Name (ARN) of the aggregation object.
--- * 'authorizedAccountId' - The 12-digit account ID of the account authorized to aggregate data.
+-- | Creates a 'AggregationAuthorization' value with any optional fields omitted.
 mkAggregationAuthorization ::
   AggregationAuthorization
 mkAggregationAuthorization =
   AggregationAuthorization'
-    { creationTime = Lude.Nothing,
-      authorizedAWSRegion = Lude.Nothing,
-      aggregationAuthorizationARN = Lude.Nothing,
-      authorizedAccountId = Lude.Nothing
+    { aggregationAuthorizationArn =
+        Core.Nothing,
+      authorizedAccountId = Core.Nothing,
+      authorizedAwsRegion = Core.Nothing,
+      creationTime = Core.Nothing
     }
-
--- | The time stamp when the aggregation authorization was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaCreationTime :: Lens.Lens' AggregationAuthorization (Lude.Maybe Lude.Timestamp)
-aaCreationTime = Lens.lens (creationTime :: AggregationAuthorization -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: AggregationAuthorization)
-{-# DEPRECATED aaCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The region authorized to collect aggregated data.
---
--- /Note:/ Consider using 'authorizedAWSRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaAuthorizedAWSRegion :: Lens.Lens' AggregationAuthorization (Lude.Maybe Lude.Text)
-aaAuthorizedAWSRegion = Lens.lens (authorizedAWSRegion :: AggregationAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {authorizedAWSRegion = a} :: AggregationAuthorization)
-{-# DEPRECATED aaAuthorizedAWSRegion "Use generic-lens or generic-optics with 'authorizedAWSRegion' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the aggregation object.
 --
--- /Note:/ Consider using 'aggregationAuthorizationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaAggregationAuthorizationARN :: Lens.Lens' AggregationAuthorization (Lude.Maybe Lude.Text)
-aaAggregationAuthorizationARN = Lens.lens (aggregationAuthorizationARN :: AggregationAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {aggregationAuthorizationARN = a} :: AggregationAuthorization)
-{-# DEPRECATED aaAggregationAuthorizationARN "Use generic-lens or generic-optics with 'aggregationAuthorizationARN' instead." #-}
+-- /Note:/ Consider using 'aggregationAuthorizationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaAggregationAuthorizationArn :: Lens.Lens' AggregationAuthorization (Core.Maybe Types.String)
+aaAggregationAuthorizationArn = Lens.field @"aggregationAuthorizationArn"
+{-# DEPRECATED aaAggregationAuthorizationArn "Use generic-lens or generic-optics with 'aggregationAuthorizationArn' instead." #-}
 
 -- | The 12-digit account ID of the account authorized to aggregate data.
 --
 -- /Note:/ Consider using 'authorizedAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaAuthorizedAccountId :: Lens.Lens' AggregationAuthorization (Lude.Maybe Lude.Text)
-aaAuthorizedAccountId = Lens.lens (authorizedAccountId :: AggregationAuthorization -> Lude.Maybe Lude.Text) (\s a -> s {authorizedAccountId = a} :: AggregationAuthorization)
+aaAuthorizedAccountId :: Lens.Lens' AggregationAuthorization (Core.Maybe Types.AccountId)
+aaAuthorizedAccountId = Lens.field @"authorizedAccountId"
 {-# DEPRECATED aaAuthorizedAccountId "Use generic-lens or generic-optics with 'authorizedAccountId' instead." #-}
 
-instance Lude.FromJSON AggregationAuthorization where
+-- | The region authorized to collect aggregated data.
+--
+-- /Note:/ Consider using 'authorizedAwsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaAuthorizedAwsRegion :: Lens.Lens' AggregationAuthorization (Core.Maybe Types.AuthorizedAwsRegion)
+aaAuthorizedAwsRegion = Lens.field @"authorizedAwsRegion"
+{-# DEPRECATED aaAuthorizedAwsRegion "Use generic-lens or generic-optics with 'authorizedAwsRegion' instead." #-}
+
+-- | The time stamp when the aggregation authorization was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaCreationTime :: Lens.Lens' AggregationAuthorization (Core.Maybe Core.NominalDiffTime)
+aaCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED aaCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+instance Core.FromJSON AggregationAuthorization where
   parseJSON =
-    Lude.withObject
-      "AggregationAuthorization"
-      ( \x ->
-          AggregationAuthorization'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "AuthorizedAwsRegion")
-            Lude.<*> (x Lude..:? "AggregationAuthorizationArn")
-            Lude.<*> (x Lude..:? "AuthorizedAccountId")
-      )
+    Core.withObject "AggregationAuthorization" Core.$
+      \x ->
+        AggregationAuthorization'
+          Core.<$> (x Core..:? "AggregationAuthorizationArn")
+          Core.<*> (x Core..:? "AuthorizedAccountId")
+          Core.<*> (x Core..:? "AuthorizedAwsRegion")
+          Core.<*> (x Core..:? "CreationTime")

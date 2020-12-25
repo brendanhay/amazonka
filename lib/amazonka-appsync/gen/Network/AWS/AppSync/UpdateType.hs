@@ -20,161 +20,141 @@ module Network.AWS.AppSync.UpdateType
     mkUpdateType,
 
     -- ** Request lenses
-    utTypeName,
     utApiId,
-    utDefinition,
+    utTypeName,
     utFormat,
+    utDefinition,
 
     -- * Destructuring the response
     UpdateTypeResponse (..),
     mkUpdateTypeResponse,
 
     -- ** Response lenses
-    utrsType,
-    utrsResponseStatus,
+    utrrsType,
+    utrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppSync.Types
+import qualified Network.AWS.AppSync.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateType' smart constructor.
 data UpdateType = UpdateType'
-  { -- | The new type name.
-    typeName :: Lude.Text,
-    -- | The API ID.
-    apiId :: Lude.Text,
-    -- | The new definition.
-    definition :: Lude.Maybe Lude.Text,
+  { -- | The API ID.
+    apiId :: Types.String,
+    -- | The new type name.
+    typeName :: Types.ResourceName,
     -- | The new type format: SDL or JSON.
-    format :: TypeDefinitionFormat
+    format :: Types.TypeDefinitionFormat,
+    -- | The new definition.
+    definition :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateType' with the minimum fields required to make a request.
---
--- * 'typeName' - The new type name.
--- * 'apiId' - The API ID.
--- * 'definition' - The new definition.
--- * 'format' - The new type format: SDL or JSON.
+-- | Creates a 'UpdateType' value with any optional fields omitted.
 mkUpdateType ::
-  -- | 'typeName'
-  Lude.Text ->
   -- | 'apiId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'typeName'
+  Types.ResourceName ->
   -- | 'format'
-  TypeDefinitionFormat ->
+  Types.TypeDefinitionFormat ->
   UpdateType
-mkUpdateType pTypeName_ pApiId_ pFormat_ =
-  UpdateType'
-    { typeName = pTypeName_,
-      apiId = pApiId_,
-      definition = Lude.Nothing,
-      format = pFormat_
-    }
-
--- | The new type name.
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utTypeName :: Lens.Lens' UpdateType Lude.Text
-utTypeName = Lens.lens (typeName :: UpdateType -> Lude.Text) (\s a -> s {typeName = a} :: UpdateType)
-{-# DEPRECATED utTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+mkUpdateType apiId typeName format =
+  UpdateType' {apiId, typeName, format, definition = Core.Nothing}
 
 -- | The API ID.
 --
 -- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utApiId :: Lens.Lens' UpdateType Lude.Text
-utApiId = Lens.lens (apiId :: UpdateType -> Lude.Text) (\s a -> s {apiId = a} :: UpdateType)
+utApiId :: Lens.Lens' UpdateType Types.String
+utApiId = Lens.field @"apiId"
 {-# DEPRECATED utApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
--- | The new definition.
+-- | The new type name.
 --
--- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utDefinition :: Lens.Lens' UpdateType (Lude.Maybe Lude.Text)
-utDefinition = Lens.lens (definition :: UpdateType -> Lude.Maybe Lude.Text) (\s a -> s {definition = a} :: UpdateType)
-{-# DEPRECATED utDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utTypeName :: Lens.Lens' UpdateType Types.ResourceName
+utTypeName = Lens.field @"typeName"
+{-# DEPRECATED utTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The new type format: SDL or JSON.
 --
 -- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utFormat :: Lens.Lens' UpdateType TypeDefinitionFormat
-utFormat = Lens.lens (format :: UpdateType -> TypeDefinitionFormat) (\s a -> s {format = a} :: UpdateType)
+utFormat :: Lens.Lens' UpdateType Types.TypeDefinitionFormat
+utFormat = Lens.field @"format"
 {-# DEPRECATED utFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
-instance Lude.AWSRequest UpdateType where
+-- | The new definition.
+--
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utDefinition :: Lens.Lens' UpdateType (Core.Maybe Types.String)
+utDefinition = Lens.field @"definition"
+{-# DEPRECATED utDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
+
+instance Core.FromJSON UpdateType where
+  toJSON UpdateType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("format" Core..= format),
+            ("definition" Core..=) Core.<$> definition
+          ]
+      )
+
+instance Core.AWSRequest UpdateType where
   type Rs UpdateType = UpdateTypeResponse
-  request = Req.postJSON appSyncService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apis/" Core.<> (Core.toText apiId) Core.<> ("/types/")
+                Core.<> (Core.toText typeName)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateTypeResponse'
-            Lude.<$> (x Lude..?> "type") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "type") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateType where
-  toJSON UpdateType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("definition" Lude..=) Lude.<$> definition,
-            Lude.Just ("format" Lude..= format)
-          ]
-      )
-
-instance Lude.ToPath UpdateType where
-  toPath UpdateType' {..} =
-    Lude.mconcat
-      ["/v1/apis/", Lude.toBS apiId, "/types/", Lude.toBS typeName]
-
-instance Lude.ToQuery UpdateType where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateTypeResponse' smart constructor.
 data UpdateTypeResponse = UpdateTypeResponse'
   { -- | The updated @Type@ object.
-    type' :: Lude.Maybe Type,
+    type' :: Core.Maybe Types.Type,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTypeResponse' with the minimum fields required to make a request.
---
--- * 'type'' - The updated @Type@ object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTypeResponse' value with any optional fields omitted.
 mkUpdateTypeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTypeResponse
-mkUpdateTypeResponse pResponseStatus_ =
-  UpdateTypeResponse'
-    { type' = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateTypeResponse responseStatus =
+  UpdateTypeResponse' {type' = Core.Nothing, responseStatus}
 
 -- | The updated @Type@ object.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrsType :: Lens.Lens' UpdateTypeResponse (Lude.Maybe Type)
-utrsType = Lens.lens (type' :: UpdateTypeResponse -> Lude.Maybe Type) (\s a -> s {type' = a} :: UpdateTypeResponse)
-{-# DEPRECATED utrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
+utrrsType :: Lens.Lens' UpdateTypeResponse (Core.Maybe Types.Type)
+utrrsType = Lens.field @"type'"
+{-# DEPRECATED utrrsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrsResponseStatus :: Lens.Lens' UpdateTypeResponse Lude.Int
-utrsResponseStatus = Lens.lens (responseStatus :: UpdateTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTypeResponse)
-{-# DEPRECATED utrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utrrsResponseStatus :: Lens.Lens' UpdateTypeResponse Core.Int
+utrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

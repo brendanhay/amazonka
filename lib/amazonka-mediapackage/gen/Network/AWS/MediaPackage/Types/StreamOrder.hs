@@ -13,51 +13,53 @@
 module Network.AWS.MediaPackage.Types.StreamOrder
   ( StreamOrder
       ( StreamOrder',
-        Original,
-        VideoBitrateAscending,
-        VideoBitrateDescending
+        StreamOrderOriginal,
+        StreamOrderVideoBitrateAscending,
+        StreamOrderVideoBitrateDescending,
+        fromStreamOrder
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StreamOrder = StreamOrder' Lude.Text
+newtype StreamOrder = StreamOrder' {fromStreamOrder :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Original :: StreamOrder
-pattern Original = StreamOrder' "ORIGINAL"
+pattern StreamOrderOriginal :: StreamOrder
+pattern StreamOrderOriginal = StreamOrder' "ORIGINAL"
 
-pattern VideoBitrateAscending :: StreamOrder
-pattern VideoBitrateAscending = StreamOrder' "VIDEO_BITRATE_ASCENDING"
+pattern StreamOrderVideoBitrateAscending :: StreamOrder
+pattern StreamOrderVideoBitrateAscending = StreamOrder' "VIDEO_BITRATE_ASCENDING"
 
-pattern VideoBitrateDescending :: StreamOrder
-pattern VideoBitrateDescending = StreamOrder' "VIDEO_BITRATE_DESCENDING"
+pattern StreamOrderVideoBitrateDescending :: StreamOrder
+pattern StreamOrderVideoBitrateDescending = StreamOrder' "VIDEO_BITRATE_DESCENDING"
 
 {-# COMPLETE
-  Original,
-  VideoBitrateAscending,
-  VideoBitrateDescending,
+  StreamOrderOriginal,
+  StreamOrderVideoBitrateAscending,
+  StreamOrderVideoBitrateDescending,
   StreamOrder'
   #-}

@@ -23,168 +23,156 @@ module Network.AWS.Greengrass.ListBulkDeploymentDetailedReports
 
     -- ** Request lenses
     lbddrBulkDeploymentId,
-    lbddrNextToken,
     lbddrMaxResults,
+    lbddrNextToken,
 
     -- * Destructuring the response
     ListBulkDeploymentDetailedReportsResponse (..),
     mkListBulkDeploymentDetailedReportsResponse,
 
     -- ** Response lenses
-    lbddrrsNextToken,
-    lbddrrsDeployments,
-    lbddrrsResponseStatus,
+    lbddrrrsDeployments,
+    lbddrrrsNextToken,
+    lbddrrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListBulkDeploymentDetailedReports' smart constructor.
 data ListBulkDeploymentDetailedReports = ListBulkDeploymentDetailedReports'
   { -- | The ID of the bulk deployment.
-    bulkDeploymentId :: Lude.Text,
-    -- | The token for the next set of results, or ''null'' if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
+    bulkDeploymentId :: Core.Text,
     -- | The maximum number of results to be returned per request.
-    maxResults :: Lude.Maybe Lude.Text
+    maxResults :: Core.Maybe Core.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBulkDeploymentDetailedReports' with the minimum fields required to make a request.
---
--- * 'bulkDeploymentId' - The ID of the bulk deployment.
--- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
--- * 'maxResults' - The maximum number of results to be returned per request.
+-- | Creates a 'ListBulkDeploymentDetailedReports' value with any optional fields omitted.
 mkListBulkDeploymentDetailedReports ::
   -- | 'bulkDeploymentId'
-  Lude.Text ->
+  Core.Text ->
   ListBulkDeploymentDetailedReports
-mkListBulkDeploymentDetailedReports pBulkDeploymentId_ =
+mkListBulkDeploymentDetailedReports bulkDeploymentId =
   ListBulkDeploymentDetailedReports'
-    { bulkDeploymentId =
-        pBulkDeploymentId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { bulkDeploymentId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The ID of the bulk deployment.
 --
 -- /Note:/ Consider using 'bulkDeploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbddrBulkDeploymentId :: Lens.Lens' ListBulkDeploymentDetailedReports Lude.Text
-lbddrBulkDeploymentId = Lens.lens (bulkDeploymentId :: ListBulkDeploymentDetailedReports -> Lude.Text) (\s a -> s {bulkDeploymentId = a} :: ListBulkDeploymentDetailedReports)
+lbddrBulkDeploymentId :: Lens.Lens' ListBulkDeploymentDetailedReports Core.Text
+lbddrBulkDeploymentId = Lens.field @"bulkDeploymentId"
 {-# DEPRECATED lbddrBulkDeploymentId "Use generic-lens or generic-optics with 'bulkDeploymentId' instead." #-}
-
--- | The token for the next set of results, or ''null'' if there are no additional results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbddrNextToken :: Lens.Lens' ListBulkDeploymentDetailedReports (Lude.Maybe Lude.Text)
-lbddrNextToken = Lens.lens (nextToken :: ListBulkDeploymentDetailedReports -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBulkDeploymentDetailedReports)
-{-# DEPRECATED lbddrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to be returned per request.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbddrMaxResults :: Lens.Lens' ListBulkDeploymentDetailedReports (Lude.Maybe Lude.Text)
-lbddrMaxResults = Lens.lens (maxResults :: ListBulkDeploymentDetailedReports -> Lude.Maybe Lude.Text) (\s a -> s {maxResults = a} :: ListBulkDeploymentDetailedReports)
+lbddrMaxResults :: Lens.Lens' ListBulkDeploymentDetailedReports (Core.Maybe Core.Text)
+lbddrMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lbddrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListBulkDeploymentDetailedReports where
-  page rq rs
-    | Page.stop (rs Lens.^. lbddrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lbddrrsDeployments) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lbddrNextToken Lens..~ rs Lens.^. lbddrrsNextToken
-
-instance Lude.AWSRequest ListBulkDeploymentDetailedReports where
-  type
-    Rs ListBulkDeploymentDetailedReports =
-      ListBulkDeploymentDetailedReportsResponse
-  request = Req.get greengrassService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListBulkDeploymentDetailedReportsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Deployments" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListBulkDeploymentDetailedReports where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListBulkDeploymentDetailedReports where
-  toPath ListBulkDeploymentDetailedReports' {..} =
-    Lude.mconcat
-      [ "/greengrass/bulk/deployments/",
-        Lude.toBS bulkDeploymentId,
-        "/detailed-reports"
-      ]
-
-instance Lude.ToQuery ListBulkDeploymentDetailedReports where
-  toQuery ListBulkDeploymentDetailedReports' {..} =
-    Lude.mconcat
-      ["NextToken" Lude.=: nextToken, "MaxResults" Lude.=: maxResults]
-
--- | /See:/ 'mkListBulkDeploymentDetailedReportsResponse' smart constructor.
-data ListBulkDeploymentDetailedReportsResponse = ListBulkDeploymentDetailedReportsResponse'
-  { -- | The token for the next set of results, or ''null'' if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A list of the individual group deployments in the bulk deployment operation.
-    deployments :: Lude.Maybe [BulkDeploymentResult],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListBulkDeploymentDetailedReportsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
--- * 'deployments' - A list of the individual group deployments in the bulk deployment operation.
--- * 'responseStatus' - The response status code.
-mkListBulkDeploymentDetailedReportsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListBulkDeploymentDetailedReportsResponse
-mkListBulkDeploymentDetailedReportsResponse pResponseStatus_ =
-  ListBulkDeploymentDetailedReportsResponse'
-    { nextToken =
-        Lude.Nothing,
-      deployments = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | The token for the next set of results, or ''null'' if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbddrrsNextToken :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse (Lude.Maybe Lude.Text)
-lbddrrsNextToken = Lens.lens (nextToken :: ListBulkDeploymentDetailedReportsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBulkDeploymentDetailedReportsResponse)
-{-# DEPRECATED lbddrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lbddrNextToken :: Lens.Lens' ListBulkDeploymentDetailedReports (Core.Maybe Core.Text)
+lbddrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lbddrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest ListBulkDeploymentDetailedReports where
+  type
+    Rs ListBulkDeploymentDetailedReports =
+      ListBulkDeploymentDetailedReportsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/bulk/deployments/"
+                Core.<> (Core.toText bulkDeploymentId)
+                Core.<> ("/detailed-reports")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "MaxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListBulkDeploymentDetailedReportsResponse'
+            Core.<$> (x Core..:? "Deployments")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListBulkDeploymentDetailedReports where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"deployments" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListBulkDeploymentDetailedReportsResponse' smart constructor.
+data ListBulkDeploymentDetailedReportsResponse = ListBulkDeploymentDetailedReportsResponse'
+  { -- | A list of the individual group deployments in the bulk deployment operation.
+    deployments :: Core.Maybe [Types.BulkDeploymentResult],
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Core.Maybe Core.Text,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'ListBulkDeploymentDetailedReportsResponse' value with any optional fields omitted.
+mkListBulkDeploymentDetailedReportsResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListBulkDeploymentDetailedReportsResponse
+mkListBulkDeploymentDetailedReportsResponse responseStatus =
+  ListBulkDeploymentDetailedReportsResponse'
+    { deployments =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | A list of the individual group deployments in the bulk deployment operation.
 --
 -- /Note:/ Consider using 'deployments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbddrrsDeployments :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse (Lude.Maybe [BulkDeploymentResult])
-lbddrrsDeployments = Lens.lens (deployments :: ListBulkDeploymentDetailedReportsResponse -> Lude.Maybe [BulkDeploymentResult]) (\s a -> s {deployments = a} :: ListBulkDeploymentDetailedReportsResponse)
-{-# DEPRECATED lbddrrsDeployments "Use generic-lens or generic-optics with 'deployments' instead." #-}
+lbddrrrsDeployments :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse (Core.Maybe [Types.BulkDeploymentResult])
+lbddrrrsDeployments = Lens.field @"deployments"
+{-# DEPRECATED lbddrrrsDeployments "Use generic-lens or generic-optics with 'deployments' instead." #-}
+
+-- | The token for the next set of results, or ''null'' if there are no additional results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbddrrrsNextToken :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse (Core.Maybe Core.Text)
+lbddrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lbddrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbddrrsResponseStatus :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse Lude.Int
-lbddrrsResponseStatus = Lens.lens (responseStatus :: ListBulkDeploymentDetailedReportsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBulkDeploymentDetailedReportsResponse)
-{-# DEPRECATED lbddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lbddrrrsResponseStatus :: Lens.Lens' ListBulkDeploymentDetailedReportsResponse Core.Int
+lbddrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lbddrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

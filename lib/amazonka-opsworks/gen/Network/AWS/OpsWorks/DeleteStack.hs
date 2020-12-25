@@ -31,68 +31,59 @@ module Network.AWS.OpsWorks.DeleteStack
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteStack' smart constructor.
 newtype DeleteStack = DeleteStack'
   { -- | The stack ID.
-    stackId :: Lude.Text
+    stackId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStack' with the minimum fields required to make a request.
---
--- * 'stackId' - The stack ID.
+-- | Creates a 'DeleteStack' value with any optional fields omitted.
 mkDeleteStack ::
   -- | 'stackId'
-  Lude.Text ->
+  Types.String ->
   DeleteStack
-mkDeleteStack pStackId_ = DeleteStack' {stackId = pStackId_}
+mkDeleteStack stackId = DeleteStack' {stackId}
 
 -- | The stack ID.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsStackId :: Lens.Lens' DeleteStack Lude.Text
-dsStackId = Lens.lens (stackId :: DeleteStack -> Lude.Text) (\s a -> s {stackId = a} :: DeleteStack)
+dsStackId :: Lens.Lens' DeleteStack Types.String
+dsStackId = Lens.field @"stackId"
 {-# DEPRECATED dsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance Lude.AWSRequest DeleteStack where
+instance Core.FromJSON DeleteStack where
+  toJSON DeleteStack {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("StackId" Core..= stackId)])
+
+instance Core.AWSRequest DeleteStack where
   type Rs DeleteStack = DeleteStackResponse
-  request = Req.postJSON opsWorksService
-  response = Res.receiveNull DeleteStackResponse'
-
-instance Lude.ToHeaders DeleteStack where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.DeleteStack" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteStack where
-  toJSON DeleteStack' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("StackId" Lude..= stackId)])
-
-instance Lude.ToPath DeleteStack where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteStack where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.DeleteStack")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteStackResponse'
 
 -- | /See:/ 'mkDeleteStackResponse' smart constructor.
 data DeleteStackResponse = DeleteStackResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStackResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteStackResponse' value with any optional fields omitted.
 mkDeleteStackResponse ::
   DeleteStackResponse
 mkDeleteStackResponse = DeleteStackResponse'

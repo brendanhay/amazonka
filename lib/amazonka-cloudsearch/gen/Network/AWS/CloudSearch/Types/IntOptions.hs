@@ -17,117 +17,100 @@ module Network.AWS.CloudSearch.Types.IntOptions
     mkIntOptions,
 
     -- * Lenses
-    ioSourceField,
-    ioReturnEnabled,
+    ioDefaultValue,
     ioFacetEnabled,
+    ioReturnEnabled,
     ioSearchEnabled,
     ioSortEnabled,
-    ioDefaultValue,
+    ioSourceField,
   )
 where
 
+import qualified Network.AWS.CloudSearch.Types.FieldName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Options for a 64-bit signed integer field. Present if @IndexFieldType@ specifies the field is of type @int@ . All options are enabled by default.
 --
 -- /See:/ 'mkIntOptions' smart constructor.
 data IntOptions = IntOptions'
-  { -- | The name of the source field to map to the field.
-    sourceField :: Lude.Maybe Lude.Text,
-    -- | Whether the contents of the field can be returned in the search results.
-    returnEnabled :: Lude.Maybe Lude.Bool,
+  { -- | A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+    defaultValue :: Core.Maybe Core.Integer,
     -- | Whether facet information can be returned for the field.
-    facetEnabled :: Lude.Maybe Lude.Bool,
+    facetEnabled :: Core.Maybe Core.Bool,
+    -- | Whether the contents of the field can be returned in the search results.
+    returnEnabled :: Core.Maybe Core.Bool,
     -- | Whether the contents of the field are searchable.
-    searchEnabled :: Lude.Maybe Lude.Bool,
+    searchEnabled :: Core.Maybe Core.Bool,
     -- | Whether the field can be used to sort the search results.
-    sortEnabled :: Lude.Maybe Lude.Bool,
-    -- | A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
-    defaultValue :: Lude.Maybe Lude.Integer
+    sortEnabled :: Core.Maybe Core.Bool,
+    -- | The name of the source field to map to the field.
+    sourceField :: Core.Maybe Types.FieldName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IntOptions' with the minimum fields required to make a request.
---
--- * 'sourceField' - The name of the source field to map to the field.
--- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
--- * 'facetEnabled' - Whether facet information can be returned for the field.
--- * 'searchEnabled' - Whether the contents of the field are searchable.
--- * 'sortEnabled' - Whether the field can be used to sort the search results.
--- * 'defaultValue' - A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+-- | Creates a 'IntOptions' value with any optional fields omitted.
 mkIntOptions ::
   IntOptions
 mkIntOptions =
   IntOptions'
-    { sourceField = Lude.Nothing,
-      returnEnabled = Lude.Nothing,
-      facetEnabled = Lude.Nothing,
-      searchEnabled = Lude.Nothing,
-      sortEnabled = Lude.Nothing,
-      defaultValue = Lude.Nothing
+    { defaultValue = Core.Nothing,
+      facetEnabled = Core.Nothing,
+      returnEnabled = Core.Nothing,
+      searchEnabled = Core.Nothing,
+      sortEnabled = Core.Nothing,
+      sourceField = Core.Nothing
     }
 
--- | The name of the source field to map to the field.
+-- | A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
 --
--- /Note:/ Consider using 'sourceField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ioSourceField :: Lens.Lens' IntOptions (Lude.Maybe Lude.Text)
-ioSourceField = Lens.lens (sourceField :: IntOptions -> Lude.Maybe Lude.Text) (\s a -> s {sourceField = a} :: IntOptions)
-{-# DEPRECATED ioSourceField "Use generic-lens or generic-optics with 'sourceField' instead." #-}
-
--- | Whether the contents of the field can be returned in the search results.
---
--- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ioReturnEnabled :: Lens.Lens' IntOptions (Lude.Maybe Lude.Bool)
-ioReturnEnabled = Lens.lens (returnEnabled :: IntOptions -> Lude.Maybe Lude.Bool) (\s a -> s {returnEnabled = a} :: IntOptions)
-{-# DEPRECATED ioReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
+-- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ioDefaultValue :: Lens.Lens' IntOptions (Core.Maybe Core.Integer)
+ioDefaultValue = Lens.field @"defaultValue"
+{-# DEPRECATED ioDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
 -- | Whether facet information can be returned for the field.
 --
 -- /Note:/ Consider using 'facetEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ioFacetEnabled :: Lens.Lens' IntOptions (Lude.Maybe Lude.Bool)
-ioFacetEnabled = Lens.lens (facetEnabled :: IntOptions -> Lude.Maybe Lude.Bool) (\s a -> s {facetEnabled = a} :: IntOptions)
+ioFacetEnabled :: Lens.Lens' IntOptions (Core.Maybe Core.Bool)
+ioFacetEnabled = Lens.field @"facetEnabled"
 {-# DEPRECATED ioFacetEnabled "Use generic-lens or generic-optics with 'facetEnabled' instead." #-}
+
+-- | Whether the contents of the field can be returned in the search results.
+--
+-- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ioReturnEnabled :: Lens.Lens' IntOptions (Core.Maybe Core.Bool)
+ioReturnEnabled = Lens.field @"returnEnabled"
+{-# DEPRECATED ioReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
 
 -- | Whether the contents of the field are searchable.
 --
 -- /Note:/ Consider using 'searchEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ioSearchEnabled :: Lens.Lens' IntOptions (Lude.Maybe Lude.Bool)
-ioSearchEnabled = Lens.lens (searchEnabled :: IntOptions -> Lude.Maybe Lude.Bool) (\s a -> s {searchEnabled = a} :: IntOptions)
+ioSearchEnabled :: Lens.Lens' IntOptions (Core.Maybe Core.Bool)
+ioSearchEnabled = Lens.field @"searchEnabled"
 {-# DEPRECATED ioSearchEnabled "Use generic-lens or generic-optics with 'searchEnabled' instead." #-}
 
 -- | Whether the field can be used to sort the search results.
 --
 -- /Note:/ Consider using 'sortEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ioSortEnabled :: Lens.Lens' IntOptions (Lude.Maybe Lude.Bool)
-ioSortEnabled = Lens.lens (sortEnabled :: IntOptions -> Lude.Maybe Lude.Bool) (\s a -> s {sortEnabled = a} :: IntOptions)
+ioSortEnabled :: Lens.Lens' IntOptions (Core.Maybe Core.Bool)
+ioSortEnabled = Lens.field @"sortEnabled"
 {-# DEPRECATED ioSortEnabled "Use generic-lens or generic-optics with 'sortEnabled' instead." #-}
 
--- | A value to use for the field if the field isn't specified for a document. This can be important if you are using the field in an expression and that field is not present in every document.
+-- | The name of the source field to map to the field.
 --
--- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ioDefaultValue :: Lens.Lens' IntOptions (Lude.Maybe Lude.Integer)
-ioDefaultValue = Lens.lens (defaultValue :: IntOptions -> Lude.Maybe Lude.Integer) (\s a -> s {defaultValue = a} :: IntOptions)
-{-# DEPRECATED ioDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
+-- /Note:/ Consider using 'sourceField' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ioSourceField :: Lens.Lens' IntOptions (Core.Maybe Types.FieldName)
+ioSourceField = Lens.field @"sourceField"
+{-# DEPRECATED ioSourceField "Use generic-lens or generic-optics with 'sourceField' instead." #-}
 
-instance Lude.FromXML IntOptions where
+instance Core.FromXML IntOptions where
   parseXML x =
     IntOptions'
-      Lude.<$> (x Lude..@? "SourceField")
-      Lude.<*> (x Lude..@? "ReturnEnabled")
-      Lude.<*> (x Lude..@? "FacetEnabled")
-      Lude.<*> (x Lude..@? "SearchEnabled")
-      Lude.<*> (x Lude..@? "SortEnabled")
-      Lude.<*> (x Lude..@? "DefaultValue")
-
-instance Lude.ToQuery IntOptions where
-  toQuery IntOptions' {..} =
-    Lude.mconcat
-      [ "SourceField" Lude.=: sourceField,
-        "ReturnEnabled" Lude.=: returnEnabled,
-        "FacetEnabled" Lude.=: facetEnabled,
-        "SearchEnabled" Lude.=: searchEnabled,
-        "SortEnabled" Lude.=: sortEnabled,
-        "DefaultValue" Lude.=: defaultValue
-      ]
+      Core.<$> (x Core..@? "DefaultValue")
+      Core.<*> (x Core..@? "FacetEnabled")
+      Core.<*> (x Core..@? "ReturnEnabled")
+      Core.<*> (x Core..@? "SearchEnabled")
+      Core.<*> (x Core..@? "SortEnabled")
+      Core.<*> (x Core..@? "SourceField")

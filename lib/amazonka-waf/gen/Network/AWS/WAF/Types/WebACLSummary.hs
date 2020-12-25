@@ -17,13 +17,15 @@ module Network.AWS.WAF.Types.WebACLSummary
     mkWebACLSummary,
 
     -- * Lenses
-    wasWebACLId,
-    wasName,
+    waclsWebACLId,
+    waclsName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.ResourceId as Types
+import qualified Network.AWS.WAF.Types.ResourceName as Types
 
 -- | Contains the identifier and the name or description of the 'WebACL' .
 --
@@ -32,49 +34,41 @@ data WebACLSummary = WebACLSummary'
   { -- | A unique identifier for a @WebACL@ . You use @WebACLId@ to get information about a @WebACL@ (see 'GetWebACL' ), update a @WebACL@ (see 'UpdateWebACL' ), and delete a @WebACL@ from AWS WAF (see 'DeleteWebACL' ).
     --
     -- @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
-    webACLId :: Lude.Text,
+    webACLId :: Types.ResourceId,
     -- | A friendly name or description of the 'WebACL' . You can't change the name of a @WebACL@ after you create it.
-    name :: Lude.Text
+    name :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WebACLSummary' with the minimum fields required to make a request.
---
--- * 'webACLId' - A unique identifier for a @WebACL@ . You use @WebACLId@ to get information about a @WebACL@ (see 'GetWebACL' ), update a @WebACL@ (see 'UpdateWebACL' ), and delete a @WebACL@ from AWS WAF (see 'DeleteWebACL' ).
---
--- @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
--- * 'name' - A friendly name or description of the 'WebACL' . You can't change the name of a @WebACL@ after you create it.
+-- | Creates a 'WebACLSummary' value with any optional fields omitted.
 mkWebACLSummary ::
   -- | 'webACLId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
   WebACLSummary
-mkWebACLSummary pWebACLId_ pName_ =
-  WebACLSummary' {webACLId = pWebACLId_, name = pName_}
+mkWebACLSummary webACLId name = WebACLSummary' {webACLId, name}
 
 -- | A unique identifier for a @WebACL@ . You use @WebACLId@ to get information about a @WebACL@ (see 'GetWebACL' ), update a @WebACL@ (see 'UpdateWebACL' ), and delete a @WebACL@ from AWS WAF (see 'DeleteWebACL' ).
 --
 -- @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
 --
 -- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wasWebACLId :: Lens.Lens' WebACLSummary Lude.Text
-wasWebACLId = Lens.lens (webACLId :: WebACLSummary -> Lude.Text) (\s a -> s {webACLId = a} :: WebACLSummary)
-{-# DEPRECATED wasWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
+waclsWebACLId :: Lens.Lens' WebACLSummary Types.ResourceId
+waclsWebACLId = Lens.field @"webACLId"
+{-# DEPRECATED waclsWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
 -- | A friendly name or description of the 'WebACL' . You can't change the name of a @WebACL@ after you create it.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wasName :: Lens.Lens' WebACLSummary Lude.Text
-wasName = Lens.lens (name :: WebACLSummary -> Lude.Text) (\s a -> s {name = a} :: WebACLSummary)
-{-# DEPRECATED wasName "Use generic-lens or generic-optics with 'name' instead." #-}
+waclsName :: Lens.Lens' WebACLSummary Types.ResourceName
+waclsName = Lens.field @"name"
+{-# DEPRECATED waclsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON WebACLSummary where
+instance Core.FromJSON WebACLSummary where
   parseJSON =
-    Lude.withObject
-      "WebACLSummary"
-      ( \x ->
-          WebACLSummary'
-            Lude.<$> (x Lude..: "WebACLId") Lude.<*> (x Lude..: "Name")
-      )
+    Core.withObject "WebACLSummary" Core.$
+      \x ->
+        WebACLSummary'
+          Core.<$> (x Core..: "WebACLId") Core.<*> (x Core..: "Name")

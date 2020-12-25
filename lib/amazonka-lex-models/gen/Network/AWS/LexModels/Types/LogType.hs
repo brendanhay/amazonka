@@ -13,46 +13,48 @@
 module Network.AWS.LexModels.Types.LogType
   ( LogType
       ( LogType',
-        Audio,
-        Text
+        LogTypeAudio,
+        LogTypeText,
+        fromLogType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LogType = LogType' Lude.Text
+newtype LogType = LogType' {fromLogType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Audio :: LogType
-pattern Audio = LogType' "AUDIO"
+pattern LogTypeAudio :: LogType
+pattern LogTypeAudio = LogType' "AUDIO"
 
-pattern Text :: LogType
-pattern Text = LogType' "TEXT"
+pattern LogTypeText :: LogType
+pattern LogTypeText = LogType' "TEXT"
 
 {-# COMPLETE
-  Audio,
-  Text,
+  LogTypeAudio,
+  LogTypeText,
   LogType'
   #-}

@@ -17,70 +17,62 @@ module Network.AWS.CodePipeline.Types.ArtifactDetails
     mkArtifactDetails,
 
     -- * Lenses
-    adMaximumCount,
     adMinimumCount,
+    adMaximumCount,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about the details of an artifact.
 --
 -- /See:/ 'mkArtifactDetails' smart constructor.
 data ArtifactDetails = ArtifactDetails'
-  { -- | The maximum number of artifacts allowed for the action type.
-    maximumCount :: Lude.Natural,
-    -- | The minimum number of artifacts allowed for the action type.
-    minimumCount :: Lude.Natural
+  { -- | The minimum number of artifacts allowed for the action type.
+    minimumCount :: Core.Natural,
+    -- | The maximum number of artifacts allowed for the action type.
+    maximumCount :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArtifactDetails' with the minimum fields required to make a request.
---
--- * 'maximumCount' - The maximum number of artifacts allowed for the action type.
--- * 'minimumCount' - The minimum number of artifacts allowed for the action type.
+-- | Creates a 'ArtifactDetails' value with any optional fields omitted.
 mkArtifactDetails ::
-  -- | 'maximumCount'
-  Lude.Natural ->
   -- | 'minimumCount'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'maximumCount'
+  Core.Natural ->
   ArtifactDetails
-mkArtifactDetails pMaximumCount_ pMinimumCount_ =
-  ArtifactDetails'
-    { maximumCount = pMaximumCount_,
-      minimumCount = pMinimumCount_
-    }
-
--- | The maximum number of artifacts allowed for the action type.
---
--- /Note:/ Consider using 'maximumCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adMaximumCount :: Lens.Lens' ArtifactDetails Lude.Natural
-adMaximumCount = Lens.lens (maximumCount :: ArtifactDetails -> Lude.Natural) (\s a -> s {maximumCount = a} :: ArtifactDetails)
-{-# DEPRECATED adMaximumCount "Use generic-lens or generic-optics with 'maximumCount' instead." #-}
+mkArtifactDetails minimumCount maximumCount =
+  ArtifactDetails' {minimumCount, maximumCount}
 
 -- | The minimum number of artifacts allowed for the action type.
 --
 -- /Note:/ Consider using 'minimumCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adMinimumCount :: Lens.Lens' ArtifactDetails Lude.Natural
-adMinimumCount = Lens.lens (minimumCount :: ArtifactDetails -> Lude.Natural) (\s a -> s {minimumCount = a} :: ArtifactDetails)
+adMinimumCount :: Lens.Lens' ArtifactDetails Core.Natural
+adMinimumCount = Lens.field @"minimumCount"
 {-# DEPRECATED adMinimumCount "Use generic-lens or generic-optics with 'minimumCount' instead." #-}
 
-instance Lude.FromJSON ArtifactDetails where
-  parseJSON =
-    Lude.withObject
-      "ArtifactDetails"
-      ( \x ->
-          ArtifactDetails'
-            Lude.<$> (x Lude..: "maximumCount") Lude.<*> (x Lude..: "minimumCount")
-      )
+-- | The maximum number of artifacts allowed for the action type.
+--
+-- /Note:/ Consider using 'maximumCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adMaximumCount :: Lens.Lens' ArtifactDetails Core.Natural
+adMaximumCount = Lens.field @"maximumCount"
+{-# DEPRECATED adMaximumCount "Use generic-lens or generic-optics with 'maximumCount' instead." #-}
 
-instance Lude.ToJSON ArtifactDetails where
-  toJSON ArtifactDetails' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("maximumCount" Lude..= maximumCount),
-            Lude.Just ("minimumCount" Lude..= minimumCount)
+instance Core.FromJSON ArtifactDetails where
+  toJSON ArtifactDetails {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("minimumCount" Core..= minimumCount),
+            Core.Just ("maximumCount" Core..= maximumCount)
           ]
       )
+
+instance Core.FromJSON ArtifactDetails where
+  parseJSON =
+    Core.withObject "ArtifactDetails" Core.$
+      \x ->
+        ArtifactDetails'
+          Core.<$> (x Core..: "minimumCount") Core.<*> (x Core..: "maximumCount")

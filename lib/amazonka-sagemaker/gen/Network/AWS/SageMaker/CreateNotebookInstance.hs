@@ -37,305 +37,275 @@ module Network.AWS.SageMaker.CreateNotebookInstance
     mkCreateNotebookInstance,
 
     -- ** Request lenses
-    cniAcceleratorTypes,
     cniNotebookInstanceName,
-    cniSecurityGroupIds,
-    cniAdditionalCodeRepositories,
-    cniLifecycleConfigName,
-    cniSubnetId,
     cniInstanceType,
+    cniRoleArn,
+    cniAcceleratorTypes,
+    cniAdditionalCodeRepositories,
     cniDefaultCodeRepository,
-    cniVolumeSizeInGB,
-    cniKMSKeyId,
-    cniRootAccess,
     cniDirectInternetAccess,
+    cniKmsKeyId,
+    cniLifecycleConfigName,
+    cniRootAccess,
+    cniSecurityGroupIds,
+    cniSubnetId,
     cniTags,
-    cniRoleARN,
+    cniVolumeSizeInGB,
 
     -- * Destructuring the response
     CreateNotebookInstanceResponse (..),
     mkCreateNotebookInstanceResponse,
 
     -- ** Response lenses
-    cnirsNotebookInstanceARN,
-    cnirsResponseStatus,
+    cnirrsNotebookInstanceArn,
+    cnirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateNotebookInstance' smart constructor.
 data CreateNotebookInstance = CreateNotebookInstance'
-  { -- | A list of Elastic Inference (EI) instance types to associate with this notebook instance. Currently, only one instance type can be associated with a notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker> .
-    acceleratorTypes :: Lude.Maybe [NotebookInstanceAcceleratorType],
-    -- | The name of the new notebook instance.
-    notebookInstanceName :: Lude.Text,
-    -- | The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.
-    securityGroupIds :: Lude.Maybe [Lude.Text],
-    -- | An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
-    additionalCodeRepositories :: Lude.Maybe [Lude.Text],
-    -- | The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance> .
-    lifecycleConfigName :: Lude.Maybe Lude.Text,
-    -- | The ID of the subnet in a VPC to which you would like to have a connectivity from your ML compute instance.
-    subnetId :: Lude.Maybe Lude.Text,
+  { -- | The name of the new notebook instance.
+    notebookInstanceName :: Types.NotebookInstanceName,
     -- | The type of ML compute instance to launch for the notebook instance.
-    instanceType :: InstanceType,
+    instanceType :: Types.InstanceType,
+    -- | When you send any requests to AWS resources from the notebook instance, Amazon SageMaker assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so Amazon SageMaker can perform these tasks. The policy must allow the Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
+    roleArn :: Types.RoleArn,
+    -- | A list of Elastic Inference (EI) instance types to associate with this notebook instance. Currently, only one instance type can be associated with a notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker> .
+    acceleratorTypes :: Core.Maybe [Types.NotebookInstanceAcceleratorType],
+    -- | An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
+    additionalCodeRepositories :: Core.Maybe [Types.CodeRepositoryNameOrUrl],
     -- | A Git repository to associate with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
-    defaultCodeRepository :: Lude.Maybe Lude.Text,
-    -- | The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
-    volumeSizeInGB :: Lude.Maybe Lude.Natural,
-    -- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled. For information, see <https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html Enabling and Disabling Keys> in the /AWS Key Management Service Developer Guide/ .
-    kmsKeyId :: Lude.Maybe Lude.Text,
-    -- | Whether root access is enabled or disabled for users of the notebook instance. The default value is @Enabled@ .
-    rootAccess :: Lude.Maybe RootAccess,
+    defaultCodeRepository :: Core.Maybe Types.DefaultCodeRepository,
     -- | Sets whether Amazon SageMaker provides internet access to the notebook instance. If you set this to @Disabled@ this notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
     --
     -- For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default> . You can set the value of this parameter to @Disabled@ only if you set a value for the @SubnetId@ parameter.
-    directInternetAccess :: Lude.Maybe DirectInternetAccess,
+    directInternetAccess :: Core.Maybe Types.DirectInternetAccess,
+    -- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled. For information, see <https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html Enabling and Disabling Keys> in the /AWS Key Management Service Developer Guide/ .
+    kmsKeyId :: Core.Maybe Types.KmsKeyId,
+    -- | The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance> .
+    lifecycleConfigName :: Core.Maybe Types.LifecycleConfigName,
+    -- | Whether root access is enabled or disabled for users of the notebook instance. The default value is @Enabled@ .
+    rootAccess :: Core.Maybe Types.RootAccess,
+    -- | The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.
+    securityGroupIds :: Core.Maybe [Types.SecurityGroupId],
+    -- | The ID of the subnet in a VPC to which you would like to have a connectivity from your ML compute instance.
+    subnetId :: Core.Maybe Types.SubnetId,
     -- | A list of tags to associate with the notebook instance. You can add tags later by using the @CreateTags@ API.
-    tags :: Lude.Maybe [Tag],
-    -- | When you send any requests to AWS resources from the notebook instance, Amazon SageMaker assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so Amazon SageMaker can perform these tasks. The policy must allow the Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
-    roleARN :: Lude.Text
+    tags :: Core.Maybe [Types.Tag],
+    -- | The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
+    volumeSizeInGB :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNotebookInstance' with the minimum fields required to make a request.
---
--- * 'acceleratorTypes' - A list of Elastic Inference (EI) instance types to associate with this notebook instance. Currently, only one instance type can be associated with a notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker> .
--- * 'notebookInstanceName' - The name of the new notebook instance.
--- * 'securityGroupIds' - The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.
--- * 'additionalCodeRepositories' - An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
--- * 'lifecycleConfigName' - The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance> .
--- * 'subnetId' - The ID of the subnet in a VPC to which you would like to have a connectivity from your ML compute instance.
--- * 'instanceType' - The type of ML compute instance to launch for the notebook instance.
--- * 'defaultCodeRepository' - A Git repository to associate with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
--- * 'volumeSizeInGB' - The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
--- * 'kmsKeyId' - The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled. For information, see <https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html Enabling and Disabling Keys> in the /AWS Key Management Service Developer Guide/ .
--- * 'rootAccess' - Whether root access is enabled or disabled for users of the notebook instance. The default value is @Enabled@ .
--- * 'directInternetAccess' - Sets whether Amazon SageMaker provides internet access to the notebook instance. If you set this to @Disabled@ this notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
---
--- For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default> . You can set the value of this parameter to @Disabled@ only if you set a value for the @SubnetId@ parameter.
--- * 'tags' - A list of tags to associate with the notebook instance. You can add tags later by using the @CreateTags@ API.
--- * 'roleARN' - When you send any requests to AWS resources from the notebook instance, Amazon SageMaker assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so Amazon SageMaker can perform these tasks. The policy must allow the Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
+-- | Creates a 'CreateNotebookInstance' value with any optional fields omitted.
 mkCreateNotebookInstance ::
   -- | 'notebookInstanceName'
-  Lude.Text ->
+  Types.NotebookInstanceName ->
   -- | 'instanceType'
-  InstanceType ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.InstanceType ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   CreateNotebookInstance
-mkCreateNotebookInstance
-  pNotebookInstanceName_
-  pInstanceType_
-  pRoleARN_ =
-    CreateNotebookInstance'
-      { acceleratorTypes = Lude.Nothing,
-        notebookInstanceName = pNotebookInstanceName_,
-        securityGroupIds = Lude.Nothing,
-        additionalCodeRepositories = Lude.Nothing,
-        lifecycleConfigName = Lude.Nothing,
-        subnetId = Lude.Nothing,
-        instanceType = pInstanceType_,
-        defaultCodeRepository = Lude.Nothing,
-        volumeSizeInGB = Lude.Nothing,
-        kmsKeyId = Lude.Nothing,
-        rootAccess = Lude.Nothing,
-        directInternetAccess = Lude.Nothing,
-        tags = Lude.Nothing,
-        roleARN = pRoleARN_
-      }
-
--- | A list of Elastic Inference (EI) instance types to associate with this notebook instance. Currently, only one instance type can be associated with a notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker> .
---
--- /Note:/ Consider using 'acceleratorTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniAcceleratorTypes :: Lens.Lens' CreateNotebookInstance (Lude.Maybe [NotebookInstanceAcceleratorType])
-cniAcceleratorTypes = Lens.lens (acceleratorTypes :: CreateNotebookInstance -> Lude.Maybe [NotebookInstanceAcceleratorType]) (\s a -> s {acceleratorTypes = a} :: CreateNotebookInstance)
-{-# DEPRECATED cniAcceleratorTypes "Use generic-lens or generic-optics with 'acceleratorTypes' instead." #-}
+mkCreateNotebookInstance notebookInstanceName instanceType roleArn =
+  CreateNotebookInstance'
+    { notebookInstanceName,
+      instanceType,
+      roleArn,
+      acceleratorTypes = Core.Nothing,
+      additionalCodeRepositories = Core.Nothing,
+      defaultCodeRepository = Core.Nothing,
+      directInternetAccess = Core.Nothing,
+      kmsKeyId = Core.Nothing,
+      lifecycleConfigName = Core.Nothing,
+      rootAccess = Core.Nothing,
+      securityGroupIds = Core.Nothing,
+      subnetId = Core.Nothing,
+      tags = Core.Nothing,
+      volumeSizeInGB = Core.Nothing
+    }
 
 -- | The name of the new notebook instance.
 --
 -- /Note:/ Consider using 'notebookInstanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniNotebookInstanceName :: Lens.Lens' CreateNotebookInstance Lude.Text
-cniNotebookInstanceName = Lens.lens (notebookInstanceName :: CreateNotebookInstance -> Lude.Text) (\s a -> s {notebookInstanceName = a} :: CreateNotebookInstance)
+cniNotebookInstanceName :: Lens.Lens' CreateNotebookInstance Types.NotebookInstanceName
+cniNotebookInstanceName = Lens.field @"notebookInstanceName"
 {-# DEPRECATED cniNotebookInstanceName "Use generic-lens or generic-optics with 'notebookInstanceName' instead." #-}
-
--- | The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.
---
--- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniSecurityGroupIds :: Lens.Lens' CreateNotebookInstance (Lude.Maybe [Lude.Text])
-cniSecurityGroupIds = Lens.lens (securityGroupIds :: CreateNotebookInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroupIds = a} :: CreateNotebookInstance)
-{-# DEPRECATED cniSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
-
--- | An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
---
--- /Note:/ Consider using 'additionalCodeRepositories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniAdditionalCodeRepositories :: Lens.Lens' CreateNotebookInstance (Lude.Maybe [Lude.Text])
-cniAdditionalCodeRepositories = Lens.lens (additionalCodeRepositories :: CreateNotebookInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {additionalCodeRepositories = a} :: CreateNotebookInstance)
-{-# DEPRECATED cniAdditionalCodeRepositories "Use generic-lens or generic-optics with 'additionalCodeRepositories' instead." #-}
-
--- | The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance> .
---
--- /Note:/ Consider using 'lifecycleConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniLifecycleConfigName :: Lens.Lens' CreateNotebookInstance (Lude.Maybe Lude.Text)
-cniLifecycleConfigName = Lens.lens (lifecycleConfigName :: CreateNotebookInstance -> Lude.Maybe Lude.Text) (\s a -> s {lifecycleConfigName = a} :: CreateNotebookInstance)
-{-# DEPRECATED cniLifecycleConfigName "Use generic-lens or generic-optics with 'lifecycleConfigName' instead." #-}
-
--- | The ID of the subnet in a VPC to which you would like to have a connectivity from your ML compute instance.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniSubnetId :: Lens.Lens' CreateNotebookInstance (Lude.Maybe Lude.Text)
-cniSubnetId = Lens.lens (subnetId :: CreateNotebookInstance -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: CreateNotebookInstance)
-{-# DEPRECATED cniSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | The type of ML compute instance to launch for the notebook instance.
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniInstanceType :: Lens.Lens' CreateNotebookInstance InstanceType
-cniInstanceType = Lens.lens (instanceType :: CreateNotebookInstance -> InstanceType) (\s a -> s {instanceType = a} :: CreateNotebookInstance)
+cniInstanceType :: Lens.Lens' CreateNotebookInstance Types.InstanceType
+cniInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED cniInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | When you send any requests to AWS resources from the notebook instance, Amazon SageMaker assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so Amazon SageMaker can perform these tasks. The policy must allow the Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniRoleArn :: Lens.Lens' CreateNotebookInstance Types.RoleArn
+cniRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED cniRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+
+-- | A list of Elastic Inference (EI) instance types to associate with this notebook instance. Currently, only one instance type can be associated with a notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html Using Elastic Inference in Amazon SageMaker> .
+--
+-- /Note:/ Consider using 'acceleratorTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniAcceleratorTypes :: Lens.Lens' CreateNotebookInstance (Core.Maybe [Types.NotebookInstanceAcceleratorType])
+cniAcceleratorTypes = Lens.field @"acceleratorTypes"
+{-# DEPRECATED cniAcceleratorTypes "Use generic-lens or generic-optics with 'acceleratorTypes' instead." #-}
+
+-- | An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
+--
+-- /Note:/ Consider using 'additionalCodeRepositories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniAdditionalCodeRepositories :: Lens.Lens' CreateNotebookInstance (Core.Maybe [Types.CodeRepositoryNameOrUrl])
+cniAdditionalCodeRepositories = Lens.field @"additionalCodeRepositories"
+{-# DEPRECATED cniAdditionalCodeRepositories "Use generic-lens or generic-optics with 'additionalCodeRepositories' instead." #-}
 
 -- | A Git repository to associate with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html Associating Git Repositories with Amazon SageMaker Notebook Instances> .
 --
 -- /Note:/ Consider using 'defaultCodeRepository' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniDefaultCodeRepository :: Lens.Lens' CreateNotebookInstance (Lude.Maybe Lude.Text)
-cniDefaultCodeRepository = Lens.lens (defaultCodeRepository :: CreateNotebookInstance -> Lude.Maybe Lude.Text) (\s a -> s {defaultCodeRepository = a} :: CreateNotebookInstance)
+cniDefaultCodeRepository :: Lens.Lens' CreateNotebookInstance (Core.Maybe Types.DefaultCodeRepository)
+cniDefaultCodeRepository = Lens.field @"defaultCodeRepository"
 {-# DEPRECATED cniDefaultCodeRepository "Use generic-lens or generic-optics with 'defaultCodeRepository' instead." #-}
-
--- | The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
---
--- /Note:/ Consider using 'volumeSizeInGB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniVolumeSizeInGB :: Lens.Lens' CreateNotebookInstance (Lude.Maybe Lude.Natural)
-cniVolumeSizeInGB = Lens.lens (volumeSizeInGB :: CreateNotebookInstance -> Lude.Maybe Lude.Natural) (\s a -> s {volumeSizeInGB = a} :: CreateNotebookInstance)
-{-# DEPRECATED cniVolumeSizeInGB "Use generic-lens or generic-optics with 'volumeSizeInGB' instead." #-}
-
--- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled. For information, see <https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html Enabling and Disabling Keys> in the /AWS Key Management Service Developer Guide/ .
---
--- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniKMSKeyId :: Lens.Lens' CreateNotebookInstance (Lude.Maybe Lude.Text)
-cniKMSKeyId = Lens.lens (kmsKeyId :: CreateNotebookInstance -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateNotebookInstance)
-{-# DEPRECATED cniKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
-
--- | Whether root access is enabled or disabled for users of the notebook instance. The default value is @Enabled@ .
---
--- /Note:/ Consider using 'rootAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniRootAccess :: Lens.Lens' CreateNotebookInstance (Lude.Maybe RootAccess)
-cniRootAccess = Lens.lens (rootAccess :: CreateNotebookInstance -> Lude.Maybe RootAccess) (\s a -> s {rootAccess = a} :: CreateNotebookInstance)
-{-# DEPRECATED cniRootAccess "Use generic-lens or generic-optics with 'rootAccess' instead." #-}
 
 -- | Sets whether Amazon SageMaker provides internet access to the notebook instance. If you set this to @Disabled@ this notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
 --
 -- For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access Notebook Instances Are Internet-Enabled by Default> . You can set the value of this parameter to @Disabled@ only if you set a value for the @SubnetId@ parameter.
 --
 -- /Note:/ Consider using 'directInternetAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniDirectInternetAccess :: Lens.Lens' CreateNotebookInstance (Lude.Maybe DirectInternetAccess)
-cniDirectInternetAccess = Lens.lens (directInternetAccess :: CreateNotebookInstance -> Lude.Maybe DirectInternetAccess) (\s a -> s {directInternetAccess = a} :: CreateNotebookInstance)
+cniDirectInternetAccess :: Lens.Lens' CreateNotebookInstance (Core.Maybe Types.DirectInternetAccess)
+cniDirectInternetAccess = Lens.field @"directInternetAccess"
 {-# DEPRECATED cniDirectInternetAccess "Use generic-lens or generic-optics with 'directInternetAccess' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled. For information, see <https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html Enabling and Disabling Keys> in the /AWS Key Management Service Developer Guide/ .
+--
+-- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniKmsKeyId :: Lens.Lens' CreateNotebookInstance (Core.Maybe Types.KmsKeyId)
+cniKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED cniKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+
+-- | The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see <https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html Step 2.1: (Optional) Customize a Notebook Instance> .
+--
+-- /Note:/ Consider using 'lifecycleConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniLifecycleConfigName :: Lens.Lens' CreateNotebookInstance (Core.Maybe Types.LifecycleConfigName)
+cniLifecycleConfigName = Lens.field @"lifecycleConfigName"
+{-# DEPRECATED cniLifecycleConfigName "Use generic-lens or generic-optics with 'lifecycleConfigName' instead." #-}
+
+-- | Whether root access is enabled or disabled for users of the notebook instance. The default value is @Enabled@ .
+--
+-- /Note:/ Consider using 'rootAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniRootAccess :: Lens.Lens' CreateNotebookInstance (Core.Maybe Types.RootAccess)
+cniRootAccess = Lens.field @"rootAccess"
+{-# DEPRECATED cniRootAccess "Use generic-lens or generic-optics with 'rootAccess' instead." #-}
+
+-- | The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.
+--
+-- /Note:/ Consider using 'securityGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniSecurityGroupIds :: Lens.Lens' CreateNotebookInstance (Core.Maybe [Types.SecurityGroupId])
+cniSecurityGroupIds = Lens.field @"securityGroupIds"
+{-# DEPRECATED cniSecurityGroupIds "Use generic-lens or generic-optics with 'securityGroupIds' instead." #-}
+
+-- | The ID of the subnet in a VPC to which you would like to have a connectivity from your ML compute instance.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniSubnetId :: Lens.Lens' CreateNotebookInstance (Core.Maybe Types.SubnetId)
+cniSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED cniSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | A list of tags to associate with the notebook instance. You can add tags later by using the @CreateTags@ API.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniTags :: Lens.Lens' CreateNotebookInstance (Lude.Maybe [Tag])
-cniTags = Lens.lens (tags :: CreateNotebookInstance -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateNotebookInstance)
+cniTags :: Lens.Lens' CreateNotebookInstance (Core.Maybe [Types.Tag])
+cniTags = Lens.field @"tags"
 {-# DEPRECATED cniTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | When you send any requests to AWS resources from the notebook instance, Amazon SageMaker assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so Amazon SageMaker can perform these tasks. The policy must allow the Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see <https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html Amazon SageMaker Roles> .
+-- | The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cniRoleARN :: Lens.Lens' CreateNotebookInstance Lude.Text
-cniRoleARN = Lens.lens (roleARN :: CreateNotebookInstance -> Lude.Text) (\s a -> s {roleARN = a} :: CreateNotebookInstance)
-{-# DEPRECATED cniRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'volumeSizeInGB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cniVolumeSizeInGB :: Lens.Lens' CreateNotebookInstance (Core.Maybe Core.Natural)
+cniVolumeSizeInGB = Lens.field @"volumeSizeInGB"
+{-# DEPRECATED cniVolumeSizeInGB "Use generic-lens or generic-optics with 'volumeSizeInGB' instead." #-}
 
-instance Lude.AWSRequest CreateNotebookInstance where
+instance Core.FromJSON CreateNotebookInstance where
+  toJSON CreateNotebookInstance {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("NotebookInstanceName" Core..= notebookInstanceName),
+            Core.Just ("InstanceType" Core..= instanceType),
+            Core.Just ("RoleArn" Core..= roleArn),
+            ("AcceleratorTypes" Core..=) Core.<$> acceleratorTypes,
+            ("AdditionalCodeRepositories" Core..=)
+              Core.<$> additionalCodeRepositories,
+            ("DefaultCodeRepository" Core..=) Core.<$> defaultCodeRepository,
+            ("DirectInternetAccess" Core..=) Core.<$> directInternetAccess,
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId,
+            ("LifecycleConfigName" Core..=) Core.<$> lifecycleConfigName,
+            ("RootAccess" Core..=) Core.<$> rootAccess,
+            ("SecurityGroupIds" Core..=) Core.<$> securityGroupIds,
+            ("SubnetId" Core..=) Core.<$> subnetId,
+            ("Tags" Core..=) Core.<$> tags,
+            ("VolumeSizeInGB" Core..=) Core.<$> volumeSizeInGB
+          ]
+      )
+
+instance Core.AWSRequest CreateNotebookInstance where
   type Rs CreateNotebookInstance = CreateNotebookInstanceResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.CreateNotebookInstance")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateNotebookInstanceResponse'
-            Lude.<$> (x Lude..?> "NotebookInstanceArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NotebookInstanceArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateNotebookInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.CreateNotebookInstance" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateNotebookInstance where
-  toJSON CreateNotebookInstance' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AcceleratorTypes" Lude..=) Lude.<$> acceleratorTypes,
-            Lude.Just ("NotebookInstanceName" Lude..= notebookInstanceName),
-            ("SecurityGroupIds" Lude..=) Lude.<$> securityGroupIds,
-            ("AdditionalCodeRepositories" Lude..=)
-              Lude.<$> additionalCodeRepositories,
-            ("LifecycleConfigName" Lude..=) Lude.<$> lifecycleConfigName,
-            ("SubnetId" Lude..=) Lude.<$> subnetId,
-            Lude.Just ("InstanceType" Lude..= instanceType),
-            ("DefaultCodeRepository" Lude..=) Lude.<$> defaultCodeRepository,
-            ("VolumeSizeInGB" Lude..=) Lude.<$> volumeSizeInGB,
-            ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId,
-            ("RootAccess" Lude..=) Lude.<$> rootAccess,
-            ("DirectInternetAccess" Lude..=) Lude.<$> directInternetAccess,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("RoleArn" Lude..= roleARN)
-          ]
-      )
-
-instance Lude.ToPath CreateNotebookInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateNotebookInstance where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateNotebookInstanceResponse' smart constructor.
 data CreateNotebookInstanceResponse = CreateNotebookInstanceResponse'
   { -- | The Amazon Resource Name (ARN) of the notebook instance.
-    notebookInstanceARN :: Lude.Maybe Lude.Text,
+    notebookInstanceArn :: Core.Maybe Types.NotebookInstanceArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNotebookInstanceResponse' with the minimum fields required to make a request.
---
--- * 'notebookInstanceARN' - The Amazon Resource Name (ARN) of the notebook instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateNotebookInstanceResponse' value with any optional fields omitted.
 mkCreateNotebookInstanceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateNotebookInstanceResponse
-mkCreateNotebookInstanceResponse pResponseStatus_ =
+mkCreateNotebookInstanceResponse responseStatus =
   CreateNotebookInstanceResponse'
-    { notebookInstanceARN =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { notebookInstanceArn =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the notebook instance.
 --
--- /Note:/ Consider using 'notebookInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnirsNotebookInstanceARN :: Lens.Lens' CreateNotebookInstanceResponse (Lude.Maybe Lude.Text)
-cnirsNotebookInstanceARN = Lens.lens (notebookInstanceARN :: CreateNotebookInstanceResponse -> Lude.Maybe Lude.Text) (\s a -> s {notebookInstanceARN = a} :: CreateNotebookInstanceResponse)
-{-# DEPRECATED cnirsNotebookInstanceARN "Use generic-lens or generic-optics with 'notebookInstanceARN' instead." #-}
+-- /Note:/ Consider using 'notebookInstanceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnirrsNotebookInstanceArn :: Lens.Lens' CreateNotebookInstanceResponse (Core.Maybe Types.NotebookInstanceArn)
+cnirrsNotebookInstanceArn = Lens.field @"notebookInstanceArn"
+{-# DEPRECATED cnirrsNotebookInstanceArn "Use generic-lens or generic-optics with 'notebookInstanceArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnirsResponseStatus :: Lens.Lens' CreateNotebookInstanceResponse Lude.Int
-cnirsResponseStatus = Lens.lens (responseStatus :: CreateNotebookInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateNotebookInstanceResponse)
-{-# DEPRECATED cnirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cnirrsResponseStatus :: Lens.Lens' CreateNotebookInstanceResponse Core.Int
+cnirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cnirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

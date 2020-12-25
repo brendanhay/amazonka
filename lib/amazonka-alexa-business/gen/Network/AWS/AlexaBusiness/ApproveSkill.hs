@@ -27,92 +27,81 @@ module Network.AWS.AlexaBusiness.ApproveSkill
     mkApproveSkillResponse,
 
     -- ** Response lenses
-    asrsResponseStatus,
+    asrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkApproveSkill' smart constructor.
 newtype ApproveSkill = ApproveSkill'
   { -- | The unique identifier of the skill.
-    skillId :: Lude.Text
+    skillId :: Types.SkillId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApproveSkill' with the minimum fields required to make a request.
---
--- * 'skillId' - The unique identifier of the skill.
+-- | Creates a 'ApproveSkill' value with any optional fields omitted.
 mkApproveSkill ::
   -- | 'skillId'
-  Lude.Text ->
+  Types.SkillId ->
   ApproveSkill
-mkApproveSkill pSkillId_ = ApproveSkill' {skillId = pSkillId_}
+mkApproveSkill skillId = ApproveSkill' {skillId}
 
 -- | The unique identifier of the skill.
 --
 -- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asSkillId :: Lens.Lens' ApproveSkill Lude.Text
-asSkillId = Lens.lens (skillId :: ApproveSkill -> Lude.Text) (\s a -> s {skillId = a} :: ApproveSkill)
+asSkillId :: Lens.Lens' ApproveSkill Types.SkillId
+asSkillId = Lens.field @"skillId"
 {-# DEPRECATED asSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
-instance Lude.AWSRequest ApproveSkill where
+instance Core.FromJSON ApproveSkill where
+  toJSON ApproveSkill {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("SkillId" Core..= skillId)])
+
+instance Core.AWSRequest ApproveSkill where
   type Rs ApproveSkill = ApproveSkillResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.ApproveSkill")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          ApproveSkillResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          ApproveSkillResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ApproveSkill where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.ApproveSkill" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ApproveSkill where
-  toJSON ApproveSkill' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("SkillId" Lude..= skillId)])
-
-instance Lude.ToPath ApproveSkill where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ApproveSkill where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkApproveSkillResponse' smart constructor.
 newtype ApproveSkillResponse = ApproveSkillResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApproveSkillResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ApproveSkillResponse' value with any optional fields omitted.
 mkApproveSkillResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ApproveSkillResponse
-mkApproveSkillResponse pResponseStatus_ =
-  ApproveSkillResponse' {responseStatus = pResponseStatus_}
+mkApproveSkillResponse responseStatus =
+  ApproveSkillResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asrsResponseStatus :: Lens.Lens' ApproveSkillResponse Lude.Int
-asrsResponseStatus = Lens.lens (responseStatus :: ApproveSkillResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ApproveSkillResponse)
-{-# DEPRECATED asrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+asrrsResponseStatus :: Lens.Lens' ApproveSkillResponse Core.Int
+asrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED asrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

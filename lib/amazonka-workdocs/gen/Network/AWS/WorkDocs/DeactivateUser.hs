@@ -20,8 +20,8 @@ module Network.AWS.WorkDocs.DeactivateUser
     mkDeactivateUser,
 
     -- ** Request lenses
-    duAuthenticationToken,
-    duUserId,
+    dUserId,
+    dAuthenticationToken,
 
     -- * Destructuring the response
     DeactivateUserResponse (..),
@@ -30,75 +30,68 @@ module Network.AWS.WorkDocs.DeactivateUser
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDeactivateUser' smart constructor.
 data DeactivateUser = DeactivateUser'
-  { -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The ID of the user.
-    userId :: Lude.Text
+  { -- | The ID of the user.
+    userId :: Types.IdType,
+    -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeactivateUser' with the minimum fields required to make a request.
---
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'userId' - The ID of the user.
+-- | Creates a 'DeactivateUser' value with any optional fields omitted.
 mkDeactivateUser ::
   -- | 'userId'
-  Lude.Text ->
+  Types.IdType ->
   DeactivateUser
-mkDeactivateUser pUserId_ =
-  DeactivateUser'
-    { authenticationToken = Lude.Nothing,
-      userId = pUserId_
-    }
-
--- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duAuthenticationToken :: Lens.Lens' DeactivateUser (Lude.Maybe (Lude.Sensitive Lude.Text))
-duAuthenticationToken = Lens.lens (authenticationToken :: DeactivateUser -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeactivateUser)
-{-# DEPRECATED duAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+mkDeactivateUser userId =
+  DeactivateUser' {userId, authenticationToken = Core.Nothing}
 
 -- | The ID of the user.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duUserId :: Lens.Lens' DeactivateUser Lude.Text
-duUserId = Lens.lens (userId :: DeactivateUser -> Lude.Text) (\s a -> s {userId = a} :: DeactivateUser)
-{-# DEPRECATED duUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+dUserId :: Lens.Lens' DeactivateUser Types.IdType
+dUserId = Lens.field @"userId"
+{-# DEPRECATED dUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.AWSRequest DeactivateUser where
+-- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+--
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAuthenticationToken :: Lens.Lens' DeactivateUser (Core.Maybe Types.AuthenticationHeaderType)
+dAuthenticationToken = Lens.field @"authenticationToken"
+{-# DEPRECATED dAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+
+instance Core.AWSRequest DeactivateUser where
   type Rs DeactivateUser = DeactivateUserResponse
-  request = Req.delete workDocsService
-  response = Res.receiveNull DeactivateUserResponse'
-
-instance Lude.ToHeaders DeactivateUser where
-  toHeaders DeactivateUser' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath DeactivateUser where
-  toPath DeactivateUser' {..} =
-    Lude.mconcat ["/api/v1/users/", Lude.toBS userId, "/activation"]
-
-instance Lude.ToQuery DeactivateUser where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/api/v1/users/" Core.<> (Core.toText userId)
+                Core.<> ("/activation")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeactivateUserResponse'
 
 -- | /See:/ 'mkDeactivateUserResponse' smart constructor.
 data DeactivateUserResponse = DeactivateUserResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeactivateUserResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeactivateUserResponse' value with any optional fields omitted.
 mkDeactivateUserResponse ::
   DeactivateUserResponse
 mkDeactivateUserResponse = DeactivateUserResponse'

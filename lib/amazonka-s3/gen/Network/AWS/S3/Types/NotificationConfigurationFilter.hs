@@ -22,38 +22,36 @@ module Network.AWS.S3.Types.NotificationConfigurationFilter
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.S3KeyFilter
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.S3KeyFilter as Types
 
 -- | Specifies object key name filtering rules. For information about key name filtering, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /See:/ 'mkNotificationConfigurationFilter' smart constructor.
 newtype NotificationConfigurationFilter = NotificationConfigurationFilter'
-  { key :: Lude.Maybe S3KeyFilter
+  { key :: Core.Maybe Types.S3KeyFilter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotificationConfigurationFilter' with the minimum fields required to make a request.
---
--- * 'key' -
+-- | Creates a 'NotificationConfigurationFilter' value with any optional fields omitted.
 mkNotificationConfigurationFilter ::
   NotificationConfigurationFilter
 mkNotificationConfigurationFilter =
-  NotificationConfigurationFilter' {key = Lude.Nothing}
+  NotificationConfigurationFilter' {key = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncfKey :: Lens.Lens' NotificationConfigurationFilter (Lude.Maybe S3KeyFilter)
-ncfKey = Lens.lens (key :: NotificationConfigurationFilter -> Lude.Maybe S3KeyFilter) (\s a -> s {key = a} :: NotificationConfigurationFilter)
+ncfKey :: Lens.Lens' NotificationConfigurationFilter (Core.Maybe Types.S3KeyFilter)
+ncfKey = Lens.field @"key"
 {-# DEPRECATED ncfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromXML NotificationConfigurationFilter where
-  parseXML x =
-    NotificationConfigurationFilter' Lude.<$> (x Lude..@? "S3Key")
+instance Core.ToXML NotificationConfigurationFilter where
+  toXML NotificationConfigurationFilter {..} =
+    Core.toXMLNode "S3Key" Core.<$> key
 
-instance Lude.ToXML NotificationConfigurationFilter where
-  toXML NotificationConfigurationFilter' {..} =
-    Lude.mconcat ["S3Key" Lude.@= key]
+instance Core.FromXML NotificationConfigurationFilter where
+  parseXML x =
+    NotificationConfigurationFilter' Core.<$> (x Core..@? "S3Key")

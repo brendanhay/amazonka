@@ -17,17 +17,20 @@ module Network.AWS.SSM.Types.ResourceDataSyncSourceWithState
     mkResourceDataSyncSourceWithState,
 
     -- * Lenses
-    rdsswsState,
+    rdsswsAwsOrganizationsSource,
     rdsswsIncludeFutureRegions,
-    rdsswsSourceType,
-    rdsswsAWSOrganizationsSource,
     rdsswsSourceRegions,
+    rdsswsSourceType,
+    rdsswsState,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.ResourceDataSyncAWSOrganizationsSource
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.ResourceDataSyncAwsOrganizationsSource as Types
+import qualified Network.AWS.SSM.Types.ResourceDataSyncSourceRegion as Types
+import qualified Network.AWS.SSM.Types.ResourceDataSyncSourceType as Types
+import qualified Network.AWS.SSM.Types.ResourceDataSyncState as Types
 
 -- | The data type name for including resource data sync state. There are four sync states:
 --
@@ -38,47 +41,65 @@ import Network.AWS.SSM.Types.ResourceDataSyncAWSOrganizationsSource
 --
 -- /See:/ 'mkResourceDataSyncSourceWithState' smart constructor.
 data ResourceDataSyncSourceWithState = ResourceDataSyncSourceWithState'
-  { -- | The data type name for including resource data sync state. There are four sync states:
+  { -- | The field name in @SyncSource@ for the @ResourceDataSyncAwsOrganizationsSource@ type.
+    awsOrganizationsSource :: Core.Maybe Types.ResourceDataSyncAwsOrganizationsSource,
+    -- | Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+    includeFutureRegions :: Core.Maybe Core.Bool,
+    -- | The @SyncSource@ AWS Regions included in the resource data sync.
+    sourceRegions :: Core.Maybe [Types.ResourceDataSyncSourceRegion],
+    -- | The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
+    sourceType :: Core.Maybe Types.ResourceDataSyncSourceType,
+    -- | The data type name for including resource data sync state. There are four sync states:
     --
     -- @OrganizationNotExists@ : Your organization doesn't exist.
     -- @NoPermissions@ : The system can't locate the service-linked role. This role is automatically created when a user creates a resource data sync in Explorer.
     -- @InvalidOrganizationalUnit@ : You specified or selected an invalid unit in the resource data sync configuration.
     -- @TrustedAccessDisabled@ : You disabled Systems Manager access in the organization in AWS Organizations.
-    state :: Lude.Maybe Lude.Text,
-    -- | Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
-    includeFutureRegions :: Lude.Maybe Lude.Bool,
-    -- | The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
-    sourceType :: Lude.Maybe Lude.Text,
-    -- | The field name in @SyncSource@ for the @ResourceDataSyncAwsOrganizationsSource@ type.
-    awsOrganizationsSource :: Lude.Maybe ResourceDataSyncAWSOrganizationsSource,
-    -- | The @SyncSource@ AWS Regions included in the resource data sync.
-    sourceRegions :: Lude.Maybe [Lude.Text]
+    state :: Core.Maybe Types.ResourceDataSyncState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceDataSyncSourceWithState' with the minimum fields required to make a request.
---
--- * 'state' - The data type name for including resource data sync state. There are four sync states:
---
--- @OrganizationNotExists@ : Your organization doesn't exist.
--- @NoPermissions@ : The system can't locate the service-linked role. This role is automatically created when a user creates a resource data sync in Explorer.
--- @InvalidOrganizationalUnit@ : You specified or selected an invalid unit in the resource data sync configuration.
--- @TrustedAccessDisabled@ : You disabled Systems Manager access in the organization in AWS Organizations.
--- * 'includeFutureRegions' - Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
--- * 'sourceType' - The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
--- * 'awsOrganizationsSource' - The field name in @SyncSource@ for the @ResourceDataSyncAwsOrganizationsSource@ type.
--- * 'sourceRegions' - The @SyncSource@ AWS Regions included in the resource data sync.
+-- | Creates a 'ResourceDataSyncSourceWithState' value with any optional fields omitted.
 mkResourceDataSyncSourceWithState ::
   ResourceDataSyncSourceWithState
 mkResourceDataSyncSourceWithState =
   ResourceDataSyncSourceWithState'
-    { state = Lude.Nothing,
-      includeFutureRegions = Lude.Nothing,
-      sourceType = Lude.Nothing,
-      awsOrganizationsSource = Lude.Nothing,
-      sourceRegions = Lude.Nothing
+    { awsOrganizationsSource =
+        Core.Nothing,
+      includeFutureRegions = Core.Nothing,
+      sourceRegions = Core.Nothing,
+      sourceType = Core.Nothing,
+      state = Core.Nothing
     }
+
+-- | The field name in @SyncSource@ for the @ResourceDataSyncAwsOrganizationsSource@ type.
+--
+-- /Note:/ Consider using 'awsOrganizationsSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsswsAwsOrganizationsSource :: Lens.Lens' ResourceDataSyncSourceWithState (Core.Maybe Types.ResourceDataSyncAwsOrganizationsSource)
+rdsswsAwsOrganizationsSource = Lens.field @"awsOrganizationsSource"
+{-# DEPRECATED rdsswsAwsOrganizationsSource "Use generic-lens or generic-optics with 'awsOrganizationsSource' instead." #-}
+
+-- | Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+--
+-- /Note:/ Consider using 'includeFutureRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsswsIncludeFutureRegions :: Lens.Lens' ResourceDataSyncSourceWithState (Core.Maybe Core.Bool)
+rdsswsIncludeFutureRegions = Lens.field @"includeFutureRegions"
+{-# DEPRECATED rdsswsIncludeFutureRegions "Use generic-lens or generic-optics with 'includeFutureRegions' instead." #-}
+
+-- | The @SyncSource@ AWS Regions included in the resource data sync.
+--
+-- /Note:/ Consider using 'sourceRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsswsSourceRegions :: Lens.Lens' ResourceDataSyncSourceWithState (Core.Maybe [Types.ResourceDataSyncSourceRegion])
+rdsswsSourceRegions = Lens.field @"sourceRegions"
+{-# DEPRECATED rdsswsSourceRegions "Use generic-lens or generic-optics with 'sourceRegions' instead." #-}
+
+-- | The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdsswsSourceType :: Lens.Lens' ResourceDataSyncSourceWithState (Core.Maybe Types.ResourceDataSyncSourceType)
+rdsswsSourceType = Lens.field @"sourceType"
+{-# DEPRECATED rdsswsSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | The data type name for including resource data sync state. There are four sync states:
 --
@@ -88,47 +109,17 @@ mkResourceDataSyncSourceWithState =
 -- @TrustedAccessDisabled@ : You disabled Systems Manager access in the organization in AWS Organizations.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsswsState :: Lens.Lens' ResourceDataSyncSourceWithState (Lude.Maybe Lude.Text)
-rdsswsState = Lens.lens (state :: ResourceDataSyncSourceWithState -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: ResourceDataSyncSourceWithState)
+rdsswsState :: Lens.Lens' ResourceDataSyncSourceWithState (Core.Maybe Types.ResourceDataSyncState)
+rdsswsState = Lens.field @"state"
 {-# DEPRECATED rdsswsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
--- | Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
---
--- /Note:/ Consider using 'includeFutureRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsswsIncludeFutureRegions :: Lens.Lens' ResourceDataSyncSourceWithState (Lude.Maybe Lude.Bool)
-rdsswsIncludeFutureRegions = Lens.lens (includeFutureRegions :: ResourceDataSyncSourceWithState -> Lude.Maybe Lude.Bool) (\s a -> s {includeFutureRegions = a} :: ResourceDataSyncSourceWithState)
-{-# DEPRECATED rdsswsIncludeFutureRegions "Use generic-lens or generic-optics with 'includeFutureRegions' instead." #-}
-
--- | The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
---
--- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsswsSourceType :: Lens.Lens' ResourceDataSyncSourceWithState (Lude.Maybe Lude.Text)
-rdsswsSourceType = Lens.lens (sourceType :: ResourceDataSyncSourceWithState -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: ResourceDataSyncSourceWithState)
-{-# DEPRECATED rdsswsSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
-
--- | The field name in @SyncSource@ for the @ResourceDataSyncAwsOrganizationsSource@ type.
---
--- /Note:/ Consider using 'awsOrganizationsSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsswsAWSOrganizationsSource :: Lens.Lens' ResourceDataSyncSourceWithState (Lude.Maybe ResourceDataSyncAWSOrganizationsSource)
-rdsswsAWSOrganizationsSource = Lens.lens (awsOrganizationsSource :: ResourceDataSyncSourceWithState -> Lude.Maybe ResourceDataSyncAWSOrganizationsSource) (\s a -> s {awsOrganizationsSource = a} :: ResourceDataSyncSourceWithState)
-{-# DEPRECATED rdsswsAWSOrganizationsSource "Use generic-lens or generic-optics with 'awsOrganizationsSource' instead." #-}
-
--- | The @SyncSource@ AWS Regions included in the resource data sync.
---
--- /Note:/ Consider using 'sourceRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdsswsSourceRegions :: Lens.Lens' ResourceDataSyncSourceWithState (Lude.Maybe [Lude.Text])
-rdsswsSourceRegions = Lens.lens (sourceRegions :: ResourceDataSyncSourceWithState -> Lude.Maybe [Lude.Text]) (\s a -> s {sourceRegions = a} :: ResourceDataSyncSourceWithState)
-{-# DEPRECATED rdsswsSourceRegions "Use generic-lens or generic-optics with 'sourceRegions' instead." #-}
-
-instance Lude.FromJSON ResourceDataSyncSourceWithState where
+instance Core.FromJSON ResourceDataSyncSourceWithState where
   parseJSON =
-    Lude.withObject
-      "ResourceDataSyncSourceWithState"
-      ( \x ->
-          ResourceDataSyncSourceWithState'
-            Lude.<$> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "IncludeFutureRegions")
-            Lude.<*> (x Lude..:? "SourceType")
-            Lude.<*> (x Lude..:? "AwsOrganizationsSource")
-            Lude.<*> (x Lude..:? "SourceRegions" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ResourceDataSyncSourceWithState" Core.$
+      \x ->
+        ResourceDataSyncSourceWithState'
+          Core.<$> (x Core..:? "AwsOrganizationsSource")
+          Core.<*> (x Core..:? "IncludeFutureRegions")
+          Core.<*> (x Core..:? "SourceRegions")
+          Core.<*> (x Core..:? "SourceType")
+          Core.<*> (x Core..:? "State")

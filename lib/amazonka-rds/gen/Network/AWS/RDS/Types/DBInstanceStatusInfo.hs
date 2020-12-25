@@ -17,80 +17,76 @@ module Network.AWS.RDS.Types.DBInstanceStatusInfo
     mkDBInstanceStatusInfo,
 
     -- * Lenses
-    disiStatus,
-    disiNormal,
-    disiStatusType,
-    disiMessage,
+    dbisiMessage,
+    dbisiNormal,
+    dbisiStatus,
+    dbisiStatusType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | Provides a list of status information for a DB instance.
 --
 -- /See:/ 'mkDBInstanceStatusInfo' smart constructor.
 data DBInstanceStatusInfo = DBInstanceStatusInfo'
-  { -- | Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
-    status :: Lude.Maybe Lude.Text,
+  { -- | Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
+    message :: Core.Maybe Types.String,
     -- | Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
-    normal :: Lude.Maybe Lude.Bool,
+    normal :: Core.Maybe Core.Bool,
+    -- | Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+    status :: Core.Maybe Types.String,
     -- | This value is currently "read replication."
-    statusType :: Lude.Maybe Lude.Text,
-    -- | Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
-    message :: Lude.Maybe Lude.Text
+    statusType :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DBInstanceStatusInfo' with the minimum fields required to make a request.
---
--- * 'status' - Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
--- * 'normal' - Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
--- * 'statusType' - This value is currently "read replication."
--- * 'message' - Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
+-- | Creates a 'DBInstanceStatusInfo' value with any optional fields omitted.
 mkDBInstanceStatusInfo ::
   DBInstanceStatusInfo
 mkDBInstanceStatusInfo =
   DBInstanceStatusInfo'
-    { status = Lude.Nothing,
-      normal = Lude.Nothing,
-      statusType = Lude.Nothing,
-      message = Lude.Nothing
+    { message = Core.Nothing,
+      normal = Core.Nothing,
+      status = Core.Nothing,
+      statusType = Core.Nothing
     }
-
--- | Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disiStatus :: Lens.Lens' DBInstanceStatusInfo (Lude.Maybe Lude.Text)
-disiStatus = Lens.lens (status :: DBInstanceStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DBInstanceStatusInfo)
-{-# DEPRECATED disiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
---
--- /Note:/ Consider using 'normal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disiNormal :: Lens.Lens' DBInstanceStatusInfo (Lude.Maybe Lude.Bool)
-disiNormal = Lens.lens (normal :: DBInstanceStatusInfo -> Lude.Maybe Lude.Bool) (\s a -> s {normal = a} :: DBInstanceStatusInfo)
-{-# DEPRECATED disiNormal "Use generic-lens or generic-optics with 'normal' instead." #-}
-
--- | This value is currently "read replication."
---
--- /Note:/ Consider using 'statusType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disiStatusType :: Lens.Lens' DBInstanceStatusInfo (Lude.Maybe Lude.Text)
-disiStatusType = Lens.lens (statusType :: DBInstanceStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {statusType = a} :: DBInstanceStatusInfo)
-{-# DEPRECATED disiStatusType "Use generic-lens or generic-optics with 'statusType' instead." #-}
 
 -- | Details of the error if there is an error for the instance. If the instance isn't in an error state, this value is blank.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-disiMessage :: Lens.Lens' DBInstanceStatusInfo (Lude.Maybe Lude.Text)
-disiMessage = Lens.lens (message :: DBInstanceStatusInfo -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DBInstanceStatusInfo)
-{-# DEPRECATED disiMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+dbisiMessage :: Lens.Lens' DBInstanceStatusInfo (Core.Maybe Types.String)
+dbisiMessage = Lens.field @"message"
+{-# DEPRECATED dbisiMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML DBInstanceStatusInfo where
+-- | Boolean value that is true if the instance is operating normally, or false if the instance is in an error state.
+--
+-- /Note:/ Consider using 'normal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbisiNormal :: Lens.Lens' DBInstanceStatusInfo (Core.Maybe Core.Bool)
+dbisiNormal = Lens.field @"normal"
+{-# DEPRECATED dbisiNormal "Use generic-lens or generic-optics with 'normal' instead." #-}
+
+-- | Status of the DB instance. For a StatusType of read replica, the values can be replicating, replication stop point set, replication stop point reached, error, stopped, or terminated.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbisiStatus :: Lens.Lens' DBInstanceStatusInfo (Core.Maybe Types.String)
+dbisiStatus = Lens.field @"status"
+{-# DEPRECATED dbisiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | This value is currently "read replication."
+--
+-- /Note:/ Consider using 'statusType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbisiStatusType :: Lens.Lens' DBInstanceStatusInfo (Core.Maybe Types.String)
+dbisiStatusType = Lens.field @"statusType"
+{-# DEPRECATED dbisiStatusType "Use generic-lens or generic-optics with 'statusType' instead." #-}
+
+instance Core.FromXML DBInstanceStatusInfo where
   parseXML x =
     DBInstanceStatusInfo'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "Normal")
-      Lude.<*> (x Lude..@? "StatusType")
-      Lude.<*> (x Lude..@? "Message")
+      Core.<$> (x Core..@? "Message")
+      Core.<*> (x Core..@? "Normal")
+      Core.<*> (x Core..@? "Status")
+      Core.<*> (x Core..@? "StatusType")

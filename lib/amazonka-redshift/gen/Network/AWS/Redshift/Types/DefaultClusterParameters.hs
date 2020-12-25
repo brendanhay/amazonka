@@ -18,70 +18,65 @@ module Network.AWS.Redshift.Types.DefaultClusterParameters
 
     -- * Lenses
     dcpMarker,
-    dcpParameters,
     dcpParameterGroupFamily,
+    dcpParameters,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.Parameter
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.Parameter as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes the default cluster parameters for a parameter group family.
 --
 -- /See:/ 'mkDefaultClusterParameters' smart constructor.
 data DefaultClusterParameters = DefaultClusterParameters'
   { -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
-    marker :: Lude.Maybe Lude.Text,
-    -- | The list of cluster default parameters.
-    parameters :: Lude.Maybe [Parameter],
+    marker :: Core.Maybe Types.String,
     -- | The name of the cluster parameter group family to which the engine default parameters apply.
-    parameterGroupFamily :: Lude.Maybe Lude.Text
+    parameterGroupFamily :: Core.Maybe Types.String,
+    -- | The list of cluster default parameters.
+    parameters :: Core.Maybe [Types.Parameter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DefaultClusterParameters' with the minimum fields required to make a request.
---
--- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
--- * 'parameters' - The list of cluster default parameters.
--- * 'parameterGroupFamily' - The name of the cluster parameter group family to which the engine default parameters apply.
+-- | Creates a 'DefaultClusterParameters' value with any optional fields omitted.
 mkDefaultClusterParameters ::
   DefaultClusterParameters
 mkDefaultClusterParameters =
   DefaultClusterParameters'
-    { marker = Lude.Nothing,
-      parameters = Lude.Nothing,
-      parameterGroupFamily = Lude.Nothing
+    { marker = Core.Nothing,
+      parameterGroupFamily = Core.Nothing,
+      parameters = Core.Nothing
     }
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpMarker :: Lens.Lens' DefaultClusterParameters (Lude.Maybe Lude.Text)
-dcpMarker = Lens.lens (marker :: DefaultClusterParameters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DefaultClusterParameters)
+dcpMarker :: Lens.Lens' DefaultClusterParameters (Core.Maybe Types.String)
+dcpMarker = Lens.field @"marker"
 {-# DEPRECATED dcpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The list of cluster default parameters.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpParameters :: Lens.Lens' DefaultClusterParameters (Lude.Maybe [Parameter])
-dcpParameters = Lens.lens (parameters :: DefaultClusterParameters -> Lude.Maybe [Parameter]) (\s a -> s {parameters = a} :: DefaultClusterParameters)
-{-# DEPRECATED dcpParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The name of the cluster parameter group family to which the engine default parameters apply.
 --
 -- /Note:/ Consider using 'parameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpParameterGroupFamily :: Lens.Lens' DefaultClusterParameters (Lude.Maybe Lude.Text)
-dcpParameterGroupFamily = Lens.lens (parameterGroupFamily :: DefaultClusterParameters -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupFamily = a} :: DefaultClusterParameters)
+dcpParameterGroupFamily :: Lens.Lens' DefaultClusterParameters (Core.Maybe Types.String)
+dcpParameterGroupFamily = Lens.field @"parameterGroupFamily"
 {-# DEPRECATED dcpParameterGroupFamily "Use generic-lens or generic-optics with 'parameterGroupFamily' instead." #-}
 
-instance Lude.FromXML DefaultClusterParameters where
+-- | The list of cluster default parameters.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpParameters :: Lens.Lens' DefaultClusterParameters (Core.Maybe [Types.Parameter])
+dcpParameters = Lens.field @"parameters"
+{-# DEPRECATED dcpParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
+instance Core.FromXML DefaultClusterParameters where
   parseXML x =
     DefaultClusterParameters'
-      Lude.<$> (x Lude..@? "Marker")
-      Lude.<*> ( x Lude..@? "Parameters" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Parameter")
-               )
-      Lude.<*> (x Lude..@? "ParameterGroupFamily")
+      Core.<$> (x Core..@? "Marker")
+      Core.<*> (x Core..@? "ParameterGroupFamily")
+      Core.<*> (x Core..@? "Parameters" Core..<@> Core.parseXMLList "Parameter")

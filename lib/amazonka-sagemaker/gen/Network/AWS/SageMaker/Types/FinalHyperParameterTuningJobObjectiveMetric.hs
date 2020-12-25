@@ -24,70 +24,64 @@ module Network.AWS.SageMaker.Types.FinalHyperParameterTuningJobObjectiveMetric
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.HyperParameterTuningJobObjectiveType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.HyperParameterTuningJobObjectiveType as Types
+import qualified Network.AWS.SageMaker.Types.MetricName as Types
 
 -- | Shows the final value for the objective metric for a training job that was launched by a hyperparameter tuning job. You define the objective metric in the @HyperParameterTuningJobObjective@ parameter of 'HyperParameterTuningJobConfig' .
 --
 -- /See:/ 'mkFinalHyperParameterTuningJobObjectiveMetric' smart constructor.
 data FinalHyperParameterTuningJobObjectiveMetric = FinalHyperParameterTuningJobObjectiveMetric'
   { -- | The name of the objective metric.
-    metricName :: Lude.Text,
+    metricName :: Types.MetricName,
     -- | The value of the objective metric.
-    value :: Lude.Double,
+    value :: Core.Double,
     -- | Whether to minimize or maximize the objective metric. Valid values are Minimize and Maximize.
-    type' :: Lude.Maybe HyperParameterTuningJobObjectiveType
+    type' :: Core.Maybe Types.HyperParameterTuningJobObjectiveType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FinalHyperParameterTuningJobObjectiveMetric' with the minimum fields required to make a request.
---
--- * 'metricName' - The name of the objective metric.
--- * 'value' - The value of the objective metric.
--- * 'type'' - Whether to minimize or maximize the objective metric. Valid values are Minimize and Maximize.
+-- | Creates a 'FinalHyperParameterTuningJobObjectiveMetric' value with any optional fields omitted.
 mkFinalHyperParameterTuningJobObjectiveMetric ::
   -- | 'metricName'
-  Lude.Text ->
+  Types.MetricName ->
   -- | 'value'
-  Lude.Double ->
+  Core.Double ->
   FinalHyperParameterTuningJobObjectiveMetric
-mkFinalHyperParameterTuningJobObjectiveMetric pMetricName_ pValue_ =
+mkFinalHyperParameterTuningJobObjectiveMetric metricName value =
   FinalHyperParameterTuningJobObjectiveMetric'
-    { metricName =
-        pMetricName_,
-      value = pValue_,
-      type' = Lude.Nothing
+    { metricName,
+      value,
+      type' = Core.Nothing
     }
 
 -- | The name of the objective metric.
 --
 -- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fhptjomMetricName :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric Lude.Text
-fhptjomMetricName = Lens.lens (metricName :: FinalHyperParameterTuningJobObjectiveMetric -> Lude.Text) (\s a -> s {metricName = a} :: FinalHyperParameterTuningJobObjectiveMetric)
+fhptjomMetricName :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric Types.MetricName
+fhptjomMetricName = Lens.field @"metricName"
 {-# DEPRECATED fhptjomMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
 
 -- | The value of the objective metric.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fhptjomValue :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric Lude.Double
-fhptjomValue = Lens.lens (value :: FinalHyperParameterTuningJobObjectiveMetric -> Lude.Double) (\s a -> s {value = a} :: FinalHyperParameterTuningJobObjectiveMetric)
+fhptjomValue :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric Core.Double
+fhptjomValue = Lens.field @"value"
 {-# DEPRECATED fhptjomValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Whether to minimize or maximize the objective metric. Valid values are Minimize and Maximize.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fhptjomType :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric (Lude.Maybe HyperParameterTuningJobObjectiveType)
-fhptjomType = Lens.lens (type' :: FinalHyperParameterTuningJobObjectiveMetric -> Lude.Maybe HyperParameterTuningJobObjectiveType) (\s a -> s {type' = a} :: FinalHyperParameterTuningJobObjectiveMetric)
+fhptjomType :: Lens.Lens' FinalHyperParameterTuningJobObjectiveMetric (Core.Maybe Types.HyperParameterTuningJobObjectiveType)
+fhptjomType = Lens.field @"type'"
 {-# DEPRECATED fhptjomType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON FinalHyperParameterTuningJobObjectiveMetric where
+instance Core.FromJSON FinalHyperParameterTuningJobObjectiveMetric where
   parseJSON =
-    Lude.withObject
-      "FinalHyperParameterTuningJobObjectiveMetric"
-      ( \x ->
-          FinalHyperParameterTuningJobObjectiveMetric'
-            Lude.<$> (x Lude..: "MetricName")
-            Lude.<*> (x Lude..: "Value")
-            Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "FinalHyperParameterTuningJobObjectiveMetric" Core.$
+      \x ->
+        FinalHyperParameterTuningJobObjectiveMetric'
+          Core.<$> (x Core..: "MetricName")
+          Core.<*> (x Core..: "Value")
+          Core.<*> (x Core..:? "Type")

@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Scte35NoRegionalBlackoutFlag
   ( Scte35NoRegionalBlackoutFlag
       ( Scte35NoRegionalBlackoutFlag',
-        RegionalBlackout,
-        NoRegionalBlackout
+        Scte35NoRegionalBlackoutFlagRegionalBlackout,
+        Scte35NoRegionalBlackoutFlagNoRegionalBlackout,
+        fromScte35NoRegionalBlackoutFlag
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Corresponds to the no_regional_blackout_flag parameter. A value of REGIONAL_BLACKOUT corresponds to 0 (false) in the SCTE-35 specification. If you include one of the "restriction" flags then you must include all four of them.
-newtype Scte35NoRegionalBlackoutFlag = Scte35NoRegionalBlackoutFlag' Lude.Text
+newtype Scte35NoRegionalBlackoutFlag = Scte35NoRegionalBlackoutFlag'
+  { fromScte35NoRegionalBlackoutFlag ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RegionalBlackout :: Scte35NoRegionalBlackoutFlag
-pattern RegionalBlackout = Scte35NoRegionalBlackoutFlag' "REGIONAL_BLACKOUT"
+pattern Scte35NoRegionalBlackoutFlagRegionalBlackout :: Scte35NoRegionalBlackoutFlag
+pattern Scte35NoRegionalBlackoutFlagRegionalBlackout = Scte35NoRegionalBlackoutFlag' "REGIONAL_BLACKOUT"
 
-pattern NoRegionalBlackout :: Scte35NoRegionalBlackoutFlag
-pattern NoRegionalBlackout = Scte35NoRegionalBlackoutFlag' "NO_REGIONAL_BLACKOUT"
+pattern Scte35NoRegionalBlackoutFlagNoRegionalBlackout :: Scte35NoRegionalBlackoutFlag
+pattern Scte35NoRegionalBlackoutFlagNoRegionalBlackout = Scte35NoRegionalBlackoutFlag' "NO_REGIONAL_BLACKOUT"
 
 {-# COMPLETE
-  RegionalBlackout,
-  NoRegionalBlackout,
+  Scte35NoRegionalBlackoutFlagRegionalBlackout,
+  Scte35NoRegionalBlackoutFlagNoRegionalBlackout,
   Scte35NoRegionalBlackoutFlag'
   #-}

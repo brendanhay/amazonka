@@ -13,51 +13,56 @@
 module Network.AWS.CodeDeploy.Types.ListStateFilterAction
   ( ListStateFilterAction
       ( ListStateFilterAction',
-        Include,
-        Exclude,
-        Ignore
+        ListStateFilterActionInclude,
+        ListStateFilterActionExclude,
+        ListStateFilterActionIgnore,
+        fromListStateFilterAction
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ListStateFilterAction = ListStateFilterAction' Lude.Text
+newtype ListStateFilterAction = ListStateFilterAction'
+  { fromListStateFilterAction ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Include :: ListStateFilterAction
-pattern Include = ListStateFilterAction' "include"
+pattern ListStateFilterActionInclude :: ListStateFilterAction
+pattern ListStateFilterActionInclude = ListStateFilterAction' "include"
 
-pattern Exclude :: ListStateFilterAction
-pattern Exclude = ListStateFilterAction' "exclude"
+pattern ListStateFilterActionExclude :: ListStateFilterAction
+pattern ListStateFilterActionExclude = ListStateFilterAction' "exclude"
 
-pattern Ignore :: ListStateFilterAction
-pattern Ignore = ListStateFilterAction' "ignore"
+pattern ListStateFilterActionIgnore :: ListStateFilterAction
+pattern ListStateFilterActionIgnore = ListStateFilterAction' "ignore"
 
 {-# COMPLETE
-  Include,
-  Exclude,
-  Ignore,
+  ListStateFilterActionInclude,
+  ListStateFilterActionExclude,
+  ListStateFilterActionIgnore,
   ListStateFilterAction'
   #-}

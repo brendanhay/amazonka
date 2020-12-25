@@ -22,140 +22,118 @@ module Network.AWS.Lightsail.StopInstance
     mkStopInstance,
 
     -- ** Request lenses
-    siForce,
     siInstanceName,
+    siForce,
 
     -- * Destructuring the response
     StopInstanceResponse (..),
     mkStopInstanceResponse,
 
     -- ** Response lenses
-    sirsOperations,
-    sirsResponseStatus,
+    sirrsOperations,
+    sirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopInstance' smart constructor.
 data StopInstance = StopInstance'
-  { -- | When set to @True@ , forces a Lightsail instance that is stuck in a @stopping@ state to stop.
+  { -- | The name of the instance (a virtual private server) to stop.
+    instanceName :: Types.ResourceName,
+    -- | When set to @True@ , forces a Lightsail instance that is stuck in a @stopping@ state to stop.
     --
     -- /Important:/ Only use the @force@ parameter if your instance is stuck in the @stopping@ state. In any other state, your instance should stop normally without adding this parameter to your API request.
-    force :: Lude.Maybe Lude.Bool,
-    -- | The name of the instance (a virtual private server) to stop.
-    instanceName :: Lude.Text
+    force :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopInstance' with the minimum fields required to make a request.
---
--- * 'force' - When set to @True@ , forces a Lightsail instance that is stuck in a @stopping@ state to stop.
---
--- /Important:/ Only use the @force@ parameter if your instance is stuck in the @stopping@ state. In any other state, your instance should stop normally without adding this parameter to your API request.
--- * 'instanceName' - The name of the instance (a virtual private server) to stop.
+-- | Creates a 'StopInstance' value with any optional fields omitted.
 mkStopInstance ::
   -- | 'instanceName'
-  Lude.Text ->
+  Types.ResourceName ->
   StopInstance
-mkStopInstance pInstanceName_ =
-  StopInstance'
-    { force = Lude.Nothing,
-      instanceName = pInstanceName_
-    }
+mkStopInstance instanceName =
+  StopInstance' {instanceName, force = Core.Nothing}
+
+-- | The name of the instance (a virtual private server) to stop.
+--
+-- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siInstanceName :: Lens.Lens' StopInstance Types.ResourceName
+siInstanceName = Lens.field @"instanceName"
+{-# DEPRECATED siInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
 -- | When set to @True@ , forces a Lightsail instance that is stuck in a @stopping@ state to stop.
 --
 -- /Important:/ Only use the @force@ parameter if your instance is stuck in the @stopping@ state. In any other state, your instance should stop normally without adding this parameter to your API request.
 --
 -- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siForce :: Lens.Lens' StopInstance (Lude.Maybe Lude.Bool)
-siForce = Lens.lens (force :: StopInstance -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: StopInstance)
+siForce :: Lens.Lens' StopInstance (Core.Maybe Core.Bool)
+siForce = Lens.field @"force"
 {-# DEPRECATED siForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
--- | The name of the instance (a virtual private server) to stop.
---
--- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siInstanceName :: Lens.Lens' StopInstance Lude.Text
-siInstanceName = Lens.lens (instanceName :: StopInstance -> Lude.Text) (\s a -> s {instanceName = a} :: StopInstance)
-{-# DEPRECATED siInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
+instance Core.FromJSON StopInstance where
+  toJSON StopInstance {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("instanceName" Core..= instanceName),
+            ("force" Core..=) Core.<$> force
+          ]
+      )
 
-instance Lude.AWSRequest StopInstance where
+instance Core.AWSRequest StopInstance where
   type Rs StopInstance = StopInstanceResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.StopInstance")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopInstanceResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.StopInstance" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopInstance where
-  toJSON StopInstance' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("force" Lude..=) Lude.<$> force,
-            Lude.Just ("instanceName" Lude..= instanceName)
-          ]
-      )
-
-instance Lude.ToPath StopInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopInstance where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopInstanceResponse' smart constructor.
 data StopInstanceResponse = StopInstanceResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StopInstanceResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopInstanceResponse' value with any optional fields omitted.
 mkStopInstanceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopInstanceResponse
-mkStopInstanceResponse pResponseStatus_ =
-  StopInstanceResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkStopInstanceResponse responseStatus =
+  StopInstanceResponse' {operations = Core.Nothing, responseStatus}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirsOperations :: Lens.Lens' StopInstanceResponse (Lude.Maybe [Operation])
-sirsOperations = Lens.lens (operations :: StopInstanceResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: StopInstanceResponse)
-{-# DEPRECATED sirsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+sirrsOperations :: Lens.Lens' StopInstanceResponse (Core.Maybe [Types.Operation])
+sirrsOperations = Lens.field @"operations"
+{-# DEPRECATED sirrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirsResponseStatus :: Lens.Lens' StopInstanceResponse Lude.Int
-sirsResponseStatus = Lens.lens (responseStatus :: StopInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopInstanceResponse)
-{-# DEPRECATED sirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sirrsResponseStatus :: Lens.Lens' StopInstanceResponse Core.Int
+sirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

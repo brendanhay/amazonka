@@ -17,52 +17,51 @@ module Network.AWS.ServiceCatalog.Types.ProvisioningParameter
     mkProvisioningParameter,
 
     -- * Lenses
-    ppValue,
     ppKey,
+    ppValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.Key as Types
+import qualified Network.AWS.ServiceCatalog.Types.ParameterValue as Types
 
 -- | Information about a parameter used to provision a product.
 --
 -- /See:/ 'mkProvisioningParameter' smart constructor.
 data ProvisioningParameter = ProvisioningParameter'
-  { -- | The parameter value.
-    value :: Lude.Maybe Lude.Text,
-    -- | The parameter key.
-    key :: Lude.Maybe Lude.Text
+  { -- | The parameter key.
+    key :: Core.Maybe Types.Key,
+    -- | The parameter value.
+    value :: Core.Maybe Types.ParameterValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProvisioningParameter' with the minimum fields required to make a request.
---
--- * 'value' - The parameter value.
--- * 'key' - The parameter key.
+-- | Creates a 'ProvisioningParameter' value with any optional fields omitted.
 mkProvisioningParameter ::
   ProvisioningParameter
 mkProvisioningParameter =
-  ProvisioningParameter' {value = Lude.Nothing, key = Lude.Nothing}
-
--- | The parameter value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppValue :: Lens.Lens' ProvisioningParameter (Lude.Maybe Lude.Text)
-ppValue = Lens.lens (value :: ProvisioningParameter -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ProvisioningParameter)
-{-# DEPRECATED ppValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  ProvisioningParameter' {key = Core.Nothing, value = Core.Nothing}
 
 -- | The parameter key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppKey :: Lens.Lens' ProvisioningParameter (Lude.Maybe Lude.Text)
-ppKey = Lens.lens (key :: ProvisioningParameter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: ProvisioningParameter)
+ppKey :: Lens.Lens' ProvisioningParameter (Core.Maybe Types.Key)
+ppKey = Lens.field @"key"
 {-# DEPRECATED ppKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON ProvisioningParameter where
-  toJSON ProvisioningParameter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Value" Lude..=) Lude.<$> value, ("Key" Lude..=) Lude.<$> key]
+-- | The parameter value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppValue :: Lens.Lens' ProvisioningParameter (Core.Maybe Types.ParameterValue)
+ppValue = Lens.field @"value"
+{-# DEPRECATED ppValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON ProvisioningParameter where
+  toJSON ProvisioningParameter {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Value" Core..=) Core.<$> value]
       )

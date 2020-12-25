@@ -1602,7 +1602,7 @@ responseStartDBCluster =
   res
     "StartDBClusterResponse"
     "fixture/StartDBClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy StartDBCluster)
 
 responseDescribeDBClusterParameterGroups :: DescribeDBClusterParameterGroupsResponse -> TestTree
@@ -1610,7 +1610,7 @@ responseDescribeDBClusterParameterGroups =
   res
     "DescribeDBClusterParameterGroupsResponse"
     "fixture/DescribeDBClusterParameterGroupsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBClusterParameterGroups)
 
 responsePromoteReadReplica :: PromoteReadReplicaResponse -> TestTree
@@ -1618,7 +1618,7 @@ responsePromoteReadReplica =
   res
     "PromoteReadReplicaResponse"
     "fixture/PromoteReadReplicaResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy PromoteReadReplica)
 
 responseDescribeDBEngineVersions :: DescribeDBEngineVersionsResponse -> TestTree
@@ -1626,7 +1626,7 @@ responseDescribeDBEngineVersions =
   res
     "DescribeDBEngineVersionsResponse"
     "fixture/DescribeDBEngineVersionsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBEngineVersions)
 
 responseStopDBInstance :: StopDBInstanceResponse -> TestTree
@@ -1634,7 +1634,7 @@ responseStopDBInstance =
   res
     "StopDBInstanceResponse"
     "fixture/StopDBInstanceResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy StopDBInstance)
 
 responseModifyDBClusterEndpoint :: DBClusterEndpoint -> TestTree
@@ -1642,7 +1642,7 @@ responseModifyDBClusterEndpoint =
   res
     "ModifyDBClusterEndpointResponse"
     "fixture/ModifyDBClusterEndpointResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyDBClusterEndpoint)
 
 responseCopyDBSnapshot :: CopyDBSnapshotResponse -> TestTree
@@ -1650,7 +1650,7 @@ responseCopyDBSnapshot =
   res
     "CopyDBSnapshotResponse"
     "fixture/CopyDBSnapshotResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CopyDBSnapshot)
 
 responseAddSourceIdentifierToSubscription :: AddSourceIdentifierToSubscriptionResponse -> TestTree
@@ -1658,7 +1658,7 @@ responseAddSourceIdentifierToSubscription =
   res
     "AddSourceIdentifierToSubscriptionResponse"
     "fixture/AddSourceIdentifierToSubscriptionResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy AddSourceIdentifierToSubscription)
 
 responseModifyDBInstance :: ModifyDBInstanceResponse -> TestTree
@@ -1666,7 +1666,7 @@ responseModifyDBInstance =
   res
     "ModifyDBInstanceResponse"
     "fixture/ModifyDBInstanceResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyDBInstance)
 
 responseModifyEventSubscription :: ModifyEventSubscriptionResponse -> TestTree
@@ -1674,7 +1674,7 @@ responseModifyEventSubscription =
   res
     "ModifyEventSubscriptionResponse"
     "fixture/ModifyEventSubscriptionResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyEventSubscription)
 
 responseResetDBClusterParameterGroup :: DBClusterParameterGroupNameMessage -> TestTree
@@ -1682,7 +1682,7 @@ responseResetDBClusterParameterGroup =
   res
     "ResetDBClusterParameterGroupResponse"
     "fixture/ResetDBClusterParameterGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ResetDBClusterParameterGroup)
 
 responseDescribeCustomAvailabilityZones :: DescribeCustomAvailabilityZonesResponse -> TestTree
@@ -1690,7 +1690,7 @@ responseDescribeCustomAvailabilityZones =
   res
     "DescribeCustomAvailabilityZonesResponse"
     "fixture/DescribeCustomAvailabilityZonesResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCustomAvailabilityZones)
 
 responseRestoreDBClusterFromS3 :: RestoreDBClusterFromS3Response -> TestTree
@@ -1698,7 +1698,7 @@ responseRestoreDBClusterFromS3 =
   res
     "RestoreDBClusterFromS3Response"
     "fixture/RestoreDBClusterFromS3Response.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RestoreDBClusterFromS3)
 
 responseDescribeEvents :: DescribeEventsResponse -> TestTree
@@ -1706,7 +1706,7 @@ responseDescribeEvents =
   res
     "DescribeEventsResponse"
     "fixture/DescribeEventsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEvents)
 
 responseDescribeEngineDefaultParameters :: DescribeEngineDefaultParametersResponse -> TestTree
@@ -1714,7 +1714,7 @@ responseDescribeEngineDefaultParameters =
   res
     "DescribeEngineDefaultParametersResponse"
     "fixture/DescribeEngineDefaultParametersResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEngineDefaultParameters)
 
 responseDescribeOptionGroups :: DescribeOptionGroupsResponse -> TestTree
@@ -1722,7 +1722,7 @@ responseDescribeOptionGroups =
   res
     "DescribeOptionGroupsResponse"
     "fixture/DescribeOptionGroupsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeOptionGroups)
 
 responseDescribeDBLogFiles :: DescribeDBLogFilesResponse -> TestTree
@@ -1730,7 +1730,7 @@ responseDescribeDBLogFiles =
   res
     "DescribeDBLogFilesResponse"
     "fixture/DescribeDBLogFilesResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBLogFiles)
 
 responseDescribeDBClusters :: DescribeDBClustersResponse -> TestTree
@@ -1738,7 +1738,7 @@ responseDescribeDBClusters =
   res
     "DescribeDBClustersResponse"
     "fixture/DescribeDBClustersResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBClusters)
 
 responseModifyDBSubnetGroup :: ModifyDBSubnetGroupResponse -> TestTree
@@ -1746,7 +1746,7 @@ responseModifyDBSubnetGroup =
   res
     "ModifyDBSubnetGroupResponse"
     "fixture/ModifyDBSubnetGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyDBSubnetGroup)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -1754,7 +1754,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseDeleteOptionGroup :: DeleteOptionGroupResponse -> TestTree
@@ -1762,7 +1762,7 @@ responseDeleteOptionGroup =
   res
     "DeleteOptionGroupResponse"
     "fixture/DeleteOptionGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteOptionGroup)
 
 responseDeleteDBCluster :: DeleteDBClusterResponse -> TestTree
@@ -1770,7 +1770,7 @@ responseDeleteDBCluster =
   res
     "DeleteDBClusterResponse"
     "fixture/DeleteDBClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDBCluster)
 
 responseDescribeReservedDBInstances :: DescribeReservedDBInstancesResponse -> TestTree
@@ -1778,7 +1778,7 @@ responseDescribeReservedDBInstances =
   res
     "DescribeReservedDBInstancesResponse"
     "fixture/DescribeReservedDBInstancesResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReservedDBInstances)
 
 responseCopyDBParameterGroup :: CopyDBParameterGroupResponse -> TestTree
@@ -1786,7 +1786,7 @@ responseCopyDBParameterGroup =
   res
     "CopyDBParameterGroupResponse"
     "fixture/CopyDBParameterGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CopyDBParameterGroup)
 
 responseRemoveSourceIdentifierFromSubscription :: RemoveSourceIdentifierFromSubscriptionResponse -> TestTree
@@ -1794,7 +1794,7 @@ responseRemoveSourceIdentifierFromSubscription =
   res
     "RemoveSourceIdentifierFromSubscriptionResponse"
     "fixture/RemoveSourceIdentifierFromSubscriptionResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RemoveSourceIdentifierFromSubscription)
 
 responseDeleteCustomAvailabilityZone :: DeleteCustomAvailabilityZoneResponse -> TestTree
@@ -1802,7 +1802,7 @@ responseDeleteCustomAvailabilityZone =
   res
     "DeleteCustomAvailabilityZoneResponse"
     "fixture/DeleteCustomAvailabilityZoneResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCustomAvailabilityZone)
 
 responseDescribeDBProxyTargets :: DescribeDBProxyTargetsResponse -> TestTree
@@ -1810,7 +1810,7 @@ responseDescribeDBProxyTargets =
   res
     "DescribeDBProxyTargetsResponse"
     "fixture/DescribeDBProxyTargetsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBProxyTargets)
 
 responseDescribeEngineDefaultClusterParameters :: DescribeEngineDefaultClusterParametersResponse -> TestTree
@@ -1818,7 +1818,7 @@ responseDescribeEngineDefaultClusterParameters =
   res
     "DescribeEngineDefaultClusterParametersResponse"
     "fixture/DescribeEngineDefaultClusterParametersResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEngineDefaultClusterParameters)
 
 responseDescribeDBSnapshotAttributes :: DescribeDBSnapshotAttributesResponse -> TestTree
@@ -1826,7 +1826,7 @@ responseDescribeDBSnapshotAttributes =
   res
     "DescribeDBSnapshotAttributesResponse"
     "fixture/DescribeDBSnapshotAttributesResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBSnapshotAttributes)
 
 responseCreateCustomAvailabilityZone :: CreateCustomAvailabilityZoneResponse -> TestTree
@@ -1834,7 +1834,7 @@ responseCreateCustomAvailabilityZone =
   res
     "CreateCustomAvailabilityZoneResponse"
     "fixture/CreateCustomAvailabilityZoneResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateCustomAvailabilityZone)
 
 responseBacktrackDBCluster :: DBClusterBacktrack -> TestTree
@@ -1842,7 +1842,7 @@ responseBacktrackDBCluster =
   res
     "BacktrackDBClusterResponse"
     "fixture/BacktrackDBClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy BacktrackDBCluster)
 
 responseDeleteGlobalCluster :: DeleteGlobalClusterResponse -> TestTree
@@ -1850,7 +1850,7 @@ responseDeleteGlobalCluster =
   res
     "DeleteGlobalClusterResponse"
     "fixture/DeleteGlobalClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteGlobalCluster)
 
 responsePromoteReadReplicaDBCluster :: PromoteReadReplicaDBClusterResponse -> TestTree
@@ -1858,7 +1858,7 @@ responsePromoteReadReplicaDBCluster =
   res
     "PromoteReadReplicaDBClusterResponse"
     "fixture/PromoteReadReplicaDBClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy PromoteReadReplicaDBCluster)
 
 responseRemoveTagsFromResource :: RemoveTagsFromResourceResponse -> TestTree
@@ -1866,7 +1866,7 @@ responseRemoveTagsFromResource =
   res
     "RemoveTagsFromResourceResponse"
     "fixture/RemoveTagsFromResourceResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RemoveTagsFromResource)
 
 responseRestoreDBInstanceFromDBSnapshot :: RestoreDBInstanceFromDBSnapshotResponse -> TestTree
@@ -1874,7 +1874,7 @@ responseRestoreDBInstanceFromDBSnapshot =
   res
     "RestoreDBInstanceFromDBSnapshotResponse"
     "fixture/RestoreDBInstanceFromDBSnapshotResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RestoreDBInstanceFromDBSnapshot)
 
 responseDeleteDBProxy :: DeleteDBProxyResponse -> TestTree
@@ -1882,7 +1882,7 @@ responseDeleteDBProxy =
   res
     "DeleteDBProxyResponse"
     "fixture/DeleteDBProxyResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDBProxy)
 
 responseCreateEventSubscription :: CreateEventSubscriptionResponse -> TestTree
@@ -1890,7 +1890,7 @@ responseCreateEventSubscription =
   res
     "CreateEventSubscriptionResponse"
     "fixture/CreateEventSubscriptionResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateEventSubscription)
 
 responsePurchaseReservedDBInstancesOffering :: PurchaseReservedDBInstancesOfferingResponse -> TestTree
@@ -1898,7 +1898,7 @@ responsePurchaseReservedDBInstancesOffering =
   res
     "PurchaseReservedDBInstancesOfferingResponse"
     "fixture/PurchaseReservedDBInstancesOfferingResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy PurchaseReservedDBInstancesOffering)
 
 responseCreateDBInstance :: CreateDBInstanceResponse -> TestTree
@@ -1906,7 +1906,7 @@ responseCreateDBInstance =
   res
     "CreateDBInstanceResponse"
     "fixture/CreateDBInstanceResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDBInstance)
 
 responseDeleteDBClusterParameterGroup :: DeleteDBClusterParameterGroupResponse -> TestTree
@@ -1914,7 +1914,7 @@ responseDeleteDBClusterParameterGroup =
   res
     "DeleteDBClusterParameterGroupResponse"
     "fixture/DeleteDBClusterParameterGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDBClusterParameterGroup)
 
 responseDescribeCertificates :: DescribeCertificatesResponse -> TestTree
@@ -1922,7 +1922,7 @@ responseDescribeCertificates =
   res
     "DescribeCertificatesResponse"
     "fixture/DescribeCertificatesResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCertificates)
 
 responseAuthorizeDBSecurityGroupIngress :: AuthorizeDBSecurityGroupIngressResponse -> TestTree
@@ -1930,7 +1930,7 @@ responseAuthorizeDBSecurityGroupIngress =
   res
     "AuthorizeDBSecurityGroupIngressResponse"
     "fixture/AuthorizeDBSecurityGroupIngressResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy AuthorizeDBSecurityGroupIngress)
 
 responseRemoveRoleFromDBInstance :: RemoveRoleFromDBInstanceResponse -> TestTree
@@ -1938,7 +1938,7 @@ responseRemoveRoleFromDBInstance =
   res
     "RemoveRoleFromDBInstanceResponse"
     "fixture/RemoveRoleFromDBInstanceResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RemoveRoleFromDBInstance)
 
 responseDescribeSourceRegions :: DescribeSourceRegionsResponse -> TestTree
@@ -1946,7 +1946,7 @@ responseDescribeSourceRegions =
   res
     "DescribeSourceRegionsResponse"
     "fixture/DescribeSourceRegionsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSourceRegions)
 
 responseCreateDBClusterEndpoint :: DBClusterEndpoint -> TestTree
@@ -1954,7 +1954,7 @@ responseCreateDBClusterEndpoint =
   res
     "CreateDBClusterEndpointResponse"
     "fixture/CreateDBClusterEndpointResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDBClusterEndpoint)
 
 responseRestoreDBClusterFromSnapshot :: RestoreDBClusterFromSnapshotResponse -> TestTree
@@ -1962,7 +1962,7 @@ responseRestoreDBClusterFromSnapshot =
   res
     "RestoreDBClusterFromSnapshotResponse"
     "fixture/RestoreDBClusterFromSnapshotResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RestoreDBClusterFromSnapshot)
 
 responseDescribeOrderableDBInstanceOptions :: DescribeOrderableDBInstanceOptionsResponse -> TestTree
@@ -1970,7 +1970,7 @@ responseDescribeOrderableDBInstanceOptions =
   res
     "DescribeOrderableDBInstanceOptionsResponse"
     "fixture/DescribeOrderableDBInstanceOptionsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeOrderableDBInstanceOptions)
 
 responseDeleteDBClusterEndpoint :: DBClusterEndpoint -> TestTree
@@ -1978,7 +1978,7 @@ responseDeleteDBClusterEndpoint =
   res
     "DeleteDBClusterEndpointResponse"
     "fixture/DeleteDBClusterEndpointResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDBClusterEndpoint)
 
 responseCreateDBProxy :: CreateDBProxyResponse -> TestTree
@@ -1986,7 +1986,7 @@ responseCreateDBProxy =
   res
     "CreateDBProxyResponse"
     "fixture/CreateDBProxyResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDBProxy)
 
 responseDeleteDBInstanceAutomatedBackup :: DeleteDBInstanceAutomatedBackupResponse -> TestTree
@@ -1994,7 +1994,7 @@ responseDeleteDBInstanceAutomatedBackup =
   res
     "DeleteDBInstanceAutomatedBackupResponse"
     "fixture/DeleteDBInstanceAutomatedBackupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDBInstanceAutomatedBackup)
 
 responseCreateDBClusterParameterGroup :: CreateDBClusterParameterGroupResponse -> TestTree
@@ -2002,7 +2002,7 @@ responseCreateDBClusterParameterGroup =
   res
     "CreateDBClusterParameterGroupResponse"
     "fixture/CreateDBClusterParameterGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDBClusterParameterGroup)
 
 responseCreateDBSnapshot :: CreateDBSnapshotResponse -> TestTree
@@ -2010,7 +2010,7 @@ responseCreateDBSnapshot =
   res
     "CreateDBSnapshotResponse"
     "fixture/CreateDBSnapshotResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDBSnapshot)
 
 responseDeleteEventSubscription :: DeleteEventSubscriptionResponse -> TestTree
@@ -2018,7 +2018,7 @@ responseDeleteEventSubscription =
   res
     "DeleteEventSubscriptionResponse"
     "fixture/DeleteEventSubscriptionResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEventSubscription)
 
 responseDescribeDBClusterBacktracks :: DescribeDBClusterBacktracksResponse -> TestTree
@@ -2026,7 +2026,7 @@ responseDescribeDBClusterBacktracks =
   res
     "DescribeDBClusterBacktracksResponse"
     "fixture/DescribeDBClusterBacktracksResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBClusterBacktracks)
 
 responseDescribeDBParameterGroups :: DescribeDBParameterGroupsResponse -> TestTree
@@ -2034,7 +2034,7 @@ responseDescribeDBParameterGroups =
   res
     "DescribeDBParameterGroupsResponse"
     "fixture/DescribeDBParameterGroupsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBParameterGroups)
 
 responseModifyDBSnapshotAttribute :: ModifyDBSnapshotAttributeResponse -> TestTree
@@ -2042,7 +2042,7 @@ responseModifyDBSnapshotAttribute =
   res
     "ModifyDBSnapshotAttributeResponse"
     "fixture/ModifyDBSnapshotAttributeResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyDBSnapshotAttribute)
 
 responseDescribeDBInstanceAutomatedBackups :: DescribeDBInstanceAutomatedBackupsResponse -> TestTree
@@ -2050,7 +2050,7 @@ responseDescribeDBInstanceAutomatedBackups =
   res
     "DescribeDBInstanceAutomatedBackupsResponse"
     "fixture/DescribeDBInstanceAutomatedBackupsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBInstanceAutomatedBackups)
 
 responseRemoveFromGlobalCluster :: RemoveFromGlobalClusterResponse -> TestTree
@@ -2058,7 +2058,7 @@ responseRemoveFromGlobalCluster =
   res
     "RemoveFromGlobalClusterResponse"
     "fixture/RemoveFromGlobalClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RemoveFromGlobalCluster)
 
 responseAddRoleToDBInstance :: AddRoleToDBInstanceResponse -> TestTree
@@ -2066,7 +2066,7 @@ responseAddRoleToDBInstance =
   res
     "AddRoleToDBInstanceResponse"
     "fixture/AddRoleToDBInstanceResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy AddRoleToDBInstance)
 
 responseDeleteDBClusterSnapshot :: DeleteDBClusterSnapshotResponse -> TestTree
@@ -2074,7 +2074,7 @@ responseDeleteDBClusterSnapshot =
   res
     "DeleteDBClusterSnapshotResponse"
     "fixture/DeleteDBClusterSnapshotResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDBClusterSnapshot)
 
 responseDescribeValidDBInstanceModifications :: DescribeValidDBInstanceModificationsResponse -> TestTree
@@ -2082,7 +2082,7 @@ responseDescribeValidDBInstanceModifications =
   res
     "DescribeValidDBInstanceModificationsResponse"
     "fixture/DescribeValidDBInstanceModificationsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeValidDBInstanceModifications)
 
 responseDescribeDBClusterEndpoints :: DescribeDBClusterEndpointsResponse -> TestTree
@@ -2090,7 +2090,7 @@ responseDescribeDBClusterEndpoints =
   res
     "DescribeDBClusterEndpointsResponse"
     "fixture/DescribeDBClusterEndpointsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBClusterEndpoints)
 
 responseDescribeOptionGroupOptions :: DescribeOptionGroupOptionsResponse -> TestTree
@@ -2098,7 +2098,7 @@ responseDescribeOptionGroupOptions =
   res
     "DescribeOptionGroupOptionsResponse"
     "fixture/DescribeOptionGroupOptionsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeOptionGroupOptions)
 
 responseDescribeEventSubscriptions :: DescribeEventSubscriptionsResponse -> TestTree
@@ -2106,7 +2106,7 @@ responseDescribeEventSubscriptions =
   res
     "DescribeEventSubscriptionsResponse"
     "fixture/DescribeEventSubscriptionsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEventSubscriptions)
 
 responseAddTagsToResource :: AddTagsToResourceResponse -> TestTree
@@ -2114,7 +2114,7 @@ responseAddTagsToResource =
   res
     "AddTagsToResourceResponse"
     "fixture/AddTagsToResourceResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy AddTagsToResource)
 
 responseDescribeDBParameters :: DescribeDBParametersResponse -> TestTree
@@ -2122,7 +2122,7 @@ responseDescribeDBParameters =
   res
     "DescribeDBParametersResponse"
     "fixture/DescribeDBParametersResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBParameters)
 
 responseStopActivityStream :: StopActivityStreamResponse -> TestTree
@@ -2130,7 +2130,7 @@ responseStopActivityStream =
   res
     "StopActivityStreamResponse"
     "fixture/StopActivityStreamResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy StopActivityStream)
 
 responseCreateDBClusterSnapshot :: CreateDBClusterSnapshotResponse -> TestTree
@@ -2138,7 +2138,7 @@ responseCreateDBClusterSnapshot =
   res
     "CreateDBClusterSnapshotResponse"
     "fixture/CreateDBClusterSnapshotResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDBClusterSnapshot)
 
 responseDescribeDBSnapshots :: DescribeDBSnapshotsResponse -> TestTree
@@ -2146,7 +2146,7 @@ responseDescribeDBSnapshots =
   res
     "DescribeDBSnapshotsResponse"
     "fixture/DescribeDBSnapshotsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBSnapshots)
 
 responseModifyDBProxyTargetGroup :: ModifyDBProxyTargetGroupResponse -> TestTree
@@ -2154,7 +2154,7 @@ responseModifyDBProxyTargetGroup =
   res
     "ModifyDBProxyTargetGroupResponse"
     "fixture/ModifyDBProxyTargetGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyDBProxyTargetGroup)
 
 responseDescribeDBSubnetGroups :: DescribeDBSubnetGroupsResponse -> TestTree
@@ -2162,7 +2162,7 @@ responseDescribeDBSubnetGroups =
   res
     "DescribeDBSubnetGroupsResponse"
     "fixture/DescribeDBSubnetGroupsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBSubnetGroups)
 
 responseModifyOptionGroup :: ModifyOptionGroupResponse -> TestTree
@@ -2170,7 +2170,7 @@ responseModifyOptionGroup =
   res
     "ModifyOptionGroupResponse"
     "fixture/ModifyOptionGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyOptionGroup)
 
 responseStopDBCluster :: StopDBClusterResponse -> TestTree
@@ -2178,7 +2178,7 @@ responseStopDBCluster =
   res
     "StopDBClusterResponse"
     "fixture/StopDBClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy StopDBCluster)
 
 responseCreateDBParameterGroup :: CreateDBParameterGroupResponse -> TestTree
@@ -2186,7 +2186,7 @@ responseCreateDBParameterGroup =
   res
     "CreateDBParameterGroupResponse"
     "fixture/CreateDBParameterGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDBParameterGroup)
 
 responseModifyDBClusterSnapshotAttribute :: ModifyDBClusterSnapshotAttributeResponse -> TestTree
@@ -2194,7 +2194,7 @@ responseModifyDBClusterSnapshotAttribute =
   res
     "ModifyDBClusterSnapshotAttributeResponse"
     "fixture/ModifyDBClusterSnapshotAttributeResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyDBClusterSnapshotAttribute)
 
 responseModifyDBCluster :: ModifyDBClusterResponse -> TestTree
@@ -2202,7 +2202,7 @@ responseModifyDBCluster =
   res
     "ModifyDBClusterResponse"
     "fixture/ModifyDBClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyDBCluster)
 
 responseCopyDBClusterParameterGroup :: CopyDBClusterParameterGroupResponse -> TestTree
@@ -2210,7 +2210,7 @@ responseCopyDBClusterParameterGroup =
   res
     "CopyDBClusterParameterGroupResponse"
     "fixture/CopyDBClusterParameterGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CopyDBClusterParameterGroup)
 
 responseDescribeEventCategories :: DescribeEventCategoriesResponse -> TestTree
@@ -2218,7 +2218,7 @@ responseDescribeEventCategories =
   res
     "DescribeEventCategoriesResponse"
     "fixture/DescribeEventCategoriesResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEventCategories)
 
 responseDescribeGlobalClusters :: DescribeGlobalClustersResponse -> TestTree
@@ -2226,7 +2226,7 @@ responseDescribeGlobalClusters =
   res
     "DescribeGlobalClustersResponse"
     "fixture/DescribeGlobalClustersResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeGlobalClusters)
 
 responseStartDBInstance :: StartDBInstanceResponse -> TestTree
@@ -2234,7 +2234,7 @@ responseStartDBInstance =
   res
     "StartDBInstanceResponse"
     "fixture/StartDBInstanceResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy StartDBInstance)
 
 responseDescribeExportTasks :: DescribeExportTasksResponse -> TestTree
@@ -2242,7 +2242,7 @@ responseDescribeExportTasks =
   res
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeExportTasks)
 
 responseCancelExportTask :: ExportTask -> TestTree
@@ -2250,7 +2250,7 @@ responseCancelExportTask =
   res
     "CancelExportTaskResponse"
     "fixture/CancelExportTaskResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CancelExportTask)
 
 responseModifyDBClusterParameterGroup :: DBClusterParameterGroupNameMessage -> TestTree
@@ -2258,7 +2258,7 @@ responseModifyDBClusterParameterGroup =
   res
     "ModifyDBClusterParameterGroupResponse"
     "fixture/ModifyDBClusterParameterGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyDBClusterParameterGroup)
 
 responseRestoreDBInstanceToPointInTime :: RestoreDBInstanceToPointInTimeResponse -> TestTree
@@ -2266,7 +2266,7 @@ responseRestoreDBInstanceToPointInTime =
   res
     "RestoreDBInstanceToPointInTimeResponse"
     "fixture/RestoreDBInstanceToPointInTimeResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RestoreDBInstanceToPointInTime)
 
 responseDescribeDBClusterSnapshotAttributes :: DescribeDBClusterSnapshotAttributesResponse -> TestTree
@@ -2274,7 +2274,7 @@ responseDescribeDBClusterSnapshotAttributes =
   res
     "DescribeDBClusterSnapshotAttributesResponse"
     "fixture/DescribeDBClusterSnapshotAttributesResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBClusterSnapshotAttributes)
 
 responseModifyDBSnapshot :: ModifyDBSnapshotResponse -> TestTree
@@ -2282,7 +2282,7 @@ responseModifyDBSnapshot =
   res
     "ModifyDBSnapshotResponse"
     "fixture/ModifyDBSnapshotResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyDBSnapshot)
 
 responseDescribeDBProxyTargetGroups :: DescribeDBProxyTargetGroupsResponse -> TestTree
@@ -2290,7 +2290,7 @@ responseDescribeDBProxyTargetGroups =
   res
     "DescribeDBProxyTargetGroupsResponse"
     "fixture/DescribeDBProxyTargetGroupsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBProxyTargetGroups)
 
 responseModifyDBProxy :: ModifyDBProxyResponse -> TestTree
@@ -2298,7 +2298,7 @@ responseModifyDBProxy =
   res
     "ModifyDBProxyResponse"
     "fixture/ModifyDBProxyResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyDBProxy)
 
 responseDescribePendingMaintenanceActions :: DescribePendingMaintenanceActionsResponse -> TestTree
@@ -2306,7 +2306,7 @@ responseDescribePendingMaintenanceActions =
   res
     "DescribePendingMaintenanceActionsResponse"
     "fixture/DescribePendingMaintenanceActionsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribePendingMaintenanceActions)
 
 responseAddRoleToDBCluster :: AddRoleToDBClusterResponse -> TestTree
@@ -2314,7 +2314,7 @@ responseAddRoleToDBCluster =
   res
     "AddRoleToDBClusterResponse"
     "fixture/AddRoleToDBClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy AddRoleToDBCluster)
 
 responseCopyDBClusterSnapshot :: CopyDBClusterSnapshotResponse -> TestTree
@@ -2322,7 +2322,7 @@ responseCopyDBClusterSnapshot =
   res
     "CopyDBClusterSnapshotResponse"
     "fixture/CopyDBClusterSnapshotResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CopyDBClusterSnapshot)
 
 responseImportInstallationMedia :: InstallationMedia -> TestTree
@@ -2330,7 +2330,7 @@ responseImportInstallationMedia =
   res
     "ImportInstallationMediaResponse"
     "fixture/ImportInstallationMediaResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ImportInstallationMedia)
 
 responseCreateGlobalCluster :: CreateGlobalClusterResponse -> TestTree
@@ -2338,7 +2338,7 @@ responseCreateGlobalCluster =
   res
     "CreateGlobalClusterResponse"
     "fixture/CreateGlobalClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateGlobalCluster)
 
 responseResetDBParameterGroup :: DBParameterGroupNameMessage -> TestTree
@@ -2346,7 +2346,7 @@ responseResetDBParameterGroup =
   res
     "ResetDBParameterGroupResponse"
     "fixture/ResetDBParameterGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ResetDBParameterGroup)
 
 responseDescribeInstallationMedia :: DescribeInstallationMediaResponse -> TestTree
@@ -2354,7 +2354,7 @@ responseDescribeInstallationMedia =
   res
     "DescribeInstallationMediaResponse"
     "fixture/DescribeInstallationMediaResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeInstallationMedia)
 
 responseDeregisterDBProxyTargets :: DeregisterDBProxyTargetsResponse -> TestTree
@@ -2362,7 +2362,7 @@ responseDeregisterDBProxyTargets =
   res
     "DeregisterDBProxyTargetsResponse"
     "fixture/DeregisterDBProxyTargetsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterDBProxyTargets)
 
 responseCreateDBCluster :: CreateDBClusterResponse -> TestTree
@@ -2370,7 +2370,7 @@ responseCreateDBCluster =
   res
     "CreateDBClusterResponse"
     "fixture/CreateDBClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDBCluster)
 
 responseRemoveRoleFromDBCluster :: RemoveRoleFromDBClusterResponse -> TestTree
@@ -2378,7 +2378,7 @@ responseRemoveRoleFromDBCluster =
   res
     "RemoveRoleFromDBClusterResponse"
     "fixture/RemoveRoleFromDBClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RemoveRoleFromDBCluster)
 
 responseFailoverDBCluster :: FailoverDBClusterResponse -> TestTree
@@ -2386,7 +2386,7 @@ responseFailoverDBCluster =
   res
     "FailoverDBClusterResponse"
     "fixture/FailoverDBClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy FailoverDBCluster)
 
 responseRevokeDBSecurityGroupIngress :: RevokeDBSecurityGroupIngressResponse -> TestTree
@@ -2394,7 +2394,7 @@ responseRevokeDBSecurityGroupIngress =
   res
     "RevokeDBSecurityGroupIngressResponse"
     "fixture/RevokeDBSecurityGroupIngressResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RevokeDBSecurityGroupIngress)
 
 responseModifyDBParameterGroup :: DBParameterGroupNameMessage -> TestTree
@@ -2402,7 +2402,7 @@ responseModifyDBParameterGroup =
   res
     "ModifyDBParameterGroupResponse"
     "fixture/ModifyDBParameterGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyDBParameterGroup)
 
 responseApplyPendingMaintenanceAction :: ApplyPendingMaintenanceActionResponse -> TestTree
@@ -2410,7 +2410,7 @@ responseApplyPendingMaintenanceAction =
   res
     "ApplyPendingMaintenanceActionResponse"
     "fixture/ApplyPendingMaintenanceActionResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ApplyPendingMaintenanceAction)
 
 responseCreateOptionGroup :: CreateOptionGroupResponse -> TestTree
@@ -2418,7 +2418,7 @@ responseCreateOptionGroup =
   res
     "CreateOptionGroupResponse"
     "fixture/CreateOptionGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateOptionGroup)
 
 responseDescribeAccountAttributes :: DescribeAccountAttributesResponse -> TestTree
@@ -2426,7 +2426,7 @@ responseDescribeAccountAttributes =
   res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccountAttributes)
 
 responseDeleteDBSnapshot :: DeleteDBSnapshotResponse -> TestTree
@@ -2434,7 +2434,7 @@ responseDeleteDBSnapshot =
   res
     "DeleteDBSnapshotResponse"
     "fixture/DeleteDBSnapshotResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDBSnapshot)
 
 responseDescribeDBClusterParameters :: DescribeDBClusterParametersResponse -> TestTree
@@ -2442,7 +2442,7 @@ responseDescribeDBClusterParameters =
   res
     "DescribeDBClusterParametersResponse"
     "fixture/DescribeDBClusterParametersResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBClusterParameters)
 
 responseDeleteDBSubnetGroup :: DeleteDBSubnetGroupResponse -> TestTree
@@ -2450,7 +2450,7 @@ responseDeleteDBSubnetGroup =
   res
     "DeleteDBSubnetGroupResponse"
     "fixture/DeleteDBSubnetGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDBSubnetGroup)
 
 responseCreateDBSecurityGroup :: CreateDBSecurityGroupResponse -> TestTree
@@ -2458,7 +2458,7 @@ responseCreateDBSecurityGroup =
   res
     "CreateDBSecurityGroupResponse"
     "fixture/CreateDBSecurityGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDBSecurityGroup)
 
 responseModifyCertificates :: ModifyCertificatesResponse -> TestTree
@@ -2466,7 +2466,7 @@ responseModifyCertificates =
   res
     "ModifyCertificatesResponse"
     "fixture/ModifyCertificatesResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyCertificates)
 
 responseDescribeDBClusterSnapshots :: DescribeDBClusterSnapshotsResponse -> TestTree
@@ -2474,7 +2474,7 @@ responseDescribeDBClusterSnapshots =
   res
     "DescribeDBClusterSnapshotsResponse"
     "fixture/DescribeDBClusterSnapshotsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBClusterSnapshots)
 
 responseRebootDBInstance :: RebootDBInstanceResponse -> TestTree
@@ -2482,7 +2482,7 @@ responseRebootDBInstance =
   res
     "RebootDBInstanceResponse"
     "fixture/RebootDBInstanceResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RebootDBInstance)
 
 responseCreateDBSubnetGroup :: CreateDBSubnetGroupResponse -> TestTree
@@ -2490,7 +2490,7 @@ responseCreateDBSubnetGroup =
   res
     "CreateDBSubnetGroupResponse"
     "fixture/CreateDBSubnetGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDBSubnetGroup)
 
 responseDescribeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferingsResponse -> TestTree
@@ -2498,7 +2498,7 @@ responseDescribeReservedDBInstancesOfferings =
   res
     "DescribeReservedDBInstancesOfferingsResponse"
     "fixture/DescribeReservedDBInstancesOfferingsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeReservedDBInstancesOfferings)
 
 responseDeleteDBSecurityGroup :: DeleteDBSecurityGroupResponse -> TestTree
@@ -2506,7 +2506,7 @@ responseDeleteDBSecurityGroup =
   res
     "DeleteDBSecurityGroupResponse"
     "fixture/DeleteDBSecurityGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDBSecurityGroup)
 
 responseDeleteDBInstance :: DeleteDBInstanceResponse -> TestTree
@@ -2514,7 +2514,7 @@ responseDeleteDBInstance =
   res
     "DeleteDBInstanceResponse"
     "fixture/DeleteDBInstanceResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDBInstance)
 
 responseStartActivityStream :: StartActivityStreamResponse -> TestTree
@@ -2522,7 +2522,7 @@ responseStartActivityStream =
   res
     "StartActivityStreamResponse"
     "fixture/StartActivityStreamResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy StartActivityStream)
 
 responseCreateDBInstanceReadReplica :: CreateDBInstanceReadReplicaResponse -> TestTree
@@ -2530,7 +2530,7 @@ responseCreateDBInstanceReadReplica =
   res
     "CreateDBInstanceReadReplicaResponse"
     "fixture/CreateDBInstanceReadReplicaResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDBInstanceReadReplica)
 
 responseDeleteDBParameterGroup :: DeleteDBParameterGroupResponse -> TestTree
@@ -2538,7 +2538,7 @@ responseDeleteDBParameterGroup =
   res
     "DeleteDBParameterGroupResponse"
     "fixture/DeleteDBParameterGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDBParameterGroup)
 
 responseModifyCurrentDBClusterCapacity :: ModifyCurrentDBClusterCapacityResponse -> TestTree
@@ -2546,7 +2546,7 @@ responseModifyCurrentDBClusterCapacity =
   res
     "ModifyCurrentDBClusterCapacityResponse"
     "fixture/ModifyCurrentDBClusterCapacityResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyCurrentDBClusterCapacity)
 
 responseModifyGlobalCluster :: ModifyGlobalClusterResponse -> TestTree
@@ -2554,7 +2554,7 @@ responseModifyGlobalCluster =
   res
     "ModifyGlobalClusterResponse"
     "fixture/ModifyGlobalClusterResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy ModifyGlobalCluster)
 
 responseRegisterDBProxyTargets :: RegisterDBProxyTargetsResponse -> TestTree
@@ -2562,7 +2562,7 @@ responseRegisterDBProxyTargets =
   res
     "RegisterDBProxyTargetsResponse"
     "fixture/RegisterDBProxyTargetsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RegisterDBProxyTargets)
 
 responseDescribeDBSecurityGroups :: DescribeDBSecurityGroupsResponse -> TestTree
@@ -2570,7 +2570,7 @@ responseDescribeDBSecurityGroups =
   res
     "DescribeDBSecurityGroupsResponse"
     "fixture/DescribeDBSecurityGroupsResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBSecurityGroups)
 
 responseCopyOptionGroup :: CopyOptionGroupResponse -> TestTree
@@ -2578,7 +2578,7 @@ responseCopyOptionGroup =
   res
     "CopyOptionGroupResponse"
     "fixture/CopyOptionGroupResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy CopyOptionGroup)
 
 responseRestoreDBClusterToPointInTime :: RestoreDBClusterToPointInTimeResponse -> TestTree
@@ -2586,7 +2586,7 @@ responseRestoreDBClusterToPointInTime =
   res
     "RestoreDBClusterToPointInTimeResponse"
     "fixture/RestoreDBClusterToPointInTimeResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RestoreDBClusterToPointInTime)
 
 responseDeleteInstallationMedia :: InstallationMedia -> TestTree
@@ -2594,7 +2594,7 @@ responseDeleteInstallationMedia =
   res
     "DeleteInstallationMediaResponse"
     "fixture/DeleteInstallationMediaResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteInstallationMedia)
 
 responseDescribeDBInstances :: DescribeDBInstancesResponse -> TestTree
@@ -2602,7 +2602,7 @@ responseDescribeDBInstances =
   res
     "DescribeDBInstancesResponse"
     "fixture/DescribeDBInstancesResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBInstances)
 
 responseRestoreDBInstanceFromS3 :: RestoreDBInstanceFromS3Response -> TestTree
@@ -2610,7 +2610,7 @@ responseRestoreDBInstanceFromS3 =
   res
     "RestoreDBInstanceFromS3Response"
     "fixture/RestoreDBInstanceFromS3Response.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy RestoreDBInstanceFromS3)
 
 responseDownloadDBLogFilePortion :: DownloadDBLogFilePortionResponse -> TestTree
@@ -2618,7 +2618,7 @@ responseDownloadDBLogFilePortion =
   res
     "DownloadDBLogFilePortionResponse"
     "fixture/DownloadDBLogFilePortionResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DownloadDBLogFilePortion)
 
 responseDescribeDBProxies :: DescribeDBProxiesResponse -> TestTree
@@ -2626,7 +2626,7 @@ responseDescribeDBProxies =
   res
     "DescribeDBProxiesResponse"
     "fixture/DescribeDBProxiesResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDBProxies)
 
 responseStartExportTask :: ExportTask -> TestTree
@@ -2634,5 +2634,5 @@ responseStartExportTask =
   res
     "StartExportTaskResponse"
     "fixture/StartExportTaskResponse.proto"
-    rdsService
+    mkServiceConfig
     (Proxy :: Proxy StartExportTask)

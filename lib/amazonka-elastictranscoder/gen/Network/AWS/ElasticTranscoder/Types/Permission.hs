@@ -18,13 +18,16 @@ module Network.AWS.ElasticTranscoder.Types.Permission
 
     -- * Lenses
     pAccess,
-    pGranteeType,
     pGrantee,
+    pGranteeType,
   )
 where
 
+import qualified Network.AWS.ElasticTranscoder.Types.AccessControl as Types
+import qualified Network.AWS.ElasticTranscoder.Types.Grantee as Types
+import qualified Network.AWS.ElasticTranscoder.Types.GranteeType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The @Permission@ structure.
 --
@@ -43,7 +46,9 @@ data Permission = Permission'
     --
     --
     --     * @FULL_CONTROL@ : The grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
-    access :: Lude.Maybe [Lude.Text],
+    access :: Core.Maybe [Types.AccessControl],
+    -- | The AWS user or group that you want to have access to transcoded files and playlists. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group.
+    grantee :: Core.Maybe Types.Grantee,
     -- | The type of value that appears in the Grantee object:
     --
     --
@@ -55,51 +60,19 @@ data Permission = Permission'
     --
     --
     --     * @Group@ : One of the following predefined Amazon S3 groups: @AllUsers@ , @AuthenticatedUsers@ , or @LogDelivery@ .
-    granteeType :: Lude.Maybe Lude.Text,
-    -- | The AWS user or group that you want to have access to transcoded files and playlists. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group.
-    grantee :: Lude.Maybe Lude.Text
+    granteeType :: Core.Maybe Types.GranteeType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Permission' with the minimum fields required to make a request.
---
--- * 'access' - The permission that you want to give to the AWS user that is listed in Grantee. Valid values include:
---
---
---     * @READ@ : The grantee can read the thumbnails and metadata for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
---
---
---     * @READ_ACP@ : The grantee can read the object ACL for thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
---
---
---     * @WRITE_ACP@ : The grantee can write the ACL for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
---
---
---     * @FULL_CONTROL@ : The grantee has READ, READ_ACP, and WRITE_ACP permissions for the thumbnails that Elastic Transcoder adds to the Amazon S3 bucket.
---
---
--- * 'granteeType' - The type of value that appears in the Grantee object:
---
---
---     * @Canonical@ : Either the canonical user ID for an AWS account or an origin access identity for an Amazon CloudFront distribution.
--- /Important:/ A canonical user ID is not the same as an AWS account number.
---
---
---     * @Email@ : The registered email address of an AWS account.
---
---
---     * @Group@ : One of the following predefined Amazon S3 groups: @AllUsers@ , @AuthenticatedUsers@ , or @LogDelivery@ .
---
---
--- * 'grantee' - The AWS user or group that you want to have access to transcoded files and playlists. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group.
+-- | Creates a 'Permission' value with any optional fields omitted.
 mkPermission ::
   Permission
 mkPermission =
   Permission'
-    { access = Lude.Nothing,
-      granteeType = Lude.Nothing,
-      grantee = Lude.Nothing
+    { access = Core.Nothing,
+      grantee = Core.Nothing,
+      granteeType = Core.Nothing
     }
 
 -- | The permission that you want to give to the AWS user that is listed in Grantee. Valid values include:
@@ -119,9 +92,16 @@ mkPermission =
 --
 --
 -- /Note:/ Consider using 'access' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pAccess :: Lens.Lens' Permission (Lude.Maybe [Lude.Text])
-pAccess = Lens.lens (access :: Permission -> Lude.Maybe [Lude.Text]) (\s a -> s {access = a} :: Permission)
+pAccess :: Lens.Lens' Permission (Core.Maybe [Types.AccessControl])
+pAccess = Lens.field @"access"
 {-# DEPRECATED pAccess "Use generic-lens or generic-optics with 'access' instead." #-}
+
+-- | The AWS user or group that you want to have access to transcoded files and playlists. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group.
+--
+-- /Note:/ Consider using 'grantee' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pGrantee :: Lens.Lens' Permission (Core.Maybe Types.Grantee)
+pGrantee = Lens.field @"grantee"
+{-# DEPRECATED pGrantee "Use generic-lens or generic-optics with 'grantee' instead." #-}
 
 -- | The type of value that appears in the Grantee object:
 --
@@ -138,34 +118,25 @@ pAccess = Lens.lens (access :: Permission -> Lude.Maybe [Lude.Text]) (\s a -> s 
 --
 --
 -- /Note:/ Consider using 'granteeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pGranteeType :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
-pGranteeType = Lens.lens (granteeType :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {granteeType = a} :: Permission)
+pGranteeType :: Lens.Lens' Permission (Core.Maybe Types.GranteeType)
+pGranteeType = Lens.field @"granteeType"
 {-# DEPRECATED pGranteeType "Use generic-lens or generic-optics with 'granteeType' instead." #-}
 
--- | The AWS user or group that you want to have access to transcoded files and playlists. To identify the user or group, you can specify the canonical user ID for an AWS account, an origin access identity for a CloudFront distribution, the registered email address of an AWS account, or a predefined Amazon S3 group.
---
--- /Note:/ Consider using 'grantee' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pGrantee :: Lens.Lens' Permission (Lude.Maybe Lude.Text)
-pGrantee = Lens.lens (grantee :: Permission -> Lude.Maybe Lude.Text) (\s a -> s {grantee = a} :: Permission)
-{-# DEPRECATED pGrantee "Use generic-lens or generic-optics with 'grantee' instead." #-}
-
-instance Lude.FromJSON Permission where
-  parseJSON =
-    Lude.withObject
-      "Permission"
-      ( \x ->
-          Permission'
-            Lude.<$> (x Lude..:? "Access" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "GranteeType")
-            Lude.<*> (x Lude..:? "Grantee")
-      )
-
-instance Lude.ToJSON Permission where
-  toJSON Permission' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Access" Lude..=) Lude.<$> access,
-            ("GranteeType" Lude..=) Lude.<$> granteeType,
-            ("Grantee" Lude..=) Lude.<$> grantee
+instance Core.FromJSON Permission where
+  toJSON Permission {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Access" Core..=) Core.<$> access,
+            ("Grantee" Core..=) Core.<$> grantee,
+            ("GranteeType" Core..=) Core.<$> granteeType
           ]
       )
+
+instance Core.FromJSON Permission where
+  parseJSON =
+    Core.withObject "Permission" Core.$
+      \x ->
+        Permission'
+          Core.<$> (x Core..:? "Access")
+          Core.<*> (x Core..:? "Grantee")
+          Core.<*> (x Core..:? "GranteeType")

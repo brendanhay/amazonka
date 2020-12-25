@@ -13,66 +13,71 @@
 module Network.AWS.Connect.Types.InstanceStorageResourceType
   ( InstanceStorageResourceType
       ( InstanceStorageResourceType',
-        ChatTranscripts,
-        CallRecordings,
-        ScheduledReports,
-        MediaStreams,
-        ContactTraceRecords,
-        AgentEvents
+        InstanceStorageResourceTypeChatTranscripts,
+        InstanceStorageResourceTypeCallRecordings,
+        InstanceStorageResourceTypeScheduledReports,
+        InstanceStorageResourceTypeMediaStreams,
+        InstanceStorageResourceTypeContactTraceRecords,
+        InstanceStorageResourceTypeAgentEvents,
+        fromInstanceStorageResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceStorageResourceType = InstanceStorageResourceType' Lude.Text
+newtype InstanceStorageResourceType = InstanceStorageResourceType'
+  { fromInstanceStorageResourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ChatTranscripts :: InstanceStorageResourceType
-pattern ChatTranscripts = InstanceStorageResourceType' "CHAT_TRANSCRIPTS"
+pattern InstanceStorageResourceTypeChatTranscripts :: InstanceStorageResourceType
+pattern InstanceStorageResourceTypeChatTranscripts = InstanceStorageResourceType' "CHAT_TRANSCRIPTS"
 
-pattern CallRecordings :: InstanceStorageResourceType
-pattern CallRecordings = InstanceStorageResourceType' "CALL_RECORDINGS"
+pattern InstanceStorageResourceTypeCallRecordings :: InstanceStorageResourceType
+pattern InstanceStorageResourceTypeCallRecordings = InstanceStorageResourceType' "CALL_RECORDINGS"
 
-pattern ScheduledReports :: InstanceStorageResourceType
-pattern ScheduledReports = InstanceStorageResourceType' "SCHEDULED_REPORTS"
+pattern InstanceStorageResourceTypeScheduledReports :: InstanceStorageResourceType
+pattern InstanceStorageResourceTypeScheduledReports = InstanceStorageResourceType' "SCHEDULED_REPORTS"
 
-pattern MediaStreams :: InstanceStorageResourceType
-pattern MediaStreams = InstanceStorageResourceType' "MEDIA_STREAMS"
+pattern InstanceStorageResourceTypeMediaStreams :: InstanceStorageResourceType
+pattern InstanceStorageResourceTypeMediaStreams = InstanceStorageResourceType' "MEDIA_STREAMS"
 
-pattern ContactTraceRecords :: InstanceStorageResourceType
-pattern ContactTraceRecords = InstanceStorageResourceType' "CONTACT_TRACE_RECORDS"
+pattern InstanceStorageResourceTypeContactTraceRecords :: InstanceStorageResourceType
+pattern InstanceStorageResourceTypeContactTraceRecords = InstanceStorageResourceType' "CONTACT_TRACE_RECORDS"
 
-pattern AgentEvents :: InstanceStorageResourceType
-pattern AgentEvents = InstanceStorageResourceType' "AGENT_EVENTS"
+pattern InstanceStorageResourceTypeAgentEvents :: InstanceStorageResourceType
+pattern InstanceStorageResourceTypeAgentEvents = InstanceStorageResourceType' "AGENT_EVENTS"
 
 {-# COMPLETE
-  ChatTranscripts,
-  CallRecordings,
-  ScheduledReports,
-  MediaStreams,
-  ContactTraceRecords,
-  AgentEvents,
+  InstanceStorageResourceTypeChatTranscripts,
+  InstanceStorageResourceTypeCallRecordings,
+  InstanceStorageResourceTypeScheduledReports,
+  InstanceStorageResourceTypeMediaStreams,
+  InstanceStorageResourceTypeContactTraceRecords,
+  InstanceStorageResourceTypeAgentEvents,
   InstanceStorageResourceType'
   #-}

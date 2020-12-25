@@ -21,39 +21,33 @@ module Network.AWS.IoT.Types.ExplicitDeny
   )
 where
 
-import Network.AWS.IoT.Types.Policy
+import qualified Network.AWS.IoT.Types.Policy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information that explicitly denies authorization.
 --
 -- /See:/ 'mkExplicitDeny' smart constructor.
 newtype ExplicitDeny = ExplicitDeny'
   { -- | The policies that denied the authorization.
-    policies :: Lude.Maybe [Policy]
+    policies :: Core.Maybe [Types.Policy]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExplicitDeny' with the minimum fields required to make a request.
---
--- * 'policies' - The policies that denied the authorization.
+-- | Creates a 'ExplicitDeny' value with any optional fields omitted.
 mkExplicitDeny ::
   ExplicitDeny
-mkExplicitDeny = ExplicitDeny' {policies = Lude.Nothing}
+mkExplicitDeny = ExplicitDeny' {policies = Core.Nothing}
 
 -- | The policies that denied the authorization.
 --
 -- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edPolicies :: Lens.Lens' ExplicitDeny (Lude.Maybe [Policy])
-edPolicies = Lens.lens (policies :: ExplicitDeny -> Lude.Maybe [Policy]) (\s a -> s {policies = a} :: ExplicitDeny)
+edPolicies :: Lens.Lens' ExplicitDeny (Core.Maybe [Types.Policy])
+edPolicies = Lens.field @"policies"
 {-# DEPRECATED edPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
-instance Lude.FromJSON ExplicitDeny where
+instance Core.FromJSON ExplicitDeny where
   parseJSON =
-    Lude.withObject
-      "ExplicitDeny"
-      ( \x ->
-          ExplicitDeny'
-            Lude.<$> (x Lude..:? "policies" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ExplicitDeny" Core.$
+      \x -> ExplicitDeny' Core.<$> (x Core..:? "policies")

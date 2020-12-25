@@ -22,8 +22,9 @@ module Network.AWS.Batch.Types.Secret
   )
 where
 
+import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing the secret to expose to your container. Secrets can be exposed to a container in the following ways:
 --
@@ -39,54 +40,48 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkSecret' smart constructor.
 data Secret = Secret'
   { -- | The name of the secret.
-    name :: Lude.Text,
+    name :: Types.String,
     -- | The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
-    valueFrom :: Lude.Text
+    valueFrom :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Secret' with the minimum fields required to make a request.
---
--- * 'name' - The name of the secret.
--- * 'valueFrom' - The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
+-- | Creates a 'Secret' value with any optional fields omitted.
 mkSecret ::
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
   -- | 'valueFrom'
-  Lude.Text ->
+  Types.String ->
   Secret
-mkSecret pName_ pValueFrom_ =
-  Secret' {name = pName_, valueFrom = pValueFrom_}
+mkSecret name valueFrom = Secret' {name, valueFrom}
 
 -- | The name of the secret.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' Secret Lude.Text
-sName = Lens.lens (name :: Secret -> Lude.Text) (\s a -> s {name = a} :: Secret)
+sName :: Lens.Lens' Secret Types.String
+sName = Lens.field @"name"
 {-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The secret to expose to the container. The supported values are either the full ARN of the AWS Secrets Manager secret or the full ARN of the parameter in the AWS Systems Manager Parameter Store.
 --
 -- /Note:/ Consider using 'valueFrom' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sValueFrom :: Lens.Lens' Secret Lude.Text
-sValueFrom = Lens.lens (valueFrom :: Secret -> Lude.Text) (\s a -> s {valueFrom = a} :: Secret)
+sValueFrom :: Lens.Lens' Secret Types.String
+sValueFrom = Lens.field @"valueFrom"
 {-# DEPRECATED sValueFrom "Use generic-lens or generic-optics with 'valueFrom' instead." #-}
 
-instance Lude.FromJSON Secret where
-  parseJSON =
-    Lude.withObject
-      "Secret"
-      ( \x ->
-          Secret'
-            Lude.<$> (x Lude..: "name") Lude.<*> (x Lude..: "valueFrom")
-      )
-
-instance Lude.ToJSON Secret where
-  toJSON Secret' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("name" Lude..= name),
-            Lude.Just ("valueFrom" Lude..= valueFrom)
+instance Core.FromJSON Secret where
+  toJSON Secret {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("valueFrom" Core..= valueFrom)
           ]
       )
+
+instance Core.FromJSON Secret where
+  parseJSON =
+    Core.withObject "Secret" Core.$
+      \x ->
+        Secret'
+          Core.<$> (x Core..: "name") Core.<*> (x Core..: "valueFrom")

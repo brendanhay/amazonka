@@ -20,7 +20,7 @@ module Network.AWS.MQ.DeleteBroker
     mkDeleteBroker,
 
     -- ** Request lenses
-    dbfBrokerId,
+    dbBrokerId,
 
     -- * Destructuring the response
     DeleteBrokerResponse (..),
@@ -33,95 +33,81 @@ module Network.AWS.MQ.DeleteBroker
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MQ.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteBroker' smart constructor.
 newtype DeleteBroker = DeleteBroker'
   { -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Lude.Text
+    brokerId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBroker' with the minimum fields required to make a request.
---
--- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- | Creates a 'DeleteBroker' value with any optional fields omitted.
 mkDeleteBroker ::
   -- | 'brokerId'
-  Lude.Text ->
+  Core.Text ->
   DeleteBroker
-mkDeleteBroker pBrokerId_ = DeleteBroker' {brokerId = pBrokerId_}
+mkDeleteBroker brokerId = DeleteBroker' {brokerId}
 
 -- | The unique ID that Amazon MQ generates for the broker.
 --
 -- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbfBrokerId :: Lens.Lens' DeleteBroker Lude.Text
-dbfBrokerId = Lens.lens (brokerId :: DeleteBroker -> Lude.Text) (\s a -> s {brokerId = a} :: DeleteBroker)
-{-# DEPRECATED dbfBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
+dbBrokerId :: Lens.Lens' DeleteBroker Core.Text
+dbBrokerId = Lens.field @"brokerId"
+{-# DEPRECATED dbBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
-instance Lude.AWSRequest DeleteBroker where
+instance Core.AWSRequest DeleteBroker where
   type Rs DeleteBroker = DeleteBrokerResponse
-  request = Req.delete mqService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/v1/brokers/" Core.<> (Core.toText brokerId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteBrokerResponse'
-            Lude.<$> (x Lude..?> "brokerId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "brokerId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteBroker where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteBroker where
-  toPath DeleteBroker' {..} =
-    Lude.mconcat ["/v1/brokers/", Lude.toBS brokerId]
-
-instance Lude.ToQuery DeleteBroker where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteBrokerResponse' smart constructor.
 data DeleteBrokerResponse = DeleteBrokerResponse'
   { -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Lude.Maybe Lude.Text,
+    brokerId :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBrokerResponse' with the minimum fields required to make a request.
---
--- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteBrokerResponse' value with any optional fields omitted.
 mkDeleteBrokerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteBrokerResponse
-mkDeleteBrokerResponse pResponseStatus_ =
-  DeleteBrokerResponse'
-    { brokerId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteBrokerResponse responseStatus =
+  DeleteBrokerResponse' {brokerId = Core.Nothing, responseStatus}
 
 -- | The unique ID that Amazon MQ generates for the broker.
 --
 -- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsBrokerId :: Lens.Lens' DeleteBrokerResponse (Lude.Maybe Lude.Text)
-drsBrokerId = Lens.lens (brokerId :: DeleteBrokerResponse -> Lude.Maybe Lude.Text) (\s a -> s {brokerId = a} :: DeleteBrokerResponse)
+drsBrokerId :: Lens.Lens' DeleteBrokerResponse (Core.Maybe Core.Text)
+drsBrokerId = Lens.field @"brokerId"
 {-# DEPRECATED drsBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteBrokerResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteBrokerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBrokerResponse)
+drsResponseStatus :: Lens.Lens' DeleteBrokerResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

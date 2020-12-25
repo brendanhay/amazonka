@@ -28,129 +28,113 @@ module Network.AWS.FMS.GetComplianceDetail
     mkGetComplianceDetailResponse,
 
     -- ** Response lenses
-    gcdrsPolicyComplianceDetail,
-    gcdrsResponseStatus,
+    gcdrrsPolicyComplianceDetail,
+    gcdrrsResponseStatus,
   )
 where
 
-import Network.AWS.FMS.Types
+import qualified Network.AWS.FMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetComplianceDetail' smart constructor.
 data GetComplianceDetail = GetComplianceDetail'
   { -- | The ID of the policy that you want to get the details for. @PolicyId@ is returned by @PutPolicy@ and by @ListPolicies@ .
-    policyId :: Lude.Text,
+    policyId :: Types.PolicyId,
     -- | The AWS account that owns the resources that you want to get the details for.
-    memberAccount :: Lude.Text
+    memberAccount :: Types.AWSAccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetComplianceDetail' with the minimum fields required to make a request.
---
--- * 'policyId' - The ID of the policy that you want to get the details for. @PolicyId@ is returned by @PutPolicy@ and by @ListPolicies@ .
--- * 'memberAccount' - The AWS account that owns the resources that you want to get the details for.
+-- | Creates a 'GetComplianceDetail' value with any optional fields omitted.
 mkGetComplianceDetail ::
   -- | 'policyId'
-  Lude.Text ->
+  Types.PolicyId ->
   -- | 'memberAccount'
-  Lude.Text ->
+  Types.AWSAccountId ->
   GetComplianceDetail
-mkGetComplianceDetail pPolicyId_ pMemberAccount_ =
-  GetComplianceDetail'
-    { policyId = pPolicyId_,
-      memberAccount = pMemberAccount_
-    }
+mkGetComplianceDetail policyId memberAccount =
+  GetComplianceDetail' {policyId, memberAccount}
 
 -- | The ID of the policy that you want to get the details for. @PolicyId@ is returned by @PutPolicy@ and by @ListPolicies@ .
 --
 -- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdPolicyId :: Lens.Lens' GetComplianceDetail Lude.Text
-gcdPolicyId = Lens.lens (policyId :: GetComplianceDetail -> Lude.Text) (\s a -> s {policyId = a} :: GetComplianceDetail)
+gcdPolicyId :: Lens.Lens' GetComplianceDetail Types.PolicyId
+gcdPolicyId = Lens.field @"policyId"
 {-# DEPRECATED gcdPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 -- | The AWS account that owns the resources that you want to get the details for.
 --
 -- /Note:/ Consider using 'memberAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdMemberAccount :: Lens.Lens' GetComplianceDetail Lude.Text
-gcdMemberAccount = Lens.lens (memberAccount :: GetComplianceDetail -> Lude.Text) (\s a -> s {memberAccount = a} :: GetComplianceDetail)
+gcdMemberAccount :: Lens.Lens' GetComplianceDetail Types.AWSAccountId
+gcdMemberAccount = Lens.field @"memberAccount"
 {-# DEPRECATED gcdMemberAccount "Use generic-lens or generic-optics with 'memberAccount' instead." #-}
 
-instance Lude.AWSRequest GetComplianceDetail where
+instance Core.FromJSON GetComplianceDetail where
+  toJSON GetComplianceDetail {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyId" Core..= policyId),
+            Core.Just ("MemberAccount" Core..= memberAccount)
+          ]
+      )
+
+instance Core.AWSRequest GetComplianceDetail where
   type Rs GetComplianceDetail = GetComplianceDetailResponse
-  request = Req.postJSON fmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSFMS_20180101.GetComplianceDetail")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetComplianceDetailResponse'
-            Lude.<$> (x Lude..?> "PolicyComplianceDetail")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PolicyComplianceDetail")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetComplianceDetail where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSFMS_20180101.GetComplianceDetail" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetComplianceDetail where
-  toJSON GetComplianceDetail' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PolicyId" Lude..= policyId),
-            Lude.Just ("MemberAccount" Lude..= memberAccount)
-          ]
-      )
-
-instance Lude.ToPath GetComplianceDetail where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetComplianceDetail where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetComplianceDetailResponse' smart constructor.
 data GetComplianceDetailResponse = GetComplianceDetailResponse'
   { -- | Information about the resources and the policy that you specified in the @GetComplianceDetail@ request.
-    policyComplianceDetail :: Lude.Maybe PolicyComplianceDetail,
+    policyComplianceDetail :: Core.Maybe Types.PolicyComplianceDetail,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetComplianceDetailResponse' with the minimum fields required to make a request.
---
--- * 'policyComplianceDetail' - Information about the resources and the policy that you specified in the @GetComplianceDetail@ request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetComplianceDetailResponse' value with any optional fields omitted.
 mkGetComplianceDetailResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetComplianceDetailResponse
-mkGetComplianceDetailResponse pResponseStatus_ =
+mkGetComplianceDetailResponse responseStatus =
   GetComplianceDetailResponse'
     { policyComplianceDetail =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the resources and the policy that you specified in the @GetComplianceDetail@ request.
 --
 -- /Note:/ Consider using 'policyComplianceDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdrsPolicyComplianceDetail :: Lens.Lens' GetComplianceDetailResponse (Lude.Maybe PolicyComplianceDetail)
-gcdrsPolicyComplianceDetail = Lens.lens (policyComplianceDetail :: GetComplianceDetailResponse -> Lude.Maybe PolicyComplianceDetail) (\s a -> s {policyComplianceDetail = a} :: GetComplianceDetailResponse)
-{-# DEPRECATED gcdrsPolicyComplianceDetail "Use generic-lens or generic-optics with 'policyComplianceDetail' instead." #-}
+gcdrrsPolicyComplianceDetail :: Lens.Lens' GetComplianceDetailResponse (Core.Maybe Types.PolicyComplianceDetail)
+gcdrrsPolicyComplianceDetail = Lens.field @"policyComplianceDetail"
+{-# DEPRECATED gcdrrsPolicyComplianceDetail "Use generic-lens or generic-optics with 'policyComplianceDetail' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdrsResponseStatus :: Lens.Lens' GetComplianceDetailResponse Lude.Int
-gcdrsResponseStatus = Lens.lens (responseStatus :: GetComplianceDetailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetComplianceDetailResponse)
-{-# DEPRECATED gcdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcdrrsResponseStatus :: Lens.Lens' GetComplianceDetailResponse Core.Int
+gcdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

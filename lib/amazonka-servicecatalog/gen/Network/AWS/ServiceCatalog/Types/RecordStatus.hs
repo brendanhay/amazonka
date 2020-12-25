@@ -13,61 +13,63 @@
 module Network.AWS.ServiceCatalog.Types.RecordStatus
   ( RecordStatus
       ( RecordStatus',
-        RSCreated,
-        RSInProgress,
-        RSInProgressInError,
-        RSSucceeded,
-        RSFailed
+        RecordStatusCreated,
+        RecordStatusInProgress,
+        RecordStatusInProgressInError,
+        RecordStatusSucceeded,
+        RecordStatusFailed,
+        fromRecordStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RecordStatus = RecordStatus' Lude.Text
+newtype RecordStatus = RecordStatus' {fromRecordStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RSCreated :: RecordStatus
-pattern RSCreated = RecordStatus' "CREATED"
+pattern RecordStatusCreated :: RecordStatus
+pattern RecordStatusCreated = RecordStatus' "CREATED"
 
-pattern RSInProgress :: RecordStatus
-pattern RSInProgress = RecordStatus' "IN_PROGRESS"
+pattern RecordStatusInProgress :: RecordStatus
+pattern RecordStatusInProgress = RecordStatus' "IN_PROGRESS"
 
-pattern RSInProgressInError :: RecordStatus
-pattern RSInProgressInError = RecordStatus' "IN_PROGRESS_IN_ERROR"
+pattern RecordStatusInProgressInError :: RecordStatus
+pattern RecordStatusInProgressInError = RecordStatus' "IN_PROGRESS_IN_ERROR"
 
-pattern RSSucceeded :: RecordStatus
-pattern RSSucceeded = RecordStatus' "SUCCEEDED"
+pattern RecordStatusSucceeded :: RecordStatus
+pattern RecordStatusSucceeded = RecordStatus' "SUCCEEDED"
 
-pattern RSFailed :: RecordStatus
-pattern RSFailed = RecordStatus' "FAILED"
+pattern RecordStatusFailed :: RecordStatus
+pattern RecordStatusFailed = RecordStatus' "FAILED"
 
 {-# COMPLETE
-  RSCreated,
-  RSInProgress,
-  RSInProgressInError,
-  RSSucceeded,
-  RSFailed,
+  RecordStatusCreated,
+  RecordStatusInProgress,
+  RecordStatusInProgressInError,
+  RecordStatusSucceeded,
+  RecordStatusFailed,
   RecordStatus'
   #-}

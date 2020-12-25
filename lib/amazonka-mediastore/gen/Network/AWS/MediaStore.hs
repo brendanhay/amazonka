@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,28 @@
 -- An AWS Elemental MediaStore container is a namespace that holds folders and objects. You use a container endpoint to create, read, and delete objects.
 module Network.AWS.MediaStore
   ( -- * Service configuration
-    mediaStoreService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** PolicyNotFoundException
+    _PolicyNotFoundException,
+
+    -- ** CorsPolicyNotFoundException
+    _CorsPolicyNotFoundException,
+
+    -- ** ContainerInUseException
+    _ContainerInUseException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** ContainerNotFoundException
+    _ContainerNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -46,11 +63,11 @@ module Network.AWS.MediaStore
     -- ** DeleteContainer
     module Network.AWS.MediaStore.DeleteContainer,
 
-    -- ** PutCORSPolicy
-    module Network.AWS.MediaStore.PutCORSPolicy,
+    -- ** PutCorsPolicy
+    module Network.AWS.MediaStore.PutCorsPolicy,
 
-    -- ** DeleteCORSPolicy
-    module Network.AWS.MediaStore.DeleteCORSPolicy,
+    -- ** DeleteCorsPolicy
+    module Network.AWS.MediaStore.DeleteCorsPolicy,
 
     -- ** StartAccessLogging
     module Network.AWS.MediaStore.StartAccessLogging,
@@ -73,8 +90,8 @@ module Network.AWS.MediaStore
     -- ** TagResource
     module Network.AWS.MediaStore.TagResource,
 
-    -- ** GetCORSPolicy
-    module Network.AWS.MediaStore.GetCORSPolicy,
+    -- ** GetCorsPolicy
+    module Network.AWS.MediaStore.GetCorsPolicy,
 
     -- ** UntagResource
     module Network.AWS.MediaStore.UntagResource,
@@ -90,33 +107,8 @@ module Network.AWS.MediaStore
 
     -- * Types
 
-    -- ** ContainerLevelMetrics
-    ContainerLevelMetrics (..),
-
-    -- ** ContainerStatus
-    ContainerStatus (..),
-
-    -- ** MethodName
-    MethodName (..),
-
-    -- ** CORSRule
-    CORSRule (..),
-    mkCORSRule,
-    crAllowedMethods,
-    crMaxAgeSeconds,
-    crAllowedHeaders,
-    crAllowedOrigins,
-    crExposeHeaders,
-
-    -- ** Container
-    Container (..),
-    mkContainer,
-    cCreationTime,
-    cStatus,
-    cAccessLoggingEnabled,
-    cARN,
-    cName,
-    cEndpoint,
+    -- ** Origin
+    Origin (..),
 
     -- ** MetricPolicy
     MetricPolicy (..),
@@ -124,45 +116,107 @@ module Network.AWS.MediaStore
     mpContainerLevelMetrics,
     mpMetricPolicyRules,
 
+    -- ** PaginationToken
+    PaginationToken (..),
+
+    -- ** ContainerPolicy
+    ContainerPolicy (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** ObjectGroup
+    ObjectGroup (..),
+
+    -- ** ContainerARN
+    ContainerARN (..),
+
+    -- ** ContainerName
+    ContainerName (..),
+
+    -- ** MethodName
+    MethodName (..),
+
+    -- ** CorsRule
+    CorsRule (..),
+    mkCorsRule,
+    crAllowedOrigins,
+    crAllowedHeaders,
+    crAllowedMethods,
+    crExposeHeaders,
+    crMaxAgeSeconds,
+
+    -- ** ContainerLevelMetrics
+    ContainerLevelMetrics (..),
+
+    -- ** Container
+    Container (..),
+    mkContainer,
+    cARN,
+    cAccessLoggingEnabled,
+    cCreationTime,
+    cEndpoint,
+    cName,
+    cStatus,
+
+    -- ** Header
+    Header (..),
+
     -- ** MetricPolicyRule
     MetricPolicyRule (..),
     mkMetricPolicyRule,
     mprObjectGroup,
     mprObjectGroupName,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** ObjectGroupName
+    ObjectGroupName (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Endpoint
+    Endpoint (..),
+
+    -- ** ContainerStatus
+    ContainerStatus (..),
+
+    -- ** LifecyclePolicy
+    LifecyclePolicy (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
 import Network.AWS.MediaStore.CreateContainer
-import Network.AWS.MediaStore.DeleteCORSPolicy
 import Network.AWS.MediaStore.DeleteContainer
 import Network.AWS.MediaStore.DeleteContainerPolicy
+import Network.AWS.MediaStore.DeleteCorsPolicy
 import Network.AWS.MediaStore.DeleteLifecyclePolicy
 import Network.AWS.MediaStore.DeleteMetricPolicy
 import Network.AWS.MediaStore.DescribeContainer
-import Network.AWS.MediaStore.GetCORSPolicy
 import Network.AWS.MediaStore.GetContainerPolicy
+import Network.AWS.MediaStore.GetCorsPolicy
 import Network.AWS.MediaStore.GetLifecyclePolicy
 import Network.AWS.MediaStore.GetMetricPolicy
 import Network.AWS.MediaStore.ListContainers
 import Network.AWS.MediaStore.ListTagsForResource
-import Network.AWS.MediaStore.PutCORSPolicy
 import Network.AWS.MediaStore.PutContainerPolicy
+import Network.AWS.MediaStore.PutCorsPolicy
 import Network.AWS.MediaStore.PutLifecyclePolicy
 import Network.AWS.MediaStore.PutMetricPolicy
 import Network.AWS.MediaStore.StartAccessLogging

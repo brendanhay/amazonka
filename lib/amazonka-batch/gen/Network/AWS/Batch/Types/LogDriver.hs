@@ -13,71 +13,73 @@
 module Network.AWS.Batch.Types.LogDriver
   ( LogDriver
       ( LogDriver',
-        JSONFile,
-        Syslog,
-        Journald,
-        Gelf,
-        Fluentd,
-        AWSlogs,
-        Splunk
+        LogDriverJsonFile,
+        LogDriverSyslog,
+        LogDriverJournald,
+        LogDriverGelf,
+        LogDriverFluentd,
+        LogDriverAwslogs,
+        LogDriverSplunk,
+        fromLogDriver
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LogDriver = LogDriver' Lude.Text
+newtype LogDriver = LogDriver' {fromLogDriver :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JSONFile :: LogDriver
-pattern JSONFile = LogDriver' "json-file"
+pattern LogDriverJsonFile :: LogDriver
+pattern LogDriverJsonFile = LogDriver' "json-file"
 
-pattern Syslog :: LogDriver
-pattern Syslog = LogDriver' "syslog"
+pattern LogDriverSyslog :: LogDriver
+pattern LogDriverSyslog = LogDriver' "syslog"
 
-pattern Journald :: LogDriver
-pattern Journald = LogDriver' "journald"
+pattern LogDriverJournald :: LogDriver
+pattern LogDriverJournald = LogDriver' "journald"
 
-pattern Gelf :: LogDriver
-pattern Gelf = LogDriver' "gelf"
+pattern LogDriverGelf :: LogDriver
+pattern LogDriverGelf = LogDriver' "gelf"
 
-pattern Fluentd :: LogDriver
-pattern Fluentd = LogDriver' "fluentd"
+pattern LogDriverFluentd :: LogDriver
+pattern LogDriverFluentd = LogDriver' "fluentd"
 
-pattern AWSlogs :: LogDriver
-pattern AWSlogs = LogDriver' "awslogs"
+pattern LogDriverAwslogs :: LogDriver
+pattern LogDriverAwslogs = LogDriver' "awslogs"
 
-pattern Splunk :: LogDriver
-pattern Splunk = LogDriver' "splunk"
+pattern LogDriverSplunk :: LogDriver
+pattern LogDriverSplunk = LogDriver' "splunk"
 
 {-# COMPLETE
-  JSONFile,
-  Syslog,
-  Journald,
-  Gelf,
-  Fluentd,
-  AWSlogs,
-  Splunk,
+  LogDriverJsonFile,
+  LogDriverSyslog,
+  LogDriverJournald,
+  LogDriverGelf,
+  LogDriverFluentd,
+  LogDriverAwslogs,
+  LogDriverSplunk,
   LogDriver'
   #-}

@@ -28,9 +28,9 @@ module Network.AWS.Glacier.GetJobOutput
     mkGetJobOutput,
 
     -- ** Request lenses
-    gjoJobId,
-    gjoVaultName,
     gjoAccountId,
+    gjoVaultName,
+    gjoJobId,
     gjoRange,
 
     -- * Destructuring the response
@@ -38,32 +38,32 @@ module Network.AWS.Glacier.GetJobOutput
     mkGetJobOutputResponse,
 
     -- ** Response lenses
-    gjorsStatus,
-    gjorsChecksum,
-    gjorsBody,
-    gjorsAcceptRanges,
-    gjorsArchiveDescription,
-    gjorsContentRange,
-    gjorsContentType,
+    gjorrsAcceptRanges,
+    gjorrsArchiveDescription,
+    gjorrsBody,
+    gjorrsChecksum,
+    gjorrsContentRange,
+    gjorrsContentType,
+    gjorrsStatus,
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options for downloading output of an Amazon S3 Glacier job.
 --
 -- /See:/ 'mkGetJobOutput' smart constructor.
 data GetJobOutput = GetJobOutput'
-  { -- | The job ID whose data is downloaded.
-    jobId :: Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
     -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text,
+    vaultName :: Types.String,
+    -- | The job ID whose data is downloaded.
+    jobId :: Types.String,
     -- | The range of bytes to retrieve from the output. For example, if you want to download the first 1,048,576 bytes, specify the range as @bytes=0-1048575@ . By default, this operation downloads the entire output.
     --
     -- If the job output is large, then you can use a range to retrieve a portion of the output. This allows you to download the entire output in smaller chunks of bytes. For example, suppose you have 1 GB of job output you want to download and you decide to download 128 MB chunks of data at a time, which is a total of eight Get Job Output requests. You use the following process to download the job output:
@@ -78,66 +78,43 @@ data GetJobOutput = GetJobOutput'
     --
     --
     --     * After downloading all the parts of the job output, you have a list of eight checksum values. Compute the tree hash of these values to find the checksum of the entire output. Using the 'DescribeJob' API, obtain job information of the job that provided you the output. The response includes the checksum of the entire archive stored in Amazon S3 Glacier. You compare this value with the checksum you computed to ensure you have downloaded the entire archive content with no errors.
-    range :: Lude.Maybe Lude.Text
+    range :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetJobOutput' with the minimum fields required to make a request.
---
--- * 'jobId' - The job ID whose data is downloaded.
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'range' - The range of bytes to retrieve from the output. For example, if you want to download the first 1,048,576 bytes, specify the range as @bytes=0-1048575@ . By default, this operation downloads the entire output.
---
--- If the job output is large, then you can use a range to retrieve a portion of the output. This allows you to download the entire output in smaller chunks of bytes. For example, suppose you have 1 GB of job output you want to download and you decide to download 128 MB chunks of data at a time, which is a total of eight Get Job Output requests. You use the following process to download the job output:
---
---     * Download a 128 MB chunk of output by specifying the appropriate byte range. Verify that all 128 MB of data was received.
---
---
---     * Along with the data, the response includes a SHA256 tree hash of the payload. You compute the checksum of the payload on the client and compare it with the checksum you received in the response to ensure you received all the expected data.
---
---
---     * Repeat steps 1 and 2 for all the eight 128 MB chunks of output data, each time specifying the appropriate byte range.
---
---
---     * After downloading all the parts of the job output, you have a list of eight checksum values. Compute the tree hash of these values to find the checksum of the entire output. Using the 'DescribeJob' API, obtain job information of the job that provided you the output. The response includes the checksum of the entire archive stored in Amazon S3 Glacier. You compare this value with the checksum you computed to ensure you have downloaded the entire archive content with no errors.
+-- | Creates a 'GetJobOutput' value with any optional fields omitted.
 mkGetJobOutput ::
-  -- | 'jobId'
-  Lude.Text ->
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
+  -- | 'jobId'
+  Types.String ->
   GetJobOutput
-mkGetJobOutput pJobId_ pVaultName_ pAccountId_ =
-  GetJobOutput'
-    { jobId = pJobId_,
-      vaultName = pVaultName_,
-      accountId = pAccountId_,
-      range = Lude.Nothing
-    }
-
--- | The job ID whose data is downloaded.
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjoJobId :: Lens.Lens' GetJobOutput Lude.Text
-gjoJobId = Lens.lens (jobId :: GetJobOutput -> Lude.Text) (\s a -> s {jobId = a} :: GetJobOutput)
-{-# DEPRECATED gjoJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjoVaultName :: Lens.Lens' GetJobOutput Lude.Text
-gjoVaultName = Lens.lens (vaultName :: GetJobOutput -> Lude.Text) (\s a -> s {vaultName = a} :: GetJobOutput)
-{-# DEPRECATED gjoVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+mkGetJobOutput accountId vaultName jobId =
+  GetJobOutput' {accountId, vaultName, jobId, range = Core.Nothing}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjoAccountId :: Lens.Lens' GetJobOutput Lude.Text
-gjoAccountId = Lens.lens (accountId :: GetJobOutput -> Lude.Text) (\s a -> s {accountId = a} :: GetJobOutput)
+gjoAccountId :: Lens.Lens' GetJobOutput Types.String
+gjoAccountId = Lens.field @"accountId"
 {-# DEPRECATED gjoAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjoVaultName :: Lens.Lens' GetJobOutput Types.String
+gjoVaultName = Lens.field @"vaultName"
+{-# DEPRECATED gjoVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+-- | The job ID whose data is downloaded.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjoJobId :: Lens.Lens' GetJobOutput Types.String
+gjoJobId = Lens.field @"jobId"
+{-# DEPRECATED gjoJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The range of bytes to retrieve from the output. For example, if you want to download the first 1,048,576 bytes, specify the range as @bytes=0-1048575@ . By default, this operation downloads the entire output.
 --
@@ -158,50 +135,51 @@ gjoAccountId = Lens.lens (accountId :: GetJobOutput -> Lude.Text) (\s a -> s {ac
 --
 --
 -- /Note:/ Consider using 'range' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjoRange :: Lens.Lens' GetJobOutput (Lude.Maybe Lude.Text)
-gjoRange = Lens.lens (range :: GetJobOutput -> Lude.Maybe Lude.Text) (\s a -> s {range = a} :: GetJobOutput)
+gjoRange :: Lens.Lens' GetJobOutput (Core.Maybe Types.String)
+gjoRange = Lens.field @"range"
 {-# DEPRECATED gjoRange "Use generic-lens or generic-optics with 'range' instead." #-}
 
-instance Lude.AWSRequest GetJobOutput where
+instance Core.AWSRequest GetJobOutput where
   type Rs GetJobOutput = GetJobOutputResponse
-  request = Req.get glacierService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/jobs/")
+                Core.<> (Core.toText jobId)
+                Core.<> ("/output")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "Range" range,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveBody
+    Response.receiveBody
       ( \s h x ->
           GetJobOutputResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
-            Lude.<*> (h Lude..#? "x-amz-sha256-tree-hash")
-            Lude.<*> (Lude.pure x)
-            Lude.<*> (h Lude..#? "Accept-Ranges")
-            Lude.<*> (h Lude..#? "x-amz-archive-description")
-            Lude.<*> (h Lude..#? "Content-Range")
-            Lude.<*> (h Lude..#? "Content-Type")
+            Core.<$> (Core.parseHeaderMaybe "Accept-Ranges" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-archive-description" h)
+            Core.<*> (Core.pure x)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-sha256-tree-hash" h)
+            Core.<*> (Core.parseHeaderMaybe "Content-Range" h)
+            Core.<*> (Core.parseHeaderMaybe "Content-Type" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetJobOutput where
-  toHeaders GetJobOutput' {..} = Lude.mconcat ["Range" Lude.=# range]
-
-instance Lude.ToPath GetJobOutput where
-  toPath GetJobOutput' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/jobs/",
-        Lude.toBS jobId,
-        "/output"
-      ]
-
-instance Lude.ToQuery GetJobOutput where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'mkGetJobOutputResponse' smart constructor.
 data GetJobOutputResponse = GetJobOutputResponse'
-  { -- | The HTTP response code for a job output request. The value depends on whether a range was specified in the request.
-    status :: Lude.Int,
+  { -- | Indicates the range units accepted. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616> .
+    acceptRanges :: Core.Maybe Types.String,
+    -- | The description of an archive.
+    archiveDescription :: Core.Maybe Types.String,
+    -- | The job data, either archive data or inventory data.
+    body :: Core.RsBody,
     -- | The checksum of the data in the response. This header is returned only when retrieving the output for an archive retrieval job. Furthermore, this header appears only under the following conditions:
     --
     --
@@ -212,63 +190,54 @@ data GetJobOutputResponse = GetJobOutputResponse'
     --
     --
     --     * You request a range of the archive to return that starts on a multiple of 1 MB and goes to the end of the archive. For example, if you have a 3.1 MB archive and you specify a range that starts at 2 MB and ends at 3.1 MB (the end of the archive), then the x-amz-sha256-tree-hash is returned as a response header.
-    checksum :: Lude.Maybe Lude.Text,
-    -- | The job data, either archive data or inventory data.
-    body :: Lude.RsBody,
-    -- | Indicates the range units accepted. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616> .
-    acceptRanges :: Lude.Maybe Lude.Text,
-    -- | The description of an archive.
-    archiveDescription :: Lude.Maybe Lude.Text,
+    checksum :: Core.Maybe Types.String,
     -- | The range of bytes returned by Amazon S3 Glacier. If only partial output is downloaded, the response provides the range of bytes Amazon S3 Glacier returned. For example, bytes 0-1048575/8388608 returns the first 1 MB from 8 MB.
-    contentRange :: Lude.Maybe Lude.Text,
+    contentRange :: Core.Maybe Types.String,
     -- | The Content-Type depends on whether the job output is an archive or a vault inventory. For archive data, the Content-Type is application/octet-stream. For vault inventory, if you requested CSV format when you initiated the job, the Content-Type is text/csv. Otherwise, by default, vault inventory is returned as JSON, and the Content-Type is application/json.
-    contentType :: Lude.Maybe Lude.Text
+    contentType :: Core.Maybe Types.String,
+    -- | The HTTP response code for a job output request. The value depends on whether a range was specified in the request.
+    status :: Core.Int
   }
-  deriving stock (Lude.Show, Lude.Generic)
+  deriving stock (Core.Show, Core.Generic)
 
--- | Creates a value of 'GetJobOutputResponse' with the minimum fields required to make a request.
---
--- * 'status' - The HTTP response code for a job output request. The value depends on whether a range was specified in the request.
--- * 'checksum' - The checksum of the data in the response. This header is returned only when retrieving the output for an archive retrieval job. Furthermore, this header appears only under the following conditions:
---
---
---     * You get the entire range of the archive.
---
---
---     * You request a range to return of the archive that starts and ends on a multiple of 1 MB. For example, if you have an 3.1 MB archive and you specify a range to return that starts at 1 MB and ends at 2 MB, then the x-amz-sha256-tree-hash is returned as a response header.
---
---
---     * You request a range of the archive to return that starts on a multiple of 1 MB and goes to the end of the archive. For example, if you have a 3.1 MB archive and you specify a range that starts at 2 MB and ends at 3.1 MB (the end of the archive), then the x-amz-sha256-tree-hash is returned as a response header.
---
---
--- * 'body' - The job data, either archive data or inventory data.
--- * 'acceptRanges' - Indicates the range units accepted. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616> .
--- * 'archiveDescription' - The description of an archive.
--- * 'contentRange' - The range of bytes returned by Amazon S3 Glacier. If only partial output is downloaded, the response provides the range of bytes Amazon S3 Glacier returned. For example, bytes 0-1048575/8388608 returns the first 1 MB from 8 MB.
--- * 'contentType' - The Content-Type depends on whether the job output is an archive or a vault inventory. For archive data, the Content-Type is application/octet-stream. For vault inventory, if you requested CSV format when you initiated the job, the Content-Type is text/csv. Otherwise, by default, vault inventory is returned as JSON, and the Content-Type is application/json.
+-- | Creates a 'GetJobOutputResponse' value with any optional fields omitted.
 mkGetJobOutputResponse ::
-  -- | 'status'
-  Lude.Int ->
   -- | 'body'
-  Lude.RsBody ->
+  Core.RsBody ->
+  -- | 'status'
+  Core.Int ->
   GetJobOutputResponse
-mkGetJobOutputResponse pStatus_ pBody_ =
+mkGetJobOutputResponse body status =
   GetJobOutputResponse'
-    { status = pStatus_,
-      checksum = Lude.Nothing,
-      body = pBody_,
-      acceptRanges = Lude.Nothing,
-      archiveDescription = Lude.Nothing,
-      contentRange = Lude.Nothing,
-      contentType = Lude.Nothing
+    { acceptRanges = Core.Nothing,
+      archiveDescription = Core.Nothing,
+      body,
+      checksum = Core.Nothing,
+      contentRange = Core.Nothing,
+      contentType = Core.Nothing,
+      status
     }
 
--- | The HTTP response code for a job output request. The value depends on whether a range was specified in the request.
+-- | Indicates the range units accepted. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616> .
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjorsStatus :: Lens.Lens' GetJobOutputResponse Lude.Int
-gjorsStatus = Lens.lens (status :: GetJobOutputResponse -> Lude.Int) (\s a -> s {status = a} :: GetJobOutputResponse)
-{-# DEPRECATED gjorsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'acceptRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjorrsAcceptRanges :: Lens.Lens' GetJobOutputResponse (Core.Maybe Types.String)
+gjorrsAcceptRanges = Lens.field @"acceptRanges"
+{-# DEPRECATED gjorrsAcceptRanges "Use generic-lens or generic-optics with 'acceptRanges' instead." #-}
+
+-- | The description of an archive.
+--
+-- /Note:/ Consider using 'archiveDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjorrsArchiveDescription :: Lens.Lens' GetJobOutputResponse (Core.Maybe Types.String)
+gjorrsArchiveDescription = Lens.field @"archiveDescription"
+{-# DEPRECATED gjorrsArchiveDescription "Use generic-lens or generic-optics with 'archiveDescription' instead." #-}
+
+-- | The job data, either archive data or inventory data.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjorrsBody :: Lens.Lens' GetJobOutputResponse Core.RsBody
+gjorrsBody = Lens.field @"body"
+{-# DEPRECATED gjorrsBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | The checksum of the data in the response. This header is returned only when retrieving the output for an archive retrieval job. Furthermore, this header appears only under the following conditions:
 --
@@ -284,41 +253,27 @@ gjorsStatus = Lens.lens (status :: GetJobOutputResponse -> Lude.Int) (\s a -> s 
 --
 --
 -- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjorsChecksum :: Lens.Lens' GetJobOutputResponse (Lude.Maybe Lude.Text)
-gjorsChecksum = Lens.lens (checksum :: GetJobOutputResponse -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: GetJobOutputResponse)
-{-# DEPRECATED gjorsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
-
--- | The job data, either archive data or inventory data.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjorsBody :: Lens.Lens' GetJobOutputResponse Lude.RsBody
-gjorsBody = Lens.lens (body :: GetJobOutputResponse -> Lude.RsBody) (\s a -> s {body = a} :: GetJobOutputResponse)
-{-# DEPRECATED gjorsBody "Use generic-lens or generic-optics with 'body' instead." #-}
-
--- | Indicates the range units accepted. For more information, see <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616> .
---
--- /Note:/ Consider using 'acceptRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjorsAcceptRanges :: Lens.Lens' GetJobOutputResponse (Lude.Maybe Lude.Text)
-gjorsAcceptRanges = Lens.lens (acceptRanges :: GetJobOutputResponse -> Lude.Maybe Lude.Text) (\s a -> s {acceptRanges = a} :: GetJobOutputResponse)
-{-# DEPRECATED gjorsAcceptRanges "Use generic-lens or generic-optics with 'acceptRanges' instead." #-}
-
--- | The description of an archive.
---
--- /Note:/ Consider using 'archiveDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjorsArchiveDescription :: Lens.Lens' GetJobOutputResponse (Lude.Maybe Lude.Text)
-gjorsArchiveDescription = Lens.lens (archiveDescription :: GetJobOutputResponse -> Lude.Maybe Lude.Text) (\s a -> s {archiveDescription = a} :: GetJobOutputResponse)
-{-# DEPRECATED gjorsArchiveDescription "Use generic-lens or generic-optics with 'archiveDescription' instead." #-}
+gjorrsChecksum :: Lens.Lens' GetJobOutputResponse (Core.Maybe Types.String)
+gjorrsChecksum = Lens.field @"checksum"
+{-# DEPRECATED gjorrsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | The range of bytes returned by Amazon S3 Glacier. If only partial output is downloaded, the response provides the range of bytes Amazon S3 Glacier returned. For example, bytes 0-1048575/8388608 returns the first 1 MB from 8 MB.
 --
 -- /Note:/ Consider using 'contentRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjorsContentRange :: Lens.Lens' GetJobOutputResponse (Lude.Maybe Lude.Text)
-gjorsContentRange = Lens.lens (contentRange :: GetJobOutputResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentRange = a} :: GetJobOutputResponse)
-{-# DEPRECATED gjorsContentRange "Use generic-lens or generic-optics with 'contentRange' instead." #-}
+gjorrsContentRange :: Lens.Lens' GetJobOutputResponse (Core.Maybe Types.String)
+gjorrsContentRange = Lens.field @"contentRange"
+{-# DEPRECATED gjorrsContentRange "Use generic-lens or generic-optics with 'contentRange' instead." #-}
 
 -- | The Content-Type depends on whether the job output is an archive or a vault inventory. For archive data, the Content-Type is application/octet-stream. For vault inventory, if you requested CSV format when you initiated the job, the Content-Type is text/csv. Otherwise, by default, vault inventory is returned as JSON, and the Content-Type is application/json.
 --
 -- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjorsContentType :: Lens.Lens' GetJobOutputResponse (Lude.Maybe Lude.Text)
-gjorsContentType = Lens.lens (contentType :: GetJobOutputResponse -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: GetJobOutputResponse)
-{-# DEPRECATED gjorsContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+gjorrsContentType :: Lens.Lens' GetJobOutputResponse (Core.Maybe Types.String)
+gjorrsContentType = Lens.field @"contentType"
+{-# DEPRECATED gjorrsContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
+
+-- | The HTTP response code for a job output request. The value depends on whether a range was specified in the request.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gjorrsStatus :: Lens.Lens' GetJobOutputResponse Core.Int
+gjorrsStatus = Lens.field @"status"
+{-# DEPRECATED gjorrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}

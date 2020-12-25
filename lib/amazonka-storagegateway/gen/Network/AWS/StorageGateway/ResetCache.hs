@@ -35,99 +35,84 @@ module Network.AWS.StorageGateway.ResetCache
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkResetCache' smart constructor.
 newtype ResetCache = ResetCache'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetCache' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'ResetCache' value with any optional fields omitted.
 mkResetCache ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   ResetCache
-mkResetCache pGatewayARN_ = ResetCache' {gatewayARN = pGatewayARN_}
+mkResetCache gatewayARN = ResetCache' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcGatewayARN :: Lens.Lens' ResetCache Lude.Text
-rcGatewayARN = Lens.lens (gatewayARN :: ResetCache -> Lude.Text) (\s a -> s {gatewayARN = a} :: ResetCache)
+rcGatewayARN :: Lens.Lens' ResetCache Types.GatewayARN
+rcGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED rcGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest ResetCache where
+instance Core.FromJSON ResetCache where
+  toJSON ResetCache {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest ResetCache where
   type Rs ResetCache = ResetCacheResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "StorageGateway_20130630.ResetCache")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ResetCacheResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ResetCache where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.ResetCache" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ResetCache where
-  toJSON ResetCache' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath ResetCache where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResetCache where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkResetCacheResponse' smart constructor.
 data ResetCacheResponse = ResetCacheResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetCacheResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ResetCacheResponse' value with any optional fields omitted.
 mkResetCacheResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ResetCacheResponse
-mkResetCacheResponse pResponseStatus_ =
-  ResetCacheResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkResetCacheResponse responseStatus =
+  ResetCacheResponse' {gatewayARN = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsGatewayARN :: Lens.Lens' ResetCacheResponse (Lude.Maybe Lude.Text)
-rrsGatewayARN = Lens.lens (gatewayARN :: ResetCacheResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: ResetCacheResponse)
+rrsGatewayARN :: Lens.Lens' ResetCacheResponse (Core.Maybe Types.GatewayARN)
+rrsGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED rrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsResponseStatus :: Lens.Lens' ResetCacheResponse Lude.Int
-rrsResponseStatus = Lens.lens (responseStatus :: ResetCacheResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetCacheResponse)
+rrsResponseStatus :: Lens.Lens' ResetCacheResponse Core.Int
+rrsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -29,16 +29,16 @@ module Network.AWS.SNS.GetSMSAttributes
     mkGetSMSAttributesResponse,
 
     -- ** Response lenses
-    gsmsarsAttributes,
-    gsmsarsResponseStatus,
+    gsmsarrsAttributes,
+    gsmsarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | The input for the @GetSMSAttributes@ request.
 --
@@ -48,20 +48,15 @@ newtype GetSMSAttributes = GetSMSAttributes'
     --
     -- For all attribute names, see <https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html SetSMSAttributes> .
     -- If you don't use this parameter, Amazon SNS returns all SMS attributes.
-    attributes :: Lude.Maybe [Lude.Text]
+    attributes :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSMSAttributes' with the minimum fields required to make a request.
---
--- * 'attributes' - A list of the individual attribute names, such as @MonthlySpendLimit@ , for which you want values.
---
--- For all attribute names, see <https://docs.aws.amazon.com/sns/latest/api/API_SetSMSAttributes.html SetSMSAttributes> .
--- If you don't use this parameter, Amazon SNS returns all SMS attributes.
+-- | Creates a 'GetSMSAttributes' value with any optional fields omitted.
 mkGetSMSAttributes ::
   GetSMSAttributes
-mkGetSMSAttributes = GetSMSAttributes' {attributes = Lude.Nothing}
+mkGetSMSAttributes = GetSMSAttributes' {attributes = Core.Nothing}
 
 -- | A list of the individual attribute names, such as @MonthlySpendLimit@ , for which you want values.
 --
@@ -69,75 +64,77 @@ mkGetSMSAttributes = GetSMSAttributes' {attributes = Lude.Nothing}
 -- If you don't use this parameter, Amazon SNS returns all SMS attributes.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsmsaAttributes :: Lens.Lens' GetSMSAttributes (Lude.Maybe [Lude.Text])
-gsmsaAttributes = Lens.lens (attributes :: GetSMSAttributes -> Lude.Maybe [Lude.Text]) (\s a -> s {attributes = a} :: GetSMSAttributes)
+gsmsaAttributes :: Lens.Lens' GetSMSAttributes (Core.Maybe [Types.String])
+gsmsaAttributes = Lens.field @"attributes"
 {-# DEPRECATED gsmsaAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance Lude.AWSRequest GetSMSAttributes where
+instance Core.AWSRequest GetSMSAttributes where
   type Rs GetSMSAttributes = GetSMSAttributesResponse
-  request = Req.postQuery snsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetSMSAttributes")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> ( Core.toQueryValue
+                            "attributes"
+                            (Core.toQueryList "member" Core.<$> attributes)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetSMSAttributesResult"
       ( \s h x ->
           GetSMSAttributesResponse'
-            Lude.<$> ( x Lude..@? "attributes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
+            Core.<$> ( x Core..@? "attributes"
+                         Core..<@> Core.parseXMLMap "entry" "key" "value"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSMSAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetSMSAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetSMSAttributes where
-  toQuery GetSMSAttributes' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetSMSAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "attributes"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> attributes)
-      ]
 
 -- | The response from the @GetSMSAttributes@ request.
 --
 -- /See:/ 'mkGetSMSAttributesResponse' smart constructor.
 data GetSMSAttributesResponse = GetSMSAttributesResponse'
   { -- | The SMS attribute names and their values.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    attributes :: Core.Maybe (Core.HashMap Types.String Types.String),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSMSAttributesResponse' with the minimum fields required to make a request.
---
--- * 'attributes' - The SMS attribute names and their values.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSMSAttributesResponse' value with any optional fields omitted.
 mkGetSMSAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSMSAttributesResponse
-mkGetSMSAttributesResponse pResponseStatus_ =
+mkGetSMSAttributesResponse responseStatus =
   GetSMSAttributesResponse'
-    { attributes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { attributes = Core.Nothing,
+      responseStatus
     }
 
 -- | The SMS attribute names and their values.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsmsarsAttributes :: Lens.Lens' GetSMSAttributesResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-gsmsarsAttributes = Lens.lens (attributes :: GetSMSAttributesResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: GetSMSAttributesResponse)
-{-# DEPRECATED gsmsarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+gsmsarrsAttributes :: Lens.Lens' GetSMSAttributesResponse (Core.Maybe (Core.HashMap Types.String Types.String))
+gsmsarrsAttributes = Lens.field @"attributes"
+{-# DEPRECATED gsmsarrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsmsarsResponseStatus :: Lens.Lens' GetSMSAttributesResponse Lude.Int
-gsmsarsResponseStatus = Lens.lens (responseStatus :: GetSMSAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSMSAttributesResponse)
-{-# DEPRECATED gsmsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsmsarrsResponseStatus :: Lens.Lens' GetSMSAttributesResponse Core.Int
+gsmsarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsmsarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

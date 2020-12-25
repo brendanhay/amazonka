@@ -17,98 +17,92 @@ module Network.AWS.Config.Types.RemediationExecutionStep
     mkRemediationExecutionStep,
 
     -- * Lenses
-    resState,
-    resStartTime,
-    resName,
-    resStopTime,
     resErrorMessage,
+    resName,
+    resStartTime,
+    resState,
+    resStopTime,
   )
 where
 
-import Network.AWS.Config.Types.RemediationExecutionStepState
+import qualified Network.AWS.Config.Types.ErrorMessage as Types
+import qualified Network.AWS.Config.Types.Name as Types
+import qualified Network.AWS.Config.Types.RemediationExecutionStepState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Name of the step from the SSM document.
 --
 -- /See:/ 'mkRemediationExecutionStep' smart constructor.
 data RemediationExecutionStep = RemediationExecutionStep'
-  { -- | The valid status of the step.
-    state :: Lude.Maybe RemediationExecutionStepState,
-    -- | The time when the step started.
-    startTime :: Lude.Maybe Lude.Timestamp,
+  { -- | An error message if the step was interrupted during execution.
+    errorMessage :: Core.Maybe Types.ErrorMessage,
     -- | The details of the step.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
+    -- | The time when the step started.
+    startTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The valid status of the step.
+    state :: Core.Maybe Types.RemediationExecutionStepState,
     -- | The time when the step stopped.
-    stopTime :: Lude.Maybe Lude.Timestamp,
-    -- | An error message if the step was interrupted during execution.
-    errorMessage :: Lude.Maybe Lude.Text
+    stopTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RemediationExecutionStep' with the minimum fields required to make a request.
---
--- * 'state' - The valid status of the step.
--- * 'startTime' - The time when the step started.
--- * 'name' - The details of the step.
--- * 'stopTime' - The time when the step stopped.
--- * 'errorMessage' - An error message if the step was interrupted during execution.
+-- | Creates a 'RemediationExecutionStep' value with any optional fields omitted.
 mkRemediationExecutionStep ::
   RemediationExecutionStep
 mkRemediationExecutionStep =
   RemediationExecutionStep'
-    { state = Lude.Nothing,
-      startTime = Lude.Nothing,
-      name = Lude.Nothing,
-      stopTime = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { errorMessage = Core.Nothing,
+      name = Core.Nothing,
+      startTime = Core.Nothing,
+      state = Core.Nothing,
+      stopTime = Core.Nothing
     }
-
--- | The valid status of the step.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resState :: Lens.Lens' RemediationExecutionStep (Lude.Maybe RemediationExecutionStepState)
-resState = Lens.lens (state :: RemediationExecutionStep -> Lude.Maybe RemediationExecutionStepState) (\s a -> s {state = a} :: RemediationExecutionStep)
-{-# DEPRECATED resState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The time when the step started.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resStartTime :: Lens.Lens' RemediationExecutionStep (Lude.Maybe Lude.Timestamp)
-resStartTime = Lens.lens (startTime :: RemediationExecutionStep -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: RemediationExecutionStep)
-{-# DEPRECATED resStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The details of the step.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resName :: Lens.Lens' RemediationExecutionStep (Lude.Maybe Lude.Text)
-resName = Lens.lens (name :: RemediationExecutionStep -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RemediationExecutionStep)
-{-# DEPRECATED resName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The time when the step stopped.
---
--- /Note:/ Consider using 'stopTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resStopTime :: Lens.Lens' RemediationExecutionStep (Lude.Maybe Lude.Timestamp)
-resStopTime = Lens.lens (stopTime :: RemediationExecutionStep -> Lude.Maybe Lude.Timestamp) (\s a -> s {stopTime = a} :: RemediationExecutionStep)
-{-# DEPRECATED resStopTime "Use generic-lens or generic-optics with 'stopTime' instead." #-}
 
 -- | An error message if the step was interrupted during execution.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-resErrorMessage :: Lens.Lens' RemediationExecutionStep (Lude.Maybe Lude.Text)
-resErrorMessage = Lens.lens (errorMessage :: RemediationExecutionStep -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: RemediationExecutionStep)
+resErrorMessage :: Lens.Lens' RemediationExecutionStep (Core.Maybe Types.ErrorMessage)
+resErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED resErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON RemediationExecutionStep where
+-- | The details of the step.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+resName :: Lens.Lens' RemediationExecutionStep (Core.Maybe Types.Name)
+resName = Lens.field @"name"
+{-# DEPRECATED resName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The time when the step started.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+resStartTime :: Lens.Lens' RemediationExecutionStep (Core.Maybe Core.NominalDiffTime)
+resStartTime = Lens.field @"startTime"
+{-# DEPRECATED resStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The valid status of the step.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+resState :: Lens.Lens' RemediationExecutionStep (Core.Maybe Types.RemediationExecutionStepState)
+resState = Lens.field @"state"
+{-# DEPRECATED resState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The time when the step stopped.
+--
+-- /Note:/ Consider using 'stopTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+resStopTime :: Lens.Lens' RemediationExecutionStep (Core.Maybe Core.NominalDiffTime)
+resStopTime = Lens.field @"stopTime"
+{-# DEPRECATED resStopTime "Use generic-lens or generic-optics with 'stopTime' instead." #-}
+
+instance Core.FromJSON RemediationExecutionStep where
   parseJSON =
-    Lude.withObject
-      "RemediationExecutionStep"
-      ( \x ->
-          RemediationExecutionStep'
-            Lude.<$> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "StartTime")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "StopTime")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-      )
+    Core.withObject "RemediationExecutionStep" Core.$
+      \x ->
+        RemediationExecutionStep'
+          Core.<$> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "StartTime")
+          Core.<*> (x Core..:? "State")
+          Core.<*> (x Core..:? "StopTime")

@@ -20,28 +20,30 @@ module Network.AWS.XRay.PutEncryptionConfig
     mkPutEncryptionConfig,
 
     -- ** Request lenses
-    pecKeyId,
     pecType,
+    pecKeyId,
 
     -- * Destructuring the response
     PutEncryptionConfigResponse (..),
     mkPutEncryptionConfigResponse,
 
     -- ** Response lenses
-    pecrsEncryptionConfig,
-    pecrsResponseStatus,
+    pecrrsEncryptionConfig,
+    pecrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.XRay.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.XRay.Types as Types
 
 -- | /See:/ 'mkPutEncryptionConfig' smart constructor.
 data PutEncryptionConfig = PutEncryptionConfig'
-  { -- | An AWS KMS customer master key (CMK) in one of the following formats:
+  { -- | The type of encryption. Set to @KMS@ to use your own key for encryption. Set to @NONE@ for default encryption.
+    type' :: Types.EncryptionType,
+    -- | An AWS KMS customer master key (CMK) in one of the following formats:
     --
     --
     --     * __Alias__ - The name of the key. For example, @alias/MyKey@ .
@@ -54,35 +56,25 @@ data PutEncryptionConfig = PutEncryptionConfig'
     --
     --
     -- Omit this key if you set @Type@ to @NONE@ .
-    keyId :: Lude.Maybe Lude.Text,
-    -- | The type of encryption. Set to @KMS@ to use your own key for encryption. Set to @NONE@ for default encryption.
-    type' :: EncryptionType
+    keyId :: Core.Maybe Types.EncryptionKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutEncryptionConfig' with the minimum fields required to make a request.
---
--- * 'keyId' - An AWS KMS customer master key (CMK) in one of the following formats:
---
---
---     * __Alias__ - The name of the key. For example, @alias/MyKey@ .
---
---
---     * __Key ID__ - The KMS key ID of the key. For example, @ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@ . AWS X-Ray does not support asymmetric CMKs.
---
---
---     * __ARN__ - The full Amazon Resource Name of the key ID or alias. For example, @arn:aws:kms:us-east-2:123456789012:key/ae4aa6d49-a4d8-9df9-a475-4ff6d7898456@ . Use this format to specify a key in a different account.
---
---
--- Omit this key if you set @Type@ to @NONE@ .
--- * 'type'' - The type of encryption. Set to @KMS@ to use your own key for encryption. Set to @NONE@ for default encryption.
+-- | Creates a 'PutEncryptionConfig' value with any optional fields omitted.
 mkPutEncryptionConfig ::
-  -- | 'type''
-  EncryptionType ->
+  -- | 'type\''
+  Types.EncryptionType ->
   PutEncryptionConfig
-mkPutEncryptionConfig pType_ =
-  PutEncryptionConfig' {keyId = Lude.Nothing, type' = pType_}
+mkPutEncryptionConfig type' =
+  PutEncryptionConfig' {type', keyId = Core.Nothing}
+
+-- | The type of encryption. Set to @KMS@ to use your own key for encryption. Set to @NONE@ for default encryption.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pecType :: Lens.Lens' PutEncryptionConfig Types.EncryptionType
+pecType = Lens.field @"type'"
+{-# DEPRECATED pecType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | An AWS KMS customer master key (CMK) in one of the following formats:
 --
@@ -99,80 +91,69 @@ mkPutEncryptionConfig pType_ =
 -- Omit this key if you set @Type@ to @NONE@ .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pecKeyId :: Lens.Lens' PutEncryptionConfig (Lude.Maybe Lude.Text)
-pecKeyId = Lens.lens (keyId :: PutEncryptionConfig -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: PutEncryptionConfig)
+pecKeyId :: Lens.Lens' PutEncryptionConfig (Core.Maybe Types.EncryptionKeyId)
+pecKeyId = Lens.field @"keyId"
 {-# DEPRECATED pecKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
--- | The type of encryption. Set to @KMS@ to use your own key for encryption. Set to @NONE@ for default encryption.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pecType :: Lens.Lens' PutEncryptionConfig EncryptionType
-pecType = Lens.lens (type' :: PutEncryptionConfig -> EncryptionType) (\s a -> s {type' = a} :: PutEncryptionConfig)
-{-# DEPRECATED pecType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
-instance Lude.AWSRequest PutEncryptionConfig where
-  type Rs PutEncryptionConfig = PutEncryptionConfigResponse
-  request = Req.postJSON xRayService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          PutEncryptionConfigResponse'
-            Lude.<$> (x Lude..?> "EncryptionConfig")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders PutEncryptionConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON PutEncryptionConfig where
-  toJSON PutEncryptionConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("KeyId" Lude..=) Lude.<$> keyId,
-            Lude.Just ("Type" Lude..= type')
+instance Core.FromJSON PutEncryptionConfig where
+  toJSON PutEncryptionConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            ("KeyId" Core..=) Core.<$> keyId
           ]
       )
 
-instance Lude.ToPath PutEncryptionConfig where
-  toPath = Lude.const "/PutEncryptionConfig"
-
-instance Lude.ToQuery PutEncryptionConfig where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest PutEncryptionConfig where
+  type Rs PutEncryptionConfig = PutEncryptionConfigResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/PutEncryptionConfig",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          PutEncryptionConfigResponse'
+            Core.<$> (x Core..:? "EncryptionConfig")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkPutEncryptionConfigResponse' smart constructor.
 data PutEncryptionConfigResponse = PutEncryptionConfigResponse'
   { -- | The new encryption configuration.
-    encryptionConfig :: Lude.Maybe EncryptionConfig,
+    encryptionConfig :: Core.Maybe Types.EncryptionConfig,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutEncryptionConfigResponse' with the minimum fields required to make a request.
---
--- * 'encryptionConfig' - The new encryption configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutEncryptionConfigResponse' value with any optional fields omitted.
 mkPutEncryptionConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutEncryptionConfigResponse
-mkPutEncryptionConfigResponse pResponseStatus_ =
+mkPutEncryptionConfigResponse responseStatus =
   PutEncryptionConfigResponse'
-    { encryptionConfig = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { encryptionConfig = Core.Nothing,
+      responseStatus
     }
 
 -- | The new encryption configuration.
 --
 -- /Note:/ Consider using 'encryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pecrsEncryptionConfig :: Lens.Lens' PutEncryptionConfigResponse (Lude.Maybe EncryptionConfig)
-pecrsEncryptionConfig = Lens.lens (encryptionConfig :: PutEncryptionConfigResponse -> Lude.Maybe EncryptionConfig) (\s a -> s {encryptionConfig = a} :: PutEncryptionConfigResponse)
-{-# DEPRECATED pecrsEncryptionConfig "Use generic-lens or generic-optics with 'encryptionConfig' instead." #-}
+pecrrsEncryptionConfig :: Lens.Lens' PutEncryptionConfigResponse (Core.Maybe Types.EncryptionConfig)
+pecrrsEncryptionConfig = Lens.field @"encryptionConfig"
+{-# DEPRECATED pecrrsEncryptionConfig "Use generic-lens or generic-optics with 'encryptionConfig' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pecrsResponseStatus :: Lens.Lens' PutEncryptionConfigResponse Lude.Int
-pecrsResponseStatus = Lens.lens (responseStatus :: PutEncryptionConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutEncryptionConfigResponse)
-{-# DEPRECATED pecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pecrrsResponseStatus :: Lens.Lens' PutEncryptionConfigResponse Core.Int
+pecrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pecrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

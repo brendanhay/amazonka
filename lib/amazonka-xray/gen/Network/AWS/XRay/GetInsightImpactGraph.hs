@@ -20,235 +20,219 @@ module Network.AWS.XRay.GetInsightImpactGraph
     mkGetInsightImpactGraph,
 
     -- ** Request lenses
-    giigStartTime,
     giigInsightId,
-    giigNextToken,
+    giigStartTime,
     giigEndTime,
+    giigNextToken,
 
     -- * Destructuring the response
     GetInsightImpactGraphResponse (..),
     mkGetInsightImpactGraphResponse,
 
     -- ** Response lenses
-    giigrsServiceGraphStartTime,
-    giigrsStartTime,
-    giigrsInsightId,
-    giigrsNextToken,
-    giigrsEndTime,
-    giigrsServiceGraphEndTime,
-    giigrsServices,
-    giigrsResponseStatus,
+    giigrrsEndTime,
+    giigrrsInsightId,
+    giigrrsNextToken,
+    giigrrsServiceGraphEndTime,
+    giigrrsServiceGraphStartTime,
+    giigrrsServices,
+    giigrrsStartTime,
+    giigrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.XRay.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.XRay.Types as Types
 
 -- | /See:/ 'mkGetInsightImpactGraph' smart constructor.
 data GetInsightImpactGraph = GetInsightImpactGraph'
-  { -- | The estimated start time of the insight, in Unix time seconds. The StartTime is inclusive of the value provided and can't be more than 30 days old.
-    startTime :: Lude.Timestamp,
-    -- | The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
-    insightId :: Lude.Text,
-    -- | Specify the pagination token returned by a previous request to retrieve the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
+    insightId :: Types.InsightId,
+    -- | The estimated start time of the insight, in Unix time seconds. The StartTime is inclusive of the value provided and can't be more than 30 days old.
+    startTime :: Core.NominalDiffTime,
     -- | The estimated end time of the insight, in Unix time seconds. The EndTime is exclusive of the value provided. The time range between the start time and end time can't be more than six hours.
-    endTime :: Lude.Timestamp
+    endTime :: Core.NominalDiffTime,
+    -- | Specify the pagination token returned by a previous request to retrieve the next page of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetInsightImpactGraph' with the minimum fields required to make a request.
---
--- * 'startTime' - The estimated start time of the insight, in Unix time seconds. The StartTime is inclusive of the value provided and can't be more than 30 days old.
--- * 'insightId' - The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
--- * 'nextToken' - Specify the pagination token returned by a previous request to retrieve the next page of results.
--- * 'endTime' - The estimated end time of the insight, in Unix time seconds. The EndTime is exclusive of the value provided. The time range between the start time and end time can't be more than six hours.
+-- | Creates a 'GetInsightImpactGraph' value with any optional fields omitted.
 mkGetInsightImpactGraph ::
-  -- | 'startTime'
-  Lude.Timestamp ->
   -- | 'insightId'
-  Lude.Text ->
+  Types.InsightId ->
+  -- | 'startTime'
+  Core.NominalDiffTime ->
   -- | 'endTime'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   GetInsightImpactGraph
-mkGetInsightImpactGraph pStartTime_ pInsightId_ pEndTime_ =
+mkGetInsightImpactGraph insightId startTime endTime =
   GetInsightImpactGraph'
-    { startTime = pStartTime_,
-      insightId = pInsightId_,
-      nextToken = Lude.Nothing,
-      endTime = pEndTime_
+    { insightId,
+      startTime,
+      endTime,
+      nextToken = Core.Nothing
     }
-
--- | The estimated start time of the insight, in Unix time seconds. The StartTime is inclusive of the value provided and can't be more than 30 days old.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigStartTime :: Lens.Lens' GetInsightImpactGraph Lude.Timestamp
-giigStartTime = Lens.lens (startTime :: GetInsightImpactGraph -> Lude.Timestamp) (\s a -> s {startTime = a} :: GetInsightImpactGraph)
-{-# DEPRECATED giigStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
 --
 -- /Note:/ Consider using 'insightId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigInsightId :: Lens.Lens' GetInsightImpactGraph Lude.Text
-giigInsightId = Lens.lens (insightId :: GetInsightImpactGraph -> Lude.Text) (\s a -> s {insightId = a} :: GetInsightImpactGraph)
+giigInsightId :: Lens.Lens' GetInsightImpactGraph Types.InsightId
+giigInsightId = Lens.field @"insightId"
 {-# DEPRECATED giigInsightId "Use generic-lens or generic-optics with 'insightId' instead." #-}
 
--- | Specify the pagination token returned by a previous request to retrieve the next page of results.
+-- | The estimated start time of the insight, in Unix time seconds. The StartTime is inclusive of the value provided and can't be more than 30 days old.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigNextToken :: Lens.Lens' GetInsightImpactGraph (Lude.Maybe Lude.Text)
-giigNextToken = Lens.lens (nextToken :: GetInsightImpactGraph -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInsightImpactGraph)
-{-# DEPRECATED giigNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giigStartTime :: Lens.Lens' GetInsightImpactGraph Core.NominalDiffTime
+giigStartTime = Lens.field @"startTime"
+{-# DEPRECATED giigStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The estimated end time of the insight, in Unix time seconds. The EndTime is exclusive of the value provided. The time range between the start time and end time can't be more than six hours.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigEndTime :: Lens.Lens' GetInsightImpactGraph Lude.Timestamp
-giigEndTime = Lens.lens (endTime :: GetInsightImpactGraph -> Lude.Timestamp) (\s a -> s {endTime = a} :: GetInsightImpactGraph)
+giigEndTime :: Lens.Lens' GetInsightImpactGraph Core.NominalDiffTime
+giigEndTime = Lens.field @"endTime"
 {-# DEPRECATED giigEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance Lude.AWSRequest GetInsightImpactGraph where
-  type Rs GetInsightImpactGraph = GetInsightImpactGraphResponse
-  request = Req.postJSON xRayService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          GetInsightImpactGraphResponse'
-            Lude.<$> (x Lude..?> "ServiceGraphStartTime")
-            Lude.<*> (x Lude..?> "StartTime")
-            Lude.<*> (x Lude..?> "InsightId")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "EndTime")
-            Lude.<*> (x Lude..?> "ServiceGraphEndTime")
-            Lude.<*> (x Lude..?> "Services" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | Specify the pagination token returned by a previous request to retrieve the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giigNextToken :: Lens.Lens' GetInsightImpactGraph (Core.Maybe Types.NextToken)
+giigNextToken = Lens.field @"nextToken"
+{-# DEPRECATED giigNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.ToHeaders GetInsightImpactGraph where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetInsightImpactGraph where
-  toJSON GetInsightImpactGraph' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("StartTime" Lude..= startTime),
-            Lude.Just ("InsightId" Lude..= insightId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("EndTime" Lude..= endTime)
+instance Core.FromJSON GetInsightImpactGraph where
+  toJSON GetInsightImpactGraph {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InsightId" Core..= insightId),
+            Core.Just ("StartTime" Core..= startTime),
+            Core.Just ("EndTime" Core..= endTime),
+            ("NextToken" Core..=) Core.<$> nextToken
           ]
       )
 
-instance Lude.ToPath GetInsightImpactGraph where
-  toPath = Lude.const "/InsightImpactGraph"
-
-instance Lude.ToQuery GetInsightImpactGraph where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest GetInsightImpactGraph where
+  type Rs GetInsightImpactGraph = GetInsightImpactGraphResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/InsightImpactGraph",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetInsightImpactGraphResponse'
+            Core.<$> (x Core..:? "EndTime")
+            Core.<*> (x Core..:? "InsightId")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "ServiceGraphEndTime")
+            Core.<*> (x Core..:? "ServiceGraphStartTime")
+            Core.<*> (x Core..:? "Services")
+            Core.<*> (x Core..:? "StartTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkGetInsightImpactGraphResponse' smart constructor.
 data GetInsightImpactGraphResponse = GetInsightImpactGraphResponse'
-  { -- | The time, in Unix seconds, at which the service graph started.
-    serviceGraphStartTime :: Lude.Maybe Lude.Timestamp,
-    -- | The provided start time.
-    startTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The provided end time.
+    endTime :: Core.Maybe Core.NominalDiffTime,
     -- | The insight's unique identifier.
-    insightId :: Lude.Maybe Lude.Text,
+    insightId :: Core.Maybe Types.InsightId,
     -- | Pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The provided end time.
-    endTime :: Lude.Maybe Lude.Timestamp,
+    nextToken :: Core.Maybe Types.Token,
     -- | The time, in Unix seconds, at which the service graph ended.
-    serviceGraphEndTime :: Lude.Maybe Lude.Timestamp,
+    serviceGraphEndTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The time, in Unix seconds, at which the service graph started.
+    serviceGraphStartTime :: Core.Maybe Core.NominalDiffTime,
     -- | The AWS instrumented services related to the insight.
-    services :: Lude.Maybe [InsightImpactGraphService],
+    services :: Core.Maybe [Types.InsightImpactGraphService],
+    -- | The provided start time.
+    startTime :: Core.Maybe Core.NominalDiffTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetInsightImpactGraphResponse' with the minimum fields required to make a request.
---
--- * 'serviceGraphStartTime' - The time, in Unix seconds, at which the service graph started.
--- * 'startTime' - The provided start time.
--- * 'insightId' - The insight's unique identifier.
--- * 'nextToken' - Pagination token.
--- * 'endTime' - The provided end time.
--- * 'serviceGraphEndTime' - The time, in Unix seconds, at which the service graph ended.
--- * 'services' - The AWS instrumented services related to the insight.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInsightImpactGraphResponse' value with any optional fields omitted.
 mkGetInsightImpactGraphResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInsightImpactGraphResponse
-mkGetInsightImpactGraphResponse pResponseStatus_ =
+mkGetInsightImpactGraphResponse responseStatus =
   GetInsightImpactGraphResponse'
-    { serviceGraphStartTime =
-        Lude.Nothing,
-      startTime = Lude.Nothing,
-      insightId = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      endTime = Lude.Nothing,
-      serviceGraphEndTime = Lude.Nothing,
-      services = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { endTime = Core.Nothing,
+      insightId = Core.Nothing,
+      nextToken = Core.Nothing,
+      serviceGraphEndTime = Core.Nothing,
+      serviceGraphStartTime = Core.Nothing,
+      services = Core.Nothing,
+      startTime = Core.Nothing,
+      responseStatus
     }
-
--- | The time, in Unix seconds, at which the service graph started.
---
--- /Note:/ Consider using 'serviceGraphStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigrsServiceGraphStartTime :: Lens.Lens' GetInsightImpactGraphResponse (Lude.Maybe Lude.Timestamp)
-giigrsServiceGraphStartTime = Lens.lens (serviceGraphStartTime :: GetInsightImpactGraphResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {serviceGraphStartTime = a} :: GetInsightImpactGraphResponse)
-{-# DEPRECATED giigrsServiceGraphStartTime "Use generic-lens or generic-optics with 'serviceGraphStartTime' instead." #-}
-
--- | The provided start time.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigrsStartTime :: Lens.Lens' GetInsightImpactGraphResponse (Lude.Maybe Lude.Timestamp)
-giigrsStartTime = Lens.lens (startTime :: GetInsightImpactGraphResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: GetInsightImpactGraphResponse)
-{-# DEPRECATED giigrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The insight's unique identifier.
---
--- /Note:/ Consider using 'insightId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigrsInsightId :: Lens.Lens' GetInsightImpactGraphResponse (Lude.Maybe Lude.Text)
-giigrsInsightId = Lens.lens (insightId :: GetInsightImpactGraphResponse -> Lude.Maybe Lude.Text) (\s a -> s {insightId = a} :: GetInsightImpactGraphResponse)
-{-# DEPRECATED giigrsInsightId "Use generic-lens or generic-optics with 'insightId' instead." #-}
-
--- | Pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigrsNextToken :: Lens.Lens' GetInsightImpactGraphResponse (Lude.Maybe Lude.Text)
-giigrsNextToken = Lens.lens (nextToken :: GetInsightImpactGraphResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInsightImpactGraphResponse)
-{-# DEPRECATED giigrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The provided end time.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigrsEndTime :: Lens.Lens' GetInsightImpactGraphResponse (Lude.Maybe Lude.Timestamp)
-giigrsEndTime = Lens.lens (endTime :: GetInsightImpactGraphResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: GetInsightImpactGraphResponse)
-{-# DEPRECATED giigrsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+giigrrsEndTime :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Core.NominalDiffTime)
+giigrrsEndTime = Lens.field @"endTime"
+{-# DEPRECATED giigrrsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | The insight's unique identifier.
+--
+-- /Note:/ Consider using 'insightId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giigrrsInsightId :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Types.InsightId)
+giigrrsInsightId = Lens.field @"insightId"
+{-# DEPRECATED giigrrsInsightId "Use generic-lens or generic-optics with 'insightId' instead." #-}
+
+-- | Pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giigrrsNextToken :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Types.Token)
+giigrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED giigrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The time, in Unix seconds, at which the service graph ended.
 --
 -- /Note:/ Consider using 'serviceGraphEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigrsServiceGraphEndTime :: Lens.Lens' GetInsightImpactGraphResponse (Lude.Maybe Lude.Timestamp)
-giigrsServiceGraphEndTime = Lens.lens (serviceGraphEndTime :: GetInsightImpactGraphResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {serviceGraphEndTime = a} :: GetInsightImpactGraphResponse)
-{-# DEPRECATED giigrsServiceGraphEndTime "Use generic-lens or generic-optics with 'serviceGraphEndTime' instead." #-}
+giigrrsServiceGraphEndTime :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Core.NominalDiffTime)
+giigrrsServiceGraphEndTime = Lens.field @"serviceGraphEndTime"
+{-# DEPRECATED giigrrsServiceGraphEndTime "Use generic-lens or generic-optics with 'serviceGraphEndTime' instead." #-}
+
+-- | The time, in Unix seconds, at which the service graph started.
+--
+-- /Note:/ Consider using 'serviceGraphStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giigrrsServiceGraphStartTime :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Core.NominalDiffTime)
+giigrrsServiceGraphStartTime = Lens.field @"serviceGraphStartTime"
+{-# DEPRECATED giigrrsServiceGraphStartTime "Use generic-lens or generic-optics with 'serviceGraphStartTime' instead." #-}
 
 -- | The AWS instrumented services related to the insight.
 --
 -- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigrsServices :: Lens.Lens' GetInsightImpactGraphResponse (Lude.Maybe [InsightImpactGraphService])
-giigrsServices = Lens.lens (services :: GetInsightImpactGraphResponse -> Lude.Maybe [InsightImpactGraphService]) (\s a -> s {services = a} :: GetInsightImpactGraphResponse)
-{-# DEPRECATED giigrsServices "Use generic-lens or generic-optics with 'services' instead." #-}
+giigrrsServices :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe [Types.InsightImpactGraphService])
+giigrrsServices = Lens.field @"services"
+{-# DEPRECATED giigrrsServices "Use generic-lens or generic-optics with 'services' instead." #-}
+
+-- | The provided start time.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+giigrrsStartTime :: Lens.Lens' GetInsightImpactGraphResponse (Core.Maybe Core.NominalDiffTime)
+giigrrsStartTime = Lens.field @"startTime"
+{-# DEPRECATED giigrrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giigrsResponseStatus :: Lens.Lens' GetInsightImpactGraphResponse Lude.Int
-giigrsResponseStatus = Lens.lens (responseStatus :: GetInsightImpactGraphResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInsightImpactGraphResponse)
-{-# DEPRECATED giigrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+giigrrsResponseStatus :: Lens.Lens' GetInsightImpactGraphResponse Core.Int
+giigrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED giigrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

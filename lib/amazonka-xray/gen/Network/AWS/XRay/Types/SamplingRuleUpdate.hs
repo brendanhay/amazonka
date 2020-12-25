@@ -17,187 +17,184 @@ module Network.AWS.XRay.Types.SamplingRuleUpdate
     mkSamplingRuleUpdate,
 
     -- * Lenses
-    sruHTTPMethod,
-    sruPriority,
-    sruRuleName,
-    sruReservoirSize,
-    sruFixedRate,
-    sruResourceARN,
     sruAttributes,
+    sruFixedRate,
+    sruHTTPMethod,
+    sruHost,
+    sruPriority,
+    sruReservoirSize,
+    sruResourceARN,
+    sruRuleARN,
+    sruRuleName,
     sruServiceName,
     sruServiceType,
-    sruHost,
-    sruRuleARN,
     sruURLPath,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.AttributeKey as Types
+import qualified Network.AWS.XRay.Types.AttributeValue as Types
+import qualified Network.AWS.XRay.Types.HTTPMethod as Types
+import qualified Network.AWS.XRay.Types.Host as Types
+import qualified Network.AWS.XRay.Types.ResourceARN as Types
+import qualified Network.AWS.XRay.Types.RuleName as Types
+import qualified Network.AWS.XRay.Types.ServiceName as Types
+import qualified Network.AWS.XRay.Types.ServiceType as Types
+import qualified Network.AWS.XRay.Types.String as Types
+import qualified Network.AWS.XRay.Types.URLPath as Types
 
 -- | A document specifying changes to a sampling rule's configuration.
 --
 -- /See:/ 'mkSamplingRuleUpdate' smart constructor.
 data SamplingRuleUpdate = SamplingRuleUpdate'
-  { -- | Matches the HTTP method of a request.
-    hTTPMethod :: Lude.Maybe Lude.Text,
-    -- | The priority of the sampling rule.
-    priority :: Lude.Maybe Lude.Int,
-    -- | The name of the sampling rule. Specify a rule by either name or ARN, but not both.
-    ruleName :: Lude.Maybe Lude.Text,
-    -- | A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
-    reservoirSize :: Lude.Maybe Lude.Int,
+  { -- | Matches attributes derived from the request.
+    attributes :: Core.Maybe (Core.HashMap Types.AttributeKey Types.AttributeValue),
     -- | The percentage of matching requests to instrument, after the reservoir is exhausted.
-    fixedRate :: Lude.Maybe Lude.Double,
-    -- | Matches the ARN of the AWS resource on which the service runs.
-    resourceARN :: Lude.Maybe Lude.Text,
-    -- | Matches attributes derived from the request.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | Matches the @name@ that the service uses to identify itself in segments.
-    serviceName :: Lude.Maybe Lude.Text,
-    -- | Matches the @origin@ that the service uses to identify its type in segments.
-    serviceType :: Lude.Maybe Lude.Text,
+    fixedRate :: Core.Maybe Core.Double,
+    -- | Matches the HTTP method of a request.
+    hTTPMethod :: Core.Maybe Types.HTTPMethod,
     -- | Matches the hostname from a request URL.
-    host :: Lude.Maybe Lude.Text,
+    host :: Core.Maybe Types.Host,
+    -- | The priority of the sampling rule.
+    priority :: Core.Maybe Core.Int,
+    -- | A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+    reservoirSize :: Core.Maybe Core.Int,
+    -- | Matches the ARN of the AWS resource on which the service runs.
+    resourceARN :: Core.Maybe Types.ResourceARN,
     -- | The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
-    ruleARN :: Lude.Maybe Lude.Text,
+    ruleARN :: Core.Maybe Types.String,
+    -- | The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+    ruleName :: Core.Maybe Types.RuleName,
+    -- | Matches the @name@ that the service uses to identify itself in segments.
+    serviceName :: Core.Maybe Types.ServiceName,
+    -- | Matches the @origin@ that the service uses to identify its type in segments.
+    serviceType :: Core.Maybe Types.ServiceType,
     -- | Matches the path from a request URL.
-    urlPath :: Lude.Maybe Lude.Text
+    uRLPath :: Core.Maybe Types.URLPath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SamplingRuleUpdate' with the minimum fields required to make a request.
---
--- * 'hTTPMethod' - Matches the HTTP method of a request.
--- * 'priority' - The priority of the sampling rule.
--- * 'ruleName' - The name of the sampling rule. Specify a rule by either name or ARN, but not both.
--- * 'reservoirSize' - A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
--- * 'fixedRate' - The percentage of matching requests to instrument, after the reservoir is exhausted.
--- * 'resourceARN' - Matches the ARN of the AWS resource on which the service runs.
--- * 'attributes' - Matches attributes derived from the request.
--- * 'serviceName' - Matches the @name@ that the service uses to identify itself in segments.
--- * 'serviceType' - Matches the @origin@ that the service uses to identify its type in segments.
--- * 'host' - Matches the hostname from a request URL.
--- * 'ruleARN' - The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
--- * 'urlPath' - Matches the path from a request URL.
+-- | Creates a 'SamplingRuleUpdate' value with any optional fields omitted.
 mkSamplingRuleUpdate ::
   SamplingRuleUpdate
 mkSamplingRuleUpdate =
   SamplingRuleUpdate'
-    { hTTPMethod = Lude.Nothing,
-      priority = Lude.Nothing,
-      ruleName = Lude.Nothing,
-      reservoirSize = Lude.Nothing,
-      fixedRate = Lude.Nothing,
-      resourceARN = Lude.Nothing,
-      attributes = Lude.Nothing,
-      serviceName = Lude.Nothing,
-      serviceType = Lude.Nothing,
-      host = Lude.Nothing,
-      ruleARN = Lude.Nothing,
-      urlPath = Lude.Nothing
+    { attributes = Core.Nothing,
+      fixedRate = Core.Nothing,
+      hTTPMethod = Core.Nothing,
+      host = Core.Nothing,
+      priority = Core.Nothing,
+      reservoirSize = Core.Nothing,
+      resourceARN = Core.Nothing,
+      ruleARN = Core.Nothing,
+      ruleName = Core.Nothing,
+      serviceName = Core.Nothing,
+      serviceType = Core.Nothing,
+      uRLPath = Core.Nothing
     }
-
--- | Matches the HTTP method of a request.
---
--- /Note:/ Consider using 'hTTPMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruHTTPMethod :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe Lude.Text)
-sruHTTPMethod = Lens.lens (hTTPMethod :: SamplingRuleUpdate -> Lude.Maybe Lude.Text) (\s a -> s {hTTPMethod = a} :: SamplingRuleUpdate)
-{-# DEPRECATED sruHTTPMethod "Use generic-lens or generic-optics with 'hTTPMethod' instead." #-}
-
--- | The priority of the sampling rule.
---
--- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruPriority :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe Lude.Int)
-sruPriority = Lens.lens (priority :: SamplingRuleUpdate -> Lude.Maybe Lude.Int) (\s a -> s {priority = a} :: SamplingRuleUpdate)
-{-# DEPRECATED sruPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
-
--- | The name of the sampling rule. Specify a rule by either name or ARN, but not both.
---
--- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruRuleName :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe Lude.Text)
-sruRuleName = Lens.lens (ruleName :: SamplingRuleUpdate -> Lude.Maybe Lude.Text) (\s a -> s {ruleName = a} :: SamplingRuleUpdate)
-{-# DEPRECATED sruRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
-
--- | A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
---
--- /Note:/ Consider using 'reservoirSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruReservoirSize :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe Lude.Int)
-sruReservoirSize = Lens.lens (reservoirSize :: SamplingRuleUpdate -> Lude.Maybe Lude.Int) (\s a -> s {reservoirSize = a} :: SamplingRuleUpdate)
-{-# DEPRECATED sruReservoirSize "Use generic-lens or generic-optics with 'reservoirSize' instead." #-}
-
--- | The percentage of matching requests to instrument, after the reservoir is exhausted.
---
--- /Note:/ Consider using 'fixedRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruFixedRate :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe Lude.Double)
-sruFixedRate = Lens.lens (fixedRate :: SamplingRuleUpdate -> Lude.Maybe Lude.Double) (\s a -> s {fixedRate = a} :: SamplingRuleUpdate)
-{-# DEPRECATED sruFixedRate "Use generic-lens or generic-optics with 'fixedRate' instead." #-}
-
--- | Matches the ARN of the AWS resource on which the service runs.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruResourceARN :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe Lude.Text)
-sruResourceARN = Lens.lens (resourceARN :: SamplingRuleUpdate -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: SamplingRuleUpdate)
-{-# DEPRECATED sruResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | Matches attributes derived from the request.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruAttributes :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-sruAttributes = Lens.lens (attributes :: SamplingRuleUpdate -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: SamplingRuleUpdate)
+sruAttributes :: Lens.Lens' SamplingRuleUpdate (Core.Maybe (Core.HashMap Types.AttributeKey Types.AttributeValue))
+sruAttributes = Lens.field @"attributes"
 {-# DEPRECATED sruAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | The percentage of matching requests to instrument, after the reservoir is exhausted.
+--
+-- /Note:/ Consider using 'fixedRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sruFixedRate :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Double)
+sruFixedRate = Lens.field @"fixedRate"
+{-# DEPRECATED sruFixedRate "Use generic-lens or generic-optics with 'fixedRate' instead." #-}
+
+-- | Matches the HTTP method of a request.
+--
+-- /Note:/ Consider using 'hTTPMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sruHTTPMethod :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Types.HTTPMethod)
+sruHTTPMethod = Lens.field @"hTTPMethod"
+{-# DEPRECATED sruHTTPMethod "Use generic-lens or generic-optics with 'hTTPMethod' instead." #-}
+
+-- | Matches the hostname from a request URL.
+--
+-- /Note:/ Consider using 'host' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sruHost :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Types.Host)
+sruHost = Lens.field @"host"
+{-# DEPRECATED sruHost "Use generic-lens or generic-optics with 'host' instead." #-}
+
+-- | The priority of the sampling rule.
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sruPriority :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Int)
+sruPriority = Lens.field @"priority"
+{-# DEPRECATED sruPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
+
+-- | A fixed number of matching requests to instrument per second, prior to applying the fixed rate. The reservoir is not used directly by services, but applies to all services using the rule collectively.
+--
+-- /Note:/ Consider using 'reservoirSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sruReservoirSize :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Core.Int)
+sruReservoirSize = Lens.field @"reservoirSize"
+{-# DEPRECATED sruReservoirSize "Use generic-lens or generic-optics with 'reservoirSize' instead." #-}
+
+-- | Matches the ARN of the AWS resource on which the service runs.
+--
+-- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sruResourceARN :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Types.ResourceARN)
+sruResourceARN = Lens.field @"resourceARN"
+{-# DEPRECATED sruResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+
+-- | The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
+--
+-- /Note:/ Consider using 'ruleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sruRuleARN :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Types.String)
+sruRuleARN = Lens.field @"ruleARN"
+{-# DEPRECATED sruRuleARN "Use generic-lens or generic-optics with 'ruleARN' instead." #-}
+
+-- | The name of the sampling rule. Specify a rule by either name or ARN, but not both.
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sruRuleName :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Types.RuleName)
+sruRuleName = Lens.field @"ruleName"
+{-# DEPRECATED sruRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 -- | Matches the @name@ that the service uses to identify itself in segments.
 --
 -- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruServiceName :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe Lude.Text)
-sruServiceName = Lens.lens (serviceName :: SamplingRuleUpdate -> Lude.Maybe Lude.Text) (\s a -> s {serviceName = a} :: SamplingRuleUpdate)
+sruServiceName :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Types.ServiceName)
+sruServiceName = Lens.field @"serviceName"
 {-# DEPRECATED sruServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | Matches the @origin@ that the service uses to identify its type in segments.
 --
 -- /Note:/ Consider using 'serviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruServiceType :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe Lude.Text)
-sruServiceType = Lens.lens (serviceType :: SamplingRuleUpdate -> Lude.Maybe Lude.Text) (\s a -> s {serviceType = a} :: SamplingRuleUpdate)
+sruServiceType :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Types.ServiceType)
+sruServiceType = Lens.field @"serviceType"
 {-# DEPRECATED sruServiceType "Use generic-lens or generic-optics with 'serviceType' instead." #-}
-
--- | Matches the hostname from a request URL.
---
--- /Note:/ Consider using 'host' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruHost :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe Lude.Text)
-sruHost = Lens.lens (host :: SamplingRuleUpdate -> Lude.Maybe Lude.Text) (\s a -> s {host = a} :: SamplingRuleUpdate)
-{-# DEPRECATED sruHost "Use generic-lens or generic-optics with 'host' instead." #-}
-
--- | The ARN of the sampling rule. Specify a rule by either name or ARN, but not both.
---
--- /Note:/ Consider using 'ruleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruRuleARN :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe Lude.Text)
-sruRuleARN = Lens.lens (ruleARN :: SamplingRuleUpdate -> Lude.Maybe Lude.Text) (\s a -> s {ruleARN = a} :: SamplingRuleUpdate)
-{-# DEPRECATED sruRuleARN "Use generic-lens or generic-optics with 'ruleARN' instead." #-}
 
 -- | Matches the path from a request URL.
 --
--- /Note:/ Consider using 'urlPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sruURLPath :: Lens.Lens' SamplingRuleUpdate (Lude.Maybe Lude.Text)
-sruURLPath = Lens.lens (urlPath :: SamplingRuleUpdate -> Lude.Maybe Lude.Text) (\s a -> s {urlPath = a} :: SamplingRuleUpdate)
-{-# DEPRECATED sruURLPath "Use generic-lens or generic-optics with 'urlPath' instead." #-}
+-- /Note:/ Consider using 'uRLPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sruURLPath :: Lens.Lens' SamplingRuleUpdate (Core.Maybe Types.URLPath)
+sruURLPath = Lens.field @"uRLPath"
+{-# DEPRECATED sruURLPath "Use generic-lens or generic-optics with 'uRLPath' instead." #-}
 
-instance Lude.ToJSON SamplingRuleUpdate where
-  toJSON SamplingRuleUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("HTTPMethod" Lude..=) Lude.<$> hTTPMethod,
-            ("Priority" Lude..=) Lude.<$> priority,
-            ("RuleName" Lude..=) Lude.<$> ruleName,
-            ("ReservoirSize" Lude..=) Lude.<$> reservoirSize,
-            ("FixedRate" Lude..=) Lude.<$> fixedRate,
-            ("ResourceARN" Lude..=) Lude.<$> resourceARN,
-            ("Attributes" Lude..=) Lude.<$> attributes,
-            ("ServiceName" Lude..=) Lude.<$> serviceName,
-            ("ServiceType" Lude..=) Lude.<$> serviceType,
-            ("Host" Lude..=) Lude.<$> host,
-            ("RuleARN" Lude..=) Lude.<$> ruleARN,
-            ("URLPath" Lude..=) Lude.<$> urlPath
+instance Core.FromJSON SamplingRuleUpdate where
+  toJSON SamplingRuleUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Attributes" Core..=) Core.<$> attributes,
+            ("FixedRate" Core..=) Core.<$> fixedRate,
+            ("HTTPMethod" Core..=) Core.<$> hTTPMethod,
+            ("Host" Core..=) Core.<$> host,
+            ("Priority" Core..=) Core.<$> priority,
+            ("ReservoirSize" Core..=) Core.<$> reservoirSize,
+            ("ResourceARN" Core..=) Core.<$> resourceARN,
+            ("RuleARN" Core..=) Core.<$> ruleARN,
+            ("RuleName" Core..=) Core.<$> ruleName,
+            ("ServiceName" Core..=) Core.<$> serviceName,
+            ("ServiceType" Core..=) Core.<$> serviceType,
+            ("URLPath" Core..=) Core.<$> uRLPath
           ]
       )

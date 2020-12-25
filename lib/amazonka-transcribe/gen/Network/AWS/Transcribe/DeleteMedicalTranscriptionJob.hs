@@ -29,80 +29,70 @@ module Network.AWS.Transcribe.DeleteMedicalTranscriptionJob
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Transcribe.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Transcribe.Types as Types
 
 -- | /See:/ 'mkDeleteMedicalTranscriptionJob' smart constructor.
 newtype DeleteMedicalTranscriptionJob = DeleteMedicalTranscriptionJob'
   { -- | The name you provide to the @DeleteMedicalTranscriptionJob@ object to delete a transcription job.
-    medicalTranscriptionJobName :: Lude.Text
+    medicalTranscriptionJobName :: Types.MedicalTranscriptionJobName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMedicalTranscriptionJob' with the minimum fields required to make a request.
---
--- * 'medicalTranscriptionJobName' - The name you provide to the @DeleteMedicalTranscriptionJob@ object to delete a transcription job.
+-- | Creates a 'DeleteMedicalTranscriptionJob' value with any optional fields omitted.
 mkDeleteMedicalTranscriptionJob ::
   -- | 'medicalTranscriptionJobName'
-  Lude.Text ->
+  Types.MedicalTranscriptionJobName ->
   DeleteMedicalTranscriptionJob
-mkDeleteMedicalTranscriptionJob pMedicalTranscriptionJobName_ =
-  DeleteMedicalTranscriptionJob'
-    { medicalTranscriptionJobName =
-        pMedicalTranscriptionJobName_
-    }
+mkDeleteMedicalTranscriptionJob medicalTranscriptionJobName =
+  DeleteMedicalTranscriptionJob' {medicalTranscriptionJobName}
 
 -- | The name you provide to the @DeleteMedicalTranscriptionJob@ object to delete a transcription job.
 --
 -- /Note:/ Consider using 'medicalTranscriptionJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmtjMedicalTranscriptionJobName :: Lens.Lens' DeleteMedicalTranscriptionJob Lude.Text
-dmtjMedicalTranscriptionJobName = Lens.lens (medicalTranscriptionJobName :: DeleteMedicalTranscriptionJob -> Lude.Text) (\s a -> s {medicalTranscriptionJobName = a} :: DeleteMedicalTranscriptionJob)
+dmtjMedicalTranscriptionJobName :: Lens.Lens' DeleteMedicalTranscriptionJob Types.MedicalTranscriptionJobName
+dmtjMedicalTranscriptionJobName = Lens.field @"medicalTranscriptionJobName"
 {-# DEPRECATED dmtjMedicalTranscriptionJobName "Use generic-lens or generic-optics with 'medicalTranscriptionJobName' instead." #-}
 
-instance Lude.AWSRequest DeleteMedicalTranscriptionJob where
-  type
-    Rs DeleteMedicalTranscriptionJob =
-      DeleteMedicalTranscriptionJobResponse
-  request = Req.postJSON transcribeService
-  response = Res.receiveNull DeleteMedicalTranscriptionJobResponse'
-
-instance Lude.ToHeaders DeleteMedicalTranscriptionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Transcribe.DeleteMedicalTranscriptionJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteMedicalTranscriptionJob where
-  toJSON DeleteMedicalTranscriptionJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON DeleteMedicalTranscriptionJob where
+  toJSON DeleteMedicalTranscriptionJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "MedicalTranscriptionJobName"
-                  Lude..= medicalTranscriptionJobName
+                  Core..= medicalTranscriptionJobName
               )
           ]
       )
 
-instance Lude.ToPath DeleteMedicalTranscriptionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteMedicalTranscriptionJob where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DeleteMedicalTranscriptionJob where
+  type
+    Rs DeleteMedicalTranscriptionJob =
+      DeleteMedicalTranscriptionJobResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Transcribe.DeleteMedicalTranscriptionJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveNull DeleteMedicalTranscriptionJobResponse'
 
 -- | /See:/ 'mkDeleteMedicalTranscriptionJobResponse' smart constructor.
 data DeleteMedicalTranscriptionJobResponse = DeleteMedicalTranscriptionJobResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMedicalTranscriptionJobResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteMedicalTranscriptionJobResponse' value with any optional fields omitted.
 mkDeleteMedicalTranscriptionJobResponse ::
   DeleteMedicalTranscriptionJobResponse
 mkDeleteMedicalTranscriptionJobResponse =

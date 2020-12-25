@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.UnlimitedSupportedInstanceFamily
   ( UnlimitedSupportedInstanceFamily
       ( UnlimitedSupportedInstanceFamily',
-        T2,
-        T3,
-        T3a,
-        T4g
+        UnlimitedSupportedInstanceFamilyT2,
+        UnlimitedSupportedInstanceFamilyT3,
+        UnlimitedSupportedInstanceFamilyT3a,
+        UnlimitedSupportedInstanceFamilyT4g,
+        fromUnlimitedSupportedInstanceFamily
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UnlimitedSupportedInstanceFamily = UnlimitedSupportedInstanceFamily' Lude.Text
+newtype UnlimitedSupportedInstanceFamily = UnlimitedSupportedInstanceFamily'
+  { fromUnlimitedSupportedInstanceFamily ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern T2 :: UnlimitedSupportedInstanceFamily
-pattern T2 = UnlimitedSupportedInstanceFamily' "t2"
+pattern UnlimitedSupportedInstanceFamilyT2 :: UnlimitedSupportedInstanceFamily
+pattern UnlimitedSupportedInstanceFamilyT2 = UnlimitedSupportedInstanceFamily' "t2"
 
-pattern T3 :: UnlimitedSupportedInstanceFamily
-pattern T3 = UnlimitedSupportedInstanceFamily' "t3"
+pattern UnlimitedSupportedInstanceFamilyT3 :: UnlimitedSupportedInstanceFamily
+pattern UnlimitedSupportedInstanceFamilyT3 = UnlimitedSupportedInstanceFamily' "t3"
 
-pattern T3a :: UnlimitedSupportedInstanceFamily
-pattern T3a = UnlimitedSupportedInstanceFamily' "t3a"
+pattern UnlimitedSupportedInstanceFamilyT3a :: UnlimitedSupportedInstanceFamily
+pattern UnlimitedSupportedInstanceFamilyT3a = UnlimitedSupportedInstanceFamily' "t3a"
 
-pattern T4g :: UnlimitedSupportedInstanceFamily
-pattern T4g = UnlimitedSupportedInstanceFamily' "t4g"
+pattern UnlimitedSupportedInstanceFamilyT4g :: UnlimitedSupportedInstanceFamily
+pattern UnlimitedSupportedInstanceFamilyT4g = UnlimitedSupportedInstanceFamily' "t4g"
 
 {-# COMPLETE
-  T2,
-  T3,
-  T3a,
-  T4g,
+  UnlimitedSupportedInstanceFamilyT2,
+  UnlimitedSupportedInstanceFamilyT3,
+  UnlimitedSupportedInstanceFamilyT3a,
+  UnlimitedSupportedInstanceFamilyT4g,
   UnlimitedSupportedInstanceFamily'
   #-}

@@ -33,9 +33,9 @@ module Network.AWS.S3.PutBucketIntelligentTieringConfiguration
     mkPutBucketIntelligentTieringConfiguration,
 
     -- ** Request lenses
-    pbitcIntelligentTieringConfiguration,
     pbitcBucket,
     pbitcId,
+    pbitcIntelligentTieringConfiguration,
 
     -- * Destructuring the response
     PutBucketIntelligentTieringConfigurationResponse (..),
@@ -44,99 +44,88 @@ module Network.AWS.S3.PutBucketIntelligentTieringConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutBucketIntelligentTieringConfiguration' smart constructor.
 data PutBucketIntelligentTieringConfiguration = PutBucketIntelligentTieringConfiguration'
-  { -- | Container for S3 Intelligent-Tiering configuration.
-    intelligentTieringConfiguration :: IntelligentTieringConfiguration,
-    -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
-    bucket :: BucketName,
+  { -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
+    bucket :: Types.BucketName,
     -- | The ID used to identify the S3 Intelligent-Tiering configuration.
-    id :: Lude.Text
+    id :: Types.Id,
+    -- | Container for S3 Intelligent-Tiering configuration.
+    intelligentTieringConfiguration :: Types.IntelligentTieringConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketIntelligentTieringConfiguration' with the minimum fields required to make a request.
---
--- * 'intelligentTieringConfiguration' - Container for S3 Intelligent-Tiering configuration.
--- * 'bucket' - The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
--- * 'id' - The ID used to identify the S3 Intelligent-Tiering configuration.
+-- | Creates a 'PutBucketIntelligentTieringConfiguration' value with any optional fields omitted.
 mkPutBucketIntelligentTieringConfiguration ::
-  -- | 'intelligentTieringConfiguration'
-  IntelligentTieringConfiguration ->
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
+  -- | 'intelligentTieringConfiguration'
+  Types.IntelligentTieringConfiguration ->
   PutBucketIntelligentTieringConfiguration
 mkPutBucketIntelligentTieringConfiguration
-  pIntelligentTieringConfiguration_
-  pBucket_
-  pId_ =
+  bucket
+  id
+  intelligentTieringConfiguration =
     PutBucketIntelligentTieringConfiguration'
-      { intelligentTieringConfiguration =
-          pIntelligentTieringConfiguration_,
-        bucket = pBucket_,
-        id = pId_
+      { bucket,
+        id,
+        intelligentTieringConfiguration
       }
-
--- | Container for S3 Intelligent-Tiering configuration.
---
--- /Note:/ Consider using 'intelligentTieringConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbitcIntelligentTieringConfiguration :: Lens.Lens' PutBucketIntelligentTieringConfiguration IntelligentTieringConfiguration
-pbitcIntelligentTieringConfiguration = Lens.lens (intelligentTieringConfiguration :: PutBucketIntelligentTieringConfiguration -> IntelligentTieringConfiguration) (\s a -> s {intelligentTieringConfiguration = a} :: PutBucketIntelligentTieringConfiguration)
-{-# DEPRECATED pbitcIntelligentTieringConfiguration "Use generic-lens or generic-optics with 'intelligentTieringConfiguration' instead." #-}
 
 -- | The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbitcBucket :: Lens.Lens' PutBucketIntelligentTieringConfiguration BucketName
-pbitcBucket = Lens.lens (bucket :: PutBucketIntelligentTieringConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutBucketIntelligentTieringConfiguration)
+pbitcBucket :: Lens.Lens' PutBucketIntelligentTieringConfiguration Types.BucketName
+pbitcBucket = Lens.field @"bucket"
 {-# DEPRECATED pbitcBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID used to identify the S3 Intelligent-Tiering configuration.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbitcId :: Lens.Lens' PutBucketIntelligentTieringConfiguration Lude.Text
-pbitcId = Lens.lens (id :: PutBucketIntelligentTieringConfiguration -> Lude.Text) (\s a -> s {id = a} :: PutBucketIntelligentTieringConfiguration)
+pbitcId :: Lens.Lens' PutBucketIntelligentTieringConfiguration Types.Id
+pbitcId = Lens.field @"id"
 {-# DEPRECATED pbitcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest PutBucketIntelligentTieringConfiguration where
+-- | Container for S3 Intelligent-Tiering configuration.
+--
+-- /Note:/ Consider using 'intelligentTieringConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbitcIntelligentTieringConfiguration :: Lens.Lens' PutBucketIntelligentTieringConfiguration Types.IntelligentTieringConfiguration
+pbitcIntelligentTieringConfiguration = Lens.field @"intelligentTieringConfiguration"
+{-# DEPRECATED pbitcIntelligentTieringConfiguration "Use generic-lens or generic-optics with 'intelligentTieringConfiguration' instead." #-}
+
+instance Core.AWSRequest PutBucketIntelligentTieringConfiguration where
   type
     Rs PutBucketIntelligentTieringConfiguration =
       PutBucketIntelligentTieringConfigurationResponse
-  request = Req.putXML s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery =
+          Core.toQueryValue "id" id
+            Core.<> (Core.pure ("intelligent-tiering", "")),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveNull PutBucketIntelligentTieringConfigurationResponse'
-
-instance Lude.ToElement PutBucketIntelligentTieringConfiguration where
-  toElement =
-    Lude.mkElement
-      "{http://s3.amazonaws.com/doc/2006-03-01/}IntelligentTieringConfiguration"
-      Lude.. intelligentTieringConfiguration
-
-instance Lude.ToHeaders PutBucketIntelligentTieringConfiguration where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PutBucketIntelligentTieringConfiguration where
-  toPath PutBucketIntelligentTieringConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery PutBucketIntelligentTieringConfiguration where
-  toQuery PutBucketIntelligentTieringConfiguration' {..} =
-    Lude.mconcat ["id" Lude.=: id, "intelligent-tiering"]
+    Response.receiveNull
+      PutBucketIntelligentTieringConfigurationResponse'
 
 -- | /See:/ 'mkPutBucketIntelligentTieringConfigurationResponse' smart constructor.
 data PutBucketIntelligentTieringConfigurationResponse = PutBucketIntelligentTieringConfigurationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketIntelligentTieringConfigurationResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutBucketIntelligentTieringConfigurationResponse' value with any optional fields omitted.
 mkPutBucketIntelligentTieringConfigurationResponse ::
   PutBucketIntelligentTieringConfigurationResponse
 mkPutBucketIntelligentTieringConfigurationResponse =

@@ -17,126 +17,120 @@ module Network.AWS.CognitoIdentityProvider.Types.NotifyConfigurationType
     mkNotifyConfigurationType,
 
     -- * Lenses
-    nctSourceARN,
-    nctNoActionEmail,
-    nctFrom,
-    nctReplyTo,
+    nctSourceArn,
     nctBlockEmail,
-    nctMFAEmail,
+    nctFrom,
+    nctMfaEmail,
+    nctNoActionEmail,
+    nctReplyTo,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.NotifyEmailType
+import qualified Network.AWS.CognitoIdentityProvider.Types.From as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.NotifyEmailType as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.ReplyTo as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.SourceArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The notify configuration type.
 --
 -- /See:/ 'mkNotifyConfigurationType' smart constructor.
 data NotifyConfigurationType = NotifyConfigurationType'
   { -- | The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. It permits Amazon Cognito to send for the email address specified in the @From@ parameter.
-    sourceARN :: Lude.Text,
-    -- | The email template used when a detected risk event is allowed.
-    noActionEmail :: Lude.Maybe NotifyEmailType,
-    -- | The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
-    from :: Lude.Maybe Lude.Text,
-    -- | The destination to which the receiver of an email should reply to.
-    replyTo :: Lude.Maybe Lude.Text,
+    sourceArn :: Types.SourceArn,
     -- | Email template used when a detected risk event is blocked.
-    blockEmail :: Lude.Maybe NotifyEmailType,
+    blockEmail :: Core.Maybe Types.NotifyEmailType,
+    -- | The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
+    from :: Core.Maybe Types.From,
     -- | The MFA email template used when MFA is challenged as part of a detected risk.
-    mfaEmail :: Lude.Maybe NotifyEmailType
+    mfaEmail :: Core.Maybe Types.NotifyEmailType,
+    -- | The email template used when a detected risk event is allowed.
+    noActionEmail :: Core.Maybe Types.NotifyEmailType,
+    -- | The destination to which the receiver of an email should reply to.
+    replyTo :: Core.Maybe Types.ReplyTo
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotifyConfigurationType' with the minimum fields required to make a request.
---
--- * 'sourceARN' - The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. It permits Amazon Cognito to send for the email address specified in the @From@ parameter.
--- * 'noActionEmail' - The email template used when a detected risk event is allowed.
--- * 'from' - The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
--- * 'replyTo' - The destination to which the receiver of an email should reply to.
--- * 'blockEmail' - Email template used when a detected risk event is blocked.
--- * 'mfaEmail' - The MFA email template used when MFA is challenged as part of a detected risk.
+-- | Creates a 'NotifyConfigurationType' value with any optional fields omitted.
 mkNotifyConfigurationType ::
-  -- | 'sourceARN'
-  Lude.Text ->
+  -- | 'sourceArn'
+  Types.SourceArn ->
   NotifyConfigurationType
-mkNotifyConfigurationType pSourceARN_ =
+mkNotifyConfigurationType sourceArn =
   NotifyConfigurationType'
-    { sourceARN = pSourceARN_,
-      noActionEmail = Lude.Nothing,
-      from = Lude.Nothing,
-      replyTo = Lude.Nothing,
-      blockEmail = Lude.Nothing,
-      mfaEmail = Lude.Nothing
+    { sourceArn,
+      blockEmail = Core.Nothing,
+      from = Core.Nothing,
+      mfaEmail = Core.Nothing,
+      noActionEmail = Core.Nothing,
+      replyTo = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. It permits Amazon Cognito to send for the email address specified in the @From@ parameter.
 --
--- /Note:/ Consider using 'sourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nctSourceARN :: Lens.Lens' NotifyConfigurationType Lude.Text
-nctSourceARN = Lens.lens (sourceARN :: NotifyConfigurationType -> Lude.Text) (\s a -> s {sourceARN = a} :: NotifyConfigurationType)
-{-# DEPRECATED nctSourceARN "Use generic-lens or generic-optics with 'sourceARN' instead." #-}
-
--- | The email template used when a detected risk event is allowed.
---
--- /Note:/ Consider using 'noActionEmail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nctNoActionEmail :: Lens.Lens' NotifyConfigurationType (Lude.Maybe NotifyEmailType)
-nctNoActionEmail = Lens.lens (noActionEmail :: NotifyConfigurationType -> Lude.Maybe NotifyEmailType) (\s a -> s {noActionEmail = a} :: NotifyConfigurationType)
-{-# DEPRECATED nctNoActionEmail "Use generic-lens or generic-optics with 'noActionEmail' instead." #-}
-
--- | The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
---
--- /Note:/ Consider using 'from' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nctFrom :: Lens.Lens' NotifyConfigurationType (Lude.Maybe Lude.Text)
-nctFrom = Lens.lens (from :: NotifyConfigurationType -> Lude.Maybe Lude.Text) (\s a -> s {from = a} :: NotifyConfigurationType)
-{-# DEPRECATED nctFrom "Use generic-lens or generic-optics with 'from' instead." #-}
-
--- | The destination to which the receiver of an email should reply to.
---
--- /Note:/ Consider using 'replyTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nctReplyTo :: Lens.Lens' NotifyConfigurationType (Lude.Maybe Lude.Text)
-nctReplyTo = Lens.lens (replyTo :: NotifyConfigurationType -> Lude.Maybe Lude.Text) (\s a -> s {replyTo = a} :: NotifyConfigurationType)
-{-# DEPRECATED nctReplyTo "Use generic-lens or generic-optics with 'replyTo' instead." #-}
+-- /Note:/ Consider using 'sourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nctSourceArn :: Lens.Lens' NotifyConfigurationType Types.SourceArn
+nctSourceArn = Lens.field @"sourceArn"
+{-# DEPRECATED nctSourceArn "Use generic-lens or generic-optics with 'sourceArn' instead." #-}
 
 -- | Email template used when a detected risk event is blocked.
 --
 -- /Note:/ Consider using 'blockEmail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nctBlockEmail :: Lens.Lens' NotifyConfigurationType (Lude.Maybe NotifyEmailType)
-nctBlockEmail = Lens.lens (blockEmail :: NotifyConfigurationType -> Lude.Maybe NotifyEmailType) (\s a -> s {blockEmail = a} :: NotifyConfigurationType)
+nctBlockEmail :: Lens.Lens' NotifyConfigurationType (Core.Maybe Types.NotifyEmailType)
+nctBlockEmail = Lens.field @"blockEmail"
 {-# DEPRECATED nctBlockEmail "Use generic-lens or generic-optics with 'blockEmail' instead." #-}
+
+-- | The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.
+--
+-- /Note:/ Consider using 'from' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nctFrom :: Lens.Lens' NotifyConfigurationType (Core.Maybe Types.From)
+nctFrom = Lens.field @"from"
+{-# DEPRECATED nctFrom "Use generic-lens or generic-optics with 'from' instead." #-}
 
 -- | The MFA email template used when MFA is challenged as part of a detected risk.
 --
 -- /Note:/ Consider using 'mfaEmail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nctMFAEmail :: Lens.Lens' NotifyConfigurationType (Lude.Maybe NotifyEmailType)
-nctMFAEmail = Lens.lens (mfaEmail :: NotifyConfigurationType -> Lude.Maybe NotifyEmailType) (\s a -> s {mfaEmail = a} :: NotifyConfigurationType)
-{-# DEPRECATED nctMFAEmail "Use generic-lens or generic-optics with 'mfaEmail' instead." #-}
+nctMfaEmail :: Lens.Lens' NotifyConfigurationType (Core.Maybe Types.NotifyEmailType)
+nctMfaEmail = Lens.field @"mfaEmail"
+{-# DEPRECATED nctMfaEmail "Use generic-lens or generic-optics with 'mfaEmail' instead." #-}
 
-instance Lude.FromJSON NotifyConfigurationType where
-  parseJSON =
-    Lude.withObject
-      "NotifyConfigurationType"
-      ( \x ->
-          NotifyConfigurationType'
-            Lude.<$> (x Lude..: "SourceArn")
-            Lude.<*> (x Lude..:? "NoActionEmail")
-            Lude.<*> (x Lude..:? "From")
-            Lude.<*> (x Lude..:? "ReplyTo")
-            Lude.<*> (x Lude..:? "BlockEmail")
-            Lude.<*> (x Lude..:? "MfaEmail")
-      )
+-- | The email template used when a detected risk event is allowed.
+--
+-- /Note:/ Consider using 'noActionEmail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nctNoActionEmail :: Lens.Lens' NotifyConfigurationType (Core.Maybe Types.NotifyEmailType)
+nctNoActionEmail = Lens.field @"noActionEmail"
+{-# DEPRECATED nctNoActionEmail "Use generic-lens or generic-optics with 'noActionEmail' instead." #-}
 
-instance Lude.ToJSON NotifyConfigurationType where
-  toJSON NotifyConfigurationType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SourceArn" Lude..= sourceARN),
-            ("NoActionEmail" Lude..=) Lude.<$> noActionEmail,
-            ("From" Lude..=) Lude.<$> from,
-            ("ReplyTo" Lude..=) Lude.<$> replyTo,
-            ("BlockEmail" Lude..=) Lude.<$> blockEmail,
-            ("MfaEmail" Lude..=) Lude.<$> mfaEmail
+-- | The destination to which the receiver of an email should reply to.
+--
+-- /Note:/ Consider using 'replyTo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nctReplyTo :: Lens.Lens' NotifyConfigurationType (Core.Maybe Types.ReplyTo)
+nctReplyTo = Lens.field @"replyTo"
+{-# DEPRECATED nctReplyTo "Use generic-lens or generic-optics with 'replyTo' instead." #-}
+
+instance Core.FromJSON NotifyConfigurationType where
+  toJSON NotifyConfigurationType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SourceArn" Core..= sourceArn),
+            ("BlockEmail" Core..=) Core.<$> blockEmail,
+            ("From" Core..=) Core.<$> from,
+            ("MfaEmail" Core..=) Core.<$> mfaEmail,
+            ("NoActionEmail" Core..=) Core.<$> noActionEmail,
+            ("ReplyTo" Core..=) Core.<$> replyTo
           ]
       )
+
+instance Core.FromJSON NotifyConfigurationType where
+  parseJSON =
+    Core.withObject "NotifyConfigurationType" Core.$
+      \x ->
+        NotifyConfigurationType'
+          Core.<$> (x Core..: "SourceArn")
+          Core.<*> (x Core..:? "BlockEmail")
+          Core.<*> (x Core..:? "From")
+          Core.<*> (x Core..:? "MfaEmail")
+          Core.<*> (x Core..:? "NoActionEmail")
+          Core.<*> (x Core..:? "ReplyTo")

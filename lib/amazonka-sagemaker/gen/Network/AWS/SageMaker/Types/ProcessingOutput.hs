@@ -17,71 +17,64 @@ module Network.AWS.SageMaker.Types.ProcessingOutput
     mkProcessingOutput,
 
     -- * Lenses
-    poS3Output,
     poOutputName,
+    poS3Output,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.ProcessingS3Output
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.OutputName as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingS3Output as Types
 
 -- | Describes the results of a processing job.
 --
 -- /See:/ 'mkProcessingOutput' smart constructor.
 data ProcessingOutput = ProcessingOutput'
-  { -- | Configuration for processing job outputs in Amazon S3.
-    s3Output :: ProcessingS3Output,
-    -- | The name for the processing job output.
-    outputName :: Lude.Text
+  { -- | The name for the processing job output.
+    outputName :: Types.OutputName,
+    -- | Configuration for processing job outputs in Amazon S3.
+    s3Output :: Types.ProcessingS3Output
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProcessingOutput' with the minimum fields required to make a request.
---
--- * 's3Output' - Configuration for processing job outputs in Amazon S3.
--- * 'outputName' - The name for the processing job output.
+-- | Creates a 'ProcessingOutput' value with any optional fields omitted.
 mkProcessingOutput ::
-  -- | 's3Output'
-  ProcessingS3Output ->
   -- | 'outputName'
-  Lude.Text ->
+  Types.OutputName ->
+  -- | 's3Output'
+  Types.ProcessingS3Output ->
   ProcessingOutput
-mkProcessingOutput pS3Output_ pOutputName_ =
-  ProcessingOutput'
-    { s3Output = pS3Output_,
-      outputName = pOutputName_
-    }
-
--- | Configuration for processing job outputs in Amazon S3.
---
--- /Note:/ Consider using 's3Output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poS3Output :: Lens.Lens' ProcessingOutput ProcessingS3Output
-poS3Output = Lens.lens (s3Output :: ProcessingOutput -> ProcessingS3Output) (\s a -> s {s3Output = a} :: ProcessingOutput)
-{-# DEPRECATED poS3Output "Use generic-lens or generic-optics with 's3Output' instead." #-}
+mkProcessingOutput outputName s3Output =
+  ProcessingOutput' {outputName, s3Output}
 
 -- | The name for the processing job output.
 --
 -- /Note:/ Consider using 'outputName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-poOutputName :: Lens.Lens' ProcessingOutput Lude.Text
-poOutputName = Lens.lens (outputName :: ProcessingOutput -> Lude.Text) (\s a -> s {outputName = a} :: ProcessingOutput)
+poOutputName :: Lens.Lens' ProcessingOutput Types.OutputName
+poOutputName = Lens.field @"outputName"
 {-# DEPRECATED poOutputName "Use generic-lens or generic-optics with 'outputName' instead." #-}
 
-instance Lude.FromJSON ProcessingOutput where
-  parseJSON =
-    Lude.withObject
-      "ProcessingOutput"
-      ( \x ->
-          ProcessingOutput'
-            Lude.<$> (x Lude..: "S3Output") Lude.<*> (x Lude..: "OutputName")
-      )
+-- | Configuration for processing job outputs in Amazon S3.
+--
+-- /Note:/ Consider using 's3Output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+poS3Output :: Lens.Lens' ProcessingOutput Types.ProcessingS3Output
+poS3Output = Lens.field @"s3Output"
+{-# DEPRECATED poS3Output "Use generic-lens or generic-optics with 's3Output' instead." #-}
 
-instance Lude.ToJSON ProcessingOutput where
-  toJSON ProcessingOutput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("S3Output" Lude..= s3Output),
-            Lude.Just ("OutputName" Lude..= outputName)
+instance Core.FromJSON ProcessingOutput where
+  toJSON ProcessingOutput {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OutputName" Core..= outputName),
+            Core.Just ("S3Output" Core..= s3Output)
           ]
       )
+
+instance Core.FromJSON ProcessingOutput where
+  parseJSON =
+    Core.withObject "ProcessingOutput" Core.$
+      \x ->
+        ProcessingOutput'
+          Core.<$> (x Core..: "OutputName") Core.<*> (x Core..: "S3Output")

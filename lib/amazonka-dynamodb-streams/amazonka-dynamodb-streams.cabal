@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.DynamoDBStreams
     Network.AWS.DynamoDBStreams.DescribeStream
@@ -75,20 +81,37 @@ library
     Network.AWS.DynamoDBStreams.Waiters
 
   other-modules:
+    Network.AWS.DynamoDBStreams.Types.AttributeName
     Network.AWS.DynamoDBStreams.Types.AttributeValue
+    Network.AWS.DynamoDBStreams.Types.ExclusiveStartShardId
     Network.AWS.DynamoDBStreams.Types.Identity
+    Network.AWS.DynamoDBStreams.Types.KeySchemaAttributeName
     Network.AWS.DynamoDBStreams.Types.KeySchemaElement
     Network.AWS.DynamoDBStreams.Types.KeyType
+    Network.AWS.DynamoDBStreams.Types.LastEvaluatedShardId
+    Network.AWS.DynamoDBStreams.Types.LastEvaluatedStreamArn
+    Network.AWS.DynamoDBStreams.Types.N
+    Network.AWS.DynamoDBStreams.Types.NumberAttributeValue
     Network.AWS.DynamoDBStreams.Types.OperationType
+    Network.AWS.DynamoDBStreams.Types.ParentShardId
     Network.AWS.DynamoDBStreams.Types.Record
+    Network.AWS.DynamoDBStreams.Types.S
+    Network.AWS.DynamoDBStreams.Types.SequenceNumber
     Network.AWS.DynamoDBStreams.Types.SequenceNumberRange
     Network.AWS.DynamoDBStreams.Types.Shard
+    Network.AWS.DynamoDBStreams.Types.ShardId
+    Network.AWS.DynamoDBStreams.Types.ShardIterator
     Network.AWS.DynamoDBStreams.Types.ShardIteratorType
     Network.AWS.DynamoDBStreams.Types.Stream
+    Network.AWS.DynamoDBStreams.Types.StreamArn
     Network.AWS.DynamoDBStreams.Types.StreamDescription
+    Network.AWS.DynamoDBStreams.Types.StreamLabel
     Network.AWS.DynamoDBStreams.Types.StreamRecord
     Network.AWS.DynamoDBStreams.Types.StreamStatus
     Network.AWS.DynamoDBStreams.Types.StreamViewType
+    Network.AWS.DynamoDBStreams.Types.String
+    Network.AWS.DynamoDBStreams.Types.StringAttributeValue
+    Network.AWS.DynamoDBStreams.Types.TableName
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

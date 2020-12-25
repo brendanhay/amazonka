@@ -17,76 +17,72 @@ module Network.AWS.SageMaker.Types.ModelPackageStatusItem
     mkModelPackageStatusItem,
 
     -- * Lenses
+    mpsiName,
     mpsiStatus,
     mpsiFailureReason,
-    mpsiName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.DetailedModelPackageStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.DetailedModelPackageStatus as Types
+import qualified Network.AWS.SageMaker.Types.FailureReason as Types
+import qualified Network.AWS.SageMaker.Types.Name as Types
 
 -- | Represents the overall status of a model package.
 --
 -- /See:/ 'mkModelPackageStatusItem' smart constructor.
 data ModelPackageStatusItem = ModelPackageStatusItem'
-  { -- | The current status.
-    status :: DetailedModelPackageStatus,
+  { -- | The name of the model package for which the overall status is being reported.
+    name :: Types.Name,
+    -- | The current status.
+    status :: Types.DetailedModelPackageStatus,
     -- | if the overall status is @Failed@ , the reason for the failure.
-    failureReason :: Lude.Maybe Lude.Text,
-    -- | The name of the model package for which the overall status is being reported.
-    name :: Lude.Text
+    failureReason :: Core.Maybe Types.FailureReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModelPackageStatusItem' with the minimum fields required to make a request.
---
--- * 'status' - The current status.
--- * 'failureReason' - if the overall status is @Failed@ , the reason for the failure.
--- * 'name' - The name of the model package for which the overall status is being reported.
+-- | Creates a 'ModelPackageStatusItem' value with any optional fields omitted.
 mkModelPackageStatusItem ::
-  -- | 'status'
-  DetailedModelPackageStatus ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'status'
+  Types.DetailedModelPackageStatus ->
   ModelPackageStatusItem
-mkModelPackageStatusItem pStatus_ pName_ =
+mkModelPackageStatusItem name status =
   ModelPackageStatusItem'
-    { status = pStatus_,
-      failureReason = Lude.Nothing,
-      name = pName_
+    { name,
+      status,
+      failureReason = Core.Nothing
     }
+
+-- | The name of the model package for which the overall status is being reported.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpsiName :: Lens.Lens' ModelPackageStatusItem Types.Name
+mpsiName = Lens.field @"name"
+{-# DEPRECATED mpsiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The current status.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpsiStatus :: Lens.Lens' ModelPackageStatusItem DetailedModelPackageStatus
-mpsiStatus = Lens.lens (status :: ModelPackageStatusItem -> DetailedModelPackageStatus) (\s a -> s {status = a} :: ModelPackageStatusItem)
+mpsiStatus :: Lens.Lens' ModelPackageStatusItem Types.DetailedModelPackageStatus
+mpsiStatus = Lens.field @"status"
 {-# DEPRECATED mpsiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | if the overall status is @Failed@ , the reason for the failure.
 --
 -- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpsiFailureReason :: Lens.Lens' ModelPackageStatusItem (Lude.Maybe Lude.Text)
-mpsiFailureReason = Lens.lens (failureReason :: ModelPackageStatusItem -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: ModelPackageStatusItem)
+mpsiFailureReason :: Lens.Lens' ModelPackageStatusItem (Core.Maybe Types.FailureReason)
+mpsiFailureReason = Lens.field @"failureReason"
 {-# DEPRECATED mpsiFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
--- | The name of the model package for which the overall status is being reported.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpsiName :: Lens.Lens' ModelPackageStatusItem Lude.Text
-mpsiName = Lens.lens (name :: ModelPackageStatusItem -> Lude.Text) (\s a -> s {name = a} :: ModelPackageStatusItem)
-{-# DEPRECATED mpsiName "Use generic-lens or generic-optics with 'name' instead." #-}
-
-instance Lude.FromJSON ModelPackageStatusItem where
+instance Core.FromJSON ModelPackageStatusItem where
   parseJSON =
-    Lude.withObject
-      "ModelPackageStatusItem"
-      ( \x ->
-          ModelPackageStatusItem'
-            Lude.<$> (x Lude..: "Status")
-            Lude.<*> (x Lude..:? "FailureReason")
-            Lude.<*> (x Lude..: "Name")
-      )
+    Core.withObject "ModelPackageStatusItem" Core.$
+      \x ->
+        ModelPackageStatusItem'
+          Core.<$> (x Core..: "Name")
+          Core.<*> (x Core..: "Status")
+          Core.<*> (x Core..:? "FailureReason")

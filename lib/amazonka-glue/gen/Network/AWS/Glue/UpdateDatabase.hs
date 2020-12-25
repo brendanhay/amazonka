@@ -20,133 +20,116 @@ module Network.AWS.Glue.UpdateDatabase
     mkUpdateDatabase,
 
     -- ** Request lenses
+    udName,
     udDatabaseInput,
     udCatalogId,
-    udName,
 
     -- * Destructuring the response
     UpdateDatabaseResponse (..),
     mkUpdateDatabaseResponse,
 
     -- ** Response lenses
-    udrsResponseStatus,
+    udrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateDatabase' smart constructor.
 data UpdateDatabase = UpdateDatabase'
-  { -- | A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
-    databaseInput :: DatabaseInput,
+  { -- | The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.
+    name :: Types.Name,
+    -- | A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
+    databaseInput :: Types.DatabaseInput,
     -- | The ID of the Data Catalog in which the metadata database resides. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.
-    name :: Lude.Text
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDatabase' with the minimum fields required to make a request.
---
--- * 'databaseInput' - A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
--- * 'catalogId' - The ID of the Data Catalog in which the metadata database resides. If none is provided, the AWS account ID is used by default.
--- * 'name' - The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.
+-- | Creates a 'UpdateDatabase' value with any optional fields omitted.
 mkUpdateDatabase ::
-  -- | 'databaseInput'
-  DatabaseInput ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'databaseInput'
+  Types.DatabaseInput ->
   UpdateDatabase
-mkUpdateDatabase pDatabaseInput_ pName_ =
-  UpdateDatabase'
-    { databaseInput = pDatabaseInput_,
-      catalogId = Lude.Nothing,
-      name = pName_
-    }
+mkUpdateDatabase name databaseInput =
+  UpdateDatabase' {name, databaseInput, catalogId = Core.Nothing}
+
+-- | The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udName :: Lens.Lens' UpdateDatabase Types.Name
+udName = Lens.field @"name"
+{-# DEPRECATED udName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A @DatabaseInput@ object specifying the new definition of the metadata database in the catalog.
 --
 -- /Note:/ Consider using 'databaseInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udDatabaseInput :: Lens.Lens' UpdateDatabase DatabaseInput
-udDatabaseInput = Lens.lens (databaseInput :: UpdateDatabase -> DatabaseInput) (\s a -> s {databaseInput = a} :: UpdateDatabase)
+udDatabaseInput :: Lens.Lens' UpdateDatabase Types.DatabaseInput
+udDatabaseInput = Lens.field @"databaseInput"
 {-# DEPRECATED udDatabaseInput "Use generic-lens or generic-optics with 'databaseInput' instead." #-}
 
 -- | The ID of the Data Catalog in which the metadata database resides. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udCatalogId :: Lens.Lens' UpdateDatabase (Lude.Maybe Lude.Text)
-udCatalogId = Lens.lens (catalogId :: UpdateDatabase -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: UpdateDatabase)
+udCatalogId :: Lens.Lens' UpdateDatabase (Core.Maybe Types.CatalogId)
+udCatalogId = Lens.field @"catalogId"
 {-# DEPRECATED udCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
--- | The name of the database to update in the catalog. For Hive compatibility, this is folded to lowercase.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udName :: Lens.Lens' UpdateDatabase Lude.Text
-udName = Lens.lens (name :: UpdateDatabase -> Lude.Text) (\s a -> s {name = a} :: UpdateDatabase)
-{-# DEPRECATED udName "Use generic-lens or generic-optics with 'name' instead." #-}
+instance Core.FromJSON UpdateDatabase where
+  toJSON UpdateDatabase {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("DatabaseInput" Core..= databaseInput),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
 
-instance Lude.AWSRequest UpdateDatabase where
+instance Core.AWSRequest UpdateDatabase where
   type Rs UpdateDatabase = UpdateDatabaseResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.UpdateDatabase")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateDatabaseResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateDatabaseResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateDatabase where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.UpdateDatabase" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateDatabase where
-  toJSON UpdateDatabase' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DatabaseInput" Lude..= databaseInput),
-            ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("Name" Lude..= name)
-          ]
-      )
-
-instance Lude.ToPath UpdateDatabase where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateDatabase where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateDatabaseResponse' smart constructor.
 newtype UpdateDatabaseResponse = UpdateDatabaseResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDatabaseResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateDatabaseResponse' value with any optional fields omitted.
 mkUpdateDatabaseResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateDatabaseResponse
-mkUpdateDatabaseResponse pResponseStatus_ =
-  UpdateDatabaseResponse' {responseStatus = pResponseStatus_}
+mkUpdateDatabaseResponse responseStatus =
+  UpdateDatabaseResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsResponseStatus :: Lens.Lens' UpdateDatabaseResponse Lude.Int
-udrsResponseStatus = Lens.lens (responseStatus :: UpdateDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDatabaseResponse)
-{-# DEPRECATED udrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udrrsResponseStatus :: Lens.Lens' UpdateDatabaseResponse Core.Int
+udrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -23,10 +22,25 @@
 --     * https://api.pricing.ap-south-1.amazonaws.com
 module Network.AWS.Pricing
   ( -- * Service configuration
-    pricingService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** ExpiredNextTokenException
+    _ExpiredNextTokenException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
 
     -- * Waiters
     -- $waiters
@@ -45,20 +59,16 @@ module Network.AWS.Pricing
 
     -- * Types
 
-    -- ** FilterType
-    FilterType (..),
-
     -- ** AttributeValue
     AttributeValue (..),
     mkAttributeValue,
     avValue,
 
-    -- ** Filter
-    Filter (..),
-    mkFilter,
-    fField,
-    fValue,
-    fType,
+    -- ** PriceListItemJSON
+    PriceListItemJSON (..),
+
+    -- ** String
+    String (..),
 
     -- ** PricingService
     PricingService (..),
@@ -66,15 +76,32 @@ module Network.AWS.Pricing
     psAttributeNames,
     psServiceCode,
 
+    -- ** FilterType
+    FilterType (..),
+
+    -- ** Filter
+    Filter (..),
+    mkFilter,
+    fType,
+    fField,
+    fValue,
+
+    -- ** Value
+    Value (..),
+
+    -- ** FormatVersion
+    FormatVersion (..),
+
+    -- ** NextToken
+    NextToken (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

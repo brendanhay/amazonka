@@ -16,6 +16,6 @@ module Network.AWS.WorkMail.Waiters
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
+import qualified Network.AWS.WorkMail.Types as Types

@@ -13,46 +13,48 @@
 module Network.AWS.Greengrass.Types.LoggerType
   ( LoggerType
       ( LoggerType',
-        FileSystem,
-        AWSCloudWatch
+        LoggerTypeFileSystem,
+        LoggerTypeAWSCloudWatch,
+        fromLoggerType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LoggerType = LoggerType' Lude.Text
+newtype LoggerType = LoggerType' {fromLoggerType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FileSystem :: LoggerType
-pattern FileSystem = LoggerType' "FileSystem"
+pattern LoggerTypeFileSystem :: LoggerType
+pattern LoggerTypeFileSystem = LoggerType' "FileSystem"
 
-pattern AWSCloudWatch :: LoggerType
-pattern AWSCloudWatch = LoggerType' "AWSCloudWatch"
+pattern LoggerTypeAWSCloudWatch :: LoggerType
+pattern LoggerTypeAWSCloudWatch = LoggerType' "AWSCloudWatch"
 
 {-# COMPLETE
-  FileSystem,
-  AWSCloudWatch,
+  LoggerTypeFileSystem,
+  LoggerTypeAWSCloudWatch,
   LoggerType'
   #-}

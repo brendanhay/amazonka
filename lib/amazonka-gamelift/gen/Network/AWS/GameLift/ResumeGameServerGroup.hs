@@ -49,136 +49,120 @@ module Network.AWS.GameLift.ResumeGameServerGroup
     mkResumeGameServerGroup,
 
     -- ** Request lenses
-    rgsgResumeActions,
     rgsgGameServerGroupName,
+    rgsgResumeActions,
 
     -- * Destructuring the response
     ResumeGameServerGroupResponse (..),
     mkResumeGameServerGroupResponse,
 
     -- ** Response lenses
-    rgsgrsGameServerGroup,
-    rgsgrsResponseStatus,
+    rgsgrrsGameServerGroup,
+    rgsgrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkResumeGameServerGroup' smart constructor.
 data ResumeGameServerGroup = ResumeGameServerGroup'
-  { -- | The activity to resume for this game server group.
-    resumeActions :: Lude.NonEmpty GameServerGroupAction,
-    -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
-    gameServerGroupName :: Lude.Text
+  { -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+    gameServerGroupName :: Types.GameServerGroupName,
+    -- | The activity to resume for this game server group.
+    resumeActions :: Core.NonEmpty Types.GameServerGroupAction
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResumeGameServerGroup' with the minimum fields required to make a request.
---
--- * 'resumeActions' - The activity to resume for this game server group.
--- * 'gameServerGroupName' - A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
+-- | Creates a 'ResumeGameServerGroup' value with any optional fields omitted.
 mkResumeGameServerGroup ::
-  -- | 'resumeActions'
-  Lude.NonEmpty GameServerGroupAction ->
   -- | 'gameServerGroupName'
-  Lude.Text ->
+  Types.GameServerGroupName ->
+  -- | 'resumeActions'
+  Core.NonEmpty Types.GameServerGroupAction ->
   ResumeGameServerGroup
-mkResumeGameServerGroup pResumeActions_ pGameServerGroupName_ =
-  ResumeGameServerGroup'
-    { resumeActions = pResumeActions_,
-      gameServerGroupName = pGameServerGroupName_
-    }
-
--- | The activity to resume for this game server group.
---
--- /Note:/ Consider using 'resumeActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsgResumeActions :: Lens.Lens' ResumeGameServerGroup (Lude.NonEmpty GameServerGroupAction)
-rgsgResumeActions = Lens.lens (resumeActions :: ResumeGameServerGroup -> Lude.NonEmpty GameServerGroupAction) (\s a -> s {resumeActions = a} :: ResumeGameServerGroup)
-{-# DEPRECATED rgsgResumeActions "Use generic-lens or generic-optics with 'resumeActions' instead." #-}
+mkResumeGameServerGroup gameServerGroupName resumeActions =
+  ResumeGameServerGroup' {gameServerGroupName, resumeActions}
 
 -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
 --
 -- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsgGameServerGroupName :: Lens.Lens' ResumeGameServerGroup Lude.Text
-rgsgGameServerGroupName = Lens.lens (gameServerGroupName :: ResumeGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: ResumeGameServerGroup)
+rgsgGameServerGroupName :: Lens.Lens' ResumeGameServerGroup Types.GameServerGroupName
+rgsgGameServerGroupName = Lens.field @"gameServerGroupName"
 {-# DEPRECATED rgsgGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
-instance Lude.AWSRequest ResumeGameServerGroup where
+-- | The activity to resume for this game server group.
+--
+-- /Note:/ Consider using 'resumeActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsgResumeActions :: Lens.Lens' ResumeGameServerGroup (Core.NonEmpty Types.GameServerGroupAction)
+rgsgResumeActions = Lens.field @"resumeActions"
+{-# DEPRECATED rgsgResumeActions "Use generic-lens or generic-optics with 'resumeActions' instead." #-}
+
+instance Core.FromJSON ResumeGameServerGroup where
+  toJSON ResumeGameServerGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GameServerGroupName" Core..= gameServerGroupName),
+            Core.Just ("ResumeActions" Core..= resumeActions)
+          ]
+      )
+
+instance Core.AWSRequest ResumeGameServerGroup where
   type Rs ResumeGameServerGroup = ResumeGameServerGroupResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.ResumeGameServerGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ResumeGameServerGroupResponse'
-            Lude.<$> (x Lude..?> "GameServerGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GameServerGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ResumeGameServerGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.ResumeGameServerGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ResumeGameServerGroup where
-  toJSON ResumeGameServerGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResumeActions" Lude..= resumeActions),
-            Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName)
-          ]
-      )
-
-instance Lude.ToPath ResumeGameServerGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResumeGameServerGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkResumeGameServerGroupResponse' smart constructor.
 data ResumeGameServerGroupResponse = ResumeGameServerGroupResponse'
   { -- | An object that describes the game server group resource, with the @SuspendedActions@ property updated to reflect the resumed activity.
-    gameServerGroup :: Lude.Maybe GameServerGroup,
+    gameServerGroup :: Core.Maybe Types.GameServerGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ResumeGameServerGroupResponse' with the minimum fields required to make a request.
---
--- * 'gameServerGroup' - An object that describes the game server group resource, with the @SuspendedActions@ property updated to reflect the resumed activity.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ResumeGameServerGroupResponse' value with any optional fields omitted.
 mkResumeGameServerGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ResumeGameServerGroupResponse
-mkResumeGameServerGroupResponse pResponseStatus_ =
+mkResumeGameServerGroupResponse responseStatus =
   ResumeGameServerGroupResponse'
-    { gameServerGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gameServerGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that describes the game server group resource, with the @SuspendedActions@ property updated to reflect the resumed activity.
 --
 -- /Note:/ Consider using 'gameServerGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsgrsGameServerGroup :: Lens.Lens' ResumeGameServerGroupResponse (Lude.Maybe GameServerGroup)
-rgsgrsGameServerGroup = Lens.lens (gameServerGroup :: ResumeGameServerGroupResponse -> Lude.Maybe GameServerGroup) (\s a -> s {gameServerGroup = a} :: ResumeGameServerGroupResponse)
-{-# DEPRECATED rgsgrsGameServerGroup "Use generic-lens or generic-optics with 'gameServerGroup' instead." #-}
+rgsgrrsGameServerGroup :: Lens.Lens' ResumeGameServerGroupResponse (Core.Maybe Types.GameServerGroup)
+rgsgrrsGameServerGroup = Lens.field @"gameServerGroup"
+{-# DEPRECATED rgsgrrsGameServerGroup "Use generic-lens or generic-optics with 'gameServerGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsgrsResponseStatus :: Lens.Lens' ResumeGameServerGroupResponse Lude.Int
-rgsgrsResponseStatus = Lens.lens (responseStatus :: ResumeGameServerGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResumeGameServerGroupResponse)
-{-# DEPRECATED rgsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rgsgrrsResponseStatus :: Lens.Lens' ResumeGameServerGroupResponse Core.Int
+rgsgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rgsgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

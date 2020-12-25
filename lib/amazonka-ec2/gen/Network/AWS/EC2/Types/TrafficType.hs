@@ -13,51 +13,53 @@
 module Network.AWS.EC2.Types.TrafficType
   ( TrafficType
       ( TrafficType',
-        TTAccept,
-        TTReject,
-        TTAll
+        TrafficTypeAccept,
+        TrafficTypeReject,
+        TrafficTypeAll,
+        fromTrafficType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TrafficType = TrafficType' Lude.Text
+newtype TrafficType = TrafficType' {fromTrafficType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TTAccept :: TrafficType
-pattern TTAccept = TrafficType' "ACCEPT"
+pattern TrafficTypeAccept :: TrafficType
+pattern TrafficTypeAccept = TrafficType' "ACCEPT"
 
-pattern TTReject :: TrafficType
-pattern TTReject = TrafficType' "REJECT"
+pattern TrafficTypeReject :: TrafficType
+pattern TrafficTypeReject = TrafficType' "REJECT"
 
-pattern TTAll :: TrafficType
-pattern TTAll = TrafficType' "ALL"
+pattern TrafficTypeAll :: TrafficType
+pattern TrafficTypeAll = TrafficType' "ALL"
 
 {-# COMPLETE
-  TTAccept,
-  TTReject,
-  TTAll,
+  TrafficTypeAccept,
+  TrafficTypeReject,
+  TrafficTypeAll,
   TrafficType'
   #-}

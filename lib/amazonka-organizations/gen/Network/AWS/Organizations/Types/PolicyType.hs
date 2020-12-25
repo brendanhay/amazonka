@@ -13,56 +13,58 @@
 module Network.AWS.Organizations.Types.PolicyType
   ( PolicyType
       ( PolicyType',
-        ServiceControlPolicy,
-        TagPolicy,
-        BackupPolicy,
-        AiservicesOptOutPolicy
+        PolicyTypeServiceControlPolicy,
+        PolicyTypeTagPolicy,
+        PolicyTypeBackupPolicy,
+        PolicyTypeAiservicesOptOutPolicy,
+        fromPolicyType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PolicyType = PolicyType' Lude.Text
+newtype PolicyType = PolicyType' {fromPolicyType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ServiceControlPolicy :: PolicyType
-pattern ServiceControlPolicy = PolicyType' "SERVICE_CONTROL_POLICY"
+pattern PolicyTypeServiceControlPolicy :: PolicyType
+pattern PolicyTypeServiceControlPolicy = PolicyType' "SERVICE_CONTROL_POLICY"
 
-pattern TagPolicy :: PolicyType
-pattern TagPolicy = PolicyType' "TAG_POLICY"
+pattern PolicyTypeTagPolicy :: PolicyType
+pattern PolicyTypeTagPolicy = PolicyType' "TAG_POLICY"
 
-pattern BackupPolicy :: PolicyType
-pattern BackupPolicy = PolicyType' "BACKUP_POLICY"
+pattern PolicyTypeBackupPolicy :: PolicyType
+pattern PolicyTypeBackupPolicy = PolicyType' "BACKUP_POLICY"
 
-pattern AiservicesOptOutPolicy :: PolicyType
-pattern AiservicesOptOutPolicy = PolicyType' "AISERVICES_OPT_OUT_POLICY"
+pattern PolicyTypeAiservicesOptOutPolicy :: PolicyType
+pattern PolicyTypeAiservicesOptOutPolicy = PolicyType' "AISERVICES_OPT_OUT_POLICY"
 
 {-# COMPLETE
-  ServiceControlPolicy,
-  TagPolicy,
-  BackupPolicy,
-  AiservicesOptOutPolicy,
+  PolicyTypeServiceControlPolicy,
+  PolicyTypeTagPolicy,
+  PolicyTypeBackupPolicy,
+  PolicyTypeAiservicesOptOutPolicy,
   PolicyType'
   #-}

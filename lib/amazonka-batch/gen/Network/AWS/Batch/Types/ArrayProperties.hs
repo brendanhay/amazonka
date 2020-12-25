@@ -22,32 +22,30 @@ module Network.AWS.Batch.Types.ArrayProperties
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing an AWS Batch array job.
 --
 -- /See:/ 'mkArrayProperties' smart constructor.
 newtype ArrayProperties = ArrayProperties'
   { -- | The size of the array job.
-    size :: Lude.Maybe Lude.Int
+    size :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArrayProperties' with the minimum fields required to make a request.
---
--- * 'size' - The size of the array job.
+-- | Creates a 'ArrayProperties' value with any optional fields omitted.
 mkArrayProperties ::
   ArrayProperties
-mkArrayProperties = ArrayProperties' {size = Lude.Nothing}
+mkArrayProperties = ArrayProperties' {size = Core.Nothing}
 
 -- | The size of the array job.
 --
 -- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apSize :: Lens.Lens' ArrayProperties (Lude.Maybe Lude.Int)
-apSize = Lens.lens (size :: ArrayProperties -> Lude.Maybe Lude.Int) (\s a -> s {size = a} :: ArrayProperties)
+apSize :: Lens.Lens' ArrayProperties (Core.Maybe Core.Int)
+apSize = Lens.field @"size"
 {-# DEPRECATED apSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
-instance Lude.ToJSON ArrayProperties where
-  toJSON ArrayProperties' {..} =
-    Lude.object (Lude.catMaybes [("size" Lude..=) Lude.<$> size])
+instance Core.FromJSON ArrayProperties where
+  toJSON ArrayProperties {..} =
+    Core.object (Core.catMaybes [("size" Core..=) Core.<$> size])

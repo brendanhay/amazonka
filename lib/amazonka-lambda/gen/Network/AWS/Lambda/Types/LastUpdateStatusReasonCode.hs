@@ -13,71 +13,76 @@
 module Network.AWS.Lambda.Types.LastUpdateStatusReasonCode
   ( LastUpdateStatusReasonCode
       ( LastUpdateStatusReasonCode',
-        LUSRCEniLimitExceeded,
-        LUSRCInsufficientRolePermissions,
-        LUSRCInvalidConfiguration,
-        LUSRCInternalError,
-        LUSRCSubnetOutOfIPAddresses,
-        LUSRCInvalidSubnet,
-        LUSRCInvalidSecurityGroup
+        LastUpdateStatusReasonCodeEniLimitExceeded,
+        LastUpdateStatusReasonCodeInsufficientRolePermissions,
+        LastUpdateStatusReasonCodeInvalidConfiguration,
+        LastUpdateStatusReasonCodeInternalError,
+        LastUpdateStatusReasonCodeSubnetOutOfIPAddresses,
+        LastUpdateStatusReasonCodeInvalidSubnet,
+        LastUpdateStatusReasonCodeInvalidSecurityGroup,
+        fromLastUpdateStatusReasonCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LastUpdateStatusReasonCode = LastUpdateStatusReasonCode' Lude.Text
+newtype LastUpdateStatusReasonCode = LastUpdateStatusReasonCode'
+  { fromLastUpdateStatusReasonCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LUSRCEniLimitExceeded :: LastUpdateStatusReasonCode
-pattern LUSRCEniLimitExceeded = LastUpdateStatusReasonCode' "EniLimitExceeded"
+pattern LastUpdateStatusReasonCodeEniLimitExceeded :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCodeEniLimitExceeded = LastUpdateStatusReasonCode' "EniLimitExceeded"
 
-pattern LUSRCInsufficientRolePermissions :: LastUpdateStatusReasonCode
-pattern LUSRCInsufficientRolePermissions = LastUpdateStatusReasonCode' "InsufficientRolePermissions"
+pattern LastUpdateStatusReasonCodeInsufficientRolePermissions :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCodeInsufficientRolePermissions = LastUpdateStatusReasonCode' "InsufficientRolePermissions"
 
-pattern LUSRCInvalidConfiguration :: LastUpdateStatusReasonCode
-pattern LUSRCInvalidConfiguration = LastUpdateStatusReasonCode' "InvalidConfiguration"
+pattern LastUpdateStatusReasonCodeInvalidConfiguration :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCodeInvalidConfiguration = LastUpdateStatusReasonCode' "InvalidConfiguration"
 
-pattern LUSRCInternalError :: LastUpdateStatusReasonCode
-pattern LUSRCInternalError = LastUpdateStatusReasonCode' "InternalError"
+pattern LastUpdateStatusReasonCodeInternalError :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCodeInternalError = LastUpdateStatusReasonCode' "InternalError"
 
-pattern LUSRCSubnetOutOfIPAddresses :: LastUpdateStatusReasonCode
-pattern LUSRCSubnetOutOfIPAddresses = LastUpdateStatusReasonCode' "SubnetOutOfIPAddresses"
+pattern LastUpdateStatusReasonCodeSubnetOutOfIPAddresses :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCodeSubnetOutOfIPAddresses = LastUpdateStatusReasonCode' "SubnetOutOfIPAddresses"
 
-pattern LUSRCInvalidSubnet :: LastUpdateStatusReasonCode
-pattern LUSRCInvalidSubnet = LastUpdateStatusReasonCode' "InvalidSubnet"
+pattern LastUpdateStatusReasonCodeInvalidSubnet :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCodeInvalidSubnet = LastUpdateStatusReasonCode' "InvalidSubnet"
 
-pattern LUSRCInvalidSecurityGroup :: LastUpdateStatusReasonCode
-pattern LUSRCInvalidSecurityGroup = LastUpdateStatusReasonCode' "InvalidSecurityGroup"
+pattern LastUpdateStatusReasonCodeInvalidSecurityGroup :: LastUpdateStatusReasonCode
+pattern LastUpdateStatusReasonCodeInvalidSecurityGroup = LastUpdateStatusReasonCode' "InvalidSecurityGroup"
 
 {-# COMPLETE
-  LUSRCEniLimitExceeded,
-  LUSRCInsufficientRolePermissions,
-  LUSRCInvalidConfiguration,
-  LUSRCInternalError,
-  LUSRCSubnetOutOfIPAddresses,
-  LUSRCInvalidSubnet,
-  LUSRCInvalidSecurityGroup,
+  LastUpdateStatusReasonCodeEniLimitExceeded,
+  LastUpdateStatusReasonCodeInsufficientRolePermissions,
+  LastUpdateStatusReasonCodeInvalidConfiguration,
+  LastUpdateStatusReasonCodeInternalError,
+  LastUpdateStatusReasonCodeSubnetOutOfIPAddresses,
+  LastUpdateStatusReasonCodeInvalidSubnet,
+  LastUpdateStatusReasonCodeInvalidSecurityGroup,
   LastUpdateStatusReasonCode'
   #-}

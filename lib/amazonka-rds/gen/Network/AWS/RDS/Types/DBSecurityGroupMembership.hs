@@ -17,13 +17,15 @@ module Network.AWS.RDS.Types.DBSecurityGroupMembership
     mkDBSecurityGroupMembership,
 
     -- * Lenses
-    dsgmStatus,
-    dsgmDBSecurityGroupName,
+    dbsgmDBSecurityGroupName,
+    dbsgmStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.DBSecurityGroupName as Types
+import qualified Network.AWS.RDS.Types.Status as Types
 
 -- | This data type is used as a response element in the following actions:
 --
@@ -43,41 +45,38 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDBSecurityGroupMembership' smart constructor.
 data DBSecurityGroupMembership = DBSecurityGroupMembership'
-  { -- | The status of the DB security group.
-    status :: Lude.Maybe Lude.Text,
-    -- | The name of the DB security group.
-    dbSecurityGroupName :: Lude.Maybe Lude.Text
+  { -- | The name of the DB security group.
+    dBSecurityGroupName :: Core.Maybe Types.DBSecurityGroupName,
+    -- | The status of the DB security group.
+    status :: Core.Maybe Types.Status
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DBSecurityGroupMembership' with the minimum fields required to make a request.
---
--- * 'status' - The status of the DB security group.
--- * 'dbSecurityGroupName' - The name of the DB security group.
+-- | Creates a 'DBSecurityGroupMembership' value with any optional fields omitted.
 mkDBSecurityGroupMembership ::
   DBSecurityGroupMembership
 mkDBSecurityGroupMembership =
   DBSecurityGroupMembership'
-    { status = Lude.Nothing,
-      dbSecurityGroupName = Lude.Nothing
+    { dBSecurityGroupName = Core.Nothing,
+      status = Core.Nothing
     }
+
+-- | The name of the DB security group.
+--
+-- /Note:/ Consider using 'dBSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbsgmDBSecurityGroupName :: Lens.Lens' DBSecurityGroupMembership (Core.Maybe Types.DBSecurityGroupName)
+dbsgmDBSecurityGroupName = Lens.field @"dBSecurityGroupName"
+{-# DEPRECATED dbsgmDBSecurityGroupName "Use generic-lens or generic-optics with 'dBSecurityGroupName' instead." #-}
 
 -- | The status of the DB security group.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsgmStatus :: Lens.Lens' DBSecurityGroupMembership (Lude.Maybe Lude.Text)
-dsgmStatus = Lens.lens (status :: DBSecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DBSecurityGroupMembership)
-{-# DEPRECATED dsgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+dbsgmStatus :: Lens.Lens' DBSecurityGroupMembership (Core.Maybe Types.Status)
+dbsgmStatus = Lens.field @"status"
+{-# DEPRECATED dbsgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The name of the DB security group.
---
--- /Note:/ Consider using 'dbSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsgmDBSecurityGroupName :: Lens.Lens' DBSecurityGroupMembership (Lude.Maybe Lude.Text)
-dsgmDBSecurityGroupName = Lens.lens (dbSecurityGroupName :: DBSecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {dbSecurityGroupName = a} :: DBSecurityGroupMembership)
-{-# DEPRECATED dsgmDBSecurityGroupName "Use generic-lens or generic-optics with 'dbSecurityGroupName' instead." #-}
-
-instance Lude.FromXML DBSecurityGroupMembership where
+instance Core.FromXML DBSecurityGroupMembership where
   parseXML x =
     DBSecurityGroupMembership'
-      Lude.<$> (x Lude..@? "Status") Lude.<*> (x Lude..@? "DBSecurityGroupName")
+      Core.<$> (x Core..@? "DBSecurityGroupName") Core.<*> (x Core..@? "Status")

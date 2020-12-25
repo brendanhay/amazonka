@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -37,10 +36,61 @@
 -- BatchMeterUsage API calls are captured by AWS CloudTrail. You can use Cloudtrail to verify that the SaaS metering records that you sent are accurate by searching for records with the eventName of BatchMeterUsage. You can also use CloudTrail to audit records over time. For more information, see the /<http:\/\/docs.aws.amazon.com\/awscloudtrail\/latest\/userguide\/cloudtrail-concepts.html AWS CloudTrail User Guide> / .
 module Network.AWS.MarketplaceMetering
   ( -- * Service configuration
-    marketplaceMeteringService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** InvalidEndpointRegionException
+    _InvalidEndpointRegionException,
+
+    -- ** InvalidProductCodeException
+    _InvalidProductCodeException,
+
+    -- ** InvalidUsageDimensionException
+    _InvalidUsageDimensionException,
+
+    -- ** PlatformNotSupportedException
+    _PlatformNotSupportedException,
+
+    -- ** CustomerNotEntitledException
+    _CustomerNotEntitledException,
+
+    -- ** DuplicateRequestException
+    _DuplicateRequestException,
+
+    -- ** DisabledApiException
+    _DisabledApiException,
+
+    -- ** TimestampOutOfBoundsException
+    _TimestampOutOfBoundsException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidPublicKeyVersionException
+    _InvalidPublicKeyVersionException,
+
+    -- ** InternalServiceErrorException
+    _InternalServiceErrorException,
+
+    -- ** InvalidTokenException
+    _InvalidTokenException,
+
+    -- ** InvalidUsageAllocationsException
+    _InvalidUsageAllocationsException,
+
+    -- ** ExpiredTokenException
+    _ExpiredTokenException,
+
+    -- ** InvalidRegionException
+    _InvalidRegionException,
+
+    -- ** InvalidCustomerIdentifierException
+    _InvalidCustomerIdentifierException,
 
     -- * Waiters
     -- $waiters
@@ -62,14 +112,20 @@ module Network.AWS.MarketplaceMetering
 
     -- * Types
 
-    -- ** UsageRecordResultStatus
-    UsageRecordResultStatus (..),
-
     -- ** Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
+
+    -- ** UsageDimension
+    UsageDimension (..),
+
+    -- ** String
+    String (..),
+
+    -- ** UsageRecordResultStatus
+    UsageRecordResultStatus (..),
 
     -- ** UsageAllocation
     UsageAllocation (..),
@@ -80,28 +136,50 @@ module Network.AWS.MarketplaceMetering
     -- ** UsageRecord
     UsageRecord (..),
     mkUsageRecord,
+    urTimestamp,
+    urCustomerIdentifier,
     urDimension,
     urQuantity,
-    urCustomerIdentifier,
     urUsageAllocations,
-    urTimestamp,
 
     -- ** UsageRecordResult
     UsageRecordResult (..),
     mkUsageRecordResult,
+    urrMeteringRecordId,
     urrStatus,
     urrUsageRecord,
-    urrMeteringRecordId,
+
+    -- ** NonEmptyString
+    NonEmptyString (..),
+
+    -- ** CustomerIdentifier
+    CustomerIdentifier (..),
+
+    -- ** ProductCode
+    ProductCode (..),
+
+    -- ** Nonce
+    Nonce (..),
+
+    -- ** MeteringRecordId
+    MeteringRecordId (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Signature
+    Signature (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

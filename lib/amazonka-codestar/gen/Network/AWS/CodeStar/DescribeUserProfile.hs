@@ -20,192 +20,173 @@ module Network.AWS.CodeStar.DescribeUserProfile
     mkDescribeUserProfile,
 
     -- ** Request lenses
-    dupUserARN,
+    dupUserArn,
 
     -- * Destructuring the response
     DescribeUserProfileResponse (..),
     mkDescribeUserProfileResponse,
 
     -- ** Response lenses
-    duprsLastModifiedTimestamp,
-    duprsSshPublicKey,
-    duprsUserARN,
-    duprsEmailAddress,
-    duprsDisplayName,
-    duprsCreatedTimestamp,
-    duprsResponseStatus,
+    duprrsUserArn,
+    duprrsCreatedTimestamp,
+    duprrsLastModifiedTimestamp,
+    duprrsDisplayName,
+    duprrsEmailAddress,
+    duprrsSshPublicKey,
+    duprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeStar.Types
+import qualified Network.AWS.CodeStar.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeUserProfile' smart constructor.
 newtype DescribeUserProfile = DescribeUserProfile'
   { -- | The Amazon Resource Name (ARN) of the user.
-    userARN :: Lude.Text
+    userArn :: Types.UserArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUserProfile' with the minimum fields required to make a request.
---
--- * 'userARN' - The Amazon Resource Name (ARN) of the user.
+-- | Creates a 'DescribeUserProfile' value with any optional fields omitted.
 mkDescribeUserProfile ::
-  -- | 'userARN'
-  Lude.Text ->
+  -- | 'userArn'
+  Types.UserArn ->
   DescribeUserProfile
-mkDescribeUserProfile pUserARN_ =
-  DescribeUserProfile' {userARN = pUserARN_}
+mkDescribeUserProfile userArn = DescribeUserProfile' {userArn}
 
 -- | The Amazon Resource Name (ARN) of the user.
 --
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dupUserARN :: Lens.Lens' DescribeUserProfile Lude.Text
-dupUserARN = Lens.lens (userARN :: DescribeUserProfile -> Lude.Text) (\s a -> s {userARN = a} :: DescribeUserProfile)
-{-# DEPRECATED dupUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dupUserArn :: Lens.Lens' DescribeUserProfile Types.UserArn
+dupUserArn = Lens.field @"userArn"
+{-# DEPRECATED dupUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
 
-instance Lude.AWSRequest DescribeUserProfile where
+instance Core.FromJSON DescribeUserProfile where
+  toJSON DescribeUserProfile {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("userArn" Core..= userArn)])
+
+instance Core.AWSRequest DescribeUserProfile where
   type Rs DescribeUserProfile = DescribeUserProfileResponse
-  request = Req.postJSON codeStarService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeStar_20170419.DescribeUserProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeUserProfileResponse'
-            Lude.<$> (x Lude..:> "lastModifiedTimestamp")
-            Lude.<*> (x Lude..?> "sshPublicKey")
-            Lude.<*> (x Lude..:> "userArn")
-            Lude.<*> (x Lude..?> "emailAddress")
-            Lude.<*> (x Lude..?> "displayName")
-            Lude.<*> (x Lude..:> "createdTimestamp")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "userArn")
+            Core.<*> (x Core..: "createdTimestamp")
+            Core.<*> (x Core..: "lastModifiedTimestamp")
+            Core.<*> (x Core..:? "displayName")
+            Core.<*> (x Core..:? "emailAddress")
+            Core.<*> (x Core..:? "sshPublicKey")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeUserProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeStar_20170419.DescribeUserProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeUserProfile where
-  toJSON DescribeUserProfile' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("userArn" Lude..= userARN)])
-
-instance Lude.ToPath DescribeUserProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeUserProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeUserProfileResponse' smart constructor.
 data DescribeUserProfileResponse = DescribeUserProfileResponse'
-  { -- | The date and time when the user profile was last modified, in timestamp format.
-    lastModifiedTimestamp :: Lude.Timestamp,
-    -- | The SSH public key associated with the user. This SSH public key is associated with the user profile, and can be used in conjunction with the associated private key for access to project resources, such as Amazon EC2 instances, if a project owner grants remote access to those resources.
-    sshPublicKey :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the user.
-    userARN :: Lude.Text,
-    -- | The email address for the user. Optional.
-    emailAddress :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
-    displayName :: Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The Amazon Resource Name (ARN) of the user.
+    userArn :: Types.UserArn,
     -- | The date and time when the user profile was created in AWS CodeStar, in timestamp format.
-    createdTimestamp :: Lude.Timestamp,
+    createdTimestamp :: Core.NominalDiffTime,
+    -- | The date and time when the user profile was last modified, in timestamp format.
+    lastModifiedTimestamp :: Core.NominalDiffTime,
+    -- | The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
+    displayName :: Core.Maybe Types.UserProfileDisplayName,
+    -- | The email address for the user. Optional.
+    emailAddress :: Core.Maybe Types.Email,
+    -- | The SSH public key associated with the user. This SSH public key is associated with the user profile, and can be used in conjunction with the associated private key for access to project resources, such as Amazon EC2 instances, if a project owner grants remote access to those resources.
+    sshPublicKey :: Core.Maybe Types.SshPublicKey,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeUserProfileResponse' with the minimum fields required to make a request.
---
--- * 'lastModifiedTimestamp' - The date and time when the user profile was last modified, in timestamp format.
--- * 'sshPublicKey' - The SSH public key associated with the user. This SSH public key is associated with the user profile, and can be used in conjunction with the associated private key for access to project resources, such as Amazon EC2 instances, if a project owner grants remote access to those resources.
--- * 'userARN' - The Amazon Resource Name (ARN) of the user.
--- * 'emailAddress' - The email address for the user. Optional.
--- * 'displayName' - The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
--- * 'createdTimestamp' - The date and time when the user profile was created in AWS CodeStar, in timestamp format.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeUserProfileResponse' value with any optional fields omitted.
 mkDescribeUserProfileResponse ::
-  -- | 'lastModifiedTimestamp'
-  Lude.Timestamp ->
-  -- | 'userARN'
-  Lude.Text ->
+  -- | 'userArn'
+  Types.UserArn ->
   -- | 'createdTimestamp'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
+  -- | 'lastModifiedTimestamp'
+  Core.NominalDiffTime ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeUserProfileResponse
 mkDescribeUserProfileResponse
-  pLastModifiedTimestamp_
-  pUserARN_
-  pCreatedTimestamp_
-  pResponseStatus_ =
+  userArn
+  createdTimestamp
+  lastModifiedTimestamp
+  responseStatus =
     DescribeUserProfileResponse'
-      { lastModifiedTimestamp =
-          pLastModifiedTimestamp_,
-        sshPublicKey = Lude.Nothing,
-        userARN = pUserARN_,
-        emailAddress = Lude.Nothing,
-        displayName = Lude.Nothing,
-        createdTimestamp = pCreatedTimestamp_,
-        responseStatus = pResponseStatus_
+      { userArn,
+        createdTimestamp,
+        lastModifiedTimestamp,
+        displayName = Core.Nothing,
+        emailAddress = Core.Nothing,
+        sshPublicKey = Core.Nothing,
+        responseStatus
       }
-
--- | The date and time when the user profile was last modified, in timestamp format.
---
--- /Note:/ Consider using 'lastModifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duprsLastModifiedTimestamp :: Lens.Lens' DescribeUserProfileResponse Lude.Timestamp
-duprsLastModifiedTimestamp = Lens.lens (lastModifiedTimestamp :: DescribeUserProfileResponse -> Lude.Timestamp) (\s a -> s {lastModifiedTimestamp = a} :: DescribeUserProfileResponse)
-{-# DEPRECATED duprsLastModifiedTimestamp "Use generic-lens or generic-optics with 'lastModifiedTimestamp' instead." #-}
-
--- | The SSH public key associated with the user. This SSH public key is associated with the user profile, and can be used in conjunction with the associated private key for access to project resources, such as Amazon EC2 instances, if a project owner grants remote access to those resources.
---
--- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duprsSshPublicKey :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe Lude.Text)
-duprsSshPublicKey = Lens.lens (sshPublicKey :: DescribeUserProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {sshPublicKey = a} :: DescribeUserProfileResponse)
-{-# DEPRECATED duprsSshPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the user.
 --
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duprsUserARN :: Lens.Lens' DescribeUserProfileResponse Lude.Text
-duprsUserARN = Lens.lens (userARN :: DescribeUserProfileResponse -> Lude.Text) (\s a -> s {userARN = a} :: DescribeUserProfileResponse)
-{-# DEPRECATED duprsUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
-
--- | The email address for the user. Optional.
---
--- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duprsEmailAddress :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-duprsEmailAddress = Lens.lens (emailAddress :: DescribeUserProfileResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {emailAddress = a} :: DescribeUserProfileResponse)
-{-# DEPRECATED duprsEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
-
--- | The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
---
--- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duprsDisplayName :: Lens.Lens' DescribeUserProfileResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-duprsDisplayName = Lens.lens (displayName :: DescribeUserProfileResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {displayName = a} :: DescribeUserProfileResponse)
-{-# DEPRECATED duprsDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprrsUserArn :: Lens.Lens' DescribeUserProfileResponse Types.UserArn
+duprrsUserArn = Lens.field @"userArn"
+{-# DEPRECATED duprrsUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
 
 -- | The date and time when the user profile was created in AWS CodeStar, in timestamp format.
 --
 -- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duprsCreatedTimestamp :: Lens.Lens' DescribeUserProfileResponse Lude.Timestamp
-duprsCreatedTimestamp = Lens.lens (createdTimestamp :: DescribeUserProfileResponse -> Lude.Timestamp) (\s a -> s {createdTimestamp = a} :: DescribeUserProfileResponse)
-{-# DEPRECATED duprsCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
+duprrsCreatedTimestamp :: Lens.Lens' DescribeUserProfileResponse Core.NominalDiffTime
+duprrsCreatedTimestamp = Lens.field @"createdTimestamp"
+{-# DEPRECATED duprrsCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
+
+-- | The date and time when the user profile was last modified, in timestamp format.
+--
+-- /Note:/ Consider using 'lastModifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprrsLastModifiedTimestamp :: Lens.Lens' DescribeUserProfileResponse Core.NominalDiffTime
+duprrsLastModifiedTimestamp = Lens.field @"lastModifiedTimestamp"
+{-# DEPRECATED duprrsLastModifiedTimestamp "Use generic-lens or generic-optics with 'lastModifiedTimestamp' instead." #-}
+
+-- | The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprrsDisplayName :: Lens.Lens' DescribeUserProfileResponse (Core.Maybe Types.UserProfileDisplayName)
+duprrsDisplayName = Lens.field @"displayName"
+{-# DEPRECATED duprrsDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+
+-- | The email address for the user. Optional.
+--
+-- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprrsEmailAddress :: Lens.Lens' DescribeUserProfileResponse (Core.Maybe Types.Email)
+duprrsEmailAddress = Lens.field @"emailAddress"
+{-# DEPRECATED duprrsEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
+
+-- | The SSH public key associated with the user. This SSH public key is associated with the user profile, and can be used in conjunction with the associated private key for access to project resources, such as Amazon EC2 instances, if a project owner grants remote access to those resources.
+--
+-- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+duprrsSshPublicKey :: Lens.Lens' DescribeUserProfileResponse (Core.Maybe Types.SshPublicKey)
+duprrsSshPublicKey = Lens.field @"sshPublicKey"
+{-# DEPRECATED duprrsSshPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duprsResponseStatus :: Lens.Lens' DescribeUserProfileResponse Lude.Int
-duprsResponseStatus = Lens.lens (responseStatus :: DescribeUserProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUserProfileResponse)
-{-# DEPRECATED duprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+duprrsResponseStatus :: Lens.Lens' DescribeUserProfileResponse Core.Int
+duprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED duprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

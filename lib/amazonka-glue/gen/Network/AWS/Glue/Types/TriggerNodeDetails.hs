@@ -21,36 +21,33 @@ module Network.AWS.Glue.Types.TriggerNodeDetails
   )
 where
 
-import Network.AWS.Glue.Types.Trigger
+import qualified Network.AWS.Glue.Types.Trigger as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details of a Trigger node present in the workflow.
 --
 -- /See:/ 'mkTriggerNodeDetails' smart constructor.
 newtype TriggerNodeDetails = TriggerNodeDetails'
   { -- | The information of the trigger represented by the trigger node.
-    trigger :: Lude.Maybe Trigger
+    trigger :: Core.Maybe Types.Trigger
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TriggerNodeDetails' with the minimum fields required to make a request.
---
--- * 'trigger' - The information of the trigger represented by the trigger node.
+-- | Creates a 'TriggerNodeDetails' value with any optional fields omitted.
 mkTriggerNodeDetails ::
   TriggerNodeDetails
-mkTriggerNodeDetails = TriggerNodeDetails' {trigger = Lude.Nothing}
+mkTriggerNodeDetails = TriggerNodeDetails' {trigger = Core.Nothing}
 
 -- | The information of the trigger represented by the trigger node.
 --
 -- /Note:/ Consider using 'trigger' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tndTrigger :: Lens.Lens' TriggerNodeDetails (Lude.Maybe Trigger)
-tndTrigger = Lens.lens (trigger :: TriggerNodeDetails -> Lude.Maybe Trigger) (\s a -> s {trigger = a} :: TriggerNodeDetails)
+tndTrigger :: Lens.Lens' TriggerNodeDetails (Core.Maybe Types.Trigger)
+tndTrigger = Lens.field @"trigger"
 {-# DEPRECATED tndTrigger "Use generic-lens or generic-optics with 'trigger' instead." #-}
 
-instance Lude.FromJSON TriggerNodeDetails where
+instance Core.FromJSON TriggerNodeDetails where
   parseJSON =
-    Lude.withObject
-      "TriggerNodeDetails"
-      (\x -> TriggerNodeDetails' Lude.<$> (x Lude..:? "Trigger"))
+    Core.withObject "TriggerNodeDetails" Core.$
+      \x -> TriggerNodeDetails' Core.<$> (x Core..:? "Trigger")

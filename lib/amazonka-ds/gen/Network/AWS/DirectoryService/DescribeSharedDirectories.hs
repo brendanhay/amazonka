@@ -22,188 +22,175 @@ module Network.AWS.DirectoryService.DescribeSharedDirectories
     mkDescribeSharedDirectories,
 
     -- ** Request lenses
-    dsdSharedDirectoryIds,
-    dsdNextToken,
-    dsdLimit,
     dsdOwnerDirectoryId,
+    dsdLimit,
+    dsdNextToken,
+    dsdSharedDirectoryIds,
 
     -- * Destructuring the response
     DescribeSharedDirectoriesResponse (..),
     mkDescribeSharedDirectoriesResponse,
 
     -- ** Response lenses
-    dsdrsSharedDirectories,
-    dsdrsNextToken,
-    dsdrsResponseStatus,
+    dsdrrsNextToken,
+    dsdrrsSharedDirectories,
+    dsdrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeSharedDirectories' smart constructor.
 data DescribeSharedDirectories = DescribeSharedDirectories'
-  { -- | A list of identifiers of all shared directories in your account.
-    sharedDirectoryIds :: Lude.Maybe [Lude.Text],
-    -- | The @DescribeSharedDirectoriesResult.NextToken@ value from a previous call to 'DescribeSharedDirectories' . Pass null if this is the first call.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | Returns the identifier of the directory in the directory owner account.
+    ownerDirectoryId :: Types.DirectoryId,
     -- | The number of shared directories to return in the response object.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | Returns the identifier of the directory in the directory owner account.
-    ownerDirectoryId :: Lude.Text
+    limit :: Core.Maybe Core.Natural,
+    -- | The @DescribeSharedDirectoriesResult.NextToken@ value from a previous call to 'DescribeSharedDirectories' . Pass null if this is the first call.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A list of identifiers of all shared directories in your account.
+    sharedDirectoryIds :: Core.Maybe [Types.DirectoryId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSharedDirectories' with the minimum fields required to make a request.
---
--- * 'sharedDirectoryIds' - A list of identifiers of all shared directories in your account.
--- * 'nextToken' - The @DescribeSharedDirectoriesResult.NextToken@ value from a previous call to 'DescribeSharedDirectories' . Pass null if this is the first call.
--- * 'limit' - The number of shared directories to return in the response object.
--- * 'ownerDirectoryId' - Returns the identifier of the directory in the directory owner account.
+-- | Creates a 'DescribeSharedDirectories' value with any optional fields omitted.
 mkDescribeSharedDirectories ::
   -- | 'ownerDirectoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   DescribeSharedDirectories
-mkDescribeSharedDirectories pOwnerDirectoryId_ =
+mkDescribeSharedDirectories ownerDirectoryId =
   DescribeSharedDirectories'
-    { sharedDirectoryIds = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      ownerDirectoryId = pOwnerDirectoryId_
+    { ownerDirectoryId,
+      limit = Core.Nothing,
+      nextToken = Core.Nothing,
+      sharedDirectoryIds = Core.Nothing
     }
-
--- | A list of identifiers of all shared directories in your account.
---
--- /Note:/ Consider using 'sharedDirectoryIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdSharedDirectoryIds :: Lens.Lens' DescribeSharedDirectories (Lude.Maybe [Lude.Text])
-dsdSharedDirectoryIds = Lens.lens (sharedDirectoryIds :: DescribeSharedDirectories -> Lude.Maybe [Lude.Text]) (\s a -> s {sharedDirectoryIds = a} :: DescribeSharedDirectories)
-{-# DEPRECATED dsdSharedDirectoryIds "Use generic-lens or generic-optics with 'sharedDirectoryIds' instead." #-}
-
--- | The @DescribeSharedDirectoriesResult.NextToken@ value from a previous call to 'DescribeSharedDirectories' . Pass null if this is the first call.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdNextToken :: Lens.Lens' DescribeSharedDirectories (Lude.Maybe Lude.Text)
-dsdNextToken = Lens.lens (nextToken :: DescribeSharedDirectories -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSharedDirectories)
-{-# DEPRECATED dsdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The number of shared directories to return in the response object.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdLimit :: Lens.Lens' DescribeSharedDirectories (Lude.Maybe Lude.Natural)
-dsdLimit = Lens.lens (limit :: DescribeSharedDirectories -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeSharedDirectories)
-{-# DEPRECATED dsdLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | Returns the identifier of the directory in the directory owner account.
 --
 -- /Note:/ Consider using 'ownerDirectoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdOwnerDirectoryId :: Lens.Lens' DescribeSharedDirectories Lude.Text
-dsdOwnerDirectoryId = Lens.lens (ownerDirectoryId :: DescribeSharedDirectories -> Lude.Text) (\s a -> s {ownerDirectoryId = a} :: DescribeSharedDirectories)
+dsdOwnerDirectoryId :: Lens.Lens' DescribeSharedDirectories Types.DirectoryId
+dsdOwnerDirectoryId = Lens.field @"ownerDirectoryId"
 {-# DEPRECATED dsdOwnerDirectoryId "Use generic-lens or generic-optics with 'ownerDirectoryId' instead." #-}
 
-instance Page.AWSPager DescribeSharedDirectories where
-  page rq rs
-    | Page.stop (rs Lens.^. dsdrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsdrsSharedDirectories) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dsdNextToken Lens..~ rs Lens.^. dsdrsNextToken
+-- | The number of shared directories to return in the response object.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdLimit :: Lens.Lens' DescribeSharedDirectories (Core.Maybe Core.Natural)
+dsdLimit = Lens.field @"limit"
+{-# DEPRECATED dsdLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest DescribeSharedDirectories where
+-- | The @DescribeSharedDirectoriesResult.NextToken@ value from a previous call to 'DescribeSharedDirectories' . Pass null if this is the first call.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdNextToken :: Lens.Lens' DescribeSharedDirectories (Core.Maybe Types.NextToken)
+dsdNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of identifiers of all shared directories in your account.
+--
+-- /Note:/ Consider using 'sharedDirectoryIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdSharedDirectoryIds :: Lens.Lens' DescribeSharedDirectories (Core.Maybe [Types.DirectoryId])
+dsdSharedDirectoryIds = Lens.field @"sharedDirectoryIds"
+{-# DEPRECATED dsdSharedDirectoryIds "Use generic-lens or generic-optics with 'sharedDirectoryIds' instead." #-}
+
+instance Core.FromJSON DescribeSharedDirectories where
+  toJSON DescribeSharedDirectories {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OwnerDirectoryId" Core..= ownerDirectoryId),
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SharedDirectoryIds" Core..=) Core.<$> sharedDirectoryIds
+          ]
+      )
+
+instance Core.AWSRequest DescribeSharedDirectories where
   type
     Rs DescribeSharedDirectories =
       DescribeSharedDirectoriesResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "DirectoryService_20150416.DescribeSharedDirectories"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeSharedDirectoriesResponse'
-            Lude.<$> (x Lude..?> "SharedDirectories" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "SharedDirectories")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeSharedDirectories where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DirectoryService_20150416.DescribeSharedDirectories" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeSharedDirectories where
-  toJSON DescribeSharedDirectories' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SharedDirectoryIds" Lude..=) Lude.<$> sharedDirectoryIds,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("OwnerDirectoryId" Lude..= ownerDirectoryId)
-          ]
-      )
-
-instance Lude.ToPath DescribeSharedDirectories where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSharedDirectories where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeSharedDirectories where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"sharedDirectories" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeSharedDirectoriesResponse' smart constructor.
 data DescribeSharedDirectoriesResponse = DescribeSharedDirectoriesResponse'
-  { -- | A list of all shared directories in your account.
-    sharedDirectories :: Lude.Maybe [SharedDirectory],
-    -- | If not null, token that indicates that more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeSharedDirectories' to retrieve the next set of items.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | If not null, token that indicates that more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeSharedDirectories' to retrieve the next set of items.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A list of all shared directories in your account.
+    sharedDirectories :: Core.Maybe [Types.SharedDirectory],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeSharedDirectoriesResponse' with the minimum fields required to make a request.
---
--- * 'sharedDirectories' - A list of all shared directories in your account.
--- * 'nextToken' - If not null, token that indicates that more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeSharedDirectories' to retrieve the next set of items.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSharedDirectoriesResponse' value with any optional fields omitted.
 mkDescribeSharedDirectoriesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSharedDirectoriesResponse
-mkDescribeSharedDirectoriesResponse pResponseStatus_ =
+mkDescribeSharedDirectoriesResponse responseStatus =
   DescribeSharedDirectoriesResponse'
-    { sharedDirectories =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      sharedDirectories = Core.Nothing,
+      responseStatus
     }
-
--- | A list of all shared directories in your account.
---
--- /Note:/ Consider using 'sharedDirectories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdrsSharedDirectories :: Lens.Lens' DescribeSharedDirectoriesResponse (Lude.Maybe [SharedDirectory])
-dsdrsSharedDirectories = Lens.lens (sharedDirectories :: DescribeSharedDirectoriesResponse -> Lude.Maybe [SharedDirectory]) (\s a -> s {sharedDirectories = a} :: DescribeSharedDirectoriesResponse)
-{-# DEPRECATED dsdrsSharedDirectories "Use generic-lens or generic-optics with 'sharedDirectories' instead." #-}
 
 -- | If not null, token that indicates that more results are available. Pass this value for the @NextToken@ parameter in a subsequent call to 'DescribeSharedDirectories' to retrieve the next set of items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdrsNextToken :: Lens.Lens' DescribeSharedDirectoriesResponse (Lude.Maybe Lude.Text)
-dsdrsNextToken = Lens.lens (nextToken :: DescribeSharedDirectoriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSharedDirectoriesResponse)
-{-# DEPRECATED dsdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsdrrsNextToken :: Lens.Lens' DescribeSharedDirectoriesResponse (Core.Maybe Types.NextToken)
+dsdrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsdrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of all shared directories in your account.
+--
+-- /Note:/ Consider using 'sharedDirectories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsdrrsSharedDirectories :: Lens.Lens' DescribeSharedDirectoriesResponse (Core.Maybe [Types.SharedDirectory])
+dsdrrsSharedDirectories = Lens.field @"sharedDirectories"
+{-# DEPRECATED dsdrrsSharedDirectories "Use generic-lens or generic-optics with 'sharedDirectories' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsdrsResponseStatus :: Lens.Lens' DescribeSharedDirectoriesResponse Lude.Int
-dsdrsResponseStatus = Lens.lens (responseStatus :: DescribeSharedDirectoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSharedDirectoriesResponse)
-{-# DEPRECATED dsdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsdrrsResponseStatus :: Lens.Lens' DescribeSharedDirectoriesResponse Core.Int
+dsdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

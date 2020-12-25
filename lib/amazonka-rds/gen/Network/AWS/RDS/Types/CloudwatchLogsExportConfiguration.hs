@@ -23,7 +23,8 @@ module Network.AWS.RDS.Types.CloudwatchLogsExportConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | The configuration setting for the log types to be enabled for export to CloudWatch Logs for a specific DB instance or DB cluster.
 --
@@ -34,45 +35,33 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkCloudwatchLogsExportConfiguration' smart constructor.
 data CloudwatchLogsExportConfiguration = CloudwatchLogsExportConfiguration'
   { -- | The list of log types to disable.
-    disableLogTypes :: Lude.Maybe [Lude.Text],
+    disableLogTypes :: Core.Maybe [Types.String],
     -- | The list of log types to enable.
-    enableLogTypes :: Lude.Maybe [Lude.Text]
+    enableLogTypes :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudwatchLogsExportConfiguration' with the minimum fields required to make a request.
---
--- * 'disableLogTypes' - The list of log types to disable.
--- * 'enableLogTypes' - The list of log types to enable.
+-- | Creates a 'CloudwatchLogsExportConfiguration' value with any optional fields omitted.
 mkCloudwatchLogsExportConfiguration ::
   CloudwatchLogsExportConfiguration
 mkCloudwatchLogsExportConfiguration =
   CloudwatchLogsExportConfiguration'
     { disableLogTypes =
-        Lude.Nothing,
-      enableLogTypes = Lude.Nothing
+        Core.Nothing,
+      enableLogTypes = Core.Nothing
     }
 
 -- | The list of log types to disable.
 --
 -- /Note:/ Consider using 'disableLogTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clecDisableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Lude.Maybe [Lude.Text])
-clecDisableLogTypes = Lens.lens (disableLogTypes :: CloudwatchLogsExportConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {disableLogTypes = a} :: CloudwatchLogsExportConfiguration)
+clecDisableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Core.Maybe [Types.String])
+clecDisableLogTypes = Lens.field @"disableLogTypes"
 {-# DEPRECATED clecDisableLogTypes "Use generic-lens or generic-optics with 'disableLogTypes' instead." #-}
 
 -- | The list of log types to enable.
 --
 -- /Note:/ Consider using 'enableLogTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clecEnableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Lude.Maybe [Lude.Text])
-clecEnableLogTypes = Lens.lens (enableLogTypes :: CloudwatchLogsExportConfiguration -> Lude.Maybe [Lude.Text]) (\s a -> s {enableLogTypes = a} :: CloudwatchLogsExportConfiguration)
+clecEnableLogTypes :: Lens.Lens' CloudwatchLogsExportConfiguration (Core.Maybe [Types.String])
+clecEnableLogTypes = Lens.field @"enableLogTypes"
 {-# DEPRECATED clecEnableLogTypes "Use generic-lens or generic-optics with 'enableLogTypes' instead." #-}
-
-instance Lude.ToQuery CloudwatchLogsExportConfiguration where
-  toQuery CloudwatchLogsExportConfiguration' {..} =
-    Lude.mconcat
-      [ "DisableLogTypes"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> disableLogTypes),
-        "EnableLogTypes"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> enableLogTypes)
-      ]

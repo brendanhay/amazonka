@@ -20,115 +20,99 @@ module Network.AWS.GuardDuty.DeleteFilter
     mkDeleteFilter,
 
     -- ** Request lenses
-    dfFilterName,
     dfDetectorId,
+    dfFilterName,
 
     -- * Destructuring the response
     DeleteFilterResponse (..),
     mkDeleteFilterResponse,
 
     -- ** Response lenses
-    dfrsResponseStatus,
+    dfrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFilter' smart constructor.
 data DeleteFilter = DeleteFilter'
-  { -- | The name of the filter that you want to delete.
-    filterName :: Lude.Text,
-    -- | The unique ID of the detector that the filter is associated with.
-    detectorId :: Lude.Text
+  { -- | The unique ID of the detector that the filter is associated with.
+    detectorId :: Types.DetectorId,
+    -- | The name of the filter that you want to delete.
+    filterName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFilter' with the minimum fields required to make a request.
---
--- * 'filterName' - The name of the filter that you want to delete.
--- * 'detectorId' - The unique ID of the detector that the filter is associated with.
+-- | Creates a 'DeleteFilter' value with any optional fields omitted.
 mkDeleteFilter ::
-  -- | 'filterName'
-  Lude.Text ->
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
+  -- | 'filterName'
+  Types.String ->
   DeleteFilter
-mkDeleteFilter pFilterName_ pDetectorId_ =
-  DeleteFilter'
-    { filterName = pFilterName_,
-      detectorId = pDetectorId_
-    }
-
--- | The name of the filter that you want to delete.
---
--- /Note:/ Consider using 'filterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfFilterName :: Lens.Lens' DeleteFilter Lude.Text
-dfFilterName = Lens.lens (filterName :: DeleteFilter -> Lude.Text) (\s a -> s {filterName = a} :: DeleteFilter)
-{-# DEPRECATED dfFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
+mkDeleteFilter detectorId filterName =
+  DeleteFilter' {detectorId, filterName}
 
 -- | The unique ID of the detector that the filter is associated with.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfDetectorId :: Lens.Lens' DeleteFilter Lude.Text
-dfDetectorId = Lens.lens (detectorId :: DeleteFilter -> Lude.Text) (\s a -> s {detectorId = a} :: DeleteFilter)
+dfDetectorId :: Lens.Lens' DeleteFilter Types.DetectorId
+dfDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED dfDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance Lude.AWSRequest DeleteFilter where
+-- | The name of the filter that you want to delete.
+--
+-- /Note:/ Consider using 'filterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfFilterName :: Lens.Lens' DeleteFilter Types.String
+dfFilterName = Lens.field @"filterName"
+{-# DEPRECATED dfFilterName "Use generic-lens or generic-optics with 'filterName' instead." #-}
+
+instance Core.AWSRequest DeleteFilter where
   type Rs DeleteFilter = DeleteFilterResponse
-  request = Req.delete guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId) Core.<> ("/filter/")
+                Core.<> (Core.toText filterName)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteFilterResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteFilterResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteFilter where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteFilter where
-  toPath DeleteFilter' {..} =
-    Lude.mconcat
-      [ "/detector/",
-        Lude.toBS detectorId,
-        "/filter/",
-        Lude.toBS filterName
-      ]
-
-instance Lude.ToQuery DeleteFilter where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteFilterResponse' smart constructor.
 newtype DeleteFilterResponse = DeleteFilterResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFilterResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteFilterResponse' value with any optional fields omitted.
 mkDeleteFilterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteFilterResponse
-mkDeleteFilterResponse pResponseStatus_ =
-  DeleteFilterResponse' {responseStatus = pResponseStatus_}
+mkDeleteFilterResponse responseStatus =
+  DeleteFilterResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfrsResponseStatus :: Lens.Lens' DeleteFilterResponse Lude.Int
-dfrsResponseStatus = Lens.lens (responseStatus :: DeleteFilterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteFilterResponse)
-{-# DEPRECATED dfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfrrsResponseStatus :: Lens.Lens' DeleteFilterResponse Core.Int
+dfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

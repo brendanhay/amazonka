@@ -17,107 +17,101 @@ module Network.AWS.EC2.Types.RouteTableAssociation
     mkRouteTableAssociation,
 
     -- * Lenses
-    rtaRouteTableId,
-    rtaRouteTableAssociationId,
-    rtaMain,
-    rtaSubnetId,
-    rtaGatewayId,
     rtaAssociationState,
+    rtaGatewayId,
+    rtaMain,
+    rtaRouteTableAssociationId,
+    rtaRouteTableId,
+    rtaSubnetId,
   )
 where
 
-import Network.AWS.EC2.Types.RouteTableAssociationState
+import qualified Network.AWS.EC2.Types.RouteTableAssociationState as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an association between a route table and a subnet or gateway.
 --
 -- /See:/ 'mkRouteTableAssociation' smart constructor.
 data RouteTableAssociation = RouteTableAssociation'
-  { -- | The ID of the route table.
-    routeTableId :: Lude.Maybe Lude.Text,
-    -- | The ID of the association.
-    routeTableAssociationId :: Lude.Maybe Lude.Text,
-    -- | Indicates whether this is the main route table.
-    main :: Lude.Maybe Lude.Bool,
-    -- | The ID of the subnet. A subnet ID is not returned for an implicit association.
-    subnetId :: Lude.Maybe Lude.Text,
+  { -- | The state of the association.
+    associationState :: Core.Maybe Types.RouteTableAssociationState,
     -- | The ID of the internet gateway or virtual private gateway.
-    gatewayId :: Lude.Maybe Lude.Text,
-    -- | The state of the association.
-    associationState :: Lude.Maybe RouteTableAssociationState
+    gatewayId :: Core.Maybe Types.String,
+    -- | Indicates whether this is the main route table.
+    main :: Core.Maybe Core.Bool,
+    -- | The ID of the association.
+    routeTableAssociationId :: Core.Maybe Types.String,
+    -- | The ID of the route table.
+    routeTableId :: Core.Maybe Types.String,
+    -- | The ID of the subnet. A subnet ID is not returned for an implicit association.
+    subnetId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RouteTableAssociation' with the minimum fields required to make a request.
---
--- * 'routeTableId' - The ID of the route table.
--- * 'routeTableAssociationId' - The ID of the association.
--- * 'main' - Indicates whether this is the main route table.
--- * 'subnetId' - The ID of the subnet. A subnet ID is not returned for an implicit association.
--- * 'gatewayId' - The ID of the internet gateway or virtual private gateway.
--- * 'associationState' - The state of the association.
+-- | Creates a 'RouteTableAssociation' value with any optional fields omitted.
 mkRouteTableAssociation ::
   RouteTableAssociation
 mkRouteTableAssociation =
   RouteTableAssociation'
-    { routeTableId = Lude.Nothing,
-      routeTableAssociationId = Lude.Nothing,
-      main = Lude.Nothing,
-      subnetId = Lude.Nothing,
-      gatewayId = Lude.Nothing,
-      associationState = Lude.Nothing
+    { associationState = Core.Nothing,
+      gatewayId = Core.Nothing,
+      main = Core.Nothing,
+      routeTableAssociationId = Core.Nothing,
+      routeTableId = Core.Nothing,
+      subnetId = Core.Nothing
     }
-
--- | The ID of the route table.
---
--- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtaRouteTableId :: Lens.Lens' RouteTableAssociation (Lude.Maybe Lude.Text)
-rtaRouteTableId = Lens.lens (routeTableId :: RouteTableAssociation -> Lude.Maybe Lude.Text) (\s a -> s {routeTableId = a} :: RouteTableAssociation)
-{-# DEPRECATED rtaRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
-
--- | The ID of the association.
---
--- /Note:/ Consider using 'routeTableAssociationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtaRouteTableAssociationId :: Lens.Lens' RouteTableAssociation (Lude.Maybe Lude.Text)
-rtaRouteTableAssociationId = Lens.lens (routeTableAssociationId :: RouteTableAssociation -> Lude.Maybe Lude.Text) (\s a -> s {routeTableAssociationId = a} :: RouteTableAssociation)
-{-# DEPRECATED rtaRouteTableAssociationId "Use generic-lens or generic-optics with 'routeTableAssociationId' instead." #-}
-
--- | Indicates whether this is the main route table.
---
--- /Note:/ Consider using 'main' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtaMain :: Lens.Lens' RouteTableAssociation (Lude.Maybe Lude.Bool)
-rtaMain = Lens.lens (main :: RouteTableAssociation -> Lude.Maybe Lude.Bool) (\s a -> s {main = a} :: RouteTableAssociation)
-{-# DEPRECATED rtaMain "Use generic-lens or generic-optics with 'main' instead." #-}
-
--- | The ID of the subnet. A subnet ID is not returned for an implicit association.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtaSubnetId :: Lens.Lens' RouteTableAssociation (Lude.Maybe Lude.Text)
-rtaSubnetId = Lens.lens (subnetId :: RouteTableAssociation -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: RouteTableAssociation)
-{-# DEPRECATED rtaSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | The ID of the internet gateway or virtual private gateway.
---
--- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtaGatewayId :: Lens.Lens' RouteTableAssociation (Lude.Maybe Lude.Text)
-rtaGatewayId = Lens.lens (gatewayId :: RouteTableAssociation -> Lude.Maybe Lude.Text) (\s a -> s {gatewayId = a} :: RouteTableAssociation)
-{-# DEPRECATED rtaGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
 
 -- | The state of the association.
 --
 -- /Note:/ Consider using 'associationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtaAssociationState :: Lens.Lens' RouteTableAssociation (Lude.Maybe RouteTableAssociationState)
-rtaAssociationState = Lens.lens (associationState :: RouteTableAssociation -> Lude.Maybe RouteTableAssociationState) (\s a -> s {associationState = a} :: RouteTableAssociation)
+rtaAssociationState :: Lens.Lens' RouteTableAssociation (Core.Maybe Types.RouteTableAssociationState)
+rtaAssociationState = Lens.field @"associationState"
 {-# DEPRECATED rtaAssociationState "Use generic-lens or generic-optics with 'associationState' instead." #-}
 
-instance Lude.FromXML RouteTableAssociation where
+-- | The ID of the internet gateway or virtual private gateway.
+--
+-- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtaGatewayId :: Lens.Lens' RouteTableAssociation (Core.Maybe Types.String)
+rtaGatewayId = Lens.field @"gatewayId"
+{-# DEPRECATED rtaGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
+
+-- | Indicates whether this is the main route table.
+--
+-- /Note:/ Consider using 'main' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtaMain :: Lens.Lens' RouteTableAssociation (Core.Maybe Core.Bool)
+rtaMain = Lens.field @"main"
+{-# DEPRECATED rtaMain "Use generic-lens or generic-optics with 'main' instead." #-}
+
+-- | The ID of the association.
+--
+-- /Note:/ Consider using 'routeTableAssociationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtaRouteTableAssociationId :: Lens.Lens' RouteTableAssociation (Core.Maybe Types.String)
+rtaRouteTableAssociationId = Lens.field @"routeTableAssociationId"
+{-# DEPRECATED rtaRouteTableAssociationId "Use generic-lens or generic-optics with 'routeTableAssociationId' instead." #-}
+
+-- | The ID of the route table.
+--
+-- /Note:/ Consider using 'routeTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtaRouteTableId :: Lens.Lens' RouteTableAssociation (Core.Maybe Types.String)
+rtaRouteTableId = Lens.field @"routeTableId"
+{-# DEPRECATED rtaRouteTableId "Use generic-lens or generic-optics with 'routeTableId' instead." #-}
+
+-- | The ID of the subnet. A subnet ID is not returned for an implicit association.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtaSubnetId :: Lens.Lens' RouteTableAssociation (Core.Maybe Types.String)
+rtaSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED rtaSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
+
+instance Core.FromXML RouteTableAssociation where
   parseXML x =
     RouteTableAssociation'
-      Lude.<$> (x Lude..@? "routeTableId")
-      Lude.<*> (x Lude..@? "routeTableAssociationId")
-      Lude.<*> (x Lude..@? "main")
-      Lude.<*> (x Lude..@? "subnetId")
-      Lude.<*> (x Lude..@? "gatewayId")
-      Lude.<*> (x Lude..@? "associationState")
+      Core.<$> (x Core..@? "associationState")
+      Core.<*> (x Core..@? "gatewayId")
+      Core.<*> (x Core..@? "main")
+      Core.<*> (x Core..@? "routeTableAssociationId")
+      Core.<*> (x Core..@? "routeTableId")
+      Core.<*> (x Core..@? "subnetId")

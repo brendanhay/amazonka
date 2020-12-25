@@ -20,91 +20,86 @@ module Network.AWS.ElasticTranscoder.DeletePreset
     mkDeletePreset,
 
     -- ** Request lenses
-    dId,
+    dpId,
 
     -- * Destructuring the response
     DeletePresetResponse (..),
     mkDeletePresetResponse,
 
     -- ** Response lenses
-    dprsResponseStatus,
+    dprrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticTranscoder.Types
+import qualified Network.AWS.ElasticTranscoder.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The @DeletePresetRequest@ structure.
 --
 -- /See:/ 'mkDeletePreset' smart constructor.
 newtype DeletePreset = DeletePreset'
   { -- | The identifier of the preset for which you want to get detailed information.
-    id :: Lude.Text
+    id :: Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePreset' with the minimum fields required to make a request.
---
--- * 'id' - The identifier of the preset for which you want to get detailed information.
+-- | Creates a 'DeletePreset' value with any optional fields omitted.
 mkDeletePreset ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DeletePreset
-mkDeletePreset pId_ = DeletePreset' {id = pId_}
+mkDeletePreset id = DeletePreset' {id}
 
 -- | The identifier of the preset for which you want to get detailed information.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dId :: Lens.Lens' DeletePreset Lude.Text
-dId = Lens.lens (id :: DeletePreset -> Lude.Text) (\s a -> s {id = a} :: DeletePreset)
-{-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
+dpId :: Lens.Lens' DeletePreset Types.Id
+dpId = Lens.field @"id"
+{-# DEPRECATED dpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DeletePreset where
+instance Core.AWSRequest DeletePreset where
   type Rs DeletePreset = DeletePresetResponse
-  request = Req.delete elasticTranscoderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/2012-09-25/presets/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeletePresetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeletePresetResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeletePreset where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeletePreset where
-  toPath DeletePreset' {..} =
-    Lude.mconcat ["/2012-09-25/presets/", Lude.toBS id]
-
-instance Lude.ToQuery DeletePreset where
-  toQuery = Lude.const Lude.mempty
 
 -- | The @DeletePresetResponse@ structure.
 --
 -- /See:/ 'mkDeletePresetResponse' smart constructor.
 newtype DeletePresetResponse = DeletePresetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePresetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeletePresetResponse' value with any optional fields omitted.
 mkDeletePresetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeletePresetResponse
-mkDeletePresetResponse pResponseStatus_ =
-  DeletePresetResponse' {responseStatus = pResponseStatus_}
+mkDeletePresetResponse responseStatus =
+  DeletePresetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DeletePresetResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DeletePresetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePresetResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprrsResponseStatus :: Lens.Lens' DeletePresetResponse Core.Int
+dprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

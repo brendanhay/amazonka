@@ -23,63 +23,59 @@ module Network.AWS.SSM.Types.CloudWatchOutputConfig
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.CloudWatchLogGroupName as Types
 
 -- | Configuration options for sending command output to CloudWatch Logs.
 --
 -- /See:/ 'mkCloudWatchOutputConfig' smart constructor.
 data CloudWatchOutputConfig = CloudWatchOutputConfig'
   { -- | The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm//SystemsManagerDocumentName/ .
-    cloudWatchLogGroupName :: Lude.Maybe Lude.Text,
+    cloudWatchLogGroupName :: Core.Maybe Types.CloudWatchLogGroupName,
     -- | Enables Systems Manager to send command output to CloudWatch Logs.
-    cloudWatchOutputEnabled :: Lude.Maybe Lude.Bool
+    cloudWatchOutputEnabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudWatchOutputConfig' with the minimum fields required to make a request.
---
--- * 'cloudWatchLogGroupName' - The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm//SystemsManagerDocumentName/ .
--- * 'cloudWatchOutputEnabled' - Enables Systems Manager to send command output to CloudWatch Logs.
+-- | Creates a 'CloudWatchOutputConfig' value with any optional fields omitted.
 mkCloudWatchOutputConfig ::
   CloudWatchOutputConfig
 mkCloudWatchOutputConfig =
   CloudWatchOutputConfig'
-    { cloudWatchLogGroupName = Lude.Nothing,
-      cloudWatchOutputEnabled = Lude.Nothing
+    { cloudWatchLogGroupName = Core.Nothing,
+      cloudWatchOutputEnabled = Core.Nothing
     }
 
 -- | The name of the CloudWatch log group where you want to send command output. If you don't specify a group name, Systems Manager automatically creates a log group for you. The log group uses the following naming format: aws/ssm//SystemsManagerDocumentName/ .
 --
 -- /Note:/ Consider using 'cloudWatchLogGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwocCloudWatchLogGroupName :: Lens.Lens' CloudWatchOutputConfig (Lude.Maybe Lude.Text)
-cwocCloudWatchLogGroupName = Lens.lens (cloudWatchLogGroupName :: CloudWatchOutputConfig -> Lude.Maybe Lude.Text) (\s a -> s {cloudWatchLogGroupName = a} :: CloudWatchOutputConfig)
+cwocCloudWatchLogGroupName :: Lens.Lens' CloudWatchOutputConfig (Core.Maybe Types.CloudWatchLogGroupName)
+cwocCloudWatchLogGroupName = Lens.field @"cloudWatchLogGroupName"
 {-# DEPRECATED cwocCloudWatchLogGroupName "Use generic-lens or generic-optics with 'cloudWatchLogGroupName' instead." #-}
 
 -- | Enables Systems Manager to send command output to CloudWatch Logs.
 --
 -- /Note:/ Consider using 'cloudWatchOutputEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwocCloudWatchOutputEnabled :: Lens.Lens' CloudWatchOutputConfig (Lude.Maybe Lude.Bool)
-cwocCloudWatchOutputEnabled = Lens.lens (cloudWatchOutputEnabled :: CloudWatchOutputConfig -> Lude.Maybe Lude.Bool) (\s a -> s {cloudWatchOutputEnabled = a} :: CloudWatchOutputConfig)
+cwocCloudWatchOutputEnabled :: Lens.Lens' CloudWatchOutputConfig (Core.Maybe Core.Bool)
+cwocCloudWatchOutputEnabled = Lens.field @"cloudWatchOutputEnabled"
 {-# DEPRECATED cwocCloudWatchOutputEnabled "Use generic-lens or generic-optics with 'cloudWatchOutputEnabled' instead." #-}
 
-instance Lude.FromJSON CloudWatchOutputConfig where
-  parseJSON =
-    Lude.withObject
-      "CloudWatchOutputConfig"
-      ( \x ->
-          CloudWatchOutputConfig'
-            Lude.<$> (x Lude..:? "CloudWatchLogGroupName")
-            Lude.<*> (x Lude..:? "CloudWatchOutputEnabled")
-      )
-
-instance Lude.ToJSON CloudWatchOutputConfig where
-  toJSON CloudWatchOutputConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CloudWatchLogGroupName" Lude..=)
-              Lude.<$> cloudWatchLogGroupName,
-            ("CloudWatchOutputEnabled" Lude..=)
-              Lude.<$> cloudWatchOutputEnabled
+instance Core.FromJSON CloudWatchOutputConfig where
+  toJSON CloudWatchOutputConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CloudWatchLogGroupName" Core..=)
+              Core.<$> cloudWatchLogGroupName,
+            ("CloudWatchOutputEnabled" Core..=)
+              Core.<$> cloudWatchOutputEnabled
           ]
       )
+
+instance Core.FromJSON CloudWatchOutputConfig where
+  parseJSON =
+    Core.withObject "CloudWatchOutputConfig" Core.$
+      \x ->
+        CloudWatchOutputConfig'
+          Core.<$> (x Core..:? "CloudWatchLogGroupName")
+          Core.<*> (x Core..:? "CloudWatchOutputEnabled")

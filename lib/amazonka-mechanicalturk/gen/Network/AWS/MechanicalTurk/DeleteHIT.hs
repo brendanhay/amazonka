@@ -29,91 +29,81 @@ module Network.AWS.MechanicalTurk.DeleteHIT
     mkDeleteHITResponse,
 
     -- ** Response lenses
-    dhitrsResponseStatus,
+    dhitrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteHIT' smart constructor.
 newtype DeleteHIT = DeleteHIT'
   { -- | The ID of the HIT to be deleted.
-    hITId :: Lude.Text
+    hITId :: Types.HITId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteHIT' with the minimum fields required to make a request.
---
--- * 'hITId' - The ID of the HIT to be deleted.
+-- | Creates a 'DeleteHIT' value with any optional fields omitted.
 mkDeleteHIT ::
   -- | 'hITId'
-  Lude.Text ->
+  Types.HITId ->
   DeleteHIT
-mkDeleteHIT pHITId_ = DeleteHIT' {hITId = pHITId_}
+mkDeleteHIT hITId = DeleteHIT' {hITId}
 
 -- | The ID of the HIT to be deleted.
 --
 -- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhitHITId :: Lens.Lens' DeleteHIT Lude.Text
-dhitHITId = Lens.lens (hITId :: DeleteHIT -> Lude.Text) (\s a -> s {hITId = a} :: DeleteHIT)
+dhitHITId :: Lens.Lens' DeleteHIT Types.HITId
+dhitHITId = Lens.field @"hITId"
 {-# DEPRECATED dhitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
-instance Lude.AWSRequest DeleteHIT where
+instance Core.FromJSON DeleteHIT where
+  toJSON DeleteHIT {..} =
+    Core.object (Core.catMaybes [Core.Just ("HITId" Core..= hITId)])
+
+instance Core.AWSRequest DeleteHIT where
   type Rs DeleteHIT = DeleteHITResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "MTurkRequesterServiceV20170117.DeleteHIT")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteHITResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteHITResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteHIT where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("MTurkRequesterServiceV20170117.DeleteHIT" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteHIT where
-  toJSON DeleteHIT' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("HITId" Lude..= hITId)])
-
-instance Lude.ToPath DeleteHIT where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteHIT where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteHITResponse' smart constructor.
 newtype DeleteHITResponse = DeleteHITResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteHITResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteHITResponse' value with any optional fields omitted.
 mkDeleteHITResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteHITResponse
-mkDeleteHITResponse pResponseStatus_ =
-  DeleteHITResponse' {responseStatus = pResponseStatus_}
+mkDeleteHITResponse responseStatus =
+  DeleteHITResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhitrsResponseStatus :: Lens.Lens' DeleteHITResponse Lude.Int
-dhitrsResponseStatus = Lens.lens (responseStatus :: DeleteHITResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHITResponse)
-{-# DEPRECATED dhitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dhitrrsResponseStatus :: Lens.Lens' DeleteHITResponse Core.Int
+dhitrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dhitrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

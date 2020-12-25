@@ -20,59 +20,66 @@ module Network.AWS.Redshift.BatchModifyClusterSnapshots
     mkBatchModifyClusterSnapshots,
 
     -- ** Request lenses
-    bmcsManualSnapshotRetentionPeriod,
     bmcsSnapshotIdentifierList,
     bmcsForce,
+    bmcsManualSnapshotRetentionPeriod,
 
     -- * Destructuring the response
     BatchModifyClusterSnapshotsResponse (..),
     mkBatchModifyClusterSnapshotsResponse,
 
     -- ** Response lenses
-    bmcsrsResources,
-    bmcsrsErrors,
-    bmcsrsResponseStatus,
+    bmcsrrsErrors,
+    bmcsrrsResources,
+    bmcsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchModifyClusterSnapshots' smart constructor.
 data BatchModifyClusterSnapshots = BatchModifyClusterSnapshots'
-  { -- | The number of days that a manual snapshot is retained. If you specify the value -1, the manual snapshot is retained indefinitely.
+  { -- | A list of snapshot identifiers you want to modify.
+    snapshotIdentifierList :: [Types.String],
+    -- | A boolean value indicating whether to override an exception if the retention period has passed.
+    force :: Core.Maybe Core.Bool,
+    -- | The number of days that a manual snapshot is retained. If you specify the value -1, the manual snapshot is retained indefinitely.
     --
     -- The number must be either -1 or an integer between 1 and 3,653.
     -- If you decrease the manual snapshot retention period from its current value, existing manual snapshots that fall outside of the new retention period will return an error. If you want to suppress the errors and delete the snapshots, use the force option.
-    manualSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
-    -- | A list of snapshot identifiers you want to modify.
-    snapshotIdentifierList :: [Lude.Text],
-    -- | A boolean value indicating whether to override an exception if the retention period has passed.
-    force :: Lude.Maybe Lude.Bool
+    manualSnapshotRetentionPeriod :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchModifyClusterSnapshots' with the minimum fields required to make a request.
---
--- * 'manualSnapshotRetentionPeriod' - The number of days that a manual snapshot is retained. If you specify the value -1, the manual snapshot is retained indefinitely.
---
--- The number must be either -1 or an integer between 1 and 3,653.
--- If you decrease the manual snapshot retention period from its current value, existing manual snapshots that fall outside of the new retention period will return an error. If you want to suppress the errors and delete the snapshots, use the force option.
--- * 'snapshotIdentifierList' - A list of snapshot identifiers you want to modify.
--- * 'force' - A boolean value indicating whether to override an exception if the retention period has passed.
+-- | Creates a 'BatchModifyClusterSnapshots' value with any optional fields omitted.
 mkBatchModifyClusterSnapshots ::
   BatchModifyClusterSnapshots
 mkBatchModifyClusterSnapshots =
   BatchModifyClusterSnapshots'
-    { manualSnapshotRetentionPeriod =
-        Lude.Nothing,
-      snapshotIdentifierList = Lude.mempty,
-      force = Lude.Nothing
+    { snapshotIdentifierList =
+        Core.mempty,
+      force = Core.Nothing,
+      manualSnapshotRetentionPeriod = Core.Nothing
     }
+
+-- | A list of snapshot identifiers you want to modify.
+--
+-- /Note:/ Consider using 'snapshotIdentifierList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmcsSnapshotIdentifierList :: Lens.Lens' BatchModifyClusterSnapshots [Types.String]
+bmcsSnapshotIdentifierList = Lens.field @"snapshotIdentifierList"
+{-# DEPRECATED bmcsSnapshotIdentifierList "Use generic-lens or generic-optics with 'snapshotIdentifierList' instead." #-}
+
+-- | A boolean value indicating whether to override an exception if the retention period has passed.
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmcsForce :: Lens.Lens' BatchModifyClusterSnapshots (Core.Maybe Core.Bool)
+bmcsForce = Lens.field @"force"
+{-# DEPRECATED bmcsForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
 -- | The number of days that a manual snapshot is retained. If you specify the value -1, the manual snapshot is retained indefinitely.
 --
@@ -80,107 +87,92 @@ mkBatchModifyClusterSnapshots =
 -- If you decrease the manual snapshot retention period from its current value, existing manual snapshots that fall outside of the new retention period will return an error. If you want to suppress the errors and delete the snapshots, use the force option.
 --
 -- /Note:/ Consider using 'manualSnapshotRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmcsManualSnapshotRetentionPeriod :: Lens.Lens' BatchModifyClusterSnapshots (Lude.Maybe Lude.Int)
-bmcsManualSnapshotRetentionPeriod = Lens.lens (manualSnapshotRetentionPeriod :: BatchModifyClusterSnapshots -> Lude.Maybe Lude.Int) (\s a -> s {manualSnapshotRetentionPeriod = a} :: BatchModifyClusterSnapshots)
+bmcsManualSnapshotRetentionPeriod :: Lens.Lens' BatchModifyClusterSnapshots (Core.Maybe Core.Int)
+bmcsManualSnapshotRetentionPeriod = Lens.field @"manualSnapshotRetentionPeriod"
 {-# DEPRECATED bmcsManualSnapshotRetentionPeriod "Use generic-lens or generic-optics with 'manualSnapshotRetentionPeriod' instead." #-}
 
--- | A list of snapshot identifiers you want to modify.
---
--- /Note:/ Consider using 'snapshotIdentifierList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmcsSnapshotIdentifierList :: Lens.Lens' BatchModifyClusterSnapshots [Lude.Text]
-bmcsSnapshotIdentifierList = Lens.lens (snapshotIdentifierList :: BatchModifyClusterSnapshots -> [Lude.Text]) (\s a -> s {snapshotIdentifierList = a} :: BatchModifyClusterSnapshots)
-{-# DEPRECATED bmcsSnapshotIdentifierList "Use generic-lens or generic-optics with 'snapshotIdentifierList' instead." #-}
-
--- | A boolean value indicating whether to override an exception if the retention period has passed.
---
--- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmcsForce :: Lens.Lens' BatchModifyClusterSnapshots (Lude.Maybe Lude.Bool)
-bmcsForce = Lens.lens (force :: BatchModifyClusterSnapshots -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: BatchModifyClusterSnapshots)
-{-# DEPRECATED bmcsForce "Use generic-lens or generic-optics with 'force' instead." #-}
-
-instance Lude.AWSRequest BatchModifyClusterSnapshots where
+instance Core.AWSRequest BatchModifyClusterSnapshots where
   type
     Rs BatchModifyClusterSnapshots =
       BatchModifyClusterSnapshotsResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "BatchModifyClusterSnapshots")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "SnapshotIdentifierList"
+                            (Core.toQueryList "String" snapshotIdentifierList)
+                        )
+                Core.<> (Core.toQueryValue "Force" Core.<$> force)
+                Core.<> ( Core.toQueryValue "ManualSnapshotRetentionPeriod"
+                            Core.<$> manualSnapshotRetentionPeriod
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "BatchModifyClusterSnapshotsResult"
       ( \s h x ->
           BatchModifyClusterSnapshotsResponse'
-            Lude.<$> ( x Lude..@? "Resources" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "String")
+            Core.<$> ( x Core..@? "Errors"
+                         Core..<@> Core.parseXMLList "SnapshotErrorMessage"
                      )
-            Lude.<*> ( x Lude..@? "Errors" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "SnapshotErrorMessage")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Resources" Core..<@> Core.parseXMLList "String")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchModifyClusterSnapshots where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath BatchModifyClusterSnapshots where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchModifyClusterSnapshots where
-  toQuery BatchModifyClusterSnapshots' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("BatchModifyClusterSnapshots" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ManualSnapshotRetentionPeriod"
-          Lude.=: manualSnapshotRetentionPeriod,
-        "SnapshotIdentifierList"
-          Lude.=: Lude.toQueryList "String" snapshotIdentifierList,
-        "Force" Lude.=: force
-      ]
 
 -- | /See:/ 'mkBatchModifyClusterSnapshotsResponse' smart constructor.
 data BatchModifyClusterSnapshotsResponse = BatchModifyClusterSnapshotsResponse'
-  { -- | A list of the snapshots that were modified.
-    resources :: Lude.Maybe [Lude.Text],
-    -- | A list of any errors returned.
-    errors :: Lude.Maybe [SnapshotErrorMessage],
+  { -- | A list of any errors returned.
+    errors :: Core.Maybe [Types.SnapshotErrorMessage],
+    -- | A list of the snapshots that were modified.
+    resources :: Core.Maybe [Types.String],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchModifyClusterSnapshotsResponse' with the minimum fields required to make a request.
---
--- * 'resources' - A list of the snapshots that were modified.
--- * 'errors' - A list of any errors returned.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchModifyClusterSnapshotsResponse' value with any optional fields omitted.
 mkBatchModifyClusterSnapshotsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchModifyClusterSnapshotsResponse
-mkBatchModifyClusterSnapshotsResponse pResponseStatus_ =
+mkBatchModifyClusterSnapshotsResponse responseStatus =
   BatchModifyClusterSnapshotsResponse'
-    { resources = Lude.Nothing,
-      errors = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { errors = Core.Nothing,
+      resources = Core.Nothing,
+      responseStatus
     }
-
--- | A list of the snapshots that were modified.
---
--- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmcsrsResources :: Lens.Lens' BatchModifyClusterSnapshotsResponse (Lude.Maybe [Lude.Text])
-bmcsrsResources = Lens.lens (resources :: BatchModifyClusterSnapshotsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {resources = a} :: BatchModifyClusterSnapshotsResponse)
-{-# DEPRECATED bmcsrsResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | A list of any errors returned.
 --
 -- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmcsrsErrors :: Lens.Lens' BatchModifyClusterSnapshotsResponse (Lude.Maybe [SnapshotErrorMessage])
-bmcsrsErrors = Lens.lens (errors :: BatchModifyClusterSnapshotsResponse -> Lude.Maybe [SnapshotErrorMessage]) (\s a -> s {errors = a} :: BatchModifyClusterSnapshotsResponse)
-{-# DEPRECATED bmcsrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
+bmcsrrsErrors :: Lens.Lens' BatchModifyClusterSnapshotsResponse (Core.Maybe [Types.SnapshotErrorMessage])
+bmcsrrsErrors = Lens.field @"errors"
+{-# DEPRECATED bmcsrrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
+
+-- | A list of the snapshots that were modified.
+--
+-- /Note:/ Consider using 'resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmcsrrsResources :: Lens.Lens' BatchModifyClusterSnapshotsResponse (Core.Maybe [Types.String])
+bmcsrrsResources = Lens.field @"resources"
+{-# DEPRECATED bmcsrrsResources "Use generic-lens or generic-optics with 'resources' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmcsrsResponseStatus :: Lens.Lens' BatchModifyClusterSnapshotsResponse Lude.Int
-bmcsrsResponseStatus = Lens.lens (responseStatus :: BatchModifyClusterSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchModifyClusterSnapshotsResponse)
-{-# DEPRECATED bmcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bmcsrrsResponseStatus :: Lens.Lens' BatchModifyClusterSnapshotsResponse Core.Int
+bmcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bmcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

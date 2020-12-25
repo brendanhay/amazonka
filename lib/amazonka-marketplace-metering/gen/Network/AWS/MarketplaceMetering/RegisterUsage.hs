@@ -26,8 +26,8 @@ module Network.AWS.MarketplaceMetering.RegisterUsage
     mkRegisterUsage,
 
     -- ** Request lenses
-    ruPublicKeyVersion,
     ruProductCode,
+    ruPublicKeyVersion,
     ruNonce,
 
     -- * Destructuring the response
@@ -35,153 +35,138 @@ module Network.AWS.MarketplaceMetering.RegisterUsage
     mkRegisterUsageResponse,
 
     -- ** Response lenses
-    rursSignature,
-    rursPublicKeyRotationTimestamp,
-    rursResponseStatus,
+    rurrsPublicKeyRotationTimestamp,
+    rurrsSignature,
+    rurrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MarketplaceMetering.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MarketplaceMetering.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRegisterUsage' smart constructor.
 data RegisterUsage = RegisterUsage'
-  { -- | Public Key Version provided by AWS Marketplace
-    publicKeyVersion :: Lude.Natural,
-    -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
-    productCode :: Lude.Text,
+  { -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
+    productCode :: Types.ProductCode,
+    -- | Public Key Version provided by AWS Marketplace
+    publicKeyVersion :: Core.Natural,
     -- | (Optional) To scope down the registration to a specific running software instance and guard against replay attacks.
-    nonce :: Lude.Maybe Lude.Text
+    nonce :: Core.Maybe Types.Nonce
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterUsage' with the minimum fields required to make a request.
---
--- * 'publicKeyVersion' - Public Key Version provided by AWS Marketplace
--- * 'productCode' - Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
--- * 'nonce' - (Optional) To scope down the registration to a specific running software instance and guard against replay attacks.
+-- | Creates a 'RegisterUsage' value with any optional fields omitted.
 mkRegisterUsage ::
-  -- | 'publicKeyVersion'
-  Lude.Natural ->
   -- | 'productCode'
-  Lude.Text ->
+  Types.ProductCode ->
+  -- | 'publicKeyVersion'
+  Core.Natural ->
   RegisterUsage
-mkRegisterUsage pPublicKeyVersion_ pProductCode_ =
+mkRegisterUsage productCode publicKeyVersion =
   RegisterUsage'
-    { publicKeyVersion = pPublicKeyVersion_,
-      productCode = pProductCode_,
-      nonce = Lude.Nothing
+    { productCode,
+      publicKeyVersion,
+      nonce = Core.Nothing
     }
-
--- | Public Key Version provided by AWS Marketplace
---
--- /Note:/ Consider using 'publicKeyVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ruPublicKeyVersion :: Lens.Lens' RegisterUsage Lude.Natural
-ruPublicKeyVersion = Lens.lens (publicKeyVersion :: RegisterUsage -> Lude.Natural) (\s a -> s {publicKeyVersion = a} :: RegisterUsage)
-{-# DEPRECATED ruPublicKeyVersion "Use generic-lens or generic-optics with 'publicKeyVersion' instead." #-}
 
 -- | Product code is used to uniquely identify a product in AWS Marketplace. The product code should be the same as the one used during the publishing of a new product.
 --
 -- /Note:/ Consider using 'productCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ruProductCode :: Lens.Lens' RegisterUsage Lude.Text
-ruProductCode = Lens.lens (productCode :: RegisterUsage -> Lude.Text) (\s a -> s {productCode = a} :: RegisterUsage)
+ruProductCode :: Lens.Lens' RegisterUsage Types.ProductCode
+ruProductCode = Lens.field @"productCode"
 {-# DEPRECATED ruProductCode "Use generic-lens or generic-optics with 'productCode' instead." #-}
+
+-- | Public Key Version provided by AWS Marketplace
+--
+-- /Note:/ Consider using 'publicKeyVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ruPublicKeyVersion :: Lens.Lens' RegisterUsage Core.Natural
+ruPublicKeyVersion = Lens.field @"publicKeyVersion"
+{-# DEPRECATED ruPublicKeyVersion "Use generic-lens or generic-optics with 'publicKeyVersion' instead." #-}
 
 -- | (Optional) To scope down the registration to a specific running software instance and guard against replay attacks.
 --
 -- /Note:/ Consider using 'nonce' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ruNonce :: Lens.Lens' RegisterUsage (Lude.Maybe Lude.Text)
-ruNonce = Lens.lens (nonce :: RegisterUsage -> Lude.Maybe Lude.Text) (\s a -> s {nonce = a} :: RegisterUsage)
+ruNonce :: Lens.Lens' RegisterUsage (Core.Maybe Types.Nonce)
+ruNonce = Lens.field @"nonce"
 {-# DEPRECATED ruNonce "Use generic-lens or generic-optics with 'nonce' instead." #-}
 
-instance Lude.AWSRequest RegisterUsage where
+instance Core.FromJSON RegisterUsage where
+  toJSON RegisterUsage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProductCode" Core..= productCode),
+            Core.Just ("PublicKeyVersion" Core..= publicKeyVersion),
+            ("Nonce" Core..=) Core.<$> nonce
+          ]
+      )
+
+instance Core.AWSRequest RegisterUsage where
   type Rs RegisterUsage = RegisterUsageResponse
-  request = Req.postJSON marketplaceMeteringService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSMPMeteringService.RegisterUsage")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RegisterUsageResponse'
-            Lude.<$> (x Lude..?> "Signature")
-            Lude.<*> (x Lude..?> "PublicKeyRotationTimestamp")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PublicKeyRotationTimestamp")
+            Core.<*> (x Core..:? "Signature")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RegisterUsage where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSMPMeteringService.RegisterUsage" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RegisterUsage where
-  toJSON RegisterUsage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PublicKeyVersion" Lude..= publicKeyVersion),
-            Lude.Just ("ProductCode" Lude..= productCode),
-            ("Nonce" Lude..=) Lude.<$> nonce
-          ]
-      )
-
-instance Lude.ToPath RegisterUsage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterUsage where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRegisterUsageResponse' smart constructor.
 data RegisterUsageResponse = RegisterUsageResponse'
-  { -- | JWT Token
-    signature :: Lude.Maybe Lude.Text,
-    -- | (Optional) Only included when public key version has expired
-    publicKeyRotationTimestamp :: Lude.Maybe Lude.Timestamp,
+  { -- | (Optional) Only included when public key version has expired
+    publicKeyRotationTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | JWT Token
+    signature :: Core.Maybe Types.Signature,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RegisterUsageResponse' with the minimum fields required to make a request.
---
--- * 'signature' - JWT Token
--- * 'publicKeyRotationTimestamp' - (Optional) Only included when public key version has expired
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RegisterUsageResponse' value with any optional fields omitted.
 mkRegisterUsageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RegisterUsageResponse
-mkRegisterUsageResponse pResponseStatus_ =
+mkRegisterUsageResponse responseStatus =
   RegisterUsageResponse'
-    { signature = Lude.Nothing,
-      publicKeyRotationTimestamp = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { publicKeyRotationTimestamp = Core.Nothing,
+      signature = Core.Nothing,
+      responseStatus
     }
-
--- | JWT Token
---
--- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rursSignature :: Lens.Lens' RegisterUsageResponse (Lude.Maybe Lude.Text)
-rursSignature = Lens.lens (signature :: RegisterUsageResponse -> Lude.Maybe Lude.Text) (\s a -> s {signature = a} :: RegisterUsageResponse)
-{-# DEPRECATED rursSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | (Optional) Only included when public key version has expired
 --
 -- /Note:/ Consider using 'publicKeyRotationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rursPublicKeyRotationTimestamp :: Lens.Lens' RegisterUsageResponse (Lude.Maybe Lude.Timestamp)
-rursPublicKeyRotationTimestamp = Lens.lens (publicKeyRotationTimestamp :: RegisterUsageResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {publicKeyRotationTimestamp = a} :: RegisterUsageResponse)
-{-# DEPRECATED rursPublicKeyRotationTimestamp "Use generic-lens or generic-optics with 'publicKeyRotationTimestamp' instead." #-}
+rurrsPublicKeyRotationTimestamp :: Lens.Lens' RegisterUsageResponse (Core.Maybe Core.NominalDiffTime)
+rurrsPublicKeyRotationTimestamp = Lens.field @"publicKeyRotationTimestamp"
+{-# DEPRECATED rurrsPublicKeyRotationTimestamp "Use generic-lens or generic-optics with 'publicKeyRotationTimestamp' instead." #-}
+
+-- | JWT Token
+--
+-- /Note:/ Consider using 'signature' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rurrsSignature :: Lens.Lens' RegisterUsageResponse (Core.Maybe Types.Signature)
+rurrsSignature = Lens.field @"signature"
+{-# DEPRECATED rurrsSignature "Use generic-lens or generic-optics with 'signature' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rursResponseStatus :: Lens.Lens' RegisterUsageResponse Lude.Int
-rursResponseStatus = Lens.lens (responseStatus :: RegisterUsageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterUsageResponse)
-{-# DEPRECATED rursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rurrsResponseStatus :: Lens.Lens' RegisterUsageResponse Core.Int
+rurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -19,99 +19,92 @@ module Network.AWS.Support.Types.TrustedAdvisorResourceDetail
     -- * Lenses
     tardStatus,
     tardResourceId,
-    tardIsSuppressed,
     tardMetadata,
+    tardIsSuppressed,
     tardRegion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Support.Types.String as Types
 
 -- | Contains information about a resource identified by a Trusted Advisor check.
 --
 -- /See:/ 'mkTrustedAdvisorResourceDetail' smart constructor.
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
   { -- | The status code for the resource identified in the Trusted Advisor check.
-    status :: Lude.Text,
+    status :: Types.String,
     -- | The unique identifier for the identified resource.
-    resourceId :: Lude.Text,
-    -- | Specifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.
-    isSuppressed :: Lude.Maybe Lude.Bool,
+    resourceId :: Types.String,
     -- | Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the 'TrustedAdvisorCheckDescription' object returned by the call to 'DescribeTrustedAdvisorChecks' . __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
-    metadata :: [Lude.Text],
+    metadata :: [Types.String],
+    -- | Specifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.
+    isSuppressed :: Core.Maybe Core.Bool,
     -- | The AWS region in which the identified resource is located.
-    region :: Lude.Maybe Lude.Text
+    region :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrustedAdvisorResourceDetail' with the minimum fields required to make a request.
---
--- * 'status' - The status code for the resource identified in the Trusted Advisor check.
--- * 'resourceId' - The unique identifier for the identified resource.
--- * 'isSuppressed' - Specifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.
--- * 'metadata' - Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the 'TrustedAdvisorCheckDescription' object returned by the call to 'DescribeTrustedAdvisorChecks' . __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
--- * 'region' - The AWS region in which the identified resource is located.
+-- | Creates a 'TrustedAdvisorResourceDetail' value with any optional fields omitted.
 mkTrustedAdvisorResourceDetail ::
   -- | 'status'
-  Lude.Text ->
+  Types.String ->
   -- | 'resourceId'
-  Lude.Text ->
+  Types.String ->
   TrustedAdvisorResourceDetail
-mkTrustedAdvisorResourceDetail pStatus_ pResourceId_ =
+mkTrustedAdvisorResourceDetail status resourceId =
   TrustedAdvisorResourceDetail'
-    { status = pStatus_,
-      resourceId = pResourceId_,
-      isSuppressed = Lude.Nothing,
-      metadata = Lude.mempty,
-      region = Lude.Nothing
+    { status,
+      resourceId,
+      metadata = Core.mempty,
+      isSuppressed = Core.Nothing,
+      region = Core.Nothing
     }
 
 -- | The status code for the resource identified in the Trusted Advisor check.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tardStatus :: Lens.Lens' TrustedAdvisorResourceDetail Lude.Text
-tardStatus = Lens.lens (status :: TrustedAdvisorResourceDetail -> Lude.Text) (\s a -> s {status = a} :: TrustedAdvisorResourceDetail)
+tardStatus :: Lens.Lens' TrustedAdvisorResourceDetail Types.String
+tardStatus = Lens.field @"status"
 {-# DEPRECATED tardStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique identifier for the identified resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tardResourceId :: Lens.Lens' TrustedAdvisorResourceDetail Lude.Text
-tardResourceId = Lens.lens (resourceId :: TrustedAdvisorResourceDetail -> Lude.Text) (\s a -> s {resourceId = a} :: TrustedAdvisorResourceDetail)
+tardResourceId :: Lens.Lens' TrustedAdvisorResourceDetail Types.String
+tardResourceId = Lens.field @"resourceId"
 {-# DEPRECATED tardResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | Specifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.
---
--- /Note:/ Consider using 'isSuppressed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tardIsSuppressed :: Lens.Lens' TrustedAdvisorResourceDetail (Lude.Maybe Lude.Bool)
-tardIsSuppressed = Lens.lens (isSuppressed :: TrustedAdvisorResourceDetail -> Lude.Maybe Lude.Bool) (\s a -> s {isSuppressed = a} :: TrustedAdvisorResourceDetail)
-{-# DEPRECATED tardIsSuppressed "Use generic-lens or generic-optics with 'isSuppressed' instead." #-}
 
 -- | Additional information about the identified resource. The exact metadata and its order can be obtained by inspecting the 'TrustedAdvisorCheckDescription' object returned by the call to 'DescribeTrustedAdvisorChecks' . __Metadata__ contains all the data that is shown in the Excel download, even in those cases where the UI shows just summary data.
 --
 -- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tardMetadata :: Lens.Lens' TrustedAdvisorResourceDetail [Lude.Text]
-tardMetadata = Lens.lens (metadata :: TrustedAdvisorResourceDetail -> [Lude.Text]) (\s a -> s {metadata = a} :: TrustedAdvisorResourceDetail)
+tardMetadata :: Lens.Lens' TrustedAdvisorResourceDetail [Types.String]
+tardMetadata = Lens.field @"metadata"
 {-# DEPRECATED tardMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+
+-- | Specifies whether the AWS resource was ignored by Trusted Advisor because it was marked as suppressed by the user.
+--
+-- /Note:/ Consider using 'isSuppressed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tardIsSuppressed :: Lens.Lens' TrustedAdvisorResourceDetail (Core.Maybe Core.Bool)
+tardIsSuppressed = Lens.field @"isSuppressed"
+{-# DEPRECATED tardIsSuppressed "Use generic-lens or generic-optics with 'isSuppressed' instead." #-}
 
 -- | The AWS region in which the identified resource is located.
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tardRegion :: Lens.Lens' TrustedAdvisorResourceDetail (Lude.Maybe Lude.Text)
-tardRegion = Lens.lens (region :: TrustedAdvisorResourceDetail -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: TrustedAdvisorResourceDetail)
+tardRegion :: Lens.Lens' TrustedAdvisorResourceDetail (Core.Maybe Types.String)
+tardRegion = Lens.field @"region"
 {-# DEPRECATED tardRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance Lude.FromJSON TrustedAdvisorResourceDetail where
+instance Core.FromJSON TrustedAdvisorResourceDetail where
   parseJSON =
-    Lude.withObject
-      "TrustedAdvisorResourceDetail"
-      ( \x ->
-          TrustedAdvisorResourceDetail'
-            Lude.<$> (x Lude..: "status")
-            Lude.<*> (x Lude..: "resourceId")
-            Lude.<*> (x Lude..:? "isSuppressed")
-            Lude.<*> (x Lude..:? "metadata" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "region")
-      )
+    Core.withObject "TrustedAdvisorResourceDetail" Core.$
+      \x ->
+        TrustedAdvisorResourceDetail'
+          Core.<$> (x Core..: "status")
+          Core.<*> (x Core..: "resourceId")
+          Core.<*> (x Core..:? "metadata" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "isSuppressed")
+          Core.<*> (x Core..:? "region")

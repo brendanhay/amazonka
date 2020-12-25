@@ -17,126 +17,117 @@ module Network.AWS.Firehose.Types.ParquetSerDe
     mkParquetSerDe,
 
     -- * Lenses
-    psdWriterVersion,
-    psdCompression,
-    psdMaxPaddingBytes,
-    psdEnableDictionaryCompression,
-    psdPageSizeBytes,
     psdBlockSizeBytes,
+    psdCompression,
+    psdEnableDictionaryCompression,
+    psdMaxPaddingBytes,
+    psdPageSizeBytes,
+    psdWriterVersion,
   )
 where
 
-import Network.AWS.Firehose.Types.ParquetCompression
-import Network.AWS.Firehose.Types.ParquetWriterVersion
+import qualified Network.AWS.Firehose.Types.ParquetCompression as Types
+import qualified Network.AWS.Firehose.Types.ParquetWriterVersion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <https://parquet.apache.org/documentation/latest/ Apache Parquet> .
 --
 -- /See:/ 'mkParquetSerDe' smart constructor.
 data ParquetSerDe = ParquetSerDe'
-  { -- | Indicates the version of row format to output. The possible values are @V1@ and @V2@ . The default is @V1@ .
-    writerVersion :: Lude.Maybe ParquetWriterVersion,
+  { -- | The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+    blockSizeBytes :: Core.Maybe Core.Natural,
     -- | The compression code to use over data blocks. The possible values are @UNCOMPRESSED@ , @SNAPPY@ , and @GZIP@ , with the default being @SNAPPY@ . Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the compression ratio is more important than speed.
-    compression :: Lude.Maybe ParquetCompression,
-    -- | The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
-    maxPaddingBytes :: Lude.Maybe Lude.Natural,
+    compression :: Core.Maybe Types.ParquetCompression,
     -- | Indicates whether to enable dictionary compression.
-    enableDictionaryCompression :: Lude.Maybe Lude.Bool,
+    enableDictionaryCompression :: Core.Maybe Core.Bool,
+    -- | The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
+    maxPaddingBytes :: Core.Maybe Core.Natural,
     -- | The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
-    pageSizeBytes :: Lude.Maybe Lude.Natural,
-    -- | The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
-    blockSizeBytes :: Lude.Maybe Lude.Natural
+    pageSizeBytes :: Core.Maybe Core.Natural,
+    -- | Indicates the version of row format to output. The possible values are @V1@ and @V2@ . The default is @V1@ .
+    writerVersion :: Core.Maybe Types.ParquetWriterVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParquetSerDe' with the minimum fields required to make a request.
---
--- * 'writerVersion' - Indicates the version of row format to output. The possible values are @V1@ and @V2@ . The default is @V1@ .
--- * 'compression' - The compression code to use over data blocks. The possible values are @UNCOMPRESSED@ , @SNAPPY@ , and @GZIP@ , with the default being @SNAPPY@ . Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the compression ratio is more important than speed.
--- * 'maxPaddingBytes' - The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
--- * 'enableDictionaryCompression' - Indicates whether to enable dictionary compression.
--- * 'pageSizeBytes' - The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
--- * 'blockSizeBytes' - The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
+-- | Creates a 'ParquetSerDe' value with any optional fields omitted.
 mkParquetSerDe ::
   ParquetSerDe
 mkParquetSerDe =
   ParquetSerDe'
-    { writerVersion = Lude.Nothing,
-      compression = Lude.Nothing,
-      maxPaddingBytes = Lude.Nothing,
-      enableDictionaryCompression = Lude.Nothing,
-      pageSizeBytes = Lude.Nothing,
-      blockSizeBytes = Lude.Nothing
+    { blockSizeBytes = Core.Nothing,
+      compression = Core.Nothing,
+      enableDictionaryCompression = Core.Nothing,
+      maxPaddingBytes = Core.Nothing,
+      pageSizeBytes = Core.Nothing,
+      writerVersion = Core.Nothing
     }
-
--- | Indicates the version of row format to output. The possible values are @V1@ and @V2@ . The default is @V1@ .
---
--- /Note:/ Consider using 'writerVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psdWriterVersion :: Lens.Lens' ParquetSerDe (Lude.Maybe ParquetWriterVersion)
-psdWriterVersion = Lens.lens (writerVersion :: ParquetSerDe -> Lude.Maybe ParquetWriterVersion) (\s a -> s {writerVersion = a} :: ParquetSerDe)
-{-# DEPRECATED psdWriterVersion "Use generic-lens or generic-optics with 'writerVersion' instead." #-}
-
--- | The compression code to use over data blocks. The possible values are @UNCOMPRESSED@ , @SNAPPY@ , and @GZIP@ , with the default being @SNAPPY@ . Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the compression ratio is more important than speed.
---
--- /Note:/ Consider using 'compression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psdCompression :: Lens.Lens' ParquetSerDe (Lude.Maybe ParquetCompression)
-psdCompression = Lens.lens (compression :: ParquetSerDe -> Lude.Maybe ParquetCompression) (\s a -> s {compression = a} :: ParquetSerDe)
-{-# DEPRECATED psdCompression "Use generic-lens or generic-optics with 'compression' instead." #-}
-
--- | The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
---
--- /Note:/ Consider using 'maxPaddingBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psdMaxPaddingBytes :: Lens.Lens' ParquetSerDe (Lude.Maybe Lude.Natural)
-psdMaxPaddingBytes = Lens.lens (maxPaddingBytes :: ParquetSerDe -> Lude.Maybe Lude.Natural) (\s a -> s {maxPaddingBytes = a} :: ParquetSerDe)
-{-# DEPRECATED psdMaxPaddingBytes "Use generic-lens or generic-optics with 'maxPaddingBytes' instead." #-}
-
--- | Indicates whether to enable dictionary compression.
---
--- /Note:/ Consider using 'enableDictionaryCompression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psdEnableDictionaryCompression :: Lens.Lens' ParquetSerDe (Lude.Maybe Lude.Bool)
-psdEnableDictionaryCompression = Lens.lens (enableDictionaryCompression :: ParquetSerDe -> Lude.Maybe Lude.Bool) (\s a -> s {enableDictionaryCompression = a} :: ParquetSerDe)
-{-# DEPRECATED psdEnableDictionaryCompression "Use generic-lens or generic-optics with 'enableDictionaryCompression' instead." #-}
-
--- | The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
---
--- /Note:/ Consider using 'pageSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psdPageSizeBytes :: Lens.Lens' ParquetSerDe (Lude.Maybe Lude.Natural)
-psdPageSizeBytes = Lens.lens (pageSizeBytes :: ParquetSerDe -> Lude.Maybe Lude.Natural) (\s a -> s {pageSizeBytes = a} :: ParquetSerDe)
-{-# DEPRECATED psdPageSizeBytes "Use generic-lens or generic-optics with 'pageSizeBytes' instead." #-}
 
 -- | The Hadoop Distributed File System (HDFS) block size. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 256 MiB and the minimum is 64 MiB. Kinesis Data Firehose uses this value for padding calculations.
 --
 -- /Note:/ Consider using 'blockSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psdBlockSizeBytes :: Lens.Lens' ParquetSerDe (Lude.Maybe Lude.Natural)
-psdBlockSizeBytes = Lens.lens (blockSizeBytes :: ParquetSerDe -> Lude.Maybe Lude.Natural) (\s a -> s {blockSizeBytes = a} :: ParquetSerDe)
+psdBlockSizeBytes :: Lens.Lens' ParquetSerDe (Core.Maybe Core.Natural)
+psdBlockSizeBytes = Lens.field @"blockSizeBytes"
 {-# DEPRECATED psdBlockSizeBytes "Use generic-lens or generic-optics with 'blockSizeBytes' instead." #-}
 
-instance Lude.FromJSON ParquetSerDe where
-  parseJSON =
-    Lude.withObject
-      "ParquetSerDe"
-      ( \x ->
-          ParquetSerDe'
-            Lude.<$> (x Lude..:? "WriterVersion")
-            Lude.<*> (x Lude..:? "Compression")
-            Lude.<*> (x Lude..:? "MaxPaddingBytes")
-            Lude.<*> (x Lude..:? "EnableDictionaryCompression")
-            Lude.<*> (x Lude..:? "PageSizeBytes")
-            Lude.<*> (x Lude..:? "BlockSizeBytes")
-      )
+-- | The compression code to use over data blocks. The possible values are @UNCOMPRESSED@ , @SNAPPY@ , and @GZIP@ , with the default being @SNAPPY@ . Use @SNAPPY@ for higher decompression speed. Use @GZIP@ if the compression ratio is more important than speed.
+--
+-- /Note:/ Consider using 'compression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psdCompression :: Lens.Lens' ParquetSerDe (Core.Maybe Types.ParquetCompression)
+psdCompression = Lens.field @"compression"
+{-# DEPRECATED psdCompression "Use generic-lens or generic-optics with 'compression' instead." #-}
 
-instance Lude.ToJSON ParquetSerDe where
-  toJSON ParquetSerDe' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("WriterVersion" Lude..=) Lude.<$> writerVersion,
-            ("Compression" Lude..=) Lude.<$> compression,
-            ("MaxPaddingBytes" Lude..=) Lude.<$> maxPaddingBytes,
-            ("EnableDictionaryCompression" Lude..=)
-              Lude.<$> enableDictionaryCompression,
-            ("PageSizeBytes" Lude..=) Lude.<$> pageSizeBytes,
-            ("BlockSizeBytes" Lude..=) Lude.<$> blockSizeBytes
+-- | Indicates whether to enable dictionary compression.
+--
+-- /Note:/ Consider using 'enableDictionaryCompression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psdEnableDictionaryCompression :: Lens.Lens' ParquetSerDe (Core.Maybe Core.Bool)
+psdEnableDictionaryCompression = Lens.field @"enableDictionaryCompression"
+{-# DEPRECATED psdEnableDictionaryCompression "Use generic-lens or generic-optics with 'enableDictionaryCompression' instead." #-}
+
+-- | The maximum amount of padding to apply. This is useful if you intend to copy the data from Amazon S3 to HDFS before querying. The default is 0.
+--
+-- /Note:/ Consider using 'maxPaddingBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psdMaxPaddingBytes :: Lens.Lens' ParquetSerDe (Core.Maybe Core.Natural)
+psdMaxPaddingBytes = Lens.field @"maxPaddingBytes"
+{-# DEPRECATED psdMaxPaddingBytes "Use generic-lens or generic-optics with 'maxPaddingBytes' instead." #-}
+
+-- | The Parquet page size. Column chunks are divided into pages. A page is conceptually an indivisible unit (in terms of compression and encoding). The minimum value is 64 KiB and the default is 1 MiB.
+--
+-- /Note:/ Consider using 'pageSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psdPageSizeBytes :: Lens.Lens' ParquetSerDe (Core.Maybe Core.Natural)
+psdPageSizeBytes = Lens.field @"pageSizeBytes"
+{-# DEPRECATED psdPageSizeBytes "Use generic-lens or generic-optics with 'pageSizeBytes' instead." #-}
+
+-- | Indicates the version of row format to output. The possible values are @V1@ and @V2@ . The default is @V1@ .
+--
+-- /Note:/ Consider using 'writerVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psdWriterVersion :: Lens.Lens' ParquetSerDe (Core.Maybe Types.ParquetWriterVersion)
+psdWriterVersion = Lens.field @"writerVersion"
+{-# DEPRECATED psdWriterVersion "Use generic-lens or generic-optics with 'writerVersion' instead." #-}
+
+instance Core.FromJSON ParquetSerDe where
+  toJSON ParquetSerDe {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BlockSizeBytes" Core..=) Core.<$> blockSizeBytes,
+            ("Compression" Core..=) Core.<$> compression,
+            ("EnableDictionaryCompression" Core..=)
+              Core.<$> enableDictionaryCompression,
+            ("MaxPaddingBytes" Core..=) Core.<$> maxPaddingBytes,
+            ("PageSizeBytes" Core..=) Core.<$> pageSizeBytes,
+            ("WriterVersion" Core..=) Core.<$> writerVersion
           ]
       )
+
+instance Core.FromJSON ParquetSerDe where
+  parseJSON =
+    Core.withObject "ParquetSerDe" Core.$
+      \x ->
+        ParquetSerDe'
+          Core.<$> (x Core..:? "BlockSizeBytes")
+          Core.<*> (x Core..:? "Compression")
+          Core.<*> (x Core..:? "EnableDictionaryCompression")
+          Core.<*> (x Core..:? "MaxPaddingBytes")
+          Core.<*> (x Core..:? "PageSizeBytes")
+          Core.<*> (x Core..:? "WriterVersion")

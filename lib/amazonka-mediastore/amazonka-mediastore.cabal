@@ -46,42 +46,48 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.MediaStore
     Network.AWS.MediaStore.CreateContainer
     Network.AWS.MediaStore.DeleteContainer
     Network.AWS.MediaStore.DeleteContainerPolicy
-    Network.AWS.MediaStore.DeleteCORSPolicy
+    Network.AWS.MediaStore.DeleteCorsPolicy
     Network.AWS.MediaStore.DeleteLifecyclePolicy
     Network.AWS.MediaStore.DeleteMetricPolicy
     Network.AWS.MediaStore.DescribeContainer
     Network.AWS.MediaStore.GetContainerPolicy
-    Network.AWS.MediaStore.GetCORSPolicy
+    Network.AWS.MediaStore.GetCorsPolicy
     Network.AWS.MediaStore.GetLifecyclePolicy
     Network.AWS.MediaStore.GetMetricPolicy
     Network.AWS.MediaStore.ListContainers
     Network.AWS.MediaStore.ListTagsForResource
     Network.AWS.MediaStore.PutContainerPolicy
-    Network.AWS.MediaStore.PutCORSPolicy
+    Network.AWS.MediaStore.PutCorsPolicy
     Network.AWS.MediaStore.PutLifecyclePolicy
     Network.AWS.MediaStore.PutMetricPolicy
     Network.AWS.MediaStore.StartAccessLogging
@@ -93,13 +99,26 @@ library
 
   other-modules:
     Network.AWS.MediaStore.Types.Container
+    Network.AWS.MediaStore.Types.ContainerARN
     Network.AWS.MediaStore.Types.ContainerLevelMetrics
+    Network.AWS.MediaStore.Types.ContainerName
+    Network.AWS.MediaStore.Types.ContainerPolicy
     Network.AWS.MediaStore.Types.ContainerStatus
-    Network.AWS.MediaStore.Types.CORSRule
+    Network.AWS.MediaStore.Types.CorsRule
+    Network.AWS.MediaStore.Types.Endpoint
+    Network.AWS.MediaStore.Types.Header
+    Network.AWS.MediaStore.Types.Key
+    Network.AWS.MediaStore.Types.LifecyclePolicy
     Network.AWS.MediaStore.Types.MethodName
     Network.AWS.MediaStore.Types.MetricPolicy
     Network.AWS.MediaStore.Types.MetricPolicyRule
+    Network.AWS.MediaStore.Types.ObjectGroup
+    Network.AWS.MediaStore.Types.ObjectGroupName
+    Network.AWS.MediaStore.Types.Origin
+    Network.AWS.MediaStore.Types.PaginationToken
     Network.AWS.MediaStore.Types.Tag
+    Network.AWS.MediaStore.Types.TagKey
+    Network.AWS.MediaStore.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

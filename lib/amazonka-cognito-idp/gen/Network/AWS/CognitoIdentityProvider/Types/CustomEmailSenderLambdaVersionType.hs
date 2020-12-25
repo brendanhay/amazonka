@@ -13,41 +13,46 @@
 module Network.AWS.CognitoIdentityProvider.Types.CustomEmailSenderLambdaVersionType
   ( CustomEmailSenderLambdaVersionType
       ( CustomEmailSenderLambdaVersionType',
-        CESLVTV10
+        CustomEmailSenderLambdaVersionTypeV10,
+        fromCustomEmailSenderLambdaVersionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CustomEmailSenderLambdaVersionType = CustomEmailSenderLambdaVersionType' Lude.Text
+newtype CustomEmailSenderLambdaVersionType = CustomEmailSenderLambdaVersionType'
+  { fromCustomEmailSenderLambdaVersionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CESLVTV10 :: CustomEmailSenderLambdaVersionType
-pattern CESLVTV10 = CustomEmailSenderLambdaVersionType' "V1_0"
+pattern CustomEmailSenderLambdaVersionTypeV10 :: CustomEmailSenderLambdaVersionType
+pattern CustomEmailSenderLambdaVersionTypeV10 = CustomEmailSenderLambdaVersionType' "V1_0"
 
 {-# COMPLETE
-  CESLVTV10,
+  CustomEmailSenderLambdaVersionTypeV10,
   CustomEmailSenderLambdaVersionType'
   #-}

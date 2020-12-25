@@ -25,106 +25,92 @@ module Network.AWS.KMS.DisconnectCustomKeyStore
     mkDisconnectCustomKeyStore,
 
     -- ** Request lenses
-    dcksCustomKeyStoreId,
+    dCustomKeyStoreId,
 
     -- * Destructuring the response
     DisconnectCustomKeyStoreResponse (..),
     mkDisconnectCustomKeyStoreResponse,
 
     -- ** Response lenses
-    dcksrsResponseStatus,
+    dcksrrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisconnectCustomKeyStore' smart constructor.
 newtype DisconnectCustomKeyStore = DisconnectCustomKeyStore'
   { -- | Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
-    customKeyStoreId :: Lude.Text
+    customKeyStoreId :: Types.CustomKeyStoreId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisconnectCustomKeyStore' with the minimum fields required to make a request.
---
--- * 'customKeyStoreId' - Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
+-- | Creates a 'DisconnectCustomKeyStore' value with any optional fields omitted.
 mkDisconnectCustomKeyStore ::
   -- | 'customKeyStoreId'
-  Lude.Text ->
+  Types.CustomKeyStoreId ->
   DisconnectCustomKeyStore
-mkDisconnectCustomKeyStore pCustomKeyStoreId_ =
-  DisconnectCustomKeyStore' {customKeyStoreId = pCustomKeyStoreId_}
+mkDisconnectCustomKeyStore customKeyStoreId =
+  DisconnectCustomKeyStore' {customKeyStoreId}
 
 -- | Enter the ID of the custom key store you want to disconnect. To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
 --
 -- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcksCustomKeyStoreId :: Lens.Lens' DisconnectCustomKeyStore Lude.Text
-dcksCustomKeyStoreId = Lens.lens (customKeyStoreId :: DisconnectCustomKeyStore -> Lude.Text) (\s a -> s {customKeyStoreId = a} :: DisconnectCustomKeyStore)
-{-# DEPRECATED dcksCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
+dCustomKeyStoreId :: Lens.Lens' DisconnectCustomKeyStore Types.CustomKeyStoreId
+dCustomKeyStoreId = Lens.field @"customKeyStoreId"
+{-# DEPRECATED dCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
 
-instance Lude.AWSRequest DisconnectCustomKeyStore where
+instance Core.FromJSON DisconnectCustomKeyStore where
+  toJSON DisconnectCustomKeyStore {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CustomKeyStoreId" Core..= customKeyStoreId)]
+      )
+
+instance Core.AWSRequest DisconnectCustomKeyStore where
   type Rs DisconnectCustomKeyStore = DisconnectCustomKeyStoreResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.DisconnectCustomKeyStore")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisconnectCustomKeyStoreResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisconnectCustomKeyStore where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.DisconnectCustomKeyStore" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisconnectCustomKeyStore where
-  toJSON DisconnectCustomKeyStore' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("CustomKeyStoreId" Lude..= customKeyStoreId)]
-      )
-
-instance Lude.ToPath DisconnectCustomKeyStore where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisconnectCustomKeyStore where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisconnectCustomKeyStoreResponse' smart constructor.
 newtype DisconnectCustomKeyStoreResponse = DisconnectCustomKeyStoreResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisconnectCustomKeyStoreResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisconnectCustomKeyStoreResponse' value with any optional fields omitted.
 mkDisconnectCustomKeyStoreResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisconnectCustomKeyStoreResponse
-mkDisconnectCustomKeyStoreResponse pResponseStatus_ =
-  DisconnectCustomKeyStoreResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDisconnectCustomKeyStoreResponse responseStatus =
+  DisconnectCustomKeyStoreResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcksrsResponseStatus :: Lens.Lens' DisconnectCustomKeyStoreResponse Lude.Int
-dcksrsResponseStatus = Lens.lens (responseStatus :: DisconnectCustomKeyStoreResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisconnectCustomKeyStoreResponse)
-{-# DEPRECATED dcksrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcksrrsResponseStatus :: Lens.Lens' DisconnectCustomKeyStoreResponse Core.Int
+dcksrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcksrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

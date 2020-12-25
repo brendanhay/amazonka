@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.CapacityReservationState
   ( CapacityReservationState
       ( CapacityReservationState',
-        CRSActive,
-        CRSExpired,
-        CRSCancelled,
-        CRSPending,
-        CRSFailed
+        CapacityReservationStateActive,
+        CapacityReservationStateExpired,
+        CapacityReservationStateCancelled,
+        CapacityReservationStatePending,
+        CapacityReservationStateFailed,
+        fromCapacityReservationState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CapacityReservationState = CapacityReservationState' Lude.Text
+newtype CapacityReservationState = CapacityReservationState'
+  { fromCapacityReservationState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CRSActive :: CapacityReservationState
-pattern CRSActive = CapacityReservationState' "active"
+pattern CapacityReservationStateActive :: CapacityReservationState
+pattern CapacityReservationStateActive = CapacityReservationState' "active"
 
-pattern CRSExpired :: CapacityReservationState
-pattern CRSExpired = CapacityReservationState' "expired"
+pattern CapacityReservationStateExpired :: CapacityReservationState
+pattern CapacityReservationStateExpired = CapacityReservationState' "expired"
 
-pattern CRSCancelled :: CapacityReservationState
-pattern CRSCancelled = CapacityReservationState' "cancelled"
+pattern CapacityReservationStateCancelled :: CapacityReservationState
+pattern CapacityReservationStateCancelled = CapacityReservationState' "cancelled"
 
-pattern CRSPending :: CapacityReservationState
-pattern CRSPending = CapacityReservationState' "pending"
+pattern CapacityReservationStatePending :: CapacityReservationState
+pattern CapacityReservationStatePending = CapacityReservationState' "pending"
 
-pattern CRSFailed :: CapacityReservationState
-pattern CRSFailed = CapacityReservationState' "failed"
+pattern CapacityReservationStateFailed :: CapacityReservationState
+pattern CapacityReservationStateFailed = CapacityReservationState' "failed"
 
 {-# COMPLETE
-  CRSActive,
-  CRSExpired,
-  CRSCancelled,
-  CRSPending,
-  CRSFailed,
+  CapacityReservationStateActive,
+  CapacityReservationStateExpired,
+  CapacityReservationStateCancelled,
+  CapacityReservationStatePending,
+  CapacityReservationStateFailed,
   CapacityReservationState'
   #-}

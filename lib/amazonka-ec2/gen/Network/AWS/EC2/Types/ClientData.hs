@@ -17,81 +17,68 @@ module Network.AWS.EC2.Types.ClientData
     mkClientData,
 
     -- * Lenses
-    cdUploadStart,
-    cdUploadSize,
-    cdUploadEnd,
     cdComment,
+    cdUploadEnd,
+    cdUploadSize,
+    cdUploadStart,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the client-specific data.
 --
 -- /See:/ 'mkClientData' smart constructor.
 data ClientData = ClientData'
-  { -- | The time that the disk upload starts.
-    uploadStart :: Lude.Maybe Lude.DateTime,
-    -- | The size of the uploaded disk image, in GiB.
-    uploadSize :: Lude.Maybe Lude.Double,
+  { -- | A user-defined comment about the disk upload.
+    comment :: Core.Maybe Types.String,
     -- | The time that the disk upload ends.
-    uploadEnd :: Lude.Maybe Lude.DateTime,
-    -- | A user-defined comment about the disk upload.
-    comment :: Lude.Maybe Lude.Text
+    uploadEnd :: Core.Maybe Core.UTCTime,
+    -- | The size of the uploaded disk image, in GiB.
+    uploadSize :: Core.Maybe Core.Double,
+    -- | The time that the disk upload starts.
+    uploadStart :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ClientData' with the minimum fields required to make a request.
---
--- * 'uploadStart' - The time that the disk upload starts.
--- * 'uploadSize' - The size of the uploaded disk image, in GiB.
--- * 'uploadEnd' - The time that the disk upload ends.
--- * 'comment' - A user-defined comment about the disk upload.
+-- | Creates a 'ClientData' value with any optional fields omitted.
 mkClientData ::
   ClientData
 mkClientData =
   ClientData'
-    { uploadStart = Lude.Nothing,
-      uploadSize = Lude.Nothing,
-      uploadEnd = Lude.Nothing,
-      comment = Lude.Nothing
+    { comment = Core.Nothing,
+      uploadEnd = Core.Nothing,
+      uploadSize = Core.Nothing,
+      uploadStart = Core.Nothing
     }
-
--- | The time that the disk upload starts.
---
--- /Note:/ Consider using 'uploadStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdUploadStart :: Lens.Lens' ClientData (Lude.Maybe Lude.DateTime)
-cdUploadStart = Lens.lens (uploadStart :: ClientData -> Lude.Maybe Lude.DateTime) (\s a -> s {uploadStart = a} :: ClientData)
-{-# DEPRECATED cdUploadStart "Use generic-lens or generic-optics with 'uploadStart' instead." #-}
-
--- | The size of the uploaded disk image, in GiB.
---
--- /Note:/ Consider using 'uploadSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdUploadSize :: Lens.Lens' ClientData (Lude.Maybe Lude.Double)
-cdUploadSize = Lens.lens (uploadSize :: ClientData -> Lude.Maybe Lude.Double) (\s a -> s {uploadSize = a} :: ClientData)
-{-# DEPRECATED cdUploadSize "Use generic-lens or generic-optics with 'uploadSize' instead." #-}
-
--- | The time that the disk upload ends.
---
--- /Note:/ Consider using 'uploadEnd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdUploadEnd :: Lens.Lens' ClientData (Lude.Maybe Lude.DateTime)
-cdUploadEnd = Lens.lens (uploadEnd :: ClientData -> Lude.Maybe Lude.DateTime) (\s a -> s {uploadEnd = a} :: ClientData)
-{-# DEPRECATED cdUploadEnd "Use generic-lens or generic-optics with 'uploadEnd' instead." #-}
 
 -- | A user-defined comment about the disk upload.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdComment :: Lens.Lens' ClientData (Lude.Maybe Lude.Text)
-cdComment = Lens.lens (comment :: ClientData -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: ClientData)
+cdComment :: Lens.Lens' ClientData (Core.Maybe Types.String)
+cdComment = Lens.field @"comment"
 {-# DEPRECATED cdComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
-instance Lude.ToQuery ClientData where
-  toQuery ClientData' {..} =
-    Lude.mconcat
-      [ "UploadStart" Lude.=: uploadStart,
-        "UploadSize" Lude.=: uploadSize,
-        "UploadEnd" Lude.=: uploadEnd,
-        "Comment" Lude.=: comment
-      ]
+-- | The time that the disk upload ends.
+--
+-- /Note:/ Consider using 'uploadEnd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdUploadEnd :: Lens.Lens' ClientData (Core.Maybe Core.UTCTime)
+cdUploadEnd = Lens.field @"uploadEnd"
+{-# DEPRECATED cdUploadEnd "Use generic-lens or generic-optics with 'uploadEnd' instead." #-}
+
+-- | The size of the uploaded disk image, in GiB.
+--
+-- /Note:/ Consider using 'uploadSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdUploadSize :: Lens.Lens' ClientData (Core.Maybe Core.Double)
+cdUploadSize = Lens.field @"uploadSize"
+{-# DEPRECATED cdUploadSize "Use generic-lens or generic-optics with 'uploadSize' instead." #-}
+
+-- | The time that the disk upload starts.
+--
+-- /Note:/ Consider using 'uploadStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdUploadStart :: Lens.Lens' ClientData (Core.Maybe Core.UTCTime)
+cdUploadStart = Lens.field @"uploadStart"
+{-# DEPRECATED cdUploadStart "Use generic-lens or generic-optics with 'uploadStart' instead." #-}

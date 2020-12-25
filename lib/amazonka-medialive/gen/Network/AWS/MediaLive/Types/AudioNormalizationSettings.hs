@@ -17,83 +17,77 @@ module Network.AWS.MediaLive.Types.AudioNormalizationSettings
     mkAudioNormalizationSettings,
 
     -- * Lenses
+    ansAlgorithm,
     ansAlgorithmControl,
     ansTargetLkfs,
-    ansAlgorithm,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AudioNormalizationAlgorithm
-import Network.AWS.MediaLive.Types.AudioNormalizationAlgorithmControl
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.AudioNormalizationAlgorithm as Types
+import qualified Network.AWS.MediaLive.Types.AudioNormalizationAlgorithmControl as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Audio Normalization Settings
 --
 -- /See:/ 'mkAudioNormalizationSettings' smart constructor.
 data AudioNormalizationSettings = AudioNormalizationSettings'
-  { -- | When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
-    algorithmControl :: Lude.Maybe AudioNormalizationAlgorithmControl,
+  { -- | Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
+    algorithm :: Core.Maybe Types.AudioNormalizationAlgorithm,
+    -- | When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
+    algorithmControl :: Core.Maybe Types.AudioNormalizationAlgorithmControl,
     -- | Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
-    targetLkfs :: Lude.Maybe Lude.Double,
-    -- | Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
-    algorithm :: Lude.Maybe AudioNormalizationAlgorithm
+    targetLkfs :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AudioNormalizationSettings' with the minimum fields required to make a request.
---
--- * 'algorithmControl' - When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
--- * 'targetLkfs' - Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
--- * 'algorithm' - Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
+-- | Creates a 'AudioNormalizationSettings' value with any optional fields omitted.
 mkAudioNormalizationSettings ::
   AudioNormalizationSettings
 mkAudioNormalizationSettings =
   AudioNormalizationSettings'
-    { algorithmControl = Lude.Nothing,
-      targetLkfs = Lude.Nothing,
-      algorithm = Lude.Nothing
+    { algorithm = Core.Nothing,
+      algorithmControl = Core.Nothing,
+      targetLkfs = Core.Nothing
     }
+
+-- | Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
+--
+-- /Note:/ Consider using 'algorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ansAlgorithm :: Lens.Lens' AudioNormalizationSettings (Core.Maybe Types.AudioNormalizationAlgorithm)
+ansAlgorithm = Lens.field @"algorithm"
+{-# DEPRECATED ansAlgorithm "Use generic-lens or generic-optics with 'algorithm' instead." #-}
 
 -- | When set to correctAudio the output audio is corrected using the chosen algorithm. If set to measureOnly, the audio will be measured but not adjusted.
 --
 -- /Note:/ Consider using 'algorithmControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ansAlgorithmControl :: Lens.Lens' AudioNormalizationSettings (Lude.Maybe AudioNormalizationAlgorithmControl)
-ansAlgorithmControl = Lens.lens (algorithmControl :: AudioNormalizationSettings -> Lude.Maybe AudioNormalizationAlgorithmControl) (\s a -> s {algorithmControl = a} :: AudioNormalizationSettings)
+ansAlgorithmControl :: Lens.Lens' AudioNormalizationSettings (Core.Maybe Types.AudioNormalizationAlgorithmControl)
+ansAlgorithmControl = Lens.field @"algorithmControl"
 {-# DEPRECATED ansAlgorithmControl "Use generic-lens or generic-optics with 'algorithmControl' instead." #-}
 
 -- | Target LKFS(loudness) to adjust volume to. If no value is entered, a default value will be used according to the chosen algorithm.  The CALM Act (1770-1) recommends a target of -24 LKFS. The EBU R-128 specification (1770-2) recommends a target of -23 LKFS.
 --
 -- /Note:/ Consider using 'targetLkfs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ansTargetLkfs :: Lens.Lens' AudioNormalizationSettings (Lude.Maybe Lude.Double)
-ansTargetLkfs = Lens.lens (targetLkfs :: AudioNormalizationSettings -> Lude.Maybe Lude.Double) (\s a -> s {targetLkfs = a} :: AudioNormalizationSettings)
+ansTargetLkfs :: Lens.Lens' AudioNormalizationSettings (Core.Maybe Core.Double)
+ansTargetLkfs = Lens.field @"targetLkfs"
 {-# DEPRECATED ansTargetLkfs "Use generic-lens or generic-optics with 'targetLkfs' instead." #-}
 
--- | Audio normalization algorithm to use. itu17701 conforms to the CALM Act specification, itu17702 conforms to the EBU R-128 specification.
---
--- /Note:/ Consider using 'algorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ansAlgorithm :: Lens.Lens' AudioNormalizationSettings (Lude.Maybe AudioNormalizationAlgorithm)
-ansAlgorithm = Lens.lens (algorithm :: AudioNormalizationSettings -> Lude.Maybe AudioNormalizationAlgorithm) (\s a -> s {algorithm = a} :: AudioNormalizationSettings)
-{-# DEPRECATED ansAlgorithm "Use generic-lens or generic-optics with 'algorithm' instead." #-}
-
-instance Lude.FromJSON AudioNormalizationSettings where
-  parseJSON =
-    Lude.withObject
-      "AudioNormalizationSettings"
-      ( \x ->
-          AudioNormalizationSettings'
-            Lude.<$> (x Lude..:? "algorithmControl")
-            Lude.<*> (x Lude..:? "targetLkfs")
-            Lude.<*> (x Lude..:? "algorithm")
-      )
-
-instance Lude.ToJSON AudioNormalizationSettings where
-  toJSON AudioNormalizationSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("algorithmControl" Lude..=) Lude.<$> algorithmControl,
-            ("targetLkfs" Lude..=) Lude.<$> targetLkfs,
-            ("algorithm" Lude..=) Lude.<$> algorithm
+instance Core.FromJSON AudioNormalizationSettings where
+  toJSON AudioNormalizationSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("algorithm" Core..=) Core.<$> algorithm,
+            ("algorithmControl" Core..=) Core.<$> algorithmControl,
+            ("targetLkfs" Core..=) Core.<$> targetLkfs
           ]
       )
+
+instance Core.FromJSON AudioNormalizationSettings where
+  parseJSON =
+    Core.withObject "AudioNormalizationSettings" Core.$
+      \x ->
+        AudioNormalizationSettings'
+          Core.<$> (x Core..:? "algorithm")
+          Core.<*> (x Core..:? "algorithmControl")
+          Core.<*> (x Core..:? "targetLkfs")

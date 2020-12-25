@@ -46,10 +46,10 @@ module Network.AWS.Organizations.UntagResource
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
@@ -67,38 +67,20 @@ data UntagResource = UntagResource'
     --
     --
     --     * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @
-    resourceId :: Lude.Text,
+    resourceId :: Types.ResourceId,
     -- | The list of keys for tags to remove from the specified resource.
-    tagKeys :: [Lude.Text]
+    tagKeys :: [Types.TagKey]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource to remove a tag from.
---
--- You can specify any of the following taggable resources.
---
---     * AWS account – specify the account ID number.
---
---
---     * Organizational unit – specify the OU ID that begins with @ou-@ and looks similar to: @ou-/1a2b-34uvwxyz/ @
---
---
---     * Root – specify the root ID that begins with @r-@ and looks similar to: @r-/1a2b/ @
---
---
---     * Policy – specify the policy ID that begins with @p-@ andlooks similar to: @p-/12abcdefg3/ @
---
---
--- * 'tagKeys' - The list of keys for tags to remove from the specified resource.
+-- | Creates a 'UntagResource' value with any optional fields omitted.
 mkUntagResource ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.ResourceId ->
   UntagResource
-mkUntagResource pResourceId_ =
-  UntagResource' {resourceId = pResourceId_, tagKeys = Lude.mempty}
+mkUntagResource resourceId =
+  UntagResource' {resourceId, tagKeys = Core.mempty}
 
 -- | The ID of the resource to remove a tag from.
 --
@@ -118,54 +100,48 @@ mkUntagResource pResourceId_ =
 --
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResourceId :: Lens.Lens' UntagResource Lude.Text
-urResourceId = Lens.lens (resourceId :: UntagResource -> Lude.Text) (\s a -> s {resourceId = a} :: UntagResource)
+urResourceId :: Lens.Lens' UntagResource Types.ResourceId
+urResourceId = Lens.field @"resourceId"
 {-# DEPRECATED urResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The list of keys for tags to remove from the specified resource.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urTagKeys :: Lens.Lens' UntagResource [Lude.Text]
-urTagKeys = Lens.lens (tagKeys :: UntagResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagResource)
+urTagKeys :: Lens.Lens' UntagResource [Types.TagKey]
+urTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance Lude.AWSRequest UntagResource where
+instance Core.FromJSON UntagResource where
+  toJSON UntagResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
+
+instance Core.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
-  request = Req.postJSON organizationsService
-  response = Res.receiveNull UntagResourceResponse'
-
-instance Lude.ToHeaders UntagResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSOrganizationsV20161128.UntagResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UntagResource where
-  toJSON UntagResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("TagKeys" Lude..= tagKeys)
-          ]
-      )
-
-instance Lude.ToPath UntagResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UntagResource where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSOrganizationsV20161128.UntagResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UntagResourceResponse'
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
+-- | Creates a 'UntagResourceResponse' value with any optional fields omitted.
 mkUntagResourceResponse ::
   UntagResourceResponse
 mkUntagResourceResponse = UntagResourceResponse'

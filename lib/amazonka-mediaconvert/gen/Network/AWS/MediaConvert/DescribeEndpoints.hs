@@ -22,168 +22,156 @@ module Network.AWS.MediaConvert.DescribeEndpoints
     mkDescribeEndpoints,
 
     -- ** Request lenses
+    deMaxResults,
     deMode,
     deNextToken,
-    deMaxResults,
 
     -- * Destructuring the response
     DescribeEndpointsResponse (..),
     mkDescribeEndpointsResponse,
 
     -- ** Response lenses
-    dersNextToken,
-    dersEndpoints,
-    dersResponseStatus,
+    derrsEndpoints,
+    derrsNextToken,
+    derrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaConvert.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | DescribeEndpointsRequest
 --
 -- /See:/ 'mkDescribeEndpoints' smart constructor.
 data DescribeEndpoints = DescribeEndpoints'
-  { -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
-    mode :: Lude.Maybe DescribeEndpointsMode,
+  { -- | Optional. Max number of endpoints, up to twenty, that will be returned at one time.
+    maxResults :: Core.Maybe Core.Int,
+    -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
+    mode :: Core.Maybe Types.DescribeEndpointsMode,
     -- | Use this string, provided with the response to a previous request, to request the next batch of endpoints.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Optional. Max number of endpoints, up to twenty, that will be returned at one time.
-    maxResults :: Lude.Maybe Lude.Int
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEndpoints' with the minimum fields required to make a request.
---
--- * 'mode' - Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
--- * 'nextToken' - Use this string, provided with the response to a previous request, to request the next batch of endpoints.
--- * 'maxResults' - Optional. Max number of endpoints, up to twenty, that will be returned at one time.
+-- | Creates a 'DescribeEndpoints' value with any optional fields omitted.
 mkDescribeEndpoints ::
   DescribeEndpoints
 mkDescribeEndpoints =
   DescribeEndpoints'
-    { mode = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      mode = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | Optional. Max number of endpoints, up to twenty, that will be returned at one time.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deMaxResults :: Lens.Lens' DescribeEndpoints (Core.Maybe Core.Int)
+deMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED deMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Optional field, defaults to DEFAULT. Specify DEFAULT for this operation to return your endpoints if any exist, or to create an endpoint for you and return it if one doesn't already exist. Specify GET_ONLY to return your endpoints if any exist, or an empty list if none exist.
 --
 -- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deMode :: Lens.Lens' DescribeEndpoints (Lude.Maybe DescribeEndpointsMode)
-deMode = Lens.lens (mode :: DescribeEndpoints -> Lude.Maybe DescribeEndpointsMode) (\s a -> s {mode = a} :: DescribeEndpoints)
+deMode :: Lens.Lens' DescribeEndpoints (Core.Maybe Types.DescribeEndpointsMode)
+deMode = Lens.field @"mode"
 {-# DEPRECATED deMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
 -- | Use this string, provided with the response to a previous request, to request the next batch of endpoints.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deNextToken :: Lens.Lens' DescribeEndpoints (Lude.Maybe Lude.Text)
-deNextToken = Lens.lens (nextToken :: DescribeEndpoints -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEndpoints)
+deNextToken :: Lens.Lens' DescribeEndpoints (Core.Maybe Core.Text)
+deNextToken = Lens.field @"nextToken"
 {-# DEPRECATED deNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | Optional. Max number of endpoints, up to twenty, that will be returned at one time.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deMaxResults :: Lens.Lens' DescribeEndpoints (Lude.Maybe Lude.Int)
-deMaxResults = Lens.lens (maxResults :: DescribeEndpoints -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeEndpoints)
-{-# DEPRECATED deMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+instance Core.FromJSON DescribeEndpoints where
+  toJSON DescribeEndpoints {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("maxResults" Core..=) Core.<$> maxResults,
+            ("mode" Core..=) Core.<$> mode,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Page.AWSPager DescribeEndpoints where
-  page rq rs
-    | Page.stop (rs Lens.^. dersNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dersEndpoints) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& deNextToken Lens..~ rs Lens.^. dersNextToken
-
-instance Lude.AWSRequest DescribeEndpoints where
+instance Core.AWSRequest DescribeEndpoints where
   type Rs DescribeEndpoints = DescribeEndpointsResponse
-  request = Req.postJSON mediaConvertService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2017-08-29/endpoints",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeEndpointsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "endpoints" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "endpoints")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeEndpoints where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeEndpoints where
-  toJSON DescribeEndpoints' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("mode" Lude..=) Lude.<$> mode,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeEndpoints where
-  toPath = Lude.const "/2017-08-29/endpoints"
-
-instance Lude.ToQuery DescribeEndpoints where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeEndpoints where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"endpoints" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeEndpointsResponse' smart constructor.
 data DescribeEndpointsResponse = DescribeEndpointsResponse'
-  { -- | Use this string to request the next batch of endpoints.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | List of endpoints
-    endpoints :: Lude.Maybe [Endpoint],
+  { -- | List of endpoints
+    endpoints :: Core.Maybe [Types.Endpoint],
+    -- | Use this string to request the next batch of endpoints.
+    nextToken :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEndpointsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Use this string to request the next batch of endpoints.
--- * 'endpoints' - List of endpoints
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEndpointsResponse' value with any optional fields omitted.
 mkDescribeEndpointsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEndpointsResponse
-mkDescribeEndpointsResponse pResponseStatus_ =
+mkDescribeEndpointsResponse responseStatus =
   DescribeEndpointsResponse'
-    { nextToken = Lude.Nothing,
-      endpoints = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { endpoints = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | Use this string to request the next batch of endpoints.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersNextToken :: Lens.Lens' DescribeEndpointsResponse (Lude.Maybe Lude.Text)
-dersNextToken = Lens.lens (nextToken :: DescribeEndpointsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEndpointsResponse)
-{-# DEPRECATED dersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of endpoints
 --
 -- /Note:/ Consider using 'endpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersEndpoints :: Lens.Lens' DescribeEndpointsResponse (Lude.Maybe [Endpoint])
-dersEndpoints = Lens.lens (endpoints :: DescribeEndpointsResponse -> Lude.Maybe [Endpoint]) (\s a -> s {endpoints = a} :: DescribeEndpointsResponse)
-{-# DEPRECATED dersEndpoints "Use generic-lens or generic-optics with 'endpoints' instead." #-}
+derrsEndpoints :: Lens.Lens' DescribeEndpointsResponse (Core.Maybe [Types.Endpoint])
+derrsEndpoints = Lens.field @"endpoints"
+{-# DEPRECATED derrsEndpoints "Use generic-lens or generic-optics with 'endpoints' instead." #-}
+
+-- | Use this string to request the next batch of endpoints.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derrsNextToken :: Lens.Lens' DescribeEndpointsResponse (Core.Maybe Core.Text)
+derrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED derrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersResponseStatus :: Lens.Lens' DescribeEndpointsResponse Lude.Int
-dersResponseStatus = Lens.lens (responseStatus :: DescribeEndpointsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEndpointsResponse)
-{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+derrsResponseStatus :: Lens.Lens' DescribeEndpointsResponse Core.Int
+derrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

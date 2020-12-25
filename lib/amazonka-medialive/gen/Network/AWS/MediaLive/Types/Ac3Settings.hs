@@ -17,142 +17,132 @@ module Network.AWS.MediaLive.Types.Ac3Settings
     mkAc3Settings,
 
     -- * Lenses
-    asLfeFilter,
-    asMetadataControl,
-    asBitstreamMode,
-    asCodingMode,
-    asBitrate,
-    asDialnorm,
-    asDrcProfile,
+    aBitrate,
+    aBitstreamMode,
+    aCodingMode,
+    aDialnorm,
+    aDrcProfile,
+    aLfeFilter,
+    aMetadataControl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.Ac3BitstreamMode
-import Network.AWS.MediaLive.Types.Ac3CodingMode
-import Network.AWS.MediaLive.Types.Ac3DrcProfile
-import Network.AWS.MediaLive.Types.Ac3LfeFilter
-import Network.AWS.MediaLive.Types.Ac3MetadataControl
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.Ac3BitstreamMode as Types
+import qualified Network.AWS.MediaLive.Types.Ac3CodingMode as Types
+import qualified Network.AWS.MediaLive.Types.Ac3DrcProfile as Types
+import qualified Network.AWS.MediaLive.Types.Ac3LfeFilter as Types
+import qualified Network.AWS.MediaLive.Types.Ac3MetadataControl as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Ac3 Settings
 --
 -- /See:/ 'mkAc3Settings' smart constructor.
 data Ac3Settings = Ac3Settings'
-  { -- | When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
-    lfeFilter :: Lude.Maybe Ac3LfeFilter,
-    -- | When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
-    metadataControl :: Lude.Maybe Ac3MetadataControl,
+  { -- | Average bitrate in bits/second. Valid bitrates depend on the coding mode.
+    bitrate :: Core.Maybe Core.Double,
     -- | Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
-    bitstreamMode :: Lude.Maybe Ac3BitstreamMode,
+    bitstreamMode :: Core.Maybe Types.Ac3BitstreamMode,
     -- | Dolby Digital coding mode. Determines number of channels.
-    codingMode :: Lude.Maybe Ac3CodingMode,
-    -- | Average bitrate in bits/second. Valid bitrates depend on the coding mode.
-    bitrate :: Lude.Maybe Lude.Double,
+    codingMode :: Core.Maybe Types.Ac3CodingMode,
     -- | Sets the dialnorm for the output. If excluded and input audio is Dolby Digital, dialnorm will be passed through.
-    dialnorm :: Lude.Maybe Lude.Natural,
+    dialnorm :: Core.Maybe Core.Natural,
     -- | If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
-    drcProfile :: Lude.Maybe Ac3DrcProfile
+    drcProfile :: Core.Maybe Types.Ac3DrcProfile,
+    -- | When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
+    lfeFilter :: Core.Maybe Types.Ac3LfeFilter,
+    -- | When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
+    metadataControl :: Core.Maybe Types.Ac3MetadataControl
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Ac3Settings' with the minimum fields required to make a request.
---
--- * 'lfeFilter' - When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
--- * 'metadataControl' - When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
--- * 'bitstreamMode' - Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
--- * 'codingMode' - Dolby Digital coding mode. Determines number of channels.
--- * 'bitrate' - Average bitrate in bits/second. Valid bitrates depend on the coding mode.
--- * 'dialnorm' - Sets the dialnorm for the output. If excluded and input audio is Dolby Digital, dialnorm will be passed through.
--- * 'drcProfile' - If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
+-- | Creates a 'Ac3Settings' value with any optional fields omitted.
 mkAc3Settings ::
   Ac3Settings
 mkAc3Settings =
   Ac3Settings'
-    { lfeFilter = Lude.Nothing,
-      metadataControl = Lude.Nothing,
-      bitstreamMode = Lude.Nothing,
-      codingMode = Lude.Nothing,
-      bitrate = Lude.Nothing,
-      dialnorm = Lude.Nothing,
-      drcProfile = Lude.Nothing
+    { bitrate = Core.Nothing,
+      bitstreamMode = Core.Nothing,
+      codingMode = Core.Nothing,
+      dialnorm = Core.Nothing,
+      drcProfile = Core.Nothing,
+      lfeFilter = Core.Nothing,
+      metadataControl = Core.Nothing
     }
-
--- | When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
---
--- /Note:/ Consider using 'lfeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asLfeFilter :: Lens.Lens' Ac3Settings (Lude.Maybe Ac3LfeFilter)
-asLfeFilter = Lens.lens (lfeFilter :: Ac3Settings -> Lude.Maybe Ac3LfeFilter) (\s a -> s {lfeFilter = a} :: Ac3Settings)
-{-# DEPRECATED asLfeFilter "Use generic-lens or generic-optics with 'lfeFilter' instead." #-}
-
--- | When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
---
--- /Note:/ Consider using 'metadataControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asMetadataControl :: Lens.Lens' Ac3Settings (Lude.Maybe Ac3MetadataControl)
-asMetadataControl = Lens.lens (metadataControl :: Ac3Settings -> Lude.Maybe Ac3MetadataControl) (\s a -> s {metadataControl = a} :: Ac3Settings)
-{-# DEPRECATED asMetadataControl "Use generic-lens or generic-optics with 'metadataControl' instead." #-}
-
--- | Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
---
--- /Note:/ Consider using 'bitstreamMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asBitstreamMode :: Lens.Lens' Ac3Settings (Lude.Maybe Ac3BitstreamMode)
-asBitstreamMode = Lens.lens (bitstreamMode :: Ac3Settings -> Lude.Maybe Ac3BitstreamMode) (\s a -> s {bitstreamMode = a} :: Ac3Settings)
-{-# DEPRECATED asBitstreamMode "Use generic-lens or generic-optics with 'bitstreamMode' instead." #-}
-
--- | Dolby Digital coding mode. Determines number of channels.
---
--- /Note:/ Consider using 'codingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asCodingMode :: Lens.Lens' Ac3Settings (Lude.Maybe Ac3CodingMode)
-asCodingMode = Lens.lens (codingMode :: Ac3Settings -> Lude.Maybe Ac3CodingMode) (\s a -> s {codingMode = a} :: Ac3Settings)
-{-# DEPRECATED asCodingMode "Use generic-lens or generic-optics with 'codingMode' instead." #-}
 
 -- | Average bitrate in bits/second. Valid bitrates depend on the coding mode.
 --
 -- /Note:/ Consider using 'bitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asBitrate :: Lens.Lens' Ac3Settings (Lude.Maybe Lude.Double)
-asBitrate = Lens.lens (bitrate :: Ac3Settings -> Lude.Maybe Lude.Double) (\s a -> s {bitrate = a} :: Ac3Settings)
-{-# DEPRECATED asBitrate "Use generic-lens or generic-optics with 'bitrate' instead." #-}
+aBitrate :: Lens.Lens' Ac3Settings (Core.Maybe Core.Double)
+aBitrate = Lens.field @"bitrate"
+{-# DEPRECATED aBitrate "Use generic-lens or generic-optics with 'bitrate' instead." #-}
+
+-- | Specifies the bitstream mode (bsmod) for the emitted AC-3 stream. See ATSC A/52-2012 for background on these values.
+--
+-- /Note:/ Consider using 'bitstreamMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aBitstreamMode :: Lens.Lens' Ac3Settings (Core.Maybe Types.Ac3BitstreamMode)
+aBitstreamMode = Lens.field @"bitstreamMode"
+{-# DEPRECATED aBitstreamMode "Use generic-lens or generic-optics with 'bitstreamMode' instead." #-}
+
+-- | Dolby Digital coding mode. Determines number of channels.
+--
+-- /Note:/ Consider using 'codingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aCodingMode :: Lens.Lens' Ac3Settings (Core.Maybe Types.Ac3CodingMode)
+aCodingMode = Lens.field @"codingMode"
+{-# DEPRECATED aCodingMode "Use generic-lens or generic-optics with 'codingMode' instead." #-}
 
 -- | Sets the dialnorm for the output. If excluded and input audio is Dolby Digital, dialnorm will be passed through.
 --
 -- /Note:/ Consider using 'dialnorm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asDialnorm :: Lens.Lens' Ac3Settings (Lude.Maybe Lude.Natural)
-asDialnorm = Lens.lens (dialnorm :: Ac3Settings -> Lude.Maybe Lude.Natural) (\s a -> s {dialnorm = a} :: Ac3Settings)
-{-# DEPRECATED asDialnorm "Use generic-lens or generic-optics with 'dialnorm' instead." #-}
+aDialnorm :: Lens.Lens' Ac3Settings (Core.Maybe Core.Natural)
+aDialnorm = Lens.field @"dialnorm"
+{-# DEPRECATED aDialnorm "Use generic-lens or generic-optics with 'dialnorm' instead." #-}
 
 -- | If set to filmStandard, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
 --
 -- /Note:/ Consider using 'drcProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asDrcProfile :: Lens.Lens' Ac3Settings (Lude.Maybe Ac3DrcProfile)
-asDrcProfile = Lens.lens (drcProfile :: Ac3Settings -> Lude.Maybe Ac3DrcProfile) (\s a -> s {drcProfile = a} :: Ac3Settings)
-{-# DEPRECATED asDrcProfile "Use generic-lens or generic-optics with 'drcProfile' instead." #-}
+aDrcProfile :: Lens.Lens' Ac3Settings (Core.Maybe Types.Ac3DrcProfile)
+aDrcProfile = Lens.field @"drcProfile"
+{-# DEPRECATED aDrcProfile "Use generic-lens or generic-optics with 'drcProfile' instead." #-}
 
-instance Lude.FromJSON Ac3Settings where
-  parseJSON =
-    Lude.withObject
-      "Ac3Settings"
-      ( \x ->
-          Ac3Settings'
-            Lude.<$> (x Lude..:? "lfeFilter")
-            Lude.<*> (x Lude..:? "metadataControl")
-            Lude.<*> (x Lude..:? "bitstreamMode")
-            Lude.<*> (x Lude..:? "codingMode")
-            Lude.<*> (x Lude..:? "bitrate")
-            Lude.<*> (x Lude..:? "dialnorm")
-            Lude.<*> (x Lude..:? "drcProfile")
-      )
+-- | When set to enabled, applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid in codingMode32Lfe mode.
+--
+-- /Note:/ Consider using 'lfeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aLfeFilter :: Lens.Lens' Ac3Settings (Core.Maybe Types.Ac3LfeFilter)
+aLfeFilter = Lens.field @"lfeFilter"
+{-# DEPRECATED aLfeFilter "Use generic-lens or generic-optics with 'lfeFilter' instead." #-}
 
-instance Lude.ToJSON Ac3Settings where
-  toJSON Ac3Settings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("lfeFilter" Lude..=) Lude.<$> lfeFilter,
-            ("metadataControl" Lude..=) Lude.<$> metadataControl,
-            ("bitstreamMode" Lude..=) Lude.<$> bitstreamMode,
-            ("codingMode" Lude..=) Lude.<$> codingMode,
-            ("bitrate" Lude..=) Lude.<$> bitrate,
-            ("dialnorm" Lude..=) Lude.<$> dialnorm,
-            ("drcProfile" Lude..=) Lude.<$> drcProfile
+-- | When set to "followInput", encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
+--
+-- /Note:/ Consider using 'metadataControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aMetadataControl :: Lens.Lens' Ac3Settings (Core.Maybe Types.Ac3MetadataControl)
+aMetadataControl = Lens.field @"metadataControl"
+{-# DEPRECATED aMetadataControl "Use generic-lens or generic-optics with 'metadataControl' instead." #-}
+
+instance Core.FromJSON Ac3Settings where
+  toJSON Ac3Settings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("bitrate" Core..=) Core.<$> bitrate,
+            ("bitstreamMode" Core..=) Core.<$> bitstreamMode,
+            ("codingMode" Core..=) Core.<$> codingMode,
+            ("dialnorm" Core..=) Core.<$> dialnorm,
+            ("drcProfile" Core..=) Core.<$> drcProfile,
+            ("lfeFilter" Core..=) Core.<$> lfeFilter,
+            ("metadataControl" Core..=) Core.<$> metadataControl
           ]
       )
+
+instance Core.FromJSON Ac3Settings where
+  parseJSON =
+    Core.withObject "Ac3Settings" Core.$
+      \x ->
+        Ac3Settings'
+          Core.<$> (x Core..:? "bitrate")
+          Core.<*> (x Core..:? "bitstreamMode")
+          Core.<*> (x Core..:? "codingMode")
+          Core.<*> (x Core..:? "dialnorm")
+          Core.<*> (x Core..:? "drcProfile")
+          Core.<*> (x Core..:? "lfeFilter")
+          Core.<*> (x Core..:? "metadataControl")

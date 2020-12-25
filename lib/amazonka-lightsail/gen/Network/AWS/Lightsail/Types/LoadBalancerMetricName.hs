@@ -13,96 +13,101 @@
 module Network.AWS.Lightsail.Types.LoadBalancerMetricName
   ( LoadBalancerMetricName
       ( LoadBalancerMetricName',
-        LBMNClientTLSNegotiationErrorCount,
-        LBMNHealthyHostCount,
-        LBMNUnhealthyHostCount,
-        LBMNHTTPCodeLb4XXCount,
-        LBMNHTTPCodeLb5XXCount,
-        LBMNHTTPCodeInstance2XXCount,
-        LBMNHTTPCodeInstance3XXCount,
-        LBMNHTTPCodeInstance4XXCount,
-        LBMNHTTPCodeInstance5XXCount,
-        LBMNInstanceResponseTime,
-        LBMNRejectedConnectionCount,
-        LBMNRequestCount
+        LoadBalancerMetricNameClientTLSNegotiationErrorCount,
+        LoadBalancerMetricNameHealthyHostCount,
+        LoadBalancerMetricNameUnhealthyHostCount,
+        LoadBalancerMetricNameHTTPCodeLb4XXCount,
+        LoadBalancerMetricNameHTTPCodeLb5XXCount,
+        LoadBalancerMetricNameHTTPCodeInstance2XXCount,
+        LoadBalancerMetricNameHTTPCodeInstance3XXCount,
+        LoadBalancerMetricNameHTTPCodeInstance4XXCount,
+        LoadBalancerMetricNameHTTPCodeInstance5XXCount,
+        LoadBalancerMetricNameInstanceResponseTime,
+        LoadBalancerMetricNameRejectedConnectionCount,
+        LoadBalancerMetricNameRequestCount,
+        fromLoadBalancerMetricName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LoadBalancerMetricName = LoadBalancerMetricName' Lude.Text
+newtype LoadBalancerMetricName = LoadBalancerMetricName'
+  { fromLoadBalancerMetricName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LBMNClientTLSNegotiationErrorCount :: LoadBalancerMetricName
-pattern LBMNClientTLSNegotiationErrorCount = LoadBalancerMetricName' "ClientTLSNegotiationErrorCount"
+pattern LoadBalancerMetricNameClientTLSNegotiationErrorCount :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameClientTLSNegotiationErrorCount = LoadBalancerMetricName' "ClientTLSNegotiationErrorCount"
 
-pattern LBMNHealthyHostCount :: LoadBalancerMetricName
-pattern LBMNHealthyHostCount = LoadBalancerMetricName' "HealthyHostCount"
+pattern LoadBalancerMetricNameHealthyHostCount :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameHealthyHostCount = LoadBalancerMetricName' "HealthyHostCount"
 
-pattern LBMNUnhealthyHostCount :: LoadBalancerMetricName
-pattern LBMNUnhealthyHostCount = LoadBalancerMetricName' "UnhealthyHostCount"
+pattern LoadBalancerMetricNameUnhealthyHostCount :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameUnhealthyHostCount = LoadBalancerMetricName' "UnhealthyHostCount"
 
-pattern LBMNHTTPCodeLb4XXCount :: LoadBalancerMetricName
-pattern LBMNHTTPCodeLb4XXCount = LoadBalancerMetricName' "HTTPCode_LB_4XX_Count"
+pattern LoadBalancerMetricNameHTTPCodeLb4XXCount :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameHTTPCodeLb4XXCount = LoadBalancerMetricName' "HTTPCode_LB_4XX_Count"
 
-pattern LBMNHTTPCodeLb5XXCount :: LoadBalancerMetricName
-pattern LBMNHTTPCodeLb5XXCount = LoadBalancerMetricName' "HTTPCode_LB_5XX_Count"
+pattern LoadBalancerMetricNameHTTPCodeLb5XXCount :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameHTTPCodeLb5XXCount = LoadBalancerMetricName' "HTTPCode_LB_5XX_Count"
 
-pattern LBMNHTTPCodeInstance2XXCount :: LoadBalancerMetricName
-pattern LBMNHTTPCodeInstance2XXCount = LoadBalancerMetricName' "HTTPCode_Instance_2XX_Count"
+pattern LoadBalancerMetricNameHTTPCodeInstance2XXCount :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameHTTPCodeInstance2XXCount = LoadBalancerMetricName' "HTTPCode_Instance_2XX_Count"
 
-pattern LBMNHTTPCodeInstance3XXCount :: LoadBalancerMetricName
-pattern LBMNHTTPCodeInstance3XXCount = LoadBalancerMetricName' "HTTPCode_Instance_3XX_Count"
+pattern LoadBalancerMetricNameHTTPCodeInstance3XXCount :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameHTTPCodeInstance3XXCount = LoadBalancerMetricName' "HTTPCode_Instance_3XX_Count"
 
-pattern LBMNHTTPCodeInstance4XXCount :: LoadBalancerMetricName
-pattern LBMNHTTPCodeInstance4XXCount = LoadBalancerMetricName' "HTTPCode_Instance_4XX_Count"
+pattern LoadBalancerMetricNameHTTPCodeInstance4XXCount :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameHTTPCodeInstance4XXCount = LoadBalancerMetricName' "HTTPCode_Instance_4XX_Count"
 
-pattern LBMNHTTPCodeInstance5XXCount :: LoadBalancerMetricName
-pattern LBMNHTTPCodeInstance5XXCount = LoadBalancerMetricName' "HTTPCode_Instance_5XX_Count"
+pattern LoadBalancerMetricNameHTTPCodeInstance5XXCount :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameHTTPCodeInstance5XXCount = LoadBalancerMetricName' "HTTPCode_Instance_5XX_Count"
 
-pattern LBMNInstanceResponseTime :: LoadBalancerMetricName
-pattern LBMNInstanceResponseTime = LoadBalancerMetricName' "InstanceResponseTime"
+pattern LoadBalancerMetricNameInstanceResponseTime :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameInstanceResponseTime = LoadBalancerMetricName' "InstanceResponseTime"
 
-pattern LBMNRejectedConnectionCount :: LoadBalancerMetricName
-pattern LBMNRejectedConnectionCount = LoadBalancerMetricName' "RejectedConnectionCount"
+pattern LoadBalancerMetricNameRejectedConnectionCount :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameRejectedConnectionCount = LoadBalancerMetricName' "RejectedConnectionCount"
 
-pattern LBMNRequestCount :: LoadBalancerMetricName
-pattern LBMNRequestCount = LoadBalancerMetricName' "RequestCount"
+pattern LoadBalancerMetricNameRequestCount :: LoadBalancerMetricName
+pattern LoadBalancerMetricNameRequestCount = LoadBalancerMetricName' "RequestCount"
 
 {-# COMPLETE
-  LBMNClientTLSNegotiationErrorCount,
-  LBMNHealthyHostCount,
-  LBMNUnhealthyHostCount,
-  LBMNHTTPCodeLb4XXCount,
-  LBMNHTTPCodeLb5XXCount,
-  LBMNHTTPCodeInstance2XXCount,
-  LBMNHTTPCodeInstance3XXCount,
-  LBMNHTTPCodeInstance4XXCount,
-  LBMNHTTPCodeInstance5XXCount,
-  LBMNInstanceResponseTime,
-  LBMNRejectedConnectionCount,
-  LBMNRequestCount,
+  LoadBalancerMetricNameClientTLSNegotiationErrorCount,
+  LoadBalancerMetricNameHealthyHostCount,
+  LoadBalancerMetricNameUnhealthyHostCount,
+  LoadBalancerMetricNameHTTPCodeLb4XXCount,
+  LoadBalancerMetricNameHTTPCodeLb5XXCount,
+  LoadBalancerMetricNameHTTPCodeInstance2XXCount,
+  LoadBalancerMetricNameHTTPCodeInstance3XXCount,
+  LoadBalancerMetricNameHTTPCodeInstance4XXCount,
+  LoadBalancerMetricNameHTTPCodeInstance5XXCount,
+  LoadBalancerMetricNameInstanceResponseTime,
+  LoadBalancerMetricNameRejectedConnectionCount,
+  LoadBalancerMetricNameRequestCount,
   LoadBalancerMetricName'
   #-}

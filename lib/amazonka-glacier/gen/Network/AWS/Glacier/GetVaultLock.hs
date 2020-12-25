@@ -36,166 +36,154 @@ module Network.AWS.Glacier.GetVaultLock
     mkGetVaultLock,
 
     -- ** Request lenses
-    gvlVaultName,
     gvlAccountId,
+    gvlVaultName,
 
     -- * Destructuring the response
     GetVaultLockResponse (..),
     mkGetVaultLockResponse,
 
     -- ** Response lenses
-    gvlrsState,
-    gvlrsExpirationDate,
-    gvlrsCreationDate,
-    gvlrsPolicy,
-    gvlrsResponseStatus,
+    gvlrrsCreationDate,
+    gvlrrsExpirationDate,
+    gvlrrsPolicy,
+    gvlrrsState,
+    gvlrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input values for @GetVaultLock@ .
 --
 -- /See:/ 'mkGetVaultLock' smart constructor.
 data GetVaultLock = GetVaultLock'
-  { -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
+    -- | The name of the vault.
+    vaultName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetVaultLock' with the minimum fields required to make a request.
---
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- | Creates a 'GetVaultLock' value with any optional fields omitted.
 mkGetVaultLock ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
   GetVaultLock
-mkGetVaultLock pVaultName_ pAccountId_ =
-  GetVaultLock' {vaultName = pVaultName_, accountId = pAccountId_}
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvlVaultName :: Lens.Lens' GetVaultLock Lude.Text
-gvlVaultName = Lens.lens (vaultName :: GetVaultLock -> Lude.Text) (\s a -> s {vaultName = a} :: GetVaultLock)
-{-# DEPRECATED gvlVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+mkGetVaultLock accountId vaultName =
+  GetVaultLock' {accountId, vaultName}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvlAccountId :: Lens.Lens' GetVaultLock Lude.Text
-gvlAccountId = Lens.lens (accountId :: GetVaultLock -> Lude.Text) (\s a -> s {accountId = a} :: GetVaultLock)
+gvlAccountId :: Lens.Lens' GetVaultLock Types.String
+gvlAccountId = Lens.field @"accountId"
 {-# DEPRECATED gvlAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.AWSRequest GetVaultLock where
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlVaultName :: Lens.Lens' GetVaultLock Types.String
+gvlVaultName = Lens.field @"vaultName"
+{-# DEPRECATED gvlVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+instance Core.AWSRequest GetVaultLock where
   type Rs GetVaultLock = GetVaultLockResponse
-  request = Req.get glacierService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/lock-policy")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetVaultLockResponse'
-            Lude.<$> (x Lude..?> "State")
-            Lude.<*> (x Lude..?> "ExpirationDate")
-            Lude.<*> (x Lude..?> "CreationDate")
-            Lude.<*> (x Lude..?> "Policy")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CreationDate")
+            Core.<*> (x Core..:? "ExpirationDate")
+            Core.<*> (x Core..:? "Policy")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetVaultLock where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetVaultLock where
-  toPath GetVaultLock' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/lock-policy"
-      ]
-
-instance Lude.ToQuery GetVaultLock where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'mkGetVaultLockResponse' smart constructor.
 data GetVaultLockResponse = GetVaultLockResponse'
-  { -- | The state of the vault lock. @InProgress@ or @Locked@ .
-    state :: Lude.Maybe Lude.Text,
+  { -- | The UTC date and time at which the vault lock was put into the @InProgress@ state.
+    creationDate :: Core.Maybe Types.String,
     -- | The UTC date and time at which the lock ID expires. This value can be @null@ if the vault lock is in a @Locked@ state.
-    expirationDate :: Lude.Maybe Lude.Text,
-    -- | The UTC date and time at which the vault lock was put into the @InProgress@ state.
-    creationDate :: Lude.Maybe Lude.Text,
+    expirationDate :: Core.Maybe Types.String,
     -- | The vault lock policy as a JSON string, which uses "\" as an escape character.
-    policy :: Lude.Maybe Lude.Text,
+    policy :: Core.Maybe Types.String,
+    -- | The state of the vault lock. @InProgress@ or @Locked@ .
+    state :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetVaultLockResponse' with the minimum fields required to make a request.
---
--- * 'state' - The state of the vault lock. @InProgress@ or @Locked@ .
--- * 'expirationDate' - The UTC date and time at which the lock ID expires. This value can be @null@ if the vault lock is in a @Locked@ state.
--- * 'creationDate' - The UTC date and time at which the vault lock was put into the @InProgress@ state.
--- * 'policy' - The vault lock policy as a JSON string, which uses "\" as an escape character.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetVaultLockResponse' value with any optional fields omitted.
 mkGetVaultLockResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetVaultLockResponse
-mkGetVaultLockResponse pResponseStatus_ =
+mkGetVaultLockResponse responseStatus =
   GetVaultLockResponse'
-    { state = Lude.Nothing,
-      expirationDate = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      policy = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { creationDate = Core.Nothing,
+      expirationDate = Core.Nothing,
+      policy = Core.Nothing,
+      state = Core.Nothing,
+      responseStatus
     }
-
--- | The state of the vault lock. @InProgress@ or @Locked@ .
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvlrsState :: Lens.Lens' GetVaultLockResponse (Lude.Maybe Lude.Text)
-gvlrsState = Lens.lens (state :: GetVaultLockResponse -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: GetVaultLockResponse)
-{-# DEPRECATED gvlrsState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The UTC date and time at which the lock ID expires. This value can be @null@ if the vault lock is in a @Locked@ state.
---
--- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvlrsExpirationDate :: Lens.Lens' GetVaultLockResponse (Lude.Maybe Lude.Text)
-gvlrsExpirationDate = Lens.lens (expirationDate :: GetVaultLockResponse -> Lude.Maybe Lude.Text) (\s a -> s {expirationDate = a} :: GetVaultLockResponse)
-{-# DEPRECATED gvlrsExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
 -- | The UTC date and time at which the vault lock was put into the @InProgress@ state.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvlrsCreationDate :: Lens.Lens' GetVaultLockResponse (Lude.Maybe Lude.Text)
-gvlrsCreationDate = Lens.lens (creationDate :: GetVaultLockResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: GetVaultLockResponse)
-{-# DEPRECATED gvlrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+gvlrrsCreationDate :: Lens.Lens' GetVaultLockResponse (Core.Maybe Types.String)
+gvlrrsCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED gvlrrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The UTC date and time at which the lock ID expires. This value can be @null@ if the vault lock is in a @Locked@ state.
+--
+-- /Note:/ Consider using 'expirationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlrrsExpirationDate :: Lens.Lens' GetVaultLockResponse (Core.Maybe Types.String)
+gvlrrsExpirationDate = Lens.field @"expirationDate"
+{-# DEPRECATED gvlrrsExpirationDate "Use generic-lens or generic-optics with 'expirationDate' instead." #-}
 
 -- | The vault lock policy as a JSON string, which uses "\" as an escape character.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvlrsPolicy :: Lens.Lens' GetVaultLockResponse (Lude.Maybe Lude.Text)
-gvlrsPolicy = Lens.lens (policy :: GetVaultLockResponse -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: GetVaultLockResponse)
-{-# DEPRECATED gvlrsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+gvlrrsPolicy :: Lens.Lens' GetVaultLockResponse (Core.Maybe Types.String)
+gvlrrsPolicy = Lens.field @"policy"
+{-# DEPRECATED gvlrrsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+
+-- | The state of the vault lock. @InProgress@ or @Locked@ .
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gvlrrsState :: Lens.Lens' GetVaultLockResponse (Core.Maybe Types.String)
+gvlrrsState = Lens.field @"state"
+{-# DEPRECATED gvlrrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvlrsResponseStatus :: Lens.Lens' GetVaultLockResponse Lude.Int
-gvlrsResponseStatus = Lens.lens (responseStatus :: GetVaultLockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetVaultLockResponse)
-{-# DEPRECATED gvlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gvlrrsResponseStatus :: Lens.Lens' GetVaultLockResponse Core.Int
+gvlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gvlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -25,16 +25,16 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     mkAuthorizeSecurityGroupIngress,
 
     -- ** Request lenses
-    asgiFromPort,
-    asgiIPPermissions,
-    asgiIPProtocol,
-    asgiGroupId,
-    asgiToPort,
-    asgiCidrIP,
-    asgiSourceSecurityGroupOwnerId,
-    asgiGroupName,
-    asgiSourceSecurityGroupName,
+    asgiCidrIp,
     asgiDryRun,
+    asgiFromPort,
+    asgiGroupId,
+    asgiGroupName,
+    asgiIpPermissions,
+    asgiIpProtocol,
+    asgiSourceSecurityGroupName,
+    asgiSourceSecurityGroupOwnerId,
+    asgiToPort,
 
     -- * Destructuring the response
     AuthorizeSecurityGroupIngressResponse (..),
@@ -42,99 +42,109 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAuthorizeSecurityGroupIngress' smart constructor.
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
-  { -- | The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use @-1@ to specify all types. If you specify all ICMP types, you must specify all codes.
+  { -- | The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source security group. To specify an IPv6 address range, use a set of IP permissions.
     --
     -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
-    fromPort :: Lude.Maybe Lude.Int,
+    cidrIp :: Core.Maybe Types.CidrIp,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use @-1@ to specify all types. If you specify all ICMP types, you must specify all codes.
+    --
+    -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
+    fromPort :: Core.Maybe Core.Int,
+    -- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+    groupId :: Core.Maybe Types.GroupId,
+    -- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
+    groupName :: Core.Maybe Types.GroupName,
     -- | The sets of IP permissions.
-    ipPermissions :: Lude.Maybe [IPPermission],
+    ipPermissions :: Core.Maybe [Types.IpPermission],
     -- | The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ). To specify @icmpv6@ , use a set of IP permissions.
     --
     -- [VPC only] Use @-1@ to specify all protocols. If you specify @-1@ or a protocol other than @tcp@ , @udp@ , or @icmp@ , traffic on all ports is allowed, regardless of any ports you specify.
     -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
-    ipProtocol :: Lude.Maybe Lude.Text,
-    -- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
-    groupId :: Lude.Maybe Lude.Text,
+    ipProtocol :: Core.Maybe Types.IpProtocol,
+    -- | [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
+    sourceSecurityGroupName :: Core.Maybe Types.SourceSecurityGroupName,
+    -- | [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
+    sourceSecurityGroupOwnerId :: Core.Maybe Types.SourceSecurityGroupOwnerId,
     -- | The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use @-1@ to specify all codes. If you specify all ICMP types, you must specify all codes.
     --
     -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
-    toPort :: Lude.Maybe Lude.Int,
-    -- | The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source security group. To specify an IPv6 address range, use a set of IP permissions.
-    --
-    -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
-    cidrIP :: Lude.Maybe Lude.Text,
-    -- | [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
-    sourceSecurityGroupOwnerId :: Lude.Maybe Lude.Text,
-    -- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
-    groupName :: Lude.Maybe Lude.Text,
-    -- | [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
-    sourceSecurityGroupName :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    toPort :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuthorizeSecurityGroupIngress' with the minimum fields required to make a request.
---
--- * 'fromPort' - The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use @-1@ to specify all types. If you specify all ICMP types, you must specify all codes.
---
--- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
--- * 'ipPermissions' - The sets of IP permissions.
--- * 'ipProtocol' - The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ). To specify @icmpv6@ , use a set of IP permissions.
---
--- [VPC only] Use @-1@ to specify all protocols. If you specify @-1@ or a protocol other than @tcp@ , @udp@ , or @icmp@ , traffic on all ports is allowed, regardless of any ports you specify.
--- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
--- * 'groupId' - The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
--- * 'toPort' - The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use @-1@ to specify all codes. If you specify all ICMP types, you must specify all codes.
---
--- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
--- * 'cidrIP' - The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source security group. To specify an IPv6 address range, use a set of IP permissions.
---
--- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
--- * 'sourceSecurityGroupOwnerId' - [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
--- * 'groupName' - [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
--- * 'sourceSecurityGroupName' - [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'AuthorizeSecurityGroupIngress' value with any optional fields omitted.
 mkAuthorizeSecurityGroupIngress ::
   AuthorizeSecurityGroupIngress
 mkAuthorizeSecurityGroupIngress =
   AuthorizeSecurityGroupIngress'
-    { fromPort = Lude.Nothing,
-      ipPermissions = Lude.Nothing,
-      ipProtocol = Lude.Nothing,
-      groupId = Lude.Nothing,
-      toPort = Lude.Nothing,
-      cidrIP = Lude.Nothing,
-      sourceSecurityGroupOwnerId = Lude.Nothing,
-      groupName = Lude.Nothing,
-      sourceSecurityGroupName = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { cidrIp = Core.Nothing,
+      dryRun = Core.Nothing,
+      fromPort = Core.Nothing,
+      groupId = Core.Nothing,
+      groupName = Core.Nothing,
+      ipPermissions = Core.Nothing,
+      ipProtocol = Core.Nothing,
+      sourceSecurityGroupName = Core.Nothing,
+      sourceSecurityGroupOwnerId = Core.Nothing,
+      toPort = Core.Nothing
     }
+
+-- | The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source security group. To specify an IPv6 address range, use a set of IP permissions.
+--
+-- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
+--
+-- /Note:/ Consider using 'cidrIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgiCidrIp :: Lens.Lens' AuthorizeSecurityGroupIngress (Core.Maybe Types.CidrIp)
+asgiCidrIp = Lens.field @"cidrIp"
+{-# DEPRECATED asgiCidrIp "Use generic-lens or generic-optics with 'cidrIp' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgiDryRun :: Lens.Lens' AuthorizeSecurityGroupIngress (Core.Maybe Core.Bool)
+asgiDryRun = Lens.field @"dryRun"
+{-# DEPRECATED asgiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type number. For the ICMP type number, use @-1@ to specify all types. If you specify all ICMP types, you must specify all codes.
 --
 -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
 --
 -- /Note:/ Consider using 'fromPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgiFromPort :: Lens.Lens' AuthorizeSecurityGroupIngress (Lude.Maybe Lude.Int)
-asgiFromPort = Lens.lens (fromPort :: AuthorizeSecurityGroupIngress -> Lude.Maybe Lude.Int) (\s a -> s {fromPort = a} :: AuthorizeSecurityGroupIngress)
+asgiFromPort :: Lens.Lens' AuthorizeSecurityGroupIngress (Core.Maybe Core.Int)
+asgiFromPort = Lens.field @"fromPort"
 {-# DEPRECATED asgiFromPort "Use generic-lens or generic-optics with 'fromPort' instead." #-}
+
+-- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+--
+-- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgiGroupId :: Lens.Lens' AuthorizeSecurityGroupIngress (Core.Maybe Types.GroupId)
+asgiGroupId = Lens.field @"groupId"
+{-# DEPRECATED asgiGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
+
+-- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgiGroupName :: Lens.Lens' AuthorizeSecurityGroupIngress (Core.Maybe Types.GroupName)
+asgiGroupName = Lens.field @"groupName"
+{-# DEPRECATED asgiGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The sets of IP permissions.
 --
 -- /Note:/ Consider using 'ipPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgiIPPermissions :: Lens.Lens' AuthorizeSecurityGroupIngress (Lude.Maybe [IPPermission])
-asgiIPPermissions = Lens.lens (ipPermissions :: AuthorizeSecurityGroupIngress -> Lude.Maybe [IPPermission]) (\s a -> s {ipPermissions = a} :: AuthorizeSecurityGroupIngress)
-{-# DEPRECATED asgiIPPermissions "Use generic-lens or generic-optics with 'ipPermissions' instead." #-}
+asgiIpPermissions :: Lens.Lens' AuthorizeSecurityGroupIngress (Core.Maybe [Types.IpPermission])
+asgiIpPermissions = Lens.field @"ipPermissions"
+{-# DEPRECATED asgiIpPermissions "Use generic-lens or generic-optics with 'ipPermissions' instead." #-}
 
 -- | The IP protocol name (@tcp@ , @udp@ , @icmp@ ) or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> ). To specify @icmpv6@ , use a set of IP permissions.
 --
@@ -142,101 +152,77 @@ asgiIPPermissions = Lens.lens (ipPermissions :: AuthorizeSecurityGroupIngress ->
 -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
 --
 -- /Note:/ Consider using 'ipProtocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgiIPProtocol :: Lens.Lens' AuthorizeSecurityGroupIngress (Lude.Maybe Lude.Text)
-asgiIPProtocol = Lens.lens (ipProtocol :: AuthorizeSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {ipProtocol = a} :: AuthorizeSecurityGroupIngress)
-{-# DEPRECATED asgiIPProtocol "Use generic-lens or generic-optics with 'ipProtocol' instead." #-}
+asgiIpProtocol :: Lens.Lens' AuthorizeSecurityGroupIngress (Core.Maybe Types.IpProtocol)
+asgiIpProtocol = Lens.field @"ipProtocol"
+{-# DEPRECATED asgiIpProtocol "Use generic-lens or generic-optics with 'ipProtocol' instead." #-}
 
--- | The ID of the security group. You must specify either the security group ID or the security group name in the request. For security groups in a nondefault VPC, you must specify the security group ID.
+-- | [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
 --
--- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgiGroupId :: Lens.Lens' AuthorizeSecurityGroupIngress (Lude.Maybe Lude.Text)
-asgiGroupId = Lens.lens (groupId :: AuthorizeSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: AuthorizeSecurityGroupIngress)
-{-# DEPRECATED asgiGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
+-- /Note:/ Consider using 'sourceSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgiSourceSecurityGroupName :: Lens.Lens' AuthorizeSecurityGroupIngress (Core.Maybe Types.SourceSecurityGroupName)
+asgiSourceSecurityGroupName = Lens.field @"sourceSecurityGroupName"
+{-# DEPRECATED asgiSourceSecurityGroupName "Use generic-lens or generic-optics with 'sourceSecurityGroupName' instead." #-}
+
+-- | [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
+--
+-- /Note:/ Consider using 'sourceSecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asgiSourceSecurityGroupOwnerId :: Lens.Lens' AuthorizeSecurityGroupIngress (Core.Maybe Types.SourceSecurityGroupOwnerId)
+asgiSourceSecurityGroupOwnerId = Lens.field @"sourceSecurityGroupOwnerId"
+{-# DEPRECATED asgiSourceSecurityGroupOwnerId "Use generic-lens or generic-optics with 'sourceSecurityGroupOwnerId' instead." #-}
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use @-1@ to specify all codes. If you specify all ICMP types, you must specify all codes.
 --
 -- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
 --
 -- /Note:/ Consider using 'toPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgiToPort :: Lens.Lens' AuthorizeSecurityGroupIngress (Lude.Maybe Lude.Int)
-asgiToPort = Lens.lens (toPort :: AuthorizeSecurityGroupIngress -> Lude.Maybe Lude.Int) (\s a -> s {toPort = a} :: AuthorizeSecurityGroupIngress)
+asgiToPort :: Lens.Lens' AuthorizeSecurityGroupIngress (Core.Maybe Core.Int)
+asgiToPort = Lens.field @"toPort"
 {-# DEPRECATED asgiToPort "Use generic-lens or generic-optics with 'toPort' instead." #-}
 
--- | The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source security group. To specify an IPv6 address range, use a set of IP permissions.
---
--- Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.
---
--- /Note:/ Consider using 'cidrIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgiCidrIP :: Lens.Lens' AuthorizeSecurityGroupIngress (Lude.Maybe Lude.Text)
-asgiCidrIP = Lens.lens (cidrIP :: AuthorizeSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {cidrIP = a} :: AuthorizeSecurityGroupIngress)
-{-# DEPRECATED asgiCidrIP "Use generic-lens or generic-optics with 'cidrIP' instead." #-}
-
--- | [nondefault VPC] The AWS account ID for the source security group, if the source security group is in a different account. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
---
--- /Note:/ Consider using 'sourceSecurityGroupOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgiSourceSecurityGroupOwnerId :: Lens.Lens' AuthorizeSecurityGroupIngress (Lude.Maybe Lude.Text)
-asgiSourceSecurityGroupOwnerId = Lens.lens (sourceSecurityGroupOwnerId :: AuthorizeSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {sourceSecurityGroupOwnerId = a} :: AuthorizeSecurityGroupIngress)
-{-# DEPRECATED asgiSourceSecurityGroupOwnerId "Use generic-lens or generic-optics with 'sourceSecurityGroupOwnerId' instead." #-}
-
--- | [EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.
---
--- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgiGroupName :: Lens.Lens' AuthorizeSecurityGroupIngress (Lude.Maybe Lude.Text)
-asgiGroupName = Lens.lens (groupName :: AuthorizeSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: AuthorizeSecurityGroupIngress)
-{-# DEPRECATED asgiGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
-
--- | [EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol and port range, use a set of IP permissions instead. For EC2-VPC, the source security group must be in the same VPC.
---
--- /Note:/ Consider using 'sourceSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgiSourceSecurityGroupName :: Lens.Lens' AuthorizeSecurityGroupIngress (Lude.Maybe Lude.Text)
-asgiSourceSecurityGroupName = Lens.lens (sourceSecurityGroupName :: AuthorizeSecurityGroupIngress -> Lude.Maybe Lude.Text) (\s a -> s {sourceSecurityGroupName = a} :: AuthorizeSecurityGroupIngress)
-{-# DEPRECATED asgiSourceSecurityGroupName "Use generic-lens or generic-optics with 'sourceSecurityGroupName' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asgiDryRun :: Lens.Lens' AuthorizeSecurityGroupIngress (Lude.Maybe Lude.Bool)
-asgiDryRun = Lens.lens (dryRun :: AuthorizeSecurityGroupIngress -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: AuthorizeSecurityGroupIngress)
-{-# DEPRECATED asgiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
-instance Lude.AWSRequest AuthorizeSecurityGroupIngress where
+instance Core.AWSRequest AuthorizeSecurityGroupIngress where
   type
     Rs AuthorizeSecurityGroupIngress =
       AuthorizeSecurityGroupIngressResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull AuthorizeSecurityGroupIngressResponse'
-
-instance Lude.ToHeaders AuthorizeSecurityGroupIngress where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AuthorizeSecurityGroupIngress where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AuthorizeSecurityGroupIngress where
-  toQuery AuthorizeSecurityGroupIngress' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("AuthorizeSecurityGroupIngress" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "FromPort" Lude.=: fromPort,
-        Lude.toQuery
-          (Lude.toQueryList "IpPermissions" Lude.<$> ipPermissions),
-        "IpProtocol" Lude.=: ipProtocol,
-        "GroupId" Lude.=: groupId,
-        "ToPort" Lude.=: toPort,
-        "CidrIp" Lude.=: cidrIP,
-        "SourceSecurityGroupOwnerId" Lude.=: sourceSecurityGroupOwnerId,
-        "GroupName" Lude.=: groupName,
-        "SourceSecurityGroupName" Lude.=: sourceSecurityGroupName,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AuthorizeSecurityGroupIngress")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "CidrIp" Core.<$> cidrIp)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "FromPort" Core.<$> fromPort)
+                Core.<> (Core.toQueryValue "GroupId" Core.<$> groupId)
+                Core.<> (Core.toQueryValue "GroupName" Core.<$> groupName)
+                Core.<> (Core.toQueryList "IpPermissions" Core.<$> ipPermissions)
+                Core.<> (Core.toQueryValue "IpProtocol" Core.<$> ipProtocol)
+                Core.<> ( Core.toQueryValue "SourceSecurityGroupName"
+                            Core.<$> sourceSecurityGroupName
+                        )
+                Core.<> ( Core.toQueryValue "SourceSecurityGroupOwnerId"
+                            Core.<$> sourceSecurityGroupOwnerId
+                        )
+                Core.<> (Core.toQueryValue "ToPort" Core.<$> toPort)
+            )
+      }
+  response =
+    Response.receiveNull AuthorizeSecurityGroupIngressResponse'
 
 -- | /See:/ 'mkAuthorizeSecurityGroupIngressResponse' smart constructor.
 data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuthorizeSecurityGroupIngressResponse' with the minimum fields required to make a request.
+-- | Creates a 'AuthorizeSecurityGroupIngressResponse' value with any optional fields omitted.
 mkAuthorizeSecurityGroupIngressResponse ::
   AuthorizeSecurityGroupIngressResponse
 mkAuthorizeSecurityGroupIngressResponse =

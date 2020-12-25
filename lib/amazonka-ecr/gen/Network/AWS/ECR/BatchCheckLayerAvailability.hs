@@ -22,166 +22,152 @@ module Network.AWS.ECR.BatchCheckLayerAvailability
     mkBatchCheckLayerAvailability,
 
     -- ** Request lenses
-    bclaRegistryId,
-    bclaLayerDigests,
     bclaRepositoryName,
+    bclaLayerDigests,
+    bclaRegistryId,
 
     -- * Destructuring the response
     BatchCheckLayerAvailabilityResponse (..),
     mkBatchCheckLayerAvailabilityResponse,
 
     -- ** Response lenses
-    bclarsFailures,
-    bclarsLayers,
-    bclarsResponseStatus,
+    bclarrsFailures,
+    bclarrsLayers,
+    bclarrsResponseStatus,
   )
 where
 
-import Network.AWS.ECR.Types
+import qualified Network.AWS.ECR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchCheckLayerAvailability' smart constructor.
 data BatchCheckLayerAvailability = BatchCheckLayerAvailability'
-  { -- | The AWS account ID associated with the registry that contains the image layers to check. If you do not specify a registry, the default registry is assumed.
-    registryId :: Lude.Maybe Lude.Text,
+  { -- | The name of the repository that is associated with the image layers to check.
+    repositoryName :: Types.RepositoryName,
     -- | The digests of the image layers to check.
-    layerDigests :: Lude.NonEmpty Lude.Text,
-    -- | The name of the repository that is associated with the image layers to check.
-    repositoryName :: Lude.Text
+    layerDigests :: Core.NonEmpty Types.BatchedOperationLayerDigest,
+    -- | The AWS account ID associated with the registry that contains the image layers to check. If you do not specify a registry, the default registry is assumed.
+    registryId :: Core.Maybe Types.RegistryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchCheckLayerAvailability' with the minimum fields required to make a request.
---
--- * 'registryId' - The AWS account ID associated with the registry that contains the image layers to check. If you do not specify a registry, the default registry is assumed.
--- * 'layerDigests' - The digests of the image layers to check.
--- * 'repositoryName' - The name of the repository that is associated with the image layers to check.
+-- | Creates a 'BatchCheckLayerAvailability' value with any optional fields omitted.
 mkBatchCheckLayerAvailability ::
-  -- | 'layerDigests'
-  Lude.NonEmpty Lude.Text ->
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
+  -- | 'layerDigests'
+  Core.NonEmpty Types.BatchedOperationLayerDigest ->
   BatchCheckLayerAvailability
-mkBatchCheckLayerAvailability pLayerDigests_ pRepositoryName_ =
+mkBatchCheckLayerAvailability repositoryName layerDigests =
   BatchCheckLayerAvailability'
-    { registryId = Lude.Nothing,
-      layerDigests = pLayerDigests_,
-      repositoryName = pRepositoryName_
+    { repositoryName,
+      layerDigests,
+      registryId = Core.Nothing
     }
-
--- | The AWS account ID associated with the registry that contains the image layers to check. If you do not specify a registry, the default registry is assumed.
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bclaRegistryId :: Lens.Lens' BatchCheckLayerAvailability (Lude.Maybe Lude.Text)
-bclaRegistryId = Lens.lens (registryId :: BatchCheckLayerAvailability -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: BatchCheckLayerAvailability)
-{-# DEPRECATED bclaRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
-
--- | The digests of the image layers to check.
---
--- /Note:/ Consider using 'layerDigests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bclaLayerDigests :: Lens.Lens' BatchCheckLayerAvailability (Lude.NonEmpty Lude.Text)
-bclaLayerDigests = Lens.lens (layerDigests :: BatchCheckLayerAvailability -> Lude.NonEmpty Lude.Text) (\s a -> s {layerDigests = a} :: BatchCheckLayerAvailability)
-{-# DEPRECATED bclaLayerDigests "Use generic-lens or generic-optics with 'layerDigests' instead." #-}
 
 -- | The name of the repository that is associated with the image layers to check.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bclaRepositoryName :: Lens.Lens' BatchCheckLayerAvailability Lude.Text
-bclaRepositoryName = Lens.lens (repositoryName :: BatchCheckLayerAvailability -> Lude.Text) (\s a -> s {repositoryName = a} :: BatchCheckLayerAvailability)
+bclaRepositoryName :: Lens.Lens' BatchCheckLayerAvailability Types.RepositoryName
+bclaRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED bclaRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance Lude.AWSRequest BatchCheckLayerAvailability where
+-- | The digests of the image layers to check.
+--
+-- /Note:/ Consider using 'layerDigests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bclaLayerDigests :: Lens.Lens' BatchCheckLayerAvailability (Core.NonEmpty Types.BatchedOperationLayerDigest)
+bclaLayerDigests = Lens.field @"layerDigests"
+{-# DEPRECATED bclaLayerDigests "Use generic-lens or generic-optics with 'layerDigests' instead." #-}
+
+-- | The AWS account ID associated with the registry that contains the image layers to check. If you do not specify a registry, the default registry is assumed.
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bclaRegistryId :: Lens.Lens' BatchCheckLayerAvailability (Core.Maybe Types.RegistryId)
+bclaRegistryId = Lens.field @"registryId"
+{-# DEPRECATED bclaRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+instance Core.FromJSON BatchCheckLayerAvailability where
+  toJSON BatchCheckLayerAvailability {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("layerDigests" Core..= layerDigests),
+            ("registryId" Core..=) Core.<$> registryId
+          ]
+      )
+
+instance Core.AWSRequest BatchCheckLayerAvailability where
   type
     Rs BatchCheckLayerAvailability =
       BatchCheckLayerAvailabilityResponse
-  request = Req.postJSON ecrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchCheckLayerAvailabilityResponse'
-            Lude.<$> (x Lude..?> "failures" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "layers" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "failures")
+            Core.<*> (x Core..:? "layers")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchCheckLayerAvailability where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.BatchCheckLayerAvailability" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchCheckLayerAvailability where
-  toJSON BatchCheckLayerAvailability' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("registryId" Lude..=) Lude.<$> registryId,
-            Lude.Just ("layerDigests" Lude..= layerDigests),
-            Lude.Just ("repositoryName" Lude..= repositoryName)
-          ]
-      )
-
-instance Lude.ToPath BatchCheckLayerAvailability where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchCheckLayerAvailability where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchCheckLayerAvailabilityResponse' smart constructor.
 data BatchCheckLayerAvailabilityResponse = BatchCheckLayerAvailabilityResponse'
   { -- | Any failures associated with the call.
-    failures :: Lude.Maybe [LayerFailure],
+    failures :: Core.Maybe [Types.LayerFailure],
     -- | A list of image layer objects corresponding to the image layer references in the request.
-    layers :: Lude.Maybe [Layer],
+    layers :: Core.Maybe [Types.Layer],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchCheckLayerAvailabilityResponse' with the minimum fields required to make a request.
---
--- * 'failures' - Any failures associated with the call.
--- * 'layers' - A list of image layer objects corresponding to the image layer references in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchCheckLayerAvailabilityResponse' value with any optional fields omitted.
 mkBatchCheckLayerAvailabilityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchCheckLayerAvailabilityResponse
-mkBatchCheckLayerAvailabilityResponse pResponseStatus_ =
+mkBatchCheckLayerAvailabilityResponse responseStatus =
   BatchCheckLayerAvailabilityResponse'
-    { failures = Lude.Nothing,
-      layers = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failures = Core.Nothing,
+      layers = Core.Nothing,
+      responseStatus
     }
 
 -- | Any failures associated with the call.
 --
 -- /Note:/ Consider using 'failures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bclarsFailures :: Lens.Lens' BatchCheckLayerAvailabilityResponse (Lude.Maybe [LayerFailure])
-bclarsFailures = Lens.lens (failures :: BatchCheckLayerAvailabilityResponse -> Lude.Maybe [LayerFailure]) (\s a -> s {failures = a} :: BatchCheckLayerAvailabilityResponse)
-{-# DEPRECATED bclarsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
+bclarrsFailures :: Lens.Lens' BatchCheckLayerAvailabilityResponse (Core.Maybe [Types.LayerFailure])
+bclarrsFailures = Lens.field @"failures"
+{-# DEPRECATED bclarrsFailures "Use generic-lens or generic-optics with 'failures' instead." #-}
 
 -- | A list of image layer objects corresponding to the image layer references in the request.
 --
 -- /Note:/ Consider using 'layers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bclarsLayers :: Lens.Lens' BatchCheckLayerAvailabilityResponse (Lude.Maybe [Layer])
-bclarsLayers = Lens.lens (layers :: BatchCheckLayerAvailabilityResponse -> Lude.Maybe [Layer]) (\s a -> s {layers = a} :: BatchCheckLayerAvailabilityResponse)
-{-# DEPRECATED bclarsLayers "Use generic-lens or generic-optics with 'layers' instead." #-}
+bclarrsLayers :: Lens.Lens' BatchCheckLayerAvailabilityResponse (Core.Maybe [Types.Layer])
+bclarrsLayers = Lens.field @"layers"
+{-# DEPRECATED bclarrsLayers "Use generic-lens or generic-optics with 'layers' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bclarsResponseStatus :: Lens.Lens' BatchCheckLayerAvailabilityResponse Lude.Int
-bclarsResponseStatus = Lens.lens (responseStatus :: BatchCheckLayerAvailabilityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchCheckLayerAvailabilityResponse)
-{-# DEPRECATED bclarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bclarrsResponseStatus :: Lens.Lens' BatchCheckLayerAvailabilityResponse Core.Int
+bclarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bclarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

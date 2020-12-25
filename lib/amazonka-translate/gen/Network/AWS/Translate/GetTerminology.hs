@@ -28,143 +28,125 @@ module Network.AWS.Translate.GetTerminology
     mkGetTerminologyResponse,
 
     -- ** Response lenses
-    gtrsTerminologyProperties,
-    gtrsTerminologyDataLocation,
-    gtrsResponseStatus,
+    gtrrsTerminologyDataLocation,
+    gtrrsTerminologyProperties,
+    gtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Translate.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Translate.Types as Types
 
 -- | /See:/ 'mkGetTerminology' smart constructor.
 data GetTerminology = GetTerminology'
   { -- | The name of the custom terminology being retrieved.
-    name :: Lude.Text,
+    name :: Types.Name,
     -- | The data format of the custom terminology being retrieved, either CSV or TMX.
-    terminologyDataFormat :: TerminologyDataFormat
+    terminologyDataFormat :: Types.TerminologyDataFormat
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTerminology' with the minimum fields required to make a request.
---
--- * 'name' - The name of the custom terminology being retrieved.
--- * 'terminologyDataFormat' - The data format of the custom terminology being retrieved, either CSV or TMX.
+-- | Creates a 'GetTerminology' value with any optional fields omitted.
 mkGetTerminology ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   -- | 'terminologyDataFormat'
-  TerminologyDataFormat ->
+  Types.TerminologyDataFormat ->
   GetTerminology
-mkGetTerminology pName_ pTerminologyDataFormat_ =
-  GetTerminology'
-    { name = pName_,
-      terminologyDataFormat = pTerminologyDataFormat_
-    }
+mkGetTerminology name terminologyDataFormat =
+  GetTerminology' {name, terminologyDataFormat}
 
 -- | The name of the custom terminology being retrieved.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtName :: Lens.Lens' GetTerminology Lude.Text
-gtName = Lens.lens (name :: GetTerminology -> Lude.Text) (\s a -> s {name = a} :: GetTerminology)
+gtName :: Lens.Lens' GetTerminology Types.Name
+gtName = Lens.field @"name"
 {-# DEPRECATED gtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The data format of the custom terminology being retrieved, either CSV or TMX.
 --
 -- /Note:/ Consider using 'terminologyDataFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtTerminologyDataFormat :: Lens.Lens' GetTerminology TerminologyDataFormat
-gtTerminologyDataFormat = Lens.lens (terminologyDataFormat :: GetTerminology -> TerminologyDataFormat) (\s a -> s {terminologyDataFormat = a} :: GetTerminology)
+gtTerminologyDataFormat :: Lens.Lens' GetTerminology Types.TerminologyDataFormat
+gtTerminologyDataFormat = Lens.field @"terminologyDataFormat"
 {-# DEPRECATED gtTerminologyDataFormat "Use generic-lens or generic-optics with 'terminologyDataFormat' instead." #-}
 
-instance Lude.AWSRequest GetTerminology where
+instance Core.FromJSON GetTerminology where
+  toJSON GetTerminology {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("TerminologyDataFormat" Core..= terminologyDataFormat)
+          ]
+      )
+
+instance Core.AWSRequest GetTerminology where
   type Rs GetTerminology = GetTerminologyResponse
-  request = Req.postJSON translateService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSShineFrontendService_20170701.GetTerminology")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetTerminologyResponse'
-            Lude.<$> (x Lude..?> "TerminologyProperties")
-            Lude.<*> (x Lude..?> "TerminologyDataLocation")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TerminologyDataLocation")
+            Core.<*> (x Core..:? "TerminologyProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetTerminology where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShineFrontendService_20170701.GetTerminology" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetTerminology where
-  toJSON GetTerminology' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("TerminologyDataFormat" Lude..= terminologyDataFormat)
-          ]
-      )
-
-instance Lude.ToPath GetTerminology where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetTerminology where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetTerminologyResponse' smart constructor.
 data GetTerminologyResponse = GetTerminologyResponse'
-  { -- | The properties of the custom terminology being retrieved.
-    terminologyProperties :: Lude.Maybe TerminologyProperties,
-    -- | The data location of the custom terminology being retrieved. The custom terminology file is returned in a presigned url that has a 30 minute expiration.
-    terminologyDataLocation :: Lude.Maybe TerminologyDataLocation,
+  { -- | The data location of the custom terminology being retrieved. The custom terminology file is returned in a presigned url that has a 30 minute expiration.
+    terminologyDataLocation :: Core.Maybe Types.TerminologyDataLocation,
+    -- | The properties of the custom terminology being retrieved.
+    terminologyProperties :: Core.Maybe Types.TerminologyProperties,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetTerminologyResponse' with the minimum fields required to make a request.
---
--- * 'terminologyProperties' - The properties of the custom terminology being retrieved.
--- * 'terminologyDataLocation' - The data location of the custom terminology being retrieved. The custom terminology file is returned in a presigned url that has a 30 minute expiration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTerminologyResponse' value with any optional fields omitted.
 mkGetTerminologyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTerminologyResponse
-mkGetTerminologyResponse pResponseStatus_ =
+mkGetTerminologyResponse responseStatus =
   GetTerminologyResponse'
-    { terminologyProperties = Lude.Nothing,
-      terminologyDataLocation = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { terminologyDataLocation = Core.Nothing,
+      terminologyProperties = Core.Nothing,
+      responseStatus
     }
-
--- | The properties of the custom terminology being retrieved.
---
--- /Note:/ Consider using 'terminologyProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsTerminologyProperties :: Lens.Lens' GetTerminologyResponse (Lude.Maybe TerminologyProperties)
-gtrsTerminologyProperties = Lens.lens (terminologyProperties :: GetTerminologyResponse -> Lude.Maybe TerminologyProperties) (\s a -> s {terminologyProperties = a} :: GetTerminologyResponse)
-{-# DEPRECATED gtrsTerminologyProperties "Use generic-lens or generic-optics with 'terminologyProperties' instead." #-}
 
 -- | The data location of the custom terminology being retrieved. The custom terminology file is returned in a presigned url that has a 30 minute expiration.
 --
 -- /Note:/ Consider using 'terminologyDataLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsTerminologyDataLocation :: Lens.Lens' GetTerminologyResponse (Lude.Maybe TerminologyDataLocation)
-gtrsTerminologyDataLocation = Lens.lens (terminologyDataLocation :: GetTerminologyResponse -> Lude.Maybe TerminologyDataLocation) (\s a -> s {terminologyDataLocation = a} :: GetTerminologyResponse)
-{-# DEPRECATED gtrsTerminologyDataLocation "Use generic-lens or generic-optics with 'terminologyDataLocation' instead." #-}
+gtrrsTerminologyDataLocation :: Lens.Lens' GetTerminologyResponse (Core.Maybe Types.TerminologyDataLocation)
+gtrrsTerminologyDataLocation = Lens.field @"terminologyDataLocation"
+{-# DEPRECATED gtrrsTerminologyDataLocation "Use generic-lens or generic-optics with 'terminologyDataLocation' instead." #-}
+
+-- | The properties of the custom terminology being retrieved.
+--
+-- /Note:/ Consider using 'terminologyProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtrrsTerminologyProperties :: Lens.Lens' GetTerminologyResponse (Core.Maybe Types.TerminologyProperties)
+gtrrsTerminologyProperties = Lens.field @"terminologyProperties"
+{-# DEPRECATED gtrrsTerminologyProperties "Use generic-lens or generic-optics with 'terminologyProperties' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsResponseStatus :: Lens.Lens' GetTerminologyResponse Lude.Int
-gtrsResponseStatus = Lens.lens (responseStatus :: GetTerminologyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTerminologyResponse)
-{-# DEPRECATED gtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtrrsResponseStatus :: Lens.Lens' GetTerminologyResponse Core.Int
+gtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

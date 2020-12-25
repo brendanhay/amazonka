@@ -21,42 +21,40 @@ module Network.AWS.IoT.Types.PutItemInput
   )
 where
 
+import qualified Network.AWS.IoT.Types.TableName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.
 --
 -- /See:/ 'mkPutItemInput' smart constructor.
 newtype PutItemInput = PutItemInput'
   { -- | The table where the message data will be written.
-    tableName :: Lude.Text
+    tableName :: Types.TableName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutItemInput' with the minimum fields required to make a request.
---
--- * 'tableName' - The table where the message data will be written.
+-- | Creates a 'PutItemInput' value with any optional fields omitted.
 mkPutItemInput ::
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   PutItemInput
-mkPutItemInput pTableName_ = PutItemInput' {tableName = pTableName_}
+mkPutItemInput tableName = PutItemInput' {tableName}
 
 -- | The table where the message data will be written.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piiTableName :: Lens.Lens' PutItemInput Lude.Text
-piiTableName = Lens.lens (tableName :: PutItemInput -> Lude.Text) (\s a -> s {tableName = a} :: PutItemInput)
+piiTableName :: Lens.Lens' PutItemInput Types.TableName
+piiTableName = Lens.field @"tableName"
 {-# DEPRECATED piiTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.FromJSON PutItemInput where
-  parseJSON =
-    Lude.withObject
-      "PutItemInput"
-      (\x -> PutItemInput' Lude.<$> (x Lude..: "tableName"))
+instance Core.FromJSON PutItemInput where
+  toJSON PutItemInput {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("tableName" Core..= tableName)])
 
-instance Lude.ToJSON PutItemInput where
-  toJSON PutItemInput' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("tableName" Lude..= tableName)])
+instance Core.FromJSON PutItemInput where
+  parseJSON =
+    Core.withObject "PutItemInput" Core.$
+      \x -> PutItemInput' Core.<$> (x Core..: "tableName")

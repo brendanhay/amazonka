@@ -17,14 +17,15 @@ module Network.AWS.RDS.Types.DBSnapshotAttributesResult
     mkDBSnapshotAttributesResult,
 
     -- * Lenses
-    dsarDBSnapshotIdentifier,
-    dsarDBSnapshotAttributes,
+    dbsarDBSnapshotAttributes,
+    dbsarDBSnapshotIdentifier,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types.DBSnapshotAttribute
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.DBSnapshotAttribute as Types
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | Contains the results of a successful call to the @DescribeDBSnapshotAttributes@ API action.
 --
@@ -32,44 +33,41 @@ import Network.AWS.RDS.Types.DBSnapshotAttribute
 --
 -- /See:/ 'mkDBSnapshotAttributesResult' smart constructor.
 data DBSnapshotAttributesResult = DBSnapshotAttributesResult'
-  { -- | The identifier of the manual DB snapshot that the attributes apply to.
-    dbSnapshotIdentifier :: Lude.Maybe Lude.Text,
-    -- | The list of attributes and values for the manual DB snapshot.
-    dbSnapshotAttributes :: Lude.Maybe [DBSnapshotAttribute]
+  { -- | The list of attributes and values for the manual DB snapshot.
+    dBSnapshotAttributes :: Core.Maybe [Types.DBSnapshotAttribute],
+    -- | The identifier of the manual DB snapshot that the attributes apply to.
+    dBSnapshotIdentifier :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DBSnapshotAttributesResult' with the minimum fields required to make a request.
---
--- * 'dbSnapshotIdentifier' - The identifier of the manual DB snapshot that the attributes apply to.
--- * 'dbSnapshotAttributes' - The list of attributes and values for the manual DB snapshot.
+-- | Creates a 'DBSnapshotAttributesResult' value with any optional fields omitted.
 mkDBSnapshotAttributesResult ::
   DBSnapshotAttributesResult
 mkDBSnapshotAttributesResult =
   DBSnapshotAttributesResult'
-    { dbSnapshotIdentifier = Lude.Nothing,
-      dbSnapshotAttributes = Lude.Nothing
+    { dBSnapshotAttributes = Core.Nothing,
+      dBSnapshotIdentifier = Core.Nothing
     }
-
--- | The identifier of the manual DB snapshot that the attributes apply to.
---
--- /Note:/ Consider using 'dbSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsarDBSnapshotIdentifier :: Lens.Lens' DBSnapshotAttributesResult (Lude.Maybe Lude.Text)
-dsarDBSnapshotIdentifier = Lens.lens (dbSnapshotIdentifier :: DBSnapshotAttributesResult -> Lude.Maybe Lude.Text) (\s a -> s {dbSnapshotIdentifier = a} :: DBSnapshotAttributesResult)
-{-# DEPRECATED dsarDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dbSnapshotIdentifier' instead." #-}
 
 -- | The list of attributes and values for the manual DB snapshot.
 --
--- /Note:/ Consider using 'dbSnapshotAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsarDBSnapshotAttributes :: Lens.Lens' DBSnapshotAttributesResult (Lude.Maybe [DBSnapshotAttribute])
-dsarDBSnapshotAttributes = Lens.lens (dbSnapshotAttributes :: DBSnapshotAttributesResult -> Lude.Maybe [DBSnapshotAttribute]) (\s a -> s {dbSnapshotAttributes = a} :: DBSnapshotAttributesResult)
-{-# DEPRECATED dsarDBSnapshotAttributes "Use generic-lens or generic-optics with 'dbSnapshotAttributes' instead." #-}
+-- /Note:/ Consider using 'dBSnapshotAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbsarDBSnapshotAttributes :: Lens.Lens' DBSnapshotAttributesResult (Core.Maybe [Types.DBSnapshotAttribute])
+dbsarDBSnapshotAttributes = Lens.field @"dBSnapshotAttributes"
+{-# DEPRECATED dbsarDBSnapshotAttributes "Use generic-lens or generic-optics with 'dBSnapshotAttributes' instead." #-}
 
-instance Lude.FromXML DBSnapshotAttributesResult where
+-- | The identifier of the manual DB snapshot that the attributes apply to.
+--
+-- /Note:/ Consider using 'dBSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbsarDBSnapshotIdentifier :: Lens.Lens' DBSnapshotAttributesResult (Core.Maybe Types.String)
+dbsarDBSnapshotIdentifier = Lens.field @"dBSnapshotIdentifier"
+{-# DEPRECATED dbsarDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dBSnapshotIdentifier' instead." #-}
+
+instance Core.FromXML DBSnapshotAttributesResult where
   parseXML x =
     DBSnapshotAttributesResult'
-      Lude.<$> (x Lude..@? "DBSnapshotIdentifier")
-      Lude.<*> ( x Lude..@? "DBSnapshotAttributes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "DBSnapshotAttribute")
+      Core.<$> ( x Core..@? "DBSnapshotAttributes"
+                   Core..<@> Core.parseXMLList "DBSnapshotAttribute"
                )
+      Core.<*> (x Core..@? "DBSnapshotIdentifier")

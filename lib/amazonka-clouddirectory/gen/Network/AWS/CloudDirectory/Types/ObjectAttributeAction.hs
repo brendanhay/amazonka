@@ -22,56 +22,53 @@ module Network.AWS.CloudDirectory.Types.ObjectAttributeAction
   )
 where
 
-import Network.AWS.CloudDirectory.Types.TypedAttributeValue
-import Network.AWS.CloudDirectory.Types.UpdateActionType
+import qualified Network.AWS.CloudDirectory.Types.TypedAttributeValue as Types
+import qualified Network.AWS.CloudDirectory.Types.UpdateActionType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The action to take on the object attribute.
 --
 -- /See:/ 'mkObjectAttributeAction' smart constructor.
 data ObjectAttributeAction = ObjectAttributeAction'
   { -- | A type that can be either @Update@ or @Delete@ .
-    objectAttributeActionType :: Lude.Maybe UpdateActionType,
+    objectAttributeActionType :: Core.Maybe Types.UpdateActionType,
     -- | The value that you want to update to.
-    objectAttributeUpdateValue :: Lude.Maybe TypedAttributeValue
+    objectAttributeUpdateValue :: Core.Maybe Types.TypedAttributeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ObjectAttributeAction' with the minimum fields required to make a request.
---
--- * 'objectAttributeActionType' - A type that can be either @Update@ or @Delete@ .
--- * 'objectAttributeUpdateValue' - The value that you want to update to.
+-- | Creates a 'ObjectAttributeAction' value with any optional fields omitted.
 mkObjectAttributeAction ::
   ObjectAttributeAction
 mkObjectAttributeAction =
   ObjectAttributeAction'
-    { objectAttributeActionType = Lude.Nothing,
-      objectAttributeUpdateValue = Lude.Nothing
+    { objectAttributeActionType = Core.Nothing,
+      objectAttributeUpdateValue = Core.Nothing
     }
 
 -- | A type that can be either @Update@ or @Delete@ .
 --
 -- /Note:/ Consider using 'objectAttributeActionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oaaObjectAttributeActionType :: Lens.Lens' ObjectAttributeAction (Lude.Maybe UpdateActionType)
-oaaObjectAttributeActionType = Lens.lens (objectAttributeActionType :: ObjectAttributeAction -> Lude.Maybe UpdateActionType) (\s a -> s {objectAttributeActionType = a} :: ObjectAttributeAction)
+oaaObjectAttributeActionType :: Lens.Lens' ObjectAttributeAction (Core.Maybe Types.UpdateActionType)
+oaaObjectAttributeActionType = Lens.field @"objectAttributeActionType"
 {-# DEPRECATED oaaObjectAttributeActionType "Use generic-lens or generic-optics with 'objectAttributeActionType' instead." #-}
 
 -- | The value that you want to update to.
 --
 -- /Note:/ Consider using 'objectAttributeUpdateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oaaObjectAttributeUpdateValue :: Lens.Lens' ObjectAttributeAction (Lude.Maybe TypedAttributeValue)
-oaaObjectAttributeUpdateValue = Lens.lens (objectAttributeUpdateValue :: ObjectAttributeAction -> Lude.Maybe TypedAttributeValue) (\s a -> s {objectAttributeUpdateValue = a} :: ObjectAttributeAction)
+oaaObjectAttributeUpdateValue :: Lens.Lens' ObjectAttributeAction (Core.Maybe Types.TypedAttributeValue)
+oaaObjectAttributeUpdateValue = Lens.field @"objectAttributeUpdateValue"
 {-# DEPRECATED oaaObjectAttributeUpdateValue "Use generic-lens or generic-optics with 'objectAttributeUpdateValue' instead." #-}
 
-instance Lude.ToJSON ObjectAttributeAction where
-  toJSON ObjectAttributeAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ObjectAttributeActionType" Lude..=)
-              Lude.<$> objectAttributeActionType,
-            ("ObjectAttributeUpdateValue" Lude..=)
-              Lude.<$> objectAttributeUpdateValue
+instance Core.FromJSON ObjectAttributeAction where
+  toJSON ObjectAttributeAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ObjectAttributeActionType" Core..=)
+              Core.<$> objectAttributeActionType,
+            ("ObjectAttributeUpdateValue" Core..=)
+              Core.<$> objectAttributeUpdateValue
           ]
       )

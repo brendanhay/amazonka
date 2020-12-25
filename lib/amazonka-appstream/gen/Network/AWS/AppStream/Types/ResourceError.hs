@@ -23,66 +23,61 @@ module Network.AWS.AppStream.Types.ResourceError
   )
 where
 
-import Network.AWS.AppStream.Types.FleetErrorCode
+import qualified Network.AWS.AppStream.Types.FleetErrorCode as Types
+import qualified Network.AWS.AppStream.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a resource error.
 --
 -- /See:/ 'mkResourceError' smart constructor.
 data ResourceError = ResourceError'
   { -- | The error code.
-    errorCode :: Lude.Maybe FleetErrorCode,
+    errorCode :: Core.Maybe Types.FleetErrorCode,
     -- | The error message.
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.String,
     -- | The time the error occurred.
-    errorTimestamp :: Lude.Maybe Lude.Timestamp
+    errorTimestamp :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ResourceError' with the minimum fields required to make a request.
---
--- * 'errorCode' - The error code.
--- * 'errorMessage' - The error message.
--- * 'errorTimestamp' - The time the error occurred.
+-- | Creates a 'ResourceError' value with any optional fields omitted.
 mkResourceError ::
   ResourceError
 mkResourceError =
   ResourceError'
-    { errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      errorTimestamp = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      errorTimestamp = Core.Nothing
     }
 
 -- | The error code.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reErrorCode :: Lens.Lens' ResourceError (Lude.Maybe FleetErrorCode)
-reErrorCode = Lens.lens (errorCode :: ResourceError -> Lude.Maybe FleetErrorCode) (\s a -> s {errorCode = a} :: ResourceError)
+reErrorCode :: Lens.Lens' ResourceError (Core.Maybe Types.FleetErrorCode)
+reErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED reErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reErrorMessage :: Lens.Lens' ResourceError (Lude.Maybe Lude.Text)
-reErrorMessage = Lens.lens (errorMessage :: ResourceError -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: ResourceError)
+reErrorMessage :: Lens.Lens' ResourceError (Core.Maybe Types.String)
+reErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED reErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The time the error occurred.
 --
 -- /Note:/ Consider using 'errorTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-reErrorTimestamp :: Lens.Lens' ResourceError (Lude.Maybe Lude.Timestamp)
-reErrorTimestamp = Lens.lens (errorTimestamp :: ResourceError -> Lude.Maybe Lude.Timestamp) (\s a -> s {errorTimestamp = a} :: ResourceError)
+reErrorTimestamp :: Lens.Lens' ResourceError (Core.Maybe Core.NominalDiffTime)
+reErrorTimestamp = Lens.field @"errorTimestamp"
 {-# DEPRECATED reErrorTimestamp "Use generic-lens or generic-optics with 'errorTimestamp' instead." #-}
 
-instance Lude.FromJSON ResourceError where
+instance Core.FromJSON ResourceError where
   parseJSON =
-    Lude.withObject
-      "ResourceError"
-      ( \x ->
-          ResourceError'
-            Lude.<$> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-            Lude.<*> (x Lude..:? "ErrorTimestamp")
-      )
+    Core.withObject "ResourceError" Core.$
+      \x ->
+        ResourceError'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "ErrorTimestamp")

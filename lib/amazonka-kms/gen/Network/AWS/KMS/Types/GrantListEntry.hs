@@ -17,157 +17,149 @@ module Network.AWS.KMS.Types.GrantListEntry
     mkGrantListEntry,
 
     -- * Lenses
-    gleKeyId,
-    gleRetiringPrincipal,
-    gleIssuingAccount,
-    gleGrantId,
     gleConstraints,
-    gleGranteePrincipal,
-    gleName,
     gleCreationDate,
+    gleGrantId,
+    gleGranteePrincipal,
+    gleIssuingAccount,
+    gleKeyId,
+    gleName,
     gleOperations,
+    gleRetiringPrincipal,
   )
 where
 
-import Network.AWS.KMS.Types.GrantConstraints
-import Network.AWS.KMS.Types.GrantOperation
+import qualified Network.AWS.KMS.Types.GrantConstraints as Types
+import qualified Network.AWS.KMS.Types.GrantId as Types
+import qualified Network.AWS.KMS.Types.GrantOperation as Types
+import qualified Network.AWS.KMS.Types.GranteePrincipal as Types
+import qualified Network.AWS.KMS.Types.IssuingAccount as Types
+import qualified Network.AWS.KMS.Types.KeyId as Types
+import qualified Network.AWS.KMS.Types.Name as Types
+import qualified Network.AWS.KMS.Types.RetiringPrincipal as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a grant.
 --
 -- /See:/ 'mkGrantListEntry' smart constructor.
 data GrantListEntry = GrantListEntry'
-  { -- | The unique identifier for the customer master key (CMK) to which the grant applies.
-    keyId :: Lude.Maybe Lude.Text,
-    -- | The principal that can retire the grant.
-    retiringPrincipal :: Lude.Maybe Lude.Text,
-    -- | The AWS account under which the grant was issued.
-    issuingAccount :: Lude.Maybe Lude.Text,
+  { -- | A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.
+    constraints :: Core.Maybe Types.GrantConstraints,
+    -- | The date and time when the grant was created.
+    creationDate :: Core.Maybe Core.NominalDiffTime,
     -- | The unique identifier for the grant.
-    grantId :: Lude.Maybe Lude.Text,
-    -- | A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.
-    constraints :: Lude.Maybe GrantConstraints,
+    grantId :: Core.Maybe Types.GrantId,
     -- | The identity that gets the permissions in the grant.
     --
     -- The @GranteePrincipal@ field in the @ListGrants@ response usually contains the user or role designated as the grantee principal in the grant. However, when the grantee principal in the grant is an AWS service, the @GranteePrincipal@ field contains the <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services service principal> , which might represent several different grantee principals.
-    granteePrincipal :: Lude.Maybe Lude.Text,
+    granteePrincipal :: Core.Maybe Types.GranteePrincipal,
+    -- | The AWS account under which the grant was issued.
+    issuingAccount :: Core.Maybe Types.IssuingAccount,
+    -- | The unique identifier for the customer master key (CMK) to which the grant applies.
+    keyId :: Core.Maybe Types.KeyId,
     -- | The friendly name that identifies the grant. If a name was provided in the 'CreateGrant' request, that name is returned. Otherwise this value is null.
-    name :: Lude.Maybe Lude.Text,
-    -- | The date and time when the grant was created.
-    creationDate :: Lude.Maybe Lude.Timestamp,
+    name :: Core.Maybe Types.Name,
     -- | The list of operations permitted by the grant.
-    operations :: Lude.Maybe [GrantOperation]
+    operations :: Core.Maybe [Types.GrantOperation],
+    -- | The principal that can retire the grant.
+    retiringPrincipal :: Core.Maybe Types.RetiringPrincipal
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GrantListEntry' with the minimum fields required to make a request.
---
--- * 'keyId' - The unique identifier for the customer master key (CMK) to which the grant applies.
--- * 'retiringPrincipal' - The principal that can retire the grant.
--- * 'issuingAccount' - The AWS account under which the grant was issued.
--- * 'grantId' - The unique identifier for the grant.
--- * 'constraints' - A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.
--- * 'granteePrincipal' - The identity that gets the permissions in the grant.
---
--- The @GranteePrincipal@ field in the @ListGrants@ response usually contains the user or role designated as the grantee principal in the grant. However, when the grantee principal in the grant is an AWS service, the @GranteePrincipal@ field contains the <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services service principal> , which might represent several different grantee principals.
--- * 'name' - The friendly name that identifies the grant. If a name was provided in the 'CreateGrant' request, that name is returned. Otherwise this value is null.
--- * 'creationDate' - The date and time when the grant was created.
--- * 'operations' - The list of operations permitted by the grant.
+-- | Creates a 'GrantListEntry' value with any optional fields omitted.
 mkGrantListEntry ::
   GrantListEntry
 mkGrantListEntry =
   GrantListEntry'
-    { keyId = Lude.Nothing,
-      retiringPrincipal = Lude.Nothing,
-      issuingAccount = Lude.Nothing,
-      grantId = Lude.Nothing,
-      constraints = Lude.Nothing,
-      granteePrincipal = Lude.Nothing,
-      name = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      operations = Lude.Nothing
+    { constraints = Core.Nothing,
+      creationDate = Core.Nothing,
+      grantId = Core.Nothing,
+      granteePrincipal = Core.Nothing,
+      issuingAccount = Core.Nothing,
+      keyId = Core.Nothing,
+      name = Core.Nothing,
+      operations = Core.Nothing,
+      retiringPrincipal = Core.Nothing
     }
-
--- | The unique identifier for the customer master key (CMK) to which the grant applies.
---
--- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gleKeyId :: Lens.Lens' GrantListEntry (Lude.Maybe Lude.Text)
-gleKeyId = Lens.lens (keyId :: GrantListEntry -> Lude.Maybe Lude.Text) (\s a -> s {keyId = a} :: GrantListEntry)
-{-# DEPRECATED gleKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
-
--- | The principal that can retire the grant.
---
--- /Note:/ Consider using 'retiringPrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gleRetiringPrincipal :: Lens.Lens' GrantListEntry (Lude.Maybe Lude.Text)
-gleRetiringPrincipal = Lens.lens (retiringPrincipal :: GrantListEntry -> Lude.Maybe Lude.Text) (\s a -> s {retiringPrincipal = a} :: GrantListEntry)
-{-# DEPRECATED gleRetiringPrincipal "Use generic-lens or generic-optics with 'retiringPrincipal' instead." #-}
-
--- | The AWS account under which the grant was issued.
---
--- /Note:/ Consider using 'issuingAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gleIssuingAccount :: Lens.Lens' GrantListEntry (Lude.Maybe Lude.Text)
-gleIssuingAccount = Lens.lens (issuingAccount :: GrantListEntry -> Lude.Maybe Lude.Text) (\s a -> s {issuingAccount = a} :: GrantListEntry)
-{-# DEPRECATED gleIssuingAccount "Use generic-lens or generic-optics with 'issuingAccount' instead." #-}
-
--- | The unique identifier for the grant.
---
--- /Note:/ Consider using 'grantId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gleGrantId :: Lens.Lens' GrantListEntry (Lude.Maybe Lude.Text)
-gleGrantId = Lens.lens (grantId :: GrantListEntry -> Lude.Maybe Lude.Text) (\s a -> s {grantId = a} :: GrantListEntry)
-{-# DEPRECATED gleGrantId "Use generic-lens or generic-optics with 'grantId' instead." #-}
 
 -- | A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.
 --
 -- /Note:/ Consider using 'constraints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gleConstraints :: Lens.Lens' GrantListEntry (Lude.Maybe GrantConstraints)
-gleConstraints = Lens.lens (constraints :: GrantListEntry -> Lude.Maybe GrantConstraints) (\s a -> s {constraints = a} :: GrantListEntry)
+gleConstraints :: Lens.Lens' GrantListEntry (Core.Maybe Types.GrantConstraints)
+gleConstraints = Lens.field @"constraints"
 {-# DEPRECATED gleConstraints "Use generic-lens or generic-optics with 'constraints' instead." #-}
+
+-- | The date and time when the grant was created.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleCreationDate :: Lens.Lens' GrantListEntry (Core.Maybe Core.NominalDiffTime)
+gleCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED gleCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The unique identifier for the grant.
+--
+-- /Note:/ Consider using 'grantId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleGrantId :: Lens.Lens' GrantListEntry (Core.Maybe Types.GrantId)
+gleGrantId = Lens.field @"grantId"
+{-# DEPRECATED gleGrantId "Use generic-lens or generic-optics with 'grantId' instead." #-}
 
 -- | The identity that gets the permissions in the grant.
 --
 -- The @GranteePrincipal@ field in the @ListGrants@ response usually contains the user or role designated as the grantee principal in the grant. However, when the grantee principal in the grant is an AWS service, the @GranteePrincipal@ field contains the <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services service principal> , which might represent several different grantee principals.
 --
 -- /Note:/ Consider using 'granteePrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gleGranteePrincipal :: Lens.Lens' GrantListEntry (Lude.Maybe Lude.Text)
-gleGranteePrincipal = Lens.lens (granteePrincipal :: GrantListEntry -> Lude.Maybe Lude.Text) (\s a -> s {granteePrincipal = a} :: GrantListEntry)
+gleGranteePrincipal :: Lens.Lens' GrantListEntry (Core.Maybe Types.GranteePrincipal)
+gleGranteePrincipal = Lens.field @"granteePrincipal"
 {-# DEPRECATED gleGranteePrincipal "Use generic-lens or generic-optics with 'granteePrincipal' instead." #-}
+
+-- | The AWS account under which the grant was issued.
+--
+-- /Note:/ Consider using 'issuingAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleIssuingAccount :: Lens.Lens' GrantListEntry (Core.Maybe Types.IssuingAccount)
+gleIssuingAccount = Lens.field @"issuingAccount"
+{-# DEPRECATED gleIssuingAccount "Use generic-lens or generic-optics with 'issuingAccount' instead." #-}
+
+-- | The unique identifier for the customer master key (CMK) to which the grant applies.
+--
+-- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleKeyId :: Lens.Lens' GrantListEntry (Core.Maybe Types.KeyId)
+gleKeyId = Lens.field @"keyId"
+{-# DEPRECATED gleKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | The friendly name that identifies the grant. If a name was provided in the 'CreateGrant' request, that name is returned. Otherwise this value is null.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gleName :: Lens.Lens' GrantListEntry (Lude.Maybe Lude.Text)
-gleName = Lens.lens (name :: GrantListEntry -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GrantListEntry)
+gleName :: Lens.Lens' GrantListEntry (Core.Maybe Types.Name)
+gleName = Lens.field @"name"
 {-# DEPRECATED gleName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The date and time when the grant was created.
---
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gleCreationDate :: Lens.Lens' GrantListEntry (Lude.Maybe Lude.Timestamp)
-gleCreationDate = Lens.lens (creationDate :: GrantListEntry -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: GrantListEntry)
-{-# DEPRECATED gleCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The list of operations permitted by the grant.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gleOperations :: Lens.Lens' GrantListEntry (Lude.Maybe [GrantOperation])
-gleOperations = Lens.lens (operations :: GrantListEntry -> Lude.Maybe [GrantOperation]) (\s a -> s {operations = a} :: GrantListEntry)
+gleOperations :: Lens.Lens' GrantListEntry (Core.Maybe [Types.GrantOperation])
+gleOperations = Lens.field @"operations"
 {-# DEPRECATED gleOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
-instance Lude.FromJSON GrantListEntry where
+-- | The principal that can retire the grant.
+--
+-- /Note:/ Consider using 'retiringPrincipal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gleRetiringPrincipal :: Lens.Lens' GrantListEntry (Core.Maybe Types.RetiringPrincipal)
+gleRetiringPrincipal = Lens.field @"retiringPrincipal"
+{-# DEPRECATED gleRetiringPrincipal "Use generic-lens or generic-optics with 'retiringPrincipal' instead." #-}
+
+instance Core.FromJSON GrantListEntry where
   parseJSON =
-    Lude.withObject
-      "GrantListEntry"
-      ( \x ->
-          GrantListEntry'
-            Lude.<$> (x Lude..:? "KeyId")
-            Lude.<*> (x Lude..:? "RetiringPrincipal")
-            Lude.<*> (x Lude..:? "IssuingAccount")
-            Lude.<*> (x Lude..:? "GrantId")
-            Lude.<*> (x Lude..:? "Constraints")
-            Lude.<*> (x Lude..:? "GranteePrincipal")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "CreationDate")
-            Lude.<*> (x Lude..:? "Operations" Lude..!= Lude.mempty)
-      )
+    Core.withObject "GrantListEntry" Core.$
+      \x ->
+        GrantListEntry'
+          Core.<$> (x Core..:? "Constraints")
+          Core.<*> (x Core..:? "CreationDate")
+          Core.<*> (x Core..:? "GrantId")
+          Core.<*> (x Core..:? "GranteePrincipal")
+          Core.<*> (x Core..:? "IssuingAccount")
+          Core.<*> (x Core..:? "KeyId")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Operations")
+          Core.<*> (x Core..:? "RetiringPrincipal")

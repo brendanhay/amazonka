@@ -31,8 +31,8 @@ module Network.AWS.SDB.PutAttributes
     mkPutAttributes,
 
     -- ** Request lenses
-    paItemName,
     paDomainName,
+    paItemName,
     paAttributes,
     paExpected,
 
@@ -43,101 +43,99 @@ module Network.AWS.SDB.PutAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SDB.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SDB.Types as Types
 
 -- | /See:/ 'mkPutAttributes' smart constructor.
 data PutAttributes = PutAttributes'
-  { -- | The name of the item.
-    itemName :: Lude.Text,
-    -- | The name of the domain in which to perform the operation.
-    domainName :: Lude.Text,
+  { -- | The name of the domain in which to perform the operation.
+    domainName :: Types.String,
+    -- | The name of the item.
+    itemName :: Types.String,
     -- | The list of attributes.
-    attributes :: [ReplaceableAttribute],
+    attributes :: [Types.ReplaceableAttribute],
     -- | The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated.
-    expected :: Lude.Maybe UpdateCondition
+    expected :: Core.Maybe Types.UpdateCondition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutAttributes' with the minimum fields required to make a request.
---
--- * 'itemName' - The name of the item.
--- * 'domainName' - The name of the domain in which to perform the operation.
--- * 'attributes' - The list of attributes.
--- * 'expected' - The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated.
+-- | Creates a 'PutAttributes' value with any optional fields omitted.
 mkPutAttributes ::
-  -- | 'itemName'
-  Lude.Text ->
   -- | 'domainName'
-  Lude.Text ->
+  Types.String ->
+  -- | 'itemName'
+  Types.String ->
   PutAttributes
-mkPutAttributes pItemName_ pDomainName_ =
+mkPutAttributes domainName itemName =
   PutAttributes'
-    { itemName = pItemName_,
-      domainName = pDomainName_,
-      attributes = Lude.mempty,
-      expected = Lude.Nothing
+    { domainName,
+      itemName,
+      attributes = Core.mempty,
+      expected = Core.Nothing
     }
-
--- | The name of the item.
---
--- /Note:/ Consider using 'itemName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paItemName :: Lens.Lens' PutAttributes Lude.Text
-paItemName = Lens.lens (itemName :: PutAttributes -> Lude.Text) (\s a -> s {itemName = a} :: PutAttributes)
-{-# DEPRECATED paItemName "Use generic-lens or generic-optics with 'itemName' instead." #-}
 
 -- | The name of the domain in which to perform the operation.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paDomainName :: Lens.Lens' PutAttributes Lude.Text
-paDomainName = Lens.lens (domainName :: PutAttributes -> Lude.Text) (\s a -> s {domainName = a} :: PutAttributes)
+paDomainName :: Lens.Lens' PutAttributes Types.String
+paDomainName = Lens.field @"domainName"
 {-# DEPRECATED paDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
+
+-- | The name of the item.
+--
+-- /Note:/ Consider using 'itemName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paItemName :: Lens.Lens' PutAttributes Types.String
+paItemName = Lens.field @"itemName"
+{-# DEPRECATED paItemName "Use generic-lens or generic-optics with 'itemName' instead." #-}
 
 -- | The list of attributes.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paAttributes :: Lens.Lens' PutAttributes [ReplaceableAttribute]
-paAttributes = Lens.lens (attributes :: PutAttributes -> [ReplaceableAttribute]) (\s a -> s {attributes = a} :: PutAttributes)
+paAttributes :: Lens.Lens' PutAttributes [Types.ReplaceableAttribute]
+paAttributes = Lens.field @"attributes"
 {-# DEPRECATED paAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The update condition which, if specified, determines whether the specified attributes will be updated or not. The update condition must be satisfied in order for this request to be processed and the attributes to be updated.
 --
 -- /Note:/ Consider using 'expected' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paExpected :: Lens.Lens' PutAttributes (Lude.Maybe UpdateCondition)
-paExpected = Lens.lens (expected :: PutAttributes -> Lude.Maybe UpdateCondition) (\s a -> s {expected = a} :: PutAttributes)
+paExpected :: Lens.Lens' PutAttributes (Core.Maybe Types.UpdateCondition)
+paExpected = Lens.field @"expected"
 {-# DEPRECATED paExpected "Use generic-lens or generic-optics with 'expected' instead." #-}
 
-instance Lude.AWSRequest PutAttributes where
+instance Core.AWSRequest PutAttributes where
   type Rs PutAttributes = PutAttributesResponse
-  request = Req.postQuery sdbService
-  response = Res.receiveNull PutAttributesResponse'
-
-instance Lude.ToHeaders PutAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PutAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutAttributes where
-  toQuery PutAttributes' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("PutAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
-        "ItemName" Lude.=: itemName,
-        "DomainName" Lude.=: domainName,
-        Lude.toQueryList "Attribute" attributes,
-        "Expected" Lude.=: expected
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PutAttributes")
+                Core.<> (Core.pure ("Version", "2009-04-15"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryValue "ItemName" itemName)
+                Core.<> (Core.toQueryList "Attribute" attributes)
+                Core.<> (Core.toQueryValue "Expected" Core.<$> expected)
+            )
+      }
+  response = Response.receiveNull PutAttributesResponse'
 
 -- | /See:/ 'mkPutAttributesResponse' smart constructor.
 data PutAttributesResponse = PutAttributesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutAttributesResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutAttributesResponse' value with any optional fields omitted.
 mkPutAttributesResponse ::
   PutAttributesResponse
 mkPutAttributesResponse = PutAttributesResponse'

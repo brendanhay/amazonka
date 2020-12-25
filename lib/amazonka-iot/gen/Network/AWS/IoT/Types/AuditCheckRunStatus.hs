@@ -13,66 +13,71 @@
 module Network.AWS.IoT.Types.AuditCheckRunStatus
   ( AuditCheckRunStatus
       ( AuditCheckRunStatus',
-        ACRSInProgress,
-        ACRSWaitingForDataCollection,
-        ACRSCanceled,
-        ACRSCompletedCompliant,
-        ACRSCompletedNonCompliant,
-        ACRSFailed
+        AuditCheckRunStatusInProgress,
+        AuditCheckRunStatusWaitingForDataCollection,
+        AuditCheckRunStatusCanceled,
+        AuditCheckRunStatusCompletedCompliant,
+        AuditCheckRunStatusCompletedNonCompliant,
+        AuditCheckRunStatusFailed,
+        fromAuditCheckRunStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuditCheckRunStatus = AuditCheckRunStatus' Lude.Text
+newtype AuditCheckRunStatus = AuditCheckRunStatus'
+  { fromAuditCheckRunStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ACRSInProgress :: AuditCheckRunStatus
-pattern ACRSInProgress = AuditCheckRunStatus' "IN_PROGRESS"
+pattern AuditCheckRunStatusInProgress :: AuditCheckRunStatus
+pattern AuditCheckRunStatusInProgress = AuditCheckRunStatus' "IN_PROGRESS"
 
-pattern ACRSWaitingForDataCollection :: AuditCheckRunStatus
-pattern ACRSWaitingForDataCollection = AuditCheckRunStatus' "WAITING_FOR_DATA_COLLECTION"
+pattern AuditCheckRunStatusWaitingForDataCollection :: AuditCheckRunStatus
+pattern AuditCheckRunStatusWaitingForDataCollection = AuditCheckRunStatus' "WAITING_FOR_DATA_COLLECTION"
 
-pattern ACRSCanceled :: AuditCheckRunStatus
-pattern ACRSCanceled = AuditCheckRunStatus' "CANCELED"
+pattern AuditCheckRunStatusCanceled :: AuditCheckRunStatus
+pattern AuditCheckRunStatusCanceled = AuditCheckRunStatus' "CANCELED"
 
-pattern ACRSCompletedCompliant :: AuditCheckRunStatus
-pattern ACRSCompletedCompliant = AuditCheckRunStatus' "COMPLETED_COMPLIANT"
+pattern AuditCheckRunStatusCompletedCompliant :: AuditCheckRunStatus
+pattern AuditCheckRunStatusCompletedCompliant = AuditCheckRunStatus' "COMPLETED_COMPLIANT"
 
-pattern ACRSCompletedNonCompliant :: AuditCheckRunStatus
-pattern ACRSCompletedNonCompliant = AuditCheckRunStatus' "COMPLETED_NON_COMPLIANT"
+pattern AuditCheckRunStatusCompletedNonCompliant :: AuditCheckRunStatus
+pattern AuditCheckRunStatusCompletedNonCompliant = AuditCheckRunStatus' "COMPLETED_NON_COMPLIANT"
 
-pattern ACRSFailed :: AuditCheckRunStatus
-pattern ACRSFailed = AuditCheckRunStatus' "FAILED"
+pattern AuditCheckRunStatusFailed :: AuditCheckRunStatus
+pattern AuditCheckRunStatusFailed = AuditCheckRunStatus' "FAILED"
 
 {-# COMPLETE
-  ACRSInProgress,
-  ACRSWaitingForDataCollection,
-  ACRSCanceled,
-  ACRSCompletedCompliant,
-  ACRSCompletedNonCompliant,
-  ACRSFailed,
+  AuditCheckRunStatusInProgress,
+  AuditCheckRunStatusWaitingForDataCollection,
+  AuditCheckRunStatusCanceled,
+  AuditCheckRunStatusCompletedCompliant,
+  AuditCheckRunStatusCompletedNonCompliant,
+  AuditCheckRunStatusFailed,
   AuditCheckRunStatus'
   #-}

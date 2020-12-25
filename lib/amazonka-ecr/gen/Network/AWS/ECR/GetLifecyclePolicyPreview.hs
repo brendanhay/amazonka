@@ -22,278 +22,260 @@ module Network.AWS.ECR.GetLifecyclePolicyPreview
     mkGetLifecyclePolicyPreview,
 
     -- ** Request lenses
-    glppRegistryId,
-    glppImageIds,
-    glppNextToken,
     glppRepositoryName,
     glppFilter,
+    glppImageIds,
     glppMaxResults,
+    glppNextToken,
+    glppRegistryId,
 
     -- * Destructuring the response
     GetLifecyclePolicyPreviewResponse (..),
     mkGetLifecyclePolicyPreviewResponse,
 
     -- ** Response lenses
-    glpprsSummary,
-    glpprsStatus,
-    glpprsRegistryId,
-    glpprsLifecyclePolicyText,
-    glpprsNextToken,
-    glpprsRepositoryName,
-    glpprsPreviewResults,
-    glpprsResponseStatus,
+    glpprrsLifecyclePolicyText,
+    glpprrsNextToken,
+    glpprrsPreviewResults,
+    glpprrsRegistryId,
+    glpprrsRepositoryName,
+    glpprrsStatus,
+    glpprrsSummary,
+    glpprrsResponseStatus,
   )
 where
 
-import Network.AWS.ECR.Types
+import qualified Network.AWS.ECR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetLifecyclePolicyPreview' smart constructor.
 data GetLifecyclePolicyPreview = GetLifecyclePolicyPreview'
-  { -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
-    registryId :: Lude.Maybe Lude.Text,
-    -- | The list of imageIDs to be included.
-    imageIds :: Lude.Maybe [ImageIdentifier],
-    -- | The @nextToken@ value returned from a previous paginated  @GetLifecyclePolicyPreviewRequest@ request where @maxResults@ was used and the  results exceeded the value of that parameter. Pagination continues from the end of the  previous results that returned the @nextToken@ value. This value is  @null@ when there are no more results to return. This option cannot be used when you specify images with @imageIds@ .
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name of the repository.
-    repositoryName :: Lude.Text,
+  { -- | The name of the repository.
+    repositoryName :: Types.RepositoryName,
     -- | An optional parameter that filters results based on image tag status and all tags, if tagged.
-    filter :: Lude.Maybe LifecyclePolicyPreviewFilter,
+    filter :: Core.Maybe Types.LifecyclePolicyPreviewFilter,
+    -- | The list of imageIDs to be included.
+    imageIds :: Core.Maybe [Types.ImageIdentifier],
     -- | The maximum number of repository results returned by @GetLifecyclePolicyPreviewRequest@ in  paginated output. When this parameter is used, @GetLifecyclePolicyPreviewRequest@ only returns  @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending  another @GetLifecyclePolicyPreviewRequest@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this  parameter is not used, then @GetLifecyclePolicyPreviewRequest@ returns up to  100 results and a @nextToken@ value, if  applicable. This option cannot be used when you specify images with @imageIds@ .
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The @nextToken@ value returned from a previous paginated  @GetLifecyclePolicyPreviewRequest@ request where @maxResults@ was used and the  results exceeded the value of that parameter. Pagination continues from the end of the  previous results that returned the @nextToken@ value. This value is  @null@ when there are no more results to return. This option cannot be used when you specify images with @imageIds@ .
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
+    registryId :: Core.Maybe Types.RegistryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetLifecyclePolicyPreview' with the minimum fields required to make a request.
---
--- * 'registryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
--- * 'imageIds' - The list of imageIDs to be included.
--- * 'nextToken' - The @nextToken@ value returned from a previous paginated  @GetLifecyclePolicyPreviewRequest@ request where @maxResults@ was used and the  results exceeded the value of that parameter. Pagination continues from the end of the  previous results that returned the @nextToken@ value. This value is  @null@ when there are no more results to return. This option cannot be used when you specify images with @imageIds@ .
--- * 'repositoryName' - The name of the repository.
--- * 'filter' - An optional parameter that filters results based on image tag status and all tags, if tagged.
--- * 'maxResults' - The maximum number of repository results returned by @GetLifecyclePolicyPreviewRequest@ in  paginated output. When this parameter is used, @GetLifecyclePolicyPreviewRequest@ only returns  @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending  another @GetLifecyclePolicyPreviewRequest@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this  parameter is not used, then @GetLifecyclePolicyPreviewRequest@ returns up to  100 results and a @nextToken@ value, if  applicable. This option cannot be used when you specify images with @imageIds@ .
+-- | Creates a 'GetLifecyclePolicyPreview' value with any optional fields omitted.
 mkGetLifecyclePolicyPreview ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   GetLifecyclePolicyPreview
-mkGetLifecyclePolicyPreview pRepositoryName_ =
+mkGetLifecyclePolicyPreview repositoryName =
   GetLifecyclePolicyPreview'
-    { registryId = Lude.Nothing,
-      imageIds = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      repositoryName = pRepositoryName_,
-      filter = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { repositoryName,
+      filter = Core.Nothing,
+      imageIds = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      registryId = Core.Nothing
     }
-
--- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glppRegistryId :: Lens.Lens' GetLifecyclePolicyPreview (Lude.Maybe Lude.Text)
-glppRegistryId = Lens.lens (registryId :: GetLifecyclePolicyPreview -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: GetLifecyclePolicyPreview)
-{-# DEPRECATED glppRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
-
--- | The list of imageIDs to be included.
---
--- /Note:/ Consider using 'imageIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glppImageIds :: Lens.Lens' GetLifecyclePolicyPreview (Lude.Maybe [ImageIdentifier])
-glppImageIds = Lens.lens (imageIds :: GetLifecyclePolicyPreview -> Lude.Maybe [ImageIdentifier]) (\s a -> s {imageIds = a} :: GetLifecyclePolicyPreview)
-{-# DEPRECATED glppImageIds "Use generic-lens or generic-optics with 'imageIds' instead." #-}
-
--- | The @nextToken@ value returned from a previous paginated  @GetLifecyclePolicyPreviewRequest@ request where @maxResults@ was used and the  results exceeded the value of that parameter. Pagination continues from the end of the  previous results that returned the @nextToken@ value. This value is  @null@ when there are no more results to return. This option cannot be used when you specify images with @imageIds@ .
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glppNextToken :: Lens.Lens' GetLifecyclePolicyPreview (Lude.Maybe Lude.Text)
-glppNextToken = Lens.lens (nextToken :: GetLifecyclePolicyPreview -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetLifecyclePolicyPreview)
-{-# DEPRECATED glppNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the repository.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glppRepositoryName :: Lens.Lens' GetLifecyclePolicyPreview Lude.Text
-glppRepositoryName = Lens.lens (repositoryName :: GetLifecyclePolicyPreview -> Lude.Text) (\s a -> s {repositoryName = a} :: GetLifecyclePolicyPreview)
+glppRepositoryName :: Lens.Lens' GetLifecyclePolicyPreview Types.RepositoryName
+glppRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED glppRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | An optional parameter that filters results based on image tag status and all tags, if tagged.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glppFilter :: Lens.Lens' GetLifecyclePolicyPreview (Lude.Maybe LifecyclePolicyPreviewFilter)
-glppFilter = Lens.lens (filter :: GetLifecyclePolicyPreview -> Lude.Maybe LifecyclePolicyPreviewFilter) (\s a -> s {filter = a} :: GetLifecyclePolicyPreview)
+glppFilter :: Lens.Lens' GetLifecyclePolicyPreview (Core.Maybe Types.LifecyclePolicyPreviewFilter)
+glppFilter = Lens.field @"filter"
 {-# DEPRECATED glppFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+
+-- | The list of imageIDs to be included.
+--
+-- /Note:/ Consider using 'imageIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glppImageIds :: Lens.Lens' GetLifecyclePolicyPreview (Core.Maybe [Types.ImageIdentifier])
+glppImageIds = Lens.field @"imageIds"
+{-# DEPRECATED glppImageIds "Use generic-lens or generic-optics with 'imageIds' instead." #-}
 
 -- | The maximum number of repository results returned by @GetLifecyclePolicyPreviewRequest@ in  paginated output. When this parameter is used, @GetLifecyclePolicyPreviewRequest@ only returns  @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending  another @GetLifecyclePolicyPreviewRequest@ request with the returned @nextToken@ value. This value can be between 1 and 1000. If this  parameter is not used, then @GetLifecyclePolicyPreviewRequest@ returns up to  100 results and a @nextToken@ value, if  applicable. This option cannot be used when you specify images with @imageIds@ .
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glppMaxResults :: Lens.Lens' GetLifecyclePolicyPreview (Lude.Maybe Lude.Natural)
-glppMaxResults = Lens.lens (maxResults :: GetLifecyclePolicyPreview -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetLifecyclePolicyPreview)
+glppMaxResults :: Lens.Lens' GetLifecyclePolicyPreview (Core.Maybe Core.Natural)
+glppMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED glppMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager GetLifecyclePolicyPreview where
-  page rq rs
-    | Page.stop (rs Lens.^. glpprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. glpprsPreviewResults) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& glppNextToken Lens..~ rs Lens.^. glpprsNextToken
+-- | The @nextToken@ value returned from a previous paginated  @GetLifecyclePolicyPreviewRequest@ request where @maxResults@ was used and the  results exceeded the value of that parameter. Pagination continues from the end of the  previous results that returned the @nextToken@ value. This value is  @null@ when there are no more results to return. This option cannot be used when you specify images with @imageIds@ .
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glppNextToken :: Lens.Lens' GetLifecyclePolicyPreview (Core.Maybe Types.NextToken)
+glppNextToken = Lens.field @"nextToken"
+{-# DEPRECATED glppNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest GetLifecyclePolicyPreview where
+-- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glppRegistryId :: Lens.Lens' GetLifecyclePolicyPreview (Core.Maybe Types.RegistryId)
+glppRegistryId = Lens.field @"registryId"
+{-# DEPRECATED glppRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+instance Core.FromJSON GetLifecyclePolicyPreview where
+  toJSON GetLifecyclePolicyPreview {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            ("filter" Core..=) Core.<$> filter,
+            ("imageIds" Core..=) Core.<$> imageIds,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("registryId" Core..=) Core.<$> registryId
+          ]
+      )
+
+instance Core.AWSRequest GetLifecyclePolicyPreview where
   type
     Rs GetLifecyclePolicyPreview =
       GetLifecyclePolicyPreviewResponse
-  request = Req.postJSON ecrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetLifecyclePolicyPreviewResponse'
-            Lude.<$> (x Lude..?> "summary")
-            Lude.<*> (x Lude..?> "status")
-            Lude.<*> (x Lude..?> "registryId")
-            Lude.<*> (x Lude..?> "lifecyclePolicyText")
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "repositoryName")
-            Lude.<*> (x Lude..?> "previewResults" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "lifecyclePolicyText")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "previewResults")
+            Core.<*> (x Core..:? "registryId")
+            Core.<*> (x Core..:? "repositoryName")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "summary")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetLifecyclePolicyPreview where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.GetLifecyclePolicyPreview" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetLifecyclePolicyPreview where
-  toJSON GetLifecyclePolicyPreview' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("registryId" Lude..=) Lude.<$> registryId,
-            ("imageIds" Lude..=) Lude.<$> imageIds,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            ("filter" Lude..=) Lude.<$> filter,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath GetLifecyclePolicyPreview where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetLifecyclePolicyPreview where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetLifecyclePolicyPreview where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"previewResults" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetLifecyclePolicyPreviewResponse' smart constructor.
 data GetLifecyclePolicyPreviewResponse = GetLifecyclePolicyPreviewResponse'
-  { -- | The list of images that is returned as a result of the action.
-    summary :: Lude.Maybe LifecyclePolicyPreviewSummary,
-    -- | The status of the lifecycle policy preview request.
-    status :: Lude.Maybe LifecyclePolicyPreviewStatus,
-    -- | The registry ID associated with the request.
-    registryId :: Lude.Maybe Lude.Text,
-    -- | The JSON lifecycle policy text.
-    lifecyclePolicyText :: Lude.Maybe Lude.Text,
+  { -- | The JSON lifecycle policy text.
+    lifecyclePolicyText :: Core.Maybe Types.LifecyclePolicyText,
     -- | The @nextToken@ value to include in a future @GetLifecyclePolicyPreview@ request. When the results of a @GetLifecyclePolicyPreview@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The repository name associated with the request.
-    repositoryName :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The results of the lifecycle policy preview request.
-    previewResults :: Lude.Maybe [LifecyclePolicyPreviewResult],
+    previewResults :: Core.Maybe [Types.LifecyclePolicyPreviewResult],
+    -- | The registry ID associated with the request.
+    registryId :: Core.Maybe Types.RegistryId,
+    -- | The repository name associated with the request.
+    repositoryName :: Core.Maybe Types.RepositoryName,
+    -- | The status of the lifecycle policy preview request.
+    status :: Core.Maybe Types.LifecyclePolicyPreviewStatus,
+    -- | The list of images that is returned as a result of the action.
+    summary :: Core.Maybe Types.LifecyclePolicyPreviewSummary,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetLifecyclePolicyPreviewResponse' with the minimum fields required to make a request.
---
--- * 'summary' - The list of images that is returned as a result of the action.
--- * 'status' - The status of the lifecycle policy preview request.
--- * 'registryId' - The registry ID associated with the request.
--- * 'lifecyclePolicyText' - The JSON lifecycle policy text.
--- * 'nextToken' - The @nextToken@ value to include in a future @GetLifecyclePolicyPreview@ request. When the results of a @GetLifecyclePolicyPreview@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'repositoryName' - The repository name associated with the request.
--- * 'previewResults' - The results of the lifecycle policy preview request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetLifecyclePolicyPreviewResponse' value with any optional fields omitted.
 mkGetLifecyclePolicyPreviewResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetLifecyclePolicyPreviewResponse
-mkGetLifecyclePolicyPreviewResponse pResponseStatus_ =
+mkGetLifecyclePolicyPreviewResponse responseStatus =
   GetLifecyclePolicyPreviewResponse'
-    { summary = Lude.Nothing,
-      status = Lude.Nothing,
-      registryId = Lude.Nothing,
-      lifecyclePolicyText = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      repositoryName = Lude.Nothing,
-      previewResults = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { lifecyclePolicyText =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      previewResults = Core.Nothing,
+      registryId = Core.Nothing,
+      repositoryName = Core.Nothing,
+      status = Core.Nothing,
+      summary = Core.Nothing,
+      responseStatus
     }
-
--- | The list of images that is returned as a result of the action.
---
--- /Note:/ Consider using 'summary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glpprsSummary :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Lude.Maybe LifecyclePolicyPreviewSummary)
-glpprsSummary = Lens.lens (summary :: GetLifecyclePolicyPreviewResponse -> Lude.Maybe LifecyclePolicyPreviewSummary) (\s a -> s {summary = a} :: GetLifecyclePolicyPreviewResponse)
-{-# DEPRECATED glpprsSummary "Use generic-lens or generic-optics with 'summary' instead." #-}
-
--- | The status of the lifecycle policy preview request.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glpprsStatus :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Lude.Maybe LifecyclePolicyPreviewStatus)
-glpprsStatus = Lens.lens (status :: GetLifecyclePolicyPreviewResponse -> Lude.Maybe LifecyclePolicyPreviewStatus) (\s a -> s {status = a} :: GetLifecyclePolicyPreviewResponse)
-{-# DEPRECATED glpprsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The registry ID associated with the request.
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glpprsRegistryId :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Lude.Maybe Lude.Text)
-glpprsRegistryId = Lens.lens (registryId :: GetLifecyclePolicyPreviewResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: GetLifecyclePolicyPreviewResponse)
-{-# DEPRECATED glpprsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The JSON lifecycle policy text.
 --
 -- /Note:/ Consider using 'lifecyclePolicyText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glpprsLifecyclePolicyText :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Lude.Maybe Lude.Text)
-glpprsLifecyclePolicyText = Lens.lens (lifecyclePolicyText :: GetLifecyclePolicyPreviewResponse -> Lude.Maybe Lude.Text) (\s a -> s {lifecyclePolicyText = a} :: GetLifecyclePolicyPreviewResponse)
-{-# DEPRECATED glpprsLifecyclePolicyText "Use generic-lens or generic-optics with 'lifecyclePolicyText' instead." #-}
+glpprrsLifecyclePolicyText :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe Types.LifecyclePolicyText)
+glpprrsLifecyclePolicyText = Lens.field @"lifecyclePolicyText"
+{-# DEPRECATED glpprrsLifecyclePolicyText "Use generic-lens or generic-optics with 'lifecyclePolicyText' instead." #-}
 
 -- | The @nextToken@ value to include in a future @GetLifecyclePolicyPreview@ request. When the results of a @GetLifecyclePolicyPreview@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glpprsNextToken :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Lude.Maybe Lude.Text)
-glpprsNextToken = Lens.lens (nextToken :: GetLifecyclePolicyPreviewResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetLifecyclePolicyPreviewResponse)
-{-# DEPRECATED glpprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The repository name associated with the request.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glpprsRepositoryName :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Lude.Maybe Lude.Text)
-glpprsRepositoryName = Lens.lens (repositoryName :: GetLifecyclePolicyPreviewResponse -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: GetLifecyclePolicyPreviewResponse)
-{-# DEPRECATED glpprsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+glpprrsNextToken :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe Types.NextToken)
+glpprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED glpprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The results of the lifecycle policy preview request.
 --
 -- /Note:/ Consider using 'previewResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glpprsPreviewResults :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Lude.Maybe [LifecyclePolicyPreviewResult])
-glpprsPreviewResults = Lens.lens (previewResults :: GetLifecyclePolicyPreviewResponse -> Lude.Maybe [LifecyclePolicyPreviewResult]) (\s a -> s {previewResults = a} :: GetLifecyclePolicyPreviewResponse)
-{-# DEPRECATED glpprsPreviewResults "Use generic-lens or generic-optics with 'previewResults' instead." #-}
+glpprrsPreviewResults :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe [Types.LifecyclePolicyPreviewResult])
+glpprrsPreviewResults = Lens.field @"previewResults"
+{-# DEPRECATED glpprrsPreviewResults "Use generic-lens or generic-optics with 'previewResults' instead." #-}
+
+-- | The registry ID associated with the request.
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glpprrsRegistryId :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe Types.RegistryId)
+glpprrsRegistryId = Lens.field @"registryId"
+{-# DEPRECATED glpprrsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+-- | The repository name associated with the request.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glpprrsRepositoryName :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe Types.RepositoryName)
+glpprrsRepositoryName = Lens.field @"repositoryName"
+{-# DEPRECATED glpprrsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | The status of the lifecycle policy preview request.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glpprrsStatus :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe Types.LifecyclePolicyPreviewStatus)
+glpprrsStatus = Lens.field @"status"
+{-# DEPRECATED glpprrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The list of images that is returned as a result of the action.
+--
+-- /Note:/ Consider using 'summary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glpprrsSummary :: Lens.Lens' GetLifecyclePolicyPreviewResponse (Core.Maybe Types.LifecyclePolicyPreviewSummary)
+glpprrsSummary = Lens.field @"summary"
+{-# DEPRECATED glpprrsSummary "Use generic-lens or generic-optics with 'summary' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glpprsResponseStatus :: Lens.Lens' GetLifecyclePolicyPreviewResponse Lude.Int
-glpprsResponseStatus = Lens.lens (responseStatus :: GetLifecyclePolicyPreviewResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLifecyclePolicyPreviewResponse)
-{-# DEPRECATED glpprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+glpprrsResponseStatus :: Lens.Lens' GetLifecyclePolicyPreviewResponse Core.Int
+glpprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED glpprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

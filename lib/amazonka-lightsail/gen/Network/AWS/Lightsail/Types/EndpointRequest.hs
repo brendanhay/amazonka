@@ -17,75 +17,72 @@ module Network.AWS.Lightsail.Types.EndpointRequest
     mkEndpointRequest,
 
     -- * Lenses
-    erHealthCheck,
     erContainerName,
     erContainerPort,
+    erHealthCheck,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.ContainerServiceHealthCheckConfig as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the settings of a public endpoint for an Amazon Lightsail container service.
 --
 -- /See:/ 'mkEndpointRequest' smart constructor.
 data EndpointRequest = EndpointRequest'
-  { -- | An object that describes the health check configuration of the container.
-    healthCheck :: Lude.Maybe ContainerServiceHealthCheckConfig,
-    -- | The name of the container for the endpoint.
-    containerName :: Lude.Text,
+  { -- | The name of the container for the endpoint.
+    containerName :: Types.String,
     -- | The port of the container to which traffic is forwarded to.
-    containerPort :: Lude.Int
+    containerPort :: Core.Int,
+    -- | An object that describes the health check configuration of the container.
+    healthCheck :: Core.Maybe Types.ContainerServiceHealthCheckConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndpointRequest' with the minimum fields required to make a request.
---
--- * 'healthCheck' - An object that describes the health check configuration of the container.
--- * 'containerName' - The name of the container for the endpoint.
--- * 'containerPort' - The port of the container to which traffic is forwarded to.
+-- | Creates a 'EndpointRequest' value with any optional fields omitted.
 mkEndpointRequest ::
   -- | 'containerName'
-  Lude.Text ->
+  Types.String ->
   -- | 'containerPort'
-  Lude.Int ->
+  Core.Int ->
   EndpointRequest
-mkEndpointRequest pContainerName_ pContainerPort_ =
+mkEndpointRequest containerName containerPort =
   EndpointRequest'
-    { healthCheck = Lude.Nothing,
-      containerName = pContainerName_,
-      containerPort = pContainerPort_
+    { containerName,
+      containerPort,
+      healthCheck = Core.Nothing
     }
-
--- | An object that describes the health check configuration of the container.
---
--- /Note:/ Consider using 'healthCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erHealthCheck :: Lens.Lens' EndpointRequest (Lude.Maybe ContainerServiceHealthCheckConfig)
-erHealthCheck = Lens.lens (healthCheck :: EndpointRequest -> Lude.Maybe ContainerServiceHealthCheckConfig) (\s a -> s {healthCheck = a} :: EndpointRequest)
-{-# DEPRECATED erHealthCheck "Use generic-lens or generic-optics with 'healthCheck' instead." #-}
 
 -- | The name of the container for the endpoint.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erContainerName :: Lens.Lens' EndpointRequest Lude.Text
-erContainerName = Lens.lens (containerName :: EndpointRequest -> Lude.Text) (\s a -> s {containerName = a} :: EndpointRequest)
+erContainerName :: Lens.Lens' EndpointRequest Types.String
+erContainerName = Lens.field @"containerName"
 {-# DEPRECATED erContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 -- | The port of the container to which traffic is forwarded to.
 --
 -- /Note:/ Consider using 'containerPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erContainerPort :: Lens.Lens' EndpointRequest Lude.Int
-erContainerPort = Lens.lens (containerPort :: EndpointRequest -> Lude.Int) (\s a -> s {containerPort = a} :: EndpointRequest)
+erContainerPort :: Lens.Lens' EndpointRequest Core.Int
+erContainerPort = Lens.field @"containerPort"
 {-# DEPRECATED erContainerPort "Use generic-lens or generic-optics with 'containerPort' instead." #-}
 
-instance Lude.ToJSON EndpointRequest where
-  toJSON EndpointRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("healthCheck" Lude..=) Lude.<$> healthCheck,
-            Lude.Just ("containerName" Lude..= containerName),
-            Lude.Just ("containerPort" Lude..= containerPort)
+-- | An object that describes the health check configuration of the container.
+--
+-- /Note:/ Consider using 'healthCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+erHealthCheck :: Lens.Lens' EndpointRequest (Core.Maybe Types.ContainerServiceHealthCheckConfig)
+erHealthCheck = Lens.field @"healthCheck"
+{-# DEPRECATED erHealthCheck "Use generic-lens or generic-optics with 'healthCheck' instead." #-}
+
+instance Core.FromJSON EndpointRequest where
+  toJSON EndpointRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("containerName" Core..= containerName),
+            Core.Just ("containerPort" Core..= containerPort),
+            ("healthCheck" Core..=) Core.<$> healthCheck
           ]
       )

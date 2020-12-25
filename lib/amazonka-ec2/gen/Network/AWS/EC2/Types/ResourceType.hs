@@ -13,256 +13,258 @@
 module Network.AWS.EC2.Types.ResourceType
   ( ResourceType
       ( ResourceType',
-        RTClientVPNEndpoint,
-        RTCustomerGateway,
-        RTDedicatedHost,
-        RTDHCPOptions,
-        RTEgressOnlyInternetGateway,
-        RTElasticIP,
-        RTElasticGpu,
-        RTExportImageTask,
-        RTExportInstanceTask,
-        RTFleet,
-        RTFpgaImage,
-        RTHostReservation,
-        RTImage,
-        RTImportImageTask,
-        RTImportSnapshotTask,
-        RTInstance,
-        RTInternetGateway,
-        RTKeyPair,
-        RTLaunchTemplate,
-        RTLocalGatewayRouteTableVPCAssociation,
-        RTNatgateway,
-        RTNetworkACL,
-        RTNetworkInterface,
-        RTPlacementGroup,
-        RTReservedInstances,
-        RTRouteTable,
-        RTSecurityGroup,
-        RTSnapshot,
-        RTSpotFleetRequest,
-        RTSpotInstancesRequest,
-        RTSubnet,
-        RTTrafficMirrorFilter,
-        RTTrafficMirrorSession,
-        RTTrafficMirrorTarget,
-        RTTransitGateway,
-        RTTransitGatewayAttachment,
-        RTTransitGatewayMulticastDomain,
-        RTTransitGatewayRouteTable,
-        RTVolume,
-        RTVPC,
-        RTVPCPeeringConnection,
-        RTVPNConnection,
-        RTVPNGateway,
-        RTVPCFlowLog
+        ResourceTypeClientVpnEndpoint,
+        ResourceTypeCustomerGateway,
+        ResourceTypeDedicatedHost,
+        ResourceTypeDhcpOptions,
+        ResourceTypeEgressOnlyInternetGateway,
+        ResourceTypeElasticIp,
+        ResourceTypeElasticGpu,
+        ResourceTypeExportImageTask,
+        ResourceTypeExportInstanceTask,
+        ResourceTypeFleet,
+        ResourceTypeFpgaImage,
+        ResourceTypeHostReservation,
+        ResourceTypeImage,
+        ResourceTypeImportImageTask,
+        ResourceTypeImportSnapshotTask,
+        ResourceTypeInstance,
+        ResourceTypeInternetGateway,
+        ResourceTypeKeyPair,
+        ResourceTypeLaunchTemplate,
+        ResourceTypeLocalGatewayRouteTableVpcAssociation,
+        ResourceTypeNatgateway,
+        ResourceTypeNetworkAcl,
+        ResourceTypeNetworkInterface,
+        ResourceTypePlacementGroup,
+        ResourceTypeReservedInstances,
+        ResourceTypeRouteTable,
+        ResourceTypeSecurityGroup,
+        ResourceTypeSnapshot,
+        ResourceTypeSpotFleetRequest,
+        ResourceTypeSpotInstancesRequest,
+        ResourceTypeSubnet,
+        ResourceTypeTrafficMirrorFilter,
+        ResourceTypeTrafficMirrorSession,
+        ResourceTypeTrafficMirrorTarget,
+        ResourceTypeTransitGateway,
+        ResourceTypeTransitGatewayAttachment,
+        ResourceTypeTransitGatewayMulticastDomain,
+        ResourceTypeTransitGatewayRouteTable,
+        ResourceTypeVolume,
+        ResourceTypeVpc,
+        ResourceTypeVpcPeeringConnection,
+        ResourceTypeVpnConnection,
+        ResourceTypeVpnGateway,
+        ResourceTypeVpcFlowLog,
+        fromResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceType = ResourceType' Lude.Text
+newtype ResourceType = ResourceType' {fromResourceType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RTClientVPNEndpoint :: ResourceType
-pattern RTClientVPNEndpoint = ResourceType' "client-vpn-endpoint"
+pattern ResourceTypeClientVpnEndpoint :: ResourceType
+pattern ResourceTypeClientVpnEndpoint = ResourceType' "client-vpn-endpoint"
 
-pattern RTCustomerGateway :: ResourceType
-pattern RTCustomerGateway = ResourceType' "customer-gateway"
+pattern ResourceTypeCustomerGateway :: ResourceType
+pattern ResourceTypeCustomerGateway = ResourceType' "customer-gateway"
 
-pattern RTDedicatedHost :: ResourceType
-pattern RTDedicatedHost = ResourceType' "dedicated-host"
+pattern ResourceTypeDedicatedHost :: ResourceType
+pattern ResourceTypeDedicatedHost = ResourceType' "dedicated-host"
 
-pattern RTDHCPOptions :: ResourceType
-pattern RTDHCPOptions = ResourceType' "dhcp-options"
+pattern ResourceTypeDhcpOptions :: ResourceType
+pattern ResourceTypeDhcpOptions = ResourceType' "dhcp-options"
 
-pattern RTEgressOnlyInternetGateway :: ResourceType
-pattern RTEgressOnlyInternetGateway = ResourceType' "egress-only-internet-gateway"
+pattern ResourceTypeEgressOnlyInternetGateway :: ResourceType
+pattern ResourceTypeEgressOnlyInternetGateway = ResourceType' "egress-only-internet-gateway"
 
-pattern RTElasticIP :: ResourceType
-pattern RTElasticIP = ResourceType' "elastic-ip"
+pattern ResourceTypeElasticIp :: ResourceType
+pattern ResourceTypeElasticIp = ResourceType' "elastic-ip"
 
-pattern RTElasticGpu :: ResourceType
-pattern RTElasticGpu = ResourceType' "elastic-gpu"
+pattern ResourceTypeElasticGpu :: ResourceType
+pattern ResourceTypeElasticGpu = ResourceType' "elastic-gpu"
 
-pattern RTExportImageTask :: ResourceType
-pattern RTExportImageTask = ResourceType' "export-image-task"
+pattern ResourceTypeExportImageTask :: ResourceType
+pattern ResourceTypeExportImageTask = ResourceType' "export-image-task"
 
-pattern RTExportInstanceTask :: ResourceType
-pattern RTExportInstanceTask = ResourceType' "export-instance-task"
+pattern ResourceTypeExportInstanceTask :: ResourceType
+pattern ResourceTypeExportInstanceTask = ResourceType' "export-instance-task"
 
-pattern RTFleet :: ResourceType
-pattern RTFleet = ResourceType' "fleet"
+pattern ResourceTypeFleet :: ResourceType
+pattern ResourceTypeFleet = ResourceType' "fleet"
 
-pattern RTFpgaImage :: ResourceType
-pattern RTFpgaImage = ResourceType' "fpga-image"
+pattern ResourceTypeFpgaImage :: ResourceType
+pattern ResourceTypeFpgaImage = ResourceType' "fpga-image"
 
-pattern RTHostReservation :: ResourceType
-pattern RTHostReservation = ResourceType' "host-reservation"
+pattern ResourceTypeHostReservation :: ResourceType
+pattern ResourceTypeHostReservation = ResourceType' "host-reservation"
 
-pattern RTImage :: ResourceType
-pattern RTImage = ResourceType' "image"
+pattern ResourceTypeImage :: ResourceType
+pattern ResourceTypeImage = ResourceType' "image"
 
-pattern RTImportImageTask :: ResourceType
-pattern RTImportImageTask = ResourceType' "import-image-task"
+pattern ResourceTypeImportImageTask :: ResourceType
+pattern ResourceTypeImportImageTask = ResourceType' "import-image-task"
 
-pattern RTImportSnapshotTask :: ResourceType
-pattern RTImportSnapshotTask = ResourceType' "import-snapshot-task"
+pattern ResourceTypeImportSnapshotTask :: ResourceType
+pattern ResourceTypeImportSnapshotTask = ResourceType' "import-snapshot-task"
 
-pattern RTInstance :: ResourceType
-pattern RTInstance = ResourceType' "instance"
+pattern ResourceTypeInstance :: ResourceType
+pattern ResourceTypeInstance = ResourceType' "instance"
 
-pattern RTInternetGateway :: ResourceType
-pattern RTInternetGateway = ResourceType' "internet-gateway"
+pattern ResourceTypeInternetGateway :: ResourceType
+pattern ResourceTypeInternetGateway = ResourceType' "internet-gateway"
 
-pattern RTKeyPair :: ResourceType
-pattern RTKeyPair = ResourceType' "key-pair"
+pattern ResourceTypeKeyPair :: ResourceType
+pattern ResourceTypeKeyPair = ResourceType' "key-pair"
 
-pattern RTLaunchTemplate :: ResourceType
-pattern RTLaunchTemplate = ResourceType' "launch-template"
+pattern ResourceTypeLaunchTemplate :: ResourceType
+pattern ResourceTypeLaunchTemplate = ResourceType' "launch-template"
 
-pattern RTLocalGatewayRouteTableVPCAssociation :: ResourceType
-pattern RTLocalGatewayRouteTableVPCAssociation = ResourceType' "local-gateway-route-table-vpc-association"
+pattern ResourceTypeLocalGatewayRouteTableVpcAssociation :: ResourceType
+pattern ResourceTypeLocalGatewayRouteTableVpcAssociation = ResourceType' "local-gateway-route-table-vpc-association"
 
-pattern RTNatgateway :: ResourceType
-pattern RTNatgateway = ResourceType' "natgateway"
+pattern ResourceTypeNatgateway :: ResourceType
+pattern ResourceTypeNatgateway = ResourceType' "natgateway"
 
-pattern RTNetworkACL :: ResourceType
-pattern RTNetworkACL = ResourceType' "network-acl"
+pattern ResourceTypeNetworkAcl :: ResourceType
+pattern ResourceTypeNetworkAcl = ResourceType' "network-acl"
 
-pattern RTNetworkInterface :: ResourceType
-pattern RTNetworkInterface = ResourceType' "network-interface"
+pattern ResourceTypeNetworkInterface :: ResourceType
+pattern ResourceTypeNetworkInterface = ResourceType' "network-interface"
 
-pattern RTPlacementGroup :: ResourceType
-pattern RTPlacementGroup = ResourceType' "placement-group"
+pattern ResourceTypePlacementGroup :: ResourceType
+pattern ResourceTypePlacementGroup = ResourceType' "placement-group"
 
-pattern RTReservedInstances :: ResourceType
-pattern RTReservedInstances = ResourceType' "reserved-instances"
+pattern ResourceTypeReservedInstances :: ResourceType
+pattern ResourceTypeReservedInstances = ResourceType' "reserved-instances"
 
-pattern RTRouteTable :: ResourceType
-pattern RTRouteTable = ResourceType' "route-table"
+pattern ResourceTypeRouteTable :: ResourceType
+pattern ResourceTypeRouteTable = ResourceType' "route-table"
 
-pattern RTSecurityGroup :: ResourceType
-pattern RTSecurityGroup = ResourceType' "security-group"
+pattern ResourceTypeSecurityGroup :: ResourceType
+pattern ResourceTypeSecurityGroup = ResourceType' "security-group"
 
-pattern RTSnapshot :: ResourceType
-pattern RTSnapshot = ResourceType' "snapshot"
+pattern ResourceTypeSnapshot :: ResourceType
+pattern ResourceTypeSnapshot = ResourceType' "snapshot"
 
-pattern RTSpotFleetRequest :: ResourceType
-pattern RTSpotFleetRequest = ResourceType' "spot-fleet-request"
+pattern ResourceTypeSpotFleetRequest :: ResourceType
+pattern ResourceTypeSpotFleetRequest = ResourceType' "spot-fleet-request"
 
-pattern RTSpotInstancesRequest :: ResourceType
-pattern RTSpotInstancesRequest = ResourceType' "spot-instances-request"
+pattern ResourceTypeSpotInstancesRequest :: ResourceType
+pattern ResourceTypeSpotInstancesRequest = ResourceType' "spot-instances-request"
 
-pattern RTSubnet :: ResourceType
-pattern RTSubnet = ResourceType' "subnet"
+pattern ResourceTypeSubnet :: ResourceType
+pattern ResourceTypeSubnet = ResourceType' "subnet"
 
-pattern RTTrafficMirrorFilter :: ResourceType
-pattern RTTrafficMirrorFilter = ResourceType' "traffic-mirror-filter"
+pattern ResourceTypeTrafficMirrorFilter :: ResourceType
+pattern ResourceTypeTrafficMirrorFilter = ResourceType' "traffic-mirror-filter"
 
-pattern RTTrafficMirrorSession :: ResourceType
-pattern RTTrafficMirrorSession = ResourceType' "traffic-mirror-session"
+pattern ResourceTypeTrafficMirrorSession :: ResourceType
+pattern ResourceTypeTrafficMirrorSession = ResourceType' "traffic-mirror-session"
 
-pattern RTTrafficMirrorTarget :: ResourceType
-pattern RTTrafficMirrorTarget = ResourceType' "traffic-mirror-target"
+pattern ResourceTypeTrafficMirrorTarget :: ResourceType
+pattern ResourceTypeTrafficMirrorTarget = ResourceType' "traffic-mirror-target"
 
-pattern RTTransitGateway :: ResourceType
-pattern RTTransitGateway = ResourceType' "transit-gateway"
+pattern ResourceTypeTransitGateway :: ResourceType
+pattern ResourceTypeTransitGateway = ResourceType' "transit-gateway"
 
-pattern RTTransitGatewayAttachment :: ResourceType
-pattern RTTransitGatewayAttachment = ResourceType' "transit-gateway-attachment"
+pattern ResourceTypeTransitGatewayAttachment :: ResourceType
+pattern ResourceTypeTransitGatewayAttachment = ResourceType' "transit-gateway-attachment"
 
-pattern RTTransitGatewayMulticastDomain :: ResourceType
-pattern RTTransitGatewayMulticastDomain = ResourceType' "transit-gateway-multicast-domain"
+pattern ResourceTypeTransitGatewayMulticastDomain :: ResourceType
+pattern ResourceTypeTransitGatewayMulticastDomain = ResourceType' "transit-gateway-multicast-domain"
 
-pattern RTTransitGatewayRouteTable :: ResourceType
-pattern RTTransitGatewayRouteTable = ResourceType' "transit-gateway-route-table"
+pattern ResourceTypeTransitGatewayRouteTable :: ResourceType
+pattern ResourceTypeTransitGatewayRouteTable = ResourceType' "transit-gateway-route-table"
 
-pattern RTVolume :: ResourceType
-pattern RTVolume = ResourceType' "volume"
+pattern ResourceTypeVolume :: ResourceType
+pattern ResourceTypeVolume = ResourceType' "volume"
 
-pattern RTVPC :: ResourceType
-pattern RTVPC = ResourceType' "vpc"
+pattern ResourceTypeVpc :: ResourceType
+pattern ResourceTypeVpc = ResourceType' "vpc"
 
-pattern RTVPCPeeringConnection :: ResourceType
-pattern RTVPCPeeringConnection = ResourceType' "vpc-peering-connection"
+pattern ResourceTypeVpcPeeringConnection :: ResourceType
+pattern ResourceTypeVpcPeeringConnection = ResourceType' "vpc-peering-connection"
 
-pattern RTVPNConnection :: ResourceType
-pattern RTVPNConnection = ResourceType' "vpn-connection"
+pattern ResourceTypeVpnConnection :: ResourceType
+pattern ResourceTypeVpnConnection = ResourceType' "vpn-connection"
 
-pattern RTVPNGateway :: ResourceType
-pattern RTVPNGateway = ResourceType' "vpn-gateway"
+pattern ResourceTypeVpnGateway :: ResourceType
+pattern ResourceTypeVpnGateway = ResourceType' "vpn-gateway"
 
-pattern RTVPCFlowLog :: ResourceType
-pattern RTVPCFlowLog = ResourceType' "vpc-flow-log"
+pattern ResourceTypeVpcFlowLog :: ResourceType
+pattern ResourceTypeVpcFlowLog = ResourceType' "vpc-flow-log"
 
 {-# COMPLETE
-  RTClientVPNEndpoint,
-  RTCustomerGateway,
-  RTDedicatedHost,
-  RTDHCPOptions,
-  RTEgressOnlyInternetGateway,
-  RTElasticIP,
-  RTElasticGpu,
-  RTExportImageTask,
-  RTExportInstanceTask,
-  RTFleet,
-  RTFpgaImage,
-  RTHostReservation,
-  RTImage,
-  RTImportImageTask,
-  RTImportSnapshotTask,
-  RTInstance,
-  RTInternetGateway,
-  RTKeyPair,
-  RTLaunchTemplate,
-  RTLocalGatewayRouteTableVPCAssociation,
-  RTNatgateway,
-  RTNetworkACL,
-  RTNetworkInterface,
-  RTPlacementGroup,
-  RTReservedInstances,
-  RTRouteTable,
-  RTSecurityGroup,
-  RTSnapshot,
-  RTSpotFleetRequest,
-  RTSpotInstancesRequest,
-  RTSubnet,
-  RTTrafficMirrorFilter,
-  RTTrafficMirrorSession,
-  RTTrafficMirrorTarget,
-  RTTransitGateway,
-  RTTransitGatewayAttachment,
-  RTTransitGatewayMulticastDomain,
-  RTTransitGatewayRouteTable,
-  RTVolume,
-  RTVPC,
-  RTVPCPeeringConnection,
-  RTVPNConnection,
-  RTVPNGateway,
-  RTVPCFlowLog,
+  ResourceTypeClientVpnEndpoint,
+  ResourceTypeCustomerGateway,
+  ResourceTypeDedicatedHost,
+  ResourceTypeDhcpOptions,
+  ResourceTypeEgressOnlyInternetGateway,
+  ResourceTypeElasticIp,
+  ResourceTypeElasticGpu,
+  ResourceTypeExportImageTask,
+  ResourceTypeExportInstanceTask,
+  ResourceTypeFleet,
+  ResourceTypeFpgaImage,
+  ResourceTypeHostReservation,
+  ResourceTypeImage,
+  ResourceTypeImportImageTask,
+  ResourceTypeImportSnapshotTask,
+  ResourceTypeInstance,
+  ResourceTypeInternetGateway,
+  ResourceTypeKeyPair,
+  ResourceTypeLaunchTemplate,
+  ResourceTypeLocalGatewayRouteTableVpcAssociation,
+  ResourceTypeNatgateway,
+  ResourceTypeNetworkAcl,
+  ResourceTypeNetworkInterface,
+  ResourceTypePlacementGroup,
+  ResourceTypeReservedInstances,
+  ResourceTypeRouteTable,
+  ResourceTypeSecurityGroup,
+  ResourceTypeSnapshot,
+  ResourceTypeSpotFleetRequest,
+  ResourceTypeSpotInstancesRequest,
+  ResourceTypeSubnet,
+  ResourceTypeTrafficMirrorFilter,
+  ResourceTypeTrafficMirrorSession,
+  ResourceTypeTrafficMirrorTarget,
+  ResourceTypeTransitGateway,
+  ResourceTypeTransitGatewayAttachment,
+  ResourceTypeTransitGatewayMulticastDomain,
+  ResourceTypeTransitGatewayRouteTable,
+  ResourceTypeVolume,
+  ResourceTypeVpc,
+  ResourceTypeVpcPeeringConnection,
+  ResourceTypeVpnConnection,
+  ResourceTypeVpnGateway,
+  ResourceTypeVpcFlowLog,
   ResourceType'
   #-}

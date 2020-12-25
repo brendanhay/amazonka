@@ -20,165 +20,156 @@ module Network.AWS.CloudDirectory.CreateObject
     mkCreateObject,
 
     -- ** Request lenses
-    coDirectoryARN,
-    coParentReference,
-    coObjectAttributeList,
+    coDirectoryArn,
     coSchemaFacets,
     coLinkName,
+    coObjectAttributeList,
+    coParentReference,
 
     -- * Destructuring the response
     CreateObjectResponse (..),
     mkCreateObjectResponse,
 
     -- ** Response lenses
-    corsObjectIdentifier,
-    corsResponseStatus,
+    corrsObjectIdentifier,
+    corrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateObject' smart constructor.
 data CreateObject = CreateObject'
   { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' in which the object will be created. For more information, see 'arns' .
-    directoryARN :: Lude.Text,
-    -- | If specified, the parent reference to which this object will be attached.
-    parentReference :: Lude.Maybe ObjectReference,
-    -- | The attribute map whose attribute ARN contains the key and attribute value as the map value.
-    objectAttributeList :: Lude.Maybe [AttributeKeyAndValue],
+    directoryArn :: Types.Arn,
     -- | A list of schema facets to be associated with the object. Do not provide minor version components. See 'SchemaFacet' for details.
-    schemaFacets :: [SchemaFacet],
+    schemaFacets :: [Types.SchemaFacet],
     -- | The name of link that is used to attach this object to a parent.
-    linkName :: Lude.Maybe Lude.Text
+    linkName :: Core.Maybe Types.LinkName,
+    -- | The attribute map whose attribute ARN contains the key and attribute value as the map value.
+    objectAttributeList :: Core.Maybe [Types.AttributeKeyAndValue],
+    -- | If specified, the parent reference to which this object will be attached.
+    parentReference :: Core.Maybe Types.ObjectReference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateObject' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' in which the object will be created. For more information, see 'arns' .
--- * 'parentReference' - If specified, the parent reference to which this object will be attached.
--- * 'objectAttributeList' - The attribute map whose attribute ARN contains the key and attribute value as the map value.
--- * 'schemaFacets' - A list of schema facets to be associated with the object. Do not provide minor version components. See 'SchemaFacet' for details.
--- * 'linkName' - The name of link that is used to attach this object to a parent.
+-- | Creates a 'CreateObject' value with any optional fields omitted.
 mkCreateObject ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   CreateObject
-mkCreateObject pDirectoryARN_ =
+mkCreateObject directoryArn =
   CreateObject'
-    { directoryARN = pDirectoryARN_,
-      parentReference = Lude.Nothing,
-      objectAttributeList = Lude.Nothing,
-      schemaFacets = Lude.mempty,
-      linkName = Lude.Nothing
+    { directoryArn,
+      schemaFacets = Core.mempty,
+      linkName = Core.Nothing,
+      objectAttributeList = Core.Nothing,
+      parentReference = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' in which the object will be created. For more information, see 'arns' .
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coDirectoryARN :: Lens.Lens' CreateObject Lude.Text
-coDirectoryARN = Lens.lens (directoryARN :: CreateObject -> Lude.Text) (\s a -> s {directoryARN = a} :: CreateObject)
-{-# DEPRECATED coDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
--- | If specified, the parent reference to which this object will be attached.
---
--- /Note:/ Consider using 'parentReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coParentReference :: Lens.Lens' CreateObject (Lude.Maybe ObjectReference)
-coParentReference = Lens.lens (parentReference :: CreateObject -> Lude.Maybe ObjectReference) (\s a -> s {parentReference = a} :: CreateObject)
-{-# DEPRECATED coParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
-
--- | The attribute map whose attribute ARN contains the key and attribute value as the map value.
---
--- /Note:/ Consider using 'objectAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coObjectAttributeList :: Lens.Lens' CreateObject (Lude.Maybe [AttributeKeyAndValue])
-coObjectAttributeList = Lens.lens (objectAttributeList :: CreateObject -> Lude.Maybe [AttributeKeyAndValue]) (\s a -> s {objectAttributeList = a} :: CreateObject)
-{-# DEPRECATED coObjectAttributeList "Use generic-lens or generic-optics with 'objectAttributeList' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coDirectoryArn :: Lens.Lens' CreateObject Types.Arn
+coDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED coDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | A list of schema facets to be associated with the object. Do not provide minor version components. See 'SchemaFacet' for details.
 --
 -- /Note:/ Consider using 'schemaFacets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coSchemaFacets :: Lens.Lens' CreateObject [SchemaFacet]
-coSchemaFacets = Lens.lens (schemaFacets :: CreateObject -> [SchemaFacet]) (\s a -> s {schemaFacets = a} :: CreateObject)
+coSchemaFacets :: Lens.Lens' CreateObject [Types.SchemaFacet]
+coSchemaFacets = Lens.field @"schemaFacets"
 {-# DEPRECATED coSchemaFacets "Use generic-lens or generic-optics with 'schemaFacets' instead." #-}
 
 -- | The name of link that is used to attach this object to a parent.
 --
 -- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coLinkName :: Lens.Lens' CreateObject (Lude.Maybe Lude.Text)
-coLinkName = Lens.lens (linkName :: CreateObject -> Lude.Maybe Lude.Text) (\s a -> s {linkName = a} :: CreateObject)
+coLinkName :: Lens.Lens' CreateObject (Core.Maybe Types.LinkName)
+coLinkName = Lens.field @"linkName"
 {-# DEPRECATED coLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
-instance Lude.AWSRequest CreateObject where
-  type Rs CreateObject = CreateObjectResponse
-  request = Req.putJSON cloudDirectoryService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateObjectResponse'
-            Lude.<$> (x Lude..?> "ObjectIdentifier")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | The attribute map whose attribute ARN contains the key and attribute value as the map value.
+--
+-- /Note:/ Consider using 'objectAttributeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coObjectAttributeList :: Lens.Lens' CreateObject (Core.Maybe [Types.AttributeKeyAndValue])
+coObjectAttributeList = Lens.field @"objectAttributeList"
+{-# DEPRECATED coObjectAttributeList "Use generic-lens or generic-optics with 'objectAttributeList' instead." #-}
 
-instance Lude.ToHeaders CreateObject where
-  toHeaders CreateObject' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
+-- | If specified, the parent reference to which this object will be attached.
+--
+-- /Note:/ Consider using 'parentReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+coParentReference :: Lens.Lens' CreateObject (Core.Maybe Types.ObjectReference)
+coParentReference = Lens.field @"parentReference"
+{-# DEPRECATED coParentReference "Use generic-lens or generic-optics with 'parentReference' instead." #-}
 
-instance Lude.ToJSON CreateObject where
-  toJSON CreateObject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ParentReference" Lude..=) Lude.<$> parentReference,
-            ("ObjectAttributeList" Lude..=) Lude.<$> objectAttributeList,
-            Lude.Just ("SchemaFacets" Lude..= schemaFacets),
-            ("LinkName" Lude..=) Lude.<$> linkName
+instance Core.FromJSON CreateObject where
+  toJSON CreateObject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaFacets" Core..= schemaFacets),
+            ("LinkName" Core..=) Core.<$> linkName,
+            ("ObjectAttributeList" Core..=) Core.<$> objectAttributeList,
+            ("ParentReference" Core..=) Core.<$> parentReference
           ]
       )
 
-instance Lude.ToPath CreateObject where
-  toPath = Lude.const "/amazonclouddirectory/2017-01-11/object"
-
-instance Lude.ToQuery CreateObject where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateObject where
+  type Rs CreateObject = CreateObjectResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/object",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateObjectResponse'
+            Core.<$> (x Core..:? "ObjectIdentifier")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateObjectResponse' smart constructor.
 data CreateObjectResponse = CreateObjectResponse'
   { -- | The identifier that is associated with the object.
-    objectIdentifier :: Lude.Maybe Lude.Text,
+    objectIdentifier :: Core.Maybe Types.ObjectIdentifier,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateObjectResponse' with the minimum fields required to make a request.
---
--- * 'objectIdentifier' - The identifier that is associated with the object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateObjectResponse' value with any optional fields omitted.
 mkCreateObjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateObjectResponse
-mkCreateObjectResponse pResponseStatus_ =
+mkCreateObjectResponse responseStatus =
   CreateObjectResponse'
-    { objectIdentifier = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { objectIdentifier = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier that is associated with the object.
 --
 -- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-corsObjectIdentifier :: Lens.Lens' CreateObjectResponse (Lude.Maybe Lude.Text)
-corsObjectIdentifier = Lens.lens (objectIdentifier :: CreateObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: CreateObjectResponse)
-{-# DEPRECATED corsObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
+corrsObjectIdentifier :: Lens.Lens' CreateObjectResponse (Core.Maybe Types.ObjectIdentifier)
+corrsObjectIdentifier = Lens.field @"objectIdentifier"
+{-# DEPRECATED corrsObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-corsResponseStatus :: Lens.Lens' CreateObjectResponse Lude.Int
-corsResponseStatus = Lens.lens (responseStatus :: CreateObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateObjectResponse)
-{-# DEPRECATED corsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+corrsResponseStatus :: Lens.Lens' CreateObjectResponse Core.Int
+corrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED corrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,121 +17,114 @@ module Network.AWS.EC2.Types.ImportInstanceVolumeDetailItem
     mkImportInstanceVolumeDetailItem,
 
     -- * Lenses
-    iivdiStatus,
-    iivdiBytesConverted,
-    iivdiImage,
-    iivdiVolume,
     iivdiAvailabilityZone,
-    iivdiStatusMessage,
+    iivdiBytesConverted,
     iivdiDescription,
+    iivdiImage,
+    iivdiStatus,
+    iivdiStatusMessage,
+    iivdiVolume,
   )
 where
 
-import Network.AWS.EC2.Types.DiskImageDescription
-import Network.AWS.EC2.Types.DiskImageVolumeDescription
+import qualified Network.AWS.EC2.Types.DiskImageDescription as Types
+import qualified Network.AWS.EC2.Types.DiskImageVolumeDescription as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an import volume task.
 --
 -- /See:/ 'mkImportInstanceVolumeDetailItem' smart constructor.
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
-  { -- | The status of the import of this particular disk image.
-    status :: Lude.Maybe Lude.Text,
+  { -- | The Availability Zone where the resulting instance will reside.
+    availabilityZone :: Core.Maybe Types.String,
     -- | The number of bytes converted so far.
-    bytesConverted :: Lude.Maybe Lude.Integer,
-    -- | The image.
-    image :: Lude.Maybe DiskImageDescription,
-    -- | The volume.
-    volume :: Lude.Maybe DiskImageVolumeDescription,
-    -- | The Availability Zone where the resulting instance will reside.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | The status information or errors related to the disk image.
-    statusMessage :: Lude.Maybe Lude.Text,
+    bytesConverted :: Core.Maybe Core.Integer,
     -- | A description of the task.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.String,
+    -- | The image.
+    image :: Core.Maybe Types.DiskImageDescription,
+    -- | The status of the import of this particular disk image.
+    status :: Core.Maybe Types.String,
+    -- | The status information or errors related to the disk image.
+    statusMessage :: Core.Maybe Types.String,
+    -- | The volume.
+    volume :: Core.Maybe Types.DiskImageVolumeDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportInstanceVolumeDetailItem' with the minimum fields required to make a request.
---
--- * 'status' - The status of the import of this particular disk image.
--- * 'bytesConverted' - The number of bytes converted so far.
--- * 'image' - The image.
--- * 'volume' - The volume.
--- * 'availabilityZone' - The Availability Zone where the resulting instance will reside.
--- * 'statusMessage' - The status information or errors related to the disk image.
--- * 'description' - A description of the task.
+-- | Creates a 'ImportInstanceVolumeDetailItem' value with any optional fields omitted.
 mkImportInstanceVolumeDetailItem ::
   ImportInstanceVolumeDetailItem
 mkImportInstanceVolumeDetailItem =
   ImportInstanceVolumeDetailItem'
-    { status = Lude.Nothing,
-      bytesConverted = Lude.Nothing,
-      image = Lude.Nothing,
-      volume = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      description = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      bytesConverted = Core.Nothing,
+      description = Core.Nothing,
+      image = Core.Nothing,
+      status = Core.Nothing,
+      statusMessage = Core.Nothing,
+      volume = Core.Nothing
     }
-
--- | The status of the import of this particular disk image.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iivdiStatus :: Lens.Lens' ImportInstanceVolumeDetailItem (Lude.Maybe Lude.Text)
-iivdiStatus = Lens.lens (status :: ImportInstanceVolumeDetailItem -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: ImportInstanceVolumeDetailItem)
-{-# DEPRECATED iivdiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The number of bytes converted so far.
---
--- /Note:/ Consider using 'bytesConverted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iivdiBytesConverted :: Lens.Lens' ImportInstanceVolumeDetailItem (Lude.Maybe Lude.Integer)
-iivdiBytesConverted = Lens.lens (bytesConverted :: ImportInstanceVolumeDetailItem -> Lude.Maybe Lude.Integer) (\s a -> s {bytesConverted = a} :: ImportInstanceVolumeDetailItem)
-{-# DEPRECATED iivdiBytesConverted "Use generic-lens or generic-optics with 'bytesConverted' instead." #-}
-
--- | The image.
---
--- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iivdiImage :: Lens.Lens' ImportInstanceVolumeDetailItem (Lude.Maybe DiskImageDescription)
-iivdiImage = Lens.lens (image :: ImportInstanceVolumeDetailItem -> Lude.Maybe DiskImageDescription) (\s a -> s {image = a} :: ImportInstanceVolumeDetailItem)
-{-# DEPRECATED iivdiImage "Use generic-lens or generic-optics with 'image' instead." #-}
-
--- | The volume.
---
--- /Note:/ Consider using 'volume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iivdiVolume :: Lens.Lens' ImportInstanceVolumeDetailItem (Lude.Maybe DiskImageVolumeDescription)
-iivdiVolume = Lens.lens (volume :: ImportInstanceVolumeDetailItem -> Lude.Maybe DiskImageVolumeDescription) (\s a -> s {volume = a} :: ImportInstanceVolumeDetailItem)
-{-# DEPRECATED iivdiVolume "Use generic-lens or generic-optics with 'volume' instead." #-}
 
 -- | The Availability Zone where the resulting instance will reside.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iivdiAvailabilityZone :: Lens.Lens' ImportInstanceVolumeDetailItem (Lude.Maybe Lude.Text)
-iivdiAvailabilityZone = Lens.lens (availabilityZone :: ImportInstanceVolumeDetailItem -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: ImportInstanceVolumeDetailItem)
+iivdiAvailabilityZone :: Lens.Lens' ImportInstanceVolumeDetailItem (Core.Maybe Types.String)
+iivdiAvailabilityZone = Lens.field @"availabilityZone"
 {-# DEPRECATED iivdiAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | The status information or errors related to the disk image.
+-- | The number of bytes converted so far.
 --
--- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iivdiStatusMessage :: Lens.Lens' ImportInstanceVolumeDetailItem (Lude.Maybe Lude.Text)
-iivdiStatusMessage = Lens.lens (statusMessage :: ImportInstanceVolumeDetailItem -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: ImportInstanceVolumeDetailItem)
-{-# DEPRECATED iivdiStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+-- /Note:/ Consider using 'bytesConverted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iivdiBytesConverted :: Lens.Lens' ImportInstanceVolumeDetailItem (Core.Maybe Core.Integer)
+iivdiBytesConverted = Lens.field @"bytesConverted"
+{-# DEPRECATED iivdiBytesConverted "Use generic-lens or generic-optics with 'bytesConverted' instead." #-}
 
 -- | A description of the task.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iivdiDescription :: Lens.Lens' ImportInstanceVolumeDetailItem (Lude.Maybe Lude.Text)
-iivdiDescription = Lens.lens (description :: ImportInstanceVolumeDetailItem -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImportInstanceVolumeDetailItem)
+iivdiDescription :: Lens.Lens' ImportInstanceVolumeDetailItem (Core.Maybe Types.String)
+iivdiDescription = Lens.field @"description"
 {-# DEPRECATED iivdiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML ImportInstanceVolumeDetailItem where
+-- | The image.
+--
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iivdiImage :: Lens.Lens' ImportInstanceVolumeDetailItem (Core.Maybe Types.DiskImageDescription)
+iivdiImage = Lens.field @"image"
+{-# DEPRECATED iivdiImage "Use generic-lens or generic-optics with 'image' instead." #-}
+
+-- | The status of the import of this particular disk image.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iivdiStatus :: Lens.Lens' ImportInstanceVolumeDetailItem (Core.Maybe Types.String)
+iivdiStatus = Lens.field @"status"
+{-# DEPRECATED iivdiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The status information or errors related to the disk image.
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iivdiStatusMessage :: Lens.Lens' ImportInstanceVolumeDetailItem (Core.Maybe Types.String)
+iivdiStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED iivdiStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+
+-- | The volume.
+--
+-- /Note:/ Consider using 'volume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iivdiVolume :: Lens.Lens' ImportInstanceVolumeDetailItem (Core.Maybe Types.DiskImageVolumeDescription)
+iivdiVolume = Lens.field @"volume"
+{-# DEPRECATED iivdiVolume "Use generic-lens or generic-optics with 'volume' instead." #-}
+
+instance Core.FromXML ImportInstanceVolumeDetailItem where
   parseXML x =
     ImportInstanceVolumeDetailItem'
-      Lude.<$> (x Lude..@? "status")
-      Lude.<*> (x Lude..@? "bytesConverted")
-      Lude.<*> (x Lude..@? "image")
-      Lude.<*> (x Lude..@? "volume")
-      Lude.<*> (x Lude..@? "availabilityZone")
-      Lude.<*> (x Lude..@? "statusMessage")
-      Lude.<*> (x Lude..@? "description")
+      Core.<$> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "bytesConverted")
+      Core.<*> (x Core..@? "description")
+      Core.<*> (x Core..@? "image")
+      Core.<*> (x Core..@? "status")
+      Core.<*> (x Core..@? "statusMessage")
+      Core.<*> (x Core..@? "volume")

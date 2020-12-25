@@ -13,56 +13,61 @@
 module Network.AWS.SageMaker.Types.HyperParameterScalingType
   ( HyperParameterScalingType
       ( HyperParameterScalingType',
-        Auto,
-        Linear,
-        Logarithmic,
-        ReverseLogarithmic
+        HyperParameterScalingTypeAuto,
+        HyperParameterScalingTypeLinear,
+        HyperParameterScalingTypeLogarithmic,
+        HyperParameterScalingTypeReverseLogarithmic,
+        fromHyperParameterScalingType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HyperParameterScalingType = HyperParameterScalingType' Lude.Text
+newtype HyperParameterScalingType = HyperParameterScalingType'
+  { fromHyperParameterScalingType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Auto :: HyperParameterScalingType
-pattern Auto = HyperParameterScalingType' "Auto"
+pattern HyperParameterScalingTypeAuto :: HyperParameterScalingType
+pattern HyperParameterScalingTypeAuto = HyperParameterScalingType' "Auto"
 
-pattern Linear :: HyperParameterScalingType
-pattern Linear = HyperParameterScalingType' "Linear"
+pattern HyperParameterScalingTypeLinear :: HyperParameterScalingType
+pattern HyperParameterScalingTypeLinear = HyperParameterScalingType' "Linear"
 
-pattern Logarithmic :: HyperParameterScalingType
-pattern Logarithmic = HyperParameterScalingType' "Logarithmic"
+pattern HyperParameterScalingTypeLogarithmic :: HyperParameterScalingType
+pattern HyperParameterScalingTypeLogarithmic = HyperParameterScalingType' "Logarithmic"
 
-pattern ReverseLogarithmic :: HyperParameterScalingType
-pattern ReverseLogarithmic = HyperParameterScalingType' "ReverseLogarithmic"
+pattern HyperParameterScalingTypeReverseLogarithmic :: HyperParameterScalingType
+pattern HyperParameterScalingTypeReverseLogarithmic = HyperParameterScalingType' "ReverseLogarithmic"
 
 {-# COMPLETE
-  Auto,
-  Linear,
-  Logarithmic,
-  ReverseLogarithmic,
+  HyperParameterScalingTypeAuto,
+  HyperParameterScalingTypeLinear,
+  HyperParameterScalingTypeLogarithmic,
+  HyperParameterScalingTypeReverseLogarithmic,
   HyperParameterScalingType'
   #-}

@@ -13,51 +13,53 @@
 module Network.AWS.EC2.Types.EnaSupport
   ( EnaSupport
       ( EnaSupport',
-        ESUnsupported,
-        ESSupported,
-        ESRequired
+        EnaSupportUnsupported,
+        EnaSupportSupported,
+        EnaSupportRequired,
+        fromEnaSupport
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EnaSupport = EnaSupport' Lude.Text
+newtype EnaSupport = EnaSupport' {fromEnaSupport :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ESUnsupported :: EnaSupport
-pattern ESUnsupported = EnaSupport' "unsupported"
+pattern EnaSupportUnsupported :: EnaSupport
+pattern EnaSupportUnsupported = EnaSupport' "unsupported"
 
-pattern ESSupported :: EnaSupport
-pattern ESSupported = EnaSupport' "supported"
+pattern EnaSupportSupported :: EnaSupport
+pattern EnaSupportSupported = EnaSupport' "supported"
 
-pattern ESRequired :: EnaSupport
-pattern ESRequired = EnaSupport' "required"
+pattern EnaSupportRequired :: EnaSupport
+pattern EnaSupportRequired = EnaSupport' "required"
 
 {-# COMPLETE
-  ESUnsupported,
-  ESSupported,
-  ESRequired,
+  EnaSupportUnsupported,
+  EnaSupportSupported,
+  EnaSupportRequired,
   EnaSupport'
   #-}

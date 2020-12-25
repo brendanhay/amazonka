@@ -27,107 +27,93 @@ module Network.AWS.CloudTrail.GetTrail
     mkGetTrailResponse,
 
     -- ** Response lenses
-    gtrsTrail,
-    gtrsResponseStatus,
+    gtrrsTrail,
+    gtrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.CloudTrail.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetTrail' smart constructor.
 newtype GetTrail = GetTrail'
   { -- | The name or the Amazon Resource Name (ARN) of the trail for which you want to retrieve settings information.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTrail' with the minimum fields required to make a request.
---
--- * 'name' - The name or the Amazon Resource Name (ARN) of the trail for which you want to retrieve settings information.
+-- | Creates a 'GetTrail' value with any optional fields omitted.
 mkGetTrail ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   GetTrail
-mkGetTrail pName_ = GetTrail' {name = pName_}
+mkGetTrail name = GetTrail' {name}
 
 -- | The name or the Amazon Resource Name (ARN) of the trail for which you want to retrieve settings information.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtName :: Lens.Lens' GetTrail Lude.Text
-gtName = Lens.lens (name :: GetTrail -> Lude.Text) (\s a -> s {name = a} :: GetTrail)
+gtName :: Lens.Lens' GetTrail Types.Name
+gtName = Lens.field @"name"
 {-# DEPRECATED gtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest GetTrail where
+instance Core.FromJSON GetTrail where
+  toJSON GetTrail {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest GetTrail where
   type Rs GetTrail = GetTrailResponse
-  request = Req.postJSON cloudTrailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetTrail"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetTrailResponse'
-            Lude.<$> (x Lude..?> "Trail") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Trail") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetTrail where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.GetTrail" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetTrail where
-  toJSON GetTrail' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath GetTrail where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetTrail where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetTrailResponse' smart constructor.
 data GetTrailResponse = GetTrailResponse'
-  { trail :: Lude.Maybe Trail,
+  { trail :: Core.Maybe Types.Trail,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTrailResponse' with the minimum fields required to make a request.
---
--- * 'trail' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTrailResponse' value with any optional fields omitted.
 mkGetTrailResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTrailResponse
-mkGetTrailResponse pResponseStatus_ =
-  GetTrailResponse'
-    { trail = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetTrailResponse responseStatus =
+  GetTrailResponse' {trail = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'trail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsTrail :: Lens.Lens' GetTrailResponse (Lude.Maybe Trail)
-gtrsTrail = Lens.lens (trail :: GetTrailResponse -> Lude.Maybe Trail) (\s a -> s {trail = a} :: GetTrailResponse)
-{-# DEPRECATED gtrsTrail "Use generic-lens or generic-optics with 'trail' instead." #-}
+gtrrsTrail :: Lens.Lens' GetTrailResponse (Core.Maybe Types.Trail)
+gtrrsTrail = Lens.field @"trail"
+{-# DEPRECATED gtrrsTrail "Use generic-lens or generic-optics with 'trail' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsResponseStatus :: Lens.Lens' GetTrailResponse Lude.Int
-gtrsResponseStatus = Lens.lens (responseStatus :: GetTrailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTrailResponse)
-{-# DEPRECATED gtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtrrsResponseStatus :: Lens.Lens' GetTrailResponse Core.Int
+gtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

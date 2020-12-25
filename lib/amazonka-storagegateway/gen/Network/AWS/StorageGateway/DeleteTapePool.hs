@@ -27,107 +27,93 @@ module Network.AWS.StorageGateway.DeleteTapePool
     mkDeleteTapePoolResponse,
 
     -- ** Response lenses
-    dtprsPoolARN,
-    dtprsResponseStatus,
+    dtprrsPoolARN,
+    dtprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkDeleteTapePool' smart constructor.
 newtype DeleteTapePool = DeleteTapePool'
   { -- | The Amazon Resource Name (ARN) of the custom tape pool to delete.
-    poolARN :: Lude.Text
+    poolARN :: Types.PoolARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTapePool' with the minimum fields required to make a request.
---
--- * 'poolARN' - The Amazon Resource Name (ARN) of the custom tape pool to delete.
+-- | Creates a 'DeleteTapePool' value with any optional fields omitted.
 mkDeleteTapePool ::
   -- | 'poolARN'
-  Lude.Text ->
+  Types.PoolARN ->
   DeleteTapePool
-mkDeleteTapePool pPoolARN_ = DeleteTapePool' {poolARN = pPoolARN_}
+mkDeleteTapePool poolARN = DeleteTapePool' {poolARN}
 
 -- | The Amazon Resource Name (ARN) of the custom tape pool to delete.
 --
 -- /Note:/ Consider using 'poolARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtpPoolARN :: Lens.Lens' DeleteTapePool Lude.Text
-dtpPoolARN = Lens.lens (poolARN :: DeleteTapePool -> Lude.Text) (\s a -> s {poolARN = a} :: DeleteTapePool)
+dtpPoolARN :: Lens.Lens' DeleteTapePool Types.PoolARN
+dtpPoolARN = Lens.field @"poolARN"
 {-# DEPRECATED dtpPoolARN "Use generic-lens or generic-optics with 'poolARN' instead." #-}
 
-instance Lude.AWSRequest DeleteTapePool where
+instance Core.FromJSON DeleteTapePool where
+  toJSON DeleteTapePool {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("PoolARN" Core..= poolARN)])
+
+instance Core.AWSRequest DeleteTapePool where
   type Rs DeleteTapePool = DeleteTapePoolResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.DeleteTapePool")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteTapePoolResponse'
-            Lude.<$> (x Lude..?> "PoolARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PoolARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteTapePool where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.DeleteTapePool" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteTapePool where
-  toJSON DeleteTapePool' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("PoolARN" Lude..= poolARN)])
-
-instance Lude.ToPath DeleteTapePool where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTapePool where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteTapePoolResponse' smart constructor.
 data DeleteTapePoolResponse = DeleteTapePoolResponse'
   { -- | The Amazon Resource Name (ARN) of the custom tape pool being deleted.
-    poolARN :: Lude.Maybe Lude.Text,
+    poolARN :: Core.Maybe Types.PoolARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTapePoolResponse' with the minimum fields required to make a request.
---
--- * 'poolARN' - The Amazon Resource Name (ARN) of the custom tape pool being deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteTapePoolResponse' value with any optional fields omitted.
 mkDeleteTapePoolResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteTapePoolResponse
-mkDeleteTapePoolResponse pResponseStatus_ =
-  DeleteTapePoolResponse'
-    { poolARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteTapePoolResponse responseStatus =
+  DeleteTapePoolResponse' {poolARN = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the custom tape pool being deleted.
 --
 -- /Note:/ Consider using 'poolARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtprsPoolARN :: Lens.Lens' DeleteTapePoolResponse (Lude.Maybe Lude.Text)
-dtprsPoolARN = Lens.lens (poolARN :: DeleteTapePoolResponse -> Lude.Maybe Lude.Text) (\s a -> s {poolARN = a} :: DeleteTapePoolResponse)
-{-# DEPRECATED dtprsPoolARN "Use generic-lens or generic-optics with 'poolARN' instead." #-}
+dtprrsPoolARN :: Lens.Lens' DeleteTapePoolResponse (Core.Maybe Types.PoolARN)
+dtprrsPoolARN = Lens.field @"poolARN"
+{-# DEPRECATED dtprrsPoolARN "Use generic-lens or generic-optics with 'poolARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtprsResponseStatus :: Lens.Lens' DeleteTapePoolResponse Lude.Int
-dtprsResponseStatus = Lens.lens (responseStatus :: DeleteTapePoolResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTapePoolResponse)
-{-# DEPRECATED dtprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtprrsResponseStatus :: Lens.Lens' DeleteTapePoolResponse Core.Int
+dtprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

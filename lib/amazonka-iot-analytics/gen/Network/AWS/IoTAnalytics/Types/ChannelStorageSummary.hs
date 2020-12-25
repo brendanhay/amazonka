@@ -17,60 +17,55 @@ module Network.AWS.IoTAnalytics.Types.ChannelStorageSummary
     mkChannelStorageSummary,
 
     -- * Lenses
-    cssServiceManagedS3,
     cssCustomerManagedS3,
+    cssServiceManagedS3,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary
-import Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3StorageSummary
+import qualified Network.AWS.IoTAnalytics.Types.CustomerManagedChannelS3StorageSummary as Types
+import qualified Network.AWS.IoTAnalytics.Types.ServiceManagedChannelS3StorageSummary as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Where channel data is stored.
 --
 -- /See:/ 'mkChannelStorageSummary' smart constructor.
 data ChannelStorageSummary = ChannelStorageSummary'
-  { -- | Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
-    serviceManagedS3 :: Lude.Maybe ServiceManagedChannelS3StorageSummary,
-    -- | Used to store channel data in an S3 bucket that you manage.
-    customerManagedS3 :: Lude.Maybe CustomerManagedChannelS3StorageSummary
+  { -- | Used to store channel data in an S3 bucket that you manage.
+    customerManagedS3 :: Core.Maybe Types.CustomerManagedChannelS3StorageSummary,
+    -- | Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
+    serviceManagedS3 :: Core.Maybe Types.ServiceManagedChannelS3StorageSummary
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChannelStorageSummary' with the minimum fields required to make a request.
---
--- * 'serviceManagedS3' - Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
--- * 'customerManagedS3' - Used to store channel data in an S3 bucket that you manage.
+-- | Creates a 'ChannelStorageSummary' value with any optional fields omitted.
 mkChannelStorageSummary ::
   ChannelStorageSummary
 mkChannelStorageSummary =
   ChannelStorageSummary'
-    { serviceManagedS3 = Lude.Nothing,
-      customerManagedS3 = Lude.Nothing
+    { customerManagedS3 = Core.Nothing,
+      serviceManagedS3 = Core.Nothing
     }
-
--- | Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
---
--- /Note:/ Consider using 'serviceManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssServiceManagedS3 :: Lens.Lens' ChannelStorageSummary (Lude.Maybe ServiceManagedChannelS3StorageSummary)
-cssServiceManagedS3 = Lens.lens (serviceManagedS3 :: ChannelStorageSummary -> Lude.Maybe ServiceManagedChannelS3StorageSummary) (\s a -> s {serviceManagedS3 = a} :: ChannelStorageSummary)
-{-# DEPRECATED cssServiceManagedS3 "Use generic-lens or generic-optics with 'serviceManagedS3' instead." #-}
 
 -- | Used to store channel data in an S3 bucket that you manage.
 --
 -- /Note:/ Consider using 'customerManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cssCustomerManagedS3 :: Lens.Lens' ChannelStorageSummary (Lude.Maybe CustomerManagedChannelS3StorageSummary)
-cssCustomerManagedS3 = Lens.lens (customerManagedS3 :: ChannelStorageSummary -> Lude.Maybe CustomerManagedChannelS3StorageSummary) (\s a -> s {customerManagedS3 = a} :: ChannelStorageSummary)
+cssCustomerManagedS3 :: Lens.Lens' ChannelStorageSummary (Core.Maybe Types.CustomerManagedChannelS3StorageSummary)
+cssCustomerManagedS3 = Lens.field @"customerManagedS3"
 {-# DEPRECATED cssCustomerManagedS3 "Use generic-lens or generic-optics with 'customerManagedS3' instead." #-}
 
-instance Lude.FromJSON ChannelStorageSummary where
+-- | Used to store channel data in an S3 bucket managed by AWS IoT Analytics.
+--
+-- /Note:/ Consider using 'serviceManagedS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cssServiceManagedS3 :: Lens.Lens' ChannelStorageSummary (Core.Maybe Types.ServiceManagedChannelS3StorageSummary)
+cssServiceManagedS3 = Lens.field @"serviceManagedS3"
+{-# DEPRECATED cssServiceManagedS3 "Use generic-lens or generic-optics with 'serviceManagedS3' instead." #-}
+
+instance Core.FromJSON ChannelStorageSummary where
   parseJSON =
-    Lude.withObject
-      "ChannelStorageSummary"
-      ( \x ->
-          ChannelStorageSummary'
-            Lude.<$> (x Lude..:? "serviceManagedS3")
-            Lude.<*> (x Lude..:? "customerManagedS3")
-      )
+    Core.withObject "ChannelStorageSummary" Core.$
+      \x ->
+        ChannelStorageSummary'
+          Core.<$> (x Core..:? "customerManagedS3")
+          Core.<*> (x Core..:? "serviceManagedS3")

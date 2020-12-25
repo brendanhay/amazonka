@@ -13,51 +13,56 @@
 module Network.AWS.IAM.Types.JobStatusType
   ( JobStatusType
       ( JobStatusType',
-        InProgress,
-        Completed,
-        Failed
+        JobStatusTypeInProgress,
+        JobStatusTypeCompleted,
+        JobStatusTypeFailed,
+        fromJobStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype JobStatusType = JobStatusType' Lude.Text
+newtype JobStatusType = JobStatusType'
+  { fromJobStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InProgress :: JobStatusType
-pattern InProgress = JobStatusType' "IN_PROGRESS"
+pattern JobStatusTypeInProgress :: JobStatusType
+pattern JobStatusTypeInProgress = JobStatusType' "IN_PROGRESS"
 
-pattern Completed :: JobStatusType
-pattern Completed = JobStatusType' "COMPLETED"
+pattern JobStatusTypeCompleted :: JobStatusType
+pattern JobStatusTypeCompleted = JobStatusType' "COMPLETED"
 
-pattern Failed :: JobStatusType
-pattern Failed = JobStatusType' "FAILED"
+pattern JobStatusTypeFailed :: JobStatusType
+pattern JobStatusTypeFailed = JobStatusType' "FAILED"
 
 {-# COMPLETE
-  InProgress,
-  Completed,
-  Failed,
+  JobStatusTypeInProgress,
+  JobStatusTypeCompleted,
+  JobStatusTypeFailed,
   JobStatusType'
   #-}

@@ -26,159 +26,145 @@ module Network.AWS.Discovery.GetDiscoverySummary
     mkGetDiscoverySummaryResponse,
 
     -- ** Response lenses
-    gdsrsServers,
-    gdsrsServersMappedtoTags,
-    gdsrsServersMappedToApplications,
-    gdsrsConnectorSummary,
-    gdsrsAgentSummary,
-    gdsrsApplications,
-    gdsrsResponseStatus,
+    gdsrrsAgentSummary,
+    gdsrrsApplications,
+    gdsrrsConnectorSummary,
+    gdsrrsServers,
+    gdsrrsServersMappedToApplications,
+    gdsrrsServersMappedtoTags,
+    gdsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDiscoverySummary' smart constructor.
 data GetDiscoverySummary = GetDiscoverySummary'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDiscoverySummary' with the minimum fields required to make a request.
+-- | Creates a 'GetDiscoverySummary' value with any optional fields omitted.
 mkGetDiscoverySummary ::
   GetDiscoverySummary
 mkGetDiscoverySummary = GetDiscoverySummary'
 
-instance Lude.AWSRequest GetDiscoverySummary where
+instance Core.FromJSON GetDiscoverySummary where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest GetDiscoverySummary where
   type Rs GetDiscoverySummary = GetDiscoverySummaryResponse
-  request = Req.postJSON discoveryService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSPoseidonService_V2015_11_01.GetDiscoverySummary"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDiscoverySummaryResponse'
-            Lude.<$> (x Lude..?> "servers")
-            Lude.<*> (x Lude..?> "serversMappedtoTags")
-            Lude.<*> (x Lude..?> "serversMappedToApplications")
-            Lude.<*> (x Lude..?> "connectorSummary")
-            Lude.<*> (x Lude..?> "agentSummary")
-            Lude.<*> (x Lude..?> "applications")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "agentSummary")
+            Core.<*> (x Core..:? "applications")
+            Core.<*> (x Core..:? "connectorSummary")
+            Core.<*> (x Core..:? "servers")
+            Core.<*> (x Core..:? "serversMappedToApplications")
+            Core.<*> (x Core..:? "serversMappedtoTags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDiscoverySummary where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSPoseidonService_V2015_11_01.GetDiscoverySummary" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDiscoverySummary where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath GetDiscoverySummary where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDiscoverySummary where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetDiscoverySummaryResponse' smart constructor.
 data GetDiscoverySummaryResponse = GetDiscoverySummaryResponse'
-  { -- | The number of servers discovered.
-    servers :: Lude.Maybe Lude.Integer,
-    -- | The number of servers mapped to tags.
-    serversMappedtoTags :: Lude.Maybe Lude.Integer,
-    -- | The number of servers mapped to applications.
-    serversMappedToApplications :: Lude.Maybe Lude.Integer,
-    -- | Details about discovered connectors, including connector status and health.
-    connectorSummary :: Lude.Maybe CustomerConnectorInfo,
-    -- | Details about discovered agents, including agent status and health.
-    agentSummary :: Lude.Maybe CustomerAgentInfo,
+  { -- | Details about discovered agents, including agent status and health.
+    agentSummary :: Core.Maybe Types.CustomerAgentInfo,
     -- | The number of applications discovered.
-    applications :: Lude.Maybe Lude.Integer,
+    applications :: Core.Maybe Core.Integer,
+    -- | Details about discovered connectors, including connector status and health.
+    connectorSummary :: Core.Maybe Types.CustomerConnectorInfo,
+    -- | The number of servers discovered.
+    servers :: Core.Maybe Core.Integer,
+    -- | The number of servers mapped to applications.
+    serversMappedToApplications :: Core.Maybe Core.Integer,
+    -- | The number of servers mapped to tags.
+    serversMappedtoTags :: Core.Maybe Core.Integer,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDiscoverySummaryResponse' with the minimum fields required to make a request.
---
--- * 'servers' - The number of servers discovered.
--- * 'serversMappedtoTags' - The number of servers mapped to tags.
--- * 'serversMappedToApplications' - The number of servers mapped to applications.
--- * 'connectorSummary' - Details about discovered connectors, including connector status and health.
--- * 'agentSummary' - Details about discovered agents, including agent status and health.
--- * 'applications' - The number of applications discovered.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDiscoverySummaryResponse' value with any optional fields omitted.
 mkGetDiscoverySummaryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDiscoverySummaryResponse
-mkGetDiscoverySummaryResponse pResponseStatus_ =
+mkGetDiscoverySummaryResponse responseStatus =
   GetDiscoverySummaryResponse'
-    { servers = Lude.Nothing,
-      serversMappedtoTags = Lude.Nothing,
-      serversMappedToApplications = Lude.Nothing,
-      connectorSummary = Lude.Nothing,
-      agentSummary = Lude.Nothing,
-      applications = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { agentSummary = Core.Nothing,
+      applications = Core.Nothing,
+      connectorSummary = Core.Nothing,
+      servers = Core.Nothing,
+      serversMappedToApplications = Core.Nothing,
+      serversMappedtoTags = Core.Nothing,
+      responseStatus
     }
-
--- | The number of servers discovered.
---
--- /Note:/ Consider using 'servers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsrsServers :: Lens.Lens' GetDiscoverySummaryResponse (Lude.Maybe Lude.Integer)
-gdsrsServers = Lens.lens (servers :: GetDiscoverySummaryResponse -> Lude.Maybe Lude.Integer) (\s a -> s {servers = a} :: GetDiscoverySummaryResponse)
-{-# DEPRECATED gdsrsServers "Use generic-lens or generic-optics with 'servers' instead." #-}
-
--- | The number of servers mapped to tags.
---
--- /Note:/ Consider using 'serversMappedtoTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsrsServersMappedtoTags :: Lens.Lens' GetDiscoverySummaryResponse (Lude.Maybe Lude.Integer)
-gdsrsServersMappedtoTags = Lens.lens (serversMappedtoTags :: GetDiscoverySummaryResponse -> Lude.Maybe Lude.Integer) (\s a -> s {serversMappedtoTags = a} :: GetDiscoverySummaryResponse)
-{-# DEPRECATED gdsrsServersMappedtoTags "Use generic-lens or generic-optics with 'serversMappedtoTags' instead." #-}
-
--- | The number of servers mapped to applications.
---
--- /Note:/ Consider using 'serversMappedToApplications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsrsServersMappedToApplications :: Lens.Lens' GetDiscoverySummaryResponse (Lude.Maybe Lude.Integer)
-gdsrsServersMappedToApplications = Lens.lens (serversMappedToApplications :: GetDiscoverySummaryResponse -> Lude.Maybe Lude.Integer) (\s a -> s {serversMappedToApplications = a} :: GetDiscoverySummaryResponse)
-{-# DEPRECATED gdsrsServersMappedToApplications "Use generic-lens or generic-optics with 'serversMappedToApplications' instead." #-}
-
--- | Details about discovered connectors, including connector status and health.
---
--- /Note:/ Consider using 'connectorSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsrsConnectorSummary :: Lens.Lens' GetDiscoverySummaryResponse (Lude.Maybe CustomerConnectorInfo)
-gdsrsConnectorSummary = Lens.lens (connectorSummary :: GetDiscoverySummaryResponse -> Lude.Maybe CustomerConnectorInfo) (\s a -> s {connectorSummary = a} :: GetDiscoverySummaryResponse)
-{-# DEPRECATED gdsrsConnectorSummary "Use generic-lens or generic-optics with 'connectorSummary' instead." #-}
 
 -- | Details about discovered agents, including agent status and health.
 --
 -- /Note:/ Consider using 'agentSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsrsAgentSummary :: Lens.Lens' GetDiscoverySummaryResponse (Lude.Maybe CustomerAgentInfo)
-gdsrsAgentSummary = Lens.lens (agentSummary :: GetDiscoverySummaryResponse -> Lude.Maybe CustomerAgentInfo) (\s a -> s {agentSummary = a} :: GetDiscoverySummaryResponse)
-{-# DEPRECATED gdsrsAgentSummary "Use generic-lens or generic-optics with 'agentSummary' instead." #-}
+gdsrrsAgentSummary :: Lens.Lens' GetDiscoverySummaryResponse (Core.Maybe Types.CustomerAgentInfo)
+gdsrrsAgentSummary = Lens.field @"agentSummary"
+{-# DEPRECATED gdsrrsAgentSummary "Use generic-lens or generic-optics with 'agentSummary' instead." #-}
 
 -- | The number of applications discovered.
 --
 -- /Note:/ Consider using 'applications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsrsApplications :: Lens.Lens' GetDiscoverySummaryResponse (Lude.Maybe Lude.Integer)
-gdsrsApplications = Lens.lens (applications :: GetDiscoverySummaryResponse -> Lude.Maybe Lude.Integer) (\s a -> s {applications = a} :: GetDiscoverySummaryResponse)
-{-# DEPRECATED gdsrsApplications "Use generic-lens or generic-optics with 'applications' instead." #-}
+gdsrrsApplications :: Lens.Lens' GetDiscoverySummaryResponse (Core.Maybe Core.Integer)
+gdsrrsApplications = Lens.field @"applications"
+{-# DEPRECATED gdsrrsApplications "Use generic-lens or generic-optics with 'applications' instead." #-}
+
+-- | Details about discovered connectors, including connector status and health.
+--
+-- /Note:/ Consider using 'connectorSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsrrsConnectorSummary :: Lens.Lens' GetDiscoverySummaryResponse (Core.Maybe Types.CustomerConnectorInfo)
+gdsrrsConnectorSummary = Lens.field @"connectorSummary"
+{-# DEPRECATED gdsrrsConnectorSummary "Use generic-lens or generic-optics with 'connectorSummary' instead." #-}
+
+-- | The number of servers discovered.
+--
+-- /Note:/ Consider using 'servers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsrrsServers :: Lens.Lens' GetDiscoverySummaryResponse (Core.Maybe Core.Integer)
+gdsrrsServers = Lens.field @"servers"
+{-# DEPRECATED gdsrrsServers "Use generic-lens or generic-optics with 'servers' instead." #-}
+
+-- | The number of servers mapped to applications.
+--
+-- /Note:/ Consider using 'serversMappedToApplications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsrrsServersMappedToApplications :: Lens.Lens' GetDiscoverySummaryResponse (Core.Maybe Core.Integer)
+gdsrrsServersMappedToApplications = Lens.field @"serversMappedToApplications"
+{-# DEPRECATED gdsrrsServersMappedToApplications "Use generic-lens or generic-optics with 'serversMappedToApplications' instead." #-}
+
+-- | The number of servers mapped to tags.
+--
+-- /Note:/ Consider using 'serversMappedtoTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdsrrsServersMappedtoTags :: Lens.Lens' GetDiscoverySummaryResponse (Core.Maybe Core.Integer)
+gdsrrsServersMappedtoTags = Lens.field @"serversMappedtoTags"
+{-# DEPRECATED gdsrrsServersMappedtoTags "Use generic-lens or generic-optics with 'serversMappedtoTags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdsrsResponseStatus :: Lens.Lens' GetDiscoverySummaryResponse Lude.Int
-gdsrsResponseStatus = Lens.lens (responseStatus :: GetDiscoverySummaryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDiscoverySummaryResponse)
-{-# DEPRECATED gdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdsrrsResponseStatus :: Lens.Lens' GetDiscoverySummaryResponse Core.Int
+gdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -24,78 +24,73 @@ module Network.AWS.CodeCommit.Types.PullRequestCreatedEventMetadata
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.CommitId as Types
+import qualified Network.AWS.CodeCommit.Types.RepositoryName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Metadata about the pull request that is used when comparing the pull request source with its destination.
 --
 -- /See:/ 'mkPullRequestCreatedEventMetadata' smart constructor.
 data PullRequestCreatedEventMetadata = PullRequestCreatedEventMetadata'
   { -- | The commit ID of the tip of the branch specified as the destination branch when the pull request was created.
-    destinationCommitId :: Lude.Maybe Lude.Text,
+    destinationCommitId :: Core.Maybe Types.CommitId,
     -- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
-    mergeBase :: Lude.Maybe Lude.Text,
+    mergeBase :: Core.Maybe Types.CommitId,
     -- | The name of the repository where the pull request was created.
-    repositoryName :: Lude.Maybe Lude.Text,
+    repositoryName :: Core.Maybe Types.RepositoryName,
     -- | The commit ID on the source branch used when the pull request was created.
-    sourceCommitId :: Lude.Maybe Lude.Text
+    sourceCommitId :: Core.Maybe Types.CommitId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PullRequestCreatedEventMetadata' with the minimum fields required to make a request.
---
--- * 'destinationCommitId' - The commit ID of the tip of the branch specified as the destination branch when the pull request was created.
--- * 'mergeBase' - The commit ID of the most recent commit that the source branch and the destination branch have in common.
--- * 'repositoryName' - The name of the repository where the pull request was created.
--- * 'sourceCommitId' - The commit ID on the source branch used when the pull request was created.
+-- | Creates a 'PullRequestCreatedEventMetadata' value with any optional fields omitted.
 mkPullRequestCreatedEventMetadata ::
   PullRequestCreatedEventMetadata
 mkPullRequestCreatedEventMetadata =
   PullRequestCreatedEventMetadata'
     { destinationCommitId =
-        Lude.Nothing,
-      mergeBase = Lude.Nothing,
-      repositoryName = Lude.Nothing,
-      sourceCommitId = Lude.Nothing
+        Core.Nothing,
+      mergeBase = Core.Nothing,
+      repositoryName = Core.Nothing,
+      sourceCommitId = Core.Nothing
     }
 
 -- | The commit ID of the tip of the branch specified as the destination branch when the pull request was created.
 --
 -- /Note:/ Consider using 'destinationCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcemDestinationCommitId :: Lens.Lens' PullRequestCreatedEventMetadata (Lude.Maybe Lude.Text)
-prcemDestinationCommitId = Lens.lens (destinationCommitId :: PullRequestCreatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {destinationCommitId = a} :: PullRequestCreatedEventMetadata)
+prcemDestinationCommitId :: Lens.Lens' PullRequestCreatedEventMetadata (Core.Maybe Types.CommitId)
+prcemDestinationCommitId = Lens.field @"destinationCommitId"
 {-# DEPRECATED prcemDestinationCommitId "Use generic-lens or generic-optics with 'destinationCommitId' instead." #-}
 
 -- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
 --
 -- /Note:/ Consider using 'mergeBase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcemMergeBase :: Lens.Lens' PullRequestCreatedEventMetadata (Lude.Maybe Lude.Text)
-prcemMergeBase = Lens.lens (mergeBase :: PullRequestCreatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {mergeBase = a} :: PullRequestCreatedEventMetadata)
+prcemMergeBase :: Lens.Lens' PullRequestCreatedEventMetadata (Core.Maybe Types.CommitId)
+prcemMergeBase = Lens.field @"mergeBase"
 {-# DEPRECATED prcemMergeBase "Use generic-lens or generic-optics with 'mergeBase' instead." #-}
 
 -- | The name of the repository where the pull request was created.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcemRepositoryName :: Lens.Lens' PullRequestCreatedEventMetadata (Lude.Maybe Lude.Text)
-prcemRepositoryName = Lens.lens (repositoryName :: PullRequestCreatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: PullRequestCreatedEventMetadata)
+prcemRepositoryName :: Lens.Lens' PullRequestCreatedEventMetadata (Core.Maybe Types.RepositoryName)
+prcemRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED prcemRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The commit ID on the source branch used when the pull request was created.
 --
 -- /Note:/ Consider using 'sourceCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcemSourceCommitId :: Lens.Lens' PullRequestCreatedEventMetadata (Lude.Maybe Lude.Text)
-prcemSourceCommitId = Lens.lens (sourceCommitId :: PullRequestCreatedEventMetadata -> Lude.Maybe Lude.Text) (\s a -> s {sourceCommitId = a} :: PullRequestCreatedEventMetadata)
+prcemSourceCommitId :: Lens.Lens' PullRequestCreatedEventMetadata (Core.Maybe Types.CommitId)
+prcemSourceCommitId = Lens.field @"sourceCommitId"
 {-# DEPRECATED prcemSourceCommitId "Use generic-lens or generic-optics with 'sourceCommitId' instead." #-}
 
-instance Lude.FromJSON PullRequestCreatedEventMetadata where
+instance Core.FromJSON PullRequestCreatedEventMetadata where
   parseJSON =
-    Lude.withObject
-      "PullRequestCreatedEventMetadata"
-      ( \x ->
-          PullRequestCreatedEventMetadata'
-            Lude.<$> (x Lude..:? "destinationCommitId")
-            Lude.<*> (x Lude..:? "mergeBase")
-            Lude.<*> (x Lude..:? "repositoryName")
-            Lude.<*> (x Lude..:? "sourceCommitId")
-      )
+    Core.withObject "PullRequestCreatedEventMetadata" Core.$
+      \x ->
+        PullRequestCreatedEventMetadata'
+          Core.<$> (x Core..:? "destinationCommitId")
+          Core.<*> (x Core..:? "mergeBase")
+          Core.<*> (x Core..:? "repositoryName")
+          Core.<*> (x Core..:? "sourceCommitId")

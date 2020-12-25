@@ -22,65 +22,59 @@ module Network.AWS.ElasticSearch.Types.SAMLIdp
   )
 where
 
+import qualified Network.AWS.ElasticSearch.Types.SAMLEntityId as Types
+import qualified Network.AWS.ElasticSearch.Types.SAMLMetadata as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the SAML Identity Provider's information.
 --
 -- /See:/ 'mkSAMLIdp' smart constructor.
 data SAMLIdp = SAMLIdp'
   { -- | The Metadata of the SAML application in xml format.
-    metadataContent :: Lude.Text,
+    metadataContent :: Types.SAMLMetadata,
     -- | The unique Entity ID of the application in SAML Identity Provider.
-    entityId :: Lude.Text
+    entityId :: Types.SAMLEntityId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SAMLIdp' with the minimum fields required to make a request.
---
--- * 'metadataContent' - The Metadata of the SAML application in xml format.
--- * 'entityId' - The unique Entity ID of the application in SAML Identity Provider.
+-- | Creates a 'SAMLIdp' value with any optional fields omitted.
 mkSAMLIdp ::
   -- | 'metadataContent'
-  Lude.Text ->
+  Types.SAMLMetadata ->
   -- | 'entityId'
-  Lude.Text ->
+  Types.SAMLEntityId ->
   SAMLIdp
-mkSAMLIdp pMetadataContent_ pEntityId_ =
-  SAMLIdp'
-    { metadataContent = pMetadataContent_,
-      entityId = pEntityId_
-    }
+mkSAMLIdp metadataContent entityId =
+  SAMLIdp' {metadataContent, entityId}
 
 -- | The Metadata of the SAML application in xml format.
 --
 -- /Note:/ Consider using 'metadataContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samliMetadataContent :: Lens.Lens' SAMLIdp Lude.Text
-samliMetadataContent = Lens.lens (metadataContent :: SAMLIdp -> Lude.Text) (\s a -> s {metadataContent = a} :: SAMLIdp)
+samliMetadataContent :: Lens.Lens' SAMLIdp Types.SAMLMetadata
+samliMetadataContent = Lens.field @"metadataContent"
 {-# DEPRECATED samliMetadataContent "Use generic-lens or generic-optics with 'metadataContent' instead." #-}
 
 -- | The unique Entity ID of the application in SAML Identity Provider.
 --
 -- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samliEntityId :: Lens.Lens' SAMLIdp Lude.Text
-samliEntityId = Lens.lens (entityId :: SAMLIdp -> Lude.Text) (\s a -> s {entityId = a} :: SAMLIdp)
+samliEntityId :: Lens.Lens' SAMLIdp Types.SAMLEntityId
+samliEntityId = Lens.field @"entityId"
 {-# DEPRECATED samliEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
 
-instance Lude.FromJSON SAMLIdp where
-  parseJSON =
-    Lude.withObject
-      "SAMLIdp"
-      ( \x ->
-          SAMLIdp'
-            Lude.<$> (x Lude..: "MetadataContent") Lude.<*> (x Lude..: "EntityId")
-      )
-
-instance Lude.ToJSON SAMLIdp where
-  toJSON SAMLIdp' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MetadataContent" Lude..= metadataContent),
-            Lude.Just ("EntityId" Lude..= entityId)
+instance Core.FromJSON SAMLIdp where
+  toJSON SAMLIdp {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MetadataContent" Core..= metadataContent),
+            Core.Just ("EntityId" Core..= entityId)
           ]
       )
+
+instance Core.FromJSON SAMLIdp where
+  parseJSON =
+    Core.withObject "SAMLIdp" Core.$
+      \x ->
+        SAMLIdp'
+          Core.<$> (x Core..: "MetadataContent") Core.<*> (x Core..: "EntityId")

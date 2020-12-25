@@ -13,81 +13,86 @@
 module Network.AWS.Config.Types.OrganizationResourceDetailedStatus
   ( OrganizationResourceDetailedStatus
       ( OrganizationResourceDetailedStatus',
-        CreateSuccessful,
-        CreateInProgress,
-        CreateFailed,
-        DeleteSuccessful,
-        DeleteFailed,
-        DeleteInProgress,
-        UpdateSuccessful,
-        UpdateInProgress,
-        UpdateFailed
+        OrganizationResourceDetailedStatusCreateSuccessful,
+        OrganizationResourceDetailedStatusCreateInProgress,
+        OrganizationResourceDetailedStatusCreateFailed,
+        OrganizationResourceDetailedStatusDeleteSuccessful,
+        OrganizationResourceDetailedStatusDeleteFailed,
+        OrganizationResourceDetailedStatusDeleteInProgress,
+        OrganizationResourceDetailedStatusUpdateSuccessful,
+        OrganizationResourceDetailedStatusUpdateInProgress,
+        OrganizationResourceDetailedStatusUpdateFailed,
+        fromOrganizationResourceDetailedStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OrganizationResourceDetailedStatus = OrganizationResourceDetailedStatus' Lude.Text
+newtype OrganizationResourceDetailedStatus = OrganizationResourceDetailedStatus'
+  { fromOrganizationResourceDetailedStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CreateSuccessful :: OrganizationResourceDetailedStatus
-pattern CreateSuccessful = OrganizationResourceDetailedStatus' "CREATE_SUCCESSFUL"
+pattern OrganizationResourceDetailedStatusCreateSuccessful :: OrganizationResourceDetailedStatus
+pattern OrganizationResourceDetailedStatusCreateSuccessful = OrganizationResourceDetailedStatus' "CREATE_SUCCESSFUL"
 
-pattern CreateInProgress :: OrganizationResourceDetailedStatus
-pattern CreateInProgress = OrganizationResourceDetailedStatus' "CREATE_IN_PROGRESS"
+pattern OrganizationResourceDetailedStatusCreateInProgress :: OrganizationResourceDetailedStatus
+pattern OrganizationResourceDetailedStatusCreateInProgress = OrganizationResourceDetailedStatus' "CREATE_IN_PROGRESS"
 
-pattern CreateFailed :: OrganizationResourceDetailedStatus
-pattern CreateFailed = OrganizationResourceDetailedStatus' "CREATE_FAILED"
+pattern OrganizationResourceDetailedStatusCreateFailed :: OrganizationResourceDetailedStatus
+pattern OrganizationResourceDetailedStatusCreateFailed = OrganizationResourceDetailedStatus' "CREATE_FAILED"
 
-pattern DeleteSuccessful :: OrganizationResourceDetailedStatus
-pattern DeleteSuccessful = OrganizationResourceDetailedStatus' "DELETE_SUCCESSFUL"
+pattern OrganizationResourceDetailedStatusDeleteSuccessful :: OrganizationResourceDetailedStatus
+pattern OrganizationResourceDetailedStatusDeleteSuccessful = OrganizationResourceDetailedStatus' "DELETE_SUCCESSFUL"
 
-pattern DeleteFailed :: OrganizationResourceDetailedStatus
-pattern DeleteFailed = OrganizationResourceDetailedStatus' "DELETE_FAILED"
+pattern OrganizationResourceDetailedStatusDeleteFailed :: OrganizationResourceDetailedStatus
+pattern OrganizationResourceDetailedStatusDeleteFailed = OrganizationResourceDetailedStatus' "DELETE_FAILED"
 
-pattern DeleteInProgress :: OrganizationResourceDetailedStatus
-pattern DeleteInProgress = OrganizationResourceDetailedStatus' "DELETE_IN_PROGRESS"
+pattern OrganizationResourceDetailedStatusDeleteInProgress :: OrganizationResourceDetailedStatus
+pattern OrganizationResourceDetailedStatusDeleteInProgress = OrganizationResourceDetailedStatus' "DELETE_IN_PROGRESS"
 
-pattern UpdateSuccessful :: OrganizationResourceDetailedStatus
-pattern UpdateSuccessful = OrganizationResourceDetailedStatus' "UPDATE_SUCCESSFUL"
+pattern OrganizationResourceDetailedStatusUpdateSuccessful :: OrganizationResourceDetailedStatus
+pattern OrganizationResourceDetailedStatusUpdateSuccessful = OrganizationResourceDetailedStatus' "UPDATE_SUCCESSFUL"
 
-pattern UpdateInProgress :: OrganizationResourceDetailedStatus
-pattern UpdateInProgress = OrganizationResourceDetailedStatus' "UPDATE_IN_PROGRESS"
+pattern OrganizationResourceDetailedStatusUpdateInProgress :: OrganizationResourceDetailedStatus
+pattern OrganizationResourceDetailedStatusUpdateInProgress = OrganizationResourceDetailedStatus' "UPDATE_IN_PROGRESS"
 
-pattern UpdateFailed :: OrganizationResourceDetailedStatus
-pattern UpdateFailed = OrganizationResourceDetailedStatus' "UPDATE_FAILED"
+pattern OrganizationResourceDetailedStatusUpdateFailed :: OrganizationResourceDetailedStatus
+pattern OrganizationResourceDetailedStatusUpdateFailed = OrganizationResourceDetailedStatus' "UPDATE_FAILED"
 
 {-# COMPLETE
-  CreateSuccessful,
-  CreateInProgress,
-  CreateFailed,
-  DeleteSuccessful,
-  DeleteFailed,
-  DeleteInProgress,
-  UpdateSuccessful,
-  UpdateInProgress,
-  UpdateFailed,
+  OrganizationResourceDetailedStatusCreateSuccessful,
+  OrganizationResourceDetailedStatusCreateInProgress,
+  OrganizationResourceDetailedStatusCreateFailed,
+  OrganizationResourceDetailedStatusDeleteSuccessful,
+  OrganizationResourceDetailedStatusDeleteFailed,
+  OrganizationResourceDetailedStatusDeleteInProgress,
+  OrganizationResourceDetailedStatusUpdateSuccessful,
+  OrganizationResourceDetailedStatusUpdateInProgress,
+  OrganizationResourceDetailedStatusUpdateFailed,
   OrganizationResourceDetailedStatus'
   #-}

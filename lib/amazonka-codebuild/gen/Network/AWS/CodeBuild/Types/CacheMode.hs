@@ -13,51 +13,53 @@
 module Network.AWS.CodeBuild.Types.CacheMode
   ( CacheMode
       ( CacheMode',
-        LocalDockerLayerCache,
-        LocalSourceCache,
-        LocalCustomCache
+        CacheModeLocalDockerLayerCache,
+        CacheModeLocalSourceCache,
+        CacheModeLocalCustomCache,
+        fromCacheMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CacheMode = CacheMode' Lude.Text
+newtype CacheMode = CacheMode' {fromCacheMode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LocalDockerLayerCache :: CacheMode
-pattern LocalDockerLayerCache = CacheMode' "LOCAL_DOCKER_LAYER_CACHE"
+pattern CacheModeLocalDockerLayerCache :: CacheMode
+pattern CacheModeLocalDockerLayerCache = CacheMode' "LOCAL_DOCKER_LAYER_CACHE"
 
-pattern LocalSourceCache :: CacheMode
-pattern LocalSourceCache = CacheMode' "LOCAL_SOURCE_CACHE"
+pattern CacheModeLocalSourceCache :: CacheMode
+pattern CacheModeLocalSourceCache = CacheMode' "LOCAL_SOURCE_CACHE"
 
-pattern LocalCustomCache :: CacheMode
-pattern LocalCustomCache = CacheMode' "LOCAL_CUSTOM_CACHE"
+pattern CacheModeLocalCustomCache :: CacheMode
+pattern CacheModeLocalCustomCache = CacheMode' "LOCAL_CUSTOM_CACHE"
 
 {-# COMPLETE
-  LocalDockerLayerCache,
-  LocalSourceCache,
-  LocalCustomCache,
+  CacheModeLocalDockerLayerCache,
+  CacheModeLocalSourceCache,
+  CacheModeLocalCustomCache,
   CacheMode'
   #-}

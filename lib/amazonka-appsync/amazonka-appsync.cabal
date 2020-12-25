@@ -46,54 +46,60 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.AppSync
-    Network.AWS.AppSync.CreateAPICache
-    Network.AWS.AppSync.CreateAPIKey
+    Network.AWS.AppSync.CreateApiCache
+    Network.AWS.AppSync.CreateApiKey
     Network.AWS.AppSync.CreateDataSource
     Network.AWS.AppSync.CreateFunction
-    Network.AWS.AppSync.CreateGraphqlAPI
+    Network.AWS.AppSync.CreateGraphqlApi
     Network.AWS.AppSync.CreateResolver
     Network.AWS.AppSync.CreateType
-    Network.AWS.AppSync.DeleteAPICache
-    Network.AWS.AppSync.DeleteAPIKey
+    Network.AWS.AppSync.DeleteApiCache
+    Network.AWS.AppSync.DeleteApiKey
     Network.AWS.AppSync.DeleteDataSource
     Network.AWS.AppSync.DeleteFunction
-    Network.AWS.AppSync.DeleteGraphqlAPI
+    Network.AWS.AppSync.DeleteGraphqlApi
     Network.AWS.AppSync.DeleteResolver
     Network.AWS.AppSync.DeleteType
-    Network.AWS.AppSync.FlushAPICache
-    Network.AWS.AppSync.GetAPICache
+    Network.AWS.AppSync.FlushApiCache
+    Network.AWS.AppSync.GetApiCache
     Network.AWS.AppSync.GetDataSource
     Network.AWS.AppSync.GetFunction
-    Network.AWS.AppSync.GetGraphqlAPI
+    Network.AWS.AppSync.GetGraphqlApi
     Network.AWS.AppSync.GetIntrospectionSchema
     Network.AWS.AppSync.GetResolver
     Network.AWS.AppSync.GetSchemaCreationStatus
     Network.AWS.AppSync.GetType
-    Network.AWS.AppSync.ListAPIKeys
+    Network.AWS.AppSync.ListApiKeys
     Network.AWS.AppSync.ListDataSources
     Network.AWS.AppSync.ListFunctions
-    Network.AWS.AppSync.ListGraphqlAPIs
+    Network.AWS.AppSync.ListGraphqlApis
     Network.AWS.AppSync.ListResolvers
     Network.AWS.AppSync.ListResolversByFunction
     Network.AWS.AppSync.ListTagsForResource
@@ -102,53 +108,69 @@ library
     Network.AWS.AppSync.TagResource
     Network.AWS.AppSync.Types
     Network.AWS.AppSync.UntagResource
-    Network.AWS.AppSync.UpdateAPICache
-    Network.AWS.AppSync.UpdateAPIKey
+    Network.AWS.AppSync.UpdateApiCache
+    Network.AWS.AppSync.UpdateApiKey
     Network.AWS.AppSync.UpdateDataSource
     Network.AWS.AppSync.UpdateFunction
-    Network.AWS.AppSync.UpdateGraphqlAPI
+    Network.AWS.AppSync.UpdateGraphqlApi
     Network.AWS.AppSync.UpdateResolver
     Network.AWS.AppSync.UpdateType
     Network.AWS.AppSync.Waiters
 
   other-modules:
     Network.AWS.AppSync.Types.AdditionalAuthenticationProvider
-    Network.AWS.AppSync.Types.APICache
-    Network.AWS.AppSync.Types.APICacheStatus
-    Network.AWS.AppSync.Types.APICacheType
-    Network.AWS.AppSync.Types.APICachingBehavior
-    Network.AWS.AppSync.Types.APIKey
+    Network.AWS.AppSync.Types.ApiCache
+    Network.AWS.AppSync.Types.ApiCacheStatus
+    Network.AWS.AppSync.Types.ApiCacheType
+    Network.AWS.AppSync.Types.ApiCachingBehavior
+    Network.AWS.AppSync.Types.ApiId
+    Network.AWS.AppSync.Types.ApiKey
     Network.AWS.AppSync.Types.AuthenticationType
     Network.AWS.AppSync.Types.AuthorizationConfig
     Network.AWS.AppSync.Types.AuthorizationType
-    Network.AWS.AppSync.Types.AWSIAMConfig
+    Network.AWS.AppSync.Types.AwsIamConfig
+    Network.AWS.AppSync.Types.AwsRegion
     Network.AWS.AppSync.Types.CachingConfig
     Network.AWS.AppSync.Types.CognitoUserPoolConfig
     Network.AWS.AppSync.Types.ConflictDetectionType
     Network.AWS.AppSync.Types.ConflictHandlerType
     Network.AWS.AppSync.Types.DataSource
+    Network.AWS.AppSync.Types.DataSourceName
     Network.AWS.AppSync.Types.DataSourceType
     Network.AWS.AppSync.Types.DefaultAction
     Network.AWS.AppSync.Types.DeltaSyncConfig
+    Network.AWS.AppSync.Types.Description
     Network.AWS.AppSync.Types.DynamodbDataSourceConfig
     Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig
+    Network.AWS.AppSync.Types.Endpoint
     Network.AWS.AppSync.Types.FieldLogLevel
     Network.AWS.AppSync.Types.FunctionConfiguration
-    Network.AWS.AppSync.Types.GraphqlAPI
-    Network.AWS.AppSync.Types.HTTPDataSourceConfig
+    Network.AWS.AppSync.Types.FunctionId
+    Network.AWS.AppSync.Types.FunctionVersion
+    Network.AWS.AppSync.Types.GraphqlApi
+    Network.AWS.AppSync.Types.HttpDataSourceConfig
+    Network.AWS.AppSync.Types.Id
     Network.AWS.AppSync.Types.LambdaConflictHandlerConfig
     Network.AWS.AppSync.Types.LambdaDataSourceConfig
     Network.AWS.AppSync.Types.LogConfig
-    Network.AWS.AppSync.Types.OpenIdConnectConfig
+    Network.AWS.AppSync.Types.MappingTemplate
+    Network.AWS.AppSync.Types.Name
+    Network.AWS.AppSync.Types.OpenIDConnectConfig
     Network.AWS.AppSync.Types.OutputType
+    Network.AWS.AppSync.Types.PaginationToken
     Network.AWS.AppSync.Types.PipelineConfig
-    Network.AWS.AppSync.Types.RDSHTTPEndpointConfig
+    Network.AWS.AppSync.Types.RdsHttpEndpointConfig
     Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig
     Network.AWS.AppSync.Types.RelationalDatabaseSourceType
     Network.AWS.AppSync.Types.Resolver
     Network.AWS.AppSync.Types.ResolverKind
+    Network.AWS.AppSync.Types.ResourceArn
+    Network.AWS.AppSync.Types.ResourceName
     Network.AWS.AppSync.Types.SchemaStatus
+    Network.AWS.AppSync.Types.String
     Network.AWS.AppSync.Types.SyncConfig
+    Network.AWS.AppSync.Types.TagKey
+    Network.AWS.AppSync.Types.TagValue
     Network.AWS.AppSync.Types.Type
     Network.AWS.AppSync.Types.TypeDefinitionFormat
     Network.AWS.AppSync.Types.UserPoolConfig

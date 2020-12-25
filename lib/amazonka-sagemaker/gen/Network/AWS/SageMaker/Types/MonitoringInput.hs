@@ -22,45 +22,41 @@ module Network.AWS.SageMaker.Types.MonitoringInput
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.EndpointInput
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.EndpointInput as Types
 
 -- | The inputs for a monitoring job.
 --
 -- /See:/ 'mkMonitoringInput' smart constructor.
 newtype MonitoringInput = MonitoringInput'
   { -- | The endpoint for a monitoring job.
-    endpointInput :: EndpointInput
+    endpointInput :: Types.EndpointInput
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MonitoringInput' with the minimum fields required to make a request.
---
--- * 'endpointInput' - The endpoint for a monitoring job.
+-- | Creates a 'MonitoringInput' value with any optional fields omitted.
 mkMonitoringInput ::
   -- | 'endpointInput'
-  EndpointInput ->
+  Types.EndpointInput ->
   MonitoringInput
-mkMonitoringInput pEndpointInput_ =
-  MonitoringInput' {endpointInput = pEndpointInput_}
+mkMonitoringInput endpointInput = MonitoringInput' {endpointInput}
 
 -- | The endpoint for a monitoring job.
 --
 -- /Note:/ Consider using 'endpointInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miEndpointInput :: Lens.Lens' MonitoringInput EndpointInput
-miEndpointInput = Lens.lens (endpointInput :: MonitoringInput -> EndpointInput) (\s a -> s {endpointInput = a} :: MonitoringInput)
+miEndpointInput :: Lens.Lens' MonitoringInput Types.EndpointInput
+miEndpointInput = Lens.field @"endpointInput"
 {-# DEPRECATED miEndpointInput "Use generic-lens or generic-optics with 'endpointInput' instead." #-}
 
-instance Lude.FromJSON MonitoringInput where
-  parseJSON =
-    Lude.withObject
-      "MonitoringInput"
-      (\x -> MonitoringInput' Lude.<$> (x Lude..: "EndpointInput"))
-
-instance Lude.ToJSON MonitoringInput where
-  toJSON MonitoringInput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("EndpointInput" Lude..= endpointInput)]
+instance Core.FromJSON MonitoringInput where
+  toJSON MonitoringInput {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EndpointInput" Core..= endpointInput)]
       )
+
+instance Core.FromJSON MonitoringInput where
+  parseJSON =
+    Core.withObject "MonitoringInput" Core.$
+      \x -> MonitoringInput' Core.<$> (x Core..: "EndpointInput")

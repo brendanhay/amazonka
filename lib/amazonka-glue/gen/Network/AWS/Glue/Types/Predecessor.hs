@@ -22,49 +22,46 @@ module Network.AWS.Glue.Types.Predecessor
   )
 where
 
+import qualified Network.AWS.Glue.Types.NameString as Types
+import qualified Network.AWS.Glue.Types.RunId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A job run that was used in the predicate of a conditional trigger that triggered this job run.
 --
 -- /See:/ 'mkPredecessor' smart constructor.
 data Predecessor = Predecessor'
   { -- | The name of the job definition used by the predecessor job run.
-    jobName :: Lude.Maybe Lude.Text,
+    jobName :: Core.Maybe Types.NameString,
     -- | The job-run ID of the predecessor job run.
-    runId :: Lude.Maybe Lude.Text
+    runId :: Core.Maybe Types.RunId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Predecessor' with the minimum fields required to make a request.
---
--- * 'jobName' - The name of the job definition used by the predecessor job run.
--- * 'runId' - The job-run ID of the predecessor job run.
+-- | Creates a 'Predecessor' value with any optional fields omitted.
 mkPredecessor ::
   Predecessor
 mkPredecessor =
-  Predecessor' {jobName = Lude.Nothing, runId = Lude.Nothing}
+  Predecessor' {jobName = Core.Nothing, runId = Core.Nothing}
 
 -- | The name of the job definition used by the predecessor job run.
 --
 -- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pJobName :: Lens.Lens' Predecessor (Lude.Maybe Lude.Text)
-pJobName = Lens.lens (jobName :: Predecessor -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: Predecessor)
+pJobName :: Lens.Lens' Predecessor (Core.Maybe Types.NameString)
+pJobName = Lens.field @"jobName"
 {-# DEPRECATED pJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
 
 -- | The job-run ID of the predecessor job run.
 --
 -- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pRunId :: Lens.Lens' Predecessor (Lude.Maybe Lude.Text)
-pRunId = Lens.lens (runId :: Predecessor -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: Predecessor)
+pRunId :: Lens.Lens' Predecessor (Core.Maybe Types.RunId)
+pRunId = Lens.field @"runId"
 {-# DEPRECATED pRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
-instance Lude.FromJSON Predecessor where
+instance Core.FromJSON Predecessor where
   parseJSON =
-    Lude.withObject
-      "Predecessor"
-      ( \x ->
-          Predecessor'
-            Lude.<$> (x Lude..:? "JobName") Lude.<*> (x Lude..:? "RunId")
-      )
+    Core.withObject "Predecessor" Core.$
+      \x ->
+        Predecessor'
+          Core.<$> (x Core..:? "JobName") Core.<*> (x Core..:? "RunId")

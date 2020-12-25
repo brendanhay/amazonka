@@ -13,47 +13,49 @@
 module Network.AWS.MediaLive.Types.InputClass
   ( InputClass
       ( InputClass',
-        ICStandard,
-        ICSinglePipeline
+        InputClassStandard,
+        InputClassSinglePipeline,
+        fromInputClass
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A standard input has two sources and a single pipeline input only has one.
-newtype InputClass = InputClass' Lude.Text
+newtype InputClass = InputClass' {fromInputClass :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ICStandard :: InputClass
-pattern ICStandard = InputClass' "STANDARD"
+pattern InputClassStandard :: InputClass
+pattern InputClassStandard = InputClass' "STANDARD"
 
-pattern ICSinglePipeline :: InputClass
-pattern ICSinglePipeline = InputClass' "SINGLE_PIPELINE"
+pattern InputClassSinglePipeline :: InputClass
+pattern InputClassSinglePipeline = InputClass' "SINGLE_PIPELINE"
 
 {-# COMPLETE
-  ICStandard,
-  ICSinglePipeline,
+  InputClassStandard,
+  InputClassSinglePipeline,
   InputClass'
   #-}

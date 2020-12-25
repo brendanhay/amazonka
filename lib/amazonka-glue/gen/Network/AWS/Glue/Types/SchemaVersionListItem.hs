@@ -17,98 +17,93 @@ module Network.AWS.Glue.Types.SchemaVersionListItem
     mkSchemaVersionListItem,
 
     -- * Lenses
-    svliStatus,
     svliCreatedTime,
+    svliSchemaArn,
     svliSchemaVersionId,
+    svliStatus,
     svliVersionNumber,
-    svliSchemaARN,
   )
 where
 
-import Network.AWS.Glue.Types.SchemaVersionStatus
+import qualified Network.AWS.Glue.Types.CreatedTime as Types
+import qualified Network.AWS.Glue.Types.GlueResourceArn as Types
+import qualified Network.AWS.Glue.Types.SchemaVersionId as Types
+import qualified Network.AWS.Glue.Types.SchemaVersionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object containing the details about a schema version.
 --
 -- /See:/ 'mkSchemaVersionListItem' smart constructor.
 data SchemaVersionListItem = SchemaVersionListItem'
-  { -- | The status of the schema version.
-    status :: Lude.Maybe SchemaVersionStatus,
-    -- | The date and time the schema version was created.
-    createdTime :: Lude.Maybe Lude.Text,
-    -- | The unique identifier of the schema version.
-    schemaVersionId :: Lude.Maybe Lude.Text,
-    -- | The version number of the schema.
-    versionNumber :: Lude.Maybe Lude.Natural,
+  { -- | The date and time the schema version was created.
+    createdTime :: Core.Maybe Types.CreatedTime,
     -- | The Amazon Resource Name (ARN) of the schema.
-    schemaARN :: Lude.Maybe Lude.Text
+    schemaArn :: Core.Maybe Types.GlueResourceArn,
+    -- | The unique identifier of the schema version.
+    schemaVersionId :: Core.Maybe Types.SchemaVersionId,
+    -- | The status of the schema version.
+    status :: Core.Maybe Types.SchemaVersionStatus,
+    -- | The version number of the schema.
+    versionNumber :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SchemaVersionListItem' with the minimum fields required to make a request.
---
--- * 'status' - The status of the schema version.
--- * 'createdTime' - The date and time the schema version was created.
--- * 'schemaVersionId' - The unique identifier of the schema version.
--- * 'versionNumber' - The version number of the schema.
--- * 'schemaARN' - The Amazon Resource Name (ARN) of the schema.
+-- | Creates a 'SchemaVersionListItem' value with any optional fields omitted.
 mkSchemaVersionListItem ::
   SchemaVersionListItem
 mkSchemaVersionListItem =
   SchemaVersionListItem'
-    { status = Lude.Nothing,
-      createdTime = Lude.Nothing,
-      schemaVersionId = Lude.Nothing,
-      versionNumber = Lude.Nothing,
-      schemaARN = Lude.Nothing
+    { createdTime = Core.Nothing,
+      schemaArn = Core.Nothing,
+      schemaVersionId = Core.Nothing,
+      status = Core.Nothing,
+      versionNumber = Core.Nothing
     }
-
--- | The status of the schema version.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svliStatus :: Lens.Lens' SchemaVersionListItem (Lude.Maybe SchemaVersionStatus)
-svliStatus = Lens.lens (status :: SchemaVersionListItem -> Lude.Maybe SchemaVersionStatus) (\s a -> s {status = a} :: SchemaVersionListItem)
-{-# DEPRECATED svliStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The date and time the schema version was created.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svliCreatedTime :: Lens.Lens' SchemaVersionListItem (Lude.Maybe Lude.Text)
-svliCreatedTime = Lens.lens (createdTime :: SchemaVersionListItem -> Lude.Maybe Lude.Text) (\s a -> s {createdTime = a} :: SchemaVersionListItem)
+svliCreatedTime :: Lens.Lens' SchemaVersionListItem (Core.Maybe Types.CreatedTime)
+svliCreatedTime = Lens.field @"createdTime"
 {-# DEPRECATED svliCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the schema.
+--
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svliSchemaArn :: Lens.Lens' SchemaVersionListItem (Core.Maybe Types.GlueResourceArn)
+svliSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED svliSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
 -- | The unique identifier of the schema version.
 --
 -- /Note:/ Consider using 'schemaVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svliSchemaVersionId :: Lens.Lens' SchemaVersionListItem (Lude.Maybe Lude.Text)
-svliSchemaVersionId = Lens.lens (schemaVersionId :: SchemaVersionListItem -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersionId = a} :: SchemaVersionListItem)
+svliSchemaVersionId :: Lens.Lens' SchemaVersionListItem (Core.Maybe Types.SchemaVersionId)
+svliSchemaVersionId = Lens.field @"schemaVersionId"
 {-# DEPRECATED svliSchemaVersionId "Use generic-lens or generic-optics with 'schemaVersionId' instead." #-}
+
+-- | The status of the schema version.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svliStatus :: Lens.Lens' SchemaVersionListItem (Core.Maybe Types.SchemaVersionStatus)
+svliStatus = Lens.field @"status"
+{-# DEPRECATED svliStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The version number of the schema.
 --
 -- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svliVersionNumber :: Lens.Lens' SchemaVersionListItem (Lude.Maybe Lude.Natural)
-svliVersionNumber = Lens.lens (versionNumber :: SchemaVersionListItem -> Lude.Maybe Lude.Natural) (\s a -> s {versionNumber = a} :: SchemaVersionListItem)
+svliVersionNumber :: Lens.Lens' SchemaVersionListItem (Core.Maybe Core.Natural)
+svliVersionNumber = Lens.field @"versionNumber"
 {-# DEPRECATED svliVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the schema.
---
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svliSchemaARN :: Lens.Lens' SchemaVersionListItem (Lude.Maybe Lude.Text)
-svliSchemaARN = Lens.lens (schemaARN :: SchemaVersionListItem -> Lude.Maybe Lude.Text) (\s a -> s {schemaARN = a} :: SchemaVersionListItem)
-{-# DEPRECATED svliSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
-
-instance Lude.FromJSON SchemaVersionListItem where
+instance Core.FromJSON SchemaVersionListItem where
   parseJSON =
-    Lude.withObject
-      "SchemaVersionListItem"
-      ( \x ->
-          SchemaVersionListItem'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "CreatedTime")
-            Lude.<*> (x Lude..:? "SchemaVersionId")
-            Lude.<*> (x Lude..:? "VersionNumber")
-            Lude.<*> (x Lude..:? "SchemaArn")
-      )
+    Core.withObject "SchemaVersionListItem" Core.$
+      \x ->
+        SchemaVersionListItem'
+          Core.<$> (x Core..:? "CreatedTime")
+          Core.<*> (x Core..:? "SchemaArn")
+          Core.<*> (x Core..:? "SchemaVersionId")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "VersionNumber")

@@ -16,6 +16,6 @@ module Network.AWS.MechanicalTurk.Waiters
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter

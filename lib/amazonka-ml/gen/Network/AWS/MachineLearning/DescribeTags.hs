@@ -20,164 +20,146 @@ module Network.AWS.MachineLearning.DescribeTags
     mkDescribeTags,
 
     -- ** Request lenses
-    dResourceId,
-    dResourceType,
+    dtResourceId,
+    dtResourceType,
 
     -- * Destructuring the response
     DescribeTagsResponse (..),
     mkDescribeTagsResponse,
 
     -- ** Response lenses
-    dtsrsResourceId,
-    dtsrsResourceType,
-    dtsrsTags,
-    dtsrsResponseStatus,
+    dtrrsResourceId,
+    dtrrsResourceType,
+    dtrrsTags,
+    dtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
   { -- | The ID of the ML object. For example, @exampleModelId@ .
-    resourceId :: Lude.Text,
+    resourceId :: Types.ResourceId,
     -- | The type of the ML object.
-    resourceType :: TaggableResourceType
+    resourceType :: Types.TaggableResourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the ML object. For example, @exampleModelId@ .
--- * 'resourceType' - The type of the ML object.
+-- | Creates a 'DescribeTags' value with any optional fields omitted.
 mkDescribeTags ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'resourceType'
-  TaggableResourceType ->
+  Types.TaggableResourceType ->
   DescribeTags
-mkDescribeTags pResourceId_ pResourceType_ =
-  DescribeTags'
-    { resourceId = pResourceId_,
-      resourceType = pResourceType_
-    }
+mkDescribeTags resourceId resourceType =
+  DescribeTags' {resourceId, resourceType}
 
 -- | The ID of the ML object. For example, @exampleModelId@ .
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dResourceId :: Lens.Lens' DescribeTags Lude.Text
-dResourceId = Lens.lens (resourceId :: DescribeTags -> Lude.Text) (\s a -> s {resourceId = a} :: DescribeTags)
-{-# DEPRECATED dResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+dtResourceId :: Lens.Lens' DescribeTags Types.ResourceId
+dtResourceId = Lens.field @"resourceId"
+{-# DEPRECATED dtResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of the ML object.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dResourceType :: Lens.Lens' DescribeTags TaggableResourceType
-dResourceType = Lens.lens (resourceType :: DescribeTags -> TaggableResourceType) (\s a -> s {resourceType = a} :: DescribeTags)
-{-# DEPRECATED dResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+dtResourceType :: Lens.Lens' DescribeTags Types.TaggableResourceType
+dtResourceType = Lens.field @"resourceType"
+{-# DEPRECATED dtResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
-instance Lude.AWSRequest DescribeTags where
+instance Core.FromJSON DescribeTags where
+  toJSON DescribeTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just ("ResourceType" Core..= resourceType)
+          ]
+      )
+
+instance Core.AWSRequest DescribeTags where
   type Rs DescribeTags = DescribeTagsResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonML_20141212.DescribeTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTagsResponse'
-            Lude.<$> (x Lude..?> "ResourceId")
-            Lude.<*> (x Lude..?> "ResourceType")
-            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ResourceId")
+            Core.<*> (x Core..:? "ResourceType")
+            Core.<*> (x Core..:? "Tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.DescribeTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTags where
-  toJSON DescribeTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("ResourceType" Lude..= resourceType)
-          ]
-      )
-
-instance Lude.ToPath DescribeTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | Amazon ML returns the following elements.
 --
 -- /See:/ 'mkDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
   { -- | The ID of the tagged ML object.
-    resourceId :: Lude.Maybe Lude.Text,
+    resourceId :: Core.Maybe Types.ResourceId,
     -- | The type of the tagged ML object.
-    resourceType :: Lude.Maybe TaggableResourceType,
+    resourceType :: Core.Maybe Types.TaggableResourceType,
     -- | A list of tags associated with the ML object.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the tagged ML object.
--- * 'resourceType' - The type of the tagged ML object.
--- * 'tags' - A list of tags associated with the ML object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTagsResponse' value with any optional fields omitted.
 mkDescribeTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTagsResponse
-mkDescribeTagsResponse pResponseStatus_ =
+mkDescribeTagsResponse responseStatus =
   DescribeTagsResponse'
-    { resourceId = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { resourceId = Core.Nothing,
+      resourceType = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the tagged ML object.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsResourceId :: Lens.Lens' DescribeTagsResponse (Lude.Maybe Lude.Text)
-dtsrsResourceId = Lens.lens (resourceId :: DescribeTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtsrsResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+dtrrsResourceId :: Lens.Lens' DescribeTagsResponse (Core.Maybe Types.ResourceId)
+dtrrsResourceId = Lens.field @"resourceId"
+{-# DEPRECATED dtrrsResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of the tagged ML object.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsResourceType :: Lens.Lens' DescribeTagsResponse (Lude.Maybe TaggableResourceType)
-dtsrsResourceType = Lens.lens (resourceType :: DescribeTagsResponse -> Lude.Maybe TaggableResourceType) (\s a -> s {resourceType = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtsrsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+dtrrsResourceType :: Lens.Lens' DescribeTagsResponse (Core.Maybe Types.TaggableResourceType)
+dtrrsResourceType = Lens.field @"resourceType"
+{-# DEPRECATED dtrrsResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | A list of tags associated with the ML object.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsTags :: Lens.Lens' DescribeTagsResponse (Lude.Maybe [Tag])
-dtsrsTags = Lens.lens (tags :: DescribeTagsResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtsrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+dtrrsTags :: Lens.Lens' DescribeTagsResponse (Core.Maybe [Types.Tag])
+dtrrsTags = Lens.field @"tags"
+{-# DEPRECATED dtrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsrsResponseStatus :: Lens.Lens' DescribeTagsResponse Lude.Int
-dtsrsResponseStatus = Lens.lens (responseStatus :: DescribeTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrrsResponseStatus :: Lens.Lens' DescribeTagsResponse Core.Int
+dtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

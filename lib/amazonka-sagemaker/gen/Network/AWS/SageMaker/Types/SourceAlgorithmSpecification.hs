@@ -22,51 +22,44 @@ module Network.AWS.SageMaker.Types.SourceAlgorithmSpecification
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.SourceAlgorithm
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.SourceAlgorithm as Types
 
 -- | A list of algorithms that were used to create a model package.
 --
 -- /See:/ 'mkSourceAlgorithmSpecification' smart constructor.
 newtype SourceAlgorithmSpecification = SourceAlgorithmSpecification'
   { -- | A list of the algorithms that were used to create a model package.
-    sourceAlgorithms :: Lude.NonEmpty SourceAlgorithm
+    sourceAlgorithms :: Core.NonEmpty Types.SourceAlgorithm
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SourceAlgorithmSpecification' with the minimum fields required to make a request.
---
--- * 'sourceAlgorithms' - A list of the algorithms that were used to create a model package.
+-- | Creates a 'SourceAlgorithmSpecification' value with any optional fields omitted.
 mkSourceAlgorithmSpecification ::
   -- | 'sourceAlgorithms'
-  Lude.NonEmpty SourceAlgorithm ->
+  Core.NonEmpty Types.SourceAlgorithm ->
   SourceAlgorithmSpecification
-mkSourceAlgorithmSpecification pSourceAlgorithms_ =
-  SourceAlgorithmSpecification'
-    { sourceAlgorithms =
-        pSourceAlgorithms_
-    }
+mkSourceAlgorithmSpecification sourceAlgorithms =
+  SourceAlgorithmSpecification' {sourceAlgorithms}
 
 -- | A list of the algorithms that were used to create a model package.
 --
 -- /Note:/ Consider using 'sourceAlgorithms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasSourceAlgorithms :: Lens.Lens' SourceAlgorithmSpecification (Lude.NonEmpty SourceAlgorithm)
-sasSourceAlgorithms = Lens.lens (sourceAlgorithms :: SourceAlgorithmSpecification -> Lude.NonEmpty SourceAlgorithm) (\s a -> s {sourceAlgorithms = a} :: SourceAlgorithmSpecification)
+sasSourceAlgorithms :: Lens.Lens' SourceAlgorithmSpecification (Core.NonEmpty Types.SourceAlgorithm)
+sasSourceAlgorithms = Lens.field @"sourceAlgorithms"
 {-# DEPRECATED sasSourceAlgorithms "Use generic-lens or generic-optics with 'sourceAlgorithms' instead." #-}
 
-instance Lude.FromJSON SourceAlgorithmSpecification where
-  parseJSON =
-    Lude.withObject
-      "SourceAlgorithmSpecification"
-      ( \x ->
-          SourceAlgorithmSpecification'
-            Lude.<$> (x Lude..: "SourceAlgorithms")
+instance Core.FromJSON SourceAlgorithmSpecification where
+  toJSON SourceAlgorithmSpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SourceAlgorithms" Core..= sourceAlgorithms)]
       )
 
-instance Lude.ToJSON SourceAlgorithmSpecification where
-  toJSON SourceAlgorithmSpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("SourceAlgorithms" Lude..= sourceAlgorithms)]
-      )
+instance Core.FromJSON SourceAlgorithmSpecification where
+  parseJSON =
+    Core.withObject "SourceAlgorithmSpecification" Core.$
+      \x ->
+        SourceAlgorithmSpecification'
+          Core.<$> (x Core..: "SourceAlgorithms")

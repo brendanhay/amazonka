@@ -17,58 +17,56 @@ module Network.AWS.Redshift.Types.AccountAttribute
     mkAccountAttribute,
 
     -- * Lenses
-    aaAttributeValues,
     aaAttributeName,
+    aaAttributeValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.AttributeValueTarget
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.AttributeValueTarget as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | A name value pair that describes an aspect of an account.
 --
 -- /See:/ 'mkAccountAttribute' smart constructor.
 data AccountAttribute = AccountAttribute'
-  { -- | A list of attribute values.
-    attributeValues :: Lude.Maybe [AttributeValueTarget],
-    -- | The name of the attribute.
-    attributeName :: Lude.Maybe Lude.Text
+  { -- | The name of the attribute.
+    attributeName :: Core.Maybe Types.String,
+    -- | A list of attribute values.
+    attributeValues :: Core.Maybe [Types.AttributeValueTarget]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountAttribute' with the minimum fields required to make a request.
---
--- * 'attributeValues' - A list of attribute values.
--- * 'attributeName' - The name of the attribute.
+-- | Creates a 'AccountAttribute' value with any optional fields omitted.
 mkAccountAttribute ::
   AccountAttribute
 mkAccountAttribute =
   AccountAttribute'
-    { attributeValues = Lude.Nothing,
-      attributeName = Lude.Nothing
+    { attributeName = Core.Nothing,
+      attributeValues = Core.Nothing
     }
-
--- | A list of attribute values.
---
--- /Note:/ Consider using 'attributeValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaAttributeValues :: Lens.Lens' AccountAttribute (Lude.Maybe [AttributeValueTarget])
-aaAttributeValues = Lens.lens (attributeValues :: AccountAttribute -> Lude.Maybe [AttributeValueTarget]) (\s a -> s {attributeValues = a} :: AccountAttribute)
-{-# DEPRECATED aaAttributeValues "Use generic-lens or generic-optics with 'attributeValues' instead." #-}
 
 -- | The name of the attribute.
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaAttributeName :: Lens.Lens' AccountAttribute (Lude.Maybe Lude.Text)
-aaAttributeName = Lens.lens (attributeName :: AccountAttribute -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: AccountAttribute)
+aaAttributeName :: Lens.Lens' AccountAttribute (Core.Maybe Types.String)
+aaAttributeName = Lens.field @"attributeName"
 {-# DEPRECATED aaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance Lude.FromXML AccountAttribute where
+-- | A list of attribute values.
+--
+-- /Note:/ Consider using 'attributeValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaAttributeValues :: Lens.Lens' AccountAttribute (Core.Maybe [Types.AttributeValueTarget])
+aaAttributeValues = Lens.field @"attributeValues"
+{-# DEPRECATED aaAttributeValues "Use generic-lens or generic-optics with 'attributeValues' instead." #-}
+
+instance Core.FromXML AccountAttribute where
   parseXML x =
     AccountAttribute'
-      Lude.<$> ( x Lude..@? "AttributeValues" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "AttributeValueTarget")
+      Core.<$> (x Core..@? "AttributeName")
+      Core.<*> ( x Core..@? "AttributeValues"
+                   Core..<@> Core.parseXMLList "AttributeValueTarget"
                )
-      Lude.<*> (x Lude..@? "AttributeName")

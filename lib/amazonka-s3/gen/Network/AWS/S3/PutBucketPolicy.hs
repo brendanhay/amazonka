@@ -31,9 +31,9 @@ module Network.AWS.S3.PutBucketPolicy
 
     -- ** Request lenses
     pbpBucket,
+    pbpPolicy,
     pbpConfirmRemoveSelfBucketAccess,
     pbpContentMD5,
-    pbpPolicy,
     pbpExpectedBucketOwner,
 
     -- * Destructuring the response
@@ -43,65 +43,64 @@ module Network.AWS.S3.PutBucketPolicy
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutBucketPolicy' smart constructor.
 data PutBucketPolicy = PutBucketPolicy'
   { -- | The name of the bucket.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
+    -- | The bucket policy as a JSON document.
+    policy :: Core.ByteString,
     -- | Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.
-    confirmRemoveSelfBucketAccess :: Lude.Maybe Lude.Bool,
+    confirmRemoveSelfBucketAccess :: Core.Maybe Core.Bool,
     -- | The MD5 hash of the request body.
     --
     -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
-    contentMD5 :: Lude.Maybe Lude.Text,
-    -- | The bucket policy as a JSON document.
-    policy :: Lude.ByteString,
+    contentMD5 :: Core.Maybe Types.ContentMD5,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketPolicy' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the bucket.
--- * 'confirmRemoveSelfBucketAccess' - Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.
--- * 'contentMD5' - The MD5 hash of the request body.
---
--- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
--- * 'policy' - The bucket policy as a JSON document.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'PutBucketPolicy' value with any optional fields omitted.
 mkPutBucketPolicy ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'policy'
-  Lude.ByteString ->
+  Core.ByteString ->
   PutBucketPolicy
-mkPutBucketPolicy pBucket_ pPolicy_ =
+mkPutBucketPolicy bucket policy =
   PutBucketPolicy'
-    { bucket = pBucket_,
-      confirmRemoveSelfBucketAccess = Lude.Nothing,
-      contentMD5 = Lude.Nothing,
-      policy = pPolicy_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      policy,
+      confirmRemoveSelfBucketAccess = Core.Nothing,
+      contentMD5 = Core.Nothing,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The name of the bucket.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbpBucket :: Lens.Lens' PutBucketPolicy BucketName
-pbpBucket = Lens.lens (bucket :: PutBucketPolicy -> BucketName) (\s a -> s {bucket = a} :: PutBucketPolicy)
+pbpBucket :: Lens.Lens' PutBucketPolicy Types.BucketName
+pbpBucket = Lens.field @"bucket"
 {-# DEPRECATED pbpBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | The bucket policy as a JSON document.
+--
+-- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbpPolicy :: Lens.Lens' PutBucketPolicy Core.ByteString
+pbpPolicy = Lens.field @"policy"
+{-# DEPRECATED pbpPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.
 --
 -- /Note:/ Consider using 'confirmRemoveSelfBucketAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbpConfirmRemoveSelfBucketAccess :: Lens.Lens' PutBucketPolicy (Lude.Maybe Lude.Bool)
-pbpConfirmRemoveSelfBucketAccess = Lens.lens (confirmRemoveSelfBucketAccess :: PutBucketPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {confirmRemoveSelfBucketAccess = a} :: PutBucketPolicy)
+pbpConfirmRemoveSelfBucketAccess :: Lens.Lens' PutBucketPolicy (Core.Maybe Core.Bool)
+pbpConfirmRemoveSelfBucketAccess = Lens.field @"confirmRemoveSelfBucketAccess"
 {-# DEPRECATED pbpConfirmRemoveSelfBucketAccess "Use generic-lens or generic-optics with 'confirmRemoveSelfBucketAccess' instead." #-}
 
 -- | The MD5 hash of the request body.
@@ -109,53 +108,42 @@ pbpConfirmRemoveSelfBucketAccess = Lens.lens (confirmRemoveSelfBucketAccess :: P
 -- For requests made using the AWS Command Line Interface (CLI) or AWS SDKs, this field is calculated automatically.
 --
 -- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbpContentMD5 :: Lens.Lens' PutBucketPolicy (Lude.Maybe Lude.Text)
-pbpContentMD5 = Lens.lens (contentMD5 :: PutBucketPolicy -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: PutBucketPolicy)
+pbpContentMD5 :: Lens.Lens' PutBucketPolicy (Core.Maybe Types.ContentMD5)
+pbpContentMD5 = Lens.field @"contentMD5"
 {-# DEPRECATED pbpContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
-
--- | The bucket policy as a JSON document.
---
--- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbpPolicy :: Lens.Lens' PutBucketPolicy Lude.ByteString
-pbpPolicy = Lens.lens (policy :: PutBucketPolicy -> Lude.ByteString) (\s a -> s {policy = a} :: PutBucketPolicy)
-{-# DEPRECATED pbpPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbpExpectedBucketOwner :: Lens.Lens' PutBucketPolicy (Lude.Maybe Lude.Text)
-pbpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketPolicy -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketPolicy)
+pbpExpectedBucketOwner :: Lens.Lens' PutBucketPolicy (Core.Maybe Types.ExpectedBucketOwner)
+pbpExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED pbpExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest PutBucketPolicy where
+instance Core.AWSRequest PutBucketPolicy where
   type Rs PutBucketPolicy = PutBucketPolicyResponse
-  request = contentMD5Header Lude.. Req.putBody s3Service
-  response = Res.receiveNull PutBucketPolicyResponse'
-
-instance Lude.ToBody PutBucketPolicy where
-  toBody = Lude.toBody Lude.. policy
-
-instance Lude.ToHeaders PutBucketPolicy where
-  toHeaders PutBucketPolicy' {..} =
-    Lude.mconcat
-      [ "x-amz-confirm-remove-self-bucket-access"
-          Lude.=# confirmRemoveSelfBucketAccess,
-        "Content-MD5" Lude.=# contentMD5,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
-      ]
-
-instance Lude.ToPath PutBucketPolicy where
-  toPath PutBucketPolicy' {..} = Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery PutBucketPolicy where
-  toQuery = Lude.const (Lude.mconcat ["policy"])
+  request x@Core.Request {..} =
+    Request.contentMD5Header Core.$
+      Core.Request
+        { Core._rqService = Types.mkServiceConfig,
+          Core._rqMethod = Request.PUT,
+          Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+          Core._rqQuery = Core.pure ("policy", ""),
+          Core._rqHeaders =
+            Core.toHeaders
+              "x-amz-confirm-remove-self-bucket-access"
+              confirmRemoveSelfBucketAccess
+              Core.<> (Core.toHeaders "Content-MD5" contentMD5)
+              Core.<> (Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner),
+          Core._rqBody = Core.toBody policy
+        }
+  response = Response.receiveNull PutBucketPolicyResponse'
 
 -- | /See:/ 'mkPutBucketPolicyResponse' smart constructor.
 data PutBucketPolicyResponse = PutBucketPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutBucketPolicyResponse' value with any optional fields omitted.
 mkPutBucketPolicyResponse ::
   PutBucketPolicyResponse
 mkPutBucketPolicyResponse = PutBucketPolicyResponse'

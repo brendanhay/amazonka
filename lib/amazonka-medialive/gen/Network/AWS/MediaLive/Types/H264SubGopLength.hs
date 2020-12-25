@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.H264SubGopLength
   ( H264SubGopLength
       ( H264SubGopLength',
-        Dynamic,
-        Fixed
+        H264SubGopLengthDynamic,
+        H264SubGopLengthFixed,
+        fromH264SubGopLength
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H264 Sub Gop Length
-newtype H264SubGopLength = H264SubGopLength' Lude.Text
+newtype H264SubGopLength = H264SubGopLength'
+  { fromH264SubGopLength ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Dynamic :: H264SubGopLength
-pattern Dynamic = H264SubGopLength' "DYNAMIC"
+pattern H264SubGopLengthDynamic :: H264SubGopLength
+pattern H264SubGopLengthDynamic = H264SubGopLength' "DYNAMIC"
 
-pattern Fixed :: H264SubGopLength
-pattern Fixed = H264SubGopLength' "FIXED"
+pattern H264SubGopLengthFixed :: H264SubGopLength
+pattern H264SubGopLengthFixed = H264SubGopLength' "FIXED"
 
 {-# COMPLETE
-  Dynamic,
-  Fixed,
+  H264SubGopLengthDynamic,
+  H264SubGopLengthFixed,
   H264SubGopLength'
   #-}

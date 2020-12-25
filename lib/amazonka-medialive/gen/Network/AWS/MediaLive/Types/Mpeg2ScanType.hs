@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Mpeg2ScanType
   ( Mpeg2ScanType
       ( Mpeg2ScanType',
-        MSTInterlaced,
-        MSTProgressive
+        Mpeg2ScanTypeInterlaced,
+        Mpeg2ScanTypeProgressive,
+        fromMpeg2ScanType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Mpeg2 Scan Type
-newtype Mpeg2ScanType = Mpeg2ScanType' Lude.Text
+newtype Mpeg2ScanType = Mpeg2ScanType'
+  { fromMpeg2ScanType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MSTInterlaced :: Mpeg2ScanType
-pattern MSTInterlaced = Mpeg2ScanType' "INTERLACED"
+pattern Mpeg2ScanTypeInterlaced :: Mpeg2ScanType
+pattern Mpeg2ScanTypeInterlaced = Mpeg2ScanType' "INTERLACED"
 
-pattern MSTProgressive :: Mpeg2ScanType
-pattern MSTProgressive = Mpeg2ScanType' "PROGRESSIVE"
+pattern Mpeg2ScanTypeProgressive :: Mpeg2ScanType
+pattern Mpeg2ScanTypeProgressive = Mpeg2ScanType' "PROGRESSIVE"
 
 {-# COMPLETE
-  MSTInterlaced,
-  MSTProgressive,
+  Mpeg2ScanTypeInterlaced,
+  Mpeg2ScanTypeProgressive,
   Mpeg2ScanType'
   #-}

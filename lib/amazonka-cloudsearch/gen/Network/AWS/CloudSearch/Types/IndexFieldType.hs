@@ -13,92 +13,97 @@
 module Network.AWS.CloudSearch.Types.IndexFieldType
   ( IndexFieldType
       ( IndexFieldType',
-        Int,
-        Double,
-        Literal,
-        Text,
-        Date,
-        Latlon,
-        IntArray,
-        DoubleArray,
-        LiteralArray,
-        TextArray,
-        DateArray
+        IndexFieldTypeInt,
+        IndexFieldTypeDouble,
+        IndexFieldTypeLiteral,
+        IndexFieldTypeText,
+        IndexFieldTypeDate,
+        IndexFieldTypeLatlon,
+        IndexFieldTypeIntArray,
+        IndexFieldTypeDoubleArray,
+        IndexFieldTypeLiteralArray,
+        IndexFieldTypeTextArray,
+        IndexFieldTypeDateArray,
+        fromIndexFieldType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields> in the /Amazon CloudSearch Developer Guide/ .
-newtype IndexFieldType = IndexFieldType' Lude.Text
+newtype IndexFieldType = IndexFieldType'
+  { fromIndexFieldType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Int :: IndexFieldType
-pattern Int = IndexFieldType' "int"
+pattern IndexFieldTypeInt :: IndexFieldType
+pattern IndexFieldTypeInt = IndexFieldType' "int"
 
-pattern Double :: IndexFieldType
-pattern Double = IndexFieldType' "double"
+pattern IndexFieldTypeDouble :: IndexFieldType
+pattern IndexFieldTypeDouble = IndexFieldType' "double"
 
-pattern Literal :: IndexFieldType
-pattern Literal = IndexFieldType' "literal"
+pattern IndexFieldTypeLiteral :: IndexFieldType
+pattern IndexFieldTypeLiteral = IndexFieldType' "literal"
 
-pattern Text :: IndexFieldType
-pattern Text = IndexFieldType' "text"
+pattern IndexFieldTypeText :: IndexFieldType
+pattern IndexFieldTypeText = IndexFieldType' "text"
 
-pattern Date :: IndexFieldType
-pattern Date = IndexFieldType' "date"
+pattern IndexFieldTypeDate :: IndexFieldType
+pattern IndexFieldTypeDate = IndexFieldType' "date"
 
-pattern Latlon :: IndexFieldType
-pattern Latlon = IndexFieldType' "latlon"
+pattern IndexFieldTypeLatlon :: IndexFieldType
+pattern IndexFieldTypeLatlon = IndexFieldType' "latlon"
 
-pattern IntArray :: IndexFieldType
-pattern IntArray = IndexFieldType' "int-array"
+pattern IndexFieldTypeIntArray :: IndexFieldType
+pattern IndexFieldTypeIntArray = IndexFieldType' "int-array"
 
-pattern DoubleArray :: IndexFieldType
-pattern DoubleArray = IndexFieldType' "double-array"
+pattern IndexFieldTypeDoubleArray :: IndexFieldType
+pattern IndexFieldTypeDoubleArray = IndexFieldType' "double-array"
 
-pattern LiteralArray :: IndexFieldType
-pattern LiteralArray = IndexFieldType' "literal-array"
+pattern IndexFieldTypeLiteralArray :: IndexFieldType
+pattern IndexFieldTypeLiteralArray = IndexFieldType' "literal-array"
 
-pattern TextArray :: IndexFieldType
-pattern TextArray = IndexFieldType' "text-array"
+pattern IndexFieldTypeTextArray :: IndexFieldType
+pattern IndexFieldTypeTextArray = IndexFieldType' "text-array"
 
-pattern DateArray :: IndexFieldType
-pattern DateArray = IndexFieldType' "date-array"
+pattern IndexFieldTypeDateArray :: IndexFieldType
+pattern IndexFieldTypeDateArray = IndexFieldType' "date-array"
 
 {-# COMPLETE
-  Int,
-  Double,
-  Literal,
-  Text,
-  Date,
-  Latlon,
-  IntArray,
-  DoubleArray,
-  LiteralArray,
-  TextArray,
-  DateArray,
+  IndexFieldTypeInt,
+  IndexFieldTypeDouble,
+  IndexFieldTypeLiteral,
+  IndexFieldTypeText,
+  IndexFieldTypeDate,
+  IndexFieldTypeLatlon,
+  IndexFieldTypeIntArray,
+  IndexFieldTypeDoubleArray,
+  IndexFieldTypeLiteralArray,
+  IndexFieldTypeTextArray,
+  IndexFieldTypeDateArray,
   IndexFieldType'
   #-}

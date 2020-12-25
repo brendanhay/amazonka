@@ -23,175 +23,163 @@ module Network.AWS.SSM.DescribeInstanceAssociationsStatus
 
     -- ** Request lenses
     diasInstanceId,
-    diasNextToken,
     diasMaxResults,
+    diasNextToken,
 
     -- * Destructuring the response
     DescribeInstanceAssociationsStatusResponse (..),
     mkDescribeInstanceAssociationsStatusResponse,
 
     -- ** Response lenses
-    diasrsInstanceAssociationStatusInfos,
-    diasrsNextToken,
-    diasrsResponseStatus,
+    diasrrsInstanceAssociationStatusInfos,
+    diasrrsNextToken,
+    diasrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDescribeInstanceAssociationsStatus' smart constructor.
 data DescribeInstanceAssociationsStatus = DescribeInstanceAssociationsStatus'
   { -- | The instance IDs for which you want association status information.
-    instanceId :: Lude.Text,
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeInstanceAssociationsStatus' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance IDs for which you want association status information.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | Creates a 'DescribeInstanceAssociationsStatus' value with any optional fields omitted.
 mkDescribeInstanceAssociationsStatus ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   DescribeInstanceAssociationsStatus
-mkDescribeInstanceAssociationsStatus pInstanceId_ =
+mkDescribeInstanceAssociationsStatus instanceId =
   DescribeInstanceAssociationsStatus'
-    { instanceId = pInstanceId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { instanceId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The instance IDs for which you want association status information.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diasInstanceId :: Lens.Lens' DescribeInstanceAssociationsStatus Lude.Text
-diasInstanceId = Lens.lens (instanceId :: DescribeInstanceAssociationsStatus -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstanceAssociationsStatus)
+diasInstanceId :: Lens.Lens' DescribeInstanceAssociationsStatus Types.InstanceId
+diasInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED diasInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diasNextToken :: Lens.Lens' DescribeInstanceAssociationsStatus (Lude.Maybe Lude.Text)
-diasNextToken = Lens.lens (nextToken :: DescribeInstanceAssociationsStatus -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceAssociationsStatus)
-{-# DEPRECATED diasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diasMaxResults :: Lens.Lens' DescribeInstanceAssociationsStatus (Lude.Maybe Lude.Natural)
-diasMaxResults = Lens.lens (maxResults :: DescribeInstanceAssociationsStatus -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeInstanceAssociationsStatus)
+diasMaxResults :: Lens.Lens' DescribeInstanceAssociationsStatus (Core.Maybe Core.Natural)
+diasMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED diasMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeInstanceAssociationsStatus where
-  page rq rs
-    | Page.stop (rs Lens.^. diasrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. diasrsInstanceAssociationStatusInfos) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& diasNextToken Lens..~ rs Lens.^. diasrsNextToken
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diasNextToken :: Lens.Lens' DescribeInstanceAssociationsStatus (Core.Maybe Types.NextToken)
+diasNextToken = Lens.field @"nextToken"
+{-# DEPRECATED diasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeInstanceAssociationsStatus where
+instance Core.FromJSON DescribeInstanceAssociationsStatus where
+  toJSON DescribeInstanceAssociationsStatus {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeInstanceAssociationsStatus where
   type
     Rs DescribeInstanceAssociationsStatus =
       DescribeInstanceAssociationsStatusResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonSSM.DescribeInstanceAssociationsStatus")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeInstanceAssociationsStatusResponse'
-            Lude.<$> (x Lude..?> "InstanceAssociationStatusInfos" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InstanceAssociationStatusInfos")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeInstanceAssociationsStatus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonSSM.DescribeInstanceAssociationsStatus" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeInstanceAssociationsStatus where
-  toJSON DescribeInstanceAssociationsStatus' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeInstanceAssociationsStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeInstanceAssociationsStatus where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeInstanceAssociationsStatus where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"instanceAssociationStatusInfos" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeInstanceAssociationsStatusResponse' smart constructor.
 data DescribeInstanceAssociationsStatusResponse = DescribeInstanceAssociationsStatusResponse'
   { -- | Status information about the association.
-    instanceAssociationStatusInfos :: Lude.Maybe [InstanceAssociationStatusInfo],
+    instanceAssociationStatusInfos :: Core.Maybe [Types.InstanceAssociationStatusInfo],
     -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeInstanceAssociationsStatusResponse' with the minimum fields required to make a request.
---
--- * 'instanceAssociationStatusInfos' - Status information about the association.
--- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeInstanceAssociationsStatusResponse' value with any optional fields omitted.
 mkDescribeInstanceAssociationsStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeInstanceAssociationsStatusResponse
-mkDescribeInstanceAssociationsStatusResponse pResponseStatus_ =
+mkDescribeInstanceAssociationsStatusResponse responseStatus =
   DescribeInstanceAssociationsStatusResponse'
     { instanceAssociationStatusInfos =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Status information about the association.
 --
 -- /Note:/ Consider using 'instanceAssociationStatusInfos' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diasrsInstanceAssociationStatusInfos :: Lens.Lens' DescribeInstanceAssociationsStatusResponse (Lude.Maybe [InstanceAssociationStatusInfo])
-diasrsInstanceAssociationStatusInfos = Lens.lens (instanceAssociationStatusInfos :: DescribeInstanceAssociationsStatusResponse -> Lude.Maybe [InstanceAssociationStatusInfo]) (\s a -> s {instanceAssociationStatusInfos = a} :: DescribeInstanceAssociationsStatusResponse)
-{-# DEPRECATED diasrsInstanceAssociationStatusInfos "Use generic-lens or generic-optics with 'instanceAssociationStatusInfos' instead." #-}
+diasrrsInstanceAssociationStatusInfos :: Lens.Lens' DescribeInstanceAssociationsStatusResponse (Core.Maybe [Types.InstanceAssociationStatusInfo])
+diasrrsInstanceAssociationStatusInfos = Lens.field @"instanceAssociationStatusInfos"
+{-# DEPRECATED diasrrsInstanceAssociationStatusInfos "Use generic-lens or generic-optics with 'instanceAssociationStatusInfos' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diasrsNextToken :: Lens.Lens' DescribeInstanceAssociationsStatusResponse (Lude.Maybe Lude.Text)
-diasrsNextToken = Lens.lens (nextToken :: DescribeInstanceAssociationsStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeInstanceAssociationsStatusResponse)
-{-# DEPRECATED diasrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+diasrrsNextToken :: Lens.Lens' DescribeInstanceAssociationsStatusResponse (Core.Maybe Types.NextToken)
+diasrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED diasrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diasrsResponseStatus :: Lens.Lens' DescribeInstanceAssociationsStatusResponse Lude.Int
-diasrsResponseStatus = Lens.lens (responseStatus :: DescribeInstanceAssociationsStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstanceAssociationsStatusResponse)
-{-# DEPRECATED diasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+diasrrsResponseStatus :: Lens.Lens' DescribeInstanceAssociationsStatusResponse Core.Int
+diasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED diasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

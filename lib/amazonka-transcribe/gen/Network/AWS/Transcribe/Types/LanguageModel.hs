@@ -17,153 +17,143 @@ module Network.AWS.Transcribe.Types.LanguageModel
     mkLanguageModel,
 
     -- * Lenses
-    lmFailureReason,
-    lmLanguageCode,
-    lmModelName,
-    lmLastModifiedTime,
-    lmUpgradeAvailability,
-    lmInputDataConfig,
     lmBaseModelName,
-    lmModelStatus,
     lmCreateTime,
+    lmFailureReason,
+    lmInputDataConfig,
+    lmLanguageCode,
+    lmLastModifiedTime,
+    lmModelName,
+    lmModelStatus,
+    lmUpgradeAvailability,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Transcribe.Types.BaseModelName
-import Network.AWS.Transcribe.Types.CLMLanguageCode
-import Network.AWS.Transcribe.Types.InputDataConfig
-import Network.AWS.Transcribe.Types.ModelStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Transcribe.Types.BaseModelName as Types
+import qualified Network.AWS.Transcribe.Types.CLMLanguageCode as Types
+import qualified Network.AWS.Transcribe.Types.FailureReason as Types
+import qualified Network.AWS.Transcribe.Types.InputDataConfig as Types
+import qualified Network.AWS.Transcribe.Types.ModelName as Types
+import qualified Network.AWS.Transcribe.Types.ModelStatus as Types
 
 -- | The structure used to describe a custom language model.
 --
 -- /See:/ 'mkLanguageModel' smart constructor.
 data LanguageModel = LanguageModel'
-  { -- | The reason why the custom language model couldn't be created.
-    failureReason :: Lude.Maybe Lude.Text,
-    -- | The language code you used to create your custom language model.
-    languageCode :: Lude.Maybe CLMLanguageCode,
-    -- | The name of the custom language model.
-    modelName :: Lude.Maybe Lude.Text,
-    -- | The most recent time the custom language model was modified.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
-    -- | Whether the base model used for the custom language model is up to date. If this field is @true@ then you are running the most up-to-date version of the base model in your custom language model.
-    upgradeAvailability :: Lude.Maybe Lude.Bool,
-    -- | The data access role and Amazon S3 prefixes for the input files used to train the custom language model.
-    inputDataConfig :: Lude.Maybe InputDataConfig,
-    -- | The Amazon Transcribe standard language model, or base model used to create the custom language model.
-    baseModelName :: Lude.Maybe BaseModelName,
-    -- | The creation status of a custom language model. When the status is @COMPLETED@ the model is ready for use.
-    modelStatus :: Lude.Maybe ModelStatus,
+  { -- | The Amazon Transcribe standard language model, or base model used to create the custom language model.
+    baseModelName :: Core.Maybe Types.BaseModelName,
     -- | The time the custom language model was created.
-    createTime :: Lude.Maybe Lude.Timestamp
+    createTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The reason why the custom language model couldn't be created.
+    failureReason :: Core.Maybe Types.FailureReason,
+    -- | The data access role and Amazon S3 prefixes for the input files used to train the custom language model.
+    inputDataConfig :: Core.Maybe Types.InputDataConfig,
+    -- | The language code you used to create your custom language model.
+    languageCode :: Core.Maybe Types.CLMLanguageCode,
+    -- | The most recent time the custom language model was modified.
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the custom language model.
+    modelName :: Core.Maybe Types.ModelName,
+    -- | The creation status of a custom language model. When the status is @COMPLETED@ the model is ready for use.
+    modelStatus :: Core.Maybe Types.ModelStatus,
+    -- | Whether the base model used for the custom language model is up to date. If this field is @true@ then you are running the most up-to-date version of the base model in your custom language model.
+    upgradeAvailability :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LanguageModel' with the minimum fields required to make a request.
---
--- * 'failureReason' - The reason why the custom language model couldn't be created.
--- * 'languageCode' - The language code you used to create your custom language model.
--- * 'modelName' - The name of the custom language model.
--- * 'lastModifiedTime' - The most recent time the custom language model was modified.
--- * 'upgradeAvailability' - Whether the base model used for the custom language model is up to date. If this field is @true@ then you are running the most up-to-date version of the base model in your custom language model.
--- * 'inputDataConfig' - The data access role and Amazon S3 prefixes for the input files used to train the custom language model.
--- * 'baseModelName' - The Amazon Transcribe standard language model, or base model used to create the custom language model.
--- * 'modelStatus' - The creation status of a custom language model. When the status is @COMPLETED@ the model is ready for use.
--- * 'createTime' - The time the custom language model was created.
+-- | Creates a 'LanguageModel' value with any optional fields omitted.
 mkLanguageModel ::
   LanguageModel
 mkLanguageModel =
   LanguageModel'
-    { failureReason = Lude.Nothing,
-      languageCode = Lude.Nothing,
-      modelName = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      upgradeAvailability = Lude.Nothing,
-      inputDataConfig = Lude.Nothing,
-      baseModelName = Lude.Nothing,
-      modelStatus = Lude.Nothing,
-      createTime = Lude.Nothing
+    { baseModelName = Core.Nothing,
+      createTime = Core.Nothing,
+      failureReason = Core.Nothing,
+      inputDataConfig = Core.Nothing,
+      languageCode = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      modelName = Core.Nothing,
+      modelStatus = Core.Nothing,
+      upgradeAvailability = Core.Nothing
     }
-
--- | The reason why the custom language model couldn't be created.
---
--- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmFailureReason :: Lens.Lens' LanguageModel (Lude.Maybe Lude.Text)
-lmFailureReason = Lens.lens (failureReason :: LanguageModel -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: LanguageModel)
-{-# DEPRECATED lmFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
-
--- | The language code you used to create your custom language model.
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmLanguageCode :: Lens.Lens' LanguageModel (Lude.Maybe CLMLanguageCode)
-lmLanguageCode = Lens.lens (languageCode :: LanguageModel -> Lude.Maybe CLMLanguageCode) (\s a -> s {languageCode = a} :: LanguageModel)
-{-# DEPRECATED lmLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
-
--- | The name of the custom language model.
---
--- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmModelName :: Lens.Lens' LanguageModel (Lude.Maybe Lude.Text)
-lmModelName = Lens.lens (modelName :: LanguageModel -> Lude.Maybe Lude.Text) (\s a -> s {modelName = a} :: LanguageModel)
-{-# DEPRECATED lmModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
-
--- | The most recent time the custom language model was modified.
---
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmLastModifiedTime :: Lens.Lens' LanguageModel (Lude.Maybe Lude.Timestamp)
-lmLastModifiedTime = Lens.lens (lastModifiedTime :: LanguageModel -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: LanguageModel)
-{-# DEPRECATED lmLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
-
--- | Whether the base model used for the custom language model is up to date. If this field is @true@ then you are running the most up-to-date version of the base model in your custom language model.
---
--- /Note:/ Consider using 'upgradeAvailability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmUpgradeAvailability :: Lens.Lens' LanguageModel (Lude.Maybe Lude.Bool)
-lmUpgradeAvailability = Lens.lens (upgradeAvailability :: LanguageModel -> Lude.Maybe Lude.Bool) (\s a -> s {upgradeAvailability = a} :: LanguageModel)
-{-# DEPRECATED lmUpgradeAvailability "Use generic-lens or generic-optics with 'upgradeAvailability' instead." #-}
-
--- | The data access role and Amazon S3 prefixes for the input files used to train the custom language model.
---
--- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmInputDataConfig :: Lens.Lens' LanguageModel (Lude.Maybe InputDataConfig)
-lmInputDataConfig = Lens.lens (inputDataConfig :: LanguageModel -> Lude.Maybe InputDataConfig) (\s a -> s {inputDataConfig = a} :: LanguageModel)
-{-# DEPRECATED lmInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
 -- | The Amazon Transcribe standard language model, or base model used to create the custom language model.
 --
 -- /Note:/ Consider using 'baseModelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmBaseModelName :: Lens.Lens' LanguageModel (Lude.Maybe BaseModelName)
-lmBaseModelName = Lens.lens (baseModelName :: LanguageModel -> Lude.Maybe BaseModelName) (\s a -> s {baseModelName = a} :: LanguageModel)
+lmBaseModelName :: Lens.Lens' LanguageModel (Core.Maybe Types.BaseModelName)
+lmBaseModelName = Lens.field @"baseModelName"
 {-# DEPRECATED lmBaseModelName "Use generic-lens or generic-optics with 'baseModelName' instead." #-}
-
--- | The creation status of a custom language model. When the status is @COMPLETED@ the model is ready for use.
---
--- /Note:/ Consider using 'modelStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmModelStatus :: Lens.Lens' LanguageModel (Lude.Maybe ModelStatus)
-lmModelStatus = Lens.lens (modelStatus :: LanguageModel -> Lude.Maybe ModelStatus) (\s a -> s {modelStatus = a} :: LanguageModel)
-{-# DEPRECATED lmModelStatus "Use generic-lens or generic-optics with 'modelStatus' instead." #-}
 
 -- | The time the custom language model was created.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmCreateTime :: Lens.Lens' LanguageModel (Lude.Maybe Lude.Timestamp)
-lmCreateTime = Lens.lens (createTime :: LanguageModel -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: LanguageModel)
+lmCreateTime :: Lens.Lens' LanguageModel (Core.Maybe Core.NominalDiffTime)
+lmCreateTime = Lens.field @"createTime"
 {-# DEPRECATED lmCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
-instance Lude.FromJSON LanguageModel where
+-- | The reason why the custom language model couldn't be created.
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmFailureReason :: Lens.Lens' LanguageModel (Core.Maybe Types.FailureReason)
+lmFailureReason = Lens.field @"failureReason"
+{-# DEPRECATED lmFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
+
+-- | The data access role and Amazon S3 prefixes for the input files used to train the custom language model.
+--
+-- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmInputDataConfig :: Lens.Lens' LanguageModel (Core.Maybe Types.InputDataConfig)
+lmInputDataConfig = Lens.field @"inputDataConfig"
+{-# DEPRECATED lmInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
+
+-- | The language code you used to create your custom language model.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmLanguageCode :: Lens.Lens' LanguageModel (Core.Maybe Types.CLMLanguageCode)
+lmLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED lmLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+-- | The most recent time the custom language model was modified.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmLastModifiedTime :: Lens.Lens' LanguageModel (Core.Maybe Core.NominalDiffTime)
+lmLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED lmLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | The name of the custom language model.
+--
+-- /Note:/ Consider using 'modelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmModelName :: Lens.Lens' LanguageModel (Core.Maybe Types.ModelName)
+lmModelName = Lens.field @"modelName"
+{-# DEPRECATED lmModelName "Use generic-lens or generic-optics with 'modelName' instead." #-}
+
+-- | The creation status of a custom language model. When the status is @COMPLETED@ the model is ready for use.
+--
+-- /Note:/ Consider using 'modelStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmModelStatus :: Lens.Lens' LanguageModel (Core.Maybe Types.ModelStatus)
+lmModelStatus = Lens.field @"modelStatus"
+{-# DEPRECATED lmModelStatus "Use generic-lens or generic-optics with 'modelStatus' instead." #-}
+
+-- | Whether the base model used for the custom language model is up to date. If this field is @true@ then you are running the most up-to-date version of the base model in your custom language model.
+--
+-- /Note:/ Consider using 'upgradeAvailability' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmUpgradeAvailability :: Lens.Lens' LanguageModel (Core.Maybe Core.Bool)
+lmUpgradeAvailability = Lens.field @"upgradeAvailability"
+{-# DEPRECATED lmUpgradeAvailability "Use generic-lens or generic-optics with 'upgradeAvailability' instead." #-}
+
+instance Core.FromJSON LanguageModel where
   parseJSON =
-    Lude.withObject
-      "LanguageModel"
-      ( \x ->
-          LanguageModel'
-            Lude.<$> (x Lude..:? "FailureReason")
-            Lude.<*> (x Lude..:? "LanguageCode")
-            Lude.<*> (x Lude..:? "ModelName")
-            Lude.<*> (x Lude..:? "LastModifiedTime")
-            Lude.<*> (x Lude..:? "UpgradeAvailability")
-            Lude.<*> (x Lude..:? "InputDataConfig")
-            Lude.<*> (x Lude..:? "BaseModelName")
-            Lude.<*> (x Lude..:? "ModelStatus")
-            Lude.<*> (x Lude..:? "CreateTime")
-      )
+    Core.withObject "LanguageModel" Core.$
+      \x ->
+        LanguageModel'
+          Core.<$> (x Core..:? "BaseModelName")
+          Core.<*> (x Core..:? "CreateTime")
+          Core.<*> (x Core..:? "FailureReason")
+          Core.<*> (x Core..:? "InputDataConfig")
+          Core.<*> (x Core..:? "LanguageCode")
+          Core.<*> (x Core..:? "LastModifiedTime")
+          Core.<*> (x Core..:? "ModelName")
+          Core.<*> (x Core..:? "ModelStatus")
+          Core.<*> (x Core..:? "UpgradeAvailability")

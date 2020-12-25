@@ -13,61 +13,66 @@
 module Network.AWS.SageMaker.Types.TrialComponentPrimaryStatus
   ( TrialComponentPrimaryStatus
       ( TrialComponentPrimaryStatus',
-        TCPSInProgress,
-        TCPSCompleted,
-        TCPSFailed,
-        TCPSStopping,
-        TCPSStopped
+        TrialComponentPrimaryStatusInProgress,
+        TrialComponentPrimaryStatusCompleted,
+        TrialComponentPrimaryStatusFailed,
+        TrialComponentPrimaryStatusStopping,
+        TrialComponentPrimaryStatusStopped,
+        fromTrialComponentPrimaryStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TrialComponentPrimaryStatus = TrialComponentPrimaryStatus' Lude.Text
+newtype TrialComponentPrimaryStatus = TrialComponentPrimaryStatus'
+  { fromTrialComponentPrimaryStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TCPSInProgress :: TrialComponentPrimaryStatus
-pattern TCPSInProgress = TrialComponentPrimaryStatus' "InProgress"
+pattern TrialComponentPrimaryStatusInProgress :: TrialComponentPrimaryStatus
+pattern TrialComponentPrimaryStatusInProgress = TrialComponentPrimaryStatus' "InProgress"
 
-pattern TCPSCompleted :: TrialComponentPrimaryStatus
-pattern TCPSCompleted = TrialComponentPrimaryStatus' "Completed"
+pattern TrialComponentPrimaryStatusCompleted :: TrialComponentPrimaryStatus
+pattern TrialComponentPrimaryStatusCompleted = TrialComponentPrimaryStatus' "Completed"
 
-pattern TCPSFailed :: TrialComponentPrimaryStatus
-pattern TCPSFailed = TrialComponentPrimaryStatus' "Failed"
+pattern TrialComponentPrimaryStatusFailed :: TrialComponentPrimaryStatus
+pattern TrialComponentPrimaryStatusFailed = TrialComponentPrimaryStatus' "Failed"
 
-pattern TCPSStopping :: TrialComponentPrimaryStatus
-pattern TCPSStopping = TrialComponentPrimaryStatus' "Stopping"
+pattern TrialComponentPrimaryStatusStopping :: TrialComponentPrimaryStatus
+pattern TrialComponentPrimaryStatusStopping = TrialComponentPrimaryStatus' "Stopping"
 
-pattern TCPSStopped :: TrialComponentPrimaryStatus
-pattern TCPSStopped = TrialComponentPrimaryStatus' "Stopped"
+pattern TrialComponentPrimaryStatusStopped :: TrialComponentPrimaryStatus
+pattern TrialComponentPrimaryStatusStopped = TrialComponentPrimaryStatus' "Stopped"
 
 {-# COMPLETE
-  TCPSInProgress,
-  TCPSCompleted,
-  TCPSFailed,
-  TCPSStopping,
-  TCPSStopped,
+  TrialComponentPrimaryStatusInProgress,
+  TrialComponentPrimaryStatusCompleted,
+  TrialComponentPrimaryStatusFailed,
+  TrialComponentPrimaryStatusStopping,
+  TrialComponentPrimaryStatusStopped,
   TrialComponentPrimaryStatus'
   #-}

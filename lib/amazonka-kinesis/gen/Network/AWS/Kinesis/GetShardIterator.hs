@@ -27,38 +27,36 @@ module Network.AWS.Kinesis.GetShardIterator
     mkGetShardIterator,
 
     -- ** Request lenses
-    gsiStartingSequenceNumber,
     gsiStreamName,
-    gsiTimestamp,
-    gsiShardIteratorType,
     gsiShardId,
+    gsiShardIteratorType,
+    gsiStartingSequenceNumber,
+    gsiTimestamp,
 
     -- * Destructuring the response
     GetShardIteratorResponse (..),
     mkGetShardIteratorResponse,
 
     -- ** Response lenses
-    gsirsShardIterator,
-    gsirsResponseStatus,
+    gsirrsShardIterator,
+    gsirrsResponseStatus,
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for @GetShardIterator@ .
 --
 -- /See:/ 'mkGetShardIterator' smart constructor.
 data GetShardIterator = GetShardIterator'
-  { -- | The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.
-    startingSequenceNumber :: Lude.Maybe Lude.Text,
-    -- | The name of the Amazon Kinesis data stream.
-    streamName :: Lude.Text,
-    -- | The time stamp of the data record from which to start reading. Used with shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds. For example, @2016-04-04T19:58:46.480-00:00@ or @1459799926.480@ . If a record with this exact time stamp does not exist, the iterator returned is for the next (later) record. If the time stamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON).
-    timestamp :: Lude.Maybe Lude.Timestamp,
+  { -- | The name of the Amazon Kinesis data stream.
+    streamName :: Types.StreamName,
+    -- | The shard ID of the Kinesis Data Streams shard to get the iterator for.
+    shardId :: Types.ShardId,
     -- | Determines how the shard iterator is used to start reading data records from the shard.
     --
     -- The following are the valid Amazon Kinesis shard iterator types:
@@ -76,75 +74,46 @@ data GetShardIterator = GetShardIterator'
     --
     --
     --     * LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.
-    shardIteratorType :: ShardIteratorType,
-    -- | The shard ID of the Kinesis Data Streams shard to get the iterator for.
-    shardId :: Lude.Text
+    shardIteratorType :: Types.ShardIteratorType,
+    -- | The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.
+    startingSequenceNumber :: Core.Maybe Types.SequenceNumber,
+    -- | The time stamp of the data record from which to start reading. Used with shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds. For example, @2016-04-04T19:58:46.480-00:00@ or @1459799926.480@ . If a record with this exact time stamp does not exist, the iterator returned is for the next (later) record. If the time stamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON).
+    timestamp :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetShardIterator' with the minimum fields required to make a request.
---
--- * 'startingSequenceNumber' - The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.
--- * 'streamName' - The name of the Amazon Kinesis data stream.
--- * 'timestamp' - The time stamp of the data record from which to start reading. Used with shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds. For example, @2016-04-04T19:58:46.480-00:00@ or @1459799926.480@ . If a record with this exact time stamp does not exist, the iterator returned is for the next (later) record. If the time stamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON).
--- * 'shardIteratorType' - Determines how the shard iterator is used to start reading data records from the shard.
---
--- The following are the valid Amazon Kinesis shard iterator types:
---
---     * AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific sequence number, provided in the value @StartingSequenceNumber@ .
---
---
---     * AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific sequence number, provided in the value @StartingSequenceNumber@ .
---
---
---     * AT_TIMESTAMP - Start reading from the position denoted by a specific time stamp, provided in the value @Timestamp@ .
---
---
---     * TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.
---
---
---     * LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.
---
---
--- * 'shardId' - The shard ID of the Kinesis Data Streams shard to get the iterator for.
+-- | Creates a 'GetShardIterator' value with any optional fields omitted.
 mkGetShardIterator ::
   -- | 'streamName'
-  Lude.Text ->
-  -- | 'shardIteratorType'
-  ShardIteratorType ->
+  Types.StreamName ->
   -- | 'shardId'
-  Lude.Text ->
+  Types.ShardId ->
+  -- | 'shardIteratorType'
+  Types.ShardIteratorType ->
   GetShardIterator
-mkGetShardIterator pStreamName_ pShardIteratorType_ pShardId_ =
+mkGetShardIterator streamName shardId shardIteratorType =
   GetShardIterator'
-    { startingSequenceNumber = Lude.Nothing,
-      streamName = pStreamName_,
-      timestamp = Lude.Nothing,
-      shardIteratorType = pShardIteratorType_,
-      shardId = pShardId_
+    { streamName,
+      shardId,
+      shardIteratorType,
+      startingSequenceNumber = Core.Nothing,
+      timestamp = Core.Nothing
     }
-
--- | The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.
---
--- /Note:/ Consider using 'startingSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiStartingSequenceNumber :: Lens.Lens' GetShardIterator (Lude.Maybe Lude.Text)
-gsiStartingSequenceNumber = Lens.lens (startingSequenceNumber :: GetShardIterator -> Lude.Maybe Lude.Text) (\s a -> s {startingSequenceNumber = a} :: GetShardIterator)
-{-# DEPRECATED gsiStartingSequenceNumber "Use generic-lens or generic-optics with 'startingSequenceNumber' instead." #-}
 
 -- | The name of the Amazon Kinesis data stream.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiStreamName :: Lens.Lens' GetShardIterator Lude.Text
-gsiStreamName = Lens.lens (streamName :: GetShardIterator -> Lude.Text) (\s a -> s {streamName = a} :: GetShardIterator)
+gsiStreamName :: Lens.Lens' GetShardIterator Types.StreamName
+gsiStreamName = Lens.field @"streamName"
 {-# DEPRECATED gsiStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
--- | The time stamp of the data record from which to start reading. Used with shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds. For example, @2016-04-04T19:58:46.480-00:00@ or @1459799926.480@ . If a record with this exact time stamp does not exist, the iterator returned is for the next (later) record. If the time stamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON).
+-- | The shard ID of the Kinesis Data Streams shard to get the iterator for.
 --
--- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiTimestamp :: Lens.Lens' GetShardIterator (Lude.Maybe Lude.Timestamp)
-gsiTimestamp = Lens.lens (timestamp :: GetShardIterator -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: GetShardIterator)
-{-# DEPRECATED gsiTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+-- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiShardId :: Lens.Lens' GetShardIterator Types.ShardId
+gsiShardId = Lens.field @"shardId"
+{-# DEPRECATED gsiShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
 
 -- | Determines how the shard iterator is used to start reading data records from the shard.
 --
@@ -167,94 +136,90 @@ gsiTimestamp = Lens.lens (timestamp :: GetShardIterator -> Lude.Maybe Lude.Times
 --
 --
 -- /Note:/ Consider using 'shardIteratorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiShardIteratorType :: Lens.Lens' GetShardIterator ShardIteratorType
-gsiShardIteratorType = Lens.lens (shardIteratorType :: GetShardIterator -> ShardIteratorType) (\s a -> s {shardIteratorType = a} :: GetShardIterator)
+gsiShardIteratorType :: Lens.Lens' GetShardIterator Types.ShardIteratorType
+gsiShardIteratorType = Lens.field @"shardIteratorType"
 {-# DEPRECATED gsiShardIteratorType "Use generic-lens or generic-optics with 'shardIteratorType' instead." #-}
 
--- | The shard ID of the Kinesis Data Streams shard to get the iterator for.
+-- | The sequence number of the data record in the shard from which to start reading. Used with shard iterator type AT_SEQUENCE_NUMBER and AFTER_SEQUENCE_NUMBER.
 --
--- /Note:/ Consider using 'shardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiShardId :: Lens.Lens' GetShardIterator Lude.Text
-gsiShardId = Lens.lens (shardId :: GetShardIterator -> Lude.Text) (\s a -> s {shardId = a} :: GetShardIterator)
-{-# DEPRECATED gsiShardId "Use generic-lens or generic-optics with 'shardId' instead." #-}
+-- /Note:/ Consider using 'startingSequenceNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiStartingSequenceNumber :: Lens.Lens' GetShardIterator (Core.Maybe Types.SequenceNumber)
+gsiStartingSequenceNumber = Lens.field @"startingSequenceNumber"
+{-# DEPRECATED gsiStartingSequenceNumber "Use generic-lens or generic-optics with 'startingSequenceNumber' instead." #-}
 
-instance Lude.AWSRequest GetShardIterator where
+-- | The time stamp of the data record from which to start reading. Used with shard iterator type AT_TIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds. For example, @2016-04-04T19:58:46.480-00:00@ or @1459799926.480@ . If a record with this exact time stamp does not exist, the iterator returned is for the next (later) record. If the time stamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON).
+--
+-- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiTimestamp :: Lens.Lens' GetShardIterator (Core.Maybe Core.NominalDiffTime)
+gsiTimestamp = Lens.field @"timestamp"
+{-# DEPRECATED gsiTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+
+instance Core.FromJSON GetShardIterator where
+  toJSON GetShardIterator {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            Core.Just ("ShardId" Core..= shardId),
+            Core.Just ("ShardIteratorType" Core..= shardIteratorType),
+            ("StartingSequenceNumber" Core..=) Core.<$> startingSequenceNumber,
+            ("Timestamp" Core..=) Core.<$> timestamp
+          ]
+      )
+
+instance Core.AWSRequest GetShardIterator where
   type Rs GetShardIterator = GetShardIteratorResponse
-  request = Req.postJSON kinesisService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.GetShardIterator")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetShardIteratorResponse'
-            Lude.<$> (x Lude..?> "ShardIterator")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ShardIterator")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetShardIterator where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.GetShardIterator" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetShardIterator where
-  toJSON GetShardIterator' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StartingSequenceNumber" Lude..=)
-              Lude.<$> startingSequenceNumber,
-            Lude.Just ("StreamName" Lude..= streamName),
-            ("Timestamp" Lude..=) Lude.<$> timestamp,
-            Lude.Just ("ShardIteratorType" Lude..= shardIteratorType),
-            Lude.Just ("ShardId" Lude..= shardId)
-          ]
-      )
-
-instance Lude.ToPath GetShardIterator where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetShardIterator where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output for @GetShardIterator@ .
 --
 -- /See:/ 'mkGetShardIteratorResponse' smart constructor.
 data GetShardIteratorResponse = GetShardIteratorResponse'
   { -- | The position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.
-    shardIterator :: Lude.Maybe Lude.Text,
+    shardIterator :: Core.Maybe Types.ShardIterator,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetShardIteratorResponse' with the minimum fields required to make a request.
---
--- * 'shardIterator' - The position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetShardIteratorResponse' value with any optional fields omitted.
 mkGetShardIteratorResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetShardIteratorResponse
-mkGetShardIteratorResponse pResponseStatus_ =
+mkGetShardIteratorResponse responseStatus =
   GetShardIteratorResponse'
-    { shardIterator = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { shardIterator = Core.Nothing,
+      responseStatus
     }
 
 -- | The position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.
 --
 -- /Note:/ Consider using 'shardIterator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsirsShardIterator :: Lens.Lens' GetShardIteratorResponse (Lude.Maybe Lude.Text)
-gsirsShardIterator = Lens.lens (shardIterator :: GetShardIteratorResponse -> Lude.Maybe Lude.Text) (\s a -> s {shardIterator = a} :: GetShardIteratorResponse)
-{-# DEPRECATED gsirsShardIterator "Use generic-lens or generic-optics with 'shardIterator' instead." #-}
+gsirrsShardIterator :: Lens.Lens' GetShardIteratorResponse (Core.Maybe Types.ShardIterator)
+gsirrsShardIterator = Lens.field @"shardIterator"
+{-# DEPRECATED gsirrsShardIterator "Use generic-lens or generic-optics with 'shardIterator' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsirsResponseStatus :: Lens.Lens' GetShardIteratorResponse Lude.Int
-gsirsResponseStatus = Lens.lens (responseStatus :: GetShardIteratorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetShardIteratorResponse)
-{-# DEPRECATED gsirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsirrsResponseStatus :: Lens.Lens' GetShardIteratorResponse Core.Int
+gsirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,15 +17,16 @@ module Network.AWS.SES.Types.MessageDsn
     mkMessageDsn,
 
     -- * Lenses
+    mdReportingMta,
     mdArrivalDate,
     mdExtensionFields,
-    mdReportingMta,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SES.Types.ExtensionField
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.ExtensionField as Types
+import qualified Network.AWS.SES.Types.ReportingMta as Types
 
 -- | Message-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.
 --
@@ -33,58 +34,45 @@ import Network.AWS.SES.Types.ExtensionField
 --
 -- /See:/ 'mkMessageDsn' smart constructor.
 data MessageDsn = MessageDsn'
-  { -- | When the message was received by the reporting mail transfer agent (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
-    arrivalDate :: Lude.Maybe Lude.DateTime,
+  { -- | The reporting MTA that attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). The default value is @dns; inbound-smtp.[region].amazonaws.com@ .
+    reportingMta :: Types.ReportingMta,
+    -- | When the message was received by the reporting mail transfer agent (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
+    arrivalDate :: Core.Maybe Core.UTCTime,
     -- | Additional X-headers to include in the DSN.
-    extensionFields :: Lude.Maybe [ExtensionField],
-    -- | The reporting MTA that attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). The default value is @dns; inbound-smtp.[region].amazonaws.com@ .
-    reportingMta :: Lude.Text
+    extensionFields :: Core.Maybe [Types.ExtensionField]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MessageDsn' with the minimum fields required to make a request.
---
--- * 'arrivalDate' - When the message was received by the reporting mail transfer agent (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
--- * 'extensionFields' - Additional X-headers to include in the DSN.
--- * 'reportingMta' - The reporting MTA that attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). The default value is @dns; inbound-smtp.[region].amazonaws.com@ .
+-- | Creates a 'MessageDsn' value with any optional fields omitted.
 mkMessageDsn ::
   -- | 'reportingMta'
-  Lude.Text ->
+  Types.ReportingMta ->
   MessageDsn
-mkMessageDsn pReportingMta_ =
+mkMessageDsn reportingMta =
   MessageDsn'
-    { arrivalDate = Lude.Nothing,
-      extensionFields = Lude.Nothing,
-      reportingMta = pReportingMta_
+    { reportingMta,
+      arrivalDate = Core.Nothing,
+      extensionFields = Core.Nothing
     }
+
+-- | The reporting MTA that attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). The default value is @dns; inbound-smtp.[region].amazonaws.com@ .
+--
+-- /Note:/ Consider using 'reportingMta' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdReportingMta :: Lens.Lens' MessageDsn Types.ReportingMta
+mdReportingMta = Lens.field @"reportingMta"
+{-# DEPRECATED mdReportingMta "Use generic-lens or generic-optics with 'reportingMta' instead." #-}
 
 -- | When the message was received by the reporting mail transfer agent (MTA), in <https://www.ietf.org/rfc/rfc0822.txt RFC 822> date-time format.
 --
 -- /Note:/ Consider using 'arrivalDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdArrivalDate :: Lens.Lens' MessageDsn (Lude.Maybe Lude.DateTime)
-mdArrivalDate = Lens.lens (arrivalDate :: MessageDsn -> Lude.Maybe Lude.DateTime) (\s a -> s {arrivalDate = a} :: MessageDsn)
+mdArrivalDate :: Lens.Lens' MessageDsn (Core.Maybe Core.UTCTime)
+mdArrivalDate = Lens.field @"arrivalDate"
 {-# DEPRECATED mdArrivalDate "Use generic-lens or generic-optics with 'arrivalDate' instead." #-}
 
 -- | Additional X-headers to include in the DSN.
 --
 -- /Note:/ Consider using 'extensionFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdExtensionFields :: Lens.Lens' MessageDsn (Lude.Maybe [ExtensionField])
-mdExtensionFields = Lens.lens (extensionFields :: MessageDsn -> Lude.Maybe [ExtensionField]) (\s a -> s {extensionFields = a} :: MessageDsn)
+mdExtensionFields :: Lens.Lens' MessageDsn (Core.Maybe [Types.ExtensionField])
+mdExtensionFields = Lens.field @"extensionFields"
 {-# DEPRECATED mdExtensionFields "Use generic-lens or generic-optics with 'extensionFields' instead." #-}
-
--- | The reporting MTA that attempted to deliver the message, formatted as specified in <https://tools.ietf.org/html/rfc3464 RFC 3464> (@mta-name-type; mta-name@ ). The default value is @dns; inbound-smtp.[region].amazonaws.com@ .
---
--- /Note:/ Consider using 'reportingMta' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdReportingMta :: Lens.Lens' MessageDsn Lude.Text
-mdReportingMta = Lens.lens (reportingMta :: MessageDsn -> Lude.Text) (\s a -> s {reportingMta = a} :: MessageDsn)
-{-# DEPRECATED mdReportingMta "Use generic-lens or generic-optics with 'reportingMta' instead." #-}
-
-instance Lude.ToQuery MessageDsn where
-  toQuery MessageDsn' {..} =
-    Lude.mconcat
-      [ "ArrivalDate" Lude.=: arrivalDate,
-        "ExtensionFields"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> extensionFields),
-        "ReportingMta" Lude.=: reportingMta
-      ]

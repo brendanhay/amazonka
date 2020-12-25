@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +19,19 @@
 --     * /GetEntitlements/ - Gets the entitlements for a Marketplace product.
 module Network.AWS.MarketplaceEntitlement
   ( -- * Service configuration
-    marketplaceEntitlementService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InternalServiceErrorException
+    _InternalServiceErrorException,
 
     -- * Waiters
     -- $waiters
@@ -36,35 +44,48 @@ module Network.AWS.MarketplaceEntitlement
 
     -- * Types
 
+    -- ** EntitlementValue
+    EntitlementValue (..),
+    mkEntitlementValue,
+    evBooleanValue,
+    evDoubleValue,
+    evIntegerValue,
+    evStringValue,
+
     -- ** GetEntitlementFilterName
     GetEntitlementFilterName (..),
+
+    -- ** NonEmptyString
+    NonEmptyString (..),
+
+    -- ** FilterValue
+    FilterValue (..),
+
+    -- ** ProductCode
+    ProductCode (..),
 
     -- ** Entitlement
     Entitlement (..),
     mkEntitlement,
-    eDimension,
-    eValue,
-    eExpirationDate,
     eCustomerIdentifier,
+    eDimension,
+    eExpirationDate,
     eProductCode,
+    eValue,
 
-    -- ** EntitlementValue
-    EntitlementValue (..),
-    mkEntitlementValue,
-    evIntegerValue,
-    evDoubleValue,
-    evStringValue,
-    evBooleanValue,
+    -- ** StringValue
+    StringValue (..),
+
+    -- ** NextToken
+    NextToken (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

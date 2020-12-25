@@ -26,138 +26,127 @@ module Network.AWS.Glacier.CompleteMultipartUpload
     mkCompleteMultipartUpload,
 
     -- ** Request lenses
-    cmuChecksum,
-    cmuVaultName,
     cmuAccountId,
-    cmuArchiveSize,
+    cmuVaultName,
     cmuUploadId,
+    cmuArchiveSize,
+    cmuChecksum,
 
     -- * Destructuring the response
-    ArchiveCreationOutput (..),
-    mkArchiveCreationOutput,
+    Types.ArchiveCreationOutput (..),
+    Types.mkArchiveCreationOutput,
 
     -- ** Response lenses
-    acoArchiveId,
-    acoChecksum,
-    acoLocation,
+    Types.acoArchiveId,
+    Types.acoChecksum,
+    Types.acoLocation,
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options to complete a multipart upload operation. This informs Amazon Glacier that all the archive parts have been uploaded and Amazon S3 Glacier (Glacier) can now assemble the archive from the uploaded parts. After assembling and saving the archive to the vault, Glacier returns the URI path of the newly created archive resource.
 --
 -- /See:/ 'mkCompleteMultipartUpload' smart constructor.
 data CompleteMultipartUpload = CompleteMultipartUpload'
-  { -- | The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash of the individual parts. If the value you specify in the request does not match the SHA256 tree hash of the final assembled archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an error and the request fails.
-    checksum :: Lude.Maybe Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.AccountId,
     -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text,
-    -- | The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.
-    archiveSize :: Lude.Maybe Lude.Text,
+    vaultName :: Types.VaultName,
     -- | The upload ID of the multipart upload.
-    uploadId :: Lude.Text
+    uploadId :: Types.UploadId,
+    -- | The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.
+    archiveSize :: Core.Maybe Types.ArchiveSize,
+    -- | The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash of the individual parts. If the value you specify in the request does not match the SHA256 tree hash of the final assembled archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an error and the request fails.
+    checksum :: Core.Maybe Types.Checksum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CompleteMultipartUpload' with the minimum fields required to make a request.
---
--- * 'checksum' - The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash of the individual parts. If the value you specify in the request does not match the SHA256 tree hash of the final assembled archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an error and the request fails.
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'archiveSize' - The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.
--- * 'uploadId' - The upload ID of the multipart upload.
+-- | Creates a 'CompleteMultipartUpload' value with any optional fields omitted.
 mkCompleteMultipartUpload ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
+  -- | 'vaultName'
+  Types.VaultName ->
   -- | 'uploadId'
-  Lude.Text ->
+  Types.UploadId ->
   CompleteMultipartUpload
-mkCompleteMultipartUpload pVaultName_ pAccountId_ pUploadId_ =
+mkCompleteMultipartUpload accountId vaultName uploadId =
   CompleteMultipartUpload'
-    { checksum = Lude.Nothing,
-      vaultName = pVaultName_,
-      accountId = pAccountId_,
-      archiveSize = Lude.Nothing,
-      uploadId = pUploadId_
+    { accountId,
+      vaultName,
+      uploadId,
+      archiveSize = Core.Nothing,
+      checksum = Core.Nothing
     }
-
--- | The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash of the individual parts. If the value you specify in the request does not match the SHA256 tree hash of the final assembled archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an error and the request fails.
---
--- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmuChecksum :: Lens.Lens' CompleteMultipartUpload (Lude.Maybe Lude.Text)
-cmuChecksum = Lens.lens (checksum :: CompleteMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: CompleteMultipartUpload)
-{-# DEPRECATED cmuChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmuVaultName :: Lens.Lens' CompleteMultipartUpload Lude.Text
-cmuVaultName = Lens.lens (vaultName :: CompleteMultipartUpload -> Lude.Text) (\s a -> s {vaultName = a} :: CompleteMultipartUpload)
-{-# DEPRECATED cmuVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmuAccountId :: Lens.Lens' CompleteMultipartUpload Lude.Text
-cmuAccountId = Lens.lens (accountId :: CompleteMultipartUpload -> Lude.Text) (\s a -> s {accountId = a} :: CompleteMultipartUpload)
+cmuAccountId :: Lens.Lens' CompleteMultipartUpload Types.AccountId
+cmuAccountId = Lens.field @"accountId"
 {-# DEPRECATED cmuAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.
+-- | The name of the vault.
 --
--- /Note:/ Consider using 'archiveSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmuArchiveSize :: Lens.Lens' CompleteMultipartUpload (Lude.Maybe Lude.Text)
-cmuArchiveSize = Lens.lens (archiveSize :: CompleteMultipartUpload -> Lude.Maybe Lude.Text) (\s a -> s {archiveSize = a} :: CompleteMultipartUpload)
-{-# DEPRECATED cmuArchiveSize "Use generic-lens or generic-optics with 'archiveSize' instead." #-}
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuVaultName :: Lens.Lens' CompleteMultipartUpload Types.VaultName
+cmuVaultName = Lens.field @"vaultName"
+{-# DEPRECATED cmuVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The upload ID of the multipart upload.
 --
 -- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmuUploadId :: Lens.Lens' CompleteMultipartUpload Lude.Text
-cmuUploadId = Lens.lens (uploadId :: CompleteMultipartUpload -> Lude.Text) (\s a -> s {uploadId = a} :: CompleteMultipartUpload)
+cmuUploadId :: Lens.Lens' CompleteMultipartUpload Types.UploadId
+cmuUploadId = Lens.field @"uploadId"
 {-# DEPRECATED cmuUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
 
-instance Lude.AWSRequest CompleteMultipartUpload where
-  type Rs CompleteMultipartUpload = ArchiveCreationOutput
-  request = Req.postJSON glacierService
+-- | The total size, in bytes, of the entire archive. This value should be the sum of all the sizes of the individual parts that you uploaded.
+--
+-- /Note:/ Consider using 'archiveSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuArchiveSize :: Lens.Lens' CompleteMultipartUpload (Core.Maybe Types.ArchiveSize)
+cmuArchiveSize = Lens.field @"archiveSize"
+{-# DEPRECATED cmuArchiveSize "Use generic-lens or generic-optics with 'archiveSize' instead." #-}
+
+-- | The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash of the individual parts. If the value you specify in the request does not match the SHA256 tree hash of the final assembled archive as computed by Amazon S3 Glacier (Glacier), Glacier returns an error and the request fails.
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmuChecksum :: Lens.Lens' CompleteMultipartUpload (Core.Maybe Types.Checksum)
+cmuChecksum = Lens.field @"checksum"
+{-# DEPRECATED cmuChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
+
+instance Core.FromJSON CompleteMultipartUpload where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest CompleteMultipartUpload where
+  type Rs CompleteMultipartUpload = Types.ArchiveCreationOutput
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/multipart-uploads/")
+                Core.<> (Core.toText uploadId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-archive-size" archiveSize
+            Core.<> (Core.toHeaders "x-amz-sha256-tree-hash" checksum),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           ArchiveCreationOutput'
-            Lude.<$> (h Lude..#? "x-amz-archive-id")
-            Lude.<*> (h Lude..#? "x-amz-sha256-tree-hash")
-            Lude.<*> (h Lude..#? "Location")
+            Core.<$> (Core.parseHeaderMaybe "x-amz-archive-id" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-sha256-tree-hash" h)
+            Core.<*> (Core.parseHeaderMaybe "Location" h)
       )
-
-instance Lude.ToHeaders CompleteMultipartUpload where
-  toHeaders CompleteMultipartUpload' {..} =
-    Lude.mconcat
-      [ "x-amz-sha256-tree-hash" Lude.=# checksum,
-        "x-amz-archive-size" Lude.=# archiveSize
-      ]
-
-instance Lude.ToJSON CompleteMultipartUpload where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath CompleteMultipartUpload where
-  toPath CompleteMultipartUpload' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/multipart-uploads/",
-        Lude.toBS uploadId
-      ]
-
-instance Lude.ToQuery CompleteMultipartUpload where
-  toQuery = Lude.const Lude.mempty

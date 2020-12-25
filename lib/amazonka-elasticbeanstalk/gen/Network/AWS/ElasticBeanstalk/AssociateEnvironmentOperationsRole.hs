@@ -20,8 +20,8 @@ module Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole
     mkAssociateEnvironmentOperationsRole,
 
     -- ** Request lenses
-    aeorOperationsRole,
     aeorEnvironmentName,
+    aeorOperationsRole,
 
     -- * Destructuring the response
     AssociateEnvironmentOperationsRoleResponse (..),
@@ -29,87 +29,83 @@ module Network.AWS.ElasticBeanstalk.AssociateEnvironmentOperationsRole
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to add or change the operations role used by an environment.
 --
 -- /See:/ 'mkAssociateEnvironmentOperationsRole' smart constructor.
 data AssociateEnvironmentOperationsRole = AssociateEnvironmentOperationsRole'
-  { -- | The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
-    operationsRole :: Lude.Text,
-    -- | The name of the environment to which to set the operations role.
-    environmentName :: Lude.Text
+  { -- | The name of the environment to which to set the operations role.
+    environmentName :: Types.EnvironmentName,
+    -- | The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+    operationsRole :: Types.OperationsRole
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateEnvironmentOperationsRole' with the minimum fields required to make a request.
---
--- * 'operationsRole' - The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
--- * 'environmentName' - The name of the environment to which to set the operations role.
+-- | Creates a 'AssociateEnvironmentOperationsRole' value with any optional fields omitted.
 mkAssociateEnvironmentOperationsRole ::
-  -- | 'operationsRole'
-  Lude.Text ->
   -- | 'environmentName'
-  Lude.Text ->
+  Types.EnvironmentName ->
+  -- | 'operationsRole'
+  Types.OperationsRole ->
   AssociateEnvironmentOperationsRole
-mkAssociateEnvironmentOperationsRole
-  pOperationsRole_
-  pEnvironmentName_ =
-    AssociateEnvironmentOperationsRole'
-      { operationsRole =
-          pOperationsRole_,
-        environmentName = pEnvironmentName_
-      }
-
--- | The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
---
--- /Note:/ Consider using 'operationsRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeorOperationsRole :: Lens.Lens' AssociateEnvironmentOperationsRole Lude.Text
-aeorOperationsRole = Lens.lens (operationsRole :: AssociateEnvironmentOperationsRole -> Lude.Text) (\s a -> s {operationsRole = a} :: AssociateEnvironmentOperationsRole)
-{-# DEPRECATED aeorOperationsRole "Use generic-lens or generic-optics with 'operationsRole' instead." #-}
+mkAssociateEnvironmentOperationsRole environmentName operationsRole =
+  AssociateEnvironmentOperationsRole'
+    { environmentName,
+      operationsRole
+    }
 
 -- | The name of the environment to which to set the operations role.
 --
 -- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aeorEnvironmentName :: Lens.Lens' AssociateEnvironmentOperationsRole Lude.Text
-aeorEnvironmentName = Lens.lens (environmentName :: AssociateEnvironmentOperationsRole -> Lude.Text) (\s a -> s {environmentName = a} :: AssociateEnvironmentOperationsRole)
+aeorEnvironmentName :: Lens.Lens' AssociateEnvironmentOperationsRole Types.EnvironmentName
+aeorEnvironmentName = Lens.field @"environmentName"
 {-# DEPRECATED aeorEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
-instance Lude.AWSRequest AssociateEnvironmentOperationsRole where
+-- | The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's operations role.
+--
+-- /Note:/ Consider using 'operationsRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aeorOperationsRole :: Lens.Lens' AssociateEnvironmentOperationsRole Types.OperationsRole
+aeorOperationsRole = Lens.field @"operationsRole"
+{-# DEPRECATED aeorOperationsRole "Use generic-lens or generic-optics with 'operationsRole' instead." #-}
+
+instance Core.AWSRequest AssociateEnvironmentOperationsRole where
   type
     Rs AssociateEnvironmentOperationsRole =
       AssociateEnvironmentOperationsRoleResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AssociateEnvironmentOperationsRole")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "EnvironmentName" environmentName)
+                Core.<> (Core.toQueryValue "OperationsRole" operationsRole)
+            )
+      }
   response =
-    Res.receiveNull AssociateEnvironmentOperationsRoleResponse'
-
-instance Lude.ToHeaders AssociateEnvironmentOperationsRole where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AssociateEnvironmentOperationsRole where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateEnvironmentOperationsRole where
-  toQuery AssociateEnvironmentOperationsRole' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("AssociateEnvironmentOperationsRole" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "OperationsRole" Lude.=: operationsRole,
-        "EnvironmentName" Lude.=: environmentName
-      ]
+    Response.receiveNull AssociateEnvironmentOperationsRoleResponse'
 
 -- | /See:/ 'mkAssociateEnvironmentOperationsRoleResponse' smart constructor.
 data AssociateEnvironmentOperationsRoleResponse = AssociateEnvironmentOperationsRoleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateEnvironmentOperationsRoleResponse' with the minimum fields required to make a request.
+-- | Creates a 'AssociateEnvironmentOperationsRoleResponse' value with any optional fields omitted.
 mkAssociateEnvironmentOperationsRoleResponse ::
   AssociateEnvironmentOperationsRoleResponse
 mkAssociateEnvironmentOperationsRoleResponse =

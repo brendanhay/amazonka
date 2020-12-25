@@ -24,54 +24,70 @@ module Network.AWS.EC2.CreateCapacityReservation
     mkCreateCapacityReservation,
 
     -- ** Request lenses
-    ccrfClientToken,
-    ccrfInstanceCount,
-    ccrfAvailabilityZoneId,
-    ccrfEndDate,
-    ccrfEphemeralStorage,
-    ccrfInstancePlatform,
-    ccrfInstanceMatchCriteria,
-    ccrfInstanceType,
-    ccrfEBSOptimized,
-    ccrfTagSpecifications,
-    ccrfAvailabilityZone,
-    ccrfTenancy,
-    ccrfEndDateType,
-    ccrfDryRun,
+    ccrInstanceType,
+    ccrInstancePlatform,
+    ccrInstanceCount,
+    ccrAvailabilityZone,
+    ccrAvailabilityZoneId,
+    ccrClientToken,
+    ccrDryRun,
+    ccrEbsOptimized,
+    ccrEndDate,
+    ccrEndDateType,
+    ccrEphemeralStorage,
+    ccrInstanceMatchCriteria,
+    ccrTagSpecifications,
+    ccrTenancy,
 
     -- * Destructuring the response
     CreateCapacityReservationResponse (..),
     mkCreateCapacityReservationResponse,
 
     -- ** Response lenses
-    ccrrsCapacityReservation,
-    ccrrsResponseStatus,
+    ccrrrsCapacityReservation,
+    ccrrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateCapacityReservation' smart constructor.
 data CreateCapacityReservation = CreateCapacityReservation'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-    clientToken :: Lude.Maybe Lude.Text,
+  { -- | The instance type for which to reserve capacity. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+    instanceType :: Types.String,
+    -- | The type of operating system for which to reserve capacity.
+    instancePlatform :: Types.CapacityReservationInstancePlatform,
     -- | The number of instances for which to reserve capacity.
-    instanceCount :: Lude.Int,
+    instanceCount :: Core.Int,
+    -- | The Availability Zone in which to create the Capacity Reservation.
+    availabilityZone :: Core.Maybe Types.String,
     -- | The ID of the Availability Zone in which to create the Capacity Reservation.
-    availabilityZoneId :: Lude.Maybe Lude.Text,
+    availabilityZoneId :: Core.Maybe Types.String,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Core.Maybe Types.String,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+    ebsOptimized :: Core.Maybe Core.Bool,
     -- | The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
     --
     -- You must provide an @EndDate@ value if @EndDateType@ is @limited@ . Omit @EndDate@ if @EndDateType@ is @unlimited@ .
     -- If the @EndDateType@ is @limited@ , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
-    endDate :: Lude.Maybe Lude.DateTime,
+    endDate :: Core.Maybe Core.UTCTime,
+    -- | Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+    --
+    --
+    --     * @unlimited@ - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an @EndDate@ if the @EndDateType@ is @unlimited@ .
+    --
+    --
+    --     * @limited@ - The Capacity Reservation expires automatically at a specified date and time. You must provide an @EndDate@ value if the @EndDateType@ value is @limited@ .
+    endDateType :: Core.Maybe Types.EndDateType,
     -- | Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
-    ephemeralStorage :: Lude.Maybe Lude.Bool,
-    -- | The type of operating system for which to reserve capacity.
-    instancePlatform :: CapacityReservationInstancePlatform,
+    ephemeralStorage :: Core.Maybe Core.Bool,
     -- | Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
     --
     --
@@ -82,15 +98,9 @@ data CreateCapacityReservation = CreateCapacityReservation'
     --
     --
     -- Default: @open@
-    instanceMatchCriteria :: Lude.Maybe InstanceMatchCriteria,
-    -- | The instance type for which to reserve capacity. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
-    instanceType :: Lude.Text,
-    -- | Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
-    ebsOptimized :: Lude.Maybe Lude.Bool,
+    instanceMatchCriteria :: Core.Maybe Types.InstanceMatchCriteria,
     -- | The tags to apply to the Capacity Reservation during launch.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    -- | The Availability Zone in which to create the Capacity Reservation.
-    availabilityZone :: Lude.Maybe Lude.Text,
+    tagSpecifications :: Core.Maybe [Types.TagSpecification],
     -- | Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
     --
     --
@@ -98,56 +108,108 @@ data CreateCapacityReservation = CreateCapacityReservation'
     --
     --
     --     * @dedicated@ - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.
-    tenancy :: Lude.Maybe CapacityReservationTenancy,
-    -- | Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
-    --
-    --
-    --     * @unlimited@ - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an @EndDate@ if the @EndDateType@ is @unlimited@ .
-    --
-    --
-    --     * @limited@ - The Capacity Reservation expires automatically at a specified date and time. You must provide an @EndDate@ value if the @EndDateType@ value is @limited@ .
-    endDateType :: Lude.Maybe EndDateType,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    tenancy :: Core.Maybe Types.CapacityReservationTenancy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateCapacityReservation' with the minimum fields required to make a request.
+-- | Creates a 'CreateCapacityReservation' value with any optional fields omitted.
+mkCreateCapacityReservation ::
+  -- | 'instanceType'
+  Types.String ->
+  -- | 'instancePlatform'
+  Types.CapacityReservationInstancePlatform ->
+  -- | 'instanceCount'
+  Core.Int ->
+  CreateCapacityReservation
+mkCreateCapacityReservation
+  instanceType
+  instancePlatform
+  instanceCount =
+    CreateCapacityReservation'
+      { instanceType,
+        instancePlatform,
+        instanceCount,
+        availabilityZone = Core.Nothing,
+        availabilityZoneId = Core.Nothing,
+        clientToken = Core.Nothing,
+        dryRun = Core.Nothing,
+        ebsOptimized = Core.Nothing,
+        endDate = Core.Nothing,
+        endDateType = Core.Nothing,
+        ephemeralStorage = Core.Nothing,
+        instanceMatchCriteria = Core.Nothing,
+        tagSpecifications = Core.Nothing,
+        tenancy = Core.Nothing
+      }
+
+-- | The instance type for which to reserve capacity. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'instanceCount' - The number of instances for which to reserve capacity.
--- * 'availabilityZoneId' - The ID of the Availability Zone in which to create the Capacity Reservation.
--- * 'endDate' - The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrInstanceType :: Lens.Lens' CreateCapacityReservation Types.String
+ccrInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED ccrInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The type of operating system for which to reserve capacity.
+--
+-- /Note:/ Consider using 'instancePlatform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrInstancePlatform :: Lens.Lens' CreateCapacityReservation Types.CapacityReservationInstancePlatform
+ccrInstancePlatform = Lens.field @"instancePlatform"
+{-# DEPRECATED ccrInstancePlatform "Use generic-lens or generic-optics with 'instancePlatform' instead." #-}
+
+-- | The number of instances for which to reserve capacity.
+--
+-- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrInstanceCount :: Lens.Lens' CreateCapacityReservation Core.Int
+ccrInstanceCount = Lens.field @"instanceCount"
+{-# DEPRECATED ccrInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
+
+-- | The Availability Zone in which to create the Capacity Reservation.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrAvailabilityZone :: Lens.Lens' CreateCapacityReservation (Core.Maybe Types.String)
+ccrAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED ccrAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | The ID of the Availability Zone in which to create the Capacity Reservation.
+--
+-- /Note:/ Consider using 'availabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrAvailabilityZoneId :: Lens.Lens' CreateCapacityReservation (Core.Maybe Types.String)
+ccrAvailabilityZoneId = Lens.field @"availabilityZoneId"
+{-# DEPRECATED ccrAvailabilityZoneId "Use generic-lens or generic-optics with 'availabilityZoneId' instead." #-}
+
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrClientToken :: Lens.Lens' CreateCapacityReservation (Core.Maybe Types.String)
+ccrClientToken = Lens.field @"clientToken"
+{-# DEPRECATED ccrClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrDryRun :: Lens.Lens' CreateCapacityReservation (Core.Maybe Core.Bool)
+ccrDryRun = Lens.field @"dryRun"
+{-# DEPRECATED ccrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- | Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
+--
+-- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrEbsOptimized :: Lens.Lens' CreateCapacityReservation (Core.Maybe Core.Bool)
+ccrEbsOptimized = Lens.field @"ebsOptimized"
+{-# DEPRECATED ccrEbsOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
+
+-- | The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
 --
 -- You must provide an @EndDate@ value if @EndDateType@ is @limited@ . Omit @EndDate@ if @EndDateType@ is @unlimited@ .
 -- If the @EndDateType@ is @limited@ , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
--- * 'ephemeralStorage' - Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
--- * 'instancePlatform' - The type of operating system for which to reserve capacity.
--- * 'instanceMatchCriteria' - Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
 --
---
---     * @open@ - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
---
---
---     * @targeted@ - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
---
---
--- Default: @open@
--- * 'instanceType' - The instance type for which to reserve capacity. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'ebsOptimized' - Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
--- * 'tagSpecifications' - The tags to apply to the Capacity Reservation during launch.
--- * 'availabilityZone' - The Availability Zone in which to create the Capacity Reservation.
--- * 'tenancy' - Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
---
---
---     * @default@ - The Capacity Reservation is created on hardware that is shared with other AWS accounts.
---
---
---     * @dedicated@ - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.
---
---
--- * 'endDateType' - Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
+-- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrEndDate :: Lens.Lens' CreateCapacityReservation (Core.Maybe Core.UTCTime)
+ccrEndDate = Lens.field @"endDate"
+{-# DEPRECATED ccrEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
+
+-- | Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
 --
 --
 --     * @unlimited@ - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an @EndDate@ if the @EndDateType@ is @unlimited@ .
@@ -156,80 +218,18 @@ data CreateCapacityReservation = CreateCapacityReservation'
 --     * @limited@ - The Capacity Reservation expires automatically at a specified date and time. You must provide an @EndDate@ value if the @EndDateType@ value is @limited@ .
 --
 --
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-mkCreateCapacityReservation ::
-  -- | 'instanceCount'
-  Lude.Int ->
-  -- | 'instancePlatform'
-  CapacityReservationInstancePlatform ->
-  -- | 'instanceType'
-  Lude.Text ->
-  CreateCapacityReservation
-mkCreateCapacityReservation
-  pInstanceCount_
-  pInstancePlatform_
-  pInstanceType_ =
-    CreateCapacityReservation'
-      { clientToken = Lude.Nothing,
-        instanceCount = pInstanceCount_,
-        availabilityZoneId = Lude.Nothing,
-        endDate = Lude.Nothing,
-        ephemeralStorage = Lude.Nothing,
-        instancePlatform = pInstancePlatform_,
-        instanceMatchCriteria = Lude.Nothing,
-        instanceType = pInstanceType_,
-        ebsOptimized = Lude.Nothing,
-        tagSpecifications = Lude.Nothing,
-        availabilityZone = Lude.Nothing,
-        tenancy = Lude.Nothing,
-        endDateType = Lude.Nothing,
-        dryRun = Lude.Nothing
-      }
-
--- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfClientToken :: Lens.Lens' CreateCapacityReservation (Lude.Maybe Lude.Text)
-ccrfClientToken = Lens.lens (clientToken :: CreateCapacityReservation -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The number of instances for which to reserve capacity.
---
--- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfInstanceCount :: Lens.Lens' CreateCapacityReservation Lude.Int
-ccrfInstanceCount = Lens.lens (instanceCount :: CreateCapacityReservation -> Lude.Int) (\s a -> s {instanceCount = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
-
--- | The ID of the Availability Zone in which to create the Capacity Reservation.
---
--- /Note:/ Consider using 'availabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfAvailabilityZoneId :: Lens.Lens' CreateCapacityReservation (Lude.Maybe Lude.Text)
-ccrfAvailabilityZoneId = Lens.lens (availabilityZoneId :: CreateCapacityReservation -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZoneId = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfAvailabilityZoneId "Use generic-lens or generic-optics with 'availabilityZoneId' instead." #-}
-
--- | The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to @expired@ when it reaches its end date and time.
---
--- You must provide an @EndDate@ value if @EndDateType@ is @limited@ . Omit @EndDate@ if @EndDateType@ is @unlimited@ .
--- If the @EndDateType@ is @limited@ , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
---
--- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfEndDate :: Lens.Lens' CreateCapacityReservation (Lude.Maybe Lude.DateTime)
-ccrfEndDate = Lens.lens (endDate :: CreateCapacityReservation -> Lude.Maybe Lude.DateTime) (\s a -> s {endDate = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
+-- /Note:/ Consider using 'endDateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrEndDateType :: Lens.Lens' CreateCapacityReservation (Core.Maybe Types.EndDateType)
+ccrEndDateType = Lens.field @"endDateType"
+{-# DEPRECATED ccrEndDateType "Use generic-lens or generic-optics with 'endDateType' instead." #-}
 
 -- | Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
 --
 -- /Note:/ Consider using 'ephemeralStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfEphemeralStorage :: Lens.Lens' CreateCapacityReservation (Lude.Maybe Lude.Bool)
-ccrfEphemeralStorage = Lens.lens (ephemeralStorage :: CreateCapacityReservation -> Lude.Maybe Lude.Bool) (\s a -> s {ephemeralStorage = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfEphemeralStorage "Use generic-lens or generic-optics with 'ephemeralStorage' instead." #-}
-
--- | The type of operating system for which to reserve capacity.
---
--- /Note:/ Consider using 'instancePlatform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfInstancePlatform :: Lens.Lens' CreateCapacityReservation CapacityReservationInstancePlatform
-ccrfInstancePlatform = Lens.lens (instancePlatform :: CreateCapacityReservation -> CapacityReservationInstancePlatform) (\s a -> s {instancePlatform = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfInstancePlatform "Use generic-lens or generic-optics with 'instancePlatform' instead." #-}
+ccrEphemeralStorage :: Lens.Lens' CreateCapacityReservation (Core.Maybe Core.Bool)
+ccrEphemeralStorage = Lens.field @"ephemeralStorage"
+{-# DEPRECATED ccrEphemeralStorage "Use generic-lens or generic-optics with 'ephemeralStorage' instead." #-}
 
 -- | Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
 --
@@ -243,37 +243,16 @@ ccrfInstancePlatform = Lens.lens (instancePlatform :: CreateCapacityReservation 
 -- Default: @open@
 --
 -- /Note:/ Consider using 'instanceMatchCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfInstanceMatchCriteria :: Lens.Lens' CreateCapacityReservation (Lude.Maybe InstanceMatchCriteria)
-ccrfInstanceMatchCriteria = Lens.lens (instanceMatchCriteria :: CreateCapacityReservation -> Lude.Maybe InstanceMatchCriteria) (\s a -> s {instanceMatchCriteria = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfInstanceMatchCriteria "Use generic-lens or generic-optics with 'instanceMatchCriteria' instead." #-}
-
--- | The instance type for which to reserve capacity. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfInstanceType :: Lens.Lens' CreateCapacityReservation Lude.Text
-ccrfInstanceType = Lens.lens (instanceType :: CreateCapacityReservation -> Lude.Text) (\s a -> s {instanceType = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.
---
--- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfEBSOptimized :: Lens.Lens' CreateCapacityReservation (Lude.Maybe Lude.Bool)
-ccrfEBSOptimized = Lens.lens (ebsOptimized :: CreateCapacityReservation -> Lude.Maybe Lude.Bool) (\s a -> s {ebsOptimized = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfEBSOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
+ccrInstanceMatchCriteria :: Lens.Lens' CreateCapacityReservation (Core.Maybe Types.InstanceMatchCriteria)
+ccrInstanceMatchCriteria = Lens.field @"instanceMatchCriteria"
+{-# DEPRECATED ccrInstanceMatchCriteria "Use generic-lens or generic-optics with 'instanceMatchCriteria' instead." #-}
 
 -- | The tags to apply to the Capacity Reservation during launch.
 --
 -- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfTagSpecifications :: Lens.Lens' CreateCapacityReservation (Lude.Maybe [TagSpecification])
-ccrfTagSpecifications = Lens.lens (tagSpecifications :: CreateCapacityReservation -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
-
--- | The Availability Zone in which to create the Capacity Reservation.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfAvailabilityZone :: Lens.Lens' CreateCapacityReservation (Lude.Maybe Lude.Text)
-ccrfAvailabilityZone = Lens.lens (availabilityZone :: CreateCapacityReservation -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+ccrTagSpecifications :: Lens.Lens' CreateCapacityReservation (Core.Maybe [Types.TagSpecification])
+ccrTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED ccrTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:
 --
@@ -286,108 +265,89 @@ ccrfAvailabilityZone = Lens.lens (availabilityZone :: CreateCapacityReservation 
 --
 --
 -- /Note:/ Consider using 'tenancy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfTenancy :: Lens.Lens' CreateCapacityReservation (Lude.Maybe CapacityReservationTenancy)
-ccrfTenancy = Lens.lens (tenancy :: CreateCapacityReservation -> Lude.Maybe CapacityReservationTenancy) (\s a -> s {tenancy = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
+ccrTenancy :: Lens.Lens' CreateCapacityReservation (Core.Maybe Types.CapacityReservationTenancy)
+ccrTenancy = Lens.field @"tenancy"
+{-# DEPRECATED ccrTenancy "Use generic-lens or generic-optics with 'tenancy' instead." #-}
 
--- | Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
---
---
---     * @unlimited@ - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an @EndDate@ if the @EndDateType@ is @unlimited@ .
---
---
---     * @limited@ - The Capacity Reservation expires automatically at a specified date and time. You must provide an @EndDate@ value if the @EndDateType@ value is @limited@ .
---
---
---
--- /Note:/ Consider using 'endDateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfEndDateType :: Lens.Lens' CreateCapacityReservation (Lude.Maybe EndDateType)
-ccrfEndDateType = Lens.lens (endDateType :: CreateCapacityReservation -> Lude.Maybe EndDateType) (\s a -> s {endDateType = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfEndDateType "Use generic-lens or generic-optics with 'endDateType' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrfDryRun :: Lens.Lens' CreateCapacityReservation (Lude.Maybe Lude.Bool)
-ccrfDryRun = Lens.lens (dryRun :: CreateCapacityReservation -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateCapacityReservation)
-{-# DEPRECATED ccrfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
-instance Lude.AWSRequest CreateCapacityReservation where
+instance Core.AWSRequest CreateCapacityReservation where
   type
     Rs CreateCapacityReservation =
       CreateCapacityReservationResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateCapacityReservation")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceType" instanceType)
+                Core.<> (Core.toQueryValue "InstancePlatform" instancePlatform)
+                Core.<> (Core.toQueryValue "InstanceCount" instanceCount)
+                Core.<> (Core.toQueryValue "AvailabilityZone" Core.<$> availabilityZone)
+                Core.<> ( Core.toQueryValue "AvailabilityZoneId"
+                            Core.<$> availabilityZoneId
+                        )
+                Core.<> (Core.toQueryValue "ClientToken" Core.<$> clientToken)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "EbsOptimized" Core.<$> ebsOptimized)
+                Core.<> (Core.toQueryValue "EndDate" Core.<$> endDate)
+                Core.<> (Core.toQueryValue "EndDateType" Core.<$> endDateType)
+                Core.<> (Core.toQueryValue "EphemeralStorage" Core.<$> ephemeralStorage)
+                Core.<> ( Core.toQueryValue "InstanceMatchCriteria"
+                            Core.<$> instanceMatchCriteria
+                        )
+                Core.<> (Core.toQueryList "TagSpecifications" Core.<$> tagSpecifications)
+                Core.<> (Core.toQueryValue "Tenancy" Core.<$> tenancy)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateCapacityReservationResponse'
-            Lude.<$> (x Lude..@? "capacityReservation")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "capacityReservation")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateCapacityReservation where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateCapacityReservation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateCapacityReservation where
-  toQuery CreateCapacityReservation' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateCapacityReservation" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "ClientToken" Lude.=: clientToken,
-        "InstanceCount" Lude.=: instanceCount,
-        "AvailabilityZoneId" Lude.=: availabilityZoneId,
-        "EndDate" Lude.=: endDate,
-        "EphemeralStorage" Lude.=: ephemeralStorage,
-        "InstancePlatform" Lude.=: instancePlatform,
-        "InstanceMatchCriteria" Lude.=: instanceMatchCriteria,
-        "InstanceType" Lude.=: instanceType,
-        "EbsOptimized" Lude.=: ebsOptimized,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecifications" Lude.<$> tagSpecifications),
-        "AvailabilityZone" Lude.=: availabilityZone,
-        "Tenancy" Lude.=: tenancy,
-        "EndDateType" Lude.=: endDateType,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCreateCapacityReservationResponse' smart constructor.
 data CreateCapacityReservationResponse = CreateCapacityReservationResponse'
   { -- | Information about the Capacity Reservation.
-    capacityReservation :: Lude.Maybe CapacityReservation,
+    capacityReservation :: Core.Maybe Types.CapacityReservation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateCapacityReservationResponse' with the minimum fields required to make a request.
---
--- * 'capacityReservation' - Information about the Capacity Reservation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateCapacityReservationResponse' value with any optional fields omitted.
 mkCreateCapacityReservationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateCapacityReservationResponse
-mkCreateCapacityReservationResponse pResponseStatus_ =
+mkCreateCapacityReservationResponse responseStatus =
   CreateCapacityReservationResponse'
     { capacityReservation =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the Capacity Reservation.
 --
 -- /Note:/ Consider using 'capacityReservation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrrsCapacityReservation :: Lens.Lens' CreateCapacityReservationResponse (Lude.Maybe CapacityReservation)
-ccrrsCapacityReservation = Lens.lens (capacityReservation :: CreateCapacityReservationResponse -> Lude.Maybe CapacityReservation) (\s a -> s {capacityReservation = a} :: CreateCapacityReservationResponse)
-{-# DEPRECATED ccrrsCapacityReservation "Use generic-lens or generic-optics with 'capacityReservation' instead." #-}
+ccrrrsCapacityReservation :: Lens.Lens' CreateCapacityReservationResponse (Core.Maybe Types.CapacityReservation)
+ccrrrsCapacityReservation = Lens.field @"capacityReservation"
+{-# DEPRECATED ccrrrsCapacityReservation "Use generic-lens or generic-optics with 'capacityReservation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrrsResponseStatus :: Lens.Lens' CreateCapacityReservationResponse Lude.Int
-ccrrsResponseStatus = Lens.lens (responseStatus :: CreateCapacityReservationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCapacityReservationResponse)
-{-# DEPRECATED ccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccrrrsResponseStatus :: Lens.Lens' CreateCapacityReservationResponse Core.Int
+ccrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

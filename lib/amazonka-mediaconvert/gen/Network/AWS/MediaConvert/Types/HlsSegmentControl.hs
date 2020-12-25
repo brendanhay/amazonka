@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.HlsSegmentControl
   ( HlsSegmentControl
       ( HlsSegmentControl',
-        HSCSingleFile,
-        HSCSegmentedFiles
+        HlsSegmentControlSingleFile,
+        HlsSegmentControlSegmentedFiles,
+        fromHlsSegmentControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
-newtype HlsSegmentControl = HlsSegmentControl' Lude.Text
+newtype HlsSegmentControl = HlsSegmentControl'
+  { fromHlsSegmentControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HSCSingleFile :: HlsSegmentControl
-pattern HSCSingleFile = HlsSegmentControl' "SINGLE_FILE"
+pattern HlsSegmentControlSingleFile :: HlsSegmentControl
+pattern HlsSegmentControlSingleFile = HlsSegmentControl' "SINGLE_FILE"
 
-pattern HSCSegmentedFiles :: HlsSegmentControl
-pattern HSCSegmentedFiles = HlsSegmentControl' "SEGMENTED_FILES"
+pattern HlsSegmentControlSegmentedFiles :: HlsSegmentControl
+pattern HlsSegmentControlSegmentedFiles = HlsSegmentControl' "SEGMENTED_FILES"
 
 {-# COMPLETE
-  HSCSingleFile,
-  HSCSegmentedFiles,
+  HlsSegmentControlSingleFile,
+  HlsSegmentControlSegmentedFiles,
   HlsSegmentControl'
   #-}

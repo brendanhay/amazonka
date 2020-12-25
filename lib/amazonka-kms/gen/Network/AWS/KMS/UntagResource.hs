@@ -32,11 +32,11 @@ module Network.AWS.KMS.UntagResource
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
@@ -52,34 +52,20 @@ data UntagResource = UntagResource'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-    keyId :: Lude.Text,
+    keyId :: Types.KeyIdType,
     -- | One or more tag keys. Specify only the tag keys, not the tag values.
-    tagKeys :: [Lude.Text]
+    tagKeys :: [Types.TagKeyType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
---
--- * 'keyId' - A unique identifier for the CMK from which you are removing tags.
---
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
--- * 'tagKeys' - One or more tag keys. Specify only the tag keys, not the tag values.
+-- | Creates a 'UntagResource' value with any optional fields omitted.
 mkUntagResource ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyIdType ->
   UntagResource
-mkUntagResource pKeyId_ =
-  UntagResource' {keyId = pKeyId_, tagKeys = Lude.mempty}
+mkUntagResource keyId =
+  UntagResource' {keyId, tagKeys = Core.mempty}
 
 -- | A unique identifier for the CMK from which you are removing tags.
 --
@@ -95,54 +81,47 @@ mkUntagResource pKeyId_ =
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urKeyId :: Lens.Lens' UntagResource Lude.Text
-urKeyId = Lens.lens (keyId :: UntagResource -> Lude.Text) (\s a -> s {keyId = a} :: UntagResource)
+urKeyId :: Lens.Lens' UntagResource Types.KeyIdType
+urKeyId = Lens.field @"keyId"
 {-# DEPRECATED urKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
 -- | One or more tag keys. Specify only the tag keys, not the tag values.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urTagKeys :: Lens.Lens' UntagResource [Lude.Text]
-urTagKeys = Lens.lens (tagKeys :: UntagResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagResource)
+urTagKeys :: Lens.Lens' UntagResource [Types.TagKeyType]
+urTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance Lude.AWSRequest UntagResource where
+instance Core.FromJSON UntagResource where
+  toJSON UntagResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            Core.Just ("TagKeys" Core..= tagKeys)
+          ]
+      )
+
+instance Core.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
-  request = Req.postJSON kmsService
-  response = Res.receiveNull UntagResourceResponse'
-
-instance Lude.ToHeaders UntagResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.UntagResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UntagResource where
-  toJSON UntagResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("KeyId" Lude..= keyId),
-            Lude.Just ("TagKeys" Lude..= tagKeys)
-          ]
-      )
-
-instance Lude.ToPath UntagResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UntagResource where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.UntagResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UntagResourceResponse'
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 data UntagResourceResponse = UntagResourceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
+-- | Creates a 'UntagResourceResponse' value with any optional fields omitted.
 mkUntagResourceResponse ::
   UntagResourceResponse
 mkUntagResourceResponse = UntagResourceResponse'

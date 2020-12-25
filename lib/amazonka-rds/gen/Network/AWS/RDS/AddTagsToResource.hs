@@ -32,77 +32,74 @@ module Network.AWS.RDS.AddTagsToResource
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkAddTagsToResource' smart constructor.
 data AddTagsToResource = AddTagsToResource'
   { -- | The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
-    resourceName :: Lude.Text,
+    resourceName :: Types.ResourceName,
     -- | The tags to be assigned to the Amazon RDS resource.
-    tags :: [Tag]
+    tags :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTagsToResource' with the minimum fields required to make a request.
---
--- * 'resourceName' - The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
--- * 'tags' - The tags to be assigned to the Amazon RDS resource.
+-- | Creates a 'AddTagsToResource' value with any optional fields omitted.
 mkAddTagsToResource ::
   -- | 'resourceName'
-  Lude.Text ->
+  Types.ResourceName ->
   AddTagsToResource
-mkAddTagsToResource pResourceName_ =
-  AddTagsToResource'
-    { resourceName = pResourceName_,
-      tags = Lude.mempty
-    }
+mkAddTagsToResource resourceName =
+  AddTagsToResource' {resourceName, tags = Core.mempty}
 
 -- | The Amazon RDS resource that the tags are added to. This value is an Amazon Resource Name (ARN). For information about creating an ARN, see <https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing Constructing an RDS Amazon Resource Name (ARN)> .
 --
 -- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attrResourceName :: Lens.Lens' AddTagsToResource Lude.Text
-attrResourceName = Lens.lens (resourceName :: AddTagsToResource -> Lude.Text) (\s a -> s {resourceName = a} :: AddTagsToResource)
+attrResourceName :: Lens.Lens' AddTagsToResource Types.ResourceName
+attrResourceName = Lens.field @"resourceName"
 {-# DEPRECATED attrResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The tags to be assigned to the Amazon RDS resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-attrTags :: Lens.Lens' AddTagsToResource [Tag]
-attrTags = Lens.lens (tags :: AddTagsToResource -> [Tag]) (\s a -> s {tags = a} :: AddTagsToResource)
+attrTags :: Lens.Lens' AddTagsToResource [Types.Tag]
+attrTags = Lens.field @"tags"
 {-# DEPRECATED attrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest AddTagsToResource where
+instance Core.AWSRequest AddTagsToResource where
   type Rs AddTagsToResource = AddTagsToResourceResponse
-  request = Req.postQuery rdsService
-  response = Res.receiveNull AddTagsToResourceResponse'
-
-instance Lude.ToHeaders AddTagsToResource where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AddTagsToResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddTagsToResource where
-  toQuery AddTagsToResource' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AddTagsToResource" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "ResourceName" Lude.=: resourceName,
-        "Tags" Lude.=: Lude.toQueryList "Tag" tags
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AddTagsToResource")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "ResourceName" resourceName)
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "Tag" tags))
+            )
+      }
+  response = Response.receiveNull AddTagsToResourceResponse'
 
 -- | /See:/ 'mkAddTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse = AddTagsToResourceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTagsToResourceResponse' with the minimum fields required to make a request.
+-- | Creates a 'AddTagsToResourceResponse' value with any optional fields omitted.
 mkAddTagsToResourceResponse ::
   AddTagsToResourceResponse
 mkAddTagsToResourceResponse = AddTagsToResourceResponse'

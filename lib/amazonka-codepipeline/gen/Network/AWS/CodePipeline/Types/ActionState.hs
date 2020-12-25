@@ -17,99 +17,93 @@ module Network.AWS.CodePipeline.Types.ActionState
     mkActionState,
 
     -- * Lenses
-    asRevisionURL,
-    asEntityURL,
     asActionName,
     asCurrentRevision,
+    asEntityUrl,
     asLatestExecution,
+    asRevisionUrl,
   )
 where
 
-import Network.AWS.CodePipeline.Types.ActionExecution
-import Network.AWS.CodePipeline.Types.ActionRevision
+import qualified Network.AWS.CodePipeline.Types.ActionExecution as Types
+import qualified Network.AWS.CodePipeline.Types.ActionName as Types
+import qualified Network.AWS.CodePipeline.Types.ActionRevision as Types
+import qualified Network.AWS.CodePipeline.Types.Url as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about the state of an action.
 --
 -- /See:/ 'mkActionState' smart constructor.
 data ActionState = ActionState'
-  { -- | A URL link for more information about the revision, such as a commit details page.
-    revisionURL :: Lude.Maybe Lude.Text,
-    -- | A URL link for more information about the state of the action, such as a deployment group details page.
-    entityURL :: Lude.Maybe Lude.Text,
-    -- | The name of the action.
-    actionName :: Lude.Maybe Lude.Text,
+  { -- | The name of the action.
+    actionName :: Core.Maybe Types.ActionName,
     -- | Represents information about the version (or revision) of an action.
-    currentRevision :: Lude.Maybe ActionRevision,
+    currentRevision :: Core.Maybe Types.ActionRevision,
+    -- | A URL link for more information about the state of the action, such as a deployment group details page.
+    entityUrl :: Core.Maybe Types.Url,
     -- | Represents information about the run of an action.
-    latestExecution :: Lude.Maybe ActionExecution
+    latestExecution :: Core.Maybe Types.ActionExecution,
+    -- | A URL link for more information about the revision, such as a commit details page.
+    revisionUrl :: Core.Maybe Types.Url
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ActionState' with the minimum fields required to make a request.
---
--- * 'revisionURL' - A URL link for more information about the revision, such as a commit details page.
--- * 'entityURL' - A URL link for more information about the state of the action, such as a deployment group details page.
--- * 'actionName' - The name of the action.
--- * 'currentRevision' - Represents information about the version (or revision) of an action.
--- * 'latestExecution' - Represents information about the run of an action.
+-- | Creates a 'ActionState' value with any optional fields omitted.
 mkActionState ::
   ActionState
 mkActionState =
   ActionState'
-    { revisionURL = Lude.Nothing,
-      entityURL = Lude.Nothing,
-      actionName = Lude.Nothing,
-      currentRevision = Lude.Nothing,
-      latestExecution = Lude.Nothing
+    { actionName = Core.Nothing,
+      currentRevision = Core.Nothing,
+      entityUrl = Core.Nothing,
+      latestExecution = Core.Nothing,
+      revisionUrl = Core.Nothing
     }
-
--- | A URL link for more information about the revision, such as a commit details page.
---
--- /Note:/ Consider using 'revisionURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asRevisionURL :: Lens.Lens' ActionState (Lude.Maybe Lude.Text)
-asRevisionURL = Lens.lens (revisionURL :: ActionState -> Lude.Maybe Lude.Text) (\s a -> s {revisionURL = a} :: ActionState)
-{-# DEPRECATED asRevisionURL "Use generic-lens or generic-optics with 'revisionURL' instead." #-}
-
--- | A URL link for more information about the state of the action, such as a deployment group details page.
---
--- /Note:/ Consider using 'entityURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asEntityURL :: Lens.Lens' ActionState (Lude.Maybe Lude.Text)
-asEntityURL = Lens.lens (entityURL :: ActionState -> Lude.Maybe Lude.Text) (\s a -> s {entityURL = a} :: ActionState)
-{-# DEPRECATED asEntityURL "Use generic-lens or generic-optics with 'entityURL' instead." #-}
 
 -- | The name of the action.
 --
 -- /Note:/ Consider using 'actionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asActionName :: Lens.Lens' ActionState (Lude.Maybe Lude.Text)
-asActionName = Lens.lens (actionName :: ActionState -> Lude.Maybe Lude.Text) (\s a -> s {actionName = a} :: ActionState)
+asActionName :: Lens.Lens' ActionState (Core.Maybe Types.ActionName)
+asActionName = Lens.field @"actionName"
 {-# DEPRECATED asActionName "Use generic-lens or generic-optics with 'actionName' instead." #-}
 
 -- | Represents information about the version (or revision) of an action.
 --
 -- /Note:/ Consider using 'currentRevision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asCurrentRevision :: Lens.Lens' ActionState (Lude.Maybe ActionRevision)
-asCurrentRevision = Lens.lens (currentRevision :: ActionState -> Lude.Maybe ActionRevision) (\s a -> s {currentRevision = a} :: ActionState)
+asCurrentRevision :: Lens.Lens' ActionState (Core.Maybe Types.ActionRevision)
+asCurrentRevision = Lens.field @"currentRevision"
 {-# DEPRECATED asCurrentRevision "Use generic-lens or generic-optics with 'currentRevision' instead." #-}
+
+-- | A URL link for more information about the state of the action, such as a deployment group details page.
+--
+-- /Note:/ Consider using 'entityUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asEntityUrl :: Lens.Lens' ActionState (Core.Maybe Types.Url)
+asEntityUrl = Lens.field @"entityUrl"
+{-# DEPRECATED asEntityUrl "Use generic-lens or generic-optics with 'entityUrl' instead." #-}
 
 -- | Represents information about the run of an action.
 --
 -- /Note:/ Consider using 'latestExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asLatestExecution :: Lens.Lens' ActionState (Lude.Maybe ActionExecution)
-asLatestExecution = Lens.lens (latestExecution :: ActionState -> Lude.Maybe ActionExecution) (\s a -> s {latestExecution = a} :: ActionState)
+asLatestExecution :: Lens.Lens' ActionState (Core.Maybe Types.ActionExecution)
+asLatestExecution = Lens.field @"latestExecution"
 {-# DEPRECATED asLatestExecution "Use generic-lens or generic-optics with 'latestExecution' instead." #-}
 
-instance Lude.FromJSON ActionState where
+-- | A URL link for more information about the revision, such as a commit details page.
+--
+-- /Note:/ Consider using 'revisionUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asRevisionUrl :: Lens.Lens' ActionState (Core.Maybe Types.Url)
+asRevisionUrl = Lens.field @"revisionUrl"
+{-# DEPRECATED asRevisionUrl "Use generic-lens or generic-optics with 'revisionUrl' instead." #-}
+
+instance Core.FromJSON ActionState where
   parseJSON =
-    Lude.withObject
-      "ActionState"
-      ( \x ->
-          ActionState'
-            Lude.<$> (x Lude..:? "revisionUrl")
-            Lude.<*> (x Lude..:? "entityUrl")
-            Lude.<*> (x Lude..:? "actionName")
-            Lude.<*> (x Lude..:? "currentRevision")
-            Lude.<*> (x Lude..:? "latestExecution")
-      )
+    Core.withObject "ActionState" Core.$
+      \x ->
+        ActionState'
+          Core.<$> (x Core..:? "actionName")
+          Core.<*> (x Core..:? "currentRevision")
+          Core.<*> (x Core..:? "entityUrl")
+          Core.<*> (x Core..:? "latestExecution")
+          Core.<*> (x Core..:? "revisionUrl")

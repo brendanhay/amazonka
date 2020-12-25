@@ -23,63 +23,58 @@ module Network.AWS.MediaLive.Types.NetworkInputSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.HlsInputSettings
-import Network.AWS.MediaLive.Types.NetworkInputServerValidation
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.HlsInputSettings as Types
+import qualified Network.AWS.MediaLive.Types.NetworkInputServerValidation as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Network source to transcode. Must be accessible to the Elemental Live node that is running the live event through a network connection.
 --
 -- /See:/ 'mkNetworkInputSettings' smart constructor.
 data NetworkInputSettings = NetworkInputSettings'
   { -- | Specifies HLS input settings when the uri is for a HLS manifest.
-    hlsInputSettings :: Lude.Maybe HlsInputSettings,
+    hlsInputSettings :: Core.Maybe Types.HlsInputSettings,
     -- | Check HTTPS server certificates. When set to checkCryptographyOnly, cryptography in the certificate will be checked, but not the server's name. Certain subdomains (notably S3 buckets that use dots in the bucket name) do not strictly match the corresponding certificate's wildcard pattern and would otherwise cause the event to error. This setting is ignored for protocols that do not use https.
-    serverValidation :: Lude.Maybe NetworkInputServerValidation
+    serverValidation :: Core.Maybe Types.NetworkInputServerValidation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NetworkInputSettings' with the minimum fields required to make a request.
---
--- * 'hlsInputSettings' - Specifies HLS input settings when the uri is for a HLS manifest.
--- * 'serverValidation' - Check HTTPS server certificates. When set to checkCryptographyOnly, cryptography in the certificate will be checked, but not the server's name. Certain subdomains (notably S3 buckets that use dots in the bucket name) do not strictly match the corresponding certificate's wildcard pattern and would otherwise cause the event to error. This setting is ignored for protocols that do not use https.
+-- | Creates a 'NetworkInputSettings' value with any optional fields omitted.
 mkNetworkInputSettings ::
   NetworkInputSettings
 mkNetworkInputSettings =
   NetworkInputSettings'
-    { hlsInputSettings = Lude.Nothing,
-      serverValidation = Lude.Nothing
+    { hlsInputSettings = Core.Nothing,
+      serverValidation = Core.Nothing
     }
 
 -- | Specifies HLS input settings when the uri is for a HLS manifest.
 --
 -- /Note:/ Consider using 'hlsInputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nisHlsInputSettings :: Lens.Lens' NetworkInputSettings (Lude.Maybe HlsInputSettings)
-nisHlsInputSettings = Lens.lens (hlsInputSettings :: NetworkInputSettings -> Lude.Maybe HlsInputSettings) (\s a -> s {hlsInputSettings = a} :: NetworkInputSettings)
+nisHlsInputSettings :: Lens.Lens' NetworkInputSettings (Core.Maybe Types.HlsInputSettings)
+nisHlsInputSettings = Lens.field @"hlsInputSettings"
 {-# DEPRECATED nisHlsInputSettings "Use generic-lens or generic-optics with 'hlsInputSettings' instead." #-}
 
 -- | Check HTTPS server certificates. When set to checkCryptographyOnly, cryptography in the certificate will be checked, but not the server's name. Certain subdomains (notably S3 buckets that use dots in the bucket name) do not strictly match the corresponding certificate's wildcard pattern and would otherwise cause the event to error. This setting is ignored for protocols that do not use https.
 --
 -- /Note:/ Consider using 'serverValidation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nisServerValidation :: Lens.Lens' NetworkInputSettings (Lude.Maybe NetworkInputServerValidation)
-nisServerValidation = Lens.lens (serverValidation :: NetworkInputSettings -> Lude.Maybe NetworkInputServerValidation) (\s a -> s {serverValidation = a} :: NetworkInputSettings)
+nisServerValidation :: Lens.Lens' NetworkInputSettings (Core.Maybe Types.NetworkInputServerValidation)
+nisServerValidation = Lens.field @"serverValidation"
 {-# DEPRECATED nisServerValidation "Use generic-lens or generic-optics with 'serverValidation' instead." #-}
 
-instance Lude.FromJSON NetworkInputSettings where
-  parseJSON =
-    Lude.withObject
-      "NetworkInputSettings"
-      ( \x ->
-          NetworkInputSettings'
-            Lude.<$> (x Lude..:? "hlsInputSettings")
-            Lude.<*> (x Lude..:? "serverValidation")
-      )
-
-instance Lude.ToJSON NetworkInputSettings where
-  toJSON NetworkInputSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("hlsInputSettings" Lude..=) Lude.<$> hlsInputSettings,
-            ("serverValidation" Lude..=) Lude.<$> serverValidation
+instance Core.FromJSON NetworkInputSettings where
+  toJSON NetworkInputSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("hlsInputSettings" Core..=) Core.<$> hlsInputSettings,
+            ("serverValidation" Core..=) Core.<$> serverValidation
           ]
       )
+
+instance Core.FromJSON NetworkInputSettings where
+  parseJSON =
+    Core.withObject "NetworkInputSettings" Core.$
+      \x ->
+        NetworkInputSettings'
+          Core.<$> (x Core..:? "hlsInputSettings")
+          Core.<*> (x Core..:? "serverValidation")

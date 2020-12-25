@@ -22,58 +22,48 @@ module Network.AWS.EC2.Types.LoadBalancersConfig
   )
 where
 
-import Network.AWS.EC2.Types.ClassicLoadBalancersConfig
-import Network.AWS.EC2.Types.TargetGroupsConfig
+import qualified Network.AWS.EC2.Types.ClassicLoadBalancersConfig as Types
+import qualified Network.AWS.EC2.Types.TargetGroupsConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the Classic Load Balancers and target groups to attach to a Spot Fleet request.
 --
 -- /See:/ 'mkLoadBalancersConfig' smart constructor.
 data LoadBalancersConfig = LoadBalancersConfig'
   { -- | The Classic Load Balancers.
-    classicLoadBalancersConfig :: Lude.Maybe ClassicLoadBalancersConfig,
+    classicLoadBalancersConfig :: Core.Maybe Types.ClassicLoadBalancersConfig,
     -- | The target groups.
-    targetGroupsConfig :: Lude.Maybe TargetGroupsConfig
+    targetGroupsConfig :: Core.Maybe Types.TargetGroupsConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoadBalancersConfig' with the minimum fields required to make a request.
---
--- * 'classicLoadBalancersConfig' - The Classic Load Balancers.
--- * 'targetGroupsConfig' - The target groups.
+-- | Creates a 'LoadBalancersConfig' value with any optional fields omitted.
 mkLoadBalancersConfig ::
   LoadBalancersConfig
 mkLoadBalancersConfig =
   LoadBalancersConfig'
-    { classicLoadBalancersConfig = Lude.Nothing,
-      targetGroupsConfig = Lude.Nothing
+    { classicLoadBalancersConfig = Core.Nothing,
+      targetGroupsConfig = Core.Nothing
     }
 
 -- | The Classic Load Balancers.
 --
 -- /Note:/ Consider using 'classicLoadBalancersConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbcClassicLoadBalancersConfig :: Lens.Lens' LoadBalancersConfig (Lude.Maybe ClassicLoadBalancersConfig)
-lbcClassicLoadBalancersConfig = Lens.lens (classicLoadBalancersConfig :: LoadBalancersConfig -> Lude.Maybe ClassicLoadBalancersConfig) (\s a -> s {classicLoadBalancersConfig = a} :: LoadBalancersConfig)
+lbcClassicLoadBalancersConfig :: Lens.Lens' LoadBalancersConfig (Core.Maybe Types.ClassicLoadBalancersConfig)
+lbcClassicLoadBalancersConfig = Lens.field @"classicLoadBalancersConfig"
 {-# DEPRECATED lbcClassicLoadBalancersConfig "Use generic-lens or generic-optics with 'classicLoadBalancersConfig' instead." #-}
 
 -- | The target groups.
 --
 -- /Note:/ Consider using 'targetGroupsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbcTargetGroupsConfig :: Lens.Lens' LoadBalancersConfig (Lude.Maybe TargetGroupsConfig)
-lbcTargetGroupsConfig = Lens.lens (targetGroupsConfig :: LoadBalancersConfig -> Lude.Maybe TargetGroupsConfig) (\s a -> s {targetGroupsConfig = a} :: LoadBalancersConfig)
+lbcTargetGroupsConfig :: Lens.Lens' LoadBalancersConfig (Core.Maybe Types.TargetGroupsConfig)
+lbcTargetGroupsConfig = Lens.field @"targetGroupsConfig"
 {-# DEPRECATED lbcTargetGroupsConfig "Use generic-lens or generic-optics with 'targetGroupsConfig' instead." #-}
 
-instance Lude.FromXML LoadBalancersConfig where
+instance Core.FromXML LoadBalancersConfig where
   parseXML x =
     LoadBalancersConfig'
-      Lude.<$> (x Lude..@? "classicLoadBalancersConfig")
-      Lude.<*> (x Lude..@? "targetGroupsConfig")
-
-instance Lude.ToQuery LoadBalancersConfig where
-  toQuery LoadBalancersConfig' {..} =
-    Lude.mconcat
-      [ "ClassicLoadBalancersConfig" Lude.=: classicLoadBalancersConfig,
-        "TargetGroupsConfig" Lude.=: targetGroupsConfig
-      ]
+      Core.<$> (x Core..@? "classicLoadBalancersConfig")
+      Core.<*> (x Core..@? "targetGroupsConfig")

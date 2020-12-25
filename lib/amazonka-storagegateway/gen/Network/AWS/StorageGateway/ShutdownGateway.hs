@@ -37,104 +37,92 @@ module Network.AWS.StorageGateway.ShutdownGateway
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway to shut down.
 --
 -- /See:/ 'mkShutdownGateway' smart constructor.
 newtype ShutdownGateway = ShutdownGateway'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ShutdownGateway' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'ShutdownGateway' value with any optional fields omitted.
 mkShutdownGateway ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   ShutdownGateway
-mkShutdownGateway pGatewayARN_ =
-  ShutdownGateway' {gatewayARN = pGatewayARN_}
+mkShutdownGateway gatewayARN = ShutdownGateway' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sGatewayARN :: Lens.Lens' ShutdownGateway Lude.Text
-sGatewayARN = Lens.lens (gatewayARN :: ShutdownGateway -> Lude.Text) (\s a -> s {gatewayARN = a} :: ShutdownGateway)
+sGatewayARN :: Lens.Lens' ShutdownGateway Types.GatewayARN
+sGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED sGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest ShutdownGateway where
+instance Core.FromJSON ShutdownGateway where
+  toJSON ShutdownGateway {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest ShutdownGateway where
   type Rs ShutdownGateway = ShutdownGatewayResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.ShutdownGateway")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ShutdownGatewayResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ShutdownGateway where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.ShutdownGateway" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ShutdownGateway where
-  toJSON ShutdownGateway' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath ShutdownGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ShutdownGateway where
-  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway that was shut down.
 --
 -- /See:/ 'mkShutdownGatewayResponse' smart constructor.
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ShutdownGatewayResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ShutdownGatewayResponse' value with any optional fields omitted.
 mkShutdownGatewayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ShutdownGatewayResponse
-mkShutdownGatewayResponse pResponseStatus_ =
+mkShutdownGatewayResponse responseStatus =
   ShutdownGatewayResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsGatewayARN :: Lens.Lens' ShutdownGatewayResponse (Lude.Maybe Lude.Text)
-srsGatewayARN = Lens.lens (gatewayARN :: ShutdownGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: ShutdownGatewayResponse)
+srsGatewayARN :: Lens.Lens' ShutdownGatewayResponse (Core.Maybe Types.GatewayARN)
+srsGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED srsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' ShutdownGatewayResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: ShutdownGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ShutdownGatewayResponse)
+srsResponseStatus :: Lens.Lens' ShutdownGatewayResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

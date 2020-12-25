@@ -43,72 +43,66 @@ module Network.AWS.S3.DeletePublicAccessBlock
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkDeletePublicAccessBlock' smart constructor.
 data DeletePublicAccessBlock = DeletePublicAccessBlock'
   { -- | The Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to delete.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePublicAccessBlock' with the minimum fields required to make a request.
---
--- * 'bucket' - The Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to delete.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'DeletePublicAccessBlock' value with any optional fields omitted.
 mkDeletePublicAccessBlock ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   DeletePublicAccessBlock
-mkDeletePublicAccessBlock pBucket_ =
+mkDeletePublicAccessBlock bucket =
   DeletePublicAccessBlock'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The Amazon S3 bucket whose @PublicAccessBlock@ configuration you want to delete.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpabBucket :: Lens.Lens' DeletePublicAccessBlock BucketName
-dpabBucket = Lens.lens (bucket :: DeletePublicAccessBlock -> BucketName) (\s a -> s {bucket = a} :: DeletePublicAccessBlock)
+dpabBucket :: Lens.Lens' DeletePublicAccessBlock Types.BucketName
+dpabBucket = Lens.field @"bucket"
 {-# DEPRECATED dpabBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpabExpectedBucketOwner :: Lens.Lens' DeletePublicAccessBlock (Lude.Maybe Lude.Text)
-dpabExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeletePublicAccessBlock -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeletePublicAccessBlock)
+dpabExpectedBucketOwner :: Lens.Lens' DeletePublicAccessBlock (Core.Maybe Types.ExpectedBucketOwner)
+dpabExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED dpabExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest DeletePublicAccessBlock where
+instance Core.AWSRequest DeletePublicAccessBlock where
   type Rs DeletePublicAccessBlock = DeletePublicAccessBlockResponse
-  request = Req.delete s3Service
-  response = Res.receiveNull DeletePublicAccessBlockResponse'
-
-instance Lude.ToHeaders DeletePublicAccessBlock where
-  toHeaders DeletePublicAccessBlock' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath DeletePublicAccessBlock where
-  toPath DeletePublicAccessBlock' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery DeletePublicAccessBlock where
-  toQuery = Lude.const (Lude.mconcat ["publicAccessBlock"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("publicAccessBlock", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeletePublicAccessBlockResponse'
 
 -- | /See:/ 'mkDeletePublicAccessBlockResponse' smart constructor.
 data DeletePublicAccessBlockResponse = DeletePublicAccessBlockResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePublicAccessBlockResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePublicAccessBlockResponse' value with any optional fields omitted.
 mkDeletePublicAccessBlockResponse ::
   DeletePublicAccessBlockResponse
 mkDeletePublicAccessBlockResponse =

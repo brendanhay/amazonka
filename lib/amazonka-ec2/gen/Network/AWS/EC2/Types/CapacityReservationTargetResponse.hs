@@ -17,55 +17,53 @@ module Network.AWS.EC2.Types.CapacityReservationTargetResponse
     mkCapacityReservationTargetResponse,
 
     -- * Lenses
-    cCapacityReservationId,
-    cCapacityReservationResourceGroupARN,
+    crtrCapacityReservationId,
+    crtrCapacityReservationResourceGroupArn,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a target Capacity Reservation or Capacity Reservation group.
 --
 -- /See:/ 'mkCapacityReservationTargetResponse' smart constructor.
 data CapacityReservationTargetResponse = CapacityReservationTargetResponse'
   { -- | The ID of the targeted Capacity Reservation.
-    capacityReservationId :: Lude.Maybe Lude.Text,
+    capacityReservationId :: Core.Maybe Types.String,
     -- | The ARN of the targeted Capacity Reservation group.
-    capacityReservationResourceGroupARN :: Lude.Maybe Lude.Text
+    capacityReservationResourceGroupArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CapacityReservationTargetResponse' with the minimum fields required to make a request.
---
--- * 'capacityReservationId' - The ID of the targeted Capacity Reservation.
--- * 'capacityReservationResourceGroupARN' - The ARN of the targeted Capacity Reservation group.
+-- | Creates a 'CapacityReservationTargetResponse' value with any optional fields omitted.
 mkCapacityReservationTargetResponse ::
   CapacityReservationTargetResponse
 mkCapacityReservationTargetResponse =
   CapacityReservationTargetResponse'
     { capacityReservationId =
-        Lude.Nothing,
-      capacityReservationResourceGroupARN = Lude.Nothing
+        Core.Nothing,
+      capacityReservationResourceGroupArn = Core.Nothing
     }
 
 -- | The ID of the targeted Capacity Reservation.
 --
 -- /Note:/ Consider using 'capacityReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCapacityReservationId :: Lens.Lens' CapacityReservationTargetResponse (Lude.Maybe Lude.Text)
-cCapacityReservationId = Lens.lens (capacityReservationId :: CapacityReservationTargetResponse -> Lude.Maybe Lude.Text) (\s a -> s {capacityReservationId = a} :: CapacityReservationTargetResponse)
-{-# DEPRECATED cCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
+crtrCapacityReservationId :: Lens.Lens' CapacityReservationTargetResponse (Core.Maybe Types.String)
+crtrCapacityReservationId = Lens.field @"capacityReservationId"
+{-# DEPRECATED crtrCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
 
 -- | The ARN of the targeted Capacity Reservation group.
 --
--- /Note:/ Consider using 'capacityReservationResourceGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCapacityReservationResourceGroupARN :: Lens.Lens' CapacityReservationTargetResponse (Lude.Maybe Lude.Text)
-cCapacityReservationResourceGroupARN = Lens.lens (capacityReservationResourceGroupARN :: CapacityReservationTargetResponse -> Lude.Maybe Lude.Text) (\s a -> s {capacityReservationResourceGroupARN = a} :: CapacityReservationTargetResponse)
-{-# DEPRECATED cCapacityReservationResourceGroupARN "Use generic-lens or generic-optics with 'capacityReservationResourceGroupARN' instead." #-}
+-- /Note:/ Consider using 'capacityReservationResourceGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crtrCapacityReservationResourceGroupArn :: Lens.Lens' CapacityReservationTargetResponse (Core.Maybe Types.String)
+crtrCapacityReservationResourceGroupArn = Lens.field @"capacityReservationResourceGroupArn"
+{-# DEPRECATED crtrCapacityReservationResourceGroupArn "Use generic-lens or generic-optics with 'capacityReservationResourceGroupArn' instead." #-}
 
-instance Lude.FromXML CapacityReservationTargetResponse where
+instance Core.FromXML CapacityReservationTargetResponse where
   parseXML x =
     CapacityReservationTargetResponse'
-      Lude.<$> (x Lude..@? "capacityReservationId")
-      Lude.<*> (x Lude..@? "capacityReservationResourceGroupArn")
+      Core.<$> (x Core..@? "capacityReservationId")
+      Core.<*> (x Core..@? "capacityReservationResourceGroupArn")

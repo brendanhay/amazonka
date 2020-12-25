@@ -20,25 +20,25 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     mkDeleteChapCredentials,
 
     -- ** Request lenses
-    dccTargetARN,
-    dccInitiatorName,
+    dTargetARN,
+    dInitiatorName,
 
     -- * Destructuring the response
     DeleteChapCredentialsResponse (..),
     mkDeleteChapCredentialsResponse,
 
     -- ** Response lenses
-    dccrsTargetARN,
-    dccrsInitiatorName,
-    dccrsResponseStatus,
+    drsInitiatorName,
+    drsTargetARN,
+    drsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing one or more of the following fields:
 --
@@ -53,130 +53,112 @@ import Network.AWS.StorageGateway.Types
 -- /See:/ 'mkDeleteChapCredentials' smart constructor.
 data DeleteChapCredentials = DeleteChapCredentials'
   { -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
-    targetARN :: Lude.Text,
+    targetARN :: Types.TargetARN,
     -- | The iSCSI initiator that connects to the target.
-    initiatorName :: Lude.Text
+    initiatorName :: Types.InitiatorName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteChapCredentials' with the minimum fields required to make a request.
---
--- * 'targetARN' - The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
--- * 'initiatorName' - The iSCSI initiator that connects to the target.
+-- | Creates a 'DeleteChapCredentials' value with any optional fields omitted.
 mkDeleteChapCredentials ::
   -- | 'targetARN'
-  Lude.Text ->
+  Types.TargetARN ->
   -- | 'initiatorName'
-  Lude.Text ->
+  Types.InitiatorName ->
   DeleteChapCredentials
-mkDeleteChapCredentials pTargetARN_ pInitiatorName_ =
-  DeleteChapCredentials'
-    { targetARN = pTargetARN_,
-      initiatorName = pInitiatorName_
-    }
+mkDeleteChapCredentials targetARN initiatorName =
+  DeleteChapCredentials' {targetARN, initiatorName}
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the 'DescribeStorediSCSIVolumes' operation to return to retrieve the TargetARN for specified VolumeARN.
 --
 -- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccTargetARN :: Lens.Lens' DeleteChapCredentials Lude.Text
-dccTargetARN = Lens.lens (targetARN :: DeleteChapCredentials -> Lude.Text) (\s a -> s {targetARN = a} :: DeleteChapCredentials)
-{-# DEPRECATED dccTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
+dTargetARN :: Lens.Lens' DeleteChapCredentials Types.TargetARN
+dTargetARN = Lens.field @"targetARN"
+{-# DEPRECATED dTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 -- | The iSCSI initiator that connects to the target.
 --
 -- /Note:/ Consider using 'initiatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccInitiatorName :: Lens.Lens' DeleteChapCredentials Lude.Text
-dccInitiatorName = Lens.lens (initiatorName :: DeleteChapCredentials -> Lude.Text) (\s a -> s {initiatorName = a} :: DeleteChapCredentials)
-{-# DEPRECATED dccInitiatorName "Use generic-lens or generic-optics with 'initiatorName' instead." #-}
+dInitiatorName :: Lens.Lens' DeleteChapCredentials Types.InitiatorName
+dInitiatorName = Lens.field @"initiatorName"
+{-# DEPRECATED dInitiatorName "Use generic-lens or generic-optics with 'initiatorName' instead." #-}
 
-instance Lude.AWSRequest DeleteChapCredentials where
+instance Core.FromJSON DeleteChapCredentials where
+  toJSON DeleteChapCredentials {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TargetARN" Core..= targetARN),
+            Core.Just ("InitiatorName" Core..= initiatorName)
+          ]
+      )
+
+instance Core.AWSRequest DeleteChapCredentials where
   type Rs DeleteChapCredentials = DeleteChapCredentialsResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.DeleteChapCredentials")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteChapCredentialsResponse'
-            Lude.<$> (x Lude..?> "TargetARN")
-            Lude.<*> (x Lude..?> "InitiatorName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InitiatorName")
+            Core.<*> (x Core..:? "TargetARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteChapCredentials where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.DeleteChapCredentials" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteChapCredentials where
-  toJSON DeleteChapCredentials' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TargetARN" Lude..= targetARN),
-            Lude.Just ("InitiatorName" Lude..= initiatorName)
-          ]
-      )
-
-instance Lude.ToPath DeleteChapCredentials where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteChapCredentials where
-  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'mkDeleteChapCredentialsResponse' smart constructor.
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
-  { -- | The Amazon Resource Name (ARN) of the target.
-    targetARN :: Lude.Maybe Lude.Text,
-    -- | The iSCSI initiator that connects to the target.
-    initiatorName :: Lude.Maybe Lude.Text,
+  { -- | The iSCSI initiator that connects to the target.
+    initiatorName :: Core.Maybe Types.IqnName,
+    -- | The Amazon Resource Name (ARN) of the target.
+    targetARN :: Core.Maybe Types.TargetARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteChapCredentialsResponse' with the minimum fields required to make a request.
---
--- * 'targetARN' - The Amazon Resource Name (ARN) of the target.
--- * 'initiatorName' - The iSCSI initiator that connects to the target.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteChapCredentialsResponse' value with any optional fields omitted.
 mkDeleteChapCredentialsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteChapCredentialsResponse
-mkDeleteChapCredentialsResponse pResponseStatus_ =
+mkDeleteChapCredentialsResponse responseStatus =
   DeleteChapCredentialsResponse'
-    { targetARN = Lude.Nothing,
-      initiatorName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { initiatorName = Core.Nothing,
+      targetARN = Core.Nothing,
+      responseStatus
     }
-
--- | The Amazon Resource Name (ARN) of the target.
---
--- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsTargetARN :: Lens.Lens' DeleteChapCredentialsResponse (Lude.Maybe Lude.Text)
-dccrsTargetARN = Lens.lens (targetARN :: DeleteChapCredentialsResponse -> Lude.Maybe Lude.Text) (\s a -> s {targetARN = a} :: DeleteChapCredentialsResponse)
-{-# DEPRECATED dccrsTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 -- | The iSCSI initiator that connects to the target.
 --
 -- /Note:/ Consider using 'initiatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsInitiatorName :: Lens.Lens' DeleteChapCredentialsResponse (Lude.Maybe Lude.Text)
-dccrsInitiatorName = Lens.lens (initiatorName :: DeleteChapCredentialsResponse -> Lude.Maybe Lude.Text) (\s a -> s {initiatorName = a} :: DeleteChapCredentialsResponse)
-{-# DEPRECATED dccrsInitiatorName "Use generic-lens or generic-optics with 'initiatorName' instead." #-}
+drsInitiatorName :: Lens.Lens' DeleteChapCredentialsResponse (Core.Maybe Types.IqnName)
+drsInitiatorName = Lens.field @"initiatorName"
+{-# DEPRECATED drsInitiatorName "Use generic-lens or generic-optics with 'initiatorName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the target.
+--
+-- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsTargetARN :: Lens.Lens' DeleteChapCredentialsResponse (Core.Maybe Types.TargetARN)
+drsTargetARN = Lens.field @"targetARN"
+{-# DEPRECATED drsTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsResponseStatus :: Lens.Lens' DeleteChapCredentialsResponse Lude.Int
-dccrsResponseStatus = Lens.lens (responseStatus :: DeleteChapCredentialsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteChapCredentialsResponse)
-{-# DEPRECATED dccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DeleteChapCredentialsResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

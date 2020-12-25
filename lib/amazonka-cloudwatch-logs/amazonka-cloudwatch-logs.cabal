@@ -46,28 +46,34 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CloudWatchLogs
-    Network.AWS.CloudWatchLogs.AssociateKMSKey
+    Network.AWS.CloudWatchLogs.AssociateKmsKey
     Network.AWS.CloudWatchLogs.CancelExportTask
     Network.AWS.CloudWatchLogs.CreateExportTask
     Network.AWS.CloudWatchLogs.CreateLogGroup
@@ -89,7 +95,7 @@ library
     Network.AWS.CloudWatchLogs.DescribeQueryDefinitions
     Network.AWS.CloudWatchLogs.DescribeResourcePolicies
     Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
-    Network.AWS.CloudWatchLogs.DisassociateKMSKey
+    Network.AWS.CloudWatchLogs.DisassociateKmsKey
     Network.AWS.CloudWatchLogs.FilterLogEvents
     Network.AWS.CloudWatchLogs.GetLogEvents
     Network.AWS.CloudWatchLogs.GetLogGroupFields
@@ -113,31 +119,73 @@ library
     Network.AWS.CloudWatchLogs.Waiters
 
   other-modules:
+    Network.AWS.CloudWatchLogs.Types.AccessPolicy
+    Network.AWS.CloudWatchLogs.Types.Arn
     Network.AWS.CloudWatchLogs.Types.Destination
+    Network.AWS.CloudWatchLogs.Types.DestinationArn
+    Network.AWS.CloudWatchLogs.Types.DestinationName
+    Network.AWS.CloudWatchLogs.Types.DestinationPrefix
     Network.AWS.CloudWatchLogs.Types.Distribution
+    Network.AWS.CloudWatchLogs.Types.EventId
+    Network.AWS.CloudWatchLogs.Types.EventMessage
+    Network.AWS.CloudWatchLogs.Types.ExportDestinationBucket
+    Network.AWS.CloudWatchLogs.Types.ExportDestinationPrefix
     Network.AWS.CloudWatchLogs.Types.ExportTask
     Network.AWS.CloudWatchLogs.Types.ExportTaskExecutionInfo
+    Network.AWS.CloudWatchLogs.Types.ExportTaskId
+    Network.AWS.CloudWatchLogs.Types.ExportTaskName
     Network.AWS.CloudWatchLogs.Types.ExportTaskStatus
     Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode
+    Network.AWS.CloudWatchLogs.Types.ExportTaskStatusMessage
+    Network.AWS.CloudWatchLogs.Types.Field
     Network.AWS.CloudWatchLogs.Types.FilteredLogEvent
+    Network.AWS.CloudWatchLogs.Types.FilterName
+    Network.AWS.CloudWatchLogs.Types.FilterNamePrefix
+    Network.AWS.CloudWatchLogs.Types.FilterPattern
     Network.AWS.CloudWatchLogs.Types.InputLogEvent
+    Network.AWS.CloudWatchLogs.Types.KmsKeyId
     Network.AWS.CloudWatchLogs.Types.LogGroup
     Network.AWS.CloudWatchLogs.Types.LogGroupField
+    Network.AWS.CloudWatchLogs.Types.LogGroupName
+    Network.AWS.CloudWatchLogs.Types.LogGroupNamePrefix
+    Network.AWS.CloudWatchLogs.Types.LogRecordPointer
     Network.AWS.CloudWatchLogs.Types.LogStream
+    Network.AWS.CloudWatchLogs.Types.LogStreamName
+    Network.AWS.CloudWatchLogs.Types.LogStreamNamePrefix
+    Network.AWS.CloudWatchLogs.Types.Message
     Network.AWS.CloudWatchLogs.Types.MetricFilter
     Network.AWS.CloudWatchLogs.Types.MetricFilterMatchRecord
+    Network.AWS.CloudWatchLogs.Types.MetricName
+    Network.AWS.CloudWatchLogs.Types.MetricNamespace
     Network.AWS.CloudWatchLogs.Types.MetricTransformation
+    Network.AWS.CloudWatchLogs.Types.MetricValue
+    Network.AWS.CloudWatchLogs.Types.Name
+    Network.AWS.CloudWatchLogs.Types.NextToken
     Network.AWS.CloudWatchLogs.Types.OrderBy
     Network.AWS.CloudWatchLogs.Types.OutputLogEvent
+    Network.AWS.CloudWatchLogs.Types.PolicyDocument
+    Network.AWS.CloudWatchLogs.Types.PolicyName
     Network.AWS.CloudWatchLogs.Types.QueryDefinition
+    Network.AWS.CloudWatchLogs.Types.QueryDefinitionName
+    Network.AWS.CloudWatchLogs.Types.QueryDefinitionString
+    Network.AWS.CloudWatchLogs.Types.QueryId
     Network.AWS.CloudWatchLogs.Types.QueryInfo
     Network.AWS.CloudWatchLogs.Types.QueryStatistics
     Network.AWS.CloudWatchLogs.Types.QueryStatus
+    Network.AWS.CloudWatchLogs.Types.QueryString
     Network.AWS.CloudWatchLogs.Types.RejectedLogEventsInfo
     Network.AWS.CloudWatchLogs.Types.ResourcePolicy
     Network.AWS.CloudWatchLogs.Types.ResultField
+    Network.AWS.CloudWatchLogs.Types.RoleArn
     Network.AWS.CloudWatchLogs.Types.SearchedLogStream
+    Network.AWS.CloudWatchLogs.Types.SequenceToken
     Network.AWS.CloudWatchLogs.Types.SubscriptionFilter
+    Network.AWS.CloudWatchLogs.Types.TagKey
+    Network.AWS.CloudWatchLogs.Types.TagValue
+    Network.AWS.CloudWatchLogs.Types.TargetArn
+    Network.AWS.CloudWatchLogs.Types.TaskName
+    Network.AWS.CloudWatchLogs.Types.Token
+    Network.AWS.CloudWatchLogs.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

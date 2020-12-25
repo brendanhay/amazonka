@@ -17,102 +17,95 @@ module Network.AWS.GameLift.Types.Player
     mkPlayer,
 
     -- * Lenses
-    pPlayerAttributes,
-    pTeam,
-    pPlayerId,
     pLatencyInMs,
+    pPlayerAttributes,
+    pPlayerId,
+    pTeam,
   )
 where
 
-import Network.AWS.GameLift.Types.AttributeValue
+import qualified Network.AWS.GameLift.Types.AttributeValue as Types
+import qualified Network.AWS.GameLift.Types.NonEmptyString as Types
+import qualified Network.AWS.GameLift.Types.NonZeroAndMaxString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a player in matchmaking. When starting a matchmaking request, a player has a player ID, attributes, and may have latency data. Team information is added after a match has been successfully completed.
 --
 -- /See:/ 'mkPlayer' smart constructor.
 data Player = Player'
-  { -- | A collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the /playerAttributes/ used in a matchmaking rule set. Example: @"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}@ .
-    playerAttributes :: Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)),
-    -- | Name of the team that the player is assigned to in a match. Team names are defined in a matchmaking rule set.
-    team :: Lude.Maybe Lude.Text,
-    -- | A unique identifier for a player
-    playerId :: Lude.Maybe Lude.Text,
-    -- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. If this property is present, FlexMatch considers placing the match only in Regions for which latency is reported.
+  { -- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. If this property is present, FlexMatch considers placing the match only in Regions for which latency is reported.
     --
     -- If a matchmaker has a rule that evaluates player latency, players must report latency in order to be matched. If no latency is reported in this scenario, FlexMatch assumes that no Regions are available to the player and the ticket is not matchable.
-    latencyInMs :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Natural))
+    latencyInMs :: Core.Maybe (Core.HashMap Types.NonEmptyString Core.Natural),
+    -- | A collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the /playerAttributes/ used in a matchmaking rule set. Example: @"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}@ .
+    playerAttributes :: Core.Maybe (Core.HashMap Types.NonZeroAndMaxString Types.AttributeValue),
+    -- | A unique identifier for a player
+    playerId :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | Name of the team that the player is assigned to in a match. Team names are defined in a matchmaking rule set.
+    team :: Core.Maybe Types.NonZeroAndMaxString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Player' with the minimum fields required to make a request.
---
--- * 'playerAttributes' - A collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the /playerAttributes/ used in a matchmaking rule set. Example: @"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}@ .
--- * 'team' - Name of the team that the player is assigned to in a match. Team names are defined in a matchmaking rule set.
--- * 'playerId' - A unique identifier for a player
--- * 'latencyInMs' - Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. If this property is present, FlexMatch considers placing the match only in Regions for which latency is reported.
---
--- If a matchmaker has a rule that evaluates player latency, players must report latency in order to be matched. If no latency is reported in this scenario, FlexMatch assumes that no Regions are available to the player and the ticket is not matchable.
+-- | Creates a 'Player' value with any optional fields omitted.
 mkPlayer ::
   Player
 mkPlayer =
   Player'
-    { playerAttributes = Lude.Nothing,
-      team = Lude.Nothing,
-      playerId = Lude.Nothing,
-      latencyInMs = Lude.Nothing
+    { latencyInMs = Core.Nothing,
+      playerAttributes = Core.Nothing,
+      playerId = Core.Nothing,
+      team = Core.Nothing
     }
-
--- | A collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the /playerAttributes/ used in a matchmaking rule set. Example: @"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}@ .
---
--- /Note:/ Consider using 'playerAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPlayerAttributes :: Lens.Lens' Player (Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue)))
-pPlayerAttributes = Lens.lens (playerAttributes :: Player -> Lude.Maybe (Lude.HashMap Lude.Text (AttributeValue))) (\s a -> s {playerAttributes = a} :: Player)
-{-# DEPRECATED pPlayerAttributes "Use generic-lens or generic-optics with 'playerAttributes' instead." #-}
-
--- | Name of the team that the player is assigned to in a match. Team names are defined in a matchmaking rule set.
---
--- /Note:/ Consider using 'team' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pTeam :: Lens.Lens' Player (Lude.Maybe Lude.Text)
-pTeam = Lens.lens (team :: Player -> Lude.Maybe Lude.Text) (\s a -> s {team = a} :: Player)
-{-# DEPRECATED pTeam "Use generic-lens or generic-optics with 'team' instead." #-}
-
--- | A unique identifier for a player
---
--- /Note:/ Consider using 'playerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPlayerId :: Lens.Lens' Player (Lude.Maybe Lude.Text)
-pPlayerId = Lens.lens (playerId :: Player -> Lude.Maybe Lude.Text) (\s a -> s {playerId = a} :: Player)
-{-# DEPRECATED pPlayerId "Use generic-lens or generic-optics with 'playerId' instead." #-}
 
 -- | Set of values, expressed in milliseconds, indicating the amount of latency that a player experiences when connected to AWS Regions. If this property is present, FlexMatch considers placing the match only in Regions for which latency is reported.
 --
 -- If a matchmaker has a rule that evaluates player latency, players must report latency in order to be matched. If no latency is reported in this scenario, FlexMatch assumes that no Regions are available to the player and the ticket is not matchable.
 --
 -- /Note:/ Consider using 'latencyInMs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pLatencyInMs :: Lens.Lens' Player (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Natural)))
-pLatencyInMs = Lens.lens (latencyInMs :: Player -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Natural))) (\s a -> s {latencyInMs = a} :: Player)
+pLatencyInMs :: Lens.Lens' Player (Core.Maybe (Core.HashMap Types.NonEmptyString Core.Natural))
+pLatencyInMs = Lens.field @"latencyInMs"
 {-# DEPRECATED pLatencyInMs "Use generic-lens or generic-optics with 'latencyInMs' instead." #-}
 
-instance Lude.FromJSON Player where
-  parseJSON =
-    Lude.withObject
-      "Player"
-      ( \x ->
-          Player'
-            Lude.<$> (x Lude..:? "PlayerAttributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Team")
-            Lude.<*> (x Lude..:? "PlayerId")
-            Lude.<*> (x Lude..:? "LatencyInMs" Lude..!= Lude.mempty)
-      )
+-- | A collection of key:value pairs containing player information for use in matchmaking. Player attribute keys must match the /playerAttributes/ used in a matchmaking rule set. Example: @"PlayerAttributes": {"skill": {"N": "23"}, "gameMode": {"S": "deathmatch"}}@ .
+--
+-- /Note:/ Consider using 'playerAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPlayerAttributes :: Lens.Lens' Player (Core.Maybe (Core.HashMap Types.NonZeroAndMaxString Types.AttributeValue))
+pPlayerAttributes = Lens.field @"playerAttributes"
+{-# DEPRECATED pPlayerAttributes "Use generic-lens or generic-optics with 'playerAttributes' instead." #-}
 
-instance Lude.ToJSON Player where
-  toJSON Player' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("PlayerAttributes" Lude..=) Lude.<$> playerAttributes,
-            ("Team" Lude..=) Lude.<$> team,
-            ("PlayerId" Lude..=) Lude.<$> playerId,
-            ("LatencyInMs" Lude..=) Lude.<$> latencyInMs
+-- | A unique identifier for a player
+--
+-- /Note:/ Consider using 'playerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPlayerId :: Lens.Lens' Player (Core.Maybe Types.NonZeroAndMaxString)
+pPlayerId = Lens.field @"playerId"
+{-# DEPRECATED pPlayerId "Use generic-lens or generic-optics with 'playerId' instead." #-}
+
+-- | Name of the team that the player is assigned to in a match. Team names are defined in a matchmaking rule set.
+--
+-- /Note:/ Consider using 'team' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pTeam :: Lens.Lens' Player (Core.Maybe Types.NonZeroAndMaxString)
+pTeam = Lens.field @"team"
+{-# DEPRECATED pTeam "Use generic-lens or generic-optics with 'team' instead." #-}
+
+instance Core.FromJSON Player where
+  toJSON Player {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("LatencyInMs" Core..=) Core.<$> latencyInMs,
+            ("PlayerAttributes" Core..=) Core.<$> playerAttributes,
+            ("PlayerId" Core..=) Core.<$> playerId,
+            ("Team" Core..=) Core.<$> team
           ]
       )
+
+instance Core.FromJSON Player where
+  parseJSON =
+    Core.withObject "Player" Core.$
+      \x ->
+        Player'
+          Core.<$> (x Core..:? "LatencyInMs")
+          Core.<*> (x Core..:? "PlayerAttributes")
+          Core.<*> (x Core..:? "PlayerId")
+          Core.<*> (x Core..:? "Team")

@@ -21,41 +21,36 @@ module Network.AWS.GuardDuty.Types.CloudTrailConfigurationResult
   )
 where
 
-import Network.AWS.GuardDuty.Types.DataSourceStatus
+import qualified Network.AWS.GuardDuty.Types.DataSourceStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information on the status of CloudTrail as a data source for the detector.
 --
 -- /See:/ 'mkCloudTrailConfigurationResult' smart constructor.
 newtype CloudTrailConfigurationResult = CloudTrailConfigurationResult'
   { -- | Describes whether CloudTrail is enabled as a data source for the detector.
-    status :: DataSourceStatus
+    status :: Types.DataSourceStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudTrailConfigurationResult' with the minimum fields required to make a request.
---
--- * 'status' - Describes whether CloudTrail is enabled as a data source for the detector.
+-- | Creates a 'CloudTrailConfigurationResult' value with any optional fields omitted.
 mkCloudTrailConfigurationResult ::
   -- | 'status'
-  DataSourceStatus ->
+  Types.DataSourceStatus ->
   CloudTrailConfigurationResult
-mkCloudTrailConfigurationResult pStatus_ =
-  CloudTrailConfigurationResult' {status = pStatus_}
+mkCloudTrailConfigurationResult status =
+  CloudTrailConfigurationResult' {status}
 
 -- | Describes whether CloudTrail is enabled as a data source for the detector.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctcrStatus :: Lens.Lens' CloudTrailConfigurationResult DataSourceStatus
-ctcrStatus = Lens.lens (status :: CloudTrailConfigurationResult -> DataSourceStatus) (\s a -> s {status = a} :: CloudTrailConfigurationResult)
+ctcrStatus :: Lens.Lens' CloudTrailConfigurationResult Types.DataSourceStatus
+ctcrStatus = Lens.field @"status"
 {-# DEPRECATED ctcrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.FromJSON CloudTrailConfigurationResult where
+instance Core.FromJSON CloudTrailConfigurationResult where
   parseJSON =
-    Lude.withObject
-      "CloudTrailConfigurationResult"
-      ( \x ->
-          CloudTrailConfigurationResult' Lude.<$> (x Lude..: "status")
-      )
+    Core.withObject "CloudTrailConfigurationResult" Core.$
+      \x -> CloudTrailConfigurationResult' Core.<$> (x Core..: "status")

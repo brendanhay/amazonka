@@ -17,20 +17,25 @@ module Network.AWS.Organizations.Types.Organization
     mkOrganization,
 
     -- * Lenses
-    oARN,
-    oMasterAccountId,
-    oMasterAccountARN,
-    oMasterAccountEmail,
+    oArn,
     oAvailablePolicyTypes,
-    oId,
     oFeatureSet,
+    oId,
+    oMasterAccountArn,
+    oMasterAccountEmail,
+    oMasterAccountId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.OrganizationFeatureSet
-import Network.AWS.Organizations.Types.PolicyTypeSummary
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Organizations.Types.AccountArn as Types
+import qualified Network.AWS.Organizations.Types.AccountId as Types
+import qualified Network.AWS.Organizations.Types.Arn as Types
+import qualified Network.AWS.Organizations.Types.Email as Types
+import qualified Network.AWS.Organizations.Types.Id as Types
+import qualified Network.AWS.Organizations.Types.OrganizationFeatureSet as Types
+import qualified Network.AWS.Organizations.Types.PolicyTypeSummary as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains details about an organization. An organization is a collection of accounts that are centrally managed together using consolidated billing, organized hierarchically with organizational units (OUs), and controlled with policies .
 --
@@ -39,61 +44,43 @@ data Organization = Organization'
   { -- | The Amazon Resource Name (ARN) of an organization.
     --
     -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
-    arn :: Lude.Maybe Lude.Text,
-    -- | The unique identifier (ID) of the management account of an organization.
-    --
-    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
-    masterAccountId :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the account that is designated as the management account for the organization.
-    --
-    -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
-    masterAccountARN :: Lude.Maybe Lude.Text,
-    -- | The email address that is associated with the AWS account that is designated as the management account for the organization.
-    masterAccountEmail :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    arn :: Core.Maybe Types.Arn,
     -- | /Important:/ Do not use. This field is deprecated and doesn't provide complete information about the policies in your organization.
     --
     -- To determine the policies that are enabled and available for use in your organization, use the 'ListRoots' operation instead.
-    availablePolicyTypes :: Lude.Maybe [PolicyTypeSummary],
+    availablePolicyTypes :: Core.Maybe [Types.PolicyTypeSummary],
+    -- | Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
+    featureSet :: Core.Maybe Types.OrganizationFeatureSet,
     -- | The unique identifier (ID) of an organization.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> for an organization ID string requires "o-" followed by from 10 to 32 lowercase letters or digits.
-    id :: Lude.Maybe Lude.Text,
-    -- | Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
-    featureSet :: Lude.Maybe OrganizationFeatureSet
+    id :: Core.Maybe Types.Id,
+    -- | The Amazon Resource Name (ARN) of the account that is designated as the management account for the organization.
+    --
+    -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+    masterAccountArn :: Core.Maybe Types.AccountArn,
+    -- | The email address that is associated with the AWS account that is designated as the management account for the organization.
+    masterAccountEmail :: Core.Maybe Types.Email,
+    -- | The unique identifier (ID) of the management account of an organization.
+    --
+    -- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
+    masterAccountId :: Core.Maybe Types.AccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Organization' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of an organization.
---
--- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
--- * 'masterAccountId' - The unique identifier (ID) of the management account of an organization.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
--- * 'masterAccountARN' - The Amazon Resource Name (ARN) of the account that is designated as the management account for the organization.
---
--- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
--- * 'masterAccountEmail' - The email address that is associated with the AWS account that is designated as the management account for the organization.
--- * 'availablePolicyTypes' - /Important:/ Do not use. This field is deprecated and doesn't provide complete information about the policies in your organization.
---
--- To determine the policies that are enabled and available for use in your organization, use the 'ListRoots' operation instead.
--- * 'id' - The unique identifier (ID) of an organization.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an organization ID string requires "o-" followed by from 10 to 32 lowercase letters or digits.
--- * 'featureSet' - Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
+-- | Creates a 'Organization' value with any optional fields omitted.
 mkOrganization ::
   Organization
 mkOrganization =
   Organization'
-    { arn = Lude.Nothing,
-      masterAccountId = Lude.Nothing,
-      masterAccountARN = Lude.Nothing,
-      masterAccountEmail = Lude.Nothing,
-      availablePolicyTypes = Lude.Nothing,
-      id = Lude.Nothing,
-      featureSet = Lude.Nothing
+    { arn = Core.Nothing,
+      availablePolicyTypes = Core.Nothing,
+      featureSet = Core.Nothing,
+      id = Core.Nothing,
+      masterAccountArn = Core.Nothing,
+      masterAccountEmail = Core.Nothing,
+      masterAccountId = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of an organization.
@@ -101,71 +88,69 @@ mkOrganization =
 -- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oARN :: Lens.Lens' Organization (Lude.Maybe Lude.Text)
-oARN = Lens.lens (arn :: Organization -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Organization)
-{-# DEPRECATED oARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The unique identifier (ID) of the management account of an organization.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
---
--- /Note:/ Consider using 'masterAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oMasterAccountId :: Lens.Lens' Organization (Lude.Maybe Lude.Text)
-oMasterAccountId = Lens.lens (masterAccountId :: Organization -> Lude.Maybe Lude.Text) (\s a -> s {masterAccountId = a} :: Organization)
-{-# DEPRECATED oMasterAccountId "Use generic-lens or generic-optics with 'masterAccountId' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the account that is designated as the management account for the organization.
---
--- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
---
--- /Note:/ Consider using 'masterAccountARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oMasterAccountARN :: Lens.Lens' Organization (Lude.Maybe Lude.Text)
-oMasterAccountARN = Lens.lens (masterAccountARN :: Organization -> Lude.Maybe Lude.Text) (\s a -> s {masterAccountARN = a} :: Organization)
-{-# DEPRECATED oMasterAccountARN "Use generic-lens or generic-optics with 'masterAccountARN' instead." #-}
-
--- | The email address that is associated with the AWS account that is designated as the management account for the organization.
---
--- /Note:/ Consider using 'masterAccountEmail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oMasterAccountEmail :: Lens.Lens' Organization (Lude.Maybe (Lude.Sensitive Lude.Text))
-oMasterAccountEmail = Lens.lens (masterAccountEmail :: Organization -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {masterAccountEmail = a} :: Organization)
-{-# DEPRECATED oMasterAccountEmail "Use generic-lens or generic-optics with 'masterAccountEmail' instead." #-}
+oArn :: Lens.Lens' Organization (Core.Maybe Types.Arn)
+oArn = Lens.field @"arn"
+{-# DEPRECATED oArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | /Important:/ Do not use. This field is deprecated and doesn't provide complete information about the policies in your organization.
 --
 -- To determine the policies that are enabled and available for use in your organization, use the 'ListRoots' operation instead.
 --
 -- /Note:/ Consider using 'availablePolicyTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oAvailablePolicyTypes :: Lens.Lens' Organization (Lude.Maybe [PolicyTypeSummary])
-oAvailablePolicyTypes = Lens.lens (availablePolicyTypes :: Organization -> Lude.Maybe [PolicyTypeSummary]) (\s a -> s {availablePolicyTypes = a} :: Organization)
+oAvailablePolicyTypes :: Lens.Lens' Organization (Core.Maybe [Types.PolicyTypeSummary])
+oAvailablePolicyTypes = Lens.field @"availablePolicyTypes"
 {-# DEPRECATED oAvailablePolicyTypes "Use generic-lens or generic-optics with 'availablePolicyTypes' instead." #-}
+
+-- | Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
+--
+-- /Note:/ Consider using 'featureSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oFeatureSet :: Lens.Lens' Organization (Core.Maybe Types.OrganizationFeatureSet)
+oFeatureSet = Lens.field @"featureSet"
+{-# DEPRECATED oFeatureSet "Use generic-lens or generic-optics with 'featureSet' instead." #-}
 
 -- | The unique identifier (ID) of an organization.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> for an organization ID string requires "o-" followed by from 10 to 32 lowercase letters or digits.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oId :: Lens.Lens' Organization (Lude.Maybe Lude.Text)
-oId = Lens.lens (id :: Organization -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Organization)
+oId :: Lens.Lens' Organization (Core.Maybe Types.Id)
+oId = Lens.field @"id"
 {-# DEPRECATED oId "Use generic-lens or generic-optics with 'id' instead." #-}
 
--- | Specifies the functionality that currently is available to the organization. If set to "ALL", then all features are enabled and policies can be applied to accounts in the organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing functionality is available. For more information, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html Enabling All Features in Your Organization> in the /AWS Organizations User Guide/ .
+-- | The Amazon Resource Name (ARN) of the account that is designated as the management account for the organization.
 --
--- /Note:/ Consider using 'featureSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oFeatureSet :: Lens.Lens' Organization (Lude.Maybe OrganizationFeatureSet)
-oFeatureSet = Lens.lens (featureSet :: Organization -> Lude.Maybe OrganizationFeatureSet) (\s a -> s {featureSet = a} :: Organization)
-{-# DEPRECATED oFeatureSet "Use generic-lens or generic-optics with 'featureSet' instead." #-}
+-- For more information about ARNs in Organizations, see <https://docs.aws.amazon.com/organizations/latest/userguide/orgs_permissions.html#orgs-permissions-arns ARN Formats Supported by Organizations> in the /AWS Organizations User Guide/ .
+--
+-- /Note:/ Consider using 'masterAccountArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oMasterAccountArn :: Lens.Lens' Organization (Core.Maybe Types.AccountArn)
+oMasterAccountArn = Lens.field @"masterAccountArn"
+{-# DEPRECATED oMasterAccountArn "Use generic-lens or generic-optics with 'masterAccountArn' instead." #-}
 
-instance Lude.FromJSON Organization where
+-- | The email address that is associated with the AWS account that is designated as the management account for the organization.
+--
+-- /Note:/ Consider using 'masterAccountEmail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oMasterAccountEmail :: Lens.Lens' Organization (Core.Maybe Types.Email)
+oMasterAccountEmail = Lens.field @"masterAccountEmail"
+{-# DEPRECATED oMasterAccountEmail "Use generic-lens or generic-optics with 'masterAccountEmail' instead." #-}
+
+-- | The unique identifier (ID) of the management account of an organization.
+--
+-- The <http://wikipedia.org/wiki/regex regex pattern> for an account ID string requires exactly 12 digits.
+--
+-- /Note:/ Consider using 'masterAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oMasterAccountId :: Lens.Lens' Organization (Core.Maybe Types.AccountId)
+oMasterAccountId = Lens.field @"masterAccountId"
+{-# DEPRECATED oMasterAccountId "Use generic-lens or generic-optics with 'masterAccountId' instead." #-}
+
+instance Core.FromJSON Organization where
   parseJSON =
-    Lude.withObject
-      "Organization"
-      ( \x ->
-          Organization'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "MasterAccountId")
-            Lude.<*> (x Lude..:? "MasterAccountArn")
-            Lude.<*> (x Lude..:? "MasterAccountEmail")
-            Lude.<*> (x Lude..:? "AvailablePolicyTypes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "FeatureSet")
-      )
+    Core.withObject "Organization" Core.$
+      \x ->
+        Organization'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "AvailablePolicyTypes")
+          Core.<*> (x Core..:? "FeatureSet")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "MasterAccountArn")
+          Core.<*> (x Core..:? "MasterAccountEmail")
+          Core.<*> (x Core..:? "MasterAccountId")

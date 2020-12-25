@@ -17,56 +17,51 @@ module Network.AWS.Pinpoint.Types.ResultRow
     mkResultRow,
 
     -- * Lenses
-    rrValues,
     rrGroupedBys,
+    rrValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ResultRowValue
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.ResultRowValue as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides the results of a query that retrieved the data for a standard metric that applies to an application, campaign, or journey.
 --
 -- /See:/ 'mkResultRow' smart constructor.
 data ResultRow = ResultRow'
-  { -- | An array of objects that provides pre-aggregated values for a standard metric that applies to an application, campaign, or journey.
-    values :: [ResultRowValue],
-    -- | An array of objects that defines the field and field values that were used to group data in a result set that contains multiple results. This value is null if the data in a result set isn’t grouped.
-    groupedBys :: [ResultRowValue]
+  { -- | An array of objects that defines the field and field values that were used to group data in a result set that contains multiple results. This value is null if the data in a result set isn’t grouped.
+    groupedBys :: [Types.ResultRowValue],
+    -- | An array of objects that provides pre-aggregated values for a standard metric that applies to an application, campaign, or journey.
+    values :: [Types.ResultRowValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResultRow' with the minimum fields required to make a request.
---
--- * 'values' - An array of objects that provides pre-aggregated values for a standard metric that applies to an application, campaign, or journey.
--- * 'groupedBys' - An array of objects that defines the field and field values that were used to group data in a result set that contains multiple results. This value is null if the data in a result set isn’t grouped.
+-- | Creates a 'ResultRow' value with any optional fields omitted.
 mkResultRow ::
   ResultRow
 mkResultRow =
-  ResultRow' {values = Lude.mempty, groupedBys = Lude.mempty}
-
--- | An array of objects that provides pre-aggregated values for a standard metric that applies to an application, campaign, or journey.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrValues :: Lens.Lens' ResultRow [ResultRowValue]
-rrValues = Lens.lens (values :: ResultRow -> [ResultRowValue]) (\s a -> s {values = a} :: ResultRow)
-{-# DEPRECATED rrValues "Use generic-lens or generic-optics with 'values' instead." #-}
+  ResultRow' {groupedBys = Core.mempty, values = Core.mempty}
 
 -- | An array of objects that defines the field and field values that were used to group data in a result set that contains multiple results. This value is null if the data in a result set isn’t grouped.
 --
 -- /Note:/ Consider using 'groupedBys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrGroupedBys :: Lens.Lens' ResultRow [ResultRowValue]
-rrGroupedBys = Lens.lens (groupedBys :: ResultRow -> [ResultRowValue]) (\s a -> s {groupedBys = a} :: ResultRow)
+rrGroupedBys :: Lens.Lens' ResultRow [Types.ResultRowValue]
+rrGroupedBys = Lens.field @"groupedBys"
 {-# DEPRECATED rrGroupedBys "Use generic-lens or generic-optics with 'groupedBys' instead." #-}
 
-instance Lude.FromJSON ResultRow where
+-- | An array of objects that provides pre-aggregated values for a standard metric that applies to an application, campaign, or journey.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrValues :: Lens.Lens' ResultRow [Types.ResultRowValue]
+rrValues = Lens.field @"values"
+{-# DEPRECATED rrValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON ResultRow where
   parseJSON =
-    Lude.withObject
-      "ResultRow"
-      ( \x ->
-          ResultRow'
-            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "GroupedBys" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ResultRow" Core.$
+      \x ->
+        ResultRow'
+          Core.<$> (x Core..:? "GroupedBys" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "Values" Core..!= Core.mempty)

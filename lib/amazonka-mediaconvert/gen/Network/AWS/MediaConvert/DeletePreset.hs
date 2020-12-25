@@ -27,86 +27,76 @@ module Network.AWS.MediaConvert.DeletePreset
     mkDeletePresetResponse,
 
     -- ** Response lenses
-    dprsResponseStatus,
+    dprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaConvert.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePreset' smart constructor.
 newtype DeletePreset = DeletePreset'
   { -- | The name of the preset to be deleted.
-    name :: Lude.Text
+    name :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePreset' with the minimum fields required to make a request.
---
--- * 'name' - The name of the preset to be deleted.
+-- | Creates a 'DeletePreset' value with any optional fields omitted.
 mkDeletePreset ::
   -- | 'name'
-  Lude.Text ->
+  Core.Text ->
   DeletePreset
-mkDeletePreset pName_ = DeletePreset' {name = pName_}
+mkDeletePreset name = DeletePreset' {name}
 
 -- | The name of the preset to be deleted.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpName :: Lens.Lens' DeletePreset Lude.Text
-dpName = Lens.lens (name :: DeletePreset -> Lude.Text) (\s a -> s {name = a} :: DeletePreset)
+dpName :: Lens.Lens' DeletePreset Core.Text
+dpName = Lens.field @"name"
 {-# DEPRECATED dpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeletePreset where
+instance Core.AWSRequest DeletePreset where
   type Rs DeletePreset = DeletePresetResponse
-  request = Req.delete mediaConvertService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/2017-08-29/presets/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeletePresetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeletePresetResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeletePreset where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeletePreset where
-  toPath DeletePreset' {..} =
-    Lude.mconcat ["/2017-08-29/presets/", Lude.toBS name]
-
-instance Lude.ToQuery DeletePreset where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeletePresetResponse' smart constructor.
 newtype DeletePresetResponse = DeletePresetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePresetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeletePresetResponse' value with any optional fields omitted.
 mkDeletePresetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeletePresetResponse
-mkDeletePresetResponse pResponseStatus_ =
-  DeletePresetResponse' {responseStatus = pResponseStatus_}
+mkDeletePresetResponse responseStatus =
+  DeletePresetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DeletePresetResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DeletePresetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePresetResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprrsResponseStatus :: Lens.Lens' DeletePresetResponse Core.Int
+dprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

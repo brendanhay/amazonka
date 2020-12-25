@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.PaymentOption
   ( PaymentOption
       ( PaymentOption',
-        POAllUpfront,
-        POPartialUpfront,
-        PONoUpfront
+        PaymentOptionAllUpfront,
+        PaymentOptionPartialUpfront,
+        PaymentOptionNoUpfront,
+        fromPaymentOption
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PaymentOption = PaymentOption' Lude.Text
+newtype PaymentOption = PaymentOption'
+  { fromPaymentOption ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern POAllUpfront :: PaymentOption
-pattern POAllUpfront = PaymentOption' "AllUpfront"
+pattern PaymentOptionAllUpfront :: PaymentOption
+pattern PaymentOptionAllUpfront = PaymentOption' "AllUpfront"
 
-pattern POPartialUpfront :: PaymentOption
-pattern POPartialUpfront = PaymentOption' "PartialUpfront"
+pattern PaymentOptionPartialUpfront :: PaymentOption
+pattern PaymentOptionPartialUpfront = PaymentOption' "PartialUpfront"
 
-pattern PONoUpfront :: PaymentOption
-pattern PONoUpfront = PaymentOption' "NoUpfront"
+pattern PaymentOptionNoUpfront :: PaymentOption
+pattern PaymentOptionNoUpfront = PaymentOption' "NoUpfront"
 
 {-# COMPLETE
-  POAllUpfront,
-  POPartialUpfront,
-  PONoUpfront,
+  PaymentOptionAllUpfront,
+  PaymentOptionPartialUpfront,
+  PaymentOptionNoUpfront,
   PaymentOption'
   #-}

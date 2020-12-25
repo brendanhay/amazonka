@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.DeviceSettingsSyncState
   ( DeviceSettingsSyncState
       ( DeviceSettingsSyncState',
-        Synced,
-        Syncing
+        DeviceSettingsSyncStateSynced,
+        DeviceSettingsSyncStateSyncing,
+        fromDeviceSettingsSyncState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of the action to synchronize the device configuration. If you change the configuration of the input device (for example, the maximum bitrate), MediaLive sends the new data to the device. The device might not update itself immediately. SYNCED means the device has updated its configuration. SYNCING means that it has not updated its configuration.
-newtype DeviceSettingsSyncState = DeviceSettingsSyncState' Lude.Text
+newtype DeviceSettingsSyncState = DeviceSettingsSyncState'
+  { fromDeviceSettingsSyncState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Synced :: DeviceSettingsSyncState
-pattern Synced = DeviceSettingsSyncState' "SYNCED"
+pattern DeviceSettingsSyncStateSynced :: DeviceSettingsSyncState
+pattern DeviceSettingsSyncStateSynced = DeviceSettingsSyncState' "SYNCED"
 
-pattern Syncing :: DeviceSettingsSyncState
-pattern Syncing = DeviceSettingsSyncState' "SYNCING"
+pattern DeviceSettingsSyncStateSyncing :: DeviceSettingsSyncState
+pattern DeviceSettingsSyncStateSyncing = DeviceSettingsSyncState' "SYNCING"
 
 {-# COMPLETE
-  Synced,
-  Syncing,
+  DeviceSettingsSyncStateSynced,
+  DeviceSettingsSyncStateSyncing,
   DeviceSettingsSyncState'
   #-}

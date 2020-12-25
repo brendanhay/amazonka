@@ -24,161 +24,159 @@ module Network.AWS.ELBv2.DescribeSSLPolicies
     mkDescribeSSLPolicies,
 
     -- ** Request lenses
-    dspNames,
-    dspMarker,
-    dspPageSize,
+    dsslpMarker,
+    dsslpNames,
+    dsslpPageSize,
 
     -- * Destructuring the response
     DescribeSSLPoliciesResponse (..),
     mkDescribeSSLPoliciesResponse,
 
     -- ** Response lenses
-    dsprsSSLPolicies,
-    dsprsNextMarker,
-    dsprsResponseStatus,
+    dsslprrsNextMarker,
+    dsslprrsSslPolicies,
+    dsslprrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeSSLPolicies' smart constructor.
 data DescribeSSLPolicies = DescribeSSLPolicies'
-  { -- | The names of the policies.
-    names :: Lude.Maybe [Lude.Text],
-    -- | The marker for the next set of results. (You received this marker from a previous call.)
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The marker for the next set of results. (You received this marker from a previous call.)
+    marker :: Core.Maybe Types.Marker,
+    -- | The names of the policies.
+    names :: Core.Maybe [Types.SslPolicyName],
     -- | The maximum number of results to return with this call.
-    pageSize :: Lude.Maybe Lude.Natural
+    pageSize :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSSLPolicies' with the minimum fields required to make a request.
---
--- * 'names' - The names of the policies.
--- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'pageSize' - The maximum number of results to return with this call.
+-- | Creates a 'DescribeSSLPolicies' value with any optional fields omitted.
 mkDescribeSSLPolicies ::
   DescribeSSLPolicies
 mkDescribeSSLPolicies =
   DescribeSSLPolicies'
-    { names = Lude.Nothing,
-      marker = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { marker = Core.Nothing,
+      names = Core.Nothing,
+      pageSize = Core.Nothing
     }
-
--- | The names of the policies.
---
--- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dspNames :: Lens.Lens' DescribeSSLPolicies (Lude.Maybe [Lude.Text])
-dspNames = Lens.lens (names :: DescribeSSLPolicies -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: DescribeSSLPolicies)
-{-# DEPRECATED dspNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The marker for the next set of results. (You received this marker from a previous call.)
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dspMarker :: Lens.Lens' DescribeSSLPolicies (Lude.Maybe Lude.Text)
-dspMarker = Lens.lens (marker :: DescribeSSLPolicies -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeSSLPolicies)
-{-# DEPRECATED dspMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dsslpMarker :: Lens.Lens' DescribeSSLPolicies (Core.Maybe Types.Marker)
+dsslpMarker = Lens.field @"marker"
+{-# DEPRECATED dsslpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The names of the policies.
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsslpNames :: Lens.Lens' DescribeSSLPolicies (Core.Maybe [Types.SslPolicyName])
+dsslpNames = Lens.field @"names"
+{-# DEPRECATED dsslpNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The maximum number of results to return with this call.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dspPageSize :: Lens.Lens' DescribeSSLPolicies (Lude.Maybe Lude.Natural)
-dspPageSize = Lens.lens (pageSize :: DescribeSSLPolicies -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: DescribeSSLPolicies)
-{-# DEPRECATED dspPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
+dsslpPageSize :: Lens.Lens' DescribeSSLPolicies (Core.Maybe Core.Natural)
+dsslpPageSize = Lens.field @"pageSize"
+{-# DEPRECATED dsslpPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Page.AWSPager DescribeSSLPolicies where
-  page rq rs
-    | Page.stop (rs Lens.^. dsprsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsprsSSLPolicies) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dspMarker Lens..~ rs Lens.^. dsprsNextMarker
-
-instance Lude.AWSRequest DescribeSSLPolicies where
+instance Core.AWSRequest DescribeSSLPolicies where
   type Rs DescribeSSLPolicies = DescribeSSLPoliciesResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeSSLPolicies")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> ( Core.toQueryValue
+                            "Names"
+                            (Core.toQueryList "member" Core.<$> names)
+                        )
+                Core.<> (Core.toQueryValue "PageSize" Core.<$> pageSize)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeSSLPoliciesResult"
       ( \s h x ->
           DescribeSSLPoliciesResponse'
-            Lude.<$> ( x Lude..@? "SslPolicies" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "NextMarker")
+            Core.<*> (x Core..@? "SslPolicies" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeSSLPolicies where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeSSLPolicies where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeSSLPolicies where
-  toQuery DescribeSSLPolicies' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeSSLPolicies" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "Names"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> names),
-        "Marker" Lude.=: marker,
-        "PageSize" Lude.=: pageSize
-      ]
+instance Pager.AWSPager DescribeSSLPolicies where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"sslPolicies" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkDescribeSSLPoliciesResponse' smart constructor.
 data DescribeSSLPoliciesResponse = DescribeSSLPoliciesResponse'
-  { -- | Information about the security policies.
-    sslPolicies :: Lude.Maybe [SSLPolicy],
-    -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
-    nextMarker :: Lude.Maybe Lude.Text,
+  { -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
+    nextMarker :: Core.Maybe Types.NextMarker,
+    -- | Information about the security policies.
+    sslPolicies :: Core.Maybe [Types.SslPolicy],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSSLPoliciesResponse' with the minimum fields required to make a request.
---
--- * 'sslPolicies' - Information about the security policies.
--- * 'nextMarker' - If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeSSLPoliciesResponse' value with any optional fields omitted.
 mkDescribeSSLPoliciesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeSSLPoliciesResponse
-mkDescribeSSLPoliciesResponse pResponseStatus_ =
+mkDescribeSSLPoliciesResponse responseStatus =
   DescribeSSLPoliciesResponse'
-    { sslPolicies = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextMarker = Core.Nothing,
+      sslPolicies = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the security policies.
---
--- /Note:/ Consider using 'sslPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsSSLPolicies :: Lens.Lens' DescribeSSLPoliciesResponse (Lude.Maybe [SSLPolicy])
-dsprsSSLPolicies = Lens.lens (sslPolicies :: DescribeSSLPoliciesResponse -> Lude.Maybe [SSLPolicy]) (\s a -> s {sslPolicies = a} :: DescribeSSLPoliciesResponse)
-{-# DEPRECATED dsprsSSLPolicies "Use generic-lens or generic-optics with 'sslPolicies' instead." #-}
 
 -- | If there are additional results, this is the marker for the next set of results. Otherwise, this is null.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsNextMarker :: Lens.Lens' DescribeSSLPoliciesResponse (Lude.Maybe Lude.Text)
-dsprsNextMarker = Lens.lens (nextMarker :: DescribeSSLPoliciesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: DescribeSSLPoliciesResponse)
-{-# DEPRECATED dsprsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+dsslprrsNextMarker :: Lens.Lens' DescribeSSLPoliciesResponse (Core.Maybe Types.NextMarker)
+dsslprrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED dsslprrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+-- | Information about the security policies.
+--
+-- /Note:/ Consider using 'sslPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsslprrsSslPolicies :: Lens.Lens' DescribeSSLPoliciesResponse (Core.Maybe [Types.SslPolicy])
+dsslprrsSslPolicies = Lens.field @"sslPolicies"
+{-# DEPRECATED dsslprrsSslPolicies "Use generic-lens or generic-optics with 'sslPolicies' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsResponseStatus :: Lens.Lens' DescribeSSLPoliciesResponse Lude.Int
-dsprsResponseStatus = Lens.lens (responseStatus :: DescribeSSLPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeSSLPoliciesResponse)
-{-# DEPRECATED dsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsslprrsResponseStatus :: Lens.Lens' DescribeSSLPoliciesResponse Core.Int
+dsslprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsslprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

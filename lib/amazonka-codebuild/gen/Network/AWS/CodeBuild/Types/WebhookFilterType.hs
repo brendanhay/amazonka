@@ -13,66 +13,71 @@
 module Network.AWS.CodeBuild.Types.WebhookFilterType
   ( WebhookFilterType
       ( WebhookFilterType',
-        Event,
-        BaseRef,
-        HeadRef,
-        ActorAccountId,
-        FilePath,
-        CommitMessage
+        WebhookFilterTypeEvent,
+        WebhookFilterTypeBaseRef,
+        WebhookFilterTypeHeadRef,
+        WebhookFilterTypeActorAccountId,
+        WebhookFilterTypeFilePath,
+        WebhookFilterTypeCommitMessage,
+        fromWebhookFilterType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WebhookFilterType = WebhookFilterType' Lude.Text
+newtype WebhookFilterType = WebhookFilterType'
+  { fromWebhookFilterType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Event :: WebhookFilterType
-pattern Event = WebhookFilterType' "EVENT"
+pattern WebhookFilterTypeEvent :: WebhookFilterType
+pattern WebhookFilterTypeEvent = WebhookFilterType' "EVENT"
 
-pattern BaseRef :: WebhookFilterType
-pattern BaseRef = WebhookFilterType' "BASE_REF"
+pattern WebhookFilterTypeBaseRef :: WebhookFilterType
+pattern WebhookFilterTypeBaseRef = WebhookFilterType' "BASE_REF"
 
-pattern HeadRef :: WebhookFilterType
-pattern HeadRef = WebhookFilterType' "HEAD_REF"
+pattern WebhookFilterTypeHeadRef :: WebhookFilterType
+pattern WebhookFilterTypeHeadRef = WebhookFilterType' "HEAD_REF"
 
-pattern ActorAccountId :: WebhookFilterType
-pattern ActorAccountId = WebhookFilterType' "ACTOR_ACCOUNT_ID"
+pattern WebhookFilterTypeActorAccountId :: WebhookFilterType
+pattern WebhookFilterTypeActorAccountId = WebhookFilterType' "ACTOR_ACCOUNT_ID"
 
-pattern FilePath :: WebhookFilterType
-pattern FilePath = WebhookFilterType' "FILE_PATH"
+pattern WebhookFilterTypeFilePath :: WebhookFilterType
+pattern WebhookFilterTypeFilePath = WebhookFilterType' "FILE_PATH"
 
-pattern CommitMessage :: WebhookFilterType
-pattern CommitMessage = WebhookFilterType' "COMMIT_MESSAGE"
+pattern WebhookFilterTypeCommitMessage :: WebhookFilterType
+pattern WebhookFilterTypeCommitMessage = WebhookFilterType' "COMMIT_MESSAGE"
 
 {-# COMPLETE
-  Event,
-  BaseRef,
-  HeadRef,
-  ActorAccountId,
-  FilePath,
-  CommitMessage,
+  WebhookFilterTypeEvent,
+  WebhookFilterTypeBaseRef,
+  WebhookFilterTypeHeadRef,
+  WebhookFilterTypeActorAccountId,
+  WebhookFilterTypeFilePath,
+  WebhookFilterTypeCommitMessage,
   WebhookFilterType'
   #-}

@@ -17,60 +17,50 @@ module Network.AWS.ELBv2.Types.TargetGroupStickinessConfig
     mkTargetGroupStickinessConfig,
 
     -- * Lenses
-    tgscEnabled,
     tgscDurationSeconds,
+    tgscEnabled,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the target group stickiness for a rule.
 --
 -- /See:/ 'mkTargetGroupStickinessConfig' smart constructor.
 data TargetGroupStickinessConfig = TargetGroupStickinessConfig'
-  { -- | Indicates whether target group stickiness is enabled.
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
-    durationSeconds :: Lude.Maybe Lude.Int
+  { -- | The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+    durationSeconds :: Core.Maybe Core.Int,
+    -- | Indicates whether target group stickiness is enabled.
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetGroupStickinessConfig' with the minimum fields required to make a request.
---
--- * 'enabled' - Indicates whether target group stickiness is enabled.
--- * 'durationSeconds' - The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
+-- | Creates a 'TargetGroupStickinessConfig' value with any optional fields omitted.
 mkTargetGroupStickinessConfig ::
   TargetGroupStickinessConfig
 mkTargetGroupStickinessConfig =
   TargetGroupStickinessConfig'
-    { enabled = Lude.Nothing,
-      durationSeconds = Lude.Nothing
+    { durationSeconds = Core.Nothing,
+      enabled = Core.Nothing
     }
-
--- | Indicates whether target group stickiness is enabled.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgscEnabled :: Lens.Lens' TargetGroupStickinessConfig (Lude.Maybe Lude.Bool)
-tgscEnabled = Lens.lens (enabled :: TargetGroupStickinessConfig -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: TargetGroupStickinessConfig)
-{-# DEPRECATED tgscEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The time period, in seconds, during which requests from a client should be routed to the same target group. The range is 1-604800 seconds (7 days).
 --
 -- /Note:/ Consider using 'durationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgscDurationSeconds :: Lens.Lens' TargetGroupStickinessConfig (Lude.Maybe Lude.Int)
-tgscDurationSeconds = Lens.lens (durationSeconds :: TargetGroupStickinessConfig -> Lude.Maybe Lude.Int) (\s a -> s {durationSeconds = a} :: TargetGroupStickinessConfig)
+tgscDurationSeconds :: Lens.Lens' TargetGroupStickinessConfig (Core.Maybe Core.Int)
+tgscDurationSeconds = Lens.field @"durationSeconds"
 {-# DEPRECATED tgscDurationSeconds "Use generic-lens or generic-optics with 'durationSeconds' instead." #-}
 
-instance Lude.FromXML TargetGroupStickinessConfig where
+-- | Indicates whether target group stickiness is enabled.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgscEnabled :: Lens.Lens' TargetGroupStickinessConfig (Core.Maybe Core.Bool)
+tgscEnabled = Lens.field @"enabled"
+{-# DEPRECATED tgscEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+instance Core.FromXML TargetGroupStickinessConfig where
   parseXML x =
     TargetGroupStickinessConfig'
-      Lude.<$> (x Lude..@? "Enabled") Lude.<*> (x Lude..@? "DurationSeconds")
-
-instance Lude.ToQuery TargetGroupStickinessConfig where
-  toQuery TargetGroupStickinessConfig' {..} =
-    Lude.mconcat
-      [ "Enabled" Lude.=: enabled,
-        "DurationSeconds" Lude.=: durationSeconds
-      ]
+      Core.<$> (x Core..@? "DurationSeconds") Core.<*> (x Core..@? "Enabled")

@@ -17,90 +17,80 @@ module Network.AWS.IoTAnalytics.Types.Channel
     mkChannel,
 
     -- * Lenses
-    cfCreationTime,
-    cfStatus,
-    cfLastMessageArrivalTime,
-    cfArn,
-    cfStorage,
-    cfRetentionPeriod,
-    cfName,
-    cfLastUpdateTime,
+    cArn,
+    cCreationTime,
+    cLastMessageArrivalTime,
+    cLastUpdateTime,
+    cName,
+    cRetentionPeriod,
+    cStatus,
+    cStorage,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.ChannelStatus
-import Network.AWS.IoTAnalytics.Types.ChannelStorage
-import Network.AWS.IoTAnalytics.Types.RetentionPeriod
+import qualified Network.AWS.IoTAnalytics.Types.Arn as Types
+import qualified Network.AWS.IoTAnalytics.Types.ChannelStatus as Types
+import qualified Network.AWS.IoTAnalytics.Types.ChannelStorage as Types
+import qualified Network.AWS.IoTAnalytics.Types.Name as Types
+import qualified Network.AWS.IoTAnalytics.Types.RetentionPeriod as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A collection of data from an MQTT topic. Channels archive the raw, unprocessed messages before publishing the data to a pipeline.
 --
 -- /See:/ 'mkChannel' smart constructor.
 data Channel = Channel'
-  { -- | When the channel was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The status of the channel.
-    status :: Lude.Maybe ChannelStatus,
+  { -- | The ARN of the channel.
+    arn :: Core.Maybe Types.Arn,
+    -- | When the channel was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The last time when a new message arrived in the channel.
     --
     -- AWS IoT Analytics updates this value at most once per minute for one channel. Hence, the @lastMessageArrivalTime@ value is an approximation.
     -- This feature only applies to messages that arrived in the data store after October 23, 2020.
-    lastMessageArrivalTime :: Lude.Maybe Lude.Timestamp,
-    -- | The ARN of the channel.
-    arn :: Lude.Maybe Lude.Text,
-    -- | Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
-    storage :: Lude.Maybe ChannelStorage,
-    -- | How long, in days, message data is kept for the channel.
-    retentionPeriod :: Lude.Maybe RetentionPeriod,
-    -- | The name of the channel.
-    name :: Lude.Maybe Lude.Text,
+    lastMessageArrivalTime :: Core.Maybe Core.NominalDiffTime,
     -- | When the channel was last updated.
-    lastUpdateTime :: Lude.Maybe Lude.Timestamp
+    lastUpdateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the channel.
+    name :: Core.Maybe Types.Name,
+    -- | How long, in days, message data is kept for the channel.
+    retentionPeriod :: Core.Maybe Types.RetentionPeriod,
+    -- | The status of the channel.
+    status :: Core.Maybe Types.ChannelStatus,
+    -- | Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
+    storage :: Core.Maybe Types.ChannelStorage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Channel' with the minimum fields required to make a request.
---
--- * 'creationTime' - When the channel was created.
--- * 'status' - The status of the channel.
--- * 'lastMessageArrivalTime' - The last time when a new message arrived in the channel.
---
--- AWS IoT Analytics updates this value at most once per minute for one channel. Hence, the @lastMessageArrivalTime@ value is an approximation.
--- This feature only applies to messages that arrived in the data store after October 23, 2020.
--- * 'arn' - The ARN of the channel.
--- * 'storage' - Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
--- * 'retentionPeriod' - How long, in days, message data is kept for the channel.
--- * 'name' - The name of the channel.
--- * 'lastUpdateTime' - When the channel was last updated.
+-- | Creates a 'Channel' value with any optional fields omitted.
 mkChannel ::
   Channel
 mkChannel =
   Channel'
-    { creationTime = Lude.Nothing,
-      status = Lude.Nothing,
-      lastMessageArrivalTime = Lude.Nothing,
-      arn = Lude.Nothing,
-      storage = Lude.Nothing,
-      retentionPeriod = Lude.Nothing,
-      name = Lude.Nothing,
-      lastUpdateTime = Lude.Nothing
+    { arn = Core.Nothing,
+      creationTime = Core.Nothing,
+      lastMessageArrivalTime = Core.Nothing,
+      lastUpdateTime = Core.Nothing,
+      name = Core.Nothing,
+      retentionPeriod = Core.Nothing,
+      status = Core.Nothing,
+      storage = Core.Nothing
     }
+
+-- | The ARN of the channel.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cArn :: Lens.Lens' Channel (Core.Maybe Types.Arn)
+cArn = Lens.field @"arn"
+{-# DEPRECATED cArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | When the channel was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfCreationTime :: Lens.Lens' Channel (Lude.Maybe Lude.Timestamp)
-cfCreationTime = Lens.lens (creationTime :: Channel -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: Channel)
-{-# DEPRECATED cfCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The status of the channel.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfStatus :: Lens.Lens' Channel (Lude.Maybe ChannelStatus)
-cfStatus = Lens.lens (status :: Channel -> Lude.Maybe ChannelStatus) (\s a -> s {status = a} :: Channel)
-{-# DEPRECATED cfStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+cCreationTime :: Lens.Lens' Channel (Core.Maybe Core.NominalDiffTime)
+cCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED cCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The last time when a new message arrived in the channel.
 --
@@ -108,57 +98,55 @@ cfStatus = Lens.lens (status :: Channel -> Lude.Maybe ChannelStatus) (\s a -> s 
 -- This feature only applies to messages that arrived in the data store after October 23, 2020.
 --
 -- /Note:/ Consider using 'lastMessageArrivalTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfLastMessageArrivalTime :: Lens.Lens' Channel (Lude.Maybe Lude.Timestamp)
-cfLastMessageArrivalTime = Lens.lens (lastMessageArrivalTime :: Channel -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastMessageArrivalTime = a} :: Channel)
-{-# DEPRECATED cfLastMessageArrivalTime "Use generic-lens or generic-optics with 'lastMessageArrivalTime' instead." #-}
-
--- | The ARN of the channel.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfArn :: Lens.Lens' Channel (Lude.Maybe Lude.Text)
-cfArn = Lens.lens (arn :: Channel -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Channel)
-{-# DEPRECATED cfArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
---
--- /Note:/ Consider using 'storage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfStorage :: Lens.Lens' Channel (Lude.Maybe ChannelStorage)
-cfStorage = Lens.lens (storage :: Channel -> Lude.Maybe ChannelStorage) (\s a -> s {storage = a} :: Channel)
-{-# DEPRECATED cfStorage "Use generic-lens or generic-optics with 'storage' instead." #-}
-
--- | How long, in days, message data is kept for the channel.
---
--- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfRetentionPeriod :: Lens.Lens' Channel (Lude.Maybe RetentionPeriod)
-cfRetentionPeriod = Lens.lens (retentionPeriod :: Channel -> Lude.Maybe RetentionPeriod) (\s a -> s {retentionPeriod = a} :: Channel)
-{-# DEPRECATED cfRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
-
--- | The name of the channel.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfName :: Lens.Lens' Channel (Lude.Maybe Lude.Text)
-cfName = Lens.lens (name :: Channel -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Channel)
-{-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
+cLastMessageArrivalTime :: Lens.Lens' Channel (Core.Maybe Core.NominalDiffTime)
+cLastMessageArrivalTime = Lens.field @"lastMessageArrivalTime"
+{-# DEPRECATED cLastMessageArrivalTime "Use generic-lens or generic-optics with 'lastMessageArrivalTime' instead." #-}
 
 -- | When the channel was last updated.
 --
 -- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfLastUpdateTime :: Lens.Lens' Channel (Lude.Maybe Lude.Timestamp)
-cfLastUpdateTime = Lens.lens (lastUpdateTime :: Channel -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: Channel)
-{-# DEPRECATED cfLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
+cLastUpdateTime :: Lens.Lens' Channel (Core.Maybe Core.NominalDiffTime)
+cLastUpdateTime = Lens.field @"lastUpdateTime"
+{-# DEPRECATED cLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
-instance Lude.FromJSON Channel where
+-- | The name of the channel.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cName :: Lens.Lens' Channel (Core.Maybe Types.Name)
+cName = Lens.field @"name"
+{-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | How long, in days, message data is kept for the channel.
+--
+-- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cRetentionPeriod :: Lens.Lens' Channel (Core.Maybe Types.RetentionPeriod)
+cRetentionPeriod = Lens.field @"retentionPeriod"
+{-# DEPRECATED cRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
+
+-- | The status of the channel.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStatus :: Lens.Lens' Channel (Core.Maybe Types.ChannelStatus)
+cStatus = Lens.field @"status"
+{-# DEPRECATED cStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | Where channel data is stored. You can choose one of @serviceManagedS3@ or @customerManagedS3@ storage. If not specified, the default is @serviceManagedS3@ . You cannot change this storage option after the channel is created.
+--
+-- /Note:/ Consider using 'storage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStorage :: Lens.Lens' Channel (Core.Maybe Types.ChannelStorage)
+cStorage = Lens.field @"storage"
+{-# DEPRECATED cStorage "Use generic-lens or generic-optics with 'storage' instead." #-}
+
+instance Core.FromJSON Channel where
   parseJSON =
-    Lude.withObject
-      "Channel"
-      ( \x ->
-          Channel'
-            Lude.<$> (x Lude..:? "creationTime")
-            Lude.<*> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "lastMessageArrivalTime")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "storage")
-            Lude.<*> (x Lude..:? "retentionPeriod")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "lastUpdateTime")
-      )
+    Core.withObject "Channel" Core.$
+      \x ->
+        Channel'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "creationTime")
+          Core.<*> (x Core..:? "lastMessageArrivalTime")
+          Core.<*> (x Core..:? "lastUpdateTime")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "retentionPeriod")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "storage")

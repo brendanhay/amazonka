@@ -13,51 +13,56 @@
 module Network.AWS.Glue.Types.ScheduleState
   ( ScheduleState
       ( ScheduleState',
-        SSScheduled,
-        SSNotScheduled,
-        SSTransitioning
+        ScheduleStateScheduled,
+        ScheduleStateNotScheduled,
+        ScheduleStateTransitioning,
+        fromScheduleState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScheduleState = ScheduleState' Lude.Text
+newtype ScheduleState = ScheduleState'
+  { fromScheduleState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSScheduled :: ScheduleState
-pattern SSScheduled = ScheduleState' "SCHEDULED"
+pattern ScheduleStateScheduled :: ScheduleState
+pattern ScheduleStateScheduled = ScheduleState' "SCHEDULED"
 
-pattern SSNotScheduled :: ScheduleState
-pattern SSNotScheduled = ScheduleState' "NOT_SCHEDULED"
+pattern ScheduleStateNotScheduled :: ScheduleState
+pattern ScheduleStateNotScheduled = ScheduleState' "NOT_SCHEDULED"
 
-pattern SSTransitioning :: ScheduleState
-pattern SSTransitioning = ScheduleState' "TRANSITIONING"
+pattern ScheduleStateTransitioning :: ScheduleState
+pattern ScheduleStateTransitioning = ScheduleState' "TRANSITIONING"
 
 {-# COMPLETE
-  SSScheduled,
-  SSNotScheduled,
-  SSTransitioning,
+  ScheduleStateScheduled,
+  ScheduleStateNotScheduled,
+  ScheduleStateTransitioning,
   ScheduleState'
   #-}

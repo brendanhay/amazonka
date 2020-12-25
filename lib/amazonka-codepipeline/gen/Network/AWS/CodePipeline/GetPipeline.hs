@@ -28,140 +28,125 @@ module Network.AWS.CodePipeline.GetPipeline
     mkGetPipelineResponse,
 
     -- ** Response lenses
-    gprsPipeline,
-    gprsMetadata,
-    gprsResponseStatus,
+    gprrsMetadata,
+    gprrsPipeline,
+    gprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @GetPipeline@ action.
 --
 -- /See:/ 'mkGetPipeline' smart constructor.
 data GetPipeline = GetPipeline'
   { -- | The name of the pipeline for which you want to get information. Pipeline names must be unique under an AWS user account.
-    name :: Lude.Text,
+    name :: Types.PipelineName,
     -- | The version number of the pipeline. If you do not specify a version, defaults to the current version.
-    version :: Lude.Maybe Lude.Natural
+    version :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPipeline' with the minimum fields required to make a request.
---
--- * 'name' - The name of the pipeline for which you want to get information. Pipeline names must be unique under an AWS user account.
--- * 'version' - The version number of the pipeline. If you do not specify a version, defaults to the current version.
+-- | Creates a 'GetPipeline' value with any optional fields omitted.
 mkGetPipeline ::
   -- | 'name'
-  Lude.Text ->
+  Types.PipelineName ->
   GetPipeline
-mkGetPipeline pName_ =
-  GetPipeline' {name = pName_, version = Lude.Nothing}
+mkGetPipeline name = GetPipeline' {name, version = Core.Nothing}
 
 -- | The name of the pipeline for which you want to get information. Pipeline names must be unique under an AWS user account.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpName :: Lens.Lens' GetPipeline Lude.Text
-gpName = Lens.lens (name :: GetPipeline -> Lude.Text) (\s a -> s {name = a} :: GetPipeline)
+gpName :: Lens.Lens' GetPipeline Types.PipelineName
+gpName = Lens.field @"name"
 {-# DEPRECATED gpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version number of the pipeline. If you do not specify a version, defaults to the current version.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpVersion :: Lens.Lens' GetPipeline (Lude.Maybe Lude.Natural)
-gpVersion = Lens.lens (version :: GetPipeline -> Lude.Maybe Lude.Natural) (\s a -> s {version = a} :: GetPipeline)
+gpVersion :: Lens.Lens' GetPipeline (Core.Maybe Core.Natural)
+gpVersion = Lens.field @"version"
 {-# DEPRECATED gpVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.AWSRequest GetPipeline where
+instance Core.FromJSON GetPipeline where
+  toJSON GetPipeline {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            ("version" Core..=) Core.<$> version
+          ]
+      )
+
+instance Core.AWSRequest GetPipeline where
   type Rs GetPipeline = GetPipelineResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodePipeline_20150709.GetPipeline")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPipelineResponse'
-            Lude.<$> (x Lude..?> "pipeline")
-            Lude.<*> (x Lude..?> "metadata")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "metadata")
+            Core.<*> (x Core..:? "pipeline")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPipeline where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodePipeline_20150709.GetPipeline" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPipeline where
-  toJSON GetPipeline' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("name" Lude..= name),
-            ("version" Lude..=) Lude.<$> version
-          ]
-      )
-
-instance Lude.ToPath GetPipeline where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPipeline where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetPipeline@ action.
 --
 -- /See:/ 'mkGetPipelineResponse' smart constructor.
 data GetPipelineResponse = GetPipelineResponse'
-  { -- | Represents the structure of actions and stages to be performed in the pipeline.
-    pipeline :: Lude.Maybe PipelineDeclaration,
-    -- | Represents the pipeline metadata information returned as part of the output of a @GetPipeline@ action.
-    metadata :: Lude.Maybe PipelineMetadata,
+  { -- | Represents the pipeline metadata information returned as part of the output of a @GetPipeline@ action.
+    metadata :: Core.Maybe Types.PipelineMetadata,
+    -- | Represents the structure of actions and stages to be performed in the pipeline.
+    pipeline :: Core.Maybe Types.PipelineDeclaration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetPipelineResponse' with the minimum fields required to make a request.
---
--- * 'pipeline' - Represents the structure of actions and stages to be performed in the pipeline.
--- * 'metadata' - Represents the pipeline metadata information returned as part of the output of a @GetPipeline@ action.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPipelineResponse' value with any optional fields omitted.
 mkGetPipelineResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPipelineResponse
-mkGetPipelineResponse pResponseStatus_ =
+mkGetPipelineResponse responseStatus =
   GetPipelineResponse'
-    { pipeline = Lude.Nothing,
-      metadata = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { metadata = Core.Nothing,
+      pipeline = Core.Nothing,
+      responseStatus
     }
-
--- | Represents the structure of actions and stages to be performed in the pipeline.
---
--- /Note:/ Consider using 'pipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsPipeline :: Lens.Lens' GetPipelineResponse (Lude.Maybe PipelineDeclaration)
-gprsPipeline = Lens.lens (pipeline :: GetPipelineResponse -> Lude.Maybe PipelineDeclaration) (\s a -> s {pipeline = a} :: GetPipelineResponse)
-{-# DEPRECATED gprsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
 
 -- | Represents the pipeline metadata information returned as part of the output of a @GetPipeline@ action.
 --
 -- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsMetadata :: Lens.Lens' GetPipelineResponse (Lude.Maybe PipelineMetadata)
-gprsMetadata = Lens.lens (metadata :: GetPipelineResponse -> Lude.Maybe PipelineMetadata) (\s a -> s {metadata = a} :: GetPipelineResponse)
-{-# DEPRECATED gprsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+gprrsMetadata :: Lens.Lens' GetPipelineResponse (Core.Maybe Types.PipelineMetadata)
+gprrsMetadata = Lens.field @"metadata"
+{-# DEPRECATED gprrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+
+-- | Represents the structure of actions and stages to be performed in the pipeline.
+--
+-- /Note:/ Consider using 'pipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprrsPipeline :: Lens.Lens' GetPipelineResponse (Core.Maybe Types.PipelineDeclaration)
+gprrsPipeline = Lens.field @"pipeline"
+{-# DEPRECATED gprrsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsResponseStatus :: Lens.Lens' GetPipelineResponse Lude.Int
-gprsResponseStatus = Lens.lens (responseStatus :: GetPipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPipelineResponse)
-{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gprrsResponseStatus :: Lens.Lens' GetPipelineResponse Core.Int
+gprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

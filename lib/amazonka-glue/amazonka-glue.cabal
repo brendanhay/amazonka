@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Glue
     Network.AWS.Glue.BatchCreatePartition
@@ -229,6 +235,8 @@ library
 
   other-modules:
     Network.AWS.Glue.Types.Action
+    Network.AWS.Glue.Types.AvailabilityZone
+    Network.AWS.Glue.Types.AwsKmsKeyId
     Network.AWS.Glue.Types.BackfillError
     Network.AWS.Glue.Types.BackfillErrorCode
     Network.AWS.Glue.Types.BatchStopJobRunError
@@ -239,26 +247,39 @@ library
     Network.AWS.Glue.Types.BooleanColumnStatisticsData
     Network.AWS.Glue.Types.CatalogEncryptionMode
     Network.AWS.Glue.Types.CatalogEntry
+    Network.AWS.Glue.Types.CatalogId
+    Network.AWS.Glue.Types.CatalogIdString
     Network.AWS.Glue.Types.CatalogImportStatus
     Network.AWS.Glue.Types.CatalogTarget
+    Network.AWS.Glue.Types.Classification
     Network.AWS.Glue.Types.Classifier
+    Network.AWS.Glue.Types.ClassName
     Network.AWS.Glue.Types.CloudWatchEncryption
     Network.AWS.Glue.Types.CloudWatchEncryptionMode
+    Network.AWS.Glue.Types.CodeGenArgName
     Network.AWS.Glue.Types.CodeGenEdge
+    Network.AWS.Glue.Types.CodeGenIdentifier
     Network.AWS.Glue.Types.CodeGenNode
     Network.AWS.Glue.Types.CodeGenNodeArg
+    Network.AWS.Glue.Types.CodeGenNodeType
     Network.AWS.Glue.Types.Column
     Network.AWS.Glue.Types.ColumnError
+    Network.AWS.Glue.Types.ColumnNameString
     Network.AWS.Glue.Types.ColumnStatistics
     Network.AWS.Glue.Types.ColumnStatisticsData
     Network.AWS.Glue.Types.ColumnStatisticsError
     Network.AWS.Glue.Types.ColumnStatisticsType
+    Network.AWS.Glue.Types.ColumnTypeString
+    Network.AWS.Glue.Types.ColumnValuesString
+    Network.AWS.Glue.Types.CommentString
     Network.AWS.Glue.Types.Comparator
     Network.AWS.Glue.Types.Compatibility
     Network.AWS.Glue.Types.Condition
+    Network.AWS.Glue.Types.Configuration
     Network.AWS.Glue.Types.ConfusionMatrix
     Network.AWS.Glue.Types.Connection
     Network.AWS.Glue.Types.ConnectionInput
+    Network.AWS.Glue.Types.ConnectionName
     Network.AWS.Glue.Types.ConnectionPasswordEncryption
     Network.AWS.Glue.Types.ConnectionPropertyKey
     Network.AWS.Glue.Types.ConnectionsList
@@ -267,26 +288,39 @@ library
     Network.AWS.Glue.Types.Crawler
     Network.AWS.Glue.Types.CrawlerLineageSettings
     Network.AWS.Glue.Types.CrawlerMetrics
+    Network.AWS.Glue.Types.CrawlerName
     Network.AWS.Glue.Types.CrawlerNodeDetails
+    Network.AWS.Glue.Types.CrawlerSecurityConfiguration
     Network.AWS.Glue.Types.CrawlerState
     Network.AWS.Glue.Types.CrawlerTargets
     Network.AWS.Glue.Types.CrawlState
-    Network.AWS.Glue.Types.CreateCSVClassifierRequest
+    Network.AWS.Glue.Types.CreateCsvClassifierRequest
+    Network.AWS.Glue.Types.CreatedTime
     Network.AWS.Glue.Types.CreateGrokClassifierRequest
-    Network.AWS.Glue.Types.CreateJSONClassifierRequest
+    Network.AWS.Glue.Types.CreateJsonClassifierRequest
     Network.AWS.Glue.Types.CreateXMLClassifierRequest
-    Network.AWS.Glue.Types.CSVClassifier
-    Network.AWS.Glue.Types.CSVHeaderOption
+    Network.AWS.Glue.Types.CronExpression
+    Network.AWS.Glue.Types.CsvClassifier
+    Network.AWS.Glue.Types.CsvColumnDelimiter
+    Network.AWS.Glue.Types.CsvHeaderOption
+    Network.AWS.Glue.Types.CsvQuoteSymbol
+    Network.AWS.Glue.Types.CustomPatterns
     Network.AWS.Glue.Types.Database
     Network.AWS.Glue.Types.DatabaseIdentifier
     Network.AWS.Glue.Types.DatabaseInput
+    Network.AWS.Glue.Types.DatabaseName
     Network.AWS.Glue.Types.DataCatalogEncryptionSettings
     Network.AWS.Glue.Types.DataFormat
     Network.AWS.Glue.Types.DataLakePrincipal
+    Network.AWS.Glue.Types.DataLakePrincipalString
+    Network.AWS.Glue.Types.DataType
     Network.AWS.Glue.Types.DateColumnStatisticsData
     Network.AWS.Glue.Types.DecimalColumnStatisticsData
     Network.AWS.Glue.Types.DecimalNumber
     Network.AWS.Glue.Types.DeleteBehavior
+    Network.AWS.Glue.Types.DependentJobName
+    Network.AWS.Glue.Types.Description
+    Network.AWS.Glue.Types.DescriptionString
     Network.AWS.Glue.Types.DevEndpoint
     Network.AWS.Glue.Types.DevEndpointCustomLibraries
     Network.AWS.Glue.Types.DoubleColumnStatisticsData
@@ -295,52 +329,101 @@ library
     Network.AWS.Glue.Types.EnableHybridValues
     Network.AWS.Glue.Types.EncryptionAtRest
     Network.AWS.Glue.Types.EncryptionConfiguration
+    Network.AWS.Glue.Types.EndpointName
+    Network.AWS.Glue.Types.Error
+    Network.AWS.Glue.Types.ErrorCode
     Network.AWS.Glue.Types.ErrorDetail
     Network.AWS.Glue.Types.ErrorDetails
+    Network.AWS.Glue.Types.ErrorMessage
+    Network.AWS.Glue.Types.ErrorMessageString
+    Network.AWS.Glue.Types.ErrorString
     Network.AWS.Glue.Types.EvaluationMetrics
     Network.AWS.Glue.Types.ExecutionProperty
     Network.AWS.Glue.Types.ExistCondition
     Network.AWS.Glue.Types.ExportLabelsTaskRunProperties
+    Network.AWS.Glue.Types.Expression
+    Network.AWS.Glue.Types.ExtraJarsS3Path
+    Network.AWS.Glue.Types.ExtraPythonLibsS3Path
+    Network.AWS.Glue.Types.FailureReason
     Network.AWS.Glue.Types.FindMatchesMetrics
     Network.AWS.Glue.Types.FindMatchesParameters
     Network.AWS.Glue.Types.FindMatchesTaskRunProperties
+    Network.AWS.Glue.Types.FunctionName
+    Network.AWS.Glue.Types.GenericString
     Network.AWS.Glue.Types.GetConnectionsFilter
     Network.AWS.Glue.Types.GluePolicy
+    Network.AWS.Glue.Types.GlueResourceArn
     Network.AWS.Glue.Types.GlueTable
+    Network.AWS.Glue.Types.GlueVersionString
     Network.AWS.Glue.Types.GrokClassifier
+    Network.AWS.Glue.Types.GrokPattern
+    Network.AWS.Glue.Types.HashString
+    Network.AWS.Glue.Types.Id
+    Network.AWS.Glue.Types.IdString
     Network.AWS.Glue.Types.ImportLabelsTaskRunProperties
+    Network.AWS.Glue.Types.IndexName
+    Network.AWS.Glue.Types.InputFormat
+    Network.AWS.Glue.Types.InputS3Path
     Network.AWS.Glue.Types.JdbcTarget
     Network.AWS.Glue.Types.Job
     Network.AWS.Glue.Types.JobBookmarkEntry
     Network.AWS.Glue.Types.JobBookmarksEncryption
     Network.AWS.Glue.Types.JobBookmarksEncryptionMode
     Network.AWS.Glue.Types.JobCommand
+    Network.AWS.Glue.Types.JobName
     Network.AWS.Glue.Types.JobNodeDetails
     Network.AWS.Glue.Types.JobRun
+    Network.AWS.Glue.Types.JobRunId
     Network.AWS.Glue.Types.JobRunState
     Network.AWS.Glue.Types.JobUpdate
-    Network.AWS.Glue.Types.JSONClassifier
+    Network.AWS.Glue.Types.JsonClassifier
+    Network.AWS.Glue.Types.JsonPath
+    Network.AWS.Glue.Types.JsonValue
+    Network.AWS.Glue.Types.Key
     Network.AWS.Glue.Types.KeySchemaElement
+    Network.AWS.Glue.Types.KeyString
+    Network.AWS.Glue.Types.KmsKeyArn
+    Network.AWS.Glue.Types.KmsKeyId
     Network.AWS.Glue.Types.LabelingSetGenerationTaskRunProperties
     Network.AWS.Glue.Types.Language
     Network.AWS.Glue.Types.LastCrawlInfo
     Network.AWS.Glue.Types.LastCrawlStatus
+    Network.AWS.Glue.Types.LastUpdatedBy
+    Network.AWS.Glue.Types.LastUpdateStatus
     Network.AWS.Glue.Types.LineageConfiguration
     Network.AWS.Glue.Types.Location
+    Network.AWS.Glue.Types.LocationString
+    Network.AWS.Glue.Types.LocationUri
+    Network.AWS.Glue.Types.LogGroup
+    Network.AWS.Glue.Types.LogGroupName
     Network.AWS.Glue.Types.Logical
     Network.AWS.Glue.Types.LogicalOperator
+    Network.AWS.Glue.Types.LogStream
+    Network.AWS.Glue.Types.LogUri
     Network.AWS.Glue.Types.LongColumnStatisticsData
     Network.AWS.Glue.Types.MappingEntry
+    Network.AWS.Glue.Types.MessagePrefix
     Network.AWS.Glue.Types.MetadataInfo
+    Network.AWS.Glue.Types.MetadataKey
+    Network.AWS.Glue.Types.MetadataKeyString
     Network.AWS.Glue.Types.MetadataKeyValuePair
+    Network.AWS.Glue.Types.MetadataValueString
     Network.AWS.Glue.Types.MLTransform
     Network.AWS.Glue.Types.MLUserDataEncryption
     Network.AWS.Glue.Types.MLUserDataEncryptionModeString
     Network.AWS.Glue.Types.MongoDBTarget
+    Network.AWS.Glue.Types.Name
+    Network.AWS.Glue.Types.NameString
+    Network.AWS.Glue.Types.NextToken
     Network.AWS.Glue.Types.Node
     Network.AWS.Glue.Types.NodeType
     Network.AWS.Glue.Types.NotificationProperty
     Network.AWS.Glue.Types.Order
+    Network.AWS.Glue.Types.OutputFormat
+    Network.AWS.Glue.Types.OutputS3Path
+    Network.AWS.Glue.Types.OwnerName
+    Network.AWS.Glue.Types.PaginationToken
+    Network.AWS.Glue.Types.ParametersMapValue
     Network.AWS.Glue.Types.Partition
     Network.AWS.Glue.Types.PartitionError
     Network.AWS.Glue.Types.PartitionIndex
@@ -348,61 +431,109 @@ library
     Network.AWS.Glue.Types.PartitionIndexStatus
     Network.AWS.Glue.Types.PartitionInput
     Network.AWS.Glue.Types.PartitionValueList
+    Network.AWS.Glue.Types.Path
     Network.AWS.Glue.Types.Permission
     Network.AWS.Glue.Types.PhysicalConnectionRequirements
+    Network.AWS.Glue.Types.PolicyInJson
+    Network.AWS.Glue.Types.PolicyJsonString
     Network.AWS.Glue.Types.Predecessor
     Network.AWS.Glue.Types.Predicate
+    Network.AWS.Glue.Types.PredicateString
+    Network.AWS.Glue.Types.PreviousRunId
     Network.AWS.Glue.Types.PrincipalPermissions
     Network.AWS.Glue.Types.PrincipalType
+    Network.AWS.Glue.Types.PrivateAddress
     Network.AWS.Glue.Types.PropertyPredicate
+    Network.AWS.Glue.Types.PublicAddress
+    Network.AWS.Glue.Types.PublicKey
+    Network.AWS.Glue.Types.PythonScript
+    Network.AWS.Glue.Types.PythonVersion
+    Network.AWS.Glue.Types.QuoteSymbol
     Network.AWS.Glue.Types.RecrawlBehavior
     Network.AWS.Glue.Types.RecrawlPolicy
     Network.AWS.Glue.Types.RegistryId
     Network.AWS.Glue.Types.RegistryListItem
+    Network.AWS.Glue.Types.RegistryName
     Network.AWS.Glue.Types.RegistryStatus
     Network.AWS.Glue.Types.ResourceShareType
     Network.AWS.Glue.Types.ResourceType
-    Network.AWS.Glue.Types.ResourceURI
+    Network.AWS.Glue.Types.ResourceUri
+    Network.AWS.Glue.Types.Role
+    Network.AWS.Glue.Types.RoleArn
+    Network.AWS.Glue.Types.RowTag
+    Network.AWS.Glue.Types.RunId
     Network.AWS.Glue.Types.S3Encryption
     Network.AWS.Glue.Types.S3EncryptionMode
     Network.AWS.Glue.Types.S3Target
+    Network.AWS.Glue.Types.ScalaCode
     Network.AWS.Glue.Types.Schedule
+    Network.AWS.Glue.Types.ScheduleExpression
     Network.AWS.Glue.Types.ScheduleState
     Network.AWS.Glue.Types.SchemaChangePolicy
     Network.AWS.Glue.Types.SchemaColumn
+    Network.AWS.Glue.Types.SchemaDefinition
+    Network.AWS.Glue.Types.SchemaDefinitionDiff
+    Network.AWS.Glue.Types.SchemaDefinitionString
     Network.AWS.Glue.Types.SchemaDiffType
     Network.AWS.Glue.Types.SchemaId
     Network.AWS.Glue.Types.SchemaListItem
+    Network.AWS.Glue.Types.SchemaName
     Network.AWS.Glue.Types.SchemaReference
+    Network.AWS.Glue.Types.SchemaRegistryTokenString
     Network.AWS.Glue.Types.SchemaStatus
     Network.AWS.Glue.Types.SchemaVersionErrorItem
+    Network.AWS.Glue.Types.SchemaVersionId
+    Network.AWS.Glue.Types.SchemaVersionIdString
     Network.AWS.Glue.Types.SchemaVersionListItem
     Network.AWS.Glue.Types.SchemaVersionNumber
     Network.AWS.Glue.Types.SchemaVersionStatus
+    Network.AWS.Glue.Types.ScriptLocationString
+    Network.AWS.Glue.Types.SearchText
     Network.AWS.Glue.Types.SecurityConfiguration
     Network.AWS.Glue.Types.Segment
     Network.AWS.Glue.Types.SerDeInfo
+    Network.AWS.Glue.Types.SerializationLibrary
     Network.AWS.Glue.Types.SkewedInfo
     Network.AWS.Glue.Types.Sort
     Network.AWS.Glue.Types.SortCriterion
     Network.AWS.Glue.Types.SortDirectionType
+    Network.AWS.Glue.Types.Source
+    Network.AWS.Glue.Types.SourcePath
+    Network.AWS.Glue.Types.SourceTable
+    Network.AWS.Glue.Types.SourceType
+    Network.AWS.Glue.Types.SseAwsKmsKeyId
+    Network.AWS.Glue.Types.Status
     Network.AWS.Glue.Types.StorageDescriptor
     Network.AWS.Glue.Types.StringColumnStatisticsData
+    Network.AWS.Glue.Types.SubnetId
     Network.AWS.Glue.Types.Table
     Network.AWS.Glue.Types.TableError
     Network.AWS.Glue.Types.TableIdentifier
     Network.AWS.Glue.Types.TableInput
+    Network.AWS.Glue.Types.TableName
+    Network.AWS.Glue.Types.TablePrefix
+    Network.AWS.Glue.Types.TableType
+    Network.AWS.Glue.Types.TableTypeString
     Network.AWS.Glue.Types.TableVersion
     Network.AWS.Glue.Types.TableVersionError
+    Network.AWS.Glue.Types.TagKey
+    Network.AWS.Glue.Types.TagValue
+    Network.AWS.Glue.Types.Target
+    Network.AWS.Glue.Types.TargetPath
+    Network.AWS.Glue.Types.TargetTable
+    Network.AWS.Glue.Types.TargetType
     Network.AWS.Glue.Types.TaskRun
     Network.AWS.Glue.Types.TaskRunFilterCriteria
+    Network.AWS.Glue.Types.TaskRunId
     Network.AWS.Glue.Types.TaskRunProperties
     Network.AWS.Glue.Types.TaskRunSortColumnType
     Network.AWS.Glue.Types.TaskRunSortCriteria
     Network.AWS.Glue.Types.TaskStatusType
     Network.AWS.Glue.Types.TaskType
+    Network.AWS.Glue.Types.Token
     Network.AWS.Glue.Types.TransformEncryption
     Network.AWS.Glue.Types.TransformFilterCriteria
+    Network.AWS.Glue.Types.TransformId
     Network.AWS.Glue.Types.TransformParameters
     Network.AWS.Glue.Types.TransformSortColumnType
     Network.AWS.Glue.Types.TransformSortCriteria
@@ -413,20 +544,35 @@ library
     Network.AWS.Glue.Types.TriggerState
     Network.AWS.Glue.Types.TriggerType
     Network.AWS.Glue.Types.TriggerUpdate
+    Network.AWS.Glue.Types.Type
+    Network.AWS.Glue.Types.TypeString
+    Network.AWS.Glue.Types.UniqueId
     Network.AWS.Glue.Types.UpdateBehavior
-    Network.AWS.Glue.Types.UpdateCSVClassifierRequest
+    Network.AWS.Glue.Types.UpdateCsvClassifierRequest
+    Network.AWS.Glue.Types.UpdatedTime
+    Network.AWS.Glue.Types.UpdatedTimestamp
     Network.AWS.Glue.Types.UpdateGrokClassifierRequest
-    Network.AWS.Glue.Types.UpdateJSONClassifierRequest
+    Network.AWS.Glue.Types.UpdateJsonClassifierRequest
     Network.AWS.Glue.Types.UpdateXMLClassifierRequest
+    Network.AWS.Glue.Types.Uri
+    Network.AWS.Glue.Types.UriString
     Network.AWS.Glue.Types.UserDefinedFunction
     Network.AWS.Glue.Types.UserDefinedFunctionInput
+    Network.AWS.Glue.Types.Value
+    Network.AWS.Glue.Types.ValueString
+    Network.AWS.Glue.Types.VersionsString
+    Network.AWS.Glue.Types.VersionString
+    Network.AWS.Glue.Types.ViewTextString
+    Network.AWS.Glue.Types.VpcId
     Network.AWS.Glue.Types.WorkerType
     Network.AWS.Glue.Types.Workflow
     Network.AWS.Glue.Types.WorkflowGraph
     Network.AWS.Glue.Types.WorkflowRun
+    Network.AWS.Glue.Types.WorkflowRunId
     Network.AWS.Glue.Types.WorkflowRunStatistics
     Network.AWS.Glue.Types.WorkflowRunStatus
     Network.AWS.Glue.Types.XMLClassifier
+    Network.AWS.Glue.Types.YarnEndpointAddress
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

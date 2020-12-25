@@ -20,110 +20,95 @@ module Network.AWS.GuardDuty.ListTagsForResource
     mkListTagsForResource,
 
     -- ** Request lenses
-    ltfrResourceARN,
+    ltfrResourceArn,
 
     -- * Destructuring the response
     ListTagsForResourceResponse (..),
     mkListTagsForResourceResponse,
 
     -- ** Response lenses
-    ltfrrsTags,
-    ltfrrsResponseStatus,
+    ltfrrrsTags,
+    ltfrrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTagsForResource' smart constructor.
 newtype ListTagsForResource = ListTagsForResource'
   { -- | The Amazon Resource Name (ARN) for the given GuardDuty resource.
-    resourceARN :: Lude.Text
+    resourceArn :: Types.GuardDutyArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForResource' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Name (ARN) for the given GuardDuty resource.
+-- | Creates a 'ListTagsForResource' value with any optional fields omitted.
 mkListTagsForResource ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.GuardDutyArn ->
   ListTagsForResource
-mkListTagsForResource pResourceARN_ =
-  ListTagsForResource' {resourceARN = pResourceARN_}
+mkListTagsForResource resourceArn =
+  ListTagsForResource' {resourceArn}
 
 -- | The Amazon Resource Name (ARN) for the given GuardDuty resource.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrResourceARN :: Lens.Lens' ListTagsForResource Lude.Text
-ltfrResourceARN = Lens.lens (resourceARN :: ListTagsForResource -> Lude.Text) (\s a -> s {resourceARN = a} :: ListTagsForResource)
-{-# DEPRECATED ltfrResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfrResourceArn :: Lens.Lens' ListTagsForResource Types.GuardDutyArn
+ltfrResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED ltfrResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
-instance Lude.AWSRequest ListTagsForResource where
+instance Core.AWSRequest ListTagsForResource where
   type Rs ListTagsForResource = ListTagsForResourceResponse
-  request = Req.get guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/tags/" Core.<> (Core.toText resourceArn)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTagsForResourceResponse'
-            Lude.<$> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "tags") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListTagsForResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListTagsForResource where
-  toPath ListTagsForResource' {..} =
-    Lude.mconcat ["/tags/", Lude.toBS resourceARN]
-
-instance Lude.ToQuery ListTagsForResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListTagsForResourceResponse' smart constructor.
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
   { -- | The tags associated with the resource.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForResourceResponse' with the minimum fields required to make a request.
---
--- * 'tags' - The tags associated with the resource.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTagsForResourceResponse' value with any optional fields omitted.
 mkListTagsForResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTagsForResourceResponse
-mkListTagsForResourceResponse pResponseStatus_ =
-  ListTagsForResourceResponse'
-    { tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkListTagsForResourceResponse responseStatus =
+  ListTagsForResourceResponse' {tags = Core.Nothing, responseStatus}
 
 -- | The tags associated with the resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrrsTags :: Lens.Lens' ListTagsForResourceResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ltfrrsTags = Lens.lens (tags :: ListTagsForResourceResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListTagsForResourceResponse)
-{-# DEPRECATED ltfrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+ltfrrrsTags :: Lens.Lens' ListTagsForResourceResponse (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+ltfrrrsTags = Lens.field @"tags"
+{-# DEPRECATED ltfrrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Lude.Int
-ltfrrsResponseStatus = Lens.lens (responseStatus :: ListTagsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForResourceResponse)
-{-# DEPRECATED ltfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltfrrrsResponseStatus :: Lens.Lens' ListTagsForResourceResponse Core.Int
+ltfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

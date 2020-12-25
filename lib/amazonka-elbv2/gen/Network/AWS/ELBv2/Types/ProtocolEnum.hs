@@ -13,71 +13,73 @@
 module Network.AWS.ELBv2.Types.ProtocolEnum
   ( ProtocolEnum
       ( ProtocolEnum',
-        HTTP,
-        HTTPS,
-        TCP,
-        TLS,
-        Udp,
-        TCPUdp,
-        Geneve
+        ProtocolEnumHttp,
+        ProtocolEnumHttps,
+        ProtocolEnumTcp,
+        ProtocolEnumTls,
+        ProtocolEnumUdp,
+        ProtocolEnumTcpUdp,
+        ProtocolEnumGeneve,
+        fromProtocolEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProtocolEnum = ProtocolEnum' Lude.Text
+newtype ProtocolEnum = ProtocolEnum' {fromProtocolEnum :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HTTP :: ProtocolEnum
-pattern HTTP = ProtocolEnum' "HTTP"
+pattern ProtocolEnumHttp :: ProtocolEnum
+pattern ProtocolEnumHttp = ProtocolEnum' "HTTP"
 
-pattern HTTPS :: ProtocolEnum
-pattern HTTPS = ProtocolEnum' "HTTPS"
+pattern ProtocolEnumHttps :: ProtocolEnum
+pattern ProtocolEnumHttps = ProtocolEnum' "HTTPS"
 
-pattern TCP :: ProtocolEnum
-pattern TCP = ProtocolEnum' "TCP"
+pattern ProtocolEnumTcp :: ProtocolEnum
+pattern ProtocolEnumTcp = ProtocolEnum' "TCP"
 
-pattern TLS :: ProtocolEnum
-pattern TLS = ProtocolEnum' "TLS"
+pattern ProtocolEnumTls :: ProtocolEnum
+pattern ProtocolEnumTls = ProtocolEnum' "TLS"
 
-pattern Udp :: ProtocolEnum
-pattern Udp = ProtocolEnum' "UDP"
+pattern ProtocolEnumUdp :: ProtocolEnum
+pattern ProtocolEnumUdp = ProtocolEnum' "UDP"
 
-pattern TCPUdp :: ProtocolEnum
-pattern TCPUdp = ProtocolEnum' "TCP_UDP"
+pattern ProtocolEnumTcpUdp :: ProtocolEnum
+pattern ProtocolEnumTcpUdp = ProtocolEnum' "TCP_UDP"
 
-pattern Geneve :: ProtocolEnum
-pattern Geneve = ProtocolEnum' "GENEVE"
+pattern ProtocolEnumGeneve :: ProtocolEnum
+pattern ProtocolEnumGeneve = ProtocolEnum' "GENEVE"
 
 {-# COMPLETE
-  HTTP,
-  HTTPS,
-  TCP,
-  TLS,
-  Udp,
-  TCPUdp,
-  Geneve,
+  ProtocolEnumHttp,
+  ProtocolEnumHttps,
+  ProtocolEnumTcp,
+  ProtocolEnumTls,
+  ProtocolEnumUdp,
+  ProtocolEnumTcpUdp,
+  ProtocolEnumGeneve,
   ProtocolEnum'
   #-}

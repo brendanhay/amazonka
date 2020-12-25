@@ -23,184 +23,172 @@ module Network.AWS.StorageGateway.ListFileShares
 
     -- ** Request lenses
     lfsGatewayARN,
-    lfsMarker,
     lfsLimit,
+    lfsMarker,
 
     -- * Destructuring the response
     ListFileSharesResponse (..),
     mkListFileSharesResponse,
 
     -- ** Response lenses
-    lfsrsFileShareInfoList,
-    lfsrsMarker,
-    lfsrsNextMarker,
-    lfsrsResponseStatus,
+    lfsrrsFileShareInfoList,
+    lfsrrsMarker,
+    lfsrrsNextMarker,
+    lfsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | ListFileShareInput
 --
 -- /See:/ 'mkListFileShares' smart constructor.
 data ListFileShares = ListFileShares'
   { -- | The Amazon Resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed.
-    gatewayARN :: Lude.Maybe Lude.Text,
-    -- | Opaque pagination token returned from a previous ListFileShares operation. If present, @Marker@ specifies where to continue the list from after a previous call to ListFileShares. Optional.
-    marker :: Lude.Maybe Lude.Text,
+    gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The maximum number of file shares to return in the response. The value must be an integer with a value greater than zero. Optional.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | Opaque pagination token returned from a previous ListFileShares operation. If present, @Marker@ specifies where to continue the list from after a previous call to ListFileShares. Optional.
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFileShares' with the minimum fields required to make a request.
---
--- * 'gatewayARN' - The Amazon Resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed.
--- * 'marker' - Opaque pagination token returned from a previous ListFileShares operation. If present, @Marker@ specifies where to continue the list from after a previous call to ListFileShares. Optional.
--- * 'limit' - The maximum number of file shares to return in the response. The value must be an integer with a value greater than zero. Optional.
+-- | Creates a 'ListFileShares' value with any optional fields omitted.
 mkListFileShares ::
   ListFileShares
 mkListFileShares =
   ListFileShares'
-    { gatewayARN = Lude.Nothing,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing
+    { gatewayARN = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the gateway whose file shares you want to list. If this field is not present, all file shares under your account are listed.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsGatewayARN :: Lens.Lens' ListFileShares (Lude.Maybe Lude.Text)
-lfsGatewayARN = Lens.lens (gatewayARN :: ListFileShares -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: ListFileShares)
+lfsGatewayARN :: Lens.Lens' ListFileShares (Core.Maybe Types.GatewayARN)
+lfsGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED lfsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
-
--- | Opaque pagination token returned from a previous ListFileShares operation. If present, @Marker@ specifies where to continue the list from after a previous call to ListFileShares. Optional.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsMarker :: Lens.Lens' ListFileShares (Lude.Maybe Lude.Text)
-lfsMarker = Lens.lens (marker :: ListFileShares -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListFileShares)
-{-# DEPRECATED lfsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of file shares to return in the response. The value must be an integer with a value greater than zero. Optional.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsLimit :: Lens.Lens' ListFileShares (Lude.Maybe Lude.Natural)
-lfsLimit = Lens.lens (limit :: ListFileShares -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListFileShares)
+lfsLimit :: Lens.Lens' ListFileShares (Core.Maybe Core.Natural)
+lfsLimit = Lens.field @"limit"
 {-# DEPRECATED lfsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager ListFileShares where
-  page rq rs
-    | Page.stop (rs Lens.^. lfsrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lfsrsFileShareInfoList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lfsMarker Lens..~ rs Lens.^. lfsrsNextMarker
+-- | Opaque pagination token returned from a previous ListFileShares operation. If present, @Marker@ specifies where to continue the list from after a previous call to ListFileShares. Optional.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lfsMarker :: Lens.Lens' ListFileShares (Core.Maybe Types.Marker)
+lfsMarker = Lens.field @"marker"
+{-# DEPRECATED lfsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest ListFileShares where
+instance Core.FromJSON ListFileShares where
+  toJSON ListFileShares {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("GatewayARN" Core..=) Core.<$> gatewayARN,
+            ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker
+          ]
+      )
+
+instance Core.AWSRequest ListFileShares where
   type Rs ListFileShares = ListFileSharesResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.ListFileShares")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListFileSharesResponse'
-            Lude.<$> (x Lude..?> "FileShareInfoList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FileShareInfoList")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListFileShares where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.ListFileShares" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListFileShares where
-  toJSON ListFileShares' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("GatewayARN" Lude..=) Lude.<$> gatewayARN,
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListFileShares where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListFileShares where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListFileShares where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"fileShareInfoList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | ListFileShareOutput
 --
 -- /See:/ 'mkListFileSharesResponse' smart constructor.
 data ListFileSharesResponse = ListFileSharesResponse'
   { -- | An array of information about the file gateway's file shares.
-    fileShareInfoList :: Lude.Maybe [FileShareInfo],
+    fileShareInfoList :: Core.Maybe [Types.FileShareInfo],
     -- | If the request includes @Marker@ , the response returns that value in this field.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | If a value is present, there are more file shares to return. In a subsequent request, use @NextMarker@ as the value for @Marker@ to retrieve the next set of file shares.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.Marker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFileSharesResponse' with the minimum fields required to make a request.
---
--- * 'fileShareInfoList' - An array of information about the file gateway's file shares.
--- * 'marker' - If the request includes @Marker@ , the response returns that value in this field.
--- * 'nextMarker' - If a value is present, there are more file shares to return. In a subsequent request, use @NextMarker@ as the value for @Marker@ to retrieve the next set of file shares.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListFileSharesResponse' value with any optional fields omitted.
 mkListFileSharesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListFileSharesResponse
-mkListFileSharesResponse pResponseStatus_ =
+mkListFileSharesResponse responseStatus =
   ListFileSharesResponse'
-    { fileShareInfoList = Lude.Nothing,
-      marker = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { fileShareInfoList = Core.Nothing,
+      marker = Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of information about the file gateway's file shares.
 --
 -- /Note:/ Consider using 'fileShareInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsrsFileShareInfoList :: Lens.Lens' ListFileSharesResponse (Lude.Maybe [FileShareInfo])
-lfsrsFileShareInfoList = Lens.lens (fileShareInfoList :: ListFileSharesResponse -> Lude.Maybe [FileShareInfo]) (\s a -> s {fileShareInfoList = a} :: ListFileSharesResponse)
-{-# DEPRECATED lfsrsFileShareInfoList "Use generic-lens or generic-optics with 'fileShareInfoList' instead." #-}
+lfsrrsFileShareInfoList :: Lens.Lens' ListFileSharesResponse (Core.Maybe [Types.FileShareInfo])
+lfsrrsFileShareInfoList = Lens.field @"fileShareInfoList"
+{-# DEPRECATED lfsrrsFileShareInfoList "Use generic-lens or generic-optics with 'fileShareInfoList' instead." #-}
 
 -- | If the request includes @Marker@ , the response returns that value in this field.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsrsMarker :: Lens.Lens' ListFileSharesResponse (Lude.Maybe Lude.Text)
-lfsrsMarker = Lens.lens (marker :: ListFileSharesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListFileSharesResponse)
-{-# DEPRECATED lfsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lfsrrsMarker :: Lens.Lens' ListFileSharesResponse (Core.Maybe Types.Marker)
+lfsrrsMarker = Lens.field @"marker"
+{-# DEPRECATED lfsrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | If a value is present, there are more file shares to return. In a subsequent request, use @NextMarker@ as the value for @Marker@ to retrieve the next set of file shares.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsrsNextMarker :: Lens.Lens' ListFileSharesResponse (Lude.Maybe Lude.Text)
-lfsrsNextMarker = Lens.lens (nextMarker :: ListFileSharesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListFileSharesResponse)
-{-# DEPRECATED lfsrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+lfsrrsNextMarker :: Lens.Lens' ListFileSharesResponse (Core.Maybe Types.Marker)
+lfsrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lfsrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfsrsResponseStatus :: Lens.Lens' ListFileSharesResponse Lude.Int
-lfsrsResponseStatus = Lens.lens (responseStatus :: ListFileSharesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFileSharesResponse)
-{-# DEPRECATED lfsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lfsrrsResponseStatus :: Lens.Lens' ListFileSharesResponse Core.Int
+lfsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lfsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

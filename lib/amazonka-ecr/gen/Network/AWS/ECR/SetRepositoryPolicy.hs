@@ -20,190 +20,174 @@ module Network.AWS.ECR.SetRepositoryPolicy
     mkSetRepositoryPolicy,
 
     -- ** Request lenses
-    srpForce,
-    srpRegistryId,
     srpRepositoryName,
     srpPolicyText,
+    srpForce,
+    srpRegistryId,
 
     -- * Destructuring the response
     SetRepositoryPolicyResponse (..),
     mkSetRepositoryPolicyResponse,
 
     -- ** Response lenses
-    srprsRegistryId,
-    srprsRepositoryName,
-    srprsPolicyText,
-    srprsResponseStatus,
+    srprrsPolicyText,
+    srprrsRegistryId,
+    srprrsRepositoryName,
+    srprrsResponseStatus,
   )
 where
 
-import Network.AWS.ECR.Types
+import qualified Network.AWS.ECR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetRepositoryPolicy' smart constructor.
 data SetRepositoryPolicy = SetRepositoryPolicy'
-  { -- | If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the 'SetRepositoryPolicy' operation. This is intended to prevent accidental repository lock outs.
-    force :: Lude.Maybe Lude.Bool,
-    -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
-    registryId :: Lude.Maybe Lude.Text,
-    -- | The name of the repository to receive the policy.
-    repositoryName :: Lude.Text,
+  { -- | The name of the repository to receive the policy.
+    repositoryName :: Types.RepositoryName,
     -- | The JSON repository policy text to apply to the repository. For more information, see <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR Repository Policies> in the /Amazon Elastic Container Registry User Guide/ .
-    policyText :: Lude.Text
+    policyText :: Types.PolicyText,
+    -- | If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the 'SetRepositoryPolicy' operation. This is intended to prevent accidental repository lock outs.
+    force :: Core.Maybe Core.Bool,
+    -- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
+    registryId :: Core.Maybe Types.RegistryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetRepositoryPolicy' with the minimum fields required to make a request.
---
--- * 'force' - If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the 'SetRepositoryPolicy' operation. This is intended to prevent accidental repository lock outs.
--- * 'registryId' - The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
--- * 'repositoryName' - The name of the repository to receive the policy.
--- * 'policyText' - The JSON repository policy text to apply to the repository. For more information, see <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR Repository Policies> in the /Amazon Elastic Container Registry User Guide/ .
+-- | Creates a 'SetRepositoryPolicy' value with any optional fields omitted.
 mkSetRepositoryPolicy ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   -- | 'policyText'
-  Lude.Text ->
+  Types.PolicyText ->
   SetRepositoryPolicy
-mkSetRepositoryPolicy pRepositoryName_ pPolicyText_ =
+mkSetRepositoryPolicy repositoryName policyText =
   SetRepositoryPolicy'
-    { force = Lude.Nothing,
-      registryId = Lude.Nothing,
-      repositoryName = pRepositoryName_,
-      policyText = pPolicyText_
+    { repositoryName,
+      policyText,
+      force = Core.Nothing,
+      registryId = Core.Nothing
     }
-
--- | If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the 'SetRepositoryPolicy' operation. This is intended to prevent accidental repository lock outs.
---
--- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srpForce :: Lens.Lens' SetRepositoryPolicy (Lude.Maybe Lude.Bool)
-srpForce = Lens.lens (force :: SetRepositoryPolicy -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: SetRepositoryPolicy)
-{-# DEPRECATED srpForce "Use generic-lens or generic-optics with 'force' instead." #-}
-
--- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srpRegistryId :: Lens.Lens' SetRepositoryPolicy (Lude.Maybe Lude.Text)
-srpRegistryId = Lens.lens (registryId :: SetRepositoryPolicy -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: SetRepositoryPolicy)
-{-# DEPRECATED srpRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
 
 -- | The name of the repository to receive the policy.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srpRepositoryName :: Lens.Lens' SetRepositoryPolicy Lude.Text
-srpRepositoryName = Lens.lens (repositoryName :: SetRepositoryPolicy -> Lude.Text) (\s a -> s {repositoryName = a} :: SetRepositoryPolicy)
+srpRepositoryName :: Lens.Lens' SetRepositoryPolicy Types.RepositoryName
+srpRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED srpRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The JSON repository policy text to apply to the repository. For more information, see <https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policy-examples.html Amazon ECR Repository Policies> in the /Amazon Elastic Container Registry User Guide/ .
 --
 -- /Note:/ Consider using 'policyText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srpPolicyText :: Lens.Lens' SetRepositoryPolicy Lude.Text
-srpPolicyText = Lens.lens (policyText :: SetRepositoryPolicy -> Lude.Text) (\s a -> s {policyText = a} :: SetRepositoryPolicy)
+srpPolicyText :: Lens.Lens' SetRepositoryPolicy Types.PolicyText
+srpPolicyText = Lens.field @"policyText"
 {-# DEPRECATED srpPolicyText "Use generic-lens or generic-optics with 'policyText' instead." #-}
 
-instance Lude.AWSRequest SetRepositoryPolicy where
+-- | If the policy you are attempting to set on a repository policy would prevent you from setting another policy in the future, you must force the 'SetRepositoryPolicy' operation. This is intended to prevent accidental repository lock outs.
+--
+-- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srpForce :: Lens.Lens' SetRepositoryPolicy (Core.Maybe Core.Bool)
+srpForce = Lens.field @"force"
+{-# DEPRECATED srpForce "Use generic-lens or generic-optics with 'force' instead." #-}
+
+-- | The AWS account ID associated with the registry that contains the repository. If you do not specify a registry, the default registry is assumed.
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srpRegistryId :: Lens.Lens' SetRepositoryPolicy (Core.Maybe Types.RegistryId)
+srpRegistryId = Lens.field @"registryId"
+{-# DEPRECATED srpRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+instance Core.FromJSON SetRepositoryPolicy where
+  toJSON SetRepositoryPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("policyText" Core..= policyText),
+            ("force" Core..=) Core.<$> force,
+            ("registryId" Core..=) Core.<$> registryId
+          ]
+      )
+
+instance Core.AWSRequest SetRepositoryPolicy where
   type Rs SetRepositoryPolicy = SetRepositoryPolicyResponse
-  request = Req.postJSON ecrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerRegistry_V20150921.SetRepositoryPolicy"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SetRepositoryPolicyResponse'
-            Lude.<$> (x Lude..?> "registryId")
-            Lude.<*> (x Lude..?> "repositoryName")
-            Lude.<*> (x Lude..?> "policyText")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "policyText")
+            Core.<*> (x Core..:? "registryId")
+            Core.<*> (x Core..:? "repositoryName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetRepositoryPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerRegistry_V20150921.SetRepositoryPolicy" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SetRepositoryPolicy where
-  toJSON SetRepositoryPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("force" Lude..=) Lude.<$> force,
-            ("registryId" Lude..=) Lude.<$> registryId,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("policyText" Lude..= policyText)
-          ]
-      )
-
-instance Lude.ToPath SetRepositoryPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetRepositoryPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSetRepositoryPolicyResponse' smart constructor.
 data SetRepositoryPolicyResponse = SetRepositoryPolicyResponse'
-  { -- | The registry ID associated with the request.
-    registryId :: Lude.Maybe Lude.Text,
+  { -- | The JSON repository policy text applied to the repository.
+    policyText :: Core.Maybe Types.RepositoryPolicyText,
+    -- | The registry ID associated with the request.
+    registryId :: Core.Maybe Types.RegistryId,
     -- | The repository name associated with the request.
-    repositoryName :: Lude.Maybe Lude.Text,
-    -- | The JSON repository policy text applied to the repository.
-    policyText :: Lude.Maybe Lude.Text,
+    repositoryName :: Core.Maybe Types.RepositoryName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetRepositoryPolicyResponse' with the minimum fields required to make a request.
---
--- * 'registryId' - The registry ID associated with the request.
--- * 'repositoryName' - The repository name associated with the request.
--- * 'policyText' - The JSON repository policy text applied to the repository.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetRepositoryPolicyResponse' value with any optional fields omitted.
 mkSetRepositoryPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetRepositoryPolicyResponse
-mkSetRepositoryPolicyResponse pResponseStatus_ =
+mkSetRepositoryPolicyResponse responseStatus =
   SetRepositoryPolicyResponse'
-    { registryId = Lude.Nothing,
-      repositoryName = Lude.Nothing,
-      policyText = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { policyText = Core.Nothing,
+      registryId = Core.Nothing,
+      repositoryName = Core.Nothing,
+      responseStatus
     }
-
--- | The registry ID associated with the request.
---
--- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srprsRegistryId :: Lens.Lens' SetRepositoryPolicyResponse (Lude.Maybe Lude.Text)
-srprsRegistryId = Lens.lens (registryId :: SetRepositoryPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {registryId = a} :: SetRepositoryPolicyResponse)
-{-# DEPRECATED srprsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
-
--- | The repository name associated with the request.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srprsRepositoryName :: Lens.Lens' SetRepositoryPolicyResponse (Lude.Maybe Lude.Text)
-srprsRepositoryName = Lens.lens (repositoryName :: SetRepositoryPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: SetRepositoryPolicyResponse)
-{-# DEPRECATED srprsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The JSON repository policy text applied to the repository.
 --
 -- /Note:/ Consider using 'policyText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srprsPolicyText :: Lens.Lens' SetRepositoryPolicyResponse (Lude.Maybe Lude.Text)
-srprsPolicyText = Lens.lens (policyText :: SetRepositoryPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policyText = a} :: SetRepositoryPolicyResponse)
-{-# DEPRECATED srprsPolicyText "Use generic-lens or generic-optics with 'policyText' instead." #-}
+srprrsPolicyText :: Lens.Lens' SetRepositoryPolicyResponse (Core.Maybe Types.RepositoryPolicyText)
+srprrsPolicyText = Lens.field @"policyText"
+{-# DEPRECATED srprrsPolicyText "Use generic-lens or generic-optics with 'policyText' instead." #-}
+
+-- | The registry ID associated with the request.
+--
+-- /Note:/ Consider using 'registryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srprrsRegistryId :: Lens.Lens' SetRepositoryPolicyResponse (Core.Maybe Types.RegistryId)
+srprrsRegistryId = Lens.field @"registryId"
+{-# DEPRECATED srprrsRegistryId "Use generic-lens or generic-optics with 'registryId' instead." #-}
+
+-- | The repository name associated with the request.
+--
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srprrsRepositoryName :: Lens.Lens' SetRepositoryPolicyResponse (Core.Maybe Types.RepositoryName)
+srprrsRepositoryName = Lens.field @"repositoryName"
+{-# DEPRECATED srprrsRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srprsResponseStatus :: Lens.Lens' SetRepositoryPolicyResponse Lude.Int
-srprsResponseStatus = Lens.lens (responseStatus :: SetRepositoryPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetRepositoryPolicyResponse)
-{-# DEPRECATED srprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srprrsResponseStatus :: Lens.Lens' SetRepositoryPolicyResponse Core.Int
+srprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

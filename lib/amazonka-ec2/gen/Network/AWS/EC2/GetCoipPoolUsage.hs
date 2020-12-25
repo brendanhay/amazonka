@@ -20,33 +20,37 @@ module Network.AWS.EC2.GetCoipPoolUsage
     mkGetCoipPoolUsage,
 
     -- ** Request lenses
-    gcpuFilters,
     gcpuPoolId,
-    gcpuNextToken,
     gcpuDryRun,
+    gcpuFilters,
     gcpuMaxResults,
+    gcpuNextToken,
 
     -- * Destructuring the response
     GetCoipPoolUsageResponse (..),
     mkGetCoipPoolUsageResponse,
 
     -- ** Response lenses
-    gcpursCoipAddressUsages,
-    gcpursCoipPoolId,
-    gcpursLocalGatewayRouteTableId,
-    gcpursResponseStatus,
+    gcpurrsCoipAddressUsages,
+    gcpurrsCoipPoolId,
+    gcpurrsLocalGatewayRouteTableId,
+    gcpurrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetCoipPoolUsage' smart constructor.
 data GetCoipPoolUsage = GetCoipPoolUsage'
-  { -- | The filters. The following are the possible values:
+  { -- | The ID of the address pool.
+    poolId :: Types.PoolId,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The filters. The following are the possible values:
     --
     --
     --     * @coip-address-usage.allocation-id@
@@ -62,55 +66,42 @@ data GetCoipPoolUsage = GetCoipPoolUsage'
     --
     --
     --     * @coip-address-usage.co-ip@
-    filters :: Lude.Maybe [Filter],
-    -- | The ID of the address pool.
-    poolId :: Lude.Text,
-    -- | The token for the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next page of results.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCoipPoolUsage' with the minimum fields required to make a request.
---
--- * 'filters' - The filters. The following are the possible values:
---
---
---     * @coip-address-usage.allocation-id@
---
---
---
---     * @coip-address-usage.aws-account-id@
---
---
---
---     * @coip-address-usage.aws-service@
---
---
---
---     * @coip-address-usage.co-ip@
---
---
--- * 'poolId' - The ID of the address pool.
--- * 'nextToken' - The token for the next page of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- | Creates a 'GetCoipPoolUsage' value with any optional fields omitted.
 mkGetCoipPoolUsage ::
   -- | 'poolId'
-  Lude.Text ->
+  Types.PoolId ->
   GetCoipPoolUsage
-mkGetCoipPoolUsage pPoolId_ =
+mkGetCoipPoolUsage poolId =
   GetCoipPoolUsage'
-    { filters = Lude.Nothing,
-      poolId = pPoolId_,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { poolId,
+      dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | The ID of the address pool.
+--
+-- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpuPoolId :: Lens.Lens' GetCoipPoolUsage Types.PoolId
+gcpuPoolId = Lens.field @"poolId"
+{-# DEPRECATED gcpuPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpuDryRun :: Lens.Lens' GetCoipPoolUsage (Core.Maybe Core.Bool)
+gcpuDryRun = Lens.field @"dryRun"
+{-# DEPRECATED gcpuDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The filters. The following are the possible values:
 --
@@ -132,127 +123,111 @@ mkGetCoipPoolUsage pPoolId_ =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpuFilters :: Lens.Lens' GetCoipPoolUsage (Lude.Maybe [Filter])
-gcpuFilters = Lens.lens (filters :: GetCoipPoolUsage -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: GetCoipPoolUsage)
+gcpuFilters :: Lens.Lens' GetCoipPoolUsage (Core.Maybe [Types.Filter])
+gcpuFilters = Lens.field @"filters"
 {-# DEPRECATED gcpuFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The ID of the address pool.
---
--- /Note:/ Consider using 'poolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpuPoolId :: Lens.Lens' GetCoipPoolUsage Lude.Text
-gcpuPoolId = Lens.lens (poolId :: GetCoipPoolUsage -> Lude.Text) (\s a -> s {poolId = a} :: GetCoipPoolUsage)
-{-# DEPRECATED gcpuPoolId "Use generic-lens or generic-optics with 'poolId' instead." #-}
-
--- | The token for the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpuNextToken :: Lens.Lens' GetCoipPoolUsage (Lude.Maybe Lude.Text)
-gcpuNextToken = Lens.lens (nextToken :: GetCoipPoolUsage -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCoipPoolUsage)
-{-# DEPRECATED gcpuNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpuDryRun :: Lens.Lens' GetCoipPoolUsage (Lude.Maybe Lude.Bool)
-gcpuDryRun = Lens.lens (dryRun :: GetCoipPoolUsage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetCoipPoolUsage)
-{-# DEPRECATED gcpuDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpuMaxResults :: Lens.Lens' GetCoipPoolUsage (Lude.Maybe Lude.Natural)
-gcpuMaxResults = Lens.lens (maxResults :: GetCoipPoolUsage -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetCoipPoolUsage)
+gcpuMaxResults :: Lens.Lens' GetCoipPoolUsage (Core.Maybe Core.Natural)
+gcpuMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED gcpuMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest GetCoipPoolUsage where
+-- | The token for the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcpuNextToken :: Lens.Lens' GetCoipPoolUsage (Core.Maybe Types.String)
+gcpuNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gcpuNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest GetCoipPoolUsage where
   type Rs GetCoipPoolUsage = GetCoipPoolUsageResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetCoipPoolUsage")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "PoolId" poolId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetCoipPoolUsageResponse'
-            Lude.<$> ( x Lude..@? "coipAddressUsageSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "coipAddressUsageSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (x Lude..@? "coipPoolId")
-            Lude.<*> (x Lude..@? "localGatewayRouteTableId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "coipPoolId")
+            Core.<*> (x Core..@? "localGatewayRouteTableId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCoipPoolUsage where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetCoipPoolUsage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetCoipPoolUsage where
-  toQuery GetCoipPoolUsage' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetCoipPoolUsage" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "PoolId" Lude.=: poolId,
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
 
 -- | /See:/ 'mkGetCoipPoolUsageResponse' smart constructor.
 data GetCoipPoolUsageResponse = GetCoipPoolUsageResponse'
   { -- | Information about the address usage.
-    coipAddressUsages :: Lude.Maybe [CoipAddressUsage],
+    coipAddressUsages :: Core.Maybe [Types.CoipAddressUsage],
     -- | The ID of the customer-owned address pool.
-    coipPoolId :: Lude.Maybe Lude.Text,
+    coipPoolId :: Core.Maybe Types.String,
     -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Lude.Maybe Lude.Text,
+    localGatewayRouteTableId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCoipPoolUsageResponse' with the minimum fields required to make a request.
---
--- * 'coipAddressUsages' - Information about the address usage.
--- * 'coipPoolId' - The ID of the customer-owned address pool.
--- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCoipPoolUsageResponse' value with any optional fields omitted.
 mkGetCoipPoolUsageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCoipPoolUsageResponse
-mkGetCoipPoolUsageResponse pResponseStatus_ =
+mkGetCoipPoolUsageResponse responseStatus =
   GetCoipPoolUsageResponse'
-    { coipAddressUsages = Lude.Nothing,
-      coipPoolId = Lude.Nothing,
-      localGatewayRouteTableId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { coipAddressUsages = Core.Nothing,
+      coipPoolId = Core.Nothing,
+      localGatewayRouteTableId = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the address usage.
 --
 -- /Note:/ Consider using 'coipAddressUsages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpursCoipAddressUsages :: Lens.Lens' GetCoipPoolUsageResponse (Lude.Maybe [CoipAddressUsage])
-gcpursCoipAddressUsages = Lens.lens (coipAddressUsages :: GetCoipPoolUsageResponse -> Lude.Maybe [CoipAddressUsage]) (\s a -> s {coipAddressUsages = a} :: GetCoipPoolUsageResponse)
-{-# DEPRECATED gcpursCoipAddressUsages "Use generic-lens or generic-optics with 'coipAddressUsages' instead." #-}
+gcpurrsCoipAddressUsages :: Lens.Lens' GetCoipPoolUsageResponse (Core.Maybe [Types.CoipAddressUsage])
+gcpurrsCoipAddressUsages = Lens.field @"coipAddressUsages"
+{-# DEPRECATED gcpurrsCoipAddressUsages "Use generic-lens or generic-optics with 'coipAddressUsages' instead." #-}
 
 -- | The ID of the customer-owned address pool.
 --
 -- /Note:/ Consider using 'coipPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpursCoipPoolId :: Lens.Lens' GetCoipPoolUsageResponse (Lude.Maybe Lude.Text)
-gcpursCoipPoolId = Lens.lens (coipPoolId :: GetCoipPoolUsageResponse -> Lude.Maybe Lude.Text) (\s a -> s {coipPoolId = a} :: GetCoipPoolUsageResponse)
-{-# DEPRECATED gcpursCoipPoolId "Use generic-lens or generic-optics with 'coipPoolId' instead." #-}
+gcpurrsCoipPoolId :: Lens.Lens' GetCoipPoolUsageResponse (Core.Maybe Types.String)
+gcpurrsCoipPoolId = Lens.field @"coipPoolId"
+{-# DEPRECATED gcpurrsCoipPoolId "Use generic-lens or generic-optics with 'coipPoolId' instead." #-}
 
 -- | The ID of the local gateway route table.
 --
 -- /Note:/ Consider using 'localGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpursLocalGatewayRouteTableId :: Lens.Lens' GetCoipPoolUsageResponse (Lude.Maybe Lude.Text)
-gcpursLocalGatewayRouteTableId = Lens.lens (localGatewayRouteTableId :: GetCoipPoolUsageResponse -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayRouteTableId = a} :: GetCoipPoolUsageResponse)
-{-# DEPRECATED gcpursLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
+gcpurrsLocalGatewayRouteTableId :: Lens.Lens' GetCoipPoolUsageResponse (Core.Maybe Types.String)
+gcpurrsLocalGatewayRouteTableId = Lens.field @"localGatewayRouteTableId"
+{-# DEPRECATED gcpurrsLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcpursResponseStatus :: Lens.Lens' GetCoipPoolUsageResponse Lude.Int
-gcpursResponseStatus = Lens.lens (responseStatus :: GetCoipPoolUsageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCoipPoolUsageResponse)
-{-# DEPRECATED gcpursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcpurrsResponseStatus :: Lens.Lens' GetCoipPoolUsageResponse Core.Int
+gcpurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcpurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

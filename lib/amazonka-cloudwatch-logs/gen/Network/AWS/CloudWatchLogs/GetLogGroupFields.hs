@@ -23,140 +23,122 @@ module Network.AWS.CloudWatchLogs.GetLogGroupFields
     mkGetLogGroupFields,
 
     -- ** Request lenses
-    glgfTime,
     glgfLogGroupName,
+    glgfTime,
 
     -- * Destructuring the response
     GetLogGroupFieldsResponse (..),
     mkGetLogGroupFieldsResponse,
 
     -- ** Response lenses
-    glgfrsLogGroupFields,
-    glgfrsResponseStatus,
+    glgfrrsLogGroupFields,
+    glgfrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetLogGroupFields' smart constructor.
 data GetLogGroupFields = GetLogGroupFields'
-  { -- | The time to set as the center of the query. If you specify @time@ , the 8 minutes before and 8 minutes after this time are searched. If you omit @time@ , the past 15 minutes are queried.
+  { -- | The name of the log group to search.
+    logGroupName :: Types.LogGroupName,
+    -- | The time to set as the center of the query. If you specify @time@ , the 8 minutes before and 8 minutes after this time are searched. If you omit @time@ , the past 15 minutes are queried.
     --
     -- The @time@ value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
-    time :: Lude.Maybe Lude.Natural,
-    -- | The name of the log group to search.
-    logGroupName :: Lude.Text
+    time :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetLogGroupFields' with the minimum fields required to make a request.
---
--- * 'time' - The time to set as the center of the query. If you specify @time@ , the 8 minutes before and 8 minutes after this time are searched. If you omit @time@ , the past 15 minutes are queried.
---
--- The @time@ value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
--- * 'logGroupName' - The name of the log group to search.
+-- | Creates a 'GetLogGroupFields' value with any optional fields omitted.
 mkGetLogGroupFields ::
   -- | 'logGroupName'
-  Lude.Text ->
+  Types.LogGroupName ->
   GetLogGroupFields
-mkGetLogGroupFields pLogGroupName_ =
-  GetLogGroupFields'
-    { time = Lude.Nothing,
-      logGroupName = pLogGroupName_
-    }
+mkGetLogGroupFields logGroupName =
+  GetLogGroupFields' {logGroupName, time = Core.Nothing}
+
+-- | The name of the log group to search.
+--
+-- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glgfLogGroupName :: Lens.Lens' GetLogGroupFields Types.LogGroupName
+glgfLogGroupName = Lens.field @"logGroupName"
+{-# DEPRECATED glgfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The time to set as the center of the query. If you specify @time@ , the 8 minutes before and 8 minutes after this time are searched. If you omit @time@ , the past 15 minutes are queried.
 --
 -- The @time@ value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.
 --
 -- /Note:/ Consider using 'time' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glgfTime :: Lens.Lens' GetLogGroupFields (Lude.Maybe Lude.Natural)
-glgfTime = Lens.lens (time :: GetLogGroupFields -> Lude.Maybe Lude.Natural) (\s a -> s {time = a} :: GetLogGroupFields)
+glgfTime :: Lens.Lens' GetLogGroupFields (Core.Maybe Core.Natural)
+glgfTime = Lens.field @"time"
 {-# DEPRECATED glgfTime "Use generic-lens or generic-optics with 'time' instead." #-}
 
--- | The name of the log group to search.
---
--- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glgfLogGroupName :: Lens.Lens' GetLogGroupFields Lude.Text
-glgfLogGroupName = Lens.lens (logGroupName :: GetLogGroupFields -> Lude.Text) (\s a -> s {logGroupName = a} :: GetLogGroupFields)
-{-# DEPRECATED glgfLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
+instance Core.FromJSON GetLogGroupFields where
+  toJSON GetLogGroupFields {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            ("time" Core..=) Core.<$> time
+          ]
+      )
 
-instance Lude.AWSRequest GetLogGroupFields where
+instance Core.AWSRequest GetLogGroupFields where
   type Rs GetLogGroupFields = GetLogGroupFieldsResponse
-  request = Req.postJSON cloudWatchLogsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.GetLogGroupFields")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetLogGroupFieldsResponse'
-            Lude.<$> (x Lude..?> "logGroupFields" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "logGroupFields")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetLogGroupFields where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.GetLogGroupFields" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetLogGroupFields where
-  toJSON GetLogGroupFields' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("time" Lude..=) Lude.<$> time,
-            Lude.Just ("logGroupName" Lude..= logGroupName)
-          ]
-      )
-
-instance Lude.ToPath GetLogGroupFields where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetLogGroupFields where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetLogGroupFieldsResponse' smart constructor.
 data GetLogGroupFieldsResponse = GetLogGroupFieldsResponse'
   { -- | The array of fields found in the query. Each object in the array contains the name of the field, along with the percentage of time it appeared in the log events that were queried.
-    logGroupFields :: Lude.Maybe [LogGroupField],
+    logGroupFields :: Core.Maybe [Types.LogGroupField],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetLogGroupFieldsResponse' with the minimum fields required to make a request.
---
--- * 'logGroupFields' - The array of fields found in the query. Each object in the array contains the name of the field, along with the percentage of time it appeared in the log events that were queried.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetLogGroupFieldsResponse' value with any optional fields omitted.
 mkGetLogGroupFieldsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetLogGroupFieldsResponse
-mkGetLogGroupFieldsResponse pResponseStatus_ =
+mkGetLogGroupFieldsResponse responseStatus =
   GetLogGroupFieldsResponse'
-    { logGroupFields = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { logGroupFields = Core.Nothing,
+      responseStatus
     }
 
 -- | The array of fields found in the query. Each object in the array contains the name of the field, along with the percentage of time it appeared in the log events that were queried.
 --
 -- /Note:/ Consider using 'logGroupFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glgfrsLogGroupFields :: Lens.Lens' GetLogGroupFieldsResponse (Lude.Maybe [LogGroupField])
-glgfrsLogGroupFields = Lens.lens (logGroupFields :: GetLogGroupFieldsResponse -> Lude.Maybe [LogGroupField]) (\s a -> s {logGroupFields = a} :: GetLogGroupFieldsResponse)
-{-# DEPRECATED glgfrsLogGroupFields "Use generic-lens or generic-optics with 'logGroupFields' instead." #-}
+glgfrrsLogGroupFields :: Lens.Lens' GetLogGroupFieldsResponse (Core.Maybe [Types.LogGroupField])
+glgfrrsLogGroupFields = Lens.field @"logGroupFields"
+{-# DEPRECATED glgfrrsLogGroupFields "Use generic-lens or generic-optics with 'logGroupFields' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glgfrsResponseStatus :: Lens.Lens' GetLogGroupFieldsResponse Lude.Int
-glgfrsResponseStatus = Lens.lens (responseStatus :: GetLogGroupFieldsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLogGroupFieldsResponse)
-{-# DEPRECATED glgfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+glgfrrsResponseStatus :: Lens.Lens' GetLogGroupFieldsResponse Core.Int
+glgfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED glgfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

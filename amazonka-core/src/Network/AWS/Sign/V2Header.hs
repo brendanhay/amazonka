@@ -1,7 +1,3 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-
 -- |
 -- Module      : Network.AWS.Sign.V2Header
 -- Stability   : experimental
@@ -33,11 +29,11 @@ import qualified Network.HTTP.Conduit as Client
 import Network.HTTP.Types
 
 data V2Header = V2Header
-  { metaTime :: !UTCTime,
-    metaEndpoint :: !Endpoint,
-    metaSignature :: !ByteString,
-    headers :: !Network.HTTP.Types.RequestHeaders,
-    signer :: !ByteString
+  { metaTime :: UTCTime,
+    metaEndpoint :: Endpoint,
+    metaSignature :: ByteString,
+    headers :: Network.HTTP.Types.RequestHeaders,
+    signer :: ByteString
   }
 
 instance ToLog V2Header where

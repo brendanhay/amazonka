@@ -23,159 +23,140 @@ module Network.AWS.Discovery.StartExportTask
     mkStartExportTask,
 
     -- ** Request lenses
-    setExportDataFormat,
-    setStartTime,
-    setFilters,
     setEndTime,
+    setExportDataFormat,
+    setFilters,
+    setStartTime,
 
     -- * Destructuring the response
     StartExportTaskResponse (..),
     mkStartExportTaskResponse,
 
     -- ** Response lenses
-    setrsExportId,
-    setrsResponseStatus,
+    setrrsExportId,
+    setrrsResponseStatus,
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartExportTask' smart constructor.
 data StartExportTask = StartExportTask'
-  { -- | The file format for the returned export data. Default value is @CSV@ . __Note:__ /The/ @GRAPHML@ /option has been deprecated./
-    exportDataFormat :: Lude.Maybe [ExportDataFormat],
-    -- | The start timestamp for exported data from the single Application Discovery Agent selected in the filters. If no value is specified, data is exported starting from the first data collected by the agent.
-    startTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The end timestamp for exported data from the single Application Discovery Agent selected in the filters. If no value is specified, exported data includes the most recent data collected by the agent.
+    endTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The file format for the returned export data. Default value is @CSV@ . __Note:__ /The/ @GRAPHML@ /option has been deprecated./
+    exportDataFormat :: Core.Maybe [Types.ExportDataFormat],
     -- | If a filter is present, it selects the single @agentId@ of the Application Discovery Agent for which data is exported. The @agentId@ can be found in the results of the @DescribeAgents@ API or CLI. If no filter is present, @startTime@ and @endTime@ are ignored and exported data includes both Agentless Discovery Connector data and summary data from Application Discovery agents.
-    filters :: Lude.Maybe [ExportFilter],
-    -- | The end timestamp for exported data from the single Application Discovery Agent selected in the filters. If no value is specified, exported data includes the most recent data collected by the agent.
-    endTime :: Lude.Maybe Lude.Timestamp
+    filters :: Core.Maybe [Types.ExportFilter],
+    -- | The start timestamp for exported data from the single Application Discovery Agent selected in the filters. If no value is specified, data is exported starting from the first data collected by the agent.
+    startTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StartExportTask' with the minimum fields required to make a request.
---
--- * 'exportDataFormat' - The file format for the returned export data. Default value is @CSV@ . __Note:__ /The/ @GRAPHML@ /option has been deprecated./
--- * 'startTime' - The start timestamp for exported data from the single Application Discovery Agent selected in the filters. If no value is specified, data is exported starting from the first data collected by the agent.
--- * 'filters' - If a filter is present, it selects the single @agentId@ of the Application Discovery Agent for which data is exported. The @agentId@ can be found in the results of the @DescribeAgents@ API or CLI. If no filter is present, @startTime@ and @endTime@ are ignored and exported data includes both Agentless Discovery Connector data and summary data from Application Discovery agents.
--- * 'endTime' - The end timestamp for exported data from the single Application Discovery Agent selected in the filters. If no value is specified, exported data includes the most recent data collected by the agent.
+-- | Creates a 'StartExportTask' value with any optional fields omitted.
 mkStartExportTask ::
   StartExportTask
 mkStartExportTask =
   StartExportTask'
-    { exportDataFormat = Lude.Nothing,
-      startTime = Lude.Nothing,
-      filters = Lude.Nothing,
-      endTime = Lude.Nothing
+    { endTime = Core.Nothing,
+      exportDataFormat = Core.Nothing,
+      filters = Core.Nothing,
+      startTime = Core.Nothing
     }
-
--- | The file format for the returned export data. Default value is @CSV@ . __Note:__ /The/ @GRAPHML@ /option has been deprecated./
---
--- /Note:/ Consider using 'exportDataFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setExportDataFormat :: Lens.Lens' StartExportTask (Lude.Maybe [ExportDataFormat])
-setExportDataFormat = Lens.lens (exportDataFormat :: StartExportTask -> Lude.Maybe [ExportDataFormat]) (\s a -> s {exportDataFormat = a} :: StartExportTask)
-{-# DEPRECATED setExportDataFormat "Use generic-lens or generic-optics with 'exportDataFormat' instead." #-}
-
--- | The start timestamp for exported data from the single Application Discovery Agent selected in the filters. If no value is specified, data is exported starting from the first data collected by the agent.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setStartTime :: Lens.Lens' StartExportTask (Lude.Maybe Lude.Timestamp)
-setStartTime = Lens.lens (startTime :: StartExportTask -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: StartExportTask)
-{-# DEPRECATED setStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | If a filter is present, it selects the single @agentId@ of the Application Discovery Agent for which data is exported. The @agentId@ can be found in the results of the @DescribeAgents@ API or CLI. If no filter is present, @startTime@ and @endTime@ are ignored and exported data includes both Agentless Discovery Connector data and summary data from Application Discovery agents.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setFilters :: Lens.Lens' StartExportTask (Lude.Maybe [ExportFilter])
-setFilters = Lens.lens (filters :: StartExportTask -> Lude.Maybe [ExportFilter]) (\s a -> s {filters = a} :: StartExportTask)
-{-# DEPRECATED setFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The end timestamp for exported data from the single Application Discovery Agent selected in the filters. If no value is specified, exported data includes the most recent data collected by the agent.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setEndTime :: Lens.Lens' StartExportTask (Lude.Maybe Lude.Timestamp)
-setEndTime = Lens.lens (endTime :: StartExportTask -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: StartExportTask)
+setEndTime :: Lens.Lens' StartExportTask (Core.Maybe Core.NominalDiffTime)
+setEndTime = Lens.field @"endTime"
 {-# DEPRECATED setEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance Lude.AWSRequest StartExportTask where
+-- | The file format for the returned export data. Default value is @CSV@ . __Note:__ /The/ @GRAPHML@ /option has been deprecated./
+--
+-- /Note:/ Consider using 'exportDataFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+setExportDataFormat :: Lens.Lens' StartExportTask (Core.Maybe [Types.ExportDataFormat])
+setExportDataFormat = Lens.field @"exportDataFormat"
+{-# DEPRECATED setExportDataFormat "Use generic-lens or generic-optics with 'exportDataFormat' instead." #-}
+
+-- | If a filter is present, it selects the single @agentId@ of the Application Discovery Agent for which data is exported. The @agentId@ can be found in the results of the @DescribeAgents@ API or CLI. If no filter is present, @startTime@ and @endTime@ are ignored and exported data includes both Agentless Discovery Connector data and summary data from Application Discovery agents.
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+setFilters :: Lens.Lens' StartExportTask (Core.Maybe [Types.ExportFilter])
+setFilters = Lens.field @"filters"
+{-# DEPRECATED setFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | The start timestamp for exported data from the single Application Discovery Agent selected in the filters. If no value is specified, data is exported starting from the first data collected by the agent.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+setStartTime :: Lens.Lens' StartExportTask (Core.Maybe Core.NominalDiffTime)
+setStartTime = Lens.field @"startTime"
+{-# DEPRECATED setStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+instance Core.FromJSON StartExportTask where
+  toJSON StartExportTask {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("endTime" Core..=) Core.<$> endTime,
+            ("exportDataFormat" Core..=) Core.<$> exportDataFormat,
+            ("filters" Core..=) Core.<$> filters,
+            ("startTime" Core..=) Core.<$> startTime
+          ]
+      )
+
+instance Core.AWSRequest StartExportTask where
   type Rs StartExportTask = StartExportTaskResponse
-  request = Req.postJSON discoveryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSPoseidonService_V2015_11_01.StartExportTask")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartExportTaskResponse'
-            Lude.<$> (x Lude..?> "exportId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "exportId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartExportTask where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSPoseidonService_V2015_11_01.StartExportTask" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartExportTask where
-  toJSON StartExportTask' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("exportDataFormat" Lude..=) Lude.<$> exportDataFormat,
-            ("startTime" Lude..=) Lude.<$> startTime,
-            ("filters" Lude..=) Lude.<$> filters,
-            ("endTime" Lude..=) Lude.<$> endTime
-          ]
-      )
-
-instance Lude.ToPath StartExportTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartExportTask where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartExportTaskResponse' smart constructor.
 data StartExportTaskResponse = StartExportTaskResponse'
   { -- | A unique identifier used to query the status of an export request.
-    exportId :: Lude.Maybe Lude.Text,
+    exportId :: Core.Maybe Types.ConfigurationsExportId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartExportTaskResponse' with the minimum fields required to make a request.
---
--- * 'exportId' - A unique identifier used to query the status of an export request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartExportTaskResponse' value with any optional fields omitted.
 mkStartExportTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartExportTaskResponse
-mkStartExportTaskResponse pResponseStatus_ =
-  StartExportTaskResponse'
-    { exportId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkStartExportTaskResponse responseStatus =
+  StartExportTaskResponse' {exportId = Core.Nothing, responseStatus}
 
 -- | A unique identifier used to query the status of an export request.
 --
 -- /Note:/ Consider using 'exportId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setrsExportId :: Lens.Lens' StartExportTaskResponse (Lude.Maybe Lude.Text)
-setrsExportId = Lens.lens (exportId :: StartExportTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {exportId = a} :: StartExportTaskResponse)
-{-# DEPRECATED setrsExportId "Use generic-lens or generic-optics with 'exportId' instead." #-}
+setrrsExportId :: Lens.Lens' StartExportTaskResponse (Core.Maybe Types.ConfigurationsExportId)
+setrrsExportId = Lens.field @"exportId"
+{-# DEPRECATED setrrsExportId "Use generic-lens or generic-optics with 'exportId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setrsResponseStatus :: Lens.Lens' StartExportTaskResponse Lude.Int
-setrsResponseStatus = Lens.lens (responseStatus :: StartExportTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartExportTaskResponse)
-{-# DEPRECATED setrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+setrrsResponseStatus :: Lens.Lens' StartExportTaskResponse Core.Int
+setrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED setrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,81 +13,86 @@
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus
   ( EnvironmentHealthStatus
       ( EnvironmentHealthStatus',
-        EHSNoData,
-        EHSUnknown,
-        EHSPending,
-        EHSOK,
-        EHSInfo,
-        EHSWarning,
-        EHSDegraded,
-        EHSSevere,
-        EHSSuspended
+        EnvironmentHealthStatusNoData,
+        EnvironmentHealthStatusUnknown,
+        EnvironmentHealthStatusPending,
+        EnvironmentHealthStatusOK,
+        EnvironmentHealthStatusInfo,
+        EnvironmentHealthStatusWarning,
+        EnvironmentHealthStatusDegraded,
+        EnvironmentHealthStatusSevere,
+        EnvironmentHealthStatusSuspended,
+        fromEnvironmentHealthStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EnvironmentHealthStatus = EnvironmentHealthStatus' Lude.Text
+newtype EnvironmentHealthStatus = EnvironmentHealthStatus'
+  { fromEnvironmentHealthStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EHSNoData :: EnvironmentHealthStatus
-pattern EHSNoData = EnvironmentHealthStatus' "NoData"
+pattern EnvironmentHealthStatusNoData :: EnvironmentHealthStatus
+pattern EnvironmentHealthStatusNoData = EnvironmentHealthStatus' "NoData"
 
-pattern EHSUnknown :: EnvironmentHealthStatus
-pattern EHSUnknown = EnvironmentHealthStatus' "Unknown"
+pattern EnvironmentHealthStatusUnknown :: EnvironmentHealthStatus
+pattern EnvironmentHealthStatusUnknown = EnvironmentHealthStatus' "Unknown"
 
-pattern EHSPending :: EnvironmentHealthStatus
-pattern EHSPending = EnvironmentHealthStatus' "Pending"
+pattern EnvironmentHealthStatusPending :: EnvironmentHealthStatus
+pattern EnvironmentHealthStatusPending = EnvironmentHealthStatus' "Pending"
 
-pattern EHSOK :: EnvironmentHealthStatus
-pattern EHSOK = EnvironmentHealthStatus' "Ok"
+pattern EnvironmentHealthStatusOK :: EnvironmentHealthStatus
+pattern EnvironmentHealthStatusOK = EnvironmentHealthStatus' "Ok"
 
-pattern EHSInfo :: EnvironmentHealthStatus
-pattern EHSInfo = EnvironmentHealthStatus' "Info"
+pattern EnvironmentHealthStatusInfo :: EnvironmentHealthStatus
+pattern EnvironmentHealthStatusInfo = EnvironmentHealthStatus' "Info"
 
-pattern EHSWarning :: EnvironmentHealthStatus
-pattern EHSWarning = EnvironmentHealthStatus' "Warning"
+pattern EnvironmentHealthStatusWarning :: EnvironmentHealthStatus
+pattern EnvironmentHealthStatusWarning = EnvironmentHealthStatus' "Warning"
 
-pattern EHSDegraded :: EnvironmentHealthStatus
-pattern EHSDegraded = EnvironmentHealthStatus' "Degraded"
+pattern EnvironmentHealthStatusDegraded :: EnvironmentHealthStatus
+pattern EnvironmentHealthStatusDegraded = EnvironmentHealthStatus' "Degraded"
 
-pattern EHSSevere :: EnvironmentHealthStatus
-pattern EHSSevere = EnvironmentHealthStatus' "Severe"
+pattern EnvironmentHealthStatusSevere :: EnvironmentHealthStatus
+pattern EnvironmentHealthStatusSevere = EnvironmentHealthStatus' "Severe"
 
-pattern EHSSuspended :: EnvironmentHealthStatus
-pattern EHSSuspended = EnvironmentHealthStatus' "Suspended"
+pattern EnvironmentHealthStatusSuspended :: EnvironmentHealthStatus
+pattern EnvironmentHealthStatusSuspended = EnvironmentHealthStatus' "Suspended"
 
 {-# COMPLETE
-  EHSNoData,
-  EHSUnknown,
-  EHSPending,
-  EHSOK,
-  EHSInfo,
-  EHSWarning,
-  EHSDegraded,
-  EHSSevere,
-  EHSSuspended,
+  EnvironmentHealthStatusNoData,
+  EnvironmentHealthStatusUnknown,
+  EnvironmentHealthStatusPending,
+  EnvironmentHealthStatusOK,
+  EnvironmentHealthStatusInfo,
+  EnvironmentHealthStatusWarning,
+  EnvironmentHealthStatusDegraded,
+  EnvironmentHealthStatusSevere,
+  EnvironmentHealthStatusSuspended,
   EnvironmentHealthStatus'
   #-}

@@ -13,71 +13,76 @@
 module Network.AWS.EC2.Types.FleetStateCode
   ( FleetStateCode
       ( FleetStateCode',
-        FSCSubmitted,
-        FSCActive,
-        FSCDeleted,
-        FSCFailed,
-        FSCDeletedRunning,
-        FSCDeletedTerminating,
-        FSCModifying
+        FleetStateCodeSubmitted,
+        FleetStateCodeActive,
+        FleetStateCodeDeleted,
+        FleetStateCodeFailed,
+        FleetStateCodeDeletedRunning,
+        FleetStateCodeDeletedTerminating,
+        FleetStateCodeModifying,
+        fromFleetStateCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FleetStateCode = FleetStateCode' Lude.Text
+newtype FleetStateCode = FleetStateCode'
+  { fromFleetStateCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FSCSubmitted :: FleetStateCode
-pattern FSCSubmitted = FleetStateCode' "submitted"
+pattern FleetStateCodeSubmitted :: FleetStateCode
+pattern FleetStateCodeSubmitted = FleetStateCode' "submitted"
 
-pattern FSCActive :: FleetStateCode
-pattern FSCActive = FleetStateCode' "active"
+pattern FleetStateCodeActive :: FleetStateCode
+pattern FleetStateCodeActive = FleetStateCode' "active"
 
-pattern FSCDeleted :: FleetStateCode
-pattern FSCDeleted = FleetStateCode' "deleted"
+pattern FleetStateCodeDeleted :: FleetStateCode
+pattern FleetStateCodeDeleted = FleetStateCode' "deleted"
 
-pattern FSCFailed :: FleetStateCode
-pattern FSCFailed = FleetStateCode' "failed"
+pattern FleetStateCodeFailed :: FleetStateCode
+pattern FleetStateCodeFailed = FleetStateCode' "failed"
 
-pattern FSCDeletedRunning :: FleetStateCode
-pattern FSCDeletedRunning = FleetStateCode' "deleted_running"
+pattern FleetStateCodeDeletedRunning :: FleetStateCode
+pattern FleetStateCodeDeletedRunning = FleetStateCode' "deleted_running"
 
-pattern FSCDeletedTerminating :: FleetStateCode
-pattern FSCDeletedTerminating = FleetStateCode' "deleted_terminating"
+pattern FleetStateCodeDeletedTerminating :: FleetStateCode
+pattern FleetStateCodeDeletedTerminating = FleetStateCode' "deleted_terminating"
 
-pattern FSCModifying :: FleetStateCode
-pattern FSCModifying = FleetStateCode' "modifying"
+pattern FleetStateCodeModifying :: FleetStateCode
+pattern FleetStateCodeModifying = FleetStateCode' "modifying"
 
 {-# COMPLETE
-  FSCSubmitted,
-  FSCActive,
-  FSCDeleted,
-  FSCFailed,
-  FSCDeletedRunning,
-  FSCDeletedTerminating,
-  FSCModifying,
+  FleetStateCodeSubmitted,
+  FleetStateCodeActive,
+  FleetStateCodeDeleted,
+  FleetStateCodeFailed,
+  FleetStateCodeDeletedRunning,
+  FleetStateCodeDeletedTerminating,
+  FleetStateCodeModifying,
   FleetStateCode'
   #-}

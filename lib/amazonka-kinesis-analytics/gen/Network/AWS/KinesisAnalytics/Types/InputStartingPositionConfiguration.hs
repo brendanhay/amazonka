@@ -21,9 +21,9 @@ module Network.AWS.KinesisAnalytics.Types.InputStartingPositionConfiguration
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types.InputStartingPosition
+import qualified Network.AWS.KinesisAnalytics.Types.InputStartingPosition as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the point at which the application reads from the streaming source.
 --
@@ -39,29 +39,18 @@ newtype InputStartingPositionConfiguration = InputStartingPositionConfiguration'
     --
     --
     --     * @LAST_STOPPED_POINT@ - Resume reading from where the application last stopped reading.
-    inputStartingPosition :: Lude.Maybe InputStartingPosition
+    inputStartingPosition :: Core.Maybe Types.InputStartingPosition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputStartingPositionConfiguration' with the minimum fields required to make a request.
---
--- * 'inputStartingPosition' - The starting position on the stream.
---
---
---     * @NOW@ - Start reading just after the most recent record in the stream, start at the request time stamp that the customer issued.
---
---
---     * @TRIM_HORIZON@ - Start reading at the last untrimmed record in the stream, which is the oldest record available in the stream. This option is not available for an Amazon Kinesis Firehose delivery stream.
---
---
---     * @LAST_STOPPED_POINT@ - Resume reading from where the application last stopped reading.
+-- | Creates a 'InputStartingPositionConfiguration' value with any optional fields omitted.
 mkInputStartingPositionConfiguration ::
   InputStartingPositionConfiguration
 mkInputStartingPositionConfiguration =
   InputStartingPositionConfiguration'
     { inputStartingPosition =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The starting position on the stream.
@@ -78,22 +67,20 @@ mkInputStartingPositionConfiguration =
 --
 --
 -- /Note:/ Consider using 'inputStartingPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ispcInputStartingPosition :: Lens.Lens' InputStartingPositionConfiguration (Lude.Maybe InputStartingPosition)
-ispcInputStartingPosition = Lens.lens (inputStartingPosition :: InputStartingPositionConfiguration -> Lude.Maybe InputStartingPosition) (\s a -> s {inputStartingPosition = a} :: InputStartingPositionConfiguration)
+ispcInputStartingPosition :: Lens.Lens' InputStartingPositionConfiguration (Core.Maybe Types.InputStartingPosition)
+ispcInputStartingPosition = Lens.field @"inputStartingPosition"
 {-# DEPRECATED ispcInputStartingPosition "Use generic-lens or generic-optics with 'inputStartingPosition' instead." #-}
 
-instance Lude.FromJSON InputStartingPositionConfiguration where
-  parseJSON =
-    Lude.withObject
-      "InputStartingPositionConfiguration"
-      ( \x ->
-          InputStartingPositionConfiguration'
-            Lude.<$> (x Lude..:? "InputStartingPosition")
+instance Core.FromJSON InputStartingPositionConfiguration where
+  toJSON InputStartingPositionConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [("InputStartingPosition" Core..=) Core.<$> inputStartingPosition]
       )
 
-instance Lude.ToJSON InputStartingPositionConfiguration where
-  toJSON InputStartingPositionConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("InputStartingPosition" Lude..=) Lude.<$> inputStartingPosition]
-      )
+instance Core.FromJSON InputStartingPositionConfiguration where
+  parseJSON =
+    Core.withObject "InputStartingPositionConfiguration" Core.$
+      \x ->
+        InputStartingPositionConfiguration'
+          Core.<$> (x Core..:? "InputStartingPosition")

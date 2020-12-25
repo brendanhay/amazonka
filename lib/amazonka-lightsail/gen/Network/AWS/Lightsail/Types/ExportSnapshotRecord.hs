@@ -17,141 +17,132 @@ module Network.AWS.Lightsail.Types.ExportSnapshotRecord
     mkExportSnapshotRecord,
 
     -- * Lenses
-    esrState,
-    esrDestinationInfo,
-    esrResourceType,
     esrArn,
     esrCreatedAt,
+    esrDestinationInfo,
     esrLocation,
     esrName,
+    esrResourceType,
     esrSourceInfo,
+    esrState,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.DestinationInfo
-import Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceInfo
-import Network.AWS.Lightsail.Types.RecordState
-import Network.AWS.Lightsail.Types.ResourceLocation
-import Network.AWS.Lightsail.Types.ResourceType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.DestinationInfo as Types
+import qualified Network.AWS.Lightsail.Types.ExportSnapshotRecordSourceInfo as Types
+import qualified Network.AWS.Lightsail.Types.NonEmptyString as Types
+import qualified Network.AWS.Lightsail.Types.RecordState as Types
+import qualified Network.AWS.Lightsail.Types.ResourceLocation as Types
+import qualified Network.AWS.Lightsail.Types.ResourceName as Types
+import qualified Network.AWS.Lightsail.Types.ResourceType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an export snapshot record.
 --
 -- /See:/ 'mkExportSnapshotRecord' smart constructor.
 data ExportSnapshotRecord = ExportSnapshotRecord'
-  { -- | The state of the export snapshot record.
-    state :: Lude.Maybe RecordState,
-    -- | A list of objects describing the destination of the export snapshot record.
-    destinationInfo :: Lude.Maybe DestinationInfo,
-    -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
-    resourceType :: Lude.Maybe ResourceType,
-    -- | The Amazon Resource Name (ARN) of the export snapshot record.
-    arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the export snapshot record.
+    arn :: Core.Maybe Types.NonEmptyString,
     -- | The date when the export snapshot record was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
+    -- | A list of objects describing the destination of the export snapshot record.
+    destinationInfo :: Core.Maybe Types.DestinationInfo,
     -- | The AWS Region and Availability Zone where the export snapshot record is located.
-    location :: Lude.Maybe ResourceLocation,
+    location :: Core.Maybe Types.ResourceLocation,
     -- | The export snapshot record name.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.ResourceName,
+    -- | The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
+    resourceType :: Core.Maybe Types.ResourceType,
     -- | A list of objects describing the source of the export snapshot record.
-    sourceInfo :: Lude.Maybe ExportSnapshotRecordSourceInfo
+    sourceInfo :: Core.Maybe Types.ExportSnapshotRecordSourceInfo,
+    -- | The state of the export snapshot record.
+    state :: Core.Maybe Types.RecordState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ExportSnapshotRecord' with the minimum fields required to make a request.
---
--- * 'state' - The state of the export snapshot record.
--- * 'destinationInfo' - A list of objects describing the destination of the export snapshot record.
--- * 'resourceType' - The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
--- * 'arn' - The Amazon Resource Name (ARN) of the export snapshot record.
--- * 'createdAt' - The date when the export snapshot record was created.
--- * 'location' - The AWS Region and Availability Zone where the export snapshot record is located.
--- * 'name' - The export snapshot record name.
--- * 'sourceInfo' - A list of objects describing the source of the export snapshot record.
+-- | Creates a 'ExportSnapshotRecord' value with any optional fields omitted.
 mkExportSnapshotRecord ::
   ExportSnapshotRecord
 mkExportSnapshotRecord =
   ExportSnapshotRecord'
-    { state = Lude.Nothing,
-      destinationInfo = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      arn = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      location = Lude.Nothing,
-      name = Lude.Nothing,
-      sourceInfo = Lude.Nothing
+    { arn = Core.Nothing,
+      createdAt = Core.Nothing,
+      destinationInfo = Core.Nothing,
+      location = Core.Nothing,
+      name = Core.Nothing,
+      resourceType = Core.Nothing,
+      sourceInfo = Core.Nothing,
+      state = Core.Nothing
     }
-
--- | The state of the export snapshot record.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrState :: Lens.Lens' ExportSnapshotRecord (Lude.Maybe RecordState)
-esrState = Lens.lens (state :: ExportSnapshotRecord -> Lude.Maybe RecordState) (\s a -> s {state = a} :: ExportSnapshotRecord)
-{-# DEPRECATED esrState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | A list of objects describing the destination of the export snapshot record.
---
--- /Note:/ Consider using 'destinationInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrDestinationInfo :: Lens.Lens' ExportSnapshotRecord (Lude.Maybe DestinationInfo)
-esrDestinationInfo = Lens.lens (destinationInfo :: ExportSnapshotRecord -> Lude.Maybe DestinationInfo) (\s a -> s {destinationInfo = a} :: ExportSnapshotRecord)
-{-# DEPRECATED esrDestinationInfo "Use generic-lens or generic-optics with 'destinationInfo' instead." #-}
-
--- | The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrResourceType :: Lens.Lens' ExportSnapshotRecord (Lude.Maybe ResourceType)
-esrResourceType = Lens.lens (resourceType :: ExportSnapshotRecord -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: ExportSnapshotRecord)
-{-# DEPRECATED esrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the export snapshot record.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrArn :: Lens.Lens' ExportSnapshotRecord (Lude.Maybe Lude.Text)
-esrArn = Lens.lens (arn :: ExportSnapshotRecord -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ExportSnapshotRecord)
+esrArn :: Lens.Lens' ExportSnapshotRecord (Core.Maybe Types.NonEmptyString)
+esrArn = Lens.field @"arn"
 {-# DEPRECATED esrArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date when the export snapshot record was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrCreatedAt :: Lens.Lens' ExportSnapshotRecord (Lude.Maybe Lude.Timestamp)
-esrCreatedAt = Lens.lens (createdAt :: ExportSnapshotRecord -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ExportSnapshotRecord)
+esrCreatedAt :: Lens.Lens' ExportSnapshotRecord (Core.Maybe Core.NominalDiffTime)
+esrCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED esrCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | A list of objects describing the destination of the export snapshot record.
+--
+-- /Note:/ Consider using 'destinationInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrDestinationInfo :: Lens.Lens' ExportSnapshotRecord (Core.Maybe Types.DestinationInfo)
+esrDestinationInfo = Lens.field @"destinationInfo"
+{-# DEPRECATED esrDestinationInfo "Use generic-lens or generic-optics with 'destinationInfo' instead." #-}
 
 -- | The AWS Region and Availability Zone where the export snapshot record is located.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrLocation :: Lens.Lens' ExportSnapshotRecord (Lude.Maybe ResourceLocation)
-esrLocation = Lens.lens (location :: ExportSnapshotRecord -> Lude.Maybe ResourceLocation) (\s a -> s {location = a} :: ExportSnapshotRecord)
+esrLocation :: Lens.Lens' ExportSnapshotRecord (Core.Maybe Types.ResourceLocation)
+esrLocation = Lens.field @"location"
 {-# DEPRECATED esrLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The export snapshot record name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrName :: Lens.Lens' ExportSnapshotRecord (Lude.Maybe Lude.Text)
-esrName = Lens.lens (name :: ExportSnapshotRecord -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ExportSnapshotRecord)
+esrName :: Lens.Lens' ExportSnapshotRecord (Core.Maybe Types.ResourceName)
+esrName = Lens.field @"name"
 {-# DEPRECATED esrName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The Lightsail resource type (e.g., @ExportSnapshotRecord@ ).
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrResourceType :: Lens.Lens' ExportSnapshotRecord (Core.Maybe Types.ResourceType)
+esrResourceType = Lens.field @"resourceType"
+{-# DEPRECATED esrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | A list of objects describing the source of the export snapshot record.
 --
 -- /Note:/ Consider using 'sourceInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrSourceInfo :: Lens.Lens' ExportSnapshotRecord (Lude.Maybe ExportSnapshotRecordSourceInfo)
-esrSourceInfo = Lens.lens (sourceInfo :: ExportSnapshotRecord -> Lude.Maybe ExportSnapshotRecordSourceInfo) (\s a -> s {sourceInfo = a} :: ExportSnapshotRecord)
+esrSourceInfo :: Lens.Lens' ExportSnapshotRecord (Core.Maybe Types.ExportSnapshotRecordSourceInfo)
+esrSourceInfo = Lens.field @"sourceInfo"
 {-# DEPRECATED esrSourceInfo "Use generic-lens or generic-optics with 'sourceInfo' instead." #-}
 
-instance Lude.FromJSON ExportSnapshotRecord where
+-- | The state of the export snapshot record.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esrState :: Lens.Lens' ExportSnapshotRecord (Core.Maybe Types.RecordState)
+esrState = Lens.field @"state"
+{-# DEPRECATED esrState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON ExportSnapshotRecord where
   parseJSON =
-    Lude.withObject
-      "ExportSnapshotRecord"
-      ( \x ->
-          ExportSnapshotRecord'
-            Lude.<$> (x Lude..:? "state")
-            Lude.<*> (x Lude..:? "destinationInfo")
-            Lude.<*> (x Lude..:? "resourceType")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "location")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "sourceInfo")
-      )
+    Core.withObject "ExportSnapshotRecord" Core.$
+      \x ->
+        ExportSnapshotRecord'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "destinationInfo")
+          Core.<*> (x Core..:? "location")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "resourceType")
+          Core.<*> (x Core..:? "sourceInfo")
+          Core.<*> (x Core..:? "state")

@@ -17,66 +17,61 @@ module Network.AWS.CodeBuild.Types.ReportGroupTrendStats
     mkReportGroupTrendStats,
 
     -- * Lenses
-    rgtsMax,
     rgtsAverage,
+    rgtsMax,
     rgtsMin,
   )
 where
 
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkReportGroupTrendStats' smart constructor.
 data ReportGroupTrendStats = ReportGroupTrendStats'
-  { max :: Lude.Maybe Lude.Text,
-    average :: Lude.Maybe Lude.Text,
-    min :: Lude.Maybe Lude.Text
+  { average :: Core.Maybe Types.String,
+    max :: Core.Maybe Types.String,
+    min :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReportGroupTrendStats' with the minimum fields required to make a request.
---
--- * 'max' -
--- * 'average' -
--- * 'min' -
+-- | Creates a 'ReportGroupTrendStats' value with any optional fields omitted.
 mkReportGroupTrendStats ::
   ReportGroupTrendStats
 mkReportGroupTrendStats =
   ReportGroupTrendStats'
-    { max = Lude.Nothing,
-      average = Lude.Nothing,
-      min = Lude.Nothing
+    { average = Core.Nothing,
+      max = Core.Nothing,
+      min = Core.Nothing
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgtsMax :: Lens.Lens' ReportGroupTrendStats (Lude.Maybe Lude.Text)
-rgtsMax = Lens.lens (max :: ReportGroupTrendStats -> Lude.Maybe Lude.Text) (\s a -> s {max = a} :: ReportGroupTrendStats)
-{-# DEPRECATED rgtsMax "Use generic-lens or generic-optics with 'max' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'average' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgtsAverage :: Lens.Lens' ReportGroupTrendStats (Lude.Maybe Lude.Text)
-rgtsAverage = Lens.lens (average :: ReportGroupTrendStats -> Lude.Maybe Lude.Text) (\s a -> s {average = a} :: ReportGroupTrendStats)
+rgtsAverage :: Lens.Lens' ReportGroupTrendStats (Core.Maybe Types.String)
+rgtsAverage = Lens.field @"average"
 {-# DEPRECATED rgtsAverage "Use generic-lens or generic-optics with 'average' instead." #-}
 
 -- | Undocumented field.
 --
+-- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgtsMax :: Lens.Lens' ReportGroupTrendStats (Core.Maybe Types.String)
+rgtsMax = Lens.field @"max"
+{-# DEPRECATED rgtsMax "Use generic-lens or generic-optics with 'max' instead." #-}
+
+-- | Undocumented field.
+--
 -- /Note:/ Consider using 'min' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgtsMin :: Lens.Lens' ReportGroupTrendStats (Lude.Maybe Lude.Text)
-rgtsMin = Lens.lens (min :: ReportGroupTrendStats -> Lude.Maybe Lude.Text) (\s a -> s {min = a} :: ReportGroupTrendStats)
+rgtsMin :: Lens.Lens' ReportGroupTrendStats (Core.Maybe Types.String)
+rgtsMin = Lens.field @"min"
 {-# DEPRECATED rgtsMin "Use generic-lens or generic-optics with 'min' instead." #-}
 
-instance Lude.FromJSON ReportGroupTrendStats where
+instance Core.FromJSON ReportGroupTrendStats where
   parseJSON =
-    Lude.withObject
-      "ReportGroupTrendStats"
-      ( \x ->
-          ReportGroupTrendStats'
-            Lude.<$> (x Lude..:? "max")
-            Lude.<*> (x Lude..:? "average")
-            Lude.<*> (x Lude..:? "min")
-      )
+    Core.withObject "ReportGroupTrendStats" Core.$
+      \x ->
+        ReportGroupTrendStats'
+          Core.<$> (x Core..:? "average")
+          Core.<*> (x Core..:? "max")
+          Core.<*> (x Core..:? "min")

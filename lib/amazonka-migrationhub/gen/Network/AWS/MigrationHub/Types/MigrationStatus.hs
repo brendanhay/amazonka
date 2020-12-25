@@ -13,56 +13,61 @@
 module Network.AWS.MigrationHub.Types.MigrationStatus
   ( MigrationStatus
       ( MigrationStatus',
-        NotStarted,
-        InProgress,
-        Failed,
-        Completed
+        MigrationStatusNotStarted,
+        MigrationStatusInProgress,
+        MigrationStatusFailed,
+        MigrationStatusCompleted,
+        fromMigrationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MigrationStatus = MigrationStatus' Lude.Text
+newtype MigrationStatus = MigrationStatus'
+  { fromMigrationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NotStarted :: MigrationStatus
-pattern NotStarted = MigrationStatus' "NOT_STARTED"
+pattern MigrationStatusNotStarted :: MigrationStatus
+pattern MigrationStatusNotStarted = MigrationStatus' "NOT_STARTED"
 
-pattern InProgress :: MigrationStatus
-pattern InProgress = MigrationStatus' "IN_PROGRESS"
+pattern MigrationStatusInProgress :: MigrationStatus
+pattern MigrationStatusInProgress = MigrationStatus' "IN_PROGRESS"
 
-pattern Failed :: MigrationStatus
-pattern Failed = MigrationStatus' "FAILED"
+pattern MigrationStatusFailed :: MigrationStatus
+pattern MigrationStatusFailed = MigrationStatus' "FAILED"
 
-pattern Completed :: MigrationStatus
-pattern Completed = MigrationStatus' "COMPLETED"
+pattern MigrationStatusCompleted :: MigrationStatus
+pattern MigrationStatusCompleted = MigrationStatus' "COMPLETED"
 
 {-# COMPLETE
-  NotStarted,
-  InProgress,
-  Failed,
-  Completed,
+  MigrationStatusNotStarted,
+  MigrationStatusInProgress,
+  MigrationStatusFailed,
+  MigrationStatusCompleted,
   MigrationStatus'
   #-}

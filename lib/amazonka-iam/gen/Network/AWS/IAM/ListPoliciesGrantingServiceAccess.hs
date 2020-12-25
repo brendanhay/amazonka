@@ -34,7 +34,7 @@ module Network.AWS.IAM.ListPoliciesGrantingServiceAccess
     mkListPoliciesGrantingServiceAccess,
 
     -- ** Request lenses
-    lpgsaARN,
+    lpgsaArn,
     lpgsaServiceNamespaces,
     lpgsaMarker,
 
@@ -43,168 +43,162 @@ module Network.AWS.IAM.ListPoliciesGrantingServiceAccess
     mkListPoliciesGrantingServiceAccessResponse,
 
     -- ** Response lenses
-    lpgsarsMarker,
-    lpgsarsIsTruncated,
-    lpgsarsPoliciesGrantingServiceAccess,
-    lpgsarsResponseStatus,
+    lpgsarrsPoliciesGrantingServiceAccess,
+    lpgsarrsIsTruncated,
+    lpgsarrsMarker,
+    lpgsarrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListPoliciesGrantingServiceAccess' smart constructor.
 data ListPoliciesGrantingServiceAccess = ListPoliciesGrantingServiceAccess'
   { -- | The ARN of the IAM identity (user, group, or role) whose policies you want to list.
-    arn :: Lude.Text,
+    arn :: Types.Arn,
     -- | The service namespace for the AWS services whose policies you want to list.
     --
     -- To learn the service namespace for a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
-    serviceNamespaces :: Lude.NonEmpty Lude.Text,
+    serviceNamespaces :: Core.NonEmpty Types.ServiceNamespaceType,
     -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-    marker :: Lude.Maybe Lude.Text
+    marker :: Core.Maybe Types.MarkerType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPoliciesGrantingServiceAccess' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the IAM identity (user, group, or role) whose policies you want to list.
--- * 'serviceNamespaces' - The service namespace for the AWS services whose policies you want to list.
---
--- To learn the service namespace for a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
--- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
+-- | Creates a 'ListPoliciesGrantingServiceAccess' value with any optional fields omitted.
 mkListPoliciesGrantingServiceAccess ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   -- | 'serviceNamespaces'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.ServiceNamespaceType ->
   ListPoliciesGrantingServiceAccess
-mkListPoliciesGrantingServiceAccess pARN_ pServiceNamespaces_ =
+mkListPoliciesGrantingServiceAccess arn serviceNamespaces =
   ListPoliciesGrantingServiceAccess'
-    { arn = pARN_,
-      serviceNamespaces = pServiceNamespaces_,
-      marker = Lude.Nothing
+    { arn,
+      serviceNamespaces,
+      marker = Core.Nothing
     }
 
 -- | The ARN of the IAM identity (user, group, or role) whose policies you want to list.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgsaARN :: Lens.Lens' ListPoliciesGrantingServiceAccess Lude.Text
-lpgsaARN = Lens.lens (arn :: ListPoliciesGrantingServiceAccess -> Lude.Text) (\s a -> s {arn = a} :: ListPoliciesGrantingServiceAccess)
-{-# DEPRECATED lpgsaARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+lpgsaArn :: Lens.Lens' ListPoliciesGrantingServiceAccess Types.Arn
+lpgsaArn = Lens.field @"arn"
+{-# DEPRECATED lpgsaArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The service namespace for the AWS services whose policies you want to list.
 --
 -- To learn the service namespace for a service, go to <https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html Actions, Resources, and Condition Keys for AWS Services> in the /IAM User Guide/ . Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, @(service prefix: a4b)@ . For more information about service namespaces, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces AWS Service Namespaces> in the /AWS General Reference/ .
 --
 -- /Note:/ Consider using 'serviceNamespaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgsaServiceNamespaces :: Lens.Lens' ListPoliciesGrantingServiceAccess (Lude.NonEmpty Lude.Text)
-lpgsaServiceNamespaces = Lens.lens (serviceNamespaces :: ListPoliciesGrantingServiceAccess -> Lude.NonEmpty Lude.Text) (\s a -> s {serviceNamespaces = a} :: ListPoliciesGrantingServiceAccess)
+lpgsaServiceNamespaces :: Lens.Lens' ListPoliciesGrantingServiceAccess (Core.NonEmpty Types.ServiceNamespaceType)
+lpgsaServiceNamespaces = Lens.field @"serviceNamespaces"
 {-# DEPRECATED lpgsaServiceNamespaces "Use generic-lens or generic-optics with 'serviceNamespaces' instead." #-}
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgsaMarker :: Lens.Lens' ListPoliciesGrantingServiceAccess (Lude.Maybe Lude.Text)
-lpgsaMarker = Lens.lens (marker :: ListPoliciesGrantingServiceAccess -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListPoliciesGrantingServiceAccess)
+lpgsaMarker :: Lens.Lens' ListPoliciesGrantingServiceAccess (Core.Maybe Types.MarkerType)
+lpgsaMarker = Lens.field @"marker"
 {-# DEPRECATED lpgsaMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest ListPoliciesGrantingServiceAccess where
+instance Core.AWSRequest ListPoliciesGrantingServiceAccess where
   type
     Rs ListPoliciesGrantingServiceAccess =
       ListPoliciesGrantingServiceAccessResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListPoliciesGrantingServiceAccess")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "Arn" arn)
+                Core.<> ( Core.toQueryValue
+                            "ServiceNamespaces"
+                            (Core.toQueryList "member" serviceNamespaces)
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListPoliciesGrantingServiceAccessResult"
       ( \s h x ->
           ListPoliciesGrantingServiceAccessResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> ( x Lude..@? "PoliciesGrantingServiceAccess" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "member"
+            Core.<$> ( x Core..@? "PoliciesGrantingServiceAccess" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListPoliciesGrantingServiceAccess where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListPoliciesGrantingServiceAccess where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListPoliciesGrantingServiceAccess where
-  toQuery ListPoliciesGrantingServiceAccess' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ListPoliciesGrantingServiceAccess" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "Arn" Lude.=: arn,
-        "ServiceNamespaces"
-          Lude.=: Lude.toQueryList "member" serviceNamespaces,
-        "Marker" Lude.=: marker
-      ]
 
 -- | /See:/ 'mkListPoliciesGrantingServiceAccessResponse' smart constructor.
 data ListPoliciesGrantingServiceAccessResponse = ListPoliciesGrantingServiceAccessResponse'
-  { -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | A @ListPoliciesGrantingServiceAccess@ object that contains details about the permissions policies attached to the specified identity (user, group, or role).
+    policiesGrantingServiceAccess :: [Types.ListPoliciesGrantingServiceAccessEntry],
     -- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
-    isTruncated :: Lude.Maybe Lude.Bool,
-    -- | A @ListPoliciesGrantingServiceAccess@ object that contains details about the permissions policies attached to the specified identity (user, group, or role).
-    policiesGrantingServiceAccess :: [ListPoliciesGrantingServiceAccessEntry],
+    isTruncated :: Core.Maybe Core.Bool,
+    -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+    marker :: Core.Maybe Types.ResponseMarkerType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPoliciesGrantingServiceAccessResponse' with the minimum fields required to make a request.
---
--- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
--- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
--- * 'policiesGrantingServiceAccess' - A @ListPoliciesGrantingServiceAccess@ object that contains details about the permissions policies attached to the specified identity (user, group, or role).
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListPoliciesGrantingServiceAccessResponse' value with any optional fields omitted.
 mkListPoliciesGrantingServiceAccessResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListPoliciesGrantingServiceAccessResponse
-mkListPoliciesGrantingServiceAccessResponse pResponseStatus_ =
+mkListPoliciesGrantingServiceAccessResponse responseStatus =
   ListPoliciesGrantingServiceAccessResponse'
-    { marker = Lude.Nothing,
-      isTruncated = Lude.Nothing,
-      policiesGrantingServiceAccess = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { policiesGrantingServiceAccess =
+        Core.mempty,
+      isTruncated = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
-
--- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgsarsMarker :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Lude.Maybe Lude.Text)
-lpgsarsMarker = Lens.lens (marker :: ListPoliciesGrantingServiceAccessResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListPoliciesGrantingServiceAccessResponse)
-{-# DEPRECATED lpgsarsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
---
--- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgsarsIsTruncated :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Lude.Maybe Lude.Bool)
-lpgsarsIsTruncated = Lens.lens (isTruncated :: ListPoliciesGrantingServiceAccessResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListPoliciesGrantingServiceAccessResponse)
-{-# DEPRECATED lpgsarsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
 -- | A @ListPoliciesGrantingServiceAccess@ object that contains details about the permissions policies attached to the specified identity (user, group, or role).
 --
 -- /Note:/ Consider using 'policiesGrantingServiceAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgsarsPoliciesGrantingServiceAccess :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse [ListPoliciesGrantingServiceAccessEntry]
-lpgsarsPoliciesGrantingServiceAccess = Lens.lens (policiesGrantingServiceAccess :: ListPoliciesGrantingServiceAccessResponse -> [ListPoliciesGrantingServiceAccessEntry]) (\s a -> s {policiesGrantingServiceAccess = a} :: ListPoliciesGrantingServiceAccessResponse)
-{-# DEPRECATED lpgsarsPoliciesGrantingServiceAccess "Use generic-lens or generic-optics with 'policiesGrantingServiceAccess' instead." #-}
+lpgsarrsPoliciesGrantingServiceAccess :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse [Types.ListPoliciesGrantingServiceAccessEntry]
+lpgsarrsPoliciesGrantingServiceAccess = Lens.field @"policiesGrantingServiceAccess"
+{-# DEPRECATED lpgsarrsPoliciesGrantingServiceAccess "Use generic-lens or generic-optics with 'policiesGrantingServiceAccess' instead." #-}
+
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the @Marker@ request parameter to retrieve more items. We recommend that you check @IsTruncated@ after every call to ensure that you receive all your results.
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpgsarrsIsTruncated :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Core.Maybe Core.Bool)
+lpgsarrsIsTruncated = Lens.field @"isTruncated"
+{-# DEPRECATED lpgsarrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+
+-- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpgsarrsMarker :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse (Core.Maybe Types.ResponseMarkerType)
+lpgsarrsMarker = Lens.field @"marker"
+{-# DEPRECATED lpgsarrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgsarsResponseStatus :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse Lude.Int
-lpgsarsResponseStatus = Lens.lens (responseStatus :: ListPoliciesGrantingServiceAccessResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPoliciesGrantingServiceAccessResponse)
-{-# DEPRECATED lpgsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lpgsarrsResponseStatus :: Lens.Lens' ListPoliciesGrantingServiceAccessResponse Core.Int
+lpgsarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lpgsarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

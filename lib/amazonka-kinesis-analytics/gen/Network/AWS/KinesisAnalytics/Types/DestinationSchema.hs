@@ -21,46 +21,43 @@ module Network.AWS.KinesisAnalytics.Types.DestinationSchema
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types.RecordFormatType
+import qualified Network.AWS.KinesisAnalytics.Types.RecordFormatType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the data format when records are written to the destination. For more information, see <https://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-output.html Configuring Application Output> .
 --
 -- /See:/ 'mkDestinationSchema' smart constructor.
 newtype DestinationSchema = DestinationSchema'
   { -- | Specifies the format of the records on the output stream.
-    recordFormatType :: RecordFormatType
+    recordFormatType :: Types.RecordFormatType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DestinationSchema' with the minimum fields required to make a request.
---
--- * 'recordFormatType' - Specifies the format of the records on the output stream.
+-- | Creates a 'DestinationSchema' value with any optional fields omitted.
 mkDestinationSchema ::
   -- | 'recordFormatType'
-  RecordFormatType ->
+  Types.RecordFormatType ->
   DestinationSchema
-mkDestinationSchema pRecordFormatType_ =
-  DestinationSchema' {recordFormatType = pRecordFormatType_}
+mkDestinationSchema recordFormatType =
+  DestinationSchema' {recordFormatType}
 
 -- | Specifies the format of the records on the output stream.
 --
 -- /Note:/ Consider using 'recordFormatType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsRecordFormatType :: Lens.Lens' DestinationSchema RecordFormatType
-dsRecordFormatType = Lens.lens (recordFormatType :: DestinationSchema -> RecordFormatType) (\s a -> s {recordFormatType = a} :: DestinationSchema)
+dsRecordFormatType :: Lens.Lens' DestinationSchema Types.RecordFormatType
+dsRecordFormatType = Lens.field @"recordFormatType"
 {-# DEPRECATED dsRecordFormatType "Use generic-lens or generic-optics with 'recordFormatType' instead." #-}
 
-instance Lude.FromJSON DestinationSchema where
-  parseJSON =
-    Lude.withObject
-      "DestinationSchema"
-      (\x -> DestinationSchema' Lude.<$> (x Lude..: "RecordFormatType"))
-
-instance Lude.ToJSON DestinationSchema where
-  toJSON DestinationSchema' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("RecordFormatType" Lude..= recordFormatType)]
+instance Core.FromJSON DestinationSchema where
+  toJSON DestinationSchema {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RecordFormatType" Core..= recordFormatType)]
       )
+
+instance Core.FromJSON DestinationSchema where
+  parseJSON =
+    Core.withObject "DestinationSchema" Core.$
+      \x -> DestinationSchema' Core.<$> (x Core..: "RecordFormatType")

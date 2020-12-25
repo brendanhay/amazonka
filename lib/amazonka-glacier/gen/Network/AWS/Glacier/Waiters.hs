@@ -20,33 +20,35 @@ module Network.AWS.Glacier.Waiters
 where
 
 import Network.AWS.Glacier.DescribeVault
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
-mkVaultNotExists :: Wait.Wait DescribeVault
+mkVaultNotExists :: Waiter.Wait DescribeVault
 mkVaultNotExists =
-  Wait.Wait
-    { Wait._waitName = "VaultNotExists",
-      Wait._waitAttempts = 15,
-      Wait._waitDelay = 3,
-      Wait._waitAcceptors =
-        [ Wait.matchStatus 200 Wait.AcceptRetry,
-          Wait.matchError "ResourceNotFoundException" Wait.AcceptSuccess
+  Waiter.Wait
+    { Waiter._waitName = "VaultNotExists",
+      Waiter._waitAttempts = 15,
+      Waiter._waitDelay = 3,
+      Waiter._waitAcceptors =
+        [ Waiter.matchStatus 200 Waiter.AcceptRetry,
+          Waiter.matchError
+            "ResourceNotFoundException"
+            Waiter.AcceptSuccess
         ]
     }
 
 -- | Polls 'Network.AWS.Glacier.DescribeVault' every 3 seconds until a successful state is reached. An error is returned after 15 failed checks.
-mkVaultExists :: Wait.Wait DescribeVault
+mkVaultExists :: Waiter.Wait DescribeVault
 mkVaultExists =
-  Wait.Wait
-    { Wait._waitName = "VaultExists",
-      Wait._waitAttempts = 15,
-      Wait._waitDelay = 3,
-      Wait._waitAcceptors =
-        [ Wait.matchStatus 200 Wait.AcceptSuccess,
-          Wait.matchError "ResourceNotFoundException" Wait.AcceptRetry
+  Waiter.Wait
+    { Waiter._waitName = "VaultExists",
+      Waiter._waitAttempts = 15,
+      Waiter._waitDelay = 3,
+      Waiter._waitAcceptors =
+        [ Waiter.matchStatus 200 Waiter.AcceptSuccess,
+          Waiter.matchError "ResourceNotFoundException" Waiter.AcceptRetry
         ]
     }

@@ -28,105 +28,98 @@ module Network.AWS.CloudFront.ListPublicKeys
     mkListPublicKeysResponse,
 
     -- ** Response lenses
-    lpkrsPublicKeyList,
-    lpkrsResponseStatus,
+    lpkrrsPublicKeyList,
+    lpkrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListPublicKeys' smart constructor.
 data ListPublicKeys = ListPublicKeys'
   { -- | Use this when paginating results to indicate where to begin in your list of public keys. The results include public keys in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last public key on that page).
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of public keys you want in the response body.
-    maxItems :: Lude.Maybe Lude.Text
+    maxItems :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPublicKeys' with the minimum fields required to make a request.
---
--- * 'marker' - Use this when paginating results to indicate where to begin in your list of public keys. The results include public keys in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last public key on that page).
--- * 'maxItems' - The maximum number of public keys you want in the response body.
+-- | Creates a 'ListPublicKeys' value with any optional fields omitted.
 mkListPublicKeys ::
   ListPublicKeys
 mkListPublicKeys =
-  ListPublicKeys' {marker = Lude.Nothing, maxItems = Lude.Nothing}
+  ListPublicKeys' {marker = Core.Nothing, maxItems = Core.Nothing}
 
 -- | Use this when paginating results to indicate where to begin in your list of public keys. The results include public keys in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last public key on that page).
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpkMarker :: Lens.Lens' ListPublicKeys (Lude.Maybe Lude.Text)
-lpkMarker = Lens.lens (marker :: ListPublicKeys -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListPublicKeys)
+lpkMarker :: Lens.Lens' ListPublicKeys (Core.Maybe Types.String)
+lpkMarker = Lens.field @"marker"
 {-# DEPRECATED lpkMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of public keys you want in the response body.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpkMaxItems :: Lens.Lens' ListPublicKeys (Lude.Maybe Lude.Text)
-lpkMaxItems = Lens.lens (maxItems :: ListPublicKeys -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListPublicKeys)
+lpkMaxItems :: Lens.Lens' ListPublicKeys (Core.Maybe Types.String)
+lpkMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED lpkMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Lude.AWSRequest ListPublicKeys where
+instance Core.AWSRequest ListPublicKeys where
   type Rs ListPublicKeys = ListPublicKeysResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2020-05-31/public-key",
+        Core._rqQuery =
+          Core.toQueryValue "Marker" Core.<$> marker
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListPublicKeysResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListPublicKeys where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListPublicKeys where
-  toPath = Lude.const "/2020-05-31/public-key"
-
-instance Lude.ToQuery ListPublicKeys where
-  toQuery ListPublicKeys' {..} =
-    Lude.mconcat
-      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
 -- | /See:/ 'mkListPublicKeysResponse' smart constructor.
 data ListPublicKeysResponse = ListPublicKeysResponse'
   { -- | Returns a list of all public keys that have been added to CloudFront for this account.
-    publicKeyList :: Lude.Maybe PublicKeyList,
+    publicKeyList :: Core.Maybe Types.PublicKeyList,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListPublicKeysResponse' with the minimum fields required to make a request.
---
--- * 'publicKeyList' - Returns a list of all public keys that have been added to CloudFront for this account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListPublicKeysResponse' value with any optional fields omitted.
 mkListPublicKeysResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListPublicKeysResponse
-mkListPublicKeysResponse pResponseStatus_ =
+mkListPublicKeysResponse responseStatus =
   ListPublicKeysResponse'
-    { publicKeyList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { publicKeyList = Core.Nothing,
+      responseStatus
     }
 
 -- | Returns a list of all public keys that have been added to CloudFront for this account.
 --
 -- /Note:/ Consider using 'publicKeyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpkrsPublicKeyList :: Lens.Lens' ListPublicKeysResponse (Lude.Maybe PublicKeyList)
-lpkrsPublicKeyList = Lens.lens (publicKeyList :: ListPublicKeysResponse -> Lude.Maybe PublicKeyList) (\s a -> s {publicKeyList = a} :: ListPublicKeysResponse)
-{-# DEPRECATED lpkrsPublicKeyList "Use generic-lens or generic-optics with 'publicKeyList' instead." #-}
+lpkrrsPublicKeyList :: Lens.Lens' ListPublicKeysResponse (Core.Maybe Types.PublicKeyList)
+lpkrrsPublicKeyList = Lens.field @"publicKeyList"
+{-# DEPRECATED lpkrrsPublicKeyList "Use generic-lens or generic-optics with 'publicKeyList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpkrsResponseStatus :: Lens.Lens' ListPublicKeysResponse Lude.Int
-lpkrsResponseStatus = Lens.lens (responseStatus :: ListPublicKeysResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPublicKeysResponse)
-{-# DEPRECATED lpkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lpkrrsResponseStatus :: Lens.Lens' ListPublicKeysResponse Core.Int
+lpkrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lpkrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

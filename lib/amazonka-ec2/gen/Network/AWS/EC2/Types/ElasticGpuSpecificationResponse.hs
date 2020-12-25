@@ -17,38 +17,37 @@ module Network.AWS.EC2.Types.ElasticGpuSpecificationResponse
     mkElasticGpuSpecificationResponse,
 
     -- * Lenses
-    eType,
+    egsrType,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an elastic GPU.
 --
 -- /See:/ 'mkElasticGpuSpecificationResponse' smart constructor.
 newtype ElasticGpuSpecificationResponse = ElasticGpuSpecificationResponse'
   { -- | The elastic GPU type.
-    type' :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElasticGpuSpecificationResponse' with the minimum fields required to make a request.
---
--- * 'type'' - The elastic GPU type.
+-- | Creates a 'ElasticGpuSpecificationResponse' value with any optional fields omitted.
 mkElasticGpuSpecificationResponse ::
   ElasticGpuSpecificationResponse
 mkElasticGpuSpecificationResponse =
-  ElasticGpuSpecificationResponse' {type' = Lude.Nothing}
+  ElasticGpuSpecificationResponse' {type' = Core.Nothing}
 
 -- | The elastic GPU type.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eType :: Lens.Lens' ElasticGpuSpecificationResponse (Lude.Maybe Lude.Text)
-eType = Lens.lens (type' :: ElasticGpuSpecificationResponse -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ElasticGpuSpecificationResponse)
-{-# DEPRECATED eType "Use generic-lens or generic-optics with 'type'' instead." #-}
+egsrType :: Lens.Lens' ElasticGpuSpecificationResponse (Core.Maybe Types.String)
+egsrType = Lens.field @"type'"
+{-# DEPRECATED egsrType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromXML ElasticGpuSpecificationResponse where
+instance Core.FromXML ElasticGpuSpecificationResponse where
   parseXML x =
-    ElasticGpuSpecificationResponse' Lude.<$> (x Lude..@? "type")
+    ElasticGpuSpecificationResponse' Core.<$> (x Core..@? "type")

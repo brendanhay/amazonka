@@ -18,72 +18,67 @@ module Network.AWS.IoT.Types.NonCompliantResource
 
     -- * Lenses
     ncrAdditionalInfo,
-    ncrResourceType,
     ncrResourceIdentifier,
+    ncrResourceType,
   )
 where
 
-import Network.AWS.IoT.Types.ResourceIdentifier
-import Network.AWS.IoT.Types.ResourceType
+import qualified Network.AWS.IoT.Types.ResourceIdentifier as Types
+import qualified Network.AWS.IoT.Types.ResourceType as Types
+import qualified Network.AWS.IoT.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the resource that was noncompliant with the audit check.
 --
 -- /See:/ 'mkNonCompliantResource' smart constructor.
 data NonCompliantResource = NonCompliantResource'
   { -- | Other information about the noncompliant resource.
-    additionalInfo :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The type of the noncompliant resource.
-    resourceType :: Lude.Maybe ResourceType,
+    additionalInfo :: Core.Maybe (Core.HashMap Types.String Types.String),
     -- | Information that identifies the noncompliant resource.
-    resourceIdentifier :: Lude.Maybe ResourceIdentifier
+    resourceIdentifier :: Core.Maybe Types.ResourceIdentifier,
+    -- | The type of the noncompliant resource.
+    resourceType :: Core.Maybe Types.ResourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NonCompliantResource' with the minimum fields required to make a request.
---
--- * 'additionalInfo' - Other information about the noncompliant resource.
--- * 'resourceType' - The type of the noncompliant resource.
--- * 'resourceIdentifier' - Information that identifies the noncompliant resource.
+-- | Creates a 'NonCompliantResource' value with any optional fields omitted.
 mkNonCompliantResource ::
   NonCompliantResource
 mkNonCompliantResource =
   NonCompliantResource'
-    { additionalInfo = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      resourceIdentifier = Lude.Nothing
+    { additionalInfo = Core.Nothing,
+      resourceIdentifier = Core.Nothing,
+      resourceType = Core.Nothing
     }
 
 -- | Other information about the noncompliant resource.
 --
 -- /Note:/ Consider using 'additionalInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncrAdditionalInfo :: Lens.Lens' NonCompliantResource (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ncrAdditionalInfo = Lens.lens (additionalInfo :: NonCompliantResource -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {additionalInfo = a} :: NonCompliantResource)
+ncrAdditionalInfo :: Lens.Lens' NonCompliantResource (Core.Maybe (Core.HashMap Types.String Types.String))
+ncrAdditionalInfo = Lens.field @"additionalInfo"
 {-# DEPRECATED ncrAdditionalInfo "Use generic-lens or generic-optics with 'additionalInfo' instead." #-}
-
--- | The type of the noncompliant resource.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncrResourceType :: Lens.Lens' NonCompliantResource (Lude.Maybe ResourceType)
-ncrResourceType = Lens.lens (resourceType :: NonCompliantResource -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: NonCompliantResource)
-{-# DEPRECATED ncrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Information that identifies the noncompliant resource.
 --
 -- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncrResourceIdentifier :: Lens.Lens' NonCompliantResource (Lude.Maybe ResourceIdentifier)
-ncrResourceIdentifier = Lens.lens (resourceIdentifier :: NonCompliantResource -> Lude.Maybe ResourceIdentifier) (\s a -> s {resourceIdentifier = a} :: NonCompliantResource)
+ncrResourceIdentifier :: Lens.Lens' NonCompliantResource (Core.Maybe Types.ResourceIdentifier)
+ncrResourceIdentifier = Lens.field @"resourceIdentifier"
 {-# DEPRECATED ncrResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
-instance Lude.FromJSON NonCompliantResource where
+-- | The type of the noncompliant resource.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncrResourceType :: Lens.Lens' NonCompliantResource (Core.Maybe Types.ResourceType)
+ncrResourceType = Lens.field @"resourceType"
+{-# DEPRECATED ncrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+instance Core.FromJSON NonCompliantResource where
   parseJSON =
-    Lude.withObject
-      "NonCompliantResource"
-      ( \x ->
-          NonCompliantResource'
-            Lude.<$> (x Lude..:? "additionalInfo" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "resourceType")
-            Lude.<*> (x Lude..:? "resourceIdentifier")
-      )
+    Core.withObject "NonCompliantResource" Core.$
+      \x ->
+        NonCompliantResource'
+          Core.<$> (x Core..:? "additionalInfo")
+          Core.<*> (x Core..:? "resourceIdentifier")
+          Core.<*> (x Core..:? "resourceType")

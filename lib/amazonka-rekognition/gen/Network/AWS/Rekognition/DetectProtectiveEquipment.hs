@@ -47,166 +47,149 @@ module Network.AWS.Rekognition.DetectProtectiveEquipment
     mkDetectProtectiveEquipment,
 
     -- ** Request lenses
-    dpeSummarizationAttributes,
     dpeImage,
+    dpeSummarizationAttributes,
 
     -- * Destructuring the response
     DetectProtectiveEquipmentResponse (..),
     mkDetectProtectiveEquipmentResponse,
 
     -- ** Response lenses
-    dpersSummary,
-    dpersProtectiveEquipmentModelVersion,
-    dpersPersons,
-    dpersResponseStatus,
+    dperrsPersons,
+    dperrsProtectiveEquipmentModelVersion,
+    dperrsSummary,
+    dperrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetectProtectiveEquipment' smart constructor.
 data DetectProtectiveEquipment = DetectProtectiveEquipment'
-  { -- | An array of PPE types that you want to summarize.
-    summarizationAttributes :: Lude.Maybe ProtectiveEquipmentSummarizationAttributes,
-    -- | The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can reference an image stored in an Amazon S3 bucket.
-    image :: Image
+  { -- | The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can reference an image stored in an Amazon S3 bucket.
+    image :: Types.Image,
+    -- | An array of PPE types that you want to summarize.
+    summarizationAttributes :: Core.Maybe Types.ProtectiveEquipmentSummarizationAttributes
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectProtectiveEquipment' with the minimum fields required to make a request.
---
--- * 'summarizationAttributes' - An array of PPE types that you want to summarize.
--- * 'image' - The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can reference an image stored in an Amazon S3 bucket.
+-- | Creates a 'DetectProtectiveEquipment' value with any optional fields omitted.
 mkDetectProtectiveEquipment ::
   -- | 'image'
-  Image ->
+  Types.Image ->
   DetectProtectiveEquipment
-mkDetectProtectiveEquipment pImage_ =
+mkDetectProtectiveEquipment image =
   DetectProtectiveEquipment'
-    { summarizationAttributes =
-        Lude.Nothing,
-      image = pImage_
+    { image,
+      summarizationAttributes = Core.Nothing
     }
-
--- | An array of PPE types that you want to summarize.
---
--- /Note:/ Consider using 'summarizationAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpeSummarizationAttributes :: Lens.Lens' DetectProtectiveEquipment (Lude.Maybe ProtectiveEquipmentSummarizationAttributes)
-dpeSummarizationAttributes = Lens.lens (summarizationAttributes :: DetectProtectiveEquipment -> Lude.Maybe ProtectiveEquipmentSummarizationAttributes) (\s a -> s {summarizationAttributes = a} :: DetectProtectiveEquipment)
-{-# DEPRECATED dpeSummarizationAttributes "Use generic-lens or generic-optics with 'summarizationAttributes' instead." #-}
 
 -- | The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can reference an image stored in an Amazon S3 bucket.
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpeImage :: Lens.Lens' DetectProtectiveEquipment Image
-dpeImage = Lens.lens (image :: DetectProtectiveEquipment -> Image) (\s a -> s {image = a} :: DetectProtectiveEquipment)
+dpeImage :: Lens.Lens' DetectProtectiveEquipment Types.Image
+dpeImage = Lens.field @"image"
 {-# DEPRECATED dpeImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
-instance Lude.AWSRequest DetectProtectiveEquipment where
+-- | An array of PPE types that you want to summarize.
+--
+-- /Note:/ Consider using 'summarizationAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpeSummarizationAttributes :: Lens.Lens' DetectProtectiveEquipment (Core.Maybe Types.ProtectiveEquipmentSummarizationAttributes)
+dpeSummarizationAttributes = Lens.field @"summarizationAttributes"
+{-# DEPRECATED dpeSummarizationAttributes "Use generic-lens or generic-optics with 'summarizationAttributes' instead." #-}
+
+instance Core.FromJSON DetectProtectiveEquipment where
+  toJSON DetectProtectiveEquipment {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Image" Core..= image),
+            ("SummarizationAttributes" Core..=)
+              Core.<$> summarizationAttributes
+          ]
+      )
+
+instance Core.AWSRequest DetectProtectiveEquipment where
   type
     Rs DetectProtectiveEquipment =
       DetectProtectiveEquipmentResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "RekognitionService.DetectProtectiveEquipment")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DetectProtectiveEquipmentResponse'
-            Lude.<$> (x Lude..?> "Summary")
-            Lude.<*> (x Lude..?> "ProtectiveEquipmentModelVersion")
-            Lude.<*> (x Lude..?> "Persons" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Persons")
+            Core.<*> (x Core..:? "ProtectiveEquipmentModelVersion")
+            Core.<*> (x Core..:? "Summary")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetectProtectiveEquipment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "RekognitionService.DetectProtectiveEquipment" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DetectProtectiveEquipment where
-  toJSON DetectProtectiveEquipment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SummarizationAttributes" Lude..=)
-              Lude.<$> summarizationAttributes,
-            Lude.Just ("Image" Lude..= image)
-          ]
-      )
-
-instance Lude.ToPath DetectProtectiveEquipment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetectProtectiveEquipment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDetectProtectiveEquipmentResponse' smart constructor.
 data DetectProtectiveEquipmentResponse = DetectProtectiveEquipmentResponse'
-  { -- | Summary information for the types of PPE specified in the @SummarizationAttributes@ input parameter.
-    summary :: Lude.Maybe ProtectiveEquipmentSummary,
+  { -- | An array of persons detected in the image (including persons not wearing PPE).
+    persons :: Core.Maybe [Types.ProtectiveEquipmentPerson],
     -- | The version number of the PPE detection model used to detect PPE in the image.
-    protectiveEquipmentModelVersion :: Lude.Maybe Lude.Text,
-    -- | An array of persons detected in the image (including persons not wearing PPE).
-    persons :: Lude.Maybe [ProtectiveEquipmentPerson],
+    protectiveEquipmentModelVersion :: Core.Maybe Types.ProtectiveEquipmentModelVersion,
+    -- | Summary information for the types of PPE specified in the @SummarizationAttributes@ input parameter.
+    summary :: Core.Maybe Types.ProtectiveEquipmentSummary,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectProtectiveEquipmentResponse' with the minimum fields required to make a request.
---
--- * 'summary' - Summary information for the types of PPE specified in the @SummarizationAttributes@ input parameter.
--- * 'protectiveEquipmentModelVersion' - The version number of the PPE detection model used to detect PPE in the image.
--- * 'persons' - An array of persons detected in the image (including persons not wearing PPE).
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetectProtectiveEquipmentResponse' value with any optional fields omitted.
 mkDetectProtectiveEquipmentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetectProtectiveEquipmentResponse
-mkDetectProtectiveEquipmentResponse pResponseStatus_ =
+mkDetectProtectiveEquipmentResponse responseStatus =
   DetectProtectiveEquipmentResponse'
-    { summary = Lude.Nothing,
-      protectiveEquipmentModelVersion = Lude.Nothing,
-      persons = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { persons = Core.Nothing,
+      protectiveEquipmentModelVersion = Core.Nothing,
+      summary = Core.Nothing,
+      responseStatus
     }
-
--- | Summary information for the types of PPE specified in the @SummarizationAttributes@ input parameter.
---
--- /Note:/ Consider using 'summary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpersSummary :: Lens.Lens' DetectProtectiveEquipmentResponse (Lude.Maybe ProtectiveEquipmentSummary)
-dpersSummary = Lens.lens (summary :: DetectProtectiveEquipmentResponse -> Lude.Maybe ProtectiveEquipmentSummary) (\s a -> s {summary = a} :: DetectProtectiveEquipmentResponse)
-{-# DEPRECATED dpersSummary "Use generic-lens or generic-optics with 'summary' instead." #-}
-
--- | The version number of the PPE detection model used to detect PPE in the image.
---
--- /Note:/ Consider using 'protectiveEquipmentModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpersProtectiveEquipmentModelVersion :: Lens.Lens' DetectProtectiveEquipmentResponse (Lude.Maybe Lude.Text)
-dpersProtectiveEquipmentModelVersion = Lens.lens (protectiveEquipmentModelVersion :: DetectProtectiveEquipmentResponse -> Lude.Maybe Lude.Text) (\s a -> s {protectiveEquipmentModelVersion = a} :: DetectProtectiveEquipmentResponse)
-{-# DEPRECATED dpersProtectiveEquipmentModelVersion "Use generic-lens or generic-optics with 'protectiveEquipmentModelVersion' instead." #-}
 
 -- | An array of persons detected in the image (including persons not wearing PPE).
 --
 -- /Note:/ Consider using 'persons' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpersPersons :: Lens.Lens' DetectProtectiveEquipmentResponse (Lude.Maybe [ProtectiveEquipmentPerson])
-dpersPersons = Lens.lens (persons :: DetectProtectiveEquipmentResponse -> Lude.Maybe [ProtectiveEquipmentPerson]) (\s a -> s {persons = a} :: DetectProtectiveEquipmentResponse)
-{-# DEPRECATED dpersPersons "Use generic-lens or generic-optics with 'persons' instead." #-}
+dperrsPersons :: Lens.Lens' DetectProtectiveEquipmentResponse (Core.Maybe [Types.ProtectiveEquipmentPerson])
+dperrsPersons = Lens.field @"persons"
+{-# DEPRECATED dperrsPersons "Use generic-lens or generic-optics with 'persons' instead." #-}
+
+-- | The version number of the PPE detection model used to detect PPE in the image.
+--
+-- /Note:/ Consider using 'protectiveEquipmentModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dperrsProtectiveEquipmentModelVersion :: Lens.Lens' DetectProtectiveEquipmentResponse (Core.Maybe Types.ProtectiveEquipmentModelVersion)
+dperrsProtectiveEquipmentModelVersion = Lens.field @"protectiveEquipmentModelVersion"
+{-# DEPRECATED dperrsProtectiveEquipmentModelVersion "Use generic-lens or generic-optics with 'protectiveEquipmentModelVersion' instead." #-}
+
+-- | Summary information for the types of PPE specified in the @SummarizationAttributes@ input parameter.
+--
+-- /Note:/ Consider using 'summary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dperrsSummary :: Lens.Lens' DetectProtectiveEquipmentResponse (Core.Maybe Types.ProtectiveEquipmentSummary)
+dperrsSummary = Lens.field @"summary"
+{-# DEPRECATED dperrsSummary "Use generic-lens or generic-optics with 'summary' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpersResponseStatus :: Lens.Lens' DetectProtectiveEquipmentResponse Lude.Int
-dpersResponseStatus = Lens.lens (responseStatus :: DetectProtectiveEquipmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectProtectiveEquipmentResponse)
-{-# DEPRECATED dpersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dperrsResponseStatus :: Lens.Lens' DetectProtectiveEquipmentResponse Core.Int
+dperrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dperrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

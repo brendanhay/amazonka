@@ -17,69 +17,65 @@ module Network.AWS.EC2.Types.InstanceStatusDetails
     mkInstanceStatusDetails,
 
     -- * Lenses
-    isdStatus,
     isdImpairedSince,
     isdName,
+    isdStatus,
   )
 where
 
-import Network.AWS.EC2.Types.StatusName
-import Network.AWS.EC2.Types.StatusType
+import qualified Network.AWS.EC2.Types.StatusName as Types
+import qualified Network.AWS.EC2.Types.StatusType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the instance status.
 --
 -- /See:/ 'mkInstanceStatusDetails' smart constructor.
 data InstanceStatusDetails = InstanceStatusDetails'
-  { -- | The status.
-    status :: Lude.Maybe StatusType,
-    -- | The time when a status check failed. For an instance that was launched and impaired, this is the time when the instance was launched.
-    impairedSince :: Lude.Maybe Lude.DateTime,
+  { -- | The time when a status check failed. For an instance that was launched and impaired, this is the time when the instance was launched.
+    impairedSince :: Core.Maybe Core.UTCTime,
     -- | The type of instance status.
-    name :: Lude.Maybe StatusName
+    name :: Core.Maybe Types.StatusName,
+    -- | The status.
+    status :: Core.Maybe Types.StatusType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceStatusDetails' with the minimum fields required to make a request.
---
--- * 'status' - The status.
--- * 'impairedSince' - The time when a status check failed. For an instance that was launched and impaired, this is the time when the instance was launched.
--- * 'name' - The type of instance status.
+-- | Creates a 'InstanceStatusDetails' value with any optional fields omitted.
 mkInstanceStatusDetails ::
   InstanceStatusDetails
 mkInstanceStatusDetails =
   InstanceStatusDetails'
-    { status = Lude.Nothing,
-      impairedSince = Lude.Nothing,
-      name = Lude.Nothing
+    { impairedSince = Core.Nothing,
+      name = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isdStatus :: Lens.Lens' InstanceStatusDetails (Lude.Maybe StatusType)
-isdStatus = Lens.lens (status :: InstanceStatusDetails -> Lude.Maybe StatusType) (\s a -> s {status = a} :: InstanceStatusDetails)
-{-# DEPRECATED isdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The time when a status check failed. For an instance that was launched and impaired, this is the time when the instance was launched.
 --
 -- /Note:/ Consider using 'impairedSince' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isdImpairedSince :: Lens.Lens' InstanceStatusDetails (Lude.Maybe Lude.DateTime)
-isdImpairedSince = Lens.lens (impairedSince :: InstanceStatusDetails -> Lude.Maybe Lude.DateTime) (\s a -> s {impairedSince = a} :: InstanceStatusDetails)
+isdImpairedSince :: Lens.Lens' InstanceStatusDetails (Core.Maybe Core.UTCTime)
+isdImpairedSince = Lens.field @"impairedSince"
 {-# DEPRECATED isdImpairedSince "Use generic-lens or generic-optics with 'impairedSince' instead." #-}
 
 -- | The type of instance status.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isdName :: Lens.Lens' InstanceStatusDetails (Lude.Maybe StatusName)
-isdName = Lens.lens (name :: InstanceStatusDetails -> Lude.Maybe StatusName) (\s a -> s {name = a} :: InstanceStatusDetails)
+isdName :: Lens.Lens' InstanceStatusDetails (Core.Maybe Types.StatusName)
+isdName = Lens.field @"name"
 {-# DEPRECATED isdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML InstanceStatusDetails where
+-- | The status.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isdStatus :: Lens.Lens' InstanceStatusDetails (Core.Maybe Types.StatusType)
+isdStatus = Lens.field @"status"
+{-# DEPRECATED isdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML InstanceStatusDetails where
   parseXML x =
     InstanceStatusDetails'
-      Lude.<$> (x Lude..@? "status")
-      Lude.<*> (x Lude..@? "impairedSince")
-      Lude.<*> (x Lude..@? "name")
+      Core.<$> (x Core..@? "impairedSince")
+      Core.<*> (x Core..@? "name")
+      Core.<*> (x Core..@? "status")

@@ -23,7 +23,9 @@ module Network.AWS.SWF.Types.RecordMarkerDecisionAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Data as Types
+import qualified Network.AWS.SWF.Types.MarkerName as Types
 
 -- | Provides the details of the @RecordMarker@ decision.
 --
@@ -44,46 +46,43 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkRecordMarkerDecisionAttributes' smart constructor.
 data RecordMarkerDecisionAttributes = RecordMarkerDecisionAttributes'
   { -- | The name of the marker.
-    markerName :: Lude.Text,
+    markerName :: Types.MarkerName,
     -- | The details of the marker.
-    details :: Lude.Maybe Lude.Text
+    details :: Core.Maybe Types.Data
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RecordMarkerDecisionAttributes' with the minimum fields required to make a request.
---
--- * 'markerName' - The name of the marker.
--- * 'details' - The details of the marker.
+-- | Creates a 'RecordMarkerDecisionAttributes' value with any optional fields omitted.
 mkRecordMarkerDecisionAttributes ::
   -- | 'markerName'
-  Lude.Text ->
+  Types.MarkerName ->
   RecordMarkerDecisionAttributes
-mkRecordMarkerDecisionAttributes pMarkerName_ =
+mkRecordMarkerDecisionAttributes markerName =
   RecordMarkerDecisionAttributes'
-    { markerName = pMarkerName_,
-      details = Lude.Nothing
+    { markerName,
+      details = Core.Nothing
     }
 
 -- | The name of the marker.
 --
 -- /Note:/ Consider using 'markerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmdaMarkerName :: Lens.Lens' RecordMarkerDecisionAttributes Lude.Text
-rmdaMarkerName = Lens.lens (markerName :: RecordMarkerDecisionAttributes -> Lude.Text) (\s a -> s {markerName = a} :: RecordMarkerDecisionAttributes)
+rmdaMarkerName :: Lens.Lens' RecordMarkerDecisionAttributes Types.MarkerName
+rmdaMarkerName = Lens.field @"markerName"
 {-# DEPRECATED rmdaMarkerName "Use generic-lens or generic-optics with 'markerName' instead." #-}
 
 -- | The details of the marker.
 --
 -- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmdaDetails :: Lens.Lens' RecordMarkerDecisionAttributes (Lude.Maybe Lude.Text)
-rmdaDetails = Lens.lens (details :: RecordMarkerDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: RecordMarkerDecisionAttributes)
+rmdaDetails :: Lens.Lens' RecordMarkerDecisionAttributes (Core.Maybe Types.Data)
+rmdaDetails = Lens.field @"details"
 {-# DEPRECATED rmdaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
-instance Lude.ToJSON RecordMarkerDecisionAttributes where
-  toJSON RecordMarkerDecisionAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("markerName" Lude..= markerName),
-            ("details" Lude..=) Lude.<$> details
+instance Core.FromJSON RecordMarkerDecisionAttributes where
+  toJSON RecordMarkerDecisionAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("markerName" Core..= markerName),
+            ("details" Core..=) Core.<$> details
           ]
       )

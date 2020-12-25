@@ -20,177 +20,162 @@ module Network.AWS.MQ.ListUsers
     mkListUsers,
 
     -- ** Request lenses
-    luNextToken,
     luBrokerId,
     luMaxResults,
+    luNextToken,
 
     -- * Destructuring the response
     ListUsersResponse (..),
     mkListUsersResponse,
 
     -- ** Response lenses
-    lursUsers,
-    lursNextToken,
-    lursBrokerId,
-    lursMaxResults,
-    lursResponseStatus,
+    lurrsBrokerId,
+    lurrsMaxResults,
+    lurrsNextToken,
+    lurrsUsers,
+    lurrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MQ.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListUsers' smart constructor.
 data ListUsers = ListUsers'
-  { -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Lude.Text,
+  { -- | The unique ID that Amazon MQ generates for the broker.
+    brokerId :: Core.Text,
     -- | The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListUsers' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
--- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
--- * 'maxResults' - The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+-- | Creates a 'ListUsers' value with any optional fields omitted.
 mkListUsers ::
   -- | 'brokerId'
-  Lude.Text ->
+  Core.Text ->
   ListUsers
-mkListUsers pBrokerId_ =
+mkListUsers brokerId =
   ListUsers'
-    { nextToken = Lude.Nothing,
-      brokerId = pBrokerId_,
-      maxResults = Lude.Nothing
+    { brokerId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luNextToken :: Lens.Lens' ListUsers (Lude.Maybe Lude.Text)
-luNextToken = Lens.lens (nextToken :: ListUsers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUsers)
-{-# DEPRECATED luNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The unique ID that Amazon MQ generates for the broker.
 --
 -- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luBrokerId :: Lens.Lens' ListUsers Lude.Text
-luBrokerId = Lens.lens (brokerId :: ListUsers -> Lude.Text) (\s a -> s {brokerId = a} :: ListUsers)
+luBrokerId :: Lens.Lens' ListUsers Core.Text
+luBrokerId = Lens.field @"brokerId"
 {-# DEPRECATED luBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
 -- | The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-luMaxResults :: Lens.Lens' ListUsers (Lude.Maybe Lude.Natural)
-luMaxResults = Lens.lens (maxResults :: ListUsers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListUsers)
+luMaxResults :: Lens.Lens' ListUsers (Core.Maybe Core.Natural)
+luMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED luMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Lude.AWSRequest ListUsers where
-  type Rs ListUsers = ListUsersResponse
-  request = Req.get mqService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListUsersResponse'
-            Lude.<$> (x Lude..?> "users" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "brokerId")
-            Lude.<*> (x Lude..?> "maxResults")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListUsers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListUsers where
-  toPath ListUsers' {..} =
-    Lude.mconcat ["/v1/brokers/", Lude.toBS brokerId, "/users"]
-
-instance Lude.ToQuery ListUsers where
-  toQuery ListUsers' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
-
--- | /See:/ 'mkListUsersResponse' smart constructor.
-data ListUsersResponse = ListUsersResponse'
-  { -- | Required. The list of all ActiveMQ usernames for the specified broker.
-    users :: Lude.Maybe [UserSummary],
-    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Required. The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Lude.Maybe Lude.Text,
-    -- | Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
-    maxResults :: Lude.Maybe Lude.Natural,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListUsersResponse' with the minimum fields required to make a request.
---
--- * 'users' - Required. The list of all ActiveMQ usernames for the specified broker.
--- * 'nextToken' - The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
--- * 'brokerId' - Required. The unique ID that Amazon MQ generates for the broker.
--- * 'maxResults' - Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
--- * 'responseStatus' - The response status code.
-mkListUsersResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListUsersResponse
-mkListUsersResponse pResponseStatus_ =
-  ListUsersResponse'
-    { users = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      brokerId = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
-
--- | Required. The list of all ActiveMQ usernames for the specified broker.
---
--- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lursUsers :: Lens.Lens' ListUsersResponse (Lude.Maybe [UserSummary])
-lursUsers = Lens.lens (users :: ListUsersResponse -> Lude.Maybe [UserSummary]) (\s a -> s {users = a} :: ListUsersResponse)
-{-# DEPRECATED lursUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lursNextToken :: Lens.Lens' ListUsersResponse (Lude.Maybe Lude.Text)
-lursNextToken = Lens.lens (nextToken :: ListUsersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListUsersResponse)
-{-# DEPRECATED lursNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+luNextToken :: Lens.Lens' ListUsers (Core.Maybe Core.Text)
+luNextToken = Lens.field @"nextToken"
+{-# DEPRECATED luNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest ListUsers where
+  type Rs ListUsers = ListUsersResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/v1/brokers/" Core.<> (Core.toText brokerId) Core.<> ("/users")),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListUsersResponse'
+            Core.<$> (x Core..:? "brokerId")
+            Core.<*> (x Core..:? "maxResults")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "users")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+-- | /See:/ 'mkListUsersResponse' smart constructor.
+data ListUsersResponse = ListUsersResponse'
+  { -- | Required. The unique ID that Amazon MQ generates for the broker.
+    brokerId :: Core.Maybe Core.Text,
+    -- | Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+    nextToken :: Core.Maybe Core.Text,
+    -- | Required. The list of all ActiveMQ usernames for the specified broker.
+    users :: Core.Maybe [Types.UserSummary],
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'ListUsersResponse' value with any optional fields omitted.
+mkListUsersResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListUsersResponse
+mkListUsersResponse responseStatus =
+  ListUsersResponse'
+    { brokerId = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      users = Core.Nothing,
+      responseStatus
+    }
 
 -- | Required. The unique ID that Amazon MQ generates for the broker.
 --
 -- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lursBrokerId :: Lens.Lens' ListUsersResponse (Lude.Maybe Lude.Text)
-lursBrokerId = Lens.lens (brokerId :: ListUsersResponse -> Lude.Maybe Lude.Text) (\s a -> s {brokerId = a} :: ListUsersResponse)
-{-# DEPRECATED lursBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
+lurrsBrokerId :: Lens.Lens' ListUsersResponse (Core.Maybe Core.Text)
+lurrsBrokerId = Lens.field @"brokerId"
+{-# DEPRECATED lurrsBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
 -- | Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lursMaxResults :: Lens.Lens' ListUsersResponse (Lude.Maybe Lude.Natural)
-lursMaxResults = Lens.lens (maxResults :: ListUsersResponse -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListUsersResponse)
-{-# DEPRECATED lursMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lurrsMaxResults :: Lens.Lens' ListUsersResponse (Core.Maybe Core.Natural)
+lurrsMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lurrsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lurrsNextToken :: Lens.Lens' ListUsersResponse (Core.Maybe Core.Text)
+lurrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lurrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Required. The list of all ActiveMQ usernames for the specified broker.
+--
+-- /Note:/ Consider using 'users' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lurrsUsers :: Lens.Lens' ListUsersResponse (Core.Maybe [Types.UserSummary])
+lurrsUsers = Lens.field @"users"
+{-# DEPRECATED lurrsUsers "Use generic-lens or generic-optics with 'users' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lursResponseStatus :: Lens.Lens' ListUsersResponse Lude.Int
-lursResponseStatus = Lens.lens (responseStatus :: ListUsersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListUsersResponse)
-{-# DEPRECATED lursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lurrsResponseStatus :: Lens.Lens' ListUsersResponse Core.Int
+lurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

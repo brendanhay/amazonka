@@ -23,62 +23,58 @@ module Network.AWS.EC2.Types.DiskInfo
   )
 where
 
-import Network.AWS.EC2.Types.DiskType
+import qualified Network.AWS.EC2.Types.DiskType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the disk.
 --
 -- /See:/ 'mkDiskInfo' smart constructor.
 data DiskInfo = DiskInfo'
   { -- | The number of disks with this configuration.
-    count :: Lude.Maybe Lude.Int,
+    count :: Core.Maybe Core.Int,
     -- | The size of the disk in GB.
-    sizeInGB :: Lude.Maybe Lude.Integer,
+    sizeInGB :: Core.Maybe Core.Integer,
     -- | The type of disk.
-    type' :: Lude.Maybe DiskType
+    type' :: Core.Maybe Types.DiskType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DiskInfo' with the minimum fields required to make a request.
---
--- * 'count' - The number of disks with this configuration.
--- * 'sizeInGB' - The size of the disk in GB.
--- * 'type'' - The type of disk.
+-- | Creates a 'DiskInfo' value with any optional fields omitted.
 mkDiskInfo ::
   DiskInfo
 mkDiskInfo =
   DiskInfo'
-    { count = Lude.Nothing,
-      sizeInGB = Lude.Nothing,
-      type' = Lude.Nothing
+    { count = Core.Nothing,
+      sizeInGB = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The number of disks with this configuration.
 --
 -- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diCount :: Lens.Lens' DiskInfo (Lude.Maybe Lude.Int)
-diCount = Lens.lens (count :: DiskInfo -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: DiskInfo)
+diCount :: Lens.Lens' DiskInfo (Core.Maybe Core.Int)
+diCount = Lens.field @"count"
 {-# DEPRECATED diCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The size of the disk in GB.
 --
 -- /Note:/ Consider using 'sizeInGB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diSizeInGB :: Lens.Lens' DiskInfo (Lude.Maybe Lude.Integer)
-diSizeInGB = Lens.lens (sizeInGB :: DiskInfo -> Lude.Maybe Lude.Integer) (\s a -> s {sizeInGB = a} :: DiskInfo)
+diSizeInGB :: Lens.Lens' DiskInfo (Core.Maybe Core.Integer)
+diSizeInGB = Lens.field @"sizeInGB"
 {-# DEPRECATED diSizeInGB "Use generic-lens or generic-optics with 'sizeInGB' instead." #-}
 
 -- | The type of disk.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diType :: Lens.Lens' DiskInfo (Lude.Maybe DiskType)
-diType = Lens.lens (type' :: DiskInfo -> Lude.Maybe DiskType) (\s a -> s {type' = a} :: DiskInfo)
+diType :: Lens.Lens' DiskInfo (Core.Maybe Types.DiskType)
+diType = Lens.field @"type'"
 {-# DEPRECATED diType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromXML DiskInfo where
+instance Core.FromXML DiskInfo where
   parseXML x =
     DiskInfo'
-      Lude.<$> (x Lude..@? "count")
-      Lude.<*> (x Lude..@? "sizeInGB")
-      Lude.<*> (x Lude..@? "type")
+      Core.<$> (x Core..@? "count")
+      Core.<*> (x Core..@? "sizeInGB")
+      Core.<*> (x Core..@? "type")

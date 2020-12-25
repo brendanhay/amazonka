@@ -23,8 +23,8 @@ module Network.AWS.EC2.DeleteVolume
     mkDeleteVolume,
 
     -- ** Request lenses
-    dvfVolumeId,
-    dvfDryRun,
+    dvlVolumeId,
+    dvlDryRun,
 
     -- * Destructuring the response
     DeleteVolumeResponse (..),
@@ -32,73 +32,73 @@ module Network.AWS.EC2.DeleteVolume
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteVolume' smart constructor.
 data DeleteVolume = DeleteVolume'
   { -- | The ID of the volume.
-    volumeId :: Lude.Text,
+    volumeId :: Types.VolumeId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVolume' with the minimum fields required to make a request.
---
--- * 'volumeId' - The ID of the volume.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteVolume' value with any optional fields omitted.
 mkDeleteVolume ::
   -- | 'volumeId'
-  Lude.Text ->
+  Types.VolumeId ->
   DeleteVolume
-mkDeleteVolume pVolumeId_ =
-  DeleteVolume' {volumeId = pVolumeId_, dryRun = Lude.Nothing}
+mkDeleteVolume volumeId =
+  DeleteVolume' {volumeId, dryRun = Core.Nothing}
 
 -- | The ID of the volume.
 --
 -- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvfVolumeId :: Lens.Lens' DeleteVolume Lude.Text
-dvfVolumeId = Lens.lens (volumeId :: DeleteVolume -> Lude.Text) (\s a -> s {volumeId = a} :: DeleteVolume)
-{-# DEPRECATED dvfVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
+dvlVolumeId :: Lens.Lens' DeleteVolume Types.VolumeId
+dvlVolumeId = Lens.field @"volumeId"
+{-# DEPRECATED dvlVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvfDryRun :: Lens.Lens' DeleteVolume (Lude.Maybe Lude.Bool)
-dvfDryRun = Lens.lens (dryRun :: DeleteVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteVolume)
-{-# DEPRECATED dvfDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+dvlDryRun :: Lens.Lens' DeleteVolume (Core.Maybe Core.Bool)
+dvlDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dvlDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteVolume where
+instance Core.AWSRequest DeleteVolume where
   type Rs DeleteVolume = DeleteVolumeResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull DeleteVolumeResponse'
-
-instance Lude.ToHeaders DeleteVolume where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteVolume where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteVolume where
-  toQuery DeleteVolume' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteVolume" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "VolumeId" Lude.=: volumeId,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteVolume")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "VolumeId" volumeId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull DeleteVolumeResponse'
 
 -- | /See:/ 'mkDeleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse = DeleteVolumeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVolumeResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteVolumeResponse' value with any optional fields omitted.
 mkDeleteVolumeResponse ::
   DeleteVolumeResponse
 mkDeleteVolumeResponse = DeleteVolumeResponse'

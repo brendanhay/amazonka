@@ -17,13 +17,14 @@ module Network.AWS.CloudTrail.Types.DataResource
     mkDataResource,
 
     -- * Lenses
-    drValues,
     drType,
+    drValues,
   )
 where
 
+import qualified Network.AWS.CloudTrail.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Amazon S3 buckets or AWS Lambda functions that you specify in your event selectors for your trail to log data events. Data events provide information about the resource operations performed on or within a resource itself. These are also known as data plane operations. You can specify up to 250 data resources for a trail.
 --
@@ -55,7 +56,9 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkDataResource' smart constructor.
 data DataResource = DataResource'
-  { -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
+  { -- | The resource type in which you want to log data events. You can specify @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
+    type' :: Core.Maybe Types.String,
+    -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
     --
     --
     --     * To log data events for all objects in all S3 buckets in your AWS account, specify the prefix as @arn:aws:s3:::@ .
@@ -71,38 +74,23 @@ data DataResource = DataResource'
     --
     --
     --     * To log data events for a specific Lambda function, specify the function ARN.
-    values :: Lude.Maybe [Lude.Text],
-    -- | The resource type in which you want to log data events. You can specify @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
-    type' :: Lude.Maybe Lude.Text
+    values :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DataResource' with the minimum fields required to make a request.
---
--- * 'values' - An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
---
---
---     * To log data events for all objects in all S3 buckets in your AWS account, specify the prefix as @arn:aws:s3:::@ .
---
---
---     * To log data events for all objects in an S3 bucket, specify the bucket and an empty object prefix such as @arn:aws:s3:::bucket-1/@ . The trail logs data events for all objects in this S3 bucket.
---
---
---     * To log data events for specific objects, specify the S3 bucket and object prefix such as @arn:aws:s3:::bucket-1/example-images@ . The trail logs data events for objects in this S3 bucket that match the prefix.
---
---
---     * To log data events for all functions in your AWS account, specify the prefix as @arn:aws:lambda@ .
---
---
---     * To log data events for a specific Lambda function, specify the function ARN.
---
---
--- * 'type'' - The resource type in which you want to log data events. You can specify @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
+-- | Creates a 'DataResource' value with any optional fields omitted.
 mkDataResource ::
   DataResource
 mkDataResource =
-  DataResource' {values = Lude.Nothing, type' = Lude.Nothing}
+  DataResource' {type' = Core.Nothing, values = Core.Nothing}
+
+-- | The resource type in which you want to log data events. You can specify @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drType :: Lens.Lens' DataResource (Core.Maybe Types.String)
+drType = Lens.field @"type'"
+{-# DEPRECATED drType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified objects.
 --
@@ -124,32 +112,22 @@ mkDataResource =
 --
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drValues :: Lens.Lens' DataResource (Lude.Maybe [Lude.Text])
-drValues = Lens.lens (values :: DataResource -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: DataResource)
+drValues :: Lens.Lens' DataResource (Core.Maybe [Types.String])
+drValues = Lens.field @"values"
 {-# DEPRECATED drValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
--- | The resource type in which you want to log data events. You can specify @AWS::S3::Object@ or @AWS::Lambda::Function@ resources.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drType :: Lens.Lens' DataResource (Lude.Maybe Lude.Text)
-drType = Lens.lens (type' :: DataResource -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: DataResource)
-{-# DEPRECATED drType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
-instance Lude.FromJSON DataResource where
-  parseJSON =
-    Lude.withObject
-      "DataResource"
-      ( \x ->
-          DataResource'
-            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Type")
-      )
-
-instance Lude.ToJSON DataResource where
-  toJSON DataResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Values" Lude..=) Lude.<$> values,
-            ("Type" Lude..=) Lude.<$> type'
+instance Core.FromJSON DataResource where
+  toJSON DataResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Type" Core..=) Core.<$> type',
+            ("Values" Core..=) Core.<$> values
           ]
       )
+
+instance Core.FromJSON DataResource where
+  parseJSON =
+    Core.withObject "DataResource" Core.$
+      \x ->
+        DataResource'
+          Core.<$> (x Core..:? "Type") Core.<*> (x Core..:? "Values")

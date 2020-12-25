@@ -36,167 +36,155 @@ module Network.AWS.Discovery.DescribeTags
 
     -- ** Request lenses
     dtFilters,
-    dtNextToken,
     dtMaxResults,
+    dtNextToken,
 
     -- * Destructuring the response
     DescribeTagsResponse (..),
     mkDescribeTagsResponse,
 
     -- ** Response lenses
-    dtrsNextToken,
-    dtrsTags,
-    dtrsResponseStatus,
+    dtrrsNextToken,
+    dtrrsTags,
+    dtrrsResponseStatus,
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTags' smart constructor.
 data DescribeTags = DescribeTags'
   { -- | You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
-    filters :: Lude.Maybe [TagFilter],
-    -- | A token to start the list. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.TagFilter],
     -- | The total number of items to return in a single page of output. The maximum value is 100.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | A token to start the list. Use this token to get the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTags' with the minimum fields required to make a request.
---
--- * 'filters' - You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
--- * 'nextToken' - A token to start the list. Use this token to get the next set of results.
--- * 'maxResults' - The total number of items to return in a single page of output. The maximum value is 100.
+-- | Creates a 'DescribeTags' value with any optional fields omitted.
 mkDescribeTags ::
   DescribeTags
 mkDescribeTags =
   DescribeTags'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | You can filter the list using a /key/ -/value/ format. You can separate these items by using logical operators. Allowed filters include @tagKey@ , @tagValue@ , and @configurationId@ .
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtFilters :: Lens.Lens' DescribeTags (Lude.Maybe [TagFilter])
-dtFilters = Lens.lens (filters :: DescribeTags -> Lude.Maybe [TagFilter]) (\s a -> s {filters = a} :: DescribeTags)
+dtFilters :: Lens.Lens' DescribeTags (Core.Maybe [Types.TagFilter])
+dtFilters = Lens.field @"filters"
 {-# DEPRECATED dtFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | A token to start the list. Use this token to get the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtNextToken :: Lens.Lens' DescribeTags (Lude.Maybe Lude.Text)
-dtNextToken = Lens.lens (nextToken :: DescribeTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTags)
-{-# DEPRECATED dtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The total number of items to return in a single page of output. The maximum value is 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtMaxResults :: Lens.Lens' DescribeTags (Lude.Maybe Lude.Int)
-dtMaxResults = Lens.lens (maxResults :: DescribeTags -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeTags)
+dtMaxResults :: Lens.Lens' DescribeTags (Core.Maybe Core.Int)
+dtMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeTags where
-  page rq rs
-    | Page.stop (rs Lens.^. dtrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dtrsTags) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dtNextToken Lens..~ rs Lens.^. dtrsNextToken
+-- | A token to start the list. Use this token to get the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtNextToken :: Lens.Lens' DescribeTags (Core.Maybe Types.NextToken)
+dtNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeTags where
+instance Core.FromJSON DescribeTags where
+  toJSON DescribeTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("filters" Core..=) Core.<$> filters,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeTags where
   type Rs DescribeTags = DescribeTagsResponse
-  request = Req.postJSON discoveryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSPoseidonService_V2015_11_01.DescribeTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTagsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSPoseidonService_V2015_11_01.DescribeTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTags where
-  toJSON DescribeTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("filters" Lude..=) Lude.<$> filters,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTags where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeTags where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"tags" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeTagsResponse' smart constructor.
 data DescribeTagsResponse = DescribeTagsResponse'
   { -- | The call returns a token. Use this token to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item.
-    tags :: Lude.Maybe [ConfigurationTag],
+    tags :: Core.Maybe [Types.ConfigurationTag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeTagsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The call returns a token. Use this token to get the next set of results.
--- * 'tags' - Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTagsResponse' value with any optional fields omitted.
 mkDescribeTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTagsResponse
-mkDescribeTagsResponse pResponseStatus_ =
+mkDescribeTagsResponse responseStatus =
   DescribeTagsResponse'
-    { nextToken = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
 
 -- | The call returns a token. Use this token to get the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsNextToken :: Lens.Lens' DescribeTagsResponse (Lude.Maybe Lude.Text)
-dtrsNextToken = Lens.lens (nextToken :: DescribeTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dtrrsNextToken :: Lens.Lens' DescribeTagsResponse (Core.Maybe Types.NextToken)
+dtrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dtrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Depending on the input, this is a list of configuration items tagged with a specific tag, or a list of tags for a specific configuration item.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTags :: Lens.Lens' DescribeTagsResponse (Lude.Maybe [ConfigurationTag])
-dtrsTags = Lens.lens (tags :: DescribeTagsResponse -> Lude.Maybe [ConfigurationTag]) (\s a -> s {tags = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+dtrrsTags :: Lens.Lens' DescribeTagsResponse (Core.Maybe [Types.ConfigurationTag])
+dtrrsTags = Lens.field @"tags"
+{-# DEPRECATED dtrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DescribeTagsResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DescribeTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTagsResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrrsResponseStatus :: Lens.Lens' DescribeTagsResponse Core.Int
+dtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

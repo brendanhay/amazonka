@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,22 @@
 -- An AWS Elemental MediaStore asset is an object, similar to an object in the Amazon S3 service. Objects are the fundamental entities that are stored in AWS Elemental MediaStore.
 module Network.AWS.MediaStoreData
   ( -- * Service configuration
-    mediaStoreDataService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** RequestedRangeNotSatisfiableException
+    _RequestedRangeNotSatisfiableException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** ContainerNotFoundException
+    _ContainerNotFoundException,
+
+    -- ** ObjectNotFoundException
+    _ObjectNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -42,6 +53,24 @@ module Network.AWS.MediaStoreData
 
     -- * Types
 
+    -- ** StringPrimitive
+    StringPrimitive (..),
+
+    -- ** PathNaming
+    PathNaming (..),
+
+    -- ** PaginationToken
+    PaginationToken (..),
+
+    -- ** ETag
+    ETag (..),
+
+    -- ** RangePattern
+    RangePattern (..),
+
+    -- ** ItemName
+    ItemName (..),
+
     -- ** ItemType
     ItemType (..),
 
@@ -54,22 +83,32 @@ module Network.AWS.MediaStoreData
     -- ** Item
     Item (..),
     mkItem,
-    iETag,
     iContentLength,
+    iContentType,
+    iETag,
+    iLastModified,
     iName,
     iType,
-    iLastModified,
-    iContentType,
+
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** ContentSHA256
+    ContentSHA256 (..),
+
+    -- ** Path
+    Path (..),
+
+    -- ** ContentRange
+    ContentRange (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

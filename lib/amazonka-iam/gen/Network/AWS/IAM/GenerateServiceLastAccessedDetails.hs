@@ -34,7 +34,7 @@ module Network.AWS.IAM.GenerateServiceLastAccessedDetails
     mkGenerateServiceLastAccessedDetails,
 
     -- ** Request lenses
-    gsladARN,
+    gsladArn,
     gsladGranularity,
 
     -- * Destructuring the response
@@ -42,118 +42,114 @@ module Network.AWS.IAM.GenerateServiceLastAccessedDetails
     mkGenerateServiceLastAccessedDetailsResponse,
 
     -- ** Response lenses
-    gsladsrsJobId,
-    gsladsrsResponseStatus,
+    gsladrfrsJobId,
+    gsladrfrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGenerateServiceLastAccessedDetails' smart constructor.
 data GenerateServiceLastAccessedDetails = GenerateServiceLastAccessedDetails'
   { -- | The ARN of the IAM resource (user, group, role, or managed policy) used to generate information about when the resource was last used in an attempt to access an AWS service.
-    arn :: Lude.Text,
+    arn :: Types.Arn,
     -- | The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.
-    granularity :: Lude.Maybe AccessAdvisorUsageGranularityType
+    granularity :: Core.Maybe Types.AccessAdvisorUsageGranularityType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateServiceLastAccessedDetails' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the IAM resource (user, group, role, or managed policy) used to generate information about when the resource was last used in an attempt to access an AWS service.
--- * 'granularity' - The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.
+-- | Creates a 'GenerateServiceLastAccessedDetails' value with any optional fields omitted.
 mkGenerateServiceLastAccessedDetails ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   GenerateServiceLastAccessedDetails
-mkGenerateServiceLastAccessedDetails pARN_ =
+mkGenerateServiceLastAccessedDetails arn =
   GenerateServiceLastAccessedDetails'
-    { arn = pARN_,
-      granularity = Lude.Nothing
+    { arn,
+      granularity = Core.Nothing
     }
 
 -- | The ARN of the IAM resource (user, group, role, or managed policy) used to generate information about when the resource was last used in an attempt to access an AWS service.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsladARN :: Lens.Lens' GenerateServiceLastAccessedDetails Lude.Text
-gsladARN = Lens.lens (arn :: GenerateServiceLastAccessedDetails -> Lude.Text) (\s a -> s {arn = a} :: GenerateServiceLastAccessedDetails)
-{-# DEPRECATED gsladARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+gsladArn :: Lens.Lens' GenerateServiceLastAccessedDetails Types.Arn
+gsladArn = Lens.field @"arn"
+{-# DEPRECATED gsladArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The level of detail that you want to generate. You can specify whether you want to generate information about the last attempt to access services or actions. If you specify service-level granularity, this operation generates only service data. If you specify action-level granularity, it generates service and action data. If you don't include this optional parameter, the operation generates service data.
 --
 -- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsladGranularity :: Lens.Lens' GenerateServiceLastAccessedDetails (Lude.Maybe AccessAdvisorUsageGranularityType)
-gsladGranularity = Lens.lens (granularity :: GenerateServiceLastAccessedDetails -> Lude.Maybe AccessAdvisorUsageGranularityType) (\s a -> s {granularity = a} :: GenerateServiceLastAccessedDetails)
+gsladGranularity :: Lens.Lens' GenerateServiceLastAccessedDetails (Core.Maybe Types.AccessAdvisorUsageGranularityType)
+gsladGranularity = Lens.field @"granularity"
 {-# DEPRECATED gsladGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
 
-instance Lude.AWSRequest GenerateServiceLastAccessedDetails where
+instance Core.AWSRequest GenerateServiceLastAccessedDetails where
   type
     Rs GenerateServiceLastAccessedDetails =
       GenerateServiceLastAccessedDetailsResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GenerateServiceLastAccessedDetails")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "Arn" arn)
+                Core.<> (Core.toQueryValue "Granularity" Core.<$> granularity)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GenerateServiceLastAccessedDetailsResult"
       ( \s h x ->
           GenerateServiceLastAccessedDetailsResponse'
-            Lude.<$> (x Lude..@? "JobId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "JobId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GenerateServiceLastAccessedDetails where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GenerateServiceLastAccessedDetails where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GenerateServiceLastAccessedDetails where
-  toQuery GenerateServiceLastAccessedDetails' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("GenerateServiceLastAccessedDetails" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "Arn" Lude.=: arn,
-        "Granularity" Lude.=: granularity
-      ]
 
 -- | /See:/ 'mkGenerateServiceLastAccessedDetailsResponse' smart constructor.
 data GenerateServiceLastAccessedDetailsResponse = GenerateServiceLastAccessedDetailsResponse'
   { -- | The @JobId@ that you can use in the 'GetServiceLastAccessedDetails' or 'GetServiceLastAccessedDetailsWithEntities' operations. The @JobId@ returned by @GenerateServiceLastAccessedDetail@ must be used by the same role within a session, or by the same user when used to call @GetServiceLastAccessedDetail@ .
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateServiceLastAccessedDetailsResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The @JobId@ that you can use in the 'GetServiceLastAccessedDetails' or 'GetServiceLastAccessedDetailsWithEntities' operations. The @JobId@ returned by @GenerateServiceLastAccessedDetail@ must be used by the same role within a session, or by the same user when used to call @GetServiceLastAccessedDetail@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GenerateServiceLastAccessedDetailsResponse' value with any optional fields omitted.
 mkGenerateServiceLastAccessedDetailsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GenerateServiceLastAccessedDetailsResponse
-mkGenerateServiceLastAccessedDetailsResponse pResponseStatus_ =
+mkGenerateServiceLastAccessedDetailsResponse responseStatus =
   GenerateServiceLastAccessedDetailsResponse'
-    { jobId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      responseStatus
     }
 
 -- | The @JobId@ that you can use in the 'GetServiceLastAccessedDetails' or 'GetServiceLastAccessedDetailsWithEntities' operations. The @JobId@ returned by @GenerateServiceLastAccessedDetail@ must be used by the same role within a session, or by the same user when used to call @GetServiceLastAccessedDetail@ .
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsladsrsJobId :: Lens.Lens' GenerateServiceLastAccessedDetailsResponse (Lude.Maybe Lude.Text)
-gsladsrsJobId = Lens.lens (jobId :: GenerateServiceLastAccessedDetailsResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: GenerateServiceLastAccessedDetailsResponse)
-{-# DEPRECATED gsladsrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+gsladrfrsJobId :: Lens.Lens' GenerateServiceLastAccessedDetailsResponse (Core.Maybe Types.JobId)
+gsladrfrsJobId = Lens.field @"jobId"
+{-# DEPRECATED gsladrfrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsladsrsResponseStatus :: Lens.Lens' GenerateServiceLastAccessedDetailsResponse Lude.Int
-gsladsrsResponseStatus = Lens.lens (responseStatus :: GenerateServiceLastAccessedDetailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GenerateServiceLastAccessedDetailsResponse)
-{-# DEPRECATED gsladsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsladrfrsResponseStatus :: Lens.Lens' GenerateServiceLastAccessedDetailsResponse Core.Int
+gsladrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsladrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

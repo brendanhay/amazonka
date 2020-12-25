@@ -17,98 +17,92 @@ module Network.AWS.ECR.Types.LifecyclePolicyPreviewResult
     mkLifecyclePolicyPreviewResult,
 
     -- * Lenses
-    lpprImageTags,
     lpprAction,
+    lpprAppliedRulePriority,
     lpprImageDigest,
     lpprImagePushedAt,
-    lpprAppliedRulePriority,
+    lpprImageTags,
   )
 where
 
-import Network.AWS.ECR.Types.LifecyclePolicyRuleAction
+import qualified Network.AWS.ECR.Types.ImageDigest as Types
+import qualified Network.AWS.ECR.Types.ImageTag as Types
+import qualified Network.AWS.ECR.Types.LifecyclePolicyRuleAction as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The result of the lifecycle policy preview.
 --
 -- /See:/ 'mkLifecyclePolicyPreviewResult' smart constructor.
 data LifecyclePolicyPreviewResult = LifecyclePolicyPreviewResult'
-  { -- | The list of tags associated with this image.
-    imageTags :: Lude.Maybe [Lude.Text],
-    -- | The type of action to be taken.
-    action :: Lude.Maybe LifecyclePolicyRuleAction,
-    -- | The @sha256@ digest of the image manifest.
-    imageDigest :: Lude.Maybe Lude.Text,
-    -- | The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
-    imagePushedAt :: Lude.Maybe Lude.Timestamp,
+  { -- | The type of action to be taken.
+    action :: Core.Maybe Types.LifecyclePolicyRuleAction,
     -- | The priority of the applied rule.
-    appliedRulePriority :: Lude.Maybe Lude.Natural
+    appliedRulePriority :: Core.Maybe Core.Natural,
+    -- | The @sha256@ digest of the image manifest.
+    imageDigest :: Core.Maybe Types.ImageDigest,
+    -- | The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
+    imagePushedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The list of tags associated with this image.
+    imageTags :: Core.Maybe [Types.ImageTag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LifecyclePolicyPreviewResult' with the minimum fields required to make a request.
---
--- * 'imageTags' - The list of tags associated with this image.
--- * 'action' - The type of action to be taken.
--- * 'imageDigest' - The @sha256@ digest of the image manifest.
--- * 'imagePushedAt' - The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
--- * 'appliedRulePriority' - The priority of the applied rule.
+-- | Creates a 'LifecyclePolicyPreviewResult' value with any optional fields omitted.
 mkLifecyclePolicyPreviewResult ::
   LifecyclePolicyPreviewResult
 mkLifecyclePolicyPreviewResult =
   LifecyclePolicyPreviewResult'
-    { imageTags = Lude.Nothing,
-      action = Lude.Nothing,
-      imageDigest = Lude.Nothing,
-      imagePushedAt = Lude.Nothing,
-      appliedRulePriority = Lude.Nothing
+    { action = Core.Nothing,
+      appliedRulePriority = Core.Nothing,
+      imageDigest = Core.Nothing,
+      imagePushedAt = Core.Nothing,
+      imageTags = Core.Nothing
     }
-
--- | The list of tags associated with this image.
---
--- /Note:/ Consider using 'imageTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpprImageTags :: Lens.Lens' LifecyclePolicyPreviewResult (Lude.Maybe [Lude.Text])
-lpprImageTags = Lens.lens (imageTags :: LifecyclePolicyPreviewResult -> Lude.Maybe [Lude.Text]) (\s a -> s {imageTags = a} :: LifecyclePolicyPreviewResult)
-{-# DEPRECATED lpprImageTags "Use generic-lens or generic-optics with 'imageTags' instead." #-}
 
 -- | The type of action to be taken.
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpprAction :: Lens.Lens' LifecyclePolicyPreviewResult (Lude.Maybe LifecyclePolicyRuleAction)
-lpprAction = Lens.lens (action :: LifecyclePolicyPreviewResult -> Lude.Maybe LifecyclePolicyRuleAction) (\s a -> s {action = a} :: LifecyclePolicyPreviewResult)
+lpprAction :: Lens.Lens' LifecyclePolicyPreviewResult (Core.Maybe Types.LifecyclePolicyRuleAction)
+lpprAction = Lens.field @"action"
 {-# DEPRECATED lpprAction "Use generic-lens or generic-optics with 'action' instead." #-}
+
+-- | The priority of the applied rule.
+--
+-- /Note:/ Consider using 'appliedRulePriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpprAppliedRulePriority :: Lens.Lens' LifecyclePolicyPreviewResult (Core.Maybe Core.Natural)
+lpprAppliedRulePriority = Lens.field @"appliedRulePriority"
+{-# DEPRECATED lpprAppliedRulePriority "Use generic-lens or generic-optics with 'appliedRulePriority' instead." #-}
 
 -- | The @sha256@ digest of the image manifest.
 --
 -- /Note:/ Consider using 'imageDigest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpprImageDigest :: Lens.Lens' LifecyclePolicyPreviewResult (Lude.Maybe Lude.Text)
-lpprImageDigest = Lens.lens (imageDigest :: LifecyclePolicyPreviewResult -> Lude.Maybe Lude.Text) (\s a -> s {imageDigest = a} :: LifecyclePolicyPreviewResult)
+lpprImageDigest :: Lens.Lens' LifecyclePolicyPreviewResult (Core.Maybe Types.ImageDigest)
+lpprImageDigest = Lens.field @"imageDigest"
 {-# DEPRECATED lpprImageDigest "Use generic-lens or generic-optics with 'imageDigest' instead." #-}
 
 -- | The date and time, expressed in standard JavaScript date format, at which the current image was pushed to the repository.
 --
 -- /Note:/ Consider using 'imagePushedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpprImagePushedAt :: Lens.Lens' LifecyclePolicyPreviewResult (Lude.Maybe Lude.Timestamp)
-lpprImagePushedAt = Lens.lens (imagePushedAt :: LifecyclePolicyPreviewResult -> Lude.Maybe Lude.Timestamp) (\s a -> s {imagePushedAt = a} :: LifecyclePolicyPreviewResult)
+lpprImagePushedAt :: Lens.Lens' LifecyclePolicyPreviewResult (Core.Maybe Core.NominalDiffTime)
+lpprImagePushedAt = Lens.field @"imagePushedAt"
 {-# DEPRECATED lpprImagePushedAt "Use generic-lens or generic-optics with 'imagePushedAt' instead." #-}
 
--- | The priority of the applied rule.
+-- | The list of tags associated with this image.
 --
--- /Note:/ Consider using 'appliedRulePriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpprAppliedRulePriority :: Lens.Lens' LifecyclePolicyPreviewResult (Lude.Maybe Lude.Natural)
-lpprAppliedRulePriority = Lens.lens (appliedRulePriority :: LifecyclePolicyPreviewResult -> Lude.Maybe Lude.Natural) (\s a -> s {appliedRulePriority = a} :: LifecyclePolicyPreviewResult)
-{-# DEPRECATED lpprAppliedRulePriority "Use generic-lens or generic-optics with 'appliedRulePriority' instead." #-}
+-- /Note:/ Consider using 'imageTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpprImageTags :: Lens.Lens' LifecyclePolicyPreviewResult (Core.Maybe [Types.ImageTag])
+lpprImageTags = Lens.field @"imageTags"
+{-# DEPRECATED lpprImageTags "Use generic-lens or generic-optics with 'imageTags' instead." #-}
 
-instance Lude.FromJSON LifecyclePolicyPreviewResult where
+instance Core.FromJSON LifecyclePolicyPreviewResult where
   parseJSON =
-    Lude.withObject
-      "LifecyclePolicyPreviewResult"
-      ( \x ->
-          LifecyclePolicyPreviewResult'
-            Lude.<$> (x Lude..:? "imageTags" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "action")
-            Lude.<*> (x Lude..:? "imageDigest")
-            Lude.<*> (x Lude..:? "imagePushedAt")
-            Lude.<*> (x Lude..:? "appliedRulePriority")
-      )
+    Core.withObject "LifecyclePolicyPreviewResult" Core.$
+      \x ->
+        LifecyclePolicyPreviewResult'
+          Core.<$> (x Core..:? "action")
+          Core.<*> (x Core..:? "appliedRulePriority")
+          Core.<*> (x Core..:? "imageDigest")
+          Core.<*> (x Core..:? "imagePushedAt")
+          Core.<*> (x Core..:? "imageTags")

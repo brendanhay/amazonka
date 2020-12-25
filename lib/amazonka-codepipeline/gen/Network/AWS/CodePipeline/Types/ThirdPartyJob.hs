@@ -22,49 +22,46 @@ module Network.AWS.CodePipeline.Types.ThirdPartyJob
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.ClientId as Types
+import qualified Network.AWS.CodePipeline.Types.JobId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A response to a @PollForThirdPartyJobs@ request returned by AWS CodePipeline when there is a job to be worked on by a partner action.
 --
 -- /See:/ 'mkThirdPartyJob' smart constructor.
 data ThirdPartyJob = ThirdPartyJob'
   { -- | The @clientToken@ portion of the @clientId@ and @clientToken@ pair used to verify that the calling entity is allowed access to the job and its details.
-    clientId :: Lude.Maybe Lude.Text,
+    clientId :: Core.Maybe Types.ClientId,
     -- | The identifier used to identify the job in AWS CodePipeline.
-    jobId :: Lude.Maybe Lude.Text
+    jobId :: Core.Maybe Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ThirdPartyJob' with the minimum fields required to make a request.
---
--- * 'clientId' - The @clientToken@ portion of the @clientId@ and @clientToken@ pair used to verify that the calling entity is allowed access to the job and its details.
--- * 'jobId' - The identifier used to identify the job in AWS CodePipeline.
+-- | Creates a 'ThirdPartyJob' value with any optional fields omitted.
 mkThirdPartyJob ::
   ThirdPartyJob
 mkThirdPartyJob =
-  ThirdPartyJob' {clientId = Lude.Nothing, jobId = Lude.Nothing}
+  ThirdPartyJob' {clientId = Core.Nothing, jobId = Core.Nothing}
 
 -- | The @clientToken@ portion of the @clientId@ and @clientToken@ pair used to verify that the calling entity is allowed access to the job and its details.
 --
 -- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpjClientId :: Lens.Lens' ThirdPartyJob (Lude.Maybe Lude.Text)
-tpjClientId = Lens.lens (clientId :: ThirdPartyJob -> Lude.Maybe Lude.Text) (\s a -> s {clientId = a} :: ThirdPartyJob)
+tpjClientId :: Lens.Lens' ThirdPartyJob (Core.Maybe Types.ClientId)
+tpjClientId = Lens.field @"clientId"
 {-# DEPRECATED tpjClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The identifier used to identify the job in AWS CodePipeline.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpjJobId :: Lens.Lens' ThirdPartyJob (Lude.Maybe Lude.Text)
-tpjJobId = Lens.lens (jobId :: ThirdPartyJob -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: ThirdPartyJob)
+tpjJobId :: Lens.Lens' ThirdPartyJob (Core.Maybe Types.JobId)
+tpjJobId = Lens.field @"jobId"
 {-# DEPRECATED tpjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.FromJSON ThirdPartyJob where
+instance Core.FromJSON ThirdPartyJob where
   parseJSON =
-    Lude.withObject
-      "ThirdPartyJob"
-      ( \x ->
-          ThirdPartyJob'
-            Lude.<$> (x Lude..:? "clientId") Lude.<*> (x Lude..:? "jobId")
-      )
+    Core.withObject "ThirdPartyJob" Core.$
+      \x ->
+        ThirdPartyJob'
+          Core.<$> (x Core..:? "clientId") Core.<*> (x Core..:? "jobId")

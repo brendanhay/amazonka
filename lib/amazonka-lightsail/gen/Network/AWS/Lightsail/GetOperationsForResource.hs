@@ -28,52 +28,44 @@ module Network.AWS.Lightsail.GetOperationsForResource
     mkGetOperationsForResourceResponse,
 
     -- ** Response lenses
-    gofrrsNextPageCount,
-    gofrrsNextPageToken,
-    gofrrsOperations,
-    gofrrsResponseStatus,
+    gofrrrsNextPageCount,
+    gofrrrsNextPageToken,
+    gofrrrsOperations,
+    gofrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetOperationsForResource' smart constructor.
 data GetOperationsForResource = GetOperationsForResource'
   { -- | The name of the resource for which you are requesting information.
-    resourceName :: Lude.Text,
+    resourceName :: Types.ResourceName,
     -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetOperationsForResource@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-    pageToken :: Lude.Maybe Lude.Text
+    pageToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetOperationsForResource' with the minimum fields required to make a request.
---
--- * 'resourceName' - The name of the resource for which you are requesting information.
--- * 'pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetOperationsForResource@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+-- | Creates a 'GetOperationsForResource' value with any optional fields omitted.
 mkGetOperationsForResource ::
   -- | 'resourceName'
-  Lude.Text ->
+  Types.ResourceName ->
   GetOperationsForResource
-mkGetOperationsForResource pResourceName_ =
-  GetOperationsForResource'
-    { resourceName = pResourceName_,
-      pageToken = Lude.Nothing
-    }
+mkGetOperationsForResource resourceName =
+  GetOperationsForResource' {resourceName, pageToken = Core.Nothing}
 
 -- | The name of the resource for which you are requesting information.
 --
 -- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gofrResourceName :: Lens.Lens' GetOperationsForResource Lude.Text
-gofrResourceName = Lens.lens (resourceName :: GetOperationsForResource -> Lude.Text) (\s a -> s {resourceName = a} :: GetOperationsForResource)
+gofrResourceName :: Lens.Lens' GetOperationsForResource Types.ResourceName
+gofrResourceName = Lens.field @"resourceName"
 {-# DEPRECATED gofrResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
@@ -81,93 +73,79 @@ gofrResourceName = Lens.lens (resourceName :: GetOperationsForResource -> Lude.T
 -- To get a page token, perform an initial @GetOperationsForResource@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gofrPageToken :: Lens.Lens' GetOperationsForResource (Lude.Maybe Lude.Text)
-gofrPageToken = Lens.lens (pageToken :: GetOperationsForResource -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetOperationsForResource)
+gofrPageToken :: Lens.Lens' GetOperationsForResource (Core.Maybe Types.String)
+gofrPageToken = Lens.field @"pageToken"
 {-# DEPRECATED gofrPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Lude.AWSRequest GetOperationsForResource where
+instance Core.FromJSON GetOperationsForResource where
+  toJSON GetOperationsForResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("resourceName" Core..= resourceName),
+            ("pageToken" Core..=) Core.<$> pageToken
+          ]
+      )
+
+instance Core.AWSRequest GetOperationsForResource where
   type Rs GetOperationsForResource = GetOperationsForResourceResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.GetOperationsForResource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetOperationsForResourceResponse'
-            Lude.<$> (x Lude..?> "nextPageCount")
-            Lude.<*> (x Lude..?> "nextPageToken")
-            Lude.<*> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextPageCount")
+            Core.<*> (x Core..:? "nextPageToken")
+            Core.<*> (x Core..:? "operations")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetOperationsForResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetOperationsForResource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetOperationsForResource where
-  toJSON GetOperationsForResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("resourceName" Lude..= resourceName),
-            ("pageToken" Lude..=) Lude.<$> pageToken
-          ]
-      )
-
-instance Lude.ToPath GetOperationsForResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetOperationsForResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetOperationsForResourceResponse' smart constructor.
 data GetOperationsForResourceResponse = GetOperationsForResourceResponse'
   { -- | (Deprecated) Returns the number of pages of results that remain.
-    nextPageCount :: Lude.Maybe Lude.Text,
+    nextPageCount :: Core.Maybe Types.String,
     -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to display.
     -- To get the next page of results, perform another @GetOperationsForResource@ request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.String,
     -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetOperationsForResourceResponse' with the minimum fields required to make a request.
---
--- * 'nextPageCount' - (Deprecated) Returns the number of pages of results that remain.
--- * 'nextPageToken' - The token to advance to the next page of results from your request.
---
--- A next page token is not returned if there are no more results to display.
--- To get the next page of results, perform another @GetOperationsForResource@ request and specify the next page token using the @pageToken@ parameter.
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetOperationsForResourceResponse' value with any optional fields omitted.
 mkGetOperationsForResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetOperationsForResourceResponse
-mkGetOperationsForResourceResponse pResponseStatus_ =
+mkGetOperationsForResourceResponse responseStatus =
   GetOperationsForResourceResponse'
-    { nextPageCount = Lude.Nothing,
-      nextPageToken = Lude.Nothing,
-      operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextPageCount = Core.Nothing,
+      nextPageToken = Core.Nothing,
+      operations = Core.Nothing,
+      responseStatus
     }
 
 -- | (Deprecated) Returns the number of pages of results that remain.
 --
 -- /Note:/ Consider using 'nextPageCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gofrrsNextPageCount :: Lens.Lens' GetOperationsForResourceResponse (Lude.Maybe Lude.Text)
-gofrrsNextPageCount = Lens.lens (nextPageCount :: GetOperationsForResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageCount = a} :: GetOperationsForResourceResponse)
-{-# DEPRECATED gofrrsNextPageCount "Use generic-lens or generic-optics with 'nextPageCount' instead." #-}
+gofrrrsNextPageCount :: Lens.Lens' GetOperationsForResourceResponse (Core.Maybe Types.String)
+gofrrrsNextPageCount = Lens.field @"nextPageCount"
+{-# DEPRECATED gofrrrsNextPageCount "Use generic-lens or generic-optics with 'nextPageCount' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -175,20 +153,20 @@ gofrrsNextPageCount = Lens.lens (nextPageCount :: GetOperationsForResourceRespon
 -- To get the next page of results, perform another @GetOperationsForResource@ request and specify the next page token using the @pageToken@ parameter.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gofrrsNextPageToken :: Lens.Lens' GetOperationsForResourceResponse (Lude.Maybe Lude.Text)
-gofrrsNextPageToken = Lens.lens (nextPageToken :: GetOperationsForResourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetOperationsForResourceResponse)
-{-# DEPRECATED gofrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+gofrrrsNextPageToken :: Lens.Lens' GetOperationsForResourceResponse (Core.Maybe Types.String)
+gofrrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED gofrrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gofrrsOperations :: Lens.Lens' GetOperationsForResourceResponse (Lude.Maybe [Operation])
-gofrrsOperations = Lens.lens (operations :: GetOperationsForResourceResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: GetOperationsForResourceResponse)
-{-# DEPRECATED gofrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+gofrrrsOperations :: Lens.Lens' GetOperationsForResourceResponse (Core.Maybe [Types.Operation])
+gofrrrsOperations = Lens.field @"operations"
+{-# DEPRECATED gofrrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gofrrsResponseStatus :: Lens.Lens' GetOperationsForResourceResponse Lude.Int
-gofrrsResponseStatus = Lens.lens (responseStatus :: GetOperationsForResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetOperationsForResourceResponse)
-{-# DEPRECATED gofrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gofrrrsResponseStatus :: Lens.Lens' GetOperationsForResourceResponse Core.Int
+gofrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gofrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

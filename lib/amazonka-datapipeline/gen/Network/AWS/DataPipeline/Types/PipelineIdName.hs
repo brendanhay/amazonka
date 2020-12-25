@@ -17,54 +17,50 @@ module Network.AWS.DataPipeline.Types.PipelineIdName
     mkPipelineIdName,
 
     -- * Lenses
-    pinName,
     pinId,
+    pinName,
   )
 where
 
+import qualified Network.AWS.DataPipeline.Types.Id as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the name and identifier of a pipeline.
 --
 -- /See:/ 'mkPipelineIdName' smart constructor.
 data PipelineIdName = PipelineIdName'
-  { -- | The name of the pipeline.
-    name :: Lude.Maybe Lude.Text,
-    -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
-    id :: Lude.Maybe Lude.Text
+  { -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
+    id :: Core.Maybe Types.Id,
+    -- | The name of the pipeline.
+    name :: Core.Maybe Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PipelineIdName' with the minimum fields required to make a request.
---
--- * 'name' - The name of the pipeline.
--- * 'id' - The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
+-- | Creates a 'PipelineIdName' value with any optional fields omitted.
 mkPipelineIdName ::
   PipelineIdName
 mkPipelineIdName =
-  PipelineIdName' {name = Lude.Nothing, id = Lude.Nothing}
-
--- | The name of the pipeline.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pinName :: Lens.Lens' PipelineIdName (Lude.Maybe Lude.Text)
-pinName = Lens.lens (name :: PipelineIdName -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PipelineIdName)
-{-# DEPRECATED pinName "Use generic-lens or generic-optics with 'name' instead." #-}
+  PipelineIdName' {id = Core.Nothing, name = Core.Nothing}
 
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a string of the form @df-297EG78HU43EEXAMPLE@ .
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pinId :: Lens.Lens' PipelineIdName (Lude.Maybe Lude.Text)
-pinId = Lens.lens (id :: PipelineIdName -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: PipelineIdName)
+pinId :: Lens.Lens' PipelineIdName (Core.Maybe Types.Id)
+pinId = Lens.field @"id"
 {-# DEPRECATED pinId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON PipelineIdName where
+-- | The name of the pipeline.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pinName :: Lens.Lens' PipelineIdName (Core.Maybe Types.Id)
+pinName = Lens.field @"name"
+{-# DEPRECATED pinName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON PipelineIdName where
   parseJSON =
-    Lude.withObject
-      "PipelineIdName"
-      ( \x ->
-          PipelineIdName'
-            Lude.<$> (x Lude..:? "name") Lude.<*> (x Lude..:? "id")
-      )
+    Core.withObject "PipelineIdName" Core.$
+      \x ->
+        PipelineIdName'
+          Core.<$> (x Core..:? "id") Core.<*> (x Core..:? "name")

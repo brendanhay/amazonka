@@ -20,149 +20,132 @@ module Network.AWS.WorkMail.GetMailboxDetails
     mkGetMailboxDetails,
 
     -- ** Request lenses
-    gmdUserId,
     gmdOrganizationId,
+    gmdUserId,
 
     -- * Destructuring the response
     GetMailboxDetailsResponse (..),
     mkGetMailboxDetailsResponse,
 
     -- ** Response lenses
-    gmdrsMailboxQuota,
-    gmdrsMailboxSize,
-    gmdrsResponseStatus,
+    gmdrrsMailboxQuota,
+    gmdrrsMailboxSize,
+    gmdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkGetMailboxDetails' smart constructor.
 data GetMailboxDetails = GetMailboxDetails'
-  { -- | The identifier for the user whose mailbox details are being requested.
-    userId :: Lude.Text,
-    -- | The identifier for the organization that contains the user whose mailbox details are being requested.
-    organizationId :: Lude.Text
+  { -- | The identifier for the organization that contains the user whose mailbox details are being requested.
+    organizationId :: Types.OrganizationId,
+    -- | The identifier for the user whose mailbox details are being requested.
+    userId :: Types.WorkMailIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetMailboxDetails' with the minimum fields required to make a request.
---
--- * 'userId' - The identifier for the user whose mailbox details are being requested.
--- * 'organizationId' - The identifier for the organization that contains the user whose mailbox details are being requested.
+-- | Creates a 'GetMailboxDetails' value with any optional fields omitted.
 mkGetMailboxDetails ::
-  -- | 'userId'
-  Lude.Text ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'userId'
+  Types.WorkMailIdentifier ->
   GetMailboxDetails
-mkGetMailboxDetails pUserId_ pOrganizationId_ =
-  GetMailboxDetails'
-    { userId = pUserId_,
-      organizationId = pOrganizationId_
-    }
-
--- | The identifier for the user whose mailbox details are being requested.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdUserId :: Lens.Lens' GetMailboxDetails Lude.Text
-gmdUserId = Lens.lens (userId :: GetMailboxDetails -> Lude.Text) (\s a -> s {userId = a} :: GetMailboxDetails)
-{-# DEPRECATED gmdUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+mkGetMailboxDetails organizationId userId =
+  GetMailboxDetails' {organizationId, userId}
 
 -- | The identifier for the organization that contains the user whose mailbox details are being requested.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdOrganizationId :: Lens.Lens' GetMailboxDetails Lude.Text
-gmdOrganizationId = Lens.lens (organizationId :: GetMailboxDetails -> Lude.Text) (\s a -> s {organizationId = a} :: GetMailboxDetails)
+gmdOrganizationId :: Lens.Lens' GetMailboxDetails Types.OrganizationId
+gmdOrganizationId = Lens.field @"organizationId"
 {-# DEPRECATED gmdOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Lude.AWSRequest GetMailboxDetails where
+-- | The identifier for the user whose mailbox details are being requested.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gmdUserId :: Lens.Lens' GetMailboxDetails Types.WorkMailIdentifier
+gmdUserId = Lens.field @"userId"
+{-# DEPRECATED gmdUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+instance Core.FromJSON GetMailboxDetails where
+  toJSON GetMailboxDetails {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("UserId" Core..= userId)
+          ]
+      )
+
+instance Core.AWSRequest GetMailboxDetails where
   type Rs GetMailboxDetails = GetMailboxDetailsResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.GetMailboxDetails")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetMailboxDetailsResponse'
-            Lude.<$> (x Lude..?> "MailboxQuota")
-            Lude.<*> (x Lude..?> "MailboxSize")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "MailboxQuota")
+            Core.<*> (x Core..:? "MailboxSize")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetMailboxDetails where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.GetMailboxDetails" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetMailboxDetails where
-  toJSON GetMailboxDetails' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserId" Lude..= userId),
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath GetMailboxDetails where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetMailboxDetails where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetMailboxDetailsResponse' smart constructor.
 data GetMailboxDetailsResponse = GetMailboxDetailsResponse'
   { -- | The maximum allowed mailbox size, in MB, for the specified user.
-    mailboxQuota :: Lude.Maybe Lude.Natural,
+    mailboxQuota :: Core.Maybe Core.Natural,
     -- | The current mailbox size, in MB, for the specified user.
-    mailboxSize :: Lude.Maybe Lude.Double,
+    mailboxSize :: Core.Maybe Core.Double,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetMailboxDetailsResponse' with the minimum fields required to make a request.
---
--- * 'mailboxQuota' - The maximum allowed mailbox size, in MB, for the specified user.
--- * 'mailboxSize' - The current mailbox size, in MB, for the specified user.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetMailboxDetailsResponse' value with any optional fields omitted.
 mkGetMailboxDetailsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetMailboxDetailsResponse
-mkGetMailboxDetailsResponse pResponseStatus_ =
+mkGetMailboxDetailsResponse responseStatus =
   GetMailboxDetailsResponse'
-    { mailboxQuota = Lude.Nothing,
-      mailboxSize = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { mailboxQuota = Core.Nothing,
+      mailboxSize = Core.Nothing,
+      responseStatus
     }
 
 -- | The maximum allowed mailbox size, in MB, for the specified user.
 --
 -- /Note:/ Consider using 'mailboxQuota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdrsMailboxQuota :: Lens.Lens' GetMailboxDetailsResponse (Lude.Maybe Lude.Natural)
-gmdrsMailboxQuota = Lens.lens (mailboxQuota :: GetMailboxDetailsResponse -> Lude.Maybe Lude.Natural) (\s a -> s {mailboxQuota = a} :: GetMailboxDetailsResponse)
-{-# DEPRECATED gmdrsMailboxQuota "Use generic-lens or generic-optics with 'mailboxQuota' instead." #-}
+gmdrrsMailboxQuota :: Lens.Lens' GetMailboxDetailsResponse (Core.Maybe Core.Natural)
+gmdrrsMailboxQuota = Lens.field @"mailboxQuota"
+{-# DEPRECATED gmdrrsMailboxQuota "Use generic-lens or generic-optics with 'mailboxQuota' instead." #-}
 
 -- | The current mailbox size, in MB, for the specified user.
 --
 -- /Note:/ Consider using 'mailboxSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdrsMailboxSize :: Lens.Lens' GetMailboxDetailsResponse (Lude.Maybe Lude.Double)
-gmdrsMailboxSize = Lens.lens (mailboxSize :: GetMailboxDetailsResponse -> Lude.Maybe Lude.Double) (\s a -> s {mailboxSize = a} :: GetMailboxDetailsResponse)
-{-# DEPRECATED gmdrsMailboxSize "Use generic-lens or generic-optics with 'mailboxSize' instead." #-}
+gmdrrsMailboxSize :: Lens.Lens' GetMailboxDetailsResponse (Core.Maybe Core.Double)
+gmdrrsMailboxSize = Lens.field @"mailboxSize"
+{-# DEPRECATED gmdrrsMailboxSize "Use generic-lens or generic-optics with 'mailboxSize' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gmdrsResponseStatus :: Lens.Lens' GetMailboxDetailsResponse Lude.Int
-gmdrsResponseStatus = Lens.lens (responseStatus :: GetMailboxDetailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetMailboxDetailsResponse)
-{-# DEPRECATED gmdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gmdrrsResponseStatus :: Lens.Lens' GetMailboxDetailsResponse Core.Int
+gmdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gmdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,54 +17,51 @@ module Network.AWS.DeviceFarm.Types.OfferingPromotion
     mkOfferingPromotion,
 
     -- * Lenses
-    opId,
     opDescription,
+    opId,
   )
 where
 
+import qualified Network.AWS.DeviceFarm.Types.Description as Types
+import qualified Network.AWS.DeviceFarm.Types.OfferingPromotionIdentifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about an offering promotion.
 --
 -- /See:/ 'mkOfferingPromotion' smart constructor.
 data OfferingPromotion = OfferingPromotion'
-  { -- | The ID of the offering promotion.
-    id :: Lude.Maybe Lude.Text,
-    -- | A string that describes the offering promotion.
-    description :: Lude.Maybe Lude.Text
+  { -- | A string that describes the offering promotion.
+    description :: Core.Maybe Types.Description,
+    -- | The ID of the offering promotion.
+    id :: Core.Maybe Types.OfferingPromotionIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OfferingPromotion' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the offering promotion.
--- * 'description' - A string that describes the offering promotion.
+-- | Creates a 'OfferingPromotion' value with any optional fields omitted.
 mkOfferingPromotion ::
   OfferingPromotion
 mkOfferingPromotion =
-  OfferingPromotion' {id = Lude.Nothing, description = Lude.Nothing}
-
--- | The ID of the offering promotion.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-opId :: Lens.Lens' OfferingPromotion (Lude.Maybe Lude.Text)
-opId = Lens.lens (id :: OfferingPromotion -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: OfferingPromotion)
-{-# DEPRECATED opId "Use generic-lens or generic-optics with 'id' instead." #-}
+  OfferingPromotion' {description = Core.Nothing, id = Core.Nothing}
 
 -- | A string that describes the offering promotion.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-opDescription :: Lens.Lens' OfferingPromotion (Lude.Maybe Lude.Text)
-opDescription = Lens.lens (description :: OfferingPromotion -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: OfferingPromotion)
+opDescription :: Lens.Lens' OfferingPromotion (Core.Maybe Types.Description)
+opDescription = Lens.field @"description"
 {-# DEPRECATED opDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON OfferingPromotion where
+-- | The ID of the offering promotion.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+opId :: Lens.Lens' OfferingPromotion (Core.Maybe Types.OfferingPromotionIdentifier)
+opId = Lens.field @"id"
+{-# DEPRECATED opId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+instance Core.FromJSON OfferingPromotion where
   parseJSON =
-    Lude.withObject
-      "OfferingPromotion"
-      ( \x ->
-          OfferingPromotion'
-            Lude.<$> (x Lude..:? "id") Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "OfferingPromotion" Core.$
+      \x ->
+        OfferingPromotion'
+          Core.<$> (x Core..:? "description") Core.<*> (x Core..:? "id")

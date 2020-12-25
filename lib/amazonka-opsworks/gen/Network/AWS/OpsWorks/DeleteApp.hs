@@ -31,67 +31,58 @@ module Network.AWS.OpsWorks.DeleteApp
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteApp' smart constructor.
 newtype DeleteApp = DeleteApp'
   { -- | The app ID.
-    appId :: Lude.Text
+    appId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteApp' with the minimum fields required to make a request.
---
--- * 'appId' - The app ID.
+-- | Creates a 'DeleteApp' value with any optional fields omitted.
 mkDeleteApp ::
   -- | 'appId'
-  Lude.Text ->
+  Types.String ->
   DeleteApp
-mkDeleteApp pAppId_ = DeleteApp' {appId = pAppId_}
+mkDeleteApp appId = DeleteApp' {appId}
 
 -- | The app ID.
 --
 -- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAppId :: Lens.Lens' DeleteApp Lude.Text
-daAppId = Lens.lens (appId :: DeleteApp -> Lude.Text) (\s a -> s {appId = a} :: DeleteApp)
+daAppId :: Lens.Lens' DeleteApp Types.String
+daAppId = Lens.field @"appId"
 {-# DEPRECATED daAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance Lude.AWSRequest DeleteApp where
+instance Core.FromJSON DeleteApp where
+  toJSON DeleteApp {..} =
+    Core.object (Core.catMaybes [Core.Just ("AppId" Core..= appId)])
+
+instance Core.AWSRequest DeleteApp where
   type Rs DeleteApp = DeleteAppResponse
-  request = Req.postJSON opsWorksService
-  response = Res.receiveNull DeleteAppResponse'
-
-instance Lude.ToHeaders DeleteApp where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.DeleteApp" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteApp where
-  toJSON DeleteApp' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("AppId" Lude..= appId)])
-
-instance Lude.ToPath DeleteApp where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteApp where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.DeleteApp")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteAppResponse'
 
 -- | /See:/ 'mkDeleteAppResponse' smart constructor.
 data DeleteAppResponse = DeleteAppResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAppResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAppResponse' value with any optional fields omitted.
 mkDeleteAppResponse ::
   DeleteAppResponse
 mkDeleteAppResponse = DeleteAppResponse'

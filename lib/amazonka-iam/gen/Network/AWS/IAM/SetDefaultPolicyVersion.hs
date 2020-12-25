@@ -23,8 +23,8 @@ module Network.AWS.IAM.SetDefaultPolicyVersion
     mkSetDefaultPolicyVersion,
 
     -- ** Request lenses
+    sdpvPolicyArn,
     sdpvVersionId,
-    sdpvPolicyARN,
 
     -- * Destructuring the response
     SetDefaultPolicyVersionResponse (..),
@@ -32,90 +32,83 @@ module Network.AWS.IAM.SetDefaultPolicyVersion
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetDefaultPolicyVersion' smart constructor.
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
-  { -- | The version of the policy to set as the default (operative) version.
-    --
-    -- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
-    versionId :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
+  { -- | The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
     --
     -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-    policyARN :: Lude.Text
+    policyArn :: Types.PolicyArn,
+    -- | The version of the policy to set as the default (operative) version.
+    --
+    -- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
+    versionId :: Types.PolicyVersionIdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetDefaultPolicyVersion' with the minimum fields required to make a request.
---
--- * 'versionId' - The version of the policy to set as the default (operative) version.
---
--- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
--- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
+-- | Creates a 'SetDefaultPolicyVersion' value with any optional fields omitted.
+mkSetDefaultPolicyVersion ::
+  -- | 'policyArn'
+  Types.PolicyArn ->
+  -- | 'versionId'
+  Types.PolicyVersionIdType ->
+  SetDefaultPolicyVersion
+mkSetDefaultPolicyVersion policyArn versionId =
+  SetDefaultPolicyVersion' {policyArn, versionId}
+
+-- | The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-mkSetDefaultPolicyVersion ::
-  -- | 'versionId'
-  Lude.Text ->
-  -- | 'policyARN'
-  Lude.Text ->
-  SetDefaultPolicyVersion
-mkSetDefaultPolicyVersion pVersionId_ pPolicyARN_ =
-  SetDefaultPolicyVersion'
-    { versionId = pVersionId_,
-      policyARN = pPolicyARN_
-    }
+--
+-- /Note:/ Consider using 'policyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdpvPolicyArn :: Lens.Lens' SetDefaultPolicyVersion Types.PolicyArn
+sdpvPolicyArn = Lens.field @"policyArn"
+{-# DEPRECATED sdpvPolicyArn "Use generic-lens or generic-optics with 'policyArn' instead." #-}
 
 -- | The version of the policy to set as the default (operative) version.
 --
 -- For more information about managed policy versions, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies> in the /IAM User Guide/ .
 --
 -- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdpvVersionId :: Lens.Lens' SetDefaultPolicyVersion Lude.Text
-sdpvVersionId = Lens.lens (versionId :: SetDefaultPolicyVersion -> Lude.Text) (\s a -> s {versionId = a} :: SetDefaultPolicyVersion)
+sdpvVersionId :: Lens.Lens' SetDefaultPolicyVersion Types.PolicyVersionIdType
+sdpvVersionId = Lens.field @"versionId"
 {-# DEPRECATED sdpvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM policy whose default version you want to set.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
---
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdpvPolicyARN :: Lens.Lens' SetDefaultPolicyVersion Lude.Text
-sdpvPolicyARN = Lens.lens (policyARN :: SetDefaultPolicyVersion -> Lude.Text) (\s a -> s {policyARN = a} :: SetDefaultPolicyVersion)
-{-# DEPRECATED sdpvPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
-
-instance Lude.AWSRequest SetDefaultPolicyVersion where
+instance Core.AWSRequest SetDefaultPolicyVersion where
   type Rs SetDefaultPolicyVersion = SetDefaultPolicyVersionResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull SetDefaultPolicyVersionResponse'
-
-instance Lude.ToHeaders SetDefaultPolicyVersion where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetDefaultPolicyVersion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetDefaultPolicyVersion where
-  toQuery SetDefaultPolicyVersion' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SetDefaultPolicyVersion" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "VersionId" Lude.=: versionId,
-        "PolicyArn" Lude.=: policyARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetDefaultPolicyVersion")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "PolicyArn" policyArn)
+                Core.<> (Core.toQueryValue "VersionId" versionId)
+            )
+      }
+  response = Response.receiveNull SetDefaultPolicyVersionResponse'
 
 -- | /See:/ 'mkSetDefaultPolicyVersionResponse' smart constructor.
 data SetDefaultPolicyVersionResponse = SetDefaultPolicyVersionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetDefaultPolicyVersionResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetDefaultPolicyVersionResponse' value with any optional fields omitted.
 mkSetDefaultPolicyVersionResponse ::
   SetDefaultPolicyVersionResponse
 mkSetDefaultPolicyVersionResponse =

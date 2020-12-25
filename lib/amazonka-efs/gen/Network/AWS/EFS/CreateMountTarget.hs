@@ -80,120 +80,114 @@ module Network.AWS.EFS.CreateMountTarget
     mkCreateMountTarget,
 
     -- ** Request lenses
-    cmtIPAddress,
-    cmtSecurityGroups,
     cmtFileSystemId,
     cmtSubnetId,
+    cmtIpAddress,
+    cmtSecurityGroups,
 
     -- * Destructuring the response
-    MountTargetDescription (..),
-    mkMountTargetDescription,
+    Types.MountTargetDescription (..),
+    Types.mkMountTargetDescription,
 
     -- ** Response lenses
-    mtdIPAddress,
-    mtdAvailabilityZoneId,
-    mtdVPCId,
-    mtdAvailabilityZoneName,
-    mtdNetworkInterfaceId,
-    mtdFileSystemId,
-    mtdSubnetId,
-    mtdOwnerId,
-    mtdLifeCycleState,
-    mtdMountTargetId,
+    Types.mtdMountTargetId,
+    Types.mtdFileSystemId,
+    Types.mtdSubnetId,
+    Types.mtdLifeCycleState,
+    Types.mtdAvailabilityZoneId,
+    Types.mtdAvailabilityZoneName,
+    Types.mtdIpAddress,
+    Types.mtdNetworkInterfaceId,
+    Types.mtdOwnerId,
+    Types.mtdVpcId,
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkCreateMountTarget' smart constructor.
 data CreateMountTarget = CreateMountTarget'
-  { -- | Valid IPv4 address within the address range of the specified subnet.
-    ipAddress :: Lude.Maybe Lude.Text,
-    -- | Up to five VPC security group IDs, of the form @sg-xxxxxxxx@ . These must be for the same VPC as subnet specified.
-    securityGroups :: Lude.Maybe [Lude.Text],
-    -- | The ID of the file system for which to create the mount target.
-    fileSystemId :: Lude.Text,
+  { -- | The ID of the file system for which to create the mount target.
+    fileSystemId :: Types.FileSystemId,
     -- | The ID of the subnet to add the mount target in.
-    subnetId :: Lude.Text
+    subnetId :: Types.SubnetId,
+    -- | Valid IPv4 address within the address range of the specified subnet.
+    ipAddress :: Core.Maybe Types.IpAddress,
+    -- | Up to five VPC security group IDs, of the form @sg-xxxxxxxx@ . These must be for the same VPC as subnet specified.
+    securityGroups :: Core.Maybe [Types.SecurityGroup]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateMountTarget' with the minimum fields required to make a request.
---
--- * 'ipAddress' - Valid IPv4 address within the address range of the specified subnet.
--- * 'securityGroups' - Up to five VPC security group IDs, of the form @sg-xxxxxxxx@ . These must be for the same VPC as subnet specified.
--- * 'fileSystemId' - The ID of the file system for which to create the mount target.
--- * 'subnetId' - The ID of the subnet to add the mount target in.
+-- | Creates a 'CreateMountTarget' value with any optional fields omitted.
 mkCreateMountTarget ::
   -- | 'fileSystemId'
-  Lude.Text ->
+  Types.FileSystemId ->
   -- | 'subnetId'
-  Lude.Text ->
+  Types.SubnetId ->
   CreateMountTarget
-mkCreateMountTarget pFileSystemId_ pSubnetId_ =
+mkCreateMountTarget fileSystemId subnetId =
   CreateMountTarget'
-    { ipAddress = Lude.Nothing,
-      securityGroups = Lude.Nothing,
-      fileSystemId = pFileSystemId_,
-      subnetId = pSubnetId_
+    { fileSystemId,
+      subnetId,
+      ipAddress = Core.Nothing,
+      securityGroups = Core.Nothing
     }
-
--- | Valid IPv4 address within the address range of the specified subnet.
---
--- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmtIPAddress :: Lens.Lens' CreateMountTarget (Lude.Maybe Lude.Text)
-cmtIPAddress = Lens.lens (ipAddress :: CreateMountTarget -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: CreateMountTarget)
-{-# DEPRECATED cmtIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
-
--- | Up to five VPC security group IDs, of the form @sg-xxxxxxxx@ . These must be for the same VPC as subnet specified.
---
--- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmtSecurityGroups :: Lens.Lens' CreateMountTarget (Lude.Maybe [Lude.Text])
-cmtSecurityGroups = Lens.lens (securityGroups :: CreateMountTarget -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: CreateMountTarget)
-{-# DEPRECATED cmtSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The ID of the file system for which to create the mount target.
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmtFileSystemId :: Lens.Lens' CreateMountTarget Lude.Text
-cmtFileSystemId = Lens.lens (fileSystemId :: CreateMountTarget -> Lude.Text) (\s a -> s {fileSystemId = a} :: CreateMountTarget)
+cmtFileSystemId :: Lens.Lens' CreateMountTarget Types.FileSystemId
+cmtFileSystemId = Lens.field @"fileSystemId"
 {-# DEPRECATED cmtFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
 -- | The ID of the subnet to add the mount target in.
 --
 -- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmtSubnetId :: Lens.Lens' CreateMountTarget Lude.Text
-cmtSubnetId = Lens.lens (subnetId :: CreateMountTarget -> Lude.Text) (\s a -> s {subnetId = a} :: CreateMountTarget)
+cmtSubnetId :: Lens.Lens' CreateMountTarget Types.SubnetId
+cmtSubnetId = Lens.field @"subnetId"
 {-# DEPRECATED cmtSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
-instance Lude.AWSRequest CreateMountTarget where
-  type Rs CreateMountTarget = MountTargetDescription
-  request = Req.postJSON efsService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | Valid IPv4 address within the address range of the specified subnet.
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmtIpAddress :: Lens.Lens' CreateMountTarget (Core.Maybe Types.IpAddress)
+cmtIpAddress = Lens.field @"ipAddress"
+{-# DEPRECATED cmtIpAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
 
-instance Lude.ToHeaders CreateMountTarget where
-  toHeaders = Lude.const Lude.mempty
+-- | Up to five VPC security group IDs, of the form @sg-xxxxxxxx@ . These must be for the same VPC as subnet specified.
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmtSecurityGroups :: Lens.Lens' CreateMountTarget (Core.Maybe [Types.SecurityGroup])
+cmtSecurityGroups = Lens.field @"securityGroups"
+{-# DEPRECATED cmtSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
-instance Lude.ToJSON CreateMountTarget where
-  toJSON CreateMountTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("IpAddress" Lude..=) Lude.<$> ipAddress,
-            ("SecurityGroups" Lude..=) Lude.<$> securityGroups,
-            Lude.Just ("FileSystemId" Lude..= fileSystemId),
-            Lude.Just ("SubnetId" Lude..= subnetId)
+instance Core.FromJSON CreateMountTarget where
+  toJSON CreateMountTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FileSystemId" Core..= fileSystemId),
+            Core.Just ("SubnetId" Core..= subnetId),
+            ("IpAddress" Core..=) Core.<$> ipAddress,
+            ("SecurityGroups" Core..=) Core.<$> securityGroups
           ]
       )
 
-instance Lude.ToPath CreateMountTarget where
-  toPath = Lude.const "/2015-02-01/mount-targets"
-
-instance Lude.ToQuery CreateMountTarget where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateMountTarget where
+  type Rs CreateMountTarget = Types.MountTargetDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2015-02-01/mount-targets",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

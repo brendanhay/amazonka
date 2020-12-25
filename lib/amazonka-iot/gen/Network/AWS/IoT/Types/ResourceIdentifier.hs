@@ -17,153 +17,148 @@ module Network.AWS.IoT.Types.ResourceIdentifier
     mkResourceIdentifier,
 
     -- * Lenses
-    riIamRoleARN,
-    riClientId,
-    riRoleAliasARN,
-    riCaCertificateId,
-    riDeviceCertificateId,
     riAccount,
-    riPolicyVersionIdentifier,
+    riCaCertificateId,
+    riClientId,
     riCognitoIdentityPoolId,
+    riDeviceCertificateId,
+    riIamRoleArn,
+    riPolicyVersionIdentifier,
+    riRoleAliasArn,
   )
 where
 
-import Network.AWS.IoT.Types.PolicyVersionIdentifier
+import qualified Network.AWS.IoT.Types.AwsAccountId as Types
+import qualified Network.AWS.IoT.Types.CertificateId as Types
+import qualified Network.AWS.IoT.Types.ClientId as Types
+import qualified Network.AWS.IoT.Types.CognitoIdentityPoolId as Types
+import qualified Network.AWS.IoT.Types.IamRoleArn as Types
+import qualified Network.AWS.IoT.Types.PolicyVersionIdentifier as Types
+import qualified Network.AWS.IoT.Types.RoleAliasArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information that identifies the noncompliant resource.
 --
 -- /See:/ 'mkResourceIdentifier' smart constructor.
 data ResourceIdentifier = ResourceIdentifier'
-  { -- | The ARN of the IAM role that has overly permissive actions.
-    iamRoleARN :: Lude.Maybe Lude.Text,
-    -- | The client ID.
-    clientId :: Lude.Maybe Lude.Text,
-    -- | The ARN of the role alias that has overly permissive actions.
-    roleAliasARN :: Lude.Maybe Lude.Text,
+  { -- | The account with which the resource is associated.
+    account :: Core.Maybe Types.AwsAccountId,
     -- | The ID of the CA certificate used to authorize the certificate.
-    caCertificateId :: Lude.Maybe Lude.Text,
-    -- | The ID of the certificate attached to the resource.
-    deviceCertificateId :: Lude.Maybe Lude.Text,
-    -- | The account with which the resource is associated.
-    account :: Lude.Maybe Lude.Text,
-    -- | The version of the policy associated with the resource.
-    policyVersionIdentifier :: Lude.Maybe PolicyVersionIdentifier,
+    caCertificateId :: Core.Maybe Types.CertificateId,
+    -- | The client ID.
+    clientId :: Core.Maybe Types.ClientId,
     -- | The ID of the Amazon Cognito identity pool.
-    cognitoIdentityPoolId :: Lude.Maybe Lude.Text
+    cognitoIdentityPoolId :: Core.Maybe Types.CognitoIdentityPoolId,
+    -- | The ID of the certificate attached to the resource.
+    deviceCertificateId :: Core.Maybe Types.CertificateId,
+    -- | The ARN of the IAM role that has overly permissive actions.
+    iamRoleArn :: Core.Maybe Types.IamRoleArn,
+    -- | The version of the policy associated with the resource.
+    policyVersionIdentifier :: Core.Maybe Types.PolicyVersionIdentifier,
+    -- | The ARN of the role alias that has overly permissive actions.
+    roleAliasArn :: Core.Maybe Types.RoleAliasArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceIdentifier' with the minimum fields required to make a request.
---
--- * 'iamRoleARN' - The ARN of the IAM role that has overly permissive actions.
--- * 'clientId' - The client ID.
--- * 'roleAliasARN' - The ARN of the role alias that has overly permissive actions.
--- * 'caCertificateId' - The ID of the CA certificate used to authorize the certificate.
--- * 'deviceCertificateId' - The ID of the certificate attached to the resource.
--- * 'account' - The account with which the resource is associated.
--- * 'policyVersionIdentifier' - The version of the policy associated with the resource.
--- * 'cognitoIdentityPoolId' - The ID of the Amazon Cognito identity pool.
+-- | Creates a 'ResourceIdentifier' value with any optional fields omitted.
 mkResourceIdentifier ::
   ResourceIdentifier
 mkResourceIdentifier =
   ResourceIdentifier'
-    { iamRoleARN = Lude.Nothing,
-      clientId = Lude.Nothing,
-      roleAliasARN = Lude.Nothing,
-      caCertificateId = Lude.Nothing,
-      deviceCertificateId = Lude.Nothing,
-      account = Lude.Nothing,
-      policyVersionIdentifier = Lude.Nothing,
-      cognitoIdentityPoolId = Lude.Nothing
+    { account = Core.Nothing,
+      caCertificateId = Core.Nothing,
+      clientId = Core.Nothing,
+      cognitoIdentityPoolId = Core.Nothing,
+      deviceCertificateId = Core.Nothing,
+      iamRoleArn = Core.Nothing,
+      policyVersionIdentifier = Core.Nothing,
+      roleAliasArn = Core.Nothing
     }
-
--- | The ARN of the IAM role that has overly permissive actions.
---
--- /Note:/ Consider using 'iamRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riIamRoleARN :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
-riIamRoleARN = Lens.lens (iamRoleARN :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {iamRoleARN = a} :: ResourceIdentifier)
-{-# DEPRECATED riIamRoleARN "Use generic-lens or generic-optics with 'iamRoleARN' instead." #-}
-
--- | The client ID.
---
--- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riClientId :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
-riClientId = Lens.lens (clientId :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {clientId = a} :: ResourceIdentifier)
-{-# DEPRECATED riClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
-
--- | The ARN of the role alias that has overly permissive actions.
---
--- /Note:/ Consider using 'roleAliasARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riRoleAliasARN :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
-riRoleAliasARN = Lens.lens (roleAliasARN :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {roleAliasARN = a} :: ResourceIdentifier)
-{-# DEPRECATED riRoleAliasARN "Use generic-lens or generic-optics with 'roleAliasARN' instead." #-}
-
--- | The ID of the CA certificate used to authorize the certificate.
---
--- /Note:/ Consider using 'caCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riCaCertificateId :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
-riCaCertificateId = Lens.lens (caCertificateId :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {caCertificateId = a} :: ResourceIdentifier)
-{-# DEPRECATED riCaCertificateId "Use generic-lens or generic-optics with 'caCertificateId' instead." #-}
-
--- | The ID of the certificate attached to the resource.
---
--- /Note:/ Consider using 'deviceCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riDeviceCertificateId :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
-riDeviceCertificateId = Lens.lens (deviceCertificateId :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {deviceCertificateId = a} :: ResourceIdentifier)
-{-# DEPRECATED riDeviceCertificateId "Use generic-lens or generic-optics with 'deviceCertificateId' instead." #-}
 
 -- | The account with which the resource is associated.
 --
 -- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riAccount :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
-riAccount = Lens.lens (account :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {account = a} :: ResourceIdentifier)
+riAccount :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.AwsAccountId)
+riAccount = Lens.field @"account"
 {-# DEPRECATED riAccount "Use generic-lens or generic-optics with 'account' instead." #-}
 
--- | The version of the policy associated with the resource.
+-- | The ID of the CA certificate used to authorize the certificate.
 --
--- /Note:/ Consider using 'policyVersionIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riPolicyVersionIdentifier :: Lens.Lens' ResourceIdentifier (Lude.Maybe PolicyVersionIdentifier)
-riPolicyVersionIdentifier = Lens.lens (policyVersionIdentifier :: ResourceIdentifier -> Lude.Maybe PolicyVersionIdentifier) (\s a -> s {policyVersionIdentifier = a} :: ResourceIdentifier)
-{-# DEPRECATED riPolicyVersionIdentifier "Use generic-lens or generic-optics with 'policyVersionIdentifier' instead." #-}
+-- /Note:/ Consider using 'caCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riCaCertificateId :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.CertificateId)
+riCaCertificateId = Lens.field @"caCertificateId"
+{-# DEPRECATED riCaCertificateId "Use generic-lens or generic-optics with 'caCertificateId' instead." #-}
+
+-- | The client ID.
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riClientId :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.ClientId)
+riClientId = Lens.field @"clientId"
+{-# DEPRECATED riClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
 
 -- | The ID of the Amazon Cognito identity pool.
 --
 -- /Note:/ Consider using 'cognitoIdentityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riCognitoIdentityPoolId :: Lens.Lens' ResourceIdentifier (Lude.Maybe Lude.Text)
-riCognitoIdentityPoolId = Lens.lens (cognitoIdentityPoolId :: ResourceIdentifier -> Lude.Maybe Lude.Text) (\s a -> s {cognitoIdentityPoolId = a} :: ResourceIdentifier)
+riCognitoIdentityPoolId :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.CognitoIdentityPoolId)
+riCognitoIdentityPoolId = Lens.field @"cognitoIdentityPoolId"
 {-# DEPRECATED riCognitoIdentityPoolId "Use generic-lens or generic-optics with 'cognitoIdentityPoolId' instead." #-}
 
-instance Lude.FromJSON ResourceIdentifier where
-  parseJSON =
-    Lude.withObject
-      "ResourceIdentifier"
-      ( \x ->
-          ResourceIdentifier'
-            Lude.<$> (x Lude..:? "iamRoleArn")
-            Lude.<*> (x Lude..:? "clientId")
-            Lude.<*> (x Lude..:? "roleAliasArn")
-            Lude.<*> (x Lude..:? "caCertificateId")
-            Lude.<*> (x Lude..:? "deviceCertificateId")
-            Lude.<*> (x Lude..:? "account")
-            Lude.<*> (x Lude..:? "policyVersionIdentifier")
-            Lude.<*> (x Lude..:? "cognitoIdentityPoolId")
-      )
+-- | The ID of the certificate attached to the resource.
+--
+-- /Note:/ Consider using 'deviceCertificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riDeviceCertificateId :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.CertificateId)
+riDeviceCertificateId = Lens.field @"deviceCertificateId"
+{-# DEPRECATED riDeviceCertificateId "Use generic-lens or generic-optics with 'deviceCertificateId' instead." #-}
 
-instance Lude.ToJSON ResourceIdentifier where
-  toJSON ResourceIdentifier' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("iamRoleArn" Lude..=) Lude.<$> iamRoleARN,
-            ("clientId" Lude..=) Lude.<$> clientId,
-            ("roleAliasArn" Lude..=) Lude.<$> roleAliasARN,
-            ("caCertificateId" Lude..=) Lude.<$> caCertificateId,
-            ("deviceCertificateId" Lude..=) Lude.<$> deviceCertificateId,
-            ("account" Lude..=) Lude.<$> account,
-            ("policyVersionIdentifier" Lude..=)
-              Lude.<$> policyVersionIdentifier,
-            ("cognitoIdentityPoolId" Lude..=) Lude.<$> cognitoIdentityPoolId
+-- | The ARN of the IAM role that has overly permissive actions.
+--
+-- /Note:/ Consider using 'iamRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riIamRoleArn :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.IamRoleArn)
+riIamRoleArn = Lens.field @"iamRoleArn"
+{-# DEPRECATED riIamRoleArn "Use generic-lens or generic-optics with 'iamRoleArn' instead." #-}
+
+-- | The version of the policy associated with the resource.
+--
+-- /Note:/ Consider using 'policyVersionIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riPolicyVersionIdentifier :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.PolicyVersionIdentifier)
+riPolicyVersionIdentifier = Lens.field @"policyVersionIdentifier"
+{-# DEPRECATED riPolicyVersionIdentifier "Use generic-lens or generic-optics with 'policyVersionIdentifier' instead." #-}
+
+-- | The ARN of the role alias that has overly permissive actions.
+--
+-- /Note:/ Consider using 'roleAliasArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+riRoleAliasArn :: Lens.Lens' ResourceIdentifier (Core.Maybe Types.RoleAliasArn)
+riRoleAliasArn = Lens.field @"roleAliasArn"
+{-# DEPRECATED riRoleAliasArn "Use generic-lens or generic-optics with 'roleAliasArn' instead." #-}
+
+instance Core.FromJSON ResourceIdentifier where
+  toJSON ResourceIdentifier {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("account" Core..=) Core.<$> account,
+            ("caCertificateId" Core..=) Core.<$> caCertificateId,
+            ("clientId" Core..=) Core.<$> clientId,
+            ("cognitoIdentityPoolId" Core..=) Core.<$> cognitoIdentityPoolId,
+            ("deviceCertificateId" Core..=) Core.<$> deviceCertificateId,
+            ("iamRoleArn" Core..=) Core.<$> iamRoleArn,
+            ("policyVersionIdentifier" Core..=)
+              Core.<$> policyVersionIdentifier,
+            ("roleAliasArn" Core..=) Core.<$> roleAliasArn
           ]
       )
+
+instance Core.FromJSON ResourceIdentifier where
+  parseJSON =
+    Core.withObject "ResourceIdentifier" Core.$
+      \x ->
+        ResourceIdentifier'
+          Core.<$> (x Core..:? "account")
+          Core.<*> (x Core..:? "caCertificateId")
+          Core.<*> (x Core..:? "clientId")
+          Core.<*> (x Core..:? "cognitoIdentityPoolId")
+          Core.<*> (x Core..:? "deviceCertificateId")
+          Core.<*> (x Core..:? "iamRoleArn")
+          Core.<*> (x Core..:? "policyVersionIdentifier")
+          Core.<*> (x Core..:? "roleAliasArn")

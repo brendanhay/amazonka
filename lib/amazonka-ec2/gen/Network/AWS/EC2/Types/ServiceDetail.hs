@@ -17,217 +17,196 @@ module Network.AWS.EC2.Types.ServiceDetail
     mkServiceDetail,
 
     -- * Lenses
-    sdPrivateDNSNameVerificationState,
-    sdVPCEndpointPolicySupported,
-    sdBaseEndpointDNSNames,
-    sdOwner,
+    sdAcceptanceRequired,
     sdAvailabilityZones,
-    sdManagesVPCEndpoints,
+    sdBaseEndpointDnsNames,
+    sdManagesVpcEndpoints,
+    sdOwner,
+    sdPrivateDnsName,
+    sdPrivateDnsNameVerificationState,
+    sdPrivateDnsNames,
+    sdServiceId,
     sdServiceName,
     sdServiceType,
-    sdAcceptanceRequired,
-    sdPrivateDNSNames,
-    sdServiceId,
-    sdPrivateDNSName,
     sdTags,
+    sdVpcEndpointPolicySupported,
   )
 where
 
-import Network.AWS.EC2.Types.DNSNameState
-import Network.AWS.EC2.Types.PrivateDNSDetails
-import Network.AWS.EC2.Types.ServiceTypeDetail
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.DnsNameState as Types
+import qualified Network.AWS.EC2.Types.PrivateDnsDetails as Types
+import qualified Network.AWS.EC2.Types.ServiceTypeDetail as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a VPC endpoint service.
 --
 -- /See:/ 'mkServiceDetail' smart constructor.
 data ServiceDetail = ServiceDetail'
-  { -- | The verification state of the VPC endpoint service.
+  { -- | Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
+    acceptanceRequired :: Core.Maybe Core.Bool,
+    -- | The Availability Zones in which the service is available.
+    availabilityZones :: Core.Maybe [Types.String],
+    -- | The DNS names for the service.
+    baseEndpointDnsNames :: Core.Maybe [Types.String],
+    -- | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
+    managesVpcEndpoints :: Core.Maybe Core.Bool,
+    -- | The AWS account ID of the service owner.
+    owner :: Core.Maybe Types.String,
+    -- | The private DNS name for the service.
+    privateDnsName :: Core.Maybe Types.String,
+    -- | The verification state of the VPC endpoint service.
     --
     -- Consumers of the endpoint service cannot use the private name when the state is not @verified@ .
-    privateDNSNameVerificationState :: Lude.Maybe DNSNameState,
-    -- | Indicates whether the service supports endpoint policies.
-    vpcEndpointPolicySupported :: Lude.Maybe Lude.Bool,
-    -- | The DNS names for the service.
-    baseEndpointDNSNames :: Lude.Maybe [Lude.Text],
-    -- | The AWS account ID of the service owner.
-    owner :: Lude.Maybe Lude.Text,
-    -- | The Availability Zones in which the service is available.
-    availabilityZones :: Lude.Maybe [Lude.Text],
-    -- | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
-    managesVPCEndpoints :: Lude.Maybe Lude.Bool,
-    -- | The Amazon Resource Name (ARN) of the service.
-    serviceName :: Lude.Maybe Lude.Text,
-    -- | The type of service.
-    serviceType :: Lude.Maybe [ServiceTypeDetail],
-    -- | Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
-    acceptanceRequired :: Lude.Maybe Lude.Bool,
+    privateDnsNameVerificationState :: Core.Maybe Types.DnsNameState,
     -- | The private DNS names assigned to the VPC endpoint service.
-    privateDNSNames :: Lude.Maybe [PrivateDNSDetails],
+    privateDnsNames :: Core.Maybe [Types.PrivateDnsDetails],
     -- | The ID of the endpoint service.
-    serviceId :: Lude.Maybe Lude.Text,
-    -- | The private DNS name for the service.
-    privateDNSName :: Lude.Maybe Lude.Text,
+    serviceId :: Core.Maybe Types.String,
+    -- | The Amazon Resource Name (ARN) of the service.
+    serviceName :: Core.Maybe Types.String,
+    -- | The type of service.
+    serviceType :: Core.Maybe [Types.ServiceTypeDetail],
     -- | Any tags assigned to the service.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | Indicates whether the service supports endpoint policies.
+    vpcEndpointPolicySupported :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServiceDetail' with the minimum fields required to make a request.
---
--- * 'privateDNSNameVerificationState' - The verification state of the VPC endpoint service.
---
--- Consumers of the endpoint service cannot use the private name when the state is not @verified@ .
--- * 'vpcEndpointPolicySupported' - Indicates whether the service supports endpoint policies.
--- * 'baseEndpointDNSNames' - The DNS names for the service.
--- * 'owner' - The AWS account ID of the service owner.
--- * 'availabilityZones' - The Availability Zones in which the service is available.
--- * 'managesVPCEndpoints' - Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
--- * 'serviceName' - The Amazon Resource Name (ARN) of the service.
--- * 'serviceType' - The type of service.
--- * 'acceptanceRequired' - Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
--- * 'privateDNSNames' - The private DNS names assigned to the VPC endpoint service.
--- * 'serviceId' - The ID of the endpoint service.
--- * 'privateDNSName' - The private DNS name for the service.
--- * 'tags' - Any tags assigned to the service.
+-- | Creates a 'ServiceDetail' value with any optional fields omitted.
 mkServiceDetail ::
   ServiceDetail
 mkServiceDetail =
   ServiceDetail'
-    { privateDNSNameVerificationState = Lude.Nothing,
-      vpcEndpointPolicySupported = Lude.Nothing,
-      baseEndpointDNSNames = Lude.Nothing,
-      owner = Lude.Nothing,
-      availabilityZones = Lude.Nothing,
-      managesVPCEndpoints = Lude.Nothing,
-      serviceName = Lude.Nothing,
-      serviceType = Lude.Nothing,
-      acceptanceRequired = Lude.Nothing,
-      privateDNSNames = Lude.Nothing,
-      serviceId = Lude.Nothing,
-      privateDNSName = Lude.Nothing,
-      tags = Lude.Nothing
+    { acceptanceRequired = Core.Nothing,
+      availabilityZones = Core.Nothing,
+      baseEndpointDnsNames = Core.Nothing,
+      managesVpcEndpoints = Core.Nothing,
+      owner = Core.Nothing,
+      privateDnsName = Core.Nothing,
+      privateDnsNameVerificationState = Core.Nothing,
+      privateDnsNames = Core.Nothing,
+      serviceId = Core.Nothing,
+      serviceName = Core.Nothing,
+      serviceType = Core.Nothing,
+      tags = Core.Nothing,
+      vpcEndpointPolicySupported = Core.Nothing
     }
+
+-- | Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
+--
+-- /Note:/ Consider using 'acceptanceRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdAcceptanceRequired :: Lens.Lens' ServiceDetail (Core.Maybe Core.Bool)
+sdAcceptanceRequired = Lens.field @"acceptanceRequired"
+{-# DEPRECATED sdAcceptanceRequired "Use generic-lens or generic-optics with 'acceptanceRequired' instead." #-}
+
+-- | The Availability Zones in which the service is available.
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdAvailabilityZones :: Lens.Lens' ServiceDetail (Core.Maybe [Types.String])
+sdAvailabilityZones = Lens.field @"availabilityZones"
+{-# DEPRECATED sdAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
+
+-- | The DNS names for the service.
+--
+-- /Note:/ Consider using 'baseEndpointDnsNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdBaseEndpointDnsNames :: Lens.Lens' ServiceDetail (Core.Maybe [Types.String])
+sdBaseEndpointDnsNames = Lens.field @"baseEndpointDnsNames"
+{-# DEPRECATED sdBaseEndpointDnsNames "Use generic-lens or generic-optics with 'baseEndpointDnsNames' instead." #-}
+
+-- | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
+--
+-- /Note:/ Consider using 'managesVpcEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdManagesVpcEndpoints :: Lens.Lens' ServiceDetail (Core.Maybe Core.Bool)
+sdManagesVpcEndpoints = Lens.field @"managesVpcEndpoints"
+{-# DEPRECATED sdManagesVpcEndpoints "Use generic-lens or generic-optics with 'managesVpcEndpoints' instead." #-}
+
+-- | The AWS account ID of the service owner.
+--
+-- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdOwner :: Lens.Lens' ServiceDetail (Core.Maybe Types.String)
+sdOwner = Lens.field @"owner"
+{-# DEPRECATED sdOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
+
+-- | The private DNS name for the service.
+--
+-- /Note:/ Consider using 'privateDnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdPrivateDnsName :: Lens.Lens' ServiceDetail (Core.Maybe Types.String)
+sdPrivateDnsName = Lens.field @"privateDnsName"
+{-# DEPRECATED sdPrivateDnsName "Use generic-lens or generic-optics with 'privateDnsName' instead." #-}
 
 -- | The verification state of the VPC endpoint service.
 --
 -- Consumers of the endpoint service cannot use the private name when the state is not @verified@ .
 --
--- /Note:/ Consider using 'privateDNSNameVerificationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdPrivateDNSNameVerificationState :: Lens.Lens' ServiceDetail (Lude.Maybe DNSNameState)
-sdPrivateDNSNameVerificationState = Lens.lens (privateDNSNameVerificationState :: ServiceDetail -> Lude.Maybe DNSNameState) (\s a -> s {privateDNSNameVerificationState = a} :: ServiceDetail)
-{-# DEPRECATED sdPrivateDNSNameVerificationState "Use generic-lens or generic-optics with 'privateDNSNameVerificationState' instead." #-}
+-- /Note:/ Consider using 'privateDnsNameVerificationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdPrivateDnsNameVerificationState :: Lens.Lens' ServiceDetail (Core.Maybe Types.DnsNameState)
+sdPrivateDnsNameVerificationState = Lens.field @"privateDnsNameVerificationState"
+{-# DEPRECATED sdPrivateDnsNameVerificationState "Use generic-lens or generic-optics with 'privateDnsNameVerificationState' instead." #-}
 
--- | Indicates whether the service supports endpoint policies.
+-- | The private DNS names assigned to the VPC endpoint service.
 --
--- /Note:/ Consider using 'vpcEndpointPolicySupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdVPCEndpointPolicySupported :: Lens.Lens' ServiceDetail (Lude.Maybe Lude.Bool)
-sdVPCEndpointPolicySupported = Lens.lens (vpcEndpointPolicySupported :: ServiceDetail -> Lude.Maybe Lude.Bool) (\s a -> s {vpcEndpointPolicySupported = a} :: ServiceDetail)
-{-# DEPRECATED sdVPCEndpointPolicySupported "Use generic-lens or generic-optics with 'vpcEndpointPolicySupported' instead." #-}
+-- /Note:/ Consider using 'privateDnsNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdPrivateDnsNames :: Lens.Lens' ServiceDetail (Core.Maybe [Types.PrivateDnsDetails])
+sdPrivateDnsNames = Lens.field @"privateDnsNames"
+{-# DEPRECATED sdPrivateDnsNames "Use generic-lens or generic-optics with 'privateDnsNames' instead." #-}
 
--- | The DNS names for the service.
+-- | The ID of the endpoint service.
 --
--- /Note:/ Consider using 'baseEndpointDNSNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdBaseEndpointDNSNames :: Lens.Lens' ServiceDetail (Lude.Maybe [Lude.Text])
-sdBaseEndpointDNSNames = Lens.lens (baseEndpointDNSNames :: ServiceDetail -> Lude.Maybe [Lude.Text]) (\s a -> s {baseEndpointDNSNames = a} :: ServiceDetail)
-{-# DEPRECATED sdBaseEndpointDNSNames "Use generic-lens or generic-optics with 'baseEndpointDNSNames' instead." #-}
-
--- | The AWS account ID of the service owner.
---
--- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdOwner :: Lens.Lens' ServiceDetail (Lude.Maybe Lude.Text)
-sdOwner = Lens.lens (owner :: ServiceDetail -> Lude.Maybe Lude.Text) (\s a -> s {owner = a} :: ServiceDetail)
-{-# DEPRECATED sdOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
-
--- | The Availability Zones in which the service is available.
---
--- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdAvailabilityZones :: Lens.Lens' ServiceDetail (Lude.Maybe [Lude.Text])
-sdAvailabilityZones = Lens.lens (availabilityZones :: ServiceDetail -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: ServiceDetail)
-{-# DEPRECATED sdAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
-
--- | Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.
---
--- /Note:/ Consider using 'managesVPCEndpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdManagesVPCEndpoints :: Lens.Lens' ServiceDetail (Lude.Maybe Lude.Bool)
-sdManagesVPCEndpoints = Lens.lens (managesVPCEndpoints :: ServiceDetail -> Lude.Maybe Lude.Bool) (\s a -> s {managesVPCEndpoints = a} :: ServiceDetail)
-{-# DEPRECATED sdManagesVPCEndpoints "Use generic-lens or generic-optics with 'managesVPCEndpoints' instead." #-}
+-- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdServiceId :: Lens.Lens' ServiceDetail (Core.Maybe Types.String)
+sdServiceId = Lens.field @"serviceId"
+{-# DEPRECATED sdServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the service.
 --
 -- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdServiceName :: Lens.Lens' ServiceDetail (Lude.Maybe Lude.Text)
-sdServiceName = Lens.lens (serviceName :: ServiceDetail -> Lude.Maybe Lude.Text) (\s a -> s {serviceName = a} :: ServiceDetail)
+sdServiceName :: Lens.Lens' ServiceDetail (Core.Maybe Types.String)
+sdServiceName = Lens.field @"serviceName"
 {-# DEPRECATED sdServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The type of service.
 --
 -- /Note:/ Consider using 'serviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdServiceType :: Lens.Lens' ServiceDetail (Lude.Maybe [ServiceTypeDetail])
-sdServiceType = Lens.lens (serviceType :: ServiceDetail -> Lude.Maybe [ServiceTypeDetail]) (\s a -> s {serviceType = a} :: ServiceDetail)
+sdServiceType :: Lens.Lens' ServiceDetail (Core.Maybe [Types.ServiceTypeDetail])
+sdServiceType = Lens.field @"serviceType"
 {-# DEPRECATED sdServiceType "Use generic-lens or generic-optics with 'serviceType' instead." #-}
-
--- | Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.
---
--- /Note:/ Consider using 'acceptanceRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdAcceptanceRequired :: Lens.Lens' ServiceDetail (Lude.Maybe Lude.Bool)
-sdAcceptanceRequired = Lens.lens (acceptanceRequired :: ServiceDetail -> Lude.Maybe Lude.Bool) (\s a -> s {acceptanceRequired = a} :: ServiceDetail)
-{-# DEPRECATED sdAcceptanceRequired "Use generic-lens or generic-optics with 'acceptanceRequired' instead." #-}
-
--- | The private DNS names assigned to the VPC endpoint service.
---
--- /Note:/ Consider using 'privateDNSNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdPrivateDNSNames :: Lens.Lens' ServiceDetail (Lude.Maybe [PrivateDNSDetails])
-sdPrivateDNSNames = Lens.lens (privateDNSNames :: ServiceDetail -> Lude.Maybe [PrivateDNSDetails]) (\s a -> s {privateDNSNames = a} :: ServiceDetail)
-{-# DEPRECATED sdPrivateDNSNames "Use generic-lens or generic-optics with 'privateDNSNames' instead." #-}
-
--- | The ID of the endpoint service.
---
--- /Note:/ Consider using 'serviceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdServiceId :: Lens.Lens' ServiceDetail (Lude.Maybe Lude.Text)
-sdServiceId = Lens.lens (serviceId :: ServiceDetail -> Lude.Maybe Lude.Text) (\s a -> s {serviceId = a} :: ServiceDetail)
-{-# DEPRECATED sdServiceId "Use generic-lens or generic-optics with 'serviceId' instead." #-}
-
--- | The private DNS name for the service.
---
--- /Note:/ Consider using 'privateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdPrivateDNSName :: Lens.Lens' ServiceDetail (Lude.Maybe Lude.Text)
-sdPrivateDNSName = Lens.lens (privateDNSName :: ServiceDetail -> Lude.Maybe Lude.Text) (\s a -> s {privateDNSName = a} :: ServiceDetail)
-{-# DEPRECATED sdPrivateDNSName "Use generic-lens or generic-optics with 'privateDNSName' instead." #-}
 
 -- | Any tags assigned to the service.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdTags :: Lens.Lens' ServiceDetail (Lude.Maybe [Tag])
-sdTags = Lens.lens (tags :: ServiceDetail -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ServiceDetail)
+sdTags :: Lens.Lens' ServiceDetail (Core.Maybe [Types.Tag])
+sdTags = Lens.field @"tags"
 {-# DEPRECATED sdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML ServiceDetail where
+-- | Indicates whether the service supports endpoint policies.
+--
+-- /Note:/ Consider using 'vpcEndpointPolicySupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdVpcEndpointPolicySupported :: Lens.Lens' ServiceDetail (Core.Maybe Core.Bool)
+sdVpcEndpointPolicySupported = Lens.field @"vpcEndpointPolicySupported"
+{-# DEPRECATED sdVpcEndpointPolicySupported "Use generic-lens or generic-optics with 'vpcEndpointPolicySupported' instead." #-}
+
+instance Core.FromXML ServiceDetail where
   parseXML x =
     ServiceDetail'
-      Lude.<$> (x Lude..@? "privateDnsNameVerificationState")
-      Lude.<*> (x Lude..@? "vpcEndpointPolicySupported")
-      Lude.<*> ( x Lude..@? "baseEndpointDnsNameSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> (x Core..@? "acceptanceRequired")
+      Core.<*> ( x Core..@? "availabilityZoneSet"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "owner")
-      Lude.<*> ( x Lude..@? "availabilityZoneSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<*> ( x Core..@? "baseEndpointDnsNameSet"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "managesVpcEndpoints")
-      Lude.<*> (x Lude..@? "serviceName")
-      Lude.<*> ( x Lude..@? "serviceType" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "acceptanceRequired")
-      Lude.<*> ( x Lude..@? "privateDnsNameSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "serviceId")
-      Lude.<*> (x Lude..@? "privateDnsName")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<*> (x Core..@? "managesVpcEndpoints")
+      Core.<*> (x Core..@? "owner")
+      Core.<*> (x Core..@? "privateDnsName")
+      Core.<*> (x Core..@? "privateDnsNameVerificationState")
+      Core.<*> (x Core..@? "privateDnsNameSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "serviceId")
+      Core.<*> (x Core..@? "serviceName")
+      Core.<*> (x Core..@? "serviceType" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "vpcEndpointPolicySupported")

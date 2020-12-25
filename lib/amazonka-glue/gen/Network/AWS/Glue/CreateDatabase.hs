@@ -28,110 +28,95 @@ module Network.AWS.Glue.CreateDatabase
     mkCreateDatabaseResponse,
 
     -- ** Response lenses
-    cdrsResponseStatus,
+    cdrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDatabase' smart constructor.
 data CreateDatabase = CreateDatabase'
   { -- | The metadata for the database.
-    databaseInput :: DatabaseInput,
+    databaseInput :: Types.DatabaseInput,
     -- | The ID of the Data Catalog in which to create the database. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDatabase' with the minimum fields required to make a request.
---
--- * 'databaseInput' - The metadata for the database.
--- * 'catalogId' - The ID of the Data Catalog in which to create the database. If none is provided, the AWS account ID is used by default.
+-- | Creates a 'CreateDatabase' value with any optional fields omitted.
 mkCreateDatabase ::
   -- | 'databaseInput'
-  DatabaseInput ->
+  Types.DatabaseInput ->
   CreateDatabase
-mkCreateDatabase pDatabaseInput_ =
-  CreateDatabase'
-    { databaseInput = pDatabaseInput_,
-      catalogId = Lude.Nothing
-    }
+mkCreateDatabase databaseInput =
+  CreateDatabase' {databaseInput, catalogId = Core.Nothing}
 
 -- | The metadata for the database.
 --
 -- /Note:/ Consider using 'databaseInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDatabaseInput :: Lens.Lens' CreateDatabase DatabaseInput
-cdDatabaseInput = Lens.lens (databaseInput :: CreateDatabase -> DatabaseInput) (\s a -> s {databaseInput = a} :: CreateDatabase)
+cdDatabaseInput :: Lens.Lens' CreateDatabase Types.DatabaseInput
+cdDatabaseInput = Lens.field @"databaseInput"
 {-# DEPRECATED cdDatabaseInput "Use generic-lens or generic-optics with 'databaseInput' instead." #-}
 
 -- | The ID of the Data Catalog in which to create the database. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCatalogId :: Lens.Lens' CreateDatabase (Lude.Maybe Lude.Text)
-cdCatalogId = Lens.lens (catalogId :: CreateDatabase -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: CreateDatabase)
+cdCatalogId :: Lens.Lens' CreateDatabase (Core.Maybe Types.CatalogId)
+cdCatalogId = Lens.field @"catalogId"
 {-# DEPRECATED cdCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
-instance Lude.AWSRequest CreateDatabase where
+instance Core.FromJSON CreateDatabase where
+  toJSON CreateDatabase {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseInput" Core..= databaseInput),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest CreateDatabase where
   type Rs CreateDatabase = CreateDatabaseResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.CreateDatabase")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CreateDatabaseResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreateDatabaseResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDatabase where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.CreateDatabase" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateDatabase where
-  toJSON CreateDatabase' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DatabaseInput" Lude..= databaseInput),
-            ("CatalogId" Lude..=) Lude.<$> catalogId
-          ]
-      )
-
-instance Lude.ToPath CreateDatabase where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDatabase where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateDatabaseResponse' smart constructor.
 newtype CreateDatabaseResponse = CreateDatabaseResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDatabaseResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDatabaseResponse' value with any optional fields omitted.
 mkCreateDatabaseResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDatabaseResponse
-mkCreateDatabaseResponse pResponseStatus_ =
-  CreateDatabaseResponse' {responseStatus = pResponseStatus_}
+mkCreateDatabaseResponse responseStatus =
+  CreateDatabaseResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsResponseStatus :: Lens.Lens' CreateDatabaseResponse Lude.Int
-cdrsResponseStatus = Lens.lens (responseStatus :: CreateDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDatabaseResponse)
-{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdrrsResponseStatus :: Lens.Lens' CreateDatabaseResponse Core.Int
+cdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,122 +22,118 @@ module Network.AWS.EC2.CreateInternetGateway
     mkCreateInternetGateway,
 
     -- ** Request lenses
-    cigTagSpecifications,
     cigDryRun,
+    cigTagSpecifications,
 
     -- * Destructuring the response
     CreateInternetGatewayResponse (..),
     mkCreateInternetGatewayResponse,
 
     -- ** Response lenses
-    cigrsInternetGateway,
-    cigrsResponseStatus,
+    cigrrsInternetGateway,
+    cigrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateInternetGateway' smart constructor.
 data CreateInternetGateway = CreateInternetGateway'
-  { -- | The tags to assign to the internet gateway.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The tags to assign to the internet gateway.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateInternetGateway' with the minimum fields required to make a request.
---
--- * 'tagSpecifications' - The tags to assign to the internet gateway.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateInternetGateway' value with any optional fields omitted.
 mkCreateInternetGateway ::
   CreateInternetGateway
 mkCreateInternetGateway =
   CreateInternetGateway'
-    { tagSpecifications = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { dryRun = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
-
--- | The tags to assign to the internet gateway.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cigTagSpecifications :: Lens.Lens' CreateInternetGateway (Lude.Maybe [TagSpecification])
-cigTagSpecifications = Lens.lens (tagSpecifications :: CreateInternetGateway -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateInternetGateway)
-{-# DEPRECATED cigTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cigDryRun :: Lens.Lens' CreateInternetGateway (Lude.Maybe Lude.Bool)
-cigDryRun = Lens.lens (dryRun :: CreateInternetGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateInternetGateway)
+cigDryRun :: Lens.Lens' CreateInternetGateway (Core.Maybe Core.Bool)
+cigDryRun = Lens.field @"dryRun"
 {-# DEPRECATED cigDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateInternetGateway where
+-- | The tags to assign to the internet gateway.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cigTagSpecifications :: Lens.Lens' CreateInternetGateway (Core.Maybe [Types.TagSpecification])
+cigTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED cigTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreateInternetGateway where
   type Rs CreateInternetGateway = CreateInternetGatewayResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateInternetGateway")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateInternetGatewayResponse'
-            Lude.<$> (x Lude..@? "internetGateway")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "internetGateway")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateInternetGateway where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateInternetGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateInternetGateway where
-  toQuery CreateInternetGateway' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateInternetGateway" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCreateInternetGatewayResponse' smart constructor.
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
   { -- | Information about the internet gateway.
-    internetGateway :: Lude.Maybe InternetGateway,
+    internetGateway :: Core.Maybe Types.InternetGateway,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateInternetGatewayResponse' with the minimum fields required to make a request.
---
--- * 'internetGateway' - Information about the internet gateway.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateInternetGatewayResponse' value with any optional fields omitted.
 mkCreateInternetGatewayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateInternetGatewayResponse
-mkCreateInternetGatewayResponse pResponseStatus_ =
+mkCreateInternetGatewayResponse responseStatus =
   CreateInternetGatewayResponse'
-    { internetGateway = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { internetGateway = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the internet gateway.
 --
 -- /Note:/ Consider using 'internetGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cigrsInternetGateway :: Lens.Lens' CreateInternetGatewayResponse (Lude.Maybe InternetGateway)
-cigrsInternetGateway = Lens.lens (internetGateway :: CreateInternetGatewayResponse -> Lude.Maybe InternetGateway) (\s a -> s {internetGateway = a} :: CreateInternetGatewayResponse)
-{-# DEPRECATED cigrsInternetGateway "Use generic-lens or generic-optics with 'internetGateway' instead." #-}
+cigrrsInternetGateway :: Lens.Lens' CreateInternetGatewayResponse (Core.Maybe Types.InternetGateway)
+cigrrsInternetGateway = Lens.field @"internetGateway"
+{-# DEPRECATED cigrrsInternetGateway "Use generic-lens or generic-optics with 'internetGateway' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cigrsResponseStatus :: Lens.Lens' CreateInternetGatewayResponse Lude.Int
-cigrsResponseStatus = Lens.lens (responseStatus :: CreateInternetGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateInternetGatewayResponse)
-{-# DEPRECATED cigrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cigrrsResponseStatus :: Lens.Lens' CreateInternetGatewayResponse Core.Int
+cigrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cigrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

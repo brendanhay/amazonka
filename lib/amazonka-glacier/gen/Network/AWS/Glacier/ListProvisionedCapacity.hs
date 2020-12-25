@@ -27,98 +27,95 @@ module Network.AWS.Glacier.ListProvisionedCapacity
     mkListProvisionedCapacityResponse,
 
     -- ** Response lenses
-    lpcrsProvisionedCapacityList,
-    lpcrsResponseStatus,
+    lpcrrsProvisionedCapacityList,
+    lpcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListProvisionedCapacity' smart constructor.
 newtype ListProvisionedCapacity = ListProvisionedCapacity'
   { -- | The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
-    accountId :: Lude.Text
+    accountId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListProvisionedCapacity' with the minimum fields required to make a request.
---
--- * 'accountId' - The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
+-- | Creates a 'ListProvisionedCapacity' value with any optional fields omitted.
 mkListProvisionedCapacity ::
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
   ListProvisionedCapacity
-mkListProvisionedCapacity pAccountId_ =
-  ListProvisionedCapacity' {accountId = pAccountId_}
+mkListProvisionedCapacity accountId =
+  ListProvisionedCapacity' {accountId}
 
 -- | The AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '-' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, don't include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpcAccountId :: Lens.Lens' ListProvisionedCapacity Lude.Text
-lpcAccountId = Lens.lens (accountId :: ListProvisionedCapacity -> Lude.Text) (\s a -> s {accountId = a} :: ListProvisionedCapacity)
+lpcAccountId :: Lens.Lens' ListProvisionedCapacity Types.String
+lpcAccountId = Lens.field @"accountId"
 {-# DEPRECATED lpcAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.AWSRequest ListProvisionedCapacity where
+instance Core.AWSRequest ListProvisionedCapacity where
   type Rs ListProvisionedCapacity = ListProvisionedCapacityResponse
-  request = Req.get glacierService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId)
+                Core.<> ("/provisioned-capacity")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListProvisionedCapacityResponse'
-            Lude.<$> (x Lude..?> "ProvisionedCapacityList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ProvisionedCapacityList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListProvisionedCapacity where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListProvisionedCapacity where
-  toPath ListProvisionedCapacity' {..} =
-    Lude.mconcat ["/", Lude.toBS accountId, "/provisioned-capacity"]
-
-instance Lude.ToQuery ListProvisionedCapacity where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListProvisionedCapacityResponse' smart constructor.
 data ListProvisionedCapacityResponse = ListProvisionedCapacityResponse'
   { -- | The response body contains the following JSON fields.
-    provisionedCapacityList :: Lude.Maybe [ProvisionedCapacityDescription],
+    provisionedCapacityList :: Core.Maybe [Types.ProvisionedCapacityDescription],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListProvisionedCapacityResponse' with the minimum fields required to make a request.
---
--- * 'provisionedCapacityList' - The response body contains the following JSON fields.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListProvisionedCapacityResponse' value with any optional fields omitted.
 mkListProvisionedCapacityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListProvisionedCapacityResponse
-mkListProvisionedCapacityResponse pResponseStatus_ =
+mkListProvisionedCapacityResponse responseStatus =
   ListProvisionedCapacityResponse'
     { provisionedCapacityList =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The response body contains the following JSON fields.
 --
 -- /Note:/ Consider using 'provisionedCapacityList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpcrsProvisionedCapacityList :: Lens.Lens' ListProvisionedCapacityResponse (Lude.Maybe [ProvisionedCapacityDescription])
-lpcrsProvisionedCapacityList = Lens.lens (provisionedCapacityList :: ListProvisionedCapacityResponse -> Lude.Maybe [ProvisionedCapacityDescription]) (\s a -> s {provisionedCapacityList = a} :: ListProvisionedCapacityResponse)
-{-# DEPRECATED lpcrsProvisionedCapacityList "Use generic-lens or generic-optics with 'provisionedCapacityList' instead." #-}
+lpcrrsProvisionedCapacityList :: Lens.Lens' ListProvisionedCapacityResponse (Core.Maybe [Types.ProvisionedCapacityDescription])
+lpcrrsProvisionedCapacityList = Lens.field @"provisionedCapacityList"
+{-# DEPRECATED lpcrrsProvisionedCapacityList "Use generic-lens or generic-optics with 'provisionedCapacityList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpcrsResponseStatus :: Lens.Lens' ListProvisionedCapacityResponse Lude.Int
-lpcrsResponseStatus = Lens.lens (responseStatus :: ListProvisionedCapacityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProvisionedCapacityResponse)
-{-# DEPRECATED lpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lpcrrsResponseStatus :: Lens.Lens' ListProvisionedCapacityResponse Core.Int
+lpcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lpcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

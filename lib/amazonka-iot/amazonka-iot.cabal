@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.IoT
     Network.AWS.IoT.AcceptCertificateTransfer
@@ -84,7 +90,7 @@ library
     Network.AWS.IoT.CreateAuditSuppression
     Network.AWS.IoT.CreateAuthorizer
     Network.AWS.IoT.CreateBillingGroup
-    Network.AWS.IoT.CreateCertificateFromCSR
+    Network.AWS.IoT.CreateCertificateFromCsr
     Network.AWS.IoT.CreateDimension
     Network.AWS.IoT.CreateDomainConfiguration
     Network.AWS.IoT.CreateDynamicThingGroup
@@ -282,82 +288,156 @@ library
     Network.AWS.IoT.Types.AbortAction
     Network.AWS.IoT.Types.AbortConfig
     Network.AWS.IoT.Types.AbortCriteria
+    Network.AWS.IoT.Types.AcmCertificateArn
     Network.AWS.IoT.Types.Action
+    Network.AWS.IoT.Types.ActionArn
+    Network.AWS.IoT.Types.ActionId
     Network.AWS.IoT.Types.ActionType
     Network.AWS.IoT.Types.ActiveViolation
     Network.AWS.IoT.Types.AddThingsToThingGroupParams
+    Network.AWS.IoT.Types.AggregationField
+    Network.AWS.IoT.Types.AlarmName
     Network.AWS.IoT.Types.AlertTarget
+    Network.AWS.IoT.Types.AlertTargetArn
     Network.AWS.IoT.Types.AlertTargetType
     Network.AWS.IoT.Types.Allowed
+    Network.AWS.IoT.Types.Arn
+    Network.AWS.IoT.Types.AssetId
+    Network.AWS.IoT.Types.AssetPropertyAlias
+    Network.AWS.IoT.Types.AssetPropertyDoubleValue
+    Network.AWS.IoT.Types.AssetPropertyEntryId
+    Network.AWS.IoT.Types.AssetPropertyIntegerValue
+    Network.AWS.IoT.Types.AssetPropertyOffsetInNanos
+    Network.AWS.IoT.Types.AssetPropertyQuality
+    Network.AWS.IoT.Types.AssetPropertyStringValue
+    Network.AWS.IoT.Types.AssetPropertyTimeInSeconds
     Network.AWS.IoT.Types.AssetPropertyTimestamp
     Network.AWS.IoT.Types.AssetPropertyValue
     Network.AWS.IoT.Types.AssetPropertyVariant
+    Network.AWS.IoT.Types.AttributeKey
+    Network.AWS.IoT.Types.AttributeName
     Network.AWS.IoT.Types.AttributePayload
+    Network.AWS.IoT.Types.AttributeValue
     Network.AWS.IoT.Types.AuditCheckConfiguration
     Network.AWS.IoT.Types.AuditCheckDetails
+    Network.AWS.IoT.Types.AuditCheckName
     Network.AWS.IoT.Types.AuditCheckRunStatus
     Network.AWS.IoT.Types.AuditFinding
     Network.AWS.IoT.Types.AuditFindingSeverity
     Network.AWS.IoT.Types.AuditFrequency
     Network.AWS.IoT.Types.AuditMitigationActionExecutionMetadata
     Network.AWS.IoT.Types.AuditMitigationActionsExecutionStatus
+    Network.AWS.IoT.Types.AuditMitigationActionsTaskId
     Network.AWS.IoT.Types.AuditMitigationActionsTaskMetadata
     Network.AWS.IoT.Types.AuditMitigationActionsTaskStatus
     Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget
     Network.AWS.IoT.Types.AuditNotificationTarget
     Network.AWS.IoT.Types.AuditNotificationType
     Network.AWS.IoT.Types.AuditSuppression
+    Network.AWS.IoT.Types.AuditTaskId
     Network.AWS.IoT.Types.AuditTaskMetadata
     Network.AWS.IoT.Types.AuditTaskStatus
     Network.AWS.IoT.Types.AuditTaskType
     Network.AWS.IoT.Types.AuthDecision
     Network.AWS.IoT.Types.AuthInfo
+    Network.AWS.IoT.Types.AuthorizerArn
     Network.AWS.IoT.Types.AuthorizerConfig
     Network.AWS.IoT.Types.AuthorizerDescription
+    Network.AWS.IoT.Types.AuthorizerFunctionArn
+    Network.AWS.IoT.Types.AuthorizerName
     Network.AWS.IoT.Types.AuthorizerStatus
     Network.AWS.IoT.Types.AuthorizerSummary
     Network.AWS.IoT.Types.AuthResult
     Network.AWS.IoT.Types.AutoRegistrationStatus
-    Network.AWS.IoT.Types.AWSJobAbortConfig
-    Network.AWS.IoT.Types.AWSJobAbortCriteria
-    Network.AWS.IoT.Types.AWSJobAbortCriteriaAbortAction
-    Network.AWS.IoT.Types.AWSJobAbortCriteriaFailureType
-    Network.AWS.IoT.Types.AWSJobExecutionsRolloutConfig
-    Network.AWS.IoT.Types.AWSJobExponentialRolloutRate
-    Network.AWS.IoT.Types.AWSJobPresignedURLConfig
-    Network.AWS.IoT.Types.AWSJobRateIncreaseCriteria
-    Network.AWS.IoT.Types.AWSJobTimeoutConfig
+    Network.AWS.IoT.Types.AwsAccountId
+    Network.AWS.IoT.Types.AwsArn
+    Network.AWS.IoT.Types.AwsIotJobArn
+    Network.AWS.IoT.Types.AwsIotJobId
+    Network.AWS.IoT.Types.AwsIotSqlVersion
+    Network.AWS.IoT.Types.AwsJobAbortConfig
+    Network.AWS.IoT.Types.AwsJobAbortCriteria
+    Network.AWS.IoT.Types.AwsJobAbortCriteriaAbortAction
+    Network.AWS.IoT.Types.AwsJobAbortCriteriaFailureType
+    Network.AWS.IoT.Types.AwsJobExecutionsRolloutConfig
+    Network.AWS.IoT.Types.AwsJobExponentialRolloutRate
+    Network.AWS.IoT.Types.AwsJobPresignedUrlConfig
+    Network.AWS.IoT.Types.AwsJobRateIncreaseCriteria
+    Network.AWS.IoT.Types.AwsJobTimeoutConfig
+    Network.AWS.IoT.Types.AwsSignerJobId
     Network.AWS.IoT.Types.Behavior
     Network.AWS.IoT.Types.BehaviorCriteria
+    Network.AWS.IoT.Types.BehaviorMetric
+    Network.AWS.IoT.Types.BehaviorName
+    Network.AWS.IoT.Types.BillingGroupArn
+    Network.AWS.IoT.Types.BillingGroupDescription
+    Network.AWS.IoT.Types.BillingGroupId
     Network.AWS.IoT.Types.BillingGroupMetadata
+    Network.AWS.IoT.Types.BillingGroupName
     Network.AWS.IoT.Types.BillingGroupProperties
+    Network.AWS.IoT.Types.BooleanValue
+    Network.AWS.IoT.Types.Bucket
+    Network.AWS.IoT.Types.BucketName
     Network.AWS.IoT.Types.CACertificate
     Network.AWS.IoT.Types.CACertificateDescription
     Network.AWS.IoT.Types.CACertificateStatus
     Network.AWS.IoT.Types.CACertificateUpdateAction
     Network.AWS.IoT.Types.CannedAccessControlList
     Network.AWS.IoT.Types.Certificate
+    Network.AWS.IoT.Types.CertificateArn
     Network.AWS.IoT.Types.CertificateDescription
+    Network.AWS.IoT.Types.CertificateId
     Network.AWS.IoT.Types.CertificateMode
+    Network.AWS.IoT.Types.CertificateName
+    Network.AWS.IoT.Types.CertificatePathOnDevice
+    Network.AWS.IoT.Types.CertificatePem
+    Network.AWS.IoT.Types.CertificateSigningRequest
     Network.AWS.IoT.Types.CertificateStatus
     Network.AWS.IoT.Types.CertificateValidity
+    Network.AWS.IoT.Types.ChannelArn
+    Network.AWS.IoT.Types.ChannelName
+    Network.AWS.IoT.Types.CheckName
+    Network.AWS.IoT.Types.Cidr
+    Network.AWS.IoT.Types.ClientId
+    Network.AWS.IoT.Types.ClientRequestToken
     Network.AWS.IoT.Types.CloudwatchAlarmAction
     Network.AWS.IoT.Types.CloudwatchLogsAction
     Network.AWS.IoT.Types.CloudwatchMetricAction
+    Network.AWS.IoT.Types.Code
     Network.AWS.IoT.Types.CodeSigning
     Network.AWS.IoT.Types.CodeSigningCertificateChain
     Network.AWS.IoT.Types.CodeSigningSignature
+    Network.AWS.IoT.Types.CognitoIdentityPoolId
+    Network.AWS.IoT.Types.Comment
     Network.AWS.IoT.Types.ComparisonOperator
     Network.AWS.IoT.Types.Configuration
+    Network.AWS.IoT.Types.ConfirmationToken
+    Network.AWS.IoT.Types.ConfirmationUrl
     Network.AWS.IoT.Types.CustomCodeSigning
+    Network.AWS.IoT.Types.DatabaseName
+    Network.AWS.IoT.Types.DayOfMonth
     Network.AWS.IoT.Types.DayOfWeek
+    Network.AWS.IoT.Types.DefaultAuthorizerName
+    Network.AWS.IoT.Types.DefaultVersionId
+    Network.AWS.IoT.Types.DeliveryStreamName
     Network.AWS.IoT.Types.Denied
+    Network.AWS.IoT.Types.Description
     Network.AWS.IoT.Types.Destination
+    Network.AWS.IoT.Types.DetailsKey
+    Network.AWS.IoT.Types.DetailsValue
     Network.AWS.IoT.Types.DeviceCertificateUpdateAction
+    Network.AWS.IoT.Types.DeviceDefenderThingName
+    Network.AWS.IoT.Types.DimensionArn
+    Network.AWS.IoT.Types.DimensionName
+    Network.AWS.IoT.Types.DimensionStringValue
     Network.AWS.IoT.Types.DimensionType
     Network.AWS.IoT.Types.DimensionValueOperator
+    Network.AWS.IoT.Types.Document
+    Network.AWS.IoT.Types.DocumentSource
+    Network.AWS.IoT.Types.DomainConfigurationArn
+    Network.AWS.IoT.Types.DomainConfigurationName
     Network.AWS.IoT.Types.DomainConfigurationStatus
     Network.AWS.IoT.Types.DomainConfigurationSummary
+    Network.AWS.IoT.Types.DomainName
     Network.AWS.IoT.Types.DomainType
     Network.AWS.IoT.Types.DynamicGroupStatus
     Network.AWS.IoT.Types.DynamoDBAction
@@ -365,29 +445,60 @@ library
     Network.AWS.IoT.Types.DynamoKeyType
     Network.AWS.IoT.Types.EffectivePolicy
     Network.AWS.IoT.Types.ElasticsearchAction
-    Network.AWS.IoT.Types.EnableIOTLoggingParams
+    Network.AWS.IoT.Types.EnableIoTLoggingParams
+    Network.AWS.IoT.Types.Endpoint
+    Network.AWS.IoT.Types.EndpointAddress
+    Network.AWS.IoT.Types.EndpointType
+    Network.AWS.IoT.Types.ErrorCode
     Network.AWS.IoT.Types.ErrorInfo
+    Network.AWS.IoT.Types.ErrorMessage
+    Network.AWS.IoT.Types.EvaluationStatistic
     Network.AWS.IoT.Types.EventType
+    Network.AWS.IoT.Types.ExecutionNamePrefix
     Network.AWS.IoT.Types.ExplicitDeny
     Network.AWS.IoT.Types.ExponentialRolloutRate
     Network.AWS.IoT.Types.Field
     Network.AWS.IoT.Types.FieldType
     Network.AWS.IoT.Types.FileLocation
+    Network.AWS.IoT.Types.FileName
+    Network.AWS.IoT.Types.FindingId
     Network.AWS.IoT.Types.FirehoseAction
-    Network.AWS.IoT.Types.GroupNameAndARN
-    Network.AWS.IoT.Types.HTTPAction
-    Network.AWS.IoT.Types.HTTPActionHeader
-    Network.AWS.IoT.Types.HTTPAuthorization
-    Network.AWS.IoT.Types.HTTPContext
-    Network.AWS.IoT.Types.HTTPURLDestinationConfiguration
-    Network.AWS.IoT.Types.HTTPURLDestinationProperties
-    Network.AWS.IoT.Types.HTTPURLDestinationSummary
+    Network.AWS.IoT.Types.FirehoseSeparator
+    Network.AWS.IoT.Types.FunctionArn
+    Network.AWS.IoT.Types.GenerationId
+    Network.AWS.IoT.Types.GroupNameAndArn
+    Network.AWS.IoT.Types.HashAlgorithm
+    Network.AWS.IoT.Types.HashKeyField
+    Network.AWS.IoT.Types.HashKeyValue
+    Network.AWS.IoT.Types.HeaderKey
+    Network.AWS.IoT.Types.HeaderValue
+    Network.AWS.IoT.Types.HttpAction
+    Network.AWS.IoT.Types.HttpActionHeader
+    Network.AWS.IoT.Types.HttpAuthorization
+    Network.AWS.IoT.Types.HttpContext
+    Network.AWS.IoT.Types.HttpHeaderName
+    Network.AWS.IoT.Types.HttpHeaderValue
+    Network.AWS.IoT.Types.HttpQueryString
+    Network.AWS.IoT.Types.HttpUrlDestinationConfiguration
+    Network.AWS.IoT.Types.HttpUrlDestinationProperties
+    Network.AWS.IoT.Types.HttpUrlDestinationSummary
+    Network.AWS.IoT.Types.IamRoleArn
+    Network.AWS.IoT.Types.Id
     Network.AWS.IoT.Types.ImplicitDeny
+    Network.AWS.IoT.Types.Index
+    Network.AWS.IoT.Types.IndexName
+    Network.AWS.IoT.Types.IndexSchema
     Network.AWS.IoT.Types.IndexStatus
+    Network.AWS.IoT.Types.InlineDocument
+    Network.AWS.IoT.Types.InputName
     Network.AWS.IoT.Types.IotAnalyticsAction
     Network.AWS.IoT.Types.IotEventsAction
     Network.AWS.IoT.Types.IotSiteWiseAction
     Network.AWS.IoT.Types.Job
+    Network.AWS.IoT.Types.JobArn
+    Network.AWS.IoT.Types.JobDescription
+    Network.AWS.IoT.Types.JobDocument
+    Network.AWS.IoT.Types.JobDocumentSource
     Network.AWS.IoT.Types.JobExecution
     Network.AWS.IoT.Types.JobExecutionFailureType
     Network.AWS.IoT.Types.JobExecutionsRolloutConfig
@@ -396,101 +507,230 @@ library
     Network.AWS.IoT.Types.JobExecutionSummary
     Network.AWS.IoT.Types.JobExecutionSummaryForJob
     Network.AWS.IoT.Types.JobExecutionSummaryForThing
+    Network.AWS.IoT.Types.JobId
     Network.AWS.IoT.Types.JobProcessDetails
     Network.AWS.IoT.Types.JobStatus
     Network.AWS.IoT.Types.JobSummary
+    Network.AWS.IoT.Types.JsonDocument
+    Network.AWS.IoT.Types.Key
+    Network.AWS.IoT.Types.KeyName
     Network.AWS.IoT.Types.KeyPair
+    Network.AWS.IoT.Types.KeyValue
     Network.AWS.IoT.Types.KinesisAction
     Network.AWS.IoT.Types.LambdaAction
     Network.AWS.IoT.Types.LoggingOptionsPayload
+    Network.AWS.IoT.Types.LogGroupName
     Network.AWS.IoT.Types.LogLevel
     Network.AWS.IoT.Types.LogTarget
     Network.AWS.IoT.Types.LogTargetConfiguration
+    Network.AWS.IoT.Types.LogTargetName
     Network.AWS.IoT.Types.LogTargetType
+    Network.AWS.IoT.Types.Marker
+    Network.AWS.IoT.Types.Message
     Network.AWS.IoT.Types.MessageFormat
+    Network.AWS.IoT.Types.MessageId
     Network.AWS.IoT.Types.MetricDimension
     Network.AWS.IoT.Types.MetricToRetain
     Network.AWS.IoT.Types.MetricValue
+    Network.AWS.IoT.Types.MissingContextValue
     Network.AWS.IoT.Types.MitigationAction
+    Network.AWS.IoT.Types.MitigationActionArn
+    Network.AWS.IoT.Types.MitigationActionId
     Network.AWS.IoT.Types.MitigationActionIdentifier
+    Network.AWS.IoT.Types.MitigationActionName
     Network.AWS.IoT.Types.MitigationActionParams
     Network.AWS.IoT.Types.MitigationActionType
+    Network.AWS.IoT.Types.MqttClientId
     Network.AWS.IoT.Types.MqttContext
+    Network.AWS.IoT.Types.MqttUsername
+    Network.AWS.IoT.Types.Name
+    Network.AWS.IoT.Types.NamePrefixFilter
+    Network.AWS.IoT.Types.NamespaceId
+    Network.AWS.IoT.Types.NextMarker
+    Network.AWS.IoT.Types.NextToken
     Network.AWS.IoT.Types.NonCompliantResource
+    Network.AWS.IoT.Types.Operation
+    Network.AWS.IoT.Types.OtaUpdateArn
+    Network.AWS.IoT.Types.OTAUpdateDescription
+    Network.AWS.IoT.Types.OTAUpdateErrorMessage
     Network.AWS.IoT.Types.OTAUpdateFile
+    Network.AWS.IoT.Types.OTAUpdateFileVersion
+    Network.AWS.IoT.Types.OtaUpdateId
     Network.AWS.IoT.Types.OTAUpdateInfo
     Network.AWS.IoT.Types.OTAUpdateStatus
     Network.AWS.IoT.Types.OTAUpdateSummary
     Network.AWS.IoT.Types.OutgoingCertificate
+    Network.AWS.IoT.Types.OwnedBy
+    Network.AWS.IoT.Types.Owner
+    Network.AWS.IoT.Types.Parameter
+    Network.AWS.IoT.Types.ParentGroupName
+    Network.AWS.IoT.Types.PartitionKey
+    Network.AWS.IoT.Types.PayloadField
+    Network.AWS.IoT.Types.PayloadVersion
     Network.AWS.IoT.Types.PercentPair
+    Network.AWS.IoT.Types.Platform
     Network.AWS.IoT.Types.Policy
+    Network.AWS.IoT.Types.PolicyArn
+    Network.AWS.IoT.Types.PolicyDocument
+    Network.AWS.IoT.Types.PolicyName
+    Network.AWS.IoT.Types.PolicyTarget
     Network.AWS.IoT.Types.PolicyTemplateName
     Network.AWS.IoT.Types.PolicyVersion
+    Network.AWS.IoT.Types.PolicyVersionId
     Network.AWS.IoT.Types.PolicyVersionIdentifier
-    Network.AWS.IoT.Types.PresignedURLConfig
+    Network.AWS.IoT.Types.Prefix
+    Network.AWS.IoT.Types.PresignedUrlConfig
+    Network.AWS.IoT.Types.PreviousOwnedBy
+    Network.AWS.IoT.Types.Principal
+    Network.AWS.IoT.Types.PrincipalArn
+    Network.AWS.IoT.Types.PrincipalId
+    Network.AWS.IoT.Types.PrivateKey
+    Network.AWS.IoT.Types.ProcessingTargetName
+    Network.AWS.IoT.Types.PropertyId
     Network.AWS.IoT.Types.Protocol
     Network.AWS.IoT.Types.ProvisioningHook
+    Network.AWS.IoT.Types.ProvisioningRoleArn
     Network.AWS.IoT.Types.ProvisioningTemplateSummary
     Network.AWS.IoT.Types.ProvisioningTemplateVersionSummary
-    Network.AWS.IoT.Types.PublishFindingToSNSParams
+    Network.AWS.IoT.Types.PublicKey
+    Network.AWS.IoT.Types.PublishFindingToSnsParams
     Network.AWS.IoT.Types.PutAssetPropertyValueEntry
     Network.AWS.IoT.Types.PutItemInput
+    Network.AWS.IoT.Types.QueryString
+    Network.AWS.IoT.Types.QueryVersion
+    Network.AWS.IoT.Types.QueueUrl
+    Network.AWS.IoT.Types.RangeKeyField
+    Network.AWS.IoT.Types.RangeKeyValue
     Network.AWS.IoT.Types.RateIncreaseCriteria
+    Network.AWS.IoT.Types.ReasonCode
+    Network.AWS.IoT.Types.ReasonForNonCompliance
+    Network.AWS.IoT.Types.ReasonForNonComplianceCode
+    Network.AWS.IoT.Types.RegistrationCode
     Network.AWS.IoT.Types.RegistrationConfig
+    Network.AWS.IoT.Types.RegistryS3BucketName
+    Network.AWS.IoT.Types.RegistryS3KeyName
+    Network.AWS.IoT.Types.RejectReason
     Network.AWS.IoT.Types.RelatedResource
     Network.AWS.IoT.Types.ReplaceDefaultPolicyVersionParams
     Network.AWS.IoT.Types.ReportType
     Network.AWS.IoT.Types.RepublishAction
+    Network.AWS.IoT.Types.Resource
+    Network.AWS.IoT.Types.ResourceArn
     Network.AWS.IoT.Types.ResourceIdentifier
+    Network.AWS.IoT.Types.ResourceLogicalId
     Network.AWS.IoT.Types.ResourceType
+    Network.AWS.IoT.Types.RoleAlias
+    Network.AWS.IoT.Types.RoleAliasArn
     Network.AWS.IoT.Types.RoleAliasDescription
+    Network.AWS.IoT.Types.RoleArn
+    Network.AWS.IoT.Types.RoleArnForLogging
+    Network.AWS.IoT.Types.RuleArn
+    Network.AWS.IoT.Types.RuleName
     Network.AWS.IoT.Types.S3Action
     Network.AWS.IoT.Types.S3Destination
+    Network.AWS.IoT.Types.S3FileUrl
+    Network.AWS.IoT.Types.S3Key
     Network.AWS.IoT.Types.S3Location
+    Network.AWS.IoT.Types.S3Version
     Network.AWS.IoT.Types.SalesforceAction
+    Network.AWS.IoT.Types.SalesforceEndpoint
+    Network.AWS.IoT.Types.ScheduledAuditArn
     Network.AWS.IoT.Types.ScheduledAuditMetadata
+    Network.AWS.IoT.Types.ScheduledAuditName
+    Network.AWS.IoT.Types.SecurityProfileArn
+    Network.AWS.IoT.Types.SecurityProfileDescription
     Network.AWS.IoT.Types.SecurityProfileIdentifier
+    Network.AWS.IoT.Types.SecurityProfileName
     Network.AWS.IoT.Types.SecurityProfileTarget
+    Network.AWS.IoT.Types.SecurityProfileTargetArn
     Network.AWS.IoT.Types.SecurityProfileTargetMapping
     Network.AWS.IoT.Types.ServerCertificateStatus
+    Network.AWS.IoT.Types.ServerCertificateStatusDetail
     Network.AWS.IoT.Types.ServerCertificateSummary
+    Network.AWS.IoT.Types.ServerName
+    Network.AWS.IoT.Types.ServiceName
     Network.AWS.IoT.Types.ServiceType
+    Network.AWS.IoT.Types.SignatureAlgorithm
+    Network.AWS.IoT.Types.SigningProfileName
     Network.AWS.IoT.Types.SigningProfileParameter
+    Network.AWS.IoT.Types.SigningRegion
     Network.AWS.IoT.Types.SigV4Authorization
-    Network.AWS.IoT.Types.SNSAction
+    Network.AWS.IoT.Types.SnsAction
+    Network.AWS.IoT.Types.SnsTopicArn
+    Network.AWS.IoT.Types.SQL
+    Network.AWS.IoT.Types.Sql
     Network.AWS.IoT.Types.SqsAction
     Network.AWS.IoT.Types.StartSigningJobParameter
+    Network.AWS.IoT.Types.StateMachineName
+    Network.AWS.IoT.Types.StateReason
+    Network.AWS.IoT.Types.StateValue
     Network.AWS.IoT.Types.StatisticalThreshold
     Network.AWS.IoT.Types.Statistics
     Network.AWS.IoT.Types.StepFunctionsAction
     Network.AWS.IoT.Types.Stream
+    Network.AWS.IoT.Types.StreamArn
+    Network.AWS.IoT.Types.StreamDescription
     Network.AWS.IoT.Types.StreamFile
+    Network.AWS.IoT.Types.StreamId
     Network.AWS.IoT.Types.StreamInfo
+    Network.AWS.IoT.Types.StreamName
     Network.AWS.IoT.Types.StreamSummary
+    Network.AWS.IoT.Types.String
+    Network.AWS.IoT.Types.TableName
     Network.AWS.IoT.Types.Tag
+    Network.AWS.IoT.Types.TagKey
+    Network.AWS.IoT.Types.Tags
+    Network.AWS.IoT.Types.Target
+    Network.AWS.IoT.Types.TargetArn
+    Network.AWS.IoT.Types.TargetAwsAccount
     Network.AWS.IoT.Types.TargetSelection
+    Network.AWS.IoT.Types.TaskId
     Network.AWS.IoT.Types.TaskStatistics
     Network.AWS.IoT.Types.TaskStatisticsForAuditCheck
     Network.AWS.IoT.Types.TaskStatus
+    Network.AWS.IoT.Types.TemplateArn
+    Network.AWS.IoT.Types.TemplateBody
+    Network.AWS.IoT.Types.TemplateDescription
+    Network.AWS.IoT.Types.TemplateName
+    Network.AWS.IoT.Types.ThingArn
     Network.AWS.IoT.Types.ThingAttribute
     Network.AWS.IoT.Types.ThingConnectivity
     Network.AWS.IoT.Types.ThingConnectivityIndexingMode
     Network.AWS.IoT.Types.ThingDocument
+    Network.AWS.IoT.Types.ThingGroupArn
+    Network.AWS.IoT.Types.ThingGroupDescription
     Network.AWS.IoT.Types.ThingGroupDocument
+    Network.AWS.IoT.Types.ThingGroupId
     Network.AWS.IoT.Types.ThingGroupIndexingConfiguration
     Network.AWS.IoT.Types.ThingGroupIndexingMode
     Network.AWS.IoT.Types.ThingGroupMetadata
+    Network.AWS.IoT.Types.ThingGroupName
     Network.AWS.IoT.Types.ThingGroupProperties
+    Network.AWS.IoT.Types.ThingId
     Network.AWS.IoT.Types.ThingIndexingConfiguration
     Network.AWS.IoT.Types.ThingIndexingMode
+    Network.AWS.IoT.Types.ThingName
+    Network.AWS.IoT.Types.ThingTypeArn
     Network.AWS.IoT.Types.ThingTypeDefinition
+    Network.AWS.IoT.Types.ThingTypeDescription
+    Network.AWS.IoT.Types.ThingTypeId
     Network.AWS.IoT.Types.ThingTypeMetadata
+    Network.AWS.IoT.Types.ThingTypeName
     Network.AWS.IoT.Types.ThingTypeProperties
     Network.AWS.IoT.Types.TimeoutConfig
     Network.AWS.IoT.Types.TimestreamAction
     Network.AWS.IoT.Types.TimestreamDimension
+    Network.AWS.IoT.Types.TimestreamDimensionName
+    Network.AWS.IoT.Types.TimestreamDimensionValue
+    Network.AWS.IoT.Types.TimestreamTableName
     Network.AWS.IoT.Types.TimestreamTimestamp
-    Network.AWS.IoT.Types.TLSContext
+    Network.AWS.IoT.Types.TimestreamTimestampValue
+    Network.AWS.IoT.Types.TlsContext
+    Network.AWS.IoT.Types.Token
+    Network.AWS.IoT.Types.TokenKeyName
+    Network.AWS.IoT.Types.TokenSignature
+    Network.AWS.IoT.Types.Topic
+    Network.AWS.IoT.Types.TopicPattern
     Network.AWS.IoT.Types.TopicRule
     Network.AWS.IoT.Types.TopicRuleDestination
     Network.AWS.IoT.Types.TopicRuleDestinationConfiguration
@@ -499,11 +739,18 @@ library
     Network.AWS.IoT.Types.TopicRuleListItem
     Network.AWS.IoT.Types.TopicRulePayload
     Network.AWS.IoT.Types.TransferData
+    Network.AWS.IoT.Types.TransferMessage
+    Network.AWS.IoT.Types.Type
+    Network.AWS.IoT.Types.Unit
     Network.AWS.IoT.Types.UpdateCACertificateParams
     Network.AWS.IoT.Types.UpdateDeviceCertificateParams
+    Network.AWS.IoT.Types.Url
     Network.AWS.IoT.Types.ValidationError
+    Network.AWS.IoT.Types.Value
+    Network.AWS.IoT.Types.VersionId
     Network.AWS.IoT.Types.ViolationEvent
     Network.AWS.IoT.Types.ViolationEventType
+    Network.AWS.IoT.Types.ViolationId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

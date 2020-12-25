@@ -30,108 +30,97 @@ module Network.AWS.Connect.UpdateRoutingProfileQueues
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateRoutingProfileQueues' smart constructor.
 data UpdateRoutingProfileQueues = UpdateRoutingProfileQueues'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The identifier of the routing profile.
-    routingProfileId :: Lude.Text,
+    routingProfileId :: Types.RoutingProfileId,
     -- | The queues to be updated for this routing profile.
-    queueConfigs :: Lude.NonEmpty RoutingProfileQueueConfig
+    queueConfigs :: Core.NonEmpty Types.RoutingProfileQueueConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRoutingProfileQueues' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'routingProfileId' - The identifier of the routing profile.
--- * 'queueConfigs' - The queues to be updated for this routing profile.
+-- | Creates a 'UpdateRoutingProfileQueues' value with any optional fields omitted.
 mkUpdateRoutingProfileQueues ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'routingProfileId'
-  Lude.Text ->
+  Types.RoutingProfileId ->
   -- | 'queueConfigs'
-  Lude.NonEmpty RoutingProfileQueueConfig ->
+  Core.NonEmpty Types.RoutingProfileQueueConfig ->
   UpdateRoutingProfileQueues
 mkUpdateRoutingProfileQueues
-  pInstanceId_
-  pRoutingProfileId_
-  pQueueConfigs_ =
+  instanceId
+  routingProfileId
+  queueConfigs =
     UpdateRoutingProfileQueues'
-      { instanceId = pInstanceId_,
-        routingProfileId = pRoutingProfileId_,
-        queueConfigs = pQueueConfigs_
+      { instanceId,
+        routingProfileId,
+        queueConfigs
       }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urpqInstanceId :: Lens.Lens' UpdateRoutingProfileQueues Lude.Text
-urpqInstanceId = Lens.lens (instanceId :: UpdateRoutingProfileQueues -> Lude.Text) (\s a -> s {instanceId = a} :: UpdateRoutingProfileQueues)
+urpqInstanceId :: Lens.Lens' UpdateRoutingProfileQueues Types.InstanceId
+urpqInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED urpqInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the routing profile.
 --
 -- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urpqRoutingProfileId :: Lens.Lens' UpdateRoutingProfileQueues Lude.Text
-urpqRoutingProfileId = Lens.lens (routingProfileId :: UpdateRoutingProfileQueues -> Lude.Text) (\s a -> s {routingProfileId = a} :: UpdateRoutingProfileQueues)
+urpqRoutingProfileId :: Lens.Lens' UpdateRoutingProfileQueues Types.RoutingProfileId
+urpqRoutingProfileId = Lens.field @"routingProfileId"
 {-# DEPRECATED urpqRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
 
 -- | The queues to be updated for this routing profile.
 --
 -- /Note:/ Consider using 'queueConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urpqQueueConfigs :: Lens.Lens' UpdateRoutingProfileQueues (Lude.NonEmpty RoutingProfileQueueConfig)
-urpqQueueConfigs = Lens.lens (queueConfigs :: UpdateRoutingProfileQueues -> Lude.NonEmpty RoutingProfileQueueConfig) (\s a -> s {queueConfigs = a} :: UpdateRoutingProfileQueues)
+urpqQueueConfigs :: Lens.Lens' UpdateRoutingProfileQueues (Core.NonEmpty Types.RoutingProfileQueueConfig)
+urpqQueueConfigs = Lens.field @"queueConfigs"
 {-# DEPRECATED urpqQueueConfigs "Use generic-lens or generic-optics with 'queueConfigs' instead." #-}
 
-instance Lude.AWSRequest UpdateRoutingProfileQueues where
+instance Core.FromJSON UpdateRoutingProfileQueues where
+  toJSON UpdateRoutingProfileQueues {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("QueueConfigs" Core..= queueConfigs)])
+
+instance Core.AWSRequest UpdateRoutingProfileQueues where
   type
     Rs UpdateRoutingProfileQueues =
       UpdateRoutingProfileQueuesResponse
-  request = Req.postJSON connectService
-  response = Res.receiveNull UpdateRoutingProfileQueuesResponse'
-
-instance Lude.ToHeaders UpdateRoutingProfileQueues where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateRoutingProfileQueues where
-  toJSON UpdateRoutingProfileQueues' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("QueueConfigs" Lude..= queueConfigs)])
-
-instance Lude.ToPath UpdateRoutingProfileQueues where
-  toPath UpdateRoutingProfileQueues' {..} =
-    Lude.mconcat
-      [ "/routing-profiles/",
-        Lude.toBS instanceId,
-        "/",
-        Lude.toBS routingProfileId,
-        "/queues"
-      ]
-
-instance Lude.ToQuery UpdateRoutingProfileQueues where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/routing-profiles/" Core.<> (Core.toText instanceId)
+                Core.<> ("/")
+                Core.<> (Core.toText routingProfileId)
+                Core.<> ("/queues")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UpdateRoutingProfileQueuesResponse'
 
 -- | /See:/ 'mkUpdateRoutingProfileQueuesResponse' smart constructor.
 data UpdateRoutingProfileQueuesResponse = UpdateRoutingProfileQueuesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRoutingProfileQueuesResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateRoutingProfileQueuesResponse' value with any optional fields omitted.
 mkUpdateRoutingProfileQueuesResponse ::
   UpdateRoutingProfileQueuesResponse
 mkUpdateRoutingProfileQueuesResponse =

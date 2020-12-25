@@ -17,58 +17,54 @@ module Network.AWS.CloudDirectory.Types.ObjectIdentifierAndLinkNameTuple
     mkObjectIdentifierAndLinkNameTuple,
 
     -- * Lenses
-    oialntObjectIdentifier,
     oialntLinkName,
+    oialntObjectIdentifier,
   )
 where
 
+import qualified Network.AWS.CloudDirectory.Types.LinkName as Types
+import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A pair of ObjectIdentifier and LinkName.
 --
 -- /See:/ 'mkObjectIdentifierAndLinkNameTuple' smart constructor.
 data ObjectIdentifierAndLinkNameTuple = ObjectIdentifierAndLinkNameTuple'
-  { -- | The ID that is associated with the object.
-    objectIdentifier :: Lude.Maybe Lude.Text,
-    -- | The name of the link between the parent and the child object.
-    linkName :: Lude.Maybe Lude.Text
+  { -- | The name of the link between the parent and the child object.
+    linkName :: Core.Maybe Types.LinkName,
+    -- | The ID that is associated with the object.
+    objectIdentifier :: Core.Maybe Types.ObjectIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ObjectIdentifierAndLinkNameTuple' with the minimum fields required to make a request.
---
--- * 'objectIdentifier' - The ID that is associated with the object.
--- * 'linkName' - The name of the link between the parent and the child object.
+-- | Creates a 'ObjectIdentifierAndLinkNameTuple' value with any optional fields omitted.
 mkObjectIdentifierAndLinkNameTuple ::
   ObjectIdentifierAndLinkNameTuple
 mkObjectIdentifierAndLinkNameTuple =
   ObjectIdentifierAndLinkNameTuple'
-    { objectIdentifier =
-        Lude.Nothing,
-      linkName = Lude.Nothing
+    { linkName = Core.Nothing,
+      objectIdentifier = Core.Nothing
     }
-
--- | The ID that is associated with the object.
---
--- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oialntObjectIdentifier :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Lude.Maybe Lude.Text)
-oialntObjectIdentifier = Lens.lens (objectIdentifier :: ObjectIdentifierAndLinkNameTuple -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: ObjectIdentifierAndLinkNameTuple)
-{-# DEPRECATED oialntObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
 -- | The name of the link between the parent and the child object.
 --
 -- /Note:/ Consider using 'linkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oialntLinkName :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Lude.Maybe Lude.Text)
-oialntLinkName = Lens.lens (linkName :: ObjectIdentifierAndLinkNameTuple -> Lude.Maybe Lude.Text) (\s a -> s {linkName = a} :: ObjectIdentifierAndLinkNameTuple)
+oialntLinkName :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Core.Maybe Types.LinkName)
+oialntLinkName = Lens.field @"linkName"
 {-# DEPRECATED oialntLinkName "Use generic-lens or generic-optics with 'linkName' instead." #-}
 
-instance Lude.FromJSON ObjectIdentifierAndLinkNameTuple where
+-- | The ID that is associated with the object.
+--
+-- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oialntObjectIdentifier :: Lens.Lens' ObjectIdentifierAndLinkNameTuple (Core.Maybe Types.ObjectIdentifier)
+oialntObjectIdentifier = Lens.field @"objectIdentifier"
+{-# DEPRECATED oialntObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
+
+instance Core.FromJSON ObjectIdentifierAndLinkNameTuple where
   parseJSON =
-    Lude.withObject
-      "ObjectIdentifierAndLinkNameTuple"
-      ( \x ->
-          ObjectIdentifierAndLinkNameTuple'
-            Lude.<$> (x Lude..:? "ObjectIdentifier") Lude.<*> (x Lude..:? "LinkName")
-      )
+    Core.withObject "ObjectIdentifierAndLinkNameTuple" Core.$
+      \x ->
+        ObjectIdentifierAndLinkNameTuple'
+          Core.<$> (x Core..:? "LinkName") Core.<*> (x Core..:? "ObjectIdentifier")

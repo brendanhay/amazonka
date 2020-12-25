@@ -22,138 +22,125 @@ module Network.AWS.DirectConnect.AllocatePrivateVirtualInterface
     mkAllocatePrivateVirtualInterface,
 
     -- ** Request lenses
-    apviNewPrivateVirtualInterfaceAllocation,
     apviConnectionId,
     apviOwnerAccount,
+    apviNewPrivateVirtualInterfaceAllocation,
 
     -- * Destructuring the response
-    VirtualInterface (..),
-    mkVirtualInterface,
+    Types.VirtualInterface (..),
+    Types.mkVirtualInterface,
 
     -- ** Response lenses
-    viBgpPeers,
-    viVirtualGatewayId,
-    viMtu,
-    viRouteFilterPrefixes,
-    viCustomerAddress,
-    viVlan,
-    viLocation,
-    viAmazonAddress,
-    viAddressFamily,
-    viVirtualInterfaceState,
-    viConnectionId,
-    viDirectConnectGatewayId,
-    viAmazonSideASN,
-    viVirtualInterfaceType,
-    viAsn,
-    viAuthKey,
-    viJumboFrameCapable,
-    viCustomerRouterConfig,
-    viOwnerAccount,
-    viRegion,
-    viVirtualInterfaceName,
-    viAwsDeviceV2,
-    viVirtualInterfaceId,
-    viTags,
+    Types.viAddressFamily,
+    Types.viAmazonAddress,
+    Types.viAmazonSideAsn,
+    Types.viAsn,
+    Types.viAuthKey,
+    Types.viAwsDeviceV2,
+    Types.viBgpPeers,
+    Types.viConnectionId,
+    Types.viCustomerAddress,
+    Types.viCustomerRouterConfig,
+    Types.viDirectConnectGatewayId,
+    Types.viJumboFrameCapable,
+    Types.viLocation,
+    Types.viMtu,
+    Types.viOwnerAccount,
+    Types.viRegion,
+    Types.viRouteFilterPrefixes,
+    Types.viTags,
+    Types.viVirtualGatewayId,
+    Types.viVirtualInterfaceId,
+    Types.viVirtualInterfaceName,
+    Types.viVirtualInterfaceState,
+    Types.viVirtualInterfaceType,
+    Types.viVlan,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAllocatePrivateVirtualInterface' smart constructor.
 data AllocatePrivateVirtualInterface = AllocatePrivateVirtualInterface'
-  { -- | Information about the private virtual interface.
-    newPrivateVirtualInterfaceAllocation :: NewPrivateVirtualInterfaceAllocation,
-    -- | The ID of the connection on which the private virtual interface is provisioned.
-    connectionId :: Lude.Text,
+  { -- | The ID of the connection on which the private virtual interface is provisioned.
+    connectionId :: Types.ConnectionId,
     -- | The ID of the AWS account that owns the virtual private interface.
-    ownerAccount :: Lude.Text
+    ownerAccount :: Types.OwnerAccount,
+    -- | Information about the private virtual interface.
+    newPrivateVirtualInterfaceAllocation :: Types.NewPrivateVirtualInterfaceAllocation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AllocatePrivateVirtualInterface' with the minimum fields required to make a request.
---
--- * 'newPrivateVirtualInterfaceAllocation' - Information about the private virtual interface.
--- * 'connectionId' - The ID of the connection on which the private virtual interface is provisioned.
--- * 'ownerAccount' - The ID of the AWS account that owns the virtual private interface.
+-- | Creates a 'AllocatePrivateVirtualInterface' value with any optional fields omitted.
 mkAllocatePrivateVirtualInterface ::
-  -- | 'newPrivateVirtualInterfaceAllocation'
-  NewPrivateVirtualInterfaceAllocation ->
   -- | 'connectionId'
-  Lude.Text ->
+  Types.ConnectionId ->
   -- | 'ownerAccount'
-  Lude.Text ->
+  Types.OwnerAccount ->
+  -- | 'newPrivateVirtualInterfaceAllocation'
+  Types.NewPrivateVirtualInterfaceAllocation ->
   AllocatePrivateVirtualInterface
 mkAllocatePrivateVirtualInterface
-  pNewPrivateVirtualInterfaceAllocation_
-  pConnectionId_
-  pOwnerAccount_ =
+  connectionId
+  ownerAccount
+  newPrivateVirtualInterfaceAllocation =
     AllocatePrivateVirtualInterface'
-      { newPrivateVirtualInterfaceAllocation =
-          pNewPrivateVirtualInterfaceAllocation_,
-        connectionId = pConnectionId_,
-        ownerAccount = pOwnerAccount_
+      { connectionId,
+        ownerAccount,
+        newPrivateVirtualInterfaceAllocation
       }
-
--- | Information about the private virtual interface.
---
--- /Note:/ Consider using 'newPrivateVirtualInterfaceAllocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apviNewPrivateVirtualInterfaceAllocation :: Lens.Lens' AllocatePrivateVirtualInterface NewPrivateVirtualInterfaceAllocation
-apviNewPrivateVirtualInterfaceAllocation = Lens.lens (newPrivateVirtualInterfaceAllocation :: AllocatePrivateVirtualInterface -> NewPrivateVirtualInterfaceAllocation) (\s a -> s {newPrivateVirtualInterfaceAllocation = a} :: AllocatePrivateVirtualInterface)
-{-# DEPRECATED apviNewPrivateVirtualInterfaceAllocation "Use generic-lens or generic-optics with 'newPrivateVirtualInterfaceAllocation' instead." #-}
 
 -- | The ID of the connection on which the private virtual interface is provisioned.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apviConnectionId :: Lens.Lens' AllocatePrivateVirtualInterface Lude.Text
-apviConnectionId = Lens.lens (connectionId :: AllocatePrivateVirtualInterface -> Lude.Text) (\s a -> s {connectionId = a} :: AllocatePrivateVirtualInterface)
+apviConnectionId :: Lens.Lens' AllocatePrivateVirtualInterface Types.ConnectionId
+apviConnectionId = Lens.field @"connectionId"
 {-# DEPRECATED apviConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
 -- | The ID of the AWS account that owns the virtual private interface.
 --
 -- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apviOwnerAccount :: Lens.Lens' AllocatePrivateVirtualInterface Lude.Text
-apviOwnerAccount = Lens.lens (ownerAccount :: AllocatePrivateVirtualInterface -> Lude.Text) (\s a -> s {ownerAccount = a} :: AllocatePrivateVirtualInterface)
+apviOwnerAccount :: Lens.Lens' AllocatePrivateVirtualInterface Types.OwnerAccount
+apviOwnerAccount = Lens.field @"ownerAccount"
 {-# DEPRECATED apviOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
 
-instance Lude.AWSRequest AllocatePrivateVirtualInterface where
-  type Rs AllocatePrivateVirtualInterface = VirtualInterface
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | Information about the private virtual interface.
+--
+-- /Note:/ Consider using 'newPrivateVirtualInterfaceAllocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apviNewPrivateVirtualInterfaceAllocation :: Lens.Lens' AllocatePrivateVirtualInterface Types.NewPrivateVirtualInterfaceAllocation
+apviNewPrivateVirtualInterfaceAllocation = Lens.field @"newPrivateVirtualInterfaceAllocation"
+{-# DEPRECATED apviNewPrivateVirtualInterfaceAllocation "Use generic-lens or generic-optics with 'newPrivateVirtualInterfaceAllocation' instead." #-}
 
-instance Lude.ToHeaders AllocatePrivateVirtualInterface where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "OvertureService.AllocatePrivateVirtualInterface" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AllocatePrivateVirtualInterface where
-  toJSON AllocatePrivateVirtualInterface' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON AllocatePrivateVirtualInterface where
+  toJSON AllocatePrivateVirtualInterface {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("connectionId" Core..= connectionId),
+            Core.Just ("ownerAccount" Core..= ownerAccount),
+            Core.Just
               ( "newPrivateVirtualInterfaceAllocation"
-                  Lude..= newPrivateVirtualInterfaceAllocation
-              ),
-            Lude.Just ("connectionId" Lude..= connectionId),
-            Lude.Just ("ownerAccount" Lude..= ownerAccount)
+                  Core..= newPrivateVirtualInterfaceAllocation
+              )
           ]
       )
 
-instance Lude.ToPath AllocatePrivateVirtualInterface where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AllocatePrivateVirtualInterface where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest AllocatePrivateVirtualInterface where
+  type Rs AllocatePrivateVirtualInterface = Types.VirtualInterface
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OvertureService.AllocatePrivateVirtualInterface")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

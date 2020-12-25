@@ -24,105 +24,94 @@ module Network.AWS.Shield.DescribeDRTAccess
     mkDescribeDRTAccessResponse,
 
     -- ** Response lenses
-    ddrtarsLogBucketList,
-    ddrtarsRoleARN,
-    ddrtarsResponseStatus,
+    ddrtarrsLogBucketList,
+    ddrtarrsRoleArn,
+    ddrtarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkDescribeDRTAccess' smart constructor.
 data DescribeDRTAccess = DescribeDRTAccess'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDRTAccess' with the minimum fields required to make a request.
+-- | Creates a 'DescribeDRTAccess' value with any optional fields omitted.
 mkDescribeDRTAccess ::
   DescribeDRTAccess
 mkDescribeDRTAccess = DescribeDRTAccess'
 
-instance Lude.AWSRequest DescribeDRTAccess where
+instance Core.FromJSON DescribeDRTAccess where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DescribeDRTAccess where
   type Rs DescribeDRTAccess = DescribeDRTAccessResponse
-  request = Req.postJSON shieldService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSShield_20160616.DescribeDRTAccess")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeDRTAccessResponse'
-            Lude.<$> (x Lude..?> "LogBucketList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "RoleArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "LogBucketList")
+            Core.<*> (x Core..:? "RoleArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeDRTAccess where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSShield_20160616.DescribeDRTAccess" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeDRTAccess where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DescribeDRTAccess where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDRTAccess where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeDRTAccessResponse' smart constructor.
 data DescribeDRTAccessResponse = DescribeDRTAccessResponse'
   { -- | The list of Amazon S3 buckets accessed by the DRT.
-    logBucketList :: Lude.Maybe [Lude.Text],
+    logBucketList :: Core.Maybe [Types.LogBucket],
     -- | The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.
-    roleARN :: Lude.Maybe Lude.Text,
+    roleArn :: Core.Maybe Types.RoleArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDRTAccessResponse' with the minimum fields required to make a request.
---
--- * 'logBucketList' - The list of Amazon S3 buckets accessed by the DRT.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDRTAccessResponse' value with any optional fields omitted.
 mkDescribeDRTAccessResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDRTAccessResponse
-mkDescribeDRTAccessResponse pResponseStatus_ =
+mkDescribeDRTAccessResponse responseStatus =
   DescribeDRTAccessResponse'
-    { logBucketList = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { logBucketList = Core.Nothing,
+      roleArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of Amazon S3 buckets accessed by the DRT.
 --
 -- /Note:/ Consider using 'logBucketList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrtarsLogBucketList :: Lens.Lens' DescribeDRTAccessResponse (Lude.Maybe [Lude.Text])
-ddrtarsLogBucketList = Lens.lens (logBucketList :: DescribeDRTAccessResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {logBucketList = a} :: DescribeDRTAccessResponse)
-{-# DEPRECATED ddrtarsLogBucketList "Use generic-lens or generic-optics with 'logBucketList' instead." #-}
+ddrtarrsLogBucketList :: Lens.Lens' DescribeDRTAccessResponse (Core.Maybe [Types.LogBucket])
+ddrtarrsLogBucketList = Lens.field @"logBucketList"
+{-# DEPRECATED ddrtarrsLogBucketList "Use generic-lens or generic-optics with 'logBucketList' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the role the DRT used to access your AWS account.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrtarsRoleARN :: Lens.Lens' DescribeDRTAccessResponse (Lude.Maybe Lude.Text)
-ddrtarsRoleARN = Lens.lens (roleARN :: DescribeDRTAccessResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DescribeDRTAccessResponse)
-{-# DEPRECATED ddrtarsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrtarrsRoleArn :: Lens.Lens' DescribeDRTAccessResponse (Core.Maybe Types.RoleArn)
+ddrtarrsRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED ddrtarrsRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrtarsResponseStatus :: Lens.Lens' DescribeDRTAccessResponse Lude.Int
-ddrtarsResponseStatus = Lens.lens (responseStatus :: DescribeDRTAccessResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDRTAccessResponse)
-{-# DEPRECATED ddrtarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrtarrsResponseStatus :: Lens.Lens' DescribeDRTAccessResponse Core.Int
+ddrtarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrtarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

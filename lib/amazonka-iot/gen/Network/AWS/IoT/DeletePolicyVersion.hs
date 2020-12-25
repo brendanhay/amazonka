@@ -29,80 +29,72 @@ module Network.AWS.IoT.DeletePolicyVersion
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the DeletePolicyVersion operation.
 --
 -- /See:/ 'mkDeletePolicyVersion' smart constructor.
 data DeletePolicyVersion = DeletePolicyVersion'
   { -- | The name of the policy.
-    policyName :: Lude.Text,
+    policyName :: Types.PolicyName,
     -- | The policy version ID.
-    policyVersionId :: Lude.Text
+    policyVersionId :: Types.PolicyVersionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicyVersion' with the minimum fields required to make a request.
---
--- * 'policyName' - The name of the policy.
--- * 'policyVersionId' - The policy version ID.
+-- | Creates a 'DeletePolicyVersion' value with any optional fields omitted.
 mkDeletePolicyVersion ::
   -- | 'policyName'
-  Lude.Text ->
+  Types.PolicyName ->
   -- | 'policyVersionId'
-  Lude.Text ->
+  Types.PolicyVersionId ->
   DeletePolicyVersion
-mkDeletePolicyVersion pPolicyName_ pPolicyVersionId_ =
-  DeletePolicyVersion'
-    { policyName = pPolicyName_,
-      policyVersionId = pPolicyVersionId_
-    }
+mkDeletePolicyVersion policyName policyVersionId =
+  DeletePolicyVersion' {policyName, policyVersionId}
 
 -- | The name of the policy.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvPolicyName :: Lens.Lens' DeletePolicyVersion Lude.Text
-dpvPolicyName = Lens.lens (policyName :: DeletePolicyVersion -> Lude.Text) (\s a -> s {policyName = a} :: DeletePolicyVersion)
+dpvPolicyName :: Lens.Lens' DeletePolicyVersion Types.PolicyName
+dpvPolicyName = Lens.field @"policyName"
 {-# DEPRECATED dpvPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The policy version ID.
 --
 -- /Note:/ Consider using 'policyVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpvPolicyVersionId :: Lens.Lens' DeletePolicyVersion Lude.Text
-dpvPolicyVersionId = Lens.lens (policyVersionId :: DeletePolicyVersion -> Lude.Text) (\s a -> s {policyVersionId = a} :: DeletePolicyVersion)
+dpvPolicyVersionId :: Lens.Lens' DeletePolicyVersion Types.PolicyVersionId
+dpvPolicyVersionId = Lens.field @"policyVersionId"
 {-# DEPRECATED dpvPolicyVersionId "Use generic-lens or generic-optics with 'policyVersionId' instead." #-}
 
-instance Lude.AWSRequest DeletePolicyVersion where
+instance Core.AWSRequest DeletePolicyVersion where
   type Rs DeletePolicyVersion = DeletePolicyVersionResponse
-  request = Req.delete ioTService
-  response = Res.receiveNull DeletePolicyVersionResponse'
-
-instance Lude.ToHeaders DeletePolicyVersion where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeletePolicyVersion where
-  toPath DeletePolicyVersion' {..} =
-    Lude.mconcat
-      [ "/policies/",
-        Lude.toBS policyName,
-        "/version/",
-        Lude.toBS policyVersionId
-      ]
-
-instance Lude.ToQuery DeletePolicyVersion where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/policies/" Core.<> (Core.toText policyName)
+                Core.<> ("/version/")
+                Core.<> (Core.toText policyVersionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeletePolicyVersionResponse'
 
 -- | /See:/ 'mkDeletePolicyVersionResponse' smart constructor.
 data DeletePolicyVersionResponse = DeletePolicyVersionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicyVersionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePolicyVersionResponse' value with any optional fields omitted.
 mkDeletePolicyVersionResponse ::
   DeletePolicyVersionResponse
 mkDeletePolicyVersionResponse = DeletePolicyVersionResponse'

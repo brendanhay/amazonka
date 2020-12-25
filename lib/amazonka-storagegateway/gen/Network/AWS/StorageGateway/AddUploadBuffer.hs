@@ -30,123 +30,108 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     mkAddUploadBufferResponse,
 
     -- ** Response lenses
-    aubrsGatewayARN,
-    aubrsResponseStatus,
+    aubrrsGatewayARN,
+    aubrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkAddUploadBuffer' smart constructor.
 data AddUploadBuffer = AddUploadBuffer'
-  { gatewayARN :: Lude.Text,
+  { gatewayARN :: Types.GatewayARN,
     -- | An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
-    diskIds :: [Lude.Text]
+    diskIds :: [Types.DiskId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddUploadBuffer' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'diskIds' - An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
+-- | Creates a 'AddUploadBuffer' value with any optional fields omitted.
 mkAddUploadBuffer ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   AddUploadBuffer
-mkAddUploadBuffer pGatewayARN_ =
-  AddUploadBuffer'
-    { gatewayARN = pGatewayARN_,
-      diskIds = Lude.mempty
-    }
+mkAddUploadBuffer gatewayARN =
+  AddUploadBuffer' {gatewayARN, diskIds = Core.mempty}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aubGatewayARN :: Lens.Lens' AddUploadBuffer Lude.Text
-aubGatewayARN = Lens.lens (gatewayARN :: AddUploadBuffer -> Lude.Text) (\s a -> s {gatewayARN = a} :: AddUploadBuffer)
+aubGatewayARN :: Lens.Lens' AddUploadBuffer Types.GatewayARN
+aubGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED aubGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An array of strings that identify disks that are to be configured as working storage. Each string has a minimum length of 1 and maximum length of 300. You can get the disk IDs from the 'ListLocalDisks' API.
 --
 -- /Note:/ Consider using 'diskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aubDiskIds :: Lens.Lens' AddUploadBuffer [Lude.Text]
-aubDiskIds = Lens.lens (diskIds :: AddUploadBuffer -> [Lude.Text]) (\s a -> s {diskIds = a} :: AddUploadBuffer)
+aubDiskIds :: Lens.Lens' AddUploadBuffer [Types.DiskId]
+aubDiskIds = Lens.field @"diskIds"
 {-# DEPRECATED aubDiskIds "Use generic-lens or generic-optics with 'diskIds' instead." #-}
 
-instance Lude.AWSRequest AddUploadBuffer where
+instance Core.FromJSON AddUploadBuffer where
+  toJSON AddUploadBuffer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("DiskIds" Core..= diskIds)
+          ]
+      )
+
+instance Core.AWSRequest AddUploadBuffer where
   type Rs AddUploadBuffer = AddUploadBufferResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.AddUploadBuffer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AddUploadBufferResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddUploadBuffer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.AddUploadBuffer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddUploadBuffer where
-  toJSON AddUploadBuffer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            Lude.Just ("DiskIds" Lude..= diskIds)
-          ]
-      )
-
-instance Lude.ToPath AddUploadBuffer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddUploadBuffer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAddUploadBufferResponse' smart constructor.
 data AddUploadBufferResponse = AddUploadBufferResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddUploadBufferResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddUploadBufferResponse' value with any optional fields omitted.
 mkAddUploadBufferResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddUploadBufferResponse
-mkAddUploadBufferResponse pResponseStatus_ =
+mkAddUploadBufferResponse responseStatus =
   AddUploadBufferResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aubrsGatewayARN :: Lens.Lens' AddUploadBufferResponse (Lude.Maybe Lude.Text)
-aubrsGatewayARN = Lens.lens (gatewayARN :: AddUploadBufferResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: AddUploadBufferResponse)
-{-# DEPRECATED aubrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+aubrrsGatewayARN :: Lens.Lens' AddUploadBufferResponse (Core.Maybe Types.GatewayARN)
+aubrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED aubrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aubrsResponseStatus :: Lens.Lens' AddUploadBufferResponse Lude.Int
-aubrsResponseStatus = Lens.lens (responseStatus :: AddUploadBufferResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddUploadBufferResponse)
-{-# DEPRECATED aubrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aubrrsResponseStatus :: Lens.Lens' AddUploadBufferResponse Core.Int
+aubrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aubrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,144 +20,130 @@ module Network.AWS.FMS.GetAppsList
     mkGetAppsList,
 
     -- ** Request lenses
-    galDefaultList,
     galListId,
+    galDefaultList,
 
     -- * Destructuring the response
     GetAppsListResponse (..),
     mkGetAppsListResponse,
 
     -- ** Response lenses
-    galrsAppsListARN,
-    galrsAppsList,
-    galrsResponseStatus,
+    galrrsAppsList,
+    galrrsAppsListArn,
+    galrrsResponseStatus,
   )
 where
 
-import Network.AWS.FMS.Types
+import qualified Network.AWS.FMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetAppsList' smart constructor.
 data GetAppsList = GetAppsList'
-  { -- | Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.
-    defaultList :: Lude.Maybe Lude.Bool,
-    -- | The ID of the AWS Firewall Manager applications list that you want the details for.
-    listId :: Lude.Text
+  { -- | The ID of the AWS Firewall Manager applications list that you want the details for.
+    listId :: Types.ListId,
+    -- | Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.
+    defaultList :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAppsList' with the minimum fields required to make a request.
---
--- * 'defaultList' - Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.
--- * 'listId' - The ID of the AWS Firewall Manager applications list that you want the details for.
+-- | Creates a 'GetAppsList' value with any optional fields omitted.
 mkGetAppsList ::
   -- | 'listId'
-  Lude.Text ->
+  Types.ListId ->
   GetAppsList
-mkGetAppsList pListId_ =
-  GetAppsList' {defaultList = Lude.Nothing, listId = pListId_}
-
--- | Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.
---
--- /Note:/ Consider using 'defaultList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-galDefaultList :: Lens.Lens' GetAppsList (Lude.Maybe Lude.Bool)
-galDefaultList = Lens.lens (defaultList :: GetAppsList -> Lude.Maybe Lude.Bool) (\s a -> s {defaultList = a} :: GetAppsList)
-{-# DEPRECATED galDefaultList "Use generic-lens or generic-optics with 'defaultList' instead." #-}
+mkGetAppsList listId =
+  GetAppsList' {listId, defaultList = Core.Nothing}
 
 -- | The ID of the AWS Firewall Manager applications list that you want the details for.
 --
 -- /Note:/ Consider using 'listId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-galListId :: Lens.Lens' GetAppsList Lude.Text
-galListId = Lens.lens (listId :: GetAppsList -> Lude.Text) (\s a -> s {listId = a} :: GetAppsList)
+galListId :: Lens.Lens' GetAppsList Types.ListId
+galListId = Lens.field @"listId"
 {-# DEPRECATED galListId "Use generic-lens or generic-optics with 'listId' instead." #-}
 
-instance Lude.AWSRequest GetAppsList where
+-- | Specifies whether the list to retrieve is a default list owned by AWS Firewall Manager.
+--
+-- /Note:/ Consider using 'defaultList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galDefaultList :: Lens.Lens' GetAppsList (Core.Maybe Core.Bool)
+galDefaultList = Lens.field @"defaultList"
+{-# DEPRECATED galDefaultList "Use generic-lens or generic-optics with 'defaultList' instead." #-}
+
+instance Core.FromJSON GetAppsList where
+  toJSON GetAppsList {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ListId" Core..= listId),
+            ("DefaultList" Core..=) Core.<$> defaultList
+          ]
+      )
+
+instance Core.AWSRequest GetAppsList where
   type Rs GetAppsList = GetAppsListResponse
-  request = Req.postJSON fmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSFMS_20180101.GetAppsList")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetAppsListResponse'
-            Lude.<$> (x Lude..?> "AppsListArn")
-            Lude.<*> (x Lude..?> "AppsList")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AppsList")
+            Core.<*> (x Core..:? "AppsListArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetAppsList where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSFMS_20180101.GetAppsList" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetAppsList where
-  toJSON GetAppsList' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DefaultList" Lude..=) Lude.<$> defaultList,
-            Lude.Just ("ListId" Lude..= listId)
-          ]
-      )
-
-instance Lude.ToPath GetAppsList where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetAppsList where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetAppsListResponse' smart constructor.
 data GetAppsListResponse = GetAppsListResponse'
-  { -- | The Amazon Resource Name (ARN) of the applications list.
-    appsListARN :: Lude.Maybe Lude.Text,
-    -- | Information about the specified AWS Firewall Manager applications list.
-    appsList :: Lude.Maybe AppsListData,
+  { -- | Information about the specified AWS Firewall Manager applications list.
+    appsList :: Core.Maybe Types.AppsListData,
+    -- | The Amazon Resource Name (ARN) of the applications list.
+    appsListArn :: Core.Maybe Types.ResourceArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetAppsListResponse' with the minimum fields required to make a request.
---
--- * 'appsListARN' - The Amazon Resource Name (ARN) of the applications list.
--- * 'appsList' - Information about the specified AWS Firewall Manager applications list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAppsListResponse' value with any optional fields omitted.
 mkGetAppsListResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAppsListResponse
-mkGetAppsListResponse pResponseStatus_ =
+mkGetAppsListResponse responseStatus =
   GetAppsListResponse'
-    { appsListARN = Lude.Nothing,
-      appsList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { appsList = Core.Nothing,
+      appsListArn = Core.Nothing,
+      responseStatus
     }
-
--- | The Amazon Resource Name (ARN) of the applications list.
---
--- /Note:/ Consider using 'appsListARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-galrsAppsListARN :: Lens.Lens' GetAppsListResponse (Lude.Maybe Lude.Text)
-galrsAppsListARN = Lens.lens (appsListARN :: GetAppsListResponse -> Lude.Maybe Lude.Text) (\s a -> s {appsListARN = a} :: GetAppsListResponse)
-{-# DEPRECATED galrsAppsListARN "Use generic-lens or generic-optics with 'appsListARN' instead." #-}
 
 -- | Information about the specified AWS Firewall Manager applications list.
 --
 -- /Note:/ Consider using 'appsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-galrsAppsList :: Lens.Lens' GetAppsListResponse (Lude.Maybe AppsListData)
-galrsAppsList = Lens.lens (appsList :: GetAppsListResponse -> Lude.Maybe AppsListData) (\s a -> s {appsList = a} :: GetAppsListResponse)
-{-# DEPRECATED galrsAppsList "Use generic-lens or generic-optics with 'appsList' instead." #-}
+galrrsAppsList :: Lens.Lens' GetAppsListResponse (Core.Maybe Types.AppsListData)
+galrrsAppsList = Lens.field @"appsList"
+{-# DEPRECATED galrrsAppsList "Use generic-lens or generic-optics with 'appsList' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the applications list.
+--
+-- /Note:/ Consider using 'appsListArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+galrrsAppsListArn :: Lens.Lens' GetAppsListResponse (Core.Maybe Types.ResourceArn)
+galrrsAppsListArn = Lens.field @"appsListArn"
+{-# DEPRECATED galrrsAppsListArn "Use generic-lens or generic-optics with 'appsListArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-galrsResponseStatus :: Lens.Lens' GetAppsListResponse Lude.Int
-galrsResponseStatus = Lens.lens (responseStatus :: GetAppsListResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppsListResponse)
-{-# DEPRECATED galrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+galrrsResponseStatus :: Lens.Lens' GetAppsListResponse Core.Int
+galrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED galrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

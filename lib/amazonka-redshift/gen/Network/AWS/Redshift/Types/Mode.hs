@@ -13,47 +13,49 @@
 module Network.AWS.Redshift.Types.Mode
   ( Mode
       ( Mode',
-        Standard,
-        HighPerformance
+        ModeStandard,
+        ModeHighPerformance,
+        fromMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
 
-newtype Mode = Mode' Lude.Text
+newtype Mode = Mode' {fromMode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Standard :: Mode
-pattern Standard = Mode' "standard"
+pattern ModeStandard :: Mode
+pattern ModeStandard = Mode' "standard"
 
-pattern HighPerformance :: Mode
-pattern HighPerformance = Mode' "high-performance"
+pattern ModeHighPerformance :: Mode
+pattern ModeHighPerformance = Mode' "high-performance"
 
 {-# COMPLETE
-  Standard,
-  HighPerformance,
+  ModeStandard,
+  ModeHighPerformance,
   Mode'
   #-}

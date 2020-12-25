@@ -22,7 +22,8 @@ module Network.AWS.SageMaker.Types.NotebookInstanceLifecycleHook
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.NotebookInstanceLifecycleConfigContent as Types
 
 -- | Contains the notebook instance lifecycle configuration script.
 --
@@ -35,35 +36,31 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkNotebookInstanceLifecycleHook' smart constructor.
 newtype NotebookInstanceLifecycleHook = NotebookInstanceLifecycleHook'
   { -- | A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
-    content :: Lude.Maybe Lude.Text
+    content :: Core.Maybe Types.NotebookInstanceLifecycleConfigContent
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotebookInstanceLifecycleHook' with the minimum fields required to make a request.
---
--- * 'content' - A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
+-- | Creates a 'NotebookInstanceLifecycleHook' value with any optional fields omitted.
 mkNotebookInstanceLifecycleHook ::
   NotebookInstanceLifecycleHook
 mkNotebookInstanceLifecycleHook =
-  NotebookInstanceLifecycleHook' {content = Lude.Nothing}
+  NotebookInstanceLifecycleHook' {content = Core.Nothing}
 
 -- | A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nilhContent :: Lens.Lens' NotebookInstanceLifecycleHook (Lude.Maybe Lude.Text)
-nilhContent = Lens.lens (content :: NotebookInstanceLifecycleHook -> Lude.Maybe Lude.Text) (\s a -> s {content = a} :: NotebookInstanceLifecycleHook)
+nilhContent :: Lens.Lens' NotebookInstanceLifecycleHook (Core.Maybe Types.NotebookInstanceLifecycleConfigContent)
+nilhContent = Lens.field @"content"
 {-# DEPRECATED nilhContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
-instance Lude.FromJSON NotebookInstanceLifecycleHook where
-  parseJSON =
-    Lude.withObject
-      "NotebookInstanceLifecycleHook"
-      ( \x ->
-          NotebookInstanceLifecycleHook' Lude.<$> (x Lude..:? "Content")
-      )
+instance Core.FromJSON NotebookInstanceLifecycleHook where
+  toJSON NotebookInstanceLifecycleHook {..} =
+    Core.object
+      (Core.catMaybes [("Content" Core..=) Core.<$> content])
 
-instance Lude.ToJSON NotebookInstanceLifecycleHook where
-  toJSON NotebookInstanceLifecycleHook' {..} =
-    Lude.object
-      (Lude.catMaybes [("Content" Lude..=) Lude.<$> content])
+instance Core.FromJSON NotebookInstanceLifecycleHook where
+  parseJSON =
+    Core.withObject "NotebookInstanceLifecycleHook" Core.$
+      \x ->
+        NotebookInstanceLifecycleHook' Core.<$> (x Core..:? "Content")

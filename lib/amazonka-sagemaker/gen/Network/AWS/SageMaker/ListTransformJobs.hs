@@ -22,259 +22,239 @@ module Network.AWS.SageMaker.ListTransformJobs
     mkListTransformJobs,
 
     -- ** Request lenses
-    ltjNameContains,
-    ltjLastModifiedTimeBefore,
     ltjCreationTimeAfter,
-    ltjNextToken,
-    ltjSortOrder,
-    ltjLastModifiedTimeAfter,
     ltjCreationTimeBefore,
-    ltjStatusEquals,
+    ltjLastModifiedTimeAfter,
+    ltjLastModifiedTimeBefore,
     ltjMaxResults,
+    ltjNameContains,
+    ltjNextToken,
     ltjSortBy,
+    ltjSortOrder,
+    ltjStatusEquals,
 
     -- * Destructuring the response
     ListTransformJobsResponse (..),
     mkListTransformJobsResponse,
 
     -- ** Response lenses
-    ltjsrsNextToken,
-    ltjsrsTransformJobSummaries,
-    ltjsrsResponseStatus,
+    ltjrfrsTransformJobSummaries,
+    ltjrfrsNextToken,
+    ltjrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListTransformJobs' smart constructor.
 data ListTransformJobs = ListTransformJobs'
-  { -- | A string in the transform job name. This filter returns only transform jobs whose name contains the specified string.
-    nameContains :: Lude.Maybe Lude.Text,
-    -- | A filter that returns only transform jobs modified before the specified time.
-    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
-    -- | A filter that returns only transform jobs created after the specified time.
-    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
-    -- | If the result of the previous @ListTransformJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of transform jobs, use the token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sort order for results. The default is @Descending@ .
-    sortOrder :: Lude.Maybe SortOrder,
-    -- | A filter that returns only transform jobs modified after the specified time.
-    lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+  { -- | A filter that returns only transform jobs created after the specified time.
+    creationTimeAfter :: Core.Maybe Core.NominalDiffTime,
     -- | A filter that returns only transform jobs created before the specified time.
-    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
-    -- | A filter that retrieves only transform jobs with a specific status.
-    statusEquals :: Lude.Maybe TransformJobStatus,
+    creationTimeBefore :: Core.Maybe Core.NominalDiffTime,
+    -- | A filter that returns only transform jobs modified after the specified time.
+    lastModifiedTimeAfter :: Core.Maybe Core.NominalDiffTime,
+    -- | A filter that returns only transform jobs modified before the specified time.
+    lastModifiedTimeBefore :: Core.Maybe Core.NominalDiffTime,
     -- | The maximum number of transform jobs to return in the response. The default value is @10@ .
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A string in the transform job name. This filter returns only transform jobs whose name contains the specified string.
+    nameContains :: Core.Maybe Types.NameContains,
+    -- | If the result of the previous @ListTransformJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of transform jobs, use the token in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The field to sort results by. The default is @CreationTime@ .
-    sortBy :: Lude.Maybe SortBy
+    sortBy :: Core.Maybe Types.SortBy,
+    -- | The sort order for results. The default is @Descending@ .
+    sortOrder :: Core.Maybe Types.SortOrder,
+    -- | A filter that retrieves only transform jobs with a specific status.
+    statusEquals :: Core.Maybe Types.TransformJobStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListTransformJobs' with the minimum fields required to make a request.
---
--- * 'nameContains' - A string in the transform job name. This filter returns only transform jobs whose name contains the specified string.
--- * 'lastModifiedTimeBefore' - A filter that returns only transform jobs modified before the specified time.
--- * 'creationTimeAfter' - A filter that returns only transform jobs created after the specified time.
--- * 'nextToken' - If the result of the previous @ListTransformJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of transform jobs, use the token in the next request.
--- * 'sortOrder' - The sort order for results. The default is @Descending@ .
--- * 'lastModifiedTimeAfter' - A filter that returns only transform jobs modified after the specified time.
--- * 'creationTimeBefore' - A filter that returns only transform jobs created before the specified time.
--- * 'statusEquals' - A filter that retrieves only transform jobs with a specific status.
--- * 'maxResults' - The maximum number of transform jobs to return in the response. The default value is @10@ .
--- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
+-- | Creates a 'ListTransformJobs' value with any optional fields omitted.
 mkListTransformJobs ::
   ListTransformJobs
 mkListTransformJobs =
   ListTransformJobs'
-    { nameContains = Lude.Nothing,
-      lastModifiedTimeBefore = Lude.Nothing,
-      creationTimeAfter = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      lastModifiedTimeAfter = Lude.Nothing,
-      creationTimeBefore = Lude.Nothing,
-      statusEquals = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { creationTimeAfter = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      lastModifiedTimeAfter = Core.Nothing,
+      lastModifiedTimeBefore = Core.Nothing,
+      maxResults = Core.Nothing,
+      nameContains = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing,
+      statusEquals = Core.Nothing
     }
-
--- | A string in the transform job name. This filter returns only transform jobs whose name contains the specified string.
---
--- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjNameContains :: Lens.Lens' ListTransformJobs (Lude.Maybe Lude.Text)
-ltjNameContains = Lens.lens (nameContains :: ListTransformJobs -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListTransformJobs)
-{-# DEPRECATED ltjNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
-
--- | A filter that returns only transform jobs modified before the specified time.
---
--- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjLastModifiedTimeBefore :: Lens.Lens' ListTransformJobs (Lude.Maybe Lude.Timestamp)
-ltjLastModifiedTimeBefore = Lens.lens (lastModifiedTimeBefore :: ListTransformJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeBefore = a} :: ListTransformJobs)
-{-# DEPRECATED ltjLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | A filter that returns only transform jobs created after the specified time.
 --
 -- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjCreationTimeAfter :: Lens.Lens' ListTransformJobs (Lude.Maybe Lude.Timestamp)
-ltjCreationTimeAfter = Lens.lens (creationTimeAfter :: ListTransformJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListTransformJobs)
+ltjCreationTimeAfter :: Lens.Lens' ListTransformJobs (Core.Maybe Core.NominalDiffTime)
+ltjCreationTimeAfter = Lens.field @"creationTimeAfter"
 {-# DEPRECATED ltjCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
-
--- | If the result of the previous @ListTransformJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of transform jobs, use the token in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjNextToken :: Lens.Lens' ListTransformJobs (Lude.Maybe Lude.Text)
-ltjNextToken = Lens.lens (nextToken :: ListTransformJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTransformJobs)
-{-# DEPRECATED ltjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sort order for results. The default is @Descending@ .
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjSortOrder :: Lens.Lens' ListTransformJobs (Lude.Maybe SortOrder)
-ltjSortOrder = Lens.lens (sortOrder :: ListTransformJobs -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListTransformJobs)
-{-# DEPRECATED ltjSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
-
--- | A filter that returns only transform jobs modified after the specified time.
---
--- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjLastModifiedTimeAfter :: Lens.Lens' ListTransformJobs (Lude.Maybe Lude.Timestamp)
-ltjLastModifiedTimeAfter = Lens.lens (lastModifiedTimeAfter :: ListTransformJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeAfter = a} :: ListTransformJobs)
-{-# DEPRECATED ltjLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
 
 -- | A filter that returns only transform jobs created before the specified time.
 --
 -- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjCreationTimeBefore :: Lens.Lens' ListTransformJobs (Lude.Maybe Lude.Timestamp)
-ltjCreationTimeBefore = Lens.lens (creationTimeBefore :: ListTransformJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListTransformJobs)
+ltjCreationTimeBefore :: Lens.Lens' ListTransformJobs (Core.Maybe Core.NominalDiffTime)
+ltjCreationTimeBefore = Lens.field @"creationTimeBefore"
 {-# DEPRECATED ltjCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
--- | A filter that retrieves only transform jobs with a specific status.
+-- | A filter that returns only transform jobs modified after the specified time.
 --
--- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjStatusEquals :: Lens.Lens' ListTransformJobs (Lude.Maybe TransformJobStatus)
-ltjStatusEquals = Lens.lens (statusEquals :: ListTransformJobs -> Lude.Maybe TransformJobStatus) (\s a -> s {statusEquals = a} :: ListTransformJobs)
-{-# DEPRECATED ltjStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
+-- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjLastModifiedTimeAfter :: Lens.Lens' ListTransformJobs (Core.Maybe Core.NominalDiffTime)
+ltjLastModifiedTimeAfter = Lens.field @"lastModifiedTimeAfter"
+{-# DEPRECATED ltjLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
+
+-- | A filter that returns only transform jobs modified before the specified time.
+--
+-- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjLastModifiedTimeBefore :: Lens.Lens' ListTransformJobs (Core.Maybe Core.NominalDiffTime)
+ltjLastModifiedTimeBefore = Lens.field @"lastModifiedTimeBefore"
+{-# DEPRECATED ltjLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | The maximum number of transform jobs to return in the response. The default value is @10@ .
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjMaxResults :: Lens.Lens' ListTransformJobs (Lude.Maybe Lude.Natural)
-ltjMaxResults = Lens.lens (maxResults :: ListTransformJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTransformJobs)
+ltjMaxResults :: Lens.Lens' ListTransformJobs (Core.Maybe Core.Natural)
+ltjMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ltjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A string in the transform job name. This filter returns only transform jobs whose name contains the specified string.
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjNameContains :: Lens.Lens' ListTransformJobs (Core.Maybe Types.NameContains)
+ltjNameContains = Lens.field @"nameContains"
+{-# DEPRECATED ltjNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
+
+-- | If the result of the previous @ListTransformJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of transform jobs, use the token in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjNextToken :: Lens.Lens' ListTransformJobs (Core.Maybe Types.NextToken)
+ltjNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The field to sort results by. The default is @CreationTime@ .
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjSortBy :: Lens.Lens' ListTransformJobs (Lude.Maybe SortBy)
-ltjSortBy = Lens.lens (sortBy :: ListTransformJobs -> Lude.Maybe SortBy) (\s a -> s {sortBy = a} :: ListTransformJobs)
+ltjSortBy :: Lens.Lens' ListTransformJobs (Core.Maybe Types.SortBy)
+ltjSortBy = Lens.field @"sortBy"
 {-# DEPRECATED ltjSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager ListTransformJobs where
-  page rq rs
-    | Page.stop (rs Lens.^. ltjsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ltjsrsTransformJobSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ltjNextToken Lens..~ rs Lens.^. ltjsrsNextToken
+-- | The sort order for results. The default is @Descending@ .
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjSortOrder :: Lens.Lens' ListTransformJobs (Core.Maybe Types.SortOrder)
+ltjSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED ltjSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest ListTransformJobs where
+-- | A filter that retrieves only transform jobs with a specific status.
+--
+-- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjStatusEquals :: Lens.Lens' ListTransformJobs (Core.Maybe Types.TransformJobStatus)
+ltjStatusEquals = Lens.field @"statusEquals"
+{-# DEPRECATED ltjStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
+
+instance Core.FromJSON ListTransformJobs where
+  toJSON ListTransformJobs {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CreationTimeAfter" Core..=) Core.<$> creationTimeAfter,
+            ("CreationTimeBefore" Core..=) Core.<$> creationTimeBefore,
+            ("LastModifiedTimeAfter" Core..=) Core.<$> lastModifiedTimeAfter,
+            ("LastModifiedTimeBefore" Core..=) Core.<$> lastModifiedTimeBefore,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("StatusEquals" Core..=) Core.<$> statusEquals
+          ]
+      )
+
+instance Core.AWSRequest ListTransformJobs where
   type Rs ListTransformJobs = ListTransformJobsResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListTransformJobs")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTransformJobsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "TransformJobSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TransformJobSummaries" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListTransformJobs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.ListTransformJobs" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListTransformJobs where
-  toJSON ListTransformJobs' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NameContains" Lude..=) Lude.<$> nameContains,
-            ("LastModifiedTimeBefore" Lude..=) Lude.<$> lastModifiedTimeBefore,
-            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("LastModifiedTimeAfter" Lude..=) Lude.<$> lastModifiedTimeAfter,
-            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
-            ("StatusEquals" Lude..=) Lude.<$> statusEquals,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListTransformJobs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListTransformJobs where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListTransformJobs where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"transformJobSummaries") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListTransformJobsResponse' smart constructor.
 data ListTransformJobsResponse = ListTransformJobsResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of transform jobs, use it in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array of @TransformJobSummary@ objects.
-    transformJobSummaries :: [TransformJobSummary],
+  { -- | An array of @TransformJobSummary@ objects.
+    transformJobSummaries :: [Types.TransformJobSummary],
+    -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of transform jobs, use it in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListTransformJobsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of transform jobs, use it in the next request.
--- * 'transformJobSummaries' - An array of @TransformJobSummary@ objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTransformJobsResponse' value with any optional fields omitted.
 mkListTransformJobsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTransformJobsResponse
-mkListTransformJobsResponse pResponseStatus_ =
+mkListTransformJobsResponse responseStatus =
   ListTransformJobsResponse'
-    { nextToken = Lude.Nothing,
-      transformJobSummaries = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { transformJobSummaries = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of transform jobs, use it in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjsrsNextToken :: Lens.Lens' ListTransformJobsResponse (Lude.Maybe Lude.Text)
-ltjsrsNextToken = Lens.lens (nextToken :: ListTransformJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTransformJobsResponse)
-{-# DEPRECATED ltjsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of @TransformJobSummary@ objects.
 --
 -- /Note:/ Consider using 'transformJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjsrsTransformJobSummaries :: Lens.Lens' ListTransformJobsResponse [TransformJobSummary]
-ltjsrsTransformJobSummaries = Lens.lens (transformJobSummaries :: ListTransformJobsResponse -> [TransformJobSummary]) (\s a -> s {transformJobSummaries = a} :: ListTransformJobsResponse)
-{-# DEPRECATED ltjsrsTransformJobSummaries "Use generic-lens or generic-optics with 'transformJobSummaries' instead." #-}
+ltjrfrsTransformJobSummaries :: Lens.Lens' ListTransformJobsResponse [Types.TransformJobSummary]
+ltjrfrsTransformJobSummaries = Lens.field @"transformJobSummaries"
+{-# DEPRECATED ltjrfrsTransformJobSummaries "Use generic-lens or generic-optics with 'transformJobSummaries' instead." #-}
+
+-- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of transform jobs, use it in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltjrfrsNextToken :: Lens.Lens' ListTransformJobsResponse (Core.Maybe Types.NextToken)
+ltjrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltjrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltjsrsResponseStatus :: Lens.Lens' ListTransformJobsResponse Lude.Int
-ltjsrsResponseStatus = Lens.lens (responseStatus :: ListTransformJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTransformJobsResponse)
-{-# DEPRECATED ltjsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltjrfrsResponseStatus :: Lens.Lens' ListTransformJobsResponse Core.Int
+ltjrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltjrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

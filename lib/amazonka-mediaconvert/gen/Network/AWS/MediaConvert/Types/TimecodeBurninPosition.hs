@@ -13,82 +13,87 @@
 module Network.AWS.MediaConvert.Types.TimecodeBurninPosition
   ( TimecodeBurninPosition
       ( TimecodeBurninPosition',
-        TopCenter,
-        TopLeft,
-        TopRight,
-        MiddleLeft,
-        MiddleCenter,
-        MiddleRight,
-        BottomLeft,
-        BottomCenter,
-        BottomRight
+        TimecodeBurninPositionTopCenter,
+        TimecodeBurninPositionTopLeft,
+        TimecodeBurninPositionTopRight,
+        TimecodeBurninPositionMiddleLeft,
+        TimecodeBurninPositionMiddleCenter,
+        TimecodeBurninPositionMiddleRight,
+        TimecodeBurninPositionBottomLeft,
+        TimecodeBurninPositionBottomCenter,
+        TimecodeBurninPositionBottomRight,
+        fromTimecodeBurninPosition
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use Position (Position) under under Timecode burn-in (TimecodeBurnIn) to specify the location the burned-in timecode on output video.
-newtype TimecodeBurninPosition = TimecodeBurninPosition' Lude.Text
+newtype TimecodeBurninPosition = TimecodeBurninPosition'
+  { fromTimecodeBurninPosition ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TopCenter :: TimecodeBurninPosition
-pattern TopCenter = TimecodeBurninPosition' "TOP_CENTER"
+pattern TimecodeBurninPositionTopCenter :: TimecodeBurninPosition
+pattern TimecodeBurninPositionTopCenter = TimecodeBurninPosition' "TOP_CENTER"
 
-pattern TopLeft :: TimecodeBurninPosition
-pattern TopLeft = TimecodeBurninPosition' "TOP_LEFT"
+pattern TimecodeBurninPositionTopLeft :: TimecodeBurninPosition
+pattern TimecodeBurninPositionTopLeft = TimecodeBurninPosition' "TOP_LEFT"
 
-pattern TopRight :: TimecodeBurninPosition
-pattern TopRight = TimecodeBurninPosition' "TOP_RIGHT"
+pattern TimecodeBurninPositionTopRight :: TimecodeBurninPosition
+pattern TimecodeBurninPositionTopRight = TimecodeBurninPosition' "TOP_RIGHT"
 
-pattern MiddleLeft :: TimecodeBurninPosition
-pattern MiddleLeft = TimecodeBurninPosition' "MIDDLE_LEFT"
+pattern TimecodeBurninPositionMiddleLeft :: TimecodeBurninPosition
+pattern TimecodeBurninPositionMiddleLeft = TimecodeBurninPosition' "MIDDLE_LEFT"
 
-pattern MiddleCenter :: TimecodeBurninPosition
-pattern MiddleCenter = TimecodeBurninPosition' "MIDDLE_CENTER"
+pattern TimecodeBurninPositionMiddleCenter :: TimecodeBurninPosition
+pattern TimecodeBurninPositionMiddleCenter = TimecodeBurninPosition' "MIDDLE_CENTER"
 
-pattern MiddleRight :: TimecodeBurninPosition
-pattern MiddleRight = TimecodeBurninPosition' "MIDDLE_RIGHT"
+pattern TimecodeBurninPositionMiddleRight :: TimecodeBurninPosition
+pattern TimecodeBurninPositionMiddleRight = TimecodeBurninPosition' "MIDDLE_RIGHT"
 
-pattern BottomLeft :: TimecodeBurninPosition
-pattern BottomLeft = TimecodeBurninPosition' "BOTTOM_LEFT"
+pattern TimecodeBurninPositionBottomLeft :: TimecodeBurninPosition
+pattern TimecodeBurninPositionBottomLeft = TimecodeBurninPosition' "BOTTOM_LEFT"
 
-pattern BottomCenter :: TimecodeBurninPosition
-pattern BottomCenter = TimecodeBurninPosition' "BOTTOM_CENTER"
+pattern TimecodeBurninPositionBottomCenter :: TimecodeBurninPosition
+pattern TimecodeBurninPositionBottomCenter = TimecodeBurninPosition' "BOTTOM_CENTER"
 
-pattern BottomRight :: TimecodeBurninPosition
-pattern BottomRight = TimecodeBurninPosition' "BOTTOM_RIGHT"
+pattern TimecodeBurninPositionBottomRight :: TimecodeBurninPosition
+pattern TimecodeBurninPositionBottomRight = TimecodeBurninPosition' "BOTTOM_RIGHT"
 
 {-# COMPLETE
-  TopCenter,
-  TopLeft,
-  TopRight,
-  MiddleLeft,
-  MiddleCenter,
-  MiddleRight,
-  BottomLeft,
-  BottomCenter,
-  BottomRight,
+  TimecodeBurninPositionTopCenter,
+  TimecodeBurninPositionTopLeft,
+  TimecodeBurninPositionTopRight,
+  TimecodeBurninPositionMiddleLeft,
+  TimecodeBurninPositionMiddleCenter,
+  TimecodeBurninPositionMiddleRight,
+  TimecodeBurninPositionBottomLeft,
+  TimecodeBurninPositionBottomCenter,
+  TimecodeBurninPositionBottomRight,
   TimecodeBurninPosition'
   #-}

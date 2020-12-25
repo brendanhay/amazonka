@@ -66,9 +66,9 @@ module Network.AWS.S3.PutBucketInventoryConfiguration
     mkPutBucketInventoryConfiguration,
 
     -- ** Request lenses
-    pbicInventoryConfiguration,
     pbicBucket,
     pbicId,
+    pbicInventoryConfiguration,
     pbicExpectedBucketOwner,
 
     -- * Destructuring the response
@@ -78,111 +78,94 @@ module Network.AWS.S3.PutBucketInventoryConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutBucketInventoryConfiguration' smart constructor.
 data PutBucketInventoryConfiguration = PutBucketInventoryConfiguration'
-  { -- | Specifies the inventory configuration.
-    inventoryConfiguration :: InventoryConfiguration,
-    -- | The name of the bucket where the inventory configuration will be stored.
-    bucket :: BucketName,
+  { -- | The name of the bucket where the inventory configuration will be stored.
+    bucket :: Types.BucketName,
     -- | The ID used to identify the inventory configuration.
-    id :: Lude.Text,
+    id :: Types.Id,
+    -- | Specifies the inventory configuration.
+    inventoryConfiguration :: Types.InventoryConfiguration,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketInventoryConfiguration' with the minimum fields required to make a request.
---
--- * 'inventoryConfiguration' - Specifies the inventory configuration.
--- * 'bucket' - The name of the bucket where the inventory configuration will be stored.
--- * 'id' - The ID used to identify the inventory configuration.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'PutBucketInventoryConfiguration' value with any optional fields omitted.
 mkPutBucketInventoryConfiguration ::
-  -- | 'inventoryConfiguration'
-  InventoryConfiguration ->
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
+  -- | 'inventoryConfiguration'
+  Types.InventoryConfiguration ->
   PutBucketInventoryConfiguration
-mkPutBucketInventoryConfiguration
-  pInventoryConfiguration_
-  pBucket_
-  pId_ =
-    PutBucketInventoryConfiguration'
-      { inventoryConfiguration =
-          pInventoryConfiguration_,
-        bucket = pBucket_,
-        id = pId_,
-        expectedBucketOwner = Lude.Nothing
-      }
-
--- | Specifies the inventory configuration.
---
--- /Note:/ Consider using 'inventoryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbicInventoryConfiguration :: Lens.Lens' PutBucketInventoryConfiguration InventoryConfiguration
-pbicInventoryConfiguration = Lens.lens (inventoryConfiguration :: PutBucketInventoryConfiguration -> InventoryConfiguration) (\s a -> s {inventoryConfiguration = a} :: PutBucketInventoryConfiguration)
-{-# DEPRECATED pbicInventoryConfiguration "Use generic-lens or generic-optics with 'inventoryConfiguration' instead." #-}
+mkPutBucketInventoryConfiguration bucket id inventoryConfiguration =
+  PutBucketInventoryConfiguration'
+    { bucket,
+      id,
+      inventoryConfiguration,
+      expectedBucketOwner = Core.Nothing
+    }
 
 -- | The name of the bucket where the inventory configuration will be stored.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbicBucket :: Lens.Lens' PutBucketInventoryConfiguration BucketName
-pbicBucket = Lens.lens (bucket :: PutBucketInventoryConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutBucketInventoryConfiguration)
+pbicBucket :: Lens.Lens' PutBucketInventoryConfiguration Types.BucketName
+pbicBucket = Lens.field @"bucket"
 {-# DEPRECATED pbicBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID used to identify the inventory configuration.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbicId :: Lens.Lens' PutBucketInventoryConfiguration Lude.Text
-pbicId = Lens.lens (id :: PutBucketInventoryConfiguration -> Lude.Text) (\s a -> s {id = a} :: PutBucketInventoryConfiguration)
+pbicId :: Lens.Lens' PutBucketInventoryConfiguration Types.Id
+pbicId = Lens.field @"id"
 {-# DEPRECATED pbicId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Specifies the inventory configuration.
+--
+-- /Note:/ Consider using 'inventoryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbicInventoryConfiguration :: Lens.Lens' PutBucketInventoryConfiguration Types.InventoryConfiguration
+pbicInventoryConfiguration = Lens.field @"inventoryConfiguration"
+{-# DEPRECATED pbicInventoryConfiguration "Use generic-lens or generic-optics with 'inventoryConfiguration' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbicExpectedBucketOwner :: Lens.Lens' PutBucketInventoryConfiguration (Lude.Maybe Lude.Text)
-pbicExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketInventoryConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketInventoryConfiguration)
+pbicExpectedBucketOwner :: Lens.Lens' PutBucketInventoryConfiguration (Core.Maybe Types.ExpectedBucketOwner)
+pbicExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED pbicExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest PutBucketInventoryConfiguration where
+instance Core.AWSRequest PutBucketInventoryConfiguration where
   type
     Rs PutBucketInventoryConfiguration =
       PutBucketInventoryConfigurationResponse
-  request = Req.putXML s3Service
-  response = Res.receiveNull PutBucketInventoryConfigurationResponse'
-
-instance Lude.ToElement PutBucketInventoryConfiguration where
-  toElement =
-    Lude.mkElement
-      "{http://s3.amazonaws.com/doc/2006-03-01/}InventoryConfiguration"
-      Lude.. inventoryConfiguration
-
-instance Lude.ToHeaders PutBucketInventoryConfiguration where
-  toHeaders PutBucketInventoryConfiguration' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath PutBucketInventoryConfiguration where
-  toPath PutBucketInventoryConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery PutBucketInventoryConfiguration where
-  toQuery PutBucketInventoryConfiguration' {..} =
-    Lude.mconcat ["id" Lude.=: id, "inventory"]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery =
+          Core.toQueryValue "id" id Core.<> (Core.pure ("inventory", "")),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = Core.toXMLBody x
+      }
+  response =
+    Response.receiveNull PutBucketInventoryConfigurationResponse'
 
 -- | /See:/ 'mkPutBucketInventoryConfigurationResponse' smart constructor.
 data PutBucketInventoryConfigurationResponse = PutBucketInventoryConfigurationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketInventoryConfigurationResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutBucketInventoryConfigurationResponse' value with any optional fields omitted.
 mkPutBucketInventoryConfigurationResponse ::
   PutBucketInventoryConfigurationResponse
 mkPutBucketInventoryConfigurationResponse =

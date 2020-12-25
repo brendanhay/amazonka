@@ -24,7 +24,7 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     mkListEndpointsByPlatformApplication,
 
     -- ** Request lenses
-    lebpaPlatformApplicationARN,
+    lebpaPlatformApplicationArn,
     lebpaNextToken,
 
     -- * Destructuring the response
@@ -32,150 +32,144 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     mkListEndpointsByPlatformApplicationResponse,
 
     -- ** Response lenses
-    lebparsNextToken,
-    lebparsEndpoints,
-    lebparsResponseStatus,
+    lebparrsEndpoints,
+    lebparrsNextToken,
+    lebparrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | Input for ListEndpointsByPlatformApplication action.
 --
 -- /See:/ 'mkListEndpointsByPlatformApplication' smart constructor.
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication'
   { -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
-    platformApplicationARN :: Lude.Text,
+    platformApplicationArn :: Types.PlatformApplicationArn,
     -- | NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListEndpointsByPlatformApplication' with the minimum fields required to make a request.
---
--- * 'platformApplicationARN' - PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
--- * 'nextToken' - NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
+-- | Creates a 'ListEndpointsByPlatformApplication' value with any optional fields omitted.
 mkListEndpointsByPlatformApplication ::
-  -- | 'platformApplicationARN'
-  Lude.Text ->
+  -- | 'platformApplicationArn'
+  Types.PlatformApplicationArn ->
   ListEndpointsByPlatformApplication
-mkListEndpointsByPlatformApplication pPlatformApplicationARN_ =
+mkListEndpointsByPlatformApplication platformApplicationArn =
   ListEndpointsByPlatformApplication'
-    { platformApplicationARN =
-        pPlatformApplicationARN_,
-      nextToken = Lude.Nothing
+    { platformApplicationArn,
+      nextToken = Core.Nothing
     }
 
 -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.
 --
--- /Note:/ Consider using 'platformApplicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebpaPlatformApplicationARN :: Lens.Lens' ListEndpointsByPlatformApplication Lude.Text
-lebpaPlatformApplicationARN = Lens.lens (platformApplicationARN :: ListEndpointsByPlatformApplication -> Lude.Text) (\s a -> s {platformApplicationARN = a} :: ListEndpointsByPlatformApplication)
-{-# DEPRECATED lebpaPlatformApplicationARN "Use generic-lens or generic-optics with 'platformApplicationARN' instead." #-}
+-- /Note:/ Consider using 'platformApplicationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lebpaPlatformApplicationArn :: Lens.Lens' ListEndpointsByPlatformApplication Types.PlatformApplicationArn
+lebpaPlatformApplicationArn = Lens.field @"platformApplicationArn"
+{-# DEPRECATED lebpaPlatformApplicationArn "Use generic-lens or generic-optics with 'platformApplicationArn' instead." #-}
 
 -- | NextToken string is used when calling ListEndpointsByPlatformApplication action to retrieve additional records that are available after the first page results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebpaNextToken :: Lens.Lens' ListEndpointsByPlatformApplication (Lude.Maybe Lude.Text)
-lebpaNextToken = Lens.lens (nextToken :: ListEndpointsByPlatformApplication -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEndpointsByPlatformApplication)
+lebpaNextToken :: Lens.Lens' ListEndpointsByPlatformApplication (Core.Maybe Types.NextToken)
+lebpaNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lebpaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager ListEndpointsByPlatformApplication where
-  page rq rs
-    | Page.stop (rs Lens.^. lebparsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lebparsEndpoints) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lebpaNextToken Lens..~ rs Lens.^. lebparsNextToken
-
-instance Lude.AWSRequest ListEndpointsByPlatformApplication where
+instance Core.AWSRequest ListEndpointsByPlatformApplication where
   type
     Rs ListEndpointsByPlatformApplication =
       ListEndpointsByPlatformApplicationResponse
-  request = Req.postQuery snsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListEndpointsByPlatformApplication")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "PlatformApplicationArn" platformApplicationArn)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListEndpointsByPlatformApplicationResult"
       ( \s h x ->
           ListEndpointsByPlatformApplicationResponse'
-            Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> ( x Lude..@? "Endpoints" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Endpoints" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListEndpointsByPlatformApplication where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListEndpointsByPlatformApplication where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListEndpointsByPlatformApplication where
-  toQuery ListEndpointsByPlatformApplication' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("ListEndpointsByPlatformApplication" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "PlatformApplicationArn" Lude.=: platformApplicationARN,
-        "NextToken" Lude.=: nextToken
-      ]
+instance Pager.AWSPager ListEndpointsByPlatformApplication where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"endpoints" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Response for ListEndpointsByPlatformApplication action.
 --
 -- /See:/ 'mkListEndpointsByPlatformApplicationResponse' smart constructor.
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'
-  { -- | NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-    endpoints :: Lude.Maybe [Endpoint],
+  { -- | Endpoints returned for ListEndpointsByPlatformApplication action.
+    endpoints :: Core.Maybe [Types.Endpoint],
+    -- | NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListEndpointsByPlatformApplicationResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
--- * 'endpoints' - Endpoints returned for ListEndpointsByPlatformApplication action.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListEndpointsByPlatformApplicationResponse' value with any optional fields omitted.
 mkListEndpointsByPlatformApplicationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListEndpointsByPlatformApplicationResponse
-mkListEndpointsByPlatformApplicationResponse pResponseStatus_ =
+mkListEndpointsByPlatformApplicationResponse responseStatus =
   ListEndpointsByPlatformApplicationResponse'
-    { nextToken =
-        Lude.Nothing,
-      endpoints = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { endpoints =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebparsNextToken :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Lude.Maybe Lude.Text)
-lebparsNextToken = Lens.lens (nextToken :: ListEndpointsByPlatformApplicationResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEndpointsByPlatformApplicationResponse)
-{-# DEPRECATED lebparsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
 --
 -- /Note:/ Consider using 'endpoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebparsEndpoints :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Lude.Maybe [Endpoint])
-lebparsEndpoints = Lens.lens (endpoints :: ListEndpointsByPlatformApplicationResponse -> Lude.Maybe [Endpoint]) (\s a -> s {endpoints = a} :: ListEndpointsByPlatformApplicationResponse)
-{-# DEPRECATED lebparsEndpoints "Use generic-lens or generic-optics with 'endpoints' instead." #-}
+lebparrsEndpoints :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Core.Maybe [Types.Endpoint])
+lebparrsEndpoints = Lens.field @"endpoints"
+{-# DEPRECATED lebparrsEndpoints "Use generic-lens or generic-optics with 'endpoints' instead." #-}
+
+-- | NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lebparrsNextToken :: Lens.Lens' ListEndpointsByPlatformApplicationResponse (Core.Maybe Types.String)
+lebparrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lebparrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lebparsResponseStatus :: Lens.Lens' ListEndpointsByPlatformApplicationResponse Lude.Int
-lebparsResponseStatus = Lens.lens (responseStatus :: ListEndpointsByPlatformApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEndpointsByPlatformApplicationResponse)
-{-# DEPRECATED lebparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lebparrsResponseStatus :: Lens.Lens' ListEndpointsByPlatformApplicationResponse Core.Int
+lebparrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lebparrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

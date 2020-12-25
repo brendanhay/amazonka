@@ -22,52 +22,49 @@ module Network.AWS.CodeCommit.Types.RepositoryNameIdPair
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.RepositoryId as Types
+import qualified Network.AWS.CodeCommit.Types.RepositoryName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a repository name and ID.
 --
 -- /See:/ 'mkRepositoryNameIdPair' smart constructor.
 data RepositoryNameIdPair = RepositoryNameIdPair'
   { -- | The ID associated with the repository.
-    repositoryId :: Lude.Maybe Lude.Text,
+    repositoryId :: Core.Maybe Types.RepositoryId,
     -- | The name associated with the repository.
-    repositoryName :: Lude.Maybe Lude.Text
+    repositoryName :: Core.Maybe Types.RepositoryName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RepositoryNameIdPair' with the minimum fields required to make a request.
---
--- * 'repositoryId' - The ID associated with the repository.
--- * 'repositoryName' - The name associated with the repository.
+-- | Creates a 'RepositoryNameIdPair' value with any optional fields omitted.
 mkRepositoryNameIdPair ::
   RepositoryNameIdPair
 mkRepositoryNameIdPair =
   RepositoryNameIdPair'
-    { repositoryId = Lude.Nothing,
-      repositoryName = Lude.Nothing
+    { repositoryId = Core.Nothing,
+      repositoryName = Core.Nothing
     }
 
 -- | The ID associated with the repository.
 --
 -- /Note:/ Consider using 'repositoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rnipRepositoryId :: Lens.Lens' RepositoryNameIdPair (Lude.Maybe Lude.Text)
-rnipRepositoryId = Lens.lens (repositoryId :: RepositoryNameIdPair -> Lude.Maybe Lude.Text) (\s a -> s {repositoryId = a} :: RepositoryNameIdPair)
+rnipRepositoryId :: Lens.Lens' RepositoryNameIdPair (Core.Maybe Types.RepositoryId)
+rnipRepositoryId = Lens.field @"repositoryId"
 {-# DEPRECATED rnipRepositoryId "Use generic-lens or generic-optics with 'repositoryId' instead." #-}
 
 -- | The name associated with the repository.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rnipRepositoryName :: Lens.Lens' RepositoryNameIdPair (Lude.Maybe Lude.Text)
-rnipRepositoryName = Lens.lens (repositoryName :: RepositoryNameIdPair -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: RepositoryNameIdPair)
+rnipRepositoryName :: Lens.Lens' RepositoryNameIdPair (Core.Maybe Types.RepositoryName)
+rnipRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED rnipRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance Lude.FromJSON RepositoryNameIdPair where
+instance Core.FromJSON RepositoryNameIdPair where
   parseJSON =
-    Lude.withObject
-      "RepositoryNameIdPair"
-      ( \x ->
-          RepositoryNameIdPair'
-            Lude.<$> (x Lude..:? "repositoryId") Lude.<*> (x Lude..:? "repositoryName")
-      )
+    Core.withObject "RepositoryNameIdPair" Core.$
+      \x ->
+        RepositoryNameIdPair'
+          Core.<$> (x Core..:? "repositoryId") Core.<*> (x Core..:? "repositoryName")

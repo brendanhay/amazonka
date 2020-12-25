@@ -13,61 +13,63 @@
 module Network.AWS.CloudDirectory.Types.RangeMode
   ( RangeMode
       ( RangeMode',
-        First,
-        Last,
-        LastBeforeMissingValues,
-        Inclusive,
-        Exclusive
+        RangeModeFirst,
+        RangeModeLast,
+        RangeModeLastBeforeMissingValues,
+        RangeModeInclusive,
+        RangeModeExclusive,
+        fromRangeMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RangeMode = RangeMode' Lude.Text
+newtype RangeMode = RangeMode' {fromRangeMode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern First :: RangeMode
-pattern First = RangeMode' "FIRST"
+pattern RangeModeFirst :: RangeMode
+pattern RangeModeFirst = RangeMode' "FIRST"
 
-pattern Last :: RangeMode
-pattern Last = RangeMode' "LAST"
+pattern RangeModeLast :: RangeMode
+pattern RangeModeLast = RangeMode' "LAST"
 
-pattern LastBeforeMissingValues :: RangeMode
-pattern LastBeforeMissingValues = RangeMode' "LAST_BEFORE_MISSING_VALUES"
+pattern RangeModeLastBeforeMissingValues :: RangeMode
+pattern RangeModeLastBeforeMissingValues = RangeMode' "LAST_BEFORE_MISSING_VALUES"
 
-pattern Inclusive :: RangeMode
-pattern Inclusive = RangeMode' "INCLUSIVE"
+pattern RangeModeInclusive :: RangeMode
+pattern RangeModeInclusive = RangeMode' "INCLUSIVE"
 
-pattern Exclusive :: RangeMode
-pattern Exclusive = RangeMode' "EXCLUSIVE"
+pattern RangeModeExclusive :: RangeMode
+pattern RangeModeExclusive = RangeMode' "EXCLUSIVE"
 
 {-# COMPLETE
-  First,
-  Last,
-  LastBeforeMissingValues,
-  Inclusive,
-  Exclusive,
+  RangeModeFirst,
+  RangeModeLast,
+  RangeModeLastBeforeMissingValues,
+  RangeModeInclusive,
+  RangeModeExclusive,
   RangeMode'
   #-}

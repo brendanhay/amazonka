@@ -13,46 +13,51 @@
 module Network.AWS.CloudFormation.Types.EvaluationType
   ( EvaluationType
       ( EvaluationType',
-        ETStatic,
-        ETDynamic
+        EvaluationTypeStatic,
+        EvaluationTypeDynamic,
+        fromEvaluationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EvaluationType = EvaluationType' Lude.Text
+newtype EvaluationType = EvaluationType'
+  { fromEvaluationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ETStatic :: EvaluationType
-pattern ETStatic = EvaluationType' "Static"
+pattern EvaluationTypeStatic :: EvaluationType
+pattern EvaluationTypeStatic = EvaluationType' "Static"
 
-pattern ETDynamic :: EvaluationType
-pattern ETDynamic = EvaluationType' "Dynamic"
+pattern EvaluationTypeDynamic :: EvaluationType
+pattern EvaluationTypeDynamic = EvaluationType' "Dynamic"
 
 {-# COMPLETE
-  ETStatic,
-  ETDynamic,
+  EvaluationTypeStatic,
+  EvaluationTypeDynamic,
   EvaluationType'
   #-}

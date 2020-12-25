@@ -72,7 +72,7 @@ echo "$result"
 
 say "cleaning geenrated directories..."
 
-rm -r lib/*/gen lib/*/model || true
+rm -rf lib/amazonka-*/gen lib/amazonka-*/model || true
 chmod u+rw -R lib
 
 say "copying $result to lib..."

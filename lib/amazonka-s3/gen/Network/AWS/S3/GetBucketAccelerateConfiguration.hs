@@ -36,113 +36,104 @@ module Network.AWS.S3.GetBucketAccelerateConfiguration
     mkGetBucketAccelerateConfigurationResponse,
 
     -- ** Response lenses
-    gbacrsStatus,
-    gbacrsResponseStatus,
+    gbacrrsStatus,
+    gbacrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketAccelerateConfiguration' smart constructor.
 data GetBucketAccelerateConfiguration = GetBucketAccelerateConfiguration'
   { -- | The name of the bucket for which the accelerate configuration is retrieved.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketAccelerateConfiguration' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the bucket for which the accelerate configuration is retrieved.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetBucketAccelerateConfiguration' value with any optional fields omitted.
 mkGetBucketAccelerateConfiguration ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   GetBucketAccelerateConfiguration
-mkGetBucketAccelerateConfiguration pBucket_ =
+mkGetBucketAccelerateConfiguration bucket =
   GetBucketAccelerateConfiguration'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The name of the bucket for which the accelerate configuration is retrieved.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbacBucket :: Lens.Lens' GetBucketAccelerateConfiguration BucketName
-gbacBucket = Lens.lens (bucket :: GetBucketAccelerateConfiguration -> BucketName) (\s a -> s {bucket = a} :: GetBucketAccelerateConfiguration)
+gbacBucket :: Lens.Lens' GetBucketAccelerateConfiguration Types.BucketName
+gbacBucket = Lens.field @"bucket"
 {-# DEPRECATED gbacBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbacExpectedBucketOwner :: Lens.Lens' GetBucketAccelerateConfiguration (Lude.Maybe Lude.Text)
-gbacExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketAccelerateConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketAccelerateConfiguration)
+gbacExpectedBucketOwner :: Lens.Lens' GetBucketAccelerateConfiguration (Core.Maybe Types.ExpectedBucketOwner)
+gbacExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED gbacExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetBucketAccelerateConfiguration where
+instance Core.AWSRequest GetBucketAccelerateConfiguration where
   type
     Rs GetBucketAccelerateConfiguration =
       GetBucketAccelerateConfigurationResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("accelerate", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetBucketAccelerateConfigurationResponse'
-            Lude.<$> (x Lude..@? "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Status") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBucketAccelerateConfiguration where
-  toHeaders GetBucketAccelerateConfiguration' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetBucketAccelerateConfiguration where
-  toPath GetBucketAccelerateConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketAccelerateConfiguration where
-  toQuery = Lude.const (Lude.mconcat ["accelerate"])
 
 -- | /See:/ 'mkGetBucketAccelerateConfigurationResponse' smart constructor.
 data GetBucketAccelerateConfigurationResponse = GetBucketAccelerateConfigurationResponse'
   { -- | The accelerate configuration of the bucket.
-    status :: Lude.Maybe BucketAccelerateStatus,
+    status :: Core.Maybe Types.BucketAccelerateStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketAccelerateConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'status' - The accelerate configuration of the bucket.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBucketAccelerateConfigurationResponse' value with any optional fields omitted.
 mkGetBucketAccelerateConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBucketAccelerateConfigurationResponse
-mkGetBucketAccelerateConfigurationResponse pResponseStatus_ =
+mkGetBucketAccelerateConfigurationResponse responseStatus =
   GetBucketAccelerateConfigurationResponse'
-    { status = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { status = Core.Nothing,
+      responseStatus
     }
 
 -- | The accelerate configuration of the bucket.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbacrsStatus :: Lens.Lens' GetBucketAccelerateConfigurationResponse (Lude.Maybe BucketAccelerateStatus)
-gbacrsStatus = Lens.lens (status :: GetBucketAccelerateConfigurationResponse -> Lude.Maybe BucketAccelerateStatus) (\s a -> s {status = a} :: GetBucketAccelerateConfigurationResponse)
-{-# DEPRECATED gbacrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+gbacrrsStatus :: Lens.Lens' GetBucketAccelerateConfigurationResponse (Core.Maybe Types.BucketAccelerateStatus)
+gbacrrsStatus = Lens.field @"status"
+{-# DEPRECATED gbacrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbacrsResponseStatus :: Lens.Lens' GetBucketAccelerateConfigurationResponse Lude.Int
-gbacrsResponseStatus = Lens.lens (responseStatus :: GetBucketAccelerateConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketAccelerateConfigurationResponse)
-{-# DEPRECATED gbacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbacrrsResponseStatus :: Lens.Lens' GetBucketAccelerateConfigurationResponse Core.Int
+gbacrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbacrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

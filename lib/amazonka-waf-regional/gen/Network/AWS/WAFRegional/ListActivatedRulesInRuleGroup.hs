@@ -20,162 +20,149 @@ module Network.AWS.WAFRegional.ListActivatedRulesInRuleGroup
     mkListActivatedRulesInRuleGroup,
 
     -- ** Request lenses
-    larirgRuleGroupId,
-    larirgNextMarker,
     larirgLimit,
+    larirgNextMarker,
+    larirgRuleGroupId,
 
     -- * Destructuring the response
     ListActivatedRulesInRuleGroupResponse (..),
     mkListActivatedRulesInRuleGroupResponse,
 
     -- ** Response lenses
-    larirgrsNextMarker,
-    larirgrsActivatedRules,
-    larirgrsResponseStatus,
+    larirgrrsActivatedRules,
+    larirgrrsNextMarker,
+    larirgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkListActivatedRulesInRuleGroup' smart constructor.
 data ListActivatedRulesInRuleGroup = ListActivatedRulesInRuleGroup'
-  { -- | The @RuleGroupId@ of the 'RuleGroup' for which you want to get a list of 'ActivatedRule' objects.
-    ruleGroupId :: Lude.Maybe Lude.Text,
+  { -- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return for this request. If you have more @ActivatedRules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ActivatedRules@ .
+    limit :: Core.Maybe Core.Natural,
     -- | If you specify a value for @Limit@ and you have more @ActivatedRules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ActivatedRules@ . For the second and subsequent @ListActivatedRulesInRuleGroup@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ActivatedRules@ .
-    nextMarker :: Lude.Maybe Lude.Text,
-    -- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return for this request. If you have more @ActivatedRules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ActivatedRules@ .
-    limit :: Lude.Maybe Lude.Natural
+    nextMarker :: Core.Maybe Types.NextMarker,
+    -- | The @RuleGroupId@ of the 'RuleGroup' for which you want to get a list of 'ActivatedRule' objects.
+    ruleGroupId :: Core.Maybe Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListActivatedRulesInRuleGroup' with the minimum fields required to make a request.
---
--- * 'ruleGroupId' - The @RuleGroupId@ of the 'RuleGroup' for which you want to get a list of 'ActivatedRule' objects.
--- * 'nextMarker' - If you specify a value for @Limit@ and you have more @ActivatedRules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ActivatedRules@ . For the second and subsequent @ListActivatedRulesInRuleGroup@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ActivatedRules@ .
--- * 'limit' - Specifies the number of @ActivatedRules@ that you want AWS WAF to return for this request. If you have more @ActivatedRules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ActivatedRules@ .
+-- | Creates a 'ListActivatedRulesInRuleGroup' value with any optional fields omitted.
 mkListActivatedRulesInRuleGroup ::
   ListActivatedRulesInRuleGroup
 mkListActivatedRulesInRuleGroup =
   ListActivatedRulesInRuleGroup'
-    { ruleGroupId = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      limit = Lude.Nothing
+    { limit = Core.Nothing,
+      nextMarker = Core.Nothing,
+      ruleGroupId = Core.Nothing
     }
-
--- | The @RuleGroupId@ of the 'RuleGroup' for which you want to get a list of 'ActivatedRule' objects.
---
--- /Note:/ Consider using 'ruleGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larirgRuleGroupId :: Lens.Lens' ListActivatedRulesInRuleGroup (Lude.Maybe Lude.Text)
-larirgRuleGroupId = Lens.lens (ruleGroupId :: ListActivatedRulesInRuleGroup -> Lude.Maybe Lude.Text) (\s a -> s {ruleGroupId = a} :: ListActivatedRulesInRuleGroup)
-{-# DEPRECATED larirgRuleGroupId "Use generic-lens or generic-optics with 'ruleGroupId' instead." #-}
-
--- | If you specify a value for @Limit@ and you have more @ActivatedRules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ActivatedRules@ . For the second and subsequent @ListActivatedRulesInRuleGroup@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ActivatedRules@ .
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larirgNextMarker :: Lens.Lens' ListActivatedRulesInRuleGroup (Lude.Maybe Lude.Text)
-larirgNextMarker = Lens.lens (nextMarker :: ListActivatedRulesInRuleGroup -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListActivatedRulesInRuleGroup)
-{-# DEPRECATED larirgNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | Specifies the number of @ActivatedRules@ that you want AWS WAF to return for this request. If you have more @ActivatedRules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @ActivatedRules@ .
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larirgLimit :: Lens.Lens' ListActivatedRulesInRuleGroup (Lude.Maybe Lude.Natural)
-larirgLimit = Lens.lens (limit :: ListActivatedRulesInRuleGroup -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListActivatedRulesInRuleGroup)
+larirgLimit :: Lens.Lens' ListActivatedRulesInRuleGroup (Core.Maybe Core.Natural)
+larirgLimit = Lens.field @"limit"
 {-# DEPRECATED larirgLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest ListActivatedRulesInRuleGroup where
+-- | If you specify a value for @Limit@ and you have more @ActivatedRules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @ActivatedRules@ . For the second and subsequent @ListActivatedRulesInRuleGroup@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @ActivatedRules@ .
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larirgNextMarker :: Lens.Lens' ListActivatedRulesInRuleGroup (Core.Maybe Types.NextMarker)
+larirgNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED larirgNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+-- | The @RuleGroupId@ of the 'RuleGroup' for which you want to get a list of 'ActivatedRule' objects.
+--
+-- /Note:/ Consider using 'ruleGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larirgRuleGroupId :: Lens.Lens' ListActivatedRulesInRuleGroup (Core.Maybe Types.ResourceId)
+larirgRuleGroupId = Lens.field @"ruleGroupId"
+{-# DEPRECATED larirgRuleGroupId "Use generic-lens or generic-optics with 'ruleGroupId' instead." #-}
+
+instance Core.FromJSON ListActivatedRulesInRuleGroup where
+  toJSON ListActivatedRulesInRuleGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("NextMarker" Core..=) Core.<$> nextMarker,
+            ("RuleGroupId" Core..=) Core.<$> ruleGroupId
+          ]
+      )
+
+instance Core.AWSRequest ListActivatedRulesInRuleGroup where
   type
     Rs ListActivatedRulesInRuleGroup =
       ListActivatedRulesInRuleGroupResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSWAF_Regional_20161128.ListActivatedRulesInRuleGroup"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListActivatedRulesInRuleGroupResponse'
-            Lude.<$> (x Lude..?> "NextMarker")
-            Lude.<*> (x Lude..?> "ActivatedRules" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ActivatedRules")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListActivatedRulesInRuleGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSWAF_Regional_20161128.ListActivatedRulesInRuleGroup" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListActivatedRulesInRuleGroup where
-  toJSON ListActivatedRulesInRuleGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RuleGroupId" Lude..=) Lude.<$> ruleGroupId,
-            ("NextMarker" Lude..=) Lude.<$> nextMarker,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListActivatedRulesInRuleGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListActivatedRulesInRuleGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListActivatedRulesInRuleGroupResponse' smart constructor.
 data ListActivatedRulesInRuleGroupResponse = ListActivatedRulesInRuleGroupResponse'
-  { -- | If you have more @ActivatedRules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ActivatedRules@ , submit another @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
-    nextMarker :: Lude.Maybe Lude.Text,
-    -- | An array of @ActivatedRules@ objects.
-    activatedRules :: Lude.Maybe [ActivatedRule],
+  { -- | An array of @ActivatedRules@ objects.
+    activatedRules :: Core.Maybe [Types.ActivatedRule],
+    -- | If you have more @ActivatedRules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ActivatedRules@ , submit another @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+    nextMarker :: Core.Maybe Types.NextMarker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListActivatedRulesInRuleGroupResponse' with the minimum fields required to make a request.
---
--- * 'nextMarker' - If you have more @ActivatedRules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ActivatedRules@ , submit another @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
--- * 'activatedRules' - An array of @ActivatedRules@ objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListActivatedRulesInRuleGroupResponse' value with any optional fields omitted.
 mkListActivatedRulesInRuleGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListActivatedRulesInRuleGroupResponse
-mkListActivatedRulesInRuleGroupResponse pResponseStatus_ =
+mkListActivatedRulesInRuleGroupResponse responseStatus =
   ListActivatedRulesInRuleGroupResponse'
-    { nextMarker = Lude.Nothing,
-      activatedRules = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { activatedRules =
+        Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
-
--- | If you have more @ActivatedRules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ActivatedRules@ , submit another @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larirgrsNextMarker :: Lens.Lens' ListActivatedRulesInRuleGroupResponse (Lude.Maybe Lude.Text)
-larirgrsNextMarker = Lens.lens (nextMarker :: ListActivatedRulesInRuleGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListActivatedRulesInRuleGroupResponse)
-{-# DEPRECATED larirgrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | An array of @ActivatedRules@ objects.
 --
 -- /Note:/ Consider using 'activatedRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larirgrsActivatedRules :: Lens.Lens' ListActivatedRulesInRuleGroupResponse (Lude.Maybe [ActivatedRule])
-larirgrsActivatedRules = Lens.lens (activatedRules :: ListActivatedRulesInRuleGroupResponse -> Lude.Maybe [ActivatedRule]) (\s a -> s {activatedRules = a} :: ListActivatedRulesInRuleGroupResponse)
-{-# DEPRECATED larirgrsActivatedRules "Use generic-lens or generic-optics with 'activatedRules' instead." #-}
+larirgrrsActivatedRules :: Lens.Lens' ListActivatedRulesInRuleGroupResponse (Core.Maybe [Types.ActivatedRule])
+larirgrrsActivatedRules = Lens.field @"activatedRules"
+{-# DEPRECATED larirgrrsActivatedRules "Use generic-lens or generic-optics with 'activatedRules' instead." #-}
+
+-- | If you have more @ActivatedRules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @ActivatedRules@ , submit another @ListActivatedRulesInRuleGroup@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+larirgrrsNextMarker :: Lens.Lens' ListActivatedRulesInRuleGroupResponse (Core.Maybe Types.NextMarker)
+larirgrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED larirgrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larirgrsResponseStatus :: Lens.Lens' ListActivatedRulesInRuleGroupResponse Lude.Int
-larirgrsResponseStatus = Lens.lens (responseStatus :: ListActivatedRulesInRuleGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListActivatedRulesInRuleGroupResponse)
-{-# DEPRECATED larirgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+larirgrrsResponseStatus :: Lens.Lens' ListActivatedRulesInRuleGroupResponse Core.Int
+larirgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED larirgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,122 +17,111 @@ module Network.AWS.CodeBuild.Types.ProjectFileSystemLocation
     mkProjectFileSystemLocation,
 
     -- * Lenses
-    pfslLocation,
     pfslIdentifier,
+    pfslLocation,
     pfslMountOptions,
-    pfslType,
     pfslMountPoint,
+    pfslType,
   )
 where
 
-import Network.AWS.CodeBuild.Types.FileSystemType
+import qualified Network.AWS.CodeBuild.Types.FileSystemType as Types
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a file system created by Amazon Elastic File System (EFS). For more information, see <https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html What Is Amazon Elastic File System?>
 --
 -- /See:/ 'mkProjectFileSystemLocation' smart constructor.
 data ProjectFileSystemLocation = ProjectFileSystemLocation'
-  { -- | A string that specifies the location of the file system created by Amazon EFS. Its format is @efs-dns-name:/directory-path@ . You can find the DNS name of file system when you view it in the AWS EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is @fs-abcd1234.efs.us-west-2.amazonaws.com@ , and its mount directory is @my-efs-mount-directory@ , then the @location@ is @fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory@ .
-    --
-    -- The directory path in the format @efs-dns-name:/directory-path@ is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
-    location :: Lude.Maybe Lude.Text,
-    -- | The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the @identifier@ in all capital letters to @CODEBUILD_@ . For example, if you specify @my_efs@ for @identifier@ , a new environment variable is create named @CODEBUILD_MY_EFS@ .
+  { -- | The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the @identifier@ in all capital letters to @CODEBUILD_@ . For example, if you specify @my_efs@ for @identifier@ , a new environment variable is create named @CODEBUILD_MY_EFS@ .
     --
     -- The @identifier@ is used to mount your file system.
-    identifier :: Lude.Maybe Lude.Text,
+    identifier :: Core.Maybe Types.String,
+    -- | A string that specifies the location of the file system created by Amazon EFS. Its format is @efs-dns-name:/directory-path@ . You can find the DNS name of file system when you view it in the AWS EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is @fs-abcd1234.efs.us-west-2.amazonaws.com@ , and its mount directory is @my-efs-mount-directory@ , then the @location@ is @fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory@ .
+    --
+    -- The directory path in the format @efs-dns-name:/directory-path@ is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
+    location :: Core.Maybe Types.String,
     -- | The mount options for a file system created by AWS EFS. The default mount options used by CodeBuild are @nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2@ . For more information, see <https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html Recommended NFS Mount Options> .
-    mountOptions :: Lude.Maybe Lude.Text,
-    -- | The type of the file system. The one supported type is @EFS@ .
-    type' :: Lude.Maybe FileSystemType,
+    mountOptions :: Core.Maybe Types.String,
     -- | The location in the container where you mount the file system.
-    mountPoint :: Lude.Maybe Lude.Text
+    mountPoint :: Core.Maybe Types.String,
+    -- | The type of the file system. The one supported type is @EFS@ .
+    type' :: Core.Maybe Types.FileSystemType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProjectFileSystemLocation' with the minimum fields required to make a request.
---
--- * 'location' - A string that specifies the location of the file system created by Amazon EFS. Its format is @efs-dns-name:/directory-path@ . You can find the DNS name of file system when you view it in the AWS EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is @fs-abcd1234.efs.us-west-2.amazonaws.com@ , and its mount directory is @my-efs-mount-directory@ , then the @location@ is @fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory@ .
---
--- The directory path in the format @efs-dns-name:/directory-path@ is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
--- * 'identifier' - The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the @identifier@ in all capital letters to @CODEBUILD_@ . For example, if you specify @my_efs@ for @identifier@ , a new environment variable is create named @CODEBUILD_MY_EFS@ .
---
--- The @identifier@ is used to mount your file system.
--- * 'mountOptions' - The mount options for a file system created by AWS EFS. The default mount options used by CodeBuild are @nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2@ . For more information, see <https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html Recommended NFS Mount Options> .
--- * 'type'' - The type of the file system. The one supported type is @EFS@ .
--- * 'mountPoint' - The location in the container where you mount the file system.
+-- | Creates a 'ProjectFileSystemLocation' value with any optional fields omitted.
 mkProjectFileSystemLocation ::
   ProjectFileSystemLocation
 mkProjectFileSystemLocation =
   ProjectFileSystemLocation'
-    { location = Lude.Nothing,
-      identifier = Lude.Nothing,
-      mountOptions = Lude.Nothing,
-      type' = Lude.Nothing,
-      mountPoint = Lude.Nothing
+    { identifier = Core.Nothing,
+      location = Core.Nothing,
+      mountOptions = Core.Nothing,
+      mountPoint = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | A string that specifies the location of the file system created by Amazon EFS. Its format is @efs-dns-name:/directory-path@ . You can find the DNS name of file system when you view it in the AWS EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is @fs-abcd1234.efs.us-west-2.amazonaws.com@ , and its mount directory is @my-efs-mount-directory@ , then the @location@ is @fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory@ .
---
--- The directory path in the format @efs-dns-name:/directory-path@ is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfslLocation :: Lens.Lens' ProjectFileSystemLocation (Lude.Maybe Lude.Text)
-pfslLocation = Lens.lens (location :: ProjectFileSystemLocation -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: ProjectFileSystemLocation)
-{-# DEPRECATED pfslLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The name used to access a file system created by Amazon EFS. CodeBuild creates an environment variable by appending the @identifier@ in all capital letters to @CODEBUILD_@ . For example, if you specify @my_efs@ for @identifier@ , a new environment variable is create named @CODEBUILD_MY_EFS@ .
 --
 -- The @identifier@ is used to mount your file system.
 --
 -- /Note:/ Consider using 'identifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfslIdentifier :: Lens.Lens' ProjectFileSystemLocation (Lude.Maybe Lude.Text)
-pfslIdentifier = Lens.lens (identifier :: ProjectFileSystemLocation -> Lude.Maybe Lude.Text) (\s a -> s {identifier = a} :: ProjectFileSystemLocation)
+pfslIdentifier :: Lens.Lens' ProjectFileSystemLocation (Core.Maybe Types.String)
+pfslIdentifier = Lens.field @"identifier"
 {-# DEPRECATED pfslIdentifier "Use generic-lens or generic-optics with 'identifier' instead." #-}
+
+-- | A string that specifies the location of the file system created by Amazon EFS. Its format is @efs-dns-name:/directory-path@ . You can find the DNS name of file system when you view it in the AWS EFS console. The directory path is a path to a directory in the file system that CodeBuild mounts. For example, if the DNS name of a file system is @fs-abcd1234.efs.us-west-2.amazonaws.com@ , and its mount directory is @my-efs-mount-directory@ , then the @location@ is @fs-abcd1234.efs.us-west-2.amazonaws.com:/my-efs-mount-directory@ .
+--
+-- The directory path in the format @efs-dns-name:/directory-path@ is optional. If you do not specify a directory path, the location is only the DNS name and CodeBuild mounts the entire file system.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfslLocation :: Lens.Lens' ProjectFileSystemLocation (Core.Maybe Types.String)
+pfslLocation = Lens.field @"location"
+{-# DEPRECATED pfslLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The mount options for a file system created by AWS EFS. The default mount options used by CodeBuild are @nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2@ . For more information, see <https://docs.aws.amazon.com/efs/latest/ug/mounting-fs-nfs-mount-settings.html Recommended NFS Mount Options> .
 --
 -- /Note:/ Consider using 'mountOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfslMountOptions :: Lens.Lens' ProjectFileSystemLocation (Lude.Maybe Lude.Text)
-pfslMountOptions = Lens.lens (mountOptions :: ProjectFileSystemLocation -> Lude.Maybe Lude.Text) (\s a -> s {mountOptions = a} :: ProjectFileSystemLocation)
+pfslMountOptions :: Lens.Lens' ProjectFileSystemLocation (Core.Maybe Types.String)
+pfslMountOptions = Lens.field @"mountOptions"
 {-# DEPRECATED pfslMountOptions "Use generic-lens or generic-optics with 'mountOptions' instead." #-}
-
--- | The type of the file system. The one supported type is @EFS@ .
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfslType :: Lens.Lens' ProjectFileSystemLocation (Lude.Maybe FileSystemType)
-pfslType = Lens.lens (type' :: ProjectFileSystemLocation -> Lude.Maybe FileSystemType) (\s a -> s {type' = a} :: ProjectFileSystemLocation)
-{-# DEPRECATED pfslType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The location in the container where you mount the file system.
 --
 -- /Note:/ Consider using 'mountPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfslMountPoint :: Lens.Lens' ProjectFileSystemLocation (Lude.Maybe Lude.Text)
-pfslMountPoint = Lens.lens (mountPoint :: ProjectFileSystemLocation -> Lude.Maybe Lude.Text) (\s a -> s {mountPoint = a} :: ProjectFileSystemLocation)
+pfslMountPoint :: Lens.Lens' ProjectFileSystemLocation (Core.Maybe Types.String)
+pfslMountPoint = Lens.field @"mountPoint"
 {-# DEPRECATED pfslMountPoint "Use generic-lens or generic-optics with 'mountPoint' instead." #-}
 
-instance Lude.FromJSON ProjectFileSystemLocation where
-  parseJSON =
-    Lude.withObject
-      "ProjectFileSystemLocation"
-      ( \x ->
-          ProjectFileSystemLocation'
-            Lude.<$> (x Lude..:? "location")
-            Lude.<*> (x Lude..:? "identifier")
-            Lude.<*> (x Lude..:? "mountOptions")
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "mountPoint")
-      )
+-- | The type of the file system. The one supported type is @EFS@ .
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfslType :: Lens.Lens' ProjectFileSystemLocation (Core.Maybe Types.FileSystemType)
+pfslType = Lens.field @"type'"
+{-# DEPRECATED pfslType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.ToJSON ProjectFileSystemLocation where
-  toJSON ProjectFileSystemLocation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("location" Lude..=) Lude.<$> location,
-            ("identifier" Lude..=) Lude.<$> identifier,
-            ("mountOptions" Lude..=) Lude.<$> mountOptions,
-            ("type" Lude..=) Lude.<$> type',
-            ("mountPoint" Lude..=) Lude.<$> mountPoint
+instance Core.FromJSON ProjectFileSystemLocation where
+  toJSON ProjectFileSystemLocation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("identifier" Core..=) Core.<$> identifier,
+            ("location" Core..=) Core.<$> location,
+            ("mountOptions" Core..=) Core.<$> mountOptions,
+            ("mountPoint" Core..=) Core.<$> mountPoint,
+            ("type" Core..=) Core.<$> type'
           ]
       )
+
+instance Core.FromJSON ProjectFileSystemLocation where
+  parseJSON =
+    Core.withObject "ProjectFileSystemLocation" Core.$
+      \x ->
+        ProjectFileSystemLocation'
+          Core.<$> (x Core..:? "identifier")
+          Core.<*> (x Core..:? "location")
+          Core.<*> (x Core..:? "mountOptions")
+          Core.<*> (x Core..:? "mountPoint")
+          Core.<*> (x Core..:? "type")

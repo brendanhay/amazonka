@@ -17,97 +17,90 @@ module Network.AWS.XRay.Types.SamplingTargetDocument
     mkSamplingTargetDocument,
 
     -- * Lenses
-    stdReservoirQuota,
-    stdRuleName,
     stdFixedRate,
     stdInterval,
+    stdReservoirQuota,
     stdReservoirQuotaTTL,
+    stdRuleName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- | Temporary changes to a sampling rule configuration. To meet the global sampling target for a rule, X-Ray calculates a new reservoir for each service based on the recent sampling results of all services that called 'GetSamplingTargets' .
 --
 -- /See:/ 'mkSamplingTargetDocument' smart constructor.
 data SamplingTargetDocument = SamplingTargetDocument'
-  { -- | The number of requests per second that X-Ray allocated for this service.
-    reservoirQuota :: Lude.Maybe Lude.Int,
-    -- | The name of the sampling rule.
-    ruleName :: Lude.Maybe Lude.Text,
-    -- | The percentage of matching requests to instrument, after the reservoir is exhausted.
-    fixedRate :: Lude.Maybe Lude.Double,
+  { -- | The percentage of matching requests to instrument, after the reservoir is exhausted.
+    fixedRate :: Core.Maybe Core.Double,
     -- | The number of seconds for the service to wait before getting sampling targets again.
-    interval :: Lude.Maybe Lude.Int,
+    interval :: Core.Maybe Core.Int,
+    -- | The number of requests per second that X-Ray allocated for this service.
+    reservoirQuota :: Core.Maybe Core.Int,
     -- | When the reservoir quota expires.
-    reservoirQuotaTTL :: Lude.Maybe Lude.Timestamp
+    reservoirQuotaTTL :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the sampling rule.
+    ruleName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SamplingTargetDocument' with the minimum fields required to make a request.
---
--- * 'reservoirQuota' - The number of requests per second that X-Ray allocated for this service.
--- * 'ruleName' - The name of the sampling rule.
--- * 'fixedRate' - The percentage of matching requests to instrument, after the reservoir is exhausted.
--- * 'interval' - The number of seconds for the service to wait before getting sampling targets again.
--- * 'reservoirQuotaTTL' - When the reservoir quota expires.
+-- | Creates a 'SamplingTargetDocument' value with any optional fields omitted.
 mkSamplingTargetDocument ::
   SamplingTargetDocument
 mkSamplingTargetDocument =
   SamplingTargetDocument'
-    { reservoirQuota = Lude.Nothing,
-      ruleName = Lude.Nothing,
-      fixedRate = Lude.Nothing,
-      interval = Lude.Nothing,
-      reservoirQuotaTTL = Lude.Nothing
+    { fixedRate = Core.Nothing,
+      interval = Core.Nothing,
+      reservoirQuota = Core.Nothing,
+      reservoirQuotaTTL = Core.Nothing,
+      ruleName = Core.Nothing
     }
-
--- | The number of requests per second that X-Ray allocated for this service.
---
--- /Note:/ Consider using 'reservoirQuota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdReservoirQuota :: Lens.Lens' SamplingTargetDocument (Lude.Maybe Lude.Int)
-stdReservoirQuota = Lens.lens (reservoirQuota :: SamplingTargetDocument -> Lude.Maybe Lude.Int) (\s a -> s {reservoirQuota = a} :: SamplingTargetDocument)
-{-# DEPRECATED stdReservoirQuota "Use generic-lens or generic-optics with 'reservoirQuota' instead." #-}
-
--- | The name of the sampling rule.
---
--- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdRuleName :: Lens.Lens' SamplingTargetDocument (Lude.Maybe Lude.Text)
-stdRuleName = Lens.lens (ruleName :: SamplingTargetDocument -> Lude.Maybe Lude.Text) (\s a -> s {ruleName = a} :: SamplingTargetDocument)
-{-# DEPRECATED stdRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 -- | The percentage of matching requests to instrument, after the reservoir is exhausted.
 --
 -- /Note:/ Consider using 'fixedRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdFixedRate :: Lens.Lens' SamplingTargetDocument (Lude.Maybe Lude.Double)
-stdFixedRate = Lens.lens (fixedRate :: SamplingTargetDocument -> Lude.Maybe Lude.Double) (\s a -> s {fixedRate = a} :: SamplingTargetDocument)
+stdFixedRate :: Lens.Lens' SamplingTargetDocument (Core.Maybe Core.Double)
+stdFixedRate = Lens.field @"fixedRate"
 {-# DEPRECATED stdFixedRate "Use generic-lens or generic-optics with 'fixedRate' instead." #-}
 
 -- | The number of seconds for the service to wait before getting sampling targets again.
 --
 -- /Note:/ Consider using 'interval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdInterval :: Lens.Lens' SamplingTargetDocument (Lude.Maybe Lude.Int)
-stdInterval = Lens.lens (interval :: SamplingTargetDocument -> Lude.Maybe Lude.Int) (\s a -> s {interval = a} :: SamplingTargetDocument)
+stdInterval :: Lens.Lens' SamplingTargetDocument (Core.Maybe Core.Int)
+stdInterval = Lens.field @"interval"
 {-# DEPRECATED stdInterval "Use generic-lens or generic-optics with 'interval' instead." #-}
+
+-- | The number of requests per second that X-Ray allocated for this service.
+--
+-- /Note:/ Consider using 'reservoirQuota' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdReservoirQuota :: Lens.Lens' SamplingTargetDocument (Core.Maybe Core.Int)
+stdReservoirQuota = Lens.field @"reservoirQuota"
+{-# DEPRECATED stdReservoirQuota "Use generic-lens or generic-optics with 'reservoirQuota' instead." #-}
 
 -- | When the reservoir quota expires.
 --
 -- /Note:/ Consider using 'reservoirQuotaTTL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stdReservoirQuotaTTL :: Lens.Lens' SamplingTargetDocument (Lude.Maybe Lude.Timestamp)
-stdReservoirQuotaTTL = Lens.lens (reservoirQuotaTTL :: SamplingTargetDocument -> Lude.Maybe Lude.Timestamp) (\s a -> s {reservoirQuotaTTL = a} :: SamplingTargetDocument)
+stdReservoirQuotaTTL :: Lens.Lens' SamplingTargetDocument (Core.Maybe Core.NominalDiffTime)
+stdReservoirQuotaTTL = Lens.field @"reservoirQuotaTTL"
 {-# DEPRECATED stdReservoirQuotaTTL "Use generic-lens or generic-optics with 'reservoirQuotaTTL' instead." #-}
 
-instance Lude.FromJSON SamplingTargetDocument where
+-- | The name of the sampling rule.
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+stdRuleName :: Lens.Lens' SamplingTargetDocument (Core.Maybe Types.String)
+stdRuleName = Lens.field @"ruleName"
+{-# DEPRECATED stdRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
+
+instance Core.FromJSON SamplingTargetDocument where
   parseJSON =
-    Lude.withObject
-      "SamplingTargetDocument"
-      ( \x ->
-          SamplingTargetDocument'
-            Lude.<$> (x Lude..:? "ReservoirQuota")
-            Lude.<*> (x Lude..:? "RuleName")
-            Lude.<*> (x Lude..:? "FixedRate")
-            Lude.<*> (x Lude..:? "Interval")
-            Lude.<*> (x Lude..:? "ReservoirQuotaTTL")
-      )
+    Core.withObject "SamplingTargetDocument" Core.$
+      \x ->
+        SamplingTargetDocument'
+          Core.<$> (x Core..:? "FixedRate")
+          Core.<*> (x Core..:? "Interval")
+          Core.<*> (x Core..:? "ReservoirQuota")
+          Core.<*> (x Core..:? "ReservoirQuotaTTL")
+          Core.<*> (x Core..:? "RuleName")

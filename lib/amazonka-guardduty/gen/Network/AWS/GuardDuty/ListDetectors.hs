@@ -22,146 +22,134 @@ module Network.AWS.GuardDuty.ListDetectors
     mkListDetectors,
 
     -- ** Request lenses
-    ldNextToken,
     ldMaxResults,
+    ldNextToken,
 
     -- * Destructuring the response
     ListDetectorsResponse (..),
     mkListDetectorsResponse,
 
     -- ** Response lenses
-    ldrsNextToken,
-    ldrsDetectorIds,
-    ldrsResponseStatus,
+    ldrrsDetectorIds,
+    ldrrsNextToken,
+    ldrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDetectors' smart constructor.
 data ListDetectors = ListDetectors'
-  { -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDetectors' with the minimum fields required to make a request.
---
--- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
--- * 'maxResults' - You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
+-- | Creates a 'ListDetectors' value with any optional fields omitted.
 mkListDetectors ::
   ListDetectors
 mkListDetectors =
   ListDetectors'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldNextToken :: Lens.Lens' ListDetectors (Lude.Maybe Lude.Text)
-ldNextToken = Lens.lens (nextToken :: ListDetectors -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDetectors)
-{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items that you want in the response. The default value is 50. The maximum value is 50.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldMaxResults :: Lens.Lens' ListDetectors (Lude.Maybe Lude.Natural)
-ldMaxResults = Lens.lens (maxResults :: ListDetectors -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDetectors)
+ldMaxResults :: Lens.Lens' ListDetectors (Core.Maybe Core.Natural)
+ldMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ldMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListDetectors where
-  page rq rs
-    | Page.stop (rs Lens.^. ldrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ldrsDetectorIds) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ldNextToken Lens..~ rs Lens.^. ldrsNextToken
+-- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the list action. For subsequent calls to the action, fill nextToken in the request with the value of NextToken from the previous response to continue listing data.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldNextToken :: Lens.Lens' ListDetectors (Core.Maybe Types.String)
+ldNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListDetectors where
+instance Core.AWSRequest ListDetectors where
   type Rs ListDetectors = ListDetectorsResponse
-  request = Req.get guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/detector",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListDetectorsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "detectorIds" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "detectorIds" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListDetectors where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListDetectors where
-  toPath = Lude.const "/detector"
-
-instance Lude.ToQuery ListDetectors where
-  toQuery ListDetectors' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListDetectors where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"detectorIds") = Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListDetectorsResponse' smart constructor.
 data ListDetectorsResponse = ListDetectorsResponse'
-  { -- | The pagination parameter to be used on the next list operation to retrieve more items.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A list of detector IDs.
-    detectorIds :: [Lude.Text],
+  { -- | A list of detector IDs.
+    detectorIds :: [Types.DetectorId],
+    -- | The pagination parameter to be used on the next list operation to retrieve more items.
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDetectorsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination parameter to be used on the next list operation to retrieve more items.
--- * 'detectorIds' - A list of detector IDs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDetectorsResponse' value with any optional fields omitted.
 mkListDetectorsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDetectorsResponse
-mkListDetectorsResponse pResponseStatus_ =
+mkListDetectorsResponse responseStatus =
   ListDetectorsResponse'
-    { nextToken = Lude.Nothing,
-      detectorIds = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { detectorIds = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The pagination parameter to be used on the next list operation to retrieve more items.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsNextToken :: Lens.Lens' ListDetectorsResponse (Lude.Maybe Lude.Text)
-ldrsNextToken = Lens.lens (nextToken :: ListDetectorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDetectorsResponse)
-{-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of detector IDs.
 --
 -- /Note:/ Consider using 'detectorIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsDetectorIds :: Lens.Lens' ListDetectorsResponse [Lude.Text]
-ldrsDetectorIds = Lens.lens (detectorIds :: ListDetectorsResponse -> [Lude.Text]) (\s a -> s {detectorIds = a} :: ListDetectorsResponse)
-{-# DEPRECATED ldrsDetectorIds "Use generic-lens or generic-optics with 'detectorIds' instead." #-}
+ldrrsDetectorIds :: Lens.Lens' ListDetectorsResponse [Types.DetectorId]
+ldrrsDetectorIds = Lens.field @"detectorIds"
+{-# DEPRECATED ldrrsDetectorIds "Use generic-lens or generic-optics with 'detectorIds' instead." #-}
+
+-- | The pagination parameter to be used on the next list operation to retrieve more items.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrrsNextToken :: Lens.Lens' ListDetectorsResponse (Core.Maybe Types.String)
+ldrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsResponseStatus :: Lens.Lens' ListDetectorsResponse Lude.Int
-ldrsResponseStatus = Lens.lens (responseStatus :: ListDetectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDetectorsResponse)
-{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldrrsResponseStatus :: Lens.Lens' ListDetectorsResponse Core.Int
+ldrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

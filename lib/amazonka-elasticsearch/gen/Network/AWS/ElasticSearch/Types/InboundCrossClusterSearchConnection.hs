@@ -17,87 +17,81 @@ module Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnection
     mkInboundCrossClusterSearchConnection,
 
     -- * Lenses
-    iccscDestinationDomainInfo,
-    iccscCrossClusterSearchConnectionId,
     iccscConnectionStatus,
+    iccscCrossClusterSearchConnectionId,
+    iccscDestinationDomainInfo,
     iccscSourceDomainInfo,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.DomainInformation
-import Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus
+import qualified Network.AWS.ElasticSearch.Types.CrossClusterSearchConnectionId as Types
+import qualified Network.AWS.ElasticSearch.Types.DomainInformation as Types
+import qualified Network.AWS.ElasticSearch.Types.InboundCrossClusterSearchConnectionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies details of an inbound connection.
 --
 -- /See:/ 'mkInboundCrossClusterSearchConnection' smart constructor.
 data InboundCrossClusterSearchConnection = InboundCrossClusterSearchConnection'
-  { -- | Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
-    destinationDomainInfo :: Lude.Maybe DomainInformation,
+  { -- | Specifies the @'InboundCrossClusterSearchConnectionStatus' @ for the outbound connection.
+    connectionStatus :: Core.Maybe Types.InboundCrossClusterSearchConnectionStatus,
     -- | Specifies the connection id for the inbound cross-cluster search connection.
-    crossClusterSearchConnectionId :: Lude.Maybe Lude.Text,
-    -- | Specifies the @'InboundCrossClusterSearchConnectionStatus' @ for the outbound connection.
-    connectionStatus :: Lude.Maybe InboundCrossClusterSearchConnectionStatus,
+    crossClusterSearchConnectionId :: Core.Maybe Types.CrossClusterSearchConnectionId,
+    -- | Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
+    destinationDomainInfo :: Core.Maybe Types.DomainInformation,
     -- | Specifies the @'DomainInformation' @ for the source Elasticsearch domain.
-    sourceDomainInfo :: Lude.Maybe DomainInformation
+    sourceDomainInfo :: Core.Maybe Types.DomainInformation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InboundCrossClusterSearchConnection' with the minimum fields required to make a request.
---
--- * 'destinationDomainInfo' - Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
--- * 'crossClusterSearchConnectionId' - Specifies the connection id for the inbound cross-cluster search connection.
--- * 'connectionStatus' - Specifies the @'InboundCrossClusterSearchConnectionStatus' @ for the outbound connection.
--- * 'sourceDomainInfo' - Specifies the @'DomainInformation' @ for the source Elasticsearch domain.
+-- | Creates a 'InboundCrossClusterSearchConnection' value with any optional fields omitted.
 mkInboundCrossClusterSearchConnection ::
   InboundCrossClusterSearchConnection
 mkInboundCrossClusterSearchConnection =
   InboundCrossClusterSearchConnection'
-    { destinationDomainInfo =
-        Lude.Nothing,
-      crossClusterSearchConnectionId = Lude.Nothing,
-      connectionStatus = Lude.Nothing,
-      sourceDomainInfo = Lude.Nothing
+    { connectionStatus =
+        Core.Nothing,
+      crossClusterSearchConnectionId = Core.Nothing,
+      destinationDomainInfo = Core.Nothing,
+      sourceDomainInfo = Core.Nothing
     }
-
--- | Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
---
--- /Note:/ Consider using 'destinationDomainInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iccscDestinationDomainInfo :: Lens.Lens' InboundCrossClusterSearchConnection (Lude.Maybe DomainInformation)
-iccscDestinationDomainInfo = Lens.lens (destinationDomainInfo :: InboundCrossClusterSearchConnection -> Lude.Maybe DomainInformation) (\s a -> s {destinationDomainInfo = a} :: InboundCrossClusterSearchConnection)
-{-# DEPRECATED iccscDestinationDomainInfo "Use generic-lens or generic-optics with 'destinationDomainInfo' instead." #-}
-
--- | Specifies the connection id for the inbound cross-cluster search connection.
---
--- /Note:/ Consider using 'crossClusterSearchConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iccscCrossClusterSearchConnectionId :: Lens.Lens' InboundCrossClusterSearchConnection (Lude.Maybe Lude.Text)
-iccscCrossClusterSearchConnectionId = Lens.lens (crossClusterSearchConnectionId :: InboundCrossClusterSearchConnection -> Lude.Maybe Lude.Text) (\s a -> s {crossClusterSearchConnectionId = a} :: InboundCrossClusterSearchConnection)
-{-# DEPRECATED iccscCrossClusterSearchConnectionId "Use generic-lens or generic-optics with 'crossClusterSearchConnectionId' instead." #-}
 
 -- | Specifies the @'InboundCrossClusterSearchConnectionStatus' @ for the outbound connection.
 --
 -- /Note:/ Consider using 'connectionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iccscConnectionStatus :: Lens.Lens' InboundCrossClusterSearchConnection (Lude.Maybe InboundCrossClusterSearchConnectionStatus)
-iccscConnectionStatus = Lens.lens (connectionStatus :: InboundCrossClusterSearchConnection -> Lude.Maybe InboundCrossClusterSearchConnectionStatus) (\s a -> s {connectionStatus = a} :: InboundCrossClusterSearchConnection)
+iccscConnectionStatus :: Lens.Lens' InboundCrossClusterSearchConnection (Core.Maybe Types.InboundCrossClusterSearchConnectionStatus)
+iccscConnectionStatus = Lens.field @"connectionStatus"
 {-# DEPRECATED iccscConnectionStatus "Use generic-lens or generic-optics with 'connectionStatus' instead." #-}
+
+-- | Specifies the connection id for the inbound cross-cluster search connection.
+--
+-- /Note:/ Consider using 'crossClusterSearchConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iccscCrossClusterSearchConnectionId :: Lens.Lens' InboundCrossClusterSearchConnection (Core.Maybe Types.CrossClusterSearchConnectionId)
+iccscCrossClusterSearchConnectionId = Lens.field @"crossClusterSearchConnectionId"
+{-# DEPRECATED iccscCrossClusterSearchConnectionId "Use generic-lens or generic-optics with 'crossClusterSearchConnectionId' instead." #-}
+
+-- | Specifies the @'DomainInformation' @ for the destination Elasticsearch domain.
+--
+-- /Note:/ Consider using 'destinationDomainInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iccscDestinationDomainInfo :: Lens.Lens' InboundCrossClusterSearchConnection (Core.Maybe Types.DomainInformation)
+iccscDestinationDomainInfo = Lens.field @"destinationDomainInfo"
+{-# DEPRECATED iccscDestinationDomainInfo "Use generic-lens or generic-optics with 'destinationDomainInfo' instead." #-}
 
 -- | Specifies the @'DomainInformation' @ for the source Elasticsearch domain.
 --
 -- /Note:/ Consider using 'sourceDomainInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iccscSourceDomainInfo :: Lens.Lens' InboundCrossClusterSearchConnection (Lude.Maybe DomainInformation)
-iccscSourceDomainInfo = Lens.lens (sourceDomainInfo :: InboundCrossClusterSearchConnection -> Lude.Maybe DomainInformation) (\s a -> s {sourceDomainInfo = a} :: InboundCrossClusterSearchConnection)
+iccscSourceDomainInfo :: Lens.Lens' InboundCrossClusterSearchConnection (Core.Maybe Types.DomainInformation)
+iccscSourceDomainInfo = Lens.field @"sourceDomainInfo"
 {-# DEPRECATED iccscSourceDomainInfo "Use generic-lens or generic-optics with 'sourceDomainInfo' instead." #-}
 
-instance Lude.FromJSON InboundCrossClusterSearchConnection where
+instance Core.FromJSON InboundCrossClusterSearchConnection where
   parseJSON =
-    Lude.withObject
-      "InboundCrossClusterSearchConnection"
-      ( \x ->
-          InboundCrossClusterSearchConnection'
-            Lude.<$> (x Lude..:? "DestinationDomainInfo")
-            Lude.<*> (x Lude..:? "CrossClusterSearchConnectionId")
-            Lude.<*> (x Lude..:? "ConnectionStatus")
-            Lude.<*> (x Lude..:? "SourceDomainInfo")
-      )
+    Core.withObject "InboundCrossClusterSearchConnection" Core.$
+      \x ->
+        InboundCrossClusterSearchConnection'
+          Core.<$> (x Core..:? "ConnectionStatus")
+          Core.<*> (x Core..:? "CrossClusterSearchConnectionId")
+          Core.<*> (x Core..:? "DestinationDomainInfo")
+          Core.<*> (x Core..:? "SourceDomainInfo")

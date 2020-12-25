@@ -13,56 +13,61 @@
 module Network.AWS.CloudFront.Types.CachePolicyCookieBehavior
   ( CachePolicyCookieBehavior
       ( CachePolicyCookieBehavior',
-        CPCBNone,
-        CPCBWhitelist,
-        CPCBAllExcept,
-        CPCBAll
+        CachePolicyCookieBehaviorNone,
+        CachePolicyCookieBehaviorWhitelist,
+        CachePolicyCookieBehaviorAllExcept,
+        CachePolicyCookieBehaviorAll,
+        fromCachePolicyCookieBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CachePolicyCookieBehavior = CachePolicyCookieBehavior' Lude.Text
+newtype CachePolicyCookieBehavior = CachePolicyCookieBehavior'
+  { fromCachePolicyCookieBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CPCBNone :: CachePolicyCookieBehavior
-pattern CPCBNone = CachePolicyCookieBehavior' "none"
+pattern CachePolicyCookieBehaviorNone :: CachePolicyCookieBehavior
+pattern CachePolicyCookieBehaviorNone = CachePolicyCookieBehavior' "none"
 
-pattern CPCBWhitelist :: CachePolicyCookieBehavior
-pattern CPCBWhitelist = CachePolicyCookieBehavior' "whitelist"
+pattern CachePolicyCookieBehaviorWhitelist :: CachePolicyCookieBehavior
+pattern CachePolicyCookieBehaviorWhitelist = CachePolicyCookieBehavior' "whitelist"
 
-pattern CPCBAllExcept :: CachePolicyCookieBehavior
-pattern CPCBAllExcept = CachePolicyCookieBehavior' "allExcept"
+pattern CachePolicyCookieBehaviorAllExcept :: CachePolicyCookieBehavior
+pattern CachePolicyCookieBehaviorAllExcept = CachePolicyCookieBehavior' "allExcept"
 
-pattern CPCBAll :: CachePolicyCookieBehavior
-pattern CPCBAll = CachePolicyCookieBehavior' "all"
+pattern CachePolicyCookieBehaviorAll :: CachePolicyCookieBehavior
+pattern CachePolicyCookieBehaviorAll = CachePolicyCookieBehavior' "all"
 
 {-# COMPLETE
-  CPCBNone,
-  CPCBWhitelist,
-  CPCBAllExcept,
-  CPCBAll,
+  CachePolicyCookieBehaviorNone,
+  CachePolicyCookieBehaviorWhitelist,
+  CachePolicyCookieBehaviorAllExcept,
+  CachePolicyCookieBehaviorAll,
   CachePolicyCookieBehavior'
   #-}

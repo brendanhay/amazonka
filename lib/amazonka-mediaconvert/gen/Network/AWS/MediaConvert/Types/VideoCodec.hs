@@ -13,87 +13,89 @@
 module Network.AWS.MediaConvert.Types.VideoCodec
   ( VideoCodec
       ( VideoCodec',
-        AV1,
-        AvcIntra,
-        FrameCapture,
-        H264,
-        H265,
-        MPEG2,
-        Prores,
-        VC3,
-        VP8,
-        VP9
+        VideoCodecAV1,
+        VideoCodecAvcIntra,
+        VideoCodecFrameCapture,
+        VideoCodecH264,
+        VideoCodecH265,
+        VideoCodecMPEG2,
+        VideoCodecProres,
+        VideoCodecVC3,
+        VideoCodecVP8,
+        VideoCodecVP9,
+        fromVideoCodec
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Type of video codec
-newtype VideoCodec = VideoCodec' Lude.Text
+newtype VideoCodec = VideoCodec' {fromVideoCodec :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AV1 :: VideoCodec
-pattern AV1 = VideoCodec' "AV1"
+pattern VideoCodecAV1 :: VideoCodec
+pattern VideoCodecAV1 = VideoCodec' "AV1"
 
-pattern AvcIntra :: VideoCodec
-pattern AvcIntra = VideoCodec' "AVC_INTRA"
+pattern VideoCodecAvcIntra :: VideoCodec
+pattern VideoCodecAvcIntra = VideoCodec' "AVC_INTRA"
 
-pattern FrameCapture :: VideoCodec
-pattern FrameCapture = VideoCodec' "FRAME_CAPTURE"
+pattern VideoCodecFrameCapture :: VideoCodec
+pattern VideoCodecFrameCapture = VideoCodec' "FRAME_CAPTURE"
 
-pattern H264 :: VideoCodec
-pattern H264 = VideoCodec' "H_264"
+pattern VideoCodecH264 :: VideoCodec
+pattern VideoCodecH264 = VideoCodec' "H_264"
 
-pattern H265 :: VideoCodec
-pattern H265 = VideoCodec' "H_265"
+pattern VideoCodecH265 :: VideoCodec
+pattern VideoCodecH265 = VideoCodec' "H_265"
 
-pattern MPEG2 :: VideoCodec
-pattern MPEG2 = VideoCodec' "MPEG2"
+pattern VideoCodecMPEG2 :: VideoCodec
+pattern VideoCodecMPEG2 = VideoCodec' "MPEG2"
 
-pattern Prores :: VideoCodec
-pattern Prores = VideoCodec' "PRORES"
+pattern VideoCodecProres :: VideoCodec
+pattern VideoCodecProres = VideoCodec' "PRORES"
 
-pattern VC3 :: VideoCodec
-pattern VC3 = VideoCodec' "VC3"
+pattern VideoCodecVC3 :: VideoCodec
+pattern VideoCodecVC3 = VideoCodec' "VC3"
 
-pattern VP8 :: VideoCodec
-pattern VP8 = VideoCodec' "VP8"
+pattern VideoCodecVP8 :: VideoCodec
+pattern VideoCodecVP8 = VideoCodec' "VP8"
 
-pattern VP9 :: VideoCodec
-pattern VP9 = VideoCodec' "VP9"
+pattern VideoCodecVP9 :: VideoCodec
+pattern VideoCodecVP9 = VideoCodec' "VP9"
 
 {-# COMPLETE
-  AV1,
-  AvcIntra,
-  FrameCapture,
-  H264,
-  H265,
-  MPEG2,
-  Prores,
-  VC3,
-  VP8,
-  VP9,
+  VideoCodecAV1,
+  VideoCodecAvcIntra,
+  VideoCodecFrameCapture,
+  VideoCodecH264,
+  VideoCodecH265,
+  VideoCodecMPEG2,
+  VideoCodecProres,
+  VideoCodecVC3,
+  VideoCodecVP8,
+  VideoCodecVP9,
   VideoCodec'
   #-}

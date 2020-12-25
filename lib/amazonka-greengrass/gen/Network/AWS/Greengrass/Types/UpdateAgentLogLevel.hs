@@ -13,77 +13,82 @@
 module Network.AWS.Greengrass.Types.UpdateAgentLogLevel
   ( UpdateAgentLogLevel
       ( UpdateAgentLogLevel',
-        None,
-        Trace,
-        Debug,
-        Verbose,
-        Info,
-        Warn,
-        Error,
-        Fatal
+        UpdateAgentLogLevelNone,
+        UpdateAgentLogLevelTrace,
+        UpdateAgentLogLevelDebug,
+        UpdateAgentLogLevelVerbose,
+        UpdateAgentLogLevelInfo,
+        UpdateAgentLogLevelWarn,
+        UpdateAgentLogLevelError,
+        UpdateAgentLogLevelFatal,
+        fromUpdateAgentLogLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The minimum level of log statements that should be logged by the OTA Agent during an update.
-newtype UpdateAgentLogLevel = UpdateAgentLogLevel' Lude.Text
+newtype UpdateAgentLogLevel = UpdateAgentLogLevel'
+  { fromUpdateAgentLogLevel ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern None :: UpdateAgentLogLevel
-pattern None = UpdateAgentLogLevel' "NONE"
+pattern UpdateAgentLogLevelNone :: UpdateAgentLogLevel
+pattern UpdateAgentLogLevelNone = UpdateAgentLogLevel' "NONE"
 
-pattern Trace :: UpdateAgentLogLevel
-pattern Trace = UpdateAgentLogLevel' "TRACE"
+pattern UpdateAgentLogLevelTrace :: UpdateAgentLogLevel
+pattern UpdateAgentLogLevelTrace = UpdateAgentLogLevel' "TRACE"
 
-pattern Debug :: UpdateAgentLogLevel
-pattern Debug = UpdateAgentLogLevel' "DEBUG"
+pattern UpdateAgentLogLevelDebug :: UpdateAgentLogLevel
+pattern UpdateAgentLogLevelDebug = UpdateAgentLogLevel' "DEBUG"
 
-pattern Verbose :: UpdateAgentLogLevel
-pattern Verbose = UpdateAgentLogLevel' "VERBOSE"
+pattern UpdateAgentLogLevelVerbose :: UpdateAgentLogLevel
+pattern UpdateAgentLogLevelVerbose = UpdateAgentLogLevel' "VERBOSE"
 
-pattern Info :: UpdateAgentLogLevel
-pattern Info = UpdateAgentLogLevel' "INFO"
+pattern UpdateAgentLogLevelInfo :: UpdateAgentLogLevel
+pattern UpdateAgentLogLevelInfo = UpdateAgentLogLevel' "INFO"
 
-pattern Warn :: UpdateAgentLogLevel
-pattern Warn = UpdateAgentLogLevel' "WARN"
+pattern UpdateAgentLogLevelWarn :: UpdateAgentLogLevel
+pattern UpdateAgentLogLevelWarn = UpdateAgentLogLevel' "WARN"
 
-pattern Error :: UpdateAgentLogLevel
-pattern Error = UpdateAgentLogLevel' "ERROR"
+pattern UpdateAgentLogLevelError :: UpdateAgentLogLevel
+pattern UpdateAgentLogLevelError = UpdateAgentLogLevel' "ERROR"
 
-pattern Fatal :: UpdateAgentLogLevel
-pattern Fatal = UpdateAgentLogLevel' "FATAL"
+pattern UpdateAgentLogLevelFatal :: UpdateAgentLogLevel
+pattern UpdateAgentLogLevelFatal = UpdateAgentLogLevel' "FATAL"
 
 {-# COMPLETE
-  None,
-  Trace,
-  Debug,
-  Verbose,
-  Info,
-  Warn,
-  Error,
-  Fatal,
+  UpdateAgentLogLevelNone,
+  UpdateAgentLogLevelTrace,
+  UpdateAgentLogLevelDebug,
+  UpdateAgentLogLevelVerbose,
+  UpdateAgentLogLevelInfo,
+  UpdateAgentLogLevelWarn,
+  UpdateAgentLogLevelError,
+  UpdateAgentLogLevelFatal,
   UpdateAgentLogLevel'
   #-}

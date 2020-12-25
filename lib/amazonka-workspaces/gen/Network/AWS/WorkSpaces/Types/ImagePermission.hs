@@ -22,35 +22,33 @@ module Network.AWS.WorkSpaces.Types.ImagePermission
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.AwsAccount as Types
 
 -- | Describes the AWS accounts that have been granted permission to use a shared image. For more information about sharing images, see <https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html Share or Unshare a Custom WorkSpaces Image> .
 --
 -- /See:/ 'mkImagePermission' smart constructor.
 newtype ImagePermission = ImagePermission'
   { -- | The identifier of the AWS account that an image has been shared with.
-    sharedAccountId :: Lude.Maybe Lude.Text
+    sharedAccountId :: Core.Maybe Types.AwsAccount
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImagePermission' with the minimum fields required to make a request.
---
--- * 'sharedAccountId' - The identifier of the AWS account that an image has been shared with.
+-- | Creates a 'ImagePermission' value with any optional fields omitted.
 mkImagePermission ::
   ImagePermission
 mkImagePermission =
-  ImagePermission' {sharedAccountId = Lude.Nothing}
+  ImagePermission' {sharedAccountId = Core.Nothing}
 
 -- | The identifier of the AWS account that an image has been shared with.
 --
 -- /Note:/ Consider using 'sharedAccountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipSharedAccountId :: Lens.Lens' ImagePermission (Lude.Maybe Lude.Text)
-ipSharedAccountId = Lens.lens (sharedAccountId :: ImagePermission -> Lude.Maybe Lude.Text) (\s a -> s {sharedAccountId = a} :: ImagePermission)
+ipSharedAccountId :: Lens.Lens' ImagePermission (Core.Maybe Types.AwsAccount)
+ipSharedAccountId = Lens.field @"sharedAccountId"
 {-# DEPRECATED ipSharedAccountId "Use generic-lens or generic-optics with 'sharedAccountId' instead." #-}
 
-instance Lude.FromJSON ImagePermission where
+instance Core.FromJSON ImagePermission where
   parseJSON =
-    Lude.withObject
-      "ImagePermission"
-      (\x -> ImagePermission' Lude.<$> (x Lude..:? "SharedAccountId"))
+    Core.withObject "ImagePermission" Core.$
+      \x -> ImagePermission' Core.<$> (x Core..:? "SharedAccountId")

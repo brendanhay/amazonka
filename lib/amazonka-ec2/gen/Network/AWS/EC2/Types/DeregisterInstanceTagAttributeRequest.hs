@@ -22,52 +22,42 @@ module Network.AWS.EC2.Types.DeregisterInstanceTagAttributeRequest
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the tag keys to deregister for the current Region. You can either specify individual tag keys or deregister all tag keys in the current Region. You must specify either @IncludeAllTagsOfInstance@ or @InstanceTagKeys@ in the request
 --
 -- /See:/ 'mkDeregisterInstanceTagAttributeRequest' smart constructor.
 data DeregisterInstanceTagAttributeRequest = DeregisterInstanceTagAttributeRequest'
   { -- | Indicates whether to deregister all tag keys in the current Region. Specify @false@ to deregister all tag keys.
-    includeAllTagsOfInstance :: Lude.Maybe Lude.Bool,
+    includeAllTagsOfInstance :: Core.Maybe Core.Bool,
     -- | Information about the tag keys to deregister.
-    instanceTagKeys :: Lude.Maybe [Lude.Text]
+    instanceTagKeys :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterInstanceTagAttributeRequest' with the minimum fields required to make a request.
---
--- * 'includeAllTagsOfInstance' - Indicates whether to deregister all tag keys in the current Region. Specify @false@ to deregister all tag keys.
--- * 'instanceTagKeys' - Information about the tag keys to deregister.
+-- | Creates a 'DeregisterInstanceTagAttributeRequest' value with any optional fields omitted.
 mkDeregisterInstanceTagAttributeRequest ::
   DeregisterInstanceTagAttributeRequest
 mkDeregisterInstanceTagAttributeRequest =
   DeregisterInstanceTagAttributeRequest'
     { includeAllTagsOfInstance =
-        Lude.Nothing,
-      instanceTagKeys = Lude.Nothing
+        Core.Nothing,
+      instanceTagKeys = Core.Nothing
     }
 
 -- | Indicates whether to deregister all tag keys in the current Region. Specify @false@ to deregister all tag keys.
 --
 -- /Note:/ Consider using 'includeAllTagsOfInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ditarIncludeAllTagsOfInstance :: Lens.Lens' DeregisterInstanceTagAttributeRequest (Lude.Maybe Lude.Bool)
-ditarIncludeAllTagsOfInstance = Lens.lens (includeAllTagsOfInstance :: DeregisterInstanceTagAttributeRequest -> Lude.Maybe Lude.Bool) (\s a -> s {includeAllTagsOfInstance = a} :: DeregisterInstanceTagAttributeRequest)
+ditarIncludeAllTagsOfInstance :: Lens.Lens' DeregisterInstanceTagAttributeRequest (Core.Maybe Core.Bool)
+ditarIncludeAllTagsOfInstance = Lens.field @"includeAllTagsOfInstance"
 {-# DEPRECATED ditarIncludeAllTagsOfInstance "Use generic-lens or generic-optics with 'includeAllTagsOfInstance' instead." #-}
 
 -- | Information about the tag keys to deregister.
 --
 -- /Note:/ Consider using 'instanceTagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ditarInstanceTagKeys :: Lens.Lens' DeregisterInstanceTagAttributeRequest (Lude.Maybe [Lude.Text])
-ditarInstanceTagKeys = Lens.lens (instanceTagKeys :: DeregisterInstanceTagAttributeRequest -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceTagKeys = a} :: DeregisterInstanceTagAttributeRequest)
+ditarInstanceTagKeys :: Lens.Lens' DeregisterInstanceTagAttributeRequest (Core.Maybe [Types.String])
+ditarInstanceTagKeys = Lens.field @"instanceTagKeys"
 {-# DEPRECATED ditarInstanceTagKeys "Use generic-lens or generic-optics with 'instanceTagKeys' instead." #-}
-
-instance Lude.ToQuery DeregisterInstanceTagAttributeRequest where
-  toQuery DeregisterInstanceTagAttributeRequest' {..} =
-    Lude.mconcat
-      [ "IncludeAllTagsOfInstance" Lude.=: includeAllTagsOfInstance,
-        Lude.toQuery
-          (Lude.toQueryList "InstanceTagKey" Lude.<$> instanceTagKeys)
-      ]

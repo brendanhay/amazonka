@@ -17,56 +17,46 @@ module Network.AWS.EC2.Types.CreateVolumePermissionModifications
     mkCreateVolumePermissionModifications,
 
     -- * Lenses
-    cvpmRemove,
     cvpmAdd,
+    cvpmRemove,
   )
 where
 
-import Network.AWS.EC2.Types.CreateVolumePermission
+import qualified Network.AWS.EC2.Types.CreateVolumePermission as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes modifications to the list of create volume permissions for a volume.
 --
 -- /See:/ 'mkCreateVolumePermissionModifications' smart constructor.
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications'
-  { -- | Removes the specified AWS account ID or group from the list.
-    remove :: Lude.Maybe [CreateVolumePermission],
-    -- | Adds the specified AWS account ID or group to the list.
-    add :: Lude.Maybe [CreateVolumePermission]
+  { -- | Adds the specified AWS account ID or group to the list.
+    add :: Core.Maybe [Types.CreateVolumePermission],
+    -- | Removes the specified AWS account ID or group from the list.
+    remove :: Core.Maybe [Types.CreateVolumePermission]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateVolumePermissionModifications' with the minimum fields required to make a request.
---
--- * 'remove' - Removes the specified AWS account ID or group from the list.
--- * 'add' - Adds the specified AWS account ID or group to the list.
+-- | Creates a 'CreateVolumePermissionModifications' value with any optional fields omitted.
 mkCreateVolumePermissionModifications ::
   CreateVolumePermissionModifications
 mkCreateVolumePermissionModifications =
   CreateVolumePermissionModifications'
-    { remove = Lude.Nothing,
-      add = Lude.Nothing
+    { add = Core.Nothing,
+      remove = Core.Nothing
     }
-
--- | Removes the specified AWS account ID or group from the list.
---
--- /Note:/ Consider using 'remove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvpmRemove :: Lens.Lens' CreateVolumePermissionModifications (Lude.Maybe [CreateVolumePermission])
-cvpmRemove = Lens.lens (remove :: CreateVolumePermissionModifications -> Lude.Maybe [CreateVolumePermission]) (\s a -> s {remove = a} :: CreateVolumePermissionModifications)
-{-# DEPRECATED cvpmRemove "Use generic-lens or generic-optics with 'remove' instead." #-}
 
 -- | Adds the specified AWS account ID or group to the list.
 --
 -- /Note:/ Consider using 'add' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cvpmAdd :: Lens.Lens' CreateVolumePermissionModifications (Lude.Maybe [CreateVolumePermission])
-cvpmAdd = Lens.lens (add :: CreateVolumePermissionModifications -> Lude.Maybe [CreateVolumePermission]) (\s a -> s {add = a} :: CreateVolumePermissionModifications)
+cvpmAdd :: Lens.Lens' CreateVolumePermissionModifications (Core.Maybe [Types.CreateVolumePermission])
+cvpmAdd = Lens.field @"add"
 {-# DEPRECATED cvpmAdd "Use generic-lens or generic-optics with 'add' instead." #-}
 
-instance Lude.ToQuery CreateVolumePermissionModifications where
-  toQuery CreateVolumePermissionModifications' {..} =
-    Lude.mconcat
-      [ Lude.toQuery (Lude.toQueryList "Remove" Lude.<$> remove),
-        Lude.toQuery (Lude.toQueryList "Add" Lude.<$> add)
-      ]
+-- | Removes the specified AWS account ID or group from the list.
+--
+-- /Note:/ Consider using 'remove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cvpmRemove :: Lens.Lens' CreateVolumePermissionModifications (Core.Maybe [Types.CreateVolumePermission])
+cvpmRemove = Lens.field @"remove"
+{-# DEPRECATED cvpmRemove "Use generic-lens or generic-optics with 'remove' instead." #-}

@@ -13,46 +13,48 @@
 module Network.AWS.EC2.Types.HostTenancy
   ( HostTenancy
       ( HostTenancy',
-        HTDedicated,
-        HTHost
+        HostTenancyDedicated,
+        HostTenancyHost,
+        fromHostTenancy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HostTenancy = HostTenancy' Lude.Text
+newtype HostTenancy = HostTenancy' {fromHostTenancy :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HTDedicated :: HostTenancy
-pattern HTDedicated = HostTenancy' "dedicated"
+pattern HostTenancyDedicated :: HostTenancy
+pattern HostTenancyDedicated = HostTenancy' "dedicated"
 
-pattern HTHost :: HostTenancy
-pattern HTHost = HostTenancy' "host"
+pattern HostTenancyHost :: HostTenancy
+pattern HostTenancyHost = HostTenancy' "host"
 
 {-# COMPLETE
-  HTDedicated,
-  HTHost,
+  HostTenancyDedicated,
+  HostTenancyHost,
   HostTenancy'
   #-}

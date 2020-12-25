@@ -17,51 +17,48 @@ module Network.AWS.CodeDeploy.Types.TimeRange
     mkTimeRange,
 
     -- * Lenses
-    trStart,
     trEnd,
+    trStart,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a time range.
 --
 -- /See:/ 'mkTimeRange' smart constructor.
 data TimeRange = TimeRange'
-  { -- | The start time of the time range.
-    start :: Lude.Maybe Lude.Timestamp,
-    -- | The end time of the time range.
-    end :: Lude.Maybe Lude.Timestamp
+  { -- | The end time of the time range.
+    end :: Core.Maybe Core.NominalDiffTime,
+    -- | The start time of the time range.
+    start :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TimeRange' with the minimum fields required to make a request.
---
--- * 'start' - The start time of the time range.
--- * 'end' - The end time of the time range.
+-- | Creates a 'TimeRange' value with any optional fields omitted.
 mkTimeRange ::
   TimeRange
-mkTimeRange = TimeRange' {start = Lude.Nothing, end = Lude.Nothing}
-
--- | The start time of the time range.
---
--- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trStart :: Lens.Lens' TimeRange (Lude.Maybe Lude.Timestamp)
-trStart = Lens.lens (start :: TimeRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {start = a} :: TimeRange)
-{-# DEPRECATED trStart "Use generic-lens or generic-optics with 'start' instead." #-}
+mkTimeRange = TimeRange' {end = Core.Nothing, start = Core.Nothing}
 
 -- | The end time of the time range.
 --
 -- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trEnd :: Lens.Lens' TimeRange (Lude.Maybe Lude.Timestamp)
-trEnd = Lens.lens (end :: TimeRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {end = a} :: TimeRange)
+trEnd :: Lens.Lens' TimeRange (Core.Maybe Core.NominalDiffTime)
+trEnd = Lens.field @"end"
 {-# DEPRECATED trEnd "Use generic-lens or generic-optics with 'end' instead." #-}
 
-instance Lude.ToJSON TimeRange where
-  toJSON TimeRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("start" Lude..=) Lude.<$> start, ("end" Lude..=) Lude.<$> end]
+-- | The start time of the time range.
+--
+-- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trStart :: Lens.Lens' TimeRange (Core.Maybe Core.NominalDiffTime)
+trStart = Lens.field @"start"
+{-# DEPRECATED trStart "Use generic-lens or generic-optics with 'start' instead." #-}
+
+instance Core.FromJSON TimeRange where
+  toJSON TimeRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [("end" Core..=) Core.<$> end, ("start" Core..=) Core.<$> start]
       )

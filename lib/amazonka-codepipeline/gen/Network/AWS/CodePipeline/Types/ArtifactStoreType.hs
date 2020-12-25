@@ -13,41 +13,46 @@
 module Network.AWS.CodePipeline.Types.ArtifactStoreType
   ( ArtifactStoreType
       ( ArtifactStoreType',
-        ASTS3
+        ArtifactStoreTypeS3,
+        fromArtifactStoreType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ArtifactStoreType = ArtifactStoreType' Lude.Text
+newtype ArtifactStoreType = ArtifactStoreType'
+  { fromArtifactStoreType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ASTS3 :: ArtifactStoreType
-pattern ASTS3 = ArtifactStoreType' "S3"
+pattern ArtifactStoreTypeS3 :: ArtifactStoreType
+pattern ArtifactStoreTypeS3 = ArtifactStoreType' "S3"
 
 {-# COMPLETE
-  ASTS3,
+  ArtifactStoreTypeS3,
   ArtifactStoreType'
   #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,49 @@
 -- Provides translation between one source language and another of the same set of languages.
 module Network.AWS.Translate
   ( -- * Service configuration
-    translateService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** UnsupportedLanguagePairException
+    _UnsupportedLanguagePairException,
+
+    -- ** DetectedLanguageLowConfidenceException
+    _DetectedLanguageLowConfidenceException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** InvalidFilterException
+    _InvalidFilterException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TextSizeLimitExceededException
+    _TextSizeLimitExceededException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -69,8 +107,147 @@ module Network.AWS.Translate
 
     -- * Types
 
+    -- ** IamRoleArn
+    IamRoleArn (..),
+
+    -- ** ClientTokenString
+    ClientTokenString (..),
+
+    -- ** TerminologyProperties
+    TerminologyProperties (..),
+    mkTerminologyProperties,
+    tpArn,
+    tpCreatedAt,
+    tpDescription,
+    tpEncryptionKey,
+    tpLastUpdatedAt,
+    tpName,
+    tpSizeBytes,
+    tpSourceLanguageCode,
+    tpTargetLanguageCodes,
+    tpTermCount,
+
+    -- ** LanguageCodeString
+    LanguageCodeString (..),
+
+    -- ** ParallelDataProperties
+    ParallelDataProperties (..),
+    mkParallelDataProperties,
+    pdpArn,
+    pdpCreatedAt,
+    pdpDescription,
+    pdpEncryptionKey,
+    pdpFailedRecordCount,
+    pdpImportedDataSize,
+    pdpImportedRecordCount,
+    pdpLastUpdatedAt,
+    pdpLatestUpdateAttemptAt,
+    pdpLatestUpdateAttemptStatus,
+    pdpMessage,
+    pdpName,
+    pdpParallelDataConfig,
+    pdpSkippedRecordCount,
+    pdpSourceLanguageCode,
+    pdpStatus,
+    pdpTargetLanguageCodes,
+
+    -- ** JobId
+    JobId (..),
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** String
+    String (..),
+
+    -- ** EncryptionKeyID
+    EncryptionKeyID (..),
+
+    -- ** TextTranslationJobProperties
+    TextTranslationJobProperties (..),
+    mkTextTranslationJobProperties,
+    ttjpDataAccessRoleArn,
+    ttjpEndTime,
+    ttjpInputDataConfig,
+    ttjpJobDetails,
+    ttjpJobId,
+    ttjpJobName,
+    ttjpJobStatus,
+    ttjpMessage,
+    ttjpOutputDataConfig,
+    ttjpParallelDataNames,
+    ttjpSourceLanguageCode,
+    ttjpSubmittedTime,
+    ttjpTargetLanguageCodes,
+    ttjpTerminologyNames,
+
+    -- ** JobName
+    JobName (..),
+
     -- ** EncryptionKeyType
     EncryptionKeyType (..),
+
+    -- ** ParallelDataDataLocation
+    ParallelDataDataLocation (..),
+    mkParallelDataDataLocation,
+    pddlRepositoryType,
+    pddlLocation,
+
+    -- ** Term
+    Term (..),
+    mkTerm,
+    tSourceText,
+    tTargetText,
+
+    -- ** TerminologyDataLocation
+    TerminologyDataLocation (..),
+    mkTerminologyDataLocation,
+    tdlRepositoryType,
+    tdlLocation,
+
+    -- ** TextTranslationJobFilter
+    TextTranslationJobFilter (..),
+    mkTextTranslationJobFilter,
+    ttjfJobName,
+    ttjfJobStatus,
+    ttjfSubmittedAfterTime,
+    ttjfSubmittedBeforeTime,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** InputDataConfig
+    InputDataConfig (..),
+    mkInputDataConfig,
+    idcS3Uri,
+    idcContentType,
+
+    -- ** ParallelDataStatus
+    ParallelDataStatus (..),
+
+    -- ** OutputDataConfig
+    OutputDataConfig (..),
+    mkOutputDataConfig,
+    odcS3Uri,
+
+    -- ** JobDetails
+    JobDetails (..),
+    mkJobDetails,
+    jdDocumentsWithErrorsCount,
+    jdInputDocumentsCount,
+    jdTranslatedDocumentsCount,
+
+    -- ** EncryptionKey
+    EncryptionKey (..),
+    mkEncryptionKey,
+    ekType,
+    ekId,
+
+    -- ** TerminologyDataFormat
+    TerminologyDataFormat (..),
+
+    -- ** ParallelDataFormat
+    ParallelDataFormat (..),
 
     -- ** JobStatus
     JobStatus (..),
@@ -78,145 +255,58 @@ module Network.AWS.Translate
     -- ** MergeStrategy
     MergeStrategy (..),
 
-    -- ** ParallelDataFormat
-    ParallelDataFormat (..),
+    -- ** TerminologyData
+    TerminologyData (..),
+    mkTerminologyData,
+    tdFile,
+    tdFormat,
 
-    -- ** ParallelDataStatus
-    ParallelDataStatus (..),
+    -- ** Description
+    Description (..),
 
-    -- ** TerminologyDataFormat
-    TerminologyDataFormat (..),
+    -- ** S3Uri
+    S3Uri (..),
 
     -- ** AppliedTerminology
     AppliedTerminology (..),
     mkAppliedTerminology,
-    atTerms,
     atName,
+    atTerms,
 
-    -- ** EncryptionKey
-    EncryptionKey (..),
-    mkEncryptionKey,
-    ekId,
-    ekType,
-
-    -- ** InputDataConfig
-    InputDataConfig (..),
-    mkInputDataConfig,
-    idcS3URI,
-    idcContentType,
-
-    -- ** JobDetails
-    JobDetails (..),
-    mkJobDetails,
-    jdTranslatedDocumentsCount,
-    jdDocumentsWithErrorsCount,
-    jdInputDocumentsCount,
-
-    -- ** OutputDataConfig
-    OutputDataConfig (..),
-    mkOutputDataConfig,
-    odcS3URI,
+    -- ** ContentType
+    ContentType (..),
 
     -- ** ParallelDataConfig
     ParallelDataConfig (..),
     mkParallelDataConfig,
+    pdcS3Uri,
     pdcFormat,
-    pdcS3URI,
 
-    -- ** ParallelDataDataLocation
-    ParallelDataDataLocation (..),
-    mkParallelDataDataLocation,
-    pddlLocation,
-    pddlRepositoryType,
+    -- ** Name
+    Name (..),
 
-    -- ** ParallelDataProperties
-    ParallelDataProperties (..),
-    mkParallelDataProperties,
-    pdpStatus,
-    pdpLastUpdatedAt,
-    pdpImportedRecordCount,
-    pdpARN,
-    pdpTargetLanguageCodes,
-    pdpCreatedAt,
-    pdpFailedRecordCount,
-    pdpImportedDataSize,
-    pdpName,
-    pdpSourceLanguageCode,
-    pdpLatestUpdateAttemptAt,
-    pdpEncryptionKey,
-    pdpLatestUpdateAttemptStatus,
-    pdpMessage,
-    pdpDescription,
-    pdpSkippedRecordCount,
-    pdpParallelDataConfig,
+    -- ** Message
+    Message (..),
 
-    -- ** Term
-    Term (..),
-    mkTerm,
-    tTargetText,
-    tSourceText,
+    -- ** Arn
+    Arn (..),
 
-    -- ** TerminologyData
-    TerminologyData (..),
-    mkTerminologyData,
-    tdFormat,
-    tdFile,
+    -- ** SourceLanguageCode
+    SourceLanguageCode (..),
 
-    -- ** TerminologyDataLocation
-    TerminologyDataLocation (..),
-    mkTerminologyDataLocation,
-    tdlLocation,
-    tdlRepositoryType,
+    -- ** Text
+    Text (..),
 
-    -- ** TerminologyProperties
-    TerminologyProperties (..),
-    mkTerminologyProperties,
-    tpSizeBytes,
-    tpLastUpdatedAt,
-    tpARN,
-    tpTargetLanguageCodes,
-    tpCreatedAt,
-    tpName,
-    tpSourceLanguageCode,
-    tpTermCount,
-    tpEncryptionKey,
-    tpDescription,
-
-    -- ** TextTranslationJobFilter
-    TextTranslationJobFilter (..),
-    mkTextTranslationJobFilter,
-    ttjfSubmittedBeforeTime,
-    ttjfSubmittedAfterTime,
-    ttjfJobName,
-    ttjfJobStatus,
-
-    -- ** TextTranslationJobProperties
-    TextTranslationJobProperties (..),
-    mkTextTranslationJobProperties,
-    ttjpJobId,
-    ttjpTargetLanguageCodes,
-    ttjpJobName,
-    ttjpSubmittedTime,
-    ttjpInputDataConfig,
-    ttjpParallelDataNames,
-    ttjpTerminologyNames,
-    ttjpSourceLanguageCode,
-    ttjpEndTime,
-    ttjpOutputDataConfig,
-    ttjpJobDetails,
-    ttjpDataAccessRoleARN,
-    ttjpJobStatus,
-    ttjpMessage,
+    -- ** TargetLanguageCode
+    TargetLanguageCode (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

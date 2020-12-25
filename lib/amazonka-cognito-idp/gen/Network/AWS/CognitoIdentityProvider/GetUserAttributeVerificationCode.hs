@@ -20,63 +20,70 @@ module Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
     mkGetUserAttributeVerificationCode,
 
     -- ** Request lenses
-    guavcClientMetadata,
     guavcAccessToken,
     guavcAttributeName,
+    guavcClientMetadata,
 
     -- * Destructuring the response
     GetUserAttributeVerificationCodeResponse (..),
     mkGetUserAttributeVerificationCodeResponse,
 
     -- ** Response lenses
-    guavcrsCodeDeliveryDetails,
-    guavcrsResponseStatus,
+    guavcrrsCodeDeliveryDetails,
+    guavcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to get user attribute verification.
 --
 -- /See:/ 'mkGetUserAttributeVerificationCode' smart constructor.
 data GetUserAttributeVerificationCode = GetUserAttributeVerificationCode'
-  { -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+  { -- | The access token returned by the server response to get the user attribute verification code.
+    accessToken :: Types.TokenModelType,
+    -- | The attribute name returned by the server response to get the user attribute verification code.
+    attributeName :: Types.AttributeNameType,
+    -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
     --
     -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the GetUserAttributeVerificationCode API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your GetUserAttributeVerificationCode request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
     -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
-    clientMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The access token returned by the server response to get the user attribute verification code.
-    accessToken :: Lude.Sensitive Lude.Text,
-    -- | The attribute name returned by the server response to get the user attribute verification code.
-    attributeName :: Lude.Text
+    clientMetadata :: Core.Maybe (Core.HashMap Types.StringType Types.StringType)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetUserAttributeVerificationCode' with the minimum fields required to make a request.
---
--- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
---
--- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the GetUserAttributeVerificationCode API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your GetUserAttributeVerificationCode request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
--- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
--- * 'accessToken' - The access token returned by the server response to get the user attribute verification code.
--- * 'attributeName' - The attribute name returned by the server response to get the user attribute verification code.
+-- | Creates a 'GetUserAttributeVerificationCode' value with any optional fields omitted.
 mkGetUserAttributeVerificationCode ::
   -- | 'accessToken'
-  Lude.Sensitive Lude.Text ->
+  Types.TokenModelType ->
   -- | 'attributeName'
-  Lude.Text ->
+  Types.AttributeNameType ->
   GetUserAttributeVerificationCode
-mkGetUserAttributeVerificationCode pAccessToken_ pAttributeName_ =
+mkGetUserAttributeVerificationCode accessToken attributeName =
   GetUserAttributeVerificationCode'
-    { clientMetadata = Lude.Nothing,
-      accessToken = pAccessToken_,
-      attributeName = pAttributeName_
+    { accessToken,
+      attributeName,
+      clientMetadata = Core.Nothing
     }
+
+-- | The access token returned by the server response to get the user attribute verification code.
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guavcAccessToken :: Lens.Lens' GetUserAttributeVerificationCode Types.TokenModelType
+guavcAccessToken = Lens.field @"accessToken"
+{-# DEPRECATED guavcAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
+
+-- | The attribute name returned by the server response to get the user attribute verification code.
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+guavcAttributeName :: Lens.Lens' GetUserAttributeVerificationCode Types.AttributeNameType
+guavcAttributeName = Lens.field @"attributeName"
+{-# DEPRECATED guavcAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 --
@@ -84,103 +91,80 @@ mkGetUserAttributeVerificationCode pAccessToken_ pAttributeName_ =
 -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
 --
 -- /Note:/ Consider using 'clientMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guavcClientMetadata :: Lens.Lens' GetUserAttributeVerificationCode (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-guavcClientMetadata = Lens.lens (clientMetadata :: GetUserAttributeVerificationCode -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {clientMetadata = a} :: GetUserAttributeVerificationCode)
+guavcClientMetadata :: Lens.Lens' GetUserAttributeVerificationCode (Core.Maybe (Core.HashMap Types.StringType Types.StringType))
+guavcClientMetadata = Lens.field @"clientMetadata"
 {-# DEPRECATED guavcClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
 
--- | The access token returned by the server response to get the user attribute verification code.
---
--- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guavcAccessToken :: Lens.Lens' GetUserAttributeVerificationCode (Lude.Sensitive Lude.Text)
-guavcAccessToken = Lens.lens (accessToken :: GetUserAttributeVerificationCode -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: GetUserAttributeVerificationCode)
-{-# DEPRECATED guavcAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
+instance Core.FromJSON GetUserAttributeVerificationCode where
+  toJSON GetUserAttributeVerificationCode {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccessToken" Core..= accessToken),
+            Core.Just ("AttributeName" Core..= attributeName),
+            ("ClientMetadata" Core..=) Core.<$> clientMetadata
+          ]
+      )
 
--- | The attribute name returned by the server response to get the user attribute verification code.
---
--- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guavcAttributeName :: Lens.Lens' GetUserAttributeVerificationCode Lude.Text
-guavcAttributeName = Lens.lens (attributeName :: GetUserAttributeVerificationCode -> Lude.Text) (\s a -> s {attributeName = a} :: GetUserAttributeVerificationCode)
-{-# DEPRECATED guavcAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
-
-instance Lude.AWSRequest GetUserAttributeVerificationCode where
+instance Core.AWSRequest GetUserAttributeVerificationCode where
   type
     Rs GetUserAttributeVerificationCode =
       GetUserAttributeVerificationCodeResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetUserAttributeVerificationCodeResponse'
-            Lude.<$> (x Lude..?> "CodeDeliveryDetails")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CodeDeliveryDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetUserAttributeVerificationCode where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.GetUserAttributeVerificationCode" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetUserAttributeVerificationCode where
-  toJSON GetUserAttributeVerificationCode' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ClientMetadata" Lude..=) Lude.<$> clientMetadata,
-            Lude.Just ("AccessToken" Lude..= accessToken),
-            Lude.Just ("AttributeName" Lude..= attributeName)
-          ]
-      )
-
-instance Lude.ToPath GetUserAttributeVerificationCode where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetUserAttributeVerificationCode where
-  toQuery = Lude.const Lude.mempty
 
 -- | The verification code response returned by the server response to get the user attribute verification code.
 --
 -- /See:/ 'mkGetUserAttributeVerificationCodeResponse' smart constructor.
 data GetUserAttributeVerificationCodeResponse = GetUserAttributeVerificationCodeResponse'
   { -- | The code delivery details returned by the server in response to the request to get the user attribute verification code.
-    codeDeliveryDetails :: Lude.Maybe CodeDeliveryDetailsType,
+    codeDeliveryDetails :: Core.Maybe Types.CodeDeliveryDetailsType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetUserAttributeVerificationCodeResponse' with the minimum fields required to make a request.
---
--- * 'codeDeliveryDetails' - The code delivery details returned by the server in response to the request to get the user attribute verification code.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetUserAttributeVerificationCodeResponse' value with any optional fields omitted.
 mkGetUserAttributeVerificationCodeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetUserAttributeVerificationCodeResponse
-mkGetUserAttributeVerificationCodeResponse pResponseStatus_ =
+mkGetUserAttributeVerificationCodeResponse responseStatus =
   GetUserAttributeVerificationCodeResponse'
     { codeDeliveryDetails =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The code delivery details returned by the server in response to the request to get the user attribute verification code.
 --
 -- /Note:/ Consider using 'codeDeliveryDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guavcrsCodeDeliveryDetails :: Lens.Lens' GetUserAttributeVerificationCodeResponse (Lude.Maybe CodeDeliveryDetailsType)
-guavcrsCodeDeliveryDetails = Lens.lens (codeDeliveryDetails :: GetUserAttributeVerificationCodeResponse -> Lude.Maybe CodeDeliveryDetailsType) (\s a -> s {codeDeliveryDetails = a} :: GetUserAttributeVerificationCodeResponse)
-{-# DEPRECATED guavcrsCodeDeliveryDetails "Use generic-lens or generic-optics with 'codeDeliveryDetails' instead." #-}
+guavcrrsCodeDeliveryDetails :: Lens.Lens' GetUserAttributeVerificationCodeResponse (Core.Maybe Types.CodeDeliveryDetailsType)
+guavcrrsCodeDeliveryDetails = Lens.field @"codeDeliveryDetails"
+{-# DEPRECATED guavcrrsCodeDeliveryDetails "Use generic-lens or generic-optics with 'codeDeliveryDetails' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-guavcrsResponseStatus :: Lens.Lens' GetUserAttributeVerificationCodeResponse Lude.Int
-guavcrsResponseStatus = Lens.lens (responseStatus :: GetUserAttributeVerificationCodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUserAttributeVerificationCodeResponse)
-{-# DEPRECATED guavcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+guavcrrsResponseStatus :: Lens.Lens' GetUserAttributeVerificationCodeResponse Core.Int
+guavcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED guavcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

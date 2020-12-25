@@ -17,97 +17,89 @@ module Network.AWS.Lambda.Types.AccountLimit
     mkAccountLimit,
 
     -- * Lenses
+    alCodeSizeUnzipped,
+    alCodeSizeZipped,
     alConcurrentExecutions,
     alTotalCodeSize,
     alUnreservedConcurrentExecutions,
-    alCodeSizeUnzipped,
-    alCodeSizeZipped,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Limits that are related to concurrency and storage. All file and storage sizes are in bytes.
 --
 -- /See:/ 'mkAccountLimit' smart constructor.
 data AccountLimit = AccountLimit'
-  { -- | The maximum number of simultaneous function executions.
-    concurrentExecutions :: Lude.Maybe Lude.Int,
-    -- | The amount of storage space that you can use for all deployment packages and layer archives.
-    totalCodeSize :: Lude.Maybe Lude.Integer,
-    -- | The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with 'PutFunctionConcurrency' .
-    unreservedConcurrentExecutions :: Lude.Maybe Lude.Natural,
-    -- | The maximum size of a function's deployment package and layers when they're extracted.
-    codeSizeUnzipped :: Lude.Maybe Lude.Integer,
+  { -- | The maximum size of a function's deployment package and layers when they're extracted.
+    codeSizeUnzipped :: Core.Maybe Core.Integer,
     -- | The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger files.
-    codeSizeZipped :: Lude.Maybe Lude.Integer
+    codeSizeZipped :: Core.Maybe Core.Integer,
+    -- | The maximum number of simultaneous function executions.
+    concurrentExecutions :: Core.Maybe Core.Int,
+    -- | The amount of storage space that you can use for all deployment packages and layer archives.
+    totalCodeSize :: Core.Maybe Core.Integer,
+    -- | The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with 'PutFunctionConcurrency' .
+    unreservedConcurrentExecutions :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountLimit' with the minimum fields required to make a request.
---
--- * 'concurrentExecutions' - The maximum number of simultaneous function executions.
--- * 'totalCodeSize' - The amount of storage space that you can use for all deployment packages and layer archives.
--- * 'unreservedConcurrentExecutions' - The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with 'PutFunctionConcurrency' .
--- * 'codeSizeUnzipped' - The maximum size of a function's deployment package and layers when they're extracted.
--- * 'codeSizeZipped' - The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger files.
+-- | Creates a 'AccountLimit' value with any optional fields omitted.
 mkAccountLimit ::
   AccountLimit
 mkAccountLimit =
   AccountLimit'
-    { concurrentExecutions = Lude.Nothing,
-      totalCodeSize = Lude.Nothing,
-      unreservedConcurrentExecutions = Lude.Nothing,
-      codeSizeUnzipped = Lude.Nothing,
-      codeSizeZipped = Lude.Nothing
+    { codeSizeUnzipped = Core.Nothing,
+      codeSizeZipped = Core.Nothing,
+      concurrentExecutions = Core.Nothing,
+      totalCodeSize = Core.Nothing,
+      unreservedConcurrentExecutions = Core.Nothing
     }
-
--- | The maximum number of simultaneous function executions.
---
--- /Note:/ Consider using 'concurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alConcurrentExecutions :: Lens.Lens' AccountLimit (Lude.Maybe Lude.Int)
-alConcurrentExecutions = Lens.lens (concurrentExecutions :: AccountLimit -> Lude.Maybe Lude.Int) (\s a -> s {concurrentExecutions = a} :: AccountLimit)
-{-# DEPRECATED alConcurrentExecutions "Use generic-lens or generic-optics with 'concurrentExecutions' instead." #-}
-
--- | The amount of storage space that you can use for all deployment packages and layer archives.
---
--- /Note:/ Consider using 'totalCodeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alTotalCodeSize :: Lens.Lens' AccountLimit (Lude.Maybe Lude.Integer)
-alTotalCodeSize = Lens.lens (totalCodeSize :: AccountLimit -> Lude.Maybe Lude.Integer) (\s a -> s {totalCodeSize = a} :: AccountLimit)
-{-# DEPRECATED alTotalCodeSize "Use generic-lens or generic-optics with 'totalCodeSize' instead." #-}
-
--- | The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with 'PutFunctionConcurrency' .
---
--- /Note:/ Consider using 'unreservedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alUnreservedConcurrentExecutions :: Lens.Lens' AccountLimit (Lude.Maybe Lude.Natural)
-alUnreservedConcurrentExecutions = Lens.lens (unreservedConcurrentExecutions :: AccountLimit -> Lude.Maybe Lude.Natural) (\s a -> s {unreservedConcurrentExecutions = a} :: AccountLimit)
-{-# DEPRECATED alUnreservedConcurrentExecutions "Use generic-lens or generic-optics with 'unreservedConcurrentExecutions' instead." #-}
 
 -- | The maximum size of a function's deployment package and layers when they're extracted.
 --
 -- /Note:/ Consider using 'codeSizeUnzipped' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alCodeSizeUnzipped :: Lens.Lens' AccountLimit (Lude.Maybe Lude.Integer)
-alCodeSizeUnzipped = Lens.lens (codeSizeUnzipped :: AccountLimit -> Lude.Maybe Lude.Integer) (\s a -> s {codeSizeUnzipped = a} :: AccountLimit)
+alCodeSizeUnzipped :: Lens.Lens' AccountLimit (Core.Maybe Core.Integer)
+alCodeSizeUnzipped = Lens.field @"codeSizeUnzipped"
 {-# DEPRECATED alCodeSizeUnzipped "Use generic-lens or generic-optics with 'codeSizeUnzipped' instead." #-}
 
 -- | The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger files.
 --
 -- /Note:/ Consider using 'codeSizeZipped' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alCodeSizeZipped :: Lens.Lens' AccountLimit (Lude.Maybe Lude.Integer)
-alCodeSizeZipped = Lens.lens (codeSizeZipped :: AccountLimit -> Lude.Maybe Lude.Integer) (\s a -> s {codeSizeZipped = a} :: AccountLimit)
+alCodeSizeZipped :: Lens.Lens' AccountLimit (Core.Maybe Core.Integer)
+alCodeSizeZipped = Lens.field @"codeSizeZipped"
 {-# DEPRECATED alCodeSizeZipped "Use generic-lens or generic-optics with 'codeSizeZipped' instead." #-}
 
-instance Lude.FromJSON AccountLimit where
+-- | The maximum number of simultaneous function executions.
+--
+-- /Note:/ Consider using 'concurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alConcurrentExecutions :: Lens.Lens' AccountLimit (Core.Maybe Core.Int)
+alConcurrentExecutions = Lens.field @"concurrentExecutions"
+{-# DEPRECATED alConcurrentExecutions "Use generic-lens or generic-optics with 'concurrentExecutions' instead." #-}
+
+-- | The amount of storage space that you can use for all deployment packages and layer archives.
+--
+-- /Note:/ Consider using 'totalCodeSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alTotalCodeSize :: Lens.Lens' AccountLimit (Core.Maybe Core.Integer)
+alTotalCodeSize = Lens.field @"totalCodeSize"
+{-# DEPRECATED alTotalCodeSize "Use generic-lens or generic-optics with 'totalCodeSize' instead." #-}
+
+-- | The maximum number of simultaneous function executions, minus the capacity that's reserved for individual functions with 'PutFunctionConcurrency' .
+--
+-- /Note:/ Consider using 'unreservedConcurrentExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alUnreservedConcurrentExecutions :: Lens.Lens' AccountLimit (Core.Maybe Core.Natural)
+alUnreservedConcurrentExecutions = Lens.field @"unreservedConcurrentExecutions"
+{-# DEPRECATED alUnreservedConcurrentExecutions "Use generic-lens or generic-optics with 'unreservedConcurrentExecutions' instead." #-}
+
+instance Core.FromJSON AccountLimit where
   parseJSON =
-    Lude.withObject
-      "AccountLimit"
-      ( \x ->
-          AccountLimit'
-            Lude.<$> (x Lude..:? "ConcurrentExecutions")
-            Lude.<*> (x Lude..:? "TotalCodeSize")
-            Lude.<*> (x Lude..:? "UnreservedConcurrentExecutions")
-            Lude.<*> (x Lude..:? "CodeSizeUnzipped")
-            Lude.<*> (x Lude..:? "CodeSizeZipped")
-      )
+    Core.withObject "AccountLimit" Core.$
+      \x ->
+        AccountLimit'
+          Core.<$> (x Core..:? "CodeSizeUnzipped")
+          Core.<*> (x Core..:? "CodeSizeZipped")
+          Core.<*> (x Core..:? "ConcurrentExecutions")
+          Core.<*> (x Core..:? "TotalCodeSize")
+          Core.<*> (x Core..:? "UnreservedConcurrentExecutions")

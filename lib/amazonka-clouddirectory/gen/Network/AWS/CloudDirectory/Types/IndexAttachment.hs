@@ -22,54 +22,50 @@ module Network.AWS.CloudDirectory.Types.IndexAttachment
   )
 where
 
-import Network.AWS.CloudDirectory.Types.AttributeKeyAndValue
+import qualified Network.AWS.CloudDirectory.Types.AttributeKeyAndValue as Types
+import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an index and an attached object.
 --
 -- /See:/ 'mkIndexAttachment' smart constructor.
 data IndexAttachment = IndexAttachment'
   { -- | The indexed attribute values.
-    indexedAttributes :: Lude.Maybe [AttributeKeyAndValue],
+    indexedAttributes :: Core.Maybe [Types.AttributeKeyAndValue],
     -- | In response to 'ListIndex' , the @ObjectIdentifier@ of the object attached to the index. In response to 'ListAttachedIndices' , the @ObjectIdentifier@ of the index attached to the object. This field will always contain the @ObjectIdentifier@ of the object on the opposite side of the attachment specified in the query.
-    objectIdentifier :: Lude.Maybe Lude.Text
+    objectIdentifier :: Core.Maybe Types.ObjectIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'IndexAttachment' with the minimum fields required to make a request.
---
--- * 'indexedAttributes' - The indexed attribute values.
--- * 'objectIdentifier' - In response to 'ListIndex' , the @ObjectIdentifier@ of the object attached to the index. In response to 'ListAttachedIndices' , the @ObjectIdentifier@ of the index attached to the object. This field will always contain the @ObjectIdentifier@ of the object on the opposite side of the attachment specified in the query.
+-- | Creates a 'IndexAttachment' value with any optional fields omitted.
 mkIndexAttachment ::
   IndexAttachment
 mkIndexAttachment =
   IndexAttachment'
-    { indexedAttributes = Lude.Nothing,
-      objectIdentifier = Lude.Nothing
+    { indexedAttributes = Core.Nothing,
+      objectIdentifier = Core.Nothing
     }
 
 -- | The indexed attribute values.
 --
 -- /Note:/ Consider using 'indexedAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaIndexedAttributes :: Lens.Lens' IndexAttachment (Lude.Maybe [AttributeKeyAndValue])
-iaIndexedAttributes = Lens.lens (indexedAttributes :: IndexAttachment -> Lude.Maybe [AttributeKeyAndValue]) (\s a -> s {indexedAttributes = a} :: IndexAttachment)
+iaIndexedAttributes :: Lens.Lens' IndexAttachment (Core.Maybe [Types.AttributeKeyAndValue])
+iaIndexedAttributes = Lens.field @"indexedAttributes"
 {-# DEPRECATED iaIndexedAttributes "Use generic-lens or generic-optics with 'indexedAttributes' instead." #-}
 
 -- | In response to 'ListIndex' , the @ObjectIdentifier@ of the object attached to the index. In response to 'ListAttachedIndices' , the @ObjectIdentifier@ of the index attached to the object. This field will always contain the @ObjectIdentifier@ of the object on the opposite side of the attachment specified in the query.
 --
 -- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaObjectIdentifier :: Lens.Lens' IndexAttachment (Lude.Maybe Lude.Text)
-iaObjectIdentifier = Lens.lens (objectIdentifier :: IndexAttachment -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: IndexAttachment)
+iaObjectIdentifier :: Lens.Lens' IndexAttachment (Core.Maybe Types.ObjectIdentifier)
+iaObjectIdentifier = Lens.field @"objectIdentifier"
 {-# DEPRECATED iaObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
-instance Lude.FromJSON IndexAttachment where
+instance Core.FromJSON IndexAttachment where
   parseJSON =
-    Lude.withObject
-      "IndexAttachment"
-      ( \x ->
-          IndexAttachment'
-            Lude.<$> (x Lude..:? "IndexedAttributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ObjectIdentifier")
-      )
+    Core.withObject "IndexAttachment" Core.$
+      \x ->
+        IndexAttachment'
+          Core.<$> (x Core..:? "IndexedAttributes")
+          Core.<*> (x Core..:? "ObjectIdentifier")

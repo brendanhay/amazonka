@@ -17,163 +17,155 @@ module Network.AWS.Translate.Types.TerminologyProperties
     mkTerminologyProperties,
 
     -- * Lenses
-    tpSizeBytes,
-    tpLastUpdatedAt,
-    tpARN,
-    tpTargetLanguageCodes,
+    tpArn,
     tpCreatedAt,
-    tpName,
-    tpSourceLanguageCode,
-    tpTermCount,
-    tpEncryptionKey,
     tpDescription,
+    tpEncryptionKey,
+    tpLastUpdatedAt,
+    tpName,
+    tpSizeBytes,
+    tpSourceLanguageCode,
+    tpTargetLanguageCodes,
+    tpTermCount,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Translate.Types.EncryptionKey
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Translate.Types.Arn as Types
+import qualified Network.AWS.Translate.Types.Description as Types
+import qualified Network.AWS.Translate.Types.EncryptionKey as Types
+import qualified Network.AWS.Translate.Types.LanguageCodeString as Types
+import qualified Network.AWS.Translate.Types.Name as Types
+import qualified Network.AWS.Translate.Types.SourceLanguageCode as Types
 
 -- | The properties of the custom terminology.
 --
 -- /See:/ 'mkTerminologyProperties' smart constructor.
 data TerminologyProperties = TerminologyProperties'
-  { -- | The size of the file used when importing a custom terminology.
-    sizeBytes :: Lude.Maybe Lude.Int,
-    -- | The time at which the custom terminology was last update, based on the timestamp.
-    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
-    -- | The Amazon Resource Name (ARN) of the custom terminology.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The language codes for the target languages available with the custom terminology file. All possible target languages are returned in array.
-    targetLanguageCodes :: Lude.Maybe [Lude.Text],
+  { -- | The Amazon Resource Name (ARN) of the custom terminology.
+    arn :: Core.Maybe Types.Arn,
     -- | The time at which the custom terminology was created, based on the timestamp.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the custom terminology.
-    name :: Lude.Maybe Lude.Text,
-    -- | The language code for the source text of the translation request for which the custom terminology is being used.
-    sourceLanguageCode :: Lude.Maybe Lude.Text,
-    -- | The number of terms included in the custom terminology.
-    termCount :: Lude.Maybe Lude.Int,
-    -- | The encryption key for the custom terminology.
-    encryptionKey :: Lude.Maybe EncryptionKey,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | The description of the custom terminology properties.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The encryption key for the custom terminology.
+    encryptionKey :: Core.Maybe Types.EncryptionKey,
+    -- | The time at which the custom terminology was last update, based on the timestamp.
+    lastUpdatedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the custom terminology.
+    name :: Core.Maybe Types.Name,
+    -- | The size of the file used when importing a custom terminology.
+    sizeBytes :: Core.Maybe Core.Int,
+    -- | The language code for the source text of the translation request for which the custom terminology is being used.
+    sourceLanguageCode :: Core.Maybe Types.SourceLanguageCode,
+    -- | The language codes for the target languages available with the custom terminology file. All possible target languages are returned in array.
+    targetLanguageCodes :: Core.Maybe [Types.LanguageCodeString],
+    -- | The number of terms included in the custom terminology.
+    termCount :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TerminologyProperties' with the minimum fields required to make a request.
---
--- * 'sizeBytes' - The size of the file used when importing a custom terminology.
--- * 'lastUpdatedAt' - The time at which the custom terminology was last update, based on the timestamp.
--- * 'arn' - The Amazon Resource Name (ARN) of the custom terminology.
--- * 'targetLanguageCodes' - The language codes for the target languages available with the custom terminology file. All possible target languages are returned in array.
--- * 'createdAt' - The time at which the custom terminology was created, based on the timestamp.
--- * 'name' - The name of the custom terminology.
--- * 'sourceLanguageCode' - The language code for the source text of the translation request for which the custom terminology is being used.
--- * 'termCount' - The number of terms included in the custom terminology.
--- * 'encryptionKey' - The encryption key for the custom terminology.
--- * 'description' - The description of the custom terminology properties.
+-- | Creates a 'TerminologyProperties' value with any optional fields omitted.
 mkTerminologyProperties ::
   TerminologyProperties
 mkTerminologyProperties =
   TerminologyProperties'
-    { sizeBytes = Lude.Nothing,
-      lastUpdatedAt = Lude.Nothing,
-      arn = Lude.Nothing,
-      targetLanguageCodes = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      name = Lude.Nothing,
-      sourceLanguageCode = Lude.Nothing,
-      termCount = Lude.Nothing,
-      encryptionKey = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      createdAt = Core.Nothing,
+      description = Core.Nothing,
+      encryptionKey = Core.Nothing,
+      lastUpdatedAt = Core.Nothing,
+      name = Core.Nothing,
+      sizeBytes = Core.Nothing,
+      sourceLanguageCode = Core.Nothing,
+      targetLanguageCodes = Core.Nothing,
+      termCount = Core.Nothing
     }
-
--- | The size of the file used when importing a custom terminology.
---
--- /Note:/ Consider using 'sizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpSizeBytes :: Lens.Lens' TerminologyProperties (Lude.Maybe Lude.Int)
-tpSizeBytes = Lens.lens (sizeBytes :: TerminologyProperties -> Lude.Maybe Lude.Int) (\s a -> s {sizeBytes = a} :: TerminologyProperties)
-{-# DEPRECATED tpSizeBytes "Use generic-lens or generic-optics with 'sizeBytes' instead." #-}
-
--- | The time at which the custom terminology was last update, based on the timestamp.
---
--- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpLastUpdatedAt :: Lens.Lens' TerminologyProperties (Lude.Maybe Lude.Timestamp)
-tpLastUpdatedAt = Lens.lens (lastUpdatedAt :: TerminologyProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: TerminologyProperties)
-{-# DEPRECATED tpLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the custom terminology.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpARN :: Lens.Lens' TerminologyProperties (Lude.Maybe Lude.Text)
-tpARN = Lens.lens (arn :: TerminologyProperties -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: TerminologyProperties)
-{-# DEPRECATED tpARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The language codes for the target languages available with the custom terminology file. All possible target languages are returned in array.
---
--- /Note:/ Consider using 'targetLanguageCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpTargetLanguageCodes :: Lens.Lens' TerminologyProperties (Lude.Maybe [Lude.Text])
-tpTargetLanguageCodes = Lens.lens (targetLanguageCodes :: TerminologyProperties -> Lude.Maybe [Lude.Text]) (\s a -> s {targetLanguageCodes = a} :: TerminologyProperties)
-{-# DEPRECATED tpTargetLanguageCodes "Use generic-lens or generic-optics with 'targetLanguageCodes' instead." #-}
+tpArn :: Lens.Lens' TerminologyProperties (Core.Maybe Types.Arn)
+tpArn = Lens.field @"arn"
+{-# DEPRECATED tpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time at which the custom terminology was created, based on the timestamp.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpCreatedAt :: Lens.Lens' TerminologyProperties (Lude.Maybe Lude.Timestamp)
-tpCreatedAt = Lens.lens (createdAt :: TerminologyProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: TerminologyProperties)
+tpCreatedAt :: Lens.Lens' TerminologyProperties (Core.Maybe Core.NominalDiffTime)
+tpCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED tpCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The name of the custom terminology.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpName :: Lens.Lens' TerminologyProperties (Lude.Maybe Lude.Text)
-tpName = Lens.lens (name :: TerminologyProperties -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: TerminologyProperties)
-{-# DEPRECATED tpName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The language code for the source text of the translation request for which the custom terminology is being used.
---
--- /Note:/ Consider using 'sourceLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpSourceLanguageCode :: Lens.Lens' TerminologyProperties (Lude.Maybe Lude.Text)
-tpSourceLanguageCode = Lens.lens (sourceLanguageCode :: TerminologyProperties -> Lude.Maybe Lude.Text) (\s a -> s {sourceLanguageCode = a} :: TerminologyProperties)
-{-# DEPRECATED tpSourceLanguageCode "Use generic-lens or generic-optics with 'sourceLanguageCode' instead." #-}
-
--- | The number of terms included in the custom terminology.
---
--- /Note:/ Consider using 'termCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpTermCount :: Lens.Lens' TerminologyProperties (Lude.Maybe Lude.Int)
-tpTermCount = Lens.lens (termCount :: TerminologyProperties -> Lude.Maybe Lude.Int) (\s a -> s {termCount = a} :: TerminologyProperties)
-{-# DEPRECATED tpTermCount "Use generic-lens or generic-optics with 'termCount' instead." #-}
-
--- | The encryption key for the custom terminology.
---
--- /Note:/ Consider using 'encryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpEncryptionKey :: Lens.Lens' TerminologyProperties (Lude.Maybe EncryptionKey)
-tpEncryptionKey = Lens.lens (encryptionKey :: TerminologyProperties -> Lude.Maybe EncryptionKey) (\s a -> s {encryptionKey = a} :: TerminologyProperties)
-{-# DEPRECATED tpEncryptionKey "Use generic-lens or generic-optics with 'encryptionKey' instead." #-}
 
 -- | The description of the custom terminology properties.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpDescription :: Lens.Lens' TerminologyProperties (Lude.Maybe Lude.Text)
-tpDescription = Lens.lens (description :: TerminologyProperties -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: TerminologyProperties)
+tpDescription :: Lens.Lens' TerminologyProperties (Core.Maybe Types.Description)
+tpDescription = Lens.field @"description"
 {-# DEPRECATED tpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON TerminologyProperties where
+-- | The encryption key for the custom terminology.
+--
+-- /Note:/ Consider using 'encryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpEncryptionKey :: Lens.Lens' TerminologyProperties (Core.Maybe Types.EncryptionKey)
+tpEncryptionKey = Lens.field @"encryptionKey"
+{-# DEPRECATED tpEncryptionKey "Use generic-lens or generic-optics with 'encryptionKey' instead." #-}
+
+-- | The time at which the custom terminology was last update, based on the timestamp.
+--
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpLastUpdatedAt :: Lens.Lens' TerminologyProperties (Core.Maybe Core.NominalDiffTime)
+tpLastUpdatedAt = Lens.field @"lastUpdatedAt"
+{-# DEPRECATED tpLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
+
+-- | The name of the custom terminology.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpName :: Lens.Lens' TerminologyProperties (Core.Maybe Types.Name)
+tpName = Lens.field @"name"
+{-# DEPRECATED tpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The size of the file used when importing a custom terminology.
+--
+-- /Note:/ Consider using 'sizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpSizeBytes :: Lens.Lens' TerminologyProperties (Core.Maybe Core.Int)
+tpSizeBytes = Lens.field @"sizeBytes"
+{-# DEPRECATED tpSizeBytes "Use generic-lens or generic-optics with 'sizeBytes' instead." #-}
+
+-- | The language code for the source text of the translation request for which the custom terminology is being used.
+--
+-- /Note:/ Consider using 'sourceLanguageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpSourceLanguageCode :: Lens.Lens' TerminologyProperties (Core.Maybe Types.SourceLanguageCode)
+tpSourceLanguageCode = Lens.field @"sourceLanguageCode"
+{-# DEPRECATED tpSourceLanguageCode "Use generic-lens or generic-optics with 'sourceLanguageCode' instead." #-}
+
+-- | The language codes for the target languages available with the custom terminology file. All possible target languages are returned in array.
+--
+-- /Note:/ Consider using 'targetLanguageCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpTargetLanguageCodes :: Lens.Lens' TerminologyProperties (Core.Maybe [Types.LanguageCodeString])
+tpTargetLanguageCodes = Lens.field @"targetLanguageCodes"
+{-# DEPRECATED tpTargetLanguageCodes "Use generic-lens or generic-optics with 'targetLanguageCodes' instead." #-}
+
+-- | The number of terms included in the custom terminology.
+--
+-- /Note:/ Consider using 'termCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tpTermCount :: Lens.Lens' TerminologyProperties (Core.Maybe Core.Int)
+tpTermCount = Lens.field @"termCount"
+{-# DEPRECATED tpTermCount "Use generic-lens or generic-optics with 'termCount' instead." #-}
+
+instance Core.FromJSON TerminologyProperties where
   parseJSON =
-    Lude.withObject
-      "TerminologyProperties"
-      ( \x ->
-          TerminologyProperties'
-            Lude.<$> (x Lude..:? "SizeBytes")
-            Lude.<*> (x Lude..:? "LastUpdatedAt")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "TargetLanguageCodes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "SourceLanguageCode")
-            Lude.<*> (x Lude..:? "TermCount")
-            Lude.<*> (x Lude..:? "EncryptionKey")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "TerminologyProperties" Core.$
+      \x ->
+        TerminologyProperties'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "EncryptionKey")
+          Core.<*> (x Core..:? "LastUpdatedAt")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "SizeBytes")
+          Core.<*> (x Core..:? "SourceLanguageCode")
+          Core.<*> (x Core..:? "TargetLanguageCodes")
+          Core.<*> (x Core..:? "TermCount")

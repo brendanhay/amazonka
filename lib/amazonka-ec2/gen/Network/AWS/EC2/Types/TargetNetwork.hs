@@ -18,108 +18,100 @@ module Network.AWS.EC2.Types.TargetNetwork
 
     -- * Lenses
     tnAssociationId,
-    tnStatus,
+    tnClientVpnEndpointId,
     tnSecurityGroups,
+    tnStatus,
     tnTargetNetworkId,
-    tnVPCId,
-    tnClientVPNEndpointId,
+    tnVpcId,
   )
 where
 
-import Network.AWS.EC2.Types.AssociationStatus
+import qualified Network.AWS.EC2.Types.AssociationStatus as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a target network associated with a Client VPN endpoint.
 --
 -- /See:/ 'mkTargetNetwork' smart constructor.
 data TargetNetwork = TargetNetwork'
   { -- | The ID of the association.
-    associationId :: Lude.Maybe Lude.Text,
-    -- | The current state of the target network association.
-    status :: Lude.Maybe AssociationStatus,
-    -- | The IDs of the security groups applied to the target network association.
-    securityGroups :: Lude.Maybe [Lude.Text],
-    -- | The ID of the subnet specified as the target network.
-    targetNetworkId :: Lude.Maybe Lude.Text,
-    -- | The ID of the VPC in which the target network (subnet) is located.
-    vpcId :: Lude.Maybe Lude.Text,
+    associationId :: Core.Maybe Types.String,
     -- | The ID of the Client VPN endpoint with which the target network is associated.
-    clientVPNEndpointId :: Lude.Maybe Lude.Text
+    clientVpnEndpointId :: Core.Maybe Types.String,
+    -- | The IDs of the security groups applied to the target network association.
+    securityGroups :: Core.Maybe [Types.String],
+    -- | The current state of the target network association.
+    status :: Core.Maybe Types.AssociationStatus,
+    -- | The ID of the subnet specified as the target network.
+    targetNetworkId :: Core.Maybe Types.String,
+    -- | The ID of the VPC in which the target network (subnet) is located.
+    vpcId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetNetwork' with the minimum fields required to make a request.
---
--- * 'associationId' - The ID of the association.
--- * 'status' - The current state of the target network association.
--- * 'securityGroups' - The IDs of the security groups applied to the target network association.
--- * 'targetNetworkId' - The ID of the subnet specified as the target network.
--- * 'vpcId' - The ID of the VPC in which the target network (subnet) is located.
--- * 'clientVPNEndpointId' - The ID of the Client VPN endpoint with which the target network is associated.
+-- | Creates a 'TargetNetwork' value with any optional fields omitted.
 mkTargetNetwork ::
   TargetNetwork
 mkTargetNetwork =
   TargetNetwork'
-    { associationId = Lude.Nothing,
-      status = Lude.Nothing,
-      securityGroups = Lude.Nothing,
-      targetNetworkId = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      clientVPNEndpointId = Lude.Nothing
+    { associationId = Core.Nothing,
+      clientVpnEndpointId = Core.Nothing,
+      securityGroups = Core.Nothing,
+      status = Core.Nothing,
+      targetNetworkId = Core.Nothing,
+      vpcId = Core.Nothing
     }
 
 -- | The ID of the association.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tnAssociationId :: Lens.Lens' TargetNetwork (Lude.Maybe Lude.Text)
-tnAssociationId = Lens.lens (associationId :: TargetNetwork -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: TargetNetwork)
+tnAssociationId :: Lens.Lens' TargetNetwork (Core.Maybe Types.String)
+tnAssociationId = Lens.field @"associationId"
 {-# DEPRECATED tnAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
--- | The current state of the target network association.
+-- | The ID of the Client VPN endpoint with which the target network is associated.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tnStatus :: Lens.Lens' TargetNetwork (Lude.Maybe AssociationStatus)
-tnStatus = Lens.lens (status :: TargetNetwork -> Lude.Maybe AssociationStatus) (\s a -> s {status = a} :: TargetNetwork)
-{-# DEPRECATED tnStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'clientVpnEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tnClientVpnEndpointId :: Lens.Lens' TargetNetwork (Core.Maybe Types.String)
+tnClientVpnEndpointId = Lens.field @"clientVpnEndpointId"
+{-# DEPRECATED tnClientVpnEndpointId "Use generic-lens or generic-optics with 'clientVpnEndpointId' instead." #-}
 
 -- | The IDs of the security groups applied to the target network association.
 --
 -- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tnSecurityGroups :: Lens.Lens' TargetNetwork (Lude.Maybe [Lude.Text])
-tnSecurityGroups = Lens.lens (securityGroups :: TargetNetwork -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: TargetNetwork)
+tnSecurityGroups :: Lens.Lens' TargetNetwork (Core.Maybe [Types.String])
+tnSecurityGroups = Lens.field @"securityGroups"
 {-# DEPRECATED tnSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+
+-- | The current state of the target network association.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tnStatus :: Lens.Lens' TargetNetwork (Core.Maybe Types.AssociationStatus)
+tnStatus = Lens.field @"status"
+{-# DEPRECATED tnStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ID of the subnet specified as the target network.
 --
 -- /Note:/ Consider using 'targetNetworkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tnTargetNetworkId :: Lens.Lens' TargetNetwork (Lude.Maybe Lude.Text)
-tnTargetNetworkId = Lens.lens (targetNetworkId :: TargetNetwork -> Lude.Maybe Lude.Text) (\s a -> s {targetNetworkId = a} :: TargetNetwork)
+tnTargetNetworkId :: Lens.Lens' TargetNetwork (Core.Maybe Types.String)
+tnTargetNetworkId = Lens.field @"targetNetworkId"
 {-# DEPRECATED tnTargetNetworkId "Use generic-lens or generic-optics with 'targetNetworkId' instead." #-}
 
 -- | The ID of the VPC in which the target network (subnet) is located.
 --
 -- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tnVPCId :: Lens.Lens' TargetNetwork (Lude.Maybe Lude.Text)
-tnVPCId = Lens.lens (vpcId :: TargetNetwork -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: TargetNetwork)
-{-# DEPRECATED tnVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+tnVpcId :: Lens.Lens' TargetNetwork (Core.Maybe Types.String)
+tnVpcId = Lens.field @"vpcId"
+{-# DEPRECATED tnVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
--- | The ID of the Client VPN endpoint with which the target network is associated.
---
--- /Note:/ Consider using 'clientVPNEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tnClientVPNEndpointId :: Lens.Lens' TargetNetwork (Lude.Maybe Lude.Text)
-tnClientVPNEndpointId = Lens.lens (clientVPNEndpointId :: TargetNetwork -> Lude.Maybe Lude.Text) (\s a -> s {clientVPNEndpointId = a} :: TargetNetwork)
-{-# DEPRECATED tnClientVPNEndpointId "Use generic-lens or generic-optics with 'clientVPNEndpointId' instead." #-}
-
-instance Lude.FromXML TargetNetwork where
+instance Core.FromXML TargetNetwork where
   parseXML x =
     TargetNetwork'
-      Lude.<$> (x Lude..@? "associationId")
-      Lude.<*> (x Lude..@? "status")
-      Lude.<*> ( x Lude..@? "securityGroups" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "targetNetworkId")
-      Lude.<*> (x Lude..@? "vpcId")
-      Lude.<*> (x Lude..@? "clientVpnEndpointId")
+      Core.<$> (x Core..@? "associationId")
+      Core.<*> (x Core..@? "clientVpnEndpointId")
+      Core.<*> (x Core..@? "securityGroups" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "status")
+      Core.<*> (x Core..@? "targetNetworkId")
+      Core.<*> (x Core..@? "vpcId")

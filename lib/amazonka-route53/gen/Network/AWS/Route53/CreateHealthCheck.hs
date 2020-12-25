@@ -34,33 +34,31 @@ module Network.AWS.Route53.CreateHealthCheck
     mkCreateHealthCheck,
 
     -- ** Request lenses
-    chcHealthCheckConfig,
     chcCallerReference,
+    chcHealthCheckConfig,
 
     -- * Destructuring the response
     CreateHealthCheckResponse (..),
     mkCreateHealthCheckResponse,
 
     -- ** Response lenses
-    chcrsHealthCheck,
-    chcrsLocation,
-    chcrsResponseStatus,
+    chcrrsHealthCheck,
+    chcrrsLocation,
+    chcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A complex type that contains the health check request information.
 --
 -- /See:/ 'mkCreateHealthCheck' smart constructor.
 data CreateHealthCheck = CreateHealthCheck'
-  { -- | A complex type that contains settings for a new health check.
-    healthCheckConfig :: HealthCheckConfig,
-    -- | A unique string that identifies the request and that allows you to retry a failed @CreateHealthCheck@ request without the risk of creating two identical health checks:
+  { -- | A unique string that identifies the request and that allows you to retry a failed @CreateHealthCheck@ request without the risk of creating two identical health checks:
     --
     --
     --     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ and settings as a previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health check does exist, Route 53 returns the settings for the existing health check.
@@ -73,45 +71,22 @@ data CreateHealthCheck = CreateHealthCheck'
     --
     --
     --     * If you send a @CreateHealthCheck@ request with a unique @CallerReference@ but settings identical to an existing health check, Route 53 creates the health check.
-    callerReference :: Lude.Text
+    callerReference :: Types.CallerReference,
+    -- | A complex type that contains settings for a new health check.
+    healthCheckConfig :: Types.HealthCheckConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateHealthCheck' with the minimum fields required to make a request.
---
--- * 'healthCheckConfig' - A complex type that contains settings for a new health check.
--- * 'callerReference' - A unique string that identifies the request and that allows you to retry a failed @CreateHealthCheck@ request without the risk of creating two identical health checks:
---
---
---     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ and settings as a previous request, and if the health check doesn't exist, Amazon Route 53 creates the health check. If the health check does exist, Route 53 returns the settings for the existing health check.
---
---
---     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ as a deleted health check, regardless of the settings, Route 53 returns a @HealthCheckAlreadyExists@ error.
---
---
---     * If you send a @CreateHealthCheck@ request with the same @CallerReference@ as an existing health check but with different settings, Route 53 returns a @HealthCheckAlreadyExists@ error.
---
---
---     * If you send a @CreateHealthCheck@ request with a unique @CallerReference@ but settings identical to an existing health check, Route 53 creates the health check.
+-- | Creates a 'CreateHealthCheck' value with any optional fields omitted.
 mkCreateHealthCheck ::
-  -- | 'healthCheckConfig'
-  HealthCheckConfig ->
   -- | 'callerReference'
-  Lude.Text ->
+  Types.CallerReference ->
+  -- | 'healthCheckConfig'
+  Types.HealthCheckConfig ->
   CreateHealthCheck
-mkCreateHealthCheck pHealthCheckConfig_ pCallerReference_ =
-  CreateHealthCheck'
-    { healthCheckConfig = pHealthCheckConfig_,
-      callerReference = pCallerReference_
-    }
-
--- | A complex type that contains settings for a new health check.
---
--- /Note:/ Consider using 'healthCheckConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chcHealthCheckConfig :: Lens.Lens' CreateHealthCheck HealthCheckConfig
-chcHealthCheckConfig = Lens.lens (healthCheckConfig :: CreateHealthCheck -> HealthCheckConfig) (\s a -> s {healthCheckConfig = a} :: CreateHealthCheck)
-{-# DEPRECATED chcHealthCheckConfig "Use generic-lens or generic-optics with 'healthCheckConfig' instead." #-}
+mkCreateHealthCheck callerReference healthCheckConfig =
+  CreateHealthCheck' {callerReference, healthCheckConfig}
 
 -- | A unique string that identifies the request and that allows you to retry a failed @CreateHealthCheck@ request without the risk of creating two identical health checks:
 --
@@ -130,97 +105,88 @@ chcHealthCheckConfig = Lens.lens (healthCheckConfig :: CreateHealthCheck -> Heal
 --
 --
 -- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chcCallerReference :: Lens.Lens' CreateHealthCheck Lude.Text
-chcCallerReference = Lens.lens (callerReference :: CreateHealthCheck -> Lude.Text) (\s a -> s {callerReference = a} :: CreateHealthCheck)
+chcCallerReference :: Lens.Lens' CreateHealthCheck Types.CallerReference
+chcCallerReference = Lens.field @"callerReference"
 {-# DEPRECATED chcCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
 
-instance Lude.AWSRequest CreateHealthCheck where
-  type Rs CreateHealthCheck = CreateHealthCheckResponse
-  request = Req.postXML route53Service
-  response =
-    Res.receiveXML
-      ( \s h x ->
-          CreateHealthCheckResponse'
-            Lude.<$> (x Lude..@ "HealthCheck")
-            Lude.<*> (h Lude..# "Location")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | A complex type that contains settings for a new health check.
+--
+-- /Note:/ Consider using 'healthCheckConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chcHealthCheckConfig :: Lens.Lens' CreateHealthCheck Types.HealthCheckConfig
+chcHealthCheckConfig = Lens.field @"healthCheckConfig"
+{-# DEPRECATED chcHealthCheckConfig "Use generic-lens or generic-optics with 'healthCheckConfig' instead." #-}
 
-instance Lude.ToElement CreateHealthCheck where
-  toElement =
-    Lude.mkElement
+instance Core.ToXML CreateHealthCheck where
+  toXML CreateHealthCheck {..} =
+    Core.toXMLNode "CallerReference" callerReference
+      Core.<> Core.toXMLNode "HealthCheckConfig" healthCheckConfig
+  toXMLDocument =
+    Core.mkXMLElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}CreateHealthCheckRequest"
 
-instance Lude.ToHeaders CreateHealthCheck where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateHealthCheck where
-  toPath = Lude.const "/2013-04-01/healthcheck"
-
-instance Lude.ToQuery CreateHealthCheck where
-  toQuery = Lude.const Lude.mempty
-
-instance Lude.ToXML CreateHealthCheck where
-  toXML CreateHealthCheck' {..} =
-    Lude.mconcat
-      [ "HealthCheckConfig" Lude.@= healthCheckConfig,
-        "CallerReference" Lude.@= callerReference
-      ]
+instance Core.AWSRequest CreateHealthCheck where
+  type Rs CreateHealthCheck = CreateHealthCheckResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/2013-04-01/healthcheck",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          CreateHealthCheckResponse'
+            Core.<$> (x Core..@ "HealthCheck")
+            Core.<*> (Core.parseHeader "Location" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | A complex type containing the response information for the new health check.
 --
 -- /See:/ 'mkCreateHealthCheckResponse' smart constructor.
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
   { -- | A complex type that contains identifying information about the health check.
-    healthCheck :: HealthCheck,
+    healthCheck :: Types.HealthCheck,
     -- | The unique URL representing the new health check.
-    location :: Lude.Text,
+    location :: Types.ResourceURI,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateHealthCheckResponse' with the minimum fields required to make a request.
---
--- * 'healthCheck' - A complex type that contains identifying information about the health check.
--- * 'location' - The unique URL representing the new health check.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateHealthCheckResponse' value with any optional fields omitted.
 mkCreateHealthCheckResponse ::
   -- | 'healthCheck'
-  HealthCheck ->
+  Types.HealthCheck ->
   -- | 'location'
-  Lude.Text ->
+  Types.ResourceURI ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateHealthCheckResponse
-mkCreateHealthCheckResponse
-  pHealthCheck_
-  pLocation_
-  pResponseStatus_ =
-    CreateHealthCheckResponse'
-      { healthCheck = pHealthCheck_,
-        location = pLocation_,
-        responseStatus = pResponseStatus_
-      }
+mkCreateHealthCheckResponse healthCheck location responseStatus =
+  CreateHealthCheckResponse' {healthCheck, location, responseStatus}
 
 -- | A complex type that contains identifying information about the health check.
 --
 -- /Note:/ Consider using 'healthCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chcrsHealthCheck :: Lens.Lens' CreateHealthCheckResponse HealthCheck
-chcrsHealthCheck = Lens.lens (healthCheck :: CreateHealthCheckResponse -> HealthCheck) (\s a -> s {healthCheck = a} :: CreateHealthCheckResponse)
-{-# DEPRECATED chcrsHealthCheck "Use generic-lens or generic-optics with 'healthCheck' instead." #-}
+chcrrsHealthCheck :: Lens.Lens' CreateHealthCheckResponse Types.HealthCheck
+chcrrsHealthCheck = Lens.field @"healthCheck"
+{-# DEPRECATED chcrrsHealthCheck "Use generic-lens or generic-optics with 'healthCheck' instead." #-}
 
 -- | The unique URL representing the new health check.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chcrsLocation :: Lens.Lens' CreateHealthCheckResponse Lude.Text
-chcrsLocation = Lens.lens (location :: CreateHealthCheckResponse -> Lude.Text) (\s a -> s {location = a} :: CreateHealthCheckResponse)
-{-# DEPRECATED chcrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+chcrrsLocation :: Lens.Lens' CreateHealthCheckResponse Types.ResourceURI
+chcrrsLocation = Lens.field @"location"
+{-# DEPRECATED chcrrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chcrsResponseStatus :: Lens.Lens' CreateHealthCheckResponse Lude.Int
-chcrsResponseStatus = Lens.lens (responseStatus :: CreateHealthCheckResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHealthCheckResponse)
-{-# DEPRECATED chcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+chcrrsResponseStatus :: Lens.Lens' CreateHealthCheckResponse Core.Int
+chcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED chcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

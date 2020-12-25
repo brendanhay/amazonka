@@ -17,247 +17,236 @@ module Network.AWS.IoT.Types.OTAUpdateInfo
     mkOTAUpdateInfo,
 
     -- * Lenses
-    otauiLastModifiedDate,
-    otauiAwsJobExecutionsRolloutConfig,
-    otauiAwsIotJobId,
-    otauiProtocols,
-    otauiAwsJobPresignedURLConfig,
-    otauiOtaUpdateFiles,
-    otauiOtaUpdateStatus,
-    otauiTargets,
-    otauiAwsIotJobARN,
-    otauiCreationDate,
     otauiAdditionalParameters,
-    otauiOtaUpdateId,
-    otauiErrorInfo,
-    otauiOtaUpdateARN,
+    otauiAwsIotJobArn,
+    otauiAwsIotJobId,
+    otauiAwsJobExecutionsRolloutConfig,
+    otauiAwsJobPresignedUrlConfig,
+    otauiCreationDate,
     otauiDescription,
+    otauiErrorInfo,
+    otauiLastModifiedDate,
+    otauiOtaUpdateArn,
+    otauiOtaUpdateFiles,
+    otauiOtaUpdateId,
+    otauiOtaUpdateStatus,
+    otauiProtocols,
     otauiTargetSelection,
+    otauiTargets,
   )
 where
 
-import Network.AWS.IoT.Types.AWSJobExecutionsRolloutConfig
-import Network.AWS.IoT.Types.AWSJobPresignedURLConfig
-import Network.AWS.IoT.Types.ErrorInfo
-import Network.AWS.IoT.Types.OTAUpdateFile
-import Network.AWS.IoT.Types.OTAUpdateStatus
-import Network.AWS.IoT.Types.Protocol
-import Network.AWS.IoT.Types.TargetSelection
+import qualified Network.AWS.IoT.Types.AttributeKey as Types
+import qualified Network.AWS.IoT.Types.AwsIotJobArn as Types
+import qualified Network.AWS.IoT.Types.AwsIotJobId as Types
+import qualified Network.AWS.IoT.Types.AwsJobExecutionsRolloutConfig as Types
+import qualified Network.AWS.IoT.Types.AwsJobPresignedUrlConfig as Types
+import qualified Network.AWS.IoT.Types.ErrorInfo as Types
+import qualified Network.AWS.IoT.Types.OTAUpdateDescription as Types
+import qualified Network.AWS.IoT.Types.OTAUpdateFile as Types
+import qualified Network.AWS.IoT.Types.OTAUpdateStatus as Types
+import qualified Network.AWS.IoT.Types.OtaUpdateArn as Types
+import qualified Network.AWS.IoT.Types.OtaUpdateId as Types
+import qualified Network.AWS.IoT.Types.Protocol as Types
+import qualified Network.AWS.IoT.Types.Target as Types
+import qualified Network.AWS.IoT.Types.TargetSelection as Types
+import qualified Network.AWS.IoT.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an OTA update.
 --
 -- /See:/ 'mkOTAUpdateInfo' smart constructor.
 data OTAUpdateInfo = OTAUpdateInfo'
-  { -- | The date when the OTA update was last updated.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | Configuration for the rollout of OTA updates.
-    awsJobExecutionsRolloutConfig :: Lude.Maybe AWSJobExecutionsRolloutConfig,
-    -- | The AWS IoT job ID associated with the OTA update.
-    awsIotJobId :: Lude.Maybe Lude.Text,
-    -- | The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
-    protocols :: Lude.Maybe (Lude.NonEmpty Protocol),
-    -- | Configuration information for pre-signed URLs. Valid when @protocols@ contains HTTP.
-    awsJobPresignedURLConfig :: Lude.Maybe AWSJobPresignedURLConfig,
-    -- | A list of files associated with the OTA update.
-    otaUpdateFiles :: Lude.Maybe (Lude.NonEmpty OTAUpdateFile),
-    -- | The status of the OTA update.
-    otaUpdateStatus :: Lude.Maybe OTAUpdateStatus,
-    -- | The targets of the OTA update.
-    targets :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | A collection of name/value pairs
+    additionalParameters :: Core.Maybe (Core.HashMap Types.AttributeKey Types.Value),
     -- | The AWS IoT job ARN associated with the OTA update.
-    awsIotJobARN :: Lude.Maybe Lude.Text,
+    awsIotJobArn :: Core.Maybe Types.AwsIotJobArn,
+    -- | The AWS IoT job ID associated with the OTA update.
+    awsIotJobId :: Core.Maybe Types.AwsIotJobId,
+    -- | Configuration for the rollout of OTA updates.
+    awsJobExecutionsRolloutConfig :: Core.Maybe Types.AwsJobExecutionsRolloutConfig,
+    -- | Configuration information for pre-signed URLs. Valid when @protocols@ contains HTTP.
+    awsJobPresignedUrlConfig :: Core.Maybe Types.AwsJobPresignedUrlConfig,
     -- | The date when the OTA update was created.
-    creationDate :: Lude.Maybe Lude.Timestamp,
-    -- | A collection of name/value pairs
-    additionalParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The OTA update ID.
-    otaUpdateId :: Lude.Maybe Lude.Text,
-    -- | Error information associated with the OTA update.
-    errorInfo :: Lude.Maybe ErrorInfo,
-    -- | The OTA update ARN.
-    otaUpdateARN :: Lude.Maybe Lude.Text,
+    creationDate :: Core.Maybe Core.NominalDiffTime,
     -- | A description of the OTA update.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.OTAUpdateDescription,
+    -- | Error information associated with the OTA update.
+    errorInfo :: Core.Maybe Types.ErrorInfo,
+    -- | The date when the OTA update was last updated.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The OTA update ARN.
+    otaUpdateArn :: Core.Maybe Types.OtaUpdateArn,
+    -- | A list of files associated with the OTA update.
+    otaUpdateFiles :: Core.Maybe (Core.NonEmpty Types.OTAUpdateFile),
+    -- | The OTA update ID.
+    otaUpdateId :: Core.Maybe Types.OtaUpdateId,
+    -- | The status of the OTA update.
+    otaUpdateStatus :: Core.Maybe Types.OTAUpdateStatus,
+    -- | The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
+    protocols :: Core.Maybe (Core.NonEmpty Types.Protocol),
     -- | Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when the thing is added to a target group, even after the OTA update was completed by all things originally in the group.
-    targetSelection :: Lude.Maybe TargetSelection
+    targetSelection :: Core.Maybe Types.TargetSelection,
+    -- | The targets of the OTA update.
+    targets :: Core.Maybe (Core.NonEmpty Types.Target)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OTAUpdateInfo' with the minimum fields required to make a request.
---
--- * 'lastModifiedDate' - The date when the OTA update was last updated.
--- * 'awsJobExecutionsRolloutConfig' - Configuration for the rollout of OTA updates.
--- * 'awsIotJobId' - The AWS IoT job ID associated with the OTA update.
--- * 'protocols' - The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
--- * 'awsJobPresignedURLConfig' - Configuration information for pre-signed URLs. Valid when @protocols@ contains HTTP.
--- * 'otaUpdateFiles' - A list of files associated with the OTA update.
--- * 'otaUpdateStatus' - The status of the OTA update.
--- * 'targets' - The targets of the OTA update.
--- * 'awsIotJobARN' - The AWS IoT job ARN associated with the OTA update.
--- * 'creationDate' - The date when the OTA update was created.
--- * 'additionalParameters' - A collection of name/value pairs
--- * 'otaUpdateId' - The OTA update ID.
--- * 'errorInfo' - Error information associated with the OTA update.
--- * 'otaUpdateARN' - The OTA update ARN.
--- * 'description' - A description of the OTA update.
--- * 'targetSelection' - Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when the thing is added to a target group, even after the OTA update was completed by all things originally in the group.
+-- | Creates a 'OTAUpdateInfo' value with any optional fields omitted.
 mkOTAUpdateInfo ::
   OTAUpdateInfo
 mkOTAUpdateInfo =
   OTAUpdateInfo'
-    { lastModifiedDate = Lude.Nothing,
-      awsJobExecutionsRolloutConfig = Lude.Nothing,
-      awsIotJobId = Lude.Nothing,
-      protocols = Lude.Nothing,
-      awsJobPresignedURLConfig = Lude.Nothing,
-      otaUpdateFiles = Lude.Nothing,
-      otaUpdateStatus = Lude.Nothing,
-      targets = Lude.Nothing,
-      awsIotJobARN = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      additionalParameters = Lude.Nothing,
-      otaUpdateId = Lude.Nothing,
-      errorInfo = Lude.Nothing,
-      otaUpdateARN = Lude.Nothing,
-      description = Lude.Nothing,
-      targetSelection = Lude.Nothing
+    { additionalParameters = Core.Nothing,
+      awsIotJobArn = Core.Nothing,
+      awsIotJobId = Core.Nothing,
+      awsJobExecutionsRolloutConfig = Core.Nothing,
+      awsJobPresignedUrlConfig = Core.Nothing,
+      creationDate = Core.Nothing,
+      description = Core.Nothing,
+      errorInfo = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      otaUpdateArn = Core.Nothing,
+      otaUpdateFiles = Core.Nothing,
+      otaUpdateId = Core.Nothing,
+      otaUpdateStatus = Core.Nothing,
+      protocols = Core.Nothing,
+      targetSelection = Core.Nothing,
+      targets = Core.Nothing
     }
-
--- | The date when the OTA update was last updated.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiLastModifiedDate :: Lens.Lens' OTAUpdateInfo (Lude.Maybe Lude.Timestamp)
-otauiLastModifiedDate = Lens.lens (lastModifiedDate :: OTAUpdateInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | Configuration for the rollout of OTA updates.
---
--- /Note:/ Consider using 'awsJobExecutionsRolloutConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiAwsJobExecutionsRolloutConfig :: Lens.Lens' OTAUpdateInfo (Lude.Maybe AWSJobExecutionsRolloutConfig)
-otauiAwsJobExecutionsRolloutConfig = Lens.lens (awsJobExecutionsRolloutConfig :: OTAUpdateInfo -> Lude.Maybe AWSJobExecutionsRolloutConfig) (\s a -> s {awsJobExecutionsRolloutConfig = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiAwsJobExecutionsRolloutConfig "Use generic-lens or generic-optics with 'awsJobExecutionsRolloutConfig' instead." #-}
-
--- | The AWS IoT job ID associated with the OTA update.
---
--- /Note:/ Consider using 'awsIotJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiAwsIotJobId :: Lens.Lens' OTAUpdateInfo (Lude.Maybe Lude.Text)
-otauiAwsIotJobId = Lens.lens (awsIotJobId :: OTAUpdateInfo -> Lude.Maybe Lude.Text) (\s a -> s {awsIotJobId = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiAwsIotJobId "Use generic-lens or generic-optics with 'awsIotJobId' instead." #-}
-
--- | The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
---
--- /Note:/ Consider using 'protocols' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiProtocols :: Lens.Lens' OTAUpdateInfo (Lude.Maybe (Lude.NonEmpty Protocol))
-otauiProtocols = Lens.lens (protocols :: OTAUpdateInfo -> Lude.Maybe (Lude.NonEmpty Protocol)) (\s a -> s {protocols = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiProtocols "Use generic-lens or generic-optics with 'protocols' instead." #-}
-
--- | Configuration information for pre-signed URLs. Valid when @protocols@ contains HTTP.
---
--- /Note:/ Consider using 'awsJobPresignedURLConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiAwsJobPresignedURLConfig :: Lens.Lens' OTAUpdateInfo (Lude.Maybe AWSJobPresignedURLConfig)
-otauiAwsJobPresignedURLConfig = Lens.lens (awsJobPresignedURLConfig :: OTAUpdateInfo -> Lude.Maybe AWSJobPresignedURLConfig) (\s a -> s {awsJobPresignedURLConfig = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiAwsJobPresignedURLConfig "Use generic-lens or generic-optics with 'awsJobPresignedURLConfig' instead." #-}
-
--- | A list of files associated with the OTA update.
---
--- /Note:/ Consider using 'otaUpdateFiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiOtaUpdateFiles :: Lens.Lens' OTAUpdateInfo (Lude.Maybe (Lude.NonEmpty OTAUpdateFile))
-otauiOtaUpdateFiles = Lens.lens (otaUpdateFiles :: OTAUpdateInfo -> Lude.Maybe (Lude.NonEmpty OTAUpdateFile)) (\s a -> s {otaUpdateFiles = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiOtaUpdateFiles "Use generic-lens or generic-optics with 'otaUpdateFiles' instead." #-}
-
--- | The status of the OTA update.
---
--- /Note:/ Consider using 'otaUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiOtaUpdateStatus :: Lens.Lens' OTAUpdateInfo (Lude.Maybe OTAUpdateStatus)
-otauiOtaUpdateStatus = Lens.lens (otaUpdateStatus :: OTAUpdateInfo -> Lude.Maybe OTAUpdateStatus) (\s a -> s {otaUpdateStatus = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiOtaUpdateStatus "Use generic-lens or generic-optics with 'otaUpdateStatus' instead." #-}
-
--- | The targets of the OTA update.
---
--- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiTargets :: Lens.Lens' OTAUpdateInfo (Lude.Maybe (Lude.NonEmpty Lude.Text))
-otauiTargets = Lens.lens (targets :: OTAUpdateInfo -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {targets = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
-
--- | The AWS IoT job ARN associated with the OTA update.
---
--- /Note:/ Consider using 'awsIotJobARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiAwsIotJobARN :: Lens.Lens' OTAUpdateInfo (Lude.Maybe Lude.Text)
-otauiAwsIotJobARN = Lens.lens (awsIotJobARN :: OTAUpdateInfo -> Lude.Maybe Lude.Text) (\s a -> s {awsIotJobARN = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiAwsIotJobARN "Use generic-lens or generic-optics with 'awsIotJobARN' instead." #-}
-
--- | The date when the OTA update was created.
---
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiCreationDate :: Lens.Lens' OTAUpdateInfo (Lude.Maybe Lude.Timestamp)
-otauiCreationDate = Lens.lens (creationDate :: OTAUpdateInfo -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | A collection of name/value pairs
 --
 -- /Note:/ Consider using 'additionalParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiAdditionalParameters :: Lens.Lens' OTAUpdateInfo (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-otauiAdditionalParameters = Lens.lens (additionalParameters :: OTAUpdateInfo -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {additionalParameters = a} :: OTAUpdateInfo)
+otauiAdditionalParameters :: Lens.Lens' OTAUpdateInfo (Core.Maybe (Core.HashMap Types.AttributeKey Types.Value))
+otauiAdditionalParameters = Lens.field @"additionalParameters"
 {-# DEPRECATED otauiAdditionalParameters "Use generic-lens or generic-optics with 'additionalParameters' instead." #-}
 
--- | The OTA update ID.
+-- | The AWS IoT job ARN associated with the OTA update.
 --
--- /Note:/ Consider using 'otaUpdateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiOtaUpdateId :: Lens.Lens' OTAUpdateInfo (Lude.Maybe Lude.Text)
-otauiOtaUpdateId = Lens.lens (otaUpdateId :: OTAUpdateInfo -> Lude.Maybe Lude.Text) (\s a -> s {otaUpdateId = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiOtaUpdateId "Use generic-lens or generic-optics with 'otaUpdateId' instead." #-}
+-- /Note:/ Consider using 'awsIotJobArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiAwsIotJobArn :: Lens.Lens' OTAUpdateInfo (Core.Maybe Types.AwsIotJobArn)
+otauiAwsIotJobArn = Lens.field @"awsIotJobArn"
+{-# DEPRECATED otauiAwsIotJobArn "Use generic-lens or generic-optics with 'awsIotJobArn' instead." #-}
 
--- | Error information associated with the OTA update.
+-- | The AWS IoT job ID associated with the OTA update.
 --
--- /Note:/ Consider using 'errorInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiErrorInfo :: Lens.Lens' OTAUpdateInfo (Lude.Maybe ErrorInfo)
-otauiErrorInfo = Lens.lens (errorInfo :: OTAUpdateInfo -> Lude.Maybe ErrorInfo) (\s a -> s {errorInfo = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiErrorInfo "Use generic-lens or generic-optics with 'errorInfo' instead." #-}
+-- /Note:/ Consider using 'awsIotJobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiAwsIotJobId :: Lens.Lens' OTAUpdateInfo (Core.Maybe Types.AwsIotJobId)
+otauiAwsIotJobId = Lens.field @"awsIotJobId"
+{-# DEPRECATED otauiAwsIotJobId "Use generic-lens or generic-optics with 'awsIotJobId' instead." #-}
 
--- | The OTA update ARN.
+-- | Configuration for the rollout of OTA updates.
 --
--- /Note:/ Consider using 'otaUpdateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiOtaUpdateARN :: Lens.Lens' OTAUpdateInfo (Lude.Maybe Lude.Text)
-otauiOtaUpdateARN = Lens.lens (otaUpdateARN :: OTAUpdateInfo -> Lude.Maybe Lude.Text) (\s a -> s {otaUpdateARN = a} :: OTAUpdateInfo)
-{-# DEPRECATED otauiOtaUpdateARN "Use generic-lens or generic-optics with 'otaUpdateARN' instead." #-}
+-- /Note:/ Consider using 'awsJobExecutionsRolloutConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiAwsJobExecutionsRolloutConfig :: Lens.Lens' OTAUpdateInfo (Core.Maybe Types.AwsJobExecutionsRolloutConfig)
+otauiAwsJobExecutionsRolloutConfig = Lens.field @"awsJobExecutionsRolloutConfig"
+{-# DEPRECATED otauiAwsJobExecutionsRolloutConfig "Use generic-lens or generic-optics with 'awsJobExecutionsRolloutConfig' instead." #-}
+
+-- | Configuration information for pre-signed URLs. Valid when @protocols@ contains HTTP.
+--
+-- /Note:/ Consider using 'awsJobPresignedUrlConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiAwsJobPresignedUrlConfig :: Lens.Lens' OTAUpdateInfo (Core.Maybe Types.AwsJobPresignedUrlConfig)
+otauiAwsJobPresignedUrlConfig = Lens.field @"awsJobPresignedUrlConfig"
+{-# DEPRECATED otauiAwsJobPresignedUrlConfig "Use generic-lens or generic-optics with 'awsJobPresignedUrlConfig' instead." #-}
+
+-- | The date when the OTA update was created.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiCreationDate :: Lens.Lens' OTAUpdateInfo (Core.Maybe Core.NominalDiffTime)
+otauiCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED otauiCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | A description of the OTA update.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiDescription :: Lens.Lens' OTAUpdateInfo (Lude.Maybe Lude.Text)
-otauiDescription = Lens.lens (description :: OTAUpdateInfo -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: OTAUpdateInfo)
+otauiDescription :: Lens.Lens' OTAUpdateInfo (Core.Maybe Types.OTAUpdateDescription)
+otauiDescription = Lens.field @"description"
 {-# DEPRECATED otauiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Error information associated with the OTA update.
+--
+-- /Note:/ Consider using 'errorInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiErrorInfo :: Lens.Lens' OTAUpdateInfo (Core.Maybe Types.ErrorInfo)
+otauiErrorInfo = Lens.field @"errorInfo"
+{-# DEPRECATED otauiErrorInfo "Use generic-lens or generic-optics with 'errorInfo' instead." #-}
+
+-- | The date when the OTA update was last updated.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiLastModifiedDate :: Lens.Lens' OTAUpdateInfo (Core.Maybe Core.NominalDiffTime)
+otauiLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED otauiLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The OTA update ARN.
+--
+-- /Note:/ Consider using 'otaUpdateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiOtaUpdateArn :: Lens.Lens' OTAUpdateInfo (Core.Maybe Types.OtaUpdateArn)
+otauiOtaUpdateArn = Lens.field @"otaUpdateArn"
+{-# DEPRECATED otauiOtaUpdateArn "Use generic-lens or generic-optics with 'otaUpdateArn' instead." #-}
+
+-- | A list of files associated with the OTA update.
+--
+-- /Note:/ Consider using 'otaUpdateFiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiOtaUpdateFiles :: Lens.Lens' OTAUpdateInfo (Core.Maybe (Core.NonEmpty Types.OTAUpdateFile))
+otauiOtaUpdateFiles = Lens.field @"otaUpdateFiles"
+{-# DEPRECATED otauiOtaUpdateFiles "Use generic-lens or generic-optics with 'otaUpdateFiles' instead." #-}
+
+-- | The OTA update ID.
+--
+-- /Note:/ Consider using 'otaUpdateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiOtaUpdateId :: Lens.Lens' OTAUpdateInfo (Core.Maybe Types.OtaUpdateId)
+otauiOtaUpdateId = Lens.field @"otaUpdateId"
+{-# DEPRECATED otauiOtaUpdateId "Use generic-lens or generic-optics with 'otaUpdateId' instead." #-}
+
+-- | The status of the OTA update.
+--
+-- /Note:/ Consider using 'otaUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiOtaUpdateStatus :: Lens.Lens' OTAUpdateInfo (Core.Maybe Types.OTAUpdateStatus)
+otauiOtaUpdateStatus = Lens.field @"otaUpdateStatus"
+{-# DEPRECATED otauiOtaUpdateStatus "Use generic-lens or generic-optics with 'otaUpdateStatus' instead." #-}
+
+-- | The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both HTTP and MQTT are specified, the target device can choose the protocol.
+--
+-- /Note:/ Consider using 'protocols' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiProtocols :: Lens.Lens' OTAUpdateInfo (Core.Maybe (Core.NonEmpty Types.Protocol))
+otauiProtocols = Lens.field @"protocols"
+{-# DEPRECATED otauiProtocols "Use generic-lens or generic-optics with 'protocols' instead." #-}
 
 -- | Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when the thing is added to a target group, even after the OTA update was completed by all things originally in the group.
 --
 -- /Note:/ Consider using 'targetSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-otauiTargetSelection :: Lens.Lens' OTAUpdateInfo (Lude.Maybe TargetSelection)
-otauiTargetSelection = Lens.lens (targetSelection :: OTAUpdateInfo -> Lude.Maybe TargetSelection) (\s a -> s {targetSelection = a} :: OTAUpdateInfo)
+otauiTargetSelection :: Lens.Lens' OTAUpdateInfo (Core.Maybe Types.TargetSelection)
+otauiTargetSelection = Lens.field @"targetSelection"
 {-# DEPRECATED otauiTargetSelection "Use generic-lens or generic-optics with 'targetSelection' instead." #-}
 
-instance Lude.FromJSON OTAUpdateInfo where
+-- | The targets of the OTA update.
+--
+-- /Note:/ Consider using 'targets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+otauiTargets :: Lens.Lens' OTAUpdateInfo (Core.Maybe (Core.NonEmpty Types.Target))
+otauiTargets = Lens.field @"targets"
+{-# DEPRECATED otauiTargets "Use generic-lens or generic-optics with 'targets' instead." #-}
+
+instance Core.FromJSON OTAUpdateInfo where
   parseJSON =
-    Lude.withObject
-      "OTAUpdateInfo"
-      ( \x ->
-          OTAUpdateInfo'
-            Lude.<$> (x Lude..:? "lastModifiedDate")
-            Lude.<*> (x Lude..:? "awsJobExecutionsRolloutConfig")
-            Lude.<*> (x Lude..:? "awsIotJobId")
-            Lude.<*> (x Lude..:? "protocols")
-            Lude.<*> (x Lude..:? "awsJobPresignedUrlConfig")
-            Lude.<*> (x Lude..:? "otaUpdateFiles")
-            Lude.<*> (x Lude..:? "otaUpdateStatus")
-            Lude.<*> (x Lude..:? "targets")
-            Lude.<*> (x Lude..:? "awsIotJobArn")
-            Lude.<*> (x Lude..:? "creationDate")
-            Lude.<*> (x Lude..:? "additionalParameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "otaUpdateId")
-            Lude.<*> (x Lude..:? "errorInfo")
-            Lude.<*> (x Lude..:? "otaUpdateArn")
-            Lude.<*> (x Lude..:? "description")
-            Lude.<*> (x Lude..:? "targetSelection")
-      )
+    Core.withObject "OTAUpdateInfo" Core.$
+      \x ->
+        OTAUpdateInfo'
+          Core.<$> (x Core..:? "additionalParameters")
+          Core.<*> (x Core..:? "awsIotJobArn")
+          Core.<*> (x Core..:? "awsIotJobId")
+          Core.<*> (x Core..:? "awsJobExecutionsRolloutConfig")
+          Core.<*> (x Core..:? "awsJobPresignedUrlConfig")
+          Core.<*> (x Core..:? "creationDate")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "errorInfo")
+          Core.<*> (x Core..:? "lastModifiedDate")
+          Core.<*> (x Core..:? "otaUpdateArn")
+          Core.<*> (x Core..:? "otaUpdateFiles")
+          Core.<*> (x Core..:? "otaUpdateId")
+          Core.<*> (x Core..:? "otaUpdateStatus")
+          Core.<*> (x Core..:? "protocols")
+          Core.<*> (x Core..:? "targetSelection")
+          Core.<*> (x Core..:? "targets")

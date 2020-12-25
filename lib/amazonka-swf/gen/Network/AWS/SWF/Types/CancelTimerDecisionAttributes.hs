@@ -22,7 +22,8 @@ module Network.AWS.SWF.Types.CancelTimerDecisionAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.TimerId as Types
 
 -- | Provides the details of the @CancelTimer@ decision.
 --
@@ -43,29 +44,27 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkCancelTimerDecisionAttributes' smart constructor.
 newtype CancelTimerDecisionAttributes = CancelTimerDecisionAttributes'
   { -- | The unique ID of the timer to cancel.
-    timerId :: Lude.Text
+    timerId :: Types.TimerId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelTimerDecisionAttributes' with the minimum fields required to make a request.
---
--- * 'timerId' - The unique ID of the timer to cancel.
+-- | Creates a 'CancelTimerDecisionAttributes' value with any optional fields omitted.
 mkCancelTimerDecisionAttributes ::
   -- | 'timerId'
-  Lude.Text ->
+  Types.TimerId ->
   CancelTimerDecisionAttributes
-mkCancelTimerDecisionAttributes pTimerId_ =
-  CancelTimerDecisionAttributes' {timerId = pTimerId_}
+mkCancelTimerDecisionAttributes timerId =
+  CancelTimerDecisionAttributes' {timerId}
 
 -- | The unique ID of the timer to cancel.
 --
 -- /Note:/ Consider using 'timerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctdaTimerId :: Lens.Lens' CancelTimerDecisionAttributes Lude.Text
-ctdaTimerId = Lens.lens (timerId :: CancelTimerDecisionAttributes -> Lude.Text) (\s a -> s {timerId = a} :: CancelTimerDecisionAttributes)
+ctdaTimerId :: Lens.Lens' CancelTimerDecisionAttributes Types.TimerId
+ctdaTimerId = Lens.field @"timerId"
 {-# DEPRECATED ctdaTimerId "Use generic-lens or generic-optics with 'timerId' instead." #-}
 
-instance Lude.ToJSON CancelTimerDecisionAttributes where
-  toJSON CancelTimerDecisionAttributes' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("timerId" Lude..= timerId)])
+instance Core.FromJSON CancelTimerDecisionAttributes where
+  toJSON CancelTimerDecisionAttributes {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("timerId" Core..= timerId)])

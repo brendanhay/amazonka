@@ -13,47 +13,52 @@
 module Network.AWS.Redshift.Types.UsageLimitLimitType
   ( UsageLimitLimitType
       ( UsageLimitLimitType',
-        Time,
-        DataScanned
+        UsageLimitLimitTypeTime,
+        UsageLimitLimitTypeDataScanned,
+        fromUsageLimitLimitType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
 
-newtype UsageLimitLimitType = UsageLimitLimitType' Lude.Text
+newtype UsageLimitLimitType = UsageLimitLimitType'
+  { fromUsageLimitLimitType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Time :: UsageLimitLimitType
-pattern Time = UsageLimitLimitType' "time"
+pattern UsageLimitLimitTypeTime :: UsageLimitLimitType
+pattern UsageLimitLimitTypeTime = UsageLimitLimitType' "time"
 
-pattern DataScanned :: UsageLimitLimitType
-pattern DataScanned = UsageLimitLimitType' "data-scanned"
+pattern UsageLimitLimitTypeDataScanned :: UsageLimitLimitType
+pattern UsageLimitLimitTypeDataScanned = UsageLimitLimitType' "data-scanned"
 
 {-# COMPLETE
-  Time,
-  DataScanned,
+  UsageLimitLimitTypeTime,
+  UsageLimitLimitTypeDataScanned,
   UsageLimitLimitType'
   #-}

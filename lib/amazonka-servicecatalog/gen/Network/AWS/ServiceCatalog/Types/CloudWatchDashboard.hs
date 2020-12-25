@@ -22,34 +22,32 @@ module Network.AWS.ServiceCatalog.Types.CloudWatchDashboard
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.Name as Types
 
 -- | Information about a CloudWatch dashboard.
 --
 -- /See:/ 'mkCloudWatchDashboard' smart constructor.
 newtype CloudWatchDashboard = CloudWatchDashboard'
   { -- | The name of the CloudWatch dashboard.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudWatchDashboard' with the minimum fields required to make a request.
---
--- * 'name' - The name of the CloudWatch dashboard.
+-- | Creates a 'CloudWatchDashboard' value with any optional fields omitted.
 mkCloudWatchDashboard ::
   CloudWatchDashboard
-mkCloudWatchDashboard = CloudWatchDashboard' {name = Lude.Nothing}
+mkCloudWatchDashboard = CloudWatchDashboard' {name = Core.Nothing}
 
 -- | The name of the CloudWatch dashboard.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwdName :: Lens.Lens' CloudWatchDashboard (Lude.Maybe Lude.Text)
-cwdName = Lens.lens (name :: CloudWatchDashboard -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CloudWatchDashboard)
+cwdName :: Lens.Lens' CloudWatchDashboard (Core.Maybe Types.Name)
+cwdName = Lens.field @"name"
 {-# DEPRECATED cwdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON CloudWatchDashboard where
+instance Core.FromJSON CloudWatchDashboard where
   parseJSON =
-    Lude.withObject
-      "CloudWatchDashboard"
-      (\x -> CloudWatchDashboard' Lude.<$> (x Lude..:? "Name"))
+    Core.withObject "CloudWatchDashboard" Core.$
+      \x -> CloudWatchDashboard' Core.<$> (x Core..:? "Name")

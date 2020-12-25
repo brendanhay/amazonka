@@ -13,56 +13,58 @@
 module Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm
   ( KeyAlgorithm
       ( KeyAlgorithm',
-        Rsa2048,
-        Rsa4096,
-        EcPRIME256V1,
-        EcSECP384R1
+        KeyAlgorithmRsa2048,
+        KeyAlgorithmRsa4096,
+        KeyAlgorithmEcPRIME256V1,
+        KeyAlgorithmEcSECP384R1,
+        fromKeyAlgorithm
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype KeyAlgorithm = KeyAlgorithm' Lude.Text
+newtype KeyAlgorithm = KeyAlgorithm' {fromKeyAlgorithm :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Rsa2048 :: KeyAlgorithm
-pattern Rsa2048 = KeyAlgorithm' "RSA_2048"
+pattern KeyAlgorithmRsa2048 :: KeyAlgorithm
+pattern KeyAlgorithmRsa2048 = KeyAlgorithm' "RSA_2048"
 
-pattern Rsa4096 :: KeyAlgorithm
-pattern Rsa4096 = KeyAlgorithm' "RSA_4096"
+pattern KeyAlgorithmRsa4096 :: KeyAlgorithm
+pattern KeyAlgorithmRsa4096 = KeyAlgorithm' "RSA_4096"
 
-pattern EcPRIME256V1 :: KeyAlgorithm
-pattern EcPRIME256V1 = KeyAlgorithm' "EC_prime256v1"
+pattern KeyAlgorithmEcPRIME256V1 :: KeyAlgorithm
+pattern KeyAlgorithmEcPRIME256V1 = KeyAlgorithm' "EC_prime256v1"
 
-pattern EcSECP384R1 :: KeyAlgorithm
-pattern EcSECP384R1 = KeyAlgorithm' "EC_secp384r1"
+pattern KeyAlgorithmEcSECP384R1 :: KeyAlgorithm
+pattern KeyAlgorithmEcSECP384R1 = KeyAlgorithm' "EC_secp384r1"
 
 {-# COMPLETE
-  Rsa2048,
-  Rsa4096,
-  EcPRIME256V1,
-  EcSECP384R1,
+  KeyAlgorithmRsa2048,
+  KeyAlgorithmRsa4096,
+  KeyAlgorithmEcPRIME256V1,
+  KeyAlgorithmEcSECP384R1,
   KeyAlgorithm'
   #-}

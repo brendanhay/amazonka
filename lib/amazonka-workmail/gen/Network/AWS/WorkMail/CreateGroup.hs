@@ -20,132 +20,116 @@ module Network.AWS.WorkMail.CreateGroup
     mkCreateGroup,
 
     -- ** Request lenses
-    cgName,
     cgOrganizationId,
+    cgName,
 
     -- * Destructuring the response
     CreateGroupResponse (..),
     mkCreateGroupResponse,
 
     -- ** Response lenses
-    cgrsGroupId,
-    cgrsResponseStatus,
+    cgrrsGroupId,
+    cgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { -- | The name of the group.
-    name :: Lude.Text,
-    -- | The organization under which the group is to be created.
-    organizationId :: Lude.Text
+  { -- | The organization under which the group is to be created.
+    organizationId :: Types.OrganizationId,
+    -- | The name of the group.
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
---
--- * 'name' - The name of the group.
--- * 'organizationId' - The organization under which the group is to be created.
+-- | Creates a 'CreateGroup' value with any optional fields omitted.
 mkCreateGroup ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'name'
+  Types.Name ->
   CreateGroup
-mkCreateGroup pName_ pOrganizationId_ =
-  CreateGroup' {name = pName_, organizationId = pOrganizationId_}
-
--- | The name of the group.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgName :: Lens.Lens' CreateGroup Lude.Text
-cgName = Lens.lens (name :: CreateGroup -> Lude.Text) (\s a -> s {name = a} :: CreateGroup)
-{-# DEPRECATED cgName "Use generic-lens or generic-optics with 'name' instead." #-}
+mkCreateGroup organizationId name =
+  CreateGroup' {organizationId, name}
 
 -- | The organization under which the group is to be created.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgOrganizationId :: Lens.Lens' CreateGroup Lude.Text
-cgOrganizationId = Lens.lens (organizationId :: CreateGroup -> Lude.Text) (\s a -> s {organizationId = a} :: CreateGroup)
+cgOrganizationId :: Lens.Lens' CreateGroup Types.OrganizationId
+cgOrganizationId = Lens.field @"organizationId"
 {-# DEPRECATED cgOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Lude.AWSRequest CreateGroup where
+-- | The name of the group.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgName :: Lens.Lens' CreateGroup Types.Name
+cgName = Lens.field @"name"
+{-# DEPRECATED cgName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON CreateGroup where
+  toJSON CreateGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("Name" Core..= name)
+          ]
+      )
+
+instance Core.AWSRequest CreateGroup where
   type Rs CreateGroup = CreateGroupResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.CreateGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateGroupResponse'
-            Lude.<$> (x Lude..?> "GroupId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GroupId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.CreateGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateGroup where
-  toJSON CreateGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath CreateGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
   { -- | The identifier of the group.
-    groupId :: Lude.Maybe Lude.Text,
+    groupId :: Core.Maybe Types.WorkMailIdentifier,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
---
--- * 'groupId' - The identifier of the group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateGroupResponse' value with any optional fields omitted.
 mkCreateGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateGroupResponse
-mkCreateGroupResponse pResponseStatus_ =
-  CreateGroupResponse'
-    { groupId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateGroupResponse responseStatus =
+  CreateGroupResponse' {groupId = Core.Nothing, responseStatus}
 
 -- | The identifier of the group.
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrsGroupId :: Lens.Lens' CreateGroupResponse (Lude.Maybe Lude.Text)
-cgrsGroupId = Lens.lens (groupId :: CreateGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {groupId = a} :: CreateGroupResponse)
-{-# DEPRECATED cgrsGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
+cgrrsGroupId :: Lens.Lens' CreateGroupResponse (Core.Maybe Types.WorkMailIdentifier)
+cgrrsGroupId = Lens.field @"groupId"
+{-# DEPRECATED cgrrsGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrsResponseStatus :: Lens.Lens' CreateGroupResponse Lude.Int
-cgrsResponseStatus = Lens.lens (responseStatus :: CreateGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGroupResponse)
-{-# DEPRECATED cgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cgrrsResponseStatus :: Lens.Lens' CreateGroupResponse Core.Int
+cgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

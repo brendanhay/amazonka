@@ -17,134 +17,126 @@ module Network.AWS.ElastiCache.Types.CacheNodeUpdateStatus
     mkCacheNodeUpdateStatus,
 
     -- * Lenses
+    cnusCacheNodeId,
+    cnusNodeDeletionDate,
     cnusNodeUpdateEndDate,
     cnusNodeUpdateInitiatedBy,
-    cnusNodeUpdateStatusModifiedDate,
-    cnusCacheNodeId,
     cnusNodeUpdateInitiatedDate,
     cnusNodeUpdateStartDate,
     cnusNodeUpdateStatus,
-    cnusNodeDeletionDate,
+    cnusNodeUpdateStatusModifiedDate,
   )
 where
 
-import Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy
-import Network.AWS.ElastiCache.Types.NodeUpdateStatus
+import qualified Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy as Types
+import qualified Network.AWS.ElastiCache.Types.NodeUpdateStatus as Types
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of the service update on the cache node
 --
 -- /See:/ 'mkCacheNodeUpdateStatus' smart constructor.
 data CacheNodeUpdateStatus = CacheNodeUpdateStatus'
-  { -- | The end date of the update for a node
-    nodeUpdateEndDate :: Lude.Maybe Lude.DateTime,
-    -- | Reflects whether the update was initiated by the customer or automatically applied
-    nodeUpdateInitiatedBy :: Lude.Maybe NodeUpdateInitiatedBy,
-    -- | The date when the NodeUpdateStatus was last modified>
-    nodeUpdateStatusModifiedDate :: Lude.Maybe Lude.DateTime,
-    -- | The node ID of the cache cluster
-    cacheNodeId :: Lude.Maybe Lude.Text,
-    -- | The date when the update is triggered
-    nodeUpdateInitiatedDate :: Lude.Maybe Lude.DateTime,
-    -- | The start date of the update for a node
-    nodeUpdateStartDate :: Lude.Maybe Lude.DateTime,
-    -- | The update status of the node
-    nodeUpdateStatus :: Lude.Maybe NodeUpdateStatus,
+  { -- | The node ID of the cache cluster
+    cacheNodeId :: Core.Maybe Types.String,
     -- | The deletion date of the node
-    nodeDeletionDate :: Lude.Maybe Lude.DateTime
+    nodeDeletionDate :: Core.Maybe Core.UTCTime,
+    -- | The end date of the update for a node
+    nodeUpdateEndDate :: Core.Maybe Core.UTCTime,
+    -- | Reflects whether the update was initiated by the customer or automatically applied
+    nodeUpdateInitiatedBy :: Core.Maybe Types.NodeUpdateInitiatedBy,
+    -- | The date when the update is triggered
+    nodeUpdateInitiatedDate :: Core.Maybe Core.UTCTime,
+    -- | The start date of the update for a node
+    nodeUpdateStartDate :: Core.Maybe Core.UTCTime,
+    -- | The update status of the node
+    nodeUpdateStatus :: Core.Maybe Types.NodeUpdateStatus,
+    -- | The date when the NodeUpdateStatus was last modified>
+    nodeUpdateStatusModifiedDate :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CacheNodeUpdateStatus' with the minimum fields required to make a request.
---
--- * 'nodeUpdateEndDate' - The end date of the update for a node
--- * 'nodeUpdateInitiatedBy' - Reflects whether the update was initiated by the customer or automatically applied
--- * 'nodeUpdateStatusModifiedDate' - The date when the NodeUpdateStatus was last modified>
--- * 'cacheNodeId' - The node ID of the cache cluster
--- * 'nodeUpdateInitiatedDate' - The date when the update is triggered
--- * 'nodeUpdateStartDate' - The start date of the update for a node
--- * 'nodeUpdateStatus' - The update status of the node
--- * 'nodeDeletionDate' - The deletion date of the node
+-- | Creates a 'CacheNodeUpdateStatus' value with any optional fields omitted.
 mkCacheNodeUpdateStatus ::
   CacheNodeUpdateStatus
 mkCacheNodeUpdateStatus =
   CacheNodeUpdateStatus'
-    { nodeUpdateEndDate = Lude.Nothing,
-      nodeUpdateInitiatedBy = Lude.Nothing,
-      nodeUpdateStatusModifiedDate = Lude.Nothing,
-      cacheNodeId = Lude.Nothing,
-      nodeUpdateInitiatedDate = Lude.Nothing,
-      nodeUpdateStartDate = Lude.Nothing,
-      nodeUpdateStatus = Lude.Nothing,
-      nodeDeletionDate = Lude.Nothing
+    { cacheNodeId = Core.Nothing,
+      nodeDeletionDate = Core.Nothing,
+      nodeUpdateEndDate = Core.Nothing,
+      nodeUpdateInitiatedBy = Core.Nothing,
+      nodeUpdateInitiatedDate = Core.Nothing,
+      nodeUpdateStartDate = Core.Nothing,
+      nodeUpdateStatus = Core.Nothing,
+      nodeUpdateStatusModifiedDate = Core.Nothing
     }
+
+-- | The node ID of the cache cluster
+--
+-- /Note:/ Consider using 'cacheNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnusCacheNodeId :: Lens.Lens' CacheNodeUpdateStatus (Core.Maybe Types.String)
+cnusCacheNodeId = Lens.field @"cacheNodeId"
+{-# DEPRECATED cnusCacheNodeId "Use generic-lens or generic-optics with 'cacheNodeId' instead." #-}
+
+-- | The deletion date of the node
+--
+-- /Note:/ Consider using 'nodeDeletionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnusNodeDeletionDate :: Lens.Lens' CacheNodeUpdateStatus (Core.Maybe Core.UTCTime)
+cnusNodeDeletionDate = Lens.field @"nodeDeletionDate"
+{-# DEPRECATED cnusNodeDeletionDate "Use generic-lens or generic-optics with 'nodeDeletionDate' instead." #-}
 
 -- | The end date of the update for a node
 --
 -- /Note:/ Consider using 'nodeUpdateEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeUpdateEndDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.DateTime)
-cnusNodeUpdateEndDate = Lens.lens (nodeUpdateEndDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateEndDate = a} :: CacheNodeUpdateStatus)
+cnusNodeUpdateEndDate :: Lens.Lens' CacheNodeUpdateStatus (Core.Maybe Core.UTCTime)
+cnusNodeUpdateEndDate = Lens.field @"nodeUpdateEndDate"
 {-# DEPRECATED cnusNodeUpdateEndDate "Use generic-lens or generic-optics with 'nodeUpdateEndDate' instead." #-}
 
 -- | Reflects whether the update was initiated by the customer or automatically applied
 --
 -- /Note:/ Consider using 'nodeUpdateInitiatedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeUpdateInitiatedBy :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe NodeUpdateInitiatedBy)
-cnusNodeUpdateInitiatedBy = Lens.lens (nodeUpdateInitiatedBy :: CacheNodeUpdateStatus -> Lude.Maybe NodeUpdateInitiatedBy) (\s a -> s {nodeUpdateInitiatedBy = a} :: CacheNodeUpdateStatus)
+cnusNodeUpdateInitiatedBy :: Lens.Lens' CacheNodeUpdateStatus (Core.Maybe Types.NodeUpdateInitiatedBy)
+cnusNodeUpdateInitiatedBy = Lens.field @"nodeUpdateInitiatedBy"
 {-# DEPRECATED cnusNodeUpdateInitiatedBy "Use generic-lens or generic-optics with 'nodeUpdateInitiatedBy' instead." #-}
-
--- | The date when the NodeUpdateStatus was last modified>
---
--- /Note:/ Consider using 'nodeUpdateStatusModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeUpdateStatusModifiedDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.DateTime)
-cnusNodeUpdateStatusModifiedDate = Lens.lens (nodeUpdateStatusModifiedDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateStatusModifiedDate = a} :: CacheNodeUpdateStatus)
-{-# DEPRECATED cnusNodeUpdateStatusModifiedDate "Use generic-lens or generic-optics with 'nodeUpdateStatusModifiedDate' instead." #-}
-
--- | The node ID of the cache cluster
---
--- /Note:/ Consider using 'cacheNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusCacheNodeId :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.Text)
-cnusCacheNodeId = Lens.lens (cacheNodeId :: CacheNodeUpdateStatus -> Lude.Maybe Lude.Text) (\s a -> s {cacheNodeId = a} :: CacheNodeUpdateStatus)
-{-# DEPRECATED cnusCacheNodeId "Use generic-lens or generic-optics with 'cacheNodeId' instead." #-}
 
 -- | The date when the update is triggered
 --
 -- /Note:/ Consider using 'nodeUpdateInitiatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeUpdateInitiatedDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.DateTime)
-cnusNodeUpdateInitiatedDate = Lens.lens (nodeUpdateInitiatedDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateInitiatedDate = a} :: CacheNodeUpdateStatus)
+cnusNodeUpdateInitiatedDate :: Lens.Lens' CacheNodeUpdateStatus (Core.Maybe Core.UTCTime)
+cnusNodeUpdateInitiatedDate = Lens.field @"nodeUpdateInitiatedDate"
 {-# DEPRECATED cnusNodeUpdateInitiatedDate "Use generic-lens or generic-optics with 'nodeUpdateInitiatedDate' instead." #-}
 
 -- | The start date of the update for a node
 --
 -- /Note:/ Consider using 'nodeUpdateStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeUpdateStartDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.DateTime)
-cnusNodeUpdateStartDate = Lens.lens (nodeUpdateStartDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateStartDate = a} :: CacheNodeUpdateStatus)
+cnusNodeUpdateStartDate :: Lens.Lens' CacheNodeUpdateStatus (Core.Maybe Core.UTCTime)
+cnusNodeUpdateStartDate = Lens.field @"nodeUpdateStartDate"
 {-# DEPRECATED cnusNodeUpdateStartDate "Use generic-lens or generic-optics with 'nodeUpdateStartDate' instead." #-}
 
 -- | The update status of the node
 --
 -- /Note:/ Consider using 'nodeUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeUpdateStatus :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe NodeUpdateStatus)
-cnusNodeUpdateStatus = Lens.lens (nodeUpdateStatus :: CacheNodeUpdateStatus -> Lude.Maybe NodeUpdateStatus) (\s a -> s {nodeUpdateStatus = a} :: CacheNodeUpdateStatus)
+cnusNodeUpdateStatus :: Lens.Lens' CacheNodeUpdateStatus (Core.Maybe Types.NodeUpdateStatus)
+cnusNodeUpdateStatus = Lens.field @"nodeUpdateStatus"
 {-# DEPRECATED cnusNodeUpdateStatus "Use generic-lens or generic-optics with 'nodeUpdateStatus' instead." #-}
 
--- | The deletion date of the node
+-- | The date when the NodeUpdateStatus was last modified>
 --
--- /Note:/ Consider using 'nodeDeletionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnusNodeDeletionDate :: Lens.Lens' CacheNodeUpdateStatus (Lude.Maybe Lude.DateTime)
-cnusNodeDeletionDate = Lens.lens (nodeDeletionDate :: CacheNodeUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeDeletionDate = a} :: CacheNodeUpdateStatus)
-{-# DEPRECATED cnusNodeDeletionDate "Use generic-lens or generic-optics with 'nodeDeletionDate' instead." #-}
+-- /Note:/ Consider using 'nodeUpdateStatusModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnusNodeUpdateStatusModifiedDate :: Lens.Lens' CacheNodeUpdateStatus (Core.Maybe Core.UTCTime)
+cnusNodeUpdateStatusModifiedDate = Lens.field @"nodeUpdateStatusModifiedDate"
+{-# DEPRECATED cnusNodeUpdateStatusModifiedDate "Use generic-lens or generic-optics with 'nodeUpdateStatusModifiedDate' instead." #-}
 
-instance Lude.FromXML CacheNodeUpdateStatus where
+instance Core.FromXML CacheNodeUpdateStatus where
   parseXML x =
     CacheNodeUpdateStatus'
-      Lude.<$> (x Lude..@? "NodeUpdateEndDate")
-      Lude.<*> (x Lude..@? "NodeUpdateInitiatedBy")
-      Lude.<*> (x Lude..@? "NodeUpdateStatusModifiedDate")
-      Lude.<*> (x Lude..@? "CacheNodeId")
-      Lude.<*> (x Lude..@? "NodeUpdateInitiatedDate")
-      Lude.<*> (x Lude..@? "NodeUpdateStartDate")
-      Lude.<*> (x Lude..@? "NodeUpdateStatus")
-      Lude.<*> (x Lude..@? "NodeDeletionDate")
+      Core.<$> (x Core..@? "CacheNodeId")
+      Core.<*> (x Core..@? "NodeDeletionDate")
+      Core.<*> (x Core..@? "NodeUpdateEndDate")
+      Core.<*> (x Core..@? "NodeUpdateInitiatedBy")
+      Core.<*> (x Core..@? "NodeUpdateInitiatedDate")
+      Core.<*> (x Core..@? "NodeUpdateStartDate")
+      Core.<*> (x Core..@? "NodeUpdateStatus")
+      Core.<*> (x Core..@? "NodeUpdateStatusModifiedDate")

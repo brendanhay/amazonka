@@ -17,43 +17,39 @@ module Network.AWS.Pinpoint.Types.EndpointsResponse
     mkEndpointsResponse,
 
     -- * Lenses
-    eItem,
+    erItem,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.EndpointResponse
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.EndpointResponse as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about all the endpoints that are associated with a user ID.
 --
 -- /See:/ 'mkEndpointsResponse' smart constructor.
 newtype EndpointsResponse = EndpointsResponse'
   { -- | An array of responses, one for each endpoint that's associated with the user ID.
-    item :: [EndpointResponse]
+    item :: [Types.EndpointResponse]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndpointsResponse' with the minimum fields required to make a request.
---
--- * 'item' - An array of responses, one for each endpoint that's associated with the user ID.
+-- | Creates a 'EndpointsResponse' value with any optional fields omitted.
 mkEndpointsResponse ::
   EndpointsResponse
-mkEndpointsResponse = EndpointsResponse' {item = Lude.mempty}
+mkEndpointsResponse = EndpointsResponse' {item = Core.mempty}
 
 -- | An array of responses, one for each endpoint that's associated with the user ID.
 --
 -- /Note:/ Consider using 'item' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eItem :: Lens.Lens' EndpointsResponse [EndpointResponse]
-eItem = Lens.lens (item :: EndpointsResponse -> [EndpointResponse]) (\s a -> s {item = a} :: EndpointsResponse)
-{-# DEPRECATED eItem "Use generic-lens or generic-optics with 'item' instead." #-}
+erItem :: Lens.Lens' EndpointsResponse [Types.EndpointResponse]
+erItem = Lens.field @"item"
+{-# DEPRECATED erItem "Use generic-lens or generic-optics with 'item' instead." #-}
 
-instance Lude.FromJSON EndpointsResponse where
+instance Core.FromJSON EndpointsResponse where
   parseJSON =
-    Lude.withObject
-      "EndpointsResponse"
-      ( \x ->
-          EndpointsResponse'
-            Lude.<$> (x Lude..:? "Item" Lude..!= Lude.mempty)
-      )
+    Core.withObject "EndpointsResponse" Core.$
+      \x ->
+        EndpointsResponse'
+          Core.<$> (x Core..:? "Item" Core..!= Core.mempty)

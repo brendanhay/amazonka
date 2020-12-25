@@ -20,26 +20,26 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     mkCreateDBSubnetGroup,
 
     -- ** Request lenses
-    cdsgDBSubnetGroupName,
-    cdsgSubnetIds,
-    cdsgDBSubnetGroupDescription,
-    cdsgTags,
+    cdbsgfDBSubnetGroupName,
+    cdbsgfDBSubnetGroupDescription,
+    cdbsgfSubnetIds,
+    cdbsgfTags,
 
     -- * Destructuring the response
     CreateDBSubnetGroupResponse (..),
     mkCreateDBSubnetGroupResponse,
 
     -- ** Response lenses
-    cdsgrsDBSubnetGroup,
-    cdsgrsResponseStatus,
+    cdbsgrfrsDBSubnetGroup,
+    cdbsgrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -49,135 +49,131 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup'
     --
     -- Constraints: Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens. Must not be default.
     -- Example: @mySubnetgroup@
-    dbSubnetGroupName :: Lude.Text,
-    -- | The EC2 Subnet IDs for the DB subnet group.
-    subnetIds :: [Lude.Text],
+    dBSubnetGroupName :: Types.String,
     -- | The description for the DB subnet group.
-    dbSubnetGroupDescription :: Lude.Text,
+    dBSubnetGroupDescription :: Types.String,
+    -- | The EC2 Subnet IDs for the DB subnet group.
+    subnetIds :: [Types.String],
     -- | Tags to assign to the DB subnet group.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDBSubnetGroup' with the minimum fields required to make a request.
---
--- * 'dbSubnetGroupName' - The name for the DB subnet group. This value is stored as a lowercase string.
---
--- Constraints: Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens. Must not be default.
--- Example: @mySubnetgroup@
--- * 'subnetIds' - The EC2 Subnet IDs for the DB subnet group.
--- * 'dbSubnetGroupDescription' - The description for the DB subnet group.
--- * 'tags' - Tags to assign to the DB subnet group.
+-- | Creates a 'CreateDBSubnetGroup' value with any optional fields omitted.
 mkCreateDBSubnetGroup ::
-  -- | 'dbSubnetGroupName'
-  Lude.Text ->
-  -- | 'dbSubnetGroupDescription'
-  Lude.Text ->
+  -- | 'dBSubnetGroupName'
+  Types.String ->
+  -- | 'dBSubnetGroupDescription'
+  Types.String ->
   CreateDBSubnetGroup
-mkCreateDBSubnetGroup
-  pDBSubnetGroupName_
-  pDBSubnetGroupDescription_ =
-    CreateDBSubnetGroup'
-      { dbSubnetGroupName = pDBSubnetGroupName_,
-        subnetIds = Lude.mempty,
-        dbSubnetGroupDescription = pDBSubnetGroupDescription_,
-        tags = Lude.Nothing
-      }
+mkCreateDBSubnetGroup dBSubnetGroupName dBSubnetGroupDescription =
+  CreateDBSubnetGroup'
+    { dBSubnetGroupName,
+      dBSubnetGroupDescription,
+      subnetIds = Core.mempty,
+      tags = Core.Nothing
+    }
 
 -- | The name for the DB subnet group. This value is stored as a lowercase string.
 --
 -- Constraints: Must contain no more than 255 letters, numbers, periods, underscores, spaces, or hyphens. Must not be default.
 -- Example: @mySubnetgroup@
 --
--- /Note:/ Consider using 'dbSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsgDBSubnetGroupName :: Lens.Lens' CreateDBSubnetGroup Lude.Text
-cdsgDBSubnetGroupName = Lens.lens (dbSubnetGroupName :: CreateDBSubnetGroup -> Lude.Text) (\s a -> s {dbSubnetGroupName = a} :: CreateDBSubnetGroup)
-{-# DEPRECATED cdsgDBSubnetGroupName "Use generic-lens or generic-optics with 'dbSubnetGroupName' instead." #-}
+-- /Note:/ Consider using 'dBSubnetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbsgfDBSubnetGroupName :: Lens.Lens' CreateDBSubnetGroup Types.String
+cdbsgfDBSubnetGroupName = Lens.field @"dBSubnetGroupName"
+{-# DEPRECATED cdbsgfDBSubnetGroupName "Use generic-lens or generic-optics with 'dBSubnetGroupName' instead." #-}
+
+-- | The description for the DB subnet group.
+--
+-- /Note:/ Consider using 'dBSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbsgfDBSubnetGroupDescription :: Lens.Lens' CreateDBSubnetGroup Types.String
+cdbsgfDBSubnetGroupDescription = Lens.field @"dBSubnetGroupDescription"
+{-# DEPRECATED cdbsgfDBSubnetGroupDescription "Use generic-lens or generic-optics with 'dBSubnetGroupDescription' instead." #-}
 
 -- | The EC2 Subnet IDs for the DB subnet group.
 --
 -- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsgSubnetIds :: Lens.Lens' CreateDBSubnetGroup [Lude.Text]
-cdsgSubnetIds = Lens.lens (subnetIds :: CreateDBSubnetGroup -> [Lude.Text]) (\s a -> s {subnetIds = a} :: CreateDBSubnetGroup)
-{-# DEPRECATED cdsgSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
-
--- | The description for the DB subnet group.
---
--- /Note:/ Consider using 'dbSubnetGroupDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsgDBSubnetGroupDescription :: Lens.Lens' CreateDBSubnetGroup Lude.Text
-cdsgDBSubnetGroupDescription = Lens.lens (dbSubnetGroupDescription :: CreateDBSubnetGroup -> Lude.Text) (\s a -> s {dbSubnetGroupDescription = a} :: CreateDBSubnetGroup)
-{-# DEPRECATED cdsgDBSubnetGroupDescription "Use generic-lens or generic-optics with 'dbSubnetGroupDescription' instead." #-}
+cdbsgfSubnetIds :: Lens.Lens' CreateDBSubnetGroup [Types.String]
+cdbsgfSubnetIds = Lens.field @"subnetIds"
+{-# DEPRECATED cdbsgfSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | Tags to assign to the DB subnet group.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsgTags :: Lens.Lens' CreateDBSubnetGroup (Lude.Maybe [Tag])
-cdsgTags = Lens.lens (tags :: CreateDBSubnetGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDBSubnetGroup)
-{-# DEPRECATED cdsgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cdbsgfTags :: Lens.Lens' CreateDBSubnetGroup (Core.Maybe [Types.Tag])
+cdbsgfTags = Lens.field @"tags"
+{-# DEPRECATED cdbsgfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateDBSubnetGroup where
+instance Core.AWSRequest CreateDBSubnetGroup where
   type Rs CreateDBSubnetGroup = CreateDBSubnetGroupResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateDBSubnetGroup")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBSubnetGroupName" dBSubnetGroupName)
+                Core.<> ( Core.toQueryValue
+                            "DBSubnetGroupDescription"
+                            dBSubnetGroupDescription
+                        )
+                Core.<> ( Core.toQueryValue
+                            "SubnetIds"
+                            (Core.toQueryList "SubnetIdentifier" subnetIds)
+                        )
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "Tag" Core.<$> tags))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateDBSubnetGroupResult"
       ( \s h x ->
           CreateDBSubnetGroupResponse'
-            Lude.<$> (x Lude..@? "DBSubnetGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBSubnetGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDBSubnetGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateDBSubnetGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDBSubnetGroup where
-  toQuery CreateDBSubnetGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateDBSubnetGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBSubnetGroupName" Lude.=: dbSubnetGroupName,
-        "SubnetIds" Lude.=: Lude.toQueryList "SubnetIdentifier" subnetIds,
-        "DBSubnetGroupDescription" Lude.=: dbSubnetGroupDescription,
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
-      ]
 
 -- | /See:/ 'mkCreateDBSubnetGroupResponse' smart constructor.
 data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
-  { dbSubnetGroup :: Lude.Maybe DBSubnetGroup,
+  { dBSubnetGroup :: Core.Maybe Types.DBSubnetGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDBSubnetGroupResponse' with the minimum fields required to make a request.
---
--- * 'dbSubnetGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDBSubnetGroupResponse' value with any optional fields omitted.
 mkCreateDBSubnetGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDBSubnetGroupResponse
-mkCreateDBSubnetGroupResponse pResponseStatus_ =
+mkCreateDBSubnetGroupResponse responseStatus =
   CreateDBSubnetGroupResponse'
-    { dbSubnetGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBSubnetGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'dbSubnetGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsgrsDBSubnetGroup :: Lens.Lens' CreateDBSubnetGroupResponse (Lude.Maybe DBSubnetGroup)
-cdsgrsDBSubnetGroup = Lens.lens (dbSubnetGroup :: CreateDBSubnetGroupResponse -> Lude.Maybe DBSubnetGroup) (\s a -> s {dbSubnetGroup = a} :: CreateDBSubnetGroupResponse)
-{-# DEPRECATED cdsgrsDBSubnetGroup "Use generic-lens or generic-optics with 'dbSubnetGroup' instead." #-}
+-- /Note:/ Consider using 'dBSubnetGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdbsgrfrsDBSubnetGroup :: Lens.Lens' CreateDBSubnetGroupResponse (Core.Maybe Types.DBSubnetGroup)
+cdbsgrfrsDBSubnetGroup = Lens.field @"dBSubnetGroup"
+{-# DEPRECATED cdbsgrfrsDBSubnetGroup "Use generic-lens or generic-optics with 'dBSubnetGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsgrsResponseStatus :: Lens.Lens' CreateDBSubnetGroupResponse Lude.Int
-cdsgrsResponseStatus = Lens.lens (responseStatus :: CreateDBSubnetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDBSubnetGroupResponse)
-{-# DEPRECATED cdsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdbsgrfrsResponseStatus :: Lens.Lens' CreateDBSubnetGroupResponse Core.Int
+cdbsgrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdbsgrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

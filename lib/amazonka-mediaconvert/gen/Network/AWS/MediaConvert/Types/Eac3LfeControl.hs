@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Eac3LfeControl
   ( Eac3LfeControl
       ( Eac3LfeControl',
-        ELCLfe,
-        ELCNoLfe
+        Eac3LfeControlLfe,
+        Eac3LfeControlNoLfe,
+        fromEac3LfeControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When encoding 3/2 audio, controls whether the LFE channel is enabled
-newtype Eac3LfeControl = Eac3LfeControl' Lude.Text
+newtype Eac3LfeControl = Eac3LfeControl'
+  { fromEac3LfeControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ELCLfe :: Eac3LfeControl
-pattern ELCLfe = Eac3LfeControl' "LFE"
+pattern Eac3LfeControlLfe :: Eac3LfeControl
+pattern Eac3LfeControlLfe = Eac3LfeControl' "LFE"
 
-pattern ELCNoLfe :: Eac3LfeControl
-pattern ELCNoLfe = Eac3LfeControl' "NO_LFE"
+pattern Eac3LfeControlNoLfe :: Eac3LfeControl
+pattern Eac3LfeControlNoLfe = Eac3LfeControl' "NO_LFE"
 
 {-# COMPLETE
-  ELCLfe,
-  ELCNoLfe,
+  Eac3LfeControlLfe,
+  Eac3LfeControlNoLfe,
   Eac3LfeControl'
   #-}

@@ -17,88 +17,82 @@ module Network.AWS.ElasticTranscoder.Types.JobWatermark
     mkJobWatermark,
 
     -- * Lenses
-    jwPresetWatermarkId,
-    jwInputKey,
     jwEncryption,
+    jwInputKey,
+    jwPresetWatermarkId,
   )
 where
 
-import Network.AWS.ElasticTranscoder.Types.Encryption
+import qualified Network.AWS.ElasticTranscoder.Types.Encryption as Types
+import qualified Network.AWS.ElasticTranscoder.Types.PresetWatermarkId as Types
+import qualified Network.AWS.ElasticTranscoder.Types.WatermarkKey as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Watermarks can be in .png or .jpg format. If you want to display a watermark that is not rectangular, use the .png format, which supports transparency.
 --
 -- /See:/ 'mkJobWatermark' smart constructor.
 data JobWatermark = JobWatermark'
-  { -- | The ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding. The settings are in the preset specified by Preset for the current output. In that preset, the value of Watermarks Id tells Elastic Transcoder which settings to use.
-    presetWatermarkId :: Lude.Maybe Lude.Text,
+  { -- | The encryption settings, if any, that you want Elastic Transcoder to apply to your watermarks.
+    encryption :: Core.Maybe Types.Encryption,
     -- | The name of the .png or .jpg file that you want to use for the watermark. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by @Pipeline@ ; the @Input Bucket@ object in that pipeline identifies the bucket.
     --
     -- If the file name includes a prefix, for example, __logos/128x64.png__ , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
-    inputKey :: Lude.Maybe Lude.Text,
-    -- | The encryption settings, if any, that you want Elastic Transcoder to apply to your watermarks.
-    encryption :: Lude.Maybe Encryption
+    inputKey :: Core.Maybe Types.WatermarkKey,
+    -- | The ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding. The settings are in the preset specified by Preset for the current output. In that preset, the value of Watermarks Id tells Elastic Transcoder which settings to use.
+    presetWatermarkId :: Core.Maybe Types.PresetWatermarkId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobWatermark' with the minimum fields required to make a request.
---
--- * 'presetWatermarkId' - The ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding. The settings are in the preset specified by Preset for the current output. In that preset, the value of Watermarks Id tells Elastic Transcoder which settings to use.
--- * 'inputKey' - The name of the .png or .jpg file that you want to use for the watermark. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by @Pipeline@ ; the @Input Bucket@ object in that pipeline identifies the bucket.
---
--- If the file name includes a prefix, for example, __logos/128x64.png__ , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
--- * 'encryption' - The encryption settings, if any, that you want Elastic Transcoder to apply to your watermarks.
+-- | Creates a 'JobWatermark' value with any optional fields omitted.
 mkJobWatermark ::
   JobWatermark
 mkJobWatermark =
   JobWatermark'
-    { presetWatermarkId = Lude.Nothing,
-      inputKey = Lude.Nothing,
-      encryption = Lude.Nothing
+    { encryption = Core.Nothing,
+      inputKey = Core.Nothing,
+      presetWatermarkId = Core.Nothing
     }
 
--- | The ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding. The settings are in the preset specified by Preset for the current output. In that preset, the value of Watermarks Id tells Elastic Transcoder which settings to use.
+-- | The encryption settings, if any, that you want Elastic Transcoder to apply to your watermarks.
 --
--- /Note:/ Consider using 'presetWatermarkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jwPresetWatermarkId :: Lens.Lens' JobWatermark (Lude.Maybe Lude.Text)
-jwPresetWatermarkId = Lens.lens (presetWatermarkId :: JobWatermark -> Lude.Maybe Lude.Text) (\s a -> s {presetWatermarkId = a} :: JobWatermark)
-{-# DEPRECATED jwPresetWatermarkId "Use generic-lens or generic-optics with 'presetWatermarkId' instead." #-}
+-- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jwEncryption :: Lens.Lens' JobWatermark (Core.Maybe Types.Encryption)
+jwEncryption = Lens.field @"encryption"
+{-# DEPRECATED jwEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
 -- | The name of the .png or .jpg file that you want to use for the watermark. To determine which Amazon S3 bucket contains the specified file, Elastic Transcoder checks the pipeline specified by @Pipeline@ ; the @Input Bucket@ object in that pipeline identifies the bucket.
 --
 -- If the file name includes a prefix, for example, __logos/128x64.png__ , include the prefix in the key. If the file isn't in the specified bucket, Elastic Transcoder returns an error.
 --
 -- /Note:/ Consider using 'inputKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jwInputKey :: Lens.Lens' JobWatermark (Lude.Maybe Lude.Text)
-jwInputKey = Lens.lens (inputKey :: JobWatermark -> Lude.Maybe Lude.Text) (\s a -> s {inputKey = a} :: JobWatermark)
+jwInputKey :: Lens.Lens' JobWatermark (Core.Maybe Types.WatermarkKey)
+jwInputKey = Lens.field @"inputKey"
 {-# DEPRECATED jwInputKey "Use generic-lens or generic-optics with 'inputKey' instead." #-}
 
--- | The encryption settings, if any, that you want Elastic Transcoder to apply to your watermarks.
+-- | The ID of the watermark settings that Elastic Transcoder uses to add watermarks to the video during transcoding. The settings are in the preset specified by Preset for the current output. In that preset, the value of Watermarks Id tells Elastic Transcoder which settings to use.
 --
--- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jwEncryption :: Lens.Lens' JobWatermark (Lude.Maybe Encryption)
-jwEncryption = Lens.lens (encryption :: JobWatermark -> Lude.Maybe Encryption) (\s a -> s {encryption = a} :: JobWatermark)
-{-# DEPRECATED jwEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
+-- /Note:/ Consider using 'presetWatermarkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jwPresetWatermarkId :: Lens.Lens' JobWatermark (Core.Maybe Types.PresetWatermarkId)
+jwPresetWatermarkId = Lens.field @"presetWatermarkId"
+{-# DEPRECATED jwPresetWatermarkId "Use generic-lens or generic-optics with 'presetWatermarkId' instead." #-}
 
-instance Lude.FromJSON JobWatermark where
-  parseJSON =
-    Lude.withObject
-      "JobWatermark"
-      ( \x ->
-          JobWatermark'
-            Lude.<$> (x Lude..:? "PresetWatermarkId")
-            Lude.<*> (x Lude..:? "InputKey")
-            Lude.<*> (x Lude..:? "Encryption")
-      )
-
-instance Lude.ToJSON JobWatermark where
-  toJSON JobWatermark' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("PresetWatermarkId" Lude..=) Lude.<$> presetWatermarkId,
-            ("InputKey" Lude..=) Lude.<$> inputKey,
-            ("Encryption" Lude..=) Lude.<$> encryption
+instance Core.FromJSON JobWatermark where
+  toJSON JobWatermark {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Encryption" Core..=) Core.<$> encryption,
+            ("InputKey" Core..=) Core.<$> inputKey,
+            ("PresetWatermarkId" Core..=) Core.<$> presetWatermarkId
           ]
       )
+
+instance Core.FromJSON JobWatermark where
+  parseJSON =
+    Core.withObject "JobWatermark" Core.$
+      \x ->
+        JobWatermark'
+          Core.<$> (x Core..:? "Encryption")
+          Core.<*> (x Core..:? "InputKey")
+          Core.<*> (x Core..:? "PresetWatermarkId")

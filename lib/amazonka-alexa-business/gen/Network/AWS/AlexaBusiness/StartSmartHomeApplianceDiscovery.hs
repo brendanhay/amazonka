@@ -20,108 +20,95 @@ module Network.AWS.AlexaBusiness.StartSmartHomeApplianceDiscovery
     mkStartSmartHomeApplianceDiscovery,
 
     -- ** Request lenses
-    sshadRoomARN,
+    sshadRoomArn,
 
     -- * Destructuring the response
     StartSmartHomeApplianceDiscoveryResponse (..),
     mkStartSmartHomeApplianceDiscoveryResponse,
 
     -- ** Response lenses
-    sshadrsResponseStatus,
+    sshadrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartSmartHomeApplianceDiscovery' smart constructor.
 newtype StartSmartHomeApplianceDiscovery = StartSmartHomeApplianceDiscovery'
   { -- | The room where smart home appliance discovery was initiated.
-    roomARN :: Lude.Text
+    roomArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartSmartHomeApplianceDiscovery' with the minimum fields required to make a request.
---
--- * 'roomARN' - The room where smart home appliance discovery was initiated.
+-- | Creates a 'StartSmartHomeApplianceDiscovery' value with any optional fields omitted.
 mkStartSmartHomeApplianceDiscovery ::
-  -- | 'roomARN'
-  Lude.Text ->
+  -- | 'roomArn'
+  Types.Arn ->
   StartSmartHomeApplianceDiscovery
-mkStartSmartHomeApplianceDiscovery pRoomARN_ =
-  StartSmartHomeApplianceDiscovery' {roomARN = pRoomARN_}
+mkStartSmartHomeApplianceDiscovery roomArn =
+  StartSmartHomeApplianceDiscovery' {roomArn}
 
 -- | The room where smart home appliance discovery was initiated.
 --
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sshadRoomARN :: Lens.Lens' StartSmartHomeApplianceDiscovery Lude.Text
-sshadRoomARN = Lens.lens (roomARN :: StartSmartHomeApplianceDiscovery -> Lude.Text) (\s a -> s {roomARN = a} :: StartSmartHomeApplianceDiscovery)
-{-# DEPRECATED sshadRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
+-- /Note:/ Consider using 'roomArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sshadRoomArn :: Lens.Lens' StartSmartHomeApplianceDiscovery Types.Arn
+sshadRoomArn = Lens.field @"roomArn"
+{-# DEPRECATED sshadRoomArn "Use generic-lens or generic-optics with 'roomArn' instead." #-}
 
-instance Lude.AWSRequest StartSmartHomeApplianceDiscovery where
+instance Core.FromJSON StartSmartHomeApplianceDiscovery where
+  toJSON StartSmartHomeApplianceDiscovery {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("RoomArn" Core..= roomArn)])
+
+instance Core.AWSRequest StartSmartHomeApplianceDiscovery where
   type
     Rs StartSmartHomeApplianceDiscovery =
       StartSmartHomeApplianceDiscoveryResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AlexaForBusiness.StartSmartHomeApplianceDiscovery"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           StartSmartHomeApplianceDiscoveryResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartSmartHomeApplianceDiscovery where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AlexaForBusiness.StartSmartHomeApplianceDiscovery" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartSmartHomeApplianceDiscovery where
-  toJSON StartSmartHomeApplianceDiscovery' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("RoomArn" Lude..= roomARN)])
-
-instance Lude.ToPath StartSmartHomeApplianceDiscovery where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartSmartHomeApplianceDiscovery where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartSmartHomeApplianceDiscoveryResponse' smart constructor.
 newtype StartSmartHomeApplianceDiscoveryResponse = StartSmartHomeApplianceDiscoveryResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartSmartHomeApplianceDiscoveryResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartSmartHomeApplianceDiscoveryResponse' value with any optional fields omitted.
 mkStartSmartHomeApplianceDiscoveryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartSmartHomeApplianceDiscoveryResponse
-mkStartSmartHomeApplianceDiscoveryResponse pResponseStatus_ =
-  StartSmartHomeApplianceDiscoveryResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkStartSmartHomeApplianceDiscoveryResponse responseStatus =
+  StartSmartHomeApplianceDiscoveryResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sshadrsResponseStatus :: Lens.Lens' StartSmartHomeApplianceDiscoveryResponse Lude.Int
-sshadrsResponseStatus = Lens.lens (responseStatus :: StartSmartHomeApplianceDiscoveryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartSmartHomeApplianceDiscoveryResponse)
-{-# DEPRECATED sshadrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sshadrrsResponseStatus :: Lens.Lens' StartSmartHomeApplianceDiscoveryResponse Core.Int
+sshadrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sshadrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

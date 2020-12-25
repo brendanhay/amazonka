@@ -21,8 +21,8 @@ module Network.AWS.WorkDocs.DeleteLabels
 
     -- ** Request lenses
     dlResourceId,
-    dlDeleteAll,
     dlAuthenticationToken,
+    dlDeleteAll,
     dlLabels,
 
     -- * Destructuring the response
@@ -30,127 +30,118 @@ module Network.AWS.WorkDocs.DeleteLabels
     mkDeleteLabelsResponse,
 
     -- ** Response lenses
-    dlrsResponseStatus,
+    dlrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDeleteLabels' smart constructor.
 data DeleteLabels = DeleteLabels'
   { -- | The ID of the resource.
-    resourceId :: Lude.Text,
-    -- | Flag to request removal of all labels from the specified resource.
-    deleteAll :: Lude.Maybe Lude.Bool,
+    resourceId :: Types.ResourceIdType,
     -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType,
+    -- | Flag to request removal of all labels from the specified resource.
+    deleteAll :: Core.Maybe Core.Bool,
     -- | List of labels to delete from the resource.
-    labels :: Lude.Maybe [Lude.Text]
+    labels :: Core.Maybe [Types.SharedLabel]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLabels' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource.
--- * 'deleteAll' - Flag to request removal of all labels from the specified resource.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'labels' - List of labels to delete from the resource.
+-- | Creates a 'DeleteLabels' value with any optional fields omitted.
 mkDeleteLabels ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.ResourceIdType ->
   DeleteLabels
-mkDeleteLabels pResourceId_ =
+mkDeleteLabels resourceId =
   DeleteLabels'
-    { resourceId = pResourceId_,
-      deleteAll = Lude.Nothing,
-      authenticationToken = Lude.Nothing,
-      labels = Lude.Nothing
+    { resourceId,
+      authenticationToken = Core.Nothing,
+      deleteAll = Core.Nothing,
+      labels = Core.Nothing
     }
 
 -- | The ID of the resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlResourceId :: Lens.Lens' DeleteLabels Lude.Text
-dlResourceId = Lens.lens (resourceId :: DeleteLabels -> Lude.Text) (\s a -> s {resourceId = a} :: DeleteLabels)
+dlResourceId :: Lens.Lens' DeleteLabels Types.ResourceIdType
+dlResourceId = Lens.field @"resourceId"
 {-# DEPRECATED dlResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | Flag to request removal of all labels from the specified resource.
---
--- /Note:/ Consider using 'deleteAll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlDeleteAll :: Lens.Lens' DeleteLabels (Lude.Maybe Lude.Bool)
-dlDeleteAll = Lens.lens (deleteAll :: DeleteLabels -> Lude.Maybe Lude.Bool) (\s a -> s {deleteAll = a} :: DeleteLabels)
-{-# DEPRECATED dlDeleteAll "Use generic-lens or generic-optics with 'deleteAll' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlAuthenticationToken :: Lens.Lens' DeleteLabels (Lude.Maybe (Lude.Sensitive Lude.Text))
-dlAuthenticationToken = Lens.lens (authenticationToken :: DeleteLabels -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeleteLabels)
+dlAuthenticationToken :: Lens.Lens' DeleteLabels (Core.Maybe Types.AuthenticationHeaderType)
+dlAuthenticationToken = Lens.field @"authenticationToken"
 {-# DEPRECATED dlAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
+
+-- | Flag to request removal of all labels from the specified resource.
+--
+-- /Note:/ Consider using 'deleteAll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlDeleteAll :: Lens.Lens' DeleteLabels (Core.Maybe Core.Bool)
+dlDeleteAll = Lens.field @"deleteAll"
+{-# DEPRECATED dlDeleteAll "Use generic-lens or generic-optics with 'deleteAll' instead." #-}
 
 -- | List of labels to delete from the resource.
 --
 -- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlLabels :: Lens.Lens' DeleteLabels (Lude.Maybe [Lude.Text])
-dlLabels = Lens.lens (labels :: DeleteLabels -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: DeleteLabels)
+dlLabels :: Lens.Lens' DeleteLabels (Core.Maybe [Types.SharedLabel])
+dlLabels = Lens.field @"labels"
 {-# DEPRECATED dlLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
-instance Lude.AWSRequest DeleteLabels where
+instance Core.AWSRequest DeleteLabels where
   type Rs DeleteLabels = DeleteLabelsResponse
-  request = Req.delete workDocsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/api/v1/resources/" Core.<> (Core.toText resourceId)
+                Core.<> ("/labels")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "deleteAll" Core.<$> deleteAll
+            Core.<> ( Core.toQueryValue
+                        "labels"
+                        (Core.toQueryList "member" Core.<$> labels)
+                    ),
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteLabelsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteLabelsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteLabels where
-  toHeaders DeleteLabels' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath DeleteLabels where
-  toPath DeleteLabels' {..} =
-    Lude.mconcat
-      ["/api/v1/resources/", Lude.toBS resourceId, "/labels"]
-
-instance Lude.ToQuery DeleteLabels where
-  toQuery DeleteLabels' {..} =
-    Lude.mconcat
-      [ "deleteAll" Lude.=: deleteAll,
-        "labels"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> labels)
-      ]
 
 -- | /See:/ 'mkDeleteLabelsResponse' smart constructor.
 newtype DeleteLabelsResponse = DeleteLabelsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLabelsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteLabelsResponse' value with any optional fields omitted.
 mkDeleteLabelsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteLabelsResponse
-mkDeleteLabelsResponse pResponseStatus_ =
-  DeleteLabelsResponse' {responseStatus = pResponseStatus_}
+mkDeleteLabelsResponse responseStatus =
+  DeleteLabelsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsResponseStatus :: Lens.Lens' DeleteLabelsResponse Lude.Int
-dlrsResponseStatus = Lens.lens (responseStatus :: DeleteLabelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLabelsResponse)
-{-# DEPRECATED dlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlrrsResponseStatus :: Lens.Lens' DeleteLabelsResponse Core.Int
+dlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

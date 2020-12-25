@@ -27,101 +27,86 @@ module Network.AWS.WorkSpaces.DeregisterWorkspaceDirectory
     mkDeregisterWorkspaceDirectoryResponse,
 
     -- ** Response lenses
-    dwdrsResponseStatus,
+    dwdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkDeregisterWorkspaceDirectory' smart constructor.
 newtype DeregisterWorkspaceDirectory = DeregisterWorkspaceDirectory'
   { -- | The identifier of the directory. If any WorkSpaces are registered to this directory, you must remove them before you deregister the directory, or you will receive an OperationNotSupportedException error.
-    directoryId :: Lude.Text
+    directoryId :: Types.DirectoryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterWorkspaceDirectory' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory. If any WorkSpaces are registered to this directory, you must remove them before you deregister the directory, or you will receive an OperationNotSupportedException error.
+-- | Creates a 'DeregisterWorkspaceDirectory' value with any optional fields omitted.
 mkDeregisterWorkspaceDirectory ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   DeregisterWorkspaceDirectory
-mkDeregisterWorkspaceDirectory pDirectoryId_ =
-  DeregisterWorkspaceDirectory' {directoryId = pDirectoryId_}
+mkDeregisterWorkspaceDirectory directoryId =
+  DeregisterWorkspaceDirectory' {directoryId}
 
 -- | The identifier of the directory. If any WorkSpaces are registered to this directory, you must remove them before you deregister the directory, or you will receive an OperationNotSupportedException error.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwdDirectoryId :: Lens.Lens' DeregisterWorkspaceDirectory Lude.Text
-dwdDirectoryId = Lens.lens (directoryId :: DeregisterWorkspaceDirectory -> Lude.Text) (\s a -> s {directoryId = a} :: DeregisterWorkspaceDirectory)
+dwdDirectoryId :: Lens.Lens' DeregisterWorkspaceDirectory Types.DirectoryId
+dwdDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED dwdDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance Lude.AWSRequest DeregisterWorkspaceDirectory where
+instance Core.FromJSON DeregisterWorkspaceDirectory where
+  toJSON DeregisterWorkspaceDirectory {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DirectoryId" Core..= directoryId)])
+
+instance Core.AWSRequest DeregisterWorkspaceDirectory where
   type
     Rs DeregisterWorkspaceDirectory =
       DeregisterWorkspaceDirectoryResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "WorkspacesService.DeregisterWorkspaceDirectory")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeregisterWorkspaceDirectoryResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeregisterWorkspaceDirectory where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "WorkspacesService.DeregisterWorkspaceDirectory" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeregisterWorkspaceDirectory where
-  toJSON DeregisterWorkspaceDirectory' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DirectoryId" Lude..= directoryId)])
-
-instance Lude.ToPath DeregisterWorkspaceDirectory where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeregisterWorkspaceDirectory where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeregisterWorkspaceDirectoryResponse' smart constructor.
 newtype DeregisterWorkspaceDirectoryResponse = DeregisterWorkspaceDirectoryResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterWorkspaceDirectoryResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeregisterWorkspaceDirectoryResponse' value with any optional fields omitted.
 mkDeregisterWorkspaceDirectoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeregisterWorkspaceDirectoryResponse
-mkDeregisterWorkspaceDirectoryResponse pResponseStatus_ =
-  DeregisterWorkspaceDirectoryResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeregisterWorkspaceDirectoryResponse responseStatus =
+  DeregisterWorkspaceDirectoryResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwdrsResponseStatus :: Lens.Lens' DeregisterWorkspaceDirectoryResponse Lude.Int
-dwdrsResponseStatus = Lens.lens (responseStatus :: DeregisterWorkspaceDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterWorkspaceDirectoryResponse)
-{-# DEPRECATED dwdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwdrrsResponseStatus :: Lens.Lens' DeregisterWorkspaceDirectoryResponse Core.Int
+dwdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dwdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

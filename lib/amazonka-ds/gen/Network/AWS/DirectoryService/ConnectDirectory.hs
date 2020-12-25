@@ -22,208 +22,191 @@ module Network.AWS.DirectoryService.ConnectDirectory
     mkConnectDirectory,
 
     -- ** Request lenses
-    cShortName,
-    cSize,
-    cName,
-    cPassword,
-    cConnectSettings,
-    cDescription,
-    cTags,
+    cdName,
+    cdPassword,
+    cdSize,
+    cdConnectSettings,
+    cdDescription,
+    cdShortName,
+    cdTags,
 
     -- * Destructuring the response
     ConnectDirectoryResponse (..),
     mkConnectDirectoryResponse,
 
     -- ** Response lenses
-    crsDirectoryId,
-    crsResponseStatus,
+    cdrrsDirectoryId,
+    cdrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the inputs for the 'ConnectDirectory' operation.
 --
 -- /See:/ 'mkConnectDirectory' smart constructor.
 data ConnectDirectory = ConnectDirectory'
-  { -- | The NetBIOS name of the on-premises directory, such as @CORP@ .
-    shortName :: Lude.Maybe Lude.Text,
-    -- | The size of the directory.
-    size :: DirectorySize,
-    -- | The fully qualified name of the on-premises directory, such as @corp.example.com@ .
-    name :: Lude.Text,
+  { -- | The fully qualified name of the on-premises directory, such as @corp.example.com@ .
+    name :: Types.DirectoryName,
     -- | The password for the on-premises user account.
-    password :: Lude.Sensitive Lude.Text,
+    password :: Types.ConnectPassword,
+    -- | The size of the directory.
+    size :: Types.DirectorySize,
     -- | A 'DirectoryConnectSettings' object that contains additional information for the operation.
-    connectSettings :: DirectoryConnectSettings,
+    connectSettings :: Types.DirectoryConnectSettings,
     -- | A description for the directory.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
+    -- | The NetBIOS name of the on-premises directory, such as @CORP@ .
+    shortName :: Core.Maybe Types.DirectoryShortName,
     -- | The tags to be assigned to AD Connector.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConnectDirectory' with the minimum fields required to make a request.
---
--- * 'shortName' - The NetBIOS name of the on-premises directory, such as @CORP@ .
--- * 'size' - The size of the directory.
--- * 'name' - The fully qualified name of the on-premises directory, such as @corp.example.com@ .
--- * 'password' - The password for the on-premises user account.
--- * 'connectSettings' - A 'DirectoryConnectSettings' object that contains additional information for the operation.
--- * 'description' - A description for the directory.
--- * 'tags' - The tags to be assigned to AD Connector.
+-- | Creates a 'ConnectDirectory' value with any optional fields omitted.
 mkConnectDirectory ::
-  -- | 'size'
-  DirectorySize ->
   -- | 'name'
-  Lude.Text ->
+  Types.DirectoryName ->
   -- | 'password'
-  Lude.Sensitive Lude.Text ->
+  Types.ConnectPassword ->
+  -- | 'size'
+  Types.DirectorySize ->
   -- | 'connectSettings'
-  DirectoryConnectSettings ->
+  Types.DirectoryConnectSettings ->
   ConnectDirectory
-mkConnectDirectory pSize_ pName_ pPassword_ pConnectSettings_ =
+mkConnectDirectory name password size connectSettings =
   ConnectDirectory'
-    { shortName = Lude.Nothing,
-      size = pSize_,
-      name = pName_,
-      password = pPassword_,
-      connectSettings = pConnectSettings_,
-      description = Lude.Nothing,
-      tags = Lude.Nothing
+    { name,
+      password,
+      size,
+      connectSettings,
+      description = Core.Nothing,
+      shortName = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The NetBIOS name of the on-premises directory, such as @CORP@ .
---
--- /Note:/ Consider using 'shortName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cShortName :: Lens.Lens' ConnectDirectory (Lude.Maybe Lude.Text)
-cShortName = Lens.lens (shortName :: ConnectDirectory -> Lude.Maybe Lude.Text) (\s a -> s {shortName = a} :: ConnectDirectory)
-{-# DEPRECATED cShortName "Use generic-lens or generic-optics with 'shortName' instead." #-}
-
--- | The size of the directory.
---
--- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cSize :: Lens.Lens' ConnectDirectory DirectorySize
-cSize = Lens.lens (size :: ConnectDirectory -> DirectorySize) (\s a -> s {size = a} :: ConnectDirectory)
-{-# DEPRECATED cSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | The fully qualified name of the on-premises directory, such as @corp.example.com@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cName :: Lens.Lens' ConnectDirectory Lude.Text
-cName = Lens.lens (name :: ConnectDirectory -> Lude.Text) (\s a -> s {name = a} :: ConnectDirectory)
-{-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
+cdName :: Lens.Lens' ConnectDirectory Types.DirectoryName
+cdName = Lens.field @"name"
+{-# DEPRECATED cdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The password for the on-premises user account.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cPassword :: Lens.Lens' ConnectDirectory (Lude.Sensitive Lude.Text)
-cPassword = Lens.lens (password :: ConnectDirectory -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: ConnectDirectory)
-{-# DEPRECATED cPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+cdPassword :: Lens.Lens' ConnectDirectory Types.ConnectPassword
+cdPassword = Lens.field @"password"
+{-# DEPRECATED cdPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+
+-- | The size of the directory.
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdSize :: Lens.Lens' ConnectDirectory Types.DirectorySize
+cdSize = Lens.field @"size"
+{-# DEPRECATED cdSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | A 'DirectoryConnectSettings' object that contains additional information for the operation.
 --
 -- /Note:/ Consider using 'connectSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cConnectSettings :: Lens.Lens' ConnectDirectory DirectoryConnectSettings
-cConnectSettings = Lens.lens (connectSettings :: ConnectDirectory -> DirectoryConnectSettings) (\s a -> s {connectSettings = a} :: ConnectDirectory)
-{-# DEPRECATED cConnectSettings "Use generic-lens or generic-optics with 'connectSettings' instead." #-}
+cdConnectSettings :: Lens.Lens' ConnectDirectory Types.DirectoryConnectSettings
+cdConnectSettings = Lens.field @"connectSettings"
+{-# DEPRECATED cdConnectSettings "Use generic-lens or generic-optics with 'connectSettings' instead." #-}
 
 -- | A description for the directory.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cDescription :: Lens.Lens' ConnectDirectory (Lude.Maybe Lude.Text)
-cDescription = Lens.lens (description :: ConnectDirectory -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ConnectDirectory)
-{-# DEPRECATED cDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+cdDescription :: Lens.Lens' ConnectDirectory (Core.Maybe Types.Description)
+cdDescription = Lens.field @"description"
+{-# DEPRECATED cdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The NetBIOS name of the on-premises directory, such as @CORP@ .
+--
+-- /Note:/ Consider using 'shortName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdShortName :: Lens.Lens' ConnectDirectory (Core.Maybe Types.DirectoryShortName)
+cdShortName = Lens.field @"shortName"
+{-# DEPRECATED cdShortName "Use generic-lens or generic-optics with 'shortName' instead." #-}
 
 -- | The tags to be assigned to AD Connector.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cTags :: Lens.Lens' ConnectDirectory (Lude.Maybe [Tag])
-cTags = Lens.lens (tags :: ConnectDirectory -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ConnectDirectory)
-{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cdTags :: Lens.Lens' ConnectDirectory (Core.Maybe [Types.Tag])
+cdTags = Lens.field @"tags"
+{-# DEPRECATED cdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest ConnectDirectory where
+instance Core.FromJSON ConnectDirectory where
+  toJSON ConnectDirectory {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Password" Core..= password),
+            Core.Just ("Size" Core..= size),
+            Core.Just ("ConnectSettings" Core..= connectSettings),
+            ("Description" Core..=) Core.<$> description,
+            ("ShortName" Core..=) Core.<$> shortName,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest ConnectDirectory where
   type Rs ConnectDirectory = ConnectDirectoryResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.ConnectDirectory")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ConnectDirectoryResponse'
-            Lude.<$> (x Lude..?> "DirectoryId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DirectoryId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ConnectDirectory where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DirectoryService_20150416.ConnectDirectory" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ConnectDirectory where
-  toJSON ConnectDirectory' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ShortName" Lude..=) Lude.<$> shortName,
-            Lude.Just ("Size" Lude..= size),
-            Lude.Just ("Name" Lude..= name),
-            Lude.Just ("Password" Lude..= password),
-            Lude.Just ("ConnectSettings" Lude..= connectSettings),
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath ConnectDirectory where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ConnectDirectory where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'ConnectDirectory' operation.
 --
 -- /See:/ 'mkConnectDirectoryResponse' smart constructor.
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
   { -- | The identifier of the new directory.
-    directoryId :: Lude.Maybe Lude.Text,
+    directoryId :: Core.Maybe Types.DirectoryId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConnectDirectoryResponse' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the new directory.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ConnectDirectoryResponse' value with any optional fields omitted.
 mkConnectDirectoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ConnectDirectoryResponse
-mkConnectDirectoryResponse pResponseStatus_ =
+mkConnectDirectoryResponse responseStatus =
   ConnectDirectoryResponse'
-    { directoryId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { directoryId = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier of the new directory.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsDirectoryId :: Lens.Lens' ConnectDirectoryResponse (Lude.Maybe Lude.Text)
-crsDirectoryId = Lens.lens (directoryId :: ConnectDirectoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: ConnectDirectoryResponse)
-{-# DEPRECATED crsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
+cdrrsDirectoryId :: Lens.Lens' ConnectDirectoryResponse (Core.Maybe Types.DirectoryId)
+cdrrsDirectoryId = Lens.field @"directoryId"
+{-# DEPRECATED cdrrsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' ConnectDirectoryResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: ConnectDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConnectDirectoryResponse)
-{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdrrsResponseStatus :: Lens.Lens' ConnectDirectoryResponse Core.Int
+cdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,28 +21,39 @@ module Network.AWS.ServiceCatalog.AcceptPortfolioShare
 
     -- ** Request lenses
     apsPortfolioId,
-    apsPortfolioShareType,
     apsAcceptLanguage,
+    apsPortfolioShareType,
 
     -- * Destructuring the response
     AcceptPortfolioShareResponse (..),
     mkAcceptPortfolioShareResponse,
 
     -- ** Response lenses
-    apsrsResponseStatus,
+    apsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkAcceptPortfolioShare' smart constructor.
 data AcceptPortfolioShare = AcceptPortfolioShare'
   { -- | The portfolio identifier.
-    portfolioId :: Lude.Text,
+    portfolioId :: Types.Id,
+    -- | The language code.
+    --
+    --
+    --     * @en@ - English (default)
+    --
+    --
+    --     * @jp@ - Japanese
+    --
+    --
+    --     * @zh@ - Chinese
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
     -- | The type of shared portfolios to accept. The default is to accept imported portfolios.
     --
     --
@@ -56,39 +67,31 @@ data AcceptPortfolioShare = AcceptPortfolioShare'
     --
     --
     -- For example, @aws servicecatalog accept-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS@
-    portfolioShareType :: Lude.Maybe PortfolioShareType,
-    -- | The language code.
-    --
-    --
-    --     * @en@ - English (default)
-    --
-    --
-    --     * @jp@ - Japanese
-    --
-    --
-    --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text
+    portfolioShareType :: Core.Maybe Types.PortfolioShareType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AcceptPortfolioShare' with the minimum fields required to make a request.
+-- | Creates a 'AcceptPortfolioShare' value with any optional fields omitted.
+mkAcceptPortfolioShare ::
+  -- | 'portfolioId'
+  Types.Id ->
+  AcceptPortfolioShare
+mkAcceptPortfolioShare portfolioId =
+  AcceptPortfolioShare'
+    { portfolioId,
+      acceptLanguage = Core.Nothing,
+      portfolioShareType = Core.Nothing
+    }
+
+-- | The portfolio identifier.
 --
--- * 'portfolioId' - The portfolio identifier.
--- * 'portfolioShareType' - The type of shared portfolios to accept. The default is to accept imported portfolios.
---
---
---     * @AWS_ORGANIZATIONS@ - Accept portfolios shared by the management account of your organization.
---
---
---     * @IMPORTED@ - Accept imported portfolios.
---
---
---     * @AWS_SERVICECATALOG@ - Not supported. (Throws ResourceNotFoundException.)
---
---
--- For example, @aws servicecatalog accept-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS@
--- * 'acceptLanguage' - The language code.
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apsPortfolioId :: Lens.Lens' AcceptPortfolioShare Types.Id
+apsPortfolioId = Lens.field @"portfolioId"
+{-# DEPRECATED apsPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
+
+-- | The language code.
 --
 --
 --     * @en@ - English (default)
@@ -98,23 +101,13 @@ data AcceptPortfolioShare = AcceptPortfolioShare'
 --
 --
 --     * @zh@ - Chinese
-mkAcceptPortfolioShare ::
-  -- | 'portfolioId'
-  Lude.Text ->
-  AcceptPortfolioShare
-mkAcceptPortfolioShare pPortfolioId_ =
-  AcceptPortfolioShare'
-    { portfolioId = pPortfolioId_,
-      portfolioShareType = Lude.Nothing,
-      acceptLanguage = Lude.Nothing
-    }
-
--- | The portfolio identifier.
 --
--- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apsPortfolioId :: Lens.Lens' AcceptPortfolioShare Lude.Text
-apsPortfolioId = Lens.lens (portfolioId :: AcceptPortfolioShare -> Lude.Text) (\s a -> s {portfolioId = a} :: AcceptPortfolioShare)
-{-# DEPRECATED apsPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
+--
+--
+-- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apsAcceptLanguage :: Lens.Lens' AcceptPortfolioShare (Core.Maybe Types.AcceptLanguage)
+apsAcceptLanguage = Lens.field @"acceptLanguage"
+{-# DEPRECATED apsAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The type of shared portfolios to accept. The default is to accept imported portfolios.
 --
@@ -131,88 +124,62 @@ apsPortfolioId = Lens.lens (portfolioId :: AcceptPortfolioShare -> Lude.Text) (\
 -- For example, @aws servicecatalog accept-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS@
 --
 -- /Note:/ Consider using 'portfolioShareType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apsPortfolioShareType :: Lens.Lens' AcceptPortfolioShare (Lude.Maybe PortfolioShareType)
-apsPortfolioShareType = Lens.lens (portfolioShareType :: AcceptPortfolioShare -> Lude.Maybe PortfolioShareType) (\s a -> s {portfolioShareType = a} :: AcceptPortfolioShare)
+apsPortfolioShareType :: Lens.Lens' AcceptPortfolioShare (Core.Maybe Types.PortfolioShareType)
+apsPortfolioShareType = Lens.field @"portfolioShareType"
 {-# DEPRECATED apsPortfolioShareType "Use generic-lens or generic-optics with 'portfolioShareType' instead." #-}
 
--- | The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
---
--- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apsAcceptLanguage :: Lens.Lens' AcceptPortfolioShare (Lude.Maybe Lude.Text)
-apsAcceptLanguage = Lens.lens (acceptLanguage :: AcceptPortfolioShare -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: AcceptPortfolioShare)
-{-# DEPRECATED apsAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+instance Core.FromJSON AcceptPortfolioShare where
+  toJSON AcceptPortfolioShare {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PortfolioId" Core..= portfolioId),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("PortfolioShareType" Core..=) Core.<$> portfolioShareType
+          ]
+      )
 
-instance Lude.AWSRequest AcceptPortfolioShare where
+instance Core.AWSRequest AcceptPortfolioShare where
   type Rs AcceptPortfolioShare = AcceptPortfolioShareResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.AcceptPortfolioShare"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AcceptPortfolioShareResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AcceptPortfolioShare where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.AcceptPortfolioShare" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AcceptPortfolioShare where
-  toJSON AcceptPortfolioShare' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PortfolioId" Lude..= portfolioId),
-            ("PortfolioShareType" Lude..=) Lude.<$> portfolioShareType,
-            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage
-          ]
-      )
-
-instance Lude.ToPath AcceptPortfolioShare where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AcceptPortfolioShare where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAcceptPortfolioShareResponse' smart constructor.
 newtype AcceptPortfolioShareResponse = AcceptPortfolioShareResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AcceptPortfolioShareResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AcceptPortfolioShareResponse' value with any optional fields omitted.
 mkAcceptPortfolioShareResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AcceptPortfolioShareResponse
-mkAcceptPortfolioShareResponse pResponseStatus_ =
-  AcceptPortfolioShareResponse' {responseStatus = pResponseStatus_}
+mkAcceptPortfolioShareResponse responseStatus =
+  AcceptPortfolioShareResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apsrsResponseStatus :: Lens.Lens' AcceptPortfolioShareResponse Lude.Int
-apsrsResponseStatus = Lens.lens (responseStatus :: AcceptPortfolioShareResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AcceptPortfolioShareResponse)
-{-# DEPRECATED apsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+apsrrsResponseStatus :: Lens.Lens' AcceptPortfolioShareResponse Core.Int
+apsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED apsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

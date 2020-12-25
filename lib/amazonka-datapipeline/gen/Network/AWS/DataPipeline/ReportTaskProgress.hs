@@ -30,128 +30,112 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     mkReportTaskProgressResponse,
 
     -- ** Response lenses
-    rtprsCanceled,
-    rtprsResponseStatus,
+    rtprrsCanceled,
+    rtprrsResponseStatus,
   )
 where
 
-import Network.AWS.DataPipeline.Types
+import qualified Network.AWS.DataPipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ReportTaskProgress.
 --
 -- /See:/ 'mkReportTaskProgress' smart constructor.
 data ReportTaskProgress = ReportTaskProgress'
   { -- | The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
-    taskId :: Lude.Text,
+    taskId :: Types.TaskId,
     -- | Key-value pairs that define the properties of the ReportTaskProgressInput object.
-    fields :: Lude.Maybe [Field]
+    fields :: Core.Maybe [Types.Field]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReportTaskProgress' with the minimum fields required to make a request.
---
--- * 'taskId' - The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
--- * 'fields' - Key-value pairs that define the properties of the ReportTaskProgressInput object.
+-- | Creates a 'ReportTaskProgress' value with any optional fields omitted.
 mkReportTaskProgress ::
   -- | 'taskId'
-  Lude.Text ->
+  Types.TaskId ->
   ReportTaskProgress
-mkReportTaskProgress pTaskId_ =
-  ReportTaskProgress' {taskId = pTaskId_, fields = Lude.Nothing}
+mkReportTaskProgress taskId =
+  ReportTaskProgress' {taskId, fields = Core.Nothing}
 
 -- | The ID of the task assigned to the task runner. This value is provided in the response for 'PollForTask' .
 --
 -- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtpTaskId :: Lens.Lens' ReportTaskProgress Lude.Text
-rtpTaskId = Lens.lens (taskId :: ReportTaskProgress -> Lude.Text) (\s a -> s {taskId = a} :: ReportTaskProgress)
+rtpTaskId :: Lens.Lens' ReportTaskProgress Types.TaskId
+rtpTaskId = Lens.field @"taskId"
 {-# DEPRECATED rtpTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | Key-value pairs that define the properties of the ReportTaskProgressInput object.
 --
 -- /Note:/ Consider using 'fields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtpFields :: Lens.Lens' ReportTaskProgress (Lude.Maybe [Field])
-rtpFields = Lens.lens (fields :: ReportTaskProgress -> Lude.Maybe [Field]) (\s a -> s {fields = a} :: ReportTaskProgress)
+rtpFields :: Lens.Lens' ReportTaskProgress (Core.Maybe [Types.Field])
+rtpFields = Lens.field @"fields"
 {-# DEPRECATED rtpFields "Use generic-lens or generic-optics with 'fields' instead." #-}
 
-instance Lude.AWSRequest ReportTaskProgress where
+instance Core.FromJSON ReportTaskProgress where
+  toJSON ReportTaskProgress {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("taskId" Core..= taskId),
+            ("fields" Core..=) Core.<$> fields
+          ]
+      )
+
+instance Core.AWSRequest ReportTaskProgress where
   type Rs ReportTaskProgress = ReportTaskProgressResponse
-  request = Req.postJSON dataPipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DataPipeline.ReportTaskProgress")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ReportTaskProgressResponse'
-            Lude.<$> (x Lude..:> "canceled") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "canceled") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ReportTaskProgress where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DataPipeline.ReportTaskProgress" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ReportTaskProgress where
-  toJSON ReportTaskProgress' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("taskId" Lude..= taskId),
-            ("fields" Lude..=) Lude.<$> fields
-          ]
-      )
-
-instance Lude.ToPath ReportTaskProgress where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ReportTaskProgress where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of ReportTaskProgress.
 --
 -- /See:/ 'mkReportTaskProgressResponse' smart constructor.
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
   { -- | If true, the calling task runner should cancel processing of the task. The task runner does not need to call 'SetTaskStatus' for canceled tasks.
-    canceled :: Lude.Bool,
+    canceled :: Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReportTaskProgressResponse' with the minimum fields required to make a request.
---
--- * 'canceled' - If true, the calling task runner should cancel processing of the task. The task runner does not need to call 'SetTaskStatus' for canceled tasks.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ReportTaskProgressResponse' value with any optional fields omitted.
 mkReportTaskProgressResponse ::
   -- | 'canceled'
-  Lude.Bool ->
+  Core.Bool ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ReportTaskProgressResponse
-mkReportTaskProgressResponse pCanceled_ pResponseStatus_ =
-  ReportTaskProgressResponse'
-    { canceled = pCanceled_,
-      responseStatus = pResponseStatus_
-    }
+mkReportTaskProgressResponse canceled responseStatus =
+  ReportTaskProgressResponse' {canceled, responseStatus}
 
 -- | If true, the calling task runner should cancel processing of the task. The task runner does not need to call 'SetTaskStatus' for canceled tasks.
 --
 -- /Note:/ Consider using 'canceled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtprsCanceled :: Lens.Lens' ReportTaskProgressResponse Lude.Bool
-rtprsCanceled = Lens.lens (canceled :: ReportTaskProgressResponse -> Lude.Bool) (\s a -> s {canceled = a} :: ReportTaskProgressResponse)
-{-# DEPRECATED rtprsCanceled "Use generic-lens or generic-optics with 'canceled' instead." #-}
+rtprrsCanceled :: Lens.Lens' ReportTaskProgressResponse Core.Bool
+rtprrsCanceled = Lens.field @"canceled"
+{-# DEPRECATED rtprrsCanceled "Use generic-lens or generic-optics with 'canceled' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtprsResponseStatus :: Lens.Lens' ReportTaskProgressResponse Lude.Int
-rtprsResponseStatus = Lens.lens (responseStatus :: ReportTaskProgressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReportTaskProgressResponse)
-{-# DEPRECATED rtprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtprrsResponseStatus :: Lens.Lens' ReportTaskProgressResponse Core.Int
+rtprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

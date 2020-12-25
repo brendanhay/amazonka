@@ -17,111 +17,103 @@ module Network.AWS.XRay.Types.FaultRootCauseService
     mkFaultRootCauseService,
 
     -- * Lenses
-    frcsEntityPath,
     frcsAccountId,
-    frcsNames,
-    frcsName,
+    frcsEntityPath,
     frcsInferred,
+    frcsName,
+    frcsNames,
     frcsType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.XRay.Types.FaultRootCauseEntity
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.FaultRootCauseEntity as Types
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- | A collection of fields identifying the services in a trace summary fault.
 --
 -- /See:/ 'mkFaultRootCauseService' smart constructor.
 data FaultRootCauseService = FaultRootCauseService'
-  { -- | The path of root cause entities found on the service.
-    entityPath :: Lude.Maybe [FaultRootCauseEntity],
-    -- | The account ID associated to the service.
-    accountId :: Lude.Maybe Lude.Text,
-    -- | A collection of associated service names.
-    names :: Lude.Maybe [Lude.Text],
-    -- | The service name.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The account ID associated to the service.
+    accountId :: Core.Maybe Types.String,
+    -- | The path of root cause entities found on the service.
+    entityPath :: Core.Maybe [Types.FaultRootCauseEntity],
     -- | A Boolean value indicating if the service is inferred from the trace.
-    inferred :: Lude.Maybe Lude.Bool,
+    inferred :: Core.Maybe Core.Bool,
+    -- | The service name.
+    name :: Core.Maybe Types.String,
+    -- | A collection of associated service names.
+    names :: Core.Maybe [Types.String],
     -- | The type associated to the service.
-    type' :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FaultRootCauseService' with the minimum fields required to make a request.
---
--- * 'entityPath' - The path of root cause entities found on the service.
--- * 'accountId' - The account ID associated to the service.
--- * 'names' - A collection of associated service names.
--- * 'name' - The service name.
--- * 'inferred' - A Boolean value indicating if the service is inferred from the trace.
--- * 'type'' - The type associated to the service.
+-- | Creates a 'FaultRootCauseService' value with any optional fields omitted.
 mkFaultRootCauseService ::
   FaultRootCauseService
 mkFaultRootCauseService =
   FaultRootCauseService'
-    { entityPath = Lude.Nothing,
-      accountId = Lude.Nothing,
-      names = Lude.Nothing,
-      name = Lude.Nothing,
-      inferred = Lude.Nothing,
-      type' = Lude.Nothing
+    { accountId = Core.Nothing,
+      entityPath = Core.Nothing,
+      inferred = Core.Nothing,
+      name = Core.Nothing,
+      names = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The path of root cause entities found on the service.
---
--- /Note:/ Consider using 'entityPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frcsEntityPath :: Lens.Lens' FaultRootCauseService (Lude.Maybe [FaultRootCauseEntity])
-frcsEntityPath = Lens.lens (entityPath :: FaultRootCauseService -> Lude.Maybe [FaultRootCauseEntity]) (\s a -> s {entityPath = a} :: FaultRootCauseService)
-{-# DEPRECATED frcsEntityPath "Use generic-lens or generic-optics with 'entityPath' instead." #-}
 
 -- | The account ID associated to the service.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frcsAccountId :: Lens.Lens' FaultRootCauseService (Lude.Maybe Lude.Text)
-frcsAccountId = Lens.lens (accountId :: FaultRootCauseService -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: FaultRootCauseService)
+frcsAccountId :: Lens.Lens' FaultRootCauseService (Core.Maybe Types.String)
+frcsAccountId = Lens.field @"accountId"
 {-# DEPRECATED frcsAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | A collection of associated service names.
+-- | The path of root cause entities found on the service.
 --
--- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frcsNames :: Lens.Lens' FaultRootCauseService (Lude.Maybe [Lude.Text])
-frcsNames = Lens.lens (names :: FaultRootCauseService -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: FaultRootCauseService)
-{-# DEPRECATED frcsNames "Use generic-lens or generic-optics with 'names' instead." #-}
-
--- | The service name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frcsName :: Lens.Lens' FaultRootCauseService (Lude.Maybe Lude.Text)
-frcsName = Lens.lens (name :: FaultRootCauseService -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: FaultRootCauseService)
-{-# DEPRECATED frcsName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'entityPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frcsEntityPath :: Lens.Lens' FaultRootCauseService (Core.Maybe [Types.FaultRootCauseEntity])
+frcsEntityPath = Lens.field @"entityPath"
+{-# DEPRECATED frcsEntityPath "Use generic-lens or generic-optics with 'entityPath' instead." #-}
 
 -- | A Boolean value indicating if the service is inferred from the trace.
 --
 -- /Note:/ Consider using 'inferred' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frcsInferred :: Lens.Lens' FaultRootCauseService (Lude.Maybe Lude.Bool)
-frcsInferred = Lens.lens (inferred :: FaultRootCauseService -> Lude.Maybe Lude.Bool) (\s a -> s {inferred = a} :: FaultRootCauseService)
+frcsInferred :: Lens.Lens' FaultRootCauseService (Core.Maybe Core.Bool)
+frcsInferred = Lens.field @"inferred"
 {-# DEPRECATED frcsInferred "Use generic-lens or generic-optics with 'inferred' instead." #-}
+
+-- | The service name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frcsName :: Lens.Lens' FaultRootCauseService (Core.Maybe Types.String)
+frcsName = Lens.field @"name"
+{-# DEPRECATED frcsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A collection of associated service names.
+--
+-- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frcsNames :: Lens.Lens' FaultRootCauseService (Core.Maybe [Types.String])
+frcsNames = Lens.field @"names"
+{-# DEPRECATED frcsNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
 -- | The type associated to the service.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frcsType :: Lens.Lens' FaultRootCauseService (Lude.Maybe Lude.Text)
-frcsType = Lens.lens (type' :: FaultRootCauseService -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: FaultRootCauseService)
+frcsType :: Lens.Lens' FaultRootCauseService (Core.Maybe Types.String)
+frcsType = Lens.field @"type'"
 {-# DEPRECATED frcsType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON FaultRootCauseService where
+instance Core.FromJSON FaultRootCauseService where
   parseJSON =
-    Lude.withObject
-      "FaultRootCauseService"
-      ( \x ->
-          FaultRootCauseService'
-            Lude.<$> (x Lude..:? "EntityPath" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "AccountId")
-            Lude.<*> (x Lude..:? "Names" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Inferred")
-            Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "FaultRootCauseService" Core.$
+      \x ->
+        FaultRootCauseService'
+          Core.<$> (x Core..:? "AccountId")
+          Core.<*> (x Core..:? "EntityPath")
+          Core.<*> (x Core..:? "Inferred")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Names")
+          Core.<*> (x Core..:? "Type")

@@ -29,143 +29,124 @@ module Network.AWS.MechanicalTurk.NotifyWorkers
     mkNotifyWorkersResponse,
 
     -- ** Response lenses
-    nwrsNotifyWorkersFailureStatuses,
-    nwrsResponseStatus,
+    nwrrsNotifyWorkersFailureStatuses,
+    nwrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkNotifyWorkers' smart constructor.
 data NotifyWorkers = NotifyWorkers'
   { -- | The subject line of the email message to send. Can include up to 200 characters.
-    subject :: Lude.Text,
+    subject :: Types.Subject,
     -- | The text of the email message to send. Can include up to 4,096 characters
-    messageText :: Lude.Text,
+    messageText :: Types.MessageText,
     -- | A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.
-    workerIds :: [Lude.Text]
+    workerIds :: [Types.CustomerId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotifyWorkers' with the minimum fields required to make a request.
---
--- * 'subject' - The subject line of the email message to send. Can include up to 200 characters.
--- * 'messageText' - The text of the email message to send. Can include up to 4,096 characters
--- * 'workerIds' - A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.
+-- | Creates a 'NotifyWorkers' value with any optional fields omitted.
 mkNotifyWorkers ::
   -- | 'subject'
-  Lude.Text ->
+  Types.Subject ->
   -- | 'messageText'
-  Lude.Text ->
+  Types.MessageText ->
   NotifyWorkers
-mkNotifyWorkers pSubject_ pMessageText_ =
-  NotifyWorkers'
-    { subject = pSubject_,
-      messageText = pMessageText_,
-      workerIds = Lude.mempty
-    }
+mkNotifyWorkers subject messageText =
+  NotifyWorkers' {subject, messageText, workerIds = Core.mempty}
 
 -- | The subject line of the email message to send. Can include up to 200 characters.
 --
 -- /Note:/ Consider using 'subject' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nwSubject :: Lens.Lens' NotifyWorkers Lude.Text
-nwSubject = Lens.lens (subject :: NotifyWorkers -> Lude.Text) (\s a -> s {subject = a} :: NotifyWorkers)
+nwSubject :: Lens.Lens' NotifyWorkers Types.Subject
+nwSubject = Lens.field @"subject"
 {-# DEPRECATED nwSubject "Use generic-lens or generic-optics with 'subject' instead." #-}
 
 -- | The text of the email message to send. Can include up to 4,096 characters
 --
 -- /Note:/ Consider using 'messageText' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nwMessageText :: Lens.Lens' NotifyWorkers Lude.Text
-nwMessageText = Lens.lens (messageText :: NotifyWorkers -> Lude.Text) (\s a -> s {messageText = a} :: NotifyWorkers)
+nwMessageText :: Lens.Lens' NotifyWorkers Types.MessageText
+nwMessageText = Lens.field @"messageText"
 {-# DEPRECATED nwMessageText "Use generic-lens or generic-optics with 'messageText' instead." #-}
 
 -- | A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.
 --
 -- /Note:/ Consider using 'workerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nwWorkerIds :: Lens.Lens' NotifyWorkers [Lude.Text]
-nwWorkerIds = Lens.lens (workerIds :: NotifyWorkers -> [Lude.Text]) (\s a -> s {workerIds = a} :: NotifyWorkers)
+nwWorkerIds :: Lens.Lens' NotifyWorkers [Types.CustomerId]
+nwWorkerIds = Lens.field @"workerIds"
 {-# DEPRECATED nwWorkerIds "Use generic-lens or generic-optics with 'workerIds' instead." #-}
 
-instance Lude.AWSRequest NotifyWorkers where
+instance Core.FromJSON NotifyWorkers where
+  toJSON NotifyWorkers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Subject" Core..= subject),
+            Core.Just ("MessageText" Core..= messageText),
+            Core.Just ("WorkerIds" Core..= workerIds)
+          ]
+      )
+
+instance Core.AWSRequest NotifyWorkers where
   type Rs NotifyWorkers = NotifyWorkersResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "MTurkRequesterServiceV20170117.NotifyWorkers")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           NotifyWorkersResponse'
-            Lude.<$> (x Lude..?> "NotifyWorkersFailureStatuses" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NotifyWorkersFailureStatuses")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders NotifyWorkers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.NotifyWorkers" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON NotifyWorkers where
-  toJSON NotifyWorkers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Subject" Lude..= subject),
-            Lude.Just ("MessageText" Lude..= messageText),
-            Lude.Just ("WorkerIds" Lude..= workerIds)
-          ]
-      )
-
-instance Lude.ToPath NotifyWorkers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery NotifyWorkers where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkNotifyWorkersResponse' smart constructor.
 data NotifyWorkersResponse = NotifyWorkersResponse'
   { -- | When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects.
-    notifyWorkersFailureStatuses :: Lude.Maybe [NotifyWorkersFailureStatus],
+    notifyWorkersFailureStatuses :: Core.Maybe [Types.NotifyWorkersFailureStatus],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotifyWorkersResponse' with the minimum fields required to make a request.
---
--- * 'notifyWorkersFailureStatuses' - When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'NotifyWorkersResponse' value with any optional fields omitted.
 mkNotifyWorkersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   NotifyWorkersResponse
-mkNotifyWorkersResponse pResponseStatus_ =
+mkNotifyWorkersResponse responseStatus =
   NotifyWorkersResponse'
     { notifyWorkersFailureStatuses =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | When MTurk sends notifications to the list of Workers, it returns back any failures it encounters in this list of NotifyWorkersFailureStatus objects.
 --
 -- /Note:/ Consider using 'notifyWorkersFailureStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nwrsNotifyWorkersFailureStatuses :: Lens.Lens' NotifyWorkersResponse (Lude.Maybe [NotifyWorkersFailureStatus])
-nwrsNotifyWorkersFailureStatuses = Lens.lens (notifyWorkersFailureStatuses :: NotifyWorkersResponse -> Lude.Maybe [NotifyWorkersFailureStatus]) (\s a -> s {notifyWorkersFailureStatuses = a} :: NotifyWorkersResponse)
-{-# DEPRECATED nwrsNotifyWorkersFailureStatuses "Use generic-lens or generic-optics with 'notifyWorkersFailureStatuses' instead." #-}
+nwrrsNotifyWorkersFailureStatuses :: Lens.Lens' NotifyWorkersResponse (Core.Maybe [Types.NotifyWorkersFailureStatus])
+nwrrsNotifyWorkersFailureStatuses = Lens.field @"notifyWorkersFailureStatuses"
+{-# DEPRECATED nwrrsNotifyWorkersFailureStatuses "Use generic-lens or generic-optics with 'notifyWorkersFailureStatuses' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nwrsResponseStatus :: Lens.Lens' NotifyWorkersResponse Lude.Int
-nwrsResponseStatus = Lens.lens (responseStatus :: NotifyWorkersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: NotifyWorkersResponse)
-{-# DEPRECATED nwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+nwrrsResponseStatus :: Lens.Lens' NotifyWorkersResponse Core.Int
+nwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED nwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -32,62 +32,54 @@ module Network.AWS.LexModels.DeleteIntent
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteIntent' smart constructor.
 newtype DeleteIntent = DeleteIntent'
   { -- | The name of the intent. The name is case sensitive.
-    name :: Lude.Text
+    name :: Types.IntentName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIntent' with the minimum fields required to make a request.
---
--- * 'name' - The name of the intent. The name is case sensitive.
+-- | Creates a 'DeleteIntent' value with any optional fields omitted.
 mkDeleteIntent ::
   -- | 'name'
-  Lude.Text ->
+  Types.IntentName ->
   DeleteIntent
-mkDeleteIntent pName_ = DeleteIntent' {name = pName_}
+mkDeleteIntent name = DeleteIntent' {name}
 
 -- | The name of the intent. The name is case sensitive.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diName :: Lens.Lens' DeleteIntent Lude.Text
-diName = Lens.lens (name :: DeleteIntent -> Lude.Text) (\s a -> s {name = a} :: DeleteIntent)
+diName :: Lens.Lens' DeleteIntent Types.IntentName
+diName = Lens.field @"name"
 {-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteIntent where
+instance Core.AWSRequest DeleteIntent where
   type Rs DeleteIntent = DeleteIntentResponse
-  request = Req.delete lexModelsService
-  response = Res.receiveNull DeleteIntentResponse'
-
-instance Lude.ToHeaders DeleteIntent where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteIntent where
-  toPath DeleteIntent' {..} =
-    Lude.mconcat ["/intents/", Lude.toBS name]
-
-instance Lude.ToQuery DeleteIntent where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/intents/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteIntentResponse'
 
 -- | /See:/ 'mkDeleteIntentResponse' smart constructor.
 data DeleteIntentResponse = DeleteIntentResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIntentResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteIntentResponse' value with any optional fields omitted.
 mkDeleteIntentResponse ::
   DeleteIntentResponse
 mkDeleteIntentResponse = DeleteIntentResponse'

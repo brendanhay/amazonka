@@ -17,50 +17,38 @@ module Network.AWS.ELB.Types.AdditionalAttribute
     mkAdditionalAttribute,
 
     -- * Lenses
-    aaValue,
     aaKey,
+    aaValue,
   )
 where
 
-import Network.AWS.ELB.Internal
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.AdditionalAttributeKey as Types
+import qualified Network.AWS.ELB.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about additional load balancer attributes.
 --
 -- /See:/ 'mkAdditionalAttribute' smart constructor.
 data AdditionalAttribute = AdditionalAttribute'
-  { -- | This value of the attribute.
-    value :: Lude.Maybe Lude.Text,
-    -- | The name of the attribute.
+  { -- | The name of the attribute.
     --
     -- The following attribute is supported.
     --
     --     * @elb.http.desyncmitigationmode@ - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are @monitor@ , @defensive@ , and @strictest@ . The default is @defensive@ .
-    key :: Lude.Maybe Lude.Text
+    key :: Core.Maybe Types.AdditionalAttributeKey,
+    -- | This value of the attribute.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdditionalAttribute' with the minimum fields required to make a request.
---
--- * 'value' - This value of the attribute.
--- * 'key' - The name of the attribute.
---
--- The following attribute is supported.
---
---     * @elb.http.desyncmitigationmode@ - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are @monitor@ , @defensive@ , and @strictest@ . The default is @defensive@ .
+-- | Creates a 'AdditionalAttribute' value with any optional fields omitted.
 mkAdditionalAttribute ::
   AdditionalAttribute
 mkAdditionalAttribute =
-  AdditionalAttribute' {value = Lude.Nothing, key = Lude.Nothing}
-
--- | This value of the attribute.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaValue :: Lens.Lens' AdditionalAttribute (Lude.Maybe Lude.Text)
-aaValue = Lens.lens (value :: AdditionalAttribute -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: AdditionalAttribute)
-{-# DEPRECATED aaValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  AdditionalAttribute' {key = Core.Nothing, value = Core.Nothing}
 
 -- | The name of the attribute.
 --
@@ -71,15 +59,18 @@ aaValue = Lens.lens (value :: AdditionalAttribute -> Lude.Maybe Lude.Text) (\s a
 --
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaKey :: Lens.Lens' AdditionalAttribute (Lude.Maybe Lude.Text)
-aaKey = Lens.lens (key :: AdditionalAttribute -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: AdditionalAttribute)
+aaKey :: Lens.Lens' AdditionalAttribute (Core.Maybe Types.AdditionalAttributeKey)
+aaKey = Lens.field @"key"
 {-# DEPRECATED aaKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromXML AdditionalAttribute where
+-- | This value of the attribute.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaValue :: Lens.Lens' AdditionalAttribute (Core.Maybe Types.Value)
+aaValue = Lens.field @"value"
+{-# DEPRECATED aaValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromXML AdditionalAttribute where
   parseXML x =
     AdditionalAttribute'
-      Lude.<$> (x Lude..@? "Value") Lude.<*> (x Lude..@? "Key")
-
-instance Lude.ToQuery AdditionalAttribute where
-  toQuery AdditionalAttribute' {..} =
-    Lude.mconcat ["Value" Lude.=: value, "Key" Lude.=: key]
+      Core.<$> (x Core..@? "Key") Core.<*> (x Core..@? "Value")

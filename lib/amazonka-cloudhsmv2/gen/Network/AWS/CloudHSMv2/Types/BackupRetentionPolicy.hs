@@ -17,67 +17,63 @@ module Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy
     mkBackupRetentionPolicy,
 
     -- * Lenses
-    brpValue,
     brpType,
+    brpValue,
   )
 where
 
-import Network.AWS.CloudHSMv2.Types.BackupRetentionType
+import qualified Network.AWS.CloudHSMv2.Types.BackupRetentionType as Types
+import qualified Network.AWS.CloudHSMv2.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A policy that defines the number of days to retain backups.
 --
 -- /See:/ 'mkBackupRetentionPolicy' smart constructor.
 data BackupRetentionPolicy = BackupRetentionPolicy'
-  { -- | Use a value between 7 - 379.
-    value :: Lude.Maybe Lude.Text,
-    -- | The type of backup retention policy. For the @DAYS@ type, the value is the number of days to retain backups.
-    type' :: Lude.Maybe BackupRetentionType
+  { -- | The type of backup retention policy. For the @DAYS@ type, the value is the number of days to retain backups.
+    type' :: Core.Maybe Types.BackupRetentionType,
+    -- | Use a value between 7 - 379.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BackupRetentionPolicy' with the minimum fields required to make a request.
---
--- * 'value' - Use a value between 7 - 379.
--- * 'type'' - The type of backup retention policy. For the @DAYS@ type, the value is the number of days to retain backups.
+-- | Creates a 'BackupRetentionPolicy' value with any optional fields omitted.
 mkBackupRetentionPolicy ::
   BackupRetentionPolicy
 mkBackupRetentionPolicy =
   BackupRetentionPolicy'
-    { value = Lude.Nothing,
-      type' = Lude.Nothing
+    { type' = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | Use a value between 7 - 379.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brpValue :: Lens.Lens' BackupRetentionPolicy (Lude.Maybe Lude.Text)
-brpValue = Lens.lens (value :: BackupRetentionPolicy -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: BackupRetentionPolicy)
-{-# DEPRECATED brpValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The type of backup retention policy. For the @DAYS@ type, the value is the number of days to retain backups.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brpType :: Lens.Lens' BackupRetentionPolicy (Lude.Maybe BackupRetentionType)
-brpType = Lens.lens (type' :: BackupRetentionPolicy -> Lude.Maybe BackupRetentionType) (\s a -> s {type' = a} :: BackupRetentionPolicy)
+brpType :: Lens.Lens' BackupRetentionPolicy (Core.Maybe Types.BackupRetentionType)
+brpType = Lens.field @"type'"
 {-# DEPRECATED brpType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON BackupRetentionPolicy where
-  parseJSON =
-    Lude.withObject
-      "BackupRetentionPolicy"
-      ( \x ->
-          BackupRetentionPolicy'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Type")
-      )
+-- | Use a value between 7 - 379.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brpValue :: Lens.Lens' BackupRetentionPolicy (Core.Maybe Types.Value)
+brpValue = Lens.field @"value"
+{-# DEPRECATED brpValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToJSON BackupRetentionPolicy where
-  toJSON BackupRetentionPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Value" Lude..=) Lude.<$> value,
-            ("Type" Lude..=) Lude.<$> type'
+instance Core.FromJSON BackupRetentionPolicy where
+  toJSON BackupRetentionPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Type" Core..=) Core.<$> type',
+            ("Value" Core..=) Core.<$> value
           ]
       )
+
+instance Core.FromJSON BackupRetentionPolicy where
+  parseJSON =
+    Core.withObject "BackupRetentionPolicy" Core.$
+      \x ->
+        BackupRetentionPolicy'
+          Core.<$> (x Core..:? "Type") Core.<*> (x Core..:? "Value")

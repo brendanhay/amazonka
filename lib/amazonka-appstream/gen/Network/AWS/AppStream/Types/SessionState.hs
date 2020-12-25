@@ -13,52 +13,54 @@
 module Network.AWS.AppStream.Types.SessionState
   ( SessionState
       ( SessionState',
-        Active,
-        Pending,
-        Expired
+        SessionStateActive,
+        SessionStatePending,
+        SessionStateExpired,
+        fromSessionState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Possible values for the state of a streaming session.
-newtype SessionState = SessionState' Lude.Text
+newtype SessionState = SessionState' {fromSessionState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Active :: SessionState
-pattern Active = SessionState' "ACTIVE"
+pattern SessionStateActive :: SessionState
+pattern SessionStateActive = SessionState' "ACTIVE"
 
-pattern Pending :: SessionState
-pattern Pending = SessionState' "PENDING"
+pattern SessionStatePending :: SessionState
+pattern SessionStatePending = SessionState' "PENDING"
 
-pattern Expired :: SessionState
-pattern Expired = SessionState' "EXPIRED"
+pattern SessionStateExpired :: SessionState
+pattern SessionStateExpired = SessionState' "EXPIRED"
 
 {-# COMPLETE
-  Active,
-  Pending,
-  Expired,
+  SessionStateActive,
+  SessionStatePending,
+  SessionStateExpired,
   SessionState'
   #-}

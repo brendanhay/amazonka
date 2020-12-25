@@ -18,94 +18,87 @@ module Network.AWS.MediaLive.Types.HlsCdnSettings
 
     -- * Lenses
     hcsHlsAkamaiSettings,
-    hcsHlsMediaStoreSettings,
     hcsHlsBasicPutSettings,
+    hcsHlsMediaStoreSettings,
     hcsHlsWebdavSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.HlsAkamaiSettings
-import Network.AWS.MediaLive.Types.HlsBasicPutSettings
-import Network.AWS.MediaLive.Types.HlsMediaStoreSettings
-import Network.AWS.MediaLive.Types.HlsWebdavSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.HlsAkamaiSettings as Types
+import qualified Network.AWS.MediaLive.Types.HlsBasicPutSettings as Types
+import qualified Network.AWS.MediaLive.Types.HlsMediaStoreSettings as Types
+import qualified Network.AWS.MediaLive.Types.HlsWebdavSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Hls Cdn Settings
 --
 -- /See:/ 'mkHlsCdnSettings' smart constructor.
 data HlsCdnSettings = HlsCdnSettings'
-  { hlsAkamaiSettings :: Lude.Maybe HlsAkamaiSettings,
-    hlsMediaStoreSettings :: Lude.Maybe HlsMediaStoreSettings,
-    hlsBasicPutSettings :: Lude.Maybe HlsBasicPutSettings,
-    hlsWebdavSettings :: Lude.Maybe HlsWebdavSettings
+  { hlsAkamaiSettings :: Core.Maybe Types.HlsAkamaiSettings,
+    hlsBasicPutSettings :: Core.Maybe Types.HlsBasicPutSettings,
+    hlsMediaStoreSettings :: Core.Maybe Types.HlsMediaStoreSettings,
+    hlsWebdavSettings :: Core.Maybe Types.HlsWebdavSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HlsCdnSettings' with the minimum fields required to make a request.
---
--- * 'hlsAkamaiSettings' -
--- * 'hlsMediaStoreSettings' -
--- * 'hlsBasicPutSettings' -
--- * 'hlsWebdavSettings' -
+-- | Creates a 'HlsCdnSettings' value with any optional fields omitted.
 mkHlsCdnSettings ::
   HlsCdnSettings
 mkHlsCdnSettings =
   HlsCdnSettings'
-    { hlsAkamaiSettings = Lude.Nothing,
-      hlsMediaStoreSettings = Lude.Nothing,
-      hlsBasicPutSettings = Lude.Nothing,
-      hlsWebdavSettings = Lude.Nothing
+    { hlsAkamaiSettings = Core.Nothing,
+      hlsBasicPutSettings = Core.Nothing,
+      hlsMediaStoreSettings = Core.Nothing,
+      hlsWebdavSettings = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'hlsAkamaiSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcsHlsAkamaiSettings :: Lens.Lens' HlsCdnSettings (Lude.Maybe HlsAkamaiSettings)
-hcsHlsAkamaiSettings = Lens.lens (hlsAkamaiSettings :: HlsCdnSettings -> Lude.Maybe HlsAkamaiSettings) (\s a -> s {hlsAkamaiSettings = a} :: HlsCdnSettings)
+hcsHlsAkamaiSettings :: Lens.Lens' HlsCdnSettings (Core.Maybe Types.HlsAkamaiSettings)
+hcsHlsAkamaiSettings = Lens.field @"hlsAkamaiSettings"
 {-# DEPRECATED hcsHlsAkamaiSettings "Use generic-lens or generic-optics with 'hlsAkamaiSettings' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'hlsMediaStoreSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcsHlsMediaStoreSettings :: Lens.Lens' HlsCdnSettings (Lude.Maybe HlsMediaStoreSettings)
-hcsHlsMediaStoreSettings = Lens.lens (hlsMediaStoreSettings :: HlsCdnSettings -> Lude.Maybe HlsMediaStoreSettings) (\s a -> s {hlsMediaStoreSettings = a} :: HlsCdnSettings)
-{-# DEPRECATED hcsHlsMediaStoreSettings "Use generic-lens or generic-optics with 'hlsMediaStoreSettings' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'hlsBasicPutSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcsHlsBasicPutSettings :: Lens.Lens' HlsCdnSettings (Lude.Maybe HlsBasicPutSettings)
-hcsHlsBasicPutSettings = Lens.lens (hlsBasicPutSettings :: HlsCdnSettings -> Lude.Maybe HlsBasicPutSettings) (\s a -> s {hlsBasicPutSettings = a} :: HlsCdnSettings)
+hcsHlsBasicPutSettings :: Lens.Lens' HlsCdnSettings (Core.Maybe Types.HlsBasicPutSettings)
+hcsHlsBasicPutSettings = Lens.field @"hlsBasicPutSettings"
 {-# DEPRECATED hcsHlsBasicPutSettings "Use generic-lens or generic-optics with 'hlsBasicPutSettings' instead." #-}
 
 -- | Undocumented field.
 --
+-- /Note:/ Consider using 'hlsMediaStoreSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcsHlsMediaStoreSettings :: Lens.Lens' HlsCdnSettings (Core.Maybe Types.HlsMediaStoreSettings)
+hcsHlsMediaStoreSettings = Lens.field @"hlsMediaStoreSettings"
+{-# DEPRECATED hcsHlsMediaStoreSettings "Use generic-lens or generic-optics with 'hlsMediaStoreSettings' instead." #-}
+
+-- | Undocumented field.
+--
 -- /Note:/ Consider using 'hlsWebdavSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcsHlsWebdavSettings :: Lens.Lens' HlsCdnSettings (Lude.Maybe HlsWebdavSettings)
-hcsHlsWebdavSettings = Lens.lens (hlsWebdavSettings :: HlsCdnSettings -> Lude.Maybe HlsWebdavSettings) (\s a -> s {hlsWebdavSettings = a} :: HlsCdnSettings)
+hcsHlsWebdavSettings :: Lens.Lens' HlsCdnSettings (Core.Maybe Types.HlsWebdavSettings)
+hcsHlsWebdavSettings = Lens.field @"hlsWebdavSettings"
 {-# DEPRECATED hcsHlsWebdavSettings "Use generic-lens or generic-optics with 'hlsWebdavSettings' instead." #-}
 
-instance Lude.FromJSON HlsCdnSettings where
-  parseJSON =
-    Lude.withObject
-      "HlsCdnSettings"
-      ( \x ->
-          HlsCdnSettings'
-            Lude.<$> (x Lude..:? "hlsAkamaiSettings")
-            Lude.<*> (x Lude..:? "hlsMediaStoreSettings")
-            Lude.<*> (x Lude..:? "hlsBasicPutSettings")
-            Lude.<*> (x Lude..:? "hlsWebdavSettings")
-      )
-
-instance Lude.ToJSON HlsCdnSettings where
-  toJSON HlsCdnSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("hlsAkamaiSettings" Lude..=) Lude.<$> hlsAkamaiSettings,
-            ("hlsMediaStoreSettings" Lude..=) Lude.<$> hlsMediaStoreSettings,
-            ("hlsBasicPutSettings" Lude..=) Lude.<$> hlsBasicPutSettings,
-            ("hlsWebdavSettings" Lude..=) Lude.<$> hlsWebdavSettings
+instance Core.FromJSON HlsCdnSettings where
+  toJSON HlsCdnSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("hlsAkamaiSettings" Core..=) Core.<$> hlsAkamaiSettings,
+            ("hlsBasicPutSettings" Core..=) Core.<$> hlsBasicPutSettings,
+            ("hlsMediaStoreSettings" Core..=) Core.<$> hlsMediaStoreSettings,
+            ("hlsWebdavSettings" Core..=) Core.<$> hlsWebdavSettings
           ]
       )
+
+instance Core.FromJSON HlsCdnSettings where
+  parseJSON =
+    Core.withObject "HlsCdnSettings" Core.$
+      \x ->
+        HlsCdnSettings'
+          Core.<$> (x Core..:? "hlsAkamaiSettings")
+          Core.<*> (x Core..:? "hlsBasicPutSettings")
+          Core.<*> (x Core..:? "hlsMediaStoreSettings")
+          Core.<*> (x Core..:? "hlsWebdavSettings")

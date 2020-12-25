@@ -17,13 +17,15 @@ module Network.AWS.RDS.Types.DBParameterGroupStatus
     mkDBParameterGroupStatus,
 
     -- * Lenses
-    dpgsDBParameterGroupName,
-    dpgsParameterApplyStatus,
+    dbpgsDBParameterGroupName,
+    dbpgsParameterApplyStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.DBParameterGroupName as Types
+import qualified Network.AWS.RDS.Types.ParameterApplyStatus as Types
 
 -- | The status of the DB parameter group.
 --
@@ -51,41 +53,38 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkDBParameterGroupStatus' smart constructor.
 data DBParameterGroupStatus = DBParameterGroupStatus'
   { -- | The name of the DB parameter group.
-    dbParameterGroupName :: Lude.Maybe Lude.Text,
+    dBParameterGroupName :: Core.Maybe Types.DBParameterGroupName,
     -- | The status of parameter updates.
-    parameterApplyStatus :: Lude.Maybe Lude.Text
+    parameterApplyStatus :: Core.Maybe Types.ParameterApplyStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DBParameterGroupStatus' with the minimum fields required to make a request.
---
--- * 'dbParameterGroupName' - The name of the DB parameter group.
--- * 'parameterApplyStatus' - The status of parameter updates.
+-- | Creates a 'DBParameterGroupStatus' value with any optional fields omitted.
 mkDBParameterGroupStatus ::
   DBParameterGroupStatus
 mkDBParameterGroupStatus =
   DBParameterGroupStatus'
-    { dbParameterGroupName = Lude.Nothing,
-      parameterApplyStatus = Lude.Nothing
+    { dBParameterGroupName = Core.Nothing,
+      parameterApplyStatus = Core.Nothing
     }
 
 -- | The name of the DB parameter group.
 --
--- /Note:/ Consider using 'dbParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgsDBParameterGroupName :: Lens.Lens' DBParameterGroupStatus (Lude.Maybe Lude.Text)
-dpgsDBParameterGroupName = Lens.lens (dbParameterGroupName :: DBParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {dbParameterGroupName = a} :: DBParameterGroupStatus)
-{-# DEPRECATED dpgsDBParameterGroupName "Use generic-lens or generic-optics with 'dbParameterGroupName' instead." #-}
+-- /Note:/ Consider using 'dBParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbpgsDBParameterGroupName :: Lens.Lens' DBParameterGroupStatus (Core.Maybe Types.DBParameterGroupName)
+dbpgsDBParameterGroupName = Lens.field @"dBParameterGroupName"
+{-# DEPRECATED dbpgsDBParameterGroupName "Use generic-lens or generic-optics with 'dBParameterGroupName' instead." #-}
 
 -- | The status of parameter updates.
 --
 -- /Note:/ Consider using 'parameterApplyStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgsParameterApplyStatus :: Lens.Lens' DBParameterGroupStatus (Lude.Maybe Lude.Text)
-dpgsParameterApplyStatus = Lens.lens (parameterApplyStatus :: DBParameterGroupStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterApplyStatus = a} :: DBParameterGroupStatus)
-{-# DEPRECATED dpgsParameterApplyStatus "Use generic-lens or generic-optics with 'parameterApplyStatus' instead." #-}
+dbpgsParameterApplyStatus :: Lens.Lens' DBParameterGroupStatus (Core.Maybe Types.ParameterApplyStatus)
+dbpgsParameterApplyStatus = Lens.field @"parameterApplyStatus"
+{-# DEPRECATED dbpgsParameterApplyStatus "Use generic-lens or generic-optics with 'parameterApplyStatus' instead." #-}
 
-instance Lude.FromXML DBParameterGroupStatus where
+instance Core.FromXML DBParameterGroupStatus where
   parseXML x =
     DBParameterGroupStatus'
-      Lude.<$> (x Lude..@? "DBParameterGroupName")
-      Lude.<*> (x Lude..@? "ParameterApplyStatus")
+      Core.<$> (x Core..@? "DBParameterGroupName")
+      Core.<*> (x Core..@? "ParameterApplyStatus")

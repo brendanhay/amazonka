@@ -17,72 +17,66 @@ module Network.AWS.CodeCommit.Types.FileModes
     mkFileModes,
 
     -- * Lenses
-    fmDestination,
     fmBase,
+    fmDestination,
     fmSource,
   )
 where
 
-import Network.AWS.CodeCommit.Types.FileModeTypeEnum
+import qualified Network.AWS.CodeCommit.Types.FileModeTypeEnum as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about file modes in a merge or pull request.
 --
 -- /See:/ 'mkFileModes' smart constructor.
 data FileModes = FileModes'
-  { -- | The file mode of a file in the destination of a merge or pull request.
-    destination :: Lude.Maybe FileModeTypeEnum,
-    -- | The file mode of a file in the base of a merge or pull request.
-    base :: Lude.Maybe FileModeTypeEnum,
+  { -- | The file mode of a file in the base of a merge or pull request.
+    base :: Core.Maybe Types.FileModeTypeEnum,
+    -- | The file mode of a file in the destination of a merge or pull request.
+    destination :: Core.Maybe Types.FileModeTypeEnum,
     -- | The file mode of a file in the source of a merge or pull request.
-    source :: Lude.Maybe FileModeTypeEnum
+    source :: Core.Maybe Types.FileModeTypeEnum
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FileModes' with the minimum fields required to make a request.
---
--- * 'destination' - The file mode of a file in the destination of a merge or pull request.
--- * 'base' - The file mode of a file in the base of a merge or pull request.
--- * 'source' - The file mode of a file in the source of a merge or pull request.
+-- | Creates a 'FileModes' value with any optional fields omitted.
 mkFileModes ::
   FileModes
 mkFileModes =
   FileModes'
-    { destination = Lude.Nothing,
-      base = Lude.Nothing,
-      source = Lude.Nothing
+    { base = Core.Nothing,
+      destination = Core.Nothing,
+      source = Core.Nothing
     }
-
--- | The file mode of a file in the destination of a merge or pull request.
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fmDestination :: Lens.Lens' FileModes (Lude.Maybe FileModeTypeEnum)
-fmDestination = Lens.lens (destination :: FileModes -> Lude.Maybe FileModeTypeEnum) (\s a -> s {destination = a} :: FileModes)
-{-# DEPRECATED fmDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The file mode of a file in the base of a merge or pull request.
 --
 -- /Note:/ Consider using 'base' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fmBase :: Lens.Lens' FileModes (Lude.Maybe FileModeTypeEnum)
-fmBase = Lens.lens (base :: FileModes -> Lude.Maybe FileModeTypeEnum) (\s a -> s {base = a} :: FileModes)
+fmBase :: Lens.Lens' FileModes (Core.Maybe Types.FileModeTypeEnum)
+fmBase = Lens.field @"base"
 {-# DEPRECATED fmBase "Use generic-lens or generic-optics with 'base' instead." #-}
+
+-- | The file mode of a file in the destination of a merge or pull request.
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fmDestination :: Lens.Lens' FileModes (Core.Maybe Types.FileModeTypeEnum)
+fmDestination = Lens.field @"destination"
+{-# DEPRECATED fmDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The file mode of a file in the source of a merge or pull request.
 --
 -- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fmSource :: Lens.Lens' FileModes (Lude.Maybe FileModeTypeEnum)
-fmSource = Lens.lens (source :: FileModes -> Lude.Maybe FileModeTypeEnum) (\s a -> s {source = a} :: FileModes)
+fmSource :: Lens.Lens' FileModes (Core.Maybe Types.FileModeTypeEnum)
+fmSource = Lens.field @"source"
 {-# DEPRECATED fmSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance Lude.FromJSON FileModes where
+instance Core.FromJSON FileModes where
   parseJSON =
-    Lude.withObject
-      "FileModes"
-      ( \x ->
-          FileModes'
-            Lude.<$> (x Lude..:? "destination")
-            Lude.<*> (x Lude..:? "base")
-            Lude.<*> (x Lude..:? "source")
-      )
+    Core.withObject "FileModes" Core.$
+      \x ->
+        FileModes'
+          Core.<$> (x Core..:? "base")
+          Core.<*> (x Core..:? "destination")
+          Core.<*> (x Core..:? "source")

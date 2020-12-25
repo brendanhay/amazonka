@@ -20,204 +20,183 @@ module Network.AWS.Pinpoint.GetCampaignDateRangeKpi
     mkGetCampaignDateRangeKpi,
 
     -- ** Request lenses
-    gcdrkKpiName,
-    gcdrkStartTime,
-    gcdrkCampaignId,
-    gcdrkNextToken,
     gcdrkApplicationId,
+    gcdrkKpiName,
+    gcdrkCampaignId,
     gcdrkEndTime,
+    gcdrkNextToken,
     gcdrkPageSize,
+    gcdrkStartTime,
 
     -- * Destructuring the response
     GetCampaignDateRangeKpiResponse (..),
     mkGetCampaignDateRangeKpiResponse,
 
     -- ** Response lenses
-    gcdrkrsCampaignDateRangeKpiResponse,
-    gcdrkrsResponseStatus,
+    gcdrkrrsCampaignDateRangeKpiResponse,
+    gcdrkrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetCampaignDateRangeKpi' smart constructor.
 data GetCampaignDateRangeKpi = GetCampaignDateRangeKpi'
-  { -- | The name of the metric, also referred to as a /key performance indicator (KPI)/ , to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
-    kpiName :: Lude.Text,
-    -- | The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.
-    startTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Core.Text,
+    -- | The name of the metric, also referred to as a /key performance indicator (KPI)/ , to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
+    kpiName :: Core.Text,
     -- | The unique identifier for the campaign.
-    campaignId :: Lude.Text,
-    -- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
+    campaignId :: Core.Text,
     -- | The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
-    endTime :: Lude.Maybe Lude.Timestamp,
+    endTime :: Core.Maybe Core.UTCTime,
+    -- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-    pageSize :: Lude.Maybe Lude.Text
+    pageSize :: Core.Maybe Core.Text,
+    -- | The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.
+    startTime :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetCampaignDateRangeKpi' with the minimum fields required to make a request.
---
--- * 'kpiName' - The name of the metric, also referred to as a /key performance indicator (KPI)/ , to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
--- * 'startTime' - The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.
--- * 'campaignId' - The unique identifier for the campaign.
--- * 'nextToken' - The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'endTime' - The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
--- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- | Creates a 'GetCampaignDateRangeKpi' value with any optional fields omitted.
 mkGetCampaignDateRangeKpi ::
-  -- | 'kpiName'
-  Lude.Text ->
-  -- | 'campaignId'
-  Lude.Text ->
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'kpiName'
+  Core.Text ->
+  -- | 'campaignId'
+  Core.Text ->
   GetCampaignDateRangeKpi
-mkGetCampaignDateRangeKpi pKpiName_ pCampaignId_ pApplicationId_ =
+mkGetCampaignDateRangeKpi applicationId kpiName campaignId =
   GetCampaignDateRangeKpi'
-    { kpiName = pKpiName_,
-      startTime = Lude.Nothing,
-      campaignId = pCampaignId_,
-      nextToken = Lude.Nothing,
-      applicationId = pApplicationId_,
-      endTime = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { applicationId,
+      kpiName,
+      campaignId,
+      endTime = Core.Nothing,
+      nextToken = Core.Nothing,
+      pageSize = Core.Nothing,
+      startTime = Core.Nothing
     }
-
--- | The name of the metric, also referred to as a /key performance indicator (KPI)/ , to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
---
--- /Note:/ Consider using 'kpiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdrkKpiName :: Lens.Lens' GetCampaignDateRangeKpi Lude.Text
-gcdrkKpiName = Lens.lens (kpiName :: GetCampaignDateRangeKpi -> Lude.Text) (\s a -> s {kpiName = a} :: GetCampaignDateRangeKpi)
-{-# DEPRECATED gcdrkKpiName "Use generic-lens or generic-optics with 'kpiName' instead." #-}
-
--- | The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdrkStartTime :: Lens.Lens' GetCampaignDateRangeKpi (Lude.Maybe Lude.Timestamp)
-gcdrkStartTime = Lens.lens (startTime :: GetCampaignDateRangeKpi -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: GetCampaignDateRangeKpi)
-{-# DEPRECATED gcdrkStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The unique identifier for the campaign.
---
--- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdrkCampaignId :: Lens.Lens' GetCampaignDateRangeKpi Lude.Text
-gcdrkCampaignId = Lens.lens (campaignId :: GetCampaignDateRangeKpi -> Lude.Text) (\s a -> s {campaignId = a} :: GetCampaignDateRangeKpi)
-{-# DEPRECATED gcdrkCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
-
--- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdrkNextToken :: Lens.Lens' GetCampaignDateRangeKpi (Lude.Maybe Lude.Text)
-gcdrkNextToken = Lens.lens (nextToken :: GetCampaignDateRangeKpi -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCampaignDateRangeKpi)
-{-# DEPRECATED gcdrkNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdrkApplicationId :: Lens.Lens' GetCampaignDateRangeKpi Lude.Text
-gcdrkApplicationId = Lens.lens (applicationId :: GetCampaignDateRangeKpi -> Lude.Text) (\s a -> s {applicationId = a} :: GetCampaignDateRangeKpi)
+gcdrkApplicationId :: Lens.Lens' GetCampaignDateRangeKpi Core.Text
+gcdrkApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED gcdrkApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+-- | The name of the metric, also referred to as a /key performance indicator (KPI)/ , to retrieve data for. This value describes the associated metric and consists of two or more terms, which are comprised of lowercase alphanumeric characters, separated by a hyphen. Examples are email-open-rate and successful-delivery-rate. For a list of valid values, see the <https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
+--
+-- /Note:/ Consider using 'kpiName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrkKpiName :: Lens.Lens' GetCampaignDateRangeKpi Core.Text
+gcdrkKpiName = Lens.field @"kpiName"
+{-# DEPRECATED gcdrkKpiName "Use generic-lens or generic-optics with 'kpiName' instead." #-}
+
+-- | The unique identifier for the campaign.
+--
+-- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrkCampaignId :: Lens.Lens' GetCampaignDateRangeKpi Core.Text
+gcdrkCampaignId = Lens.field @"campaignId"
+{-# DEPRECATED gcdrkCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
 
 -- | The last date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-26T20:00:00Z for 8:00 PM UTC July 26, 2019.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdrkEndTime :: Lens.Lens' GetCampaignDateRangeKpi (Lude.Maybe Lude.Timestamp)
-gcdrkEndTime = Lens.lens (endTime :: GetCampaignDateRangeKpi -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: GetCampaignDateRangeKpi)
+gcdrkEndTime :: Lens.Lens' GetCampaignDateRangeKpi (Core.Maybe Core.UTCTime)
+gcdrkEndTime = Lens.field @"endTime"
 {-# DEPRECATED gcdrkEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrkNextToken :: Lens.Lens' GetCampaignDateRangeKpi (Core.Maybe Core.Text)
+gcdrkNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gcdrkNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdrkPageSize :: Lens.Lens' GetCampaignDateRangeKpi (Lude.Maybe Lude.Text)
-gcdrkPageSize = Lens.lens (pageSize :: GetCampaignDateRangeKpi -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetCampaignDateRangeKpi)
+gcdrkPageSize :: Lens.Lens' GetCampaignDateRangeKpi (Core.Maybe Core.Text)
+gcdrkPageSize = Lens.field @"pageSize"
 {-# DEPRECATED gcdrkPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Lude.AWSRequest GetCampaignDateRangeKpi where
+-- | The first date and time to retrieve data for, as part of an inclusive date range that filters the query results. This value should be in extended ISO 8601 format and use Coordinated Universal Time (UTC), for example: 2019-07-19T20:00:00Z for 8:00 PM UTC July 19, 2019. This value should also be fewer than 90 days from the current day.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdrkStartTime :: Lens.Lens' GetCampaignDateRangeKpi (Core.Maybe Core.UTCTime)
+gcdrkStartTime = Lens.field @"startTime"
+{-# DEPRECATED gcdrkStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+instance Core.AWSRequest GetCampaignDateRangeKpi where
   type Rs GetCampaignDateRangeKpi = GetCampaignDateRangeKpiResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/campaigns/")
+                Core.<> (Core.toText campaignId)
+                Core.<> ("/kpis/daterange/")
+                Core.<> (Core.toText kpiName)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "end-time" Core.<$> endTime
+            Core.<> (Core.toQueryValue "next-token" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "page-size" Core.<$> pageSize)
+            Core.<> (Core.toQueryValue "start-time" Core.<$> startTime),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCampaignDateRangeKpiResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCampaignDateRangeKpi where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetCampaignDateRangeKpi where
-  toPath GetCampaignDateRangeKpi' {..} =
-    Lude.mconcat
-      [ "/v1/apps/",
-        Lude.toBS applicationId,
-        "/campaigns/",
-        Lude.toBS campaignId,
-        "/kpis/daterange/",
-        Lude.toBS kpiName
-      ]
-
-instance Lude.ToQuery GetCampaignDateRangeKpi where
-  toQuery GetCampaignDateRangeKpi' {..} =
-    Lude.mconcat
-      [ "start-time" Lude.=: startTime,
-        "next-token" Lude.=: nextToken,
-        "end-time" Lude.=: endTime,
-        "page-size" Lude.=: pageSize
-      ]
 
 -- | /See:/ 'mkGetCampaignDateRangeKpiResponse' smart constructor.
 data GetCampaignDateRangeKpiResponse = GetCampaignDateRangeKpiResponse'
-  { campaignDateRangeKpiResponse :: CampaignDateRangeKpiResponse,
+  { campaignDateRangeKpiResponse :: Types.CampaignDateRangeKpiResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetCampaignDateRangeKpiResponse' with the minimum fields required to make a request.
---
--- * 'campaignDateRangeKpiResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCampaignDateRangeKpiResponse' value with any optional fields omitted.
 mkGetCampaignDateRangeKpiResponse ::
   -- | 'campaignDateRangeKpiResponse'
-  CampaignDateRangeKpiResponse ->
+  Types.CampaignDateRangeKpiResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCampaignDateRangeKpiResponse
 mkGetCampaignDateRangeKpiResponse
-  pCampaignDateRangeKpiResponse_
-  pResponseStatus_ =
+  campaignDateRangeKpiResponse
+  responseStatus =
     GetCampaignDateRangeKpiResponse'
-      { campaignDateRangeKpiResponse =
-          pCampaignDateRangeKpiResponse_,
-        responseStatus = pResponseStatus_
+      { campaignDateRangeKpiResponse,
+        responseStatus
       }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'campaignDateRangeKpiResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdrkrsCampaignDateRangeKpiResponse :: Lens.Lens' GetCampaignDateRangeKpiResponse CampaignDateRangeKpiResponse
-gcdrkrsCampaignDateRangeKpiResponse = Lens.lens (campaignDateRangeKpiResponse :: GetCampaignDateRangeKpiResponse -> CampaignDateRangeKpiResponse) (\s a -> s {campaignDateRangeKpiResponse = a} :: GetCampaignDateRangeKpiResponse)
-{-# DEPRECATED gcdrkrsCampaignDateRangeKpiResponse "Use generic-lens or generic-optics with 'campaignDateRangeKpiResponse' instead." #-}
+gcdrkrrsCampaignDateRangeKpiResponse :: Lens.Lens' GetCampaignDateRangeKpiResponse Types.CampaignDateRangeKpiResponse
+gcdrkrrsCampaignDateRangeKpiResponse = Lens.field @"campaignDateRangeKpiResponse"
+{-# DEPRECATED gcdrkrrsCampaignDateRangeKpiResponse "Use generic-lens or generic-optics with 'campaignDateRangeKpiResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdrkrsResponseStatus :: Lens.Lens' GetCampaignDateRangeKpiResponse Lude.Int
-gcdrkrsResponseStatus = Lens.lens (responseStatus :: GetCampaignDateRangeKpiResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCampaignDateRangeKpiResponse)
-{-# DEPRECATED gcdrkrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcdrkrrsResponseStatus :: Lens.Lens' GetCampaignDateRangeKpiResponse Core.Int
+gcdrkrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcdrkrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

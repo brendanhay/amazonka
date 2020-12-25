@@ -22,161 +22,152 @@ module Network.AWS.Config.DescribeAggregationAuthorizations
     mkDescribeAggregationAuthorizations,
 
     -- ** Request lenses
-    daaNextToken,
     daaLimit,
+    daaNextToken,
 
     -- * Destructuring the response
     DescribeAggregationAuthorizationsResponse (..),
     mkDescribeAggregationAuthorizationsResponse,
 
     -- ** Response lenses
-    daarsAggregationAuthorizations,
-    daarsNextToken,
-    daarsResponseStatus,
+    daarrsAggregationAuthorizations,
+    daarrsNextToken,
+    daarrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAggregationAuthorizations' smart constructor.
 data DescribeAggregationAuthorizations = DescribeAggregationAuthorizations'
-  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
-    limit :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
+    limit :: Core.Maybe Core.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAggregationAuthorizations' with the minimum fields required to make a request.
---
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'limit' - The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
+-- | Creates a 'DescribeAggregationAuthorizations' value with any optional fields omitted.
 mkDescribeAggregationAuthorizations ::
   DescribeAggregationAuthorizations
 mkDescribeAggregationAuthorizations =
   DescribeAggregationAuthorizations'
-    { nextToken = Lude.Nothing,
-      limit = Lude.Nothing
+    { limit = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daaNextToken :: Lens.Lens' DescribeAggregationAuthorizations (Lude.Maybe Lude.Text)
-daaNextToken = Lens.lens (nextToken :: DescribeAggregationAuthorizations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAggregationAuthorizations)
-{-# DEPRECATED daaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of AggregationAuthorizations returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daaLimit :: Lens.Lens' DescribeAggregationAuthorizations (Lude.Maybe Lude.Natural)
-daaLimit = Lens.lens (limit :: DescribeAggregationAuthorizations -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeAggregationAuthorizations)
+daaLimit :: Lens.Lens' DescribeAggregationAuthorizations (Core.Maybe Core.Natural)
+daaLimit = Lens.field @"limit"
 {-# DEPRECATED daaLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager DescribeAggregationAuthorizations where
-  page rq rs
-    | Page.stop (rs Lens.^. daarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. daarsAggregationAuthorizations) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& daaNextToken Lens..~ rs Lens.^. daarsNextToken
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daaNextToken :: Lens.Lens' DescribeAggregationAuthorizations (Core.Maybe Types.String)
+daaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED daaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeAggregationAuthorizations where
+instance Core.FromJSON DescribeAggregationAuthorizations where
+  toJSON DescribeAggregationAuthorizations {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeAggregationAuthorizations where
   type
     Rs DescribeAggregationAuthorizations =
       DescribeAggregationAuthorizationsResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.DescribeAggregationAuthorizations"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAggregationAuthorizationsResponse'
-            Lude.<$> (x Lude..?> "AggregationAuthorizations" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AggregationAuthorizations")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeAggregationAuthorizations where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.DescribeAggregationAuthorizations" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeAggregationAuthorizations where
-  toJSON DescribeAggregationAuthorizations' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath DescribeAggregationAuthorizations where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAggregationAuthorizations where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeAggregationAuthorizations where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"aggregationAuthorizations" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeAggregationAuthorizationsResponse' smart constructor.
 data DescribeAggregationAuthorizationsResponse = DescribeAggregationAuthorizationsResponse'
   { -- | Returns a list of authorizations granted to various aggregator accounts and regions.
-    aggregationAuthorizations :: Lude.Maybe [AggregationAuthorization],
+    aggregationAuthorizations :: Core.Maybe [Types.AggregationAuthorization],
     -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAggregationAuthorizationsResponse' with the minimum fields required to make a request.
---
--- * 'aggregationAuthorizations' - Returns a list of authorizations granted to various aggregator accounts and regions.
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAggregationAuthorizationsResponse' value with any optional fields omitted.
 mkDescribeAggregationAuthorizationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAggregationAuthorizationsResponse
-mkDescribeAggregationAuthorizationsResponse pResponseStatus_ =
+mkDescribeAggregationAuthorizationsResponse responseStatus =
   DescribeAggregationAuthorizationsResponse'
     { aggregationAuthorizations =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Returns a list of authorizations granted to various aggregator accounts and regions.
 --
 -- /Note:/ Consider using 'aggregationAuthorizations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsAggregationAuthorizations :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Lude.Maybe [AggregationAuthorization])
-daarsAggregationAuthorizations = Lens.lens (aggregationAuthorizations :: DescribeAggregationAuthorizationsResponse -> Lude.Maybe [AggregationAuthorization]) (\s a -> s {aggregationAuthorizations = a} :: DescribeAggregationAuthorizationsResponse)
-{-# DEPRECATED daarsAggregationAuthorizations "Use generic-lens or generic-optics with 'aggregationAuthorizations' instead." #-}
+daarrsAggregationAuthorizations :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Core.Maybe [Types.AggregationAuthorization])
+daarrsAggregationAuthorizations = Lens.field @"aggregationAuthorizations"
+{-# DEPRECATED daarrsAggregationAuthorizations "Use generic-lens or generic-optics with 'aggregationAuthorizations' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsNextToken :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Lude.Maybe Lude.Text)
-daarsNextToken = Lens.lens (nextToken :: DescribeAggregationAuthorizationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeAggregationAuthorizationsResponse)
-{-# DEPRECATED daarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+daarrsNextToken :: Lens.Lens' DescribeAggregationAuthorizationsResponse (Core.Maybe Types.String)
+daarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED daarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsResponseStatus :: Lens.Lens' DescribeAggregationAuthorizationsResponse Lude.Int
-daarsResponseStatus = Lens.lens (responseStatus :: DescribeAggregationAuthorizationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAggregationAuthorizationsResponse)
-{-# DEPRECATED daarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daarrsResponseStatus :: Lens.Lens' DescribeAggregationAuthorizationsResponse Core.Int
+daarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

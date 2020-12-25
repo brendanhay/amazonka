@@ -22,61 +22,58 @@ module Network.AWS.Config.Types.RemediationExceptionResourceKey
   )
 where
 
+import qualified Network.AWS.Config.Types.ResourceId as Types
+import qualified Network.AWS.Config.Types.StringWithCharLimit256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details that identify a resource within AWS Config, including the resource type and resource ID.
 --
 -- /See:/ 'mkRemediationExceptionResourceKey' smart constructor.
 data RemediationExceptionResourceKey = RemediationExceptionResourceKey'
   { -- | The ID of the resource (for example., sg-xxxxxx).
-    resourceId :: Lude.Maybe Lude.Text,
+    resourceId :: Core.Maybe Types.ResourceId,
     -- | The type of a resource.
-    resourceType :: Lude.Maybe Lude.Text
+    resourceType :: Core.Maybe Types.StringWithCharLimit256
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemediationExceptionResourceKey' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource (for example., sg-xxxxxx).
--- * 'resourceType' - The type of a resource.
+-- | Creates a 'RemediationExceptionResourceKey' value with any optional fields omitted.
 mkRemediationExceptionResourceKey ::
   RemediationExceptionResourceKey
 mkRemediationExceptionResourceKey =
   RemediationExceptionResourceKey'
-    { resourceId = Lude.Nothing,
-      resourceType = Lude.Nothing
+    { resourceId = Core.Nothing,
+      resourceType = Core.Nothing
     }
 
 -- | The ID of the resource (for example., sg-xxxxxx).
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rerkResourceId :: Lens.Lens' RemediationExceptionResourceKey (Lude.Maybe Lude.Text)
-rerkResourceId = Lens.lens (resourceId :: RemediationExceptionResourceKey -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: RemediationExceptionResourceKey)
+rerkResourceId :: Lens.Lens' RemediationExceptionResourceKey (Core.Maybe Types.ResourceId)
+rerkResourceId = Lens.field @"resourceId"
 {-# DEPRECATED rerkResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The type of a resource.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rerkResourceType :: Lens.Lens' RemediationExceptionResourceKey (Lude.Maybe Lude.Text)
-rerkResourceType = Lens.lens (resourceType :: RemediationExceptionResourceKey -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: RemediationExceptionResourceKey)
+rerkResourceType :: Lens.Lens' RemediationExceptionResourceKey (Core.Maybe Types.StringWithCharLimit256)
+rerkResourceType = Lens.field @"resourceType"
 {-# DEPRECATED rerkResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
-instance Lude.FromJSON RemediationExceptionResourceKey where
-  parseJSON =
-    Lude.withObject
-      "RemediationExceptionResourceKey"
-      ( \x ->
-          RemediationExceptionResourceKey'
-            Lude.<$> (x Lude..:? "ResourceId") Lude.<*> (x Lude..:? "ResourceType")
-      )
-
-instance Lude.ToJSON RemediationExceptionResourceKey where
-  toJSON RemediationExceptionResourceKey' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ResourceId" Lude..=) Lude.<$> resourceId,
-            ("ResourceType" Lude..=) Lude.<$> resourceType
+instance Core.FromJSON RemediationExceptionResourceKey where
+  toJSON RemediationExceptionResourceKey {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceId" Core..=) Core.<$> resourceId,
+            ("ResourceType" Core..=) Core.<$> resourceType
           ]
       )
+
+instance Core.FromJSON RemediationExceptionResourceKey where
+  parseJSON =
+    Core.withObject "RemediationExceptionResourceKey" Core.$
+      \x ->
+        RemediationExceptionResourceKey'
+          Core.<$> (x Core..:? "ResourceId") Core.<*> (x Core..:? "ResourceType")

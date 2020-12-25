@@ -96,7 +96,7 @@ responseDeleteSession =
   res
     "DeleteSessionResponse"
     "fixture/DeleteSessionResponse.proto"
-    lexRuntimeService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSession)
 
 responsePostText :: PostTextResponse -> TestTree
@@ -104,7 +104,7 @@ responsePostText =
   res
     "PostTextResponse"
     "fixture/PostTextResponse.proto"
-    lexRuntimeService
+    mkServiceConfig
     (Proxy :: Proxy PostText)
 
 responseGetSession :: GetSessionResponse -> TestTree
@@ -112,5 +112,5 @@ responseGetSession =
   res
     "GetSessionResponse"
     "fixture/GetSessionResponse.proto"
-    lexRuntimeService
+    mkServiceConfig
     (Proxy :: Proxy GetSession)

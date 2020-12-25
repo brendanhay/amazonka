@@ -13,46 +13,51 @@
 module Network.AWS.SageMaker.Types.DirectInternetAccess
   ( DirectInternetAccess
       ( DirectInternetAccess',
-        DIAEnabled,
-        DIADisabled
+        DirectInternetAccessEnabled,
+        DirectInternetAccessDisabled,
+        fromDirectInternetAccess
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DirectInternetAccess = DirectInternetAccess' Lude.Text
+newtype DirectInternetAccess = DirectInternetAccess'
+  { fromDirectInternetAccess ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DIAEnabled :: DirectInternetAccess
-pattern DIAEnabled = DirectInternetAccess' "Enabled"
+pattern DirectInternetAccessEnabled :: DirectInternetAccess
+pattern DirectInternetAccessEnabled = DirectInternetAccess' "Enabled"
 
-pattern DIADisabled :: DirectInternetAccess
-pattern DIADisabled = DirectInternetAccess' "Disabled"
+pattern DirectInternetAccessDisabled :: DirectInternetAccess
+pattern DirectInternetAccessDisabled = DirectInternetAccess' "Disabled"
 
 {-# COMPLETE
-  DIAEnabled,
-  DIADisabled,
+  DirectInternetAccessEnabled,
+  DirectInternetAccessDisabled,
   DirectInternetAccess'
   #-}

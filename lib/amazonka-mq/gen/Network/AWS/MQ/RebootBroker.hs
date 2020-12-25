@@ -27,89 +27,82 @@ module Network.AWS.MQ.RebootBroker
     mkRebootBrokerResponse,
 
     -- ** Response lenses
-    rbrsResponseStatus,
+    rbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MQ.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MQ.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRebootBroker' smart constructor.
 newtype RebootBroker = RebootBroker'
   { -- | The unique ID that Amazon MQ generates for the broker.
-    brokerId :: Lude.Text
+    brokerId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebootBroker' with the minimum fields required to make a request.
---
--- * 'brokerId' - The unique ID that Amazon MQ generates for the broker.
+-- | Creates a 'RebootBroker' value with any optional fields omitted.
 mkRebootBroker ::
   -- | 'brokerId'
-  Lude.Text ->
+  Core.Text ->
   RebootBroker
-mkRebootBroker pBrokerId_ = RebootBroker' {brokerId = pBrokerId_}
+mkRebootBroker brokerId = RebootBroker' {brokerId}
 
 -- | The unique ID that Amazon MQ generates for the broker.
 --
 -- /Note:/ Consider using 'brokerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rbBrokerId :: Lens.Lens' RebootBroker Lude.Text
-rbBrokerId = Lens.lens (brokerId :: RebootBroker -> Lude.Text) (\s a -> s {brokerId = a} :: RebootBroker)
+rbBrokerId :: Lens.Lens' RebootBroker Core.Text
+rbBrokerId = Lens.field @"brokerId"
 {-# DEPRECATED rbBrokerId "Use generic-lens or generic-optics with 'brokerId' instead." #-}
 
-instance Lude.AWSRequest RebootBroker where
+instance Core.FromJSON RebootBroker where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest RebootBroker where
   type Rs RebootBroker = RebootBrokerResponse
-  request = Req.postJSON mqService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/brokers/" Core.<> (Core.toText brokerId)
+                Core.<> ("/reboot")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          RebootBrokerResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          RebootBrokerResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RebootBroker where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RebootBroker where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath RebootBroker where
-  toPath RebootBroker' {..} =
-    Lude.mconcat ["/v1/brokers/", Lude.toBS brokerId, "/reboot"]
-
-instance Lude.ToQuery RebootBroker where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRebootBrokerResponse' smart constructor.
 newtype RebootBrokerResponse = RebootBrokerResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebootBrokerResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RebootBrokerResponse' value with any optional fields omitted.
 mkRebootBrokerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RebootBrokerResponse
-mkRebootBrokerResponse pResponseStatus_ =
-  RebootBrokerResponse' {responseStatus = pResponseStatus_}
+mkRebootBrokerResponse responseStatus =
+  RebootBrokerResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rbrsResponseStatus :: Lens.Lens' RebootBrokerResponse Lude.Int
-rbrsResponseStatus = Lens.lens (responseStatus :: RebootBrokerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebootBrokerResponse)
-{-# DEPRECATED rbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rbrrsResponseStatus :: Lens.Lens' RebootBrokerResponse Core.Int
+rbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

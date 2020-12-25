@@ -17,99 +17,93 @@ module Network.AWS.SMS.Types.AppValidationConfiguration
     mkAppValidationConfiguration,
 
     -- * Lenses
-    avcSsmValidationParameters,
-    avcName,
-    avcValidationId,
     avcAppValidationStrategy,
+    avcName,
+    avcSsmValidationParameters,
+    avcValidationId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.AppValidationStrategy
-import Network.AWS.SMS.Types.SSMValidationParameters
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.AppValidationStrategy as Types
+import qualified Network.AWS.SMS.Types.NonEmptyStringWithMaxLen255 as Types
+import qualified Network.AWS.SMS.Types.SSMValidationParameters as Types
+import qualified Network.AWS.SMS.Types.ValidationId as Types
 
 -- | Configuration for validating an application.
 --
 -- /See:/ 'mkAppValidationConfiguration' smart constructor.
 data AppValidationConfiguration = AppValidationConfiguration'
-  { -- | The validation parameters.
-    ssmValidationParameters :: Lude.Maybe SSMValidationParameters,
+  { -- | The validation strategy.
+    appValidationStrategy :: Core.Maybe Types.AppValidationStrategy,
     -- | The name of the configuration.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.NonEmptyStringWithMaxLen255,
+    -- | The validation parameters.
+    ssmValidationParameters :: Core.Maybe Types.SSMValidationParameters,
     -- | The ID of the validation.
-    validationId :: Lude.Maybe Lude.Text,
-    -- | The validation strategy.
-    appValidationStrategy :: Lude.Maybe AppValidationStrategy
+    validationId :: Core.Maybe Types.ValidationId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AppValidationConfiguration' with the minimum fields required to make a request.
---
--- * 'ssmValidationParameters' - The validation parameters.
--- * 'name' - The name of the configuration.
--- * 'validationId' - The ID of the validation.
--- * 'appValidationStrategy' - The validation strategy.
+-- | Creates a 'AppValidationConfiguration' value with any optional fields omitted.
 mkAppValidationConfiguration ::
   AppValidationConfiguration
 mkAppValidationConfiguration =
   AppValidationConfiguration'
-    { ssmValidationParameters =
-        Lude.Nothing,
-      name = Lude.Nothing,
-      validationId = Lude.Nothing,
-      appValidationStrategy = Lude.Nothing
+    { appValidationStrategy = Core.Nothing,
+      name = Core.Nothing,
+      ssmValidationParameters = Core.Nothing,
+      validationId = Core.Nothing
     }
-
--- | The validation parameters.
---
--- /Note:/ Consider using 'ssmValidationParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avcSsmValidationParameters :: Lens.Lens' AppValidationConfiguration (Lude.Maybe SSMValidationParameters)
-avcSsmValidationParameters = Lens.lens (ssmValidationParameters :: AppValidationConfiguration -> Lude.Maybe SSMValidationParameters) (\s a -> s {ssmValidationParameters = a} :: AppValidationConfiguration)
-{-# DEPRECATED avcSsmValidationParameters "Use generic-lens or generic-optics with 'ssmValidationParameters' instead." #-}
-
--- | The name of the configuration.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avcName :: Lens.Lens' AppValidationConfiguration (Lude.Maybe Lude.Text)
-avcName = Lens.lens (name :: AppValidationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: AppValidationConfiguration)
-{-# DEPRECATED avcName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The ID of the validation.
---
--- /Note:/ Consider using 'validationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avcValidationId :: Lens.Lens' AppValidationConfiguration (Lude.Maybe Lude.Text)
-avcValidationId = Lens.lens (validationId :: AppValidationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {validationId = a} :: AppValidationConfiguration)
-{-# DEPRECATED avcValidationId "Use generic-lens or generic-optics with 'validationId' instead." #-}
 
 -- | The validation strategy.
 --
 -- /Note:/ Consider using 'appValidationStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avcAppValidationStrategy :: Lens.Lens' AppValidationConfiguration (Lude.Maybe AppValidationStrategy)
-avcAppValidationStrategy = Lens.lens (appValidationStrategy :: AppValidationConfiguration -> Lude.Maybe AppValidationStrategy) (\s a -> s {appValidationStrategy = a} :: AppValidationConfiguration)
+avcAppValidationStrategy :: Lens.Lens' AppValidationConfiguration (Core.Maybe Types.AppValidationStrategy)
+avcAppValidationStrategy = Lens.field @"appValidationStrategy"
 {-# DEPRECATED avcAppValidationStrategy "Use generic-lens or generic-optics with 'appValidationStrategy' instead." #-}
 
-instance Lude.FromJSON AppValidationConfiguration where
-  parseJSON =
-    Lude.withObject
-      "AppValidationConfiguration"
-      ( \x ->
-          AppValidationConfiguration'
-            Lude.<$> (x Lude..:? "ssmValidationParameters")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "validationId")
-            Lude.<*> (x Lude..:? "appValidationStrategy")
-      )
+-- | The name of the configuration.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcName :: Lens.Lens' AppValidationConfiguration (Core.Maybe Types.NonEmptyStringWithMaxLen255)
+avcName = Lens.field @"name"
+{-# DEPRECATED avcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON AppValidationConfiguration where
-  toJSON AppValidationConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ssmValidationParameters" Lude..=)
-              Lude.<$> ssmValidationParameters,
-            ("name" Lude..=) Lude.<$> name,
-            ("validationId" Lude..=) Lude.<$> validationId,
-            ("appValidationStrategy" Lude..=) Lude.<$> appValidationStrategy
+-- | The validation parameters.
+--
+-- /Note:/ Consider using 'ssmValidationParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcSsmValidationParameters :: Lens.Lens' AppValidationConfiguration (Core.Maybe Types.SSMValidationParameters)
+avcSsmValidationParameters = Lens.field @"ssmValidationParameters"
+{-# DEPRECATED avcSsmValidationParameters "Use generic-lens or generic-optics with 'ssmValidationParameters' instead." #-}
+
+-- | The ID of the validation.
+--
+-- /Note:/ Consider using 'validationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avcValidationId :: Lens.Lens' AppValidationConfiguration (Core.Maybe Types.ValidationId)
+avcValidationId = Lens.field @"validationId"
+{-# DEPRECATED avcValidationId "Use generic-lens or generic-optics with 'validationId' instead." #-}
+
+instance Core.FromJSON AppValidationConfiguration where
+  toJSON AppValidationConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("appValidationStrategy" Core..=) Core.<$> appValidationStrategy,
+            ("name" Core..=) Core.<$> name,
+            ("ssmValidationParameters" Core..=)
+              Core.<$> ssmValidationParameters,
+            ("validationId" Core..=) Core.<$> validationId
           ]
       )
+
+instance Core.FromJSON AppValidationConfiguration where
+  parseJSON =
+    Core.withObject "AppValidationConfiguration" Core.$
+      \x ->
+        AppValidationConfiguration'
+          Core.<$> (x Core..:? "appValidationStrategy")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "ssmValidationParameters")
+          Core.<*> (x Core..:? "validationId")

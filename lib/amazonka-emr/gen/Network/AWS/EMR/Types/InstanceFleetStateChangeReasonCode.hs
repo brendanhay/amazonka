@@ -13,56 +13,61 @@
 module Network.AWS.EMR.Types.InstanceFleetStateChangeReasonCode
   ( InstanceFleetStateChangeReasonCode
       ( InstanceFleetStateChangeReasonCode',
-        IFSCRCInternalError,
-        IFSCRCValidationError,
-        IFSCRCInstanceFailure,
-        IFSCRCClusterTerminated
+        InstanceFleetStateChangeReasonCodeInternalError,
+        InstanceFleetStateChangeReasonCodeValidationError,
+        InstanceFleetStateChangeReasonCodeInstanceFailure,
+        InstanceFleetStateChangeReasonCodeClusterTerminated,
+        fromInstanceFleetStateChangeReasonCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceFleetStateChangeReasonCode = InstanceFleetStateChangeReasonCode' Lude.Text
+newtype InstanceFleetStateChangeReasonCode = InstanceFleetStateChangeReasonCode'
+  { fromInstanceFleetStateChangeReasonCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IFSCRCInternalError :: InstanceFleetStateChangeReasonCode
-pattern IFSCRCInternalError = InstanceFleetStateChangeReasonCode' "INTERNAL_ERROR"
+pattern InstanceFleetStateChangeReasonCodeInternalError :: InstanceFleetStateChangeReasonCode
+pattern InstanceFleetStateChangeReasonCodeInternalError = InstanceFleetStateChangeReasonCode' "INTERNAL_ERROR"
 
-pattern IFSCRCValidationError :: InstanceFleetStateChangeReasonCode
-pattern IFSCRCValidationError = InstanceFleetStateChangeReasonCode' "VALIDATION_ERROR"
+pattern InstanceFleetStateChangeReasonCodeValidationError :: InstanceFleetStateChangeReasonCode
+pattern InstanceFleetStateChangeReasonCodeValidationError = InstanceFleetStateChangeReasonCode' "VALIDATION_ERROR"
 
-pattern IFSCRCInstanceFailure :: InstanceFleetStateChangeReasonCode
-pattern IFSCRCInstanceFailure = InstanceFleetStateChangeReasonCode' "INSTANCE_FAILURE"
+pattern InstanceFleetStateChangeReasonCodeInstanceFailure :: InstanceFleetStateChangeReasonCode
+pattern InstanceFleetStateChangeReasonCodeInstanceFailure = InstanceFleetStateChangeReasonCode' "INSTANCE_FAILURE"
 
-pattern IFSCRCClusterTerminated :: InstanceFleetStateChangeReasonCode
-pattern IFSCRCClusterTerminated = InstanceFleetStateChangeReasonCode' "CLUSTER_TERMINATED"
+pattern InstanceFleetStateChangeReasonCodeClusterTerminated :: InstanceFleetStateChangeReasonCode
+pattern InstanceFleetStateChangeReasonCodeClusterTerminated = InstanceFleetStateChangeReasonCode' "CLUSTER_TERMINATED"
 
 {-# COMPLETE
-  IFSCRCInternalError,
-  IFSCRCValidationError,
-  IFSCRCInstanceFailure,
-  IFSCRCClusterTerminated,
+  InstanceFleetStateChangeReasonCodeInternalError,
+  InstanceFleetStateChangeReasonCodeValidationError,
+  InstanceFleetStateChangeReasonCodeInstanceFailure,
+  InstanceFleetStateChangeReasonCodeClusterTerminated,
   InstanceFleetStateChangeReasonCode'
   #-}

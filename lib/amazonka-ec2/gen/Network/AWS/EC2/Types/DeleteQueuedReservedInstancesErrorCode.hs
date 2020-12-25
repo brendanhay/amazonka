@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.DeleteQueuedReservedInstancesErrorCode
   ( DeleteQueuedReservedInstancesErrorCode
       ( DeleteQueuedReservedInstancesErrorCode',
-        DQRIECReservedInstancesIdInvalid,
-        DQRIECReservedInstancesNotInQueuedState,
-        DQRIECUnexpectedError
+        DeleteQueuedReservedInstancesErrorCodeReservedInstancesIdInvalid,
+        DeleteQueuedReservedInstancesErrorCodeReservedInstancesNotInQueuedState,
+        DeleteQueuedReservedInstancesErrorCodeUnexpectedError,
+        fromDeleteQueuedReservedInstancesErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeleteQueuedReservedInstancesErrorCode = DeleteQueuedReservedInstancesErrorCode' Lude.Text
+newtype DeleteQueuedReservedInstancesErrorCode = DeleteQueuedReservedInstancesErrorCode'
+  { fromDeleteQueuedReservedInstancesErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DQRIECReservedInstancesIdInvalid :: DeleteQueuedReservedInstancesErrorCode
-pattern DQRIECReservedInstancesIdInvalid = DeleteQueuedReservedInstancesErrorCode' "reserved-instances-id-invalid"
+pattern DeleteQueuedReservedInstancesErrorCodeReservedInstancesIdInvalid :: DeleteQueuedReservedInstancesErrorCode
+pattern DeleteQueuedReservedInstancesErrorCodeReservedInstancesIdInvalid = DeleteQueuedReservedInstancesErrorCode' "reserved-instances-id-invalid"
 
-pattern DQRIECReservedInstancesNotInQueuedState :: DeleteQueuedReservedInstancesErrorCode
-pattern DQRIECReservedInstancesNotInQueuedState = DeleteQueuedReservedInstancesErrorCode' "reserved-instances-not-in-queued-state"
+pattern DeleteQueuedReservedInstancesErrorCodeReservedInstancesNotInQueuedState :: DeleteQueuedReservedInstancesErrorCode
+pattern DeleteQueuedReservedInstancesErrorCodeReservedInstancesNotInQueuedState = DeleteQueuedReservedInstancesErrorCode' "reserved-instances-not-in-queued-state"
 
-pattern DQRIECUnexpectedError :: DeleteQueuedReservedInstancesErrorCode
-pattern DQRIECUnexpectedError = DeleteQueuedReservedInstancesErrorCode' "unexpected-error"
+pattern DeleteQueuedReservedInstancesErrorCodeUnexpectedError :: DeleteQueuedReservedInstancesErrorCode
+pattern DeleteQueuedReservedInstancesErrorCodeUnexpectedError = DeleteQueuedReservedInstancesErrorCode' "unexpected-error"
 
 {-# COMPLETE
-  DQRIECReservedInstancesIdInvalid,
-  DQRIECReservedInstancesNotInQueuedState,
-  DQRIECUnexpectedError,
+  DeleteQueuedReservedInstancesErrorCodeReservedInstancesIdInvalid,
+  DeleteQueuedReservedInstancesErrorCodeReservedInstancesNotInQueuedState,
+  DeleteQueuedReservedInstancesErrorCodeUnexpectedError,
   DeleteQueuedReservedInstancesErrorCode'
   #-}

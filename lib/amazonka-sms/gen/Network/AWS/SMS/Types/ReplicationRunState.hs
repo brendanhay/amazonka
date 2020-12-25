@@ -13,71 +13,76 @@
 module Network.AWS.SMS.Types.ReplicationRunState
   ( ReplicationRunState
       ( ReplicationRunState',
-        RRSPending,
-        RRSMissed,
-        RRSActive,
-        RRSFailed,
-        RRSCompleted,
-        RRSDeleting,
-        RRSDeleted
+        ReplicationRunStatePending,
+        ReplicationRunStateMissed,
+        ReplicationRunStateActive,
+        ReplicationRunStateFailed,
+        ReplicationRunStateCompleted,
+        ReplicationRunStateDeleting,
+        ReplicationRunStateDeleted,
+        fromReplicationRunState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReplicationRunState = ReplicationRunState' Lude.Text
+newtype ReplicationRunState = ReplicationRunState'
+  { fromReplicationRunState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RRSPending :: ReplicationRunState
-pattern RRSPending = ReplicationRunState' "PENDING"
+pattern ReplicationRunStatePending :: ReplicationRunState
+pattern ReplicationRunStatePending = ReplicationRunState' "PENDING"
 
-pattern RRSMissed :: ReplicationRunState
-pattern RRSMissed = ReplicationRunState' "MISSED"
+pattern ReplicationRunStateMissed :: ReplicationRunState
+pattern ReplicationRunStateMissed = ReplicationRunState' "MISSED"
 
-pattern RRSActive :: ReplicationRunState
-pattern RRSActive = ReplicationRunState' "ACTIVE"
+pattern ReplicationRunStateActive :: ReplicationRunState
+pattern ReplicationRunStateActive = ReplicationRunState' "ACTIVE"
 
-pattern RRSFailed :: ReplicationRunState
-pattern RRSFailed = ReplicationRunState' "FAILED"
+pattern ReplicationRunStateFailed :: ReplicationRunState
+pattern ReplicationRunStateFailed = ReplicationRunState' "FAILED"
 
-pattern RRSCompleted :: ReplicationRunState
-pattern RRSCompleted = ReplicationRunState' "COMPLETED"
+pattern ReplicationRunStateCompleted :: ReplicationRunState
+pattern ReplicationRunStateCompleted = ReplicationRunState' "COMPLETED"
 
-pattern RRSDeleting :: ReplicationRunState
-pattern RRSDeleting = ReplicationRunState' "DELETING"
+pattern ReplicationRunStateDeleting :: ReplicationRunState
+pattern ReplicationRunStateDeleting = ReplicationRunState' "DELETING"
 
-pattern RRSDeleted :: ReplicationRunState
-pattern RRSDeleted = ReplicationRunState' "DELETED"
+pattern ReplicationRunStateDeleted :: ReplicationRunState
+pattern ReplicationRunStateDeleted = ReplicationRunState' "DELETED"
 
 {-# COMPLETE
-  RRSPending,
-  RRSMissed,
-  RRSActive,
-  RRSFailed,
-  RRSCompleted,
-  RRSDeleting,
-  RRSDeleted,
+  ReplicationRunStatePending,
+  ReplicationRunStateMissed,
+  ReplicationRunStateActive,
+  ReplicationRunStateFailed,
+  ReplicationRunStateCompleted,
+  ReplicationRunStateDeleting,
+  ReplicationRunStateDeleted,
   ReplicationRunState'
   #-}

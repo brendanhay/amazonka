@@ -24,98 +24,89 @@ module Network.AWS.Shield.DescribeEmergencyContactSettings
     mkDescribeEmergencyContactSettingsResponse,
 
     -- ** Response lenses
-    decsrsEmergencyContactList,
-    decsrsResponseStatus,
+    decsrrsEmergencyContactList,
+    decsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkDescribeEmergencyContactSettings' smart constructor.
 data DescribeEmergencyContactSettings = DescribeEmergencyContactSettings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEmergencyContactSettings' with the minimum fields required to make a request.
+-- | Creates a 'DescribeEmergencyContactSettings' value with any optional fields omitted.
 mkDescribeEmergencyContactSettings ::
   DescribeEmergencyContactSettings
 mkDescribeEmergencyContactSettings =
   DescribeEmergencyContactSettings'
 
-instance Lude.AWSRequest DescribeEmergencyContactSettings where
+instance Core.FromJSON DescribeEmergencyContactSettings where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DescribeEmergencyContactSettings where
   type
     Rs DescribeEmergencyContactSettings =
       DescribeEmergencyContactSettingsResponse
-  request = Req.postJSON shieldService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSShield_20160616.DescribeEmergencyContactSettings"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeEmergencyContactSettingsResponse'
-            Lude.<$> (x Lude..?> "EmergencyContactList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "EmergencyContactList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeEmergencyContactSettings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShield_20160616.DescribeEmergencyContactSettings" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeEmergencyContactSettings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DescribeEmergencyContactSettings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEmergencyContactSettings where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeEmergencyContactSettingsResponse' smart constructor.
 data DescribeEmergencyContactSettingsResponse = DescribeEmergencyContactSettingsResponse'
   { -- | A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.
-    emergencyContactList :: Lude.Maybe [EmergencyContact],
+    emergencyContactList :: Core.Maybe [Types.EmergencyContact],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEmergencyContactSettingsResponse' with the minimum fields required to make a request.
---
--- * 'emergencyContactList' - A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEmergencyContactSettingsResponse' value with any optional fields omitted.
 mkDescribeEmergencyContactSettingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEmergencyContactSettingsResponse
-mkDescribeEmergencyContactSettingsResponse pResponseStatus_ =
+mkDescribeEmergencyContactSettingsResponse responseStatus =
   DescribeEmergencyContactSettingsResponse'
     { emergencyContactList =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you if you have proactive engagement enabled, for escalations to the DRT and to initiate proactive customer support.
 --
 -- /Note:/ Consider using 'emergencyContactList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decsrsEmergencyContactList :: Lens.Lens' DescribeEmergencyContactSettingsResponse (Lude.Maybe [EmergencyContact])
-decsrsEmergencyContactList = Lens.lens (emergencyContactList :: DescribeEmergencyContactSettingsResponse -> Lude.Maybe [EmergencyContact]) (\s a -> s {emergencyContactList = a} :: DescribeEmergencyContactSettingsResponse)
-{-# DEPRECATED decsrsEmergencyContactList "Use generic-lens or generic-optics with 'emergencyContactList' instead." #-}
+decsrrsEmergencyContactList :: Lens.Lens' DescribeEmergencyContactSettingsResponse (Core.Maybe [Types.EmergencyContact])
+decsrrsEmergencyContactList = Lens.field @"emergencyContactList"
+{-# DEPRECATED decsrrsEmergencyContactList "Use generic-lens or generic-optics with 'emergencyContactList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decsrsResponseStatus :: Lens.Lens' DescribeEmergencyContactSettingsResponse Lude.Int
-decsrsResponseStatus = Lens.lens (responseStatus :: DescribeEmergencyContactSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEmergencyContactSettingsResponse)
-{-# DEPRECATED decsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+decsrrsResponseStatus :: Lens.Lens' DescribeEmergencyContactSettingsResponse Core.Int
+decsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED decsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

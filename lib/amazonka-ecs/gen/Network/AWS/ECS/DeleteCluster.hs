@@ -34,104 +34,90 @@ module Network.AWS.ECS.DeleteCluster
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteCluster' smart constructor.
 newtype DeleteCluster = DeleteCluster'
   { -- | The short name or full Amazon Resource Name (ARN) of the cluster to delete.
-    cluster :: Lude.Text
+    cluster :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCluster' with the minimum fields required to make a request.
---
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to delete.
+-- | Creates a 'DeleteCluster' value with any optional fields omitted.
 mkDeleteCluster ::
   -- | 'cluster'
-  Lude.Text ->
+  Types.String ->
   DeleteCluster
-mkDeleteCluster pCluster_ = DeleteCluster' {cluster = pCluster_}
+mkDeleteCluster cluster = DeleteCluster' {cluster}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster to delete.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcCluster :: Lens.Lens' DeleteCluster Lude.Text
-dcCluster = Lens.lens (cluster :: DeleteCluster -> Lude.Text) (\s a -> s {cluster = a} :: DeleteCluster)
+dcCluster :: Lens.Lens' DeleteCluster Types.String
+dcCluster = Lens.field @"cluster"
 {-# DEPRECATED dcCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
-instance Lude.AWSRequest DeleteCluster where
+instance Core.FromJSON DeleteCluster where
+  toJSON DeleteCluster {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("cluster" Core..= cluster)])
+
+instance Core.AWSRequest DeleteCluster where
   type Rs DeleteCluster = DeleteClusterResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.DeleteCluster"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteClusterResponse'
-            Lude.<$> (x Lude..?> "cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "cluster") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteCluster where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DeleteCluster" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteCluster where
-  toJSON DeleteCluster' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("cluster" Lude..= cluster)])
-
-instance Lude.ToPath DeleteCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteCluster where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteClusterResponse' smart constructor.
 data DeleteClusterResponse = DeleteClusterResponse'
   { -- | The full description of the deleted cluster.
-    cluster :: Lude.Maybe Cluster,
+    cluster :: Core.Maybe Types.Cluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteClusterResponse' with the minimum fields required to make a request.
---
--- * 'cluster' - The full description of the deleted cluster.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteClusterResponse' value with any optional fields omitted.
 mkDeleteClusterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteClusterResponse
-mkDeleteClusterResponse pResponseStatus_ =
-  DeleteClusterResponse'
-    { cluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteClusterResponse responseStatus =
+  DeleteClusterResponse' {cluster = Core.Nothing, responseStatus}
 
 -- | The full description of the deleted cluster.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsCluster :: Lens.Lens' DeleteClusterResponse (Lude.Maybe Cluster)
-drsCluster = Lens.lens (cluster :: DeleteClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: DeleteClusterResponse)
+drsCluster :: Lens.Lens' DeleteClusterResponse (Core.Maybe Types.Cluster)
+drsCluster = Lens.field @"cluster"
 {-# DEPRECATED drsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteClusterResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteClusterResponse)
+drsResponseStatus :: Lens.Lens' DeleteClusterResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

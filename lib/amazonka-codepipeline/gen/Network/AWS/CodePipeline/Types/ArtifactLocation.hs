@@ -22,54 +22,49 @@ module Network.AWS.CodePipeline.Types.ArtifactLocation
   )
 where
 
-import Network.AWS.CodePipeline.Types.ArtifactLocationType
-import Network.AWS.CodePipeline.Types.S3ArtifactLocation
+import qualified Network.AWS.CodePipeline.Types.ArtifactLocationType as Types
+import qualified Network.AWS.CodePipeline.Types.S3ArtifactLocation as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about the location of an artifact.
 --
 -- /See:/ 'mkArtifactLocation' smart constructor.
 data ArtifactLocation = ArtifactLocation'
   { -- | The S3 bucket that contains the artifact.
-    s3Location :: Lude.Maybe S3ArtifactLocation,
+    s3Location :: Core.Maybe Types.S3ArtifactLocation,
     -- | The type of artifact in the location.
-    type' :: Lude.Maybe ArtifactLocationType
+    type' :: Core.Maybe Types.ArtifactLocationType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArtifactLocation' with the minimum fields required to make a request.
---
--- * 's3Location' - The S3 bucket that contains the artifact.
--- * 'type'' - The type of artifact in the location.
+-- | Creates a 'ArtifactLocation' value with any optional fields omitted.
 mkArtifactLocation ::
   ArtifactLocation
 mkArtifactLocation =
   ArtifactLocation'
-    { s3Location = Lude.Nothing,
-      type' = Lude.Nothing
+    { s3Location = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The S3 bucket that contains the artifact.
 --
 -- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alS3Location :: Lens.Lens' ArtifactLocation (Lude.Maybe S3ArtifactLocation)
-alS3Location = Lens.lens (s3Location :: ArtifactLocation -> Lude.Maybe S3ArtifactLocation) (\s a -> s {s3Location = a} :: ArtifactLocation)
+alS3Location :: Lens.Lens' ArtifactLocation (Core.Maybe Types.S3ArtifactLocation)
+alS3Location = Lens.field @"s3Location"
 {-# DEPRECATED alS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
 -- | The type of artifact in the location.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alType :: Lens.Lens' ArtifactLocation (Lude.Maybe ArtifactLocationType)
-alType = Lens.lens (type' :: ArtifactLocation -> Lude.Maybe ArtifactLocationType) (\s a -> s {type' = a} :: ArtifactLocation)
+alType :: Lens.Lens' ArtifactLocation (Core.Maybe Types.ArtifactLocationType)
+alType = Lens.field @"type'"
 {-# DEPRECATED alType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON ArtifactLocation where
+instance Core.FromJSON ArtifactLocation where
   parseJSON =
-    Lude.withObject
-      "ArtifactLocation"
-      ( \x ->
-          ArtifactLocation'
-            Lude.<$> (x Lude..:? "s3Location") Lude.<*> (x Lude..:? "type")
-      )
+    Core.withObject "ArtifactLocation" Core.$
+      \x ->
+        ArtifactLocation'
+          Core.<$> (x Core..:? "s3Location") Core.<*> (x Core..:? "type")

@@ -17,124 +17,115 @@ module Network.AWS.EC2.Types.InstanceStatus
     mkInstanceStatus,
 
     -- * Lenses
-    iInstanceId,
-    iOutpostARN,
-    iSystemStatus,
-    iEvents,
-    iAvailabilityZone,
-    iInstanceStatus,
-    iInstanceState,
+    issAvailabilityZone,
+    issEvents,
+    issInstanceId,
+    issInstanceState,
+    issInstanceStatus,
+    issOutpostArn,
+    issSystemStatus,
   )
 where
 
-import Network.AWS.EC2.Types.InstanceState
-import Network.AWS.EC2.Types.InstanceStatusEvent
-import Network.AWS.EC2.Types.InstanceStatusSummary
+import qualified Network.AWS.EC2.Types.InstanceState as Types
+import qualified Network.AWS.EC2.Types.InstanceStatusEvent as Types
+import qualified Network.AWS.EC2.Types.InstanceStatusSummary as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the status of an instance.
 --
 -- /See:/ 'mkInstanceStatus' smart constructor.
 data InstanceStatus = InstanceStatus'
-  { -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the Outpost.
-    outpostARN :: Lude.Maybe Lude.Text,
-    -- | Reports impaired functionality that stems from issues related to the systems that support an instance, such as hardware failures and network connectivity problems.
-    systemStatus :: Lude.Maybe InstanceStatusSummary,
+  { -- | The Availability Zone of the instance.
+    availabilityZone :: Core.Maybe Types.String,
     -- | Any scheduled events associated with the instance.
-    events :: Lude.Maybe [InstanceStatusEvent],
-    -- | The Availability Zone of the instance.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | Reports impaired functionality that stems from issues internal to the instance, such as impaired reachability.
-    instanceStatus :: Lude.Maybe InstanceStatusSummary,
+    events :: Core.Maybe [Types.InstanceStatusEvent],
+    -- | The ID of the instance.
+    instanceId :: Core.Maybe Types.String,
     -- | The intended state of the instance. 'DescribeInstanceStatus' requires that an instance be in the @running@ state.
-    instanceState :: Lude.Maybe InstanceState
+    instanceState :: Core.Maybe Types.InstanceState,
+    -- | Reports impaired functionality that stems from issues internal to the instance, such as impaired reachability.
+    instanceStatus :: Core.Maybe Types.InstanceStatusSummary,
+    -- | The Amazon Resource Name (ARN) of the Outpost.
+    outpostArn :: Core.Maybe Types.String,
+    -- | Reports impaired functionality that stems from issues related to the systems that support an instance, such as hardware failures and network connectivity problems.
+    systemStatus :: Core.Maybe Types.InstanceStatusSummary
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceStatus' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
--- * 'systemStatus' - Reports impaired functionality that stems from issues related to the systems that support an instance, such as hardware failures and network connectivity problems.
--- * 'events' - Any scheduled events associated with the instance.
--- * 'availabilityZone' - The Availability Zone of the instance.
--- * 'instanceStatus' - Reports impaired functionality that stems from issues internal to the instance, such as impaired reachability.
--- * 'instanceState' - The intended state of the instance. 'DescribeInstanceStatus' requires that an instance be in the @running@ state.
+-- | Creates a 'InstanceStatus' value with any optional fields omitted.
 mkInstanceStatus ::
   InstanceStatus
 mkInstanceStatus =
   InstanceStatus'
-    { instanceId = Lude.Nothing,
-      outpostARN = Lude.Nothing,
-      systemStatus = Lude.Nothing,
-      events = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      instanceStatus = Lude.Nothing,
-      instanceState = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      events = Core.Nothing,
+      instanceId = Core.Nothing,
+      instanceState = Core.Nothing,
+      instanceStatus = Core.Nothing,
+      outpostArn = Core.Nothing,
+      systemStatus = Core.Nothing
     }
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInstanceId :: Lens.Lens' InstanceStatus (Lude.Maybe Lude.Text)
-iInstanceId = Lens.lens (instanceId :: InstanceStatus -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: InstanceStatus)
-{-# DEPRECATED iInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the Outpost.
---
--- /Note:/ Consider using 'outpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iOutpostARN :: Lens.Lens' InstanceStatus (Lude.Maybe Lude.Text)
-iOutpostARN = Lens.lens (outpostARN :: InstanceStatus -> Lude.Maybe Lude.Text) (\s a -> s {outpostARN = a} :: InstanceStatus)
-{-# DEPRECATED iOutpostARN "Use generic-lens or generic-optics with 'outpostARN' instead." #-}
-
--- | Reports impaired functionality that stems from issues related to the systems that support an instance, such as hardware failures and network connectivity problems.
---
--- /Note:/ Consider using 'systemStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iSystemStatus :: Lens.Lens' InstanceStatus (Lude.Maybe InstanceStatusSummary)
-iSystemStatus = Lens.lens (systemStatus :: InstanceStatus -> Lude.Maybe InstanceStatusSummary) (\s a -> s {systemStatus = a} :: InstanceStatus)
-{-# DEPRECATED iSystemStatus "Use generic-lens or generic-optics with 'systemStatus' instead." #-}
-
--- | Any scheduled events associated with the instance.
---
--- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iEvents :: Lens.Lens' InstanceStatus (Lude.Maybe [InstanceStatusEvent])
-iEvents = Lens.lens (events :: InstanceStatus -> Lude.Maybe [InstanceStatusEvent]) (\s a -> s {events = a} :: InstanceStatus)
-{-# DEPRECATED iEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
 -- | The Availability Zone of the instance.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iAvailabilityZone :: Lens.Lens' InstanceStatus (Lude.Maybe Lude.Text)
-iAvailabilityZone = Lens.lens (availabilityZone :: InstanceStatus -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: InstanceStatus)
-{-# DEPRECATED iAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+issAvailabilityZone :: Lens.Lens' InstanceStatus (Core.Maybe Types.String)
+issAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED issAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | Reports impaired functionality that stems from issues internal to the instance, such as impaired reachability.
+-- | Any scheduled events associated with the instance.
 --
--- /Note:/ Consider using 'instanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInstanceStatus :: Lens.Lens' InstanceStatus (Lude.Maybe InstanceStatusSummary)
-iInstanceStatus = Lens.lens (instanceStatus :: InstanceStatus -> Lude.Maybe InstanceStatusSummary) (\s a -> s {instanceStatus = a} :: InstanceStatus)
-{-# DEPRECATED iInstanceStatus "Use generic-lens or generic-optics with 'instanceStatus' instead." #-}
+-- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+issEvents :: Lens.Lens' InstanceStatus (Core.Maybe [Types.InstanceStatusEvent])
+issEvents = Lens.field @"events"
+{-# DEPRECATED issEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+issInstanceId :: Lens.Lens' InstanceStatus (Core.Maybe Types.String)
+issInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED issInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The intended state of the instance. 'DescribeInstanceStatus' requires that an instance be in the @running@ state.
 --
 -- /Note:/ Consider using 'instanceState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInstanceState :: Lens.Lens' InstanceStatus (Lude.Maybe InstanceState)
-iInstanceState = Lens.lens (instanceState :: InstanceStatus -> Lude.Maybe InstanceState) (\s a -> s {instanceState = a} :: InstanceStatus)
-{-# DEPRECATED iInstanceState "Use generic-lens or generic-optics with 'instanceState' instead." #-}
+issInstanceState :: Lens.Lens' InstanceStatus (Core.Maybe Types.InstanceState)
+issInstanceState = Lens.field @"instanceState"
+{-# DEPRECATED issInstanceState "Use generic-lens or generic-optics with 'instanceState' instead." #-}
 
-instance Lude.FromXML InstanceStatus where
+-- | Reports impaired functionality that stems from issues internal to the instance, such as impaired reachability.
+--
+-- /Note:/ Consider using 'instanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+issInstanceStatus :: Lens.Lens' InstanceStatus (Core.Maybe Types.InstanceStatusSummary)
+issInstanceStatus = Lens.field @"instanceStatus"
+{-# DEPRECATED issInstanceStatus "Use generic-lens or generic-optics with 'instanceStatus' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the Outpost.
+--
+-- /Note:/ Consider using 'outpostArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+issOutpostArn :: Lens.Lens' InstanceStatus (Core.Maybe Types.String)
+issOutpostArn = Lens.field @"outpostArn"
+{-# DEPRECATED issOutpostArn "Use generic-lens or generic-optics with 'outpostArn' instead." #-}
+
+-- | Reports impaired functionality that stems from issues related to the systems that support an instance, such as hardware failures and network connectivity problems.
+--
+-- /Note:/ Consider using 'systemStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+issSystemStatus :: Lens.Lens' InstanceStatus (Core.Maybe Types.InstanceStatusSummary)
+issSystemStatus = Lens.field @"systemStatus"
+{-# DEPRECATED issSystemStatus "Use generic-lens or generic-optics with 'systemStatus' instead." #-}
+
+instance Core.FromXML InstanceStatus where
   parseXML x =
     InstanceStatus'
-      Lude.<$> (x Lude..@? "instanceId")
-      Lude.<*> (x Lude..@? "outpostArn")
-      Lude.<*> (x Lude..@? "systemStatus")
-      Lude.<*> ( x Lude..@? "eventsSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "availabilityZone")
-      Lude.<*> (x Lude..@? "instanceStatus")
-      Lude.<*> (x Lude..@? "instanceState")
+      Core.<$> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "eventsSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "instanceState")
+      Core.<*> (x Core..@? "instanceStatus")
+      Core.<*> (x Core..@? "outpostArn")
+      Core.<*> (x Core..@? "systemStatus")

@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.H265DynamicSubGop
   ( H265DynamicSubGop
       ( H265DynamicSubGop',
-        HDSGAdaptive,
-        HDSGStatic
+        H265DynamicSubGopAdaptive,
+        H265DynamicSubGopStatic,
+        fromH265DynamicSubGop
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-newtype H265DynamicSubGop = H265DynamicSubGop' Lude.Text
+newtype H265DynamicSubGop = H265DynamicSubGop'
+  { fromH265DynamicSubGop ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HDSGAdaptive :: H265DynamicSubGop
-pattern HDSGAdaptive = H265DynamicSubGop' "ADAPTIVE"
+pattern H265DynamicSubGopAdaptive :: H265DynamicSubGop
+pattern H265DynamicSubGopAdaptive = H265DynamicSubGop' "ADAPTIVE"
 
-pattern HDSGStatic :: H265DynamicSubGop
-pattern HDSGStatic = H265DynamicSubGop' "STATIC"
+pattern H265DynamicSubGopStatic :: H265DynamicSubGop
+pattern H265DynamicSubGopStatic = H265DynamicSubGop' "STATIC"
 
 {-# COMPLETE
-  HDSGAdaptive,
-  HDSGStatic,
+  H265DynamicSubGopAdaptive,
+  H265DynamicSubGopStatic,
   H265DynamicSubGop'
   #-}

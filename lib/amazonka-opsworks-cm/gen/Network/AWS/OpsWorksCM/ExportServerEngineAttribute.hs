@@ -23,31 +23,33 @@ module Network.AWS.OpsWorksCM.ExportServerEngineAttribute
     mkExportServerEngineAttribute,
 
     -- ** Request lenses
+    eseaExportAttributeName,
     eseaServerName,
     eseaInputAttributes,
-    eseaExportAttributeName,
 
     -- * Destructuring the response
     ExportServerEngineAttributeResponse (..),
     mkExportServerEngineAttributeResponse,
 
     -- ** Response lenses
-    esearsServerName,
-    esearsEngineAttribute,
-    esearsResponseStatus,
+    esearrsEngineAttribute,
+    esearrsServerName,
+    esearrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorksCM.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkExportServerEngineAttribute' smart constructor.
 data ExportServerEngineAttribute = ExportServerEngineAttribute'
-  { -- | The name of the server from which you are exporting the attribute.
-    serverName :: Lude.Text,
+  { -- | The name of the export attribute. Currently, the supported export attribute is @Userdata@ . This exports a user data script that includes parameters and values provided in the @InputAttributes@ list.
+    exportAttributeName :: Types.String,
+    -- | The name of the server from which you are exporting the attribute.
+    serverName :: Types.ServerName,
     -- | The list of engine attributes. The list type is @EngineAttribute@ . An @EngineAttribute@ list item is a pair that includes an attribute name and its value. For the @Userdata@ ExportAttributeName, the following are supported engine attribute names.
     --
     --
@@ -61,50 +63,37 @@ data ExportServerEngineAttribute = ExportServerEngineAttribute'
     --
     --
     --     * __NodeClientVersion__ In Chef, the version of the Chef engine (three numbers separated by dots, such as 13.8.5). If this attribute is empty, OpsWorks for Chef Automate uses the most current version. In Puppet, this parameter is ignored.
-    inputAttributes :: Lude.Maybe [EngineAttribute],
-    -- | The name of the export attribute. Currently, the supported export attribute is @Userdata@ . This exports a user data script that includes parameters and values provided in the @InputAttributes@ list.
-    exportAttributeName :: Lude.Text
+    inputAttributes :: Core.Maybe [Types.EngineAttribute]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportServerEngineAttribute' with the minimum fields required to make a request.
---
--- * 'serverName' - The name of the server from which you are exporting the attribute.
--- * 'inputAttributes' - The list of engine attributes. The list type is @EngineAttribute@ . An @EngineAttribute@ list item is a pair that includes an attribute name and its value. For the @Userdata@ ExportAttributeName, the following are supported engine attribute names.
---
---
---     * __RunList__ In Chef, a list of roles or recipes that are run in the specified order. In Puppet, this parameter is ignored.
---
---
---     * __OrganizationName__ In Chef, an organization name. AWS OpsWorks for Chef Automate always creates the organization @default@ . In Puppet, this parameter is ignored.
---
---
---     * __NodeEnvironment__ In Chef, a node environment (for example, development, staging, or one-box). In Puppet, this parameter is ignored.
---
---
---     * __NodeClientVersion__ In Chef, the version of the Chef engine (three numbers separated by dots, such as 13.8.5). If this attribute is empty, OpsWorks for Chef Automate uses the most current version. In Puppet, this parameter is ignored.
---
---
--- * 'exportAttributeName' - The name of the export attribute. Currently, the supported export attribute is @Userdata@ . This exports a user data script that includes parameters and values provided in the @InputAttributes@ list.
+-- | Creates a 'ExportServerEngineAttribute' value with any optional fields omitted.
 mkExportServerEngineAttribute ::
-  -- | 'serverName'
-  Lude.Text ->
   -- | 'exportAttributeName'
-  Lude.Text ->
+  Types.String ->
+  -- | 'serverName'
+  Types.ServerName ->
   ExportServerEngineAttribute
-mkExportServerEngineAttribute pServerName_ pExportAttributeName_ =
+mkExportServerEngineAttribute exportAttributeName serverName =
   ExportServerEngineAttribute'
-    { serverName = pServerName_,
-      inputAttributes = Lude.Nothing,
-      exportAttributeName = pExportAttributeName_
+    { exportAttributeName,
+      serverName,
+      inputAttributes = Core.Nothing
     }
+
+-- | The name of the export attribute. Currently, the supported export attribute is @Userdata@ . This exports a user data script that includes parameters and values provided in the @InputAttributes@ list.
+--
+-- /Note:/ Consider using 'exportAttributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eseaExportAttributeName :: Lens.Lens' ExportServerEngineAttribute Types.String
+eseaExportAttributeName = Lens.field @"exportAttributeName"
+{-# DEPRECATED eseaExportAttributeName "Use generic-lens or generic-optics with 'exportAttributeName' instead." #-}
 
 -- | The name of the server from which you are exporting the attribute.
 --
 -- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eseaServerName :: Lens.Lens' ExportServerEngineAttribute Lude.Text
-eseaServerName = Lens.lens (serverName :: ExportServerEngineAttribute -> Lude.Text) (\s a -> s {serverName = a} :: ExportServerEngineAttribute)
+eseaServerName :: Lens.Lens' ExportServerEngineAttribute Types.ServerName
+eseaServerName = Lens.field @"serverName"
 {-# DEPRECATED eseaServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | The list of engine attributes. The list type is @EngineAttribute@ . An @EngineAttribute@ list item is a pair that includes an attribute name and its value. For the @Userdata@ ExportAttributeName, the following are supported engine attribute names.
@@ -124,105 +113,89 @@ eseaServerName = Lens.lens (serverName :: ExportServerEngineAttribute -> Lude.Te
 --
 --
 -- /Note:/ Consider using 'inputAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eseaInputAttributes :: Lens.Lens' ExportServerEngineAttribute (Lude.Maybe [EngineAttribute])
-eseaInputAttributes = Lens.lens (inputAttributes :: ExportServerEngineAttribute -> Lude.Maybe [EngineAttribute]) (\s a -> s {inputAttributes = a} :: ExportServerEngineAttribute)
+eseaInputAttributes :: Lens.Lens' ExportServerEngineAttribute (Core.Maybe [Types.EngineAttribute])
+eseaInputAttributes = Lens.field @"inputAttributes"
 {-# DEPRECATED eseaInputAttributes "Use generic-lens or generic-optics with 'inputAttributes' instead." #-}
 
--- | The name of the export attribute. Currently, the supported export attribute is @Userdata@ . This exports a user data script that includes parameters and values provided in the @InputAttributes@ list.
---
--- /Note:/ Consider using 'exportAttributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eseaExportAttributeName :: Lens.Lens' ExportServerEngineAttribute Lude.Text
-eseaExportAttributeName = Lens.lens (exportAttributeName :: ExportServerEngineAttribute -> Lude.Text) (\s a -> s {exportAttributeName = a} :: ExportServerEngineAttribute)
-{-# DEPRECATED eseaExportAttributeName "Use generic-lens or generic-optics with 'exportAttributeName' instead." #-}
+instance Core.FromJSON ExportServerEngineAttribute where
+  toJSON ExportServerEngineAttribute {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ExportAttributeName" Core..= exportAttributeName),
+            Core.Just ("ServerName" Core..= serverName),
+            ("InputAttributes" Core..=) Core.<$> inputAttributes
+          ]
+      )
 
-instance Lude.AWSRequest ExportServerEngineAttribute where
+instance Core.AWSRequest ExportServerEngineAttribute where
   type
     Rs ExportServerEngineAttribute =
       ExportServerEngineAttributeResponse
-  request = Req.postJSON opsWorksCMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ExportServerEngineAttributeResponse'
-            Lude.<$> (x Lude..?> "ServerName")
-            Lude.<*> (x Lude..?> "EngineAttribute")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "EngineAttribute")
+            Core.<*> (x Core..:? "ServerName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ExportServerEngineAttribute where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ExportServerEngineAttribute where
-  toJSON ExportServerEngineAttribute' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ServerName" Lude..= serverName),
-            ("InputAttributes" Lude..=) Lude.<$> inputAttributes,
-            Lude.Just ("ExportAttributeName" Lude..= exportAttributeName)
-          ]
-      )
-
-instance Lude.ToPath ExportServerEngineAttribute where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ExportServerEngineAttribute where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkExportServerEngineAttributeResponse' smart constructor.
 data ExportServerEngineAttributeResponse = ExportServerEngineAttributeResponse'
-  { -- | The server name used in the request.
-    serverName :: Lude.Maybe Lude.Text,
-    -- | The requested engine attribute pair with attribute name and value.
-    engineAttribute :: Lude.Maybe EngineAttribute,
+  { -- | The requested engine attribute pair with attribute name and value.
+    engineAttribute :: Core.Maybe Types.EngineAttribute,
+    -- | The server name used in the request.
+    serverName :: Core.Maybe Types.ServerName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportServerEngineAttributeResponse' with the minimum fields required to make a request.
---
--- * 'serverName' - The server name used in the request.
--- * 'engineAttribute' - The requested engine attribute pair with attribute name and value.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ExportServerEngineAttributeResponse' value with any optional fields omitted.
 mkExportServerEngineAttributeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ExportServerEngineAttributeResponse
-mkExportServerEngineAttributeResponse pResponseStatus_ =
+mkExportServerEngineAttributeResponse responseStatus =
   ExportServerEngineAttributeResponse'
-    { serverName = Lude.Nothing,
-      engineAttribute = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { engineAttribute =
+        Core.Nothing,
+      serverName = Core.Nothing,
+      responseStatus
     }
-
--- | The server name used in the request.
---
--- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esearsServerName :: Lens.Lens' ExportServerEngineAttributeResponse (Lude.Maybe Lude.Text)
-esearsServerName = Lens.lens (serverName :: ExportServerEngineAttributeResponse -> Lude.Maybe Lude.Text) (\s a -> s {serverName = a} :: ExportServerEngineAttributeResponse)
-{-# DEPRECATED esearsServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | The requested engine attribute pair with attribute name and value.
 --
 -- /Note:/ Consider using 'engineAttribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esearsEngineAttribute :: Lens.Lens' ExportServerEngineAttributeResponse (Lude.Maybe EngineAttribute)
-esearsEngineAttribute = Lens.lens (engineAttribute :: ExportServerEngineAttributeResponse -> Lude.Maybe EngineAttribute) (\s a -> s {engineAttribute = a} :: ExportServerEngineAttributeResponse)
-{-# DEPRECATED esearsEngineAttribute "Use generic-lens or generic-optics with 'engineAttribute' instead." #-}
+esearrsEngineAttribute :: Lens.Lens' ExportServerEngineAttributeResponse (Core.Maybe Types.EngineAttribute)
+esearrsEngineAttribute = Lens.field @"engineAttribute"
+{-# DEPRECATED esearrsEngineAttribute "Use generic-lens or generic-optics with 'engineAttribute' instead." #-}
+
+-- | The server name used in the request.
+--
+-- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esearrsServerName :: Lens.Lens' ExportServerEngineAttributeResponse (Core.Maybe Types.ServerName)
+esearrsServerName = Lens.field @"serverName"
+{-# DEPRECATED esearrsServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esearsResponseStatus :: Lens.Lens' ExportServerEngineAttributeResponse Lude.Int
-esearsResponseStatus = Lens.lens (responseStatus :: ExportServerEngineAttributeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExportServerEngineAttributeResponse)
-{-# DEPRECATED esearsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+esearrsResponseStatus :: Lens.Lens' ExportServerEngineAttributeResponse Core.Int
+esearrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED esearrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

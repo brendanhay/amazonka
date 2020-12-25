@@ -13,51 +13,56 @@
 module Network.AWS.CodeDeploy.Types.ComputePlatform
   ( ComputePlatform
       ( ComputePlatform',
-        Server,
-        Lambda,
-        Ecs
+        ComputePlatformServer,
+        ComputePlatformLambda,
+        ComputePlatformEcs,
+        fromComputePlatform
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ComputePlatform = ComputePlatform' Lude.Text
+newtype ComputePlatform = ComputePlatform'
+  { fromComputePlatform ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Server :: ComputePlatform
-pattern Server = ComputePlatform' "Server"
+pattern ComputePlatformServer :: ComputePlatform
+pattern ComputePlatformServer = ComputePlatform' "Server"
 
-pattern Lambda :: ComputePlatform
-pattern Lambda = ComputePlatform' "Lambda"
+pattern ComputePlatformLambda :: ComputePlatform
+pattern ComputePlatformLambda = ComputePlatform' "Lambda"
 
-pattern Ecs :: ComputePlatform
-pattern Ecs = ComputePlatform' "ECS"
+pattern ComputePlatformEcs :: ComputePlatform
+pattern ComputePlatformEcs = ComputePlatform' "ECS"
 
 {-# COMPLETE
-  Server,
-  Lambda,
-  Ecs,
+  ComputePlatformServer,
+  ComputePlatformLambda,
+  ComputePlatformEcs,
   ComputePlatform'
   #-}

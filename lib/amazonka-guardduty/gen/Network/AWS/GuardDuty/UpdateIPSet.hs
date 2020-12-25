@@ -20,157 +20,145 @@ module Network.AWS.GuardDuty.UpdateIPSet
     mkUpdateIPSet,
 
     -- ** Request lenses
-    uisLocation,
-    uisActivate,
-    uisDetectorId,
-    uisName,
-    uisIPSetId,
+    uipsDetectorId,
+    uipsIpSetId,
+    uipsActivate,
+    uipsLocation,
+    uipsName,
 
     -- * Destructuring the response
     UpdateIPSetResponse (..),
     mkUpdateIPSetResponse,
 
     -- ** Response lenses
-    uisrsResponseStatus,
+    uipsrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateIPSet' smart constructor.
 data UpdateIPSet = UpdateIPSet'
-  { -- | The updated URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
-    location :: Lude.Maybe Lude.Text,
+  { -- | The detectorID that specifies the GuardDuty service whose IPSet you want to update.
+    detectorId :: Types.DetectorId,
+    -- | The unique ID that specifies the IPSet that you want to update.
+    ipSetId :: Types.String,
     -- | The updated Boolean value that specifies whether the IPSet is active or not.
-    activate :: Lude.Maybe Lude.Bool,
-    -- | The detectorID that specifies the GuardDuty service whose IPSet you want to update.
-    detectorId :: Lude.Text,
+    activate :: Core.Maybe Core.Bool,
+    -- | The updated URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
+    location :: Core.Maybe Types.Location,
     -- | The unique ID that specifies the IPSet that you want to update.
-    name :: Lude.Maybe Lude.Text,
-    -- | The unique ID that specifies the IPSet that you want to update.
-    ipSetId :: Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateIPSet' with the minimum fields required to make a request.
---
--- * 'location' - The updated URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
--- * 'activate' - The updated Boolean value that specifies whether the IPSet is active or not.
--- * 'detectorId' - The detectorID that specifies the GuardDuty service whose IPSet you want to update.
--- * 'name' - The unique ID that specifies the IPSet that you want to update.
--- * 'ipSetId' - The unique ID that specifies the IPSet that you want to update.
+-- | Creates a 'UpdateIPSet' value with any optional fields omitted.
 mkUpdateIPSet ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   -- | 'ipSetId'
-  Lude.Text ->
+  Types.String ->
   UpdateIPSet
-mkUpdateIPSet pDetectorId_ pIPSetId_ =
+mkUpdateIPSet detectorId ipSetId =
   UpdateIPSet'
-    { location = Lude.Nothing,
-      activate = Lude.Nothing,
-      detectorId = pDetectorId_,
-      name = Lude.Nothing,
-      ipSetId = pIPSetId_
+    { detectorId,
+      ipSetId,
+      activate = Core.Nothing,
+      location = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The updated URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uisLocation :: Lens.Lens' UpdateIPSet (Lude.Maybe Lude.Text)
-uisLocation = Lens.lens (location :: UpdateIPSet -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: UpdateIPSet)
-{-# DEPRECATED uisLocation "Use generic-lens or generic-optics with 'location' instead." #-}
-
--- | The updated Boolean value that specifies whether the IPSet is active or not.
---
--- /Note:/ Consider using 'activate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uisActivate :: Lens.Lens' UpdateIPSet (Lude.Maybe Lude.Bool)
-uisActivate = Lens.lens (activate :: UpdateIPSet -> Lude.Maybe Lude.Bool) (\s a -> s {activate = a} :: UpdateIPSet)
-{-# DEPRECATED uisActivate "Use generic-lens or generic-optics with 'activate' instead." #-}
 
 -- | The detectorID that specifies the GuardDuty service whose IPSet you want to update.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uisDetectorId :: Lens.Lens' UpdateIPSet Lude.Text
-uisDetectorId = Lens.lens (detectorId :: UpdateIPSet -> Lude.Text) (\s a -> s {detectorId = a} :: UpdateIPSet)
-{-# DEPRECATED uisDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
-
--- | The unique ID that specifies the IPSet that you want to update.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uisName :: Lens.Lens' UpdateIPSet (Lude.Maybe Lude.Text)
-uisName = Lens.lens (name :: UpdateIPSet -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateIPSet)
-{-# DEPRECATED uisName "Use generic-lens or generic-optics with 'name' instead." #-}
+uipsDetectorId :: Lens.Lens' UpdateIPSet Types.DetectorId
+uipsDetectorId = Lens.field @"detectorId"
+{-# DEPRECATED uipsDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The unique ID that specifies the IPSet that you want to update.
 --
 -- /Note:/ Consider using 'ipSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uisIPSetId :: Lens.Lens' UpdateIPSet Lude.Text
-uisIPSetId = Lens.lens (ipSetId :: UpdateIPSet -> Lude.Text) (\s a -> s {ipSetId = a} :: UpdateIPSet)
-{-# DEPRECATED uisIPSetId "Use generic-lens or generic-optics with 'ipSetId' instead." #-}
+uipsIpSetId :: Lens.Lens' UpdateIPSet Types.String
+uipsIpSetId = Lens.field @"ipSetId"
+{-# DEPRECATED uipsIpSetId "Use generic-lens or generic-optics with 'ipSetId' instead." #-}
 
-instance Lude.AWSRequest UpdateIPSet where
+-- | The updated Boolean value that specifies whether the IPSet is active or not.
+--
+-- /Note:/ Consider using 'activate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipsActivate :: Lens.Lens' UpdateIPSet (Core.Maybe Core.Bool)
+uipsActivate = Lens.field @"activate"
+{-# DEPRECATED uipsActivate "Use generic-lens or generic-optics with 'activate' instead." #-}
+
+-- | The updated URI of the file that contains the IPSet. For example: https://s3.us-west-2.amazonaws.com/my-bucket/my-object-key.
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipsLocation :: Lens.Lens' UpdateIPSet (Core.Maybe Types.Location)
+uipsLocation = Lens.field @"location"
+{-# DEPRECATED uipsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+
+-- | The unique ID that specifies the IPSet that you want to update.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uipsName :: Lens.Lens' UpdateIPSet (Core.Maybe Types.Name)
+uipsName = Lens.field @"name"
+{-# DEPRECATED uipsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON UpdateIPSet where
+  toJSON UpdateIPSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("activate" Core..=) Core.<$> activate,
+            ("location" Core..=) Core.<$> location,
+            ("name" Core..=) Core.<$> name
+          ]
+      )
+
+instance Core.AWSRequest UpdateIPSet where
   type Rs UpdateIPSet = UpdateIPSetResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId) Core.<> ("/ipset/")
+                Core.<> (Core.toText ipSetId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateIPSetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateIPSetResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateIPSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateIPSet where
-  toJSON UpdateIPSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("location" Lude..=) Lude.<$> location,
-            ("activate" Lude..=) Lude.<$> activate,
-            ("name" Lude..=) Lude.<$> name
-          ]
-      )
-
-instance Lude.ToPath UpdateIPSet where
-  toPath UpdateIPSet' {..} =
-    Lude.mconcat
-      ["/detector/", Lude.toBS detectorId, "/ipset/", Lude.toBS ipSetId]
-
-instance Lude.ToQuery UpdateIPSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateIPSetResponse' smart constructor.
 newtype UpdateIPSetResponse = UpdateIPSetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateIPSetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateIPSetResponse' value with any optional fields omitted.
 mkUpdateIPSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateIPSetResponse
-mkUpdateIPSetResponse pResponseStatus_ =
-  UpdateIPSetResponse' {responseStatus = pResponseStatus_}
+mkUpdateIPSetResponse responseStatus =
+  UpdateIPSetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uisrsResponseStatus :: Lens.Lens' UpdateIPSetResponse Lude.Int
-uisrsResponseStatus = Lens.lens (responseStatus :: UpdateIPSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateIPSetResponse)
-{-# DEPRECATED uisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uipsrrsResponseStatus :: Lens.Lens' UpdateIPSetResponse Core.Int
+uipsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uipsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

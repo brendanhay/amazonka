@@ -20,138 +20,123 @@ module Network.AWS.CodeCommit.PutRepositoryTriggers
     mkPutRepositoryTriggers,
 
     -- ** Request lenses
-    pTriggers,
     pRepositoryName,
+    pTriggers,
 
     -- * Destructuring the response
     PutRepositoryTriggersResponse (..),
     mkPutRepositoryTriggersResponse,
 
     -- ** Response lenses
-    prtrsConfigurationId,
-    prtrsResponseStatus,
+    prtrrsConfigurationId,
+    prtrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a put repository triggers operation.
 --
 -- /See:/ 'mkPutRepositoryTriggers' smart constructor.
 data PutRepositoryTriggers = PutRepositoryTriggers'
-  { -- | The JSON block of configuration information for each trigger.
-    triggers :: [RepositoryTrigger],
-    -- | The name of the repository where you want to create or update the trigger.
-    repositoryName :: Lude.Text
+  { -- | The name of the repository where you want to create or update the trigger.
+    repositoryName :: Types.RepositoryName,
+    -- | The JSON block of configuration information for each trigger.
+    triggers :: [Types.RepositoryTrigger]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRepositoryTriggers' with the minimum fields required to make a request.
---
--- * 'triggers' - The JSON block of configuration information for each trigger.
--- * 'repositoryName' - The name of the repository where you want to create or update the trigger.
+-- | Creates a 'PutRepositoryTriggers' value with any optional fields omitted.
 mkPutRepositoryTriggers ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   PutRepositoryTriggers
-mkPutRepositoryTriggers pRepositoryName_ =
-  PutRepositoryTriggers'
-    { triggers = Lude.mempty,
-      repositoryName = pRepositoryName_
-    }
-
--- | The JSON block of configuration information for each trigger.
---
--- /Note:/ Consider using 'triggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pTriggers :: Lens.Lens' PutRepositoryTriggers [RepositoryTrigger]
-pTriggers = Lens.lens (triggers :: PutRepositoryTriggers -> [RepositoryTrigger]) (\s a -> s {triggers = a} :: PutRepositoryTriggers)
-{-# DEPRECATED pTriggers "Use generic-lens or generic-optics with 'triggers' instead." #-}
+mkPutRepositoryTriggers repositoryName =
+  PutRepositoryTriggers' {repositoryName, triggers = Core.mempty}
 
 -- | The name of the repository where you want to create or update the trigger.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pRepositoryName :: Lens.Lens' PutRepositoryTriggers Lude.Text
-pRepositoryName = Lens.lens (repositoryName :: PutRepositoryTriggers -> Lude.Text) (\s a -> s {repositoryName = a} :: PutRepositoryTriggers)
+pRepositoryName :: Lens.Lens' PutRepositoryTriggers Types.RepositoryName
+pRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED pRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance Lude.AWSRequest PutRepositoryTriggers where
+-- | The JSON block of configuration information for each trigger.
+--
+-- /Note:/ Consider using 'triggers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pTriggers :: Lens.Lens' PutRepositoryTriggers [Types.RepositoryTrigger]
+pTriggers = Lens.field @"triggers"
+{-# DEPRECATED pTriggers "Use generic-lens or generic-optics with 'triggers' instead." #-}
+
+instance Core.FromJSON PutRepositoryTriggers where
+  toJSON PutRepositoryTriggers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("triggers" Core..= triggers)
+          ]
+      )
+
+instance Core.AWSRequest PutRepositoryTriggers where
   type Rs PutRepositoryTriggers = PutRepositoryTriggersResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeCommit_20150413.PutRepositoryTriggers")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutRepositoryTriggersResponse'
-            Lude.<$> (x Lude..?> "configurationId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "configurationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutRepositoryTriggers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.PutRepositoryTriggers" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutRepositoryTriggers where
-  toJSON PutRepositoryTriggers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("triggers" Lude..= triggers),
-            Lude.Just ("repositoryName" Lude..= repositoryName)
-          ]
-      )
-
-instance Lude.ToPath PutRepositoryTriggers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutRepositoryTriggers where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a put repository triggers operation.
 --
 -- /See:/ 'mkPutRepositoryTriggersResponse' smart constructor.
 data PutRepositoryTriggersResponse = PutRepositoryTriggersResponse'
   { -- | The system-generated unique ID for the create or update operation.
-    configurationId :: Lude.Maybe Lude.Text,
+    configurationId :: Core.Maybe Types.ConfigurationId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRepositoryTriggersResponse' with the minimum fields required to make a request.
---
--- * 'configurationId' - The system-generated unique ID for the create or update operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutRepositoryTriggersResponse' value with any optional fields omitted.
 mkPutRepositoryTriggersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutRepositoryTriggersResponse
-mkPutRepositoryTriggersResponse pResponseStatus_ =
+mkPutRepositoryTriggersResponse responseStatus =
   PutRepositoryTriggersResponse'
-    { configurationId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { configurationId = Core.Nothing,
+      responseStatus
     }
 
 -- | The system-generated unique ID for the create or update operation.
 --
 -- /Note:/ Consider using 'configurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prtrsConfigurationId :: Lens.Lens' PutRepositoryTriggersResponse (Lude.Maybe Lude.Text)
-prtrsConfigurationId = Lens.lens (configurationId :: PutRepositoryTriggersResponse -> Lude.Maybe Lude.Text) (\s a -> s {configurationId = a} :: PutRepositoryTriggersResponse)
-{-# DEPRECATED prtrsConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
+prtrrsConfigurationId :: Lens.Lens' PutRepositoryTriggersResponse (Core.Maybe Types.ConfigurationId)
+prtrrsConfigurationId = Lens.field @"configurationId"
+{-# DEPRECATED prtrrsConfigurationId "Use generic-lens or generic-optics with 'configurationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prtrsResponseStatus :: Lens.Lens' PutRepositoryTriggersResponse Lude.Int
-prtrsResponseStatus = Lens.lens (responseStatus :: PutRepositoryTriggersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRepositoryTriggersResponse)
-{-# DEPRECATED prtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prtrrsResponseStatus :: Lens.Lens' PutRepositoryTriggersResponse Core.Int
+prtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

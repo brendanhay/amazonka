@@ -23,131 +23,125 @@ module Network.AWS.SES.SetReceiptRulePosition
     mkSetReceiptRulePosition,
 
     -- ** Request lenses
-    srrpAfter,
     srrpRuleSetName,
     srrpRuleName,
+    srrpAfter,
 
     -- * Destructuring the response
     SetReceiptRulePositionResponse (..),
     mkSetReceiptRulePositionResponse,
 
     -- ** Response lenses
-    srrprsResponseStatus,
+    srrprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to set the position of a receipt rule in a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkSetReceiptRulePosition' smart constructor.
 data SetReceiptRulePosition = SetReceiptRulePosition'
-  { -- | The name of the receipt rule after which to place the specified receipt rule.
-    after :: Lude.Maybe Lude.Text,
-    -- | The name of the receipt rule set that contains the receipt rule to reposition.
-    ruleSetName :: Lude.Text,
+  { -- | The name of the receipt rule set that contains the receipt rule to reposition.
+    ruleSetName :: Types.ReceiptRuleSetName,
     -- | The name of the receipt rule to reposition.
-    ruleName :: Lude.Text
+    ruleName :: Types.ReceiptRuleName,
+    -- | The name of the receipt rule after which to place the specified receipt rule.
+    after :: Core.Maybe Types.ReceiptRuleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetReceiptRulePosition' with the minimum fields required to make a request.
---
--- * 'after' - The name of the receipt rule after which to place the specified receipt rule.
--- * 'ruleSetName' - The name of the receipt rule set that contains the receipt rule to reposition.
--- * 'ruleName' - The name of the receipt rule to reposition.
+-- | Creates a 'SetReceiptRulePosition' value with any optional fields omitted.
 mkSetReceiptRulePosition ::
   -- | 'ruleSetName'
-  Lude.Text ->
+  Types.ReceiptRuleSetName ->
   -- | 'ruleName'
-  Lude.Text ->
+  Types.ReceiptRuleName ->
   SetReceiptRulePosition
-mkSetReceiptRulePosition pRuleSetName_ pRuleName_ =
+mkSetReceiptRulePosition ruleSetName ruleName =
   SetReceiptRulePosition'
-    { after = Lude.Nothing,
-      ruleSetName = pRuleSetName_,
-      ruleName = pRuleName_
+    { ruleSetName,
+      ruleName,
+      after = Core.Nothing
     }
-
--- | The name of the receipt rule after which to place the specified receipt rule.
---
--- /Note:/ Consider using 'after' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srrpAfter :: Lens.Lens' SetReceiptRulePosition (Lude.Maybe Lude.Text)
-srrpAfter = Lens.lens (after :: SetReceiptRulePosition -> Lude.Maybe Lude.Text) (\s a -> s {after = a} :: SetReceiptRulePosition)
-{-# DEPRECATED srrpAfter "Use generic-lens or generic-optics with 'after' instead." #-}
 
 -- | The name of the receipt rule set that contains the receipt rule to reposition.
 --
 -- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srrpRuleSetName :: Lens.Lens' SetReceiptRulePosition Lude.Text
-srrpRuleSetName = Lens.lens (ruleSetName :: SetReceiptRulePosition -> Lude.Text) (\s a -> s {ruleSetName = a} :: SetReceiptRulePosition)
+srrpRuleSetName :: Lens.Lens' SetReceiptRulePosition Types.ReceiptRuleSetName
+srrpRuleSetName = Lens.field @"ruleSetName"
 {-# DEPRECATED srrpRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
 -- | The name of the receipt rule to reposition.
 --
 -- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srrpRuleName :: Lens.Lens' SetReceiptRulePosition Lude.Text
-srrpRuleName = Lens.lens (ruleName :: SetReceiptRulePosition -> Lude.Text) (\s a -> s {ruleName = a} :: SetReceiptRulePosition)
+srrpRuleName :: Lens.Lens' SetReceiptRulePosition Types.ReceiptRuleName
+srrpRuleName = Lens.field @"ruleName"
 {-# DEPRECATED srrpRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
-instance Lude.AWSRequest SetReceiptRulePosition where
+-- | The name of the receipt rule after which to place the specified receipt rule.
+--
+-- /Note:/ Consider using 'after' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srrpAfter :: Lens.Lens' SetReceiptRulePosition (Core.Maybe Types.ReceiptRuleName)
+srrpAfter = Lens.field @"after"
+{-# DEPRECATED srrpAfter "Use generic-lens or generic-optics with 'after' instead." #-}
+
+instance Core.AWSRequest SetReceiptRulePosition where
   type Rs SetReceiptRulePosition = SetReceiptRulePositionResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetReceiptRulePosition")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "RuleSetName" ruleSetName)
+                Core.<> (Core.toQueryValue "RuleName" ruleName)
+                Core.<> (Core.toQueryValue "After" Core.<$> after)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "SetReceiptRulePositionResult"
       ( \s h x ->
           SetReceiptRulePositionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetReceiptRulePosition where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetReceiptRulePosition where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetReceiptRulePosition where
-  toQuery SetReceiptRulePosition' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SetReceiptRulePosition" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "After" Lude.=: after,
-        "RuleSetName" Lude.=: ruleSetName,
-        "RuleName" Lude.=: ruleName
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkSetReceiptRulePositionResponse' smart constructor.
 newtype SetReceiptRulePositionResponse = SetReceiptRulePositionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetReceiptRulePositionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetReceiptRulePositionResponse' value with any optional fields omitted.
 mkSetReceiptRulePositionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetReceiptRulePositionResponse
-mkSetReceiptRulePositionResponse pResponseStatus_ =
-  SetReceiptRulePositionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkSetReceiptRulePositionResponse responseStatus =
+  SetReceiptRulePositionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srrprsResponseStatus :: Lens.Lens' SetReceiptRulePositionResponse Lude.Int
-srrprsResponseStatus = Lens.lens (responseStatus :: SetReceiptRulePositionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetReceiptRulePositionResponse)
-{-# DEPRECATED srrprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srrprrsResponseStatus :: Lens.Lens' SetReceiptRulePositionResponse Core.Int
+srrprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srrprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

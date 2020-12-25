@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.ProresParControl
   ( ProresParControl
       ( ProresParControl',
-        PPCInitializeFromSource,
-        PPCSpecified
+        ProresParControlInitializeFromSource,
+        ProresParControlSpecified,
+        fromProresParControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. Specify how the service determines the pixel aspect ratio (PAR) for this output. The default behavior, Follow source (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your output. To specify a different PAR in the console, choose any value other than Follow source. To specify a different PAR by editing the JSON job specification, choose SPECIFIED. When you choose SPECIFIED for this setting, you must also specify values for the parNumerator and parDenominator settings.
-newtype ProresParControl = ProresParControl' Lude.Text
+newtype ProresParControl = ProresParControl'
+  { fromProresParControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PPCInitializeFromSource :: ProresParControl
-pattern PPCInitializeFromSource = ProresParControl' "INITIALIZE_FROM_SOURCE"
+pattern ProresParControlInitializeFromSource :: ProresParControl
+pattern ProresParControlInitializeFromSource = ProresParControl' "INITIALIZE_FROM_SOURCE"
 
-pattern PPCSpecified :: ProresParControl
-pattern PPCSpecified = ProresParControl' "SPECIFIED"
+pattern ProresParControlSpecified :: ProresParControl
+pattern ProresParControlSpecified = ProresParControl' "SPECIFIED"
 
 {-# COMPLETE
-  PPCInitializeFromSource,
-  PPCSpecified,
+  ProresParControlInitializeFromSource,
+  ProresParControlSpecified,
   ProresParControl'
   #-}

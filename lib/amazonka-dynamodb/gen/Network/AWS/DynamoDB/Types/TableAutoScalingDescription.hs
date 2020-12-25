@@ -17,22 +17,27 @@ module Network.AWS.DynamoDB.Types.TableAutoScalingDescription
     mkTableAutoScalingDescription,
 
     -- * Lenses
-    tasdTableStatus,
     tasdReplicas,
     tasdTableName,
+    tasdTableStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types.ReplicaAutoScalingDescription
-import Network.AWS.DynamoDB.Types.TableStatus
+import qualified Network.AWS.DynamoDB.Types.ReplicaAutoScalingDescription as Types
+import qualified Network.AWS.DynamoDB.Types.TableName as Types
+import qualified Network.AWS.DynamoDB.Types.TableStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the auto scaling configuration for a global table.
 --
 -- /See:/ 'mkTableAutoScalingDescription' smart constructor.
 data TableAutoScalingDescription = TableAutoScalingDescription'
-  { -- | The current state of the table:
+  { -- | Represents replicas of the global table.
+    replicas :: Core.Maybe [Types.ReplicaAutoScalingDescription],
+    -- | The name of the table.
+    tableName :: Core.Maybe Types.TableName,
+    -- | The current state of the table:
     --
     --
     --     * @CREATING@ - The table is being created.
@@ -45,42 +50,34 @@ data TableAutoScalingDescription = TableAutoScalingDescription'
     --
     --
     --     * @ACTIVE@ - The table is ready for use.
-    tableStatus :: Lude.Maybe TableStatus,
-    -- | Represents replicas of the global table.
-    replicas :: Lude.Maybe [ReplicaAutoScalingDescription],
-    -- | The name of the table.
-    tableName :: Lude.Maybe Lude.Text
+    tableStatus :: Core.Maybe Types.TableStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TableAutoScalingDescription' with the minimum fields required to make a request.
---
--- * 'tableStatus' - The current state of the table:
---
---
---     * @CREATING@ - The table is being created.
---
---
---     * @UPDATING@ - The table is being updated.
---
---
---     * @DELETING@ - The table is being deleted.
---
---
---     * @ACTIVE@ - The table is ready for use.
---
---
--- * 'replicas' - Represents replicas of the global table.
--- * 'tableName' - The name of the table.
+-- | Creates a 'TableAutoScalingDescription' value with any optional fields omitted.
 mkTableAutoScalingDescription ::
   TableAutoScalingDescription
 mkTableAutoScalingDescription =
   TableAutoScalingDescription'
-    { tableStatus = Lude.Nothing,
-      replicas = Lude.Nothing,
-      tableName = Lude.Nothing
+    { replicas = Core.Nothing,
+      tableName = Core.Nothing,
+      tableStatus = Core.Nothing
     }
+
+-- | Represents replicas of the global table.
+--
+-- /Note:/ Consider using 'replicas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tasdReplicas :: Lens.Lens' TableAutoScalingDescription (Core.Maybe [Types.ReplicaAutoScalingDescription])
+tasdReplicas = Lens.field @"replicas"
+{-# DEPRECATED tasdReplicas "Use generic-lens or generic-optics with 'replicas' instead." #-}
+
+-- | The name of the table.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tasdTableName :: Lens.Lens' TableAutoScalingDescription (Core.Maybe Types.TableName)
+tasdTableName = Lens.field @"tableName"
+{-# DEPRECATED tasdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The current state of the table:
 --
@@ -99,31 +96,15 @@ mkTableAutoScalingDescription =
 --
 --
 -- /Note:/ Consider using 'tableStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tasdTableStatus :: Lens.Lens' TableAutoScalingDescription (Lude.Maybe TableStatus)
-tasdTableStatus = Lens.lens (tableStatus :: TableAutoScalingDescription -> Lude.Maybe TableStatus) (\s a -> s {tableStatus = a} :: TableAutoScalingDescription)
+tasdTableStatus :: Lens.Lens' TableAutoScalingDescription (Core.Maybe Types.TableStatus)
+tasdTableStatus = Lens.field @"tableStatus"
 {-# DEPRECATED tasdTableStatus "Use generic-lens or generic-optics with 'tableStatus' instead." #-}
 
--- | Represents replicas of the global table.
---
--- /Note:/ Consider using 'replicas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tasdReplicas :: Lens.Lens' TableAutoScalingDescription (Lude.Maybe [ReplicaAutoScalingDescription])
-tasdReplicas = Lens.lens (replicas :: TableAutoScalingDescription -> Lude.Maybe [ReplicaAutoScalingDescription]) (\s a -> s {replicas = a} :: TableAutoScalingDescription)
-{-# DEPRECATED tasdReplicas "Use generic-lens or generic-optics with 'replicas' instead." #-}
-
--- | The name of the table.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tasdTableName :: Lens.Lens' TableAutoScalingDescription (Lude.Maybe Lude.Text)
-tasdTableName = Lens.lens (tableName :: TableAutoScalingDescription -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: TableAutoScalingDescription)
-{-# DEPRECATED tasdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
-
-instance Lude.FromJSON TableAutoScalingDescription where
+instance Core.FromJSON TableAutoScalingDescription where
   parseJSON =
-    Lude.withObject
-      "TableAutoScalingDescription"
-      ( \x ->
-          TableAutoScalingDescription'
-            Lude.<$> (x Lude..:? "TableStatus")
-            Lude.<*> (x Lude..:? "Replicas" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "TableName")
-      )
+    Core.withObject "TableAutoScalingDescription" Core.$
+      \x ->
+        TableAutoScalingDescription'
+          Core.<$> (x Core..:? "Replicas")
+          Core.<*> (x Core..:? "TableName")
+          Core.<*> (x Core..:? "TableStatus")

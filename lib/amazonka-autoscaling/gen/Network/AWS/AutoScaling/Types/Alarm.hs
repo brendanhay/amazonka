@@ -17,49 +17,48 @@ module Network.AWS.AutoScaling.Types.Alarm
     mkAlarm,
 
     -- * Lenses
-    aAlarmName,
     aAlarmARN,
+    aAlarmName,
   )
 where
 
+import qualified Network.AWS.AutoScaling.Types.ResourceName as Types
+import qualified Network.AWS.AutoScaling.Types.XmlStringMaxLen255 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an alarm.
 --
 -- /See:/ 'mkAlarm' smart constructor.
 data Alarm = Alarm'
-  { -- | The name of the alarm.
-    alarmName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the alarm.
-    alarmARN :: Lude.Maybe Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the alarm.
+    alarmARN :: Core.Maybe Types.ResourceName,
+    -- | The name of the alarm.
+    alarmName :: Core.Maybe Types.XmlStringMaxLen255
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Alarm' with the minimum fields required to make a request.
---
--- * 'alarmName' - The name of the alarm.
--- * 'alarmARN' - The Amazon Resource Name (ARN) of the alarm.
+-- | Creates a 'Alarm' value with any optional fields omitted.
 mkAlarm ::
   Alarm
-mkAlarm = Alarm' {alarmName = Lude.Nothing, alarmARN = Lude.Nothing}
-
--- | The name of the alarm.
---
--- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAlarmName :: Lens.Lens' Alarm (Lude.Maybe Lude.Text)
-aAlarmName = Lens.lens (alarmName :: Alarm -> Lude.Maybe Lude.Text) (\s a -> s {alarmName = a} :: Alarm)
-{-# DEPRECATED aAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
+mkAlarm = Alarm' {alarmARN = Core.Nothing, alarmName = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the alarm.
 --
 -- /Note:/ Consider using 'alarmARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAlarmARN :: Lens.Lens' Alarm (Lude.Maybe Lude.Text)
-aAlarmARN = Lens.lens (alarmARN :: Alarm -> Lude.Maybe Lude.Text) (\s a -> s {alarmARN = a} :: Alarm)
+aAlarmARN :: Lens.Lens' Alarm (Core.Maybe Types.ResourceName)
+aAlarmARN = Lens.field @"alarmARN"
 {-# DEPRECATED aAlarmARN "Use generic-lens or generic-optics with 'alarmARN' instead." #-}
 
-instance Lude.FromXML Alarm where
+-- | The name of the alarm.
+--
+-- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aAlarmName :: Lens.Lens' Alarm (Core.Maybe Types.XmlStringMaxLen255)
+aAlarmName = Lens.field @"alarmName"
+{-# DEPRECATED aAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
+
+instance Core.FromXML Alarm where
   parseXML x =
     Alarm'
-      Lude.<$> (x Lude..@? "AlarmName") Lude.<*> (x Lude..@? "AlarmARN")
+      Core.<$> (x Core..@? "AlarmARN") Core.<*> (x Core..@? "AlarmName")

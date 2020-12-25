@@ -36,111 +36,99 @@ module Network.AWS.S3.GetBucketEncryption
     mkGetBucketEncryptionResponse,
 
     -- ** Response lenses
-    gbersServerSideEncryptionConfiguration,
-    gbersResponseStatus,
+    gberrsServerSideEncryptionConfiguration,
+    gberrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketEncryption' smart constructor.
 data GetBucketEncryption = GetBucketEncryption'
   { -- | The name of the bucket from which the server-side encryption configuration is retrieved.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketEncryption' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the bucket from which the server-side encryption configuration is retrieved.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetBucketEncryption' value with any optional fields omitted.
 mkGetBucketEncryption ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   GetBucketEncryption
-mkGetBucketEncryption pBucket_ =
-  GetBucketEncryption'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
-    }
+mkGetBucketEncryption bucket =
+  GetBucketEncryption' {bucket, expectedBucketOwner = Core.Nothing}
 
 -- | The name of the bucket from which the server-side encryption configuration is retrieved.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbeBucket :: Lens.Lens' GetBucketEncryption BucketName
-gbeBucket = Lens.lens (bucket :: GetBucketEncryption -> BucketName) (\s a -> s {bucket = a} :: GetBucketEncryption)
+gbeBucket :: Lens.Lens' GetBucketEncryption Types.BucketName
+gbeBucket = Lens.field @"bucket"
 {-# DEPRECATED gbeBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbeExpectedBucketOwner :: Lens.Lens' GetBucketEncryption (Lude.Maybe Lude.Text)
-gbeExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketEncryption -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketEncryption)
+gbeExpectedBucketOwner :: Lens.Lens' GetBucketEncryption (Core.Maybe Types.ExpectedBucketOwner)
+gbeExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED gbeExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetBucketEncryption where
+instance Core.AWSRequest GetBucketEncryption where
   type Rs GetBucketEncryption = GetBucketEncryptionResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("encryption", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetBucketEncryptionResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBucketEncryption where
-  toHeaders GetBucketEncryption' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetBucketEncryption where
-  toPath GetBucketEncryption' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketEncryption where
-  toQuery = Lude.const (Lude.mconcat ["encryption"])
 
 -- | /See:/ 'mkGetBucketEncryptionResponse' smart constructor.
 data GetBucketEncryptionResponse = GetBucketEncryptionResponse'
-  { serverSideEncryptionConfiguration :: Lude.Maybe ServerSideEncryptionConfiguration,
+  { serverSideEncryptionConfiguration :: Core.Maybe Types.ServerSideEncryptionConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketEncryptionResponse' with the minimum fields required to make a request.
---
--- * 'serverSideEncryptionConfiguration' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBucketEncryptionResponse' value with any optional fields omitted.
 mkGetBucketEncryptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBucketEncryptionResponse
-mkGetBucketEncryptionResponse pResponseStatus_ =
+mkGetBucketEncryptionResponse responseStatus =
   GetBucketEncryptionResponse'
     { serverSideEncryptionConfiguration =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'serverSideEncryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbersServerSideEncryptionConfiguration :: Lens.Lens' GetBucketEncryptionResponse (Lude.Maybe ServerSideEncryptionConfiguration)
-gbersServerSideEncryptionConfiguration = Lens.lens (serverSideEncryptionConfiguration :: GetBucketEncryptionResponse -> Lude.Maybe ServerSideEncryptionConfiguration) (\s a -> s {serverSideEncryptionConfiguration = a} :: GetBucketEncryptionResponse)
-{-# DEPRECATED gbersServerSideEncryptionConfiguration "Use generic-lens or generic-optics with 'serverSideEncryptionConfiguration' instead." #-}
+gberrsServerSideEncryptionConfiguration :: Lens.Lens' GetBucketEncryptionResponse (Core.Maybe Types.ServerSideEncryptionConfiguration)
+gberrsServerSideEncryptionConfiguration = Lens.field @"serverSideEncryptionConfiguration"
+{-# DEPRECATED gberrsServerSideEncryptionConfiguration "Use generic-lens or generic-optics with 'serverSideEncryptionConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbersResponseStatus :: Lens.Lens' GetBucketEncryptionResponse Lude.Int
-gbersResponseStatus = Lens.lens (responseStatus :: GetBucketEncryptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketEncryptionResponse)
-{-# DEPRECATED gbersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gberrsResponseStatus :: Lens.Lens' GetBucketEncryptionResponse Core.Int
+gberrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gberrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

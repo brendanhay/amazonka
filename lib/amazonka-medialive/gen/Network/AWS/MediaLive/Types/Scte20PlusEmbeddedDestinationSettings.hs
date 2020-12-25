@@ -21,26 +21,25 @@ module Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Scte20 Plus Embedded Destination Settings
 --
 -- /See:/ 'mkScte20PlusEmbeddedDestinationSettings' smart constructor.
 data Scte20PlusEmbeddedDestinationSettings = Scte20PlusEmbeddedDestinationSettings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Scte20PlusEmbeddedDestinationSettings' with the minimum fields required to make a request.
+-- | Creates a 'Scte20PlusEmbeddedDestinationSettings' value with any optional fields omitted.
 mkScte20PlusEmbeddedDestinationSettings ::
   Scte20PlusEmbeddedDestinationSettings
 mkScte20PlusEmbeddedDestinationSettings =
   Scte20PlusEmbeddedDestinationSettings'
 
-instance Lude.FromJSON Scte20PlusEmbeddedDestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "Scte20PlusEmbeddedDestinationSettings"
-      (\x -> Lude.pure Scte20PlusEmbeddedDestinationSettings')
+instance Core.FromJSON Scte20PlusEmbeddedDestinationSettings where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.ToJSON Scte20PlusEmbeddedDestinationSettings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
+instance Core.FromJSON Scte20PlusEmbeddedDestinationSettings where
+  parseJSON =
+    Core.withObject "Scte20PlusEmbeddedDestinationSettings" Core.$
+      \x -> Core.pure Scte20PlusEmbeddedDestinationSettings'

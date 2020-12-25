@@ -23,178 +23,163 @@ module Network.AWS.Translate.ImportTerminology
 
     -- ** Request lenses
     itName,
-    itEncryptionKey,
     itMergeStrategy,
     itTerminologyData,
     itDescription,
+    itEncryptionKey,
 
     -- * Destructuring the response
     ImportTerminologyResponse (..),
     mkImportTerminologyResponse,
 
     -- ** Response lenses
-    itrsTerminologyProperties,
-    itrsResponseStatus,
+    itrrsTerminologyProperties,
+    itrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Translate.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Translate.Types as Types
 
 -- | /See:/ 'mkImportTerminology' smart constructor.
 data ImportTerminology = ImportTerminology'
   { -- | The name of the custom terminology being imported.
-    name :: Lude.Text,
-    -- | The encryption key for the custom terminology being imported.
-    encryptionKey :: Lude.Maybe EncryptionKey,
+    name :: Types.Name,
     -- | The merge strategy of the custom terminology being imported. Currently, only the OVERWRITE merge strategy is supported. In this case, the imported terminology will overwrite an existing terminology of the same name.
-    mergeStrategy :: MergeStrategy,
+    mergeStrategy :: Types.MergeStrategy,
     -- | The terminology data for the custom terminology being imported.
-    terminologyData :: TerminologyData,
+    terminologyData :: Types.TerminologyData,
     -- | The description of the custom terminology being imported.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The encryption key for the custom terminology being imported.
+    encryptionKey :: Core.Maybe Types.EncryptionKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportTerminology' with the minimum fields required to make a request.
---
--- * 'name' - The name of the custom terminology being imported.
--- * 'encryptionKey' - The encryption key for the custom terminology being imported.
--- * 'mergeStrategy' - The merge strategy of the custom terminology being imported. Currently, only the OVERWRITE merge strategy is supported. In this case, the imported terminology will overwrite an existing terminology of the same name.
--- * 'terminologyData' - The terminology data for the custom terminology being imported.
--- * 'description' - The description of the custom terminology being imported.
+-- | Creates a 'ImportTerminology' value with any optional fields omitted.
 mkImportTerminology ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   -- | 'mergeStrategy'
-  MergeStrategy ->
+  Types.MergeStrategy ->
   -- | 'terminologyData'
-  TerminologyData ->
+  Types.TerminologyData ->
   ImportTerminology
-mkImportTerminology pName_ pMergeStrategy_ pTerminologyData_ =
+mkImportTerminology name mergeStrategy terminologyData =
   ImportTerminology'
-    { name = pName_,
-      encryptionKey = Lude.Nothing,
-      mergeStrategy = pMergeStrategy_,
-      terminologyData = pTerminologyData_,
-      description = Lude.Nothing
+    { name,
+      mergeStrategy,
+      terminologyData,
+      description = Core.Nothing,
+      encryptionKey = Core.Nothing
     }
 
 -- | The name of the custom terminology being imported.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itName :: Lens.Lens' ImportTerminology Lude.Text
-itName = Lens.lens (name :: ImportTerminology -> Lude.Text) (\s a -> s {name = a} :: ImportTerminology)
+itName :: Lens.Lens' ImportTerminology Types.Name
+itName = Lens.field @"name"
 {-# DEPRECATED itName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The encryption key for the custom terminology being imported.
---
--- /Note:/ Consider using 'encryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itEncryptionKey :: Lens.Lens' ImportTerminology (Lude.Maybe EncryptionKey)
-itEncryptionKey = Lens.lens (encryptionKey :: ImportTerminology -> Lude.Maybe EncryptionKey) (\s a -> s {encryptionKey = a} :: ImportTerminology)
-{-# DEPRECATED itEncryptionKey "Use generic-lens or generic-optics with 'encryptionKey' instead." #-}
 
 -- | The merge strategy of the custom terminology being imported. Currently, only the OVERWRITE merge strategy is supported. In this case, the imported terminology will overwrite an existing terminology of the same name.
 --
 -- /Note:/ Consider using 'mergeStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itMergeStrategy :: Lens.Lens' ImportTerminology MergeStrategy
-itMergeStrategy = Lens.lens (mergeStrategy :: ImportTerminology -> MergeStrategy) (\s a -> s {mergeStrategy = a} :: ImportTerminology)
+itMergeStrategy :: Lens.Lens' ImportTerminology Types.MergeStrategy
+itMergeStrategy = Lens.field @"mergeStrategy"
 {-# DEPRECATED itMergeStrategy "Use generic-lens or generic-optics with 'mergeStrategy' instead." #-}
 
 -- | The terminology data for the custom terminology being imported.
 --
 -- /Note:/ Consider using 'terminologyData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itTerminologyData :: Lens.Lens' ImportTerminology TerminologyData
-itTerminologyData = Lens.lens (terminologyData :: ImportTerminology -> TerminologyData) (\s a -> s {terminologyData = a} :: ImportTerminology)
+itTerminologyData :: Lens.Lens' ImportTerminology Types.TerminologyData
+itTerminologyData = Lens.field @"terminologyData"
 {-# DEPRECATED itTerminologyData "Use generic-lens or generic-optics with 'terminologyData' instead." #-}
 
 -- | The description of the custom terminology being imported.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itDescription :: Lens.Lens' ImportTerminology (Lude.Maybe Lude.Text)
-itDescription = Lens.lens (description :: ImportTerminology -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImportTerminology)
+itDescription :: Lens.Lens' ImportTerminology (Core.Maybe Types.Description)
+itDescription = Lens.field @"description"
 {-# DEPRECATED itDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest ImportTerminology where
+-- | The encryption key for the custom terminology being imported.
+--
+-- /Note:/ Consider using 'encryptionKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itEncryptionKey :: Lens.Lens' ImportTerminology (Core.Maybe Types.EncryptionKey)
+itEncryptionKey = Lens.field @"encryptionKey"
+{-# DEPRECATED itEncryptionKey "Use generic-lens or generic-optics with 'encryptionKey' instead." #-}
+
+instance Core.FromJSON ImportTerminology where
+  toJSON ImportTerminology {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("MergeStrategy" Core..= mergeStrategy),
+            Core.Just ("TerminologyData" Core..= terminologyData),
+            ("Description" Core..=) Core.<$> description,
+            ("EncryptionKey" Core..=) Core.<$> encryptionKey
+          ]
+      )
+
+instance Core.AWSRequest ImportTerminology where
   type Rs ImportTerminology = ImportTerminologyResponse
-  request = Req.postJSON translateService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSShineFrontendService_20170701.ImportTerminology"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ImportTerminologyResponse'
-            Lude.<$> (x Lude..?> "TerminologyProperties")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TerminologyProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ImportTerminology where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShineFrontendService_20170701.ImportTerminology" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ImportTerminology where
-  toJSON ImportTerminology' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            ("EncryptionKey" Lude..=) Lude.<$> encryptionKey,
-            Lude.Just ("MergeStrategy" Lude..= mergeStrategy),
-            Lude.Just ("TerminologyData" Lude..= terminologyData),
-            ("Description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath ImportTerminology where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ImportTerminology where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkImportTerminologyResponse' smart constructor.
 data ImportTerminologyResponse = ImportTerminologyResponse'
   { -- | The properties of the custom terminology being imported.
-    terminologyProperties :: Lude.Maybe TerminologyProperties,
+    terminologyProperties :: Core.Maybe Types.TerminologyProperties,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ImportTerminologyResponse' with the minimum fields required to make a request.
---
--- * 'terminologyProperties' - The properties of the custom terminology being imported.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ImportTerminologyResponse' value with any optional fields omitted.
 mkImportTerminologyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ImportTerminologyResponse
-mkImportTerminologyResponse pResponseStatus_ =
+mkImportTerminologyResponse responseStatus =
   ImportTerminologyResponse'
-    { terminologyProperties = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { terminologyProperties = Core.Nothing,
+      responseStatus
     }
 
 -- | The properties of the custom terminology being imported.
 --
 -- /Note:/ Consider using 'terminologyProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itrsTerminologyProperties :: Lens.Lens' ImportTerminologyResponse (Lude.Maybe TerminologyProperties)
-itrsTerminologyProperties = Lens.lens (terminologyProperties :: ImportTerminologyResponse -> Lude.Maybe TerminologyProperties) (\s a -> s {terminologyProperties = a} :: ImportTerminologyResponse)
-{-# DEPRECATED itrsTerminologyProperties "Use generic-lens or generic-optics with 'terminologyProperties' instead." #-}
+itrrsTerminologyProperties :: Lens.Lens' ImportTerminologyResponse (Core.Maybe Types.TerminologyProperties)
+itrrsTerminologyProperties = Lens.field @"terminologyProperties"
+{-# DEPRECATED itrrsTerminologyProperties "Use generic-lens or generic-optics with 'terminologyProperties' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itrsResponseStatus :: Lens.Lens' ImportTerminologyResponse Lude.Int
-itrsResponseStatus = Lens.lens (responseStatus :: ImportTerminologyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportTerminologyResponse)
-{-# DEPRECATED itrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+itrrsResponseStatus :: Lens.Lens' ImportTerminologyResponse Core.Int
+itrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED itrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,9 +20,9 @@ module Network.AWS.ECS.UpdateTaskSet
     mkUpdateTaskSet,
 
     -- ** Request lenses
-    utsTaskSet,
     utsCluster,
     utsService,
+    utsTaskSet,
     utsScale,
 
     -- * Destructuring the response
@@ -30,155 +30,133 @@ module Network.AWS.ECS.UpdateTaskSet
     mkUpdateTaskSetResponse,
 
     -- ** Response lenses
-    utsrsTaskSet,
-    utsrsResponseStatus,
+    utsrrsTaskSet,
+    utsrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateTaskSet' smart constructor.
 data UpdateTaskSet = UpdateTaskSet'
-  { -- | The short name or full Amazon Resource Name (ARN) of the task set to update.
-    taskSet :: Lude.Text,
-    -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
-    cluster :: Lude.Text,
+  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
+    cluster :: Types.String,
     -- | The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
-    service :: Lude.Text,
-    scale :: Scale
+    service :: Types.String,
+    -- | The short name or full Amazon Resource Name (ARN) of the task set to update.
+    taskSet :: Types.String,
+    scale :: Types.Scale
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTaskSet' with the minimum fields required to make a request.
---
--- * 'taskSet' - The short name or full Amazon Resource Name (ARN) of the task set to update.
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
--- * 'service' - The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
--- * 'scale' -
+-- | Creates a 'UpdateTaskSet' value with any optional fields omitted.
 mkUpdateTaskSet ::
-  -- | 'taskSet'
-  Lude.Text ->
   -- | 'cluster'
-  Lude.Text ->
+  Types.String ->
   -- | 'service'
-  Lude.Text ->
+  Types.String ->
+  -- | 'taskSet'
+  Types.String ->
   -- | 'scale'
-  Scale ->
+  Types.Scale ->
   UpdateTaskSet
-mkUpdateTaskSet pTaskSet_ pCluster_ pService_ pScale_ =
-  UpdateTaskSet'
-    { taskSet = pTaskSet_,
-      cluster = pCluster_,
-      service = pService_,
-      scale = pScale_
-    }
-
--- | The short name or full Amazon Resource Name (ARN) of the task set to update.
---
--- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsTaskSet :: Lens.Lens' UpdateTaskSet Lude.Text
-utsTaskSet = Lens.lens (taskSet :: UpdateTaskSet -> Lude.Text) (\s a -> s {taskSet = a} :: UpdateTaskSet)
-{-# DEPRECATED utsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
+mkUpdateTaskSet cluster service taskSet scale =
+  UpdateTaskSet' {cluster, service, taskSet, scale}
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task set exists in.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsCluster :: Lens.Lens' UpdateTaskSet Lude.Text
-utsCluster = Lens.lens (cluster :: UpdateTaskSet -> Lude.Text) (\s a -> s {cluster = a} :: UpdateTaskSet)
+utsCluster :: Lens.Lens' UpdateTaskSet Types.String
+utsCluster = Lens.field @"cluster"
 {-# DEPRECATED utsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The short name or full Amazon Resource Name (ARN) of the service that the task set exists in.
 --
 -- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsService :: Lens.Lens' UpdateTaskSet Lude.Text
-utsService = Lens.lens (service :: UpdateTaskSet -> Lude.Text) (\s a -> s {service = a} :: UpdateTaskSet)
+utsService :: Lens.Lens' UpdateTaskSet Types.String
+utsService = Lens.field @"service"
 {-# DEPRECATED utsService "Use generic-lens or generic-optics with 'service' instead." #-}
+
+-- | The short name or full Amazon Resource Name (ARN) of the task set to update.
+--
+-- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utsTaskSet :: Lens.Lens' UpdateTaskSet Types.String
+utsTaskSet = Lens.field @"taskSet"
+{-# DEPRECATED utsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'scale' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsScale :: Lens.Lens' UpdateTaskSet Scale
-utsScale = Lens.lens (scale :: UpdateTaskSet -> Scale) (\s a -> s {scale = a} :: UpdateTaskSet)
+utsScale :: Lens.Lens' UpdateTaskSet Types.Scale
+utsScale = Lens.field @"scale"
 {-# DEPRECATED utsScale "Use generic-lens or generic-optics with 'scale' instead." #-}
 
-instance Lude.AWSRequest UpdateTaskSet where
+instance Core.FromJSON UpdateTaskSet where
+  toJSON UpdateTaskSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("cluster" Core..= cluster),
+            Core.Just ("service" Core..= service),
+            Core.Just ("taskSet" Core..= taskSet),
+            Core.Just ("scale" Core..= scale)
+          ]
+      )
+
+instance Core.AWSRequest UpdateTaskSet where
   type Rs UpdateTaskSet = UpdateTaskSetResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.UpdateTaskSet"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateTaskSetResponse'
-            Lude.<$> (x Lude..?> "taskSet") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "taskSet") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateTaskSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateTaskSet" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateTaskSet where
-  toJSON UpdateTaskSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("taskSet" Lude..= taskSet),
-            Lude.Just ("cluster" Lude..= cluster),
-            Lude.Just ("service" Lude..= service),
-            Lude.Just ("scale" Lude..= scale)
-          ]
-      )
-
-instance Lude.ToPath UpdateTaskSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateTaskSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateTaskSetResponse' smart constructor.
 data UpdateTaskSetResponse = UpdateTaskSetResponse'
-  { taskSet :: Lude.Maybe TaskSet,
+  { taskSet :: Core.Maybe Types.TaskSet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateTaskSetResponse' with the minimum fields required to make a request.
---
--- * 'taskSet' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTaskSetResponse' value with any optional fields omitted.
 mkUpdateTaskSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTaskSetResponse
-mkUpdateTaskSetResponse pResponseStatus_ =
-  UpdateTaskSetResponse'
-    { taskSet = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateTaskSetResponse responseStatus =
+  UpdateTaskSetResponse' {taskSet = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'taskSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsrsTaskSet :: Lens.Lens' UpdateTaskSetResponse (Lude.Maybe TaskSet)
-utsrsTaskSet = Lens.lens (taskSet :: UpdateTaskSetResponse -> Lude.Maybe TaskSet) (\s a -> s {taskSet = a} :: UpdateTaskSetResponse)
-{-# DEPRECATED utsrsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
+utsrrsTaskSet :: Lens.Lens' UpdateTaskSetResponse (Core.Maybe Types.TaskSet)
+utsrrsTaskSet = Lens.field @"taskSet"
+{-# DEPRECATED utsrrsTaskSet "Use generic-lens or generic-optics with 'taskSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsrsResponseStatus :: Lens.Lens' UpdateTaskSetResponse Lude.Int
-utsrsResponseStatus = Lens.lens (responseStatus :: UpdateTaskSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTaskSetResponse)
-{-# DEPRECATED utsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utsrrsResponseStatus :: Lens.Lens' UpdateTaskSetResponse Core.Int
+utsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

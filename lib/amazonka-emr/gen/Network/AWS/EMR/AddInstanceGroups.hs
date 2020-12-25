@@ -20,164 +20,146 @@ module Network.AWS.EMR.AddInstanceGroups
     mkAddInstanceGroups,
 
     -- ** Request lenses
-    aigJobFlowId,
     aigInstanceGroups,
+    aigJobFlowId,
 
     -- * Destructuring the response
     AddInstanceGroupsResponse (..),
     mkAddInstanceGroupsResponse,
 
     -- ** Response lenses
-    aigrsClusterARN,
-    aigrsJobFlowId,
-    aigrsInstanceGroupIds,
-    aigrsResponseStatus,
+    aigrrsClusterArn,
+    aigrrsInstanceGroupIds,
+    aigrrsJobFlowId,
+    aigrrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to an AddInstanceGroups call.
 --
 -- /See:/ 'mkAddInstanceGroups' smart constructor.
 data AddInstanceGroups = AddInstanceGroups'
-  { -- | Job flow in which to add the instance groups.
-    jobFlowId :: Lude.Text,
-    -- | Instance groups to add.
-    instanceGroups :: [InstanceGroupConfig]
+  { -- | Instance groups to add.
+    instanceGroups :: [Types.InstanceGroupConfig],
+    -- | Job flow in which to add the instance groups.
+    jobFlowId :: Types.JobFlowId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddInstanceGroups' with the minimum fields required to make a request.
---
--- * 'jobFlowId' - Job flow in which to add the instance groups.
--- * 'instanceGroups' - Instance groups to add.
+-- | Creates a 'AddInstanceGroups' value with any optional fields omitted.
 mkAddInstanceGroups ::
   -- | 'jobFlowId'
-  Lude.Text ->
+  Types.JobFlowId ->
   AddInstanceGroups
-mkAddInstanceGroups pJobFlowId_ =
-  AddInstanceGroups'
-    { jobFlowId = pJobFlowId_,
-      instanceGroups = Lude.mempty
-    }
-
--- | Job flow in which to add the instance groups.
---
--- /Note:/ Consider using 'jobFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aigJobFlowId :: Lens.Lens' AddInstanceGroups Lude.Text
-aigJobFlowId = Lens.lens (jobFlowId :: AddInstanceGroups -> Lude.Text) (\s a -> s {jobFlowId = a} :: AddInstanceGroups)
-{-# DEPRECATED aigJobFlowId "Use generic-lens or generic-optics with 'jobFlowId' instead." #-}
+mkAddInstanceGroups jobFlowId =
+  AddInstanceGroups' {instanceGroups = Core.mempty, jobFlowId}
 
 -- | Instance groups to add.
 --
 -- /Note:/ Consider using 'instanceGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aigInstanceGroups :: Lens.Lens' AddInstanceGroups [InstanceGroupConfig]
-aigInstanceGroups = Lens.lens (instanceGroups :: AddInstanceGroups -> [InstanceGroupConfig]) (\s a -> s {instanceGroups = a} :: AddInstanceGroups)
+aigInstanceGroups :: Lens.Lens' AddInstanceGroups [Types.InstanceGroupConfig]
+aigInstanceGroups = Lens.field @"instanceGroups"
 {-# DEPRECATED aigInstanceGroups "Use generic-lens or generic-optics with 'instanceGroups' instead." #-}
 
-instance Lude.AWSRequest AddInstanceGroups where
+-- | Job flow in which to add the instance groups.
+--
+-- /Note:/ Consider using 'jobFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aigJobFlowId :: Lens.Lens' AddInstanceGroups Types.JobFlowId
+aigJobFlowId = Lens.field @"jobFlowId"
+{-# DEPRECATED aigJobFlowId "Use generic-lens or generic-optics with 'jobFlowId' instead." #-}
+
+instance Core.FromJSON AddInstanceGroups where
+  toJSON AddInstanceGroups {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceGroups" Core..= instanceGroups),
+            Core.Just ("JobFlowId" Core..= jobFlowId)
+          ]
+      )
+
+instance Core.AWSRequest AddInstanceGroups where
   type Rs AddInstanceGroups = AddInstanceGroupsResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.AddInstanceGroups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AddInstanceGroupsResponse'
-            Lude.<$> (x Lude..?> "ClusterArn")
-            Lude.<*> (x Lude..?> "JobFlowId")
-            Lude.<*> (x Lude..?> "InstanceGroupIds" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ClusterArn")
+            Core.<*> (x Core..:? "InstanceGroupIds")
+            Core.<*> (x Core..:? "JobFlowId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddInstanceGroups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.AddInstanceGroups" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddInstanceGroups where
-  toJSON AddInstanceGroups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("JobFlowId" Lude..= jobFlowId),
-            Lude.Just ("InstanceGroups" Lude..= instanceGroups)
-          ]
-      )
-
-instance Lude.ToPath AddInstanceGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddInstanceGroups where
-  toQuery = Lude.const Lude.mempty
 
 -- | Output from an AddInstanceGroups call.
 --
 -- /See:/ 'mkAddInstanceGroupsResponse' smart constructor.
 data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
   { -- | The Amazon Resource Name of the cluster.
-    clusterARN :: Lude.Maybe Lude.Text,
-    -- | The job flow ID in which the instance groups are added.
-    jobFlowId :: Lude.Maybe Lude.Text,
+    clusterArn :: Core.Maybe Types.ClusterArn,
     -- | Instance group IDs of the newly created instance groups.
-    instanceGroupIds :: Lude.Maybe [Lude.Text],
+    instanceGroupIds :: Core.Maybe [Types.XmlStringMaxLen256],
+    -- | The job flow ID in which the instance groups are added.
+    jobFlowId :: Core.Maybe Types.JobFlowId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddInstanceGroupsResponse' with the minimum fields required to make a request.
---
--- * 'clusterARN' - The Amazon Resource Name of the cluster.
--- * 'jobFlowId' - The job flow ID in which the instance groups are added.
--- * 'instanceGroupIds' - Instance group IDs of the newly created instance groups.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddInstanceGroupsResponse' value with any optional fields omitted.
 mkAddInstanceGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddInstanceGroupsResponse
-mkAddInstanceGroupsResponse pResponseStatus_ =
+mkAddInstanceGroupsResponse responseStatus =
   AddInstanceGroupsResponse'
-    { clusterARN = Lude.Nothing,
-      jobFlowId = Lude.Nothing,
-      instanceGroupIds = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clusterArn = Core.Nothing,
+      instanceGroupIds = Core.Nothing,
+      jobFlowId = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name of the cluster.
 --
--- /Note:/ Consider using 'clusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aigrsClusterARN :: Lens.Lens' AddInstanceGroupsResponse (Lude.Maybe Lude.Text)
-aigrsClusterARN = Lens.lens (clusterARN :: AddInstanceGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {clusterARN = a} :: AddInstanceGroupsResponse)
-{-# DEPRECATED aigrsClusterARN "Use generic-lens or generic-optics with 'clusterARN' instead." #-}
-
--- | The job flow ID in which the instance groups are added.
---
--- /Note:/ Consider using 'jobFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aigrsJobFlowId :: Lens.Lens' AddInstanceGroupsResponse (Lude.Maybe Lude.Text)
-aigrsJobFlowId = Lens.lens (jobFlowId :: AddInstanceGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobFlowId = a} :: AddInstanceGroupsResponse)
-{-# DEPRECATED aigrsJobFlowId "Use generic-lens or generic-optics with 'jobFlowId' instead." #-}
+-- /Note:/ Consider using 'clusterArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aigrrsClusterArn :: Lens.Lens' AddInstanceGroupsResponse (Core.Maybe Types.ClusterArn)
+aigrrsClusterArn = Lens.field @"clusterArn"
+{-# DEPRECATED aigrrsClusterArn "Use generic-lens or generic-optics with 'clusterArn' instead." #-}
 
 -- | Instance group IDs of the newly created instance groups.
 --
 -- /Note:/ Consider using 'instanceGroupIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aigrsInstanceGroupIds :: Lens.Lens' AddInstanceGroupsResponse (Lude.Maybe [Lude.Text])
-aigrsInstanceGroupIds = Lens.lens (instanceGroupIds :: AddInstanceGroupsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceGroupIds = a} :: AddInstanceGroupsResponse)
-{-# DEPRECATED aigrsInstanceGroupIds "Use generic-lens or generic-optics with 'instanceGroupIds' instead." #-}
+aigrrsInstanceGroupIds :: Lens.Lens' AddInstanceGroupsResponse (Core.Maybe [Types.XmlStringMaxLen256])
+aigrrsInstanceGroupIds = Lens.field @"instanceGroupIds"
+{-# DEPRECATED aigrrsInstanceGroupIds "Use generic-lens or generic-optics with 'instanceGroupIds' instead." #-}
+
+-- | The job flow ID in which the instance groups are added.
+--
+-- /Note:/ Consider using 'jobFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aigrrsJobFlowId :: Lens.Lens' AddInstanceGroupsResponse (Core.Maybe Types.JobFlowId)
+aigrrsJobFlowId = Lens.field @"jobFlowId"
+{-# DEPRECATED aigrrsJobFlowId "Use generic-lens or generic-optics with 'jobFlowId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aigrsResponseStatus :: Lens.Lens' AddInstanceGroupsResponse Lude.Int
-aigrsResponseStatus = Lens.lens (responseStatus :: AddInstanceGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddInstanceGroupsResponse)
-{-# DEPRECATED aigrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aigrrsResponseStatus :: Lens.Lens' AddInstanceGroupsResponse Core.Int
+aigrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aigrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

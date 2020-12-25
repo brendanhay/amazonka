@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.InputTimecodeSource
   ( InputTimecodeSource
       ( InputTimecodeSource',
-        Zerobased,
-        Embedded
+        InputTimecodeSourceZerobased,
+        InputTimecodeSourceEmbedded,
+        fromInputTimecodeSource
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Documentation update needed
-newtype InputTimecodeSource = InputTimecodeSource' Lude.Text
+newtype InputTimecodeSource = InputTimecodeSource'
+  { fromInputTimecodeSource ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Zerobased :: InputTimecodeSource
-pattern Zerobased = InputTimecodeSource' "ZEROBASED"
+pattern InputTimecodeSourceZerobased :: InputTimecodeSource
+pattern InputTimecodeSourceZerobased = InputTimecodeSource' "ZEROBASED"
 
-pattern Embedded :: InputTimecodeSource
-pattern Embedded = InputTimecodeSource' "EMBEDDED"
+pattern InputTimecodeSourceEmbedded :: InputTimecodeSource
+pattern InputTimecodeSourceEmbedded = InputTimecodeSource' "EMBEDDED"
 
 {-# COMPLETE
-  Zerobased,
-  Embedded,
+  InputTimecodeSourceZerobased,
+  InputTimecodeSourceEmbedded,
   InputTimecodeSource'
   #-}

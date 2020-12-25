@@ -31,169 +31,151 @@ module Network.AWS.Firehose.PutRecordBatch
     mkPutRecordBatch,
 
     -- ** Request lenses
-    prbRecords,
     prbDeliveryStreamName,
+    prbRecords,
 
     -- * Destructuring the response
     PutRecordBatchResponse (..),
     mkPutRecordBatchResponse,
 
     -- ** Response lenses
-    prbrsEncrypted,
-    prbrsRequestResponses,
-    prbrsFailedPutCount,
-    prbrsResponseStatus,
+    prbrrsFailedPutCount,
+    prbrrsRequestResponses,
+    prbrrsEncrypted,
+    prbrrsResponseStatus,
   )
 where
 
-import Network.AWS.Firehose.Types
+import qualified Network.AWS.Firehose.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutRecordBatch' smart constructor.
 data PutRecordBatch = PutRecordBatch'
-  { -- | One or more records.
-    records :: Lude.NonEmpty Record,
-    -- | The name of the delivery stream.
-    deliveryStreamName :: Lude.Text
+  { -- | The name of the delivery stream.
+    deliveryStreamName :: Types.DeliveryStreamName,
+    -- | One or more records.
+    records :: Core.NonEmpty Types.Record
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRecordBatch' with the minimum fields required to make a request.
---
--- * 'records' - One or more records.
--- * 'deliveryStreamName' - The name of the delivery stream.
+-- | Creates a 'PutRecordBatch' value with any optional fields omitted.
 mkPutRecordBatch ::
-  -- | 'records'
-  Lude.NonEmpty Record ->
   -- | 'deliveryStreamName'
-  Lude.Text ->
+  Types.DeliveryStreamName ->
+  -- | 'records'
+  Core.NonEmpty Types.Record ->
   PutRecordBatch
-mkPutRecordBatch pRecords_ pDeliveryStreamName_ =
-  PutRecordBatch'
-    { records = pRecords_,
-      deliveryStreamName = pDeliveryStreamName_
-    }
-
--- | One or more records.
---
--- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prbRecords :: Lens.Lens' PutRecordBatch (Lude.NonEmpty Record)
-prbRecords = Lens.lens (records :: PutRecordBatch -> Lude.NonEmpty Record) (\s a -> s {records = a} :: PutRecordBatch)
-{-# DEPRECATED prbRecords "Use generic-lens or generic-optics with 'records' instead." #-}
+mkPutRecordBatch deliveryStreamName records =
+  PutRecordBatch' {deliveryStreamName, records}
 
 -- | The name of the delivery stream.
 --
 -- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prbDeliveryStreamName :: Lens.Lens' PutRecordBatch Lude.Text
-prbDeliveryStreamName = Lens.lens (deliveryStreamName :: PutRecordBatch -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: PutRecordBatch)
+prbDeliveryStreamName :: Lens.Lens' PutRecordBatch Types.DeliveryStreamName
+prbDeliveryStreamName = Lens.field @"deliveryStreamName"
 {-# DEPRECATED prbDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
-instance Lude.AWSRequest PutRecordBatch where
+-- | One or more records.
+--
+-- /Note:/ Consider using 'records' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prbRecords :: Lens.Lens' PutRecordBatch (Core.NonEmpty Types.Record)
+prbRecords = Lens.field @"records"
+{-# DEPRECATED prbRecords "Use generic-lens or generic-optics with 'records' instead." #-}
+
+instance Core.FromJSON PutRecordBatch where
+  toJSON PutRecordBatch {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DeliveryStreamName" Core..= deliveryStreamName),
+            Core.Just ("Records" Core..= records)
+          ]
+      )
+
+instance Core.AWSRequest PutRecordBatch where
   type Rs PutRecordBatch = PutRecordBatchResponse
-  request = Req.postJSON firehoseService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Firehose_20150804.PutRecordBatch")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutRecordBatchResponse'
-            Lude.<$> (x Lude..?> "Encrypted")
-            Lude.<*> (x Lude..:> "RequestResponses")
-            Lude.<*> (x Lude..:> "FailedPutCount")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "FailedPutCount")
+            Core.<*> (x Core..: "RequestResponses")
+            Core.<*> (x Core..:? "Encrypted")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutRecordBatch where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Firehose_20150804.PutRecordBatch" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutRecordBatch where
-  toJSON PutRecordBatch' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Records" Lude..= records),
-            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName)
-          ]
-      )
-
-instance Lude.ToPath PutRecordBatch where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutRecordBatch where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutRecordBatchResponse' smart constructor.
 data PutRecordBatchResponse = PutRecordBatchResponse'
-  { -- | Indicates whether server-side encryption (SSE) was enabled during this operation.
-    encrypted :: Lude.Maybe Lude.Bool,
+  { -- | The number of records that might have failed processing. This number might be greater than 0 even if the 'PutRecordBatch' call succeeds. Check @FailedPutCount@ to determine whether there are records that you need to resend.
+    failedPutCount :: Core.Natural,
     -- | The results array. For each record, the index of the response element is the same as the index used in the request array.
-    requestResponses :: Lude.NonEmpty PutRecordBatchResponseEntry,
-    -- | The number of records that might have failed processing. This number might be greater than 0 even if the 'PutRecordBatch' call succeeds. Check @FailedPutCount@ to determine whether there are records that you need to resend.
-    failedPutCount :: Lude.Natural,
+    requestResponses :: Core.NonEmpty Types.PutRecordBatchResponseEntry,
+    -- | Indicates whether server-side encryption (SSE) was enabled during this operation.
+    encrypted :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRecordBatchResponse' with the minimum fields required to make a request.
---
--- * 'encrypted' - Indicates whether server-side encryption (SSE) was enabled during this operation.
--- * 'requestResponses' - The results array. For each record, the index of the response element is the same as the index used in the request array.
--- * 'failedPutCount' - The number of records that might have failed processing. This number might be greater than 0 even if the 'PutRecordBatch' call succeeds. Check @FailedPutCount@ to determine whether there are records that you need to resend.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutRecordBatchResponse' value with any optional fields omitted.
 mkPutRecordBatchResponse ::
-  -- | 'requestResponses'
-  Lude.NonEmpty PutRecordBatchResponseEntry ->
   -- | 'failedPutCount'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'requestResponses'
+  Core.NonEmpty Types.PutRecordBatchResponseEntry ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutRecordBatchResponse
 mkPutRecordBatchResponse
-  pRequestResponses_
-  pFailedPutCount_
-  pResponseStatus_ =
+  failedPutCount
+  requestResponses
+  responseStatus =
     PutRecordBatchResponse'
-      { encrypted = Lude.Nothing,
-        requestResponses = pRequestResponses_,
-        failedPutCount = pFailedPutCount_,
-        responseStatus = pResponseStatus_
+      { failedPutCount,
+        requestResponses,
+        encrypted = Core.Nothing,
+        responseStatus
       }
-
--- | Indicates whether server-side encryption (SSE) was enabled during this operation.
---
--- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prbrsEncrypted :: Lens.Lens' PutRecordBatchResponse (Lude.Maybe Lude.Bool)
-prbrsEncrypted = Lens.lens (encrypted :: PutRecordBatchResponse -> Lude.Maybe Lude.Bool) (\s a -> s {encrypted = a} :: PutRecordBatchResponse)
-{-# DEPRECATED prbrsEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
-
--- | The results array. For each record, the index of the response element is the same as the index used in the request array.
---
--- /Note:/ Consider using 'requestResponses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prbrsRequestResponses :: Lens.Lens' PutRecordBatchResponse (Lude.NonEmpty PutRecordBatchResponseEntry)
-prbrsRequestResponses = Lens.lens (requestResponses :: PutRecordBatchResponse -> Lude.NonEmpty PutRecordBatchResponseEntry) (\s a -> s {requestResponses = a} :: PutRecordBatchResponse)
-{-# DEPRECATED prbrsRequestResponses "Use generic-lens or generic-optics with 'requestResponses' instead." #-}
 
 -- | The number of records that might have failed processing. This number might be greater than 0 even if the 'PutRecordBatch' call succeeds. Check @FailedPutCount@ to determine whether there are records that you need to resend.
 --
 -- /Note:/ Consider using 'failedPutCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prbrsFailedPutCount :: Lens.Lens' PutRecordBatchResponse Lude.Natural
-prbrsFailedPutCount = Lens.lens (failedPutCount :: PutRecordBatchResponse -> Lude.Natural) (\s a -> s {failedPutCount = a} :: PutRecordBatchResponse)
-{-# DEPRECATED prbrsFailedPutCount "Use generic-lens or generic-optics with 'failedPutCount' instead." #-}
+prbrrsFailedPutCount :: Lens.Lens' PutRecordBatchResponse Core.Natural
+prbrrsFailedPutCount = Lens.field @"failedPutCount"
+{-# DEPRECATED prbrrsFailedPutCount "Use generic-lens or generic-optics with 'failedPutCount' instead." #-}
+
+-- | The results array. For each record, the index of the response element is the same as the index used in the request array.
+--
+-- /Note:/ Consider using 'requestResponses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prbrrsRequestResponses :: Lens.Lens' PutRecordBatchResponse (Core.NonEmpty Types.PutRecordBatchResponseEntry)
+prbrrsRequestResponses = Lens.field @"requestResponses"
+{-# DEPRECATED prbrrsRequestResponses "Use generic-lens or generic-optics with 'requestResponses' instead." #-}
+
+-- | Indicates whether server-side encryption (SSE) was enabled during this operation.
+--
+-- /Note:/ Consider using 'encrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prbrrsEncrypted :: Lens.Lens' PutRecordBatchResponse (Core.Maybe Core.Bool)
+prbrrsEncrypted = Lens.field @"encrypted"
+{-# DEPRECATED prbrrsEncrypted "Use generic-lens or generic-optics with 'encrypted' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prbrsResponseStatus :: Lens.Lens' PutRecordBatchResponse Lude.Int
-prbrsResponseStatus = Lens.lens (responseStatus :: PutRecordBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRecordBatchResponse)
-{-# DEPRECATED prbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prbrrsResponseStatus :: Lens.Lens' PutRecordBatchResponse Core.Int
+prbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

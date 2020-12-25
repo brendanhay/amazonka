@@ -13,46 +13,48 @@
 module Network.AWS.ECS.Types.Scope
   ( Scope
       ( Scope',
-        Task,
-        Shared
+        ScopeTask,
+        ScopeShared,
+        fromScope
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Scope = Scope' Lude.Text
+newtype Scope = Scope' {fromScope :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Task :: Scope
-pattern Task = Scope' "task"
+pattern ScopeTask :: Scope
+pattern ScopeTask = Scope' "task"
 
-pattern Shared :: Scope
-pattern Shared = Scope' "shared"
+pattern ScopeShared :: Scope
+pattern ScopeShared = Scope' "shared"
 
 {-# COMPLETE
-  Task,
-  Shared,
+  ScopeTask,
+  ScopeShared,
   Scope'
   #-}

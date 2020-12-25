@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.H264QualityLevel
   ( H264QualityLevel
       ( H264QualityLevel',
-        EnhancedQuality,
-        StandardQuality
+        H264QualityLevelEnhancedQuality,
+        H264QualityLevelStandardQuality,
+        fromH264QualityLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H264 Quality Level
-newtype H264QualityLevel = H264QualityLevel' Lude.Text
+newtype H264QualityLevel = H264QualityLevel'
+  { fromH264QualityLevel ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EnhancedQuality :: H264QualityLevel
-pattern EnhancedQuality = H264QualityLevel' "ENHANCED_QUALITY"
+pattern H264QualityLevelEnhancedQuality :: H264QualityLevel
+pattern H264QualityLevelEnhancedQuality = H264QualityLevel' "ENHANCED_QUALITY"
 
-pattern StandardQuality :: H264QualityLevel
-pattern StandardQuality = H264QualityLevel' "STANDARD_QUALITY"
+pattern H264QualityLevelStandardQuality :: H264QualityLevel
+pattern H264QualityLevelStandardQuality = H264QualityLevel' "STANDARD_QUALITY"
 
 {-# COMPLETE
-  EnhancedQuality,
-  StandardQuality,
+  H264QualityLevelEnhancedQuality,
+  H264QualityLevelStandardQuality,
   H264QualityLevel'
   #-}

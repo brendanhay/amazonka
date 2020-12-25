@@ -20,98 +20,87 @@ module Network.AWS.AlexaBusiness.DeleteSkillGroup
     mkDeleteSkillGroup,
 
     -- ** Request lenses
-    dsgSkillGroupARN,
+    dsgSkillGroupArn,
 
     -- * Destructuring the response
     DeleteSkillGroupResponse (..),
     mkDeleteSkillGroupResponse,
 
     -- ** Response lenses
-    dsgrsResponseStatus,
+    dsgrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSkillGroup' smart constructor.
 newtype DeleteSkillGroup = DeleteSkillGroup'
   { -- | The ARN of the skill group to delete. Required.
-    skillGroupARN :: Lude.Maybe Lude.Text
+    skillGroupArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSkillGroup' with the minimum fields required to make a request.
---
--- * 'skillGroupARN' - The ARN of the skill group to delete. Required.
+-- | Creates a 'DeleteSkillGroup' value with any optional fields omitted.
 mkDeleteSkillGroup ::
   DeleteSkillGroup
 mkDeleteSkillGroup =
-  DeleteSkillGroup' {skillGroupARN = Lude.Nothing}
+  DeleteSkillGroup' {skillGroupArn = Core.Nothing}
 
 -- | The ARN of the skill group to delete. Required.
 --
--- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsgSkillGroupARN :: Lens.Lens' DeleteSkillGroup (Lude.Maybe Lude.Text)
-dsgSkillGroupARN = Lens.lens (skillGroupARN :: DeleteSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: DeleteSkillGroup)
-{-# DEPRECATED dsgSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
+-- /Note:/ Consider using 'skillGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgSkillGroupArn :: Lens.Lens' DeleteSkillGroup (Core.Maybe Types.Arn)
+dsgSkillGroupArn = Lens.field @"skillGroupArn"
+{-# DEPRECATED dsgSkillGroupArn "Use generic-lens or generic-optics with 'skillGroupArn' instead." #-}
 
-instance Lude.AWSRequest DeleteSkillGroup where
+instance Core.FromJSON DeleteSkillGroup where
+  toJSON DeleteSkillGroup {..} =
+    Core.object
+      (Core.catMaybes [("SkillGroupArn" Core..=) Core.<$> skillGroupArn])
+
+instance Core.AWSRequest DeleteSkillGroup where
   type Rs DeleteSkillGroup = DeleteSkillGroupResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.DeleteSkillGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteSkillGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteSkillGroupResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSkillGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.DeleteSkillGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteSkillGroup where
-  toJSON DeleteSkillGroup' {..} =
-    Lude.object
-      (Lude.catMaybes [("SkillGroupArn" Lude..=) Lude.<$> skillGroupARN])
-
-instance Lude.ToPath DeleteSkillGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSkillGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteSkillGroupResponse' smart constructor.
 newtype DeleteSkillGroupResponse = DeleteSkillGroupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSkillGroupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSkillGroupResponse' value with any optional fields omitted.
 mkDeleteSkillGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSkillGroupResponse
-mkDeleteSkillGroupResponse pResponseStatus_ =
-  DeleteSkillGroupResponse' {responseStatus = pResponseStatus_}
+mkDeleteSkillGroupResponse responseStatus =
+  DeleteSkillGroupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsgrsResponseStatus :: Lens.Lens' DeleteSkillGroupResponse Lude.Int
-dsgrsResponseStatus = Lens.lens (responseStatus :: DeleteSkillGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSkillGroupResponse)
-{-# DEPRECATED dsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsgrrsResponseStatus :: Lens.Lens' DeleteSkillGroupResponse Core.Int
+dsgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

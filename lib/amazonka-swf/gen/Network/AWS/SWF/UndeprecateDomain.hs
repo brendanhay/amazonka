@@ -43,67 +43,59 @@ module Network.AWS.SWF.UndeprecateDomain
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkUndeprecateDomain' smart constructor.
 newtype UndeprecateDomain = UndeprecateDomain'
   { -- | The name of the domain of the deprecated workflow type.
-    name :: Lude.Text
+    name :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UndeprecateDomain' with the minimum fields required to make a request.
---
--- * 'name' - The name of the domain of the deprecated workflow type.
+-- | Creates a 'UndeprecateDomain' value with any optional fields omitted.
 mkUndeprecateDomain ::
   -- | 'name'
-  Lude.Text ->
+  Types.DomainName ->
   UndeprecateDomain
-mkUndeprecateDomain pName_ = UndeprecateDomain' {name = pName_}
+mkUndeprecateDomain name = UndeprecateDomain' {name}
 
 -- | The name of the domain of the deprecated workflow type.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udName :: Lens.Lens' UndeprecateDomain Lude.Text
-udName = Lens.lens (name :: UndeprecateDomain -> Lude.Text) (\s a -> s {name = a} :: UndeprecateDomain)
+udName :: Lens.Lens' UndeprecateDomain Types.DomainName
+udName = Lens.field @"name"
 {-# DEPRECATED udName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest UndeprecateDomain where
+instance Core.FromJSON UndeprecateDomain where
+  toJSON UndeprecateDomain {..} =
+    Core.object (Core.catMaybes [Core.Just ("name" Core..= name)])
+
+instance Core.AWSRequest UndeprecateDomain where
   type Rs UndeprecateDomain = UndeprecateDomainResponse
-  request = Req.postJSON swfService
-  response = Res.receiveNull UndeprecateDomainResponse'
-
-instance Lude.ToHeaders UndeprecateDomain where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SimpleWorkflowService.UndeprecateDomain" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UndeprecateDomain where
-  toJSON UndeprecateDomain' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])
-
-instance Lude.ToPath UndeprecateDomain where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UndeprecateDomain where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "SimpleWorkflowService.UndeprecateDomain")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UndeprecateDomainResponse'
 
 -- | /See:/ 'mkUndeprecateDomainResponse' smart constructor.
 data UndeprecateDomainResponse = UndeprecateDomainResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UndeprecateDomainResponse' with the minimum fields required to make a request.
+-- | Creates a 'UndeprecateDomainResponse' value with any optional fields omitted.
 mkUndeprecateDomainResponse ::
   UndeprecateDomainResponse
 mkUndeprecateDomainResponse = UndeprecateDomainResponse'

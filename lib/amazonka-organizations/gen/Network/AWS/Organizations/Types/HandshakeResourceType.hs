@@ -13,76 +13,81 @@
 module Network.AWS.Organizations.Types.HandshakeResourceType
   ( HandshakeResourceType
       ( HandshakeResourceType',
-        Account,
-        Organization,
-        OrganizationFeatureSet,
-        Email,
-        MasterEmail,
-        MasterName,
-        Notes,
-        ParentHandshake
+        HandshakeResourceTypeAccount,
+        HandshakeResourceTypeOrganization,
+        HandshakeResourceTypeOrganizationFeatureSet,
+        HandshakeResourceTypeEmail,
+        HandshakeResourceTypeMasterEmail,
+        HandshakeResourceTypeMasterName,
+        HandshakeResourceTypeNotes,
+        HandshakeResourceTypeParentHandshake,
+        fromHandshakeResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HandshakeResourceType = HandshakeResourceType' Lude.Text
+newtype HandshakeResourceType = HandshakeResourceType'
+  { fromHandshakeResourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Account :: HandshakeResourceType
-pattern Account = HandshakeResourceType' "ACCOUNT"
+pattern HandshakeResourceTypeAccount :: HandshakeResourceType
+pattern HandshakeResourceTypeAccount = HandshakeResourceType' "ACCOUNT"
 
-pattern Organization :: HandshakeResourceType
-pattern Organization = HandshakeResourceType' "ORGANIZATION"
+pattern HandshakeResourceTypeOrganization :: HandshakeResourceType
+pattern HandshakeResourceTypeOrganization = HandshakeResourceType' "ORGANIZATION"
 
-pattern OrganizationFeatureSet :: HandshakeResourceType
-pattern OrganizationFeatureSet = HandshakeResourceType' "ORGANIZATION_FEATURE_SET"
+pattern HandshakeResourceTypeOrganizationFeatureSet :: HandshakeResourceType
+pattern HandshakeResourceTypeOrganizationFeatureSet = HandshakeResourceType' "ORGANIZATION_FEATURE_SET"
 
-pattern Email :: HandshakeResourceType
-pattern Email = HandshakeResourceType' "EMAIL"
+pattern HandshakeResourceTypeEmail :: HandshakeResourceType
+pattern HandshakeResourceTypeEmail = HandshakeResourceType' "EMAIL"
 
-pattern MasterEmail :: HandshakeResourceType
-pattern MasterEmail = HandshakeResourceType' "MASTER_EMAIL"
+pattern HandshakeResourceTypeMasterEmail :: HandshakeResourceType
+pattern HandshakeResourceTypeMasterEmail = HandshakeResourceType' "MASTER_EMAIL"
 
-pattern MasterName :: HandshakeResourceType
-pattern MasterName = HandshakeResourceType' "MASTER_NAME"
+pattern HandshakeResourceTypeMasterName :: HandshakeResourceType
+pattern HandshakeResourceTypeMasterName = HandshakeResourceType' "MASTER_NAME"
 
-pattern Notes :: HandshakeResourceType
-pattern Notes = HandshakeResourceType' "NOTES"
+pattern HandshakeResourceTypeNotes :: HandshakeResourceType
+pattern HandshakeResourceTypeNotes = HandshakeResourceType' "NOTES"
 
-pattern ParentHandshake :: HandshakeResourceType
-pattern ParentHandshake = HandshakeResourceType' "PARENT_HANDSHAKE"
+pattern HandshakeResourceTypeParentHandshake :: HandshakeResourceType
+pattern HandshakeResourceTypeParentHandshake = HandshakeResourceType' "PARENT_HANDSHAKE"
 
 {-# COMPLETE
-  Account,
-  Organization,
-  OrganizationFeatureSet,
-  Email,
-  MasterEmail,
-  MasterName,
-  Notes,
-  ParentHandshake,
+  HandshakeResourceTypeAccount,
+  HandshakeResourceTypeOrganization,
+  HandshakeResourceTypeOrganizationFeatureSet,
+  HandshakeResourceTypeEmail,
+  HandshakeResourceTypeMasterEmail,
+  HandshakeResourceTypeMasterName,
+  HandshakeResourceTypeNotes,
+  HandshakeResourceTypeParentHandshake,
   HandshakeResourceType'
   #-}

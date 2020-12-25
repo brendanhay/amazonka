@@ -17,71 +17,65 @@ module Network.AWS.ElasticTranscoder.Types.Timing
     mkTiming,
 
     -- * Lenses
-    tSubmitTimeMillis,
     tFinishTimeMillis,
     tStartTimeMillis,
+    tSubmitTimeMillis,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the timing of a job.
 --
 -- /See:/ 'mkTiming' smart constructor.
 data Timing = Timing'
-  { -- | The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
-    submitTimeMillis :: Lude.Maybe Lude.Integer,
-    -- | The time the job finished transcoding, in epoch milliseconds.
-    finishTimeMillis :: Lude.Maybe Lude.Integer,
+  { -- | The time the job finished transcoding, in epoch milliseconds.
+    finishTimeMillis :: Core.Maybe Core.Integer,
     -- | The time the job began transcoding, in epoch milliseconds.
-    startTimeMillis :: Lude.Maybe Lude.Integer
+    startTimeMillis :: Core.Maybe Core.Integer,
+    -- | The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
+    submitTimeMillis :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Timing' with the minimum fields required to make a request.
---
--- * 'submitTimeMillis' - The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
--- * 'finishTimeMillis' - The time the job finished transcoding, in epoch milliseconds.
--- * 'startTimeMillis' - The time the job began transcoding, in epoch milliseconds.
+-- | Creates a 'Timing' value with any optional fields omitted.
 mkTiming ::
   Timing
 mkTiming =
   Timing'
-    { submitTimeMillis = Lude.Nothing,
-      finishTimeMillis = Lude.Nothing,
-      startTimeMillis = Lude.Nothing
+    { finishTimeMillis = Core.Nothing,
+      startTimeMillis = Core.Nothing,
+      submitTimeMillis = Core.Nothing
     }
-
--- | The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
---
--- /Note:/ Consider using 'submitTimeMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tSubmitTimeMillis :: Lens.Lens' Timing (Lude.Maybe Lude.Integer)
-tSubmitTimeMillis = Lens.lens (submitTimeMillis :: Timing -> Lude.Maybe Lude.Integer) (\s a -> s {submitTimeMillis = a} :: Timing)
-{-# DEPRECATED tSubmitTimeMillis "Use generic-lens or generic-optics with 'submitTimeMillis' instead." #-}
 
 -- | The time the job finished transcoding, in epoch milliseconds.
 --
 -- /Note:/ Consider using 'finishTimeMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tFinishTimeMillis :: Lens.Lens' Timing (Lude.Maybe Lude.Integer)
-tFinishTimeMillis = Lens.lens (finishTimeMillis :: Timing -> Lude.Maybe Lude.Integer) (\s a -> s {finishTimeMillis = a} :: Timing)
+tFinishTimeMillis :: Lens.Lens' Timing (Core.Maybe Core.Integer)
+tFinishTimeMillis = Lens.field @"finishTimeMillis"
 {-# DEPRECATED tFinishTimeMillis "Use generic-lens or generic-optics with 'finishTimeMillis' instead." #-}
 
 -- | The time the job began transcoding, in epoch milliseconds.
 --
 -- /Note:/ Consider using 'startTimeMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tStartTimeMillis :: Lens.Lens' Timing (Lude.Maybe Lude.Integer)
-tStartTimeMillis = Lens.lens (startTimeMillis :: Timing -> Lude.Maybe Lude.Integer) (\s a -> s {startTimeMillis = a} :: Timing)
+tStartTimeMillis :: Lens.Lens' Timing (Core.Maybe Core.Integer)
+tStartTimeMillis = Lens.field @"startTimeMillis"
 {-# DEPRECATED tStartTimeMillis "Use generic-lens or generic-optics with 'startTimeMillis' instead." #-}
 
-instance Lude.FromJSON Timing where
+-- | The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
+--
+-- /Note:/ Consider using 'submitTimeMillis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tSubmitTimeMillis :: Lens.Lens' Timing (Core.Maybe Core.Integer)
+tSubmitTimeMillis = Lens.field @"submitTimeMillis"
+{-# DEPRECATED tSubmitTimeMillis "Use generic-lens or generic-optics with 'submitTimeMillis' instead." #-}
+
+instance Core.FromJSON Timing where
   parseJSON =
-    Lude.withObject
-      "Timing"
-      ( \x ->
-          Timing'
-            Lude.<$> (x Lude..:? "SubmitTimeMillis")
-            Lude.<*> (x Lude..:? "FinishTimeMillis")
-            Lude.<*> (x Lude..:? "StartTimeMillis")
-      )
+    Core.withObject "Timing" Core.$
+      \x ->
+        Timing'
+          Core.<$> (x Core..:? "FinishTimeMillis")
+          Core.<*> (x Core..:? "StartTimeMillis")
+          Core.<*> (x Core..:? "SubmitTimeMillis")

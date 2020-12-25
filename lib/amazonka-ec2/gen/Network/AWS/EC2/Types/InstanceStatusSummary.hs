@@ -17,57 +17,52 @@ module Network.AWS.EC2.Types.InstanceStatusSummary
     mkInstanceStatusSummary,
 
     -- * Lenses
-    issStatus,
     issDetails,
+    issStatus,
   )
 where
 
-import Network.AWS.EC2.Types.InstanceStatusDetails
-import Network.AWS.EC2.Types.SummaryStatus
+import qualified Network.AWS.EC2.Types.InstanceStatusDetails as Types
+import qualified Network.AWS.EC2.Types.SummaryStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the status of an instance.
 --
 -- /See:/ 'mkInstanceStatusSummary' smart constructor.
 data InstanceStatusSummary = InstanceStatusSummary'
-  { -- | The status.
-    status :: SummaryStatus,
-    -- | The system instance health or application instance health.
-    details :: Lude.Maybe [InstanceStatusDetails]
+  { -- | The system instance health or application instance health.
+    details :: Core.Maybe [Types.InstanceStatusDetails],
+    -- | The status.
+    status :: Types.SummaryStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceStatusSummary' with the minimum fields required to make a request.
---
--- * 'status' - The status.
--- * 'details' - The system instance health or application instance health.
+-- | Creates a 'InstanceStatusSummary' value with any optional fields omitted.
 mkInstanceStatusSummary ::
   -- | 'status'
-  SummaryStatus ->
+  Types.SummaryStatus ->
   InstanceStatusSummary
-mkInstanceStatusSummary pStatus_ =
-  InstanceStatusSummary' {status = pStatus_, details = Lude.Nothing}
-
--- | The status.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-issStatus :: Lens.Lens' InstanceStatusSummary SummaryStatus
-issStatus = Lens.lens (status :: InstanceStatusSummary -> SummaryStatus) (\s a -> s {status = a} :: InstanceStatusSummary)
-{-# DEPRECATED issStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkInstanceStatusSummary status =
+  InstanceStatusSummary' {details = Core.Nothing, status}
 
 -- | The system instance health or application instance health.
 --
 -- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-issDetails :: Lens.Lens' InstanceStatusSummary (Lude.Maybe [InstanceStatusDetails])
-issDetails = Lens.lens (details :: InstanceStatusSummary -> Lude.Maybe [InstanceStatusDetails]) (\s a -> s {details = a} :: InstanceStatusSummary)
+issDetails :: Lens.Lens' InstanceStatusSummary (Core.Maybe [Types.InstanceStatusDetails])
+issDetails = Lens.field @"details"
 {-# DEPRECATED issDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
-instance Lude.FromXML InstanceStatusSummary where
+-- | The status.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+issStatus :: Lens.Lens' InstanceStatusSummary Types.SummaryStatus
+issStatus = Lens.field @"status"
+{-# DEPRECATED issStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML InstanceStatusSummary where
   parseXML x =
     InstanceStatusSummary'
-      Lude.<$> (x Lude..@ "status")
-      Lude.<*> ( x Lude..@? "details" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "details" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@ "status")

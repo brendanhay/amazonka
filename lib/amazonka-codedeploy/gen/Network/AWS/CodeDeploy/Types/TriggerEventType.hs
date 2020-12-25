@@ -13,86 +13,91 @@
 module Network.AWS.CodeDeploy.Types.TriggerEventType
   ( TriggerEventType
       ( TriggerEventType',
-        DeploymentStart,
-        DeploymentSuccess,
-        DeploymentFailure,
-        DeploymentStop,
-        DeploymentRollback,
-        DeploymentReady,
-        InstanceStart,
-        InstanceSuccess,
-        InstanceFailure,
-        InstanceReady
+        TriggerEventTypeDeploymentStart,
+        TriggerEventTypeDeploymentSuccess,
+        TriggerEventTypeDeploymentFailure,
+        TriggerEventTypeDeploymentStop,
+        TriggerEventTypeDeploymentRollback,
+        TriggerEventTypeDeploymentReady,
+        TriggerEventTypeInstanceStart,
+        TriggerEventTypeInstanceSuccess,
+        TriggerEventTypeInstanceFailure,
+        TriggerEventTypeInstanceReady,
+        fromTriggerEventType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TriggerEventType = TriggerEventType' Lude.Text
+newtype TriggerEventType = TriggerEventType'
+  { fromTriggerEventType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DeploymentStart :: TriggerEventType
-pattern DeploymentStart = TriggerEventType' "DeploymentStart"
+pattern TriggerEventTypeDeploymentStart :: TriggerEventType
+pattern TriggerEventTypeDeploymentStart = TriggerEventType' "DeploymentStart"
 
-pattern DeploymentSuccess :: TriggerEventType
-pattern DeploymentSuccess = TriggerEventType' "DeploymentSuccess"
+pattern TriggerEventTypeDeploymentSuccess :: TriggerEventType
+pattern TriggerEventTypeDeploymentSuccess = TriggerEventType' "DeploymentSuccess"
 
-pattern DeploymentFailure :: TriggerEventType
-pattern DeploymentFailure = TriggerEventType' "DeploymentFailure"
+pattern TriggerEventTypeDeploymentFailure :: TriggerEventType
+pattern TriggerEventTypeDeploymentFailure = TriggerEventType' "DeploymentFailure"
 
-pattern DeploymentStop :: TriggerEventType
-pattern DeploymentStop = TriggerEventType' "DeploymentStop"
+pattern TriggerEventTypeDeploymentStop :: TriggerEventType
+pattern TriggerEventTypeDeploymentStop = TriggerEventType' "DeploymentStop"
 
-pattern DeploymentRollback :: TriggerEventType
-pattern DeploymentRollback = TriggerEventType' "DeploymentRollback"
+pattern TriggerEventTypeDeploymentRollback :: TriggerEventType
+pattern TriggerEventTypeDeploymentRollback = TriggerEventType' "DeploymentRollback"
 
-pattern DeploymentReady :: TriggerEventType
-pattern DeploymentReady = TriggerEventType' "DeploymentReady"
+pattern TriggerEventTypeDeploymentReady :: TriggerEventType
+pattern TriggerEventTypeDeploymentReady = TriggerEventType' "DeploymentReady"
 
-pattern InstanceStart :: TriggerEventType
-pattern InstanceStart = TriggerEventType' "InstanceStart"
+pattern TriggerEventTypeInstanceStart :: TriggerEventType
+pattern TriggerEventTypeInstanceStart = TriggerEventType' "InstanceStart"
 
-pattern InstanceSuccess :: TriggerEventType
-pattern InstanceSuccess = TriggerEventType' "InstanceSuccess"
+pattern TriggerEventTypeInstanceSuccess :: TriggerEventType
+pattern TriggerEventTypeInstanceSuccess = TriggerEventType' "InstanceSuccess"
 
-pattern InstanceFailure :: TriggerEventType
-pattern InstanceFailure = TriggerEventType' "InstanceFailure"
+pattern TriggerEventTypeInstanceFailure :: TriggerEventType
+pattern TriggerEventTypeInstanceFailure = TriggerEventType' "InstanceFailure"
 
-pattern InstanceReady :: TriggerEventType
-pattern InstanceReady = TriggerEventType' "InstanceReady"
+pattern TriggerEventTypeInstanceReady :: TriggerEventType
+pattern TriggerEventTypeInstanceReady = TriggerEventType' "InstanceReady"
 
 {-# COMPLETE
-  DeploymentStart,
-  DeploymentSuccess,
-  DeploymentFailure,
-  DeploymentStop,
-  DeploymentRollback,
-  DeploymentReady,
-  InstanceStart,
-  InstanceSuccess,
-  InstanceFailure,
-  InstanceReady,
+  TriggerEventTypeDeploymentStart,
+  TriggerEventTypeDeploymentSuccess,
+  TriggerEventTypeDeploymentFailure,
+  TriggerEventTypeDeploymentStop,
+  TriggerEventTypeDeploymentRollback,
+  TriggerEventTypeDeploymentReady,
+  TriggerEventTypeInstanceStart,
+  TriggerEventTypeInstanceSuccess,
+  TriggerEventTypeInstanceFailure,
+  TriggerEventTypeInstanceReady,
   TriggerEventType'
   #-}

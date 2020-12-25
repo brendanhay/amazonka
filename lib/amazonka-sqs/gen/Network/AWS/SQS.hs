@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -52,10 +51,58 @@
 --     * <https://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region Regions and Endpoints>
 module Network.AWS.SQS
   ( -- * Service configuration
-    sqsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidBatchEntryId
+    _InvalidBatchEntryId,
+
+    -- ** TooManyEntriesInBatchRequest
+    _TooManyEntriesInBatchRequest,
+
+    -- ** QueueDeletedRecently
+    _QueueDeletedRecently,
+
+    -- ** QueueDoesNotExist
+    _QueueDoesNotExist,
+
+    -- ** InvalidAttributeName
+    _InvalidAttributeName,
+
+    -- ** UnsupportedOperation
+    _UnsupportedOperation,
+
+    -- ** InvalidMessageContents
+    _InvalidMessageContents,
+
+    -- ** BatchRequestTooLong
+    _BatchRequestTooLong,
+
+    -- ** OverLimit
+    _OverLimit,
+
+    -- ** QueueNameExists
+    _QueueNameExists,
+
+    -- ** PurgeQueueInProgress
+    _PurgeQueueInProgress,
+
+    -- ** InvalidIdFormat
+    _InvalidIdFormat,
+
+    -- ** ReceiptHandleIsInvalid
+    _ReceiptHandleIsInvalid,
+
+    -- ** EmptyBatchRequest
+    _EmptyBatchRequest,
+
+    -- ** BatchEntryIdsNotDistinct
+    _BatchEntryIdsNotDistinct,
+
+    -- ** MessageNotInflight
+    _MessageNotInflight,
 
     -- * Waiters
     -- $waiters
@@ -63,8 +110,8 @@ module Network.AWS.SQS
     -- * Operations
     -- $operations
 
-    -- ** GetQueueURL
-    module Network.AWS.SQS.GetQueueURL,
+    -- ** GetQueueUrl
+    module Network.AWS.SQS.GetQueueUrl,
 
     -- ** PurgeQueue
     module Network.AWS.SQS.PurgeQueue,
@@ -128,37 +175,53 @@ module Network.AWS.SQS
     -- ** MessageAttribute
     MessageAttribute (..),
 
-    -- ** MessageSystemAttributeNameForSends
-    MessageSystemAttributeNameForSends (..),
-
     -- ** QueueAttributeName
     QueueAttributeName (..),
 
-    -- ** BatchResultErrorEntry
-    BatchResultErrorEntry (..),
-    mkBatchResultErrorEntry,
-    breeSenderFault,
-    breeId,
-    breeCode,
-    breeMessage,
+    -- ** String
+    String (..),
 
-    -- ** ChangeMessageVisibilityBatchRequestEntry
-    ChangeMessageVisibilityBatchRequestEntry (..),
-    mkChangeMessageVisibilityBatchRequestEntry,
-    cVisibilityTimeout,
-    cId,
-    cReceiptHandle,
-
-    -- ** ChangeMessageVisibilityBatchResultEntry
-    ChangeMessageVisibilityBatchResultEntry (..),
-    mkChangeMessageVisibilityBatchResultEntry,
-    cmvbreId,
+    -- ** Token
+    Token (..),
 
     -- ** DeleteMessageBatchRequestEntry
     DeleteMessageBatchRequestEntry (..),
     mkDeleteMessageBatchRequestEntry,
     dmbreId,
     dmbreReceiptHandle,
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** MessageSystemAttributeNameForSends
+    MessageSystemAttributeNameForSends (..),
+
+    -- ** MessageAttributeValue
+    MessageAttributeValue (..),
+    mkMessageAttributeValue,
+    mavDataType,
+    mavBinaryListValues,
+    mavBinaryValue,
+    mavStringListValues,
+    mavStringValue,
+
+    -- ** ChangeMessageVisibilityBatchResultEntry
+    ChangeMessageVisibilityBatchResultEntry (..),
+    mkChangeMessageVisibilityBatchResultEntry,
+    cmvbreId,
+
+    -- ** ChangeMessageVisibilityBatchRequestEntry
+    ChangeMessageVisibilityBatchRequestEntry (..),
+    mkChangeMessageVisibilityBatchRequestEntry,
+    cId,
+    cReceiptHandle,
+    cVisibilityTimeout,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** MessageAttributeName
+    MessageAttributeName (..),
 
     -- ** DeleteMessageBatchResultEntry
     DeleteMessageBatchResultEntry (..),
@@ -168,62 +231,65 @@ module Network.AWS.SQS
     -- ** Message
     Message (..),
     mkMessage,
-    mMessageAttributes,
-    mMD5OfBody,
-    mBody,
     mAttributes,
-    mReceiptHandle,
-    mMessageId,
+    mBody,
+    mMD5OfBody,
     mMD5OfMessageAttributes,
-
-    -- ** MessageAttributeValue
-    MessageAttributeValue (..),
-    mkMessageAttributeValue,
-    mavBinaryValue,
-    mavStringListValues,
-    mavStringValue,
-    mavBinaryListValues,
-    mavDataType,
-
-    -- ** MessageSystemAttributeValue
-    MessageSystemAttributeValue (..),
-    mkMessageSystemAttributeValue,
-    msavBinaryValue,
-    msavStringListValues,
-    msavStringValue,
-    msavBinaryListValues,
-    msavDataType,
+    mMessageAttributes,
+    mMessageId,
+    mReceiptHandle,
 
     -- ** SendMessageBatchRequestEntry
     SendMessageBatchRequestEntry (..),
     mkSendMessageBatchRequestEntry,
-    sMessageAttributes,
-    sDelaySeconds,
-    sMessageSystemAttributes,
     sId,
-    sMessageDeduplicationId,
     sMessageBody,
+    sDelaySeconds,
+    sMessageAttributes,
+    sMessageDeduplicationId,
     sMessageGroupId,
+    sMessageSystemAttributes,
 
     -- ** SendMessageBatchResultEntry
     SendMessageBatchResultEntry (..),
     mkSendMessageBatchResultEntry,
-    smbreSequenceNumber,
-    smbreMD5OfMessageSystemAttributes,
     smbreId,
     smbreMessageId,
     smbreMD5OfMessageBody,
     smbreMD5OfMessageAttributes,
+    smbreMD5OfMessageSystemAttributes,
+    smbreSequenceNumber,
+
+    -- ** BatchResultErrorEntry
+    BatchResultErrorEntry (..),
+    mkBatchResultErrorEntry,
+    breeId,
+    breeSenderFault,
+    breeCode,
+    breeMessage,
+
+    -- ** MessageSystemAttributeValue
+    MessageSystemAttributeValue (..),
+    mkMessageSystemAttributeValue,
+    msavDataType,
+    msavBinaryListValues,
+    msavBinaryValue,
+    msavStringListValues,
+    msavStringValue,
+
+    -- ** QueueUrl
+    QueueUrl (..),
+
+    -- ** Label
+    Label (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -236,7 +302,7 @@ import Network.AWS.SQS.DeleteMessage
 import Network.AWS.SQS.DeleteMessageBatch
 import Network.AWS.SQS.DeleteQueue
 import Network.AWS.SQS.GetQueueAttributes
-import Network.AWS.SQS.GetQueueURL
+import Network.AWS.SQS.GetQueueUrl
 import Network.AWS.SQS.ListDeadLetterSourceQueues
 import Network.AWS.SQS.ListQueueTags
 import Network.AWS.SQS.ListQueues

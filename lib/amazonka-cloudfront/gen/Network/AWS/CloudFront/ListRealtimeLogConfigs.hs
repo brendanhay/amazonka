@@ -30,109 +30,102 @@ module Network.AWS.CloudFront.ListRealtimeLogConfigs
     mkListRealtimeLogConfigsResponse,
 
     -- ** Response lenses
-    lrlcrsRealtimeLogConfigs,
-    lrlcrsResponseStatus,
+    lrlcrrsRealtimeLogConfigs,
+    lrlcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListRealtimeLogConfigs' smart constructor.
 data ListRealtimeLogConfigs = ListRealtimeLogConfigs'
   { -- | Use this field when paginating results to indicate where to begin in your list of real-time log configurations. The response includes real-time log configurations in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of real-time log configurations that you want in the response.
-    maxItems :: Lude.Maybe Lude.Text
+    maxItems :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRealtimeLogConfigs' with the minimum fields required to make a request.
---
--- * 'marker' - Use this field when paginating results to indicate where to begin in your list of real-time log configurations. The response includes real-time log configurations in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
--- * 'maxItems' - The maximum number of real-time log configurations that you want in the response.
+-- | Creates a 'ListRealtimeLogConfigs' value with any optional fields omitted.
 mkListRealtimeLogConfigs ::
   ListRealtimeLogConfigs
 mkListRealtimeLogConfigs =
   ListRealtimeLogConfigs'
-    { marker = Lude.Nothing,
-      maxItems = Lude.Nothing
+    { marker = Core.Nothing,
+      maxItems = Core.Nothing
     }
 
 -- | Use this field when paginating results to indicate where to begin in your list of real-time log configurations. The response includes real-time log configurations in the list that occur after the marker. To get the next page of the list, set this field’s value to the value of @NextMarker@ from the current page’s response.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrlcMarker :: Lens.Lens' ListRealtimeLogConfigs (Lude.Maybe Lude.Text)
-lrlcMarker = Lens.lens (marker :: ListRealtimeLogConfigs -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListRealtimeLogConfigs)
+lrlcMarker :: Lens.Lens' ListRealtimeLogConfigs (Core.Maybe Types.String)
+lrlcMarker = Lens.field @"marker"
 {-# DEPRECATED lrlcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of real-time log configurations that you want in the response.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrlcMaxItems :: Lens.Lens' ListRealtimeLogConfigs (Lude.Maybe Lude.Text)
-lrlcMaxItems = Lens.lens (maxItems :: ListRealtimeLogConfigs -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListRealtimeLogConfigs)
+lrlcMaxItems :: Lens.Lens' ListRealtimeLogConfigs (Core.Maybe Types.String)
+lrlcMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED lrlcMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Lude.AWSRequest ListRealtimeLogConfigs where
+instance Core.AWSRequest ListRealtimeLogConfigs where
   type Rs ListRealtimeLogConfigs = ListRealtimeLogConfigsResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2020-05-31/realtime-log-config",
+        Core._rqQuery =
+          Core.toQueryValue "Marker" Core.<$> marker
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListRealtimeLogConfigsResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListRealtimeLogConfigs where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListRealtimeLogConfigs where
-  toPath = Lude.const "/2020-05-31/realtime-log-config"
-
-instance Lude.ToQuery ListRealtimeLogConfigs where
-  toQuery ListRealtimeLogConfigs' {..} =
-    Lude.mconcat
-      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
 -- | /See:/ 'mkListRealtimeLogConfigsResponse' smart constructor.
 data ListRealtimeLogConfigsResponse = ListRealtimeLogConfigsResponse'
   { -- | A list of real-time log configurations.
-    realtimeLogConfigs :: Lude.Maybe RealtimeLogConfigs,
+    realtimeLogConfigs :: Core.Maybe Types.RealtimeLogConfigs,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRealtimeLogConfigsResponse' with the minimum fields required to make a request.
---
--- * 'realtimeLogConfigs' - A list of real-time log configurations.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListRealtimeLogConfigsResponse' value with any optional fields omitted.
 mkListRealtimeLogConfigsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListRealtimeLogConfigsResponse
-mkListRealtimeLogConfigsResponse pResponseStatus_ =
+mkListRealtimeLogConfigsResponse responseStatus =
   ListRealtimeLogConfigsResponse'
     { realtimeLogConfigs =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of real-time log configurations.
 --
 -- /Note:/ Consider using 'realtimeLogConfigs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrlcrsRealtimeLogConfigs :: Lens.Lens' ListRealtimeLogConfigsResponse (Lude.Maybe RealtimeLogConfigs)
-lrlcrsRealtimeLogConfigs = Lens.lens (realtimeLogConfigs :: ListRealtimeLogConfigsResponse -> Lude.Maybe RealtimeLogConfigs) (\s a -> s {realtimeLogConfigs = a} :: ListRealtimeLogConfigsResponse)
-{-# DEPRECATED lrlcrsRealtimeLogConfigs "Use generic-lens or generic-optics with 'realtimeLogConfigs' instead." #-}
+lrlcrrsRealtimeLogConfigs :: Lens.Lens' ListRealtimeLogConfigsResponse (Core.Maybe Types.RealtimeLogConfigs)
+lrlcrrsRealtimeLogConfigs = Lens.field @"realtimeLogConfigs"
+{-# DEPRECATED lrlcrrsRealtimeLogConfigs "Use generic-lens or generic-optics with 'realtimeLogConfigs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrlcrsResponseStatus :: Lens.Lens' ListRealtimeLogConfigsResponse Lude.Int
-lrlcrsResponseStatus = Lens.lens (responseStatus :: ListRealtimeLogConfigsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRealtimeLogConfigsResponse)
-{-# DEPRECATED lrlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrlcrrsResponseStatus :: Lens.Lens' ListRealtimeLogConfigsResponse Core.Int
+lrlcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrlcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

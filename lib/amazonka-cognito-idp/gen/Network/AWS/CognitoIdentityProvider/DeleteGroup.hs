@@ -22,8 +22,8 @@ module Network.AWS.CognitoIdentityProvider.DeleteGroup
     mkDeleteGroup,
 
     -- ** Request lenses
-    dgUserPoolId,
     dgGroupName,
+    dgUserPoolId,
 
     -- * Destructuring the response
     DeleteGroupResponse (..),
@@ -31,88 +31,77 @@ module Network.AWS.CognitoIdentityProvider.DeleteGroup
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteGroup' smart constructor.
 data DeleteGroup = DeleteGroup'
-  { -- | The user pool ID for the user pool.
-    userPoolId :: Lude.Text,
-    -- | The name of the group.
-    groupName :: Lude.Text
+  { -- | The name of the group.
+    groupName :: Types.GroupNameType,
+    -- | The user pool ID for the user pool.
+    userPoolId :: Types.UserPoolId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGroup' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID for the user pool.
--- * 'groupName' - The name of the group.
+-- | Creates a 'DeleteGroup' value with any optional fields omitted.
 mkDeleteGroup ::
-  -- | 'userPoolId'
-  Lude.Text ->
   -- | 'groupName'
-  Lude.Text ->
+  Types.GroupNameType ->
+  -- | 'userPoolId'
+  Types.UserPoolId ->
   DeleteGroup
-mkDeleteGroup pUserPoolId_ pGroupName_ =
-  DeleteGroup' {userPoolId = pUserPoolId_, groupName = pGroupName_}
-
--- | The user pool ID for the user pool.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgUserPoolId :: Lens.Lens' DeleteGroup Lude.Text
-dgUserPoolId = Lens.lens (userPoolId :: DeleteGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: DeleteGroup)
-{-# DEPRECATED dgUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+mkDeleteGroup groupName userPoolId =
+  DeleteGroup' {groupName, userPoolId}
 
 -- | The name of the group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgGroupName :: Lens.Lens' DeleteGroup Lude.Text
-dgGroupName = Lens.lens (groupName :: DeleteGroup -> Lude.Text) (\s a -> s {groupName = a} :: DeleteGroup)
+dgGroupName :: Lens.Lens' DeleteGroup Types.GroupNameType
+dgGroupName = Lens.field @"groupName"
 {-# DEPRECATED dgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.AWSRequest DeleteGroup where
+-- | The user pool ID for the user pool.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgUserPoolId :: Lens.Lens' DeleteGroup Types.UserPoolId
+dgUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED dgUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
+instance Core.FromJSON DeleteGroup where
+  toJSON DeleteGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GroupName" Core..= groupName),
+            Core.Just ("UserPoolId" Core..= userPoolId)
+          ]
+      )
+
+instance Core.AWSRequest DeleteGroup where
   type Rs DeleteGroup = DeleteGroupResponse
-  request = Req.postJSON cognitoIdentityProviderService
-  response = Res.receiveNull DeleteGroupResponse'
-
-instance Lude.ToHeaders DeleteGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.DeleteGroup" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteGroup where
-  toJSON DeleteGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("GroupName" Lude..= groupName)
-          ]
-      )
-
-instance Lude.ToPath DeleteGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteGroup where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSCognitoIdentityProviderService.DeleteGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteGroupResponse'
 
 -- | /See:/ 'mkDeleteGroupResponse' smart constructor.
 data DeleteGroupResponse = DeleteGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteGroupResponse' value with any optional fields omitted.
 mkDeleteGroupResponse ::
   DeleteGroupResponse
 mkDeleteGroupResponse = DeleteGroupResponse'

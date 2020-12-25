@@ -22,42 +22,38 @@ module Network.AWS.Support.Types.TrustedAdvisorCategorySpecificSummary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Support.Types.TrustedAdvisorCostOptimizingSummary as Types
 
 -- | The container for summary information that relates to the category of the Trusted Advisor check.
 --
 -- /See:/ 'mkTrustedAdvisorCategorySpecificSummary' smart constructor.
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary'
   { -- | The summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category.
-    costOptimizing :: Lude.Maybe TrustedAdvisorCostOptimizingSummary
+    costOptimizing :: Core.Maybe Types.TrustedAdvisorCostOptimizingSummary
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrustedAdvisorCategorySpecificSummary' with the minimum fields required to make a request.
---
--- * 'costOptimizing' - The summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category.
+-- | Creates a 'TrustedAdvisorCategorySpecificSummary' value with any optional fields omitted.
 mkTrustedAdvisorCategorySpecificSummary ::
   TrustedAdvisorCategorySpecificSummary
 mkTrustedAdvisorCategorySpecificSummary =
   TrustedAdvisorCategorySpecificSummary'
     { costOptimizing =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The summary information about cost savings for a Trusted Advisor check that is in the Cost Optimizing category.
 --
 -- /Note:/ Consider using 'costOptimizing' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacssCostOptimizing :: Lens.Lens' TrustedAdvisorCategorySpecificSummary (Lude.Maybe TrustedAdvisorCostOptimizingSummary)
-tacssCostOptimizing = Lens.lens (costOptimizing :: TrustedAdvisorCategorySpecificSummary -> Lude.Maybe TrustedAdvisorCostOptimizingSummary) (\s a -> s {costOptimizing = a} :: TrustedAdvisorCategorySpecificSummary)
+tacssCostOptimizing :: Lens.Lens' TrustedAdvisorCategorySpecificSummary (Core.Maybe Types.TrustedAdvisorCostOptimizingSummary)
+tacssCostOptimizing = Lens.field @"costOptimizing"
 {-# DEPRECATED tacssCostOptimizing "Use generic-lens or generic-optics with 'costOptimizing' instead." #-}
 
-instance Lude.FromJSON TrustedAdvisorCategorySpecificSummary where
+instance Core.FromJSON TrustedAdvisorCategorySpecificSummary where
   parseJSON =
-    Lude.withObject
-      "TrustedAdvisorCategorySpecificSummary"
-      ( \x ->
-          TrustedAdvisorCategorySpecificSummary'
-            Lude.<$> (x Lude..:? "costOptimizing")
-      )
+    Core.withObject "TrustedAdvisorCategorySpecificSummary" Core.$
+      \x ->
+        TrustedAdvisorCategorySpecificSummary'
+          Core.<$> (x Core..:? "costOptimizing")

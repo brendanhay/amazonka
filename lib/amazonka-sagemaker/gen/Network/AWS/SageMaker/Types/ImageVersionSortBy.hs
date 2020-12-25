@@ -13,51 +13,56 @@
 module Network.AWS.SageMaker.Types.ImageVersionSortBy
   ( ImageVersionSortBy
       ( ImageVersionSortBy',
-        IVSBCreationTime,
-        IVSBLastModifiedTime,
-        IVSBVersion
+        ImageVersionSortByCreationTime,
+        ImageVersionSortByLastModifiedTime,
+        ImageVersionSortByVersion,
+        fromImageVersionSortBy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ImageVersionSortBy = ImageVersionSortBy' Lude.Text
+newtype ImageVersionSortBy = ImageVersionSortBy'
+  { fromImageVersionSortBy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IVSBCreationTime :: ImageVersionSortBy
-pattern IVSBCreationTime = ImageVersionSortBy' "CREATION_TIME"
+pattern ImageVersionSortByCreationTime :: ImageVersionSortBy
+pattern ImageVersionSortByCreationTime = ImageVersionSortBy' "CREATION_TIME"
 
-pattern IVSBLastModifiedTime :: ImageVersionSortBy
-pattern IVSBLastModifiedTime = ImageVersionSortBy' "LAST_MODIFIED_TIME"
+pattern ImageVersionSortByLastModifiedTime :: ImageVersionSortBy
+pattern ImageVersionSortByLastModifiedTime = ImageVersionSortBy' "LAST_MODIFIED_TIME"
 
-pattern IVSBVersion :: ImageVersionSortBy
-pattern IVSBVersion = ImageVersionSortBy' "VERSION"
+pattern ImageVersionSortByVersion :: ImageVersionSortBy
+pattern ImageVersionSortByVersion = ImageVersionSortBy' "VERSION"
 
 {-# COMPLETE
-  IVSBCreationTime,
-  IVSBLastModifiedTime,
-  IVSBVersion,
+  ImageVersionSortByCreationTime,
+  ImageVersionSortByLastModifiedTime,
+  ImageVersionSortByVersion,
   ImageVersionSortBy'
   #-}

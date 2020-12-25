@@ -35,189 +35,171 @@ module Network.AWS.Glacier.UploadMultipartPart
     mkUploadMultipartPart,
 
     -- ** Request lenses
-    umpChecksum,
-    umpVaultName,
-    umpBody,
     umpAccountId,
-    umpRange,
+    umpVaultName,
     umpUploadId,
+    umpBody,
+    umpChecksum,
+    umpRange,
 
     -- * Destructuring the response
     UploadMultipartPartResponse (..),
     mkUploadMultipartPartResponse,
 
     -- ** Response lenses
-    umprsChecksum,
-    umprsResponseStatus,
+    umprrsChecksum,
+    umprrsResponseStatus,
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options to upload a part of an archive in a multipart upload operation.
 --
 -- /See:/ 'mkUploadMultipartPart' smart constructor.
 data UploadMultipartPart = UploadMultipartPart'
-  { -- | The SHA256 tree hash of the data being uploaded.
-    checksum :: Lude.Maybe Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
     -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The data to upload.
-    body :: Lude.HashedBody,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text,
-    -- | Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon S3 Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.
-    range :: Lude.Maybe Lude.Text,
+    vaultName :: Types.String,
     -- | The upload ID of the multipart upload.
-    uploadId :: Lude.Text
+    uploadId :: Types.String,
+    -- | The data to upload.
+    body :: Core.HashedBody,
+    -- | The SHA256 tree hash of the data being uploaded.
+    checksum :: Core.Maybe Types.String,
+    -- | Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon S3 Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.
+    range :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Show, Lude.Generic)
+  deriving stock (Core.Show, Core.Generic)
 
--- | Creates a value of 'UploadMultipartPart' with the minimum fields required to make a request.
---
--- * 'checksum' - The SHA256 tree hash of the data being uploaded.
--- * 'vaultName' - The name of the vault.
--- * 'body' - The data to upload.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'range' - Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon S3 Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.
--- * 'uploadId' - The upload ID of the multipart upload.
+-- | Creates a 'UploadMultipartPart' value with any optional fields omitted.
 mkUploadMultipartPart ::
-  -- | 'vaultName'
-  Lude.Text ->
-  -- | 'body'
-  Lude.HashedBody ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
   -- | 'uploadId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'body'
+  Core.HashedBody ->
   UploadMultipartPart
-mkUploadMultipartPart pVaultName_ pBody_ pAccountId_ pUploadId_ =
+mkUploadMultipartPart accountId vaultName uploadId body =
   UploadMultipartPart'
-    { checksum = Lude.Nothing,
-      vaultName = pVaultName_,
-      body = pBody_,
-      accountId = pAccountId_,
-      range = Lude.Nothing,
-      uploadId = pUploadId_
+    { accountId,
+      vaultName,
+      uploadId,
+      body,
+      checksum = Core.Nothing,
+      range = Core.Nothing
     }
-
--- | The SHA256 tree hash of the data being uploaded.
---
--- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpChecksum :: Lens.Lens' UploadMultipartPart (Lude.Maybe Lude.Text)
-umpChecksum = Lens.lens (checksum :: UploadMultipartPart -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: UploadMultipartPart)
-{-# DEPRECATED umpChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpVaultName :: Lens.Lens' UploadMultipartPart Lude.Text
-umpVaultName = Lens.lens (vaultName :: UploadMultipartPart -> Lude.Text) (\s a -> s {vaultName = a} :: UploadMultipartPart)
-{-# DEPRECATED umpVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
-
--- | The data to upload.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpBody :: Lens.Lens' UploadMultipartPart Lude.HashedBody
-umpBody = Lens.lens (body :: UploadMultipartPart -> Lude.HashedBody) (\s a -> s {body = a} :: UploadMultipartPart)
-{-# DEPRECATED umpBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpAccountId :: Lens.Lens' UploadMultipartPart Lude.Text
-umpAccountId = Lens.lens (accountId :: UploadMultipartPart -> Lude.Text) (\s a -> s {accountId = a} :: UploadMultipartPart)
+umpAccountId :: Lens.Lens' UploadMultipartPart Types.String
+umpAccountId = Lens.field @"accountId"
 {-# DEPRECATED umpAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
--- | Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon S3 Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.
+-- | The name of the vault.
 --
--- /Note:/ Consider using 'range' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpRange :: Lens.Lens' UploadMultipartPart (Lude.Maybe Lude.Text)
-umpRange = Lens.lens (range :: UploadMultipartPart -> Lude.Maybe Lude.Text) (\s a -> s {range = a} :: UploadMultipartPart)
-{-# DEPRECATED umpRange "Use generic-lens or generic-optics with 'range' instead." #-}
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umpVaultName :: Lens.Lens' UploadMultipartPart Types.String
+umpVaultName = Lens.field @"vaultName"
+{-# DEPRECATED umpVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The upload ID of the multipart upload.
 --
 -- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umpUploadId :: Lens.Lens' UploadMultipartPart Lude.Text
-umpUploadId = Lens.lens (uploadId :: UploadMultipartPart -> Lude.Text) (\s a -> s {uploadId = a} :: UploadMultipartPart)
+umpUploadId :: Lens.Lens' UploadMultipartPart Types.String
+umpUploadId = Lens.field @"uploadId"
 {-# DEPRECATED umpUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
 
-instance Lude.AWSRequest UploadMultipartPart where
+-- | The data to upload.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umpBody :: Lens.Lens' UploadMultipartPart Core.HashedBody
+umpBody = Lens.field @"body"
+{-# DEPRECATED umpBody "Use generic-lens or generic-optics with 'body' instead." #-}
+
+-- | The SHA256 tree hash of the data being uploaded.
+--
+-- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umpChecksum :: Lens.Lens' UploadMultipartPart (Core.Maybe Types.String)
+umpChecksum = Lens.field @"checksum"
+{-# DEPRECATED umpChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
+
+-- | Identifies the range of bytes in the assembled archive that will be uploaded in this part. Amazon S3 Glacier uses this information to assemble the archive in the proper sequence. The format of this header follows RFC 2616. An example header is Content-Range:bytes 0-4194303/*.
+--
+-- /Note:/ Consider using 'range' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umpRange :: Lens.Lens' UploadMultipartPart (Core.Maybe Types.String)
+umpRange = Lens.field @"range"
+{-# DEPRECATED umpRange "Use generic-lens or generic-optics with 'range' instead." #-}
+
+instance Core.AWSRequest UploadMultipartPart where
   type Rs UploadMultipartPart = UploadMultipartPartResponse
-  request = Req.putBody glacierService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/multipart-uploads/")
+                Core.<> (Core.toText uploadId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-sha256-tree-hash" checksum
+            Core.<> (Core.toHeaders "Content-Range" range),
+        Core._rqBody = Core.toBody body
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UploadMultipartPartResponse'
-            Lude.<$> (h Lude..#? "x-amz-sha256-tree-hash")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "x-amz-sha256-tree-hash" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToBody UploadMultipartPart where
-  toBody = Lude.toBody Lude.. body
-
-instance Lude.ToHeaders UploadMultipartPart where
-  toHeaders UploadMultipartPart' {..} =
-    Lude.mconcat
-      [ "x-amz-sha256-tree-hash" Lude.=# checksum,
-        "Content-Range" Lude.=# range
-      ]
-
-instance Lude.ToPath UploadMultipartPart where
-  toPath UploadMultipartPart' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/multipart-uploads/",
-        Lude.toBS uploadId
-      ]
-
-instance Lude.ToQuery UploadMultipartPart where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the Amazon S3 Glacier response to your request.
 --
 -- /See:/ 'mkUploadMultipartPartResponse' smart constructor.
 data UploadMultipartPartResponse = UploadMultipartPartResponse'
   { -- | The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded part.
-    checksum :: Lude.Maybe Lude.Text,
+    checksum :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UploadMultipartPartResponse' with the minimum fields required to make a request.
---
--- * 'checksum' - The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded part.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UploadMultipartPartResponse' value with any optional fields omitted.
 mkUploadMultipartPartResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UploadMultipartPartResponse
-mkUploadMultipartPartResponse pResponseStatus_ =
+mkUploadMultipartPartResponse responseStatus =
   UploadMultipartPartResponse'
-    { checksum = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { checksum = Core.Nothing,
+      responseStatus
     }
 
 -- | The SHA256 tree hash that Amazon S3 Glacier computed for the uploaded part.
 --
 -- /Note:/ Consider using 'checksum' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umprsChecksum :: Lens.Lens' UploadMultipartPartResponse (Lude.Maybe Lude.Text)
-umprsChecksum = Lens.lens (checksum :: UploadMultipartPartResponse -> Lude.Maybe Lude.Text) (\s a -> s {checksum = a} :: UploadMultipartPartResponse)
-{-# DEPRECATED umprsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
+umprrsChecksum :: Lens.Lens' UploadMultipartPartResponse (Core.Maybe Types.String)
+umprrsChecksum = Lens.field @"checksum"
+{-# DEPRECATED umprrsChecksum "Use generic-lens or generic-optics with 'checksum' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umprsResponseStatus :: Lens.Lens' UploadMultipartPartResponse Lude.Int
-umprsResponseStatus = Lens.lens (responseStatus :: UploadMultipartPartResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UploadMultipartPartResponse)
-{-# DEPRECATED umprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+umprrsResponseStatus :: Lens.Lens' UploadMultipartPartResponse Core.Int
+umprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED umprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

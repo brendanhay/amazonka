@@ -30,23 +30,23 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     mkUpdatePipelineNotificationsResponse,
 
     -- ** Response lenses
-    upnrsPipeline,
-    upnrsResponseStatus,
+    upnrrsPipeline,
+    upnrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticTranscoder.Types
+import qualified Network.AWS.ElasticTranscoder.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The @UpdatePipelineNotificationsRequest@ structure.
 --
 -- /See:/ 'mkUpdatePipelineNotifications' smart constructor.
 data UpdatePipelineNotifications = UpdatePipelineNotifications'
   { -- | The identifier of the pipeline for which you want to change notification settings.
-    id :: Lude.Text,
+    id :: Types.Id,
     -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.
     --
     -- /Important:/ To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.
@@ -61,45 +61,26 @@ data UpdatePipelineNotifications = UpdatePipelineNotifications'
     --
     --
     --     * __Error__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.
-    notifications :: Notifications
+    notifications :: Types.Notifications
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdatePipelineNotifications' with the minimum fields required to make a request.
---
--- * 'id' - The identifier of the pipeline for which you want to change notification settings.
--- * 'notifications' - The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.
---
--- /Important:/ To receive notifications, you must also subscribe to the new topic in the Amazon SNS console.
---
---     * __Progressing__ : The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify when Elastic Transcoder has started to process jobs that are added to this pipeline. This is the ARN that Amazon SNS returned when you created the topic.
---
---
---     * __Complete__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder has finished processing a job. This is the ARN that Amazon SNS returned when you created the topic.
---
---
---     * __Warning__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters a warning condition. This is the ARN that Amazon SNS returned when you created the topic.
---
---
---     * __Error__ : The topic ARN for the Amazon SNS topic that you want to notify when Elastic Transcoder encounters an error condition. This is the ARN that Amazon SNS returned when you created the topic.
+-- | Creates a 'UpdatePipelineNotifications' value with any optional fields omitted.
 mkUpdatePipelineNotifications ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   -- | 'notifications'
-  Notifications ->
+  Types.Notifications ->
   UpdatePipelineNotifications
-mkUpdatePipelineNotifications pId_ pNotifications_ =
-  UpdatePipelineNotifications'
-    { id = pId_,
-      notifications = pNotifications_
-    }
+mkUpdatePipelineNotifications id notifications =
+  UpdatePipelineNotifications' {id, notifications}
 
 -- | The identifier of the pipeline for which you want to change notification settings.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upnId :: Lens.Lens' UpdatePipelineNotifications Lude.Text
-upnId = Lens.lens (id :: UpdatePipelineNotifications -> Lude.Text) (\s a -> s {id = a} :: UpdatePipelineNotifications)
+upnId :: Lens.Lens' UpdatePipelineNotifications Types.Id
+upnId = Lens.field @"id"
 {-# DEPRECATED upnId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS) topic that you want to notify to report job status.
@@ -120,76 +101,74 @@ upnId = Lens.lens (id :: UpdatePipelineNotifications -> Lude.Text) (\s a -> s {i
 --
 --
 -- /Note:/ Consider using 'notifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upnNotifications :: Lens.Lens' UpdatePipelineNotifications Notifications
-upnNotifications = Lens.lens (notifications :: UpdatePipelineNotifications -> Notifications) (\s a -> s {notifications = a} :: UpdatePipelineNotifications)
+upnNotifications :: Lens.Lens' UpdatePipelineNotifications Types.Notifications
+upnNotifications = Lens.field @"notifications"
 {-# DEPRECATED upnNotifications "Use generic-lens or generic-optics with 'notifications' instead." #-}
 
-instance Lude.AWSRequest UpdatePipelineNotifications where
+instance Core.FromJSON UpdatePipelineNotifications where
+  toJSON UpdatePipelineNotifications {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Notifications" Core..= notifications)]
+      )
+
+instance Core.AWSRequest UpdatePipelineNotifications where
   type
     Rs UpdatePipelineNotifications =
       UpdatePipelineNotificationsResponse
-  request = Req.postJSON elasticTranscoderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2012-09-25/pipelines/" Core.<> (Core.toText id)
+                Core.<> ("/notifications")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdatePipelineNotificationsResponse'
-            Lude.<$> (x Lude..?> "Pipeline") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Pipeline") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdatePipelineNotifications where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdatePipelineNotifications where
-  toJSON UpdatePipelineNotifications' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("Notifications" Lude..= notifications)]
-      )
-
-instance Lude.ToPath UpdatePipelineNotifications where
-  toPath UpdatePipelineNotifications' {..} =
-    Lude.mconcat
-      ["/2012-09-25/pipelines/", Lude.toBS id, "/notifications"]
-
-instance Lude.ToQuery UpdatePipelineNotifications where
-  toQuery = Lude.const Lude.mempty
 
 -- | The @UpdatePipelineNotificationsResponse@ structure.
 --
 -- /See:/ 'mkUpdatePipelineNotificationsResponse' smart constructor.
 data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
   { -- | A section of the response body that provides information about the pipeline associated with this notification.
-    pipeline :: Lude.Maybe Pipeline,
+    pipeline :: Core.Maybe Types.Pipeline,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdatePipelineNotificationsResponse' with the minimum fields required to make a request.
---
--- * 'pipeline' - A section of the response body that provides information about the pipeline associated with this notification.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdatePipelineNotificationsResponse' value with any optional fields omitted.
 mkUpdatePipelineNotificationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdatePipelineNotificationsResponse
-mkUpdatePipelineNotificationsResponse pResponseStatus_ =
+mkUpdatePipelineNotificationsResponse responseStatus =
   UpdatePipelineNotificationsResponse'
-    { pipeline = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { pipeline = Core.Nothing,
+      responseStatus
     }
 
 -- | A section of the response body that provides information about the pipeline associated with this notification.
 --
 -- /Note:/ Consider using 'pipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upnrsPipeline :: Lens.Lens' UpdatePipelineNotificationsResponse (Lude.Maybe Pipeline)
-upnrsPipeline = Lens.lens (pipeline :: UpdatePipelineNotificationsResponse -> Lude.Maybe Pipeline) (\s a -> s {pipeline = a} :: UpdatePipelineNotificationsResponse)
-{-# DEPRECATED upnrsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
+upnrrsPipeline :: Lens.Lens' UpdatePipelineNotificationsResponse (Core.Maybe Types.Pipeline)
+upnrrsPipeline = Lens.field @"pipeline"
+{-# DEPRECATED upnrrsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upnrsResponseStatus :: Lens.Lens' UpdatePipelineNotificationsResponse Lude.Int
-upnrsResponseStatus = Lens.lens (responseStatus :: UpdatePipelineNotificationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdatePipelineNotificationsResponse)
-{-# DEPRECATED upnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+upnrrsResponseStatus :: Lens.Lens' UpdatePipelineNotificationsResponse Core.Int
+upnrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED upnrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

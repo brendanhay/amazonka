@@ -17,45 +17,43 @@ module Network.AWS.IoT.Types.TopicRuleDestinationConfiguration
     mkTopicRuleDestinationConfiguration,
 
     -- * Lenses
-    trdcHttpURLConfiguration,
+    trdcHttpUrlConfiguration,
   )
 where
 
-import Network.AWS.IoT.Types.HTTPURLDestinationConfiguration
+import qualified Network.AWS.IoT.Types.HttpUrlDestinationConfiguration as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration of the topic rule destination.
 --
 -- /See:/ 'mkTopicRuleDestinationConfiguration' smart constructor.
 newtype TopicRuleDestinationConfiguration = TopicRuleDestinationConfiguration'
   { -- | Configuration of the HTTP URL.
-    httpURLConfiguration :: Lude.Maybe HTTPURLDestinationConfiguration
+    httpUrlConfiguration :: Core.Maybe Types.HttpUrlDestinationConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TopicRuleDestinationConfiguration' with the minimum fields required to make a request.
---
--- * 'httpURLConfiguration' - Configuration of the HTTP URL.
+-- | Creates a 'TopicRuleDestinationConfiguration' value with any optional fields omitted.
 mkTopicRuleDestinationConfiguration ::
   TopicRuleDestinationConfiguration
 mkTopicRuleDestinationConfiguration =
   TopicRuleDestinationConfiguration'
-    { httpURLConfiguration =
-        Lude.Nothing
+    { httpUrlConfiguration =
+        Core.Nothing
     }
 
 -- | Configuration of the HTTP URL.
 --
--- /Note:/ Consider using 'httpURLConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trdcHttpURLConfiguration :: Lens.Lens' TopicRuleDestinationConfiguration (Lude.Maybe HTTPURLDestinationConfiguration)
-trdcHttpURLConfiguration = Lens.lens (httpURLConfiguration :: TopicRuleDestinationConfiguration -> Lude.Maybe HTTPURLDestinationConfiguration) (\s a -> s {httpURLConfiguration = a} :: TopicRuleDestinationConfiguration)
-{-# DEPRECATED trdcHttpURLConfiguration "Use generic-lens or generic-optics with 'httpURLConfiguration' instead." #-}
+-- /Note:/ Consider using 'httpUrlConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trdcHttpUrlConfiguration :: Lens.Lens' TopicRuleDestinationConfiguration (Core.Maybe Types.HttpUrlDestinationConfiguration)
+trdcHttpUrlConfiguration = Lens.field @"httpUrlConfiguration"
+{-# DEPRECATED trdcHttpUrlConfiguration "Use generic-lens or generic-optics with 'httpUrlConfiguration' instead." #-}
 
-instance Lude.ToJSON TopicRuleDestinationConfiguration where
-  toJSON TopicRuleDestinationConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("httpUrlConfiguration" Lude..=) Lude.<$> httpURLConfiguration]
+instance Core.FromJSON TopicRuleDestinationConfiguration where
+  toJSON TopicRuleDestinationConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [("httpUrlConfiguration" Core..=) Core.<$> httpUrlConfiguration]
       )

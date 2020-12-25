@@ -17,71 +17,67 @@ module Network.AWS.ElasticSearch.Types.PackageVersionHistory
     mkPackageVersionHistory,
 
     -- * Lenses
+    pvhCommitMessage,
     pvhCreatedAt,
     pvhPackageVersion,
-    pvhCommitMessage,
   )
 where
 
+import qualified Network.AWS.ElasticSearch.Types.CommitMessage as Types
+import qualified Network.AWS.ElasticSearch.Types.PackageVersion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details of a package version.
 --
 -- /See:/ 'mkPackageVersionHistory' smart constructor.
 data PackageVersionHistory = PackageVersionHistory'
-  { -- | Timestamp which tells creation time of the package version.
-    createdAt :: Lude.Maybe Lude.Timestamp,
+  { -- | A message associated with the version.
+    commitMessage :: Core.Maybe Types.CommitMessage,
+    -- | Timestamp which tells creation time of the package version.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | Version of the package.
-    packageVersion :: Lude.Maybe Lude.Text,
-    -- | A message associated with the version.
-    commitMessage :: Lude.Maybe Lude.Text
+    packageVersion :: Core.Maybe Types.PackageVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PackageVersionHistory' with the minimum fields required to make a request.
---
--- * 'createdAt' - Timestamp which tells creation time of the package version.
--- * 'packageVersion' - Version of the package.
--- * 'commitMessage' - A message associated with the version.
+-- | Creates a 'PackageVersionHistory' value with any optional fields omitted.
 mkPackageVersionHistory ::
   PackageVersionHistory
 mkPackageVersionHistory =
   PackageVersionHistory'
-    { createdAt = Lude.Nothing,
-      packageVersion = Lude.Nothing,
-      commitMessage = Lude.Nothing
+    { commitMessage = Core.Nothing,
+      createdAt = Core.Nothing,
+      packageVersion = Core.Nothing
     }
+
+-- | A message associated with the version.
+--
+-- /Note:/ Consider using 'commitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvhCommitMessage :: Lens.Lens' PackageVersionHistory (Core.Maybe Types.CommitMessage)
+pvhCommitMessage = Lens.field @"commitMessage"
+{-# DEPRECATED pvhCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
 
 -- | Timestamp which tells creation time of the package version.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvhCreatedAt :: Lens.Lens' PackageVersionHistory (Lude.Maybe Lude.Timestamp)
-pvhCreatedAt = Lens.lens (createdAt :: PackageVersionHistory -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: PackageVersionHistory)
+pvhCreatedAt :: Lens.Lens' PackageVersionHistory (Core.Maybe Core.NominalDiffTime)
+pvhCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED pvhCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | Version of the package.
 --
 -- /Note:/ Consider using 'packageVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvhPackageVersion :: Lens.Lens' PackageVersionHistory (Lude.Maybe Lude.Text)
-pvhPackageVersion = Lens.lens (packageVersion :: PackageVersionHistory -> Lude.Maybe Lude.Text) (\s a -> s {packageVersion = a} :: PackageVersionHistory)
+pvhPackageVersion :: Lens.Lens' PackageVersionHistory (Core.Maybe Types.PackageVersion)
+pvhPackageVersion = Lens.field @"packageVersion"
 {-# DEPRECATED pvhPackageVersion "Use generic-lens or generic-optics with 'packageVersion' instead." #-}
 
--- | A message associated with the version.
---
--- /Note:/ Consider using 'commitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvhCommitMessage :: Lens.Lens' PackageVersionHistory (Lude.Maybe Lude.Text)
-pvhCommitMessage = Lens.lens (commitMessage :: PackageVersionHistory -> Lude.Maybe Lude.Text) (\s a -> s {commitMessage = a} :: PackageVersionHistory)
-{-# DEPRECATED pvhCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
-
-instance Lude.FromJSON PackageVersionHistory where
+instance Core.FromJSON PackageVersionHistory where
   parseJSON =
-    Lude.withObject
-      "PackageVersionHistory"
-      ( \x ->
-          PackageVersionHistory'
-            Lude.<$> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "PackageVersion")
-            Lude.<*> (x Lude..:? "CommitMessage")
-      )
+    Core.withObject "PackageVersionHistory" Core.$
+      \x ->
+        PackageVersionHistory'
+          Core.<$> (x Core..:? "CommitMessage")
+          Core.<*> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "PackageVersion")

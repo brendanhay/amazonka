@@ -462,7 +462,7 @@ responseDeleteAppReplicationConfiguration =
   res
     "DeleteAppReplicationConfigurationResponse"
     "fixture/DeleteAppReplicationConfigurationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAppReplicationConfiguration)
 
 responsePutAppReplicationConfiguration :: PutAppReplicationConfigurationResponse -> TestTree
@@ -470,7 +470,7 @@ responsePutAppReplicationConfiguration =
   res
     "PutAppReplicationConfigurationResponse"
     "fixture/PutAppReplicationConfigurationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy PutAppReplicationConfiguration)
 
 responseDeleteServerCatalog :: DeleteServerCatalogResponse -> TestTree
@@ -478,7 +478,7 @@ responseDeleteServerCatalog =
   res
     "DeleteServerCatalogResponse"
     "fixture/DeleteServerCatalogResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteServerCatalog)
 
 responseImportAppCatalog :: ImportAppCatalogResponse -> TestTree
@@ -486,7 +486,7 @@ responseImportAppCatalog =
   res
     "ImportAppCatalogResponse"
     "fixture/ImportAppCatalogResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy ImportAppCatalog)
 
 responseGetAppLaunchConfiguration :: GetAppLaunchConfigurationResponse -> TestTree
@@ -494,7 +494,7 @@ responseGetAppLaunchConfiguration =
   res
     "GetAppLaunchConfigurationResponse"
     "fixture/GetAppLaunchConfigurationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy GetAppLaunchConfiguration)
 
 responseDeleteAppLaunchConfiguration :: DeleteAppLaunchConfigurationResponse -> TestTree
@@ -502,7 +502,7 @@ responseDeleteAppLaunchConfiguration =
   res
     "DeleteAppLaunchConfigurationResponse"
     "fixture/DeleteAppLaunchConfigurationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAppLaunchConfiguration)
 
 responseStartAppReplication :: StartAppReplicationResponse -> TestTree
@@ -510,7 +510,7 @@ responseStartAppReplication =
   res
     "StartAppReplicationResponse"
     "fixture/StartAppReplicationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy StartAppReplication)
 
 responsePutAppLaunchConfiguration :: PutAppLaunchConfigurationResponse -> TestTree
@@ -518,7 +518,7 @@ responsePutAppLaunchConfiguration =
   res
     "PutAppLaunchConfigurationResponse"
     "fixture/PutAppLaunchConfigurationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy PutAppLaunchConfiguration)
 
 responseGetReplicationRuns :: GetReplicationRunsResponse -> TestTree
@@ -526,7 +526,7 @@ responseGetReplicationRuns =
   res
     "GetReplicationRunsResponse"
     "fixture/GetReplicationRunsResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy GetReplicationRuns)
 
 responseTerminateApp :: TerminateAppResponse -> TestTree
@@ -534,7 +534,7 @@ responseTerminateApp =
   res
     "TerminateAppResponse"
     "fixture/TerminateAppResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy TerminateApp)
 
 responseListApps :: ListAppsResponse -> TestTree
@@ -542,7 +542,7 @@ responseListApps =
   res
     "ListAppsResponse"
     "fixture/ListAppsResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy ListApps)
 
 responseGetServers :: GetServersResponse -> TestTree
@@ -550,7 +550,7 @@ responseGetServers =
   res
     "GetServersResponse"
     "fixture/GetServersResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy GetServers)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
@@ -558,7 +558,7 @@ responseDeleteApp =
   res
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApp)
 
 responseUpdateApp :: UpdateAppResponse -> TestTree
@@ -566,7 +566,7 @@ responseUpdateApp =
   res
     "UpdateAppResponse"
     "fixture/UpdateAppResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateApp)
 
 responseStartOnDemandAppReplication :: StartOnDemandAppReplicationResponse -> TestTree
@@ -574,7 +574,7 @@ responseStartOnDemandAppReplication =
   res
     "StartOnDemandAppReplicationResponse"
     "fixture/StartOnDemandAppReplicationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy StartOnDemandAppReplication)
 
 responseImportServerCatalog :: ImportServerCatalogResponse -> TestTree
@@ -582,7 +582,7 @@ responseImportServerCatalog =
   res
     "ImportServerCatalogResponse"
     "fixture/ImportServerCatalogResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy ImportServerCatalog)
 
 responseGenerateTemplate :: GenerateTemplateResponse -> TestTree
@@ -590,7 +590,7 @@ responseGenerateTemplate =
   res
     "GenerateTemplateResponse"
     "fixture/GenerateTemplateResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy GenerateTemplate)
 
 responseGetConnectors :: GetConnectorsResponse -> TestTree
@@ -598,7 +598,7 @@ responseGetConnectors =
   res
     "GetConnectorsResponse"
     "fixture/GetConnectorsResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy GetConnectors)
 
 responseGetReplicationJobs :: GetReplicationJobsResponse -> TestTree
@@ -606,7 +606,7 @@ responseGetReplicationJobs =
   res
     "GetReplicationJobsResponse"
     "fixture/GetReplicationJobsResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy GetReplicationJobs)
 
 responseDisassociateConnector :: DisassociateConnectorResponse -> TestTree
@@ -614,7 +614,7 @@ responseDisassociateConnector =
   res
     "DisassociateConnectorResponse"
     "fixture/DisassociateConnectorResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateConnector)
 
 responseLaunchApp :: LaunchAppResponse -> TestTree
@@ -622,7 +622,7 @@ responseLaunchApp =
   res
     "LaunchAppResponse"
     "fixture/LaunchAppResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy LaunchApp)
 
 responseGetAppValidationConfiguration :: GetAppValidationConfigurationResponse -> TestTree
@@ -630,7 +630,7 @@ responseGetAppValidationConfiguration =
   res
     "GetAppValidationConfigurationResponse"
     "fixture/GetAppValidationConfigurationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy GetAppValidationConfiguration)
 
 responseCreateReplicationJob :: CreateReplicationJobResponse -> TestTree
@@ -638,7 +638,7 @@ responseCreateReplicationJob =
   res
     "CreateReplicationJobResponse"
     "fixture/CreateReplicationJobResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy CreateReplicationJob)
 
 responseGenerateChangeSet :: GenerateChangeSetResponse -> TestTree
@@ -646,7 +646,7 @@ responseGenerateChangeSet =
   res
     "GenerateChangeSetResponse"
     "fixture/GenerateChangeSetResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy GenerateChangeSet)
 
 responseGetApp :: GetAppResponse -> TestTree
@@ -654,7 +654,7 @@ responseGetApp =
   res
     "GetAppResponse"
     "fixture/GetAppResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy GetApp)
 
 responseUpdateReplicationJob :: UpdateReplicationJobResponse -> TestTree
@@ -662,7 +662,7 @@ responseUpdateReplicationJob =
   res
     "UpdateReplicationJobResponse"
     "fixture/UpdateReplicationJobResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateReplicationJob)
 
 responseDeleteReplicationJob :: DeleteReplicationJobResponse -> TestTree
@@ -670,7 +670,7 @@ responseDeleteReplicationJob =
   res
     "DeleteReplicationJobResponse"
     "fixture/DeleteReplicationJobResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteReplicationJob)
 
 responseCreateApp :: CreateAppResponse -> TestTree
@@ -678,7 +678,7 @@ responseCreateApp =
   res
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy CreateApp)
 
 responseStopAppReplication :: StopAppReplicationResponse -> TestTree
@@ -686,7 +686,7 @@ responseStopAppReplication =
   res
     "StopAppReplicationResponse"
     "fixture/StopAppReplicationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy StopAppReplication)
 
 responseDeleteAppValidationConfiguration :: DeleteAppValidationConfigurationResponse -> TestTree
@@ -694,7 +694,7 @@ responseDeleteAppValidationConfiguration =
   res
     "DeleteAppValidationConfigurationResponse"
     "fixture/DeleteAppValidationConfigurationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAppValidationConfiguration)
 
 responsePutAppValidationConfiguration :: PutAppValidationConfigurationResponse -> TestTree
@@ -702,7 +702,7 @@ responsePutAppValidationConfiguration =
   res
     "PutAppValidationConfigurationResponse"
     "fixture/PutAppValidationConfigurationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy PutAppValidationConfiguration)
 
 responseGetAppValidationOutput :: GetAppValidationOutputResponse -> TestTree
@@ -710,7 +710,7 @@ responseGetAppValidationOutput =
   res
     "GetAppValidationOutputResponse"
     "fixture/GetAppValidationOutputResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy GetAppValidationOutput)
 
 responseGetAppReplicationConfiguration :: GetAppReplicationConfigurationResponse -> TestTree
@@ -718,7 +718,7 @@ responseGetAppReplicationConfiguration =
   res
     "GetAppReplicationConfigurationResponse"
     "fixture/GetAppReplicationConfigurationResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy GetAppReplicationConfiguration)
 
 responseStartOnDemandReplicationRun :: StartOnDemandReplicationRunResponse -> TestTree
@@ -726,7 +726,7 @@ responseStartOnDemandReplicationRun =
   res
     "StartOnDemandReplicationRunResponse"
     "fixture/StartOnDemandReplicationRunResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy StartOnDemandReplicationRun)
 
 responseNotifyAppValidationOutput :: NotifyAppValidationOutputResponse -> TestTree
@@ -734,5 +734,5 @@ responseNotifyAppValidationOutput =
   res
     "NotifyAppValidationOutputResponse"
     "fixture/NotifyAppValidationOutputResponse.proto"
-    smsService
+    mkServiceConfig
     (Proxy :: Proxy NotifyAppValidationOutput)

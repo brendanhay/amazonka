@@ -21,39 +21,35 @@ module Network.AWS.CodePipeline.Types.ActionConfiguration
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.ActionConfigurationKey as Types
+import qualified Network.AWS.CodePipeline.Types.ActionConfigurationValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about an action configuration.
 --
 -- /See:/ 'mkActionConfiguration' smart constructor.
 newtype ActionConfiguration = ActionConfiguration'
   { -- | The configuration data for the action.
-    configuration :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    configuration :: Core.Maybe (Core.HashMap Types.ActionConfigurationKey Types.ActionConfigurationValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActionConfiguration' with the minimum fields required to make a request.
---
--- * 'configuration' - The configuration data for the action.
+-- | Creates a 'ActionConfiguration' value with any optional fields omitted.
 mkActionConfiguration ::
   ActionConfiguration
 mkActionConfiguration =
-  ActionConfiguration' {configuration = Lude.Nothing}
+  ActionConfiguration' {configuration = Core.Nothing}
 
 -- | The configuration data for the action.
 --
 -- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acConfiguration :: Lens.Lens' ActionConfiguration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-acConfiguration = Lens.lens (configuration :: ActionConfiguration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {configuration = a} :: ActionConfiguration)
+acConfiguration :: Lens.Lens' ActionConfiguration (Core.Maybe (Core.HashMap Types.ActionConfigurationKey Types.ActionConfigurationValue))
+acConfiguration = Lens.field @"configuration"
 {-# DEPRECATED acConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
-instance Lude.FromJSON ActionConfiguration where
+instance Core.FromJSON ActionConfiguration where
   parseJSON =
-    Lude.withObject
-      "ActionConfiguration"
-      ( \x ->
-          ActionConfiguration'
-            Lude.<$> (x Lude..:? "configuration" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ActionConfiguration" Core.$
+      \x -> ActionConfiguration' Core.<$> (x Core..:? "configuration")

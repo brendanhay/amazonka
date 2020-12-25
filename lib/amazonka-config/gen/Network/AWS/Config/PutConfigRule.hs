@@ -38,84 +38,74 @@ module Network.AWS.Config.PutConfigRule
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutConfigRule' smart constructor.
 data PutConfigRule = PutConfigRule'
   { -- | The rule that you want to add to your account.
-    configRule :: ConfigRule,
+    configRule :: Types.ConfigRule,
     -- | An array of tag object.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutConfigRule' with the minimum fields required to make a request.
---
--- * 'configRule' - The rule that you want to add to your account.
--- * 'tags' - An array of tag object.
+-- | Creates a 'PutConfigRule' value with any optional fields omitted.
 mkPutConfigRule ::
   -- | 'configRule'
-  ConfigRule ->
+  Types.ConfigRule ->
   PutConfigRule
-mkPutConfigRule pConfigRule_ =
-  PutConfigRule' {configRule = pConfigRule_, tags = Lude.Nothing}
+mkPutConfigRule configRule =
+  PutConfigRule' {configRule, tags = Core.Nothing}
 
 -- | The rule that you want to add to your account.
 --
 -- /Note:/ Consider using 'configRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcrConfigRule :: Lens.Lens' PutConfigRule ConfigRule
-pcrConfigRule = Lens.lens (configRule :: PutConfigRule -> ConfigRule) (\s a -> s {configRule = a} :: PutConfigRule)
+pcrConfigRule :: Lens.Lens' PutConfigRule Types.ConfigRule
+pcrConfigRule = Lens.field @"configRule"
 {-# DEPRECATED pcrConfigRule "Use generic-lens or generic-optics with 'configRule' instead." #-}
 
 -- | An array of tag object.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcrTags :: Lens.Lens' PutConfigRule (Lude.Maybe [Tag])
-pcrTags = Lens.lens (tags :: PutConfigRule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PutConfigRule)
+pcrTags :: Lens.Lens' PutConfigRule (Core.Maybe [Types.Tag])
+pcrTags = Lens.field @"tags"
 {-# DEPRECATED pcrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest PutConfigRule where
+instance Core.FromJSON PutConfigRule where
+  toJSON PutConfigRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ConfigRule" Core..= configRule),
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest PutConfigRule where
   type Rs PutConfigRule = PutConfigRuleResponse
-  request = Req.postJSON configService
-  response = Res.receiveNull PutConfigRuleResponse'
-
-instance Lude.ToHeaders PutConfigRule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StarlingDoveService.PutConfigRule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutConfigRule where
-  toJSON PutConfigRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ConfigRule" Lude..= configRule),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath PutConfigRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutConfigRule where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "StarlingDoveService.PutConfigRule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull PutConfigRuleResponse'
 
 -- | /See:/ 'mkPutConfigRuleResponse' smart constructor.
 data PutConfigRuleResponse = PutConfigRuleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutConfigRuleResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutConfigRuleResponse' value with any optional fields omitted.
 mkPutConfigRuleResponse ::
   PutConfigRuleResponse
 mkPutConfigRuleResponse = PutConfigRuleResponse'

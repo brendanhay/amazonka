@@ -13,51 +13,56 @@
 module Network.AWS.Rekognition.Types.VideoJobStatus
   ( VideoJobStatus
       ( VideoJobStatus',
-        VJSInProgress,
-        VJSSucceeded,
-        VJSFailed
+        VideoJobStatusInProgress,
+        VideoJobStatusSucceeded,
+        VideoJobStatusFailed,
+        fromVideoJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype VideoJobStatus = VideoJobStatus' Lude.Text
+newtype VideoJobStatus = VideoJobStatus'
+  { fromVideoJobStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VJSInProgress :: VideoJobStatus
-pattern VJSInProgress = VideoJobStatus' "IN_PROGRESS"
+pattern VideoJobStatusInProgress :: VideoJobStatus
+pattern VideoJobStatusInProgress = VideoJobStatus' "IN_PROGRESS"
 
-pattern VJSSucceeded :: VideoJobStatus
-pattern VJSSucceeded = VideoJobStatus' "SUCCEEDED"
+pattern VideoJobStatusSucceeded :: VideoJobStatus
+pattern VideoJobStatusSucceeded = VideoJobStatus' "SUCCEEDED"
 
-pattern VJSFailed :: VideoJobStatus
-pattern VJSFailed = VideoJobStatus' "FAILED"
+pattern VideoJobStatusFailed :: VideoJobStatus
+pattern VideoJobStatusFailed = VideoJobStatus' "FAILED"
 
 {-# COMPLETE
-  VJSInProgress,
-  VJSSucceeded,
-  VJSFailed,
+  VideoJobStatusInProgress,
+  VideoJobStatusSucceeded,
+  VideoJobStatusFailed,
   VideoJobStatus'
   #-}

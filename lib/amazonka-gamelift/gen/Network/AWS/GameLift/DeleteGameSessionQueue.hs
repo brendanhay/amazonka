@@ -42,98 +42,83 @@ module Network.AWS.GameLift.DeleteGameSessionQueue
     mkDeleteGameSessionQueueResponse,
 
     -- ** Response lenses
-    dgsqfrsResponseStatus,
+    dgsqrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDeleteGameSessionQueue' smart constructor.
 newtype DeleteGameSessionQueue = DeleteGameSessionQueue'
   { -- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region. You can use either the queue ID or ARN value.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGameSessionQueue' with the minimum fields required to make a request.
---
--- * 'name' - A descriptive label that is associated with game session queue. Queue names must be unique within each Region. You can use either the queue ID or ARN value.
+-- | Creates a 'DeleteGameSessionQueue' value with any optional fields omitted.
 mkDeleteGameSessionQueue ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   DeleteGameSessionQueue
-mkDeleteGameSessionQueue pName_ =
-  DeleteGameSessionQueue' {name = pName_}
+mkDeleteGameSessionQueue name = DeleteGameSessionQueue' {name}
 
 -- | A descriptive label that is associated with game session queue. Queue names must be unique within each Region. You can use either the queue ID or ARN value.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsqName :: Lens.Lens' DeleteGameSessionQueue Lude.Text
-dgsqName = Lens.lens (name :: DeleteGameSessionQueue -> Lude.Text) (\s a -> s {name = a} :: DeleteGameSessionQueue)
+dgsqName :: Lens.Lens' DeleteGameSessionQueue Types.Name
+dgsqName = Lens.field @"name"
 {-# DEPRECATED dgsqName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteGameSessionQueue where
+instance Core.FromJSON DeleteGameSessionQueue where
+  toJSON DeleteGameSessionQueue {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteGameSessionQueue where
   type Rs DeleteGameSessionQueue = DeleteGameSessionQueueResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DeleteGameSessionQueue")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteGameSessionQueueResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteGameSessionQueue where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DeleteGameSessionQueue" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteGameSessionQueue where
-  toJSON DeleteGameSessionQueue' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteGameSessionQueue where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteGameSessionQueue where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteGameSessionQueueResponse' smart constructor.
 newtype DeleteGameSessionQueueResponse = DeleteGameSessionQueueResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGameSessionQueueResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteGameSessionQueueResponse' value with any optional fields omitted.
 mkDeleteGameSessionQueueResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteGameSessionQueueResponse
-mkDeleteGameSessionQueueResponse pResponseStatus_ =
-  DeleteGameSessionQueueResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteGameSessionQueueResponse responseStatus =
+  DeleteGameSessionQueueResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgsqfrsResponseStatus :: Lens.Lens' DeleteGameSessionQueueResponse Lude.Int
-dgsqfrsResponseStatus = Lens.lens (responseStatus :: DeleteGameSessionQueueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGameSessionQueueResponse)
-{-# DEPRECATED dgsqfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgsqrrsResponseStatus :: Lens.Lens' DeleteGameSessionQueueResponse Core.Int
+dgsqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dgsqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

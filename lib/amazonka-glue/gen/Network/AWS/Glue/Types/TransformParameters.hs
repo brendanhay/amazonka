@@ -22,10 +22,10 @@ module Network.AWS.Glue.Types.TransformParameters
   )
 where
 
-import Network.AWS.Glue.Types.FindMatchesParameters
-import Network.AWS.Glue.Types.TransformType
+import qualified Network.AWS.Glue.Types.FindMatchesParameters as Types
+import qualified Network.AWS.Glue.Types.TransformType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The algorithm-specific parameters that are associated with the machine learning transform.
 --
@@ -34,27 +34,22 @@ data TransformParameters = TransformParameters'
   { -- | The type of machine learning transform.
     --
     -- For information about the types of machine learning transforms, see <https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html Creating Machine Learning Transforms> .
-    transformType :: TransformType,
+    transformType :: Types.TransformType,
     -- | The parameters for the find matches algorithm.
-    findMatchesParameters :: Lude.Maybe FindMatchesParameters
+    findMatchesParameters :: Core.Maybe Types.FindMatchesParameters
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransformParameters' with the minimum fields required to make a request.
---
--- * 'transformType' - The type of machine learning transform.
---
--- For information about the types of machine learning transforms, see <https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html Creating Machine Learning Transforms> .
--- * 'findMatchesParameters' - The parameters for the find matches algorithm.
+-- | Creates a 'TransformParameters' value with any optional fields omitted.
 mkTransformParameters ::
   -- | 'transformType'
-  TransformType ->
+  Types.TransformType ->
   TransformParameters
-mkTransformParameters pTransformType_ =
+mkTransformParameters transformType =
   TransformParameters'
-    { transformType = pTransformType_,
-      findMatchesParameters = Lude.Nothing
+    { transformType,
+      findMatchesParameters = Core.Nothing
     }
 
 -- | The type of machine learning transform.
@@ -62,32 +57,30 @@ mkTransformParameters pTransformType_ =
 -- For information about the types of machine learning transforms, see <https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html Creating Machine Learning Transforms> .
 --
 -- /Note:/ Consider using 'transformType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpTransformType :: Lens.Lens' TransformParameters TransformType
-tpTransformType = Lens.lens (transformType :: TransformParameters -> TransformType) (\s a -> s {transformType = a} :: TransformParameters)
+tpTransformType :: Lens.Lens' TransformParameters Types.TransformType
+tpTransformType = Lens.field @"transformType"
 {-# DEPRECATED tpTransformType "Use generic-lens or generic-optics with 'transformType' instead." #-}
 
 -- | The parameters for the find matches algorithm.
 --
 -- /Note:/ Consider using 'findMatchesParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tpFindMatchesParameters :: Lens.Lens' TransformParameters (Lude.Maybe FindMatchesParameters)
-tpFindMatchesParameters = Lens.lens (findMatchesParameters :: TransformParameters -> Lude.Maybe FindMatchesParameters) (\s a -> s {findMatchesParameters = a} :: TransformParameters)
+tpFindMatchesParameters :: Lens.Lens' TransformParameters (Core.Maybe Types.FindMatchesParameters)
+tpFindMatchesParameters = Lens.field @"findMatchesParameters"
 {-# DEPRECATED tpFindMatchesParameters "Use generic-lens or generic-optics with 'findMatchesParameters' instead." #-}
 
-instance Lude.FromJSON TransformParameters where
-  parseJSON =
-    Lude.withObject
-      "TransformParameters"
-      ( \x ->
-          TransformParameters'
-            Lude.<$> (x Lude..: "TransformType")
-            Lude.<*> (x Lude..:? "FindMatchesParameters")
-      )
-
-instance Lude.ToJSON TransformParameters where
-  toJSON TransformParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TransformType" Lude..= transformType),
-            ("FindMatchesParameters" Lude..=) Lude.<$> findMatchesParameters
+instance Core.FromJSON TransformParameters where
+  toJSON TransformParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TransformType" Core..= transformType),
+            ("FindMatchesParameters" Core..=) Core.<$> findMatchesParameters
           ]
       )
+
+instance Core.FromJSON TransformParameters where
+  parseJSON =
+    Core.withObject "TransformParameters" Core.$
+      \x ->
+        TransformParameters'
+          Core.<$> (x Core..: "TransformType")
+          Core.<*> (x Core..:? "FindMatchesParameters")

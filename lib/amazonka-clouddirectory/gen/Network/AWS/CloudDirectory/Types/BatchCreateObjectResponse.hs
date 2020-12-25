@@ -17,43 +17,39 @@ module Network.AWS.CloudDirectory.Types.BatchCreateObjectResponse
     mkBatchCreateObjectResponse,
 
     -- * Lenses
-    bcoObjectIdentifier,
+    bcorObjectIdentifier,
   )
 where
 
+import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'CreateObject' response operation.
 --
 -- /See:/ 'mkBatchCreateObjectResponse' smart constructor.
 newtype BatchCreateObjectResponse = BatchCreateObjectResponse'
   { -- | The ID that is associated with the object.
-    objectIdentifier :: Lude.Maybe Lude.Text
+    objectIdentifier :: Core.Maybe Types.ObjectIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchCreateObjectResponse' with the minimum fields required to make a request.
---
--- * 'objectIdentifier' - The ID that is associated with the object.
+-- | Creates a 'BatchCreateObjectResponse' value with any optional fields omitted.
 mkBatchCreateObjectResponse ::
   BatchCreateObjectResponse
 mkBatchCreateObjectResponse =
-  BatchCreateObjectResponse' {objectIdentifier = Lude.Nothing}
+  BatchCreateObjectResponse' {objectIdentifier = Core.Nothing}
 
 -- | The ID that is associated with the object.
 --
 -- /Note:/ Consider using 'objectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcoObjectIdentifier :: Lens.Lens' BatchCreateObjectResponse (Lude.Maybe Lude.Text)
-bcoObjectIdentifier = Lens.lens (objectIdentifier :: BatchCreateObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {objectIdentifier = a} :: BatchCreateObjectResponse)
-{-# DEPRECATED bcoObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
+bcorObjectIdentifier :: Lens.Lens' BatchCreateObjectResponse (Core.Maybe Types.ObjectIdentifier)
+bcorObjectIdentifier = Lens.field @"objectIdentifier"
+{-# DEPRECATED bcorObjectIdentifier "Use generic-lens or generic-optics with 'objectIdentifier' instead." #-}
 
-instance Lude.FromJSON BatchCreateObjectResponse where
+instance Core.FromJSON BatchCreateObjectResponse where
   parseJSON =
-    Lude.withObject
-      "BatchCreateObjectResponse"
-      ( \x ->
-          BatchCreateObjectResponse'
-            Lude.<$> (x Lude..:? "ObjectIdentifier")
-      )
+    Core.withObject "BatchCreateObjectResponse" Core.$
+      \x ->
+        BatchCreateObjectResponse' Core.<$> (x Core..:? "ObjectIdentifier")

@@ -30,162 +30,153 @@ module Network.AWS.IoT.UpdateDomainConfiguration
     mkUpdateDomainConfigurationResponse,
 
     -- ** Response lenses
-    udcrsDomainConfigurationName,
-    udcrsDomainConfigurationARN,
-    udcrsResponseStatus,
+    udcrrsDomainConfigurationArn,
+    udcrrsDomainConfigurationName,
+    udcrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateDomainConfiguration' smart constructor.
 data UpdateDomainConfiguration = UpdateDomainConfiguration'
   { -- | The name of the domain configuration to be updated.
-    domainConfigurationName :: Lude.Text,
+    domainConfigurationName :: Types.DomainConfigurationName,
     -- | An object that specifies the authorization service for a domain.
-    authorizerConfig :: Lude.Maybe AuthorizerConfig,
+    authorizerConfig :: Core.Maybe Types.AuthorizerConfig,
     -- | The status to which the domain configuration should be updated.
-    domainConfigurationStatus :: Lude.Maybe DomainConfigurationStatus,
+    domainConfigurationStatus :: Core.Maybe Types.DomainConfigurationStatus,
     -- | Removes the authorization configuration from a domain.
-    removeAuthorizerConfig :: Lude.Maybe Lude.Bool
+    removeAuthorizerConfig :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDomainConfiguration' with the minimum fields required to make a request.
---
--- * 'domainConfigurationName' - The name of the domain configuration to be updated.
--- * 'authorizerConfig' - An object that specifies the authorization service for a domain.
--- * 'domainConfigurationStatus' - The status to which the domain configuration should be updated.
--- * 'removeAuthorizerConfig' - Removes the authorization configuration from a domain.
+-- | Creates a 'UpdateDomainConfiguration' value with any optional fields omitted.
 mkUpdateDomainConfiguration ::
   -- | 'domainConfigurationName'
-  Lude.Text ->
+  Types.DomainConfigurationName ->
   UpdateDomainConfiguration
-mkUpdateDomainConfiguration pDomainConfigurationName_ =
+mkUpdateDomainConfiguration domainConfigurationName =
   UpdateDomainConfiguration'
-    { domainConfigurationName =
-        pDomainConfigurationName_,
-      authorizerConfig = Lude.Nothing,
-      domainConfigurationStatus = Lude.Nothing,
-      removeAuthorizerConfig = Lude.Nothing
+    { domainConfigurationName,
+      authorizerConfig = Core.Nothing,
+      domainConfigurationStatus = Core.Nothing,
+      removeAuthorizerConfig = Core.Nothing
     }
 
 -- | The name of the domain configuration to be updated.
 --
 -- /Note:/ Consider using 'domainConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcDomainConfigurationName :: Lens.Lens' UpdateDomainConfiguration Lude.Text
-udcDomainConfigurationName = Lens.lens (domainConfigurationName :: UpdateDomainConfiguration -> Lude.Text) (\s a -> s {domainConfigurationName = a} :: UpdateDomainConfiguration)
+udcDomainConfigurationName :: Lens.Lens' UpdateDomainConfiguration Types.DomainConfigurationName
+udcDomainConfigurationName = Lens.field @"domainConfigurationName"
 {-# DEPRECATED udcDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
 
 -- | An object that specifies the authorization service for a domain.
 --
 -- /Note:/ Consider using 'authorizerConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcAuthorizerConfig :: Lens.Lens' UpdateDomainConfiguration (Lude.Maybe AuthorizerConfig)
-udcAuthorizerConfig = Lens.lens (authorizerConfig :: UpdateDomainConfiguration -> Lude.Maybe AuthorizerConfig) (\s a -> s {authorizerConfig = a} :: UpdateDomainConfiguration)
+udcAuthorizerConfig :: Lens.Lens' UpdateDomainConfiguration (Core.Maybe Types.AuthorizerConfig)
+udcAuthorizerConfig = Lens.field @"authorizerConfig"
 {-# DEPRECATED udcAuthorizerConfig "Use generic-lens or generic-optics with 'authorizerConfig' instead." #-}
 
 -- | The status to which the domain configuration should be updated.
 --
 -- /Note:/ Consider using 'domainConfigurationStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcDomainConfigurationStatus :: Lens.Lens' UpdateDomainConfiguration (Lude.Maybe DomainConfigurationStatus)
-udcDomainConfigurationStatus = Lens.lens (domainConfigurationStatus :: UpdateDomainConfiguration -> Lude.Maybe DomainConfigurationStatus) (\s a -> s {domainConfigurationStatus = a} :: UpdateDomainConfiguration)
+udcDomainConfigurationStatus :: Lens.Lens' UpdateDomainConfiguration (Core.Maybe Types.DomainConfigurationStatus)
+udcDomainConfigurationStatus = Lens.field @"domainConfigurationStatus"
 {-# DEPRECATED udcDomainConfigurationStatus "Use generic-lens or generic-optics with 'domainConfigurationStatus' instead." #-}
 
 -- | Removes the authorization configuration from a domain.
 --
 -- /Note:/ Consider using 'removeAuthorizerConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcRemoveAuthorizerConfig :: Lens.Lens' UpdateDomainConfiguration (Lude.Maybe Lude.Bool)
-udcRemoveAuthorizerConfig = Lens.lens (removeAuthorizerConfig :: UpdateDomainConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {removeAuthorizerConfig = a} :: UpdateDomainConfiguration)
+udcRemoveAuthorizerConfig :: Lens.Lens' UpdateDomainConfiguration (Core.Maybe Core.Bool)
+udcRemoveAuthorizerConfig = Lens.field @"removeAuthorizerConfig"
 {-# DEPRECATED udcRemoveAuthorizerConfig "Use generic-lens or generic-optics with 'removeAuthorizerConfig' instead." #-}
 
-instance Lude.AWSRequest UpdateDomainConfiguration where
-  type
-    Rs UpdateDomainConfiguration =
-      UpdateDomainConfigurationResponse
-  request = Req.putJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateDomainConfigurationResponse'
-            Lude.<$> (x Lude..?> "domainConfigurationName")
-            Lude.<*> (x Lude..?> "domainConfigurationArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateDomainConfiguration where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateDomainConfiguration where
-  toJSON UpdateDomainConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("authorizerConfig" Lude..=) Lude.<$> authorizerConfig,
-            ("domainConfigurationStatus" Lude..=)
-              Lude.<$> domainConfigurationStatus,
-            ("removeAuthorizerConfig" Lude..=)
-              Lude.<$> removeAuthorizerConfig
+instance Core.FromJSON UpdateDomainConfiguration where
+  toJSON UpdateDomainConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("authorizerConfig" Core..=) Core.<$> authorizerConfig,
+            ("domainConfigurationStatus" Core..=)
+              Core.<$> domainConfigurationStatus,
+            ("removeAuthorizerConfig" Core..=)
+              Core.<$> removeAuthorizerConfig
           ]
       )
 
-instance Lude.ToPath UpdateDomainConfiguration where
-  toPath UpdateDomainConfiguration' {..} =
-    Lude.mconcat
-      ["/domainConfigurations/", Lude.toBS domainConfigurationName]
-
-instance Lude.ToQuery UpdateDomainConfiguration where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateDomainConfiguration where
+  type
+    Rs UpdateDomainConfiguration =
+      UpdateDomainConfigurationResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/domainConfigurations/"
+                Core.<> (Core.toText domainConfigurationName)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateDomainConfigurationResponse'
+            Core.<$> (x Core..:? "domainConfigurationArn")
+            Core.<*> (x Core..:? "domainConfigurationName")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateDomainConfigurationResponse' smart constructor.
 data UpdateDomainConfigurationResponse = UpdateDomainConfigurationResponse'
-  { -- | The name of the domain configuration that was updated.
-    domainConfigurationName :: Lude.Maybe Lude.Text,
-    -- | The ARN of the domain configuration that was updated.
-    domainConfigurationARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the domain configuration that was updated.
+    domainConfigurationArn :: Core.Maybe Types.DomainConfigurationArn,
+    -- | The name of the domain configuration that was updated.
+    domainConfigurationName :: Core.Maybe Types.DomainConfigurationName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDomainConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'domainConfigurationName' - The name of the domain configuration that was updated.
--- * 'domainConfigurationARN' - The ARN of the domain configuration that was updated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateDomainConfigurationResponse' value with any optional fields omitted.
 mkUpdateDomainConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateDomainConfigurationResponse
-mkUpdateDomainConfigurationResponse pResponseStatus_ =
+mkUpdateDomainConfigurationResponse responseStatus =
   UpdateDomainConfigurationResponse'
-    { domainConfigurationName =
-        Lude.Nothing,
-      domainConfigurationARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { domainConfigurationArn =
+        Core.Nothing,
+      domainConfigurationName = Core.Nothing,
+      responseStatus
     }
+
+-- | The ARN of the domain configuration that was updated.
+--
+-- /Note:/ Consider using 'domainConfigurationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udcrrsDomainConfigurationArn :: Lens.Lens' UpdateDomainConfigurationResponse (Core.Maybe Types.DomainConfigurationArn)
+udcrrsDomainConfigurationArn = Lens.field @"domainConfigurationArn"
+{-# DEPRECATED udcrrsDomainConfigurationArn "Use generic-lens or generic-optics with 'domainConfigurationArn' instead." #-}
 
 -- | The name of the domain configuration that was updated.
 --
 -- /Note:/ Consider using 'domainConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcrsDomainConfigurationName :: Lens.Lens' UpdateDomainConfigurationResponse (Lude.Maybe Lude.Text)
-udcrsDomainConfigurationName = Lens.lens (domainConfigurationName :: UpdateDomainConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainConfigurationName = a} :: UpdateDomainConfigurationResponse)
-{-# DEPRECATED udcrsDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
-
--- | The ARN of the domain configuration that was updated.
---
--- /Note:/ Consider using 'domainConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcrsDomainConfigurationARN :: Lens.Lens' UpdateDomainConfigurationResponse (Lude.Maybe Lude.Text)
-udcrsDomainConfigurationARN = Lens.lens (domainConfigurationARN :: UpdateDomainConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {domainConfigurationARN = a} :: UpdateDomainConfigurationResponse)
-{-# DEPRECATED udcrsDomainConfigurationARN "Use generic-lens or generic-optics with 'domainConfigurationARN' instead." #-}
+udcrrsDomainConfigurationName :: Lens.Lens' UpdateDomainConfigurationResponse (Core.Maybe Types.DomainConfigurationName)
+udcrrsDomainConfigurationName = Lens.field @"domainConfigurationName"
+{-# DEPRECATED udcrrsDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udcrsResponseStatus :: Lens.Lens' UpdateDomainConfigurationResponse Lude.Int
-udcrsResponseStatus = Lens.lens (responseStatus :: UpdateDomainConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDomainConfigurationResponse)
-{-# DEPRECATED udcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udcrrsResponseStatus :: Lens.Lens' UpdateDomainConfigurationResponse Core.Int
+udcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

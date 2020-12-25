@@ -13,66 +13,71 @@
 module Network.AWS.IoT.Types.MitigationActionType
   ( MitigationActionType
       ( MitigationActionType',
-        UpdateDeviceCertificate,
-        UpdateCaCertificate,
-        AddThingsToThingGroup,
-        ReplaceDefaultPolicyVersion,
-        EnableIotLogging,
-        PublishFindingToSNS
+        MitigationActionTypeUpdateDeviceCertificate,
+        MitigationActionTypeUpdateCaCertificate,
+        MitigationActionTypeAddThingsToThingGroup,
+        MitigationActionTypeReplaceDefaultPolicyVersion,
+        MitigationActionTypeEnableIotLogging,
+        MitigationActionTypePublishFindingToSns,
+        fromMitigationActionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MitigationActionType = MitigationActionType' Lude.Text
+newtype MitigationActionType = MitigationActionType'
+  { fromMitigationActionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UpdateDeviceCertificate :: MitigationActionType
-pattern UpdateDeviceCertificate = MitigationActionType' "UPDATE_DEVICE_CERTIFICATE"
+pattern MitigationActionTypeUpdateDeviceCertificate :: MitigationActionType
+pattern MitigationActionTypeUpdateDeviceCertificate = MitigationActionType' "UPDATE_DEVICE_CERTIFICATE"
 
-pattern UpdateCaCertificate :: MitigationActionType
-pattern UpdateCaCertificate = MitigationActionType' "UPDATE_CA_CERTIFICATE"
+pattern MitigationActionTypeUpdateCaCertificate :: MitigationActionType
+pattern MitigationActionTypeUpdateCaCertificate = MitigationActionType' "UPDATE_CA_CERTIFICATE"
 
-pattern AddThingsToThingGroup :: MitigationActionType
-pattern AddThingsToThingGroup = MitigationActionType' "ADD_THINGS_TO_THING_GROUP"
+pattern MitigationActionTypeAddThingsToThingGroup :: MitigationActionType
+pattern MitigationActionTypeAddThingsToThingGroup = MitigationActionType' "ADD_THINGS_TO_THING_GROUP"
 
-pattern ReplaceDefaultPolicyVersion :: MitigationActionType
-pattern ReplaceDefaultPolicyVersion = MitigationActionType' "REPLACE_DEFAULT_POLICY_VERSION"
+pattern MitigationActionTypeReplaceDefaultPolicyVersion :: MitigationActionType
+pattern MitigationActionTypeReplaceDefaultPolicyVersion = MitigationActionType' "REPLACE_DEFAULT_POLICY_VERSION"
 
-pattern EnableIotLogging :: MitigationActionType
-pattern EnableIotLogging = MitigationActionType' "ENABLE_IOT_LOGGING"
+pattern MitigationActionTypeEnableIotLogging :: MitigationActionType
+pattern MitigationActionTypeEnableIotLogging = MitigationActionType' "ENABLE_IOT_LOGGING"
 
-pattern PublishFindingToSNS :: MitigationActionType
-pattern PublishFindingToSNS = MitigationActionType' "PUBLISH_FINDING_TO_SNS"
+pattern MitigationActionTypePublishFindingToSns :: MitigationActionType
+pattern MitigationActionTypePublishFindingToSns = MitigationActionType' "PUBLISH_FINDING_TO_SNS"
 
 {-# COMPLETE
-  UpdateDeviceCertificate,
-  UpdateCaCertificate,
-  AddThingsToThingGroup,
-  ReplaceDefaultPolicyVersion,
-  EnableIotLogging,
-  PublishFindingToSNS,
+  MitigationActionTypeUpdateDeviceCertificate,
+  MitigationActionTypeUpdateCaCertificate,
+  MitigationActionTypeAddThingsToThingGroup,
+  MitigationActionTypeReplaceDefaultPolicyVersion,
+  MitigationActionTypeEnableIotLogging,
+  MitigationActionTypePublishFindingToSns,
   MitigationActionType'
   #-}

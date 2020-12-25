@@ -22,137 +22,123 @@ module Network.AWS.Lightsail.StopRelationalDatabase
     mkStopRelationalDatabase,
 
     -- ** Request lenses
-    srdRelationalDatabaseSnapshotName,
     srdRelationalDatabaseName,
+    srdRelationalDatabaseSnapshotName,
 
     -- * Destructuring the response
     StopRelationalDatabaseResponse (..),
     mkStopRelationalDatabaseResponse,
 
     -- ** Response lenses
-    srsOperations,
-    srsResponseStatus,
+    srdrrsOperations,
+    srdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopRelationalDatabase' smart constructor.
 data StopRelationalDatabase = StopRelationalDatabase'
-  { -- | The name of your new database snapshot to be created before stopping your database.
-    relationalDatabaseSnapshotName :: Lude.Maybe Lude.Text,
-    -- | The name of your database to stop.
-    relationalDatabaseName :: Lude.Text
+  { -- | The name of your database to stop.
+    relationalDatabaseName :: Types.RelationalDatabaseName,
+    -- | The name of your new database snapshot to be created before stopping your database.
+    relationalDatabaseSnapshotName :: Core.Maybe Types.RelationalDatabaseSnapshotName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopRelationalDatabase' with the minimum fields required to make a request.
---
--- * 'relationalDatabaseSnapshotName' - The name of your new database snapshot to be created before stopping your database.
--- * 'relationalDatabaseName' - The name of your database to stop.
+-- | Creates a 'StopRelationalDatabase' value with any optional fields omitted.
 mkStopRelationalDatabase ::
   -- | 'relationalDatabaseName'
-  Lude.Text ->
+  Types.RelationalDatabaseName ->
   StopRelationalDatabase
-mkStopRelationalDatabase pRelationalDatabaseName_ =
+mkStopRelationalDatabase relationalDatabaseName =
   StopRelationalDatabase'
-    { relationalDatabaseSnapshotName =
-        Lude.Nothing,
-      relationalDatabaseName = pRelationalDatabaseName_
+    { relationalDatabaseName,
+      relationalDatabaseSnapshotName = Core.Nothing
     }
-
--- | The name of your new database snapshot to be created before stopping your database.
---
--- /Note:/ Consider using 'relationalDatabaseSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srdRelationalDatabaseSnapshotName :: Lens.Lens' StopRelationalDatabase (Lude.Maybe Lude.Text)
-srdRelationalDatabaseSnapshotName = Lens.lens (relationalDatabaseSnapshotName :: StopRelationalDatabase -> Lude.Maybe Lude.Text) (\s a -> s {relationalDatabaseSnapshotName = a} :: StopRelationalDatabase)
-{-# DEPRECATED srdRelationalDatabaseSnapshotName "Use generic-lens or generic-optics with 'relationalDatabaseSnapshotName' instead." #-}
 
 -- | The name of your database to stop.
 --
 -- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srdRelationalDatabaseName :: Lens.Lens' StopRelationalDatabase Lude.Text
-srdRelationalDatabaseName = Lens.lens (relationalDatabaseName :: StopRelationalDatabase -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: StopRelationalDatabase)
+srdRelationalDatabaseName :: Lens.Lens' StopRelationalDatabase Types.RelationalDatabaseName
+srdRelationalDatabaseName = Lens.field @"relationalDatabaseName"
 {-# DEPRECATED srdRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
-instance Lude.AWSRequest StopRelationalDatabase where
+-- | The name of your new database snapshot to be created before stopping your database.
+--
+-- /Note:/ Consider using 'relationalDatabaseSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srdRelationalDatabaseSnapshotName :: Lens.Lens' StopRelationalDatabase (Core.Maybe Types.RelationalDatabaseSnapshotName)
+srdRelationalDatabaseSnapshotName = Lens.field @"relationalDatabaseSnapshotName"
+{-# DEPRECATED srdRelationalDatabaseSnapshotName "Use generic-lens or generic-optics with 'relationalDatabaseSnapshotName' instead." #-}
+
+instance Core.FromJSON StopRelationalDatabase where
+  toJSON StopRelationalDatabase {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("relationalDatabaseName" Core..= relationalDatabaseName),
+            ("relationalDatabaseSnapshotName" Core..=)
+              Core.<$> relationalDatabaseSnapshotName
+          ]
+      )
+
+instance Core.AWSRequest StopRelationalDatabase where
   type Rs StopRelationalDatabase = StopRelationalDatabaseResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.StopRelationalDatabase")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopRelationalDatabaseResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopRelationalDatabase where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.StopRelationalDatabase" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopRelationalDatabase where
-  toJSON StopRelationalDatabase' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("relationalDatabaseSnapshotName" Lude..=)
-              Lude.<$> relationalDatabaseSnapshotName,
-            Lude.Just
-              ("relationalDatabaseName" Lude..= relationalDatabaseName)
-          ]
-      )
-
-instance Lude.ToPath StopRelationalDatabase where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopRelationalDatabase where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopRelationalDatabaseResponse' smart constructor.
 data StopRelationalDatabaseResponse = StopRelationalDatabaseResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StopRelationalDatabaseResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopRelationalDatabaseResponse' value with any optional fields omitted.
 mkStopRelationalDatabaseResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopRelationalDatabaseResponse
-mkStopRelationalDatabaseResponse pResponseStatus_ =
+mkStopRelationalDatabaseResponse responseStatus =
   StopRelationalDatabaseResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operations = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsOperations :: Lens.Lens' StopRelationalDatabaseResponse (Lude.Maybe [Operation])
-srsOperations = Lens.lens (operations :: StopRelationalDatabaseResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: StopRelationalDatabaseResponse)
-{-# DEPRECATED srsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+srdrrsOperations :: Lens.Lens' StopRelationalDatabaseResponse (Core.Maybe [Types.Operation])
+srdrrsOperations = Lens.field @"operations"
+{-# DEPRECATED srdrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StopRelationalDatabaseResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StopRelationalDatabaseResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopRelationalDatabaseResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srdrrsResponseStatus :: Lens.Lens' StopRelationalDatabaseResponse Core.Int
+srdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

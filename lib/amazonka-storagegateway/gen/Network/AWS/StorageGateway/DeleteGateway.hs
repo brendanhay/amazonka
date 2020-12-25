@@ -30,110 +30,94 @@ module Network.AWS.StorageGateway.DeleteGateway
     mkDeleteGatewayResponse,
 
     -- ** Response lenses
-    dgfrsGatewayARN,
-    dgfrsResponseStatus,
+    dgrrsGatewayARN,
+    dgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing the ID of the gateway to delete.
 --
 -- /See:/ 'mkDeleteGateway' smart constructor.
 newtype DeleteGateway = DeleteGateway'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGateway' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'DeleteGateway' value with any optional fields omitted.
 mkDeleteGateway ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   DeleteGateway
-mkDeleteGateway pGatewayARN_ =
-  DeleteGateway' {gatewayARN = pGatewayARN_}
+mkDeleteGateway gatewayARN = DeleteGateway' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgGatewayARN :: Lens.Lens' DeleteGateway Lude.Text
-dgGatewayARN = Lens.lens (gatewayARN :: DeleteGateway -> Lude.Text) (\s a -> s {gatewayARN = a} :: DeleteGateway)
+dgGatewayARN :: Lens.Lens' DeleteGateway Types.GatewayARN
+dgGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED dgGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest DeleteGateway where
+instance Core.FromJSON DeleteGateway where
+  toJSON DeleteGateway {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest DeleteGateway where
   type Rs DeleteGateway = DeleteGatewayResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "StorageGateway_20130630.DeleteGateway")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteGatewayResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteGateway where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.DeleteGateway" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteGateway where
-  toJSON DeleteGateway' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath DeleteGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteGateway where
-  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the ID of the deleted gateway.
 --
 -- /See:/ 'mkDeleteGatewayResponse' smart constructor.
 data DeleteGatewayResponse = DeleteGatewayResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGatewayResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteGatewayResponse' value with any optional fields omitted.
 mkDeleteGatewayResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteGatewayResponse
-mkDeleteGatewayResponse pResponseStatus_ =
-  DeleteGatewayResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteGatewayResponse responseStatus =
+  DeleteGatewayResponse' {gatewayARN = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgfrsGatewayARN :: Lens.Lens' DeleteGatewayResponse (Lude.Maybe Lude.Text)
-dgfrsGatewayARN = Lens.lens (gatewayARN :: DeleteGatewayResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DeleteGatewayResponse)
-{-# DEPRECATED dgfrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+dgrrsGatewayARN :: Lens.Lens' DeleteGatewayResponse (Core.Maybe Types.GatewayARN)
+dgrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED dgrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgfrsResponseStatus :: Lens.Lens' DeleteGatewayResponse Lude.Int
-dgfrsResponseStatus = Lens.lens (responseStatus :: DeleteGatewayResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGatewayResponse)
-{-# DEPRECATED dgfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgrrsResponseStatus :: Lens.Lens' DeleteGatewayResponse Core.Int
+dgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

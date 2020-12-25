@@ -13,46 +13,51 @@
 module Network.AWS.IoT.Types.MessageFormat
   ( MessageFormat
       ( MessageFormat',
-        Raw,
-        JSON
+        MessageFormatRaw,
+        MessageFormatJson,
+        fromMessageFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MessageFormat = MessageFormat' Lude.Text
+newtype MessageFormat = MessageFormat'
+  { fromMessageFormat ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Raw :: MessageFormat
-pattern Raw = MessageFormat' "RAW"
+pattern MessageFormatRaw :: MessageFormat
+pattern MessageFormatRaw = MessageFormat' "RAW"
 
-pattern JSON :: MessageFormat
-pattern JSON = MessageFormat' "JSON"
+pattern MessageFormatJson :: MessageFormat
+pattern MessageFormatJson = MessageFormat' "JSON"
 
 {-# COMPLETE
-  Raw,
-  JSON,
+  MessageFormatRaw,
+  MessageFormatJson,
   MessageFormat'
   #-}

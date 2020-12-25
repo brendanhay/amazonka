@@ -38,61 +38,53 @@ module Network.AWS.Rekognition.DetectLabels
 
     -- ** Request lenses
     dlImage,
-    dlMinConfidence,
     dlMaxLabels,
+    dlMinConfidence,
 
     -- * Destructuring the response
     DetectLabelsResponse (..),
     mkDetectLabelsResponse,
 
     -- ** Response lenses
-    dlrsLabels,
-    dlrsOrientationCorrection,
-    dlrsLabelModelVersion,
-    dlrsResponseStatus,
+    dlrrsLabelModelVersion,
+    dlrrsLabels,
+    dlrrsOrientationCorrection,
+    dlrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetectLabels' smart constructor.
 data DetectLabels = DetectLabels'
   { -- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do not need to be base64-encoded.
     --
     -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
-    image :: Image,
+    image :: Types.Image,
+    -- | Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels.
+    maxLabels :: Core.Maybe Core.Natural,
     -- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.
     --
     -- If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 55 percent.
-    minConfidence :: Lude.Maybe Lude.Double,
-    -- | Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels.
-    maxLabels :: Lude.Maybe Lude.Natural
+    minConfidence :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectLabels' with the minimum fields required to make a request.
---
--- * 'image' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do not need to be base64-encoded.
---
--- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
--- * 'minConfidence' - Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.
---
--- If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 55 percent.
--- * 'maxLabels' - Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels.
+-- | Creates a 'DetectLabels' value with any optional fields omitted.
 mkDetectLabels ::
   -- | 'image'
-  Image ->
+  Types.Image ->
   DetectLabels
-mkDetectLabels pImage_ =
+mkDetectLabels image =
   DetectLabels'
-    { image = pImage_,
-      minConfidence = Lude.Nothing,
-      maxLabels = Lude.Nothing
+    { image,
+      maxLabels = Core.Nothing,
+      minConfidence = Core.Nothing
     }
 
 -- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do not need to be base64-encoded.
@@ -100,110 +92,102 @@ mkDetectLabels pImage_ =
 -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlImage :: Lens.Lens' DetectLabels Image
-dlImage = Lens.lens (image :: DetectLabels -> Image) (\s a -> s {image = a} :: DetectLabels)
+dlImage :: Lens.Lens' DetectLabels Types.Image
+dlImage = Lens.field @"image"
 {-# DEPRECATED dlImage "Use generic-lens or generic-optics with 'image' instead." #-}
+
+-- | Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels.
+--
+-- /Note:/ Consider using 'maxLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlMaxLabels :: Lens.Lens' DetectLabels (Core.Maybe Core.Natural)
+dlMaxLabels = Lens.field @"maxLabels"
+{-# DEPRECATED dlMaxLabels "Use generic-lens or generic-optics with 'maxLabels' instead." #-}
 
 -- | Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't return any labels with confidence lower than this specified value.
 --
 -- If @MinConfidence@ is not specified, the operation returns labels with a confidence values greater than or equal to 55 percent.
 --
 -- /Note:/ Consider using 'minConfidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlMinConfidence :: Lens.Lens' DetectLabels (Lude.Maybe Lude.Double)
-dlMinConfidence = Lens.lens (minConfidence :: DetectLabels -> Lude.Maybe Lude.Double) (\s a -> s {minConfidence = a} :: DetectLabels)
+dlMinConfidence :: Lens.Lens' DetectLabels (Core.Maybe Core.Double)
+dlMinConfidence = Lens.field @"minConfidence"
 {-# DEPRECATED dlMinConfidence "Use generic-lens or generic-optics with 'minConfidence' instead." #-}
 
--- | Maximum number of labels you want the service to return in the response. The service returns the specified number of highest confidence labels.
---
--- /Note:/ Consider using 'maxLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlMaxLabels :: Lens.Lens' DetectLabels (Lude.Maybe Lude.Natural)
-dlMaxLabels = Lens.lens (maxLabels :: DetectLabels -> Lude.Maybe Lude.Natural) (\s a -> s {maxLabels = a} :: DetectLabels)
-{-# DEPRECATED dlMaxLabels "Use generic-lens or generic-optics with 'maxLabels' instead." #-}
+instance Core.FromJSON DetectLabels where
+  toJSON DetectLabels {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Image" Core..= image),
+            ("MaxLabels" Core..=) Core.<$> maxLabels,
+            ("MinConfidence" Core..=) Core.<$> minConfidence
+          ]
+      )
 
-instance Lude.AWSRequest DetectLabels where
+instance Core.AWSRequest DetectLabels where
   type Rs DetectLabels = DetectLabelsResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.DetectLabels")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DetectLabelsResponse'
-            Lude.<$> (x Lude..?> "Labels" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "OrientationCorrection")
-            Lude.<*> (x Lude..?> "LabelModelVersion")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "LabelModelVersion")
+            Core.<*> (x Core..:? "Labels")
+            Core.<*> (x Core..:? "OrientationCorrection")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetectLabels where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.DetectLabels" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DetectLabels where
-  toJSON DetectLabels' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Image" Lude..= image),
-            ("MinConfidence" Lude..=) Lude.<$> minConfidence,
-            ("MaxLabels" Lude..=) Lude.<$> maxLabels
-          ]
-      )
-
-instance Lude.ToPath DetectLabels where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetectLabels where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDetectLabelsResponse' smart constructor.
 data DetectLabelsResponse = DetectLabelsResponse'
-  { -- | An array of labels for the real-world objects detected.
-    labels :: Lude.Maybe [Label],
+  { -- | Version number of the label detection model that was used to detect labels.
+    labelModelVersion :: Core.Maybe Types.String,
+    -- | An array of labels for the real-world objects detected.
+    labels :: Core.Maybe [Types.Label],
     -- | The value of @OrientationCorrection@ is always null.
     --
     -- If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.
     -- Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated.
-    orientationCorrection :: Lude.Maybe OrientationCorrection,
-    -- | Version number of the label detection model that was used to detect labels.
-    labelModelVersion :: Lude.Maybe Lude.Text,
+    orientationCorrection :: Core.Maybe Types.OrientationCorrection,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetectLabelsResponse' with the minimum fields required to make a request.
---
--- * 'labels' - An array of labels for the real-world objects detected.
--- * 'orientationCorrection' - The value of @OrientationCorrection@ is always null.
---
--- If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.
--- Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated.
--- * 'labelModelVersion' - Version number of the label detection model that was used to detect labels.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetectLabelsResponse' value with any optional fields omitted.
 mkDetectLabelsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetectLabelsResponse
-mkDetectLabelsResponse pResponseStatus_ =
+mkDetectLabelsResponse responseStatus =
   DetectLabelsResponse'
-    { labels = Lude.Nothing,
-      orientationCorrection = Lude.Nothing,
-      labelModelVersion = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { labelModelVersion = Core.Nothing,
+      labels = Core.Nothing,
+      orientationCorrection = Core.Nothing,
+      responseStatus
     }
+
+-- | Version number of the label detection model that was used to detect labels.
+--
+-- /Note:/ Consider using 'labelModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlrrsLabelModelVersion :: Lens.Lens' DetectLabelsResponse (Core.Maybe Types.String)
+dlrrsLabelModelVersion = Lens.field @"labelModelVersion"
+{-# DEPRECATED dlrrsLabelModelVersion "Use generic-lens or generic-optics with 'labelModelVersion' instead." #-}
 
 -- | An array of labels for the real-world objects detected.
 --
 -- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsLabels :: Lens.Lens' DetectLabelsResponse (Lude.Maybe [Label])
-dlrsLabels = Lens.lens (labels :: DetectLabelsResponse -> Lude.Maybe [Label]) (\s a -> s {labels = a} :: DetectLabelsResponse)
-{-# DEPRECATED dlrsLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
+dlrrsLabels :: Lens.Lens' DetectLabelsResponse (Core.Maybe [Types.Label])
+dlrrsLabels = Lens.field @"labels"
+{-# DEPRECATED dlrrsLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
 -- | The value of @OrientationCorrection@ is always null.
 --
@@ -211,20 +195,13 @@ dlrsLabels = Lens.lens (labels :: DetectLabelsResponse -> Lude.Maybe [Label]) (\
 -- Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated.
 --
 -- /Note:/ Consider using 'orientationCorrection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsOrientationCorrection :: Lens.Lens' DetectLabelsResponse (Lude.Maybe OrientationCorrection)
-dlrsOrientationCorrection = Lens.lens (orientationCorrection :: DetectLabelsResponse -> Lude.Maybe OrientationCorrection) (\s a -> s {orientationCorrection = a} :: DetectLabelsResponse)
-{-# DEPRECATED dlrsOrientationCorrection "Use generic-lens or generic-optics with 'orientationCorrection' instead." #-}
-
--- | Version number of the label detection model that was used to detect labels.
---
--- /Note:/ Consider using 'labelModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsLabelModelVersion :: Lens.Lens' DetectLabelsResponse (Lude.Maybe Lude.Text)
-dlrsLabelModelVersion = Lens.lens (labelModelVersion :: DetectLabelsResponse -> Lude.Maybe Lude.Text) (\s a -> s {labelModelVersion = a} :: DetectLabelsResponse)
-{-# DEPRECATED dlrsLabelModelVersion "Use generic-lens or generic-optics with 'labelModelVersion' instead." #-}
+dlrrsOrientationCorrection :: Lens.Lens' DetectLabelsResponse (Core.Maybe Types.OrientationCorrection)
+dlrrsOrientationCorrection = Lens.field @"orientationCorrection"
+{-# DEPRECATED dlrrsOrientationCorrection "Use generic-lens or generic-optics with 'orientationCorrection' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsResponseStatus :: Lens.Lens' DetectLabelsResponse Lude.Int
-dlrsResponseStatus = Lens.lens (responseStatus :: DetectLabelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetectLabelsResponse)
-{-# DEPRECATED dlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlrrsResponseStatus :: Lens.Lens' DetectLabelsResponse Core.Int
+dlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

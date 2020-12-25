@@ -57,114 +57,102 @@ module Network.AWS.GameLift.ValidateMatchmakingRuleSet
     mkValidateMatchmakingRuleSetResponse,
 
     -- ** Response lenses
-    vmrsrsValid,
-    vmrsrsResponseStatus,
+    vmrsrrsValid,
+    vmrsrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkValidateMatchmakingRuleSet' smart constructor.
 newtype ValidateMatchmakingRuleSet = ValidateMatchmakingRuleSet'
   { -- | A collection of matchmaking rules to validate, formatted as a JSON string.
-    ruleSetBody :: Lude.Text
+    ruleSetBody :: Types.RuleSetBody
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidateMatchmakingRuleSet' with the minimum fields required to make a request.
---
--- * 'ruleSetBody' - A collection of matchmaking rules to validate, formatted as a JSON string.
+-- | Creates a 'ValidateMatchmakingRuleSet' value with any optional fields omitted.
 mkValidateMatchmakingRuleSet ::
   -- | 'ruleSetBody'
-  Lude.Text ->
+  Types.RuleSetBody ->
   ValidateMatchmakingRuleSet
-mkValidateMatchmakingRuleSet pRuleSetBody_ =
-  ValidateMatchmakingRuleSet' {ruleSetBody = pRuleSetBody_}
+mkValidateMatchmakingRuleSet ruleSetBody =
+  ValidateMatchmakingRuleSet' {ruleSetBody}
 
 -- | A collection of matchmaking rules to validate, formatted as a JSON string.
 --
 -- /Note:/ Consider using 'ruleSetBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmrsRuleSetBody :: Lens.Lens' ValidateMatchmakingRuleSet Lude.Text
-vmrsRuleSetBody = Lens.lens (ruleSetBody :: ValidateMatchmakingRuleSet -> Lude.Text) (\s a -> s {ruleSetBody = a} :: ValidateMatchmakingRuleSet)
+vmrsRuleSetBody :: Lens.Lens' ValidateMatchmakingRuleSet Types.RuleSetBody
+vmrsRuleSetBody = Lens.field @"ruleSetBody"
 {-# DEPRECATED vmrsRuleSetBody "Use generic-lens or generic-optics with 'ruleSetBody' instead." #-}
 
-instance Lude.AWSRequest ValidateMatchmakingRuleSet where
+instance Core.FromJSON ValidateMatchmakingRuleSet where
+  toJSON ValidateMatchmakingRuleSet {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("RuleSetBody" Core..= ruleSetBody)])
+
+instance Core.AWSRequest ValidateMatchmakingRuleSet where
   type
     Rs ValidateMatchmakingRuleSet =
       ValidateMatchmakingRuleSetResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.ValidateMatchmakingRuleSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ValidateMatchmakingRuleSetResponse'
-            Lude.<$> (x Lude..?> "Valid") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Valid") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ValidateMatchmakingRuleSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.ValidateMatchmakingRuleSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ValidateMatchmakingRuleSet where
-  toJSON ValidateMatchmakingRuleSet' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("RuleSetBody" Lude..= ruleSetBody)])
-
-instance Lude.ToPath ValidateMatchmakingRuleSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ValidateMatchmakingRuleSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkValidateMatchmakingRuleSetResponse' smart constructor.
 data ValidateMatchmakingRuleSetResponse = ValidateMatchmakingRuleSetResponse'
   { -- | A response indicating whether the rule set is valid.
-    valid :: Lude.Maybe Lude.Bool,
+    valid :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidateMatchmakingRuleSetResponse' with the minimum fields required to make a request.
---
--- * 'valid' - A response indicating whether the rule set is valid.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ValidateMatchmakingRuleSetResponse' value with any optional fields omitted.
 mkValidateMatchmakingRuleSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ValidateMatchmakingRuleSetResponse
-mkValidateMatchmakingRuleSetResponse pResponseStatus_ =
+mkValidateMatchmakingRuleSetResponse responseStatus =
   ValidateMatchmakingRuleSetResponse'
-    { valid = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { valid = Core.Nothing,
+      responseStatus
     }
 
 -- | A response indicating whether the rule set is valid.
 --
 -- /Note:/ Consider using 'valid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmrsrsValid :: Lens.Lens' ValidateMatchmakingRuleSetResponse (Lude.Maybe Lude.Bool)
-vmrsrsValid = Lens.lens (valid :: ValidateMatchmakingRuleSetResponse -> Lude.Maybe Lude.Bool) (\s a -> s {valid = a} :: ValidateMatchmakingRuleSetResponse)
-{-# DEPRECATED vmrsrsValid "Use generic-lens or generic-optics with 'valid' instead." #-}
+vmrsrrsValid :: Lens.Lens' ValidateMatchmakingRuleSetResponse (Core.Maybe Core.Bool)
+vmrsrrsValid = Lens.field @"valid"
+{-# DEPRECATED vmrsrrsValid "Use generic-lens or generic-optics with 'valid' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vmrsrsResponseStatus :: Lens.Lens' ValidateMatchmakingRuleSetResponse Lude.Int
-vmrsrsResponseStatus = Lens.lens (responseStatus :: ValidateMatchmakingRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ValidateMatchmakingRuleSetResponse)
-{-# DEPRECATED vmrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+vmrsrrsResponseStatus :: Lens.Lens' ValidateMatchmakingRuleSetResponse Core.Int
+vmrsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED vmrsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

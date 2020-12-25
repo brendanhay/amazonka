@@ -21,36 +21,34 @@ module Network.AWS.ElasticBeanstalk.Types.EnvironmentResourcesDescription
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription
+import qualified Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the AWS resources in use by this environment. This data is not live data.
 --
 -- /See:/ 'mkEnvironmentResourcesDescription' smart constructor.
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'
   { -- | Describes the LoadBalancer.
-    loadBalancer :: Lude.Maybe LoadBalancerDescription
+    loadBalancer :: Core.Maybe Types.LoadBalancerDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnvironmentResourcesDescription' with the minimum fields required to make a request.
---
--- * 'loadBalancer' - Describes the LoadBalancer.
+-- | Creates a 'EnvironmentResourcesDescription' value with any optional fields omitted.
 mkEnvironmentResourcesDescription ::
   EnvironmentResourcesDescription
 mkEnvironmentResourcesDescription =
-  EnvironmentResourcesDescription' {loadBalancer = Lude.Nothing}
+  EnvironmentResourcesDescription' {loadBalancer = Core.Nothing}
 
 -- | Describes the LoadBalancer.
 --
 -- /Note:/ Consider using 'loadBalancer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erdLoadBalancer :: Lens.Lens' EnvironmentResourcesDescription (Lude.Maybe LoadBalancerDescription)
-erdLoadBalancer = Lens.lens (loadBalancer :: EnvironmentResourcesDescription -> Lude.Maybe LoadBalancerDescription) (\s a -> s {loadBalancer = a} :: EnvironmentResourcesDescription)
+erdLoadBalancer :: Lens.Lens' EnvironmentResourcesDescription (Core.Maybe Types.LoadBalancerDescription)
+erdLoadBalancer = Lens.field @"loadBalancer"
 {-# DEPRECATED erdLoadBalancer "Use generic-lens or generic-optics with 'loadBalancer' instead." #-}
 
-instance Lude.FromXML EnvironmentResourcesDescription where
+instance Core.FromXML EnvironmentResourcesDescription where
   parseXML x =
     EnvironmentResourcesDescription'
-      Lude.<$> (x Lude..@? "LoadBalancer")
+      Core.<$> (x Core..@? "LoadBalancer")

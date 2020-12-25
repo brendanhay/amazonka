@@ -23,62 +23,56 @@ module Network.AWS.SageMaker.Types.TensorBoardOutputConfig
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.DirectoryPath as Types
+import qualified Network.AWS.SageMaker.Types.S3Uri as Types
 
 -- | Configuration of storage locations for TensorBoard output.
 --
 -- /See:/ 'mkTensorBoardOutputConfig' smart constructor.
 data TensorBoardOutputConfig = TensorBoardOutputConfig'
   { -- | Path to Amazon S3 storage location for TensorBoard output.
-    s3OutputPath :: Lude.Text,
+    s3OutputPath :: Types.S3Uri,
     -- | Path to local storage location for tensorBoard output. Defaults to @/opt/ml/output/tensorboard@ .
-    localPath :: Lude.Maybe Lude.Text
+    localPath :: Core.Maybe Types.DirectoryPath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TensorBoardOutputConfig' with the minimum fields required to make a request.
---
--- * 's3OutputPath' - Path to Amazon S3 storage location for TensorBoard output.
--- * 'localPath' - Path to local storage location for tensorBoard output. Defaults to @/opt/ml/output/tensorboard@ .
+-- | Creates a 'TensorBoardOutputConfig' value with any optional fields omitted.
 mkTensorBoardOutputConfig ::
   -- | 's3OutputPath'
-  Lude.Text ->
+  Types.S3Uri ->
   TensorBoardOutputConfig
-mkTensorBoardOutputConfig pS3OutputPath_ =
-  TensorBoardOutputConfig'
-    { s3OutputPath = pS3OutputPath_,
-      localPath = Lude.Nothing
-    }
+mkTensorBoardOutputConfig s3OutputPath =
+  TensorBoardOutputConfig' {s3OutputPath, localPath = Core.Nothing}
 
 -- | Path to Amazon S3 storage location for TensorBoard output.
 --
 -- /Note:/ Consider using 's3OutputPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tbocS3OutputPath :: Lens.Lens' TensorBoardOutputConfig Lude.Text
-tbocS3OutputPath = Lens.lens (s3OutputPath :: TensorBoardOutputConfig -> Lude.Text) (\s a -> s {s3OutputPath = a} :: TensorBoardOutputConfig)
+tbocS3OutputPath :: Lens.Lens' TensorBoardOutputConfig Types.S3Uri
+tbocS3OutputPath = Lens.field @"s3OutputPath"
 {-# DEPRECATED tbocS3OutputPath "Use generic-lens or generic-optics with 's3OutputPath' instead." #-}
 
 -- | Path to local storage location for tensorBoard output. Defaults to @/opt/ml/output/tensorboard@ .
 --
 -- /Note:/ Consider using 'localPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tbocLocalPath :: Lens.Lens' TensorBoardOutputConfig (Lude.Maybe Lude.Text)
-tbocLocalPath = Lens.lens (localPath :: TensorBoardOutputConfig -> Lude.Maybe Lude.Text) (\s a -> s {localPath = a} :: TensorBoardOutputConfig)
+tbocLocalPath :: Lens.Lens' TensorBoardOutputConfig (Core.Maybe Types.DirectoryPath)
+tbocLocalPath = Lens.field @"localPath"
 {-# DEPRECATED tbocLocalPath "Use generic-lens or generic-optics with 'localPath' instead." #-}
 
-instance Lude.FromJSON TensorBoardOutputConfig where
-  parseJSON =
-    Lude.withObject
-      "TensorBoardOutputConfig"
-      ( \x ->
-          TensorBoardOutputConfig'
-            Lude.<$> (x Lude..: "S3OutputPath") Lude.<*> (x Lude..:? "LocalPath")
-      )
-
-instance Lude.ToJSON TensorBoardOutputConfig where
-  toJSON TensorBoardOutputConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("S3OutputPath" Lude..= s3OutputPath),
-            ("LocalPath" Lude..=) Lude.<$> localPath
+instance Core.FromJSON TensorBoardOutputConfig where
+  toJSON TensorBoardOutputConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3OutputPath" Core..= s3OutputPath),
+            ("LocalPath" Core..=) Core.<$> localPath
           ]
       )
+
+instance Core.FromJSON TensorBoardOutputConfig where
+  parseJSON =
+    Core.withObject "TensorBoardOutputConfig" Core.$
+      \x ->
+        TensorBoardOutputConfig'
+          Core.<$> (x Core..: "S3OutputPath") Core.<*> (x Core..:? "LocalPath")

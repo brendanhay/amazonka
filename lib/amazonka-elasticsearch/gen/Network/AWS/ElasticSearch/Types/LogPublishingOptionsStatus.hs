@@ -17,61 +17,55 @@ module Network.AWS.ElasticSearch.Types.LogPublishingOptionsStatus
     mkLogPublishingOptionsStatus,
 
     -- * Lenses
-    lposStatus,
     lposOptions,
+    lposStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.LogPublishingOption
-import Network.AWS.ElasticSearch.Types.LogType
-import Network.AWS.ElasticSearch.Types.OptionStatus
+import qualified Network.AWS.ElasticSearch.Types.LogPublishingOption as Types
+import qualified Network.AWS.ElasticSearch.Types.LogType as Types
+import qualified Network.AWS.ElasticSearch.Types.OptionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The configured log publishing options for the domain and their current status.
 --
 -- /See:/ 'mkLogPublishingOptionsStatus' smart constructor.
 data LogPublishingOptionsStatus = LogPublishingOptionsStatus'
-  { -- | The status of the log publishing options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
-    status :: Lude.Maybe OptionStatus,
-    -- | The log publishing options configured for the Elasticsearch domain.
-    options :: Lude.Maybe (Lude.HashMap LogType (LogPublishingOption))
+  { -- | The log publishing options configured for the Elasticsearch domain.
+    options :: Core.Maybe (Core.HashMap Types.LogType Types.LogPublishingOption),
+    -- | The status of the log publishing options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
+    status :: Core.Maybe Types.OptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LogPublishingOptionsStatus' with the minimum fields required to make a request.
---
--- * 'status' - The status of the log publishing options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
--- * 'options' - The log publishing options configured for the Elasticsearch domain.
+-- | Creates a 'LogPublishingOptionsStatus' value with any optional fields omitted.
 mkLogPublishingOptionsStatus ::
   LogPublishingOptionsStatus
 mkLogPublishingOptionsStatus =
   LogPublishingOptionsStatus'
-    { status = Lude.Nothing,
-      options = Lude.Nothing
+    { options = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the log publishing options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lposStatus :: Lens.Lens' LogPublishingOptionsStatus (Lude.Maybe OptionStatus)
-lposStatus = Lens.lens (status :: LogPublishingOptionsStatus -> Lude.Maybe OptionStatus) (\s a -> s {status = a} :: LogPublishingOptionsStatus)
-{-# DEPRECATED lposStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The log publishing options configured for the Elasticsearch domain.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lposOptions :: Lens.Lens' LogPublishingOptionsStatus (Lude.Maybe (Lude.HashMap LogType (LogPublishingOption)))
-lposOptions = Lens.lens (options :: LogPublishingOptionsStatus -> Lude.Maybe (Lude.HashMap LogType (LogPublishingOption))) (\s a -> s {options = a} :: LogPublishingOptionsStatus)
+lposOptions :: Lens.Lens' LogPublishingOptionsStatus (Core.Maybe (Core.HashMap Types.LogType Types.LogPublishingOption))
+lposOptions = Lens.field @"options"
 {-# DEPRECATED lposOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.FromJSON LogPublishingOptionsStatus where
+-- | The status of the log publishing options for the Elasticsearch domain. See @OptionStatus@ for the status information that's included.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lposStatus :: Lens.Lens' LogPublishingOptionsStatus (Core.Maybe Types.OptionStatus)
+lposStatus = Lens.field @"status"
+{-# DEPRECATED lposStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON LogPublishingOptionsStatus where
   parseJSON =
-    Lude.withObject
-      "LogPublishingOptionsStatus"
-      ( \x ->
-          LogPublishingOptionsStatus'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "Options" Lude..!= Lude.mempty)
-      )
+    Core.withObject "LogPublishingOptionsStatus" Core.$
+      \x ->
+        LogPublishingOptionsStatus'
+          Core.<$> (x Core..:? "Options") Core.<*> (x Core..:? "Status")

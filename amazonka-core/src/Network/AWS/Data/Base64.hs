@@ -24,7 +24,7 @@ import Network.AWS.Data.Body
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.JSON
 import Network.AWS.Data.Query
-import Network.AWS.Data.Text
+import Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Data.XML
 import Network.AWS.Lens (Iso', iso)
 

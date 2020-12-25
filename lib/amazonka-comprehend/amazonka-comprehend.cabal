@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Comprehend
     Network.AWS.Comprehend.BatchDetectDominantLanguage
@@ -131,6 +137,8 @@ library
     Network.AWS.Comprehend.Waiters
 
   other-modules:
+    Network.AWS.Comprehend.Types.AnyLengthString
+    Network.AWS.Comprehend.Types.AttributeNamesListItem
     Network.AWS.Comprehend.Types.AugmentedManifestsListItem
     Network.AWS.Comprehend.Types.BatchDetectDominantLanguageItemResult
     Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult
@@ -140,19 +148,30 @@ library
     Network.AWS.Comprehend.Types.BatchItemError
     Network.AWS.Comprehend.Types.ClassifierEvaluationMetrics
     Network.AWS.Comprehend.Types.ClassifierMetadata
+    Network.AWS.Comprehend.Types.ClientRequestToken
+    Network.AWS.Comprehend.Types.ClientRequestTokenString
+    Network.AWS.Comprehend.Types.ComprehendArn
+    Network.AWS.Comprehend.Types.ComprehendEndpointArn
+    Network.AWS.Comprehend.Types.ComprehendEndpointName
+    Network.AWS.Comprehend.Types.ComprehendModelArn
+    Network.AWS.Comprehend.Types.CustomerInputString
+    Network.AWS.Comprehend.Types.DataAccessRoleArn
     Network.AWS.Comprehend.Types.DocumentClass
     Network.AWS.Comprehend.Types.DocumentClassificationJobFilter
     Network.AWS.Comprehend.Types.DocumentClassificationJobProperties
+    Network.AWS.Comprehend.Types.DocumentClassifierArn
     Network.AWS.Comprehend.Types.DocumentClassifierDataFormat
     Network.AWS.Comprehend.Types.DocumentClassifierFilter
     Network.AWS.Comprehend.Types.DocumentClassifierInputDataConfig
     Network.AWS.Comprehend.Types.DocumentClassifierMode
+    Network.AWS.Comprehend.Types.DocumentClassifierName
     Network.AWS.Comprehend.Types.DocumentClassifierOutputDataConfig
     Network.AWS.Comprehend.Types.DocumentClassifierProperties
     Network.AWS.Comprehend.Types.DocumentLabel
     Network.AWS.Comprehend.Types.DominantLanguage
     Network.AWS.Comprehend.Types.DominantLanguageDetectionJobFilter
     Network.AWS.Comprehend.Types.DominantLanguageDetectionJobProperties
+    Network.AWS.Comprehend.Types.EndpointArn
     Network.AWS.Comprehend.Types.EndpointFilter
     Network.AWS.Comprehend.Types.EndpointProperties
     Network.AWS.Comprehend.Types.EndpointStatus
@@ -160,6 +179,7 @@ library
     Network.AWS.Comprehend.Types.EntitiesDetectionJobProperties
     Network.AWS.Comprehend.Types.Entity
     Network.AWS.Comprehend.Types.EntityRecognizerAnnotations
+    Network.AWS.Comprehend.Types.EntityRecognizerArn
     Network.AWS.Comprehend.Types.EntityRecognizerDataFormat
     Network.AWS.Comprehend.Types.EntityRecognizerDocuments
     Network.AWS.Comprehend.Types.EntityRecognizerEntityList
@@ -170,18 +190,30 @@ library
     Network.AWS.Comprehend.Types.EntityRecognizerMetadataEntityTypesListItem
     Network.AWS.Comprehend.Types.EntityRecognizerProperties
     Network.AWS.Comprehend.Types.EntityType
+    Network.AWS.Comprehend.Types.EntityTypeName
     Network.AWS.Comprehend.Types.EntityTypesEvaluationMetrics
     Network.AWS.Comprehend.Types.EntityTypesListItem
     Network.AWS.Comprehend.Types.EventsDetectionJobFilter
     Network.AWS.Comprehend.Types.EventsDetectionJobProperties
+    Network.AWS.Comprehend.Types.EventTypeString
+    Network.AWS.Comprehend.Types.IamRoleArn
     Network.AWS.Comprehend.Types.InputDataConfig
     Network.AWS.Comprehend.Types.InputFormat
+    Network.AWS.Comprehend.Types.JobId
+    Network.AWS.Comprehend.Types.JobName
     Network.AWS.Comprehend.Types.JobStatus
+    Network.AWS.Comprehend.Types.Key
     Network.AWS.Comprehend.Types.KeyPhrase
     Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobFilter
     Network.AWS.Comprehend.Types.KeyPhrasesDetectionJobProperties
+    Network.AWS.Comprehend.Types.KmsKeyId
+    Network.AWS.Comprehend.Types.LabelDelimiter
     Network.AWS.Comprehend.Types.LanguageCode
+    Network.AWS.Comprehend.Types.MaskCharacter
+    Network.AWS.Comprehend.Types.Message
+    Network.AWS.Comprehend.Types.ModelArn
     Network.AWS.Comprehend.Types.ModelStatus
+    Network.AWS.Comprehend.Types.NextToken
     Network.AWS.Comprehend.Types.OutputDataConfig
     Network.AWS.Comprehend.Types.PartOfSpeechTag
     Network.AWS.Comprehend.Types.PartOfSpeechTagType
@@ -192,17 +224,27 @@ library
     Network.AWS.Comprehend.Types.PiiEntity
     Network.AWS.Comprehend.Types.PiiEntityType
     Network.AWS.Comprehend.Types.PiiOutputDataConfig
+    Network.AWS.Comprehend.Types.RecognizerName
     Network.AWS.Comprehend.Types.RedactionConfig
+    Network.AWS.Comprehend.Types.ResourceArn
+    Network.AWS.Comprehend.Types.S3Uri
+    Network.AWS.Comprehend.Types.SecurityGroupId
     Network.AWS.Comprehend.Types.SentimentDetectionJobFilter
     Network.AWS.Comprehend.Types.SentimentDetectionJobProperties
     Network.AWS.Comprehend.Types.SentimentScore
     Network.AWS.Comprehend.Types.SentimentType
+    Network.AWS.Comprehend.Types.String
+    Network.AWS.Comprehend.Types.SubnetId
     Network.AWS.Comprehend.Types.SyntaxLanguageCode
     Network.AWS.Comprehend.Types.SyntaxToken
     Network.AWS.Comprehend.Types.Tag
+    Network.AWS.Comprehend.Types.TagKey
+    Network.AWS.Comprehend.Types.Text
     Network.AWS.Comprehend.Types.TopicsDetectionJobFilter
     Network.AWS.Comprehend.Types.TopicsDetectionJobProperties
-    Network.AWS.Comprehend.Types.VPCConfig
+    Network.AWS.Comprehend.Types.Value
+    Network.AWS.Comprehend.Types.VolumeKmsKeyId
+    Network.AWS.Comprehend.Types.VpcConfig
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

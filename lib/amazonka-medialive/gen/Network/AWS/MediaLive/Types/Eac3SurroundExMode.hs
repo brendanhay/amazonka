@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.Eac3SurroundExMode
   ( Eac3SurroundExMode
       ( Eac3SurroundExMode',
-        ESEMDisabled,
-        ESEMEnabled,
-        ESEMNotIndicated
+        Eac3SurroundExModeDisabled,
+        Eac3SurroundExModeEnabled,
+        Eac3SurroundExModeNotIndicated,
+        fromEac3SurroundExMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Eac3 Surround Ex Mode
-newtype Eac3SurroundExMode = Eac3SurroundExMode' Lude.Text
+newtype Eac3SurroundExMode = Eac3SurroundExMode'
+  { fromEac3SurroundExMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ESEMDisabled :: Eac3SurroundExMode
-pattern ESEMDisabled = Eac3SurroundExMode' "DISABLED"
+pattern Eac3SurroundExModeDisabled :: Eac3SurroundExMode
+pattern Eac3SurroundExModeDisabled = Eac3SurroundExMode' "DISABLED"
 
-pattern ESEMEnabled :: Eac3SurroundExMode
-pattern ESEMEnabled = Eac3SurroundExMode' "ENABLED"
+pattern Eac3SurroundExModeEnabled :: Eac3SurroundExMode
+pattern Eac3SurroundExModeEnabled = Eac3SurroundExMode' "ENABLED"
 
-pattern ESEMNotIndicated :: Eac3SurroundExMode
-pattern ESEMNotIndicated = Eac3SurroundExMode' "NOT_INDICATED"
+pattern Eac3SurroundExModeNotIndicated :: Eac3SurroundExMode
+pattern Eac3SurroundExModeNotIndicated = Eac3SurroundExMode' "NOT_INDICATED"
 
 {-# COMPLETE
-  ESEMDisabled,
-  ESEMEnabled,
-  ESEMNotIndicated,
+  Eac3SurroundExModeDisabled,
+  Eac3SurroundExModeEnabled,
+  Eac3SurroundExModeNotIndicated,
   Eac3SurroundExMode'
   #-}

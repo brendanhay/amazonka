@@ -22,136 +22,121 @@ module Network.AWS.ECS.UpdateContainerAgent
     mkUpdateContainerAgent,
 
     -- ** Request lenses
-    ucaCluster,
     ucaContainerInstance,
+    ucaCluster,
 
     -- * Destructuring the response
     UpdateContainerAgentResponse (..),
     mkUpdateContainerAgentResponse,
 
     -- ** Response lenses
-    ucarsContainerInstance,
-    ucarsResponseStatus,
+    ucarrsContainerInstance,
+    ucarrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateContainerAgent' smart constructor.
 data UpdateContainerAgent = UpdateContainerAgent'
-  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
-    cluster :: Lude.Maybe Lude.Text,
-    -- | The container instance ID or full ARN entries for the container instance on which you would like to update the Amazon ECS container agent.
-    containerInstance :: Lude.Text
+  { -- | The container instance ID or full ARN entries for the container instance on which you would like to update the Amazon ECS container agent.
+    containerInstance :: Types.String,
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateContainerAgent' with the minimum fields required to make a request.
---
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
--- * 'containerInstance' - The container instance ID or full ARN entries for the container instance on which you would like to update the Amazon ECS container agent.
+-- | Creates a 'UpdateContainerAgent' value with any optional fields omitted.
 mkUpdateContainerAgent ::
   -- | 'containerInstance'
-  Lude.Text ->
+  Types.String ->
   UpdateContainerAgent
-mkUpdateContainerAgent pContainerInstance_ =
-  UpdateContainerAgent'
-    { cluster = Lude.Nothing,
-      containerInstance = pContainerInstance_
-    }
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
---
--- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucaCluster :: Lens.Lens' UpdateContainerAgent (Lude.Maybe Lude.Text)
-ucaCluster = Lens.lens (cluster :: UpdateContainerAgent -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: UpdateContainerAgent)
-{-# DEPRECATED ucaCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+mkUpdateContainerAgent containerInstance =
+  UpdateContainerAgent' {containerInstance, cluster = Core.Nothing}
 
 -- | The container instance ID or full ARN entries for the container instance on which you would like to update the Amazon ECS container agent.
 --
 -- /Note:/ Consider using 'containerInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucaContainerInstance :: Lens.Lens' UpdateContainerAgent Lude.Text
-ucaContainerInstance = Lens.lens (containerInstance :: UpdateContainerAgent -> Lude.Text) (\s a -> s {containerInstance = a} :: UpdateContainerAgent)
+ucaContainerInstance :: Lens.Lens' UpdateContainerAgent Types.String
+ucaContainerInstance = Lens.field @"containerInstance"
 {-# DEPRECATED ucaContainerInstance "Use generic-lens or generic-optics with 'containerInstance' instead." #-}
 
-instance Lude.AWSRequest UpdateContainerAgent where
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that your container instance is running on. If you do not specify a cluster, the default cluster is assumed.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucaCluster :: Lens.Lens' UpdateContainerAgent (Core.Maybe Types.String)
+ucaCluster = Lens.field @"cluster"
+{-# DEPRECATED ucaCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+
+instance Core.FromJSON UpdateContainerAgent where
+  toJSON UpdateContainerAgent {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("containerInstance" Core..= containerInstance),
+            ("cluster" Core..=) Core.<$> cluster
+          ]
+      )
+
+instance Core.AWSRequest UpdateContainerAgent where
   type Rs UpdateContainerAgent = UpdateContainerAgentResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateContainerAgentResponse'
-            Lude.<$> (x Lude..?> "containerInstance")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "containerInstance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateContainerAgent where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateContainerAgent" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateContainerAgent where
-  toJSON UpdateContainerAgent' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("cluster" Lude..=) Lude.<$> cluster,
-            Lude.Just ("containerInstance" Lude..= containerInstance)
-          ]
-      )
-
-instance Lude.ToPath UpdateContainerAgent where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateContainerAgent where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateContainerAgentResponse' smart constructor.
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
   { -- | The container instance for which the container agent was updated.
-    containerInstance :: Lude.Maybe ContainerInstance,
+    containerInstance :: Core.Maybe Types.ContainerInstance,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateContainerAgentResponse' with the minimum fields required to make a request.
---
--- * 'containerInstance' - The container instance for which the container agent was updated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateContainerAgentResponse' value with any optional fields omitted.
 mkUpdateContainerAgentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateContainerAgentResponse
-mkUpdateContainerAgentResponse pResponseStatus_ =
+mkUpdateContainerAgentResponse responseStatus =
   UpdateContainerAgentResponse'
-    { containerInstance = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { containerInstance = Core.Nothing,
+      responseStatus
     }
 
 -- | The container instance for which the container agent was updated.
 --
 -- /Note:/ Consider using 'containerInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucarsContainerInstance :: Lens.Lens' UpdateContainerAgentResponse (Lude.Maybe ContainerInstance)
-ucarsContainerInstance = Lens.lens (containerInstance :: UpdateContainerAgentResponse -> Lude.Maybe ContainerInstance) (\s a -> s {containerInstance = a} :: UpdateContainerAgentResponse)
-{-# DEPRECATED ucarsContainerInstance "Use generic-lens or generic-optics with 'containerInstance' instead." #-}
+ucarrsContainerInstance :: Lens.Lens' UpdateContainerAgentResponse (Core.Maybe Types.ContainerInstance)
+ucarrsContainerInstance = Lens.field @"containerInstance"
+{-# DEPRECATED ucarrsContainerInstance "Use generic-lens or generic-optics with 'containerInstance' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucarsResponseStatus :: Lens.Lens' UpdateContainerAgentResponse Lude.Int
-ucarsResponseStatus = Lens.lens (responseStatus :: UpdateContainerAgentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateContainerAgentResponse)
-{-# DEPRECATED ucarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucarrsResponseStatus :: Lens.Lens' UpdateContainerAgentResponse Core.Int
+ucarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

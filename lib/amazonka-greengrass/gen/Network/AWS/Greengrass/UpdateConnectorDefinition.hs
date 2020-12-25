@@ -20,121 +20,107 @@ module Network.AWS.Greengrass.UpdateConnectorDefinition
     mkUpdateConnectorDefinition,
 
     -- ** Request lenses
-    ucdName,
-    ucdConnectorDefinitionId,
+    uConnectorDefinitionId,
+    uName,
 
     -- * Destructuring the response
     UpdateConnectorDefinitionResponse (..),
     mkUpdateConnectorDefinitionResponse,
 
     -- ** Response lenses
-    ucdrsResponseStatus,
+    ucdrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateConnectorDefinition' smart constructor.
 data UpdateConnectorDefinition = UpdateConnectorDefinition'
-  { -- | The name of the definition.
-    name :: Lude.Maybe Lude.Text,
-    -- | The ID of the connector definition.
-    connectorDefinitionId :: Lude.Text
+  { -- | The ID of the connector definition.
+    connectorDefinitionId :: Core.Text,
+    -- | The name of the definition.
+    name :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConnectorDefinition' with the minimum fields required to make a request.
---
--- * 'name' - The name of the definition.
--- * 'connectorDefinitionId' - The ID of the connector definition.
+-- | Creates a 'UpdateConnectorDefinition' value with any optional fields omitted.
 mkUpdateConnectorDefinition ::
   -- | 'connectorDefinitionId'
-  Lude.Text ->
+  Core.Text ->
   UpdateConnectorDefinition
-mkUpdateConnectorDefinition pConnectorDefinitionId_ =
+mkUpdateConnectorDefinition connectorDefinitionId =
   UpdateConnectorDefinition'
-    { name = Lude.Nothing,
-      connectorDefinitionId = pConnectorDefinitionId_
+    { connectorDefinitionId,
+      name = Core.Nothing
     }
-
--- | The name of the definition.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucdName :: Lens.Lens' UpdateConnectorDefinition (Lude.Maybe Lude.Text)
-ucdName = Lens.lens (name :: UpdateConnectorDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateConnectorDefinition)
-{-# DEPRECATED ucdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the connector definition.
 --
 -- /Note:/ Consider using 'connectorDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucdConnectorDefinitionId :: Lens.Lens' UpdateConnectorDefinition Lude.Text
-ucdConnectorDefinitionId = Lens.lens (connectorDefinitionId :: UpdateConnectorDefinition -> Lude.Text) (\s a -> s {connectorDefinitionId = a} :: UpdateConnectorDefinition)
-{-# DEPRECATED ucdConnectorDefinitionId "Use generic-lens or generic-optics with 'connectorDefinitionId' instead." #-}
+uConnectorDefinitionId :: Lens.Lens' UpdateConnectorDefinition Core.Text
+uConnectorDefinitionId = Lens.field @"connectorDefinitionId"
+{-# DEPRECATED uConnectorDefinitionId "Use generic-lens or generic-optics with 'connectorDefinitionId' instead." #-}
 
-instance Lude.AWSRequest UpdateConnectorDefinition where
+-- | The name of the definition.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uName :: Lens.Lens' UpdateConnectorDefinition (Core.Maybe Core.Text)
+uName = Lens.field @"name"
+{-# DEPRECATED uName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON UpdateConnectorDefinition where
+  toJSON UpdateConnectorDefinition {..} =
+    Core.object (Core.catMaybes [("Name" Core..=) Core.<$> name])
+
+instance Core.AWSRequest UpdateConnectorDefinition where
   type
     Rs UpdateConnectorDefinition =
       UpdateConnectorDefinitionResponse
-  request = Req.putJSON greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/definition/connectors/"
+                Core.<> (Core.toText connectorDefinitionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateConnectorDefinitionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateConnectorDefinition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateConnectorDefinition where
-  toJSON UpdateConnectorDefinition' {..} =
-    Lude.object (Lude.catMaybes [("Name" Lude..=) Lude.<$> name])
-
-instance Lude.ToPath UpdateConnectorDefinition where
-  toPath UpdateConnectorDefinition' {..} =
-    Lude.mconcat
-      [ "/greengrass/definition/connectors/",
-        Lude.toBS connectorDefinitionId
-      ]
-
-instance Lude.ToQuery UpdateConnectorDefinition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateConnectorDefinitionResponse' smart constructor.
 newtype UpdateConnectorDefinitionResponse = UpdateConnectorDefinitionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateConnectorDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateConnectorDefinitionResponse' value with any optional fields omitted.
 mkUpdateConnectorDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateConnectorDefinitionResponse
-mkUpdateConnectorDefinitionResponse pResponseStatus_ =
-  UpdateConnectorDefinitionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateConnectorDefinitionResponse responseStatus =
+  UpdateConnectorDefinitionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucdrsResponseStatus :: Lens.Lens' UpdateConnectorDefinitionResponse Lude.Int
-ucdrsResponseStatus = Lens.lens (responseStatus :: UpdateConnectorDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateConnectorDefinitionResponse)
-{-# DEPRECATED ucdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucdrrsResponseStatus :: Lens.Lens' UpdateConnectorDefinitionResponse Core.Int
+ucdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

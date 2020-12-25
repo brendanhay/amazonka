@@ -17,111 +17,104 @@ module Network.AWS.MechanicalTurk.Types.Qualification
     mkQualification,
 
     -- * Lenses
-    qStatus,
+    qGrantTime,
     qIntegerValue,
     qLocaleValue,
     qQualificationTypeId,
-    qGrantTime,
+    qStatus,
     qWorkerId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types.Locale
-import Network.AWS.MechanicalTurk.Types.QualificationStatus
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MechanicalTurk.Types.CustomerId as Types
+import qualified Network.AWS.MechanicalTurk.Types.EntityId as Types
+import qualified Network.AWS.MechanicalTurk.Types.Locale as Types
+import qualified Network.AWS.MechanicalTurk.Types.QualificationStatus as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The Qualification data structure represents a Qualification assigned to a user, including the Qualification type and the value (score).
 --
 -- /See:/ 'mkQualification' smart constructor.
 data Qualification = Qualification'
-  { -- | The status of the Qualification. Valid values are Granted | Revoked.
-    status :: Lude.Maybe QualificationStatus,
+  { -- | The date and time the Qualification was granted to the Worker. If the Worker's Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
+    grantTime :: Core.Maybe Core.NominalDiffTime,
     -- | The value (score) of the Qualification, if the Qualification has an integer value.
-    integerValue :: Lude.Maybe Lude.Int,
-    localeValue :: Lude.Maybe Locale,
+    integerValue :: Core.Maybe Core.Int,
+    localeValue :: Core.Maybe Types.Locale,
     -- | The ID of the Qualification type for the Qualification.
-    qualificationTypeId :: Lude.Maybe Lude.Text,
-    -- | The date and time the Qualification was granted to the Worker. If the Worker's Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
-    grantTime :: Lude.Maybe Lude.Timestamp,
+    qualificationTypeId :: Core.Maybe Types.EntityId,
+    -- | The status of the Qualification. Valid values are Granted | Revoked.
+    status :: Core.Maybe Types.QualificationStatus,
     -- | The ID of the Worker who possesses the Qualification.
-    workerId :: Lude.Maybe Lude.Text
+    workerId :: Core.Maybe Types.CustomerId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Qualification' with the minimum fields required to make a request.
---
--- * 'status' - The status of the Qualification. Valid values are Granted | Revoked.
--- * 'integerValue' - The value (score) of the Qualification, if the Qualification has an integer value.
--- * 'localeValue' -
--- * 'qualificationTypeId' - The ID of the Qualification type for the Qualification.
--- * 'grantTime' - The date and time the Qualification was granted to the Worker. If the Worker's Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
--- * 'workerId' - The ID of the Worker who possesses the Qualification.
+-- | Creates a 'Qualification' value with any optional fields omitted.
 mkQualification ::
   Qualification
 mkQualification =
   Qualification'
-    { status = Lude.Nothing,
-      integerValue = Lude.Nothing,
-      localeValue = Lude.Nothing,
-      qualificationTypeId = Lude.Nothing,
-      grantTime = Lude.Nothing,
-      workerId = Lude.Nothing
+    { grantTime = Core.Nothing,
+      integerValue = Core.Nothing,
+      localeValue = Core.Nothing,
+      qualificationTypeId = Core.Nothing,
+      status = Core.Nothing,
+      workerId = Core.Nothing
     }
 
--- | The status of the Qualification. Valid values are Granted | Revoked.
+-- | The date and time the Qualification was granted to the Worker. If the Worker's Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qStatus :: Lens.Lens' Qualification (Lude.Maybe QualificationStatus)
-qStatus = Lens.lens (status :: Qualification -> Lude.Maybe QualificationStatus) (\s a -> s {status = a} :: Qualification)
-{-# DEPRECATED qStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'grantTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qGrantTime :: Lens.Lens' Qualification (Core.Maybe Core.NominalDiffTime)
+qGrantTime = Lens.field @"grantTime"
+{-# DEPRECATED qGrantTime "Use generic-lens or generic-optics with 'grantTime' instead." #-}
 
 -- | The value (score) of the Qualification, if the Qualification has an integer value.
 --
 -- /Note:/ Consider using 'integerValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qIntegerValue :: Lens.Lens' Qualification (Lude.Maybe Lude.Int)
-qIntegerValue = Lens.lens (integerValue :: Qualification -> Lude.Maybe Lude.Int) (\s a -> s {integerValue = a} :: Qualification)
+qIntegerValue :: Lens.Lens' Qualification (Core.Maybe Core.Int)
+qIntegerValue = Lens.field @"integerValue"
 {-# DEPRECATED qIntegerValue "Use generic-lens or generic-optics with 'integerValue' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'localeValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qLocaleValue :: Lens.Lens' Qualification (Lude.Maybe Locale)
-qLocaleValue = Lens.lens (localeValue :: Qualification -> Lude.Maybe Locale) (\s a -> s {localeValue = a} :: Qualification)
+qLocaleValue :: Lens.Lens' Qualification (Core.Maybe Types.Locale)
+qLocaleValue = Lens.field @"localeValue"
 {-# DEPRECATED qLocaleValue "Use generic-lens or generic-optics with 'localeValue' instead." #-}
 
 -- | The ID of the Qualification type for the Qualification.
 --
 -- /Note:/ Consider using 'qualificationTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qQualificationTypeId :: Lens.Lens' Qualification (Lude.Maybe Lude.Text)
-qQualificationTypeId = Lens.lens (qualificationTypeId :: Qualification -> Lude.Maybe Lude.Text) (\s a -> s {qualificationTypeId = a} :: Qualification)
+qQualificationTypeId :: Lens.Lens' Qualification (Core.Maybe Types.EntityId)
+qQualificationTypeId = Lens.field @"qualificationTypeId"
 {-# DEPRECATED qQualificationTypeId "Use generic-lens or generic-optics with 'qualificationTypeId' instead." #-}
 
--- | The date and time the Qualification was granted to the Worker. If the Worker's Qualification was revoked, and then re-granted based on a new Qualification request, GrantTime is the date and time of the last call to the AcceptQualificationRequest operation.
+-- | The status of the Qualification. Valid values are Granted | Revoked.
 --
--- /Note:/ Consider using 'grantTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qGrantTime :: Lens.Lens' Qualification (Lude.Maybe Lude.Timestamp)
-qGrantTime = Lens.lens (grantTime :: Qualification -> Lude.Maybe Lude.Timestamp) (\s a -> s {grantTime = a} :: Qualification)
-{-# DEPRECATED qGrantTime "Use generic-lens or generic-optics with 'grantTime' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qStatus :: Lens.Lens' Qualification (Core.Maybe Types.QualificationStatus)
+qStatus = Lens.field @"status"
+{-# DEPRECATED qStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ID of the Worker who possesses the Qualification.
 --
 -- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qWorkerId :: Lens.Lens' Qualification (Lude.Maybe Lude.Text)
-qWorkerId = Lens.lens (workerId :: Qualification -> Lude.Maybe Lude.Text) (\s a -> s {workerId = a} :: Qualification)
+qWorkerId :: Lens.Lens' Qualification (Core.Maybe Types.CustomerId)
+qWorkerId = Lens.field @"workerId"
 {-# DEPRECATED qWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
 
-instance Lude.FromJSON Qualification where
+instance Core.FromJSON Qualification where
   parseJSON =
-    Lude.withObject
-      "Qualification"
-      ( \x ->
-          Qualification'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "IntegerValue")
-            Lude.<*> (x Lude..:? "LocaleValue")
-            Lude.<*> (x Lude..:? "QualificationTypeId")
-            Lude.<*> (x Lude..:? "GrantTime")
-            Lude.<*> (x Lude..:? "WorkerId")
-      )
+    Core.withObject "Qualification" Core.$
+      \x ->
+        Qualification'
+          Core.<$> (x Core..:? "GrantTime")
+          Core.<*> (x Core..:? "IntegerValue")
+          Core.<*> (x Core..:? "LocaleValue")
+          Core.<*> (x Core..:? "QualificationTypeId")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "WorkerId")

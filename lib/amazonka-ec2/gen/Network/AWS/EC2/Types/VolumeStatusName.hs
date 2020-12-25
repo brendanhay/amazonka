@@ -13,46 +13,51 @@
 module Network.AWS.EC2.Types.VolumeStatusName
   ( VolumeStatusName
       ( VolumeStatusName',
-        IOEnabled,
-        IOPerformance
+        VolumeStatusNameIoEnabled,
+        VolumeStatusNameIoPerformance,
+        fromVolumeStatusName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype VolumeStatusName = VolumeStatusName' Lude.Text
+newtype VolumeStatusName = VolumeStatusName'
+  { fromVolumeStatusName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IOEnabled :: VolumeStatusName
-pattern IOEnabled = VolumeStatusName' "io-enabled"
+pattern VolumeStatusNameIoEnabled :: VolumeStatusName
+pattern VolumeStatusNameIoEnabled = VolumeStatusName' "io-enabled"
 
-pattern IOPerformance :: VolumeStatusName
-pattern IOPerformance = VolumeStatusName' "io-performance"
+pattern VolumeStatusNameIoPerformance :: VolumeStatusName
+pattern VolumeStatusNameIoPerformance = VolumeStatusName' "io-performance"
 
 {-# COMPLETE
-  IOEnabled,
-  IOPerformance,
+  VolumeStatusNameIoEnabled,
+  VolumeStatusNameIoPerformance,
   VolumeStatusName'
   #-}

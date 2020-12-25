@@ -13,56 +13,58 @@
 module Network.AWS.LexModels.Types.ChannelType
   ( ChannelType
       ( ChannelType',
-        Facebook,
-        Slack,
-        TwilioSms,
-        Kik
+        ChannelTypeFacebook,
+        ChannelTypeSlack,
+        ChannelTypeTwilioSms,
+        ChannelTypeKik,
+        fromChannelType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ChannelType = ChannelType' Lude.Text
+newtype ChannelType = ChannelType' {fromChannelType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Facebook :: ChannelType
-pattern Facebook = ChannelType' "Facebook"
+pattern ChannelTypeFacebook :: ChannelType
+pattern ChannelTypeFacebook = ChannelType' "Facebook"
 
-pattern Slack :: ChannelType
-pattern Slack = ChannelType' "Slack"
+pattern ChannelTypeSlack :: ChannelType
+pattern ChannelTypeSlack = ChannelType' "Slack"
 
-pattern TwilioSms :: ChannelType
-pattern TwilioSms = ChannelType' "Twilio-Sms"
+pattern ChannelTypeTwilioSms :: ChannelType
+pattern ChannelTypeTwilioSms = ChannelType' "Twilio-Sms"
 
-pattern Kik :: ChannelType
-pattern Kik = ChannelType' "Kik"
+pattern ChannelTypeKik :: ChannelType
+pattern ChannelTypeKik = ChannelType' "Kik"
 
 {-# COMPLETE
-  Facebook,
-  Slack,
-  TwilioSms,
-  Kik,
+  ChannelTypeFacebook,
+  ChannelTypeSlack,
+  ChannelTypeTwilioSms,
+  ChannelTypeKik,
   ChannelType'
   #-}

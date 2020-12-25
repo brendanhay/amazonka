@@ -22,127 +22,112 @@ module Network.AWS.Route53.DeleteVPCAssociationAuthorization
     mkDeleteVPCAssociationAuthorization,
 
     -- ** Request lenses
-    dvaaHostedZoneId,
-    dvaaVPC,
+    dvpcaaHostedZoneId,
+    dvpcaaVPC,
 
     -- * Destructuring the response
     DeleteVPCAssociationAuthorizationResponse (..),
     mkDeleteVPCAssociationAuthorizationResponse,
 
     -- ** Response lenses
-    dvaarsResponseStatus,
+    dvpcaarrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A complex type that contains information about the request to remove authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account.
 --
 -- /See:/ 'mkDeleteVPCAssociationAuthorization' smart constructor.
 data DeleteVPCAssociationAuthorization = DeleteVPCAssociationAuthorization'
   { -- | When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, the ID of the hosted zone.
-    hostedZoneId :: ResourceId,
+    hostedZoneId :: Types.ResourceId,
     -- | When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, a complex type that includes the ID and region of the VPC.
-    vpc :: VPC
+    vpc :: Types.VPC
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVPCAssociationAuthorization' with the minimum fields required to make a request.
---
--- * 'hostedZoneId' - When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, the ID of the hosted zone.
--- * 'vpc' - When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, a complex type that includes the ID and region of the VPC.
+-- | Creates a 'DeleteVPCAssociationAuthorization' value with any optional fields omitted.
 mkDeleteVPCAssociationAuthorization ::
   -- | 'hostedZoneId'
-  ResourceId ->
+  Types.ResourceId ->
   -- | 'vpc'
-  VPC ->
+  Types.VPC ->
   DeleteVPCAssociationAuthorization
-mkDeleteVPCAssociationAuthorization pHostedZoneId_ pVPC_ =
-  DeleteVPCAssociationAuthorization'
-    { hostedZoneId = pHostedZoneId_,
-      vpc = pVPC_
-    }
+mkDeleteVPCAssociationAuthorization hostedZoneId vpc =
+  DeleteVPCAssociationAuthorization' {hostedZoneId, vpc}
 
 -- | When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, the ID of the hosted zone.
 --
 -- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvaaHostedZoneId :: Lens.Lens' DeleteVPCAssociationAuthorization ResourceId
-dvaaHostedZoneId = Lens.lens (hostedZoneId :: DeleteVPCAssociationAuthorization -> ResourceId) (\s a -> s {hostedZoneId = a} :: DeleteVPCAssociationAuthorization)
-{-# DEPRECATED dvaaHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
+dvpcaaHostedZoneId :: Lens.Lens' DeleteVPCAssociationAuthorization Types.ResourceId
+dvpcaaHostedZoneId = Lens.field @"hostedZoneId"
+{-# DEPRECATED dvpcaaHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | When removing authorization to associate a VPC that was created by one AWS account with a hosted zone that was created with a different AWS account, a complex type that includes the ID and region of the VPC.
 --
 -- /Note:/ Consider using 'vpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvaaVPC :: Lens.Lens' DeleteVPCAssociationAuthorization VPC
-dvaaVPC = Lens.lens (vpc :: DeleteVPCAssociationAuthorization -> VPC) (\s a -> s {vpc = a} :: DeleteVPCAssociationAuthorization)
-{-# DEPRECATED dvaaVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
+dvpcaaVPC :: Lens.Lens' DeleteVPCAssociationAuthorization Types.VPC
+dvpcaaVPC = Lens.field @"vpc"
+{-# DEPRECATED dvpcaaVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
 
-instance Lude.AWSRequest DeleteVPCAssociationAuthorization where
+instance Core.ToXML DeleteVPCAssociationAuthorization where
+  toXML DeleteVPCAssociationAuthorization {..} =
+    Core.toXMLNode "VPC" vpc
+  toXMLDocument =
+    Core.mkXMLElement
+      "{https://route53.amazonaws.com/doc/2013-04-01/}DeleteVPCAssociationAuthorizationRequest"
+
+instance Core.AWSRequest DeleteVPCAssociationAuthorization where
   type
     Rs DeleteVPCAssociationAuthorization =
       DeleteVPCAssociationAuthorizationResponse
-  request = Req.postXML route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2013-04-01/hostedzone/" Core.<> (Core.toText hostedZoneId)
+                Core.<> ("/deauthorizevpcassociation")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteVPCAssociationAuthorizationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement DeleteVPCAssociationAuthorization where
-  toElement =
-    Lude.mkElement
-      "{https://route53.amazonaws.com/doc/2013-04-01/}DeleteVPCAssociationAuthorizationRequest"
-
-instance Lude.ToHeaders DeleteVPCAssociationAuthorization where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteVPCAssociationAuthorization where
-  toPath DeleteVPCAssociationAuthorization' {..} =
-    Lude.mconcat
-      [ "/2013-04-01/hostedzone/",
-        Lude.toBS hostedZoneId,
-        "/deauthorizevpcassociation"
-      ]
-
-instance Lude.ToQuery DeleteVPCAssociationAuthorization where
-  toQuery = Lude.const Lude.mempty
-
-instance Lude.ToXML DeleteVPCAssociationAuthorization where
-  toXML DeleteVPCAssociationAuthorization' {..} =
-    Lude.mconcat ["VPC" Lude.@= vpc]
 
 -- | Empty response for the request.
 --
 -- /See:/ 'mkDeleteVPCAssociationAuthorizationResponse' smart constructor.
 newtype DeleteVPCAssociationAuthorizationResponse = DeleteVPCAssociationAuthorizationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVPCAssociationAuthorizationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteVPCAssociationAuthorizationResponse' value with any optional fields omitted.
 mkDeleteVPCAssociationAuthorizationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteVPCAssociationAuthorizationResponse
-mkDeleteVPCAssociationAuthorizationResponse pResponseStatus_ =
-  DeleteVPCAssociationAuthorizationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteVPCAssociationAuthorizationResponse responseStatus =
+  DeleteVPCAssociationAuthorizationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvaarsResponseStatus :: Lens.Lens' DeleteVPCAssociationAuthorizationResponse Lude.Int
-dvaarsResponseStatus = Lens.lens (responseStatus :: DeleteVPCAssociationAuthorizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteVPCAssociationAuthorizationResponse)
-{-# DEPRECATED dvaarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dvpcaarrsResponseStatus :: Lens.Lens' DeleteVPCAssociationAuthorizationResponse Core.Int
+dvpcaarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dvpcaarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

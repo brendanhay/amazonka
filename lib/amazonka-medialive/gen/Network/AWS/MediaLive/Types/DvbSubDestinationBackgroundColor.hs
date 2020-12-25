@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.DvbSubDestinationBackgroundColor
   ( DvbSubDestinationBackgroundColor
       ( DvbSubDestinationBackgroundColor',
-        DSDBCBlack,
-        DSDBCNone,
-        DSDBCWhite
+        DvbSubDestinationBackgroundColorBlack,
+        DvbSubDestinationBackgroundColorNone,
+        DvbSubDestinationBackgroundColorWhite,
+        fromDvbSubDestinationBackgroundColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Dvb Sub Destination Background Color
-newtype DvbSubDestinationBackgroundColor = DvbSubDestinationBackgroundColor' Lude.Text
+newtype DvbSubDestinationBackgroundColor = DvbSubDestinationBackgroundColor'
+  { fromDvbSubDestinationBackgroundColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSDBCBlack :: DvbSubDestinationBackgroundColor
-pattern DSDBCBlack = DvbSubDestinationBackgroundColor' "BLACK"
+pattern DvbSubDestinationBackgroundColorBlack :: DvbSubDestinationBackgroundColor
+pattern DvbSubDestinationBackgroundColorBlack = DvbSubDestinationBackgroundColor' "BLACK"
 
-pattern DSDBCNone :: DvbSubDestinationBackgroundColor
-pattern DSDBCNone = DvbSubDestinationBackgroundColor' "NONE"
+pattern DvbSubDestinationBackgroundColorNone :: DvbSubDestinationBackgroundColor
+pattern DvbSubDestinationBackgroundColorNone = DvbSubDestinationBackgroundColor' "NONE"
 
-pattern DSDBCWhite :: DvbSubDestinationBackgroundColor
-pattern DSDBCWhite = DvbSubDestinationBackgroundColor' "WHITE"
+pattern DvbSubDestinationBackgroundColorWhite :: DvbSubDestinationBackgroundColor
+pattern DvbSubDestinationBackgroundColorWhite = DvbSubDestinationBackgroundColor' "WHITE"
 
 {-# COMPLETE
-  DSDBCBlack,
-  DSDBCNone,
-  DSDBCWhite,
+  DvbSubDestinationBackgroundColorBlack,
+  DvbSubDestinationBackgroundColorNone,
+  DvbSubDestinationBackgroundColorWhite,
   DvbSubDestinationBackgroundColor'
   #-}

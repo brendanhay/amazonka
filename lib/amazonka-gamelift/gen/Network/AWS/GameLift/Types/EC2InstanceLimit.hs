@@ -17,72 +17,66 @@ module Network.AWS.GameLift.Types.EC2InstanceLimit
     mkEC2InstanceLimit,
 
     -- * Lenses
-    eilEC2InstanceType,
-    eilCurrentInstances,
-    eilInstanceLimit,
+    ecilCurrentInstances,
+    ecilEC2InstanceType,
+    ecilInstanceLimit,
   )
 where
 
-import Network.AWS.GameLift.Types.EC2InstanceType
+import qualified Network.AWS.GameLift.Types.EC2InstanceType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The maximum number of instances allowed based on the Amazon Elastic Compute Cloud (Amazon EC2) instance type. Instance limits can be retrieved by calling 'DescribeEC2InstanceLimits' .
 --
 -- /See:/ 'mkEC2InstanceLimit' smart constructor.
 data EC2InstanceLimit = EC2InstanceLimit'
-  { -- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
-    ec2InstanceType :: Lude.Maybe EC2InstanceType,
-    -- | Number of instances of the specified type that are currently in use by this AWS account.
-    currentInstances :: Lude.Maybe Lude.Natural,
+  { -- | Number of instances of the specified type that are currently in use by this AWS account.
+    currentInstances :: Core.Maybe Core.Natural,
+    -- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
+    eC2InstanceType :: Core.Maybe Types.EC2InstanceType,
     -- | Number of instances allowed.
-    instanceLimit :: Lude.Maybe Lude.Natural
+    instanceLimit :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EC2InstanceLimit' with the minimum fields required to make a request.
---
--- * 'ec2InstanceType' - Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
--- * 'currentInstances' - Number of instances of the specified type that are currently in use by this AWS account.
--- * 'instanceLimit' - Number of instances allowed.
+-- | Creates a 'EC2InstanceLimit' value with any optional fields omitted.
 mkEC2InstanceLimit ::
   EC2InstanceLimit
 mkEC2InstanceLimit =
   EC2InstanceLimit'
-    { ec2InstanceType = Lude.Nothing,
-      currentInstances = Lude.Nothing,
-      instanceLimit = Lude.Nothing
+    { currentInstances = Core.Nothing,
+      eC2InstanceType = Core.Nothing,
+      instanceLimit = Core.Nothing
     }
-
--- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
---
--- /Note:/ Consider using 'ec2InstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eilEC2InstanceType :: Lens.Lens' EC2InstanceLimit (Lude.Maybe EC2InstanceType)
-eilEC2InstanceType = Lens.lens (ec2InstanceType :: EC2InstanceLimit -> Lude.Maybe EC2InstanceType) (\s a -> s {ec2InstanceType = a} :: EC2InstanceLimit)
-{-# DEPRECATED eilEC2InstanceType "Use generic-lens or generic-optics with 'ec2InstanceType' instead." #-}
 
 -- | Number of instances of the specified type that are currently in use by this AWS account.
 --
 -- /Note:/ Consider using 'currentInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eilCurrentInstances :: Lens.Lens' EC2InstanceLimit (Lude.Maybe Lude.Natural)
-eilCurrentInstances = Lens.lens (currentInstances :: EC2InstanceLimit -> Lude.Maybe Lude.Natural) (\s a -> s {currentInstances = a} :: EC2InstanceLimit)
-{-# DEPRECATED eilCurrentInstances "Use generic-lens or generic-optics with 'currentInstances' instead." #-}
+ecilCurrentInstances :: Lens.Lens' EC2InstanceLimit (Core.Maybe Core.Natural)
+ecilCurrentInstances = Lens.field @"currentInstances"
+{-# DEPRECATED ecilCurrentInstances "Use generic-lens or generic-optics with 'currentInstances' instead." #-}
+
+-- | Name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See <http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types> for detailed descriptions.
+--
+-- /Note:/ Consider using 'eC2InstanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecilEC2InstanceType :: Lens.Lens' EC2InstanceLimit (Core.Maybe Types.EC2InstanceType)
+ecilEC2InstanceType = Lens.field @"eC2InstanceType"
+{-# DEPRECATED ecilEC2InstanceType "Use generic-lens or generic-optics with 'eC2InstanceType' instead." #-}
 
 -- | Number of instances allowed.
 --
 -- /Note:/ Consider using 'instanceLimit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eilInstanceLimit :: Lens.Lens' EC2InstanceLimit (Lude.Maybe Lude.Natural)
-eilInstanceLimit = Lens.lens (instanceLimit :: EC2InstanceLimit -> Lude.Maybe Lude.Natural) (\s a -> s {instanceLimit = a} :: EC2InstanceLimit)
-{-# DEPRECATED eilInstanceLimit "Use generic-lens or generic-optics with 'instanceLimit' instead." #-}
+ecilInstanceLimit :: Lens.Lens' EC2InstanceLimit (Core.Maybe Core.Natural)
+ecilInstanceLimit = Lens.field @"instanceLimit"
+{-# DEPRECATED ecilInstanceLimit "Use generic-lens or generic-optics with 'instanceLimit' instead." #-}
 
-instance Lude.FromJSON EC2InstanceLimit where
+instance Core.FromJSON EC2InstanceLimit where
   parseJSON =
-    Lude.withObject
-      "EC2InstanceLimit"
-      ( \x ->
-          EC2InstanceLimit'
-            Lude.<$> (x Lude..:? "EC2InstanceType")
-            Lude.<*> (x Lude..:? "CurrentInstances")
-            Lude.<*> (x Lude..:? "InstanceLimit")
-      )
+    Core.withObject "EC2InstanceLimit" Core.$
+      \x ->
+        EC2InstanceLimit'
+          Core.<$> (x Core..:? "CurrentInstances")
+          Core.<*> (x Core..:? "EC2InstanceType")
+          Core.<*> (x Core..:? "InstanceLimit")

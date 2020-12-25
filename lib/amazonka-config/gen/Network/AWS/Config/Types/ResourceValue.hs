@@ -21,42 +21,39 @@ module Network.AWS.Config.Types.ResourceValue
   )
 where
 
-import Network.AWS.Config.Types.ResourceValueType
+import qualified Network.AWS.Config.Types.ResourceValueType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The dynamic value of the resource.
 --
 -- /See:/ 'mkResourceValue' smart constructor.
 newtype ResourceValue = ResourceValue'
   { -- | The value is a resource ID.
-    value :: ResourceValueType
+    value :: Types.ResourceValueType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceValue' with the minimum fields required to make a request.
---
--- * 'value' - The value is a resource ID.
+-- | Creates a 'ResourceValue' value with any optional fields omitted.
 mkResourceValue ::
   -- | 'value'
-  ResourceValueType ->
+  Types.ResourceValueType ->
   ResourceValue
-mkResourceValue pValue_ = ResourceValue' {value = pValue_}
+mkResourceValue value = ResourceValue' {value}
 
 -- | The value is a resource ID.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rvValue :: Lens.Lens' ResourceValue ResourceValueType
-rvValue = Lens.lens (value :: ResourceValue -> ResourceValueType) (\s a -> s {value = a} :: ResourceValue)
+rvValue :: Lens.Lens' ResourceValue Types.ResourceValueType
+rvValue = Lens.field @"value"
 {-# DEPRECATED rvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromJSON ResourceValue where
-  parseJSON =
-    Lude.withObject
-      "ResourceValue"
-      (\x -> ResourceValue' Lude.<$> (x Lude..: "Value"))
+instance Core.FromJSON ResourceValue where
+  toJSON ResourceValue {..} =
+    Core.object (Core.catMaybes [Core.Just ("Value" Core..= value)])
 
-instance Lude.ToJSON ResourceValue where
-  toJSON ResourceValue' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Value" Lude..= value)])
+instance Core.FromJSON ResourceValue where
+  parseJSON =
+    Core.withObject "ResourceValue" Core.$
+      \x -> ResourceValue' Core.<$> (x Core..: "Value")

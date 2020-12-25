@@ -17,111 +17,108 @@ module Network.AWS.DirectoryService.Types.DirectoryConnectSettingsDescription
     mkDirectoryConnectSettingsDescription,
 
     -- * Lenses
-    dcsdCustomerUserName,
-    dcsdSubnetIds,
-    dcsdVPCId,
-    dcsdSecurityGroupId,
-    dcsdConnectIPs,
     dcsdAvailabilityZones,
+    dcsdConnectIps,
+    dcsdCustomerUserName,
+    dcsdSecurityGroupId,
+    dcsdSubnetIds,
+    dcsdVpcId,
   )
 where
 
+import qualified Network.AWS.DirectoryService.Types.AvailabilityZone as Types
+import qualified Network.AWS.DirectoryService.Types.IpAddr as Types
+import qualified Network.AWS.DirectoryService.Types.SecurityGroupId as Types
+import qualified Network.AWS.DirectoryService.Types.SubnetId as Types
+import qualified Network.AWS.DirectoryService.Types.UserName as Types
+import qualified Network.AWS.DirectoryService.Types.VpcId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an AD Connector directory.
 --
 -- /See:/ 'mkDirectoryConnectSettingsDescription' smart constructor.
 data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
-  { -- | The user name of the service account in the on-premises directory.
-    customerUserName :: Lude.Maybe Lude.Text,
-    -- | A list of subnet identifiers in the VPC that the AD Connector is in.
-    subnetIds :: Lude.Maybe [Lude.Text],
-    -- | The identifier of the VPC that the AD Connector is in.
-    vpcId :: Lude.Maybe Lude.Text,
-    -- | The security group identifier for the AD Connector directory.
-    securityGroupId :: Lude.Maybe Lude.Text,
+  { -- | A list of the Availability Zones that the directory is in.
+    availabilityZones :: Core.Maybe [Types.AvailabilityZone],
     -- | The IP addresses of the AD Connector servers.
-    connectIPs :: Lude.Maybe [Lude.Text],
-    -- | A list of the Availability Zones that the directory is in.
-    availabilityZones :: Lude.Maybe [Lude.Text]
+    connectIps :: Core.Maybe [Types.IpAddr],
+    -- | The user name of the service account in the on-premises directory.
+    customerUserName :: Core.Maybe Types.UserName,
+    -- | The security group identifier for the AD Connector directory.
+    securityGroupId :: Core.Maybe Types.SecurityGroupId,
+    -- | A list of subnet identifiers in the VPC that the AD Connector is in.
+    subnetIds :: Core.Maybe [Types.SubnetId],
+    -- | The identifier of the VPC that the AD Connector is in.
+    vpcId :: Core.Maybe Types.VpcId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DirectoryConnectSettingsDescription' with the minimum fields required to make a request.
---
--- * 'customerUserName' - The user name of the service account in the on-premises directory.
--- * 'subnetIds' - A list of subnet identifiers in the VPC that the AD Connector is in.
--- * 'vpcId' - The identifier of the VPC that the AD Connector is in.
--- * 'securityGroupId' - The security group identifier for the AD Connector directory.
--- * 'connectIPs' - The IP addresses of the AD Connector servers.
--- * 'availabilityZones' - A list of the Availability Zones that the directory is in.
+-- | Creates a 'DirectoryConnectSettingsDescription' value with any optional fields omitted.
 mkDirectoryConnectSettingsDescription ::
   DirectoryConnectSettingsDescription
 mkDirectoryConnectSettingsDescription =
   DirectoryConnectSettingsDescription'
-    { customerUserName =
-        Lude.Nothing,
-      subnetIds = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      securityGroupId = Lude.Nothing,
-      connectIPs = Lude.Nothing,
-      availabilityZones = Lude.Nothing
+    { availabilityZones =
+        Core.Nothing,
+      connectIps = Core.Nothing,
+      customerUserName = Core.Nothing,
+      securityGroupId = Core.Nothing,
+      subnetIds = Core.Nothing,
+      vpcId = Core.Nothing
     }
+
+-- | A list of the Availability Zones that the directory is in.
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsdAvailabilityZones :: Lens.Lens' DirectoryConnectSettingsDescription (Core.Maybe [Types.AvailabilityZone])
+dcsdAvailabilityZones = Lens.field @"availabilityZones"
+{-# DEPRECATED dcsdAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
+
+-- | The IP addresses of the AD Connector servers.
+--
+-- /Note:/ Consider using 'connectIps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsdConnectIps :: Lens.Lens' DirectoryConnectSettingsDescription (Core.Maybe [Types.IpAddr])
+dcsdConnectIps = Lens.field @"connectIps"
+{-# DEPRECATED dcsdConnectIps "Use generic-lens or generic-optics with 'connectIps' instead." #-}
 
 -- | The user name of the service account in the on-premises directory.
 --
 -- /Note:/ Consider using 'customerUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsdCustomerUserName :: Lens.Lens' DirectoryConnectSettingsDescription (Lude.Maybe Lude.Text)
-dcsdCustomerUserName = Lens.lens (customerUserName :: DirectoryConnectSettingsDescription -> Lude.Maybe Lude.Text) (\s a -> s {customerUserName = a} :: DirectoryConnectSettingsDescription)
+dcsdCustomerUserName :: Lens.Lens' DirectoryConnectSettingsDescription (Core.Maybe Types.UserName)
+dcsdCustomerUserName = Lens.field @"customerUserName"
 {-# DEPRECATED dcsdCustomerUserName "Use generic-lens or generic-optics with 'customerUserName' instead." #-}
+
+-- | The security group identifier for the AD Connector directory.
+--
+-- /Note:/ Consider using 'securityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsdSecurityGroupId :: Lens.Lens' DirectoryConnectSettingsDescription (Core.Maybe Types.SecurityGroupId)
+dcsdSecurityGroupId = Lens.field @"securityGroupId"
+{-# DEPRECATED dcsdSecurityGroupId "Use generic-lens or generic-optics with 'securityGroupId' instead." #-}
 
 -- | A list of subnet identifiers in the VPC that the AD Connector is in.
 --
 -- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsdSubnetIds :: Lens.Lens' DirectoryConnectSettingsDescription (Lude.Maybe [Lude.Text])
-dcsdSubnetIds = Lens.lens (subnetIds :: DirectoryConnectSettingsDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {subnetIds = a} :: DirectoryConnectSettingsDescription)
+dcsdSubnetIds :: Lens.Lens' DirectoryConnectSettingsDescription (Core.Maybe [Types.SubnetId])
+dcsdSubnetIds = Lens.field @"subnetIds"
 {-# DEPRECATED dcsdSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
 
 -- | The identifier of the VPC that the AD Connector is in.
 --
 -- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsdVPCId :: Lens.Lens' DirectoryConnectSettingsDescription (Lude.Maybe Lude.Text)
-dcsdVPCId = Lens.lens (vpcId :: DirectoryConnectSettingsDescription -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: DirectoryConnectSettingsDescription)
-{-# DEPRECATED dcsdVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+dcsdVpcId :: Lens.Lens' DirectoryConnectSettingsDescription (Core.Maybe Types.VpcId)
+dcsdVpcId = Lens.field @"vpcId"
+{-# DEPRECATED dcsdVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
 
--- | The security group identifier for the AD Connector directory.
---
--- /Note:/ Consider using 'securityGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsdSecurityGroupId :: Lens.Lens' DirectoryConnectSettingsDescription (Lude.Maybe Lude.Text)
-dcsdSecurityGroupId = Lens.lens (securityGroupId :: DirectoryConnectSettingsDescription -> Lude.Maybe Lude.Text) (\s a -> s {securityGroupId = a} :: DirectoryConnectSettingsDescription)
-{-# DEPRECATED dcsdSecurityGroupId "Use generic-lens or generic-optics with 'securityGroupId' instead." #-}
-
--- | The IP addresses of the AD Connector servers.
---
--- /Note:/ Consider using 'connectIPs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsdConnectIPs :: Lens.Lens' DirectoryConnectSettingsDescription (Lude.Maybe [Lude.Text])
-dcsdConnectIPs = Lens.lens (connectIPs :: DirectoryConnectSettingsDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {connectIPs = a} :: DirectoryConnectSettingsDescription)
-{-# DEPRECATED dcsdConnectIPs "Use generic-lens or generic-optics with 'connectIPs' instead." #-}
-
--- | A list of the Availability Zones that the directory is in.
---
--- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsdAvailabilityZones :: Lens.Lens' DirectoryConnectSettingsDescription (Lude.Maybe [Lude.Text])
-dcsdAvailabilityZones = Lens.lens (availabilityZones :: DirectoryConnectSettingsDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: DirectoryConnectSettingsDescription)
-{-# DEPRECATED dcsdAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
-
-instance Lude.FromJSON DirectoryConnectSettingsDescription where
+instance Core.FromJSON DirectoryConnectSettingsDescription where
   parseJSON =
-    Lude.withObject
-      "DirectoryConnectSettingsDescription"
-      ( \x ->
-          DirectoryConnectSettingsDescription'
-            Lude.<$> (x Lude..:? "CustomerUserName")
-            Lude.<*> (x Lude..:? "SubnetIds" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "VpcId")
-            Lude.<*> (x Lude..:? "SecurityGroupId")
-            Lude.<*> (x Lude..:? "ConnectIps" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "AvailabilityZones" Lude..!= Lude.mempty)
-      )
+    Core.withObject "DirectoryConnectSettingsDescription" Core.$
+      \x ->
+        DirectoryConnectSettingsDescription'
+          Core.<$> (x Core..:? "AvailabilityZones")
+          Core.<*> (x Core..:? "ConnectIps")
+          Core.<*> (x Core..:? "CustomerUserName")
+          Core.<*> (x Core..:? "SecurityGroupId")
+          Core.<*> (x Core..:? "SubnetIds")
+          Core.<*> (x Core..:? "VpcId")

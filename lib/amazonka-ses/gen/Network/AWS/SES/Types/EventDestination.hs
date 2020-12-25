@@ -17,21 +17,22 @@ module Network.AWS.SES.Types.EventDestination
     mkEventDestination,
 
     -- * Lenses
+    edName,
     edMatchingEventTypes,
+    edCloudWatchDestination,
     edEnabled,
     edKinesisFirehoseDestination,
-    edCloudWatchDestination,
-    edName,
     edSNSDestination,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SES.Types.CloudWatchDestination
-import Network.AWS.SES.Types.EventType
-import Network.AWS.SES.Types.KinesisFirehoseDestination
-import Network.AWS.SES.Types.SNSDestination
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.CloudWatchDestination as Types
+import qualified Network.AWS.SES.Types.EventType as Types
+import qualified Network.AWS.SES.Types.KinesisFirehoseDestination as Types
+import qualified Network.AWS.SES.Types.Name as Types
+import qualified Network.AWS.SES.Types.SNSDestination as Types
 
 -- | Contains information about the event destination that the specified email sending events will be published to.
 --
@@ -39,85 +40,42 @@ import Network.AWS.SES.Types.SNSDestination
 --
 -- /See:/ 'mkEventDestination' smart constructor.
 data EventDestination = EventDestination'
-  { -- | The type of email sending events to publish to the event destination.
-    matchingEventTypes :: [EventType],
-    -- | Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to @true@ to enable publishing to this destination; set to @false@ to prevent publishing to this destination. The default value is @false@ .
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
-    kinesisFirehoseDestination :: Lude.Maybe KinesisFirehoseDestination,
-    -- | An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
-    cloudWatchDestination :: Lude.Maybe CloudWatchDestination,
-    -- | The name of the event destination. The name must:
+  { -- | The name of the event destination. The name must:
     --
     --
     --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
     --
     --
     --     * Contain less than 64 characters.
-    name :: Lude.Text,
+    name :: Types.Name,
+    -- | The type of email sending events to publish to the event destination.
+    matchingEventTypes :: [Types.EventType],
+    -- | An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+    cloudWatchDestination :: Core.Maybe Types.CloudWatchDestination,
+    -- | Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to @true@ to enable publishing to this destination; set to @false@ to prevent publishing to this destination. The default value is @false@ .
+    enabled :: Core.Maybe Core.Bool,
+    -- | An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+    kinesisFirehoseDestination :: Core.Maybe Types.KinesisFirehoseDestination,
     -- | An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.
-    snsDestination :: Lude.Maybe SNSDestination
+    sNSDestination :: Core.Maybe Types.SNSDestination
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventDestination' with the minimum fields required to make a request.
---
--- * 'matchingEventTypes' - The type of email sending events to publish to the event destination.
--- * 'enabled' - Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to @true@ to enable publishing to this destination; set to @false@ to prevent publishing to this destination. The default value is @false@ .
--- * 'kinesisFirehoseDestination' - An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
--- * 'cloudWatchDestination' - An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
--- * 'name' - The name of the event destination. The name must:
---
---
---     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
---
---
---     * Contain less than 64 characters.
---
---
--- * 'snsDestination' - An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.
+-- | Creates a 'EventDestination' value with any optional fields omitted.
 mkEventDestination ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   EventDestination
-mkEventDestination pName_ =
+mkEventDestination name =
   EventDestination'
-    { matchingEventTypes = Lude.mempty,
-      enabled = Lude.Nothing,
-      kinesisFirehoseDestination = Lude.Nothing,
-      cloudWatchDestination = Lude.Nothing,
-      name = pName_,
-      snsDestination = Lude.Nothing
+    { name,
+      matchingEventTypes = Core.mempty,
+      cloudWatchDestination = Core.Nothing,
+      enabled = Core.Nothing,
+      kinesisFirehoseDestination = Core.Nothing,
+      sNSDestination = Core.Nothing
     }
-
--- | The type of email sending events to publish to the event destination.
---
--- /Note:/ Consider using 'matchingEventTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edMatchingEventTypes :: Lens.Lens' EventDestination [EventType]
-edMatchingEventTypes = Lens.lens (matchingEventTypes :: EventDestination -> [EventType]) (\s a -> s {matchingEventTypes = a} :: EventDestination)
-{-# DEPRECATED edMatchingEventTypes "Use generic-lens or generic-optics with 'matchingEventTypes' instead." #-}
-
--- | Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to @true@ to enable publishing to this destination; set to @false@ to prevent publishing to this destination. The default value is @false@ .
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edEnabled :: Lens.Lens' EventDestination (Lude.Maybe Lude.Bool)
-edEnabled = Lens.lens (enabled :: EventDestination -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: EventDestination)
-{-# DEPRECATED edEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
--- | An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
---
--- /Note:/ Consider using 'kinesisFirehoseDestination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edKinesisFirehoseDestination :: Lens.Lens' EventDestination (Lude.Maybe KinesisFirehoseDestination)
-edKinesisFirehoseDestination = Lens.lens (kinesisFirehoseDestination :: EventDestination -> Lude.Maybe KinesisFirehoseDestination) (\s a -> s {kinesisFirehoseDestination = a} :: EventDestination)
-{-# DEPRECATED edKinesisFirehoseDestination "Use generic-lens or generic-optics with 'kinesisFirehoseDestination' instead." #-}
-
--- | An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
---
--- /Note:/ Consider using 'cloudWatchDestination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edCloudWatchDestination :: Lens.Lens' EventDestination (Lude.Maybe CloudWatchDestination)
-edCloudWatchDestination = Lens.lens (cloudWatchDestination :: EventDestination -> Lude.Maybe CloudWatchDestination) (\s a -> s {cloudWatchDestination = a} :: EventDestination)
-{-# DEPRECATED edCloudWatchDestination "Use generic-lens or generic-optics with 'cloudWatchDestination' instead." #-}
 
 -- | The name of the event destination. The name must:
 --
@@ -130,37 +88,53 @@ edCloudWatchDestination = Lens.lens (cloudWatchDestination :: EventDestination -
 --
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edName :: Lens.Lens' EventDestination Lude.Text
-edName = Lens.lens (name :: EventDestination -> Lude.Text) (\s a -> s {name = a} :: EventDestination)
+edName :: Lens.Lens' EventDestination Types.Name
+edName = Lens.field @"name"
 {-# DEPRECATED edName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The type of email sending events to publish to the event destination.
+--
+-- /Note:/ Consider using 'matchingEventTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edMatchingEventTypes :: Lens.Lens' EventDestination [Types.EventType]
+edMatchingEventTypes = Lens.field @"matchingEventTypes"
+{-# DEPRECATED edMatchingEventTypes "Use generic-lens or generic-optics with 'matchingEventTypes' instead." #-}
+
+-- | An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.
+--
+-- /Note:/ Consider using 'cloudWatchDestination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edCloudWatchDestination :: Lens.Lens' EventDestination (Core.Maybe Types.CloudWatchDestination)
+edCloudWatchDestination = Lens.field @"cloudWatchDestination"
+{-# DEPRECATED edCloudWatchDestination "Use generic-lens or generic-optics with 'cloudWatchDestination' instead." #-}
+
+-- | Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to @true@ to enable publishing to this destination; set to @false@ to prevent publishing to this destination. The default value is @false@ .
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edEnabled :: Lens.Lens' EventDestination (Core.Maybe Core.Bool)
+edEnabled = Lens.field @"enabled"
+{-# DEPRECATED edEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+
+-- | An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.
+--
+-- /Note:/ Consider using 'kinesisFirehoseDestination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edKinesisFirehoseDestination :: Lens.Lens' EventDestination (Core.Maybe Types.KinesisFirehoseDestination)
+edKinesisFirehoseDestination = Lens.field @"kinesisFirehoseDestination"
+{-# DEPRECATED edKinesisFirehoseDestination "Use generic-lens or generic-optics with 'kinesisFirehoseDestination' instead." #-}
 
 -- | An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.
 --
--- /Note:/ Consider using 'snsDestination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edSNSDestination :: Lens.Lens' EventDestination (Lude.Maybe SNSDestination)
-edSNSDestination = Lens.lens (snsDestination :: EventDestination -> Lude.Maybe SNSDestination) (\s a -> s {snsDestination = a} :: EventDestination)
-{-# DEPRECATED edSNSDestination "Use generic-lens or generic-optics with 'snsDestination' instead." #-}
+-- /Note:/ Consider using 'sNSDestination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edSNSDestination :: Lens.Lens' EventDestination (Core.Maybe Types.SNSDestination)
+edSNSDestination = Lens.field @"sNSDestination"
+{-# DEPRECATED edSNSDestination "Use generic-lens or generic-optics with 'sNSDestination' instead." #-}
 
-instance Lude.FromXML EventDestination where
+instance Core.FromXML EventDestination where
   parseXML x =
     EventDestination'
-      Lude.<$> ( x Lude..@? "MatchingEventTypes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.parseXMLList "member"
+      Core.<$> (x Core..@ "Name")
+      Core.<*> ( x Core..@? "MatchingEventTypes" Core..@! Core.mempty
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "Enabled")
-      Lude.<*> (x Lude..@? "KinesisFirehoseDestination")
-      Lude.<*> (x Lude..@? "CloudWatchDestination")
-      Lude.<*> (x Lude..@ "Name")
-      Lude.<*> (x Lude..@? "SNSDestination")
-
-instance Lude.ToQuery EventDestination where
-  toQuery EventDestination' {..} =
-    Lude.mconcat
-      [ "MatchingEventTypes"
-          Lude.=: Lude.toQueryList "member" matchingEventTypes,
-        "Enabled" Lude.=: enabled,
-        "KinesisFirehoseDestination" Lude.=: kinesisFirehoseDestination,
-        "CloudWatchDestination" Lude.=: cloudWatchDestination,
-        "Name" Lude.=: name,
-        "SNSDestination" Lude.=: snsDestination
-      ]
+      Core.<*> (x Core..@? "CloudWatchDestination")
+      Core.<*> (x Core..@? "Enabled")
+      Core.<*> (x Core..@? "KinesisFirehoseDestination")
+      Core.<*> (x Core..@? "SNSDestination")

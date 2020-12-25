@@ -26,96 +26,84 @@ module Network.AWS.Lightsail.GetContainerServicePowers
     mkGetContainerServicePowersResponse,
 
     -- ** Response lenses
-    gcsprsPowers,
-    gcsprsResponseStatus,
+    gcsprrsPowers,
+    gcsprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetContainerServicePowers' smart constructor.
 data GetContainerServicePowers = GetContainerServicePowers'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetContainerServicePowers' with the minimum fields required to make a request.
+-- | Creates a 'GetContainerServicePowers' value with any optional fields omitted.
 mkGetContainerServicePowers ::
   GetContainerServicePowers
 mkGetContainerServicePowers = GetContainerServicePowers'
 
-instance Lude.AWSRequest GetContainerServicePowers where
+instance Core.FromJSON GetContainerServicePowers where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest GetContainerServicePowers where
   type
     Rs GetContainerServicePowers =
       GetContainerServicePowersResponse
-  request = Req.postJSON lightsailService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.GetContainerServicePowers")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetContainerServicePowersResponse'
-            Lude.<$> (x Lude..?> "powers" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "powers") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetContainerServicePowers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.GetContainerServicePowers" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetContainerServicePowers where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath GetContainerServicePowers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetContainerServicePowers where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetContainerServicePowersResponse' smart constructor.
 data GetContainerServicePowersResponse = GetContainerServicePowersResponse'
   { -- | An array of objects that describe the powers that can be specified for a container service.
-    powers :: Lude.Maybe [ContainerServicePower],
+    powers :: Core.Maybe [Types.ContainerServicePower],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetContainerServicePowersResponse' with the minimum fields required to make a request.
---
--- * 'powers' - An array of objects that describe the powers that can be specified for a container service.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetContainerServicePowersResponse' value with any optional fields omitted.
 mkGetContainerServicePowersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetContainerServicePowersResponse
-mkGetContainerServicePowersResponse pResponseStatus_ =
+mkGetContainerServicePowersResponse responseStatus =
   GetContainerServicePowersResponse'
-    { powers = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { powers = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the powers that can be specified for a container service.
 --
 -- /Note:/ Consider using 'powers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsprsPowers :: Lens.Lens' GetContainerServicePowersResponse (Lude.Maybe [ContainerServicePower])
-gcsprsPowers = Lens.lens (powers :: GetContainerServicePowersResponse -> Lude.Maybe [ContainerServicePower]) (\s a -> s {powers = a} :: GetContainerServicePowersResponse)
-{-# DEPRECATED gcsprsPowers "Use generic-lens or generic-optics with 'powers' instead." #-}
+gcsprrsPowers :: Lens.Lens' GetContainerServicePowersResponse (Core.Maybe [Types.ContainerServicePower])
+gcsprrsPowers = Lens.field @"powers"
+{-# DEPRECATED gcsprrsPowers "Use generic-lens or generic-optics with 'powers' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsprsResponseStatus :: Lens.Lens' GetContainerServicePowersResponse Lude.Int
-gcsprsResponseStatus = Lens.lens (responseStatus :: GetContainerServicePowersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContainerServicePowersResponse)
-{-# DEPRECATED gcsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcsprrsResponseStatus :: Lens.Lens' GetContainerServicePowersResponse Core.Int
+gcsprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcsprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

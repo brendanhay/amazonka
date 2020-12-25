@@ -20,159 +20,144 @@ module Network.AWS.WorkMail.PutRetentionPolicy
     mkPutRetentionPolicy,
 
     -- ** Request lenses
+    prpOrganizationId,
     prpName,
-    prpId,
     prpFolderConfigurations,
     prpDescription,
-    prpOrganizationId,
+    prpId,
 
     -- * Destructuring the response
     PutRetentionPolicyResponse (..),
     mkPutRetentionPolicyResponse,
 
     -- ** Response lenses
-    prprsResponseStatus,
+    prprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkPutRetentionPolicy' smart constructor.
 data PutRetentionPolicy = PutRetentionPolicy'
-  { -- | The retention policy name.
-    name :: Lude.Text,
-    -- | The retention policy ID.
-    id :: Lude.Maybe Lude.Text,
+  { -- | The organization ID.
+    organizationId :: Types.OrganizationId,
+    -- | The retention policy name.
+    name :: Types.Name,
     -- | The retention policy folder configurations.
-    folderConfigurations :: [FolderConfiguration],
+    folderConfigurations :: [Types.FolderConfiguration],
     -- | The retention policy description.
-    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The organization ID.
-    organizationId :: Lude.Text
+    description :: Core.Maybe Types.PolicyDescription,
+    -- | The retention policy ID.
+    id :: Core.Maybe Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRetentionPolicy' with the minimum fields required to make a request.
---
--- * 'name' - The retention policy name.
--- * 'id' - The retention policy ID.
--- * 'folderConfigurations' - The retention policy folder configurations.
--- * 'description' - The retention policy description.
--- * 'organizationId' - The organization ID.
+-- | Creates a 'PutRetentionPolicy' value with any optional fields omitted.
 mkPutRetentionPolicy ::
-  -- | 'name'
-  Lude.Text ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'name'
+  Types.Name ->
   PutRetentionPolicy
-mkPutRetentionPolicy pName_ pOrganizationId_ =
+mkPutRetentionPolicy organizationId name =
   PutRetentionPolicy'
-    { name = pName_,
-      id = Lude.Nothing,
-      folderConfigurations = Lude.mempty,
-      description = Lude.Nothing,
-      organizationId = pOrganizationId_
+    { organizationId,
+      name,
+      folderConfigurations = Core.mempty,
+      description = Core.Nothing,
+      id = Core.Nothing
     }
+
+-- | The organization ID.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpOrganizationId :: Lens.Lens' PutRetentionPolicy Types.OrganizationId
+prpOrganizationId = Lens.field @"organizationId"
+{-# DEPRECATED prpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The retention policy name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpName :: Lens.Lens' PutRetentionPolicy Lude.Text
-prpName = Lens.lens (name :: PutRetentionPolicy -> Lude.Text) (\s a -> s {name = a} :: PutRetentionPolicy)
+prpName :: Lens.Lens' PutRetentionPolicy Types.Name
+prpName = Lens.field @"name"
 {-# DEPRECATED prpName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The retention policy ID.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpId :: Lens.Lens' PutRetentionPolicy (Lude.Maybe Lude.Text)
-prpId = Lens.lens (id :: PutRetentionPolicy -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: PutRetentionPolicy)
-{-# DEPRECATED prpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The retention policy folder configurations.
 --
 -- /Note:/ Consider using 'folderConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpFolderConfigurations :: Lens.Lens' PutRetentionPolicy [FolderConfiguration]
-prpFolderConfigurations = Lens.lens (folderConfigurations :: PutRetentionPolicy -> [FolderConfiguration]) (\s a -> s {folderConfigurations = a} :: PutRetentionPolicy)
+prpFolderConfigurations :: Lens.Lens' PutRetentionPolicy [Types.FolderConfiguration]
+prpFolderConfigurations = Lens.field @"folderConfigurations"
 {-# DEPRECATED prpFolderConfigurations "Use generic-lens or generic-optics with 'folderConfigurations' instead." #-}
 
 -- | The retention policy description.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpDescription :: Lens.Lens' PutRetentionPolicy (Lude.Maybe (Lude.Sensitive Lude.Text))
-prpDescription = Lens.lens (description :: PutRetentionPolicy -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: PutRetentionPolicy)
+prpDescription :: Lens.Lens' PutRetentionPolicy (Core.Maybe Types.PolicyDescription)
+prpDescription = Lens.field @"description"
 {-# DEPRECATED prpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
--- | The organization ID.
+-- | The retention policy ID.
 --
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpOrganizationId :: Lens.Lens' PutRetentionPolicy Lude.Text
-prpOrganizationId = Lens.lens (organizationId :: PutRetentionPolicy -> Lude.Text) (\s a -> s {organizationId = a} :: PutRetentionPolicy)
-{-# DEPRECATED prpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpId :: Lens.Lens' PutRetentionPolicy (Core.Maybe Types.Id)
+prpId = Lens.field @"id"
+{-# DEPRECATED prpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest PutRetentionPolicy where
+instance Core.FromJSON PutRetentionPolicy where
+  toJSON PutRetentionPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("Name" Core..= name),
+            Core.Just ("FolderConfigurations" Core..= folderConfigurations),
+            ("Description" Core..=) Core.<$> description,
+            ("Id" Core..=) Core.<$> id
+          ]
+      )
+
+instance Core.AWSRequest PutRetentionPolicy where
   type Rs PutRetentionPolicy = PutRetentionPolicyResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.PutRetentionPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          PutRetentionPolicyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          PutRetentionPolicyResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutRetentionPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.PutRetentionPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutRetentionPolicy where
-  toJSON PutRetentionPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            ("Id" Lude..=) Lude.<$> id,
-            Lude.Just ("FolderConfigurations" Lude..= folderConfigurations),
-            ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath PutRetentionPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutRetentionPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutRetentionPolicyResponse' smart constructor.
 newtype PutRetentionPolicyResponse = PutRetentionPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutRetentionPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutRetentionPolicyResponse' value with any optional fields omitted.
 mkPutRetentionPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutRetentionPolicyResponse
-mkPutRetentionPolicyResponse pResponseStatus_ =
-  PutRetentionPolicyResponse' {responseStatus = pResponseStatus_}
+mkPutRetentionPolicyResponse responseStatus =
+  PutRetentionPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prprsResponseStatus :: Lens.Lens' PutRetentionPolicyResponse Lude.Int
-prprsResponseStatus = Lens.lens (responseStatus :: PutRetentionPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRetentionPolicyResponse)
-{-# DEPRECATED prprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prprrsResponseStatus :: Lens.Lens' PutRetentionPolicyResponse Core.Int
+prprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

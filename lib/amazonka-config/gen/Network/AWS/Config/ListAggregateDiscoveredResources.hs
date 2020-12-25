@@ -24,208 +24,195 @@ module Network.AWS.Config.ListAggregateDiscoveredResources
     mkListAggregateDiscoveredResources,
 
     -- ** Request lenses
+    ladrConfigurationAggregatorName,
     ladrResourceType,
     ladrFilters,
-    ladrNextToken,
     ladrLimit,
-    ladrConfigurationAggregatorName,
+    ladrNextToken,
 
     -- * Destructuring the response
     ListAggregateDiscoveredResourcesResponse (..),
     mkListAggregateDiscoveredResourcesResponse,
 
     -- ** Response lenses
-    ladrrsNextToken,
-    ladrrsResourceIdentifiers,
-    ladrrsResponseStatus,
+    ladrrrsNextToken,
+    ladrrrsResourceIdentifiers,
+    ladrrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListAggregateDiscoveredResources' smart constructor.
 data ListAggregateDiscoveredResources = ListAggregateDiscoveredResources'
-  { -- | The type of resources that you want AWS Config to list in the response.
-    resourceType :: ResourceType,
+  { -- | The name of the configuration aggregator.
+    configurationAggregatorName :: Types.ConfigurationAggregatorName,
+    -- | The type of resources that you want AWS Config to list in the response.
+    resourceType :: Types.ResourceType,
     -- | Filters the results based on the @ResourceFilters@ object.
-    filters :: Lude.Maybe ResourceFilters,
-    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe Types.ResourceFilters,
     -- | The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | The name of the configuration aggregator.
-    configurationAggregatorName :: Lude.Text
+    limit :: Core.Maybe Core.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAggregateDiscoveredResources' with the minimum fields required to make a request.
---
--- * 'resourceType' - The type of resources that you want AWS Config to list in the response.
--- * 'filters' - Filters the results based on the @ResourceFilters@ object.
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'limit' - The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
--- * 'configurationAggregatorName' - The name of the configuration aggregator.
+-- | Creates a 'ListAggregateDiscoveredResources' value with any optional fields omitted.
 mkListAggregateDiscoveredResources ::
-  -- | 'resourceType'
-  ResourceType ->
   -- | 'configurationAggregatorName'
-  Lude.Text ->
+  Types.ConfigurationAggregatorName ->
+  -- | 'resourceType'
+  Types.ResourceType ->
   ListAggregateDiscoveredResources
 mkListAggregateDiscoveredResources
-  pResourceType_
-  pConfigurationAggregatorName_ =
+  configurationAggregatorName
+  resourceType =
     ListAggregateDiscoveredResources'
-      { resourceType = pResourceType_,
-        filters = Lude.Nothing,
-        nextToken = Lude.Nothing,
-        limit = Lude.Nothing,
-        configurationAggregatorName = pConfigurationAggregatorName_
+      { configurationAggregatorName,
+        resourceType,
+        filters = Core.Nothing,
+        limit = Core.Nothing,
+        nextToken = Core.Nothing
       }
+
+-- | The name of the configuration aggregator.
+--
+-- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ladrConfigurationAggregatorName :: Lens.Lens' ListAggregateDiscoveredResources Types.ConfigurationAggregatorName
+ladrConfigurationAggregatorName = Lens.field @"configurationAggregatorName"
+{-# DEPRECATED ladrConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
 
 -- | The type of resources that you want AWS Config to list in the response.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ladrResourceType :: Lens.Lens' ListAggregateDiscoveredResources ResourceType
-ladrResourceType = Lens.lens (resourceType :: ListAggregateDiscoveredResources -> ResourceType) (\s a -> s {resourceType = a} :: ListAggregateDiscoveredResources)
+ladrResourceType :: Lens.Lens' ListAggregateDiscoveredResources Types.ResourceType
+ladrResourceType = Lens.field @"resourceType"
 {-# DEPRECATED ladrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Filters the results based on the @ResourceFilters@ object.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ladrFilters :: Lens.Lens' ListAggregateDiscoveredResources (Lude.Maybe ResourceFilters)
-ladrFilters = Lens.lens (filters :: ListAggregateDiscoveredResources -> Lude.Maybe ResourceFilters) (\s a -> s {filters = a} :: ListAggregateDiscoveredResources)
+ladrFilters :: Lens.Lens' ListAggregateDiscoveredResources (Core.Maybe Types.ResourceFilters)
+ladrFilters = Lens.field @"filters"
 {-# DEPRECATED ladrFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ladrNextToken :: Lens.Lens' ListAggregateDiscoveredResources (Lude.Maybe Lude.Text)
-ladrNextToken = Lens.lens (nextToken :: ListAggregateDiscoveredResources -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAggregateDiscoveredResources)
-{-# DEPRECATED ladrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of resource identifiers returned on each page. The default is 100. You cannot specify a number greater than 100. If you specify 0, AWS Config uses the default.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ladrLimit :: Lens.Lens' ListAggregateDiscoveredResources (Lude.Maybe Lude.Natural)
-ladrLimit = Lens.lens (limit :: ListAggregateDiscoveredResources -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListAggregateDiscoveredResources)
+ladrLimit :: Lens.Lens' ListAggregateDiscoveredResources (Core.Maybe Core.Natural)
+ladrLimit = Lens.field @"limit"
 {-# DEPRECATED ladrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | The name of the configuration aggregator.
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
--- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ladrConfigurationAggregatorName :: Lens.Lens' ListAggregateDiscoveredResources Lude.Text
-ladrConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: ListAggregateDiscoveredResources -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: ListAggregateDiscoveredResources)
-{-# DEPRECATED ladrConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ladrNextToken :: Lens.Lens' ListAggregateDiscoveredResources (Core.Maybe Types.NextToken)
+ladrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ladrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager ListAggregateDiscoveredResources where
-  page rq rs
-    | Page.stop (rs Lens.^. ladrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ladrrsResourceIdentifiers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ladrNextToken Lens..~ rs Lens.^. ladrrsNextToken
+instance Core.FromJSON ListAggregateDiscoveredResources where
+  toJSON ListAggregateDiscoveredResources {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ( "ConfigurationAggregatorName"
+                  Core..= configurationAggregatorName
+              ),
+            Core.Just ("ResourceType" Core..= resourceType),
+            ("Filters" Core..=) Core.<$> filters,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Lude.AWSRequest ListAggregateDiscoveredResources where
+instance Core.AWSRequest ListAggregateDiscoveredResources where
   type
     Rs ListAggregateDiscoveredResources =
       ListAggregateDiscoveredResourcesResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.ListAggregateDiscoveredResources"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAggregateDiscoveredResourcesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "ResourceIdentifiers" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "ResourceIdentifiers")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAggregateDiscoveredResources where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.ListAggregateDiscoveredResources" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAggregateDiscoveredResources where
-  toJSON ListAggregateDiscoveredResources' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceType" Lude..= resourceType),
-            ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just
-              ( "ConfigurationAggregatorName"
-                  Lude..= configurationAggregatorName
-              )
-          ]
-      )
-
-instance Lude.ToPath ListAggregateDiscoveredResources where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAggregateDiscoveredResources where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAggregateDiscoveredResources where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"resourceIdentifiers" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListAggregateDiscoveredResourcesResponse' smart constructor.
 data ListAggregateDiscoveredResourcesResponse = ListAggregateDiscoveredResourcesResponse'
   { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Returns a list of @ResourceIdentifiers@ objects.
-    resourceIdentifiers :: Lude.Maybe [AggregateResourceIdentifier],
+    resourceIdentifiers :: Core.Maybe [Types.AggregateResourceIdentifier],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAggregateDiscoveredResourcesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'resourceIdentifiers' - Returns a list of @ResourceIdentifiers@ objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAggregateDiscoveredResourcesResponse' value with any optional fields omitted.
 mkListAggregateDiscoveredResourcesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAggregateDiscoveredResourcesResponse
-mkListAggregateDiscoveredResourcesResponse pResponseStatus_ =
+mkListAggregateDiscoveredResourcesResponse responseStatus =
   ListAggregateDiscoveredResourcesResponse'
     { nextToken =
-        Lude.Nothing,
-      resourceIdentifiers = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      resourceIdentifiers = Core.Nothing,
+      responseStatus
     }
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ladrrsNextToken :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Lude.Maybe Lude.Text)
-ladrrsNextToken = Lens.lens (nextToken :: ListAggregateDiscoveredResourcesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAggregateDiscoveredResourcesResponse)
-{-# DEPRECATED ladrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ladrrrsNextToken :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Core.Maybe Types.NextToken)
+ladrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ladrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Returns a list of @ResourceIdentifiers@ objects.
 --
 -- /Note:/ Consider using 'resourceIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ladrrsResourceIdentifiers :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Lude.Maybe [AggregateResourceIdentifier])
-ladrrsResourceIdentifiers = Lens.lens (resourceIdentifiers :: ListAggregateDiscoveredResourcesResponse -> Lude.Maybe [AggregateResourceIdentifier]) (\s a -> s {resourceIdentifiers = a} :: ListAggregateDiscoveredResourcesResponse)
-{-# DEPRECATED ladrrsResourceIdentifiers "Use generic-lens or generic-optics with 'resourceIdentifiers' instead." #-}
+ladrrrsResourceIdentifiers :: Lens.Lens' ListAggregateDiscoveredResourcesResponse (Core.Maybe [Types.AggregateResourceIdentifier])
+ladrrrsResourceIdentifiers = Lens.field @"resourceIdentifiers"
+{-# DEPRECATED ladrrrsResourceIdentifiers "Use generic-lens or generic-optics with 'resourceIdentifiers' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ladrrsResponseStatus :: Lens.Lens' ListAggregateDiscoveredResourcesResponse Lude.Int
-ladrrsResponseStatus = Lens.lens (responseStatus :: ListAggregateDiscoveredResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAggregateDiscoveredResourcesResponse)
-{-# DEPRECATED ladrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ladrrrsResponseStatus :: Lens.Lens' ListAggregateDiscoveredResourcesResponse Core.Int
+ladrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ladrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

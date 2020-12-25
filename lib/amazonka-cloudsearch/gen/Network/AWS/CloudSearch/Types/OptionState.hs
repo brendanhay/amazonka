@@ -13,15 +13,16 @@
 module Network.AWS.CloudSearch.Types.OptionState
   ( OptionState
       ( OptionState',
-        RequiresIndexDocuments,
-        Processing,
-        Active,
-        FailedToValidate
+        OptionStateRequiresIndexDocuments,
+        OptionStateProcessing,
+        OptionStateActive,
+        OptionStateFailedToValidate,
+        fromOptionState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The state of processing a change to an option. One of:
 --
@@ -33,46 +34,47 @@ import qualified Network.AWS.Prelude as Lude
 --     * Active: The option's latest value is fully deployed.
 --
 --     * FailedToValidate: The option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.
-newtype OptionState = OptionState' Lude.Text
+newtype OptionState = OptionState' {fromOptionState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RequiresIndexDocuments :: OptionState
-pattern RequiresIndexDocuments = OptionState' "RequiresIndexDocuments"
+pattern OptionStateRequiresIndexDocuments :: OptionState
+pattern OptionStateRequiresIndexDocuments = OptionState' "RequiresIndexDocuments"
 
-pattern Processing :: OptionState
-pattern Processing = OptionState' "Processing"
+pattern OptionStateProcessing :: OptionState
+pattern OptionStateProcessing = OptionState' "Processing"
 
-pattern Active :: OptionState
-pattern Active = OptionState' "Active"
+pattern OptionStateActive :: OptionState
+pattern OptionStateActive = OptionState' "Active"
 
-pattern FailedToValidate :: OptionState
-pattern FailedToValidate = OptionState' "FailedToValidate"
+pattern OptionStateFailedToValidate :: OptionState
+pattern OptionStateFailedToValidate = OptionState' "FailedToValidate"
 
 {-# COMPLETE
-  RequiresIndexDocuments,
-  Processing,
-  Active,
-  FailedToValidate,
+  OptionStateRequiresIndexDocuments,
+  OptionStateProcessing,
+  OptionStateActive,
+  OptionStateFailedToValidate,
   OptionState'
   #-}

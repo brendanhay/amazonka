@@ -17,111 +17,105 @@ module Network.AWS.LexModels.Types.BotMetadata
     mkBotMetadata,
 
     -- * Lenses
-    bmStatus,
     bmCreatedDate,
-    bmName,
-    bmVersion,
-    bmLastUpdatedDate,
     bmDescription,
+    bmLastUpdatedDate,
+    bmName,
+    bmStatus,
+    bmVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.LexStatus
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.BotName as Types
+import qualified Network.AWS.LexModels.Types.Description as Types
+import qualified Network.AWS.LexModels.Types.LexStatus as Types
+import qualified Network.AWS.LexModels.Types.Version as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about a bot. .
 --
 -- /See:/ 'mkBotMetadata' smart constructor.
 data BotMetadata = BotMetadata'
-  { -- | The status of the bot.
-    status :: Lude.Maybe LexStatus,
-    -- | The date that the bot was created.
-    createdDate :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the bot.
-    name :: Lude.Maybe Lude.Text,
-    -- | The version of the bot. For a new bot, the version is always @> LATEST@ .
-    version :: Lude.Maybe Lude.Text,
-    -- | The date that the bot was updated. When you create a bot, the creation date and last updated date are the same.
-    lastUpdatedDate :: Lude.Maybe Lude.Timestamp,
+  { -- | The date that the bot was created.
+    createdDate :: Core.Maybe Core.NominalDiffTime,
     -- | A description of the bot.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The date that the bot was updated. When you create a bot, the creation date and last updated date are the same.
+    lastUpdatedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the bot.
+    name :: Core.Maybe Types.BotName,
+    -- | The status of the bot.
+    status :: Core.Maybe Types.LexStatus,
+    -- | The version of the bot. For a new bot, the version is always @> LATEST@ .
+    version :: Core.Maybe Types.Version
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BotMetadata' with the minimum fields required to make a request.
---
--- * 'status' - The status of the bot.
--- * 'createdDate' - The date that the bot was created.
--- * 'name' - The name of the bot.
--- * 'version' - The version of the bot. For a new bot, the version is always @> LATEST@ .
--- * 'lastUpdatedDate' - The date that the bot was updated. When you create a bot, the creation date and last updated date are the same.
--- * 'description' - A description of the bot.
+-- | Creates a 'BotMetadata' value with any optional fields omitted.
 mkBotMetadata ::
   BotMetadata
 mkBotMetadata =
   BotMetadata'
-    { status = Lude.Nothing,
-      createdDate = Lude.Nothing,
-      name = Lude.Nothing,
-      version = Lude.Nothing,
-      lastUpdatedDate = Lude.Nothing,
-      description = Lude.Nothing
+    { createdDate = Core.Nothing,
+      description = Core.Nothing,
+      lastUpdatedDate = Core.Nothing,
+      name = Core.Nothing,
+      status = Core.Nothing,
+      version = Core.Nothing
     }
-
--- | The status of the bot.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmStatus :: Lens.Lens' BotMetadata (Lude.Maybe LexStatus)
-bmStatus = Lens.lens (status :: BotMetadata -> Lude.Maybe LexStatus) (\s a -> s {status = a} :: BotMetadata)
-{-# DEPRECATED bmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The date that the bot was created.
 --
 -- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmCreatedDate :: Lens.Lens' BotMetadata (Lude.Maybe Lude.Timestamp)
-bmCreatedDate = Lens.lens (createdDate :: BotMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: BotMetadata)
+bmCreatedDate :: Lens.Lens' BotMetadata (Core.Maybe Core.NominalDiffTime)
+bmCreatedDate = Lens.field @"createdDate"
 {-# DEPRECATED bmCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
-
--- | The name of the bot.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmName :: Lens.Lens' BotMetadata (Lude.Maybe Lude.Text)
-bmName = Lens.lens (name :: BotMetadata -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: BotMetadata)
-{-# DEPRECATED bmName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The version of the bot. For a new bot, the version is always @> LATEST@ .
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmVersion :: Lens.Lens' BotMetadata (Lude.Maybe Lude.Text)
-bmVersion = Lens.lens (version :: BotMetadata -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: BotMetadata)
-{-# DEPRECATED bmVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The date that the bot was updated. When you create a bot, the creation date and last updated date are the same.
---
--- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmLastUpdatedDate :: Lens.Lens' BotMetadata (Lude.Maybe Lude.Timestamp)
-bmLastUpdatedDate = Lens.lens (lastUpdatedDate :: BotMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedDate = a} :: BotMetadata)
-{-# DEPRECATED bmLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
 
 -- | A description of the bot.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmDescription :: Lens.Lens' BotMetadata (Lude.Maybe Lude.Text)
-bmDescription = Lens.lens (description :: BotMetadata -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: BotMetadata)
+bmDescription :: Lens.Lens' BotMetadata (Core.Maybe Types.Description)
+bmDescription = Lens.field @"description"
 {-# DEPRECATED bmDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON BotMetadata where
+-- | The date that the bot was updated. When you create a bot, the creation date and last updated date are the same.
+--
+-- /Note:/ Consider using 'lastUpdatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmLastUpdatedDate :: Lens.Lens' BotMetadata (Core.Maybe Core.NominalDiffTime)
+bmLastUpdatedDate = Lens.field @"lastUpdatedDate"
+{-# DEPRECATED bmLastUpdatedDate "Use generic-lens or generic-optics with 'lastUpdatedDate' instead." #-}
+
+-- | The name of the bot.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmName :: Lens.Lens' BotMetadata (Core.Maybe Types.BotName)
+bmName = Lens.field @"name"
+{-# DEPRECATED bmName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The status of the bot.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmStatus :: Lens.Lens' BotMetadata (Core.Maybe Types.LexStatus)
+bmStatus = Lens.field @"status"
+{-# DEPRECATED bmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The version of the bot. For a new bot, the version is always @> LATEST@ .
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmVersion :: Lens.Lens' BotMetadata (Core.Maybe Types.Version)
+bmVersion = Lens.field @"version"
+{-# DEPRECATED bmVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+instance Core.FromJSON BotMetadata where
   parseJSON =
-    Lude.withObject
-      "BotMetadata"
-      ( \x ->
-          BotMetadata'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "createdDate")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "version")
-            Lude.<*> (x Lude..:? "lastUpdatedDate")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "BotMetadata" Core.$
+      \x ->
+        BotMetadata'
+          Core.<$> (x Core..:? "createdDate")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "lastUpdatedDate")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "version")

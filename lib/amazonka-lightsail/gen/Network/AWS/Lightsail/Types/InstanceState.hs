@@ -17,54 +17,50 @@ module Network.AWS.Lightsail.Types.InstanceState
     mkInstanceState,
 
     -- * Lenses
-    isfName,
     isfCode,
+    isfName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the virtual private server (or /instance/ ) status.
 --
 -- /See:/ 'mkInstanceState' smart constructor.
 data InstanceState = InstanceState'
-  { -- | The state of the instance (e.g., @running@ or @pending@ ).
-    name :: Lude.Maybe Lude.Text,
-    -- | The status code for the instance.
-    code :: Lude.Maybe Lude.Int
+  { -- | The status code for the instance.
+    code :: Core.Maybe Core.Int,
+    -- | The state of the instance (e.g., @running@ or @pending@ ).
+    name :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceState' with the minimum fields required to make a request.
---
--- * 'name' - The state of the instance (e.g., @running@ or @pending@ ).
--- * 'code' - The status code for the instance.
+-- | Creates a 'InstanceState' value with any optional fields omitted.
 mkInstanceState ::
   InstanceState
 mkInstanceState =
-  InstanceState' {name = Lude.Nothing, code = Lude.Nothing}
-
--- | The state of the instance (e.g., @running@ or @pending@ ).
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isfName :: Lens.Lens' InstanceState (Lude.Maybe Lude.Text)
-isfName = Lens.lens (name :: InstanceState -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: InstanceState)
-{-# DEPRECATED isfName "Use generic-lens or generic-optics with 'name' instead." #-}
+  InstanceState' {code = Core.Nothing, name = Core.Nothing}
 
 -- | The status code for the instance.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isfCode :: Lens.Lens' InstanceState (Lude.Maybe Lude.Int)
-isfCode = Lens.lens (code :: InstanceState -> Lude.Maybe Lude.Int) (\s a -> s {code = a} :: InstanceState)
+isfCode :: Lens.Lens' InstanceState (Core.Maybe Core.Int)
+isfCode = Lens.field @"code"
 {-# DEPRECATED isfCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance Lude.FromJSON InstanceState where
+-- | The state of the instance (e.g., @running@ or @pending@ ).
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isfName :: Lens.Lens' InstanceState (Core.Maybe Types.String)
+isfName = Lens.field @"name"
+{-# DEPRECATED isfName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON InstanceState where
   parseJSON =
-    Lude.withObject
-      "InstanceState"
-      ( \x ->
-          InstanceState'
-            Lude.<$> (x Lude..:? "name") Lude.<*> (x Lude..:? "code")
-      )
+    Core.withObject "InstanceState" Core.$
+      \x ->
+        InstanceState'
+          Core.<$> (x Core..:? "code") Core.<*> (x Core..:? "name")

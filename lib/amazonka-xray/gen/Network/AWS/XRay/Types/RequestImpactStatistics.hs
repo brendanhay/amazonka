@@ -17,71 +17,65 @@ module Network.AWS.XRay.Types.RequestImpactStatistics
     mkRequestImpactStatistics,
 
     -- * Lenses
-    risOKCount,
     risFaultCount,
+    risOkCount,
     risTotalCount,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Statistics that describe how the incident has impacted a service.
 --
 -- /See:/ 'mkRequestImpactStatistics' smart constructor.
 data RequestImpactStatistics = RequestImpactStatistics'
-  { -- | The number of successful requests.
-    okCount :: Lude.Maybe Lude.Integer,
-    -- | The number of requests that have resulted in a fault,
-    faultCount :: Lude.Maybe Lude.Integer,
+  { -- | The number of requests that have resulted in a fault,
+    faultCount :: Core.Maybe Core.Integer,
+    -- | The number of successful requests.
+    okCount :: Core.Maybe Core.Integer,
     -- | The total number of requests to the service.
-    totalCount :: Lude.Maybe Lude.Integer
+    totalCount :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestImpactStatistics' with the minimum fields required to make a request.
---
--- * 'okCount' - The number of successful requests.
--- * 'faultCount' - The number of requests that have resulted in a fault,
--- * 'totalCount' - The total number of requests to the service.
+-- | Creates a 'RequestImpactStatistics' value with any optional fields omitted.
 mkRequestImpactStatistics ::
   RequestImpactStatistics
 mkRequestImpactStatistics =
   RequestImpactStatistics'
-    { okCount = Lude.Nothing,
-      faultCount = Lude.Nothing,
-      totalCount = Lude.Nothing
+    { faultCount = Core.Nothing,
+      okCount = Core.Nothing,
+      totalCount = Core.Nothing
     }
-
--- | The number of successful requests.
---
--- /Note:/ Consider using 'okCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-risOKCount :: Lens.Lens' RequestImpactStatistics (Lude.Maybe Lude.Integer)
-risOKCount = Lens.lens (okCount :: RequestImpactStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {okCount = a} :: RequestImpactStatistics)
-{-# DEPRECATED risOKCount "Use generic-lens or generic-optics with 'okCount' instead." #-}
 
 -- | The number of requests that have resulted in a fault,
 --
 -- /Note:/ Consider using 'faultCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-risFaultCount :: Lens.Lens' RequestImpactStatistics (Lude.Maybe Lude.Integer)
-risFaultCount = Lens.lens (faultCount :: RequestImpactStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {faultCount = a} :: RequestImpactStatistics)
+risFaultCount :: Lens.Lens' RequestImpactStatistics (Core.Maybe Core.Integer)
+risFaultCount = Lens.field @"faultCount"
 {-# DEPRECATED risFaultCount "Use generic-lens or generic-optics with 'faultCount' instead." #-}
+
+-- | The number of successful requests.
+--
+-- /Note:/ Consider using 'okCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+risOkCount :: Lens.Lens' RequestImpactStatistics (Core.Maybe Core.Integer)
+risOkCount = Lens.field @"okCount"
+{-# DEPRECATED risOkCount "Use generic-lens or generic-optics with 'okCount' instead." #-}
 
 -- | The total number of requests to the service.
 --
 -- /Note:/ Consider using 'totalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-risTotalCount :: Lens.Lens' RequestImpactStatistics (Lude.Maybe Lude.Integer)
-risTotalCount = Lens.lens (totalCount :: RequestImpactStatistics -> Lude.Maybe Lude.Integer) (\s a -> s {totalCount = a} :: RequestImpactStatistics)
+risTotalCount :: Lens.Lens' RequestImpactStatistics (Core.Maybe Core.Integer)
+risTotalCount = Lens.field @"totalCount"
 {-# DEPRECATED risTotalCount "Use generic-lens or generic-optics with 'totalCount' instead." #-}
 
-instance Lude.FromJSON RequestImpactStatistics where
+instance Core.FromJSON RequestImpactStatistics where
   parseJSON =
-    Lude.withObject
-      "RequestImpactStatistics"
-      ( \x ->
-          RequestImpactStatistics'
-            Lude.<$> (x Lude..:? "OkCount")
-            Lude.<*> (x Lude..:? "FaultCount")
-            Lude.<*> (x Lude..:? "TotalCount")
-      )
+    Core.withObject "RequestImpactStatistics" Core.$
+      \x ->
+        RequestImpactStatistics'
+          Core.<$> (x Core..:? "FaultCount")
+          Core.<*> (x Core..:? "OkCount")
+          Core.<*> (x Core..:? "TotalCount")

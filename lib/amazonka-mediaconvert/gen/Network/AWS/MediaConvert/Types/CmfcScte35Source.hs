@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.CmfcScte35Source
   ( CmfcScte35Source
       ( CmfcScte35Source',
-        CSSPassthrough,
-        CSSNone
+        CmfcScte35SourcePassthrough,
+        CmfcScte35SourceNone,
+        fromCmfcScte35Source
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
-newtype CmfcScte35Source = CmfcScte35Source' Lude.Text
+newtype CmfcScte35Source = CmfcScte35Source'
+  { fromCmfcScte35Source ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSSPassthrough :: CmfcScte35Source
-pattern CSSPassthrough = CmfcScte35Source' "PASSTHROUGH"
+pattern CmfcScte35SourcePassthrough :: CmfcScte35Source
+pattern CmfcScte35SourcePassthrough = CmfcScte35Source' "PASSTHROUGH"
 
-pattern CSSNone :: CmfcScte35Source
-pattern CSSNone = CmfcScte35Source' "NONE"
+pattern CmfcScte35SourceNone :: CmfcScte35Source
+pattern CmfcScte35SourceNone = CmfcScte35Source' "NONE"
 
 {-# COMPLETE
-  CSSPassthrough,
-  CSSNone,
+  CmfcScte35SourcePassthrough,
+  CmfcScte35SourceNone,
   CmfcScte35Source'
   #-}

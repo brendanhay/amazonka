@@ -17,233 +17,181 @@ module Network.AWS.RDS.Types.DBEngineVersion
     mkDBEngineVersion,
 
     -- * Lenses
-    devEngineVersion,
-    devStatus,
-    devDBEngineVersionDescription,
-    devSupportedEngineModes,
-    devDefaultCharacterSet,
-    devEngine,
-    devDBParameterGroupFamily,
-    devSupportedCharacterSets,
-    devDBEngineDescription,
-    devSupportsGlobalDatabases,
-    devValidUpgradeTarget,
-    devSupportsParallelQuery,
-    devSupportedNcharCharacterSets,
-    devSupportsLogExportsToCloudwatchLogs,
-    devSupportsReadReplica,
-    devSupportedFeatureNames,
-    devSupportedTimezones,
-    devExportableLogTypes,
+    dbevDBEngineDescription,
+    dbevDBEngineVersionDescription,
+    dbevDBParameterGroupFamily,
+    dbevDefaultCharacterSet,
+    dbevEngine,
+    dbevEngineVersion,
+    dbevExportableLogTypes,
+    dbevStatus,
+    dbevSupportedCharacterSets,
+    dbevSupportedEngineModes,
+    dbevSupportedFeatureNames,
+    dbevSupportedNcharCharacterSets,
+    dbevSupportedTimezones,
+    dbevSupportsGlobalDatabases,
+    dbevSupportsLogExportsToCloudwatchLogs,
+    dbevSupportsParallelQuery,
+    dbevSupportsReadReplica,
+    dbevValidUpgradeTarget,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types.CharacterSet
-import Network.AWS.RDS.Types.Timezone
-import Network.AWS.RDS.Types.UpgradeTarget
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.CharacterSet as Types
+import qualified Network.AWS.RDS.Types.DBEngineDescription as Types
+import qualified Network.AWS.RDS.Types.DBEngineVersionDescription as Types
+import qualified Network.AWS.RDS.Types.DBParameterGroupFamily as Types
+import qualified Network.AWS.RDS.Types.Engine as Types
+import qualified Network.AWS.RDS.Types.EngineVersion as Types
+import qualified Network.AWS.RDS.Types.Status as Types
+import qualified Network.AWS.RDS.Types.String as Types
+import qualified Network.AWS.RDS.Types.Timezone as Types
+import qualified Network.AWS.RDS.Types.UpgradeTarget as Types
 
 -- | This data type is used as a response element in the action @DescribeDBEngineVersions@ .
 --
 -- /See:/ 'mkDBEngineVersion' smart constructor.
 data DBEngineVersion = DBEngineVersion'
-  { -- | The version number of the database engine.
-    engineVersion :: Lude.Maybe Lude.Text,
-    -- | The status of the DB engine version, either @available@ or @deprecated@ .
-    status :: Lude.Maybe Lude.Text,
+  { -- | The description of the database engine.
+    dBEngineDescription :: Core.Maybe Types.DBEngineDescription,
     -- | The description of the database engine version.
-    dbEngineVersionDescription :: Lude.Maybe Lude.Text,
-    -- | A list of the supported DB engine modes.
-    supportedEngineModes :: Lude.Maybe [Lude.Text],
-    -- | The default character set for new instances of this engine version, if the @CharacterSetName@ parameter of the CreateDBInstance API isn't specified.
-    defaultCharacterSet :: Lude.Maybe CharacterSet,
-    -- | The name of the database engine.
-    engine :: Lude.Maybe Lude.Text,
+    dBEngineVersionDescription :: Core.Maybe Types.DBEngineVersionDescription,
     -- | The name of the DB parameter group family for the database engine.
-    dbParameterGroupFamily :: Lude.Maybe Lude.Text,
+    dBParameterGroupFamily :: Core.Maybe Types.DBParameterGroupFamily,
+    -- | The default character set for new instances of this engine version, if the @CharacterSetName@ parameter of the CreateDBInstance API isn't specified.
+    defaultCharacterSet :: Core.Maybe Types.CharacterSet,
+    -- | The name of the database engine.
+    engine :: Core.Maybe Types.Engine,
+    -- | The version number of the database engine.
+    engineVersion :: Core.Maybe Types.EngineVersion,
+    -- | The types of logs that the database engine has available for export to CloudWatch Logs.
+    exportableLogTypes :: Core.Maybe [Types.String],
+    -- | The status of the DB engine version, either @available@ or @deprecated@ .
+    status :: Core.Maybe Types.Status,
     -- | A list of the character sets supported by this engine for the @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
-    supportedCharacterSets :: Lude.Maybe [CharacterSet],
-    -- | The description of the database engine.
-    dbEngineDescription :: Lude.Maybe Lude.Text,
-    -- | A value that indicates whether you can use Aurora global databases with a specific DB engine version.
-    supportsGlobalDatabases :: Lude.Maybe Lude.Bool,
-    -- | A list of engine versions that this database engine version can be upgraded to.
-    validUpgradeTarget :: Lude.Maybe [UpgradeTarget],
-    -- | A value that indicates whether you can use Aurora parallel query with a specific DB engine version.
-    supportsParallelQuery :: Lude.Maybe Lude.Bool,
-    -- | A list of the character sets supported by the Oracle DB engine for the @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.
-    supportedNcharCharacterSets :: Lude.Maybe [CharacterSet],
-    -- | A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.
-    supportsLogExportsToCloudwatchLogs :: Lude.Maybe Lude.Bool,
-    -- | Indicates whether the database engine version supports read replicas.
-    supportsReadReplica :: Lude.Maybe Lude.Bool,
+    supportedCharacterSets :: Core.Maybe [Types.CharacterSet],
+    -- | A list of the supported DB engine modes.
+    supportedEngineModes :: Core.Maybe [Types.String],
     -- | A list of features supported by the DB engine. Supported feature names include the following.
     --
     --
     --     * s3Import
-    supportedFeatureNames :: Lude.Maybe [Lude.Text],
+    supportedFeatureNames :: Core.Maybe [Types.String],
+    -- | A list of the character sets supported by the Oracle DB engine for the @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.
+    supportedNcharCharacterSets :: Core.Maybe [Types.CharacterSet],
     -- | A list of the time zones supported by this engine for the @Timezone@ parameter of the @CreateDBInstance@ action.
-    supportedTimezones :: Lude.Maybe [Timezone],
-    -- | The types of logs that the database engine has available for export to CloudWatch Logs.
-    exportableLogTypes :: Lude.Maybe [Lude.Text]
+    supportedTimezones :: Core.Maybe [Types.Timezone],
+    -- | A value that indicates whether you can use Aurora global databases with a specific DB engine version.
+    supportsGlobalDatabases :: Core.Maybe Core.Bool,
+    -- | A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.
+    supportsLogExportsToCloudwatchLogs :: Core.Maybe Core.Bool,
+    -- | A value that indicates whether you can use Aurora parallel query with a specific DB engine version.
+    supportsParallelQuery :: Core.Maybe Core.Bool,
+    -- | Indicates whether the database engine version supports read replicas.
+    supportsReadReplica :: Core.Maybe Core.Bool,
+    -- | A list of engine versions that this database engine version can be upgraded to.
+    validUpgradeTarget :: Core.Maybe [Types.UpgradeTarget]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DBEngineVersion' with the minimum fields required to make a request.
---
--- * 'engineVersion' - The version number of the database engine.
--- * 'status' - The status of the DB engine version, either @available@ or @deprecated@ .
--- * 'dbEngineVersionDescription' - The description of the database engine version.
--- * 'supportedEngineModes' - A list of the supported DB engine modes.
--- * 'defaultCharacterSet' - The default character set for new instances of this engine version, if the @CharacterSetName@ parameter of the CreateDBInstance API isn't specified.
--- * 'engine' - The name of the database engine.
--- * 'dbParameterGroupFamily' - The name of the DB parameter group family for the database engine.
--- * 'supportedCharacterSets' - A list of the character sets supported by this engine for the @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
--- * 'dbEngineDescription' - The description of the database engine.
--- * 'supportsGlobalDatabases' - A value that indicates whether you can use Aurora global databases with a specific DB engine version.
--- * 'validUpgradeTarget' - A list of engine versions that this database engine version can be upgraded to.
--- * 'supportsParallelQuery' - A value that indicates whether you can use Aurora parallel query with a specific DB engine version.
--- * 'supportedNcharCharacterSets' - A list of the character sets supported by the Oracle DB engine for the @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.
--- * 'supportsLogExportsToCloudwatchLogs' - A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.
--- * 'supportsReadReplica' - Indicates whether the database engine version supports read replicas.
--- * 'supportedFeatureNames' - A list of features supported by the DB engine. Supported feature names include the following.
---
---
---     * s3Import
---
---
--- * 'supportedTimezones' - A list of the time zones supported by this engine for the @Timezone@ parameter of the @CreateDBInstance@ action.
--- * 'exportableLogTypes' - The types of logs that the database engine has available for export to CloudWatch Logs.
+-- | Creates a 'DBEngineVersion' value with any optional fields omitted.
 mkDBEngineVersion ::
   DBEngineVersion
 mkDBEngineVersion =
   DBEngineVersion'
-    { engineVersion = Lude.Nothing,
-      status = Lude.Nothing,
-      dbEngineVersionDescription = Lude.Nothing,
-      supportedEngineModes = Lude.Nothing,
-      defaultCharacterSet = Lude.Nothing,
-      engine = Lude.Nothing,
-      dbParameterGroupFamily = Lude.Nothing,
-      supportedCharacterSets = Lude.Nothing,
-      dbEngineDescription = Lude.Nothing,
-      supportsGlobalDatabases = Lude.Nothing,
-      validUpgradeTarget = Lude.Nothing,
-      supportsParallelQuery = Lude.Nothing,
-      supportedNcharCharacterSets = Lude.Nothing,
-      supportsLogExportsToCloudwatchLogs = Lude.Nothing,
-      supportsReadReplica = Lude.Nothing,
-      supportedFeatureNames = Lude.Nothing,
-      supportedTimezones = Lude.Nothing,
-      exportableLogTypes = Lude.Nothing
+    { dBEngineDescription = Core.Nothing,
+      dBEngineVersionDescription = Core.Nothing,
+      dBParameterGroupFamily = Core.Nothing,
+      defaultCharacterSet = Core.Nothing,
+      engine = Core.Nothing,
+      engineVersion = Core.Nothing,
+      exportableLogTypes = Core.Nothing,
+      status = Core.Nothing,
+      supportedCharacterSets = Core.Nothing,
+      supportedEngineModes = Core.Nothing,
+      supportedFeatureNames = Core.Nothing,
+      supportedNcharCharacterSets = Core.Nothing,
+      supportedTimezones = Core.Nothing,
+      supportsGlobalDatabases = Core.Nothing,
+      supportsLogExportsToCloudwatchLogs = Core.Nothing,
+      supportsParallelQuery = Core.Nothing,
+      supportsReadReplica = Core.Nothing,
+      validUpgradeTarget = Core.Nothing
     }
 
--- | The version number of the database engine.
+-- | The description of the database engine.
 --
--- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devEngineVersion :: Lens.Lens' DBEngineVersion (Lude.Maybe Lude.Text)
-devEngineVersion = Lens.lens (engineVersion :: DBEngineVersion -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: DBEngineVersion)
-{-# DEPRECATED devEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
-
--- | The status of the DB engine version, either @available@ or @deprecated@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devStatus :: Lens.Lens' DBEngineVersion (Lude.Maybe Lude.Text)
-devStatus = Lens.lens (status :: DBEngineVersion -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DBEngineVersion)
-{-# DEPRECATED devStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'dBEngineDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevDBEngineDescription :: Lens.Lens' DBEngineVersion (Core.Maybe Types.DBEngineDescription)
+dbevDBEngineDescription = Lens.field @"dBEngineDescription"
+{-# DEPRECATED dbevDBEngineDescription "Use generic-lens or generic-optics with 'dBEngineDescription' instead." #-}
 
 -- | The description of the database engine version.
 --
--- /Note:/ Consider using 'dbEngineVersionDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devDBEngineVersionDescription :: Lens.Lens' DBEngineVersion (Lude.Maybe Lude.Text)
-devDBEngineVersionDescription = Lens.lens (dbEngineVersionDescription :: DBEngineVersion -> Lude.Maybe Lude.Text) (\s a -> s {dbEngineVersionDescription = a} :: DBEngineVersion)
-{-# DEPRECATED devDBEngineVersionDescription "Use generic-lens or generic-optics with 'dbEngineVersionDescription' instead." #-}
+-- /Note:/ Consider using 'dBEngineVersionDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevDBEngineVersionDescription :: Lens.Lens' DBEngineVersion (Core.Maybe Types.DBEngineVersionDescription)
+dbevDBEngineVersionDescription = Lens.field @"dBEngineVersionDescription"
+{-# DEPRECATED dbevDBEngineVersionDescription "Use generic-lens or generic-optics with 'dBEngineVersionDescription' instead." #-}
 
--- | A list of the supported DB engine modes.
+-- | The name of the DB parameter group family for the database engine.
 --
--- /Note:/ Consider using 'supportedEngineModes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devSupportedEngineModes :: Lens.Lens' DBEngineVersion (Lude.Maybe [Lude.Text])
-devSupportedEngineModes = Lens.lens (supportedEngineModes :: DBEngineVersion -> Lude.Maybe [Lude.Text]) (\s a -> s {supportedEngineModes = a} :: DBEngineVersion)
-{-# DEPRECATED devSupportedEngineModes "Use generic-lens or generic-optics with 'supportedEngineModes' instead." #-}
+-- /Note:/ Consider using 'dBParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevDBParameterGroupFamily :: Lens.Lens' DBEngineVersion (Core.Maybe Types.DBParameterGroupFamily)
+dbevDBParameterGroupFamily = Lens.field @"dBParameterGroupFamily"
+{-# DEPRECATED dbevDBParameterGroupFamily "Use generic-lens or generic-optics with 'dBParameterGroupFamily' instead." #-}
 
 -- | The default character set for new instances of this engine version, if the @CharacterSetName@ parameter of the CreateDBInstance API isn't specified.
 --
 -- /Note:/ Consider using 'defaultCharacterSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devDefaultCharacterSet :: Lens.Lens' DBEngineVersion (Lude.Maybe CharacterSet)
-devDefaultCharacterSet = Lens.lens (defaultCharacterSet :: DBEngineVersion -> Lude.Maybe CharacterSet) (\s a -> s {defaultCharacterSet = a} :: DBEngineVersion)
-{-# DEPRECATED devDefaultCharacterSet "Use generic-lens or generic-optics with 'defaultCharacterSet' instead." #-}
+dbevDefaultCharacterSet :: Lens.Lens' DBEngineVersion (Core.Maybe Types.CharacterSet)
+dbevDefaultCharacterSet = Lens.field @"defaultCharacterSet"
+{-# DEPRECATED dbevDefaultCharacterSet "Use generic-lens or generic-optics with 'defaultCharacterSet' instead." #-}
 
 -- | The name of the database engine.
 --
 -- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devEngine :: Lens.Lens' DBEngineVersion (Lude.Maybe Lude.Text)
-devEngine = Lens.lens (engine :: DBEngineVersion -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: DBEngineVersion)
-{-# DEPRECATED devEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
+dbevEngine :: Lens.Lens' DBEngineVersion (Core.Maybe Types.Engine)
+dbevEngine = Lens.field @"engine"
+{-# DEPRECATED dbevEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
--- | The name of the DB parameter group family for the database engine.
+-- | The version number of the database engine.
 --
--- /Note:/ Consider using 'dbParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devDBParameterGroupFamily :: Lens.Lens' DBEngineVersion (Lude.Maybe Lude.Text)
-devDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: DBEngineVersion -> Lude.Maybe Lude.Text) (\s a -> s {dbParameterGroupFamily = a} :: DBEngineVersion)
-{-# DEPRECATED devDBParameterGroupFamily "Use generic-lens or generic-optics with 'dbParameterGroupFamily' instead." #-}
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevEngineVersion :: Lens.Lens' DBEngineVersion (Core.Maybe Types.EngineVersion)
+dbevEngineVersion = Lens.field @"engineVersion"
+{-# DEPRECATED dbevEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
+
+-- | The types of logs that the database engine has available for export to CloudWatch Logs.
+--
+-- /Note:/ Consider using 'exportableLogTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevExportableLogTypes :: Lens.Lens' DBEngineVersion (Core.Maybe [Types.String])
+dbevExportableLogTypes = Lens.field @"exportableLogTypes"
+{-# DEPRECATED dbevExportableLogTypes "Use generic-lens or generic-optics with 'exportableLogTypes' instead." #-}
+
+-- | The status of the DB engine version, either @available@ or @deprecated@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevStatus :: Lens.Lens' DBEngineVersion (Core.Maybe Types.Status)
+dbevStatus = Lens.field @"status"
+{-# DEPRECATED dbevStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A list of the character sets supported by this engine for the @CharacterSetName@ parameter of the @CreateDBInstance@ operation.
 --
 -- /Note:/ Consider using 'supportedCharacterSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devSupportedCharacterSets :: Lens.Lens' DBEngineVersion (Lude.Maybe [CharacterSet])
-devSupportedCharacterSets = Lens.lens (supportedCharacterSets :: DBEngineVersion -> Lude.Maybe [CharacterSet]) (\s a -> s {supportedCharacterSets = a} :: DBEngineVersion)
-{-# DEPRECATED devSupportedCharacterSets "Use generic-lens or generic-optics with 'supportedCharacterSets' instead." #-}
+dbevSupportedCharacterSets :: Lens.Lens' DBEngineVersion (Core.Maybe [Types.CharacterSet])
+dbevSupportedCharacterSets = Lens.field @"supportedCharacterSets"
+{-# DEPRECATED dbevSupportedCharacterSets "Use generic-lens or generic-optics with 'supportedCharacterSets' instead." #-}
 
--- | The description of the database engine.
+-- | A list of the supported DB engine modes.
 --
--- /Note:/ Consider using 'dbEngineDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devDBEngineDescription :: Lens.Lens' DBEngineVersion (Lude.Maybe Lude.Text)
-devDBEngineDescription = Lens.lens (dbEngineDescription :: DBEngineVersion -> Lude.Maybe Lude.Text) (\s a -> s {dbEngineDescription = a} :: DBEngineVersion)
-{-# DEPRECATED devDBEngineDescription "Use generic-lens or generic-optics with 'dbEngineDescription' instead." #-}
-
--- | A value that indicates whether you can use Aurora global databases with a specific DB engine version.
---
--- /Note:/ Consider using 'supportsGlobalDatabases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devSupportsGlobalDatabases :: Lens.Lens' DBEngineVersion (Lude.Maybe Lude.Bool)
-devSupportsGlobalDatabases = Lens.lens (supportsGlobalDatabases :: DBEngineVersion -> Lude.Maybe Lude.Bool) (\s a -> s {supportsGlobalDatabases = a} :: DBEngineVersion)
-{-# DEPRECATED devSupportsGlobalDatabases "Use generic-lens or generic-optics with 'supportsGlobalDatabases' instead." #-}
-
--- | A list of engine versions that this database engine version can be upgraded to.
---
--- /Note:/ Consider using 'validUpgradeTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devValidUpgradeTarget :: Lens.Lens' DBEngineVersion (Lude.Maybe [UpgradeTarget])
-devValidUpgradeTarget = Lens.lens (validUpgradeTarget :: DBEngineVersion -> Lude.Maybe [UpgradeTarget]) (\s a -> s {validUpgradeTarget = a} :: DBEngineVersion)
-{-# DEPRECATED devValidUpgradeTarget "Use generic-lens or generic-optics with 'validUpgradeTarget' instead." #-}
-
--- | A value that indicates whether you can use Aurora parallel query with a specific DB engine version.
---
--- /Note:/ Consider using 'supportsParallelQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devSupportsParallelQuery :: Lens.Lens' DBEngineVersion (Lude.Maybe Lude.Bool)
-devSupportsParallelQuery = Lens.lens (supportsParallelQuery :: DBEngineVersion -> Lude.Maybe Lude.Bool) (\s a -> s {supportsParallelQuery = a} :: DBEngineVersion)
-{-# DEPRECATED devSupportsParallelQuery "Use generic-lens or generic-optics with 'supportsParallelQuery' instead." #-}
-
--- | A list of the character sets supported by the Oracle DB engine for the @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.
---
--- /Note:/ Consider using 'supportedNcharCharacterSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devSupportedNcharCharacterSets :: Lens.Lens' DBEngineVersion (Lude.Maybe [CharacterSet])
-devSupportedNcharCharacterSets = Lens.lens (supportedNcharCharacterSets :: DBEngineVersion -> Lude.Maybe [CharacterSet]) (\s a -> s {supportedNcharCharacterSets = a} :: DBEngineVersion)
-{-# DEPRECATED devSupportedNcharCharacterSets "Use generic-lens or generic-optics with 'supportedNcharCharacterSets' instead." #-}
-
--- | A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.
---
--- /Note:/ Consider using 'supportsLogExportsToCloudwatchLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devSupportsLogExportsToCloudwatchLogs :: Lens.Lens' DBEngineVersion (Lude.Maybe Lude.Bool)
-devSupportsLogExportsToCloudwatchLogs = Lens.lens (supportsLogExportsToCloudwatchLogs :: DBEngineVersion -> Lude.Maybe Lude.Bool) (\s a -> s {supportsLogExportsToCloudwatchLogs = a} :: DBEngineVersion)
-{-# DEPRECATED devSupportsLogExportsToCloudwatchLogs "Use generic-lens or generic-optics with 'supportsLogExportsToCloudwatchLogs' instead." #-}
-
--- | Indicates whether the database engine version supports read replicas.
---
--- /Note:/ Consider using 'supportsReadReplica' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devSupportsReadReplica :: Lens.Lens' DBEngineVersion (Lude.Maybe Lude.Bool)
-devSupportsReadReplica = Lens.lens (supportsReadReplica :: DBEngineVersion -> Lude.Maybe Lude.Bool) (\s a -> s {supportsReadReplica = a} :: DBEngineVersion)
-{-# DEPRECATED devSupportsReadReplica "Use generic-lens or generic-optics with 'supportsReadReplica' instead." #-}
+-- /Note:/ Consider using 'supportedEngineModes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevSupportedEngineModes :: Lens.Lens' DBEngineVersion (Core.Maybe [Types.String])
+dbevSupportedEngineModes = Lens.field @"supportedEngineModes"
+{-# DEPRECATED dbevSupportedEngineModes "Use generic-lens or generic-optics with 'supportedEngineModes' instead." #-}
 
 -- | A list of features supported by the DB engine. Supported feature names include the following.
 --
@@ -253,56 +201,91 @@ devSupportsReadReplica = Lens.lens (supportsReadReplica :: DBEngineVersion -> Lu
 --
 --
 -- /Note:/ Consider using 'supportedFeatureNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devSupportedFeatureNames :: Lens.Lens' DBEngineVersion (Lude.Maybe [Lude.Text])
-devSupportedFeatureNames = Lens.lens (supportedFeatureNames :: DBEngineVersion -> Lude.Maybe [Lude.Text]) (\s a -> s {supportedFeatureNames = a} :: DBEngineVersion)
-{-# DEPRECATED devSupportedFeatureNames "Use generic-lens or generic-optics with 'supportedFeatureNames' instead." #-}
+dbevSupportedFeatureNames :: Lens.Lens' DBEngineVersion (Core.Maybe [Types.String])
+dbevSupportedFeatureNames = Lens.field @"supportedFeatureNames"
+{-# DEPRECATED dbevSupportedFeatureNames "Use generic-lens or generic-optics with 'supportedFeatureNames' instead." #-}
+
+-- | A list of the character sets supported by the Oracle DB engine for the @NcharCharacterSetName@ parameter of the @CreateDBInstance@ operation.
+--
+-- /Note:/ Consider using 'supportedNcharCharacterSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevSupportedNcharCharacterSets :: Lens.Lens' DBEngineVersion (Core.Maybe [Types.CharacterSet])
+dbevSupportedNcharCharacterSets = Lens.field @"supportedNcharCharacterSets"
+{-# DEPRECATED dbevSupportedNcharCharacterSets "Use generic-lens or generic-optics with 'supportedNcharCharacterSets' instead." #-}
 
 -- | A list of the time zones supported by this engine for the @Timezone@ parameter of the @CreateDBInstance@ action.
 --
 -- /Note:/ Consider using 'supportedTimezones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devSupportedTimezones :: Lens.Lens' DBEngineVersion (Lude.Maybe [Timezone])
-devSupportedTimezones = Lens.lens (supportedTimezones :: DBEngineVersion -> Lude.Maybe [Timezone]) (\s a -> s {supportedTimezones = a} :: DBEngineVersion)
-{-# DEPRECATED devSupportedTimezones "Use generic-lens or generic-optics with 'supportedTimezones' instead." #-}
+dbevSupportedTimezones :: Lens.Lens' DBEngineVersion (Core.Maybe [Types.Timezone])
+dbevSupportedTimezones = Lens.field @"supportedTimezones"
+{-# DEPRECATED dbevSupportedTimezones "Use generic-lens or generic-optics with 'supportedTimezones' instead." #-}
 
--- | The types of logs that the database engine has available for export to CloudWatch Logs.
+-- | A value that indicates whether you can use Aurora global databases with a specific DB engine version.
 --
--- /Note:/ Consider using 'exportableLogTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-devExportableLogTypes :: Lens.Lens' DBEngineVersion (Lude.Maybe [Lude.Text])
-devExportableLogTypes = Lens.lens (exportableLogTypes :: DBEngineVersion -> Lude.Maybe [Lude.Text]) (\s a -> s {exportableLogTypes = a} :: DBEngineVersion)
-{-# DEPRECATED devExportableLogTypes "Use generic-lens or generic-optics with 'exportableLogTypes' instead." #-}
+-- /Note:/ Consider using 'supportsGlobalDatabases' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevSupportsGlobalDatabases :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Bool)
+dbevSupportsGlobalDatabases = Lens.field @"supportsGlobalDatabases"
+{-# DEPRECATED dbevSupportsGlobalDatabases "Use generic-lens or generic-optics with 'supportsGlobalDatabases' instead." #-}
 
-instance Lude.FromXML DBEngineVersion where
+-- | A value that indicates whether the engine version supports exporting the log types specified by ExportableLogTypes to CloudWatch Logs.
+--
+-- /Note:/ Consider using 'supportsLogExportsToCloudwatchLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevSupportsLogExportsToCloudwatchLogs :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Bool)
+dbevSupportsLogExportsToCloudwatchLogs = Lens.field @"supportsLogExportsToCloudwatchLogs"
+{-# DEPRECATED dbevSupportsLogExportsToCloudwatchLogs "Use generic-lens or generic-optics with 'supportsLogExportsToCloudwatchLogs' instead." #-}
+
+-- | A value that indicates whether you can use Aurora parallel query with a specific DB engine version.
+--
+-- /Note:/ Consider using 'supportsParallelQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevSupportsParallelQuery :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Bool)
+dbevSupportsParallelQuery = Lens.field @"supportsParallelQuery"
+{-# DEPRECATED dbevSupportsParallelQuery "Use generic-lens or generic-optics with 'supportsParallelQuery' instead." #-}
+
+-- | Indicates whether the database engine version supports read replicas.
+--
+-- /Note:/ Consider using 'supportsReadReplica' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevSupportsReadReplica :: Lens.Lens' DBEngineVersion (Core.Maybe Core.Bool)
+dbevSupportsReadReplica = Lens.field @"supportsReadReplica"
+{-# DEPRECATED dbevSupportsReadReplica "Use generic-lens or generic-optics with 'supportsReadReplica' instead." #-}
+
+-- | A list of engine versions that this database engine version can be upgraded to.
+--
+-- /Note:/ Consider using 'validUpgradeTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbevValidUpgradeTarget :: Lens.Lens' DBEngineVersion (Core.Maybe [Types.UpgradeTarget])
+dbevValidUpgradeTarget = Lens.field @"validUpgradeTarget"
+{-# DEPRECATED dbevValidUpgradeTarget "Use generic-lens or generic-optics with 'validUpgradeTarget' instead." #-}
+
+instance Core.FromXML DBEngineVersion where
   parseXML x =
     DBEngineVersion'
-      Lude.<$> (x Lude..@? "EngineVersion")
-      Lude.<*> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "DBEngineVersionDescription")
-      Lude.<*> ( x Lude..@? "SupportedEngineModes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "DBEngineDescription")
+      Core.<*> (x Core..@? "DBEngineVersionDescription")
+      Core.<*> (x Core..@? "DBParameterGroupFamily")
+      Core.<*> (x Core..@? "DefaultCharacterSet")
+      Core.<*> (x Core..@? "Engine")
+      Core.<*> (x Core..@? "EngineVersion")
+      Core.<*> ( x Core..@? "ExportableLogTypes"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "DefaultCharacterSet")
-      Lude.<*> (x Lude..@? "Engine")
-      Lude.<*> (x Lude..@? "DBParameterGroupFamily")
-      Lude.<*> ( x Lude..@? "SupportedCharacterSets" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "CharacterSet")
+      Core.<*> (x Core..@? "Status")
+      Core.<*> ( x Core..@? "SupportedCharacterSets"
+                   Core..<@> Core.parseXMLList "CharacterSet"
                )
-      Lude.<*> (x Lude..@? "DBEngineDescription")
-      Lude.<*> (x Lude..@? "SupportsGlobalDatabases")
-      Lude.<*> ( x Lude..@? "ValidUpgradeTarget" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "UpgradeTarget")
+      Core.<*> ( x Core..@? "SupportedEngineModes"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "SupportsParallelQuery")
-      Lude.<*> ( x Lude..@? "SupportedNcharCharacterSets" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "CharacterSet")
+      Core.<*> ( x Core..@? "SupportedFeatureNames"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "SupportsLogExportsToCloudwatchLogs")
-      Lude.<*> (x Lude..@? "SupportsReadReplica")
-      Lude.<*> ( x Lude..@? "SupportedFeatureNames" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<*> ( x Core..@? "SupportedNcharCharacterSets"
+                   Core..<@> Core.parseXMLList "CharacterSet"
                )
-      Lude.<*> ( x Lude..@? "SupportedTimezones" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Timezone")
+      Core.<*> ( x Core..@? "SupportedTimezones"
+                   Core..<@> Core.parseXMLList "Timezone"
                )
-      Lude.<*> ( x Lude..@? "ExportableLogTypes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<*> (x Core..@? "SupportsGlobalDatabases")
+      Core.<*> (x Core..@? "SupportsLogExportsToCloudwatchLogs")
+      Core.<*> (x Core..@? "SupportsParallelQuery")
+      Core.<*> (x Core..@? "SupportsReadReplica")
+      Core.<*> ( x Core..@? "ValidUpgradeTarget"
+                   Core..<@> Core.parseXMLList "UpgradeTarget"
                )

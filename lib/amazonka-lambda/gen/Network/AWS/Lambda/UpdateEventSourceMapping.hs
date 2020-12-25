@@ -36,63 +36,55 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     mkUpdateEventSourceMapping,
 
     -- ** Request lenses
-    uesmEnabled,
-    uesmBisectBatchOnFunctionError,
-    uesmUUId,
-    uesmParallelizationFactor,
-    uesmMaximumRetryAttempts,
+    uesmUUID,
     uesmBatchSize,
-    uesmMaximumBatchingWindowInSeconds,
-    uesmSourceAccessConfigurations,
-    uesmMaximumRecordAgeInSeconds,
-    uesmFunctionName,
+    uesmBisectBatchOnFunctionError,
     uesmDestinationConfig,
+    uesmEnabled,
+    uesmFunctionName,
+    uesmMaximumBatchingWindowInSeconds,
+    uesmMaximumRecordAgeInSeconds,
+    uesmMaximumRetryAttempts,
+    uesmParallelizationFactor,
+    uesmSourceAccessConfigurations,
 
     -- * Destructuring the response
-    EventSourceMappingConfiguration (..),
-    mkEventSourceMappingConfiguration,
+    Types.EventSourceMappingConfiguration (..),
+    Types.mkEventSourceMappingConfiguration,
 
     -- ** Response lenses
-    esmcEventSourceARN,
-    esmcState,
-    esmcStartingPositionTimestamp,
-    esmcFunctionARN,
-    esmcTopics,
-    esmcQueues,
-    esmcBisectBatchOnFunctionError,
-    esmcUUId,
-    esmcParallelizationFactor,
-    esmcLastProcessingResult,
-    esmcMaximumRetryAttempts,
-    esmcBatchSize,
-    esmcStateTransitionReason,
-    esmcMaximumBatchingWindowInSeconds,
-    esmcSourceAccessConfigurations,
-    esmcMaximumRecordAgeInSeconds,
-    esmcLastModified,
-    esmcDestinationConfig,
-    esmcStartingPosition,
+    Types.esmcBatchSize,
+    Types.esmcBisectBatchOnFunctionError,
+    Types.esmcDestinationConfig,
+    Types.esmcEventSourceArn,
+    Types.esmcFunctionArn,
+    Types.esmcLastModified,
+    Types.esmcLastProcessingResult,
+    Types.esmcMaximumBatchingWindowInSeconds,
+    Types.esmcMaximumRecordAgeInSeconds,
+    Types.esmcMaximumRetryAttempts,
+    Types.esmcParallelizationFactor,
+    Types.esmcQueues,
+    Types.esmcSourceAccessConfigurations,
+    Types.esmcStartingPosition,
+    Types.esmcStartingPositionTimestamp,
+    Types.esmcState,
+    Types.esmcStateTransitionReason,
+    Types.esmcTopics,
+    Types.esmcUUID,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateEventSourceMapping' smart constructor.
 data UpdateEventSourceMapping = UpdateEventSourceMapping'
-  { -- | If true, the event source mapping is active. Set to false to pause polling and invocation.
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | (Streams) If the function returns an error, split the batch in two and retry.
-    bisectBatchOnFunctionError :: Lude.Maybe Lude.Bool,
-    -- | The identifier of the event source mapping.
-    uUId :: Lude.Text,
-    -- | (Streams) The number of batches to process from each shard concurrently.
-    parallelizationFactor :: Lude.Maybe Lude.Natural,
-    -- | (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.
-    maximumRetryAttempts :: Lude.Maybe Lude.Int,
+  { -- | The identifier of the event source mapping.
+    uuid :: Types.String,
     -- | The maximum number of items to retrieve in a single batch.
     --
     --
@@ -106,16 +98,13 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
     --
     --
     --     * __Amazon Managed Streaming for Apache Kafka__ - Default 100. Max 10,000.
-    batchSize :: Lude.Maybe Lude.Natural,
-    -- | (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
-    maximumBatchingWindowInSeconds :: Lude.Maybe Lude.Natural,
-    -- | (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
-    --
-    -- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
-    -- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
-    sourceAccessConfigurations :: Lude.Maybe (Lude.NonEmpty SourceAccessConfiguration),
-    -- | (Streams) Discard records older than the specified age. The default value is infinite (-1).
-    maximumRecordAgeInSeconds :: Lude.Maybe Lude.Int,
+    batchSize :: Core.Maybe Core.Natural,
+    -- | (Streams) If the function returns an error, split the batch in two and retry.
+    bisectBatchOnFunctionError :: Core.Maybe Core.Bool,
+    -- | (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+    destinationConfig :: Core.Maybe Types.DestinationConfig,
+    -- | If true, the event source mapping is active. Set to false to pause polling and invocation.
+    enabled :: Core.Maybe Core.Bool,
     -- | The name of the Lambda function.
     --
     -- __Name formats__
@@ -133,112 +122,50 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
     --
     --
     -- The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
-    functionName :: Lude.Maybe Lude.Text,
-    -- | (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-    destinationConfig :: Lude.Maybe DestinationConfig
+    functionName :: Core.Maybe Types.FunctionName,
+    -- | (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
+    maximumBatchingWindowInSeconds :: Core.Maybe Core.Natural,
+    -- | (Streams) Discard records older than the specified age. The default value is infinite (-1).
+    maximumRecordAgeInSeconds :: Core.Maybe Core.Int,
+    -- | (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.
+    maximumRetryAttempts :: Core.Maybe Core.Int,
+    -- | (Streams) The number of batches to process from each shard concurrently.
+    parallelizationFactor :: Core.Maybe Core.Natural,
+    -- | (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
+    --
+    -- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
+    -- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+    sourceAccessConfigurations :: Core.Maybe (Core.NonEmpty Types.SourceAccessConfiguration)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateEventSourceMapping' with the minimum fields required to make a request.
---
--- * 'enabled' - If true, the event source mapping is active. Set to false to pause polling and invocation.
--- * 'bisectBatchOnFunctionError' - (Streams) If the function returns an error, split the batch in two and retry.
--- * 'uUId' - The identifier of the event source mapping.
--- * 'parallelizationFactor' - (Streams) The number of batches to process from each shard concurrently.
--- * 'maximumRetryAttempts' - (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.
--- * 'batchSize' - The maximum number of items to retrieve in a single batch.
---
---
---     * __Amazon Kinesis__ - Default 100. Max 10,000.
---
---
---     * __Amazon DynamoDB Streams__ - Default 100. Max 1,000.
---
---
---     * __Amazon Simple Queue Service__ - Default 10. Max 10.
---
---
---     * __Amazon Managed Streaming for Apache Kafka__ - Default 100. Max 10,000.
---
---
--- * 'maximumBatchingWindowInSeconds' - (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
--- * 'sourceAccessConfigurations' - (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
---
--- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
--- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
--- * 'maximumRecordAgeInSeconds' - (Streams) Discard records older than the specified age. The default value is infinite (-1).
--- * 'functionName' - The name of the Lambda function.
---
--- __Name formats__
---
---     * __Function name__ - @MyFunction@ .
---
---
---     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction@ .
---
---
---     * __Version or Alias ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:MyFunction:PROD@ .
---
---
---     * __Partial ARN__ - @123456789012:function:MyFunction@ .
---
---
--- The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
--- * 'destinationConfig' - (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+-- | Creates a 'UpdateEventSourceMapping' value with any optional fields omitted.
 mkUpdateEventSourceMapping ::
-  -- | 'uUId'
-  Lude.Text ->
+  -- | 'uuid'
+  Types.String ->
   UpdateEventSourceMapping
-mkUpdateEventSourceMapping pUUId_ =
+mkUpdateEventSourceMapping uuid =
   UpdateEventSourceMapping'
-    { enabled = Lude.Nothing,
-      bisectBatchOnFunctionError = Lude.Nothing,
-      uUId = pUUId_,
-      parallelizationFactor = Lude.Nothing,
-      maximumRetryAttempts = Lude.Nothing,
-      batchSize = Lude.Nothing,
-      maximumBatchingWindowInSeconds = Lude.Nothing,
-      sourceAccessConfigurations = Lude.Nothing,
-      maximumRecordAgeInSeconds = Lude.Nothing,
-      functionName = Lude.Nothing,
-      destinationConfig = Lude.Nothing
+    { uuid,
+      batchSize = Core.Nothing,
+      bisectBatchOnFunctionError = Core.Nothing,
+      destinationConfig = Core.Nothing,
+      enabled = Core.Nothing,
+      functionName = Core.Nothing,
+      maximumBatchingWindowInSeconds = Core.Nothing,
+      maximumRecordAgeInSeconds = Core.Nothing,
+      maximumRetryAttempts = Core.Nothing,
+      parallelizationFactor = Core.Nothing,
+      sourceAccessConfigurations = Core.Nothing
     }
-
--- | If true, the event source mapping is active. Set to false to pause polling and invocation.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uesmEnabled :: Lens.Lens' UpdateEventSourceMapping (Lude.Maybe Lude.Bool)
-uesmEnabled = Lens.lens (enabled :: UpdateEventSourceMapping -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: UpdateEventSourceMapping)
-{-# DEPRECATED uesmEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
--- | (Streams) If the function returns an error, split the batch in two and retry.
---
--- /Note:/ Consider using 'bisectBatchOnFunctionError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uesmBisectBatchOnFunctionError :: Lens.Lens' UpdateEventSourceMapping (Lude.Maybe Lude.Bool)
-uesmBisectBatchOnFunctionError = Lens.lens (bisectBatchOnFunctionError :: UpdateEventSourceMapping -> Lude.Maybe Lude.Bool) (\s a -> s {bisectBatchOnFunctionError = a} :: UpdateEventSourceMapping)
-{-# DEPRECATED uesmBisectBatchOnFunctionError "Use generic-lens or generic-optics with 'bisectBatchOnFunctionError' instead." #-}
 
 -- | The identifier of the event source mapping.
 --
--- /Note:/ Consider using 'uUId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uesmUUId :: Lens.Lens' UpdateEventSourceMapping Lude.Text
-uesmUUId = Lens.lens (uUId :: UpdateEventSourceMapping -> Lude.Text) (\s a -> s {uUId = a} :: UpdateEventSourceMapping)
-{-# DEPRECATED uesmUUId "Use generic-lens or generic-optics with 'uUId' instead." #-}
-
--- | (Streams) The number of batches to process from each shard concurrently.
---
--- /Note:/ Consider using 'parallelizationFactor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uesmParallelizationFactor :: Lens.Lens' UpdateEventSourceMapping (Lude.Maybe Lude.Natural)
-uesmParallelizationFactor = Lens.lens (parallelizationFactor :: UpdateEventSourceMapping -> Lude.Maybe Lude.Natural) (\s a -> s {parallelizationFactor = a} :: UpdateEventSourceMapping)
-{-# DEPRECATED uesmParallelizationFactor "Use generic-lens or generic-optics with 'parallelizationFactor' instead." #-}
-
--- | (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.
---
--- /Note:/ Consider using 'maximumRetryAttempts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uesmMaximumRetryAttempts :: Lens.Lens' UpdateEventSourceMapping (Lude.Maybe Lude.Int)
-uesmMaximumRetryAttempts = Lens.lens (maximumRetryAttempts :: UpdateEventSourceMapping -> Lude.Maybe Lude.Int) (\s a -> s {maximumRetryAttempts = a} :: UpdateEventSourceMapping)
-{-# DEPRECATED uesmMaximumRetryAttempts "Use generic-lens or generic-optics with 'maximumRetryAttempts' instead." #-}
+-- /Note:/ Consider using 'uuid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uesmUUID :: Lens.Lens' UpdateEventSourceMapping Types.String
+uesmUUID = Lens.field @"uuid"
+{-# DEPRECATED uesmUUID "Use generic-lens or generic-optics with 'uuid' instead." #-}
 
 -- | The maximum number of items to retrieve in a single batch.
 --
@@ -257,33 +184,30 @@ uesmMaximumRetryAttempts = Lens.lens (maximumRetryAttempts :: UpdateEventSourceM
 --
 --
 -- /Note:/ Consider using 'batchSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uesmBatchSize :: Lens.Lens' UpdateEventSourceMapping (Lude.Maybe Lude.Natural)
-uesmBatchSize = Lens.lens (batchSize :: UpdateEventSourceMapping -> Lude.Maybe Lude.Natural) (\s a -> s {batchSize = a} :: UpdateEventSourceMapping)
+uesmBatchSize :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Natural)
+uesmBatchSize = Lens.field @"batchSize"
 {-# DEPRECATED uesmBatchSize "Use generic-lens or generic-optics with 'batchSize' instead." #-}
 
--- | (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
+-- | (Streams) If the function returns an error, split the batch in two and retry.
 --
--- /Note:/ Consider using 'maximumBatchingWindowInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uesmMaximumBatchingWindowInSeconds :: Lens.Lens' UpdateEventSourceMapping (Lude.Maybe Lude.Natural)
-uesmMaximumBatchingWindowInSeconds = Lens.lens (maximumBatchingWindowInSeconds :: UpdateEventSourceMapping -> Lude.Maybe Lude.Natural) (\s a -> s {maximumBatchingWindowInSeconds = a} :: UpdateEventSourceMapping)
-{-# DEPRECATED uesmMaximumBatchingWindowInSeconds "Use generic-lens or generic-optics with 'maximumBatchingWindowInSeconds' instead." #-}
+-- /Note:/ Consider using 'bisectBatchOnFunctionError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uesmBisectBatchOnFunctionError :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Bool)
+uesmBisectBatchOnFunctionError = Lens.field @"bisectBatchOnFunctionError"
+{-# DEPRECATED uesmBisectBatchOnFunctionError "Use generic-lens or generic-optics with 'bisectBatchOnFunctionError' instead." #-}
 
--- | (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
+-- | (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
 --
--- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
--- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
---
--- /Note:/ Consider using 'sourceAccessConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uesmSourceAccessConfigurations :: Lens.Lens' UpdateEventSourceMapping (Lude.Maybe (Lude.NonEmpty SourceAccessConfiguration))
-uesmSourceAccessConfigurations = Lens.lens (sourceAccessConfigurations :: UpdateEventSourceMapping -> Lude.Maybe (Lude.NonEmpty SourceAccessConfiguration)) (\s a -> s {sourceAccessConfigurations = a} :: UpdateEventSourceMapping)
-{-# DEPRECATED uesmSourceAccessConfigurations "Use generic-lens or generic-optics with 'sourceAccessConfigurations' instead." #-}
+-- /Note:/ Consider using 'destinationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uesmDestinationConfig :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Types.DestinationConfig)
+uesmDestinationConfig = Lens.field @"destinationConfig"
+{-# DEPRECATED uesmDestinationConfig "Use generic-lens or generic-optics with 'destinationConfig' instead." #-}
 
--- | (Streams) Discard records older than the specified age. The default value is infinite (-1).
+-- | If true, the event source mapping is active. Set to false to pause polling and invocation.
 --
--- /Note:/ Consider using 'maximumRecordAgeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uesmMaximumRecordAgeInSeconds :: Lens.Lens' UpdateEventSourceMapping (Lude.Maybe Lude.Int)
-uesmMaximumRecordAgeInSeconds = Lens.lens (maximumRecordAgeInSeconds :: UpdateEventSourceMapping -> Lude.Maybe Lude.Int) (\s a -> s {maximumRecordAgeInSeconds = a} :: UpdateEventSourceMapping)
-{-# DEPRECATED uesmMaximumRecordAgeInSeconds "Use generic-lens or generic-optics with 'maximumRecordAgeInSeconds' instead." #-}
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uesmEnabled :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Bool)
+uesmEnabled = Lens.field @"enabled"
+{-# DEPRECATED uesmEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The name of the Lambda function.
 --
@@ -304,50 +228,82 @@ uesmMaximumRecordAgeInSeconds = Lens.lens (maximumRecordAgeInSeconds :: UpdateEv
 -- The length constraint applies only to the full ARN. If you specify only the function name, it's limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uesmFunctionName :: Lens.Lens' UpdateEventSourceMapping (Lude.Maybe Lude.Text)
-uesmFunctionName = Lens.lens (functionName :: UpdateEventSourceMapping -> Lude.Maybe Lude.Text) (\s a -> s {functionName = a} :: UpdateEventSourceMapping)
+uesmFunctionName :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Types.FunctionName)
+uesmFunctionName = Lens.field @"functionName"
 {-# DEPRECATED uesmFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
--- | (Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.
+-- | (Streams) The maximum amount of time to gather records before invoking the function, in seconds.
 --
--- /Note:/ Consider using 'destinationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uesmDestinationConfig :: Lens.Lens' UpdateEventSourceMapping (Lude.Maybe DestinationConfig)
-uesmDestinationConfig = Lens.lens (destinationConfig :: UpdateEventSourceMapping -> Lude.Maybe DestinationConfig) (\s a -> s {destinationConfig = a} :: UpdateEventSourceMapping)
-{-# DEPRECATED uesmDestinationConfig "Use generic-lens or generic-optics with 'destinationConfig' instead." #-}
+-- /Note:/ Consider using 'maximumBatchingWindowInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uesmMaximumBatchingWindowInSeconds :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Natural)
+uesmMaximumBatchingWindowInSeconds = Lens.field @"maximumBatchingWindowInSeconds"
+{-# DEPRECATED uesmMaximumBatchingWindowInSeconds "Use generic-lens or generic-optics with 'maximumBatchingWindowInSeconds' instead." #-}
 
-instance Lude.AWSRequest UpdateEventSourceMapping where
-  type Rs UpdateEventSourceMapping = EventSourceMappingConfiguration
-  request = Req.putJSON lambdaService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | (Streams) Discard records older than the specified age. The default value is infinite (-1).
+--
+-- /Note:/ Consider using 'maximumRecordAgeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uesmMaximumRecordAgeInSeconds :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Int)
+uesmMaximumRecordAgeInSeconds = Lens.field @"maximumRecordAgeInSeconds"
+{-# DEPRECATED uesmMaximumRecordAgeInSeconds "Use generic-lens or generic-optics with 'maximumRecordAgeInSeconds' instead." #-}
 
-instance Lude.ToHeaders UpdateEventSourceMapping where
-  toHeaders = Lude.const Lude.mempty
+-- | (Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.
+--
+-- /Note:/ Consider using 'maximumRetryAttempts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uesmMaximumRetryAttempts :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Int)
+uesmMaximumRetryAttempts = Lens.field @"maximumRetryAttempts"
+{-# DEPRECATED uesmMaximumRetryAttempts "Use generic-lens or generic-optics with 'maximumRetryAttempts' instead." #-}
 
-instance Lude.ToJSON UpdateEventSourceMapping where
-  toJSON UpdateEventSourceMapping' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Enabled" Lude..=) Lude.<$> enabled,
-            ("BisectBatchOnFunctionError" Lude..=)
-              Lude.<$> bisectBatchOnFunctionError,
-            ("ParallelizationFactor" Lude..=) Lude.<$> parallelizationFactor,
-            ("MaximumRetryAttempts" Lude..=) Lude.<$> maximumRetryAttempts,
-            ("BatchSize" Lude..=) Lude.<$> batchSize,
-            ("MaximumBatchingWindowInSeconds" Lude..=)
-              Lude.<$> maximumBatchingWindowInSeconds,
-            ("SourceAccessConfigurations" Lude..=)
-              Lude.<$> sourceAccessConfigurations,
-            ("MaximumRecordAgeInSeconds" Lude..=)
-              Lude.<$> maximumRecordAgeInSeconds,
-            ("FunctionName" Lude..=) Lude.<$> functionName,
-            ("DestinationConfig" Lude..=) Lude.<$> destinationConfig
+-- | (Streams) The number of batches to process from each shard concurrently.
+--
+-- /Note:/ Consider using 'parallelizationFactor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uesmParallelizationFactor :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe Core.Natural)
+uesmParallelizationFactor = Lens.field @"parallelizationFactor"
+{-# DEPRECATED uesmParallelizationFactor "Use generic-lens or generic-optics with 'parallelizationFactor' instead." #-}
+
+-- | (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: @{ "username": "your username", "password": "your password" }@
+--
+-- To reference the secret, use the following format: @[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]@
+-- The value of @Type@ is always @BASIC_AUTH@ . To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires @kms:Decrypt@ permissions.
+--
+-- /Note:/ Consider using 'sourceAccessConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uesmSourceAccessConfigurations :: Lens.Lens' UpdateEventSourceMapping (Core.Maybe (Core.NonEmpty Types.SourceAccessConfiguration))
+uesmSourceAccessConfigurations = Lens.field @"sourceAccessConfigurations"
+{-# DEPRECATED uesmSourceAccessConfigurations "Use generic-lens or generic-optics with 'sourceAccessConfigurations' instead." #-}
+
+instance Core.FromJSON UpdateEventSourceMapping where
+  toJSON UpdateEventSourceMapping {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BatchSize" Core..=) Core.<$> batchSize,
+            ("BisectBatchOnFunctionError" Core..=)
+              Core.<$> bisectBatchOnFunctionError,
+            ("DestinationConfig" Core..=) Core.<$> destinationConfig,
+            ("Enabled" Core..=) Core.<$> enabled,
+            ("FunctionName" Core..=) Core.<$> functionName,
+            ("MaximumBatchingWindowInSeconds" Core..=)
+              Core.<$> maximumBatchingWindowInSeconds,
+            ("MaximumRecordAgeInSeconds" Core..=)
+              Core.<$> maximumRecordAgeInSeconds,
+            ("MaximumRetryAttempts" Core..=) Core.<$> maximumRetryAttempts,
+            ("ParallelizationFactor" Core..=) Core.<$> parallelizationFactor,
+            ("SourceAccessConfigurations" Core..=)
+              Core.<$> sourceAccessConfigurations
           ]
       )
 
-instance Lude.ToPath UpdateEventSourceMapping where
-  toPath UpdateEventSourceMapping' {..} =
-    Lude.mconcat
-      ["/2015-03-31/event-source-mappings/", Lude.toBS uUId]
-
-instance Lude.ToQuery UpdateEventSourceMapping where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateEventSourceMapping where
+  type
+    Rs UpdateEventSourceMapping =
+      Types.EventSourceMappingConfiguration
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ("/2015-03-31/event-source-mappings/" Core.<> (Core.toText uuid)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

@@ -17,111 +17,105 @@ module Network.AWS.SSM.Types.MaintenanceWindowExecution
     mkMaintenanceWindowExecution,
 
     -- * Lenses
-    mweStatus,
-    mweStartTime,
-    mweWindowExecutionId,
-    mweStatusDetails,
     mweEndTime,
+    mweStartTime,
+    mweStatus,
+    mweStatusDetails,
+    mweWindowExecutionId,
     mweWindowId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.MaintenanceWindowExecutionStatus as Types
+import qualified Network.AWS.SSM.Types.MaintenanceWindowExecutionStatusDetails as Types
+import qualified Network.AWS.SSM.Types.WindowExecutionId as Types
+import qualified Network.AWS.SSM.Types.WindowId as Types
 
 -- | Describes the information about an execution of a maintenance window.
 --
 -- /See:/ 'mkMaintenanceWindowExecution' smart constructor.
 data MaintenanceWindowExecution = MaintenanceWindowExecution'
-  { -- | The status of the execution.
-    status :: Lude.Maybe MaintenanceWindowExecutionStatus,
+  { -- | The time the execution finished.
+    endTime :: Core.Maybe Core.NominalDiffTime,
     -- | The time the execution started.
-    startTime :: Lude.Maybe Lude.Timestamp,
-    -- | The ID of the maintenance window execution.
-    windowExecutionId :: Lude.Maybe Lude.Text,
+    startTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the execution.
+    status :: Core.Maybe Types.MaintenanceWindowExecutionStatus,
     -- | The details explaining the Status. Only available for certain status values.
-    statusDetails :: Lude.Maybe Lude.Text,
-    -- | The time the execution finished.
-    endTime :: Lude.Maybe Lude.Timestamp,
+    statusDetails :: Core.Maybe Types.MaintenanceWindowExecutionStatusDetails,
+    -- | The ID of the maintenance window execution.
+    windowExecutionId :: Core.Maybe Types.WindowExecutionId,
     -- | The ID of the maintenance window.
-    windowId :: Lude.Maybe Lude.Text
+    windowId :: Core.Maybe Types.WindowId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MaintenanceWindowExecution' with the minimum fields required to make a request.
---
--- * 'status' - The status of the execution.
--- * 'startTime' - The time the execution started.
--- * 'windowExecutionId' - The ID of the maintenance window execution.
--- * 'statusDetails' - The details explaining the Status. Only available for certain status values.
--- * 'endTime' - The time the execution finished.
--- * 'windowId' - The ID of the maintenance window.
+-- | Creates a 'MaintenanceWindowExecution' value with any optional fields omitted.
 mkMaintenanceWindowExecution ::
   MaintenanceWindowExecution
 mkMaintenanceWindowExecution =
   MaintenanceWindowExecution'
-    { status = Lude.Nothing,
-      startTime = Lude.Nothing,
-      windowExecutionId = Lude.Nothing,
-      statusDetails = Lude.Nothing,
-      endTime = Lude.Nothing,
-      windowId = Lude.Nothing
+    { endTime = Core.Nothing,
+      startTime = Core.Nothing,
+      status = Core.Nothing,
+      statusDetails = Core.Nothing,
+      windowExecutionId = Core.Nothing,
+      windowId = Core.Nothing
     }
-
--- | The status of the execution.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mweStatus :: Lens.Lens' MaintenanceWindowExecution (Lude.Maybe MaintenanceWindowExecutionStatus)
-mweStatus = Lens.lens (status :: MaintenanceWindowExecution -> Lude.Maybe MaintenanceWindowExecutionStatus) (\s a -> s {status = a} :: MaintenanceWindowExecution)
-{-# DEPRECATED mweStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The time the execution started.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mweStartTime :: Lens.Lens' MaintenanceWindowExecution (Lude.Maybe Lude.Timestamp)
-mweStartTime = Lens.lens (startTime :: MaintenanceWindowExecution -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: MaintenanceWindowExecution)
-{-# DEPRECATED mweStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The ID of the maintenance window execution.
---
--- /Note:/ Consider using 'windowExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mweWindowExecutionId :: Lens.Lens' MaintenanceWindowExecution (Lude.Maybe Lude.Text)
-mweWindowExecutionId = Lens.lens (windowExecutionId :: MaintenanceWindowExecution -> Lude.Maybe Lude.Text) (\s a -> s {windowExecutionId = a} :: MaintenanceWindowExecution)
-{-# DEPRECATED mweWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
-
--- | The details explaining the Status. Only available for certain status values.
---
--- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mweStatusDetails :: Lens.Lens' MaintenanceWindowExecution (Lude.Maybe Lude.Text)
-mweStatusDetails = Lens.lens (statusDetails :: MaintenanceWindowExecution -> Lude.Maybe Lude.Text) (\s a -> s {statusDetails = a} :: MaintenanceWindowExecution)
-{-# DEPRECATED mweStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
 
 -- | The time the execution finished.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mweEndTime :: Lens.Lens' MaintenanceWindowExecution (Lude.Maybe Lude.Timestamp)
-mweEndTime = Lens.lens (endTime :: MaintenanceWindowExecution -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: MaintenanceWindowExecution)
+mweEndTime :: Lens.Lens' MaintenanceWindowExecution (Core.Maybe Core.NominalDiffTime)
+mweEndTime = Lens.field @"endTime"
 {-# DEPRECATED mweEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | The time the execution started.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mweStartTime :: Lens.Lens' MaintenanceWindowExecution (Core.Maybe Core.NominalDiffTime)
+mweStartTime = Lens.field @"startTime"
+{-# DEPRECATED mweStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The status of the execution.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mweStatus :: Lens.Lens' MaintenanceWindowExecution (Core.Maybe Types.MaintenanceWindowExecutionStatus)
+mweStatus = Lens.field @"status"
+{-# DEPRECATED mweStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The details explaining the Status. Only available for certain status values.
+--
+-- /Note:/ Consider using 'statusDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mweStatusDetails :: Lens.Lens' MaintenanceWindowExecution (Core.Maybe Types.MaintenanceWindowExecutionStatusDetails)
+mweStatusDetails = Lens.field @"statusDetails"
+{-# DEPRECATED mweStatusDetails "Use generic-lens or generic-optics with 'statusDetails' instead." #-}
+
+-- | The ID of the maintenance window execution.
+--
+-- /Note:/ Consider using 'windowExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mweWindowExecutionId :: Lens.Lens' MaintenanceWindowExecution (Core.Maybe Types.WindowExecutionId)
+mweWindowExecutionId = Lens.field @"windowExecutionId"
+{-# DEPRECATED mweWindowExecutionId "Use generic-lens or generic-optics with 'windowExecutionId' instead." #-}
 
 -- | The ID of the maintenance window.
 --
 -- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mweWindowId :: Lens.Lens' MaintenanceWindowExecution (Lude.Maybe Lude.Text)
-mweWindowId = Lens.lens (windowId :: MaintenanceWindowExecution -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: MaintenanceWindowExecution)
+mweWindowId :: Lens.Lens' MaintenanceWindowExecution (Core.Maybe Types.WindowId)
+mweWindowId = Lens.field @"windowId"
 {-# DEPRECATED mweWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
-instance Lude.FromJSON MaintenanceWindowExecution where
+instance Core.FromJSON MaintenanceWindowExecution where
   parseJSON =
-    Lude.withObject
-      "MaintenanceWindowExecution"
-      ( \x ->
-          MaintenanceWindowExecution'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "StartTime")
-            Lude.<*> (x Lude..:? "WindowExecutionId")
-            Lude.<*> (x Lude..:? "StatusDetails")
-            Lude.<*> (x Lude..:? "EndTime")
-            Lude.<*> (x Lude..:? "WindowId")
-      )
+    Core.withObject "MaintenanceWindowExecution" Core.$
+      \x ->
+        MaintenanceWindowExecution'
+          Core.<$> (x Core..:? "EndTime")
+          Core.<*> (x Core..:? "StartTime")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "StatusDetails")
+          Core.<*> (x Core..:? "WindowExecutionId")
+          Core.<*> (x Core..:? "WindowId")

@@ -21,8 +21,8 @@ module Network.AWS.ElasticSearch.DescribeOutboundCrossClusterSearchConnections
 
     -- ** Request lenses
     doccscFilters,
-    doccscNextToken,
     doccscMaxResults,
+    doccscNextToken,
 
     -- * Destructuring the response
     DescribeOutboundCrossClusterSearchConnectionsResponse (..),
@@ -35,11 +35,11 @@ module Network.AWS.ElasticSearch.DescribeOutboundCrossClusterSearchConnections
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DescribeOutboundCrossClusterSearchConnections' @ operation.
 --
@@ -56,40 +56,24 @@ data DescribeOutboundCrossClusterSearchConnections = DescribeOutboundCrossCluste
     --     * destination-domain-info.region
     --
     --     * source-domain-info.domain-name
-    filters :: Lude.Maybe [Filter],
-    -- | NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.Filter],
     -- | Set this value to limit the number of results returned. If not specified, defaults to 100.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeOutboundCrossClusterSearchConnections' with the minimum fields required to make a request.
---
--- * 'filters' - A list of filters used to match properties for outbound cross-cluster search connection. Available @'Filter' @ names for this operation are:
---
---     * cross-cluster-search-connection-id
---
---     * destination-domain-info.domain-name
---
---     * destination-domain-info.owner-id
---
---     * destination-domain-info.region
---
---     * source-domain-info.domain-name
---
---
--- * 'nextToken' - NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.
--- * 'maxResults' - Set this value to limit the number of results returned. If not specified, defaults to 100.
+-- | Creates a 'DescribeOutboundCrossClusterSearchConnections' value with any optional fields omitted.
 mkDescribeOutboundCrossClusterSearchConnections ::
   DescribeOutboundCrossClusterSearchConnections
 mkDescribeOutboundCrossClusterSearchConnections =
   DescribeOutboundCrossClusterSearchConnections'
     { filters =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+        Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | A list of filters used to match properties for outbound cross-cluster search connection. Available @'Filter' @ names for this operation are:
@@ -107,112 +91,108 @@ mkDescribeOutboundCrossClusterSearchConnections =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doccscFilters :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Lude.Maybe [Filter])
-doccscFilters = Lens.lens (filters :: DescribeOutboundCrossClusterSearchConnections -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeOutboundCrossClusterSearchConnections)
+doccscFilters :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Core.Maybe [Types.Filter])
+doccscFilters = Lens.field @"filters"
 {-# DEPRECATED doccscFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doccscNextToken :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Lude.Maybe Lude.Text)
-doccscNextToken = Lens.lens (nextToken :: DescribeOutboundCrossClusterSearchConnections -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeOutboundCrossClusterSearchConnections)
-{-# DEPRECATED doccscNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Set this value to limit the number of results returned. If not specified, defaults to 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doccscMaxResults :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Lude.Maybe Lude.Int)
-doccscMaxResults = Lens.lens (maxResults :: DescribeOutboundCrossClusterSearchConnections -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeOutboundCrossClusterSearchConnections)
+doccscMaxResults :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Core.Maybe Core.Int)
+doccscMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED doccscMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
+-- | NextToken is sent in case the earlier API call results contain the NextToken. It is used for pagination.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doccscNextToken :: Lens.Lens' DescribeOutboundCrossClusterSearchConnections (Core.Maybe Types.NextToken)
+doccscNextToken = Lens.field @"nextToken"
+{-# DEPRECATED doccscNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
 instance
-  Lude.AWSRequest
+  Core.FromJSON
+    DescribeOutboundCrossClusterSearchConnections
+  where
+  toJSON DescribeOutboundCrossClusterSearchConnections {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance
+  Core.AWSRequest
     DescribeOutboundCrossClusterSearchConnections
   where
   type
     Rs DescribeOutboundCrossClusterSearchConnections =
       DescribeOutboundCrossClusterSearchConnectionsResponse
-  request = Req.postJSON elasticSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath "/2015-01-01/es/ccs/outboundConnection/search",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeOutboundCrossClusterSearchConnectionsResponse'
-            Lude.<$> (x Lude..?> "CrossClusterSearchConnections" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CrossClusterSearchConnections")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance
-  Lude.ToHeaders
-    DescribeOutboundCrossClusterSearchConnections
-  where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON DescribeOutboundCrossClusterSearchConnections where
-  toJSON DescribeOutboundCrossClusterSearchConnections' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeOutboundCrossClusterSearchConnections where
-  toPath = Lude.const "/2015-01-01/es/ccs/outboundConnection/search"
-
-instance Lude.ToQuery DescribeOutboundCrossClusterSearchConnections where
-  toQuery = Lude.const Lude.mempty
 
 -- | The result of a @'DescribeOutboundCrossClusterSearchConnections' @ request. Contains the list of connections matching the filter criteria.
 --
 -- /See:/ 'mkDescribeOutboundCrossClusterSearchConnectionsResponse' smart constructor.
 data DescribeOutboundCrossClusterSearchConnectionsResponse = DescribeOutboundCrossClusterSearchConnectionsResponse'
   { -- | Consists of list of @'OutboundCrossClusterSearchConnection' @ matching the specified filter criteria.
-    crossClusterSearchConnections :: Lude.Maybe [OutboundCrossClusterSearchConnection],
+    crossClusterSearchConnections :: Core.Maybe [Types.OutboundCrossClusterSearchConnection],
     -- | If more results are available and NextToken is present, make the next request to the same API with the received NextToken to paginate the remaining results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeOutboundCrossClusterSearchConnectionsResponse' with the minimum fields required to make a request.
---
--- * 'crossClusterSearchConnections' - Consists of list of @'OutboundCrossClusterSearchConnection' @ matching the specified filter criteria.
--- * 'nextToken' - If more results are available and NextToken is present, make the next request to the same API with the received NextToken to paginate the remaining results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeOutboundCrossClusterSearchConnectionsResponse' value with any optional fields omitted.
 mkDescribeOutboundCrossClusterSearchConnectionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeOutboundCrossClusterSearchConnectionsResponse
 mkDescribeOutboundCrossClusterSearchConnectionsResponse
-  pResponseStatus_ =
+  responseStatus =
     DescribeOutboundCrossClusterSearchConnectionsResponse'
       { crossClusterSearchConnections =
-          Lude.Nothing,
-        nextToken = Lude.Nothing,
-        responseStatus = pResponseStatus_
+          Core.Nothing,
+        nextToken = Core.Nothing,
+        responseStatus
       }
 
 -- | Consists of list of @'OutboundCrossClusterSearchConnection' @ matching the specified filter criteria.
 --
 -- /Note:/ Consider using 'crossClusterSearchConnections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsCrossClusterSearchConnections :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse (Lude.Maybe [OutboundCrossClusterSearchConnection])
-drsCrossClusterSearchConnections = Lens.lens (crossClusterSearchConnections :: DescribeOutboundCrossClusterSearchConnectionsResponse -> Lude.Maybe [OutboundCrossClusterSearchConnection]) (\s a -> s {crossClusterSearchConnections = a} :: DescribeOutboundCrossClusterSearchConnectionsResponse)
+drsCrossClusterSearchConnections :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse (Core.Maybe [Types.OutboundCrossClusterSearchConnection])
+drsCrossClusterSearchConnections = Lens.field @"crossClusterSearchConnections"
 {-# DEPRECATED drsCrossClusterSearchConnections "Use generic-lens or generic-optics with 'crossClusterSearchConnections' instead." #-}
 
 -- | If more results are available and NextToken is present, make the next request to the same API with the received NextToken to paginate the remaining results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsNextToken :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse (Lude.Maybe Lude.Text)
-drsNextToken = Lens.lens (nextToken :: DescribeOutboundCrossClusterSearchConnectionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeOutboundCrossClusterSearchConnectionsResponse)
+drsNextToken :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse (Core.Maybe Types.NextToken)
+drsNextToken = Lens.field @"nextToken"
 {-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeOutboundCrossClusterSearchConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeOutboundCrossClusterSearchConnectionsResponse)
+drsResponseStatus :: Lens.Lens' DescribeOutboundCrossClusterSearchConnectionsResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,40 +22,37 @@ module Network.AWS.MediaConvert.Types.TeletextSourceSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings specific to Teletext caption sources, including Page number.
 --
 -- /See:/ 'mkTeletextSourceSettings' smart constructor.
 newtype TeletextSourceSettings = TeletextSourceSettings'
   { -- | Use Page Number (PageNumber) to specify the three-digit hexadecimal page number that will be used for Teletext captions. Do not use this setting if you are passing through teletext from the input source to output.
-    pageNumber :: Lude.Maybe Lude.Text
+    pageNumber :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TeletextSourceSettings' with the minimum fields required to make a request.
---
--- * 'pageNumber' - Use Page Number (PageNumber) to specify the three-digit hexadecimal page number that will be used for Teletext captions. Do not use this setting if you are passing through teletext from the input source to output.
+-- | Creates a 'TeletextSourceSettings' value with any optional fields omitted.
 mkTeletextSourceSettings ::
   TeletextSourceSettings
 mkTeletextSourceSettings =
-  TeletextSourceSettings' {pageNumber = Lude.Nothing}
+  TeletextSourceSettings' {pageNumber = Core.Nothing}
 
 -- | Use Page Number (PageNumber) to specify the three-digit hexadecimal page number that will be used for Teletext captions. Do not use this setting if you are passing through teletext from the input source to output.
 --
 -- /Note:/ Consider using 'pageNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tssPageNumber :: Lens.Lens' TeletextSourceSettings (Lude.Maybe Lude.Text)
-tssPageNumber = Lens.lens (pageNumber :: TeletextSourceSettings -> Lude.Maybe Lude.Text) (\s a -> s {pageNumber = a} :: TeletextSourceSettings)
+tssPageNumber :: Lens.Lens' TeletextSourceSettings (Core.Maybe Core.Text)
+tssPageNumber = Lens.field @"pageNumber"
 {-# DEPRECATED tssPageNumber "Use generic-lens or generic-optics with 'pageNumber' instead." #-}
 
-instance Lude.FromJSON TeletextSourceSettings where
-  parseJSON =
-    Lude.withObject
-      "TeletextSourceSettings"
-      (\x -> TeletextSourceSettings' Lude.<$> (x Lude..:? "pageNumber"))
+instance Core.FromJSON TeletextSourceSettings where
+  toJSON TeletextSourceSettings {..} =
+    Core.object
+      (Core.catMaybes [("pageNumber" Core..=) Core.<$> pageNumber])
 
-instance Lude.ToJSON TeletextSourceSettings where
-  toJSON TeletextSourceSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("pageNumber" Lude..=) Lude.<$> pageNumber])
+instance Core.FromJSON TeletextSourceSettings where
+  parseJSON =
+    Core.withObject "TeletextSourceSettings" Core.$
+      \x -> TeletextSourceSettings' Core.<$> (x Core..:? "pageNumber")

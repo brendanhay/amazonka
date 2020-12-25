@@ -17,42 +17,36 @@ module Network.AWS.EC2.Types.LicenseConfigurationRequest
     mkLicenseConfigurationRequest,
 
     -- * Lenses
-    lcrLicenseConfigurationARN,
+    lcrLicenseConfigurationArn,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a license configuration.
 --
 -- /See:/ 'mkLicenseConfigurationRequest' smart constructor.
 newtype LicenseConfigurationRequest = LicenseConfigurationRequest'
   { -- | The Amazon Resource Name (ARN) of the license configuration.
-    licenseConfigurationARN :: Lude.Maybe Lude.Text
+    licenseConfigurationArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LicenseConfigurationRequest' with the minimum fields required to make a request.
---
--- * 'licenseConfigurationARN' - The Amazon Resource Name (ARN) of the license configuration.
+-- | Creates a 'LicenseConfigurationRequest' value with any optional fields omitted.
 mkLicenseConfigurationRequest ::
   LicenseConfigurationRequest
 mkLicenseConfigurationRequest =
   LicenseConfigurationRequest'
-    { licenseConfigurationARN =
-        Lude.Nothing
+    { licenseConfigurationArn =
+        Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the license configuration.
 --
--- /Note:/ Consider using 'licenseConfigurationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrLicenseConfigurationARN :: Lens.Lens' LicenseConfigurationRequest (Lude.Maybe Lude.Text)
-lcrLicenseConfigurationARN = Lens.lens (licenseConfigurationARN :: LicenseConfigurationRequest -> Lude.Maybe Lude.Text) (\s a -> s {licenseConfigurationARN = a} :: LicenseConfigurationRequest)
-{-# DEPRECATED lcrLicenseConfigurationARN "Use generic-lens or generic-optics with 'licenseConfigurationARN' instead." #-}
-
-instance Lude.ToQuery LicenseConfigurationRequest where
-  toQuery LicenseConfigurationRequest' {..} =
-    Lude.mconcat
-      ["LicenseConfigurationArn" Lude.=: licenseConfigurationARN]
+-- /Note:/ Consider using 'licenseConfigurationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrLicenseConfigurationArn :: Lens.Lens' LicenseConfigurationRequest (Core.Maybe Types.String)
+lcrLicenseConfigurationArn = Lens.field @"licenseConfigurationArn"
+{-# DEPRECATED lcrLicenseConfigurationArn "Use generic-lens or generic-optics with 'licenseConfigurationArn' instead." #-}

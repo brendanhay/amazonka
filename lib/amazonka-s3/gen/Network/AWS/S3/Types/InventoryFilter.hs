@@ -22,37 +22,36 @@ module Network.AWS.S3.Types.InventoryFilter
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Prefix as Types
 
 -- | Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.
 --
 -- /See:/ 'mkInventoryFilter' smart constructor.
 newtype InventoryFilter = InventoryFilter'
   { -- | The prefix that an object must have to be included in the inventory results.
-    prefix :: Lude.Text
+    prefix :: Types.Prefix
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventoryFilter' with the minimum fields required to make a request.
---
--- * 'prefix' - The prefix that an object must have to be included in the inventory results.
+-- | Creates a 'InventoryFilter' value with any optional fields omitted.
 mkInventoryFilter ::
   -- | 'prefix'
-  Lude.Text ->
+  Types.Prefix ->
   InventoryFilter
-mkInventoryFilter pPrefix_ = InventoryFilter' {prefix = pPrefix_}
+mkInventoryFilter prefix = InventoryFilter' {prefix}
 
 -- | The prefix that an object must have to be included in the inventory results.
 --
 -- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifPrefix :: Lens.Lens' InventoryFilter Lude.Text
-ifPrefix = Lens.lens (prefix :: InventoryFilter -> Lude.Text) (\s a -> s {prefix = a} :: InventoryFilter)
+ifPrefix :: Lens.Lens' InventoryFilter Types.Prefix
+ifPrefix = Lens.field @"prefix"
 {-# DEPRECATED ifPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
-instance Lude.FromXML InventoryFilter where
-  parseXML x = InventoryFilter' Lude.<$> (x Lude..@ "Prefix")
+instance Core.ToXML InventoryFilter where
+  toXML InventoryFilter {..} = Core.toXMLNode "Prefix" prefix
 
-instance Lude.ToXML InventoryFilter where
-  toXML InventoryFilter' {..} = Lude.mconcat ["Prefix" Lude.@= prefix]
+instance Core.FromXML InventoryFilter where
+  parseXML x = InventoryFilter' Core.<$> (x Core..@ "Prefix")

@@ -13,56 +13,61 @@
 module Network.AWS.EC2.Types.TransitGatewayRouteTableState
   ( TransitGatewayRouteTableState
       ( TransitGatewayRouteTableState',
-        TGRTSPending,
-        TGRTSAvailable,
-        TGRTSDeleting,
-        TGRTSDeleted
+        TransitGatewayRouteTableStatePending,
+        TransitGatewayRouteTableStateAvailable,
+        TransitGatewayRouteTableStateDeleting,
+        TransitGatewayRouteTableStateDeleted,
+        fromTransitGatewayRouteTableState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TransitGatewayRouteTableState = TransitGatewayRouteTableState' Lude.Text
+newtype TransitGatewayRouteTableState = TransitGatewayRouteTableState'
+  { fromTransitGatewayRouteTableState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TGRTSPending :: TransitGatewayRouteTableState
-pattern TGRTSPending = TransitGatewayRouteTableState' "pending"
+pattern TransitGatewayRouteTableStatePending :: TransitGatewayRouteTableState
+pattern TransitGatewayRouteTableStatePending = TransitGatewayRouteTableState' "pending"
 
-pattern TGRTSAvailable :: TransitGatewayRouteTableState
-pattern TGRTSAvailable = TransitGatewayRouteTableState' "available"
+pattern TransitGatewayRouteTableStateAvailable :: TransitGatewayRouteTableState
+pattern TransitGatewayRouteTableStateAvailable = TransitGatewayRouteTableState' "available"
 
-pattern TGRTSDeleting :: TransitGatewayRouteTableState
-pattern TGRTSDeleting = TransitGatewayRouteTableState' "deleting"
+pattern TransitGatewayRouteTableStateDeleting :: TransitGatewayRouteTableState
+pattern TransitGatewayRouteTableStateDeleting = TransitGatewayRouteTableState' "deleting"
 
-pattern TGRTSDeleted :: TransitGatewayRouteTableState
-pattern TGRTSDeleted = TransitGatewayRouteTableState' "deleted"
+pattern TransitGatewayRouteTableStateDeleted :: TransitGatewayRouteTableState
+pattern TransitGatewayRouteTableStateDeleted = TransitGatewayRouteTableState' "deleted"
 
 {-# COMPLETE
-  TGRTSPending,
-  TGRTSAvailable,
-  TGRTSDeleting,
-  TGRTSDeleted,
+  TransitGatewayRouteTableStatePending,
+  TransitGatewayRouteTableStateAvailable,
+  TransitGatewayRouteTableStateDeleting,
+  TransitGatewayRouteTableStateDeleted,
   TransitGatewayRouteTableState'
   #-}

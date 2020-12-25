@@ -17,54 +17,50 @@ module Network.AWS.GuardDuty.Types.ProductCode
     mkProductCode,
 
     -- * Lenses
-    pcProductType,
     pcCode,
+    pcProductType,
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the product code for the EC2 instance.
 --
 -- /See:/ 'mkProductCode' smart constructor.
 data ProductCode = ProductCode'
-  { -- | The product code type.
-    productType :: Lude.Maybe Lude.Text,
-    -- | The product code information.
-    code :: Lude.Maybe Lude.Text
+  { -- | The product code information.
+    code :: Core.Maybe Types.String,
+    -- | The product code type.
+    productType :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProductCode' with the minimum fields required to make a request.
---
--- * 'productType' - The product code type.
--- * 'code' - The product code information.
+-- | Creates a 'ProductCode' value with any optional fields omitted.
 mkProductCode ::
   ProductCode
 mkProductCode =
-  ProductCode' {productType = Lude.Nothing, code = Lude.Nothing}
-
--- | The product code type.
---
--- /Note:/ Consider using 'productType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcProductType :: Lens.Lens' ProductCode (Lude.Maybe Lude.Text)
-pcProductType = Lens.lens (productType :: ProductCode -> Lude.Maybe Lude.Text) (\s a -> s {productType = a} :: ProductCode)
-{-# DEPRECATED pcProductType "Use generic-lens or generic-optics with 'productType' instead." #-}
+  ProductCode' {code = Core.Nothing, productType = Core.Nothing}
 
 -- | The product code information.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcCode :: Lens.Lens' ProductCode (Lude.Maybe Lude.Text)
-pcCode = Lens.lens (code :: ProductCode -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: ProductCode)
+pcCode :: Lens.Lens' ProductCode (Core.Maybe Types.String)
+pcCode = Lens.field @"code"
 {-# DEPRECATED pcCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
-instance Lude.FromJSON ProductCode where
+-- | The product code type.
+--
+-- /Note:/ Consider using 'productType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pcProductType :: Lens.Lens' ProductCode (Core.Maybe Types.String)
+pcProductType = Lens.field @"productType"
+{-# DEPRECATED pcProductType "Use generic-lens or generic-optics with 'productType' instead." #-}
+
+instance Core.FromJSON ProductCode where
   parseJSON =
-    Lude.withObject
-      "ProductCode"
-      ( \x ->
-          ProductCode'
-            Lude.<$> (x Lude..:? "productType") Lude.<*> (x Lude..:? "code")
-      )
+    Core.withObject "ProductCode" Core.$
+      \x ->
+        ProductCode'
+          Core.<$> (x Core..:? "code") Core.<*> (x Core..:? "productType")

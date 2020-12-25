@@ -154,82 +154,65 @@ module Network.AWS.S3.RestoreObject
     mkRestoreObject,
 
     -- ** Request lenses
-    roVersionId,
     roBucket,
-    roRequestPayer,
     roKey,
     roExpectedBucketOwner,
+    roRequestPayer,
     roRestoreRequest,
+    roVersionId,
 
     -- * Destructuring the response
     RestoreObjectResponse (..),
     mkRestoreObjectResponse,
 
     -- ** Response lenses
-    rorsRequestCharged,
-    rorsRestoreOutputPath,
-    rorsResponseStatus,
+    rorrsRequestCharged,
+    rorrsRestoreOutputPath,
+    rorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkRestoreObject' smart constructor.
 data RestoreObject = RestoreObject'
-  { -- | VersionId used to reference a specific version of the object.
-    versionId :: Lude.Maybe ObjectVersionId,
-    -- | The bucket name containing the object to restore.
+  { -- | The bucket name containing the object to restore.
     --
     -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-    bucket :: BucketName,
-    requestPayer :: Lude.Maybe RequestPayer,
+    bucket :: Types.BucketName,
     -- | Object key for which the operation was initiated.
-    key :: ObjectKey,
+    key :: Types.Key,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text,
-    restoreRequest :: Lude.Maybe RestoreRequest
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner,
+    requestPayer :: Core.Maybe Types.RequestPayer,
+    restoreRequest :: Core.Maybe Types.RestoreRequest,
+    -- | VersionId used to reference a specific version of the object.
+    versionId :: Core.Maybe Types.ObjectVersionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RestoreObject' with the minimum fields required to make a request.
---
--- * 'versionId' - VersionId used to reference a specific version of the object.
--- * 'bucket' - The bucket name containing the object to restore.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'requestPayer' -
--- * 'key' - Object key for which the operation was initiated.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
--- * 'restoreRequest' -
+-- | Creates a 'RestoreObject' value with any optional fields omitted.
 mkRestoreObject ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'key'
-  ObjectKey ->
+  Types.Key ->
   RestoreObject
-mkRestoreObject pBucket_ pKey_ =
+mkRestoreObject bucket key =
   RestoreObject'
-    { versionId = Lude.Nothing,
-      bucket = pBucket_,
-      requestPayer = Lude.Nothing,
-      key = pKey_,
-      expectedBucketOwner = Lude.Nothing,
-      restoreRequest = Lude.Nothing
+    { bucket,
+      key,
+      expectedBucketOwner = Core.Nothing,
+      requestPayer = Core.Nothing,
+      restoreRequest = Core.Nothing,
+      versionId = Core.Nothing
     }
-
--- | VersionId used to reference a specific version of the object.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roVersionId :: Lens.Lens' RestoreObject (Lude.Maybe ObjectVersionId)
-roVersionId = Lens.lens (versionId :: RestoreObject -> Lude.Maybe ObjectVersionId) (\s a -> s {versionId = a} :: RestoreObject)
-{-# DEPRECATED roVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The bucket name containing the object to restore.
 --
@@ -237,115 +220,113 @@ roVersionId = Lens.lens (versionId :: RestoreObject -> Lude.Maybe ObjectVersionI
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roBucket :: Lens.Lens' RestoreObject BucketName
-roBucket = Lens.lens (bucket :: RestoreObject -> BucketName) (\s a -> s {bucket = a} :: RestoreObject)
+roBucket :: Lens.Lens' RestoreObject Types.BucketName
+roBucket = Lens.field @"bucket"
 {-# DEPRECATED roBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roRequestPayer :: Lens.Lens' RestoreObject (Lude.Maybe RequestPayer)
-roRequestPayer = Lens.lens (requestPayer :: RestoreObject -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: RestoreObject)
-{-# DEPRECATED roRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
 -- | Object key for which the operation was initiated.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roKey :: Lens.Lens' RestoreObject ObjectKey
-roKey = Lens.lens (key :: RestoreObject -> ObjectKey) (\s a -> s {key = a} :: RestoreObject)
+roKey :: Lens.Lens' RestoreObject Types.Key
+roKey = Lens.field @"key"
 {-# DEPRECATED roKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roExpectedBucketOwner :: Lens.Lens' RestoreObject (Lude.Maybe Lude.Text)
-roExpectedBucketOwner = Lens.lens (expectedBucketOwner :: RestoreObject -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: RestoreObject)
+roExpectedBucketOwner :: Lens.Lens' RestoreObject (Core.Maybe Types.ExpectedBucketOwner)
+roExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED roExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
 -- | Undocumented field.
 --
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+roRequestPayer :: Lens.Lens' RestoreObject (Core.Maybe Types.RequestPayer)
+roRequestPayer = Lens.field @"requestPayer"
+{-# DEPRECATED roRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
+
+-- | Undocumented field.
+--
 -- /Note:/ Consider using 'restoreRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-roRestoreRequest :: Lens.Lens' RestoreObject (Lude.Maybe RestoreRequest)
-roRestoreRequest = Lens.lens (restoreRequest :: RestoreObject -> Lude.Maybe RestoreRequest) (\s a -> s {restoreRequest = a} :: RestoreObject)
+roRestoreRequest :: Lens.Lens' RestoreObject (Core.Maybe Types.RestoreRequest)
+roRestoreRequest = Lens.field @"restoreRequest"
 {-# DEPRECATED roRestoreRequest "Use generic-lens or generic-optics with 'restoreRequest' instead." #-}
 
-instance Lude.AWSRequest RestoreObject where
+-- | VersionId used to reference a specific version of the object.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+roVersionId :: Lens.Lens' RestoreObject (Core.Maybe Types.ObjectVersionId)
+roVersionId = Lens.field @"versionId"
+{-# DEPRECATED roVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+instance Core.AWSRequest RestoreObject where
   type Rs RestoreObject = RestoreObjectResponse
-  request = Req.postXML s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText bucket) Core.<> ("/")
+                Core.<> (Core.toText key)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "versionId" Core.<$> versionId
+            Core.<> (Core.pure ("restore", "")),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner
+            Core.<> (Core.toHeaders "x-amz-request-payer" requestPayer),
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           RestoreObjectResponse'
-            Lude.<$> (h Lude..#? "x-amz-request-charged")
-            Lude.<*> (h Lude..#? "x-amz-restore-output-path")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "x-amz-request-charged" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-restore-output-path" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement RestoreObject where
-  toElement =
-    Lude.mkElement
-      "{http://s3.amazonaws.com/doc/2006-03-01/}RestoreRequest"
-      Lude.. restoreRequest
-
-instance Lude.ToHeaders RestoreObject where
-  toHeaders RestoreObject' {..} =
-    Lude.mconcat
-      [ "x-amz-request-payer" Lude.=# requestPayer,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
-      ]
-
-instance Lude.ToPath RestoreObject where
-  toPath RestoreObject' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket, "/", Lude.toBS key]
-
-instance Lude.ToQuery RestoreObject where
-  toQuery RestoreObject' {..} =
-    Lude.mconcat ["versionId" Lude.=: versionId, "restore"]
 
 -- | /See:/ 'mkRestoreObjectResponse' smart constructor.
 data RestoreObjectResponse = RestoreObjectResponse'
-  { requestCharged :: Lude.Maybe RequestCharged,
+  { requestCharged :: Core.Maybe Types.RequestCharged,
     -- | Indicates the path in the provided S3 output location where Select results will be restored to.
-    restoreOutputPath :: Lude.Maybe Lude.Text,
+    restoreOutputPath :: Core.Maybe Types.RestoreOutputPath,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RestoreObjectResponse' with the minimum fields required to make a request.
---
--- * 'requestCharged' -
--- * 'restoreOutputPath' - Indicates the path in the provided S3 output location where Select results will be restored to.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RestoreObjectResponse' value with any optional fields omitted.
 mkRestoreObjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RestoreObjectResponse
-mkRestoreObjectResponse pResponseStatus_ =
+mkRestoreObjectResponse responseStatus =
   RestoreObjectResponse'
-    { requestCharged = Lude.Nothing,
-      restoreOutputPath = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { requestCharged = Core.Nothing,
+      restoreOutputPath = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rorsRequestCharged :: Lens.Lens' RestoreObjectResponse (Lude.Maybe RequestCharged)
-rorsRequestCharged = Lens.lens (requestCharged :: RestoreObjectResponse -> Lude.Maybe RequestCharged) (\s a -> s {requestCharged = a} :: RestoreObjectResponse)
-{-# DEPRECATED rorsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
+rorrsRequestCharged :: Lens.Lens' RestoreObjectResponse (Core.Maybe Types.RequestCharged)
+rorrsRequestCharged = Lens.field @"requestCharged"
+{-# DEPRECATED rorrsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
 
 -- | Indicates the path in the provided S3 output location where Select results will be restored to.
 --
 -- /Note:/ Consider using 'restoreOutputPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rorsRestoreOutputPath :: Lens.Lens' RestoreObjectResponse (Lude.Maybe Lude.Text)
-rorsRestoreOutputPath = Lens.lens (restoreOutputPath :: RestoreObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {restoreOutputPath = a} :: RestoreObjectResponse)
-{-# DEPRECATED rorsRestoreOutputPath "Use generic-lens or generic-optics with 'restoreOutputPath' instead." #-}
+rorrsRestoreOutputPath :: Lens.Lens' RestoreObjectResponse (Core.Maybe Types.RestoreOutputPath)
+rorrsRestoreOutputPath = Lens.field @"restoreOutputPath"
+{-# DEPRECATED rorrsRestoreOutputPath "Use generic-lens or generic-optics with 'restoreOutputPath' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rorsResponseStatus :: Lens.Lens' RestoreObjectResponse Lude.Int
-rorsResponseStatus = Lens.lens (responseStatus :: RestoreObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RestoreObjectResponse)
-{-# DEPRECATED rorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rorrsResponseStatus :: Lens.Lens' RestoreObjectResponse Core.Int
+rorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

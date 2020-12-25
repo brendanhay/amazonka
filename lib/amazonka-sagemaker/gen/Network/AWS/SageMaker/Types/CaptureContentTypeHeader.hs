@@ -17,67 +17,64 @@ module Network.AWS.SageMaker.Types.CaptureContentTypeHeader
     mkCaptureContentTypeHeader,
 
     -- * Lenses
-    ccthCSVContentTypes,
-    ccthJSONContentTypes,
+    ccthCsvContentTypes,
+    ccthJsonContentTypes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.CsvContentType as Types
+import qualified Network.AWS.SageMaker.Types.JsonContentType as Types
 
 -- |
 --
 -- /See:/ 'mkCaptureContentTypeHeader' smart constructor.
 data CaptureContentTypeHeader = CaptureContentTypeHeader'
   { -- |
-    csvContentTypes :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    csvContentTypes :: Core.Maybe (Core.NonEmpty Types.CsvContentType),
     -- |
-    jsonContentTypes :: Lude.Maybe (Lude.NonEmpty Lude.Text)
+    jsonContentTypes :: Core.Maybe (Core.NonEmpty Types.JsonContentType)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CaptureContentTypeHeader' with the minimum fields required to make a request.
---
--- * 'csvContentTypes' -
--- * 'jsonContentTypes' -
+-- | Creates a 'CaptureContentTypeHeader' value with any optional fields omitted.
 mkCaptureContentTypeHeader ::
   CaptureContentTypeHeader
 mkCaptureContentTypeHeader =
   CaptureContentTypeHeader'
-    { csvContentTypes = Lude.Nothing,
-      jsonContentTypes = Lude.Nothing
+    { csvContentTypes = Core.Nothing,
+      jsonContentTypes = Core.Nothing
     }
 
 -- |
 --
 -- /Note:/ Consider using 'csvContentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccthCSVContentTypes :: Lens.Lens' CaptureContentTypeHeader (Lude.Maybe (Lude.NonEmpty Lude.Text))
-ccthCSVContentTypes = Lens.lens (csvContentTypes :: CaptureContentTypeHeader -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {csvContentTypes = a} :: CaptureContentTypeHeader)
-{-# DEPRECATED ccthCSVContentTypes "Use generic-lens or generic-optics with 'csvContentTypes' instead." #-}
+ccthCsvContentTypes :: Lens.Lens' CaptureContentTypeHeader (Core.Maybe (Core.NonEmpty Types.CsvContentType))
+ccthCsvContentTypes = Lens.field @"csvContentTypes"
+{-# DEPRECATED ccthCsvContentTypes "Use generic-lens or generic-optics with 'csvContentTypes' instead." #-}
 
 -- |
 --
 -- /Note:/ Consider using 'jsonContentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccthJSONContentTypes :: Lens.Lens' CaptureContentTypeHeader (Lude.Maybe (Lude.NonEmpty Lude.Text))
-ccthJSONContentTypes = Lens.lens (jsonContentTypes :: CaptureContentTypeHeader -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {jsonContentTypes = a} :: CaptureContentTypeHeader)
-{-# DEPRECATED ccthJSONContentTypes "Use generic-lens or generic-optics with 'jsonContentTypes' instead." #-}
+ccthJsonContentTypes :: Lens.Lens' CaptureContentTypeHeader (Core.Maybe (Core.NonEmpty Types.JsonContentType))
+ccthJsonContentTypes = Lens.field @"jsonContentTypes"
+{-# DEPRECATED ccthJsonContentTypes "Use generic-lens or generic-optics with 'jsonContentTypes' instead." #-}
 
-instance Lude.FromJSON CaptureContentTypeHeader where
-  parseJSON =
-    Lude.withObject
-      "CaptureContentTypeHeader"
-      ( \x ->
-          CaptureContentTypeHeader'
-            Lude.<$> (x Lude..:? "CsvContentTypes")
-            Lude.<*> (x Lude..:? "JsonContentTypes")
-      )
-
-instance Lude.ToJSON CaptureContentTypeHeader where
-  toJSON CaptureContentTypeHeader' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CsvContentTypes" Lude..=) Lude.<$> csvContentTypes,
-            ("JsonContentTypes" Lude..=) Lude.<$> jsonContentTypes
+instance Core.FromJSON CaptureContentTypeHeader where
+  toJSON CaptureContentTypeHeader {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CsvContentTypes" Core..=) Core.<$> csvContentTypes,
+            ("JsonContentTypes" Core..=) Core.<$> jsonContentTypes
           ]
       )
+
+instance Core.FromJSON CaptureContentTypeHeader where
+  parseJSON =
+    Core.withObject "CaptureContentTypeHeader" Core.$
+      \x ->
+        CaptureContentTypeHeader'
+          Core.<$> (x Core..:? "CsvContentTypes")
+          Core.<*> (x Core..:? "JsonContentTypes")

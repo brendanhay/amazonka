@@ -36,120 +36,88 @@ module Network.AWS.Redshift.DescribeUsageLimits
     mkDescribeUsageLimits,
 
     -- ** Request lenses
-    dulsTagValues,
-    dulsUsageLimitId,
-    dulsTagKeys,
     dulsClusterIdentifier,
     dulsFeatureType,
     dulsMarker,
     dulsMaxRecords,
+    dulsTagKeys,
+    dulsTagValues,
+    dulsUsageLimitId,
 
     -- * Destructuring the response
     DescribeUsageLimitsResponse (..),
     mkDescribeUsageLimitsResponse,
 
     -- ** Response lenses
-    dulrsUsageLimits,
-    dulrsMarker,
-    dulrsResponseStatus,
+    dulrrsMarker,
+    dulrrsUsageLimits,
+    dulrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeUsageLimits' smart constructor.
 data DescribeUsageLimits = DescribeUsageLimits'
-  { -- | A tag value or values for which you want to return all matching usage limit objects that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the usage limit objects that have either or both of these tag values associated with them.
-    tagValues :: Lude.Maybe [Lude.Text],
-    -- | The identifier of the usage limit to describe.
-    usageLimitId :: Lude.Maybe Lude.Text,
-    -- | A tag key or keys for which you want to return all matching usage limit objects that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the usage limit objects have either or both of these tag keys associated with them.
-    tagKeys :: Lude.Maybe [Lude.Text],
-    -- | The identifier of the cluster for which you want to describe usage limits.
-    clusterIdentifier :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the cluster for which you want to describe usage limits.
+    clusterIdentifier :: Core.Maybe Types.String,
     -- | The feature type for which you want to describe usage limits.
-    featureType :: Lude.Maybe UsageLimitFeatureType,
+    featureType :: Core.Maybe Types.UsageLimitFeatureType,
     -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeUsageLimits' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
     --
     -- Default: @100@
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int,
+    -- | A tag key or keys for which you want to return all matching usage limit objects that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the usage limit objects have either or both of these tag keys associated with them.
+    tagKeys :: Core.Maybe [Types.String],
+    -- | A tag value or values for which you want to return all matching usage limit objects that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the usage limit objects that have either or both of these tag values associated with them.
+    tagValues :: Core.Maybe [Types.String],
+    -- | The identifier of the usage limit to describe.
+    usageLimitId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUsageLimits' with the minimum fields required to make a request.
---
--- * 'tagValues' - A tag value or values for which you want to return all matching usage limit objects that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the usage limit objects that have either or both of these tag values associated with them.
--- * 'usageLimitId' - The identifier of the usage limit to describe.
--- * 'tagKeys' - A tag key or keys for which you want to return all matching usage limit objects that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the usage limit objects have either or both of these tag keys associated with them.
--- * 'clusterIdentifier' - The identifier of the cluster for which you want to describe usage limits.
--- * 'featureType' - The feature type for which you want to describe usage limits.
--- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeUsageLimits' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
--- * 'maxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
---
--- Default: @100@
--- Constraints: minimum 20, maximum 100.
+-- | Creates a 'DescribeUsageLimits' value with any optional fields omitted.
 mkDescribeUsageLimits ::
   DescribeUsageLimits
 mkDescribeUsageLimits =
   DescribeUsageLimits'
-    { tagValues = Lude.Nothing,
-      usageLimitId = Lude.Nothing,
-      tagKeys = Lude.Nothing,
-      clusterIdentifier = Lude.Nothing,
-      featureType = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { clusterIdentifier = Core.Nothing,
+      featureType = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      tagKeys = Core.Nothing,
+      tagValues = Core.Nothing,
+      usageLimitId = Core.Nothing
     }
-
--- | A tag value or values for which you want to return all matching usage limit objects that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the usage limit objects that have either or both of these tag values associated with them.
---
--- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dulsTagValues :: Lens.Lens' DescribeUsageLimits (Lude.Maybe [Lude.Text])
-dulsTagValues = Lens.lens (tagValues :: DescribeUsageLimits -> Lude.Maybe [Lude.Text]) (\s a -> s {tagValues = a} :: DescribeUsageLimits)
-{-# DEPRECATED dulsTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
-
--- | The identifier of the usage limit to describe.
---
--- /Note:/ Consider using 'usageLimitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dulsUsageLimitId :: Lens.Lens' DescribeUsageLimits (Lude.Maybe Lude.Text)
-dulsUsageLimitId = Lens.lens (usageLimitId :: DescribeUsageLimits -> Lude.Maybe Lude.Text) (\s a -> s {usageLimitId = a} :: DescribeUsageLimits)
-{-# DEPRECATED dulsUsageLimitId "Use generic-lens or generic-optics with 'usageLimitId' instead." #-}
-
--- | A tag key or keys for which you want to return all matching usage limit objects that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the usage limit objects have either or both of these tag keys associated with them.
---
--- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dulsTagKeys :: Lens.Lens' DescribeUsageLimits (Lude.Maybe [Lude.Text])
-dulsTagKeys = Lens.lens (tagKeys :: DescribeUsageLimits -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: DescribeUsageLimits)
-{-# DEPRECATED dulsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
 -- | The identifier of the cluster for which you want to describe usage limits.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dulsClusterIdentifier :: Lens.Lens' DescribeUsageLimits (Lude.Maybe Lude.Text)
-dulsClusterIdentifier = Lens.lens (clusterIdentifier :: DescribeUsageLimits -> Lude.Maybe Lude.Text) (\s a -> s {clusterIdentifier = a} :: DescribeUsageLimits)
+dulsClusterIdentifier :: Lens.Lens' DescribeUsageLimits (Core.Maybe Types.String)
+dulsClusterIdentifier = Lens.field @"clusterIdentifier"
 {-# DEPRECATED dulsClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
 -- | The feature type for which you want to describe usage limits.
 --
 -- /Note:/ Consider using 'featureType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dulsFeatureType :: Lens.Lens' DescribeUsageLimits (Lude.Maybe UsageLimitFeatureType)
-dulsFeatureType = Lens.lens (featureType :: DescribeUsageLimits -> Lude.Maybe UsageLimitFeatureType) (\s a -> s {featureType = a} :: DescribeUsageLimits)
+dulsFeatureType :: Lens.Lens' DescribeUsageLimits (Core.Maybe Types.UsageLimitFeatureType)
+dulsFeatureType = Lens.field @"featureType"
 {-# DEPRECATED dulsFeatureType "Use generic-lens or generic-optics with 'featureType' instead." #-}
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeUsageLimits' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dulsMarker :: Lens.Lens' DescribeUsageLimits (Lude.Maybe Lude.Text)
-dulsMarker = Lens.lens (marker :: DescribeUsageLimits -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeUsageLimits)
+dulsMarker :: Lens.Lens' DescribeUsageLimits (Core.Maybe Types.String)
+dulsMarker = Lens.field @"marker"
 {-# DEPRECATED dulsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
@@ -158,101 +126,126 @@ dulsMarker = Lens.lens (marker :: DescribeUsageLimits -> Lude.Maybe Lude.Text) (
 -- Constraints: minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dulsMaxRecords :: Lens.Lens' DescribeUsageLimits (Lude.Maybe Lude.Int)
-dulsMaxRecords = Lens.lens (maxRecords :: DescribeUsageLimits -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeUsageLimits)
+dulsMaxRecords :: Lens.Lens' DescribeUsageLimits (Core.Maybe Core.Int)
+dulsMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dulsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeUsageLimits where
-  page rq rs
-    | Page.stop (rs Lens.^. dulrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dulrsUsageLimits) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dulsMarker Lens..~ rs Lens.^. dulrsMarker
+-- | A tag key or keys for which you want to return all matching usage limit objects that are associated with the specified key or keys. For example, suppose that you have parameter groups that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the usage limit objects have either or both of these tag keys associated with them.
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dulsTagKeys :: Lens.Lens' DescribeUsageLimits (Core.Maybe [Types.String])
+dulsTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED dulsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance Lude.AWSRequest DescribeUsageLimits where
+-- | A tag value or values for which you want to return all matching usage limit objects that are associated with the specified tag value or values. For example, suppose that you have parameter groups that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the usage limit objects that have either or both of these tag values associated with them.
+--
+-- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dulsTagValues :: Lens.Lens' DescribeUsageLimits (Core.Maybe [Types.String])
+dulsTagValues = Lens.field @"tagValues"
+{-# DEPRECATED dulsTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
+
+-- | The identifier of the usage limit to describe.
+--
+-- /Note:/ Consider using 'usageLimitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dulsUsageLimitId :: Lens.Lens' DescribeUsageLimits (Core.Maybe Types.String)
+dulsUsageLimitId = Lens.field @"usageLimitId"
+{-# DEPRECATED dulsUsageLimitId "Use generic-lens or generic-optics with 'usageLimitId' instead." #-}
+
+instance Core.AWSRequest DescribeUsageLimits where
   type Rs DescribeUsageLimits = DescribeUsageLimitsResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeUsageLimits")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ClusterIdentifier" Core.<$> clusterIdentifier)
+                Core.<> (Core.toQueryValue "FeatureType" Core.<$> featureType)
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> ( Core.toQueryValue
+                            "TagKeys"
+                            (Core.toQueryList "TagKey" Core.<$> tagKeys)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "TagValues"
+                            (Core.toQueryList "TagValue" Core.<$> tagValues)
+                        )
+                Core.<> (Core.toQueryValue "UsageLimitId" Core.<$> usageLimitId)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeUsageLimitsResult"
       ( \s h x ->
           DescribeUsageLimitsResponse'
-            Lude.<$> ( x Lude..@? "UsageLimits" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Marker")
+            Core.<*> (x Core..@? "UsageLimits" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeUsageLimits where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeUsageLimits where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeUsageLimits where
-  toQuery DescribeUsageLimits' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeUsageLimits" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "TagValues"
-          Lude.=: Lude.toQuery (Lude.toQueryList "TagValue" Lude.<$> tagValues),
-        "UsageLimitId" Lude.=: usageLimitId,
-        "TagKeys"
-          Lude.=: Lude.toQuery (Lude.toQueryList "TagKey" Lude.<$> tagKeys),
-        "ClusterIdentifier" Lude.=: clusterIdentifier,
-        "FeatureType" Lude.=: featureType,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeUsageLimits where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"usageLimits" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkDescribeUsageLimitsResponse' smart constructor.
 data DescribeUsageLimitsResponse = DescribeUsageLimitsResponse'
-  { -- | Contains the output from the 'DescribeUsageLimits' action.
-    usageLimits :: Lude.Maybe [UsageLimit],
-    -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+    marker :: Core.Maybe Types.String,
+    -- | Contains the output from the 'DescribeUsageLimits' action.
+    usageLimits :: Core.Maybe [Types.UsageLimit],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUsageLimitsResponse' with the minimum fields required to make a request.
---
--- * 'usageLimits' - Contains the output from the 'DescribeUsageLimits' action.
--- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeUsageLimitsResponse' value with any optional fields omitted.
 mkDescribeUsageLimitsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeUsageLimitsResponse
-mkDescribeUsageLimitsResponse pResponseStatus_ =
+mkDescribeUsageLimitsResponse responseStatus =
   DescribeUsageLimitsResponse'
-    { usageLimits = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      usageLimits = Core.Nothing,
+      responseStatus
     }
-
--- | Contains the output from the 'DescribeUsageLimits' action.
---
--- /Note:/ Consider using 'usageLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dulrsUsageLimits :: Lens.Lens' DescribeUsageLimitsResponse (Lude.Maybe [UsageLimit])
-dulrsUsageLimits = Lens.lens (usageLimits :: DescribeUsageLimitsResponse -> Lude.Maybe [UsageLimit]) (\s a -> s {usageLimits = a} :: DescribeUsageLimitsResponse)
-{-# DEPRECATED dulrsUsageLimits "Use generic-lens or generic-optics with 'usageLimits' instead." #-}
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dulrsMarker :: Lens.Lens' DescribeUsageLimitsResponse (Lude.Maybe Lude.Text)
-dulrsMarker = Lens.lens (marker :: DescribeUsageLimitsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeUsageLimitsResponse)
-{-# DEPRECATED dulrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dulrrsMarker :: Lens.Lens' DescribeUsageLimitsResponse (Core.Maybe Types.String)
+dulrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dulrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | Contains the output from the 'DescribeUsageLimits' action.
+--
+-- /Note:/ Consider using 'usageLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dulrrsUsageLimits :: Lens.Lens' DescribeUsageLimitsResponse (Core.Maybe [Types.UsageLimit])
+dulrrsUsageLimits = Lens.field @"usageLimits"
+{-# DEPRECATED dulrrsUsageLimits "Use generic-lens or generic-optics with 'usageLimits' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dulrsResponseStatus :: Lens.Lens' DescribeUsageLimitsResponse Lude.Int
-dulrsResponseStatus = Lens.lens (responseStatus :: DescribeUsageLimitsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUsageLimitsResponse)
-{-# DEPRECATED dulrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dulrrsResponseStatus :: Lens.Lens' DescribeUsageLimitsResponse Core.Int
+dulrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dulrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

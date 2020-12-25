@@ -22,159 +22,143 @@ module Network.AWS.CognitoIdentityProvider.AdminUpdateDeviceStatus
     mkAdminUpdateDeviceStatus,
 
     -- ** Request lenses
-    audsDeviceRememberedStatus,
     audsUserPoolId,
     audsUsername,
     audsDeviceKey,
+    audsDeviceRememberedStatus,
 
     -- * Destructuring the response
     AdminUpdateDeviceStatusResponse (..),
     mkAdminUpdateDeviceStatusResponse,
 
     -- ** Response lenses
-    audsrsResponseStatus,
+    audsrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to update the device status, as an administrator.
 --
 -- /See:/ 'mkAdminUpdateDeviceStatus' smart constructor.
 data AdminUpdateDeviceStatus = AdminUpdateDeviceStatus'
-  { -- | The status indicating whether a device has been remembered or not.
-    deviceRememberedStatus :: Lude.Maybe DeviceRememberedStatusType,
-    -- | The user pool ID.
-    userPoolId :: Lude.Text,
+  { -- | The user pool ID.
+    userPoolId :: Types.UserPoolId,
     -- | The user name.
-    username :: Lude.Sensitive Lude.Text,
+    username :: Types.Username,
     -- | The device key.
-    deviceKey :: Lude.Text
+    deviceKey :: Types.DeviceKeyType,
+    -- | The status indicating whether a device has been remembered or not.
+    deviceRememberedStatus :: Core.Maybe Types.DeviceRememberedStatusType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminUpdateDeviceStatus' with the minimum fields required to make a request.
---
--- * 'deviceRememberedStatus' - The status indicating whether a device has been remembered or not.
--- * 'userPoolId' - The user pool ID.
--- * 'username' - The user name.
--- * 'deviceKey' - The device key.
+-- | Creates a 'AdminUpdateDeviceStatus' value with any optional fields omitted.
 mkAdminUpdateDeviceStatus ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   -- | 'username'
-  Lude.Sensitive Lude.Text ->
+  Types.Username ->
   -- | 'deviceKey'
-  Lude.Text ->
+  Types.DeviceKeyType ->
   AdminUpdateDeviceStatus
-mkAdminUpdateDeviceStatus pUserPoolId_ pUsername_ pDeviceKey_ =
+mkAdminUpdateDeviceStatus userPoolId username deviceKey =
   AdminUpdateDeviceStatus'
-    { deviceRememberedStatus = Lude.Nothing,
-      userPoolId = pUserPoolId_,
-      username = pUsername_,
-      deviceKey = pDeviceKey_
+    { userPoolId,
+      username,
+      deviceKey,
+      deviceRememberedStatus = Core.Nothing
     }
-
--- | The status indicating whether a device has been remembered or not.
---
--- /Note:/ Consider using 'deviceRememberedStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-audsDeviceRememberedStatus :: Lens.Lens' AdminUpdateDeviceStatus (Lude.Maybe DeviceRememberedStatusType)
-audsDeviceRememberedStatus = Lens.lens (deviceRememberedStatus :: AdminUpdateDeviceStatus -> Lude.Maybe DeviceRememberedStatusType) (\s a -> s {deviceRememberedStatus = a} :: AdminUpdateDeviceStatus)
-{-# DEPRECATED audsDeviceRememberedStatus "Use generic-lens or generic-optics with 'deviceRememberedStatus' instead." #-}
 
 -- | The user pool ID.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-audsUserPoolId :: Lens.Lens' AdminUpdateDeviceStatus Lude.Text
-audsUserPoolId = Lens.lens (userPoolId :: AdminUpdateDeviceStatus -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminUpdateDeviceStatus)
+audsUserPoolId :: Lens.Lens' AdminUpdateDeviceStatus Types.UserPoolId
+audsUserPoolId = Lens.field @"userPoolId"
 {-# DEPRECATED audsUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The user name.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-audsUsername :: Lens.Lens' AdminUpdateDeviceStatus (Lude.Sensitive Lude.Text)
-audsUsername = Lens.lens (username :: AdminUpdateDeviceStatus -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminUpdateDeviceStatus)
+audsUsername :: Lens.Lens' AdminUpdateDeviceStatus Types.Username
+audsUsername = Lens.field @"username"
 {-# DEPRECATED audsUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The device key.
 --
 -- /Note:/ Consider using 'deviceKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-audsDeviceKey :: Lens.Lens' AdminUpdateDeviceStatus Lude.Text
-audsDeviceKey = Lens.lens (deviceKey :: AdminUpdateDeviceStatus -> Lude.Text) (\s a -> s {deviceKey = a} :: AdminUpdateDeviceStatus)
+audsDeviceKey :: Lens.Lens' AdminUpdateDeviceStatus Types.DeviceKeyType
+audsDeviceKey = Lens.field @"deviceKey"
 {-# DEPRECATED audsDeviceKey "Use generic-lens or generic-optics with 'deviceKey' instead." #-}
 
-instance Lude.AWSRequest AdminUpdateDeviceStatus where
+-- | The status indicating whether a device has been remembered or not.
+--
+-- /Note:/ Consider using 'deviceRememberedStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+audsDeviceRememberedStatus :: Lens.Lens' AdminUpdateDeviceStatus (Core.Maybe Types.DeviceRememberedStatusType)
+audsDeviceRememberedStatus = Lens.field @"deviceRememberedStatus"
+{-# DEPRECATED audsDeviceRememberedStatus "Use generic-lens or generic-optics with 'deviceRememberedStatus' instead." #-}
+
+instance Core.FromJSON AdminUpdateDeviceStatus where
+  toJSON AdminUpdateDeviceStatus {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username),
+            Core.Just ("DeviceKey" Core..= deviceKey),
+            ("DeviceRememberedStatus" Core..=)
+              Core.<$> deviceRememberedStatus
+          ]
+      )
+
+instance Core.AWSRequest AdminUpdateDeviceStatus where
   type Rs AdminUpdateDeviceStatus = AdminUpdateDeviceStatusResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AdminUpdateDeviceStatusResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AdminUpdateDeviceStatus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.AdminUpdateDeviceStatus" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AdminUpdateDeviceStatus where
-  toJSON AdminUpdateDeviceStatus' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DeviceRememberedStatus" Lude..=)
-              Lude.<$> deviceRememberedStatus,
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("Username" Lude..= username),
-            Lude.Just ("DeviceKey" Lude..= deviceKey)
-          ]
-      )
-
-instance Lude.ToPath AdminUpdateDeviceStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AdminUpdateDeviceStatus where
-  toQuery = Lude.const Lude.mempty
 
 -- | The status response from the request to update the device, as an administrator.
 --
 -- /See:/ 'mkAdminUpdateDeviceStatusResponse' smart constructor.
 newtype AdminUpdateDeviceStatusResponse = AdminUpdateDeviceStatusResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminUpdateDeviceStatusResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AdminUpdateDeviceStatusResponse' value with any optional fields omitted.
 mkAdminUpdateDeviceStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AdminUpdateDeviceStatusResponse
-mkAdminUpdateDeviceStatusResponse pResponseStatus_ =
-  AdminUpdateDeviceStatusResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkAdminUpdateDeviceStatusResponse responseStatus =
+  AdminUpdateDeviceStatusResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-audsrsResponseStatus :: Lens.Lens' AdminUpdateDeviceStatusResponse Lude.Int
-audsrsResponseStatus = Lens.lens (responseStatus :: AdminUpdateDeviceStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminUpdateDeviceStatusResponse)
-{-# DEPRECATED audsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+audsrrsResponseStatus :: Lens.Lens' AdminUpdateDeviceStatusResponse Core.Int
+audsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED audsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

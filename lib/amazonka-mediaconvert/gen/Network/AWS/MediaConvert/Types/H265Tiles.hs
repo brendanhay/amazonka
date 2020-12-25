@@ -13,47 +13,49 @@
 module Network.AWS.MediaConvert.Types.H265Tiles
   ( H265Tiles
       ( H265Tiles',
-        HTDisabled,
-        HTEnabled
+        H265TilesDisabled,
+        H265TilesEnabled,
+        fromH265Tiles
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Enable use of tiles, allowing horizontal as well as vertical subdivision of the encoded pictures.
-newtype H265Tiles = H265Tiles' Lude.Text
+newtype H265Tiles = H265Tiles' {fromH265Tiles :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HTDisabled :: H265Tiles
-pattern HTDisabled = H265Tiles' "DISABLED"
+pattern H265TilesDisabled :: H265Tiles
+pattern H265TilesDisabled = H265Tiles' "DISABLED"
 
-pattern HTEnabled :: H265Tiles
-pattern HTEnabled = H265Tiles' "ENABLED"
+pattern H265TilesEnabled :: H265Tiles
+pattern H265TilesEnabled = H265Tiles' "ENABLED"
 
 {-# COMPLETE
-  HTDisabled,
-  HTEnabled,
+  H265TilesDisabled,
+  H265TilesEnabled,
   H265Tiles'
   #-}

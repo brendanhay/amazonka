@@ -20,10 +20,10 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     mkEnableSnapshotCopy,
 
     -- ** Request lenses
-    escManualSnapshotRetentionPeriod,
     escClusterIdentifier,
-    escRetentionPeriod,
     escDestinationRegion,
+    escManualSnapshotRetentionPeriod,
+    escRetentionPeriod,
     escSnapshotCopyGrantName,
 
     -- * Destructuring the response
@@ -31,92 +31,86 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     mkEnableSnapshotCopyResponse,
 
     -- ** Response lenses
-    escrsCluster,
-    escrsResponseStatus,
+    escrrsCluster,
+    escrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkEnableSnapshotCopy' smart constructor.
 data EnableSnapshotCopy = EnableSnapshotCopy'
-  { -- | The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
-    --
-    -- The value must be either -1 or an integer between 1 and 3,653.
-    manualSnapshotRetentionPeriod :: Lude.Maybe Lude.Int,
-    -- | The unique identifier of the source cluster to copy snapshots from.
+  { -- | The unique identifier of the source cluster to copy snapshots from.
     --
     -- Constraints: Must be the valid name of an existing cluster that does not already have cross-region snapshot copy enabled.
-    clusterIdentifier :: Lude.Text,
+    clusterIdentifier :: Types.String,
+    -- | The destination AWS Region that you want to copy snapshots to.
+    --
+    -- Constraints: Must be the name of a valid AWS Region. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
+    destinationRegion :: Types.String,
+    -- | The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
+    --
+    -- The value must be either -1 or an integer between 1 and 3,653.
+    manualSnapshotRetentionPeriod :: Core.Maybe Core.Int,
     -- | The number of days to retain automated snapshots in the destination region after they are copied from the source region.
     --
     -- Default: 7.
     -- Constraints: Must be at least 1 and no more than 35.
-    retentionPeriod :: Lude.Maybe Lude.Int,
-    -- | The destination AWS Region that you want to copy snapshots to.
-    --
-    -- Constraints: Must be the name of a valid AWS Region. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
-    destinationRegion :: Lude.Text,
+    retentionPeriod :: Core.Maybe Core.Int,
     -- | The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
-    snapshotCopyGrantName :: Lude.Maybe Lude.Text
+    snapshotCopyGrantName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableSnapshotCopy' with the minimum fields required to make a request.
---
--- * 'manualSnapshotRetentionPeriod' - The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
---
--- The value must be either -1 or an integer between 1 and 3,653.
--- * 'clusterIdentifier' - The unique identifier of the source cluster to copy snapshots from.
---
--- Constraints: Must be the valid name of an existing cluster that does not already have cross-region snapshot copy enabled.
--- * 'retentionPeriod' - The number of days to retain automated snapshots in the destination region after they are copied from the source region.
---
--- Default: 7.
--- Constraints: Must be at least 1 and no more than 35.
--- * 'destinationRegion' - The destination AWS Region that you want to copy snapshots to.
---
--- Constraints: Must be the name of a valid AWS Region. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
--- * 'snapshotCopyGrantName' - The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
+-- | Creates a 'EnableSnapshotCopy' value with any optional fields omitted.
 mkEnableSnapshotCopy ::
   -- | 'clusterIdentifier'
-  Lude.Text ->
+  Types.String ->
   -- | 'destinationRegion'
-  Lude.Text ->
+  Types.String ->
   EnableSnapshotCopy
-mkEnableSnapshotCopy pClusterIdentifier_ pDestinationRegion_ =
+mkEnableSnapshotCopy clusterIdentifier destinationRegion =
   EnableSnapshotCopy'
-    { manualSnapshotRetentionPeriod = Lude.Nothing,
-      clusterIdentifier = pClusterIdentifier_,
-      retentionPeriod = Lude.Nothing,
-      destinationRegion = pDestinationRegion_,
-      snapshotCopyGrantName = Lude.Nothing
+    { clusterIdentifier,
+      destinationRegion,
+      manualSnapshotRetentionPeriod = Core.Nothing,
+      retentionPeriod = Core.Nothing,
+      snapshotCopyGrantName = Core.Nothing
     }
-
--- | The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
---
--- The value must be either -1 or an integer between 1 and 3,653.
---
--- /Note:/ Consider using 'manualSnapshotRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escManualSnapshotRetentionPeriod :: Lens.Lens' EnableSnapshotCopy (Lude.Maybe Lude.Int)
-escManualSnapshotRetentionPeriod = Lens.lens (manualSnapshotRetentionPeriod :: EnableSnapshotCopy -> Lude.Maybe Lude.Int) (\s a -> s {manualSnapshotRetentionPeriod = a} :: EnableSnapshotCopy)
-{-# DEPRECATED escManualSnapshotRetentionPeriod "Use generic-lens or generic-optics with 'manualSnapshotRetentionPeriod' instead." #-}
 
 -- | The unique identifier of the source cluster to copy snapshots from.
 --
 -- Constraints: Must be the valid name of an existing cluster that does not already have cross-region snapshot copy enabled.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escClusterIdentifier :: Lens.Lens' EnableSnapshotCopy Lude.Text
-escClusterIdentifier = Lens.lens (clusterIdentifier :: EnableSnapshotCopy -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: EnableSnapshotCopy)
+escClusterIdentifier :: Lens.Lens' EnableSnapshotCopy Types.String
+escClusterIdentifier = Lens.field @"clusterIdentifier"
 {-# DEPRECATED escClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
+
+-- | The destination AWS Region that you want to copy snapshots to.
+--
+-- Constraints: Must be the name of a valid AWS Region. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
+--
+-- /Note:/ Consider using 'destinationRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+escDestinationRegion :: Lens.Lens' EnableSnapshotCopy Types.String
+escDestinationRegion = Lens.field @"destinationRegion"
+{-# DEPRECATED escDestinationRegion "Use generic-lens or generic-optics with 'destinationRegion' instead." #-}
+
+-- | The number of days to retain newly copied snapshots in the destination AWS Region after they are copied from the source AWS Region. If the value is -1, the manual snapshot is retained indefinitely.
+--
+-- The value must be either -1 or an integer between 1 and 3,653.
+--
+-- /Note:/ Consider using 'manualSnapshotRetentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+escManualSnapshotRetentionPeriod :: Lens.Lens' EnableSnapshotCopy (Core.Maybe Core.Int)
+escManualSnapshotRetentionPeriod = Lens.field @"manualSnapshotRetentionPeriod"
+{-# DEPRECATED escManualSnapshotRetentionPeriod "Use generic-lens or generic-optics with 'manualSnapshotRetentionPeriod' instead." #-}
 
 -- | The number of days to retain automated snapshots in the destination region after they are copied from the source region.
 --
@@ -124,89 +118,83 @@ escClusterIdentifier = Lens.lens (clusterIdentifier :: EnableSnapshotCopy -> Lud
 -- Constraints: Must be at least 1 and no more than 35.
 --
 -- /Note:/ Consider using 'retentionPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escRetentionPeriod :: Lens.Lens' EnableSnapshotCopy (Lude.Maybe Lude.Int)
-escRetentionPeriod = Lens.lens (retentionPeriod :: EnableSnapshotCopy -> Lude.Maybe Lude.Int) (\s a -> s {retentionPeriod = a} :: EnableSnapshotCopy)
+escRetentionPeriod :: Lens.Lens' EnableSnapshotCopy (Core.Maybe Core.Int)
+escRetentionPeriod = Lens.field @"retentionPeriod"
 {-# DEPRECATED escRetentionPeriod "Use generic-lens or generic-optics with 'retentionPeriod' instead." #-}
-
--- | The destination AWS Region that you want to copy snapshots to.
---
--- Constraints: Must be the name of a valid AWS Region. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.
---
--- /Note:/ Consider using 'destinationRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escDestinationRegion :: Lens.Lens' EnableSnapshotCopy Lude.Text
-escDestinationRegion = Lens.lens (destinationRegion :: EnableSnapshotCopy -> Lude.Text) (\s a -> s {destinationRegion = a} :: EnableSnapshotCopy)
-{-# DEPRECATED escDestinationRegion "Use generic-lens or generic-optics with 'destinationRegion' instead." #-}
 
 -- | The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted cluster are copied to the destination region.
 --
 -- /Note:/ Consider using 'snapshotCopyGrantName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escSnapshotCopyGrantName :: Lens.Lens' EnableSnapshotCopy (Lude.Maybe Lude.Text)
-escSnapshotCopyGrantName = Lens.lens (snapshotCopyGrantName :: EnableSnapshotCopy -> Lude.Maybe Lude.Text) (\s a -> s {snapshotCopyGrantName = a} :: EnableSnapshotCopy)
+escSnapshotCopyGrantName :: Lens.Lens' EnableSnapshotCopy (Core.Maybe Types.String)
+escSnapshotCopyGrantName = Lens.field @"snapshotCopyGrantName"
 {-# DEPRECATED escSnapshotCopyGrantName "Use generic-lens or generic-optics with 'snapshotCopyGrantName' instead." #-}
 
-instance Lude.AWSRequest EnableSnapshotCopy where
+instance Core.AWSRequest EnableSnapshotCopy where
   type Rs EnableSnapshotCopy = EnableSnapshotCopyResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "EnableSnapshotCopy")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ClusterIdentifier" clusterIdentifier)
+                Core.<> (Core.toQueryValue "DestinationRegion" destinationRegion)
+                Core.<> ( Core.toQueryValue "ManualSnapshotRetentionPeriod"
+                            Core.<$> manualSnapshotRetentionPeriod
+                        )
+                Core.<> (Core.toQueryValue "RetentionPeriod" Core.<$> retentionPeriod)
+                Core.<> ( Core.toQueryValue "SnapshotCopyGrantName"
+                            Core.<$> snapshotCopyGrantName
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "EnableSnapshotCopyResult"
       ( \s h x ->
           EnableSnapshotCopyResponse'
-            Lude.<$> (x Lude..@? "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Cluster") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders EnableSnapshotCopy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath EnableSnapshotCopy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableSnapshotCopy where
-  toQuery EnableSnapshotCopy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("EnableSnapshotCopy" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ManualSnapshotRetentionPeriod"
-          Lude.=: manualSnapshotRetentionPeriod,
-        "ClusterIdentifier" Lude.=: clusterIdentifier,
-        "RetentionPeriod" Lude.=: retentionPeriod,
-        "DestinationRegion" Lude.=: destinationRegion,
-        "SnapshotCopyGrantName" Lude.=: snapshotCopyGrantName
-      ]
 
 -- | /See:/ 'mkEnableSnapshotCopyResponse' smart constructor.
 data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'
-  { cluster :: Lude.Maybe Cluster,
+  { cluster :: Core.Maybe Types.Cluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EnableSnapshotCopyResponse' with the minimum fields required to make a request.
---
--- * 'cluster' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'EnableSnapshotCopyResponse' value with any optional fields omitted.
 mkEnableSnapshotCopyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   EnableSnapshotCopyResponse
-mkEnableSnapshotCopyResponse pResponseStatus_ =
+mkEnableSnapshotCopyResponse responseStatus =
   EnableSnapshotCopyResponse'
-    { cluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { cluster = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escrsCluster :: Lens.Lens' EnableSnapshotCopyResponse (Lude.Maybe Cluster)
-escrsCluster = Lens.lens (cluster :: EnableSnapshotCopyResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: EnableSnapshotCopyResponse)
-{-# DEPRECATED escrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+escrrsCluster :: Lens.Lens' EnableSnapshotCopyResponse (Core.Maybe Types.Cluster)
+escrrsCluster = Lens.field @"cluster"
+{-# DEPRECATED escrrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-escrsResponseStatus :: Lens.Lens' EnableSnapshotCopyResponse Lude.Int
-escrsResponseStatus = Lens.lens (responseStatus :: EnableSnapshotCopyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableSnapshotCopyResponse)
-{-# DEPRECATED escrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+escrrsResponseStatus :: Lens.Lens' EnableSnapshotCopyResponse Core.Int
+escrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED escrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

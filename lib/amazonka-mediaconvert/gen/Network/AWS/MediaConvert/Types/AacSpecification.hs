@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.AacSpecification
   ( AacSpecification
       ( AacSpecification',
-        ASMPEG2,
-        ASMPEG4
+        AacSpecificationMPEG2,
+        AacSpecificationMPEG4,
+        fromAacSpecification
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use MPEG-2 AAC instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
-newtype AacSpecification = AacSpecification' Lude.Text
+newtype AacSpecification = AacSpecification'
+  { fromAacSpecification ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ASMPEG2 :: AacSpecification
-pattern ASMPEG2 = AacSpecification' "MPEG2"
+pattern AacSpecificationMPEG2 :: AacSpecification
+pattern AacSpecificationMPEG2 = AacSpecification' "MPEG2"
 
-pattern ASMPEG4 :: AacSpecification
-pattern ASMPEG4 = AacSpecification' "MPEG4"
+pattern AacSpecificationMPEG4 :: AacSpecification
+pattern AacSpecificationMPEG4 = AacSpecification' "MPEG4"
 
 {-# COMPLETE
-  ASMPEG2,
-  ASMPEG4,
+  AacSpecificationMPEG2,
+  AacSpecificationMPEG4,
   AacSpecification'
   #-}

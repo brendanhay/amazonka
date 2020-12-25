@@ -18,15 +18,16 @@ module Network.AWS.GameLift.Types.FleetUtilization
 
     -- * Lenses
     fuActiveGameSessionCount,
-    fuMaximumPlayerSessionCount,
+    fuActiveServerProcessCount,
     fuCurrentPlayerSessionCount,
     fuFleetId,
-    fuActiveServerProcessCount,
+    fuMaximumPlayerSessionCount,
   )
 where
 
+import qualified Network.AWS.GameLift.Types.FleetId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Current status of fleet utilization, including the number of game and player sessions being hosted.
 --
@@ -53,81 +54,73 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkFleetUtilization' smart constructor.
 data FleetUtilization = FleetUtilization'
   { -- | Number of active game sessions currently being hosted on all instances in the fleet.
-    activeGameSessionCount :: Lude.Maybe Lude.Natural,
-    -- | The maximum number of players allowed across all game sessions currently being hosted on all instances in the fleet.
-    maximumPlayerSessionCount :: Lude.Maybe Lude.Natural,
-    -- | Number of active player sessions currently being hosted on all instances in the fleet.
-    currentPlayerSessionCount :: Lude.Maybe Lude.Natural,
-    -- | A unique identifier for a fleet.
-    fleetId :: Lude.Maybe Lude.Text,
+    activeGameSessionCount :: Core.Maybe Core.Natural,
     -- | Number of server processes in an @ACTIVE@ status currently running across all instances in the fleet
-    activeServerProcessCount :: Lude.Maybe Lude.Natural
+    activeServerProcessCount :: Core.Maybe Core.Natural,
+    -- | Number of active player sessions currently being hosted on all instances in the fleet.
+    currentPlayerSessionCount :: Core.Maybe Core.Natural,
+    -- | A unique identifier for a fleet.
+    fleetId :: Core.Maybe Types.FleetId,
+    -- | The maximum number of players allowed across all game sessions currently being hosted on all instances in the fleet.
+    maximumPlayerSessionCount :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FleetUtilization' with the minimum fields required to make a request.
---
--- * 'activeGameSessionCount' - Number of active game sessions currently being hosted on all instances in the fleet.
--- * 'maximumPlayerSessionCount' - The maximum number of players allowed across all game sessions currently being hosted on all instances in the fleet.
--- * 'currentPlayerSessionCount' - Number of active player sessions currently being hosted on all instances in the fleet.
--- * 'fleetId' - A unique identifier for a fleet.
--- * 'activeServerProcessCount' - Number of server processes in an @ACTIVE@ status currently running across all instances in the fleet
+-- | Creates a 'FleetUtilization' value with any optional fields omitted.
 mkFleetUtilization ::
   FleetUtilization
 mkFleetUtilization =
   FleetUtilization'
-    { activeGameSessionCount = Lude.Nothing,
-      maximumPlayerSessionCount = Lude.Nothing,
-      currentPlayerSessionCount = Lude.Nothing,
-      fleetId = Lude.Nothing,
-      activeServerProcessCount = Lude.Nothing
+    { activeGameSessionCount = Core.Nothing,
+      activeServerProcessCount = Core.Nothing,
+      currentPlayerSessionCount = Core.Nothing,
+      fleetId = Core.Nothing,
+      maximumPlayerSessionCount = Core.Nothing
     }
 
 -- | Number of active game sessions currently being hosted on all instances in the fleet.
 --
 -- /Note:/ Consider using 'activeGameSessionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fuActiveGameSessionCount :: Lens.Lens' FleetUtilization (Lude.Maybe Lude.Natural)
-fuActiveGameSessionCount = Lens.lens (activeGameSessionCount :: FleetUtilization -> Lude.Maybe Lude.Natural) (\s a -> s {activeGameSessionCount = a} :: FleetUtilization)
+fuActiveGameSessionCount :: Lens.Lens' FleetUtilization (Core.Maybe Core.Natural)
+fuActiveGameSessionCount = Lens.field @"activeGameSessionCount"
 {-# DEPRECATED fuActiveGameSessionCount "Use generic-lens or generic-optics with 'activeGameSessionCount' instead." #-}
 
--- | The maximum number of players allowed across all game sessions currently being hosted on all instances in the fleet.
+-- | Number of server processes in an @ACTIVE@ status currently running across all instances in the fleet
 --
--- /Note:/ Consider using 'maximumPlayerSessionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fuMaximumPlayerSessionCount :: Lens.Lens' FleetUtilization (Lude.Maybe Lude.Natural)
-fuMaximumPlayerSessionCount = Lens.lens (maximumPlayerSessionCount :: FleetUtilization -> Lude.Maybe Lude.Natural) (\s a -> s {maximumPlayerSessionCount = a} :: FleetUtilization)
-{-# DEPRECATED fuMaximumPlayerSessionCount "Use generic-lens or generic-optics with 'maximumPlayerSessionCount' instead." #-}
+-- /Note:/ Consider using 'activeServerProcessCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fuActiveServerProcessCount :: Lens.Lens' FleetUtilization (Core.Maybe Core.Natural)
+fuActiveServerProcessCount = Lens.field @"activeServerProcessCount"
+{-# DEPRECATED fuActiveServerProcessCount "Use generic-lens or generic-optics with 'activeServerProcessCount' instead." #-}
 
 -- | Number of active player sessions currently being hosted on all instances in the fleet.
 --
 -- /Note:/ Consider using 'currentPlayerSessionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fuCurrentPlayerSessionCount :: Lens.Lens' FleetUtilization (Lude.Maybe Lude.Natural)
-fuCurrentPlayerSessionCount = Lens.lens (currentPlayerSessionCount :: FleetUtilization -> Lude.Maybe Lude.Natural) (\s a -> s {currentPlayerSessionCount = a} :: FleetUtilization)
+fuCurrentPlayerSessionCount :: Lens.Lens' FleetUtilization (Core.Maybe Core.Natural)
+fuCurrentPlayerSessionCount = Lens.field @"currentPlayerSessionCount"
 {-# DEPRECATED fuCurrentPlayerSessionCount "Use generic-lens or generic-optics with 'currentPlayerSessionCount' instead." #-}
 
 -- | A unique identifier for a fleet.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fuFleetId :: Lens.Lens' FleetUtilization (Lude.Maybe Lude.Text)
-fuFleetId = Lens.lens (fleetId :: FleetUtilization -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: FleetUtilization)
+fuFleetId :: Lens.Lens' FleetUtilization (Core.Maybe Types.FleetId)
+fuFleetId = Lens.field @"fleetId"
 {-# DEPRECATED fuFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
--- | Number of server processes in an @ACTIVE@ status currently running across all instances in the fleet
+-- | The maximum number of players allowed across all game sessions currently being hosted on all instances in the fleet.
 --
--- /Note:/ Consider using 'activeServerProcessCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fuActiveServerProcessCount :: Lens.Lens' FleetUtilization (Lude.Maybe Lude.Natural)
-fuActiveServerProcessCount = Lens.lens (activeServerProcessCount :: FleetUtilization -> Lude.Maybe Lude.Natural) (\s a -> s {activeServerProcessCount = a} :: FleetUtilization)
-{-# DEPRECATED fuActiveServerProcessCount "Use generic-lens or generic-optics with 'activeServerProcessCount' instead." #-}
+-- /Note:/ Consider using 'maximumPlayerSessionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fuMaximumPlayerSessionCount :: Lens.Lens' FleetUtilization (Core.Maybe Core.Natural)
+fuMaximumPlayerSessionCount = Lens.field @"maximumPlayerSessionCount"
+{-# DEPRECATED fuMaximumPlayerSessionCount "Use generic-lens or generic-optics with 'maximumPlayerSessionCount' instead." #-}
 
-instance Lude.FromJSON FleetUtilization where
+instance Core.FromJSON FleetUtilization where
   parseJSON =
-    Lude.withObject
-      "FleetUtilization"
-      ( \x ->
-          FleetUtilization'
-            Lude.<$> (x Lude..:? "ActiveGameSessionCount")
-            Lude.<*> (x Lude..:? "MaximumPlayerSessionCount")
-            Lude.<*> (x Lude..:? "CurrentPlayerSessionCount")
-            Lude.<*> (x Lude..:? "FleetId")
-            Lude.<*> (x Lude..:? "ActiveServerProcessCount")
-      )
+    Core.withObject "FleetUtilization" Core.$
+      \x ->
+        FleetUtilization'
+          Core.<$> (x Core..:? "ActiveGameSessionCount")
+          Core.<*> (x Core..:? "ActiveServerProcessCount")
+          Core.<*> (x Core..:? "CurrentPlayerSessionCount")
+          Core.<*> (x Core..:? "FleetId")
+          Core.<*> (x Core..:? "MaximumPlayerSessionCount")

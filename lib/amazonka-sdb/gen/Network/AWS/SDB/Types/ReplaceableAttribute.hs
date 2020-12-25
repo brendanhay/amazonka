@@ -17,72 +17,57 @@ module Network.AWS.SDB.Types.ReplaceableAttribute
     mkReplaceableAttribute,
 
     -- * Lenses
-    raReplace,
-    raValue,
     raName,
+    raValue,
+    raReplace,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SDB.Types.String as Types
 
 -- |
 --
 -- /See:/ 'mkReplaceableAttribute' smart constructor.
 data ReplaceableAttribute = ReplaceableAttribute'
-  { -- | @false@
-    replace :: Lude.Maybe Lude.Bool,
+  { -- | The name of the replaceable attribute.
+    name :: Types.String,
     -- | The value of the replaceable attribute.
-    value :: Lude.Text,
-    -- | The name of the replaceable attribute.
-    name :: Lude.Text
+    value :: Types.String,
+    -- | @false@
+    replace :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplaceableAttribute' with the minimum fields required to make a request.
---
--- * 'replace' - @false@
--- * 'value' - The value of the replaceable attribute.
--- * 'name' - The name of the replaceable attribute.
+-- | Creates a 'ReplaceableAttribute' value with any optional fields omitted.
 mkReplaceableAttribute ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
+  -- | 'value'
+  Types.String ->
   ReplaceableAttribute
-mkReplaceableAttribute pValue_ pName_ =
-  ReplaceableAttribute'
-    { replace = Lude.Nothing,
-      value = pValue_,
-      name = pName_
-    }
-
--- | @false@
---
--- /Note:/ Consider using 'replace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raReplace :: Lens.Lens' ReplaceableAttribute (Lude.Maybe Lude.Bool)
-raReplace = Lens.lens (replace :: ReplaceableAttribute -> Lude.Maybe Lude.Bool) (\s a -> s {replace = a} :: ReplaceableAttribute)
-{-# DEPRECATED raReplace "Use generic-lens or generic-optics with 'replace' instead." #-}
-
--- | The value of the replaceable attribute.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raValue :: Lens.Lens' ReplaceableAttribute Lude.Text
-raValue = Lens.lens (value :: ReplaceableAttribute -> Lude.Text) (\s a -> s {value = a} :: ReplaceableAttribute)
-{-# DEPRECATED raValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkReplaceableAttribute name value =
+  ReplaceableAttribute' {name, value, replace = Core.Nothing}
 
 -- | The name of the replaceable attribute.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raName :: Lens.Lens' ReplaceableAttribute Lude.Text
-raName = Lens.lens (name :: ReplaceableAttribute -> Lude.Text) (\s a -> s {name = a} :: ReplaceableAttribute)
+raName :: Lens.Lens' ReplaceableAttribute Types.String
+raName = Lens.field @"name"
 {-# DEPRECATED raName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToQuery ReplaceableAttribute where
-  toQuery ReplaceableAttribute' {..} =
-    Lude.mconcat
-      [ "Replace" Lude.=: replace,
-        "Value" Lude.=: value,
-        "Name" Lude.=: name
-      ]
+-- | The value of the replaceable attribute.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raValue :: Lens.Lens' ReplaceableAttribute Types.String
+raValue = Lens.field @"value"
+{-# DEPRECATED raValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+-- | @false@
+--
+-- /Note:/ Consider using 'replace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raReplace :: Lens.Lens' ReplaceableAttribute (Core.Maybe Core.Bool)
+raReplace = Lens.field @"replace"
+{-# DEPRECATED raReplace "Use generic-lens or generic-optics with 'replace' instead." #-}

@@ -13,46 +13,51 @@
 module Network.AWS.DirectoryService.Types.SelectiveAuth
   ( SelectiveAuth
       ( SelectiveAuth',
-        Enabled,
-        Disabled
+        SelectiveAuthEnabled,
+        SelectiveAuthDisabled,
+        fromSelectiveAuth
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SelectiveAuth = SelectiveAuth' Lude.Text
+newtype SelectiveAuth = SelectiveAuth'
+  { fromSelectiveAuth ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enabled :: SelectiveAuth
-pattern Enabled = SelectiveAuth' "Enabled"
+pattern SelectiveAuthEnabled :: SelectiveAuth
+pattern SelectiveAuthEnabled = SelectiveAuth' "Enabled"
 
-pattern Disabled :: SelectiveAuth
-pattern Disabled = SelectiveAuth' "Disabled"
+pattern SelectiveAuthDisabled :: SelectiveAuth
+pattern SelectiveAuthDisabled = SelectiveAuth' "Disabled"
 
 {-# COMPLETE
-  Enabled,
-  Disabled,
+  SelectiveAuthEnabled,
+  SelectiveAuthDisabled,
   SelectiveAuth'
   #-}

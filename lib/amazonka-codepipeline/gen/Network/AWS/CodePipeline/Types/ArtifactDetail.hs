@@ -22,50 +22,46 @@ module Network.AWS.CodePipeline.Types.ArtifactDetail
   )
 where
 
-import Network.AWS.CodePipeline.Types.S3Location
+import qualified Network.AWS.CodePipeline.Types.Name as Types
+import qualified Network.AWS.CodePipeline.Types.S3Location as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Artifact details for the action execution, such as the artifact location.
 --
 -- /See:/ 'mkArtifactDetail' smart constructor.
 data ArtifactDetail = ArtifactDetail'
   { -- | The artifact object name for the action execution.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
     -- | The Amazon S3 artifact location for the action execution.
-    s3location :: Lude.Maybe S3Location
+    s3location :: Core.Maybe Types.S3Location
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ArtifactDetail' with the minimum fields required to make a request.
---
--- * 'name' - The artifact object name for the action execution.
--- * 's3location' - The Amazon S3 artifact location for the action execution.
+-- | Creates a 'ArtifactDetail' value with any optional fields omitted.
 mkArtifactDetail ::
   ArtifactDetail
 mkArtifactDetail =
-  ArtifactDetail' {name = Lude.Nothing, s3location = Lude.Nothing}
+  ArtifactDetail' {name = Core.Nothing, s3location = Core.Nothing}
 
 -- | The artifact object name for the action execution.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aName :: Lens.Lens' ArtifactDetail (Lude.Maybe Lude.Text)
-aName = Lens.lens (name :: ArtifactDetail -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ArtifactDetail)
+aName :: Lens.Lens' ArtifactDetail (Core.Maybe Types.Name)
+aName = Lens.field @"name"
 {-# DEPRECATED aName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The Amazon S3 artifact location for the action execution.
 --
 -- /Note:/ Consider using 's3location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aS3location :: Lens.Lens' ArtifactDetail (Lude.Maybe S3Location)
-aS3location = Lens.lens (s3location :: ArtifactDetail -> Lude.Maybe S3Location) (\s a -> s {s3location = a} :: ArtifactDetail)
+aS3location :: Lens.Lens' ArtifactDetail (Core.Maybe Types.S3Location)
+aS3location = Lens.field @"s3location"
 {-# DEPRECATED aS3location "Use generic-lens or generic-optics with 's3location' instead." #-}
 
-instance Lude.FromJSON ArtifactDetail where
+instance Core.FromJSON ArtifactDetail where
   parseJSON =
-    Lude.withObject
-      "ArtifactDetail"
-      ( \x ->
-          ArtifactDetail'
-            Lude.<$> (x Lude..:? "name") Lude.<*> (x Lude..:? "s3location")
-      )
+    Core.withObject "ArtifactDetail" Core.$
+      \x ->
+        ArtifactDetail'
+          Core.<$> (x Core..:? "name") Core.<*> (x Core..:? "s3location")

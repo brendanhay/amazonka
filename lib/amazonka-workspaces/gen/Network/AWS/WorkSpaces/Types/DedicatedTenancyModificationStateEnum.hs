@@ -13,51 +13,56 @@
 module Network.AWS.WorkSpaces.Types.DedicatedTenancyModificationStateEnum
   ( DedicatedTenancyModificationStateEnum
       ( DedicatedTenancyModificationStateEnum',
-        Pending,
-        Completed,
-        Failed
+        DedicatedTenancyModificationStateEnumPending,
+        DedicatedTenancyModificationStateEnumCompleted,
+        DedicatedTenancyModificationStateEnumFailed,
+        fromDedicatedTenancyModificationStateEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DedicatedTenancyModificationStateEnum = DedicatedTenancyModificationStateEnum' Lude.Text
+newtype DedicatedTenancyModificationStateEnum = DedicatedTenancyModificationStateEnum'
+  { fromDedicatedTenancyModificationStateEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Pending :: DedicatedTenancyModificationStateEnum
-pattern Pending = DedicatedTenancyModificationStateEnum' "PENDING"
+pattern DedicatedTenancyModificationStateEnumPending :: DedicatedTenancyModificationStateEnum
+pattern DedicatedTenancyModificationStateEnumPending = DedicatedTenancyModificationStateEnum' "PENDING"
 
-pattern Completed :: DedicatedTenancyModificationStateEnum
-pattern Completed = DedicatedTenancyModificationStateEnum' "COMPLETED"
+pattern DedicatedTenancyModificationStateEnumCompleted :: DedicatedTenancyModificationStateEnum
+pattern DedicatedTenancyModificationStateEnumCompleted = DedicatedTenancyModificationStateEnum' "COMPLETED"
 
-pattern Failed :: DedicatedTenancyModificationStateEnum
-pattern Failed = DedicatedTenancyModificationStateEnum' "FAILED"
+pattern DedicatedTenancyModificationStateEnumFailed :: DedicatedTenancyModificationStateEnum
+pattern DedicatedTenancyModificationStateEnumFailed = DedicatedTenancyModificationStateEnum' "FAILED"
 
 {-# COMPLETE
-  Pending,
-  Completed,
-  Failed,
+  DedicatedTenancyModificationStateEnumPending,
+  DedicatedTenancyModificationStateEnumCompleted,
+  DedicatedTenancyModificationStateEnumFailed,
   DedicatedTenancyModificationStateEnum'
   #-}

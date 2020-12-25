@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.H264SpatialAq
   ( H264SpatialAq
       ( H264SpatialAq',
-        HSADisabled,
-        HSAEnabled
+        H264SpatialAqDisabled,
+        H264SpatialAqEnabled,
+        fromH264SpatialAq
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H264 Spatial Aq
-newtype H264SpatialAq = H264SpatialAq' Lude.Text
+newtype H264SpatialAq = H264SpatialAq'
+  { fromH264SpatialAq ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HSADisabled :: H264SpatialAq
-pattern HSADisabled = H264SpatialAq' "DISABLED"
+pattern H264SpatialAqDisabled :: H264SpatialAq
+pattern H264SpatialAqDisabled = H264SpatialAq' "DISABLED"
 
-pattern HSAEnabled :: H264SpatialAq
-pattern HSAEnabled = H264SpatialAq' "ENABLED"
+pattern H264SpatialAqEnabled :: H264SpatialAq
+pattern H264SpatialAqEnabled = H264SpatialAq' "ENABLED"
 
 {-# COMPLETE
-  HSADisabled,
-  HSAEnabled,
+  H264SpatialAqDisabled,
+  H264SpatialAqEnabled,
   H264SpatialAq'
   #-}

@@ -23,90 +23,95 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     mkGetTemplateSummary,
 
     -- ** Request lenses
+    gtsStackName,
+    gtsStackSetName,
     gtsTemplateBody,
     gtsTemplateURL,
-    gtsStackSetName,
-    gtsStackName,
 
     -- * Destructuring the response
     GetTemplateSummaryResponse (..),
     mkGetTemplateSummaryResponse,
 
     -- ** Response lenses
-    gtsrsDeclaredTransforms,
-    gtsrsVersion,
-    gtsrsCapabilitiesReason,
-    gtsrsParameters,
-    gtsrsMetadata,
-    gtsrsResourceIdentifierSummaries,
-    gtsrsDescription,
-    gtsrsCapabilities,
-    gtsrsResourceTypes,
-    gtsrsResponseStatus,
+    gtsrrsCapabilities,
+    gtsrrsCapabilitiesReason,
+    gtsrrsDeclaredTransforms,
+    gtsrrsDescription,
+    gtsrrsMetadata,
+    gtsrrsParameters,
+    gtsrrsResourceIdentifierSummaries,
+    gtsrrsResourceTypes,
+    gtsrrsVersion,
+    gtsrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the 'GetTemplateSummary' action.
 --
 -- /See:/ 'mkGetTemplateSummary' smart constructor.
 data GetTemplateSummary = GetTemplateSummary'
-  { -- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
+  { -- | The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.
     --
     -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
-    templateBody :: Lude.Maybe Lude.Text,
-    -- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
-    --
-    -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
-    templateURL :: Lude.Maybe Lude.Text,
+    stackName :: Core.Maybe Types.StackName,
     -- | The name or unique ID of the stack set from which the stack was created.
     --
     -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
-    stackSetName :: Lude.Maybe Lude.Text,
-    -- | The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.
+    stackSetName :: Core.Maybe Types.StackSetName,
+    -- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
     --
     -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
-    stackName :: Lude.Maybe Lude.Text
+    templateBody :: Core.Maybe Types.TemplateBody,
+    -- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
+    --
+    -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
+    templateURL :: Core.Maybe Types.TemplateURL
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTemplateSummary' with the minimum fields required to make a request.
---
--- * 'templateBody' - Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
---
--- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
--- * 'templateURL' - Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
---
--- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
--- * 'stackSetName' - The name or unique ID of the stack set from which the stack was created.
---
--- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
--- * 'stackName' - The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.
---
--- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
+-- | Creates a 'GetTemplateSummary' value with any optional fields omitted.
 mkGetTemplateSummary ::
   GetTemplateSummary
 mkGetTemplateSummary =
   GetTemplateSummary'
-    { templateBody = Lude.Nothing,
-      templateURL = Lude.Nothing,
-      stackSetName = Lude.Nothing,
-      stackName = Lude.Nothing
+    { stackName = Core.Nothing,
+      stackSetName = Core.Nothing,
+      templateBody = Core.Nothing,
+      templateURL = Core.Nothing
     }
+
+-- | The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.
+--
+-- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
+--
+-- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsStackName :: Lens.Lens' GetTemplateSummary (Core.Maybe Types.StackName)
+gtsStackName = Lens.field @"stackName"
+{-# DEPRECATED gtsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
+
+-- | The name or unique ID of the stack set from which the stack was created.
+--
+-- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsStackSetName :: Lens.Lens' GetTemplateSummary (Core.Maybe Types.StackSetName)
+gtsStackSetName = Lens.field @"stackSetName"
+{-# DEPRECATED gtsStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
 -- | Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
 --
 -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
 --
 -- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsTemplateBody :: Lens.Lens' GetTemplateSummary (Lude.Maybe Lude.Text)
-gtsTemplateBody = Lens.lens (templateBody :: GetTemplateSummary -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: GetTemplateSummary)
+gtsTemplateBody :: Lens.Lens' GetTemplateSummary (Core.Maybe Types.TemplateBody)
+gtsTemplateBody = Lens.field @"templateBody"
 {-# DEPRECATED gtsTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
 -- | Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information about templates, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation User Guide.
@@ -114,205 +119,171 @@ gtsTemplateBody = Lens.lens (templateBody :: GetTemplateSummary -> Lude.Maybe Lu
 -- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
 --
 -- /Note:/ Consider using 'templateURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsTemplateURL :: Lens.Lens' GetTemplateSummary (Lude.Maybe Lude.Text)
-gtsTemplateURL = Lens.lens (templateURL :: GetTemplateSummary -> Lude.Maybe Lude.Text) (\s a -> s {templateURL = a} :: GetTemplateSummary)
+gtsTemplateURL :: Lens.Lens' GetTemplateSummary (Core.Maybe Types.TemplateURL)
+gtsTemplateURL = Lens.field @"templateURL"
 {-# DEPRECATED gtsTemplateURL "Use generic-lens or generic-optics with 'templateURL' instead." #-}
 
--- | The name or unique ID of the stack set from which the stack was created.
---
--- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
---
--- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsStackSetName :: Lens.Lens' GetTemplateSummary (Lude.Maybe Lude.Text)
-gtsStackSetName = Lens.lens (stackSetName :: GetTemplateSummary -> Lude.Maybe Lude.Text) (\s a -> s {stackSetName = a} :: GetTemplateSummary)
-{-# DEPRECATED gtsStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
-
--- | The name or the stack ID that is associated with the stack, which are not always interchangeable. For running stacks, you can specify either the stack's name or its unique stack ID. For deleted stack, you must specify the unique stack ID.
---
--- Conditional: You must specify only one of the following parameters: @StackName@ , @StackSetName@ , @TemplateBody@ , or @TemplateURL@ .
---
--- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsStackName :: Lens.Lens' GetTemplateSummary (Lude.Maybe Lude.Text)
-gtsStackName = Lens.lens (stackName :: GetTemplateSummary -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: GetTemplateSummary)
-{-# DEPRECATED gtsStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
-
-instance Lude.AWSRequest GetTemplateSummary where
+instance Core.AWSRequest GetTemplateSummary where
   type Rs GetTemplateSummary = GetTemplateSummaryResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetTemplateSummary")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "StackName" Core.<$> stackName)
+                Core.<> (Core.toQueryValue "StackSetName" Core.<$> stackSetName)
+                Core.<> (Core.toQueryValue "TemplateBody" Core.<$> templateBody)
+                Core.<> (Core.toQueryValue "TemplateURL" Core.<$> templateURL)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetTemplateSummaryResult"
       ( \s h x ->
           GetTemplateSummaryResponse'
-            Lude.<$> ( x Lude..@? "DeclaredTransforms" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> (x Core..@? "Capabilities" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "CapabilitiesReason")
+            Core.<*> ( x Core..@? "DeclaredTransforms"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (x Lude..@? "Version")
-            Lude.<*> (x Lude..@? "CapabilitiesReason")
-            Lude.<*> ( x Lude..@? "Parameters" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<*> (x Core..@? "Description")
+            Core.<*> (x Core..@? "Metadata")
+            Core.<*> (x Core..@? "Parameters" Core..<@> Core.parseXMLList "member")
+            Core.<*> ( x Core..@? "ResourceIdentifierSummaries"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (x Lude..@? "Metadata")
-            Lude.<*> ( x Lude..@? "ResourceIdentifierSummaries" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (x Lude..@? "Description")
-            Lude.<*> ( x Lude..@? "Capabilities" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> ( x Lude..@? "ResourceTypes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "ResourceTypes" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "Version")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetTemplateSummary where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetTemplateSummary where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetTemplateSummary where
-  toQuery GetTemplateSummary' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetTemplateSummary" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "TemplateBody" Lude.=: templateBody,
-        "TemplateURL" Lude.=: templateURL,
-        "StackSetName" Lude.=: stackSetName,
-        "StackName" Lude.=: stackName
-      ]
 
 -- | The output for the 'GetTemplateSummary' action.
 --
 -- /See:/ 'mkGetTemplateSummaryResponse' smart constructor.
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
-  { -- | A list of the transforms that are declared in the template.
-    declaredTransforms :: Lude.Maybe [Lude.Text],
-    -- | The AWS template format version, which identifies the capabilities of the template.
-    version :: Lude.Maybe Lude.Text,
-    -- | The list of resources that generated the values in the @Capabilities@ response element.
-    capabilitiesReason :: Lude.Maybe Lude.Text,
-    -- | A list of parameter declarations that describe various properties for each parameter.
-    parameters :: Lude.Maybe [ParameterDeclaration],
-    -- | The value that is defined for the @Metadata@ property of the template.
-    metadata :: Lude.Maybe Lude.Text,
-    -- | A list of resource identifier summaries that describe the target resources of an import operation and the properties you can provide during the import to identify the target resources. For example, @BucketName@ is a possible identifier property for an @AWS::S3::Bucket@ resource.
-    resourceIdentifierSummaries :: Lude.Maybe [ResourceIdentifierSummary],
-    -- | The value that is defined in the @Description@ property of the template.
-    description :: Lude.Maybe Lude.Text,
-    -- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
+  { -- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
     --
     -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
-    capabilities :: Lude.Maybe [Capability],
+    capabilities :: Core.Maybe [Types.Capability],
+    -- | The list of resources that generated the values in the @Capabilities@ response element.
+    capabilitiesReason :: Core.Maybe Types.CapabilitiesReason,
+    -- | A list of the transforms that are declared in the template.
+    declaredTransforms :: Core.Maybe [Types.TransformName],
+    -- | The value that is defined in the @Description@ property of the template.
+    description :: Core.Maybe Types.Description,
+    -- | The value that is defined for the @Metadata@ property of the template.
+    metadata :: Core.Maybe Types.Metadata,
+    -- | A list of parameter declarations that describe various properties for each parameter.
+    parameters :: Core.Maybe [Types.ParameterDeclaration],
+    -- | A list of resource identifier summaries that describe the target resources of an import operation and the properties you can provide during the import to identify the target resources. For example, @BucketName@ is a possible identifier property for an @AWS::S3::Bucket@ resource.
+    resourceIdentifierSummaries :: Core.Maybe [Types.ResourceIdentifierSummary],
     -- | A list of all the template resource types that are defined in the template, such as @AWS::EC2::Instance@ , @AWS::Dynamo::Table@ , and @Custom::MyCustomInstance@ .
-    resourceTypes :: Lude.Maybe [Lude.Text],
+    resourceTypes :: Core.Maybe [Types.ResourceType],
+    -- | The AWS template format version, which identifies the capabilities of the template.
+    version :: Core.Maybe Types.Version,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTemplateSummaryResponse' with the minimum fields required to make a request.
---
--- * 'declaredTransforms' - A list of the transforms that are declared in the template.
--- * 'version' - The AWS template format version, which identifies the capabilities of the template.
--- * 'capabilitiesReason' - The list of resources that generated the values in the @Capabilities@ response element.
--- * 'parameters' - A list of parameter declarations that describe various properties for each parameter.
--- * 'metadata' - The value that is defined for the @Metadata@ property of the template.
--- * 'resourceIdentifierSummaries' - A list of resource identifier summaries that describe the target resources of an import operation and the properties you can provide during the import to identify the target resources. For example, @BucketName@ is a possible identifier property for an @AWS::S3::Bucket@ resource.
--- * 'description' - The value that is defined in the @Description@ property of the template.
--- * 'capabilities' - The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
---
--- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
--- * 'resourceTypes' - A list of all the template resource types that are defined in the template, such as @AWS::EC2::Instance@ , @AWS::Dynamo::Table@ , and @Custom::MyCustomInstance@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTemplateSummaryResponse' value with any optional fields omitted.
 mkGetTemplateSummaryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTemplateSummaryResponse
-mkGetTemplateSummaryResponse pResponseStatus_ =
+mkGetTemplateSummaryResponse responseStatus =
   GetTemplateSummaryResponse'
-    { declaredTransforms = Lude.Nothing,
-      version = Lude.Nothing,
-      capabilitiesReason = Lude.Nothing,
-      parameters = Lude.Nothing,
-      metadata = Lude.Nothing,
-      resourceIdentifierSummaries = Lude.Nothing,
-      description = Lude.Nothing,
-      capabilities = Lude.Nothing,
-      resourceTypes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { capabilities = Core.Nothing,
+      capabilitiesReason = Core.Nothing,
+      declaredTransforms = Core.Nothing,
+      description = Core.Nothing,
+      metadata = Core.Nothing,
+      parameters = Core.Nothing,
+      resourceIdentifierSummaries = Core.Nothing,
+      resourceTypes = Core.Nothing,
+      version = Core.Nothing,
+      responseStatus
     }
-
--- | A list of the transforms that are declared in the template.
---
--- /Note:/ Consider using 'declaredTransforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsrsDeclaredTransforms :: Lens.Lens' GetTemplateSummaryResponse (Lude.Maybe [Lude.Text])
-gtsrsDeclaredTransforms = Lens.lens (declaredTransforms :: GetTemplateSummaryResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {declaredTransforms = a} :: GetTemplateSummaryResponse)
-{-# DEPRECATED gtsrsDeclaredTransforms "Use generic-lens or generic-optics with 'declaredTransforms' instead." #-}
-
--- | The AWS template format version, which identifies the capabilities of the template.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsrsVersion :: Lens.Lens' GetTemplateSummaryResponse (Lude.Maybe Lude.Text)
-gtsrsVersion = Lens.lens (version :: GetTemplateSummaryResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetTemplateSummaryResponse)
-{-# DEPRECATED gtsrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The list of resources that generated the values in the @Capabilities@ response element.
---
--- /Note:/ Consider using 'capabilitiesReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsrsCapabilitiesReason :: Lens.Lens' GetTemplateSummaryResponse (Lude.Maybe Lude.Text)
-gtsrsCapabilitiesReason = Lens.lens (capabilitiesReason :: GetTemplateSummaryResponse -> Lude.Maybe Lude.Text) (\s a -> s {capabilitiesReason = a} :: GetTemplateSummaryResponse)
-{-# DEPRECATED gtsrsCapabilitiesReason "Use generic-lens or generic-optics with 'capabilitiesReason' instead." #-}
-
--- | A list of parameter declarations that describe various properties for each parameter.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsrsParameters :: Lens.Lens' GetTemplateSummaryResponse (Lude.Maybe [ParameterDeclaration])
-gtsrsParameters = Lens.lens (parameters :: GetTemplateSummaryResponse -> Lude.Maybe [ParameterDeclaration]) (\s a -> s {parameters = a} :: GetTemplateSummaryResponse)
-{-# DEPRECATED gtsrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
-
--- | The value that is defined for the @Metadata@ property of the template.
---
--- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsrsMetadata :: Lens.Lens' GetTemplateSummaryResponse (Lude.Maybe Lude.Text)
-gtsrsMetadata = Lens.lens (metadata :: GetTemplateSummaryResponse -> Lude.Maybe Lude.Text) (\s a -> s {metadata = a} :: GetTemplateSummaryResponse)
-{-# DEPRECATED gtsrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
-
--- | A list of resource identifier summaries that describe the target resources of an import operation and the properties you can provide during the import to identify the target resources. For example, @BucketName@ is a possible identifier property for an @AWS::S3::Bucket@ resource.
---
--- /Note:/ Consider using 'resourceIdentifierSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsrsResourceIdentifierSummaries :: Lens.Lens' GetTemplateSummaryResponse (Lude.Maybe [ResourceIdentifierSummary])
-gtsrsResourceIdentifierSummaries = Lens.lens (resourceIdentifierSummaries :: GetTemplateSummaryResponse -> Lude.Maybe [ResourceIdentifierSummary]) (\s a -> s {resourceIdentifierSummaries = a} :: GetTemplateSummaryResponse)
-{-# DEPRECATED gtsrsResourceIdentifierSummaries "Use generic-lens or generic-optics with 'resourceIdentifierSummaries' instead." #-}
-
--- | The value that is defined in the @Description@ property of the template.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsrsDescription :: Lens.Lens' GetTemplateSummaryResponse (Lude.Maybe Lude.Text)
-gtsrsDescription = Lens.lens (description :: GetTemplateSummaryResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: GetTemplateSummaryResponse)
-{-# DEPRECATED gtsrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The capabilities found within the template. If your template contains IAM resources, you must specify the CAPABILITY_IAM or CAPABILITY_NAMED_IAM value for this parameter when you use the 'CreateStack' or 'UpdateStack' actions with your template; otherwise, those actions return an InsufficientCapabilities error.
 --
 -- For more information, see <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities Acknowledging IAM Resources in AWS CloudFormation Templates> .
 --
 -- /Note:/ Consider using 'capabilities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsrsCapabilities :: Lens.Lens' GetTemplateSummaryResponse (Lude.Maybe [Capability])
-gtsrsCapabilities = Lens.lens (capabilities :: GetTemplateSummaryResponse -> Lude.Maybe [Capability]) (\s a -> s {capabilities = a} :: GetTemplateSummaryResponse)
-{-# DEPRECATED gtsrsCapabilities "Use generic-lens or generic-optics with 'capabilities' instead." #-}
+gtsrrsCapabilities :: Lens.Lens' GetTemplateSummaryResponse (Core.Maybe [Types.Capability])
+gtsrrsCapabilities = Lens.field @"capabilities"
+{-# DEPRECATED gtsrrsCapabilities "Use generic-lens or generic-optics with 'capabilities' instead." #-}
+
+-- | The list of resources that generated the values in the @Capabilities@ response element.
+--
+-- /Note:/ Consider using 'capabilitiesReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsrrsCapabilitiesReason :: Lens.Lens' GetTemplateSummaryResponse (Core.Maybe Types.CapabilitiesReason)
+gtsrrsCapabilitiesReason = Lens.field @"capabilitiesReason"
+{-# DEPRECATED gtsrrsCapabilitiesReason "Use generic-lens or generic-optics with 'capabilitiesReason' instead." #-}
+
+-- | A list of the transforms that are declared in the template.
+--
+-- /Note:/ Consider using 'declaredTransforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsrrsDeclaredTransforms :: Lens.Lens' GetTemplateSummaryResponse (Core.Maybe [Types.TransformName])
+gtsrrsDeclaredTransforms = Lens.field @"declaredTransforms"
+{-# DEPRECATED gtsrrsDeclaredTransforms "Use generic-lens or generic-optics with 'declaredTransforms' instead." #-}
+
+-- | The value that is defined in the @Description@ property of the template.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsrrsDescription :: Lens.Lens' GetTemplateSummaryResponse (Core.Maybe Types.Description)
+gtsrrsDescription = Lens.field @"description"
+{-# DEPRECATED gtsrrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The value that is defined for the @Metadata@ property of the template.
+--
+-- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsrrsMetadata :: Lens.Lens' GetTemplateSummaryResponse (Core.Maybe Types.Metadata)
+gtsrrsMetadata = Lens.field @"metadata"
+{-# DEPRECATED gtsrrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+
+-- | A list of parameter declarations that describe various properties for each parameter.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsrrsParameters :: Lens.Lens' GetTemplateSummaryResponse (Core.Maybe [Types.ParameterDeclaration])
+gtsrrsParameters = Lens.field @"parameters"
+{-# DEPRECATED gtsrrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+
+-- | A list of resource identifier summaries that describe the target resources of an import operation and the properties you can provide during the import to identify the target resources. For example, @BucketName@ is a possible identifier property for an @AWS::S3::Bucket@ resource.
+--
+-- /Note:/ Consider using 'resourceIdentifierSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsrrsResourceIdentifierSummaries :: Lens.Lens' GetTemplateSummaryResponse (Core.Maybe [Types.ResourceIdentifierSummary])
+gtsrrsResourceIdentifierSummaries = Lens.field @"resourceIdentifierSummaries"
+{-# DEPRECATED gtsrrsResourceIdentifierSummaries "Use generic-lens or generic-optics with 'resourceIdentifierSummaries' instead." #-}
 
 -- | A list of all the template resource types that are defined in the template, such as @AWS::EC2::Instance@ , @AWS::Dynamo::Table@ , and @Custom::MyCustomInstance@ .
 --
 -- /Note:/ Consider using 'resourceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsrsResourceTypes :: Lens.Lens' GetTemplateSummaryResponse (Lude.Maybe [Lude.Text])
-gtsrsResourceTypes = Lens.lens (resourceTypes :: GetTemplateSummaryResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {resourceTypes = a} :: GetTemplateSummaryResponse)
-{-# DEPRECATED gtsrsResourceTypes "Use generic-lens or generic-optics with 'resourceTypes' instead." #-}
+gtsrrsResourceTypes :: Lens.Lens' GetTemplateSummaryResponse (Core.Maybe [Types.ResourceType])
+gtsrrsResourceTypes = Lens.field @"resourceTypes"
+{-# DEPRECATED gtsrrsResourceTypes "Use generic-lens or generic-optics with 'resourceTypes' instead." #-}
+
+-- | The AWS template format version, which identifies the capabilities of the template.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtsrrsVersion :: Lens.Lens' GetTemplateSummaryResponse (Core.Maybe Types.Version)
+gtsrrsVersion = Lens.field @"version"
+{-# DEPRECATED gtsrrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtsrsResponseStatus :: Lens.Lens' GetTemplateSummaryResponse Lude.Int
-gtsrsResponseStatus = Lens.lens (responseStatus :: GetTemplateSummaryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTemplateSummaryResponse)
-{-# DEPRECATED gtsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtsrrsResponseStatus :: Lens.Lens' GetTemplateSummaryResponse Core.Int
+gtsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

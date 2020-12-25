@@ -20,144 +20,125 @@ module Network.AWS.CognitoIdentityProvider.ChangePassword
     mkChangePassword,
 
     -- ** Request lenses
-    cpAccessToken,
-    cpProposedPassword,
     cpPreviousPassword,
+    cpProposedPassword,
+    cpAccessToken,
 
     -- * Destructuring the response
     ChangePasswordResponse (..),
     mkChangePasswordResponse,
 
     -- ** Response lenses
-    cprsResponseStatus,
+    cprrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to change a user password.
 --
 -- /See:/ 'mkChangePassword' smart constructor.
 data ChangePassword = ChangePassword'
-  { -- | The access token.
-    accessToken :: Lude.Sensitive Lude.Text,
+  { -- | The old password.
+    previousPassword :: Types.PasswordType,
     -- | The new password.
-    proposedPassword :: Lude.Sensitive Lude.Text,
-    -- | The old password.
-    previousPassword :: Lude.Sensitive Lude.Text
+    proposedPassword :: Types.PasswordType,
+    -- | The access token.
+    accessToken :: Types.AccessToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChangePassword' with the minimum fields required to make a request.
---
--- * 'accessToken' - The access token.
--- * 'proposedPassword' - The new password.
--- * 'previousPassword' - The old password.
+-- | Creates a 'ChangePassword' value with any optional fields omitted.
 mkChangePassword ::
-  -- | 'accessToken'
-  Lude.Sensitive Lude.Text ->
-  -- | 'proposedPassword'
-  Lude.Sensitive Lude.Text ->
   -- | 'previousPassword'
-  Lude.Sensitive Lude.Text ->
+  Types.PasswordType ->
+  -- | 'proposedPassword'
+  Types.PasswordType ->
+  -- | 'accessToken'
+  Types.AccessToken ->
   ChangePassword
-mkChangePassword
-  pAccessToken_
-  pProposedPassword_
-  pPreviousPassword_ =
-    ChangePassword'
-      { accessToken = pAccessToken_,
-        proposedPassword = pProposedPassword_,
-        previousPassword = pPreviousPassword_
-      }
-
--- | The access token.
---
--- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpAccessToken :: Lens.Lens' ChangePassword (Lude.Sensitive Lude.Text)
-cpAccessToken = Lens.lens (accessToken :: ChangePassword -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: ChangePassword)
-{-# DEPRECATED cpAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
-
--- | The new password.
---
--- /Note:/ Consider using 'proposedPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpProposedPassword :: Lens.Lens' ChangePassword (Lude.Sensitive Lude.Text)
-cpProposedPassword = Lens.lens (proposedPassword :: ChangePassword -> Lude.Sensitive Lude.Text) (\s a -> s {proposedPassword = a} :: ChangePassword)
-{-# DEPRECATED cpProposedPassword "Use generic-lens or generic-optics with 'proposedPassword' instead." #-}
+mkChangePassword previousPassword proposedPassword accessToken =
+  ChangePassword' {previousPassword, proposedPassword, accessToken}
 
 -- | The old password.
 --
 -- /Note:/ Consider using 'previousPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpPreviousPassword :: Lens.Lens' ChangePassword (Lude.Sensitive Lude.Text)
-cpPreviousPassword = Lens.lens (previousPassword :: ChangePassword -> Lude.Sensitive Lude.Text) (\s a -> s {previousPassword = a} :: ChangePassword)
+cpPreviousPassword :: Lens.Lens' ChangePassword Types.PasswordType
+cpPreviousPassword = Lens.field @"previousPassword"
 {-# DEPRECATED cpPreviousPassword "Use generic-lens or generic-optics with 'previousPassword' instead." #-}
 
-instance Lude.AWSRequest ChangePassword where
+-- | The new password.
+--
+-- /Note:/ Consider using 'proposedPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpProposedPassword :: Lens.Lens' ChangePassword Types.PasswordType
+cpProposedPassword = Lens.field @"proposedPassword"
+{-# DEPRECATED cpProposedPassword "Use generic-lens or generic-optics with 'proposedPassword' instead." #-}
+
+-- | The access token.
+--
+-- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpAccessToken :: Lens.Lens' ChangePassword Types.AccessToken
+cpAccessToken = Lens.field @"accessToken"
+{-# DEPRECATED cpAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
+
+instance Core.FromJSON ChangePassword where
+  toJSON ChangePassword {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PreviousPassword" Core..= previousPassword),
+            Core.Just ("ProposedPassword" Core..= proposedPassword),
+            Core.Just ("AccessToken" Core..= accessToken)
+          ]
+      )
+
+instance Core.AWSRequest ChangePassword where
   type Rs ChangePassword = ChangePasswordResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.ChangePassword"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          ChangePasswordResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          ChangePasswordResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ChangePassword where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.ChangePassword" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ChangePassword where
-  toJSON ChangePassword' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AccessToken" Lude..= accessToken),
-            Lude.Just ("ProposedPassword" Lude..= proposedPassword),
-            Lude.Just ("PreviousPassword" Lude..= previousPassword)
-          ]
-      )
-
-instance Lude.ToPath ChangePassword where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ChangePassword where
-  toQuery = Lude.const Lude.mempty
 
 -- | The response from the server to the change password request.
 --
 -- /See:/ 'mkChangePasswordResponse' smart constructor.
 newtype ChangePasswordResponse = ChangePasswordResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChangePasswordResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ChangePasswordResponse' value with any optional fields omitted.
 mkChangePasswordResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ChangePasswordResponse
-mkChangePasswordResponse pResponseStatus_ =
-  ChangePasswordResponse' {responseStatus = pResponseStatus_}
+mkChangePasswordResponse responseStatus =
+  ChangePasswordResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprsResponseStatus :: Lens.Lens' ChangePasswordResponse Lude.Int
-cprsResponseStatus = Lens.lens (responseStatus :: ChangePasswordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ChangePasswordResponse)
-{-# DEPRECATED cprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cprrsResponseStatus :: Lens.Lens' ChangePasswordResponse Core.Int
+cprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

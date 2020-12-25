@@ -17,110 +17,120 @@ module Network.AWS.Batch.Types.ComputeEnvironmentDetail
     mkComputeEnvironmentDetail,
 
     -- * Lenses
-    cedStatus,
     cedComputeEnvironmentName,
-    cedState,
-    cedEcsClusterARN,
+    cedComputeEnvironmentArn,
+    cedEcsClusterArn,
     cedComputeResources,
-    cedComputeEnvironmentARN,
-    cedStatusReason,
-    cedType,
     cedServiceRole,
+    cedState,
+    cedStatus,
+    cedStatusReason,
     cedTags,
+    cedType,
   )
 where
 
-import Network.AWS.Batch.Types.CEState
-import Network.AWS.Batch.Types.CEStatus
-import Network.AWS.Batch.Types.CEType
-import Network.AWS.Batch.Types.ComputeResource
+import qualified Network.AWS.Batch.Types.CEState as Types
+import qualified Network.AWS.Batch.Types.CEStatus as Types
+import qualified Network.AWS.Batch.Types.CEType as Types
+import qualified Network.AWS.Batch.Types.ComputeResource as Types
+import qualified Network.AWS.Batch.Types.String as Types
+import qualified Network.AWS.Batch.Types.TagKey as Types
+import qualified Network.AWS.Batch.Types.TagValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing an AWS Batch compute environment.
 --
 -- /See:/ 'mkComputeEnvironmentDetail' smart constructor.
 data ComputeEnvironmentDetail = ComputeEnvironmentDetail'
-  { -- | The current status of the compute environment (for example, @CREATING@ or @VALID@ ).
-    status :: Lude.Maybe CEStatus,
-    -- | The name of the compute environment.
-    computeEnvironmentName :: Lude.Text,
+  { -- | The name of the compute environment.
+    computeEnvironmentName :: Types.String,
+    -- | The Amazon Resource Name (ARN) of the compute environment.
+    computeEnvironmentArn :: Types.String,
+    -- | The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+    ecsClusterArn :: Types.String,
+    -- | The compute resources defined for the compute environment.
+    computeResources :: Core.Maybe Types.ComputeResource,
+    -- | The service role associated with the compute environment that allows AWS Batch to make calls to AWS API operations on your behalf.
+    serviceRole :: Core.Maybe Types.String,
     -- | The state of the compute environment. The valid values are @ENABLED@ or @DISABLED@ .
     --
     -- If the state is @ENABLED@ , then the AWS Batch scheduler can attempt to place jobs from an associated job queue on the compute resources within the environment. If the compute environment is managed, then it can scale its instances out or in automatically, based on the job queue demand.
     -- If the state is @DISABLED@ , then the AWS Batch scheduler does not attempt to place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@ state continue to progress normally. Managed compute environments in the @DISABLED@ state do not scale out. However, they scale in to @minvCpus@ value after instances become idle.
-    state :: Lude.Maybe CEState,
-    -- | The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
-    ecsClusterARN :: Lude.Text,
-    -- | The compute resources defined for the compute environment.
-    computeResources :: Lude.Maybe ComputeResource,
-    -- | The Amazon Resource Name (ARN) of the compute environment.
-    computeEnvironmentARN :: Lude.Text,
+    state :: Core.Maybe Types.CEState,
+    -- | The current status of the compute environment (for example, @CREATING@ or @VALID@ ).
+    status :: Core.Maybe Types.CEStatus,
     -- | A short, human-readable string to provide additional details about the current status of the compute environment.
-    statusReason :: Lude.Maybe Lude.Text,
-    -- | The type of the compute environment.
-    type' :: Lude.Maybe CEType,
-    -- | The service role associated with the compute environment that allows AWS Batch to make calls to AWS API operations on your behalf.
-    serviceRole :: Lude.Maybe Lude.Text,
+    statusReason :: Core.Maybe Types.String,
     -- | The tags applied to the compute environment.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue),
+    -- | The type of the compute environment.
+    type' :: Core.Maybe Types.CEType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ComputeEnvironmentDetail' with the minimum fields required to make a request.
---
--- * 'status' - The current status of the compute environment (for example, @CREATING@ or @VALID@ ).
--- * 'computeEnvironmentName' - The name of the compute environment.
--- * 'state' - The state of the compute environment. The valid values are @ENABLED@ or @DISABLED@ .
---
--- If the state is @ENABLED@ , then the AWS Batch scheduler can attempt to place jobs from an associated job queue on the compute resources within the environment. If the compute environment is managed, then it can scale its instances out or in automatically, based on the job queue demand.
--- If the state is @DISABLED@ , then the AWS Batch scheduler does not attempt to place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@ state continue to progress normally. Managed compute environments in the @DISABLED@ state do not scale out. However, they scale in to @minvCpus@ value after instances become idle.
--- * 'ecsClusterARN' - The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
--- * 'computeResources' - The compute resources defined for the compute environment.
--- * 'computeEnvironmentARN' - The Amazon Resource Name (ARN) of the compute environment.
--- * 'statusReason' - A short, human-readable string to provide additional details about the current status of the compute environment.
--- * 'type'' - The type of the compute environment.
--- * 'serviceRole' - The service role associated with the compute environment that allows AWS Batch to make calls to AWS API operations on your behalf.
--- * 'tags' - The tags applied to the compute environment.
+-- | Creates a 'ComputeEnvironmentDetail' value with any optional fields omitted.
 mkComputeEnvironmentDetail ::
   -- | 'computeEnvironmentName'
-  Lude.Text ->
-  -- | 'ecsClusterARN'
-  Lude.Text ->
-  -- | 'computeEnvironmentARN'
-  Lude.Text ->
+  Types.String ->
+  -- | 'computeEnvironmentArn'
+  Types.String ->
+  -- | 'ecsClusterArn'
+  Types.String ->
   ComputeEnvironmentDetail
 mkComputeEnvironmentDetail
-  pComputeEnvironmentName_
-  pEcsClusterARN_
-  pComputeEnvironmentARN_ =
+  computeEnvironmentName
+  computeEnvironmentArn
+  ecsClusterArn =
     ComputeEnvironmentDetail'
-      { status = Lude.Nothing,
-        computeEnvironmentName = pComputeEnvironmentName_,
-        state = Lude.Nothing,
-        ecsClusterARN = pEcsClusterARN_,
-        computeResources = Lude.Nothing,
-        computeEnvironmentARN = pComputeEnvironmentARN_,
-        statusReason = Lude.Nothing,
-        type' = Lude.Nothing,
-        serviceRole = Lude.Nothing,
-        tags = Lude.Nothing
+      { computeEnvironmentName,
+        computeEnvironmentArn,
+        ecsClusterArn,
+        computeResources = Core.Nothing,
+        serviceRole = Core.Nothing,
+        state = Core.Nothing,
+        status = Core.Nothing,
+        statusReason = Core.Nothing,
+        tags = Core.Nothing,
+        type' = Core.Nothing
       }
-
--- | The current status of the compute environment (for example, @CREATING@ or @VALID@ ).
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cedStatus :: Lens.Lens' ComputeEnvironmentDetail (Lude.Maybe CEStatus)
-cedStatus = Lens.lens (status :: ComputeEnvironmentDetail -> Lude.Maybe CEStatus) (\s a -> s {status = a} :: ComputeEnvironmentDetail)
-{-# DEPRECATED cedStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the compute environment.
 --
 -- /Note:/ Consider using 'computeEnvironmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cedComputeEnvironmentName :: Lens.Lens' ComputeEnvironmentDetail Lude.Text
-cedComputeEnvironmentName = Lens.lens (computeEnvironmentName :: ComputeEnvironmentDetail -> Lude.Text) (\s a -> s {computeEnvironmentName = a} :: ComputeEnvironmentDetail)
+cedComputeEnvironmentName :: Lens.Lens' ComputeEnvironmentDetail Types.String
+cedComputeEnvironmentName = Lens.field @"computeEnvironmentName"
 {-# DEPRECATED cedComputeEnvironmentName "Use generic-lens or generic-optics with 'computeEnvironmentName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the compute environment.
+--
+-- /Note:/ Consider using 'computeEnvironmentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedComputeEnvironmentArn :: Lens.Lens' ComputeEnvironmentDetail Types.String
+cedComputeEnvironmentArn = Lens.field @"computeEnvironmentArn"
+{-# DEPRECATED cedComputeEnvironmentArn "Use generic-lens or generic-optics with 'computeEnvironmentArn' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+--
+-- /Note:/ Consider using 'ecsClusterArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedEcsClusterArn :: Lens.Lens' ComputeEnvironmentDetail Types.String
+cedEcsClusterArn = Lens.field @"ecsClusterArn"
+{-# DEPRECATED cedEcsClusterArn "Use generic-lens or generic-optics with 'ecsClusterArn' instead." #-}
+
+-- | The compute resources defined for the compute environment.
+--
+-- /Note:/ Consider using 'computeResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedComputeResources :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe Types.ComputeResource)
+cedComputeResources = Lens.field @"computeResources"
+{-# DEPRECATED cedComputeResources "Use generic-lens or generic-optics with 'computeResources' instead." #-}
+
+-- | The service role associated with the compute environment that allows AWS Batch to make calls to AWS API operations on your behalf.
+--
+-- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedServiceRole :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe Types.String)
+cedServiceRole = Lens.field @"serviceRole"
+{-# DEPRECATED cedServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
 -- | The state of the compute environment. The valid values are @ENABLED@ or @DISABLED@ .
 --
@@ -128,73 +138,50 @@ cedComputeEnvironmentName = Lens.lens (computeEnvironmentName :: ComputeEnvironm
 -- If the state is @DISABLED@ , then the AWS Batch scheduler does not attempt to place jobs within the environment. Jobs in a @STARTING@ or @RUNNING@ state continue to progress normally. Managed compute environments in the @DISABLED@ state do not scale out. However, they scale in to @minvCpus@ value after instances become idle.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cedState :: Lens.Lens' ComputeEnvironmentDetail (Lude.Maybe CEState)
-cedState = Lens.lens (state :: ComputeEnvironmentDetail -> Lude.Maybe CEState) (\s a -> s {state = a} :: ComputeEnvironmentDetail)
+cedState :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe Types.CEState)
+cedState = Lens.field @"state"
 {-# DEPRECATED cedState "Use generic-lens or generic-optics with 'state' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+-- | The current status of the compute environment (for example, @CREATING@ or @VALID@ ).
 --
--- /Note:/ Consider using 'ecsClusterARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cedEcsClusterARN :: Lens.Lens' ComputeEnvironmentDetail Lude.Text
-cedEcsClusterARN = Lens.lens (ecsClusterARN :: ComputeEnvironmentDetail -> Lude.Text) (\s a -> s {ecsClusterARN = a} :: ComputeEnvironmentDetail)
-{-# DEPRECATED cedEcsClusterARN "Use generic-lens or generic-optics with 'ecsClusterARN' instead." #-}
-
--- | The compute resources defined for the compute environment.
---
--- /Note:/ Consider using 'computeResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cedComputeResources :: Lens.Lens' ComputeEnvironmentDetail (Lude.Maybe ComputeResource)
-cedComputeResources = Lens.lens (computeResources :: ComputeEnvironmentDetail -> Lude.Maybe ComputeResource) (\s a -> s {computeResources = a} :: ComputeEnvironmentDetail)
-{-# DEPRECATED cedComputeResources "Use generic-lens or generic-optics with 'computeResources' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the compute environment.
---
--- /Note:/ Consider using 'computeEnvironmentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cedComputeEnvironmentARN :: Lens.Lens' ComputeEnvironmentDetail Lude.Text
-cedComputeEnvironmentARN = Lens.lens (computeEnvironmentARN :: ComputeEnvironmentDetail -> Lude.Text) (\s a -> s {computeEnvironmentARN = a} :: ComputeEnvironmentDetail)
-{-# DEPRECATED cedComputeEnvironmentARN "Use generic-lens or generic-optics with 'computeEnvironmentARN' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedStatus :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe Types.CEStatus)
+cedStatus = Lens.field @"status"
+{-# DEPRECATED cedStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | A short, human-readable string to provide additional details about the current status of the compute environment.
 --
 -- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cedStatusReason :: Lens.Lens' ComputeEnvironmentDetail (Lude.Maybe Lude.Text)
-cedStatusReason = Lens.lens (statusReason :: ComputeEnvironmentDetail -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: ComputeEnvironmentDetail)
+cedStatusReason :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe Types.String)
+cedStatusReason = Lens.field @"statusReason"
 {-# DEPRECATED cedStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
-
--- | The type of the compute environment.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cedType :: Lens.Lens' ComputeEnvironmentDetail (Lude.Maybe CEType)
-cedType = Lens.lens (type' :: ComputeEnvironmentDetail -> Lude.Maybe CEType) (\s a -> s {type' = a} :: ComputeEnvironmentDetail)
-{-# DEPRECATED cedType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The service role associated with the compute environment that allows AWS Batch to make calls to AWS API operations on your behalf.
---
--- /Note:/ Consider using 'serviceRole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cedServiceRole :: Lens.Lens' ComputeEnvironmentDetail (Lude.Maybe Lude.Text)
-cedServiceRole = Lens.lens (serviceRole :: ComputeEnvironmentDetail -> Lude.Maybe Lude.Text) (\s a -> s {serviceRole = a} :: ComputeEnvironmentDetail)
-{-# DEPRECATED cedServiceRole "Use generic-lens or generic-optics with 'serviceRole' instead." #-}
 
 -- | The tags applied to the compute environment.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cedTags :: Lens.Lens' ComputeEnvironmentDetail (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cedTags = Lens.lens (tags :: ComputeEnvironmentDetail -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ComputeEnvironmentDetail)
+cedTags :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+cedTags = Lens.field @"tags"
 {-# DEPRECATED cedTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON ComputeEnvironmentDetail where
+-- | The type of the compute environment.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cedType :: Lens.Lens' ComputeEnvironmentDetail (Core.Maybe Types.CEType)
+cedType = Lens.field @"type'"
+{-# DEPRECATED cedType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.FromJSON ComputeEnvironmentDetail where
   parseJSON =
-    Lude.withObject
-      "ComputeEnvironmentDetail"
-      ( \x ->
-          ComputeEnvironmentDetail'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..: "computeEnvironmentName")
-            Lude.<*> (x Lude..:? "state")
-            Lude.<*> (x Lude..: "ecsClusterArn")
-            Lude.<*> (x Lude..:? "computeResources")
-            Lude.<*> (x Lude..: "computeEnvironmentArn")
-            Lude.<*> (x Lude..:? "statusReason")
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "serviceRole")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ComputeEnvironmentDetail" Core.$
+      \x ->
+        ComputeEnvironmentDetail'
+          Core.<$> (x Core..: "computeEnvironmentName")
+          Core.<*> (x Core..: "computeEnvironmentArn")
+          Core.<*> (x Core..: "ecsClusterArn")
+          Core.<*> (x Core..:? "computeResources")
+          Core.<*> (x Core..:? "serviceRole")
+          Core.<*> (x Core..:? "state")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "statusReason")
+          Core.<*> (x Core..:? "tags")
+          Core.<*> (x Core..:? "type")

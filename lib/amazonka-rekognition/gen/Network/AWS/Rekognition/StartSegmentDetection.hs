@@ -25,186 +25,170 @@ module Network.AWS.Rekognition.StartSegmentDetection
     mkStartSegmentDetection,
 
     -- ** Request lenses
-    ssdJobTag,
-    ssdSegmentTypes,
-    ssdFilters,
-    ssdNotificationChannel,
     ssdVideo,
+    ssdSegmentTypes,
     ssdClientRequestToken,
+    ssdFilters,
+    ssdJobTag,
+    ssdNotificationChannel,
 
     -- * Destructuring the response
     StartSegmentDetectionResponse (..),
     mkStartSegmentDetectionResponse,
 
     -- ** Response lenses
-    ssdrsJobId,
-    ssdrsResponseStatus,
+    ssdrrsJobId,
+    ssdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartSegmentDetection' smart constructor.
 data StartSegmentDetection = StartSegmentDetection'
-  { -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
-    jobTag :: Lude.Maybe Lude.Text,
+  { video :: Types.Video,
     -- | An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.
-    segmentTypes :: Lude.NonEmpty SegmentType,
-    -- | Filters for technical cue or shot detection.
-    filters :: Lude.Maybe StartSegmentDetectionFilters,
-    -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation.
-    notificationChannel :: Lude.Maybe NotificationChannel,
-    video :: Video,
+    segmentTypes :: Core.NonEmpty Types.SegmentType,
     -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartSegmentDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
-    clientRequestToken :: Lude.Maybe Lude.Text
+    clientRequestToken :: Core.Maybe Types.ClientRequestToken,
+    -- | Filters for technical cue or shot detection.
+    filters :: Core.Maybe Types.StartSegmentDetectionFilters,
+    -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+    jobTag :: Core.Maybe Types.JobTag,
+    -- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation.
+    notificationChannel :: Core.Maybe Types.NotificationChannel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartSegmentDetection' with the minimum fields required to make a request.
---
--- * 'jobTag' - An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
--- * 'segmentTypes' - An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.
--- * 'filters' - Filters for technical cue or shot detection.
--- * 'notificationChannel' - The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation.
--- * 'video' -
--- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartSegmentDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
+-- | Creates a 'StartSegmentDetection' value with any optional fields omitted.
 mkStartSegmentDetection ::
-  -- | 'segmentTypes'
-  Lude.NonEmpty SegmentType ->
   -- | 'video'
-  Video ->
+  Types.Video ->
+  -- | 'segmentTypes'
+  Core.NonEmpty Types.SegmentType ->
   StartSegmentDetection
-mkStartSegmentDetection pSegmentTypes_ pVideo_ =
+mkStartSegmentDetection video segmentTypes =
   StartSegmentDetection'
-    { jobTag = Lude.Nothing,
-      segmentTypes = pSegmentTypes_,
-      filters = Lude.Nothing,
-      notificationChannel = Lude.Nothing,
-      video = pVideo_,
-      clientRequestToken = Lude.Nothing
+    { video,
+      segmentTypes,
+      clientRequestToken = Core.Nothing,
+      filters = Core.Nothing,
+      jobTag = Core.Nothing,
+      notificationChannel = Core.Nothing
     }
-
--- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
---
--- /Note:/ Consider using 'jobTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdJobTag :: Lens.Lens' StartSegmentDetection (Lude.Maybe Lude.Text)
-ssdJobTag = Lens.lens (jobTag :: StartSegmentDetection -> Lude.Maybe Lude.Text) (\s a -> s {jobTag = a} :: StartSegmentDetection)
-{-# DEPRECATED ssdJobTag "Use generic-lens or generic-optics with 'jobTag' instead." #-}
-
--- | An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.
---
--- /Note:/ Consider using 'segmentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdSegmentTypes :: Lens.Lens' StartSegmentDetection (Lude.NonEmpty SegmentType)
-ssdSegmentTypes = Lens.lens (segmentTypes :: StartSegmentDetection -> Lude.NonEmpty SegmentType) (\s a -> s {segmentTypes = a} :: StartSegmentDetection)
-{-# DEPRECATED ssdSegmentTypes "Use generic-lens or generic-optics with 'segmentTypes' instead." #-}
-
--- | Filters for technical cue or shot detection.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdFilters :: Lens.Lens' StartSegmentDetection (Lude.Maybe StartSegmentDetectionFilters)
-ssdFilters = Lens.lens (filters :: StartSegmentDetection -> Lude.Maybe StartSegmentDetectionFilters) (\s a -> s {filters = a} :: StartSegmentDetection)
-{-# DEPRECATED ssdFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation.
---
--- /Note:/ Consider using 'notificationChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdNotificationChannel :: Lens.Lens' StartSegmentDetection (Lude.Maybe NotificationChannel)
-ssdNotificationChannel = Lens.lens (notificationChannel :: StartSegmentDetection -> Lude.Maybe NotificationChannel) (\s a -> s {notificationChannel = a} :: StartSegmentDetection)
-{-# DEPRECATED ssdNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdVideo :: Lens.Lens' StartSegmentDetection Video
-ssdVideo = Lens.lens (video :: StartSegmentDetection -> Video) (\s a -> s {video = a} :: StartSegmentDetection)
+ssdVideo :: Lens.Lens' StartSegmentDetection Types.Video
+ssdVideo = Lens.field @"video"
 {-# DEPRECATED ssdVideo "Use generic-lens or generic-optics with 'video' instead." #-}
+
+-- | An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.
+--
+-- /Note:/ Consider using 'segmentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdSegmentTypes :: Lens.Lens' StartSegmentDetection (Core.NonEmpty Types.SegmentType)
+ssdSegmentTypes = Lens.field @"segmentTypes"
+{-# DEPRECATED ssdSegmentTypes "Use generic-lens or generic-optics with 'segmentTypes' instead." #-}
 
 -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartSegmentDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdClientRequestToken :: Lens.Lens' StartSegmentDetection (Lude.Maybe Lude.Text)
-ssdClientRequestToken = Lens.lens (clientRequestToken :: StartSegmentDetection -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartSegmentDetection)
+ssdClientRequestToken :: Lens.Lens' StartSegmentDetection (Core.Maybe Types.ClientRequestToken)
+ssdClientRequestToken = Lens.field @"clientRequestToken"
 {-# DEPRECATED ssdClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
-instance Lude.AWSRequest StartSegmentDetection where
+-- | Filters for technical cue or shot detection.
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdFilters :: Lens.Lens' StartSegmentDetection (Core.Maybe Types.StartSegmentDetectionFilters)
+ssdFilters = Lens.field @"filters"
+{-# DEPRECATED ssdFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+--
+-- /Note:/ Consider using 'jobTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdJobTag :: Lens.Lens' StartSegmentDetection (Core.Maybe Types.JobTag)
+ssdJobTag = Lens.field @"jobTag"
+{-# DEPRECATED ssdJobTag "Use generic-lens or generic-optics with 'jobTag' instead." #-}
+
+-- | The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation.
+--
+-- /Note:/ Consider using 'notificationChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssdNotificationChannel :: Lens.Lens' StartSegmentDetection (Core.Maybe Types.NotificationChannel)
+ssdNotificationChannel = Lens.field @"notificationChannel"
+{-# DEPRECATED ssdNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
+
+instance Core.FromJSON StartSegmentDetection where
+  toJSON StartSegmentDetection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Video" Core..= video),
+            Core.Just ("SegmentTypes" Core..= segmentTypes),
+            ("ClientRequestToken" Core..=) Core.<$> clientRequestToken,
+            ("Filters" Core..=) Core.<$> filters,
+            ("JobTag" Core..=) Core.<$> jobTag,
+            ("NotificationChannel" Core..=) Core.<$> notificationChannel
+          ]
+      )
+
+instance Core.AWSRequest StartSegmentDetection where
   type Rs StartSegmentDetection = StartSegmentDetectionResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "RekognitionService.StartSegmentDetection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartSegmentDetectionResponse'
-            Lude.<$> (x Lude..?> "JobId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartSegmentDetection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.StartSegmentDetection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartSegmentDetection where
-  toJSON StartSegmentDetection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("JobTag" Lude..=) Lude.<$> jobTag,
-            Lude.Just ("SegmentTypes" Lude..= segmentTypes),
-            ("Filters" Lude..=) Lude.<$> filters,
-            ("NotificationChannel" Lude..=) Lude.<$> notificationChannel,
-            Lude.Just ("Video" Lude..= video),
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken
-          ]
-      )
-
-instance Lude.ToPath StartSegmentDetection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartSegmentDetection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartSegmentDetectionResponse' smart constructor.
 data StartSegmentDetectionResponse = StartSegmentDetectionResponse'
   { -- | Unique identifier for the segment detection job. The @JobId@ is returned from @StartSegmentDetection@ .
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartSegmentDetectionResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - Unique identifier for the segment detection job. The @JobId@ is returned from @StartSegmentDetection@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartSegmentDetectionResponse' value with any optional fields omitted.
 mkStartSegmentDetectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartSegmentDetectionResponse
-mkStartSegmentDetectionResponse pResponseStatus_ =
+mkStartSegmentDetectionResponse responseStatus =
   StartSegmentDetectionResponse'
-    { jobId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      responseStatus
     }
 
 -- | Unique identifier for the segment detection job. The @JobId@ is returned from @StartSegmentDetection@ .
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdrsJobId :: Lens.Lens' StartSegmentDetectionResponse (Lude.Maybe Lude.Text)
-ssdrsJobId = Lens.lens (jobId :: StartSegmentDetectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartSegmentDetectionResponse)
-{-# DEPRECATED ssdrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+ssdrrsJobId :: Lens.Lens' StartSegmentDetectionResponse (Core.Maybe Types.JobId)
+ssdrrsJobId = Lens.field @"jobId"
+{-# DEPRECATED ssdrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssdrsResponseStatus :: Lens.Lens' StartSegmentDetectionResponse Lude.Int
-ssdrsResponseStatus = Lens.lens (responseStatus :: StartSegmentDetectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartSegmentDetectionResponse)
-{-# DEPRECATED ssdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ssdrrsResponseStatus :: Lens.Lens' StartSegmentDetectionResponse Core.Int
+ssdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ssdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

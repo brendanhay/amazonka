@@ -9,130 +9,347 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.SecretsManager.Types
   ( -- * Service configuration
-    secretsManagerService,
+    mkServiceConfig,
 
     -- * Errors
+    _MalformedPolicyDocumentException,
+    _InvalidParameterException,
+    _InvalidRequestException,
+    _DecryptionFailure,
+    _PublicPolicyException,
+    _EncryptionFailure,
+    _PreconditionNotMetException,
+    _InvalidNextTokenException,
+    _InternalServiceError,
+    _ResourceExistsException,
+    _ResourceNotFoundException,
+    _LimitExceededException,
 
-    -- * FilterNameStringType
-    FilterNameStringType (..),
+    -- * NextTokenType
+    NextTokenType (..),
+
+    -- * ExcludeCharactersType
+    ExcludeCharactersType (..),
 
     -- * SortOrderType
     SortOrderType (..),
 
-    -- * Filter
-    Filter (..),
-    mkFilter,
-    fValues,
-    fKey,
+    -- * NameType
+    NameType (..),
 
-    -- * RotationRulesType
-    RotationRulesType (..),
-    mkRotationRulesType,
-    rrtAutomaticallyAfterDays,
-
-    -- * SecretListEntry
-    SecretListEntry (..),
-    mkSecretListEntry,
-    sleLastChangedDate,
-    sleARN,
-    sleSecretVersionsToStages,
-    sleRotationRules,
-    sleDeletedDate,
-    sleRotationEnabled,
-    sleCreatedDate,
-    sleKMSKeyId,
-    sleName,
-    sleOwningService,
-    sleLastRotatedDate,
-    sleLastAccessedDate,
-    sleDescription,
-    sleRotationLambdaARN,
-    sleTags,
-
-    -- * SecretVersionsListEntry
-    SecretVersionsListEntry (..),
-    mkSecretVersionsListEntry,
-    svleVersionId,
-    svleVersionStages,
-    svleCreatedDate,
-    svleLastAccessedDate,
+    -- * KmsKeyIdType
+    KmsKeyIdType (..),
 
     -- * Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
+
+    -- * TagKeyType
+    TagKeyType (..),
+
+    -- * NonEmptyResourcePolicyType
+    NonEmptyResourcePolicyType (..),
+
+    -- * SecretListEntry
+    SecretListEntry (..),
+    mkSecretListEntry,
+    sleARN,
+    sleCreatedDate,
+    sleDeletedDate,
+    sleDescription,
+    sleKmsKeyId,
+    sleLastAccessedDate,
+    sleLastChangedDate,
+    sleLastRotatedDate,
+    sleName,
+    sleOwningService,
+    sleRotationEnabled,
+    sleRotationLambdaARN,
+    sleRotationRules,
+    sleSecretVersionsToStages,
+    sleTags,
+
+    -- * ClientRequestTokenType
+    ClientRequestTokenType (..),
+
+    -- * SecretStringType
+    SecretStringType (..),
+
+    -- * SecretARNType
+    SecretARNType (..),
+
+    -- * DescriptionType
+    DescriptionType (..),
+
+    -- * RotationLambdaARNType
+    RotationLambdaARNType (..),
+
+    -- * SecretVersionIdType
+    SecretVersionIdType (..),
 
     -- * ValidationErrorsEntry
     ValidationErrorsEntry (..),
     mkValidationErrorsEntry,
     veeCheckName,
     veeErrorMessage,
+
+    -- * RandomPasswordType
+    RandomPasswordType (..),
+
+    -- * FilterNameStringType
+    FilterNameStringType (..),
+
+    -- * SecretVersionStageType
+    SecretVersionStageType (..),
+
+    -- * Filter
+    Filter (..),
+    mkFilter,
+    fKey,
+    fValues,
+
+    -- * SecretIdType
+    SecretIdType (..),
+
+    -- * ErrorMessage
+    ErrorMessage (..),
+
+    -- * FilterValueStringType
+    FilterValueStringType (..),
+
+    -- * RotationRulesType
+    RotationRulesType (..),
+    mkRotationRulesType,
+    rrtAutomaticallyAfterDays,
+
+    -- * SecretVersionsListEntry
+    SecretVersionsListEntry (..),
+    mkSecretVersionsListEntry,
+    svleCreatedDate,
+    svleLastAccessedDate,
+    svleVersionId,
+    svleVersionStages,
+
+    -- * ARN
+    ARN (..),
+
+    -- * Name
+    Name (..),
+
+    -- * VersionId
+    VersionId (..),
+
+    -- * SecretId
+    SecretId (..),
+
+    -- * VersionStage
+    VersionStage (..),
+
+    -- * Key
+    Key (..),
+
+    -- * Value
+    Value (..),
+
+    -- * ClientRequestToken
+    ClientRequestToken (..),
+
+    -- * SecretString
+    SecretString (..),
+
+    -- * Description
+    Description (..),
+
+    -- * OwningService
+    OwningService (..),
+
+    -- * RotationLambdaARN
+    RotationLambdaARN (..),
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import Network.AWS.SecretsManager.Types.ARN
+import Network.AWS.SecretsManager.Types.ClientRequestToken
+import Network.AWS.SecretsManager.Types.ClientRequestTokenType
+import Network.AWS.SecretsManager.Types.Description
+import Network.AWS.SecretsManager.Types.DescriptionType
+import Network.AWS.SecretsManager.Types.ErrorMessage
+import Network.AWS.SecretsManager.Types.ExcludeCharactersType
 import Network.AWS.SecretsManager.Types.Filter
 import Network.AWS.SecretsManager.Types.FilterNameStringType
+import Network.AWS.SecretsManager.Types.FilterValueStringType
+import Network.AWS.SecretsManager.Types.Key
+import Network.AWS.SecretsManager.Types.KmsKeyIdType
+import Network.AWS.SecretsManager.Types.Name
+import Network.AWS.SecretsManager.Types.NameType
+import Network.AWS.SecretsManager.Types.NextTokenType
+import Network.AWS.SecretsManager.Types.NonEmptyResourcePolicyType
+import Network.AWS.SecretsManager.Types.OwningService
+import Network.AWS.SecretsManager.Types.RandomPasswordType
+import Network.AWS.SecretsManager.Types.RotationLambdaARN
+import Network.AWS.SecretsManager.Types.RotationLambdaARNType
 import Network.AWS.SecretsManager.Types.RotationRulesType
+import Network.AWS.SecretsManager.Types.SecretARNType
+import Network.AWS.SecretsManager.Types.SecretId
+import Network.AWS.SecretsManager.Types.SecretIdType
 import Network.AWS.SecretsManager.Types.SecretListEntry
+import Network.AWS.SecretsManager.Types.SecretString
+import Network.AWS.SecretsManager.Types.SecretStringType
+import Network.AWS.SecretsManager.Types.SecretVersionIdType
+import Network.AWS.SecretsManager.Types.SecretVersionStageType
 import Network.AWS.SecretsManager.Types.SecretVersionsListEntry
 import Network.AWS.SecretsManager.Types.SortOrderType
 import Network.AWS.SecretsManager.Types.Tag
+import Network.AWS.SecretsManager.Types.TagKeyType
 import Network.AWS.SecretsManager.Types.ValidationErrorsEntry
+import Network.AWS.SecretsManager.Types.Value
+import Network.AWS.SecretsManager.Types.VersionId
+import Network.AWS.SecretsManager.Types.VersionStage
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-10-17@ of the Amazon Secrets Manager SDK configuration.
-secretsManagerService :: Lude.Service
-secretsManagerService =
-  Lude.Service
-    { Lude._svcAbbrev = "SecretsManager",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "secretsmanager",
-      Lude._svcVersion = "2017-10-17",
-      Lude._svcEndpoint = Lude.defaultEndpoint secretsManagerService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "SecretsManager",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "SecretsManager",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "secretsmanager",
+      Core._svcVersion = "2017-10-17",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "SecretsManager",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | The policy document that you provided isn't valid.
+_MalformedPolicyDocumentException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MalformedPolicyDocumentException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "MalformedPolicyDocumentException"
+{-# DEPRECATED _MalformedPolicyDocumentException "Use generic-lens or generic-optics instead." #-}
+
+-- | You provided an invalid value for a parameter.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidParameterException"
+{-# DEPRECATED _InvalidParameterException "Use generic-lens or generic-optics instead." #-}
+
+-- | You provided a parameter value that is not valid for the current state of the resource.
+--
+-- Possible causes:
+--
+--     * You tried to perform the operation on a secret that's currently marked deleted.
+--
+--
+--     * You tried to enable rotation on a secret that doesn't already have a Lambda function ARN configured and you didn't include such an ARN as a parameter in this call.
+_InvalidRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidRequestException =
+  Core._MatchServiceError mkServiceConfig "InvalidRequestException"
+{-# DEPRECATED _InvalidRequestException "Use generic-lens or generic-optics instead." #-}
+
+-- | Secrets Manager can't decrypt the protected secret text using the provided KMS key.
+_DecryptionFailure :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DecryptionFailure =
+  Core._MatchServiceError mkServiceConfig "DecryptionFailure"
+{-# DEPRECATED _DecryptionFailure "Use generic-lens or generic-optics instead." #-}
+
+-- | The resource policy did not prevent broad access to the secret.
+_PublicPolicyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PublicPolicyException =
+  Core._MatchServiceError mkServiceConfig "PublicPolicyException"
+{-# DEPRECATED _PublicPolicyException "Use generic-lens or generic-optics instead." #-}
+
+-- | Secrets Manager can't encrypt the protected secret text using the provided KMS key. Check that the customer master key (CMK) is available, enabled, and not in an invalid state. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/key-state.html How Key State Affects Use of a Customer Master Key> .
+_EncryptionFailure :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_EncryptionFailure =
+  Core._MatchServiceError mkServiceConfig "EncryptionFailure"
+{-# DEPRECATED _EncryptionFailure "Use generic-lens or generic-optics instead." #-}
+
+-- | The request failed because you did not complete all the prerequisite steps.
+_PreconditionNotMetException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PreconditionNotMetException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "PreconditionNotMetException"
+{-# DEPRECATED _PreconditionNotMetException "Use generic-lens or generic-optics instead." #-}
+
+-- | You provided an invalid @NextToken@ value.
+_InvalidNextTokenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidNextTokenException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidNextTokenException"
+{-# DEPRECATED _InvalidNextTokenException "Use generic-lens or generic-optics instead." #-}
+
+-- | An error occurred on the server side.
+_InternalServiceError :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServiceError =
+  Core._MatchServiceError mkServiceConfig "InternalServiceError"
+{-# DEPRECATED _InternalServiceError "Use generic-lens or generic-optics instead." #-}
+
+-- | A resource with the ID you requested already exists.
+_ResourceExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceExistsException =
+  Core._MatchServiceError mkServiceConfig "ResourceExistsException"
+{-# DEPRECATED _ResourceExistsException "Use generic-lens or generic-optics instead." #-}
+
+-- | We can't find the resource that you asked for.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ResourceNotFoundException"
+{-# DEPRECATED _ResourceNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The request failed because it would exceed one of the Secrets Manager internal limits.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError mkServiceConfig "LimitExceededException"
+{-# DEPRECATED _LimitExceededException "Use generic-lens or generic-optics instead." #-}

@@ -22,151 +22,142 @@ module Network.AWS.IoT.UpdateRoleAlias
     -- ** Request lenses
     uraRoleAlias,
     uraCredentialDurationSeconds,
-    uraRoleARN,
+    uraRoleArn,
 
     -- * Destructuring the response
     UpdateRoleAliasResponse (..),
     mkUpdateRoleAliasResponse,
 
     -- ** Response lenses
-    urarsRoleAliasARN,
-    urarsRoleAlias,
-    urarsResponseStatus,
+    urarrsRoleAlias,
+    urarrsRoleAliasArn,
+    urarrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateRoleAlias' smart constructor.
 data UpdateRoleAlias = UpdateRoleAlias'
   { -- | The role alias to update.
-    roleAlias :: Lude.Text,
+    roleAlias :: Types.RoleAlias,
     -- | The number of seconds the credential will be valid.
-    credentialDurationSeconds :: Lude.Maybe Lude.Natural,
+    credentialDurationSeconds :: Core.Maybe Core.Natural,
     -- | The role ARN.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRoleAlias' with the minimum fields required to make a request.
---
--- * 'roleAlias' - The role alias to update.
--- * 'credentialDurationSeconds' - The number of seconds the credential will be valid.
--- * 'roleARN' - The role ARN.
+-- | Creates a 'UpdateRoleAlias' value with any optional fields omitted.
 mkUpdateRoleAlias ::
   -- | 'roleAlias'
-  Lude.Text ->
+  Types.RoleAlias ->
   UpdateRoleAlias
-mkUpdateRoleAlias pRoleAlias_ =
+mkUpdateRoleAlias roleAlias =
   UpdateRoleAlias'
-    { roleAlias = pRoleAlias_,
-      credentialDurationSeconds = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { roleAlias,
+      credentialDurationSeconds = Core.Nothing,
+      roleArn = Core.Nothing
     }
 
 -- | The role alias to update.
 --
 -- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uraRoleAlias :: Lens.Lens' UpdateRoleAlias Lude.Text
-uraRoleAlias = Lens.lens (roleAlias :: UpdateRoleAlias -> Lude.Text) (\s a -> s {roleAlias = a} :: UpdateRoleAlias)
+uraRoleAlias :: Lens.Lens' UpdateRoleAlias Types.RoleAlias
+uraRoleAlias = Lens.field @"roleAlias"
 {-# DEPRECATED uraRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
 
 -- | The number of seconds the credential will be valid.
 --
 -- /Note:/ Consider using 'credentialDurationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uraCredentialDurationSeconds :: Lens.Lens' UpdateRoleAlias (Lude.Maybe Lude.Natural)
-uraCredentialDurationSeconds = Lens.lens (credentialDurationSeconds :: UpdateRoleAlias -> Lude.Maybe Lude.Natural) (\s a -> s {credentialDurationSeconds = a} :: UpdateRoleAlias)
+uraCredentialDurationSeconds :: Lens.Lens' UpdateRoleAlias (Core.Maybe Core.Natural)
+uraCredentialDurationSeconds = Lens.field @"credentialDurationSeconds"
 {-# DEPRECATED uraCredentialDurationSeconds "Use generic-lens or generic-optics with 'credentialDurationSeconds' instead." #-}
 
 -- | The role ARN.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uraRoleARN :: Lens.Lens' UpdateRoleAlias (Lude.Maybe Lude.Text)
-uraRoleARN = Lens.lens (roleARN :: UpdateRoleAlias -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateRoleAlias)
-{-# DEPRECATED uraRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uraRoleArn :: Lens.Lens' UpdateRoleAlias (Core.Maybe Types.RoleArn)
+uraRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED uraRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.AWSRequest UpdateRoleAlias where
-  type Rs UpdateRoleAlias = UpdateRoleAliasResponse
-  request = Req.putJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateRoleAliasResponse'
-            Lude.<$> (x Lude..?> "roleAliasArn")
-            Lude.<*> (x Lude..?> "roleAlias")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateRoleAlias where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateRoleAlias where
-  toJSON UpdateRoleAlias' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("credentialDurationSeconds" Lude..=)
-              Lude.<$> credentialDurationSeconds,
-            ("roleArn" Lude..=) Lude.<$> roleARN
+instance Core.FromJSON UpdateRoleAlias where
+  toJSON UpdateRoleAlias {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("credentialDurationSeconds" Core..=)
+              Core.<$> credentialDurationSeconds,
+            ("roleArn" Core..=) Core.<$> roleArn
           ]
       )
 
-instance Lude.ToPath UpdateRoleAlias where
-  toPath UpdateRoleAlias' {..} =
-    Lude.mconcat ["/role-aliases/", Lude.toBS roleAlias]
-
-instance Lude.ToQuery UpdateRoleAlias where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateRoleAlias where
+  type Rs UpdateRoleAlias = UpdateRoleAliasResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath ("/role-aliases/" Core.<> (Core.toText roleAlias)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateRoleAliasResponse'
+            Core.<$> (x Core..:? "roleAlias")
+            Core.<*> (x Core..:? "roleAliasArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateRoleAliasResponse' smart constructor.
 data UpdateRoleAliasResponse = UpdateRoleAliasResponse'
-  { -- | The role alias ARN.
-    roleAliasARN :: Lude.Maybe Lude.Text,
-    -- | The role alias.
-    roleAlias :: Lude.Maybe Lude.Text,
+  { -- | The role alias.
+    roleAlias :: Core.Maybe Types.RoleAlias,
+    -- | The role alias ARN.
+    roleAliasArn :: Core.Maybe Types.RoleAliasArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRoleAliasResponse' with the minimum fields required to make a request.
---
--- * 'roleAliasARN' - The role alias ARN.
--- * 'roleAlias' - The role alias.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateRoleAliasResponse' value with any optional fields omitted.
 mkUpdateRoleAliasResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateRoleAliasResponse
-mkUpdateRoleAliasResponse pResponseStatus_ =
+mkUpdateRoleAliasResponse responseStatus =
   UpdateRoleAliasResponse'
-    { roleAliasARN = Lude.Nothing,
-      roleAlias = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { roleAlias = Core.Nothing,
+      roleAliasArn = Core.Nothing,
+      responseStatus
     }
-
--- | The role alias ARN.
---
--- /Note:/ Consider using 'roleAliasARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urarsRoleAliasARN :: Lens.Lens' UpdateRoleAliasResponse (Lude.Maybe Lude.Text)
-urarsRoleAliasARN = Lens.lens (roleAliasARN :: UpdateRoleAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleAliasARN = a} :: UpdateRoleAliasResponse)
-{-# DEPRECATED urarsRoleAliasARN "Use generic-lens or generic-optics with 'roleAliasARN' instead." #-}
 
 -- | The role alias.
 --
 -- /Note:/ Consider using 'roleAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urarsRoleAlias :: Lens.Lens' UpdateRoleAliasResponse (Lude.Maybe Lude.Text)
-urarsRoleAlias = Lens.lens (roleAlias :: UpdateRoleAliasResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleAlias = a} :: UpdateRoleAliasResponse)
-{-# DEPRECATED urarsRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
+urarrsRoleAlias :: Lens.Lens' UpdateRoleAliasResponse (Core.Maybe Types.RoleAlias)
+urarrsRoleAlias = Lens.field @"roleAlias"
+{-# DEPRECATED urarrsRoleAlias "Use generic-lens or generic-optics with 'roleAlias' instead." #-}
+
+-- | The role alias ARN.
+--
+-- /Note:/ Consider using 'roleAliasArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urarrsRoleAliasArn :: Lens.Lens' UpdateRoleAliasResponse (Core.Maybe Types.RoleAliasArn)
+urarrsRoleAliasArn = Lens.field @"roleAliasArn"
+{-# DEPRECATED urarrsRoleAliasArn "Use generic-lens or generic-optics with 'roleAliasArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urarsResponseStatus :: Lens.Lens' UpdateRoleAliasResponse Lude.Int
-urarsResponseStatus = Lens.lens (responseStatus :: UpdateRoleAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRoleAliasResponse)
-{-# DEPRECATED urarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urarrsResponseStatus :: Lens.Lens' UpdateRoleAliasResponse Core.Int
+urarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

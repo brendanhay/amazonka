@@ -28,21 +28,21 @@ module Network.AWS.Pinpoint.GetPushTemplate
     mkGetPushTemplateResponse,
 
     -- ** Response lenses
-    gptrsPushNotificationTemplateResponse,
-    gptrsResponseStatus,
+    gptrrsPushNotificationTemplateResponse,
+    gptrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPushTemplate' smart constructor.
 data GetPushTemplate = GetPushTemplate'
   { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-    templateName :: Lude.Text,
+    templateName :: Core.Text,
     -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
     --
     -- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
@@ -55,41 +55,24 @@ data GetPushTemplate = GetPushTemplate'
     --
     --
     --     * For a delete operation, deletes the template, including all versions of the template.
-    version :: Lude.Maybe Lude.Text
+    version :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPushTemplate' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
--- * 'version' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
---
--- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
--- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
---
---     * For a get operation, retrieves information about the active version of the template.
---
---
---     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
---
---
---     * For a delete operation, deletes the template, including all versions of the template.
+-- | Creates a 'GetPushTemplate' value with any optional fields omitted.
 mkGetPushTemplate ::
   -- | 'templateName'
-  Lude.Text ->
+  Core.Text ->
   GetPushTemplate
-mkGetPushTemplate pTemplateName_ =
-  GetPushTemplate'
-    { templateName = pTemplateName_,
-      version = Lude.Nothing
-    }
+mkGetPushTemplate templateName =
+  GetPushTemplate' {templateName, version = Core.Nothing}
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptTemplateName :: Lens.Lens' GetPushTemplate Lude.Text
-gptTemplateName = Lens.lens (templateName :: GetPushTemplate -> Lude.Text) (\s a -> s {templateName = a} :: GetPushTemplate)
+gptTemplateName :: Lens.Lens' GetPushTemplate Core.Text
+gptTemplateName = Lens.field @"templateName"
 {-# DEPRECATED gptTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
@@ -108,75 +91,67 @@ gptTemplateName = Lens.lens (templateName :: GetPushTemplate -> Lude.Text) (\s a
 --
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptVersion :: Lens.Lens' GetPushTemplate (Lude.Maybe Lude.Text)
-gptVersion = Lens.lens (version :: GetPushTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetPushTemplate)
+gptVersion :: Lens.Lens' GetPushTemplate (Core.Maybe Core.Text)
+gptVersion = Lens.field @"version"
 {-# DEPRECATED gptVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.AWSRequest GetPushTemplate where
+instance Core.AWSRequest GetPushTemplate where
   type Rs GetPushTemplate = GetPushTemplateResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/templates/" Core.<> (Core.toText templateName)
+                Core.<> ("/push")
+            ),
+        Core._rqQuery = Core.toQueryValue "version" Core.<$> version,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPushTemplateResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPushTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetPushTemplate where
-  toPath GetPushTemplate' {..} =
-    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/push"]
-
-instance Lude.ToQuery GetPushTemplate where
-  toQuery GetPushTemplate' {..} =
-    Lude.mconcat ["version" Lude.=: version]
 
 -- | /See:/ 'mkGetPushTemplateResponse' smart constructor.
 data GetPushTemplateResponse = GetPushTemplateResponse'
-  { pushNotificationTemplateResponse :: PushNotificationTemplateResponse,
+  { pushNotificationTemplateResponse :: Types.PushNotificationTemplateResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPushTemplateResponse' with the minimum fields required to make a request.
---
--- * 'pushNotificationTemplateResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPushTemplateResponse' value with any optional fields omitted.
 mkGetPushTemplateResponse ::
   -- | 'pushNotificationTemplateResponse'
-  PushNotificationTemplateResponse ->
+  Types.PushNotificationTemplateResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPushTemplateResponse
 mkGetPushTemplateResponse
-  pPushNotificationTemplateResponse_
-  pResponseStatus_ =
+  pushNotificationTemplateResponse
+  responseStatus =
     GetPushTemplateResponse'
-      { pushNotificationTemplateResponse =
-          pPushNotificationTemplateResponse_,
-        responseStatus = pResponseStatus_
+      { pushNotificationTemplateResponse,
+        responseStatus
       }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'pushNotificationTemplateResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptrsPushNotificationTemplateResponse :: Lens.Lens' GetPushTemplateResponse PushNotificationTemplateResponse
-gptrsPushNotificationTemplateResponse = Lens.lens (pushNotificationTemplateResponse :: GetPushTemplateResponse -> PushNotificationTemplateResponse) (\s a -> s {pushNotificationTemplateResponse = a} :: GetPushTemplateResponse)
-{-# DEPRECATED gptrsPushNotificationTemplateResponse "Use generic-lens or generic-optics with 'pushNotificationTemplateResponse' instead." #-}
+gptrrsPushNotificationTemplateResponse :: Lens.Lens' GetPushTemplateResponse Types.PushNotificationTemplateResponse
+gptrrsPushNotificationTemplateResponse = Lens.field @"pushNotificationTemplateResponse"
+{-# DEPRECATED gptrrsPushNotificationTemplateResponse "Use generic-lens or generic-optics with 'pushNotificationTemplateResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptrsResponseStatus :: Lens.Lens' GetPushTemplateResponse Lude.Int
-gptrsResponseStatus = Lens.lens (responseStatus :: GetPushTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPushTemplateResponse)
-{-# DEPRECATED gptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gptrrsResponseStatus :: Lens.Lens' GetPushTemplateResponse Core.Int
+gptrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gptrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

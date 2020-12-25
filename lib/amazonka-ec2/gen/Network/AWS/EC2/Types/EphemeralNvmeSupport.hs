@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.EphemeralNvmeSupport
   ( EphemeralNvmeSupport
       ( EphemeralNvmeSupport',
-        EUnsupported,
-        ESupported,
-        ERequired
+        EphemeralNvmeSupportUnsupported,
+        EphemeralNvmeSupportSupported,
+        EphemeralNvmeSupportRequired,
+        fromEphemeralNvmeSupport
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EphemeralNvmeSupport = EphemeralNvmeSupport' Lude.Text
+newtype EphemeralNvmeSupport = EphemeralNvmeSupport'
+  { fromEphemeralNvmeSupport ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EUnsupported :: EphemeralNvmeSupport
-pattern EUnsupported = EphemeralNvmeSupport' "unsupported"
+pattern EphemeralNvmeSupportUnsupported :: EphemeralNvmeSupport
+pattern EphemeralNvmeSupportUnsupported = EphemeralNvmeSupport' "unsupported"
 
-pattern ESupported :: EphemeralNvmeSupport
-pattern ESupported = EphemeralNvmeSupport' "supported"
+pattern EphemeralNvmeSupportSupported :: EphemeralNvmeSupport
+pattern EphemeralNvmeSupportSupported = EphemeralNvmeSupport' "supported"
 
-pattern ERequired :: EphemeralNvmeSupport
-pattern ERequired = EphemeralNvmeSupport' "required"
+pattern EphemeralNvmeSupportRequired :: EphemeralNvmeSupport
+pattern EphemeralNvmeSupportRequired = EphemeralNvmeSupport' "required"
 
 {-# COMPLETE
-  EUnsupported,
-  ESupported,
-  ERequired,
+  EphemeralNvmeSupportUnsupported,
+  EphemeralNvmeSupportSupported,
+  EphemeralNvmeSupportRequired,
   EphemeralNvmeSupport'
   #-}

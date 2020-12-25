@@ -13,71 +13,73 @@
 module Network.AWS.IoT.Types.DayOfWeek
   ( DayOfWeek
       ( DayOfWeek',
-        Sun,
-        Mon,
-        Tue,
-        Wed,
-        Thu,
-        Fri,
-        Sat
+        DayOfWeekSun,
+        DayOfWeekMon,
+        DayOfWeekTue,
+        DayOfWeekWed,
+        DayOfWeekThu,
+        DayOfWeekFri,
+        DayOfWeekSat,
+        fromDayOfWeek
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DayOfWeek = DayOfWeek' Lude.Text
+newtype DayOfWeek = DayOfWeek' {fromDayOfWeek :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Sun :: DayOfWeek
-pattern Sun = DayOfWeek' "SUN"
+pattern DayOfWeekSun :: DayOfWeek
+pattern DayOfWeekSun = DayOfWeek' "SUN"
 
-pattern Mon :: DayOfWeek
-pattern Mon = DayOfWeek' "MON"
+pattern DayOfWeekMon :: DayOfWeek
+pattern DayOfWeekMon = DayOfWeek' "MON"
 
-pattern Tue :: DayOfWeek
-pattern Tue = DayOfWeek' "TUE"
+pattern DayOfWeekTue :: DayOfWeek
+pattern DayOfWeekTue = DayOfWeek' "TUE"
 
-pattern Wed :: DayOfWeek
-pattern Wed = DayOfWeek' "WED"
+pattern DayOfWeekWed :: DayOfWeek
+pattern DayOfWeekWed = DayOfWeek' "WED"
 
-pattern Thu :: DayOfWeek
-pattern Thu = DayOfWeek' "THU"
+pattern DayOfWeekThu :: DayOfWeek
+pattern DayOfWeekThu = DayOfWeek' "THU"
 
-pattern Fri :: DayOfWeek
-pattern Fri = DayOfWeek' "FRI"
+pattern DayOfWeekFri :: DayOfWeek
+pattern DayOfWeekFri = DayOfWeek' "FRI"
 
-pattern Sat :: DayOfWeek
-pattern Sat = DayOfWeek' "SAT"
+pattern DayOfWeekSat :: DayOfWeek
+pattern DayOfWeekSat = DayOfWeek' "SAT"
 
 {-# COMPLETE
-  Sun,
-  Mon,
-  Tue,
-  Wed,
-  Thu,
-  Fri,
-  Sat,
+  DayOfWeekSun,
+  DayOfWeekMon,
+  DayOfWeekTue,
+  DayOfWeekWed,
+  DayOfWeekThu,
+  DayOfWeekFri,
+  DayOfWeekSat,
   DayOfWeek'
   #-}

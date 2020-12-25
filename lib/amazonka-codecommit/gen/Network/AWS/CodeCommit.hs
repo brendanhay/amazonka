@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -269,10 +268,565 @@
 -- For information about how to use AWS CodeCommit, see the <https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html AWS CodeCommit User Guide> .
 module Network.AWS.CodeCommit
   ( -- * Service configuration
-    codeCommitService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidReactionValueException
+    _InvalidReactionValueException,
+
+    -- ** InvalidRepositoryTriggerRegionException
+    _InvalidRepositoryTriggerRegionException,
+
+    -- ** InvalidContinuationTokenException
+    _InvalidContinuationTokenException,
+
+    -- ** ManualMergeRequiredException
+    _ManualMergeRequiredException,
+
+    -- ** TargetsRequiredException
+    _TargetsRequiredException,
+
+    -- ** InvalidSystemTagUsageException
+    _InvalidSystemTagUsageException,
+
+    -- ** FileEntryRequiredException
+    _FileEntryRequiredException,
+
+    -- ** EncryptionKeyNotFoundException
+    _EncryptionKeyNotFoundException,
+
+    -- ** TipsDivergenceExceededException
+    _TipsDivergenceExceededException,
+
+    -- ** InvalidRepositoryTriggerBranchNameException
+    _InvalidRepositoryTriggerBranchNameException,
+
+    -- ** PullRequestAlreadyClosedException
+    _PullRequestAlreadyClosedException,
+
+    -- ** InvalidRepositoryTriggerCustomDataException
+    _InvalidRepositoryTriggerCustomDataException,
+
+    -- ** DirectoryNameConflictsWithFileNameException
+    _DirectoryNameConflictsWithFileNameException,
+
+    -- ** ReferenceDoesNotExistException
+    _ReferenceDoesNotExistException,
+
+    -- ** ApprovalRuleNameAlreadyExistsException
+    _ApprovalRuleNameAlreadyExistsException,
+
+    -- ** ActorDoesNotExistException
+    _ActorDoesNotExistException,
+
+    -- ** PullRequestIdRequiredException
+    _PullRequestIdRequiredException,
+
+    -- ** OverrideAlreadySetException
+    _OverrideAlreadySetException,
+
+    -- ** InvalidRuleContentSha256Exception
+    _InvalidRuleContentSha256Exception,
+
+    -- ** InvalidEmailException
+    _InvalidEmailException,
+
+    -- ** CommitMessageLengthExceededException
+    _CommitMessageLengthExceededException,
+
+    -- ** BlobIdDoesNotExistException
+    _BlobIdDoesNotExistException,
+
+    -- ** MaximumRepositoryNamesExceededException
+    _MaximumRepositoryNamesExceededException,
+
+    -- ** TagKeysListRequiredException
+    _TagKeysListRequiredException,
+
+    -- ** PutFileEntryConflictException
+    _PutFileEntryConflictException,
+
+    -- ** FolderDoesNotExistException
+    _FolderDoesNotExistException,
+
+    -- ** InvalidRepositoryDescriptionException
+    _InvalidRepositoryDescriptionException,
+
+    -- ** RepositoryNameExistsException
+    _RepositoryNameExistsException,
+
+    -- ** ReferenceNameRequiredException
+    _ReferenceNameRequiredException,
+
+    -- ** MaximumRepositoryTriggersExceededException
+    _MaximumRepositoryTriggersExceededException,
+
+    -- ** ApprovalRuleDoesNotExistException
+    _ApprovalRuleDoesNotExistException,
+
+    -- ** InvalidBranchNameException
+    _InvalidBranchNameException,
+
+    -- ** BranchNameRequiredException
+    _BranchNameRequiredException,
+
+    -- ** MergeOptionRequiredException
+    _MergeOptionRequiredException,
+
+    -- ** InvalidFileLocationException
+    _InvalidFileLocationException,
+
+    -- ** BeforeCommitIdAndAfterCommitIdAreSameException
+    _BeforeCommitIdAndAfterCommitIdAreSameException,
+
+    -- ** RepositoryTriggersListRequiredException
+    _RepositoryTriggersListRequiredException,
+
+    -- ** IdempotencyParameterMismatchException
+    _IdempotencyParameterMismatchException,
+
+    -- ** EncryptionKeyUnavailableException
+    _EncryptionKeyUnavailableException,
+
+    -- ** InvalidRelativeFileVersionEnumException
+    _InvalidRelativeFileVersionEnumException,
+
+    -- ** InvalidRepositoryTriggerDestinationArnException
+    _InvalidRepositoryTriggerDestinationArnException,
+
+    -- ** ReactionLimitExceededException
+    _ReactionLimitExceededException,
+
+    -- ** BlobIdRequiredException
+    _BlobIdRequiredException,
+
+    -- ** RepositoryNamesRequiredException
+    _RepositoryNamesRequiredException,
+
+    -- ** ReplacementTypeRequiredException
+    _ReplacementTypeRequiredException,
+
+    -- ** InvalidActorArnException
+    _InvalidActorArnException,
+
+    -- ** InvalidCommentIdException
+    _InvalidCommentIdException,
+
+    -- ** FilePathConflictsWithSubmodulePathException
+    _FilePathConflictsWithSubmodulePathException,
+
+    -- ** InvalidDescriptionException
+    _InvalidDescriptionException,
+
+    -- ** ApprovalRuleNameRequiredException
+    _ApprovalRuleNameRequiredException,
+
+    -- ** InvalidBlobIdException
+    _InvalidBlobIdException,
+
+    -- ** PullRequestDoesNotExistException
+    _PullRequestDoesNotExistException,
+
+    -- ** NoChangeException
+    _NoChangeException,
+
+    -- ** InvalidOrderException
+    _InvalidOrderException,
+
+    -- ** InvalidApprovalRuleNameException
+    _InvalidApprovalRuleNameException,
+
+    -- ** BranchDoesNotExistException
+    _BranchDoesNotExistException,
+
+    -- ** DefaultBranchCannotBeDeletedException
+    _DefaultBranchCannotBeDeletedException,
+
+    -- ** FolderContentSizeLimitExceededException
+    _FolderContentSizeLimitExceededException,
+
+    -- ** InvalidDeletionParameterException
+    _InvalidDeletionParameterException,
+
+    -- ** InvalidReactionUserArnException
+    _InvalidReactionUserArnException,
+
+    -- ** InvalidTagsMapException
+    _InvalidTagsMapException,
+
+    -- ** InvalidPathException
+    _InvalidPathException,
+
+    -- ** PathRequiredException
+    _PathRequiredException,
+
+    -- ** InvalidTargetBranchException
+    _InvalidTargetBranchException,
+
+    -- ** RepositoryTriggerNameRequiredException
+    _RepositoryTriggerNameRequiredException,
+
+    -- ** InvalidFileModeException
+    _InvalidFileModeException,
+
+    -- ** NumberOfRuleTemplatesExceededException
+    _NumberOfRuleTemplatesExceededException,
+
+    -- ** FileModeRequiredException
+    _FileModeRequiredException,
+
+    -- ** InvalidPullRequestStatusException
+    _InvalidPullRequestStatusException,
+
+    -- ** ApprovalRuleTemplateContentRequiredException
+    _ApprovalRuleTemplateContentRequiredException,
+
+    -- ** ApprovalStateRequiredException
+    _ApprovalStateRequiredException,
+
+    -- ** ConcurrentReferenceUpdateException
+    _ConcurrentReferenceUpdateException,
+
+    -- ** ParentCommitIdRequiredException
+    _ParentCommitIdRequiredException,
+
+    -- ** InvalidSourceCommitSpecifierException
+    _InvalidSourceCommitSpecifierException,
+
+    -- ** RepositoryDoesNotExistException
+    _RepositoryDoesNotExistException,
+
+    -- ** InvalidApprovalRuleContentException
+    _InvalidApprovalRuleContentException,
+
+    -- ** MaximumBranchesExceededException
+    _MaximumBranchesExceededException,
+
+    -- ** InvalidTitleException
+    _InvalidTitleException,
+
+    -- ** CommentContentSizeLimitExceededException
+    _CommentContentSizeLimitExceededException,
+
+    -- ** PullRequestApprovalRulesNotSatisfiedException
+    _PullRequestApprovalRulesNotSatisfiedException,
+
+    -- ** InvalidParentCommitIdException
+    _InvalidParentCommitIdException,
+
+    -- ** InvalidPullRequestEventTypeException
+    _InvalidPullRequestEventTypeException,
+
+    -- ** FileContentRequiredException
+    _FileContentRequiredException,
+
+    -- ** SourceAndDestinationAreSameException
+    _SourceAndDestinationAreSameException,
+
+    -- ** ReplacementContentRequiredException
+    _ReplacementContentRequiredException,
+
+    -- ** RestrictedSourceFileException
+    _RestrictedSourceFileException,
+
+    -- ** PathDoesNotExistException
+    _PathDoesNotExistException,
+
+    -- ** InvalidResourceArnException
+    _InvalidResourceArnException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** EncryptionIntegrityChecksFailedException
+    _EncryptionIntegrityChecksFailedException,
+
+    -- ** SamePathRequestException
+    _SamePathRequestException,
+
+    -- ** SourceFileOrContentRequiredException
+    _SourceFileOrContentRequiredException,
+
+    -- ** InvalidMaxMergeHunksException
+    _InvalidMaxMergeHunksException,
+
+    -- ** CannotModifyApprovalRuleFromTemplateException
+    _CannotModifyApprovalRuleFromTemplateException,
+
+    -- ** InvalidReplacementContentException
+    _InvalidReplacementContentException,
+
+    -- ** ParentCommitIdOutdatedException
+    _ParentCommitIdOutdatedException,
+
+    -- ** RepositoryTriggerEventsListRequiredException
+    _RepositoryTriggerEventsListRequiredException,
+
+    -- ** CommentContentRequiredException
+    _CommentContentRequiredException,
+
+    -- ** ReactionValueRequiredException
+    _ReactionValueRequiredException,
+
+    -- ** InvalidTargetsException
+    _InvalidTargetsException,
+
+    -- ** EncryptionKeyAccessDeniedException
+    _EncryptionKeyAccessDeniedException,
+
+    -- ** BranchNameExistsException
+    _BranchNameExistsException,
+
+    -- ** InvalidCommitException
+    _InvalidCommitException,
+
+    -- ** TargetRequiredException
+    _TargetRequiredException,
+
+    -- ** InvalidConflictDetailLevelException
+    _InvalidConflictDetailLevelException,
+
+    -- ** InvalidDestinationCommitSpecifierException
+    _InvalidDestinationCommitSpecifierException,
+
+    -- ** CommentDoesNotExistException
+    _CommentDoesNotExistException,
+
+    -- ** ReferenceTypeNotSupportedException
+    _ReferenceTypeNotSupportedException,
+
+    -- ** FileNameConflictsWithDirectoryNameException
+    _FileNameConflictsWithDirectoryNameException,
+
+    -- ** NameLengthExceededException
+    _NameLengthExceededException,
+
+    -- ** InvalidSortByException
+    _InvalidSortByException,
+
+    -- ** EncryptionKeyDisabledException
+    _EncryptionKeyDisabledException,
+
+    -- ** CommitRequiredException
+    _CommitRequiredException,
+
+    -- ** MaximumOpenPullRequestsExceededException
+    _MaximumOpenPullRequestsExceededException,
+
+    -- ** ApprovalRuleTemplateNameAlreadyExistsException
+    _ApprovalRuleTemplateNameAlreadyExistsException,
+
+    -- ** InvalidTargetException
+    _InvalidTargetException,
+
+    -- ** InvalidPullRequestIdException
+    _InvalidPullRequestIdException,
+
+    -- ** CommentNotCreatedByCallerException
+    _CommentNotCreatedByCallerException,
+
+    -- ** InvalidPullRequestStatusUpdateException
+    _InvalidPullRequestStatusUpdateException,
+
+    -- ** InvalidReferenceNameException
+    _InvalidReferenceNameException,
+
+    -- ** MaximumRuleTemplatesAssociatedWithRepositoryException
+    _MaximumRuleTemplatesAssociatedWithRepositoryException,
+
+    -- ** SameFileContentException
+    _SameFileContentException,
+
+    -- ** ApprovalRuleTemplateInUseException
+    _ApprovalRuleTemplateInUseException,
+
+    -- ** MaximumNumberOfApprovalsExceededException
+    _MaximumNumberOfApprovalsExceededException,
+
+    -- ** CommitIdRequiredException
+    _CommitIdRequiredException,
+
+    -- ** FileDoesNotExistException
+    _FileDoesNotExistException,
+
+    -- ** InvalidCommitIdException
+    _InvalidCommitIdException,
+
+    -- ** InvalidTagKeysListException
+    _InvalidTagKeysListException,
+
+    -- ** FileContentAndSourceFileSpecifiedException
+    _FileContentAndSourceFileSpecifiedException,
+
+    -- ** TipOfSourceReferenceIsDifferentException
+    _TipOfSourceReferenceIsDifferentException,
+
+    -- ** RepositoryTriggerDestinationArnRequiredException
+    _RepositoryTriggerDestinationArnRequiredException,
+
+    -- ** InvalidConflictResolutionStrategyException
+    _InvalidConflictResolutionStrategyException,
+
+    -- ** InvalidClientRequestTokenException
+    _InvalidClientRequestTokenException,
+
+    -- ** MultipleConflictResolutionEntriesException
+    _MultipleConflictResolutionEntriesException,
+
+    -- ** CommitDoesNotExistException
+    _CommitDoesNotExistException,
+
+    -- ** RepositoryTriggerBranchNameListRequiredException
+    _RepositoryTriggerBranchNameListRequiredException,
+
+    -- ** ClientRequestTokenRequiredException
+    _ClientRequestTokenRequiredException,
+
+    -- ** ApprovalRuleTemplateDoesNotExistException
+    _ApprovalRuleTemplateDoesNotExistException,
+
+    -- ** TagPolicyException
+    _TagPolicyException,
+
+    -- ** InvalidMergeOptionException
+    _InvalidMergeOptionException,
+
+    -- ** CannotDeleteApprovalRuleFromTemplateException
+    _CannotDeleteApprovalRuleFromTemplateException,
+
+    -- ** CommentIdRequiredException
+    _CommentIdRequiredException,
+
+    -- ** InvalidMaxResultsException
+    _InvalidMaxResultsException,
+
+    -- ** FileTooLargeException
+    _FileTooLargeException,
+
+    -- ** ApprovalRuleTemplateNameRequiredException
+    _ApprovalRuleTemplateNameRequiredException,
+
+    -- ** MaximumFileEntriesExceededException
+    _MaximumFileEntriesExceededException,
+
+    -- ** CommitIdDoesNotExistException
+    _CommitIdDoesNotExistException,
+
+    -- ** InvalidReplacementTypeException
+    _InvalidReplacementTypeException,
+
+    -- ** InvalidRevisionIdException
+    _InvalidRevisionIdException,
+
+    -- ** RevisionNotCurrentException
+    _RevisionNotCurrentException,
+
+    -- ** InvalidApprovalRuleTemplateNameException
+    _InvalidApprovalRuleTemplateNameException,
+
+    -- ** PullRequestCannotBeApprovedByAuthorException
+    _PullRequestCannotBeApprovedByAuthorException,
+
+    -- ** MultipleRepositoriesInPullRequestException
+    _MultipleRepositoriesInPullRequestException,
+
+    -- ** RevisionIdRequiredException
+    _RevisionIdRequiredException,
+
+    -- ** FileContentSizeLimitExceededException
+    _FileContentSizeLimitExceededException,
+
+    -- ** InvalidRepositoryTriggerNameException
+    _InvalidRepositoryTriggerNameException,
+
+    -- ** RepositoryNameRequiredException
+    _RepositoryNameRequiredException,
+
+    -- ** RepositoryLimitExceededException
+    _RepositoryLimitExceededException,
+
+    -- ** TagsMapRequiredException
+    _TagsMapRequiredException,
+
+    -- ** InvalidRepositoryTriggerEventsException
+    _InvalidRepositoryTriggerEventsException,
+
+    -- ** NumberOfRulesExceededException
+    _NumberOfRulesExceededException,
+
+    -- ** BranchNameIsTagNameException
+    _BranchNameIsTagNameException,
+
+    -- ** InvalidRepositoryNameException
+    _InvalidRepositoryNameException,
+
+    -- ** CommitIdsListRequiredException
+    _CommitIdsListRequiredException,
+
+    -- ** CommitIdsLimitExceededException
+    _CommitIdsLimitExceededException,
+
+    -- ** InvalidAuthorArnException
+    _InvalidAuthorArnException,
+
+    -- ** MaximumItemsToCompareExceededException
+    _MaximumItemsToCompareExceededException,
+
+    -- ** OverrideStatusRequiredException
+    _OverrideStatusRequiredException,
+
+    -- ** ApprovalRuleContentRequiredException
+    _ApprovalRuleContentRequiredException,
+
+    -- ** MaximumConflictResolutionEntriesExceededException
+    _MaximumConflictResolutionEntriesExceededException,
+
+    -- ** PullRequestStatusRequiredException
+    _PullRequestStatusRequiredException,
+
+    -- ** InvalidConflictResolutionException
+    _InvalidConflictResolutionException,
+
+    -- ** InvalidApprovalRuleTemplateContentException
+    _InvalidApprovalRuleTemplateContentException,
+
+    -- ** InvalidApprovalStateException
+    _InvalidApprovalStateException,
+
+    -- ** RepositoryNotAssociatedWithPullRequestException
+    _RepositoryNotAssociatedWithPullRequestException,
+
+    -- ** MaximumFileContentToLoadExceededException
+    _MaximumFileContentToLoadExceededException,
+
+    -- ** TitleRequiredException
+    _TitleRequiredException,
+
+    -- ** InvalidOverrideStatusException
+    _InvalidOverrideStatusException,
+
+    -- ** InvalidFilePositionException
+    _InvalidFilePositionException,
+
+    -- ** CommentDeletedException
+    _CommentDeletedException,
+
+    -- ** ParentCommitDoesNotExistException
+    _ParentCommitDoesNotExistException,
+
+    -- ** InvalidApprovalRuleTemplateDescriptionException
+    _InvalidApprovalRuleTemplateDescriptionException,
+
+    -- ** ResourceArnRequiredException
+    _ResourceArnRequiredException,
+
+    -- ** InvalidMaxConflictFilesException
+    _InvalidMaxConflictFilesException,
+
+    -- ** AuthorDoesNotExistException
+    _AuthorDoesNotExistException,
 
     -- * Waiters
     -- $waiters
@@ -513,342 +1067,91 @@ module Network.AWS.CodeCommit
 
     -- * Types
 
-    -- ** ApprovalState
-    ApprovalState (..),
+    -- ** CommitId
+    CommitId (..),
 
-    -- ** ChangeTypeEnum
-    ChangeTypeEnum (..),
+    -- ** SymbolicLink
+    SymbolicLink (..),
+    mkSymbolicLink,
+    slAbsolutePath,
+    slBlobId,
+    slFileMode,
+    slRelativePath,
 
-    -- ** ConflictDetailLevelTypeEnum
-    ConflictDetailLevelTypeEnum (..),
+    -- ** Email
+    Email (..),
 
-    -- ** ConflictResolutionStrategyTypeEnum
-    ConflictResolutionStrategyTypeEnum (..),
+    -- ** PullRequestMergedStateChangedEventMetadata
+    PullRequestMergedStateChangedEventMetadata (..),
+    mkPullRequestMergedStateChangedEventMetadata,
+    prmscemDestinationReference,
+    prmscemMergeMetadata,
+    prmscemRepositoryName,
 
-    -- ** FileModeTypeEnum
-    FileModeTypeEnum (..),
+    -- ** RuleContentSha256
+    RuleContentSha256 (..),
 
-    -- ** MergeOptionTypeEnum
-    MergeOptionTypeEnum (..),
+    -- ** RepositoryDescription
+    RepositoryDescription (..),
 
-    -- ** ObjectTypeEnum
-    ObjectTypeEnum (..),
-
-    -- ** OrderEnum
-    OrderEnum (..),
-
-    -- ** OverrideStatus
-    OverrideStatus (..),
-
-    -- ** PullRequestEventType
-    PullRequestEventType (..),
-
-    -- ** PullRequestStatusEnum
-    PullRequestStatusEnum (..),
-
-    -- ** RelativeFileVersionEnum
-    RelativeFileVersionEnum (..),
-
-    -- ** ReplacementTypeEnum
-    ReplacementTypeEnum (..),
-
-    -- ** RepositoryTriggerEventEnum
-    RepositoryTriggerEventEnum (..),
-
-    -- ** SortByEnum
-    SortByEnum (..),
-
-    -- ** Approval
-    Approval (..),
-    mkApproval,
-    aApprovalState,
-    aUserARN,
-
-    -- ** ApprovalRule
-    ApprovalRule (..),
-    mkApprovalRule,
-    arRuleContentSha256,
-    arLastModifiedDate,
-    arApprovalRuleName,
-    arApprovalRuleId,
-    arLastModifiedUser,
-    arOriginApprovalRuleTemplate,
-    arCreationDate,
-    arApprovalRuleContent,
-
-    -- ** ApprovalRuleEventMetadata
-    ApprovalRuleEventMetadata (..),
-    mkApprovalRuleEventMetadata,
-    aremApprovalRuleName,
-    aremApprovalRuleId,
-    aremApprovalRuleContent,
-
-    -- ** ApprovalRuleOverriddenEventMetadata
-    ApprovalRuleOverriddenEventMetadata (..),
-    mkApprovalRuleOverriddenEventMetadata,
-    aroemOverrideStatus,
-    aroemRevisionId,
-
-    -- ** ApprovalRuleTemplate
-    ApprovalRuleTemplate (..),
-    mkApprovalRuleTemplate,
-    artRuleContentSha256,
-    artApprovalRuleTemplateId,
-    artLastModifiedDate,
-    artApprovalRuleTemplateDescription,
-    artApprovalRuleTemplateContent,
-    artLastModifiedUser,
-    artCreationDate,
-    artApprovalRuleTemplateName,
-
-    -- ** ApprovalStateChangedEventMetadata
-    ApprovalStateChangedEventMetadata (..),
-    mkApprovalStateChangedEventMetadata,
-    ascemApprovalStatus,
-    ascemRevisionId,
-
-    -- ** BatchAssociateApprovalRuleTemplateWithRepositoriesError
-    BatchAssociateApprovalRuleTemplateWithRepositoriesError (..),
-    mkBatchAssociateApprovalRuleTemplateWithRepositoriesError,
-    baartwreErrorCode,
-    baartwreRepositoryName,
-    baartwreErrorMessage,
-
-    -- ** BatchDescribeMergeConflictsError
-    BatchDescribeMergeConflictsError (..),
-    mkBatchDescribeMergeConflictsError,
-    bdmceFilePath,
-    bdmceExceptionName,
-    bdmceMessage,
-
-    -- ** BatchDisassociateApprovalRuleTemplateFromRepositoriesError
-    BatchDisassociateApprovalRuleTemplateFromRepositoriesError (..),
-    mkBatchDisassociateApprovalRuleTemplateFromRepositoriesError,
-    bdartfreErrorCode,
-    bdartfreRepositoryName,
-    bdartfreErrorMessage,
-
-    -- ** BatchGetCommitsError
-    BatchGetCommitsError (..),
-    mkBatchGetCommitsError,
-    bgceCommitId,
-    bgceErrorCode,
-    bgceErrorMessage,
-
-    -- ** BlobMetadata
-    BlobMetadata (..),
-    mkBlobMetadata,
-    bmPath,
-    bmMode,
-    bmBlobId,
-
-    -- ** BranchInfo
-    BranchInfo (..),
-    mkBranchInfo,
-    biCommitId,
-    biBranchName,
-
-    -- ** Comment
-    Comment (..),
-    mkComment,
-    cLastModifiedDate,
-    cAuthorARN,
-    cContent,
-    cCallerReactions,
-    cCreationDate,
-    cDeleted,
-    cClientRequestToken,
-    cCommentId,
-    cInReplyTo,
-    cReactionCounts,
-
-    -- ** CommentsForComparedCommit
-    CommentsForComparedCommit (..),
-    mkCommentsForComparedCommit,
-    cfccBeforeBlobId,
-    cfccLocation,
-    cfccAfterCommitId,
-    cfccAfterBlobId,
-    cfccBeforeCommitId,
-    cfccRepositoryName,
-    cfccComments,
+    -- ** ApprovalRuleTemplateId
+    ApprovalRuleTemplateId (..),
 
     -- ** CommentsForPullRequest
     CommentsForPullRequest (..),
     mkCommentsForPullRequest,
-    cfprBeforeBlobId,
-    cfprLocation,
-    cfprAfterCommitId,
-    cfprPullRequestId,
     cfprAfterBlobId,
+    cfprAfterCommitId,
+    cfprBeforeBlobId,
     cfprBeforeCommitId,
-    cfprRepositoryName,
     cfprComments,
+    cfprLocation,
+    cfprPullRequestId,
+    cfprRepositoryName,
 
-    -- ** Commit
-    Commit (..),
-    mkCommit,
-    cCommitId,
-    cCommitter,
-    cTreeId,
-    cAdditionalData,
-    cParents,
-    cAuthor,
-    cMessage,
+    -- ** ApprovalRuleTemplateDescription
+    ApprovalRuleTemplateDescription (..),
 
-    -- ** Conflict
-    Conflict (..),
-    mkConflict,
-    cMergeHunks,
-    cConflictMetadata,
+    -- ** UserInfo
+    UserInfo (..),
+    mkUserInfo,
+    uiDate,
+    uiEmail,
+    uiName,
 
-    -- ** ConflictMetadata
-    ConflictMetadata (..),
-    mkConflictMetadata,
-    cmNumberOfConflicts,
-    cmContentConflict,
-    cmFileSizes,
-    cmFilePath,
-    cmIsBinaryFile,
-    cmFileModeConflict,
-    cmObjectTypeConflict,
-    cmMergeOperations,
-    cmObjectTypes,
-    cmFileModes,
+    -- ** ReactionValue
+    ReactionValue (..),
 
-    -- ** ConflictResolution
-    ConflictResolution (..),
-    mkConflictResolution,
-    crSetFileModes,
-    crDeleteFiles,
-    crReplaceContents,
+    -- ** ReactionValueFormats
+    ReactionValueFormats (..),
+    mkReactionValueFormats,
+    rvfEmoji,
+    rvfShortCode,
+    rvfUnicode,
 
-    -- ** DeleteFileEntry
-    DeleteFileEntry (..),
-    mkDeleteFileEntry,
-    dfeFilePath,
+    -- ** SortByEnum
+    SortByEnum (..),
 
-    -- ** Difference
-    Difference (..),
-    mkDifference,
-    dAfterBlob,
-    dBeforeBlob,
-    dChangeType,
-
-    -- ** Evaluation
-    Evaluation (..),
-    mkEvaluation,
-    eApprovalRulesSatisfied,
-    eApprovalRulesNotSatisfied,
-    eApproved,
-    eOverridden,
-
-    -- ** File
-    File (..),
-    mkFile,
-    fAbsolutePath,
-    fFileMode,
-    fBlobId,
-    fRelativePath,
-
-    -- ** FileMetadata
-    FileMetadata (..),
-    mkFileMetadata,
-    fmAbsolutePath,
-    fmFileMode,
-    fmBlobId,
-
-    -- ** FileModes
-    FileModes (..),
-    mkFileModes,
-    fmDestination,
-    fmBase,
-    fmSource,
-
-    -- ** FileSizes
-    FileSizes (..),
-    mkFileSizes,
-    fsDestination,
-    fsBase,
-    fsSource,
-
-    -- ** Folder
-    Folder (..),
-    mkFolder,
-    ffAbsolutePath,
-    ffTreeId,
-    ffRelativePath,
-
-    -- ** IsBinaryFile
-    IsBinaryFile (..),
-    mkIsBinaryFile,
-    ibfDestination,
-    ibfBase,
-    ibfSource,
+    -- ** ConflictDetailLevelTypeEnum
+    ConflictDetailLevelTypeEnum (..),
 
     -- ** Location
     Location (..),
     mkLocation,
-    lRelativeFileVersion,
     lFilePath,
     lFilePosition,
+    lRelativeFileVersion,
 
-    -- ** MergeHunk
-    MergeHunk (..),
-    mkMergeHunk,
-    mhDestination,
-    mhBase,
-    mhIsConflict,
-    mhSource,
-
-    -- ** MergeHunkDetail
-    MergeHunkDetail (..),
-    mkMergeHunkDetail,
-    mhdStartLine,
-    mhdEndLine,
-    mhdHunkContent,
-
-    -- ** MergeMetadata
-    MergeMetadata (..),
-    mkMergeMetadata,
-    mmMergedBy,
-    mmMergeOption,
-    mmIsMerged,
-    mmMergeCommitId,
-
-    -- ** MergeOperations
-    MergeOperations (..),
-    mkMergeOperations,
-    moDestination,
-    moSource,
-
-    -- ** ObjectTypes
-    ObjectTypes (..),
-    mkObjectTypes,
-    otDestination,
-    otBase,
-    otSource,
-
-    -- ** OriginApprovalRuleTemplate
-    OriginApprovalRuleTemplate (..),
-    mkOriginApprovalRuleTemplate,
-    oartApprovalRuleTemplateId,
-    oartApprovalRuleTemplateName,
-
-    -- ** PullRequest
-    PullRequest (..),
-    mkPullRequest,
-    prApprovalRules,
-    prAuthorARN,
-    prPullRequestId,
-    prCreationDate,
-    prPullRequestStatus,
-    prTitle,
-    prClientRequestToken,
-    prLastActivityDate,
-    prRevisionId,
-    prPullRequestTargets,
-    prDescription,
+    -- ** PullRequestTarget
+    PullRequestTarget (..),
+    mkPullRequestTarget,
+    prtDestinationCommit,
+    prtDestinationReference,
+    prtMergeBase,
+    prtMergeMetadata,
+    prtRepositoryName,
+    prtSourceCommit,
+    prtSourceReference,
 
     -- ** PullRequestCreatedEventMetadata
     PullRequestCreatedEventMetadata (..),
@@ -858,27 +1161,441 @@ module Network.AWS.CodeCommit
     prcemRepositoryName,
     prcemSourceCommitId,
 
+    -- ** MergeMetadata
+    MergeMetadata (..),
+    mkMergeMetadata,
+    mmIsMerged,
+    mmMergeCommitId,
+    mmMergeOption,
+    mmMergedBy,
+
+    -- ** ReplacementTypeEnum
+    ReplacementTypeEnum (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** RepositoryTriggerEventEnum
+    RepositoryTriggerEventEnum (..),
+
+    -- ** RepositoryTriggerName
+    RepositoryTriggerName (..),
+
+    -- ** Path
+    Path (..),
+
+    -- ** BatchDisassociateApprovalRuleTemplateFromRepositoriesError
+    BatchDisassociateApprovalRuleTemplateFromRepositoriesError (..),
+    mkBatchDisassociateApprovalRuleTemplateFromRepositoriesError,
+    bdartfreErrorCode,
+    bdartfreErrorMessage,
+    bdartfreRepositoryName,
+
+    -- ** CloneUrlHttp
+    CloneUrlHttp (..),
+
+    -- ** PullRequestEventType
+    PullRequestEventType (..),
+
+    -- ** ApprovalRuleEventMetadata
+    ApprovalRuleEventMetadata (..),
+    mkApprovalRuleEventMetadata,
+    aremApprovalRuleContent,
+    aremApprovalRuleId,
+    aremApprovalRuleName,
+
+    -- ** ApprovalRuleTemplateContent
+    ApprovalRuleTemplateContent (..),
+
+    -- ** ApprovalState
+    ApprovalState (..),
+
+    -- ** FileSizes
+    FileSizes (..),
+    mkFileSizes,
+    fsBase,
+    fsDestination,
+    fsSource,
+
+    -- ** MergeHunk
+    MergeHunk (..),
+    mkMergeHunk,
+    mhBase,
+    mhDestination,
+    mhIsConflict,
+    mhSource,
+
+    -- ** BatchGetCommitsError
+    BatchGetCommitsError (..),
+    mkBatchGetCommitsError,
+    bgceCommitId,
+    bgceErrorCode,
+    bgceErrorMessage,
+
+    -- ** MergeOptionTypeEnum
+    MergeOptionTypeEnum (..),
+
+    -- ** ObjectId
+    ObjectId (..),
+
+    -- ** PullRequestStatusEnum
+    PullRequestStatusEnum (..),
+
+    -- ** BranchName
+    BranchName (..),
+
+    -- ** PullRequestStatusChangedEventMetadata
+    PullRequestStatusChangedEventMetadata (..),
+    mkPullRequestStatusChangedEventMetadata,
+    prscemPullRequestStatus,
+
+    -- ** RepositoryTriggerExecutionFailureMessage
+    RepositoryTriggerExecutionFailureMessage (..),
+
+    -- ** SetFileModeEntry
+    SetFileModeEntry (..),
+    mkSetFileModeEntry,
+    sfmeFilePath,
+    sfmeFileMode,
+
+    -- ** IsBinaryFile
+    IsBinaryFile (..),
+    mkIsBinaryFile,
+    ibfBase,
+    ibfDestination,
+    ibfSource,
+
+    -- ** Mode
+    Mode (..),
+
+    -- ** MergeOperations
+    MergeOperations (..),
+    mkMergeOperations,
+    moDestination,
+    moSource,
+
+    -- ** BlobMetadata
+    BlobMetadata (..),
+    mkBlobMetadata,
+    bmBlobId,
+    bmMode,
+    bmPath,
+
+    -- ** SubModule
+    SubModule (..),
+    mkSubModule,
+    smAbsolutePath,
+    smCommitId,
+    smRelativePath,
+
+    -- ** Folder
+    Folder (..),
+    mkFolder,
+    ffAbsolutePath,
+    ffRelativePath,
+    ffTreeId,
+
+    -- ** ObjectTypeEnum
+    ObjectTypeEnum (..),
+
+    -- ** ApprovalRuleName
+    ApprovalRuleName (..),
+
+    -- ** CommentsForComparedCommit
+    CommentsForComparedCommit (..),
+    mkCommentsForComparedCommit,
+    cfccAfterBlobId,
+    cfccAfterCommitId,
+    cfccBeforeBlobId,
+    cfccBeforeCommitId,
+    cfccComments,
+    cfccLocation,
+    cfccRepositoryName,
+
+    -- ** ApprovalRule
+    ApprovalRule (..),
+    mkApprovalRule,
+    arApprovalRuleContent,
+    arApprovalRuleId,
+    arApprovalRuleName,
+    arCreationDate,
+    arLastModifiedDate,
+    arLastModifiedUser,
+    arOriginApprovalRuleTemplate,
+    arRuleContentSha256,
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** Content
+    Content (..),
+
+    -- ** AdditionalData
+    AdditionalData (..),
+
+    -- ** ReactionForComment
+    ReactionForComment (..),
+    mkReactionForComment,
+    rfcReaction,
+    rfcReactionUsers,
+    rfcReactionsFromDeletedUsersCount,
+
+    -- ** ReplaceContentEntry
+    ReplaceContentEntry (..),
+    mkReplaceContentEntry,
+    rceFilePath,
+    rceReplacementType,
+    rceContent,
+    rceFileMode,
+
+    -- ** PullRequestId
+    PullRequestId (..),
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** BatchDescribeMergeConflictsError
+    BatchDescribeMergeConflictsError (..),
+    mkBatchDescribeMergeConflictsError,
+    bdmceFilePath,
+    bdmceExceptionName,
+    bdmceMessage,
+
+    -- ** PullRequest
+    PullRequest (..),
+    mkPullRequest,
+    prApprovalRules,
+    prAuthorArn,
+    prClientRequestToken,
+    prCreationDate,
+    prDescription,
+    prLastActivityDate,
+    prPullRequestId,
+    prPullRequestStatus,
+    prPullRequestTargets,
+    prRevisionId,
+    prTitle,
+
+    -- ** ReferenceName
+    ReferenceName (..),
+
+    -- ** Date
+    Date (..),
+
+    -- ** ApprovalRuleId
+    ApprovalRuleId (..),
+
+    -- ** Difference
+    Difference (..),
+    mkDifference,
+    dAfterBlob,
+    dBeforeBlob,
+    dChangeType,
+
+    -- ** RepositoryMetadata
+    RepositoryMetadata (..),
+    mkRepositoryMetadata,
+    rmArn,
+    rmAccountId,
+    rmCloneUrlHttp,
+    rmCloneUrlSsh,
+    rmCreationDate,
+    rmDefaultBranch,
+    rmLastModifiedDate,
+    rmRepositoryDescription,
+    rmRepositoryId,
+    rmRepositoryName,
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** Approval
+    Approval (..),
+    mkApproval,
+    aApprovalState,
+    aUserArn,
+
+    -- ** RepositoryId
+    RepositoryId (..),
+
+    -- ** SourceFileSpecifier
+    SourceFileSpecifier (..),
+    mkSourceFileSpecifier,
+    sfsFilePath,
+    sfsIsMove,
+
+    -- ** Name
+    Name (..),
+
+    -- ** BatchAssociateApprovalRuleTemplateWithRepositoriesError
+    BatchAssociateApprovalRuleTemplateWithRepositoriesError (..),
+    mkBatchAssociateApprovalRuleTemplateWithRepositoriesError,
+    baartwreErrorCode,
+    baartwreErrorMessage,
+    baartwreRepositoryName,
+
+    -- ** RepositoryTrigger
+    RepositoryTrigger (..),
+    mkRepositoryTrigger,
+    rtName,
+    rtDestinationArn,
+    rtEvents,
+    rtBranches,
+    rtCustomData,
+
+    -- ** RepositoryNameIdPair
+    RepositoryNameIdPair (..),
+    mkRepositoryNameIdPair,
+    rnipRepositoryId,
+    rnipRepositoryName,
+
+    -- ** BranchInfo
+    BranchInfo (..),
+    mkBranchInfo,
+    biBranchName,
+    biCommitId,
+
+    -- ** ErrorCode
+    ErrorCode (..),
+
+    -- ** OrderEnum
+    OrderEnum (..),
+
+    -- ** OriginApprovalRuleTemplate
+    OriginApprovalRuleTemplate (..),
+    mkOriginApprovalRuleTemplate,
+    oartApprovalRuleTemplateId,
+    oartApprovalRuleTemplateName,
+
+    -- ** RepositoryName
+    RepositoryName (..),
+
+    -- ** ChangeTypeEnum
+    ChangeTypeEnum (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** ConflictResolution
+    ConflictResolution (..),
+    mkConflictResolution,
+    crDeleteFiles,
+    crReplaceContents,
+    crSetFileModes,
+
+    -- ** Title
+    Title (..),
+
+    -- ** CloneUrlSsh
+    CloneUrlSsh (..),
+
+    -- ** ConflictResolutionStrategyTypeEnum
+    ConflictResolutionStrategyTypeEnum (..),
+
+    -- ** RepositoryTriggerExecutionFailure
+    RepositoryTriggerExecutionFailure (..),
+    mkRepositoryTriggerExecutionFailure,
+    rtefFailureMessage,
+    rtefTrigger,
+
+    -- ** ApprovalRuleContent
+    ApprovalRuleContent (..),
+
     -- ** PullRequestEvent
     PullRequestEvent (..),
     mkPullRequestEvent,
-    prePullRequestMergedStateChangedEventMetadata,
-    prePullRequestCreatedEventMetadata,
+    preActorArn,
     preApprovalRuleEventMetadata,
-    prePullRequestEventType,
-    prePullRequestStatusChangedEventMetadata,
-    preActorARN,
-    prePullRequestId,
-    preEventDate,
-    preApprovalStateChangedEventMetadata,
-    prePullRequestSourceReferenceUpdatedEventMetadata,
     preApprovalRuleOverriddenEventMetadata,
+    preApprovalStateChangedEventMetadata,
+    preEventDate,
+    prePullRequestCreatedEventMetadata,
+    prePullRequestEventType,
+    prePullRequestId,
+    prePullRequestMergedStateChangedEventMetadata,
+    prePullRequestSourceReferenceUpdatedEventMetadata,
+    prePullRequestStatusChangedEventMetadata,
 
-    -- ** PullRequestMergedStateChangedEventMetadata
-    PullRequestMergedStateChangedEventMetadata (..),
-    mkPullRequestMergedStateChangedEventMetadata,
-    prmscemDestinationReference,
-    prmscemMergeMetadata,
-    prmscemRepositoryName,
+    -- ** ExceptionName
+    ExceptionName (..),
+
+    -- ** OverrideStatus
+    OverrideStatus (..),
+
+    -- ** DeleteFileEntry
+    DeleteFileEntry (..),
+    mkDeleteFileEntry,
+    dfeFilePath,
+
+    -- ** ApprovalStateChangedEventMetadata
+    ApprovalStateChangedEventMetadata (..),
+    mkApprovalStateChangedEventMetadata,
+    ascemApprovalStatus,
+    ascemRevisionId,
+
+    -- ** FileMetadata
+    FileMetadata (..),
+    mkFileMetadata,
+    fmAbsolutePath,
+    fmBlobId,
+    fmFileMode,
+
+    -- ** ConflictMetadata
+    ConflictMetadata (..),
+    mkConflictMetadata,
+    cmContentConflict,
+    cmFileModeConflict,
+    cmFileModes,
+    cmFilePath,
+    cmFileSizes,
+    cmIsBinaryFile,
+    cmMergeOperations,
+    cmNumberOfConflicts,
+    cmObjectTypeConflict,
+    cmObjectTypes,
+
+    -- ** PutFileEntry
+    PutFileEntry (..),
+    mkPutFileEntry,
+    pfeFilePath,
+    pfeFileContent,
+    pfeFileMode,
+    pfeSourceFile,
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** RelativeFileVersionEnum
+    RelativeFileVersionEnum (..),
+
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
+    -- ** Comment
+    Comment (..),
+    mkComment,
+    cAuthorArn,
+    cCallerReactions,
+    cClientRequestToken,
+    cCommentId,
+    cContent,
+    cCreationDate,
+    cDeleted,
+    cInReplyTo,
+    cLastModifiedDate,
+    cReactionCounts,
+
+    -- ** CommitName
+    CommitName (..),
+
+    -- ** CommentId
+    CommentId (..),
 
     -- ** PullRequestSourceReferenceUpdatedEventMetadata
     PullRequestSourceReferenceUpdatedEventMetadata (..),
@@ -888,137 +1605,203 @@ module Network.AWS.CodeCommit
     prsruemMergeBase,
     prsruemRepositoryName,
 
-    -- ** PullRequestStatusChangedEventMetadata
-    PullRequestStatusChangedEventMetadata (..),
-    mkPullRequestStatusChangedEventMetadata,
-    prscemPullRequestStatus,
+    -- ** ApprovalRuleOverriddenEventMetadata
+    ApprovalRuleOverriddenEventMetadata (..),
+    mkApprovalRuleOverriddenEventMetadata,
+    aroemOverrideStatus,
+    aroemRevisionId,
 
-    -- ** PullRequestTarget
-    PullRequestTarget (..),
-    mkPullRequestTarget,
-    prtSourceCommit,
-    prtDestinationReference,
-    prtMergeMetadata,
-    prtMergeBase,
-    prtDestinationCommit,
-    prtRepositoryName,
-    prtSourceReference,
+    -- ** Description
+    Description (..),
 
-    -- ** PutFileEntry
-    PutFileEntry (..),
-    mkPutFileEntry,
-    pfeFileContent,
-    pfeFileMode,
-    pfeFilePath,
-    pfeSourceFile,
+    -- ** Conflict
+    Conflict (..),
+    mkConflict,
+    cConflictMetadata,
+    cMergeHunks,
 
-    -- ** ReactionForComment
-    ReactionForComment (..),
-    mkReactionForComment,
-    rfcReactionUsers,
-    rfcReactionsFromDeletedUsersCount,
-    rfcReaction,
+    -- ** Evaluation
+    Evaluation (..),
+    mkEvaluation,
+    eApprovalRulesNotSatisfied,
+    eApprovalRulesSatisfied,
+    eApproved,
+    eOverridden,
 
-    -- ** ReactionValueFormats
-    ReactionValueFormats (..),
-    mkReactionValueFormats,
-    rvfEmoji,
-    rvfShortCode,
-    rvfUnicode,
+    -- ** ObjectTypes
+    ObjectTypes (..),
+    mkObjectTypes,
+    otBase,
+    otDestination,
+    otSource,
 
-    -- ** ReplaceContentEntry
-    ReplaceContentEntry (..),
-    mkReplaceContentEntry,
-    rceFileMode,
-    rceFilePath,
-    rceReplacementType,
-    rceContent,
+    -- ** ApprovalRuleTemplateName
+    ApprovalRuleTemplateName (..),
 
-    -- ** RepositoryMetadata
-    RepositoryMetadata (..),
-    mkRepositoryMetadata,
-    rmRepositoryDescription,
-    rmLastModifiedDate,
-    rmARN,
-    rmCloneURLHTTP,
-    rmAccountId,
-    rmDefaultBranch,
-    rmRepositoryId,
-    rmRepositoryName,
-    rmCreationDate,
-    rmCloneURLSSH,
+    -- ** FileModes
+    FileModes (..),
+    mkFileModes,
+    fmBase,
+    fmDestination,
+    fmSource,
 
-    -- ** RepositoryNameIdPair
-    RepositoryNameIdPair (..),
-    mkRepositoryNameIdPair,
-    rnipRepositoryId,
-    rnipRepositoryName,
+    -- ** File
+    File (..),
+    mkFile,
+    fAbsolutePath,
+    fBlobId,
+    fFileMode,
+    fRelativePath,
 
-    -- ** RepositoryTrigger
-    RepositoryTrigger (..),
-    mkRepositoryTrigger,
-    rtBranches,
-    rtCustomData,
-    rtDestinationARN,
-    rtName,
-    rtEvents,
+    -- ** RevisionId
+    RevisionId (..),
 
-    -- ** RepositoryTriggerExecutionFailure
-    RepositoryTriggerExecutionFailure (..),
-    mkRepositoryTriggerExecutionFailure,
-    rtefFailureMessage,
-    rtefTrigger,
+    -- ** FileModeTypeEnum
+    FileModeTypeEnum (..),
 
-    -- ** SetFileModeEntry
-    SetFileModeEntry (..),
-    mkSetFileModeEntry,
-    sfmeFileMode,
-    sfmeFilePath,
+    -- ** HunkContent
+    HunkContent (..),
 
-    -- ** SourceFileSpecifier
-    SourceFileSpecifier (..),
-    mkSourceFileSpecifier,
-    sfsFilePath,
-    sfsIsMove,
+    -- ** MergeHunkDetail
+    MergeHunkDetail (..),
+    mkMergeHunkDetail,
+    mhdEndLine,
+    mhdHunkContent,
+    mhdStartLine,
 
-    -- ** SubModule
-    SubModule (..),
-    mkSubModule,
-    smCommitId,
-    smAbsolutePath,
-    smRelativePath,
+    -- ** ApprovalRuleTemplate
+    ApprovalRuleTemplate (..),
+    mkApprovalRuleTemplate,
+    artApprovalRuleTemplateContent,
+    artApprovalRuleTemplateDescription,
+    artApprovalRuleTemplateId,
+    artApprovalRuleTemplateName,
+    artCreationDate,
+    artLastModifiedDate,
+    artLastModifiedUser,
+    artRuleContentSha256,
 
-    -- ** SymbolicLink
-    SymbolicLink (..),
-    mkSymbolicLink,
-    slAbsolutePath,
-    slFileMode,
-    slBlobId,
-    slRelativePath,
+    -- ** Commit
+    Commit (..),
+    mkCommit,
+    cAdditionalData,
+    cAuthor,
+    cCommitId,
+    cCommitter,
+    cMessage,
+    cParents,
+    cTreeId,
 
     -- ** Target
     Target (..),
     mkTarget,
-    tDestinationReference,
     tRepositoryName,
     tSourceReference,
+    tDestinationReference,
 
-    -- ** UserInfo
-    UserInfo (..),
-    mkUserInfo,
-    uiEmail,
-    uiDate,
-    uiName,
+    -- ** SourceCommitSpecifier
+    SourceCommitSpecifier (..),
+
+    -- ** DestinationCommitSpecifier
+    DestinationCommitSpecifier (..),
+
+    -- ** TargetBranch
+    TargetBranch (..),
+
+    -- ** DestinationCommitId
+    DestinationCommitId (..),
+
+    -- ** SourceCommitId
+    SourceCommitId (..),
+
+    -- ** BaseCommitId
+    BaseCommitId (..),
+
+    -- ** AuthorName
+    AuthorName (..),
+
+    -- ** CommitMessage
+    CommitMessage (..),
+
+    -- ** AbsolutePath
+    AbsolutePath (..),
+
+    -- ** BlobId
+    BlobId (..),
+
+    -- ** RelativePath
+    RelativePath (..),
+
+    -- ** DestinationReference
+    DestinationReference (..),
+
+    -- ** ConfigurationId
+    ConfigurationId (..),
+
+    -- ** NewRuleContent
+    NewRuleContent (..),
+
+    -- ** AfterBlobId
+    AfterBlobId (..),
+
+    -- ** BeforeBlobId
+    BeforeBlobId (..),
+
+    -- ** TreeId
+    TreeId (..),
+
+    -- ** FilePath
+    FilePath (..),
+
+    -- ** InReplyTo
+    InReplyTo (..),
+
+    -- ** Emoji
+    Emoji (..),
+
+    -- ** ShortCode
+    ShortCode (..),
+
+    -- ** Unicode
+    Unicode (..),
+
+    -- ** SourceReference
+    SourceReference (..),
+
+    -- ** MergedBy
+    MergedBy (..),
+
+    -- ** DefaultBranchName
+    DefaultBranchName (..),
+
+    -- ** MergedCommitId
+    MergedCommitId (..),
+
+    -- ** CommitSpecifier
+    CommitSpecifier (..),
+
+    -- ** AfterCommitSpecifier
+    AfterCommitSpecifier (..),
+
+    -- ** BeforeCommitSpecifier
+    BeforeCommitSpecifier (..),
+
+    -- ** OldName
+    OldName (..),
+
+    -- ** NewName
+    NewName (..),
+
+    -- ** CustomData
+    CustomData (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

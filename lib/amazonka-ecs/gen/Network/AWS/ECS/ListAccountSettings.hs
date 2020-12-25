@@ -22,209 +22,194 @@ module Network.AWS.ECS.ListAccountSettings
     mkListAccountSettings,
 
     -- ** Request lenses
-    lasValue,
-    lasNextToken,
-    lasName,
-    lasPrincipalARN,
     lasEffectiveSettings,
     lasMaxResults,
+    lasName,
+    lasNextToken,
+    lasPrincipalArn,
+    lasValue,
 
     -- * Destructuring the response
     ListAccountSettingsResponse (..),
     mkListAccountSettingsResponse,
 
     -- ** Response lenses
-    lasrsSettings,
-    lasrsNextToken,
-    lasrsResponseStatus,
+    lasrrsNextToken,
+    lasrrsSettings,
+    lasrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListAccountSettings' smart constructor.
 data ListAccountSettings = ListAccountSettings'
-  { -- | The value of the account settings with which to filter results. You must also specify an account setting name to use this parameter.
-    value :: Lude.Maybe Lude.Text,
-    -- | The @nextToken@ value returned from a @ListAccountSettings@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name of the account setting you want to list the settings for.
-    name :: Lude.Maybe SettingName,
-    -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the account settings are listed only for the authenticated user.
-    principalARN :: Lude.Maybe Lude.Text,
-    -- | Specifies whether to return the effective settings. If @true@ , the account settings for the root user or the default setting for the @principalArn@ are returned. If @false@ , the account settings for the @principalArn@ are returned if they are set. Otherwise, no account settings are returned.
-    effectiveSettings :: Lude.Maybe Lude.Bool,
+  { -- | Specifies whether to return the effective settings. If @true@ , the account settings for the root user or the default setting for the @principalArn@ are returned. If @false@ , the account settings for the @principalArn@ are returned if they are set. Otherwise, no account settings are returned.
+    effectiveSettings :: Core.Maybe Core.Bool,
     -- | The maximum number of account setting results returned by @ListAccountSettings@ in paginated output. When this parameter is used, @ListAccountSettings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListAccountSettings@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @ListAccountSettings@ returns up to 10 results and a @nextToken@ value if applicable.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | The name of the account setting you want to list the settings for.
+    name :: Core.Maybe Types.SettingName,
+    -- | The @nextToken@ value returned from a @ListAccountSettings@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
+    nextToken :: Core.Maybe Types.String,
+    -- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the account settings are listed only for the authenticated user.
+    principalArn :: Core.Maybe Types.String,
+    -- | The value of the account settings with which to filter results. You must also specify an account setting name to use this parameter.
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAccountSettings' with the minimum fields required to make a request.
---
--- * 'value' - The value of the account settings with which to filter results. You must also specify an account setting name to use this parameter.
--- * 'nextToken' - The @nextToken@ value returned from a @ListAccountSettings@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
--- * 'name' - The name of the account setting you want to list the settings for.
--- * 'principalARN' - The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the account settings are listed only for the authenticated user.
--- * 'effectiveSettings' - Specifies whether to return the effective settings. If @true@ , the account settings for the root user or the default setting for the @principalArn@ are returned. If @false@ , the account settings for the @principalArn@ are returned if they are set. Otherwise, no account settings are returned.
--- * 'maxResults' - The maximum number of account setting results returned by @ListAccountSettings@ in paginated output. When this parameter is used, @ListAccountSettings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListAccountSettings@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @ListAccountSettings@ returns up to 10 results and a @nextToken@ value if applicable.
+-- | Creates a 'ListAccountSettings' value with any optional fields omitted.
 mkListAccountSettings ::
   ListAccountSettings
 mkListAccountSettings =
   ListAccountSettings'
-    { value = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      name = Lude.Nothing,
-      principalARN = Lude.Nothing,
-      effectiveSettings = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { effectiveSettings = Core.Nothing,
+      maxResults = Core.Nothing,
+      name = Core.Nothing,
+      nextToken = Core.Nothing,
+      principalArn = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The value of the account settings with which to filter results. You must also specify an account setting name to use this parameter.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasValue :: Lens.Lens' ListAccountSettings (Lude.Maybe Lude.Text)
-lasValue = Lens.lens (value :: ListAccountSettings -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ListAccountSettings)
-{-# DEPRECATED lasValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | The @nextToken@ value returned from a @ListAccountSettings@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasNextToken :: Lens.Lens' ListAccountSettings (Lude.Maybe Lude.Text)
-lasNextToken = Lens.lens (nextToken :: ListAccountSettings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAccountSettings)
-{-# DEPRECATED lasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The name of the account setting you want to list the settings for.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasName :: Lens.Lens' ListAccountSettings (Lude.Maybe SettingName)
-lasName = Lens.lens (name :: ListAccountSettings -> Lude.Maybe SettingName) (\s a -> s {name = a} :: ListAccountSettings)
-{-# DEPRECATED lasName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the account settings are listed only for the authenticated user.
---
--- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasPrincipalARN :: Lens.Lens' ListAccountSettings (Lude.Maybe Lude.Text)
-lasPrincipalARN = Lens.lens (principalARN :: ListAccountSettings -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: ListAccountSettings)
-{-# DEPRECATED lasPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
 
 -- | Specifies whether to return the effective settings. If @true@ , the account settings for the root user or the default setting for the @principalArn@ are returned. If @false@ , the account settings for the @principalArn@ are returned if they are set. Otherwise, no account settings are returned.
 --
 -- /Note:/ Consider using 'effectiveSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasEffectiveSettings :: Lens.Lens' ListAccountSettings (Lude.Maybe Lude.Bool)
-lasEffectiveSettings = Lens.lens (effectiveSettings :: ListAccountSettings -> Lude.Maybe Lude.Bool) (\s a -> s {effectiveSettings = a} :: ListAccountSettings)
+lasEffectiveSettings :: Lens.Lens' ListAccountSettings (Core.Maybe Core.Bool)
+lasEffectiveSettings = Lens.field @"effectiveSettings"
 {-# DEPRECATED lasEffectiveSettings "Use generic-lens or generic-optics with 'effectiveSettings' instead." #-}
 
 -- | The maximum number of account setting results returned by @ListAccountSettings@ in paginated output. When this parameter is used, @ListAccountSettings@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListAccountSettings@ request with the returned @nextToken@ value. This value can be between 1 and 10. If this parameter is not used, then @ListAccountSettings@ returns up to 10 results and a @nextToken@ value if applicable.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasMaxResults :: Lens.Lens' ListAccountSettings (Lude.Maybe Lude.Int)
-lasMaxResults = Lens.lens (maxResults :: ListAccountSettings -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListAccountSettings)
+lasMaxResults :: Lens.Lens' ListAccountSettings (Core.Maybe Core.Int)
+lasMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lasMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListAccountSettings where
-  page rq rs
-    | Page.stop (rs Lens.^. lasrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lasrsSettings) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lasNextToken Lens..~ rs Lens.^. lasrsNextToken
+-- | The name of the account setting you want to list the settings for.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasName :: Lens.Lens' ListAccountSettings (Core.Maybe Types.SettingName)
+lasName = Lens.field @"name"
+{-# DEPRECATED lasName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest ListAccountSettings where
+-- | The @nextToken@ value returned from a @ListAccountSettings@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasNextToken :: Lens.Lens' ListAccountSettings (Core.Maybe Types.String)
+lasNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The ARN of the principal, which can be an IAM user, IAM role, or the root user. If this field is omitted, the account settings are listed only for the authenticated user.
+--
+-- /Note:/ Consider using 'principalArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasPrincipalArn :: Lens.Lens' ListAccountSettings (Core.Maybe Types.String)
+lasPrincipalArn = Lens.field @"principalArn"
+{-# DEPRECATED lasPrincipalArn "Use generic-lens or generic-optics with 'principalArn' instead." #-}
+
+-- | The value of the account settings with which to filter results. You must also specify an account setting name to use this parameter.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasValue :: Lens.Lens' ListAccountSettings (Core.Maybe Types.String)
+lasValue = Lens.field @"value"
+{-# DEPRECATED lasValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON ListAccountSettings where
+  toJSON ListAccountSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("effectiveSettings" Core..=) Core.<$> effectiveSettings,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("name" Core..=) Core.<$> name,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("principalArn" Core..=) Core.<$> principalArn,
+            ("value" Core..=) Core.<$> value
+          ]
+      )
+
+instance Core.AWSRequest ListAccountSettings where
   type Rs ListAccountSettings = ListAccountSettingsResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.ListAccountSettings"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAccountSettingsResponse'
-            Lude.<$> (x Lude..?> "settings" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "settings")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAccountSettings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.ListAccountSettings" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAccountSettings where
-  toJSON ListAccountSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("value" Lude..=) Lude.<$> value,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("name" Lude..=) Lude.<$> name,
-            ("principalArn" Lude..=) Lude.<$> principalARN,
-            ("effectiveSettings" Lude..=) Lude.<$> effectiveSettings,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListAccountSettings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAccountSettings where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAccountSettings where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"settings" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListAccountSettingsResponse' smart constructor.
 data ListAccountSettingsResponse = ListAccountSettingsResponse'
-  { -- | The account settings for the resource.
-    settings :: Lude.Maybe [Setting],
-    -- | The @nextToken@ value to include in a future @ListAccountSettings@ request. When the results of a @ListAccountSettings@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The @nextToken@ value to include in a future @ListAccountSettings@ request. When the results of a @ListAccountSettings@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String,
+    -- | The account settings for the resource.
+    settings :: Core.Maybe [Types.Setting],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAccountSettingsResponse' with the minimum fields required to make a request.
---
--- * 'settings' - The account settings for the resource.
--- * 'nextToken' - The @nextToken@ value to include in a future @ListAccountSettings@ request. When the results of a @ListAccountSettings@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAccountSettingsResponse' value with any optional fields omitted.
 mkListAccountSettingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAccountSettingsResponse
-mkListAccountSettingsResponse pResponseStatus_ =
+mkListAccountSettingsResponse responseStatus =
   ListAccountSettingsResponse'
-    { settings = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      settings = Core.Nothing,
+      responseStatus
     }
-
--- | The account settings for the resource.
---
--- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasrsSettings :: Lens.Lens' ListAccountSettingsResponse (Lude.Maybe [Setting])
-lasrsSettings = Lens.lens (settings :: ListAccountSettingsResponse -> Lude.Maybe [Setting]) (\s a -> s {settings = a} :: ListAccountSettingsResponse)
-{-# DEPRECATED lasrsSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
 -- | The @nextToken@ value to include in a future @ListAccountSettings@ request. When the results of a @ListAccountSettings@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasrsNextToken :: Lens.Lens' ListAccountSettingsResponse (Lude.Maybe Lude.Text)
-lasrsNextToken = Lens.lens (nextToken :: ListAccountSettingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAccountSettingsResponse)
-{-# DEPRECATED lasrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lasrrsNextToken :: Lens.Lens' ListAccountSettingsResponse (Core.Maybe Types.String)
+lasrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lasrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The account settings for the resource.
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lasrrsSettings :: Lens.Lens' ListAccountSettingsResponse (Core.Maybe [Types.Setting])
+lasrrsSettings = Lens.field @"settings"
+{-# DEPRECATED lasrrsSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasrsResponseStatus :: Lens.Lens' ListAccountSettingsResponse Lude.Int
-lasrsResponseStatus = Lens.lens (responseStatus :: ListAccountSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAccountSettingsResponse)
-{-# DEPRECATED lasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lasrrsResponseStatus :: Lens.Lens' ListAccountSettingsResponse Core.Int
+lasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

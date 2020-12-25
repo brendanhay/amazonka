@@ -17,57 +17,48 @@ module Network.AWS.EC2.Types.TargetConfigurationRequest
     mkTargetConfigurationRequest,
 
     -- * Lenses
-    tcrInstanceCount,
     tcrOfferingId,
+    tcrInstanceCount,
   )
 where
 
+import qualified Network.AWS.EC2.Types.OfferingId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the target configuration.
 --
 -- /See:/ 'mkTargetConfigurationRequest' smart constructor.
 data TargetConfigurationRequest = TargetConfigurationRequest'
-  { -- | The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request
-    instanceCount :: Lude.Maybe Lude.Int,
-    -- | The Convertible Reserved Instance offering ID.
-    offeringId :: Lude.Text
+  { -- | The Convertible Reserved Instance offering ID.
+    offeringId :: Types.OfferingId,
+    -- | The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request
+    instanceCount :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetConfigurationRequest' with the minimum fields required to make a request.
---
--- * 'instanceCount' - The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request
--- * 'offeringId' - The Convertible Reserved Instance offering ID.
+-- | Creates a 'TargetConfigurationRequest' value with any optional fields omitted.
 mkTargetConfigurationRequest ::
   -- | 'offeringId'
-  Lude.Text ->
+  Types.OfferingId ->
   TargetConfigurationRequest
-mkTargetConfigurationRequest pOfferingId_ =
+mkTargetConfigurationRequest offeringId =
   TargetConfigurationRequest'
-    { instanceCount = Lude.Nothing,
-      offeringId = pOfferingId_
+    { offeringId,
+      instanceCount = Core.Nothing
     }
-
--- | The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request
---
--- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcrInstanceCount :: Lens.Lens' TargetConfigurationRequest (Lude.Maybe Lude.Int)
-tcrInstanceCount = Lens.lens (instanceCount :: TargetConfigurationRequest -> Lude.Maybe Lude.Int) (\s a -> s {instanceCount = a} :: TargetConfigurationRequest)
-{-# DEPRECATED tcrInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | The Convertible Reserved Instance offering ID.
 --
 -- /Note:/ Consider using 'offeringId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcrOfferingId :: Lens.Lens' TargetConfigurationRequest Lude.Text
-tcrOfferingId = Lens.lens (offeringId :: TargetConfigurationRequest -> Lude.Text) (\s a -> s {offeringId = a} :: TargetConfigurationRequest)
+tcrOfferingId :: Lens.Lens' TargetConfigurationRequest Types.OfferingId
+tcrOfferingId = Lens.field @"offeringId"
 {-# DEPRECATED tcrOfferingId "Use generic-lens or generic-optics with 'offeringId' instead." #-}
 
-instance Lude.ToQuery TargetConfigurationRequest where
-  toQuery TargetConfigurationRequest' {..} =
-    Lude.mconcat
-      [ "InstanceCount" Lude.=: instanceCount,
-        "OfferingId" Lude.=: offeringId
-      ]
+-- | The number of instances the Covertible Reserved Instance offering can be applied to. This parameter is reserved and cannot be specified in a request
+--
+-- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tcrInstanceCount :: Lens.Lens' TargetConfigurationRequest (Core.Maybe Core.Int)
+tcrInstanceCount = Lens.field @"instanceCount"
+{-# DEPRECATED tcrInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}

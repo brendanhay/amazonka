@@ -17,69 +17,64 @@ module Network.AWS.Firehose.Types.EncryptionConfiguration
     mkEncryptionConfiguration,
 
     -- * Lenses
-    ecNoEncryptionConfig,
     ecKMSEncryptionConfig,
+    ecNoEncryptionConfig,
   )
 where
 
-import Network.AWS.Firehose.Types.KMSEncryptionConfig
-import Network.AWS.Firehose.Types.NoEncryptionConfig
+import qualified Network.AWS.Firehose.Types.KMSEncryptionConfig as Types
+import qualified Network.AWS.Firehose.Types.NoEncryptionConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the encryption for a destination in Amazon S3.
 --
 -- /See:/ 'mkEncryptionConfiguration' smart constructor.
 data EncryptionConfiguration = EncryptionConfiguration'
-  { -- | Specifically override existing encryption information to ensure that no encryption is used.
-    noEncryptionConfig :: Lude.Maybe NoEncryptionConfig,
-    -- | The encryption key.
-    kmsEncryptionConfig :: Lude.Maybe KMSEncryptionConfig
+  { -- | The encryption key.
+    kMSEncryptionConfig :: Core.Maybe Types.KMSEncryptionConfig,
+    -- | Specifically override existing encryption information to ensure that no encryption is used.
+    noEncryptionConfig :: Core.Maybe Types.NoEncryptionConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.
---
--- * 'noEncryptionConfig' - Specifically override existing encryption information to ensure that no encryption is used.
--- * 'kmsEncryptionConfig' - The encryption key.
+-- | Creates a 'EncryptionConfiguration' value with any optional fields omitted.
 mkEncryptionConfiguration ::
   EncryptionConfiguration
 mkEncryptionConfiguration =
   EncryptionConfiguration'
-    { noEncryptionConfig = Lude.Nothing,
-      kmsEncryptionConfig = Lude.Nothing
+    { kMSEncryptionConfig = Core.Nothing,
+      noEncryptionConfig = Core.Nothing
     }
+
+-- | The encryption key.
+--
+-- /Note:/ Consider using 'kMSEncryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecKMSEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Core.Maybe Types.KMSEncryptionConfig)
+ecKMSEncryptionConfig = Lens.field @"kMSEncryptionConfig"
+{-# DEPRECATED ecKMSEncryptionConfig "Use generic-lens or generic-optics with 'kMSEncryptionConfig' instead." #-}
 
 -- | Specifically override existing encryption information to ensure that no encryption is used.
 --
 -- /Note:/ Consider using 'noEncryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecNoEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Lude.Maybe NoEncryptionConfig)
-ecNoEncryptionConfig = Lens.lens (noEncryptionConfig :: EncryptionConfiguration -> Lude.Maybe NoEncryptionConfig) (\s a -> s {noEncryptionConfig = a} :: EncryptionConfiguration)
+ecNoEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Core.Maybe Types.NoEncryptionConfig)
+ecNoEncryptionConfig = Lens.field @"noEncryptionConfig"
 {-# DEPRECATED ecNoEncryptionConfig "Use generic-lens or generic-optics with 'noEncryptionConfig' instead." #-}
 
--- | The encryption key.
---
--- /Note:/ Consider using 'kmsEncryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecKMSEncryptionConfig :: Lens.Lens' EncryptionConfiguration (Lude.Maybe KMSEncryptionConfig)
-ecKMSEncryptionConfig = Lens.lens (kmsEncryptionConfig :: EncryptionConfiguration -> Lude.Maybe KMSEncryptionConfig) (\s a -> s {kmsEncryptionConfig = a} :: EncryptionConfiguration)
-{-# DEPRECATED ecKMSEncryptionConfig "Use generic-lens or generic-optics with 'kmsEncryptionConfig' instead." #-}
-
-instance Lude.FromJSON EncryptionConfiguration where
-  parseJSON =
-    Lude.withObject
-      "EncryptionConfiguration"
-      ( \x ->
-          EncryptionConfiguration'
-            Lude.<$> (x Lude..:? "NoEncryptionConfig")
-            Lude.<*> (x Lude..:? "KMSEncryptionConfig")
-      )
-
-instance Lude.ToJSON EncryptionConfiguration where
-  toJSON EncryptionConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NoEncryptionConfig" Lude..=) Lude.<$> noEncryptionConfig,
-            ("KMSEncryptionConfig" Lude..=) Lude.<$> kmsEncryptionConfig
+instance Core.FromJSON EncryptionConfiguration where
+  toJSON EncryptionConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("KMSEncryptionConfig" Core..=) Core.<$> kMSEncryptionConfig,
+            ("NoEncryptionConfig" Core..=) Core.<$> noEncryptionConfig
           ]
       )
+
+instance Core.FromJSON EncryptionConfiguration where
+  parseJSON =
+    Core.withObject "EncryptionConfiguration" Core.$
+      \x ->
+        EncryptionConfiguration'
+          Core.<$> (x Core..:? "KMSEncryptionConfig")
+          Core.<*> (x Core..:? "NoEncryptionConfig")

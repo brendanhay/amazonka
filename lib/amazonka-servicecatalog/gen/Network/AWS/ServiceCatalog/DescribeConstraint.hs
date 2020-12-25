@@ -20,30 +20,32 @@ module Network.AWS.ServiceCatalog.DescribeConstraint
     mkDescribeConstraint,
 
     -- ** Request lenses
-    dcAcceptLanguage,
-    dcId,
+    dId,
+    dAcceptLanguage,
 
     -- * Destructuring the response
     DescribeConstraintResponse (..),
     mkDescribeConstraintResponse,
 
     -- ** Response lenses
-    dcrsStatus,
-    dcrsConstraintDetail,
-    dcrsConstraintParameters,
-    dcrsResponseStatus,
+    drsConstraintDetail,
+    drsConstraintParameters,
+    drsStatus,
+    drsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkDescribeConstraint' smart constructor.
 data DescribeConstraint = DescribeConstraint'
-  { -- | The language code.
+  { -- | The identifier of the constraint.
+    id :: Types.Id,
+    -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -53,34 +55,25 @@ data DescribeConstraint = DescribeConstraint'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The identifier of the constraint.
-    id :: Lude.Text
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConstraint' with the minimum fields required to make a request.
---
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'id' - The identifier of the constraint.
+-- | Creates a 'DescribeConstraint' value with any optional fields omitted.
 mkDescribeConstraint ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DescribeConstraint
-mkDescribeConstraint pId_ =
-  DescribeConstraint' {acceptLanguage = Lude.Nothing, id = pId_}
+mkDescribeConstraint id =
+  DescribeConstraint' {id, acceptLanguage = Core.Nothing}
+
+-- | The identifier of the constraint.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dId :: Lens.Lens' DescribeConstraint Types.Id
+dId = Lens.field @"id"
+{-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The language code.
 --
@@ -96,114 +89,94 @@ mkDescribeConstraint pId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcAcceptLanguage :: Lens.Lens' DescribeConstraint (Lude.Maybe Lude.Text)
-dcAcceptLanguage = Lens.lens (acceptLanguage :: DescribeConstraint -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribeConstraint)
-{-# DEPRECATED dcAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+dAcceptLanguage :: Lens.Lens' DescribeConstraint (Core.Maybe Types.AcceptLanguage)
+dAcceptLanguage = Lens.field @"acceptLanguage"
+{-# DEPRECATED dAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
--- | The identifier of the constraint.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcId :: Lens.Lens' DescribeConstraint Lude.Text
-dcId = Lens.lens (id :: DescribeConstraint -> Lude.Text) (\s a -> s {id = a} :: DescribeConstraint)
-{-# DEPRECATED dcId "Use generic-lens or generic-optics with 'id' instead." #-}
+instance Core.FromJSON DescribeConstraint where
+  toJSON DescribeConstraint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+          ]
+      )
 
-instance Lude.AWSRequest DescribeConstraint where
+instance Core.AWSRequest DescribeConstraint where
   type Rs DescribeConstraint = DescribeConstraintResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.DescribeConstraint")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeConstraintResponse'
-            Lude.<$> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "ConstraintDetail")
-            Lude.<*> (x Lude..?> "ConstraintParameters")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ConstraintDetail")
+            Core.<*> (x Core..:? "ConstraintParameters")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeConstraint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.DescribeConstraint" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeConstraint where
-  toJSON DescribeConstraint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("Id" Lude..= id)
-          ]
-      )
-
-instance Lude.ToPath DescribeConstraint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeConstraint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeConstraintResponse' smart constructor.
 data DescribeConstraintResponse = DescribeConstraintResponse'
-  { -- | The status of the current request.
-    status :: Lude.Maybe RequestStatus,
-    -- | Information about the constraint.
-    constraintDetail :: Lude.Maybe ConstraintDetail,
+  { -- | Information about the constraint.
+    constraintDetail :: Core.Maybe Types.ConstraintDetail,
     -- | The constraint parameters.
-    constraintParameters :: Lude.Maybe Lude.Text,
+    constraintParameters :: Core.Maybe Types.ConstraintParameters,
+    -- | The status of the current request.
+    status :: Core.Maybe Types.RequestStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConstraintResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the current request.
--- * 'constraintDetail' - Information about the constraint.
--- * 'constraintParameters' - The constraint parameters.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeConstraintResponse' value with any optional fields omitted.
 mkDescribeConstraintResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeConstraintResponse
-mkDescribeConstraintResponse pResponseStatus_ =
+mkDescribeConstraintResponse responseStatus =
   DescribeConstraintResponse'
-    { status = Lude.Nothing,
-      constraintDetail = Lude.Nothing,
-      constraintParameters = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { constraintDetail = Core.Nothing,
+      constraintParameters = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
-
--- | The status of the current request.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsStatus :: Lens.Lens' DescribeConstraintResponse (Lude.Maybe RequestStatus)
-dcrsStatus = Lens.lens (status :: DescribeConstraintResponse -> Lude.Maybe RequestStatus) (\s a -> s {status = a} :: DescribeConstraintResponse)
-{-# DEPRECATED dcrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Information about the constraint.
 --
 -- /Note:/ Consider using 'constraintDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsConstraintDetail :: Lens.Lens' DescribeConstraintResponse (Lude.Maybe ConstraintDetail)
-dcrsConstraintDetail = Lens.lens (constraintDetail :: DescribeConstraintResponse -> Lude.Maybe ConstraintDetail) (\s a -> s {constraintDetail = a} :: DescribeConstraintResponse)
-{-# DEPRECATED dcrsConstraintDetail "Use generic-lens or generic-optics with 'constraintDetail' instead." #-}
+drsConstraintDetail :: Lens.Lens' DescribeConstraintResponse (Core.Maybe Types.ConstraintDetail)
+drsConstraintDetail = Lens.field @"constraintDetail"
+{-# DEPRECATED drsConstraintDetail "Use generic-lens or generic-optics with 'constraintDetail' instead." #-}
 
 -- | The constraint parameters.
 --
 -- /Note:/ Consider using 'constraintParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsConstraintParameters :: Lens.Lens' DescribeConstraintResponse (Lude.Maybe Lude.Text)
-dcrsConstraintParameters = Lens.lens (constraintParameters :: DescribeConstraintResponse -> Lude.Maybe Lude.Text) (\s a -> s {constraintParameters = a} :: DescribeConstraintResponse)
-{-# DEPRECATED dcrsConstraintParameters "Use generic-lens or generic-optics with 'constraintParameters' instead." #-}
+drsConstraintParameters :: Lens.Lens' DescribeConstraintResponse (Core.Maybe Types.ConstraintParameters)
+drsConstraintParameters = Lens.field @"constraintParameters"
+{-# DEPRECATED drsConstraintParameters "Use generic-lens or generic-optics with 'constraintParameters' instead." #-}
+
+-- | The status of the current request.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsStatus :: Lens.Lens' DescribeConstraintResponse (Core.Maybe Types.RequestStatus)
+drsStatus = Lens.field @"status"
+{-# DEPRECATED drsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DescribeConstraintResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DescribeConstraintResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConstraintResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeConstraintResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

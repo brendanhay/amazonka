@@ -23,79 +23,73 @@ module Network.AWS.CodeDeploy.Types.LoadBalancerInfo
   )
 where
 
-import Network.AWS.CodeDeploy.Types.ELBInfo
-import Network.AWS.CodeDeploy.Types.TargetGroupInfo
-import Network.AWS.CodeDeploy.Types.TargetGroupPairInfo
+import qualified Network.AWS.CodeDeploy.Types.ELBInfo as Types
+import qualified Network.AWS.CodeDeploy.Types.TargetGroupInfo as Types
+import qualified Network.AWS.CodeDeploy.Types.TargetGroupPairInfo as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the Elastic Load Balancing load balancer or target group used in a deployment.
 --
 -- /See:/ 'mkLoadBalancerInfo' smart constructor.
 data LoadBalancerInfo = LoadBalancerInfo'
   { -- | An array that contains information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
-    elbInfoList :: Lude.Maybe [ELBInfo],
+    elbInfoList :: Core.Maybe [Types.ELBInfo],
     -- | An array that contains information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers.
-    targetGroupInfoList :: Lude.Maybe [TargetGroupInfo],
+    targetGroupInfoList :: Core.Maybe [Types.TargetGroupInfo],
     -- | The target group pair information. This is an array of @TargeGroupPairInfo@ objects with a maximum size of one.
-    targetGroupPairInfoList :: Lude.Maybe [TargetGroupPairInfo]
+    targetGroupPairInfoList :: Core.Maybe [Types.TargetGroupPairInfo]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoadBalancerInfo' with the minimum fields required to make a request.
---
--- * 'elbInfoList' - An array that contains information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
--- * 'targetGroupInfoList' - An array that contains information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers.
--- * 'targetGroupPairInfoList' - The target group pair information. This is an array of @TargeGroupPairInfo@ objects with a maximum size of one.
+-- | Creates a 'LoadBalancerInfo' value with any optional fields omitted.
 mkLoadBalancerInfo ::
   LoadBalancerInfo
 mkLoadBalancerInfo =
   LoadBalancerInfo'
-    { elbInfoList = Lude.Nothing,
-      targetGroupInfoList = Lude.Nothing,
-      targetGroupPairInfoList = Lude.Nothing
+    { elbInfoList = Core.Nothing,
+      targetGroupInfoList = Core.Nothing,
+      targetGroupPairInfoList = Core.Nothing
     }
 
 -- | An array that contains information about the load balancer to use for load balancing in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load Balancers.
 --
 -- /Note:/ Consider using 'elbInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbiElbInfoList :: Lens.Lens' LoadBalancerInfo (Lude.Maybe [ELBInfo])
-lbiElbInfoList = Lens.lens (elbInfoList :: LoadBalancerInfo -> Lude.Maybe [ELBInfo]) (\s a -> s {elbInfoList = a} :: LoadBalancerInfo)
+lbiElbInfoList :: Lens.Lens' LoadBalancerInfo (Core.Maybe [Types.ELBInfo])
+lbiElbInfoList = Lens.field @"elbInfoList"
 {-# DEPRECATED lbiElbInfoList "Use generic-lens or generic-optics with 'elbInfoList' instead." #-}
 
 -- | An array that contains information about the target group to use for load balancing in a deployment. In Elastic Load Balancing, target groups are used with Application Load Balancers.
 --
 -- /Note:/ Consider using 'targetGroupInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbiTargetGroupInfoList :: Lens.Lens' LoadBalancerInfo (Lude.Maybe [TargetGroupInfo])
-lbiTargetGroupInfoList = Lens.lens (targetGroupInfoList :: LoadBalancerInfo -> Lude.Maybe [TargetGroupInfo]) (\s a -> s {targetGroupInfoList = a} :: LoadBalancerInfo)
+lbiTargetGroupInfoList :: Lens.Lens' LoadBalancerInfo (Core.Maybe [Types.TargetGroupInfo])
+lbiTargetGroupInfoList = Lens.field @"targetGroupInfoList"
 {-# DEPRECATED lbiTargetGroupInfoList "Use generic-lens or generic-optics with 'targetGroupInfoList' instead." #-}
 
 -- | The target group pair information. This is an array of @TargeGroupPairInfo@ objects with a maximum size of one.
 --
 -- /Note:/ Consider using 'targetGroupPairInfoList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbiTargetGroupPairInfoList :: Lens.Lens' LoadBalancerInfo (Lude.Maybe [TargetGroupPairInfo])
-lbiTargetGroupPairInfoList = Lens.lens (targetGroupPairInfoList :: LoadBalancerInfo -> Lude.Maybe [TargetGroupPairInfo]) (\s a -> s {targetGroupPairInfoList = a} :: LoadBalancerInfo)
+lbiTargetGroupPairInfoList :: Lens.Lens' LoadBalancerInfo (Core.Maybe [Types.TargetGroupPairInfo])
+lbiTargetGroupPairInfoList = Lens.field @"targetGroupPairInfoList"
 {-# DEPRECATED lbiTargetGroupPairInfoList "Use generic-lens or generic-optics with 'targetGroupPairInfoList' instead." #-}
 
-instance Lude.FromJSON LoadBalancerInfo where
-  parseJSON =
-    Lude.withObject
-      "LoadBalancerInfo"
-      ( \x ->
-          LoadBalancerInfo'
-            Lude.<$> (x Lude..:? "elbInfoList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "targetGroupInfoList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "targetGroupPairInfoList" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON LoadBalancerInfo where
-  toJSON LoadBalancerInfo' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("elbInfoList" Lude..=) Lude.<$> elbInfoList,
-            ("targetGroupInfoList" Lude..=) Lude.<$> targetGroupInfoList,
-            ("targetGroupPairInfoList" Lude..=)
-              Lude.<$> targetGroupPairInfoList
+instance Core.FromJSON LoadBalancerInfo where
+  toJSON LoadBalancerInfo {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("elbInfoList" Core..=) Core.<$> elbInfoList,
+            ("targetGroupInfoList" Core..=) Core.<$> targetGroupInfoList,
+            ("targetGroupPairInfoList" Core..=)
+              Core.<$> targetGroupPairInfoList
           ]
       )
+
+instance Core.FromJSON LoadBalancerInfo where
+  parseJSON =
+    Core.withObject "LoadBalancerInfo" Core.$
+      \x ->
+        LoadBalancerInfo'
+          Core.<$> (x Core..:? "elbInfoList")
+          Core.<*> (x Core..:? "targetGroupInfoList")
+          Core.<*> (x Core..:? "targetGroupPairInfoList")

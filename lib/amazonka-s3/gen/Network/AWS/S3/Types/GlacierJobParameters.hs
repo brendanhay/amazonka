@@ -22,37 +22,33 @@ module Network.AWS.S3.Types.GlacierJobParameters
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.Tier
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Tier as Types
 
 -- | Container for S3 Glacier job parameters.
 --
 -- /See:/ 'mkGlacierJobParameters' smart constructor.
 newtype GlacierJobParameters = GlacierJobParameters'
   { -- | Retrieval tier at which the restore will be processed.
-    tier :: Tier
+    tier :: Types.Tier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GlacierJobParameters' with the minimum fields required to make a request.
---
--- * 'tier' - Retrieval tier at which the restore will be processed.
+-- | Creates a 'GlacierJobParameters' value with any optional fields omitted.
 mkGlacierJobParameters ::
   -- | 'tier'
-  Tier ->
+  Types.Tier ->
   GlacierJobParameters
-mkGlacierJobParameters pTier_ =
-  GlacierJobParameters' {tier = pTier_}
+mkGlacierJobParameters tier = GlacierJobParameters' {tier}
 
 -- | Retrieval tier at which the restore will be processed.
 --
 -- /Note:/ Consider using 'tier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjpTier :: Lens.Lens' GlacierJobParameters Tier
-gjpTier = Lens.lens (tier :: GlacierJobParameters -> Tier) (\s a -> s {tier = a} :: GlacierJobParameters)
+gjpTier :: Lens.Lens' GlacierJobParameters Types.Tier
+gjpTier = Lens.field @"tier"
 {-# DEPRECATED gjpTier "Use generic-lens or generic-optics with 'tier' instead." #-}
 
-instance Lude.ToXML GlacierJobParameters where
-  toXML GlacierJobParameters' {..} =
-    Lude.mconcat ["Tier" Lude.@= tier]
+instance Core.ToXML GlacierJobParameters where
+  toXML GlacierJobParameters {..} = Core.toXMLNode "Tier" tier

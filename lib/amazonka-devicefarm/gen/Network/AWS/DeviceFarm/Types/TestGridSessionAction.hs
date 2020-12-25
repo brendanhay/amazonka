@@ -25,89 +25,82 @@ module Network.AWS.DeviceFarm.Types.TestGridSessionAction
   )
 where
 
+import qualified Network.AWS.DeviceFarm.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An action taken by a 'TestGridSession' browser instance.
 --
 -- /See:/ 'mkTestGridSessionAction' smart constructor.
 data TestGridSessionAction = TestGridSessionAction'
   { -- | The action taken by the session.
-    action :: Lude.Maybe Lude.Text,
+    action :: Core.Maybe Types.String,
     -- | The time, in milliseconds, that the action took to complete in the browser.
-    duration :: Lude.Maybe Lude.Integer,
+    duration :: Core.Maybe Core.Integer,
     -- | HTTP method that the browser used to make the request.
-    requestMethod :: Lude.Maybe Lude.Text,
+    requestMethod :: Core.Maybe Types.String,
     -- | The time that the session invoked the action.
-    started :: Lude.Maybe Lude.Timestamp,
+    started :: Core.Maybe Core.NominalDiffTime,
     -- | HTTP status code returned to the browser when the action was taken.
-    statusCode :: Lude.Maybe Lude.Text
+    statusCode :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TestGridSessionAction' with the minimum fields required to make a request.
---
--- * 'action' - The action taken by the session.
--- * 'duration' - The time, in milliseconds, that the action took to complete in the browser.
--- * 'requestMethod' - HTTP method that the browser used to make the request.
--- * 'started' - The time that the session invoked the action.
--- * 'statusCode' - HTTP status code returned to the browser when the action was taken.
+-- | Creates a 'TestGridSessionAction' value with any optional fields omitted.
 mkTestGridSessionAction ::
   TestGridSessionAction
 mkTestGridSessionAction =
   TestGridSessionAction'
-    { action = Lude.Nothing,
-      duration = Lude.Nothing,
-      requestMethod = Lude.Nothing,
-      started = Lude.Nothing,
-      statusCode = Lude.Nothing
+    { action = Core.Nothing,
+      duration = Core.Nothing,
+      requestMethod = Core.Nothing,
+      started = Core.Nothing,
+      statusCode = Core.Nothing
     }
 
 -- | The action taken by the session.
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgsaAction :: Lens.Lens' TestGridSessionAction (Lude.Maybe Lude.Text)
-tgsaAction = Lens.lens (action :: TestGridSessionAction -> Lude.Maybe Lude.Text) (\s a -> s {action = a} :: TestGridSessionAction)
+tgsaAction :: Lens.Lens' TestGridSessionAction (Core.Maybe Types.String)
+tgsaAction = Lens.field @"action"
 {-# DEPRECATED tgsaAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | The time, in milliseconds, that the action took to complete in the browser.
 --
 -- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgsaDuration :: Lens.Lens' TestGridSessionAction (Lude.Maybe Lude.Integer)
-tgsaDuration = Lens.lens (duration :: TestGridSessionAction -> Lude.Maybe Lude.Integer) (\s a -> s {duration = a} :: TestGridSessionAction)
+tgsaDuration :: Lens.Lens' TestGridSessionAction (Core.Maybe Core.Integer)
+tgsaDuration = Lens.field @"duration"
 {-# DEPRECATED tgsaDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
 
 -- | HTTP method that the browser used to make the request.
 --
 -- /Note:/ Consider using 'requestMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgsaRequestMethod :: Lens.Lens' TestGridSessionAction (Lude.Maybe Lude.Text)
-tgsaRequestMethod = Lens.lens (requestMethod :: TestGridSessionAction -> Lude.Maybe Lude.Text) (\s a -> s {requestMethod = a} :: TestGridSessionAction)
+tgsaRequestMethod :: Lens.Lens' TestGridSessionAction (Core.Maybe Types.String)
+tgsaRequestMethod = Lens.field @"requestMethod"
 {-# DEPRECATED tgsaRequestMethod "Use generic-lens or generic-optics with 'requestMethod' instead." #-}
 
 -- | The time that the session invoked the action.
 --
 -- /Note:/ Consider using 'started' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgsaStarted :: Lens.Lens' TestGridSessionAction (Lude.Maybe Lude.Timestamp)
-tgsaStarted = Lens.lens (started :: TestGridSessionAction -> Lude.Maybe Lude.Timestamp) (\s a -> s {started = a} :: TestGridSessionAction)
+tgsaStarted :: Lens.Lens' TestGridSessionAction (Core.Maybe Core.NominalDiffTime)
+tgsaStarted = Lens.field @"started"
 {-# DEPRECATED tgsaStarted "Use generic-lens or generic-optics with 'started' instead." #-}
 
 -- | HTTP status code returned to the browser when the action was taken.
 --
 -- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgsaStatusCode :: Lens.Lens' TestGridSessionAction (Lude.Maybe Lude.Text)
-tgsaStatusCode = Lens.lens (statusCode :: TestGridSessionAction -> Lude.Maybe Lude.Text) (\s a -> s {statusCode = a} :: TestGridSessionAction)
+tgsaStatusCode :: Lens.Lens' TestGridSessionAction (Core.Maybe Types.String)
+tgsaStatusCode = Lens.field @"statusCode"
 {-# DEPRECATED tgsaStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance Lude.FromJSON TestGridSessionAction where
+instance Core.FromJSON TestGridSessionAction where
   parseJSON =
-    Lude.withObject
-      "TestGridSessionAction"
-      ( \x ->
-          TestGridSessionAction'
-            Lude.<$> (x Lude..:? "action")
-            Lude.<*> (x Lude..:? "duration")
-            Lude.<*> (x Lude..:? "requestMethod")
-            Lude.<*> (x Lude..:? "started")
-            Lude.<*> (x Lude..:? "statusCode")
-      )
+    Core.withObject "TestGridSessionAction" Core.$
+      \x ->
+        TestGridSessionAction'
+          Core.<$> (x Core..:? "action")
+          Core.<*> (x Core..:? "duration")
+          Core.<*> (x Core..:? "requestMethod")
+          Core.<*> (x Core..:? "started")
+          Core.<*> (x Core..:? "statusCode")

@@ -31,126 +31,112 @@ module Network.AWS.MigrationHub.ImportMigrationTask
     mkImportMigrationTaskResponse,
 
     -- ** Response lenses
-    imtrsResponseStatus,
+    imtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MigrationHub.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MigrationHub.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkImportMigrationTask' smart constructor.
 data ImportMigrationTask = ImportMigrationTask'
   { -- | The name of the ProgressUpdateStream. >
-    progressUpdateStream :: Lude.Text,
+    progressUpdateStream :: Types.ProgressUpdateStream,
     -- | Unique identifier that references the migration task. /Do not store personal data in this field./
-    migrationTaskName :: Lude.Text,
+    migrationTaskName :: Types.MigrationTaskName,
     -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportMigrationTask' with the minimum fields required to make a request.
---
--- * 'progressUpdateStream' - The name of the ProgressUpdateStream. >
--- * 'migrationTaskName' - Unique identifier that references the migration task. /Do not store personal data in this field./
--- * 'dryRun' - Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
+-- | Creates a 'ImportMigrationTask' value with any optional fields omitted.
 mkImportMigrationTask ::
   -- | 'progressUpdateStream'
-  Lude.Text ->
+  Types.ProgressUpdateStream ->
   -- | 'migrationTaskName'
-  Lude.Text ->
+  Types.MigrationTaskName ->
   ImportMigrationTask
-mkImportMigrationTask pProgressUpdateStream_ pMigrationTaskName_ =
+mkImportMigrationTask progressUpdateStream migrationTaskName =
   ImportMigrationTask'
-    { progressUpdateStream =
-        pProgressUpdateStream_,
-      migrationTaskName = pMigrationTaskName_,
-      dryRun = Lude.Nothing
+    { progressUpdateStream,
+      migrationTaskName,
+      dryRun = Core.Nothing
     }
 
 -- | The name of the ProgressUpdateStream. >
 --
 -- /Note:/ Consider using 'progressUpdateStream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imtProgressUpdateStream :: Lens.Lens' ImportMigrationTask Lude.Text
-imtProgressUpdateStream = Lens.lens (progressUpdateStream :: ImportMigrationTask -> Lude.Text) (\s a -> s {progressUpdateStream = a} :: ImportMigrationTask)
+imtProgressUpdateStream :: Lens.Lens' ImportMigrationTask Types.ProgressUpdateStream
+imtProgressUpdateStream = Lens.field @"progressUpdateStream"
 {-# DEPRECATED imtProgressUpdateStream "Use generic-lens or generic-optics with 'progressUpdateStream' instead." #-}
 
 -- | Unique identifier that references the migration task. /Do not store personal data in this field./
 --
 -- /Note:/ Consider using 'migrationTaskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imtMigrationTaskName :: Lens.Lens' ImportMigrationTask Lude.Text
-imtMigrationTaskName = Lens.lens (migrationTaskName :: ImportMigrationTask -> Lude.Text) (\s a -> s {migrationTaskName = a} :: ImportMigrationTask)
+imtMigrationTaskName :: Lens.Lens' ImportMigrationTask Types.MigrationTaskName
+imtMigrationTaskName = Lens.field @"migrationTaskName"
 {-# DEPRECATED imtMigrationTaskName "Use generic-lens or generic-optics with 'migrationTaskName' instead." #-}
 
 -- | Optional boolean flag to indicate whether any effect should take place. Used to test if the caller has permission to make the call.
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imtDryRun :: Lens.Lens' ImportMigrationTask (Lude.Maybe Lude.Bool)
-imtDryRun = Lens.lens (dryRun :: ImportMigrationTask -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ImportMigrationTask)
+imtDryRun :: Lens.Lens' ImportMigrationTask (Core.Maybe Core.Bool)
+imtDryRun = Lens.field @"dryRun"
 {-# DEPRECATED imtDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest ImportMigrationTask where
+instance Core.FromJSON ImportMigrationTask where
+  toJSON ImportMigrationTask {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProgressUpdateStream" Core..= progressUpdateStream),
+            Core.Just ("MigrationTaskName" Core..= migrationTaskName),
+            ("DryRun" Core..=) Core.<$> dryRun
+          ]
+      )
+
+instance Core.AWSRequest ImportMigrationTask where
   type Rs ImportMigrationTask = ImportMigrationTaskResponse
-  request = Req.postJSON migrationHubService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSMigrationHub.ImportMigrationTask")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           ImportMigrationTaskResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ImportMigrationTask where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSMigrationHub.ImportMigrationTask" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ImportMigrationTask where
-  toJSON ImportMigrationTask' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ProgressUpdateStream" Lude..= progressUpdateStream),
-            Lude.Just ("MigrationTaskName" Lude..= migrationTaskName),
-            ("DryRun" Lude..=) Lude.<$> dryRun
-          ]
-      )
-
-instance Lude.ToPath ImportMigrationTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ImportMigrationTask where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkImportMigrationTaskResponse' smart constructor.
 newtype ImportMigrationTaskResponse = ImportMigrationTaskResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportMigrationTaskResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ImportMigrationTaskResponse' value with any optional fields omitted.
 mkImportMigrationTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ImportMigrationTaskResponse
-mkImportMigrationTaskResponse pResponseStatus_ =
-  ImportMigrationTaskResponse' {responseStatus = pResponseStatus_}
+mkImportMigrationTaskResponse responseStatus =
+  ImportMigrationTaskResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imtrsResponseStatus :: Lens.Lens' ImportMigrationTaskResponse Lude.Int
-imtrsResponseStatus = Lens.lens (responseStatus :: ImportMigrationTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportMigrationTaskResponse)
-{-# DEPRECATED imtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+imtrrsResponseStatus :: Lens.Lens' ImportMigrationTaskResponse Core.Int
+imtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED imtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

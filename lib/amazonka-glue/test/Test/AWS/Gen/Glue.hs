@@ -1926,7 +1926,7 @@ responseStartImportLabelsTaskRun =
   res
     "StartImportLabelsTaskRunResponse"
     "fixture/StartImportLabelsTaskRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StartImportLabelsTaskRun)
 
 responseUpdateMLTransform :: UpdateMLTransformResponse -> TestTree
@@ -1934,7 +1934,7 @@ responseUpdateMLTransform =
   res
     "UpdateMLTransformResponse"
     "fixture/UpdateMLTransformResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateMLTransform)
 
 responseUpdateRegistry :: UpdateRegistryResponse -> TestTree
@@ -1942,7 +1942,7 @@ responseUpdateRegistry =
   res
     "UpdateRegistryResponse"
     "fixture/UpdateRegistryResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateRegistry)
 
 responseDeleteRegistry :: DeleteRegistryResponse -> TestTree
@@ -1950,7 +1950,7 @@ responseDeleteRegistry =
   res
     "DeleteRegistryResponse"
     "fixture/DeleteRegistryResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRegistry)
 
 responseDeleteMLTransform :: DeleteMLTransformResponse -> TestTree
@@ -1958,7 +1958,7 @@ responseDeleteMLTransform =
   res
     "DeleteMLTransformResponse"
     "fixture/DeleteMLTransformResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteMLTransform)
 
 responseStartCrawler :: StartCrawlerResponse -> TestTree
@@ -1966,7 +1966,7 @@ responseStartCrawler =
   res
     "StartCrawlerResponse"
     "fixture/StartCrawlerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StartCrawler)
 
 responseGetCatalogImportStatus :: GetCatalogImportStatusResponse -> TestTree
@@ -1974,7 +1974,7 @@ responseGetCatalogImportStatus =
   res
     "GetCatalogImportStatusResponse"
     "fixture/GetCatalogImportStatusResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetCatalogImportStatus)
 
 responseListMLTransforms :: ListMLTransformsResponse -> TestTree
@@ -1982,7 +1982,7 @@ responseListMLTransforms =
   res
     "ListMLTransformsResponse"
     "fixture/ListMLTransformsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ListMLTransforms)
 
 responseGetPartition :: GetPartitionResponse -> TestTree
@@ -1990,7 +1990,7 @@ responseGetPartition =
   res
     "GetPartitionResponse"
     "fixture/GetPartitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetPartition)
 
 responseQuerySchemaVersionMetadata :: QuerySchemaVersionMetadataResponse -> TestTree
@@ -1998,7 +1998,7 @@ responseQuerySchemaVersionMetadata =
   res
     "QuerySchemaVersionMetadataResponse"
     "fixture/QuerySchemaVersionMetadataResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy QuerySchemaVersionMetadata)
 
 responseCreateTrigger :: CreateTriggerResponse -> TestTree
@@ -2006,7 +2006,7 @@ responseCreateTrigger =
   res
     "CreateTriggerResponse"
     "fixture/CreateTriggerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateTrigger)
 
 responseCheckSchemaVersionValidity :: CheckSchemaVersionValidityResponse -> TestTree
@@ -2014,7 +2014,7 @@ responseCheckSchemaVersionValidity =
   res
     "CheckSchemaVersionValidityResponse"
     "fixture/CheckSchemaVersionValidityResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CheckSchemaVersionValidity)
 
 responseDeleteTable :: DeleteTableResponse -> TestTree
@@ -2022,7 +2022,7 @@ responseDeleteTable =
   res
     "DeleteTableResponse"
     "fixture/DeleteTableResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTable)
 
 responseUpdateTable :: UpdateTableResponse -> TestTree
@@ -2030,7 +2030,7 @@ responseUpdateTable =
   res
     "UpdateTableResponse"
     "fixture/UpdateTableResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTable)
 
 responseGetWorkflowRuns :: GetWorkflowRunsResponse -> TestTree
@@ -2038,7 +2038,7 @@ responseGetWorkflowRuns =
   res
     "GetWorkflowRunsResponse"
     "fixture/GetWorkflowRunsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetWorkflowRuns)
 
 responseCreateWorkflow :: CreateWorkflowResponse -> TestTree
@@ -2046,7 +2046,7 @@ responseCreateWorkflow =
   res
     "CreateWorkflowResponse"
     "fixture/CreateWorkflowResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateWorkflow)
 
 responseUpdateColumnStatisticsForTable :: UpdateColumnStatisticsForTableResponse -> TestTree
@@ -2054,7 +2054,7 @@ responseUpdateColumnStatisticsForTable =
   res
     "UpdateColumnStatisticsForTableResponse"
     "fixture/UpdateColumnStatisticsForTableResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateColumnStatisticsForTable)
 
 responseDeleteColumnStatisticsForTable :: DeleteColumnStatisticsForTableResponse -> TestTree
@@ -2062,7 +2062,7 @@ responseDeleteColumnStatisticsForTable =
   res
     "DeleteColumnStatisticsForTableResponse"
     "fixture/DeleteColumnStatisticsForTableResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteColumnStatisticsForTable)
 
 responseDeleteConnection :: DeleteConnectionResponse -> TestTree
@@ -2070,7 +2070,7 @@ responseDeleteConnection =
   res
     "DeleteConnectionResponse"
     "fixture/DeleteConnectionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteConnection)
 
 responseUpdateConnection :: UpdateConnectionResponse -> TestTree
@@ -2078,7 +2078,7 @@ responseUpdateConnection =
   res
     "UpdateConnectionResponse"
     "fixture/UpdateConnectionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateConnection)
 
 responseGetUserDefinedFunctions :: GetUserDefinedFunctionsResponse -> TestTree
@@ -2086,7 +2086,7 @@ responseGetUserDefinedFunctions =
   res
     "GetUserDefinedFunctionsResponse"
     "fixture/GetUserDefinedFunctionsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetUserDefinedFunctions)
 
 responseGetTags :: GetTagsResponse -> TestTree
@@ -2094,7 +2094,7 @@ responseGetTags =
   res
     "GetTagsResponse"
     "fixture/GetTagsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetTags)
 
 responseGetDataCatalogEncryptionSettings :: GetDataCatalogEncryptionSettingsResponse -> TestTree
@@ -2102,7 +2102,7 @@ responseGetDataCatalogEncryptionSettings =
   res
     "GetDataCatalogEncryptionSettingsResponse"
     "fixture/GetDataCatalogEncryptionSettingsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetDataCatalogEncryptionSettings)
 
 responseBatchCreatePartition :: BatchCreatePartitionResponse -> TestTree
@@ -2110,7 +2110,7 @@ responseBatchCreatePartition =
   res
     "BatchCreatePartitionResponse"
     "fixture/BatchCreatePartitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchCreatePartition)
 
 responseGetMapping :: GetMappingResponse -> TestTree
@@ -2118,7 +2118,7 @@ responseGetMapping =
   res
     "GetMappingResponse"
     "fixture/GetMappingResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetMapping)
 
 responseDeleteWorkflow :: DeleteWorkflowResponse -> TestTree
@@ -2126,7 +2126,7 @@ responseDeleteWorkflow =
   res
     "DeleteWorkflowResponse"
     "fixture/DeleteWorkflowResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteWorkflow)
 
 responseUpdateWorkflow :: UpdateWorkflowResponse -> TestTree
@@ -2134,7 +2134,7 @@ responseUpdateWorkflow =
   res
     "UpdateWorkflowResponse"
     "fixture/UpdateWorkflowResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateWorkflow)
 
 responseGetTableVersion :: GetTableVersionResponse -> TestTree
@@ -2142,7 +2142,7 @@ responseGetTableVersion =
   res
     "GetTableVersionResponse"
     "fixture/GetTableVersionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetTableVersion)
 
 responseCreateSecurityConfiguration :: CreateSecurityConfigurationResponse -> TestTree
@@ -2150,7 +2150,7 @@ responseCreateSecurityConfiguration =
   res
     "CreateSecurityConfigurationResponse"
     "fixture/CreateSecurityConfigurationResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateSecurityConfiguration)
 
 responseStartWorkflowRun :: StartWorkflowRunResponse -> TestTree
@@ -2158,7 +2158,7 @@ responseStartWorkflowRun =
   res
     "StartWorkflowRunResponse"
     "fixture/StartWorkflowRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StartWorkflowRun)
 
 responseGetJobs :: GetJobsResponse -> TestTree
@@ -2166,7 +2166,7 @@ responseGetJobs =
   res
     "GetJobsResponse"
     "fixture/GetJobsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetJobs)
 
 responseBatchGetWorkflows :: BatchGetWorkflowsResponse -> TestTree
@@ -2174,7 +2174,7 @@ responseBatchGetWorkflows =
   res
     "BatchGetWorkflowsResponse"
     "fixture/BatchGetWorkflowsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetWorkflows)
 
 responseGetClassifiers :: GetClassifiersResponse -> TestTree
@@ -2182,7 +2182,7 @@ responseGetClassifiers =
   res
     "GetClassifiersResponse"
     "fixture/GetClassifiersResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetClassifiers)
 
 responseGetResourcePolicies :: GetResourcePoliciesResponse -> TestTree
@@ -2190,7 +2190,7 @@ responseGetResourcePolicies =
   res
     "GetResourcePoliciesResponse"
     "fixture/GetResourcePoliciesResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetResourcePolicies)
 
 responseCreateConnection :: CreateConnectionResponse -> TestTree
@@ -2198,7 +2198,7 @@ responseCreateConnection =
   res
     "CreateConnectionResponse"
     "fixture/CreateConnectionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateConnection)
 
 responseListSchemaVersions :: ListSchemaVersionsResponse -> TestTree
@@ -2206,7 +2206,7 @@ responseListSchemaVersions =
   res
     "ListSchemaVersionsResponse"
     "fixture/ListSchemaVersionsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ListSchemaVersions)
 
 responseGetWorkflowRunProperties :: GetWorkflowRunPropertiesResponse -> TestTree
@@ -2214,7 +2214,7 @@ responseGetWorkflowRunProperties =
   res
     "GetWorkflowRunPropertiesResponse"
     "fixture/GetWorkflowRunPropertiesResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetWorkflowRunProperties)
 
 responseBatchGetDevEndpoints :: BatchGetDevEndpointsResponse -> TestTree
@@ -2222,7 +2222,7 @@ responseBatchGetDevEndpoints =
   res
     "BatchGetDevEndpointsResponse"
     "fixture/BatchGetDevEndpointsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetDevEndpoints)
 
 responseDeletePartitionIndex :: DeletePartitionIndexResponse -> TestTree
@@ -2230,7 +2230,7 @@ responseDeletePartitionIndex =
   res
     "DeletePartitionIndexResponse"
     "fixture/DeletePartitionIndexResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeletePartitionIndex)
 
 responseDeleteTableVersion :: DeleteTableVersionResponse -> TestTree
@@ -2238,7 +2238,7 @@ responseDeleteTableVersion =
   res
     "DeleteTableVersionResponse"
     "fixture/DeleteTableVersionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTableVersion)
 
 responseDeleteDevEndpoint :: DeleteDevEndpointResponse -> TestTree
@@ -2246,7 +2246,7 @@ responseDeleteDevEndpoint =
   res
     "DeleteDevEndpointResponse"
     "fixture/DeleteDevEndpointResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDevEndpoint)
 
 responseUpdateDevEndpoint :: UpdateDevEndpointResponse -> TestTree
@@ -2254,7 +2254,7 @@ responseUpdateDevEndpoint =
   res
     "UpdateDevEndpointResponse"
     "fixture/UpdateDevEndpointResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDevEndpoint)
 
 responseGetWorkflow :: GetWorkflowResponse -> TestTree
@@ -2262,7 +2262,7 @@ responseGetWorkflow =
   res
     "GetWorkflowResponse"
     "fixture/GetWorkflowResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetWorkflow)
 
 responseBatchGetCrawlers :: BatchGetCrawlersResponse -> TestTree
@@ -2270,7 +2270,7 @@ responseBatchGetCrawlers =
   res
     "BatchGetCrawlersResponse"
     "fixture/BatchGetCrawlersResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetCrawlers)
 
 responseGetJobBookmark :: GetJobBookmarkResponse -> TestTree
@@ -2278,7 +2278,7 @@ responseGetJobBookmark =
   res
     "GetJobBookmarkResponse"
     "fixture/GetJobBookmarkResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetJobBookmark)
 
 responseDeleteCrawler :: DeleteCrawlerResponse -> TestTree
@@ -2286,7 +2286,7 @@ responseDeleteCrawler =
   res
     "DeleteCrawlerResponse"
     "fixture/DeleteCrawlerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCrawler)
 
 responseUpdateCrawler :: UpdateCrawlerResponse -> TestTree
@@ -2294,7 +2294,7 @@ responseUpdateCrawler =
   res
     "UpdateCrawlerResponse"
     "fixture/UpdateCrawlerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateCrawler)
 
 responseStartExportLabelsTaskRun :: StartExportLabelsTaskRunResponse -> TestTree
@@ -2302,7 +2302,7 @@ responseStartExportLabelsTaskRun =
   res
     "StartExportLabelsTaskRunResponse"
     "fixture/StartExportLabelsTaskRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StartExportLabelsTaskRun)
 
 responseGetSecurityConfiguration :: GetSecurityConfigurationResponse -> TestTree
@@ -2310,7 +2310,7 @@ responseGetSecurityConfiguration =
   res
     "GetSecurityConfigurationResponse"
     "fixture/GetSecurityConfigurationResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetSecurityConfiguration)
 
 responseCreatePartitionIndex :: CreatePartitionIndexResponse -> TestTree
@@ -2318,7 +2318,7 @@ responseCreatePartitionIndex =
   res
     "CreatePartitionIndexResponse"
     "fixture/CreatePartitionIndexResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreatePartitionIndex)
 
 responseRemoveSchemaVersionMetadata :: RemoveSchemaVersionMetadataResponse -> TestTree
@@ -2326,7 +2326,7 @@ responseRemoveSchemaVersionMetadata =
   res
     "RemoveSchemaVersionMetadataResponse"
     "fixture/RemoveSchemaVersionMetadataResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy RemoveSchemaVersionMetadata)
 
 responseListSchemas :: ListSchemasResponse -> TestTree
@@ -2334,7 +2334,7 @@ responseListSchemas =
   res
     "ListSchemasResponse"
     "fixture/ListSchemasResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ListSchemas)
 
 responseGetConnection :: GetConnectionResponse -> TestTree
@@ -2342,7 +2342,7 @@ responseGetConnection =
   res
     "GetConnectionResponse"
     "fixture/GetConnectionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetConnection)
 
 responseGetColumnStatisticsForTable :: GetColumnStatisticsForTableResponse -> TestTree
@@ -2350,7 +2350,7 @@ responseGetColumnStatisticsForTable =
   res
     "GetColumnStatisticsForTableResponse"
     "fixture/GetColumnStatisticsForTableResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetColumnStatisticsForTable)
 
 responseBatchGetPartition :: BatchGetPartitionResponse -> TestTree
@@ -2358,7 +2358,7 @@ responseBatchGetPartition =
   res
     "BatchGetPartitionResponse"
     "fixture/BatchGetPartitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetPartition)
 
 responseStopTrigger :: StopTriggerResponse -> TestTree
@@ -2366,7 +2366,7 @@ responseStopTrigger =
   res
     "StopTriggerResponse"
     "fixture/StopTriggerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StopTrigger)
 
 responseUpdateCrawlerSchedule :: UpdateCrawlerScheduleResponse -> TestTree
@@ -2374,7 +2374,7 @@ responseUpdateCrawlerSchedule =
   res
     "UpdateCrawlerScheduleResponse"
     "fixture/UpdateCrawlerScheduleResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateCrawlerSchedule)
 
 responseStartMLEvaluationTaskRun :: StartMLEvaluationTaskRunResponse -> TestTree
@@ -2382,7 +2382,7 @@ responseStartMLEvaluationTaskRun =
   res
     "StartMLEvaluationTaskRunResponse"
     "fixture/StartMLEvaluationTaskRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StartMLEvaluationTaskRun)
 
 responseDeleteUserDefinedFunction :: DeleteUserDefinedFunctionResponse -> TestTree
@@ -2390,7 +2390,7 @@ responseDeleteUserDefinedFunction =
   res
     "DeleteUserDefinedFunctionResponse"
     "fixture/DeleteUserDefinedFunctionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUserDefinedFunction)
 
 responseUpdateUserDefinedFunction :: UpdateUserDefinedFunctionResponse -> TestTree
@@ -2398,7 +2398,7 @@ responseUpdateUserDefinedFunction =
   res
     "UpdateUserDefinedFunctionResponse"
     "fixture/UpdateUserDefinedFunctionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateUserDefinedFunction)
 
 responseGetRegistry :: GetRegistryResponse -> TestTree
@@ -2406,7 +2406,7 @@ responseGetRegistry =
   res
     "GetRegistryResponse"
     "fixture/GetRegistryResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetRegistry)
 
 responseBatchDeleteTable :: BatchDeleteTableResponse -> TestTree
@@ -2414,7 +2414,7 @@ responseBatchDeleteTable =
   res
     "BatchDeleteTableResponse"
     "fixture/BatchDeleteTableResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchDeleteTable)
 
 responseCancelMLTaskRun :: CancelMLTaskRunResponse -> TestTree
@@ -2422,7 +2422,7 @@ responseCancelMLTaskRun =
   res
     "CancelMLTaskRunResponse"
     "fixture/CancelMLTaskRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CancelMLTaskRun)
 
 responseGetTables :: GetTablesResponse -> TestTree
@@ -2430,7 +2430,7 @@ responseGetTables =
   res
     "GetTablesResponse"
     "fixture/GetTablesResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetTables)
 
 responseResumeWorkflowRun :: ResumeWorkflowRunResponse -> TestTree
@@ -2438,7 +2438,7 @@ responseResumeWorkflowRun =
   res
     "ResumeWorkflowRunResponse"
     "fixture/ResumeWorkflowRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ResumeWorkflowRun)
 
 responseCreateClassifier :: CreateClassifierResponse -> TestTree
@@ -2446,7 +2446,7 @@ responseCreateClassifier =
   res
     "CreateClassifierResponse"
     "fixture/CreateClassifierResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateClassifier)
 
 responseBatchDeleteConnection :: BatchDeleteConnectionResponse -> TestTree
@@ -2454,7 +2454,7 @@ responseBatchDeleteConnection =
   res
     "BatchDeleteConnectionResponse"
     "fixture/BatchDeleteConnectionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchDeleteConnection)
 
 responseCreateJob :: CreateJobResponse -> TestTree
@@ -2462,7 +2462,7 @@ responseCreateJob =
   res
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateJob)
 
 responseGetJobRuns :: GetJobRunsResponse -> TestTree
@@ -2470,7 +2470,7 @@ responseGetJobRuns =
   res
     "GetJobRunsResponse"
     "fixture/GetJobRunsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetJobRuns)
 
 responseCreateUserDefinedFunction :: CreateUserDefinedFunctionResponse -> TestTree
@@ -2478,7 +2478,7 @@ responseCreateUserDefinedFunction =
   res
     "CreateUserDefinedFunctionResponse"
     "fixture/CreateUserDefinedFunctionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateUserDefinedFunction)
 
 responseResetJobBookmark :: ResetJobBookmarkResponse -> TestTree
@@ -2486,7 +2486,7 @@ responseResetJobBookmark =
   res
     "ResetJobBookmarkResponse"
     "fixture/ResetJobBookmarkResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ResetJobBookmark)
 
 responseListJobs :: ListJobsResponse -> TestTree
@@ -2494,7 +2494,7 @@ responseListJobs =
   res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ListJobs)
 
 responseDeleteJob :: DeleteJobResponse -> TestTree
@@ -2502,7 +2502,7 @@ responseDeleteJob =
   res
     "DeleteJobResponse"
     "fixture/DeleteJobResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteJob)
 
 responseUpdateJob :: UpdateJobResponse -> TestTree
@@ -2510,7 +2510,7 @@ responseUpdateJob =
   res
     "UpdateJobResponse"
     "fixture/UpdateJobResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateJob)
 
 responseCreateRegistry :: CreateRegistryResponse -> TestTree
@@ -2518,7 +2518,7 @@ responseCreateRegistry =
   res
     "CreateRegistryResponse"
     "fixture/CreateRegistryResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateRegistry)
 
 responseGetCrawlers :: GetCrawlersResponse -> TestTree
@@ -2526,7 +2526,7 @@ responseGetCrawlers =
   res
     "GetCrawlersResponse"
     "fixture/GetCrawlersResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetCrawlers)
 
 responseListTriggers :: ListTriggersResponse -> TestTree
@@ -2534,7 +2534,7 @@ responseListTriggers =
   res
     "ListTriggersResponse"
     "fixture/ListTriggersResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ListTriggers)
 
 responseGetClassifier :: GetClassifierResponse -> TestTree
@@ -2542,7 +2542,7 @@ responseGetClassifier =
   res
     "GetClassifierResponse"
     "fixture/GetClassifierResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetClassifier)
 
 responseGetJob :: GetJobResponse -> TestTree
@@ -2550,7 +2550,7 @@ responseGetJob =
   res
     "GetJobResponse"
     "fixture/GetJobResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetJob)
 
 responseListRegistries :: ListRegistriesResponse -> TestTree
@@ -2558,7 +2558,7 @@ responseListRegistries =
   res
     "ListRegistriesResponse"
     "fixture/ListRegistriesResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ListRegistries)
 
 responseBatchDeleteTableVersion :: BatchDeleteTableVersionResponse -> TestTree
@@ -2566,7 +2566,7 @@ responseBatchDeleteTableVersion =
   res
     "BatchDeleteTableVersionResponse"
     "fixture/BatchDeleteTableVersionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchDeleteTableVersion)
 
 responseGetDevEndpoints :: GetDevEndpointsResponse -> TestTree
@@ -2574,7 +2574,7 @@ responseGetDevEndpoints =
   res
     "GetDevEndpointsResponse"
     "fixture/GetDevEndpointsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetDevEndpoints)
 
 responseStartCrawlerSchedule :: StartCrawlerScheduleResponse -> TestTree
@@ -2582,7 +2582,7 @@ responseStartCrawlerSchedule =
   res
     "StartCrawlerScheduleResponse"
     "fixture/StartCrawlerScheduleResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StartCrawlerSchedule)
 
 responseGetPartitionIndexes :: GetPartitionIndexesResponse -> TestTree
@@ -2590,7 +2590,7 @@ responseGetPartitionIndexes =
   res
     "GetPartitionIndexesResponse"
     "fixture/GetPartitionIndexesResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetPartitionIndexes)
 
 responseGetUserDefinedFunction :: GetUserDefinedFunctionResponse -> TestTree
@@ -2598,7 +2598,7 @@ responseGetUserDefinedFunction =
   res
     "GetUserDefinedFunctionResponse"
     "fixture/GetUserDefinedFunctionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetUserDefinedFunction)
 
 responseGetResourcePolicy :: GetResourcePolicyResponse -> TestTree
@@ -2606,7 +2606,7 @@ responseGetResourcePolicy =
   res
     "GetResourcePolicyResponse"
     "fixture/GetResourcePolicyResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetResourcePolicy)
 
 responseGetWorkflowRun :: GetWorkflowRunResponse -> TestTree
@@ -2614,7 +2614,7 @@ responseGetWorkflowRun =
   res
     "GetWorkflowRunResponse"
     "fixture/GetWorkflowRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetWorkflowRun)
 
 responseDeleteDatabase :: DeleteDatabaseResponse -> TestTree
@@ -2622,7 +2622,7 @@ responseDeleteDatabase =
   res
     "DeleteDatabaseResponse"
     "fixture/DeleteDatabaseResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDatabase)
 
 responseUpdateDatabase :: UpdateDatabaseResponse -> TestTree
@@ -2630,7 +2630,7 @@ responseUpdateDatabase =
   res
     "UpdateDatabaseResponse"
     "fixture/UpdateDatabaseResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDatabase)
 
 responseGetColumnStatisticsForPartition :: GetColumnStatisticsForPartitionResponse -> TestTree
@@ -2638,7 +2638,7 @@ responseGetColumnStatisticsForPartition =
   res
     "GetColumnStatisticsForPartitionResponse"
     "fixture/GetColumnStatisticsForPartitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetColumnStatisticsForPartition)
 
 responseStopCrawler :: StopCrawlerResponse -> TestTree
@@ -2646,7 +2646,7 @@ responseStopCrawler =
   res
     "StopCrawlerResponse"
     "fixture/StopCrawlerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StopCrawler)
 
 responseDeleteSecurityConfiguration :: DeleteSecurityConfigurationResponse -> TestTree
@@ -2654,7 +2654,7 @@ responseDeleteSecurityConfiguration =
   res
     "DeleteSecurityConfigurationResponse"
     "fixture/DeleteSecurityConfigurationResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSecurityConfiguration)
 
 responseGetPartitions :: GetPartitionsResponse -> TestTree
@@ -2662,7 +2662,7 @@ responseGetPartitions =
   res
     "GetPartitionsResponse"
     "fixture/GetPartitionsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetPartitions)
 
 responsePutSchemaVersionMetadata :: PutSchemaVersionMetadataResponse -> TestTree
@@ -2670,7 +2670,7 @@ responsePutSchemaVersionMetadata =
   res
     "PutSchemaVersionMetadataResponse"
     "fixture/PutSchemaVersionMetadataResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy PutSchemaVersionMetadata)
 
 responseGetSchema :: GetSchemaResponse -> TestTree
@@ -2678,7 +2678,7 @@ responseGetSchema =
   res
     "GetSchemaResponse"
     "fixture/GetSchemaResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetSchema)
 
 responseBatchDeletePartition :: BatchDeletePartitionResponse -> TestTree
@@ -2686,7 +2686,7 @@ responseBatchDeletePartition =
   res
     "BatchDeletePartitionResponse"
     "fixture/BatchDeletePartitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchDeletePartition)
 
 responseStartMLLabelingSetGenerationTaskRun :: StartMLLabelingSetGenerationTaskRunResponse -> TestTree
@@ -2694,7 +2694,7 @@ responseStartMLLabelingSetGenerationTaskRun =
   res
     "StartMLLabelingSetGenerationTaskRunResponse"
     "fixture/StartMLLabelingSetGenerationTaskRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StartMLLabelingSetGenerationTaskRun)
 
 responseBatchUpdatePartition :: BatchUpdatePartitionResponse -> TestTree
@@ -2702,7 +2702,7 @@ responseBatchUpdatePartition =
   res
     "BatchUpdatePartitionResponse"
     "fixture/BatchUpdatePartitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchUpdatePartition)
 
 responseRegisterSchemaVersion :: RegisterSchemaVersionResponse -> TestTree
@@ -2710,7 +2710,7 @@ responseRegisterSchemaVersion =
   res
     "RegisterSchemaVersionResponse"
     "fixture/RegisterSchemaVersionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy RegisterSchemaVersion)
 
 responseStopWorkflowRun :: StopWorkflowRunResponse -> TestTree
@@ -2718,7 +2718,7 @@ responseStopWorkflowRun =
   res
     "StopWorkflowRunResponse"
     "fixture/StopWorkflowRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StopWorkflowRun)
 
 responseGetCrawler :: GetCrawlerResponse -> TestTree
@@ -2726,7 +2726,7 @@ responseGetCrawler =
   res
     "GetCrawlerResponse"
     "fixture/GetCrawlerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetCrawler)
 
 responseListWorkflows :: ListWorkflowsResponse -> TestTree
@@ -2734,7 +2734,7 @@ responseListWorkflows =
   res
     "ListWorkflowsResponse"
     "fixture/ListWorkflowsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ListWorkflows)
 
 responseBatchStopJobRun :: BatchStopJobRunResponse -> TestTree
@@ -2742,7 +2742,7 @@ responseBatchStopJobRun =
   res
     "BatchStopJobRunResponse"
     "fixture/BatchStopJobRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchStopJobRun)
 
 responseGetDevEndpoint :: GetDevEndpointResponse -> TestTree
@@ -2750,7 +2750,7 @@ responseGetDevEndpoint =
   res
     "GetDevEndpointResponse"
     "fixture/GetDevEndpointResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetDevEndpoint)
 
 responsePutWorkflowRunProperties :: PutWorkflowRunPropertiesResponse -> TestTree
@@ -2758,7 +2758,7 @@ responsePutWorkflowRunProperties =
   res
     "PutWorkflowRunPropertiesResponse"
     "fixture/PutWorkflowRunPropertiesResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy PutWorkflowRunProperties)
 
 responseCreateTable :: CreateTableResponse -> TestTree
@@ -2766,7 +2766,7 @@ responseCreateTable =
   res
     "CreateTableResponse"
     "fixture/CreateTableResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateTable)
 
 responseListCrawlers :: ListCrawlersResponse -> TestTree
@@ -2774,7 +2774,7 @@ responseListCrawlers =
   res
     "ListCrawlersResponse"
     "fixture/ListCrawlersResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ListCrawlers)
 
 responseGetCrawlerMetrics :: GetCrawlerMetricsResponse -> TestTree
@@ -2782,7 +2782,7 @@ responseGetCrawlerMetrics =
   res
     "GetCrawlerMetricsResponse"
     "fixture/GetCrawlerMetricsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetCrawlerMetrics)
 
 responseGetSchemaVersion :: GetSchemaVersionResponse -> TestTree
@@ -2790,7 +2790,7 @@ responseGetSchemaVersion =
   res
     "GetSchemaVersionResponse"
     "fixture/GetSchemaVersionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetSchemaVersion)
 
 responseGetPlan :: GetPlanResponse -> TestTree
@@ -2798,7 +2798,7 @@ responseGetPlan =
   res
     "GetPlanResponse"
     "fixture/GetPlanResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetPlan)
 
 responseGetTriggers :: GetTriggersResponse -> TestTree
@@ -2806,7 +2806,7 @@ responseGetTriggers =
   res
     "GetTriggersResponse"
     "fixture/GetTriggersResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetTriggers)
 
 responseCreateSchema :: CreateSchemaResponse -> TestTree
@@ -2814,7 +2814,7 @@ responseCreateSchema =
   res
     "CreateSchemaResponse"
     "fixture/CreateSchemaResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateSchema)
 
 responseListDevEndpoints :: ListDevEndpointsResponse -> TestTree
@@ -2822,7 +2822,7 @@ responseListDevEndpoints =
   res
     "ListDevEndpointsResponse"
     "fixture/ListDevEndpointsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ListDevEndpoints)
 
 responseStartTrigger :: StartTriggerResponse -> TestTree
@@ -2830,7 +2830,7 @@ responseStartTrigger =
   res
     "StartTriggerResponse"
     "fixture/StartTriggerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StartTrigger)
 
 responseGetDataflowGraph :: GetDataflowGraphResponse -> TestTree
@@ -2838,7 +2838,7 @@ responseGetDataflowGraph =
   res
     "GetDataflowGraphResponse"
     "fixture/GetDataflowGraphResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetDataflowGraph)
 
 responseGetDatabases :: GetDatabasesResponse -> TestTree
@@ -2846,7 +2846,7 @@ responseGetDatabases =
   res
     "GetDatabasesResponse"
     "fixture/GetDatabasesResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetDatabases)
 
 responseGetTable :: GetTableResponse -> TestTree
@@ -2854,7 +2854,7 @@ responseGetTable =
   res
     "GetTableResponse"
     "fixture/GetTableResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetTable)
 
 responseCreateCrawler :: CreateCrawlerResponse -> TestTree
@@ -2862,7 +2862,7 @@ responseCreateCrawler =
   res
     "CreateCrawlerResponse"
     "fixture/CreateCrawlerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateCrawler)
 
 responseGetJobRun :: GetJobRunResponse -> TestTree
@@ -2870,7 +2870,7 @@ responseGetJobRun =
   res
     "GetJobRunResponse"
     "fixture/GetJobRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetJobRun)
 
 responseCreateDevEndpoint :: CreateDevEndpointResponse -> TestTree
@@ -2878,7 +2878,7 @@ responseCreateDevEndpoint =
   res
     "CreateDevEndpointResponse"
     "fixture/CreateDevEndpointResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateDevEndpoint)
 
 responseGetMLTaskRuns :: GetMLTaskRunsResponse -> TestTree
@@ -2886,7 +2886,7 @@ responseGetMLTaskRuns =
   res
     "GetMLTaskRunsResponse"
     "fixture/GetMLTaskRunsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetMLTaskRuns)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -2894,7 +2894,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responsePutDataCatalogEncryptionSettings :: PutDataCatalogEncryptionSettingsResponse -> TestTree
@@ -2902,7 +2902,7 @@ responsePutDataCatalogEncryptionSettings =
   res
     "PutDataCatalogEncryptionSettingsResponse"
     "fixture/PutDataCatalogEncryptionSettingsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy PutDataCatalogEncryptionSettings)
 
 responseGetMLTransforms :: GetMLTransformsResponse -> TestTree
@@ -2910,7 +2910,7 @@ responseGetMLTransforms =
   res
     "GetMLTransformsResponse"
     "fixture/GetMLTransformsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetMLTransforms)
 
 responseUpdateSchema :: UpdateSchemaResponse -> TestTree
@@ -2918,7 +2918,7 @@ responseUpdateSchema =
   res
     "UpdateSchemaResponse"
     "fixture/UpdateSchemaResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateSchema)
 
 responseDeleteSchema :: DeleteSchemaResponse -> TestTree
@@ -2926,7 +2926,7 @@ responseDeleteSchema =
   res
     "DeleteSchemaResponse"
     "fixture/DeleteSchemaResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSchema)
 
 responseGetDatabase :: GetDatabaseResponse -> TestTree
@@ -2934,7 +2934,7 @@ responseGetDatabase =
   res
     "GetDatabaseResponse"
     "fixture/GetDatabaseResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetDatabase)
 
 responseDeleteColumnStatisticsForPartition :: DeleteColumnStatisticsForPartitionResponse -> TestTree
@@ -2942,7 +2942,7 @@ responseDeleteColumnStatisticsForPartition =
   res
     "DeleteColumnStatisticsForPartitionResponse"
     "fixture/DeleteColumnStatisticsForPartitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteColumnStatisticsForPartition)
 
 responseUpdateColumnStatisticsForPartition :: UpdateColumnStatisticsForPartitionResponse -> TestTree
@@ -2950,7 +2950,7 @@ responseUpdateColumnStatisticsForPartition =
   res
     "UpdateColumnStatisticsForPartitionResponse"
     "fixture/UpdateColumnStatisticsForPartitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateColumnStatisticsForPartition)
 
 responseGetMLTaskRun :: GetMLTaskRunResponse -> TestTree
@@ -2958,7 +2958,7 @@ responseGetMLTaskRun =
   res
     "GetMLTaskRunResponse"
     "fixture/GetMLTaskRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetMLTaskRun)
 
 responseDeletePartition :: DeletePartitionResponse -> TestTree
@@ -2966,7 +2966,7 @@ responseDeletePartition =
   res
     "DeletePartitionResponse"
     "fixture/DeletePartitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeletePartition)
 
 responseUpdatePartition :: UpdatePartitionResponse -> TestTree
@@ -2974,7 +2974,7 @@ responseUpdatePartition =
   res
     "UpdatePartitionResponse"
     "fixture/UpdatePartitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePartition)
 
 responseGetMLTransform :: GetMLTransformResponse -> TestTree
@@ -2982,7 +2982,7 @@ responseGetMLTransform =
   res
     "GetMLTransformResponse"
     "fixture/GetMLTransformResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetMLTransform)
 
 responseCreateScript :: CreateScriptResponse -> TestTree
@@ -2990,7 +2990,7 @@ responseCreateScript =
   res
     "CreateScriptResponse"
     "fixture/CreateScriptResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateScript)
 
 responsePutResourcePolicy :: PutResourcePolicyResponse -> TestTree
@@ -2998,7 +2998,7 @@ responsePutResourcePolicy =
   res
     "PutResourcePolicyResponse"
     "fixture/PutResourcePolicyResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy PutResourcePolicy)
 
 responseGetSecurityConfigurations :: GetSecurityConfigurationsResponse -> TestTree
@@ -3006,7 +3006,7 @@ responseGetSecurityConfigurations =
   res
     "GetSecurityConfigurationsResponse"
     "fixture/GetSecurityConfigurationsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetSecurityConfigurations)
 
 responseDeleteResourcePolicy :: DeleteResourcePolicyResponse -> TestTree
@@ -3014,7 +3014,7 @@ responseDeleteResourcePolicy =
   res
     "DeleteResourcePolicyResponse"
     "fixture/DeleteResourcePolicyResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteResourcePolicy)
 
 responseGetConnections :: GetConnectionsResponse -> TestTree
@@ -3022,7 +3022,7 @@ responseGetConnections =
   res
     "GetConnectionsResponse"
     "fixture/GetConnectionsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetConnections)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -3030,7 +3030,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseGetSchemaVersionsDiff :: GetSchemaVersionsDiffResponse -> TestTree
@@ -3038,7 +3038,7 @@ responseGetSchemaVersionsDiff =
   res
     "GetSchemaVersionsDiffResponse"
     "fixture/GetSchemaVersionsDiffResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetSchemaVersionsDiff)
 
 responseSearchTables :: SearchTablesResponse -> TestTree
@@ -3046,7 +3046,7 @@ responseSearchTables =
   res
     "SearchTablesResponse"
     "fixture/SearchTablesResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy SearchTables)
 
 responseGetTrigger :: GetTriggerResponse -> TestTree
@@ -3054,7 +3054,7 @@ responseGetTrigger =
   res
     "GetTriggerResponse"
     "fixture/GetTriggerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetTrigger)
 
 responseBatchGetJobs :: BatchGetJobsResponse -> TestTree
@@ -3062,7 +3062,7 @@ responseBatchGetJobs =
   res
     "BatchGetJobsResponse"
     "fixture/BatchGetJobsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetJobs)
 
 responseImportCatalogToGlue :: ImportCatalogToGlueResponse -> TestTree
@@ -3070,7 +3070,7 @@ responseImportCatalogToGlue =
   res
     "ImportCatalogToGlueResponse"
     "fixture/ImportCatalogToGlueResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy ImportCatalogToGlue)
 
 responseDeleteClassifier :: DeleteClassifierResponse -> TestTree
@@ -3078,7 +3078,7 @@ responseDeleteClassifier =
   res
     "DeleteClassifierResponse"
     "fixture/DeleteClassifierResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteClassifier)
 
 responseUpdateClassifier :: UpdateClassifierResponse -> TestTree
@@ -3086,7 +3086,7 @@ responseUpdateClassifier =
   res
     "UpdateClassifierResponse"
     "fixture/UpdateClassifierResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateClassifier)
 
 responseStartJobRun :: StartJobRunResponse -> TestTree
@@ -3094,7 +3094,7 @@ responseStartJobRun =
   res
     "StartJobRunResponse"
     "fixture/StartJobRunResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StartJobRun)
 
 responseCreatePartition :: CreatePartitionResponse -> TestTree
@@ -3102,7 +3102,7 @@ responseCreatePartition =
   res
     "CreatePartitionResponse"
     "fixture/CreatePartitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreatePartition)
 
 responseBatchGetTriggers :: BatchGetTriggersResponse -> TestTree
@@ -3110,7 +3110,7 @@ responseBatchGetTriggers =
   res
     "BatchGetTriggersResponse"
     "fixture/BatchGetTriggersResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetTriggers)
 
 responseStopCrawlerSchedule :: StopCrawlerScheduleResponse -> TestTree
@@ -3118,7 +3118,7 @@ responseStopCrawlerSchedule =
   res
     "StopCrawlerScheduleResponse"
     "fixture/StopCrawlerScheduleResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy StopCrawlerSchedule)
 
 responseGetSchemaByDefinition :: GetSchemaByDefinitionResponse -> TestTree
@@ -3126,7 +3126,7 @@ responseGetSchemaByDefinition =
   res
     "GetSchemaByDefinitionResponse"
     "fixture/GetSchemaByDefinitionResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetSchemaByDefinition)
 
 responseCreateDatabase :: CreateDatabaseResponse -> TestTree
@@ -3134,7 +3134,7 @@ responseCreateDatabase =
   res
     "CreateDatabaseResponse"
     "fixture/CreateDatabaseResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateDatabase)
 
 responseGetTableVersions :: GetTableVersionsResponse -> TestTree
@@ -3142,7 +3142,7 @@ responseGetTableVersions =
   res
     "GetTableVersionsResponse"
     "fixture/GetTableVersionsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy GetTableVersions)
 
 responseCreateMLTransform :: CreateMLTransformResponse -> TestTree
@@ -3150,7 +3150,7 @@ responseCreateMLTransform =
   res
     "CreateMLTransformResponse"
     "fixture/CreateMLTransformResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy CreateMLTransform)
 
 responseDeleteSchemaVersions :: DeleteSchemaVersionsResponse -> TestTree
@@ -3158,7 +3158,7 @@ responseDeleteSchemaVersions =
   res
     "DeleteSchemaVersionsResponse"
     "fixture/DeleteSchemaVersionsResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSchemaVersions)
 
 responseDeleteTrigger :: DeleteTriggerResponse -> TestTree
@@ -3166,7 +3166,7 @@ responseDeleteTrigger =
   res
     "DeleteTriggerResponse"
     "fixture/DeleteTriggerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTrigger)
 
 responseUpdateTrigger :: UpdateTriggerResponse -> TestTree
@@ -3174,5 +3174,5 @@ responseUpdateTrigger =
   res
     "UpdateTriggerResponse"
     "fixture/UpdateTriggerResponse.proto"
-    glueService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTrigger)

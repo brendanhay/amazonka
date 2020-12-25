@@ -22,200 +22,187 @@ module Network.AWS.MechanicalTurk.ListWorkersWithQualificationType
     mkListWorkersWithQualificationType,
 
     -- ** Request lenses
-    lwwqtStatus,
-    lwwqtNextToken,
     lwwqtQualificationTypeId,
     lwwqtMaxResults,
+    lwwqtNextToken,
+    lwwqtStatus,
 
     -- * Destructuring the response
     ListWorkersWithQualificationTypeResponse (..),
     mkListWorkersWithQualificationTypeResponse,
 
     -- ** Response lenses
-    lwwqtrsNextToken,
-    lwwqtrsNumResults,
-    lwwqtrsQualifications,
-    lwwqtrsResponseStatus,
+    lwwqtrrsNextToken,
+    lwwqtrrsNumResults,
+    lwwqtrrsQualifications,
+    lwwqtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListWorkersWithQualificationType' smart constructor.
 data ListWorkersWithQualificationType = ListWorkersWithQualificationType'
-  { -- | The status of the Qualifications to return. Can be @Granted | Revoked@ .
-    status :: Lude.Maybe QualificationStatus,
-    -- | Pagination Token
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The ID of the Qualification type of the Qualifications to return.
-    qualificationTypeId :: Lude.Text,
+  { -- | The ID of the Qualification type of the Qualifications to return.
+    qualificationTypeId :: Types.QualificationTypeId,
     -- | Limit the number of results returned.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Pagination Token
+    nextToken :: Core.Maybe Types.PaginationToken,
+    -- | The status of the Qualifications to return. Can be @Granted | Revoked@ .
+    status :: Core.Maybe Types.QualificationStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListWorkersWithQualificationType' with the minimum fields required to make a request.
---
--- * 'status' - The status of the Qualifications to return. Can be @Granted | Revoked@ .
--- * 'nextToken' - Pagination Token
--- * 'qualificationTypeId' - The ID of the Qualification type of the Qualifications to return.
--- * 'maxResults' - Limit the number of results returned.
+-- | Creates a 'ListWorkersWithQualificationType' value with any optional fields omitted.
 mkListWorkersWithQualificationType ::
   -- | 'qualificationTypeId'
-  Lude.Text ->
+  Types.QualificationTypeId ->
   ListWorkersWithQualificationType
-mkListWorkersWithQualificationType pQualificationTypeId_ =
+mkListWorkersWithQualificationType qualificationTypeId =
   ListWorkersWithQualificationType'
-    { status = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      qualificationTypeId = pQualificationTypeId_,
-      maxResults = Lude.Nothing
+    { qualificationTypeId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the Qualifications to return. Can be @Granted | Revoked@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwwqtStatus :: Lens.Lens' ListWorkersWithQualificationType (Lude.Maybe QualificationStatus)
-lwwqtStatus = Lens.lens (status :: ListWorkersWithQualificationType -> Lude.Maybe QualificationStatus) (\s a -> s {status = a} :: ListWorkersWithQualificationType)
-{-# DEPRECATED lwwqtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Pagination Token
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwwqtNextToken :: Lens.Lens' ListWorkersWithQualificationType (Lude.Maybe Lude.Text)
-lwwqtNextToken = Lens.lens (nextToken :: ListWorkersWithQualificationType -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkersWithQualificationType)
-{-# DEPRECATED lwwqtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the Qualification type of the Qualifications to return.
 --
 -- /Note:/ Consider using 'qualificationTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwwqtQualificationTypeId :: Lens.Lens' ListWorkersWithQualificationType Lude.Text
-lwwqtQualificationTypeId = Lens.lens (qualificationTypeId :: ListWorkersWithQualificationType -> Lude.Text) (\s a -> s {qualificationTypeId = a} :: ListWorkersWithQualificationType)
+lwwqtQualificationTypeId :: Lens.Lens' ListWorkersWithQualificationType Types.QualificationTypeId
+lwwqtQualificationTypeId = Lens.field @"qualificationTypeId"
 {-# DEPRECATED lwwqtQualificationTypeId "Use generic-lens or generic-optics with 'qualificationTypeId' instead." #-}
 
 -- | Limit the number of results returned.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwwqtMaxResults :: Lens.Lens' ListWorkersWithQualificationType (Lude.Maybe Lude.Natural)
-lwwqtMaxResults = Lens.lens (maxResults :: ListWorkersWithQualificationType -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListWorkersWithQualificationType)
+lwwqtMaxResults :: Lens.Lens' ListWorkersWithQualificationType (Core.Maybe Core.Natural)
+lwwqtMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lwwqtMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListWorkersWithQualificationType where
-  page rq rs
-    | Page.stop (rs Lens.^. lwwqtrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lwwqtrsQualifications) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lwwqtNextToken Lens..~ rs Lens.^. lwwqtrsNextToken
+-- | Pagination Token
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwwqtNextToken :: Lens.Lens' ListWorkersWithQualificationType (Core.Maybe Types.PaginationToken)
+lwwqtNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lwwqtNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListWorkersWithQualificationType where
+-- | The status of the Qualifications to return. Can be @Granted | Revoked@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwwqtStatus :: Lens.Lens' ListWorkersWithQualificationType (Core.Maybe Types.QualificationStatus)
+lwwqtStatus = Lens.field @"status"
+{-# DEPRECATED lwwqtStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON ListWorkersWithQualificationType where
+  toJSON ListWorkersWithQualificationType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("QualificationTypeId" Core..= qualificationTypeId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Status" Core..=) Core.<$> status
+          ]
+      )
+
+instance Core.AWSRequest ListWorkersWithQualificationType where
   type
     Rs ListWorkersWithQualificationType =
       ListWorkersWithQualificationTypeResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListWorkersWithQualificationTypeResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "NumResults")
-            Lude.<*> (x Lude..?> "Qualifications" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "NumResults")
+            Core.<*> (x Core..:? "Qualifications")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListWorkersWithQualificationType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.ListWorkersWithQualificationType" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListWorkersWithQualificationType where
-  toJSON ListWorkersWithQualificationType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Status" Lude..=) Lude.<$> status,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListWorkersWithQualificationType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListWorkersWithQualificationType where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListWorkersWithQualificationType where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"qualifications" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListWorkersWithQualificationTypeResponse' smart constructor.
 data ListWorkersWithQualificationTypeResponse = ListWorkersWithQualificationTypeResponse'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { nextToken :: Core.Maybe Types.PaginationToken,
     -- | The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.
-    numResults :: Lude.Maybe Lude.Int,
+    numResults :: Core.Maybe Core.Int,
     -- | The list of Qualification elements returned by this call.
-    qualifications :: Lude.Maybe [Qualification],
+    qualifications :: Core.Maybe [Types.Qualification],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListWorkersWithQualificationTypeResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' -
--- * 'numResults' - The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.
--- * 'qualifications' - The list of Qualification elements returned by this call.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListWorkersWithQualificationTypeResponse' value with any optional fields omitted.
 mkListWorkersWithQualificationTypeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListWorkersWithQualificationTypeResponse
-mkListWorkersWithQualificationTypeResponse pResponseStatus_ =
+mkListWorkersWithQualificationTypeResponse responseStatus =
   ListWorkersWithQualificationTypeResponse'
     { nextToken =
-        Lude.Nothing,
-      numResults = Lude.Nothing,
-      qualifications = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      numResults = Core.Nothing,
+      qualifications = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwwqtrsNextToken :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Lude.Maybe Lude.Text)
-lwwqtrsNextToken = Lens.lens (nextToken :: ListWorkersWithQualificationTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListWorkersWithQualificationTypeResponse)
-{-# DEPRECATED lwwqtrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lwwqtrrsNextToken :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Core.Maybe Types.PaginationToken)
+lwwqtrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lwwqtrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of Qualifications on this page in the filtered results list, equivalent to the number of Qualifications being returned by this call.
 --
 -- /Note:/ Consider using 'numResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwwqtrsNumResults :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Lude.Maybe Lude.Int)
-lwwqtrsNumResults = Lens.lens (numResults :: ListWorkersWithQualificationTypeResponse -> Lude.Maybe Lude.Int) (\s a -> s {numResults = a} :: ListWorkersWithQualificationTypeResponse)
-{-# DEPRECATED lwwqtrsNumResults "Use generic-lens or generic-optics with 'numResults' instead." #-}
+lwwqtrrsNumResults :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Core.Maybe Core.Int)
+lwwqtrrsNumResults = Lens.field @"numResults"
+{-# DEPRECATED lwwqtrrsNumResults "Use generic-lens or generic-optics with 'numResults' instead." #-}
 
 -- | The list of Qualification elements returned by this call.
 --
 -- /Note:/ Consider using 'qualifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwwqtrsQualifications :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Lude.Maybe [Qualification])
-lwwqtrsQualifications = Lens.lens (qualifications :: ListWorkersWithQualificationTypeResponse -> Lude.Maybe [Qualification]) (\s a -> s {qualifications = a} :: ListWorkersWithQualificationTypeResponse)
-{-# DEPRECATED lwwqtrsQualifications "Use generic-lens or generic-optics with 'qualifications' instead." #-}
+lwwqtrrsQualifications :: Lens.Lens' ListWorkersWithQualificationTypeResponse (Core.Maybe [Types.Qualification])
+lwwqtrrsQualifications = Lens.field @"qualifications"
+{-# DEPRECATED lwwqtrrsQualifications "Use generic-lens or generic-optics with 'qualifications' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwwqtrsResponseStatus :: Lens.Lens' ListWorkersWithQualificationTypeResponse Lude.Int
-lwwqtrsResponseStatus = Lens.lens (responseStatus :: ListWorkersWithQualificationTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListWorkersWithQualificationTypeResponse)
-{-# DEPRECATED lwwqtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lwwqtrrsResponseStatus :: Lens.Lens' ListWorkersWithQualificationTypeResponse Core.Int
+lwwqtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lwwqtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

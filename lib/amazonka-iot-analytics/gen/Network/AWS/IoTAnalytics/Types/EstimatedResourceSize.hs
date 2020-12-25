@@ -23,52 +23,47 @@ module Network.AWS.IoTAnalytics.Types.EstimatedResourceSize
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The estimated size of the resource.
 --
 -- /See:/ 'mkEstimatedResourceSize' smart constructor.
 data EstimatedResourceSize = EstimatedResourceSize'
   { -- | The time when the estimate of the size of the resource was made.
-    estimatedOn :: Lude.Maybe Lude.Timestamp,
+    estimatedOn :: Core.Maybe Core.NominalDiffTime,
     -- | The estimated size of the resource, in bytes.
-    estimatedSizeInBytes :: Lude.Maybe Lude.Double
+    estimatedSizeInBytes :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EstimatedResourceSize' with the minimum fields required to make a request.
---
--- * 'estimatedOn' - The time when the estimate of the size of the resource was made.
--- * 'estimatedSizeInBytes' - The estimated size of the resource, in bytes.
+-- | Creates a 'EstimatedResourceSize' value with any optional fields omitted.
 mkEstimatedResourceSize ::
   EstimatedResourceSize
 mkEstimatedResourceSize =
   EstimatedResourceSize'
-    { estimatedOn = Lude.Nothing,
-      estimatedSizeInBytes = Lude.Nothing
+    { estimatedOn = Core.Nothing,
+      estimatedSizeInBytes = Core.Nothing
     }
 
 -- | The time when the estimate of the size of the resource was made.
 --
 -- /Note:/ Consider using 'estimatedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ersEstimatedOn :: Lens.Lens' EstimatedResourceSize (Lude.Maybe Lude.Timestamp)
-ersEstimatedOn = Lens.lens (estimatedOn :: EstimatedResourceSize -> Lude.Maybe Lude.Timestamp) (\s a -> s {estimatedOn = a} :: EstimatedResourceSize)
+ersEstimatedOn :: Lens.Lens' EstimatedResourceSize (Core.Maybe Core.NominalDiffTime)
+ersEstimatedOn = Lens.field @"estimatedOn"
 {-# DEPRECATED ersEstimatedOn "Use generic-lens or generic-optics with 'estimatedOn' instead." #-}
 
 -- | The estimated size of the resource, in bytes.
 --
 -- /Note:/ Consider using 'estimatedSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ersEstimatedSizeInBytes :: Lens.Lens' EstimatedResourceSize (Lude.Maybe Lude.Double)
-ersEstimatedSizeInBytes = Lens.lens (estimatedSizeInBytes :: EstimatedResourceSize -> Lude.Maybe Lude.Double) (\s a -> s {estimatedSizeInBytes = a} :: EstimatedResourceSize)
+ersEstimatedSizeInBytes :: Lens.Lens' EstimatedResourceSize (Core.Maybe Core.Double)
+ersEstimatedSizeInBytes = Lens.field @"estimatedSizeInBytes"
 {-# DEPRECATED ersEstimatedSizeInBytes "Use generic-lens or generic-optics with 'estimatedSizeInBytes' instead." #-}
 
-instance Lude.FromJSON EstimatedResourceSize where
+instance Core.FromJSON EstimatedResourceSize where
   parseJSON =
-    Lude.withObject
-      "EstimatedResourceSize"
-      ( \x ->
-          EstimatedResourceSize'
-            Lude.<$> (x Lude..:? "estimatedOn")
-            Lude.<*> (x Lude..:? "estimatedSizeInBytes")
-      )
+    Core.withObject "EstimatedResourceSize" Core.$
+      \x ->
+        EstimatedResourceSize'
+          Core.<$> (x Core..:? "estimatedOn")
+          Core.<*> (x Core..:? "estimatedSizeInBytes")

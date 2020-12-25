@@ -17,97 +17,93 @@ module Network.AWS.WorkDocs.Types.UserMetadata
     mkUserMetadata,
 
     -- * Lenses
-    umGivenName,
-    umUsername,
     umEmailAddress,
+    umGivenName,
     umId,
     umSurname,
+    umUsername,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.EmailAddressType as Types
+import qualified Network.AWS.WorkDocs.Types.IdType as Types
+import qualified Network.AWS.WorkDocs.Types.UserAttributeValueType as Types
+import qualified Network.AWS.WorkDocs.Types.Username as Types
 
 -- | Describes the metadata of the user.
 --
 -- /See:/ 'mkUserMetadata' smart constructor.
 data UserMetadata = UserMetadata'
-  { -- | The given name of the user before a rename operation.
-    givenName :: Lude.Maybe Lude.Text,
-    -- | The name of the user.
-    username :: Lude.Maybe Lude.Text,
-    -- | The email address of the user.
-    emailAddress :: Lude.Maybe Lude.Text,
+  { -- | The email address of the user.
+    emailAddress :: Core.Maybe Types.EmailAddressType,
+    -- | The given name of the user before a rename operation.
+    givenName :: Core.Maybe Types.UserAttributeValueType,
     -- | The ID of the user.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.IdType,
     -- | The surname of the user.
-    surname :: Lude.Maybe Lude.Text
+    surname :: Core.Maybe Types.UserAttributeValueType,
+    -- | The name of the user.
+    username :: Core.Maybe Types.Username
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserMetadata' with the minimum fields required to make a request.
---
--- * 'givenName' - The given name of the user before a rename operation.
--- * 'username' - The name of the user.
--- * 'emailAddress' - The email address of the user.
--- * 'id' - The ID of the user.
--- * 'surname' - The surname of the user.
+-- | Creates a 'UserMetadata' value with any optional fields omitted.
 mkUserMetadata ::
   UserMetadata
 mkUserMetadata =
   UserMetadata'
-    { givenName = Lude.Nothing,
-      username = Lude.Nothing,
-      emailAddress = Lude.Nothing,
-      id = Lude.Nothing,
-      surname = Lude.Nothing
+    { emailAddress = Core.Nothing,
+      givenName = Core.Nothing,
+      id = Core.Nothing,
+      surname = Core.Nothing,
+      username = Core.Nothing
     }
-
--- | The given name of the user before a rename operation.
---
--- /Note:/ Consider using 'givenName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umGivenName :: Lens.Lens' UserMetadata (Lude.Maybe Lude.Text)
-umGivenName = Lens.lens (givenName :: UserMetadata -> Lude.Maybe Lude.Text) (\s a -> s {givenName = a} :: UserMetadata)
-{-# DEPRECATED umGivenName "Use generic-lens or generic-optics with 'givenName' instead." #-}
-
--- | The name of the user.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umUsername :: Lens.Lens' UserMetadata (Lude.Maybe Lude.Text)
-umUsername = Lens.lens (username :: UserMetadata -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: UserMetadata)
-{-# DEPRECATED umUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | The email address of the user.
 --
 -- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umEmailAddress :: Lens.Lens' UserMetadata (Lude.Maybe Lude.Text)
-umEmailAddress = Lens.lens (emailAddress :: UserMetadata -> Lude.Maybe Lude.Text) (\s a -> s {emailAddress = a} :: UserMetadata)
+umEmailAddress :: Lens.Lens' UserMetadata (Core.Maybe Types.EmailAddressType)
+umEmailAddress = Lens.field @"emailAddress"
 {-# DEPRECATED umEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
+
+-- | The given name of the user before a rename operation.
+--
+-- /Note:/ Consider using 'givenName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umGivenName :: Lens.Lens' UserMetadata (Core.Maybe Types.UserAttributeValueType)
+umGivenName = Lens.field @"givenName"
+{-# DEPRECATED umGivenName "Use generic-lens or generic-optics with 'givenName' instead." #-}
 
 -- | The ID of the user.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umId :: Lens.Lens' UserMetadata (Lude.Maybe Lude.Text)
-umId = Lens.lens (id :: UserMetadata -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: UserMetadata)
+umId :: Lens.Lens' UserMetadata (Core.Maybe Types.IdType)
+umId = Lens.field @"id"
 {-# DEPRECATED umId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The surname of the user.
 --
 -- /Note:/ Consider using 'surname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umSurname :: Lens.Lens' UserMetadata (Lude.Maybe Lude.Text)
-umSurname = Lens.lens (surname :: UserMetadata -> Lude.Maybe Lude.Text) (\s a -> s {surname = a} :: UserMetadata)
+umSurname :: Lens.Lens' UserMetadata (Core.Maybe Types.UserAttributeValueType)
+umSurname = Lens.field @"surname"
 {-# DEPRECATED umSurname "Use generic-lens or generic-optics with 'surname' instead." #-}
 
-instance Lude.FromJSON UserMetadata where
+-- | The name of the user.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umUsername :: Lens.Lens' UserMetadata (Core.Maybe Types.Username)
+umUsername = Lens.field @"username"
+{-# DEPRECATED umUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
+instance Core.FromJSON UserMetadata where
   parseJSON =
-    Lude.withObject
-      "UserMetadata"
-      ( \x ->
-          UserMetadata'
-            Lude.<$> (x Lude..:? "GivenName")
-            Lude.<*> (x Lude..:? "Username")
-            Lude.<*> (x Lude..:? "EmailAddress")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Surname")
-      )
+    Core.withObject "UserMetadata" Core.$
+      \x ->
+        UserMetadata'
+          Core.<$> (x Core..:? "EmailAddress")
+          Core.<*> (x Core..:? "GivenName")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Surname")
+          Core.<*> (x Core..:? "Username")

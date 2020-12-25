@@ -22,259 +22,239 @@ module Network.AWS.SageMaker.ListProcessingJobs
     mkListProcessingJobs,
 
     -- ** Request lenses
-    lpjNameContains,
-    lpjLastModifiedTimeBefore,
     lpjCreationTimeAfter,
-    lpjNextToken,
-    lpjSortOrder,
-    lpjLastModifiedTimeAfter,
     lpjCreationTimeBefore,
-    lpjStatusEquals,
+    lpjLastModifiedTimeAfter,
+    lpjLastModifiedTimeBefore,
     lpjMaxResults,
+    lpjNameContains,
+    lpjNextToken,
     lpjSortBy,
+    lpjSortOrder,
+    lpjStatusEquals,
 
     -- * Destructuring the response
     ListProcessingJobsResponse (..),
     mkListProcessingJobsResponse,
 
     -- ** Response lenses
-    lpjrsNextToken,
-    lpjrsProcessingJobSummaries,
-    lpjrsResponseStatus,
+    lpjrrsProcessingJobSummaries,
+    lpjrrsNextToken,
+    lpjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListProcessingJobs' smart constructor.
 data ListProcessingJobs = ListProcessingJobs'
-  { -- | A string in the processing job name. This filter returns only processing jobs whose name contains the specified string.
-    nameContains :: Lude.Maybe Lude.Text,
-    -- | A filter that returns only processing jobs modified before the specified time.
-    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
+  { -- | A filter that returns only processing jobs created after the specified time.
+    creationTimeAfter :: Core.Maybe Core.NominalDiffTime,
     -- | A filter that returns only processing jobs created after the specified time.
-    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
-    -- | If the result of the previous @ListProcessingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of processing jobs, use the token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sort order for results. The default is @Ascending@ .
-    sortOrder :: Lude.Maybe SortOrder,
+    creationTimeBefore :: Core.Maybe Core.NominalDiffTime,
     -- | A filter that returns only processing jobs modified after the specified time.
-    lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
-    -- | A filter that returns only processing jobs created after the specified time.
-    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
-    -- | A filter that retrieves only processing jobs with a specific status.
-    statusEquals :: Lude.Maybe ProcessingJobStatus,
+    lastModifiedTimeAfter :: Core.Maybe Core.NominalDiffTime,
+    -- | A filter that returns only processing jobs modified before the specified time.
+    lastModifiedTimeBefore :: Core.Maybe Core.NominalDiffTime,
     -- | The maximum number of processing jobs to return in the response.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A string in the processing job name. This filter returns only processing jobs whose name contains the specified string.
+    nameContains :: Core.Maybe Types.String,
+    -- | If the result of the previous @ListProcessingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of processing jobs, use the token in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The field to sort results by. The default is @CreationTime@ .
-    sortBy :: Lude.Maybe SortBy
+    sortBy :: Core.Maybe Types.SortBy,
+    -- | The sort order for results. The default is @Ascending@ .
+    sortOrder :: Core.Maybe Types.SortOrder,
+    -- | A filter that retrieves only processing jobs with a specific status.
+    statusEquals :: Core.Maybe Types.ProcessingJobStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListProcessingJobs' with the minimum fields required to make a request.
---
--- * 'nameContains' - A string in the processing job name. This filter returns only processing jobs whose name contains the specified string.
--- * 'lastModifiedTimeBefore' - A filter that returns only processing jobs modified before the specified time.
--- * 'creationTimeAfter' - A filter that returns only processing jobs created after the specified time.
--- * 'nextToken' - If the result of the previous @ListProcessingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of processing jobs, use the token in the next request.
--- * 'sortOrder' - The sort order for results. The default is @Ascending@ .
--- * 'lastModifiedTimeAfter' - A filter that returns only processing jobs modified after the specified time.
--- * 'creationTimeBefore' - A filter that returns only processing jobs created after the specified time.
--- * 'statusEquals' - A filter that retrieves only processing jobs with a specific status.
--- * 'maxResults' - The maximum number of processing jobs to return in the response.
--- * 'sortBy' - The field to sort results by. The default is @CreationTime@ .
+-- | Creates a 'ListProcessingJobs' value with any optional fields omitted.
 mkListProcessingJobs ::
   ListProcessingJobs
 mkListProcessingJobs =
   ListProcessingJobs'
-    { nameContains = Lude.Nothing,
-      lastModifiedTimeBefore = Lude.Nothing,
-      creationTimeAfter = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      lastModifiedTimeAfter = Lude.Nothing,
-      creationTimeBefore = Lude.Nothing,
-      statusEquals = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { creationTimeAfter = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      lastModifiedTimeAfter = Core.Nothing,
+      lastModifiedTimeBefore = Core.Nothing,
+      maxResults = Core.Nothing,
+      nameContains = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing,
+      statusEquals = Core.Nothing
     }
-
--- | A string in the processing job name. This filter returns only processing jobs whose name contains the specified string.
---
--- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjNameContains :: Lens.Lens' ListProcessingJobs (Lude.Maybe Lude.Text)
-lpjNameContains = Lens.lens (nameContains :: ListProcessingJobs -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListProcessingJobs)
-{-# DEPRECATED lpjNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
-
--- | A filter that returns only processing jobs modified before the specified time.
---
--- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjLastModifiedTimeBefore :: Lens.Lens' ListProcessingJobs (Lude.Maybe Lude.Timestamp)
-lpjLastModifiedTimeBefore = Lens.lens (lastModifiedTimeBefore :: ListProcessingJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeBefore = a} :: ListProcessingJobs)
-{-# DEPRECATED lpjLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | A filter that returns only processing jobs created after the specified time.
 --
 -- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjCreationTimeAfter :: Lens.Lens' ListProcessingJobs (Lude.Maybe Lude.Timestamp)
-lpjCreationTimeAfter = Lens.lens (creationTimeAfter :: ListProcessingJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListProcessingJobs)
+lpjCreationTimeAfter :: Lens.Lens' ListProcessingJobs (Core.Maybe Core.NominalDiffTime)
+lpjCreationTimeAfter = Lens.field @"creationTimeAfter"
 {-# DEPRECATED lpjCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
-
--- | If the result of the previous @ListProcessingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of processing jobs, use the token in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjNextToken :: Lens.Lens' ListProcessingJobs (Lude.Maybe Lude.Text)
-lpjNextToken = Lens.lens (nextToken :: ListProcessingJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProcessingJobs)
-{-# DEPRECATED lpjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sort order for results. The default is @Ascending@ .
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjSortOrder :: Lens.Lens' ListProcessingJobs (Lude.Maybe SortOrder)
-lpjSortOrder = Lens.lens (sortOrder :: ListProcessingJobs -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListProcessingJobs)
-{-# DEPRECATED lpjSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
-
--- | A filter that returns only processing jobs modified after the specified time.
---
--- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjLastModifiedTimeAfter :: Lens.Lens' ListProcessingJobs (Lude.Maybe Lude.Timestamp)
-lpjLastModifiedTimeAfter = Lens.lens (lastModifiedTimeAfter :: ListProcessingJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeAfter = a} :: ListProcessingJobs)
-{-# DEPRECATED lpjLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
 
 -- | A filter that returns only processing jobs created after the specified time.
 --
 -- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjCreationTimeBefore :: Lens.Lens' ListProcessingJobs (Lude.Maybe Lude.Timestamp)
-lpjCreationTimeBefore = Lens.lens (creationTimeBefore :: ListProcessingJobs -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListProcessingJobs)
+lpjCreationTimeBefore :: Lens.Lens' ListProcessingJobs (Core.Maybe Core.NominalDiffTime)
+lpjCreationTimeBefore = Lens.field @"creationTimeBefore"
 {-# DEPRECATED lpjCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
--- | A filter that retrieves only processing jobs with a specific status.
+-- | A filter that returns only processing jobs modified after the specified time.
 --
--- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjStatusEquals :: Lens.Lens' ListProcessingJobs (Lude.Maybe ProcessingJobStatus)
-lpjStatusEquals = Lens.lens (statusEquals :: ListProcessingJobs -> Lude.Maybe ProcessingJobStatus) (\s a -> s {statusEquals = a} :: ListProcessingJobs)
-{-# DEPRECATED lpjStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
+-- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpjLastModifiedTimeAfter :: Lens.Lens' ListProcessingJobs (Core.Maybe Core.NominalDiffTime)
+lpjLastModifiedTimeAfter = Lens.field @"lastModifiedTimeAfter"
+{-# DEPRECATED lpjLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
+
+-- | A filter that returns only processing jobs modified before the specified time.
+--
+-- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpjLastModifiedTimeBefore :: Lens.Lens' ListProcessingJobs (Core.Maybe Core.NominalDiffTime)
+lpjLastModifiedTimeBefore = Lens.field @"lastModifiedTimeBefore"
+{-# DEPRECATED lpjLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | The maximum number of processing jobs to return in the response.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjMaxResults :: Lens.Lens' ListProcessingJobs (Lude.Maybe Lude.Natural)
-lpjMaxResults = Lens.lens (maxResults :: ListProcessingJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListProcessingJobs)
+lpjMaxResults :: Lens.Lens' ListProcessingJobs (Core.Maybe Core.Natural)
+lpjMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lpjMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A string in the processing job name. This filter returns only processing jobs whose name contains the specified string.
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpjNameContains :: Lens.Lens' ListProcessingJobs (Core.Maybe Types.String)
+lpjNameContains = Lens.field @"nameContains"
+{-# DEPRECATED lpjNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
+
+-- | If the result of the previous @ListProcessingJobs@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of processing jobs, use the token in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpjNextToken :: Lens.Lens' ListProcessingJobs (Core.Maybe Types.NextToken)
+lpjNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpjNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The field to sort results by. The default is @CreationTime@ .
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjSortBy :: Lens.Lens' ListProcessingJobs (Lude.Maybe SortBy)
-lpjSortBy = Lens.lens (sortBy :: ListProcessingJobs -> Lude.Maybe SortBy) (\s a -> s {sortBy = a} :: ListProcessingJobs)
+lpjSortBy :: Lens.Lens' ListProcessingJobs (Core.Maybe Types.SortBy)
+lpjSortBy = Lens.field @"sortBy"
 {-# DEPRECATED lpjSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager ListProcessingJobs where
-  page rq rs
-    | Page.stop (rs Lens.^. lpjrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lpjrsProcessingJobSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lpjNextToken Lens..~ rs Lens.^. lpjrsNextToken
+-- | The sort order for results. The default is @Ascending@ .
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpjSortOrder :: Lens.Lens' ListProcessingJobs (Core.Maybe Types.SortOrder)
+lpjSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED lpjSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest ListProcessingJobs where
+-- | A filter that retrieves only processing jobs with a specific status.
+--
+-- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpjStatusEquals :: Lens.Lens' ListProcessingJobs (Core.Maybe Types.ProcessingJobStatus)
+lpjStatusEquals = Lens.field @"statusEquals"
+{-# DEPRECATED lpjStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
+
+instance Core.FromJSON ListProcessingJobs where
+  toJSON ListProcessingJobs {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CreationTimeAfter" Core..=) Core.<$> creationTimeAfter,
+            ("CreationTimeBefore" Core..=) Core.<$> creationTimeBefore,
+            ("LastModifiedTimeAfter" Core..=) Core.<$> lastModifiedTimeAfter,
+            ("LastModifiedTimeBefore" Core..=) Core.<$> lastModifiedTimeBefore,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("StatusEquals" Core..=) Core.<$> statusEquals
+          ]
+      )
+
+instance Core.AWSRequest ListProcessingJobs where
   type Rs ListProcessingJobs = ListProcessingJobsResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListProcessingJobs")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListProcessingJobsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "ProcessingJobSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ProcessingJobSummaries" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListProcessingJobs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.ListProcessingJobs" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListProcessingJobs where
-  toJSON ListProcessingJobs' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NameContains" Lude..=) Lude.<$> nameContains,
-            ("LastModifiedTimeBefore" Lude..=) Lude.<$> lastModifiedTimeBefore,
-            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("LastModifiedTimeAfter" Lude..=) Lude.<$> lastModifiedTimeAfter,
-            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
-            ("StatusEquals" Lude..=) Lude.<$> statusEquals,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListProcessingJobs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListProcessingJobs where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListProcessingJobs where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"processingJobSummaries") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListProcessingJobsResponse' smart constructor.
 data ListProcessingJobsResponse = ListProcessingJobsResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of processing jobs, use it in the subsequent request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array of @ProcessingJobSummary@ objects, each listing a processing job.
-    processingJobSummaries :: [ProcessingJobSummary],
+  { -- | An array of @ProcessingJobSummary@ objects, each listing a processing job.
+    processingJobSummaries :: [Types.ProcessingJobSummary],
+    -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of processing jobs, use it in the subsequent request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListProcessingJobsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of processing jobs, use it in the subsequent request.
--- * 'processingJobSummaries' - An array of @ProcessingJobSummary@ objects, each listing a processing job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListProcessingJobsResponse' value with any optional fields omitted.
 mkListProcessingJobsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListProcessingJobsResponse
-mkListProcessingJobsResponse pResponseStatus_ =
+mkListProcessingJobsResponse responseStatus =
   ListProcessingJobsResponse'
-    { nextToken = Lude.Nothing,
-      processingJobSummaries = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { processingJobSummaries = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of processing jobs, use it in the subsequent request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjrsNextToken :: Lens.Lens' ListProcessingJobsResponse (Lude.Maybe Lude.Text)
-lpjrsNextToken = Lens.lens (nextToken :: ListProcessingJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProcessingJobsResponse)
-{-# DEPRECATED lpjrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of @ProcessingJobSummary@ objects, each listing a processing job.
 --
 -- /Note:/ Consider using 'processingJobSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjrsProcessingJobSummaries :: Lens.Lens' ListProcessingJobsResponse [ProcessingJobSummary]
-lpjrsProcessingJobSummaries = Lens.lens (processingJobSummaries :: ListProcessingJobsResponse -> [ProcessingJobSummary]) (\s a -> s {processingJobSummaries = a} :: ListProcessingJobsResponse)
-{-# DEPRECATED lpjrsProcessingJobSummaries "Use generic-lens or generic-optics with 'processingJobSummaries' instead." #-}
+lpjrrsProcessingJobSummaries :: Lens.Lens' ListProcessingJobsResponse [Types.ProcessingJobSummary]
+lpjrrsProcessingJobSummaries = Lens.field @"processingJobSummaries"
+{-# DEPRECATED lpjrrsProcessingJobSummaries "Use generic-lens or generic-optics with 'processingJobSummaries' instead." #-}
+
+-- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of processing jobs, use it in the subsequent request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpjrrsNextToken :: Lens.Lens' ListProcessingJobsResponse (Core.Maybe Types.NextToken)
+lpjrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpjrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpjrsResponseStatus :: Lens.Lens' ListProcessingJobsResponse Lude.Int
-lpjrsResponseStatus = Lens.lens (responseStatus :: ListProcessingJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProcessingJobsResponse)
-{-# DEPRECATED lpjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lpjrrsResponseStatus :: Lens.Lens' ListProcessingJobsResponse Core.Int
+lpjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lpjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

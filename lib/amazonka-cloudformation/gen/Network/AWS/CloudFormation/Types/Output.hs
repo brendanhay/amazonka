@@ -17,80 +17,79 @@ module Network.AWS.CloudFormation.Types.Output
     mkOutput,
 
     -- * Lenses
-    oOutputValue,
-    oOutputKey,
-    oExportName,
     oDescription,
+    oExportName,
+    oOutputKey,
+    oOutputValue,
   )
 where
 
+import qualified Network.AWS.CloudFormation.Types.Description as Types
+import qualified Network.AWS.CloudFormation.Types.ExportName as Types
+import qualified Network.AWS.CloudFormation.Types.OutputKey as Types
+import qualified Network.AWS.CloudFormation.Types.OutputValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Output data type.
 --
 -- /See:/ 'mkOutput' smart constructor.
 data Output = Output'
-  { -- | The value associated with the output.
-    outputValue :: Lude.Maybe Lude.Text,
-    -- | The key associated with the output.
-    outputKey :: Lude.Maybe Lude.Text,
+  { -- | User defined description associated with the output.
+    description :: Core.Maybe Types.Description,
     -- | The name of the export associated with the output.
-    exportName :: Lude.Maybe Lude.Text,
-    -- | User defined description associated with the output.
-    description :: Lude.Maybe Lude.Text
+    exportName :: Core.Maybe Types.ExportName,
+    -- | The key associated with the output.
+    outputKey :: Core.Maybe Types.OutputKey,
+    -- | The value associated with the output.
+    outputValue :: Core.Maybe Types.OutputValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Output' with the minimum fields required to make a request.
---
--- * 'outputValue' - The value associated with the output.
--- * 'outputKey' - The key associated with the output.
--- * 'exportName' - The name of the export associated with the output.
--- * 'description' - User defined description associated with the output.
+-- | Creates a 'Output' value with any optional fields omitted.
 mkOutput ::
   Output
 mkOutput =
   Output'
-    { outputValue = Lude.Nothing,
-      outputKey = Lude.Nothing,
-      exportName = Lude.Nothing,
-      description = Lude.Nothing
+    { description = Core.Nothing,
+      exportName = Core.Nothing,
+      outputKey = Core.Nothing,
+      outputValue = Core.Nothing
     }
-
--- | The value associated with the output.
---
--- /Note:/ Consider using 'outputValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oOutputValue :: Lens.Lens' Output (Lude.Maybe Lude.Text)
-oOutputValue = Lens.lens (outputValue :: Output -> Lude.Maybe Lude.Text) (\s a -> s {outputValue = a} :: Output)
-{-# DEPRECATED oOutputValue "Use generic-lens or generic-optics with 'outputValue' instead." #-}
-
--- | The key associated with the output.
---
--- /Note:/ Consider using 'outputKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oOutputKey :: Lens.Lens' Output (Lude.Maybe Lude.Text)
-oOutputKey = Lens.lens (outputKey :: Output -> Lude.Maybe Lude.Text) (\s a -> s {outputKey = a} :: Output)
-{-# DEPRECATED oOutputKey "Use generic-lens or generic-optics with 'outputKey' instead." #-}
-
--- | The name of the export associated with the output.
---
--- /Note:/ Consider using 'exportName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oExportName :: Lens.Lens' Output (Lude.Maybe Lude.Text)
-oExportName = Lens.lens (exportName :: Output -> Lude.Maybe Lude.Text) (\s a -> s {exportName = a} :: Output)
-{-# DEPRECATED oExportName "Use generic-lens or generic-optics with 'exportName' instead." #-}
 
 -- | User defined description associated with the output.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oDescription :: Lens.Lens' Output (Lude.Maybe Lude.Text)
-oDescription = Lens.lens (description :: Output -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Output)
+oDescription :: Lens.Lens' Output (Core.Maybe Types.Description)
+oDescription = Lens.field @"description"
 {-# DEPRECATED oDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML Output where
+-- | The name of the export associated with the output.
+--
+-- /Note:/ Consider using 'exportName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oExportName :: Lens.Lens' Output (Core.Maybe Types.ExportName)
+oExportName = Lens.field @"exportName"
+{-# DEPRECATED oExportName "Use generic-lens or generic-optics with 'exportName' instead." #-}
+
+-- | The key associated with the output.
+--
+-- /Note:/ Consider using 'outputKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oOutputKey :: Lens.Lens' Output (Core.Maybe Types.OutputKey)
+oOutputKey = Lens.field @"outputKey"
+{-# DEPRECATED oOutputKey "Use generic-lens or generic-optics with 'outputKey' instead." #-}
+
+-- | The value associated with the output.
+--
+-- /Note:/ Consider using 'outputValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oOutputValue :: Lens.Lens' Output (Core.Maybe Types.OutputValue)
+oOutputValue = Lens.field @"outputValue"
+{-# DEPRECATED oOutputValue "Use generic-lens or generic-optics with 'outputValue' instead." #-}
+
+instance Core.FromXML Output where
   parseXML x =
     Output'
-      Lude.<$> (x Lude..@? "OutputValue")
-      Lude.<*> (x Lude..@? "OutputKey")
-      Lude.<*> (x Lude..@? "ExportName")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<$> (x Core..@? "Description")
+      Core.<*> (x Core..@? "ExportName")
+      Core.<*> (x Core..@? "OutputKey")
+      Core.<*> (x Core..@? "OutputValue")

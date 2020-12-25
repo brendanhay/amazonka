@@ -20,9 +20,9 @@ module Network.AWS.EC2.DetachInternetGateway
     mkDetachInternetGateway,
 
     -- ** Request lenses
-    diggVPCId,
-    diggDryRun,
-    diggInternetGatewayId,
+    digInternetGatewayId,
+    digVpcId,
+    digDryRun,
 
     -- * Destructuring the response
     DetachInternetGatewayResponse (..),
@@ -30,90 +30,89 @@ module Network.AWS.EC2.DetachInternetGateway
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetachInternetGateway' smart constructor.
 data DetachInternetGateway = DetachInternetGateway'
-  { -- | The ID of the VPC.
-    vpcId :: Lude.Text,
+  { -- | The ID of the internet gateway.
+    internetGatewayId :: Types.InternetGatewayId,
+    -- | The ID of the VPC.
+    vpcId :: Types.VpcId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The ID of the internet gateway.
-    internetGatewayId :: Lude.Text
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachInternetGateway' with the minimum fields required to make a request.
---
--- * 'vpcId' - The ID of the VPC.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'internetGatewayId' - The ID of the internet gateway.
+-- | Creates a 'DetachInternetGateway' value with any optional fields omitted.
 mkDetachInternetGateway ::
-  -- | 'vpcId'
-  Lude.Text ->
   -- | 'internetGatewayId'
-  Lude.Text ->
+  Types.InternetGatewayId ->
+  -- | 'vpcId'
+  Types.VpcId ->
   DetachInternetGateway
-mkDetachInternetGateway pVPCId_ pInternetGatewayId_ =
+mkDetachInternetGateway internetGatewayId vpcId =
   DetachInternetGateway'
-    { vpcId = pVPCId_,
-      dryRun = Lude.Nothing,
-      internetGatewayId = pInternetGatewayId_
+    { internetGatewayId,
+      vpcId,
+      dryRun = Core.Nothing
     }
-
--- | The ID of the VPC.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diggVPCId :: Lens.Lens' DetachInternetGateway Lude.Text
-diggVPCId = Lens.lens (vpcId :: DetachInternetGateway -> Lude.Text) (\s a -> s {vpcId = a} :: DetachInternetGateway)
-{-# DEPRECATED diggVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diggDryRun :: Lens.Lens' DetachInternetGateway (Lude.Maybe Lude.Bool)
-diggDryRun = Lens.lens (dryRun :: DetachInternetGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DetachInternetGateway)
-{-# DEPRECATED diggDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The ID of the internet gateway.
 --
 -- /Note:/ Consider using 'internetGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diggInternetGatewayId :: Lens.Lens' DetachInternetGateway Lude.Text
-diggInternetGatewayId = Lens.lens (internetGatewayId :: DetachInternetGateway -> Lude.Text) (\s a -> s {internetGatewayId = a} :: DetachInternetGateway)
-{-# DEPRECATED diggInternetGatewayId "Use generic-lens or generic-optics with 'internetGatewayId' instead." #-}
+digInternetGatewayId :: Lens.Lens' DetachInternetGateway Types.InternetGatewayId
+digInternetGatewayId = Lens.field @"internetGatewayId"
+{-# DEPRECATED digInternetGatewayId "Use generic-lens or generic-optics with 'internetGatewayId' instead." #-}
 
-instance Lude.AWSRequest DetachInternetGateway where
+-- | The ID of the VPC.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+digVpcId :: Lens.Lens' DetachInternetGateway Types.VpcId
+digVpcId = Lens.field @"vpcId"
+{-# DEPRECATED digVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+digDryRun :: Lens.Lens' DetachInternetGateway (Core.Maybe Core.Bool)
+digDryRun = Lens.field @"dryRun"
+{-# DEPRECATED digDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+instance Core.AWSRequest DetachInternetGateway where
   type Rs DetachInternetGateway = DetachInternetGatewayResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull DetachInternetGatewayResponse'
-
-instance Lude.ToHeaders DetachInternetGateway where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DetachInternetGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetachInternetGateway where
-  toQuery DetachInternetGateway' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DetachInternetGateway" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "VpcId" Lude.=: vpcId,
-        "DryRun" Lude.=: dryRun,
-        "InternetGatewayId" Lude.=: internetGatewayId
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DetachInternetGateway")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InternetGatewayId" internetGatewayId)
+                Core.<> (Core.toQueryValue "VpcId" vpcId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull DetachInternetGatewayResponse'
 
 -- | /See:/ 'mkDetachInternetGatewayResponse' smart constructor.
 data DetachInternetGatewayResponse = DetachInternetGatewayResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachInternetGatewayResponse' with the minimum fields required to make a request.
+-- | Creates a 'DetachInternetGatewayResponse' value with any optional fields omitted.
 mkDetachInternetGatewayResponse ::
   DetachInternetGatewayResponse
 mkDetachInternetGatewayResponse = DetachInternetGatewayResponse'

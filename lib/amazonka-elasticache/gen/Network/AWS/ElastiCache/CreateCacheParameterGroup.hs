@@ -27,8 +27,8 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     mkCreateCacheParameterGroup,
 
     -- ** Request lenses
-    ccpgCacheParameterGroupFamily,
     ccpgCacheParameterGroupName,
+    ccpgCacheParameterGroupFamily,
     ccpgDescription,
 
     -- * Destructuring the response
@@ -36,146 +36,145 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     mkCreateCacheParameterGroupResponse,
 
     -- ** Response lenses
-    ccpgrsCacheParameterGroup,
-    ccpgrsResponseStatus,
+    ccpgrrsCacheParameterGroup,
+    ccpgrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @CreateCacheParameterGroup@ operation.
 --
 -- /See:/ 'mkCreateCacheParameterGroup' smart constructor.
 data CreateCacheParameterGroup = CreateCacheParameterGroup'
-  { -- | The name of the cache parameter group family that the cache parameter group can be used with.
+  { -- | A user-specified name for the cache parameter group.
+    cacheParameterGroupName :: Types.String,
+    -- | The name of the cache parameter group family that the cache parameter group can be used with.
     --
     -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
-    cacheParameterGroupFamily :: Lude.Text,
-    -- | A user-specified name for the cache parameter group.
-    cacheParameterGroupName :: Lude.Text,
+    cacheParameterGroupFamily :: Types.String,
     -- | A user-specified description for the cache parameter group.
-    description :: Lude.Text
+    description :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCacheParameterGroup' with the minimum fields required to make a request.
---
--- * 'cacheParameterGroupFamily' - The name of the cache parameter group family that the cache parameter group can be used with.
---
--- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
--- * 'cacheParameterGroupName' - A user-specified name for the cache parameter group.
--- * 'description' - A user-specified description for the cache parameter group.
+-- | Creates a 'CreateCacheParameterGroup' value with any optional fields omitted.
 mkCreateCacheParameterGroup ::
-  -- | 'cacheParameterGroupFamily'
-  Lude.Text ->
   -- | 'cacheParameterGroupName'
-  Lude.Text ->
+  Types.String ->
+  -- | 'cacheParameterGroupFamily'
+  Types.String ->
   -- | 'description'
-  Lude.Text ->
+  Types.String ->
   CreateCacheParameterGroup
 mkCreateCacheParameterGroup
-  pCacheParameterGroupFamily_
-  pCacheParameterGroupName_
-  pDescription_ =
+  cacheParameterGroupName
+  cacheParameterGroupFamily
+  description =
     CreateCacheParameterGroup'
-      { cacheParameterGroupFamily =
-          pCacheParameterGroupFamily_,
-        cacheParameterGroupName = pCacheParameterGroupName_,
-        description = pDescription_
+      { cacheParameterGroupName,
+        cacheParameterGroupFamily,
+        description
       }
+
+-- | A user-specified name for the cache parameter group.
+--
+-- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccpgCacheParameterGroupName :: Lens.Lens' CreateCacheParameterGroup Types.String
+ccpgCacheParameterGroupName = Lens.field @"cacheParameterGroupName"
+{-# DEPRECATED ccpgCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
 
 -- | The name of the cache parameter group family that the cache parameter group can be used with.
 --
 -- Valid values are: @memcached1.4@ | @memcached1.5@ | @memcached1.6@ | @redis2.6@ | @redis2.8@ | @redis3.2@ | @redis4.0@ | @redis5.0@ | @redis6.x@ |
 --
 -- /Note:/ Consider using 'cacheParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpgCacheParameterGroupFamily :: Lens.Lens' CreateCacheParameterGroup Lude.Text
-ccpgCacheParameterGroupFamily = Lens.lens (cacheParameterGroupFamily :: CreateCacheParameterGroup -> Lude.Text) (\s a -> s {cacheParameterGroupFamily = a} :: CreateCacheParameterGroup)
+ccpgCacheParameterGroupFamily :: Lens.Lens' CreateCacheParameterGroup Types.String
+ccpgCacheParameterGroupFamily = Lens.field @"cacheParameterGroupFamily"
 {-# DEPRECATED ccpgCacheParameterGroupFamily "Use generic-lens or generic-optics with 'cacheParameterGroupFamily' instead." #-}
-
--- | A user-specified name for the cache parameter group.
---
--- /Note:/ Consider using 'cacheParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpgCacheParameterGroupName :: Lens.Lens' CreateCacheParameterGroup Lude.Text
-ccpgCacheParameterGroupName = Lens.lens (cacheParameterGroupName :: CreateCacheParameterGroup -> Lude.Text) (\s a -> s {cacheParameterGroupName = a} :: CreateCacheParameterGroup)
-{-# DEPRECATED ccpgCacheParameterGroupName "Use generic-lens or generic-optics with 'cacheParameterGroupName' instead." #-}
 
 -- | A user-specified description for the cache parameter group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpgDescription :: Lens.Lens' CreateCacheParameterGroup Lude.Text
-ccpgDescription = Lens.lens (description :: CreateCacheParameterGroup -> Lude.Text) (\s a -> s {description = a} :: CreateCacheParameterGroup)
+ccpgDescription :: Lens.Lens' CreateCacheParameterGroup Types.String
+ccpgDescription = Lens.field @"description"
 {-# DEPRECATED ccpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest CreateCacheParameterGroup where
+instance Core.AWSRequest CreateCacheParameterGroup where
   type
     Rs CreateCacheParameterGroup =
       CreateCacheParameterGroupResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateCacheParameterGroup")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> ( Core.toQueryValue
+                            "CacheParameterGroupName"
+                            cacheParameterGroupName
+                        )
+                Core.<> ( Core.toQueryValue
+                            "CacheParameterGroupFamily"
+                            cacheParameterGroupFamily
+                        )
+                Core.<> (Core.toQueryValue "Description" description)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateCacheParameterGroupResult"
       ( \s h x ->
           CreateCacheParameterGroupResponse'
-            Lude.<$> (x Lude..@? "CacheParameterGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "CacheParameterGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateCacheParameterGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateCacheParameterGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateCacheParameterGroup where
-  toQuery CreateCacheParameterGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateCacheParameterGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheParameterGroupFamily" Lude.=: cacheParameterGroupFamily,
-        "CacheParameterGroupName" Lude.=: cacheParameterGroupName,
-        "Description" Lude.=: description
-      ]
 
 -- | /See:/ 'mkCreateCacheParameterGroupResponse' smart constructor.
 data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
-  { cacheParameterGroup :: Lude.Maybe CacheParameterGroup,
+  { cacheParameterGroup :: Core.Maybe Types.CacheParameterGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCacheParameterGroupResponse' with the minimum fields required to make a request.
---
--- * 'cacheParameterGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateCacheParameterGroupResponse' value with any optional fields omitted.
 mkCreateCacheParameterGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateCacheParameterGroupResponse
-mkCreateCacheParameterGroupResponse pResponseStatus_ =
+mkCreateCacheParameterGroupResponse responseStatus =
   CreateCacheParameterGroupResponse'
     { cacheParameterGroup =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cacheParameterGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpgrsCacheParameterGroup :: Lens.Lens' CreateCacheParameterGroupResponse (Lude.Maybe CacheParameterGroup)
-ccpgrsCacheParameterGroup = Lens.lens (cacheParameterGroup :: CreateCacheParameterGroupResponse -> Lude.Maybe CacheParameterGroup) (\s a -> s {cacheParameterGroup = a} :: CreateCacheParameterGroupResponse)
-{-# DEPRECATED ccpgrsCacheParameterGroup "Use generic-lens or generic-optics with 'cacheParameterGroup' instead." #-}
+ccpgrrsCacheParameterGroup :: Lens.Lens' CreateCacheParameterGroupResponse (Core.Maybe Types.CacheParameterGroup)
+ccpgrrsCacheParameterGroup = Lens.field @"cacheParameterGroup"
+{-# DEPRECATED ccpgrrsCacheParameterGroup "Use generic-lens or generic-optics with 'cacheParameterGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccpgrsResponseStatus :: Lens.Lens' CreateCacheParameterGroupResponse Lude.Int
-ccpgrsResponseStatus = Lens.lens (responseStatus :: CreateCacheParameterGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCacheParameterGroupResponse)
-{-# DEPRECATED ccpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccpgrrsResponseStatus :: Lens.Lens' CreateCacheParameterGroupResponse Core.Int
+ccpgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccpgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

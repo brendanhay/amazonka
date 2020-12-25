@@ -20,24 +20,24 @@ module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     mkDeleteBandwidthRateLimit,
 
     -- ** Request lenses
-    dbrlBandwidthType,
-    dbrlGatewayARN,
+    dbrlfGatewayARN,
+    dbrlfBandwidthType,
 
     -- * Destructuring the response
     DeleteBandwidthRateLimitResponse (..),
     mkDeleteBandwidthRateLimitResponse,
 
     -- ** Response lenses
-    dbrlfrsGatewayARN,
-    dbrlfrsResponseStatus,
+    dbrlrfrsGatewayARN,
+    dbrlrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing the following fields:
 --
@@ -48,122 +48,105 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkDeleteBandwidthRateLimit' smart constructor.
 data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
-  { -- | One of the BandwidthType values that indicates the gateway bandwidth rate limit to delete.
+  { gatewayARN :: Types.GatewayARN,
+    -- | One of the BandwidthType values that indicates the gateway bandwidth rate limit to delete.
     --
     -- Valid Values: @UPLOAD@ | @DOWNLOAD@ | @ALL@
-    bandwidthType :: Lude.Text,
-    gatewayARN :: Lude.Text
+    bandwidthType :: Types.BandwidthType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBandwidthRateLimit' with the minimum fields required to make a request.
---
--- * 'bandwidthType' - One of the BandwidthType values that indicates the gateway bandwidth rate limit to delete.
---
--- Valid Values: @UPLOAD@ | @DOWNLOAD@ | @ALL@
--- * 'gatewayARN' -
+-- | Creates a 'DeleteBandwidthRateLimit' value with any optional fields omitted.
 mkDeleteBandwidthRateLimit ::
-  -- | 'bandwidthType'
-  Lude.Text ->
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
+  -- | 'bandwidthType'
+  Types.BandwidthType ->
   DeleteBandwidthRateLimit
-mkDeleteBandwidthRateLimit pBandwidthType_ pGatewayARN_ =
-  DeleteBandwidthRateLimit'
-    { bandwidthType = pBandwidthType_,
-      gatewayARN = pGatewayARN_
-    }
+mkDeleteBandwidthRateLimit gatewayARN bandwidthType =
+  DeleteBandwidthRateLimit' {gatewayARN, bandwidthType}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrlfGatewayARN :: Lens.Lens' DeleteBandwidthRateLimit Types.GatewayARN
+dbrlfGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED dbrlfGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | One of the BandwidthType values that indicates the gateway bandwidth rate limit to delete.
 --
 -- Valid Values: @UPLOAD@ | @DOWNLOAD@ | @ALL@
 --
 -- /Note:/ Consider using 'bandwidthType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlBandwidthType :: Lens.Lens' DeleteBandwidthRateLimit Lude.Text
-dbrlBandwidthType = Lens.lens (bandwidthType :: DeleteBandwidthRateLimit -> Lude.Text) (\s a -> s {bandwidthType = a} :: DeleteBandwidthRateLimit)
-{-# DEPRECATED dbrlBandwidthType "Use generic-lens or generic-optics with 'bandwidthType' instead." #-}
+dbrlfBandwidthType :: Lens.Lens' DeleteBandwidthRateLimit Types.BandwidthType
+dbrlfBandwidthType = Lens.field @"bandwidthType"
+{-# DEPRECATED dbrlfBandwidthType "Use generic-lens or generic-optics with 'bandwidthType' instead." #-}
 
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlGatewayARN :: Lens.Lens' DeleteBandwidthRateLimit Lude.Text
-dbrlGatewayARN = Lens.lens (gatewayARN :: DeleteBandwidthRateLimit -> Lude.Text) (\s a -> s {gatewayARN = a} :: DeleteBandwidthRateLimit)
-{-# DEPRECATED dbrlGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+instance Core.FromJSON DeleteBandwidthRateLimit where
+  toJSON DeleteBandwidthRateLimit {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("BandwidthType" Core..= bandwidthType)
+          ]
+      )
 
-instance Lude.AWSRequest DeleteBandwidthRateLimit where
+instance Core.AWSRequest DeleteBandwidthRateLimit where
   type Rs DeleteBandwidthRateLimit = DeleteBandwidthRateLimitResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.DeleteBandwidthRateLimit"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteBandwidthRateLimitResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteBandwidthRateLimit where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.DeleteBandwidthRateLimit" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteBandwidthRateLimit where
-  toJSON DeleteBandwidthRateLimit' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("BandwidthType" Lude..= bandwidthType),
-            Lude.Just ("GatewayARN" Lude..= gatewayARN)
-          ]
-      )
-
-instance Lude.ToPath DeleteBandwidthRateLimit where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteBandwidthRateLimit where
-  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway whose bandwidth rate information was deleted.
 --
 -- /See:/ 'mkDeleteBandwidthRateLimitResponse' smart constructor.
 data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBandwidthRateLimitResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteBandwidthRateLimitResponse' value with any optional fields omitted.
 mkDeleteBandwidthRateLimitResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteBandwidthRateLimitResponse
-mkDeleteBandwidthRateLimitResponse pResponseStatus_ =
+mkDeleteBandwidthRateLimitResponse responseStatus =
   DeleteBandwidthRateLimitResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlfrsGatewayARN :: Lens.Lens' DeleteBandwidthRateLimitResponse (Lude.Maybe Lude.Text)
-dbrlfrsGatewayARN = Lens.lens (gatewayARN :: DeleteBandwidthRateLimitResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DeleteBandwidthRateLimitResponse)
-{-# DEPRECATED dbrlfrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+dbrlrfrsGatewayARN :: Lens.Lens' DeleteBandwidthRateLimitResponse (Core.Maybe Types.GatewayARN)
+dbrlrfrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED dbrlrfrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlfrsResponseStatus :: Lens.Lens' DeleteBandwidthRateLimitResponse Lude.Int
-dbrlfrsResponseStatus = Lens.lens (responseStatus :: DeleteBandwidthRateLimitResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBandwidthRateLimitResponse)
-{-# DEPRECATED dbrlfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbrlrfrsResponseStatus :: Lens.Lens' DeleteBandwidthRateLimitResponse Core.Int
+dbrlrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbrlrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

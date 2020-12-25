@@ -966,7 +966,7 @@ responseMergePullRequestByFastForward =
   res
     "MergePullRequestByFastForwardResponse"
     "fixture/MergePullRequestByFastForwardResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy MergePullRequestByFastForward)
 
 responseUpdateRepositoryName :: UpdateRepositoryNameResponse -> TestTree
@@ -974,7 +974,7 @@ responseUpdateRepositoryName =
   res
     "UpdateRepositoryNameResponse"
     "fixture/UpdateRepositoryNameResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdateRepositoryName)
 
 responsePostCommentForPullRequest :: PostCommentForPullRequestResponse -> TestTree
@@ -982,7 +982,7 @@ responsePostCommentForPullRequest =
   res
     "PostCommentForPullRequestResponse"
     "fixture/PostCommentForPullRequestResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy PostCommentForPullRequest)
 
 responseMergeBranchesBySquash :: MergeBranchesBySquashResponse -> TestTree
@@ -990,7 +990,7 @@ responseMergeBranchesBySquash =
   res
     "MergeBranchesBySquashResponse"
     "fixture/MergeBranchesBySquashResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy MergeBranchesBySquash)
 
 responseGetCommit :: GetCommitResponse -> TestTree
@@ -998,7 +998,7 @@ responseGetCommit =
   res
     "GetCommitResponse"
     "fixture/GetCommitResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetCommit)
 
 responseBatchAssociateApprovalRuleTemplateWithRepositories :: BatchAssociateApprovalRuleTemplateWithRepositoriesResponse -> TestTree
@@ -1006,7 +1006,7 @@ responseBatchAssociateApprovalRuleTemplateWithRepositories =
   res
     "BatchAssociateApprovalRuleTemplateWithRepositoriesResponse"
     "fixture/BatchAssociateApprovalRuleTemplateWithRepositoriesResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy BatchAssociateApprovalRuleTemplateWithRepositories)
 
 responseGetCommentReactions :: GetCommentReactionsResponse -> TestTree
@@ -1014,7 +1014,7 @@ responseGetCommentReactions =
   res
     "GetCommentReactionsResponse"
     "fixture/GetCommentReactionsResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetCommentReactions)
 
 responseGetApprovalRuleTemplate :: GetApprovalRuleTemplateResponse -> TestTree
@@ -1022,7 +1022,7 @@ responseGetApprovalRuleTemplate =
   res
     "GetApprovalRuleTemplateResponse"
     "fixture/GetApprovalRuleTemplateResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetApprovalRuleTemplate)
 
 responseDisassociateApprovalRuleTemplateFromRepository :: DisassociateApprovalRuleTemplateFromRepositoryResponse -> TestTree
@@ -1030,7 +1030,7 @@ responseDisassociateApprovalRuleTemplateFromRepository =
   res
     "DisassociateApprovalRuleTemplateFromRepositoryResponse"
     "fixture/DisassociateApprovalRuleTemplateFromRepositoryResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateApprovalRuleTemplateFromRepository)
 
 responseGetBranch :: GetBranchResponse -> TestTree
@@ -1038,7 +1038,7 @@ responseGetBranch =
   res
     "GetBranchResponse"
     "fixture/GetBranchResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetBranch)
 
 responseGetDifferences :: GetDifferencesResponse -> TestTree
@@ -1046,7 +1046,7 @@ responseGetDifferences =
   res
     "GetDifferencesResponse"
     "fixture/GetDifferencesResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetDifferences)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -1054,7 +1054,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetPullRequest :: GetPullRequestResponse -> TestTree
@@ -1062,7 +1062,7 @@ responseGetPullRequest =
   res
     "GetPullRequestResponse"
     "fixture/GetPullRequestResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetPullRequest)
 
 responseOverridePullRequestApprovalRules :: OverridePullRequestApprovalRulesResponse -> TestTree
@@ -1070,7 +1070,7 @@ responseOverridePullRequestApprovalRules =
   res
     "OverridePullRequestApprovalRulesResponse"
     "fixture/OverridePullRequestApprovalRulesResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy OverridePullRequestApprovalRules)
 
 responseListPullRequests :: ListPullRequestsResponse -> TestTree
@@ -1078,7 +1078,7 @@ responseListPullRequests =
   res
     "ListPullRequestsResponse"
     "fixture/ListPullRequestsResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy ListPullRequests)
 
 responseCreateCommit :: CreateCommitResponse -> TestTree
@@ -1086,7 +1086,7 @@ responseCreateCommit =
   res
     "CreateCommitResponse"
     "fixture/CreateCommitResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy CreateCommit)
 
 responseUpdatePullRequestApprovalState :: UpdatePullRequestApprovalStateResponse -> TestTree
@@ -1094,7 +1094,7 @@ responseUpdatePullRequestApprovalState =
   res
     "UpdatePullRequestApprovalStateResponse"
     "fixture/UpdatePullRequestApprovalStateResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePullRequestApprovalState)
 
 responseEvaluatePullRequestApprovalRules :: EvaluatePullRequestApprovalRulesResponse -> TestTree
@@ -1102,7 +1102,7 @@ responseEvaluatePullRequestApprovalRules =
   res
     "EvaluatePullRequestApprovalRulesResponse"
     "fixture/EvaluatePullRequestApprovalRulesResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy EvaluatePullRequestApprovalRules)
 
 responseGetComment :: GetCommentResponse -> TestTree
@@ -1110,7 +1110,7 @@ responseGetComment =
   res
     "GetCommentResponse"
     "fixture/GetCommentResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetComment)
 
 responseCreateApprovalRuleTemplate :: CreateApprovalRuleTemplateResponse -> TestTree
@@ -1118,7 +1118,7 @@ responseCreateApprovalRuleTemplate =
   res
     "CreateApprovalRuleTemplateResponse"
     "fixture/CreateApprovalRuleTemplateResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy CreateApprovalRuleTemplate)
 
 responseDeleteBranch :: DeleteBranchResponse -> TestTree
@@ -1126,7 +1126,7 @@ responseDeleteBranch =
   res
     "DeleteBranchResponse"
     "fixture/DeleteBranchResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBranch)
 
 responseUpdateRepositoryDescription :: UpdateRepositoryDescriptionResponse -> TestTree
@@ -1134,7 +1134,7 @@ responseUpdateRepositoryDescription =
   res
     "UpdateRepositoryDescriptionResponse"
     "fixture/UpdateRepositoryDescriptionResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdateRepositoryDescription)
 
 responseCreateBranch :: CreateBranchResponse -> TestTree
@@ -1142,7 +1142,7 @@ responseCreateBranch =
   res
     "CreateBranchResponse"
     "fixture/CreateBranchResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy CreateBranch)
 
 responseGetFolder :: GetFolderResponse -> TestTree
@@ -1150,7 +1150,7 @@ responseGetFolder =
   res
     "GetFolderResponse"
     "fixture/GetFolderResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetFolder)
 
 responseCreatePullRequest :: CreatePullRequestResponse -> TestTree
@@ -1158,7 +1158,7 @@ responseCreatePullRequest =
   res
     "CreatePullRequestResponse"
     "fixture/CreatePullRequestResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy CreatePullRequest)
 
 responseDeleteApprovalRuleTemplate :: DeleteApprovalRuleTemplateResponse -> TestTree
@@ -1166,7 +1166,7 @@ responseDeleteApprovalRuleTemplate =
   res
     "DeleteApprovalRuleTemplateResponse"
     "fixture/DeleteApprovalRuleTemplateResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApprovalRuleTemplate)
 
 responseListBranches :: ListBranchesResponse -> TestTree
@@ -1174,7 +1174,7 @@ responseListBranches =
   res
     "ListBranchesResponse"
     "fixture/ListBranchesResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy ListBranches)
 
 responseBatchGetCommits :: BatchGetCommitsResponse -> TestTree
@@ -1182,7 +1182,7 @@ responseBatchGetCommits =
   res
     "BatchGetCommitsResponse"
     "fixture/BatchGetCommitsResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetCommits)
 
 responsePutCommentReaction :: PutCommentReactionResponse -> TestTree
@@ -1190,7 +1190,7 @@ responsePutCommentReaction =
   res
     "PutCommentReactionResponse"
     "fixture/PutCommentReactionResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy PutCommentReaction)
 
 responseUpdatePullRequestDescription :: UpdatePullRequestDescriptionResponse -> TestTree
@@ -1198,7 +1198,7 @@ responseUpdatePullRequestDescription =
   res
     "UpdatePullRequestDescriptionResponse"
     "fixture/UpdatePullRequestDescriptionResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePullRequestDescription)
 
 responseListRepositories :: ListRepositoriesResponse -> TestTree
@@ -1206,7 +1206,7 @@ responseListRepositories =
   res
     "ListRepositoriesResponse"
     "fixture/ListRepositoriesResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy ListRepositories)
 
 responseCreateRepository :: CreateRepositoryResponse -> TestTree
@@ -1214,7 +1214,7 @@ responseCreateRepository =
   res
     "CreateRepositoryResponse"
     "fixture/CreateRepositoryResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy CreateRepository)
 
 responseUpdateDefaultBranch :: UpdateDefaultBranchResponse -> TestTree
@@ -1222,7 +1222,7 @@ responseUpdateDefaultBranch =
   res
     "UpdateDefaultBranchResponse"
     "fixture/UpdateDefaultBranchResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDefaultBranch)
 
 responseGetMergeOptions :: GetMergeOptionsResponse -> TestTree
@@ -1230,7 +1230,7 @@ responseGetMergeOptions =
   res
     "GetMergeOptionsResponse"
     "fixture/GetMergeOptionsResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetMergeOptions)
 
 responseCreatePullRequestApprovalRule :: CreatePullRequestApprovalRuleResponse -> TestTree
@@ -1238,7 +1238,7 @@ responseCreatePullRequestApprovalRule =
   res
     "CreatePullRequestApprovalRuleResponse"
     "fixture/CreatePullRequestApprovalRuleResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy CreatePullRequestApprovalRule)
 
 responsePostCommentReply :: PostCommentReplyResponse -> TestTree
@@ -1246,7 +1246,7 @@ responsePostCommentReply =
   res
     "PostCommentReplyResponse"
     "fixture/PostCommentReplyResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy PostCommentReply)
 
 responseUpdateApprovalRuleTemplateContent :: UpdateApprovalRuleTemplateContentResponse -> TestTree
@@ -1254,7 +1254,7 @@ responseUpdateApprovalRuleTemplateContent =
   res
     "UpdateApprovalRuleTemplateContentResponse"
     "fixture/UpdateApprovalRuleTemplateContentResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdateApprovalRuleTemplateContent)
 
 responseCreateUnreferencedMergeCommit :: CreateUnreferencedMergeCommitResponse -> TestTree
@@ -1262,7 +1262,7 @@ responseCreateUnreferencedMergeCommit =
   res
     "CreateUnreferencedMergeCommitResponse"
     "fixture/CreateUnreferencedMergeCommitResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy CreateUnreferencedMergeCommit)
 
 responseListRepositoriesForApprovalRuleTemplate :: ListRepositoriesForApprovalRuleTemplateResponse -> TestTree
@@ -1270,7 +1270,7 @@ responseListRepositoriesForApprovalRuleTemplate =
   res
     "ListRepositoriesForApprovalRuleTemplateResponse"
     "fixture/ListRepositoriesForApprovalRuleTemplateResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy ListRepositoriesForApprovalRuleTemplate)
 
 responseGetRepository :: GetRepositoryResponse -> TestTree
@@ -1278,7 +1278,7 @@ responseGetRepository =
   res
     "GetRepositoryResponse"
     "fixture/GetRepositoryResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetRepository)
 
 responseBatchDescribeMergeConflicts :: BatchDescribeMergeConflictsResponse -> TestTree
@@ -1286,7 +1286,7 @@ responseBatchDescribeMergeConflicts =
   res
     "BatchDescribeMergeConflictsResponse"
     "fixture/BatchDescribeMergeConflictsResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy BatchDescribeMergeConflicts)
 
 responseDeletePullRequestApprovalRule :: DeletePullRequestApprovalRuleResponse -> TestTree
@@ -1294,7 +1294,7 @@ responseDeletePullRequestApprovalRule =
   res
     "DeletePullRequestApprovalRuleResponse"
     "fixture/DeletePullRequestApprovalRuleResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy DeletePullRequestApprovalRule)
 
 responseGetRepositoryTriggers :: GetRepositoryTriggersResponse -> TestTree
@@ -1302,7 +1302,7 @@ responseGetRepositoryTriggers =
   res
     "GetRepositoryTriggersResponse"
     "fixture/GetRepositoryTriggersResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetRepositoryTriggers)
 
 responseUpdateApprovalRuleTemplateName :: UpdateApprovalRuleTemplateNameResponse -> TestTree
@@ -1310,7 +1310,7 @@ responseUpdateApprovalRuleTemplateName =
   res
     "UpdateApprovalRuleTemplateNameResponse"
     "fixture/UpdateApprovalRuleTemplateNameResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdateApprovalRuleTemplateName)
 
 responsePutFile :: PutFileResponse -> TestTree
@@ -1318,7 +1318,7 @@ responsePutFile =
   res
     "PutFileResponse"
     "fixture/PutFileResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy PutFile)
 
 responseDeleteFile :: DeleteFileResponse -> TestTree
@@ -1326,7 +1326,7 @@ responseDeleteFile =
   res
     "DeleteFileResponse"
     "fixture/DeleteFileResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFile)
 
 responseGetCommentsForComparedCommit :: GetCommentsForComparedCommitResponse -> TestTree
@@ -1334,7 +1334,7 @@ responseGetCommentsForComparedCommit =
   res
     "GetCommentsForComparedCommitResponse"
     "fixture/GetCommentsForComparedCommitResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetCommentsForComparedCommit)
 
 responseGetMergeCommit :: GetMergeCommitResponse -> TestTree
@@ -1342,7 +1342,7 @@ responseGetMergeCommit =
   res
     "GetMergeCommitResponse"
     "fixture/GetMergeCommitResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetMergeCommit)
 
 responseTestRepositoryTriggers :: TestRepositoryTriggersResponse -> TestTree
@@ -1350,7 +1350,7 @@ responseTestRepositoryTriggers =
   res
     "TestRepositoryTriggersResponse"
     "fixture/TestRepositoryTriggersResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy TestRepositoryTriggers)
 
 responseMergePullRequestBySquash :: MergePullRequestBySquashResponse -> TestTree
@@ -1358,7 +1358,7 @@ responseMergePullRequestBySquash =
   res
     "MergePullRequestBySquashResponse"
     "fixture/MergePullRequestBySquashResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy MergePullRequestBySquash)
 
 responseUpdateComment :: UpdateCommentResponse -> TestTree
@@ -1366,7 +1366,7 @@ responseUpdateComment =
   res
     "UpdateCommentResponse"
     "fixture/UpdateCommentResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdateComment)
 
 responsePostCommentForComparedCommit :: PostCommentForComparedCommitResponse -> TestTree
@@ -1374,7 +1374,7 @@ responsePostCommentForComparedCommit =
   res
     "PostCommentForComparedCommitResponse"
     "fixture/PostCommentForComparedCommitResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy PostCommentForComparedCommit)
 
 responseMergeBranchesByFastForward :: MergeBranchesByFastForwardResponse -> TestTree
@@ -1382,7 +1382,7 @@ responseMergeBranchesByFastForward =
   res
     "MergeBranchesByFastForwardResponse"
     "fixture/MergeBranchesByFastForwardResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy MergeBranchesByFastForward)
 
 responseUpdatePullRequestTitle :: UpdatePullRequestTitleResponse -> TestTree
@@ -1390,7 +1390,7 @@ responseUpdatePullRequestTitle =
   res
     "UpdatePullRequestTitleResponse"
     "fixture/UpdatePullRequestTitleResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePullRequestTitle)
 
 responseBatchDisassociateApprovalRuleTemplateFromRepositories :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse -> TestTree
@@ -1398,7 +1398,7 @@ responseBatchDisassociateApprovalRuleTemplateFromRepositories =
   res
     "BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse"
     "fixture/BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy BatchDisassociateApprovalRuleTemplateFromRepositories)
 
 responseUpdatePullRequestApprovalRuleContent :: UpdatePullRequestApprovalRuleContentResponse -> TestTree
@@ -1406,7 +1406,7 @@ responseUpdatePullRequestApprovalRuleContent =
   res
     "UpdatePullRequestApprovalRuleContentResponse"
     "fixture/UpdatePullRequestApprovalRuleContentResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePullRequestApprovalRuleContent)
 
 responseGetBlob :: GetBlobResponse -> TestTree
@@ -1414,7 +1414,7 @@ responseGetBlob =
   res
     "GetBlobResponse"
     "fixture/GetBlobResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetBlob)
 
 responseAssociateApprovalRuleTemplateWithRepository :: AssociateApprovalRuleTemplateWithRepositoryResponse -> TestTree
@@ -1422,7 +1422,7 @@ responseAssociateApprovalRuleTemplateWithRepository =
   res
     "AssociateApprovalRuleTemplateWithRepositoryResponse"
     "fixture/AssociateApprovalRuleTemplateWithRepositoryResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy AssociateApprovalRuleTemplateWithRepository)
 
 responsePutRepositoryTriggers :: PutRepositoryTriggersResponse -> TestTree
@@ -1430,7 +1430,7 @@ responsePutRepositoryTriggers =
   res
     "PutRepositoryTriggersResponse"
     "fixture/PutRepositoryTriggersResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy PutRepositoryTriggers)
 
 responseListApprovalRuleTemplates :: ListApprovalRuleTemplatesResponse -> TestTree
@@ -1438,7 +1438,7 @@ responseListApprovalRuleTemplates =
   res
     "ListApprovalRuleTemplatesResponse"
     "fixture/ListApprovalRuleTemplatesResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy ListApprovalRuleTemplates)
 
 responseDescribeMergeConflicts :: DescribeMergeConflictsResponse -> TestTree
@@ -1446,7 +1446,7 @@ responseDescribeMergeConflicts =
   res
     "DescribeMergeConflictsResponse"
     "fixture/DescribeMergeConflictsResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy DescribeMergeConflicts)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1454,7 +1454,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseMergeBranchesByThreeWay :: MergeBranchesByThreeWayResponse -> TestTree
@@ -1462,7 +1462,7 @@ responseMergeBranchesByThreeWay =
   res
     "MergeBranchesByThreeWayResponse"
     "fixture/MergeBranchesByThreeWayResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy MergeBranchesByThreeWay)
 
 responseGetFile :: GetFileResponse -> TestTree
@@ -1470,7 +1470,7 @@ responseGetFile =
   res
     "GetFileResponse"
     "fixture/GetFileResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetFile)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1478,7 +1478,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseGetMergeConflicts :: GetMergeConflictsResponse -> TestTree
@@ -1486,7 +1486,7 @@ responseGetMergeConflicts =
   res
     "GetMergeConflictsResponse"
     "fixture/GetMergeConflictsResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetMergeConflicts)
 
 responseDeleteRepository :: DeleteRepositoryResponse -> TestTree
@@ -1494,7 +1494,7 @@ responseDeleteRepository =
   res
     "DeleteRepositoryResponse"
     "fixture/DeleteRepositoryResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRepository)
 
 responseDeleteCommentContent :: DeleteCommentContentResponse -> TestTree
@@ -1502,7 +1502,7 @@ responseDeleteCommentContent =
   res
     "DeleteCommentContentResponse"
     "fixture/DeleteCommentContentResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCommentContent)
 
 responseMergePullRequestByThreeWay :: MergePullRequestByThreeWayResponse -> TestTree
@@ -1510,7 +1510,7 @@ responseMergePullRequestByThreeWay =
   res
     "MergePullRequestByThreeWayResponse"
     "fixture/MergePullRequestByThreeWayResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy MergePullRequestByThreeWay)
 
 responseDescribePullRequestEvents :: DescribePullRequestEventsResponse -> TestTree
@@ -1518,7 +1518,7 @@ responseDescribePullRequestEvents =
   res
     "DescribePullRequestEventsResponse"
     "fixture/DescribePullRequestEventsResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy DescribePullRequestEvents)
 
 responseBatchGetRepositories :: BatchGetRepositoriesResponse -> TestTree
@@ -1526,7 +1526,7 @@ responseBatchGetRepositories =
   res
     "BatchGetRepositoriesResponse"
     "fixture/BatchGetRepositoriesResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetRepositories)
 
 responseUpdateApprovalRuleTemplateDescription :: UpdateApprovalRuleTemplateDescriptionResponse -> TestTree
@@ -1534,7 +1534,7 @@ responseUpdateApprovalRuleTemplateDescription =
   res
     "UpdateApprovalRuleTemplateDescriptionResponse"
     "fixture/UpdateApprovalRuleTemplateDescriptionResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdateApprovalRuleTemplateDescription)
 
 responseGetPullRequestOverrideState :: GetPullRequestOverrideStateResponse -> TestTree
@@ -1542,7 +1542,7 @@ responseGetPullRequestOverrideState =
   res
     "GetPullRequestOverrideStateResponse"
     "fixture/GetPullRequestOverrideStateResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetPullRequestOverrideState)
 
 responseGetPullRequestApprovalStates :: GetPullRequestApprovalStatesResponse -> TestTree
@@ -1550,7 +1550,7 @@ responseGetPullRequestApprovalStates =
   res
     "GetPullRequestApprovalStatesResponse"
     "fixture/GetPullRequestApprovalStatesResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetPullRequestApprovalStates)
 
 responseGetCommentsForPullRequest :: GetCommentsForPullRequestResponse -> TestTree
@@ -1558,7 +1558,7 @@ responseGetCommentsForPullRequest =
   res
     "GetCommentsForPullRequestResponse"
     "fixture/GetCommentsForPullRequestResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy GetCommentsForPullRequest)
 
 responseUpdatePullRequestStatus :: UpdatePullRequestStatusResponse -> TestTree
@@ -1566,7 +1566,7 @@ responseUpdatePullRequestStatus =
   res
     "UpdatePullRequestStatusResponse"
     "fixture/UpdatePullRequestStatusResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePullRequestStatus)
 
 responseListAssociatedApprovalRuleTemplatesForRepository :: ListAssociatedApprovalRuleTemplatesForRepositoryResponse -> TestTree
@@ -1574,5 +1574,5 @@ responseListAssociatedApprovalRuleTemplatesForRepository =
   res
     "ListAssociatedApprovalRuleTemplatesForRepositoryResponse"
     "fixture/ListAssociatedApprovalRuleTemplatesForRepositoryResponse.proto"
-    codeCommitService
+    mkServiceConfig
     (Proxy :: Proxy ListAssociatedApprovalRuleTemplatesForRepository)

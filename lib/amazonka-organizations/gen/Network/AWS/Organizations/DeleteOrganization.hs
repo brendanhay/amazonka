@@ -26,54 +26,46 @@ module Network.AWS.Organizations.DeleteOrganization
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteOrganization' smart constructor.
 data DeleteOrganization = DeleteOrganization'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteOrganization' with the minimum fields required to make a request.
+-- | Creates a 'DeleteOrganization' value with any optional fields omitted.
 mkDeleteOrganization ::
   DeleteOrganization
 mkDeleteOrganization = DeleteOrganization'
 
-instance Lude.AWSRequest DeleteOrganization where
+instance Core.FromJSON DeleteOrganization where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DeleteOrganization where
   type Rs DeleteOrganization = DeleteOrganizationResponse
-  request = Req.postJSON organizationsService
-  response = Res.receiveNull DeleteOrganizationResponse'
-
-instance Lude.ToHeaders DeleteOrganization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.DeleteOrganization" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteOrganization where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DeleteOrganization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteOrganization where
-  toQuery = Lude.const Lude.mempty
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSOrganizationsV20161128.DeleteOrganization")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteOrganizationResponse'
 
 -- | /See:/ 'mkDeleteOrganizationResponse' smart constructor.
 data DeleteOrganizationResponse = DeleteOrganizationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteOrganizationResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteOrganizationResponse' value with any optional fields omitted.
 mkDeleteOrganizationResponse ::
   DeleteOrganizationResponse
 mkDeleteOrganizationResponse = DeleteOrganizationResponse'

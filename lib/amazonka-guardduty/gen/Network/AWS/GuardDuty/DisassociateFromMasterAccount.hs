@@ -27,97 +27,86 @@ module Network.AWS.GuardDuty.DisassociateFromMasterAccount
     mkDisassociateFromMasterAccountResponse,
 
     -- ** Response lenses
-    dfmarsResponseStatus,
+    dfmarrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateFromMasterAccount' smart constructor.
 newtype DisassociateFromMasterAccount = DisassociateFromMasterAccount'
   { -- | The unique ID of the detector of the GuardDuty member account.
-    detectorId :: Lude.Text
+    detectorId :: Types.DetectorId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateFromMasterAccount' with the minimum fields required to make a request.
---
--- * 'detectorId' - The unique ID of the detector of the GuardDuty member account.
+-- | Creates a 'DisassociateFromMasterAccount' value with any optional fields omitted.
 mkDisassociateFromMasterAccount ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   DisassociateFromMasterAccount
-mkDisassociateFromMasterAccount pDetectorId_ =
-  DisassociateFromMasterAccount' {detectorId = pDetectorId_}
+mkDisassociateFromMasterAccount detectorId =
+  DisassociateFromMasterAccount' {detectorId}
 
 -- | The unique ID of the detector of the GuardDuty member account.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfmaDetectorId :: Lens.Lens' DisassociateFromMasterAccount Lude.Text
-dfmaDetectorId = Lens.lens (detectorId :: DisassociateFromMasterAccount -> Lude.Text) (\s a -> s {detectorId = a} :: DisassociateFromMasterAccount)
+dfmaDetectorId :: Lens.Lens' DisassociateFromMasterAccount Types.DetectorId
+dfmaDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED dfmaDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance Lude.AWSRequest DisassociateFromMasterAccount where
+instance Core.FromJSON DisassociateFromMasterAccount where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DisassociateFromMasterAccount where
   type
     Rs DisassociateFromMasterAccount =
       DisassociateFromMasterAccountResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/master/disassociate")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateFromMasterAccountResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateFromMasterAccount where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateFromMasterAccount where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DisassociateFromMasterAccount where
-  toPath DisassociateFromMasterAccount' {..} =
-    Lude.mconcat
-      ["/detector/", Lude.toBS detectorId, "/master/disassociate"]
-
-instance Lude.ToQuery DisassociateFromMasterAccount where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateFromMasterAccountResponse' smart constructor.
 newtype DisassociateFromMasterAccountResponse = DisassociateFromMasterAccountResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateFromMasterAccountResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateFromMasterAccountResponse' value with any optional fields omitted.
 mkDisassociateFromMasterAccountResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateFromMasterAccountResponse
-mkDisassociateFromMasterAccountResponse pResponseStatus_ =
-  DisassociateFromMasterAccountResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDisassociateFromMasterAccountResponse responseStatus =
+  DisassociateFromMasterAccountResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfmarsResponseStatus :: Lens.Lens' DisassociateFromMasterAccountResponse Lude.Int
-dfmarsResponseStatus = Lens.lens (responseStatus :: DisassociateFromMasterAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateFromMasterAccountResponse)
-{-# DEPRECATED dfmarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfmarrsResponseStatus :: Lens.Lens' DisassociateFromMasterAccountResponse Core.Int
+dfmarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfmarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

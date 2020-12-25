@@ -21,23 +21,22 @@ module Network.AWS.IoTAnalytics.Types.ServiceManagedDatastoreS3StorageSummary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Used to store data store data in an S3 bucket managed by AWS IoT Analytics.
 --
 -- /See:/ 'mkServiceManagedDatastoreS3StorageSummary' smart constructor.
 data ServiceManagedDatastoreS3StorageSummary = ServiceManagedDatastoreS3StorageSummary'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServiceManagedDatastoreS3StorageSummary' with the minimum fields required to make a request.
+-- | Creates a 'ServiceManagedDatastoreS3StorageSummary' value with any optional fields omitted.
 mkServiceManagedDatastoreS3StorageSummary ::
   ServiceManagedDatastoreS3StorageSummary
 mkServiceManagedDatastoreS3StorageSummary =
   ServiceManagedDatastoreS3StorageSummary'
 
-instance Lude.FromJSON ServiceManagedDatastoreS3StorageSummary where
+instance Core.FromJSON ServiceManagedDatastoreS3StorageSummary where
   parseJSON =
-    Lude.withObject
-      "ServiceManagedDatastoreS3StorageSummary"
-      (\x -> Lude.pure ServiceManagedDatastoreS3StorageSummary')
+    Core.withObject "ServiceManagedDatastoreS3StorageSummary" Core.$
+      \x -> Core.pure ServiceManagedDatastoreS3StorageSummary'

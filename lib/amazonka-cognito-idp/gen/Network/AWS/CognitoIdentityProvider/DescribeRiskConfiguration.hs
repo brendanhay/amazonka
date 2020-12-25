@@ -20,143 +20,127 @@ module Network.AWS.CognitoIdentityProvider.DescribeRiskConfiguration
     mkDescribeRiskConfiguration,
 
     -- ** Request lenses
-    drcClientId,
     drcUserPoolId,
+    drcClientId,
 
     -- * Destructuring the response
     DescribeRiskConfigurationResponse (..),
     mkDescribeRiskConfigurationResponse,
 
     -- ** Response lenses
-    drcrsRiskConfiguration,
-    drcrsResponseStatus,
+    drcrrsRiskConfiguration,
+    drcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeRiskConfiguration' smart constructor.
 data DescribeRiskConfiguration = DescribeRiskConfiguration'
-  { -- | The app client ID.
-    clientId :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The user pool ID.
-    userPoolId :: Lude.Text
+  { -- | The user pool ID.
+    userPoolId :: Types.UserPoolId,
+    -- | The app client ID.
+    clientId :: Core.Maybe Types.ClientIdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeRiskConfiguration' with the minimum fields required to make a request.
---
--- * 'clientId' - The app client ID.
--- * 'userPoolId' - The user pool ID.
+-- | Creates a 'DescribeRiskConfiguration' value with any optional fields omitted.
 mkDescribeRiskConfiguration ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   DescribeRiskConfiguration
-mkDescribeRiskConfiguration pUserPoolId_ =
-  DescribeRiskConfiguration'
-    { clientId = Lude.Nothing,
-      userPoolId = pUserPoolId_
-    }
-
--- | The app client ID.
---
--- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcClientId :: Lens.Lens' DescribeRiskConfiguration (Lude.Maybe (Lude.Sensitive Lude.Text))
-drcClientId = Lens.lens (clientId :: DescribeRiskConfiguration -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {clientId = a} :: DescribeRiskConfiguration)
-{-# DEPRECATED drcClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+mkDescribeRiskConfiguration userPoolId =
+  DescribeRiskConfiguration' {userPoolId, clientId = Core.Nothing}
 
 -- | The user pool ID.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcUserPoolId :: Lens.Lens' DescribeRiskConfiguration Lude.Text
-drcUserPoolId = Lens.lens (userPoolId :: DescribeRiskConfiguration -> Lude.Text) (\s a -> s {userPoolId = a} :: DescribeRiskConfiguration)
+drcUserPoolId :: Lens.Lens' DescribeRiskConfiguration Types.UserPoolId
+drcUserPoolId = Lens.field @"userPoolId"
 {-# DEPRECATED drcUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
-instance Lude.AWSRequest DescribeRiskConfiguration where
+-- | The app client ID.
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drcClientId :: Lens.Lens' DescribeRiskConfiguration (Core.Maybe Types.ClientIdType)
+drcClientId = Lens.field @"clientId"
+{-# DEPRECATED drcClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+
+instance Core.FromJSON DescribeRiskConfiguration where
+  toJSON DescribeRiskConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            ("ClientId" Core..=) Core.<$> clientId
+          ]
+      )
+
+instance Core.AWSRequest DescribeRiskConfiguration where
   type
     Rs DescribeRiskConfiguration =
       DescribeRiskConfigurationResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.DescribeRiskConfiguration"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeRiskConfigurationResponse'
-            Lude.<$> (x Lude..:> "RiskConfiguration")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "RiskConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeRiskConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.DescribeRiskConfiguration" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeRiskConfiguration where
-  toJSON DescribeRiskConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ClientId" Lude..=) Lude.<$> clientId,
-            Lude.Just ("UserPoolId" Lude..= userPoolId)
-          ]
-      )
-
-instance Lude.ToPath DescribeRiskConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeRiskConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeRiskConfigurationResponse' smart constructor.
 data DescribeRiskConfigurationResponse = DescribeRiskConfigurationResponse'
   { -- | The risk configuration.
-    riskConfiguration :: RiskConfigurationType,
+    riskConfiguration :: Types.RiskConfigurationType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeRiskConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'riskConfiguration' - The risk configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeRiskConfigurationResponse' value with any optional fields omitted.
 mkDescribeRiskConfigurationResponse ::
   -- | 'riskConfiguration'
-  RiskConfigurationType ->
+  Types.RiskConfigurationType ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeRiskConfigurationResponse
 mkDescribeRiskConfigurationResponse
-  pRiskConfiguration_
-  pResponseStatus_ =
+  riskConfiguration
+  responseStatus =
     DescribeRiskConfigurationResponse'
-      { riskConfiguration =
-          pRiskConfiguration_,
-        responseStatus = pResponseStatus_
+      { riskConfiguration,
+        responseStatus
       }
 
 -- | The risk configuration.
 --
 -- /Note:/ Consider using 'riskConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcrsRiskConfiguration :: Lens.Lens' DescribeRiskConfigurationResponse RiskConfigurationType
-drcrsRiskConfiguration = Lens.lens (riskConfiguration :: DescribeRiskConfigurationResponse -> RiskConfigurationType) (\s a -> s {riskConfiguration = a} :: DescribeRiskConfigurationResponse)
-{-# DEPRECATED drcrsRiskConfiguration "Use generic-lens or generic-optics with 'riskConfiguration' instead." #-}
+drcrrsRiskConfiguration :: Lens.Lens' DescribeRiskConfigurationResponse Types.RiskConfigurationType
+drcrrsRiskConfiguration = Lens.field @"riskConfiguration"
+{-# DEPRECATED drcrrsRiskConfiguration "Use generic-lens or generic-optics with 'riskConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcrsResponseStatus :: Lens.Lens' DescribeRiskConfigurationResponse Lude.Int
-drcrsResponseStatus = Lens.lens (responseStatus :: DescribeRiskConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRiskConfigurationResponse)
-{-# DEPRECATED drcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drcrrsResponseStatus :: Lens.Lens' DescribeRiskConfigurationResponse Core.Int
+drcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

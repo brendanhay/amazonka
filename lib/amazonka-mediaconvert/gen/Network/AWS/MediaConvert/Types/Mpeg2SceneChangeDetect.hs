@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Mpeg2SceneChangeDetect
   ( Mpeg2SceneChangeDetect
       ( Mpeg2SceneChangeDetect',
-        MSCDDisabled,
-        MSCDEnabled
+        Mpeg2SceneChangeDetectDisabled,
+        Mpeg2SceneChangeDetectEnabled,
+        fromMpeg2SceneChangeDetect
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Enable this setting to insert I-frames at scene changes that the service automatically detects. This improves video quality and is enabled by default.
-newtype Mpeg2SceneChangeDetect = Mpeg2SceneChangeDetect' Lude.Text
+newtype Mpeg2SceneChangeDetect = Mpeg2SceneChangeDetect'
+  { fromMpeg2SceneChangeDetect ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MSCDDisabled :: Mpeg2SceneChangeDetect
-pattern MSCDDisabled = Mpeg2SceneChangeDetect' "DISABLED"
+pattern Mpeg2SceneChangeDetectDisabled :: Mpeg2SceneChangeDetect
+pattern Mpeg2SceneChangeDetectDisabled = Mpeg2SceneChangeDetect' "DISABLED"
 
-pattern MSCDEnabled :: Mpeg2SceneChangeDetect
-pattern MSCDEnabled = Mpeg2SceneChangeDetect' "ENABLED"
+pattern Mpeg2SceneChangeDetectEnabled :: Mpeg2SceneChangeDetect
+pattern Mpeg2SceneChangeDetectEnabled = Mpeg2SceneChangeDetect' "ENABLED"
 
 {-# COMPLETE
-  MSCDDisabled,
-  MSCDEnabled,
+  Mpeg2SceneChangeDetectDisabled,
+  Mpeg2SceneChangeDetectEnabled,
   Mpeg2SceneChangeDetect'
   #-}

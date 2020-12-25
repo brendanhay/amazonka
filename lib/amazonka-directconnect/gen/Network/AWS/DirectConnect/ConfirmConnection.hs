@@ -29,74 +29,64 @@ module Network.AWS.DirectConnect.ConfirmConnection
     mkConfirmConnectionResponse,
 
     -- ** Response lenses
-    ccrsConnectionState,
-    ccrsResponseStatus,
+    ccrrsConnectionState,
+    ccrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkConfirmConnection' smart constructor.
 newtype ConfirmConnection = ConfirmConnection'
   { -- | The ID of the hosted connection.
-    connectionId :: Lude.Text
+    connectionId :: Types.ConnectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfirmConnection' with the minimum fields required to make a request.
---
--- * 'connectionId' - The ID of the hosted connection.
+-- | Creates a 'ConfirmConnection' value with any optional fields omitted.
 mkConfirmConnection ::
   -- | 'connectionId'
-  Lude.Text ->
+  Types.ConnectionId ->
   ConfirmConnection
-mkConfirmConnection pConnectionId_ =
-  ConfirmConnection' {connectionId = pConnectionId_}
+mkConfirmConnection connectionId = ConfirmConnection' {connectionId}
 
 -- | The ID of the hosted connection.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccConnectionId :: Lens.Lens' ConfirmConnection Lude.Text
-ccConnectionId = Lens.lens (connectionId :: ConfirmConnection -> Lude.Text) (\s a -> s {connectionId = a} :: ConfirmConnection)
+ccConnectionId :: Lens.Lens' ConfirmConnection Types.ConnectionId
+ccConnectionId = Lens.field @"connectionId"
 {-# DEPRECATED ccConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
-instance Lude.AWSRequest ConfirmConnection where
+instance Core.FromJSON ConfirmConnection where
+  toJSON ConfirmConnection {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("connectionId" Core..= connectionId)])
+
+instance Core.AWSRequest ConfirmConnection where
   type Rs ConfirmConnection = ConfirmConnectionResponse
-  request = Req.postJSON directConnectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OvertureService.ConfirmConnection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ConfirmConnectionResponse'
-            Lude.<$> (x Lude..?> "connectionState")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "connectionState")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ConfirmConnection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.ConfirmConnection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ConfirmConnection where
-  toJSON ConfirmConnection' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("connectionId" Lude..= connectionId)])
-
-instance Lude.ToPath ConfirmConnection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ConfirmConnection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkConfirmConnectionResponse' smart constructor.
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
@@ -128,54 +118,22 @@ data ConfirmConnectionResponse = ConfirmConnectionResponse'
     --
     --
     --     * @unknown@ : The state of the connection is not available.
-    connectionState :: Lude.Maybe ConnectionState,
+    connectionState :: Core.Maybe Types.ConnectionState,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfirmConnectionResponse' with the minimum fields required to make a request.
---
--- * 'connectionState' - The state of the connection. The following are the possible values:
---
---
---     * @ordering@ : The initial state of a hosted connection provisioned on an interconnect. The connection stays in the ordering state until the owner of the hosted connection confirms or declines the connection order.
---
---
---     * @requested@ : The initial state of a standard connection. The connection stays in the requested state until the Letter of Authorization (LOA) is sent to the customer.
---
---
---     * @pending@ : The connection has been approved and is being initialized.
---
---
---     * @available@ : The network link is up and the connection is ready for use.
---
---
---     * @down@ : The network link is down.
---
---
---     * @deleting@ : The connection is being deleted.
---
---
---     * @deleted@ : The connection has been deleted.
---
---
---     * @rejected@ : A hosted connection in the @ordering@ state enters the @rejected@ state if it is deleted by the customer.
---
---
---     * @unknown@ : The state of the connection is not available.
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ConfirmConnectionResponse' value with any optional fields omitted.
 mkConfirmConnectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ConfirmConnectionResponse
-mkConfirmConnectionResponse pResponseStatus_ =
+mkConfirmConnectionResponse responseStatus =
   ConfirmConnectionResponse'
-    { connectionState = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { connectionState = Core.Nothing,
+      responseStatus
     }
 
 -- | The state of the connection. The following are the possible values:
@@ -210,13 +168,13 @@ mkConfirmConnectionResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'connectionState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsConnectionState :: Lens.Lens' ConfirmConnectionResponse (Lude.Maybe ConnectionState)
-ccrsConnectionState = Lens.lens (connectionState :: ConfirmConnectionResponse -> Lude.Maybe ConnectionState) (\s a -> s {connectionState = a} :: ConfirmConnectionResponse)
-{-# DEPRECATED ccrsConnectionState "Use generic-lens or generic-optics with 'connectionState' instead." #-}
+ccrrsConnectionState :: Lens.Lens' ConfirmConnectionResponse (Core.Maybe Types.ConnectionState)
+ccrrsConnectionState = Lens.field @"connectionState"
+{-# DEPRECATED ccrrsConnectionState "Use generic-lens or generic-optics with 'connectionState' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsResponseStatus :: Lens.Lens' ConfirmConnectionResponse Lude.Int
-ccrsResponseStatus = Lens.lens (responseStatus :: ConfirmConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConfirmConnectionResponse)
-{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccrrsResponseStatus :: Lens.Lens' ConfirmConnectionResponse Core.Int
+ccrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

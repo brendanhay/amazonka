@@ -27,7 +27,7 @@ import Data.Bifunctor
 import Data.ByteArray
 import Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
-import qualified Data.HashMap.Strict as Map
+import qualified Data.HashMap.Strict as HashMap
 import Network.AWS hiding (PKCS7)
 import Network.AWS.KMS as KMS
 import Network.AWS.Prelude

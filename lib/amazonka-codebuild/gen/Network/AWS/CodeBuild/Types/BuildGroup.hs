@@ -17,98 +17,92 @@ module Network.AWS.CodeBuild.Types.BuildGroup
     mkBuildGroup,
 
     -- * Lenses
-    bgIdentifier,
-    bgDependsOn,
-    bgIgnoreFailure,
     bgCurrentBuildSummary,
+    bgDependsOn,
+    bgIdentifier,
+    bgIgnoreFailure,
     bgPriorBuildSummaryList,
   )
 where
 
-import Network.AWS.CodeBuild.Types.BuildSummary
+import qualified Network.AWS.CodeBuild.Types.BuildSummary as Types
+import qualified Network.AWS.CodeBuild.Types.NonEmptyString as Types
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a batch build build group. Build groups are used to combine builds that can run in parallel, while still being able to set dependencies on other build groups.
 --
 -- /See:/ 'mkBuildGroup' smart constructor.
 data BuildGroup = BuildGroup'
-  { -- | Contains the identifier of the build group.
-    identifier :: Lude.Maybe Lude.Text,
+  { -- | A @BuildSummary@ object that contains a summary of the current build group.
+    currentBuildSummary :: Core.Maybe Types.BuildSummary,
     -- | An array of strings that contain the identifiers of the build groups that this build group depends on.
-    dependsOn :: Lude.Maybe [Lude.Text],
+    dependsOn :: Core.Maybe [Types.NonEmptyString],
+    -- | Contains the identifier of the build group.
+    identifier :: Core.Maybe Types.String,
     -- | Specifies if failures in this build group can be ignored.
-    ignoreFailure :: Lude.Maybe Lude.Bool,
-    -- | A @BuildSummary@ object that contains a summary of the current build group.
-    currentBuildSummary :: Lude.Maybe BuildSummary,
+    ignoreFailure :: Core.Maybe Core.Bool,
     -- | An array of @BuildSummary@ objects that contain summaries of previous build groups.
-    priorBuildSummaryList :: Lude.Maybe [BuildSummary]
+    priorBuildSummaryList :: Core.Maybe [Types.BuildSummary]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BuildGroup' with the minimum fields required to make a request.
---
--- * 'identifier' - Contains the identifier of the build group.
--- * 'dependsOn' - An array of strings that contain the identifiers of the build groups that this build group depends on.
--- * 'ignoreFailure' - Specifies if failures in this build group can be ignored.
--- * 'currentBuildSummary' - A @BuildSummary@ object that contains a summary of the current build group.
--- * 'priorBuildSummaryList' - An array of @BuildSummary@ objects that contain summaries of previous build groups.
+-- | Creates a 'BuildGroup' value with any optional fields omitted.
 mkBuildGroup ::
   BuildGroup
 mkBuildGroup =
   BuildGroup'
-    { identifier = Lude.Nothing,
-      dependsOn = Lude.Nothing,
-      ignoreFailure = Lude.Nothing,
-      currentBuildSummary = Lude.Nothing,
-      priorBuildSummaryList = Lude.Nothing
+    { currentBuildSummary = Core.Nothing,
+      dependsOn = Core.Nothing,
+      identifier = Core.Nothing,
+      ignoreFailure = Core.Nothing,
+      priorBuildSummaryList = Core.Nothing
     }
-
--- | Contains the identifier of the build group.
---
--- /Note:/ Consider using 'identifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgIdentifier :: Lens.Lens' BuildGroup (Lude.Maybe Lude.Text)
-bgIdentifier = Lens.lens (identifier :: BuildGroup -> Lude.Maybe Lude.Text) (\s a -> s {identifier = a} :: BuildGroup)
-{-# DEPRECATED bgIdentifier "Use generic-lens or generic-optics with 'identifier' instead." #-}
-
--- | An array of strings that contain the identifiers of the build groups that this build group depends on.
---
--- /Note:/ Consider using 'dependsOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgDependsOn :: Lens.Lens' BuildGroup (Lude.Maybe [Lude.Text])
-bgDependsOn = Lens.lens (dependsOn :: BuildGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {dependsOn = a} :: BuildGroup)
-{-# DEPRECATED bgDependsOn "Use generic-lens or generic-optics with 'dependsOn' instead." #-}
-
--- | Specifies if failures in this build group can be ignored.
---
--- /Note:/ Consider using 'ignoreFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgIgnoreFailure :: Lens.Lens' BuildGroup (Lude.Maybe Lude.Bool)
-bgIgnoreFailure = Lens.lens (ignoreFailure :: BuildGroup -> Lude.Maybe Lude.Bool) (\s a -> s {ignoreFailure = a} :: BuildGroup)
-{-# DEPRECATED bgIgnoreFailure "Use generic-lens or generic-optics with 'ignoreFailure' instead." #-}
 
 -- | A @BuildSummary@ object that contains a summary of the current build group.
 --
 -- /Note:/ Consider using 'currentBuildSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgCurrentBuildSummary :: Lens.Lens' BuildGroup (Lude.Maybe BuildSummary)
-bgCurrentBuildSummary = Lens.lens (currentBuildSummary :: BuildGroup -> Lude.Maybe BuildSummary) (\s a -> s {currentBuildSummary = a} :: BuildGroup)
+bgCurrentBuildSummary :: Lens.Lens' BuildGroup (Core.Maybe Types.BuildSummary)
+bgCurrentBuildSummary = Lens.field @"currentBuildSummary"
 {-# DEPRECATED bgCurrentBuildSummary "Use generic-lens or generic-optics with 'currentBuildSummary' instead." #-}
+
+-- | An array of strings that contain the identifiers of the build groups that this build group depends on.
+--
+-- /Note:/ Consider using 'dependsOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgDependsOn :: Lens.Lens' BuildGroup (Core.Maybe [Types.NonEmptyString])
+bgDependsOn = Lens.field @"dependsOn"
+{-# DEPRECATED bgDependsOn "Use generic-lens or generic-optics with 'dependsOn' instead." #-}
+
+-- | Contains the identifier of the build group.
+--
+-- /Note:/ Consider using 'identifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgIdentifier :: Lens.Lens' BuildGroup (Core.Maybe Types.String)
+bgIdentifier = Lens.field @"identifier"
+{-# DEPRECATED bgIdentifier "Use generic-lens or generic-optics with 'identifier' instead." #-}
+
+-- | Specifies if failures in this build group can be ignored.
+--
+-- /Note:/ Consider using 'ignoreFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgIgnoreFailure :: Lens.Lens' BuildGroup (Core.Maybe Core.Bool)
+bgIgnoreFailure = Lens.field @"ignoreFailure"
+{-# DEPRECATED bgIgnoreFailure "Use generic-lens or generic-optics with 'ignoreFailure' instead." #-}
 
 -- | An array of @BuildSummary@ objects that contain summaries of previous build groups.
 --
 -- /Note:/ Consider using 'priorBuildSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgPriorBuildSummaryList :: Lens.Lens' BuildGroup (Lude.Maybe [BuildSummary])
-bgPriorBuildSummaryList = Lens.lens (priorBuildSummaryList :: BuildGroup -> Lude.Maybe [BuildSummary]) (\s a -> s {priorBuildSummaryList = a} :: BuildGroup)
+bgPriorBuildSummaryList :: Lens.Lens' BuildGroup (Core.Maybe [Types.BuildSummary])
+bgPriorBuildSummaryList = Lens.field @"priorBuildSummaryList"
 {-# DEPRECATED bgPriorBuildSummaryList "Use generic-lens or generic-optics with 'priorBuildSummaryList' instead." #-}
 
-instance Lude.FromJSON BuildGroup where
+instance Core.FromJSON BuildGroup where
   parseJSON =
-    Lude.withObject
-      "BuildGroup"
-      ( \x ->
-          BuildGroup'
-            Lude.<$> (x Lude..:? "identifier")
-            Lude.<*> (x Lude..:? "dependsOn" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ignoreFailure")
-            Lude.<*> (x Lude..:? "currentBuildSummary")
-            Lude.<*> (x Lude..:? "priorBuildSummaryList" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BuildGroup" Core.$
+      \x ->
+        BuildGroup'
+          Core.<$> (x Core..:? "currentBuildSummary")
+          Core.<*> (x Core..:? "dependsOn")
+          Core.<*> (x Core..:? "identifier")
+          Core.<*> (x Core..:? "ignoreFailure")
+          Core.<*> (x Core..:? "priorBuildSummaryList")

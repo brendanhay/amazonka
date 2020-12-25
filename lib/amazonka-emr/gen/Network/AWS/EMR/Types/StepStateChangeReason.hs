@@ -22,53 +22,49 @@ module Network.AWS.EMR.Types.StepStateChangeReason
   )
 where
 
-import Network.AWS.EMR.Types.StepStateChangeReasonCode
+import qualified Network.AWS.EMR.Types.StepStateChangeReasonCode as Types
+import qualified Network.AWS.EMR.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details of the step state change reason.
 --
 -- /See:/ 'mkStepStateChangeReason' smart constructor.
 data StepStateChangeReason = StepStateChangeReason'
   { -- | The programmable code for the state change reason. Note: Currently, the service provides no code for the state change.
-    code :: Lude.Maybe StepStateChangeReasonCode,
+    code :: Core.Maybe Types.StepStateChangeReasonCode,
     -- | The descriptive message for the state change reason.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StepStateChangeReason' with the minimum fields required to make a request.
---
--- * 'code' - The programmable code for the state change reason. Note: Currently, the service provides no code for the state change.
--- * 'message' - The descriptive message for the state change reason.
+-- | Creates a 'StepStateChangeReason' value with any optional fields omitted.
 mkStepStateChangeReason ::
   StepStateChangeReason
 mkStepStateChangeReason =
   StepStateChangeReason'
-    { code = Lude.Nothing,
-      message = Lude.Nothing
+    { code = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The programmable code for the state change reason. Note: Currently, the service provides no code for the state change.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sscrCode :: Lens.Lens' StepStateChangeReason (Lude.Maybe StepStateChangeReasonCode)
-sscrCode = Lens.lens (code :: StepStateChangeReason -> Lude.Maybe StepStateChangeReasonCode) (\s a -> s {code = a} :: StepStateChangeReason)
+sscrCode :: Lens.Lens' StepStateChangeReason (Core.Maybe Types.StepStateChangeReasonCode)
+sscrCode = Lens.field @"code"
 {-# DEPRECATED sscrCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The descriptive message for the state change reason.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sscrMessage :: Lens.Lens' StepStateChangeReason (Lude.Maybe Lude.Text)
-sscrMessage = Lens.lens (message :: StepStateChangeReason -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: StepStateChangeReason)
+sscrMessage :: Lens.Lens' StepStateChangeReason (Core.Maybe Types.String)
+sscrMessage = Lens.field @"message"
 {-# DEPRECATED sscrMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON StepStateChangeReason where
+instance Core.FromJSON StepStateChangeReason where
   parseJSON =
-    Lude.withObject
-      "StepStateChangeReason"
-      ( \x ->
-          StepStateChangeReason'
-            Lude.<$> (x Lude..:? "Code") Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "StepStateChangeReason" Core.$
+      \x ->
+        StepStateChangeReason'
+          Core.<$> (x Core..:? "Code") Core.<*> (x Core..:? "Message")

@@ -13,67 +13,69 @@
 module Network.AWS.MediaLive.Types.Eac3DrcLine
   ( Eac3DrcLine
       ( Eac3DrcLine',
-        EDLFilmLight,
-        EDLFilmStandard,
-        EDLMusicLight,
-        EDLMusicStandard,
-        EDLNone,
-        EDLSpeech
+        Eac3DrcLineFilmLight,
+        Eac3DrcLineFilmStandard,
+        Eac3DrcLineMusicLight,
+        Eac3DrcLineMusicStandard,
+        Eac3DrcLineNone,
+        Eac3DrcLineSpeech,
+        fromEac3DrcLine
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Eac3 Drc Line
-newtype Eac3DrcLine = Eac3DrcLine' Lude.Text
+newtype Eac3DrcLine = Eac3DrcLine' {fromEac3DrcLine :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EDLFilmLight :: Eac3DrcLine
-pattern EDLFilmLight = Eac3DrcLine' "FILM_LIGHT"
+pattern Eac3DrcLineFilmLight :: Eac3DrcLine
+pattern Eac3DrcLineFilmLight = Eac3DrcLine' "FILM_LIGHT"
 
-pattern EDLFilmStandard :: Eac3DrcLine
-pattern EDLFilmStandard = Eac3DrcLine' "FILM_STANDARD"
+pattern Eac3DrcLineFilmStandard :: Eac3DrcLine
+pattern Eac3DrcLineFilmStandard = Eac3DrcLine' "FILM_STANDARD"
 
-pattern EDLMusicLight :: Eac3DrcLine
-pattern EDLMusicLight = Eac3DrcLine' "MUSIC_LIGHT"
+pattern Eac3DrcLineMusicLight :: Eac3DrcLine
+pattern Eac3DrcLineMusicLight = Eac3DrcLine' "MUSIC_LIGHT"
 
-pattern EDLMusicStandard :: Eac3DrcLine
-pattern EDLMusicStandard = Eac3DrcLine' "MUSIC_STANDARD"
+pattern Eac3DrcLineMusicStandard :: Eac3DrcLine
+pattern Eac3DrcLineMusicStandard = Eac3DrcLine' "MUSIC_STANDARD"
 
-pattern EDLNone :: Eac3DrcLine
-pattern EDLNone = Eac3DrcLine' "NONE"
+pattern Eac3DrcLineNone :: Eac3DrcLine
+pattern Eac3DrcLineNone = Eac3DrcLine' "NONE"
 
-pattern EDLSpeech :: Eac3DrcLine
-pattern EDLSpeech = Eac3DrcLine' "SPEECH"
+pattern Eac3DrcLineSpeech :: Eac3DrcLine
+pattern Eac3DrcLineSpeech = Eac3DrcLine' "SPEECH"
 
 {-# COMPLETE
-  EDLFilmLight,
-  EDLFilmStandard,
-  EDLMusicLight,
-  EDLMusicStandard,
-  EDLNone,
-  EDLSpeech,
+  Eac3DrcLineFilmLight,
+  Eac3DrcLineFilmStandard,
+  Eac3DrcLineMusicLight,
+  Eac3DrcLineMusicStandard,
+  Eac3DrcLineNone,
+  Eac3DrcLineSpeech,
   Eac3DrcLine'
   #-}

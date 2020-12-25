@@ -13,51 +13,56 @@
 module Network.AWS.Route53Domains.Types.ReachabilityStatus
   ( ReachabilityStatus
       ( ReachabilityStatus',
-        Pending,
-        Done,
-        Expired
+        ReachabilityStatusPending,
+        ReachabilityStatusDone,
+        ReachabilityStatusExpired,
+        fromReachabilityStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReachabilityStatus = ReachabilityStatus' Lude.Text
+newtype ReachabilityStatus = ReachabilityStatus'
+  { fromReachabilityStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Pending :: ReachabilityStatus
-pattern Pending = ReachabilityStatus' "PENDING"
+pattern ReachabilityStatusPending :: ReachabilityStatus
+pattern ReachabilityStatusPending = ReachabilityStatus' "PENDING"
 
-pattern Done :: ReachabilityStatus
-pattern Done = ReachabilityStatus' "DONE"
+pattern ReachabilityStatusDone :: ReachabilityStatus
+pattern ReachabilityStatusDone = ReachabilityStatus' "DONE"
 
-pattern Expired :: ReachabilityStatus
-pattern Expired = ReachabilityStatus' "EXPIRED"
+pattern ReachabilityStatusExpired :: ReachabilityStatus
+pattern ReachabilityStatusExpired = ReachabilityStatus' "EXPIRED"
 
 {-# COMPLETE
-  Pending,
-  Done,
-  Expired,
+  ReachabilityStatusPending,
+  ReachabilityStatusDone,
+  ReachabilityStatusExpired,
   ReachabilityStatus'
   #-}

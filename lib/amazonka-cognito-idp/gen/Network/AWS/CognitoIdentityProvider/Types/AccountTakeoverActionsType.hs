@@ -17,82 +17,76 @@ module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionsType
     mkAccountTakeoverActionsType,
 
     -- * Lenses
-    atatLowAction,
     atatHighAction,
+    atatLowAction,
     atatMediumAction,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionType
+import qualified Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Account takeover actions type.
 --
 -- /See:/ 'mkAccountTakeoverActionsType' smart constructor.
 data AccountTakeoverActionsType = AccountTakeoverActionsType'
-  { -- | Action to take for a low risk.
-    lowAction :: Lude.Maybe AccountTakeoverActionType,
-    -- | Action to take for a high risk.
-    highAction :: Lude.Maybe AccountTakeoverActionType,
+  { -- | Action to take for a high risk.
+    highAction :: Core.Maybe Types.AccountTakeoverActionType,
+    -- | Action to take for a low risk.
+    lowAction :: Core.Maybe Types.AccountTakeoverActionType,
     -- | Action to take for a medium risk.
-    mediumAction :: Lude.Maybe AccountTakeoverActionType
+    mediumAction :: Core.Maybe Types.AccountTakeoverActionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountTakeoverActionsType' with the minimum fields required to make a request.
---
--- * 'lowAction' - Action to take for a low risk.
--- * 'highAction' - Action to take for a high risk.
--- * 'mediumAction' - Action to take for a medium risk.
+-- | Creates a 'AccountTakeoverActionsType' value with any optional fields omitted.
 mkAccountTakeoverActionsType ::
   AccountTakeoverActionsType
 mkAccountTakeoverActionsType =
   AccountTakeoverActionsType'
-    { lowAction = Lude.Nothing,
-      highAction = Lude.Nothing,
-      mediumAction = Lude.Nothing
+    { highAction = Core.Nothing,
+      lowAction = Core.Nothing,
+      mediumAction = Core.Nothing
     }
-
--- | Action to take for a low risk.
---
--- /Note:/ Consider using 'lowAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atatLowAction :: Lens.Lens' AccountTakeoverActionsType (Lude.Maybe AccountTakeoverActionType)
-atatLowAction = Lens.lens (lowAction :: AccountTakeoverActionsType -> Lude.Maybe AccountTakeoverActionType) (\s a -> s {lowAction = a} :: AccountTakeoverActionsType)
-{-# DEPRECATED atatLowAction "Use generic-lens or generic-optics with 'lowAction' instead." #-}
 
 -- | Action to take for a high risk.
 --
 -- /Note:/ Consider using 'highAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atatHighAction :: Lens.Lens' AccountTakeoverActionsType (Lude.Maybe AccountTakeoverActionType)
-atatHighAction = Lens.lens (highAction :: AccountTakeoverActionsType -> Lude.Maybe AccountTakeoverActionType) (\s a -> s {highAction = a} :: AccountTakeoverActionsType)
+atatHighAction :: Lens.Lens' AccountTakeoverActionsType (Core.Maybe Types.AccountTakeoverActionType)
+atatHighAction = Lens.field @"highAction"
 {-# DEPRECATED atatHighAction "Use generic-lens or generic-optics with 'highAction' instead." #-}
+
+-- | Action to take for a low risk.
+--
+-- /Note:/ Consider using 'lowAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atatLowAction :: Lens.Lens' AccountTakeoverActionsType (Core.Maybe Types.AccountTakeoverActionType)
+atatLowAction = Lens.field @"lowAction"
+{-# DEPRECATED atatLowAction "Use generic-lens or generic-optics with 'lowAction' instead." #-}
 
 -- | Action to take for a medium risk.
 --
 -- /Note:/ Consider using 'mediumAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atatMediumAction :: Lens.Lens' AccountTakeoverActionsType (Lude.Maybe AccountTakeoverActionType)
-atatMediumAction = Lens.lens (mediumAction :: AccountTakeoverActionsType -> Lude.Maybe AccountTakeoverActionType) (\s a -> s {mediumAction = a} :: AccountTakeoverActionsType)
+atatMediumAction :: Lens.Lens' AccountTakeoverActionsType (Core.Maybe Types.AccountTakeoverActionType)
+atatMediumAction = Lens.field @"mediumAction"
 {-# DEPRECATED atatMediumAction "Use generic-lens or generic-optics with 'mediumAction' instead." #-}
 
-instance Lude.FromJSON AccountTakeoverActionsType where
-  parseJSON =
-    Lude.withObject
-      "AccountTakeoverActionsType"
-      ( \x ->
-          AccountTakeoverActionsType'
-            Lude.<$> (x Lude..:? "LowAction")
-            Lude.<*> (x Lude..:? "HighAction")
-            Lude.<*> (x Lude..:? "MediumAction")
-      )
-
-instance Lude.ToJSON AccountTakeoverActionsType where
-  toJSON AccountTakeoverActionsType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("LowAction" Lude..=) Lude.<$> lowAction,
-            ("HighAction" Lude..=) Lude.<$> highAction,
-            ("MediumAction" Lude..=) Lude.<$> mediumAction
+instance Core.FromJSON AccountTakeoverActionsType where
+  toJSON AccountTakeoverActionsType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("HighAction" Core..=) Core.<$> highAction,
+            ("LowAction" Core..=) Core.<$> lowAction,
+            ("MediumAction" Core..=) Core.<$> mediumAction
           ]
       )
+
+instance Core.FromJSON AccountTakeoverActionsType where
+  parseJSON =
+    Core.withObject "AccountTakeoverActionsType" Core.$
+      \x ->
+        AccountTakeoverActionsType'
+          Core.<$> (x Core..:? "HighAction")
+          Core.<*> (x Core..:? "LowAction")
+          Core.<*> (x Core..:? "MediumAction")

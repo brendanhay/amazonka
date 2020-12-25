@@ -13,51 +13,56 @@
 module Network.AWS.StorageGateway.Types.AvailabilityMonitorTestStatus
   ( AvailabilityMonitorTestStatus
       ( AvailabilityMonitorTestStatus',
-        Complete,
-        Failed,
-        Pending
+        AvailabilityMonitorTestStatusComplete,
+        AvailabilityMonitorTestStatusFailed,
+        AvailabilityMonitorTestStatusPending,
+        fromAvailabilityMonitorTestStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AvailabilityMonitorTestStatus = AvailabilityMonitorTestStatus' Lude.Text
+newtype AvailabilityMonitorTestStatus = AvailabilityMonitorTestStatus'
+  { fromAvailabilityMonitorTestStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Complete :: AvailabilityMonitorTestStatus
-pattern Complete = AvailabilityMonitorTestStatus' "COMPLETE"
+pattern AvailabilityMonitorTestStatusComplete :: AvailabilityMonitorTestStatus
+pattern AvailabilityMonitorTestStatusComplete = AvailabilityMonitorTestStatus' "COMPLETE"
 
-pattern Failed :: AvailabilityMonitorTestStatus
-pattern Failed = AvailabilityMonitorTestStatus' "FAILED"
+pattern AvailabilityMonitorTestStatusFailed :: AvailabilityMonitorTestStatus
+pattern AvailabilityMonitorTestStatusFailed = AvailabilityMonitorTestStatus' "FAILED"
 
-pattern Pending :: AvailabilityMonitorTestStatus
-pattern Pending = AvailabilityMonitorTestStatus' "PENDING"
+pattern AvailabilityMonitorTestStatusPending :: AvailabilityMonitorTestStatus
+pattern AvailabilityMonitorTestStatusPending = AvailabilityMonitorTestStatus' "PENDING"
 
 {-# COMPLETE
-  Complete,
-  Failed,
-  Pending,
+  AvailabilityMonitorTestStatusComplete,
+  AvailabilityMonitorTestStatusFailed,
+  AvailabilityMonitorTestStatusPending,
   AvailabilityMonitorTestStatus'
   #-}

@@ -20,8 +20,8 @@ module Network.AWS.ImportExport.CancelJob
     mkCancelJob,
 
     -- ** Request lenses
-    cAPIVersion,
     cJobId,
+    cAPIVersion,
 
     -- * Destructuring the response
     CancelJobResponse (..),
@@ -33,109 +33,102 @@ module Network.AWS.ImportExport.CancelJob
   )
 where
 
-import Network.AWS.ImportExport.Types
+import qualified Network.AWS.ImportExport.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input structure for the CancelJob operation.
 --
 -- /See:/ 'mkCancelJob' smart constructor.
 data CancelJob = CancelJob'
-  { apiVersion :: Lude.Maybe Lude.Text,
-    jobId :: Lude.Text
+  { jobId :: Types.JobId,
+    aPIVersion :: Core.Maybe Types.APIVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelJob' with the minimum fields required to make a request.
---
--- * 'apiVersion' -
--- * 'jobId' -
+-- | Creates a 'CancelJob' value with any optional fields omitted.
 mkCancelJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   CancelJob
-mkCancelJob pJobId_ =
-  CancelJob' {apiVersion = Lude.Nothing, jobId = pJobId_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'apiVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cAPIVersion :: Lens.Lens' CancelJob (Lude.Maybe Lude.Text)
-cAPIVersion = Lens.lens (apiVersion :: CancelJob -> Lude.Maybe Lude.Text) (\s a -> s {apiVersion = a} :: CancelJob)
-{-# DEPRECATED cAPIVersion "Use generic-lens or generic-optics with 'apiVersion' instead." #-}
+mkCancelJob jobId = CancelJob' {jobId, aPIVersion = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cJobId :: Lens.Lens' CancelJob Lude.Text
-cJobId = Lens.lens (jobId :: CancelJob -> Lude.Text) (\s a -> s {jobId = a} :: CancelJob)
+cJobId :: Lens.Lens' CancelJob Types.JobId
+cJobId = Lens.field @"jobId"
 {-# DEPRECATED cJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest CancelJob where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'aPIVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cAPIVersion :: Lens.Lens' CancelJob (Core.Maybe Types.APIVersion)
+cAPIVersion = Lens.field @"aPIVersion"
+{-# DEPRECATED cAPIVersion "Use generic-lens or generic-optics with 'aPIVersion' instead." #-}
+
+instance Core.AWSRequest CancelJob where
   type Rs CancelJob = CancelJobResponse
-  request = Req.postQuery importExportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Operation=CancelJob", "")
+                Core.<> (Core.pure ("Action", "CancelJob"))
+                Core.<> (Core.pure ("Version", "2010-06-01"))
+                Core.<> (Core.toQueryValue "JobId" jobId)
+                Core.<> (Core.toQueryValue "APIVersion" Core.<$> aPIVersion)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CancelJobResult"
       ( \s h x ->
           CancelJobResponse'
-            Lude.<$> (x Lude..@? "Success") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Success") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelJob where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CancelJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelJob where
-  toQuery CancelJob' {..} =
-    Lude.mconcat
-      [ "Operation=CancelJob",
-        "Action" Lude.=: ("CancelJob" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-06-01" :: Lude.ByteString),
-        "APIVersion" Lude.=: apiVersion,
-        "JobId" Lude.=: jobId
-      ]
 
 -- | Output structure for the CancelJob operation.
 --
 -- /See:/ 'mkCancelJobResponse' smart constructor.
 data CancelJobResponse = CancelJobResponse'
-  { success :: Lude.Maybe Lude.Bool,
+  { success :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelJobResponse' with the minimum fields required to make a request.
---
--- * 'success' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelJobResponse' value with any optional fields omitted.
 mkCancelJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelJobResponse
-mkCancelJobResponse pResponseStatus_ =
-  CancelJobResponse'
-    { success = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCancelJobResponse responseStatus =
+  CancelJobResponse' {success = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'success' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsSuccess :: Lens.Lens' CancelJobResponse (Lude.Maybe Lude.Bool)
-crsSuccess = Lens.lens (success :: CancelJobResponse -> Lude.Maybe Lude.Bool) (\s a -> s {success = a} :: CancelJobResponse)
+crsSuccess :: Lens.Lens' CancelJobResponse (Core.Maybe Core.Bool)
+crsSuccess = Lens.field @"success"
 {-# DEPRECATED crsSuccess "Use generic-lens or generic-optics with 'success' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsResponseStatus :: Lens.Lens' CancelJobResponse Lude.Int
-crsResponseStatus = Lens.lens (responseStatus :: CancelJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelJobResponse)
+crsResponseStatus :: Lens.Lens' CancelJobResponse Core.Int
+crsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

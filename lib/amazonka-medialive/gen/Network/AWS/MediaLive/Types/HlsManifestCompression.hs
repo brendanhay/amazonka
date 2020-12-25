@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.HlsManifestCompression
   ( HlsManifestCompression
       ( HlsManifestCompression',
-        HMCGzip,
-        HMCNone
+        HlsManifestCompressionGzip,
+        HlsManifestCompressionNone,
+        fromHlsManifestCompression
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Hls Manifest Compression
-newtype HlsManifestCompression = HlsManifestCompression' Lude.Text
+newtype HlsManifestCompression = HlsManifestCompression'
+  { fromHlsManifestCompression ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HMCGzip :: HlsManifestCompression
-pattern HMCGzip = HlsManifestCompression' "GZIP"
+pattern HlsManifestCompressionGzip :: HlsManifestCompression
+pattern HlsManifestCompressionGzip = HlsManifestCompression' "GZIP"
 
-pattern HMCNone :: HlsManifestCompression
-pattern HMCNone = HlsManifestCompression' "NONE"
+pattern HlsManifestCompressionNone :: HlsManifestCompression
+pattern HlsManifestCompressionNone = HlsManifestCompression' "NONE"
 
 {-# COMPLETE
-  HMCGzip,
-  HMCNone,
+  HlsManifestCompressionGzip,
+  HlsManifestCompressionNone,
   HlsManifestCompression'
   #-}

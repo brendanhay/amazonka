@@ -13,61 +13,66 @@
 module Network.AWS.Comprehend.Types.EndpointStatus
   ( EndpointStatus
       ( EndpointStatus',
-        ESCreating,
-        ESDeleting,
-        ESFailed,
-        ESInService,
-        ESUpdating
+        EndpointStatusCreating,
+        EndpointStatusDeleting,
+        EndpointStatusFailed,
+        EndpointStatusInService,
+        EndpointStatusUpdating,
+        fromEndpointStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EndpointStatus = EndpointStatus' Lude.Text
+newtype EndpointStatus = EndpointStatus'
+  { fromEndpointStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ESCreating :: EndpointStatus
-pattern ESCreating = EndpointStatus' "CREATING"
+pattern EndpointStatusCreating :: EndpointStatus
+pattern EndpointStatusCreating = EndpointStatus' "CREATING"
 
-pattern ESDeleting :: EndpointStatus
-pattern ESDeleting = EndpointStatus' "DELETING"
+pattern EndpointStatusDeleting :: EndpointStatus
+pattern EndpointStatusDeleting = EndpointStatus' "DELETING"
 
-pattern ESFailed :: EndpointStatus
-pattern ESFailed = EndpointStatus' "FAILED"
+pattern EndpointStatusFailed :: EndpointStatus
+pattern EndpointStatusFailed = EndpointStatus' "FAILED"
 
-pattern ESInService :: EndpointStatus
-pattern ESInService = EndpointStatus' "IN_SERVICE"
+pattern EndpointStatusInService :: EndpointStatus
+pattern EndpointStatusInService = EndpointStatus' "IN_SERVICE"
 
-pattern ESUpdating :: EndpointStatus
-pattern ESUpdating = EndpointStatus' "UPDATING"
+pattern EndpointStatusUpdating :: EndpointStatus
+pattern EndpointStatusUpdating = EndpointStatus' "UPDATING"
 
 {-# COMPLETE
-  ESCreating,
-  ESDeleting,
-  ESFailed,
-  ESInService,
-  ESUpdating,
+  EndpointStatusCreating,
+  EndpointStatusDeleting,
+  EndpointStatusFailed,
+  EndpointStatusInService,
+  EndpointStatusUpdating,
   EndpointStatus'
   #-}

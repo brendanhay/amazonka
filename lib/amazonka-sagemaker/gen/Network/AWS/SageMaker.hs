@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -21,10 +20,22 @@
 --     * <https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html Amazon Augmented AI Runtime API Reference>
 module Network.AWS.SageMaker
   ( -- * Service configuration
-    sageMakerService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ResourceLimitExceeded
+    _ResourceLimitExceeded,
+
+    -- ** ResourceInUse
+    _ResourceInUse,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** ResourceNotFound
+    _ResourceNotFound,
 
     -- * Waiters
     -- $waiters
@@ -110,8 +121,8 @@ module Network.AWS.SageMaker
     -- ** DescribeTrial
     module Network.AWS.SageMaker.DescribeTrial,
 
-    -- ** CreatePresignedDomainURL
-    module Network.AWS.SageMaker.CreatePresignedDomainURL,
+    -- ** CreatePresignedDomainUrl
+    module Network.AWS.SageMaker.CreatePresignedDomainUrl,
 
     -- ** DescribeCodeRepository
     module Network.AWS.SageMaker.DescribeCodeRepository,
@@ -344,8 +355,8 @@ module Network.AWS.SageMaker
     -- ** DescribeFlowDefinition
     module Network.AWS.SageMaker.DescribeFlowDefinition,
 
-    -- ** CreatePresignedNotebookInstanceURL
-    module Network.AWS.SageMaker.CreatePresignedNotebookInstanceURL,
+    -- ** CreatePresignedNotebookInstanceUrl
+    module Network.AWS.SageMaker.CreatePresignedNotebookInstanceUrl,
 
     -- ** ListTrainingJobsForHyperParameterTuningJob (Paginated)
     module Network.AWS.SageMaker.ListTrainingJobsForHyperParameterTuningJob,
@@ -511,1488 +522,11 @@ module Network.AWS.SageMaker
 
     -- * Types
 
-    -- ** AWSManagedHumanLoopRequestSource
-    AWSManagedHumanLoopRequestSource (..),
-
-    -- ** AlgorithmSortBy
-    AlgorithmSortBy (..),
-
-    -- ** AlgorithmStatus
-    AlgorithmStatus (..),
-
-    -- ** AppImageConfigSortKey
-    AppImageConfigSortKey (..),
-
-    -- ** AppInstanceType
-    AppInstanceType (..),
-
-    -- ** AppNetworkAccessType
-    AppNetworkAccessType (..),
-
-    -- ** AppSortKey
-    AppSortKey (..),
-
-    -- ** AppStatus
-    AppStatus (..),
-
-    -- ** AppType
-    AppType (..),
-
-    -- ** AssemblyType
-    AssemblyType (..),
-
-    -- ** AuthMode
-    AuthMode (..),
-
-    -- ** AutoMLJobObjectiveType
-    AutoMLJobObjectiveType (..),
-
-    -- ** AutoMLJobSecondaryStatus
-    AutoMLJobSecondaryStatus (..),
-
-    -- ** AutoMLJobStatus
-    AutoMLJobStatus (..),
-
-    -- ** AutoMLMetricEnum
-    AutoMLMetricEnum (..),
-
-    -- ** AutoMLS3DataType
-    AutoMLS3DataType (..),
-
-    -- ** AutoMLSortBy
-    AutoMLSortBy (..),
-
-    -- ** AutoMLSortOrder
-    AutoMLSortOrder (..),
-
-    -- ** BatchStrategy
-    BatchStrategy (..),
-
-    -- ** BooleanOperator
-    BooleanOperator (..),
-
-    -- ** CandidateSortBy
-    CandidateSortBy (..),
-
-    -- ** CandidateStatus
-    CandidateStatus (..),
-
-    -- ** CandidateStepType
-    CandidateStepType (..),
-
-    -- ** CaptureMode
-    CaptureMode (..),
-
-    -- ** CaptureStatus
-    CaptureStatus (..),
-
-    -- ** CodeRepositorySortBy
-    CodeRepositorySortBy (..),
-
-    -- ** CodeRepositorySortOrder
-    CodeRepositorySortOrder (..),
-
-    -- ** CompilationJobStatus
-    CompilationJobStatus (..),
-
-    -- ** CompressionType
-    CompressionType (..),
-
-    -- ** ContainerMode
-    ContainerMode (..),
-
-    -- ** ContentClassifier
-    ContentClassifier (..),
-
-    -- ** DetailedAlgorithmStatus
-    DetailedAlgorithmStatus (..),
-
-    -- ** DetailedModelPackageStatus
-    DetailedModelPackageStatus (..),
-
-    -- ** DirectInternetAccess
-    DirectInternetAccess (..),
+    -- ** EndpointConfigArn
+    EndpointConfigArn (..),
 
     -- ** DomainStatus
     DomainStatus (..),
-
-    -- ** EndpointConfigSortKey
-    EndpointConfigSortKey (..),
-
-    -- ** EndpointSortKey
-    EndpointSortKey (..),
-
-    -- ** EndpointStatus
-    EndpointStatus (..),
-
-    -- ** ExecutionStatus
-    ExecutionStatus (..),
-
-    -- ** FileSystemAccessMode
-    FileSystemAccessMode (..),
-
-    -- ** FileSystemType
-    FileSystemType (..),
-
-    -- ** FlowDefinitionStatus
-    FlowDefinitionStatus (..),
-
-    -- ** Framework
-    Framework (..),
-
-    -- ** HumanTaskUiStatus
-    HumanTaskUiStatus (..),
-
-    -- ** HyperParameterScalingType
-    HyperParameterScalingType (..),
-
-    -- ** HyperParameterTuningJobObjectiveType
-    HyperParameterTuningJobObjectiveType (..),
-
-    -- ** HyperParameterTuningJobSortByOptions
-    HyperParameterTuningJobSortByOptions (..),
-
-    -- ** HyperParameterTuningJobStatus
-    HyperParameterTuningJobStatus (..),
-
-    -- ** HyperParameterTuningJobStrategyType
-    HyperParameterTuningJobStrategyType (..),
-
-    -- ** HyperParameterTuningJobWarmStartType
-    HyperParameterTuningJobWarmStartType (..),
-
-    -- ** ImageSortBy
-    ImageSortBy (..),
-
-    -- ** ImageSortOrder
-    ImageSortOrder (..),
-
-    -- ** ImageStatus
-    ImageStatus (..),
-
-    -- ** ImageVersionSortBy
-    ImageVersionSortBy (..),
-
-    -- ** ImageVersionSortOrder
-    ImageVersionSortOrder (..),
-
-    -- ** ImageVersionStatus
-    ImageVersionStatus (..),
-
-    -- ** InstanceType
-    InstanceType (..),
-
-    -- ** JoinSource
-    JoinSource (..),
-
-    -- ** LabelingJobStatus
-    LabelingJobStatus (..),
-
-    -- ** ListCompilationJobsSortBy
-    ListCompilationJobsSortBy (..),
-
-    -- ** ListLabelingJobsForWorkteamSortByOptions
-    ListLabelingJobsForWorkteamSortByOptions (..),
-
-    -- ** ListWorkforcesSortByOptions
-    ListWorkforcesSortByOptions (..),
-
-    -- ** ListWorkteamsSortByOptions
-    ListWorkteamsSortByOptions (..),
-
-    -- ** ModelPackageSortBy
-    ModelPackageSortBy (..),
-
-    -- ** ModelPackageStatus
-    ModelPackageStatus (..),
-
-    -- ** ModelSortKey
-    ModelSortKey (..),
-
-    -- ** MonitoringExecutionSortKey
-    MonitoringExecutionSortKey (..),
-
-    -- ** MonitoringScheduleSortKey
-    MonitoringScheduleSortKey (..),
-
-    -- ** NotebookInstanceAcceleratorType
-    NotebookInstanceAcceleratorType (..),
-
-    -- ** NotebookInstanceLifecycleConfigSortKey
-    NotebookInstanceLifecycleConfigSortKey (..),
-
-    -- ** NotebookInstanceLifecycleConfigSortOrder
-    NotebookInstanceLifecycleConfigSortOrder (..),
-
-    -- ** NotebookInstanceSortKey
-    NotebookInstanceSortKey (..),
-
-    -- ** NotebookInstanceSortOrder
-    NotebookInstanceSortOrder (..),
-
-    -- ** NotebookInstanceStatus
-    NotebookInstanceStatus (..),
-
-    -- ** NotebookOutputOption
-    NotebookOutputOption (..),
-
-    -- ** ObjectiveStatus
-    ObjectiveStatus (..),
-
-    -- ** Operator
-    Operator (..),
-
-    -- ** OrderKey
-    OrderKey (..),
-
-    -- ** ParameterType
-    ParameterType (..),
-
-    -- ** ProblemType
-    ProblemType (..),
-
-    -- ** ProcessingInstanceType
-    ProcessingInstanceType (..),
-
-    -- ** ProcessingJobStatus
-    ProcessingJobStatus (..),
-
-    -- ** ProcessingS3CompressionType
-    ProcessingS3CompressionType (..),
-
-    -- ** ProcessingS3DataDistributionType
-    ProcessingS3DataDistributionType (..),
-
-    -- ** ProcessingS3DataType
-    ProcessingS3DataType (..),
-
-    -- ** ProcessingS3InputMode
-    ProcessingS3InputMode (..),
-
-    -- ** ProcessingS3UploadMode
-    ProcessingS3UploadMode (..),
-
-    -- ** ProductionVariantAcceleratorType
-    ProductionVariantAcceleratorType (..),
-
-    -- ** ProductionVariantInstanceType
-    ProductionVariantInstanceType (..),
-
-    -- ** RecordWrapper
-    RecordWrapper (..),
-
-    -- ** RepositoryAccessMode
-    RepositoryAccessMode (..),
-
-    -- ** ResourceType
-    ResourceType (..),
-
-    -- ** RetentionType
-    RetentionType (..),
-
-    -- ** RootAccess
-    RootAccess (..),
-
-    -- ** RuleEvaluationStatus
-    RuleEvaluationStatus (..),
-
-    -- ** S3DataDistribution
-    S3DataDistribution (..),
-
-    -- ** S3DataType
-    S3DataType (..),
-
-    -- ** ScheduleStatus
-    ScheduleStatus (..),
-
-    -- ** SearchSortOrder
-    SearchSortOrder (..),
-
-    -- ** SecondaryStatus
-    SecondaryStatus (..),
-
-    -- ** SortBy
-    SortBy (..),
-
-    -- ** SortExperimentsBy
-    SortExperimentsBy (..),
-
-    -- ** SortOrder
-    SortOrder (..),
-
-    -- ** SortTrialComponentsBy
-    SortTrialComponentsBy (..),
-
-    -- ** SortTrialsBy
-    SortTrialsBy (..),
-
-    -- ** SplitType
-    SplitType (..),
-
-    -- ** TargetDevice
-    TargetDevice (..),
-
-    -- ** TargetPlatformAccelerator
-    TargetPlatformAccelerator (..),
-
-    -- ** TargetPlatformArch
-    TargetPlatformArch (..),
-
-    -- ** TargetPlatformOS
-    TargetPlatformOS (..),
-
-    -- ** TrainingInputMode
-    TrainingInputMode (..),
-
-    -- ** TrainingInstanceType
-    TrainingInstanceType (..),
-
-    -- ** TrainingJobEarlyStoppingType
-    TrainingJobEarlyStoppingType (..),
-
-    -- ** TrainingJobSortByOptions
-    TrainingJobSortByOptions (..),
-
-    -- ** TrainingJobStatus
-    TrainingJobStatus (..),
-
-    -- ** TransformInstanceType
-    TransformInstanceType (..),
-
-    -- ** TransformJobStatus
-    TransformJobStatus (..),
-
-    -- ** TrialComponentPrimaryStatus
-    TrialComponentPrimaryStatus (..),
-
-    -- ** UserProfileSortKey
-    UserProfileSortKey (..),
-
-    -- ** UserProfileStatus
-    UserProfileStatus (..),
-
-    -- ** VariantPropertyType
-    VariantPropertyType (..),
-
-    -- ** AlgorithmSpecification
-    AlgorithmSpecification (..),
-    mkAlgorithmSpecification,
-    asTrainingInputMode,
-    asEnableSageMakerMetricsTimeSeries,
-    asAlgorithmName,
-    asTrainingImage,
-    asMetricDefinitions,
-
-    -- ** AlgorithmStatusDetails
-    AlgorithmStatusDetails (..),
-    mkAlgorithmStatusDetails,
-    asdImageScanStatuses,
-    asdValidationStatuses,
-
-    -- ** AlgorithmStatusItem
-    AlgorithmStatusItem (..),
-    mkAlgorithmStatusItem,
-    asiStatus,
-    asiFailureReason,
-    asiName,
-
-    -- ** AlgorithmSummary
-    AlgorithmSummary (..),
-    mkAlgorithmSummary,
-    aCreationTime,
-    aAlgorithmARN,
-    aAlgorithmName,
-    aAlgorithmDescription,
-    aAlgorithmStatus,
-
-    -- ** AlgorithmValidationProfile
-    AlgorithmValidationProfile (..),
-    mkAlgorithmValidationProfile,
-    avpTrainingJobDefinition,
-    avpTransformJobDefinition,
-    avpProfileName,
-
-    -- ** AlgorithmValidationSpecification
-    AlgorithmValidationSpecification (..),
-    mkAlgorithmValidationSpecification,
-    avsValidationRole,
-    avsValidationProfiles,
-
-    -- ** AnnotationConsolidationConfig
-    AnnotationConsolidationConfig (..),
-    mkAnnotationConsolidationConfig,
-    accAnnotationConsolidationLambdaARN,
-
-    -- ** AppDetails
-    AppDetails (..),
-    mkAppDetails,
-    adCreationTime,
-    adStatus,
-    adUserProfileName,
-    adAppName,
-    adDomainId,
-    adAppType,
-
-    -- ** AppImageConfigDetails
-    AppImageConfigDetails (..),
-    mkAppImageConfigDetails,
-    aicdCreationTime,
-    aicdAppImageConfigName,
-    aicdLastModifiedTime,
-    aicdKernelGatewayImageConfig,
-    aicdAppImageConfigARN,
-
-    -- ** AppSpecification
-    AppSpecification (..),
-    mkAppSpecification,
-    asContainerArguments,
-    asImageURI,
-    asContainerEntrypoint,
-
-    -- ** AutoMLCandidate
-    AutoMLCandidate (..),
-    mkAutoMLCandidate,
-    amlcCreationTime,
-    amlcFailureReason,
-    amlcInferenceContainers,
-    amlcObjectiveStatus,
-    amlcLastModifiedTime,
-    amlcCandidateStatus,
-    amlcCandidateSteps,
-    amlcCandidateName,
-    amlcEndTime,
-    amlcFinalAutoMLJobObjectiveMetric,
-
-    -- ** AutoMLCandidateStep
-    AutoMLCandidateStep (..),
-    mkAutoMLCandidateStep,
-    amlcsCandidateStepType,
-    amlcsCandidateStepARN,
-    amlcsCandidateStepName,
-
-    -- ** AutoMLChannel
-    AutoMLChannel (..),
-    mkAutoMLChannel,
-    amlcTargetAttributeName,
-    amlcDataSource,
-    amlcCompressionType,
-
-    -- ** AutoMLContainerDefinition
-    AutoMLContainerDefinition (..),
-    mkAutoMLContainerDefinition,
-    amlcdModelDataURL,
-    amlcdImage,
-    amlcdEnvironment,
-
-    -- ** AutoMLDataSource
-    AutoMLDataSource (..),
-    mkAutoMLDataSource,
-    amldsS3DataSource,
-
-    -- ** AutoMLJobArtifacts
-    AutoMLJobArtifacts (..),
-    mkAutoMLJobArtifacts,
-    amljaCandidateDefinitionNotebookLocation,
-    amljaDataExplorationNotebookLocation,
-
-    -- ** AutoMLJobCompletionCriteria
-    AutoMLJobCompletionCriteria (..),
-    mkAutoMLJobCompletionCriteria,
-    amljccMaxCandidates,
-    amljccMaxRuntimePerTrainingJobInSeconds,
-    amljccMaxAutoMLJobRuntimeInSeconds,
-
-    -- ** AutoMLJobConfig
-    AutoMLJobConfig (..),
-    mkAutoMLJobConfig,
-    amljcSecurityConfig,
-    amljcCompletionCriteria,
-
-    -- ** AutoMLJobObjective
-    AutoMLJobObjective (..),
-    mkAutoMLJobObjective,
-    amljoMetricName,
-
-    -- ** AutoMLJobSummary
-    AutoMLJobSummary (..),
-    mkAutoMLJobSummary,
-    amljsCreationTime,
-    amljsFailureReason,
-    amljsAutoMLJobStatus,
-    amljsLastModifiedTime,
-    amljsAutoMLJobName,
-    amljsAutoMLJobARN,
-    amljsAutoMLJobSecondaryStatus,
-    amljsEndTime,
-
-    -- ** AutoMLOutputDataConfig
-    AutoMLOutputDataConfig (..),
-    mkAutoMLOutputDataConfig,
-    amlodcS3OutputPath,
-    amlodcKMSKeyId,
-
-    -- ** AutoMLS3DataSource
-    AutoMLS3DataSource (..),
-    mkAutoMLS3DataSource,
-    amlsdsS3DataType,
-    amlsdsS3URI,
-
-    -- ** AutoMLSecurityConfig
-    AutoMLSecurityConfig (..),
-    mkAutoMLSecurityConfig,
-    amlscVPCConfig,
-    amlscVolumeKMSKeyId,
-    amlscEnableInterContainerTrafficEncryption,
-
-    -- ** CaptureContentTypeHeader
-    CaptureContentTypeHeader (..),
-    mkCaptureContentTypeHeader,
-    ccthCSVContentTypes,
-    ccthJSONContentTypes,
-
-    -- ** CaptureOption
-    CaptureOption (..),
-    mkCaptureOption,
-    coCaptureMode,
-
-    -- ** CategoricalParameterRange
-    CategoricalParameterRange (..),
-    mkCategoricalParameterRange,
-    cprValues,
-    cprName,
-
-    -- ** CategoricalParameterRangeSpecification
-    CategoricalParameterRangeSpecification (..),
-    mkCategoricalParameterRangeSpecification,
-    cprsValues,
-
-    -- ** Channel
-    Channel (..),
-    mkChannel,
-    cShuffleConfig,
-    cRecordWrapperType,
-    cChannelName,
-    cDataSource,
-    cInputMode,
-    cCompressionType,
-    cContentType,
-
-    -- ** ChannelSpecification
-    ChannelSpecification (..),
-    mkChannelSpecification,
-    csSupportedContentTypes,
-    csSupportedInputModes,
-    csSupportedCompressionTypes,
-    csName,
-    csIsRequired,
-    csDescription,
-
-    -- ** CheckpointConfig
-    CheckpointConfig (..),
-    mkCheckpointConfig,
-    ccLocalPath,
-    ccS3URI,
-
-    -- ** CodeRepositorySummary
-    CodeRepositorySummary (..),
-    mkCodeRepositorySummary,
-    crsCreationTime,
-    crsCodeRepositoryARN,
-    crsCodeRepositoryName,
-    crsLastModifiedTime,
-    crsGitConfig,
-
-    -- ** CognitoConfig
-    CognitoConfig (..),
-    mkCognitoConfig,
-    ccClientId,
-    ccUserPool,
-
-    -- ** CognitoMemberDefinition
-    CognitoMemberDefinition (..),
-    mkCognitoMemberDefinition,
-    cmdClientId,
-    cmdUserGroup,
-    cmdUserPool,
-
-    -- ** CollectionConfiguration
-    CollectionConfiguration (..),
-    mkCollectionConfiguration,
-    ccCollectionParameters,
-    ccCollectionName,
-
-    -- ** CompilationJobSummary
-    CompilationJobSummary (..),
-    mkCompilationJobSummary,
-    cjsCompilationStartTime,
-    cjsCreationTime,
-    cjsCompilationTargetPlatformAccelerator,
-    cjsCompilationTargetDevice,
-    cjsLastModifiedTime,
-    cjsCompilationJobName,
-    cjsCompilationTargetPlatformArch,
-    cjsCompilationJobStatus,
-    cjsCompilationEndTime,
-    cjsCompilationJobARN,
-    cjsCompilationTargetPlatformOS,
-
-    -- ** ContainerDefinition
-    ContainerDefinition (..),
-    mkContainerDefinition,
-    cdModelDataURL,
-    cdImage,
-    cdModelPackageName,
-    cdEnvironment,
-    cdImageConfig,
-    cdMode,
-    cdContainerHostname,
-
-    -- ** ContinuousParameterRange
-    ContinuousParameterRange (..),
-    mkContinuousParameterRange,
-    cMaxValue,
-    cScalingType,
-    cName,
-    cMinValue,
-
-    -- ** ContinuousParameterRangeSpecification
-    ContinuousParameterRangeSpecification (..),
-    mkContinuousParameterRangeSpecification,
-    cprsMaxValue,
-    cprsMinValue,
-
-    -- ** CustomImage
-    CustomImage (..),
-    mkCustomImage,
-    ciAppImageConfigName,
-    ciImageVersionNumber,
-    ciImageName,
-
-    -- ** DataCaptureConfig
-    DataCaptureConfig (..),
-    mkDataCaptureConfig,
-    dccCaptureContentTypeHeader,
-    dccDestinationS3URI,
-    dccInitialSamplingPercentage,
-    dccCaptureOptions,
-    dccKMSKeyId,
-    dccEnableCapture,
-
-    -- ** DataCaptureConfigSummary
-    DataCaptureConfigSummary (..),
-    mkDataCaptureConfigSummary,
-    dccsDestinationS3URI,
-    dccsCurrentSamplingPercentage,
-    dccsCaptureStatus,
-    dccsKMSKeyId,
-    dccsEnableCapture,
-
-    -- ** DataProcessing
-    DataProcessing (..),
-    mkDataProcessing,
-    dpOutputFilter,
-    dpJoinSource,
-    dpInputFilter,
-
-    -- ** DataSource
-    DataSource (..),
-    mkDataSource,
-    dsS3DataSource,
-    dsFileSystemDataSource,
-
-    -- ** DebugHookConfig
-    DebugHookConfig (..),
-    mkDebugHookConfig,
-    dhcS3OutputPath,
-    dhcLocalPath,
-    dhcCollectionConfigurations,
-    dhcHookParameters,
-
-    -- ** DebugRuleConfiguration
-    DebugRuleConfiguration (..),
-    mkDebugRuleConfiguration,
-    drcRuleParameters,
-    drcS3OutputPath,
-    drcLocalPath,
-    drcInstanceType,
-    drcVolumeSizeInGB,
-    drcRuleEvaluatorImage,
-    drcRuleConfigurationName,
-
-    -- ** DebugRuleEvaluationStatus
-    DebugRuleEvaluationStatus (..),
-    mkDebugRuleEvaluationStatus,
-    dresLastModifiedTime,
-    dresStatusDetails,
-    dresRuleEvaluationStatus,
-    dresRuleEvaluationJobARN,
-    dresRuleConfigurationName,
-
-    -- ** DeployedImage
-    DeployedImage (..),
-    mkDeployedImage,
-    diResolvedImage,
-    diSpecifiedImage,
-    diResolutionTime,
-
-    -- ** DesiredWeightAndCapacity
-    DesiredWeightAndCapacity (..),
-    mkDesiredWeightAndCapacity,
-    dwacDesiredInstanceCount,
-    dwacDesiredWeight,
-    dwacVariantName,
-
-    -- ** DomainDetails
-    DomainDetails (..),
-    mkDomainDetails,
-    ddCreationTime,
-    ddStatus,
-    ddDomainARN,
-    ddURL,
-    ddLastModifiedTime,
-    ddDomainName,
-    ddDomainId,
-
-    -- ** EndpointConfigSummary
-    EndpointConfigSummary (..),
-    mkEndpointConfigSummary,
-    ecsEndpointConfigARN,
-    ecsCreationTime,
-    ecsEndpointConfigName,
-
-    -- ** EndpointInput
-    EndpointInput (..),
-    mkEndpointInput,
-    eiEndpointName,
-    eiS3DataDistributionType,
-    eiS3InputMode,
-    eiLocalPath,
-
-    -- ** EndpointSummary
-    EndpointSummary (..),
-    mkEndpointSummary,
-    esCreationTime,
-    esEndpointName,
-    esLastModifiedTime,
-    esEndpointStatus,
-    esEndpointARN,
-
-    -- ** Experiment
-    Experiment (..),
-    mkExperiment,
-    eCreationTime,
-    eCreatedBy,
-    eLastModifiedTime,
-    eExperimentName,
-    eExperimentARN,
-    eSource,
-    eDisplayName,
-    eLastModifiedBy,
-    eDescription,
-    eTags,
-
-    -- ** ExperimentConfig
-    ExperimentConfig (..),
-    mkExperimentConfig,
-    ecTrialComponentDisplayName,
-    ecExperimentName,
-    ecTrialName,
-
-    -- ** ExperimentSource
-    ExperimentSource (..),
-    mkExperimentSource,
-    esSourceType,
-    esSourceARN,
-
-    -- ** ExperimentSummary
-    ExperimentSummary (..),
-    mkExperimentSummary,
-    esfCreationTime,
-    esfLastModifiedTime,
-    esfExperimentName,
-    esfExperimentSource,
-    esfExperimentARN,
-    esfDisplayName,
-
-    -- ** FileSystemConfig
-    FileSystemConfig (..),
-    mkFileSystemConfig,
-    fscDefaultGid,
-    fscMountPath,
-    fscDefaultUid,
-
-    -- ** FileSystemDataSource
-    FileSystemDataSource (..),
-    mkFileSystemDataSource,
-    fsdsFileSystemAccessMode,
-    fsdsFileSystemId,
-    fsdsDirectoryPath,
-    fsdsFileSystemType,
-
-    -- ** Filter
-    Filter (..),
-    mkFilter,
-    fOperator,
-    fValue,
-    fName,
-
-    -- ** FinalAutoMLJobObjectiveMetric
-    FinalAutoMLJobObjectiveMetric (..),
-    mkFinalAutoMLJobObjectiveMetric,
-    famljomMetricName,
-    famljomValue,
-    famljomType,
-
-    -- ** FinalHyperParameterTuningJobObjectiveMetric
-    FinalHyperParameterTuningJobObjectiveMetric (..),
-    mkFinalHyperParameterTuningJobObjectiveMetric,
-    fhptjomMetricName,
-    fhptjomValue,
-    fhptjomType,
-
-    -- ** FlowDefinitionOutputConfig
-    FlowDefinitionOutputConfig (..),
-    mkFlowDefinitionOutputConfig,
-    fdocS3OutputPath,
-    fdocKMSKeyId,
-
-    -- ** FlowDefinitionSummary
-    FlowDefinitionSummary (..),
-    mkFlowDefinitionSummary,
-    fdsCreationTime,
-    fdsFailureReason,
-    fdsFlowDefinitionStatus,
-    fdsFlowDefinitionARN,
-    fdsFlowDefinitionName,
-
-    -- ** GitConfig
-    GitConfig (..),
-    mkGitConfig,
-    gcRepositoryURL,
-    gcBranch,
-    gcSecretARN,
-
-    -- ** GitConfigForUpdate
-    GitConfigForUpdate (..),
-    mkGitConfigForUpdate,
-    gcfuSecretARN,
-
-    -- ** HumanLoopActivationConditionsConfig
-    HumanLoopActivationConditionsConfig (..),
-    mkHumanLoopActivationConditionsConfig,
-    hlaccHumanLoopActivationConditions,
-
-    -- ** HumanLoopActivationConfig
-    HumanLoopActivationConfig (..),
-    mkHumanLoopActivationConfig,
-    hlacHumanLoopActivationConditionsConfig,
-
-    -- ** HumanLoopConfig
-    HumanLoopConfig (..),
-    mkHumanLoopConfig,
-    hlcTaskKeywords,
-    hlcPublicWorkforceTaskPrice,
-    hlcTaskDescription,
-    hlcWorkteamARN,
-    hlcTaskTimeLimitInSeconds,
-    hlcTaskTitle,
-    hlcTaskAvailabilityLifetimeInSeconds,
-    hlcHumanTaskUiARN,
-    hlcTaskCount,
-
-    -- ** HumanLoopRequestSource
-    HumanLoopRequestSource (..),
-    mkHumanLoopRequestSource,
-    hlrsAWSManagedHumanLoopRequestSource,
-
-    -- ** HumanTaskConfig
-    HumanTaskConfig (..),
-    mkHumanTaskConfig,
-    htcPreHumanTaskLambdaARN,
-    htcTaskKeywords,
-    htcNumberOfHumanWorkersPerDataObject,
-    htcPublicWorkforceTaskPrice,
-    htcTaskDescription,
-    htcUiConfig,
-    htcWorkteamARN,
-    htcTaskTimeLimitInSeconds,
-    htcAnnotationConsolidationConfig,
-    htcTaskTitle,
-    htcTaskAvailabilityLifetimeInSeconds,
-    htcMaxConcurrentTaskCount,
-
-    -- ** HumanTaskUiSummary
-    HumanTaskUiSummary (..),
-    mkHumanTaskUiSummary,
-    htusCreationTime,
-    htusHumanTaskUiName,
-    htusHumanTaskUiARN,
-
-    -- ** HyperParameterAlgorithmSpecification
-    HyperParameterAlgorithmSpecification (..),
-    mkHyperParameterAlgorithmSpecification,
-    hpasTrainingInputMode,
-    hpasAlgorithmName,
-    hpasTrainingImage,
-    hpasMetricDefinitions,
-
-    -- ** HyperParameterSpecification
-    HyperParameterSpecification (..),
-    mkHyperParameterSpecification,
-    hpsIsTunable,
-    hpsRange,
-    hpsName,
-    hpsDefaultValue,
-    hpsType,
-    hpsIsRequired,
-    hpsDescription,
-
-    -- ** HyperParameterTrainingJobDefinition
-    HyperParameterTrainingJobDefinition (..),
-    mkHyperParameterTrainingJobDefinition,
-    hptjdTuningObjective,
-    hptjdCheckpointConfig,
-    hptjdHyperParameterRanges,
-    hptjdStoppingCondition,
-    hptjdEnableNetworkIsolation,
-    hptjdStaticHyperParameters,
-    hptjdEnableManagedSpotTraining,
-    hptjdInputDataConfig,
-    hptjdVPCConfig,
-    hptjdAlgorithmSpecification,
-    hptjdDefinitionName,
-    hptjdOutputDataConfig,
-    hptjdResourceConfig,
-    hptjdEnableInterContainerTrafficEncryption,
-    hptjdRoleARN,
-
-    -- ** HyperParameterTrainingJobSummary
-    HyperParameterTrainingJobSummary (..),
-    mkHyperParameterTrainingJobSummary,
-    hptjsCreationTime,
-    hptjsFailureReason,
-    hptjsTuningJobName,
-    hptjsTunedHyperParameters,
-    hptjsTrainingEndTime,
-    hptjsObjectiveStatus,
-    hptjsTrainingJobStatus,
-    hptjsTrainingJobARN,
-    hptjsTrainingJobDefinitionName,
-    hptjsTrainingStartTime,
-    hptjsTrainingJobName,
-    hptjsFinalHyperParameterTuningJobObjectiveMetric,
-
-    -- ** HyperParameterTuningJobConfig
-    HyperParameterTuningJobConfig (..),
-    mkHyperParameterTuningJobConfig,
-    hptjcResourceLimits,
-    hptjcTuningJobCompletionCriteria,
-    hptjcParameterRanges,
-    hptjcHyperParameterTuningJobObjective,
-    hptjcStrategy,
-    hptjcTrainingJobEarlyStoppingType,
-
-    -- ** HyperParameterTuningJobObjective
-    HyperParameterTuningJobObjective (..),
-    mkHyperParameterTuningJobObjective,
-    hptjoMetricName,
-    hptjoType,
-
-    -- ** HyperParameterTuningJobSummary
-    HyperParameterTuningJobSummary (..),
-    mkHyperParameterTuningJobSummary,
-    hCreationTime,
-    hTrainingJobStatusCounters,
-    hResourceLimits,
-    hObjectiveStatusCounters,
-    hHyperParameterTuningJobARN,
-    hHyperParameterTuningJobName,
-    hStrategy,
-    hLastModifiedTime,
-    hHyperParameterTuningEndTime,
-    hHyperParameterTuningJobStatus,
-
-    -- ** HyperParameterTuningJobWarmStartConfig
-    HyperParameterTuningJobWarmStartConfig (..),
-    mkHyperParameterTuningJobWarmStartConfig,
-    hptjwscWarmStartType,
-    hptjwscParentHyperParameterTuningJobs,
-
-    -- ** Image
-    Image (..),
-    mkImage,
-    iCreationTime,
-    iFailureReason,
-    iImageStatus,
-    iLastModifiedTime,
-    iImageARN,
-    iDisplayName,
-    iImageName,
-    iDescription,
-
-    -- ** ImageConfig
-    ImageConfig (..),
-    mkImageConfig,
-    icRepositoryAccessMode,
-
-    -- ** ImageVersion
-    ImageVersion (..),
-    mkImageVersion,
-    ivCreationTime,
-    ivFailureReason,
-    ivLastModifiedTime,
-    ivImageVersionStatus,
-    ivVersion,
-    ivImageARN,
-    ivImageVersionARN,
-
-    -- ** InferenceSpecification
-    InferenceSpecification (..),
-    mkInferenceSpecification,
-    isSupportedContentTypes,
-    isSupportedResponseMIMETypes,
-    isSupportedRealtimeInferenceInstanceTypes,
-    isContainers,
-    isSupportedTransformInstanceTypes,
-
-    -- ** InputConfig
-    InputConfig (..),
-    mkInputConfig,
-    icFramework,
-    icDataInputConfig,
-    icS3URI,
-
-    -- ** IntegerParameterRange
-    IntegerParameterRange (..),
-    mkIntegerParameterRange,
-    iprMaxValue,
-    iprScalingType,
-    iprName,
-    iprMinValue,
-
-    -- ** IntegerParameterRangeSpecification
-    IntegerParameterRangeSpecification (..),
-    mkIntegerParameterRangeSpecification,
-    iprsMaxValue,
-    iprsMinValue,
-
-    -- ** JupyterServerAppSettings
-    JupyterServerAppSettings (..),
-    mkJupyterServerAppSettings,
-    jsasDefaultResourceSpec,
-
-    -- ** KernelGatewayAppSettings
-    KernelGatewayAppSettings (..),
-    mkKernelGatewayAppSettings,
-    kgasDefaultResourceSpec,
-    kgasCustomImages,
-
-    -- ** KernelGatewayImageConfig
-    KernelGatewayImageConfig (..),
-    mkKernelGatewayImageConfig,
-    kgicKernelSpecs,
-    kgicFileSystemConfig,
-
-    -- ** KernelSpec
-    KernelSpec (..),
-    mkKernelSpec,
-    ksName,
-    ksDisplayName,
-
-    -- ** LabelCounters
-    LabelCounters (..),
-    mkLabelCounters,
-    lcMachineLabeled,
-    lcTotalLabeled,
-    lcFailedNonRetryableError,
-    lcUnlabeled,
-    lcHumanLabeled,
-
-    -- ** LabelCountersForWorkteam
-    LabelCountersForWorkteam (..),
-    mkLabelCountersForWorkteam,
-    lcfwPendingHuman,
-    lcfwTotal,
-    lcfwHumanLabeled,
-
-    -- ** LabelingJobAlgorithmsConfig
-    LabelingJobAlgorithmsConfig (..),
-    mkLabelingJobAlgorithmsConfig,
-    ljacLabelingJobAlgorithmSpecificationARN,
-    ljacLabelingJobResourceConfig,
-    ljacInitialActiveLearningModelARN,
-
-    -- ** LabelingJobDataAttributes
-    LabelingJobDataAttributes (..),
-    mkLabelingJobDataAttributes,
-    ljdaContentClassifiers,
-
-    -- ** LabelingJobDataSource
-    LabelingJobDataSource (..),
-    mkLabelingJobDataSource,
-    ljdsS3DataSource,
-    ljdsSNSDataSource,
-
-    -- ** LabelingJobForWorkteamSummary
-    LabelingJobForWorkteamSummary (..),
-    mkLabelingJobForWorkteamSummary,
-    ljfwsCreationTime,
-    ljfwsNumberOfHumanWorkersPerDataObject,
-    ljfwsWorkRequesterAccountId,
-    ljfwsLabelCounters,
-    ljfwsLabelingJobName,
-    ljfwsJobReferenceCode,
-
-    -- ** LabelingJobInputConfig
-    LabelingJobInputConfig (..),
-    mkLabelingJobInputConfig,
-    ljicDataAttributes,
-    ljicDataSource,
-
-    -- ** LabelingJobOutput
-    LabelingJobOutput (..),
-    mkLabelingJobOutput,
-    ljoFinalActiveLearningModelARN,
-    ljoOutputDatasetS3URI,
-
-    -- ** LabelingJobOutputConfig
-    LabelingJobOutputConfig (..),
-    mkLabelingJobOutputConfig,
-    ljocSNSTopicARN,
-    ljocS3OutputPath,
-    ljocKMSKeyId,
-
-    -- ** LabelingJobResourceConfig
-    LabelingJobResourceConfig (..),
-    mkLabelingJobResourceConfig,
-    ljrcVolumeKMSKeyId,
-
-    -- ** LabelingJobS3DataSource
-    LabelingJobS3DataSource (..),
-    mkLabelingJobS3DataSource,
-    ljsdsManifestS3URI,
-
-    -- ** LabelingJobSNSDataSource
-    LabelingJobSNSDataSource (..),
-    mkLabelingJobSNSDataSource,
-    ljsdsSNSTopicARN,
-
-    -- ** LabelingJobStoppingConditions
-    LabelingJobStoppingConditions (..),
-    mkLabelingJobStoppingConditions,
-    ljscMaxHumanLabeledObjectCount,
-    ljscMaxPercentageOfInputDatasetLabeled,
-
-    -- ** LabelingJobSummary
-    LabelingJobSummary (..),
-    mkLabelingJobSummary,
-    ljsCreationTime,
-    ljsLabelingJobARN,
-    ljsFailureReason,
-    ljsPreHumanTaskLambdaARN,
-    ljsAnnotationConsolidationLambdaARN,
-    ljsLastModifiedTime,
-    ljsWorkteamARN,
-    ljsLabelCounters,
-    ljsInputConfig,
-    ljsLabelingJobStatus,
-    ljsLabelingJobName,
-    ljsLabelingJobOutput,
-
-    -- ** MemberDefinition
-    MemberDefinition (..),
-    mkMemberDefinition,
-    mdOidcMemberDefinition,
-    mdCognitoMemberDefinition,
-
-    -- ** MetricData
-    MetricData (..),
-    mkMetricData,
-    mdMetricName,
-    mdValue,
-    mdTimestamp,
-
-    -- ** MetricDefinition
-    MetricDefinition (..),
-    mkMetricDefinition,
-    mdRegex,
-    mdName,
-
-    -- ** ModelArtifacts
-    ModelArtifacts (..),
-    mkModelArtifacts,
-    maS3ModelArtifacts,
-
-    -- ** ModelClientConfig
-    ModelClientConfig (..),
-    mkModelClientConfig,
-    mccInvocationsTimeoutInSeconds,
-    mccInvocationsMaxRetries,
-
-    -- ** ModelPackageContainerDefinition
-    ModelPackageContainerDefinition (..),
-    mkModelPackageContainerDefinition,
-    mpcdModelDataURL,
-    mpcdImage,
-    mpcdImageDigest,
-    mpcdContainerHostname,
-    mpcdProductId,
-
-    -- ** ModelPackageStatusDetails
-    ModelPackageStatusDetails (..),
-    mkModelPackageStatusDetails,
-    mpsdImageScanStatuses,
-    mpsdValidationStatuses,
-
-    -- ** ModelPackageStatusItem
-    ModelPackageStatusItem (..),
-    mkModelPackageStatusItem,
-    mpsiStatus,
-    mpsiFailureReason,
-    mpsiName,
-
-    -- ** ModelPackageSummary
-    ModelPackageSummary (..),
-    mkModelPackageSummary,
-    mpsCreationTime,
-    mpsModelPackageName,
-    mpsModelPackageARN,
-    mpsModelPackageDescription,
-    mpsModelPackageStatus,
-
-    -- ** ModelPackageValidationProfile
-    ModelPackageValidationProfile (..),
-    mkModelPackageValidationProfile,
-    mpvpTransformJobDefinition,
-    mpvpProfileName,
-
-    -- ** ModelPackageValidationSpecification
-    ModelPackageValidationSpecification (..),
-    mkModelPackageValidationSpecification,
-    mpvsValidationRole,
-    mpvsValidationProfiles,
-
-    -- ** ModelSummary
-    ModelSummary (..),
-    mkModelSummary,
-    msCreationTime,
-    msModelARN,
-    msModelName,
-
-    -- ** MonitoringAppSpecification
-    MonitoringAppSpecification (..),
-    mkMonitoringAppSpecification,
-    masContainerArguments,
-    masRecordPreprocessorSourceURI,
-    masImageURI,
-    masContainerEntrypoint,
-    masPostAnalyticsProcessorSourceURI,
-
-    -- ** MonitoringBaselineConfig
-    MonitoringBaselineConfig (..),
-    mkMonitoringBaselineConfig,
-    mbcConstraintsResource,
-    mbcStatisticsResource,
-
-    -- ** MonitoringClusterConfig
-    MonitoringClusterConfig (..),
-    mkMonitoringClusterConfig,
-    mccInstanceCount,
-    mccInstanceType,
-    mccVolumeSizeInGB,
-    mccVolumeKMSKeyId,
-
-    -- ** MonitoringConstraintsResource
-    MonitoringConstraintsResource (..),
-    mkMonitoringConstraintsResource,
-    mcrS3URI,
-
-    -- ** MonitoringExecutionSummary
-    MonitoringExecutionSummary (..),
-    mkMonitoringExecutionSummary,
-    mesScheduledTime,
-    mesCreationTime,
-    mesFailureReason,
-    mesEndpointName,
-    mesMonitoringExecutionStatus,
-    mesLastModifiedTime,
-    mesMonitoringScheduleName,
-    mesProcessingJobARN,
-
-    -- ** MonitoringInput
-    MonitoringInput (..),
-    mkMonitoringInput,
-    miEndpointInput,
-
-    -- ** MonitoringJobDefinition
-    MonitoringJobDefinition (..),
-    mkMonitoringJobDefinition,
-    mjdEnvironment,
-    mjdStoppingCondition,
-    mjdMonitoringOutputConfig,
-    mjdNetworkConfig,
-    mjdMonitoringResources,
-    mjdMonitoringAppSpecification,
-    mjdBaselineConfig,
-    mjdMonitoringInputs,
-    mjdRoleARN,
-
-    -- ** MonitoringOutput
-    MonitoringOutput (..),
-    mkMonitoringOutput,
-    moS3Output,
-
-    -- ** MonitoringOutputConfig
-    MonitoringOutputConfig (..),
-    mkMonitoringOutputConfig,
-    mocMonitoringOutputs,
-    mocKMSKeyId,
-
-    -- ** MonitoringResources
-    MonitoringResources (..),
-    mkMonitoringResources,
-    mrClusterConfig,
-
-    -- ** MonitoringS3Output
-    MonitoringS3Output (..),
-    mkMonitoringS3Output,
-    msoLocalPath,
-    msoS3UploadMode,
-    msoS3URI,
-
-    -- ** MonitoringScheduleConfig
-    MonitoringScheduleConfig (..),
-    mkMonitoringScheduleConfig,
-    mscScheduleConfig,
-    mscMonitoringJobDefinition,
-
-    -- ** MonitoringScheduleSummary
-    MonitoringScheduleSummary (..),
-    mkMonitoringScheduleSummary,
-    mssCreationTime,
-    mssMonitoringScheduleARN,
-    mssEndpointName,
-    mssLastModifiedTime,
-    mssMonitoringScheduleStatus,
-    mssMonitoringScheduleName,
-
-    -- ** MonitoringStatisticsResource
-    MonitoringStatisticsResource (..),
-    mkMonitoringStatisticsResource,
-    msrS3URI,
-
-    -- ** MonitoringStoppingCondition
-    MonitoringStoppingCondition (..),
-    mkMonitoringStoppingCondition,
-    mscMaxRuntimeInSeconds,
-
-    -- ** NestedFilters
-    NestedFilters (..),
-    mkNestedFilters,
-    nfFilters,
-    nfNestedPropertyName,
-
-    -- ** NetworkConfig
-    NetworkConfig (..),
-    mkNetworkConfig,
-    ncEnableNetworkIsolation,
-    ncVPCConfig,
-    ncEnableInterContainerTrafficEncryption,
-
-    -- ** NotebookInstanceLifecycleConfigSummary
-    NotebookInstanceLifecycleConfigSummary (..),
-    mkNotebookInstanceLifecycleConfigSummary,
-    nilcsCreationTime,
-    nilcsLastModifiedTime,
-    nilcsNotebookInstanceLifecycleConfigARN,
-    nilcsNotebookInstanceLifecycleConfigName,
-
-    -- ** NotebookInstanceLifecycleHook
-    NotebookInstanceLifecycleHook (..),
-    mkNotebookInstanceLifecycleHook,
-    nilhContent,
-
-    -- ** NotebookInstanceSummary
-    NotebookInstanceSummary (..),
-    mkNotebookInstanceSummary,
-    nisCreationTime,
-    nisNotebookInstanceName,
-    nisAdditionalCodeRepositories,
-    nisURL,
-    nisLastModifiedTime,
-    nisInstanceType,
-    nisNotebookInstanceStatus,
-    nisDefaultCodeRepository,
-    nisNotebookInstanceARN,
-    nisNotebookInstanceLifecycleConfigName,
-
-    -- ** NotificationConfiguration
-    NotificationConfiguration (..),
-    mkNotificationConfiguration,
-    ncNotificationTopicARN,
-
-    -- ** ObjectiveStatusCounters
-    ObjectiveStatusCounters (..),
-    mkObjectiveStatusCounters,
-    oscPending,
-    oscSucceeded,
-    oscFailed,
-
-    -- ** OidcConfig
-    OidcConfig (..),
-    mkOidcConfig,
-    ocClientId,
-    ocClientSecret,
-    ocJwksURI,
-    ocUserInfoEndpoint,
-    ocAuthorizationEndpoint,
-    ocTokenEndpoint,
-    ocIssuer,
-    ocLogoutEndpoint,
-
-    -- ** OidcConfigForResponse
-    OidcConfigForResponse (..),
-    mkOidcConfigForResponse,
-    ocfClientId,
-    ocfJwksURI,
-    ocfUserInfoEndpoint,
-    ocfAuthorizationEndpoint,
-    ocfTokenEndpoint,
-    ocfIssuer,
-    ocfLogoutEndpoint,
-
-    -- ** OidcMemberDefinition
-    OidcMemberDefinition (..),
-    mkOidcMemberDefinition,
-    omdGroups,
-
-    -- ** OutputConfig
-    OutputConfig (..),
-    mkOutputConfig,
-    ocS3OutputLocation,
-    ocTargetPlatform,
-    ocCompilerOptions,
-    ocTargetDevice,
-
-    -- ** OutputDataConfig
-    OutputDataConfig (..),
-    mkOutputDataConfig,
-    odcS3OutputPath,
-    odcKMSKeyId,
-
-    -- ** ParameterRange
-    ParameterRange (..),
-    mkParameterRange,
-    prCategoricalParameterRangeSpecification,
-    prIntegerParameterRangeSpecification,
-    prContinuousParameterRangeSpecification,
-
-    -- ** ParameterRanges
-    ParameterRanges (..),
-    mkParameterRanges,
-    prCategoricalParameterRanges,
-    prIntegerParameterRanges,
-    prContinuousParameterRanges,
 
     -- ** Parent
     Parent (..),
@@ -2000,162 +534,102 @@ module Network.AWS.SageMaker
     pExperimentName,
     pTrialName,
 
-    -- ** ParentHyperParameterTuningJob
-    ParentHyperParameterTuningJob (..),
-    mkParentHyperParameterTuningJob,
-    phptjHyperParameterTuningJobName,
+    -- ** TrainingJobStatusCounters
+    TrainingJobStatusCounters (..),
+    mkTrainingJobStatusCounters,
+    tjscCompleted,
+    tjscInProgress,
+    tjscNonRetryableError,
+    tjscRetryableError,
+    tjscStopped,
 
-    -- ** ProcessingClusterConfig
-    ProcessingClusterConfig (..),
-    mkProcessingClusterConfig,
-    pccInstanceCount,
-    pccInstanceType,
-    pccVolumeSizeInGB,
-    pccVolumeKMSKeyId,
+    -- ** UiTemplate
+    UiTemplate (..),
+    mkUiTemplate,
+    utContent,
 
-    -- ** ProcessingInput
-    ProcessingInput (..),
-    mkProcessingInput,
-    piInputName,
-    piS3Input,
+    -- ** LabelingJobArn
+    LabelingJobArn (..),
 
-    -- ** ProcessingJob
-    ProcessingJob (..),
-    mkProcessingJob,
-    pjCreationTime,
-    pjFailureReason,
-    pjMonitoringScheduleARN,
-    pjAppSpecification,
-    pjProcessingResources,
-    pjEnvironment,
-    pjProcessingJobName,
-    pjStoppingCondition,
-    pjExperimentConfig,
-    pjLastModifiedTime,
-    pjProcessingInputs,
-    pjNetworkConfig,
-    pjAutoMLJobARN,
-    pjTrainingJobARN,
-    pjProcessingJobStatus,
-    pjExitMessage,
-    pjProcessingOutputConfig,
-    pjProcessingStartTime,
-    pjProcessingEndTime,
-    pjTags,
-    pjProcessingJobARN,
-    pjRoleARN,
+    -- ** CodeRepositoryContains
+    CodeRepositoryContains (..),
 
-    -- ** ProcessingJobSummary
-    ProcessingJobSummary (..),
-    mkProcessingJobSummary,
-    pjsCreationTime,
-    pjsFailureReason,
-    pjsProcessingJobName,
-    pjsLastModifiedTime,
-    pjsProcessingJobStatus,
-    pjsExitMessage,
-    pjsProcessingEndTime,
-    pjsProcessingJobARN,
+    -- ** MonitoringScheduleSortKey
+    MonitoringScheduleSortKey (..),
+
+    -- ** HyperParameterValue
+    HyperParameterValue (..),
+
+    -- ** TransformJobName
+    TransformJobName (..),
+
+    -- ** CandidateDefinitionNotebookLocation
+    CandidateDefinitionNotebookLocation (..),
+
+    -- ** NameContains
+    NameContains (..),
+
+    -- ** UserSettings
+    UserSettings (..),
+    mkUserSettings,
+    usExecutionRole,
+    usJupyterServerAppSettings,
+    usKernelGatewayAppSettings,
+    usSecurityGroups,
+    usSharingSettings,
+    usTensorBoardAppSettings,
+
+    -- ** NotebookInstanceSortOrder
+    NotebookInstanceSortOrder (..),
+
+    -- ** ModelPackageSortBy
+    ModelPackageSortBy (..),
+
+    -- ** FailureReason
+    FailureReason (..),
+
+    -- ** ModelPackageStatusItem
+    ModelPackageStatusItem (..),
+    mkModelPackageStatusItem,
+    mpsiName,
+    mpsiStatus,
+    mpsiFailureReason,
 
     -- ** ProcessingOutput
     ProcessingOutput (..),
     mkProcessingOutput,
-    poS3Output,
     poOutputName,
+    poS3Output,
 
-    -- ** ProcessingOutputConfig
-    ProcessingOutputConfig (..),
-    mkProcessingOutputConfig,
-    pocOutputs,
-    pocKMSKeyId,
+    -- ** MonitoringScheduleArn
+    MonitoringScheduleArn (..),
 
-    -- ** ProcessingResources
-    ProcessingResources (..),
-    mkProcessingResources,
-    prClusterConfig,
+    -- ** LabelingJobOutputConfig
+    LabelingJobOutputConfig (..),
+    mkLabelingJobOutputConfig,
+    ljocS3OutputPath,
+    ljocKmsKeyId,
+    ljocSnsTopicArn,
 
-    -- ** ProcessingS3Input
-    ProcessingS3Input (..),
-    mkProcessingS3Input,
-    psiS3DataDistributionType,
-    psiS3InputMode,
-    psiLocalPath,
-    psiS3DataType,
-    psiS3CompressionType,
-    psiS3URI,
+    -- ** HyperParameterTuningJobStrategyType
+    HyperParameterTuningJobStrategyType (..),
 
-    -- ** ProcessingS3Output
-    ProcessingS3Output (..),
-    mkProcessingS3Output,
-    psoLocalPath,
-    psoS3UploadMode,
-    psoS3URI,
+    -- ** Workforce
+    Workforce (..),
+    mkWorkforce,
+    wWorkforceName,
+    wWorkforceArn,
+    wCognitoConfig,
+    wCreateDate,
+    wLastUpdatedDate,
+    wOidcConfig,
+    wSourceIpConfig,
+    wSubDomain,
 
-    -- ** ProcessingStoppingCondition
-    ProcessingStoppingCondition (..),
-    mkProcessingStoppingCondition,
-    pscMaxRuntimeInSeconds,
-
-    -- ** ProductionVariant
-    ProductionVariant (..),
-    mkProductionVariant,
-    pvInitialInstanceCount,
-    pvAcceleratorType,
-    pvModelName,
-    pvInitialVariantWeight,
-    pvInstanceType,
-    pvVariantName,
-
-    -- ** ProductionVariantSummary
-    ProductionVariantSummary (..),
-    mkProductionVariantSummary,
-    pvsDesiredInstanceCount,
-    pvsDesiredWeight,
-    pvsCurrentWeight,
-    pvsVariantName,
-    pvsCurrentInstanceCount,
-    pvsDeployedImages,
-
-    -- ** PropertyNameQuery
-    PropertyNameQuery (..),
-    mkPropertyNameQuery,
-    pnqPropertyNameHint,
-
-    -- ** PropertyNameSuggestion
-    PropertyNameSuggestion (..),
-    mkPropertyNameSuggestion,
-    pnsPropertyName,
-
-    -- ** PublicWorkforceTaskPrice
-    PublicWorkforceTaskPrice (..),
-    mkPublicWorkforceTaskPrice,
-    pwtpAmountInUsd,
-
-    -- ** RenderableTask
-    RenderableTask (..),
-    mkRenderableTask,
-    rtInput,
-
-    -- ** RenderingError
-    RenderingError (..),
-    mkRenderingError,
-    reCode,
-    reMessage,
-
-    -- ** ResolvedAttributes
-    ResolvedAttributes (..),
-    mkResolvedAttributes,
-    raProblemType,
-    raAutoMLJobObjective,
-    raCompletionCriteria,
-
-    -- ** ResourceConfig
-    ResourceConfig (..),
-    mkResourceConfig,
-    rcInstanceCount,
-    rcInstanceType,
-    rcVolumeSizeInGB,
-    rcVolumeKMSKeyId,
+    -- ** OidcMemberDefinition
+    OidcMemberDefinition (..),
+    mkOidcMemberDefinition,
+    omdGroups,
 
     -- ** ResourceLimits
     ResourceLimits (..),
@@ -2163,343 +637,101 @@ module Network.AWS.SageMaker
     rlMaxNumberOfTrainingJobs,
     rlMaxParallelTrainingJobs,
 
-    -- ** ResourceSpec
-    ResourceSpec (..),
-    mkResourceSpec,
-    rsInstanceType,
-    rsSageMakerImageARN,
-    rsSageMakerImageVersionARN,
+    -- ** Framework
+    Framework (..),
 
-    -- ** RetentionPolicy
-    RetentionPolicy (..),
-    mkRetentionPolicy,
-    rpHomeEfsFileSystem,
+    -- ** ModelClientConfig
+    ModelClientConfig (..),
+    mkModelClientConfig,
+    mccInvocationsMaxRetries,
+    mccInvocationsTimeoutInSeconds,
 
-    -- ** S3DataSource
-    S3DataSource (..),
-    mkS3DataSource,
-    sdsS3DataDistributionType,
-    sdsS3DataType,
-    sdsAttributeNames,
-    sdsS3URI,
+    -- ** HyperParameterTrainingJobSummary
+    HyperParameterTrainingJobSummary (..),
+    mkHyperParameterTrainingJobSummary,
+    hptjsTrainingJobName,
+    hptjsTrainingJobArn,
+    hptjsCreationTime,
+    hptjsTrainingJobStatus,
+    hptjsTunedHyperParameters,
+    hptjsFailureReason,
+    hptjsFinalHyperParameterTuningJobObjectiveMetric,
+    hptjsObjectiveStatus,
+    hptjsTrainingEndTime,
+    hptjsTrainingJobDefinitionName,
+    hptjsTrainingStartTime,
+    hptjsTuningJobName,
 
-    -- ** ScheduleConfig
-    ScheduleConfig (..),
-    mkScheduleConfig,
-    scScheduleExpression,
+    -- ** AppSpecification
+    AppSpecification (..),
+    mkAppSpecification,
+    asImageUri,
+    asContainerArguments,
+    asContainerEntrypoint,
 
-    -- ** SearchExpression
-    SearchExpression (..),
-    mkSearchExpression,
-    seSubExpressions,
-    seOperator,
-    seFilters,
-    seNestedFilters,
+    -- ** MediaType
+    MediaType (..),
 
-    -- ** SearchRecord
-    SearchRecord (..),
-    mkSearchRecord,
-    srTrainingJob,
-    srTrial,
-    srTrialComponent,
-    srExperiment,
+    -- ** EndpointConfigSortKey
+    EndpointConfigSortKey (..),
 
-    -- ** SecondaryStatusTransition
-    SecondaryStatusTransition (..),
-    mkSecondaryStatusTransition,
-    sstStatus,
-    sstStartTime,
-    sstStatusMessage,
-    sstEndTime,
+    -- ** ObjectiveStatusCounters
+    ObjectiveStatusCounters (..),
+    mkObjectiveStatusCounters,
+    oscFailed,
+    oscPending,
+    oscSucceeded,
 
-    -- ** SharingSettings
-    SharingSettings (..),
-    mkSharingSettings,
-    ssS3KMSKeyId,
-    ssS3OutputPath,
-    ssNotebookOutputOption,
+    -- ** FileSystemAccessMode
+    FileSystemAccessMode (..),
 
-    -- ** ShuffleConfig
-    ShuffleConfig (..),
-    mkShuffleConfig,
-    scSeed,
+    -- ** String256
+    String256 (..),
 
-    -- ** SourceAlgorithm
-    SourceAlgorithm (..),
-    mkSourceAlgorithm,
-    saModelDataURL,
-    saAlgorithmName,
+    -- ** LabelingJobDataSource
+    LabelingJobDataSource (..),
+    mkLabelingJobDataSource,
+    ljdsS3DataSource,
+    ljdsSnsDataSource,
 
-    -- ** SourceAlgorithmSpecification
-    SourceAlgorithmSpecification (..),
-    mkSourceAlgorithmSpecification,
-    sasSourceAlgorithms,
+    -- ** EndpointName
+    EndpointName (..),
 
-    -- ** SourceIPConfig
-    SourceIPConfig (..),
-    mkSourceIPConfig,
-    sicCidrs,
+    -- ** ClientId
+    ClientId (..),
 
-    -- ** StoppingCondition
-    StoppingCondition (..),
-    mkStoppingCondition,
-    scMaxWaitTimeInSeconds,
-    scMaxRuntimeInSeconds,
+    -- ** Workteam
+    Workteam (..),
+    mkWorkteam,
+    wfWorkteamName,
+    wfMemberDefinitions,
+    wfWorkteamArn,
+    wfDescription,
+    wfCreateDate,
+    wfLastUpdatedDate,
+    wfNotificationConfiguration,
+    wfProductListingIds,
+    wfSubDomain,
+    wfWorkforceArn,
 
-    -- ** SubscribedWorkteam
-    SubscribedWorkteam (..),
-    mkSubscribedWorkteam,
-    swMarketplaceTitle,
-    swSellerName,
-    swWorkteamARN,
-    swListingId,
-    swMarketplaceDescription,
+    -- ** EntityName
+    EntityName (..),
 
-    -- ** SuggestionQuery
-    SuggestionQuery (..),
-    mkSuggestionQuery,
-    sqPropertyNameQuery,
+    -- ** AutoMLContainerDefinition
+    AutoMLContainerDefinition (..),
+    mkAutoMLContainerDefinition,
+    amlcdImage,
+    amlcdModelDataUrl,
+    amlcdEnvironment,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** CsvContentType
+    CsvContentType (..),
 
-    -- ** TargetPlatform
-    TargetPlatform (..),
-    mkTargetPlatform,
-    tpOS,
-    tpAccelerator,
-    tpArch,
+    -- ** PaginationToken
+    PaginationToken (..),
 
-    -- ** TensorBoardAppSettings
-    TensorBoardAppSettings (..),
-    mkTensorBoardAppSettings,
-    tbasDefaultResourceSpec,
-
-    -- ** TensorBoardOutputConfig
-    TensorBoardOutputConfig (..),
-    mkTensorBoardOutputConfig,
-    tbocS3OutputPath,
-    tbocLocalPath,
-
-    -- ** TrainingJob
-    TrainingJob (..),
-    mkTrainingJob,
-    tjCreationTime,
-    tjLabelingJobARN,
-    tjFailureReason,
-    tjSecondaryStatusTransitions,
-    tjModelArtifacts,
-    tjTrainingEndTime,
-    tjBillableTimeInSeconds,
-    tjDebugHookConfig,
-    tjCheckpointConfig,
-    tjStoppingCondition,
-    tjDebugRuleEvaluationStatuses,
-    tjTrainingJobStatus,
-    tjEnableNetworkIsolation,
-    tjExperimentConfig,
-    tjLastModifiedTime,
-    tjDebugRuleConfigurations,
-    tjEnableManagedSpotTraining,
-    tjAutoMLJobARN,
-    tjHyperParameters,
-    tjInputDataConfig,
-    tjVPCConfig,
-    tjTrainingJobARN,
-    tjAlgorithmSpecification,
-    tjFinalMetricDataList,
-    tjOutputDataConfig,
-    tjTrainingStartTime,
-    tjTuningJobARN,
-    tjTrainingJobName,
-    tjResourceConfig,
-    tjEnableInterContainerTrafficEncryption,
-    tjTensorBoardOutputConfig,
-    tjSecondaryStatus,
-    tjTags,
-    tjTrainingTimeInSeconds,
-    tjRoleARN,
-
-    -- ** TrainingJobDefinition
-    TrainingJobDefinition (..),
-    mkTrainingJobDefinition,
-    tjdTrainingInputMode,
-    tjdStoppingCondition,
-    tjdHyperParameters,
-    tjdInputDataConfig,
-    tjdOutputDataConfig,
-    tjdResourceConfig,
-
-    -- ** TrainingJobStatusCounters
-    TrainingJobStatusCounters (..),
-    mkTrainingJobStatusCounters,
-    tjscStopped,
-    tjscRetryableError,
-    tjscInProgress,
-    tjscNonRetryableError,
-    tjscCompleted,
-
-    -- ** TrainingJobSummary
-    TrainingJobSummary (..),
-    mkTrainingJobSummary,
-    tjsfCreationTime,
-    tjsfTrainingEndTime,
-    tjsfTrainingJobStatus,
-    tjsfLastModifiedTime,
-    tjsfTrainingJobARN,
-    tjsfTrainingJobName,
-
-    -- ** TrainingSpecification
-    TrainingSpecification (..),
-    mkTrainingSpecification,
-    tsSupportedTrainingInstanceTypes,
-    tsTrainingImageDigest,
-    tsSupportsDistributedTraining,
-    tsSupportedHyperParameters,
-    tsSupportedTuningJobObjectiveMetrics,
-    tsTrainingImage,
-    tsMetricDefinitions,
-    tsTrainingChannels,
-
-    -- ** TransformDataSource
-    TransformDataSource (..),
-    mkTransformDataSource,
-    tdsS3DataSource,
-
-    -- ** TransformInput
-    TransformInput (..),
-    mkTransformInput,
-    tiSplitType,
-    tiDataSource,
-    tiCompressionType,
-    tiContentType,
-
-    -- ** TransformJob
-    TransformJob (..),
-    mkTransformJob,
-    tjfCreationTime,
-    tjfLabelingJobARN,
-    tjfTransformJobName,
-    tjfFailureReason,
-    tjfModelClientConfig,
-    tjfBatchStrategy,
-    tjfMaxPayloadInMB,
-    tjfEnvironment,
-    tjfTransformResources,
-    tjfModelName,
-    tjfExperimentConfig,
-    tjfTransformEndTime,
-    tjfTransformStartTime,
-    tjfAutoMLJobARN,
-    tjfTransformJobStatus,
-    tjfTransformInput,
-    tjfMaxConcurrentTransforms,
-    tjfTransformOutput,
-    tjfDataProcessing,
-    tjfTransformJobARN,
-    tjfTags,
-
-    -- ** TransformJobDefinition
-    TransformJobDefinition (..),
-    mkTransformJobDefinition,
-    tjdBatchStrategy,
-    tjdMaxPayloadInMB,
-    tjdEnvironment,
-    tjdTransformResources,
-    tjdTransformInput,
-    tjdMaxConcurrentTransforms,
-    tjdTransformOutput,
-
-    -- ** TransformJobSummary
-    TransformJobSummary (..),
-    mkTransformJobSummary,
-    tjsCreationTime,
-    tjsTransformJobName,
-    tjsFailureReason,
-    tjsLastModifiedTime,
-    tjsTransformEndTime,
-    tjsTransformJobStatus,
-    tjsTransformJobARN,
-
-    -- ** TransformOutput
-    TransformOutput (..),
-    mkTransformOutput,
-    toS3OutputPath,
-    toAssembleWith,
-    toAccept,
-    toKMSKeyId,
-
-    -- ** TransformResources
-    TransformResources (..),
-    mkTransformResources,
-    trInstanceCount,
-    trInstanceType,
-    trVolumeKMSKeyId,
-
-    -- ** TransformS3DataSource
-    TransformS3DataSource (..),
-    mkTransformS3DataSource,
-    tsdsS3DataType,
-    tsdsS3URI,
-
-    -- ** Trial
-    Trial (..),
-    mkTrial,
-    tCreationTime,
-    tTrialComponentSummaries,
-    tTrialARN,
-    tCreatedBy,
-    tLastModifiedTime,
-    tExperimentName,
-    tSource,
-    tDisplayName,
-    tTrialName,
-    tLastModifiedBy,
-    tTags,
-
-    -- ** TrialComponent
-    TrialComponent (..),
-    mkTrialComponent,
-    tcCreationTime,
-    tcStatus,
-    tcSourceDetail,
-    tcMetrics,
-    tcOutputArtifacts,
-    tcStartTime,
-    tcCreatedBy,
-    tcLastModifiedTime,
-    tcParents,
-    tcEndTime,
-    tcTrialComponentName,
-    tcParameters,
-    tcSource,
-    tcDisplayName,
-    tcLastModifiedBy,
-    tcTrialComponentARN,
-    tcInputArtifacts,
-    tcTags,
-
-    -- ** TrialComponentArtifact
-    TrialComponentArtifact (..),
-    mkTrialComponentArtifact,
-    tcaMediaType,
-    tcaValue,
-
-    -- ** TrialComponentMetricSummary
-    TrialComponentMetricSummary (..),
-    mkTrialComponentMetricSummary,
-    tcmsMax,
-    tcmsSourceARN,
-    tcmsAvg,
-    tcmsCount,
-    tcmsMetricName,
-    tcmsStdDev,
-    tcmsMin,
-    tcmsLast,
-    tcmsTimeStamp,
+    -- ** BatchStrategy
+    BatchStrategy (..),
 
     -- ** TrialComponentParameterValue
     TrialComponentParameterValue (..),
@@ -2507,70 +739,251 @@ module Network.AWS.SageMaker
     tcpvNumberValue,
     tcpvStringValue,
 
-    -- ** TrialComponentSimpleSummary
-    TrialComponentSimpleSummary (..),
-    mkTrialComponentSimpleSummary,
-    tcssCreationTime,
-    tcssCreatedBy,
-    tcssTrialComponentName,
-    tcssTrialComponentARN,
-    tcssTrialComponentSource,
+    -- ** AlgorithmValidationProfile
+    AlgorithmValidationProfile (..),
+    mkAlgorithmValidationProfile,
+    avpProfileName,
+    avpTrainingJobDefinition,
+    avpTransformJobDefinition,
 
-    -- ** TrialComponentSource
-    TrialComponentSource (..),
-    mkTrialComponentSource,
-    tcsSourceType,
-    tcsSourceARN,
+    -- ** EndpointSummary
+    EndpointSummary (..),
+    mkEndpointSummary,
+    esEndpointName,
+    esEndpointArn,
+    esCreationTime,
+    esLastModifiedTime,
+    esEndpointStatus,
 
-    -- ** TrialComponentSourceDetail
-    TrialComponentSourceDetail (..),
-    mkTrialComponentSourceDetail,
-    tcsdTrainingJob,
-    tcsdSourceARN,
-    tcsdProcessingJob,
-    tcsdTransformJob,
+    -- ** Group
+    Group (..),
 
-    -- ** TrialComponentStatus
-    TrialComponentStatus (..),
-    mkTrialComponentStatus,
-    tcsPrimaryStatus,
-    tcsMessage,
+    -- ** ScheduleConfig
+    ScheduleConfig (..),
+    mkScheduleConfig,
+    scScheduleExpression,
 
-    -- ** TrialComponentSummary
-    TrialComponentSummary (..),
-    mkTrialComponentSummary,
-    tcsCreationTime,
-    tcsStatus,
-    tcsStartTime,
-    tcsCreatedBy,
-    tcsLastModifiedTime,
-    tcsEndTime,
-    tcsTrialComponentName,
-    tcsDisplayName,
-    tcsLastModifiedBy,
-    tcsTrialComponentARN,
-    tcsTrialComponentSource,
+    -- ** SourceAlgorithmSpecification
+    SourceAlgorithmSpecification (..),
+    mkSourceAlgorithmSpecification,
+    sasSourceAlgorithms,
 
-    -- ** TrialSource
-    TrialSource (..),
-    mkTrialSource,
-    tsSourceType,
-    tsSourceARN,
-
-    -- ** TrialSummary
-    TrialSummary (..),
-    mkTrialSummary,
-    tsCreationTime,
-    tsTrialARN,
-    tsLastModifiedTime,
-    tsTrialSource,
-    tsDisplayName,
-    tsTrialName,
+    -- ** String200
+    String200 (..),
 
     -- ** TuningJobCompletionCriteria
     TuningJobCompletionCriteria (..),
     mkTuningJobCompletionCriteria,
     tjccTargetObjectiveMetricValue,
+
+    -- ** ClientSecret
+    ClientSecret (..),
+
+    -- ** NotebookInstanceName
+    NotebookInstanceName (..),
+
+    -- ** TensorBoardAppSettings
+    TensorBoardAppSettings (..),
+    mkTensorBoardAppSettings,
+    tbasDefaultResourceSpec,
+
+    -- ** KernelGatewayAppSettings
+    KernelGatewayAppSettings (..),
+    mkKernelGatewayAppSettings,
+    kgasCustomImages,
+    kgasDefaultResourceSpec,
+
+    -- ** AwsManagedHumanLoopRequestSource
+    AwsManagedHumanLoopRequestSource (..),
+
+    -- ** TrainingJob
+    TrainingJob (..),
+    mkTrainingJob,
+    tjAlgorithmSpecification,
+    tjAutoMLJobArn,
+    tjBillableTimeInSeconds,
+    tjCheckpointConfig,
+    tjCreationTime,
+    tjDebugHookConfig,
+    tjDebugRuleConfigurations,
+    tjDebugRuleEvaluationStatuses,
+    tjEnableInterContainerTrafficEncryption,
+    tjEnableManagedSpotTraining,
+    tjEnableNetworkIsolation,
+    tjExperimentConfig,
+    tjFailureReason,
+    tjFinalMetricDataList,
+    tjHyperParameters,
+    tjInputDataConfig,
+    tjLabelingJobArn,
+    tjLastModifiedTime,
+    tjModelArtifacts,
+    tjOutputDataConfig,
+    tjResourceConfig,
+    tjRoleArn,
+    tjSecondaryStatus,
+    tjSecondaryStatusTransitions,
+    tjStoppingCondition,
+    tjTags,
+    tjTensorBoardOutputConfig,
+    tjTrainingEndTime,
+    tjTrainingJobArn,
+    tjTrainingJobName,
+    tjTrainingJobStatus,
+    tjTrainingStartTime,
+    tjTrainingTimeInSeconds,
+    tjTuningJobArn,
+    tjVpcConfig,
+
+    -- ** CaptureMode
+    CaptureMode (..),
+
+    -- ** ImageContainerImage
+    ImageContainerImage (..),
+
+    -- ** AutoMLSortBy
+    AutoMLSortBy (..),
+
+    -- ** ArnOrName
+    ArnOrName (..),
+
+    -- ** CandidateStepType
+    CandidateStepType (..),
+
+    -- ** TransformJobSummary
+    TransformJobSummary (..),
+    mkTransformJobSummary,
+    tjsTransformJobName,
+    tjsTransformJobArn,
+    tjsCreationTime,
+    tjsTransformJobStatus,
+    tjsFailureReason,
+    tjsLastModifiedTime,
+    tjsTransformEndTime,
+
+    -- ** LabelingJobAlgorithmsConfig
+    LabelingJobAlgorithmsConfig (..),
+    mkLabelingJobAlgorithmsConfig,
+    ljacLabelingJobAlgorithmSpecificationArn,
+    ljacInitialActiveLearningModelArn,
+    ljacLabelingJobResourceConfig,
+
+    -- ** ResourceSpec
+    ResourceSpec (..),
+    mkResourceSpec,
+    rsInstanceType,
+    rsSageMakerImageArn,
+    rsSageMakerImageVersionArn,
+
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** TrialArn
+    TrialArn (..),
+
+    -- ** HumanLoopActivationConditions
+    HumanLoopActivationConditions (..),
+
+    -- ** TrialComponentSimpleSummary
+    TrialComponentSimpleSummary (..),
+    mkTrialComponentSimpleSummary,
+    tcssCreatedBy,
+    tcssCreationTime,
+    tcssTrialComponentArn,
+    tcssTrialComponentName,
+    tcssTrialComponentSource,
+
+    -- ** Image
+    Image (..),
+    mkImage,
+    iCreationTime,
+    iImageArn,
+    iImageName,
+    iImageStatus,
+    iLastModifiedTime,
+    iDescription,
+    iDisplayName,
+    iFailureReason,
+
+    -- ** MonitoringInput
+    MonitoringInput (..),
+    mkMonitoringInput,
+    miEndpointInput,
+
+    -- ** CaptureContentTypeHeader
+    CaptureContentTypeHeader (..),
+    mkCaptureContentTypeHeader,
+    ccthCsvContentTypes,
+    ccthJsonContentTypes,
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** TrialComponentStatusMessage
+    TrialComponentStatusMessage (..),
+
+    -- ** DataCaptureConfigSummary
+    DataCaptureConfigSummary (..),
+    mkDataCaptureConfigSummary,
+    dccsEnableCapture,
+    dccsCaptureStatus,
+    dccsCurrentSamplingPercentage,
+    dccsDestinationS3Uri,
+    dccsKmsKeyId,
+
+    -- ** PropertyNameQuery
+    PropertyNameQuery (..),
+    mkPropertyNameQuery,
+    pnqPropertyNameHint,
+
+    -- ** FlowDefinitionTaskTitle
+    FlowDefinitionTaskTitle (..),
+
+    -- ** CodeRepositoryArn
+    CodeRepositoryArn (..),
+
+    -- ** ProcessingResources
+    ProcessingResources (..),
+    mkProcessingResources,
+    prClusterConfig,
+
+    -- ** ImageDisplayName
+    ImageDisplayName (..),
+
+    -- ** ModelArn
+    ModelArn (..),
+
+    -- ** Trial
+    Trial (..),
+    mkTrial,
+    tCreatedBy,
+    tCreationTime,
+    tDisplayName,
+    tExperimentName,
+    tLastModifiedBy,
+    tLastModifiedTime,
+    tSource,
+    tTags,
+    tTrialArn,
+    tTrialComponentSummaries,
+    tTrialName,
+
+    -- ** SnsTopicArn
+    SnsTopicArn (..),
+
+    -- ** HyperParameterTuningJobArn
+    HyperParameterTuningJobArn (..),
+
+    -- ** ModelArtifacts
+    ModelArtifacts (..),
+    mkModelArtifacts,
+    maS3ModelArtifacts,
+
+    -- ** HyperParameterScalingType
+    HyperParameterScalingType (..),
 
     -- ** USD
     USD (..),
@@ -2579,95 +992,2384 @@ module Network.AWS.SageMaker
     usdDollars,
     usdTenthFractionsOfACent,
 
-    -- ** UiConfig
-    UiConfig (..),
-    mkUiConfig,
-    ucUiTemplateS3URI,
-    ucHumanTaskUiARN,
+    -- ** CognitoMemberDefinition
+    CognitoMemberDefinition (..),
+    mkCognitoMemberDefinition,
+    cmdUserPool,
+    cmdUserGroup,
+    cmdClientId,
 
-    -- ** UiTemplate
-    UiTemplate (..),
-    mkUiTemplate,
-    utContent,
+    -- ** TemplateContentSha256
+    TemplateContentSha256 (..),
+
+    -- ** DestinationS3Uri
+    DestinationS3Uri (..),
+
+    -- ** ModelSortKey
+    ModelSortKey (..),
+
+    -- ** CandidateStepArn
+    CandidateStepArn (..),
+
+    -- ** CognitoUserPool
+    CognitoUserPool (..),
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** OidcEndpoint
+    OidcEndpoint (..),
+
+    -- ** AutoMLSortOrder
+    AutoMLSortOrder (..),
+
+    -- ** AlgorithmArn
+    AlgorithmArn (..),
+
+    -- ** EnvironmentKey
+    EnvironmentKey (..),
+
+    -- ** JobReferenceCodeContains
+    JobReferenceCodeContains (..),
+
+    -- ** ClientToken
+    ClientToken (..),
+
+    -- ** ParameterValue
+    ParameterValue (..),
+
+    -- ** ResourcePropertyName
+    ResourcePropertyName (..),
+
+    -- ** LabelingJobSnsDataSource
+    LabelingJobSnsDataSource (..),
+    mkLabelingJobSnsDataSource,
+    ljsdsSnsTopicArn,
+
+    -- ** TargetPlatformOs
+    TargetPlatformOs (..),
+
+    -- ** TrainingJobDefinition
+    TrainingJobDefinition (..),
+    mkTrainingJobDefinition,
+    tjdTrainingInputMode,
+    tjdInputDataConfig,
+    tjdOutputDataConfig,
+    tjdResourceConfig,
+    tjdStoppingCondition,
+    tjdHyperParameters,
+
+    -- ** TrialSourceArn
+    TrialSourceArn (..),
 
     -- ** UiTemplateInfo
     UiTemplateInfo (..),
     mkUiTemplateInfo,
-    utiURL,
     utiContentSha256,
+    utiUrl,
 
-    -- ** UserContext
-    UserContext (..),
-    mkUserContext,
-    ucUserProfileName,
-    ucUserProfileARN,
-    ucDomainId,
+    -- ** MonitoringExecutionSummary
+    MonitoringExecutionSummary (..),
+    mkMonitoringExecutionSummary,
+    mesMonitoringScheduleName,
+    mesScheduledTime,
+    mesCreationTime,
+    mesLastModifiedTime,
+    mesMonitoringExecutionStatus,
+    mesEndpointName,
+    mesFailureReason,
+    mesProcessingJobArn,
+
+    -- ** MonitoringScheduleSummary
+    MonitoringScheduleSummary (..),
+    mkMonitoringScheduleSummary,
+    mssMonitoringScheduleName,
+    mssMonitoringScheduleArn,
+    mssCreationTime,
+    mssLastModifiedTime,
+    mssMonitoringScheduleStatus,
+    mssEndpointName,
+
+    -- ** NotificationConfiguration
+    NotificationConfiguration (..),
+    mkNotificationConfiguration,
+    ncNotificationTopicArn,
+
+    -- ** ShuffleConfig
+    ShuffleConfig (..),
+    mkShuffleConfig,
+    scSeed,
+
+    -- ** ParameterRanges
+    ParameterRanges (..),
+    mkParameterRanges,
+    prCategoricalParameterRanges,
+    prContinuousParameterRanges,
+    prIntegerParameterRanges,
+
+    -- ** EntityDescription
+    EntityDescription (..),
+
+    -- ** HyperParameterAlgorithmSpecification
+    HyperParameterAlgorithmSpecification (..),
+    mkHyperParameterAlgorithmSpecification,
+    hpasTrainingInputMode,
+    hpasAlgorithmName,
+    hpasMetricDefinitions,
+    hpasTrainingImage,
+
+    -- ** DeployedImage
+    DeployedImage (..),
+    mkDeployedImage,
+    diResolutionTime,
+    diResolvedImage,
+    diSpecifiedImage,
+
+    -- ** HyperParameterTrainingJobDefinition
+    HyperParameterTrainingJobDefinition (..),
+    mkHyperParameterTrainingJobDefinition,
+    hptjdAlgorithmSpecification,
+    hptjdRoleArn,
+    hptjdOutputDataConfig,
+    hptjdResourceConfig,
+    hptjdStoppingCondition,
+    hptjdCheckpointConfig,
+    hptjdDefinitionName,
+    hptjdEnableInterContainerTrafficEncryption,
+    hptjdEnableManagedSpotTraining,
+    hptjdEnableNetworkIsolation,
+    hptjdHyperParameterRanges,
+    hptjdInputDataConfig,
+    hptjdStaticHyperParameters,
+    hptjdTuningObjective,
+    hptjdVpcConfig,
+
+    -- ** UserProfileName
+    UserProfileName (..),
+
+    -- ** TrialComponent
+    TrialComponent (..),
+    mkTrialComponent,
+    tcCreatedBy,
+    tcCreationTime,
+    tcDisplayName,
+    tcEndTime,
+    tcInputArtifacts,
+    tcLastModifiedBy,
+    tcLastModifiedTime,
+    tcMetrics,
+    tcOutputArtifacts,
+    tcParameters,
+    tcParents,
+    tcSource,
+    tcSourceDetail,
+    tcStartTime,
+    tcStatus,
+    tcTags,
+    tcTrialComponentArn,
+    tcTrialComponentName,
+
+    -- ** TrainingInputMode
+    TrainingInputMode (..),
+
+    -- ** ImageConfig
+    ImageConfig (..),
+    mkImageConfig,
+    icRepositoryAccessMode,
+
+    -- ** ModelPackageValidationProfile
+    ModelPackageValidationProfile (..),
+    mkModelPackageValidationProfile,
+    mpvpProfileName,
+    mpvpTransformJobDefinition,
+
+    -- ** NotebookInstanceLifecycleConfigContent
+    NotebookInstanceLifecycleConfigContent (..),
+
+    -- ** EndpointConfigSummary
+    EndpointConfigSummary (..),
+    mkEndpointConfigSummary,
+    ecsEndpointConfigName,
+    ecsEndpointConfigArn,
+    ecsCreationTime,
+
+    -- ** AutoMLJobStatus
+    AutoMLJobStatus (..),
+
+    -- ** HumanLoopActivationConditionsConfig
+    HumanLoopActivationConditionsConfig (..),
+    mkHumanLoopActivationConditionsConfig,
+    hlaccHumanLoopActivationConditions,
+
+    -- ** String
+    String (..),
+
+    -- ** TransformResources
+    TransformResources (..),
+    mkTransformResources,
+    trInstanceType,
+    trInstanceCount,
+    trVolumeKmsKeyId,
+
+    -- ** LabelingJobSummary
+    LabelingJobSummary (..),
+    mkLabelingJobSummary,
+    ljsLabelingJobName,
+    ljsLabelingJobArn,
+    ljsCreationTime,
+    ljsLastModifiedTime,
+    ljsLabelingJobStatus,
+    ljsLabelCounters,
+    ljsWorkteamArn,
+    ljsPreHumanTaskLambdaArn,
+    ljsAnnotationConsolidationLambdaArn,
+    ljsFailureReason,
+    ljsInputConfig,
+    ljsLabelingJobOutput,
+
+    -- ** TrialComponentPrimaryStatus
+    TrialComponentPrimaryStatus (..),
+
+    -- ** ProcessingEnvironmentValue
+    ProcessingEnvironmentValue (..),
+
+    -- ** SourceType
+    SourceType (..),
+
+    -- ** TrainingSpecification
+    TrainingSpecification (..),
+    mkTrainingSpecification,
+    tsTrainingImage,
+    tsSupportedTrainingInstanceTypes,
+    tsTrainingChannels,
+    tsMetricDefinitions,
+    tsSupportedHyperParameters,
+    tsSupportedTuningJobObjectiveMetrics,
+    tsSupportsDistributedTraining,
+    tsTrainingImageDigest,
+
+    -- ** AppStatus
+    AppStatus (..),
+
+    -- ** ImageBaseImage
+    ImageBaseImage (..),
+
+    -- ** RepositoryAccessMode
+    RepositoryAccessMode (..),
+
+    -- ** JsonPath
+    JsonPath (..),
+
+    -- ** NotebookOutputOption
+    NotebookOutputOption (..),
+
+    -- ** PublicWorkforceTaskPrice
+    PublicWorkforceTaskPrice (..),
+    mkPublicWorkforceTaskPrice,
+    pwtpAmountInUsd,
+
+    -- ** ProcessingS3Input
+    ProcessingS3Input (..),
+    mkProcessingS3Input,
+    psiS3Uri,
+    psiLocalPath,
+    psiS3DataType,
+    psiS3InputMode,
+    psiS3CompressionType,
+    psiS3DataDistributionType,
+
+    -- ** CategoricalParameterRangeSpecification
+    CategoricalParameterRangeSpecification (..),
+    mkCategoricalParameterRangeSpecification,
+    cprsValues,
+
+    -- ** DomainArn
+    DomainArn (..),
+
+    -- ** ImageVersion
+    ImageVersion (..),
+    mkImageVersion,
+    ivCreationTime,
+    ivImageArn,
+    ivImageVersionArn,
+    ivImageVersionStatus,
+    ivLastModifiedTime,
+    ivVersion,
+    ivFailureReason,
+
+    -- ** S3DataSource
+    S3DataSource (..),
+    mkS3DataSource,
+    sdsS3DataType,
+    sdsS3Uri,
+    sdsAttributeNames,
+    sdsS3DataDistributionType,
+
+    -- ** NotebookInstanceLifecycleHook
+    NotebookInstanceLifecycleHook (..),
+    mkNotebookInstanceLifecycleHook,
+    nilhContent,
+
+    -- ** IntegerParameterRangeSpecification
+    IntegerParameterRangeSpecification (..),
+    mkIntegerParameterRangeSpecification,
+    iprsMinValue,
+    iprsMaxValue,
+
+    -- ** TransformInstanceType
+    TransformInstanceType (..),
+
+    -- ** TrialComponentMetricSummary
+    TrialComponentMetricSummary (..),
+    mkTrialComponentMetricSummary,
+    tcmsAvg,
+    tcmsCount,
+    tcmsLast,
+    tcmsMax,
+    tcmsMetricName,
+    tcmsMin,
+    tcmsSourceArn,
+    tcmsStdDev,
+    tcmsTimeStamp,
+
+    -- ** MonitoringBaselineConfig
+    MonitoringBaselineConfig (..),
+    mkMonitoringBaselineConfig,
+    mbcConstraintsResource,
+    mbcStatisticsResource,
+
+    -- ** ExperimentEntityName
+    ExperimentEntityName (..),
+
+    -- ** ModelName
+    ModelName (..),
 
     -- ** UserProfileDetails
     UserProfileDetails (..),
     mkUserProfileDetails,
     updCreationTime,
+    updDomainId,
+    updLastModifiedTime,
     updStatus,
     updUserProfileName,
-    updLastModifiedTime,
-    updDomainId,
 
-    -- ** UserSettings
-    UserSettings (..),
-    mkUserSettings,
-    usTensorBoardAppSettings,
-    usKernelGatewayAppSettings,
-    usSecurityGroups,
-    usJupyterServerAppSettings,
-    usSharingSettings,
-    usExecutionRole,
+    -- ** HyperParameterTuningJobName
+    HyperParameterTuningJobName (..),
 
-    -- ** VPCConfig
-    VPCConfig (..),
-    mkVPCConfig,
-    vcSecurityGroupIds,
-    vcSubnets,
+    -- ** VpcId
+    VpcId (..),
+
+    -- ** HyperParameterTuningJobObjective
+    HyperParameterTuningJobObjective (..),
+    mkHyperParameterTuningJobObjective,
+    hptjoType,
+    hptjoMetricName,
+
+    -- ** NotebookInstanceLifecycleConfigNameContains
+    NotebookInstanceLifecycleConfigNameContains (..),
+
+    -- ** NotebookInstanceLifecycleConfigSummary
+    NotebookInstanceLifecycleConfigSummary (..),
+    mkNotebookInstanceLifecycleConfigSummary,
+    nilcsNotebookInstanceLifecycleConfigName,
+    nilcsNotebookInstanceLifecycleConfigArn,
+    nilcsCreationTime,
+    nilcsLastModifiedTime,
+
+    -- ** ModelPackageArn
+    ModelPackageArn (..),
+
+    -- ** CaptureStatus
+    CaptureStatus (..),
+
+    -- ** EfsUid
+    EfsUid (..),
+
+    -- ** S3DataType
+    S3DataType (..),
 
     -- ** VariantProperty
     VariantProperty (..),
     mkVariantProperty,
     vpVariantPropertyType,
 
-    -- ** Workforce
-    Workforce (..),
-    mkWorkforce,
-    wSubDomain,
-    wCreateDate,
-    wSourceIPConfig,
-    wWorkforceARN,
-    wCognitoConfig,
-    wLastUpdatedDate,
-    wOidcConfig,
-    wWorkforceName,
+    -- ** HumanTaskConfig
+    HumanTaskConfig (..),
+    mkHumanTaskConfig,
+    htcWorkteamArn,
+    htcUiConfig,
+    htcPreHumanTaskLambdaArn,
+    htcTaskTitle,
+    htcTaskDescription,
+    htcNumberOfHumanWorkersPerDataObject,
+    htcTaskTimeLimitInSeconds,
+    htcAnnotationConsolidationConfig,
+    htcMaxConcurrentTaskCount,
+    htcPublicWorkforceTaskPrice,
+    htcTaskAvailabilityLifetimeInSeconds,
+    htcTaskKeywords,
 
-    -- ** Workteam
-    Workteam (..),
-    mkWorkteam,
-    wfSubDomain,
-    wfProductListingIds,
-    wfNotificationConfiguration,
-    wfCreateDate,
-    wfMemberDefinitions,
-    wfWorkforceARN,
-    wfWorkteamARN,
-    wfWorkteamName,
-    wfLastUpdatedDate,
-    wfDescription,
+    -- ** LambdaFunctionArn
+    LambdaFunctionArn (..),
+
+    -- ** Accept
+    Accept (..),
+
+    -- ** TrialComponentArtifactValue
+    TrialComponentArtifactValue (..),
+
+    -- ** Operator
+    Operator (..),
+
+    -- ** ContainerImage
+    ContainerImage (..),
+
+    -- ** ProcessingStoppingCondition
+    ProcessingStoppingCondition (..),
+    mkProcessingStoppingCondition,
+    pscMaxRuntimeInSeconds,
+
+    -- ** SubscribedWorkteam
+    SubscribedWorkteam (..),
+    mkSubscribedWorkteam,
+    swWorkteamArn,
+    swListingId,
+    swMarketplaceDescription,
+    swMarketplaceTitle,
+    swSellerName,
+
+    -- ** AppInstanceType
+    AppInstanceType (..),
+
+    -- ** SortTrialsBy
+    SortTrialsBy (..),
+
+    -- ** CandidateStepName
+    CandidateStepName (..),
+
+    -- ** AlgorithmImage
+    AlgorithmImage (..),
+
+    -- ** DebugHookConfig
+    DebugHookConfig (..),
+    mkDebugHookConfig,
+    dhcS3OutputPath,
+    dhcCollectionConfigurations,
+    dhcHookParameters,
+    dhcLocalPath,
+
+    -- ** CheckpointConfig
+    CheckpointConfig (..),
+    mkCheckpointConfig,
+    ccS3Uri,
+    ccLocalPath,
+
+    -- ** ModelSummary
+    ModelSummary (..),
+    mkModelSummary,
+    msModelName,
+    msModelArn,
+    msCreationTime,
+
+    -- ** CodeRepositorySummary
+    CodeRepositorySummary (..),
+    mkCodeRepositorySummary,
+    crsCodeRepositoryName,
+    crsCodeRepositoryArn,
+    crsCreationTime,
+    crsLastModifiedTime,
+    crsGitConfig,
+
+    -- ** MetricName
+    MetricName (..),
+
+    -- ** ProcessingJobName
+    ProcessingJobName (..),
+
+    -- ** HyperParameterTuningJobSummary
+    HyperParameterTuningJobSummary (..),
+    mkHyperParameterTuningJobSummary,
+    hHyperParameterTuningJobName,
+    hHyperParameterTuningJobArn,
+    hHyperParameterTuningJobStatus,
+    hStrategy,
+    hCreationTime,
+    hTrainingJobStatusCounters,
+    hObjectiveStatusCounters,
+    hHyperParameterTuningEndTime,
+    hLastModifiedTime,
+    hResourceLimits,
+
+    -- ** ImageStatus
+    ImageStatus (..),
+
+    -- ** ProcessingClusterConfig
+    ProcessingClusterConfig (..),
+    mkProcessingClusterConfig,
+    pccInstanceCount,
+    pccInstanceType,
+    pccVolumeSizeInGB,
+    pccVolumeKmsKeyId,
+
+    -- ** ProcessingLocalPath
+    ProcessingLocalPath (..),
+
+    -- ** MonitoringOutput
+    MonitoringOutput (..),
+    mkMonitoringOutput,
+    moS3Output,
+
+    -- ** ImageNameContains
+    ImageNameContains (..),
+
+    -- ** AppDetails
+    AppDetails (..),
+    mkAppDetails,
+    adAppName,
+    adAppType,
+    adCreationTime,
+    adDomainId,
+    adStatus,
+    adUserProfileName,
+
+    -- ** StoppingCondition
+    StoppingCondition (..),
+    mkStoppingCondition,
+    scMaxRuntimeInSeconds,
+    scMaxWaitTimeInSeconds,
+
+    -- ** AlgorithmSummary
+    AlgorithmSummary (..),
+    mkAlgorithmSummary,
+    aAlgorithmName,
+    aAlgorithmArn,
+    aCreationTime,
+    aAlgorithmStatus,
+    aAlgorithmDescription,
+
+    -- ** ImageSortOrder
+    ImageSortOrder (..),
+
+    -- ** MonitoringExecutionSortKey
+    MonitoringExecutionSortKey (..),
+
+    -- ** ProblemType
+    ProblemType (..),
+
+    -- ** AutoMLOutputDataConfig
+    AutoMLOutputDataConfig (..),
+    mkAutoMLOutputDataConfig,
+    amlodcS3OutputPath,
+    amlodcKmsKeyId,
+
+    -- ** Url
+    Url (..),
+
+    -- ** AutoMLJobConfig
+    AutoMLJobConfig (..),
+    mkAutoMLJobConfig,
+    amljcCompletionCriteria,
+    amljcSecurityConfig,
+
+    -- ** AppImageConfigName
+    AppImageConfigName (..),
+
+    -- ** AuthMode
+    AuthMode (..),
+
+    -- ** AutoMLDataSource
+    AutoMLDataSource (..),
+    mkAutoMLDataSource,
+    amldsS3DataSource,
+
+    -- ** Channel
+    Channel (..),
+    mkChannel,
+    cChannelName,
+    cDataSource,
+    cCompressionType,
+    cContentType,
+    cInputMode,
+    cRecordWrapperType,
+    cShuffleConfig,
+
+    -- ** ObjectiveStatus
+    ObjectiveStatus (..),
+
+    -- ** FlowDefinitionTaskKeyword
+    FlowDefinitionTaskKeyword (..),
+
+    -- ** TrainingJobStatus
+    TrainingJobStatus (..),
+
+    -- ** TaskDescription
+    TaskDescription (..),
+
+    -- ** FlowDefinitionStatus
+    FlowDefinitionStatus (..),
+
+    -- ** ExperimentConfig
+    ExperimentConfig (..),
+    mkExperimentConfig,
+    ecExperimentName,
+    ecTrialComponentDisplayName,
+    ecTrialName,
+
+    -- ** AppName
+    AppName (..),
+
+    -- ** NetworkInterfaceId
+    NetworkInterfaceId (..),
+
+    -- ** UiConfig
+    UiConfig (..),
+    mkUiConfig,
+    ucHumanTaskUiArn,
+    ucUiTemplateS3Uri,
+
+    -- ** NestedFilters
+    NestedFilters (..),
+    mkNestedFilters,
+    nfNestedPropertyName,
+    nfFilters,
+
+    -- ** ImageSortBy
+    ImageSortBy (..),
+
+    -- ** SuggestionQuery
+    SuggestionQuery (..),
+    mkSuggestionQuery,
+    sqPropertyNameQuery,
+
+    -- ** LabelingJobAlgorithmSpecificationArn
+    LabelingJobAlgorithmSpecificationArn (..),
+
+    -- ** AutoMLJobName
+    AutoMLJobName (..),
+
+    -- ** UserContext
+    UserContext (..),
+    mkUserContext,
+    ucDomainId,
+    ucUserProfileArn,
+    ucUserProfileName,
+
+    -- ** AssemblyType
+    AssemblyType (..),
+
+    -- ** AutoMLJobCompletionCriteria
+    AutoMLJobCompletionCriteria (..),
+    mkAutoMLJobCompletionCriteria,
+    amljccMaxAutoMLJobRuntimeInSeconds,
+    amljccMaxCandidates,
+    amljccMaxRuntimePerTrainingJobInSeconds,
+
+    -- ** ExecutionStatus
+    ExecutionStatus (..),
+
+    -- ** ParameterKey
+    ParameterKey (..),
+
+    -- ** FileSystemId
+    FileSystemId (..),
+
+    -- ** InferenceSpecification
+    InferenceSpecification (..),
+    mkInferenceSpecification,
+    isContainers,
+    isSupportedTransformInstanceTypes,
+    isSupportedRealtimeInferenceInstanceTypes,
+    isSupportedContentTypes,
+    isSupportedResponseMIMETypes,
+
+    -- ** TargetPlatform
+    TargetPlatform (..),
+    mkTargetPlatform,
+    tpOs,
+    tpArch,
+    tpAccelerator,
+
+    -- ** FileSystemDataSource
+    FileSystemDataSource (..),
+    mkFileSystemDataSource,
+    fsdsFileSystemId,
+    fsdsFileSystemAccessMode,
+    fsdsFileSystemType,
+    fsdsDirectoryPath,
+
+    -- ** SourceIpConfig
+    SourceIpConfig (..),
+    mkSourceIpConfig,
+    sicCidrs,
+
+    -- ** PresignedDomainUrl
+    PresignedDomainUrl (..),
+
+    -- ** ParameterRange
+    ParameterRange (..),
+    mkParameterRange,
+    prCategoricalParameterRangeSpecification,
+    prContinuousParameterRangeSpecification,
+    prIntegerParameterRangeSpecification,
+
+    -- ** HyperParameterTuningJobSortByOptions
+    HyperParameterTuningJobSortByOptions (..),
+
+    -- ** ListCompilationJobsSortBy
+    ListCompilationJobsSortBy (..),
+
+    -- ** TransformJobDefinition
+    TransformJobDefinition (..),
+    mkTransformJobDefinition,
+    tjdTransformInput,
+    tjdTransformOutput,
+    tjdTransformResources,
+    tjdBatchStrategy,
+    tjdEnvironment,
+    tjdMaxConcurrentTransforms,
+    tjdMaxPayloadInMB,
+
+    -- ** ContentClassifier
+    ContentClassifier (..),
+
+    -- ** EnvironmentValue
+    EnvironmentValue (..),
+
+    -- ** KernelSpec
+    KernelSpec (..),
+    mkKernelSpec,
+    ksName,
+    ksDisplayName,
+
+    -- ** AutoMLJobObjective
+    AutoMLJobObjective (..),
+    mkAutoMLJobObjective,
+    amljoMetricName,
+
+    -- ** UserProfileStatus
+    UserProfileStatus (..),
+
+    -- ** AutoMLS3DataType
+    AutoMLS3DataType (..),
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** ContinuousParameterRangeSpecification
+    ContinuousParameterRangeSpecification (..),
+    mkContinuousParameterRangeSpecification,
+    cprsMinValue,
+    cprsMaxValue,
+
+    -- ** StatusDetails
+    StatusDetails (..),
+
+    -- ** WorkforceArn
+    WorkforceArn (..),
+
+    -- ** SecondaryStatusTransition
+    SecondaryStatusTransition (..),
+    mkSecondaryStatusTransition,
+    sstStatus,
+    sstStartTime,
+    sstEndTime,
+    sstStatusMessage,
+
+    -- ** CollectionName
+    CollectionName (..),
+
+    -- ** WorkteamArn
+    WorkteamArn (..),
+
+    -- ** AutoMLCandidateStep
+    AutoMLCandidateStep (..),
+    mkAutoMLCandidateStep,
+    amlcsCandidateStepType,
+    amlcsCandidateStepArn,
+    amlcsCandidateStepName,
+
+    -- ** HumanLoopConfig
+    HumanLoopConfig (..),
+    mkHumanLoopConfig,
+    hlcWorkteamArn,
+    hlcHumanTaskUiArn,
+    hlcTaskTitle,
+    hlcTaskDescription,
+    hlcTaskCount,
+    hlcPublicWorkforceTaskPrice,
+    hlcTaskAvailabilityLifetimeInSeconds,
+    hlcTaskKeywords,
+    hlcTaskTimeLimitInSeconds,
+
+    -- ** TrialComponentStatus
+    TrialComponentStatus (..),
+    mkTrialComponentStatus,
+    tcsMessage,
+    tcsPrimaryStatus,
+
+    -- ** LabelCounters
+    LabelCounters (..),
+    mkLabelCounters,
+    lcFailedNonRetryableError,
+    lcHumanLabeled,
+    lcMachineLabeled,
+    lcTotalLabeled,
+    lcUnlabeled,
+
+    -- ** ScheduleStatus
+    ScheduleStatus (..),
+
+    -- ** ParameterType
+    ParameterType (..),
+
+    -- ** ImageVersionStatus
+    ImageVersionStatus (..),
+
+    -- ** LabelingJobResourceConfig
+    LabelingJobResourceConfig (..),
+    mkLabelingJobResourceConfig,
+    ljrcVolumeKmsKeyId,
+
+    -- ** MonitoringOutputConfig
+    MonitoringOutputConfig (..),
+    mkMonitoringOutputConfig,
+    mocMonitoringOutputs,
+    mocKmsKeyId,
+
+    -- ** InstanceType
+    InstanceType (..),
+
+    -- ** ImageVersionSortOrder
+    ImageVersionSortOrder (..),
+
+    -- ** NotebookInstanceLifecycleConfigSortKey
+    NotebookInstanceLifecycleConfigSortKey (..),
+
+    -- ** TransformS3DataSource
+    TransformS3DataSource (..),
+    mkTransformS3DataSource,
+    tsdsS3DataType,
+    tsdsS3Uri,
+
+    -- ** ModelPackageSummary
+    ModelPackageSummary (..),
+    mkModelPackageSummary,
+    mpsModelPackageName,
+    mpsModelPackageArn,
+    mpsCreationTime,
+    mpsModelPackageStatus,
+    mpsModelPackageDescription,
+
+    -- ** ConfigValue
+    ConfigValue (..),
+
+    -- ** HumanTaskUiName
+    HumanTaskUiName (..),
+
+    -- ** NotebookInstanceLifecycleConfigArn
+    NotebookInstanceLifecycleConfigArn (..),
+
+    -- ** CandidateStatus
+    CandidateStatus (..),
+
+    -- ** ImageUri
+    ImageUri (..),
+
+    -- ** TrialComponentSourceDetail
+    TrialComponentSourceDetail (..),
+    mkTrialComponentSourceDetail,
+    tcsdProcessingJob,
+    tcsdSourceArn,
+    tcsdTrainingJob,
+    tcsdTransformJob,
+
+    -- ** Experiment
+    Experiment (..),
+    mkExperiment,
+    eCreatedBy,
+    eCreationTime,
+    eDescription,
+    eDisplayName,
+    eExperimentArn,
+    eExperimentName,
+    eLastModifiedBy,
+    eLastModifiedTime,
+    eSource,
+    eTags,
+
+    -- ** TargetPlatformAccelerator
+    TargetPlatformAccelerator (..),
+
+    -- ** FileSystemConfig
+    FileSystemConfig (..),
+    mkFileSystemConfig,
+    fscDefaultGid,
+    fscDefaultUid,
+    fscMountPath,
+
+    -- ** InputConfig
+    InputConfig (..),
+    mkInputConfig,
+    icS3Uri,
+    icDataInputConfig,
+    icFramework,
+
+    -- ** SecurityGroupId
+    SecurityGroupId (..),
+
+    -- ** NetworkConfig
+    NetworkConfig (..),
+    mkNetworkConfig,
+    ncEnableInterContainerTrafficEncryption,
+    ncEnableNetworkIsolation,
+    ncVpcConfig,
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** ProductionVariant
+    ProductionVariant (..),
+    mkProductionVariant,
+    pvVariantName,
+    pvModelName,
+    pvInitialInstanceCount,
+    pvInstanceType,
+    pvAcceleratorType,
+    pvInitialVariantWeight,
+
+    -- ** NotebookInstanceStatus
+    NotebookInstanceStatus (..),
+
+    -- ** PropertyNameSuggestion
+    PropertyNameSuggestion (..),
+    mkPropertyNameSuggestion,
+    pnsPropertyName,
+
+    -- ** Branch
+    Branch (..),
+
+    -- ** ProcessingS3Output
+    ProcessingS3Output (..),
+    mkProcessingS3Output,
+    psoS3Uri,
+    psoLocalPath,
+    psoS3UploadMode,
+
+    -- ** ExperimentSource
+    ExperimentSource (..),
+    mkExperimentSource,
+    esSourceArn,
+    esSourceType,
+
+    -- ** ListWorkforcesSortByOptions
+    ListWorkforcesSortByOptions (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** RetentionPolicy
+    RetentionPolicy (..),
+    mkRetentionPolicy,
+    rpHomeEfsFileSystem,
+
+    -- ** VersionedArnOrName
+    VersionedArnOrName (..),
+
+    -- ** RetentionType
+    RetentionType (..),
+
+    -- ** BooleanOperator
+    BooleanOperator (..),
+
+    -- ** AppSortKey
+    AppSortKey (..),
+
+    -- ** CandidateSortBy
+    CandidateSortBy (..),
+
+    -- ** ChannelName
+    ChannelName (..),
+
+    -- ** DirectoryPath
+    DirectoryPath (..),
+
+    -- ** Cidr
+    Cidr (..),
+
+    -- ** SearchExpression
+    SearchExpression (..),
+    mkSearchExpression,
+    seFilters,
+    seNestedFilters,
+    seOperator,
+    seSubExpressions,
+
+    -- ** JupyterServerAppSettings
+    JupyterServerAppSettings (..),
+    mkJupyterServerAppSettings,
+    jsasDefaultResourceSpec,
+
+    -- ** ContainerArgument
+    ContainerArgument (..),
+
+    -- ** LabelingJobS3DataSource
+    LabelingJobS3DataSource (..),
+    mkLabelingJobS3DataSource,
+    ljsdsManifestS3Uri,
+
+    -- ** RuleEvaluationStatus
+    RuleEvaluationStatus (..),
+
+    -- ** ExperimentArn
+    ExperimentArn (..),
+
+    -- ** ListWorkteamsSortByOptions
+    ListWorkteamsSortByOptions (..),
+
+    -- ** CustomImage
+    CustomImage (..),
+    mkCustomImage,
+    ciImageName,
+    ciAppImageConfigName,
+    ciImageVersionNumber,
+
+    -- ** ProcessingJob
+    ProcessingJob (..),
+    mkProcessingJob,
+    pjAppSpecification,
+    pjAutoMLJobArn,
+    pjCreationTime,
+    pjEnvironment,
+    pjExitMessage,
+    pjExperimentConfig,
+    pjFailureReason,
+    pjLastModifiedTime,
+    pjMonitoringScheduleArn,
+    pjNetworkConfig,
+    pjProcessingEndTime,
+    pjProcessingInputs,
+    pjProcessingJobArn,
+    pjProcessingJobName,
+    pjProcessingJobStatus,
+    pjProcessingOutputConfig,
+    pjProcessingResources,
+    pjProcessingStartTime,
+    pjRoleArn,
+    pjStoppingCondition,
+    pjTags,
+    pjTrainingJobArn,
+
+    -- ** DataInputConfig
+    DataInputConfig (..),
+
+    -- ** AutoMLJobArtifacts
+    AutoMLJobArtifacts (..),
+    mkAutoMLJobArtifacts,
+    amljaCandidateDefinitionNotebookLocation,
+    amljaDataExplorationNotebookLocation,
+
+    -- ** HyperParameterTuningJobWarmStartConfig
+    HyperParameterTuningJobWarmStartConfig (..),
+    mkHyperParameterTuningJobWarmStartConfig,
+    hptjwscParentHyperParameterTuningJobs,
+    hptjwscWarmStartType,
+
+    -- ** AppArn
+    AppArn (..),
+
+    -- ** NotebookInstanceSummary
+    NotebookInstanceSummary (..),
+    mkNotebookInstanceSummary,
+    nisNotebookInstanceName,
+    nisNotebookInstanceArn,
+    nisAdditionalCodeRepositories,
+    nisCreationTime,
+    nisDefaultCodeRepository,
+    nisInstanceType,
+    nisLastModifiedTime,
+    nisNotebookInstanceLifecycleConfigName,
+    nisNotebookInstanceStatus,
+    nisUrl,
+
+    -- ** MetricData
+    MetricData (..),
+    mkMetricData,
+    mdMetricName,
+    mdTimestamp,
+    mdValue,
+
+    -- ** AutoMLJobArn
+    AutoMLJobArn (..),
+
+    -- ** SortOrder
+    SortOrder (..),
+
+    -- ** TaskKeyword
+    TaskKeyword (..),
+
+    -- ** TrainingJobEarlyStoppingType
+    TrainingJobEarlyStoppingType (..),
+
+    -- ** ContainerMode
+    ContainerMode (..),
+
+    -- ** ImageVersionSortBy
+    ImageVersionSortBy (..),
+
+    -- ** MonitoringClusterConfig
+    MonitoringClusterConfig (..),
+    mkMonitoringClusterConfig,
+    mccInstanceCount,
+    mccInstanceType,
+    mccVolumeSizeInGB,
+    mccVolumeKmsKeyId,
+
+    -- ** VpcConfig
+    VpcConfig (..),
+    mkVpcConfig,
+    vcSecurityGroupIds,
+    vcSubnets,
+
+    -- ** ImageDigest
+    ImageDigest (..),
+
+    -- ** AutoMLJobSecondaryStatus
+    AutoMLJobSecondaryStatus (..),
+
+    -- ** TrialSource
+    TrialSource (..),
+    mkTrialSource,
+    tsSourceArn,
+    tsSourceType,
+
+    -- ** NotebookInstanceAcceleratorType
+    NotebookInstanceAcceleratorType (..),
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** ResponseMIMEType
+    ResponseMIMEType (..),
+
+    -- ** DomainName
+    DomainName (..),
+
+    -- ** TransformJobStatus
+    TransformJobStatus (..),
+
+    -- ** ModelPackageContainerDefinition
+    ModelPackageContainerDefinition (..),
+    mkModelPackageContainerDefinition,
+    mpcdImage,
+    mpcdContainerHostname,
+    mpcdImageDigest,
+    mpcdModelDataUrl,
+    mpcdProductId,
+
+    -- ** DebugRuleConfiguration
+    DebugRuleConfiguration (..),
+    mkDebugRuleConfiguration,
+    drcRuleConfigurationName,
+    drcRuleEvaluatorImage,
+    drcInstanceType,
+    drcLocalPath,
+    drcRuleParameters,
+    drcS3OutputPath,
+    drcVolumeSizeInGB,
+
+    -- ** StatusMessage
+    StatusMessage (..),
+
+    -- ** ScheduleExpression
+    ScheduleExpression (..),
+
+    -- ** DesiredWeightAndCapacity
+    DesiredWeightAndCapacity (..),
+    mkDesiredWeightAndCapacity,
+    dwacVariantName,
+    dwacDesiredInstanceCount,
+    dwacDesiredWeight,
+
+    -- ** HumanLoopRequestSource
+    HumanLoopRequestSource (..),
+    mkHumanLoopRequestSource,
+    hlrsAwsManagedHumanLoopRequestSource,
+
+    -- ** AnnotationConsolidationConfig
+    AnnotationConsolidationConfig (..),
+    mkAnnotationConsolidationConfig,
+    accAnnotationConsolidationLambdaArn,
+
+    -- ** SortTrialComponentsBy
+    SortTrialComponentsBy (..),
+
+    -- ** EndpointStatus
+    EndpointStatus (..),
+
+    -- ** UserProfileSortKey
+    UserProfileSortKey (..),
+
+    -- ** JoinSource
+    JoinSource (..),
+
+    -- ** CaptureOption
+    CaptureOption (..),
+    mkCaptureOption,
+    coCaptureMode,
+
+    -- ** ResolvedAttributes
+    ResolvedAttributes (..),
+    mkResolvedAttributes,
+    raAutoMLJobObjective,
+    raCompletionCriteria,
+    raProblemType,
+
+    -- ** MonitoringStoppingCondition
+    MonitoringStoppingCondition (..),
+    mkMonitoringStoppingCondition,
+    mscMaxRuntimeInSeconds,
+
+    -- ** UserProfileArn
+    UserProfileArn (..),
+
+    -- ** MonitoringS3Uri
+    MonitoringS3Uri (..),
+
+    -- ** SourceAlgorithm
+    SourceAlgorithm (..),
+    mkSourceAlgorithm,
+    saAlgorithmName,
+    saModelDataUrl,
+
+    -- ** SearchSortOrder
+    SearchSortOrder (..),
+
+    -- ** CompilationJobStatus
+    CompilationJobStatus (..),
+
+    -- ** FlowDefinitionArn
+    FlowDefinitionArn (..),
+
+    -- ** DomainDetails
+    DomainDetails (..),
+    mkDomainDetails,
+    ddCreationTime,
+    ddDomainArn,
+    ddDomainId,
+    ddDomainName,
+    ddLastModifiedTime,
+    ddStatus,
+    ddUrl,
+
+    -- ** TransformInput
+    TransformInput (..),
+    mkTransformInput,
+    tiDataSource,
+    tiCompressionType,
+    tiContentType,
+    tiSplitType,
+
+    -- ** RootAccess
+    RootAccess (..),
+
+    -- ** HumanTaskUiSummary
+    HumanTaskUiSummary (..),
+    mkHumanTaskUiSummary,
+    htusHumanTaskUiName,
+    htusHumanTaskUiArn,
+    htusCreationTime,
+
+    -- ** TrainingJobArn
+    TrainingJobArn (..),
+
+    -- ** AlgorithmSpecification
+    AlgorithmSpecification (..),
+    mkAlgorithmSpecification,
+    asTrainingInputMode,
+    asAlgorithmName,
+    asEnableSageMakerMetricsTimeSeries,
+    asMetricDefinitions,
+    asTrainingImage,
+
+    -- ** AutoMLNameContains
+    AutoMLNameContains (..),
+
+    -- ** TargetAttributeName
+    TargetAttributeName (..),
+
+    -- ** GitConfigForUpdate
+    GitConfigForUpdate (..),
+    mkGitConfigForUpdate,
+    gcfuSecretArn,
+
+    -- ** LabelingJobForWorkteamSummary
+    LabelingJobForWorkteamSummary (..),
+    mkLabelingJobForWorkteamSummary,
+    ljfwsJobReferenceCode,
+    ljfwsWorkRequesterAccountId,
+    ljfwsCreationTime,
+    ljfwsLabelCounters,
+    ljfwsLabelingJobName,
+    ljfwsNumberOfHumanWorkersPerDataObject,
+
+    -- ** FlowDefinitionOutputConfig
+    FlowDefinitionOutputConfig (..),
+    mkFlowDefinitionOutputConfig,
+    fdocS3OutputPath,
+    fdocKmsKeyId,
+
+    -- ** CandidateName
+    CandidateName (..),
+
+    -- ** TransformEnvironmentValue
+    TransformEnvironmentValue (..),
+
+    -- ** ContainerDefinition
+    ContainerDefinition (..),
+    mkContainerDefinition,
+    cdContainerHostname,
+    cdEnvironment,
+    cdImage,
+    cdImageConfig,
+    cdMode,
+    cdModelDataUrl,
+    cdModelPackageName,
+
+    -- ** SplitType
+    SplitType (..),
+
+    -- ** AutoMLFailureReason
+    AutoMLFailureReason (..),
+
+    -- ** HyperParameterSpecification
+    HyperParameterSpecification (..),
+    mkHyperParameterSpecification,
+    hpsName,
+    hpsType,
+    hpsDefaultValue,
+    hpsDescription,
+    hpsIsRequired,
+    hpsIsTunable,
+    hpsRange,
+
+    -- ** RenderingError
+    RenderingError (..),
+    mkRenderingError,
+    reCode,
+    reMessage,
+
+    -- ** AutoMLSecurityConfig
+    AutoMLSecurityConfig (..),
+    mkAutoMLSecurityConfig,
+    amlscEnableInterContainerTrafficEncryption,
+    amlscVolumeKmsKeyId,
+    amlscVpcConfig,
+
+    -- ** DirectInternetAccess
+    DirectInternetAccess (..),
+
+    -- ** ProcessingInstanceType
+    ProcessingInstanceType (..),
+
+    -- ** HumanTaskUiStatus
+    HumanTaskUiStatus (..),
+
+    -- ** CompilationJobSummary
+    CompilationJobSummary (..),
+    mkCompilationJobSummary,
+    cjsCompilationJobName,
+    cjsCompilationJobArn,
+    cjsCreationTime,
+    cjsCompilationJobStatus,
+    cjsCompilationEndTime,
+    cjsCompilationStartTime,
+    cjsCompilationTargetDevice,
+    cjsCompilationTargetPlatformAccelerator,
+    cjsCompilationTargetPlatformArch,
+    cjsCompilationTargetPlatformOs,
+    cjsLastModifiedTime,
+
+    -- ** ContainerEntrypointString
+    ContainerEntrypointString (..),
+
+    -- ** S3DataDistribution
+    S3DataDistribution (..),
+
+    -- ** SingleSignOnUserIdentifier
+    SingleSignOnUserIdentifier (..),
+
+    -- ** ImageArn
+    ImageArn (..),
+
+    -- ** LabelAttributeName
+    LabelAttributeName (..),
+
+    -- ** SharingSettings
+    SharingSettings (..),
+    mkSharingSettings,
+    ssNotebookOutputOption,
+    ssS3KmsKeyId,
+    ssS3OutputPath,
+
+    -- ** LabelingJobStatus
+    LabelingJobStatus (..),
+
+    -- ** MonitoringResources
+    MonitoringResources (..),
+    mkMonitoringResources,
+    mrClusterConfig,
+
+    -- ** RenderableTask
+    RenderableTask (..),
+    mkRenderableTask,
+    rtInput,
+
+    -- ** OutputConfig
+    OutputConfig (..),
+    mkOutputConfig,
+    ocS3OutputLocation,
+    ocCompilerOptions,
+    ocTargetDevice,
+    ocTargetPlatform,
+
+    -- ** ProcessingInput
+    ProcessingInput (..),
+    mkProcessingInput,
+    piInputName,
+    piS3Input,
+
+    -- ** DebugRuleEvaluationStatus
+    DebugRuleEvaluationStatus (..),
+    mkDebugRuleEvaluationStatus,
+    dresLastModifiedTime,
+    dresRuleConfigurationName,
+    dresRuleEvaluationJobArn,
+    dresRuleEvaluationStatus,
+    dresStatusDetails,
+
+    -- ** DataSource
+    DataSource (..),
+    mkDataSource,
+    dsFileSystemDataSource,
+    dsS3DataSource,
+
+    -- ** CognitoConfig
+    CognitoConfig (..),
+    mkCognitoConfig,
+    ccUserPool,
+    ccClientId,
+
+    -- ** OutputDataConfig
+    OutputDataConfig (..),
+    mkOutputDataConfig,
+    odcS3OutputPath,
+    odcKmsKeyId,
+
+    -- ** NotebookInstanceSortKey
+    NotebookInstanceSortKey (..),
+
+    -- ** MemberDefinition
+    MemberDefinition (..),
+    mkMemberDefinition,
+    mdCognitoMemberDefinition,
+    mdOidcMemberDefinition,
+
+    -- ** TaskTitle
+    TaskTitle (..),
+
+    -- ** ConfigKey
+    ConfigKey (..),
+
+    -- ** EndpointConfigNameContains
+    EndpointConfigNameContains (..),
+
+    -- ** ExperimentSummary
+    ExperimentSummary (..),
+    mkExperimentSummary,
+    esfCreationTime,
+    esfDisplayName,
+    esfExperimentArn,
+    esfExperimentName,
+    esfExperimentSource,
+    esfLastModifiedTime,
+
+    -- ** ProductionVariantInstanceType
+    ProductionVariantInstanceType (..),
+
+    -- ** LabelingJobInputConfig
+    LabelingJobInputConfig (..),
+    mkLabelingJobInputConfig,
+    ljicDataSource,
+    ljicDataAttributes,
+
+    -- ** AutoMLJobSummary
+    AutoMLJobSummary (..),
+    mkAutoMLJobSummary,
+    amljsAutoMLJobName,
+    amljsAutoMLJobArn,
+    amljsAutoMLJobStatus,
+    amljsAutoMLJobSecondaryStatus,
+    amljsCreationTime,
+    amljsLastModifiedTime,
+    amljsEndTime,
+    amljsFailureReason,
+
+    -- ** HyperParameterTuningJobConfig
+    HyperParameterTuningJobConfig (..),
+    mkHyperParameterTuningJobConfig,
+    hptjcStrategy,
+    hptjcResourceLimits,
+    hptjcHyperParameterTuningJobObjective,
+    hptjcParameterRanges,
+    hptjcTrainingJobEarlyStoppingType,
+    hptjcTuningJobCompletionCriteria,
+
+    -- ** EndpointInput
+    EndpointInput (..),
+    mkEndpointInput,
+    eiEndpointName,
+    eiLocalPath,
+    eiS3DataDistributionType,
+    eiS3InputMode,
+
+    -- ** NotebookInstanceArn
+    NotebookInstanceArn (..),
+
+    -- ** ProcessingS3CompressionType
+    ProcessingS3CompressionType (..),
+
+    -- ** TrialComponentSourceArn
+    TrialComponentSourceArn (..),
+
+    -- ** AutoMLChannel
+    AutoMLChannel (..),
+    mkAutoMLChannel,
+    amlcDataSource,
+    amlcTargetAttributeName,
+    amlcCompressionType,
+
+    -- ** DataExplorationNotebookLocation
+    DataExplorationNotebookLocation (..),
+
+    -- ** DomainId
+    DomainId (..),
+
+    -- ** HumanLoopActivationConfig
+    HumanLoopActivationConfig (..),
+    mkHumanLoopActivationConfig,
+    hlacHumanLoopActivationConditionsConfig,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** ContainerHostname
+    ContainerHostname (..),
+
+    -- ** VariantPropertyType
+    VariantPropertyType (..),
+
+    -- ** IntegerParameterRange
+    IntegerParameterRange (..),
+    mkIntegerParameterRange,
+    iprName,
+    iprMinValue,
+    iprMaxValue,
+    iprScalingType,
+
+    -- ** HyperParameterTuningJobObjectiveType
+    HyperParameterTuningJobObjectiveType (..),
+
+    -- ** TrainingJobName
+    TrainingJobName (..),
+
+    -- ** ProcessingJobSummary
+    ProcessingJobSummary (..),
+    mkProcessingJobSummary,
+    pjsProcessingJobName,
+    pjsProcessingJobArn,
+    pjsCreationTime,
+    pjsProcessingJobStatus,
+    pjsExitMessage,
+    pjsFailureReason,
+    pjsLastModifiedTime,
+    pjsProcessingEndTime,
+
+    -- ** ProductionVariantSummary
+    ProductionVariantSummary (..),
+    mkProductionVariantSummary,
+    pvsVariantName,
+    pvsCurrentInstanceCount,
+    pvsCurrentWeight,
+    pvsDeployedImages,
+    pvsDesiredInstanceCount,
+    pvsDesiredWeight,
+
+    -- ** CategoricalParameterRange
+    CategoricalParameterRange (..),
+    mkCategoricalParameterRange,
+    cprName,
+    cprValues,
+
+    -- ** MonitoringAppSpecification
+    MonitoringAppSpecification (..),
+    mkMonitoringAppSpecification,
+    masImageUri,
+    masContainerArguments,
+    masContainerEntrypoint,
+    masPostAnalyticsProcessorSourceUri,
+    masRecordPreprocessorSourceUri,
+
+    -- ** MountPath
+    MountPath (..),
+
+    -- ** TrialComponentKey64
+    TrialComponentKey64 (..),
+
+    -- ** NotebookInstanceLifecycleConfigSortOrder
+    NotebookInstanceLifecycleConfigSortOrder (..),
+
+    -- ** VariantName
+    VariantName (..),
+
+    -- ** ImageVersionArn
+    ImageVersionArn (..),
+
+    -- ** ResourceConfig
+    ResourceConfig (..),
+    mkResourceConfig,
+    rcInstanceType,
+    rcInstanceCount,
+    rcVolumeSizeInGB,
+    rcVolumeKmsKeyId,
+
+    -- ** Filter
+    Filter (..),
+    mkFilter,
+    fName,
+    fOperator,
+    fValue,
+
+    -- ** FlowDefinitionName
+    FlowDefinitionName (..),
+
+    -- ** FinalHyperParameterTuningJobObjectiveMetric
+    FinalHyperParameterTuningJobObjectiveMetric (..),
+    mkFinalHyperParameterTuningJobObjectiveMetric,
+    fhptjomMetricName,
+    fhptjomValue,
+    fhptjomType,
+
+    -- ** TrialComponentArn
+    TrialComponentArn (..),
+
+    -- ** GitConfig
+    GitConfig (..),
+    mkGitConfig,
+    gcRepositoryUrl,
+    gcBranch,
+    gcSecretArn,
+
+    -- ** ImageName
+    ImageName (..),
+
+    -- ** HyperParameterKey
+    HyperParameterKey (..),
+
+    -- ** MonitoringConstraintsResource
+    MonitoringConstraintsResource (..),
+    mkMonitoringConstraintsResource,
+    mcrS3Uri,
+
+    -- ** ProcessingJobStatus
+    ProcessingJobStatus (..),
+
+    -- ** TrialComponentSource
+    TrialComponentSource (..),
+    mkTrialComponentSource,
+    tcsSourceArn,
+    tcsSourceType,
+
+    -- ** WorkteamName
+    WorkteamName (..),
+
+    -- ** ContinuousParameterRange
+    ContinuousParameterRange (..),
+    mkContinuousParameterRange,
+    cName,
+    cMinValue,
+    cMaxValue,
+    cScalingType,
+
+    -- ** DetailedAlgorithmStatus
+    DetailedAlgorithmStatus (..),
+
+    -- ** TemplateUrl
+    TemplateUrl (..),
+
+    -- ** MonitoringStatisticsResource
+    MonitoringStatisticsResource (..),
+    mkMonitoringStatisticsResource,
+    msrS3Uri,
+
+    -- ** TrialComponentKey256
+    TrialComponentKey256 (..),
+
+    -- ** AlgorithmStatus
+    AlgorithmStatus (..),
+
+    -- ** ProductionVariantAcceleratorType
+    ProductionVariantAcceleratorType (..),
+
+    -- ** FlowDefinitionSummary
+    FlowDefinitionSummary (..),
+    mkFlowDefinitionSummary,
+    fdsFlowDefinitionName,
+    fdsFlowDefinitionArn,
+    fdsFlowDefinitionStatus,
+    fdsCreationTime,
+    fdsFailureReason,
+
+    -- ** PropertyNameHint
+    PropertyNameHint (..),
+
+    -- ** TransformOutput
+    TransformOutput (..),
+    mkTransformOutput,
+    toS3OutputPath,
+    toAccept,
+    toAssembleWith,
+    toKmsKeyId,
+
+    -- ** ExitMessage
+    ExitMessage (..),
+
+    -- ** ParentHyperParameterTuningJob
+    ParentHyperParameterTuningJob (..),
+    mkParentHyperParameterTuningJob,
+    phptjHyperParameterTuningJobName,
+
+    -- ** AppNetworkAccessType
+    AppNetworkAccessType (..),
+
+    -- ** CodeRepositorySortOrder
+    CodeRepositorySortOrder (..),
+
+    -- ** OidcConfig
+    OidcConfig (..),
+    mkOidcConfig,
+    ocClientId,
+    ocClientSecret,
+    ocIssuer,
+    ocAuthorizationEndpoint,
+    ocTokenEndpoint,
+    ocUserInfoEndpoint,
+    ocLogoutEndpoint,
+    ocJwksUri,
+
+    -- ** CompilationJobArn
+    CompilationJobArn (..),
+
+    -- ** SearchRecord
+    SearchRecord (..),
+    mkSearchRecord,
+    srExperiment,
+    srTrainingJob,
+    srTrial,
+    srTrialComponent,
+
+    -- ** HyperParameterTuningJobStatus
+    HyperParameterTuningJobStatus (..),
+
+    -- ** ModelPackageStatusDetails
+    ModelPackageStatusDetails (..),
+    mkModelPackageStatusDetails,
+    mpsdValidationStatuses,
+    mpsdImageScanStatuses,
+
+    -- ** MonitoringS3Output
+    MonitoringS3Output (..),
+    mkMonitoringS3Output,
+    msoS3Uri,
+    msoLocalPath,
+    msoS3UploadMode,
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** TrainingJobSummary
+    TrainingJobSummary (..),
+    mkTrainingJobSummary,
+    tjsfTrainingJobName,
+    tjsfTrainingJobArn,
+    tjsfCreationTime,
+    tjsfTrainingJobStatus,
+    tjsfLastModifiedTime,
+    tjsfTrainingEndTime,
+
+    -- ** TrialComponentArtifact
+    TrialComponentArtifact (..),
+    mkTrialComponentArtifact,
+    tcaValue,
+    tcaMediaType,
+
+    -- ** WorkforceName
+    WorkforceName (..),
+
+    -- ** OidcConfigForResponse
+    OidcConfigForResponse (..),
+    mkOidcConfigForResponse,
+    ocfrAuthorizationEndpoint,
+    ocfrClientId,
+    ocfrIssuer,
+    ocfrJwksUri,
+    ocfrLogoutEndpoint,
+    ocfrTokenEndpoint,
+    ocfrUserInfoEndpoint,
+
+    -- ** DataProcessing
+    DataProcessing (..),
+    mkDataProcessing,
+    dpInputFilter,
+    dpJoinSource,
+    dpOutputFilter,
+
+    -- ** ProcessingS3UploadMode
+    ProcessingS3UploadMode (..),
+
+    -- ** HumanTaskUiArn
+    HumanTaskUiArn (..),
+
+    -- ** AutoMLCandidate
+    AutoMLCandidate (..),
+    mkAutoMLCandidate,
+    amlcCandidateName,
+    amlcObjectiveStatus,
+    amlcCandidateSteps,
+    amlcCandidateStatus,
+    amlcCreationTime,
+    amlcLastModifiedTime,
+    amlcEndTime,
+    amlcFailureReason,
+    amlcFinalAutoMLJobObjectiveMetric,
+    amlcInferenceContainers,
+
+    -- ** SecretArn
+    SecretArn (..),
+
+    -- ** SortExperimentsBy
+    SortExperimentsBy (..),
+
+    -- ** ProcessingS3DataType
+    ProcessingS3DataType (..),
+
+    -- ** TransformJob
+    TransformJob (..),
+    mkTransformJob,
+    tjfAutoMLJobArn,
+    tjfBatchStrategy,
+    tjfCreationTime,
+    tjfDataProcessing,
+    tjfEnvironment,
+    tjfExperimentConfig,
+    tjfFailureReason,
+    tjfLabelingJobArn,
+    tjfMaxConcurrentTransforms,
+    tjfMaxPayloadInMB,
+    tjfModelClientConfig,
+    tjfModelName,
+    tjfTags,
+    tjfTransformEndTime,
+    tjfTransformInput,
+    tjfTransformJobArn,
+    tjfTransformJobName,
+    tjfTransformJobStatus,
+    tjfTransformOutput,
+    tjfTransformResources,
+    tjfTransformStartTime,
+
+    -- ** NotebookInstanceLifecycleConfigName
+    NotebookInstanceLifecycleConfigName (..),
+
+    -- ** MonitoringScheduleConfig
+    MonitoringScheduleConfig (..),
+    mkMonitoringScheduleConfig,
+    mscMonitoringJobDefinition,
+    mscScheduleConfig,
+
+    -- ** CompilerOptions
+    CompilerOptions (..),
+
+    -- ** FileSystemType
+    FileSystemType (..),
+
+    -- ** ModelPackageValidationSpecification
+    ModelPackageValidationSpecification (..),
+    mkModelPackageValidationSpecification,
+    mpvsValidationRole,
+    mpvsValidationProfiles,
+
+    -- ** AutoMLS3DataSource
+    AutoMLS3DataSource (..),
+    mkAutoMLS3DataSource,
+    amlsdsS3DataType,
+    amlsdsS3Uri,
+
+    -- ** TargetPlatformArch
+    TargetPlatformArch (..),
+
+    -- ** LabelingJobName
+    LabelingJobName (..),
+
+    -- ** CompressionType
+    CompressionType (..),
+
+    -- ** KernelGatewayImageConfig
+    KernelGatewayImageConfig (..),
+    mkKernelGatewayImageConfig,
+    kgicKernelSpecs,
+    kgicFileSystemConfig,
+
+    -- ** AlgorithmStatusItem
+    AlgorithmStatusItem (..),
+    mkAlgorithmStatusItem,
+    asiName,
+    asiStatus,
+    asiFailureReason,
+
+    -- ** ChannelSpecification
+    ChannelSpecification (..),
+    mkChannelSpecification,
+    csName,
+    csSupportedContentTypes,
+    csSupportedInputModes,
+    csDescription,
+    csIsRequired,
+    csSupportedCompressionTypes,
+
+    -- ** TransformEnvironmentKey
+    TransformEnvironmentKey (..),
+
+    -- ** EndpointConfigName
+    EndpointConfigName (..),
+
+    -- ** ProcessingOutputConfig
+    ProcessingOutputConfig (..),
+    mkProcessingOutputConfig,
+    pocOutputs,
+    pocKmsKeyId,
+
+    -- ** AlgorithmSortBy
+    AlgorithmSortBy (..),
+
+    -- ** AppImageConfigDetails
+    AppImageConfigDetails (..),
+    mkAppImageConfigDetails,
+    aicdAppImageConfigArn,
+    aicdAppImageConfigName,
+    aicdCreationTime,
+    aicdKernelGatewayImageConfig,
+    aicdLastModifiedTime,
+
+    -- ** S3Uri
+    S3Uri (..),
+
+    -- ** AutoMLJobObjectiveType
+    AutoMLJobObjectiveType (..),
+
+    -- ** TensorBoardOutputConfig
+    TensorBoardOutputConfig (..),
+    mkTensorBoardOutputConfig,
+    tbocS3OutputPath,
+    tbocLocalPath,
+
+    -- ** MonitoringScheduleName
+    MonitoringScheduleName (..),
+
+    -- ** TrialSummary
+    TrialSummary (..),
+    mkTrialSummary,
+    tsCreationTime,
+    tsDisplayName,
+    tsLastModifiedTime,
+    tsTrialArn,
+    tsTrialName,
+    tsTrialSource,
+
+    -- ** CodeRepositoryNameOrUrl
+    CodeRepositoryNameOrUrl (..),
+
+    -- ** MonitoringJobDefinition
+    MonitoringJobDefinition (..),
+    mkMonitoringJobDefinition,
+    mjdMonitoringInputs,
+    mjdMonitoringOutputConfig,
+    mjdMonitoringResources,
+    mjdMonitoringAppSpecification,
+    mjdRoleArn,
+    mjdBaselineConfig,
+    mjdEnvironment,
+    mjdNetworkConfig,
+    mjdStoppingCondition,
+
+    -- ** LabelingJobDataAttributes
+    LabelingJobDataAttributes (..),
+    mkLabelingJobDataAttributes,
+    ljdaContentClassifiers,
+
+    -- ** FinalAutoMLJobObjectiveMetric
+    FinalAutoMLJobObjectiveMetric (..),
+    mkFinalAutoMLJobObjectiveMetric,
+    famljomMetricName,
+    famljomValue,
+    famljomType,
+
+    -- ** EndpointArn
+    EndpointArn (..),
+
+    -- ** ListLabelingJobsForWorkteamSortByOptions
+    ListLabelingJobsForWorkteamSortByOptions (..),
+
+    -- ** CodeRepositorySortBy
+    CodeRepositorySortBy (..),
+
+    -- ** HyperParameterTuningJobWarmStartType
+    HyperParameterTuningJobWarmStartType (..),
+
+    -- ** CollectionConfiguration
+    CollectionConfiguration (..),
+    mkCollectionConfiguration,
+    ccCollectionName,
+    ccCollectionParameters,
+
+    -- ** RecordWrapper
+    RecordWrapper (..),
+
+    -- ** SecondaryStatus
+    SecondaryStatus (..),
+
+    -- ** LabelingJobOutput
+    LabelingJobOutput (..),
+    mkLabelingJobOutput,
+    ljoOutputDatasetS3Uri,
+    ljoFinalActiveLearningModelArn,
+
+    -- ** EndpointSortKey
+    EndpointSortKey (..),
+
+    -- ** TransformJobArn
+    TransformJobArn (..),
+
+    -- ** ProductId
+    ProductId (..),
+
+    -- ** LabelCountersForWorkteam
+    LabelCountersForWorkteam (..),
+    mkLabelCountersForWorkteam,
+    lcfwHumanLabeled,
+    lcfwPendingHuman,
+    lcfwTotal,
+
+    -- ** DataCaptureConfig
+    DataCaptureConfig (..),
+    mkDataCaptureConfig,
+    dccInitialSamplingPercentage,
+    dccDestinationS3Uri,
+    dccCaptureOptions,
+    dccCaptureContentTypeHeader,
+    dccEnableCapture,
+    dccKmsKeyId,
+
+    -- ** TrainingJobSortByOptions
+    TrainingJobSortByOptions (..),
+
+    -- ** ProcessingS3InputMode
+    ProcessingS3InputMode (..),
+
+    -- ** AlgorithmValidationSpecification
+    AlgorithmValidationSpecification (..),
+    mkAlgorithmValidationSpecification,
+    avsValidationRole,
+    avsValidationProfiles,
+
+    -- ** NotificationTopicArn
+    NotificationTopicArn (..),
+
+    -- ** AppImageConfigSortKey
+    AppImageConfigSortKey (..),
+
+    -- ** TargetDevice
+    TargetDevice (..),
+
+    -- ** TransformDataSource
+    TransformDataSource (..),
+    mkTransformDataSource,
+    tdsS3DataSource,
+
+    -- ** AutoMLMetricEnum
+    AutoMLMetricEnum (..),
+
+    -- ** SortBy
+    SortBy (..),
+
+    -- ** RuleConfigurationName
+    RuleConfigurationName (..),
+
+    -- ** ProcessingS3DataDistributionType
+    ProcessingS3DataDistributionType (..),
+
+    -- ** AlgorithmStatusDetails
+    AlgorithmStatusDetails (..),
+    mkAlgorithmStatusDetails,
+    asdImageScanStatuses,
+    asdValidationStatuses,
+
+    -- ** MetricRegex
+    MetricRegex (..),
+
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** ProcessingJobArn
+    ProcessingJobArn (..),
+
+    -- ** LabelingJobStoppingConditions
+    LabelingJobStoppingConditions (..),
+    mkLabelingJobStoppingConditions,
+    ljscMaxHumanLabeledObjectCount,
+    ljscMaxPercentageOfInputDatasetLabeled,
+
+    -- ** DetailedModelPackageStatus
+    DetailedModelPackageStatus (..),
+
+    -- ** ModelPackageStatus
+    ModelPackageStatus (..),
+
+    -- ** JobReferenceCode
+    JobReferenceCode (..),
+
+    -- ** TrialComponentSummary
+    TrialComponentSummary (..),
+    mkTrialComponentSummary,
+    tcsCreatedBy,
+    tcsCreationTime,
+    tcsDisplayName,
+    tcsEndTime,
+    tcsLastModifiedBy,
+    tcsLastModifiedTime,
+    tcsStartTime,
+    tcsStatus,
+    tcsTrialComponentArn,
+    tcsTrialComponentName,
+    tcsTrialComponentSource,
+
+    -- ** MetricDefinition
+    MetricDefinition (..),
+    mkMetricDefinition,
+    mdName,
+    mdRegex,
+
+    -- ** ImageDeleteProperty
+    ImageDeleteProperty (..),
+
+    -- ** JsonContentType
+    JsonContentType (..),
+
+    -- ** TrainingInstanceType
+    TrainingInstanceType (..),
+
+    -- ** AppType
+    AppType (..),
+
+    -- ** AppImageConfigArn
+    AppImageConfigArn (..),
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** ProcessingEnvironmentKey
+    ProcessingEnvironmentKey (..),
+
+    -- ** OrderKey
+    OrderKey (..),
+
+    -- ** AlgorithmName
+    AlgorithmName (..),
+
+    -- ** ExperimentName
+    ExperimentName (..),
+
+    -- ** TrialName
+    TrialName (..),
+
+    -- ** Content
+    Content (..),
+
+    -- ** LabelCategoryConfigS3Uri
+    LabelCategoryConfigS3Uri (..),
+
+    -- ** ExecutionRole
+    ExecutionRole (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** OutputName
+    OutputName (..),
+
+    -- ** S3OutputPath
+    S3OutputPath (..),
+
+    -- ** DisplayName
+    DisplayName (..),
+
+    -- ** SubDomain
+    SubDomain (..),
+
+    -- ** TrainingJobDefinitionName
+    TrainingJobDefinitionName (..),
+
+    -- ** TuningJobName
+    TuningJobName (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** ModelDataUrl
+    ModelDataUrl (..),
+
+    -- ** DefaultCodeRepository
+    DefaultCodeRepository (..),
+
+    -- ** LifecycleConfigName
+    LifecycleConfigName (..),
+
+    -- ** ModelPackageDescription
+    ModelPackageDescription (..),
+
+    -- ** StringValue
+    StringValue (..),
+
+    -- ** TuningJobArn
+    TuningJobArn (..),
+
+    -- ** InitialActiveLearningModelArn
+    InitialActiveLearningModelArn (..),
+
+    -- ** SageMakerImageArn
+    SageMakerImageArn (..),
+
+    -- ** SageMakerImageVersionArn
+    SageMakerImageVersionArn (..),
+
+    -- ** TrialComponentName
+    TrialComponentName (..),
+
+    -- ** AdditionalCodeRepositoryEquals
+    AdditionalCodeRepositoryEquals (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** S3ModelArtifacts
+    S3ModelArtifacts (..),
+
+    -- ** UserPool
+    UserPool (..),
+
+    -- ** UserGroup
+    UserGroup (..),
+
+    -- ** DomainIdEquals
+    DomainIdEquals (..),
+
+    -- ** UserProfileNameContains
+    UserProfileNameContains (..),
+
+    -- ** TrainingImage
+    TrainingImage (..),
+
+    -- ** ResolvedImage
+    ResolvedImage (..),
+
+    -- ** SpecifiedImage
+    SpecifiedImage (..),
+
+    -- ** DefinitionName
+    DefinitionName (..),
+
+    -- ** AuthorizedUrl
+    AuthorizedUrl (..),
+
+    -- ** ExecutionRoleArn
+    ExecutionRoleArn (..),
+
+    -- ** HomeEfsFileSystemKmsKeyId
+    HomeEfsFileSystemKmsKeyId (..),
+
+    -- ** VolumeKmsKeyId
+    VolumeKmsKeyId (..),
+
+    -- ** PreHumanTaskLambdaArn
+    PreHumanTaskLambdaArn (..),
+
+    -- ** AnnotationConsolidationLambdaArn
+    AnnotationConsolidationLambdaArn (..),
+
+    -- ** TrainingImageDigest
+    TrainingImageDigest (..),
+
+    -- ** LocalPath
+    LocalPath (..),
+
+    -- ** SourceArn
+    SourceArn (..),
+
+    -- ** UiTemplateS3Uri
+    UiTemplateS3Uri (..),
+
+    -- ** ModelPackageName
+    ModelPackageName (..),
+
+    -- ** ManifestS3Uri
+    ManifestS3Uri (..),
+
+    -- ** CandidateNameEquals
+    CandidateNameEquals (..),
+
+    -- ** Input
+    Input (..),
+
+    -- ** S3OutputLocation
+    S3OutputLocation (..),
+
+    -- ** RuleEvaluationJobArn
+    RuleEvaluationJobArn (..),
+
+    -- ** PostAnalyticsProcessorSourceUri
+    PostAnalyticsProcessorSourceUri (..),
+
+    -- ** RecordPreprocessorSourceUri
+    RecordPreprocessorSourceUri (..),
+
+    -- ** RepositoryUrl
+    RepositoryUrl (..),
+
+    -- ** ValidationRole
+    ValidationRole (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -2695,8 +3397,8 @@ import Network.AWS.SageMaker.CreateModelPackage
 import Network.AWS.SageMaker.CreateMonitoringSchedule
 import Network.AWS.SageMaker.CreateNotebookInstance
 import Network.AWS.SageMaker.CreateNotebookInstanceLifecycleConfig
-import Network.AWS.SageMaker.CreatePresignedDomainURL
-import Network.AWS.SageMaker.CreatePresignedNotebookInstanceURL
+import Network.AWS.SageMaker.CreatePresignedDomainUrl
+import Network.AWS.SageMaker.CreatePresignedNotebookInstanceUrl
 import Network.AWS.SageMaker.CreateProcessingJob
 import Network.AWS.SageMaker.CreateTrainingJob
 import Network.AWS.SageMaker.CreateTransformJob

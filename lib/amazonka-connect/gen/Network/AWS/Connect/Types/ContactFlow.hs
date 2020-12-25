@@ -17,124 +17,121 @@ module Network.AWS.Connect.Types.ContactFlow
     mkContactFlow,
 
     -- * Lenses
-    cfARN,
+    cfArn,
     cfContent,
-    cfName,
-    cfId,
-    cfType,
     cfDescription,
+    cfId,
+    cfName,
     cfTags,
+    cfType,
   )
 where
 
-import Network.AWS.Connect.Types.ContactFlowType
+import qualified Network.AWS.Connect.Types.Arn as Types
+import qualified Network.AWS.Connect.Types.ContactFlowDescription as Types
+import qualified Network.AWS.Connect.Types.ContactFlowType as Types
+import qualified Network.AWS.Connect.Types.Content as Types
+import qualified Network.AWS.Connect.Types.Id as Types
+import qualified Network.AWS.Connect.Types.Name as Types
+import qualified Network.AWS.Connect.Types.TagKey as Types
+import qualified Network.AWS.Connect.Types.TagValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a contact flow.
 --
 -- /See:/ 'mkContactFlow' smart constructor.
 data ContactFlow = ContactFlow'
   { -- | The Amazon Resource Name (ARN) of the contact flow.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | The content of the contact flow.
-    content :: Lude.Maybe Lude.Text,
-    -- | The name of the contact flow.
-    name :: Lude.Maybe Lude.Text,
-    -- | The identifier of the contact flow.
-    id :: Lude.Maybe Lude.Text,
-    -- | The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
-    type' :: Lude.Maybe ContactFlowType,
+    content :: Core.Maybe Types.Content,
     -- | The description of the contact flow.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.ContactFlowDescription,
+    -- | The identifier of the contact flow.
+    id :: Core.Maybe Types.Id,
+    -- | The name of the contact flow.
+    name :: Core.Maybe Types.Name,
     -- | One or more tags.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue),
+    -- | The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
+    type' :: Core.Maybe Types.ContactFlowType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContactFlow' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the contact flow.
--- * 'content' - The content of the contact flow.
--- * 'name' - The name of the contact flow.
--- * 'id' - The identifier of the contact flow.
--- * 'type'' - The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
--- * 'description' - The description of the contact flow.
--- * 'tags' - One or more tags.
+-- | Creates a 'ContactFlow' value with any optional fields omitted.
 mkContactFlow ::
   ContactFlow
 mkContactFlow =
   ContactFlow'
-    { arn = Lude.Nothing,
-      content = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      type' = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing
+    { arn = Core.Nothing,
+      content = Core.Nothing,
+      description = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the contact flow.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfARN :: Lens.Lens' ContactFlow (Lude.Maybe Lude.Text)
-cfARN = Lens.lens (arn :: ContactFlow -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ContactFlow)
-{-# DEPRECATED cfARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+cfArn :: Lens.Lens' ContactFlow (Core.Maybe Types.Arn)
+cfArn = Lens.field @"arn"
+{-# DEPRECATED cfArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The content of the contact flow.
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfContent :: Lens.Lens' ContactFlow (Lude.Maybe Lude.Text)
-cfContent = Lens.lens (content :: ContactFlow -> Lude.Maybe Lude.Text) (\s a -> s {content = a} :: ContactFlow)
+cfContent :: Lens.Lens' ContactFlow (Core.Maybe Types.Content)
+cfContent = Lens.field @"content"
 {-# DEPRECATED cfContent "Use generic-lens or generic-optics with 'content' instead." #-}
-
--- | The name of the contact flow.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfName :: Lens.Lens' ContactFlow (Lude.Maybe Lude.Text)
-cfName = Lens.lens (name :: ContactFlow -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ContactFlow)
-{-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The identifier of the contact flow.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfId :: Lens.Lens' ContactFlow (Lude.Maybe Lude.Text)
-cfId = Lens.lens (id :: ContactFlow -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ContactFlow)
-{-# DEPRECATED cfId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfType :: Lens.Lens' ContactFlow (Lude.Maybe ContactFlowType)
-cfType = Lens.lens (type' :: ContactFlow -> Lude.Maybe ContactFlowType) (\s a -> s {type' = a} :: ContactFlow)
-{-# DEPRECATED cfType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The description of the contact flow.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfDescription :: Lens.Lens' ContactFlow (Lude.Maybe Lude.Text)
-cfDescription = Lens.lens (description :: ContactFlow -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ContactFlow)
+cfDescription :: Lens.Lens' ContactFlow (Core.Maybe Types.ContactFlowDescription)
+cfDescription = Lens.field @"description"
 {-# DEPRECATED cfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The identifier of the contact flow.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfId :: Lens.Lens' ContactFlow (Core.Maybe Types.Id)
+cfId = Lens.field @"id"
+{-# DEPRECATED cfId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The name of the contact flow.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfName :: Lens.Lens' ContactFlow (Core.Maybe Types.Name)
+cfName = Lens.field @"name"
+{-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | One or more tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfTags :: Lens.Lens' ContactFlow (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cfTags = Lens.lens (tags :: ContactFlow -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ContactFlow)
+cfTags :: Lens.Lens' ContactFlow (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+cfTags = Lens.field @"tags"
 {-# DEPRECATED cfTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON ContactFlow where
+-- | The type of the contact flow. For descriptions of the available types, see <https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types Choose a Contact Flow Type> in the /Amazon Connect Administrator Guide/ .
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfType :: Lens.Lens' ContactFlow (Core.Maybe Types.ContactFlowType)
+cfType = Lens.field @"type'"
+{-# DEPRECATED cfType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.FromJSON ContactFlow where
   parseJSON =
-    Lude.withObject
-      "ContactFlow"
-      ( \x ->
-          ContactFlow'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Content")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ContactFlow" Core.$
+      \x ->
+        ContactFlow'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Content")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Tags")
+          Core.<*> (x Core..:? "Type")

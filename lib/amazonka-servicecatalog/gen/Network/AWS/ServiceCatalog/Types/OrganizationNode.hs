@@ -17,64 +17,60 @@ module Network.AWS.ServiceCatalog.Types.OrganizationNode
     mkOrganizationNode,
 
     -- * Lenses
-    onValue,
     onType,
+    onValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.OrganizationNodeType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.OrganizationNodeType as Types
+import qualified Network.AWS.ServiceCatalog.Types.OrganizationNodeValue as Types
 
 -- | Information about the organization node.
 --
 -- /See:/ 'mkOrganizationNode' smart constructor.
 data OrganizationNode = OrganizationNode'
-  { -- | The identifier of the organization node.
-    value :: Lude.Maybe Lude.Text,
-    -- | The organization node type.
-    type' :: Lude.Maybe OrganizationNodeType
+  { -- | The organization node type.
+    type' :: Core.Maybe Types.OrganizationNodeType,
+    -- | The identifier of the organization node.
+    value :: Core.Maybe Types.OrganizationNodeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OrganizationNode' with the minimum fields required to make a request.
---
--- * 'value' - The identifier of the organization node.
--- * 'type'' - The organization node type.
+-- | Creates a 'OrganizationNode' value with any optional fields omitted.
 mkOrganizationNode ::
   OrganizationNode
 mkOrganizationNode =
-  OrganizationNode' {value = Lude.Nothing, type' = Lude.Nothing}
-
--- | The identifier of the organization node.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-onValue :: Lens.Lens' OrganizationNode (Lude.Maybe Lude.Text)
-onValue = Lens.lens (value :: OrganizationNode -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: OrganizationNode)
-{-# DEPRECATED onValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  OrganizationNode' {type' = Core.Nothing, value = Core.Nothing}
 
 -- | The organization node type.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-onType :: Lens.Lens' OrganizationNode (Lude.Maybe OrganizationNodeType)
-onType = Lens.lens (type' :: OrganizationNode -> Lude.Maybe OrganizationNodeType) (\s a -> s {type' = a} :: OrganizationNode)
+onType :: Lens.Lens' OrganizationNode (Core.Maybe Types.OrganizationNodeType)
+onType = Lens.field @"type'"
 {-# DEPRECATED onType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON OrganizationNode where
-  parseJSON =
-    Lude.withObject
-      "OrganizationNode"
-      ( \x ->
-          OrganizationNode'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Type")
-      )
+-- | The identifier of the organization node.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+onValue :: Lens.Lens' OrganizationNode (Core.Maybe Types.OrganizationNodeValue)
+onValue = Lens.field @"value"
+{-# DEPRECATED onValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToJSON OrganizationNode where
-  toJSON OrganizationNode' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Value" Lude..=) Lude.<$> value,
-            ("Type" Lude..=) Lude.<$> type'
+instance Core.FromJSON OrganizationNode where
+  toJSON OrganizationNode {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Type" Core..=) Core.<$> type',
+            ("Value" Core..=) Core.<$> value
           ]
       )
+
+instance Core.FromJSON OrganizationNode where
+  parseJSON =
+    Core.withObject "OrganizationNode" Core.$
+      \x ->
+        OrganizationNode'
+          Core.<$> (x Core..:? "Type") Core.<*> (x Core..:? "Value")

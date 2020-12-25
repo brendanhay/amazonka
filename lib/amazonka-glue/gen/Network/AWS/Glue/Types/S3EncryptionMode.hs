@@ -13,51 +13,56 @@
 module Network.AWS.Glue.Types.S3EncryptionMode
   ( S3EncryptionMode
       ( S3EncryptionMode',
-        Disabled,
-        SseKMS,
-        SseS3
+        S3EncryptionModeDisabled,
+        S3EncryptionModeSseKms,
+        S3EncryptionModeSseS3,
+        fromS3EncryptionMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype S3EncryptionMode = S3EncryptionMode' Lude.Text
+newtype S3EncryptionMode = S3EncryptionMode'
+  { fromS3EncryptionMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Disabled :: S3EncryptionMode
-pattern Disabled = S3EncryptionMode' "DISABLED"
+pattern S3EncryptionModeDisabled :: S3EncryptionMode
+pattern S3EncryptionModeDisabled = S3EncryptionMode' "DISABLED"
 
-pattern SseKMS :: S3EncryptionMode
-pattern SseKMS = S3EncryptionMode' "SSE-KMS"
+pattern S3EncryptionModeSseKms :: S3EncryptionMode
+pattern S3EncryptionModeSseKms = S3EncryptionMode' "SSE-KMS"
 
-pattern SseS3 :: S3EncryptionMode
-pattern SseS3 = S3EncryptionMode' "SSE-S3"
+pattern S3EncryptionModeSseS3 :: S3EncryptionMode
+pattern S3EncryptionModeSseS3 = S3EncryptionMode' "SSE-S3"
 
 {-# COMPLETE
-  Disabled,
-  SseKMS,
-  SseS3,
+  S3EncryptionModeDisabled,
+  S3EncryptionModeSseKms,
+  S3EncryptionModeSseS3,
   S3EncryptionMode'
   #-}

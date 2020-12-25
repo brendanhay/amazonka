@@ -38,6 +38,7 @@ common base
 
   ghc-options:
     -Wall
+    -Wmissing-deriving-strategies
     -funbox-strict-fields
     -fwarn-incomplete-uni-patterns
     -fwarn-incomplete-record-updates

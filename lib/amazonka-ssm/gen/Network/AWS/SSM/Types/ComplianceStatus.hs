@@ -13,46 +13,51 @@
 module Network.AWS.SSM.Types.ComplianceStatus
   ( ComplianceStatus
       ( ComplianceStatus',
-        Compliant,
-        NonCompliant
+        ComplianceStatusCompliant,
+        ComplianceStatusNonCompliant,
+        fromComplianceStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ComplianceStatus = ComplianceStatus' Lude.Text
+newtype ComplianceStatus = ComplianceStatus'
+  { fromComplianceStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Compliant :: ComplianceStatus
-pattern Compliant = ComplianceStatus' "COMPLIANT"
+pattern ComplianceStatusCompliant :: ComplianceStatus
+pattern ComplianceStatusCompliant = ComplianceStatus' "COMPLIANT"
 
-pattern NonCompliant :: ComplianceStatus
-pattern NonCompliant = ComplianceStatus' "NON_COMPLIANT"
+pattern ComplianceStatusNonCompliant :: ComplianceStatus
+pattern ComplianceStatusNonCompliant = ComplianceStatus' "NON_COMPLIANT"
 
 {-# COMPLETE
-  Compliant,
-  NonCompliant,
+  ComplianceStatusCompliant,
+  ComplianceStatusNonCompliant,
   ComplianceStatus'
   #-}

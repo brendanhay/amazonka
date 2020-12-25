@@ -35,71 +35,64 @@ module Network.AWS.CloudWatch.SetAlarmState
   )
 where
 
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetAlarmState' smart constructor.
 data SetAlarmState = SetAlarmState'
   { -- | The name of the alarm.
-    alarmName :: Lude.Text,
+    alarmName :: Types.AlarmName,
     -- | The value of the state.
-    stateValue :: StateValue,
+    stateValue :: Types.StateValue,
     -- | The reason that this alarm is set to this specific state, in text format.
-    stateReason :: Lude.Text,
+    stateReason :: Types.StateReason,
     -- | The reason that this alarm is set to this specific state, in JSON format.
     --
     -- For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling or application Auto Scaling alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.
-    stateReasonData :: Lude.Maybe Lude.Text
+    stateReasonData :: Core.Maybe Types.StateReasonData
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetAlarmState' with the minimum fields required to make a request.
---
--- * 'alarmName' - The name of the alarm.
--- * 'stateValue' - The value of the state.
--- * 'stateReason' - The reason that this alarm is set to this specific state, in text format.
--- * 'stateReasonData' - The reason that this alarm is set to this specific state, in JSON format.
---
--- For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling or application Auto Scaling alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.
+-- | Creates a 'SetAlarmState' value with any optional fields omitted.
 mkSetAlarmState ::
   -- | 'alarmName'
-  Lude.Text ->
+  Types.AlarmName ->
   -- | 'stateValue'
-  StateValue ->
+  Types.StateValue ->
   -- | 'stateReason'
-  Lude.Text ->
+  Types.StateReason ->
   SetAlarmState
-mkSetAlarmState pAlarmName_ pStateValue_ pStateReason_ =
+mkSetAlarmState alarmName stateValue stateReason =
   SetAlarmState'
-    { alarmName = pAlarmName_,
-      stateValue = pStateValue_,
-      stateReason = pStateReason_,
-      stateReasonData = Lude.Nothing
+    { alarmName,
+      stateValue,
+      stateReason,
+      stateReasonData = Core.Nothing
     }
 
 -- | The name of the alarm.
 --
 -- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasAlarmName :: Lens.Lens' SetAlarmState Lude.Text
-sasAlarmName = Lens.lens (alarmName :: SetAlarmState -> Lude.Text) (\s a -> s {alarmName = a} :: SetAlarmState)
+sasAlarmName :: Lens.Lens' SetAlarmState Types.AlarmName
+sasAlarmName = Lens.field @"alarmName"
 {-# DEPRECATED sasAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
 
 -- | The value of the state.
 --
 -- /Note:/ Consider using 'stateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasStateValue :: Lens.Lens' SetAlarmState StateValue
-sasStateValue = Lens.lens (stateValue :: SetAlarmState -> StateValue) (\s a -> s {stateValue = a} :: SetAlarmState)
+sasStateValue :: Lens.Lens' SetAlarmState Types.StateValue
+sasStateValue = Lens.field @"stateValue"
 {-# DEPRECATED sasStateValue "Use generic-lens or generic-optics with 'stateValue' instead." #-}
 
 -- | The reason that this alarm is set to this specific state, in text format.
 --
 -- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasStateReason :: Lens.Lens' SetAlarmState Lude.Text
-sasStateReason = Lens.lens (stateReason :: SetAlarmState -> Lude.Text) (\s a -> s {stateReason = a} :: SetAlarmState)
+sasStateReason :: Lens.Lens' SetAlarmState Types.StateReason
+sasStateReason = Lens.field @"stateReason"
 {-# DEPRECATED sasStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
 -- | The reason that this alarm is set to this specific state, in JSON format.
@@ -107,38 +100,41 @@ sasStateReason = Lens.lens (stateReason :: SetAlarmState -> Lude.Text) (\s a -> 
 -- For SNS or EC2 alarm actions, this is just informational. But for EC2 Auto Scaling or application Auto Scaling alarm actions, the Auto Scaling policy uses the information in this field to take the correct action.
 --
 -- /Note:/ Consider using 'stateReasonData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sasStateReasonData :: Lens.Lens' SetAlarmState (Lude.Maybe Lude.Text)
-sasStateReasonData = Lens.lens (stateReasonData :: SetAlarmState -> Lude.Maybe Lude.Text) (\s a -> s {stateReasonData = a} :: SetAlarmState)
+sasStateReasonData :: Lens.Lens' SetAlarmState (Core.Maybe Types.StateReasonData)
+sasStateReasonData = Lens.field @"stateReasonData"
 {-# DEPRECATED sasStateReasonData "Use generic-lens or generic-optics with 'stateReasonData' instead." #-}
 
-instance Lude.AWSRequest SetAlarmState where
+instance Core.AWSRequest SetAlarmState where
   type Rs SetAlarmState = SetAlarmStateResponse
-  request = Req.postQuery cloudWatchService
-  response = Res.receiveNull SetAlarmStateResponse'
-
-instance Lude.ToHeaders SetAlarmState where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetAlarmState where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetAlarmState where
-  toQuery SetAlarmState' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SetAlarmState" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
-        "AlarmName" Lude.=: alarmName,
-        "StateValue" Lude.=: stateValue,
-        "StateReason" Lude.=: stateReason,
-        "StateReasonData" Lude.=: stateReasonData
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetAlarmState")
+                Core.<> (Core.pure ("Version", "2010-08-01"))
+                Core.<> (Core.toQueryValue "AlarmName" alarmName)
+                Core.<> (Core.toQueryValue "StateValue" stateValue)
+                Core.<> (Core.toQueryValue "StateReason" stateReason)
+                Core.<> (Core.toQueryValue "StateReasonData" Core.<$> stateReasonData)
+            )
+      }
+  response = Response.receiveNull SetAlarmStateResponse'
 
 -- | /See:/ 'mkSetAlarmStateResponse' smart constructor.
 data SetAlarmStateResponse = SetAlarmStateResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetAlarmStateResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetAlarmStateResponse' value with any optional fields omitted.
 mkSetAlarmStateResponse ::
   SetAlarmStateResponse
 mkSetAlarmStateResponse = SetAlarmStateResponse'

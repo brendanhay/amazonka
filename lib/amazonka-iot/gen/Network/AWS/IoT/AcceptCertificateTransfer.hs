@@ -31,80 +31,78 @@ module Network.AWS.IoT.AcceptCertificateTransfer
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the AcceptCertificateTransfer operation.
 --
 -- /See:/ 'mkAcceptCertificateTransfer' smart constructor.
 data AcceptCertificateTransfer = AcceptCertificateTransfer'
   { -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
-    certificateId :: Lude.Text,
+    certificateId :: Types.CertificateId,
     -- | Specifies whether the certificate is active.
-    setAsActive :: Lude.Maybe Lude.Bool
+    setAsActive :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AcceptCertificateTransfer' with the minimum fields required to make a request.
---
--- * 'certificateId' - The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
--- * 'setAsActive' - Specifies whether the certificate is active.
+-- | Creates a 'AcceptCertificateTransfer' value with any optional fields omitted.
 mkAcceptCertificateTransfer ::
   -- | 'certificateId'
-  Lude.Text ->
+  Types.CertificateId ->
   AcceptCertificateTransfer
-mkAcceptCertificateTransfer pCertificateId_ =
+mkAcceptCertificateTransfer certificateId =
   AcceptCertificateTransfer'
-    { certificateId = pCertificateId_,
-      setAsActive = Lude.Nothing
+    { certificateId,
+      setAsActive = Core.Nothing
     }
 
 -- | The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actCertificateId :: Lens.Lens' AcceptCertificateTransfer Lude.Text
-actCertificateId = Lens.lens (certificateId :: AcceptCertificateTransfer -> Lude.Text) (\s a -> s {certificateId = a} :: AcceptCertificateTransfer)
+actCertificateId :: Lens.Lens' AcceptCertificateTransfer Types.CertificateId
+actCertificateId = Lens.field @"certificateId"
 {-# DEPRECATED actCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
 
 -- | Specifies whether the certificate is active.
 --
 -- /Note:/ Consider using 'setAsActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-actSetAsActive :: Lens.Lens' AcceptCertificateTransfer (Lude.Maybe Lude.Bool)
-actSetAsActive = Lens.lens (setAsActive :: AcceptCertificateTransfer -> Lude.Maybe Lude.Bool) (\s a -> s {setAsActive = a} :: AcceptCertificateTransfer)
+actSetAsActive :: Lens.Lens' AcceptCertificateTransfer (Core.Maybe Core.Bool)
+actSetAsActive = Lens.field @"setAsActive"
 {-# DEPRECATED actSetAsActive "Use generic-lens or generic-optics with 'setAsActive' instead." #-}
 
-instance Lude.AWSRequest AcceptCertificateTransfer where
+instance Core.FromJSON AcceptCertificateTransfer where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest AcceptCertificateTransfer where
   type
     Rs AcceptCertificateTransfer =
       AcceptCertificateTransferResponse
-  request = Req.patchJSON ioTService
-  response = Res.receiveNull AcceptCertificateTransferResponse'
-
-instance Lude.ToHeaders AcceptCertificateTransfer where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON AcceptCertificateTransfer where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath AcceptCertificateTransfer where
-  toPath AcceptCertificateTransfer' {..} =
-    Lude.mconcat
-      ["/accept-certificate-transfer/", Lude.toBS certificateId]
-
-instance Lude.ToQuery AcceptCertificateTransfer where
-  toQuery AcceptCertificateTransfer' {..} =
-    Lude.mconcat ["setAsActive" Lude.=: setAsActive]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath =
+          Core.rawPath
+            ( "/accept-certificate-transfer/"
+                Core.<> (Core.toText certificateId)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "setAsActive" Core.<$> setAsActive,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull AcceptCertificateTransferResponse'
 
 -- | /See:/ 'mkAcceptCertificateTransferResponse' smart constructor.
 data AcceptCertificateTransferResponse = AcceptCertificateTransferResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AcceptCertificateTransferResponse' with the minimum fields required to make a request.
+-- | Creates a 'AcceptCertificateTransferResponse' value with any optional fields omitted.
 mkAcceptCertificateTransferResponse ::
   AcceptCertificateTransferResponse
 mkAcceptCertificateTransferResponse =

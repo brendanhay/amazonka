@@ -31,71 +31,67 @@ module Network.AWS.IAM.DeleteInstanceProfile
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteInstanceProfile' smart constructor.
 newtype DeleteInstanceProfile = DeleteInstanceProfile'
   { -- | The name of the instance profile to delete.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    instanceProfileName :: Lude.Text
+    instanceProfileName :: Types.InstanceProfileName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInstanceProfile' with the minimum fields required to make a request.
---
--- * 'instanceProfileName' - The name of the instance profile to delete.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'DeleteInstanceProfile' value with any optional fields omitted.
 mkDeleteInstanceProfile ::
   -- | 'instanceProfileName'
-  Lude.Text ->
+  Types.InstanceProfileName ->
   DeleteInstanceProfile
-mkDeleteInstanceProfile pInstanceProfileName_ =
-  DeleteInstanceProfile'
-    { instanceProfileName =
-        pInstanceProfileName_
-    }
+mkDeleteInstanceProfile instanceProfileName =
+  DeleteInstanceProfile' {instanceProfileName}
 
 -- | The name of the instance profile to delete.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'instanceProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dipInstanceProfileName :: Lens.Lens' DeleteInstanceProfile Lude.Text
-dipInstanceProfileName = Lens.lens (instanceProfileName :: DeleteInstanceProfile -> Lude.Text) (\s a -> s {instanceProfileName = a} :: DeleteInstanceProfile)
+dipInstanceProfileName :: Lens.Lens' DeleteInstanceProfile Types.InstanceProfileName
+dipInstanceProfileName = Lens.field @"instanceProfileName"
 {-# DEPRECATED dipInstanceProfileName "Use generic-lens or generic-optics with 'instanceProfileName' instead." #-}
 
-instance Lude.AWSRequest DeleteInstanceProfile where
+instance Core.AWSRequest DeleteInstanceProfile where
   type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeleteInstanceProfileResponse'
-
-instance Lude.ToHeaders DeleteInstanceProfile where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteInstanceProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteInstanceProfile where
-  toQuery DeleteInstanceProfile' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteInstanceProfile" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "InstanceProfileName" Lude.=: instanceProfileName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteInstanceProfile")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "InstanceProfileName" instanceProfileName)
+            )
+      }
+  response = Response.receiveNull DeleteInstanceProfileResponse'
 
 -- | /See:/ 'mkDeleteInstanceProfileResponse' smart constructor.
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInstanceProfileResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteInstanceProfileResponse' value with any optional fields omitted.
 mkDeleteInstanceProfileResponse ::
   DeleteInstanceProfileResponse
 mkDeleteInstanceProfileResponse = DeleteInstanceProfileResponse'

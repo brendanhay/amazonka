@@ -17,116 +17,113 @@ module Network.AWS.Athena.Types.NamedQuery
     mkNamedQuery,
 
     -- * Lenses
-    nqNamedQueryId,
-    nqDatabase,
     nqName,
+    nqDatabase,
     nqQueryString,
     nqDescription,
+    nqNamedQueryId,
     nqWorkGroup,
   )
 where
 
+import qualified Network.AWS.Athena.Types.DatabaseString as Types
+import qualified Network.AWS.Athena.Types.DescriptionString as Types
+import qualified Network.AWS.Athena.Types.NameString as Types
+import qualified Network.AWS.Athena.Types.NamedQueryId as Types
+import qualified Network.AWS.Athena.Types.QueryString as Types
+import qualified Network.AWS.Athena.Types.WorkGroupName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A query, where @QueryString@ is the list of SQL query statements that comprise the query.
 --
 -- /See:/ 'mkNamedQuery' smart constructor.
 data NamedQuery = NamedQuery'
-  { -- | The unique identifier of the query.
-    namedQueryId :: Lude.Maybe Lude.Text,
+  { -- | The query name.
+    name :: Types.NameString,
     -- | The database to which the query belongs.
-    database :: Lude.Text,
-    -- | The query name.
-    name :: Lude.Text,
+    database :: Types.DatabaseString,
     -- | The SQL query statements that comprise the query.
-    queryString :: Lude.Text,
+    queryString :: Types.QueryString,
     -- | The query description.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.DescriptionString,
+    -- | The unique identifier of the query.
+    namedQueryId :: Core.Maybe Types.NamedQueryId,
     -- | The name of the workgroup that contains the named query.
-    workGroup :: Lude.Maybe Lude.Text
+    workGroup :: Core.Maybe Types.WorkGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NamedQuery' with the minimum fields required to make a request.
---
--- * 'namedQueryId' - The unique identifier of the query.
--- * 'database' - The database to which the query belongs.
--- * 'name' - The query name.
--- * 'queryString' - The SQL query statements that comprise the query.
--- * 'description' - The query description.
--- * 'workGroup' - The name of the workgroup that contains the named query.
+-- | Creates a 'NamedQuery' value with any optional fields omitted.
 mkNamedQuery ::
-  -- | 'database'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.NameString ->
+  -- | 'database'
+  Types.DatabaseString ->
   -- | 'queryString'
-  Lude.Text ->
+  Types.QueryString ->
   NamedQuery
-mkNamedQuery pDatabase_ pName_ pQueryString_ =
+mkNamedQuery name database queryString =
   NamedQuery'
-    { namedQueryId = Lude.Nothing,
-      database = pDatabase_,
-      name = pName_,
-      queryString = pQueryString_,
-      description = Lude.Nothing,
-      workGroup = Lude.Nothing
+    { name,
+      database,
+      queryString,
+      description = Core.Nothing,
+      namedQueryId = Core.Nothing,
+      workGroup = Core.Nothing
     }
-
--- | The unique identifier of the query.
---
--- /Note:/ Consider using 'namedQueryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nqNamedQueryId :: Lens.Lens' NamedQuery (Lude.Maybe Lude.Text)
-nqNamedQueryId = Lens.lens (namedQueryId :: NamedQuery -> Lude.Maybe Lude.Text) (\s a -> s {namedQueryId = a} :: NamedQuery)
-{-# DEPRECATED nqNamedQueryId "Use generic-lens or generic-optics with 'namedQueryId' instead." #-}
-
--- | The database to which the query belongs.
---
--- /Note:/ Consider using 'database' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nqDatabase :: Lens.Lens' NamedQuery Lude.Text
-nqDatabase = Lens.lens (database :: NamedQuery -> Lude.Text) (\s a -> s {database = a} :: NamedQuery)
-{-# DEPRECATED nqDatabase "Use generic-lens or generic-optics with 'database' instead." #-}
 
 -- | The query name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nqName :: Lens.Lens' NamedQuery Lude.Text
-nqName = Lens.lens (name :: NamedQuery -> Lude.Text) (\s a -> s {name = a} :: NamedQuery)
+nqName :: Lens.Lens' NamedQuery Types.NameString
+nqName = Lens.field @"name"
 {-# DEPRECATED nqName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The database to which the query belongs.
+--
+-- /Note:/ Consider using 'database' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nqDatabase :: Lens.Lens' NamedQuery Types.DatabaseString
+nqDatabase = Lens.field @"database"
+{-# DEPRECATED nqDatabase "Use generic-lens or generic-optics with 'database' instead." #-}
 
 -- | The SQL query statements that comprise the query.
 --
 -- /Note:/ Consider using 'queryString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nqQueryString :: Lens.Lens' NamedQuery Lude.Text
-nqQueryString = Lens.lens (queryString :: NamedQuery -> Lude.Text) (\s a -> s {queryString = a} :: NamedQuery)
+nqQueryString :: Lens.Lens' NamedQuery Types.QueryString
+nqQueryString = Lens.field @"queryString"
 {-# DEPRECATED nqQueryString "Use generic-lens or generic-optics with 'queryString' instead." #-}
 
 -- | The query description.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nqDescription :: Lens.Lens' NamedQuery (Lude.Maybe Lude.Text)
-nqDescription = Lens.lens (description :: NamedQuery -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: NamedQuery)
+nqDescription :: Lens.Lens' NamedQuery (Core.Maybe Types.DescriptionString)
+nqDescription = Lens.field @"description"
 {-# DEPRECATED nqDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The unique identifier of the query.
+--
+-- /Note:/ Consider using 'namedQueryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nqNamedQueryId :: Lens.Lens' NamedQuery (Core.Maybe Types.NamedQueryId)
+nqNamedQueryId = Lens.field @"namedQueryId"
+{-# DEPRECATED nqNamedQueryId "Use generic-lens or generic-optics with 'namedQueryId' instead." #-}
 
 -- | The name of the workgroup that contains the named query.
 --
 -- /Note:/ Consider using 'workGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nqWorkGroup :: Lens.Lens' NamedQuery (Lude.Maybe Lude.Text)
-nqWorkGroup = Lens.lens (workGroup :: NamedQuery -> Lude.Maybe Lude.Text) (\s a -> s {workGroup = a} :: NamedQuery)
+nqWorkGroup :: Lens.Lens' NamedQuery (Core.Maybe Types.WorkGroupName)
+nqWorkGroup = Lens.field @"workGroup"
 {-# DEPRECATED nqWorkGroup "Use generic-lens or generic-optics with 'workGroup' instead." #-}
 
-instance Lude.FromJSON NamedQuery where
+instance Core.FromJSON NamedQuery where
   parseJSON =
-    Lude.withObject
-      "NamedQuery"
-      ( \x ->
-          NamedQuery'
-            Lude.<$> (x Lude..:? "NamedQueryId")
-            Lude.<*> (x Lude..: "Database")
-            Lude.<*> (x Lude..: "Name")
-            Lude.<*> (x Lude..: "QueryString")
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "WorkGroup")
-      )
+    Core.withObject "NamedQuery" Core.$
+      \x ->
+        NamedQuery'
+          Core.<$> (x Core..: "Name")
+          Core.<*> (x Core..: "Database")
+          Core.<*> (x Core..: "QueryString")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "NamedQueryId")
+          Core.<*> (x Core..:? "WorkGroup")

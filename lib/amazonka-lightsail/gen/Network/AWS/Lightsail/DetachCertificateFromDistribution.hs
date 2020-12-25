@@ -29,124 +29,108 @@ module Network.AWS.Lightsail.DetachCertificateFromDistribution
     mkDetachCertificateFromDistributionResponse,
 
     -- ** Response lenses
-    dcfdrsOperation,
-    dcfdrsResponseStatus,
+    dcfdrrsOperation,
+    dcfdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetachCertificateFromDistribution' smart constructor.
 newtype DetachCertificateFromDistribution = DetachCertificateFromDistribution'
   { -- | The name of the distribution from which to detach the certificate.
     --
     -- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
-    distributionName :: Lude.Text
+    distributionName :: Types.DistributionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachCertificateFromDistribution' with the minimum fields required to make a request.
---
--- * 'distributionName' - The name of the distribution from which to detach the certificate.
---
--- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
+-- | Creates a 'DetachCertificateFromDistribution' value with any optional fields omitted.
 mkDetachCertificateFromDistribution ::
   -- | 'distributionName'
-  Lude.Text ->
+  Types.DistributionName ->
   DetachCertificateFromDistribution
-mkDetachCertificateFromDistribution pDistributionName_ =
-  DetachCertificateFromDistribution'
-    { distributionName =
-        pDistributionName_
-    }
+mkDetachCertificateFromDistribution distributionName =
+  DetachCertificateFromDistribution' {distributionName}
 
 -- | The name of the distribution from which to detach the certificate.
 --
 -- Use the @GetDistributions@ action to get a list of distribution names that you can specify.
 --
 -- /Note:/ Consider using 'distributionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfdDistributionName :: Lens.Lens' DetachCertificateFromDistribution Lude.Text
-dcfdDistributionName = Lens.lens (distributionName :: DetachCertificateFromDistribution -> Lude.Text) (\s a -> s {distributionName = a} :: DetachCertificateFromDistribution)
+dcfdDistributionName :: Lens.Lens' DetachCertificateFromDistribution Types.DistributionName
+dcfdDistributionName = Lens.field @"distributionName"
 {-# DEPRECATED dcfdDistributionName "Use generic-lens or generic-optics with 'distributionName' instead." #-}
 
-instance Lude.AWSRequest DetachCertificateFromDistribution where
+instance Core.FromJSON DetachCertificateFromDistribution where
+  toJSON DetachCertificateFromDistribution {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("distributionName" Core..= distributionName)]
+      )
+
+instance Core.AWSRequest DetachCertificateFromDistribution where
   type
     Rs DetachCertificateFromDistribution =
       DetachCertificateFromDistributionResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Lightsail_20161128.DetachCertificateFromDistribution"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DetachCertificateFromDistributionResponse'
-            Lude.<$> (x Lude..?> "operation") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operation") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetachCertificateFromDistribution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.DetachCertificateFromDistribution" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DetachCertificateFromDistribution where
-  toJSON DetachCertificateFromDistribution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("distributionName" Lude..= distributionName)]
-      )
-
-instance Lude.ToPath DetachCertificateFromDistribution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetachCertificateFromDistribution where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDetachCertificateFromDistributionResponse' smart constructor.
 data DetachCertificateFromDistributionResponse = DetachCertificateFromDistributionResponse'
   { -- | An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operation :: Lude.Maybe Operation,
+    operation :: Core.Maybe Types.Operation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DetachCertificateFromDistributionResponse' with the minimum fields required to make a request.
---
--- * 'operation' - An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetachCertificateFromDistributionResponse' value with any optional fields omitted.
 mkDetachCertificateFromDistributionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetachCertificateFromDistributionResponse
-mkDetachCertificateFromDistributionResponse pResponseStatus_ =
+mkDetachCertificateFromDistributionResponse responseStatus =
   DetachCertificateFromDistributionResponse'
     { operation =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An object that describes the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfdrsOperation :: Lens.Lens' DetachCertificateFromDistributionResponse (Lude.Maybe Operation)
-dcfdrsOperation = Lens.lens (operation :: DetachCertificateFromDistributionResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: DetachCertificateFromDistributionResponse)
-{-# DEPRECATED dcfdrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
+dcfdrrsOperation :: Lens.Lens' DetachCertificateFromDistributionResponse (Core.Maybe Types.Operation)
+dcfdrrsOperation = Lens.field @"operation"
+{-# DEPRECATED dcfdrrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfdrsResponseStatus :: Lens.Lens' DetachCertificateFromDistributionResponse Lude.Int
-dcfdrsResponseStatus = Lens.lens (responseStatus :: DetachCertificateFromDistributionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachCertificateFromDistributionResponse)
-{-# DEPRECATED dcfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcfdrrsResponseStatus :: Lens.Lens' DetachCertificateFromDistributionResponse Core.Int
+dcfdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcfdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -18,80 +18,75 @@ module Network.AWS.SageMaker.Types.FileSystemConfig
 
     -- * Lenses
     fscDefaultGid,
-    fscMountPath,
     fscDefaultUid,
+    fscMountPath,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.MountPath as Types
 
 -- | The Amazon Elastic File System (EFS) storage configuration for a SageMaker image.
 --
 -- /See:/ 'mkFileSystemConfig' smart constructor.
 data FileSystemConfig = FileSystemConfig'
   { -- | The default POSIX group ID (GID). If not specified, defaults to @100@ .
-    defaultGid :: Lude.Maybe Lude.Natural,
-    -- | The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /\/home\/sagemaker-user/ .
-    mountPath :: Lude.Maybe Lude.Text,
+    defaultGid :: Core.Maybe Core.Natural,
     -- | The default POSIX user ID (UID). If not specified, defaults to @1000@ .
-    defaultUid :: Lude.Maybe Lude.Natural
+    defaultUid :: Core.Maybe Core.Natural,
+    -- | The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /\/home\/sagemaker-user/ .
+    mountPath :: Core.Maybe Types.MountPath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FileSystemConfig' with the minimum fields required to make a request.
---
--- * 'defaultGid' - The default POSIX group ID (GID). If not specified, defaults to @100@ .
--- * 'mountPath' - The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /\/home\/sagemaker-user/ .
--- * 'defaultUid' - The default POSIX user ID (UID). If not specified, defaults to @1000@ .
+-- | Creates a 'FileSystemConfig' value with any optional fields omitted.
 mkFileSystemConfig ::
   FileSystemConfig
 mkFileSystemConfig =
   FileSystemConfig'
-    { defaultGid = Lude.Nothing,
-      mountPath = Lude.Nothing,
-      defaultUid = Lude.Nothing
+    { defaultGid = Core.Nothing,
+      defaultUid = Core.Nothing,
+      mountPath = Core.Nothing
     }
 
 -- | The default POSIX group ID (GID). If not specified, defaults to @100@ .
 --
 -- /Note:/ Consider using 'defaultGid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fscDefaultGid :: Lens.Lens' FileSystemConfig (Lude.Maybe Lude.Natural)
-fscDefaultGid = Lens.lens (defaultGid :: FileSystemConfig -> Lude.Maybe Lude.Natural) (\s a -> s {defaultGid = a} :: FileSystemConfig)
+fscDefaultGid :: Lens.Lens' FileSystemConfig (Core.Maybe Core.Natural)
+fscDefaultGid = Lens.field @"defaultGid"
 {-# DEPRECATED fscDefaultGid "Use generic-lens or generic-optics with 'defaultGid' instead." #-}
-
--- | The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /\/home\/sagemaker-user/ .
---
--- /Note:/ Consider using 'mountPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fscMountPath :: Lens.Lens' FileSystemConfig (Lude.Maybe Lude.Text)
-fscMountPath = Lens.lens (mountPath :: FileSystemConfig -> Lude.Maybe Lude.Text) (\s a -> s {mountPath = a} :: FileSystemConfig)
-{-# DEPRECATED fscMountPath "Use generic-lens or generic-optics with 'mountPath' instead." #-}
 
 -- | The default POSIX user ID (UID). If not specified, defaults to @1000@ .
 --
 -- /Note:/ Consider using 'defaultUid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fscDefaultUid :: Lens.Lens' FileSystemConfig (Lude.Maybe Lude.Natural)
-fscDefaultUid = Lens.lens (defaultUid :: FileSystemConfig -> Lude.Maybe Lude.Natural) (\s a -> s {defaultUid = a} :: FileSystemConfig)
+fscDefaultUid :: Lens.Lens' FileSystemConfig (Core.Maybe Core.Natural)
+fscDefaultUid = Lens.field @"defaultUid"
 {-# DEPRECATED fscDefaultUid "Use generic-lens or generic-optics with 'defaultUid' instead." #-}
 
-instance Lude.FromJSON FileSystemConfig where
-  parseJSON =
-    Lude.withObject
-      "FileSystemConfig"
-      ( \x ->
-          FileSystemConfig'
-            Lude.<$> (x Lude..:? "DefaultGid")
-            Lude.<*> (x Lude..:? "MountPath")
-            Lude.<*> (x Lude..:? "DefaultUid")
-      )
+-- | The path within the image to mount the user's EFS home directory. The directory should be empty. If not specified, defaults to /\/home\/sagemaker-user/ .
+--
+-- /Note:/ Consider using 'mountPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fscMountPath :: Lens.Lens' FileSystemConfig (Core.Maybe Types.MountPath)
+fscMountPath = Lens.field @"mountPath"
+{-# DEPRECATED fscMountPath "Use generic-lens or generic-optics with 'mountPath' instead." #-}
 
-instance Lude.ToJSON FileSystemConfig where
-  toJSON FileSystemConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DefaultGid" Lude..=) Lude.<$> defaultGid,
-            ("MountPath" Lude..=) Lude.<$> mountPath,
-            ("DefaultUid" Lude..=) Lude.<$> defaultUid
+instance Core.FromJSON FileSystemConfig where
+  toJSON FileSystemConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DefaultGid" Core..=) Core.<$> defaultGid,
+            ("DefaultUid" Core..=) Core.<$> defaultUid,
+            ("MountPath" Core..=) Core.<$> mountPath
           ]
       )
+
+instance Core.FromJSON FileSystemConfig where
+  parseJSON =
+    Core.withObject "FileSystemConfig" Core.$
+      \x ->
+        FileSystemConfig'
+          Core.<$> (x Core..:? "DefaultGid")
+          Core.<*> (x Core..:? "DefaultUid")
+          Core.<*> (x Core..:? "MountPath")

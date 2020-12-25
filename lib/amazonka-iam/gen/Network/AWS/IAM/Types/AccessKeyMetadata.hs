@@ -17,16 +17,17 @@ module Network.AWS.IAM.Types.AccessKeyMetadata
     mkAccessKeyMetadata,
 
     -- * Lenses
-    akmStatus,
-    akmCreateDate,
-    akmUserName,
     akmAccessKeyId,
+    akmCreateDate,
+    akmStatus,
+    akmUserName,
   )
 where
 
-import Network.AWS.IAM.Types.StatusType
+import qualified Network.AWS.IAM.Types.StatusType as Types
+import qualified Network.AWS.IAM.Types.UserNameType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an AWS access key, without its secret key.
 --
@@ -34,66 +35,61 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccessKeyMetadata' smart constructor.
 data AccessKeyMetadata = AccessKeyMetadata'
-  { -- | The status of the access key. @Active@ means that the key is valid for API calls; @Inactive@ means it is not.
-    status :: Lude.Maybe StatusType,
+  { -- | The ID for this access key.
+    accessKeyId :: Core.Maybe Types.AccessKey,
     -- | The date when the access key was created.
-    createDate :: Lude.Maybe Lude.DateTime,
+    createDate :: Core.Maybe Core.UTCTime,
+    -- | The status of the access key. @Active@ means that the key is valid for API calls; @Inactive@ means it is not.
+    status :: Core.Maybe Types.StatusType,
     -- | The name of the IAM user that the key is associated with.
-    userName :: Lude.Maybe Lude.Text,
-    -- | The ID for this access key.
-    accessKeyId :: Lude.Maybe AccessKey
+    userName :: Core.Maybe Types.UserNameType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AccessKeyMetadata' with the minimum fields required to make a request.
---
--- * 'status' - The status of the access key. @Active@ means that the key is valid for API calls; @Inactive@ means it is not.
--- * 'createDate' - The date when the access key was created.
--- * 'userName' - The name of the IAM user that the key is associated with.
--- * 'accessKeyId' - The ID for this access key.
+-- | Creates a 'AccessKeyMetadata' value with any optional fields omitted.
 mkAccessKeyMetadata ::
   AccessKeyMetadata
 mkAccessKeyMetadata =
   AccessKeyMetadata'
-    { status = Lude.Nothing,
-      createDate = Lude.Nothing,
-      userName = Lude.Nothing,
-      accessKeyId = Lude.Nothing
+    { accessKeyId = Core.Nothing,
+      createDate = Core.Nothing,
+      status = Core.Nothing,
+      userName = Core.Nothing
     }
-
--- | The status of the access key. @Active@ means that the key is valid for API calls; @Inactive@ means it is not.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akmStatus :: Lens.Lens' AccessKeyMetadata (Lude.Maybe StatusType)
-akmStatus = Lens.lens (status :: AccessKeyMetadata -> Lude.Maybe StatusType) (\s a -> s {status = a} :: AccessKeyMetadata)
-{-# DEPRECATED akmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The date when the access key was created.
---
--- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akmCreateDate :: Lens.Lens' AccessKeyMetadata (Lude.Maybe Lude.DateTime)
-akmCreateDate = Lens.lens (createDate :: AccessKeyMetadata -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: AccessKeyMetadata)
-{-# DEPRECATED akmCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
-
--- | The name of the IAM user that the key is associated with.
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akmUserName :: Lens.Lens' AccessKeyMetadata (Lude.Maybe Lude.Text)
-akmUserName = Lens.lens (userName :: AccessKeyMetadata -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: AccessKeyMetadata)
-{-# DEPRECATED akmUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The ID for this access key.
 --
 -- /Note:/ Consider using 'accessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akmAccessKeyId :: Lens.Lens' AccessKeyMetadata (Lude.Maybe AccessKey)
-akmAccessKeyId = Lens.lens (accessKeyId :: AccessKeyMetadata -> Lude.Maybe AccessKey) (\s a -> s {accessKeyId = a} :: AccessKeyMetadata)
+akmAccessKeyId :: Lens.Lens' AccessKeyMetadata (Core.Maybe Types.AccessKey)
+akmAccessKeyId = Lens.field @"accessKeyId"
 {-# DEPRECATED akmAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
 
-instance Lude.FromXML AccessKeyMetadata where
+-- | The date when the access key was created.
+--
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akmCreateDate :: Lens.Lens' AccessKeyMetadata (Core.Maybe Core.UTCTime)
+akmCreateDate = Lens.field @"createDate"
+{-# DEPRECATED akmCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
+
+-- | The status of the access key. @Active@ means that the key is valid for API calls; @Inactive@ means it is not.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akmStatus :: Lens.Lens' AccessKeyMetadata (Core.Maybe Types.StatusType)
+akmStatus = Lens.field @"status"
+{-# DEPRECATED akmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The name of the IAM user that the key is associated with.
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akmUserName :: Lens.Lens' AccessKeyMetadata (Core.Maybe Types.UserNameType)
+akmUserName = Lens.field @"userName"
+{-# DEPRECATED akmUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+instance Core.FromXML AccessKeyMetadata where
   parseXML x =
     AccessKeyMetadata'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "CreateDate")
-      Lude.<*> (x Lude..@? "UserName")
-      Lude.<*> (x Lude..@? "AccessKeyId")
+      Core.<$> (x Core..@? "AccessKeyId")
+      Core.<*> (x Core..@? "CreateDate")
+      Core.<*> (x Core..@? "Status")
+      Core.<*> (x Core..@? "UserName")

@@ -17,71 +17,68 @@ module Network.AWS.IoT.Types.EffectivePolicy
     mkEffectivePolicy,
 
     -- * Lenses
-    epPolicyName,
+    epPolicyArn,
     epPolicyDocument,
-    epPolicyARN,
+    epPolicyName,
   )
 where
 
+import qualified Network.AWS.IoT.Types.PolicyArn as Types
+import qualified Network.AWS.IoT.Types.PolicyDocument as Types
+import qualified Network.AWS.IoT.Types.PolicyName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The policy that has the effect on the authorization results.
 --
 -- /See:/ 'mkEffectivePolicy' smart constructor.
 data EffectivePolicy = EffectivePolicy'
-  { -- | The policy name.
-    policyName :: Lude.Maybe Lude.Text,
+  { -- | The policy ARN.
+    policyArn :: Core.Maybe Types.PolicyArn,
     -- | The IAM policy document.
-    policyDocument :: Lude.Maybe Lude.Text,
-    -- | The policy ARN.
-    policyARN :: Lude.Maybe Lude.Text
+    policyDocument :: Core.Maybe Types.PolicyDocument,
+    -- | The policy name.
+    policyName :: Core.Maybe Types.PolicyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EffectivePolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The policy name.
--- * 'policyDocument' - The IAM policy document.
--- * 'policyARN' - The policy ARN.
+-- | Creates a 'EffectivePolicy' value with any optional fields omitted.
 mkEffectivePolicy ::
   EffectivePolicy
 mkEffectivePolicy =
   EffectivePolicy'
-    { policyName = Lude.Nothing,
-      policyDocument = Lude.Nothing,
-      policyARN = Lude.Nothing
+    { policyArn = Core.Nothing,
+      policyDocument = Core.Nothing,
+      policyName = Core.Nothing
     }
 
--- | The policy name.
+-- | The policy ARN.
 --
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epPolicyName :: Lens.Lens' EffectivePolicy (Lude.Maybe Lude.Text)
-epPolicyName = Lens.lens (policyName :: EffectivePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: EffectivePolicy)
-{-# DEPRECATED epPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+-- /Note:/ Consider using 'policyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epPolicyArn :: Lens.Lens' EffectivePolicy (Core.Maybe Types.PolicyArn)
+epPolicyArn = Lens.field @"policyArn"
+{-# DEPRECATED epPolicyArn "Use generic-lens or generic-optics with 'policyArn' instead." #-}
 
 -- | The IAM policy document.
 --
 -- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epPolicyDocument :: Lens.Lens' EffectivePolicy (Lude.Maybe Lude.Text)
-epPolicyDocument = Lens.lens (policyDocument :: EffectivePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyDocument = a} :: EffectivePolicy)
+epPolicyDocument :: Lens.Lens' EffectivePolicy (Core.Maybe Types.PolicyDocument)
+epPolicyDocument = Lens.field @"policyDocument"
 {-# DEPRECATED epPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
--- | The policy ARN.
+-- | The policy name.
 --
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epPolicyARN :: Lens.Lens' EffectivePolicy (Lude.Maybe Lude.Text)
-epPolicyARN = Lens.lens (policyARN :: EffectivePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyARN = a} :: EffectivePolicy)
-{-# DEPRECATED epPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epPolicyName :: Lens.Lens' EffectivePolicy (Core.Maybe Types.PolicyName)
+epPolicyName = Lens.field @"policyName"
+{-# DEPRECATED epPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
-instance Lude.FromJSON EffectivePolicy where
+instance Core.FromJSON EffectivePolicy where
   parseJSON =
-    Lude.withObject
-      "EffectivePolicy"
-      ( \x ->
-          EffectivePolicy'
-            Lude.<$> (x Lude..:? "policyName")
-            Lude.<*> (x Lude..:? "policyDocument")
-            Lude.<*> (x Lude..:? "policyArn")
-      )
+    Core.withObject "EffectivePolicy" Core.$
+      \x ->
+        EffectivePolicy'
+          Core.<$> (x Core..:? "policyArn")
+          Core.<*> (x Core..:? "policyDocument")
+          Core.<*> (x Core..:? "policyName")

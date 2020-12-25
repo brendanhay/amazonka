@@ -22,8 +22,10 @@ module Network.AWS.KMS.Types.GrantConstraints
   )
 where
 
+import qualified Network.AWS.KMS.Types.EncryptionContextKey as Types
+import qualified Network.AWS.KMS.Types.EncryptionContextValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use this structure to allow <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> in the grant only when the operation request includes the specified <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context encryption context> .
 --
@@ -35,56 +37,51 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkGrantConstraints' smart constructor.
 data GrantConstraints = GrantConstraints'
   { -- | A list of key-value pairs that must match the encryption context in the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint.
-    encryptionContextEquals :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    encryptionContextEquals :: Core.Maybe (Core.HashMap Types.EncryptionContextKey Types.EncryptionContextValue),
     -- | A list of key-value pairs that must be included in the encryption context of the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs.
-    encryptionContextSubset :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    encryptionContextSubset :: Core.Maybe (Core.HashMap Types.EncryptionContextKey Types.EncryptionContextValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GrantConstraints' with the minimum fields required to make a request.
---
--- * 'encryptionContextEquals' - A list of key-value pairs that must match the encryption context in the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint.
--- * 'encryptionContextSubset' - A list of key-value pairs that must be included in the encryption context of the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs.
+-- | Creates a 'GrantConstraints' value with any optional fields omitted.
 mkGrantConstraints ::
   GrantConstraints
 mkGrantConstraints =
   GrantConstraints'
-    { encryptionContextEquals = Lude.Nothing,
-      encryptionContextSubset = Lude.Nothing
+    { encryptionContextEquals = Core.Nothing,
+      encryptionContextSubset = Core.Nothing
     }
 
 -- | A list of key-value pairs that must match the encryption context in the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> request. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint.
 --
 -- /Note:/ Consider using 'encryptionContextEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcEncryptionContextEquals :: Lens.Lens' GrantConstraints (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-gcEncryptionContextEquals = Lens.lens (encryptionContextEquals :: GrantConstraints -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {encryptionContextEquals = a} :: GrantConstraints)
+gcEncryptionContextEquals :: Lens.Lens' GrantConstraints (Core.Maybe (Core.HashMap Types.EncryptionContextKey Types.EncryptionContextValue))
+gcEncryptionContextEquals = Lens.field @"encryptionContextEquals"
 {-# DEPRECATED gcEncryptionContextEquals "Use generic-lens or generic-optics with 'encryptionContextEquals' instead." #-}
 
 -- | A list of key-value pairs that must be included in the encryption context of the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operation> request. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs.
 --
 -- /Note:/ Consider using 'encryptionContextSubset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcEncryptionContextSubset :: Lens.Lens' GrantConstraints (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-gcEncryptionContextSubset = Lens.lens (encryptionContextSubset :: GrantConstraints -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {encryptionContextSubset = a} :: GrantConstraints)
+gcEncryptionContextSubset :: Lens.Lens' GrantConstraints (Core.Maybe (Core.HashMap Types.EncryptionContextKey Types.EncryptionContextValue))
+gcEncryptionContextSubset = Lens.field @"encryptionContextSubset"
 {-# DEPRECATED gcEncryptionContextSubset "Use generic-lens or generic-optics with 'encryptionContextSubset' instead." #-}
 
-instance Lude.FromJSON GrantConstraints where
-  parseJSON =
-    Lude.withObject
-      "GrantConstraints"
-      ( \x ->
-          GrantConstraints'
-            Lude.<$> (x Lude..:? "EncryptionContextEquals" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "EncryptionContextSubset" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON GrantConstraints where
-  toJSON GrantConstraints' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EncryptionContextEquals" Lude..=)
-              Lude.<$> encryptionContextEquals,
-            ("EncryptionContextSubset" Lude..=)
-              Lude.<$> encryptionContextSubset
+instance Core.FromJSON GrantConstraints where
+  toJSON GrantConstraints {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EncryptionContextEquals" Core..=)
+              Core.<$> encryptionContextEquals,
+            ("EncryptionContextSubset" Core..=)
+              Core.<$> encryptionContextSubset
           ]
       )
+
+instance Core.FromJSON GrantConstraints where
+  parseJSON =
+    Core.withObject "GrantConstraints" Core.$
+      \x ->
+        GrantConstraints'
+          Core.<$> (x Core..:? "EncryptionContextEquals")
+          Core.<*> (x Core..:? "EncryptionContextSubset")

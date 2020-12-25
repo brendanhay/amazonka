@@ -39,124 +39,107 @@ module Network.AWS.WAFRegional.DeleteRule
     mkDeleteRuleResponse,
 
     -- ** Response lenses
-    drrsChangeToken,
-    drrsResponseStatus,
+    drrrsChangeToken,
+    drrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkDeleteRule' smart constructor.
 data DeleteRule = DeleteRule'
   { -- | The @RuleId@ of the 'Rule' that you want to delete. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
-    ruleId :: Lude.Text,
+    ruleId :: Types.ResourceId,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    changeToken :: Types.ChangeToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRule' with the minimum fields required to make a request.
---
--- * 'ruleId' - The @RuleId@ of the 'Rule' that you want to delete. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'DeleteRule' value with any optional fields omitted.
 mkDeleteRule ::
   -- | 'ruleId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   DeleteRule
-mkDeleteRule pRuleId_ pChangeToken_ =
-  DeleteRule' {ruleId = pRuleId_, changeToken = pChangeToken_}
+mkDeleteRule ruleId changeToken = DeleteRule' {ruleId, changeToken}
 
 -- | The @RuleId@ of the 'Rule' that you want to delete. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 --
 -- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drRuleId :: Lens.Lens' DeleteRule Lude.Text
-drRuleId = Lens.lens (ruleId :: DeleteRule -> Lude.Text) (\s a -> s {ruleId = a} :: DeleteRule)
+drRuleId :: Lens.Lens' DeleteRule Types.ResourceId
+drRuleId = Lens.field @"ruleId"
 {-# DEPRECATED drRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drChangeToken :: Lens.Lens' DeleteRule Lude.Text
-drChangeToken = Lens.lens (changeToken :: DeleteRule -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteRule)
+drChangeToken :: Lens.Lens' DeleteRule Types.ChangeToken
+drChangeToken = Lens.field @"changeToken"
 {-# DEPRECATED drChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance Lude.AWSRequest DeleteRule where
+instance Core.FromJSON DeleteRule where
+  toJSON DeleteRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RuleId" Core..= ruleId),
+            Core.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
+
+instance Core.AWSRequest DeleteRule where
   type Rs DeleteRule = DeleteRuleResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_Regional_20161128.DeleteRule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteRuleResponse'
-            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteRule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.DeleteRule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteRule where
-  toJSON DeleteRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RuleId" Lude..= ruleId),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath DeleteRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteRule where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteRuleResponse' smart constructor.
 data DeleteRuleResponse = DeleteRuleResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRuleResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @DeleteRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteRuleResponse' value with any optional fields omitted.
 mkDeleteRuleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteRuleResponse
-mkDeleteRuleResponse pResponseStatus_ =
-  DeleteRuleResponse'
-    { changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteRuleResponse responseStatus =
+  DeleteRuleResponse' {changeToken = Core.Nothing, responseStatus}
 
 -- | The @ChangeToken@ that you used to submit the @DeleteRule@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsChangeToken :: Lens.Lens' DeleteRuleResponse (Lude.Maybe Lude.Text)
-drrsChangeToken = Lens.lens (changeToken :: DeleteRuleResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: DeleteRuleResponse)
-{-# DEPRECATED drrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+drrrsChangeToken :: Lens.Lens' DeleteRuleResponse (Core.Maybe Types.ChangeToken)
+drrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED drrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsResponseStatus :: Lens.Lens' DeleteRuleResponse Lude.Int
-drrsResponseStatus = Lens.lens (responseStatus :: DeleteRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRuleResponse)
-{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drrrsResponseStatus :: Lens.Lens' DeleteRuleResponse Core.Int
+drrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

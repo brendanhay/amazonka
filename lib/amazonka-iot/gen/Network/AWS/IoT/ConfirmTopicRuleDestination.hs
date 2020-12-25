@@ -27,91 +27,80 @@ module Network.AWS.IoT.ConfirmTopicRuleDestination
     mkConfirmTopicRuleDestinationResponse,
 
     -- ** Response lenses
-    ctrdrsResponseStatus,
+    ctrdrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkConfirmTopicRuleDestination' smart constructor.
 newtype ConfirmTopicRuleDestination = ConfirmTopicRuleDestination'
   { -- | The token used to confirm ownership or access to the topic rule confirmation URL.
-    confirmationToken :: Lude.Text
+    confirmationToken :: Types.ConfirmationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfirmTopicRuleDestination' with the minimum fields required to make a request.
---
--- * 'confirmationToken' - The token used to confirm ownership or access to the topic rule confirmation URL.
+-- | Creates a 'ConfirmTopicRuleDestination' value with any optional fields omitted.
 mkConfirmTopicRuleDestination ::
   -- | 'confirmationToken'
-  Lude.Text ->
+  Types.ConfirmationToken ->
   ConfirmTopicRuleDestination
-mkConfirmTopicRuleDestination pConfirmationToken_ =
-  ConfirmTopicRuleDestination'
-    { confirmationToken =
-        pConfirmationToken_
-    }
+mkConfirmTopicRuleDestination confirmationToken =
+  ConfirmTopicRuleDestination' {confirmationToken}
 
 -- | The token used to confirm ownership or access to the topic rule confirmation URL.
 --
 -- /Note:/ Consider using 'confirmationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrdConfirmationToken :: Lens.Lens' ConfirmTopicRuleDestination Lude.Text
-ctrdConfirmationToken = Lens.lens (confirmationToken :: ConfirmTopicRuleDestination -> Lude.Text) (\s a -> s {confirmationToken = a} :: ConfirmTopicRuleDestination)
+ctrdConfirmationToken :: Lens.Lens' ConfirmTopicRuleDestination Types.ConfirmationToken
+ctrdConfirmationToken = Lens.field @"confirmationToken"
 {-# DEPRECATED ctrdConfirmationToken "Use generic-lens or generic-optics with 'confirmationToken' instead." #-}
 
-instance Lude.AWSRequest ConfirmTopicRuleDestination where
+instance Core.AWSRequest ConfirmTopicRuleDestination where
   type
     Rs ConfirmTopicRuleDestination =
       ConfirmTopicRuleDestinationResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/confirmdestination/" Core.<> (Core.toText confirmationToken)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           ConfirmTopicRuleDestinationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ConfirmTopicRuleDestination where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ConfirmTopicRuleDestination where
-  toPath ConfirmTopicRuleDestination' {..} =
-    Lude.mconcat
-      ["/confirmdestination/", Lude.toBS confirmationToken]
-
-instance Lude.ToQuery ConfirmTopicRuleDestination where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkConfirmTopicRuleDestinationResponse' smart constructor.
 newtype ConfirmTopicRuleDestinationResponse = ConfirmTopicRuleDestinationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfirmTopicRuleDestinationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ConfirmTopicRuleDestinationResponse' value with any optional fields omitted.
 mkConfirmTopicRuleDestinationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ConfirmTopicRuleDestinationResponse
-mkConfirmTopicRuleDestinationResponse pResponseStatus_ =
-  ConfirmTopicRuleDestinationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkConfirmTopicRuleDestinationResponse responseStatus =
+  ConfirmTopicRuleDestinationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrdrsResponseStatus :: Lens.Lens' ConfirmTopicRuleDestinationResponse Lude.Int
-ctrdrsResponseStatus = Lens.lens (responseStatus :: ConfirmTopicRuleDestinationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConfirmTopicRuleDestinationResponse)
-{-# DEPRECATED ctrdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctrdrrsResponseStatus :: Lens.Lens' ConfirmTopicRuleDestinationResponse Core.Int
+ctrdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctrdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

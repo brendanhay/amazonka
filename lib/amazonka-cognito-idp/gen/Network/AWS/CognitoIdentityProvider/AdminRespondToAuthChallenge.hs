@@ -22,13 +22,13 @@ module Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
     mkAdminRespondToAuthChallenge,
 
     -- ** Request lenses
-    artacClientMetadata,
-    artacChallengeName,
-    artacClientId,
-    artacContextData,
     artacUserPoolId,
+    artacClientId,
+    artacChallengeName,
     artacAnalyticsMetadata,
     artacChallengeResponses,
+    artacClientMetadata,
+    artacContextData,
     artacSession,
 
     -- * Destructuring the response
@@ -36,39 +36,32 @@ module Network.AWS.CognitoIdentityProvider.AdminRespondToAuthChallenge
     mkAdminRespondToAuthChallengeResponse,
 
     -- ** Response lenses
-    artacrsChallengeName,
-    artacrsChallengeParameters,
-    artacrsAuthenticationResult,
-    artacrsSession,
-    artacrsResponseStatus,
+    artacrrsAuthenticationResult,
+    artacrrsChallengeName,
+    artacrrsChallengeParameters,
+    artacrrsSession,
+    artacrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to respond to the authentication challenge, as an administrator.
 --
 -- /See:/ 'mkAdminRespondToAuthChallenge' smart constructor.
 data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
-  { -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
-    --
-    -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminRespondToAuthChallenge API action, Amazon Cognito invokes any functions that are assigned to the following triggers: /pre sign-up/ , /custom message/ , /post authentication/ , /user migration/ , /pre token generation/ , /define auth challenge/ , /create auth challenge/ , and /verify auth challenge response/ . When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminRespondToAuthChallenge request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
-    -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
-    clientMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The challenge name. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
-    challengeName :: ChallengeNameType,
+  { -- | The ID of the Amazon Cognito user pool.
+    userPoolId :: Types.UserPoolId,
     -- | The app client ID.
-    clientId :: Lude.Sensitive Lude.Text,
-    -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
-    contextData :: Lude.Maybe ContextDataType,
-    -- | The ID of the Amazon Cognito user pool.
-    userPoolId :: Lude.Text,
+    clientId :: Types.ClientIdType,
+    -- | The challenge name. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
+    challengeName :: Types.ChallengeNameType,
     -- | The analytics metadata for collecting Amazon Pinpoint metrics for @AdminRespondToAuthChallenge@ calls.
-    analyticsMetadata :: Lude.Maybe AnalyticsMetadataType,
+    analyticsMetadata :: Core.Maybe Types.AnalyticsMetadataType,
     -- | The challenge responses. These are inputs corresponding to the value of @ChallengeName@ , for example:
     --
     --
@@ -85,107 +78,67 @@ data AdminRespondToAuthChallenge = AdminRespondToAuthChallenge'
     --
     --
     -- The value of the @USERNAME@ attribute must be the user's actual username, not an alias (such as email address or phone number). To make this easier, the @AdminInitiateAuth@ response includes the actual username value in the @USERNAMEUSER_ID_FOR_SRP@ attribute, even if you specified an alias in your call to @AdminInitiateAuth@ .
-    challengeResponses :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    challengeResponses :: Core.Maybe (Core.HashMap Types.StringType Types.StringType),
+    -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+    --
+    -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminRespondToAuthChallenge API action, Amazon Cognito invokes any functions that are assigned to the following triggers: /pre sign-up/ , /custom message/ , /post authentication/ , /user migration/ , /pre token generation/ , /define auth challenge/ , /create auth challenge/ , and /verify auth challenge response/ . When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminRespondToAuthChallenge request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+    -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+    clientMetadata :: Core.Maybe (Core.HashMap Types.StringType Types.StringType),
+    -- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+    contextData :: Core.Maybe Types.ContextDataType,
     -- | The session which should be passed both ways in challenge-response calls to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
-    session :: Lude.Maybe Lude.Text
+    session :: Core.Maybe Types.SessionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminRespondToAuthChallenge' with the minimum fields required to make a request.
---
--- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
---
--- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminRespondToAuthChallenge API action, Amazon Cognito invokes any functions that are assigned to the following triggers: /pre sign-up/ , /custom message/ , /post authentication/ , /user migration/ , /pre token generation/ , /define auth challenge/ , /create auth challenge/ , and /verify auth challenge response/ . When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminRespondToAuthChallenge request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
--- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
--- * 'challengeName' - The challenge name. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
--- * 'clientId' - The app client ID.
--- * 'contextData' - Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
--- * 'userPoolId' - The ID of the Amazon Cognito user pool.
--- * 'analyticsMetadata' - The analytics metadata for collecting Amazon Pinpoint metrics for @AdminRespondToAuthChallenge@ calls.
--- * 'challengeResponses' - The challenge responses. These are inputs corresponding to the value of @ChallengeName@ , for example:
---
---
---     * @SMS_MFA@ : @SMS_MFA_CODE@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).
---
---
---     * @PASSWORD_VERIFIER@ : @PASSWORD_CLAIM_SIGNATURE@ , @PASSWORD_CLAIM_SECRET_BLOCK@ , @TIMESTAMP@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).
---
---
---     * @ADMIN_NO_SRP_AUTH@ : @PASSWORD@ , @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).
---
---
---     * @NEW_PASSWORD_REQUIRED@ : @NEW_PASSWORD@ , any other required attributes, @USERNAME@ , @SECRET_HASH@ (if app client is configured with client secret).
---
---
--- The value of the @USERNAME@ attribute must be the user's actual username, not an alias (such as email address or phone number). To make this easier, the @AdminInitiateAuth@ response includes the actual username value in the @USERNAMEUSER_ID_FOR_SRP@ attribute, even if you specified an alias in your call to @AdminInitiateAuth@ .
--- * 'session' - The session which should be passed both ways in challenge-response calls to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
+-- | Creates a 'AdminRespondToAuthChallenge' value with any optional fields omitted.
 mkAdminRespondToAuthChallenge ::
-  -- | 'challengeName'
-  ChallengeNameType ->
-  -- | 'clientId'
-  Lude.Sensitive Lude.Text ->
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
+  -- | 'clientId'
+  Types.ClientIdType ->
+  -- | 'challengeName'
+  Types.ChallengeNameType ->
   AdminRespondToAuthChallenge
-mkAdminRespondToAuthChallenge
-  pChallengeName_
-  pClientId_
-  pUserPoolId_ =
-    AdminRespondToAuthChallenge'
-      { clientMetadata = Lude.Nothing,
-        challengeName = pChallengeName_,
-        clientId = pClientId_,
-        contextData = Lude.Nothing,
-        userPoolId = pUserPoolId_,
-        analyticsMetadata = Lude.Nothing,
-        challengeResponses = Lude.Nothing,
-        session = Lude.Nothing
-      }
-
--- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
---
--- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminRespondToAuthChallenge API action, Amazon Cognito invokes any functions that are assigned to the following triggers: /pre sign-up/ , /custom message/ , /post authentication/ , /user migration/ , /pre token generation/ , /define auth challenge/ , /create auth challenge/ , and /verify auth challenge response/ . When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminRespondToAuthChallenge request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
--- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
---
--- /Note:/ Consider using 'clientMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacClientMetadata :: Lens.Lens' AdminRespondToAuthChallenge (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-artacClientMetadata = Lens.lens (clientMetadata :: AdminRespondToAuthChallenge -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {clientMetadata = a} :: AdminRespondToAuthChallenge)
-{-# DEPRECATED artacClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
-
--- | The challenge name. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
---
--- /Note:/ Consider using 'challengeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacChallengeName :: Lens.Lens' AdminRespondToAuthChallenge ChallengeNameType
-artacChallengeName = Lens.lens (challengeName :: AdminRespondToAuthChallenge -> ChallengeNameType) (\s a -> s {challengeName = a} :: AdminRespondToAuthChallenge)
-{-# DEPRECATED artacChallengeName "Use generic-lens or generic-optics with 'challengeName' instead." #-}
-
--- | The app client ID.
---
--- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacClientId :: Lens.Lens' AdminRespondToAuthChallenge (Lude.Sensitive Lude.Text)
-artacClientId = Lens.lens (clientId :: AdminRespondToAuthChallenge -> Lude.Sensitive Lude.Text) (\s a -> s {clientId = a} :: AdminRespondToAuthChallenge)
-{-# DEPRECATED artacClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
-
--- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
---
--- /Note:/ Consider using 'contextData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacContextData :: Lens.Lens' AdminRespondToAuthChallenge (Lude.Maybe ContextDataType)
-artacContextData = Lens.lens (contextData :: AdminRespondToAuthChallenge -> Lude.Maybe ContextDataType) (\s a -> s {contextData = a} :: AdminRespondToAuthChallenge)
-{-# DEPRECATED artacContextData "Use generic-lens or generic-optics with 'contextData' instead." #-}
+mkAdminRespondToAuthChallenge userPoolId clientId challengeName =
+  AdminRespondToAuthChallenge'
+    { userPoolId,
+      clientId,
+      challengeName,
+      analyticsMetadata = Core.Nothing,
+      challengeResponses = Core.Nothing,
+      clientMetadata = Core.Nothing,
+      contextData = Core.Nothing,
+      session = Core.Nothing
+    }
 
 -- | The ID of the Amazon Cognito user pool.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacUserPoolId :: Lens.Lens' AdminRespondToAuthChallenge Lude.Text
-artacUserPoolId = Lens.lens (userPoolId :: AdminRespondToAuthChallenge -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminRespondToAuthChallenge)
+artacUserPoolId :: Lens.Lens' AdminRespondToAuthChallenge Types.UserPoolId
+artacUserPoolId = Lens.field @"userPoolId"
 {-# DEPRECATED artacUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
+-- | The app client ID.
+--
+-- /Note:/ Consider using 'clientId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artacClientId :: Lens.Lens' AdminRespondToAuthChallenge Types.ClientIdType
+artacClientId = Lens.field @"clientId"
+{-# DEPRECATED artacClientId "Use generic-lens or generic-optics with 'clientId' instead." #-}
+
+-- | The challenge name. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
+--
+-- /Note:/ Consider using 'challengeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artacChallengeName :: Lens.Lens' AdminRespondToAuthChallenge Types.ChallengeNameType
+artacChallengeName = Lens.field @"challengeName"
+{-# DEPRECATED artacChallengeName "Use generic-lens or generic-optics with 'challengeName' instead." #-}
 
 -- | The analytics metadata for collecting Amazon Pinpoint metrics for @AdminRespondToAuthChallenge@ calls.
 --
 -- /Note:/ Consider using 'analyticsMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacAnalyticsMetadata :: Lens.Lens' AdminRespondToAuthChallenge (Lude.Maybe AnalyticsMetadataType)
-artacAnalyticsMetadata = Lens.lens (analyticsMetadata :: AdminRespondToAuthChallenge -> Lude.Maybe AnalyticsMetadataType) (\s a -> s {analyticsMetadata = a} :: AdminRespondToAuthChallenge)
+artacAnalyticsMetadata :: Lens.Lens' AdminRespondToAuthChallenge (Core.Maybe Types.AnalyticsMetadataType)
+artacAnalyticsMetadata = Lens.field @"analyticsMetadata"
 {-# DEPRECATED artacAnalyticsMetadata "Use generic-lens or generic-optics with 'analyticsMetadata' instead." #-}
 
 -- | The challenge responses. These are inputs corresponding to the value of @ChallengeName@ , for example:
@@ -206,137 +159,142 @@ artacAnalyticsMetadata = Lens.lens (analyticsMetadata :: AdminRespondToAuthChall
 -- The value of the @USERNAME@ attribute must be the user's actual username, not an alias (such as email address or phone number). To make this easier, the @AdminInitiateAuth@ response includes the actual username value in the @USERNAMEUSER_ID_FOR_SRP@ attribute, even if you specified an alias in your call to @AdminInitiateAuth@ .
 --
 -- /Note:/ Consider using 'challengeResponses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacChallengeResponses :: Lens.Lens' AdminRespondToAuthChallenge (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-artacChallengeResponses = Lens.lens (challengeResponses :: AdminRespondToAuthChallenge -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {challengeResponses = a} :: AdminRespondToAuthChallenge)
+artacChallengeResponses :: Lens.Lens' AdminRespondToAuthChallenge (Core.Maybe (Core.HashMap Types.StringType Types.StringType))
+artacChallengeResponses = Lens.field @"challengeResponses"
 {-# DEPRECATED artacChallengeResponses "Use generic-lens or generic-optics with 'challengeResponses' instead." #-}
+
+-- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+--
+-- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminRespondToAuthChallenge API action, Amazon Cognito invokes any functions that are assigned to the following triggers: /pre sign-up/ , /custom message/ , /post authentication/ , /user migration/ , /pre token generation/ , /define auth challenge/ , /create auth challenge/ , and /verify auth challenge response/ . When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminRespondToAuthChallenge request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
+-- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
+--
+-- /Note:/ Consider using 'clientMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artacClientMetadata :: Lens.Lens' AdminRespondToAuthChallenge (Core.Maybe (Core.HashMap Types.StringType Types.StringType))
+artacClientMetadata = Lens.field @"clientMetadata"
+{-# DEPRECATED artacClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
+
+-- | Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.
+--
+-- /Note:/ Consider using 'contextData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artacContextData :: Lens.Lens' AdminRespondToAuthChallenge (Core.Maybe Types.ContextDataType)
+artacContextData = Lens.field @"contextData"
+{-# DEPRECATED artacContextData "Use generic-lens or generic-optics with 'contextData' instead." #-}
 
 -- | The session which should be passed both ways in challenge-response calls to the service. If @InitiateAuth@ or @RespondToAuthChallenge@ API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 --
 -- /Note:/ Consider using 'session' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacSession :: Lens.Lens' AdminRespondToAuthChallenge (Lude.Maybe Lude.Text)
-artacSession = Lens.lens (session :: AdminRespondToAuthChallenge -> Lude.Maybe Lude.Text) (\s a -> s {session = a} :: AdminRespondToAuthChallenge)
+artacSession :: Lens.Lens' AdminRespondToAuthChallenge (Core.Maybe Types.SessionType)
+artacSession = Lens.field @"session"
 {-# DEPRECATED artacSession "Use generic-lens or generic-optics with 'session' instead." #-}
 
-instance Lude.AWSRequest AdminRespondToAuthChallenge where
+instance Core.FromJSON AdminRespondToAuthChallenge where
+  toJSON AdminRespondToAuthChallenge {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("ClientId" Core..= clientId),
+            Core.Just ("ChallengeName" Core..= challengeName),
+            ("AnalyticsMetadata" Core..=) Core.<$> analyticsMetadata,
+            ("ChallengeResponses" Core..=) Core.<$> challengeResponses,
+            ("ClientMetadata" Core..=) Core.<$> clientMetadata,
+            ("ContextData" Core..=) Core.<$> contextData,
+            ("Session" Core..=) Core.<$> session
+          ]
+      )
+
+instance Core.AWSRequest AdminRespondToAuthChallenge where
   type
     Rs AdminRespondToAuthChallenge =
       AdminRespondToAuthChallengeResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AdminRespondToAuthChallengeResponse'
-            Lude.<$> (x Lude..?> "ChallengeName")
-            Lude.<*> (x Lude..?> "ChallengeParameters" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "AuthenticationResult")
-            Lude.<*> (x Lude..?> "Session")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AuthenticationResult")
+            Core.<*> (x Core..:? "ChallengeName")
+            Core.<*> (x Core..:? "ChallengeParameters")
+            Core.<*> (x Core..:? "Session")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AdminRespondToAuthChallenge where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.AdminRespondToAuthChallenge" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AdminRespondToAuthChallenge where
-  toJSON AdminRespondToAuthChallenge' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ClientMetadata" Lude..=) Lude.<$> clientMetadata,
-            Lude.Just ("ChallengeName" Lude..= challengeName),
-            Lude.Just ("ClientId" Lude..= clientId),
-            ("ContextData" Lude..=) Lude.<$> contextData,
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
-            ("AnalyticsMetadata" Lude..=) Lude.<$> analyticsMetadata,
-            ("ChallengeResponses" Lude..=) Lude.<$> challengeResponses,
-            ("Session" Lude..=) Lude.<$> session
-          ]
-      )
-
-instance Lude.ToPath AdminRespondToAuthChallenge where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AdminRespondToAuthChallenge where
-  toQuery = Lude.const Lude.mempty
 
 -- | Responds to the authentication challenge, as an administrator.
 --
 -- /See:/ 'mkAdminRespondToAuthChallengeResponse' smart constructor.
 data AdminRespondToAuthChallengeResponse = AdminRespondToAuthChallengeResponse'
-  { -- | The name of the challenge. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
-    challengeName :: Lude.Maybe ChallengeNameType,
+  { -- | The result returned by the server in response to the authentication request.
+    authenticationResult :: Core.Maybe Types.AuthenticationResultType,
+    -- | The name of the challenge. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
+    challengeName :: Core.Maybe Types.ChallengeNameType,
     -- | The challenge parameters. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
-    challengeParameters :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The result returned by the server in response to the authentication request.
-    authenticationResult :: Lude.Maybe AuthenticationResultType,
+    challengeParameters :: Core.Maybe (Core.HashMap Types.StringType Types.StringType),
     -- | The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
-    session :: Lude.Maybe Lude.Text,
+    session :: Core.Maybe Types.Session,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminRespondToAuthChallengeResponse' with the minimum fields required to make a request.
---
--- * 'challengeName' - The name of the challenge. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
--- * 'challengeParameters' - The challenge parameters. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
--- * 'authenticationResult' - The result returned by the server in response to the authentication request.
--- * 'session' - The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AdminRespondToAuthChallengeResponse' value with any optional fields omitted.
 mkAdminRespondToAuthChallengeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AdminRespondToAuthChallengeResponse
-mkAdminRespondToAuthChallengeResponse pResponseStatus_ =
+mkAdminRespondToAuthChallengeResponse responseStatus =
   AdminRespondToAuthChallengeResponse'
-    { challengeName =
-        Lude.Nothing,
-      challengeParameters = Lude.Nothing,
-      authenticationResult = Lude.Nothing,
-      session = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { authenticationResult =
+        Core.Nothing,
+      challengeName = Core.Nothing,
+      challengeParameters = Core.Nothing,
+      session = Core.Nothing,
+      responseStatus
     }
-
--- | The name of the challenge. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
---
--- /Note:/ Consider using 'challengeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacrsChallengeName :: Lens.Lens' AdminRespondToAuthChallengeResponse (Lude.Maybe ChallengeNameType)
-artacrsChallengeName = Lens.lens (challengeName :: AdminRespondToAuthChallengeResponse -> Lude.Maybe ChallengeNameType) (\s a -> s {challengeName = a} :: AdminRespondToAuthChallengeResponse)
-{-# DEPRECATED artacrsChallengeName "Use generic-lens or generic-optics with 'challengeName' instead." #-}
-
--- | The challenge parameters. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
---
--- /Note:/ Consider using 'challengeParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacrsChallengeParameters :: Lens.Lens' AdminRespondToAuthChallengeResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-artacrsChallengeParameters = Lens.lens (challengeParameters :: AdminRespondToAuthChallengeResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {challengeParameters = a} :: AdminRespondToAuthChallengeResponse)
-{-# DEPRECATED artacrsChallengeParameters "Use generic-lens or generic-optics with 'challengeParameters' instead." #-}
 
 -- | The result returned by the server in response to the authentication request.
 --
 -- /Note:/ Consider using 'authenticationResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacrsAuthenticationResult :: Lens.Lens' AdminRespondToAuthChallengeResponse (Lude.Maybe AuthenticationResultType)
-artacrsAuthenticationResult = Lens.lens (authenticationResult :: AdminRespondToAuthChallengeResponse -> Lude.Maybe AuthenticationResultType) (\s a -> s {authenticationResult = a} :: AdminRespondToAuthChallengeResponse)
-{-# DEPRECATED artacrsAuthenticationResult "Use generic-lens or generic-optics with 'authenticationResult' instead." #-}
+artacrrsAuthenticationResult :: Lens.Lens' AdminRespondToAuthChallengeResponse (Core.Maybe Types.AuthenticationResultType)
+artacrrsAuthenticationResult = Lens.field @"authenticationResult"
+{-# DEPRECATED artacrrsAuthenticationResult "Use generic-lens or generic-optics with 'authenticationResult' instead." #-}
+
+-- | The name of the challenge. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
+--
+-- /Note:/ Consider using 'challengeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artacrrsChallengeName :: Lens.Lens' AdminRespondToAuthChallengeResponse (Core.Maybe Types.ChallengeNameType)
+artacrrsChallengeName = Lens.field @"challengeName"
+{-# DEPRECATED artacrrsChallengeName "Use generic-lens or generic-optics with 'challengeName' instead." #-}
+
+-- | The challenge parameters. For more information, see <https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html AdminInitiateAuth> .
+--
+-- /Note:/ Consider using 'challengeParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+artacrrsChallengeParameters :: Lens.Lens' AdminRespondToAuthChallengeResponse (Core.Maybe (Core.HashMap Types.StringType Types.StringType))
+artacrrsChallengeParameters = Lens.field @"challengeParameters"
+{-# DEPRECATED artacrrsChallengeParameters "Use generic-lens or generic-optics with 'challengeParameters' instead." #-}
 
 -- | The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next @RespondToAuthChallenge@ API call.
 --
 -- /Note:/ Consider using 'session' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacrsSession :: Lens.Lens' AdminRespondToAuthChallengeResponse (Lude.Maybe Lude.Text)
-artacrsSession = Lens.lens (session :: AdminRespondToAuthChallengeResponse -> Lude.Maybe Lude.Text) (\s a -> s {session = a} :: AdminRespondToAuthChallengeResponse)
-{-# DEPRECATED artacrsSession "Use generic-lens or generic-optics with 'session' instead." #-}
+artacrrsSession :: Lens.Lens' AdminRespondToAuthChallengeResponse (Core.Maybe Types.Session)
+artacrrsSession = Lens.field @"session"
+{-# DEPRECATED artacrrsSession "Use generic-lens or generic-optics with 'session' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-artacrsResponseStatus :: Lens.Lens' AdminRespondToAuthChallengeResponse Lude.Int
-artacrsResponseStatus = Lens.lens (responseStatus :: AdminRespondToAuthChallengeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminRespondToAuthChallengeResponse)
-{-# DEPRECATED artacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+artacrrsResponseStatus :: Lens.Lens' AdminRespondToAuthChallengeResponse Core.Int
+artacrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED artacrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

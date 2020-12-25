@@ -22,177 +22,162 @@ module Network.AWS.CertificateManagerPCA.ListTags
     mkListTags,
 
     -- ** Request lenses
-    ltNextToken,
+    ltCertificateAuthorityArn,
     ltMaxResults,
-    ltCertificateAuthorityARN,
+    ltNextToken,
 
     -- * Destructuring the response
     ListTagsResponse (..),
     mkListTagsResponse,
 
     -- ** Response lenses
-    ltrsNextToken,
-    ltrsTags,
-    ltrsResponseStatus,
+    ltrrsNextToken,
+    ltrrsTags,
+    ltrrsResponseStatus,
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTags' smart constructor.
 data ListTags = ListTags'
-  { -- | Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
-    maxResults :: Lude.Maybe Lude.Natural,
-    -- | The Amazon Resource Name (ARN) that was returned when you called the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action. This must be of the form:
+  { -- | The Amazon Resource Name (ARN) that was returned when you called the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action. This must be of the form:
     --
     -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
-    certificateAuthorityARN :: Lude.Text
+    certificateAuthorityArn :: Types.Arn,
+    -- | Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTags' with the minimum fields required to make a request.
---
--- * 'nextToken' - Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
--- * 'maxResults' - Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
--- * 'certificateAuthorityARN' - The Amazon Resource Name (ARN) that was returned when you called the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action. This must be of the form:
---
--- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
+-- | Creates a 'ListTags' value with any optional fields omitted.
 mkListTags ::
-  -- | 'certificateAuthorityARN'
-  Lude.Text ->
+  -- | 'certificateAuthorityArn'
+  Types.Arn ->
   ListTags
-mkListTags pCertificateAuthorityARN_ =
+mkListTags certificateAuthorityArn =
   ListTags'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      certificateAuthorityARN = pCertificateAuthorityARN_
+    { certificateAuthorityArn,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltNextToken :: Lens.Lens' ListTags (Lude.Maybe Lude.Text)
-ltNextToken = Lens.lens (nextToken :: ListTags -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTags)
-{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltMaxResults :: Lens.Lens' ListTags (Lude.Maybe Lude.Natural)
-ltMaxResults = Lens.lens (maxResults :: ListTags -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTags)
-{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that was returned when you called the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action. This must be of the form:
 --
 -- @arn:aws:acm-pca:/region/ :/account/ :certificate-authority//12345678-1234-1234-1234-123456789012/ @
 --
--- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltCertificateAuthorityARN :: Lens.Lens' ListTags Lude.Text
-ltCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: ListTags -> Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: ListTags)
-{-# DEPRECATED ltCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
+-- /Note:/ Consider using 'certificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltCertificateAuthorityArn :: Lens.Lens' ListTags Types.Arn
+ltCertificateAuthorityArn = Lens.field @"certificateAuthorityArn"
+{-# DEPRECATED ltCertificateAuthorityArn "Use generic-lens or generic-optics with 'certificateAuthorityArn' instead." #-}
 
-instance Page.AWSPager ListTags where
-  page rq rs
-    | Page.stop (rs Lens.^. ltrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ltrsTags) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ltNextToken Lens..~ rs Lens.^. ltrsNextToken
+-- | Use this parameter when paginating results to specify the maximum number of items to return in the response. If additional items exist beyond the number you specify, the __NextToken__ element is sent in the response. Use this __NextToken__ value in a subsequent request to retrieve additional items.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltMaxResults :: Lens.Lens' ListTags (Core.Maybe Core.Natural)
+ltMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED ltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListTags where
+-- | Use this parameter when paginating results in a subsequent request after you receive a response with truncated results. Set it to the value of __NextToken__ from the response you just received.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltNextToken :: Lens.Lens' ListTags (Core.Maybe Types.NextToken)
+ltNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListTags where
+  toJSON ListTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CertificateAuthorityArn" Core..= certificateAuthorityArn),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListTags where
   type Rs ListTags = ListTagsResponse
-  request = Req.postJSON certificateManagerPCAService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ACMPrivateCA.ListTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Tags")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ACMPrivateCA.ListTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListTags where
-  toJSON ListTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just
-              ("CertificateAuthorityArn" Lude..= certificateAuthorityARN)
-          ]
-      )
-
-instance Lude.ToPath ListTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListTags where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListTags where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"tags" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
   { -- | When the list is truncated, this value is present and should be used for the __NextToken__ parameter in a subsequent pagination request.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The tags associated with your private CA.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - When the list is truncated, this value is present and should be used for the __NextToken__ parameter in a subsequent pagination request.
--- * 'tags' - The tags associated with your private CA.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTagsResponse' value with any optional fields omitted.
 mkListTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTagsResponse
-mkListTagsResponse pResponseStatus_ =
+mkListTagsResponse responseStatus =
   ListTagsResponse'
-    { nextToken = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
 
 -- | When the list is truncated, this value is present and should be used for the __NextToken__ parameter in a subsequent pagination request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrsNextToken :: Lens.Lens' ListTagsResponse (Lude.Maybe Lude.Text)
-ltrsNextToken = Lens.lens (nextToken :: ListTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsResponse)
-{-# DEPRECATED ltrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltrrsNextToken :: Lens.Lens' ListTagsResponse (Core.Maybe Types.NextToken)
+ltrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The tags associated with your private CA.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrsTags :: Lens.Lens' ListTagsResponse (Lude.Maybe (Lude.NonEmpty Tag))
-ltrsTags = Lens.lens (tags :: ListTagsResponse -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: ListTagsResponse)
-{-# DEPRECATED ltrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+ltrrsTags :: Lens.Lens' ListTagsResponse (Core.Maybe (Core.NonEmpty Types.Tag))
+ltrrsTags = Lens.field @"tags"
+{-# DEPRECATED ltrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrsResponseStatus :: Lens.Lens' ListTagsResponse Lude.Int
-ltrsResponseStatus = Lens.lens (responseStatus :: ListTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsResponse)
-{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltrrsResponseStatus :: Lens.Lens' ListTagsResponse Core.Int
+ltrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

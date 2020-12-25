@@ -17,150 +17,141 @@ module Network.AWS.CloudWatchEvents.Types.Replay
     mkReplay,
 
     -- * Lenses
-    rfEventSourceARN,
-    rfState,
     rfEventEndTime,
-    rfReplayStartTime,
-    rfReplayEndTime,
     rfEventLastReplayedTime,
+    rfEventSourceArn,
     rfEventStartTime,
+    rfReplayEndTime,
     rfReplayName,
+    rfReplayStartTime,
+    rfState,
     rfStateReason,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types.ReplayState
+import qualified Network.AWS.CloudWatchEvents.Types.Arn as Types
+import qualified Network.AWS.CloudWatchEvents.Types.ReplayName as Types
+import qualified Network.AWS.CloudWatchEvents.Types.ReplayState as Types
+import qualified Network.AWS.CloudWatchEvents.Types.ReplayStateReason as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A @Replay@ object that contains details about a replay.
 --
 -- /See:/ 'mkReplay' smart constructor.
 data Replay = Replay'
-  { -- | The ARN of the archive to replay event from.
-    eventSourceARN :: Lude.Maybe Lude.Text,
-    -- | The current state of the replay.
-    state :: Lude.Maybe ReplayState,
-    -- | A time stamp for the time to start replaying events. Any event with a creation time prior to the @EventEndTime@ specified is replayed.
-    eventEndTime :: Lude.Maybe Lude.Timestamp,
-    -- | A time stamp for the time that the replay started.
-    replayStartTime :: Lude.Maybe Lude.Timestamp,
-    -- | A time stamp for the time that the replay completed.
-    replayEndTime :: Lude.Maybe Lude.Timestamp,
+  { -- | A time stamp for the time to start replaying events. Any event with a creation time prior to the @EventEndTime@ specified is replayed.
+    eventEndTime :: Core.Maybe Core.NominalDiffTime,
     -- | A time stamp for the time that the last event was replayed.
-    eventLastReplayedTime :: Lude.Maybe Lude.Timestamp,
+    eventLastReplayedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The ARN of the archive to replay event from.
+    eventSourceArn :: Core.Maybe Types.Arn,
     -- | A time stamp for the time to start replaying events. This is determined by the time in the event as described in <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time Time> .
-    eventStartTime :: Lude.Maybe Lude.Timestamp,
+    eventStartTime :: Core.Maybe Core.NominalDiffTime,
+    -- | A time stamp for the time that the replay completed.
+    replayEndTime :: Core.Maybe Core.NominalDiffTime,
     -- | The name of the replay.
-    replayName :: Lude.Maybe Lude.Text,
+    replayName :: Core.Maybe Types.ReplayName,
+    -- | A time stamp for the time that the replay started.
+    replayStartTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The current state of the replay.
+    state :: Core.Maybe Types.ReplayState,
     -- | A description of why the replay is in the current state.
-    stateReason :: Lude.Maybe Lude.Text
+    stateReason :: Core.Maybe Types.ReplayStateReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Replay' with the minimum fields required to make a request.
---
--- * 'eventSourceARN' - The ARN of the archive to replay event from.
--- * 'state' - The current state of the replay.
--- * 'eventEndTime' - A time stamp for the time to start replaying events. Any event with a creation time prior to the @EventEndTime@ specified is replayed.
--- * 'replayStartTime' - A time stamp for the time that the replay started.
--- * 'replayEndTime' - A time stamp for the time that the replay completed.
--- * 'eventLastReplayedTime' - A time stamp for the time that the last event was replayed.
--- * 'eventStartTime' - A time stamp for the time to start replaying events. This is determined by the time in the event as described in <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time Time> .
--- * 'replayName' - The name of the replay.
--- * 'stateReason' - A description of why the replay is in the current state.
+-- | Creates a 'Replay' value with any optional fields omitted.
 mkReplay ::
   Replay
 mkReplay =
   Replay'
-    { eventSourceARN = Lude.Nothing,
-      state = Lude.Nothing,
-      eventEndTime = Lude.Nothing,
-      replayStartTime = Lude.Nothing,
-      replayEndTime = Lude.Nothing,
-      eventLastReplayedTime = Lude.Nothing,
-      eventStartTime = Lude.Nothing,
-      replayName = Lude.Nothing,
-      stateReason = Lude.Nothing
+    { eventEndTime = Core.Nothing,
+      eventLastReplayedTime = Core.Nothing,
+      eventSourceArn = Core.Nothing,
+      eventStartTime = Core.Nothing,
+      replayEndTime = Core.Nothing,
+      replayName = Core.Nothing,
+      replayStartTime = Core.Nothing,
+      state = Core.Nothing,
+      stateReason = Core.Nothing
     }
-
--- | The ARN of the archive to replay event from.
---
--- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfEventSourceARN :: Lens.Lens' Replay (Lude.Maybe Lude.Text)
-rfEventSourceARN = Lens.lens (eventSourceARN :: Replay -> Lude.Maybe Lude.Text) (\s a -> s {eventSourceARN = a} :: Replay)
-{-# DEPRECATED rfEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
-
--- | The current state of the replay.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfState :: Lens.Lens' Replay (Lude.Maybe ReplayState)
-rfState = Lens.lens (state :: Replay -> Lude.Maybe ReplayState) (\s a -> s {state = a} :: Replay)
-{-# DEPRECATED rfState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A time stamp for the time to start replaying events. Any event with a creation time prior to the @EventEndTime@ specified is replayed.
 --
 -- /Note:/ Consider using 'eventEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfEventEndTime :: Lens.Lens' Replay (Lude.Maybe Lude.Timestamp)
-rfEventEndTime = Lens.lens (eventEndTime :: Replay -> Lude.Maybe Lude.Timestamp) (\s a -> s {eventEndTime = a} :: Replay)
+rfEventEndTime :: Lens.Lens' Replay (Core.Maybe Core.NominalDiffTime)
+rfEventEndTime = Lens.field @"eventEndTime"
 {-# DEPRECATED rfEventEndTime "Use generic-lens or generic-optics with 'eventEndTime' instead." #-}
-
--- | A time stamp for the time that the replay started.
---
--- /Note:/ Consider using 'replayStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfReplayStartTime :: Lens.Lens' Replay (Lude.Maybe Lude.Timestamp)
-rfReplayStartTime = Lens.lens (replayStartTime :: Replay -> Lude.Maybe Lude.Timestamp) (\s a -> s {replayStartTime = a} :: Replay)
-{-# DEPRECATED rfReplayStartTime "Use generic-lens or generic-optics with 'replayStartTime' instead." #-}
-
--- | A time stamp for the time that the replay completed.
---
--- /Note:/ Consider using 'replayEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfReplayEndTime :: Lens.Lens' Replay (Lude.Maybe Lude.Timestamp)
-rfReplayEndTime = Lens.lens (replayEndTime :: Replay -> Lude.Maybe Lude.Timestamp) (\s a -> s {replayEndTime = a} :: Replay)
-{-# DEPRECATED rfReplayEndTime "Use generic-lens or generic-optics with 'replayEndTime' instead." #-}
 
 -- | A time stamp for the time that the last event was replayed.
 --
 -- /Note:/ Consider using 'eventLastReplayedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfEventLastReplayedTime :: Lens.Lens' Replay (Lude.Maybe Lude.Timestamp)
-rfEventLastReplayedTime = Lens.lens (eventLastReplayedTime :: Replay -> Lude.Maybe Lude.Timestamp) (\s a -> s {eventLastReplayedTime = a} :: Replay)
+rfEventLastReplayedTime :: Lens.Lens' Replay (Core.Maybe Core.NominalDiffTime)
+rfEventLastReplayedTime = Lens.field @"eventLastReplayedTime"
 {-# DEPRECATED rfEventLastReplayedTime "Use generic-lens or generic-optics with 'eventLastReplayedTime' instead." #-}
+
+-- | The ARN of the archive to replay event from.
+--
+-- /Note:/ Consider using 'eventSourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfEventSourceArn :: Lens.Lens' Replay (Core.Maybe Types.Arn)
+rfEventSourceArn = Lens.field @"eventSourceArn"
+{-# DEPRECATED rfEventSourceArn "Use generic-lens or generic-optics with 'eventSourceArn' instead." #-}
 
 -- | A time stamp for the time to start replaying events. This is determined by the time in the event as described in <https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html#eventbridge-Type-PutEventsRequestEntry-Time Time> .
 --
 -- /Note:/ Consider using 'eventStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfEventStartTime :: Lens.Lens' Replay (Lude.Maybe Lude.Timestamp)
-rfEventStartTime = Lens.lens (eventStartTime :: Replay -> Lude.Maybe Lude.Timestamp) (\s a -> s {eventStartTime = a} :: Replay)
+rfEventStartTime :: Lens.Lens' Replay (Core.Maybe Core.NominalDiffTime)
+rfEventStartTime = Lens.field @"eventStartTime"
 {-# DEPRECATED rfEventStartTime "Use generic-lens or generic-optics with 'eventStartTime' instead." #-}
+
+-- | A time stamp for the time that the replay completed.
+--
+-- /Note:/ Consider using 'replayEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfReplayEndTime :: Lens.Lens' Replay (Core.Maybe Core.NominalDiffTime)
+rfReplayEndTime = Lens.field @"replayEndTime"
+{-# DEPRECATED rfReplayEndTime "Use generic-lens or generic-optics with 'replayEndTime' instead." #-}
 
 -- | The name of the replay.
 --
 -- /Note:/ Consider using 'replayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfReplayName :: Lens.Lens' Replay (Lude.Maybe Lude.Text)
-rfReplayName = Lens.lens (replayName :: Replay -> Lude.Maybe Lude.Text) (\s a -> s {replayName = a} :: Replay)
+rfReplayName :: Lens.Lens' Replay (Core.Maybe Types.ReplayName)
+rfReplayName = Lens.field @"replayName"
 {-# DEPRECATED rfReplayName "Use generic-lens or generic-optics with 'replayName' instead." #-}
+
+-- | A time stamp for the time that the replay started.
+--
+-- /Note:/ Consider using 'replayStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfReplayStartTime :: Lens.Lens' Replay (Core.Maybe Core.NominalDiffTime)
+rfReplayStartTime = Lens.field @"replayStartTime"
+{-# DEPRECATED rfReplayStartTime "Use generic-lens or generic-optics with 'replayStartTime' instead." #-}
+
+-- | The current state of the replay.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfState :: Lens.Lens' Replay (Core.Maybe Types.ReplayState)
+rfState = Lens.field @"state"
+{-# DEPRECATED rfState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A description of why the replay is in the current state.
 --
 -- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfStateReason :: Lens.Lens' Replay (Lude.Maybe Lude.Text)
-rfStateReason = Lens.lens (stateReason :: Replay -> Lude.Maybe Lude.Text) (\s a -> s {stateReason = a} :: Replay)
+rfStateReason :: Lens.Lens' Replay (Core.Maybe Types.ReplayStateReason)
+rfStateReason = Lens.field @"stateReason"
 {-# DEPRECATED rfStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
-instance Lude.FromJSON Replay where
+instance Core.FromJSON Replay where
   parseJSON =
-    Lude.withObject
-      "Replay"
-      ( \x ->
-          Replay'
-            Lude.<$> (x Lude..:? "EventSourceArn")
-            Lude.<*> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "EventEndTime")
-            Lude.<*> (x Lude..:? "ReplayStartTime")
-            Lude.<*> (x Lude..:? "ReplayEndTime")
-            Lude.<*> (x Lude..:? "EventLastReplayedTime")
-            Lude.<*> (x Lude..:? "EventStartTime")
-            Lude.<*> (x Lude..:? "ReplayName")
-            Lude.<*> (x Lude..:? "StateReason")
-      )
+    Core.withObject "Replay" Core.$
+      \x ->
+        Replay'
+          Core.<$> (x Core..:? "EventEndTime")
+          Core.<*> (x Core..:? "EventLastReplayedTime")
+          Core.<*> (x Core..:? "EventSourceArn")
+          Core.<*> (x Core..:? "EventStartTime")
+          Core.<*> (x Core..:? "ReplayEndTime")
+          Core.<*> (x Core..:? "ReplayName")
+          Core.<*> (x Core..:? "ReplayStartTime")
+          Core.<*> (x Core..:? "State")
+          Core.<*> (x Core..:? "StateReason")

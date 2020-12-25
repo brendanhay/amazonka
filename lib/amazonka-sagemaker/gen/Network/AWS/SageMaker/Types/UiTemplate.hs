@@ -22,35 +22,34 @@ module Network.AWS.SageMaker.Types.UiTemplate
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.Content as Types
 
 -- | The Liquid template for the worker user interface.
 --
 -- /See:/ 'mkUiTemplate' smart constructor.
 newtype UiTemplate = UiTemplate'
   { -- | The content of the Liquid template for the worker user interface.
-    content :: Lude.Text
+    content :: Types.Content
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UiTemplate' with the minimum fields required to make a request.
---
--- * 'content' - The content of the Liquid template for the worker user interface.
+-- | Creates a 'UiTemplate' value with any optional fields omitted.
 mkUiTemplate ::
   -- | 'content'
-  Lude.Text ->
+  Types.Content ->
   UiTemplate
-mkUiTemplate pContent_ = UiTemplate' {content = pContent_}
+mkUiTemplate content = UiTemplate' {content}
 
 -- | The content of the Liquid template for the worker user interface.
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utContent :: Lens.Lens' UiTemplate Lude.Text
-utContent = Lens.lens (content :: UiTemplate -> Lude.Text) (\s a -> s {content = a} :: UiTemplate)
+utContent :: Lens.Lens' UiTemplate Types.Content
+utContent = Lens.field @"content"
 {-# DEPRECATED utContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
-instance Lude.ToJSON UiTemplate where
-  toJSON UiTemplate' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Content" Lude..= content)])
+instance Core.FromJSON UiTemplate where
+  toJSON UiTemplate {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Content" Core..= content)])

@@ -24,9 +24,9 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
     mkPutNotificationConfiguration,
 
     -- ** Request lenses
-    pncNotificationTypes,
-    pncTopicARN,
     pncAutoScalingGroupName,
+    pncTopicARN,
+    pncNotificationTypes,
 
     -- * Destructuring the response
     PutNotificationConfigurationResponse (..),
@@ -34,94 +34,95 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutNotificationConfiguration' smart constructor.
 data PutNotificationConfiguration = PutNotificationConfiguration'
-  { -- | The type of event that causes the notification to be sent. To query the notification types supported by Amazon EC2 Auto Scaling, call the 'DescribeAutoScalingNotificationTypes' API.
-    notificationTypes :: [Lude.Text],
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Types.ResourceName,
     -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
-    topicARN :: Lude.Text,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text
+    topicARN :: Types.ResourceName,
+    -- | The type of event that causes the notification to be sent. To query the notification types supported by Amazon EC2 Auto Scaling, call the 'DescribeAutoScalingNotificationTypes' API.
+    notificationTypes :: [Types.XmlStringMaxLen255]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutNotificationConfiguration' with the minimum fields required to make a request.
---
--- * 'notificationTypes' - The type of event that causes the notification to be sent. To query the notification types supported by Amazon EC2 Auto Scaling, call the 'DescribeAutoScalingNotificationTypes' API.
--- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'PutNotificationConfiguration' value with any optional fields omitted.
 mkPutNotificationConfiguration ::
-  -- | 'topicARN'
-  Lude.Text ->
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.ResourceName ->
+  -- | 'topicARN'
+  Types.ResourceName ->
   PutNotificationConfiguration
-mkPutNotificationConfiguration pTopicARN_ pAutoScalingGroupName_ =
+mkPutNotificationConfiguration autoScalingGroupName topicARN =
   PutNotificationConfiguration'
-    { notificationTypes = Lude.mempty,
-      topicARN = pTopicARN_,
-      autoScalingGroupName = pAutoScalingGroupName_
+    { autoScalingGroupName,
+      topicARN,
+      notificationTypes = Core.mempty
     }
-
--- | The type of event that causes the notification to be sent. To query the notification types supported by Amazon EC2 Auto Scaling, call the 'DescribeAutoScalingNotificationTypes' API.
---
--- /Note:/ Consider using 'notificationTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pncNotificationTypes :: Lens.Lens' PutNotificationConfiguration [Lude.Text]
-pncNotificationTypes = Lens.lens (notificationTypes :: PutNotificationConfiguration -> [Lude.Text]) (\s a -> s {notificationTypes = a} :: PutNotificationConfiguration)
-{-# DEPRECATED pncNotificationTypes "Use generic-lens or generic-optics with 'notificationTypes' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
---
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pncTopicARN :: Lens.Lens' PutNotificationConfiguration Lude.Text
-pncTopicARN = Lens.lens (topicARN :: PutNotificationConfiguration -> Lude.Text) (\s a -> s {topicARN = a} :: PutNotificationConfiguration)
-{-# DEPRECATED pncTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pncAutoScalingGroupName :: Lens.Lens' PutNotificationConfiguration Lude.Text
-pncAutoScalingGroupName = Lens.lens (autoScalingGroupName :: PutNotificationConfiguration -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: PutNotificationConfiguration)
+pncAutoScalingGroupName :: Lens.Lens' PutNotificationConfiguration Types.ResourceName
+pncAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED pncAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance Lude.AWSRequest PutNotificationConfiguration where
+-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pncTopicARN :: Lens.Lens' PutNotificationConfiguration Types.ResourceName
+pncTopicARN = Lens.field @"topicARN"
+{-# DEPRECATED pncTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+
+-- | The type of event that causes the notification to be sent. To query the notification types supported by Amazon EC2 Auto Scaling, call the 'DescribeAutoScalingNotificationTypes' API.
+--
+-- /Note:/ Consider using 'notificationTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pncNotificationTypes :: Lens.Lens' PutNotificationConfiguration [Types.XmlStringMaxLen255]
+pncNotificationTypes = Lens.field @"notificationTypes"
+{-# DEPRECATED pncNotificationTypes "Use generic-lens or generic-optics with 'notificationTypes' instead." #-}
+
+instance Core.AWSRequest PutNotificationConfiguration where
   type
     Rs PutNotificationConfiguration =
       PutNotificationConfigurationResponse
-  request = Req.postQuery autoScalingService
-  response = Res.receiveNull PutNotificationConfigurationResponse'
-
-instance Lude.ToHeaders PutNotificationConfiguration where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PutNotificationConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutNotificationConfiguration where
-  toQuery PutNotificationConfiguration' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("PutNotificationConfiguration" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "NotificationTypes"
-          Lude.=: Lude.toQueryList "member" notificationTypes,
-        "TopicARN" Lude.=: topicARN,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PutNotificationConfiguration")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> (Core.toQueryValue "TopicARN" topicARN)
+                Core.<> ( Core.toQueryValue
+                            "NotificationTypes"
+                            (Core.toQueryList "member" notificationTypes)
+                        )
+            )
+      }
+  response =
+    Response.receiveNull PutNotificationConfigurationResponse'
 
 -- | /See:/ 'mkPutNotificationConfigurationResponse' smart constructor.
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutNotificationConfigurationResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutNotificationConfigurationResponse' value with any optional fields omitted.
 mkPutNotificationConfigurationResponse ::
   PutNotificationConfigurationResponse
 mkPutNotificationConfigurationResponse =

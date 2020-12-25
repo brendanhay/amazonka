@@ -39,9 +39,9 @@ module Network.AWS.SQS.ChangeMessageVisibility
     mkChangeMessageVisibility,
 
     -- ** Request lenses
-    cmvVisibilityTimeout,
-    cmvQueueURL,
+    cmvQueueUrl,
     cmvReceiptHandle,
+    cmvVisibilityTimeout,
 
     -- * Destructuring the response
     ChangeMessageVisibilityResponse (..),
@@ -50,100 +50,94 @@ module Network.AWS.SQS.ChangeMessageVisibility
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SQS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SQS.Types as Types
 
 -- | /See:/ 'mkChangeMessageVisibility' smart constructor.
 data ChangeMessageVisibility = ChangeMessageVisibility'
-  { -- | The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
-    visibilityTimeout :: Lude.Int,
-    -- | The URL of the Amazon SQS queue whose message's visibility is changed.
+  { -- | The URL of the Amazon SQS queue whose message's visibility is changed.
     --
     -- Queue URLs and names are case-sensitive.
-    queueURL :: Lude.Text,
+    queueUrl :: Types.String,
     -- | The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the @'ReceiveMessage' @ action.
-    receiptHandle :: Lude.Text
+    receiptHandle :: Types.String,
+    -- | The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
+    visibilityTimeout :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChangeMessageVisibility' with the minimum fields required to make a request.
---
--- * 'visibilityTimeout' - The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
--- * 'queueURL' - The URL of the Amazon SQS queue whose message's visibility is changed.
---
--- Queue URLs and names are case-sensitive.
--- * 'receiptHandle' - The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the @'ReceiveMessage' @ action.
+-- | Creates a 'ChangeMessageVisibility' value with any optional fields omitted.
 mkChangeMessageVisibility ::
-  -- | 'visibilityTimeout'
-  Lude.Int ->
-  -- | 'queueURL'
-  Lude.Text ->
+  -- | 'queueUrl'
+  Types.String ->
   -- | 'receiptHandle'
-  Lude.Text ->
+  Types.String ->
+  -- | 'visibilityTimeout'
+  Core.Int ->
   ChangeMessageVisibility
-mkChangeMessageVisibility
-  pVisibilityTimeout_
-  pQueueURL_
-  pReceiptHandle_ =
-    ChangeMessageVisibility'
-      { visibilityTimeout = pVisibilityTimeout_,
-        queueURL = pQueueURL_,
-        receiptHandle = pReceiptHandle_
-      }
-
--- | The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
---
--- /Note:/ Consider using 'visibilityTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmvVisibilityTimeout :: Lens.Lens' ChangeMessageVisibility Lude.Int
-cmvVisibilityTimeout = Lens.lens (visibilityTimeout :: ChangeMessageVisibility -> Lude.Int) (\s a -> s {visibilityTimeout = a} :: ChangeMessageVisibility)
-{-# DEPRECATED cmvVisibilityTimeout "Use generic-lens or generic-optics with 'visibilityTimeout' instead." #-}
+mkChangeMessageVisibility queueUrl receiptHandle visibilityTimeout =
+  ChangeMessageVisibility'
+    { queueUrl,
+      receiptHandle,
+      visibilityTimeout
+    }
 
 -- | The URL of the Amazon SQS queue whose message's visibility is changed.
 --
 -- Queue URLs and names are case-sensitive.
 --
--- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmvQueueURL :: Lens.Lens' ChangeMessageVisibility Lude.Text
-cmvQueueURL = Lens.lens (queueURL :: ChangeMessageVisibility -> Lude.Text) (\s a -> s {queueURL = a} :: ChangeMessageVisibility)
-{-# DEPRECATED cmvQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
+-- /Note:/ Consider using 'queueUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmvQueueUrl :: Lens.Lens' ChangeMessageVisibility Types.String
+cmvQueueUrl = Lens.field @"queueUrl"
+{-# DEPRECATED cmvQueueUrl "Use generic-lens or generic-optics with 'queueUrl' instead." #-}
 
 -- | The receipt handle associated with the message whose visibility timeout is changed. This parameter is returned by the @'ReceiveMessage' @ action.
 --
 -- /Note:/ Consider using 'receiptHandle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmvReceiptHandle :: Lens.Lens' ChangeMessageVisibility Lude.Text
-cmvReceiptHandle = Lens.lens (receiptHandle :: ChangeMessageVisibility -> Lude.Text) (\s a -> s {receiptHandle = a} :: ChangeMessageVisibility)
+cmvReceiptHandle :: Lens.Lens' ChangeMessageVisibility Types.String
+cmvReceiptHandle = Lens.field @"receiptHandle"
 {-# DEPRECATED cmvReceiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead." #-}
 
-instance Lude.AWSRequest ChangeMessageVisibility where
+-- | The new value for the message's visibility timeout (in seconds). Values range: @0@ to @43200@ . Maximum: 12 hours.
+--
+-- /Note:/ Consider using 'visibilityTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmvVisibilityTimeout :: Lens.Lens' ChangeMessageVisibility Core.Int
+cmvVisibilityTimeout = Lens.field @"visibilityTimeout"
+{-# DEPRECATED cmvVisibilityTimeout "Use generic-lens or generic-optics with 'visibilityTimeout' instead." #-}
+
+instance Core.AWSRequest ChangeMessageVisibility where
   type Rs ChangeMessageVisibility = ChangeMessageVisibilityResponse
-  request = Req.postQuery sqsService
-  response = Res.receiveNull ChangeMessageVisibilityResponse'
-
-instance Lude.ToHeaders ChangeMessageVisibility where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ChangeMessageVisibility where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ChangeMessageVisibility where
-  toQuery ChangeMessageVisibility' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ChangeMessageVisibility" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
-        "VisibilityTimeout" Lude.=: visibilityTimeout,
-        "QueueUrl" Lude.=: queueURL,
-        "ReceiptHandle" Lude.=: receiptHandle
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ChangeMessageVisibility")
+                Core.<> (Core.pure ("Version", "2012-11-05"))
+                Core.<> (Core.toQueryValue "QueueUrl" queueUrl)
+                Core.<> (Core.toQueryValue "ReceiptHandle" receiptHandle)
+                Core.<> (Core.toQueryValue "VisibilityTimeout" visibilityTimeout)
+            )
+      }
+  response = Response.receiveNull ChangeMessageVisibilityResponse'
 
 -- | /See:/ 'mkChangeMessageVisibilityResponse' smart constructor.
 data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChangeMessageVisibilityResponse' with the minimum fields required to make a request.
+-- | Creates a 'ChangeMessageVisibilityResponse' value with any optional fields omitted.
 mkChangeMessageVisibilityResponse ::
   ChangeMessageVisibilityResponse
 mkChangeMessageVisibilityResponse =

@@ -42,197 +42,175 @@ module Network.AWS.SWF.DescribeWorkflowExecution
     mkDescribeWorkflowExecutionResponse,
 
     -- ** Response lenses
-    dwersExecutionConfiguration,
-    dwersLatestActivityTaskTimestamp,
-    dwersExecutionInfo,
-    dwersOpenCounts,
-    dwersLatestExecutionContext,
-    dwersResponseStatus,
+    dwerrsExecutionInfo,
+    dwerrsExecutionConfiguration,
+    dwerrsOpenCounts,
+    dwerrsLatestActivityTaskTimestamp,
+    dwerrsLatestExecutionContext,
+    dwerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkDescribeWorkflowExecution' smart constructor.
 data DescribeWorkflowExecution = DescribeWorkflowExecution'
   { -- | The name of the domain containing the workflow execution.
-    domain :: Lude.Text,
+    domain :: Types.Domain,
     -- | The workflow execution to describe.
-    execution :: WorkflowExecution
+    execution :: Types.WorkflowExecution
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeWorkflowExecution' with the minimum fields required to make a request.
---
--- * 'domain' - The name of the domain containing the workflow execution.
--- * 'execution' - The workflow execution to describe.
+-- | Creates a 'DescribeWorkflowExecution' value with any optional fields omitted.
 mkDescribeWorkflowExecution ::
   -- | 'domain'
-  Lude.Text ->
+  Types.Domain ->
   -- | 'execution'
-  WorkflowExecution ->
+  Types.WorkflowExecution ->
   DescribeWorkflowExecution
-mkDescribeWorkflowExecution pDomain_ pExecution_ =
-  DescribeWorkflowExecution'
-    { domain = pDomain_,
-      execution = pExecution_
-    }
+mkDescribeWorkflowExecution domain execution =
+  DescribeWorkflowExecution' {domain, execution}
 
 -- | The name of the domain containing the workflow execution.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dweDomain :: Lens.Lens' DescribeWorkflowExecution Lude.Text
-dweDomain = Lens.lens (domain :: DescribeWorkflowExecution -> Lude.Text) (\s a -> s {domain = a} :: DescribeWorkflowExecution)
+dweDomain :: Lens.Lens' DescribeWorkflowExecution Types.Domain
+dweDomain = Lens.field @"domain"
 {-# DEPRECATED dweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The workflow execution to describe.
 --
 -- /Note:/ Consider using 'execution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dweExecution :: Lens.Lens' DescribeWorkflowExecution WorkflowExecution
-dweExecution = Lens.lens (execution :: DescribeWorkflowExecution -> WorkflowExecution) (\s a -> s {execution = a} :: DescribeWorkflowExecution)
+dweExecution :: Lens.Lens' DescribeWorkflowExecution Types.WorkflowExecution
+dweExecution = Lens.field @"execution"
 {-# DEPRECATED dweExecution "Use generic-lens or generic-optics with 'execution' instead." #-}
 
-instance Lude.AWSRequest DescribeWorkflowExecution where
+instance Core.FromJSON DescribeWorkflowExecution where
+  toJSON DescribeWorkflowExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("execution" Core..= execution)
+          ]
+      )
+
+instance Core.AWSRequest DescribeWorkflowExecution where
   type
     Rs DescribeWorkflowExecution =
       DescribeWorkflowExecutionResponse
-  request = Req.postJSON swfService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "SimpleWorkflowService.DescribeWorkflowExecution")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeWorkflowExecutionResponse'
-            Lude.<$> (x Lude..:> "executionConfiguration")
-            Lude.<*> (x Lude..?> "latestActivityTaskTimestamp")
-            Lude.<*> (x Lude..:> "executionInfo")
-            Lude.<*> (x Lude..:> "openCounts")
-            Lude.<*> (x Lude..?> "latestExecutionContext")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "executionInfo")
+            Core.<*> (x Core..: "executionConfiguration")
+            Core.<*> (x Core..: "openCounts")
+            Core.<*> (x Core..:? "latestActivityTaskTimestamp")
+            Core.<*> (x Core..:? "latestExecutionContext")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeWorkflowExecution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "SimpleWorkflowService.DescribeWorkflowExecution" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeWorkflowExecution where
-  toJSON DescribeWorkflowExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("domain" Lude..= domain),
-            Lude.Just ("execution" Lude..= execution)
-          ]
-      )
-
-instance Lude.ToPath DescribeWorkflowExecution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeWorkflowExecution where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains details about a workflow execution.
 --
 -- /See:/ 'mkDescribeWorkflowExecutionResponse' smart constructor.
 data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
-  { -- | The configuration settings for this workflow execution including timeout values, tasklist etc.
-    executionConfiguration :: WorkflowExecutionConfiguration,
-    -- | The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.
-    latestActivityTaskTimestamp :: Lude.Maybe Lude.Timestamp,
-    -- | Information about the workflow execution.
-    executionInfo :: WorkflowExecutionInfo,
+  { -- | Information about the workflow execution.
+    executionInfo :: Types.WorkflowExecutionInfo,
+    -- | The configuration settings for this workflow execution including timeout values, tasklist etc.
+    executionConfiguration :: Types.WorkflowExecutionConfiguration,
     -- | The number of tasks for this workflow execution. This includes open and closed tasks of all types.
-    openCounts :: WorkflowExecutionOpenCounts,
+    openCounts :: Types.WorkflowExecutionOpenCounts,
+    -- | The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.
+    latestActivityTaskTimestamp :: Core.Maybe Core.NominalDiffTime,
     -- | The latest executionContext provided by the decider for this workflow execution. A decider can provide an executionContext (a free-form string) when closing a decision task using 'RespondDecisionTaskCompleted' .
-    latestExecutionContext :: Lude.Maybe Lude.Text,
+    latestExecutionContext :: Core.Maybe Types.Data,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeWorkflowExecutionResponse' with the minimum fields required to make a request.
---
--- * 'executionConfiguration' - The configuration settings for this workflow execution including timeout values, tasklist etc.
--- * 'latestActivityTaskTimestamp' - The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.
--- * 'executionInfo' - Information about the workflow execution.
--- * 'openCounts' - The number of tasks for this workflow execution. This includes open and closed tasks of all types.
--- * 'latestExecutionContext' - The latest executionContext provided by the decider for this workflow execution. A decider can provide an executionContext (a free-form string) when closing a decision task using 'RespondDecisionTaskCompleted' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeWorkflowExecutionResponse' value with any optional fields omitted.
 mkDescribeWorkflowExecutionResponse ::
-  -- | 'executionConfiguration'
-  WorkflowExecutionConfiguration ->
   -- | 'executionInfo'
-  WorkflowExecutionInfo ->
+  Types.WorkflowExecutionInfo ->
+  -- | 'executionConfiguration'
+  Types.WorkflowExecutionConfiguration ->
   -- | 'openCounts'
-  WorkflowExecutionOpenCounts ->
+  Types.WorkflowExecutionOpenCounts ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeWorkflowExecutionResponse
 mkDescribeWorkflowExecutionResponse
-  pExecutionConfiguration_
-  pExecutionInfo_
-  pOpenCounts_
-  pResponseStatus_ =
+  executionInfo
+  executionConfiguration
+  openCounts
+  responseStatus =
     DescribeWorkflowExecutionResponse'
-      { executionConfiguration =
-          pExecutionConfiguration_,
-        latestActivityTaskTimestamp = Lude.Nothing,
-        executionInfo = pExecutionInfo_,
-        openCounts = pOpenCounts_,
-        latestExecutionContext = Lude.Nothing,
-        responseStatus = pResponseStatus_
+      { executionInfo,
+        executionConfiguration,
+        openCounts,
+        latestActivityTaskTimestamp = Core.Nothing,
+        latestExecutionContext = Core.Nothing,
+        responseStatus
       }
-
--- | The configuration settings for this workflow execution including timeout values, tasklist etc.
---
--- /Note:/ Consider using 'executionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwersExecutionConfiguration :: Lens.Lens' DescribeWorkflowExecutionResponse WorkflowExecutionConfiguration
-dwersExecutionConfiguration = Lens.lens (executionConfiguration :: DescribeWorkflowExecutionResponse -> WorkflowExecutionConfiguration) (\s a -> s {executionConfiguration = a} :: DescribeWorkflowExecutionResponse)
-{-# DEPRECATED dwersExecutionConfiguration "Use generic-lens or generic-optics with 'executionConfiguration' instead." #-}
-
--- | The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.
---
--- /Note:/ Consider using 'latestActivityTaskTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwersLatestActivityTaskTimestamp :: Lens.Lens' DescribeWorkflowExecutionResponse (Lude.Maybe Lude.Timestamp)
-dwersLatestActivityTaskTimestamp = Lens.lens (latestActivityTaskTimestamp :: DescribeWorkflowExecutionResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {latestActivityTaskTimestamp = a} :: DescribeWorkflowExecutionResponse)
-{-# DEPRECATED dwersLatestActivityTaskTimestamp "Use generic-lens or generic-optics with 'latestActivityTaskTimestamp' instead." #-}
 
 -- | Information about the workflow execution.
 --
 -- /Note:/ Consider using 'executionInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwersExecutionInfo :: Lens.Lens' DescribeWorkflowExecutionResponse WorkflowExecutionInfo
-dwersExecutionInfo = Lens.lens (executionInfo :: DescribeWorkflowExecutionResponse -> WorkflowExecutionInfo) (\s a -> s {executionInfo = a} :: DescribeWorkflowExecutionResponse)
-{-# DEPRECATED dwersExecutionInfo "Use generic-lens or generic-optics with 'executionInfo' instead." #-}
+dwerrsExecutionInfo :: Lens.Lens' DescribeWorkflowExecutionResponse Types.WorkflowExecutionInfo
+dwerrsExecutionInfo = Lens.field @"executionInfo"
+{-# DEPRECATED dwerrsExecutionInfo "Use generic-lens or generic-optics with 'executionInfo' instead." #-}
+
+-- | The configuration settings for this workflow execution including timeout values, tasklist etc.
+--
+-- /Note:/ Consider using 'executionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwerrsExecutionConfiguration :: Lens.Lens' DescribeWorkflowExecutionResponse Types.WorkflowExecutionConfiguration
+dwerrsExecutionConfiguration = Lens.field @"executionConfiguration"
+{-# DEPRECATED dwerrsExecutionConfiguration "Use generic-lens or generic-optics with 'executionConfiguration' instead." #-}
 
 -- | The number of tasks for this workflow execution. This includes open and closed tasks of all types.
 --
 -- /Note:/ Consider using 'openCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwersOpenCounts :: Lens.Lens' DescribeWorkflowExecutionResponse WorkflowExecutionOpenCounts
-dwersOpenCounts = Lens.lens (openCounts :: DescribeWorkflowExecutionResponse -> WorkflowExecutionOpenCounts) (\s a -> s {openCounts = a} :: DescribeWorkflowExecutionResponse)
-{-# DEPRECATED dwersOpenCounts "Use generic-lens or generic-optics with 'openCounts' instead." #-}
+dwerrsOpenCounts :: Lens.Lens' DescribeWorkflowExecutionResponse Types.WorkflowExecutionOpenCounts
+dwerrsOpenCounts = Lens.field @"openCounts"
+{-# DEPRECATED dwerrsOpenCounts "Use generic-lens or generic-optics with 'openCounts' instead." #-}
+
+-- | The time when the last activity task was scheduled for this workflow execution. You can use this information to determine if the workflow has not made progress for an unusually long period of time and might require a corrective action.
+--
+-- /Note:/ Consider using 'latestActivityTaskTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwerrsLatestActivityTaskTimestamp :: Lens.Lens' DescribeWorkflowExecutionResponse (Core.Maybe Core.NominalDiffTime)
+dwerrsLatestActivityTaskTimestamp = Lens.field @"latestActivityTaskTimestamp"
+{-# DEPRECATED dwerrsLatestActivityTaskTimestamp "Use generic-lens or generic-optics with 'latestActivityTaskTimestamp' instead." #-}
 
 -- | The latest executionContext provided by the decider for this workflow execution. A decider can provide an executionContext (a free-form string) when closing a decision task using 'RespondDecisionTaskCompleted' .
 --
 -- /Note:/ Consider using 'latestExecutionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwersLatestExecutionContext :: Lens.Lens' DescribeWorkflowExecutionResponse (Lude.Maybe Lude.Text)
-dwersLatestExecutionContext = Lens.lens (latestExecutionContext :: DescribeWorkflowExecutionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestExecutionContext = a} :: DescribeWorkflowExecutionResponse)
-{-# DEPRECATED dwersLatestExecutionContext "Use generic-lens or generic-optics with 'latestExecutionContext' instead." #-}
+dwerrsLatestExecutionContext :: Lens.Lens' DescribeWorkflowExecutionResponse (Core.Maybe Types.Data)
+dwerrsLatestExecutionContext = Lens.field @"latestExecutionContext"
+{-# DEPRECATED dwerrsLatestExecutionContext "Use generic-lens or generic-optics with 'latestExecutionContext' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwersResponseStatus :: Lens.Lens' DescribeWorkflowExecutionResponse Lude.Int
-dwersResponseStatus = Lens.lens (responseStatus :: DescribeWorkflowExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkflowExecutionResponse)
-{-# DEPRECATED dwersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwerrsResponseStatus :: Lens.Lens' DescribeWorkflowExecutionResponse Core.Int
+dwerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dwerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

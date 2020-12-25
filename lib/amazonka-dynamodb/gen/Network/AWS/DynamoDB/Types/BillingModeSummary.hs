@@ -17,58 +17,41 @@ module Network.AWS.DynamoDB.Types.BillingModeSummary
     mkBillingModeSummary,
 
     -- * Lenses
-    bmsLastUpdateToPayPerRequestDateTime,
     bmsBillingMode,
+    bmsLastUpdateToPayPerRequestDateTime,
   )
 where
 
-import Network.AWS.DynamoDB.Types.BillingMode
+import qualified Network.AWS.DynamoDB.Types.BillingMode as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the details for the read/write capacity mode.
 --
 -- /See:/ 'mkBillingModeSummary' smart constructor.
 data BillingModeSummary = BillingModeSummary'
-  { -- | Represents the time when @PAY_PER_REQUEST@ was last set as the read/write capacity mode.
-    lastUpdateToPayPerRequestDateTime :: Lude.Maybe Lude.Timestamp,
-    -- | Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.
+  { -- | Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.
     --
     --
     --     * @PROVISIONED@ - Sets the read/write capacity mode to @PROVISIONED@ . We recommend using @PROVISIONED@ for predictable workloads.
     --
     --
     --     * @PAY_PER_REQUEST@ - Sets the read/write capacity mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
-    billingMode :: Lude.Maybe BillingMode
+    billingMode :: Core.Maybe Types.BillingMode,
+    -- | Represents the time when @PAY_PER_REQUEST@ was last set as the read/write capacity mode.
+    lastUpdateToPayPerRequestDateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BillingModeSummary' with the minimum fields required to make a request.
---
--- * 'lastUpdateToPayPerRequestDateTime' - Represents the time when @PAY_PER_REQUEST@ was last set as the read/write capacity mode.
--- * 'billingMode' - Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.
---
---
---     * @PROVISIONED@ - Sets the read/write capacity mode to @PROVISIONED@ . We recommend using @PROVISIONED@ for predictable workloads.
---
---
---     * @PAY_PER_REQUEST@ - Sets the read/write capacity mode to @PAY_PER_REQUEST@ . We recommend using @PAY_PER_REQUEST@ for unpredictable workloads.
+-- | Creates a 'BillingModeSummary' value with any optional fields omitted.
 mkBillingModeSummary ::
   BillingModeSummary
 mkBillingModeSummary =
   BillingModeSummary'
-    { lastUpdateToPayPerRequestDateTime =
-        Lude.Nothing,
-      billingMode = Lude.Nothing
+    { billingMode = Core.Nothing,
+      lastUpdateToPayPerRequestDateTime = Core.Nothing
     }
-
--- | Represents the time when @PAY_PER_REQUEST@ was last set as the read/write capacity mode.
---
--- /Note:/ Consider using 'lastUpdateToPayPerRequestDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmsLastUpdateToPayPerRequestDateTime :: Lens.Lens' BillingModeSummary (Lude.Maybe Lude.Timestamp)
-bmsLastUpdateToPayPerRequestDateTime = Lens.lens (lastUpdateToPayPerRequestDateTime :: BillingModeSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateToPayPerRequestDateTime = a} :: BillingModeSummary)
-{-# DEPRECATED bmsLastUpdateToPayPerRequestDateTime "Use generic-lens or generic-optics with 'lastUpdateToPayPerRequestDateTime' instead." #-}
 
 -- | Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.
 --
@@ -81,16 +64,21 @@ bmsLastUpdateToPayPerRequestDateTime = Lens.lens (lastUpdateToPayPerRequestDateT
 --
 --
 -- /Note:/ Consider using 'billingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmsBillingMode :: Lens.Lens' BillingModeSummary (Lude.Maybe BillingMode)
-bmsBillingMode = Lens.lens (billingMode :: BillingModeSummary -> Lude.Maybe BillingMode) (\s a -> s {billingMode = a} :: BillingModeSummary)
+bmsBillingMode :: Lens.Lens' BillingModeSummary (Core.Maybe Types.BillingMode)
+bmsBillingMode = Lens.field @"billingMode"
 {-# DEPRECATED bmsBillingMode "Use generic-lens or generic-optics with 'billingMode' instead." #-}
 
-instance Lude.FromJSON BillingModeSummary where
+-- | Represents the time when @PAY_PER_REQUEST@ was last set as the read/write capacity mode.
+--
+-- /Note:/ Consider using 'lastUpdateToPayPerRequestDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmsLastUpdateToPayPerRequestDateTime :: Lens.Lens' BillingModeSummary (Core.Maybe Core.NominalDiffTime)
+bmsLastUpdateToPayPerRequestDateTime = Lens.field @"lastUpdateToPayPerRequestDateTime"
+{-# DEPRECATED bmsLastUpdateToPayPerRequestDateTime "Use generic-lens or generic-optics with 'lastUpdateToPayPerRequestDateTime' instead." #-}
+
+instance Core.FromJSON BillingModeSummary where
   parseJSON =
-    Lude.withObject
-      "BillingModeSummary"
-      ( \x ->
-          BillingModeSummary'
-            Lude.<$> (x Lude..:? "LastUpdateToPayPerRequestDateTime")
-            Lude.<*> (x Lude..:? "BillingMode")
-      )
+    Core.withObject "BillingModeSummary" Core.$
+      \x ->
+        BillingModeSummary'
+          Core.<$> (x Core..:? "BillingMode")
+          Core.<*> (x Core..:? "LastUpdateToPayPerRequestDateTime")

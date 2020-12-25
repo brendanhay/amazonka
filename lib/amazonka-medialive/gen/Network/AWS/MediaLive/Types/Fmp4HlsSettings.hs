@@ -17,83 +17,77 @@ module Network.AWS.MediaLive.Types.Fmp4HlsSettings
     mkFmp4HlsSettings,
 
     -- * Lenses
-    fhsNielsenId3Behavior,
     fhsAudioRenditionSets,
+    fhsNielsenId3Behavior,
     fhsTimedMetadataBehavior,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.Fmp4NielsenId3Behavior
-import Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.Fmp4NielsenId3Behavior as Types
+import qualified Network.AWS.MediaLive.Types.Fmp4TimedMetadataBehavior as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Fmp4 Hls Settings
 --
 -- /See:/ 'mkFmp4HlsSettings' smart constructor.
 data Fmp4HlsSettings = Fmp4HlsSettings'
-  { -- | If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
-    nielsenId3Behavior :: Lude.Maybe Fmp4NielsenId3Behavior,
-    -- | List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
-    audioRenditionSets :: Lude.Maybe Lude.Text,
+  { -- | List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
+    audioRenditionSets :: Core.Maybe Core.Text,
+    -- | If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+    nielsenId3Behavior :: Core.Maybe Types.Fmp4NielsenId3Behavior,
     -- | When set to passthrough, timed metadata is passed through from input to output.
-    timedMetadataBehavior :: Lude.Maybe Fmp4TimedMetadataBehavior
+    timedMetadataBehavior :: Core.Maybe Types.Fmp4TimedMetadataBehavior
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Fmp4HlsSettings' with the minimum fields required to make a request.
---
--- * 'nielsenId3Behavior' - If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
--- * 'audioRenditionSets' - List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
--- * 'timedMetadataBehavior' - When set to passthrough, timed metadata is passed through from input to output.
+-- | Creates a 'Fmp4HlsSettings' value with any optional fields omitted.
 mkFmp4HlsSettings ::
   Fmp4HlsSettings
 mkFmp4HlsSettings =
   Fmp4HlsSettings'
-    { nielsenId3Behavior = Lude.Nothing,
-      audioRenditionSets = Lude.Nothing,
-      timedMetadataBehavior = Lude.Nothing
+    { audioRenditionSets = Core.Nothing,
+      nielsenId3Behavior = Core.Nothing,
+      timedMetadataBehavior = Core.Nothing
     }
-
--- | If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
---
--- /Note:/ Consider using 'nielsenId3Behavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fhsNielsenId3Behavior :: Lens.Lens' Fmp4HlsSettings (Lude.Maybe Fmp4NielsenId3Behavior)
-fhsNielsenId3Behavior = Lens.lens (nielsenId3Behavior :: Fmp4HlsSettings -> Lude.Maybe Fmp4NielsenId3Behavior) (\s a -> s {nielsenId3Behavior = a} :: Fmp4HlsSettings)
-{-# DEPRECATED fhsNielsenId3Behavior "Use generic-lens or generic-optics with 'nielsenId3Behavior' instead." #-}
 
 -- | List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
 --
 -- /Note:/ Consider using 'audioRenditionSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fhsAudioRenditionSets :: Lens.Lens' Fmp4HlsSettings (Lude.Maybe Lude.Text)
-fhsAudioRenditionSets = Lens.lens (audioRenditionSets :: Fmp4HlsSettings -> Lude.Maybe Lude.Text) (\s a -> s {audioRenditionSets = a} :: Fmp4HlsSettings)
+fhsAudioRenditionSets :: Lens.Lens' Fmp4HlsSettings (Core.Maybe Core.Text)
+fhsAudioRenditionSets = Lens.field @"audioRenditionSets"
 {-# DEPRECATED fhsAudioRenditionSets "Use generic-lens or generic-optics with 'audioRenditionSets' instead." #-}
+
+-- | If set to passthrough, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+--
+-- /Note:/ Consider using 'nielsenId3Behavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fhsNielsenId3Behavior :: Lens.Lens' Fmp4HlsSettings (Core.Maybe Types.Fmp4NielsenId3Behavior)
+fhsNielsenId3Behavior = Lens.field @"nielsenId3Behavior"
+{-# DEPRECATED fhsNielsenId3Behavior "Use generic-lens or generic-optics with 'nielsenId3Behavior' instead." #-}
 
 -- | When set to passthrough, timed metadata is passed through from input to output.
 --
 -- /Note:/ Consider using 'timedMetadataBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fhsTimedMetadataBehavior :: Lens.Lens' Fmp4HlsSettings (Lude.Maybe Fmp4TimedMetadataBehavior)
-fhsTimedMetadataBehavior = Lens.lens (timedMetadataBehavior :: Fmp4HlsSettings -> Lude.Maybe Fmp4TimedMetadataBehavior) (\s a -> s {timedMetadataBehavior = a} :: Fmp4HlsSettings)
+fhsTimedMetadataBehavior :: Lens.Lens' Fmp4HlsSettings (Core.Maybe Types.Fmp4TimedMetadataBehavior)
+fhsTimedMetadataBehavior = Lens.field @"timedMetadataBehavior"
 {-# DEPRECATED fhsTimedMetadataBehavior "Use generic-lens or generic-optics with 'timedMetadataBehavior' instead." #-}
 
-instance Lude.FromJSON Fmp4HlsSettings where
-  parseJSON =
-    Lude.withObject
-      "Fmp4HlsSettings"
-      ( \x ->
-          Fmp4HlsSettings'
-            Lude.<$> (x Lude..:? "nielsenId3Behavior")
-            Lude.<*> (x Lude..:? "audioRenditionSets")
-            Lude.<*> (x Lude..:? "timedMetadataBehavior")
-      )
-
-instance Lude.ToJSON Fmp4HlsSettings where
-  toJSON Fmp4HlsSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nielsenId3Behavior" Lude..=) Lude.<$> nielsenId3Behavior,
-            ("audioRenditionSets" Lude..=) Lude.<$> audioRenditionSets,
-            ("timedMetadataBehavior" Lude..=) Lude.<$> timedMetadataBehavior
+instance Core.FromJSON Fmp4HlsSettings where
+  toJSON Fmp4HlsSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("audioRenditionSets" Core..=) Core.<$> audioRenditionSets,
+            ("nielsenId3Behavior" Core..=) Core.<$> nielsenId3Behavior,
+            ("timedMetadataBehavior" Core..=) Core.<$> timedMetadataBehavior
           ]
       )
+
+instance Core.FromJSON Fmp4HlsSettings where
+  parseJSON =
+    Core.withObject "Fmp4HlsSettings" Core.$
+      \x ->
+        Fmp4HlsSettings'
+          Core.<$> (x Core..:? "audioRenditionSets")
+          Core.<*> (x Core..:? "nielsenId3Behavior")
+          Core.<*> (x Core..:? "timedMetadataBehavior")

@@ -17,207 +17,193 @@ module Network.AWS.GuardDuty.Types.Condition
     mkCondition,
 
     -- * Lenses
-    cEQ,
-    cLessThan,
-    cLte,
-    cGreaterThanOrEqual,
-    cLessThanOrEqual,
-    cGT,
+    cEq,
     cEquals,
+    cGreaterThan,
+    cGreaterThanOrEqual,
+    cGt,
+    cGte,
+    cLessThan,
+    cLessThanOrEqual,
+    cLt,
+    cLte,
     cNeq,
     cNotEquals,
-    cLT,
-    cGte,
-    cGreaterThan,
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the condition.
 --
 -- /See:/ 'mkCondition' smart constructor.
 data Condition = Condition'
   { -- | Represents the /equal/ condition to be applied to a single field when querying for findings.
-    eQ :: Lude.Maybe [Lude.Text],
-    -- | Represents a /less than/ condition to be applied to a single field when querying for findings.
-    lessThan :: Lude.Maybe Lude.Integer,
-    -- | Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
-    lte :: Lude.Maybe Lude.Int,
-    -- | Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
-    greaterThanOrEqual :: Lude.Maybe Lude.Integer,
-    -- | Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
-    lessThanOrEqual :: Lude.Maybe Lude.Integer,
-    -- | Represents a /greater than/ condition to be applied to a single field when querying for findings.
-    gT :: Lude.Maybe Lude.Int,
+    eq :: Core.Maybe [Types.String],
     -- | Represents an /equal/ ____ condition to be applied to a single field when querying for findings.
-    equals :: Lude.Maybe [Lude.Text],
-    -- | Represents the /not equal/ condition to be applied to a single field when querying for findings.
-    neq :: Lude.Maybe [Lude.Text],
-    -- | Represents a /not equal/ ____ condition to be applied to a single field when querying for findings.
-    notEquals :: Lude.Maybe [Lude.Text],
-    -- | Represents a /less than/ condition to be applied to a single field when querying for findings.
-    lT :: Lude.Maybe Lude.Int,
-    -- | Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
-    gte :: Lude.Maybe Lude.Int,
+    equals :: Core.Maybe [Types.String],
     -- | Represents a /greater than/ condition to be applied to a single field when querying for findings.
-    greaterThan :: Lude.Maybe Lude.Integer
+    greaterThan :: Core.Maybe Core.Integer,
+    -- | Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
+    greaterThanOrEqual :: Core.Maybe Core.Integer,
+    -- | Represents a /greater than/ condition to be applied to a single field when querying for findings.
+    gt :: Core.Maybe Core.Int,
+    -- | Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
+    gte :: Core.Maybe Core.Int,
+    -- | Represents a /less than/ condition to be applied to a single field when querying for findings.
+    lessThan :: Core.Maybe Core.Integer,
+    -- | Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
+    lessThanOrEqual :: Core.Maybe Core.Integer,
+    -- | Represents a /less than/ condition to be applied to a single field when querying for findings.
+    lt :: Core.Maybe Core.Int,
+    -- | Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
+    lte :: Core.Maybe Core.Int,
+    -- | Represents the /not equal/ condition to be applied to a single field when querying for findings.
+    neq :: Core.Maybe [Types.String],
+    -- | Represents a /not equal/ ____ condition to be applied to a single field when querying for findings.
+    notEquals :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Condition' with the minimum fields required to make a request.
---
--- * 'eQ' - Represents the /equal/ condition to be applied to a single field when querying for findings.
--- * 'lessThan' - Represents a /less than/ condition to be applied to a single field when querying for findings.
--- * 'lte' - Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
--- * 'greaterThanOrEqual' - Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
--- * 'lessThanOrEqual' - Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
--- * 'gT' - Represents a /greater than/ condition to be applied to a single field when querying for findings.
--- * 'equals' - Represents an /equal/ ____ condition to be applied to a single field when querying for findings.
--- * 'neq' - Represents the /not equal/ condition to be applied to a single field when querying for findings.
--- * 'notEquals' - Represents a /not equal/ ____ condition to be applied to a single field when querying for findings.
--- * 'lT' - Represents a /less than/ condition to be applied to a single field when querying for findings.
--- * 'gte' - Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
--- * 'greaterThan' - Represents a /greater than/ condition to be applied to a single field when querying for findings.
+-- | Creates a 'Condition' value with any optional fields omitted.
 mkCondition ::
   Condition
 mkCondition =
   Condition'
-    { eQ = Lude.Nothing,
-      lessThan = Lude.Nothing,
-      lte = Lude.Nothing,
-      greaterThanOrEqual = Lude.Nothing,
-      lessThanOrEqual = Lude.Nothing,
-      gT = Lude.Nothing,
-      equals = Lude.Nothing,
-      neq = Lude.Nothing,
-      notEquals = Lude.Nothing,
-      lT = Lude.Nothing,
-      gte = Lude.Nothing,
-      greaterThan = Lude.Nothing
+    { eq = Core.Nothing,
+      equals = Core.Nothing,
+      greaterThan = Core.Nothing,
+      greaterThanOrEqual = Core.Nothing,
+      gt = Core.Nothing,
+      gte = Core.Nothing,
+      lessThan = Core.Nothing,
+      lessThanOrEqual = Core.Nothing,
+      lt = Core.Nothing,
+      lte = Core.Nothing,
+      neq = Core.Nothing,
+      notEquals = Core.Nothing
     }
 
 -- | Represents the /equal/ condition to be applied to a single field when querying for findings.
 --
--- /Note:/ Consider using 'eQ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cEQ :: Lens.Lens' Condition (Lude.Maybe [Lude.Text])
-cEQ = Lens.lens (eQ :: Condition -> Lude.Maybe [Lude.Text]) (\s a -> s {eQ = a} :: Condition)
-{-# DEPRECATED cEQ "Use generic-lens or generic-optics with 'eQ' instead." #-}
-
--- | Represents a /less than/ condition to be applied to a single field when querying for findings.
---
--- /Note:/ Consider using 'lessThan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cLessThan :: Lens.Lens' Condition (Lude.Maybe Lude.Integer)
-cLessThan = Lens.lens (lessThan :: Condition -> Lude.Maybe Lude.Integer) (\s a -> s {lessThan = a} :: Condition)
-{-# DEPRECATED cLessThan "Use generic-lens or generic-optics with 'lessThan' instead." #-}
-
--- | Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
---
--- /Note:/ Consider using 'lte' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cLte :: Lens.Lens' Condition (Lude.Maybe Lude.Int)
-cLte = Lens.lens (lte :: Condition -> Lude.Maybe Lude.Int) (\s a -> s {lte = a} :: Condition)
-{-# DEPRECATED cLte "Use generic-lens or generic-optics with 'lte' instead." #-}
-
--- | Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
---
--- /Note:/ Consider using 'greaterThanOrEqual' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cGreaterThanOrEqual :: Lens.Lens' Condition (Lude.Maybe Lude.Integer)
-cGreaterThanOrEqual = Lens.lens (greaterThanOrEqual :: Condition -> Lude.Maybe Lude.Integer) (\s a -> s {greaterThanOrEqual = a} :: Condition)
-{-# DEPRECATED cGreaterThanOrEqual "Use generic-lens or generic-optics with 'greaterThanOrEqual' instead." #-}
-
--- | Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
---
--- /Note:/ Consider using 'lessThanOrEqual' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cLessThanOrEqual :: Lens.Lens' Condition (Lude.Maybe Lude.Integer)
-cLessThanOrEqual = Lens.lens (lessThanOrEqual :: Condition -> Lude.Maybe Lude.Integer) (\s a -> s {lessThanOrEqual = a} :: Condition)
-{-# DEPRECATED cLessThanOrEqual "Use generic-lens or generic-optics with 'lessThanOrEqual' instead." #-}
-
--- | Represents a /greater than/ condition to be applied to a single field when querying for findings.
---
--- /Note:/ Consider using 'gT' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cGT :: Lens.Lens' Condition (Lude.Maybe Lude.Int)
-cGT = Lens.lens (gT :: Condition -> Lude.Maybe Lude.Int) (\s a -> s {gT = a} :: Condition)
-{-# DEPRECATED cGT "Use generic-lens or generic-optics with 'gT' instead." #-}
+-- /Note:/ Consider using 'eq' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cEq :: Lens.Lens' Condition (Core.Maybe [Types.String])
+cEq = Lens.field @"eq"
+{-# DEPRECATED cEq "Use generic-lens or generic-optics with 'eq' instead." #-}
 
 -- | Represents an /equal/ ____ condition to be applied to a single field when querying for findings.
 --
 -- /Note:/ Consider using 'equals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cEquals :: Lens.Lens' Condition (Lude.Maybe [Lude.Text])
-cEquals = Lens.lens (equals :: Condition -> Lude.Maybe [Lude.Text]) (\s a -> s {equals = a} :: Condition)
+cEquals :: Lens.Lens' Condition (Core.Maybe [Types.String])
+cEquals = Lens.field @"equals"
 {-# DEPRECATED cEquals "Use generic-lens or generic-optics with 'equals' instead." #-}
+
+-- | Represents a /greater than/ condition to be applied to a single field when querying for findings.
+--
+-- /Note:/ Consider using 'greaterThan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cGreaterThan :: Lens.Lens' Condition (Core.Maybe Core.Integer)
+cGreaterThan = Lens.field @"greaterThan"
+{-# DEPRECATED cGreaterThan "Use generic-lens or generic-optics with 'greaterThan' instead." #-}
+
+-- | Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
+--
+-- /Note:/ Consider using 'greaterThanOrEqual' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cGreaterThanOrEqual :: Lens.Lens' Condition (Core.Maybe Core.Integer)
+cGreaterThanOrEqual = Lens.field @"greaterThanOrEqual"
+{-# DEPRECATED cGreaterThanOrEqual "Use generic-lens or generic-optics with 'greaterThanOrEqual' instead." #-}
+
+-- | Represents a /greater than/ condition to be applied to a single field when querying for findings.
+--
+-- /Note:/ Consider using 'gt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cGt :: Lens.Lens' Condition (Core.Maybe Core.Int)
+cGt = Lens.field @"gt"
+{-# DEPRECATED cGt "Use generic-lens or generic-optics with 'gt' instead." #-}
+
+-- | Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
+--
+-- /Note:/ Consider using 'gte' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cGte :: Lens.Lens' Condition (Core.Maybe Core.Int)
+cGte = Lens.field @"gte"
+{-# DEPRECATED cGte "Use generic-lens or generic-optics with 'gte' instead." #-}
+
+-- | Represents a /less than/ condition to be applied to a single field when querying for findings.
+--
+-- /Note:/ Consider using 'lessThan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLessThan :: Lens.Lens' Condition (Core.Maybe Core.Integer)
+cLessThan = Lens.field @"lessThan"
+{-# DEPRECATED cLessThan "Use generic-lens or generic-optics with 'lessThan' instead." #-}
+
+-- | Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
+--
+-- /Note:/ Consider using 'lessThanOrEqual' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLessThanOrEqual :: Lens.Lens' Condition (Core.Maybe Core.Integer)
+cLessThanOrEqual = Lens.field @"lessThanOrEqual"
+{-# DEPRECATED cLessThanOrEqual "Use generic-lens or generic-optics with 'lessThanOrEqual' instead." #-}
+
+-- | Represents a /less than/ condition to be applied to a single field when querying for findings.
+--
+-- /Note:/ Consider using 'lt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLt :: Lens.Lens' Condition (Core.Maybe Core.Int)
+cLt = Lens.field @"lt"
+{-# DEPRECATED cLt "Use generic-lens or generic-optics with 'lt' instead." #-}
+
+-- | Represents a /less than or equal/ condition to be applied to a single field when querying for findings.
+--
+-- /Note:/ Consider using 'lte' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cLte :: Lens.Lens' Condition (Core.Maybe Core.Int)
+cLte = Lens.field @"lte"
+{-# DEPRECATED cLte "Use generic-lens or generic-optics with 'lte' instead." #-}
 
 -- | Represents the /not equal/ condition to be applied to a single field when querying for findings.
 --
 -- /Note:/ Consider using 'neq' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cNeq :: Lens.Lens' Condition (Lude.Maybe [Lude.Text])
-cNeq = Lens.lens (neq :: Condition -> Lude.Maybe [Lude.Text]) (\s a -> s {neq = a} :: Condition)
+cNeq :: Lens.Lens' Condition (Core.Maybe [Types.String])
+cNeq = Lens.field @"neq"
 {-# DEPRECATED cNeq "Use generic-lens or generic-optics with 'neq' instead." #-}
 
 -- | Represents a /not equal/ ____ condition to be applied to a single field when querying for findings.
 --
 -- /Note:/ Consider using 'notEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cNotEquals :: Lens.Lens' Condition (Lude.Maybe [Lude.Text])
-cNotEquals = Lens.lens (notEquals :: Condition -> Lude.Maybe [Lude.Text]) (\s a -> s {notEquals = a} :: Condition)
+cNotEquals :: Lens.Lens' Condition (Core.Maybe [Types.String])
+cNotEquals = Lens.field @"notEquals"
 {-# DEPRECATED cNotEquals "Use generic-lens or generic-optics with 'notEquals' instead." #-}
 
--- | Represents a /less than/ condition to be applied to a single field when querying for findings.
---
--- /Note:/ Consider using 'lT' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cLT :: Lens.Lens' Condition (Lude.Maybe Lude.Int)
-cLT = Lens.lens (lT :: Condition -> Lude.Maybe Lude.Int) (\s a -> s {lT = a} :: Condition)
-{-# DEPRECATED cLT "Use generic-lens or generic-optics with 'lT' instead." #-}
-
--- | Represents a /greater than or equal/ condition to be applied to a single field when querying for findings.
---
--- /Note:/ Consider using 'gte' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cGte :: Lens.Lens' Condition (Lude.Maybe Lude.Int)
-cGte = Lens.lens (gte :: Condition -> Lude.Maybe Lude.Int) (\s a -> s {gte = a} :: Condition)
-{-# DEPRECATED cGte "Use generic-lens or generic-optics with 'gte' instead." #-}
-
--- | Represents a /greater than/ condition to be applied to a single field when querying for findings.
---
--- /Note:/ Consider using 'greaterThan' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cGreaterThan :: Lens.Lens' Condition (Lude.Maybe Lude.Integer)
-cGreaterThan = Lens.lens (greaterThan :: Condition -> Lude.Maybe Lude.Integer) (\s a -> s {greaterThan = a} :: Condition)
-{-# DEPRECATED cGreaterThan "Use generic-lens or generic-optics with 'greaterThan' instead." #-}
-
-instance Lude.FromJSON Condition where
-  parseJSON =
-    Lude.withObject
-      "Condition"
-      ( \x ->
-          Condition'
-            Lude.<$> (x Lude..:? "eq" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "lessThan")
-            Lude.<*> (x Lude..:? "lte")
-            Lude.<*> (x Lude..:? "greaterThanOrEqual")
-            Lude.<*> (x Lude..:? "lessThanOrEqual")
-            Lude.<*> (x Lude..:? "gt")
-            Lude.<*> (x Lude..:? "equals" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "neq" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "notEquals" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "lt")
-            Lude.<*> (x Lude..:? "gte")
-            Lude.<*> (x Lude..:? "greaterThan")
-      )
-
-instance Lude.ToJSON Condition where
-  toJSON Condition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("eq" Lude..=) Lude.<$> eQ,
-            ("lessThan" Lude..=) Lude.<$> lessThan,
-            ("lte" Lude..=) Lude.<$> lte,
-            ("greaterThanOrEqual" Lude..=) Lude.<$> greaterThanOrEqual,
-            ("lessThanOrEqual" Lude..=) Lude.<$> lessThanOrEqual,
-            ("gt" Lude..=) Lude.<$> gT,
-            ("equals" Lude..=) Lude.<$> equals,
-            ("neq" Lude..=) Lude.<$> neq,
-            ("notEquals" Lude..=) Lude.<$> notEquals,
-            ("lt" Lude..=) Lude.<$> lT,
-            ("gte" Lude..=) Lude.<$> gte,
-            ("greaterThan" Lude..=) Lude.<$> greaterThan
+instance Core.FromJSON Condition where
+  toJSON Condition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("eq" Core..=) Core.<$> eq,
+            ("equals" Core..=) Core.<$> equals,
+            ("greaterThan" Core..=) Core.<$> greaterThan,
+            ("greaterThanOrEqual" Core..=) Core.<$> greaterThanOrEqual,
+            ("gt" Core..=) Core.<$> gt,
+            ("gte" Core..=) Core.<$> gte,
+            ("lessThan" Core..=) Core.<$> lessThan,
+            ("lessThanOrEqual" Core..=) Core.<$> lessThanOrEqual,
+            ("lt" Core..=) Core.<$> lt,
+            ("lte" Core..=) Core.<$> lte,
+            ("neq" Core..=) Core.<$> neq,
+            ("notEquals" Core..=) Core.<$> notEquals
           ]
       )
+
+instance Core.FromJSON Condition where
+  parseJSON =
+    Core.withObject "Condition" Core.$
+      \x ->
+        Condition'
+          Core.<$> (x Core..:? "eq")
+          Core.<*> (x Core..:? "equals")
+          Core.<*> (x Core..:? "greaterThan")
+          Core.<*> (x Core..:? "greaterThanOrEqual")
+          Core.<*> (x Core..:? "gt")
+          Core.<*> (x Core..:? "gte")
+          Core.<*> (x Core..:? "lessThan")
+          Core.<*> (x Core..:? "lessThanOrEqual")
+          Core.<*> (x Core..:? "lt")
+          Core.<*> (x Core..:? "lte")
+          Core.<*> (x Core..:? "neq")
+          Core.<*> (x Core..:? "notEquals")

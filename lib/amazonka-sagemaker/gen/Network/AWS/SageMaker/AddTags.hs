@@ -22,7 +22,7 @@ module Network.AWS.SageMaker.AddTags
     mkAddTags,
 
     -- ** Request lenses
-    atResourceARN,
+    atResourceArn,
     atTags,
 
     -- * Destructuring the response
@@ -30,122 +30,105 @@ module Network.AWS.SageMaker.AddTags
     mkAddTagsResponse,
 
     -- ** Response lenses
-    atrsTags,
-    atrsResponseStatus,
+    atrrsTags,
+    atrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkAddTags' smart constructor.
 data AddTags = AddTags'
   { -- | The Amazon Resource Name (ARN) of the resource that you want to tag.
-    resourceARN :: Lude.Text,
+    resourceArn :: Types.ResourceArn,
     -- | An array of @Tag@ objects. Each tag is a key-value pair. Only the @key@ parameter is required. If you don't specify a value, Amazon SageMaker sets the value to an empty string.
-    tags :: [Tag]
+    tags :: [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTags' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource that you want to tag.
--- * 'tags' - An array of @Tag@ objects. Each tag is a key-value pair. Only the @key@ parameter is required. If you don't specify a value, Amazon SageMaker sets the value to an empty string.
+-- | Creates a 'AddTags' value with any optional fields omitted.
 mkAddTags ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   AddTags
-mkAddTags pResourceARN_ =
-  AddTags' {resourceARN = pResourceARN_, tags = Lude.mempty}
+mkAddTags resourceArn = AddTags' {resourceArn, tags = Core.mempty}
 
 -- | The Amazon Resource Name (ARN) of the resource that you want to tag.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atResourceARN :: Lens.Lens' AddTags Lude.Text
-atResourceARN = Lens.lens (resourceARN :: AddTags -> Lude.Text) (\s a -> s {resourceARN = a} :: AddTags)
-{-# DEPRECATED atResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atResourceArn :: Lens.Lens' AddTags Types.ResourceArn
+atResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED atResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | An array of @Tag@ objects. Each tag is a key-value pair. Only the @key@ parameter is required. If you don't specify a value, Amazon SageMaker sets the value to an empty string.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atTags :: Lens.Lens' AddTags [Tag]
-atTags = Lens.lens (tags :: AddTags -> [Tag]) (\s a -> s {tags = a} :: AddTags)
+atTags :: Lens.Lens' AddTags [Types.Tag]
+atTags = Lens.field @"tags"
 {-# DEPRECATED atTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest AddTags where
+instance Core.FromJSON AddTags where
+  toJSON AddTags {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceArn" Core..= resourceArn),
+            Core.Just ("Tags" Core..= tags)
+          ]
+      )
+
+instance Core.AWSRequest AddTags where
   type Rs AddTags = AddTagsResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.AddTags")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AddTagsResponse'
-            Lude.<$> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Tags") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddTags where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("SageMaker.AddTags" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddTags where
-  toJSON AddTags' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
-            Lude.Just ("Tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath AddTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddTags where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAddTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse'
   { -- | A list of tags associated with the Amazon SageMaker resource.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
---
--- * 'tags' - A list of tags associated with the Amazon SageMaker resource.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddTagsResponse' value with any optional fields omitted.
 mkAddTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddTagsResponse
-mkAddTagsResponse pResponseStatus_ =
-  AddTagsResponse'
-    { tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkAddTagsResponse responseStatus =
+  AddTagsResponse' {tags = Core.Nothing, responseStatus}
 
 -- | A list of tags associated with the Amazon SageMaker resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atrsTags :: Lens.Lens' AddTagsResponse (Lude.Maybe [Tag])
-atrsTags = Lens.lens (tags :: AddTagsResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: AddTagsResponse)
-{-# DEPRECATED atrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+atrrsTags :: Lens.Lens' AddTagsResponse (Core.Maybe [Types.Tag])
+atrrsTags = Lens.field @"tags"
+{-# DEPRECATED atrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atrsResponseStatus :: Lens.Lens' AddTagsResponse Lude.Int
-atrsResponseStatus = Lens.lens (responseStatus :: AddTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddTagsResponse)
-{-# DEPRECATED atrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+atrrsResponseStatus :: Lens.Lens' AddTagsResponse Core.Int
+atrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED atrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

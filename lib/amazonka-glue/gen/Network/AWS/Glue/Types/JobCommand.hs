@@ -17,81 +17,78 @@ module Network.AWS.Glue.Types.JobCommand
     mkJobCommand,
 
     -- * Lenses
-    jcScriptLocation,
-    jcPythonVersion,
-    jcName,
+    jcfName,
+    jcfPythonVersion,
+    jcfScriptLocation,
   )
 where
 
+import qualified Network.AWS.Glue.Types.Name as Types
+import qualified Network.AWS.Glue.Types.PythonVersion as Types
+import qualified Network.AWS.Glue.Types.ScriptLocationString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies code executed when a job is run.
 --
 -- /See:/ 'mkJobCommand' smart constructor.
 data JobCommand = JobCommand'
-  { -- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job.
-    scriptLocation :: Lude.Maybe Lude.Text,
+  { -- | The name of the job command. For an Apache Spark ETL job, this must be @glueetl@ . For a Python shell job, it must be @pythonshell@ . For an Apache Spark streaming ETL job, this must be @gluestreaming@ .
+    name :: Core.Maybe Types.Name,
     -- | The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
-    pythonVersion :: Lude.Maybe Lude.Text,
-    -- | The name of the job command. For an Apache Spark ETL job, this must be @glueetl@ . For a Python shell job, it must be @pythonshell@ . For an Apache Spark streaming ETL job, this must be @gluestreaming@ .
-    name :: Lude.Maybe Lude.Text
+    pythonVersion :: Core.Maybe Types.PythonVersion,
+    -- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job.
+    scriptLocation :: Core.Maybe Types.ScriptLocationString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobCommand' with the minimum fields required to make a request.
---
--- * 'scriptLocation' - Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job.
--- * 'pythonVersion' - The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
--- * 'name' - The name of the job command. For an Apache Spark ETL job, this must be @glueetl@ . For a Python shell job, it must be @pythonshell@ . For an Apache Spark streaming ETL job, this must be @gluestreaming@ .
+-- | Creates a 'JobCommand' value with any optional fields omitted.
 mkJobCommand ::
   JobCommand
 mkJobCommand =
   JobCommand'
-    { scriptLocation = Lude.Nothing,
-      pythonVersion = Lude.Nothing,
-      name = Lude.Nothing
+    { name = Core.Nothing,
+      pythonVersion = Core.Nothing,
+      scriptLocation = Core.Nothing
     }
-
--- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job.
---
--- /Note:/ Consider using 'scriptLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jcScriptLocation :: Lens.Lens' JobCommand (Lude.Maybe Lude.Text)
-jcScriptLocation = Lens.lens (scriptLocation :: JobCommand -> Lude.Maybe Lude.Text) (\s a -> s {scriptLocation = a} :: JobCommand)
-{-# DEPRECATED jcScriptLocation "Use generic-lens or generic-optics with 'scriptLocation' instead." #-}
-
--- | The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
---
--- /Note:/ Consider using 'pythonVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jcPythonVersion :: Lens.Lens' JobCommand (Lude.Maybe Lude.Text)
-jcPythonVersion = Lens.lens (pythonVersion :: JobCommand -> Lude.Maybe Lude.Text) (\s a -> s {pythonVersion = a} :: JobCommand)
-{-# DEPRECATED jcPythonVersion "Use generic-lens or generic-optics with 'pythonVersion' instead." #-}
 
 -- | The name of the job command. For an Apache Spark ETL job, this must be @glueetl@ . For a Python shell job, it must be @pythonshell@ . For an Apache Spark streaming ETL job, this must be @gluestreaming@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jcName :: Lens.Lens' JobCommand (Lude.Maybe Lude.Text)
-jcName = Lens.lens (name :: JobCommand -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: JobCommand)
-{-# DEPRECATED jcName "Use generic-lens or generic-optics with 'name' instead." #-}
+jcfName :: Lens.Lens' JobCommand (Core.Maybe Types.Name)
+jcfName = Lens.field @"name"
+{-# DEPRECATED jcfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON JobCommand where
-  parseJSON =
-    Lude.withObject
-      "JobCommand"
-      ( \x ->
-          JobCommand'
-            Lude.<$> (x Lude..:? "ScriptLocation")
-            Lude.<*> (x Lude..:? "PythonVersion")
-            Lude.<*> (x Lude..:? "Name")
-      )
+-- | The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
+--
+-- /Note:/ Consider using 'pythonVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jcfPythonVersion :: Lens.Lens' JobCommand (Core.Maybe Types.PythonVersion)
+jcfPythonVersion = Lens.field @"pythonVersion"
+{-# DEPRECATED jcfPythonVersion "Use generic-lens or generic-optics with 'pythonVersion' instead." #-}
 
-instance Lude.ToJSON JobCommand where
-  toJSON JobCommand' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ScriptLocation" Lude..=) Lude.<$> scriptLocation,
-            ("PythonVersion" Lude..=) Lude.<$> pythonVersion,
-            ("Name" Lude..=) Lude.<$> name
+-- | Specifies the Amazon Simple Storage Service (Amazon S3) path to a script that executes a job.
+--
+-- /Note:/ Consider using 'scriptLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jcfScriptLocation :: Lens.Lens' JobCommand (Core.Maybe Types.ScriptLocationString)
+jcfScriptLocation = Lens.field @"scriptLocation"
+{-# DEPRECATED jcfScriptLocation "Use generic-lens or generic-optics with 'scriptLocation' instead." #-}
+
+instance Core.FromJSON JobCommand where
+  toJSON JobCommand {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("PythonVersion" Core..=) Core.<$> pythonVersion,
+            ("ScriptLocation" Core..=) Core.<$> scriptLocation
           ]
       )
+
+instance Core.FromJSON JobCommand where
+  parseJSON =
+    Core.withObject "JobCommand" Core.$
+      \x ->
+        JobCommand'
+          Core.<$> (x Core..:? "Name")
+          Core.<*> (x Core..:? "PythonVersion")
+          Core.<*> (x Core..:? "ScriptLocation")

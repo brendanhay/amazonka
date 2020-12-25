@@ -23,185 +23,169 @@ module Network.AWS.CloudHSM.DescribeLunaClient
     mkDescribeLunaClient,
 
     -- ** Request lenses
-    dClientARN,
-    dCertificateFingerprint,
+    dlcCertificateFingerprint,
+    dlcClientArn,
 
     -- * Destructuring the response
     DescribeLunaClientResponse (..),
     mkDescribeLunaClientResponse,
 
     -- ** Response lenses
-    drsClientARN,
-    drsLastModifiedTimestamp,
-    drsCertificateFingerprint,
-    drsCertificate,
-    drsLabel,
-    drsResponseStatus,
+    dlcrfrsCertificate,
+    dlcrfrsCertificateFingerprint,
+    dlcrfrsClientArn,
+    dlcrfrsLabel,
+    dlcrfrsLastModifiedTimestamp,
+    dlcrfrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.CloudHSM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLunaClient' smart constructor.
 data DescribeLunaClient = DescribeLunaClient'
-  { -- | The ARN of the client.
-    clientARN :: Lude.Maybe Lude.Text,
-    -- | The certificate fingerprint.
-    certificateFingerprint :: Lude.Maybe Lude.Text
+  { -- | The certificate fingerprint.
+    certificateFingerprint :: Core.Maybe Types.CertificateFingerprint,
+    -- | The ARN of the client.
+    clientArn :: Core.Maybe Types.ClientArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLunaClient' with the minimum fields required to make a request.
---
--- * 'clientARN' - The ARN of the client.
--- * 'certificateFingerprint' - The certificate fingerprint.
+-- | Creates a 'DescribeLunaClient' value with any optional fields omitted.
 mkDescribeLunaClient ::
   DescribeLunaClient
 mkDescribeLunaClient =
   DescribeLunaClient'
-    { clientARN = Lude.Nothing,
-      certificateFingerprint = Lude.Nothing
+    { certificateFingerprint = Core.Nothing,
+      clientArn = Core.Nothing
     }
-
--- | The ARN of the client.
---
--- /Note:/ Consider using 'clientARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dClientARN :: Lens.Lens' DescribeLunaClient (Lude.Maybe Lude.Text)
-dClientARN = Lens.lens (clientARN :: DescribeLunaClient -> Lude.Maybe Lude.Text) (\s a -> s {clientARN = a} :: DescribeLunaClient)
-{-# DEPRECATED dClientARN "Use generic-lens or generic-optics with 'clientARN' instead." #-}
 
 -- | The certificate fingerprint.
 --
 -- /Note:/ Consider using 'certificateFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCertificateFingerprint :: Lens.Lens' DescribeLunaClient (Lude.Maybe Lude.Text)
-dCertificateFingerprint = Lens.lens (certificateFingerprint :: DescribeLunaClient -> Lude.Maybe Lude.Text) (\s a -> s {certificateFingerprint = a} :: DescribeLunaClient)
-{-# DEPRECATED dCertificateFingerprint "Use generic-lens or generic-optics with 'certificateFingerprint' instead." #-}
+dlcCertificateFingerprint :: Lens.Lens' DescribeLunaClient (Core.Maybe Types.CertificateFingerprint)
+dlcCertificateFingerprint = Lens.field @"certificateFingerprint"
+{-# DEPRECATED dlcCertificateFingerprint "Use generic-lens or generic-optics with 'certificateFingerprint' instead." #-}
 
-instance Lude.AWSRequest DescribeLunaClient where
+-- | The ARN of the client.
+--
+-- /Note:/ Consider using 'clientArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcClientArn :: Lens.Lens' DescribeLunaClient (Core.Maybe Types.ClientArn)
+dlcClientArn = Lens.field @"clientArn"
+{-# DEPRECATED dlcClientArn "Use generic-lens or generic-optics with 'clientArn' instead." #-}
+
+instance Core.FromJSON DescribeLunaClient where
+  toJSON DescribeLunaClient {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CertificateFingerprint" Core..=)
+              Core.<$> certificateFingerprint,
+            ("ClientArn" Core..=) Core.<$> clientArn
+          ]
+      )
+
+instance Core.AWSRequest DescribeLunaClient where
   type Rs DescribeLunaClient = DescribeLunaClientResponse
-  request = Req.postJSON cloudHSMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CloudHsmFrontendService.DescribeLunaClient")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeLunaClientResponse'
-            Lude.<$> (x Lude..?> "ClientArn")
-            Lude.<*> (x Lude..?> "LastModifiedTimestamp")
-            Lude.<*> (x Lude..?> "CertificateFingerprint")
-            Lude.<*> (x Lude..?> "Certificate")
-            Lude.<*> (x Lude..?> "Label")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Certificate")
+            Core.<*> (x Core..:? "CertificateFingerprint")
+            Core.<*> (x Core..:? "ClientArn")
+            Core.<*> (x Core..:? "Label")
+            Core.<*> (x Core..:? "LastModifiedTimestamp")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeLunaClient where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CloudHsmFrontendService.DescribeLunaClient" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeLunaClient where
-  toJSON DescribeLunaClient' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ClientArn" Lude..=) Lude.<$> clientARN,
-            ("CertificateFingerprint" Lude..=)
-              Lude.<$> certificateFingerprint
-          ]
-      )
-
-instance Lude.ToPath DescribeLunaClient where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLunaClient where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeLunaClientResponse' smart constructor.
 data DescribeLunaClientResponse = DescribeLunaClientResponse'
-  { -- | The ARN of the client.
-    clientARN :: Lude.Maybe Lude.Text,
-    -- | The date and time the client was last modified.
-    lastModifiedTimestamp :: Lude.Maybe Lude.Text,
+  { -- | The certificate installed on the HSMs used by this client.
+    certificate :: Core.Maybe Types.Certificate,
     -- | The certificate fingerprint.
-    certificateFingerprint :: Lude.Maybe Lude.Text,
-    -- | The certificate installed on the HSMs used by this client.
-    certificate :: Lude.Maybe Lude.Text,
+    certificateFingerprint :: Core.Maybe Types.CertificateFingerprint,
+    -- | The ARN of the client.
+    clientArn :: Core.Maybe Types.ClientArn,
     -- | The label of the client.
-    label :: Lude.Maybe Lude.Text,
+    label :: Core.Maybe Types.Label,
+    -- | The date and time the client was last modified.
+    lastModifiedTimestamp :: Core.Maybe Types.LastModifiedTimestamp,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLunaClientResponse' with the minimum fields required to make a request.
---
--- * 'clientARN' - The ARN of the client.
--- * 'lastModifiedTimestamp' - The date and time the client was last modified.
--- * 'certificateFingerprint' - The certificate fingerprint.
--- * 'certificate' - The certificate installed on the HSMs used by this client.
--- * 'label' - The label of the client.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLunaClientResponse' value with any optional fields omitted.
 mkDescribeLunaClientResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLunaClientResponse
-mkDescribeLunaClientResponse pResponseStatus_ =
+mkDescribeLunaClientResponse responseStatus =
   DescribeLunaClientResponse'
-    { clientARN = Lude.Nothing,
-      lastModifiedTimestamp = Lude.Nothing,
-      certificateFingerprint = Lude.Nothing,
-      certificate = Lude.Nothing,
-      label = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { certificate = Core.Nothing,
+      certificateFingerprint = Core.Nothing,
+      clientArn = Core.Nothing,
+      label = Core.Nothing,
+      lastModifiedTimestamp = Core.Nothing,
+      responseStatus
     }
-
--- | The ARN of the client.
---
--- /Note:/ Consider using 'clientARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsClientARN :: Lens.Lens' DescribeLunaClientResponse (Lude.Maybe Lude.Text)
-drsClientARN = Lens.lens (clientARN :: DescribeLunaClientResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientARN = a} :: DescribeLunaClientResponse)
-{-# DEPRECATED drsClientARN "Use generic-lens or generic-optics with 'clientARN' instead." #-}
-
--- | The date and time the client was last modified.
---
--- /Note:/ Consider using 'lastModifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsLastModifiedTimestamp :: Lens.Lens' DescribeLunaClientResponse (Lude.Maybe Lude.Text)
-drsLastModifiedTimestamp = Lens.lens (lastModifiedTimestamp :: DescribeLunaClientResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedTimestamp = a} :: DescribeLunaClientResponse)
-{-# DEPRECATED drsLastModifiedTimestamp "Use generic-lens or generic-optics with 'lastModifiedTimestamp' instead." #-}
-
--- | The certificate fingerprint.
---
--- /Note:/ Consider using 'certificateFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsCertificateFingerprint :: Lens.Lens' DescribeLunaClientResponse (Lude.Maybe Lude.Text)
-drsCertificateFingerprint = Lens.lens (certificateFingerprint :: DescribeLunaClientResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateFingerprint = a} :: DescribeLunaClientResponse)
-{-# DEPRECATED drsCertificateFingerprint "Use generic-lens or generic-optics with 'certificateFingerprint' instead." #-}
 
 -- | The certificate installed on the HSMs used by this client.
 --
 -- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsCertificate :: Lens.Lens' DescribeLunaClientResponse (Lude.Maybe Lude.Text)
-drsCertificate = Lens.lens (certificate :: DescribeLunaClientResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificate = a} :: DescribeLunaClientResponse)
-{-# DEPRECATED drsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
+dlcrfrsCertificate :: Lens.Lens' DescribeLunaClientResponse (Core.Maybe Types.Certificate)
+dlcrfrsCertificate = Lens.field @"certificate"
+{-# DEPRECATED dlcrfrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
+
+-- | The certificate fingerprint.
+--
+-- /Note:/ Consider using 'certificateFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrfrsCertificateFingerprint :: Lens.Lens' DescribeLunaClientResponse (Core.Maybe Types.CertificateFingerprint)
+dlcrfrsCertificateFingerprint = Lens.field @"certificateFingerprint"
+{-# DEPRECATED dlcrfrsCertificateFingerprint "Use generic-lens or generic-optics with 'certificateFingerprint' instead." #-}
+
+-- | The ARN of the client.
+--
+-- /Note:/ Consider using 'clientArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrfrsClientArn :: Lens.Lens' DescribeLunaClientResponse (Core.Maybe Types.ClientArn)
+dlcrfrsClientArn = Lens.field @"clientArn"
+{-# DEPRECATED dlcrfrsClientArn "Use generic-lens or generic-optics with 'clientArn' instead." #-}
 
 -- | The label of the client.
 --
 -- /Note:/ Consider using 'label' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsLabel :: Lens.Lens' DescribeLunaClientResponse (Lude.Maybe Lude.Text)
-drsLabel = Lens.lens (label :: DescribeLunaClientResponse -> Lude.Maybe Lude.Text) (\s a -> s {label = a} :: DescribeLunaClientResponse)
-{-# DEPRECATED drsLabel "Use generic-lens or generic-optics with 'label' instead." #-}
+dlcrfrsLabel :: Lens.Lens' DescribeLunaClientResponse (Core.Maybe Types.Label)
+dlcrfrsLabel = Lens.field @"label"
+{-# DEPRECATED dlcrfrsLabel "Use generic-lens or generic-optics with 'label' instead." #-}
+
+-- | The date and time the client was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrfrsLastModifiedTimestamp :: Lens.Lens' DescribeLunaClientResponse (Core.Maybe Types.LastModifiedTimestamp)
+dlcrfrsLastModifiedTimestamp = Lens.field @"lastModifiedTimestamp"
+{-# DEPRECATED dlcrfrsLastModifiedTimestamp "Use generic-lens or generic-optics with 'lastModifiedTimestamp' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeLunaClientResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeLunaClientResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLunaClientResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlcrfrsResponseStatus :: Lens.Lens' DescribeLunaClientResponse Core.Int
+dlcrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlcrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

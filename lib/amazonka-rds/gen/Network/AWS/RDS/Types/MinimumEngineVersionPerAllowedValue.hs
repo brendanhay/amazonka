@@ -17,55 +17,52 @@ module Network.AWS.RDS.Types.MinimumEngineVersionPerAllowedValue
     mkMinimumEngineVersionPerAllowedValue,
 
     -- * Lenses
-    mevpavMinimumEngineVersion,
     mevpavAllowedValue,
+    mevpavMinimumEngineVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | The minimum DB engine version required for each corresponding allowed value for an option setting.
 --
 -- /See:/ 'mkMinimumEngineVersionPerAllowedValue' smart constructor.
 data MinimumEngineVersionPerAllowedValue = MinimumEngineVersionPerAllowedValue'
-  { -- | The minimum DB engine version required for the allowed value.
-    minimumEngineVersion :: Lude.Maybe Lude.Text,
-    -- | The allowed value for an option setting.
-    allowedValue :: Lude.Maybe Lude.Text
+  { -- | The allowed value for an option setting.
+    allowedValue :: Core.Maybe Types.String,
+    -- | The minimum DB engine version required for the allowed value.
+    minimumEngineVersion :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MinimumEngineVersionPerAllowedValue' with the minimum fields required to make a request.
---
--- * 'minimumEngineVersion' - The minimum DB engine version required for the allowed value.
--- * 'allowedValue' - The allowed value for an option setting.
+-- | Creates a 'MinimumEngineVersionPerAllowedValue' value with any optional fields omitted.
 mkMinimumEngineVersionPerAllowedValue ::
   MinimumEngineVersionPerAllowedValue
 mkMinimumEngineVersionPerAllowedValue =
   MinimumEngineVersionPerAllowedValue'
-    { minimumEngineVersion =
-        Lude.Nothing,
-      allowedValue = Lude.Nothing
+    { allowedValue = Core.Nothing,
+      minimumEngineVersion = Core.Nothing
     }
-
--- | The minimum DB engine version required for the allowed value.
---
--- /Note:/ Consider using 'minimumEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mevpavMinimumEngineVersion :: Lens.Lens' MinimumEngineVersionPerAllowedValue (Lude.Maybe Lude.Text)
-mevpavMinimumEngineVersion = Lens.lens (minimumEngineVersion :: MinimumEngineVersionPerAllowedValue -> Lude.Maybe Lude.Text) (\s a -> s {minimumEngineVersion = a} :: MinimumEngineVersionPerAllowedValue)
-{-# DEPRECATED mevpavMinimumEngineVersion "Use generic-lens or generic-optics with 'minimumEngineVersion' instead." #-}
 
 -- | The allowed value for an option setting.
 --
 -- /Note:/ Consider using 'allowedValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mevpavAllowedValue :: Lens.Lens' MinimumEngineVersionPerAllowedValue (Lude.Maybe Lude.Text)
-mevpavAllowedValue = Lens.lens (allowedValue :: MinimumEngineVersionPerAllowedValue -> Lude.Maybe Lude.Text) (\s a -> s {allowedValue = a} :: MinimumEngineVersionPerAllowedValue)
+mevpavAllowedValue :: Lens.Lens' MinimumEngineVersionPerAllowedValue (Core.Maybe Types.String)
+mevpavAllowedValue = Lens.field @"allowedValue"
 {-# DEPRECATED mevpavAllowedValue "Use generic-lens or generic-optics with 'allowedValue' instead." #-}
 
-instance Lude.FromXML MinimumEngineVersionPerAllowedValue where
+-- | The minimum DB engine version required for the allowed value.
+--
+-- /Note:/ Consider using 'minimumEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mevpavMinimumEngineVersion :: Lens.Lens' MinimumEngineVersionPerAllowedValue (Core.Maybe Types.String)
+mevpavMinimumEngineVersion = Lens.field @"minimumEngineVersion"
+{-# DEPRECATED mevpavMinimumEngineVersion "Use generic-lens or generic-optics with 'minimumEngineVersion' instead." #-}
+
+instance Core.FromXML MinimumEngineVersionPerAllowedValue where
   parseXML x =
     MinimumEngineVersionPerAllowedValue'
-      Lude.<$> (x Lude..@? "MinimumEngineVersion")
-      Lude.<*> (x Lude..@? "AllowedValue")
+      Core.<$> (x Core..@? "AllowedValue")
+      Core.<*> (x Core..@? "MinimumEngineVersion")

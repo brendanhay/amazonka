@@ -21,42 +21,41 @@ module Network.AWS.Inspector.Types.AssessmentTargetFilter
   )
 where
 
+import qualified Network.AWS.Inspector.Types.NamePattern as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Used as the request parameter in the 'ListAssessmentTargets' action.
 --
 -- /See:/ 'mkAssessmentTargetFilter' smart constructor.
 newtype AssessmentTargetFilter = AssessmentTargetFilter'
   { -- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTargetName__ property of the 'AssessmentTarget' data type.
-    assessmentTargetNamePattern :: Lude.Maybe Lude.Text
+    assessmentTargetNamePattern :: Core.Maybe Types.NamePattern
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssessmentTargetFilter' with the minimum fields required to make a request.
---
--- * 'assessmentTargetNamePattern' - For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTargetName__ property of the 'AssessmentTarget' data type.
+-- | Creates a 'AssessmentTargetFilter' value with any optional fields omitted.
 mkAssessmentTargetFilter ::
   AssessmentTargetFilter
 mkAssessmentTargetFilter =
   AssessmentTargetFilter'
     { assessmentTargetNamePattern =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | For a record to match a filter, an explicit value or a string that contains a wildcard that is specified for this data type property must match the value of the __assessmentTargetName__ property of the 'AssessmentTarget' data type.
 --
 -- /Note:/ Consider using 'assessmentTargetNamePattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atfAssessmentTargetNamePattern :: Lens.Lens' AssessmentTargetFilter (Lude.Maybe Lude.Text)
-atfAssessmentTargetNamePattern = Lens.lens (assessmentTargetNamePattern :: AssessmentTargetFilter -> Lude.Maybe Lude.Text) (\s a -> s {assessmentTargetNamePattern = a} :: AssessmentTargetFilter)
+atfAssessmentTargetNamePattern :: Lens.Lens' AssessmentTargetFilter (Core.Maybe Types.NamePattern)
+atfAssessmentTargetNamePattern = Lens.field @"assessmentTargetNamePattern"
 {-# DEPRECATED atfAssessmentTargetNamePattern "Use generic-lens or generic-optics with 'assessmentTargetNamePattern' instead." #-}
 
-instance Lude.ToJSON AssessmentTargetFilter where
-  toJSON AssessmentTargetFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("assessmentTargetNamePattern" Lude..=)
-              Lude.<$> assessmentTargetNamePattern
+instance Core.FromJSON AssessmentTargetFilter where
+  toJSON AssessmentTargetFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("assessmentTargetNamePattern" Core..=)
+              Core.<$> assessmentTargetNamePattern
           ]
       )

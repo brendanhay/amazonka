@@ -22,33 +22,27 @@ module Network.AWS.EC2.Types.LaunchTemplatesMonitoringRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the monitoring for the instance.
 --
 -- /See:/ 'mkLaunchTemplatesMonitoringRequest' smart constructor.
 newtype LaunchTemplatesMonitoringRequest = LaunchTemplatesMonitoringRequest'
   { -- | Specify @true@ to enable detailed monitoring. Otherwise, basic monitoring is enabled.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplatesMonitoringRequest' with the minimum fields required to make a request.
---
--- * 'enabled' - Specify @true@ to enable detailed monitoring. Otherwise, basic monitoring is enabled.
+-- | Creates a 'LaunchTemplatesMonitoringRequest' value with any optional fields omitted.
 mkLaunchTemplatesMonitoringRequest ::
   LaunchTemplatesMonitoringRequest
 mkLaunchTemplatesMonitoringRequest =
-  LaunchTemplatesMonitoringRequest' {enabled = Lude.Nothing}
+  LaunchTemplatesMonitoringRequest' {enabled = Core.Nothing}
 
 -- | Specify @true@ to enable detailed monitoring. Otherwise, basic monitoring is enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltmrEnabled :: Lens.Lens' LaunchTemplatesMonitoringRequest (Lude.Maybe Lude.Bool)
-ltmrEnabled = Lens.lens (enabled :: LaunchTemplatesMonitoringRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: LaunchTemplatesMonitoringRequest)
+ltmrEnabled :: Lens.Lens' LaunchTemplatesMonitoringRequest (Core.Maybe Core.Bool)
+ltmrEnabled = Lens.field @"enabled"
 {-# DEPRECATED ltmrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
-instance Lude.ToQuery LaunchTemplatesMonitoringRequest where
-  toQuery LaunchTemplatesMonitoringRequest' {..} =
-    Lude.mconcat ["Enabled" Lude.=: enabled]

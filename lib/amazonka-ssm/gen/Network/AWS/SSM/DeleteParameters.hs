@@ -27,120 +27,107 @@ module Network.AWS.SSM.DeleteParameters
     mkDeleteParametersResponse,
 
     -- ** Response lenses
-    dprsDeletedParameters,
-    dprsInvalidParameters,
-    dprsResponseStatus,
+    dprfrsDeletedParameters,
+    dprfrsInvalidParameters,
+    dprfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDeleteParameters' smart constructor.
 newtype DeleteParameters = DeleteParameters'
   { -- | The names of the parameters to delete.
-    names :: Lude.NonEmpty Lude.Text
+    names :: Core.NonEmpty Types.PSParameterName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteParameters' with the minimum fields required to make a request.
---
--- * 'names' - The names of the parameters to delete.
+-- | Creates a 'DeleteParameters' value with any optional fields omitted.
 mkDeleteParameters ::
   -- | 'names'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.PSParameterName ->
   DeleteParameters
-mkDeleteParameters pNames_ = DeleteParameters' {names = pNames_}
+mkDeleteParameters names = DeleteParameters' {names}
 
 -- | The names of the parameters to delete.
 --
 -- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpNames :: Lens.Lens' DeleteParameters (Lude.NonEmpty Lude.Text)
-dpNames = Lens.lens (names :: DeleteParameters -> Lude.NonEmpty Lude.Text) (\s a -> s {names = a} :: DeleteParameters)
+dpNames :: Lens.Lens' DeleteParameters (Core.NonEmpty Types.PSParameterName)
+dpNames = Lens.field @"names"
 {-# DEPRECATED dpNames "Use generic-lens or generic-optics with 'names' instead." #-}
 
-instance Lude.AWSRequest DeleteParameters where
+instance Core.FromJSON DeleteParameters where
+  toJSON DeleteParameters {..} =
+    Core.object (Core.catMaybes [Core.Just ("Names" Core..= names)])
+
+instance Core.AWSRequest DeleteParameters where
   type Rs DeleteParameters = DeleteParametersResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.DeleteParameters")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteParametersResponse'
-            Lude.<$> (x Lude..?> "DeletedParameters")
-            Lude.<*> (x Lude..?> "InvalidParameters")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DeletedParameters")
+            Core.<*> (x Core..:? "InvalidParameters")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteParameters where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.DeleteParameters" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteParameters where
-  toJSON DeleteParameters' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Names" Lude..= names)])
-
-instance Lude.ToPath DeleteParameters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteParameters where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteParametersResponse' smart constructor.
 data DeleteParametersResponse = DeleteParametersResponse'
   { -- | The names of the deleted parameters.
-    deletedParameters :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    deletedParameters :: Core.Maybe (Core.NonEmpty Types.PSParameterName),
     -- | The names of parameters that weren't deleted because the parameters are not valid.
-    invalidParameters :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    invalidParameters :: Core.Maybe (Core.NonEmpty Types.PSParameterName),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteParametersResponse' with the minimum fields required to make a request.
---
--- * 'deletedParameters' - The names of the deleted parameters.
--- * 'invalidParameters' - The names of parameters that weren't deleted because the parameters are not valid.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteParametersResponse' value with any optional fields omitted.
 mkDeleteParametersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteParametersResponse
-mkDeleteParametersResponse pResponseStatus_ =
+mkDeleteParametersResponse responseStatus =
   DeleteParametersResponse'
-    { deletedParameters = Lude.Nothing,
-      invalidParameters = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { deletedParameters = Core.Nothing,
+      invalidParameters = Core.Nothing,
+      responseStatus
     }
 
 -- | The names of the deleted parameters.
 --
 -- /Note:/ Consider using 'deletedParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsDeletedParameters :: Lens.Lens' DeleteParametersResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-dprsDeletedParameters = Lens.lens (deletedParameters :: DeleteParametersResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {deletedParameters = a} :: DeleteParametersResponse)
-{-# DEPRECATED dprsDeletedParameters "Use generic-lens or generic-optics with 'deletedParameters' instead." #-}
+dprfrsDeletedParameters :: Lens.Lens' DeleteParametersResponse (Core.Maybe (Core.NonEmpty Types.PSParameterName))
+dprfrsDeletedParameters = Lens.field @"deletedParameters"
+{-# DEPRECATED dprfrsDeletedParameters "Use generic-lens or generic-optics with 'deletedParameters' instead." #-}
 
 -- | The names of parameters that weren't deleted because the parameters are not valid.
 --
 -- /Note:/ Consider using 'invalidParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsInvalidParameters :: Lens.Lens' DeleteParametersResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-dprsInvalidParameters = Lens.lens (invalidParameters :: DeleteParametersResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {invalidParameters = a} :: DeleteParametersResponse)
-{-# DEPRECATED dprsInvalidParameters "Use generic-lens or generic-optics with 'invalidParameters' instead." #-}
+dprfrsInvalidParameters :: Lens.Lens' DeleteParametersResponse (Core.Maybe (Core.NonEmpty Types.PSParameterName))
+dprfrsInvalidParameters = Lens.field @"invalidParameters"
+{-# DEPRECATED dprfrsInvalidParameters "Use generic-lens or generic-optics with 'invalidParameters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DeleteParametersResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DeleteParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteParametersResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprfrsResponseStatus :: Lens.Lens' DeleteParametersResponse Core.Int
+dprfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

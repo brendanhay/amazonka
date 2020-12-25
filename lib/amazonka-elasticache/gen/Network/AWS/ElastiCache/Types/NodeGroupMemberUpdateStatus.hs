@@ -17,147 +17,139 @@ module Network.AWS.ElastiCache.Types.NodeGroupMemberUpdateStatus
     mkNodeGroupMemberUpdateStatus,
 
     -- * Lenses
-    ngmusNodeUpdateEndDate,
-    ngmusNodeUpdateInitiatedBy,
-    ngmusNodeUpdateStatusModifiedDate,
     ngmusCacheClusterId,
     ngmusCacheNodeId,
+    ngmusNodeDeletionDate,
+    ngmusNodeUpdateEndDate,
+    ngmusNodeUpdateInitiatedBy,
     ngmusNodeUpdateInitiatedDate,
     ngmusNodeUpdateStartDate,
     ngmusNodeUpdateStatus,
-    ngmusNodeDeletionDate,
+    ngmusNodeUpdateStatusModifiedDate,
   )
 where
 
-import Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy
-import Network.AWS.ElastiCache.Types.NodeUpdateStatus
+import qualified Network.AWS.ElastiCache.Types.CacheClusterId as Types
+import qualified Network.AWS.ElastiCache.Types.CacheNodeId as Types
+import qualified Network.AWS.ElastiCache.Types.NodeUpdateInitiatedBy as Types
+import qualified Network.AWS.ElastiCache.Types.NodeUpdateStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of the service update on the node group member
 --
 -- /See:/ 'mkNodeGroupMemberUpdateStatus' smart constructor.
 data NodeGroupMemberUpdateStatus = NodeGroupMemberUpdateStatus'
-  { -- | The end date of the update for a node
-    nodeUpdateEndDate :: Lude.Maybe Lude.DateTime,
-    -- | Reflects whether the update was initiated by the customer or automatically applied
-    nodeUpdateInitiatedBy :: Lude.Maybe NodeUpdateInitiatedBy,
-    -- | The date when the NodeUpdateStatus was last modified
-    nodeUpdateStatusModifiedDate :: Lude.Maybe Lude.DateTime,
-    -- | The cache cluster ID
-    cacheClusterId :: Lude.Maybe Lude.Text,
+  { -- | The cache cluster ID
+    cacheClusterId :: Core.Maybe Types.CacheClusterId,
     -- | The node ID of the cache cluster
-    cacheNodeId :: Lude.Maybe Lude.Text,
-    -- | The date when the update is triggered
-    nodeUpdateInitiatedDate :: Lude.Maybe Lude.DateTime,
-    -- | The start date of the update for a node
-    nodeUpdateStartDate :: Lude.Maybe Lude.DateTime,
-    -- | The update status of the node
-    nodeUpdateStatus :: Lude.Maybe NodeUpdateStatus,
+    cacheNodeId :: Core.Maybe Types.CacheNodeId,
     -- | The deletion date of the node
-    nodeDeletionDate :: Lude.Maybe Lude.DateTime
+    nodeDeletionDate :: Core.Maybe Core.UTCTime,
+    -- | The end date of the update for a node
+    nodeUpdateEndDate :: Core.Maybe Core.UTCTime,
+    -- | Reflects whether the update was initiated by the customer or automatically applied
+    nodeUpdateInitiatedBy :: Core.Maybe Types.NodeUpdateInitiatedBy,
+    -- | The date when the update is triggered
+    nodeUpdateInitiatedDate :: Core.Maybe Core.UTCTime,
+    -- | The start date of the update for a node
+    nodeUpdateStartDate :: Core.Maybe Core.UTCTime,
+    -- | The update status of the node
+    nodeUpdateStatus :: Core.Maybe Types.NodeUpdateStatus,
+    -- | The date when the NodeUpdateStatus was last modified
+    nodeUpdateStatusModifiedDate :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'NodeGroupMemberUpdateStatus' with the minimum fields required to make a request.
---
--- * 'nodeUpdateEndDate' - The end date of the update for a node
--- * 'nodeUpdateInitiatedBy' - Reflects whether the update was initiated by the customer or automatically applied
--- * 'nodeUpdateStatusModifiedDate' - The date when the NodeUpdateStatus was last modified
--- * 'cacheClusterId' - The cache cluster ID
--- * 'cacheNodeId' - The node ID of the cache cluster
--- * 'nodeUpdateInitiatedDate' - The date when the update is triggered
--- * 'nodeUpdateStartDate' - The start date of the update for a node
--- * 'nodeUpdateStatus' - The update status of the node
--- * 'nodeDeletionDate' - The deletion date of the node
+-- | Creates a 'NodeGroupMemberUpdateStatus' value with any optional fields omitted.
 mkNodeGroupMemberUpdateStatus ::
   NodeGroupMemberUpdateStatus
 mkNodeGroupMemberUpdateStatus =
   NodeGroupMemberUpdateStatus'
-    { nodeUpdateEndDate = Lude.Nothing,
-      nodeUpdateInitiatedBy = Lude.Nothing,
-      nodeUpdateStatusModifiedDate = Lude.Nothing,
-      cacheClusterId = Lude.Nothing,
-      cacheNodeId = Lude.Nothing,
-      nodeUpdateInitiatedDate = Lude.Nothing,
-      nodeUpdateStartDate = Lude.Nothing,
-      nodeUpdateStatus = Lude.Nothing,
-      nodeDeletionDate = Lude.Nothing
+    { cacheClusterId = Core.Nothing,
+      cacheNodeId = Core.Nothing,
+      nodeDeletionDate = Core.Nothing,
+      nodeUpdateEndDate = Core.Nothing,
+      nodeUpdateInitiatedBy = Core.Nothing,
+      nodeUpdateInitiatedDate = Core.Nothing,
+      nodeUpdateStartDate = Core.Nothing,
+      nodeUpdateStatus = Core.Nothing,
+      nodeUpdateStatusModifiedDate = Core.Nothing
     }
-
--- | The end date of the update for a node
---
--- /Note:/ Consider using 'nodeUpdateEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeUpdateEndDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.DateTime)
-ngmusNodeUpdateEndDate = Lens.lens (nodeUpdateEndDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateEndDate = a} :: NodeGroupMemberUpdateStatus)
-{-# DEPRECATED ngmusNodeUpdateEndDate "Use generic-lens or generic-optics with 'nodeUpdateEndDate' instead." #-}
-
--- | Reflects whether the update was initiated by the customer or automatically applied
---
--- /Note:/ Consider using 'nodeUpdateInitiatedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeUpdateInitiatedBy :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe NodeUpdateInitiatedBy)
-ngmusNodeUpdateInitiatedBy = Lens.lens (nodeUpdateInitiatedBy :: NodeGroupMemberUpdateStatus -> Lude.Maybe NodeUpdateInitiatedBy) (\s a -> s {nodeUpdateInitiatedBy = a} :: NodeGroupMemberUpdateStatus)
-{-# DEPRECATED ngmusNodeUpdateInitiatedBy "Use generic-lens or generic-optics with 'nodeUpdateInitiatedBy' instead." #-}
-
--- | The date when the NodeUpdateStatus was last modified
---
--- /Note:/ Consider using 'nodeUpdateStatusModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeUpdateStatusModifiedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.DateTime)
-ngmusNodeUpdateStatusModifiedDate = Lens.lens (nodeUpdateStatusModifiedDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateStatusModifiedDate = a} :: NodeGroupMemberUpdateStatus)
-{-# DEPRECATED ngmusNodeUpdateStatusModifiedDate "Use generic-lens or generic-optics with 'nodeUpdateStatusModifiedDate' instead." #-}
 
 -- | The cache cluster ID
 --
 -- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusCacheClusterId :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.Text)
-ngmusCacheClusterId = Lens.lens (cacheClusterId :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.Text) (\s a -> s {cacheClusterId = a} :: NodeGroupMemberUpdateStatus)
+ngmusCacheClusterId :: Lens.Lens' NodeGroupMemberUpdateStatus (Core.Maybe Types.CacheClusterId)
+ngmusCacheClusterId = Lens.field @"cacheClusterId"
 {-# DEPRECATED ngmusCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
 
 -- | The node ID of the cache cluster
 --
 -- /Note:/ Consider using 'cacheNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusCacheNodeId :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.Text)
-ngmusCacheNodeId = Lens.lens (cacheNodeId :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.Text) (\s a -> s {cacheNodeId = a} :: NodeGroupMemberUpdateStatus)
+ngmusCacheNodeId :: Lens.Lens' NodeGroupMemberUpdateStatus (Core.Maybe Types.CacheNodeId)
+ngmusCacheNodeId = Lens.field @"cacheNodeId"
 {-# DEPRECATED ngmusCacheNodeId "Use generic-lens or generic-optics with 'cacheNodeId' instead." #-}
+
+-- | The deletion date of the node
+--
+-- /Note:/ Consider using 'nodeDeletionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngmusNodeDeletionDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Core.Maybe Core.UTCTime)
+ngmusNodeDeletionDate = Lens.field @"nodeDeletionDate"
+{-# DEPRECATED ngmusNodeDeletionDate "Use generic-lens or generic-optics with 'nodeDeletionDate' instead." #-}
+
+-- | The end date of the update for a node
+--
+-- /Note:/ Consider using 'nodeUpdateEndDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngmusNodeUpdateEndDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Core.Maybe Core.UTCTime)
+ngmusNodeUpdateEndDate = Lens.field @"nodeUpdateEndDate"
+{-# DEPRECATED ngmusNodeUpdateEndDate "Use generic-lens or generic-optics with 'nodeUpdateEndDate' instead." #-}
+
+-- | Reflects whether the update was initiated by the customer or automatically applied
+--
+-- /Note:/ Consider using 'nodeUpdateInitiatedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngmusNodeUpdateInitiatedBy :: Lens.Lens' NodeGroupMemberUpdateStatus (Core.Maybe Types.NodeUpdateInitiatedBy)
+ngmusNodeUpdateInitiatedBy = Lens.field @"nodeUpdateInitiatedBy"
+{-# DEPRECATED ngmusNodeUpdateInitiatedBy "Use generic-lens or generic-optics with 'nodeUpdateInitiatedBy' instead." #-}
 
 -- | The date when the update is triggered
 --
 -- /Note:/ Consider using 'nodeUpdateInitiatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeUpdateInitiatedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.DateTime)
-ngmusNodeUpdateInitiatedDate = Lens.lens (nodeUpdateInitiatedDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateInitiatedDate = a} :: NodeGroupMemberUpdateStatus)
+ngmusNodeUpdateInitiatedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Core.Maybe Core.UTCTime)
+ngmusNodeUpdateInitiatedDate = Lens.field @"nodeUpdateInitiatedDate"
 {-# DEPRECATED ngmusNodeUpdateInitiatedDate "Use generic-lens or generic-optics with 'nodeUpdateInitiatedDate' instead." #-}
 
 -- | The start date of the update for a node
 --
 -- /Note:/ Consider using 'nodeUpdateStartDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeUpdateStartDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.DateTime)
-ngmusNodeUpdateStartDate = Lens.lens (nodeUpdateStartDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeUpdateStartDate = a} :: NodeGroupMemberUpdateStatus)
+ngmusNodeUpdateStartDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Core.Maybe Core.UTCTime)
+ngmusNodeUpdateStartDate = Lens.field @"nodeUpdateStartDate"
 {-# DEPRECATED ngmusNodeUpdateStartDate "Use generic-lens or generic-optics with 'nodeUpdateStartDate' instead." #-}
 
 -- | The update status of the node
 --
 -- /Note:/ Consider using 'nodeUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeUpdateStatus :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe NodeUpdateStatus)
-ngmusNodeUpdateStatus = Lens.lens (nodeUpdateStatus :: NodeGroupMemberUpdateStatus -> Lude.Maybe NodeUpdateStatus) (\s a -> s {nodeUpdateStatus = a} :: NodeGroupMemberUpdateStatus)
+ngmusNodeUpdateStatus :: Lens.Lens' NodeGroupMemberUpdateStatus (Core.Maybe Types.NodeUpdateStatus)
+ngmusNodeUpdateStatus = Lens.field @"nodeUpdateStatus"
 {-# DEPRECATED ngmusNodeUpdateStatus "Use generic-lens or generic-optics with 'nodeUpdateStatus' instead." #-}
 
--- | The deletion date of the node
+-- | The date when the NodeUpdateStatus was last modified
 --
--- /Note:/ Consider using 'nodeDeletionDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ngmusNodeDeletionDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Lude.Maybe Lude.DateTime)
-ngmusNodeDeletionDate = Lens.lens (nodeDeletionDate :: NodeGroupMemberUpdateStatus -> Lude.Maybe Lude.DateTime) (\s a -> s {nodeDeletionDate = a} :: NodeGroupMemberUpdateStatus)
-{-# DEPRECATED ngmusNodeDeletionDate "Use generic-lens or generic-optics with 'nodeDeletionDate' instead." #-}
+-- /Note:/ Consider using 'nodeUpdateStatusModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ngmusNodeUpdateStatusModifiedDate :: Lens.Lens' NodeGroupMemberUpdateStatus (Core.Maybe Core.UTCTime)
+ngmusNodeUpdateStatusModifiedDate = Lens.field @"nodeUpdateStatusModifiedDate"
+{-# DEPRECATED ngmusNodeUpdateStatusModifiedDate "Use generic-lens or generic-optics with 'nodeUpdateStatusModifiedDate' instead." #-}
 
-instance Lude.FromXML NodeGroupMemberUpdateStatus where
+instance Core.FromXML NodeGroupMemberUpdateStatus where
   parseXML x =
     NodeGroupMemberUpdateStatus'
-      Lude.<$> (x Lude..@? "NodeUpdateEndDate")
-      Lude.<*> (x Lude..@? "NodeUpdateInitiatedBy")
-      Lude.<*> (x Lude..@? "NodeUpdateStatusModifiedDate")
-      Lude.<*> (x Lude..@? "CacheClusterId")
-      Lude.<*> (x Lude..@? "CacheNodeId")
-      Lude.<*> (x Lude..@? "NodeUpdateInitiatedDate")
-      Lude.<*> (x Lude..@? "NodeUpdateStartDate")
-      Lude.<*> (x Lude..@? "NodeUpdateStatus")
-      Lude.<*> (x Lude..@? "NodeDeletionDate")
+      Core.<$> (x Core..@? "CacheClusterId")
+      Core.<*> (x Core..@? "CacheNodeId")
+      Core.<*> (x Core..@? "NodeDeletionDate")
+      Core.<*> (x Core..@? "NodeUpdateEndDate")
+      Core.<*> (x Core..@? "NodeUpdateInitiatedBy")
+      Core.<*> (x Core..@? "NodeUpdateInitiatedDate")
+      Core.<*> (x Core..@? "NodeUpdateStartDate")
+      Core.<*> (x Core..@? "NodeUpdateStatus")
+      Core.<*> (x Core..@? "NodeUpdateStatusModifiedDate")

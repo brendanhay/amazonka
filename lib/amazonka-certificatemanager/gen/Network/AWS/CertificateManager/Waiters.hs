@@ -17,55 +17,54 @@ module Network.AWS.CertificateManager.Waiters
 where
 
 import Network.AWS.CertificateManager.DescribeCertificate
-import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.CertificateManager.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.CertificateManager.DescribeCertificate' every 60 seconds until a successful state is reached. An error is returned after 40 failed checks.
-mkCertificateValidated :: Wait.Wait DescribeCertificate
+mkCertificateValidated :: Waiter.Wait DescribeCertificate
 mkCertificateValidated =
-  Wait.Wait
-    { Wait._waitName = "CertificateValidated",
-      Wait._waitAttempts = 40,
-      Wait._waitDelay = 60,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "CertificateValidated",
+      Waiter._waitAttempts = 40,
+      Waiter._waitDelay = 60,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "SUCCESS"
-            Wait.AcceptSuccess
-            ( dcrsCertificate Lude.. Lens._Just
-                Lude.. Lens.folding
+            Waiter.AcceptSuccess
+            ( Lens.field @"certificate" Core.. Lens._Just
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      ( cdDomainValidationOptions Lude.. Lens._Just
-                          Lude.. Lens.to Lude.toList
+                      ( Lens.field @"domainValidationOptions" Core.. Lens._Just
+                          Core.. Lens.to Core.toList
                       )
                   )
-                Lude.. dvValidationStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"validationStatus"
+                Core.. Lens._Just
             ),
-          Wait.matchAny
+          Waiter.matchAny
             "PENDING_VALIDATION"
-            Wait.AcceptRetry
-            ( dcrsCertificate Lude.. Lens._Just
-                Lude.. Lens.folding
+            Waiter.AcceptRetry
+            ( Lens.field @"certificate" Core.. Lens._Just
+                Core.. Lens.folding
                   ( Lens.concatOf
-                      ( cdDomainValidationOptions Lude.. Lens._Just
-                          Lude.. Lens.to Lude.toList
+                      ( Lens.field @"domainValidationOptions" Core.. Lens._Just
+                          Core.. Lens.to Core.toList
                       )
                   )
-                Lude.. dvValidationStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+                Core.. Lens.field @"validationStatus"
+                Core.. Lens._Just
             ),
-          Wait.matchAll
+          Waiter.matchAll
             "FAILED"
-            Wait.AcceptFailure
-            ( dcrsCertificate Lude.. Lens._Just
-                Lude.. cdStatus
-                Lude.. Lens._Just
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptFailure
+            ( Lens.field @"certificate" Core.. Lens._Just
+                Core.. Lens.field @"status"
+                Core.. Lens._Just
             ),
-          Wait.matchError "ResourceNotFoundException" Wait.AcceptFailure
+          Waiter.matchError
+            "ResourceNotFoundException"
+            Waiter.AcceptFailure
         ]
     }

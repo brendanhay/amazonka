@@ -27,225 +27,205 @@ module Network.AWS.Rekognition.DescribeStreamProcessor
     mkDescribeStreamProcessorResponse,
 
     -- ** Response lenses
-    dsprsStatus,
-    dsprsSettings,
-    dsprsInput,
-    dsprsOutput,
-    dsprsStreamProcessorARN,
-    dsprsStatusMessage,
-    dsprsName,
-    dsprsCreationTimestamp,
-    dsprsLastUpdateTimestamp,
-    dsprsRoleARN,
-    dsprsResponseStatus,
+    dsprrsCreationTimestamp,
+    dsprrsInput,
+    dsprrsLastUpdateTimestamp,
+    dsprrsName,
+    dsprrsOutput,
+    dsprrsRoleArn,
+    dsprrsSettings,
+    dsprrsStatus,
+    dsprrsStatusMessage,
+    dsprrsStreamProcessorArn,
+    dsprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeStreamProcessor' smart constructor.
 newtype DescribeStreamProcessor = DescribeStreamProcessor'
   { -- | Name of the stream processor for which you want information.
-    name :: Lude.Text
+    name :: Types.StreamProcessorName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeStreamProcessor' with the minimum fields required to make a request.
---
--- * 'name' - Name of the stream processor for which you want information.
+-- | Creates a 'DescribeStreamProcessor' value with any optional fields omitted.
 mkDescribeStreamProcessor ::
   -- | 'name'
-  Lude.Text ->
+  Types.StreamProcessorName ->
   DescribeStreamProcessor
-mkDescribeStreamProcessor pName_ =
-  DescribeStreamProcessor' {name = pName_}
+mkDescribeStreamProcessor name = DescribeStreamProcessor' {name}
 
 -- | Name of the stream processor for which you want information.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dspName :: Lens.Lens' DescribeStreamProcessor Lude.Text
-dspName = Lens.lens (name :: DescribeStreamProcessor -> Lude.Text) (\s a -> s {name = a} :: DescribeStreamProcessor)
+dspName :: Lens.Lens' DescribeStreamProcessor Types.StreamProcessorName
+dspName = Lens.field @"name"
 {-# DEPRECATED dspName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DescribeStreamProcessor where
+instance Core.FromJSON DescribeStreamProcessor where
+  toJSON DescribeStreamProcessor {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DescribeStreamProcessor where
   type Rs DescribeStreamProcessor = DescribeStreamProcessorResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "RekognitionService.DescribeStreamProcessor")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeStreamProcessorResponse'
-            Lude.<$> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "Settings")
-            Lude.<*> (x Lude..?> "Input")
-            Lude.<*> (x Lude..?> "Output")
-            Lude.<*> (x Lude..?> "StreamProcessorArn")
-            Lude.<*> (x Lude..?> "StatusMessage")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (x Lude..?> "CreationTimestamp")
-            Lude.<*> (x Lude..?> "LastUpdateTimestamp")
-            Lude.<*> (x Lude..?> "RoleArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CreationTimestamp")
+            Core.<*> (x Core..:? "Input")
+            Core.<*> (x Core..:? "LastUpdateTimestamp")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Output")
+            Core.<*> (x Core..:? "RoleArn")
+            Core.<*> (x Core..:? "Settings")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "StatusMessage")
+            Core.<*> (x Core..:? "StreamProcessorArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeStreamProcessor where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.DescribeStreamProcessor" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeStreamProcessor where
-  toJSON DescribeStreamProcessor' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DescribeStreamProcessor where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeStreamProcessor where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeStreamProcessorResponse' smart constructor.
 data DescribeStreamProcessorResponse = DescribeStreamProcessorResponse'
-  { -- | Current status of the stream processor.
-    status :: Lude.Maybe StreamProcessorStatus,
-    -- | Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.
-    settings :: Lude.Maybe StreamProcessorSettings,
+  { -- | Date and time the stream processor was created
+    creationTimestamp :: Core.Maybe Core.NominalDiffTime,
     -- | Kinesis video stream that provides the source streaming video.
-    input :: Lude.Maybe StreamProcessorInput,
-    -- | Kinesis data stream to which Amazon Rekognition Video puts the analysis results.
-    output :: Lude.Maybe StreamProcessorOutput,
-    -- | ARN of the stream processor.
-    streamProcessorARN :: Lude.Maybe Lude.Text,
-    -- | Detailed status message about the stream processor.
-    statusMessage :: Lude.Maybe Lude.Text,
-    -- | Name of the stream processor.
-    name :: Lude.Maybe Lude.Text,
-    -- | Date and time the stream processor was created
-    creationTimestamp :: Lude.Maybe Lude.Timestamp,
+    input :: Core.Maybe Types.StreamProcessorInput,
     -- | The time, in Unix format, the stream processor was last updated. For example, when the stream processor moves from a running state to a failed state, or when the user starts or stops the stream processor.
-    lastUpdateTimestamp :: Lude.Maybe Lude.Timestamp,
+    lastUpdateTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | Name of the stream processor.
+    name :: Core.Maybe Types.StreamProcessorName,
+    -- | Kinesis data stream to which Amazon Rekognition Video puts the analysis results.
+    output :: Core.Maybe Types.StreamProcessorOutput,
     -- | ARN of the IAM role that allows access to the stream processor.
-    roleARN :: Lude.Maybe Lude.Text,
+    roleArn :: Core.Maybe Types.RoleArn,
+    -- | Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.
+    settings :: Core.Maybe Types.StreamProcessorSettings,
+    -- | Current status of the stream processor.
+    status :: Core.Maybe Types.StreamProcessorStatus,
+    -- | Detailed status message about the stream processor.
+    statusMessage :: Core.Maybe Types.String,
+    -- | ARN of the stream processor.
+    streamProcessorArn :: Core.Maybe Types.StreamProcessorArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeStreamProcessorResponse' with the minimum fields required to make a request.
---
--- * 'status' - Current status of the stream processor.
--- * 'settings' - Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.
--- * 'input' - Kinesis video stream that provides the source streaming video.
--- * 'output' - Kinesis data stream to which Amazon Rekognition Video puts the analysis results.
--- * 'streamProcessorARN' - ARN of the stream processor.
--- * 'statusMessage' - Detailed status message about the stream processor.
--- * 'name' - Name of the stream processor.
--- * 'creationTimestamp' - Date and time the stream processor was created
--- * 'lastUpdateTimestamp' - The time, in Unix format, the stream processor was last updated. For example, when the stream processor moves from a running state to a failed state, or when the user starts or stops the stream processor.
--- * 'roleARN' - ARN of the IAM role that allows access to the stream processor.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeStreamProcessorResponse' value with any optional fields omitted.
 mkDescribeStreamProcessorResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeStreamProcessorResponse
-mkDescribeStreamProcessorResponse pResponseStatus_ =
+mkDescribeStreamProcessorResponse responseStatus =
   DescribeStreamProcessorResponse'
-    { status = Lude.Nothing,
-      settings = Lude.Nothing,
-      input = Lude.Nothing,
-      output = Lude.Nothing,
-      streamProcessorARN = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      name = Lude.Nothing,
-      creationTimestamp = Lude.Nothing,
-      lastUpdateTimestamp = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { creationTimestamp =
+        Core.Nothing,
+      input = Core.Nothing,
+      lastUpdateTimestamp = Core.Nothing,
+      name = Core.Nothing,
+      output = Core.Nothing,
+      roleArn = Core.Nothing,
+      settings = Core.Nothing,
+      status = Core.Nothing,
+      statusMessage = Core.Nothing,
+      streamProcessorArn = Core.Nothing,
+      responseStatus
     }
-
--- | Current status of the stream processor.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsStatus :: Lens.Lens' DescribeStreamProcessorResponse (Lude.Maybe StreamProcessorStatus)
-dsprsStatus = Lens.lens (status :: DescribeStreamProcessorResponse -> Lude.Maybe StreamProcessorStatus) (\s a -> s {status = a} :: DescribeStreamProcessorResponse)
-{-# DEPRECATED dsprsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.
---
--- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsSettings :: Lens.Lens' DescribeStreamProcessorResponse (Lude.Maybe StreamProcessorSettings)
-dsprsSettings = Lens.lens (settings :: DescribeStreamProcessorResponse -> Lude.Maybe StreamProcessorSettings) (\s a -> s {settings = a} :: DescribeStreamProcessorResponse)
-{-# DEPRECATED dsprsSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
-
--- | Kinesis video stream that provides the source streaming video.
---
--- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsInput :: Lens.Lens' DescribeStreamProcessorResponse (Lude.Maybe StreamProcessorInput)
-dsprsInput = Lens.lens (input :: DescribeStreamProcessorResponse -> Lude.Maybe StreamProcessorInput) (\s a -> s {input = a} :: DescribeStreamProcessorResponse)
-{-# DEPRECATED dsprsInput "Use generic-lens or generic-optics with 'input' instead." #-}
-
--- | Kinesis data stream to which Amazon Rekognition Video puts the analysis results.
---
--- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsOutput :: Lens.Lens' DescribeStreamProcessorResponse (Lude.Maybe StreamProcessorOutput)
-dsprsOutput = Lens.lens (output :: DescribeStreamProcessorResponse -> Lude.Maybe StreamProcessorOutput) (\s a -> s {output = a} :: DescribeStreamProcessorResponse)
-{-# DEPRECATED dsprsOutput "Use generic-lens or generic-optics with 'output' instead." #-}
-
--- | ARN of the stream processor.
---
--- /Note:/ Consider using 'streamProcessorARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsStreamProcessorARN :: Lens.Lens' DescribeStreamProcessorResponse (Lude.Maybe Lude.Text)
-dsprsStreamProcessorARN = Lens.lens (streamProcessorARN :: DescribeStreamProcessorResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamProcessorARN = a} :: DescribeStreamProcessorResponse)
-{-# DEPRECATED dsprsStreamProcessorARN "Use generic-lens or generic-optics with 'streamProcessorARN' instead." #-}
-
--- | Detailed status message about the stream processor.
---
--- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsStatusMessage :: Lens.Lens' DescribeStreamProcessorResponse (Lude.Maybe Lude.Text)
-dsprsStatusMessage = Lens.lens (statusMessage :: DescribeStreamProcessorResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: DescribeStreamProcessorResponse)
-{-# DEPRECATED dsprsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
-
--- | Name of the stream processor.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsName :: Lens.Lens' DescribeStreamProcessorResponse (Lude.Maybe Lude.Text)
-dsprsName = Lens.lens (name :: DescribeStreamProcessorResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeStreamProcessorResponse)
-{-# DEPRECATED dsprsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Date and time the stream processor was created
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsCreationTimestamp :: Lens.Lens' DescribeStreamProcessorResponse (Lude.Maybe Lude.Timestamp)
-dsprsCreationTimestamp = Lens.lens (creationTimestamp :: DescribeStreamProcessorResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimestamp = a} :: DescribeStreamProcessorResponse)
-{-# DEPRECATED dsprsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
+dsprrsCreationTimestamp :: Lens.Lens' DescribeStreamProcessorResponse (Core.Maybe Core.NominalDiffTime)
+dsprrsCreationTimestamp = Lens.field @"creationTimestamp"
+{-# DEPRECATED dsprrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
+
+-- | Kinesis video stream that provides the source streaming video.
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsprrsInput :: Lens.Lens' DescribeStreamProcessorResponse (Core.Maybe Types.StreamProcessorInput)
+dsprrsInput = Lens.field @"input"
+{-# DEPRECATED dsprrsInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | The time, in Unix format, the stream processor was last updated. For example, when the stream processor moves from a running state to a failed state, or when the user starts or stops the stream processor.
 --
 -- /Note:/ Consider using 'lastUpdateTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsLastUpdateTimestamp :: Lens.Lens' DescribeStreamProcessorResponse (Lude.Maybe Lude.Timestamp)
-dsprsLastUpdateTimestamp = Lens.lens (lastUpdateTimestamp :: DescribeStreamProcessorResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTimestamp = a} :: DescribeStreamProcessorResponse)
-{-# DEPRECATED dsprsLastUpdateTimestamp "Use generic-lens or generic-optics with 'lastUpdateTimestamp' instead." #-}
+dsprrsLastUpdateTimestamp :: Lens.Lens' DescribeStreamProcessorResponse (Core.Maybe Core.NominalDiffTime)
+dsprrsLastUpdateTimestamp = Lens.field @"lastUpdateTimestamp"
+{-# DEPRECATED dsprrsLastUpdateTimestamp "Use generic-lens or generic-optics with 'lastUpdateTimestamp' instead." #-}
+
+-- | Name of the stream processor.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsprrsName :: Lens.Lens' DescribeStreamProcessorResponse (Core.Maybe Types.StreamProcessorName)
+dsprrsName = Lens.field @"name"
+{-# DEPRECATED dsprrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Kinesis data stream to which Amazon Rekognition Video puts the analysis results.
+--
+-- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsprrsOutput :: Lens.Lens' DescribeStreamProcessorResponse (Core.Maybe Types.StreamProcessorOutput)
+dsprrsOutput = Lens.field @"output"
+{-# DEPRECATED dsprrsOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | ARN of the IAM role that allows access to the stream processor.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsRoleARN :: Lens.Lens' DescribeStreamProcessorResponse (Lude.Maybe Lude.Text)
-dsprsRoleARN = Lens.lens (roleARN :: DescribeStreamProcessorResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DescribeStreamProcessorResponse)
-{-# DEPRECATED dsprsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsprrsRoleArn :: Lens.Lens' DescribeStreamProcessorResponse (Core.Maybe Types.RoleArn)
+dsprrsRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED dsprrsRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+
+-- | Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsprrsSettings :: Lens.Lens' DescribeStreamProcessorResponse (Core.Maybe Types.StreamProcessorSettings)
+dsprrsSettings = Lens.field @"settings"
+{-# DEPRECATED dsprrsSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
+
+-- | Current status of the stream processor.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsprrsStatus :: Lens.Lens' DescribeStreamProcessorResponse (Core.Maybe Types.StreamProcessorStatus)
+dsprrsStatus = Lens.field @"status"
+{-# DEPRECATED dsprrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | Detailed status message about the stream processor.
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsprrsStatusMessage :: Lens.Lens' DescribeStreamProcessorResponse (Core.Maybe Types.String)
+dsprrsStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED dsprrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+
+-- | ARN of the stream processor.
+--
+-- /Note:/ Consider using 'streamProcessorArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsprrsStreamProcessorArn :: Lens.Lens' DescribeStreamProcessorResponse (Core.Maybe Types.StreamProcessorArn)
+dsprrsStreamProcessorArn = Lens.field @"streamProcessorArn"
+{-# DEPRECATED dsprrsStreamProcessorArn "Use generic-lens or generic-optics with 'streamProcessorArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsprsResponseStatus :: Lens.Lens' DescribeStreamProcessorResponse Lude.Int
-dsprsResponseStatus = Lens.lens (responseStatus :: DescribeStreamProcessorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamProcessorResponse)
-{-# DEPRECATED dsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsprrsResponseStatus :: Lens.Lens' DescribeStreamProcessorResponse Core.Int
+dsprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

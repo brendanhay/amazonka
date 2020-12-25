@@ -18,67 +18,63 @@ module Network.AWS.SageMaker.Types.ProcessingOutputConfig
 
     -- * Lenses
     pocOutputs,
-    pocKMSKeyId,
+    pocKmsKeyId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.ProcessingOutput
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.KmsKeyId as Types
+import qualified Network.AWS.SageMaker.Types.ProcessingOutput as Types
 
 -- | The output configuration for the processing job.
 --
 -- /See:/ 'mkProcessingOutputConfig' smart constructor.
 data ProcessingOutputConfig = ProcessingOutputConfig'
   { -- | Output configuration information for a processing job.
-    outputs :: [ProcessingOutput],
+    outputs :: [Types.ProcessingOutput],
     -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. @KmsKeyId@ can be an ID of a KMS key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The @KmsKeyId@ is applied to all outputs.
-    kmsKeyId :: Lude.Maybe Lude.Text
+    kmsKeyId :: Core.Maybe Types.KmsKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProcessingOutputConfig' with the minimum fields required to make a request.
---
--- * 'outputs' - Output configuration information for a processing job.
--- * 'kmsKeyId' - The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. @KmsKeyId@ can be an ID of a KMS key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The @KmsKeyId@ is applied to all outputs.
+-- | Creates a 'ProcessingOutputConfig' value with any optional fields omitted.
 mkProcessingOutputConfig ::
   ProcessingOutputConfig
 mkProcessingOutputConfig =
   ProcessingOutputConfig'
-    { outputs = Lude.mempty,
-      kmsKeyId = Lude.Nothing
+    { outputs = Core.mempty,
+      kmsKeyId = Core.Nothing
     }
 
 -- | Output configuration information for a processing job.
 --
 -- /Note:/ Consider using 'outputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocOutputs :: Lens.Lens' ProcessingOutputConfig [ProcessingOutput]
-pocOutputs = Lens.lens (outputs :: ProcessingOutputConfig -> [ProcessingOutput]) (\s a -> s {outputs = a} :: ProcessingOutputConfig)
+pocOutputs :: Lens.Lens' ProcessingOutputConfig [Types.ProcessingOutput]
+pocOutputs = Lens.field @"outputs"
 {-# DEPRECATED pocOutputs "Use generic-lens or generic-optics with 'outputs' instead." #-}
 
 -- | The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the processing job output. @KmsKeyId@ can be an ID of a KMS key, ARN of a KMS key, alias of a KMS key, or alias of a KMS key. The @KmsKeyId@ is applied to all outputs.
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocKMSKeyId :: Lens.Lens' ProcessingOutputConfig (Lude.Maybe Lude.Text)
-pocKMSKeyId = Lens.lens (kmsKeyId :: ProcessingOutputConfig -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: ProcessingOutputConfig)
-{-# DEPRECATED pocKMSKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
+pocKmsKeyId :: Lens.Lens' ProcessingOutputConfig (Core.Maybe Types.KmsKeyId)
+pocKmsKeyId = Lens.field @"kmsKeyId"
+{-# DEPRECATED pocKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
-instance Lude.FromJSON ProcessingOutputConfig where
-  parseJSON =
-    Lude.withObject
-      "ProcessingOutputConfig"
-      ( \x ->
-          ProcessingOutputConfig'
-            Lude.<$> (x Lude..:? "Outputs" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "KmsKeyId")
-      )
-
-instance Lude.ToJSON ProcessingOutputConfig where
-  toJSON ProcessingOutputConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Outputs" Lude..= outputs),
-            ("KmsKeyId" Lude..=) Lude.<$> kmsKeyId
+instance Core.FromJSON ProcessingOutputConfig where
+  toJSON ProcessingOutputConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Outputs" Core..= outputs),
+            ("KmsKeyId" Core..=) Core.<$> kmsKeyId
           ]
       )
+
+instance Core.FromJSON ProcessingOutputConfig where
+  parseJSON =
+    Core.withObject "ProcessingOutputConfig" Core.$
+      \x ->
+        ProcessingOutputConfig'
+          Core.<$> (x Core..:? "Outputs" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "KmsKeyId")

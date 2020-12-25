@@ -17,55 +17,54 @@ module Network.AWS.SSM.Types.MaintenanceWindowFilter
     mkMaintenanceWindowFilter,
 
     -- * Lenses
-    mwfValues,
     mwfKey,
+    mwfValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.MaintenanceWindowFilterKey as Types
+import qualified Network.AWS.SSM.Types.MaintenanceWindowFilterValue as Types
 
 -- | Filter used in the request. Supported filter keys are Name and Enabled.
 --
 -- /See:/ 'mkMaintenanceWindowFilter' smart constructor.
 data MaintenanceWindowFilter = MaintenanceWindowFilter'
-  { -- | The filter values.
-    values :: Lude.Maybe [Lude.Text],
-    -- | The name of the filter.
-    key :: Lude.Maybe Lude.Text
+  { -- | The name of the filter.
+    key :: Core.Maybe Types.MaintenanceWindowFilterKey,
+    -- | The filter values.
+    values :: Core.Maybe [Types.MaintenanceWindowFilterValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MaintenanceWindowFilter' with the minimum fields required to make a request.
---
--- * 'values' - The filter values.
--- * 'key' - The name of the filter.
+-- | Creates a 'MaintenanceWindowFilter' value with any optional fields omitted.
 mkMaintenanceWindowFilter ::
   MaintenanceWindowFilter
 mkMaintenanceWindowFilter =
   MaintenanceWindowFilter'
-    { values = Lude.Nothing,
-      key = Lude.Nothing
+    { key = Core.Nothing,
+      values = Core.Nothing
     }
-
--- | The filter values.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwfValues :: Lens.Lens' MaintenanceWindowFilter (Lude.Maybe [Lude.Text])
-mwfValues = Lens.lens (values :: MaintenanceWindowFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: MaintenanceWindowFilter)
-{-# DEPRECATED mwfValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The name of the filter.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwfKey :: Lens.Lens' MaintenanceWindowFilter (Lude.Maybe Lude.Text)
-mwfKey = Lens.lens (key :: MaintenanceWindowFilter -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: MaintenanceWindowFilter)
+mwfKey :: Lens.Lens' MaintenanceWindowFilter (Core.Maybe Types.MaintenanceWindowFilterKey)
+mwfKey = Lens.field @"key"
 {-# DEPRECATED mwfKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.ToJSON MaintenanceWindowFilter where
-  toJSON MaintenanceWindowFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Values" Lude..=) Lude.<$> values, ("Key" Lude..=) Lude.<$> key]
+-- | The filter values.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mwfValues :: Lens.Lens' MaintenanceWindowFilter (Core.Maybe [Types.MaintenanceWindowFilterValue])
+mwfValues = Lens.field @"values"
+{-# DEPRECATED mwfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON MaintenanceWindowFilter where
+  toJSON MaintenanceWindowFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Values" Core..=) Core.<$> values]
       )

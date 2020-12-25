@@ -22,34 +22,32 @@ module Network.AWS.KinesisAnalytics.Types.InputParallelismUpdate
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides updates to the parallelism count.
 --
 -- /See:/ 'mkInputParallelismUpdate' smart constructor.
 newtype InputParallelismUpdate = InputParallelismUpdate'
   { -- | Number of in-application streams to create for the specified streaming source.
-    countUpdate :: Lude.Maybe Lude.Natural
+    countUpdate :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputParallelismUpdate' with the minimum fields required to make a request.
---
--- * 'countUpdate' - Number of in-application streams to create for the specified streaming source.
+-- | Creates a 'InputParallelismUpdate' value with any optional fields omitted.
 mkInputParallelismUpdate ::
   InputParallelismUpdate
 mkInputParallelismUpdate =
-  InputParallelismUpdate' {countUpdate = Lude.Nothing}
+  InputParallelismUpdate' {countUpdate = Core.Nothing}
 
 -- | Number of in-application streams to create for the specified streaming source.
 --
 -- /Note:/ Consider using 'countUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ipuCountUpdate :: Lens.Lens' InputParallelismUpdate (Lude.Maybe Lude.Natural)
-ipuCountUpdate = Lens.lens (countUpdate :: InputParallelismUpdate -> Lude.Maybe Lude.Natural) (\s a -> s {countUpdate = a} :: InputParallelismUpdate)
+ipuCountUpdate :: Lens.Lens' InputParallelismUpdate (Core.Maybe Core.Natural)
+ipuCountUpdate = Lens.field @"countUpdate"
 {-# DEPRECATED ipuCountUpdate "Use generic-lens or generic-optics with 'countUpdate' instead." #-}
 
-instance Lude.ToJSON InputParallelismUpdate where
-  toJSON InputParallelismUpdate' {..} =
-    Lude.object
-      (Lude.catMaybes [("CountUpdate" Lude..=) Lude.<$> countUpdate])
+instance Core.FromJSON InputParallelismUpdate where
+  toJSON InputParallelismUpdate {..} =
+    Core.object
+      (Core.catMaybes [("CountUpdate" Core..=) Core.<$> countUpdate])

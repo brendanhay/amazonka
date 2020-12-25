@@ -51,29 +51,31 @@ module Network.AWS.WAFRegional.UpdateByteMatchSet
 
     -- ** Request lenses
     ubmsByteMatchSetId,
-    ubmsUpdates,
     ubmsChangeToken,
+    ubmsUpdates,
 
     -- * Destructuring the response
     UpdateByteMatchSetResponse (..),
     mkUpdateByteMatchSetResponse,
 
     -- ** Response lenses
-    ubmsrsChangeToken,
-    ubmsrsResponseStatus,
+    ubmsrrsChangeToken,
+    ubmsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkUpdateByteMatchSet' smart constructor.
 data UpdateByteMatchSet = UpdateByteMatchSet'
   { -- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to update. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
-    byteMatchSetId :: Lude.Text,
+    byteMatchSetId :: Types.ResourceId,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
+    changeToken :: Types.ChangeToken,
     -- | An array of @ByteMatchSetUpdate@ objects that you want to insert into or delete from a 'ByteMatchSet' . For more information, see the applicable data types:
     --
     --
@@ -84,50 +86,36 @@ data UpdateByteMatchSet = UpdateByteMatchSet'
     --
     --
     --     * 'FieldToMatch' : Contains @Data@ and @Type@
-    updates :: Lude.NonEmpty ByteMatchSetUpdate,
-    -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    updates :: Core.NonEmpty Types.ByteMatchSetUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateByteMatchSet' with the minimum fields required to make a request.
---
--- * 'byteMatchSetId' - The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to update. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
--- * 'updates' - An array of @ByteMatchSetUpdate@ objects that you want to insert into or delete from a 'ByteMatchSet' . For more information, see the applicable data types:
---
---
---     * 'ByteMatchSetUpdate' : Contains @Action@ and @ByteMatchTuple@
---
---
---     * 'ByteMatchTuple' : Contains @FieldToMatch@ , @PositionalConstraint@ , @TargetString@ , and @TextTransformation@
---
---
---     * 'FieldToMatch' : Contains @Data@ and @Type@
---
---
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'UpdateByteMatchSet' value with any optional fields omitted.
 mkUpdateByteMatchSet ::
   -- | 'byteMatchSetId'
-  Lude.Text ->
-  -- | 'updates'
-  Lude.NonEmpty ByteMatchSetUpdate ->
+  Types.ResourceId ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
+  -- | 'updates'
+  Core.NonEmpty Types.ByteMatchSetUpdate ->
   UpdateByteMatchSet
-mkUpdateByteMatchSet pByteMatchSetId_ pUpdates_ pChangeToken_ =
-  UpdateByteMatchSet'
-    { byteMatchSetId = pByteMatchSetId_,
-      updates = pUpdates_,
-      changeToken = pChangeToken_
-    }
+mkUpdateByteMatchSet byteMatchSetId changeToken updates =
+  UpdateByteMatchSet' {byteMatchSetId, changeToken, updates}
 
 -- | The @ByteMatchSetId@ of the 'ByteMatchSet' that you want to update. @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
 --
 -- /Note:/ Consider using 'byteMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubmsByteMatchSetId :: Lens.Lens' UpdateByteMatchSet Lude.Text
-ubmsByteMatchSetId = Lens.lens (byteMatchSetId :: UpdateByteMatchSet -> Lude.Text) (\s a -> s {byteMatchSetId = a} :: UpdateByteMatchSet)
+ubmsByteMatchSetId :: Lens.Lens' UpdateByteMatchSet Types.ResourceId
+ubmsByteMatchSetId = Lens.field @"byteMatchSetId"
 {-# DEPRECATED ubmsByteMatchSetId "Use generic-lens or generic-optics with 'byteMatchSetId' instead." #-}
+
+-- | The value returned by the most recent call to 'GetChangeToken' .
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ubmsChangeToken :: Lens.Lens' UpdateByteMatchSet Types.ChangeToken
+ubmsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED ubmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | An array of @ByteMatchSetUpdate@ objects that you want to insert into or delete from a 'ByteMatchSet' . For more information, see the applicable data types:
 --
@@ -143,88 +131,72 @@ ubmsByteMatchSetId = Lens.lens (byteMatchSetId :: UpdateByteMatchSet -> Lude.Tex
 --
 --
 -- /Note:/ Consider using 'updates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubmsUpdates :: Lens.Lens' UpdateByteMatchSet (Lude.NonEmpty ByteMatchSetUpdate)
-ubmsUpdates = Lens.lens (updates :: UpdateByteMatchSet -> Lude.NonEmpty ByteMatchSetUpdate) (\s a -> s {updates = a} :: UpdateByteMatchSet)
+ubmsUpdates :: Lens.Lens' UpdateByteMatchSet (Core.NonEmpty Types.ByteMatchSetUpdate)
+ubmsUpdates = Lens.field @"updates"
 {-# DEPRECATED ubmsUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
 
--- | The value returned by the most recent call to 'GetChangeToken' .
---
--- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubmsChangeToken :: Lens.Lens' UpdateByteMatchSet Lude.Text
-ubmsChangeToken = Lens.lens (changeToken :: UpdateByteMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateByteMatchSet)
-{-# DEPRECATED ubmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+instance Core.FromJSON UpdateByteMatchSet where
+  toJSON UpdateByteMatchSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ByteMatchSetId" Core..= byteMatchSetId),
+            Core.Just ("ChangeToken" Core..= changeToken),
+            Core.Just ("Updates" Core..= updates)
+          ]
+      )
 
-instance Lude.AWSRequest UpdateByteMatchSet where
+instance Core.AWSRequest UpdateByteMatchSet where
   type Rs UpdateByteMatchSet = UpdateByteMatchSetResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_Regional_20161128.UpdateByteMatchSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateByteMatchSetResponse'
-            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateByteMatchSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.UpdateByteMatchSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateByteMatchSet where
-  toJSON UpdateByteMatchSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ByteMatchSetId" Lude..= byteMatchSetId),
-            Lude.Just ("Updates" Lude..= updates),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath UpdateByteMatchSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateByteMatchSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateByteMatchSetResponse' smart constructor.
 data UpdateByteMatchSetResponse = UpdateByteMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateByteMatchSetResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @UpdateByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateByteMatchSetResponse' value with any optional fields omitted.
 mkUpdateByteMatchSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateByteMatchSetResponse
-mkUpdateByteMatchSetResponse pResponseStatus_ =
+mkUpdateByteMatchSetResponse responseStatus =
   UpdateByteMatchSetResponse'
-    { changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateByteMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubmsrsChangeToken :: Lens.Lens' UpdateByteMatchSetResponse (Lude.Maybe Lude.Text)
-ubmsrsChangeToken = Lens.lens (changeToken :: UpdateByteMatchSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: UpdateByteMatchSetResponse)
-{-# DEPRECATED ubmsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+ubmsrrsChangeToken :: Lens.Lens' UpdateByteMatchSetResponse (Core.Maybe Types.ChangeToken)
+ubmsrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED ubmsrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubmsrsResponseStatus :: Lens.Lens' UpdateByteMatchSetResponse Lude.Int
-ubmsrsResponseStatus = Lens.lens (responseStatus :: UpdateByteMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateByteMatchSetResponse)
-{-# DEPRECATED ubmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ubmsrrsResponseStatus :: Lens.Lens' UpdateByteMatchSetResponse Core.Int
+ubmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ubmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

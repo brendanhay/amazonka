@@ -17,85 +17,76 @@ module Network.AWS.EMR.Types.VolumeSpecification
     mkVolumeSpecification,
 
     -- * Lenses
-    vsIOPS,
-    vsSizeInGB,
     vsVolumeType,
+    vsSizeInGB,
+    vsIops,
   )
 where
 
+import qualified Network.AWS.EMR.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
 --
 -- /See:/ 'mkVolumeSpecification' smart constructor.
 data VolumeSpecification = VolumeSpecification'
-  { -- | The number of I/O operations per second (IOPS) that the volume supports.
-    iops :: Lude.Maybe Lude.Int,
+  { -- | The volume type. Volume types supported are gp2, io1, standard.
+    volumeType :: Types.String,
     -- | The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
-    sizeInGB :: Lude.Int,
-    -- | The volume type. Volume types supported are gp2, io1, standard.
-    volumeType :: Lude.Text
+    sizeInGB :: Core.Int,
+    -- | The number of I/O operations per second (IOPS) that the volume supports.
+    iops :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VolumeSpecification' with the minimum fields required to make a request.
---
--- * 'iops' - The number of I/O operations per second (IOPS) that the volume supports.
--- * 'sizeInGB' - The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
--- * 'volumeType' - The volume type. Volume types supported are gp2, io1, standard.
+-- | Creates a 'VolumeSpecification' value with any optional fields omitted.
 mkVolumeSpecification ::
-  -- | 'sizeInGB'
-  Lude.Int ->
   -- | 'volumeType'
-  Lude.Text ->
+  Types.String ->
+  -- | 'sizeInGB'
+  Core.Int ->
   VolumeSpecification
-mkVolumeSpecification pSizeInGB_ pVolumeType_ =
-  VolumeSpecification'
-    { iops = Lude.Nothing,
-      sizeInGB = pSizeInGB_,
-      volumeType = pVolumeType_
-    }
-
--- | The number of I/O operations per second (IOPS) that the volume supports.
---
--- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsIOPS :: Lens.Lens' VolumeSpecification (Lude.Maybe Lude.Int)
-vsIOPS = Lens.lens (iops :: VolumeSpecification -> Lude.Maybe Lude.Int) (\s a -> s {iops = a} :: VolumeSpecification)
-{-# DEPRECATED vsIOPS "Use generic-lens or generic-optics with 'iops' instead." #-}
-
--- | The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
---
--- /Note:/ Consider using 'sizeInGB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsSizeInGB :: Lens.Lens' VolumeSpecification Lude.Int
-vsSizeInGB = Lens.lens (sizeInGB :: VolumeSpecification -> Lude.Int) (\s a -> s {sizeInGB = a} :: VolumeSpecification)
-{-# DEPRECATED vsSizeInGB "Use generic-lens or generic-optics with 'sizeInGB' instead." #-}
+mkVolumeSpecification volumeType sizeInGB =
+  VolumeSpecification' {volumeType, sizeInGB, iops = Core.Nothing}
 
 -- | The volume type. Volume types supported are gp2, io1, standard.
 --
 -- /Note:/ Consider using 'volumeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsVolumeType :: Lens.Lens' VolumeSpecification Lude.Text
-vsVolumeType = Lens.lens (volumeType :: VolumeSpecification -> Lude.Text) (\s a -> s {volumeType = a} :: VolumeSpecification)
+vsVolumeType :: Lens.Lens' VolumeSpecification Types.String
+vsVolumeType = Lens.field @"volumeType"
 {-# DEPRECATED vsVolumeType "Use generic-lens or generic-optics with 'volumeType' instead." #-}
 
-instance Lude.FromJSON VolumeSpecification where
-  parseJSON =
-    Lude.withObject
-      "VolumeSpecification"
-      ( \x ->
-          VolumeSpecification'
-            Lude.<$> (x Lude..:? "Iops")
-            Lude.<*> (x Lude..: "SizeInGB")
-            Lude.<*> (x Lude..: "VolumeType")
-      )
+-- | The volume size, in gibibytes (GiB). This can be a number from 1 - 1024. If the volume type is EBS-optimized, the minimum value is 10.
+--
+-- /Note:/ Consider using 'sizeInGB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsSizeInGB :: Lens.Lens' VolumeSpecification Core.Int
+vsSizeInGB = Lens.field @"sizeInGB"
+{-# DEPRECATED vsSizeInGB "Use generic-lens or generic-optics with 'sizeInGB' instead." #-}
 
-instance Lude.ToJSON VolumeSpecification where
-  toJSON VolumeSpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Iops" Lude..=) Lude.<$> iops,
-            Lude.Just ("SizeInGB" Lude..= sizeInGB),
-            Lude.Just ("VolumeType" Lude..= volumeType)
+-- | The number of I/O operations per second (IOPS) that the volume supports.
+--
+-- /Note:/ Consider using 'iops' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsIops :: Lens.Lens' VolumeSpecification (Core.Maybe Core.Int)
+vsIops = Lens.field @"iops"
+{-# DEPRECATED vsIops "Use generic-lens or generic-optics with 'iops' instead." #-}
+
+instance Core.FromJSON VolumeSpecification where
+  toJSON VolumeSpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("VolumeType" Core..= volumeType),
+            Core.Just ("SizeInGB" Core..= sizeInGB),
+            ("Iops" Core..=) Core.<$> iops
           ]
       )
+
+instance Core.FromJSON VolumeSpecification where
+  parseJSON =
+    Core.withObject "VolumeSpecification" Core.$
+      \x ->
+        VolumeSpecification'
+          Core.<$> (x Core..: "VolumeType")
+          Core.<*> (x Core..: "SizeInGB")
+          Core.<*> (x Core..:? "Iops")

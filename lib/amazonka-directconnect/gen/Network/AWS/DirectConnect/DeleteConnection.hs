@@ -25,84 +25,74 @@ module Network.AWS.DirectConnect.DeleteConnection
     dcConnectionId,
 
     -- * Destructuring the response
-    Connection (..),
-    mkConnection,
+    Types.Connection (..),
+    Types.mkConnection,
 
     -- ** Response lenses
-    cLagId,
-    cVlan,
-    cLocation,
-    cAwsDevice,
-    cHasLogicalRedundancy,
-    cConnectionId,
-    cLoaIssueTime,
-    cPartnerName,
-    cConnectionName,
-    cBandwidth,
-    cJumboFrameCapable,
-    cOwnerAccount,
-    cRegion,
-    cProviderName,
-    cAwsDeviceV2,
-    cConnectionState,
-    cTags,
+    Types.cAwsDevice,
+    Types.cAwsDeviceV2,
+    Types.cBandwidth,
+    Types.cConnectionId,
+    Types.cConnectionName,
+    Types.cConnectionState,
+    Types.cHasLogicalRedundancy,
+    Types.cJumboFrameCapable,
+    Types.cLagId,
+    Types.cLoaIssueTime,
+    Types.cLocation,
+    Types.cOwnerAccount,
+    Types.cPartnerName,
+    Types.cProviderName,
+    Types.cRegion,
+    Types.cTags,
+    Types.cVlan,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteConnection' smart constructor.
 newtype DeleteConnection = DeleteConnection'
   { -- | The ID of the connection.
-    connectionId :: Lude.Text
+    connectionId :: Types.ConnectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConnection' with the minimum fields required to make a request.
---
--- * 'connectionId' - The ID of the connection.
+-- | Creates a 'DeleteConnection' value with any optional fields omitted.
 mkDeleteConnection ::
   -- | 'connectionId'
-  Lude.Text ->
+  Types.ConnectionId ->
   DeleteConnection
-mkDeleteConnection pConnectionId_ =
-  DeleteConnection' {connectionId = pConnectionId_}
+mkDeleteConnection connectionId = DeleteConnection' {connectionId}
 
 -- | The ID of the connection.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcConnectionId :: Lens.Lens' DeleteConnection Lude.Text
-dcConnectionId = Lens.lens (connectionId :: DeleteConnection -> Lude.Text) (\s a -> s {connectionId = a} :: DeleteConnection)
+dcConnectionId :: Lens.Lens' DeleteConnection Types.ConnectionId
+dcConnectionId = Lens.field @"connectionId"
 {-# DEPRECATED dcConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
-instance Lude.AWSRequest DeleteConnection where
-  type Rs DeleteConnection = Connection
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+instance Core.FromJSON DeleteConnection where
+  toJSON DeleteConnection {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("connectionId" Core..= connectionId)])
 
-instance Lude.ToHeaders DeleteConnection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.DeleteConnection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteConnection where
-  toJSON DeleteConnection' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("connectionId" Lude..= connectionId)])
-
-instance Lude.ToPath DeleteConnection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteConnection where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DeleteConnection where
+  type Rs DeleteConnection = Types.Connection
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OvertureService.DeleteConnection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

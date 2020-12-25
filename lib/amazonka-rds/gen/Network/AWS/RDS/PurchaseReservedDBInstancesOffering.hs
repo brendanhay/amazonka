@@ -20,176 +20,165 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     mkPurchaseReservedDBInstancesOffering,
 
     -- ** Request lenses
-    prdioDBInstanceCount,
-    prdioReservedDBInstanceId,
-    prdioReservedDBInstancesOfferingId,
-    prdioTags,
+    prdbioReservedDBInstancesOfferingId,
+    prdbioDBInstanceCount,
+    prdbioReservedDBInstanceId,
+    prdbioTags,
 
     -- * Destructuring the response
     PurchaseReservedDBInstancesOfferingResponse (..),
     mkPurchaseReservedDBInstancesOfferingResponse,
 
     -- ** Response lenses
-    prdiorsReservedDBInstance,
-    prdiorsResponseStatus,
+    prdbiorrsReservedDBInstance,
+    prdbiorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkPurchaseReservedDBInstancesOffering' smart constructor.
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
-  { -- | The number of instances to reserve.
+  { -- | The ID of the Reserved DB instance offering to purchase.
+    --
+    -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
+    reservedDBInstancesOfferingId :: Types.String,
+    -- | The number of instances to reserve.
     --
     -- Default: @1@
-    dbInstanceCount :: Lude.Maybe Lude.Int,
+    dBInstanceCount :: Core.Maybe Core.Int,
     -- | Customer-specified identifier to track this reservation.
     --
     -- Example: myreservationID
-    reservedDBInstanceId :: Lude.Maybe Lude.Text,
-    -- | The ID of the Reserved DB instance offering to purchase.
-    --
-    -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
-    reservedDBInstancesOfferingId :: Lude.Text,
-    tags :: Lude.Maybe [Tag]
+    reservedDBInstanceId :: Core.Maybe Types.String,
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PurchaseReservedDBInstancesOffering' with the minimum fields required to make a request.
---
--- * 'dbInstanceCount' - The number of instances to reserve.
---
--- Default: @1@
--- * 'reservedDBInstanceId' - Customer-specified identifier to track this reservation.
---
--- Example: myreservationID
--- * 'reservedDBInstancesOfferingId' - The ID of the Reserved DB instance offering to purchase.
---
--- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
--- * 'tags' -
+-- | Creates a 'PurchaseReservedDBInstancesOffering' value with any optional fields omitted.
 mkPurchaseReservedDBInstancesOffering ::
   -- | 'reservedDBInstancesOfferingId'
-  Lude.Text ->
+  Types.String ->
   PurchaseReservedDBInstancesOffering
-mkPurchaseReservedDBInstancesOffering
-  pReservedDBInstancesOfferingId_ =
-    PurchaseReservedDBInstancesOffering'
-      { dbInstanceCount =
-          Lude.Nothing,
-        reservedDBInstanceId = Lude.Nothing,
-        reservedDBInstancesOfferingId =
-          pReservedDBInstancesOfferingId_,
-        tags = Lude.Nothing
-      }
-
--- | The number of instances to reserve.
---
--- Default: @1@
---
--- /Note:/ Consider using 'dbInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prdioDBInstanceCount :: Lens.Lens' PurchaseReservedDBInstancesOffering (Lude.Maybe Lude.Int)
-prdioDBInstanceCount = Lens.lens (dbInstanceCount :: PurchaseReservedDBInstancesOffering -> Lude.Maybe Lude.Int) (\s a -> s {dbInstanceCount = a} :: PurchaseReservedDBInstancesOffering)
-{-# DEPRECATED prdioDBInstanceCount "Use generic-lens or generic-optics with 'dbInstanceCount' instead." #-}
-
--- | Customer-specified identifier to track this reservation.
---
--- Example: myreservationID
---
--- /Note:/ Consider using 'reservedDBInstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prdioReservedDBInstanceId :: Lens.Lens' PurchaseReservedDBInstancesOffering (Lude.Maybe Lude.Text)
-prdioReservedDBInstanceId = Lens.lens (reservedDBInstanceId :: PurchaseReservedDBInstancesOffering -> Lude.Maybe Lude.Text) (\s a -> s {reservedDBInstanceId = a} :: PurchaseReservedDBInstancesOffering)
-{-# DEPRECATED prdioReservedDBInstanceId "Use generic-lens or generic-optics with 'reservedDBInstanceId' instead." #-}
+mkPurchaseReservedDBInstancesOffering reservedDBInstancesOfferingId =
+  PurchaseReservedDBInstancesOffering'
+    { reservedDBInstancesOfferingId,
+      dBInstanceCount = Core.Nothing,
+      reservedDBInstanceId = Core.Nothing,
+      tags = Core.Nothing
+    }
 
 -- | The ID of the Reserved DB instance offering to purchase.
 --
 -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
 --
 -- /Note:/ Consider using 'reservedDBInstancesOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prdioReservedDBInstancesOfferingId :: Lens.Lens' PurchaseReservedDBInstancesOffering Lude.Text
-prdioReservedDBInstancesOfferingId = Lens.lens (reservedDBInstancesOfferingId :: PurchaseReservedDBInstancesOffering -> Lude.Text) (\s a -> s {reservedDBInstancesOfferingId = a} :: PurchaseReservedDBInstancesOffering)
-{-# DEPRECATED prdioReservedDBInstancesOfferingId "Use generic-lens or generic-optics with 'reservedDBInstancesOfferingId' instead." #-}
+prdbioReservedDBInstancesOfferingId :: Lens.Lens' PurchaseReservedDBInstancesOffering Types.String
+prdbioReservedDBInstancesOfferingId = Lens.field @"reservedDBInstancesOfferingId"
+{-# DEPRECATED prdbioReservedDBInstancesOfferingId "Use generic-lens or generic-optics with 'reservedDBInstancesOfferingId' instead." #-}
+
+-- | The number of instances to reserve.
+--
+-- Default: @1@
+--
+-- /Note:/ Consider using 'dBInstanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prdbioDBInstanceCount :: Lens.Lens' PurchaseReservedDBInstancesOffering (Core.Maybe Core.Int)
+prdbioDBInstanceCount = Lens.field @"dBInstanceCount"
+{-# DEPRECATED prdbioDBInstanceCount "Use generic-lens or generic-optics with 'dBInstanceCount' instead." #-}
+
+-- | Customer-specified identifier to track this reservation.
+--
+-- Example: myreservationID
+--
+-- /Note:/ Consider using 'reservedDBInstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prdbioReservedDBInstanceId :: Lens.Lens' PurchaseReservedDBInstancesOffering (Core.Maybe Types.String)
+prdbioReservedDBInstanceId = Lens.field @"reservedDBInstanceId"
+{-# DEPRECATED prdbioReservedDBInstanceId "Use generic-lens or generic-optics with 'reservedDBInstanceId' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prdioTags :: Lens.Lens' PurchaseReservedDBInstancesOffering (Lude.Maybe [Tag])
-prdioTags = Lens.lens (tags :: PurchaseReservedDBInstancesOffering -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: PurchaseReservedDBInstancesOffering)
-{-# DEPRECATED prdioTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+prdbioTags :: Lens.Lens' PurchaseReservedDBInstancesOffering (Core.Maybe [Types.Tag])
+prdbioTags = Lens.field @"tags"
+{-# DEPRECATED prdbioTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest PurchaseReservedDBInstancesOffering where
+instance Core.AWSRequest PurchaseReservedDBInstancesOffering where
   type
     Rs PurchaseReservedDBInstancesOffering =
       PurchaseReservedDBInstancesOfferingResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PurchaseReservedDBInstancesOffering")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue
+                            "ReservedDBInstancesOfferingId"
+                            reservedDBInstancesOfferingId
+                        )
+                Core.<> (Core.toQueryValue "DBInstanceCount" Core.<$> dBInstanceCount)
+                Core.<> ( Core.toQueryValue "ReservedDBInstanceId"
+                            Core.<$> reservedDBInstanceId
+                        )
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "Tag" Core.<$> tags))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "PurchaseReservedDBInstancesOfferingResult"
       ( \s h x ->
           PurchaseReservedDBInstancesOfferingResponse'
-            Lude.<$> (x Lude..@? "ReservedDBInstance")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ReservedDBInstance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PurchaseReservedDBInstancesOffering where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PurchaseReservedDBInstancesOffering where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PurchaseReservedDBInstancesOffering where
-  toQuery PurchaseReservedDBInstancesOffering' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("PurchaseReservedDBInstancesOffering" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBInstanceCount" Lude.=: dbInstanceCount,
-        "ReservedDBInstanceId" Lude.=: reservedDBInstanceId,
-        "ReservedDBInstancesOfferingId"
-          Lude.=: reservedDBInstancesOfferingId,
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
-      ]
 
 -- | /See:/ 'mkPurchaseReservedDBInstancesOfferingResponse' smart constructor.
 data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'
-  { reservedDBInstance :: Lude.Maybe ReservedDBInstance,
+  { reservedDBInstance :: Core.Maybe Types.ReservedDBInstance,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PurchaseReservedDBInstancesOfferingResponse' with the minimum fields required to make a request.
---
--- * 'reservedDBInstance' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PurchaseReservedDBInstancesOfferingResponse' value with any optional fields omitted.
 mkPurchaseReservedDBInstancesOfferingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PurchaseReservedDBInstancesOfferingResponse
-mkPurchaseReservedDBInstancesOfferingResponse pResponseStatus_ =
+mkPurchaseReservedDBInstancesOfferingResponse responseStatus =
   PurchaseReservedDBInstancesOfferingResponse'
     { reservedDBInstance =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'reservedDBInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prdiorsReservedDBInstance :: Lens.Lens' PurchaseReservedDBInstancesOfferingResponse (Lude.Maybe ReservedDBInstance)
-prdiorsReservedDBInstance = Lens.lens (reservedDBInstance :: PurchaseReservedDBInstancesOfferingResponse -> Lude.Maybe ReservedDBInstance) (\s a -> s {reservedDBInstance = a} :: PurchaseReservedDBInstancesOfferingResponse)
-{-# DEPRECATED prdiorsReservedDBInstance "Use generic-lens or generic-optics with 'reservedDBInstance' instead." #-}
+prdbiorrsReservedDBInstance :: Lens.Lens' PurchaseReservedDBInstancesOfferingResponse (Core.Maybe Types.ReservedDBInstance)
+prdbiorrsReservedDBInstance = Lens.field @"reservedDBInstance"
+{-# DEPRECATED prdbiorrsReservedDBInstance "Use generic-lens or generic-optics with 'reservedDBInstance' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prdiorsResponseStatus :: Lens.Lens' PurchaseReservedDBInstancesOfferingResponse Lude.Int
-prdiorsResponseStatus = Lens.lens (responseStatus :: PurchaseReservedDBInstancesOfferingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PurchaseReservedDBInstancesOfferingResponse)
-{-# DEPRECATED prdiorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prdbiorrsResponseStatus :: Lens.Lens' PurchaseReservedDBInstancesOfferingResponse Core.Int
+prdbiorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prdbiorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

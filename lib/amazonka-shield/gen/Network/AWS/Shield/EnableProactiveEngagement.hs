@@ -24,84 +24,71 @@ module Network.AWS.Shield.EnableProactiveEngagement
     mkEnableProactiveEngagementResponse,
 
     -- ** Response lenses
-    epersResponseStatus,
+    eperrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkEnableProactiveEngagement' smart constructor.
 data EnableProactiveEngagement = EnableProactiveEngagement'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableProactiveEngagement' with the minimum fields required to make a request.
+-- | Creates a 'EnableProactiveEngagement' value with any optional fields omitted.
 mkEnableProactiveEngagement ::
   EnableProactiveEngagement
 mkEnableProactiveEngagement = EnableProactiveEngagement'
 
-instance Lude.AWSRequest EnableProactiveEngagement where
+instance Core.FromJSON EnableProactiveEngagement where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest EnableProactiveEngagement where
   type
     Rs EnableProactiveEngagement =
       EnableProactiveEngagementResponse
-  request = Req.postJSON shieldService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSShield_20160616.EnableProactiveEngagement")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           EnableProactiveEngagementResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders EnableProactiveEngagement where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShield_20160616.EnableProactiveEngagement" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON EnableProactiveEngagement where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath EnableProactiveEngagement where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableProactiveEngagement where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkEnableProactiveEngagementResponse' smart constructor.
 newtype EnableProactiveEngagementResponse = EnableProactiveEngagementResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableProactiveEngagementResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'EnableProactiveEngagementResponse' value with any optional fields omitted.
 mkEnableProactiveEngagementResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   EnableProactiveEngagementResponse
-mkEnableProactiveEngagementResponse pResponseStatus_ =
-  EnableProactiveEngagementResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkEnableProactiveEngagementResponse responseStatus =
+  EnableProactiveEngagementResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epersResponseStatus :: Lens.Lens' EnableProactiveEngagementResponse Lude.Int
-epersResponseStatus = Lens.lens (responseStatus :: EnableProactiveEngagementResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: EnableProactiveEngagementResponse)
-{-# DEPRECATED epersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+eperrsResponseStatus :: Lens.Lens' EnableProactiveEngagementResponse Core.Int
+eperrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED eperrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

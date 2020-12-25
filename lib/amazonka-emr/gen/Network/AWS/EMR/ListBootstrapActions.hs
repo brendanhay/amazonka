@@ -30,151 +30,139 @@ module Network.AWS.EMR.ListBootstrapActions
     mkListBootstrapActionsResponse,
 
     -- ** Response lenses
-    lbarsBootstrapActions,
-    lbarsMarker,
-    lbarsResponseStatus,
+    lbarrsBootstrapActions,
+    lbarrsMarker,
+    lbarrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | This input determines which bootstrap actions to retrieve.
 --
 -- /See:/ 'mkListBootstrapActions' smart constructor.
 data ListBootstrapActions = ListBootstrapActions'
   { -- | The cluster identifier for the bootstrap actions to list.
-    clusterId :: Lude.Text,
+    clusterId :: Types.ClusterId,
     -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBootstrapActions' with the minimum fields required to make a request.
---
--- * 'clusterId' - The cluster identifier for the bootstrap actions to list.
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+-- | Creates a 'ListBootstrapActions' value with any optional fields omitted.
 mkListBootstrapActions ::
   -- | 'clusterId'
-  Lude.Text ->
+  Types.ClusterId ->
   ListBootstrapActions
-mkListBootstrapActions pClusterId_ =
-  ListBootstrapActions'
-    { clusterId = pClusterId_,
-      marker = Lude.Nothing
-    }
+mkListBootstrapActions clusterId =
+  ListBootstrapActions' {clusterId, marker = Core.Nothing}
 
 -- | The cluster identifier for the bootstrap actions to list.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbaClusterId :: Lens.Lens' ListBootstrapActions Lude.Text
-lbaClusterId = Lens.lens (clusterId :: ListBootstrapActions -> Lude.Text) (\s a -> s {clusterId = a} :: ListBootstrapActions)
+lbaClusterId :: Lens.Lens' ListBootstrapActions Types.ClusterId
+lbaClusterId = Lens.field @"clusterId"
 {-# DEPRECATED lbaClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbaMarker :: Lens.Lens' ListBootstrapActions (Lude.Maybe Lude.Text)
-lbaMarker = Lens.lens (marker :: ListBootstrapActions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListBootstrapActions)
+lbaMarker :: Lens.Lens' ListBootstrapActions (Core.Maybe Types.Marker)
+lbaMarker = Lens.field @"marker"
 {-# DEPRECATED lbaMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Page.AWSPager ListBootstrapActions where
-  page rq rs
-    | Page.stop (rs Lens.^. lbarsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lbarsBootstrapActions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& lbaMarker Lens..~ rs Lens.^. lbarsMarker
+instance Core.FromJSON ListBootstrapActions where
+  toJSON ListBootstrapActions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            ("Marker" Core..=) Core.<$> marker
+          ]
+      )
 
-instance Lude.AWSRequest ListBootstrapActions where
+instance Core.AWSRequest ListBootstrapActions where
   type Rs ListBootstrapActions = ListBootstrapActionsResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.ListBootstrapActions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListBootstrapActionsResponse'
-            Lude.<$> (x Lude..?> "BootstrapActions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "BootstrapActions")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListBootstrapActions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.ListBootstrapActions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListBootstrapActions where
-  toJSON ListBootstrapActions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClusterId" Lude..= clusterId),
-            ("Marker" Lude..=) Lude.<$> marker
-          ]
-      )
-
-instance Lude.ToPath ListBootstrapActions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListBootstrapActions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListBootstrapActions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"bootstrapActions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | This output contains the bootstrap actions detail.
 --
 -- /See:/ 'mkListBootstrapActionsResponse' smart constructor.
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
   { -- | The bootstrap actions associated with the cluster.
-    bootstrapActions :: Lude.Maybe [Command],
+    bootstrapActions :: Core.Maybe [Types.Command],
     -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBootstrapActionsResponse' with the minimum fields required to make a request.
---
--- * 'bootstrapActions' - The bootstrap actions associated with the cluster.
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListBootstrapActionsResponse' value with any optional fields omitted.
 mkListBootstrapActionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListBootstrapActionsResponse
-mkListBootstrapActionsResponse pResponseStatus_ =
+mkListBootstrapActionsResponse responseStatus =
   ListBootstrapActionsResponse'
-    { bootstrapActions = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { bootstrapActions = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
 
 -- | The bootstrap actions associated with the cluster.
 --
 -- /Note:/ Consider using 'bootstrapActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbarsBootstrapActions :: Lens.Lens' ListBootstrapActionsResponse (Lude.Maybe [Command])
-lbarsBootstrapActions = Lens.lens (bootstrapActions :: ListBootstrapActionsResponse -> Lude.Maybe [Command]) (\s a -> s {bootstrapActions = a} :: ListBootstrapActionsResponse)
-{-# DEPRECATED lbarsBootstrapActions "Use generic-lens or generic-optics with 'bootstrapActions' instead." #-}
+lbarrsBootstrapActions :: Lens.Lens' ListBootstrapActionsResponse (Core.Maybe [Types.Command])
+lbarrsBootstrapActions = Lens.field @"bootstrapActions"
+{-# DEPRECATED lbarrsBootstrapActions "Use generic-lens or generic-optics with 'bootstrapActions' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbarsMarker :: Lens.Lens' ListBootstrapActionsResponse (Lude.Maybe Lude.Text)
-lbarsMarker = Lens.lens (marker :: ListBootstrapActionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListBootstrapActionsResponse)
-{-# DEPRECATED lbarsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lbarrsMarker :: Lens.Lens' ListBootstrapActionsResponse (Core.Maybe Types.Marker)
+lbarrsMarker = Lens.field @"marker"
+{-# DEPRECATED lbarrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbarsResponseStatus :: Lens.Lens' ListBootstrapActionsResponse Lude.Int
-lbarsResponseStatus = Lens.lens (responseStatus :: ListBootstrapActionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBootstrapActionsResponse)
-{-# DEPRECATED lbarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lbarrsResponseStatus :: Lens.Lens' ListBootstrapActionsResponse Core.Int
+lbarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lbarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

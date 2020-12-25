@@ -17,14 +17,17 @@ module Network.AWS.SWF.Types.RequestCancelExternalWorkflowExecutionDecisionAttri
     mkRequestCancelExternalWorkflowExecutionDecisionAttributes,
 
     -- * Lenses
+    rcewedaWorkflowId,
     rcewedaControl,
     rcewedaRunId,
-    rcewedaWorkflowId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Control as Types
+import qualified Network.AWS.SWF.Types.RunId as Types
+import qualified Network.AWS.SWF.Types.WorkflowId as Types
 
 -- | Provides the details of the @RequestCancelExternalWorkflowExecution@ decision.
 --
@@ -44,65 +47,59 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkRequestCancelExternalWorkflowExecutionDecisionAttributes' smart constructor.
 data RequestCancelExternalWorkflowExecutionDecisionAttributes = RequestCancelExternalWorkflowExecutionDecisionAttributes'
-  { -- | The data attached to the event that can be used by the decider in subsequent workflow tasks.
-    control :: Lude.Maybe Lude.Text,
+  { -- | The @workflowId@ of the external workflow execution to cancel.
+    workflowId :: Types.WorkflowId,
+    -- | The data attached to the event that can be used by the decider in subsequent workflow tasks.
+    control :: Core.Maybe Types.Control,
     -- | The @runId@ of the external workflow execution to cancel.
-    runId :: Lude.Maybe Lude.Text,
-    -- | The @workflowId@ of the external workflow execution to cancel.
-    workflowId :: Lude.Text
+    runId :: Core.Maybe Types.RunId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestCancelExternalWorkflowExecutionDecisionAttributes' with the minimum fields required to make a request.
---
--- * 'control' - The data attached to the event that can be used by the decider in subsequent workflow tasks.
--- * 'runId' - The @runId@ of the external workflow execution to cancel.
--- * 'workflowId' - The @workflowId@ of the external workflow execution to cancel.
+-- | Creates a 'RequestCancelExternalWorkflowExecutionDecisionAttributes' value with any optional fields omitted.
 mkRequestCancelExternalWorkflowExecutionDecisionAttributes ::
   -- | 'workflowId'
-  Lude.Text ->
+  Types.WorkflowId ->
   RequestCancelExternalWorkflowExecutionDecisionAttributes
 mkRequestCancelExternalWorkflowExecutionDecisionAttributes
-  pWorkflowId_ =
+  workflowId =
     RequestCancelExternalWorkflowExecutionDecisionAttributes'
-      { control =
-          Lude.Nothing,
-        runId = Lude.Nothing,
-        workflowId = pWorkflowId_
+      { workflowId,
+        control = Core.Nothing,
+        runId = Core.Nothing
       }
+
+-- | The @workflowId@ of the external workflow execution to cancel.
+--
+-- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcewedaWorkflowId :: Lens.Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes Types.WorkflowId
+rcewedaWorkflowId = Lens.field @"workflowId"
+{-# DEPRECATED rcewedaWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
 
 -- | The data attached to the event that can be used by the decider in subsequent workflow tasks.
 --
 -- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcewedaControl :: Lens.Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Lude.Maybe Lude.Text)
-rcewedaControl = Lens.lens (control :: RequestCancelExternalWorkflowExecutionDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {control = a} :: RequestCancelExternalWorkflowExecutionDecisionAttributes)
+rcewedaControl :: Lens.Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Core.Maybe Types.Control)
+rcewedaControl = Lens.field @"control"
 {-# DEPRECATED rcewedaControl "Use generic-lens or generic-optics with 'control' instead." #-}
 
 -- | The @runId@ of the external workflow execution to cancel.
 --
 -- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcewedaRunId :: Lens.Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Lude.Maybe Lude.Text)
-rcewedaRunId = Lens.lens (runId :: RequestCancelExternalWorkflowExecutionDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: RequestCancelExternalWorkflowExecutionDecisionAttributes)
+rcewedaRunId :: Lens.Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes (Core.Maybe Types.RunId)
+rcewedaRunId = Lens.field @"runId"
 {-# DEPRECATED rcewedaRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
--- | The @workflowId@ of the external workflow execution to cancel.
---
--- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcewedaWorkflowId :: Lens.Lens' RequestCancelExternalWorkflowExecutionDecisionAttributes Lude.Text
-rcewedaWorkflowId = Lens.lens (workflowId :: RequestCancelExternalWorkflowExecutionDecisionAttributes -> Lude.Text) (\s a -> s {workflowId = a} :: RequestCancelExternalWorkflowExecutionDecisionAttributes)
-{-# DEPRECATED rcewedaWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
-
 instance
-  Lude.ToJSON
+  Core.FromJSON
     RequestCancelExternalWorkflowExecutionDecisionAttributes
   where
-  toJSON
-    RequestCancelExternalWorkflowExecutionDecisionAttributes' {..} =
-      Lude.object
-        ( Lude.catMaybes
-            [ ("control" Lude..=) Lude.<$> control,
-              ("runId" Lude..=) Lude.<$> runId,
-              Lude.Just ("workflowId" Lude..= workflowId)
-            ]
-        )
+  toJSON RequestCancelExternalWorkflowExecutionDecisionAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("workflowId" Core..= workflowId),
+            ("control" Core..=) Core.<$> control,
+            ("runId" Core..=) Core.<$> runId
+          ]
+      )

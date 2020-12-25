@@ -21,137 +21,129 @@ module Network.AWS.ResourceGroups.UngroupResources
 
     -- ** Request lenses
     urGroup,
-    urResourceARNs,
+    urResourceArns,
 
     -- * Destructuring the response
     UngroupResourcesResponse (..),
     mkUngroupResourcesResponse,
 
     -- ** Response lenses
-    urrsSucceeded,
-    urrsFailed,
-    urrsResponseStatus,
+    urrrsFailed,
+    urrrsSucceeded,
+    urrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import Network.AWS.ResourceGroups.Types
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.ResourceGroups.Types as Types
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUngroupResources' smart constructor.
 data UngroupResources = UngroupResources'
   { -- | The name or the ARN of the resource group from which to remove the resources.
-    group :: Lude.Text,
+    group :: Types.GroupString,
     -- | The ARNs of the resources to be removed from the group.
-    resourceARNs :: Lude.NonEmpty Lude.Text
+    resourceArns :: Core.NonEmpty Types.ResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UngroupResources' with the minimum fields required to make a request.
---
--- * 'group' - The name or the ARN of the resource group from which to remove the resources.
--- * 'resourceARNs' - The ARNs of the resources to be removed from the group.
+-- | Creates a 'UngroupResources' value with any optional fields omitted.
 mkUngroupResources ::
   -- | 'group'
-  Lude.Text ->
-  -- | 'resourceARNs'
-  Lude.NonEmpty Lude.Text ->
+  Types.GroupString ->
+  -- | 'resourceArns'
+  Core.NonEmpty Types.ResourceArn ->
   UngroupResources
-mkUngroupResources pGroup_ pResourceARNs_ =
-  UngroupResources' {group = pGroup_, resourceARNs = pResourceARNs_}
+mkUngroupResources group resourceArns =
+  UngroupResources' {group, resourceArns}
 
 -- | The name or the ARN of the resource group from which to remove the resources.
 --
 -- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urGroup :: Lens.Lens' UngroupResources Lude.Text
-urGroup = Lens.lens (group :: UngroupResources -> Lude.Text) (\s a -> s {group = a} :: UngroupResources)
+urGroup :: Lens.Lens' UngroupResources Types.GroupString
+urGroup = Lens.field @"group"
 {-# DEPRECATED urGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The ARNs of the resources to be removed from the group.
 --
--- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResourceARNs :: Lens.Lens' UngroupResources (Lude.NonEmpty Lude.Text)
-urResourceARNs = Lens.lens (resourceARNs :: UngroupResources -> Lude.NonEmpty Lude.Text) (\s a -> s {resourceARNs = a} :: UngroupResources)
-{-# DEPRECATED urResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
+-- /Note:/ Consider using 'resourceArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceArns :: Lens.Lens' UngroupResources (Core.NonEmpty Types.ResourceArn)
+urResourceArns = Lens.field @"resourceArns"
+{-# DEPRECATED urResourceArns "Use generic-lens or generic-optics with 'resourceArns' instead." #-}
 
-instance Lude.AWSRequest UngroupResources where
-  type Rs UngroupResources = UngroupResourcesResponse
-  request = Req.postJSON resourceGroupsService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UngroupResourcesResponse'
-            Lude.<$> (x Lude..?> "Succeeded")
-            Lude.<*> (x Lude..?> "Failed" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UngroupResources where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UngroupResources where
-  toJSON UngroupResources' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Group" Lude..= group),
-            Lude.Just ("ResourceArns" Lude..= resourceARNs)
+instance Core.FromJSON UngroupResources where
+  toJSON UngroupResources {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Group" Core..= group),
+            Core.Just ("ResourceArns" Core..= resourceArns)
           ]
       )
 
-instance Lude.ToPath UngroupResources where
-  toPath = Lude.const "/ungroup-resources"
-
-instance Lude.ToQuery UngroupResources where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UngroupResources where
+  type Rs UngroupResources = UngroupResourcesResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/ungroup-resources",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UngroupResourcesResponse'
+            Core.<$> (x Core..:? "Failed")
+            Core.<*> (x Core..:? "Succeeded")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUngroupResourcesResponse' smart constructor.
 data UngroupResourcesResponse = UngroupResourcesResponse'
-  { -- | The ARNs of the resources that were successfully removed from the group.
-    succeeded :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | The resources that failed to be removed from the group.
-    failed :: Lude.Maybe [FailedResource],
+  { -- | The resources that failed to be removed from the group.
+    failed :: Core.Maybe [Types.FailedResource],
+    -- | The ARNs of the resources that were successfully removed from the group.
+    succeeded :: Core.Maybe (Core.NonEmpty Types.ResourceArn),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UngroupResourcesResponse' with the minimum fields required to make a request.
---
--- * 'succeeded' - The ARNs of the resources that were successfully removed from the group.
--- * 'failed' - The resources that failed to be removed from the group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UngroupResourcesResponse' value with any optional fields omitted.
 mkUngroupResourcesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UngroupResourcesResponse
-mkUngroupResourcesResponse pResponseStatus_ =
+mkUngroupResourcesResponse responseStatus =
   UngroupResourcesResponse'
-    { succeeded = Lude.Nothing,
-      failed = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failed = Core.Nothing,
+      succeeded = Core.Nothing,
+      responseStatus
     }
-
--- | The ARNs of the resources that were successfully removed from the group.
---
--- /Note:/ Consider using 'succeeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsSucceeded :: Lens.Lens' UngroupResourcesResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-urrsSucceeded = Lens.lens (succeeded :: UngroupResourcesResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {succeeded = a} :: UngroupResourcesResponse)
-{-# DEPRECATED urrsSucceeded "Use generic-lens or generic-optics with 'succeeded' instead." #-}
 
 -- | The resources that failed to be removed from the group.
 --
 -- /Note:/ Consider using 'failed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsFailed :: Lens.Lens' UngroupResourcesResponse (Lude.Maybe [FailedResource])
-urrsFailed = Lens.lens (failed :: UngroupResourcesResponse -> Lude.Maybe [FailedResource]) (\s a -> s {failed = a} :: UngroupResourcesResponse)
-{-# DEPRECATED urrsFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
+urrrsFailed :: Lens.Lens' UngroupResourcesResponse (Core.Maybe [Types.FailedResource])
+urrrsFailed = Lens.field @"failed"
+{-# DEPRECATED urrrsFailed "Use generic-lens or generic-optics with 'failed' instead." #-}
+
+-- | The ARNs of the resources that were successfully removed from the group.
+--
+-- /Note:/ Consider using 'succeeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urrrsSucceeded :: Lens.Lens' UngroupResourcesResponse (Core.Maybe (Core.NonEmpty Types.ResourceArn))
+urrrsSucceeded = Lens.field @"succeeded"
+{-# DEPRECATED urrrsSucceeded "Use generic-lens or generic-optics with 'succeeded' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsResponseStatus :: Lens.Lens' UngroupResourcesResponse Lude.Int
-urrsResponseStatus = Lens.lens (responseStatus :: UngroupResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UngroupResourcesResponse)
-{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urrrsResponseStatus :: Lens.Lens' UngroupResourcesResponse Core.Int
+urrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

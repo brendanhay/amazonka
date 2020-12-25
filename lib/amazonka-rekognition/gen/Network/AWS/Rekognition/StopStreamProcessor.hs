@@ -20,99 +20,89 @@ module Network.AWS.Rekognition.StopStreamProcessor
     mkStopStreamProcessor,
 
     -- ** Request lenses
-    sName,
+    sspName,
 
     -- * Destructuring the response
     StopStreamProcessorResponse (..),
     mkStopStreamProcessorResponse,
 
     -- ** Response lenses
-    ssprsResponseStatus,
+    ssprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopStreamProcessor' smart constructor.
 newtype StopStreamProcessor = StopStreamProcessor'
   { -- | The name of a stream processor created by 'CreateStreamProcessor' .
-    name :: Lude.Text
+    name :: Types.StreamProcessorName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopStreamProcessor' with the minimum fields required to make a request.
---
--- * 'name' - The name of a stream processor created by 'CreateStreamProcessor' .
+-- | Creates a 'StopStreamProcessor' value with any optional fields omitted.
 mkStopStreamProcessor ::
   -- | 'name'
-  Lude.Text ->
+  Types.StreamProcessorName ->
   StopStreamProcessor
-mkStopStreamProcessor pName_ = StopStreamProcessor' {name = pName_}
+mkStopStreamProcessor name = StopStreamProcessor' {name}
 
 -- | The name of a stream processor created by 'CreateStreamProcessor' .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' StopStreamProcessor Lude.Text
-sName = Lens.lens (name :: StopStreamProcessor -> Lude.Text) (\s a -> s {name = a} :: StopStreamProcessor)
-{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+sspName :: Lens.Lens' StopStreamProcessor Types.StreamProcessorName
+sspName = Lens.field @"name"
+{-# DEPRECATED sspName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest StopStreamProcessor where
+instance Core.FromJSON StopStreamProcessor where
+  toJSON StopStreamProcessor {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest StopStreamProcessor where
   type Rs StopStreamProcessor = StopStreamProcessorResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "RekognitionService.StopStreamProcessor")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           StopStreamProcessorResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopStreamProcessor where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.StopStreamProcessor" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopStreamProcessor where
-  toJSON StopStreamProcessor' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath StopStreamProcessor where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopStreamProcessor where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopStreamProcessorResponse' smart constructor.
 newtype StopStreamProcessorResponse = StopStreamProcessorResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopStreamProcessorResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopStreamProcessorResponse' value with any optional fields omitted.
 mkStopStreamProcessorResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopStreamProcessorResponse
-mkStopStreamProcessorResponse pResponseStatus_ =
-  StopStreamProcessorResponse' {responseStatus = pResponseStatus_}
+mkStopStreamProcessorResponse responseStatus =
+  StopStreamProcessorResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssprsResponseStatus :: Lens.Lens' StopStreamProcessorResponse Lude.Int
-ssprsResponseStatus = Lens.lens (responseStatus :: StopStreamProcessorResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopStreamProcessorResponse)
-{-# DEPRECATED ssprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ssprrsResponseStatus :: Lens.Lens' StopStreamProcessorResponse Core.Int
+ssprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ssprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

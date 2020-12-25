@@ -13,46 +13,48 @@
 module Network.AWS.SSM.Types.RebootOption
   ( RebootOption
       ( RebootOption',
-        RebootIfNeeded,
-        NoReboot
+        RebootOptionRebootIfNeeded,
+        RebootOptionNoReboot,
+        fromRebootOption
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RebootOption = RebootOption' Lude.Text
+newtype RebootOption = RebootOption' {fromRebootOption :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RebootIfNeeded :: RebootOption
-pattern RebootIfNeeded = RebootOption' "RebootIfNeeded"
+pattern RebootOptionRebootIfNeeded :: RebootOption
+pattern RebootOptionRebootIfNeeded = RebootOption' "RebootIfNeeded"
 
-pattern NoReboot :: RebootOption
-pattern NoReboot = RebootOption' "NoReboot"
+pattern RebootOptionNoReboot :: RebootOption
+pattern RebootOptionNoReboot = RebootOption' "NoReboot"
 
 {-# COMPLETE
-  RebootIfNeeded,
-  NoReboot,
+  RebootOptionRebootIfNeeded,
+  RebootOptionNoReboot,
   RebootOption'
   #-}

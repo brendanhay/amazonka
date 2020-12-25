@@ -24,79 +24,73 @@ module Network.AWS.MediaConvert.Types.EsamSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.EsamManifestConfirmConditionNotification
-import Network.AWS.MediaConvert.Types.EsamSignalProcessingNotification
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.EsamManifestConfirmConditionNotification as Types
+import qualified Network.AWS.MediaConvert.Types.EsamSignalProcessingNotification as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for Event Signaling And Messaging (ESAM). If you don't do ad insertion, you can ignore these settings.
 --
 -- /See:/ 'mkEsamSettings' smart constructor.
 data EsamSettings = EsamSettings'
   { -- | Specifies an ESAM ManifestConfirmConditionNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning instructions that you provide in the setting MCC XML (mccXml).
-    manifestConfirmConditionNotification :: Lude.Maybe EsamManifestConfirmConditionNotification,
+    manifestConfirmConditionNotification :: Core.Maybe Types.EsamManifestConfirmConditionNotification,
     -- | Specifies the stream distance, in milliseconds, between the SCTE 35 messages that the transcoder places and the splice points that they refer to. If the time between the start of the asset and the SCTE-35 message is less than this value, then the transcoder places the SCTE-35 marker at the beginning of the stream.
-    responseSignalPreroll :: Lude.Maybe Lude.Natural,
+    responseSignalPreroll :: Core.Maybe Core.Natural,
     -- | Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing instructions that you provide in the setting SCC XML (sccXml).
-    signalProcessingNotification :: Lude.Maybe EsamSignalProcessingNotification
+    signalProcessingNotification :: Core.Maybe Types.EsamSignalProcessingNotification
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EsamSettings' with the minimum fields required to make a request.
---
--- * 'manifestConfirmConditionNotification' - Specifies an ESAM ManifestConfirmConditionNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning instructions that you provide in the setting MCC XML (mccXml).
--- * 'responseSignalPreroll' - Specifies the stream distance, in milliseconds, between the SCTE 35 messages that the transcoder places and the splice points that they refer to. If the time between the start of the asset and the SCTE-35 message is less than this value, then the transcoder places the SCTE-35 marker at the beginning of the stream.
--- * 'signalProcessingNotification' - Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing instructions that you provide in the setting SCC XML (sccXml).
+-- | Creates a 'EsamSettings' value with any optional fields omitted.
 mkEsamSettings ::
   EsamSettings
 mkEsamSettings =
   EsamSettings'
     { manifestConfirmConditionNotification =
-        Lude.Nothing,
-      responseSignalPreroll = Lude.Nothing,
-      signalProcessingNotification = Lude.Nothing
+        Core.Nothing,
+      responseSignalPreroll = Core.Nothing,
+      signalProcessingNotification = Core.Nothing
     }
 
 -- | Specifies an ESAM ManifestConfirmConditionNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning instructions that you provide in the setting MCC XML (mccXml).
 --
 -- /Note:/ Consider using 'manifestConfirmConditionNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esManifestConfirmConditionNotification :: Lens.Lens' EsamSettings (Lude.Maybe EsamManifestConfirmConditionNotification)
-esManifestConfirmConditionNotification = Lens.lens (manifestConfirmConditionNotification :: EsamSettings -> Lude.Maybe EsamManifestConfirmConditionNotification) (\s a -> s {manifestConfirmConditionNotification = a} :: EsamSettings)
+esManifestConfirmConditionNotification :: Lens.Lens' EsamSettings (Core.Maybe Types.EsamManifestConfirmConditionNotification)
+esManifestConfirmConditionNotification = Lens.field @"manifestConfirmConditionNotification"
 {-# DEPRECATED esManifestConfirmConditionNotification "Use generic-lens or generic-optics with 'manifestConfirmConditionNotification' instead." #-}
 
 -- | Specifies the stream distance, in milliseconds, between the SCTE 35 messages that the transcoder places and the splice points that they refer to. If the time between the start of the asset and the SCTE-35 message is less than this value, then the transcoder places the SCTE-35 marker at the beginning of the stream.
 --
 -- /Note:/ Consider using 'responseSignalPreroll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esResponseSignalPreroll :: Lens.Lens' EsamSettings (Lude.Maybe Lude.Natural)
-esResponseSignalPreroll = Lens.lens (responseSignalPreroll :: EsamSettings -> Lude.Maybe Lude.Natural) (\s a -> s {responseSignalPreroll = a} :: EsamSettings)
+esResponseSignalPreroll :: Lens.Lens' EsamSettings (Core.Maybe Core.Natural)
+esResponseSignalPreroll = Lens.field @"responseSignalPreroll"
 {-# DEPRECATED esResponseSignalPreroll "Use generic-lens or generic-optics with 'responseSignalPreroll' instead." #-}
 
 -- | Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing instructions that you provide in the setting SCC XML (sccXml).
 --
 -- /Note:/ Consider using 'signalProcessingNotification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esSignalProcessingNotification :: Lens.Lens' EsamSettings (Lude.Maybe EsamSignalProcessingNotification)
-esSignalProcessingNotification = Lens.lens (signalProcessingNotification :: EsamSettings -> Lude.Maybe EsamSignalProcessingNotification) (\s a -> s {signalProcessingNotification = a} :: EsamSettings)
+esSignalProcessingNotification :: Lens.Lens' EsamSettings (Core.Maybe Types.EsamSignalProcessingNotification)
+esSignalProcessingNotification = Lens.field @"signalProcessingNotification"
 {-# DEPRECATED esSignalProcessingNotification "Use generic-lens or generic-optics with 'signalProcessingNotification' instead." #-}
 
-instance Lude.FromJSON EsamSettings where
-  parseJSON =
-    Lude.withObject
-      "EsamSettings"
-      ( \x ->
-          EsamSettings'
-            Lude.<$> (x Lude..:? "manifestConfirmConditionNotification")
-            Lude.<*> (x Lude..:? "responseSignalPreroll")
-            Lude.<*> (x Lude..:? "signalProcessingNotification")
-      )
-
-instance Lude.ToJSON EsamSettings where
-  toJSON EsamSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("manifestConfirmConditionNotification" Lude..=)
-              Lude.<$> manifestConfirmConditionNotification,
-            ("responseSignalPreroll" Lude..=) Lude.<$> responseSignalPreroll,
-            ("signalProcessingNotification" Lude..=)
-              Lude.<$> signalProcessingNotification
+instance Core.FromJSON EsamSettings where
+  toJSON EsamSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("manifestConfirmConditionNotification" Core..=)
+              Core.<$> manifestConfirmConditionNotification,
+            ("responseSignalPreroll" Core..=) Core.<$> responseSignalPreroll,
+            ("signalProcessingNotification" Core..=)
+              Core.<$> signalProcessingNotification
           ]
       )
+
+instance Core.FromJSON EsamSettings where
+  parseJSON =
+    Core.withObject "EsamSettings" Core.$
+      \x ->
+        EsamSettings'
+          Core.<$> (x Core..:? "manifestConfirmConditionNotification")
+          Core.<*> (x Core..:? "responseSignalPreroll")
+          Core.<*> (x Core..:? "signalProcessingNotification")

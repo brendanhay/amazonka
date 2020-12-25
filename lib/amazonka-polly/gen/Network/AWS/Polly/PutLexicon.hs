@@ -22,106 +22,99 @@ module Network.AWS.Polly.PutLexicon
     mkPutLexicon,
 
     -- ** Request lenses
-    plContent,
     plName,
+    plContent,
 
     -- * Destructuring the response
     PutLexiconResponse (..),
     mkPutLexiconResponse,
 
     -- ** Response lenses
-    plrsResponseStatus,
+    plrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Polly.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Polly.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutLexicon' smart constructor.
 data PutLexicon = PutLexicon'
-  { -- | Content of the PLS lexicon as string data.
-    content :: Lude.Sensitive Lude.Text,
-    -- | Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long.
-    name :: Lude.Text
+  { -- | Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long.
+    name :: Types.LexiconName,
+    -- | Content of the PLS lexicon as string data.
+    content :: Types.Content
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLexicon' with the minimum fields required to make a request.
---
--- * 'content' - Content of the PLS lexicon as string data.
--- * 'name' - Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long.
+-- | Creates a 'PutLexicon' value with any optional fields omitted.
 mkPutLexicon ::
-  -- | 'content'
-  Lude.Sensitive Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.LexiconName ->
+  -- | 'content'
+  Types.Content ->
   PutLexicon
-mkPutLexicon pContent_ pName_ =
-  PutLexicon' {content = pContent_, name = pName_}
-
--- | Content of the PLS lexicon as string data.
---
--- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plContent :: Lens.Lens' PutLexicon (Lude.Sensitive Lude.Text)
-plContent = Lens.lens (content :: PutLexicon -> Lude.Sensitive Lude.Text) (\s a -> s {content = a} :: PutLexicon)
-{-# DEPRECATED plContent "Use generic-lens or generic-optics with 'content' instead." #-}
+mkPutLexicon name content = PutLexicon' {name, content}
 
 -- | Name of the lexicon. The name must follow the regular express format [0-9A-Za-z]{1,20}. That is, the name is a case-sensitive alphanumeric string up to 20 characters long.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plName :: Lens.Lens' PutLexicon Lude.Text
-plName = Lens.lens (name :: PutLexicon -> Lude.Text) (\s a -> s {name = a} :: PutLexicon)
+plName :: Lens.Lens' PutLexicon Types.LexiconName
+plName = Lens.field @"name"
 {-# DEPRECATED plName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest PutLexicon where
+-- | Content of the PLS lexicon as string data.
+--
+-- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plContent :: Lens.Lens' PutLexicon Types.Content
+plContent = Lens.field @"content"
+{-# DEPRECATED plContent "Use generic-lens or generic-optics with 'content' instead." #-}
+
+instance Core.FromJSON PutLexicon where
+  toJSON PutLexicon {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Content" Core..= content)])
+
+instance Core.AWSRequest PutLexicon where
   type Rs PutLexicon = PutLexiconResponse
-  request = Req.putJSON pollyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath ("/v1/lexicons/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          PutLexiconResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          PutLexiconResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutLexicon where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON PutLexicon where
-  toJSON PutLexicon' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Content" Lude..= content)])
-
-instance Lude.ToPath PutLexicon where
-  toPath PutLexicon' {..} =
-    Lude.mconcat ["/v1/lexicons/", Lude.toBS name]
-
-instance Lude.ToQuery PutLexicon where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutLexiconResponse' smart constructor.
 newtype PutLexiconResponse = PutLexiconResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLexiconResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutLexiconResponse' value with any optional fields omitted.
 mkPutLexiconResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutLexiconResponse
-mkPutLexiconResponse pResponseStatus_ =
-  PutLexiconResponse' {responseStatus = pResponseStatus_}
+mkPutLexiconResponse responseStatus =
+  PutLexiconResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plrsResponseStatus :: Lens.Lens' PutLexiconResponse Lude.Int
-plrsResponseStatus = Lens.lens (responseStatus :: PutLexiconResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutLexiconResponse)
-{-# DEPRECATED plrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+plrrsResponseStatus :: Lens.Lens' PutLexiconResponse Core.Int
+plrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED plrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

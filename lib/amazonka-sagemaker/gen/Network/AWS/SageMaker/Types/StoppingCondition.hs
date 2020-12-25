@@ -17,13 +17,13 @@ module Network.AWS.SageMaker.Types.StoppingCondition
     mkStoppingCondition,
 
     -- * Lenses
-    scMaxWaitTimeInSeconds,
     scMaxRuntimeInSeconds,
+    scMaxWaitTimeInSeconds,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a limit to how long a model training or compilation job can run. It also specifies how long you are willing to wait for a managed spot training job to complete. When the job reaches the time limit, Amazon SageMaker ends the training or compilation job. Use this API to cap model training costs.
 --
@@ -32,55 +32,50 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStoppingCondition' smart constructor.
 data StoppingCondition = StoppingCondition'
-  { -- | The maximum length of time, in seconds, how long you are willing to wait for a managed spot training job to complete. It is the amount of time spent waiting for Spot capacity plus the amount of time the training job runs. It must be equal to or greater than @MaxRuntimeInSeconds@ .
-    maxWaitTimeInSeconds :: Lude.Maybe Lude.Natural,
-    -- | The maximum length of time, in seconds, that the training or compilation job can run. If job does not complete during this time, Amazon SageMaker ends the job. If value is not specified, default value is 1 day. The maximum value is 28 days.
-    maxRuntimeInSeconds :: Lude.Maybe Lude.Natural
+  { -- | The maximum length of time, in seconds, that the training or compilation job can run. If job does not complete during this time, Amazon SageMaker ends the job. If value is not specified, default value is 1 day. The maximum value is 28 days.
+    maxRuntimeInSeconds :: Core.Maybe Core.Natural,
+    -- | The maximum length of time, in seconds, how long you are willing to wait for a managed spot training job to complete. It is the amount of time spent waiting for Spot capacity plus the amount of time the training job runs. It must be equal to or greater than @MaxRuntimeInSeconds@ .
+    maxWaitTimeInSeconds :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StoppingCondition' with the minimum fields required to make a request.
---
--- * 'maxWaitTimeInSeconds' - The maximum length of time, in seconds, how long you are willing to wait for a managed spot training job to complete. It is the amount of time spent waiting for Spot capacity plus the amount of time the training job runs. It must be equal to or greater than @MaxRuntimeInSeconds@ .
--- * 'maxRuntimeInSeconds' - The maximum length of time, in seconds, that the training or compilation job can run. If job does not complete during this time, Amazon SageMaker ends the job. If value is not specified, default value is 1 day. The maximum value is 28 days.
+-- | Creates a 'StoppingCondition' value with any optional fields omitted.
 mkStoppingCondition ::
   StoppingCondition
 mkStoppingCondition =
   StoppingCondition'
-    { maxWaitTimeInSeconds = Lude.Nothing,
-      maxRuntimeInSeconds = Lude.Nothing
+    { maxRuntimeInSeconds = Core.Nothing,
+      maxWaitTimeInSeconds = Core.Nothing
     }
-
--- | The maximum length of time, in seconds, how long you are willing to wait for a managed spot training job to complete. It is the amount of time spent waiting for Spot capacity plus the amount of time the training job runs. It must be equal to or greater than @MaxRuntimeInSeconds@ .
---
--- /Note:/ Consider using 'maxWaitTimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scMaxWaitTimeInSeconds :: Lens.Lens' StoppingCondition (Lude.Maybe Lude.Natural)
-scMaxWaitTimeInSeconds = Lens.lens (maxWaitTimeInSeconds :: StoppingCondition -> Lude.Maybe Lude.Natural) (\s a -> s {maxWaitTimeInSeconds = a} :: StoppingCondition)
-{-# DEPRECATED scMaxWaitTimeInSeconds "Use generic-lens or generic-optics with 'maxWaitTimeInSeconds' instead." #-}
 
 -- | The maximum length of time, in seconds, that the training or compilation job can run. If job does not complete during this time, Amazon SageMaker ends the job. If value is not specified, default value is 1 day. The maximum value is 28 days.
 --
 -- /Note:/ Consider using 'maxRuntimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scMaxRuntimeInSeconds :: Lens.Lens' StoppingCondition (Lude.Maybe Lude.Natural)
-scMaxRuntimeInSeconds = Lens.lens (maxRuntimeInSeconds :: StoppingCondition -> Lude.Maybe Lude.Natural) (\s a -> s {maxRuntimeInSeconds = a} :: StoppingCondition)
+scMaxRuntimeInSeconds :: Lens.Lens' StoppingCondition (Core.Maybe Core.Natural)
+scMaxRuntimeInSeconds = Lens.field @"maxRuntimeInSeconds"
 {-# DEPRECATED scMaxRuntimeInSeconds "Use generic-lens or generic-optics with 'maxRuntimeInSeconds' instead." #-}
 
-instance Lude.FromJSON StoppingCondition where
-  parseJSON =
-    Lude.withObject
-      "StoppingCondition"
-      ( \x ->
-          StoppingCondition'
-            Lude.<$> (x Lude..:? "MaxWaitTimeInSeconds")
-            Lude.<*> (x Lude..:? "MaxRuntimeInSeconds")
-      )
+-- | The maximum length of time, in seconds, how long you are willing to wait for a managed spot training job to complete. It is the amount of time spent waiting for Spot capacity plus the amount of time the training job runs. It must be equal to or greater than @MaxRuntimeInSeconds@ .
+--
+-- /Note:/ Consider using 'maxWaitTimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scMaxWaitTimeInSeconds :: Lens.Lens' StoppingCondition (Core.Maybe Core.Natural)
+scMaxWaitTimeInSeconds = Lens.field @"maxWaitTimeInSeconds"
+{-# DEPRECATED scMaxWaitTimeInSeconds "Use generic-lens or generic-optics with 'maxWaitTimeInSeconds' instead." #-}
 
-instance Lude.ToJSON StoppingCondition where
-  toJSON StoppingCondition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MaxWaitTimeInSeconds" Lude..=) Lude.<$> maxWaitTimeInSeconds,
-            ("MaxRuntimeInSeconds" Lude..=) Lude.<$> maxRuntimeInSeconds
+instance Core.FromJSON StoppingCondition where
+  toJSON StoppingCondition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxRuntimeInSeconds" Core..=) Core.<$> maxRuntimeInSeconds,
+            ("MaxWaitTimeInSeconds" Core..=) Core.<$> maxWaitTimeInSeconds
           ]
       )
+
+instance Core.FromJSON StoppingCondition where
+  parseJSON =
+    Core.withObject "StoppingCondition" Core.$
+      \x ->
+        StoppingCondition'
+          Core.<$> (x Core..:? "MaxRuntimeInSeconds")
+          Core.<*> (x Core..:? "MaxWaitTimeInSeconds")

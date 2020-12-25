@@ -17,102 +17,93 @@ module Network.AWS.IoT.Types.S3Action
     mkS3Action,
 
     -- * Lenses
-    sCannedACL,
+    sRoleArn,
     sBucketName,
     sKey,
-    sRoleARN,
+    sCannedAcl,
   )
 where
 
-import Network.AWS.IoT.Types.CannedAccessControlList
+import qualified Network.AWS.IoT.Types.AwsArn as Types
+import qualified Network.AWS.IoT.Types.BucketName as Types
+import qualified Network.AWS.IoT.Types.CannedAccessControlList as Types
+import qualified Network.AWS.IoT.Types.Key as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an action to write data to an Amazon S3 bucket.
 --
 -- /See:/ 'mkS3Action' smart constructor.
 data S3Action = S3Action'
-  { -- | The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl S3 canned ACLs> .
-    cannedACL :: Lude.Maybe CannedAccessControlList,
+  { -- | The ARN of the IAM role that grants access.
+    roleArn :: Types.AwsArn,
     -- | The Amazon S3 bucket.
-    bucketName :: Lude.Text,
+    bucketName :: Types.BucketName,
     -- | The object key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html Actions, resources, and condition keys for Amazon S3> .
-    key :: Lude.Text,
-    -- | The ARN of the IAM role that grants access.
-    roleARN :: Lude.Text
+    key :: Types.Key,
+    -- | The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl S3 canned ACLs> .
+    cannedAcl :: Core.Maybe Types.CannedAccessControlList
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3Action' with the minimum fields required to make a request.
---
--- * 'cannedACL' - The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl S3 canned ACLs> .
--- * 'bucketName' - The Amazon S3 bucket.
--- * 'key' - The object key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html Actions, resources, and condition keys for Amazon S3> .
--- * 'roleARN' - The ARN of the IAM role that grants access.
+-- | Creates a 'S3Action' value with any optional fields omitted.
 mkS3Action ::
+  -- | 'roleArn'
+  Types.AwsArn ->
   -- | 'bucketName'
-  Lude.Text ->
+  Types.BucketName ->
   -- | 'key'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.Key ->
   S3Action
-mkS3Action pBucketName_ pKey_ pRoleARN_ =
-  S3Action'
-    { cannedACL = Lude.Nothing,
-      bucketName = pBucketName_,
-      key = pKey_,
-      roleARN = pRoleARN_
-    }
+mkS3Action roleArn bucketName key =
+  S3Action' {roleArn, bucketName, key, cannedAcl = Core.Nothing}
 
--- | The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl S3 canned ACLs> .
+-- | The ARN of the IAM role that grants access.
 --
--- /Note:/ Consider using 'cannedACL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sCannedACL :: Lens.Lens' S3Action (Lude.Maybe CannedAccessControlList)
-sCannedACL = Lens.lens (cannedACL :: S3Action -> Lude.Maybe CannedAccessControlList) (\s a -> s {cannedACL = a} :: S3Action)
-{-# DEPRECATED sCannedACL "Use generic-lens or generic-optics with 'cannedACL' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sRoleArn :: Lens.Lens' S3Action Types.AwsArn
+sRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED sRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The Amazon S3 bucket.
 --
 -- /Note:/ Consider using 'bucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sBucketName :: Lens.Lens' S3Action Lude.Text
-sBucketName = Lens.lens (bucketName :: S3Action -> Lude.Text) (\s a -> s {bucketName = a} :: S3Action)
+sBucketName :: Lens.Lens' S3Action Types.BucketName
+sBucketName = Lens.field @"bucketName"
 {-# DEPRECATED sBucketName "Use generic-lens or generic-optics with 'bucketName' instead." #-}
 
 -- | The object key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/list_amazons3.html Actions, resources, and condition keys for Amazon S3> .
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sKey :: Lens.Lens' S3Action Lude.Text
-sKey = Lens.lens (key :: S3Action -> Lude.Text) (\s a -> s {key = a} :: S3Action)
+sKey :: Lens.Lens' S3Action Types.Key
+sKey = Lens.field @"key"
 {-# DEPRECATED sKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
--- | The ARN of the IAM role that grants access.
+-- | The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl S3 canned ACLs> .
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sRoleARN :: Lens.Lens' S3Action Lude.Text
-sRoleARN = Lens.lens (roleARN :: S3Action -> Lude.Text) (\s a -> s {roleARN = a} :: S3Action)
-{-# DEPRECATED sRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'cannedAcl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCannedAcl :: Lens.Lens' S3Action (Core.Maybe Types.CannedAccessControlList)
+sCannedAcl = Lens.field @"cannedAcl"
+{-# DEPRECATED sCannedAcl "Use generic-lens or generic-optics with 'cannedAcl' instead." #-}
 
-instance Lude.FromJSON S3Action where
-  parseJSON =
-    Lude.withObject
-      "S3Action"
-      ( \x ->
-          S3Action'
-            Lude.<$> (x Lude..:? "cannedAcl")
-            Lude.<*> (x Lude..: "bucketName")
-            Lude.<*> (x Lude..: "key")
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON S3Action where
-  toJSON S3Action' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("cannedAcl" Lude..=) Lude.<$> cannedACL,
-            Lude.Just ("bucketName" Lude..= bucketName),
-            Lude.Just ("key" Lude..= key),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON S3Action where
+  toJSON S3Action {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("bucketName" Core..= bucketName),
+            Core.Just ("key" Core..= key),
+            ("cannedAcl" Core..=) Core.<$> cannedAcl
           ]
       )
+
+instance Core.FromJSON S3Action where
+  parseJSON =
+    Core.withObject "S3Action" Core.$
+      \x ->
+        S3Action'
+          Core.<$> (x Core..: "roleArn")
+          Core.<*> (x Core..: "bucketName")
+          Core.<*> (x Core..: "key")
+          Core.<*> (x Core..:? "cannedAcl")

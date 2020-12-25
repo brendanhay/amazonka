@@ -156,8 +156,8 @@ import Test.Tasty
 --         , requestListThingGroupsForThing $
 --             mkListThingGroupsForThing
 --
---         , requestCreateCertificateFromCSR $
---             mkCreateCertificateFromCSR
+--         , requestCreateCertificateFromCsr $
+--             mkCreateCertificateFromCsr
 --
 --         , requestDeleteThing $
 --             mkDeleteThing
@@ -783,8 +783,8 @@ import Test.Tasty
 --         , responseListThingGroupsForThing $
 --             mkListThingGroupsForThingResponse
 --
---         , responseCreateCertificateFromCSR $
---             mkCreateCertificateFromCSRResponse
+--         , responseCreateCertificateFromCsr $
+--             mkCreateCertificateFromCsrResponse
 --
 --         , responseDeleteThing $
 --             mkDeleteThingResponse
@@ -1541,11 +1541,11 @@ requestListThingGroupsForThing =
     "ListThingGroupsForThing"
     "fixture/ListThingGroupsForThing.yaml"
 
-requestCreateCertificateFromCSR :: CreateCertificateFromCSR -> TestTree
-requestCreateCertificateFromCSR =
+requestCreateCertificateFromCsr :: CreateCertificateFromCsr -> TestTree
+requestCreateCertificateFromCsr =
   req
-    "CreateCertificateFromCSR"
-    "fixture/CreateCertificateFromCSR.yaml"
+    "CreateCertificateFromCsr"
+    "fixture/CreateCertificateFromCsr.yaml"
 
 requestDeleteThing :: DeleteThing -> TestTree
 requestDeleteThing =
@@ -2538,7 +2538,7 @@ responseGetCardinality =
   res
     "GetCardinalityResponse"
     "fixture/GetCardinalityResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetCardinality)
 
 responseCreateDomainConfiguration :: CreateDomainConfigurationResponse -> TestTree
@@ -2546,7 +2546,7 @@ responseCreateDomainConfiguration =
   res
     "CreateDomainConfigurationResponse"
     "fixture/CreateDomainConfigurationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateDomainConfiguration)
 
 responseDeleteSecurityProfile :: DeleteSecurityProfileResponse -> TestTree
@@ -2554,7 +2554,7 @@ responseDeleteSecurityProfile =
   res
     "DeleteSecurityProfileResponse"
     "fixture/DeleteSecurityProfileResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteSecurityProfile)
 
 responseUpdateSecurityProfile :: UpdateSecurityProfileResponse -> TestTree
@@ -2562,7 +2562,7 @@ responseUpdateSecurityProfile =
   res
     "UpdateSecurityProfileResponse"
     "fixture/UpdateSecurityProfileResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateSecurityProfile)
 
 responseListSecurityProfiles :: ListSecurityProfilesResponse -> TestTree
@@ -2570,7 +2570,7 @@ responseListSecurityProfiles =
   res
     "ListSecurityProfilesResponse"
     "fixture/ListSecurityProfilesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListSecurityProfiles)
 
 responseListPolicies :: ListPoliciesResponse -> TestTree
@@ -2578,7 +2578,7 @@ responseListPolicies =
   res
     "ListPoliciesResponse"
     "fixture/ListPoliciesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListPolicies)
 
 responseDescribeProvisioningTemplate :: DescribeProvisioningTemplateResponse -> TestTree
@@ -2586,7 +2586,7 @@ responseDescribeProvisioningTemplate =
   res
     "DescribeProvisioningTemplateResponse"
     "fixture/DescribeProvisioningTemplateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeProvisioningTemplate)
 
 responseUpdateMitigationAction :: UpdateMitigationActionResponse -> TestTree
@@ -2594,7 +2594,7 @@ responseUpdateMitigationAction =
   res
     "UpdateMitigationActionResponse"
     "fixture/UpdateMitigationActionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateMitigationAction)
 
 responseDeleteMitigationAction :: DeleteMitigationActionResponse -> TestTree
@@ -2602,7 +2602,7 @@ responseDeleteMitigationAction =
   res
     "DeleteMitigationActionResponse"
     "fixture/DeleteMitigationActionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteMitigationAction)
 
 responseDeleteJobExecution :: DeleteJobExecutionResponse -> TestTree
@@ -2610,7 +2610,7 @@ responseDeleteJobExecution =
   res
     "DeleteJobExecutionResponse"
     "fixture/DeleteJobExecutionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteJobExecution)
 
 responseCreatePolicy :: CreatePolicyResponse -> TestTree
@@ -2618,7 +2618,7 @@ responseCreatePolicy =
   res
     "CreatePolicyResponse"
     "fixture/CreatePolicyResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreatePolicy)
 
 responseRegisterCertificate :: RegisterCertificateResponse -> TestTree
@@ -2626,7 +2626,7 @@ responseRegisterCertificate =
   res
     "RegisterCertificateResponse"
     "fixture/RegisterCertificateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy RegisterCertificate)
 
 responseDeleteDynamicThingGroup :: DeleteDynamicThingGroupResponse -> TestTree
@@ -2634,7 +2634,7 @@ responseDeleteDynamicThingGroup =
   res
     "DeleteDynamicThingGroupResponse"
     "fixture/DeleteDynamicThingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDynamicThingGroup)
 
 responseListThingPrincipals :: ListThingPrincipalsResponse -> TestTree
@@ -2642,7 +2642,7 @@ responseListThingPrincipals =
   res
     "ListThingPrincipalsResponse"
     "fixture/ListThingPrincipalsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListThingPrincipals)
 
 responseUpdateDynamicThingGroup :: UpdateDynamicThingGroupResponse -> TestTree
@@ -2650,7 +2650,7 @@ responseUpdateDynamicThingGroup =
   res
     "UpdateDynamicThingGroupResponse"
     "fixture/UpdateDynamicThingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDynamicThingGroup)
 
 responseDescribeRoleAlias :: DescribeRoleAliasResponse -> TestTree
@@ -2658,7 +2658,7 @@ responseDescribeRoleAlias =
   res
     "DescribeRoleAliasResponse"
     "fixture/DescribeRoleAliasResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeRoleAlias)
 
 responseCreateProvisioningTemplateVersion :: CreateProvisioningTemplateVersionResponse -> TestTree
@@ -2666,7 +2666,7 @@ responseCreateProvisioningTemplateVersion =
   res
     "CreateProvisioningTemplateVersionResponse"
     "fixture/CreateProvisioningTemplateVersionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateProvisioningTemplateVersion)
 
 responseCreateOTAUpdate :: CreateOTAUpdateResponse -> TestTree
@@ -2674,7 +2674,7 @@ responseCreateOTAUpdate =
   res
     "CreateOTAUpdateResponse"
     "fixture/CreateOTAUpdateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateOTAUpdate)
 
 responseDescribeDefaultAuthorizer :: DescribeDefaultAuthorizerResponse -> TestTree
@@ -2682,7 +2682,7 @@ responseDescribeDefaultAuthorizer =
   res
     "DescribeDefaultAuthorizerResponse"
     "fixture/DescribeDefaultAuthorizerResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDefaultAuthorizer)
 
 responseListAuditMitigationActionsTasks :: ListAuditMitigationActionsTasksResponse -> TestTree
@@ -2690,7 +2690,7 @@ responseListAuditMitigationActionsTasks =
   res
     "ListAuditMitigationActionsTasksResponse"
     "fixture/ListAuditMitigationActionsTasksResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListAuditMitigationActionsTasks)
 
 responseListThingRegistrationTaskReports :: ListThingRegistrationTaskReportsResponse -> TestTree
@@ -2698,7 +2698,7 @@ responseListThingRegistrationTaskReports =
   res
     "ListThingRegistrationTaskReportsResponse"
     "fixture/ListThingRegistrationTaskReportsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListThingRegistrationTaskReports)
 
 responseListPrincipalThings :: ListPrincipalThingsResponse -> TestTree
@@ -2706,7 +2706,7 @@ responseListPrincipalThings =
   res
     "ListPrincipalThingsResponse"
     "fixture/ListPrincipalThingsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListPrincipalThings)
 
 responseRemoveThingFromThingGroup :: RemoveThingFromThingGroupResponse -> TestTree
@@ -2714,7 +2714,7 @@ responseRemoveThingFromThingGroup =
   res
     "RemoveThingFromThingGroupResponse"
     "fixture/RemoveThingFromThingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy RemoveThingFromThingGroup)
 
 responseDescribeEventConfigurations :: DescribeEventConfigurationsResponse -> TestTree
@@ -2722,7 +2722,7 @@ responseDescribeEventConfigurations =
   res
     "DescribeEventConfigurationsResponse"
     "fixture/DescribeEventConfigurationsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEventConfigurations)
 
 responseListTopicRuleDestinations :: ListTopicRuleDestinationsResponse -> TestTree
@@ -2730,7 +2730,7 @@ responseListTopicRuleDestinations =
   res
     "ListTopicRuleDestinationsResponse"
     "fixture/ListTopicRuleDestinationsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListTopicRuleDestinations)
 
 responseRegisterCertificateWithoutCA :: RegisterCertificateWithoutCAResponse -> TestTree
@@ -2738,7 +2738,7 @@ responseRegisterCertificateWithoutCA =
   res
     "RegisterCertificateWithoutCAResponse"
     "fixture/RegisterCertificateWithoutCAResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy RegisterCertificateWithoutCA)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -2746,7 +2746,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseListThingGroups :: ListThingGroupsResponse -> TestTree
@@ -2754,7 +2754,7 @@ responseListThingGroups =
   res
     "ListThingGroupsResponse"
     "fixture/ListThingGroupsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListThingGroups)
 
 responseListScheduledAudits :: ListScheduledAuditsResponse -> TestTree
@@ -2762,7 +2762,7 @@ responseListScheduledAudits =
   res
     "ListScheduledAuditsResponse"
     "fixture/ListScheduledAuditsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListScheduledAudits)
 
 responseDescribeThingRegistrationTask :: DescribeThingRegistrationTaskResponse -> TestTree
@@ -2770,7 +2770,7 @@ responseDescribeThingRegistrationTask =
   res
     "DescribeThingRegistrationTaskResponse"
     "fixture/DescribeThingRegistrationTaskResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeThingRegistrationTask)
 
 responseUpdateScheduledAudit :: UpdateScheduledAuditResponse -> TestTree
@@ -2778,7 +2778,7 @@ responseUpdateScheduledAudit =
   res
     "UpdateScheduledAuditResponse"
     "fixture/UpdateScheduledAuditResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateScheduledAudit)
 
 responseDeleteScheduledAudit :: DeleteScheduledAuditResponse -> TestTree
@@ -2786,7 +2786,7 @@ responseDeleteScheduledAudit =
   res
     "DeleteScheduledAuditResponse"
     "fixture/DeleteScheduledAuditResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteScheduledAudit)
 
 responseDescribeAuditFinding :: DescribeAuditFindingResponse -> TestTree
@@ -2794,7 +2794,7 @@ responseDescribeAuditFinding =
   res
     "DescribeAuditFindingResponse"
     "fixture/DescribeAuditFindingResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAuditFinding)
 
 responseDescribeDimension :: DescribeDimensionResponse -> TestTree
@@ -2802,7 +2802,7 @@ responseDescribeDimension =
   res
     "DescribeDimensionResponse"
     "fixture/DescribeDimensionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDimension)
 
 responseGetLoggingOptions :: GetLoggingOptionsResponse -> TestTree
@@ -2810,7 +2810,7 @@ responseGetLoggingOptions =
   res
     "GetLoggingOptionsResponse"
     "fixture/GetLoggingOptionsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetLoggingOptions)
 
 responseDeleteAccountAuditConfiguration :: DeleteAccountAuditConfigurationResponse -> TestTree
@@ -2818,7 +2818,7 @@ responseDeleteAccountAuditConfiguration =
   res
     "DeleteAccountAuditConfigurationResponse"
     "fixture/DeleteAccountAuditConfigurationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAccountAuditConfiguration)
 
 responseUpdateAccountAuditConfiguration :: UpdateAccountAuditConfigurationResponse -> TestTree
@@ -2826,7 +2826,7 @@ responseUpdateAccountAuditConfiguration =
   res
     "UpdateAccountAuditConfigurationResponse"
     "fixture/UpdateAccountAuditConfigurationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateAccountAuditConfiguration)
 
 responseGetOTAUpdate :: GetOTAUpdateResponse -> TestTree
@@ -2834,7 +2834,7 @@ responseGetOTAUpdate =
   res
     "GetOTAUpdateResponse"
     "fixture/GetOTAUpdateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetOTAUpdate)
 
 responseGetEffectivePolicies :: GetEffectivePoliciesResponse -> TestTree
@@ -2842,7 +2842,7 @@ responseGetEffectivePolicies =
   res
     "GetEffectivePoliciesResponse"
     "fixture/GetEffectivePoliciesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetEffectivePolicies)
 
 responseListThingTypes :: ListThingTypesResponse -> TestTree
@@ -2850,7 +2850,7 @@ responseListThingTypes =
   res
     "ListThingTypesResponse"
     "fixture/ListThingTypesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListThingTypes)
 
 responseSetV2LoggingOptions :: SetV2LoggingOptionsResponse -> TestTree
@@ -2858,7 +2858,7 @@ responseSetV2LoggingOptions =
   res
     "SetV2LoggingOptionsResponse"
     "fixture/SetV2LoggingOptionsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy SetV2LoggingOptions)
 
 responseCreateProvisioningTemplate :: CreateProvisioningTemplateResponse -> TestTree
@@ -2866,7 +2866,7 @@ responseCreateProvisioningTemplate =
   res
     "CreateProvisioningTemplateResponse"
     "fixture/CreateProvisioningTemplateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateProvisioningTemplate)
 
 responseListThingGroupsForThing :: ListThingGroupsForThingResponse -> TestTree
@@ -2874,23 +2874,23 @@ responseListThingGroupsForThing =
   res
     "ListThingGroupsForThingResponse"
     "fixture/ListThingGroupsForThingResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListThingGroupsForThing)
 
-responseCreateCertificateFromCSR :: CreateCertificateFromCSRResponse -> TestTree
-responseCreateCertificateFromCSR =
+responseCreateCertificateFromCsr :: CreateCertificateFromCsrResponse -> TestTree
+responseCreateCertificateFromCsr =
   res
-    "CreateCertificateFromCSRResponse"
-    "fixture/CreateCertificateFromCSRResponse.proto"
-    ioTService
-    (Proxy :: Proxy CreateCertificateFromCSR)
+    "CreateCertificateFromCsrResponse"
+    "fixture/CreateCertificateFromCsrResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy CreateCertificateFromCsr)
 
 responseDeleteThing :: DeleteThingResponse -> TestTree
 responseDeleteThing =
   res
     "DeleteThingResponse"
     "fixture/DeleteThingResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteThing)
 
 responseUpdateThing :: UpdateThingResponse -> TestTree
@@ -2898,7 +2898,7 @@ responseUpdateThing =
   res
     "UpdateThingResponse"
     "fixture/UpdateThingResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateThing)
 
 responseDeleteProvisioningTemplate :: DeleteProvisioningTemplateResponse -> TestTree
@@ -2906,7 +2906,7 @@ responseDeleteProvisioningTemplate =
   res
     "DeleteProvisioningTemplateResponse"
     "fixture/DeleteProvisioningTemplateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProvisioningTemplate)
 
 responseUpdateProvisioningTemplate :: UpdateProvisioningTemplateResponse -> TestTree
@@ -2914,7 +2914,7 @@ responseUpdateProvisioningTemplate =
   res
     "UpdateProvisioningTemplateResponse"
     "fixture/UpdateProvisioningTemplateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateProvisioningTemplate)
 
 responseDescribeMitigationAction :: DescribeMitigationActionResponse -> TestTree
@@ -2922,7 +2922,7 @@ responseDescribeMitigationAction =
   res
     "DescribeMitigationActionResponse"
     "fixture/DescribeMitigationActionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeMitigationAction)
 
 responseStartThingRegistrationTask :: StartThingRegistrationTaskResponse -> TestTree
@@ -2930,7 +2930,7 @@ responseStartThingRegistrationTask =
   res
     "StartThingRegistrationTaskResponse"
     "fixture/StartThingRegistrationTaskResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy StartThingRegistrationTask)
 
 responseCreateScheduledAudit :: CreateScheduledAuditResponse -> TestTree
@@ -2938,7 +2938,7 @@ responseCreateScheduledAudit =
   res
     "CreateScheduledAuditResponse"
     "fixture/CreateScheduledAuditResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateScheduledAudit)
 
 responseListAuthorizers :: ListAuthorizersResponse -> TestTree
@@ -2946,7 +2946,7 @@ responseListAuthorizers =
   res
     "ListAuthorizersResponse"
     "fixture/ListAuthorizersResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListAuthorizers)
 
 responseListJobExecutionsForJob :: ListJobExecutionsForJobResponse -> TestTree
@@ -2954,7 +2954,7 @@ responseListJobExecutionsForJob =
   res
     "ListJobExecutionsForJobResponse"
     "fixture/ListJobExecutionsForJobResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListJobExecutionsForJob)
 
 responseRemoveThingFromBillingGroup :: RemoveThingFromBillingGroupResponse -> TestTree
@@ -2962,7 +2962,7 @@ responseRemoveThingFromBillingGroup =
   res
     "RemoveThingFromBillingGroupResponse"
     "fixture/RemoveThingFromBillingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy RemoveThingFromBillingGroup)
 
 responseSearchIndex :: SearchIndexResponse -> TestTree
@@ -2970,7 +2970,7 @@ responseSearchIndex =
   res
     "SearchIndexResponse"
     "fixture/SearchIndexResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy SearchIndex)
 
 responseCreateThingType :: CreateThingTypeResponse -> TestTree
@@ -2978,7 +2978,7 @@ responseCreateThingType =
   res
     "CreateThingTypeResponse"
     "fixture/CreateThingTypeResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateThingType)
 
 responseDescribeSecurityProfile :: DescribeSecurityProfileResponse -> TestTree
@@ -2986,7 +2986,7 @@ responseDescribeSecurityProfile =
   res
     "DescribeSecurityProfileResponse"
     "fixture/DescribeSecurityProfileResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSecurityProfile)
 
 responseDeleteV2LoggingLevel :: DeleteV2LoggingLevelResponse -> TestTree
@@ -2994,7 +2994,7 @@ responseDeleteV2LoggingLevel =
   res
     "DeleteV2LoggingLevelResponse"
     "fixture/DeleteV2LoggingLevelResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteV2LoggingLevel)
 
 responseSetDefaultAuthorizer :: SetDefaultAuthorizerResponse -> TestTree
@@ -3002,7 +3002,7 @@ responseSetDefaultAuthorizer =
   res
     "SetDefaultAuthorizerResponse"
     "fixture/SetDefaultAuthorizerResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy SetDefaultAuthorizer)
 
 responseDescribeJobExecution :: DescribeJobExecutionResponse -> TestTree
@@ -3010,7 +3010,7 @@ responseDescribeJobExecution =
   res
     "DescribeJobExecutionResponse"
     "fixture/DescribeJobExecutionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeJobExecution)
 
 responseCancelCertificateTransfer :: CancelCertificateTransferResponse -> TestTree
@@ -3018,7 +3018,7 @@ responseCancelCertificateTransfer =
   res
     "CancelCertificateTransferResponse"
     "fixture/CancelCertificateTransferResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CancelCertificateTransfer)
 
 responseGetIndexingConfiguration :: GetIndexingConfigurationResponse -> TestTree
@@ -3026,7 +3026,7 @@ responseGetIndexingConfiguration =
   res
     "GetIndexingConfigurationResponse"
     "fixture/GetIndexingConfigurationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetIndexingConfiguration)
 
 responseListAuditMitigationActionsExecutions :: ListAuditMitigationActionsExecutionsResponse -> TestTree
@@ -3034,7 +3034,7 @@ responseListAuditMitigationActionsExecutions =
   res
     "ListAuditMitigationActionsExecutionsResponse"
     "fixture/ListAuditMitigationActionsExecutionsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListAuditMitigationActionsExecutions)
 
 responseDescribeAuditMitigationActionsTask :: DescribeAuditMitigationActionsTaskResponse -> TestTree
@@ -3042,7 +3042,7 @@ responseDescribeAuditMitigationActionsTask =
   res
     "DescribeAuditMitigationActionsTaskResponse"
     "fixture/DescribeAuditMitigationActionsTaskResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAuditMitigationActionsTask)
 
 responseGetStatistics :: GetStatisticsResponse -> TestTree
@@ -3050,7 +3050,7 @@ responseGetStatistics =
   res
     "GetStatisticsResponse"
     "fixture/GetStatisticsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetStatistics)
 
 responseDeleteRoleAlias :: DeleteRoleAliasResponse -> TestTree
@@ -3058,7 +3058,7 @@ responseDeleteRoleAlias =
   res
     "DeleteRoleAliasResponse"
     "fixture/DeleteRoleAliasResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRoleAlias)
 
 responseUpdateRoleAlias :: UpdateRoleAliasResponse -> TestTree
@@ -3066,7 +3066,7 @@ responseUpdateRoleAlias =
   res
     "UpdateRoleAliasResponse"
     "fixture/UpdateRoleAliasResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateRoleAlias)
 
 responseDeletePolicyVersion :: DeletePolicyVersionResponse -> TestTree
@@ -3074,7 +3074,7 @@ responseDeletePolicyVersion =
   res
     "DeletePolicyVersionResponse"
     "fixture/DeletePolicyVersionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeletePolicyVersion)
 
 responseDisableTopicRule :: DisableTopicRuleResponse -> TestTree
@@ -3082,7 +3082,7 @@ responseDisableTopicRule =
   res
     "DisableTopicRuleResponse"
     "fixture/DisableTopicRuleResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DisableTopicRule)
 
 responseCreateTopicRule :: CreateTopicRuleResponse -> TestTree
@@ -3090,7 +3090,7 @@ responseCreateTopicRule =
   res
     "CreateTopicRuleResponse"
     "fixture/CreateTopicRuleResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateTopicRule)
 
 responseCreateJob :: CreateJobResponse -> TestTree
@@ -3098,7 +3098,7 @@ responseCreateJob =
   res
     "CreateJobResponse"
     "fixture/CreateJobResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateJob)
 
 responseDescribeIndex :: DescribeIndexResponse -> TestTree
@@ -3106,7 +3106,7 @@ responseDescribeIndex =
   res
     "DescribeIndexResponse"
     "fixture/DescribeIndexResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeIndex)
 
 responseAssociateTargetsWithJob :: AssociateTargetsWithJobResponse -> TestTree
@@ -3114,7 +3114,7 @@ responseAssociateTargetsWithJob =
   res
     "AssociateTargetsWithJobResponse"
     "fixture/AssociateTargetsWithJobResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy AssociateTargetsWithJob)
 
 responseAttachSecurityProfile :: AttachSecurityProfileResponse -> TestTree
@@ -3122,7 +3122,7 @@ responseAttachSecurityProfile =
   res
     "AttachSecurityProfileResponse"
     "fixture/AttachSecurityProfileResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy AttachSecurityProfile)
 
 responseListAttachedPolicies :: ListAttachedPoliciesResponse -> TestTree
@@ -3130,7 +3130,7 @@ responseListAttachedPolicies =
   res
     "ListAttachedPoliciesResponse"
     "fixture/ListAttachedPoliciesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListAttachedPolicies)
 
 responseCreatePolicyVersion :: CreatePolicyVersionResponse -> TestTree
@@ -3138,7 +3138,7 @@ responseCreatePolicyVersion =
   res
     "CreatePolicyVersionResponse"
     "fixture/CreatePolicyVersionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreatePolicyVersion)
 
 responseListCACertificates :: ListCACertificatesResponse -> TestTree
@@ -3146,7 +3146,7 @@ responseListCACertificates =
   res
     "ListCACertificatesResponse"
     "fixture/ListCACertificatesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListCACertificates)
 
 responseDeleteTopicRule :: DeleteTopicRuleResponse -> TestTree
@@ -3154,7 +3154,7 @@ responseDeleteTopicRule =
   res
     "DeleteTopicRuleResponse"
     "fixture/DeleteTopicRuleResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTopicRule)
 
 responseGetJobDocument :: GetJobDocumentResponse -> TestTree
@@ -3162,7 +3162,7 @@ responseGetJobDocument =
   res
     "GetJobDocumentResponse"
     "fixture/GetJobDocumentResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetJobDocument)
 
 responseDescribeProvisioningTemplateVersion :: DescribeProvisioningTemplateVersionResponse -> TestTree
@@ -3170,7 +3170,7 @@ responseDescribeProvisioningTemplateVersion =
   res
     "DescribeProvisioningTemplateVersionResponse"
     "fixture/DescribeProvisioningTemplateVersionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeProvisioningTemplateVersion)
 
 responseCancelAuditTask :: CancelAuditTaskResponse -> TestTree
@@ -3178,7 +3178,7 @@ responseCancelAuditTask =
   res
     "CancelAuditTaskResponse"
     "fixture/CancelAuditTaskResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CancelAuditTask)
 
 responseCreateRoleAlias :: CreateRoleAliasResponse -> TestTree
@@ -3186,7 +3186,7 @@ responseCreateRoleAlias =
   res
     "CreateRoleAliasResponse"
     "fixture/CreateRoleAliasResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateRoleAlias)
 
 responseDeleteCACertificate :: DeleteCACertificateResponse -> TestTree
@@ -3194,7 +3194,7 @@ responseDeleteCACertificate =
   res
     "DeleteCACertificateResponse"
     "fixture/DeleteCACertificateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCACertificate)
 
 responseUpdateCACertificate :: UpdateCACertificateResponse -> TestTree
@@ -3202,7 +3202,7 @@ responseUpdateCACertificate =
   res
     "UpdateCACertificateResponse"
     "fixture/UpdateCACertificateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateCACertificate)
 
 responseListTopicRules :: ListTopicRulesResponse -> TestTree
@@ -3210,7 +3210,7 @@ responseListTopicRules =
   res
     "ListTopicRulesResponse"
     "fixture/ListTopicRulesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListTopicRules)
 
 responseTransferCertificate :: TransferCertificateResponse -> TestTree
@@ -3218,7 +3218,7 @@ responseTransferCertificate =
   res
     "TransferCertificateResponse"
     "fixture/TransferCertificateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy TransferCertificate)
 
 responseListJobs :: ListJobsResponse -> TestTree
@@ -3226,7 +3226,7 @@ responseListJobs =
   res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListJobs)
 
 responseListRoleAliases :: ListRoleAliasesResponse -> TestTree
@@ -3234,7 +3234,7 @@ responseListRoleAliases =
   res
     "ListRoleAliasesResponse"
     "fixture/ListRoleAliasesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListRoleAliases)
 
 responseStartOnDemandAuditTask :: StartOnDemandAuditTaskResponse -> TestTree
@@ -3242,7 +3242,7 @@ responseStartOnDemandAuditTask =
   res
     "StartOnDemandAuditTaskResponse"
     "fixture/StartOnDemandAuditTaskResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy StartOnDemandAuditTask)
 
 responseDescribeThingGroup :: DescribeThingGroupResponse -> TestTree
@@ -3250,7 +3250,7 @@ responseDescribeThingGroup =
   res
     "DescribeThingGroupResponse"
     "fixture/DescribeThingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeThingGroup)
 
 responseDeleteJob :: DeleteJobResponse -> TestTree
@@ -3258,7 +3258,7 @@ responseDeleteJob =
   res
     "DeleteJobResponse"
     "fixture/DeleteJobResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteJob)
 
 responseListTargetsForSecurityProfile :: ListTargetsForSecurityProfileResponse -> TestTree
@@ -3266,7 +3266,7 @@ responseListTargetsForSecurityProfile =
   res
     "ListTargetsForSecurityProfileResponse"
     "fixture/ListTargetsForSecurityProfileResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListTargetsForSecurityProfile)
 
 responseUpdateJob :: UpdateJobResponse -> TestTree
@@ -3274,7 +3274,7 @@ responseUpdateJob =
   res
     "UpdateJobResponse"
     "fixture/UpdateJobResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateJob)
 
 responseStartAuditMitigationActionsTask :: StartAuditMitigationActionsTaskResponse -> TestTree
@@ -3282,7 +3282,7 @@ responseStartAuditMitigationActionsTask =
   res
     "StartAuditMitigationActionsTaskResponse"
     "fixture/StartAuditMitigationActionsTaskResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy StartAuditMitigationActionsTask)
 
 responseGetTopicRule :: GetTopicRuleResponse -> TestTree
@@ -3290,7 +3290,7 @@ responseGetTopicRule =
   res
     "GetTopicRuleResponse"
     "fixture/GetTopicRuleResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetTopicRule)
 
 responseDescribeThing :: DescribeThingResponse -> TestTree
@@ -3298,7 +3298,7 @@ responseDescribeThing =
   res
     "DescribeThingResponse"
     "fixture/DescribeThingResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeThing)
 
 responseListDomainConfigurations :: ListDomainConfigurationsResponse -> TestTree
@@ -3306,7 +3306,7 @@ responseListDomainConfigurations =
   res
     "ListDomainConfigurationsResponse"
     "fixture/ListDomainConfigurationsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListDomainConfigurations)
 
 responseListAuditTasks :: ListAuditTasksResponse -> TestTree
@@ -3314,7 +3314,7 @@ responseListAuditTasks =
   res
     "ListAuditTasksResponse"
     "fixture/ListAuditTasksResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListAuditTasks)
 
 responseDescribeAccountAuditConfiguration :: DescribeAccountAuditConfigurationResponse -> TestTree
@@ -3322,7 +3322,7 @@ responseDescribeAccountAuditConfiguration =
   res
     "DescribeAccountAuditConfigurationResponse"
     "fixture/DescribeAccountAuditConfigurationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccountAuditConfiguration)
 
 responseDeleteDimension :: DeleteDimensionResponse -> TestTree
@@ -3330,7 +3330,7 @@ responseDeleteDimension =
   res
     "DeleteDimensionResponse"
     "fixture/DeleteDimensionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDimension)
 
 responseUpdateDimension :: UpdateDimensionResponse -> TestTree
@@ -3338,7 +3338,7 @@ responseUpdateDimension =
   res
     "UpdateDimensionResponse"
     "fixture/UpdateDimensionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDimension)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
@@ -3346,7 +3346,7 @@ responseDeletePolicy =
   res
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeletePolicy)
 
 responseListThingsInThingGroup :: ListThingsInThingGroupResponse -> TestTree
@@ -3354,7 +3354,7 @@ responseListThingsInThingGroup =
   res
     "ListThingsInThingGroupResponse"
     "fixture/ListThingsInThingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListThingsInThingGroup)
 
 responseListAuditFindings :: ListAuditFindingsResponse -> TestTree
@@ -3362,7 +3362,7 @@ responseListAuditFindings =
   res
     "ListAuditFindingsResponse"
     "fixture/ListAuditFindingsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListAuditFindings)
 
 responseDescribeScheduledAudit :: DescribeScheduledAuditResponse -> TestTree
@@ -3370,7 +3370,7 @@ responseDescribeScheduledAudit =
   res
     "DescribeScheduledAuditResponse"
     "fixture/DescribeScheduledAuditResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeScheduledAudit)
 
 responseCreateMitigationAction :: CreateMitigationActionResponse -> TestTree
@@ -3378,7 +3378,7 @@ responseCreateMitigationAction =
   res
     "CreateMitigationActionResponse"
     "fixture/CreateMitigationActionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateMitigationAction)
 
 responseConfirmTopicRuleDestination :: ConfirmTopicRuleDestinationResponse -> TestTree
@@ -3386,7 +3386,7 @@ responseConfirmTopicRuleDestination =
   res
     "ConfirmTopicRuleDestinationResponse"
     "fixture/ConfirmTopicRuleDestinationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ConfirmTopicRuleDestination)
 
 responseListCertificates :: ListCertificatesResponse -> TestTree
@@ -3394,7 +3394,7 @@ responseListCertificates =
   res
     "ListCertificatesResponse"
     "fixture/ListCertificatesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListCertificates)
 
 responseListMitigationActions :: ListMitigationActionsResponse -> TestTree
@@ -3402,7 +3402,7 @@ responseListMitigationActions =
   res
     "ListMitigationActionsResponse"
     "fixture/ListMitigationActionsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListMitigationActions)
 
 responseDescribeAuthorizer :: DescribeAuthorizerResponse -> TestTree
@@ -3410,7 +3410,7 @@ responseDescribeAuthorizer =
   res
     "DescribeAuthorizerResponse"
     "fixture/DescribeAuthorizerResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAuthorizer)
 
 responseGetPolicyVersion :: GetPolicyVersionResponse -> TestTree
@@ -3418,7 +3418,7 @@ responseGetPolicyVersion =
   res
     "GetPolicyVersionResponse"
     "fixture/GetPolicyVersionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetPolicyVersion)
 
 responseListActiveViolations :: ListActiveViolationsResponse -> TestTree
@@ -3426,7 +3426,7 @@ responseListActiveViolations =
   res
     "ListActiveViolationsResponse"
     "fixture/ListActiveViolationsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListActiveViolations)
 
 responseValidateSecurityProfileBehaviors :: ValidateSecurityProfileBehaviorsResponse -> TestTree
@@ -3434,7 +3434,7 @@ responseValidateSecurityProfileBehaviors =
   res
     "ValidateSecurityProfileBehaviorsResponse"
     "fixture/ValidateSecurityProfileBehaviorsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ValidateSecurityProfileBehaviors)
 
 responseListViolationEvents :: ListViolationEventsResponse -> TestTree
@@ -3442,7 +3442,7 @@ responseListViolationEvents =
   res
     "ListViolationEventsResponse"
     "fixture/ListViolationEventsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListViolationEvents)
 
 responseDeleteCertificate :: DeleteCertificateResponse -> TestTree
@@ -3450,7 +3450,7 @@ responseDeleteCertificate =
   res
     "DeleteCertificateResponse"
     "fixture/DeleteCertificateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCertificate)
 
 responseUpdateCertificate :: UpdateCertificateResponse -> TestTree
@@ -3458,7 +3458,7 @@ responseUpdateCertificate =
   res
     "UpdateCertificateResponse"
     "fixture/UpdateCertificateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateCertificate)
 
 responseCreateDimension :: CreateDimensionResponse -> TestTree
@@ -3466,7 +3466,7 @@ responseCreateDimension =
   res
     "CreateDimensionResponse"
     "fixture/CreateDimensionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateDimension)
 
 responseUpdateIndexingConfiguration :: UpdateIndexingConfigurationResponse -> TestTree
@@ -3474,7 +3474,7 @@ responseUpdateIndexingConfiguration =
   res
     "UpdateIndexingConfigurationResponse"
     "fixture/UpdateIndexingConfigurationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateIndexingConfiguration)
 
 responseCreateProvisioningClaim :: CreateProvisioningClaimResponse -> TestTree
@@ -3482,7 +3482,7 @@ responseCreateProvisioningClaim =
   res
     "CreateProvisioningClaimResponse"
     "fixture/CreateProvisioningClaimResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateProvisioningClaim)
 
 responseTestInvokeAuthorizer :: TestInvokeAuthorizerResponse -> TestTree
@@ -3490,7 +3490,7 @@ responseTestInvokeAuthorizer =
   res
     "TestInvokeAuthorizerResponse"
     "fixture/TestInvokeAuthorizerResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy TestInvokeAuthorizer)
 
 responseCreateThingGroup :: CreateThingGroupResponse -> TestTree
@@ -3498,7 +3498,7 @@ responseCreateThingGroup =
   res
     "CreateThingGroupResponse"
     "fixture/CreateThingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateThingGroup)
 
 responseCreateTopicRuleDestination :: CreateTopicRuleDestinationResponse -> TestTree
@@ -3506,7 +3506,7 @@ responseCreateTopicRuleDestination =
   res
     "CreateTopicRuleDestinationResponse"
     "fixture/CreateTopicRuleDestinationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateTopicRuleDestination)
 
 responseDetachPolicy :: DetachPolicyResponse -> TestTree
@@ -3514,7 +3514,7 @@ responseDetachPolicy =
   res
     "DetachPolicyResponse"
     "fixture/DetachPolicyResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DetachPolicy)
 
 responseDescribeJob :: DescribeJobResponse -> TestTree
@@ -3522,7 +3522,7 @@ responseDescribeJob =
   res
     "DescribeJobResponse"
     "fixture/DescribeJobResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeJob)
 
 responseAddThingToBillingGroup :: AddThingToBillingGroupResponse -> TestTree
@@ -3530,7 +3530,7 @@ responseAddThingToBillingGroup =
   res
     "AddThingToBillingGroupResponse"
     "fixture/AddThingToBillingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy AddThingToBillingGroup)
 
 responseUpdateTopicRuleDestination :: UpdateTopicRuleDestinationResponse -> TestTree
@@ -3538,7 +3538,7 @@ responseUpdateTopicRuleDestination =
   res
     "UpdateTopicRuleDestinationResponse"
     "fixture/UpdateTopicRuleDestinationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTopicRuleDestination)
 
 responseDeleteTopicRuleDestination :: DeleteTopicRuleDestinationResponse -> TestTree
@@ -3546,7 +3546,7 @@ responseDeleteTopicRuleDestination =
   res
     "DeleteTopicRuleDestinationResponse"
     "fixture/DeleteTopicRuleDestinationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTopicRuleDestination)
 
 responseDeleteThingGroup :: DeleteThingGroupResponse -> TestTree
@@ -3554,7 +3554,7 @@ responseDeleteThingGroup =
   res
     "DeleteThingGroupResponse"
     "fixture/DeleteThingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteThingGroup)
 
 responseUpdateThingGroup :: UpdateThingGroupResponse -> TestTree
@@ -3562,7 +3562,7 @@ responseUpdateThingGroup =
   res
     "UpdateThingGroupResponse"
     "fixture/UpdateThingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateThingGroup)
 
 responseListOTAUpdates :: ListOTAUpdatesResponse -> TestTree
@@ -3570,7 +3570,7 @@ responseListOTAUpdates =
   res
     "ListOTAUpdatesResponse"
     "fixture/ListOTAUpdatesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListOTAUpdates)
 
 responseDeleteOTAUpdate :: DeleteOTAUpdateResponse -> TestTree
@@ -3578,7 +3578,7 @@ responseDeleteOTAUpdate =
   res
     "DeleteOTAUpdateResponse"
     "fixture/DeleteOTAUpdateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteOTAUpdate)
 
 responseCreateDynamicThingGroup :: CreateDynamicThingGroupResponse -> TestTree
@@ -3586,7 +3586,7 @@ responseCreateDynamicThingGroup =
   res
     "CreateDynamicThingGroupResponse"
     "fixture/CreateDynamicThingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateDynamicThingGroup)
 
 responseDetachSecurityProfile :: DetachSecurityProfileResponse -> TestTree
@@ -3594,7 +3594,7 @@ responseDetachSecurityProfile =
   res
     "DetachSecurityProfileResponse"
     "fixture/DetachSecurityProfileResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DetachSecurityProfile)
 
 responseListOutgoingCertificates :: ListOutgoingCertificatesResponse -> TestTree
@@ -3602,7 +3602,7 @@ responseListOutgoingCertificates =
   res
     "ListOutgoingCertificatesResponse"
     "fixture/ListOutgoingCertificatesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListOutgoingCertificates)
 
 responseDeleteProvisioningTemplateVersion :: DeleteProvisioningTemplateVersionResponse -> TestTree
@@ -3610,7 +3610,7 @@ responseDeleteProvisioningTemplateVersion =
   res
     "DeleteProvisioningTemplateVersionResponse"
     "fixture/DeleteProvisioningTemplateVersionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProvisioningTemplateVersion)
 
 responseDescribeCACertificate :: DescribeCACertificateResponse -> TestTree
@@ -3618,7 +3618,7 @@ responseDescribeCACertificate =
   res
     "DescribeCACertificateResponse"
     "fixture/DescribeCACertificateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCACertificate)
 
 responseListProvisioningTemplateVersions :: ListProvisioningTemplateVersionsResponse -> TestTree
@@ -3626,7 +3626,7 @@ responseListProvisioningTemplateVersions =
   res
     "ListProvisioningTemplateVersionsResponse"
     "fixture/ListProvisioningTemplateVersionsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListProvisioningTemplateVersions)
 
 responseGetRegistrationCode :: GetRegistrationCodeResponse -> TestTree
@@ -3634,7 +3634,7 @@ responseGetRegistrationCode =
   res
     "GetRegistrationCodeResponse"
     "fixture/GetRegistrationCodeResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetRegistrationCode)
 
 responseListBillingGroups :: ListBillingGroupsResponse -> TestTree
@@ -3642,7 +3642,7 @@ responseListBillingGroups =
   res
     "ListBillingGroupsResponse"
     "fixture/ListBillingGroupsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListBillingGroups)
 
 responseDeleteThingType :: DeleteThingTypeResponse -> TestTree
@@ -3650,7 +3650,7 @@ responseDeleteThingType =
   res
     "DeleteThingTypeResponse"
     "fixture/DeleteThingTypeResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteThingType)
 
 responseDeleteBillingGroup :: DeleteBillingGroupResponse -> TestTree
@@ -3658,7 +3658,7 @@ responseDeleteBillingGroup =
   res
     "DeleteBillingGroupResponse"
     "fixture/DeleteBillingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBillingGroup)
 
 responseAddThingToThingGroup :: AddThingToThingGroupResponse -> TestTree
@@ -3666,7 +3666,7 @@ responseAddThingToThingGroup =
   res
     "AddThingToThingGroupResponse"
     "fixture/AddThingToThingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy AddThingToThingGroup)
 
 responseUpdateBillingGroup :: UpdateBillingGroupResponse -> TestTree
@@ -3674,7 +3674,7 @@ responseUpdateBillingGroup =
   res
     "UpdateBillingGroupResponse"
     "fixture/UpdateBillingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateBillingGroup)
 
 responseGetTopicRuleDestination :: GetTopicRuleDestinationResponse -> TestTree
@@ -3682,7 +3682,7 @@ responseGetTopicRuleDestination =
   res
     "GetTopicRuleDestinationResponse"
     "fixture/GetTopicRuleDestinationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetTopicRuleDestination)
 
 responseListCertificatesByCA :: ListCertificatesByCAResponse -> TestTree
@@ -3690,7 +3690,7 @@ responseListCertificatesByCA =
   res
     "ListCertificatesByCAResponse"
     "fixture/ListCertificatesByCAResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListCertificatesByCA)
 
 responseUpdateAuditSuppression :: UpdateAuditSuppressionResponse -> TestTree
@@ -3698,7 +3698,7 @@ responseUpdateAuditSuppression =
   res
     "UpdateAuditSuppressionResponse"
     "fixture/UpdateAuditSuppressionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateAuditSuppression)
 
 responseAttachThingPrincipal :: AttachThingPrincipalResponse -> TestTree
@@ -3706,7 +3706,7 @@ responseAttachThingPrincipal =
   res
     "AttachThingPrincipalResponse"
     "fixture/AttachThingPrincipalResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy AttachThingPrincipal)
 
 responseListThings :: ListThingsResponse -> TestTree
@@ -3714,7 +3714,7 @@ responseListThings =
   res
     "ListThingsResponse"
     "fixture/ListThingsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListThings)
 
 responseDeleteAuditSuppression :: DeleteAuditSuppressionResponse -> TestTree
@@ -3722,7 +3722,7 @@ responseDeleteAuditSuppression =
   res
     "DeleteAuditSuppressionResponse"
     "fixture/DeleteAuditSuppressionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAuditSuppression)
 
 responseRegisterThing :: RegisterThingResponse -> TestTree
@@ -3730,7 +3730,7 @@ responseRegisterThing =
   res
     "RegisterThingResponse"
     "fixture/RegisterThingResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy RegisterThing)
 
 responseListAuditSuppressions :: ListAuditSuppressionsResponse -> TestTree
@@ -3738,7 +3738,7 @@ responseListAuditSuppressions =
   res
     "ListAuditSuppressionsResponse"
     "fixture/ListAuditSuppressionsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListAuditSuppressions)
 
 responseDescribeDomainConfiguration :: DescribeDomainConfigurationResponse -> TestTree
@@ -3746,7 +3746,7 @@ responseDescribeDomainConfiguration =
   res
     "DescribeDomainConfigurationResponse"
     "fixture/DescribeDomainConfigurationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDomainConfiguration)
 
 responseDescribeAuditTask :: DescribeAuditTaskResponse -> TestTree
@@ -3754,7 +3754,7 @@ responseDescribeAuditTask =
   res
     "DescribeAuditTaskResponse"
     "fixture/DescribeAuditTaskResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAuditTask)
 
 responseDeleteRegistrationCode :: DeleteRegistrationCodeResponse -> TestTree
@@ -3762,7 +3762,7 @@ responseDeleteRegistrationCode =
   res
     "DeleteRegistrationCodeResponse"
     "fixture/DeleteRegistrationCodeResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRegistrationCode)
 
 responseUpdateStream :: UpdateStreamResponse -> TestTree
@@ -3770,7 +3770,7 @@ responseUpdateStream =
   res
     "UpdateStreamResponse"
     "fixture/UpdateStreamResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateStream)
 
 responseDeleteStream :: DeleteStreamResponse -> TestTree
@@ -3778,7 +3778,7 @@ responseDeleteStream =
   res
     "DeleteStreamResponse"
     "fixture/DeleteStreamResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteStream)
 
 responseListStreams :: ListStreamsResponse -> TestTree
@@ -3786,7 +3786,7 @@ responseListStreams =
   res
     "ListStreamsResponse"
     "fixture/ListStreamsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListStreams)
 
 responseCreateAuthorizer :: CreateAuthorizerResponse -> TestTree
@@ -3794,7 +3794,7 @@ responseCreateAuthorizer =
   res
     "CreateAuthorizerResponse"
     "fixture/CreateAuthorizerResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateAuthorizer)
 
 responseTestAuthorization :: TestAuthorizationResponse -> TestTree
@@ -3802,7 +3802,7 @@ responseTestAuthorization =
   res
     "TestAuthorizationResponse"
     "fixture/TestAuthorizationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy TestAuthorization)
 
 responseListIndices :: ListIndicesResponse -> TestTree
@@ -3810,7 +3810,7 @@ responseListIndices =
   res
     "ListIndicesResponse"
     "fixture/ListIndicesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListIndices)
 
 responseUpdateAuthorizer :: UpdateAuthorizerResponse -> TestTree
@@ -3818,7 +3818,7 @@ responseUpdateAuthorizer =
   res
     "UpdateAuthorizerResponse"
     "fixture/UpdateAuthorizerResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateAuthorizer)
 
 responseDeleteAuthorizer :: DeleteAuthorizerResponse -> TestTree
@@ -3826,7 +3826,7 @@ responseDeleteAuthorizer =
   res
     "DeleteAuthorizerResponse"
     "fixture/DeleteAuthorizerResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAuthorizer)
 
 responseCreateThing :: CreateThingResponse -> TestTree
@@ -3834,7 +3834,7 @@ responseCreateThing =
   res
     "CreateThingResponse"
     "fixture/CreateThingResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateThing)
 
 responseCreateStream :: CreateStreamResponse -> TestTree
@@ -3842,7 +3842,7 @@ responseCreateStream =
   res
     "CreateStreamResponse"
     "fixture/CreateStreamResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateStream)
 
 responseCancelAuditMitigationActionsTask :: CancelAuditMitigationActionsTaskResponse -> TestTree
@@ -3850,7 +3850,7 @@ responseCancelAuditMitigationActionsTask =
   res
     "CancelAuditMitigationActionsTaskResponse"
     "fixture/CancelAuditMitigationActionsTaskResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CancelAuditMitigationActionsTask)
 
 responseCreateAuditSuppression :: CreateAuditSuppressionResponse -> TestTree
@@ -3858,7 +3858,7 @@ responseCreateAuditSuppression =
   res
     "CreateAuditSuppressionResponse"
     "fixture/CreateAuditSuppressionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateAuditSuppression)
 
 responseCreateBillingGroup :: CreateBillingGroupResponse -> TestTree
@@ -3866,7 +3866,7 @@ responseCreateBillingGroup =
   res
     "CreateBillingGroupResponse"
     "fixture/CreateBillingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateBillingGroup)
 
 responseListProvisioningTemplates :: ListProvisioningTemplatesResponse -> TestTree
@@ -3874,7 +3874,7 @@ responseListProvisioningTemplates =
   res
     "ListProvisioningTemplatesResponse"
     "fixture/ListProvisioningTemplatesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListProvisioningTemplates)
 
 responseListV2LoggingLevels :: ListV2LoggingLevelsResponse -> TestTree
@@ -3882,7 +3882,7 @@ responseListV2LoggingLevels =
   res
     "ListV2LoggingLevelsResponse"
     "fixture/ListV2LoggingLevelsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListV2LoggingLevels)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -3890,7 +3890,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseStopThingRegistrationTask :: StopThingRegistrationTaskResponse -> TestTree
@@ -3898,7 +3898,7 @@ responseStopThingRegistrationTask =
   res
     "StopThingRegistrationTaskResponse"
     "fixture/StopThingRegistrationTaskResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy StopThingRegistrationTask)
 
 responseDescribeCertificate :: DescribeCertificateResponse -> TestTree
@@ -3906,7 +3906,7 @@ responseDescribeCertificate =
   res
     "DescribeCertificateResponse"
     "fixture/DescribeCertificateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCertificate)
 
 responseListTargetsForPolicy :: ListTargetsForPolicyResponse -> TestTree
@@ -3914,7 +3914,7 @@ responseListTargetsForPolicy =
   res
     "ListTargetsForPolicyResponse"
     "fixture/ListTargetsForPolicyResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListTargetsForPolicy)
 
 responseClearDefaultAuthorizer :: ClearDefaultAuthorizerResponse -> TestTree
@@ -3922,7 +3922,7 @@ responseClearDefaultAuthorizer =
   res
     "ClearDefaultAuthorizerResponse"
     "fixture/ClearDefaultAuthorizerResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ClearDefaultAuthorizer)
 
 responseReplaceTopicRule :: ReplaceTopicRuleResponse -> TestTree
@@ -3930,7 +3930,7 @@ responseReplaceTopicRule =
   res
     "ReplaceTopicRuleResponse"
     "fixture/ReplaceTopicRuleResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ReplaceTopicRule)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -3938,7 +3938,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseSetDefaultPolicyVersion :: SetDefaultPolicyVersionResponse -> TestTree
@@ -3946,7 +3946,7 @@ responseSetDefaultPolicyVersion =
   res
     "SetDefaultPolicyVersionResponse"
     "fixture/SetDefaultPolicyVersionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy SetDefaultPolicyVersion)
 
 responseCancelJobExecution :: CancelJobExecutionResponse -> TestTree
@@ -3954,7 +3954,7 @@ responseCancelJobExecution =
   res
     "CancelJobExecutionResponse"
     "fixture/CancelJobExecutionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CancelJobExecution)
 
 responseListPolicyVersions :: ListPolicyVersionsResponse -> TestTree
@@ -3962,7 +3962,7 @@ responseListPolicyVersions =
   res
     "ListPolicyVersionsResponse"
     "fixture/ListPolicyVersionsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListPolicyVersions)
 
 responseSetV2LoggingLevel :: SetV2LoggingLevelResponse -> TestTree
@@ -3970,7 +3970,7 @@ responseSetV2LoggingLevel =
   res
     "SetV2LoggingLevelResponse"
     "fixture/SetV2LoggingLevelResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy SetV2LoggingLevel)
 
 responseListJobExecutionsForThing :: ListJobExecutionsForThingResponse -> TestTree
@@ -3978,7 +3978,7 @@ responseListJobExecutionsForThing =
   res
     "ListJobExecutionsForThingResponse"
     "fixture/ListJobExecutionsForThingResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListJobExecutionsForThing)
 
 responseAttachPolicy :: AttachPolicyResponse -> TestTree
@@ -3986,7 +3986,7 @@ responseAttachPolicy =
   res
     "AttachPolicyResponse"
     "fixture/AttachPolicyResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy AttachPolicy)
 
 responseCreateKeysAndCertificate :: CreateKeysAndCertificateResponse -> TestTree
@@ -3994,7 +3994,7 @@ responseCreateKeysAndCertificate =
   res
     "CreateKeysAndCertificateResponse"
     "fixture/CreateKeysAndCertificateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateKeysAndCertificate)
 
 responseListThingsInBillingGroup :: ListThingsInBillingGroupResponse -> TestTree
@@ -4002,7 +4002,7 @@ responseListThingsInBillingGroup =
   res
     "ListThingsInBillingGroupResponse"
     "fixture/ListThingsInBillingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListThingsInBillingGroup)
 
 responseUpdateThingGroupsForThing :: UpdateThingGroupsForThingResponse -> TestTree
@@ -4010,7 +4010,7 @@ responseUpdateThingGroupsForThing =
   res
     "UpdateThingGroupsForThingResponse"
     "fixture/UpdateThingGroupsForThingResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateThingGroupsForThing)
 
 responseEnableTopicRule :: EnableTopicRuleResponse -> TestTree
@@ -4018,7 +4018,7 @@ responseEnableTopicRule =
   res
     "EnableTopicRuleResponse"
     "fixture/EnableTopicRuleResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy EnableTopicRule)
 
 responseAcceptCertificateTransfer :: AcceptCertificateTransferResponse -> TestTree
@@ -4026,7 +4026,7 @@ responseAcceptCertificateTransfer =
   res
     "AcceptCertificateTransferResponse"
     "fixture/AcceptCertificateTransferResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy AcceptCertificateTransfer)
 
 responseGetPercentiles :: GetPercentilesResponse -> TestTree
@@ -4034,7 +4034,7 @@ responseGetPercentiles =
   res
     "GetPercentilesResponse"
     "fixture/GetPercentilesResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetPercentiles)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
@@ -4042,7 +4042,7 @@ responseGetPolicy =
   res
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetPolicy)
 
 responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
@@ -4050,7 +4050,7 @@ responseDescribeEndpoint =
   res
     "DescribeEndpointResponse"
     "fixture/DescribeEndpointResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEndpoint)
 
 responseListSecurityProfilesForTarget :: ListSecurityProfilesForTargetResponse -> TestTree
@@ -4058,7 +4058,7 @@ responseListSecurityProfilesForTarget =
   res
     "ListSecurityProfilesForTargetResponse"
     "fixture/ListSecurityProfilesForTargetResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListSecurityProfilesForTarget)
 
 responseUpdateEventConfigurations :: UpdateEventConfigurationsResponse -> TestTree
@@ -4066,7 +4066,7 @@ responseUpdateEventConfigurations =
   res
     "UpdateEventConfigurationsResponse"
     "fixture/UpdateEventConfigurationsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateEventConfigurations)
 
 responseRegisterCACertificate :: RegisterCACertificateResponse -> TestTree
@@ -4074,7 +4074,7 @@ responseRegisterCACertificate =
   res
     "RegisterCACertificateResponse"
     "fixture/RegisterCACertificateResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy RegisterCACertificate)
 
 responseDeleteDomainConfiguration :: DeleteDomainConfigurationResponse -> TestTree
@@ -4082,7 +4082,7 @@ responseDeleteDomainConfiguration =
   res
     "DeleteDomainConfigurationResponse"
     "fixture/DeleteDomainConfigurationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDomainConfiguration)
 
 responseUpdateDomainConfiguration :: UpdateDomainConfigurationResponse -> TestTree
@@ -4090,7 +4090,7 @@ responseUpdateDomainConfiguration =
   res
     "UpdateDomainConfigurationResponse"
     "fixture/UpdateDomainConfigurationResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDomainConfiguration)
 
 responseSetLoggingOptions :: SetLoggingOptionsResponse -> TestTree
@@ -4098,7 +4098,7 @@ responseSetLoggingOptions =
   res
     "SetLoggingOptionsResponse"
     "fixture/SetLoggingOptionsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy SetLoggingOptions)
 
 responseDescribeThingType :: DescribeThingTypeResponse -> TestTree
@@ -4106,7 +4106,7 @@ responseDescribeThingType =
   res
     "DescribeThingTypeResponse"
     "fixture/DescribeThingTypeResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeThingType)
 
 responseListDimensions :: ListDimensionsResponse -> TestTree
@@ -4114,7 +4114,7 @@ responseListDimensions =
   res
     "ListDimensionsResponse"
     "fixture/ListDimensionsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListDimensions)
 
 responseGetV2LoggingOptions :: GetV2LoggingOptionsResponse -> TestTree
@@ -4122,7 +4122,7 @@ responseGetV2LoggingOptions =
   res
     "GetV2LoggingOptionsResponse"
     "fixture/GetV2LoggingOptionsResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy GetV2LoggingOptions)
 
 responseListThingRegistrationTasks :: ListThingRegistrationTasksResponse -> TestTree
@@ -4130,7 +4130,7 @@ responseListThingRegistrationTasks =
   res
     "ListThingRegistrationTasksResponse"
     "fixture/ListThingRegistrationTasksResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy ListThingRegistrationTasks)
 
 responseRejectCertificateTransfer :: RejectCertificateTransferResponse -> TestTree
@@ -4138,7 +4138,7 @@ responseRejectCertificateTransfer =
   res
     "RejectCertificateTransferResponse"
     "fixture/RejectCertificateTransferResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy RejectCertificateTransfer)
 
 responseDescribeAuditSuppression :: DescribeAuditSuppressionResponse -> TestTree
@@ -4146,7 +4146,7 @@ responseDescribeAuditSuppression =
   res
     "DescribeAuditSuppressionResponse"
     "fixture/DescribeAuditSuppressionResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAuditSuppression)
 
 responseDescribeStream :: DescribeStreamResponse -> TestTree
@@ -4154,7 +4154,7 @@ responseDescribeStream =
   res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStream)
 
 responseCreateSecurityProfile :: CreateSecurityProfileResponse -> TestTree
@@ -4162,7 +4162,7 @@ responseCreateSecurityProfile =
   res
     "CreateSecurityProfileResponse"
     "fixture/CreateSecurityProfileResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CreateSecurityProfile)
 
 responseDescribeBillingGroup :: DescribeBillingGroupResponse -> TestTree
@@ -4170,7 +4170,7 @@ responseDescribeBillingGroup =
   res
     "DescribeBillingGroupResponse"
     "fixture/DescribeBillingGroupResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBillingGroup)
 
 responseDetachThingPrincipal :: DetachThingPrincipalResponse -> TestTree
@@ -4178,7 +4178,7 @@ responseDetachThingPrincipal =
   res
     "DetachThingPrincipalResponse"
     "fixture/DetachThingPrincipalResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DetachThingPrincipal)
 
 responseCancelJob :: CancelJobResponse -> TestTree
@@ -4186,7 +4186,7 @@ responseCancelJob =
   res
     "CancelJobResponse"
     "fixture/CancelJobResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy CancelJob)
 
 responseDeprecateThingType :: DeprecateThingTypeResponse -> TestTree
@@ -4194,5 +4194,5 @@ responseDeprecateThingType =
   res
     "DeprecateThingTypeResponse"
     "fixture/DeprecateThingTypeResponse.proto"
-    ioTService
+    mkServiceConfig
     (Proxy :: Proxy DeprecateThingType)

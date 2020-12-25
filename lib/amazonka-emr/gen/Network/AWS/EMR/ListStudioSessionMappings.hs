@@ -22,171 +22,159 @@ module Network.AWS.EMR.ListStudioSessionMappings
     mkListStudioSessionMappings,
 
     -- ** Request lenses
-    lssmStudioId,
     lssmIdentityType,
     lssmMarker,
+    lssmStudioId,
 
     -- * Destructuring the response
     ListStudioSessionMappingsResponse (..),
     mkListStudioSessionMappingsResponse,
 
     -- ** Response lenses
-    lssmrsSessionMappings,
-    lssmrsMarker,
-    lssmrsResponseStatus,
+    lssmrrsMarker,
+    lssmrrsSessionMappings,
+    lssmrrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListStudioSessionMappings' smart constructor.
 data ListStudioSessionMappings = ListStudioSessionMappings'
-  { -- | The ID of the Amazon EMR Studio.
-    studioId :: Lude.Maybe Lude.Text,
-    -- | Specifies whether to return session mappings for users or groups. If not specified, the results include session mapping details for both users and groups.
-    identityType :: Lude.Maybe IdentityType,
+  { -- | Specifies whether to return session mappings for users or groups. If not specified, the results include session mapping details for both users and groups.
+    identityType :: Core.Maybe Types.IdentityType,
     -- | The pagination token that indicates the set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text
+    marker :: Core.Maybe Types.Marker,
+    -- | The ID of the Amazon EMR Studio.
+    studioId :: Core.Maybe Types.XmlStringMaxLen256
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListStudioSessionMappings' with the minimum fields required to make a request.
---
--- * 'studioId' - The ID of the Amazon EMR Studio.
--- * 'identityType' - Specifies whether to return session mappings for users or groups. If not specified, the results include session mapping details for both users and groups.
--- * 'marker' - The pagination token that indicates the set of results to retrieve.
+-- | Creates a 'ListStudioSessionMappings' value with any optional fields omitted.
 mkListStudioSessionMappings ::
   ListStudioSessionMappings
 mkListStudioSessionMappings =
   ListStudioSessionMappings'
-    { studioId = Lude.Nothing,
-      identityType = Lude.Nothing,
-      marker = Lude.Nothing
+    { identityType = Core.Nothing,
+      marker = Core.Nothing,
+      studioId = Core.Nothing
     }
-
--- | The ID of the Amazon EMR Studio.
---
--- /Note:/ Consider using 'studioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssmStudioId :: Lens.Lens' ListStudioSessionMappings (Lude.Maybe Lude.Text)
-lssmStudioId = Lens.lens (studioId :: ListStudioSessionMappings -> Lude.Maybe Lude.Text) (\s a -> s {studioId = a} :: ListStudioSessionMappings)
-{-# DEPRECATED lssmStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
 
 -- | Specifies whether to return session mappings for users or groups. If not specified, the results include session mapping details for both users and groups.
 --
 -- /Note:/ Consider using 'identityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssmIdentityType :: Lens.Lens' ListStudioSessionMappings (Lude.Maybe IdentityType)
-lssmIdentityType = Lens.lens (identityType :: ListStudioSessionMappings -> Lude.Maybe IdentityType) (\s a -> s {identityType = a} :: ListStudioSessionMappings)
+lssmIdentityType :: Lens.Lens' ListStudioSessionMappings (Core.Maybe Types.IdentityType)
+lssmIdentityType = Lens.field @"identityType"
 {-# DEPRECATED lssmIdentityType "Use generic-lens or generic-optics with 'identityType' instead." #-}
 
 -- | The pagination token that indicates the set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssmMarker :: Lens.Lens' ListStudioSessionMappings (Lude.Maybe Lude.Text)
-lssmMarker = Lens.lens (marker :: ListStudioSessionMappings -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListStudioSessionMappings)
+lssmMarker :: Lens.Lens' ListStudioSessionMappings (Core.Maybe Types.Marker)
+lssmMarker = Lens.field @"marker"
 {-# DEPRECATED lssmMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Page.AWSPager ListStudioSessionMappings where
-  page rq rs
-    | Page.stop (rs Lens.^. lssmrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lssmrsSessionMappings) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lssmMarker Lens..~ rs Lens.^. lssmrsMarker
+-- | The ID of the Amazon EMR Studio.
+--
+-- /Note:/ Consider using 'studioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lssmStudioId :: Lens.Lens' ListStudioSessionMappings (Core.Maybe Types.XmlStringMaxLen256)
+lssmStudioId = Lens.field @"studioId"
+{-# DEPRECATED lssmStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
 
-instance Lude.AWSRequest ListStudioSessionMappings where
+instance Core.FromJSON ListStudioSessionMappings where
+  toJSON ListStudioSessionMappings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("IdentityType" Core..=) Core.<$> identityType,
+            ("Marker" Core..=) Core.<$> marker,
+            ("StudioId" Core..=) Core.<$> studioId
+          ]
+      )
+
+instance Core.AWSRequest ListStudioSessionMappings where
   type
     Rs ListStudioSessionMappings =
       ListStudioSessionMappingsResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ElasticMapReduce.ListStudioSessionMappings")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListStudioSessionMappingsResponse'
-            Lude.<$> (x Lude..?> "SessionMappings" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "SessionMappings")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListStudioSessionMappings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.ListStudioSessionMappings" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListStudioSessionMappings where
-  toJSON ListStudioSessionMappings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StudioId" Lude..=) Lude.<$> studioId,
-            ("IdentityType" Lude..=) Lude.<$> identityType,
-            ("Marker" Lude..=) Lude.<$> marker
-          ]
-      )
-
-instance Lude.ToPath ListStudioSessionMappings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListStudioSessionMappings where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListStudioSessionMappings where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"sessionMappings" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkListStudioSessionMappingsResponse' smart constructor.
 data ListStudioSessionMappingsResponse = ListStudioSessionMappingsResponse'
-  { -- | A list of session mapping summary objects. Each object includes session mapping details such as creation time, identity type (user or group), and Studio ID.
-    sessionMappings :: Lude.Maybe [SessionMappingSummary],
-    -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Core.Maybe Types.Marker,
+    -- | A list of session mapping summary objects. Each object includes session mapping details such as creation time, identity type (user or group), and Studio ID.
+    sessionMappings :: Core.Maybe [Types.SessionMappingSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListStudioSessionMappingsResponse' with the minimum fields required to make a request.
---
--- * 'sessionMappings' - A list of session mapping summary objects. Each object includes session mapping details such as creation time, identity type (user or group), and Studio ID.
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListStudioSessionMappingsResponse' value with any optional fields omitted.
 mkListStudioSessionMappingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListStudioSessionMappingsResponse
-mkListStudioSessionMappingsResponse pResponseStatus_ =
+mkListStudioSessionMappingsResponse responseStatus =
   ListStudioSessionMappingsResponse'
-    { sessionMappings =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      sessionMappings = Core.Nothing,
+      responseStatus
     }
-
--- | A list of session mapping summary objects. Each object includes session mapping details such as creation time, identity type (user or group), and Studio ID.
---
--- /Note:/ Consider using 'sessionMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssmrsSessionMappings :: Lens.Lens' ListStudioSessionMappingsResponse (Lude.Maybe [SessionMappingSummary])
-lssmrsSessionMappings = Lens.lens (sessionMappings :: ListStudioSessionMappingsResponse -> Lude.Maybe [SessionMappingSummary]) (\s a -> s {sessionMappings = a} :: ListStudioSessionMappingsResponse)
-{-# DEPRECATED lssmrsSessionMappings "Use generic-lens or generic-optics with 'sessionMappings' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssmrsMarker :: Lens.Lens' ListStudioSessionMappingsResponse (Lude.Maybe Lude.Text)
-lssmrsMarker = Lens.lens (marker :: ListStudioSessionMappingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListStudioSessionMappingsResponse)
-{-# DEPRECATED lssmrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lssmrrsMarker :: Lens.Lens' ListStudioSessionMappingsResponse (Core.Maybe Types.Marker)
+lssmrrsMarker = Lens.field @"marker"
+{-# DEPRECATED lssmrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | A list of session mapping summary objects. Each object includes session mapping details such as creation time, identity type (user or group), and Studio ID.
+--
+-- /Note:/ Consider using 'sessionMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lssmrrsSessionMappings :: Lens.Lens' ListStudioSessionMappingsResponse (Core.Maybe [Types.SessionMappingSummary])
+lssmrrsSessionMappings = Lens.field @"sessionMappings"
+{-# DEPRECATED lssmrrsSessionMappings "Use generic-lens or generic-optics with 'sessionMappings' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lssmrsResponseStatus :: Lens.Lens' ListStudioSessionMappingsResponse Lude.Int
-lssmrsResponseStatus = Lens.lens (responseStatus :: ListStudioSessionMappingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStudioSessionMappingsResponse)
-{-# DEPRECATED lssmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lssmrrsResponseStatus :: Lens.Lens' ListStudioSessionMappingsResponse Core.Int
+lssmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lssmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

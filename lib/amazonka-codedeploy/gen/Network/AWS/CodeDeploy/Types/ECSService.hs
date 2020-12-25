@@ -17,66 +17,63 @@ module Network.AWS.CodeDeploy.Types.ECSService
     mkECSService,
 
     -- * Lenses
-    ecssServiceName,
     ecssClusterName,
+    ecssServiceName,
   )
 where
 
+import qualified Network.AWS.CodeDeploy.Types.ECSClusterName as Types
+import qualified Network.AWS.CodeDeploy.Types.ECSServiceName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the service and cluster names used to identify an Amazon ECS deployment's target.
 --
 -- /See:/ 'mkECSService' smart constructor.
 data ECSService = ECSService'
-  { -- | The name of the target Amazon ECS service.
-    serviceName :: Lude.Maybe Lude.Text,
-    -- | The name of the cluster that the Amazon ECS service is associated with.
-    clusterName :: Lude.Maybe Lude.Text
+  { -- | The name of the cluster that the Amazon ECS service is associated with.
+    clusterName :: Core.Maybe Types.ECSClusterName,
+    -- | The name of the target Amazon ECS service.
+    serviceName :: Core.Maybe Types.ECSServiceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ECSService' with the minimum fields required to make a request.
---
--- * 'serviceName' - The name of the target Amazon ECS service.
--- * 'clusterName' - The name of the cluster that the Amazon ECS service is associated with.
+-- | Creates a 'ECSService' value with any optional fields omitted.
 mkECSService ::
   ECSService
 mkECSService =
   ECSService'
-    { serviceName = Lude.Nothing,
-      clusterName = Lude.Nothing
+    { clusterName = Core.Nothing,
+      serviceName = Core.Nothing
     }
-
--- | The name of the target Amazon ECS service.
---
--- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecssServiceName :: Lens.Lens' ECSService (Lude.Maybe Lude.Text)
-ecssServiceName = Lens.lens (serviceName :: ECSService -> Lude.Maybe Lude.Text) (\s a -> s {serviceName = a} :: ECSService)
-{-# DEPRECATED ecssServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The name of the cluster that the Amazon ECS service is associated with.
 --
 -- /Note:/ Consider using 'clusterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecssClusterName :: Lens.Lens' ECSService (Lude.Maybe Lude.Text)
-ecssClusterName = Lens.lens (clusterName :: ECSService -> Lude.Maybe Lude.Text) (\s a -> s {clusterName = a} :: ECSService)
+ecssClusterName :: Lens.Lens' ECSService (Core.Maybe Types.ECSClusterName)
+ecssClusterName = Lens.field @"clusterName"
 {-# DEPRECATED ecssClusterName "Use generic-lens or generic-optics with 'clusterName' instead." #-}
 
-instance Lude.FromJSON ECSService where
-  parseJSON =
-    Lude.withObject
-      "ECSService"
-      ( \x ->
-          ECSService'
-            Lude.<$> (x Lude..:? "serviceName") Lude.<*> (x Lude..:? "clusterName")
-      )
+-- | The name of the target Amazon ECS service.
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecssServiceName :: Lens.Lens' ECSService (Core.Maybe Types.ECSServiceName)
+ecssServiceName = Lens.field @"serviceName"
+{-# DEPRECATED ecssServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
-instance Lude.ToJSON ECSService where
-  toJSON ECSService' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("serviceName" Lude..=) Lude.<$> serviceName,
-            ("clusterName" Lude..=) Lude.<$> clusterName
+instance Core.FromJSON ECSService where
+  toJSON ECSService {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("clusterName" Core..=) Core.<$> clusterName,
+            ("serviceName" Core..=) Core.<$> serviceName
           ]
       )
+
+instance Core.FromJSON ECSService where
+  parseJSON =
+    Core.withObject "ECSService" Core.$
+      \x ->
+        ECSService'
+          Core.<$> (x Core..:? "clusterName") Core.<*> (x Core..:? "serviceName")

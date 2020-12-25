@@ -29,124 +29,119 @@ module Network.AWS.Lightsail.GetInstanceSnapshots
     mkGetInstanceSnapshotsResponse,
 
     -- ** Response lenses
-    gissrsNextPageToken,
-    gissrsInstanceSnapshots,
-    gissrsResponseStatus,
+    gisrrsInstanceSnapshots,
+    gisrrsNextPageToken,
+    gisrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetInstanceSnapshots' smart constructor.
 newtype GetInstanceSnapshots = GetInstanceSnapshots'
   { -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetInstanceSnapshots@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-    pageToken :: Lude.Maybe Lude.Text
+    pageToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInstanceSnapshots' with the minimum fields required to make a request.
---
--- * 'pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetInstanceSnapshots@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+-- | Creates a 'GetInstanceSnapshots' value with any optional fields omitted.
 mkGetInstanceSnapshots ::
   GetInstanceSnapshots
 mkGetInstanceSnapshots =
-  GetInstanceSnapshots' {pageToken = Lude.Nothing}
+  GetInstanceSnapshots' {pageToken = Core.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetInstanceSnapshots@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisPageToken :: Lens.Lens' GetInstanceSnapshots (Lude.Maybe Lude.Text)
-gisPageToken = Lens.lens (pageToken :: GetInstanceSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetInstanceSnapshots)
+gisPageToken :: Lens.Lens' GetInstanceSnapshots (Core.Maybe Types.String)
+gisPageToken = Lens.field @"pageToken"
 {-# DEPRECATED gisPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Page.AWSPager GetInstanceSnapshots where
-  page rq rs
-    | Page.stop (rs Lens.^. gissrsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gissrsInstanceSnapshots) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gisPageToken Lens..~ rs Lens.^. gissrsNextPageToken
+instance Core.FromJSON GetInstanceSnapshots where
+  toJSON GetInstanceSnapshots {..} =
+    Core.object
+      (Core.catMaybes [("pageToken" Core..=) Core.<$> pageToken])
 
-instance Lude.AWSRequest GetInstanceSnapshots where
+instance Core.AWSRequest GetInstanceSnapshots where
   type Rs GetInstanceSnapshots = GetInstanceSnapshotsResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.GetInstanceSnapshots")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetInstanceSnapshotsResponse'
-            Lude.<$> (x Lude..?> "nextPageToken")
-            Lude.<*> (x Lude..?> "instanceSnapshots" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "instanceSnapshots")
+            Core.<*> (x Core..:? "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetInstanceSnapshots where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetInstanceSnapshots" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetInstanceSnapshots where
-  toJSON GetInstanceSnapshots' {..} =
-    Lude.object
-      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
-
-instance Lude.ToPath GetInstanceSnapshots where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetInstanceSnapshots where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetInstanceSnapshots where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"instanceSnapshots" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkGetInstanceSnapshotsResponse' smart constructor.
 data GetInstanceSnapshotsResponse = GetInstanceSnapshotsResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | An array of key-value pairs containing information about the results of your get instance snapshots request.
+    instanceSnapshots :: Core.Maybe [Types.InstanceSnapshot],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to display.
     -- To get the next page of results, perform another @GetInstanceSnapshots@ request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | An array of key-value pairs containing information about the results of your get instance snapshots request.
-    instanceSnapshots :: Lude.Maybe [InstanceSnapshot],
+    nextPageToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetInstanceSnapshotsResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The token to advance to the next page of results from your request.
---
--- A next page token is not returned if there are no more results to display.
--- To get the next page of results, perform another @GetInstanceSnapshots@ request and specify the next page token using the @pageToken@ parameter.
--- * 'instanceSnapshots' - An array of key-value pairs containing information about the results of your get instance snapshots request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInstanceSnapshotsResponse' value with any optional fields omitted.
 mkGetInstanceSnapshotsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInstanceSnapshotsResponse
-mkGetInstanceSnapshotsResponse pResponseStatus_ =
+mkGetInstanceSnapshotsResponse responseStatus =
   GetInstanceSnapshotsResponse'
-    { nextPageToken = Lude.Nothing,
-      instanceSnapshots = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceSnapshots = Core.Nothing,
+      nextPageToken = Core.Nothing,
+      responseStatus
     }
+
+-- | An array of key-value pairs containing information about the results of your get instance snapshots request.
+--
+-- /Note:/ Consider using 'instanceSnapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gisrrsInstanceSnapshots :: Lens.Lens' GetInstanceSnapshotsResponse (Core.Maybe [Types.InstanceSnapshot])
+gisrrsInstanceSnapshots = Lens.field @"instanceSnapshots"
+{-# DEPRECATED gisrrsInstanceSnapshots "Use generic-lens or generic-optics with 'instanceSnapshots' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -154,20 +149,13 @@ mkGetInstanceSnapshotsResponse pResponseStatus_ =
 -- To get the next page of results, perform another @GetInstanceSnapshots@ request and specify the next page token using the @pageToken@ parameter.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gissrsNextPageToken :: Lens.Lens' GetInstanceSnapshotsResponse (Lude.Maybe Lude.Text)
-gissrsNextPageToken = Lens.lens (nextPageToken :: GetInstanceSnapshotsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetInstanceSnapshotsResponse)
-{-# DEPRECATED gissrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
-
--- | An array of key-value pairs containing information about the results of your get instance snapshots request.
---
--- /Note:/ Consider using 'instanceSnapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gissrsInstanceSnapshots :: Lens.Lens' GetInstanceSnapshotsResponse (Lude.Maybe [InstanceSnapshot])
-gissrsInstanceSnapshots = Lens.lens (instanceSnapshots :: GetInstanceSnapshotsResponse -> Lude.Maybe [InstanceSnapshot]) (\s a -> s {instanceSnapshots = a} :: GetInstanceSnapshotsResponse)
-{-# DEPRECATED gissrsInstanceSnapshots "Use generic-lens or generic-optics with 'instanceSnapshots' instead." #-}
+gisrrsNextPageToken :: Lens.Lens' GetInstanceSnapshotsResponse (Core.Maybe Types.String)
+gisrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED gisrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gissrsResponseStatus :: Lens.Lens' GetInstanceSnapshotsResponse Lude.Int
-gissrsResponseStatus = Lens.lens (responseStatus :: GetInstanceSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceSnapshotsResponse)
-{-# DEPRECATED gissrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gisrrsResponseStatus :: Lens.Lens' GetInstanceSnapshotsResponse Core.Int
+gisrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gisrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

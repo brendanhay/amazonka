@@ -17,68 +17,65 @@ module Network.AWS.EC2.Types.InstanceStateChange
     mkInstanceStateChange,
 
     -- * Lenses
-    iscInstanceId,
     iscCurrentState,
+    iscInstanceId,
     iscPreviousState,
   )
 where
 
-import Network.AWS.EC2.Types.InstanceState
+import qualified Network.AWS.EC2.Types.InstanceState as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an instance state change.
 --
 -- /See:/ 'mkInstanceStateChange' smart constructor.
 data InstanceStateChange = InstanceStateChange'
-  { -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The current state of the instance.
-    currentState :: Lude.Maybe InstanceState,
+  { -- | The current state of the instance.
+    currentState :: Core.Maybe Types.InstanceState,
+    -- | The ID of the instance.
+    instanceId :: Core.Maybe Types.String,
     -- | The previous state of the instance.
-    previousState :: Lude.Maybe InstanceState
+    previousState :: Core.Maybe Types.InstanceState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceStateChange' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'currentState' - The current state of the instance.
--- * 'previousState' - The previous state of the instance.
+-- | Creates a 'InstanceStateChange' value with any optional fields omitted.
 mkInstanceStateChange ::
   InstanceStateChange
 mkInstanceStateChange =
   InstanceStateChange'
-    { instanceId = Lude.Nothing,
-      currentState = Lude.Nothing,
-      previousState = Lude.Nothing
+    { currentState = Core.Nothing,
+      instanceId = Core.Nothing,
+      previousState = Core.Nothing
     }
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscInstanceId :: Lens.Lens' InstanceStateChange (Lude.Maybe Lude.Text)
-iscInstanceId = Lens.lens (instanceId :: InstanceStateChange -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: InstanceStateChange)
-{-# DEPRECATED iscInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The current state of the instance.
 --
 -- /Note:/ Consider using 'currentState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscCurrentState :: Lens.Lens' InstanceStateChange (Lude.Maybe InstanceState)
-iscCurrentState = Lens.lens (currentState :: InstanceStateChange -> Lude.Maybe InstanceState) (\s a -> s {currentState = a} :: InstanceStateChange)
+iscCurrentState :: Lens.Lens' InstanceStateChange (Core.Maybe Types.InstanceState)
+iscCurrentState = Lens.field @"currentState"
 {-# DEPRECATED iscCurrentState "Use generic-lens or generic-optics with 'currentState' instead." #-}
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iscInstanceId :: Lens.Lens' InstanceStateChange (Core.Maybe Types.String)
+iscInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED iscInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The previous state of the instance.
 --
 -- /Note:/ Consider using 'previousState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscPreviousState :: Lens.Lens' InstanceStateChange (Lude.Maybe InstanceState)
-iscPreviousState = Lens.lens (previousState :: InstanceStateChange -> Lude.Maybe InstanceState) (\s a -> s {previousState = a} :: InstanceStateChange)
+iscPreviousState :: Lens.Lens' InstanceStateChange (Core.Maybe Types.InstanceState)
+iscPreviousState = Lens.field @"previousState"
 {-# DEPRECATED iscPreviousState "Use generic-lens or generic-optics with 'previousState' instead." #-}
 
-instance Lude.FromXML InstanceStateChange where
+instance Core.FromXML InstanceStateChange where
   parseXML x =
     InstanceStateChange'
-      Lude.<$> (x Lude..@? "instanceId")
-      Lude.<*> (x Lude..@? "currentState")
-      Lude.<*> (x Lude..@? "previousState")
+      Core.<$> (x Core..@? "currentState")
+      Core.<*> (x Core..@? "instanceId")
+      Core.<*> (x Core..@? "previousState")

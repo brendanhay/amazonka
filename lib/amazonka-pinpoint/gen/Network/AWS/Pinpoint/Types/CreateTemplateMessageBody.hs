@@ -17,71 +17,65 @@ module Network.AWS.Pinpoint.Types.CreateTemplateMessageBody
     mkCreateTemplateMessageBody,
 
     -- * Lenses
-    ctmbRequestId,
-    ctmbARN,
+    ctmbArn,
     ctmbMessage,
+    ctmbRequestID,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about a request to create a message template.
 --
 -- /See:/ 'mkCreateTemplateMessageBody' smart constructor.
 data CreateTemplateMessageBody = CreateTemplateMessageBody'
-  { -- | The unique identifier for the request to create the message template.
-    requestId :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the message template that was created.
-    arn :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the message template that was created.
+    arn :: Core.Maybe Core.Text,
     -- | The message that's returned from the API for the request to create the message template.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Core.Text,
+    -- | The unique identifier for the request to create the message template.
+    requestID :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTemplateMessageBody' with the minimum fields required to make a request.
---
--- * 'requestId' - The unique identifier for the request to create the message template.
--- * 'arn' - The Amazon Resource Name (ARN) of the message template that was created.
--- * 'message' - The message that's returned from the API for the request to create the message template.
+-- | Creates a 'CreateTemplateMessageBody' value with any optional fields omitted.
 mkCreateTemplateMessageBody ::
   CreateTemplateMessageBody
 mkCreateTemplateMessageBody =
   CreateTemplateMessageBody'
-    { requestId = Lude.Nothing,
-      arn = Lude.Nothing,
-      message = Lude.Nothing
+    { arn = Core.Nothing,
+      message = Core.Nothing,
+      requestID = Core.Nothing
     }
-
--- | The unique identifier for the request to create the message template.
---
--- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmbRequestId :: Lens.Lens' CreateTemplateMessageBody (Lude.Maybe Lude.Text)
-ctmbRequestId = Lens.lens (requestId :: CreateTemplateMessageBody -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: CreateTemplateMessageBody)
-{-# DEPRECATED ctmbRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the message template that was created.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmbARN :: Lens.Lens' CreateTemplateMessageBody (Lude.Maybe Lude.Text)
-ctmbARN = Lens.lens (arn :: CreateTemplateMessageBody -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateTemplateMessageBody)
-{-# DEPRECATED ctmbARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+ctmbArn :: Lens.Lens' CreateTemplateMessageBody (Core.Maybe Core.Text)
+ctmbArn = Lens.field @"arn"
+{-# DEPRECATED ctmbArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The message that's returned from the API for the request to create the message template.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmbMessage :: Lens.Lens' CreateTemplateMessageBody (Lude.Maybe Lude.Text)
-ctmbMessage = Lens.lens (message :: CreateTemplateMessageBody -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: CreateTemplateMessageBody)
+ctmbMessage :: Lens.Lens' CreateTemplateMessageBody (Core.Maybe Core.Text)
+ctmbMessage = Lens.field @"message"
 {-# DEPRECATED ctmbMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON CreateTemplateMessageBody where
+-- | The unique identifier for the request to create the message template.
+--
+-- /Note:/ Consider using 'requestID' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmbRequestID :: Lens.Lens' CreateTemplateMessageBody (Core.Maybe Core.Text)
+ctmbRequestID = Lens.field @"requestID"
+{-# DEPRECATED ctmbRequestID "Use generic-lens or generic-optics with 'requestID' instead." #-}
+
+instance Core.FromJSON CreateTemplateMessageBody where
   parseJSON =
-    Lude.withObject
-      "CreateTemplateMessageBody"
-      ( \x ->
-          CreateTemplateMessageBody'
-            Lude.<$> (x Lude..:? "RequestID")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "CreateTemplateMessageBody" Core.$
+      \x ->
+        CreateTemplateMessageBody'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Message")
+          Core.<*> (x Core..:? "RequestID")

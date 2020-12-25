@@ -18,80 +18,75 @@ module Network.AWS.Batch.Types.MountPoint
 
     -- * Lenses
     mpContainerPath,
-    mpSourceVolume,
     mpReadOnly,
+    mpSourceVolume,
   )
 where
 
+import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details on a Docker volume mount point that is used in a job's container properties. This parameter maps to @Volumes@ in the <https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container Create a container> section of the Docker Remote API and the @--volume@ option to docker run.
 --
 -- /See:/ 'mkMountPoint' smart constructor.
 data MountPoint = MountPoint'
   { -- | The path on the container at which to mount the host volume.
-    containerPath :: Lude.Maybe Lude.Text,
-    -- | The name of the volume to mount.
-    sourceVolume :: Lude.Maybe Lude.Text,
+    containerPath :: Core.Maybe Types.String,
     -- | If this value is @true@ , the container has read-only access to the volume; otherwise, the container can write to the volume. The default value is @false@ .
-    readOnly :: Lude.Maybe Lude.Bool
+    readOnly :: Core.Maybe Core.Bool,
+    -- | The name of the volume to mount.
+    sourceVolume :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MountPoint' with the minimum fields required to make a request.
---
--- * 'containerPath' - The path on the container at which to mount the host volume.
--- * 'sourceVolume' - The name of the volume to mount.
--- * 'readOnly' - If this value is @true@ , the container has read-only access to the volume; otherwise, the container can write to the volume. The default value is @false@ .
+-- | Creates a 'MountPoint' value with any optional fields omitted.
 mkMountPoint ::
   MountPoint
 mkMountPoint =
   MountPoint'
-    { containerPath = Lude.Nothing,
-      sourceVolume = Lude.Nothing,
-      readOnly = Lude.Nothing
+    { containerPath = Core.Nothing,
+      readOnly = Core.Nothing,
+      sourceVolume = Core.Nothing
     }
 
 -- | The path on the container at which to mount the host volume.
 --
 -- /Note:/ Consider using 'containerPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpContainerPath :: Lens.Lens' MountPoint (Lude.Maybe Lude.Text)
-mpContainerPath = Lens.lens (containerPath :: MountPoint -> Lude.Maybe Lude.Text) (\s a -> s {containerPath = a} :: MountPoint)
+mpContainerPath :: Lens.Lens' MountPoint (Core.Maybe Types.String)
+mpContainerPath = Lens.field @"containerPath"
 {-# DEPRECATED mpContainerPath "Use generic-lens or generic-optics with 'containerPath' instead." #-}
-
--- | The name of the volume to mount.
---
--- /Note:/ Consider using 'sourceVolume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpSourceVolume :: Lens.Lens' MountPoint (Lude.Maybe Lude.Text)
-mpSourceVolume = Lens.lens (sourceVolume :: MountPoint -> Lude.Maybe Lude.Text) (\s a -> s {sourceVolume = a} :: MountPoint)
-{-# DEPRECATED mpSourceVolume "Use generic-lens or generic-optics with 'sourceVolume' instead." #-}
 
 -- | If this value is @true@ , the container has read-only access to the volume; otherwise, the container can write to the volume. The default value is @false@ .
 --
 -- /Note:/ Consider using 'readOnly' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpReadOnly :: Lens.Lens' MountPoint (Lude.Maybe Lude.Bool)
-mpReadOnly = Lens.lens (readOnly :: MountPoint -> Lude.Maybe Lude.Bool) (\s a -> s {readOnly = a} :: MountPoint)
+mpReadOnly :: Lens.Lens' MountPoint (Core.Maybe Core.Bool)
+mpReadOnly = Lens.field @"readOnly"
 {-# DEPRECATED mpReadOnly "Use generic-lens or generic-optics with 'readOnly' instead." #-}
 
-instance Lude.FromJSON MountPoint where
-  parseJSON =
-    Lude.withObject
-      "MountPoint"
-      ( \x ->
-          MountPoint'
-            Lude.<$> (x Lude..:? "containerPath")
-            Lude.<*> (x Lude..:? "sourceVolume")
-            Lude.<*> (x Lude..:? "readOnly")
-      )
+-- | The name of the volume to mount.
+--
+-- /Note:/ Consider using 'sourceVolume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mpSourceVolume :: Lens.Lens' MountPoint (Core.Maybe Types.String)
+mpSourceVolume = Lens.field @"sourceVolume"
+{-# DEPRECATED mpSourceVolume "Use generic-lens or generic-optics with 'sourceVolume' instead." #-}
 
-instance Lude.ToJSON MountPoint where
-  toJSON MountPoint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("containerPath" Lude..=) Lude.<$> containerPath,
-            ("sourceVolume" Lude..=) Lude.<$> sourceVolume,
-            ("readOnly" Lude..=) Lude.<$> readOnly
+instance Core.FromJSON MountPoint where
+  toJSON MountPoint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("containerPath" Core..=) Core.<$> containerPath,
+            ("readOnly" Core..=) Core.<$> readOnly,
+            ("sourceVolume" Core..=) Core.<$> sourceVolume
           ]
       )
+
+instance Core.FromJSON MountPoint where
+  parseJSON =
+    Core.withObject "MountPoint" Core.$
+      \x ->
+        MountPoint'
+          Core.<$> (x Core..:? "containerPath")
+          Core.<*> (x Core..:? "readOnly")
+          Core.<*> (x Core..:? "sourceVolume")

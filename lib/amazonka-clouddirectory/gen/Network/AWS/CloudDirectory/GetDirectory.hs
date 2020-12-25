@@ -20,109 +20,99 @@ module Network.AWS.CloudDirectory.GetDirectory
     mkGetDirectory,
 
     -- ** Request lenses
-    gdDirectoryARN,
+    gdDirectoryArn,
 
     -- * Destructuring the response
     GetDirectoryResponse (..),
     mkGetDirectoryResponse,
 
     -- ** Response lenses
-    gdrsDirectory,
-    gdrsResponseStatus,
+    gdrrsDirectory,
+    gdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDirectory' smart constructor.
 newtype GetDirectory = GetDirectory'
   { -- | The ARN of the directory.
-    directoryARN :: Lude.Text
+    directoryArn :: Types.DirectoryArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDirectory' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The ARN of the directory.
+-- | Creates a 'GetDirectory' value with any optional fields omitted.
 mkGetDirectory ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.DirectoryArn ->
   GetDirectory
-mkGetDirectory pDirectoryARN_ =
-  GetDirectory' {directoryARN = pDirectoryARN_}
+mkGetDirectory directoryArn = GetDirectory' {directoryArn}
 
 -- | The ARN of the directory.
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdDirectoryARN :: Lens.Lens' GetDirectory Lude.Text
-gdDirectoryARN = Lens.lens (directoryARN :: GetDirectory -> Lude.Text) (\s a -> s {directoryARN = a} :: GetDirectory)
-{-# DEPRECATED gdDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdDirectoryArn :: Lens.Lens' GetDirectory Types.DirectoryArn
+gdDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED gdDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
-instance Lude.AWSRequest GetDirectory where
+instance Core.FromJSON GetDirectory where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest GetDirectory where
   type Rs GetDirectory = GetDirectoryResponse
-  request = Req.postJSON cloudDirectoryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/directory/get",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDirectoryResponse'
-            Lude.<$> (x Lude..:> "Directory") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "Directory") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDirectory where
-  toHeaders GetDirectory' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
-
-instance Lude.ToJSON GetDirectory where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath GetDirectory where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/directory/get"
-
-instance Lude.ToQuery GetDirectory where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetDirectoryResponse' smart constructor.
 data GetDirectoryResponse = GetDirectoryResponse'
   { -- | Metadata about the directory.
-    directory :: Directory,
+    directory :: Types.Directory,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetDirectoryResponse' with the minimum fields required to make a request.
---
--- * 'directory' - Metadata about the directory.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDirectoryResponse' value with any optional fields omitted.
 mkGetDirectoryResponse ::
   -- | 'directory'
-  Directory ->
+  Types.Directory ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDirectoryResponse
-mkGetDirectoryResponse pDirectory_ pResponseStatus_ =
-  GetDirectoryResponse'
-    { directory = pDirectory_,
-      responseStatus = pResponseStatus_
-    }
+mkGetDirectoryResponse directory responseStatus =
+  GetDirectoryResponse' {directory, responseStatus}
 
 -- | Metadata about the directory.
 --
 -- /Note:/ Consider using 'directory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsDirectory :: Lens.Lens' GetDirectoryResponse Directory
-gdrsDirectory = Lens.lens (directory :: GetDirectoryResponse -> Directory) (\s a -> s {directory = a} :: GetDirectoryResponse)
-{-# DEPRECATED gdrsDirectory "Use generic-lens or generic-optics with 'directory' instead." #-}
+gdrrsDirectory :: Lens.Lens' GetDirectoryResponse Types.Directory
+gdrrsDirectory = Lens.field @"directory"
+{-# DEPRECATED gdrrsDirectory "Use generic-lens or generic-optics with 'directory' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsResponseStatus :: Lens.Lens' GetDirectoryResponse Lude.Int
-gdrsResponseStatus = Lens.lens (responseStatus :: GetDirectoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDirectoryResponse)
-{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdrrsResponseStatus :: Lens.Lens' GetDirectoryResponse Core.Int
+gdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,61 +13,66 @@
 module Network.AWS.SES.Types.VerificationStatus
   ( VerificationStatus
       ( VerificationStatus',
-        VSPending,
-        VSSuccess,
-        VSFailed,
-        VSTemporaryFailure,
-        VSNotStarted
+        VerificationStatusPending,
+        VerificationStatusSuccess,
+        VerificationStatusFailed,
+        VerificationStatusTemporaryFailure,
+        VerificationStatusNotStarted,
+        fromVerificationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype VerificationStatus = VerificationStatus' Lude.Text
+newtype VerificationStatus = VerificationStatus'
+  { fromVerificationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VSPending :: VerificationStatus
-pattern VSPending = VerificationStatus' "Pending"
+pattern VerificationStatusPending :: VerificationStatus
+pattern VerificationStatusPending = VerificationStatus' "Pending"
 
-pattern VSSuccess :: VerificationStatus
-pattern VSSuccess = VerificationStatus' "Success"
+pattern VerificationStatusSuccess :: VerificationStatus
+pattern VerificationStatusSuccess = VerificationStatus' "Success"
 
-pattern VSFailed :: VerificationStatus
-pattern VSFailed = VerificationStatus' "Failed"
+pattern VerificationStatusFailed :: VerificationStatus
+pattern VerificationStatusFailed = VerificationStatus' "Failed"
 
-pattern VSTemporaryFailure :: VerificationStatus
-pattern VSTemporaryFailure = VerificationStatus' "TemporaryFailure"
+pattern VerificationStatusTemporaryFailure :: VerificationStatus
+pattern VerificationStatusTemporaryFailure = VerificationStatus' "TemporaryFailure"
 
-pattern VSNotStarted :: VerificationStatus
-pattern VSNotStarted = VerificationStatus' "NotStarted"
+pattern VerificationStatusNotStarted :: VerificationStatus
+pattern VerificationStatusNotStarted = VerificationStatus' "NotStarted"
 
 {-# COMPLETE
-  VSPending,
-  VSSuccess,
-  VSFailed,
-  VSTemporaryFailure,
-  VSNotStarted,
+  VerificationStatusPending,
+  VerificationStatusSuccess,
+  VerificationStatusFailed,
+  VerificationStatusTemporaryFailure,
+  VerificationStatusNotStarted,
   VerificationStatus'
   #-}

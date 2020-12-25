@@ -9,360 +9,259 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.Pinpoint.Types
   ( -- * Service configuration
-    pinpointService,
+    mkServiceConfig,
 
     -- * Errors
+    _PayloadTooLargeException,
+    _ConflictException,
+    _ForbiddenException,
+    _NotFoundException,
+    _TooManyRequestsException,
+    _InternalServerErrorException,
+    _MethodNotAllowedException,
+    _BadRequestException,
 
-    -- * Action
-    Action (..),
-
-    -- * AttributeType
-    AttributeType (..),
-
-    -- * CampaignStatus
-    CampaignStatus (..),
-
-    -- * ChannelType
-    ChannelType (..),
-
-    -- * DefinitionFormat
-    DefinitionFormat (..),
-
-    -- * DeliveryStatus
-    DeliveryStatus (..),
-
-    -- * DimensionType
-    DimensionType (..),
-
-    -- * Duration
-    Duration (..),
-
-    -- * EndpointTypesElement
-    EndpointTypesElement (..),
-
-    -- * FilterType
-    FilterType (..),
-
-    -- * Frequency
-    Frequency (..),
-
-    -- * Include
-    Include (..),
-
-    -- * JobStatus
-    JobStatus (..),
-
-    -- * MessageType
-    MessageType (..),
-
-    -- * Mode
-    Mode (..),
-
-    -- * Operator
-    Operator (..),
-
-    -- * RecencyType
-    RecencyType (..),
-
-    -- * SegmentType
-    SegmentType (..),
-
-    -- * SourceType
-    SourceType (..),
-
-    -- * State
-    State (..),
-
-    -- * TemplateType
-    TemplateType (..),
-
-    -- * Type
-    Type (..),
-
-    -- * ADMChannelRequest
-    ADMChannelRequest (..),
-    mkADMChannelRequest,
-    admcrClientId,
-    admcrClientSecret,
-    admcrEnabled,
-
-    -- * ADMChannelResponse
-    ADMChannelResponse (..),
-    mkADMChannelResponse,
-    admcPlatform,
-    admcLastModifiedDate,
-    admcEnabled,
-    admcIsArchived,
-    admcApplicationId,
-    admcVersion,
-    admcId,
-    admcCreationDate,
-    admcLastModifiedBy,
-    admcHasCredential,
-
-    -- * ADMMessage
-    ADMMessage (..),
-    mkADMMessage,
-    admmSubstitutions,
-    admmExpiresAfter,
-    admmMD5,
-    admmSilentPush,
-    admmImageIconURL,
-    admmRawContent,
-    admmData,
-    admmSmallImageIconURL,
-    admmBody,
-    admmURL,
-    admmSound,
-    admmAction,
-    admmImageURL,
-    admmConsolidationKey,
-    admmTitle,
-    admmIconReference,
-
-    -- * APNSChannelRequest
-    APNSChannelRequest (..),
-    mkAPNSChannelRequest,
-    acrTokenKey,
-    acrPrivateKey,
-    acrEnabled,
-    acrTeamId,
-    acrBundleId,
-    acrDefaultAuthenticationMethod,
-    acrCertificate,
-    acrTokenKeyId,
-
-    -- * APNSChannelResponse
-    APNSChannelResponse (..),
-    mkAPNSChannelResponse,
-    acPlatform,
-    acLastModifiedDate,
-    acEnabled,
-    acHasTokenKey,
-    acDefaultAuthenticationMethod,
-    acIsArchived,
-    acApplicationId,
-    acVersion,
-    acId,
-    acCreationDate,
-    acLastModifiedBy,
-    acHasCredential,
-
-    -- * APNSMessage
-    APNSMessage (..),
-    mkAPNSMessage,
-    amSubstitutions,
-    amSilentPush,
-    amAPNSPushType,
-    amPriority,
-    amRawContent,
-    amData,
-    amBody,
-    amCategory,
-    amTimeToLive,
-    amURL,
-    amSound,
-    amAction,
-    amMediaURL,
-    amPreferredAuthenticationMethod,
-    amBadge,
-    amTitle,
-    amThreadId,
-    amCollapseId,
-
-    -- * APNSPushNotificationTemplate
-    APNSPushNotificationTemplate (..),
-    mkAPNSPushNotificationTemplate,
-    apntRawContent,
-    apntBody,
-    apntURL,
-    apntSound,
-    apntAction,
-    apntMediaURL,
-    apntTitle,
-
-    -- * APNSSandboxChannelRequest
-    APNSSandboxChannelRequest (..),
-    mkAPNSSandboxChannelRequest,
-    ascrTokenKey,
-    ascrPrivateKey,
-    ascrEnabled,
-    ascrTeamId,
-    ascrBundleId,
-    ascrDefaultAuthenticationMethod,
-    ascrCertificate,
-    ascrTokenKeyId,
-
-    -- * APNSSandboxChannelResponse
-    APNSSandboxChannelResponse (..),
-    mkAPNSSandboxChannelResponse,
-    ascPlatform,
-    ascLastModifiedDate,
-    ascEnabled,
-    ascHasTokenKey,
-    ascDefaultAuthenticationMethod,
-    ascIsArchived,
-    ascApplicationId,
-    ascVersion,
-    ascId,
-    ascCreationDate,
-    ascLastModifiedBy,
-    ascHasCredential,
-
-    -- * APNSVoipChannelRequest
-    APNSVoipChannelRequest (..),
-    mkAPNSVoipChannelRequest,
-    avcrTokenKey,
-    avcrPrivateKey,
-    avcrEnabled,
-    avcrTeamId,
-    avcrBundleId,
-    avcrDefaultAuthenticationMethod,
-    avcrCertificate,
-    avcrTokenKeyId,
-
-    -- * APNSVoipChannelResponse
-    APNSVoipChannelResponse (..),
-    mkAPNSVoipChannelResponse,
-    avcPlatform,
-    avcLastModifiedDate,
-    avcEnabled,
-    avcHasTokenKey,
-    avcDefaultAuthenticationMethod,
-    avcIsArchived,
-    avcApplicationId,
-    avcVersion,
-    avcId,
-    avcCreationDate,
-    avcLastModifiedBy,
-    avcHasCredential,
-
-    -- * APNSVoipSandboxChannelRequest
-    APNSVoipSandboxChannelRequest (..),
-    mkAPNSVoipSandboxChannelRequest,
-    avscrTokenKey,
-    avscrPrivateKey,
-    avscrEnabled,
-    avscrTeamId,
-    avscrBundleId,
-    avscrDefaultAuthenticationMethod,
-    avscrCertificate,
-    avscrTokenKeyId,
-
-    -- * APNSVoipSandboxChannelResponse
-    APNSVoipSandboxChannelResponse (..),
-    mkAPNSVoipSandboxChannelResponse,
-    avscPlatform,
-    avscLastModifiedDate,
-    avscEnabled,
-    avscHasTokenKey,
-    avscDefaultAuthenticationMethod,
-    avscIsArchived,
-    avscApplicationId,
-    avscVersion,
-    avscId,
-    avscCreationDate,
-    avscLastModifiedBy,
-    avscHasCredential,
-
-    -- * ActivitiesResponse
-    ActivitiesResponse (..),
-    mkActivitiesResponse,
-    aNextToken,
-    aItem,
-
-    -- * Activity
-    Activity (..),
-    mkActivity,
-    aConditionalSplit,
-    aEMAIL,
-    aMultiCondition,
-    aCUSTOM,
-    aWait,
-    aRandomSplit,
-    aHoldout,
-    aSMS,
-    aPUSH,
-    aDescription,
-
-    -- * ActivityResponse
-    ActivityResponse (..),
-    mkActivityResponse,
-    aState,
-    aStart,
-    aCampaignId,
-    aTimezonesCompletedCount,
-    aTimezonesTotalCount,
-    aResult,
-    aTreatmentId,
-    aSuccessfulEndpointCount,
-    aEnd,
-    aApplicationId,
-    aTotalEndpointCount,
-    aId,
-    aScheduledStart,
-
-    -- * AddressConfiguration
-    AddressConfiguration (..),
-    mkAddressConfiguration,
-    acSubstitutions,
-    acTitleOverride,
-    acContext,
-    acRawContent,
-    acBodyOverride,
-    acChannelType,
-
-    -- * AndroidPushNotificationTemplate
-    AndroidPushNotificationTemplate (..),
-    mkAndroidPushNotificationTemplate,
-    aImageIconURL,
-    aRawContent,
-    aSmallImageIconURL,
-    aBody,
-    aURL,
-    aSound,
-    aAction,
-    aImageURL,
-    aTitle,
-
-    -- * ApplicationDateRangeKpiResponse
-    ApplicationDateRangeKpiResponse (..),
-    mkApplicationDateRangeKpiResponse,
-    adrkKpiName,
-    adrkStartTime,
-    adrkNextToken,
-    adrkApplicationId,
-    adrkEndTime,
-    adrkKpiResult,
-
-    -- * ApplicationResponse
-    ApplicationResponse (..),
-    mkApplicationResponse,
-    afARN,
-    afName,
-    afId,
-    afTags,
-
-    -- * ApplicationSettingsResource
-    ApplicationSettingsResource (..),
-    mkApplicationSettingsResource,
-    asrLastModifiedDate,
-    asrLimits,
-    asrQuietTime,
-    asrApplicationId,
-    asrCampaignHook,
-
-    -- * ApplicationsResponse
-    ApplicationsResponse (..),
-    mkApplicationsResponse,
-    afNextToken,
-    afItem,
+    -- * SegmentBehaviors
+    SegmentBehaviors (..),
+    mkSegmentBehaviors,
+    sbRecency,
 
     -- * AttributeDimension
     AttributeDimension (..),
     mkAttributeDimension,
     adValues,
     adAttributeType,
+
+    -- * APNSVoipChannelResponse
+    APNSVoipChannelResponse (..),
+    mkAPNSVoipChannelResponse,
+    apnsvcrPlatform,
+    apnsvcrApplicationId,
+    apnsvcrCreationDate,
+    apnsvcrDefaultAuthenticationMethod,
+    apnsvcrEnabled,
+    apnsvcrHasCredential,
+    apnsvcrHasTokenKey,
+    apnsvcrId,
+    apnsvcrIsArchived,
+    apnsvcrLastModifiedBy,
+    apnsvcrLastModifiedDate,
+    apnsvcrVersion,
+
+    -- * Include
+    Include (..),
+
+    -- * VoiceChannelRequest
+    VoiceChannelRequest (..),
+    mkVoiceChannelRequest,
+    vcrEnabled,
+
+    -- * SendUsersMessageRequest
+    SendUsersMessageRequest (..),
+    mkSendUsersMessageRequest,
+    sumrMessageConfiguration,
+    sumrUsers,
+    sumrContext,
+    sumrTemplateConfiguration,
+    sumrTraceId,
+
+    -- * SegmentGroup
+    SegmentGroup (..),
+    mkSegmentGroup,
+    sgDimensions,
+    sgSourceSegments,
+    sgSourceType,
+    sgType,
+
+    -- * EmailChannelResponse
+    EmailChannelResponse (..),
+    mkEmailChannelResponse,
+    ecrPlatform,
+    ecrApplicationId,
+    ecrConfigurationSet,
+    ecrCreationDate,
+    ecrEnabled,
+    ecrFromAddress,
+    ecrHasCredential,
+    ecrId,
+    ecrIdentity,
+    ecrIsArchived,
+    ecrLastModifiedBy,
+    ecrLastModifiedDate,
+    ecrMessagesPerSecond,
+    ecrRoleArn,
+    ecrVersion,
+
+    -- * SMSTemplateRequest
+    SMSTemplateRequest (..),
+    mkSMSTemplateRequest,
+    smstrBody,
+    smstrDefaultSubstitutions,
+    smstrRecommenderId,
+    smstrTemplateDescription,
+    smstrTags,
+
+    -- * Frequency
+    Frequency (..),
+
+    -- * Event
+    Event (..),
+    mkEvent,
+    eEventType,
+    eTimestamp,
+    eAppPackageName,
+    eAppTitle,
+    eAppVersionCode,
+    eAttributes,
+    eClientSdkVersion,
+    eMetrics,
+    eSdkName,
+    eSession,
+
+    -- * CustomDeliveryConfiguration
+    CustomDeliveryConfiguration (..),
+    mkCustomDeliveryConfiguration,
+    cdcDeliveryUri,
+    cdcEndpointTypes,
+
+    -- * CreateApplicationRequest
+    CreateApplicationRequest (..),
+    mkCreateApplicationRequest,
+    carName,
+    carTags,
+
+    -- * APNSPushNotificationTemplate
+    APNSPushNotificationTemplate (..),
+    mkAPNSPushNotificationTemplate,
+    apnspntAction,
+    apnspntBody,
+    apnspntMediaUrl,
+    apnspntRawContent,
+    apnspntSound,
+    apnspntTitle,
+    apnspntUrl,
+
+    -- * EndpointSendConfiguration
+    EndpointSendConfiguration (..),
+    mkEndpointSendConfiguration,
+    escBodyOverride,
+    escContext,
+    escRawContent,
+    escSubstitutions,
+    escTitleOverride,
+
+    -- * State
+    State (..),
+
+    -- * APNSMessage
+    APNSMessage (..),
+    mkAPNSMessage,
+    apnsmAPNSPushType,
+    apnsmAction,
+    apnsmBadge,
+    apnsmBody,
+    apnsmCategory,
+    apnsmCollapseId,
+    apnsmData,
+    apnsmMediaUrl,
+    apnsmPreferredAuthenticationMethod,
+    apnsmPriority,
+    apnsmRawContent,
+    apnsmSilentPush,
+    apnsmSound,
+    apnsmSubstitutions,
+    apnsmThreadId,
+    apnsmTimeToLive,
+    apnsmTitle,
+    apnsmUrl,
+
+    -- * TemplateActiveVersionRequest
+    TemplateActiveVersionRequest (..),
+    mkTemplateActiveVersionRequest,
+    tavrVersion,
+
+    -- * VoiceTemplateRequest
+    VoiceTemplateRequest (..),
+    mkVoiceTemplateRequest,
+    vtrBody,
+    vtrDefaultSubstitutions,
+    vtrLanguageCode,
+    vtrTemplateDescription,
+    vtrVoiceId,
+    vtrTags,
+
+    -- * GCMMessage
+    GCMMessage (..),
+    mkGCMMessage,
+    gcmmAction,
+    gcmmBody,
+    gcmmCollapseKey,
+    gcmmData,
+    gcmmIconReference,
+    gcmmImageIconUrl,
+    gcmmImageUrl,
+    gcmmPriority,
+    gcmmRawContent,
+    gcmmRestrictedPackageName,
+    gcmmSilentPush,
+    gcmmSmallImageIconUrl,
+    gcmmSound,
+    gcmmSubstitutions,
+    gcmmTimeToLive,
+    gcmmTitle,
+    gcmmUrl,
+
+    -- * ImportJobsResponse
+    ImportJobsResponse (..),
+    mkImportJobsResponse,
+    ijrItem,
+    ijrNextToken,
+
+    -- * SetDimension
+    SetDimension (..),
+    mkSetDimension,
+    sdValues,
+    sdDimensionType,
+
+    -- * JourneyDateRangeKpiResponse
+    JourneyDateRangeKpiResponse (..),
+    mkJourneyDateRangeKpiResponse,
+    jdrkrKpiResult,
+    jdrkrKpiName,
+    jdrkrJourneyId,
+    jdrkrEndTime,
+    jdrkrStartTime,
+    jdrkrApplicationId,
+    jdrkrNextToken,
+
+    -- * PublicEndpoint
+    PublicEndpoint (..),
+    mkPublicEndpoint,
+    peAddress,
+    peAttributes,
+    peChannelType,
+    peDemographic,
+    peEffectiveDate,
+    peEndpointStatus,
+    peLocation,
+    peMetrics,
+    peOptOut,
+    peRequestId,
+    peUser,
+
+    -- * CampaignEventFilter
+    CampaignEventFilter (..),
+    mkCampaignEventFilter,
+    cefFilterType,
+    cefDimensions,
+
+    -- * EmailMessageActivity
+    EmailMessageActivity (..),
+    mkEmailMessageActivity,
+    emaMessageConfig,
+    emaNextActivity,
+    emaTemplateName,
+    emaTemplateVersion,
 
     -- * AttributesResource
     AttributesResource (..),
@@ -371,123 +270,132 @@ module Network.AWS.Pinpoint.Types
     arApplicationId,
     arAttributes,
 
-    -- * BaiduChannelRequest
-    BaiduChannelRequest (..),
-    mkBaiduChannelRequest,
-    bcrAPIKey,
-    bcrEnabled,
-    bcrSecretKey,
+    -- * EmailTemplateRequest
+    EmailTemplateRequest (..),
+    mkEmailTemplateRequest,
+    etrDefaultSubstitutions,
+    etrHtmlPart,
+    etrRecommenderId,
+    etrSubject,
+    etrTemplateDescription,
+    etrTextPart,
+    etrTags,
 
-    -- * BaiduChannelResponse
-    BaiduChannelResponse (..),
-    mkBaiduChannelResponse,
-    bcPlatform,
-    bcLastModifiedDate,
-    bcEnabled,
-    bcCredential,
-    bcIsArchived,
-    bcApplicationId,
-    bcVersion,
-    bcId,
-    bcCreationDate,
-    bcLastModifiedBy,
-    bcHasCredential,
+    -- * SMSChannelResponse
+    SMSChannelResponse (..),
+    mkSMSChannelResponse,
+    smscrPlatform,
+    smscrApplicationId,
+    smscrCreationDate,
+    smscrEnabled,
+    smscrHasCredential,
+    smscrId,
+    smscrIsArchived,
+    smscrLastModifiedBy,
+    smscrLastModifiedDate,
+    smscrPromotionalMessagesPerSecond,
+    smscrSenderId,
+    smscrShortCode,
+    smscrTransactionalMessagesPerSecond,
+    smscrVersion,
 
-    -- * BaiduMessage
-    BaiduMessage (..),
-    mkBaiduMessage,
-    bmSubstitutions,
-    bmSilentPush,
-    bmImageIconURL,
-    bmRawContent,
-    bmData,
-    bmSmallImageIconURL,
-    bmBody,
-    bmTimeToLive,
-    bmURL,
-    bmSound,
-    bmAction,
-    bmImageURL,
-    bmTitle,
-    bmIconReference,
+    -- * EndpointItemResponse
+    EndpointItemResponse (..),
+    mkEndpointItemResponse,
+    eirMessage,
+    eirStatusCode,
 
-    -- * BaseKpiResult
-    BaseKpiResult (..),
-    mkBaseKpiResult,
-    bkrRows,
+    -- * JourneySchedule
+    JourneySchedule (..),
+    mkJourneySchedule,
+    jsEndTime,
+    jsStartTime,
+    jsTimezone,
 
-    -- * CampaignCustomMessage
-    CampaignCustomMessage (..),
-    mkCampaignCustomMessage,
-    ccmData,
+    -- * SourceType
+    SourceType (..),
 
-    -- * CampaignDateRangeKpiResponse
-    CampaignDateRangeKpiResponse (..),
-    mkCampaignDateRangeKpiResponse,
-    cdrkKpiName,
-    cdrkStartTime,
-    cdrkCampaignId,
-    cdrkNextToken,
-    cdrkApplicationId,
-    cdrkEndTime,
-    cdrkKpiResult,
+    -- * Schedule
+    Schedule (..),
+    mkSchedule,
+    sStartTime,
+    sEndTime,
+    sEventFilter,
+    sFrequency,
+    sIsLocalTime,
+    sQuietTime,
+    sTimezone,
 
-    -- * CampaignEmailMessage
-    CampaignEmailMessage (..),
-    mkCampaignEmailMessage,
-    cemBody,
-    cemFromAddress,
-    cemHTMLBody,
-    cemTitle,
+    -- * SimpleCondition
+    SimpleCondition (..),
+    mkSimpleCondition,
+    scEventCondition,
+    scSegmentCondition,
+    scSegmentDimensions,
 
-    -- * CampaignEventFilter
-    CampaignEventFilter (..),
-    mkCampaignEventFilter,
-    cefFilterType,
-    cefDimensions,
+    -- * RandomSplitEntry
+    RandomSplitEntry (..),
+    mkRandomSplitEntry,
+    rseNextActivity,
+    rsePercentage,
 
-    -- * CampaignHook
-    CampaignHook (..),
-    mkCampaignHook,
-    chLambdaFunctionName,
-    chMode,
-    chWebURL,
+    -- * AndroidPushNotificationTemplate
+    AndroidPushNotificationTemplate (..),
+    mkAndroidPushNotificationTemplate,
+    apntAction,
+    apntBody,
+    apntImageIconUrl,
+    apntImageUrl,
+    apntRawContent,
+    apntSmallImageIconUrl,
+    apntSound,
+    apntTitle,
+    apntUrl,
 
-    -- * CampaignLimits
-    CampaignLimits (..),
-    mkCampaignLimits,
-    clMessagesPerSecond,
-    clDaily,
-    clTotal,
-    clMaximumDuration,
+    -- * TemplateType
+    TemplateType (..),
 
-    -- * CampaignResponse
-    CampaignResponse (..),
-    mkCampaignResponse,
-    cCustomDeliveryConfiguration,
-    cState,
-    cLastModifiedDate,
-    cARN,
-    cSchedule,
-    cTemplateConfiguration,
-    cHook,
-    cTreatmentName,
-    cLimits,
-    cIsPaused,
-    cDefaultState,
-    cApplicationId,
-    cName,
-    cVersion,
-    cHoldoutPercent,
-    cTreatmentDescription,
-    cId,
-    cCreationDate,
-    cMessageConfiguration,
-    cDescription,
-    cSegmentId,
-    cAdditionalTreatments,
-    cTags,
-    cSegmentVersion,
+    -- * SegmentDimensions
+    SegmentDimensions (..),
+    mkSegmentDimensions,
+    sdAttributes,
+    sdBehavior,
+    sdDemographic,
+    sdLocation,
+    sdMetrics,
+    sdUserAttributes,
+
+    -- * ApplicationDateRangeKpiResponse
+    ApplicationDateRangeKpiResponse (..),
+    mkApplicationDateRangeKpiResponse,
+    adrkrKpiResult,
+    adrkrKpiName,
+    adrkrEndTime,
+    adrkrStartTime,
+    adrkrApplicationId,
+    adrkrNextToken,
+
+    -- * JourneyCustomMessage
+    JourneyCustomMessage (..),
+    mkJourneyCustomMessage,
+    jcmData,
+
+    -- * DeliveryStatus
+    DeliveryStatus (..),
+
+    -- * PushMessageActivity
+    PushMessageActivity (..),
+    mkPushMessageActivity,
+    pmaMessageConfig,
+    pmaNextActivity,
+    pmaTemplateName,
+    pmaTemplateVersion,
+
+    -- * SegmentReference
+    SegmentReference (..),
+    mkSegmentReference,
+    sId,
+    sVersion,
 
     -- * CampaignSmsMessage
     CampaignSmsMessage (..),
@@ -496,462 +404,36 @@ module Network.AWS.Pinpoint.Types
     csmMessageType,
     csmSenderId,
 
-    -- * CampaignState
-    CampaignState (..),
-    mkCampaignState,
-    csCampaignStatus,
-
-    -- * CampaignsResponse
-    CampaignsResponse (..),
-    mkCampaignsResponse,
-    cNextToken,
-    cItem,
-
-    -- * ChannelResponse
-    ChannelResponse (..),
-    mkChannelResponse,
-    cfLastModifiedDate,
-    cfEnabled,
-    cfIsArchived,
-    cfApplicationId,
-    cfVersion,
-    cfId,
-    cfCreationDate,
-    cfLastModifiedBy,
-    cfHasCredential,
-
-    -- * ChannelsResponse
-    ChannelsResponse (..),
-    mkChannelsResponse,
-    cChannels,
-
-    -- * Condition
-    Condition (..),
-    mkCondition,
-    cOperator,
-    cConditions,
-
-    -- * ConditionalSplitActivity
-    ConditionalSplitActivity (..),
-    mkConditionalSplitActivity,
-    csaEvaluationWaitTime,
-    csaTrueActivity,
-    csaFalseActivity,
-    csaCondition,
-
-    -- * CreateApplicationRequest
-    CreateApplicationRequest (..),
-    mkCreateApplicationRequest,
-    carName,
-    carTags,
-
-    -- * CreateTemplateMessageBody
-    CreateTemplateMessageBody (..),
-    mkCreateTemplateMessageBody,
-    ctmbRequestId,
-    ctmbARN,
-    ctmbMessage,
-
-    -- * CustomDeliveryConfiguration
-    CustomDeliveryConfiguration (..),
-    mkCustomDeliveryConfiguration,
-    cdcEndpointTypes,
-    cdcDeliveryURI,
-
-    -- * CustomMessageActivity
-    CustomMessageActivity (..),
-    mkCustomMessageActivity,
-    cmaTemplateName,
-    cmaTemplateVersion,
-    cmaEndpointTypes,
-    cmaNextActivity,
-    cmaDeliveryURI,
-    cmaMessageConfig,
+    -- * EventStream
+    EventStream (..),
+    mkEventStream,
+    esApplicationId,
+    esRoleArn,
+    esDestinationStreamArn,
+    esExternalId,
+    esLastModifiedDate,
+    esLastUpdatedBy,
 
     -- * DefaultMessage
     DefaultMessage (..),
     mkDefaultMessage,
-    dmSubstitutions,
     dmBody,
+    dmSubstitutions,
 
-    -- * DefaultPushNotificationMessage
-    DefaultPushNotificationMessage (..),
-    mkDefaultPushNotificationMessage,
-    dpnmSubstitutions,
-    dpnmSilentPush,
-    dpnmData,
-    dpnmBody,
-    dpnmURL,
-    dpnmAction,
-    dpnmTitle,
+    -- * ImportJobResource
+    ImportJobResource (..),
+    mkImportJobResource,
+    ijrFormat,
+    ijrS3Url,
+    ijrRoleArn,
+    ijrDefineSegment,
+    ijrExternalId,
+    ijrRegisterEndpoints,
+    ijrSegmentId,
+    ijrSegmentName,
 
-    -- * DefaultPushNotificationTemplate
-    DefaultPushNotificationTemplate (..),
-    mkDefaultPushNotificationTemplate,
-    dpntBody,
-    dpntURL,
-    dpntSound,
-    dpntAction,
-    dpntTitle,
-
-    -- * DirectMessageConfiguration
-    DirectMessageConfiguration (..),
-    mkDirectMessageConfiguration,
-    dmcAPNSMessage,
-    dmcGCMMessage,
-    dmcDefaultMessage,
-    dmcADMMessage,
-    dmcSMSMessage,
-    dmcEmailMessage,
-    dmcVoiceMessage,
-    dmcBaiduMessage,
-    dmcDefaultPushNotificationMessage,
-
-    -- * EmailChannelRequest
-    EmailChannelRequest (..),
-    mkEmailChannelRequest,
-    ecrEnabled,
-    ecrFromAddress,
-    ecrConfigurationSet,
-    ecrIdentity,
-    ecrRoleARN,
-
-    -- * EmailChannelResponse
-    EmailChannelResponse (..),
-    mkEmailChannelResponse,
-    ecPlatform,
-    ecMessagesPerSecond,
-    ecLastModifiedDate,
-    ecEnabled,
-    ecFromAddress,
-    ecIsArchived,
-    ecApplicationId,
-    ecVersion,
-    ecConfigurationSet,
-    ecId,
-    ecCreationDate,
-    ecLastModifiedBy,
-    ecIdentity,
-    ecHasCredential,
-    ecRoleARN,
-
-    -- * EmailMessage
-    EmailMessage (..),
-    mkEmailMessage,
-    emSubstitutions,
-    emBody,
-    emFromAddress,
-    emRawEmail,
-    emFeedbackForwardingAddress,
-    emSimpleEmail,
-    emReplyToAddresses,
-
-    -- * EmailMessageActivity
-    EmailMessageActivity (..),
-    mkEmailMessageActivity,
-    emaTemplateName,
-    emaTemplateVersion,
-    emaNextActivity,
-    emaMessageConfig,
-
-    -- * EmailTemplateRequest
-    EmailTemplateRequest (..),
-    mkEmailTemplateRequest,
-    etrSubject,
-    etrTextPart,
-    etrTemplateDescription,
-    etrDefaultSubstitutions,
-    etrHTMLPart,
-    etrRecommenderId,
-    etrTags,
-
-    -- * EmailTemplateResponse
-    EmailTemplateResponse (..),
-    mkEmailTemplateResponse,
-    etSubject,
-    etTemplateName,
-    etLastModifiedDate,
-    etTextPart,
-    etARN,
-    etTemplateType,
-    etTemplateDescription,
-    etDefaultSubstitutions,
-    etVersion,
-    etHTMLPart,
-    etCreationDate,
-    etRecommenderId,
-    etTags,
-
-    -- * EndpointBatchItem
-    EndpointBatchItem (..),
-    mkEndpointBatchItem,
-    ebiRequestId,
-    ebiMetrics,
-    ebiLocation,
-    ebiDemographic,
-    ebiAddress,
-    ebiEffectiveDate,
-    ebiUser,
-    ebiAttributes,
-    ebiEndpointStatus,
-    ebiOptOut,
-    ebiId,
-    ebiChannelType,
-
-    -- * EndpointBatchRequest
-    EndpointBatchRequest (..),
-    mkEndpointBatchRequest,
-    ebrItem,
-
-    -- * EndpointDemographic
-    EndpointDemographic (..),
-    mkEndpointDemographic,
-    edPlatform,
-    edPlatformVersion,
-    edLocale,
-    edAppVersion,
-    edModel,
-    edMake,
-    edModelVersion,
-    edTimezone,
-
-    -- * EndpointItemResponse
-    EndpointItemResponse (..),
-    mkEndpointItemResponse,
-    eiMessage,
-    eiStatusCode,
-
-    -- * EndpointLocation
-    EndpointLocation (..),
-    mkEndpointLocation,
-    elPostalCode,
-    elLatitude,
-    elCountry,
-    elCity,
-    elRegion,
-    elLongitude,
-
-    -- * EndpointMessageResult
-    EndpointMessageResult (..),
-    mkEndpointMessageResult,
-    emrDeliveryStatus,
-    emrAddress,
-    emrStatusMessage,
-    emrUpdatedToken,
-    emrMessageId,
-    emrStatusCode,
-
-    -- * EndpointRequest
-    EndpointRequest (..),
-    mkEndpointRequest,
-    erRequestId,
-    erMetrics,
-    erLocation,
-    erDemographic,
-    erAddress,
-    erEffectiveDate,
-    erUser,
-    erAttributes,
-    erEndpointStatus,
-    erOptOut,
-    erChannelType,
-
-    -- * EndpointResponse
-    EndpointResponse (..),
-    mkEndpointResponse,
-    efRequestId,
-    efMetrics,
-    efLocation,
-    efDemographic,
-    efCohortId,
-    efAddress,
-    efEffectiveDate,
-    efUser,
-    efApplicationId,
-    efAttributes,
-    efEndpointStatus,
-    efOptOut,
-    efId,
-    efCreationDate,
-    efChannelType,
-
-    -- * EndpointSendConfiguration
-    EndpointSendConfiguration (..),
-    mkEndpointSendConfiguration,
-    escSubstitutions,
-    escTitleOverride,
-    escContext,
-    escRawContent,
-    escBodyOverride,
-
-    -- * EndpointUser
-    EndpointUser (..),
-    mkEndpointUser,
-    euUserAttributes,
-    euUserId,
-
-    -- * EndpointsResponse
-    EndpointsResponse (..),
-    mkEndpointsResponse,
-    eItem,
-
-    -- * Event
-    Event (..),
-    mkEvent,
-    eClientSDKVersion,
-    eMetrics,
-    eAppVersionCode,
-    eAppTitle,
-    eEventType,
-    eAppPackageName,
-    eAttributes,
-    eSDKName,
-    eTimestamp,
-    eSession,
-
-    -- * EventCondition
-    EventCondition (..),
-    mkEventCondition,
-    ecDimensions,
-    ecMessageActivity,
-
-    -- * EventDimensions
-    EventDimensions (..),
-    mkEventDimensions,
-    edMetrics,
-    edEventType,
-    edAttributes,
-
-    -- * EventFilter
-    EventFilter (..),
-    mkEventFilter,
-    efFilterType,
-    efDimensions,
-
-    -- * EventItemResponse
-    EventItemResponse (..),
-    mkEventItemResponse,
-    eMessage,
-    eStatusCode,
-
-    -- * EventStartCondition
-    EventStartCondition (..),
-    mkEventStartCondition,
-    escEventFilter,
-    escSegmentId,
-
-    -- * EventStream
-    EventStream (..),
-    mkEventStream,
-    esLastUpdatedBy,
-    esLastModifiedDate,
-    esDestinationStreamARN,
-    esApplicationId,
-    esExternalId,
-    esRoleARN,
-
-    -- * EventsBatch
-    EventsBatch (..),
-    mkEventsBatch,
-    ebEvents,
-    ebEndpoint,
-
-    -- * EventsRequest
-    EventsRequest (..),
-    mkEventsRequest,
-    erBatchItem,
-
-    -- * EventsResponse
-    EventsResponse (..),
-    mkEventsResponse,
-    eResults,
-
-    -- * ExportJobRequest
-    ExportJobRequest (..),
-    mkExportJobRequest,
-    eS3URLPrefix,
-    eSegmentId,
-    eRoleARN,
-    eSegmentVersion,
-
-    -- * ExportJobResource
-    ExportJobResource (..),
-    mkExportJobResource,
-    ejrS3URLPrefix,
-    ejrSegmentId,
-    ejrRoleARN,
-    ejrSegmentVersion,
-
-    -- * ExportJobResponse
-    ExportJobResponse (..),
-    mkExportJobResponse,
-    ejCompletedPieces,
-    ejFailedPieces,
-    ejDefinition,
-    ejTotalProcessed,
-    ejFailures,
-    ejTotalPieces,
-    ejApplicationId,
-    ejId,
-    ejCreationDate,
-    ejType,
-    ejCompletionDate,
-    ejJobStatus,
-    ejTotalFailures,
-
-    -- * ExportJobsResponse
-    ExportJobsResponse (..),
-    mkExportJobsResponse,
-    ejNextToken,
-    ejItem,
-
-    -- * GCMChannelRequest
-    GCMChannelRequest (..),
-    mkGCMChannelRequest,
-    gcrAPIKey,
-    gcrEnabled,
-
-    -- * GCMChannelResponse
-    GCMChannelResponse (..),
-    mkGCMChannelResponse,
-    gcmcPlatform,
-    gcmcLastModifiedDate,
-    gcmcEnabled,
-    gcmcCredential,
-    gcmcIsArchived,
-    gcmcApplicationId,
-    gcmcVersion,
-    gcmcId,
-    gcmcCreationDate,
-    gcmcLastModifiedBy,
-    gcmcHasCredential,
-
-    -- * GCMMessage
-    GCMMessage (..),
-    mkGCMMessage,
-    gmSubstitutions,
-    gmSilentPush,
-    gmImageIconURL,
-    gmPriority,
-    gmRawContent,
-    gmData,
-    gmRestrictedPackageName,
-    gmSmallImageIconURL,
-    gmBody,
-    gmTimeToLive,
-    gmURL,
-    gmSound,
-    gmAction,
-    gmCollapseKey,
-    gmImageURL,
-    gmTitle,
-    gmIconReference,
-
-    -- * GPSCoordinates
-    GPSCoordinates (..),
-    mkGPSCoordinates,
-    gpscLatitude,
-    gpscLongitude,
+    -- * Operator
+    Operator (..),
 
     -- * GPSPointDimension
     GPSPointDimension (..),
@@ -959,738 +441,267 @@ module Network.AWS.Pinpoint.Types
     gpspdCoordinates,
     gpspdRangeInKilometers,
 
-    -- * HoldoutActivity
-    HoldoutActivity (..),
-    mkHoldoutActivity,
-    haNextActivity,
-    haPercentage,
+    -- * TemplateConfiguration
+    TemplateConfiguration (..),
+    mkTemplateConfiguration,
+    tcEmailTemplate,
+    tcPushTemplate,
+    tcSMSTemplate,
+    tcVoiceTemplate,
 
-    -- * ImportJobRequest
-    ImportJobRequest (..),
-    mkImportJobRequest,
-    iSegmentName,
-    iFormat,
-    iDefineSegment,
-    iRegisterEndpoints,
-    iExternalId,
-    iS3URL,
-    iSegmentId,
-    iRoleARN,
+    -- * ChannelResponse
+    ChannelResponse (..),
+    mkChannelResponse,
+    cApplicationId,
+    cCreationDate,
+    cEnabled,
+    cHasCredential,
+    cId,
+    cIsArchived,
+    cLastModifiedBy,
+    cLastModifiedDate,
+    cVersion,
 
-    -- * ImportJobResource
-    ImportJobResource (..),
-    mkImportJobResource,
-    ijrSegmentName,
-    ijrFormat,
-    ijrDefineSegment,
-    ijrRegisterEndpoints,
-    ijrExternalId,
-    ijrS3URL,
-    ijrSegmentId,
-    ijrRoleARN,
+    -- * TemplatesResponse
+    TemplatesResponse (..),
+    mkTemplatesResponse,
+    trItem,
+    trNextToken,
 
-    -- * ImportJobResponse
-    ImportJobResponse (..),
-    mkImportJobResponse,
-    ijCompletedPieces,
-    ijFailedPieces,
-    ijDefinition,
-    ijTotalProcessed,
-    ijFailures,
-    ijTotalPieces,
-    ijApplicationId,
-    ijId,
-    ijCreationDate,
-    ijType,
-    ijCompletionDate,
-    ijJobStatus,
-    ijTotalFailures,
+    -- * FilterType
+    FilterType (..),
 
-    -- * ImportJobsResponse
-    ImportJobsResponse (..),
-    mkImportJobsResponse,
-    ijNextToken,
-    ijItem,
+    -- * ActivitiesResponse
+    ActivitiesResponse (..),
+    mkActivitiesResponse,
+    arItem,
+    arNextToken,
 
-    -- * ItemResponse
-    ItemResponse (..),
-    mkItemResponse,
-    iEndpointItemResponse,
-    iEventsItemResponse,
-
-    -- * JourneyCustomMessage
-    JourneyCustomMessage (..),
-    mkJourneyCustomMessage,
-    jcmData,
-
-    -- * JourneyDateRangeKpiResponse
-    JourneyDateRangeKpiResponse (..),
-    mkJourneyDateRangeKpiResponse,
-    jdrkKpiName,
-    jdrkStartTime,
-    jdrkNextToken,
-    jdrkApplicationId,
-    jdrkEndTime,
-    jdrkJourneyId,
-    jdrkKpiResult,
-
-    -- * JourneyEmailMessage
-    JourneyEmailMessage (..),
-    mkJourneyEmailMessage,
-    jemFromAddress,
-
-    -- * JourneyExecutionActivityMetricsResponse
-    JourneyExecutionActivityMetricsResponse (..),
-    mkJourneyExecutionActivityMetricsResponse,
-    jeamMetrics,
-    jeamActivityType,
-    jeamLastEvaluatedTime,
-    jeamJourneyActivityId,
-    jeamApplicationId,
-    jeamJourneyId,
-
-    -- * JourneyExecutionMetricsResponse
-    JourneyExecutionMetricsResponse (..),
-    mkJourneyExecutionMetricsResponse,
-    jemMetrics,
-    jemLastEvaluatedTime,
-    jemApplicationId,
-    jemJourneyId,
-
-    -- * JourneyLimits
-    JourneyLimits (..),
-    mkJourneyLimits,
-    jlMessagesPerSecond,
-    jlEndpointReentryCap,
-    jlDailyCap,
-
-    -- * JourneyPushMessage
-    JourneyPushMessage (..),
-    mkJourneyPushMessage,
-    jpmTimeToLive,
-
-    -- * JourneyResponse
-    JourneyResponse (..),
-    mkJourneyResponse,
-    jState,
-    jLastModifiedDate,
-    jSchedule,
-    jLocalTime,
-    jActivities,
-    jLimits,
-    jQuietTime,
-    jApplicationId,
-    jName,
-    jId,
-    jStartActivity,
-    jCreationDate,
-    jStartCondition,
-    jRefreshFrequency,
-    jTags,
-
-    -- * JourneySMSMessage
-    JourneySMSMessage (..),
-    mkJourneySMSMessage,
-    jsmsmMessageType,
-    jsmsmSenderId,
-
-    -- * JourneySchedule
-    JourneySchedule (..),
-    mkJourneySchedule,
-    jsStartTime,
-    jsEndTime,
-    jsTimezone,
-
-    -- * JourneyStateRequest
-    JourneyStateRequest (..),
-    mkJourneyStateRequest,
-    jsrState,
-
-    -- * JourneysResponse
-    JourneysResponse (..),
-    mkJourneysResponse,
-    jNextToken,
-    jItem,
-
-    -- * ListRecommenderConfigurationsResponse
-    ListRecommenderConfigurationsResponse (..),
-    mkListRecommenderConfigurationsResponse,
-    lrcNextToken,
-    lrcItem,
-
-    -- * Message
-    Message (..),
-    mkMessage,
-    mSilentPush,
-    mImageIconURL,
-    mRawContent,
-    mBody,
-    mTimeToLive,
-    mImageSmallIconURL,
-    mJSONBody,
-    mURL,
-    mAction,
-    mImageURL,
-    mMediaURL,
-    mTitle,
-
-    -- * MessageBody
-    MessageBody (..),
-    mkMessageBody,
-    mbRequestId,
-    mbMessage,
-
-    -- * MessageConfiguration
-    MessageConfiguration (..),
-    mkMessageConfiguration,
-    mcAPNSMessage,
-    mcGCMMessage,
-    mcDefaultMessage,
-    mcCustomMessage,
-    mcADMMessage,
-    mcSMSMessage,
-    mcEmailMessage,
-    mcBaiduMessage,
-
-    -- * MessageRequest
-    MessageRequest (..),
-    mkMessageRequest,
-    mrTraceId,
-    mrContext,
-    mrAddresses,
-    mrTemplateConfiguration,
-    mrEndpoints,
-    mrMessageConfiguration,
-
-    -- * MessageResponse
-    MessageResponse (..),
-    mkMessageResponse,
-    mRequestId,
-    mResult,
-    mApplicationId,
-    mEndpointResult,
-
-    -- * MessageResult
-    MessageResult (..),
-    mkMessageResult,
-    mrDeliveryStatus,
-    mrStatusMessage,
-    mrUpdatedToken,
-    mrMessageId,
-    mrStatusCode,
-
-    -- * MetricDimension
-    MetricDimension (..),
-    mkMetricDimension,
-    mdValue,
-    mdComparisonOperator,
-
-    -- * MultiConditionalBranch
-    MultiConditionalBranch (..),
-    mkMultiConditionalBranch,
-    mcbNextActivity,
-    mcbCondition,
-
-    -- * MultiConditionalSplitActivity
-    MultiConditionalSplitActivity (..),
-    mkMultiConditionalSplitActivity,
-    mcsaBranches,
-    mcsaEvaluationWaitTime,
-    mcsaDefaultActivity,
-
-    -- * NumberValidateRequest
-    NumberValidateRequest (..),
-    mkNumberValidateRequest,
-    nvrIsoCountryCode,
-    nvrPhoneNumber,
-
-    -- * NumberValidateResponse
-    NumberValidateResponse (..),
-    mkNumberValidateResponse,
-    nvCarrier,
-    nvCounty,
-    nvCountry,
-    nvCountryCodeNumeric,
-    nvZipCode,
-    nvOriginalPhoneNumber,
-    nvPhoneTypeCode,
-    nvPhoneType,
-    nvCity,
-    nvCountryCodeIso2,
-    nvTimezone,
-    nvOriginalCountryCodeIso2,
-    nvCleansedPhoneNumberNational,
-    nvCleansedPhoneNumberE164,
-
-    -- * PublicEndpoint
-    PublicEndpoint (..),
-    mkPublicEndpoint,
-    peRequestId,
-    peMetrics,
-    peLocation,
-    peDemographic,
-    peAddress,
-    peEffectiveDate,
-    peUser,
-    peAttributes,
-    peEndpointStatus,
-    peOptOut,
-    peChannelType,
-
-    -- * PushMessageActivity
-    PushMessageActivity (..),
-    mkPushMessageActivity,
-    pmaTemplateName,
-    pmaTemplateVersion,
-    pmaNextActivity,
-    pmaMessageConfig,
-
-    -- * PushNotificationTemplateRequest
-    PushNotificationTemplateRequest (..),
-    mkPushNotificationTemplateRequest,
-    pntrDefault,
-    pntrTemplateDescription,
-    pntrGCM,
-    pntrAPNS,
-    pntrDefaultSubstitutions,
-    pntrADM,
-    pntrBaidu,
-    pntrRecommenderId,
-    pntrTags,
-
-    -- * PushNotificationTemplateResponse
-    PushNotificationTemplateResponse (..),
-    mkPushNotificationTemplateResponse,
-    pntTemplateName,
-    pntLastModifiedDate,
-    pntARN,
-    pntTemplateType,
-    pntDefault,
-    pntTemplateDescription,
-    pntGCM,
-    pntAPNS,
-    pntDefaultSubstitutions,
-    pntVersion,
-    pntCreationDate,
-    pntADM,
-    pntBaidu,
-    pntRecommenderId,
-    pntTags,
-
-    -- * QuietTime
-    QuietTime (..),
-    mkQuietTime,
-    qtStart,
-    qtEnd,
-
-    -- * RandomSplitActivity
-    RandomSplitActivity (..),
-    mkRandomSplitActivity,
-    rsaBranches,
-
-    -- * RandomSplitEntry
-    RandomSplitEntry (..),
-    mkRandomSplitEntry,
-    rseNextActivity,
-    rsePercentage,
+    -- * CampaignLimits
+    CampaignLimits (..),
+    mkCampaignLimits,
+    clDaily,
+    clMaximumDuration,
+    clMessagesPerSecond,
+    clTotal,
 
     -- * RawEmail
     RawEmail (..),
     mkRawEmail,
     reData,
 
-    -- * RecencyDimension
-    RecencyDimension (..),
-    mkRecencyDimension,
-    rdRecencyType,
-    rdDuration,
+    -- * ADMMessage
+    ADMMessage (..),
+    mkADMMessage,
+    admmAction,
+    admmBody,
+    admmConsolidationKey,
+    admmData,
+    admmExpiresAfter,
+    admmIconReference,
+    admmImageIconUrl,
+    admmImageUrl,
+    admmMD5,
+    admmRawContent,
+    admmSilentPush,
+    admmSmallImageIconUrl,
+    admmSound,
+    admmSubstitutions,
+    admmTitle,
+    admmUrl,
 
-    -- * RecommenderConfigurationResponse
-    RecommenderConfigurationResponse (..),
-    mkRecommenderConfigurationResponse,
-    rcRecommendationTransformerURI,
-    rcRecommendationsDisplayName,
-    rcLastModifiedDate,
-    rcRecommendationProviderIdType,
-    rcRecommendationProviderURI,
-    rcAttributes,
-    rcName,
-    rcId,
-    rcCreationDate,
-    rcDescription,
-    rcRecommendationsPerMessage,
-    rcRecommendationProviderRoleARN,
+    -- * WriteApplicationSettingsRequest
+    WriteApplicationSettingsRequest (..),
+    mkWriteApplicationSettingsRequest,
+    wasrCampaignHook,
+    wasrCloudWatchMetricsEnabled,
+    wasrEventTaggingEnabled,
+    wasrLimits,
+    wasrQuietTime,
+
+    -- * GCMChannelRequest
+    GCMChannelRequest (..),
+    mkGCMChannelRequest,
+    gApiKey,
+    gEnabled,
+
+    -- * DefinitionFormat
+    DefinitionFormat (..),
+
+    -- * SegmentType
+    SegmentType (..),
+
+    -- * JourneyResponse
+    JourneyResponse (..),
+    mkJourneyResponse,
+    jrName,
+    jrId,
+    jrApplicationId,
+    jrActivities,
+    jrCreationDate,
+    jrLastModifiedDate,
+    jrLimits,
+    jrLocalTime,
+    jrQuietTime,
+    jrRefreshFrequency,
+    jrSchedule,
+    jrStartActivity,
+    jrStartCondition,
+    jrState,
+    jrTags,
+
+    -- * ChannelsResponse
+    ChannelsResponse (..),
+    mkChannelsResponse,
+    crChannels,
 
     -- * ResultRow
     ResultRow (..),
     mkResultRow,
-    rrValues,
     rrGroupedBys,
+    rrValues,
 
-    -- * ResultRowValue
-    ResultRowValue (..),
-    mkResultRowValue,
-    rrvValue,
-    rrvKey,
-    rrvType,
-
-    -- * SMSChannelRequest
-    SMSChannelRequest (..),
-    mkSMSChannelRequest,
-    smscrShortCode,
-    smscrEnabled,
-    smscrSenderId,
-
-    -- * SMSChannelResponse
-    SMSChannelResponse (..),
-    mkSMSChannelResponse,
-    smscPlatform,
-    smscShortCode,
-    smscLastModifiedDate,
-    smscEnabled,
-    smscSenderId,
-    smscTransactionalMessagesPerSecond,
-    smscPromotionalMessagesPerSecond,
-    smscIsArchived,
-    smscApplicationId,
-    smscVersion,
-    smscId,
-    smscCreationDate,
-    smscLastModifiedBy,
-    smscHasCredential,
-
-    -- * SMSMessage
-    SMSMessage (..),
-    mkSMSMessage,
-    smsmSubstitutions,
-    smsmOriginationNumber,
-    smsmBody,
-    smsmMessageType,
-    smsmSenderId,
-    smsmMediaURL,
-    smsmKeyword,
+    -- * EventsBatch
+    EventsBatch (..),
+    mkEventsBatch,
+    ebEndpoint,
+    ebEvents,
 
     -- * SMSMessageActivity
     SMSMessageActivity (..),
     mkSMSMessageActivity,
+    smsmaMessageConfig,
+    smsmaNextActivity,
     smsmaTemplateName,
     smsmaTemplateVersion,
-    smsmaNextActivity,
-    smsmaMessageConfig,
 
-    -- * SMSTemplateRequest
-    SMSTemplateRequest (..),
-    mkSMSTemplateRequest,
-    smstrBody,
-    smstrTemplateDescription,
-    smstrDefaultSubstitutions,
-    smstrRecommenderId,
-    smstrTags,
+    -- * APNSVoipSandboxChannelRequest
+    APNSVoipSandboxChannelRequest (..),
+    mkAPNSVoipSandboxChannelRequest,
+    aBundleId,
+    aCertificate,
+    aDefaultAuthenticationMethod,
+    aEnabled,
+    aPrivateKey,
+    aTeamId,
+    aTokenKey,
+    aTokenKeyId,
 
-    -- * SMSTemplateResponse
-    SMSTemplateResponse (..),
-    mkSMSTemplateResponse,
-    smstTemplateName,
-    smstLastModifiedDate,
-    smstARN,
-    smstTemplateType,
-    smstBody,
-    smstTemplateDescription,
-    smstDefaultSubstitutions,
-    smstVersion,
-    smstCreationDate,
-    smstRecommenderId,
-    smstTags,
+    -- * MultiConditionalBranch
+    MultiConditionalBranch (..),
+    mkMultiConditionalBranch,
+    mcbCondition,
+    mcbNextActivity,
 
-    -- * Schedule
-    Schedule (..),
-    mkSchedule,
-    sFrequency,
-    sStartTime,
-    sQuietTime,
-    sEventFilter,
-    sIsLocalTime,
-    sEndTime,
-    sTimezone,
+    -- * ImportJobRequest
+    ImportJobRequest (..),
+    mkImportJobRequest,
+    iFormat,
+    iS3Url,
+    iRoleArn,
+    iDefineSegment,
+    iExternalId,
+    iRegisterEndpoints,
+    iSegmentId,
+    iSegmentName,
 
-    -- * SegmentBehaviors
-    SegmentBehaviors (..),
-    mkSegmentBehaviors,
-    sbRecency,
+    -- * MessageType
+    MessageType (..),
 
-    -- * SegmentCondition
-    SegmentCondition (..),
-    mkSegmentCondition,
-    scSegmentId,
+    -- * BaiduChannelResponse
+    BaiduChannelResponse (..),
+    mkBaiduChannelResponse,
+    bcrCredential,
+    bcrPlatform,
+    bcrApplicationId,
+    bcrCreationDate,
+    bcrEnabled,
+    bcrHasCredential,
+    bcrId,
+    bcrIsArchived,
+    bcrLastModifiedBy,
+    bcrLastModifiedDate,
+    bcrVersion,
 
-    -- * SegmentDemographics
-    SegmentDemographics (..),
-    mkSegmentDemographics,
-    sdPlatform,
-    sdAppVersion,
-    sdChannel,
-    sdModel,
-    sdMake,
-    sdDeviceType,
+    -- * Mode
+    Mode (..),
 
-    -- * SegmentDimensions
-    SegmentDimensions (..),
-    mkSegmentDimensions,
-    sdMetrics,
-    sdLocation,
-    sdDemographic,
-    sdUserAttributes,
-    sdBehavior,
-    sdAttributes,
+    -- * JourneyLimits
+    JourneyLimits (..),
+    mkJourneyLimits,
+    jlDailyCap,
+    jlEndpointReentryCap,
+    jlMessagesPerSecond,
 
-    -- * SegmentGroup
-    SegmentGroup (..),
-    mkSegmentGroup,
-    sgSourceSegments,
-    sgSourceType,
-    sgType,
-    sgDimensions,
+    -- * NumberValidateResponse
+    NumberValidateResponse (..),
+    mkNumberValidateResponse,
+    nvrCarrier,
+    nvrCity,
+    nvrCleansedPhoneNumberE164,
+    nvrCleansedPhoneNumberNational,
+    nvrCountry,
+    nvrCountryCodeIso2,
+    nvrCountryCodeNumeric,
+    nvrCounty,
+    nvrOriginalCountryCodeIso2,
+    nvrOriginalPhoneNumber,
+    nvrPhoneType,
+    nvrPhoneTypeCode,
+    nvrTimezone,
+    nvrZipCode,
 
-    -- * SegmentGroupList
-    SegmentGroupList (..),
-    mkSegmentGroupList,
-    sglInclude,
-    sglGroups,
+    -- * ActivityResponse
+    ActivityResponse (..),
+    mkActivityResponse,
+    aCampaignId,
+    aId,
+    aApplicationId,
+    aEnd,
+    aResult,
+    aScheduledStart,
+    aStart,
+    aState,
+    aSuccessfulEndpointCount,
+    aTimezonesCompletedCount,
+    aTimezonesTotalCount,
+    aTotalEndpointCount,
+    aTreatmentId,
 
-    -- * SegmentImportResource
-    SegmentImportResource (..),
-    mkSegmentImportResource,
-    sirSize,
-    sirFormat,
-    sirChannelCounts,
-    sirExternalId,
-    sirS3URL,
-    sirRoleARN,
+    -- * Action
+    Action (..),
 
-    -- * SegmentLocation
-    SegmentLocation (..),
-    mkSegmentLocation,
-    slCountry,
-    slGPSPoint,
+    -- * EndpointTypesElement
+    EndpointTypesElement (..),
 
-    -- * SegmentReference
-    SegmentReference (..),
-    mkSegmentReference,
-    srVersion,
-    srId,
+    -- * JourneyExecutionMetricsResponse
+    JourneyExecutionMetricsResponse (..),
+    mkJourneyExecutionMetricsResponse,
+    jemrMetrics,
+    jemrJourneyId,
+    jemrLastEvaluatedTime,
+    jemrApplicationId,
 
-    -- * SegmentResponse
-    SegmentResponse (..),
-    mkSegmentResponse,
-    sLastModifiedDate,
-    sARN,
-    sSegmentType,
-    sSegmentGroups,
-    sApplicationId,
-    sName,
-    sVersion,
-    sId,
-    sCreationDate,
-    sImportDefinition,
-    sDimensions,
-    sTags,
+    -- * EndpointLocation
+    EndpointLocation (..),
+    mkEndpointLocation,
+    elCity,
+    elCountry,
+    elLatitude,
+    elLongitude,
+    elPostalCode,
+    elRegion,
 
-    -- * SegmentsResponse
-    SegmentsResponse (..),
-    mkSegmentsResponse,
-    sNextToken,
-    sItem,
-
-    -- * SendUsersMessageRequest
-    SendUsersMessageRequest (..),
-    mkSendUsersMessageRequest,
-    sumrTraceId,
-    sumrContext,
-    sumrUsers,
-    sumrTemplateConfiguration,
-    sumrMessageConfiguration,
-
-    -- * SendUsersMessageResponse
-    SendUsersMessageResponse (..),
-    mkSendUsersMessageResponse,
-    sumRequestId,
-    sumResult,
-    sumApplicationId,
-
-    -- * Session
-    Session (..),
-    mkSession,
-    sfStopTimestamp,
-    sfId,
-    sfStartTimestamp,
-    sfDuration,
-
-    -- * SetDimension
-    SetDimension (..),
-    mkSetDimension,
-    sdValues,
-    sdDimensionType,
-
-    -- * SimpleCondition
-    SimpleCondition (..),
-    mkSimpleCondition,
-    scSegmentDimensions,
-    scEventCondition,
-    scSegmentCondition,
-
-    -- * SimpleEmail
-    SimpleEmail (..),
-    mkSimpleEmail,
-    seSubject,
-    seTextPart,
-    seHTMLPart,
-
-    -- * SimpleEmailPart
-    SimpleEmailPart (..),
-    mkSimpleEmailPart,
-    sepData,
-    sepCharset,
-
-    -- * StartCondition
-    StartCondition (..),
-    mkStartCondition,
-    scSegmentStartCondition,
-    scEventStartCondition,
-    scDescription,
-
-    -- * TagsModel
-    TagsModel (..),
-    mkTagsModel,
-    tmTags,
-
-    -- * Template
-    Template (..),
-    mkTemplate,
-    tName,
-    tVersion,
-
-    -- * TemplateActiveVersionRequest
-    TemplateActiveVersionRequest (..),
-    mkTemplateActiveVersionRequest,
-    tavrVersion,
-
-    -- * TemplateConfiguration
-    TemplateConfiguration (..),
-    mkTemplateConfiguration,
-    tcSMSTemplate,
-    tcVoiceTemplate,
-    tcPushTemplate,
-    tcEmailTemplate,
-
-    -- * TemplateResponse
-    TemplateResponse (..),
-    mkTemplateResponse,
-    tfTemplateName,
-    tfLastModifiedDate,
-    tfARN,
-    tfTemplateType,
-    tfTemplateDescription,
-    tfDefaultSubstitutions,
-    tfVersion,
-    tfCreationDate,
-    tfTags,
-
-    -- * TemplateVersionResponse
-    TemplateVersionResponse (..),
-    mkTemplateVersionResponse,
-    tvTemplateName,
-    tvLastModifiedDate,
-    tvTemplateType,
-    tvTemplateDescription,
-    tvDefaultSubstitutions,
-    tvVersion,
-    tvCreationDate,
-
-    -- * TemplateVersionsResponse
-    TemplateVersionsResponse (..),
-    mkTemplateVersionsResponse,
-    tvRequestId,
-    tvNextToken,
-    tvItem,
-    tvMessage,
-
-    -- * TemplatesResponse
-    TemplatesResponse (..),
-    mkTemplatesResponse,
-    tNextToken,
-    tItem,
-
-    -- * TreatmentResource
-    TreatmentResource (..),
-    mkTreatmentResource,
-    trCustomDeliveryConfiguration,
-    trState,
-    trSchedule,
-    trTemplateConfiguration,
-    trTreatmentName,
-    trSizePercent,
-    trTreatmentDescription,
-    trId,
-    trMessageConfiguration,
-
-    -- * UpdateAttributesRequest
-    UpdateAttributesRequest (..),
-    mkUpdateAttributesRequest,
-    uarBlacklist,
-
-    -- * VoiceChannelRequest
-    VoiceChannelRequest (..),
-    mkVoiceChannelRequest,
-    vcrEnabled,
-
-    -- * VoiceChannelResponse
-    VoiceChannelResponse (..),
-    mkVoiceChannelResponse,
-    vcPlatform,
-    vcLastModifiedDate,
-    vcEnabled,
-    vcIsArchived,
-    vcApplicationId,
-    vcVersion,
-    vcId,
-    vcCreationDate,
-    vcLastModifiedBy,
-    vcHasCredential,
-
-    -- * VoiceMessage
-    VoiceMessage (..),
-    mkVoiceMessage,
-    vmSubstitutions,
-    vmLanguageCode,
-    vmOriginationNumber,
-    vmBody,
-    vmVoiceId,
-
-    -- * VoiceTemplateRequest
-    VoiceTemplateRequest (..),
-    mkVoiceTemplateRequest,
-    vtrLanguageCode,
-    vtrBody,
-    vtrTemplateDescription,
-    vtrDefaultSubstitutions,
-    vtrVoiceId,
-    vtrTags,
-
-    -- * VoiceTemplateResponse
-    VoiceTemplateResponse (..),
-    mkVoiceTemplateResponse,
-    vtTemplateName,
-    vtLastModifiedDate,
-    vtLanguageCode,
-    vtARN,
-    vtTemplateType,
-    vtBody,
-    vtTemplateDescription,
-    vtDefaultSubstitutions,
-    vtVersion,
-    vtCreationDate,
-    vtVoiceId,
-    vtTags,
+    -- * SMSMessage
+    SMSMessage (..),
+    mkSMSMessage,
+    smsmBody,
+    smsmKeyword,
+    smsmMediaUrl,
+    smsmMessageType,
+    smsmOriginationNumber,
+    smsmSenderId,
+    smsmSubstitutions,
 
     -- * WaitActivity
     WaitActivity (..),
@@ -1698,81 +709,1078 @@ module Network.AWS.Pinpoint.Types
     waNextActivity,
     waWaitTime,
 
+    -- * ItemResponse
+    ItemResponse (..),
+    mkItemResponse,
+    irEndpointItemResponse,
+    irEventsItemResponse,
+
+    -- * SegmentLocation
+    SegmentLocation (..),
+    mkSegmentLocation,
+    slCountry,
+    slGPSPoint,
+
+    -- * APNSChannelRequest
+    APNSChannelRequest (..),
+    mkAPNSChannelRequest,
+    apnscrfBundleId,
+    apnscrfCertificate,
+    apnscrfDefaultAuthenticationMethod,
+    apnscrfEnabled,
+    apnscrfPrivateKey,
+    apnscrfTeamId,
+    apnscrfTokenKey,
+    apnscrfTokenKeyId,
+
+    -- * TagsModel
+    TagsModel (..),
+    mkTagsModel,
+    tmTags,
+
+    -- * EventsRequest
+    EventsRequest (..),
+    mkEventsRequest,
+    erBatchItem,
+
+    -- * JourneySMSMessage
+    JourneySMSMessage (..),
+    mkJourneySMSMessage,
+    jsmsmMessageType,
+    jsmsmSenderId,
+
+    -- * CampaignCustomMessage
+    CampaignCustomMessage (..),
+    mkCampaignCustomMessage,
+    ccmData,
+
+    -- * CampaignEmailMessage
+    CampaignEmailMessage (..),
+    mkCampaignEmailMessage,
+    cemBody,
+    cemFromAddress,
+    cemHtmlBody,
+    cemTitle,
+
+    -- * ApplicationResponse
+    ApplicationResponse (..),
+    mkApplicationResponse,
+    arId,
+    arArn,
+    arName,
+    arTags,
+
+    -- * TemplateVersionResponse
+    TemplateVersionResponse (..),
+    mkTemplateVersionResponse,
+    tvrLastModifiedDate,
+    tvrCreationDate,
+    tvrTemplateName,
+    tvrTemplateType,
+    tvrDefaultSubstitutions,
+    tvrTemplateDescription,
+    tvrVersion,
+
+    -- * QuietTime
+    QuietTime (..),
+    mkQuietTime,
+    qtEnd,
+    qtStart,
+
+    -- * APNSSandboxChannelResponse
+    APNSSandboxChannelResponse (..),
+    mkAPNSSandboxChannelResponse,
+    apnsscrPlatform,
+    apnsscrApplicationId,
+    apnsscrCreationDate,
+    apnsscrDefaultAuthenticationMethod,
+    apnsscrEnabled,
+    apnsscrHasCredential,
+    apnsscrHasTokenKey,
+    apnsscrId,
+    apnsscrIsArchived,
+    apnsscrLastModifiedBy,
+    apnsscrLastModifiedDate,
+    apnsscrVersion,
+
+    -- * ExportJobResource
+    ExportJobResource (..),
+    mkExportJobResource,
+    ejrS3UrlPrefix,
+    ejrRoleArn,
+    ejrSegmentId,
+    ejrSegmentVersion,
+
+    -- * APNSChannelResponse
+    APNSChannelResponse (..),
+    mkAPNSChannelResponse,
+    apnscrPlatform,
+    apnscrApplicationId,
+    apnscrCreationDate,
+    apnscrDefaultAuthenticationMethod,
+    apnscrEnabled,
+    apnscrHasCredential,
+    apnscrHasTokenKey,
+    apnscrId,
+    apnscrIsArchived,
+    apnscrLastModifiedBy,
+    apnscrLastModifiedDate,
+    apnscrVersion,
+
+    -- * MetricDimension
+    MetricDimension (..),
+    mkMetricDimension,
+    mdComparisonOperator,
+    mdValue,
+
+    -- * NumberValidateRequest
+    NumberValidateRequest (..),
+    mkNumberValidateRequest,
+    nvrIsoCountryCode,
+    nvrPhoneNumber,
+
+    -- * EventsResponse
+    EventsResponse (..),
+    mkEventsResponse,
+    erResults,
+
+    -- * EventFilter
+    EventFilter (..),
+    mkEventFilter,
+    efFilterType,
+    efDimensions,
+
+    -- * WriteJourneyRequest
+    WriteJourneyRequest (..),
+    mkWriteJourneyRequest,
+    wjrName,
+    wjrActivities,
+    wjrCreationDate,
+    wjrLastModifiedDate,
+    wjrLimits,
+    wjrLocalTime,
+    wjrQuietTime,
+    wjrRefreshFrequency,
+    wjrSchedule,
+    wjrStartActivity,
+    wjrStartCondition,
+    wjrState,
+
+    -- * HoldoutActivity
+    HoldoutActivity (..),
+    mkHoldoutActivity,
+    haPercentage,
+    haNextActivity,
+
+    -- * SegmentImportResource
+    SegmentImportResource (..),
+    mkSegmentImportResource,
+    sirFormat,
+    sirS3Url,
+    sirSize,
+    sirExternalId,
+    sirRoleArn,
+    sirChannelCounts,
+
+    -- * RandomSplitActivity
+    RandomSplitActivity (..),
+    mkRandomSplitActivity,
+    rsaBranches,
+
+    -- * AttributeType
+    AttributeType (..),
+
+    -- * CampaignDateRangeKpiResponse
+    CampaignDateRangeKpiResponse (..),
+    mkCampaignDateRangeKpiResponse,
+    cdrkrKpiResult,
+    cdrkrKpiName,
+    cdrkrEndTime,
+    cdrkrCampaignId,
+    cdrkrStartTime,
+    cdrkrApplicationId,
+    cdrkrNextToken,
+
+    -- * EmailMessage
+    EmailMessage (..),
+    mkEmailMessage,
+    emBody,
+    emFeedbackForwardingAddress,
+    emFromAddress,
+    emRawEmail,
+    emReplyToAddresses,
+    emSimpleEmail,
+    emSubstitutions,
+
+    -- * UpdateAttributesRequest
+    UpdateAttributesRequest (..),
+    mkUpdateAttributesRequest,
+    uarBlacklist,
+
+    -- * EventStartCondition
+    EventStartCondition (..),
+    mkEventStartCondition,
+    escEventFilter,
+    escSegmentId,
+
+    -- * EventCondition
+    EventCondition (..),
+    mkEventCondition,
+    ecDimensions,
+    ecMessageActivity,
+
+    -- * CreateTemplateMessageBody
+    CreateTemplateMessageBody (..),
+    mkCreateTemplateMessageBody,
+    ctmbArn,
+    ctmbMessage,
+    ctmbRequestID,
+
+    -- * JourneyEmailMessage
+    JourneyEmailMessage (..),
+    mkJourneyEmailMessage,
+    jemFromAddress,
+
+    -- * EventDimensions
+    EventDimensions (..),
+    mkEventDimensions,
+    edAttributes,
+    edEventType,
+    edMetrics,
+
+    -- * SMSChannelRequest
+    SMSChannelRequest (..),
+    mkSMSChannelRequest,
+    sEnabled,
+    sSenderId,
+    sShortCode,
+
+    -- * WriteSegmentRequest
+    WriteSegmentRequest (..),
+    mkWriteSegmentRequest,
+    wsrDimensions,
+    wsrName,
+    wsrSegmentGroups,
+    wsrTags,
+
+    -- * EmailTemplateResponse
+    EmailTemplateResponse (..),
+    mkEmailTemplateResponse,
+    eLastModifiedDate,
+    eCreationDate,
+    eTemplateName,
+    eTemplateType,
+    eArn,
+    eDefaultSubstitutions,
+    eHtmlPart,
+    eRecommenderId,
+    eSubject,
+    eTemplateDescription,
+    eTextPart,
+    eVersion,
+    eTags,
+
+    -- * ADMChannelRequest
+    ADMChannelRequest (..),
+    mkADMChannelRequest,
+    admcrfClientSecret,
+    admcrfClientId,
+    admcrfEnabled,
+
+    -- * ExportJobRequest
+    ExportJobRequest (..),
+    mkExportJobRequest,
+    eS3UrlPrefix,
+    eRoleArn,
+    eSegmentId,
+    eSegmentVersion,
+
+    -- * MessageResult
+    MessageResult (..),
+    mkMessageResult,
+    mrDeliveryStatus,
+    mrStatusCode,
+    mrMessageId,
+    mrStatusMessage,
+    mrUpdatedToken,
+
+    -- * EventItemResponse
+    EventItemResponse (..),
+    mkEventItemResponse,
+    eMessage,
+    eStatusCode,
+
+    -- * EndpointRequest
+    EndpointRequest (..),
+    mkEndpointRequest,
+    erfAddress,
+    erfAttributes,
+    erfChannelType,
+    erfDemographic,
+    erfEffectiveDate,
+    erfEndpointStatus,
+    erfLocation,
+    erfMetrics,
+    erfOptOut,
+    erfRequestId,
+    erfUser,
+
+    -- * ApplicationsResponse
+    ApplicationsResponse (..),
+    mkApplicationsResponse,
+    aItem,
+    aNextToken,
+
+    -- * TemplateVersionsResponse
+    TemplateVersionsResponse (..),
+    mkTemplateVersionsResponse,
+    tvrItem,
+    tvrMessage,
+    tvrNextToken,
+    tvrRequestID,
+
+    -- * MessageRequest
+    MessageRequest (..),
+    mkMessageRequest,
+    mrMessageConfiguration,
+    mrAddresses,
+    mrContext,
+    mrEndpoints,
+    mrTemplateConfiguration,
+    mrTraceId,
+
+    -- * CampaignStatus
+    CampaignStatus (..),
+
+    -- * EndpointUser
+    EndpointUser (..),
+    mkEndpointUser,
+    euUserAttributes,
+    euUserId,
+
+    -- * PushNotificationTemplateRequest
+    PushNotificationTemplateRequest (..),
+    mkPushNotificationTemplateRequest,
+    pADM,
+    pAPNS,
+    pBaidu,
+    pDefault,
+    pDefaultSubstitutions,
+    pGCM,
+    pRecommenderId,
+    pTemplateDescription,
+    pTags,
+
+    -- * WriteCampaignRequest
+    WriteCampaignRequest (..),
+    mkWriteCampaignRequest,
+    wcrAdditionalTreatments,
+    wcrCustomDeliveryConfiguration,
+    wcrDescription,
+    wcrHoldoutPercent,
+    wcrHook,
+    wcrIsPaused,
+    wcrLimits,
+    wcrMessageConfiguration,
+    wcrName,
+    wcrSchedule,
+    wcrSegmentId,
+    wcrSegmentVersion,
+    wcrTemplateConfiguration,
+    wcrTreatmentDescription,
+    wcrTreatmentName,
+    wcrTags,
+
+    -- * SimpleEmail
+    SimpleEmail (..),
+    mkSimpleEmail,
+    seHtmlPart,
+    seSubject,
+    seTextPart,
+
+    -- * EndpointBatchItem
+    EndpointBatchItem (..),
+    mkEndpointBatchItem,
+    ebiAddress,
+    ebiAttributes,
+    ebiChannelType,
+    ebiDemographic,
+    ebiEffectiveDate,
+    ebiEndpointStatus,
+    ebiId,
+    ebiLocation,
+    ebiMetrics,
+    ebiOptOut,
+    ebiRequestId,
+    ebiUser,
+
+    -- * CustomMessageActivity
+    CustomMessageActivity (..),
+    mkCustomMessageActivity,
+    cmaDeliveryUri,
+    cmaEndpointTypes,
+    cmaMessageConfig,
+    cmaNextActivity,
+    cmaTemplateName,
+    cmaTemplateVersion,
+
+    -- * GPSCoordinates
+    GPSCoordinates (..),
+    mkGPSCoordinates,
+    gpscLatitude,
+    gpscLongitude,
+
+    -- * JourneyPushMessage
+    JourneyPushMessage (..),
+    mkJourneyPushMessage,
+    jpmTimeToLive,
+
+    -- * RecencyType
+    RecencyType (..),
+
+    -- * ApplicationSettingsResource
+    ApplicationSettingsResource (..),
+    mkApplicationSettingsResource,
+    asrApplicationId,
+    asrCampaignHook,
+    asrLastModifiedDate,
+    asrLimits,
+    asrQuietTime,
+
+    -- * RecencyDimension
+    RecencyDimension (..),
+    mkRecencyDimension,
+    rdDuration,
+    rdRecencyType,
+
+    -- * WriteEventStream
+    WriteEventStream (..),
+    mkWriteEventStream,
+    wesRoleArn,
+    wesDestinationStreamArn,
+
+    -- * SegmentDemographics
+    SegmentDemographics (..),
+    mkSegmentDemographics,
+    sdAppVersion,
+    sdChannel,
+    sdDeviceType,
+    sdMake,
+    sdModel,
+    sdPlatform,
+
+    -- * VoiceTemplateResponse
+    VoiceTemplateResponse (..),
+    mkVoiceTemplateResponse,
+    vLastModifiedDate,
+    vCreationDate,
+    vTemplateName,
+    vTemplateType,
+    vArn,
+    vBody,
+    vDefaultSubstitutions,
+    vLanguageCode,
+    vTemplateDescription,
+    vVersion,
+    vVoiceId,
+    vTags,
+
+    -- * CampaignHook
+    CampaignHook (..),
+    mkCampaignHook,
+    chLambdaFunctionName,
+    chMode,
+    chWebUrl,
+
+    -- * VoiceMessage
+    VoiceMessage (..),
+    mkVoiceMessage,
+    vmBody,
+    vmLanguageCode,
+    vmOriginationNumber,
+    vmSubstitutions,
+    vmVoiceId,
+
+    -- * Activity
+    Activity (..),
+    mkActivity,
+    aCUSTOM,
+    aConditionalSplit,
+    aDescription,
+    aEMAIL,
+    aHoldout,
+    aMultiCondition,
+    aPUSH,
+    aRandomSplit,
+    aSMS,
+    aWait,
+
+    -- * SimpleEmailPart
+    SimpleEmailPart (..),
+    mkSimpleEmailPart,
+    sepCharset,
+    sepData,
+
+    -- * CampaignResponse
+    CampaignResponse (..),
+    mkCampaignResponse,
+    crLastModifiedDate,
+    crCreationDate,
+    crSegmentId,
+    crSegmentVersion,
+    crId,
+    crArn,
+    crApplicationId,
+    crAdditionalTreatments,
+    crCustomDeliveryConfiguration,
+    crDefaultState,
+    crDescription,
+    crHoldoutPercent,
+    crHook,
+    crIsPaused,
+    crLimits,
+    crMessageConfiguration,
+    crName,
+    crSchedule,
+    crState,
+    crTemplateConfiguration,
+    crTreatmentDescription,
+    crTreatmentName,
+    crVersion,
+    crTags,
+
+    -- * MessageResponse
+    MessageResponse (..),
+    mkMessageResponse,
+    mrApplicationId,
+    mrEndpointResult,
+    mrRequestId,
+    mrResult,
+
+    -- * MultiConditionalSplitActivity
+    MultiConditionalSplitActivity (..),
+    mkMultiConditionalSplitActivity,
+    mcsaBranches,
+    mcsaDefaultActivity,
+    mcsaEvaluationWaitTime,
+
+    -- * EndpointResponse
+    EndpointResponse (..),
+    mkEndpointResponse,
+    erAddress,
+    erApplicationId,
+    erAttributes,
+    erChannelType,
+    erCohortId,
+    erCreationDate,
+    erDemographic,
+    erEffectiveDate,
+    erEndpointStatus,
+    erId,
+    erLocation,
+    erMetrics,
+    erOptOut,
+    erRequestId,
+    erUser,
+
+    -- * ResultRowValue
+    ResultRowValue (..),
+    mkResultRowValue,
+    rrvType,
+    rrvValue,
+    rrvKey,
+
+    -- * Type
+    Type (..),
+
+    -- * DefaultPushNotificationTemplate
+    DefaultPushNotificationTemplate (..),
+    mkDefaultPushNotificationTemplate,
+    dpntAction,
+    dpntBody,
+    dpntSound,
+    dpntTitle,
+    dpntUrl,
+
+    -- * ADMChannelResponse
+    ADMChannelResponse (..),
+    mkADMChannelResponse,
+    admcrPlatform,
+    admcrApplicationId,
+    admcrCreationDate,
+    admcrEnabled,
+    admcrHasCredential,
+    admcrId,
+    admcrIsArchived,
+    admcrLastModifiedBy,
+    admcrLastModifiedDate,
+    admcrVersion,
+
+    -- * Template
+    Template (..),
+    mkTemplate,
+    tName,
+    tVersion,
+
+    -- * JourneysResponse
+    JourneysResponse (..),
+    mkJourneysResponse,
+    jrItem,
+    jrNextToken,
+
+    -- * SegmentResponse
+    SegmentResponse (..),
+    mkSegmentResponse,
+    srSegmentType,
+    srCreationDate,
+    srId,
+    srArn,
+    srApplicationId,
+    srDimensions,
+    srImportDefinition,
+    srLastModifiedDate,
+    srName,
+    srSegmentGroups,
+    srVersion,
+    srTags,
+
+    -- * BaiduMessage
+    BaiduMessage (..),
+    mkBaiduMessage,
+    bmAction,
+    bmBody,
+    bmData,
+    bmIconReference,
+    bmImageIconUrl,
+    bmImageUrl,
+    bmRawContent,
+    bmSilentPush,
+    bmSmallImageIconUrl,
+    bmSound,
+    bmSubstitutions,
+    bmTimeToLive,
+    bmTitle,
+    bmUrl,
+
+    -- * RecommenderConfigurationResponse
+    RecommenderConfigurationResponse (..),
+    mkRecommenderConfigurationResponse,
+    rcrRecommendationProviderUri,
+    rcrLastModifiedDate,
+    rcrCreationDate,
+    rcrRecommendationProviderRoleArn,
+    rcrId,
+    rcrAttributes,
+    rcrDescription,
+    rcrName,
+    rcrRecommendationProviderIdType,
+    rcrRecommendationTransformerUri,
+    rcrRecommendationsDisplayName,
+    rcrRecommendationsPerMessage,
+
+    -- * DimensionType
+    DimensionType (..),
+
+    -- * SegmentCondition
+    SegmentCondition (..),
+    mkSegmentCondition,
+    scSegmentId,
+
+    -- * PushNotificationTemplateResponse
+    PushNotificationTemplateResponse (..),
+    mkPushNotificationTemplateResponse,
+    pntrLastModifiedDate,
+    pntrCreationDate,
+    pntrTemplateType,
+    pntrTemplateName,
+    pntrADM,
+    pntrAPNS,
+    pntrArn,
+    pntrBaidu,
+    pntrDefault,
+    pntrDefaultSubstitutions,
+    pntrGCM,
+    pntrRecommenderId,
+    pntrTemplateDescription,
+    pntrVersion,
+    pntrTags,
+
+    -- * ExportJobResponse
+    ExportJobResponse (..),
+    mkExportJobResponse,
+    ejrJobStatus,
+    ejrCreationDate,
+    ejrType,
+    ejrDefinition,
+    ejrId,
+    ejrApplicationId,
+    ejrCompletedPieces,
+    ejrCompletionDate,
+    ejrFailedPieces,
+    ejrFailures,
+    ejrTotalFailures,
+    ejrTotalPieces,
+    ejrTotalProcessed,
+
+    -- * JobStatus
+    JobStatus (..),
+
+    -- * SegmentsResponse
+    SegmentsResponse (..),
+    mkSegmentsResponse,
+    srItem,
+    srNextToken,
+
+    -- * Condition
+    Condition (..),
+    mkCondition,
+    cConditions,
+    cOperator,
+
+    -- * WriteTreatmentResource
+    WriteTreatmentResource (..),
+    mkWriteTreatmentResource,
+    wtrSizePercent,
+    wtrCustomDeliveryConfiguration,
+    wtrMessageConfiguration,
+    wtrSchedule,
+    wtrTemplateConfiguration,
+    wtrTreatmentDescription,
+    wtrTreatmentName,
+
+    -- * EndpointsResponse
+    EndpointsResponse (..),
+    mkEndpointsResponse,
+    erItem,
+
+    -- * APNSSandboxChannelRequest
+    APNSSandboxChannelRequest (..),
+    mkAPNSSandboxChannelRequest,
+    apnsscrfBundleId,
+    apnsscrfCertificate,
+    apnsscrfDefaultAuthenticationMethod,
+    apnsscrfEnabled,
+    apnsscrfPrivateKey,
+    apnsscrfTeamId,
+    apnsscrfTokenKey,
+    apnsscrfTokenKeyId,
+
+    -- * Message
+    Message (..),
+    mkMessage,
+    mAction,
+    mBody,
+    mImageIconUrl,
+    mImageSmallIconUrl,
+    mImageUrl,
+    mJsonBody,
+    mMediaUrl,
+    mRawContent,
+    mSilentPush,
+    mTimeToLive,
+    mTitle,
+    mUrl,
+
+    -- * DefaultPushNotificationMessage
+    DefaultPushNotificationMessage (..),
+    mkDefaultPushNotificationMessage,
+    dpnmAction,
+    dpnmBody,
+    dpnmData,
+    dpnmSilentPush,
+    dpnmSubstitutions,
+    dpnmTitle,
+    dpnmUrl,
+
+    -- * StartCondition
+    StartCondition (..),
+    mkStartCondition,
+    scDescription,
+    scEventStartCondition,
+    scSegmentStartCondition,
+
+    -- * TemplateResponse
+    TemplateResponse (..),
+    mkTemplateResponse,
+    trLastModifiedDate,
+    trCreationDate,
+    trTemplateName,
+    trTemplateType,
+    trArn,
+    trDefaultSubstitutions,
+    trTemplateDescription,
+    trVersion,
+    trTags,
+
+    -- * JourneyExecutionActivityMetricsResponse
+    JourneyExecutionActivityMetricsResponse (..),
+    mkJourneyExecutionActivityMetricsResponse,
+    jeamrMetrics,
+    jeamrJourneyId,
+    jeamrLastEvaluatedTime,
+    jeamrJourneyActivityId,
+    jeamrActivityType,
+    jeamrApplicationId,
+
+    -- * ExportJobsResponse
+    ExportJobsResponse (..),
+    mkExportJobsResponse,
+    ejrItem,
+    ejrNextToken,
+
+    -- * ChannelType
+    ChannelType (..),
+
+    -- * MessageConfiguration
+    MessageConfiguration (..),
+    mkMessageConfiguration,
+    mcADMMessage,
+    mcAPNSMessage,
+    mcBaiduMessage,
+    mcCustomMessage,
+    mcDefaultMessage,
+    mcEmailMessage,
+    mcGCMMessage,
+    mcSMSMessage,
+
+    -- * MessageBody
+    MessageBody (..),
+    mkMessageBody,
+    mbMessage,
+    mbRequestID,
+
+    -- * TreatmentResource
+    TreatmentResource (..),
+    mkTreatmentResource,
+    trId,
+    trSizePercent,
+    trCustomDeliveryConfiguration,
+    trMessageConfiguration,
+    trSchedule,
+    trState,
+    trTemplateConfiguration,
+    trTreatmentDescription,
+    trTreatmentName,
+
+    -- * CampaignsResponse
+    CampaignsResponse (..),
+    mkCampaignsResponse,
+    crItem,
+    crNextToken,
+
+    -- * VoiceChannelResponse
+    VoiceChannelResponse (..),
+    mkVoiceChannelResponse,
+    vcrfPlatform,
+    vcrfApplicationId,
+    vcrfCreationDate,
+    vcrfEnabled,
+    vcrfHasCredential,
+    vcrfId,
+    vcrfIsArchived,
+    vcrfLastModifiedBy,
+    vcrfLastModifiedDate,
+    vcrfVersion,
+
+    -- * EndpointDemographic
+    EndpointDemographic (..),
+    mkEndpointDemographic,
+    edAppVersion,
+    edLocale,
+    edMake,
+    edModel,
+    edModelVersion,
+    edPlatform,
+    edPlatformVersion,
+    edTimezone,
+
+    -- * JourneyStateRequest
+    JourneyStateRequest (..),
+    mkJourneyStateRequest,
+    jsrState,
+
+    -- * SegmentGroupList
+    SegmentGroupList (..),
+    mkSegmentGroupList,
+    sglGroups,
+    sglInclude,
+
+    -- * SMSTemplateResponse
+    SMSTemplateResponse (..),
+    mkSMSTemplateResponse,
+    smstrfLastModifiedDate,
+    smstrfCreationDate,
+    smstrfTemplateName,
+    smstrfTemplateType,
+    smstrfArn,
+    smstrfBody,
+    smstrfDefaultSubstitutions,
+    smstrfRecommenderId,
+    smstrfTemplateDescription,
+    smstrfVersion,
+    smstrfTags,
+
+    -- * APNSVoipChannelRequest
+    APNSVoipChannelRequest (..),
+    mkAPNSVoipChannelRequest,
+    apnsvcrfBundleId,
+    apnsvcrfCertificate,
+    apnsvcrfDefaultAuthenticationMethod,
+    apnsvcrfEnabled,
+    apnsvcrfPrivateKey,
+    apnsvcrfTeamId,
+    apnsvcrfTokenKey,
+    apnsvcrfTokenKeyId,
+
+    -- * EmailChannelRequest
+    EmailChannelRequest (..),
+    mkEmailChannelRequest,
+    ecrfFromAddress,
+    ecrfIdentity,
+    ecrfConfigurationSet,
+    ecrfEnabled,
+    ecrfRoleArn,
+
+    -- * Session
+    Session (..),
+    mkSession,
+    sfStartTimestamp,
+    sfId,
+    sfDuration,
+    sfStopTimestamp,
+
     -- * WaitTime
     WaitTime (..),
     mkWaitTime,
     wtWaitFor,
     wtWaitUntil,
 
-    -- * WriteApplicationSettingsRequest
-    WriteApplicationSettingsRequest (..),
-    mkWriteApplicationSettingsRequest,
-    wasrEventTaggingEnabled,
-    wasrCloudWatchMetricsEnabled,
-    wasrLimits,
-    wasrQuietTime,
-    wasrCampaignHook,
+    -- * Duration
+    Duration (..),
 
-    -- * WriteCampaignRequest
-    WriteCampaignRequest (..),
-    mkWriteCampaignRequest,
-    wcrCustomDeliveryConfiguration,
-    wcrSchedule,
-    wcrTemplateConfiguration,
-    wcrHook,
-    wcrTreatmentName,
-    wcrLimits,
-    wcrIsPaused,
-    wcrName,
-    wcrHoldoutPercent,
-    wcrTreatmentDescription,
-    wcrMessageConfiguration,
-    wcrDescription,
-    wcrSegmentId,
-    wcrAdditionalTreatments,
-    wcrTags,
-    wcrSegmentVersion,
+    -- * AddressConfiguration
+    AddressConfiguration (..),
+    mkAddressConfiguration,
+    acBodyOverride,
+    acChannelType,
+    acContext,
+    acRawContent,
+    acSubstitutions,
+    acTitleOverride,
 
-    -- * WriteEventStream
-    WriteEventStream (..),
-    mkWriteEventStream,
-    wesDestinationStreamARN,
-    wesRoleARN,
+    -- * EndpointBatchRequest
+    EndpointBatchRequest (..),
+    mkEndpointBatchRequest,
+    ebrItem,
 
-    -- * WriteJourneyRequest
-    WriteJourneyRequest (..),
-    mkWriteJourneyRequest,
-    wjrState,
-    wjrLastModifiedDate,
-    wjrSchedule,
-    wjrLocalTime,
-    wjrActivities,
-    wjrLimits,
-    wjrQuietTime,
-    wjrName,
-    wjrStartActivity,
-    wjrCreationDate,
-    wjrStartCondition,
-    wjrRefreshFrequency,
+    -- * SendUsersMessageResponse
+    SendUsersMessageResponse (..),
+    mkSendUsersMessageResponse,
+    sumrApplicationId,
+    sumrRequestId,
+    sumrResult,
 
-    -- * WriteSegmentRequest
-    WriteSegmentRequest (..),
-    mkWriteSegmentRequest,
-    wsrSegmentGroups,
-    wsrName,
-    wsrDimensions,
-    wsrTags,
+    -- * BaseKpiResult
+    BaseKpiResult (..),
+    mkBaseKpiResult,
+    bkrRows,
 
-    -- * WriteTreatmentResource
-    WriteTreatmentResource (..),
-    mkWriteTreatmentResource,
-    wtrCustomDeliveryConfiguration,
-    wtrSchedule,
-    wtrTemplateConfiguration,
-    wtrTreatmentName,
-    wtrSizePercent,
-    wtrTreatmentDescription,
-    wtrMessageConfiguration,
+    -- * DirectMessageConfiguration
+    DirectMessageConfiguration (..),
+    mkDirectMessageConfiguration,
+    dmcADMMessage,
+    dmcAPNSMessage,
+    dmcBaiduMessage,
+    dmcDefaultMessage,
+    dmcDefaultPushNotificationMessage,
+    dmcEmailMessage,
+    dmcGCMMessage,
+    dmcSMSMessage,
+    dmcVoiceMessage,
+
+    -- * BaiduChannelRequest
+    BaiduChannelRequest (..),
+    mkBaiduChannelRequest,
+    bSecretKey,
+    bApiKey,
+    bEnabled,
+
+    -- * GCMChannelResponse
+    GCMChannelResponse (..),
+    mkGCMChannelResponse,
+    gcmcrCredential,
+    gcmcrPlatform,
+    gcmcrApplicationId,
+    gcmcrCreationDate,
+    gcmcrEnabled,
+    gcmcrHasCredential,
+    gcmcrId,
+    gcmcrIsArchived,
+    gcmcrLastModifiedBy,
+    gcmcrLastModifiedDate,
+    gcmcrVersion,
+
+    -- * EndpointMessageResult
+    EndpointMessageResult (..),
+    mkEndpointMessageResult,
+    emrDeliveryStatus,
+    emrStatusCode,
+    emrAddress,
+    emrMessageId,
+    emrStatusMessage,
+    emrUpdatedToken,
+
+    -- * ImportJobResponse
+    ImportJobResponse (..),
+    mkImportJobResponse,
+    ijrJobStatus,
+    ijrCreationDate,
+    ijrType,
+    ijrDefinition,
+    ijrId,
+    ijrApplicationId,
+    ijrCompletedPieces,
+    ijrCompletionDate,
+    ijrFailedPieces,
+    ijrFailures,
+    ijrTotalFailures,
+    ijrTotalPieces,
+    ijrTotalProcessed,
+
+    -- * APNSVoipSandboxChannelResponse
+    APNSVoipSandboxChannelResponse (..),
+    mkAPNSVoipSandboxChannelResponse,
+    apnsvscrPlatform,
+    apnsvscrApplicationId,
+    apnsvscrCreationDate,
+    apnsvscrDefaultAuthenticationMethod,
+    apnsvscrEnabled,
+    apnsvscrHasCredential,
+    apnsvscrHasTokenKey,
+    apnsvscrId,
+    apnsvscrIsArchived,
+    apnsvscrLastModifiedBy,
+    apnsvscrLastModifiedDate,
+    apnsvscrVersion,
+
+    -- * ConditionalSplitActivity
+    ConditionalSplitActivity (..),
+    mkConditionalSplitActivity,
+    csaCondition,
+    csaEvaluationWaitTime,
+    csaFalseActivity,
+    csaTrueActivity,
+
+    -- * ListRecommenderConfigurationsResponse
+    ListRecommenderConfigurationsResponse (..),
+    mkListRecommenderConfigurationsResponse,
+    lrcrItem,
+    lrcrNextToken,
+
+    -- * CampaignState
+    CampaignState (..),
+    mkCampaignState,
+    csCampaignStatus,
   )
 where
 
@@ -1976,59 +1984,123 @@ import Network.AWS.Pinpoint.Types.WriteEventStream
 import Network.AWS.Pinpoint.Types.WriteJourneyRequest
 import Network.AWS.Pinpoint.Types.WriteSegmentRequest
 import Network.AWS.Pinpoint.Types.WriteTreatmentResource
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2016-12-01@ of the Amazon Pinpoint SDK configuration.
-pinpointService :: Lude.Service
-pinpointService =
-  Lude.Service
-    { Lude._svcAbbrev = "Pinpoint",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "pinpoint",
-      Lude._svcVersion = "2016-12-01",
-      Lude._svcEndpoint = Lude.defaultEndpoint pinpointService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "Pinpoint",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "Pinpoint",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "pinpoint",
+      Core._svcVersion = "2016-12-01",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "Pinpoint",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | Provides information about an API request or response.
+_PayloadTooLargeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PayloadTooLargeException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "PayloadTooLargeException"
+    Core.. Core.hasStatues 413
+{-# DEPRECATED _PayloadTooLargeException "Use generic-lens or generic-optics instead." #-}
+
+-- | Provides information about an API request or response.
+_ConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError mkServiceConfig "ConflictException"
+    Core.. Core.hasStatues 409
+{-# DEPRECATED _ConflictException "Use generic-lens or generic-optics instead." #-}
+
+-- | Provides information about an API request or response.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError mkServiceConfig "ForbiddenException"
+    Core.. Core.hasStatues 403
+{-# DEPRECATED _ForbiddenException "Use generic-lens or generic-optics instead." #-}
+
+-- | Provides information about an API request or response.
+_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError mkServiceConfig "NotFoundException"
+    Core.. Core.hasStatues 404
+{-# DEPRECATED _NotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | Provides information about an API request or response.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "TooManyRequestsException"
+    Core.. Core.hasStatues 429
+{-# DEPRECATED _TooManyRequestsException "Use generic-lens or generic-optics instead." #-}
+
+-- | Provides information about an API request or response.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InternalServerErrorException"
+    Core.. Core.hasStatues 500
+{-# DEPRECATED _InternalServerErrorException "Use generic-lens or generic-optics instead." #-}
+
+-- | Provides information about an API request or response.
+_MethodNotAllowedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_MethodNotAllowedException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "MethodNotAllowedException"
+    Core.. Core.hasStatues 405
+{-# DEPRECATED _MethodNotAllowedException "Use generic-lens or generic-optics instead." #-}
+
+-- | Provides information about an API request or response.
+_BadRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError mkServiceConfig "BadRequestException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _BadRequestException "Use generic-lens or generic-optics instead." #-}

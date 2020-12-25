@@ -13,66 +13,71 @@
 module Network.AWS.AppSync.Types.DataSourceType
   ( DataSourceType
       ( DataSourceType',
-        DSTAWSLambda,
-        DSTAmazonDynamodb,
-        DSTAmazonElasticsearch,
-        DSTNone,
-        DSTHTTP,
-        DSTRelationalDatabase
+        DataSourceTypeAwsLambda,
+        DataSourceTypeAmazonDynamodb,
+        DataSourceTypeAmazonElasticsearch,
+        DataSourceTypeNone,
+        DataSourceTypeHttp,
+        DataSourceTypeRelationalDatabase,
+        fromDataSourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DataSourceType = DataSourceType' Lude.Text
+newtype DataSourceType = DataSourceType'
+  { fromDataSourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSTAWSLambda :: DataSourceType
-pattern DSTAWSLambda = DataSourceType' "AWS_LAMBDA"
+pattern DataSourceTypeAwsLambda :: DataSourceType
+pattern DataSourceTypeAwsLambda = DataSourceType' "AWS_LAMBDA"
 
-pattern DSTAmazonDynamodb :: DataSourceType
-pattern DSTAmazonDynamodb = DataSourceType' "AMAZON_DYNAMODB"
+pattern DataSourceTypeAmazonDynamodb :: DataSourceType
+pattern DataSourceTypeAmazonDynamodb = DataSourceType' "AMAZON_DYNAMODB"
 
-pattern DSTAmazonElasticsearch :: DataSourceType
-pattern DSTAmazonElasticsearch = DataSourceType' "AMAZON_ELASTICSEARCH"
+pattern DataSourceTypeAmazonElasticsearch :: DataSourceType
+pattern DataSourceTypeAmazonElasticsearch = DataSourceType' "AMAZON_ELASTICSEARCH"
 
-pattern DSTNone :: DataSourceType
-pattern DSTNone = DataSourceType' "NONE"
+pattern DataSourceTypeNone :: DataSourceType
+pattern DataSourceTypeNone = DataSourceType' "NONE"
 
-pattern DSTHTTP :: DataSourceType
-pattern DSTHTTP = DataSourceType' "HTTP"
+pattern DataSourceTypeHttp :: DataSourceType
+pattern DataSourceTypeHttp = DataSourceType' "HTTP"
 
-pattern DSTRelationalDatabase :: DataSourceType
-pattern DSTRelationalDatabase = DataSourceType' "RELATIONAL_DATABASE"
+pattern DataSourceTypeRelationalDatabase :: DataSourceType
+pattern DataSourceTypeRelationalDatabase = DataSourceType' "RELATIONAL_DATABASE"
 
 {-# COMPLETE
-  DSTAWSLambda,
-  DSTAmazonDynamodb,
-  DSTAmazonElasticsearch,
-  DSTNone,
-  DSTHTTP,
-  DSTRelationalDatabase,
+  DataSourceTypeAwsLambda,
+  DataSourceTypeAmazonDynamodb,
+  DataSourceTypeAmazonElasticsearch,
+  DataSourceTypeNone,
+  DataSourceTypeHttp,
+  DataSourceTypeRelationalDatabase,
   DataSourceType'
   #-}

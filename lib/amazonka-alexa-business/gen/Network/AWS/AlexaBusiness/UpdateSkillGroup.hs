@@ -20,8 +20,8 @@ module Network.AWS.AlexaBusiness.UpdateSkillGroup
     mkUpdateSkillGroup,
 
     -- ** Request lenses
-    usgSkillGroupARN,
     usgDescription,
+    usgSkillGroupArn,
     usgSkillGroupName,
 
     -- * Destructuring the response
@@ -29,120 +29,107 @@ module Network.AWS.AlexaBusiness.UpdateSkillGroup
     mkUpdateSkillGroupResponse,
 
     -- ** Response lenses
-    usgrsResponseStatus,
+    usgrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateSkillGroup' smart constructor.
 data UpdateSkillGroup = UpdateSkillGroup'
-  { -- | The ARN of the skill group to update.
-    skillGroupARN :: Lude.Maybe Lude.Text,
-    -- | The updated description for the skill group.
-    description :: Lude.Maybe Lude.Text,
+  { -- | The updated description for the skill group.
+    description :: Core.Maybe Types.SkillGroupDescription,
+    -- | The ARN of the skill group to update.
+    skillGroupArn :: Core.Maybe Types.Arn,
     -- | The updated name for the skill group.
-    skillGroupName :: Lude.Maybe Lude.Text
+    skillGroupName :: Core.Maybe Types.SkillGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSkillGroup' with the minimum fields required to make a request.
---
--- * 'skillGroupARN' - The ARN of the skill group to update.
--- * 'description' - The updated description for the skill group.
--- * 'skillGroupName' - The updated name for the skill group.
+-- | Creates a 'UpdateSkillGroup' value with any optional fields omitted.
 mkUpdateSkillGroup ::
   UpdateSkillGroup
 mkUpdateSkillGroup =
   UpdateSkillGroup'
-    { skillGroupARN = Lude.Nothing,
-      description = Lude.Nothing,
-      skillGroupName = Lude.Nothing
+    { description = Core.Nothing,
+      skillGroupArn = Core.Nothing,
+      skillGroupName = Core.Nothing
     }
-
--- | The ARN of the skill group to update.
---
--- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usgSkillGroupARN :: Lens.Lens' UpdateSkillGroup (Lude.Maybe Lude.Text)
-usgSkillGroupARN = Lens.lens (skillGroupARN :: UpdateSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: UpdateSkillGroup)
-{-# DEPRECATED usgSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
 
 -- | The updated description for the skill group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usgDescription :: Lens.Lens' UpdateSkillGroup (Lude.Maybe Lude.Text)
-usgDescription = Lens.lens (description :: UpdateSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateSkillGroup)
+usgDescription :: Lens.Lens' UpdateSkillGroup (Core.Maybe Types.SkillGroupDescription)
+usgDescription = Lens.field @"description"
 {-# DEPRECATED usgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The ARN of the skill group to update.
+--
+-- /Note:/ Consider using 'skillGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usgSkillGroupArn :: Lens.Lens' UpdateSkillGroup (Core.Maybe Types.Arn)
+usgSkillGroupArn = Lens.field @"skillGroupArn"
+{-# DEPRECATED usgSkillGroupArn "Use generic-lens or generic-optics with 'skillGroupArn' instead." #-}
 
 -- | The updated name for the skill group.
 --
 -- /Note:/ Consider using 'skillGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usgSkillGroupName :: Lens.Lens' UpdateSkillGroup (Lude.Maybe Lude.Text)
-usgSkillGroupName = Lens.lens (skillGroupName :: UpdateSkillGroup -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupName = a} :: UpdateSkillGroup)
+usgSkillGroupName :: Lens.Lens' UpdateSkillGroup (Core.Maybe Types.SkillGroupName)
+usgSkillGroupName = Lens.field @"skillGroupName"
 {-# DEPRECATED usgSkillGroupName "Use generic-lens or generic-optics with 'skillGroupName' instead." #-}
 
-instance Lude.AWSRequest UpdateSkillGroup where
+instance Core.FromJSON UpdateSkillGroup where
+  toJSON UpdateSkillGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Description" Core..=) Core.<$> description,
+            ("SkillGroupArn" Core..=) Core.<$> skillGroupArn,
+            ("SkillGroupName" Core..=) Core.<$> skillGroupName
+          ]
+      )
+
+instance Core.AWSRequest UpdateSkillGroup where
   type Rs UpdateSkillGroup = UpdateSkillGroupResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.UpdateSkillGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateSkillGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateSkillGroupResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateSkillGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.UpdateSkillGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateSkillGroup where
-  toJSON UpdateSkillGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SkillGroupArn" Lude..=) Lude.<$> skillGroupARN,
-            ("Description" Lude..=) Lude.<$> description,
-            ("SkillGroupName" Lude..=) Lude.<$> skillGroupName
-          ]
-      )
-
-instance Lude.ToPath UpdateSkillGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateSkillGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateSkillGroupResponse' smart constructor.
 newtype UpdateSkillGroupResponse = UpdateSkillGroupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSkillGroupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateSkillGroupResponse' value with any optional fields omitted.
 mkUpdateSkillGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateSkillGroupResponse
-mkUpdateSkillGroupResponse pResponseStatus_ =
-  UpdateSkillGroupResponse' {responseStatus = pResponseStatus_}
+mkUpdateSkillGroupResponse responseStatus =
+  UpdateSkillGroupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usgrsResponseStatus :: Lens.Lens' UpdateSkillGroupResponse Lude.Int
-usgrsResponseStatus = Lens.lens (responseStatus :: UpdateSkillGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSkillGroupResponse)
-{-# DEPRECATED usgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usgrrsResponseStatus :: Lens.Lens' UpdateSkillGroupResponse Core.Int
+usgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

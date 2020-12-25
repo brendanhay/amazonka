@@ -21,37 +21,36 @@ module Network.AWS.DynamoDB.Types.DeleteReplicationGroupMemberAction
   )
 where
 
+import qualified Network.AWS.DynamoDB.Types.RegionName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a replica to be deleted.
 --
 -- /See:/ 'mkDeleteReplicationGroupMemberAction' smart constructor.
 newtype DeleteReplicationGroupMemberAction = DeleteReplicationGroupMemberAction'
   { -- | The Region where the replica exists.
-    regionName :: Lude.Text
+    regionName :: Types.RegionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteReplicationGroupMemberAction' with the minimum fields required to make a request.
---
--- * 'regionName' - The Region where the replica exists.
+-- | Creates a 'DeleteReplicationGroupMemberAction' value with any optional fields omitted.
 mkDeleteReplicationGroupMemberAction ::
   -- | 'regionName'
-  Lude.Text ->
+  Types.RegionName ->
   DeleteReplicationGroupMemberAction
-mkDeleteReplicationGroupMemberAction pRegionName_ =
-  DeleteReplicationGroupMemberAction' {regionName = pRegionName_}
+mkDeleteReplicationGroupMemberAction regionName =
+  DeleteReplicationGroupMemberAction' {regionName}
 
 -- | The Region where the replica exists.
 --
 -- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drgmaRegionName :: Lens.Lens' DeleteReplicationGroupMemberAction Lude.Text
-drgmaRegionName = Lens.lens (regionName :: DeleteReplicationGroupMemberAction -> Lude.Text) (\s a -> s {regionName = a} :: DeleteReplicationGroupMemberAction)
+drgmaRegionName :: Lens.Lens' DeleteReplicationGroupMemberAction Types.RegionName
+drgmaRegionName = Lens.field @"regionName"
 {-# DEPRECATED drgmaRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
-instance Lude.ToJSON DeleteReplicationGroupMemberAction where
-  toJSON DeleteReplicationGroupMemberAction' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("RegionName" Lude..= regionName)])
+instance Core.FromJSON DeleteReplicationGroupMemberAction where
+  toJSON DeleteReplicationGroupMemberAction {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("RegionName" Core..= regionName)])

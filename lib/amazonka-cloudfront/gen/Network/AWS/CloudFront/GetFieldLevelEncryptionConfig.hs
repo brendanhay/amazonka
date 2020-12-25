@@ -27,113 +27,108 @@ module Network.AWS.CloudFront.GetFieldLevelEncryptionConfig
     mkGetFieldLevelEncryptionConfigResponse,
 
     -- ** Response lenses
-    gflecrsETag,
-    gflecrsFieldLevelEncryptionConfig,
-    gflecrsResponseStatus,
+    gflecrrsETag,
+    gflecrrsFieldLevelEncryptionConfig,
+    gflecrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetFieldLevelEncryptionConfig' smart constructor.
 newtype GetFieldLevelEncryptionConfig = GetFieldLevelEncryptionConfig'
   { -- | Request the ID for the field-level encryption configuration information.
-    id :: Lude.Text
+    id :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFieldLevelEncryptionConfig' with the minimum fields required to make a request.
---
--- * 'id' - Request the ID for the field-level encryption configuration information.
+-- | Creates a 'GetFieldLevelEncryptionConfig' value with any optional fields omitted.
 mkGetFieldLevelEncryptionConfig ::
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   GetFieldLevelEncryptionConfig
-mkGetFieldLevelEncryptionConfig pId_ =
-  GetFieldLevelEncryptionConfig' {id = pId_}
+mkGetFieldLevelEncryptionConfig id =
+  GetFieldLevelEncryptionConfig' {id}
 
 -- | Request the ID for the field-level encryption configuration information.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gflecId :: Lens.Lens' GetFieldLevelEncryptionConfig Lude.Text
-gflecId = Lens.lens (id :: GetFieldLevelEncryptionConfig -> Lude.Text) (\s a -> s {id = a} :: GetFieldLevelEncryptionConfig)
+gflecId :: Lens.Lens' GetFieldLevelEncryptionConfig Types.String
+gflecId = Lens.field @"id"
 {-# DEPRECATED gflecId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest GetFieldLevelEncryptionConfig where
+instance Core.AWSRequest GetFieldLevelEncryptionConfig where
   type
     Rs GetFieldLevelEncryptionConfig =
       GetFieldLevelEncryptionConfigResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-05-31/field-level-encryption/" Core.<> (Core.toText id)
+                Core.<> ("/config")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetFieldLevelEncryptionConfigResponse'
-            Lude.<$> (h Lude..#? "ETag")
-            Lude.<*> (Lude.parseXML x)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetFieldLevelEncryptionConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetFieldLevelEncryptionConfig where
-  toPath GetFieldLevelEncryptionConfig' {..} =
-    Lude.mconcat
-      ["/2020-05-31/field-level-encryption/", Lude.toBS id, "/config"]
-
-instance Lude.ToQuery GetFieldLevelEncryptionConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetFieldLevelEncryptionConfigResponse' smart constructor.
 data GetFieldLevelEncryptionConfigResponse = GetFieldLevelEncryptionConfigResponse'
   { -- | The current version of the field level encryption configuration. For example: @E2QWRUHAPOMQZL@ .
-    eTag :: Lude.Maybe Lude.Text,
+    eTag :: Core.Maybe Types.String,
     -- | Return the field-level encryption configuration information.
-    fieldLevelEncryptionConfig :: Lude.Maybe FieldLevelEncryptionConfig,
+    fieldLevelEncryptionConfig :: Core.Maybe Types.FieldLevelEncryptionConfig,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFieldLevelEncryptionConfigResponse' with the minimum fields required to make a request.
---
--- * 'eTag' - The current version of the field level encryption configuration. For example: @E2QWRUHAPOMQZL@ .
--- * 'fieldLevelEncryptionConfig' - Return the field-level encryption configuration information.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetFieldLevelEncryptionConfigResponse' value with any optional fields omitted.
 mkGetFieldLevelEncryptionConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetFieldLevelEncryptionConfigResponse
-mkGetFieldLevelEncryptionConfigResponse pResponseStatus_ =
+mkGetFieldLevelEncryptionConfigResponse responseStatus =
   GetFieldLevelEncryptionConfigResponse'
-    { eTag = Lude.Nothing,
-      fieldLevelEncryptionConfig = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { eTag = Core.Nothing,
+      fieldLevelEncryptionConfig = Core.Nothing,
+      responseStatus
     }
 
 -- | The current version of the field level encryption configuration. For example: @E2QWRUHAPOMQZL@ .
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gflecrsETag :: Lens.Lens' GetFieldLevelEncryptionConfigResponse (Lude.Maybe Lude.Text)
-gflecrsETag = Lens.lens (eTag :: GetFieldLevelEncryptionConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: GetFieldLevelEncryptionConfigResponse)
-{-# DEPRECATED gflecrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+gflecrrsETag :: Lens.Lens' GetFieldLevelEncryptionConfigResponse (Core.Maybe Types.String)
+gflecrrsETag = Lens.field @"eTag"
+{-# DEPRECATED gflecrrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | Return the field-level encryption configuration information.
 --
 -- /Note:/ Consider using 'fieldLevelEncryptionConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gflecrsFieldLevelEncryptionConfig :: Lens.Lens' GetFieldLevelEncryptionConfigResponse (Lude.Maybe FieldLevelEncryptionConfig)
-gflecrsFieldLevelEncryptionConfig = Lens.lens (fieldLevelEncryptionConfig :: GetFieldLevelEncryptionConfigResponse -> Lude.Maybe FieldLevelEncryptionConfig) (\s a -> s {fieldLevelEncryptionConfig = a} :: GetFieldLevelEncryptionConfigResponse)
-{-# DEPRECATED gflecrsFieldLevelEncryptionConfig "Use generic-lens or generic-optics with 'fieldLevelEncryptionConfig' instead." #-}
+gflecrrsFieldLevelEncryptionConfig :: Lens.Lens' GetFieldLevelEncryptionConfigResponse (Core.Maybe Types.FieldLevelEncryptionConfig)
+gflecrrsFieldLevelEncryptionConfig = Lens.field @"fieldLevelEncryptionConfig"
+{-# DEPRECATED gflecrrsFieldLevelEncryptionConfig "Use generic-lens or generic-optics with 'fieldLevelEncryptionConfig' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gflecrsResponseStatus :: Lens.Lens' GetFieldLevelEncryptionConfigResponse Lude.Int
-gflecrsResponseStatus = Lens.lens (responseStatus :: GetFieldLevelEncryptionConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFieldLevelEncryptionConfigResponse)
-{-# DEPRECATED gflecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gflecrrsResponseStatus :: Lens.Lens' GetFieldLevelEncryptionConfigResponse Core.Int
+gflecrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gflecrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

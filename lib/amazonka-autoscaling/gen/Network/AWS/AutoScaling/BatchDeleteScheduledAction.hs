@@ -28,124 +28,121 @@ module Network.AWS.AutoScaling.BatchDeleteScheduledAction
     mkBatchDeleteScheduledActionResponse,
 
     -- ** Response lenses
-    bdsarsFailedScheduledActions,
-    bdsarsResponseStatus,
+    bdsarrsFailedScheduledActions,
+    bdsarrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchDeleteScheduledAction' smart constructor.
 data BatchDeleteScheduledAction = BatchDeleteScheduledAction'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text,
+    autoScalingGroupName :: Types.AutoScalingGroupName,
     -- | The names of the scheduled actions to delete. The maximum number allowed is 50.
-    scheduledActionNames :: [Lude.Text]
+    scheduledActionNames :: [Types.ResourceName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteScheduledAction' with the minimum fields required to make a request.
---
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'scheduledActionNames' - The names of the scheduled actions to delete. The maximum number allowed is 50.
+-- | Creates a 'BatchDeleteScheduledAction' value with any optional fields omitted.
 mkBatchDeleteScheduledAction ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.AutoScalingGroupName ->
   BatchDeleteScheduledAction
-mkBatchDeleteScheduledAction pAutoScalingGroupName_ =
+mkBatchDeleteScheduledAction autoScalingGroupName =
   BatchDeleteScheduledAction'
-    { autoScalingGroupName =
-        pAutoScalingGroupName_,
-      scheduledActionNames = Lude.mempty
+    { autoScalingGroupName,
+      scheduledActionNames = Core.mempty
     }
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdsaAutoScalingGroupName :: Lens.Lens' BatchDeleteScheduledAction Lude.Text
-bdsaAutoScalingGroupName = Lens.lens (autoScalingGroupName :: BatchDeleteScheduledAction -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: BatchDeleteScheduledAction)
+bdsaAutoScalingGroupName :: Lens.Lens' BatchDeleteScheduledAction Types.AutoScalingGroupName
+bdsaAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED bdsaAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The names of the scheduled actions to delete. The maximum number allowed is 50.
 --
 -- /Note:/ Consider using 'scheduledActionNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdsaScheduledActionNames :: Lens.Lens' BatchDeleteScheduledAction [Lude.Text]
-bdsaScheduledActionNames = Lens.lens (scheduledActionNames :: BatchDeleteScheduledAction -> [Lude.Text]) (\s a -> s {scheduledActionNames = a} :: BatchDeleteScheduledAction)
+bdsaScheduledActionNames :: Lens.Lens' BatchDeleteScheduledAction [Types.ResourceName]
+bdsaScheduledActionNames = Lens.field @"scheduledActionNames"
 {-# DEPRECATED bdsaScheduledActionNames "Use generic-lens or generic-optics with 'scheduledActionNames' instead." #-}
 
-instance Lude.AWSRequest BatchDeleteScheduledAction where
+instance Core.AWSRequest BatchDeleteScheduledAction where
   type
     Rs BatchDeleteScheduledAction =
       BatchDeleteScheduledActionResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "BatchDeleteScheduledAction")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> ( Core.toQueryValue
+                            "ScheduledActionNames"
+                            (Core.toQueryList "member" scheduledActionNames)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "BatchDeleteScheduledActionResult"
       ( \s h x ->
           BatchDeleteScheduledActionResponse'
-            Lude.<$> ( x Lude..@? "FailedScheduledActions" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "FailedScheduledActions"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchDeleteScheduledAction where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath BatchDeleteScheduledAction where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchDeleteScheduledAction where
-  toQuery BatchDeleteScheduledAction' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("BatchDeleteScheduledAction" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "ScheduledActionNames"
-          Lude.=: Lude.toQueryList "member" scheduledActionNames
-      ]
 
 -- | /See:/ 'mkBatchDeleteScheduledActionResponse' smart constructor.
 data BatchDeleteScheduledActionResponse = BatchDeleteScheduledActionResponse'
   { -- | The names of the scheduled actions that could not be deleted, including an error message.
-    failedScheduledActions :: Lude.Maybe [FailedScheduledUpdateGroupActionRequest],
+    failedScheduledActions :: Core.Maybe [Types.FailedScheduledUpdateGroupActionRequest],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteScheduledActionResponse' with the minimum fields required to make a request.
---
--- * 'failedScheduledActions' - The names of the scheduled actions that could not be deleted, including an error message.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchDeleteScheduledActionResponse' value with any optional fields omitted.
 mkBatchDeleteScheduledActionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchDeleteScheduledActionResponse
-mkBatchDeleteScheduledActionResponse pResponseStatus_ =
+mkBatchDeleteScheduledActionResponse responseStatus =
   BatchDeleteScheduledActionResponse'
     { failedScheduledActions =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The names of the scheduled actions that could not be deleted, including an error message.
 --
 -- /Note:/ Consider using 'failedScheduledActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdsarsFailedScheduledActions :: Lens.Lens' BatchDeleteScheduledActionResponse (Lude.Maybe [FailedScheduledUpdateGroupActionRequest])
-bdsarsFailedScheduledActions = Lens.lens (failedScheduledActions :: BatchDeleteScheduledActionResponse -> Lude.Maybe [FailedScheduledUpdateGroupActionRequest]) (\s a -> s {failedScheduledActions = a} :: BatchDeleteScheduledActionResponse)
-{-# DEPRECATED bdsarsFailedScheduledActions "Use generic-lens or generic-optics with 'failedScheduledActions' instead." #-}
+bdsarrsFailedScheduledActions :: Lens.Lens' BatchDeleteScheduledActionResponse (Core.Maybe [Types.FailedScheduledUpdateGroupActionRequest])
+bdsarrsFailedScheduledActions = Lens.field @"failedScheduledActions"
+{-# DEPRECATED bdsarrsFailedScheduledActions "Use generic-lens or generic-optics with 'failedScheduledActions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdsarsResponseStatus :: Lens.Lens' BatchDeleteScheduledActionResponse Lude.Int
-bdsarsResponseStatus = Lens.lens (responseStatus :: BatchDeleteScheduledActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDeleteScheduledActionResponse)
-{-# DEPRECATED bdsarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bdsarrsResponseStatus :: Lens.Lens' BatchDeleteScheduledActionResponse Core.Int
+bdsarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bdsarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

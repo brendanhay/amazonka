@@ -20,101 +20,100 @@ module Network.AWS.Redshift.ModifyUsageLimit
     mkModifyUsageLimit,
 
     -- ** Request lenses
-    mulAmount,
     mulUsageLimitId,
+    mulAmount,
     mulBreachAction,
 
     -- * Destructuring the response
-    UsageLimit (..),
-    mkUsageLimit,
+    Types.UsageLimit (..),
+    Types.mkUsageLimit,
 
     -- ** Response lenses
-    ulAmount,
-    ulLimitType,
-    ulUsageLimitId,
-    ulPeriod,
-    ulClusterIdentifier,
-    ulBreachAction,
-    ulFeatureType,
-    ulTags,
+    Types.ulAmount,
+    Types.ulBreachAction,
+    Types.ulClusterIdentifier,
+    Types.ulFeatureType,
+    Types.ulLimitType,
+    Types.ulPeriod,
+    Types.ulTags,
+    Types.ulUsageLimitId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyUsageLimit' smart constructor.
 data ModifyUsageLimit = ModifyUsageLimit'
-  { -- | The new limit amount. For more information about this parameter, see 'UsageLimit' .
-    amount :: Lude.Maybe Lude.Integer,
-    -- | The identifier of the usage limit to modify.
-    usageLimitId :: Lude.Text,
+  { -- | The identifier of the usage limit to modify.
+    usageLimitId :: Types.String,
+    -- | The new limit amount. For more information about this parameter, see 'UsageLimit' .
+    amount :: Core.Maybe Core.Integer,
     -- | The new action that Amazon Redshift takes when the limit is reached. For more information about this parameter, see 'UsageLimit' .
-    breachAction :: Lude.Maybe UsageLimitBreachAction
+    breachAction :: Core.Maybe Types.UsageLimitBreachAction
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyUsageLimit' with the minimum fields required to make a request.
---
--- * 'amount' - The new limit amount. For more information about this parameter, see 'UsageLimit' .
--- * 'usageLimitId' - The identifier of the usage limit to modify.
--- * 'breachAction' - The new action that Amazon Redshift takes when the limit is reached. For more information about this parameter, see 'UsageLimit' .
+-- | Creates a 'ModifyUsageLimit' value with any optional fields omitted.
 mkModifyUsageLimit ::
   -- | 'usageLimitId'
-  Lude.Text ->
+  Types.String ->
   ModifyUsageLimit
-mkModifyUsageLimit pUsageLimitId_ =
+mkModifyUsageLimit usageLimitId =
   ModifyUsageLimit'
-    { amount = Lude.Nothing,
-      usageLimitId = pUsageLimitId_,
-      breachAction = Lude.Nothing
+    { usageLimitId,
+      amount = Core.Nothing,
+      breachAction = Core.Nothing
     }
-
--- | The new limit amount. For more information about this parameter, see 'UsageLimit' .
---
--- /Note:/ Consider using 'amount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mulAmount :: Lens.Lens' ModifyUsageLimit (Lude.Maybe Lude.Integer)
-mulAmount = Lens.lens (amount :: ModifyUsageLimit -> Lude.Maybe Lude.Integer) (\s a -> s {amount = a} :: ModifyUsageLimit)
-{-# DEPRECATED mulAmount "Use generic-lens or generic-optics with 'amount' instead." #-}
 
 -- | The identifier of the usage limit to modify.
 --
 -- /Note:/ Consider using 'usageLimitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mulUsageLimitId :: Lens.Lens' ModifyUsageLimit Lude.Text
-mulUsageLimitId = Lens.lens (usageLimitId :: ModifyUsageLimit -> Lude.Text) (\s a -> s {usageLimitId = a} :: ModifyUsageLimit)
+mulUsageLimitId :: Lens.Lens' ModifyUsageLimit Types.String
+mulUsageLimitId = Lens.field @"usageLimitId"
 {-# DEPRECATED mulUsageLimitId "Use generic-lens or generic-optics with 'usageLimitId' instead." #-}
+
+-- | The new limit amount. For more information about this parameter, see 'UsageLimit' .
+--
+-- /Note:/ Consider using 'amount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mulAmount :: Lens.Lens' ModifyUsageLimit (Core.Maybe Core.Integer)
+mulAmount = Lens.field @"amount"
+{-# DEPRECATED mulAmount "Use generic-lens or generic-optics with 'amount' instead." #-}
 
 -- | The new action that Amazon Redshift takes when the limit is reached. For more information about this parameter, see 'UsageLimit' .
 --
 -- /Note:/ Consider using 'breachAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mulBreachAction :: Lens.Lens' ModifyUsageLimit (Lude.Maybe UsageLimitBreachAction)
-mulBreachAction = Lens.lens (breachAction :: ModifyUsageLimit -> Lude.Maybe UsageLimitBreachAction) (\s a -> s {breachAction = a} :: ModifyUsageLimit)
+mulBreachAction :: Lens.Lens' ModifyUsageLimit (Core.Maybe Types.UsageLimitBreachAction)
+mulBreachAction = Lens.field @"breachAction"
 {-# DEPRECATED mulBreachAction "Use generic-lens or generic-optics with 'breachAction' instead." #-}
 
-instance Lude.AWSRequest ModifyUsageLimit where
-  type Rs ModifyUsageLimit = UsageLimit
-  request = Req.postQuery redshiftService
+instance Core.AWSRequest ModifyUsageLimit where
+  type Rs ModifyUsageLimit = Types.UsageLimit
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ModifyUsageLimit")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "UsageLimitId" usageLimitId)
+                Core.<> (Core.toQueryValue "Amount" Core.<$> amount)
+                Core.<> (Core.toQueryValue "BreachAction" Core.<$> breachAction)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ModifyUsageLimitResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders ModifyUsageLimit where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ModifyUsageLimit where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyUsageLimit where
-  toQuery ModifyUsageLimit' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ModifyUsageLimit" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "Amount" Lude.=: amount,
-        "UsageLimitId" Lude.=: usageLimitId,
-        "BreachAction" Lude.=: breachAction
-      ]
+      (\s h x -> Core.parseXML x)

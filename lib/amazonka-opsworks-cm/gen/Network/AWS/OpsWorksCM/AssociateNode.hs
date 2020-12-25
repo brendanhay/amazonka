@@ -27,29 +27,31 @@ module Network.AWS.OpsWorksCM.AssociateNode
 
     -- ** Request lenses
     anServerName,
-    anEngineAttributes,
     anNodeName,
+    anEngineAttributes,
 
     -- * Destructuring the response
     AssociateNodeResponse (..),
     mkAssociateNodeResponse,
 
     -- ** Response lenses
-    anrsNodeAssociationStatusToken,
-    anrsResponseStatus,
+    anrrsNodeAssociationStatusToken,
+    anrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorksCM.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateNode' smart constructor.
 data AssociateNode = AssociateNode'
   { -- | The name of the server with which to associate the node.
-    serverName :: Lude.Text,
+    serverName :: Types.ServerName,
+    -- | The name of the node.
+    nodeName :: Types.NodeName,
     -- | Engine attributes used for associating the node.
     --
     -- __Attributes accepted in a AssociateNode request for Chef__
@@ -63,51 +65,38 @@ data AssociateNode = AssociateNode'
     -- __Attributes accepted in a AssociateNode request for Puppet__
     --
     --     * @PUPPET_NODE_CSR@ : A PEM-formatted certificate-signing request (CSR) that is created by the node.
-    engineAttributes :: [EngineAttribute],
-    -- | The name of the node.
-    nodeName :: Lude.Text
+    engineAttributes :: [Types.EngineAttribute]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateNode' with the minimum fields required to make a request.
---
--- * 'serverName' - The name of the server with which to associate the node.
--- * 'engineAttributes' - Engine attributes used for associating the node.
---
--- __Attributes accepted in a AssociateNode request for Chef__
---
---     * @CHEF_ORGANIZATION@ : The Chef organization with which the node is associated. By default only one organization named @default@ can exist.
---
---
---     * @CHEF_NODE_PUBLIC_KEY@ : A PEM-formatted public key. This key is required for the @chef-client@ agent to access the Chef API.
---
---
--- __Attributes accepted in a AssociateNode request for Puppet__
---
---     * @PUPPET_NODE_CSR@ : A PEM-formatted certificate-signing request (CSR) that is created by the node.
---
---
--- * 'nodeName' - The name of the node.
+-- | Creates a 'AssociateNode' value with any optional fields omitted.
 mkAssociateNode ::
   -- | 'serverName'
-  Lude.Text ->
+  Types.ServerName ->
   -- | 'nodeName'
-  Lude.Text ->
+  Types.NodeName ->
   AssociateNode
-mkAssociateNode pServerName_ pNodeName_ =
+mkAssociateNode serverName nodeName =
   AssociateNode'
-    { serverName = pServerName_,
-      engineAttributes = Lude.mempty,
-      nodeName = pNodeName_
+    { serverName,
+      nodeName,
+      engineAttributes = Core.mempty
     }
 
 -- | The name of the server with which to associate the node.
 --
 -- /Note:/ Consider using 'serverName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-anServerName :: Lens.Lens' AssociateNode Lude.Text
-anServerName = Lens.lens (serverName :: AssociateNode -> Lude.Text) (\s a -> s {serverName = a} :: AssociateNode)
+anServerName :: Lens.Lens' AssociateNode Types.ServerName
+anServerName = Lens.field @"serverName"
 {-# DEPRECATED anServerName "Use generic-lens or generic-optics with 'serverName' instead." #-}
+
+-- | The name of the node.
+--
+-- /Note:/ Consider using 'nodeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+anNodeName :: Lens.Lens' AssociateNode Types.NodeName
+anNodeName = Lens.field @"nodeName"
+{-# DEPRECATED anNodeName "Use generic-lens or generic-optics with 'nodeName' instead." #-}
 
 -- | Engine attributes used for associating the node.
 --
@@ -126,89 +115,72 @@ anServerName = Lens.lens (serverName :: AssociateNode -> Lude.Text) (\s a -> s {
 --
 --
 -- /Note:/ Consider using 'engineAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-anEngineAttributes :: Lens.Lens' AssociateNode [EngineAttribute]
-anEngineAttributes = Lens.lens (engineAttributes :: AssociateNode -> [EngineAttribute]) (\s a -> s {engineAttributes = a} :: AssociateNode)
+anEngineAttributes :: Lens.Lens' AssociateNode [Types.EngineAttribute]
+anEngineAttributes = Lens.field @"engineAttributes"
 {-# DEPRECATED anEngineAttributes "Use generic-lens or generic-optics with 'engineAttributes' instead." #-}
 
--- | The name of the node.
---
--- /Note:/ Consider using 'nodeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-anNodeName :: Lens.Lens' AssociateNode Lude.Text
-anNodeName = Lens.lens (nodeName :: AssociateNode -> Lude.Text) (\s a -> s {nodeName = a} :: AssociateNode)
-{-# DEPRECATED anNodeName "Use generic-lens or generic-optics with 'nodeName' instead." #-}
+instance Core.FromJSON AssociateNode where
+  toJSON AssociateNode {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ServerName" Core..= serverName),
+            Core.Just ("NodeName" Core..= nodeName),
+            Core.Just ("EngineAttributes" Core..= engineAttributes)
+          ]
+      )
 
-instance Lude.AWSRequest AssociateNode where
+instance Core.AWSRequest AssociateNode where
   type Rs AssociateNode = AssociateNodeResponse
-  request = Req.postJSON opsWorksCMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorksCM_V2016_11_01.AssociateNode")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AssociateNodeResponse'
-            Lude.<$> (x Lude..?> "NodeAssociationStatusToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NodeAssociationStatusToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateNode where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorksCM_V2016_11_01.AssociateNode" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateNode where
-  toJSON AssociateNode' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ServerName" Lude..= serverName),
-            Lude.Just ("EngineAttributes" Lude..= engineAttributes),
-            Lude.Just ("NodeName" Lude..= nodeName)
-          ]
-      )
-
-instance Lude.ToPath AssociateNode where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateNode where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateNodeResponse' smart constructor.
 data AssociateNodeResponse = AssociateNodeResponse'
   { -- | Contains a token which can be passed to the @DescribeNodeAssociationStatus@ API call to get the status of the association request.
-    nodeAssociationStatusToken :: Lude.Maybe Lude.Text,
+    nodeAssociationStatusToken :: Core.Maybe Types.NodeAssociationStatusToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateNodeResponse' with the minimum fields required to make a request.
---
--- * 'nodeAssociationStatusToken' - Contains a token which can be passed to the @DescribeNodeAssociationStatus@ API call to get the status of the association request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateNodeResponse' value with any optional fields omitted.
 mkAssociateNodeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateNodeResponse
-mkAssociateNodeResponse pResponseStatus_ =
+mkAssociateNodeResponse responseStatus =
   AssociateNodeResponse'
-    { nodeAssociationStatusToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nodeAssociationStatusToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Contains a token which can be passed to the @DescribeNodeAssociationStatus@ API call to get the status of the association request.
 --
 -- /Note:/ Consider using 'nodeAssociationStatusToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-anrsNodeAssociationStatusToken :: Lens.Lens' AssociateNodeResponse (Lude.Maybe Lude.Text)
-anrsNodeAssociationStatusToken = Lens.lens (nodeAssociationStatusToken :: AssociateNodeResponse -> Lude.Maybe Lude.Text) (\s a -> s {nodeAssociationStatusToken = a} :: AssociateNodeResponse)
-{-# DEPRECATED anrsNodeAssociationStatusToken "Use generic-lens or generic-optics with 'nodeAssociationStatusToken' instead." #-}
+anrrsNodeAssociationStatusToken :: Lens.Lens' AssociateNodeResponse (Core.Maybe Types.NodeAssociationStatusToken)
+anrrsNodeAssociationStatusToken = Lens.field @"nodeAssociationStatusToken"
+{-# DEPRECATED anrrsNodeAssociationStatusToken "Use generic-lens or generic-optics with 'nodeAssociationStatusToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-anrsResponseStatus :: Lens.Lens' AssociateNodeResponse Lude.Int
-anrsResponseStatus = Lens.lens (responseStatus :: AssociateNodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateNodeResponse)
-{-# DEPRECATED anrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+anrrsResponseStatus :: Lens.Lens' AssociateNodeResponse Core.Int
+anrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED anrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

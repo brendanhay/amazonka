@@ -23,163 +23,154 @@ module Network.AWS.MediaLive.DescribeSchedule
 
     -- ** Request lenses
     dChannelId,
-    dNextToken,
     dMaxResults,
+    dNextToken,
 
     -- * Destructuring the response
     DescribeScheduleResponse (..),
     mkDescribeScheduleResponse,
 
     -- ** Response lenses
-    dsfrsNextToken,
-    dsfrsScheduleActions,
-    dsfrsResponseStatus,
+    dsrfrsNextToken,
+    dsrfrsScheduleActions,
+    dsrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for DescribeScheduleRequest
 --
 -- /See:/ 'mkDescribeSchedule' smart constructor.
 data DescribeSchedule = DescribeSchedule'
   { -- | Id of the channel whose schedule is being updated.
-    channelId :: Lude.Text,
-    nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural
+    channelId :: Core.Text,
+    maxResults :: Core.Maybe Core.Natural,
+    nextToken :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeSchedule' with the minimum fields required to make a request.
---
--- * 'channelId' - Id of the channel whose schedule is being updated.
--- * 'nextToken' -
--- * 'maxResults' -
+-- | Creates a 'DescribeSchedule' value with any optional fields omitted.
 mkDescribeSchedule ::
   -- | 'channelId'
-  Lude.Text ->
+  Core.Text ->
   DescribeSchedule
-mkDescribeSchedule pChannelId_ =
+mkDescribeSchedule channelId =
   DescribeSchedule'
-    { channelId = pChannelId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { channelId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Id of the channel whose schedule is being updated.
 --
 -- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dChannelId :: Lens.Lens' DescribeSchedule Lude.Text
-dChannelId = Lens.lens (channelId :: DescribeSchedule -> Lude.Text) (\s a -> s {channelId = a} :: DescribeSchedule)
+dChannelId :: Lens.Lens' DescribeSchedule Core.Text
+dChannelId = Lens.field @"channelId"
 {-# DEPRECATED dChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dNextToken :: Lens.Lens' DescribeSchedule (Lude.Maybe Lude.Text)
-dNextToken = Lens.lens (nextToken :: DescribeSchedule -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeSchedule)
-{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMaxResults :: Lens.Lens' DescribeSchedule (Core.Maybe Core.Natural)
+dMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED dMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMaxResults :: Lens.Lens' DescribeSchedule (Lude.Maybe Lude.Natural)
-dMaxResults = Lens.lens (maxResults :: DescribeSchedule -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeSchedule)
-{-# DEPRECATED dMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dNextToken :: Lens.Lens' DescribeSchedule (Core.Maybe Core.Text)
+dNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager DescribeSchedule where
-  page rq rs
-    | Page.stop (rs Lens.^. dsfrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dsfrsScheduleActions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dNextToken Lens..~ rs Lens.^. dsfrsNextToken
-
-instance Lude.AWSRequest DescribeSchedule where
+instance Core.AWSRequest DescribeSchedule where
   type Rs DescribeSchedule = DescribeScheduleResponse
-  request = Req.get mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/prod/channels/" Core.<> (Core.toText channelId)
+                Core.<> ("/schedule")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeScheduleResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "scheduleActions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "scheduleActions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeSchedule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeSchedule where
-  toPath DescribeSchedule' {..} =
-    Lude.mconcat
-      ["/prod/channels/", Lude.toBS channelId, "/schedule"]
-
-instance Lude.ToQuery DescribeSchedule where
-  toQuery DescribeSchedule' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager DescribeSchedule where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"scheduleActions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Placeholder documentation for DescribeScheduleResponse
 --
 -- /See:/ 'mkDescribeScheduleResponse' smart constructor.
 data DescribeScheduleResponse = DescribeScheduleResponse'
   { -- | The next token; for use in pagination.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | The list of actions in the schedule.
-    scheduleActions :: Lude.Maybe [ScheduleAction],
+    scheduleActions :: Core.Maybe [Types.ScheduleAction],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeScheduleResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The next token; for use in pagination.
--- * 'scheduleActions' - The list of actions in the schedule.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeScheduleResponse' value with any optional fields omitted.
 mkDescribeScheduleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeScheduleResponse
-mkDescribeScheduleResponse pResponseStatus_ =
+mkDescribeScheduleResponse responseStatus =
   DescribeScheduleResponse'
-    { nextToken = Lude.Nothing,
-      scheduleActions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      scheduleActions = Core.Nothing,
+      responseStatus
     }
 
 -- | The next token; for use in pagination.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrsNextToken :: Lens.Lens' DescribeScheduleResponse (Lude.Maybe Lude.Text)
-dsfrsNextToken = Lens.lens (nextToken :: DescribeScheduleResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeScheduleResponse)
-{-# DEPRECATED dsfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dsrfrsNextToken :: Lens.Lens' DescribeScheduleResponse (Core.Maybe Core.Text)
+dsrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dsrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The list of actions in the schedule.
 --
 -- /Note:/ Consider using 'scheduleActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrsScheduleActions :: Lens.Lens' DescribeScheduleResponse (Lude.Maybe [ScheduleAction])
-dsfrsScheduleActions = Lens.lens (scheduleActions :: DescribeScheduleResponse -> Lude.Maybe [ScheduleAction]) (\s a -> s {scheduleActions = a} :: DescribeScheduleResponse)
-{-# DEPRECATED dsfrsScheduleActions "Use generic-lens or generic-optics with 'scheduleActions' instead." #-}
+dsrfrsScheduleActions :: Lens.Lens' DescribeScheduleResponse (Core.Maybe [Types.ScheduleAction])
+dsrfrsScheduleActions = Lens.field @"scheduleActions"
+{-# DEPRECATED dsrfrsScheduleActions "Use generic-lens or generic-optics with 'scheduleActions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsfrsResponseStatus :: Lens.Lens' DescribeScheduleResponse Lude.Int
-dsfrsResponseStatus = Lens.lens (responseStatus :: DescribeScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeScheduleResponse)
-{-# DEPRECATED dsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrfrsResponseStatus :: Lens.Lens' DescribeScheduleResponse Core.Int
+dsrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

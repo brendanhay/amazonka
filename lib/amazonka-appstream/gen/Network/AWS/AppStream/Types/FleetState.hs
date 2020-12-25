@@ -13,56 +13,58 @@
 module Network.AWS.AppStream.Types.FleetState
   ( FleetState
       ( FleetState',
-        Starting,
-        Running,
-        Stopping,
-        Stopped
+        FleetStateStarting,
+        FleetStateRunning,
+        FleetStateStopping,
+        FleetStateStopped,
+        fromFleetState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FleetState = FleetState' Lude.Text
+newtype FleetState = FleetState' {fromFleetState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Starting :: FleetState
-pattern Starting = FleetState' "STARTING"
+pattern FleetStateStarting :: FleetState
+pattern FleetStateStarting = FleetState' "STARTING"
 
-pattern Running :: FleetState
-pattern Running = FleetState' "RUNNING"
+pattern FleetStateRunning :: FleetState
+pattern FleetStateRunning = FleetState' "RUNNING"
 
-pattern Stopping :: FleetState
-pattern Stopping = FleetState' "STOPPING"
+pattern FleetStateStopping :: FleetState
+pattern FleetStateStopping = FleetState' "STOPPING"
 
-pattern Stopped :: FleetState
-pattern Stopped = FleetState' "STOPPED"
+pattern FleetStateStopped :: FleetState
+pattern FleetStateStopped = FleetState' "STOPPED"
 
 {-# COMPLETE
-  Starting,
-  Running,
-  Stopping,
-  Stopped,
+  FleetStateStarting,
+  FleetStateRunning,
+  FleetStateStopping,
+  FleetStateStopped,
   FleetState'
   #-}

@@ -20,134 +20,121 @@ module Network.AWS.DAX.CreateParameterGroup
     mkCreateParameterGroup,
 
     -- ** Request lenses
-    cpgDescription,
     cpgParameterGroupName,
+    cpgDescription,
 
     -- * Destructuring the response
     CreateParameterGroupResponse (..),
     mkCreateParameterGroupResponse,
 
     -- ** Response lenses
-    cpgrsParameterGroup,
-    cpgrsResponseStatus,
+    cpgrrsParameterGroup,
+    cpgrrsResponseStatus,
   )
 where
 
-import Network.AWS.DAX.Types
+import qualified Network.AWS.DAX.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateParameterGroup' smart constructor.
 data CreateParameterGroup = CreateParameterGroup'
-  { -- | A description of the parameter group.
-    description :: Lude.Maybe Lude.Text,
-    -- | The name of the parameter group to apply to all of the clusters in this replication group.
-    parameterGroupName :: Lude.Text
+  { -- | The name of the parameter group to apply to all of the clusters in this replication group.
+    parameterGroupName :: Types.String,
+    -- | A description of the parameter group.
+    description :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateParameterGroup' with the minimum fields required to make a request.
---
--- * 'description' - A description of the parameter group.
--- * 'parameterGroupName' - The name of the parameter group to apply to all of the clusters in this replication group.
+-- | Creates a 'CreateParameterGroup' value with any optional fields omitted.
 mkCreateParameterGroup ::
   -- | 'parameterGroupName'
-  Lude.Text ->
+  Types.String ->
   CreateParameterGroup
-mkCreateParameterGroup pParameterGroupName_ =
+mkCreateParameterGroup parameterGroupName =
   CreateParameterGroup'
-    { description = Lude.Nothing,
-      parameterGroupName = pParameterGroupName_
+    { parameterGroupName,
+      description = Core.Nothing
     }
-
--- | A description of the parameter group.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgDescription :: Lens.Lens' CreateParameterGroup (Lude.Maybe Lude.Text)
-cpgDescription = Lens.lens (description :: CreateParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateParameterGroup)
-{-# DEPRECATED cpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The name of the parameter group to apply to all of the clusters in this replication group.
 --
 -- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgParameterGroupName :: Lens.Lens' CreateParameterGroup Lude.Text
-cpgParameterGroupName = Lens.lens (parameterGroupName :: CreateParameterGroup -> Lude.Text) (\s a -> s {parameterGroupName = a} :: CreateParameterGroup)
+cpgParameterGroupName :: Lens.Lens' CreateParameterGroup Types.String
+cpgParameterGroupName = Lens.field @"parameterGroupName"
 {-# DEPRECATED cpgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance Lude.AWSRequest CreateParameterGroup where
+-- | A description of the parameter group.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgDescription :: Lens.Lens' CreateParameterGroup (Core.Maybe Types.String)
+cpgDescription = Lens.field @"description"
+{-# DEPRECATED cpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+instance Core.FromJSON CreateParameterGroup where
+  toJSON CreateParameterGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ParameterGroupName" Core..= parameterGroupName),
+            ("Description" Core..=) Core.<$> description
+          ]
+      )
+
+instance Core.AWSRequest CreateParameterGroup where
   type Rs CreateParameterGroup = CreateParameterGroupResponse
-  request = Req.postJSON daxService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonDAXV3.CreateParameterGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateParameterGroupResponse'
-            Lude.<$> (x Lude..?> "ParameterGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ParameterGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateParameterGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDAXV3.CreateParameterGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateParameterGroup where
-  toJSON CreateParameterGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Description" Lude..=) Lude.<$> description,
-            Lude.Just ("ParameterGroupName" Lude..= parameterGroupName)
-          ]
-      )
-
-instance Lude.ToPath CreateParameterGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateParameterGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateParameterGroupResponse' smart constructor.
 data CreateParameterGroupResponse = CreateParameterGroupResponse'
   { -- | Represents the output of a /CreateParameterGroup/ action.
-    parameterGroup :: Lude.Maybe ParameterGroup,
+    parameterGroup :: Core.Maybe Types.ParameterGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateParameterGroupResponse' with the minimum fields required to make a request.
---
--- * 'parameterGroup' - Represents the output of a /CreateParameterGroup/ action.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateParameterGroupResponse' value with any optional fields omitted.
 mkCreateParameterGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateParameterGroupResponse
-mkCreateParameterGroupResponse pResponseStatus_ =
+mkCreateParameterGroupResponse responseStatus =
   CreateParameterGroupResponse'
-    { parameterGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { parameterGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | Represents the output of a /CreateParameterGroup/ action.
 --
 -- /Note:/ Consider using 'parameterGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgrsParameterGroup :: Lens.Lens' CreateParameterGroupResponse (Lude.Maybe ParameterGroup)
-cpgrsParameterGroup = Lens.lens (parameterGroup :: CreateParameterGroupResponse -> Lude.Maybe ParameterGroup) (\s a -> s {parameterGroup = a} :: CreateParameterGroupResponse)
-{-# DEPRECATED cpgrsParameterGroup "Use generic-lens or generic-optics with 'parameterGroup' instead." #-}
+cpgrrsParameterGroup :: Lens.Lens' CreateParameterGroupResponse (Core.Maybe Types.ParameterGroup)
+cpgrrsParameterGroup = Lens.field @"parameterGroup"
+{-# DEPRECATED cpgrrsParameterGroup "Use generic-lens or generic-optics with 'parameterGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgrsResponseStatus :: Lens.Lens' CreateParameterGroupResponse Lude.Int
-cpgrsResponseStatus = Lens.lens (responseStatus :: CreateParameterGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateParameterGroupResponse)
-{-# DEPRECATED cpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cpgrrsResponseStatus :: Lens.Lens' CreateParameterGroupResponse Core.Int
+cpgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cpgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

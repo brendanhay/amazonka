@@ -13,46 +13,51 @@
 module Network.AWS.CodeBuild.Types.RetryBuildBatchType
   ( RetryBuildBatchType
       ( RetryBuildBatchType',
-        RetryAllBuilds,
-        RetryFailedBuilds
+        RetryBuildBatchTypeRetryAllBuilds,
+        RetryBuildBatchTypeRetryFailedBuilds,
+        fromRetryBuildBatchType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RetryBuildBatchType = RetryBuildBatchType' Lude.Text
+newtype RetryBuildBatchType = RetryBuildBatchType'
+  { fromRetryBuildBatchType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RetryAllBuilds :: RetryBuildBatchType
-pattern RetryAllBuilds = RetryBuildBatchType' "RETRY_ALL_BUILDS"
+pattern RetryBuildBatchTypeRetryAllBuilds :: RetryBuildBatchType
+pattern RetryBuildBatchTypeRetryAllBuilds = RetryBuildBatchType' "RETRY_ALL_BUILDS"
 
-pattern RetryFailedBuilds :: RetryBuildBatchType
-pattern RetryFailedBuilds = RetryBuildBatchType' "RETRY_FAILED_BUILDS"
+pattern RetryBuildBatchTypeRetryFailedBuilds :: RetryBuildBatchType
+pattern RetryBuildBatchTypeRetryFailedBuilds = RetryBuildBatchType' "RETRY_FAILED_BUILDS"
 
 {-# COMPLETE
-  RetryAllBuilds,
-  RetryFailedBuilds,
+  RetryBuildBatchTypeRetryAllBuilds,
+  RetryBuildBatchTypeRetryFailedBuilds,
   RetryBuildBatchType'
   #-}

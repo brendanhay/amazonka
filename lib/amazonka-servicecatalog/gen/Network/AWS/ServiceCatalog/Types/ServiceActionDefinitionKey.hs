@@ -13,56 +13,61 @@
 module Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionKey
   ( ServiceActionDefinitionKey
       ( ServiceActionDefinitionKey',
-        Name,
-        Version,
-        AssumeRole,
-        Parameters
+        ServiceActionDefinitionKeyName,
+        ServiceActionDefinitionKeyVersion,
+        ServiceActionDefinitionKeyAssumeRole,
+        ServiceActionDefinitionKeyParameters,
+        fromServiceActionDefinitionKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ServiceActionDefinitionKey = ServiceActionDefinitionKey' Lude.Text
+newtype ServiceActionDefinitionKey = ServiceActionDefinitionKey'
+  { fromServiceActionDefinitionKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Name :: ServiceActionDefinitionKey
-pattern Name = ServiceActionDefinitionKey' "Name"
+pattern ServiceActionDefinitionKeyName :: ServiceActionDefinitionKey
+pattern ServiceActionDefinitionKeyName = ServiceActionDefinitionKey' "Name"
 
-pattern Version :: ServiceActionDefinitionKey
-pattern Version = ServiceActionDefinitionKey' "Version"
+pattern ServiceActionDefinitionKeyVersion :: ServiceActionDefinitionKey
+pattern ServiceActionDefinitionKeyVersion = ServiceActionDefinitionKey' "Version"
 
-pattern AssumeRole :: ServiceActionDefinitionKey
-pattern AssumeRole = ServiceActionDefinitionKey' "AssumeRole"
+pattern ServiceActionDefinitionKeyAssumeRole :: ServiceActionDefinitionKey
+pattern ServiceActionDefinitionKeyAssumeRole = ServiceActionDefinitionKey' "AssumeRole"
 
-pattern Parameters :: ServiceActionDefinitionKey
-pattern Parameters = ServiceActionDefinitionKey' "Parameters"
+pattern ServiceActionDefinitionKeyParameters :: ServiceActionDefinitionKey
+pattern ServiceActionDefinitionKeyParameters = ServiceActionDefinitionKey' "Parameters"
 
 {-# COMPLETE
-  Name,
-  Version,
-  AssumeRole,
-  Parameters,
+  ServiceActionDefinitionKeyName,
+  ServiceActionDefinitionKeyVersion,
+  ServiceActionDefinitionKeyAssumeRole,
+  ServiceActionDefinitionKeyParameters,
   ServiceActionDefinitionKey'
   #-}

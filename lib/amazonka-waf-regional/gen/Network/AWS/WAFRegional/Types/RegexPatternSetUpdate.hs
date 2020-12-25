@@ -23,56 +23,51 @@ module Network.AWS.WAFRegional.Types.RegexPatternSetUpdate
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAFRegional.Types.ChangeAction
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAFRegional.Types.ChangeAction as Types
+import qualified Network.AWS.WAFRegional.Types.RegexPatternString as Types
 
 -- | In an 'UpdateRegexPatternSet' request, @RegexPatternSetUpdate@ specifies whether to insert or delete a @RegexPatternString@ and includes the settings for the @RegexPatternString@ .
 --
 -- /See:/ 'mkRegexPatternSetUpdate' smart constructor.
 data RegexPatternSetUpdate = RegexPatternSetUpdate'
   { -- | Specifies whether to insert or delete a @RegexPatternString@ .
-    action :: ChangeAction,
+    action :: Types.ChangeAction,
     -- | Specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as @B[a@]dB[o0]t@ .
-    regexPatternString :: Lude.Text
+    regexPatternString :: Types.RegexPatternString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegexPatternSetUpdate' with the minimum fields required to make a request.
---
--- * 'action' - Specifies whether to insert or delete a @RegexPatternString@ .
--- * 'regexPatternString' - Specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as @B[a@]dB[o0]t@ .
+-- | Creates a 'RegexPatternSetUpdate' value with any optional fields omitted.
 mkRegexPatternSetUpdate ::
   -- | 'action'
-  ChangeAction ->
+  Types.ChangeAction ->
   -- | 'regexPatternString'
-  Lude.Text ->
+  Types.RegexPatternString ->
   RegexPatternSetUpdate
-mkRegexPatternSetUpdate pAction_ pRegexPatternString_ =
-  RegexPatternSetUpdate'
-    { action = pAction_,
-      regexPatternString = pRegexPatternString_
-    }
+mkRegexPatternSetUpdate action regexPatternString =
+  RegexPatternSetUpdate' {action, regexPatternString}
 
 -- | Specifies whether to insert or delete a @RegexPatternString@ .
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpsuAction :: Lens.Lens' RegexPatternSetUpdate ChangeAction
-rpsuAction = Lens.lens (action :: RegexPatternSetUpdate -> ChangeAction) (\s a -> s {action = a} :: RegexPatternSetUpdate)
+rpsuAction :: Lens.Lens' RegexPatternSetUpdate Types.ChangeAction
+rpsuAction = Lens.field @"action"
 {-# DEPRECATED rpsuAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
 -- | Specifies the regular expression (regex) pattern that you want AWS WAF to search for, such as @B[a@]dB[o0]t@ .
 --
 -- /Note:/ Consider using 'regexPatternString' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpsuRegexPatternString :: Lens.Lens' RegexPatternSetUpdate Lude.Text
-rpsuRegexPatternString = Lens.lens (regexPatternString :: RegexPatternSetUpdate -> Lude.Text) (\s a -> s {regexPatternString = a} :: RegexPatternSetUpdate)
+rpsuRegexPatternString :: Lens.Lens' RegexPatternSetUpdate Types.RegexPatternString
+rpsuRegexPatternString = Lens.field @"regexPatternString"
 {-# DEPRECATED rpsuRegexPatternString "Use generic-lens or generic-optics with 'regexPatternString' instead." #-}
 
-instance Lude.ToJSON RegexPatternSetUpdate where
-  toJSON RegexPatternSetUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Action" Lude..= action),
-            Lude.Just ("RegexPatternString" Lude..= regexPatternString)
+instance Core.FromJSON RegexPatternSetUpdate where
+  toJSON RegexPatternSetUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just ("RegexPatternString" Core..= regexPatternString)
           ]
       )

@@ -13,56 +13,58 @@
 module Network.AWS.GuardDuty.Types.DataSource
   ( DataSource
       ( DataSource',
-        FlowLogs,
-        CloudTrail,
-        DNSLogs,
-        S3Logs
+        DataSourceFlowLogs,
+        DataSourceCloudTrail,
+        DataSourceDnsLogs,
+        DataSourceS3Logs,
+        fromDataSource
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DataSource = DataSource' Lude.Text
+newtype DataSource = DataSource' {fromDataSource :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FlowLogs :: DataSource
-pattern FlowLogs = DataSource' "FLOW_LOGS"
+pattern DataSourceFlowLogs :: DataSource
+pattern DataSourceFlowLogs = DataSource' "FLOW_LOGS"
 
-pattern CloudTrail :: DataSource
-pattern CloudTrail = DataSource' "CLOUD_TRAIL"
+pattern DataSourceCloudTrail :: DataSource
+pattern DataSourceCloudTrail = DataSource' "CLOUD_TRAIL"
 
-pattern DNSLogs :: DataSource
-pattern DNSLogs = DataSource' "DNS_LOGS"
+pattern DataSourceDnsLogs :: DataSource
+pattern DataSourceDnsLogs = DataSource' "DNS_LOGS"
 
-pattern S3Logs :: DataSource
-pattern S3Logs = DataSource' "S3_LOGS"
+pattern DataSourceS3Logs :: DataSource
+pattern DataSourceS3Logs = DataSource' "S3_LOGS"
 
 {-# COMPLETE
-  FlowLogs,
-  CloudTrail,
-  DNSLogs,
-  S3Logs,
+  DataSourceFlowLogs,
+  DataSourceCloudTrail,
+  DataSourceDnsLogs,
+  DataSourceS3Logs,
   DataSource'
   #-}

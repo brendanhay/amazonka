@@ -17,85 +17,82 @@ module Network.AWS.DataPipeline.Types.TaskObject
     mkTaskObject,
 
     -- * Lenses
-    toPipelineId,
     toAttemptId,
-    toTaskId,
     toObjects,
+    toPipelineId,
+    toTaskId,
   )
 where
 
-import Network.AWS.DataPipeline.Types.PipelineObject
+import qualified Network.AWS.DataPipeline.Types.AttemptId as Types
+import qualified Network.AWS.DataPipeline.Types.Id as Types
+import qualified Network.AWS.DataPipeline.Types.PipelineId as Types
+import qualified Network.AWS.DataPipeline.Types.PipelineObject as Types
+import qualified Network.AWS.DataPipeline.Types.TaskId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a pipeline task that is assigned to a task runner.
 --
 -- /See:/ 'mkTaskObject' smart constructor.
 data TaskObject = TaskObject'
-  { -- | The ID of the pipeline that provided the task.
-    pipelineId :: Lude.Maybe Lude.Text,
-    -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.
-    attemptId :: Lude.Maybe Lude.Text,
-    -- | An internal identifier for the task. This ID is passed to the 'SetTaskStatus' and 'ReportTaskProgress' actions.
-    taskId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.
+    attemptId :: Core.Maybe Types.AttemptId,
     -- | Connection information for the location where the task runner will publish the output of the task.
-    objects :: Lude.Maybe (Lude.HashMap Lude.Text (PipelineObject))
+    objects :: Core.Maybe (Core.HashMap Types.Id Types.PipelineObject),
+    -- | The ID of the pipeline that provided the task.
+    pipelineId :: Core.Maybe Types.PipelineId,
+    -- | An internal identifier for the task. This ID is passed to the 'SetTaskStatus' and 'ReportTaskProgress' actions.
+    taskId :: Core.Maybe Types.TaskId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TaskObject' with the minimum fields required to make a request.
---
--- * 'pipelineId' - The ID of the pipeline that provided the task.
--- * 'attemptId' - The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.
--- * 'taskId' - An internal identifier for the task. This ID is passed to the 'SetTaskStatus' and 'ReportTaskProgress' actions.
--- * 'objects' - Connection information for the location where the task runner will publish the output of the task.
+-- | Creates a 'TaskObject' value with any optional fields omitted.
 mkTaskObject ::
   TaskObject
 mkTaskObject =
   TaskObject'
-    { pipelineId = Lude.Nothing,
-      attemptId = Lude.Nothing,
-      taskId = Lude.Nothing,
-      objects = Lude.Nothing
+    { attemptId = Core.Nothing,
+      objects = Core.Nothing,
+      pipelineId = Core.Nothing,
+      taskId = Core.Nothing
     }
-
--- | The ID of the pipeline that provided the task.
---
--- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-toPipelineId :: Lens.Lens' TaskObject (Lude.Maybe Lude.Text)
-toPipelineId = Lens.lens (pipelineId :: TaskObject -> Lude.Maybe Lude.Text) (\s a -> s {pipelineId = a} :: TaskObject)
-{-# DEPRECATED toPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
 
 -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this value to track how many times a task is attempted.
 --
 -- /Note:/ Consider using 'attemptId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-toAttemptId :: Lens.Lens' TaskObject (Lude.Maybe Lude.Text)
-toAttemptId = Lens.lens (attemptId :: TaskObject -> Lude.Maybe Lude.Text) (\s a -> s {attemptId = a} :: TaskObject)
+toAttemptId :: Lens.Lens' TaskObject (Core.Maybe Types.AttemptId)
+toAttemptId = Lens.field @"attemptId"
 {-# DEPRECATED toAttemptId "Use generic-lens or generic-optics with 'attemptId' instead." #-}
-
--- | An internal identifier for the task. This ID is passed to the 'SetTaskStatus' and 'ReportTaskProgress' actions.
---
--- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-toTaskId :: Lens.Lens' TaskObject (Lude.Maybe Lude.Text)
-toTaskId = Lens.lens (taskId :: TaskObject -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: TaskObject)
-{-# DEPRECATED toTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | Connection information for the location where the task runner will publish the output of the task.
 --
 -- /Note:/ Consider using 'objects' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-toObjects :: Lens.Lens' TaskObject (Lude.Maybe (Lude.HashMap Lude.Text (PipelineObject)))
-toObjects = Lens.lens (objects :: TaskObject -> Lude.Maybe (Lude.HashMap Lude.Text (PipelineObject))) (\s a -> s {objects = a} :: TaskObject)
+toObjects :: Lens.Lens' TaskObject (Core.Maybe (Core.HashMap Types.Id Types.PipelineObject))
+toObjects = Lens.field @"objects"
 {-# DEPRECATED toObjects "Use generic-lens or generic-optics with 'objects' instead." #-}
 
-instance Lude.FromJSON TaskObject where
+-- | The ID of the pipeline that provided the task.
+--
+-- /Note:/ Consider using 'pipelineId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+toPipelineId :: Lens.Lens' TaskObject (Core.Maybe Types.PipelineId)
+toPipelineId = Lens.field @"pipelineId"
+{-# DEPRECATED toPipelineId "Use generic-lens or generic-optics with 'pipelineId' instead." #-}
+
+-- | An internal identifier for the task. This ID is passed to the 'SetTaskStatus' and 'ReportTaskProgress' actions.
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+toTaskId :: Lens.Lens' TaskObject (Core.Maybe Types.TaskId)
+toTaskId = Lens.field @"taskId"
+{-# DEPRECATED toTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
+
+instance Core.FromJSON TaskObject where
   parseJSON =
-    Lude.withObject
-      "TaskObject"
-      ( \x ->
-          TaskObject'
-            Lude.<$> (x Lude..:? "pipelineId")
-            Lude.<*> (x Lude..:? "attemptId")
-            Lude.<*> (x Lude..:? "taskId")
-            Lude.<*> (x Lude..:? "objects" Lude..!= Lude.mempty)
-      )
+    Core.withObject "TaskObject" Core.$
+      \x ->
+        TaskObject'
+          Core.<$> (x Core..:? "attemptId")
+          Core.<*> (x Core..:? "objects")
+          Core.<*> (x Core..:? "pipelineId")
+          Core.<*> (x Core..:? "taskId")

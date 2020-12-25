@@ -20,31 +20,37 @@ module Network.AWS.CloudDirectory.CreateFacet
     mkCreateFacet,
 
     -- ** Request lenses
+    cfSchemaArn,
+    cfName,
+    cfAttributes,
     cfFacetStyle,
     cfObjectType,
-    cfSchemaARN,
-    cfAttributes,
-    cfName,
 
     -- * Destructuring the response
     CreateFacetResponse (..),
     mkCreateFacetResponse,
 
     -- ** Response lenses
-    cfrsResponseStatus,
+    cfrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateFacet' smart constructor.
 data CreateFacet = CreateFacet'
-  { -- | There are two different styles that you can define on any given facet, @Static@ and @Dynamic@ . For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
-    facetStyle :: Lude.Maybe FacetStyle,
+  { -- | The schema ARN in which the new 'Facet' will be created. For more information, see 'arns' .
+    schemaArn :: Types.Arn,
+    -- | The name of the 'Facet' , which is unique for a given schema.
+    name :: Types.FacetName,
+    -- | The attributes that are associated with the 'Facet' .
+    attributes :: Core.Maybe [Types.FacetAttribute],
+    -- | There are two different styles that you can define on any given facet, @Static@ and @Dynamic@ . For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
+    facetStyle :: Core.Maybe Types.FacetStyle,
     -- | Specifies whether a given object created from this facet is of type node, leaf node, policy or index.
     --
     --
@@ -61,61 +67,53 @@ data CreateFacet = CreateFacet'
     --
     --
     --     * Index: Can be created with the Index API.
-    objectType :: Lude.Maybe ObjectType,
-    -- | The schema ARN in which the new 'Facet' will be created. For more information, see 'arns' .
-    schemaARN :: Lude.Text,
-    -- | The attributes that are associated with the 'Facet' .
-    attributes :: Lude.Maybe [FacetAttribute],
-    -- | The name of the 'Facet' , which is unique for a given schema.
-    name :: Lude.Text
+    objectType :: Core.Maybe Types.ObjectType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateFacet' with the minimum fields required to make a request.
---
--- * 'facetStyle' - There are two different styles that you can define on any given facet, @Static@ and @Dynamic@ . For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
--- * 'objectType' - Specifies whether a given object created from this facet is of type node, leaf node, policy or index.
---
---
---     * Node: Can have multiple children but one parent.
---
---
---
---     * Leaf node: Cannot have children but can have multiple parents.
---
---
---
---     * Policy: Allows you to store a policy document and policy type. For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
---
---
---
---     * Index: Can be created with the Index API.
---
---
--- * 'schemaARN' - The schema ARN in which the new 'Facet' will be created. For more information, see 'arns' .
--- * 'attributes' - The attributes that are associated with the 'Facet' .
--- * 'name' - The name of the 'Facet' , which is unique for a given schema.
+-- | Creates a 'CreateFacet' value with any optional fields omitted.
 mkCreateFacet ::
-  -- | 'schemaARN'
-  Lude.Text ->
+  -- | 'schemaArn'
+  Types.Arn ->
   -- | 'name'
-  Lude.Text ->
+  Types.FacetName ->
   CreateFacet
-mkCreateFacet pSchemaARN_ pName_ =
+mkCreateFacet schemaArn name =
   CreateFacet'
-    { facetStyle = Lude.Nothing,
-      objectType = Lude.Nothing,
-      schemaARN = pSchemaARN_,
-      attributes = Lude.Nothing,
-      name = pName_
+    { schemaArn,
+      name,
+      attributes = Core.Nothing,
+      facetStyle = Core.Nothing,
+      objectType = Core.Nothing
     }
+
+-- | The schema ARN in which the new 'Facet' will be created. For more information, see 'arns' .
+--
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfSchemaArn :: Lens.Lens' CreateFacet Types.Arn
+cfSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED cfSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
+
+-- | The name of the 'Facet' , which is unique for a given schema.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfName :: Lens.Lens' CreateFacet Types.FacetName
+cfName = Lens.field @"name"
+{-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The attributes that are associated with the 'Facet' .
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfAttributes :: Lens.Lens' CreateFacet (Core.Maybe [Types.FacetAttribute])
+cfAttributes = Lens.field @"attributes"
+{-# DEPRECATED cfAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | There are two different styles that you can define on any given facet, @Static@ and @Dynamic@ . For static facets, all attributes must be defined in the schema. For dynamic facets, attributes can be defined during data plane operations.
 --
 -- /Note:/ Consider using 'facetStyle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfFacetStyle :: Lens.Lens' CreateFacet (Lude.Maybe FacetStyle)
-cfFacetStyle = Lens.lens (facetStyle :: CreateFacet -> Lude.Maybe FacetStyle) (\s a -> s {facetStyle = a} :: CreateFacet)
+cfFacetStyle :: Lens.Lens' CreateFacet (Core.Maybe Types.FacetStyle)
+cfFacetStyle = Lens.field @"facetStyle"
 {-# DEPRECATED cfFacetStyle "Use generic-lens or generic-optics with 'facetStyle' instead." #-}
 
 -- | Specifies whether a given object created from this facet is of type node, leaf node, policy or index.
@@ -138,82 +136,58 @@ cfFacetStyle = Lens.lens (facetStyle :: CreateFacet -> Lude.Maybe FacetStyle) (\
 --
 --
 -- /Note:/ Consider using 'objectType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfObjectType :: Lens.Lens' CreateFacet (Lude.Maybe ObjectType)
-cfObjectType = Lens.lens (objectType :: CreateFacet -> Lude.Maybe ObjectType) (\s a -> s {objectType = a} :: CreateFacet)
+cfObjectType :: Lens.Lens' CreateFacet (Core.Maybe Types.ObjectType)
+cfObjectType = Lens.field @"objectType"
 {-# DEPRECATED cfObjectType "Use generic-lens or generic-optics with 'objectType' instead." #-}
 
--- | The schema ARN in which the new 'Facet' will be created. For more information, see 'arns' .
---
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfSchemaARN :: Lens.Lens' CreateFacet Lude.Text
-cfSchemaARN = Lens.lens (schemaARN :: CreateFacet -> Lude.Text) (\s a -> s {schemaARN = a} :: CreateFacet)
-{-# DEPRECATED cfSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
-
--- | The attributes that are associated with the 'Facet' .
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfAttributes :: Lens.Lens' CreateFacet (Lude.Maybe [FacetAttribute])
-cfAttributes = Lens.lens (attributes :: CreateFacet -> Lude.Maybe [FacetAttribute]) (\s a -> s {attributes = a} :: CreateFacet)
-{-# DEPRECATED cfAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
-
--- | The name of the 'Facet' , which is unique for a given schema.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfName :: Lens.Lens' CreateFacet Lude.Text
-cfName = Lens.lens (name :: CreateFacet -> Lude.Text) (\s a -> s {name = a} :: CreateFacet)
-{-# DEPRECATED cfName "Use generic-lens or generic-optics with 'name' instead." #-}
-
-instance Lude.AWSRequest CreateFacet where
-  type Rs CreateFacet = CreateFacetResponse
-  request = Req.putJSON cloudDirectoryService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          CreateFacetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateFacet where
-  toHeaders CreateFacet' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
-
-instance Lude.ToJSON CreateFacet where
-  toJSON CreateFacet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("FacetStyle" Lude..=) Lude.<$> facetStyle,
-            ("ObjectType" Lude..=) Lude.<$> objectType,
-            ("Attributes" Lude..=) Lude.<$> attributes,
-            Lude.Just ("Name" Lude..= name)
+instance Core.FromJSON CreateFacet where
+  toJSON CreateFacet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("Attributes" Core..=) Core.<$> attributes,
+            ("FacetStyle" Core..=) Core.<$> facetStyle,
+            ("ObjectType" Core..=) Core.<$> objectType
           ]
       )
 
-instance Lude.ToPath CreateFacet where
-  toPath = Lude.const "/amazonclouddirectory/2017-01-11/facet/create"
-
-instance Lude.ToQuery CreateFacet where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateFacet where
+  type Rs CreateFacet = CreateFacetResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/facet/create",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "x-amz-data-partition" schemaArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          CreateFacetResponse' Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateFacetResponse' smart constructor.
 newtype CreateFacetResponse = CreateFacetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateFacetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateFacetResponse' value with any optional fields omitted.
 mkCreateFacetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateFacetResponse
-mkCreateFacetResponse pResponseStatus_ =
-  CreateFacetResponse' {responseStatus = pResponseStatus_}
+mkCreateFacetResponse responseStatus =
+  CreateFacetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfrsResponseStatus :: Lens.Lens' CreateFacetResponse Lude.Int
-cfrsResponseStatus = Lens.lens (responseStatus :: CreateFacetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateFacetResponse)
-{-# DEPRECATED cfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cfrrsResponseStatus :: Lens.Lens' CreateFacetResponse Core.Int
+cfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

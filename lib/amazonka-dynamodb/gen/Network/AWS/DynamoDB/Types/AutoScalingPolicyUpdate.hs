@@ -17,65 +17,61 @@ module Network.AWS.DynamoDB.Types.AutoScalingPolicyUpdate
     mkAutoScalingPolicyUpdate,
 
     -- * Lenses
-    aspuPolicyName,
     aspuTargetTrackingScalingPolicyConfiguration,
+    aspuPolicyName,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+import qualified Network.AWS.DynamoDB.Types.AutoScalingPolicyName as Types
+import qualified Network.AWS.DynamoDB.Types.AutoScalingTargetTrackingScalingPolicyConfigurationUpdate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the auto scaling policy to be modified.
 --
 -- /See:/ 'mkAutoScalingPolicyUpdate' smart constructor.
 data AutoScalingPolicyUpdate = AutoScalingPolicyUpdate'
-  { -- | The name of the scaling policy.
-    policyName :: Lude.Maybe Lude.Text,
-    -- | Represents a target tracking scaling policy configuration.
-    targetTrackingScalingPolicyConfiguration :: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+  { -- | Represents a target tracking scaling policy configuration.
+    targetTrackingScalingPolicyConfiguration :: Types.AutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
+    -- | The name of the scaling policy.
+    policyName :: Core.Maybe Types.AutoScalingPolicyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoScalingPolicyUpdate' with the minimum fields required to make a request.
---
--- * 'policyName' - The name of the scaling policy.
--- * 'targetTrackingScalingPolicyConfiguration' - Represents a target tracking scaling policy configuration.
+-- | Creates a 'AutoScalingPolicyUpdate' value with any optional fields omitted.
 mkAutoScalingPolicyUpdate ::
   -- | 'targetTrackingScalingPolicyConfiguration'
-  AutoScalingTargetTrackingScalingPolicyConfigurationUpdate ->
+  Types.AutoScalingTargetTrackingScalingPolicyConfigurationUpdate ->
   AutoScalingPolicyUpdate
-mkAutoScalingPolicyUpdate
-  pTargetTrackingScalingPolicyConfiguration_ =
-    AutoScalingPolicyUpdate'
-      { policyName = Lude.Nothing,
-        targetTrackingScalingPolicyConfiguration =
-          pTargetTrackingScalingPolicyConfiguration_
-      }
-
--- | The name of the scaling policy.
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aspuPolicyName :: Lens.Lens' AutoScalingPolicyUpdate (Lude.Maybe Lude.Text)
-aspuPolicyName = Lens.lens (policyName :: AutoScalingPolicyUpdate -> Lude.Maybe Lude.Text) (\s a -> s {policyName = a} :: AutoScalingPolicyUpdate)
-{-# DEPRECATED aspuPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+mkAutoScalingPolicyUpdate targetTrackingScalingPolicyConfiguration =
+  AutoScalingPolicyUpdate'
+    { targetTrackingScalingPolicyConfiguration,
+      policyName = Core.Nothing
+    }
 
 -- | Represents a target tracking scaling policy configuration.
 --
 -- /Note:/ Consider using 'targetTrackingScalingPolicyConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aspuTargetTrackingScalingPolicyConfiguration :: Lens.Lens' AutoScalingPolicyUpdate AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
-aspuTargetTrackingScalingPolicyConfiguration = Lens.lens (targetTrackingScalingPolicyConfiguration :: AutoScalingPolicyUpdate -> AutoScalingTargetTrackingScalingPolicyConfigurationUpdate) (\s a -> s {targetTrackingScalingPolicyConfiguration = a} :: AutoScalingPolicyUpdate)
+aspuTargetTrackingScalingPolicyConfiguration :: Lens.Lens' AutoScalingPolicyUpdate Types.AutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+aspuTargetTrackingScalingPolicyConfiguration = Lens.field @"targetTrackingScalingPolicyConfiguration"
 {-# DEPRECATED aspuTargetTrackingScalingPolicyConfiguration "Use generic-lens or generic-optics with 'targetTrackingScalingPolicyConfiguration' instead." #-}
 
-instance Lude.ToJSON AutoScalingPolicyUpdate where
-  toJSON AutoScalingPolicyUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("PolicyName" Lude..=) Lude.<$> policyName,
-            Lude.Just
+-- | The name of the scaling policy.
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aspuPolicyName :: Lens.Lens' AutoScalingPolicyUpdate (Core.Maybe Types.AutoScalingPolicyName)
+aspuPolicyName = Lens.field @"policyName"
+{-# DEPRECATED aspuPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+instance Core.FromJSON AutoScalingPolicyUpdate where
+  toJSON AutoScalingPolicyUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "TargetTrackingScalingPolicyConfiguration"
-                  Lude..= targetTrackingScalingPolicyConfiguration
-              )
+                  Core..= targetTrackingScalingPolicyConfiguration
+              ),
+            ("PolicyName" Core..=) Core.<$> policyName
           ]
       )

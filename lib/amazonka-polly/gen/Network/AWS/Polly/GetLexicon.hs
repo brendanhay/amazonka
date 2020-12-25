@@ -27,109 +27,102 @@ module Network.AWS.Polly.GetLexicon
     mkGetLexiconResponse,
 
     -- ** Response lenses
-    glrsLexiconAttributes,
-    glrsLexicon,
-    glrsResponseStatus,
+    glrrsLexicon,
+    glrrsLexiconAttributes,
+    glrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Polly.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Polly.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetLexicon' smart constructor.
 newtype GetLexicon = GetLexicon'
   { -- | Name of the lexicon.
-    name :: Lude.Text
+    name :: Types.LexiconName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetLexicon' with the minimum fields required to make a request.
---
--- * 'name' - Name of the lexicon.
+-- | Creates a 'GetLexicon' value with any optional fields omitted.
 mkGetLexicon ::
   -- | 'name'
-  Lude.Text ->
+  Types.LexiconName ->
   GetLexicon
-mkGetLexicon pName_ = GetLexicon' {name = pName_}
+mkGetLexicon name = GetLexicon' {name}
 
 -- | Name of the lexicon.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glName :: Lens.Lens' GetLexicon Lude.Text
-glName = Lens.lens (name :: GetLexicon -> Lude.Text) (\s a -> s {name = a} :: GetLexicon)
+glName :: Lens.Lens' GetLexicon Types.LexiconName
+glName = Lens.field @"name"
 {-# DEPRECATED glName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest GetLexicon where
+instance Core.AWSRequest GetLexicon where
   type Rs GetLexicon = GetLexiconResponse
-  request = Req.get pollyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/v1/lexicons/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetLexiconResponse'
-            Lude.<$> (x Lude..?> "LexiconAttributes")
-            Lude.<*> (x Lude..?> "Lexicon")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Lexicon")
+            Core.<*> (x Core..:? "LexiconAttributes")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetLexicon where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetLexicon where
-  toPath GetLexicon' {..} =
-    Lude.mconcat ["/v1/lexicons/", Lude.toBS name]
-
-instance Lude.ToQuery GetLexicon where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetLexiconResponse' smart constructor.
 data GetLexiconResponse = GetLexiconResponse'
-  { -- | Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.
-    lexiconAttributes :: Lude.Maybe LexiconAttributes,
-    -- | Lexicon object that provides name and the string content of the lexicon.
-    lexicon :: Lude.Maybe Lexicon,
+  { -- | Lexicon object that provides name and the string content of the lexicon.
+    lexicon :: Core.Maybe Types.Lexicon,
+    -- | Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.
+    lexiconAttributes :: Core.Maybe Types.LexiconAttributes,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetLexiconResponse' with the minimum fields required to make a request.
---
--- * 'lexiconAttributes' - Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.
--- * 'lexicon' - Lexicon object that provides name and the string content of the lexicon.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetLexiconResponse' value with any optional fields omitted.
 mkGetLexiconResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetLexiconResponse
-mkGetLexiconResponse pResponseStatus_ =
+mkGetLexiconResponse responseStatus =
   GetLexiconResponse'
-    { lexiconAttributes = Lude.Nothing,
-      lexicon = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { lexicon = Core.Nothing,
+      lexiconAttributes = Core.Nothing,
+      responseStatus
     }
-
--- | Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.
---
--- /Note:/ Consider using 'lexiconAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glrsLexiconAttributes :: Lens.Lens' GetLexiconResponse (Lude.Maybe LexiconAttributes)
-glrsLexiconAttributes = Lens.lens (lexiconAttributes :: GetLexiconResponse -> Lude.Maybe LexiconAttributes) (\s a -> s {lexiconAttributes = a} :: GetLexiconResponse)
-{-# DEPRECATED glrsLexiconAttributes "Use generic-lens or generic-optics with 'lexiconAttributes' instead." #-}
 
 -- | Lexicon object that provides name and the string content of the lexicon.
 --
 -- /Note:/ Consider using 'lexicon' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glrsLexicon :: Lens.Lens' GetLexiconResponse (Lude.Maybe Lexicon)
-glrsLexicon = Lens.lens (lexicon :: GetLexiconResponse -> Lude.Maybe Lexicon) (\s a -> s {lexicon = a} :: GetLexiconResponse)
-{-# DEPRECATED glrsLexicon "Use generic-lens or generic-optics with 'lexicon' instead." #-}
+glrrsLexicon :: Lens.Lens' GetLexiconResponse (Core.Maybe Types.Lexicon)
+glrrsLexicon = Lens.field @"lexicon"
+{-# DEPRECATED glrrsLexicon "Use generic-lens or generic-optics with 'lexicon' instead." #-}
+
+-- | Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.
+--
+-- /Note:/ Consider using 'lexiconAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glrrsLexiconAttributes :: Lens.Lens' GetLexiconResponse (Core.Maybe Types.LexiconAttributes)
+glrrsLexiconAttributes = Lens.field @"lexiconAttributes"
+{-# DEPRECATED glrrsLexiconAttributes "Use generic-lens or generic-optics with 'lexiconAttributes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glrsResponseStatus :: Lens.Lens' GetLexiconResponse Lude.Int
-glrsResponseStatus = Lens.lens (responseStatus :: GetLexiconResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLexiconResponse)
-{-# DEPRECATED glrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+glrrsResponseStatus :: Lens.Lens' GetLexiconResponse Core.Int
+glrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED glrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

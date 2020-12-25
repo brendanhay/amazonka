@@ -13,52 +13,54 @@
 module Network.AWS.MediaConvert.Types.FontScript
   ( FontScript
       ( FontScript',
-        Automatic,
-        Hans,
-        Hant
+        FontScriptAutomatic,
+        FontScriptHans,
+        FontScriptHant,
+        fromFontScript
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset.
-newtype FontScript = FontScript' Lude.Text
+newtype FontScript = FontScript' {fromFontScript :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Automatic :: FontScript
-pattern Automatic = FontScript' "AUTOMATIC"
+pattern FontScriptAutomatic :: FontScript
+pattern FontScriptAutomatic = FontScript' "AUTOMATIC"
 
-pattern Hans :: FontScript
-pattern Hans = FontScript' "HANS"
+pattern FontScriptHans :: FontScript
+pattern FontScriptHans = FontScript' "HANS"
 
-pattern Hant :: FontScript
-pattern Hant = FontScript' "HANT"
+pattern FontScriptHant :: FontScript
+pattern FontScriptHant = FontScript' "HANT"
 
 {-# COMPLETE
-  Automatic,
-  Hans,
-  Hant,
+  FontScriptAutomatic,
+  FontScriptHans,
+  FontScriptHant,
   FontScript'
   #-}

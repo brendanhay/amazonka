@@ -26,178 +26,166 @@ module Network.AWS.WorkSpaces.ListAvailableManagementCidrRanges
 
     -- ** Request lenses
     lamcrManagementCidrRangeConstraint,
-    lamcrNextToken,
     lamcrMaxResults,
+    lamcrNextToken,
 
     -- * Destructuring the response
     ListAvailableManagementCidrRangesResponse (..),
     mkListAvailableManagementCidrRangesResponse,
 
     -- ** Response lenses
-    lamcrrsManagementCidrRanges,
-    lamcrrsNextToken,
-    lamcrrsResponseStatus,
+    lamcrrrsManagementCidrRanges,
+    lamcrrrsNextToken,
+    lamcrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkListAvailableManagementCidrRanges' smart constructor.
 data ListAvailableManagementCidrRanges = ListAvailableManagementCidrRanges'
   { -- | The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).
-    managementCidrRangeConstraint :: Lude.Text,
-    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    managementCidrRangeConstraint :: Types.ManagementCidrRangeConstraint,
     -- | The maximum number of items to return.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAvailableManagementCidrRanges' with the minimum fields required to make a request.
---
--- * 'managementCidrRangeConstraint' - The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).
--- * 'nextToken' - If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
--- * 'maxResults' - The maximum number of items to return.
+-- | Creates a 'ListAvailableManagementCidrRanges' value with any optional fields omitted.
 mkListAvailableManagementCidrRanges ::
   -- | 'managementCidrRangeConstraint'
-  Lude.Text ->
+  Types.ManagementCidrRangeConstraint ->
   ListAvailableManagementCidrRanges
-mkListAvailableManagementCidrRanges pManagementCidrRangeConstraint_ =
+mkListAvailableManagementCidrRanges managementCidrRangeConstraint =
   ListAvailableManagementCidrRanges'
-    { managementCidrRangeConstraint =
-        pManagementCidrRangeConstraint_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { managementCidrRangeConstraint,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The IP address range to search. Specify an IP address range that is compatible with your network and in CIDR notation (that is, specify the range as an IPv4 CIDR block).
 --
 -- /Note:/ Consider using 'managementCidrRangeConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamcrManagementCidrRangeConstraint :: Lens.Lens' ListAvailableManagementCidrRanges Lude.Text
-lamcrManagementCidrRangeConstraint = Lens.lens (managementCidrRangeConstraint :: ListAvailableManagementCidrRanges -> Lude.Text) (\s a -> s {managementCidrRangeConstraint = a} :: ListAvailableManagementCidrRanges)
+lamcrManagementCidrRangeConstraint :: Lens.Lens' ListAvailableManagementCidrRanges Types.ManagementCidrRangeConstraint
+lamcrManagementCidrRangeConstraint = Lens.field @"managementCidrRangeConstraint"
 {-# DEPRECATED lamcrManagementCidrRangeConstraint "Use generic-lens or generic-optics with 'managementCidrRangeConstraint' instead." #-}
-
--- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamcrNextToken :: Lens.Lens' ListAvailableManagementCidrRanges (Lude.Maybe Lude.Text)
-lamcrNextToken = Lens.lens (nextToken :: ListAvailableManagementCidrRanges -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAvailableManagementCidrRanges)
-{-# DEPRECATED lamcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamcrMaxResults :: Lens.Lens' ListAvailableManagementCidrRanges (Lude.Maybe Lude.Natural)
-lamcrMaxResults = Lens.lens (maxResults :: ListAvailableManagementCidrRanges -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAvailableManagementCidrRanges)
+lamcrMaxResults :: Lens.Lens' ListAvailableManagementCidrRanges (Core.Maybe Core.Natural)
+lamcrMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lamcrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListAvailableManagementCidrRanges where
-  page rq rs
-    | Page.stop (rs Lens.^. lamcrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lamcrrsManagementCidrRanges) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lamcrNextToken Lens..~ rs Lens.^. lamcrrsNextToken
+-- | If you received a @NextToken@ from a previous call that was paginated, provide this token to receive the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lamcrNextToken :: Lens.Lens' ListAvailableManagementCidrRanges (Core.Maybe Types.PaginationToken)
+lamcrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lamcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListAvailableManagementCidrRanges where
+instance Core.FromJSON ListAvailableManagementCidrRanges where
+  toJSON ListAvailableManagementCidrRanges {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ( "ManagementCidrRangeConstraint"
+                  Core..= managementCidrRangeConstraint
+              ),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListAvailableManagementCidrRanges where
   type
     Rs ListAvailableManagementCidrRanges =
       ListAvailableManagementCidrRangesResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "WorkspacesService.ListAvailableManagementCidrRanges"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAvailableManagementCidrRangesResponse'
-            Lude.<$> (x Lude..?> "ManagementCidrRanges" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ManagementCidrRanges")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAvailableManagementCidrRanges where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "WorkspacesService.ListAvailableManagementCidrRanges" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAvailableManagementCidrRanges where
-  toJSON ListAvailableManagementCidrRanges' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ( "ManagementCidrRangeConstraint"
-                  Lude..= managementCidrRangeConstraint
-              ),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListAvailableManagementCidrRanges where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAvailableManagementCidrRanges where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAvailableManagementCidrRanges where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"managementCidrRanges" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListAvailableManagementCidrRangesResponse' smart constructor.
 data ListAvailableManagementCidrRangesResponse = ListAvailableManagementCidrRangesResponse'
   { -- | The list of available IP address ranges, specified as IPv4 CIDR blocks.
-    managementCidrRanges :: Lude.Maybe [Lude.Text],
+    managementCidrRanges :: Core.Maybe [Types.DedicatedTenancyManagementCidrRange],
     -- | The token to use to retrieve the next set of results, or null if no more results are available.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAvailableManagementCidrRangesResponse' with the minimum fields required to make a request.
---
--- * 'managementCidrRanges' - The list of available IP address ranges, specified as IPv4 CIDR blocks.
--- * 'nextToken' - The token to use to retrieve the next set of results, or null if no more results are available.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAvailableManagementCidrRangesResponse' value with any optional fields omitted.
 mkListAvailableManagementCidrRangesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAvailableManagementCidrRangesResponse
-mkListAvailableManagementCidrRangesResponse pResponseStatus_ =
+mkListAvailableManagementCidrRangesResponse responseStatus =
   ListAvailableManagementCidrRangesResponse'
     { managementCidrRanges =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of available IP address ranges, specified as IPv4 CIDR blocks.
 --
 -- /Note:/ Consider using 'managementCidrRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamcrrsManagementCidrRanges :: Lens.Lens' ListAvailableManagementCidrRangesResponse (Lude.Maybe [Lude.Text])
-lamcrrsManagementCidrRanges = Lens.lens (managementCidrRanges :: ListAvailableManagementCidrRangesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {managementCidrRanges = a} :: ListAvailableManagementCidrRangesResponse)
-{-# DEPRECATED lamcrrsManagementCidrRanges "Use generic-lens or generic-optics with 'managementCidrRanges' instead." #-}
+lamcrrrsManagementCidrRanges :: Lens.Lens' ListAvailableManagementCidrRangesResponse (Core.Maybe [Types.DedicatedTenancyManagementCidrRange])
+lamcrrrsManagementCidrRanges = Lens.field @"managementCidrRanges"
+{-# DEPRECATED lamcrrrsManagementCidrRanges "Use generic-lens or generic-optics with 'managementCidrRanges' instead." #-}
 
 -- | The token to use to retrieve the next set of results, or null if no more results are available.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamcrrsNextToken :: Lens.Lens' ListAvailableManagementCidrRangesResponse (Lude.Maybe Lude.Text)
-lamcrrsNextToken = Lens.lens (nextToken :: ListAvailableManagementCidrRangesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAvailableManagementCidrRangesResponse)
-{-# DEPRECATED lamcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lamcrrrsNextToken :: Lens.Lens' ListAvailableManagementCidrRangesResponse (Core.Maybe Types.PaginationToken)
+lamcrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lamcrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lamcrrsResponseStatus :: Lens.Lens' ListAvailableManagementCidrRangesResponse Lude.Int
-lamcrrsResponseStatus = Lens.lens (responseStatus :: ListAvailableManagementCidrRangesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAvailableManagementCidrRangesResponse)
-{-# DEPRECATED lamcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lamcrrrsResponseStatus :: Lens.Lens' ListAvailableManagementCidrRangesResponse Core.Int
+lamcrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lamcrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

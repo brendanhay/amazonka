@@ -23,51 +23,46 @@ module Network.AWS.IoT.Types.ThingConnectivity
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The connectivity status of the thing.
 --
 -- /See:/ 'mkThingConnectivity' smart constructor.
 data ThingConnectivity = ThingConnectivity'
   { -- | True if the thing is connected to the AWS IoT service; false if it is not connected.
-    connected :: Lude.Maybe Lude.Bool,
+    connected :: Core.Maybe Core.Bool,
     -- | The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for more than a few weeks, the time value might be missing.
-    timestamp :: Lude.Maybe Lude.Integer
+    timestamp :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ThingConnectivity' with the minimum fields required to make a request.
---
--- * 'connected' - True if the thing is connected to the AWS IoT service; false if it is not connected.
--- * 'timestamp' - The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for more than a few weeks, the time value might be missing.
+-- | Creates a 'ThingConnectivity' value with any optional fields omitted.
 mkThingConnectivity ::
   ThingConnectivity
 mkThingConnectivity =
   ThingConnectivity'
-    { connected = Lude.Nothing,
-      timestamp = Lude.Nothing
+    { connected = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
 -- | True if the thing is connected to the AWS IoT service; false if it is not connected.
 --
 -- /Note:/ Consider using 'connected' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcConnected :: Lens.Lens' ThingConnectivity (Lude.Maybe Lude.Bool)
-tcConnected = Lens.lens (connected :: ThingConnectivity -> Lude.Maybe Lude.Bool) (\s a -> s {connected = a} :: ThingConnectivity)
+tcConnected :: Lens.Lens' ThingConnectivity (Core.Maybe Core.Bool)
+tcConnected = Lens.field @"connected"
 {-# DEPRECATED tcConnected "Use generic-lens or generic-optics with 'connected' instead." #-}
 
 -- | The epoch time (in milliseconds) when the thing last connected or disconnected. If the thing has been disconnected for more than a few weeks, the time value might be missing.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcTimestamp :: Lens.Lens' ThingConnectivity (Lude.Maybe Lude.Integer)
-tcTimestamp = Lens.lens (timestamp :: ThingConnectivity -> Lude.Maybe Lude.Integer) (\s a -> s {timestamp = a} :: ThingConnectivity)
+tcTimestamp :: Lens.Lens' ThingConnectivity (Core.Maybe Core.Integer)
+tcTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED tcTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromJSON ThingConnectivity where
+instance Core.FromJSON ThingConnectivity where
   parseJSON =
-    Lude.withObject
-      "ThingConnectivity"
-      ( \x ->
-          ThingConnectivity'
-            Lude.<$> (x Lude..:? "connected") Lude.<*> (x Lude..:? "timestamp")
-      )
+    Core.withObject "ThingConnectivity" Core.$
+      \x ->
+        ThingConnectivity'
+          Core.<$> (x Core..:? "connected") Core.<*> (x Core..:? "timestamp")

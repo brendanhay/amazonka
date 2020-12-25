@@ -22,8 +22,8 @@ module Network.AWS.IAM.DeleteGroupPolicy
     mkDeleteGroupPolicy,
 
     -- ** Request lenses
-    dgpPolicyName,
-    dgpGroupName,
+    dGroupName,
+    dPolicyName,
 
     -- * Destructuring the response
     DeleteGroupPolicyResponse (..),
@@ -31,90 +31,83 @@ module Network.AWS.IAM.DeleteGroupPolicy
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteGroupPolicy' smart constructor.
 data DeleteGroupPolicy = DeleteGroupPolicy'
-  { -- | The name identifying the policy document to delete.
+  { -- | The name (friendly name, not ARN) identifying the group that the policy is embedded in.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    policyName :: Lude.Text,
-    -- | The name (friendly name, not ARN) identifying the group that the policy is embedded in.
+    groupName :: Types.GroupName,
+    -- | The name identifying the policy document to delete.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    groupName :: Lude.Text
+    policyName :: Types.PolicyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGroupPolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The name identifying the policy document to delete.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'groupName' - The name (friendly name, not ARN) identifying the group that the policy is embedded in.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'DeleteGroupPolicy' value with any optional fields omitted.
 mkDeleteGroupPolicy ::
-  -- | 'policyName'
-  Lude.Text ->
   -- | 'groupName'
-  Lude.Text ->
+  Types.GroupName ->
+  -- | 'policyName'
+  Types.PolicyName ->
   DeleteGroupPolicy
-mkDeleteGroupPolicy pPolicyName_ pGroupName_ =
-  DeleteGroupPolicy'
-    { policyName = pPolicyName_,
-      groupName = pGroupName_
-    }
-
--- | The name identifying the policy document to delete.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgpPolicyName :: Lens.Lens' DeleteGroupPolicy Lude.Text
-dgpPolicyName = Lens.lens (policyName :: DeleteGroupPolicy -> Lude.Text) (\s a -> s {policyName = a} :: DeleteGroupPolicy)
-{-# DEPRECATED dgpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+mkDeleteGroupPolicy groupName policyName =
+  DeleteGroupPolicy' {groupName, policyName}
 
 -- | The name (friendly name, not ARN) identifying the group that the policy is embedded in.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgpGroupName :: Lens.Lens' DeleteGroupPolicy Lude.Text
-dgpGroupName = Lens.lens (groupName :: DeleteGroupPolicy -> Lude.Text) (\s a -> s {groupName = a} :: DeleteGroupPolicy)
-{-# DEPRECATED dgpGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+dGroupName :: Lens.Lens' DeleteGroupPolicy Types.GroupName
+dGroupName = Lens.field @"groupName"
+{-# DEPRECATED dGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.AWSRequest DeleteGroupPolicy where
+-- | The name identifying the policy document to delete.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dPolicyName :: Lens.Lens' DeleteGroupPolicy Types.PolicyName
+dPolicyName = Lens.field @"policyName"
+{-# DEPRECATED dPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
+
+instance Core.AWSRequest DeleteGroupPolicy where
   type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeleteGroupPolicyResponse'
-
-instance Lude.ToHeaders DeleteGroupPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteGroupPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteGroupPolicy where
-  toQuery DeleteGroupPolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteGroupPolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyName" Lude.=: policyName,
-        "GroupName" Lude.=: groupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteGroupPolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "GroupName" groupName)
+                Core.<> (Core.toQueryValue "PolicyName" policyName)
+            )
+      }
+  response = Response.receiveNull DeleteGroupPolicyResponse'
 
 -- | /See:/ 'mkDeleteGroupPolicyResponse' smart constructor.
 data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGroupPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteGroupPolicyResponse' value with any optional fields omitted.
 mkDeleteGroupPolicyResponse ::
   DeleteGroupPolicyResponse
 mkDeleteGroupPolicyResponse = DeleteGroupPolicyResponse'

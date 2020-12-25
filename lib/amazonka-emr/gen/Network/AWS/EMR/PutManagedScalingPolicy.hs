@@ -28,116 +28,99 @@ module Network.AWS.EMR.PutManagedScalingPolicy
     mkPutManagedScalingPolicyResponse,
 
     -- ** Response lenses
-    pmsprsResponseStatus,
+    pmsprrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutManagedScalingPolicy' smart constructor.
 data PutManagedScalingPolicy = PutManagedScalingPolicy'
   { -- | Specifies the ID of an EMR cluster where the managed scaling policy is attached.
-    clusterId :: Lude.Text,
+    clusterId :: Types.ClusterId,
     -- | Specifies the constraints for the managed scaling policy.
-    managedScalingPolicy :: ManagedScalingPolicy
+    managedScalingPolicy :: Types.ManagedScalingPolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutManagedScalingPolicy' with the minimum fields required to make a request.
---
--- * 'clusterId' - Specifies the ID of an EMR cluster where the managed scaling policy is attached.
--- * 'managedScalingPolicy' - Specifies the constraints for the managed scaling policy.
+-- | Creates a 'PutManagedScalingPolicy' value with any optional fields omitted.
 mkPutManagedScalingPolicy ::
   -- | 'clusterId'
-  Lude.Text ->
+  Types.ClusterId ->
   -- | 'managedScalingPolicy'
-  ManagedScalingPolicy ->
+  Types.ManagedScalingPolicy ->
   PutManagedScalingPolicy
-mkPutManagedScalingPolicy pClusterId_ pManagedScalingPolicy_ =
-  PutManagedScalingPolicy'
-    { clusterId = pClusterId_,
-      managedScalingPolicy = pManagedScalingPolicy_
-    }
+mkPutManagedScalingPolicy clusterId managedScalingPolicy =
+  PutManagedScalingPolicy' {clusterId, managedScalingPolicy}
 
 -- | Specifies the ID of an EMR cluster where the managed scaling policy is attached.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmspClusterId :: Lens.Lens' PutManagedScalingPolicy Lude.Text
-pmspClusterId = Lens.lens (clusterId :: PutManagedScalingPolicy -> Lude.Text) (\s a -> s {clusterId = a} :: PutManagedScalingPolicy)
+pmspClusterId :: Lens.Lens' PutManagedScalingPolicy Types.ClusterId
+pmspClusterId = Lens.field @"clusterId"
 {-# DEPRECATED pmspClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | Specifies the constraints for the managed scaling policy.
 --
 -- /Note:/ Consider using 'managedScalingPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmspManagedScalingPolicy :: Lens.Lens' PutManagedScalingPolicy ManagedScalingPolicy
-pmspManagedScalingPolicy = Lens.lens (managedScalingPolicy :: PutManagedScalingPolicy -> ManagedScalingPolicy) (\s a -> s {managedScalingPolicy = a} :: PutManagedScalingPolicy)
+pmspManagedScalingPolicy :: Lens.Lens' PutManagedScalingPolicy Types.ManagedScalingPolicy
+pmspManagedScalingPolicy = Lens.field @"managedScalingPolicy"
 {-# DEPRECATED pmspManagedScalingPolicy "Use generic-lens or generic-optics with 'managedScalingPolicy' instead." #-}
 
-instance Lude.AWSRequest PutManagedScalingPolicy where
+instance Core.FromJSON PutManagedScalingPolicy where
+  toJSON PutManagedScalingPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            Core.Just ("ManagedScalingPolicy" Core..= managedScalingPolicy)
+          ]
+      )
+
+instance Core.AWSRequest PutManagedScalingPolicy where
   type Rs PutManagedScalingPolicy = PutManagedScalingPolicyResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ElasticMapReduce.PutManagedScalingPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           PutManagedScalingPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutManagedScalingPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.PutManagedScalingPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutManagedScalingPolicy where
-  toJSON PutManagedScalingPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClusterId" Lude..= clusterId),
-            Lude.Just ("ManagedScalingPolicy" Lude..= managedScalingPolicy)
-          ]
-      )
-
-instance Lude.ToPath PutManagedScalingPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutManagedScalingPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutManagedScalingPolicyResponse' smart constructor.
 newtype PutManagedScalingPolicyResponse = PutManagedScalingPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutManagedScalingPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutManagedScalingPolicyResponse' value with any optional fields omitted.
 mkPutManagedScalingPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutManagedScalingPolicyResponse
-mkPutManagedScalingPolicyResponse pResponseStatus_ =
-  PutManagedScalingPolicyResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkPutManagedScalingPolicyResponse responseStatus =
+  PutManagedScalingPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmsprsResponseStatus :: Lens.Lens' PutManagedScalingPolicyResponse Lude.Int
-pmsprsResponseStatus = Lens.lens (responseStatus :: PutManagedScalingPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutManagedScalingPolicyResponse)
-{-# DEPRECATED pmsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pmsprrsResponseStatus :: Lens.Lens' PutManagedScalingPolicyResponse Core.Int
+pmsprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pmsprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

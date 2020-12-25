@@ -27,111 +27,99 @@ module Network.AWS.WAF.GetRegexMatchSet
     mkGetRegexMatchSetResponse,
 
     -- ** Response lenses
-    grmsrsRegexMatchSet,
-    grmsrsResponseStatus,
+    grmsrrsRegexMatchSet,
+    grmsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkGetRegexMatchSet' smart constructor.
 newtype GetRegexMatchSet = GetRegexMatchSet'
   { -- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to get. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
-    regexMatchSetId :: Lude.Text
+    regexMatchSetId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRegexMatchSet' with the minimum fields required to make a request.
---
--- * 'regexMatchSetId' - The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to get. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
+-- | Creates a 'GetRegexMatchSet' value with any optional fields omitted.
 mkGetRegexMatchSet ::
   -- | 'regexMatchSetId'
-  Lude.Text ->
+  Types.ResourceId ->
   GetRegexMatchSet
-mkGetRegexMatchSet pRegexMatchSetId_ =
-  GetRegexMatchSet' {regexMatchSetId = pRegexMatchSetId_}
+mkGetRegexMatchSet regexMatchSetId =
+  GetRegexMatchSet' {regexMatchSetId}
 
 -- | The @RegexMatchSetId@ of the 'RegexMatchSet' that you want to get. @RegexMatchSetId@ is returned by 'CreateRegexMatchSet' and by 'ListRegexMatchSets' .
 --
 -- /Note:/ Consider using 'regexMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grmsRegexMatchSetId :: Lens.Lens' GetRegexMatchSet Lude.Text
-grmsRegexMatchSetId = Lens.lens (regexMatchSetId :: GetRegexMatchSet -> Lude.Text) (\s a -> s {regexMatchSetId = a} :: GetRegexMatchSet)
+grmsRegexMatchSetId :: Lens.Lens' GetRegexMatchSet Types.ResourceId
+grmsRegexMatchSetId = Lens.field @"regexMatchSetId"
 {-# DEPRECATED grmsRegexMatchSetId "Use generic-lens or generic-optics with 'regexMatchSetId' instead." #-}
 
-instance Lude.AWSRequest GetRegexMatchSet where
+instance Core.FromJSON GetRegexMatchSet where
+  toJSON GetRegexMatchSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("RegexMatchSetId" Core..= regexMatchSetId)]
+      )
+
+instance Core.AWSRequest GetRegexMatchSet where
   type Rs GetRegexMatchSet = GetRegexMatchSetResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_20150824.GetRegexMatchSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetRegexMatchSetResponse'
-            Lude.<$> (x Lude..?> "RegexMatchSet")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RegexMatchSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetRegexMatchSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.GetRegexMatchSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetRegexMatchSet where
-  toJSON GetRegexMatchSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("RegexMatchSetId" Lude..= regexMatchSetId)]
-      )
-
-instance Lude.ToPath GetRegexMatchSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetRegexMatchSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetRegexMatchSetResponse' smart constructor.
 data GetRegexMatchSetResponse = GetRegexMatchSetResponse'
   { -- | Information about the 'RegexMatchSet' that you specified in the @GetRegexMatchSet@ request. For more information, see 'RegexMatchTuple' .
-    regexMatchSet :: Lude.Maybe RegexMatchSet,
+    regexMatchSet :: Core.Maybe Types.RegexMatchSet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRegexMatchSetResponse' with the minimum fields required to make a request.
---
--- * 'regexMatchSet' - Information about the 'RegexMatchSet' that you specified in the @GetRegexMatchSet@ request. For more information, see 'RegexMatchTuple' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetRegexMatchSetResponse' value with any optional fields omitted.
 mkGetRegexMatchSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetRegexMatchSetResponse
-mkGetRegexMatchSetResponse pResponseStatus_ =
+mkGetRegexMatchSetResponse responseStatus =
   GetRegexMatchSetResponse'
-    { regexMatchSet = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { regexMatchSet = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the 'RegexMatchSet' that you specified in the @GetRegexMatchSet@ request. For more information, see 'RegexMatchTuple' .
 --
 -- /Note:/ Consider using 'regexMatchSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grmsrsRegexMatchSet :: Lens.Lens' GetRegexMatchSetResponse (Lude.Maybe RegexMatchSet)
-grmsrsRegexMatchSet = Lens.lens (regexMatchSet :: GetRegexMatchSetResponse -> Lude.Maybe RegexMatchSet) (\s a -> s {regexMatchSet = a} :: GetRegexMatchSetResponse)
-{-# DEPRECATED grmsrsRegexMatchSet "Use generic-lens or generic-optics with 'regexMatchSet' instead." #-}
+grmsrrsRegexMatchSet :: Lens.Lens' GetRegexMatchSetResponse (Core.Maybe Types.RegexMatchSet)
+grmsrrsRegexMatchSet = Lens.field @"regexMatchSet"
+{-# DEPRECATED grmsrrsRegexMatchSet "Use generic-lens or generic-optics with 'regexMatchSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grmsrsResponseStatus :: Lens.Lens' GetRegexMatchSetResponse Lude.Int
-grmsrsResponseStatus = Lens.lens (responseStatus :: GetRegexMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRegexMatchSetResponse)
-{-# DEPRECATED grmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grmsrrsResponseStatus :: Lens.Lens' GetRegexMatchSetResponse Core.Int
+grmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

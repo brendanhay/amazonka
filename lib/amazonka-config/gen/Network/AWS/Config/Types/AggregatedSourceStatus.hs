@@ -17,27 +17,33 @@ module Network.AWS.Config.Types.AggregatedSourceStatus
     mkAggregatedSourceStatus,
 
     -- * Lenses
+    assAwsRegion,
     assLastErrorCode,
-    assLastUpdateStatus,
-    assSourceType,
-    assSourceId,
     assLastErrorMessage,
-    assAWSRegion,
+    assLastUpdateStatus,
     assLastUpdateTime,
+    assSourceId,
+    assSourceType,
   )
 where
 
-import Network.AWS.Config.Types.AggregatedSourceStatusType
-import Network.AWS.Config.Types.AggregatedSourceType
+import qualified Network.AWS.Config.Types.AggregatedSourceStatusType as Types
+import qualified Network.AWS.Config.Types.AggregatedSourceType as Types
+import qualified Network.AWS.Config.Types.AwsRegion as Types
+import qualified Network.AWS.Config.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The current sync status between the source and the aggregator account.
 --
 -- /See:/ 'mkAggregatedSourceStatus' smart constructor.
 data AggregatedSourceStatus = AggregatedSourceStatus'
-  { -- | The error code that AWS Config returned when the source account aggregation last failed.
-    lastErrorCode :: Lude.Maybe Lude.Text,
+  { -- | The region authorized to collect aggregated data.
+    awsRegion :: Core.Maybe Types.AwsRegion,
+    -- | The error code that AWS Config returned when the source account aggregation last failed.
+    lastErrorCode :: Core.Maybe Types.String,
+    -- | The message indicating that the source account aggregation failed due to an error.
+    lastErrorMessage :: Core.Maybe Types.String,
     -- | Filters the last updated status type.
     --
     --
@@ -48,60 +54,51 @@ data AggregatedSourceStatus = AggregatedSourceStatus'
     --
     --
     --     * Valid value OUTDATED indicates the data is not the most recent.
-    lastUpdateStatus :: Lude.Maybe AggregatedSourceStatusType,
-    -- | The source account or an organization.
-    sourceType :: Lude.Maybe AggregatedSourceType,
-    -- | The source account ID or an organization.
-    sourceId :: Lude.Maybe Lude.Text,
-    -- | The message indicating that the source account aggregation failed due to an error.
-    lastErrorMessage :: Lude.Maybe Lude.Text,
-    -- | The region authorized to collect aggregated data.
-    awsRegion :: Lude.Maybe Lude.Text,
+    lastUpdateStatus :: Core.Maybe Types.AggregatedSourceStatusType,
     -- | The time of the last update.
-    lastUpdateTime :: Lude.Maybe Lude.Timestamp
+    lastUpdateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The source account ID or an organization.
+    sourceId :: Core.Maybe Types.String,
+    -- | The source account or an organization.
+    sourceType :: Core.Maybe Types.AggregatedSourceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AggregatedSourceStatus' with the minimum fields required to make a request.
---
--- * 'lastErrorCode' - The error code that AWS Config returned when the source account aggregation last failed.
--- * 'lastUpdateStatus' - Filters the last updated status type.
---
---
---     * Valid value FAILED indicates errors while moving data.
---
---
---     * Valid value SUCCEEDED indicates the data was successfully moved.
---
---
---     * Valid value OUTDATED indicates the data is not the most recent.
---
---
--- * 'sourceType' - The source account or an organization.
--- * 'sourceId' - The source account ID or an organization.
--- * 'lastErrorMessage' - The message indicating that the source account aggregation failed due to an error.
--- * 'awsRegion' - The region authorized to collect aggregated data.
--- * 'lastUpdateTime' - The time of the last update.
+-- | Creates a 'AggregatedSourceStatus' value with any optional fields omitted.
 mkAggregatedSourceStatus ::
   AggregatedSourceStatus
 mkAggregatedSourceStatus =
   AggregatedSourceStatus'
-    { lastErrorCode = Lude.Nothing,
-      lastUpdateStatus = Lude.Nothing,
-      sourceType = Lude.Nothing,
-      sourceId = Lude.Nothing,
-      lastErrorMessage = Lude.Nothing,
-      awsRegion = Lude.Nothing,
-      lastUpdateTime = Lude.Nothing
+    { awsRegion = Core.Nothing,
+      lastErrorCode = Core.Nothing,
+      lastErrorMessage = Core.Nothing,
+      lastUpdateStatus = Core.Nothing,
+      lastUpdateTime = Core.Nothing,
+      sourceId = Core.Nothing,
+      sourceType = Core.Nothing
     }
+
+-- | The region authorized to collect aggregated data.
+--
+-- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assAwsRegion :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Types.AwsRegion)
+assAwsRegion = Lens.field @"awsRegion"
+{-# DEPRECATED assAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
 -- | The error code that AWS Config returned when the source account aggregation last failed.
 --
 -- /Note:/ Consider using 'lastErrorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assLastErrorCode :: Lens.Lens' AggregatedSourceStatus (Lude.Maybe Lude.Text)
-assLastErrorCode = Lens.lens (lastErrorCode :: AggregatedSourceStatus -> Lude.Maybe Lude.Text) (\s a -> s {lastErrorCode = a} :: AggregatedSourceStatus)
+assLastErrorCode :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Types.String)
+assLastErrorCode = Lens.field @"lastErrorCode"
 {-# DEPRECATED assLastErrorCode "Use generic-lens or generic-optics with 'lastErrorCode' instead." #-}
+
+-- | The message indicating that the source account aggregation failed due to an error.
+--
+-- /Note:/ Consider using 'lastErrorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assLastErrorMessage :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Types.String)
+assLastErrorMessage = Lens.field @"lastErrorMessage"
+{-# DEPRECATED assLastErrorMessage "Use generic-lens or generic-optics with 'lastErrorMessage' instead." #-}
 
 -- | Filters the last updated status type.
 --
@@ -117,56 +114,40 @@ assLastErrorCode = Lens.lens (lastErrorCode :: AggregatedSourceStatus -> Lude.Ma
 --
 --
 -- /Note:/ Consider using 'lastUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assLastUpdateStatus :: Lens.Lens' AggregatedSourceStatus (Lude.Maybe AggregatedSourceStatusType)
-assLastUpdateStatus = Lens.lens (lastUpdateStatus :: AggregatedSourceStatus -> Lude.Maybe AggregatedSourceStatusType) (\s a -> s {lastUpdateStatus = a} :: AggregatedSourceStatus)
+assLastUpdateStatus :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Types.AggregatedSourceStatusType)
+assLastUpdateStatus = Lens.field @"lastUpdateStatus"
 {-# DEPRECATED assLastUpdateStatus "Use generic-lens or generic-optics with 'lastUpdateStatus' instead." #-}
-
--- | The source account or an organization.
---
--- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assSourceType :: Lens.Lens' AggregatedSourceStatus (Lude.Maybe AggregatedSourceType)
-assSourceType = Lens.lens (sourceType :: AggregatedSourceStatus -> Lude.Maybe AggregatedSourceType) (\s a -> s {sourceType = a} :: AggregatedSourceStatus)
-{-# DEPRECATED assSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
-
--- | The source account ID or an organization.
---
--- /Note:/ Consider using 'sourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assSourceId :: Lens.Lens' AggregatedSourceStatus (Lude.Maybe Lude.Text)
-assSourceId = Lens.lens (sourceId :: AggregatedSourceStatus -> Lude.Maybe Lude.Text) (\s a -> s {sourceId = a} :: AggregatedSourceStatus)
-{-# DEPRECATED assSourceId "Use generic-lens or generic-optics with 'sourceId' instead." #-}
-
--- | The message indicating that the source account aggregation failed due to an error.
---
--- /Note:/ Consider using 'lastErrorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assLastErrorMessage :: Lens.Lens' AggregatedSourceStatus (Lude.Maybe Lude.Text)
-assLastErrorMessage = Lens.lens (lastErrorMessage :: AggregatedSourceStatus -> Lude.Maybe Lude.Text) (\s a -> s {lastErrorMessage = a} :: AggregatedSourceStatus)
-{-# DEPRECATED assLastErrorMessage "Use generic-lens or generic-optics with 'lastErrorMessage' instead." #-}
-
--- | The region authorized to collect aggregated data.
---
--- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assAWSRegion :: Lens.Lens' AggregatedSourceStatus (Lude.Maybe Lude.Text)
-assAWSRegion = Lens.lens (awsRegion :: AggregatedSourceStatus -> Lude.Maybe Lude.Text) (\s a -> s {awsRegion = a} :: AggregatedSourceStatus)
-{-# DEPRECATED assAWSRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
 -- | The time of the last update.
 --
 -- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assLastUpdateTime :: Lens.Lens' AggregatedSourceStatus (Lude.Maybe Lude.Timestamp)
-assLastUpdateTime = Lens.lens (lastUpdateTime :: AggregatedSourceStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: AggregatedSourceStatus)
+assLastUpdateTime :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Core.NominalDiffTime)
+assLastUpdateTime = Lens.field @"lastUpdateTime"
 {-# DEPRECATED assLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
-instance Lude.FromJSON AggregatedSourceStatus where
+-- | The source account ID or an organization.
+--
+-- /Note:/ Consider using 'sourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assSourceId :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Types.String)
+assSourceId = Lens.field @"sourceId"
+{-# DEPRECATED assSourceId "Use generic-lens or generic-optics with 'sourceId' instead." #-}
+
+-- | The source account or an organization.
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assSourceType :: Lens.Lens' AggregatedSourceStatus (Core.Maybe Types.AggregatedSourceType)
+assSourceType = Lens.field @"sourceType"
+{-# DEPRECATED assSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
+
+instance Core.FromJSON AggregatedSourceStatus where
   parseJSON =
-    Lude.withObject
-      "AggregatedSourceStatus"
-      ( \x ->
-          AggregatedSourceStatus'
-            Lude.<$> (x Lude..:? "LastErrorCode")
-            Lude.<*> (x Lude..:? "LastUpdateStatus")
-            Lude.<*> (x Lude..:? "SourceType")
-            Lude.<*> (x Lude..:? "SourceId")
-            Lude.<*> (x Lude..:? "LastErrorMessage")
-            Lude.<*> (x Lude..:? "AwsRegion")
-            Lude.<*> (x Lude..:? "LastUpdateTime")
-      )
+    Core.withObject "AggregatedSourceStatus" Core.$
+      \x ->
+        AggregatedSourceStatus'
+          Core.<$> (x Core..:? "AwsRegion")
+          Core.<*> (x Core..:? "LastErrorCode")
+          Core.<*> (x Core..:? "LastErrorMessage")
+          Core.<*> (x Core..:? "LastUpdateStatus")
+          Core.<*> (x Core..:? "LastUpdateTime")
+          Core.<*> (x Core..:? "SourceId")
+          Core.<*> (x Core..:? "SourceType")

@@ -22,35 +22,32 @@ module Network.AWS.WorkSpaces.Types.ComputeType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkSpaces.Types.Compute
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.Compute as Types
 
 -- | Describes the compute type.
 --
 -- /See:/ 'mkComputeType' smart constructor.
 newtype ComputeType = ComputeType'
   { -- | The compute type.
-    name :: Lude.Maybe Compute
+    name :: Core.Maybe Types.Compute
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ComputeType' with the minimum fields required to make a request.
---
--- * 'name' - The compute type.
+-- | Creates a 'ComputeType' value with any optional fields omitted.
 mkComputeType ::
   ComputeType
-mkComputeType = ComputeType' {name = Lude.Nothing}
+mkComputeType = ComputeType' {name = Core.Nothing}
 
 -- | The compute type.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctName :: Lens.Lens' ComputeType (Lude.Maybe Compute)
-ctName = Lens.lens (name :: ComputeType -> Lude.Maybe Compute) (\s a -> s {name = a} :: ComputeType)
+ctName :: Lens.Lens' ComputeType (Core.Maybe Types.Compute)
+ctName = Lens.field @"name"
 {-# DEPRECATED ctName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON ComputeType where
+instance Core.FromJSON ComputeType where
   parseJSON =
-    Lude.withObject
-      "ComputeType"
-      (\x -> ComputeType' Lude.<$> (x Lude..:? "Name"))
+    Core.withObject "ComputeType" Core.$
+      \x -> ComputeType' Core.<$> (x Core..:? "Name")

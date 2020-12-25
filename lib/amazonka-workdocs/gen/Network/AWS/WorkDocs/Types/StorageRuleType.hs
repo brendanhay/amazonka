@@ -23,63 +23,58 @@ module Network.AWS.WorkDocs.Types.StorageRuleType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkDocs.Types.StorageType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.StorageType as Types
 
 -- | Describes the storage for a user.
 --
 -- /See:/ 'mkStorageRuleType' smart constructor.
 data StorageRuleType = StorageRuleType'
   { -- | The amount of storage allocated, in bytes.
-    storageAllocatedInBytes :: Lude.Maybe Lude.Natural,
+    storageAllocatedInBytes :: Core.Maybe Core.Natural,
     -- | The type of storage.
-    storageType :: Lude.Maybe StorageType
+    storageType :: Core.Maybe Types.StorageType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StorageRuleType' with the minimum fields required to make a request.
---
--- * 'storageAllocatedInBytes' - The amount of storage allocated, in bytes.
--- * 'storageType' - The type of storage.
+-- | Creates a 'StorageRuleType' value with any optional fields omitted.
 mkStorageRuleType ::
   StorageRuleType
 mkStorageRuleType =
   StorageRuleType'
-    { storageAllocatedInBytes = Lude.Nothing,
-      storageType = Lude.Nothing
+    { storageAllocatedInBytes = Core.Nothing,
+      storageType = Core.Nothing
     }
 
 -- | The amount of storage allocated, in bytes.
 --
 -- /Note:/ Consider using 'storageAllocatedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srtStorageAllocatedInBytes :: Lens.Lens' StorageRuleType (Lude.Maybe Lude.Natural)
-srtStorageAllocatedInBytes = Lens.lens (storageAllocatedInBytes :: StorageRuleType -> Lude.Maybe Lude.Natural) (\s a -> s {storageAllocatedInBytes = a} :: StorageRuleType)
+srtStorageAllocatedInBytes :: Lens.Lens' StorageRuleType (Core.Maybe Core.Natural)
+srtStorageAllocatedInBytes = Lens.field @"storageAllocatedInBytes"
 {-# DEPRECATED srtStorageAllocatedInBytes "Use generic-lens or generic-optics with 'storageAllocatedInBytes' instead." #-}
 
 -- | The type of storage.
 --
 -- /Note:/ Consider using 'storageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srtStorageType :: Lens.Lens' StorageRuleType (Lude.Maybe StorageType)
-srtStorageType = Lens.lens (storageType :: StorageRuleType -> Lude.Maybe StorageType) (\s a -> s {storageType = a} :: StorageRuleType)
+srtStorageType :: Lens.Lens' StorageRuleType (Core.Maybe Types.StorageType)
+srtStorageType = Lens.field @"storageType"
 {-# DEPRECATED srtStorageType "Use generic-lens or generic-optics with 'storageType' instead." #-}
 
-instance Lude.FromJSON StorageRuleType where
-  parseJSON =
-    Lude.withObject
-      "StorageRuleType"
-      ( \x ->
-          StorageRuleType'
-            Lude.<$> (x Lude..:? "StorageAllocatedInBytes")
-            Lude.<*> (x Lude..:? "StorageType")
-      )
-
-instance Lude.ToJSON StorageRuleType where
-  toJSON StorageRuleType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StorageAllocatedInBytes" Lude..=)
-              Lude.<$> storageAllocatedInBytes,
-            ("StorageType" Lude..=) Lude.<$> storageType
+instance Core.FromJSON StorageRuleType where
+  toJSON StorageRuleType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("StorageAllocatedInBytes" Core..=)
+              Core.<$> storageAllocatedInBytes,
+            ("StorageType" Core..=) Core.<$> storageType
           ]
       )
+
+instance Core.FromJSON StorageRuleType where
+  parseJSON =
+    Core.withObject "StorageRuleType" Core.$
+      \x ->
+        StorageRuleType'
+          Core.<$> (x Core..:? "StorageAllocatedInBytes")
+          Core.<*> (x Core..:? "StorageType")

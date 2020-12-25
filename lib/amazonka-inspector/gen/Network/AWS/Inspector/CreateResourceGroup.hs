@@ -27,120 +27,102 @@ module Network.AWS.Inspector.CreateResourceGroup
     mkCreateResourceGroupResponse,
 
     -- ** Response lenses
-    crgrsResourceGroupARN,
-    crgrsResponseStatus,
+    crgrrsResourceGroupArn,
+    crgrrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateResourceGroup' smart constructor.
 newtype CreateResourceGroup = CreateResourceGroup'
   { -- | A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.
     --
     -- For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.
-    resourceGroupTags :: Lude.NonEmpty ResourceGroupTag
+    resourceGroupTags :: Core.NonEmpty Types.ResourceGroupTag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateResourceGroup' with the minimum fields required to make a request.
---
--- * 'resourceGroupTags' - A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.
---
--- For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.
+-- | Creates a 'CreateResourceGroup' value with any optional fields omitted.
 mkCreateResourceGroup ::
   -- | 'resourceGroupTags'
-  Lude.NonEmpty ResourceGroupTag ->
+  Core.NonEmpty Types.ResourceGroupTag ->
   CreateResourceGroup
-mkCreateResourceGroup pResourceGroupTags_ =
-  CreateResourceGroup' {resourceGroupTags = pResourceGroupTags_}
+mkCreateResourceGroup resourceGroupTags =
+  CreateResourceGroup' {resourceGroupTags}
 
 -- | A collection of keys and an array of possible values, '[{"key":"key1","values":["Value1","Value2"]},{"key":"Key2","values":["Value3"]}]'.
 --
 -- For example,'[{"key":"Name","values":["TestEC2Instance"]}]'.
 --
 -- /Note:/ Consider using 'resourceGroupTags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgResourceGroupTags :: Lens.Lens' CreateResourceGroup (Lude.NonEmpty ResourceGroupTag)
-crgResourceGroupTags = Lens.lens (resourceGroupTags :: CreateResourceGroup -> Lude.NonEmpty ResourceGroupTag) (\s a -> s {resourceGroupTags = a} :: CreateResourceGroup)
+crgResourceGroupTags :: Lens.Lens' CreateResourceGroup (Core.NonEmpty Types.ResourceGroupTag)
+crgResourceGroupTags = Lens.field @"resourceGroupTags"
 {-# DEPRECATED crgResourceGroupTags "Use generic-lens or generic-optics with 'resourceGroupTags' instead." #-}
 
-instance Lude.AWSRequest CreateResourceGroup where
+instance Core.FromJSON CreateResourceGroup where
+  toJSON CreateResourceGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("resourceGroupTags" Core..= resourceGroupTags)]
+      )
+
+instance Core.AWSRequest CreateResourceGroup where
   type Rs CreateResourceGroup = CreateResourceGroupResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "InspectorService.CreateResourceGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateResourceGroupResponse'
-            Lude.<$> (x Lude..:> "resourceGroupArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "resourceGroupArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateResourceGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.CreateResourceGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateResourceGroup where
-  toJSON CreateResourceGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("resourceGroupTags" Lude..= resourceGroupTags)]
-      )
-
-instance Lude.ToPath CreateResourceGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateResourceGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateResourceGroupResponse' smart constructor.
 data CreateResourceGroupResponse = CreateResourceGroupResponse'
   { -- | The ARN that specifies the resource group that is created.
-    resourceGroupARN :: Lude.Text,
+    resourceGroupArn :: Types.ResourceGroupArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateResourceGroupResponse' with the minimum fields required to make a request.
---
--- * 'resourceGroupARN' - The ARN that specifies the resource group that is created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateResourceGroupResponse' value with any optional fields omitted.
 mkCreateResourceGroupResponse ::
-  -- | 'resourceGroupARN'
-  Lude.Text ->
+  -- | 'resourceGroupArn'
+  Types.ResourceGroupArn ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateResourceGroupResponse
-mkCreateResourceGroupResponse pResourceGroupARN_ pResponseStatus_ =
-  CreateResourceGroupResponse'
-    { resourceGroupARN =
-        pResourceGroupARN_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateResourceGroupResponse resourceGroupArn responseStatus =
+  CreateResourceGroupResponse' {resourceGroupArn, responseStatus}
 
 -- | The ARN that specifies the resource group that is created.
 --
--- /Note:/ Consider using 'resourceGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgrsResourceGroupARN :: Lens.Lens' CreateResourceGroupResponse Lude.Text
-crgrsResourceGroupARN = Lens.lens (resourceGroupARN :: CreateResourceGroupResponse -> Lude.Text) (\s a -> s {resourceGroupARN = a} :: CreateResourceGroupResponse)
-{-# DEPRECATED crgrsResourceGroupARN "Use generic-lens or generic-optics with 'resourceGroupARN' instead." #-}
+-- /Note:/ Consider using 'resourceGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crgrrsResourceGroupArn :: Lens.Lens' CreateResourceGroupResponse Types.ResourceGroupArn
+crgrrsResourceGroupArn = Lens.field @"resourceGroupArn"
+{-# DEPRECATED crgrrsResourceGroupArn "Use generic-lens or generic-optics with 'resourceGroupArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgrsResponseStatus :: Lens.Lens' CreateResourceGroupResponse Lude.Int
-crgrsResponseStatus = Lens.lens (responseStatus :: CreateResourceGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateResourceGroupResponse)
-{-# DEPRECATED crgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crgrrsResponseStatus :: Lens.Lens' CreateResourceGroupResponse Core.Int
+crgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

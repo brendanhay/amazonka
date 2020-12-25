@@ -18,70 +18,65 @@ module Network.AWS.SageMaker.Types.MetricData
 
     -- * Lenses
     mdMetricName,
-    mdValue,
     mdTimestamp,
+    mdValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.MetricName as Types
 
 -- | The name, value, and date and time of a metric that was emitted to Amazon CloudWatch.
 --
 -- /See:/ 'mkMetricData' smart constructor.
 data MetricData = MetricData'
   { -- | The name of the metric.
-    metricName :: Lude.Maybe Lude.Text,
-    -- | The value of the metric.
-    value :: Lude.Maybe Lude.Double,
+    metricName :: Core.Maybe Types.MetricName,
     -- | The date and time that the algorithm emitted the metric.
-    timestamp :: Lude.Maybe Lude.Timestamp
+    timestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | The value of the metric.
+    value :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MetricData' with the minimum fields required to make a request.
---
--- * 'metricName' - The name of the metric.
--- * 'value' - The value of the metric.
--- * 'timestamp' - The date and time that the algorithm emitted the metric.
+-- | Creates a 'MetricData' value with any optional fields omitted.
 mkMetricData ::
   MetricData
 mkMetricData =
   MetricData'
-    { metricName = Lude.Nothing,
-      value = Lude.Nothing,
-      timestamp = Lude.Nothing
+    { metricName = Core.Nothing,
+      timestamp = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The name of the metric.
 --
 -- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdMetricName :: Lens.Lens' MetricData (Lude.Maybe Lude.Text)
-mdMetricName = Lens.lens (metricName :: MetricData -> Lude.Maybe Lude.Text) (\s a -> s {metricName = a} :: MetricData)
+mdMetricName :: Lens.Lens' MetricData (Core.Maybe Types.MetricName)
+mdMetricName = Lens.field @"metricName"
 {-# DEPRECATED mdMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
-
--- | The value of the metric.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdValue :: Lens.Lens' MetricData (Lude.Maybe Lude.Double)
-mdValue = Lens.lens (value :: MetricData -> Lude.Maybe Lude.Double) (\s a -> s {value = a} :: MetricData)
-{-# DEPRECATED mdValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | The date and time that the algorithm emitted the metric.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdTimestamp :: Lens.Lens' MetricData (Lude.Maybe Lude.Timestamp)
-mdTimestamp = Lens.lens (timestamp :: MetricData -> Lude.Maybe Lude.Timestamp) (\s a -> s {timestamp = a} :: MetricData)
+mdTimestamp :: Lens.Lens' MetricData (Core.Maybe Core.NominalDiffTime)
+mdTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED mdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromJSON MetricData where
+-- | The value of the metric.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdValue :: Lens.Lens' MetricData (Core.Maybe Core.Double)
+mdValue = Lens.field @"value"
+{-# DEPRECATED mdValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON MetricData where
   parseJSON =
-    Lude.withObject
-      "MetricData"
-      ( \x ->
-          MetricData'
-            Lude.<$> (x Lude..:? "MetricName")
-            Lude.<*> (x Lude..:? "Value")
-            Lude.<*> (x Lude..:? "Timestamp")
-      )
+    Core.withObject "MetricData" Core.$
+      \x ->
+        MetricData'
+          Core.<$> (x Core..:? "MetricName")
+          Core.<*> (x Core..:? "Timestamp")
+          Core.<*> (x Core..:? "Value")

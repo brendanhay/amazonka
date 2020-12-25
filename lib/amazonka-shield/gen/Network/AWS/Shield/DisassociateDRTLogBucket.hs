@@ -29,97 +29,84 @@ module Network.AWS.Shield.DisassociateDRTLogBucket
     mkDisassociateDRTLogBucketResponse,
 
     -- ** Response lenses
-    ddrtlbrsResponseStatus,
+    ddrtlbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkDisassociateDRTLogBucket' smart constructor.
 newtype DisassociateDRTLogBucket = DisassociateDRTLogBucket'
   { -- | The Amazon S3 bucket that contains your AWS WAF logs.
-    logBucket :: Lude.Text
+    logBucket :: Types.LogBucket
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateDRTLogBucket' with the minimum fields required to make a request.
---
--- * 'logBucket' - The Amazon S3 bucket that contains your AWS WAF logs.
+-- | Creates a 'DisassociateDRTLogBucket' value with any optional fields omitted.
 mkDisassociateDRTLogBucket ::
   -- | 'logBucket'
-  Lude.Text ->
+  Types.LogBucket ->
   DisassociateDRTLogBucket
-mkDisassociateDRTLogBucket pLogBucket_ =
-  DisassociateDRTLogBucket' {logBucket = pLogBucket_}
+mkDisassociateDRTLogBucket logBucket =
+  DisassociateDRTLogBucket' {logBucket}
 
 -- | The Amazon S3 bucket that contains your AWS WAF logs.
 --
 -- /Note:/ Consider using 'logBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrtlbLogBucket :: Lens.Lens' DisassociateDRTLogBucket Lude.Text
-ddrtlbLogBucket = Lens.lens (logBucket :: DisassociateDRTLogBucket -> Lude.Text) (\s a -> s {logBucket = a} :: DisassociateDRTLogBucket)
+ddrtlbLogBucket :: Lens.Lens' DisassociateDRTLogBucket Types.LogBucket
+ddrtlbLogBucket = Lens.field @"logBucket"
 {-# DEPRECATED ddrtlbLogBucket "Use generic-lens or generic-optics with 'logBucket' instead." #-}
 
-instance Lude.AWSRequest DisassociateDRTLogBucket where
+instance Core.FromJSON DisassociateDRTLogBucket where
+  toJSON DisassociateDRTLogBucket {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("LogBucket" Core..= logBucket)])
+
+instance Core.AWSRequest DisassociateDRTLogBucket where
   type Rs DisassociateDRTLogBucket = DisassociateDRTLogBucketResponse
-  request = Req.postJSON shieldService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSShield_20160616.DisassociateDRTLogBucket")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateDRTLogBucketResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateDRTLogBucket where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSShield_20160616.DisassociateDRTLogBucket" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateDRTLogBucket where
-  toJSON DisassociateDRTLogBucket' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("LogBucket" Lude..= logBucket)])
-
-instance Lude.ToPath DisassociateDRTLogBucket where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateDRTLogBucket where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateDRTLogBucketResponse' smart constructor.
 newtype DisassociateDRTLogBucketResponse = DisassociateDRTLogBucketResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateDRTLogBucketResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateDRTLogBucketResponse' value with any optional fields omitted.
 mkDisassociateDRTLogBucketResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateDRTLogBucketResponse
-mkDisassociateDRTLogBucketResponse pResponseStatus_ =
-  DisassociateDRTLogBucketResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDisassociateDRTLogBucketResponse responseStatus =
+  DisassociateDRTLogBucketResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrtlbrsResponseStatus :: Lens.Lens' DisassociateDRTLogBucketResponse Lude.Int
-ddrtlbrsResponseStatus = Lens.lens (responseStatus :: DisassociateDRTLogBucketResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateDRTLogBucketResponse)
-{-# DEPRECATED ddrtlbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrtlbrrsResponseStatus :: Lens.Lens' DisassociateDRTLogBucketResponse Core.Int
+ddrtlbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrtlbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

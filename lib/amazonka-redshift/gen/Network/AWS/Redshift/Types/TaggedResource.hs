@@ -17,23 +17,24 @@ module Network.AWS.Redshift.Types.TaggedResource
     mkTaggedResource,
 
     -- * Lenses
-    trTag,
-    trResourceType,
     trResourceName,
+    trResourceType,
+    trTag,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
+import qualified Network.AWS.Redshift.Types.Tag as Types
 
 -- | A tag and its associated resource.
 --
 -- /See:/ 'mkTaggedResource' smart constructor.
 data TaggedResource = TaggedResource'
-  { -- | The tag for the resource.
-    tag :: Lude.Maybe Tag,
+  { -- | The Amazon Resource Name (ARN) with which the tag is associated, for example: @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
+    resourceName :: Core.Maybe Types.String,
     -- | The type of resource with which the tag is associated. Valid resource types are:
     --
     --
@@ -65,63 +66,29 @@ data TaggedResource = TaggedResource'
     --
     --
     -- For more information about Amazon Redshift resource types and constructing ARNs, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
-    resourceType :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) with which the tag is associated, for example: @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
-    resourceName :: Lude.Maybe Lude.Text
+    resourceType :: Core.Maybe Types.String,
+    -- | The tag for the resource.
+    tag :: Core.Maybe Types.Tag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TaggedResource' with the minimum fields required to make a request.
---
--- * 'tag' - The tag for the resource.
--- * 'resourceType' - The type of resource with which the tag is associated. Valid resource types are:
---
---
---     * Cluster
---
---
---     * CIDR/IP
---
---
---     * EC2 security group
---
---
---     * Snapshot
---
---
---     * Cluster security group
---
---
---     * Subnet group
---
---
---     * HSM connection
---
---
---     * HSM certificate
---
---
---     * Parameter group
---
---
--- For more information about Amazon Redshift resource types and constructing ARNs, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
--- * 'resourceName' - The Amazon Resource Name (ARN) with which the tag is associated, for example: @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
+-- | Creates a 'TaggedResource' value with any optional fields omitted.
 mkTaggedResource ::
   TaggedResource
 mkTaggedResource =
   TaggedResource'
-    { tag = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      resourceName = Lude.Nothing
+    { resourceName = Core.Nothing,
+      resourceType = Core.Nothing,
+      tag = Core.Nothing
     }
 
--- | The tag for the resource.
+-- | The Amazon Resource Name (ARN) with which the tag is associated, for example: @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
 --
--- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trTag :: Lens.Lens' TaggedResource (Lude.Maybe Tag)
-trTag = Lens.lens (tag :: TaggedResource -> Lude.Maybe Tag) (\s a -> s {tag = a} :: TaggedResource)
-{-# DEPRECATED trTag "Use generic-lens or generic-optics with 'tag' instead." #-}
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceName :: Lens.Lens' TaggedResource (Core.Maybe Types.String)
+trResourceName = Lens.field @"resourceName"
+{-# DEPRECATED trResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The type of resource with which the tag is associated. Valid resource types are:
 --
@@ -156,20 +123,20 @@ trTag = Lens.lens (tag :: TaggedResource -> Lude.Maybe Tag) (\s a -> s {tag = a}
 -- For more information about Amazon Redshift resource types and constructing ARNs, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the Amazon Redshift Cluster Management Guide.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trResourceType :: Lens.Lens' TaggedResource (Lude.Maybe Lude.Text)
-trResourceType = Lens.lens (resourceType :: TaggedResource -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: TaggedResource)
+trResourceType :: Lens.Lens' TaggedResource (Core.Maybe Types.String)
+trResourceType = Lens.field @"resourceType"
 {-# DEPRECATED trResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
--- | The Amazon Resource Name (ARN) with which the tag is associated, for example: @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
+-- | The tag for the resource.
 --
--- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trResourceName :: Lens.Lens' TaggedResource (Lude.Maybe Lude.Text)
-trResourceName = Lens.lens (resourceName :: TaggedResource -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: TaggedResource)
-{-# DEPRECATED trResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
+-- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trTag :: Lens.Lens' TaggedResource (Core.Maybe Types.Tag)
+trTag = Lens.field @"tag"
+{-# DEPRECATED trTag "Use generic-lens or generic-optics with 'tag' instead." #-}
 
-instance Lude.FromXML TaggedResource where
+instance Core.FromXML TaggedResource where
   parseXML x =
     TaggedResource'
-      Lude.<$> (x Lude..@? "Tag")
-      Lude.<*> (x Lude..@? "ResourceType")
-      Lude.<*> (x Lude..@? "ResourceName")
+      Core.<$> (x Core..@? "ResourceName")
+      Core.<*> (x Core..@? "ResourceType")
+      Core.<*> (x Core..@? "Tag")

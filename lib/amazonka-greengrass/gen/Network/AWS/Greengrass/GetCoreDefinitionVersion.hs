@@ -28,190 +28,171 @@ module Network.AWS.Greengrass.GetCoreDefinitionVersion
     mkGetCoreDefinitionVersionResponse,
 
     -- ** Response lenses
-    gcdvfrsDefinition,
-    gcdvfrsARN,
-    gcdvfrsNextToken,
-    gcdvfrsCreationTimestamp,
-    gcdvfrsVersion,
-    gcdvfrsId,
-    gcdvfrsResponseStatus,
+    gcdvrfrsArn,
+    gcdvrfrsCreationTimestamp,
+    gcdvrfrsDefinition,
+    gcdvrfrsId,
+    gcdvrfrsNextToken,
+    gcdvrfrsVersion,
+    gcdvrfrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetCoreDefinitionVersion' smart constructor.
 data GetCoreDefinitionVersion = GetCoreDefinitionVersion'
   { -- | The ID of the core definition.
-    coreDefinitionId :: Lude.Text,
+    coreDefinitionId :: Core.Text,
     -- | The ID of the core definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListCoreDefinitionVersions'' requests. If the version is the last one that was associated with a core definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
-    coreDefinitionVersionId :: Lude.Text
+    coreDefinitionVersionId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCoreDefinitionVersion' with the minimum fields required to make a request.
---
--- * 'coreDefinitionId' - The ID of the core definition.
--- * 'coreDefinitionVersionId' - The ID of the core definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListCoreDefinitionVersions'' requests. If the version is the last one that was associated with a core definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
+-- | Creates a 'GetCoreDefinitionVersion' value with any optional fields omitted.
 mkGetCoreDefinitionVersion ::
   -- | 'coreDefinitionId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'coreDefinitionVersionId'
-  Lude.Text ->
+  Core.Text ->
   GetCoreDefinitionVersion
-mkGetCoreDefinitionVersion
-  pCoreDefinitionId_
-  pCoreDefinitionVersionId_ =
-    GetCoreDefinitionVersion'
-      { coreDefinitionId = pCoreDefinitionId_,
-        coreDefinitionVersionId = pCoreDefinitionVersionId_
-      }
+mkGetCoreDefinitionVersion coreDefinitionId coreDefinitionVersionId =
+  GetCoreDefinitionVersion'
+    { coreDefinitionId,
+      coreDefinitionVersionId
+    }
 
 -- | The ID of the core definition.
 --
 -- /Note:/ Consider using 'coreDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdvCoreDefinitionId :: Lens.Lens' GetCoreDefinitionVersion Lude.Text
-gcdvCoreDefinitionId = Lens.lens (coreDefinitionId :: GetCoreDefinitionVersion -> Lude.Text) (\s a -> s {coreDefinitionId = a} :: GetCoreDefinitionVersion)
+gcdvCoreDefinitionId :: Lens.Lens' GetCoreDefinitionVersion Core.Text
+gcdvCoreDefinitionId = Lens.field @"coreDefinitionId"
 {-# DEPRECATED gcdvCoreDefinitionId "Use generic-lens or generic-optics with 'coreDefinitionId' instead." #-}
 
 -- | The ID of the core definition version. This value maps to the ''Version'' property of the corresponding ''VersionInformation'' object, which is returned by ''ListCoreDefinitionVersions'' requests. If the version is the last one that was associated with a core definition, the value also maps to the ''LatestVersion'' property of the corresponding ''DefinitionInformation'' object.
 --
 -- /Note:/ Consider using 'coreDefinitionVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdvCoreDefinitionVersionId :: Lens.Lens' GetCoreDefinitionVersion Lude.Text
-gcdvCoreDefinitionVersionId = Lens.lens (coreDefinitionVersionId :: GetCoreDefinitionVersion -> Lude.Text) (\s a -> s {coreDefinitionVersionId = a} :: GetCoreDefinitionVersion)
+gcdvCoreDefinitionVersionId :: Lens.Lens' GetCoreDefinitionVersion Core.Text
+gcdvCoreDefinitionVersionId = Lens.field @"coreDefinitionVersionId"
 {-# DEPRECATED gcdvCoreDefinitionVersionId "Use generic-lens or generic-optics with 'coreDefinitionVersionId' instead." #-}
 
-instance Lude.AWSRequest GetCoreDefinitionVersion where
+instance Core.AWSRequest GetCoreDefinitionVersion where
   type Rs GetCoreDefinitionVersion = GetCoreDefinitionVersionResponse
-  request = Req.get greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/definition/cores/"
+                Core.<> (Core.toText coreDefinitionId)
+                Core.<> ("/versions/")
+                Core.<> (Core.toText coreDefinitionVersionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCoreDefinitionVersionResponse'
-            Lude.<$> (x Lude..?> "Definition")
-            Lude.<*> (x Lude..?> "Arn")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "CreationTimestamp")
-            Lude.<*> (x Lude..?> "Version")
-            Lude.<*> (x Lude..?> "Id")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "CreationTimestamp")
+            Core.<*> (x Core..:? "Definition")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCoreDefinitionVersion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetCoreDefinitionVersion where
-  toPath GetCoreDefinitionVersion' {..} =
-    Lude.mconcat
-      [ "/greengrass/definition/cores/",
-        Lude.toBS coreDefinitionId,
-        "/versions/",
-        Lude.toBS coreDefinitionVersionId
-      ]
-
-instance Lude.ToQuery GetCoreDefinitionVersion where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetCoreDefinitionVersionResponse' smart constructor.
 data GetCoreDefinitionVersionResponse = GetCoreDefinitionVersionResponse'
-  { -- | Information about the core definition version.
-    definition :: Lude.Maybe CoreDefinitionVersion,
-    -- | The ARN of the core definition version.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The token for the next set of results, or ''null'' if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the core definition version.
+    arn :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the core definition version was created.
-    creationTimestamp :: Lude.Maybe Lude.Text,
-    -- | The version of the core definition version.
-    version :: Lude.Maybe Lude.Text,
+    creationTimestamp :: Core.Maybe Core.Text,
+    -- | Information about the core definition version.
+    definition :: Core.Maybe Types.CoreDefinitionVersion,
     -- | The ID of the core definition version.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
+    -- | The token for the next set of results, or ''null'' if there are no additional results.
+    nextToken :: Core.Maybe Core.Text,
+    -- | The version of the core definition version.
+    version :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCoreDefinitionVersionResponse' with the minimum fields required to make a request.
---
--- * 'definition' - Information about the core definition version.
--- * 'arn' - The ARN of the core definition version.
--- * 'nextToken' - The token for the next set of results, or ''null'' if there are no additional results.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the core definition version was created.
--- * 'version' - The version of the core definition version.
--- * 'id' - The ID of the core definition version.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCoreDefinitionVersionResponse' value with any optional fields omitted.
 mkGetCoreDefinitionVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCoreDefinitionVersionResponse
-mkGetCoreDefinitionVersionResponse pResponseStatus_ =
+mkGetCoreDefinitionVersionResponse responseStatus =
   GetCoreDefinitionVersionResponse'
-    { definition = Lude.Nothing,
-      arn = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      creationTimestamp = Lude.Nothing,
-      version = Lude.Nothing,
-      id = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      creationTimestamp = Core.Nothing,
+      definition = Core.Nothing,
+      id = Core.Nothing,
+      nextToken = Core.Nothing,
+      version = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the core definition version.
---
--- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdvfrsDefinition :: Lens.Lens' GetCoreDefinitionVersionResponse (Lude.Maybe CoreDefinitionVersion)
-gcdvfrsDefinition = Lens.lens (definition :: GetCoreDefinitionVersionResponse -> Lude.Maybe CoreDefinitionVersion) (\s a -> s {definition = a} :: GetCoreDefinitionVersionResponse)
-{-# DEPRECATED gcdvfrsDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
 -- | The ARN of the core definition version.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdvfrsARN :: Lens.Lens' GetCoreDefinitionVersionResponse (Lude.Maybe Lude.Text)
-gcdvfrsARN = Lens.lens (arn :: GetCoreDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetCoreDefinitionVersionResponse)
-{-# DEPRECATED gcdvfrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The token for the next set of results, or ''null'' if there are no additional results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdvfrsNextToken :: Lens.Lens' GetCoreDefinitionVersionResponse (Lude.Maybe Lude.Text)
-gcdvfrsNextToken = Lens.lens (nextToken :: GetCoreDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCoreDefinitionVersionResponse)
-{-# DEPRECATED gcdvfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gcdvrfrsArn :: Lens.Lens' GetCoreDefinitionVersionResponse (Core.Maybe Core.Text)
+gcdvrfrsArn = Lens.field @"arn"
+{-# DEPRECATED gcdvrfrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the core definition version was created.
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdvfrsCreationTimestamp :: Lens.Lens' GetCoreDefinitionVersionResponse (Lude.Maybe Lude.Text)
-gcdvfrsCreationTimestamp = Lens.lens (creationTimestamp :: GetCoreDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: GetCoreDefinitionVersionResponse)
-{-# DEPRECATED gcdvfrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
+gcdvrfrsCreationTimestamp :: Lens.Lens' GetCoreDefinitionVersionResponse (Core.Maybe Core.Text)
+gcdvrfrsCreationTimestamp = Lens.field @"creationTimestamp"
+{-# DEPRECATED gcdvrfrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
--- | The version of the core definition version.
+-- | Information about the core definition version.
 --
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdvfrsVersion :: Lens.Lens' GetCoreDefinitionVersionResponse (Lude.Maybe Lude.Text)
-gcdvfrsVersion = Lens.lens (version :: GetCoreDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: GetCoreDefinitionVersionResponse)
-{-# DEPRECATED gcdvfrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+-- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdvrfrsDefinition :: Lens.Lens' GetCoreDefinitionVersionResponse (Core.Maybe Types.CoreDefinitionVersion)
+gcdvrfrsDefinition = Lens.field @"definition"
+{-# DEPRECATED gcdvrfrsDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
 -- | The ID of the core definition version.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdvfrsId :: Lens.Lens' GetCoreDefinitionVersionResponse (Lude.Maybe Lude.Text)
-gcdvfrsId = Lens.lens (id :: GetCoreDefinitionVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GetCoreDefinitionVersionResponse)
-{-# DEPRECATED gcdvfrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+gcdvrfrsId :: Lens.Lens' GetCoreDefinitionVersionResponse (Core.Maybe Core.Text)
+gcdvrfrsId = Lens.field @"id"
+{-# DEPRECATED gcdvrfrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The token for the next set of results, or ''null'' if there are no additional results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdvrfrsNextToken :: Lens.Lens' GetCoreDefinitionVersionResponse (Core.Maybe Core.Text)
+gcdvrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gcdvrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The version of the core definition version.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcdvrfrsVersion :: Lens.Lens' GetCoreDefinitionVersionResponse (Core.Maybe Core.Text)
+gcdvrfrsVersion = Lens.field @"version"
+{-# DEPRECATED gcdvrfrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcdvfrsResponseStatus :: Lens.Lens' GetCoreDefinitionVersionResponse Lude.Int
-gcdvfrsResponseStatus = Lens.lens (responseStatus :: GetCoreDefinitionVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCoreDefinitionVersionResponse)
-{-# DEPRECATED gcdvfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcdvrfrsResponseStatus :: Lens.Lens' GetCoreDefinitionVersionResponse Core.Int
+gcdvrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcdvrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

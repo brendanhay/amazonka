@@ -13,46 +13,48 @@
 module Network.AWS.CloudWatchLogs.Types.OrderBy
   ( OrderBy
       ( OrderBy',
-        LogStreamName,
-        LastEventTime
+        OrderByLogStreamName,
+        OrderByLastEventTime,
+        fromOrderBy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OrderBy = OrderBy' Lude.Text
+newtype OrderBy = OrderBy' {fromOrderBy :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LogStreamName :: OrderBy
-pattern LogStreamName = OrderBy' "LogStreamName"
+pattern OrderByLogStreamName :: OrderBy
+pattern OrderByLogStreamName = OrderBy' "LogStreamName"
 
-pattern LastEventTime :: OrderBy
-pattern LastEventTime = OrderBy' "LastEventTime"
+pattern OrderByLastEventTime :: OrderBy
+pattern OrderByLastEventTime = OrderBy' "LastEventTime"
 
 {-# COMPLETE
-  LogStreamName,
-  LastEventTime,
+  OrderByLogStreamName,
+  OrderByLastEventTime,
   OrderBy'
   #-}

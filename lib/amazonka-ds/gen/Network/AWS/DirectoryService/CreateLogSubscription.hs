@@ -28,115 +28,99 @@ module Network.AWS.DirectoryService.CreateLogSubscription
     mkCreateLogSubscriptionResponse,
 
     -- ** Response lenses
-    clsrsResponseStatus,
+    clsrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateLogSubscription' smart constructor.
 data CreateLogSubscription = CreateLogSubscription'
   { -- | Identifier of the directory to which you want to subscribe and receive real-time logs to your specified CloudWatch log group.
-    directoryId :: Lude.Text,
+    directoryId :: Types.DirectoryId,
     -- | The name of the CloudWatch log group where the real-time domain controller logs are forwarded.
-    logGroupName :: Lude.Text
+    logGroupName :: Types.LogGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLogSubscription' with the minimum fields required to make a request.
---
--- * 'directoryId' - Identifier of the directory to which you want to subscribe and receive real-time logs to your specified CloudWatch log group.
--- * 'logGroupName' - The name of the CloudWatch log group where the real-time domain controller logs are forwarded.
+-- | Creates a 'CreateLogSubscription' value with any optional fields omitted.
 mkCreateLogSubscription ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   -- | 'logGroupName'
-  Lude.Text ->
+  Types.LogGroupName ->
   CreateLogSubscription
-mkCreateLogSubscription pDirectoryId_ pLogGroupName_ =
-  CreateLogSubscription'
-    { directoryId = pDirectoryId_,
-      logGroupName = pLogGroupName_
-    }
+mkCreateLogSubscription directoryId logGroupName =
+  CreateLogSubscription' {directoryId, logGroupName}
 
 -- | Identifier of the directory to which you want to subscribe and receive real-time logs to your specified CloudWatch log group.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clsDirectoryId :: Lens.Lens' CreateLogSubscription Lude.Text
-clsDirectoryId = Lens.lens (directoryId :: CreateLogSubscription -> Lude.Text) (\s a -> s {directoryId = a} :: CreateLogSubscription)
+clsDirectoryId :: Lens.Lens' CreateLogSubscription Types.DirectoryId
+clsDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED clsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
 -- | The name of the CloudWatch log group where the real-time domain controller logs are forwarded.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clsLogGroupName :: Lens.Lens' CreateLogSubscription Lude.Text
-clsLogGroupName = Lens.lens (logGroupName :: CreateLogSubscription -> Lude.Text) (\s a -> s {logGroupName = a} :: CreateLogSubscription)
+clsLogGroupName :: Lens.Lens' CreateLogSubscription Types.LogGroupName
+clsLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED clsLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
-instance Lude.AWSRequest CreateLogSubscription where
+instance Core.FromJSON CreateLogSubscription where
+  toJSON CreateLogSubscription {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            Core.Just ("LogGroupName" Core..= logGroupName)
+          ]
+      )
+
+instance Core.AWSRequest CreateLogSubscription where
   type Rs CreateLogSubscription = CreateLogSubscriptionResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.CreateLogSubscription")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           CreateLogSubscriptionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateLogSubscription where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DirectoryService_20150416.CreateLogSubscription" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateLogSubscription where
-  toJSON CreateLogSubscription' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            Lude.Just ("LogGroupName" Lude..= logGroupName)
-          ]
-      )
-
-instance Lude.ToPath CreateLogSubscription where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateLogSubscription where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateLogSubscriptionResponse' smart constructor.
 newtype CreateLogSubscriptionResponse = CreateLogSubscriptionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLogSubscriptionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateLogSubscriptionResponse' value with any optional fields omitted.
 mkCreateLogSubscriptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateLogSubscriptionResponse
-mkCreateLogSubscriptionResponse pResponseStatus_ =
-  CreateLogSubscriptionResponse' {responseStatus = pResponseStatus_}
+mkCreateLogSubscriptionResponse responseStatus =
+  CreateLogSubscriptionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clsrsResponseStatus :: Lens.Lens' CreateLogSubscriptionResponse Lude.Int
-clsrsResponseStatus = Lens.lens (responseStatus :: CreateLogSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLogSubscriptionResponse)
-{-# DEPRECATED clsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+clsrrsResponseStatus :: Lens.Lens' CreateLogSubscriptionResponse Core.Int
+clsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED clsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

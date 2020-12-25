@@ -20,203 +20,186 @@ module Network.AWS.AppStream.CreateStreamingURL
     mkCreateStreamingURL,
 
     -- ** Request lenses
-    csuSessionContext,
-    csuUserId,
-    csuApplicationId,
-    csuValidity,
-    csuFleetName,
-    csuStackName,
+    csurlStackName,
+    csurlFleetName,
+    csurlUserId,
+    csurlApplicationId,
+    csurlSessionContext,
+    csurlValidity,
 
     -- * Destructuring the response
     CreateStreamingURLResponse (..),
     mkCreateStreamingURLResponse,
 
     -- ** Response lenses
-    csursStreamingURL,
-    csursExpires,
-    csursResponseStatus,
+    csurlrrsExpires,
+    csurlrrsStreamingURL,
+    csurlrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateStreamingURL' smart constructor.
 data CreateStreamingURL = CreateStreamingURL'
-  { -- | The session context. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Administration Guide/ .
-    sessionContext :: Lude.Maybe Lude.Text,
-    -- | The identifier of the user.
-    userId :: Lude.Text,
-    -- | The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
-    applicationId :: Lude.Maybe Lude.Text,
-    -- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.
-    validity :: Lude.Maybe Lude.Integer,
+  { -- | The name of the stack.
+    stackName :: Types.String,
     -- | The name of the fleet.
-    fleetName :: Lude.Text,
-    -- | The name of the stack.
-    stackName :: Lude.Text
+    fleetName :: Types.String,
+    -- | The identifier of the user.
+    userId :: Types.UserId,
+    -- | The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
+    applicationId :: Core.Maybe Types.String,
+    -- | The session context. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Administration Guide/ .
+    sessionContext :: Core.Maybe Types.String,
+    -- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.
+    validity :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStreamingURL' with the minimum fields required to make a request.
---
--- * 'sessionContext' - The session context. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Administration Guide/ .
--- * 'userId' - The identifier of the user.
--- * 'applicationId' - The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
--- * 'validity' - The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.
--- * 'fleetName' - The name of the fleet.
--- * 'stackName' - The name of the stack.
+-- | Creates a 'CreateStreamingURL' value with any optional fields omitted.
 mkCreateStreamingURL ::
-  -- | 'userId'
-  Lude.Text ->
-  -- | 'fleetName'
-  Lude.Text ->
   -- | 'stackName'
-  Lude.Text ->
+  Types.String ->
+  -- | 'fleetName'
+  Types.String ->
+  -- | 'userId'
+  Types.UserId ->
   CreateStreamingURL
-mkCreateStreamingURL pUserId_ pFleetName_ pStackName_ =
+mkCreateStreamingURL stackName fleetName userId =
   CreateStreamingURL'
-    { sessionContext = Lude.Nothing,
-      userId = pUserId_,
-      applicationId = Lude.Nothing,
-      validity = Lude.Nothing,
-      fleetName = pFleetName_,
-      stackName = pStackName_
+    { stackName,
+      fleetName,
+      userId,
+      applicationId = Core.Nothing,
+      sessionContext = Core.Nothing,
+      validity = Core.Nothing
     }
-
--- | The session context. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Administration Guide/ .
---
--- /Note:/ Consider using 'sessionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csuSessionContext :: Lens.Lens' CreateStreamingURL (Lude.Maybe Lude.Text)
-csuSessionContext = Lens.lens (sessionContext :: CreateStreamingURL -> Lude.Maybe Lude.Text) (\s a -> s {sessionContext = a} :: CreateStreamingURL)
-{-# DEPRECATED csuSessionContext "Use generic-lens or generic-optics with 'sessionContext' instead." #-}
-
--- | The identifier of the user.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csuUserId :: Lens.Lens' CreateStreamingURL Lude.Text
-csuUserId = Lens.lens (userId :: CreateStreamingURL -> Lude.Text) (\s a -> s {userId = a} :: CreateStreamingURL)
-{-# DEPRECATED csuUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
-
--- | The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csuApplicationId :: Lens.Lens' CreateStreamingURL (Lude.Maybe Lude.Text)
-csuApplicationId = Lens.lens (applicationId :: CreateStreamingURL -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: CreateStreamingURL)
-{-# DEPRECATED csuApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
-
--- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.
---
--- /Note:/ Consider using 'validity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csuValidity :: Lens.Lens' CreateStreamingURL (Lude.Maybe Lude.Integer)
-csuValidity = Lens.lens (validity :: CreateStreamingURL -> Lude.Maybe Lude.Integer) (\s a -> s {validity = a} :: CreateStreamingURL)
-{-# DEPRECATED csuValidity "Use generic-lens or generic-optics with 'validity' instead." #-}
-
--- | The name of the fleet.
---
--- /Note:/ Consider using 'fleetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csuFleetName :: Lens.Lens' CreateStreamingURL Lude.Text
-csuFleetName = Lens.lens (fleetName :: CreateStreamingURL -> Lude.Text) (\s a -> s {fleetName = a} :: CreateStreamingURL)
-{-# DEPRECATED csuFleetName "Use generic-lens or generic-optics with 'fleetName' instead." #-}
 
 -- | The name of the stack.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csuStackName :: Lens.Lens' CreateStreamingURL Lude.Text
-csuStackName = Lens.lens (stackName :: CreateStreamingURL -> Lude.Text) (\s a -> s {stackName = a} :: CreateStreamingURL)
-{-# DEPRECATED csuStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
+csurlStackName :: Lens.Lens' CreateStreamingURL Types.String
+csurlStackName = Lens.field @"stackName"
+{-# DEPRECATED csurlStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Lude.AWSRequest CreateStreamingURL where
+-- | The name of the fleet.
+--
+-- /Note:/ Consider using 'fleetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csurlFleetName :: Lens.Lens' CreateStreamingURL Types.String
+csurlFleetName = Lens.field @"fleetName"
+{-# DEPRECATED csurlFleetName "Use generic-lens or generic-optics with 'fleetName' instead." #-}
+
+-- | The identifier of the user.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csurlUserId :: Lens.Lens' CreateStreamingURL Types.UserId
+csurlUserId = Lens.field @"userId"
+{-# DEPRECATED csurlUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+-- | The name of the application to launch after the session starts. This is the name that you specified as __Name__ in the Image Assistant.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csurlApplicationId :: Lens.Lens' CreateStreamingURL (Core.Maybe Types.String)
+csurlApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED csurlApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+-- | The session context. For more information, see <https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters Session Context> in the /Amazon AppStream 2.0 Administration Guide/ .
+--
+-- /Note:/ Consider using 'sessionContext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csurlSessionContext :: Lens.Lens' CreateStreamingURL (Core.Maybe Types.String)
+csurlSessionContext = Lens.field @"sessionContext"
+{-# DEPRECATED csurlSessionContext "Use generic-lens or generic-optics with 'sessionContext' instead." #-}
+
+-- | The time that the streaming URL will be valid, in seconds. Specify a value between 1 and 604800 seconds. The default is 60 seconds.
+--
+-- /Note:/ Consider using 'validity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csurlValidity :: Lens.Lens' CreateStreamingURL (Core.Maybe Core.Integer)
+csurlValidity = Lens.field @"validity"
+{-# DEPRECATED csurlValidity "Use generic-lens or generic-optics with 'validity' instead." #-}
+
+instance Core.FromJSON CreateStreamingURL where
+  toJSON CreateStreamingURL {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StackName" Core..= stackName),
+            Core.Just ("FleetName" Core..= fleetName),
+            Core.Just ("UserId" Core..= userId),
+            ("ApplicationId" Core..=) Core.<$> applicationId,
+            ("SessionContext" Core..=) Core.<$> sessionContext,
+            ("Validity" Core..=) Core.<$> validity
+          ]
+      )
+
+instance Core.AWSRequest CreateStreamingURL where
   type Rs CreateStreamingURL = CreateStreamingURLResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "PhotonAdminProxyService.CreateStreamingURL")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateStreamingURLResponse'
-            Lude.<$> (x Lude..?> "StreamingURL")
-            Lude.<*> (x Lude..?> "Expires")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Expires")
+            Core.<*> (x Core..:? "StreamingURL")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateStreamingURL where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.CreateStreamingURL" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateStreamingURL where
-  toJSON CreateStreamingURL' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SessionContext" Lude..=) Lude.<$> sessionContext,
-            Lude.Just ("UserId" Lude..= userId),
-            ("ApplicationId" Lude..=) Lude.<$> applicationId,
-            ("Validity" Lude..=) Lude.<$> validity,
-            Lude.Just ("FleetName" Lude..= fleetName),
-            Lude.Just ("StackName" Lude..= stackName)
-          ]
-      )
-
-instance Lude.ToPath CreateStreamingURL where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateStreamingURL where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateStreamingURLResponse' smart constructor.
 data CreateStreamingURLResponse = CreateStreamingURLResponse'
-  { -- | The URL to start the AppStream 2.0 streaming session.
-    streamingURL :: Lude.Maybe Lude.Text,
-    -- | The elapsed time, in seconds after the Unix epoch, when this URL expires.
-    expires :: Lude.Maybe Lude.Timestamp,
+  { -- | The elapsed time, in seconds after the Unix epoch, when this URL expires.
+    expires :: Core.Maybe Core.NominalDiffTime,
+    -- | The URL to start the AppStream 2.0 streaming session.
+    streamingURL :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateStreamingURLResponse' with the minimum fields required to make a request.
---
--- * 'streamingURL' - The URL to start the AppStream 2.0 streaming session.
--- * 'expires' - The elapsed time, in seconds after the Unix epoch, when this URL expires.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateStreamingURLResponse' value with any optional fields omitted.
 mkCreateStreamingURLResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateStreamingURLResponse
-mkCreateStreamingURLResponse pResponseStatus_ =
+mkCreateStreamingURLResponse responseStatus =
   CreateStreamingURLResponse'
-    { streamingURL = Lude.Nothing,
-      expires = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { expires = Core.Nothing,
+      streamingURL = Core.Nothing,
+      responseStatus
     }
-
--- | The URL to start the AppStream 2.0 streaming session.
---
--- /Note:/ Consider using 'streamingURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csursStreamingURL :: Lens.Lens' CreateStreamingURLResponse (Lude.Maybe Lude.Text)
-csursStreamingURL = Lens.lens (streamingURL :: CreateStreamingURLResponse -> Lude.Maybe Lude.Text) (\s a -> s {streamingURL = a} :: CreateStreamingURLResponse)
-{-# DEPRECATED csursStreamingURL "Use generic-lens or generic-optics with 'streamingURL' instead." #-}
 
 -- | The elapsed time, in seconds after the Unix epoch, when this URL expires.
 --
 -- /Note:/ Consider using 'expires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csursExpires :: Lens.Lens' CreateStreamingURLResponse (Lude.Maybe Lude.Timestamp)
-csursExpires = Lens.lens (expires :: CreateStreamingURLResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {expires = a} :: CreateStreamingURLResponse)
-{-# DEPRECATED csursExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
+csurlrrsExpires :: Lens.Lens' CreateStreamingURLResponse (Core.Maybe Core.NominalDiffTime)
+csurlrrsExpires = Lens.field @"expires"
+{-# DEPRECATED csurlrrsExpires "Use generic-lens or generic-optics with 'expires' instead." #-}
+
+-- | The URL to start the AppStream 2.0 streaming session.
+--
+-- /Note:/ Consider using 'streamingURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csurlrrsStreamingURL :: Lens.Lens' CreateStreamingURLResponse (Core.Maybe Types.String)
+csurlrrsStreamingURL = Lens.field @"streamingURL"
+{-# DEPRECATED csurlrrsStreamingURL "Use generic-lens or generic-optics with 'streamingURL' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csursResponseStatus :: Lens.Lens' CreateStreamingURLResponse Lude.Int
-csursResponseStatus = Lens.lens (responseStatus :: CreateStreamingURLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateStreamingURLResponse)
-{-# DEPRECATED csursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csurlrrsResponseStatus :: Lens.Lens' CreateStreamingURLResponse Core.Int
+csurlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csurlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,132 +20,118 @@ module Network.AWS.SMS.DeleteApp
     mkDeleteApp,
 
     -- ** Request lenses
-    daForceTerminateApp,
     daAppId,
     daForceStopAppReplication,
+    daForceTerminateApp,
 
     -- * Destructuring the response
     DeleteAppResponse (..),
     mkDeleteAppResponse,
 
     -- ** Response lenses
-    darsResponseStatus,
+    darrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkDeleteApp' smart constructor.
 data DeleteApp = DeleteApp'
-  { -- | Indicates whether to terminate the stack corresponding to the application while deleting the application.
-    forceTerminateApp :: Lude.Maybe Lude.Bool,
-    -- | The ID of the application.
-    appId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the application.
+    appId :: Core.Maybe Types.AppId,
     -- | Indicates whether to stop all replication jobs corresponding to the servers in the application while deleting the application.
-    forceStopAppReplication :: Lude.Maybe Lude.Bool
+    forceStopAppReplication :: Core.Maybe Core.Bool,
+    -- | Indicates whether to terminate the stack corresponding to the application while deleting the application.
+    forceTerminateApp :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteApp' with the minimum fields required to make a request.
---
--- * 'forceTerminateApp' - Indicates whether to terminate the stack corresponding to the application while deleting the application.
--- * 'appId' - The ID of the application.
--- * 'forceStopAppReplication' - Indicates whether to stop all replication jobs corresponding to the servers in the application while deleting the application.
+-- | Creates a 'DeleteApp' value with any optional fields omitted.
 mkDeleteApp ::
   DeleteApp
 mkDeleteApp =
   DeleteApp'
-    { forceTerminateApp = Lude.Nothing,
-      appId = Lude.Nothing,
-      forceStopAppReplication = Lude.Nothing
+    { appId = Core.Nothing,
+      forceStopAppReplication = Core.Nothing,
+      forceTerminateApp = Core.Nothing
     }
-
--- | Indicates whether to terminate the stack corresponding to the application while deleting the application.
---
--- /Note:/ Consider using 'forceTerminateApp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daForceTerminateApp :: Lens.Lens' DeleteApp (Lude.Maybe Lude.Bool)
-daForceTerminateApp = Lens.lens (forceTerminateApp :: DeleteApp -> Lude.Maybe Lude.Bool) (\s a -> s {forceTerminateApp = a} :: DeleteApp)
-{-# DEPRECATED daForceTerminateApp "Use generic-lens or generic-optics with 'forceTerminateApp' instead." #-}
 
 -- | The ID of the application.
 --
 -- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAppId :: Lens.Lens' DeleteApp (Lude.Maybe Lude.Text)
-daAppId = Lens.lens (appId :: DeleteApp -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: DeleteApp)
+daAppId :: Lens.Lens' DeleteApp (Core.Maybe Types.AppId)
+daAppId = Lens.field @"appId"
 {-# DEPRECATED daAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
 -- | Indicates whether to stop all replication jobs corresponding to the servers in the application while deleting the application.
 --
 -- /Note:/ Consider using 'forceStopAppReplication' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daForceStopAppReplication :: Lens.Lens' DeleteApp (Lude.Maybe Lude.Bool)
-daForceStopAppReplication = Lens.lens (forceStopAppReplication :: DeleteApp -> Lude.Maybe Lude.Bool) (\s a -> s {forceStopAppReplication = a} :: DeleteApp)
+daForceStopAppReplication :: Lens.Lens' DeleteApp (Core.Maybe Core.Bool)
+daForceStopAppReplication = Lens.field @"forceStopAppReplication"
 {-# DEPRECATED daForceStopAppReplication "Use generic-lens or generic-optics with 'forceStopAppReplication' instead." #-}
 
-instance Lude.AWSRequest DeleteApp where
+-- | Indicates whether to terminate the stack corresponding to the application while deleting the application.
+--
+-- /Note:/ Consider using 'forceTerminateApp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daForceTerminateApp :: Lens.Lens' DeleteApp (Core.Maybe Core.Bool)
+daForceTerminateApp = Lens.field @"forceTerminateApp"
+{-# DEPRECATED daForceTerminateApp "Use generic-lens or generic-optics with 'forceTerminateApp' instead." #-}
+
+instance Core.FromJSON DeleteApp where
+  toJSON DeleteApp {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("appId" Core..=) Core.<$> appId,
+            ("forceStopAppReplication" Core..=)
+              Core.<$> forceStopAppReplication,
+            ("forceTerminateApp" Core..=) Core.<$> forceTerminateApp
+          ]
+      )
+
+instance Core.AWSRequest DeleteApp where
   type Rs DeleteApp = DeleteAppResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSServerMigrationService_V2016_10_24.DeleteApp")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteAppResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteAppResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteApp where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.DeleteApp" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteApp where
-  toJSON DeleteApp' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("forceTerminateApp" Lude..=) Lude.<$> forceTerminateApp,
-            ("appId" Lude..=) Lude.<$> appId,
-            ("forceStopAppReplication" Lude..=)
-              Lude.<$> forceStopAppReplication
-          ]
-      )
-
-instance Lude.ToPath DeleteApp where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteApp where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteAppResponse' smart constructor.
 newtype DeleteAppResponse = DeleteAppResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAppResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteAppResponse' value with any optional fields omitted.
 mkDeleteAppResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteAppResponse
-mkDeleteAppResponse pResponseStatus_ =
-  DeleteAppResponse' {responseStatus = pResponseStatus_}
+mkDeleteAppResponse responseStatus =
+  DeleteAppResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsResponseStatus :: Lens.Lens' DeleteAppResponse Lude.Int
-darsResponseStatus = Lens.lens (responseStatus :: DeleteAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAppResponse)
-{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darrsResponseStatus :: Lens.Lens' DeleteAppResponse Core.Int
+darrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

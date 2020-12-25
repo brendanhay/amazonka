@@ -30,115 +30,109 @@ module Network.AWS.EC2.GetLaunchTemplateData
     mkGetLaunchTemplateDataResponse,
 
     -- ** Response lenses
-    gltdrsLaunchTemplateData,
-    gltdrsResponseStatus,
+    gltdrrsLaunchTemplateData,
+    gltdrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetLaunchTemplateData' smart constructor.
 data GetLaunchTemplateData = GetLaunchTemplateData'
   { -- | The ID of the instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetLaunchTemplateData' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'GetLaunchTemplateData' value with any optional fields omitted.
 mkGetLaunchTemplateData ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   GetLaunchTemplateData
-mkGetLaunchTemplateData pInstanceId_ =
-  GetLaunchTemplateData'
-    { instanceId = pInstanceId_,
-      dryRun = Lude.Nothing
-    }
+mkGetLaunchTemplateData instanceId =
+  GetLaunchTemplateData' {instanceId, dryRun = Core.Nothing}
 
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gltdInstanceId :: Lens.Lens' GetLaunchTemplateData Lude.Text
-gltdInstanceId = Lens.lens (instanceId :: GetLaunchTemplateData -> Lude.Text) (\s a -> s {instanceId = a} :: GetLaunchTemplateData)
+gltdInstanceId :: Lens.Lens' GetLaunchTemplateData Types.InstanceId
+gltdInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED gltdInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gltdDryRun :: Lens.Lens' GetLaunchTemplateData (Lude.Maybe Lude.Bool)
-gltdDryRun = Lens.lens (dryRun :: GetLaunchTemplateData -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetLaunchTemplateData)
+gltdDryRun :: Lens.Lens' GetLaunchTemplateData (Core.Maybe Core.Bool)
+gltdDryRun = Lens.field @"dryRun"
 {-# DEPRECATED gltdDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest GetLaunchTemplateData where
+instance Core.AWSRequest GetLaunchTemplateData where
   type Rs GetLaunchTemplateData = GetLaunchTemplateDataResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetLaunchTemplateData")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetLaunchTemplateDataResponse'
-            Lude.<$> (x Lude..@? "launchTemplateData")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "launchTemplateData")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetLaunchTemplateData where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetLaunchTemplateData where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetLaunchTemplateData where
-  toQuery GetLaunchTemplateData' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetLaunchTemplateData" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkGetLaunchTemplateDataResponse' smart constructor.
 data GetLaunchTemplateDataResponse = GetLaunchTemplateDataResponse'
   { -- | The instance data.
-    launchTemplateData :: Lude.Maybe ResponseLaunchTemplateData,
+    launchTemplateData :: Core.Maybe Types.ResponseLaunchTemplateData,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetLaunchTemplateDataResponse' with the minimum fields required to make a request.
---
--- * 'launchTemplateData' - The instance data.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetLaunchTemplateDataResponse' value with any optional fields omitted.
 mkGetLaunchTemplateDataResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetLaunchTemplateDataResponse
-mkGetLaunchTemplateDataResponse pResponseStatus_ =
+mkGetLaunchTemplateDataResponse responseStatus =
   GetLaunchTemplateDataResponse'
-    { launchTemplateData = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { launchTemplateData = Core.Nothing,
+      responseStatus
     }
 
 -- | The instance data.
 --
 -- /Note:/ Consider using 'launchTemplateData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gltdrsLaunchTemplateData :: Lens.Lens' GetLaunchTemplateDataResponse (Lude.Maybe ResponseLaunchTemplateData)
-gltdrsLaunchTemplateData = Lens.lens (launchTemplateData :: GetLaunchTemplateDataResponse -> Lude.Maybe ResponseLaunchTemplateData) (\s a -> s {launchTemplateData = a} :: GetLaunchTemplateDataResponse)
-{-# DEPRECATED gltdrsLaunchTemplateData "Use generic-lens or generic-optics with 'launchTemplateData' instead." #-}
+gltdrrsLaunchTemplateData :: Lens.Lens' GetLaunchTemplateDataResponse (Core.Maybe Types.ResponseLaunchTemplateData)
+gltdrrsLaunchTemplateData = Lens.field @"launchTemplateData"
+{-# DEPRECATED gltdrrsLaunchTemplateData "Use generic-lens or generic-optics with 'launchTemplateData' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gltdrsResponseStatus :: Lens.Lens' GetLaunchTemplateDataResponse Lude.Int
-gltdrsResponseStatus = Lens.lens (responseStatus :: GetLaunchTemplateDataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLaunchTemplateDataResponse)
-{-# DEPRECATED gltdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gltdrrsResponseStatus :: Lens.Lens' GetLaunchTemplateDataResponse Core.Int
+gltdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gltdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

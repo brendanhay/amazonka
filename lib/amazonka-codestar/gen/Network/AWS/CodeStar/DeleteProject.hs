@@ -20,160 +20,145 @@ module Network.AWS.CodeStar.DeleteProject
     mkDeleteProject,
 
     -- ** Request lenses
-    dpDeleteStack,
     dpId,
     dpClientRequestToken,
+    dpDeleteStack,
 
     -- * Destructuring the response
     DeleteProjectResponse (..),
     mkDeleteProjectResponse,
 
     -- ** Response lenses
-    dprsProjectARN,
-    dprsStackId,
-    dprsResponseStatus,
+    dprrsProjectArn,
+    dprrsStackId,
+    dprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeStar.Types
+import qualified Network.AWS.CodeStar.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteProject' smart constructor.
 data DeleteProject = DeleteProject'
-  { -- | Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.
-    deleteStack :: Lude.Maybe Lude.Bool,
-    -- | The ID of the project to be deleted in AWS CodeStar.
-    id :: Lude.Text,
+  { -- | The ID of the project to be deleted in AWS CodeStar.
+    id :: Types.Id,
     -- | A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request.
-    clientRequestToken :: Lude.Maybe Lude.Text
+    clientRequestToken :: Core.Maybe Types.ClientRequestToken,
+    -- | Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.
+    deleteStack :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProject' with the minimum fields required to make a request.
---
--- * 'deleteStack' - Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.
--- * 'id' - The ID of the project to be deleted in AWS CodeStar.
--- * 'clientRequestToken' - A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request.
+-- | Creates a 'DeleteProject' value with any optional fields omitted.
 mkDeleteProject ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DeleteProject
-mkDeleteProject pId_ =
+mkDeleteProject id =
   DeleteProject'
-    { deleteStack = Lude.Nothing,
-      id = pId_,
-      clientRequestToken = Lude.Nothing
+    { id,
+      clientRequestToken = Core.Nothing,
+      deleteStack = Core.Nothing
     }
-
--- | Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.
---
--- /Note:/ Consider using 'deleteStack' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpDeleteStack :: Lens.Lens' DeleteProject (Lude.Maybe Lude.Bool)
-dpDeleteStack = Lens.lens (deleteStack :: DeleteProject -> Lude.Maybe Lude.Bool) (\s a -> s {deleteStack = a} :: DeleteProject)
-{-# DEPRECATED dpDeleteStack "Use generic-lens or generic-optics with 'deleteStack' instead." #-}
 
 -- | The ID of the project to be deleted in AWS CodeStar.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpId :: Lens.Lens' DeleteProject Lude.Text
-dpId = Lens.lens (id :: DeleteProject -> Lude.Text) (\s a -> s {id = a} :: DeleteProject)
+dpId :: Lens.Lens' DeleteProject Types.Id
+dpId = Lens.field @"id"
 {-# DEPRECATED dpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpClientRequestToken :: Lens.Lens' DeleteProject (Lude.Maybe Lude.Text)
-dpClientRequestToken = Lens.lens (clientRequestToken :: DeleteProject -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: DeleteProject)
+dpClientRequestToken :: Lens.Lens' DeleteProject (Core.Maybe Types.ClientRequestToken)
+dpClientRequestToken = Lens.field @"clientRequestToken"
 {-# DEPRECATED dpClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
-instance Lude.AWSRequest DeleteProject where
+-- | Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.
+--
+-- /Note:/ Consider using 'deleteStack' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpDeleteStack :: Lens.Lens' DeleteProject (Core.Maybe Core.Bool)
+dpDeleteStack = Lens.field @"deleteStack"
+{-# DEPRECATED dpDeleteStack "Use generic-lens or generic-optics with 'deleteStack' instead." #-}
+
+instance Core.FromJSON DeleteProject where
+  toJSON DeleteProject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("id" Core..= id),
+            ("clientRequestToken" Core..=) Core.<$> clientRequestToken,
+            ("deleteStack" Core..=) Core.<$> deleteStack
+          ]
+      )
+
+instance Core.AWSRequest DeleteProject where
   type Rs DeleteProject = DeleteProjectResponse
-  request = Req.postJSON codeStarService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeStar_20170419.DeleteProject")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteProjectResponse'
-            Lude.<$> (x Lude..?> "projectArn")
-            Lude.<*> (x Lude..?> "stackId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "projectArn")
+            Core.<*> (x Core..:? "stackId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeStar_20170419.DeleteProject" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteProject where
-  toJSON DeleteProject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("deleteStack" Lude..=) Lude.<$> deleteStack,
-            Lude.Just ("id" Lude..= id),
-            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken
-          ]
-      )
-
-instance Lude.ToPath DeleteProject where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteProject where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
   { -- | The Amazon Resource Name (ARN) of the deleted project.
-    projectARN :: Lude.Maybe Lude.Text,
+    projectArn :: Core.Maybe Types.ProjectArn,
     -- | The ID of the primary stack in AWS CloudFormation that will be deleted as part of deleting the project and its resources.
-    stackId :: Lude.Maybe Lude.Text,
+    stackId :: Core.Maybe Types.StackId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProjectResponse' with the minimum fields required to make a request.
---
--- * 'projectARN' - The Amazon Resource Name (ARN) of the deleted project.
--- * 'stackId' - The ID of the primary stack in AWS CloudFormation that will be deleted as part of deleting the project and its resources.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteProjectResponse' value with any optional fields omitted.
 mkDeleteProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteProjectResponse
-mkDeleteProjectResponse pResponseStatus_ =
+mkDeleteProjectResponse responseStatus =
   DeleteProjectResponse'
-    { projectARN = Lude.Nothing,
-      stackId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { projectArn = Core.Nothing,
+      stackId = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the deleted project.
 --
--- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsProjectARN :: Lens.Lens' DeleteProjectResponse (Lude.Maybe Lude.Text)
-dprsProjectARN = Lens.lens (projectARN :: DeleteProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {projectARN = a} :: DeleteProjectResponse)
-{-# DEPRECATED dprsProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
+-- /Note:/ Consider using 'projectArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dprrsProjectArn :: Lens.Lens' DeleteProjectResponse (Core.Maybe Types.ProjectArn)
+dprrsProjectArn = Lens.field @"projectArn"
+{-# DEPRECATED dprrsProjectArn "Use generic-lens or generic-optics with 'projectArn' instead." #-}
 
 -- | The ID of the primary stack in AWS CloudFormation that will be deleted as part of deleting the project and its resources.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsStackId :: Lens.Lens' DeleteProjectResponse (Lude.Maybe Lude.Text)
-dprsStackId = Lens.lens (stackId :: DeleteProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: DeleteProjectResponse)
-{-# DEPRECATED dprsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+dprrsStackId :: Lens.Lens' DeleteProjectResponse (Core.Maybe Types.StackId)
+dprrsStackId = Lens.field @"stackId"
+{-# DEPRECATED dprrsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DeleteProjectResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DeleteProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProjectResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprrsResponseStatus :: Lens.Lens' DeleteProjectResponse Core.Int
+dprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

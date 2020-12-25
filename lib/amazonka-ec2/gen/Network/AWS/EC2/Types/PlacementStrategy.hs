@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.PlacementStrategy
   ( PlacementStrategy
       ( PlacementStrategy',
-        Cluster,
-        Spread,
-        Partition
+        PlacementStrategyCluster,
+        PlacementStrategySpread,
+        PlacementStrategyPartition,
+        fromPlacementStrategy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PlacementStrategy = PlacementStrategy' Lude.Text
+newtype PlacementStrategy = PlacementStrategy'
+  { fromPlacementStrategy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Cluster :: PlacementStrategy
-pattern Cluster = PlacementStrategy' "cluster"
+pattern PlacementStrategyCluster :: PlacementStrategy
+pattern PlacementStrategyCluster = PlacementStrategy' "cluster"
 
-pattern Spread :: PlacementStrategy
-pattern Spread = PlacementStrategy' "spread"
+pattern PlacementStrategySpread :: PlacementStrategy
+pattern PlacementStrategySpread = PlacementStrategy' "spread"
 
-pattern Partition :: PlacementStrategy
-pattern Partition = PlacementStrategy' "partition"
+pattern PlacementStrategyPartition :: PlacementStrategy
+pattern PlacementStrategyPartition = PlacementStrategy' "partition"
 
 {-# COMPLETE
-  Cluster,
-  Spread,
-  Partition,
+  PlacementStrategyCluster,
+  PlacementStrategySpread,
+  PlacementStrategyPartition,
   PlacementStrategy'
   #-}

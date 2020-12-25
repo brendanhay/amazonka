@@ -654,7 +654,7 @@ responseListHandshakesForAccount =
   res
     "ListHandshakesForAccountResponse"
     "fixture/ListHandshakesForAccountResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListHandshakesForAccount)
 
 responseDescribeAccount :: DescribeAccountResponse -> TestTree
@@ -662,7 +662,7 @@ responseDescribeAccount =
   res
     "DescribeAccountResponse"
     "fixture/DescribeAccountResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAccount)
 
 responseListPolicies :: ListPoliciesResponse -> TestTree
@@ -670,7 +670,7 @@ responseListPolicies =
   res
     "ListPoliciesResponse"
     "fixture/ListPoliciesResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListPolicies)
 
 responseCreatePolicy :: CreatePolicyResponse -> TestTree
@@ -678,7 +678,7 @@ responseCreatePolicy =
   res
     "CreatePolicyResponse"
     "fixture/CreatePolicyResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy CreatePolicy)
 
 responseListRoots :: ListRootsResponse -> TestTree
@@ -686,7 +686,7 @@ responseListRoots =
   res
     "ListRootsResponse"
     "fixture/ListRootsResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListRoots)
 
 responseAcceptHandshake :: AcceptHandshakeResponse -> TestTree
@@ -694,7 +694,7 @@ responseAcceptHandshake =
   res
     "AcceptHandshakeResponse"
     "fixture/AcceptHandshakeResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy AcceptHandshake)
 
 responseCreateOrganization :: CreateOrganizationResponse -> TestTree
@@ -702,7 +702,7 @@ responseCreateOrganization =
   res
     "CreateOrganizationResponse"
     "fixture/CreateOrganizationResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy CreateOrganization)
 
 responseEnableAllFeatures :: EnableAllFeaturesResponse -> TestTree
@@ -710,7 +710,7 @@ responseEnableAllFeatures =
   res
     "EnableAllFeaturesResponse"
     "fixture/EnableAllFeaturesResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy EnableAllFeatures)
 
 responseDeleteOrganization :: DeleteOrganizationResponse -> TestTree
@@ -718,7 +718,7 @@ responseDeleteOrganization =
   res
     "DeleteOrganizationResponse"
     "fixture/DeleteOrganizationResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteOrganization)
 
 responseDescribeHandshake :: DescribeHandshakeResponse -> TestTree
@@ -726,7 +726,7 @@ responseDescribeHandshake =
   res
     "DescribeHandshakeResponse"
     "fixture/DescribeHandshakeResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeHandshake)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -734,7 +734,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseDescribePolicy :: DescribePolicyResponse -> TestTree
@@ -742,7 +742,7 @@ responseDescribePolicy =
   res
     "DescribePolicyResponse"
     "fixture/DescribePolicyResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DescribePolicy)
 
 responseListDelegatedServicesForAccount :: ListDelegatedServicesForAccountResponse -> TestTree
@@ -750,7 +750,7 @@ responseListDelegatedServicesForAccount =
   res
     "ListDelegatedServicesForAccountResponse"
     "fixture/ListDelegatedServicesForAccountResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListDelegatedServicesForAccount)
 
 responseDisableAWSServiceAccess :: DisableAWSServiceAccessResponse -> TestTree
@@ -758,7 +758,7 @@ responseDisableAWSServiceAccess =
   res
     "DisableAWSServiceAccessResponse"
     "fixture/DisableAWSServiceAccessResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DisableAWSServiceAccess)
 
 responseDescribeEffectivePolicy :: DescribeEffectivePolicyResponse -> TestTree
@@ -766,7 +766,7 @@ responseDescribeEffectivePolicy =
   res
     "DescribeEffectivePolicyResponse"
     "fixture/DescribeEffectivePolicyResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEffectivePolicy)
 
 responseLeaveOrganization :: LeaveOrganizationResponse -> TestTree
@@ -774,7 +774,7 @@ responseLeaveOrganization =
   res
     "LeaveOrganizationResponse"
     "fixture/LeaveOrganizationResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy LeaveOrganization)
 
 responseMoveAccount :: MoveAccountResponse -> TestTree
@@ -782,7 +782,7 @@ responseMoveAccount =
   res
     "MoveAccountResponse"
     "fixture/MoveAccountResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy MoveAccount)
 
 responseListAccounts :: ListAccountsResponse -> TestTree
@@ -790,7 +790,7 @@ responseListAccounts =
   res
     "ListAccountsResponse"
     "fixture/ListAccountsResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListAccounts)
 
 responseInviteAccountToOrganization :: InviteAccountToOrganizationResponse -> TestTree
@@ -798,7 +798,7 @@ responseInviteAccountToOrganization =
   res
     "InviteAccountToOrganizationResponse"
     "fixture/InviteAccountToOrganizationResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy InviteAccountToOrganization)
 
 responseListAWSServiceAccessForOrganization :: ListAWSServiceAccessForOrganizationResponse -> TestTree
@@ -806,7 +806,7 @@ responseListAWSServiceAccessForOrganization =
   res
     "ListAWSServiceAccessForOrganizationResponse"
     "fixture/ListAWSServiceAccessForOrganizationResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListAWSServiceAccessForOrganization)
 
 responseListOrganizationalUnitsForParent :: ListOrganizationalUnitsForParentResponse -> TestTree
@@ -814,7 +814,7 @@ responseListOrganizationalUnitsForParent =
   res
     "ListOrganizationalUnitsForParentResponse"
     "fixture/ListOrganizationalUnitsForParentResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListOrganizationalUnitsForParent)
 
 responseCancelHandshake :: CancelHandshakeResponse -> TestTree
@@ -822,7 +822,7 @@ responseCancelHandshake =
   res
     "CancelHandshakeResponse"
     "fixture/CancelHandshakeResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy CancelHandshake)
 
 responseListChildren :: ListChildrenResponse -> TestTree
@@ -830,7 +830,7 @@ responseListChildren =
   res
     "ListChildrenResponse"
     "fixture/ListChildrenResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListChildren)
 
 responseListDelegatedAdministrators :: ListDelegatedAdministratorsResponse -> TestTree
@@ -838,7 +838,7 @@ responseListDelegatedAdministrators =
   res
     "ListDelegatedAdministratorsResponse"
     "fixture/ListDelegatedAdministratorsResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListDelegatedAdministrators)
 
 responseDeletePolicy :: DeletePolicyResponse -> TestTree
@@ -846,7 +846,7 @@ responseDeletePolicy =
   res
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DeletePolicy)
 
 responseUpdatePolicy :: UpdatePolicyResponse -> TestTree
@@ -854,7 +854,7 @@ responseUpdatePolicy =
   res
     "UpdatePolicyResponse"
     "fixture/UpdatePolicyResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePolicy)
 
 responseEnablePolicyType :: EnablePolicyTypeResponse -> TestTree
@@ -862,7 +862,7 @@ responseEnablePolicyType =
   res
     "EnablePolicyTypeResponse"
     "fixture/EnablePolicyTypeResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy EnablePolicyType)
 
 responseDisablePolicyType :: DisablePolicyTypeResponse -> TestTree
@@ -870,7 +870,7 @@ responseDisablePolicyType =
   res
     "DisablePolicyTypeResponse"
     "fixture/DisablePolicyTypeResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DisablePolicyType)
 
 responseDescribeCreateAccountStatus :: DescribeCreateAccountStatusResponse -> TestTree
@@ -878,7 +878,7 @@ responseDescribeCreateAccountStatus =
   res
     "DescribeCreateAccountStatusResponse"
     "fixture/DescribeCreateAccountStatusResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCreateAccountStatus)
 
 responseCreateOrganizationalUnit :: CreateOrganizationalUnitResponse -> TestTree
@@ -886,7 +886,7 @@ responseCreateOrganizationalUnit =
   res
     "CreateOrganizationalUnitResponse"
     "fixture/CreateOrganizationalUnitResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy CreateOrganizationalUnit)
 
 responseListAccountsForParent :: ListAccountsForParentResponse -> TestTree
@@ -894,7 +894,7 @@ responseListAccountsForParent =
   res
     "ListAccountsForParentResponse"
     "fixture/ListAccountsForParentResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListAccountsForParent)
 
 responseDetachPolicy :: DetachPolicyResponse -> TestTree
@@ -902,7 +902,7 @@ responseDetachPolicy =
   res
     "DetachPolicyResponse"
     "fixture/DetachPolicyResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DetachPolicy)
 
 responseRemoveAccountFromOrganization :: RemoveAccountFromOrganizationResponse -> TestTree
@@ -910,7 +910,7 @@ responseRemoveAccountFromOrganization =
   res
     "RemoveAccountFromOrganizationResponse"
     "fixture/RemoveAccountFromOrganizationResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy RemoveAccountFromOrganization)
 
 responseCreateGovCloudAccount :: CreateGovCloudAccountResponse -> TestTree
@@ -918,7 +918,7 @@ responseCreateGovCloudAccount =
   res
     "CreateGovCloudAccountResponse"
     "fixture/CreateGovCloudAccountResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy CreateGovCloudAccount)
 
 responseEnableAWSServiceAccess :: EnableAWSServiceAccessResponse -> TestTree
@@ -926,7 +926,7 @@ responseEnableAWSServiceAccess =
   res
     "EnableAWSServiceAccessResponse"
     "fixture/EnableAWSServiceAccessResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy EnableAWSServiceAccess)
 
 responseDescribeOrganizationalUnit :: DescribeOrganizationalUnitResponse -> TestTree
@@ -934,7 +934,7 @@ responseDescribeOrganizationalUnit =
   res
     "DescribeOrganizationalUnitResponse"
     "fixture/DescribeOrganizationalUnitResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeOrganizationalUnit)
 
 responseListParents :: ListParentsResponse -> TestTree
@@ -942,7 +942,7 @@ responseListParents =
   res
     "ListParentsResponse"
     "fixture/ListParentsResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListParents)
 
 responseCreateAccount :: CreateAccountResponse -> TestTree
@@ -950,7 +950,7 @@ responseCreateAccount =
   res
     "CreateAccountResponse"
     "fixture/CreateAccountResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy CreateAccount)
 
 responseDeregisterDelegatedAdministrator :: DeregisterDelegatedAdministratorResponse -> TestTree
@@ -958,7 +958,7 @@ responseDeregisterDelegatedAdministrator =
   res
     "DeregisterDelegatedAdministratorResponse"
     "fixture/DeregisterDelegatedAdministratorResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DeregisterDelegatedAdministrator)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -966,7 +966,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseListCreateAccountStatus :: ListCreateAccountStatusResponse -> TestTree
@@ -974,7 +974,7 @@ responseListCreateAccountStatus =
   res
     "ListCreateAccountStatusResponse"
     "fixture/ListCreateAccountStatusResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListCreateAccountStatus)
 
 responseListTargetsForPolicy :: ListTargetsForPolicyResponse -> TestTree
@@ -982,7 +982,7 @@ responseListTargetsForPolicy =
   res
     "ListTargetsForPolicyResponse"
     "fixture/ListTargetsForPolicyResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListTargetsForPolicy)
 
 responseDeclineHandshake :: DeclineHandshakeResponse -> TestTree
@@ -990,7 +990,7 @@ responseDeclineHandshake =
   res
     "DeclineHandshakeResponse"
     "fixture/DeclineHandshakeResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DeclineHandshake)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -998,7 +998,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseAttachPolicy :: AttachPolicyResponse -> TestTree
@@ -1006,7 +1006,7 @@ responseAttachPolicy =
   res
     "AttachPolicyResponse"
     "fixture/AttachPolicyResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy AttachPolicy)
 
 responseListPoliciesForTarget :: ListPoliciesForTargetResponse -> TestTree
@@ -1014,7 +1014,7 @@ responseListPoliciesForTarget =
   res
     "ListPoliciesForTargetResponse"
     "fixture/ListPoliciesForTargetResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListPoliciesForTarget)
 
 responseDescribeOrganization :: DescribeOrganizationResponse -> TestTree
@@ -1022,7 +1022,7 @@ responseDescribeOrganization =
   res
     "DescribeOrganizationResponse"
     "fixture/DescribeOrganizationResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeOrganization)
 
 responseListHandshakesForOrganization :: ListHandshakesForOrganizationResponse -> TestTree
@@ -1030,7 +1030,7 @@ responseListHandshakesForOrganization =
   res
     "ListHandshakesForOrganizationResponse"
     "fixture/ListHandshakesForOrganizationResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy ListHandshakesForOrganization)
 
 responseRegisterDelegatedAdministrator :: RegisterDelegatedAdministratorResponse -> TestTree
@@ -1038,7 +1038,7 @@ responseRegisterDelegatedAdministrator =
   res
     "RegisterDelegatedAdministratorResponse"
     "fixture/RegisterDelegatedAdministratorResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy RegisterDelegatedAdministrator)
 
 responseDeleteOrganizationalUnit :: DeleteOrganizationalUnitResponse -> TestTree
@@ -1046,7 +1046,7 @@ responseDeleteOrganizationalUnit =
   res
     "DeleteOrganizationalUnitResponse"
     "fixture/DeleteOrganizationalUnitResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteOrganizationalUnit)
 
 responseUpdateOrganizationalUnit :: UpdateOrganizationalUnitResponse -> TestTree
@@ -1054,5 +1054,5 @@ responseUpdateOrganizationalUnit =
   res
     "UpdateOrganizationalUnitResponse"
     "fixture/UpdateOrganizationalUnitResponse.proto"
-    organizationsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateOrganizationalUnit)

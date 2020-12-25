@@ -67,200 +67,185 @@ module Network.AWS.GameLift.DescribeFleetEvents
     mkDescribeFleetEvents,
 
     -- ** Request lenses
-    dfeStartTime,
-    dfeNextToken,
+    dfeFleetId,
     dfeEndTime,
     dfeLimit,
-    dfeFleetId,
+    dfeNextToken,
+    dfeStartTime,
 
     -- * Destructuring the response
     DescribeFleetEventsResponse (..),
     mkDescribeFleetEventsResponse,
 
     -- ** Response lenses
-    dfersNextToken,
-    dfersEvents,
-    dfersResponseStatus,
+    dferrsEvents,
+    dferrsNextToken,
+    dferrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDescribeFleetEvents' smart constructor.
 data DescribeFleetEvents = DescribeFleetEvents'
-  { -- | Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
-    startTime :: Lude.Maybe Lude.Timestamp,
-    -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A unique identifier for a fleet to get event logs for. You can use either the fleet ID or ARN value.
+    fleetId :: Types.FleetIdOrArn,
     -- | Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
-    endTime :: Lude.Maybe Lude.Timestamp,
+    endTime :: Core.Maybe Core.NominalDiffTime,
     -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | A unique identifier for a fleet to get event logs for. You can use either the fleet ID or ARN value.
-    fleetId :: Lude.Text
+    limit :: Core.Maybe Core.Natural,
+    -- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+    nextToken :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
+    startTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeFleetEvents' with the minimum fields required to make a request.
---
--- * 'startTime' - Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
--- * 'nextToken' - Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
--- * 'endTime' - Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
--- * 'fleetId' - A unique identifier for a fleet to get event logs for. You can use either the fleet ID or ARN value.
+-- | Creates a 'DescribeFleetEvents' value with any optional fields omitted.
 mkDescribeFleetEvents ::
   -- | 'fleetId'
-  Lude.Text ->
+  Types.FleetIdOrArn ->
   DescribeFleetEvents
-mkDescribeFleetEvents pFleetId_ =
+mkDescribeFleetEvents fleetId =
   DescribeFleetEvents'
-    { startTime = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      endTime = Lude.Nothing,
-      limit = Lude.Nothing,
-      fleetId = pFleetId_
+    { fleetId,
+      endTime = Core.Nothing,
+      limit = Core.Nothing,
+      nextToken = Core.Nothing,
+      startTime = Core.Nothing
     }
 
--- | Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
+-- | A unique identifier for a fleet to get event logs for. You can use either the fleet ID or ARN value.
 --
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfeStartTime :: Lens.Lens' DescribeFleetEvents (Lude.Maybe Lude.Timestamp)
-dfeStartTime = Lens.lens (startTime :: DescribeFleetEvents -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: DescribeFleetEvents)
-{-# DEPRECATED dfeStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfeNextToken :: Lens.Lens' DescribeFleetEvents (Lude.Maybe Lude.Text)
-dfeNextToken = Lens.lens (nextToken :: DescribeFleetEvents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetEvents)
-{-# DEPRECATED dfeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfeFleetId :: Lens.Lens' DescribeFleetEvents Types.FleetIdOrArn
+dfeFleetId = Lens.field @"fleetId"
+{-# DEPRECATED dfeFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | Most recent date to retrieve event logs for. If no end time is specified, this call returns entries from the specified start time up to the present. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfeEndTime :: Lens.Lens' DescribeFleetEvents (Lude.Maybe Lude.Timestamp)
-dfeEndTime = Lens.lens (endTime :: DescribeFleetEvents -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: DescribeFleetEvents)
+dfeEndTime :: Lens.Lens' DescribeFleetEvents (Core.Maybe Core.NominalDiffTime)
+dfeEndTime = Lens.field @"endTime"
 {-# DEPRECATED dfeEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfeLimit :: Lens.Lens' DescribeFleetEvents (Lude.Maybe Lude.Natural)
-dfeLimit = Lens.lens (limit :: DescribeFleetEvents -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeFleetEvents)
+dfeLimit :: Lens.Lens' DescribeFleetEvents (Core.Maybe Core.Natural)
+dfeLimit = Lens.field @"limit"
 {-# DEPRECATED dfeLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
--- | A unique identifier for a fleet to get event logs for. You can use either the fleet ID or ARN value.
+-- | Token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
 --
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfeFleetId :: Lens.Lens' DescribeFleetEvents Lude.Text
-dfeFleetId = Lens.lens (fleetId :: DescribeFleetEvents -> Lude.Text) (\s a -> s {fleetId = a} :: DescribeFleetEvents)
-{-# DEPRECATED dfeFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfeNextToken :: Lens.Lens' DescribeFleetEvents (Core.Maybe Types.NonZeroAndMaxString)
+dfeNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dfeNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager DescribeFleetEvents where
-  page rq rs
-    | Page.stop (rs Lens.^. dfersNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dfersEvents) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dfeNextToken Lens..~ rs Lens.^. dfersNextToken
+-- | Earliest date to retrieve event logs for. If no start time is specified, this call returns entries starting from when the fleet was created to the specified end time. Format is a number expressed in Unix time as milliseconds (ex: "1469498468.057").
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dfeStartTime :: Lens.Lens' DescribeFleetEvents (Core.Maybe Core.NominalDiffTime)
+dfeStartTime = Lens.field @"startTime"
+{-# DEPRECATED dfeStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
-instance Lude.AWSRequest DescribeFleetEvents where
+instance Core.FromJSON DescribeFleetEvents where
+  toJSON DescribeFleetEvents {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FleetId" Core..= fleetId),
+            ("EndTime" Core..=) Core.<$> endTime,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("StartTime" Core..=) Core.<$> startTime
+          ]
+      )
+
+instance Core.AWSRequest DescribeFleetEvents where
   type Rs DescribeFleetEvents = DescribeFleetEventsResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DescribeFleetEvents")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeFleetEventsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Events" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Events")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeFleetEvents where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DescribeFleetEvents" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeFleetEvents where
-  toJSON DescribeFleetEvents' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StartTime" Lude..=) Lude.<$> startTime,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("EndTime" Lude..=) Lude.<$> endTime,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("FleetId" Lude..= fleetId)
-          ]
-      )
-
-instance Lude.ToPath DescribeFleetEvents where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeFleetEvents where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeFleetEvents where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"events" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkDescribeFleetEventsResponse' smart constructor.
 data DescribeFleetEventsResponse = DescribeFleetEventsResponse'
-  { -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A collection of objects containing event log entries for the specified fleet.
-    events :: Lude.Maybe [Event],
+  { -- | A collection of objects containing event log entries for the specified fleet.
+    events :: Core.Maybe [Types.Event],
+    -- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+    nextToken :: Core.Maybe Types.NonZeroAndMaxString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeFleetEventsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
--- * 'events' - A collection of objects containing event log entries for the specified fleet.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeFleetEventsResponse' value with any optional fields omitted.
 mkDescribeFleetEventsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeFleetEventsResponse
-mkDescribeFleetEventsResponse pResponseStatus_ =
+mkDescribeFleetEventsResponse responseStatus =
   DescribeFleetEventsResponse'
-    { nextToken = Lude.Nothing,
-      events = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { events = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfersNextToken :: Lens.Lens' DescribeFleetEventsResponse (Lude.Maybe Lude.Text)
-dfersNextToken = Lens.lens (nextToken :: DescribeFleetEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeFleetEventsResponse)
-{-# DEPRECATED dfersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A collection of objects containing event log entries for the specified fleet.
 --
 -- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfersEvents :: Lens.Lens' DescribeFleetEventsResponse (Lude.Maybe [Event])
-dfersEvents = Lens.lens (events :: DescribeFleetEventsResponse -> Lude.Maybe [Event]) (\s a -> s {events = a} :: DescribeFleetEventsResponse)
-{-# DEPRECATED dfersEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+dferrsEvents :: Lens.Lens' DescribeFleetEventsResponse (Core.Maybe [Types.Event])
+dferrsEvents = Lens.field @"events"
+{-# DEPRECATED dferrsEvents "Use generic-lens or generic-optics with 'events' instead." #-}
+
+-- | Token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dferrsNextToken :: Lens.Lens' DescribeFleetEventsResponse (Core.Maybe Types.NonZeroAndMaxString)
+dferrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dferrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfersResponseStatus :: Lens.Lens' DescribeFleetEventsResponse Lude.Int
-dfersResponseStatus = Lens.lens (responseStatus :: DescribeFleetEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFleetEventsResponse)
-{-# DEPRECATED dfersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dferrsResponseStatus :: Lens.Lens' DescribeFleetEventsResponse Core.Int
+dferrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dferrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

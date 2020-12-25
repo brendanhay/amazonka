@@ -23,63 +23,58 @@ module Network.AWS.MediaLive.Types.NielsenConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.NielsenPcmToId3TaggingState
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.NielsenPcmToId3TaggingState as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Nielsen Configuration
 --
 -- /See:/ 'mkNielsenConfiguration' smart constructor.
 data NielsenConfiguration = NielsenConfiguration'
   { -- | Enter the Distributor ID assigned to your organization by Nielsen.
-    distributorId :: Lude.Maybe Lude.Text,
+    distributorId :: Core.Maybe Core.Text,
     -- | Enables Nielsen PCM to ID3 tagging
-    nielsenPcmToId3Tagging :: Lude.Maybe NielsenPcmToId3TaggingState
+    nielsenPcmToId3Tagging :: Core.Maybe Types.NielsenPcmToId3TaggingState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NielsenConfiguration' with the minimum fields required to make a request.
---
--- * 'distributorId' - Enter the Distributor ID assigned to your organization by Nielsen.
--- * 'nielsenPcmToId3Tagging' - Enables Nielsen PCM to ID3 tagging
+-- | Creates a 'NielsenConfiguration' value with any optional fields omitted.
 mkNielsenConfiguration ::
   NielsenConfiguration
 mkNielsenConfiguration =
   NielsenConfiguration'
-    { distributorId = Lude.Nothing,
-      nielsenPcmToId3Tagging = Lude.Nothing
+    { distributorId = Core.Nothing,
+      nielsenPcmToId3Tagging = Core.Nothing
     }
 
 -- | Enter the Distributor ID assigned to your organization by Nielsen.
 --
 -- /Note:/ Consider using 'distributorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncDistributorId :: Lens.Lens' NielsenConfiguration (Lude.Maybe Lude.Text)
-ncDistributorId = Lens.lens (distributorId :: NielsenConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {distributorId = a} :: NielsenConfiguration)
+ncDistributorId :: Lens.Lens' NielsenConfiguration (Core.Maybe Core.Text)
+ncDistributorId = Lens.field @"distributorId"
 {-# DEPRECATED ncDistributorId "Use generic-lens or generic-optics with 'distributorId' instead." #-}
 
 -- | Enables Nielsen PCM to ID3 tagging
 --
 -- /Note:/ Consider using 'nielsenPcmToId3Tagging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncNielsenPcmToId3Tagging :: Lens.Lens' NielsenConfiguration (Lude.Maybe NielsenPcmToId3TaggingState)
-ncNielsenPcmToId3Tagging = Lens.lens (nielsenPcmToId3Tagging :: NielsenConfiguration -> Lude.Maybe NielsenPcmToId3TaggingState) (\s a -> s {nielsenPcmToId3Tagging = a} :: NielsenConfiguration)
+ncNielsenPcmToId3Tagging :: Lens.Lens' NielsenConfiguration (Core.Maybe Types.NielsenPcmToId3TaggingState)
+ncNielsenPcmToId3Tagging = Lens.field @"nielsenPcmToId3Tagging"
 {-# DEPRECATED ncNielsenPcmToId3Tagging "Use generic-lens or generic-optics with 'nielsenPcmToId3Tagging' instead." #-}
 
-instance Lude.FromJSON NielsenConfiguration where
-  parseJSON =
-    Lude.withObject
-      "NielsenConfiguration"
-      ( \x ->
-          NielsenConfiguration'
-            Lude.<$> (x Lude..:? "distributorId")
-            Lude.<*> (x Lude..:? "nielsenPcmToId3Tagging")
-      )
-
-instance Lude.ToJSON NielsenConfiguration where
-  toJSON NielsenConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("distributorId" Lude..=) Lude.<$> distributorId,
-            ("nielsenPcmToId3Tagging" Lude..=)
-              Lude.<$> nielsenPcmToId3Tagging
+instance Core.FromJSON NielsenConfiguration where
+  toJSON NielsenConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("distributorId" Core..=) Core.<$> distributorId,
+            ("nielsenPcmToId3Tagging" Core..=)
+              Core.<$> nielsenPcmToId3Tagging
           ]
       )
+
+instance Core.FromJSON NielsenConfiguration where
+  parseJSON =
+    Core.withObject "NielsenConfiguration" Core.$
+      \x ->
+        NielsenConfiguration'
+          Core.<$> (x Core..:? "distributorId")
+          Core.<*> (x Core..:? "nielsenPcmToId3Tagging")

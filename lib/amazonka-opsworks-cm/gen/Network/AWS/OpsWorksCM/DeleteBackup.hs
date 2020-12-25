@@ -29,92 +29,81 @@ module Network.AWS.OpsWorksCM.DeleteBackup
     mkDeleteBackupResponse,
 
     -- ** Response lenses
-    dbrsResponseStatus,
+    dbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorksCM.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorksCM.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteBackup' smart constructor.
 newtype DeleteBackup = DeleteBackup'
   { -- | The ID of the backup to delete. Run the DescribeBackups command to get a list of backup IDs. Backup IDs are in the format @ServerName-yyyyMMddHHmmssSSS@ .
-    backupId :: Lude.Text
+    backupId :: Types.BackupId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBackup' with the minimum fields required to make a request.
---
--- * 'backupId' - The ID of the backup to delete. Run the DescribeBackups command to get a list of backup IDs. Backup IDs are in the format @ServerName-yyyyMMddHHmmssSSS@ .
+-- | Creates a 'DeleteBackup' value with any optional fields omitted.
 mkDeleteBackup ::
   -- | 'backupId'
-  Lude.Text ->
+  Types.BackupId ->
   DeleteBackup
-mkDeleteBackup pBackupId_ = DeleteBackup' {backupId = pBackupId_}
+mkDeleteBackup backupId = DeleteBackup' {backupId}
 
 -- | The ID of the backup to delete. Run the DescribeBackups command to get a list of backup IDs. Backup IDs are in the format @ServerName-yyyyMMddHHmmssSSS@ .
 --
 -- /Note:/ Consider using 'backupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbBackupId :: Lens.Lens' DeleteBackup Lude.Text
-dbBackupId = Lens.lens (backupId :: DeleteBackup -> Lude.Text) (\s a -> s {backupId = a} :: DeleteBackup)
+dbBackupId :: Lens.Lens' DeleteBackup Types.BackupId
+dbBackupId = Lens.field @"backupId"
 {-# DEPRECATED dbBackupId "Use generic-lens or generic-optics with 'backupId' instead." #-}
 
-instance Lude.AWSRequest DeleteBackup where
+instance Core.FromJSON DeleteBackup where
+  toJSON DeleteBackup {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("BackupId" Core..= backupId)])
+
+instance Core.AWSRequest DeleteBackup where
   type Rs DeleteBackup = DeleteBackupResponse
-  request = Req.postJSON opsWorksCMService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorksCM_V2016_11_01.DeleteBackup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteBackupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteBackupResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteBackup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorksCM_V2016_11_01.DeleteBackup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteBackup where
-  toJSON DeleteBackup' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("BackupId" Lude..= backupId)])
-
-instance Lude.ToPath DeleteBackup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteBackup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteBackupResponse' smart constructor.
 newtype DeleteBackupResponse = DeleteBackupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBackupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteBackupResponse' value with any optional fields omitted.
 mkDeleteBackupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteBackupResponse
-mkDeleteBackupResponse pResponseStatus_ =
-  DeleteBackupResponse' {responseStatus = pResponseStatus_}
+mkDeleteBackupResponse responseStatus =
+  DeleteBackupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrsResponseStatus :: Lens.Lens' DeleteBackupResponse Lude.Int
-dbrsResponseStatus = Lens.lens (responseStatus :: DeleteBackupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBackupResponse)
-{-# DEPRECATED dbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbrrsResponseStatus :: Lens.Lens' DeleteBackupResponse Core.Int
+dbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

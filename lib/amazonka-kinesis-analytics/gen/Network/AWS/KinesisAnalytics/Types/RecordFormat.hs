@@ -17,71 +17,63 @@ module Network.AWS.KinesisAnalytics.Types.RecordFormat
     mkRecordFormat,
 
     -- * Lenses
-    rfMappingParameters,
     rfRecordFormatType,
+    rfMappingParameters,
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types.MappingParameters
-import Network.AWS.KinesisAnalytics.Types.RecordFormatType
+import qualified Network.AWS.KinesisAnalytics.Types.MappingParameters as Types
+import qualified Network.AWS.KinesisAnalytics.Types.RecordFormatType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the record format and relevant mapping information that should be applied to schematize the records on the stream.
 --
 -- /See:/ 'mkRecordFormat' smart constructor.
 data RecordFormat = RecordFormat'
-  { -- | When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-    mappingParameters :: Lude.Maybe MappingParameters,
-    -- | The type of record format.
-    recordFormatType :: RecordFormatType
+  { -- | The type of record format.
+    recordFormatType :: Types.RecordFormatType,
+    -- | When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+    mappingParameters :: Core.Maybe Types.MappingParameters
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RecordFormat' with the minimum fields required to make a request.
---
--- * 'mappingParameters' - When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
--- * 'recordFormatType' - The type of record format.
+-- | Creates a 'RecordFormat' value with any optional fields omitted.
 mkRecordFormat ::
   -- | 'recordFormatType'
-  RecordFormatType ->
+  Types.RecordFormatType ->
   RecordFormat
-mkRecordFormat pRecordFormatType_ =
-  RecordFormat'
-    { mappingParameters = Lude.Nothing,
-      recordFormatType = pRecordFormatType_
-    }
-
--- | When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
---
--- /Note:/ Consider using 'mappingParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfMappingParameters :: Lens.Lens' RecordFormat (Lude.Maybe MappingParameters)
-rfMappingParameters = Lens.lens (mappingParameters :: RecordFormat -> Lude.Maybe MappingParameters) (\s a -> s {mappingParameters = a} :: RecordFormat)
-{-# DEPRECATED rfMappingParameters "Use generic-lens or generic-optics with 'mappingParameters' instead." #-}
+mkRecordFormat recordFormatType =
+  RecordFormat' {recordFormatType, mappingParameters = Core.Nothing}
 
 -- | The type of record format.
 --
 -- /Note:/ Consider using 'recordFormatType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfRecordFormatType :: Lens.Lens' RecordFormat RecordFormatType
-rfRecordFormatType = Lens.lens (recordFormatType :: RecordFormat -> RecordFormatType) (\s a -> s {recordFormatType = a} :: RecordFormat)
+rfRecordFormatType :: Lens.Lens' RecordFormat Types.RecordFormatType
+rfRecordFormatType = Lens.field @"recordFormatType"
 {-# DEPRECATED rfRecordFormatType "Use generic-lens or generic-optics with 'recordFormatType' instead." #-}
 
-instance Lude.FromJSON RecordFormat where
-  parseJSON =
-    Lude.withObject
-      "RecordFormat"
-      ( \x ->
-          RecordFormat'
-            Lude.<$> (x Lude..:? "MappingParameters")
-            Lude.<*> (x Lude..: "RecordFormatType")
-      )
+-- | When configuring application input at the time of creating or updating an application, provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+--
+-- /Note:/ Consider using 'mappingParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfMappingParameters :: Lens.Lens' RecordFormat (Core.Maybe Types.MappingParameters)
+rfMappingParameters = Lens.field @"mappingParameters"
+{-# DEPRECATED rfMappingParameters "Use generic-lens or generic-optics with 'mappingParameters' instead." #-}
 
-instance Lude.ToJSON RecordFormat where
-  toJSON RecordFormat' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MappingParameters" Lude..=) Lude.<$> mappingParameters,
-            Lude.Just ("RecordFormatType" Lude..= recordFormatType)
+instance Core.FromJSON RecordFormat where
+  toJSON RecordFormat {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RecordFormatType" Core..= recordFormatType),
+            ("MappingParameters" Core..=) Core.<$> mappingParameters
           ]
       )
+
+instance Core.FromJSON RecordFormat where
+  parseJSON =
+    Core.withObject "RecordFormat" Core.$
+      \x ->
+        RecordFormat'
+          Core.<$> (x Core..: "RecordFormatType")
+          Core.<*> (x Core..:? "MappingParameters")

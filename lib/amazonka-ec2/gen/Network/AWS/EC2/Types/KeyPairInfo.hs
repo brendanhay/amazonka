@@ -24,76 +24,70 @@ module Network.AWS.EC2.Types.KeyPairInfo
   )
 where
 
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a key pair.
 --
 -- /See:/ 'mkKeyPairInfo' smart constructor.
 data KeyPairInfo = KeyPairInfo'
   { -- | If you used 'CreateKeyPair' to create the key pair, this is the SHA-1 digest of the DER encoded private key. If you used 'ImportKeyPair' to provide AWS the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.
-    keyFingerprint :: Lude.Maybe Lude.Text,
+    keyFingerprint :: Core.Maybe Types.String,
     -- | The name of the key pair.
-    keyName :: Lude.Maybe Lude.Text,
+    keyName :: Core.Maybe Types.String,
     -- | The ID of the key pair.
-    keyPairId :: Lude.Maybe Lude.Text,
+    keyPairId :: Core.Maybe Types.String,
     -- | Any tags applied to the key pair.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeyPairInfo' with the minimum fields required to make a request.
---
--- * 'keyFingerprint' - If you used 'CreateKeyPair' to create the key pair, this is the SHA-1 digest of the DER encoded private key. If you used 'ImportKeyPair' to provide AWS the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.
--- * 'keyName' - The name of the key pair.
--- * 'keyPairId' - The ID of the key pair.
--- * 'tags' - Any tags applied to the key pair.
+-- | Creates a 'KeyPairInfo' value with any optional fields omitted.
 mkKeyPairInfo ::
   KeyPairInfo
 mkKeyPairInfo =
   KeyPairInfo'
-    { keyFingerprint = Lude.Nothing,
-      keyName = Lude.Nothing,
-      keyPairId = Lude.Nothing,
-      tags = Lude.Nothing
+    { keyFingerprint = Core.Nothing,
+      keyName = Core.Nothing,
+      keyPairId = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | If you used 'CreateKeyPair' to create the key pair, this is the SHA-1 digest of the DER encoded private key. If you used 'ImportKeyPair' to provide AWS the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.
 --
 -- /Note:/ Consider using 'keyFingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpiKeyFingerprint :: Lens.Lens' KeyPairInfo (Lude.Maybe Lude.Text)
-kpiKeyFingerprint = Lens.lens (keyFingerprint :: KeyPairInfo -> Lude.Maybe Lude.Text) (\s a -> s {keyFingerprint = a} :: KeyPairInfo)
+kpiKeyFingerprint :: Lens.Lens' KeyPairInfo (Core.Maybe Types.String)
+kpiKeyFingerprint = Lens.field @"keyFingerprint"
 {-# DEPRECATED kpiKeyFingerprint "Use generic-lens or generic-optics with 'keyFingerprint' instead." #-}
 
 -- | The name of the key pair.
 --
 -- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpiKeyName :: Lens.Lens' KeyPairInfo (Lude.Maybe Lude.Text)
-kpiKeyName = Lens.lens (keyName :: KeyPairInfo -> Lude.Maybe Lude.Text) (\s a -> s {keyName = a} :: KeyPairInfo)
+kpiKeyName :: Lens.Lens' KeyPairInfo (Core.Maybe Types.String)
+kpiKeyName = Lens.field @"keyName"
 {-# DEPRECATED kpiKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
 
 -- | The ID of the key pair.
 --
 -- /Note:/ Consider using 'keyPairId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpiKeyPairId :: Lens.Lens' KeyPairInfo (Lude.Maybe Lude.Text)
-kpiKeyPairId = Lens.lens (keyPairId :: KeyPairInfo -> Lude.Maybe Lude.Text) (\s a -> s {keyPairId = a} :: KeyPairInfo)
+kpiKeyPairId :: Lens.Lens' KeyPairInfo (Core.Maybe Types.String)
+kpiKeyPairId = Lens.field @"keyPairId"
 {-# DEPRECATED kpiKeyPairId "Use generic-lens or generic-optics with 'keyPairId' instead." #-}
 
 -- | Any tags applied to the key pair.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpiTags :: Lens.Lens' KeyPairInfo (Lude.Maybe [Tag])
-kpiTags = Lens.lens (tags :: KeyPairInfo -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: KeyPairInfo)
+kpiTags :: Lens.Lens' KeyPairInfo (Core.Maybe [Types.Tag])
+kpiTags = Lens.field @"tags"
 {-# DEPRECATED kpiTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML KeyPairInfo where
+instance Core.FromXML KeyPairInfo where
   parseXML x =
     KeyPairInfo'
-      Lude.<$> (x Lude..@? "keyFingerprint")
-      Lude.<*> (x Lude..@? "keyName")
-      Lude.<*> (x Lude..@? "keyPairId")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "keyFingerprint")
+      Core.<*> (x Core..@? "keyName")
+      Core.<*> (x Core..@? "keyPairId")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

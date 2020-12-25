@@ -20,135 +20,119 @@ module Network.AWS.CodeBuild.PutResourcePolicy
     mkPutResourcePolicy,
 
     -- ** Request lenses
-    prpResourceARN,
     prpPolicy,
+    prpResourceArn,
 
     -- * Destructuring the response
     PutResourcePolicyResponse (..),
     mkPutResourcePolicyResponse,
 
     -- ** Response lenses
-    prprsResourceARN,
-    prprsResponseStatus,
+    prprrsResourceArn,
+    prprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutResourcePolicy' smart constructor.
 data PutResourcePolicy = PutResourcePolicy'
-  { -- | The ARN of the @Project@ or @ReportGroup@ resource you want to associate with a resource policy.
-    resourceARN :: Lude.Text,
-    -- | A JSON-formatted resource policy. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project> and <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group> in the /AWS CodeBuild User Guide/ .
-    policy :: Lude.Text
+  { -- | A JSON-formatted resource policy. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project> and <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group> in the /AWS CodeBuild User Guide/ .
+    policy :: Types.NonEmptyString,
+    -- | The ARN of the @Project@ or @ReportGroup@ resource you want to associate with a resource policy.
+    resourceArn :: Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutResourcePolicy' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The ARN of the @Project@ or @ReportGroup@ resource you want to associate with a resource policy.
--- * 'policy' - A JSON-formatted resource policy. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project> and <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group> in the /AWS CodeBuild User Guide/ .
+-- | Creates a 'PutResourcePolicy' value with any optional fields omitted.
 mkPutResourcePolicy ::
-  -- | 'resourceARN'
-  Lude.Text ->
   -- | 'policy'
-  Lude.Text ->
+  Types.NonEmptyString ->
+  -- | 'resourceArn'
+  Types.NonEmptyString ->
   PutResourcePolicy
-mkPutResourcePolicy pResourceARN_ pPolicy_ =
-  PutResourcePolicy'
-    { resourceARN = pResourceARN_,
-      policy = pPolicy_
-    }
-
--- | The ARN of the @Project@ or @ReportGroup@ resource you want to associate with a resource policy.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpResourceARN :: Lens.Lens' PutResourcePolicy Lude.Text
-prpResourceARN = Lens.lens (resourceARN :: PutResourcePolicy -> Lude.Text) (\s a -> s {resourceARN = a} :: PutResourcePolicy)
-{-# DEPRECATED prpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+mkPutResourcePolicy policy resourceArn =
+  PutResourcePolicy' {policy, resourceArn}
 
 -- | A JSON-formatted resource policy. For more information, see <https://docs.aws.amazon.com/codebuild/latest/userguide/project-sharing.html#project-sharing-share Sharing a Project> and <https://docs.aws.amazon.com/codebuild/latest/userguide/report-groups-sharing.html#report-groups-sharing-share Sharing a Report Group> in the /AWS CodeBuild User Guide/ .
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prpPolicy :: Lens.Lens' PutResourcePolicy Lude.Text
-prpPolicy = Lens.lens (policy :: PutResourcePolicy -> Lude.Text) (\s a -> s {policy = a} :: PutResourcePolicy)
+prpPolicy :: Lens.Lens' PutResourcePolicy Types.NonEmptyString
+prpPolicy = Lens.field @"policy"
 {-# DEPRECATED prpPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance Lude.AWSRequest PutResourcePolicy where
+-- | The ARN of the @Project@ or @ReportGroup@ resource you want to associate with a resource policy.
+--
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prpResourceArn :: Lens.Lens' PutResourcePolicy Types.NonEmptyString
+prpResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED prpResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
+
+instance Core.FromJSON PutResourcePolicy where
+  toJSON PutResourcePolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("policy" Core..= policy),
+            Core.Just ("resourceArn" Core..= resourceArn)
+          ]
+      )
+
+instance Core.AWSRequest PutResourcePolicy where
   type Rs PutResourcePolicy = PutResourcePolicyResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.PutResourcePolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutResourcePolicyResponse'
-            Lude.<$> (x Lude..?> "resourceArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "resourceArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutResourcePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.PutResourcePolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutResourcePolicy where
-  toJSON PutResourcePolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("resourceArn" Lude..= resourceARN),
-            Lude.Just ("policy" Lude..= policy)
-          ]
-      )
-
-instance Lude.ToPath PutResourcePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutResourcePolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutResourcePolicyResponse' smart constructor.
 data PutResourcePolicyResponse = PutResourcePolicyResponse'
   { -- | The ARN of the @Project@ or @ReportGroup@ resource that is associated with a resource policy.
-    resourceARN :: Lude.Maybe Lude.Text,
+    resourceArn :: Core.Maybe Types.ResourceArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutResourcePolicyResponse' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The ARN of the @Project@ or @ReportGroup@ resource that is associated with a resource policy.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutResourcePolicyResponse' value with any optional fields omitted.
 mkPutResourcePolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutResourcePolicyResponse
-mkPutResourcePolicyResponse pResponseStatus_ =
+mkPutResourcePolicyResponse responseStatus =
   PutResourcePolicyResponse'
-    { resourceARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { resourceArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the @Project@ or @ReportGroup@ resource that is associated with a resource policy.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prprsResourceARN :: Lens.Lens' PutResourcePolicyResponse (Lude.Maybe Lude.Text)
-prprsResourceARN = Lens.lens (resourceARN :: PutResourcePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: PutResourcePolicyResponse)
-{-# DEPRECATED prprsResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prprrsResourceArn :: Lens.Lens' PutResourcePolicyResponse (Core.Maybe Types.ResourceArn)
+prprrsResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED prprrsResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prprsResponseStatus :: Lens.Lens' PutResourcePolicyResponse Lude.Int
-prprsResponseStatus = Lens.lens (responseStatus :: PutResourcePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutResourcePolicyResponse)
-{-# DEPRECATED prprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prprrsResponseStatus :: Lens.Lens' PutResourcePolicyResponse Core.Int
+prprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -27,175 +27,163 @@ module Network.AWS.Connect.ListContactFlows
     -- ** Request lenses
     lcfInstanceId,
     lcfContactFlowTypes,
-    lcfNextToken,
     lcfMaxResults,
+    lcfNextToken,
 
     -- * Destructuring the response
     ListContactFlowsResponse (..),
     mkListContactFlowsResponse,
 
     -- ** Response lenses
-    lcfrsContactFlowSummaryList,
-    lcfrsNextToken,
-    lcfrsResponseStatus,
+    lcfrrsContactFlowSummaryList,
+    lcfrrsNextToken,
+    lcfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListContactFlows' smart constructor.
 data ListContactFlows = ListContactFlows'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The type of contact flow.
-    contactFlowTypes :: Lude.Maybe [ContactFlowType],
-    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    contactFlowTypes :: Core.Maybe [Types.ContactFlowType],
     -- | The maximimum number of results to return per page.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListContactFlows' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'contactFlowTypes' - The type of contact flow.
--- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
--- * 'maxResults' - The maximimum number of results to return per page.
+-- | Creates a 'ListContactFlows' value with any optional fields omitted.
 mkListContactFlows ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   ListContactFlows
-mkListContactFlows pInstanceId_ =
+mkListContactFlows instanceId =
   ListContactFlows'
-    { instanceId = pInstanceId_,
-      contactFlowTypes = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { instanceId,
+      contactFlowTypes = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfInstanceId :: Lens.Lens' ListContactFlows Lude.Text
-lcfInstanceId = Lens.lens (instanceId :: ListContactFlows -> Lude.Text) (\s a -> s {instanceId = a} :: ListContactFlows)
+lcfInstanceId :: Lens.Lens' ListContactFlows Types.InstanceId
+lcfInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED lcfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The type of contact flow.
 --
 -- /Note:/ Consider using 'contactFlowTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfContactFlowTypes :: Lens.Lens' ListContactFlows (Lude.Maybe [ContactFlowType])
-lcfContactFlowTypes = Lens.lens (contactFlowTypes :: ListContactFlows -> Lude.Maybe [ContactFlowType]) (\s a -> s {contactFlowTypes = a} :: ListContactFlows)
+lcfContactFlowTypes :: Lens.Lens' ListContactFlows (Core.Maybe [Types.ContactFlowType])
+lcfContactFlowTypes = Lens.field @"contactFlowTypes"
 {-# DEPRECATED lcfContactFlowTypes "Use generic-lens or generic-optics with 'contactFlowTypes' instead." #-}
-
--- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfNextToken :: Lens.Lens' ListContactFlows (Lude.Maybe Lude.Text)
-lcfNextToken = Lens.lens (nextToken :: ListContactFlows -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListContactFlows)
-{-# DEPRECATED lcfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfMaxResults :: Lens.Lens' ListContactFlows (Lude.Maybe Lude.Natural)
-lcfMaxResults = Lens.lens (maxResults :: ListContactFlows -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListContactFlows)
+lcfMaxResults :: Lens.Lens' ListContactFlows (Core.Maybe Core.Natural)
+lcfMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lcfMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListContactFlows where
-  page rq rs
-    | Page.stop (rs Lens.^. lcfrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lcfrsContactFlowSummaryList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lcfNextToken Lens..~ rs Lens.^. lcfrsNextToken
+-- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcfNextToken :: Lens.Lens' ListContactFlows (Core.Maybe Types.NextToken)
+lcfNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcfNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListContactFlows where
+instance Core.AWSRequest ListContactFlows where
   type Rs ListContactFlows = ListContactFlowsResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/contact-flows-summary/" Core.<> (Core.toText instanceId)),
+        Core._rqQuery =
+          Core.toQueryValue
+            "contactFlowTypes"
+            (Core.toQueryList "member" Core.<$> contactFlowTypes)
+            Core.<> (Core.toQueryValue "maxResults" Core.<$> maxResults)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListContactFlowsResponse'
-            Lude.<$> (x Lude..?> "ContactFlowSummaryList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ContactFlowSummaryList")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListContactFlows where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListContactFlows where
-  toPath ListContactFlows' {..} =
-    Lude.mconcat ["/contact-flows-summary/", Lude.toBS instanceId]
-
-instance Lude.ToQuery ListContactFlows where
-  toQuery ListContactFlows' {..} =
-    Lude.mconcat
-      [ "contactFlowTypes"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> contactFlowTypes),
-        "nextToken" Lude.=: nextToken,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListContactFlows where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"contactFlowSummaryList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListContactFlowsResponse' smart constructor.
 data ListContactFlowsResponse = ListContactFlowsResponse'
   { -- | Information about the contact flows.
-    contactFlowSummaryList :: Lude.Maybe [ContactFlowSummary],
+    contactFlowSummaryList :: Core.Maybe [Types.ContactFlowSummary],
     -- | If there are additional results, this is the token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListContactFlowsResponse' with the minimum fields required to make a request.
---
--- * 'contactFlowSummaryList' - Information about the contact flows.
--- * 'nextToken' - If there are additional results, this is the token for the next set of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListContactFlowsResponse' value with any optional fields omitted.
 mkListContactFlowsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListContactFlowsResponse
-mkListContactFlowsResponse pResponseStatus_ =
+mkListContactFlowsResponse responseStatus =
   ListContactFlowsResponse'
-    { contactFlowSummaryList = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { contactFlowSummaryList = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the contact flows.
 --
 -- /Note:/ Consider using 'contactFlowSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfrsContactFlowSummaryList :: Lens.Lens' ListContactFlowsResponse (Lude.Maybe [ContactFlowSummary])
-lcfrsContactFlowSummaryList = Lens.lens (contactFlowSummaryList :: ListContactFlowsResponse -> Lude.Maybe [ContactFlowSummary]) (\s a -> s {contactFlowSummaryList = a} :: ListContactFlowsResponse)
-{-# DEPRECATED lcfrsContactFlowSummaryList "Use generic-lens or generic-optics with 'contactFlowSummaryList' instead." #-}
+lcfrrsContactFlowSummaryList :: Lens.Lens' ListContactFlowsResponse (Core.Maybe [Types.ContactFlowSummary])
+lcfrrsContactFlowSummaryList = Lens.field @"contactFlowSummaryList"
+{-# DEPRECATED lcfrrsContactFlowSummaryList "Use generic-lens or generic-optics with 'contactFlowSummaryList' instead." #-}
 
 -- | If there are additional results, this is the token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfrsNextToken :: Lens.Lens' ListContactFlowsResponse (Lude.Maybe Lude.Text)
-lcfrsNextToken = Lens.lens (nextToken :: ListContactFlowsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListContactFlowsResponse)
-{-# DEPRECATED lcfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lcfrrsNextToken :: Lens.Lens' ListContactFlowsResponse (Core.Maybe Types.NextToken)
+lcfrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcfrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcfrsResponseStatus :: Lens.Lens' ListContactFlowsResponse Lude.Int
-lcfrsResponseStatus = Lens.lens (responseStatus :: ListContactFlowsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListContactFlowsResponse)
-{-# DEPRECATED lcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lcfrrsResponseStatus :: Lens.Lens' ListContactFlowsResponse Core.Int
+lcfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lcfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

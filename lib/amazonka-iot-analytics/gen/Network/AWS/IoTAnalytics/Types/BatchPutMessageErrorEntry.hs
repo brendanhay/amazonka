@@ -23,65 +23,62 @@ module Network.AWS.IoTAnalytics.Types.BatchPutMessageErrorEntry
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.ErrorCode as Types
+import qualified Network.AWS.IoTAnalytics.Types.ErrorMessage as Types
+import qualified Network.AWS.IoTAnalytics.Types.MessageId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains informations about errors.
 --
 -- /See:/ 'mkBatchPutMessageErrorEntry' smart constructor.
 data BatchPutMessageErrorEntry = BatchPutMessageErrorEntry'
   { -- | The code associated with the error.
-    errorCode :: Lude.Maybe Lude.Text,
+    errorCode :: Core.Maybe Types.ErrorCode,
     -- | The message associated with the error.
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.ErrorMessage,
     -- | The ID of the message that caused the error. See the value corresponding to the @messageId@ key in the message object.
-    messageId :: Lude.Maybe Lude.Text
+    messageId :: Core.Maybe Types.MessageId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchPutMessageErrorEntry' with the minimum fields required to make a request.
---
--- * 'errorCode' - The code associated with the error.
--- * 'errorMessage' - The message associated with the error.
--- * 'messageId' - The ID of the message that caused the error. See the value corresponding to the @messageId@ key in the message object.
+-- | Creates a 'BatchPutMessageErrorEntry' value with any optional fields omitted.
 mkBatchPutMessageErrorEntry ::
   BatchPutMessageErrorEntry
 mkBatchPutMessageErrorEntry =
   BatchPutMessageErrorEntry'
-    { errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      messageId = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      messageId = Core.Nothing
     }
 
 -- | The code associated with the error.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpmeeErrorCode :: Lens.Lens' BatchPutMessageErrorEntry (Lude.Maybe Lude.Text)
-bpmeeErrorCode = Lens.lens (errorCode :: BatchPutMessageErrorEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: BatchPutMessageErrorEntry)
+bpmeeErrorCode :: Lens.Lens' BatchPutMessageErrorEntry (Core.Maybe Types.ErrorCode)
+bpmeeErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED bpmeeErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The message associated with the error.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpmeeErrorMessage :: Lens.Lens' BatchPutMessageErrorEntry (Lude.Maybe Lude.Text)
-bpmeeErrorMessage = Lens.lens (errorMessage :: BatchPutMessageErrorEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: BatchPutMessageErrorEntry)
+bpmeeErrorMessage :: Lens.Lens' BatchPutMessageErrorEntry (Core.Maybe Types.ErrorMessage)
+bpmeeErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED bpmeeErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The ID of the message that caused the error. See the value corresponding to the @messageId@ key in the message object.
 --
 -- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpmeeMessageId :: Lens.Lens' BatchPutMessageErrorEntry (Lude.Maybe Lude.Text)
-bpmeeMessageId = Lens.lens (messageId :: BatchPutMessageErrorEntry -> Lude.Maybe Lude.Text) (\s a -> s {messageId = a} :: BatchPutMessageErrorEntry)
+bpmeeMessageId :: Lens.Lens' BatchPutMessageErrorEntry (Core.Maybe Types.MessageId)
+bpmeeMessageId = Lens.field @"messageId"
 {-# DEPRECATED bpmeeMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
 
-instance Lude.FromJSON BatchPutMessageErrorEntry where
+instance Core.FromJSON BatchPutMessageErrorEntry where
   parseJSON =
-    Lude.withObject
-      "BatchPutMessageErrorEntry"
-      ( \x ->
-          BatchPutMessageErrorEntry'
-            Lude.<$> (x Lude..:? "errorCode")
-            Lude.<*> (x Lude..:? "errorMessage")
-            Lude.<*> (x Lude..:? "messageId")
-      )
+    Core.withObject "BatchPutMessageErrorEntry" Core.$
+      \x ->
+        BatchPutMessageErrorEntry'
+          Core.<$> (x Core..:? "errorCode")
+          Core.<*> (x Core..:? "errorMessage")
+          Core.<*> (x Core..:? "messageId")

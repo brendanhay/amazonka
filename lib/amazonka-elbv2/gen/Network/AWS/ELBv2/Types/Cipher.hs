@@ -17,49 +17,47 @@ module Network.AWS.ELBv2.Types.Cipher
     mkCipher,
 
     -- * Lenses
-    cPriority,
     cName,
+    cPriority,
   )
 where
 
+import qualified Network.AWS.ELBv2.Types.CipherName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a cipher used in a policy.
 --
 -- /See:/ 'mkCipher' smart constructor.
 data Cipher = Cipher'
-  { -- | The priority of the cipher.
-    priority :: Lude.Maybe Lude.Int,
-    -- | The name of the cipher.
-    name :: Lude.Maybe Lude.Text
+  { -- | The name of the cipher.
+    name :: Core.Maybe Types.CipherName,
+    -- | The priority of the cipher.
+    priority :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Cipher' with the minimum fields required to make a request.
---
--- * 'priority' - The priority of the cipher.
--- * 'name' - The name of the cipher.
+-- | Creates a 'Cipher' value with any optional fields omitted.
 mkCipher ::
   Cipher
-mkCipher = Cipher' {priority = Lude.Nothing, name = Lude.Nothing}
-
--- | The priority of the cipher.
---
--- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cPriority :: Lens.Lens' Cipher (Lude.Maybe Lude.Int)
-cPriority = Lens.lens (priority :: Cipher -> Lude.Maybe Lude.Int) (\s a -> s {priority = a} :: Cipher)
-{-# DEPRECATED cPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
+mkCipher = Cipher' {name = Core.Nothing, priority = Core.Nothing}
 
 -- | The name of the cipher.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cName :: Lens.Lens' Cipher (Lude.Maybe Lude.Text)
-cName = Lens.lens (name :: Cipher -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Cipher)
+cName :: Lens.Lens' Cipher (Core.Maybe Types.CipherName)
+cName = Lens.field @"name"
 {-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML Cipher where
+-- | The priority of the cipher.
+--
+-- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cPriority :: Lens.Lens' Cipher (Core.Maybe Core.Int)
+cPriority = Lens.field @"priority"
+{-# DEPRECATED cPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
+
+instance Core.FromXML Cipher where
   parseXML x =
     Cipher'
-      Lude.<$> (x Lude..@? "Priority") Lude.<*> (x Lude..@? "Name")
+      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Priority")

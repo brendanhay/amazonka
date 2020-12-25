@@ -24,151 +24,150 @@ module Network.AWS.SES.ListConfigurationSets
     mkListConfigurationSets,
 
     -- ** Request lenses
-    lcsNextToken,
     lcsMaxItems,
+    lcsNextToken,
 
     -- * Destructuring the response
     ListConfigurationSetsResponse (..),
     mkListConfigurationSetsResponse,
 
     -- ** Response lenses
-    lcsrsConfigurationSets,
-    lcsrsNextToken,
-    lcsrsResponseStatus,
+    lcsrrsConfigurationSets,
+    lcsrrsNextToken,
+    lcsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to list the configuration sets associated with your AWS account. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkListConfigurationSets' smart constructor.
 data ListConfigurationSets = ListConfigurationSets'
-  { -- | A token returned from a previous call to @ListConfigurationSets@ to indicate the position of the configuration set in the configuration set list.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The number of configuration sets to return.
-    maxItems :: Lude.Maybe Lude.Int
+  { -- | The number of configuration sets to return.
+    maxItems :: Core.Maybe Core.Int,
+    -- | A token returned from a previous call to @ListConfigurationSets@ to indicate the position of the configuration set in the configuration set list.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListConfigurationSets' with the minimum fields required to make a request.
---
--- * 'nextToken' - A token returned from a previous call to @ListConfigurationSets@ to indicate the position of the configuration set in the configuration set list.
--- * 'maxItems' - The number of configuration sets to return.
+-- | Creates a 'ListConfigurationSets' value with any optional fields omitted.
 mkListConfigurationSets ::
   ListConfigurationSets
 mkListConfigurationSets =
   ListConfigurationSets'
-    { nextToken = Lude.Nothing,
-      maxItems = Lude.Nothing
+    { maxItems = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | A token returned from a previous call to @ListConfigurationSets@ to indicate the position of the configuration set in the configuration set list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcsNextToken :: Lens.Lens' ListConfigurationSets (Lude.Maybe Lude.Text)
-lcsNextToken = Lens.lens (nextToken :: ListConfigurationSets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConfigurationSets)
-{-# DEPRECATED lcsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of configuration sets to return.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcsMaxItems :: Lens.Lens' ListConfigurationSets (Lude.Maybe Lude.Int)
-lcsMaxItems = Lens.lens (maxItems :: ListConfigurationSets -> Lude.Maybe Lude.Int) (\s a -> s {maxItems = a} :: ListConfigurationSets)
+lcsMaxItems :: Lens.Lens' ListConfigurationSets (Core.Maybe Core.Int)
+lcsMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED lcsMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Page.AWSPager ListConfigurationSets where
-  page rq rs
-    | Page.stop (rs Lens.^. lcsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lcsrsConfigurationSets) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lcsNextToken Lens..~ rs Lens.^. lcsrsNextToken
+-- | A token returned from a previous call to @ListConfigurationSets@ to indicate the position of the configuration set in the configuration set list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcsNextToken :: Lens.Lens' ListConfigurationSets (Core.Maybe Types.NextToken)
+lcsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListConfigurationSets where
+instance Core.AWSRequest ListConfigurationSets where
   type Rs ListConfigurationSets = ListConfigurationSetsResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListConfigurationSets")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListConfigurationSetsResult"
       ( \s h x ->
           ListConfigurationSetsResponse'
-            Lude.<$> ( x Lude..@? "ConfigurationSets" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "ConfigurationSets"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListConfigurationSets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListConfigurationSets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListConfigurationSets where
-  toQuery ListConfigurationSets' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ListConfigurationSets" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "NextToken" Lude.=: nextToken,
-        "MaxItems" Lude.=: maxItems
-      ]
+instance Pager.AWSPager ListConfigurationSets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"configurationSets" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | A list of configuration sets associated with your AWS account. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkListConfigurationSetsResponse' smart constructor.
 data ListConfigurationSetsResponse = ListConfigurationSetsResponse'
   { -- | A list of configuration sets.
-    configurationSets :: Lude.Maybe [ConfigurationSet],
+    configurationSets :: Core.Maybe [Types.ConfigurationSet],
     -- | A token indicating that there are additional configuration sets available to be listed. Pass this token to successive calls of @ListConfigurationSets@ .
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListConfigurationSetsResponse' with the minimum fields required to make a request.
---
--- * 'configurationSets' - A list of configuration sets.
--- * 'nextToken' - A token indicating that there are additional configuration sets available to be listed. Pass this token to successive calls of @ListConfigurationSets@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListConfigurationSetsResponse' value with any optional fields omitted.
 mkListConfigurationSetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListConfigurationSetsResponse
-mkListConfigurationSetsResponse pResponseStatus_ =
+mkListConfigurationSetsResponse responseStatus =
   ListConfigurationSetsResponse'
-    { configurationSets = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { configurationSets = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of configuration sets.
 --
 -- /Note:/ Consider using 'configurationSets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcsrsConfigurationSets :: Lens.Lens' ListConfigurationSetsResponse (Lude.Maybe [ConfigurationSet])
-lcsrsConfigurationSets = Lens.lens (configurationSets :: ListConfigurationSetsResponse -> Lude.Maybe [ConfigurationSet]) (\s a -> s {configurationSets = a} :: ListConfigurationSetsResponse)
-{-# DEPRECATED lcsrsConfigurationSets "Use generic-lens or generic-optics with 'configurationSets' instead." #-}
+lcsrrsConfigurationSets :: Lens.Lens' ListConfigurationSetsResponse (Core.Maybe [Types.ConfigurationSet])
+lcsrrsConfigurationSets = Lens.field @"configurationSets"
+{-# DEPRECATED lcsrrsConfigurationSets "Use generic-lens or generic-optics with 'configurationSets' instead." #-}
 
 -- | A token indicating that there are additional configuration sets available to be listed. Pass this token to successive calls of @ListConfigurationSets@ .
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcsrsNextToken :: Lens.Lens' ListConfigurationSetsResponse (Lude.Maybe Lude.Text)
-lcsrsNextToken = Lens.lens (nextToken :: ListConfigurationSetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListConfigurationSetsResponse)
-{-# DEPRECATED lcsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lcsrrsNextToken :: Lens.Lens' ListConfigurationSetsResponse (Core.Maybe Types.NextToken)
+lcsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcsrsResponseStatus :: Lens.Lens' ListConfigurationSetsResponse Lude.Int
-lcsrsResponseStatus = Lens.lens (responseStatus :: ListConfigurationSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListConfigurationSetsResponse)
-{-# DEPRECATED lcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lcsrrsResponseStatus :: Lens.Lens' ListConfigurationSetsResponse Core.Int
+lcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

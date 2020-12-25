@@ -17,72 +17,70 @@ module Network.AWS.Route53.Types.DelegationSet
     mkDelegationSet,
 
     -- * Lenses
-    dsId,
-    dsCallerReference,
     dsNameServers,
+    dsCallerReference,
+    dsId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
+import qualified Network.AWS.Route53.Types.CallerReference as Types
+import qualified Network.AWS.Route53.Types.DNSName as Types
 
 -- | A complex type that lists the name servers in a delegation set, as well as the @CallerReference@ and the @ID@ for the delegation set.
 --
 -- /See:/ 'mkDelegationSet' smart constructor.
 data DelegationSet = DelegationSet'
-  { -- | The ID that Amazon Route 53 assigns to a reusable delegation set.
-    id :: Lude.Maybe ResourceId,
+  { -- | A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.
+    nameServers :: Core.NonEmpty Types.DNSName,
     -- | The value that you specified for @CallerReference@ when you created the reusable delegation set.
-    callerReference :: Lude.Maybe Lude.Text,
-    -- | A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.
-    nameServers :: Lude.NonEmpty Lude.Text
+    callerReference :: Core.Maybe Types.CallerReference,
+    -- | The ID that Amazon Route 53 assigns to a reusable delegation set.
+    id :: Core.Maybe Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DelegationSet' with the minimum fields required to make a request.
---
--- * 'id' - The ID that Amazon Route 53 assigns to a reusable delegation set.
--- * 'callerReference' - The value that you specified for @CallerReference@ when you created the reusable delegation set.
--- * 'nameServers' - A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.
+-- | Creates a 'DelegationSet' value with any optional fields omitted.
 mkDelegationSet ::
   -- | 'nameServers'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.DNSName ->
   DelegationSet
-mkDelegationSet pNameServers_ =
+mkDelegationSet nameServers =
   DelegationSet'
-    { id = Lude.Nothing,
-      callerReference = Lude.Nothing,
-      nameServers = pNameServers_
+    { nameServers,
+      callerReference = Core.Nothing,
+      id = Core.Nothing
     }
-
--- | The ID that Amazon Route 53 assigns to a reusable delegation set.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsId :: Lens.Lens' DelegationSet (Lude.Maybe ResourceId)
-dsId = Lens.lens (id :: DelegationSet -> Lude.Maybe ResourceId) (\s a -> s {id = a} :: DelegationSet)
-{-# DEPRECATED dsId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The value that you specified for @CallerReference@ when you created the reusable delegation set.
---
--- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsCallerReference :: Lens.Lens' DelegationSet (Lude.Maybe Lude.Text)
-dsCallerReference = Lens.lens (callerReference :: DelegationSet -> Lude.Maybe Lude.Text) (\s a -> s {callerReference = a} :: DelegationSet)
-{-# DEPRECATED dsCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
 
 -- | A complex type that contains a list of the authoritative name servers for a hosted zone or for a reusable delegation set.
 --
 -- /Note:/ Consider using 'nameServers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsNameServers :: Lens.Lens' DelegationSet (Lude.NonEmpty Lude.Text)
-dsNameServers = Lens.lens (nameServers :: DelegationSet -> Lude.NonEmpty Lude.Text) (\s a -> s {nameServers = a} :: DelegationSet)
+dsNameServers :: Lens.Lens' DelegationSet (Core.NonEmpty Types.DNSName)
+dsNameServers = Lens.field @"nameServers"
 {-# DEPRECATED dsNameServers "Use generic-lens or generic-optics with 'nameServers' instead." #-}
 
-instance Lude.FromXML DelegationSet where
+-- | The value that you specified for @CallerReference@ when you created the reusable delegation set.
+--
+-- /Note:/ Consider using 'callerReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsCallerReference :: Lens.Lens' DelegationSet (Core.Maybe Types.CallerReference)
+dsCallerReference = Lens.field @"callerReference"
+{-# DEPRECATED dsCallerReference "Use generic-lens or generic-optics with 'callerReference' instead." #-}
+
+-- | The ID that Amazon Route 53 assigns to a reusable delegation set.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsId :: Lens.Lens' DelegationSet (Core.Maybe Types.ResourceId)
+dsId = Lens.field @"id"
+{-# DEPRECATED dsId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+instance Core.FromXML DelegationSet where
   parseXML x =
     DelegationSet'
-      Lude.<$> (x Lude..@? "Id")
-      Lude.<*> (x Lude..@? "CallerReference")
-      Lude.<*> ( x Lude..@? "NameServers" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.parseXMLNonEmpty "NameServer"
+      Core.<$> ( x Core..@ "NameServers"
+                   Core..<@> Core.parseXMLNonEmpty "NameServer"
                )
+      Core.<*> (x Core..@? "CallerReference")
+      Core.<*> (x Core..@? "Id")

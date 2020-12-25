@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.SummaryStatus
   ( SummaryStatus
       ( SummaryStatus',
-        SSOK,
-        SSImpaired,
-        SSInsufficientData,
-        SSNotApplicable,
-        SSInitializing
+        SummaryStatusOK,
+        SummaryStatusImpaired,
+        SummaryStatusInsufficientData,
+        SummaryStatusNotApplicable,
+        SummaryStatusInitializing,
+        fromSummaryStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SummaryStatus = SummaryStatus' Lude.Text
+newtype SummaryStatus = SummaryStatus'
+  { fromSummaryStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSOK :: SummaryStatus
-pattern SSOK = SummaryStatus' "ok"
+pattern SummaryStatusOK :: SummaryStatus
+pattern SummaryStatusOK = SummaryStatus' "ok"
 
-pattern SSImpaired :: SummaryStatus
-pattern SSImpaired = SummaryStatus' "impaired"
+pattern SummaryStatusImpaired :: SummaryStatus
+pattern SummaryStatusImpaired = SummaryStatus' "impaired"
 
-pattern SSInsufficientData :: SummaryStatus
-pattern SSInsufficientData = SummaryStatus' "insufficient-data"
+pattern SummaryStatusInsufficientData :: SummaryStatus
+pattern SummaryStatusInsufficientData = SummaryStatus' "insufficient-data"
 
-pattern SSNotApplicable :: SummaryStatus
-pattern SSNotApplicable = SummaryStatus' "not-applicable"
+pattern SummaryStatusNotApplicable :: SummaryStatus
+pattern SummaryStatusNotApplicable = SummaryStatus' "not-applicable"
 
-pattern SSInitializing :: SummaryStatus
-pattern SSInitializing = SummaryStatus' "initializing"
+pattern SummaryStatusInitializing :: SummaryStatus
+pattern SummaryStatusInitializing = SummaryStatus' "initializing"
 
 {-# COMPLETE
-  SSOK,
-  SSImpaired,
-  SSInsufficientData,
-  SSNotApplicable,
-  SSInitializing,
+  SummaryStatusOK,
+  SummaryStatusImpaired,
+  SummaryStatusInsufficientData,
+  SummaryStatusNotApplicable,
+  SummaryStatusInitializing,
   SummaryStatus'
   #-}

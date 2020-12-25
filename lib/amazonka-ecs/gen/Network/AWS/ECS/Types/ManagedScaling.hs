@@ -17,17 +17,17 @@ module Network.AWS.ECS.Types.ManagedScaling
     mkManagedScaling,
 
     -- * Lenses
-    msStatus,
-    msMaximumScalingStepSize,
-    msTargetCapacity,
-    msMinimumScalingStepSize,
     msInstanceWarmupPeriod,
+    msMaximumScalingStepSize,
+    msMinimumScalingStepSize,
+    msStatus,
+    msTargetCapacity,
   )
 where
 
-import Network.AWS.ECS.Types.ManagedScalingStatus
+import qualified Network.AWS.ECS.Types.ManagedScalingStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The managed scaling settings for the Auto Scaling group capacity provider.
 --
@@ -36,94 +36,86 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkManagedScaling' smart constructor.
 data ManagedScaling = ManagedScaling'
-  { -- | Whether or not to enable managed scaling for the capacity provider.
-    status :: Lude.Maybe ManagedScalingStatus,
+  { -- | The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of @300@ seconds is used.
+    instanceWarmupPeriod :: Core.Maybe Core.Natural,
     -- | The maximum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @10000@ is used.
-    maximumScalingStepSize :: Lude.Maybe Lude.Natural,
-    -- | The target capacity value for the capacity provider. The specified value must be greater than @0@ and less than or equal to @100@ . A value of @100@ will result in the Amazon EC2 instances in your Auto Scaling group being completely utilized.
-    targetCapacity :: Lude.Maybe Lude.Natural,
+    maximumScalingStepSize :: Core.Maybe Core.Natural,
     -- | The minimum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @1@ is used.
-    minimumScalingStepSize :: Lude.Maybe Lude.Natural,
-    -- | The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of @300@ seconds is used.
-    instanceWarmupPeriod :: Lude.Maybe Lude.Natural
+    minimumScalingStepSize :: Core.Maybe Core.Natural,
+    -- | Whether or not to enable managed scaling for the capacity provider.
+    status :: Core.Maybe Types.ManagedScalingStatus,
+    -- | The target capacity value for the capacity provider. The specified value must be greater than @0@ and less than or equal to @100@ . A value of @100@ will result in the Amazon EC2 instances in your Auto Scaling group being completely utilized.
+    targetCapacity :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ManagedScaling' with the minimum fields required to make a request.
---
--- * 'status' - Whether or not to enable managed scaling for the capacity provider.
--- * 'maximumScalingStepSize' - The maximum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @10000@ is used.
--- * 'targetCapacity' - The target capacity value for the capacity provider. The specified value must be greater than @0@ and less than or equal to @100@ . A value of @100@ will result in the Amazon EC2 instances in your Auto Scaling group being completely utilized.
--- * 'minimumScalingStepSize' - The minimum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @1@ is used.
--- * 'instanceWarmupPeriod' - The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of @300@ seconds is used.
+-- | Creates a 'ManagedScaling' value with any optional fields omitted.
 mkManagedScaling ::
   ManagedScaling
 mkManagedScaling =
   ManagedScaling'
-    { status = Lude.Nothing,
-      maximumScalingStepSize = Lude.Nothing,
-      targetCapacity = Lude.Nothing,
-      minimumScalingStepSize = Lude.Nothing,
-      instanceWarmupPeriod = Lude.Nothing
+    { instanceWarmupPeriod = Core.Nothing,
+      maximumScalingStepSize = Core.Nothing,
+      minimumScalingStepSize = Core.Nothing,
+      status = Core.Nothing,
+      targetCapacity = Core.Nothing
     }
-
--- | Whether or not to enable managed scaling for the capacity provider.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msStatus :: Lens.Lens' ManagedScaling (Lude.Maybe ManagedScalingStatus)
-msStatus = Lens.lens (status :: ManagedScaling -> Lude.Maybe ManagedScalingStatus) (\s a -> s {status = a} :: ManagedScaling)
-{-# DEPRECATED msStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The maximum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @10000@ is used.
---
--- /Note:/ Consider using 'maximumScalingStepSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msMaximumScalingStepSize :: Lens.Lens' ManagedScaling (Lude.Maybe Lude.Natural)
-msMaximumScalingStepSize = Lens.lens (maximumScalingStepSize :: ManagedScaling -> Lude.Maybe Lude.Natural) (\s a -> s {maximumScalingStepSize = a} :: ManagedScaling)
-{-# DEPRECATED msMaximumScalingStepSize "Use generic-lens or generic-optics with 'maximumScalingStepSize' instead." #-}
-
--- | The target capacity value for the capacity provider. The specified value must be greater than @0@ and less than or equal to @100@ . A value of @100@ will result in the Amazon EC2 instances in your Auto Scaling group being completely utilized.
---
--- /Note:/ Consider using 'targetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msTargetCapacity :: Lens.Lens' ManagedScaling (Lude.Maybe Lude.Natural)
-msTargetCapacity = Lens.lens (targetCapacity :: ManagedScaling -> Lude.Maybe Lude.Natural) (\s a -> s {targetCapacity = a} :: ManagedScaling)
-{-# DEPRECATED msTargetCapacity "Use generic-lens or generic-optics with 'targetCapacity' instead." #-}
-
--- | The minimum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @1@ is used.
---
--- /Note:/ Consider using 'minimumScalingStepSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msMinimumScalingStepSize :: Lens.Lens' ManagedScaling (Lude.Maybe Lude.Natural)
-msMinimumScalingStepSize = Lens.lens (minimumScalingStepSize :: ManagedScaling -> Lude.Maybe Lude.Natural) (\s a -> s {minimumScalingStepSize = a} :: ManagedScaling)
-{-# DEPRECATED msMinimumScalingStepSize "Use generic-lens or generic-optics with 'minimumScalingStepSize' instead." #-}
 
 -- | The period of time, in seconds, after a newly launched Amazon EC2 instance can contribute to CloudWatch metrics for Auto Scaling group. If this parameter is omitted, the default value of @300@ seconds is used.
 --
 -- /Note:/ Consider using 'instanceWarmupPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msInstanceWarmupPeriod :: Lens.Lens' ManagedScaling (Lude.Maybe Lude.Natural)
-msInstanceWarmupPeriod = Lens.lens (instanceWarmupPeriod :: ManagedScaling -> Lude.Maybe Lude.Natural) (\s a -> s {instanceWarmupPeriod = a} :: ManagedScaling)
+msInstanceWarmupPeriod :: Lens.Lens' ManagedScaling (Core.Maybe Core.Natural)
+msInstanceWarmupPeriod = Lens.field @"instanceWarmupPeriod"
 {-# DEPRECATED msInstanceWarmupPeriod "Use generic-lens or generic-optics with 'instanceWarmupPeriod' instead." #-}
 
-instance Lude.FromJSON ManagedScaling where
-  parseJSON =
-    Lude.withObject
-      "ManagedScaling"
-      ( \x ->
-          ManagedScaling'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "maximumScalingStepSize")
-            Lude.<*> (x Lude..:? "targetCapacity")
-            Lude.<*> (x Lude..:? "minimumScalingStepSize")
-            Lude.<*> (x Lude..:? "instanceWarmupPeriod")
-      )
+-- | The maximum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @10000@ is used.
+--
+-- /Note:/ Consider using 'maximumScalingStepSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msMaximumScalingStepSize :: Lens.Lens' ManagedScaling (Core.Maybe Core.Natural)
+msMaximumScalingStepSize = Lens.field @"maximumScalingStepSize"
+{-# DEPRECATED msMaximumScalingStepSize "Use generic-lens or generic-optics with 'maximumScalingStepSize' instead." #-}
 
-instance Lude.ToJSON ManagedScaling where
-  toJSON ManagedScaling' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("status" Lude..=) Lude.<$> status,
-            ("maximumScalingStepSize" Lude..=) Lude.<$> maximumScalingStepSize,
-            ("targetCapacity" Lude..=) Lude.<$> targetCapacity,
-            ("minimumScalingStepSize" Lude..=) Lude.<$> minimumScalingStepSize,
-            ("instanceWarmupPeriod" Lude..=) Lude.<$> instanceWarmupPeriod
+-- | The minimum number of container instances that Amazon ECS will scale in or scale out at one time. If this parameter is omitted, the default value of @1@ is used.
+--
+-- /Note:/ Consider using 'minimumScalingStepSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msMinimumScalingStepSize :: Lens.Lens' ManagedScaling (Core.Maybe Core.Natural)
+msMinimumScalingStepSize = Lens.field @"minimumScalingStepSize"
+{-# DEPRECATED msMinimumScalingStepSize "Use generic-lens or generic-optics with 'minimumScalingStepSize' instead." #-}
+
+-- | Whether or not to enable managed scaling for the capacity provider.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msStatus :: Lens.Lens' ManagedScaling (Core.Maybe Types.ManagedScalingStatus)
+msStatus = Lens.field @"status"
+{-# DEPRECATED msStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The target capacity value for the capacity provider. The specified value must be greater than @0@ and less than or equal to @100@ . A value of @100@ will result in the Amazon EC2 instances in your Auto Scaling group being completely utilized.
+--
+-- /Note:/ Consider using 'targetCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msTargetCapacity :: Lens.Lens' ManagedScaling (Core.Maybe Core.Natural)
+msTargetCapacity = Lens.field @"targetCapacity"
+{-# DEPRECATED msTargetCapacity "Use generic-lens or generic-optics with 'targetCapacity' instead." #-}
+
+instance Core.FromJSON ManagedScaling where
+  toJSON ManagedScaling {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("instanceWarmupPeriod" Core..=) Core.<$> instanceWarmupPeriod,
+            ("maximumScalingStepSize" Core..=) Core.<$> maximumScalingStepSize,
+            ("minimumScalingStepSize" Core..=) Core.<$> minimumScalingStepSize,
+            ("status" Core..=) Core.<$> status,
+            ("targetCapacity" Core..=) Core.<$> targetCapacity
           ]
       )
+
+instance Core.FromJSON ManagedScaling where
+  parseJSON =
+    Core.withObject "ManagedScaling" Core.$
+      \x ->
+        ManagedScaling'
+          Core.<$> (x Core..:? "instanceWarmupPeriod")
+          Core.<*> (x Core..:? "maximumScalingStepSize")
+          Core.<*> (x Core..:? "minimumScalingStepSize")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "targetCapacity")

@@ -23,8 +23,8 @@ module Network.AWS.MediaLive.Types.MsSmoothOutputSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.MsSmoothH265PackagingType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.MsSmoothH265PackagingType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Ms Smooth Output Settings
 --
@@ -33,25 +33,20 @@ data MsSmoothOutputSettings = MsSmoothOutputSettings'
   { -- | Only applicable when this output is referencing an H.265 video description.
     --
     -- Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
-    h265PackagingType :: Lude.Maybe MsSmoothH265PackagingType,
+    h265PackagingType :: Core.Maybe Types.MsSmoothH265PackagingType,
     -- | String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
-    nameModifier :: Lude.Maybe Lude.Text
+    nameModifier :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MsSmoothOutputSettings' with the minimum fields required to make a request.
---
--- * 'h265PackagingType' - Only applicable when this output is referencing an H.265 video description.
---
--- Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
--- * 'nameModifier' - String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
+-- | Creates a 'MsSmoothOutputSettings' value with any optional fields omitted.
 mkMsSmoothOutputSettings ::
   MsSmoothOutputSettings
 mkMsSmoothOutputSettings =
   MsSmoothOutputSettings'
-    { h265PackagingType = Lude.Nothing,
-      nameModifier = Lude.Nothing
+    { h265PackagingType = Core.Nothing,
+      nameModifier = Core.Nothing
     }
 
 -- | Only applicable when this output is referencing an H.265 video description.
@@ -59,32 +54,30 @@ mkMsSmoothOutputSettings =
 -- Specifies whether MP4 segments should be packaged as HEV1 or HVC1.
 --
 -- /Note:/ Consider using 'h265PackagingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msosH265PackagingType :: Lens.Lens' MsSmoothOutputSettings (Lude.Maybe MsSmoothH265PackagingType)
-msosH265PackagingType = Lens.lens (h265PackagingType :: MsSmoothOutputSettings -> Lude.Maybe MsSmoothH265PackagingType) (\s a -> s {h265PackagingType = a} :: MsSmoothOutputSettings)
+msosH265PackagingType :: Lens.Lens' MsSmoothOutputSettings (Core.Maybe Types.MsSmoothH265PackagingType)
+msosH265PackagingType = Lens.field @"h265PackagingType"
 {-# DEPRECATED msosH265PackagingType "Use generic-lens or generic-optics with 'h265PackagingType' instead." #-}
 
 -- | String concatenated to the end of the destination filename.  Required for multiple outputs of the same type.
 --
 -- /Note:/ Consider using 'nameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msosNameModifier :: Lens.Lens' MsSmoothOutputSettings (Lude.Maybe Lude.Text)
-msosNameModifier = Lens.lens (nameModifier :: MsSmoothOutputSettings -> Lude.Maybe Lude.Text) (\s a -> s {nameModifier = a} :: MsSmoothOutputSettings)
+msosNameModifier :: Lens.Lens' MsSmoothOutputSettings (Core.Maybe Core.Text)
+msosNameModifier = Lens.field @"nameModifier"
 {-# DEPRECATED msosNameModifier "Use generic-lens or generic-optics with 'nameModifier' instead." #-}
 
-instance Lude.FromJSON MsSmoothOutputSettings where
-  parseJSON =
-    Lude.withObject
-      "MsSmoothOutputSettings"
-      ( \x ->
-          MsSmoothOutputSettings'
-            Lude.<$> (x Lude..:? "h265PackagingType")
-            Lude.<*> (x Lude..:? "nameModifier")
-      )
-
-instance Lude.ToJSON MsSmoothOutputSettings where
-  toJSON MsSmoothOutputSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("h265PackagingType" Lude..=) Lude.<$> h265PackagingType,
-            ("nameModifier" Lude..=) Lude.<$> nameModifier
+instance Core.FromJSON MsSmoothOutputSettings where
+  toJSON MsSmoothOutputSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("h265PackagingType" Core..=) Core.<$> h265PackagingType,
+            ("nameModifier" Core..=) Core.<$> nameModifier
           ]
       )
+
+instance Core.FromJSON MsSmoothOutputSettings where
+  parseJSON =
+    Core.withObject "MsSmoothOutputSettings" Core.$
+      \x ->
+        MsSmoothOutputSettings'
+          Core.<$> (x Core..:? "h265PackagingType")
+          Core.<*> (x Core..:? "nameModifier")

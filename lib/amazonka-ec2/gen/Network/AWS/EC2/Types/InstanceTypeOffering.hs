@@ -17,69 +17,66 @@ module Network.AWS.EC2.Types.InstanceTypeOffering
     mkInstanceTypeOffering,
 
     -- * Lenses
-    itoLocation,
     itoInstanceType,
+    itoLocation,
     itoLocationType,
   )
 where
 
-import Network.AWS.EC2.Types.InstanceType
-import Network.AWS.EC2.Types.LocationType
+import qualified Network.AWS.EC2.Types.InstanceType as Types
+import qualified Network.AWS.EC2.Types.Location as Types
+import qualified Network.AWS.EC2.Types.LocationType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The instance types offered.
 --
 -- /See:/ 'mkInstanceTypeOffering' smart constructor.
 data InstanceTypeOffering = InstanceTypeOffering'
-  { -- | The identifier for the location. This depends on the location type. For example, if the location type is @region@ , the location is the Region code (for example, @us-east-2@ .)
-    location :: Lude.Maybe Lude.Text,
-    -- | The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
-    instanceType :: Lude.Maybe InstanceType,
+  { -- | The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+    instanceType :: Core.Maybe Types.InstanceType,
+    -- | The identifier for the location. This depends on the location type. For example, if the location type is @region@ , the location is the Region code (for example, @us-east-2@ .)
+    location :: Core.Maybe Types.Location,
     -- | The location type.
-    locationType :: Lude.Maybe LocationType
+    locationType :: Core.Maybe Types.LocationType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceTypeOffering' with the minimum fields required to make a request.
---
--- * 'location' - The identifier for the location. This depends on the location type. For example, if the location type is @region@ , the location is the Region code (for example, @us-east-2@ .)
--- * 'instanceType' - The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'locationType' - The location type.
+-- | Creates a 'InstanceTypeOffering' value with any optional fields omitted.
 mkInstanceTypeOffering ::
   InstanceTypeOffering
 mkInstanceTypeOffering =
   InstanceTypeOffering'
-    { location = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      locationType = Lude.Nothing
+    { instanceType = Core.Nothing,
+      location = Core.Nothing,
+      locationType = Core.Nothing
     }
-
--- | The identifier for the location. This depends on the location type. For example, if the location type is @region@ , the location is the Region code (for example, @us-east-2@ .)
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itoLocation :: Lens.Lens' InstanceTypeOffering (Lude.Maybe Lude.Text)
-itoLocation = Lens.lens (location :: InstanceTypeOffering -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: InstanceTypeOffering)
-{-# DEPRECATED itoLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itoInstanceType :: Lens.Lens' InstanceTypeOffering (Lude.Maybe InstanceType)
-itoInstanceType = Lens.lens (instanceType :: InstanceTypeOffering -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: InstanceTypeOffering)
+itoInstanceType :: Lens.Lens' InstanceTypeOffering (Core.Maybe Types.InstanceType)
+itoInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED itoInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The identifier for the location. This depends on the location type. For example, if the location type is @region@ , the location is the Region code (for example, @us-east-2@ .)
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itoLocation :: Lens.Lens' InstanceTypeOffering (Core.Maybe Types.Location)
+itoLocation = Lens.field @"location"
+{-# DEPRECATED itoLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The location type.
 --
 -- /Note:/ Consider using 'locationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itoLocationType :: Lens.Lens' InstanceTypeOffering (Lude.Maybe LocationType)
-itoLocationType = Lens.lens (locationType :: InstanceTypeOffering -> Lude.Maybe LocationType) (\s a -> s {locationType = a} :: InstanceTypeOffering)
+itoLocationType :: Lens.Lens' InstanceTypeOffering (Core.Maybe Types.LocationType)
+itoLocationType = Lens.field @"locationType"
 {-# DEPRECATED itoLocationType "Use generic-lens or generic-optics with 'locationType' instead." #-}
 
-instance Lude.FromXML InstanceTypeOffering where
+instance Core.FromXML InstanceTypeOffering where
   parseXML x =
     InstanceTypeOffering'
-      Lude.<$> (x Lude..@? "location")
-      Lude.<*> (x Lude..@? "instanceType")
-      Lude.<*> (x Lude..@? "locationType")
+      Core.<$> (x Core..@? "instanceType")
+      Core.<*> (x Core..@? "location")
+      Core.<*> (x Core..@? "locationType")

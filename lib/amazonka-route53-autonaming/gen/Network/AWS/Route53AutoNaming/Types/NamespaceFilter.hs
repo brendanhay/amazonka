@@ -17,27 +17,28 @@ module Network.AWS.Route53AutoNaming.Types.NamespaceFilter
     mkNamespaceFilter,
 
     -- * Lenses
-    nfValues,
     nfName,
+    nfValues,
     nfCondition,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53AutoNaming.Types.FilterCondition
-import Network.AWS.Route53AutoNaming.Types.NamespaceFilterName
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53AutoNaming.Types.FilterCondition as Types
+import qualified Network.AWS.Route53AutoNaming.Types.FilterValue as Types
+import qualified Network.AWS.Route53AutoNaming.Types.NamespaceFilterName as Types
 
 -- | A complex type that identifies the namespaces that you want to list. You can choose to list public or private namespaces.
 --
 -- /See:/ 'mkNamespaceFilter' smart constructor.
 data NamespaceFilter = NamespaceFilter'
-  { -- | If you specify @EQ@ for @Condition@ , specify either @DNS_PUBLIC@ or @DNS_PRIVATE@ .
+  { -- | Specify @TYPE@ .
+    name :: Types.NamespaceFilterName,
+    -- | If you specify @EQ@ for @Condition@ , specify either @DNS_PUBLIC@ or @DNS_PRIVATE@ .
     --
     -- If you specify @IN@ for @Condition@ , you can specify @DNS_PUBLIC@ , @DNS_PRIVATE@ , or both.
-    values :: [Lude.Text],
-    -- | Specify @TYPE@ .
-    name :: NamespaceFilterName,
+    values :: [Types.FilterValue],
     -- | The operator that you want to use to determine whether @ListNamespaces@ returns a namespace. Valid values for @condition@ include:
     --
     --
@@ -48,53 +49,38 @@ data NamespaceFilter = NamespaceFilter'
     --
     --
     --     * @BETWEEN@ : Not applicable
-    condition :: Lude.Maybe FilterCondition
+    condition :: Core.Maybe Types.FilterCondition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NamespaceFilter' with the minimum fields required to make a request.
---
--- * 'values' - If you specify @EQ@ for @Condition@ , specify either @DNS_PUBLIC@ or @DNS_PRIVATE@ .
---
--- If you specify @IN@ for @Condition@ , you can specify @DNS_PUBLIC@ , @DNS_PRIVATE@ , or both.
--- * 'name' - Specify @TYPE@ .
--- * 'condition' - The operator that you want to use to determine whether @ListNamespaces@ returns a namespace. Valid values for @condition@ include:
---
---
---     * @EQ@ : When you specify @EQ@ for the condition, you can choose to list only public namespaces or private namespaces, but not both. @EQ@ is the default condition and can be omitted.
---
---
---     * @IN@ : When you specify @IN@ for the condition, you can choose to list public namespaces, private namespaces, or both.
---
---
---     * @BETWEEN@ : Not applicable
+-- | Creates a 'NamespaceFilter' value with any optional fields omitted.
 mkNamespaceFilter ::
   -- | 'name'
-  NamespaceFilterName ->
+  Types.NamespaceFilterName ->
   NamespaceFilter
-mkNamespaceFilter pName_ =
+mkNamespaceFilter name =
   NamespaceFilter'
-    { values = Lude.mempty,
-      name = pName_,
-      condition = Lude.Nothing
+    { name,
+      values = Core.mempty,
+      condition = Core.Nothing
     }
+
+-- | Specify @TYPE@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfName :: Lens.Lens' NamespaceFilter Types.NamespaceFilterName
+nfName = Lens.field @"name"
+{-# DEPRECATED nfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | If you specify @EQ@ for @Condition@ , specify either @DNS_PUBLIC@ or @DNS_PRIVATE@ .
 --
 -- If you specify @IN@ for @Condition@ , you can specify @DNS_PUBLIC@ , @DNS_PRIVATE@ , or both.
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nfValues :: Lens.Lens' NamespaceFilter [Lude.Text]
-nfValues = Lens.lens (values :: NamespaceFilter -> [Lude.Text]) (\s a -> s {values = a} :: NamespaceFilter)
+nfValues :: Lens.Lens' NamespaceFilter [Types.FilterValue]
+nfValues = Lens.field @"values"
 {-# DEPRECATED nfValues "Use generic-lens or generic-optics with 'values' instead." #-}
-
--- | Specify @TYPE@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nfName :: Lens.Lens' NamespaceFilter NamespaceFilterName
-nfName = Lens.lens (name :: NamespaceFilter -> NamespaceFilterName) (\s a -> s {name = a} :: NamespaceFilter)
-{-# DEPRECATED nfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The operator that you want to use to determine whether @ListNamespaces@ returns a namespace. Valid values for @condition@ include:
 --
@@ -110,16 +96,16 @@ nfName = Lens.lens (name :: NamespaceFilter -> NamespaceFilterName) (\s a -> s {
 --
 --
 -- /Note:/ Consider using 'condition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nfCondition :: Lens.Lens' NamespaceFilter (Lude.Maybe FilterCondition)
-nfCondition = Lens.lens (condition :: NamespaceFilter -> Lude.Maybe FilterCondition) (\s a -> s {condition = a} :: NamespaceFilter)
+nfCondition :: Lens.Lens' NamespaceFilter (Core.Maybe Types.FilterCondition)
+nfCondition = Lens.field @"condition"
 {-# DEPRECATED nfCondition "Use generic-lens or generic-optics with 'condition' instead." #-}
 
-instance Lude.ToJSON NamespaceFilter where
-  toJSON NamespaceFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Values" Lude..= values),
-            Lude.Just ("Name" Lude..= name),
-            ("Condition" Lude..=) Lude.<$> condition
+instance Core.FromJSON NamespaceFilter where
+  toJSON NamespaceFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Values" Core..= values),
+            ("Condition" Core..=) Core.<$> condition
           ]
       )

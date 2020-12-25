@@ -28,70 +28,61 @@ module Network.AWS.CodePipeline.DeletePipeline
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DeletePipeline@ action.
 --
 -- /See:/ 'mkDeletePipeline' smart constructor.
 newtype DeletePipeline = DeletePipeline'
   { -- | The name of the pipeline to be deleted.
-    name :: Lude.Text
+    name :: Types.PipelineName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePipeline' with the minimum fields required to make a request.
---
--- * 'name' - The name of the pipeline to be deleted.
+-- | Creates a 'DeletePipeline' value with any optional fields omitted.
 mkDeletePipeline ::
   -- | 'name'
-  Lude.Text ->
+  Types.PipelineName ->
   DeletePipeline
-mkDeletePipeline pName_ = DeletePipeline' {name = pName_}
+mkDeletePipeline name = DeletePipeline' {name}
 
 -- | The name of the pipeline to be deleted.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpName :: Lens.Lens' DeletePipeline Lude.Text
-dpName = Lens.lens (name :: DeletePipeline -> Lude.Text) (\s a -> s {name = a} :: DeletePipeline)
+dpName :: Lens.Lens' DeletePipeline Types.PipelineName
+dpName = Lens.field @"name"
 {-# DEPRECATED dpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeletePipeline where
+instance Core.FromJSON DeletePipeline where
+  toJSON DeletePipeline {..} =
+    Core.object (Core.catMaybes [Core.Just ("name" Core..= name)])
+
+instance Core.AWSRequest DeletePipeline where
   type Rs DeletePipeline = DeletePipelineResponse
-  request = Req.postJSON codePipelineService
-  response = Res.receiveNull DeletePipelineResponse'
-
-instance Lude.ToHeaders DeletePipeline where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodePipeline_20150709.DeletePipeline" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeletePipeline where
-  toJSON DeletePipeline' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])
-
-instance Lude.ToPath DeletePipeline where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePipeline where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodePipeline_20150709.DeletePipeline")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeletePipelineResponse'
 
 -- | /See:/ 'mkDeletePipelineResponse' smart constructor.
 data DeletePipelineResponse = DeletePipelineResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePipelineResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePipelineResponse' value with any optional fields omitted.
 mkDeletePipelineResponse ::
   DeletePipelineResponse
 mkDeletePipelineResponse = DeletePipelineResponse'

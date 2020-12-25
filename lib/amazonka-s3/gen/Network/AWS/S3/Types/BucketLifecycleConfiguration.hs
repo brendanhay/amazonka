@@ -22,35 +22,33 @@ module Network.AWS.S3.Types.BucketLifecycleConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.LifecycleRule
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.LifecycleRule as Types
 
 -- | Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html Object Lifecycle Management> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /See:/ 'mkBucketLifecycleConfiguration' smart constructor.
 newtype BucketLifecycleConfiguration = BucketLifecycleConfiguration'
   { -- | A lifecycle rule for individual objects in an Amazon S3 bucket.
-    rules :: [LifecycleRule]
+    rules :: [Types.LifecycleRule]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'BucketLifecycleConfiguration' with the minimum fields required to make a request.
---
--- * 'rules' - A lifecycle rule for individual objects in an Amazon S3 bucket.
+-- | Creates a 'BucketLifecycleConfiguration' value with any optional fields omitted.
 mkBucketLifecycleConfiguration ::
   BucketLifecycleConfiguration
 mkBucketLifecycleConfiguration =
-  BucketLifecycleConfiguration' {rules = Lude.mempty}
+  BucketLifecycleConfiguration' {rules = Core.mempty}
 
 -- | A lifecycle rule for individual objects in an Amazon S3 bucket.
 --
 -- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blcRules :: Lens.Lens' BucketLifecycleConfiguration [LifecycleRule]
-blcRules = Lens.lens (rules :: BucketLifecycleConfiguration -> [LifecycleRule]) (\s a -> s {rules = a} :: BucketLifecycleConfiguration)
+blcRules :: Lens.Lens' BucketLifecycleConfiguration [Types.LifecycleRule]
+blcRules = Lens.field @"rules"
 {-# DEPRECATED blcRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance Lude.ToXML BucketLifecycleConfiguration where
-  toXML BucketLifecycleConfiguration' {..} =
-    Lude.mconcat [Lude.toXMLList "Rule" rules]
+instance Core.ToXML BucketLifecycleConfiguration where
+  toXML BucketLifecycleConfiguration {..} =
+    Core.toXMLList "Rule" rules

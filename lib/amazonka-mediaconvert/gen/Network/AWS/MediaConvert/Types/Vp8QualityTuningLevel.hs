@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Vp8QualityTuningLevel
   ( Vp8QualityTuningLevel
       ( Vp8QualityTuningLevel',
-        VMultiPass,
-        VMultiPassHq
+        Vp8QualityTuningLevelMultiPass,
+        Vp8QualityTuningLevelMultiPassHq,
+        fromVp8QualityTuningLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. Use Quality tuning level (qualityTuningLevel) to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, multi-pass encoding.
-newtype Vp8QualityTuningLevel = Vp8QualityTuningLevel' Lude.Text
+newtype Vp8QualityTuningLevel = Vp8QualityTuningLevel'
+  { fromVp8QualityTuningLevel ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VMultiPass :: Vp8QualityTuningLevel
-pattern VMultiPass = Vp8QualityTuningLevel' "MULTI_PASS"
+pattern Vp8QualityTuningLevelMultiPass :: Vp8QualityTuningLevel
+pattern Vp8QualityTuningLevelMultiPass = Vp8QualityTuningLevel' "MULTI_PASS"
 
-pattern VMultiPassHq :: Vp8QualityTuningLevel
-pattern VMultiPassHq = Vp8QualityTuningLevel' "MULTI_PASS_HQ"
+pattern Vp8QualityTuningLevelMultiPassHq :: Vp8QualityTuningLevel
+pattern Vp8QualityTuningLevelMultiPassHq = Vp8QualityTuningLevel' "MULTI_PASS_HQ"
 
 {-# COMPLETE
-  VMultiPass,
-  VMultiPassHq,
+  Vp8QualityTuningLevelMultiPass,
+  Vp8QualityTuningLevelMultiPassHq,
   Vp8QualityTuningLevel'
   #-}

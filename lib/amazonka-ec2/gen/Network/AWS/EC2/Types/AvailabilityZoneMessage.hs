@@ -21,34 +21,33 @@ module Network.AWS.EC2.Types.AvailabilityZoneMessage
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a message about an Availability Zone, Local Zone, or Wavelength Zone.
 --
 -- /See:/ 'mkAvailabilityZoneMessage' smart constructor.
 newtype AvailabilityZoneMessage = AvailabilityZoneMessage'
   { -- | The message about the Availability Zone, Local Zone, or Wavelength Zone.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AvailabilityZoneMessage' with the minimum fields required to make a request.
---
--- * 'message' - The message about the Availability Zone, Local Zone, or Wavelength Zone.
+-- | Creates a 'AvailabilityZoneMessage' value with any optional fields omitted.
 mkAvailabilityZoneMessage ::
   AvailabilityZoneMessage
 mkAvailabilityZoneMessage =
-  AvailabilityZoneMessage' {message = Lude.Nothing}
+  AvailabilityZoneMessage' {message = Core.Nothing}
 
 -- | The message about the Availability Zone, Local Zone, or Wavelength Zone.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-azmMessage :: Lens.Lens' AvailabilityZoneMessage (Lude.Maybe Lude.Text)
-azmMessage = Lens.lens (message :: AvailabilityZoneMessage -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: AvailabilityZoneMessage)
+azmMessage :: Lens.Lens' AvailabilityZoneMessage (Core.Maybe Types.String)
+azmMessage = Lens.field @"message"
 {-# DEPRECATED azmMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML AvailabilityZoneMessage where
+instance Core.FromXML AvailabilityZoneMessage where
   parseXML x =
-    AvailabilityZoneMessage' Lude.<$> (x Lude..@? "message")
+    AvailabilityZoneMessage' Core.<$> (x Core..@? "message")

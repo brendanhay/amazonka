@@ -21,38 +21,33 @@ module Network.AWS.CloudSearchDomains.Types.BucketInfo
   )
 where
 
-import Network.AWS.CloudSearchDomains.Types.Bucket
+import qualified Network.AWS.CloudSearchDomains.Types.Bucket as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A container for the calculated facet values and counts.
 --
 -- /See:/ 'mkBucketInfo' smart constructor.
 newtype BucketInfo = BucketInfo'
   { -- | A list of the calculated facet values and counts.
-    buckets :: Lude.Maybe [Bucket]
+    buckets :: Core.Maybe [Types.Bucket]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BucketInfo' with the minimum fields required to make a request.
---
--- * 'buckets' - A list of the calculated facet values and counts.
+-- | Creates a 'BucketInfo' value with any optional fields omitted.
 mkBucketInfo ::
   BucketInfo
-mkBucketInfo = BucketInfo' {buckets = Lude.Nothing}
+mkBucketInfo = BucketInfo' {buckets = Core.Nothing}
 
 -- | A list of the calculated facet values and counts.
 --
 -- /Note:/ Consider using 'buckets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-biBuckets :: Lens.Lens' BucketInfo (Lude.Maybe [Bucket])
-biBuckets = Lens.lens (buckets :: BucketInfo -> Lude.Maybe [Bucket]) (\s a -> s {buckets = a} :: BucketInfo)
+biBuckets :: Lens.Lens' BucketInfo (Core.Maybe [Types.Bucket])
+biBuckets = Lens.field @"buckets"
 {-# DEPRECATED biBuckets "Use generic-lens or generic-optics with 'buckets' instead." #-}
 
-instance Lude.FromJSON BucketInfo where
+instance Core.FromJSON BucketInfo where
   parseJSON =
-    Lude.withObject
-      "BucketInfo"
-      ( \x ->
-          BucketInfo' Lude.<$> (x Lude..:? "buckets" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BucketInfo" Core.$
+      \x -> BucketInfo' Core.<$> (x Core..:? "buckets")

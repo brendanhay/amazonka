@@ -13,56 +13,58 @@
 module Network.AWS.DynamoDBStreams.Types.StreamStatus
   ( StreamStatus
       ( StreamStatus',
-        Enabling,
-        Enabled,
-        Disabling,
-        Disabled
+        StreamStatusEnabling,
+        StreamStatusEnabled,
+        StreamStatusDisabling,
+        StreamStatusDisabled,
+        fromStreamStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StreamStatus = StreamStatus' Lude.Text
+newtype StreamStatus = StreamStatus' {fromStreamStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enabling :: StreamStatus
-pattern Enabling = StreamStatus' "ENABLING"
+pattern StreamStatusEnabling :: StreamStatus
+pattern StreamStatusEnabling = StreamStatus' "ENABLING"
 
-pattern Enabled :: StreamStatus
-pattern Enabled = StreamStatus' "ENABLED"
+pattern StreamStatusEnabled :: StreamStatus
+pattern StreamStatusEnabled = StreamStatus' "ENABLED"
 
-pattern Disabling :: StreamStatus
-pattern Disabling = StreamStatus' "DISABLING"
+pattern StreamStatusDisabling :: StreamStatus
+pattern StreamStatusDisabling = StreamStatus' "DISABLING"
 
-pattern Disabled :: StreamStatus
-pattern Disabled = StreamStatus' "DISABLED"
+pattern StreamStatusDisabled :: StreamStatus
+pattern StreamStatusDisabled = StreamStatus' "DISABLED"
 
 {-# COMPLETE
-  Enabling,
-  Enabled,
-  Disabling,
-  Disabled,
+  StreamStatusEnabling,
+  StreamStatusEnabled,
+  StreamStatusDisabling,
+  StreamStatusDisabled,
   StreamStatus'
   #-}

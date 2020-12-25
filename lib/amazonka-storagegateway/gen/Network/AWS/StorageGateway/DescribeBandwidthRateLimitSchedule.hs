@@ -31,125 +31,113 @@ module Network.AWS.StorageGateway.DescribeBandwidthRateLimitSchedule
     mkDescribeBandwidthRateLimitScheduleResponse,
 
     -- ** Response lenses
-    dbrlsrsGatewayARN,
-    dbrlsrsBandwidthRateLimitIntervals,
-    dbrlsrsResponseStatus,
+    dbrlsrrsBandwidthRateLimitIntervals,
+    dbrlsrrsGatewayARN,
+    dbrlsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkDescribeBandwidthRateLimitSchedule' smart constructor.
 newtype DescribeBandwidthRateLimitSchedule = DescribeBandwidthRateLimitSchedule'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeBandwidthRateLimitSchedule' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'DescribeBandwidthRateLimitSchedule' value with any optional fields omitted.
 mkDescribeBandwidthRateLimitSchedule ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   DescribeBandwidthRateLimitSchedule
-mkDescribeBandwidthRateLimitSchedule pGatewayARN_ =
-  DescribeBandwidthRateLimitSchedule' {gatewayARN = pGatewayARN_}
+mkDescribeBandwidthRateLimitSchedule gatewayARN =
+  DescribeBandwidthRateLimitSchedule' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlsGatewayARN :: Lens.Lens' DescribeBandwidthRateLimitSchedule Lude.Text
-dbrlsGatewayARN = Lens.lens (gatewayARN :: DescribeBandwidthRateLimitSchedule -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeBandwidthRateLimitSchedule)
+dbrlsGatewayARN :: Lens.Lens' DescribeBandwidthRateLimitSchedule Types.GatewayARN
+dbrlsGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED dbrlsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest DescribeBandwidthRateLimitSchedule where
+instance Core.FromJSON DescribeBandwidthRateLimitSchedule where
+  toJSON DescribeBandwidthRateLimitSchedule {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest DescribeBandwidthRateLimitSchedule where
   type
     Rs DescribeBandwidthRateLimitSchedule =
       DescribeBandwidthRateLimitScheduleResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.DescribeBandwidthRateLimitSchedule"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeBandwidthRateLimitScheduleResponse'
-            Lude.<$> (x Lude..?> "GatewayARN")
-            Lude.<*> (x Lude..?> "BandwidthRateLimitIntervals" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "BandwidthRateLimitIntervals")
+            Core.<*> (x Core..:? "GatewayARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeBandwidthRateLimitSchedule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.DescribeBandwidthRateLimitSchedule" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeBandwidthRateLimitSchedule where
-  toJSON DescribeBandwidthRateLimitSchedule' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath DescribeBandwidthRateLimitSchedule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeBandwidthRateLimitSchedule where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeBandwidthRateLimitScheduleResponse' smart constructor.
 data DescribeBandwidthRateLimitScheduleResponse = DescribeBandwidthRateLimitScheduleResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
-    -- | An array that contains the bandwidth rate limit intervals for a tape or volume gateway.
-    bandwidthRateLimitIntervals :: Lude.Maybe [BandwidthRateLimitInterval],
+  { -- | An array that contains the bandwidth rate limit intervals for a tape or volume gateway.
+    bandwidthRateLimitIntervals :: Core.Maybe [Types.BandwidthRateLimitInterval],
+    gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeBandwidthRateLimitScheduleResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'bandwidthRateLimitIntervals' - An array that contains the bandwidth rate limit intervals for a tape or volume gateway.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeBandwidthRateLimitScheduleResponse' value with any optional fields omitted.
 mkDescribeBandwidthRateLimitScheduleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeBandwidthRateLimitScheduleResponse
-mkDescribeBandwidthRateLimitScheduleResponse pResponseStatus_ =
+mkDescribeBandwidthRateLimitScheduleResponse responseStatus =
   DescribeBandwidthRateLimitScheduleResponse'
-    { gatewayARN =
-        Lude.Nothing,
-      bandwidthRateLimitIntervals = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { bandwidthRateLimitIntervals =
+        Core.Nothing,
+      gatewayARN = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlsrsGatewayARN :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse (Lude.Maybe Lude.Text)
-dbrlsrsGatewayARN = Lens.lens (gatewayARN :: DescribeBandwidthRateLimitScheduleResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeBandwidthRateLimitScheduleResponse)
-{-# DEPRECATED dbrlsrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An array that contains the bandwidth rate limit intervals for a tape or volume gateway.
 --
 -- /Note:/ Consider using 'bandwidthRateLimitIntervals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlsrsBandwidthRateLimitIntervals :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse (Lude.Maybe [BandwidthRateLimitInterval])
-dbrlsrsBandwidthRateLimitIntervals = Lens.lens (bandwidthRateLimitIntervals :: DescribeBandwidthRateLimitScheduleResponse -> Lude.Maybe [BandwidthRateLimitInterval]) (\s a -> s {bandwidthRateLimitIntervals = a} :: DescribeBandwidthRateLimitScheduleResponse)
-{-# DEPRECATED dbrlsrsBandwidthRateLimitIntervals "Use generic-lens or generic-optics with 'bandwidthRateLimitIntervals' instead." #-}
+dbrlsrrsBandwidthRateLimitIntervals :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse (Core.Maybe [Types.BandwidthRateLimitInterval])
+dbrlsrrsBandwidthRateLimitIntervals = Lens.field @"bandwidthRateLimitIntervals"
+{-# DEPRECATED dbrlsrrsBandwidthRateLimitIntervals "Use generic-lens or generic-optics with 'bandwidthRateLimitIntervals' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrlsrrsGatewayARN :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse (Core.Maybe Types.GatewayARN)
+dbrlsrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED dbrlsrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrlsrsResponseStatus :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse Lude.Int
-dbrlsrsResponseStatus = Lens.lens (responseStatus :: DescribeBandwidthRateLimitScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBandwidthRateLimitScheduleResponse)
-{-# DEPRECATED dbrlsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbrlsrrsResponseStatus :: Lens.Lens' DescribeBandwidthRateLimitScheduleResponse Core.Int
+dbrlsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbrlsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

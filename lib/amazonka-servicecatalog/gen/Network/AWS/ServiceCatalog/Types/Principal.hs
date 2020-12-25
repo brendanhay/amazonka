@@ -17,58 +17,54 @@ module Network.AWS.ServiceCatalog.Types.Principal
     mkPrincipal,
 
     -- * Lenses
-    pPrincipalType,
     pPrincipalARN,
+    pPrincipalType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.PrincipalType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.PrincipalARN as Types
+import qualified Network.AWS.ServiceCatalog.Types.PrincipalType as Types
 
 -- | Information about a principal.
 --
 -- /See:/ 'mkPrincipal' smart constructor.
 data Principal = Principal'
-  { -- | The principal type. The supported value is @IAM@ .
-    principalType :: Lude.Maybe PrincipalType,
-    -- | The ARN of the principal (IAM user, role, or group).
-    principalARN :: Lude.Maybe Lude.Text
+  { -- | The ARN of the principal (IAM user, role, or group).
+    principalARN :: Core.Maybe Types.PrincipalARN,
+    -- | The principal type. The supported value is @IAM@ .
+    principalType :: Core.Maybe Types.PrincipalType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Principal' with the minimum fields required to make a request.
---
--- * 'principalType' - The principal type. The supported value is @IAM@ .
--- * 'principalARN' - The ARN of the principal (IAM user, role, or group).
+-- | Creates a 'Principal' value with any optional fields omitted.
 mkPrincipal ::
   Principal
 mkPrincipal =
   Principal'
-    { principalType = Lude.Nothing,
-      principalARN = Lude.Nothing
+    { principalARN = Core.Nothing,
+      principalType = Core.Nothing
     }
-
--- | The principal type. The supported value is @IAM@ .
---
--- /Note:/ Consider using 'principalType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPrincipalType :: Lens.Lens' Principal (Lude.Maybe PrincipalType)
-pPrincipalType = Lens.lens (principalType :: Principal -> Lude.Maybe PrincipalType) (\s a -> s {principalType = a} :: Principal)
-{-# DEPRECATED pPrincipalType "Use generic-lens or generic-optics with 'principalType' instead." #-}
 
 -- | The ARN of the principal (IAM user, role, or group).
 --
 -- /Note:/ Consider using 'principalARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPrincipalARN :: Lens.Lens' Principal (Lude.Maybe Lude.Text)
-pPrincipalARN = Lens.lens (principalARN :: Principal -> Lude.Maybe Lude.Text) (\s a -> s {principalARN = a} :: Principal)
+pPrincipalARN :: Lens.Lens' Principal (Core.Maybe Types.PrincipalARN)
+pPrincipalARN = Lens.field @"principalARN"
 {-# DEPRECATED pPrincipalARN "Use generic-lens or generic-optics with 'principalARN' instead." #-}
 
-instance Lude.FromJSON Principal where
+-- | The principal type. The supported value is @IAM@ .
+--
+-- /Note:/ Consider using 'principalType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pPrincipalType :: Lens.Lens' Principal (Core.Maybe Types.PrincipalType)
+pPrincipalType = Lens.field @"principalType"
+{-# DEPRECATED pPrincipalType "Use generic-lens or generic-optics with 'principalType' instead." #-}
+
+instance Core.FromJSON Principal where
   parseJSON =
-    Lude.withObject
-      "Principal"
-      ( \x ->
-          Principal'
-            Lude.<$> (x Lude..:? "PrincipalType") Lude.<*> (x Lude..:? "PrincipalARN")
-      )
+    Core.withObject "Principal" Core.$
+      \x ->
+        Principal'
+          Core.<$> (x Core..:? "PrincipalARN") Core.<*> (x Core..:? "PrincipalType")

@@ -17,75 +17,75 @@ module Network.AWS.SageMaker.Types.ChannelSpecification
     mkChannelSpecification,
 
     -- * Lenses
+    csName,
     csSupportedContentTypes,
     csSupportedInputModes,
-    csSupportedCompressionTypes,
-    csName,
-    csIsRequired,
     csDescription,
+    csIsRequired,
+    csSupportedCompressionTypes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.CompressionType
-import Network.AWS.SageMaker.Types.TrainingInputMode
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ChannelName as Types
+import qualified Network.AWS.SageMaker.Types.CompressionType as Types
+import qualified Network.AWS.SageMaker.Types.ContentType as Types
+import qualified Network.AWS.SageMaker.Types.EntityDescription as Types
+import qualified Network.AWS.SageMaker.Types.TrainingInputMode as Types
 
 -- | Defines a named input source, called a channel, to be used by an algorithm.
 --
 -- /See:/ 'mkChannelSpecification' smart constructor.
 data ChannelSpecification = ChannelSpecification'
-  { -- | The supported MIME types for the data.
-    supportedContentTypes :: [Lude.Text],
+  { -- | The name of the channel.
+    name :: Types.ChannelName,
+    -- | The supported MIME types for the data.
+    supportedContentTypes :: [Types.ContentType],
     -- | The allowed input mode, either FILE or PIPE.
     --
     -- In FILE mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode.
     -- In PIPE mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
-    supportedInputModes :: Lude.NonEmpty TrainingInputMode,
-    -- | The allowed compression types, if data compression is used.
-    supportedCompressionTypes :: Lude.Maybe [CompressionType],
-    -- | The name of the channel.
-    name :: Lude.Text,
-    -- | Indicates whether the channel is required by the algorithm.
-    isRequired :: Lude.Maybe Lude.Bool,
+    supportedInputModes :: Core.NonEmpty Types.TrainingInputMode,
     -- | A brief description of the channel.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.EntityDescription,
+    -- | Indicates whether the channel is required by the algorithm.
+    isRequired :: Core.Maybe Core.Bool,
+    -- | The allowed compression types, if data compression is used.
+    supportedCompressionTypes :: Core.Maybe [Types.CompressionType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChannelSpecification' with the minimum fields required to make a request.
---
--- * 'supportedContentTypes' - The supported MIME types for the data.
--- * 'supportedInputModes' - The allowed input mode, either FILE or PIPE.
---
--- In FILE mode, Amazon SageMaker copies the data from the input source onto the local Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm. This is the most commonly used input mode.
--- In PIPE mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
--- * 'supportedCompressionTypes' - The allowed compression types, if data compression is used.
--- * 'name' - The name of the channel.
--- * 'isRequired' - Indicates whether the channel is required by the algorithm.
--- * 'description' - A brief description of the channel.
+-- | Creates a 'ChannelSpecification' value with any optional fields omitted.
 mkChannelSpecification ::
-  -- | 'supportedInputModes'
-  Lude.NonEmpty TrainingInputMode ->
   -- | 'name'
-  Lude.Text ->
+  Types.ChannelName ->
+  -- | 'supportedInputModes'
+  Core.NonEmpty Types.TrainingInputMode ->
   ChannelSpecification
-mkChannelSpecification pSupportedInputModes_ pName_ =
+mkChannelSpecification name supportedInputModes =
   ChannelSpecification'
-    { supportedContentTypes = Lude.mempty,
-      supportedInputModes = pSupportedInputModes_,
-      supportedCompressionTypes = Lude.Nothing,
-      name = pName_,
-      isRequired = Lude.Nothing,
-      description = Lude.Nothing
+    { name,
+      supportedContentTypes = Core.mempty,
+      supportedInputModes,
+      description = Core.Nothing,
+      isRequired = Core.Nothing,
+      supportedCompressionTypes = Core.Nothing
     }
+
+-- | The name of the channel.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csName :: Lens.Lens' ChannelSpecification Types.ChannelName
+csName = Lens.field @"name"
+{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The supported MIME types for the data.
 --
 -- /Note:/ Consider using 'supportedContentTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csSupportedContentTypes :: Lens.Lens' ChannelSpecification [Lude.Text]
-csSupportedContentTypes = Lens.lens (supportedContentTypes :: ChannelSpecification -> [Lude.Text]) (\s a -> s {supportedContentTypes = a} :: ChannelSpecification)
+csSupportedContentTypes :: Lens.Lens' ChannelSpecification [Types.ContentType]
+csSupportedContentTypes = Lens.field @"supportedContentTypes"
 {-# DEPRECATED csSupportedContentTypes "Use generic-lens or generic-optics with 'supportedContentTypes' instead." #-}
 
 -- | The allowed input mode, either FILE or PIPE.
@@ -94,62 +94,53 @@ csSupportedContentTypes = Lens.lens (supportedContentTypes :: ChannelSpecificati
 -- In PIPE mode, Amazon SageMaker streams input data from the source directly to your algorithm without using the EBS volume.
 --
 -- /Note:/ Consider using 'supportedInputModes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csSupportedInputModes :: Lens.Lens' ChannelSpecification (Lude.NonEmpty TrainingInputMode)
-csSupportedInputModes = Lens.lens (supportedInputModes :: ChannelSpecification -> Lude.NonEmpty TrainingInputMode) (\s a -> s {supportedInputModes = a} :: ChannelSpecification)
+csSupportedInputModes :: Lens.Lens' ChannelSpecification (Core.NonEmpty Types.TrainingInputMode)
+csSupportedInputModes = Lens.field @"supportedInputModes"
 {-# DEPRECATED csSupportedInputModes "Use generic-lens or generic-optics with 'supportedInputModes' instead." #-}
-
--- | The allowed compression types, if data compression is used.
---
--- /Note:/ Consider using 'supportedCompressionTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csSupportedCompressionTypes :: Lens.Lens' ChannelSpecification (Lude.Maybe [CompressionType])
-csSupportedCompressionTypes = Lens.lens (supportedCompressionTypes :: ChannelSpecification -> Lude.Maybe [CompressionType]) (\s a -> s {supportedCompressionTypes = a} :: ChannelSpecification)
-{-# DEPRECATED csSupportedCompressionTypes "Use generic-lens or generic-optics with 'supportedCompressionTypes' instead." #-}
-
--- | The name of the channel.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csName :: Lens.Lens' ChannelSpecification Lude.Text
-csName = Lens.lens (name :: ChannelSpecification -> Lude.Text) (\s a -> s {name = a} :: ChannelSpecification)
-{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | Indicates whether the channel is required by the algorithm.
---
--- /Note:/ Consider using 'isRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csIsRequired :: Lens.Lens' ChannelSpecification (Lude.Maybe Lude.Bool)
-csIsRequired = Lens.lens (isRequired :: ChannelSpecification -> Lude.Maybe Lude.Bool) (\s a -> s {isRequired = a} :: ChannelSpecification)
-{-# DEPRECATED csIsRequired "Use generic-lens or generic-optics with 'isRequired' instead." #-}
 
 -- | A brief description of the channel.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csDescription :: Lens.Lens' ChannelSpecification (Lude.Maybe Lude.Text)
-csDescription = Lens.lens (description :: ChannelSpecification -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ChannelSpecification)
+csDescription :: Lens.Lens' ChannelSpecification (Core.Maybe Types.EntityDescription)
+csDescription = Lens.field @"description"
 {-# DEPRECATED csDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON ChannelSpecification where
-  parseJSON =
-    Lude.withObject
-      "ChannelSpecification"
-      ( \x ->
-          ChannelSpecification'
-            Lude.<$> (x Lude..:? "SupportedContentTypes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "SupportedInputModes")
-            Lude.<*> (x Lude..:? "SupportedCompressionTypes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "Name")
-            Lude.<*> (x Lude..:? "IsRequired")
-            Lude.<*> (x Lude..:? "Description")
-      )
+-- | Indicates whether the channel is required by the algorithm.
+--
+-- /Note:/ Consider using 'isRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csIsRequired :: Lens.Lens' ChannelSpecification (Core.Maybe Core.Bool)
+csIsRequired = Lens.field @"isRequired"
+{-# DEPRECATED csIsRequired "Use generic-lens or generic-optics with 'isRequired' instead." #-}
 
-instance Lude.ToJSON ChannelSpecification where
-  toJSON ChannelSpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SupportedContentTypes" Lude..= supportedContentTypes),
-            Lude.Just ("SupportedInputModes" Lude..= supportedInputModes),
-            ("SupportedCompressionTypes" Lude..=)
-              Lude.<$> supportedCompressionTypes,
-            Lude.Just ("Name" Lude..= name),
-            ("IsRequired" Lude..=) Lude.<$> isRequired,
-            ("Description" Lude..=) Lude.<$> description
+-- | The allowed compression types, if data compression is used.
+--
+-- /Note:/ Consider using 'supportedCompressionTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csSupportedCompressionTypes :: Lens.Lens' ChannelSpecification (Core.Maybe [Types.CompressionType])
+csSupportedCompressionTypes = Lens.field @"supportedCompressionTypes"
+{-# DEPRECATED csSupportedCompressionTypes "Use generic-lens or generic-optics with 'supportedCompressionTypes' instead." #-}
+
+instance Core.FromJSON ChannelSpecification where
+  toJSON ChannelSpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("SupportedContentTypes" Core..= supportedContentTypes),
+            Core.Just ("SupportedInputModes" Core..= supportedInputModes),
+            ("Description" Core..=) Core.<$> description,
+            ("IsRequired" Core..=) Core.<$> isRequired,
+            ("SupportedCompressionTypes" Core..=)
+              Core.<$> supportedCompressionTypes
           ]
       )
+
+instance Core.FromJSON ChannelSpecification where
+  parseJSON =
+    Core.withObject "ChannelSpecification" Core.$
+      \x ->
+        ChannelSpecification'
+          Core.<$> (x Core..: "Name")
+          Core.<*> (x Core..:? "SupportedContentTypes" Core..!= Core.mempty)
+          Core.<*> (x Core..: "SupportedInputModes")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "IsRequired")
+          Core.<*> (x Core..:? "SupportedCompressionTypes")

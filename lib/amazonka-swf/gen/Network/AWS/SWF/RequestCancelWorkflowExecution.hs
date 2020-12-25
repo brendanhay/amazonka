@@ -35,8 +35,8 @@ module Network.AWS.SWF.RequestCancelWorkflowExecution
 
     -- ** Request lenses
     rcweDomain,
-    rcweRunId,
     rcweWorkflowId,
+    rcweRunId,
 
     -- * Destructuring the response
     RequestCancelWorkflowExecutionResponse (..),
@@ -45,104 +45,95 @@ module Network.AWS.SWF.RequestCancelWorkflowExecution
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkRequestCancelWorkflowExecution' smart constructor.
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
   { -- | The name of the domain containing the workflow execution to cancel.
-    domain :: Lude.Text,
-    -- | The runId of the workflow execution to cancel.
-    runId :: Lude.Maybe Lude.Text,
+    domain :: Types.Domain,
     -- | The workflowId of the workflow execution to cancel.
-    workflowId :: Lude.Text
+    workflowId :: Types.WorkflowId,
+    -- | The runId of the workflow execution to cancel.
+    runId :: Core.Maybe Types.RunId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestCancelWorkflowExecution' with the minimum fields required to make a request.
---
--- * 'domain' - The name of the domain containing the workflow execution to cancel.
--- * 'runId' - The runId of the workflow execution to cancel.
--- * 'workflowId' - The workflowId of the workflow execution to cancel.
+-- | Creates a 'RequestCancelWorkflowExecution' value with any optional fields omitted.
 mkRequestCancelWorkflowExecution ::
   -- | 'domain'
-  Lude.Text ->
+  Types.Domain ->
   -- | 'workflowId'
-  Lude.Text ->
+  Types.WorkflowId ->
   RequestCancelWorkflowExecution
-mkRequestCancelWorkflowExecution pDomain_ pWorkflowId_ =
+mkRequestCancelWorkflowExecution domain workflowId =
   RequestCancelWorkflowExecution'
-    { domain = pDomain_,
-      runId = Lude.Nothing,
-      workflowId = pWorkflowId_
+    { domain,
+      workflowId,
+      runId = Core.Nothing
     }
 
 -- | The name of the domain containing the workflow execution to cancel.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcweDomain :: Lens.Lens' RequestCancelWorkflowExecution Lude.Text
-rcweDomain = Lens.lens (domain :: RequestCancelWorkflowExecution -> Lude.Text) (\s a -> s {domain = a} :: RequestCancelWorkflowExecution)
+rcweDomain :: Lens.Lens' RequestCancelWorkflowExecution Types.Domain
+rcweDomain = Lens.field @"domain"
 {-# DEPRECATED rcweDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
-
--- | The runId of the workflow execution to cancel.
---
--- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcweRunId :: Lens.Lens' RequestCancelWorkflowExecution (Lude.Maybe Lude.Text)
-rcweRunId = Lens.lens (runId :: RequestCancelWorkflowExecution -> Lude.Maybe Lude.Text) (\s a -> s {runId = a} :: RequestCancelWorkflowExecution)
-{-# DEPRECATED rcweRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
 -- | The workflowId of the workflow execution to cancel.
 --
 -- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcweWorkflowId :: Lens.Lens' RequestCancelWorkflowExecution Lude.Text
-rcweWorkflowId = Lens.lens (workflowId :: RequestCancelWorkflowExecution -> Lude.Text) (\s a -> s {workflowId = a} :: RequestCancelWorkflowExecution)
+rcweWorkflowId :: Lens.Lens' RequestCancelWorkflowExecution Types.WorkflowId
+rcweWorkflowId = Lens.field @"workflowId"
 {-# DEPRECATED rcweWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
 
-instance Lude.AWSRequest RequestCancelWorkflowExecution where
+-- | The runId of the workflow execution to cancel.
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcweRunId :: Lens.Lens' RequestCancelWorkflowExecution (Core.Maybe Types.RunId)
+rcweRunId = Lens.field @"runId"
+{-# DEPRECATED rcweRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+
+instance Core.FromJSON RequestCancelWorkflowExecution where
+  toJSON RequestCancelWorkflowExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("workflowId" Core..= workflowId),
+            ("runId" Core..=) Core.<$> runId
+          ]
+      )
+
+instance Core.AWSRequest RequestCancelWorkflowExecution where
   type
     Rs RequestCancelWorkflowExecution =
       RequestCancelWorkflowExecutionResponse
-  request = Req.postJSON swfService
-  response = Res.receiveNull RequestCancelWorkflowExecutionResponse'
-
-instance Lude.ToHeaders RequestCancelWorkflowExecution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "SimpleWorkflowService.RequestCancelWorkflowExecution" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RequestCancelWorkflowExecution where
-  toJSON RequestCancelWorkflowExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("domain" Lude..= domain),
-            ("runId" Lude..=) Lude.<$> runId,
-            Lude.Just ("workflowId" Lude..= workflowId)
-          ]
-      )
-
-instance Lude.ToPath RequestCancelWorkflowExecution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RequestCancelWorkflowExecution where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "SimpleWorkflowService.RequestCancelWorkflowExecution"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveNull RequestCancelWorkflowExecutionResponse'
 
 -- | /See:/ 'mkRequestCancelWorkflowExecutionResponse' smart constructor.
 data RequestCancelWorkflowExecutionResponse = RequestCancelWorkflowExecutionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RequestCancelWorkflowExecutionResponse' with the minimum fields required to make a request.
+-- | Creates a 'RequestCancelWorkflowExecutionResponse' value with any optional fields omitted.
 mkRequestCancelWorkflowExecutionResponse ::
   RequestCancelWorkflowExecutionResponse
 mkRequestCancelWorkflowExecutionResponse =

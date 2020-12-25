@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.InputDenoiseFilter
   ( InputDenoiseFilter
       ( InputDenoiseFilter',
-        IEnabled,
-        IDisabled
+        InputDenoiseFilterEnabled,
+        InputDenoiseFilterDisabled,
+        fromInputDenoiseFilter
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
-newtype InputDenoiseFilter = InputDenoiseFilter' Lude.Text
+newtype InputDenoiseFilter = InputDenoiseFilter'
+  { fromInputDenoiseFilter ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IEnabled :: InputDenoiseFilter
-pattern IEnabled = InputDenoiseFilter' "ENABLED"
+pattern InputDenoiseFilterEnabled :: InputDenoiseFilter
+pattern InputDenoiseFilterEnabled = InputDenoiseFilter' "ENABLED"
 
-pattern IDisabled :: InputDenoiseFilter
-pattern IDisabled = InputDenoiseFilter' "DISABLED"
+pattern InputDenoiseFilterDisabled :: InputDenoiseFilter
+pattern InputDenoiseFilterDisabled = InputDenoiseFilter' "DISABLED"
 
 {-# COMPLETE
-  IEnabled,
-  IDisabled,
+  InputDenoiseFilterEnabled,
+  InputDenoiseFilterDisabled,
   InputDenoiseFilter'
   #-}

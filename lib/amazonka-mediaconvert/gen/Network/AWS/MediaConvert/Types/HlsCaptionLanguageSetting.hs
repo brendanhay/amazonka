@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.HlsCaptionLanguageSetting
   ( HlsCaptionLanguageSetting
       ( HlsCaptionLanguageSetting',
-        HCLSInsert,
-        HCLSOmit,
-        HCLSNone
+        HlsCaptionLanguageSettingInsert,
+        HlsCaptionLanguageSettingOmit,
+        HlsCaptionLanguageSettingNone,
+        fromHlsCaptionLanguageSetting
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.
-newtype HlsCaptionLanguageSetting = HlsCaptionLanguageSetting' Lude.Text
+newtype HlsCaptionLanguageSetting = HlsCaptionLanguageSetting'
+  { fromHlsCaptionLanguageSetting ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HCLSInsert :: HlsCaptionLanguageSetting
-pattern HCLSInsert = HlsCaptionLanguageSetting' "INSERT"
+pattern HlsCaptionLanguageSettingInsert :: HlsCaptionLanguageSetting
+pattern HlsCaptionLanguageSettingInsert = HlsCaptionLanguageSetting' "INSERT"
 
-pattern HCLSOmit :: HlsCaptionLanguageSetting
-pattern HCLSOmit = HlsCaptionLanguageSetting' "OMIT"
+pattern HlsCaptionLanguageSettingOmit :: HlsCaptionLanguageSetting
+pattern HlsCaptionLanguageSettingOmit = HlsCaptionLanguageSetting' "OMIT"
 
-pattern HCLSNone :: HlsCaptionLanguageSetting
-pattern HCLSNone = HlsCaptionLanguageSetting' "NONE"
+pattern HlsCaptionLanguageSettingNone :: HlsCaptionLanguageSetting
+pattern HlsCaptionLanguageSettingNone = HlsCaptionLanguageSetting' "NONE"
 
 {-# COMPLETE
-  HCLSInsert,
-  HCLSOmit,
-  HCLSNone,
+  HlsCaptionLanguageSettingInsert,
+  HlsCaptionLanguageSettingOmit,
+  HlsCaptionLanguageSettingNone,
   HlsCaptionLanguageSetting'
   #-}

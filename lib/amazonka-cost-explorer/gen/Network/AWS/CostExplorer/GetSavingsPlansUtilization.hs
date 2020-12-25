@@ -21,34 +21,30 @@ module Network.AWS.CostExplorer.GetSavingsPlansUtilization
 
     -- ** Request lenses
     gspuTimePeriod,
-    gspuGranularity,
     gspuFilter,
+    gspuGranularity,
 
     -- * Destructuring the response
     GetSavingsPlansUtilizationResponse (..),
     mkGetSavingsPlansUtilizationResponse,
 
     -- ** Response lenses
-    gspursSavingsPlansUtilizationsByTime,
-    gspursTotal,
-    gspursResponseStatus,
+    gspurrsTotal,
+    gspurrsSavingsPlansUtilizationsByTime,
+    gspurrsResponseStatus,
   )
 where
 
-import Network.AWS.CostExplorer.Types
+import qualified Network.AWS.CostExplorer.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetSavingsPlansUtilization' smart constructor.
 data GetSavingsPlansUtilization = GetSavingsPlansUtilization'
   { -- | The time period that you want the usage and costs for. The @Start@ date must be within 13 months. The @End@ date must be after the @Start@ date, and before the current date. Future dates can't be used as an @End@ date.
-    timePeriod :: DateInterval,
-    -- | The granularity of the Amazon Web Services utillization data for your Savings Plans.
-    --
-    -- The @GetSavingsPlansUtilization@ operation supports only @DAILY@ and @MONTHLY@ granularities.
-    granularity :: Lude.Maybe Granularity,
+    timePeriod :: Types.DateInterval,
     -- | Filters Savings Plans utilization coverage data for active Savings Plans dimensions. You can filter data with the following dimensions:
     --
     --
@@ -71,65 +67,33 @@ data GetSavingsPlansUtilization = GetSavingsPlansUtilization'
     --
     --
     -- @GetSavingsPlansUtilization@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension.
-    filter :: Lude.Maybe Expression
+    filter :: Core.Maybe Types.Expression,
+    -- | The granularity of the Amazon Web Services utillization data for your Savings Plans.
+    --
+    -- The @GetSavingsPlansUtilization@ operation supports only @DAILY@ and @MONTHLY@ granularities.
+    granularity :: Core.Maybe Types.Granularity
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSavingsPlansUtilization' with the minimum fields required to make a request.
---
--- * 'timePeriod' - The time period that you want the usage and costs for. The @Start@ date must be within 13 months. The @End@ date must be after the @Start@ date, and before the current date. Future dates can't be used as an @End@ date.
--- * 'granularity' - The granularity of the Amazon Web Services utillization data for your Savings Plans.
---
--- The @GetSavingsPlansUtilization@ operation supports only @DAILY@ and @MONTHLY@ granularities.
--- * 'filter' - Filters Savings Plans utilization coverage data for active Savings Plans dimensions. You can filter data with the following dimensions:
---
---
---     * @LINKED_ACCOUNT@
---
---
---     * @SAVINGS_PLAN_ARN@
---
---
---     * @SAVINGS_PLANS_TYPE@
---
---
---     * @REGION@
---
---
---     * @PAYMENT_OPTION@
---
---
---     * @INSTANCE_TYPE_FAMILY@
---
---
--- @GetSavingsPlansUtilization@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension.
+-- | Creates a 'GetSavingsPlansUtilization' value with any optional fields omitted.
 mkGetSavingsPlansUtilization ::
   -- | 'timePeriod'
-  DateInterval ->
+  Types.DateInterval ->
   GetSavingsPlansUtilization
-mkGetSavingsPlansUtilization pTimePeriod_ =
+mkGetSavingsPlansUtilization timePeriod =
   GetSavingsPlansUtilization'
-    { timePeriod = pTimePeriod_,
-      granularity = Lude.Nothing,
-      filter = Lude.Nothing
+    { timePeriod,
+      filter = Core.Nothing,
+      granularity = Core.Nothing
     }
 
 -- | The time period that you want the usage and costs for. The @Start@ date must be within 13 months. The @End@ date must be after the @Start@ date, and before the current date. Future dates can't be used as an @End@ date.
 --
 -- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspuTimePeriod :: Lens.Lens' GetSavingsPlansUtilization DateInterval
-gspuTimePeriod = Lens.lens (timePeriod :: GetSavingsPlansUtilization -> DateInterval) (\s a -> s {timePeriod = a} :: GetSavingsPlansUtilization)
+gspuTimePeriod :: Lens.Lens' GetSavingsPlansUtilization Types.DateInterval
+gspuTimePeriod = Lens.field @"timePeriod"
 {-# DEPRECATED gspuTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
-
--- | The granularity of the Amazon Web Services utillization data for your Savings Plans.
---
--- The @GetSavingsPlansUtilization@ operation supports only @DAILY@ and @MONTHLY@ granularities.
---
--- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspuGranularity :: Lens.Lens' GetSavingsPlansUtilization (Lude.Maybe Granularity)
-gspuGranularity = Lens.lens (granularity :: GetSavingsPlansUtilization -> Lude.Maybe Granularity) (\s a -> s {granularity = a} :: GetSavingsPlansUtilization)
-{-# DEPRECATED gspuGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
 
 -- | Filters Savings Plans utilization coverage data for active Savings Plans dimensions. You can filter data with the following dimensions:
 --
@@ -155,101 +119,99 @@ gspuGranularity = Lens.lens (granularity :: GetSavingsPlansUtilization -> Lude.M
 -- @GetSavingsPlansUtilization@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspuFilter :: Lens.Lens' GetSavingsPlansUtilization (Lude.Maybe Expression)
-gspuFilter = Lens.lens (filter :: GetSavingsPlansUtilization -> Lude.Maybe Expression) (\s a -> s {filter = a} :: GetSavingsPlansUtilization)
+gspuFilter :: Lens.Lens' GetSavingsPlansUtilization (Core.Maybe Types.Expression)
+gspuFilter = Lens.field @"filter"
 {-# DEPRECATED gspuFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
-instance Lude.AWSRequest GetSavingsPlansUtilization where
+-- | The granularity of the Amazon Web Services utillization data for your Savings Plans.
+--
+-- The @GetSavingsPlansUtilization@ operation supports only @DAILY@ and @MONTHLY@ granularities.
+--
+-- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspuGranularity :: Lens.Lens' GetSavingsPlansUtilization (Core.Maybe Types.Granularity)
+gspuGranularity = Lens.field @"granularity"
+{-# DEPRECATED gspuGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
+
+instance Core.FromJSON GetSavingsPlansUtilization where
+  toJSON GetSavingsPlansUtilization {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TimePeriod" Core..= timePeriod),
+            ("Filter" Core..=) Core.<$> filter,
+            ("Granularity" Core..=) Core.<$> granularity
+          ]
+      )
+
+instance Core.AWSRequest GetSavingsPlansUtilization where
   type
     Rs GetSavingsPlansUtilization =
       GetSavingsPlansUtilizationResponse
-  request = Req.postJSON costExplorerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSInsightsIndexService.GetSavingsPlansUtilization"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSavingsPlansUtilizationResponse'
-            Lude.<$> (x Lude..?> "SavingsPlansUtilizationsByTime" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..:> "Total")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "Total")
+            Core.<*> (x Core..:? "SavingsPlansUtilizationsByTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSavingsPlansUtilization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSInsightsIndexService.GetSavingsPlansUtilization" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetSavingsPlansUtilization where
-  toJSON GetSavingsPlansUtilization' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TimePeriod" Lude..= timePeriod),
-            ("Granularity" Lude..=) Lude.<$> granularity,
-            ("Filter" Lude..=) Lude.<$> filter
-          ]
-      )
-
-instance Lude.ToPath GetSavingsPlansUtilization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetSavingsPlansUtilization where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetSavingsPlansUtilizationResponse' smart constructor.
 data GetSavingsPlansUtilizationResponse = GetSavingsPlansUtilizationResponse'
-  { -- | The amount of cost/commitment you used your Savings Plans. This allows you to specify date ranges.
-    savingsPlansUtilizationsByTime :: Lude.Maybe [SavingsPlansUtilizationByTime],
-    -- | The total amount of cost/commitment that you used your Savings Plans, regardless of date ranges.
-    total :: SavingsPlansUtilizationAggregates,
+  { -- | The total amount of cost/commitment that you used your Savings Plans, regardless of date ranges.
+    total :: Types.SavingsPlansUtilizationAggregates,
+    -- | The amount of cost/commitment you used your Savings Plans. This allows you to specify date ranges.
+    savingsPlansUtilizationsByTime :: Core.Maybe [Types.SavingsPlansUtilizationByTime],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSavingsPlansUtilizationResponse' with the minimum fields required to make a request.
---
--- * 'savingsPlansUtilizationsByTime' - The amount of cost/commitment you used your Savings Plans. This allows you to specify date ranges.
--- * 'total' - The total amount of cost/commitment that you used your Savings Plans, regardless of date ranges.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSavingsPlansUtilizationResponse' value with any optional fields omitted.
 mkGetSavingsPlansUtilizationResponse ::
   -- | 'total'
-  SavingsPlansUtilizationAggregates ->
+  Types.SavingsPlansUtilizationAggregates ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSavingsPlansUtilizationResponse
-mkGetSavingsPlansUtilizationResponse pTotal_ pResponseStatus_ =
+mkGetSavingsPlansUtilizationResponse total responseStatus =
   GetSavingsPlansUtilizationResponse'
-    { savingsPlansUtilizationsByTime =
-        Lude.Nothing,
-      total = pTotal_,
-      responseStatus = pResponseStatus_
+    { total,
+      savingsPlansUtilizationsByTime = Core.Nothing,
+      responseStatus
     }
-
--- | The amount of cost/commitment you used your Savings Plans. This allows you to specify date ranges.
---
--- /Note:/ Consider using 'savingsPlansUtilizationsByTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspursSavingsPlansUtilizationsByTime :: Lens.Lens' GetSavingsPlansUtilizationResponse (Lude.Maybe [SavingsPlansUtilizationByTime])
-gspursSavingsPlansUtilizationsByTime = Lens.lens (savingsPlansUtilizationsByTime :: GetSavingsPlansUtilizationResponse -> Lude.Maybe [SavingsPlansUtilizationByTime]) (\s a -> s {savingsPlansUtilizationsByTime = a} :: GetSavingsPlansUtilizationResponse)
-{-# DEPRECATED gspursSavingsPlansUtilizationsByTime "Use generic-lens or generic-optics with 'savingsPlansUtilizationsByTime' instead." #-}
 
 -- | The total amount of cost/commitment that you used your Savings Plans, regardless of date ranges.
 --
 -- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspursTotal :: Lens.Lens' GetSavingsPlansUtilizationResponse SavingsPlansUtilizationAggregates
-gspursTotal = Lens.lens (total :: GetSavingsPlansUtilizationResponse -> SavingsPlansUtilizationAggregates) (\s a -> s {total = a} :: GetSavingsPlansUtilizationResponse)
-{-# DEPRECATED gspursTotal "Use generic-lens or generic-optics with 'total' instead." #-}
+gspurrsTotal :: Lens.Lens' GetSavingsPlansUtilizationResponse Types.SavingsPlansUtilizationAggregates
+gspurrsTotal = Lens.field @"total"
+{-# DEPRECATED gspurrsTotal "Use generic-lens or generic-optics with 'total' instead." #-}
+
+-- | The amount of cost/commitment you used your Savings Plans. This allows you to specify date ranges.
+--
+-- /Note:/ Consider using 'savingsPlansUtilizationsByTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gspurrsSavingsPlansUtilizationsByTime :: Lens.Lens' GetSavingsPlansUtilizationResponse (Core.Maybe [Types.SavingsPlansUtilizationByTime])
+gspurrsSavingsPlansUtilizationsByTime = Lens.field @"savingsPlansUtilizationsByTime"
+{-# DEPRECATED gspurrsSavingsPlansUtilizationsByTime "Use generic-lens or generic-optics with 'savingsPlansUtilizationsByTime' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gspursResponseStatus :: Lens.Lens' GetSavingsPlansUtilizationResponse Lude.Int
-gspursResponseStatus = Lens.lens (responseStatus :: GetSavingsPlansUtilizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSavingsPlansUtilizationResponse)
-{-# DEPRECATED gspursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gspurrsResponseStatus :: Lens.Lens' GetSavingsPlansUtilizationResponse Core.Int
+gspurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gspurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

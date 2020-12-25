@@ -56,135 +56,120 @@ module Network.AWS.SecretsManager.CancelRotateSecret
     mkCancelRotateSecretResponse,
 
     -- ** Response lenses
-    crsrsVersionId,
-    crsrsARN,
-    crsrsName,
-    crsrsResponseStatus,
+    crsrrsARN,
+    crsrrsName,
+    crsrrsVersionId,
+    crsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SecretsManager.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SecretsManager.Types as Types
 
 -- | /See:/ 'mkCancelRotateSecret' smart constructor.
 newtype CancelRotateSecret = CancelRotateSecret'
   { -- | Specifies the secret to cancel a rotation request. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
-    secretId :: Lude.Text
+    secretId :: Types.SecretId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelRotateSecret' with the minimum fields required to make a request.
---
--- * 'secretId' - Specifies the secret to cancel a rotation request. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
+-- | Creates a 'CancelRotateSecret' value with any optional fields omitted.
 mkCancelRotateSecret ::
   -- | 'secretId'
-  Lude.Text ->
+  Types.SecretId ->
   CancelRotateSecret
-mkCancelRotateSecret pSecretId_ =
-  CancelRotateSecret' {secretId = pSecretId_}
+mkCancelRotateSecret secretId = CancelRotateSecret' {secretId}
 
 -- | Specifies the secret to cancel a rotation request. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret.
 --
 -- /Note:/ Consider using 'secretId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsSecretId :: Lens.Lens' CancelRotateSecret Lude.Text
-crsSecretId = Lens.lens (secretId :: CancelRotateSecret -> Lude.Text) (\s a -> s {secretId = a} :: CancelRotateSecret)
+crsSecretId :: Lens.Lens' CancelRotateSecret Types.SecretId
+crsSecretId = Lens.field @"secretId"
 {-# DEPRECATED crsSecretId "Use generic-lens or generic-optics with 'secretId' instead." #-}
 
-instance Lude.AWSRequest CancelRotateSecret where
+instance Core.FromJSON CancelRotateSecret where
+  toJSON CancelRotateSecret {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("SecretId" Core..= secretId)])
+
+instance Core.AWSRequest CancelRotateSecret where
   type Rs CancelRotateSecret = CancelRotateSecretResponse
-  request = Req.postJSON secretsManagerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "secretsmanager.CancelRotateSecret")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CancelRotateSecretResponse'
-            Lude.<$> (x Lude..?> "VersionId")
-            Lude.<*> (x Lude..?> "ARN")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ARN")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "VersionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CancelRotateSecret where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("secretsmanager.CancelRotateSecret" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CancelRotateSecret where
-  toJSON CancelRotateSecret' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("SecretId" Lude..= secretId)])
-
-instance Lude.ToPath CancelRotateSecret where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelRotateSecret where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCancelRotateSecretResponse' smart constructor.
 data CancelRotateSecretResponse = CancelRotateSecretResponse'
-  { -- | The unique identifier of the version of the secret created during the rotation. This version might not be complete, and should be evaluated for possible deletion. At the very least, you should remove the @VersionStage@ value @AWSPENDING@ to enable this version to be deleted. Failing to clean up a cancelled rotation can block you from successfully starting future rotations.
-    versionId :: Lude.Maybe Lude.Text,
-    -- | The ARN of the secret for which rotation was canceled.
-    arn :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the secret for which rotation was canceled.
+    arn :: Core.Maybe Types.ARN,
     -- | The friendly name of the secret for which rotation was canceled.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
+    -- | The unique identifier of the version of the secret created during the rotation. This version might not be complete, and should be evaluated for possible deletion. At the very least, you should remove the @VersionStage@ value @AWSPENDING@ to enable this version to be deleted. Failing to clean up a cancelled rotation can block you from successfully starting future rotations.
+    versionId :: Core.Maybe Types.VersionId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelRotateSecretResponse' with the minimum fields required to make a request.
---
--- * 'versionId' - The unique identifier of the version of the secret created during the rotation. This version might not be complete, and should be evaluated for possible deletion. At the very least, you should remove the @VersionStage@ value @AWSPENDING@ to enable this version to be deleted. Failing to clean up a cancelled rotation can block you from successfully starting future rotations.
--- * 'arn' - The ARN of the secret for which rotation was canceled.
--- * 'name' - The friendly name of the secret for which rotation was canceled.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CancelRotateSecretResponse' value with any optional fields omitted.
 mkCancelRotateSecretResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CancelRotateSecretResponse
-mkCancelRotateSecretResponse pResponseStatus_ =
+mkCancelRotateSecretResponse responseStatus =
   CancelRotateSecretResponse'
-    { versionId = Lude.Nothing,
-      arn = Lude.Nothing,
-      name = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      name = Core.Nothing,
+      versionId = Core.Nothing,
+      responseStatus
     }
-
--- | The unique identifier of the version of the secret created during the rotation. This version might not be complete, and should be evaluated for possible deletion. At the very least, you should remove the @VersionStage@ value @AWSPENDING@ to enable this version to be deleted. Failing to clean up a cancelled rotation can block you from successfully starting future rotations.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsrsVersionId :: Lens.Lens' CancelRotateSecretResponse (Lude.Maybe Lude.Text)
-crsrsVersionId = Lens.lens (versionId :: CancelRotateSecretResponse -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: CancelRotateSecretResponse)
-{-# DEPRECATED crsrsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The ARN of the secret for which rotation was canceled.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsrsARN :: Lens.Lens' CancelRotateSecretResponse (Lude.Maybe Lude.Text)
-crsrsARN = Lens.lens (arn :: CancelRotateSecretResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CancelRotateSecretResponse)
-{-# DEPRECATED crsrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+crsrrsARN :: Lens.Lens' CancelRotateSecretResponse (Core.Maybe Types.ARN)
+crsrrsARN = Lens.field @"arn"
+{-# DEPRECATED crsrrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The friendly name of the secret for which rotation was canceled.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsrsName :: Lens.Lens' CancelRotateSecretResponse (Lude.Maybe Lude.Text)
-crsrsName = Lens.lens (name :: CancelRotateSecretResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CancelRotateSecretResponse)
-{-# DEPRECATED crsrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+crsrrsName :: Lens.Lens' CancelRotateSecretResponse (Core.Maybe Types.Name)
+crsrrsName = Lens.field @"name"
+{-# DEPRECATED crsrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The unique identifier of the version of the secret created during the rotation. This version might not be complete, and should be evaluated for possible deletion. At the very least, you should remove the @VersionStage@ value @AWSPENDING@ to enable this version to be deleted. Failing to clean up a cancelled rotation can block you from successfully starting future rotations.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsrrsVersionId :: Lens.Lens' CancelRotateSecretResponse (Core.Maybe Types.VersionId)
+crsrrsVersionId = Lens.field @"versionId"
+{-# DEPRECATED crsrrsVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crsrsResponseStatus :: Lens.Lens' CancelRotateSecretResponse Lude.Int
-crsrsResponseStatus = Lens.lens (responseStatus :: CancelRotateSecretResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CancelRotateSecretResponse)
-{-# DEPRECATED crsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crsrrsResponseStatus :: Lens.Lens' CancelRotateSecretResponse Core.Int
+crsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

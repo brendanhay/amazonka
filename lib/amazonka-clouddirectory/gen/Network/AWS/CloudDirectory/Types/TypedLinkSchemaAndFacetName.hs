@@ -17,70 +17,64 @@ module Network.AWS.CloudDirectory.Types.TypedLinkSchemaAndFacetName
     mkTypedLinkSchemaAndFacetName,
 
     -- * Lenses
-    tlsafnSchemaARN,
+    tlsafnSchemaArn,
     tlsafnTypedLinkName,
   )
 where
 
+import qualified Network.AWS.CloudDirectory.Types.Arn as Types
+import qualified Network.AWS.CloudDirectory.Types.TypedLinkName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies the schema Amazon Resource Name (ARN) and facet name for the typed link.
 --
 -- /See:/ 'mkTypedLinkSchemaAndFacetName' smart constructor.
 data TypedLinkSchemaAndFacetName = TypedLinkSchemaAndFacetName'
   { -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
-    schemaARN :: Lude.Text,
+    schemaArn :: Types.Arn,
     -- | The unique name of the typed link facet.
-    typedLinkName :: Lude.Text
+    typedLinkName :: Types.TypedLinkName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TypedLinkSchemaAndFacetName' with the minimum fields required to make a request.
---
--- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
--- * 'typedLinkName' - The unique name of the typed link facet.
+-- | Creates a 'TypedLinkSchemaAndFacetName' value with any optional fields omitted.
 mkTypedLinkSchemaAndFacetName ::
-  -- | 'schemaARN'
-  Lude.Text ->
+  -- | 'schemaArn'
+  Types.Arn ->
   -- | 'typedLinkName'
-  Lude.Text ->
+  Types.TypedLinkName ->
   TypedLinkSchemaAndFacetName
-mkTypedLinkSchemaAndFacetName pSchemaARN_ pTypedLinkName_ =
-  TypedLinkSchemaAndFacetName'
-    { schemaARN = pSchemaARN_,
-      typedLinkName = pTypedLinkName_
-    }
+mkTypedLinkSchemaAndFacetName schemaArn typedLinkName =
+  TypedLinkSchemaAndFacetName' {schemaArn, typedLinkName}
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 --
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlsafnSchemaARN :: Lens.Lens' TypedLinkSchemaAndFacetName Lude.Text
-tlsafnSchemaARN = Lens.lens (schemaARN :: TypedLinkSchemaAndFacetName -> Lude.Text) (\s a -> s {schemaARN = a} :: TypedLinkSchemaAndFacetName)
-{-# DEPRECATED tlsafnSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tlsafnSchemaArn :: Lens.Lens' TypedLinkSchemaAndFacetName Types.Arn
+tlsafnSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED tlsafnSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
 -- | The unique name of the typed link facet.
 --
 -- /Note:/ Consider using 'typedLinkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tlsafnTypedLinkName :: Lens.Lens' TypedLinkSchemaAndFacetName Lude.Text
-tlsafnTypedLinkName = Lens.lens (typedLinkName :: TypedLinkSchemaAndFacetName -> Lude.Text) (\s a -> s {typedLinkName = a} :: TypedLinkSchemaAndFacetName)
+tlsafnTypedLinkName :: Lens.Lens' TypedLinkSchemaAndFacetName Types.TypedLinkName
+tlsafnTypedLinkName = Lens.field @"typedLinkName"
 {-# DEPRECATED tlsafnTypedLinkName "Use generic-lens or generic-optics with 'typedLinkName' instead." #-}
 
-instance Lude.FromJSON TypedLinkSchemaAndFacetName where
-  parseJSON =
-    Lude.withObject
-      "TypedLinkSchemaAndFacetName"
-      ( \x ->
-          TypedLinkSchemaAndFacetName'
-            Lude.<$> (x Lude..: "SchemaArn") Lude.<*> (x Lude..: "TypedLinkName")
-      )
-
-instance Lude.ToJSON TypedLinkSchemaAndFacetName where
-  toJSON TypedLinkSchemaAndFacetName' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SchemaArn" Lude..= schemaARN),
-            Lude.Just ("TypedLinkName" Lude..= typedLinkName)
+instance Core.FromJSON TypedLinkSchemaAndFacetName where
+  toJSON TypedLinkSchemaAndFacetName {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SchemaArn" Core..= schemaArn),
+            Core.Just ("TypedLinkName" Core..= typedLinkName)
           ]
       )
+
+instance Core.FromJSON TypedLinkSchemaAndFacetName where
+  parseJSON =
+    Core.withObject "TypedLinkSchemaAndFacetName" Core.$
+      \x ->
+        TypedLinkSchemaAndFacetName'
+          Core.<$> (x Core..: "SchemaArn") Core.<*> (x Core..: "TypedLinkName")

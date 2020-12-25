@@ -22,168 +22,156 @@ module Network.AWS.SageMaker.ListSubscribedWorkteams
     mkListSubscribedWorkteams,
 
     -- ** Request lenses
+    lswMaxResults,
     lswNameContains,
     lswNextToken,
-    lswMaxResults,
 
     -- * Destructuring the response
     ListSubscribedWorkteamsResponse (..),
     mkListSubscribedWorkteamsResponse,
 
     -- ** Response lenses
-    lswrsNextToken,
-    lswrsSubscribedWorkteams,
-    lswrsResponseStatus,
+    lswrrsSubscribedWorkteams,
+    lswrrsNextToken,
+    lswrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListSubscribedWorkteams' smart constructor.
 data ListSubscribedWorkteams = ListSubscribedWorkteams'
-  { -- | A string in the work team name. This filter returns only work teams whose name contains the specified string.
-    nameContains :: Lude.Maybe Lude.Text,
+  { -- | The maximum number of work teams to return in each page of the response.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A string in the work team name. This filter returns only work teams whose name contains the specified string.
+    nameContains :: Core.Maybe Types.NameContains,
     -- | If the result of the previous @ListSubscribedWorkteams@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of labeling jobs, use the token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of work teams to return in each page of the response.
-    maxResults :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSubscribedWorkteams' with the minimum fields required to make a request.
---
--- * 'nameContains' - A string in the work team name. This filter returns only work teams whose name contains the specified string.
--- * 'nextToken' - If the result of the previous @ListSubscribedWorkteams@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of labeling jobs, use the token in the next request.
--- * 'maxResults' - The maximum number of work teams to return in each page of the response.
+-- | Creates a 'ListSubscribedWorkteams' value with any optional fields omitted.
 mkListSubscribedWorkteams ::
   ListSubscribedWorkteams
 mkListSubscribedWorkteams =
   ListSubscribedWorkteams'
-    { nameContains = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nameContains = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | The maximum number of work teams to return in each page of the response.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lswMaxResults :: Lens.Lens' ListSubscribedWorkteams (Core.Maybe Core.Natural)
+lswMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lswMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | A string in the work team name. This filter returns only work teams whose name contains the specified string.
 --
 -- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lswNameContains :: Lens.Lens' ListSubscribedWorkteams (Lude.Maybe Lude.Text)
-lswNameContains = Lens.lens (nameContains :: ListSubscribedWorkteams -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListSubscribedWorkteams)
+lswNameContains :: Lens.Lens' ListSubscribedWorkteams (Core.Maybe Types.NameContains)
+lswNameContains = Lens.field @"nameContains"
 {-# DEPRECATED lswNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | If the result of the previous @ListSubscribedWorkteams@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of labeling jobs, use the token in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lswNextToken :: Lens.Lens' ListSubscribedWorkteams (Lude.Maybe Lude.Text)
-lswNextToken = Lens.lens (nextToken :: ListSubscribedWorkteams -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSubscribedWorkteams)
+lswNextToken :: Lens.Lens' ListSubscribedWorkteams (Core.Maybe Types.NextToken)
+lswNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lswNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of work teams to return in each page of the response.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lswMaxResults :: Lens.Lens' ListSubscribedWorkteams (Lude.Maybe Lude.Natural)
-lswMaxResults = Lens.lens (maxResults :: ListSubscribedWorkteams -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListSubscribedWorkteams)
-{-# DEPRECATED lswMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+instance Core.FromJSON ListSubscribedWorkteams where
+  toJSON ListSubscribedWorkteams {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Page.AWSPager ListSubscribedWorkteams where
-  page rq rs
-    | Page.stop (rs Lens.^. lswrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lswrsSubscribedWorkteams) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lswNextToken Lens..~ rs Lens.^. lswrsNextToken
-
-instance Lude.AWSRequest ListSubscribedWorkteams where
+instance Core.AWSRequest ListSubscribedWorkteams where
   type Rs ListSubscribedWorkteams = ListSubscribedWorkteamsResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListSubscribedWorkteams")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListSubscribedWorkteamsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "SubscribedWorkteams" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SubscribedWorkteams" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListSubscribedWorkteams where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.ListSubscribedWorkteams" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListSubscribedWorkteams where
-  toJSON ListSubscribedWorkteams' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NameContains" Lude..=) Lude.<$> nameContains,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListSubscribedWorkteams where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListSubscribedWorkteams where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListSubscribedWorkteams where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"subscribedWorkteams") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListSubscribedWorkteamsResponse' smart constructor.
 data ListSubscribedWorkteamsResponse = ListSubscribedWorkteamsResponse'
-  { -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array of @Workteam@ objects, each describing a work team.
-    subscribedWorkteams :: [SubscribedWorkteam],
+  { -- | An array of @Workteam@ objects, each describing a work team.
+    subscribedWorkteams :: [Types.SubscribedWorkteam],
+    -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSubscribedWorkteamsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.
--- * 'subscribedWorkteams' - An array of @Workteam@ objects, each describing a work team.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListSubscribedWorkteamsResponse' value with any optional fields omitted.
 mkListSubscribedWorkteamsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListSubscribedWorkteamsResponse
-mkListSubscribedWorkteamsResponse pResponseStatus_ =
+mkListSubscribedWorkteamsResponse responseStatus =
   ListSubscribedWorkteamsResponse'
-    { nextToken = Lude.Nothing,
-      subscribedWorkteams = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { subscribedWorkteams =
+        Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lswrsNextToken :: Lens.Lens' ListSubscribedWorkteamsResponse (Lude.Maybe Lude.Text)
-lswrsNextToken = Lens.lens (nextToken :: ListSubscribedWorkteamsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListSubscribedWorkteamsResponse)
-{-# DEPRECATED lswrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of @Workteam@ objects, each describing a work team.
 --
 -- /Note:/ Consider using 'subscribedWorkteams' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lswrsSubscribedWorkteams :: Lens.Lens' ListSubscribedWorkteamsResponse [SubscribedWorkteam]
-lswrsSubscribedWorkteams = Lens.lens (subscribedWorkteams :: ListSubscribedWorkteamsResponse -> [SubscribedWorkteam]) (\s a -> s {subscribedWorkteams = a} :: ListSubscribedWorkteamsResponse)
-{-# DEPRECATED lswrsSubscribedWorkteams "Use generic-lens or generic-optics with 'subscribedWorkteams' instead." #-}
+lswrrsSubscribedWorkteams :: Lens.Lens' ListSubscribedWorkteamsResponse [Types.SubscribedWorkteam]
+lswrrsSubscribedWorkteams = Lens.field @"subscribedWorkteams"
+{-# DEPRECATED lswrrsSubscribedWorkteams "Use generic-lens or generic-optics with 'subscribedWorkteams' instead." #-}
+
+-- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of work teams, use it in the subsequent request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lswrrsNextToken :: Lens.Lens' ListSubscribedWorkteamsResponse (Core.Maybe Types.NextToken)
+lswrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lswrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lswrsResponseStatus :: Lens.Lens' ListSubscribedWorkteamsResponse Lude.Int
-lswrsResponseStatus = Lens.lens (responseStatus :: ListSubscribedWorkteamsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListSubscribedWorkteamsResponse)
-{-# DEPRECATED lswrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lswrrsResponseStatus :: Lens.Lens' ListSubscribedWorkteamsResponse Core.Int
+lswrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lswrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

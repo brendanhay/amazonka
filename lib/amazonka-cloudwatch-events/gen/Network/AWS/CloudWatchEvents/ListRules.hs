@@ -24,180 +24,167 @@ module Network.AWS.CloudWatchEvents.ListRules
     mkListRules,
 
     -- ** Request lenses
-    lNextToken,
-    lEventBusName,
-    lNamePrefix,
-    lLimit,
+    lrEventBusName,
+    lrLimit,
+    lrNamePrefix,
+    lrNextToken,
 
     -- * Destructuring the response
     ListRulesResponse (..),
     mkListRulesResponse,
 
     -- ** Response lenses
-    lrrsRules,
-    lrrsNextToken,
-    lrrsResponseStatus,
+    lrrrsNextToken,
+    lrrrsRules,
+    lrrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListRules' smart constructor.
 data ListRules = ListRules'
-  { -- | The token returned by a previous call to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name or ARN of the event bus to list the rules for. If you omit this, the default event bus is used.
-    eventBusName :: Lude.Maybe Lude.Text,
-    -- | The prefix matching the rule name.
-    namePrefix :: Lude.Maybe Lude.Text,
+  { -- | The name or ARN of the event bus to list the rules for. If you omit this, the default event bus is used.
+    eventBusName :: Core.Maybe Types.EventBusNameOrArn,
     -- | The maximum number of results to return.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | The prefix matching the rule name.
+    namePrefix :: Core.Maybe Types.RuleName,
+    -- | The token returned by a previous call to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRules' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
--- * 'eventBusName' - The name or ARN of the event bus to list the rules for. If you omit this, the default event bus is used.
--- * 'namePrefix' - The prefix matching the rule name.
--- * 'limit' - The maximum number of results to return.
+-- | Creates a 'ListRules' value with any optional fields omitted.
 mkListRules ::
   ListRules
 mkListRules =
   ListRules'
-    { nextToken = Lude.Nothing,
-      eventBusName = Lude.Nothing,
-      namePrefix = Lude.Nothing,
-      limit = Lude.Nothing
+    { eventBusName = Core.Nothing,
+      limit = Core.Nothing,
+      namePrefix = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token returned by a previous call to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lNextToken :: Lens.Lens' ListRules (Lude.Maybe Lude.Text)
-lNextToken = Lens.lens (nextToken :: ListRules -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRules)
-{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name or ARN of the event bus to list the rules for. If you omit this, the default event bus is used.
 --
 -- /Note:/ Consider using 'eventBusName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lEventBusName :: Lens.Lens' ListRules (Lude.Maybe Lude.Text)
-lEventBusName = Lens.lens (eventBusName :: ListRules -> Lude.Maybe Lude.Text) (\s a -> s {eventBusName = a} :: ListRules)
-{-# DEPRECATED lEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
-
--- | The prefix matching the rule name.
---
--- /Note:/ Consider using 'namePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lNamePrefix :: Lens.Lens' ListRules (Lude.Maybe Lude.Text)
-lNamePrefix = Lens.lens (namePrefix :: ListRules -> Lude.Maybe Lude.Text) (\s a -> s {namePrefix = a} :: ListRules)
-{-# DEPRECATED lNamePrefix "Use generic-lens or generic-optics with 'namePrefix' instead." #-}
+lrEventBusName :: Lens.Lens' ListRules (Core.Maybe Types.EventBusNameOrArn)
+lrEventBusName = Lens.field @"eventBusName"
+{-# DEPRECATED lrEventBusName "Use generic-lens or generic-optics with 'eventBusName' instead." #-}
 
 -- | The maximum number of results to return.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lLimit :: Lens.Lens' ListRules (Lude.Maybe Lude.Natural)
-lLimit = Lens.lens (limit :: ListRules -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListRules)
-{-# DEPRECATED lLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+lrLimit :: Lens.Lens' ListRules (Core.Maybe Core.Natural)
+lrLimit = Lens.field @"limit"
+{-# DEPRECATED lrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager ListRules where
-  page rq rs
-    | Page.stop (rs Lens.^. lrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lrrsRules) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lNextToken Lens..~ rs Lens.^. lrrsNextToken
+-- | The prefix matching the rule name.
+--
+-- /Note:/ Consider using 'namePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrNamePrefix :: Lens.Lens' ListRules (Core.Maybe Types.RuleName)
+lrNamePrefix = Lens.field @"namePrefix"
+{-# DEPRECATED lrNamePrefix "Use generic-lens or generic-optics with 'namePrefix' instead." #-}
 
-instance Lude.AWSRequest ListRules where
+-- | The token returned by a previous call to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrNextToken :: Lens.Lens' ListRules (Core.Maybe Types.NextToken)
+lrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListRules where
+  toJSON ListRules {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EventBusName" Core..=) Core.<$> eventBusName,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NamePrefix" Core..=) Core.<$> namePrefix,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListRules where
   type Rs ListRules = ListRulesResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.ListRules")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListRulesResponse'
-            Lude.<$> (x Lude..?> "Rules" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Rules")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListRules where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSEvents.ListRules" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListRules where
-  toJSON ListRules' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("EventBusName" Lude..=) Lude.<$> eventBusName,
-            ("NamePrefix" Lude..=) Lude.<$> namePrefix,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListRules where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListRules where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListRules where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"rules" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListRulesResponse' smart constructor.
 data ListRulesResponse = ListRulesResponse'
-  { -- | The rules that match the specified criteria.
-    rules :: Lude.Maybe [Rule],
-    -- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The rules that match the specified criteria.
+    rules :: Core.Maybe [Types.Rule],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRulesResponse' with the minimum fields required to make a request.
---
--- * 'rules' - The rules that match the specified criteria.
--- * 'nextToken' - Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListRulesResponse' value with any optional fields omitted.
 mkListRulesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListRulesResponse
-mkListRulesResponse pResponseStatus_ =
+mkListRulesResponse responseStatus =
   ListRulesResponse'
-    { rules = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      rules = Core.Nothing,
+      responseStatus
     }
-
--- | The rules that match the specified criteria.
---
--- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsRules :: Lens.Lens' ListRulesResponse (Lude.Maybe [Rule])
-lrrsRules = Lens.lens (rules :: ListRulesResponse -> Lude.Maybe [Rule]) (\s a -> s {rules = a} :: ListRulesResponse)
-{-# DEPRECATED lrrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | Indicates whether there are additional results to retrieve. If there are no more results, the value is null.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsNextToken :: Lens.Lens' ListRulesResponse (Lude.Maybe Lude.Text)
-lrrsNextToken = Lens.lens (nextToken :: ListRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRulesResponse)
-{-# DEPRECATED lrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lrrrsNextToken :: Lens.Lens' ListRulesResponse (Core.Maybe Types.NextToken)
+lrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The rules that match the specified criteria.
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrrsRules :: Lens.Lens' ListRulesResponse (Core.Maybe [Types.Rule])
+lrrrsRules = Lens.field @"rules"
+{-# DEPRECATED lrrrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsResponseStatus :: Lens.Lens' ListRulesResponse Lude.Int
-lrrsResponseStatus = Lens.lens (responseStatus :: ListRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRulesResponse)
-{-# DEPRECATED lrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrrrsResponseStatus :: Lens.Lens' ListRulesResponse Core.Int
+lrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

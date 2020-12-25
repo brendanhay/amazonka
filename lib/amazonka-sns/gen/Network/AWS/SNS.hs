@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -18,10 +17,79 @@
 -- We also provide SDKs that enable you to access Amazon SNS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as: cryptographically signing your service requests, retrying requests, and handling error responses. For a list of available SDKs, go to <http://aws.amazon.com/tools/ Tools for Amazon Web Services> .
 module Network.AWS.SNS
   ( -- * Service configuration
-    snsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** KMSInvalidStateException
+    _KMSInvalidStateException,
+
+    -- ** EndpointDisabledException
+    _EndpointDisabledException,
+
+    -- ** AuthorizationErrorException
+    _AuthorizationErrorException,
+
+    -- ** KMSThrottlingException
+    _KMSThrottlingException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** SubscriptionLimitExceededException
+    _SubscriptionLimitExceededException,
+
+    -- ** PlatformApplicationDisabledException
+    _PlatformApplicationDisabledException,
+
+    -- ** KMSOptInRequired
+    _KMSOptInRequired,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** ThrottledException
+    _ThrottledException,
+
+    -- ** KMSNotFoundException
+    _KMSNotFoundException,
+
+    -- ** InvalidParameterValueException
+    _InvalidParameterValueException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** StaleTagException
+    _StaleTagException,
+
+    -- ** KMSDisabledException
+    _KMSDisabledException,
+
+    -- ** TagPolicyException
+    _TagPolicyException,
+
+    -- ** InvalidSecurityException
+    _InvalidSecurityException,
+
+    -- ** TopicLimitExceededException
+    _TopicLimitExceededException,
+
+    -- ** ConcurrentAccessException
+    _ConcurrentAccessException,
+
+    -- ** TagLimitExceededException
+    _TagLimitExceededException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** FilterPolicyLimitExceededException
+    _FilterPolicyLimitExceededException,
+
+    -- ** KMSAccessDeniedException
+    _KMSAccessDeniedException,
 
     -- * Waiters
     -- $waiters
@@ -130,54 +198,151 @@ module Network.AWS.SNS
 
     -- * Types
 
-    -- ** Endpoint
-    Endpoint (..),
-    mkEndpoint,
-    eAttributes,
-    eEndpointARN,
+    -- ** Subject
+    Subject (..),
 
-    -- ** MessageAttributeValue
-    MessageAttributeValue (..),
-    mkMessageAttributeValue,
-    mavBinaryValue,
-    mavStringValue,
-    mavDataType,
+    -- ** Delegate
+    Delegate (..),
 
-    -- ** PlatformApplication
-    PlatformApplication (..),
-    mkPlatformApplication,
-    paPlatformApplicationARN,
-    paAttributes,
-
-    -- ** Subscription
-    Subscription (..),
-    mkSubscription,
-    sProtocol,
-    sOwner,
-    sTopicARN,
-    sEndpoint,
-    sSubscriptionARN,
+    -- ** AttributeValue
+    AttributeValue (..),
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
+
+    -- ** String
+    String (..),
+
+    -- ** String
+    String (..),
+
+    -- ** Token
+    Token (..),
+
+    -- ** TopicName
+    TopicName (..),
+
+    -- ** Action
+    Action (..),
+
+    -- ** Protocol
+    Protocol (..),
+
+    -- ** Account
+    Account (..),
 
     -- ** Topic
     Topic (..),
     mkTopic,
-    tTopicARN,
+    tTopicArn,
+
+    -- ** MessageAttributeValue
+    MessageAttributeValue (..),
+    mkMessageAttributeValue,
+    mavDataType,
+    mavBinaryValue,
+    mavStringValue,
+
+    -- ** TopicARN
+    TopicARN (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** PhoneNumber
+    PhoneNumber (..),
+
+    -- ** PlatformApplication
+    PlatformApplication (..),
+    mkPlatformApplication,
+    paAttributes,
+    paPlatformApplicationArn,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Endpoint
+    Endpoint (..),
+
+    -- ** Subscription
+    Subscription (..),
+    mkSubscription,
+    sEndpoint,
+    sOwner,
+    sProtocol,
+    sSubscriptionArn,
+    sTopicArn,
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** AmazonResourceName
+    AmazonResourceName (..),
+
+    -- ** Endpoint
+    Endpoint (..),
+    mkEndpoint,
+    eAttributes,
+    eEndpointArn,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** SubscriptionArn
+    SubscriptionArn (..),
+
+    -- ** TopicArn
+    TopicArn (..),
+
+    -- ** Label
+    Label (..),
+
+    -- ** EndpointArn
+    EndpointArn (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Platform
+    Platform (..),
+
+    -- ** PlatformApplicationArn
+    PlatformApplicationArn (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** AuthenticateOnUnsubscribe
+    AuthenticateOnUnsubscribe (..),
+
+    -- ** MessageStructure
+    MessageStructure (..),
+
+    -- ** MessageId
+    MessageId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

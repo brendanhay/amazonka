@@ -17,58 +17,55 @@ module Network.AWS.IoT.Types.SecurityProfileIdentifier
     mkSecurityProfileIdentifier,
 
     -- * Lenses
-    spiArn,
     spiName,
+    spiArn,
   )
 where
 
+import qualified Network.AWS.IoT.Types.SecurityProfileArn as Types
+import qualified Network.AWS.IoT.Types.SecurityProfileName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifying information for a Device Defender security profile.
 --
 -- /See:/ 'mkSecurityProfileIdentifier' smart constructor.
 data SecurityProfileIdentifier = SecurityProfileIdentifier'
-  { -- | The ARN of the security profile.
-    arn :: Lude.Text,
-    -- | The name you have given to the security profile.
-    name :: Lude.Text
+  { -- | The name you have given to the security profile.
+    name :: Types.SecurityProfileName,
+    -- | The ARN of the security profile.
+    arn :: Types.SecurityProfileArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SecurityProfileIdentifier' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the security profile.
--- * 'name' - The name you have given to the security profile.
+-- | Creates a 'SecurityProfileIdentifier' value with any optional fields omitted.
 mkSecurityProfileIdentifier ::
-  -- | 'arn'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.SecurityProfileName ->
+  -- | 'arn'
+  Types.SecurityProfileArn ->
   SecurityProfileIdentifier
-mkSecurityProfileIdentifier pArn_ pName_ =
-  SecurityProfileIdentifier' {arn = pArn_, name = pName_}
-
--- | The ARN of the security profile.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spiArn :: Lens.Lens' SecurityProfileIdentifier Lude.Text
-spiArn = Lens.lens (arn :: SecurityProfileIdentifier -> Lude.Text) (\s a -> s {arn = a} :: SecurityProfileIdentifier)
-{-# DEPRECATED spiArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+mkSecurityProfileIdentifier name arn =
+  SecurityProfileIdentifier' {name, arn}
 
 -- | The name you have given to the security profile.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spiName :: Lens.Lens' SecurityProfileIdentifier Lude.Text
-spiName = Lens.lens (name :: SecurityProfileIdentifier -> Lude.Text) (\s a -> s {name = a} :: SecurityProfileIdentifier)
+spiName :: Lens.Lens' SecurityProfileIdentifier Types.SecurityProfileName
+spiName = Lens.field @"name"
 {-# DEPRECATED spiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON SecurityProfileIdentifier where
+-- | The ARN of the security profile.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spiArn :: Lens.Lens' SecurityProfileIdentifier Types.SecurityProfileArn
+spiArn = Lens.field @"arn"
+{-# DEPRECATED spiArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+instance Core.FromJSON SecurityProfileIdentifier where
   parseJSON =
-    Lude.withObject
-      "SecurityProfileIdentifier"
-      ( \x ->
-          SecurityProfileIdentifier'
-            Lude.<$> (x Lude..: "arn") Lude.<*> (x Lude..: "name")
-      )
+    Core.withObject "SecurityProfileIdentifier" Core.$
+      \x ->
+        SecurityProfileIdentifier'
+          Core.<$> (x Core..: "name") Core.<*> (x Core..: "arn")

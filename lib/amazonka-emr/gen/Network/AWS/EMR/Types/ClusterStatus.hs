@@ -23,68 +23,62 @@ module Network.AWS.EMR.Types.ClusterStatus
   )
 where
 
-import Network.AWS.EMR.Types.ClusterState
-import Network.AWS.EMR.Types.ClusterStateChangeReason
-import Network.AWS.EMR.Types.ClusterTimeline
+import qualified Network.AWS.EMR.Types.ClusterState as Types
+import qualified Network.AWS.EMR.Types.ClusterStateChangeReason as Types
+import qualified Network.AWS.EMR.Types.ClusterTimeline as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The detailed status of the cluster.
 --
 -- /See:/ 'mkClusterStatus' smart constructor.
 data ClusterStatus = ClusterStatus'
   { -- | The current state of the cluster.
-    state :: Lude.Maybe ClusterState,
+    state :: Core.Maybe Types.ClusterState,
     -- | The reason for the cluster status change.
-    stateChangeReason :: Lude.Maybe ClusterStateChangeReason,
+    stateChangeReason :: Core.Maybe Types.ClusterStateChangeReason,
     -- | A timeline that represents the status of a cluster over the lifetime of the cluster.
-    timeline :: Lude.Maybe ClusterTimeline
+    timeline :: Core.Maybe Types.ClusterTimeline
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ClusterStatus' with the minimum fields required to make a request.
---
--- * 'state' - The current state of the cluster.
--- * 'stateChangeReason' - The reason for the cluster status change.
--- * 'timeline' - A timeline that represents the status of a cluster over the lifetime of the cluster.
+-- | Creates a 'ClusterStatus' value with any optional fields omitted.
 mkClusterStatus ::
   ClusterStatus
 mkClusterStatus =
   ClusterStatus'
-    { state = Lude.Nothing,
-      stateChangeReason = Lude.Nothing,
-      timeline = Lude.Nothing
+    { state = Core.Nothing,
+      stateChangeReason = Core.Nothing,
+      timeline = Core.Nothing
     }
 
 -- | The current state of the cluster.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csState :: Lens.Lens' ClusterStatus (Lude.Maybe ClusterState)
-csState = Lens.lens (state :: ClusterStatus -> Lude.Maybe ClusterState) (\s a -> s {state = a} :: ClusterStatus)
+csState :: Lens.Lens' ClusterStatus (Core.Maybe Types.ClusterState)
+csState = Lens.field @"state"
 {-# DEPRECATED csState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The reason for the cluster status change.
 --
 -- /Note:/ Consider using 'stateChangeReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csStateChangeReason :: Lens.Lens' ClusterStatus (Lude.Maybe ClusterStateChangeReason)
-csStateChangeReason = Lens.lens (stateChangeReason :: ClusterStatus -> Lude.Maybe ClusterStateChangeReason) (\s a -> s {stateChangeReason = a} :: ClusterStatus)
+csStateChangeReason :: Lens.Lens' ClusterStatus (Core.Maybe Types.ClusterStateChangeReason)
+csStateChangeReason = Lens.field @"stateChangeReason"
 {-# DEPRECATED csStateChangeReason "Use generic-lens or generic-optics with 'stateChangeReason' instead." #-}
 
 -- | A timeline that represents the status of a cluster over the lifetime of the cluster.
 --
 -- /Note:/ Consider using 'timeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csTimeline :: Lens.Lens' ClusterStatus (Lude.Maybe ClusterTimeline)
-csTimeline = Lens.lens (timeline :: ClusterStatus -> Lude.Maybe ClusterTimeline) (\s a -> s {timeline = a} :: ClusterStatus)
+csTimeline :: Lens.Lens' ClusterStatus (Core.Maybe Types.ClusterTimeline)
+csTimeline = Lens.field @"timeline"
 {-# DEPRECATED csTimeline "Use generic-lens or generic-optics with 'timeline' instead." #-}
 
-instance Lude.FromJSON ClusterStatus where
+instance Core.FromJSON ClusterStatus where
   parseJSON =
-    Lude.withObject
-      "ClusterStatus"
-      ( \x ->
-          ClusterStatus'
-            Lude.<$> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "StateChangeReason")
-            Lude.<*> (x Lude..:? "Timeline")
-      )
+    Core.withObject "ClusterStatus" Core.$
+      \x ->
+        ClusterStatus'
+          Core.<$> (x Core..:? "State")
+          Core.<*> (x Core..:? "StateChangeReason")
+          Core.<*> (x Core..:? "Timeline")

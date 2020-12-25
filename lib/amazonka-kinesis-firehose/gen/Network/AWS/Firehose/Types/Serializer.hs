@@ -22,60 +22,55 @@ module Network.AWS.Firehose.Types.Serializer
   )
 where
 
-import Network.AWS.Firehose.Types.OrcSerDe
-import Network.AWS.Firehose.Types.ParquetSerDe
+import qualified Network.AWS.Firehose.Types.OrcSerDe as Types
+import qualified Network.AWS.Firehose.Types.ParquetSerDe as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The serializer that you want Kinesis Data Firehose to use to convert data to the target format before writing it to Amazon S3. Kinesis Data Firehose supports two types of serializers: the <https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/orc/OrcSerde.html ORC SerDe> and the <https://hive.apache.org/javadocs/r1.2.2/api/org/apache/hadoop/hive/ql/io/parquet/serde/ParquetHiveSerDe.html Parquet SerDe> .
 --
 -- /See:/ 'mkSerializer' smart constructor.
 data Serializer = Serializer'
   { -- | A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see <https://orc.apache.org/docs/ Apache ORC> .
-    orcSerDe :: Lude.Maybe OrcSerDe,
+    orcSerDe :: Core.Maybe Types.OrcSerDe,
     -- | A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <https://parquet.apache.org/documentation/latest/ Apache Parquet> .
-    parquetSerDe :: Lude.Maybe ParquetSerDe
+    parquetSerDe :: Core.Maybe Types.ParquetSerDe
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Serializer' with the minimum fields required to make a request.
---
--- * 'orcSerDe' - A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see <https://orc.apache.org/docs/ Apache ORC> .
--- * 'parquetSerDe' - A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <https://parquet.apache.org/documentation/latest/ Apache Parquet> .
+-- | Creates a 'Serializer' value with any optional fields omitted.
 mkSerializer ::
   Serializer
 mkSerializer =
-  Serializer' {orcSerDe = Lude.Nothing, parquetSerDe = Lude.Nothing}
+  Serializer' {orcSerDe = Core.Nothing, parquetSerDe = Core.Nothing}
 
 -- | A serializer to use for converting data to the ORC format before storing it in Amazon S3. For more information, see <https://orc.apache.org/docs/ Apache ORC> .
 --
 -- /Note:/ Consider using 'orcSerDe' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sOrcSerDe :: Lens.Lens' Serializer (Lude.Maybe OrcSerDe)
-sOrcSerDe = Lens.lens (orcSerDe :: Serializer -> Lude.Maybe OrcSerDe) (\s a -> s {orcSerDe = a} :: Serializer)
+sOrcSerDe :: Lens.Lens' Serializer (Core.Maybe Types.OrcSerDe)
+sOrcSerDe = Lens.field @"orcSerDe"
 {-# DEPRECATED sOrcSerDe "Use generic-lens or generic-optics with 'orcSerDe' instead." #-}
 
 -- | A serializer to use for converting data to the Parquet format before storing it in Amazon S3. For more information, see <https://parquet.apache.org/documentation/latest/ Apache Parquet> .
 --
 -- /Note:/ Consider using 'parquetSerDe' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sParquetSerDe :: Lens.Lens' Serializer (Lude.Maybe ParquetSerDe)
-sParquetSerDe = Lens.lens (parquetSerDe :: Serializer -> Lude.Maybe ParquetSerDe) (\s a -> s {parquetSerDe = a} :: Serializer)
+sParquetSerDe :: Lens.Lens' Serializer (Core.Maybe Types.ParquetSerDe)
+sParquetSerDe = Lens.field @"parquetSerDe"
 {-# DEPRECATED sParquetSerDe "Use generic-lens or generic-optics with 'parquetSerDe' instead." #-}
 
-instance Lude.FromJSON Serializer where
-  parseJSON =
-    Lude.withObject
-      "Serializer"
-      ( \x ->
-          Serializer'
-            Lude.<$> (x Lude..:? "OrcSerDe") Lude.<*> (x Lude..:? "ParquetSerDe")
-      )
-
-instance Lude.ToJSON Serializer where
-  toJSON Serializer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("OrcSerDe" Lude..=) Lude.<$> orcSerDe,
-            ("ParquetSerDe" Lude..=) Lude.<$> parquetSerDe
+instance Core.FromJSON Serializer where
+  toJSON Serializer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("OrcSerDe" Core..=) Core.<$> orcSerDe,
+            ("ParquetSerDe" Core..=) Core.<$> parquetSerDe
           ]
       )
+
+instance Core.FromJSON Serializer where
+  parseJSON =
+    Core.withObject "Serializer" Core.$
+      \x ->
+        Serializer'
+          Core.<$> (x Core..:? "OrcSerDe") Core.<*> (x Core..:? "ParquetSerDe")

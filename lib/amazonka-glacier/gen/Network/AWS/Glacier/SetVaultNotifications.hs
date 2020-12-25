@@ -32,8 +32,8 @@ module Network.AWS.Glacier.SetVaultNotifications
     mkSetVaultNotifications,
 
     -- ** Request lenses
-    svnVaultName,
     svnAccountId,
+    svnVaultName,
     svnVaultNotificationConfig,
 
     -- * Destructuring the response
@@ -42,101 +42,94 @@ module Network.AWS.Glacier.SetVaultNotifications
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options to configure notifications that will be sent when specific events happen to a vault.
 --
 -- /See:/ 'mkSetVaultNotifications' smart constructor.
 data SetVaultNotifications = SetVaultNotifications'
-  { -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
+    -- | The name of the vault.
+    vaultName :: Types.String,
     -- | Provides options for specifying notification configuration.
-    vaultNotificationConfig :: Lude.Maybe VaultNotificationConfig
+    vaultNotificationConfig :: Core.Maybe Types.VaultNotificationConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetVaultNotifications' with the minimum fields required to make a request.
---
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'vaultNotificationConfig' - Provides options for specifying notification configuration.
+-- | Creates a 'SetVaultNotifications' value with any optional fields omitted.
 mkSetVaultNotifications ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
   SetVaultNotifications
-mkSetVaultNotifications pVaultName_ pAccountId_ =
+mkSetVaultNotifications accountId vaultName =
   SetVaultNotifications'
-    { vaultName = pVaultName_,
-      accountId = pAccountId_,
-      vaultNotificationConfig = Lude.Nothing
+    { accountId,
+      vaultName,
+      vaultNotificationConfig = Core.Nothing
     }
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svnVaultName :: Lens.Lens' SetVaultNotifications Lude.Text
-svnVaultName = Lens.lens (vaultName :: SetVaultNotifications -> Lude.Text) (\s a -> s {vaultName = a} :: SetVaultNotifications)
-{-# DEPRECATED svnVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svnAccountId :: Lens.Lens' SetVaultNotifications Lude.Text
-svnAccountId = Lens.lens (accountId :: SetVaultNotifications -> Lude.Text) (\s a -> s {accountId = a} :: SetVaultNotifications)
+svnAccountId :: Lens.Lens' SetVaultNotifications Types.String
+svnAccountId = Lens.field @"accountId"
 {-# DEPRECATED svnAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+svnVaultName :: Lens.Lens' SetVaultNotifications Types.String
+svnVaultName = Lens.field @"vaultName"
+{-# DEPRECATED svnVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | Provides options for specifying notification configuration.
 --
 -- /Note:/ Consider using 'vaultNotificationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-svnVaultNotificationConfig :: Lens.Lens' SetVaultNotifications (Lude.Maybe VaultNotificationConfig)
-svnVaultNotificationConfig = Lens.lens (vaultNotificationConfig :: SetVaultNotifications -> Lude.Maybe VaultNotificationConfig) (\s a -> s {vaultNotificationConfig = a} :: SetVaultNotifications)
+svnVaultNotificationConfig :: Lens.Lens' SetVaultNotifications (Core.Maybe Types.VaultNotificationConfig)
+svnVaultNotificationConfig = Lens.field @"vaultNotificationConfig"
 {-# DEPRECATED svnVaultNotificationConfig "Use generic-lens or generic-optics with 'vaultNotificationConfig' instead." #-}
 
-instance Lude.AWSRequest SetVaultNotifications where
-  type Rs SetVaultNotifications = SetVaultNotificationsResponse
-  request = Req.putJSON glacierService
-  response = Res.receiveNull SetVaultNotificationsResponse'
-
-instance Lude.ToHeaders SetVaultNotifications where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON SetVaultNotifications where
-  toJSON SetVaultNotifications' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("vaultNotificationConfig" Lude..=)
-              Lude.<$> vaultNotificationConfig
+instance Core.FromJSON SetVaultNotifications where
+  toJSON SetVaultNotifications {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("vaultNotificationConfig" Core..=)
+              Core.<$> vaultNotificationConfig
           ]
       )
 
-instance Lude.ToPath SetVaultNotifications where
-  toPath SetVaultNotifications' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/notification-configuration"
-      ]
-
-instance Lude.ToQuery SetVaultNotifications where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest SetVaultNotifications where
+  type Rs SetVaultNotifications = SetVaultNotificationsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/notification-configuration")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull SetVaultNotificationsResponse'
 
 -- | /See:/ 'mkSetVaultNotificationsResponse' smart constructor.
 data SetVaultNotificationsResponse = SetVaultNotificationsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetVaultNotificationsResponse' with the minimum fields required to make a request.
+-- | Creates a 'SetVaultNotificationsResponse' value with any optional fields omitted.
 mkSetVaultNotificationsResponse ::
   SetVaultNotificationsResponse
 mkSetVaultNotificationsResponse = SetVaultNotificationsResponse'

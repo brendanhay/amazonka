@@ -22,40 +22,37 @@ module Network.AWS.MediaPackage.Types.IngressAccessLogs
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configure ingress access logging.
 --
 -- /See:/ 'mkIngressAccessLogs' smart constructor.
 newtype IngressAccessLogs = IngressAccessLogs'
   { -- | Customize the log group name.
-    logGroupName :: Lude.Maybe Lude.Text
+    logGroupName :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IngressAccessLogs' with the minimum fields required to make a request.
---
--- * 'logGroupName' - Customize the log group name.
+-- | Creates a 'IngressAccessLogs' value with any optional fields omitted.
 mkIngressAccessLogs ::
   IngressAccessLogs
 mkIngressAccessLogs =
-  IngressAccessLogs' {logGroupName = Lude.Nothing}
+  IngressAccessLogs' {logGroupName = Core.Nothing}
 
 -- | Customize the log group name.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ialLogGroupName :: Lens.Lens' IngressAccessLogs (Lude.Maybe Lude.Text)
-ialLogGroupName = Lens.lens (logGroupName :: IngressAccessLogs -> Lude.Maybe Lude.Text) (\s a -> s {logGroupName = a} :: IngressAccessLogs)
+ialLogGroupName :: Lens.Lens' IngressAccessLogs (Core.Maybe Core.Text)
+ialLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED ialLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
-instance Lude.FromJSON IngressAccessLogs where
-  parseJSON =
-    Lude.withObject
-      "IngressAccessLogs"
-      (\x -> IngressAccessLogs' Lude.<$> (x Lude..:? "logGroupName"))
+instance Core.FromJSON IngressAccessLogs where
+  toJSON IngressAccessLogs {..} =
+    Core.object
+      (Core.catMaybes [("logGroupName" Core..=) Core.<$> logGroupName])
 
-instance Lude.ToJSON IngressAccessLogs where
-  toJSON IngressAccessLogs' {..} =
-    Lude.object
-      (Lude.catMaybes [("logGroupName" Lude..=) Lude.<$> logGroupName])
+instance Core.FromJSON IngressAccessLogs where
+  parseJSON =
+    Core.withObject "IngressAccessLogs" Core.$
+      \x -> IngressAccessLogs' Core.<$> (x Core..:? "logGroupName")

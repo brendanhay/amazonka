@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.Mpeg2Telecine
   ( Mpeg2Telecine
       ( Mpeg2Telecine',
-        MTNone,
-        MTSoft,
-        MTHard
+        Mpeg2TelecineNone,
+        Mpeg2TelecineSoft,
+        Mpeg2TelecineHard,
+        fromMpeg2Telecine
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When you do frame rate conversion from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally enable hard or soft telecine to create a smoother picture. Hard telecine (HARD) produces a 29.97i output. Soft telecine (SOFT) produces an output with a 23.976 output that signals to the video player device to do the conversion during play back. When you keep the default value, None (NONE), MediaConvert does a standard frame rate conversion to 29.97 without doing anything with the field polarity to create a smoother picture.
-newtype Mpeg2Telecine = Mpeg2Telecine' Lude.Text
+newtype Mpeg2Telecine = Mpeg2Telecine'
+  { fromMpeg2Telecine ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MTNone :: Mpeg2Telecine
-pattern MTNone = Mpeg2Telecine' "NONE"
+pattern Mpeg2TelecineNone :: Mpeg2Telecine
+pattern Mpeg2TelecineNone = Mpeg2Telecine' "NONE"
 
-pattern MTSoft :: Mpeg2Telecine
-pattern MTSoft = Mpeg2Telecine' "SOFT"
+pattern Mpeg2TelecineSoft :: Mpeg2Telecine
+pattern Mpeg2TelecineSoft = Mpeg2Telecine' "SOFT"
 
-pattern MTHard :: Mpeg2Telecine
-pattern MTHard = Mpeg2Telecine' "HARD"
+pattern Mpeg2TelecineHard :: Mpeg2Telecine
+pattern Mpeg2TelecineHard = Mpeg2Telecine' "HARD"
 
 {-# COMPLETE
-  MTNone,
-  MTSoft,
-  MTHard,
+  Mpeg2TelecineNone,
+  Mpeg2TelecineSoft,
+  Mpeg2TelecineHard,
   Mpeg2Telecine'
   #-}

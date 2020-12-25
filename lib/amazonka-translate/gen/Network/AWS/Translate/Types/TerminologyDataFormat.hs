@@ -13,46 +13,51 @@
 module Network.AWS.Translate.Types.TerminologyDataFormat
   ( TerminologyDataFormat
       ( TerminologyDataFormat',
-        CSV,
-        Tmx
+        TerminologyDataFormatCsv,
+        TerminologyDataFormatTmx,
+        fromTerminologyDataFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TerminologyDataFormat = TerminologyDataFormat' Lude.Text
+newtype TerminologyDataFormat = TerminologyDataFormat'
+  { fromTerminologyDataFormat ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSV :: TerminologyDataFormat
-pattern CSV = TerminologyDataFormat' "CSV"
+pattern TerminologyDataFormatCsv :: TerminologyDataFormat
+pattern TerminologyDataFormatCsv = TerminologyDataFormat' "CSV"
 
-pattern Tmx :: TerminologyDataFormat
-pattern Tmx = TerminologyDataFormat' "TMX"
+pattern TerminologyDataFormatTmx :: TerminologyDataFormat
+pattern TerminologyDataFormatTmx = TerminologyDataFormat' "TMX"
 
 {-# COMPLETE
-  CSV,
-  Tmx,
+  TerminologyDataFormatCsv,
+  TerminologyDataFormatTmx,
   TerminologyDataFormat'
   #-}

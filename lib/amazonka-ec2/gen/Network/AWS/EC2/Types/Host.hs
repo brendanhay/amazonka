@@ -17,261 +17,240 @@ module Network.AWS.EC2.Types.Host
     mkHost,
 
     -- * Lenses
+    hAllocationTime,
+    hAllowsMultipleInstanceTypes,
+    hAutoPlacement,
+    hAvailabilityZone,
+    hAvailabilityZoneId,
+    hAvailableCapacity,
+    hClientToken,
+    hHostId,
+    hHostProperties,
+    hHostRecovery,
+    hHostReservationId,
+    hInstances,
+    hMemberOfServiceLinkedResourceGroup,
+    hOwnerId,
     hReleaseTime,
     hState,
-    hClientToken,
-    hAvailabilityZoneId,
-    hHostId,
-    hAvailableCapacity,
-    hHostReservationId,
-    hAllowsMultipleInstanceTypes,
-    hHostProperties,
-    hOwnerId,
-    hAvailabilityZone,
-    hInstances,
-    hAllocationTime,
-    hMemberOfServiceLinkedResourceGroup,
-    hHostRecovery,
-    hAutoPlacement,
     hTags,
   )
 where
 
-import Network.AWS.EC2.Types.AllocationState
-import Network.AWS.EC2.Types.AllowsMultipleInstanceTypes
-import Network.AWS.EC2.Types.AutoPlacement
-import Network.AWS.EC2.Types.AvailableCapacity
-import Network.AWS.EC2.Types.HostInstance
-import Network.AWS.EC2.Types.HostProperties
-import Network.AWS.EC2.Types.HostRecovery
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.AllocationState as Types
+import qualified Network.AWS.EC2.Types.AllowsMultipleInstanceTypes as Types
+import qualified Network.AWS.EC2.Types.AutoPlacement as Types
+import qualified Network.AWS.EC2.Types.AvailableCapacity as Types
+import qualified Network.AWS.EC2.Types.HostInstance as Types
+import qualified Network.AWS.EC2.Types.HostProperties as Types
+import qualified Network.AWS.EC2.Types.HostRecovery as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the properties of the Dedicated Host.
 --
 -- /See:/ 'mkHost' smart constructor.
 data Host = Host'
-  { -- | The time that the Dedicated Host was released.
-    releaseTime :: Lude.Maybe Lude.DateTime,
-    -- | The Dedicated Host's state.
-    state :: Lude.Maybe AllocationState,
-    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | The ID of the Availability Zone in which the Dedicated Host is allocated.
-    availabilityZoneId :: Lude.Maybe Lude.Text,
-    -- | The ID of the Dedicated Host.
-    hostId :: Lude.Maybe Lude.Text,
-    -- | Information about the instances running on the Dedicated Host.
-    availableCapacity :: Lude.Maybe AvailableCapacity,
-    -- | The reservation ID of the Dedicated Host. This returns a @null@ response if the Dedicated Host doesn't have an associated reservation.
-    hostReservationId :: Lude.Maybe Lude.Text,
+  { -- | The time that the Dedicated Host was allocated.
+    allocationTime :: Core.Maybe Core.UTCTime,
     -- | Indicates whether the Dedicated Host supports multiple instance types of the same instance family, or a specific instance type only. @one@ indicates that the Dedicated Host supports multiple instance types in the instance family. @off@ indicates that the Dedicated Host supports a single instance type only.
-    allowsMultipleInstanceTypes :: Lude.Maybe AllowsMultipleInstanceTypes,
-    -- | The hardware specifications of the Dedicated Host.
-    hostProperties :: Lude.Maybe HostProperties,
-    -- | The ID of the AWS account that owns the Dedicated Host.
-    ownerId :: Lude.Maybe Lude.Text,
-    -- | The Availability Zone of the Dedicated Host.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | The IDs and instance type that are currently running on the Dedicated Host.
-    instances :: Lude.Maybe [HostInstance],
-    -- | The time that the Dedicated Host was allocated.
-    allocationTime :: Lude.Maybe Lude.DateTime,
-    -- | Indicates whether the Dedicated Host is in a host resource group. If __memberOfServiceLinkedResourceGroup__ is @true@ , the host is in a host resource group; otherwise, it is not.
-    memberOfServiceLinkedResourceGroup :: Lude.Maybe Lude.Bool,
-    -- | Indicates whether host recovery is enabled or disabled for the Dedicated Host.
-    hostRecovery :: Lude.Maybe HostRecovery,
+    allowsMultipleInstanceTypes :: Core.Maybe Types.AllowsMultipleInstanceTypes,
     -- | Whether auto-placement is on or off.
-    autoPlacement :: Lude.Maybe AutoPlacement,
+    autoPlacement :: Core.Maybe Types.AutoPlacement,
+    -- | The Availability Zone of the Dedicated Host.
+    availabilityZone :: Core.Maybe Types.String,
+    -- | The ID of the Availability Zone in which the Dedicated Host is allocated.
+    availabilityZoneId :: Core.Maybe Types.String,
+    -- | Information about the instances running on the Dedicated Host.
+    availableCapacity :: Core.Maybe Types.AvailableCapacity,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Core.Maybe Types.String,
+    -- | The ID of the Dedicated Host.
+    hostId :: Core.Maybe Types.String,
+    -- | The hardware specifications of the Dedicated Host.
+    hostProperties :: Core.Maybe Types.HostProperties,
+    -- | Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+    hostRecovery :: Core.Maybe Types.HostRecovery,
+    -- | The reservation ID of the Dedicated Host. This returns a @null@ response if the Dedicated Host doesn't have an associated reservation.
+    hostReservationId :: Core.Maybe Types.String,
+    -- | The IDs and instance type that are currently running on the Dedicated Host.
+    instances :: Core.Maybe [Types.HostInstance],
+    -- | Indicates whether the Dedicated Host is in a host resource group. If __memberOfServiceLinkedResourceGroup__ is @true@ , the host is in a host resource group; otherwise, it is not.
+    memberOfServiceLinkedResourceGroup :: Core.Maybe Core.Bool,
+    -- | The ID of the AWS account that owns the Dedicated Host.
+    ownerId :: Core.Maybe Types.String,
+    -- | The time that the Dedicated Host was released.
+    releaseTime :: Core.Maybe Core.UTCTime,
+    -- | The Dedicated Host's state.
+    state :: Core.Maybe Types.AllocationState,
     -- | Any tags assigned to the Dedicated Host.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Host' with the minimum fields required to make a request.
---
--- * 'releaseTime' - The time that the Dedicated Host was released.
--- * 'state' - The Dedicated Host's state.
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'availabilityZoneId' - The ID of the Availability Zone in which the Dedicated Host is allocated.
--- * 'hostId' - The ID of the Dedicated Host.
--- * 'availableCapacity' - Information about the instances running on the Dedicated Host.
--- * 'hostReservationId' - The reservation ID of the Dedicated Host. This returns a @null@ response if the Dedicated Host doesn't have an associated reservation.
--- * 'allowsMultipleInstanceTypes' - Indicates whether the Dedicated Host supports multiple instance types of the same instance family, or a specific instance type only. @one@ indicates that the Dedicated Host supports multiple instance types in the instance family. @off@ indicates that the Dedicated Host supports a single instance type only.
--- * 'hostProperties' - The hardware specifications of the Dedicated Host.
--- * 'ownerId' - The ID of the AWS account that owns the Dedicated Host.
--- * 'availabilityZone' - The Availability Zone of the Dedicated Host.
--- * 'instances' - The IDs and instance type that are currently running on the Dedicated Host.
--- * 'allocationTime' - The time that the Dedicated Host was allocated.
--- * 'memberOfServiceLinkedResourceGroup' - Indicates whether the Dedicated Host is in a host resource group. If __memberOfServiceLinkedResourceGroup__ is @true@ , the host is in a host resource group; otherwise, it is not.
--- * 'hostRecovery' - Indicates whether host recovery is enabled or disabled for the Dedicated Host.
--- * 'autoPlacement' - Whether auto-placement is on or off.
--- * 'tags' - Any tags assigned to the Dedicated Host.
+-- | Creates a 'Host' value with any optional fields omitted.
 mkHost ::
   Host
 mkHost =
   Host'
-    { releaseTime = Lude.Nothing,
-      state = Lude.Nothing,
-      clientToken = Lude.Nothing,
-      availabilityZoneId = Lude.Nothing,
-      hostId = Lude.Nothing,
-      availableCapacity = Lude.Nothing,
-      hostReservationId = Lude.Nothing,
-      allowsMultipleInstanceTypes = Lude.Nothing,
-      hostProperties = Lude.Nothing,
-      ownerId = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      instances = Lude.Nothing,
-      allocationTime = Lude.Nothing,
-      memberOfServiceLinkedResourceGroup = Lude.Nothing,
-      hostRecovery = Lude.Nothing,
-      autoPlacement = Lude.Nothing,
-      tags = Lude.Nothing
+    { allocationTime = Core.Nothing,
+      allowsMultipleInstanceTypes = Core.Nothing,
+      autoPlacement = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      availabilityZoneId = Core.Nothing,
+      availableCapacity = Core.Nothing,
+      clientToken = Core.Nothing,
+      hostId = Core.Nothing,
+      hostProperties = Core.Nothing,
+      hostRecovery = Core.Nothing,
+      hostReservationId = Core.Nothing,
+      instances = Core.Nothing,
+      memberOfServiceLinkedResourceGroup = Core.Nothing,
+      ownerId = Core.Nothing,
+      releaseTime = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing
     }
+
+-- | The time that the Dedicated Host was allocated.
+--
+-- /Note:/ Consider using 'allocationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hAllocationTime :: Lens.Lens' Host (Core.Maybe Core.UTCTime)
+hAllocationTime = Lens.field @"allocationTime"
+{-# DEPRECATED hAllocationTime "Use generic-lens or generic-optics with 'allocationTime' instead." #-}
+
+-- | Indicates whether the Dedicated Host supports multiple instance types of the same instance family, or a specific instance type only. @one@ indicates that the Dedicated Host supports multiple instance types in the instance family. @off@ indicates that the Dedicated Host supports a single instance type only.
+--
+-- /Note:/ Consider using 'allowsMultipleInstanceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hAllowsMultipleInstanceTypes :: Lens.Lens' Host (Core.Maybe Types.AllowsMultipleInstanceTypes)
+hAllowsMultipleInstanceTypes = Lens.field @"allowsMultipleInstanceTypes"
+{-# DEPRECATED hAllowsMultipleInstanceTypes "Use generic-lens or generic-optics with 'allowsMultipleInstanceTypes' instead." #-}
+
+-- | Whether auto-placement is on or off.
+--
+-- /Note:/ Consider using 'autoPlacement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hAutoPlacement :: Lens.Lens' Host (Core.Maybe Types.AutoPlacement)
+hAutoPlacement = Lens.field @"autoPlacement"
+{-# DEPRECATED hAutoPlacement "Use generic-lens or generic-optics with 'autoPlacement' instead." #-}
+
+-- | The Availability Zone of the Dedicated Host.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hAvailabilityZone :: Lens.Lens' Host (Core.Maybe Types.String)
+hAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED hAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | The ID of the Availability Zone in which the Dedicated Host is allocated.
+--
+-- /Note:/ Consider using 'availabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hAvailabilityZoneId :: Lens.Lens' Host (Core.Maybe Types.String)
+hAvailabilityZoneId = Lens.field @"availabilityZoneId"
+{-# DEPRECATED hAvailabilityZoneId "Use generic-lens or generic-optics with 'availabilityZoneId' instead." #-}
+
+-- | Information about the instances running on the Dedicated Host.
+--
+-- /Note:/ Consider using 'availableCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hAvailableCapacity :: Lens.Lens' Host (Core.Maybe Types.AvailableCapacity)
+hAvailableCapacity = Lens.field @"availableCapacity"
+{-# DEPRECATED hAvailableCapacity "Use generic-lens or generic-optics with 'availableCapacity' instead." #-}
+
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hClientToken :: Lens.Lens' Host (Core.Maybe Types.String)
+hClientToken = Lens.field @"clientToken"
+{-# DEPRECATED hClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The ID of the Dedicated Host.
+--
+-- /Note:/ Consider using 'hostId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hHostId :: Lens.Lens' Host (Core.Maybe Types.String)
+hHostId = Lens.field @"hostId"
+{-# DEPRECATED hHostId "Use generic-lens or generic-optics with 'hostId' instead." #-}
+
+-- | The hardware specifications of the Dedicated Host.
+--
+-- /Note:/ Consider using 'hostProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hHostProperties :: Lens.Lens' Host (Core.Maybe Types.HostProperties)
+hHostProperties = Lens.field @"hostProperties"
+{-# DEPRECATED hHostProperties "Use generic-lens or generic-optics with 'hostProperties' instead." #-}
+
+-- | Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+--
+-- /Note:/ Consider using 'hostRecovery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hHostRecovery :: Lens.Lens' Host (Core.Maybe Types.HostRecovery)
+hHostRecovery = Lens.field @"hostRecovery"
+{-# DEPRECATED hHostRecovery "Use generic-lens or generic-optics with 'hostRecovery' instead." #-}
+
+-- | The reservation ID of the Dedicated Host. This returns a @null@ response if the Dedicated Host doesn't have an associated reservation.
+--
+-- /Note:/ Consider using 'hostReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hHostReservationId :: Lens.Lens' Host (Core.Maybe Types.String)
+hHostReservationId = Lens.field @"hostReservationId"
+{-# DEPRECATED hHostReservationId "Use generic-lens or generic-optics with 'hostReservationId' instead." #-}
+
+-- | The IDs and instance type that are currently running on the Dedicated Host.
+--
+-- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hInstances :: Lens.Lens' Host (Core.Maybe [Types.HostInstance])
+hInstances = Lens.field @"instances"
+{-# DEPRECATED hInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
+
+-- | Indicates whether the Dedicated Host is in a host resource group. If __memberOfServiceLinkedResourceGroup__ is @true@ , the host is in a host resource group; otherwise, it is not.
+--
+-- /Note:/ Consider using 'memberOfServiceLinkedResourceGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hMemberOfServiceLinkedResourceGroup :: Lens.Lens' Host (Core.Maybe Core.Bool)
+hMemberOfServiceLinkedResourceGroup = Lens.field @"memberOfServiceLinkedResourceGroup"
+{-# DEPRECATED hMemberOfServiceLinkedResourceGroup "Use generic-lens or generic-optics with 'memberOfServiceLinkedResourceGroup' instead." #-}
+
+-- | The ID of the AWS account that owns the Dedicated Host.
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hOwnerId :: Lens.Lens' Host (Core.Maybe Types.String)
+hOwnerId = Lens.field @"ownerId"
+{-# DEPRECATED hOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
 -- | The time that the Dedicated Host was released.
 --
 -- /Note:/ Consider using 'releaseTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hReleaseTime :: Lens.Lens' Host (Lude.Maybe Lude.DateTime)
-hReleaseTime = Lens.lens (releaseTime :: Host -> Lude.Maybe Lude.DateTime) (\s a -> s {releaseTime = a} :: Host)
+hReleaseTime :: Lens.Lens' Host (Core.Maybe Core.UTCTime)
+hReleaseTime = Lens.field @"releaseTime"
 {-# DEPRECATED hReleaseTime "Use generic-lens or generic-optics with 'releaseTime' instead." #-}
 
 -- | The Dedicated Host's state.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hState :: Lens.Lens' Host (Lude.Maybe AllocationState)
-hState = Lens.lens (state :: Host -> Lude.Maybe AllocationState) (\s a -> s {state = a} :: Host)
+hState :: Lens.Lens' Host (Core.Maybe Types.AllocationState)
+hState = Lens.field @"state"
 {-# DEPRECATED hState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hClientToken :: Lens.Lens' Host (Lude.Maybe Lude.Text)
-hClientToken = Lens.lens (clientToken :: Host -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: Host)
-{-# DEPRECATED hClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The ID of the Availability Zone in which the Dedicated Host is allocated.
---
--- /Note:/ Consider using 'availabilityZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hAvailabilityZoneId :: Lens.Lens' Host (Lude.Maybe Lude.Text)
-hAvailabilityZoneId = Lens.lens (availabilityZoneId :: Host -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZoneId = a} :: Host)
-{-# DEPRECATED hAvailabilityZoneId "Use generic-lens or generic-optics with 'availabilityZoneId' instead." #-}
-
--- | The ID of the Dedicated Host.
---
--- /Note:/ Consider using 'hostId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hHostId :: Lens.Lens' Host (Lude.Maybe Lude.Text)
-hHostId = Lens.lens (hostId :: Host -> Lude.Maybe Lude.Text) (\s a -> s {hostId = a} :: Host)
-{-# DEPRECATED hHostId "Use generic-lens or generic-optics with 'hostId' instead." #-}
-
--- | Information about the instances running on the Dedicated Host.
---
--- /Note:/ Consider using 'availableCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hAvailableCapacity :: Lens.Lens' Host (Lude.Maybe AvailableCapacity)
-hAvailableCapacity = Lens.lens (availableCapacity :: Host -> Lude.Maybe AvailableCapacity) (\s a -> s {availableCapacity = a} :: Host)
-{-# DEPRECATED hAvailableCapacity "Use generic-lens or generic-optics with 'availableCapacity' instead." #-}
-
--- | The reservation ID of the Dedicated Host. This returns a @null@ response if the Dedicated Host doesn't have an associated reservation.
---
--- /Note:/ Consider using 'hostReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hHostReservationId :: Lens.Lens' Host (Lude.Maybe Lude.Text)
-hHostReservationId = Lens.lens (hostReservationId :: Host -> Lude.Maybe Lude.Text) (\s a -> s {hostReservationId = a} :: Host)
-{-# DEPRECATED hHostReservationId "Use generic-lens or generic-optics with 'hostReservationId' instead." #-}
-
--- | Indicates whether the Dedicated Host supports multiple instance types of the same instance family, or a specific instance type only. @one@ indicates that the Dedicated Host supports multiple instance types in the instance family. @off@ indicates that the Dedicated Host supports a single instance type only.
---
--- /Note:/ Consider using 'allowsMultipleInstanceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hAllowsMultipleInstanceTypes :: Lens.Lens' Host (Lude.Maybe AllowsMultipleInstanceTypes)
-hAllowsMultipleInstanceTypes = Lens.lens (allowsMultipleInstanceTypes :: Host -> Lude.Maybe AllowsMultipleInstanceTypes) (\s a -> s {allowsMultipleInstanceTypes = a} :: Host)
-{-# DEPRECATED hAllowsMultipleInstanceTypes "Use generic-lens or generic-optics with 'allowsMultipleInstanceTypes' instead." #-}
-
--- | The hardware specifications of the Dedicated Host.
---
--- /Note:/ Consider using 'hostProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hHostProperties :: Lens.Lens' Host (Lude.Maybe HostProperties)
-hHostProperties = Lens.lens (hostProperties :: Host -> Lude.Maybe HostProperties) (\s a -> s {hostProperties = a} :: Host)
-{-# DEPRECATED hHostProperties "Use generic-lens or generic-optics with 'hostProperties' instead." #-}
-
--- | The ID of the AWS account that owns the Dedicated Host.
---
--- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hOwnerId :: Lens.Lens' Host (Lude.Maybe Lude.Text)
-hOwnerId = Lens.lens (ownerId :: Host -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: Host)
-{-# DEPRECATED hOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
-
--- | The Availability Zone of the Dedicated Host.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hAvailabilityZone :: Lens.Lens' Host (Lude.Maybe Lude.Text)
-hAvailabilityZone = Lens.lens (availabilityZone :: Host -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: Host)
-{-# DEPRECATED hAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | The IDs and instance type that are currently running on the Dedicated Host.
---
--- /Note:/ Consider using 'instances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hInstances :: Lens.Lens' Host (Lude.Maybe [HostInstance])
-hInstances = Lens.lens (instances :: Host -> Lude.Maybe [HostInstance]) (\s a -> s {instances = a} :: Host)
-{-# DEPRECATED hInstances "Use generic-lens or generic-optics with 'instances' instead." #-}
-
--- | The time that the Dedicated Host was allocated.
---
--- /Note:/ Consider using 'allocationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hAllocationTime :: Lens.Lens' Host (Lude.Maybe Lude.DateTime)
-hAllocationTime = Lens.lens (allocationTime :: Host -> Lude.Maybe Lude.DateTime) (\s a -> s {allocationTime = a} :: Host)
-{-# DEPRECATED hAllocationTime "Use generic-lens or generic-optics with 'allocationTime' instead." #-}
-
--- | Indicates whether the Dedicated Host is in a host resource group. If __memberOfServiceLinkedResourceGroup__ is @true@ , the host is in a host resource group; otherwise, it is not.
---
--- /Note:/ Consider using 'memberOfServiceLinkedResourceGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hMemberOfServiceLinkedResourceGroup :: Lens.Lens' Host (Lude.Maybe Lude.Bool)
-hMemberOfServiceLinkedResourceGroup = Lens.lens (memberOfServiceLinkedResourceGroup :: Host -> Lude.Maybe Lude.Bool) (\s a -> s {memberOfServiceLinkedResourceGroup = a} :: Host)
-{-# DEPRECATED hMemberOfServiceLinkedResourceGroup "Use generic-lens or generic-optics with 'memberOfServiceLinkedResourceGroup' instead." #-}
-
--- | Indicates whether host recovery is enabled or disabled for the Dedicated Host.
---
--- /Note:/ Consider using 'hostRecovery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hHostRecovery :: Lens.Lens' Host (Lude.Maybe HostRecovery)
-hHostRecovery = Lens.lens (hostRecovery :: Host -> Lude.Maybe HostRecovery) (\s a -> s {hostRecovery = a} :: Host)
-{-# DEPRECATED hHostRecovery "Use generic-lens or generic-optics with 'hostRecovery' instead." #-}
-
--- | Whether auto-placement is on or off.
---
--- /Note:/ Consider using 'autoPlacement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hAutoPlacement :: Lens.Lens' Host (Lude.Maybe AutoPlacement)
-hAutoPlacement = Lens.lens (autoPlacement :: Host -> Lude.Maybe AutoPlacement) (\s a -> s {autoPlacement = a} :: Host)
-{-# DEPRECATED hAutoPlacement "Use generic-lens or generic-optics with 'autoPlacement' instead." #-}
 
 -- | Any tags assigned to the Dedicated Host.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hTags :: Lens.Lens' Host (Lude.Maybe [Tag])
-hTags = Lens.lens (tags :: Host -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Host)
+hTags :: Lens.Lens' Host (Core.Maybe [Types.Tag])
+hTags = Lens.field @"tags"
 {-# DEPRECATED hTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML Host where
+instance Core.FromXML Host where
   parseXML x =
     Host'
-      Lude.<$> (x Lude..@? "releaseTime")
-      Lude.<*> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "clientToken")
-      Lude.<*> (x Lude..@? "availabilityZoneId")
-      Lude.<*> (x Lude..@? "hostId")
-      Lude.<*> (x Lude..@? "availableCapacity")
-      Lude.<*> (x Lude..@? "hostReservationId")
-      Lude.<*> (x Lude..@? "allowsMultipleInstanceTypes")
-      Lude.<*> (x Lude..@? "hostProperties")
-      Lude.<*> (x Lude..@? "ownerId")
-      Lude.<*> (x Lude..@? "availabilityZone")
-      Lude.<*> ( x Lude..@? "instances" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "allocationTime")
-      Lude.<*> (x Lude..@? "memberOfServiceLinkedResourceGroup")
-      Lude.<*> (x Lude..@? "hostRecovery")
-      Lude.<*> (x Lude..@? "autoPlacement")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "allocationTime")
+      Core.<*> (x Core..@? "allowsMultipleInstanceTypes")
+      Core.<*> (x Core..@? "autoPlacement")
+      Core.<*> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "availabilityZoneId")
+      Core.<*> (x Core..@? "availableCapacity")
+      Core.<*> (x Core..@? "clientToken")
+      Core.<*> (x Core..@? "hostId")
+      Core.<*> (x Core..@? "hostProperties")
+      Core.<*> (x Core..@? "hostRecovery")
+      Core.<*> (x Core..@? "hostReservationId")
+      Core.<*> (x Core..@? "instances" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "memberOfServiceLinkedResourceGroup")
+      Core.<*> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "releaseTime")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")

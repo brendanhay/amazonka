@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen src
   exposed-modules:
     Network.AWS.S3
     Network.AWS.S3.AbortMultipartUpload
@@ -74,7 +80,7 @@ library
     Network.AWS.S3.CreateMultipartUpload
     Network.AWS.S3.DeleteBucket
     Network.AWS.S3.DeleteBucketAnalyticsConfiguration
-    Network.AWS.S3.DeleteBucketCORS
+    Network.AWS.S3.DeleteBucketCors
     Network.AWS.S3.DeleteBucketEncryption
     Network.AWS.S3.DeleteBucketIntelligentTieringConfiguration
     Network.AWS.S3.DeleteBucketInventoryConfiguration
@@ -90,9 +96,9 @@ library
     Network.AWS.S3.DeleteObjectTagging
     Network.AWS.S3.DeletePublicAccessBlock
     Network.AWS.S3.GetBucketAccelerateConfiguration
-    Network.AWS.S3.GetBucketACL
+    Network.AWS.S3.GetBucketAcl
     Network.AWS.S3.GetBucketAnalyticsConfiguration
-    Network.AWS.S3.GetBucketCORS
+    Network.AWS.S3.GetBucketCors
     Network.AWS.S3.GetBucketEncryption
     Network.AWS.S3.GetBucketIntelligentTieringConfiguration
     Network.AWS.S3.GetBucketInventoryConfiguration
@@ -110,7 +116,7 @@ library
     Network.AWS.S3.GetBucketVersioning
     Network.AWS.S3.GetBucketWebsite
     Network.AWS.S3.GetObject
-    Network.AWS.S3.GetObjectACL
+    Network.AWS.S3.GetObjectAcl
     Network.AWS.S3.GetObjectLegalHold
     Network.AWS.S3.GetObjectLockConfiguration
     Network.AWS.S3.GetObjectRetention
@@ -130,9 +136,9 @@ library
     Network.AWS.S3.ListObjectVersions
     Network.AWS.S3.ListParts
     Network.AWS.S3.PutBucketAccelerateConfiguration
-    Network.AWS.S3.PutBucketACL
+    Network.AWS.S3.PutBucketAcl
     Network.AWS.S3.PutBucketAnalyticsConfiguration
-    Network.AWS.S3.PutBucketCORS
+    Network.AWS.S3.PutBucketCors
     Network.AWS.S3.PutBucketEncryption
     Network.AWS.S3.PutBucketIntelligentTieringConfiguration
     Network.AWS.S3.PutBucketInventoryConfiguration
@@ -148,7 +154,7 @@ library
     Network.AWS.S3.PutBucketVersioning
     Network.AWS.S3.PutBucketWebsite
     Network.AWS.S3.PutObject
-    Network.AWS.S3.PutObjectACL
+    Network.AWS.S3.PutObjectAcl
     Network.AWS.S3.PutObjectLegalHold
     Network.AWS.S3.PutObjectLockConfiguration
     Network.AWS.S3.PutObjectRetention
@@ -164,13 +170,21 @@ library
   other-modules:
     Network.AWS.S3.Internal
     Network.AWS.S3.Types.AbortIncompleteMultipartUpload
+    Network.AWS.S3.Types.AbortRuleId
     Network.AWS.S3.Types.AccelerateConfiguration
+    Network.AWS.S3.Types.AcceptRanges
     Network.AWS.S3.Types.AccessControlPolicy
     Network.AWS.S3.Types.AccessControlTranslation
+    Network.AWS.S3.Types.Account
+    Network.AWS.S3.Types.AccountId
+    Network.AWS.S3.Types.AllowedHeader
+    Network.AWS.S3.Types.AllowedMethod
+    Network.AWS.S3.Types.AllowedOrigin
     Network.AWS.S3.Types.AnalyticsAndOperator
     Network.AWS.S3.Types.AnalyticsConfiguration
     Network.AWS.S3.Types.AnalyticsExportDestination
     Network.AWS.S3.Types.AnalyticsFilter
+    Network.AWS.S3.Types.AnalyticsId
     Network.AWS.S3.Types.AnalyticsS3BucketDestination
     Network.AWS.S3.Types.AnalyticsS3ExportFileFormat
     Network.AWS.S3.Types.ArchiveStatus
@@ -181,14 +195,32 @@ library
     Network.AWS.S3.Types.BucketLoggingStatus
     Network.AWS.S3.Types.BucketLogsPermission
     Network.AWS.S3.Types.BucketVersioningStatus
+    Network.AWS.S3.Types.CacheControl
+    Network.AWS.S3.Types.Code
+    Network.AWS.S3.Types.Comments
     Network.AWS.S3.Types.CommonPrefix
     Network.AWS.S3.Types.CompletedMultipartUpload
     Network.AWS.S3.Types.CompletedPart
     Network.AWS.S3.Types.CompressionType
     Network.AWS.S3.Types.Condition
+    Network.AWS.S3.Types.ContentDisposition
+    Network.AWS.S3.Types.ContentEncoding
+    Network.AWS.S3.Types.ContentLanguage
+    Network.AWS.S3.Types.ContentMD5
+    Network.AWS.S3.Types.ContentRange
+    Network.AWS.S3.Types.ContentType
     Network.AWS.S3.Types.ContinuationEvent
+    Network.AWS.S3.Types.ContinuationToken
     Network.AWS.S3.Types.CopyObjectResult
     Network.AWS.S3.Types.CopyPartResult
+    Network.AWS.S3.Types.CopySource
+    Network.AWS.S3.Types.CopySourceIfMatch
+    Network.AWS.S3.Types.CopySourceIfNoneMatch
+    Network.AWS.S3.Types.CopySourceRange
+    Network.AWS.S3.Types.CopySourceSSECustomerAlgorithm
+    Network.AWS.S3.Types.CopySourceSSECustomerKey
+    Network.AWS.S3.Types.CopySourceSSECustomerKeyMD5
+    Network.AWS.S3.Types.CopySourceVersionId
     Network.AWS.S3.Types.CORSConfiguration
     Network.AWS.S3.Types.CORSRule
     Network.AWS.S3.Types.CreateBucketConfiguration
@@ -200,7 +232,11 @@ library
     Network.AWS.S3.Types.DeleteMarkerEntry
     Network.AWS.S3.Types.DeleteMarkerReplication
     Network.AWS.S3.Types.DeleteMarkerReplicationStatus
+    Network.AWS.S3.Types.DeleteMarkerVersionId
+    Network.AWS.S3.Types.Description
     Network.AWS.S3.Types.Destination
+    Network.AWS.S3.Types.DisplayName
+    Network.AWS.S3.Types.EmailAddress
     Network.AWS.S3.Types.EncodingType
     Network.AWS.S3.Types.Encryption
     Network.AWS.S3.Types.EncryptionConfiguration
@@ -209,14 +245,33 @@ library
     Network.AWS.S3.Types.Event
     Network.AWS.S3.Types.ExistingObjectReplication
     Network.AWS.S3.Types.ExistingObjectReplicationStatus
+    Network.AWS.S3.Types.ExpectedBucketOwner
+    Network.AWS.S3.Types.ExpectedSourceBucketOwner
+    Network.AWS.S3.Types.Expiration
     Network.AWS.S3.Types.ExpirationStatus
+    Network.AWS.S3.Types.ExposeHeader
+    Network.AWS.S3.Types.Expression
     Network.AWS.S3.Types.ExpressionType
+    Network.AWS.S3.Types.FieldDelimiter
     Network.AWS.S3.Types.FileHeaderInfo
     Network.AWS.S3.Types.FilterRule
     Network.AWS.S3.Types.FilterRuleName
+    Network.AWS.S3.Types.FilterRuleValue
     Network.AWS.S3.Types.GlacierJobParameters
     Network.AWS.S3.Types.Grant
     Network.AWS.S3.Types.Grantee
+    Network.AWS.S3.Types.GrantFullControl
+    Network.AWS.S3.Types.GrantRead
+    Network.AWS.S3.Types.GrantReadACP
+    Network.AWS.S3.Types.GrantWrite
+    Network.AWS.S3.Types.GrantWriteACP
+    Network.AWS.S3.Types.HostName
+    Network.AWS.S3.Types.HttpErrorCodeReturnedEquals
+    Network.AWS.S3.Types.HttpRedirectCode
+    Network.AWS.S3.Types.ID
+    Network.AWS.S3.Types.Id
+    Network.AWS.S3.Types.IfMatch
+    Network.AWS.S3.Types.IfNoneMatch
     Network.AWS.S3.Types.IndexDocument
     Network.AWS.S3.Types.Initiator
     Network.AWS.S3.Types.InputSerialization
@@ -231,6 +286,7 @@ library
     Network.AWS.S3.Types.InventoryFilter
     Network.AWS.S3.Types.InventoryFormat
     Network.AWS.S3.Types.InventoryFrequency
+    Network.AWS.S3.Types.InventoryId
     Network.AWS.S3.Types.InventoryIncludedObjectVersions
     Network.AWS.S3.Types.InventoryOptionalField
     Network.AWS.S3.Types.InventoryS3BucketDestination
@@ -238,22 +294,44 @@ library
     Network.AWS.S3.Types.JSONInput
     Network.AWS.S3.Types.JSONOutput
     Network.AWS.S3.Types.JSONType
+    Network.AWS.S3.Types.Key
+    Network.AWS.S3.Types.KeyMarker
+    Network.AWS.S3.Types.KeyPrefixEquals
+    Network.AWS.S3.Types.KMSContext
+    Network.AWS.S3.Types.KMSKeyId
+    Network.AWS.S3.Types.LambdaFunctionArn
     Network.AWS.S3.Types.LambdaFunctionConfiguration
     Network.AWS.S3.Types.LifecycleExpiration
     Network.AWS.S3.Types.LifecycleRule
     Network.AWS.S3.Types.LifecycleRuleAndOperator
     Network.AWS.S3.Types.LifecycleRuleFilter
+    Network.AWS.S3.Types.Location
+    Network.AWS.S3.Types.LocationPrefix
     Network.AWS.S3.Types.LoggingEnabled
+    Network.AWS.S3.Types.Marker
+    Network.AWS.S3.Types.Message
     Network.AWS.S3.Types.MetadataDirective
     Network.AWS.S3.Types.MetadataEntry
+    Network.AWS.S3.Types.MetadataKey
+    Network.AWS.S3.Types.MetadataValue
     Network.AWS.S3.Types.Metrics
     Network.AWS.S3.Types.MetricsAndOperator
     Network.AWS.S3.Types.MetricsConfiguration
     Network.AWS.S3.Types.MetricsFilter
+    Network.AWS.S3.Types.MetricsId
     Network.AWS.S3.Types.MetricsStatus
+    Network.AWS.S3.Types.MFA
     Network.AWS.S3.Types.MFADelete
     Network.AWS.S3.Types.MFADeleteStatus
     Network.AWS.S3.Types.MultipartUpload
+    Network.AWS.S3.Types.MultipartUploadId
+    Network.AWS.S3.Types.Name
+    Network.AWS.S3.Types.NextContinuationToken
+    Network.AWS.S3.Types.NextKeyMarker
+    Network.AWS.S3.Types.NextMarker
+    Network.AWS.S3.Types.NextToken
+    Network.AWS.S3.Types.NextUploadIdMarker
+    Network.AWS.S3.Types.NextVersionIdMarker
     Network.AWS.S3.Types.NoncurrentVersionExpiration
     Network.AWS.S3.Types.NoncurrentVersionTransition
     Network.AWS.S3.Types.NotificationConfiguration
@@ -269,6 +347,7 @@ library
     Network.AWS.S3.Types.ObjectLockRetention
     Network.AWS.S3.Types.ObjectLockRetentionMode
     Network.AWS.S3.Types.ObjectLockRule
+    Network.AWS.S3.Types.ObjectLockToken
     Network.AWS.S3.Types.ObjectOwnership
     Network.AWS.S3.Types.ObjectStorageClass
     Network.AWS.S3.Types.ObjectVersion
@@ -284,15 +363,24 @@ library
     Network.AWS.S3.Types.Payer
     Network.AWS.S3.Types.Permission
     Network.AWS.S3.Types.PolicyStatus
+    Network.AWS.S3.Types.Prefix
     Network.AWS.S3.Types.Progress
     Network.AWS.S3.Types.ProgressEvent
     Network.AWS.S3.Types.Protocol
     Network.AWS.S3.Types.PublicAccessBlockConfiguration
+    Network.AWS.S3.Types.QueueArn
     Network.AWS.S3.Types.QueueConfiguration
+    Network.AWS.S3.Types.QuoteCharacter
+    Network.AWS.S3.Types.QuoteEscapeCharacter
     Network.AWS.S3.Types.QuoteFields
+    Network.AWS.S3.Types.Range
+    Network.AWS.S3.Types.RecordDelimiter
     Network.AWS.S3.Types.RecordsEvent
     Network.AWS.S3.Types.Redirect
     Network.AWS.S3.Types.RedirectAllRequestsTo
+    Network.AWS.S3.Types.ReplaceKeyPrefixWith
+    Network.AWS.S3.Types.ReplaceKeyWith
+    Network.AWS.S3.Types.ReplicaKmsKeyID
     Network.AWS.S3.Types.ReplicationConfiguration
     Network.AWS.S3.Types.ReplicationRule
     Network.AWS.S3.Types.ReplicationRuleAndOperator
@@ -306,8 +394,16 @@ library
     Network.AWS.S3.Types.RequestPayer
     Network.AWS.S3.Types.RequestPaymentConfiguration
     Network.AWS.S3.Types.RequestProgress
+    Network.AWS.S3.Types.ResponseCacheControl
+    Network.AWS.S3.Types.ResponseContentDisposition
+    Network.AWS.S3.Types.ResponseContentEncoding
+    Network.AWS.S3.Types.ResponseContentLanguage
+    Network.AWS.S3.Types.ResponseContentType
+    Network.AWS.S3.Types.Restore
+    Network.AWS.S3.Types.RestoreOutputPath
     Network.AWS.S3.Types.RestoreRequest
     Network.AWS.S3.Types.RestoreRequestType
+    Network.AWS.S3.Types.Role
     Network.AWS.S3.Types.RoutingRule
     Network.AWS.S3.Types.S3KeyFilter
     Network.AWS.S3.Types.S3Location
@@ -320,28 +416,47 @@ library
     Network.AWS.S3.Types.ServerSideEncryptionConfiguration
     Network.AWS.S3.Types.ServerSideEncryptionRule
     Network.AWS.S3.Types.SourceSelectionCriteria
+    Network.AWS.S3.Types.SSECustomerAlgorithm
+    Network.AWS.S3.Types.SSECustomerKey
+    Network.AWS.S3.Types.SSECustomerKeyMD5
     Network.AWS.S3.Types.SSEKMS
-    Network.AWS.S3.Types.SseKMSEncryptedObjects
-    Network.AWS.S3.Types.SseKMSEncryptedObjectsStatus
+    Network.AWS.S3.Types.SseKmsEncryptedObjects
+    Network.AWS.S3.Types.SseKmsEncryptedObjectsStatus
+    Network.AWS.S3.Types.SSEKMSEncryptionContext
+    Network.AWS.S3.Types.SSEKMSKeyId
     Network.AWS.S3.Types.SSES3
+    Network.AWS.S3.Types.StartAfter
     Network.AWS.S3.Types.Stats
     Network.AWS.S3.Types.StatsEvent
     Network.AWS.S3.Types.StorageClass
     Network.AWS.S3.Types.StorageClassAnalysis
     Network.AWS.S3.Types.StorageClassAnalysisDataExport
     Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion
+    Network.AWS.S3.Types.Suffix
     Network.AWS.S3.Types.Tag
     Network.AWS.S3.Types.Tagging
     Network.AWS.S3.Types.TaggingDirective
+    Network.AWS.S3.Types.TaggingHeader
+    Network.AWS.S3.Types.TargetBucket
     Network.AWS.S3.Types.TargetGrant
+    Network.AWS.S3.Types.TargetPrefix
     Network.AWS.S3.Types.Tier
     Network.AWS.S3.Types.Tiering
+    Network.AWS.S3.Types.Token
+    Network.AWS.S3.Types.TopicArn
     Network.AWS.S3.Types.TopicConfiguration
     Network.AWS.S3.Types.Transition
     Network.AWS.S3.Types.TransitionStorageClass
     Network.AWS.S3.Types.Type
+    Network.AWS.S3.Types.UploadId
+    Network.AWS.S3.Types.UploadIdMarker
+    Network.AWS.S3.Types.URI
+    Network.AWS.S3.Types.Value
+    Network.AWS.S3.Types.VersionId
+    Network.AWS.S3.Types.VersionIdMarker
     Network.AWS.S3.Types.VersioningConfiguration
     Network.AWS.S3.Types.WebsiteConfiguration
+    Network.AWS.S3.Types.WebsiteRedirectLocation
 
   build-depends:
     , amazonka-core  >=2.0.0.0 && <2.0.0.1

@@ -17,71 +17,65 @@ module Network.AWS.CodeCommit.Types.IsBinaryFile
     mkIsBinaryFile,
 
     -- * Lenses
-    ibfDestination,
     ibfBase,
+    ibfDestination,
     ibfSource,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about whether a file is binary or textual in a merge or pull request operation.
 --
 -- /See:/ 'mkIsBinaryFile' smart constructor.
 data IsBinaryFile = IsBinaryFile'
-  { -- | The binary or non-binary status of a file in the destination of a merge or pull request.
-    destination :: Lude.Maybe Lude.Bool,
-    -- | The binary or non-binary status of a file in the base of a merge or pull request.
-    base :: Lude.Maybe Lude.Bool,
+  { -- | The binary or non-binary status of a file in the base of a merge or pull request.
+    base :: Core.Maybe Core.Bool,
+    -- | The binary or non-binary status of a file in the destination of a merge or pull request.
+    destination :: Core.Maybe Core.Bool,
     -- | The binary or non-binary status of file in the source of a merge or pull request.
-    source :: Lude.Maybe Lude.Bool
+    source :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IsBinaryFile' with the minimum fields required to make a request.
---
--- * 'destination' - The binary or non-binary status of a file in the destination of a merge or pull request.
--- * 'base' - The binary or non-binary status of a file in the base of a merge or pull request.
--- * 'source' - The binary or non-binary status of file in the source of a merge or pull request.
+-- | Creates a 'IsBinaryFile' value with any optional fields omitted.
 mkIsBinaryFile ::
   IsBinaryFile
 mkIsBinaryFile =
   IsBinaryFile'
-    { destination = Lude.Nothing,
-      base = Lude.Nothing,
-      source = Lude.Nothing
+    { base = Core.Nothing,
+      destination = Core.Nothing,
+      source = Core.Nothing
     }
-
--- | The binary or non-binary status of a file in the destination of a merge or pull request.
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibfDestination :: Lens.Lens' IsBinaryFile (Lude.Maybe Lude.Bool)
-ibfDestination = Lens.lens (destination :: IsBinaryFile -> Lude.Maybe Lude.Bool) (\s a -> s {destination = a} :: IsBinaryFile)
-{-# DEPRECATED ibfDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The binary or non-binary status of a file in the base of a merge or pull request.
 --
 -- /Note:/ Consider using 'base' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibfBase :: Lens.Lens' IsBinaryFile (Lude.Maybe Lude.Bool)
-ibfBase = Lens.lens (base :: IsBinaryFile -> Lude.Maybe Lude.Bool) (\s a -> s {base = a} :: IsBinaryFile)
+ibfBase :: Lens.Lens' IsBinaryFile (Core.Maybe Core.Bool)
+ibfBase = Lens.field @"base"
 {-# DEPRECATED ibfBase "Use generic-lens or generic-optics with 'base' instead." #-}
+
+-- | The binary or non-binary status of a file in the destination of a merge or pull request.
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ibfDestination :: Lens.Lens' IsBinaryFile (Core.Maybe Core.Bool)
+ibfDestination = Lens.field @"destination"
+{-# DEPRECATED ibfDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | The binary or non-binary status of file in the source of a merge or pull request.
 --
 -- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ibfSource :: Lens.Lens' IsBinaryFile (Lude.Maybe Lude.Bool)
-ibfSource = Lens.lens (source :: IsBinaryFile -> Lude.Maybe Lude.Bool) (\s a -> s {source = a} :: IsBinaryFile)
+ibfSource :: Lens.Lens' IsBinaryFile (Core.Maybe Core.Bool)
+ibfSource = Lens.field @"source"
 {-# DEPRECATED ibfSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance Lude.FromJSON IsBinaryFile where
+instance Core.FromJSON IsBinaryFile where
   parseJSON =
-    Lude.withObject
-      "IsBinaryFile"
-      ( \x ->
-          IsBinaryFile'
-            Lude.<$> (x Lude..:? "destination")
-            Lude.<*> (x Lude..:? "base")
-            Lude.<*> (x Lude..:? "source")
-      )
+    Core.withObject "IsBinaryFile" Core.$
+      \x ->
+        IsBinaryFile'
+          Core.<$> (x Core..:? "base")
+          Core.<*> (x Core..:? "destination")
+          Core.<*> (x Core..:? "source")

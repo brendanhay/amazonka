@@ -17,85 +17,79 @@ module Network.AWS.MediaLive.Types.DvbNitSettings
     mkDvbNitSettings,
 
     -- * Lenses
-    dnsRepInterval,
-    dnsNetworkId,
     dnsNetworkName,
+    dnsNetworkId,
+    dnsRepInterval,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | DVB Network Information Table (NIT)
 --
 -- /See:/ 'mkDvbNitSettings' smart constructor.
 data DvbNitSettings = DvbNitSettings'
-  { -- | The number of milliseconds between instances of this table in the output transport stream.
-    repInterval :: Lude.Maybe Lude.Natural,
+  { -- | The network name text placed in the networkNameDescriptor inside the Network Information Table. Maximum length is 256 characters.
+    networkName :: Core.Text,
     -- | The numeric value placed in the Network Information Table (NIT).
-    networkId :: Lude.Natural,
-    -- | The network name text placed in the networkNameDescriptor inside the Network Information Table. Maximum length is 256 characters.
-    networkName :: Lude.Text
+    networkId :: Core.Natural,
+    -- | The number of milliseconds between instances of this table in the output transport stream.
+    repInterval :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DvbNitSettings' with the minimum fields required to make a request.
---
--- * 'repInterval' - The number of milliseconds between instances of this table in the output transport stream.
--- * 'networkId' - The numeric value placed in the Network Information Table (NIT).
--- * 'networkName' - The network name text placed in the networkNameDescriptor inside the Network Information Table. Maximum length is 256 characters.
+-- | Creates a 'DvbNitSettings' value with any optional fields omitted.
 mkDvbNitSettings ::
-  -- | 'networkId'
-  Lude.Natural ->
   -- | 'networkName'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'networkId'
+  Core.Natural ->
   DvbNitSettings
-mkDvbNitSettings pNetworkId_ pNetworkName_ =
+mkDvbNitSettings networkName networkId =
   DvbNitSettings'
-    { repInterval = Lude.Nothing,
-      networkId = pNetworkId_,
-      networkName = pNetworkName_
+    { networkName,
+      networkId,
+      repInterval = Core.Nothing
     }
-
--- | The number of milliseconds between instances of this table in the output transport stream.
---
--- /Note:/ Consider using 'repInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnsRepInterval :: Lens.Lens' DvbNitSettings (Lude.Maybe Lude.Natural)
-dnsRepInterval = Lens.lens (repInterval :: DvbNitSettings -> Lude.Maybe Lude.Natural) (\s a -> s {repInterval = a} :: DvbNitSettings)
-{-# DEPRECATED dnsRepInterval "Use generic-lens or generic-optics with 'repInterval' instead." #-}
-
--- | The numeric value placed in the Network Information Table (NIT).
---
--- /Note:/ Consider using 'networkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnsNetworkId :: Lens.Lens' DvbNitSettings Lude.Natural
-dnsNetworkId = Lens.lens (networkId :: DvbNitSettings -> Lude.Natural) (\s a -> s {networkId = a} :: DvbNitSettings)
-{-# DEPRECATED dnsNetworkId "Use generic-lens or generic-optics with 'networkId' instead." #-}
 
 -- | The network name text placed in the networkNameDescriptor inside the Network Information Table. Maximum length is 256 characters.
 --
 -- /Note:/ Consider using 'networkName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnsNetworkName :: Lens.Lens' DvbNitSettings Lude.Text
-dnsNetworkName = Lens.lens (networkName :: DvbNitSettings -> Lude.Text) (\s a -> s {networkName = a} :: DvbNitSettings)
+dnsNetworkName :: Lens.Lens' DvbNitSettings Core.Text
+dnsNetworkName = Lens.field @"networkName"
 {-# DEPRECATED dnsNetworkName "Use generic-lens or generic-optics with 'networkName' instead." #-}
 
-instance Lude.FromJSON DvbNitSettings where
-  parseJSON =
-    Lude.withObject
-      "DvbNitSettings"
-      ( \x ->
-          DvbNitSettings'
-            Lude.<$> (x Lude..:? "repInterval")
-            Lude.<*> (x Lude..: "networkId")
-            Lude.<*> (x Lude..: "networkName")
-      )
+-- | The numeric value placed in the Network Information Table (NIT).
+--
+-- /Note:/ Consider using 'networkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnsNetworkId :: Lens.Lens' DvbNitSettings Core.Natural
+dnsNetworkId = Lens.field @"networkId"
+{-# DEPRECATED dnsNetworkId "Use generic-lens or generic-optics with 'networkId' instead." #-}
 
-instance Lude.ToJSON DvbNitSettings where
-  toJSON DvbNitSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("repInterval" Lude..=) Lude.<$> repInterval,
-            Lude.Just ("networkId" Lude..= networkId),
-            Lude.Just ("networkName" Lude..= networkName)
+-- | The number of milliseconds between instances of this table in the output transport stream.
+--
+-- /Note:/ Consider using 'repInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dnsRepInterval :: Lens.Lens' DvbNitSettings (Core.Maybe Core.Natural)
+dnsRepInterval = Lens.field @"repInterval"
+{-# DEPRECATED dnsRepInterval "Use generic-lens or generic-optics with 'repInterval' instead." #-}
+
+instance Core.FromJSON DvbNitSettings where
+  toJSON DvbNitSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("networkName" Core..= networkName),
+            Core.Just ("networkId" Core..= networkId),
+            ("repInterval" Core..=) Core.<$> repInterval
           ]
       )
+
+instance Core.FromJSON DvbNitSettings where
+  parseJSON =
+    Core.withObject "DvbNitSettings" Core.$
+      \x ->
+        DvbNitSettings'
+          Core.<$> (x Core..: "networkName")
+          Core.<*> (x Core..: "networkId")
+          Core.<*> (x Core..:? "repInterval")

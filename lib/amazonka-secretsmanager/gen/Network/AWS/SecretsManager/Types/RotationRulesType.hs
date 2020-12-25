@@ -22,7 +22,7 @@ module Network.AWS.SecretsManager.Types.RotationRulesType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure that defines the rotation configuration for the secret.
 --
@@ -31,43 +31,37 @@ newtype RotationRulesType = RotationRulesType'
   { -- | Specifies the number of days between automatic scheduled rotations of the secret.
     --
     -- Secrets Manager schedules the next rotation when the previous one is complete. Secrets Manager schedules the date by adding the rotation interval (number of days) to the actual date of the last rotation. The service chooses the hour within that 24-hour date window randomly. The minute is also chosen somewhat randomly, but weighted towards the top of the hour and influenced by a variety of factors that help distribute load.
-    automaticallyAfterDays :: Lude.Maybe Lude.Natural
+    automaticallyAfterDays :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RotationRulesType' with the minimum fields required to make a request.
---
--- * 'automaticallyAfterDays' - Specifies the number of days between automatic scheduled rotations of the secret.
---
--- Secrets Manager schedules the next rotation when the previous one is complete. Secrets Manager schedules the date by adding the rotation interval (number of days) to the actual date of the last rotation. The service chooses the hour within that 24-hour date window randomly. The minute is also chosen somewhat randomly, but weighted towards the top of the hour and influenced by a variety of factors that help distribute load.
+-- | Creates a 'RotationRulesType' value with any optional fields omitted.
 mkRotationRulesType ::
   RotationRulesType
 mkRotationRulesType =
-  RotationRulesType' {automaticallyAfterDays = Lude.Nothing}
+  RotationRulesType' {automaticallyAfterDays = Core.Nothing}
 
 -- | Specifies the number of days between automatic scheduled rotations of the secret.
 --
 -- Secrets Manager schedules the next rotation when the previous one is complete. Secrets Manager schedules the date by adding the rotation interval (number of days) to the actual date of the last rotation. The service chooses the hour within that 24-hour date window randomly. The minute is also chosen somewhat randomly, but weighted towards the top of the hour and influenced by a variety of factors that help distribute load.
 --
 -- /Note:/ Consider using 'automaticallyAfterDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrtAutomaticallyAfterDays :: Lens.Lens' RotationRulesType (Lude.Maybe Lude.Natural)
-rrtAutomaticallyAfterDays = Lens.lens (automaticallyAfterDays :: RotationRulesType -> Lude.Maybe Lude.Natural) (\s a -> s {automaticallyAfterDays = a} :: RotationRulesType)
+rrtAutomaticallyAfterDays :: Lens.Lens' RotationRulesType (Core.Maybe Core.Natural)
+rrtAutomaticallyAfterDays = Lens.field @"automaticallyAfterDays"
 {-# DEPRECATED rrtAutomaticallyAfterDays "Use generic-lens or generic-optics with 'automaticallyAfterDays' instead." #-}
 
-instance Lude.FromJSON RotationRulesType where
-  parseJSON =
-    Lude.withObject
-      "RotationRulesType"
-      ( \x ->
-          RotationRulesType' Lude.<$> (x Lude..:? "AutomaticallyAfterDays")
-      )
-
-instance Lude.ToJSON RotationRulesType where
-  toJSON RotationRulesType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AutomaticallyAfterDays" Lude..=)
-              Lude.<$> automaticallyAfterDays
+instance Core.FromJSON RotationRulesType where
+  toJSON RotationRulesType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AutomaticallyAfterDays" Core..=)
+              Core.<$> automaticallyAfterDays
           ]
       )
+
+instance Core.FromJSON RotationRulesType where
+  parseJSON =
+    Core.withObject "RotationRulesType" Core.$
+      \x ->
+        RotationRulesType' Core.<$> (x Core..:? "AutomaticallyAfterDays")

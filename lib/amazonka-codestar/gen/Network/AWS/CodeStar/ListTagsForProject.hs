@@ -20,160 +20,145 @@ module Network.AWS.CodeStar.ListTagsForProject
     mkListTagsForProject,
 
     -- ** Request lenses
-    ltfpNextToken,
     ltfpId,
     ltfpMaxResults,
+    ltfpNextToken,
 
     -- * Destructuring the response
     ListTagsForProjectResponse (..),
     mkListTagsForProjectResponse,
 
     -- ** Response lenses
-    ltfprsNextToken,
-    ltfprsTags,
-    ltfprsResponseStatus,
+    ltfprrsNextToken,
+    ltfprrsTags,
+    ltfprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeStar.Types
+import qualified Network.AWS.CodeStar.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTagsForProject' smart constructor.
 data ListTagsForProject = ListTagsForProject'
-  { -- | Reserved for future use.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The ID of the project to get tags for.
-    id :: Lude.Text,
+  { -- | The ID of the project to get tags for.
+    id :: Types.Id,
     -- | Reserved for future use.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Reserved for future use.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForProject' with the minimum fields required to make a request.
---
--- * 'nextToken' - Reserved for future use.
--- * 'id' - The ID of the project to get tags for.
--- * 'maxResults' - Reserved for future use.
+-- | Creates a 'ListTagsForProject' value with any optional fields omitted.
 mkListTagsForProject ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   ListTagsForProject
-mkListTagsForProject pId_ =
+mkListTagsForProject id =
   ListTagsForProject'
-    { nextToken = Lude.Nothing,
-      id = pId_,
-      maxResults = Lude.Nothing
+    { id,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Reserved for future use.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfpNextToken :: Lens.Lens' ListTagsForProject (Lude.Maybe Lude.Text)
-ltfpNextToken = Lens.lens (nextToken :: ListTagsForProject -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForProject)
-{-# DEPRECATED ltfpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the project to get tags for.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfpId :: Lens.Lens' ListTagsForProject Lude.Text
-ltfpId = Lens.lens (id :: ListTagsForProject -> Lude.Text) (\s a -> s {id = a} :: ListTagsForProject)
+ltfpId :: Lens.Lens' ListTagsForProject Types.Id
+ltfpId = Lens.field @"id"
 {-# DEPRECATED ltfpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Reserved for future use.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfpMaxResults :: Lens.Lens' ListTagsForProject (Lude.Maybe Lude.Natural)
-ltfpMaxResults = Lens.lens (maxResults :: ListTagsForProject -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTagsForProject)
+ltfpMaxResults :: Lens.Lens' ListTagsForProject (Core.Maybe Core.Natural)
+ltfpMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ltfpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListTagsForProject where
+-- | Reserved for future use.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfpNextToken :: Lens.Lens' ListTagsForProject (Core.Maybe Types.PaginationToken)
+ltfpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltfpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListTagsForProject where
+  toJSON ListTagsForProject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("id" Core..= id),
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListTagsForProject where
   type Rs ListTagsForProject = ListTagsForProjectResponse
-  request = Req.postJSON codeStarService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeStar_20170419.ListTagsForProject")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTagsForProjectResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListTagsForProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeStar_20170419.ListTagsForProject" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListTagsForProject where
-  toJSON ListTagsForProject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("id" Lude..= id),
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListTagsForProject where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListTagsForProject where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListTagsForProjectResponse' smart constructor.
 data ListTagsForProjectResponse = ListTagsForProjectResponse'
   { -- | Reserved for future use.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The tags for the project.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForProjectResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Reserved for future use.
--- * 'tags' - The tags for the project.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTagsForProjectResponse' value with any optional fields omitted.
 mkListTagsForProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTagsForProjectResponse
-mkListTagsForProjectResponse pResponseStatus_ =
+mkListTagsForProjectResponse responseStatus =
   ListTagsForProjectResponse'
-    { nextToken = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
 
 -- | Reserved for future use.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfprsNextToken :: Lens.Lens' ListTagsForProjectResponse (Lude.Maybe Lude.Text)
-ltfprsNextToken = Lens.lens (nextToken :: ListTagsForProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTagsForProjectResponse)
-{-# DEPRECATED ltfprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltfprrsNextToken :: Lens.Lens' ListTagsForProjectResponse (Core.Maybe Types.PaginationToken)
+ltfprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltfprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The tags for the project.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfprsTags :: Lens.Lens' ListTagsForProjectResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ltfprsTags = Lens.lens (tags :: ListTagsForProjectResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ListTagsForProjectResponse)
-{-# DEPRECATED ltfprsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+ltfprrsTags :: Lens.Lens' ListTagsForProjectResponse (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+ltfprrsTags = Lens.field @"tags"
+{-# DEPRECATED ltfprrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfprsResponseStatus :: Lens.Lens' ListTagsForProjectResponse Lude.Int
-ltfprsResponseStatus = Lens.lens (responseStatus :: ListTagsForProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForProjectResponse)
-{-# DEPRECATED ltfprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltfprrsResponseStatus :: Lens.Lens' ListTagsForProjectResponse Core.Int
+ltfprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltfprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

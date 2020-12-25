@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Ac3MetadataControl
   ( Ac3MetadataControl
       ( Ac3MetadataControl',
-        AMCFollowInput,
-        AMCUseConfigured
+        Ac3MetadataControlFollowInput,
+        Ac3MetadataControlUseConfigured,
+        fromAc3MetadataControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Ac3 Metadata Control
-newtype Ac3MetadataControl = Ac3MetadataControl' Lude.Text
+newtype Ac3MetadataControl = Ac3MetadataControl'
+  { fromAc3MetadataControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AMCFollowInput :: Ac3MetadataControl
-pattern AMCFollowInput = Ac3MetadataControl' "FOLLOW_INPUT"
+pattern Ac3MetadataControlFollowInput :: Ac3MetadataControl
+pattern Ac3MetadataControlFollowInput = Ac3MetadataControl' "FOLLOW_INPUT"
 
-pattern AMCUseConfigured :: Ac3MetadataControl
-pattern AMCUseConfigured = Ac3MetadataControl' "USE_CONFIGURED"
+pattern Ac3MetadataControlUseConfigured :: Ac3MetadataControl
+pattern Ac3MetadataControlUseConfigured = Ac3MetadataControl' "USE_CONFIGURED"
 
 {-# COMPLETE
-  AMCFollowInput,
-  AMCUseConfigured,
+  Ac3MetadataControlFollowInput,
+  Ac3MetadataControlUseConfigured,
   Ac3MetadataControl'
   #-}

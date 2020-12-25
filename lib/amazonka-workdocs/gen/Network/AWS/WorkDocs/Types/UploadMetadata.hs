@@ -17,58 +17,55 @@ module Network.AWS.WorkDocs.Types.UploadMetadata
     mkUploadMetadata,
 
     -- * Lenses
-    umUploadURL,
     umSignedHeaders,
+    umUploadUrl,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.HeaderNameType as Types
+import qualified Network.AWS.WorkDocs.Types.HeaderValueType as Types
+import qualified Network.AWS.WorkDocs.Types.UrlType as Types
 
 -- | Describes the upload.
 --
 -- /See:/ 'mkUploadMetadata' smart constructor.
 data UploadMetadata = UploadMetadata'
-  { -- | The URL of the upload.
-    uploadURL :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The signed headers.
-    signedHeaders :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+  { -- | The signed headers.
+    signedHeaders :: Core.Maybe (Core.HashMap Types.HeaderNameType Types.HeaderValueType),
+    -- | The URL of the upload.
+    uploadUrl :: Core.Maybe Types.UrlType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UploadMetadata' with the minimum fields required to make a request.
---
--- * 'uploadURL' - The URL of the upload.
--- * 'signedHeaders' - The signed headers.
+-- | Creates a 'UploadMetadata' value with any optional fields omitted.
 mkUploadMetadata ::
   UploadMetadata
 mkUploadMetadata =
   UploadMetadata'
-    { uploadURL = Lude.Nothing,
-      signedHeaders = Lude.Nothing
+    { signedHeaders = Core.Nothing,
+      uploadUrl = Core.Nothing
     }
-
--- | The URL of the upload.
---
--- /Note:/ Consider using 'uploadURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umUploadURL :: Lens.Lens' UploadMetadata (Lude.Maybe (Lude.Sensitive Lude.Text))
-umUploadURL = Lens.lens (uploadURL :: UploadMetadata -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {uploadURL = a} :: UploadMetadata)
-{-# DEPRECATED umUploadURL "Use generic-lens or generic-optics with 'uploadURL' instead." #-}
 
 -- | The signed headers.
 --
 -- /Note:/ Consider using 'signedHeaders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umSignedHeaders :: Lens.Lens' UploadMetadata (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-umSignedHeaders = Lens.lens (signedHeaders :: UploadMetadata -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {signedHeaders = a} :: UploadMetadata)
+umSignedHeaders :: Lens.Lens' UploadMetadata (Core.Maybe (Core.HashMap Types.HeaderNameType Types.HeaderValueType))
+umSignedHeaders = Lens.field @"signedHeaders"
 {-# DEPRECATED umSignedHeaders "Use generic-lens or generic-optics with 'signedHeaders' instead." #-}
 
-instance Lude.FromJSON UploadMetadata where
+-- | The URL of the upload.
+--
+-- /Note:/ Consider using 'uploadUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umUploadUrl :: Lens.Lens' UploadMetadata (Core.Maybe Types.UrlType)
+umUploadUrl = Lens.field @"uploadUrl"
+{-# DEPRECATED umUploadUrl "Use generic-lens or generic-optics with 'uploadUrl' instead." #-}
+
+instance Core.FromJSON UploadMetadata where
   parseJSON =
-    Lude.withObject
-      "UploadMetadata"
-      ( \x ->
-          UploadMetadata'
-            Lude.<$> (x Lude..:? "UploadUrl")
-            Lude.<*> (x Lude..:? "SignedHeaders" Lude..!= Lude.mempty)
-      )
+    Core.withObject "UploadMetadata" Core.$
+      \x ->
+        UploadMetadata'
+          Core.<$> (x Core..:? "SignedHeaders") Core.<*> (x Core..:? "UploadUrl")

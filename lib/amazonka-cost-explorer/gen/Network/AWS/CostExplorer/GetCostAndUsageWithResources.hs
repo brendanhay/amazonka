@@ -20,96 +20,100 @@ module Network.AWS.CostExplorer.GetCostAndUsageWithResources
     mkGetCostAndUsageWithResources,
 
     -- ** Request lenses
-    gcauwrGroupBy,
-    gcauwrNextPageToken,
-    gcauwrMetrics,
     gcauwrTimePeriod,
-    gcauwrGranularity,
     gcauwrFilter,
+    gcauwrGranularity,
+    gcauwrGroupBy,
+    gcauwrMetrics,
+    gcauwrNextPageToken,
 
     -- * Destructuring the response
     GetCostAndUsageWithResourcesResponse (..),
     mkGetCostAndUsageWithResourcesResponse,
 
     -- ** Response lenses
-    gcauwrrsResultsByTime,
-    gcauwrrsNextPageToken,
-    gcauwrrsGroupDefinitions,
-    gcauwrrsResponseStatus,
+    gcauwrrrsGroupDefinitions,
+    gcauwrrrsNextPageToken,
+    gcauwrrrsResultsByTime,
+    gcauwrrrsResponseStatus,
   )
 where
 
-import Network.AWS.CostExplorer.Types
+import qualified Network.AWS.CostExplorer.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetCostAndUsageWithResources' smart constructor.
 data GetCostAndUsageWithResources = GetCostAndUsageWithResources'
-  { -- | You can group Amazon Web Services costs using up to two different groups: @DIMENSION@ , @TAG@ , @COST_CATEGORY@ .
-    groupBy :: Lude.Maybe [GroupDefinition],
-    -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-    nextPageToken :: Lude.Maybe Lude.Text,
+  { -- | Sets the start and end dates for retrieving Amazon Web Services costs. The range must be within the last 14 days (the start date cannot be earlier than 14 days ago). The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
+    timePeriod :: Types.DateInterval,
+    -- | Filters Amazon Web Services costs by different dimensions. For example, you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated with that account's usage of that service. You can nest @Expression@ objects to define any combination of dimension filters. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> .
+    --
+    -- The @GetCostAndUsageWithResources@ operation requires that you either group by or filter by a @ResourceId@ . It requires the <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> @"SERVICE = Amazon Elastic Compute Cloud - Compute"@ in the filter.
+    filter :: Types.Expression,
+    -- | Sets the AWS cost granularity to @MONTHLY@ , @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , @MONTHLY@ , @DAILY@ , or @HOURLY@ .
+    granularity :: Core.Maybe Types.Granularity,
+    -- | You can group Amazon Web Services costs using up to two different groups: @DIMENSION@ , @TAG@ , @COST_CATEGORY@ .
+    groupBy :: Core.Maybe [Types.GroupDefinition],
     -- | Which metrics are returned in the query. For more information about blended and unblended rates, see <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the "blended" annotation appear on some line items in my bill?> .
     --
     -- Valid values are @AmortizedCost@ , @BlendedCost@ , @NetAmortizedCost@ , @NetUnblendedCost@ , @NormalizedUsageAmount@ , @UnblendedCost@ , and @UsageQuantity@ .
     -- @Metrics@ is required for @GetCostAndUsageWithResources@ requests.
-    metrics :: Lude.Maybe [Lude.Text],
-    -- | Sets the start and end dates for retrieving Amazon Web Services costs. The range must be within the last 14 days (the start date cannot be earlier than 14 days ago). The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
-    timePeriod :: DateInterval,
-    -- | Sets the AWS cost granularity to @MONTHLY@ , @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , @MONTHLY@ , @DAILY@ , or @HOURLY@ .
-    granularity :: Lude.Maybe Granularity,
-    -- | Filters Amazon Web Services costs by different dimensions. For example, you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated with that account's usage of that service. You can nest @Expression@ objects to define any combination of dimension filters. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> .
-    --
-    -- The @GetCostAndUsageWithResources@ operation requires that you either group by or filter by a @ResourceId@ . It requires the <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> @"SERVICE = Amazon Elastic Compute Cloud - Compute"@ in the filter.
-    filter :: Expression
+    metrics :: Core.Maybe [Types.MetricName],
+    -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+    nextPageToken :: Core.Maybe Types.NextPageToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCostAndUsageWithResources' with the minimum fields required to make a request.
---
--- * 'groupBy' - You can group Amazon Web Services costs using up to two different groups: @DIMENSION@ , @TAG@ , @COST_CATEGORY@ .
--- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
--- * 'metrics' - Which metrics are returned in the query. For more information about blended and unblended rates, see <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the "blended" annotation appear on some line items in my bill?> .
---
--- Valid values are @AmortizedCost@ , @BlendedCost@ , @NetAmortizedCost@ , @NetUnblendedCost@ , @NormalizedUsageAmount@ , @UnblendedCost@ , and @UsageQuantity@ .
--- @Metrics@ is required for @GetCostAndUsageWithResources@ requests.
--- * 'timePeriod' - Sets the start and end dates for retrieving Amazon Web Services costs. The range must be within the last 14 days (the start date cannot be earlier than 14 days ago). The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
--- * 'granularity' - Sets the AWS cost granularity to @MONTHLY@ , @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , @MONTHLY@ , @DAILY@ , or @HOURLY@ .
--- * 'filter' - Filters Amazon Web Services costs by different dimensions. For example, you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated with that account's usage of that service. You can nest @Expression@ objects to define any combination of dimension filters. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> .
---
--- The @GetCostAndUsageWithResources@ operation requires that you either group by or filter by a @ResourceId@ . It requires the <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> @"SERVICE = Amazon Elastic Compute Cloud - Compute"@ in the filter.
+-- | Creates a 'GetCostAndUsageWithResources' value with any optional fields omitted.
 mkGetCostAndUsageWithResources ::
   -- | 'timePeriod'
-  DateInterval ->
+  Types.DateInterval ->
   -- | 'filter'
-  Expression ->
+  Types.Expression ->
   GetCostAndUsageWithResources
-mkGetCostAndUsageWithResources pTimePeriod_ pFilter_ =
+mkGetCostAndUsageWithResources timePeriod filter =
   GetCostAndUsageWithResources'
-    { groupBy = Lude.Nothing,
-      nextPageToken = Lude.Nothing,
-      metrics = Lude.Nothing,
-      timePeriod = pTimePeriod_,
-      granularity = Lude.Nothing,
-      filter = pFilter_
+    { timePeriod,
+      filter,
+      granularity = Core.Nothing,
+      groupBy = Core.Nothing,
+      metrics = Core.Nothing,
+      nextPageToken = Core.Nothing
     }
+
+-- | Sets the start and end dates for retrieving Amazon Web Services costs. The range must be within the last 14 days (the start date cannot be earlier than 14 days ago). The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauwrTimePeriod :: Lens.Lens' GetCostAndUsageWithResources Types.DateInterval
+gcauwrTimePeriod = Lens.field @"timePeriod"
+{-# DEPRECATED gcauwrTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
+
+-- | Filters Amazon Web Services costs by different dimensions. For example, you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated with that account's usage of that service. You can nest @Expression@ objects to define any combination of dimension filters. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> .
+--
+-- The @GetCostAndUsageWithResources@ operation requires that you either group by or filter by a @ResourceId@ . It requires the <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> @"SERVICE = Amazon Elastic Compute Cloud - Compute"@ in the filter.
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauwrFilter :: Lens.Lens' GetCostAndUsageWithResources Types.Expression
+gcauwrFilter = Lens.field @"filter"
+{-# DEPRECATED gcauwrFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+
+-- | Sets the AWS cost granularity to @MONTHLY@ , @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , @MONTHLY@ , @DAILY@ , or @HOURLY@ .
+--
+-- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauwrGranularity :: Lens.Lens' GetCostAndUsageWithResources (Core.Maybe Types.Granularity)
+gcauwrGranularity = Lens.field @"granularity"
+{-# DEPRECATED gcauwrGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
 
 -- | You can group Amazon Web Services costs using up to two different groups: @DIMENSION@ , @TAG@ , @COST_CATEGORY@ .
 --
 -- /Note:/ Consider using 'groupBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauwrGroupBy :: Lens.Lens' GetCostAndUsageWithResources (Lude.Maybe [GroupDefinition])
-gcauwrGroupBy = Lens.lens (groupBy :: GetCostAndUsageWithResources -> Lude.Maybe [GroupDefinition]) (\s a -> s {groupBy = a} :: GetCostAndUsageWithResources)
+gcauwrGroupBy :: Lens.Lens' GetCostAndUsageWithResources (Core.Maybe [Types.GroupDefinition])
+gcauwrGroupBy = Lens.field @"groupBy"
 {-# DEPRECATED gcauwrGroupBy "Use generic-lens or generic-optics with 'groupBy' instead." #-}
-
--- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauwrNextPageToken :: Lens.Lens' GetCostAndUsageWithResources (Lude.Maybe Lude.Text)
-gcauwrNextPageToken = Lens.lens (nextPageToken :: GetCostAndUsageWithResources -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetCostAndUsageWithResources)
-{-# DEPRECATED gcauwrNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Which metrics are returned in the query. For more information about blended and unblended rates, see <http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/ Why does the "blended" annotation appear on some line items in my bill?> .
 --
@@ -117,137 +121,110 @@ gcauwrNextPageToken = Lens.lens (nextPageToken :: GetCostAndUsageWithResources -
 -- @Metrics@ is required for @GetCostAndUsageWithResources@ requests.
 --
 -- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauwrMetrics :: Lens.Lens' GetCostAndUsageWithResources (Lude.Maybe [Lude.Text])
-gcauwrMetrics = Lens.lens (metrics :: GetCostAndUsageWithResources -> Lude.Maybe [Lude.Text]) (\s a -> s {metrics = a} :: GetCostAndUsageWithResources)
+gcauwrMetrics :: Lens.Lens' GetCostAndUsageWithResources (Core.Maybe [Types.MetricName])
+gcauwrMetrics = Lens.field @"metrics"
 {-# DEPRECATED gcauwrMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
--- | Sets the start and end dates for retrieving Amazon Web Services costs. The range must be within the last 14 days (the start date cannot be earlier than 14 days ago). The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
+-- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
 --
--- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauwrTimePeriod :: Lens.Lens' GetCostAndUsageWithResources DateInterval
-gcauwrTimePeriod = Lens.lens (timePeriod :: GetCostAndUsageWithResources -> DateInterval) (\s a -> s {timePeriod = a} :: GetCostAndUsageWithResources)
-{-# DEPRECATED gcauwrTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauwrNextPageToken :: Lens.Lens' GetCostAndUsageWithResources (Core.Maybe Types.NextPageToken)
+gcauwrNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED gcauwrNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
--- | Sets the AWS cost granularity to @MONTHLY@ , @DAILY@ , or @HOURLY@ . If @Granularity@ isn't set, the response object doesn't include the @Granularity@ , @MONTHLY@ , @DAILY@ , or @HOURLY@ .
---
--- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauwrGranularity :: Lens.Lens' GetCostAndUsageWithResources (Lude.Maybe Granularity)
-gcauwrGranularity = Lens.lens (granularity :: GetCostAndUsageWithResources -> Lude.Maybe Granularity) (\s a -> s {granularity = a} :: GetCostAndUsageWithResources)
-{-# DEPRECATED gcauwrGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
+instance Core.FromJSON GetCostAndUsageWithResources where
+  toJSON GetCostAndUsageWithResources {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TimePeriod" Core..= timePeriod),
+            Core.Just ("Filter" Core..= filter),
+            ("Granularity" Core..=) Core.<$> granularity,
+            ("GroupBy" Core..=) Core.<$> groupBy,
+            ("Metrics" Core..=) Core.<$> metrics,
+            ("NextPageToken" Core..=) Core.<$> nextPageToken
+          ]
+      )
 
--- | Filters Amazon Web Services costs by different dimensions. For example, you can specify @SERVICE@ and @LINKED_ACCOUNT@ and get the costs that are associated with that account's usage of that service. You can nest @Expression@ objects to define any combination of dimension filters. For more information, see <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> .
---
--- The @GetCostAndUsageWithResources@ operation requires that you either group by or filter by a @ResourceId@ . It requires the <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> @"SERVICE = Amazon Elastic Compute Cloud - Compute"@ in the filter.
---
--- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauwrFilter :: Lens.Lens' GetCostAndUsageWithResources Expression
-gcauwrFilter = Lens.lens (filter :: GetCostAndUsageWithResources -> Expression) (\s a -> s {filter = a} :: GetCostAndUsageWithResources)
-{-# DEPRECATED gcauwrFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
-
-instance Lude.AWSRequest GetCostAndUsageWithResources where
+instance Core.AWSRequest GetCostAndUsageWithResources where
   type
     Rs GetCostAndUsageWithResources =
       GetCostAndUsageWithResourcesResponse
-  request = Req.postJSON costExplorerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSInsightsIndexService.GetCostAndUsageWithResources"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCostAndUsageWithResourcesResponse'
-            Lude.<$> (x Lude..?> "ResultsByTime" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "GroupDefinitions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GroupDefinitions")
+            Core.<*> (x Core..:? "NextPageToken")
+            Core.<*> (x Core..:? "ResultsByTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCostAndUsageWithResources where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSInsightsIndexService.GetCostAndUsageWithResources" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetCostAndUsageWithResources where
-  toJSON GetCostAndUsageWithResources' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("GroupBy" Lude..=) Lude.<$> groupBy,
-            ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
-            ("Metrics" Lude..=) Lude.<$> metrics,
-            Lude.Just ("TimePeriod" Lude..= timePeriod),
-            ("Granularity" Lude..=) Lude.<$> granularity,
-            Lude.Just ("Filter" Lude..= filter)
-          ]
-      )
-
-instance Lude.ToPath GetCostAndUsageWithResources where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetCostAndUsageWithResources where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetCostAndUsageWithResourcesResponse' smart constructor.
 data GetCostAndUsageWithResourcesResponse = GetCostAndUsageWithResourcesResponse'
-  { -- | The time period that is covered by the results in the response.
-    resultsByTime :: Lude.Maybe [ResultByTime],
+  { -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in the request.
+    groupDefinitions :: Core.Maybe [Types.GroupDefinition],
     -- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in the request.
-    groupDefinitions :: Lude.Maybe [GroupDefinition],
+    nextPageToken :: Core.Maybe Types.NextPageToken,
+    -- | The time period that is covered by the results in the response.
+    resultsByTime :: Core.Maybe [Types.ResultByTime],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCostAndUsageWithResourcesResponse' with the minimum fields required to make a request.
---
--- * 'resultsByTime' - The time period that is covered by the results in the response.
--- * 'nextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
--- * 'groupDefinitions' - The groups that are specified by the @Filter@ or @GroupBy@ parameters in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCostAndUsageWithResourcesResponse' value with any optional fields omitted.
 mkGetCostAndUsageWithResourcesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCostAndUsageWithResourcesResponse
-mkGetCostAndUsageWithResourcesResponse pResponseStatus_ =
+mkGetCostAndUsageWithResourcesResponse responseStatus =
   GetCostAndUsageWithResourcesResponse'
-    { resultsByTime =
-        Lude.Nothing,
-      nextPageToken = Lude.Nothing,
-      groupDefinitions = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { groupDefinitions =
+        Core.Nothing,
+      nextPageToken = Core.Nothing,
+      resultsByTime = Core.Nothing,
+      responseStatus
     }
-
--- | The time period that is covered by the results in the response.
---
--- /Note:/ Consider using 'resultsByTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauwrrsResultsByTime :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Lude.Maybe [ResultByTime])
-gcauwrrsResultsByTime = Lens.lens (resultsByTime :: GetCostAndUsageWithResourcesResponse -> Lude.Maybe [ResultByTime]) (\s a -> s {resultsByTime = a} :: GetCostAndUsageWithResourcesResponse)
-{-# DEPRECATED gcauwrrsResultsByTime "Use generic-lens or generic-optics with 'resultsByTime' instead." #-}
-
--- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauwrrsNextPageToken :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Lude.Maybe Lude.Text)
-gcauwrrsNextPageToken = Lens.lens (nextPageToken :: GetCostAndUsageWithResourcesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetCostAndUsageWithResourcesResponse)
-{-# DEPRECATED gcauwrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The groups that are specified by the @Filter@ or @GroupBy@ parameters in the request.
 --
 -- /Note:/ Consider using 'groupDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauwrrsGroupDefinitions :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Lude.Maybe [GroupDefinition])
-gcauwrrsGroupDefinitions = Lens.lens (groupDefinitions :: GetCostAndUsageWithResourcesResponse -> Lude.Maybe [GroupDefinition]) (\s a -> s {groupDefinitions = a} :: GetCostAndUsageWithResourcesResponse)
-{-# DEPRECATED gcauwrrsGroupDefinitions "Use generic-lens or generic-optics with 'groupDefinitions' instead." #-}
+gcauwrrrsGroupDefinitions :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Core.Maybe [Types.GroupDefinition])
+gcauwrrrsGroupDefinitions = Lens.field @"groupDefinitions"
+{-# DEPRECATED gcauwrrrsGroupDefinitions "Use generic-lens or generic-optics with 'groupDefinitions' instead." #-}
+
+-- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauwrrrsNextPageToken :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Core.Maybe Types.NextPageToken)
+gcauwrrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED gcauwrrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+
+-- | The time period that is covered by the results in the response.
+--
+-- /Note:/ Consider using 'resultsByTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcauwrrrsResultsByTime :: Lens.Lens' GetCostAndUsageWithResourcesResponse (Core.Maybe [Types.ResultByTime])
+gcauwrrrsResultsByTime = Lens.field @"resultsByTime"
+{-# DEPRECATED gcauwrrrsResultsByTime "Use generic-lens or generic-optics with 'resultsByTime' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcauwrrsResponseStatus :: Lens.Lens' GetCostAndUsageWithResourcesResponse Lude.Int
-gcauwrrsResponseStatus = Lens.lens (responseStatus :: GetCostAndUsageWithResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCostAndUsageWithResourcesResponse)
-{-# DEPRECATED gcauwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcauwrrrsResponseStatus :: Lens.Lens' GetCostAndUsageWithResourcesResponse Core.Int
+gcauwrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcauwrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CodePipeline
     Network.AWS.CodePipeline.AcknowledgeJob
@@ -108,20 +114,28 @@ library
     Network.AWS.CodePipeline.Waiters
 
   other-modules:
+    Network.AWS.CodePipeline.Types.AccessKeyId
+    Network.AWS.CodePipeline.Types.AccountId
     Network.AWS.CodePipeline.Types.ActionCategory
     Network.AWS.CodePipeline.Types.ActionConfiguration
+    Network.AWS.CodePipeline.Types.ActionConfigurationKey
     Network.AWS.CodePipeline.Types.ActionConfigurationProperty
     Network.AWS.CodePipeline.Types.ActionConfigurationPropertyType
+    Network.AWS.CodePipeline.Types.ActionConfigurationQueryableValue
+    Network.AWS.CodePipeline.Types.ActionConfigurationValue
     Network.AWS.CodePipeline.Types.ActionContext
     Network.AWS.CodePipeline.Types.ActionDeclaration
     Network.AWS.CodePipeline.Types.ActionExecution
     Network.AWS.CodePipeline.Types.ActionExecutionDetail
     Network.AWS.CodePipeline.Types.ActionExecutionFilter
+    Network.AWS.CodePipeline.Types.ActionExecutionId
     Network.AWS.CodePipeline.Types.ActionExecutionInput
     Network.AWS.CodePipeline.Types.ActionExecutionOutput
     Network.AWS.CodePipeline.Types.ActionExecutionResult
     Network.AWS.CodePipeline.Types.ActionExecutionStatus
+    Network.AWS.CodePipeline.Types.ActionName
     Network.AWS.CodePipeline.Types.ActionOwner
+    Network.AWS.CodePipeline.Types.ActionProvider
     Network.AWS.CodePipeline.Types.ActionRevision
     Network.AWS.CodePipeline.Types.ActionState
     Network.AWS.CodePipeline.Types.ActionType
@@ -129,60 +143,131 @@ library
     Network.AWS.CodePipeline.Types.ActionTypeSettings
     Network.AWS.CodePipeline.Types.ApprovalResult
     Network.AWS.CodePipeline.Types.ApprovalStatus
+    Network.AWS.CodePipeline.Types.ApprovalSummary
+    Network.AWS.CodePipeline.Types.ApprovalToken
+    Network.AWS.CodePipeline.Types.Arn
     Network.AWS.CodePipeline.Types.Artifact
     Network.AWS.CodePipeline.Types.ArtifactDetail
     Network.AWS.CodePipeline.Types.ArtifactDetails
     Network.AWS.CodePipeline.Types.ArtifactLocation
     Network.AWS.CodePipeline.Types.ArtifactLocationType
+    Network.AWS.CodePipeline.Types.ArtifactName
     Network.AWS.CodePipeline.Types.ArtifactRevision
     Network.AWS.CodePipeline.Types.ArtifactStore
+    Network.AWS.CodePipeline.Types.ArtifactStoreLocation
     Network.AWS.CodePipeline.Types.ArtifactStoreType
+    Network.AWS.CodePipeline.Types.AWSRegionName
     Network.AWS.CodePipeline.Types.AWSSessionCredentials
     Network.AWS.CodePipeline.Types.BlockerDeclaration
     Network.AWS.CodePipeline.Types.BlockerType
+    Network.AWS.CodePipeline.Types.Bucket
+    Network.AWS.CodePipeline.Types.BucketName
+    Network.AWS.CodePipeline.Types.ChangeIdentifier
+    Network.AWS.CodePipeline.Types.ClientId
+    Network.AWS.CodePipeline.Types.ClientRequestToken
+    Network.AWS.CodePipeline.Types.ClientToken
+    Network.AWS.CodePipeline.Types.Code
+    Network.AWS.CodePipeline.Types.ContinuationToken
     Network.AWS.CodePipeline.Types.CurrentRevision
+    Network.AWS.CodePipeline.Types.Description
+    Network.AWS.CodePipeline.Types.DisabledReason
     Network.AWS.CodePipeline.Types.EncryptionKey
+    Network.AWS.CodePipeline.Types.EncryptionKeyId
     Network.AWS.CodePipeline.Types.EncryptionKeyType
+    Network.AWS.CodePipeline.Types.EntityUrlTemplate
+    Network.AWS.CodePipeline.Types.ErrorCode
     Network.AWS.CodePipeline.Types.ErrorDetails
+    Network.AWS.CodePipeline.Types.ErrorMessage
     Network.AWS.CodePipeline.Types.ExecutionDetails
+    Network.AWS.CodePipeline.Types.ExecutionId
     Network.AWS.CodePipeline.Types.ExecutionTrigger
+    Network.AWS.CodePipeline.Types.ExecutionUrlTemplate
+    Network.AWS.CodePipeline.Types.ExternalExecutionId
+    Network.AWS.CodePipeline.Types.ExternalExecutionSummary
+    Network.AWS.CodePipeline.Types.ExternalExecutionUrl
     Network.AWS.CodePipeline.Types.FailureDetails
     Network.AWS.CodePipeline.Types.FailureType
     Network.AWS.CodePipeline.Types.InputArtifact
     Network.AWS.CodePipeline.Types.Job
     Network.AWS.CodePipeline.Types.JobData
     Network.AWS.CodePipeline.Types.JobDetails
+    Network.AWS.CodePipeline.Types.JobId
     Network.AWS.CodePipeline.Types.JobStatus
+    Network.AWS.CodePipeline.Types.JsonPath
+    Network.AWS.CodePipeline.Types.Key
+    Network.AWS.CodePipeline.Types.LastChangedBy
+    Network.AWS.CodePipeline.Types.LastUpdatedBy
     Network.AWS.CodePipeline.Types.ListWebhookItem
+    Network.AWS.CodePipeline.Types.MatchEquals
+    Network.AWS.CodePipeline.Types.Message
+    Network.AWS.CodePipeline.Types.Name
+    Network.AWS.CodePipeline.Types.Namespace
+    Network.AWS.CodePipeline.Types.NextToken
+    Network.AWS.CodePipeline.Types.Nonce
     Network.AWS.CodePipeline.Types.OutputArtifact
+    Network.AWS.CodePipeline.Types.OutputVariablesKey
+    Network.AWS.CodePipeline.Types.OutputVariablesValue
+    Network.AWS.CodePipeline.Types.PipelineArn
     Network.AWS.CodePipeline.Types.PipelineContext
     Network.AWS.CodePipeline.Types.PipelineDeclaration
     Network.AWS.CodePipeline.Types.PipelineExecution
+    Network.AWS.CodePipeline.Types.PipelineExecutionId
     Network.AWS.CodePipeline.Types.PipelineExecutionStatus
     Network.AWS.CodePipeline.Types.PipelineExecutionSummary
     Network.AWS.CodePipeline.Types.PipelineMetadata
+    Network.AWS.CodePipeline.Types.PipelineName
     Network.AWS.CodePipeline.Types.PipelineSummary
+    Network.AWS.CodePipeline.Types.ResourceArn
+    Network.AWS.CodePipeline.Types.Revision
+    Network.AWS.CodePipeline.Types.RevisionChangeId
+    Network.AWS.CodePipeline.Types.RevisionChangeIdentifier
+    Network.AWS.CodePipeline.Types.RevisionId
+    Network.AWS.CodePipeline.Types.RevisionSummary
+    Network.AWS.CodePipeline.Types.RevisionUrl
+    Network.AWS.CodePipeline.Types.RevisionUrlTemplate
+    Network.AWS.CodePipeline.Types.RoleArn
     Network.AWS.CodePipeline.Types.S3ArtifactLocation
+    Network.AWS.CodePipeline.Types.S3Key
     Network.AWS.CodePipeline.Types.S3Location
+    Network.AWS.CodePipeline.Types.S3ObjectKey
+    Network.AWS.CodePipeline.Types.SecretAccessKey
+    Network.AWS.CodePipeline.Types.SessionToken
     Network.AWS.CodePipeline.Types.SourceRevision
     Network.AWS.CodePipeline.Types.StageContext
     Network.AWS.CodePipeline.Types.StageDeclaration
     Network.AWS.CodePipeline.Types.StageExecution
     Network.AWS.CodePipeline.Types.StageExecutionStatus
+    Network.AWS.CodePipeline.Types.StageName
     Network.AWS.CodePipeline.Types.StageRetryMode
     Network.AWS.CodePipeline.Types.StageState
     Network.AWS.CodePipeline.Types.StageTransitionType
     Network.AWS.CodePipeline.Types.StopExecutionTrigger
+    Network.AWS.CodePipeline.Types.StopPipelineExecutionReason
+    Network.AWS.CodePipeline.Types.String
+    Network.AWS.CodePipeline.Types.Summary
     Network.AWS.CodePipeline.Types.Tag
+    Network.AWS.CodePipeline.Types.TagKey
+    Network.AWS.CodePipeline.Types.TargetAction
+    Network.AWS.CodePipeline.Types.ThirdPartyConfigurationUrl
     Network.AWS.CodePipeline.Types.ThirdPartyJob
     Network.AWS.CodePipeline.Types.ThirdPartyJobData
     Network.AWS.CodePipeline.Types.ThirdPartyJobDetails
+    Network.AWS.CodePipeline.Types.ThirdPartyJobId
+    Network.AWS.CodePipeline.Types.Token
     Network.AWS.CodePipeline.Types.TransitionState
+    Network.AWS.CodePipeline.Types.TriggerDetail
     Network.AWS.CodePipeline.Types.TriggerType
+    Network.AWS.CodePipeline.Types.Url
+    Network.AWS.CodePipeline.Types.Value
+    Network.AWS.CodePipeline.Types.Version
     Network.AWS.CodePipeline.Types.WebhookAuthConfiguration
+    Network.AWS.CodePipeline.Types.WebhookAuthConfigurationAllowedIPRange
+    Network.AWS.CodePipeline.Types.WebhookAuthConfigurationSecretToken
     Network.AWS.CodePipeline.Types.WebhookAuthenticationType
     Network.AWS.CodePipeline.Types.WebhookDefinition
     Network.AWS.CodePipeline.Types.WebhookFilterRule
+    Network.AWS.CodePipeline.Types.WebhookName
+    Network.AWS.CodePipeline.Types.WebhookUrl
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

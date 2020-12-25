@@ -23,166 +23,157 @@ module Network.AWS.EC2.CreatePlacementGroup
     mkCreatePlacementGroup,
 
     -- ** Request lenses
+    cpgDryRun,
+    cpgGroupName,
+    cpgPartitionCount,
     cpgStrategy,
     cpgTagSpecifications,
-    cpgGroupName,
-    cpgDryRun,
-    cpgPartitionCount,
 
     -- * Destructuring the response
     CreatePlacementGroupResponse (..),
     mkCreatePlacementGroupResponse,
 
     -- ** Response lenses
-    cpgrsPlacementGroup,
-    cpgrsResponseStatus,
+    cpgrrsPlacementGroup,
+    cpgrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreatePlacementGroup' smart constructor.
 data CreatePlacementGroup = CreatePlacementGroup'
-  { -- | The placement strategy.
-    strategy :: Lude.Maybe PlacementStrategy,
-    -- | The tags to apply to the new placement group.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | A name for the placement group. Must be unique within the scope of your account for the Region.
     --
     -- Constraints: Up to 255 ASCII characters
-    groupName :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    groupName :: Core.Maybe Types.String,
     -- | The number of partitions. Valid only when __Strategy__ is set to @partition@ .
-    partitionCount :: Lude.Maybe Lude.Int
+    partitionCount :: Core.Maybe Core.Int,
+    -- | The placement strategy.
+    strategy :: Core.Maybe Types.PlacementStrategy,
+    -- | The tags to apply to the new placement group.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePlacementGroup' with the minimum fields required to make a request.
---
--- * 'strategy' - The placement strategy.
--- * 'tagSpecifications' - The tags to apply to the new placement group.
--- * 'groupName' - A name for the placement group. Must be unique within the scope of your account for the Region.
---
--- Constraints: Up to 255 ASCII characters
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'partitionCount' - The number of partitions. Valid only when __Strategy__ is set to @partition@ .
+-- | Creates a 'CreatePlacementGroup' value with any optional fields omitted.
 mkCreatePlacementGroup ::
   CreatePlacementGroup
 mkCreatePlacementGroup =
   CreatePlacementGroup'
-    { strategy = Lude.Nothing,
-      tagSpecifications = Lude.Nothing,
-      groupName = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      partitionCount = Lude.Nothing
+    { dryRun = Core.Nothing,
+      groupName = Core.Nothing,
+      partitionCount = Core.Nothing,
+      strategy = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
 
--- | The placement strategy.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'strategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgStrategy :: Lens.Lens' CreatePlacementGroup (Lude.Maybe PlacementStrategy)
-cpgStrategy = Lens.lens (strategy :: CreatePlacementGroup -> Lude.Maybe PlacementStrategy) (\s a -> s {strategy = a} :: CreatePlacementGroup)
-{-# DEPRECATED cpgStrategy "Use generic-lens or generic-optics with 'strategy' instead." #-}
-
--- | The tags to apply to the new placement group.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgTagSpecifications :: Lens.Lens' CreatePlacementGroup (Lude.Maybe [TagSpecification])
-cpgTagSpecifications = Lens.lens (tagSpecifications :: CreatePlacementGroup -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreatePlacementGroup)
-{-# DEPRECATED cpgTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgDryRun :: Lens.Lens' CreatePlacementGroup (Core.Maybe Core.Bool)
+cpgDryRun = Lens.field @"dryRun"
+{-# DEPRECATED cpgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | A name for the placement group. Must be unique within the scope of your account for the Region.
 --
 -- Constraints: Up to 255 ASCII characters
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgGroupName :: Lens.Lens' CreatePlacementGroup (Lude.Maybe Lude.Text)
-cpgGroupName = Lens.lens (groupName :: CreatePlacementGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: CreatePlacementGroup)
+cpgGroupName :: Lens.Lens' CreatePlacementGroup (Core.Maybe Types.String)
+cpgGroupName = Lens.field @"groupName"
 {-# DEPRECATED cpgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgDryRun :: Lens.Lens' CreatePlacementGroup (Lude.Maybe Lude.Bool)
-cpgDryRun = Lens.lens (dryRun :: CreatePlacementGroup -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreatePlacementGroup)
-{-# DEPRECATED cpgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The number of partitions. Valid only when __Strategy__ is set to @partition@ .
 --
 -- /Note:/ Consider using 'partitionCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgPartitionCount :: Lens.Lens' CreatePlacementGroup (Lude.Maybe Lude.Int)
-cpgPartitionCount = Lens.lens (partitionCount :: CreatePlacementGroup -> Lude.Maybe Lude.Int) (\s a -> s {partitionCount = a} :: CreatePlacementGroup)
+cpgPartitionCount :: Lens.Lens' CreatePlacementGroup (Core.Maybe Core.Int)
+cpgPartitionCount = Lens.field @"partitionCount"
 {-# DEPRECATED cpgPartitionCount "Use generic-lens or generic-optics with 'partitionCount' instead." #-}
 
-instance Lude.AWSRequest CreatePlacementGroup where
+-- | The placement strategy.
+--
+-- /Note:/ Consider using 'strategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgStrategy :: Lens.Lens' CreatePlacementGroup (Core.Maybe Types.PlacementStrategy)
+cpgStrategy = Lens.field @"strategy"
+{-# DEPRECATED cpgStrategy "Use generic-lens or generic-optics with 'strategy' instead." #-}
+
+-- | The tags to apply to the new placement group.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgTagSpecifications :: Lens.Lens' CreatePlacementGroup (Core.Maybe [Types.TagSpecification])
+cpgTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED cpgTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreatePlacementGroup where
   type Rs CreatePlacementGroup = CreatePlacementGroupResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreatePlacementGroup")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "GroupName" Core.<$> groupName)
+                Core.<> (Core.toQueryValue "PartitionCount" Core.<$> partitionCount)
+                Core.<> (Core.toQueryValue "Strategy" Core.<$> strategy)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreatePlacementGroupResponse'
-            Lude.<$> (x Lude..@? "placementGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "placementGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreatePlacementGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreatePlacementGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreatePlacementGroup where
-  toQuery CreatePlacementGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreatePlacementGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Strategy" Lude.=: strategy,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "GroupName" Lude.=: groupName,
-        "DryRun" Lude.=: dryRun,
-        "PartitionCount" Lude.=: partitionCount
-      ]
 
 -- | /See:/ 'mkCreatePlacementGroupResponse' smart constructor.
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse'
-  { placementGroup :: Lude.Maybe PlacementGroup,
+  { placementGroup :: Core.Maybe Types.PlacementGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePlacementGroupResponse' with the minimum fields required to make a request.
---
--- * 'placementGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreatePlacementGroupResponse' value with any optional fields omitted.
 mkCreatePlacementGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreatePlacementGroupResponse
-mkCreatePlacementGroupResponse pResponseStatus_ =
+mkCreatePlacementGroupResponse responseStatus =
   CreatePlacementGroupResponse'
-    { placementGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { placementGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'placementGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgrsPlacementGroup :: Lens.Lens' CreatePlacementGroupResponse (Lude.Maybe PlacementGroup)
-cpgrsPlacementGroup = Lens.lens (placementGroup :: CreatePlacementGroupResponse -> Lude.Maybe PlacementGroup) (\s a -> s {placementGroup = a} :: CreatePlacementGroupResponse)
-{-# DEPRECATED cpgrsPlacementGroup "Use generic-lens or generic-optics with 'placementGroup' instead." #-}
+cpgrrsPlacementGroup :: Lens.Lens' CreatePlacementGroupResponse (Core.Maybe Types.PlacementGroup)
+cpgrrsPlacementGroup = Lens.field @"placementGroup"
+{-# DEPRECATED cpgrrsPlacementGroup "Use generic-lens or generic-optics with 'placementGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgrsResponseStatus :: Lens.Lens' CreatePlacementGroupResponse Lude.Int
-cpgrsResponseStatus = Lens.lens (responseStatus :: CreatePlacementGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePlacementGroupResponse)
-{-# DEPRECATED cpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cpgrrsResponseStatus :: Lens.Lens' CreatePlacementGroupResponse Core.Int
+cpgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cpgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

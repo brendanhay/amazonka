@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.WorkDocs
     Network.AWS.WorkDocs.AbortDocumentVersionUpload
@@ -114,29 +120,67 @@ library
   other-modules:
     Network.AWS.WorkDocs.Types.Activity
     Network.AWS.WorkDocs.Types.ActivityType
+    Network.AWS.WorkDocs.Types.ActivityTypes
+    Network.AWS.WorkDocs.Types.AuthenticationHeaderType
+    Network.AWS.WorkDocs.Types.AuthenticationToken
     Network.AWS.WorkDocs.Types.BooleanEnumType
     Network.AWS.WorkDocs.Types.Comment
+    Network.AWS.WorkDocs.Types.CommentId
+    Network.AWS.WorkDocs.Types.CommentIdType
     Network.AWS.WorkDocs.Types.CommentMetadata
     Network.AWS.WorkDocs.Types.CommentStatusType
+    Network.AWS.WorkDocs.Types.CommentTextType
     Network.AWS.WorkDocs.Types.CommentVisibilityType
+    Network.AWS.WorkDocs.Types.ContentType
+    Network.AWS.WorkDocs.Types.CreatorId
+    Network.AWS.WorkDocs.Types.CustomMetadataKeyType
+    Network.AWS.WorkDocs.Types.CustomMetadataValueType
+    Network.AWS.WorkDocs.Types.DocumentContentType
+    Network.AWS.WorkDocs.Types.DocumentId
     Network.AWS.WorkDocs.Types.DocumentMetadata
     Network.AWS.WorkDocs.Types.DocumentSourceType
     Network.AWS.WorkDocs.Types.DocumentStatusType
     Network.AWS.WorkDocs.Types.DocumentThumbnailType
+    Network.AWS.WorkDocs.Types.DocumentVersionIdType
     Network.AWS.WorkDocs.Types.DocumentVersionMetadata
     Network.AWS.WorkDocs.Types.DocumentVersionStatus
+    Network.AWS.WorkDocs.Types.EmailAddressType
+    Network.AWS.WorkDocs.Types.EmailMessage
+    Network.AWS.WorkDocs.Types.Fields
     Network.AWS.WorkDocs.Types.FolderContentType
+    Network.AWS.WorkDocs.Types.FolderId
     Network.AWS.WorkDocs.Types.FolderMetadata
     Network.AWS.WorkDocs.Types.GroupMetadata
+    Network.AWS.WorkDocs.Types.GroupNameType
+    Network.AWS.WorkDocs.Types.HeaderNameType
+    Network.AWS.WorkDocs.Types.HeaderValueType
+    Network.AWS.WorkDocs.Types.Id
+    Network.AWS.WorkDocs.Types.IdType
+    Network.AWS.WorkDocs.Types.Include
+    Network.AWS.WorkDocs.Types.InviteePrincipalId
     Network.AWS.WorkDocs.Types.LocaleType
+    Network.AWS.WorkDocs.Types.Marker
+    Network.AWS.WorkDocs.Types.MarkerType
+    Network.AWS.WorkDocs.Types.Name
     Network.AWS.WorkDocs.Types.NotificationOptions
     Network.AWS.WorkDocs.Types.OrderType
+    Network.AWS.WorkDocs.Types.OrganizationId
+    Network.AWS.WorkDocs.Types.OriginalName
+    Network.AWS.WorkDocs.Types.PageMarkerType
+    Network.AWS.WorkDocs.Types.ParentFolderId
+    Network.AWS.WorkDocs.Types.ParentId
     Network.AWS.WorkDocs.Types.Participants
+    Network.AWS.WorkDocs.Types.PasswordType
     Network.AWS.WorkDocs.Types.PermissionInfo
     Network.AWS.WorkDocs.Types.Principal
+    Network.AWS.WorkDocs.Types.PrincipalId
     Network.AWS.WorkDocs.Types.PrincipalType
+    Network.AWS.WorkDocs.Types.RecycleBinFolderId
     Network.AWS.WorkDocs.Types.ResourceCollectionType
+    Network.AWS.WorkDocs.Types.ResourceId
+    Network.AWS.WorkDocs.Types.ResourceIdType
     Network.AWS.WorkDocs.Types.ResourceMetadata
+    Network.AWS.WorkDocs.Types.ResourceNameType
     Network.AWS.WorkDocs.Types.ResourcePath
     Network.AWS.WorkDocs.Types.ResourcePathComponent
     Network.AWS.WorkDocs.Types.ResourceSortType
@@ -144,22 +188,37 @@ library
     Network.AWS.WorkDocs.Types.ResourceType
     Network.AWS.WorkDocs.Types.RolePermissionType
     Network.AWS.WorkDocs.Types.RoleType
+    Network.AWS.WorkDocs.Types.RootFolderId
+    Network.AWS.WorkDocs.Types.SearchQueryType
+    Network.AWS.WorkDocs.Types.SharedLabel
+    Network.AWS.WorkDocs.Types.ShareId
     Network.AWS.WorkDocs.Types.SharePrincipal
     Network.AWS.WorkDocs.Types.ShareResult
     Network.AWS.WorkDocs.Types.ShareStatusType
+    Network.AWS.WorkDocs.Types.Signature
+    Network.AWS.WorkDocs.Types.StatusMessage
     Network.AWS.WorkDocs.Types.StorageRuleType
     Network.AWS.WorkDocs.Types.StorageType
     Network.AWS.WorkDocs.Types.Subscription
+    Network.AWS.WorkDocs.Types.SubscriptionEndPointType
     Network.AWS.WorkDocs.Types.SubscriptionProtocolType
     Network.AWS.WorkDocs.Types.SubscriptionType
+    Network.AWS.WorkDocs.Types.Text
+    Network.AWS.WorkDocs.Types.TimeZoneIdType
     Network.AWS.WorkDocs.Types.UploadMetadata
+    Network.AWS.WorkDocs.Types.UrlType
     Network.AWS.WorkDocs.Types.User
+    Network.AWS.WorkDocs.Types.UserAttributeValueType
     Network.AWS.WorkDocs.Types.UserFilterType
+    Network.AWS.WorkDocs.Types.UserId
+    Network.AWS.WorkDocs.Types.UserIdsType
     Network.AWS.WorkDocs.Types.UserMetadata
+    Network.AWS.WorkDocs.Types.Username
     Network.AWS.WorkDocs.Types.UserSortType
     Network.AWS.WorkDocs.Types.UserStatusType
     Network.AWS.WorkDocs.Types.UserStorageMetadata
     Network.AWS.WorkDocs.Types.UserType
+    Network.AWS.WorkDocs.Types.VersionId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

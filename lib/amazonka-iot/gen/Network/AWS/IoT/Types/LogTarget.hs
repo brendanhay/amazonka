@@ -22,61 +22,57 @@ module Network.AWS.IoT.Types.LogTarget
   )
 where
 
-import Network.AWS.IoT.Types.LogTargetType
+import qualified Network.AWS.IoT.Types.LogTargetName as Types
+import qualified Network.AWS.IoT.Types.LogTargetType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A log target.
 --
 -- /See:/ 'mkLogTarget' smart constructor.
 data LogTarget = LogTarget'
   { -- | The target type.
-    targetType :: LogTargetType,
+    targetType :: Types.LogTargetType,
     -- | The target name.
-    targetName :: Lude.Maybe Lude.Text
+    targetName :: Core.Maybe Types.LogTargetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LogTarget' with the minimum fields required to make a request.
---
--- * 'targetType' - The target type.
--- * 'targetName' - The target name.
+-- | Creates a 'LogTarget' value with any optional fields omitted.
 mkLogTarget ::
   -- | 'targetType'
-  LogTargetType ->
+  Types.LogTargetType ->
   LogTarget
-mkLogTarget pTargetType_ =
-  LogTarget' {targetType = pTargetType_, targetName = Lude.Nothing}
+mkLogTarget targetType =
+  LogTarget' {targetType, targetName = Core.Nothing}
 
 -- | The target type.
 --
 -- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltTargetType :: Lens.Lens' LogTarget LogTargetType
-ltTargetType = Lens.lens (targetType :: LogTarget -> LogTargetType) (\s a -> s {targetType = a} :: LogTarget)
+ltTargetType :: Lens.Lens' LogTarget Types.LogTargetType
+ltTargetType = Lens.field @"targetType"
 {-# DEPRECATED ltTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
 
 -- | The target name.
 --
 -- /Note:/ Consider using 'targetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltTargetName :: Lens.Lens' LogTarget (Lude.Maybe Lude.Text)
-ltTargetName = Lens.lens (targetName :: LogTarget -> Lude.Maybe Lude.Text) (\s a -> s {targetName = a} :: LogTarget)
+ltTargetName :: Lens.Lens' LogTarget (Core.Maybe Types.LogTargetName)
+ltTargetName = Lens.field @"targetName"
 {-# DEPRECATED ltTargetName "Use generic-lens or generic-optics with 'targetName' instead." #-}
 
-instance Lude.FromJSON LogTarget where
-  parseJSON =
-    Lude.withObject
-      "LogTarget"
-      ( \x ->
-          LogTarget'
-            Lude.<$> (x Lude..: "targetType") Lude.<*> (x Lude..:? "targetName")
-      )
-
-instance Lude.ToJSON LogTarget where
-  toJSON LogTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("targetType" Lude..= targetType),
-            ("targetName" Lude..=) Lude.<$> targetName
+instance Core.FromJSON LogTarget where
+  toJSON LogTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("targetType" Core..= targetType),
+            ("targetName" Core..=) Core.<$> targetName
           ]
       )
+
+instance Core.FromJSON LogTarget where
+  parseJSON =
+    Core.withObject "LogTarget" Core.$
+      \x ->
+        LogTarget'
+          Core.<$> (x Core..: "targetType") Core.<*> (x Core..:? "targetName")

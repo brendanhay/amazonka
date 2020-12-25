@@ -23,47 +23,44 @@ module Network.AWS.EC2.Types.TrafficMirrorPortRange
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the Traffic Mirror port range.
 --
 -- /See:/ 'mkTrafficMirrorPortRange' smart constructor.
 data TrafficMirrorPortRange = TrafficMirrorPortRange'
   { -- | The start of the Traffic Mirror port range. This applies to the TCP and UDP protocols.
-    fromPort :: Lude.Maybe Lude.Int,
+    fromPort :: Core.Maybe Core.Int,
     -- | The end of the Traffic Mirror port range. This applies to the TCP and UDP protocols.
-    toPort :: Lude.Maybe Lude.Int
+    toPort :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrafficMirrorPortRange' with the minimum fields required to make a request.
---
--- * 'fromPort' - The start of the Traffic Mirror port range. This applies to the TCP and UDP protocols.
--- * 'toPort' - The end of the Traffic Mirror port range. This applies to the TCP and UDP protocols.
+-- | Creates a 'TrafficMirrorPortRange' value with any optional fields omitted.
 mkTrafficMirrorPortRange ::
   TrafficMirrorPortRange
 mkTrafficMirrorPortRange =
   TrafficMirrorPortRange'
-    { fromPort = Lude.Nothing,
-      toPort = Lude.Nothing
+    { fromPort = Core.Nothing,
+      toPort = Core.Nothing
     }
 
 -- | The start of the Traffic Mirror port range. This applies to the TCP and UDP protocols.
 --
 -- /Note:/ Consider using 'fromPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmprFromPort :: Lens.Lens' TrafficMirrorPortRange (Lude.Maybe Lude.Int)
-tmprFromPort = Lens.lens (fromPort :: TrafficMirrorPortRange -> Lude.Maybe Lude.Int) (\s a -> s {fromPort = a} :: TrafficMirrorPortRange)
+tmprFromPort :: Lens.Lens' TrafficMirrorPortRange (Core.Maybe Core.Int)
+tmprFromPort = Lens.field @"fromPort"
 {-# DEPRECATED tmprFromPort "Use generic-lens or generic-optics with 'fromPort' instead." #-}
 
 -- | The end of the Traffic Mirror port range. This applies to the TCP and UDP protocols.
 --
 -- /Note:/ Consider using 'toPort' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmprToPort :: Lens.Lens' TrafficMirrorPortRange (Lude.Maybe Lude.Int)
-tmprToPort = Lens.lens (toPort :: TrafficMirrorPortRange -> Lude.Maybe Lude.Int) (\s a -> s {toPort = a} :: TrafficMirrorPortRange)
+tmprToPort :: Lens.Lens' TrafficMirrorPortRange (Core.Maybe Core.Int)
+tmprToPort = Lens.field @"toPort"
 {-# DEPRECATED tmprToPort "Use generic-lens or generic-optics with 'toPort' instead." #-}
 
-instance Lude.FromXML TrafficMirrorPortRange where
+instance Core.FromXML TrafficMirrorPortRange where
   parseXML x =
     TrafficMirrorPortRange'
-      Lude.<$> (x Lude..@? "fromPort") Lude.<*> (x Lude..@? "toPort")
+      Core.<$> (x Core..@? "fromPort") Core.<*> (x Core..@? "toPort")

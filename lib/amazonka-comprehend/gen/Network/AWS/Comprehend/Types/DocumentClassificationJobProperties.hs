@@ -17,42 +17,58 @@ module Network.AWS.Comprehend.Types.DocumentClassificationJobProperties
     mkDocumentClassificationJobProperties,
 
     -- * Lenses
-    dcjpJobId,
-    dcjpDocumentClassifierARN,
-    dcjpJobName,
-    dcjpInputDataConfig,
-    dcjpVPCConfig,
-    dcjpVolumeKMSKeyId,
+    dcjpDataAccessRoleArn,
+    dcjpDocumentClassifierArn,
     dcjpEndTime,
-    dcjpOutputDataConfig,
-    dcjpDataAccessRoleARN,
+    dcjpInputDataConfig,
+    dcjpJobId,
+    dcjpJobName,
     dcjpJobStatus,
     dcjpMessage,
+    dcjpOutputDataConfig,
     dcjpSubmitTime,
+    dcjpVolumeKmsKeyId,
+    dcjpVpcConfig,
   )
 where
 
-import Network.AWS.Comprehend.Types.InputDataConfig
-import Network.AWS.Comprehend.Types.JobStatus
-import Network.AWS.Comprehend.Types.OutputDataConfig
-import Network.AWS.Comprehend.Types.VPCConfig
+import qualified Network.AWS.Comprehend.Types.AnyLengthString as Types
+import qualified Network.AWS.Comprehend.Types.DocumentClassifierArn as Types
+import qualified Network.AWS.Comprehend.Types.IamRoleArn as Types
+import qualified Network.AWS.Comprehend.Types.InputDataConfig as Types
+import qualified Network.AWS.Comprehend.Types.JobId as Types
+import qualified Network.AWS.Comprehend.Types.JobName as Types
+import qualified Network.AWS.Comprehend.Types.JobStatus as Types
+import qualified Network.AWS.Comprehend.Types.KmsKeyId as Types
+import qualified Network.AWS.Comprehend.Types.OutputDataConfig as Types
+import qualified Network.AWS.Comprehend.Types.VpcConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about a document classification job.
 --
 -- /See:/ 'mkDocumentClassificationJobProperties' smart constructor.
 data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
-  { -- | The identifier assigned to the document classification job.
-    jobId :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
+    dataAccessRoleArn :: Core.Maybe Types.IamRoleArn,
     -- | The Amazon Resource Name (ARN) that identifies the document classifier.
-    documentClassifierARN :: Lude.Maybe Lude.Text,
-    -- | The name that you assigned to the document classification job.
-    jobName :: Lude.Maybe Lude.Text,
+    documentClassifierArn :: Core.Maybe Types.DocumentClassifierArn,
+    -- | The time that the document classification job completed.
+    endTime :: Core.Maybe Core.NominalDiffTime,
     -- | The input data configuration that you supplied when you created the document classification job.
-    inputDataConfig :: Lude.Maybe InputDataConfig,
-    -- | Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
-    vpcConfig :: Lude.Maybe VPCConfig,
+    inputDataConfig :: Core.Maybe Types.InputDataConfig,
+    -- | The identifier assigned to the document classification job.
+    jobId :: Core.Maybe Types.JobId,
+    -- | The name that you assigned to the document classification job.
+    jobName :: Core.Maybe Types.JobName,
+    -- | The current status of the document classification job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
+    jobStatus :: Core.Maybe Types.JobStatus,
+    -- | A description of the status of the job.
+    message :: Core.Maybe Types.AnyLengthString,
+    -- | The output data configuration that you supplied when you created the document classification job.
+    outputDataConfig :: Core.Maybe Types.OutputDataConfig,
+    -- | The time that the document classification job was submitted for processing.
+    submitTime :: Core.Maybe Core.NominalDiffTime,
     -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
     --
     --
@@ -60,97 +76,102 @@ data DocumentClassificationJobProperties = DocumentClassificationJobProperties'
     --
     --
     --     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
-    volumeKMSKeyId :: Lude.Maybe Lude.Text,
-    -- | The time that the document classification job completed.
-    endTime :: Lude.Maybe Lude.Timestamp,
-    -- | The output data configuration that you supplied when you created the document classification job.
-    outputDataConfig :: Lude.Maybe OutputDataConfig,
-    -- | The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
-    dataAccessRoleARN :: Lude.Maybe Lude.Text,
-    -- | The current status of the document classification job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
-    jobStatus :: Lude.Maybe JobStatus,
-    -- | A description of the status of the job.
-    message :: Lude.Maybe Lude.Text,
-    -- | The time that the document classification job was submitted for processing.
-    submitTime :: Lude.Maybe Lude.Timestamp
+    volumeKmsKeyId :: Core.Maybe Types.KmsKeyId,
+    -- | Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+    vpcConfig :: Core.Maybe Types.VpcConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DocumentClassificationJobProperties' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier assigned to the document classification job.
--- * 'documentClassifierARN' - The Amazon Resource Name (ARN) that identifies the document classifier.
--- * 'jobName' - The name that you assigned to the document classification job.
--- * 'inputDataConfig' - The input data configuration that you supplied when you created the document classification job.
--- * 'vpcConfig' - Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
--- * 'volumeKMSKeyId' - ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
---
---
---     * KMS Key ID: @"1234abcd-12ab-34cd-56ef-1234567890ab"@
---
---
---     * Amazon Resource Name (ARN) of a KMS Key: @"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"@
---
---
--- * 'endTime' - The time that the document classification job completed.
--- * 'outputDataConfig' - The output data configuration that you supplied when you created the document classification job.
--- * 'dataAccessRoleARN' - The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
--- * 'jobStatus' - The current status of the document classification job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
--- * 'message' - A description of the status of the job.
--- * 'submitTime' - The time that the document classification job was submitted for processing.
+-- | Creates a 'DocumentClassificationJobProperties' value with any optional fields omitted.
 mkDocumentClassificationJobProperties ::
   DocumentClassificationJobProperties
 mkDocumentClassificationJobProperties =
   DocumentClassificationJobProperties'
-    { jobId = Lude.Nothing,
-      documentClassifierARN = Lude.Nothing,
-      jobName = Lude.Nothing,
-      inputDataConfig = Lude.Nothing,
-      vpcConfig = Lude.Nothing,
-      volumeKMSKeyId = Lude.Nothing,
-      endTime = Lude.Nothing,
-      outputDataConfig = Lude.Nothing,
-      dataAccessRoleARN = Lude.Nothing,
-      jobStatus = Lude.Nothing,
-      message = Lude.Nothing,
-      submitTime = Lude.Nothing
+    { dataAccessRoleArn =
+        Core.Nothing,
+      documentClassifierArn = Core.Nothing,
+      endTime = Core.Nothing,
+      inputDataConfig = Core.Nothing,
+      jobId = Core.Nothing,
+      jobName = Core.Nothing,
+      jobStatus = Core.Nothing,
+      message = Core.Nothing,
+      outputDataConfig = Core.Nothing,
+      submitTime = Core.Nothing,
+      volumeKmsKeyId = Core.Nothing,
+      vpcConfig = Core.Nothing
     }
 
--- | The identifier assigned to the document classification job.
+-- | The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
 --
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpJobId :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe Lude.Text)
-dcjpJobId = Lens.lens (jobId :: DocumentClassificationJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: DocumentClassificationJobProperties)
-{-# DEPRECATED dcjpJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+-- /Note:/ Consider using 'dataAccessRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjpDataAccessRoleArn :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Types.IamRoleArn)
+dcjpDataAccessRoleArn = Lens.field @"dataAccessRoleArn"
+{-# DEPRECATED dcjpDataAccessRoleArn "Use generic-lens or generic-optics with 'dataAccessRoleArn' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier.
 --
--- /Note:/ Consider using 'documentClassifierARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpDocumentClassifierARN :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe Lude.Text)
-dcjpDocumentClassifierARN = Lens.lens (documentClassifierARN :: DocumentClassificationJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {documentClassifierARN = a} :: DocumentClassificationJobProperties)
-{-# DEPRECATED dcjpDocumentClassifierARN "Use generic-lens or generic-optics with 'documentClassifierARN' instead." #-}
+-- /Note:/ Consider using 'documentClassifierArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjpDocumentClassifierArn :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Types.DocumentClassifierArn)
+dcjpDocumentClassifierArn = Lens.field @"documentClassifierArn"
+{-# DEPRECATED dcjpDocumentClassifierArn "Use generic-lens or generic-optics with 'documentClassifierArn' instead." #-}
 
--- | The name that you assigned to the document classification job.
+-- | The time that the document classification job completed.
 --
--- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpJobName :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe Lude.Text)
-dcjpJobName = Lens.lens (jobName :: DocumentClassificationJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {jobName = a} :: DocumentClassificationJobProperties)
-{-# DEPRECATED dcjpJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjpEndTime :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Core.NominalDiffTime)
+dcjpEndTime = Lens.field @"endTime"
+{-# DEPRECATED dcjpEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The input data configuration that you supplied when you created the document classification job.
 --
 -- /Note:/ Consider using 'inputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpInputDataConfig :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe InputDataConfig)
-dcjpInputDataConfig = Lens.lens (inputDataConfig :: DocumentClassificationJobProperties -> Lude.Maybe InputDataConfig) (\s a -> s {inputDataConfig = a} :: DocumentClassificationJobProperties)
+dcjpInputDataConfig :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Types.InputDataConfig)
+dcjpInputDataConfig = Lens.field @"inputDataConfig"
 {-# DEPRECATED dcjpInputDataConfig "Use generic-lens or generic-optics with 'inputDataConfig' instead." #-}
 
--- | Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
+-- | The identifier assigned to the document classification job.
 --
--- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpVPCConfig :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe VPCConfig)
-dcjpVPCConfig = Lens.lens (vpcConfig :: DocumentClassificationJobProperties -> Lude.Maybe VPCConfig) (\s a -> s {vpcConfig = a} :: DocumentClassificationJobProperties)
-{-# DEPRECATED dcjpVPCConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjpJobId :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Types.JobId)
+dcjpJobId = Lens.field @"jobId"
+{-# DEPRECATED dcjpJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+
+-- | The name that you assigned to the document classification job.
+--
+-- /Note:/ Consider using 'jobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjpJobName :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Types.JobName)
+dcjpJobName = Lens.field @"jobName"
+{-# DEPRECATED dcjpJobName "Use generic-lens or generic-optics with 'jobName' instead." #-}
+
+-- | The current status of the document classification job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
+--
+-- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjpJobStatus :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Types.JobStatus)
+dcjpJobStatus = Lens.field @"jobStatus"
+{-# DEPRECATED dcjpJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+
+-- | A description of the status of the job.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjpMessage :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Types.AnyLengthString)
+dcjpMessage = Lens.field @"message"
+{-# DEPRECATED dcjpMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | The output data configuration that you supplied when you created the document classification job.
+--
+-- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjpOutputDataConfig :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Types.OutputDataConfig)
+dcjpOutputDataConfig = Lens.field @"outputDataConfig"
+{-# DEPRECATED dcjpOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
+
+-- | The time that the document classification job was submitted for processing.
+--
+-- /Note:/ Consider using 'submitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjpSubmitTime :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Core.NominalDiffTime)
+dcjpSubmitTime = Lens.field @"submitTime"
+{-# DEPRECATED dcjpSubmitTime "Use generic-lens or generic-optics with 'submitTime' instead." #-}
 
 -- | ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:
 --
@@ -162,69 +183,32 @@ dcjpVPCConfig = Lens.lens (vpcConfig :: DocumentClassificationJobProperties -> L
 --
 --
 --
--- /Note:/ Consider using 'volumeKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpVolumeKMSKeyId :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe Lude.Text)
-dcjpVolumeKMSKeyId = Lens.lens (volumeKMSKeyId :: DocumentClassificationJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {volumeKMSKeyId = a} :: DocumentClassificationJobProperties)
-{-# DEPRECATED dcjpVolumeKMSKeyId "Use generic-lens or generic-optics with 'volumeKMSKeyId' instead." #-}
+-- /Note:/ Consider using 'volumeKmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjpVolumeKmsKeyId :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Types.KmsKeyId)
+dcjpVolumeKmsKeyId = Lens.field @"volumeKmsKeyId"
+{-# DEPRECATED dcjpVolumeKmsKeyId "Use generic-lens or generic-optics with 'volumeKmsKeyId' instead." #-}
 
--- | The time that the document classification job completed.
+-- | Configuration parameters for a private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html Amazon VPC> .
 --
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpEndTime :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe Lude.Timestamp)
-dcjpEndTime = Lens.lens (endTime :: DocumentClassificationJobProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: DocumentClassificationJobProperties)
-{-# DEPRECATED dcjpEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+-- /Note:/ Consider using 'vpcConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcjpVpcConfig :: Lens.Lens' DocumentClassificationJobProperties (Core.Maybe Types.VpcConfig)
+dcjpVpcConfig = Lens.field @"vpcConfig"
+{-# DEPRECATED dcjpVpcConfig "Use generic-lens or generic-optics with 'vpcConfig' instead." #-}
 
--- | The output data configuration that you supplied when you created the document classification job.
---
--- /Note:/ Consider using 'outputDataConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpOutputDataConfig :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe OutputDataConfig)
-dcjpOutputDataConfig = Lens.lens (outputDataConfig :: DocumentClassificationJobProperties -> Lude.Maybe OutputDataConfig) (\s a -> s {outputDataConfig = a} :: DocumentClassificationJobProperties)
-{-# DEPRECATED dcjpOutputDataConfig "Use generic-lens or generic-optics with 'outputDataConfig' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.
---
--- /Note:/ Consider using 'dataAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpDataAccessRoleARN :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe Lude.Text)
-dcjpDataAccessRoleARN = Lens.lens (dataAccessRoleARN :: DocumentClassificationJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {dataAccessRoleARN = a} :: DocumentClassificationJobProperties)
-{-# DEPRECATED dcjpDataAccessRoleARN "Use generic-lens or generic-optics with 'dataAccessRoleARN' instead." #-}
-
--- | The current status of the document classification job. If the status is @FAILED@ , the @Message@ field shows the reason for the failure.
---
--- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpJobStatus :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe JobStatus)
-dcjpJobStatus = Lens.lens (jobStatus :: DocumentClassificationJobProperties -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: DocumentClassificationJobProperties)
-{-# DEPRECATED dcjpJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
-
--- | A description of the status of the job.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpMessage :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe Lude.Text)
-dcjpMessage = Lens.lens (message :: DocumentClassificationJobProperties -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DocumentClassificationJobProperties)
-{-# DEPRECATED dcjpMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
--- | The time that the document classification job was submitted for processing.
---
--- /Note:/ Consider using 'submitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcjpSubmitTime :: Lens.Lens' DocumentClassificationJobProperties (Lude.Maybe Lude.Timestamp)
-dcjpSubmitTime = Lens.lens (submitTime :: DocumentClassificationJobProperties -> Lude.Maybe Lude.Timestamp) (\s a -> s {submitTime = a} :: DocumentClassificationJobProperties)
-{-# DEPRECATED dcjpSubmitTime "Use generic-lens or generic-optics with 'submitTime' instead." #-}
-
-instance Lude.FromJSON DocumentClassificationJobProperties where
+instance Core.FromJSON DocumentClassificationJobProperties where
   parseJSON =
-    Lude.withObject
-      "DocumentClassificationJobProperties"
-      ( \x ->
-          DocumentClassificationJobProperties'
-            Lude.<$> (x Lude..:? "JobId")
-            Lude.<*> (x Lude..:? "DocumentClassifierArn")
-            Lude.<*> (x Lude..:? "JobName")
-            Lude.<*> (x Lude..:? "InputDataConfig")
-            Lude.<*> (x Lude..:? "VpcConfig")
-            Lude.<*> (x Lude..:? "VolumeKmsKeyId")
-            Lude.<*> (x Lude..:? "EndTime")
-            Lude.<*> (x Lude..:? "OutputDataConfig")
-            Lude.<*> (x Lude..:? "DataAccessRoleArn")
-            Lude.<*> (x Lude..:? "JobStatus")
-            Lude.<*> (x Lude..:? "Message")
-            Lude.<*> (x Lude..:? "SubmitTime")
-      )
+    Core.withObject "DocumentClassificationJobProperties" Core.$
+      \x ->
+        DocumentClassificationJobProperties'
+          Core.<$> (x Core..:? "DataAccessRoleArn")
+          Core.<*> (x Core..:? "DocumentClassifierArn")
+          Core.<*> (x Core..:? "EndTime")
+          Core.<*> (x Core..:? "InputDataConfig")
+          Core.<*> (x Core..:? "JobId")
+          Core.<*> (x Core..:? "JobName")
+          Core.<*> (x Core..:? "JobStatus")
+          Core.<*> (x Core..:? "Message")
+          Core.<*> (x Core..:? "OutputDataConfig")
+          Core.<*> (x Core..:? "SubmitTime")
+          Core.<*> (x Core..:? "VolumeKmsKeyId")
+          Core.<*> (x Core..:? "VpcConfig")

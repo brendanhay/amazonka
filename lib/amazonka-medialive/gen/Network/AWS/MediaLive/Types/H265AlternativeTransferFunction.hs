@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.H265AlternativeTransferFunction
   ( H265AlternativeTransferFunction
       ( H265AlternativeTransferFunction',
-        Insert,
-        Omit
+        H265AlternativeTransferFunctionInsert,
+        H265AlternativeTransferFunctionOmit,
+        fromH265AlternativeTransferFunction
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H265 Alternative Transfer Function
-newtype H265AlternativeTransferFunction = H265AlternativeTransferFunction' Lude.Text
+newtype H265AlternativeTransferFunction = H265AlternativeTransferFunction'
+  { fromH265AlternativeTransferFunction ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Insert :: H265AlternativeTransferFunction
-pattern Insert = H265AlternativeTransferFunction' "INSERT"
+pattern H265AlternativeTransferFunctionInsert :: H265AlternativeTransferFunction
+pattern H265AlternativeTransferFunctionInsert = H265AlternativeTransferFunction' "INSERT"
 
-pattern Omit :: H265AlternativeTransferFunction
-pattern Omit = H265AlternativeTransferFunction' "OMIT"
+pattern H265AlternativeTransferFunctionOmit :: H265AlternativeTransferFunction
+pattern H265AlternativeTransferFunctionOmit = H265AlternativeTransferFunction' "OMIT"
 
 {-# COMPLETE
-  Insert,
-  Omit,
+  H265AlternativeTransferFunctionInsert,
+  H265AlternativeTransferFunctionOmit,
   H265AlternativeTransferFunction'
   #-}

@@ -20,96 +20,97 @@ module Network.AWS.ElasticBeanstalk.ComposeEnvironments
     mkComposeEnvironments,
 
     -- ** Request lenses
-    ceVersionLabels,
     ceApplicationName,
     ceGroupName,
+    ceVersionLabels,
 
     -- * Destructuring the response
-    EnvironmentDescriptionsMessage (..),
-    mkEnvironmentDescriptionsMessage,
+    Types.EnvironmentDescriptionsMessage (..),
+    Types.mkEnvironmentDescriptionsMessage,
 
     -- ** Response lenses
-    edmNextToken,
-    edmEnvironments,
+    Types.edmEnvironments,
+    Types.edmNextToken,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to create or update a group of environments.
 --
 -- /See:/ 'mkComposeEnvironments' smart constructor.
 data ComposeEnvironments = ComposeEnvironments'
-  { -- | A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.
-    versionLabels :: Lude.Maybe [Lude.Text],
-    -- | The name of the application to which the specified source bundles belong.
-    applicationName :: Lude.Maybe Lude.Text,
+  { -- | The name of the application to which the specified source bundles belong.
+    applicationName :: Core.Maybe Types.ApplicationName,
     -- | The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment's manifest ends with a + (plus) character. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
-    groupName :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.GroupName,
+    -- | A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.
+    versionLabels :: Core.Maybe [Types.VersionLabel]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ComposeEnvironments' with the minimum fields required to make a request.
---
--- * 'versionLabels' - A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.
--- * 'applicationName' - The name of the application to which the specified source bundles belong.
--- * 'groupName' - The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment's manifest ends with a + (plus) character. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
+-- | Creates a 'ComposeEnvironments' value with any optional fields omitted.
 mkComposeEnvironments ::
   ComposeEnvironments
 mkComposeEnvironments =
   ComposeEnvironments'
-    { versionLabels = Lude.Nothing,
-      applicationName = Lude.Nothing,
-      groupName = Lude.Nothing
+    { applicationName = Core.Nothing,
+      groupName = Core.Nothing,
+      versionLabels = Core.Nothing
     }
-
--- | A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.
---
--- /Note:/ Consider using 'versionLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceVersionLabels :: Lens.Lens' ComposeEnvironments (Lude.Maybe [Lude.Text])
-ceVersionLabels = Lens.lens (versionLabels :: ComposeEnvironments -> Lude.Maybe [Lude.Text]) (\s a -> s {versionLabels = a} :: ComposeEnvironments)
-{-# DEPRECATED ceVersionLabels "Use generic-lens or generic-optics with 'versionLabels' instead." #-}
 
 -- | The name of the application to which the specified source bundles belong.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceApplicationName :: Lens.Lens' ComposeEnvironments (Lude.Maybe Lude.Text)
-ceApplicationName = Lens.lens (applicationName :: ComposeEnvironments -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: ComposeEnvironments)
+ceApplicationName :: Lens.Lens' ComposeEnvironments (Core.Maybe Types.ApplicationName)
+ceApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED ceApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The name of the group to which the target environments belong. Specify a group name only if the environment name defined in each target environment's manifest ends with a + (plus) character. See <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html Environment Manifest (env.yaml)> for details.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceGroupName :: Lens.Lens' ComposeEnvironments (Lude.Maybe Lude.Text)
-ceGroupName = Lens.lens (groupName :: ComposeEnvironments -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: ComposeEnvironments)
+ceGroupName :: Lens.Lens' ComposeEnvironments (Core.Maybe Types.GroupName)
+ceGroupName = Lens.field @"groupName"
 {-# DEPRECATED ceGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.AWSRequest ComposeEnvironments where
-  type Rs ComposeEnvironments = EnvironmentDescriptionsMessage
-  request = Req.postQuery elasticBeanstalkService
+-- | A list of version labels, specifying one or more application source bundles that belong to the target application. Each source bundle must include an environment manifest that specifies the name of the environment and the name of the solution stack to use, and optionally can specify environment links to create.
+--
+-- /Note:/ Consider using 'versionLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceVersionLabels :: Lens.Lens' ComposeEnvironments (Core.Maybe [Types.VersionLabel])
+ceVersionLabels = Lens.field @"versionLabels"
+{-# DEPRECATED ceVersionLabels "Use generic-lens or generic-optics with 'versionLabels' instead." #-}
+
+instance Core.AWSRequest ComposeEnvironments where
+  type Rs ComposeEnvironments = Types.EnvironmentDescriptionsMessage
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ComposeEnvironments")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ApplicationName" Core.<$> applicationName)
+                Core.<> (Core.toQueryValue "GroupName" Core.<$> groupName)
+                Core.<> ( Core.toQueryValue
+                            "VersionLabels"
+                            (Core.toQueryList "member" Core.<$> versionLabels)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ComposeEnvironmentsResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders ComposeEnvironments where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ComposeEnvironments where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ComposeEnvironments where
-  toQuery ComposeEnvironments' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ComposeEnvironments" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "VersionLabels"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> versionLabels),
-        "ApplicationName" Lude.=: applicationName,
-        "GroupName" Lude.=: groupName
-      ]
+      (\s h x -> Core.parseXML x)

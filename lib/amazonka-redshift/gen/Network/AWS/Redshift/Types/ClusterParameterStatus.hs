@@ -18,23 +18,22 @@ module Network.AWS.Redshift.Types.ClusterParameterStatus
 
     -- * Lenses
     cpsParameterApplyErrorDescription,
-    cpsParameterName,
     cpsParameterApplyStatus,
+    cpsParameterName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes the status of a parameter group.
 --
 -- /See:/ 'mkClusterParameterStatus' smart constructor.
 data ClusterParameterStatus = ClusterParameterStatus'
   { -- | The error that prevented the parameter from being applied to the database.
-    parameterApplyErrorDescription :: Lude.Maybe Lude.Text,
-    -- | The name of the parameter.
-    parameterName :: Lude.Maybe Lude.Text,
+    parameterApplyErrorDescription :: Core.Maybe Types.String,
     -- | The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied.
     --
     -- The following are possible statuses and descriptions.
@@ -58,61 +57,30 @@ data ClusterParameterStatus = ClusterParameterStatus'
     --
     --
     --     * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
-    parameterApplyStatus :: Lude.Maybe Lude.Text
+    parameterApplyStatus :: Core.Maybe Types.String,
+    -- | The name of the parameter.
+    parameterName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClusterParameterStatus' with the minimum fields required to make a request.
---
--- * 'parameterApplyErrorDescription' - The error that prevented the parameter from being applied to the database.
--- * 'parameterName' - The name of the parameter.
--- * 'parameterApplyStatus' - The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied.
---
--- The following are possible statuses and descriptions.
---
---     * @in-sync@ : The parameter value is in sync with the database.
---
---
---     * @pending-reboot@ : The parameter value will be applied after the cluster reboots.
---
---
---     * @applying@ : The parameter value is being applied to the database.
---
---
---     * @invalid-parameter@ : Cannot apply the parameter value because it has an invalid value or syntax.
---
---
---     * @apply-deferred@ : The parameter contains static property changes. The changes are deferred until the cluster reboots.
---
---
---     * @apply-error@ : Cannot connect to the cluster. The parameter change will be applied after the cluster reboots.
---
---
---     * @unknown-error@ : Cannot apply the parameter change right now. The change will be applied after the cluster reboots.
+-- | Creates a 'ClusterParameterStatus' value with any optional fields omitted.
 mkClusterParameterStatus ::
   ClusterParameterStatus
 mkClusterParameterStatus =
   ClusterParameterStatus'
     { parameterApplyErrorDescription =
-        Lude.Nothing,
-      parameterName = Lude.Nothing,
-      parameterApplyStatus = Lude.Nothing
+        Core.Nothing,
+      parameterApplyStatus = Core.Nothing,
+      parameterName = Core.Nothing
     }
 
 -- | The error that prevented the parameter from being applied to the database.
 --
 -- /Note:/ Consider using 'parameterApplyErrorDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpsParameterApplyErrorDescription :: Lens.Lens' ClusterParameterStatus (Lude.Maybe Lude.Text)
-cpsParameterApplyErrorDescription = Lens.lens (parameterApplyErrorDescription :: ClusterParameterStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterApplyErrorDescription = a} :: ClusterParameterStatus)
+cpsParameterApplyErrorDescription :: Lens.Lens' ClusterParameterStatus (Core.Maybe Types.String)
+cpsParameterApplyErrorDescription = Lens.field @"parameterApplyErrorDescription"
 {-# DEPRECATED cpsParameterApplyErrorDescription "Use generic-lens or generic-optics with 'parameterApplyErrorDescription' instead." #-}
-
--- | The name of the parameter.
---
--- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpsParameterName :: Lens.Lens' ClusterParameterStatus (Lude.Maybe Lude.Text)
-cpsParameterName = Lens.lens (parameterName :: ClusterParameterStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterName = a} :: ClusterParameterStatus)
-{-# DEPRECATED cpsParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
 
 -- | The status of the parameter that indicates whether the parameter is in sync with the database, waiting for a cluster reboot, or encountered an error when being applied.
 --
@@ -141,13 +109,20 @@ cpsParameterName = Lens.lens (parameterName :: ClusterParameterStatus -> Lude.Ma
 --
 --
 -- /Note:/ Consider using 'parameterApplyStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpsParameterApplyStatus :: Lens.Lens' ClusterParameterStatus (Lude.Maybe Lude.Text)
-cpsParameterApplyStatus = Lens.lens (parameterApplyStatus :: ClusterParameterStatus -> Lude.Maybe Lude.Text) (\s a -> s {parameterApplyStatus = a} :: ClusterParameterStatus)
+cpsParameterApplyStatus :: Lens.Lens' ClusterParameterStatus (Core.Maybe Types.String)
+cpsParameterApplyStatus = Lens.field @"parameterApplyStatus"
 {-# DEPRECATED cpsParameterApplyStatus "Use generic-lens or generic-optics with 'parameterApplyStatus' instead." #-}
 
-instance Lude.FromXML ClusterParameterStatus where
+-- | The name of the parameter.
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsParameterName :: Lens.Lens' ClusterParameterStatus (Core.Maybe Types.String)
+cpsParameterName = Lens.field @"parameterName"
+{-# DEPRECATED cpsParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
+
+instance Core.FromXML ClusterParameterStatus where
   parseXML x =
     ClusterParameterStatus'
-      Lude.<$> (x Lude..@? "ParameterApplyErrorDescription")
-      Lude.<*> (x Lude..@? "ParameterName")
-      Lude.<*> (x Lude..@? "ParameterApplyStatus")
+      Core.<$> (x Core..@? "ParameterApplyErrorDescription")
+      Core.<*> (x Core..@? "ParameterApplyStatus")
+      Core.<*> (x Core..@? "ParameterName")

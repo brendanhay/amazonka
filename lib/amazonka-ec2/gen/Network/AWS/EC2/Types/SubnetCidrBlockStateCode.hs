@@ -13,66 +13,71 @@
 module Network.AWS.EC2.Types.SubnetCidrBlockStateCode
   ( SubnetCidrBlockStateCode
       ( SubnetCidrBlockStateCode',
-        SCBSCAssociating,
-        SCBSCAssociated,
-        SCBSCDisassociating,
-        SCBSCDisassociated,
-        SCBSCFailing,
-        SCBSCFailed
+        SubnetCidrBlockStateCodeAssociating,
+        SubnetCidrBlockStateCodeAssociated,
+        SubnetCidrBlockStateCodeDisassociating,
+        SubnetCidrBlockStateCodeDisassociated,
+        SubnetCidrBlockStateCodeFailing,
+        SubnetCidrBlockStateCodeFailed,
+        fromSubnetCidrBlockStateCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SubnetCidrBlockStateCode = SubnetCidrBlockStateCode' Lude.Text
+newtype SubnetCidrBlockStateCode = SubnetCidrBlockStateCode'
+  { fromSubnetCidrBlockStateCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SCBSCAssociating :: SubnetCidrBlockStateCode
-pattern SCBSCAssociating = SubnetCidrBlockStateCode' "associating"
+pattern SubnetCidrBlockStateCodeAssociating :: SubnetCidrBlockStateCode
+pattern SubnetCidrBlockStateCodeAssociating = SubnetCidrBlockStateCode' "associating"
 
-pattern SCBSCAssociated :: SubnetCidrBlockStateCode
-pattern SCBSCAssociated = SubnetCidrBlockStateCode' "associated"
+pattern SubnetCidrBlockStateCodeAssociated :: SubnetCidrBlockStateCode
+pattern SubnetCidrBlockStateCodeAssociated = SubnetCidrBlockStateCode' "associated"
 
-pattern SCBSCDisassociating :: SubnetCidrBlockStateCode
-pattern SCBSCDisassociating = SubnetCidrBlockStateCode' "disassociating"
+pattern SubnetCidrBlockStateCodeDisassociating :: SubnetCidrBlockStateCode
+pattern SubnetCidrBlockStateCodeDisassociating = SubnetCidrBlockStateCode' "disassociating"
 
-pattern SCBSCDisassociated :: SubnetCidrBlockStateCode
-pattern SCBSCDisassociated = SubnetCidrBlockStateCode' "disassociated"
+pattern SubnetCidrBlockStateCodeDisassociated :: SubnetCidrBlockStateCode
+pattern SubnetCidrBlockStateCodeDisassociated = SubnetCidrBlockStateCode' "disassociated"
 
-pattern SCBSCFailing :: SubnetCidrBlockStateCode
-pattern SCBSCFailing = SubnetCidrBlockStateCode' "failing"
+pattern SubnetCidrBlockStateCodeFailing :: SubnetCidrBlockStateCode
+pattern SubnetCidrBlockStateCodeFailing = SubnetCidrBlockStateCode' "failing"
 
-pattern SCBSCFailed :: SubnetCidrBlockStateCode
-pattern SCBSCFailed = SubnetCidrBlockStateCode' "failed"
+pattern SubnetCidrBlockStateCodeFailed :: SubnetCidrBlockStateCode
+pattern SubnetCidrBlockStateCodeFailed = SubnetCidrBlockStateCode' "failed"
 
 {-# COMPLETE
-  SCBSCAssociating,
-  SCBSCAssociated,
-  SCBSCDisassociating,
-  SCBSCDisassociated,
-  SCBSCFailing,
-  SCBSCFailed,
+  SubnetCidrBlockStateCodeAssociating,
+  SubnetCidrBlockStateCodeAssociated,
+  SubnetCidrBlockStateCodeDisassociating,
+  SubnetCidrBlockStateCodeDisassociated,
+  SubnetCidrBlockStateCodeFailing,
+  SubnetCidrBlockStateCodeFailed,
   SubnetCidrBlockStateCode'
   #-}

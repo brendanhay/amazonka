@@ -318,7 +318,7 @@ responseDeleteActivity =
   res
     "DeleteActivityResponse"
     "fixture/DeleteActivityResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteActivity)
 
 responseDescribeStateMachine :: DescribeStateMachineResponse -> TestTree
@@ -326,7 +326,7 @@ responseDescribeStateMachine =
   res
     "DescribeStateMachineResponse"
     "fixture/DescribeStateMachineResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStateMachine)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -334,7 +334,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseStopExecution :: StopExecutionResponse -> TestTree
@@ -342,7 +342,7 @@ responseStopExecution =
   res
     "StopExecutionResponse"
     "fixture/StopExecutionResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy StopExecution)
 
 responseDescribeActivity :: DescribeActivityResponse -> TestTree
@@ -350,7 +350,7 @@ responseDescribeActivity =
   res
     "DescribeActivityResponse"
     "fixture/DescribeActivityResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeActivity)
 
 responseListStateMachines :: ListStateMachinesResponse -> TestTree
@@ -358,7 +358,7 @@ responseListStateMachines =
   res
     "ListStateMachinesResponse"
     "fixture/ListStateMachinesResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy ListStateMachines)
 
 responseListExecutions :: ListExecutionsResponse -> TestTree
@@ -366,7 +366,7 @@ responseListExecutions =
   res
     "ListExecutionsResponse"
     "fixture/ListExecutionsResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy ListExecutions)
 
 responseDeleteStateMachine :: DeleteStateMachineResponse -> TestTree
@@ -374,7 +374,7 @@ responseDeleteStateMachine =
   res
     "DeleteStateMachineResponse"
     "fixture/DeleteStateMachineResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteStateMachine)
 
 responseUpdateStateMachine :: UpdateStateMachineResponse -> TestTree
@@ -382,7 +382,7 @@ responseUpdateStateMachine =
   res
     "UpdateStateMachineResponse"
     "fixture/UpdateStateMachineResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateStateMachine)
 
 responseDescribeStateMachineForExecution :: DescribeStateMachineForExecutionResponse -> TestTree
@@ -390,7 +390,7 @@ responseDescribeStateMachineForExecution =
   res
     "DescribeStateMachineForExecutionResponse"
     "fixture/DescribeStateMachineForExecutionResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeStateMachineForExecution)
 
 responseGetActivityTask :: GetActivityTaskResponse -> TestTree
@@ -398,7 +398,7 @@ responseGetActivityTask =
   res
     "GetActivityTaskResponse"
     "fixture/GetActivityTaskResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy GetActivityTask)
 
 responseCreateActivity :: CreateActivityResponse -> TestTree
@@ -406,7 +406,7 @@ responseCreateActivity =
   res
     "CreateActivityResponse"
     "fixture/CreateActivityResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy CreateActivity)
 
 responseListActivities :: ListActivitiesResponse -> TestTree
@@ -414,7 +414,7 @@ responseListActivities =
   res
     "ListActivitiesResponse"
     "fixture/ListActivitiesResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy ListActivities)
 
 responseSendTaskHeartbeat :: SendTaskHeartbeatResponse -> TestTree
@@ -422,7 +422,7 @@ responseSendTaskHeartbeat =
   res
     "SendTaskHeartbeatResponse"
     "fixture/SendTaskHeartbeatResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy SendTaskHeartbeat)
 
 responseSendTaskFailure :: SendTaskFailureResponse -> TestTree
@@ -430,7 +430,7 @@ responseSendTaskFailure =
   res
     "SendTaskFailureResponse"
     "fixture/SendTaskFailureResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy SendTaskFailure)
 
 responseDescribeExecution :: DescribeExecutionResponse -> TestTree
@@ -438,7 +438,7 @@ responseDescribeExecution =
   res
     "DescribeExecutionResponse"
     "fixture/DescribeExecutionResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeExecution)
 
 responseSendTaskSuccess :: SendTaskSuccessResponse -> TestTree
@@ -446,7 +446,7 @@ responseSendTaskSuccess =
   res
     "SendTaskSuccessResponse"
     "fixture/SendTaskSuccessResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy SendTaskSuccess)
 
 responseStartExecution :: StartExecutionResponse -> TestTree
@@ -454,7 +454,7 @@ responseStartExecution =
   res
     "StartExecutionResponse"
     "fixture/StartExecutionResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy StartExecution)
 
 responseStartSyncExecution :: StartSyncExecutionResponse -> TestTree
@@ -462,7 +462,7 @@ responseStartSyncExecution =
   res
     "StartSyncExecutionResponse"
     "fixture/StartSyncExecutionResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy StartSyncExecution)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -470,7 +470,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -478,7 +478,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseGetExecutionHistory :: GetExecutionHistoryResponse -> TestTree
@@ -486,7 +486,7 @@ responseGetExecutionHistory =
   res
     "GetExecutionHistoryResponse"
     "fixture/GetExecutionHistoryResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy GetExecutionHistory)
 
 responseCreateStateMachine :: CreateStateMachineResponse -> TestTree
@@ -494,5 +494,5 @@ responseCreateStateMachine =
   res
     "CreateStateMachineResponse"
     "fixture/CreateStateMachineResponse.proto"
-    stepFunctionsService
+    mkServiceConfig
     (Proxy :: Proxy CreateStateMachine)

@@ -17,66 +17,58 @@ module Network.AWS.S3.Types.NoncurrentVersionTransition
     mkNoncurrentVersionTransition,
 
     -- * Lenses
-    nvtStorageClass,
     nvtNoncurrentDays,
+    nvtStorageClass,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.TransitionStorageClass
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.TransitionStorageClass as Types
 
 -- | Container for the transition rule that describes when noncurrent objects transition to the @STANDARD_IA@ , @ONEZONE_IA@ , @INTELLIGENT_TIERING@ , @GLACIER@ , or @DEEP_ARCHIVE@ storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the @STANDARD_IA@ , @ONEZONE_IA@ , @INTELLIGENT_TIERING@ , @GLACIER@ , or @DEEP_ARCHIVE@ storage class at a specific period in the object's lifetime.
 --
 -- /See:/ 'mkNoncurrentVersionTransition' smart constructor.
 data NoncurrentVersionTransition = NoncurrentVersionTransition'
-  { -- | The class of storage used to store the object.
-    storageClass :: TransitionStorageClass,
-    -- | Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates How Long an Object Has Been Noncurrent> in the /Amazon Simple Storage Service Developer Guide/ .
-    noncurrentDays :: Lude.Int
+  { -- | Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates How Long an Object Has Been Noncurrent> in the /Amazon Simple Storage Service Developer Guide/ .
+    noncurrentDays :: Core.Int,
+    -- | The class of storage used to store the object.
+    storageClass :: Types.TransitionStorageClass
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NoncurrentVersionTransition' with the minimum fields required to make a request.
---
--- * 'storageClass' - The class of storage used to store the object.
--- * 'noncurrentDays' - Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates How Long an Object Has Been Noncurrent> in the /Amazon Simple Storage Service Developer Guide/ .
+-- | Creates a 'NoncurrentVersionTransition' value with any optional fields omitted.
 mkNoncurrentVersionTransition ::
-  -- | 'storageClass'
-  TransitionStorageClass ->
   -- | 'noncurrentDays'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'storageClass'
+  Types.TransitionStorageClass ->
   NoncurrentVersionTransition
-mkNoncurrentVersionTransition pStorageClass_ pNoncurrentDays_ =
-  NoncurrentVersionTransition'
-    { storageClass = pStorageClass_,
-      noncurrentDays = pNoncurrentDays_
-    }
-
--- | The class of storage used to store the object.
---
--- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nvtStorageClass :: Lens.Lens' NoncurrentVersionTransition TransitionStorageClass
-nvtStorageClass = Lens.lens (storageClass :: NoncurrentVersionTransition -> TransitionStorageClass) (\s a -> s {storageClass = a} :: NoncurrentVersionTransition)
-{-# DEPRECATED nvtStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
+mkNoncurrentVersionTransition noncurrentDays storageClass =
+  NoncurrentVersionTransition' {noncurrentDays, storageClass}
 
 -- | Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates How Long an Object Has Been Noncurrent> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'noncurrentDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nvtNoncurrentDays :: Lens.Lens' NoncurrentVersionTransition Lude.Int
-nvtNoncurrentDays = Lens.lens (noncurrentDays :: NoncurrentVersionTransition -> Lude.Int) (\s a -> s {noncurrentDays = a} :: NoncurrentVersionTransition)
+nvtNoncurrentDays :: Lens.Lens' NoncurrentVersionTransition Core.Int
+nvtNoncurrentDays = Lens.field @"noncurrentDays"
 {-# DEPRECATED nvtNoncurrentDays "Use generic-lens or generic-optics with 'noncurrentDays' instead." #-}
 
-instance Lude.FromXML NoncurrentVersionTransition where
+-- | The class of storage used to store the object.
+--
+-- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nvtStorageClass :: Lens.Lens' NoncurrentVersionTransition Types.TransitionStorageClass
+nvtStorageClass = Lens.field @"storageClass"
+{-# DEPRECATED nvtStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
+
+instance Core.ToXML NoncurrentVersionTransition where
+  toXML NoncurrentVersionTransition {..} =
+    Core.toXMLNode "NoncurrentDays" noncurrentDays
+      Core.<> Core.toXMLNode "StorageClass" storageClass
+
+instance Core.FromXML NoncurrentVersionTransition where
   parseXML x =
     NoncurrentVersionTransition'
-      Lude.<$> (x Lude..@ "StorageClass") Lude.<*> (x Lude..@ "NoncurrentDays")
-
-instance Lude.ToXML NoncurrentVersionTransition where
-  toXML NoncurrentVersionTransition' {..} =
-    Lude.mconcat
-      [ "StorageClass" Lude.@= storageClass,
-        "NoncurrentDays" Lude.@= noncurrentDays
-      ]
+      Core.<$> (x Core..@ "NoncurrentDays") Core.<*> (x Core..@ "StorageClass")

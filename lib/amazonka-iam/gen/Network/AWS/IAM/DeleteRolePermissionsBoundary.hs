@@ -30,65 +30,66 @@ module Network.AWS.IAM.DeleteRolePermissionsBoundary
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteRolePermissionsBoundary' smart constructor.
 newtype DeleteRolePermissionsBoundary = DeleteRolePermissionsBoundary'
   { -- | The name (friendly name, not ARN) of the IAM role from which you want to remove the permissions boundary.
-    roleName :: Lude.Text
+    roleName :: Types.RoleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRolePermissionsBoundary' with the minimum fields required to make a request.
---
--- * 'roleName' - The name (friendly name, not ARN) of the IAM role from which you want to remove the permissions boundary.
+-- | Creates a 'DeleteRolePermissionsBoundary' value with any optional fields omitted.
 mkDeleteRolePermissionsBoundary ::
   -- | 'roleName'
-  Lude.Text ->
+  Types.RoleName ->
   DeleteRolePermissionsBoundary
-mkDeleteRolePermissionsBoundary pRoleName_ =
-  DeleteRolePermissionsBoundary' {roleName = pRoleName_}
+mkDeleteRolePermissionsBoundary roleName =
+  DeleteRolePermissionsBoundary' {roleName}
 
 -- | The name (friendly name, not ARN) of the IAM role from which you want to remove the permissions boundary.
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpbRoleName :: Lens.Lens' DeleteRolePermissionsBoundary Lude.Text
-drpbRoleName = Lens.lens (roleName :: DeleteRolePermissionsBoundary -> Lude.Text) (\s a -> s {roleName = a} :: DeleteRolePermissionsBoundary)
+drpbRoleName :: Lens.Lens' DeleteRolePermissionsBoundary Types.RoleName
+drpbRoleName = Lens.field @"roleName"
 {-# DEPRECATED drpbRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
-instance Lude.AWSRequest DeleteRolePermissionsBoundary where
+instance Core.AWSRequest DeleteRolePermissionsBoundary where
   type
     Rs DeleteRolePermissionsBoundary =
       DeleteRolePermissionsBoundaryResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeleteRolePermissionsBoundaryResponse'
-
-instance Lude.ToHeaders DeleteRolePermissionsBoundary where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteRolePermissionsBoundary where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteRolePermissionsBoundary where
-  toQuery DeleteRolePermissionsBoundary' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeleteRolePermissionsBoundary" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteRolePermissionsBoundary")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+            )
+      }
+  response =
+    Response.receiveNull DeleteRolePermissionsBoundaryResponse'
 
 -- | /See:/ 'mkDeleteRolePermissionsBoundaryResponse' smart constructor.
 data DeleteRolePermissionsBoundaryResponse = DeleteRolePermissionsBoundaryResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRolePermissionsBoundaryResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteRolePermissionsBoundaryResponse' value with any optional fields omitted.
 mkDeleteRolePermissionsBoundaryResponse ::
   DeleteRolePermissionsBoundaryResponse
 mkDeleteRolePermissionsBoundaryResponse =

@@ -17,70 +17,67 @@ module Network.AWS.SDB.Types.Item
     mkItem,
 
     -- * Lenses
-    iAlternateNameEncoding,
-    iAttributes,
     iName,
+    iAttributes,
+    iAlternateNameEncoding,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SDB.Types.Attribute
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SDB.Types.Attribute as Types
+import qualified Network.AWS.SDB.Types.String as Types
 
 -- |
 --
 -- /See:/ 'mkItem' smart constructor.
 data Item = Item'
-  { -- |
-    alternateNameEncoding :: Lude.Maybe Lude.Text,
+  { -- | The name of the item.
+    name :: Types.String,
     -- | A list of attributes.
-    attributes :: [Attribute],
-    -- | The name of the item.
-    name :: Lude.Text
+    attributes :: [Types.Attribute],
+    -- |
+    alternateNameEncoding :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Item' with the minimum fields required to make a request.
---
--- * 'alternateNameEncoding' -
--- * 'attributes' - A list of attributes.
--- * 'name' - The name of the item.
+-- | Creates a 'Item' value with any optional fields omitted.
 mkItem ::
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
   Item
-mkItem pName_ =
+mkItem name =
   Item'
-    { alternateNameEncoding = Lude.Nothing,
-      attributes = Lude.mempty,
-      name = pName_
+    { name,
+      attributes = Core.mempty,
+      alternateNameEncoding = Core.Nothing
     }
-
--- |
---
--- /Note:/ Consider using 'alternateNameEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iAlternateNameEncoding :: Lens.Lens' Item (Lude.Maybe Lude.Text)
-iAlternateNameEncoding = Lens.lens (alternateNameEncoding :: Item -> Lude.Maybe Lude.Text) (\s a -> s {alternateNameEncoding = a} :: Item)
-{-# DEPRECATED iAlternateNameEncoding "Use generic-lens or generic-optics with 'alternateNameEncoding' instead." #-}
-
--- | A list of attributes.
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iAttributes :: Lens.Lens' Item [Attribute]
-iAttributes = Lens.lens (attributes :: Item -> [Attribute]) (\s a -> s {attributes = a} :: Item)
-{-# DEPRECATED iAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The name of the item.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iName :: Lens.Lens' Item Lude.Text
-iName = Lens.lens (name :: Item -> Lude.Text) (\s a -> s {name = a} :: Item)
+iName :: Lens.Lens' Item Types.String
+iName = Lens.field @"name"
 {-# DEPRECATED iName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML Item where
+-- | A list of attributes.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAttributes :: Lens.Lens' Item [Types.Attribute]
+iAttributes = Lens.field @"attributes"
+{-# DEPRECATED iAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- |
+--
+-- /Note:/ Consider using 'alternateNameEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAlternateNameEncoding :: Lens.Lens' Item (Core.Maybe Types.String)
+iAlternateNameEncoding = Lens.field @"alternateNameEncoding"
+{-# DEPRECATED iAlternateNameEncoding "Use generic-lens or generic-optics with 'alternateNameEncoding' instead." #-}
+
+instance Core.FromXML Item where
   parseXML x =
     Item'
-      Lude.<$> (x Lude..@? "AlternateNameEncoding")
-      Lude.<*> (Lude.parseXMLList "Attribute" x)
-      Lude.<*> (x Lude..@ "Name")
+      Core.<$> (x Core..@ "Name")
+      Core.<*> (x Core..@? "Attribute" Core..@! Core.mempty)
+      Core.<*> (x Core..@? "AlternateNameEncoding")

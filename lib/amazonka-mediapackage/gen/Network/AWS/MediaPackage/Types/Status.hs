@@ -13,51 +13,53 @@
 module Network.AWS.MediaPackage.Types.Status
   ( Status
       ( Status',
-        InProgress,
-        Succeeded,
-        Failed
+        StatusInProgress,
+        StatusSucceeded,
+        StatusFailed,
+        fromStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Status = Status' Lude.Text
+newtype Status = Status' {fromStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InProgress :: Status
-pattern InProgress = Status' "IN_PROGRESS"
+pattern StatusInProgress :: Status
+pattern StatusInProgress = Status' "IN_PROGRESS"
 
-pattern Succeeded :: Status
-pattern Succeeded = Status' "SUCCEEDED"
+pattern StatusSucceeded :: Status
+pattern StatusSucceeded = Status' "SUCCEEDED"
 
-pattern Failed :: Status
-pattern Failed = Status' "FAILED"
+pattern StatusFailed :: Status
+pattern StatusFailed = Status' "FAILED"
 
 {-# COMPLETE
-  InProgress,
-  Succeeded,
-  Failed,
+  StatusInProgress,
+  StatusSucceeded,
+  StatusFailed,
   Status'
   #-}

@@ -13,56 +13,61 @@
 module Network.AWS.DynamoDBStreams.Types.StreamViewType
   ( StreamViewType
       ( StreamViewType',
-        NewImage,
-        OldImage,
-        NewAndOldImages,
-        KeysOnly
+        StreamViewTypeNewImage,
+        StreamViewTypeOldImage,
+        StreamViewTypeNewAndOldImages,
+        StreamViewTypeKeysOnly,
+        fromStreamViewType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StreamViewType = StreamViewType' Lude.Text
+newtype StreamViewType = StreamViewType'
+  { fromStreamViewType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NewImage :: StreamViewType
-pattern NewImage = StreamViewType' "NEW_IMAGE"
+pattern StreamViewTypeNewImage :: StreamViewType
+pattern StreamViewTypeNewImage = StreamViewType' "NEW_IMAGE"
 
-pattern OldImage :: StreamViewType
-pattern OldImage = StreamViewType' "OLD_IMAGE"
+pattern StreamViewTypeOldImage :: StreamViewType
+pattern StreamViewTypeOldImage = StreamViewType' "OLD_IMAGE"
 
-pattern NewAndOldImages :: StreamViewType
-pattern NewAndOldImages = StreamViewType' "NEW_AND_OLD_IMAGES"
+pattern StreamViewTypeNewAndOldImages :: StreamViewType
+pattern StreamViewTypeNewAndOldImages = StreamViewType' "NEW_AND_OLD_IMAGES"
 
-pattern KeysOnly :: StreamViewType
-pattern KeysOnly = StreamViewType' "KEYS_ONLY"
+pattern StreamViewTypeKeysOnly :: StreamViewType
+pattern StreamViewTypeKeysOnly = StreamViewType' "KEYS_ONLY"
 
 {-# COMPLETE
-  NewImage,
-  OldImage,
-  NewAndOldImages,
-  KeysOnly,
+  StreamViewTypeNewImage,
+  StreamViewTypeOldImage,
+  StreamViewTypeNewAndOldImages,
+  StreamViewTypeKeysOnly,
   StreamViewType'
   #-}

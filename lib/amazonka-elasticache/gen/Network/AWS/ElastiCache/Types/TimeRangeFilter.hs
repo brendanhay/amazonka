@@ -17,53 +17,45 @@ module Network.AWS.ElastiCache.Types.TimeRangeFilter
     mkTimeRangeFilter,
 
     -- * Lenses
-    trfStartTime,
     trfEndTime,
+    trfStartTime,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Filters update actions from the service updates that are in available status during the time range.
 --
 -- /See:/ 'mkTimeRangeFilter' smart constructor.
 data TimeRangeFilter = TimeRangeFilter'
-  { -- | The start time of the time range filter
-    startTime :: Lude.Maybe Lude.DateTime,
-    -- | The end time of the time range filter
-    endTime :: Lude.Maybe Lude.DateTime
+  { -- | The end time of the time range filter
+    endTime :: Core.Maybe Core.UTCTime,
+    -- | The start time of the time range filter
+    startTime :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TimeRangeFilter' with the minimum fields required to make a request.
---
--- * 'startTime' - The start time of the time range filter
--- * 'endTime' - The end time of the time range filter
+-- | Creates a 'TimeRangeFilter' value with any optional fields omitted.
 mkTimeRangeFilter ::
   TimeRangeFilter
 mkTimeRangeFilter =
   TimeRangeFilter'
-    { startTime = Lude.Nothing,
-      endTime = Lude.Nothing
+    { endTime = Core.Nothing,
+      startTime = Core.Nothing
     }
-
--- | The start time of the time range filter
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trfStartTime :: Lens.Lens' TimeRangeFilter (Lude.Maybe Lude.DateTime)
-trfStartTime = Lens.lens (startTime :: TimeRangeFilter -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: TimeRangeFilter)
-{-# DEPRECATED trfStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The end time of the time range filter
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trfEndTime :: Lens.Lens' TimeRangeFilter (Lude.Maybe Lude.DateTime)
-trfEndTime = Lens.lens (endTime :: TimeRangeFilter -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: TimeRangeFilter)
+trfEndTime :: Lens.Lens' TimeRangeFilter (Core.Maybe Core.UTCTime)
+trfEndTime = Lens.field @"endTime"
 {-# DEPRECATED trfEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance Lude.ToQuery TimeRangeFilter where
-  toQuery TimeRangeFilter' {..} =
-    Lude.mconcat
-      ["StartTime" Lude.=: startTime, "EndTime" Lude.=: endTime]
+-- | The start time of the time range filter
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trfStartTime :: Lens.Lens' TimeRangeFilter (Core.Maybe Core.UTCTime)
+trfStartTime = Lens.field @"startTime"
+{-# DEPRECATED trfStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}

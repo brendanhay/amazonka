@@ -24,122 +24,116 @@ module Network.AWS.Lightsail.GetRelationalDatabaseParameters
     mkGetRelationalDatabaseParameters,
 
     -- ** Request lenses
-    grdpPageToken,
     grdpRelationalDatabaseName,
+    grdpPageToken,
 
     -- * Destructuring the response
     GetRelationalDatabaseParametersResponse (..),
     mkGetRelationalDatabaseParametersResponse,
 
     -- ** Response lenses
-    grdprsNextPageToken,
-    grdprsParameters,
-    grdprsResponseStatus,
+    grdprrsNextPageToken,
+    grdprrsParameters,
+    grdprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetRelationalDatabaseParameters' smart constructor.
 data GetRelationalDatabaseParameters = GetRelationalDatabaseParameters'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | The name of your database for which to get parameters.
+    relationalDatabaseName :: Types.ResourceName,
+    -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetRelationalDatabaseParameters@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-    pageToken :: Lude.Maybe Lude.Text,
-    -- | The name of your database for which to get parameters.
-    relationalDatabaseName :: Lude.Text
+    pageToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRelationalDatabaseParameters' with the minimum fields required to make a request.
---
--- * 'pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetRelationalDatabaseParameters@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
--- * 'relationalDatabaseName' - The name of your database for which to get parameters.
+-- | Creates a 'GetRelationalDatabaseParameters' value with any optional fields omitted.
 mkGetRelationalDatabaseParameters ::
   -- | 'relationalDatabaseName'
-  Lude.Text ->
+  Types.ResourceName ->
   GetRelationalDatabaseParameters
-mkGetRelationalDatabaseParameters pRelationalDatabaseName_ =
+mkGetRelationalDatabaseParameters relationalDatabaseName =
   GetRelationalDatabaseParameters'
-    { pageToken = Lude.Nothing,
-      relationalDatabaseName = pRelationalDatabaseName_
+    { relationalDatabaseName,
+      pageToken = Core.Nothing
     }
+
+-- | The name of your database for which to get parameters.
+--
+-- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grdpRelationalDatabaseName :: Lens.Lens' GetRelationalDatabaseParameters Types.ResourceName
+grdpRelationalDatabaseName = Lens.field @"relationalDatabaseName"
+{-# DEPRECATED grdpRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetRelationalDatabaseParameters@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdpPageToken :: Lens.Lens' GetRelationalDatabaseParameters (Lude.Maybe Lude.Text)
-grdpPageToken = Lens.lens (pageToken :: GetRelationalDatabaseParameters -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetRelationalDatabaseParameters)
+grdpPageToken :: Lens.Lens' GetRelationalDatabaseParameters (Core.Maybe Types.String)
+grdpPageToken = Lens.field @"pageToken"
 {-# DEPRECATED grdpPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
--- | The name of your database for which to get parameters.
---
--- /Note:/ Consider using 'relationalDatabaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdpRelationalDatabaseName :: Lens.Lens' GetRelationalDatabaseParameters Lude.Text
-grdpRelationalDatabaseName = Lens.lens (relationalDatabaseName :: GetRelationalDatabaseParameters -> Lude.Text) (\s a -> s {relationalDatabaseName = a} :: GetRelationalDatabaseParameters)
-{-# DEPRECATED grdpRelationalDatabaseName "Use generic-lens or generic-optics with 'relationalDatabaseName' instead." #-}
+instance Core.FromJSON GetRelationalDatabaseParameters where
+  toJSON GetRelationalDatabaseParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("relationalDatabaseName" Core..= relationalDatabaseName),
+            ("pageToken" Core..=) Core.<$> pageToken
+          ]
+      )
 
-instance Page.AWSPager GetRelationalDatabaseParameters where
-  page rq rs
-    | Page.stop (rs Lens.^. grdprsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. grdprsParameters) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& grdpPageToken Lens..~ rs Lens.^. grdprsNextPageToken
-
-instance Lude.AWSRequest GetRelationalDatabaseParameters where
+instance Core.AWSRequest GetRelationalDatabaseParameters where
   type
     Rs GetRelationalDatabaseParameters =
       GetRelationalDatabaseParametersResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Lightsail_20161128.GetRelationalDatabaseParameters"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetRelationalDatabaseParametersResponse'
-            Lude.<$> (x Lude..?> "nextPageToken")
-            Lude.<*> (x Lude..?> "parameters" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextPageToken")
+            Core.<*> (x Core..:? "parameters")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetRelationalDatabaseParameters where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Lightsail_20161128.GetRelationalDatabaseParameters" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetRelationalDatabaseParameters where
-  toJSON GetRelationalDatabaseParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("pageToken" Lude..=) Lude.<$> pageToken,
-            Lude.Just
-              ("relationalDatabaseName" Lude..= relationalDatabaseName)
-          ]
-      )
-
-instance Lude.ToPath GetRelationalDatabaseParameters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetRelationalDatabaseParameters where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetRelationalDatabaseParameters where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"parameters" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkGetRelationalDatabaseParametersResponse' smart constructor.
 data GetRelationalDatabaseParametersResponse = GetRelationalDatabaseParametersResponse'
@@ -147,33 +141,26 @@ data GetRelationalDatabaseParametersResponse = GetRelationalDatabaseParametersRe
     --
     -- A next page token is not returned if there are no more results to display.
     -- To get the next page of results, perform another @GetRelationalDatabaseParameters@ request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.String,
     -- | An object describing the result of your get relational database parameters request.
-    parameters :: Lude.Maybe [RelationalDatabaseParameter],
+    parameters :: Core.Maybe [Types.RelationalDatabaseParameter],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRelationalDatabaseParametersResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The token to advance to the next page of results from your request.
---
--- A next page token is not returned if there are no more results to display.
--- To get the next page of results, perform another @GetRelationalDatabaseParameters@ request and specify the next page token using the @pageToken@ parameter.
--- * 'parameters' - An object describing the result of your get relational database parameters request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetRelationalDatabaseParametersResponse' value with any optional fields omitted.
 mkGetRelationalDatabaseParametersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetRelationalDatabaseParametersResponse
-mkGetRelationalDatabaseParametersResponse pResponseStatus_ =
+mkGetRelationalDatabaseParametersResponse responseStatus =
   GetRelationalDatabaseParametersResponse'
     { nextPageToken =
-        Lude.Nothing,
-      parameters = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      parameters = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to advance to the next page of results from your request.
@@ -182,20 +169,20 @@ mkGetRelationalDatabaseParametersResponse pResponseStatus_ =
 -- To get the next page of results, perform another @GetRelationalDatabaseParameters@ request and specify the next page token using the @pageToken@ parameter.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdprsNextPageToken :: Lens.Lens' GetRelationalDatabaseParametersResponse (Lude.Maybe Lude.Text)
-grdprsNextPageToken = Lens.lens (nextPageToken :: GetRelationalDatabaseParametersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetRelationalDatabaseParametersResponse)
-{-# DEPRECATED grdprsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+grdprrsNextPageToken :: Lens.Lens' GetRelationalDatabaseParametersResponse (Core.Maybe Types.String)
+grdprrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED grdprrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | An object describing the result of your get relational database parameters request.
 --
 -- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdprsParameters :: Lens.Lens' GetRelationalDatabaseParametersResponse (Lude.Maybe [RelationalDatabaseParameter])
-grdprsParameters = Lens.lens (parameters :: GetRelationalDatabaseParametersResponse -> Lude.Maybe [RelationalDatabaseParameter]) (\s a -> s {parameters = a} :: GetRelationalDatabaseParametersResponse)
-{-# DEPRECATED grdprsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+grdprrsParameters :: Lens.Lens' GetRelationalDatabaseParametersResponse (Core.Maybe [Types.RelationalDatabaseParameter])
+grdprrsParameters = Lens.field @"parameters"
+{-# DEPRECATED grdprrsParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grdprsResponseStatus :: Lens.Lens' GetRelationalDatabaseParametersResponse Lude.Int
-grdprsResponseStatus = Lens.lens (responseStatus :: GetRelationalDatabaseParametersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRelationalDatabaseParametersResponse)
-{-# DEPRECATED grdprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grdprrsResponseStatus :: Lens.Lens' GetRelationalDatabaseParametersResponse Core.Int
+grdprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grdprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

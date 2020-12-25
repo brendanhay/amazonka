@@ -642,7 +642,7 @@ responsePutItem =
   res
     "PutItemResponse"
     "fixture/PutItemResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy PutItem)
 
 responseDeleteItem :: DeleteItemResponse -> TestTree
@@ -650,7 +650,7 @@ responseDeleteItem =
   res
     "DeleteItemResponse"
     "fixture/DeleteItemResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DeleteItem)
 
 responseUpdateItem :: UpdateItemResponse -> TestTree
@@ -658,7 +658,7 @@ responseUpdateItem =
   res
     "UpdateItemResponse"
     "fixture/UpdateItemResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy UpdateItem)
 
 responseDisableKinesisStreamingDestination :: KinesisStreamingDestinationOutput -> TestTree
@@ -666,7 +666,7 @@ responseDisableKinesisStreamingDestination =
   res
     "DisableKinesisStreamingDestinationResponse"
     "fixture/DisableKinesisStreamingDestinationResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DisableKinesisStreamingDestination)
 
 responseListGlobalTables :: ListGlobalTablesResponse -> TestTree
@@ -674,7 +674,7 @@ responseListGlobalTables =
   res
     "ListGlobalTablesResponse"
     "fixture/ListGlobalTablesResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy ListGlobalTables)
 
 responseUpdateGlobalTable :: UpdateGlobalTableResponse -> TestTree
@@ -682,7 +682,7 @@ responseUpdateGlobalTable =
   res
     "UpdateGlobalTableResponse"
     "fixture/UpdateGlobalTableResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy UpdateGlobalTable)
 
 responseDeleteTable :: DeleteTableResponse -> TestTree
@@ -690,7 +690,7 @@ responseDeleteTable =
   res
     "DeleteTableResponse"
     "fixture/DeleteTableResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTable)
 
 responseUpdateTable :: UpdateTableResponse -> TestTree
@@ -698,7 +698,7 @@ responseUpdateTable =
   res
     "UpdateTableResponse"
     "fixture/UpdateTableResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTable)
 
 responseBatchGetItem :: BatchGetItemResponse -> TestTree
@@ -706,7 +706,7 @@ responseBatchGetItem =
   res
     "BatchGetItemResponse"
     "fixture/BatchGetItemResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy BatchGetItem)
 
 responseListBackups :: ListBackupsResponse -> TestTree
@@ -714,7 +714,7 @@ responseListBackups =
   res
     "ListBackupsResponse"
     "fixture/ListBackupsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy ListBackups)
 
 responseDeleteBackup :: DeleteBackupResponse -> TestTree
@@ -722,7 +722,7 @@ responseDeleteBackup =
   res
     "DeleteBackupResponse"
     "fixture/DeleteBackupResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DeleteBackup)
 
 responseCreateBackup :: CreateBackupResponse -> TestTree
@@ -730,7 +730,7 @@ responseCreateBackup =
   res
     "CreateBackupResponse"
     "fixture/CreateBackupResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy CreateBackup)
 
 responseUpdateTableReplicaAutoScaling :: UpdateTableReplicaAutoScalingResponse -> TestTree
@@ -738,7 +738,7 @@ responseUpdateTableReplicaAutoScaling =
   res
     "UpdateTableReplicaAutoScalingResponse"
     "fixture/UpdateTableReplicaAutoScalingResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTableReplicaAutoScaling)
 
 responseDescribeGlobalTableSettings :: DescribeGlobalTableSettingsResponse -> TestTree
@@ -746,7 +746,7 @@ responseDescribeGlobalTableSettings =
   res
     "DescribeGlobalTableSettingsResponse"
     "fixture/DescribeGlobalTableSettingsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeGlobalTableSettings)
 
 responseListTagsOfResource :: ListTagsOfResourceResponse -> TestTree
@@ -754,7 +754,7 @@ responseListTagsOfResource =
   res
     "ListTagsOfResourceResponse"
     "fixture/ListTagsOfResourceResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsOfResource)
 
 responseDescribeGlobalTable :: DescribeGlobalTableResponse -> TestTree
@@ -762,7 +762,7 @@ responseDescribeGlobalTable =
   res
     "DescribeGlobalTableResponse"
     "fixture/DescribeGlobalTableResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeGlobalTable)
 
 responseDescribeTable :: DescribeTableResponse -> TestTree
@@ -770,7 +770,7 @@ responseDescribeTable =
   res
     "DescribeTableResponse"
     "fixture/DescribeTableResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTable)
 
 responseDescribeLimits :: DescribeLimitsResponse -> TestTree
@@ -778,7 +778,7 @@ responseDescribeLimits =
   res
     "DescribeLimitsResponse"
     "fixture/DescribeLimitsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLimits)
 
 responseExecuteTransaction :: ExecuteTransactionResponse -> TestTree
@@ -786,7 +786,7 @@ responseExecuteTransaction =
   res
     "ExecuteTransactionResponse"
     "fixture/ExecuteTransactionResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy ExecuteTransaction)
 
 responseGetItem :: GetItemResponse -> TestTree
@@ -794,7 +794,7 @@ responseGetItem =
   res
     "GetItemResponse"
     "fixture/GetItemResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy GetItem)
 
 responseDescribeBackup :: DescribeBackupResponse -> TestTree
@@ -802,7 +802,7 @@ responseDescribeBackup =
   res
     "DescribeBackupResponse"
     "fixture/DescribeBackupResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBackup)
 
 responseBatchExecuteStatement :: BatchExecuteStatementResponse -> TestTree
@@ -810,7 +810,7 @@ responseBatchExecuteStatement =
   res
     "BatchExecuteStatementResponse"
     "fixture/BatchExecuteStatementResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy BatchExecuteStatement)
 
 responseDescribeTableReplicaAutoScaling :: DescribeTableReplicaAutoScalingResponse -> TestTree
@@ -818,7 +818,7 @@ responseDescribeTableReplicaAutoScaling =
   res
     "DescribeTableReplicaAutoScalingResponse"
     "fixture/DescribeTableReplicaAutoScalingResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTableReplicaAutoScaling)
 
 responseUpdateGlobalTableSettings :: UpdateGlobalTableSettingsResponse -> TestTree
@@ -826,7 +826,7 @@ responseUpdateGlobalTableSettings =
   res
     "UpdateGlobalTableSettingsResponse"
     "fixture/UpdateGlobalTableSettingsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy UpdateGlobalTableSettings)
 
 responseEnableKinesisStreamingDestination :: KinesisStreamingDestinationOutput -> TestTree
@@ -834,7 +834,7 @@ responseEnableKinesisStreamingDestination =
   res
     "EnableKinesisStreamingDestinationResponse"
     "fixture/EnableKinesisStreamingDestinationResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy EnableKinesisStreamingDestination)
 
 responseTransactGetItems :: TransactGetItemsResponse -> TestTree
@@ -842,7 +842,7 @@ responseTransactGetItems =
   res
     "TransactGetItemsResponse"
     "fixture/TransactGetItemsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy TransactGetItems)
 
 responseListContributorInsights :: ListContributorInsightsResponse -> TestTree
@@ -850,7 +850,7 @@ responseListContributorInsights =
   res
     "ListContributorInsightsResponse"
     "fixture/ListContributorInsightsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy ListContributorInsights)
 
 responseBatchWriteItem :: BatchWriteItemResponse -> TestTree
@@ -858,7 +858,7 @@ responseBatchWriteItem =
   res
     "BatchWriteItemResponse"
     "fixture/BatchWriteItemResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy BatchWriteItem)
 
 responseExportTableToPointInTime :: ExportTableToPointInTimeResponse -> TestTree
@@ -866,7 +866,7 @@ responseExportTableToPointInTime =
   res
     "ExportTableToPointInTimeResponse"
     "fixture/ExportTableToPointInTimeResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy ExportTableToPointInTime)
 
 responseTransactWriteItems :: TransactWriteItemsResponse -> TestTree
@@ -874,7 +874,7 @@ responseTransactWriteItems =
   res
     "TransactWriteItemsResponse"
     "fixture/TransactWriteItemsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy TransactWriteItems)
 
 responseListTables :: ListTablesResponse -> TestTree
@@ -882,7 +882,7 @@ responseListTables =
   res
     "ListTablesResponse"
     "fixture/ListTablesResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy ListTables)
 
 responseScan :: ScanResponse -> TestTree
@@ -890,7 +890,7 @@ responseScan =
   res
     "ScanResponse"
     "fixture/ScanResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy Scan)
 
 responseUpdateContributorInsights :: UpdateContributorInsightsResponse -> TestTree
@@ -898,7 +898,7 @@ responseUpdateContributorInsights =
   res
     "UpdateContributorInsightsResponse"
     "fixture/UpdateContributorInsightsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy UpdateContributorInsights)
 
 responseExecuteStatement :: ExecuteStatementResponse -> TestTree
@@ -906,7 +906,7 @@ responseExecuteStatement =
   res
     "ExecuteStatementResponse"
     "fixture/ExecuteStatementResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy ExecuteStatement)
 
 responseQuery :: QueryResponse -> TestTree
@@ -914,7 +914,7 @@ responseQuery =
   res
     "QueryResponse"
     "fixture/QueryResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy Query)
 
 responseCreateTable :: CreateTableResponse -> TestTree
@@ -922,7 +922,7 @@ responseCreateTable =
   res
     "CreateTableResponse"
     "fixture/CreateTableResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy CreateTable)
 
 responseDescribeKinesisStreamingDestination :: DescribeKinesisStreamingDestinationResponse -> TestTree
@@ -930,7 +930,7 @@ responseDescribeKinesisStreamingDestination =
   res
     "DescribeKinesisStreamingDestinationResponse"
     "fixture/DescribeKinesisStreamingDestinationResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeKinesisStreamingDestination)
 
 responseDescribeEndpoints :: DescribeEndpointsResponse -> TestTree
@@ -938,7 +938,7 @@ responseDescribeEndpoints =
   res
     "DescribeEndpointsResponse"
     "fixture/DescribeEndpointsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEndpoints)
 
 responseDescribeTimeToLive :: DescribeTimeToLiveResponse -> TestTree
@@ -946,7 +946,7 @@ responseDescribeTimeToLive =
   res
     "DescribeTimeToLiveResponse"
     "fixture/DescribeTimeToLiveResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTimeToLive)
 
 responseDescribeContinuousBackups :: DescribeContinuousBackupsResponse -> TestTree
@@ -954,7 +954,7 @@ responseDescribeContinuousBackups =
   res
     "DescribeContinuousBackupsResponse"
     "fixture/DescribeContinuousBackupsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeContinuousBackups)
 
 responseListExports :: ListExportsResponse -> TestTree
@@ -962,7 +962,7 @@ responseListExports =
   res
     "ListExportsResponse"
     "fixture/ListExportsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy ListExports)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -970,7 +970,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseDescribeContributorInsights :: DescribeContributorInsightsResponse -> TestTree
@@ -978,7 +978,7 @@ responseDescribeContributorInsights =
   res
     "DescribeContributorInsightsResponse"
     "fixture/DescribeContributorInsightsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeContributorInsights)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -986,7 +986,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseRestoreTableToPointInTime :: RestoreTableToPointInTimeResponse -> TestTree
@@ -994,7 +994,7 @@ responseRestoreTableToPointInTime =
   res
     "RestoreTableToPointInTimeResponse"
     "fixture/RestoreTableToPointInTimeResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy RestoreTableToPointInTime)
 
 responseRestoreTableFromBackup :: RestoreTableFromBackupResponse -> TestTree
@@ -1002,7 +1002,7 @@ responseRestoreTableFromBackup =
   res
     "RestoreTableFromBackupResponse"
     "fixture/RestoreTableFromBackupResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy RestoreTableFromBackup)
 
 responseUpdateTimeToLive :: UpdateTimeToLiveResponse -> TestTree
@@ -1010,7 +1010,7 @@ responseUpdateTimeToLive =
   res
     "UpdateTimeToLiveResponse"
     "fixture/UpdateTimeToLiveResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTimeToLive)
 
 responseCreateGlobalTable :: CreateGlobalTableResponse -> TestTree
@@ -1018,7 +1018,7 @@ responseCreateGlobalTable =
   res
     "CreateGlobalTableResponse"
     "fixture/CreateGlobalTableResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy CreateGlobalTable)
 
 responseUpdateContinuousBackups :: UpdateContinuousBackupsResponse -> TestTree
@@ -1026,7 +1026,7 @@ responseUpdateContinuousBackups =
   res
     "UpdateContinuousBackupsResponse"
     "fixture/UpdateContinuousBackupsResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy UpdateContinuousBackups)
 
 responseDescribeExport :: DescribeExportResponse -> TestTree
@@ -1034,5 +1034,5 @@ responseDescribeExport =
   res
     "DescribeExportResponse"
     "fixture/DescribeExportResponse.proto"
-    dynamoDBService
+    mkServiceConfig
     (Proxy :: Proxy DescribeExport)

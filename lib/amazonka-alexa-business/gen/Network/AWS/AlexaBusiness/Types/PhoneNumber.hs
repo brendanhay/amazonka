@@ -17,68 +17,63 @@ module Network.AWS.AlexaBusiness.Types.PhoneNumber
     mkPhoneNumber,
 
     -- * Lenses
-    pnType,
     pnNumber,
+    pnType,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.PhoneNumberType
+import qualified Network.AWS.AlexaBusiness.Types.Number as Types
+import qualified Network.AWS.AlexaBusiness.Types.PhoneNumberType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The phone number for the contact containing the raw number and phone number type.
 --
 -- /See:/ 'mkPhoneNumber' smart constructor.
 data PhoneNumber = PhoneNumber'
-  { -- | The type of the phone number.
-    type' :: PhoneNumberType,
-    -- | The raw value of the phone number.
-    number :: Lude.Sensitive Lude.Text
+  { -- | The raw value of the phone number.
+    number :: Types.Number,
+    -- | The type of the phone number.
+    type' :: Types.PhoneNumberType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PhoneNumber' with the minimum fields required to make a request.
---
--- * 'type'' - The type of the phone number.
--- * 'number' - The raw value of the phone number.
+-- | Creates a 'PhoneNumber' value with any optional fields omitted.
 mkPhoneNumber ::
-  -- | 'type''
-  PhoneNumberType ->
   -- | 'number'
-  Lude.Sensitive Lude.Text ->
+  Types.Number ->
+  -- | 'type\''
+  Types.PhoneNumberType ->
   PhoneNumber
-mkPhoneNumber pType_ pNumber_ =
-  PhoneNumber' {type' = pType_, number = pNumber_}
-
--- | The type of the phone number.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pnType :: Lens.Lens' PhoneNumber PhoneNumberType
-pnType = Lens.lens (type' :: PhoneNumber -> PhoneNumberType) (\s a -> s {type' = a} :: PhoneNumber)
-{-# DEPRECATED pnType "Use generic-lens or generic-optics with 'type'' instead." #-}
+mkPhoneNumber number type' = PhoneNumber' {number, type'}
 
 -- | The raw value of the phone number.
 --
 -- /Note:/ Consider using 'number' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pnNumber :: Lens.Lens' PhoneNumber (Lude.Sensitive Lude.Text)
-pnNumber = Lens.lens (number :: PhoneNumber -> Lude.Sensitive Lude.Text) (\s a -> s {number = a} :: PhoneNumber)
+pnNumber :: Lens.Lens' PhoneNumber Types.Number
+pnNumber = Lens.field @"number"
 {-# DEPRECATED pnNumber "Use generic-lens or generic-optics with 'number' instead." #-}
 
-instance Lude.FromJSON PhoneNumber where
-  parseJSON =
-    Lude.withObject
-      "PhoneNumber"
-      ( \x ->
-          PhoneNumber'
-            Lude.<$> (x Lude..: "Type") Lude.<*> (x Lude..: "Number")
-      )
+-- | The type of the phone number.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pnType :: Lens.Lens' PhoneNumber Types.PhoneNumberType
+pnType = Lens.field @"type'"
+{-# DEPRECATED pnType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.ToJSON PhoneNumber where
-  toJSON PhoneNumber' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Type" Lude..= type'),
-            Lude.Just ("Number" Lude..= number)
+instance Core.FromJSON PhoneNumber where
+  toJSON PhoneNumber {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Number" Core..= number),
+            Core.Just ("Type" Core..= type')
           ]
       )
+
+instance Core.FromJSON PhoneNumber where
+  parseJSON =
+    Core.withObject "PhoneNumber" Core.$
+      \x ->
+        PhoneNumber'
+          Core.<$> (x Core..: "Number") Core.<*> (x Core..: "Type")

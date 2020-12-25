@@ -28,144 +28,128 @@ module Network.AWS.Glue.CreateSecurityConfiguration
     mkCreateSecurityConfigurationResponse,
 
     -- ** Response lenses
-    cscrsName,
-    cscrsCreatedTimestamp,
-    cscrsResponseStatus,
+    cscrrsCreatedTimestamp,
+    cscrrsName,
+    cscrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateSecurityConfiguration' smart constructor.
 data CreateSecurityConfiguration = CreateSecurityConfiguration'
   { -- | The name for the new security configuration.
-    name :: Lude.Text,
+    name :: Types.NameString,
     -- | The encryption configuration for the new security configuration.
-    encryptionConfiguration :: EncryptionConfiguration
+    encryptionConfiguration :: Types.EncryptionConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSecurityConfiguration' with the minimum fields required to make a request.
---
--- * 'name' - The name for the new security configuration.
--- * 'encryptionConfiguration' - The encryption configuration for the new security configuration.
+-- | Creates a 'CreateSecurityConfiguration' value with any optional fields omitted.
 mkCreateSecurityConfiguration ::
   -- | 'name'
-  Lude.Text ->
+  Types.NameString ->
   -- | 'encryptionConfiguration'
-  EncryptionConfiguration ->
+  Types.EncryptionConfiguration ->
   CreateSecurityConfiguration
-mkCreateSecurityConfiguration pName_ pEncryptionConfiguration_ =
-  CreateSecurityConfiguration'
-    { name = pName_,
-      encryptionConfiguration = pEncryptionConfiguration_
-    }
+mkCreateSecurityConfiguration name encryptionConfiguration =
+  CreateSecurityConfiguration' {name, encryptionConfiguration}
 
 -- | The name for the new security configuration.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscName :: Lens.Lens' CreateSecurityConfiguration Lude.Text
-cscName = Lens.lens (name :: CreateSecurityConfiguration -> Lude.Text) (\s a -> s {name = a} :: CreateSecurityConfiguration)
+cscName :: Lens.Lens' CreateSecurityConfiguration Types.NameString
+cscName = Lens.field @"name"
 {-# DEPRECATED cscName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The encryption configuration for the new security configuration.
 --
 -- /Note:/ Consider using 'encryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscEncryptionConfiguration :: Lens.Lens' CreateSecurityConfiguration EncryptionConfiguration
-cscEncryptionConfiguration = Lens.lens (encryptionConfiguration :: CreateSecurityConfiguration -> EncryptionConfiguration) (\s a -> s {encryptionConfiguration = a} :: CreateSecurityConfiguration)
+cscEncryptionConfiguration :: Lens.Lens' CreateSecurityConfiguration Types.EncryptionConfiguration
+cscEncryptionConfiguration = Lens.field @"encryptionConfiguration"
 {-# DEPRECATED cscEncryptionConfiguration "Use generic-lens or generic-optics with 'encryptionConfiguration' instead." #-}
 
-instance Lude.AWSRequest CreateSecurityConfiguration where
+instance Core.FromJSON CreateSecurityConfiguration where
+  toJSON CreateSecurityConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just
+              ("EncryptionConfiguration" Core..= encryptionConfiguration)
+          ]
+      )
+
+instance Core.AWSRequest CreateSecurityConfiguration where
   type
     Rs CreateSecurityConfiguration =
       CreateSecurityConfigurationResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.CreateSecurityConfiguration")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateSecurityConfigurationResponse'
-            Lude.<$> (x Lude..?> "Name")
-            Lude.<*> (x Lude..?> "CreatedTimestamp")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CreatedTimestamp")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateSecurityConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.CreateSecurityConfiguration" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateSecurityConfiguration where
-  toJSON CreateSecurityConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just
-              ("EncryptionConfiguration" Lude..= encryptionConfiguration)
-          ]
-      )
-
-instance Lude.ToPath CreateSecurityConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateSecurityConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateSecurityConfigurationResponse' smart constructor.
 data CreateSecurityConfigurationResponse = CreateSecurityConfigurationResponse'
-  { -- | The name assigned to the new security configuration.
-    name :: Lude.Maybe Lude.Text,
-    -- | The time at which the new security configuration was created.
-    createdTimestamp :: Lude.Maybe Lude.Timestamp,
+  { -- | The time at which the new security configuration was created.
+    createdTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | The name assigned to the new security configuration.
+    name :: Core.Maybe Types.Name,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateSecurityConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'name' - The name assigned to the new security configuration.
--- * 'createdTimestamp' - The time at which the new security configuration was created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSecurityConfigurationResponse' value with any optional fields omitted.
 mkCreateSecurityConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSecurityConfigurationResponse
-mkCreateSecurityConfigurationResponse pResponseStatus_ =
+mkCreateSecurityConfigurationResponse responseStatus =
   CreateSecurityConfigurationResponse'
-    { name = Lude.Nothing,
-      createdTimestamp = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { createdTimestamp =
+        Core.Nothing,
+      name = Core.Nothing,
+      responseStatus
     }
-
--- | The name assigned to the new security configuration.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscrsName :: Lens.Lens' CreateSecurityConfigurationResponse (Lude.Maybe Lude.Text)
-cscrsName = Lens.lens (name :: CreateSecurityConfigurationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateSecurityConfigurationResponse)
-{-# DEPRECATED cscrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The time at which the new security configuration was created.
 --
 -- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscrsCreatedTimestamp :: Lens.Lens' CreateSecurityConfigurationResponse (Lude.Maybe Lude.Timestamp)
-cscrsCreatedTimestamp = Lens.lens (createdTimestamp :: CreateSecurityConfigurationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTimestamp = a} :: CreateSecurityConfigurationResponse)
-{-# DEPRECATED cscrsCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
+cscrrsCreatedTimestamp :: Lens.Lens' CreateSecurityConfigurationResponse (Core.Maybe Core.NominalDiffTime)
+cscrrsCreatedTimestamp = Lens.field @"createdTimestamp"
+{-# DEPRECATED cscrrsCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
+
+-- | The name assigned to the new security configuration.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cscrrsName :: Lens.Lens' CreateSecurityConfigurationResponse (Core.Maybe Types.Name)
+cscrrsName = Lens.field @"name"
+{-# DEPRECATED cscrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cscrsResponseStatus :: Lens.Lens' CreateSecurityConfigurationResponse Lude.Int
-cscrsResponseStatus = Lens.lens (responseStatus :: CreateSecurityConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSecurityConfigurationResponse)
-{-# DEPRECATED cscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cscrrsResponseStatus :: Lens.Lens' CreateSecurityConfigurationResponse Core.Int
+cscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

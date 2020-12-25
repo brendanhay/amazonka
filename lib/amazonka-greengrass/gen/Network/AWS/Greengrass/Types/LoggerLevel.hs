@@ -13,61 +13,63 @@
 module Network.AWS.Greengrass.Types.LoggerLevel
   ( LoggerLevel
       ( LoggerLevel',
-        LLDebug,
-        LLInfo,
-        LLWarn,
-        LLError,
-        LLFatal
+        LoggerLevelDebug,
+        LoggerLevelInfo,
+        LoggerLevelWarn,
+        LoggerLevelError,
+        LoggerLevelFatal,
+        fromLoggerLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LoggerLevel = LoggerLevel' Lude.Text
+newtype LoggerLevel = LoggerLevel' {fromLoggerLevel :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LLDebug :: LoggerLevel
-pattern LLDebug = LoggerLevel' "DEBUG"
+pattern LoggerLevelDebug :: LoggerLevel
+pattern LoggerLevelDebug = LoggerLevel' "DEBUG"
 
-pattern LLInfo :: LoggerLevel
-pattern LLInfo = LoggerLevel' "INFO"
+pattern LoggerLevelInfo :: LoggerLevel
+pattern LoggerLevelInfo = LoggerLevel' "INFO"
 
-pattern LLWarn :: LoggerLevel
-pattern LLWarn = LoggerLevel' "WARN"
+pattern LoggerLevelWarn :: LoggerLevel
+pattern LoggerLevelWarn = LoggerLevel' "WARN"
 
-pattern LLError :: LoggerLevel
-pattern LLError = LoggerLevel' "ERROR"
+pattern LoggerLevelError :: LoggerLevel
+pattern LoggerLevelError = LoggerLevel' "ERROR"
 
-pattern LLFatal :: LoggerLevel
-pattern LLFatal = LoggerLevel' "FATAL"
+pattern LoggerLevelFatal :: LoggerLevel
+pattern LoggerLevelFatal = LoggerLevel' "FATAL"
 
 {-# COMPLETE
-  LLDebug,
-  LLInfo,
-  LLWarn,
-  LLError,
-  LLFatal,
+  LoggerLevelDebug,
+  LoggerLevelInfo,
+  LoggerLevelWarn,
+  LoggerLevelError,
+  LoggerLevelFatal,
   LoggerLevel'
   #-}

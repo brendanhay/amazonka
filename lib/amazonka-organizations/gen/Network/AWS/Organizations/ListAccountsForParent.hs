@@ -24,172 +24,158 @@ module Network.AWS.Organizations.ListAccountsForParent
     mkListAccountsForParent,
 
     -- ** Request lenses
-    lafpNextToken,
-    lafpMaxResults,
     lafpParentId,
+    lafpMaxResults,
+    lafpNextToken,
 
     -- * Destructuring the response
     ListAccountsForParentResponse (..),
     mkListAccountsForParentResponse,
 
     -- ** Response lenses
-    lafprsAccounts,
-    lafprsNextToken,
-    lafprsResponseStatus,
+    lafprrsAccounts,
+    lafprrsNextToken,
+    lafprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Organizations.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListAccountsForParent' smart constructor.
 data ListAccountsForParent = ListAccountsForParent'
-  { -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The unique identifier (ID) for the parent root or organization unit (OU) whose accounts you want to list.
+    parentId :: Types.ParentId,
     -- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
-    maxResults :: Lude.Maybe Lude.Natural,
-    -- | The unique identifier (ID) for the parent root or organization unit (OU) whose accounts you want to list.
-    parentId :: Lude.Text
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAccountsForParent' with the minimum fields required to make a request.
---
--- * 'nextToken' - The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
--- * 'maxResults' - The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
--- * 'parentId' - The unique identifier (ID) for the parent root or organization unit (OU) whose accounts you want to list.
+-- | Creates a 'ListAccountsForParent' value with any optional fields omitted.
 mkListAccountsForParent ::
   -- | 'parentId'
-  Lude.Text ->
+  Types.ParentId ->
   ListAccountsForParent
-mkListAccountsForParent pParentId_ =
+mkListAccountsForParent parentId =
   ListAccountsForParent'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      parentId = pParentId_
+    { parentId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafpNextToken :: Lens.Lens' ListAccountsForParent (Lude.Maybe Lude.Text)
-lafpNextToken = Lens.lens (nextToken :: ListAccountsForParent -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAccountsForParent)
-{-# DEPRECATED lafpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafpMaxResults :: Lens.Lens' ListAccountsForParent (Lude.Maybe Lude.Natural)
-lafpMaxResults = Lens.lens (maxResults :: ListAccountsForParent -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAccountsForParent)
-{-# DEPRECATED lafpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The unique identifier (ID) for the parent root or organization unit (OU) whose accounts you want to list.
 --
 -- /Note:/ Consider using 'parentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafpParentId :: Lens.Lens' ListAccountsForParent Lude.Text
-lafpParentId = Lens.lens (parentId :: ListAccountsForParent -> Lude.Text) (\s a -> s {parentId = a} :: ListAccountsForParent)
+lafpParentId :: Lens.Lens' ListAccountsForParent Types.ParentId
+lafpParentId = Lens.field @"parentId"
 {-# DEPRECATED lafpParentId "Use generic-lens or generic-optics with 'parentId' instead." #-}
 
-instance Page.AWSPager ListAccountsForParent where
-  page rq rs
-    | Page.stop (rs Lens.^. lafprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lafprsAccounts) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lafpNextToken Lens..~ rs Lens.^. lafprsNextToken
+-- | The total number of results that you want included on each page of the response. If you do not include this parameter, it defaults to a value that is specific to the operation. If additional items exist beyond the maximum you specify, the @NextToken@ response element is present and has a value (is not null). Include that value as the @NextToken@ request parameter in the next call to the operation to get the next part of the results. Note that Organizations might return fewer results than the maximum even when there are more results available. You should check @NextToken@ after every operation to ensure that you receive all of the results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafpMaxResults :: Lens.Lens' ListAccountsForParent (Core.Maybe Core.Natural)
+lafpMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lafpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListAccountsForParent where
+-- | The parameter for receiving additional results if you receive a @NextToken@ response in a previous request. A @NextToken@ response indicates that more output is available. Set this parameter to the value of the previous call's @NextToken@ response to indicate where the output should continue from.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafpNextToken :: Lens.Lens' ListAccountsForParent (Core.Maybe Types.NextToken)
+lafpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lafpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListAccountsForParent where
+  toJSON ListAccountsForParent {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ParentId" Core..= parentId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListAccountsForParent where
   type Rs ListAccountsForParent = ListAccountsForParentResponse
-  request = Req.postJSON organizationsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSOrganizationsV20161128.ListAccountsForParent")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAccountsForParentResponse'
-            Lude.<$> (x Lude..?> "Accounts" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Accounts")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAccountsForParent where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSOrganizationsV20161128.ListAccountsForParent" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAccountsForParent where
-  toJSON ListAccountsForParent' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("ParentId" Lude..= parentId)
-          ]
-      )
-
-instance Lude.ToPath ListAccountsForParent where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAccountsForParent where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAccountsForParent where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"accounts" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListAccountsForParentResponse' smart constructor.
 data ListAccountsForParentResponse = ListAccountsForParentResponse'
   { -- | A list of the accounts in the specified root or OU.
-    accounts :: Lude.Maybe [Account],
+    accounts :: Core.Maybe [Types.Account],
     -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListAccountsForParentResponse' with the minimum fields required to make a request.
---
--- * 'accounts' - A list of the accounts in the specified root or OU.
--- * 'nextToken' - If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAccountsForParentResponse' value with any optional fields omitted.
 mkListAccountsForParentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAccountsForParentResponse
-mkListAccountsForParentResponse pResponseStatus_ =
+mkListAccountsForParentResponse responseStatus =
   ListAccountsForParentResponse'
-    { accounts = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { accounts = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of the accounts in the specified root or OU.
 --
 -- /Note:/ Consider using 'accounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafprsAccounts :: Lens.Lens' ListAccountsForParentResponse (Lude.Maybe [Account])
-lafprsAccounts = Lens.lens (accounts :: ListAccountsForParentResponse -> Lude.Maybe [Account]) (\s a -> s {accounts = a} :: ListAccountsForParentResponse)
-{-# DEPRECATED lafprsAccounts "Use generic-lens or generic-optics with 'accounts' instead." #-}
+lafprrsAccounts :: Lens.Lens' ListAccountsForParentResponse (Core.Maybe [Types.Account])
+lafprrsAccounts = Lens.field @"accounts"
+{-# DEPRECATED lafprrsAccounts "Use generic-lens or generic-optics with 'accounts' instead." #-}
 
 -- | If present, indicates that more output is available than is included in the current response. Use this value in the @NextToken@ request parameter in a subsequent call to the operation to get the next part of the output. You should repeat this until the @NextToken@ response element comes back as @null@ .
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafprsNextToken :: Lens.Lens' ListAccountsForParentResponse (Lude.Maybe Lude.Text)
-lafprsNextToken = Lens.lens (nextToken :: ListAccountsForParentResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAccountsForParentResponse)
-{-# DEPRECATED lafprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lafprrsNextToken :: Lens.Lens' ListAccountsForParentResponse (Core.Maybe Types.NextToken)
+lafprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lafprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafprsResponseStatus :: Lens.Lens' ListAccountsForParentResponse Lude.Int
-lafprsResponseStatus = Lens.lens (responseStatus :: ListAccountsForParentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAccountsForParentResponse)
-{-# DEPRECATED lafprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lafprrsResponseStatus :: Lens.Lens' ListAccountsForParentResponse Core.Int
+lafprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lafprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

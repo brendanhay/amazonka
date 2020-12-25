@@ -1,8 +1,3 @@
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE LambdaCase #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes #-}
-
 -- |
 -- Module      : Network.AWS.Waiter
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -58,8 +53,8 @@ instance ToLog Accept where
 -- | Timing and acceptance criteria to check fulfillment of a remote operation.
 data Wait a = Wait
   { _waitName :: ByteString,
-    _waitAttempts :: !Int,
-    _waitDelay :: !Seconds,
+    _waitAttempts :: Int,
+    _waitDelay :: Seconds,
     _waitAcceptors :: [Acceptor a]
   }
 

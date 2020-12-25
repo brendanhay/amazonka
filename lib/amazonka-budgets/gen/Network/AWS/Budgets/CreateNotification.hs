@@ -20,9 +20,9 @@ module Network.AWS.Budgets.CreateNotification
     mkCreateNotification,
 
     -- ** Request lenses
-    cnNotification,
     cnAccountId,
     cnBudgetName,
+    cnNotification,
     cnSubscribers,
 
     -- * Destructuring the response
@@ -30,148 +30,131 @@ module Network.AWS.Budgets.CreateNotification
     mkCreateNotificationResponse,
 
     -- ** Response lenses
-    cnrsResponseStatus,
+    cnrrsResponseStatus,
   )
 where
 
-import Network.AWS.Budgets.Types
+import qualified Network.AWS.Budgets.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request of CreateNotification
 --
 -- /See:/ 'mkCreateNotification' smart constructor.
 data CreateNotification = CreateNotification'
-  { -- | The notification that you want to create.
-    notification :: Notification,
-    -- | The @accountId@ that is associated with the budget that you want to create a notification for.
-    accountId :: Lude.Text,
+  { -- | The @accountId@ that is associated with the budget that you want to create a notification for.
+    accountId :: Types.AccountId,
     -- | The name of the budget that you want AWS to notify you about. Budget names must be unique within an account.
-    budgetName :: Lude.Text,
+    budgetName :: Types.BudgetName,
+    -- | The notification that you want to create.
+    notification :: Types.Notification,
     -- | A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.
-    subscribers :: Lude.NonEmpty Subscriber
+    subscribers :: Core.NonEmpty Types.Subscriber
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNotification' with the minimum fields required to make a request.
---
--- * 'notification' - The notification that you want to create.
--- * 'accountId' - The @accountId@ that is associated with the budget that you want to create a notification for.
--- * 'budgetName' - The name of the budget that you want AWS to notify you about. Budget names must be unique within an account.
--- * 'subscribers' - A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.
+-- | Creates a 'CreateNotification' value with any optional fields omitted.
 mkCreateNotification ::
-  -- | 'notification'
-  Notification ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
   -- | 'budgetName'
-  Lude.Text ->
+  Types.BudgetName ->
+  -- | 'notification'
+  Types.Notification ->
   -- | 'subscribers'
-  Lude.NonEmpty Subscriber ->
+  Core.NonEmpty Types.Subscriber ->
   CreateNotification
-mkCreateNotification
-  pNotification_
-  pAccountId_
-  pBudgetName_
-  pSubscribers_ =
-    CreateNotification'
-      { notification = pNotification_,
-        accountId = pAccountId_,
-        budgetName = pBudgetName_,
-        subscribers = pSubscribers_
-      }
-
--- | The notification that you want to create.
---
--- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnNotification :: Lens.Lens' CreateNotification Notification
-cnNotification = Lens.lens (notification :: CreateNotification -> Notification) (\s a -> s {notification = a} :: CreateNotification)
-{-# DEPRECATED cnNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
+mkCreateNotification accountId budgetName notification subscribers =
+  CreateNotification'
+    { accountId,
+      budgetName,
+      notification,
+      subscribers
+    }
 
 -- | The @accountId@ that is associated with the budget that you want to create a notification for.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnAccountId :: Lens.Lens' CreateNotification Lude.Text
-cnAccountId = Lens.lens (accountId :: CreateNotification -> Lude.Text) (\s a -> s {accountId = a} :: CreateNotification)
+cnAccountId :: Lens.Lens' CreateNotification Types.AccountId
+cnAccountId = Lens.field @"accountId"
 {-# DEPRECATED cnAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the budget that you want AWS to notify you about. Budget names must be unique within an account.
 --
 -- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnBudgetName :: Lens.Lens' CreateNotification Lude.Text
-cnBudgetName = Lens.lens (budgetName :: CreateNotification -> Lude.Text) (\s a -> s {budgetName = a} :: CreateNotification)
+cnBudgetName :: Lens.Lens' CreateNotification Types.BudgetName
+cnBudgetName = Lens.field @"budgetName"
 {-# DEPRECATED cnBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
+
+-- | The notification that you want to create.
+--
+-- /Note:/ Consider using 'notification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnNotification :: Lens.Lens' CreateNotification Types.Notification
+cnNotification = Lens.field @"notification"
+{-# DEPRECATED cnNotification "Use generic-lens or generic-optics with 'notification' instead." #-}
 
 -- | A list of subscribers that you want to associate with the notification. Each notification can have one SNS subscriber and up to 10 email subscribers.
 --
 -- /Note:/ Consider using 'subscribers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnSubscribers :: Lens.Lens' CreateNotification (Lude.NonEmpty Subscriber)
-cnSubscribers = Lens.lens (subscribers :: CreateNotification -> Lude.NonEmpty Subscriber) (\s a -> s {subscribers = a} :: CreateNotification)
+cnSubscribers :: Lens.Lens' CreateNotification (Core.NonEmpty Types.Subscriber)
+cnSubscribers = Lens.field @"subscribers"
 {-# DEPRECATED cnSubscribers "Use generic-lens or generic-optics with 'subscribers' instead." #-}
 
-instance Lude.AWSRequest CreateNotification where
+instance Core.FromJSON CreateNotification where
+  toJSON CreateNotification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("BudgetName" Core..= budgetName),
+            Core.Just ("Notification" Core..= notification),
+            Core.Just ("Subscribers" Core..= subscribers)
+          ]
+      )
+
+instance Core.AWSRequest CreateNotification where
   type Rs CreateNotification = CreateNotificationResponse
-  request = Req.postJSON budgetsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSBudgetServiceGateway.CreateNotification")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CreateNotificationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreateNotificationResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateNotification where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSBudgetServiceGateway.CreateNotification" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateNotification where
-  toJSON CreateNotification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Notification" Lude..= notification),
-            Lude.Just ("AccountId" Lude..= accountId),
-            Lude.Just ("BudgetName" Lude..= budgetName),
-            Lude.Just ("Subscribers" Lude..= subscribers)
-          ]
-      )
-
-instance Lude.ToPath CreateNotification where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateNotification where
-  toQuery = Lude.const Lude.mempty
 
 -- | Response of CreateNotification
 --
 -- /See:/ 'mkCreateNotificationResponse' smart constructor.
 newtype CreateNotificationResponse = CreateNotificationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNotificationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateNotificationResponse' value with any optional fields omitted.
 mkCreateNotificationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateNotificationResponse
-mkCreateNotificationResponse pResponseStatus_ =
-  CreateNotificationResponse' {responseStatus = pResponseStatus_}
+mkCreateNotificationResponse responseStatus =
+  CreateNotificationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnrsResponseStatus :: Lens.Lens' CreateNotificationResponse Lude.Int
-cnrsResponseStatus = Lens.lens (responseStatus :: CreateNotificationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateNotificationResponse)
-{-# DEPRECATED cnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cnrrsResponseStatus :: Lens.Lens' CreateNotificationResponse Core.Int
+cnrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cnrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

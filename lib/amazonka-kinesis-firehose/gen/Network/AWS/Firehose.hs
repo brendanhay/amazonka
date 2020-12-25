@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,31 @@
 -- Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), Amazon Redshift, and Splunk.
 module Network.AWS.Firehose
   ( -- * Service configuration
-    firehoseService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
+    -- ** InvalidKMSResourceException
+    _InvalidKMSResourceException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -65,74 +85,209 @@ module Network.AWS.Firehose
 
     -- * Types
 
-    -- ** CompressionFormat
-    CompressionFormat (..),
-
-    -- ** ContentEncoding
-    ContentEncoding (..),
-
-    -- ** DeliveryStreamEncryptionStatus
-    DeliveryStreamEncryptionStatus (..),
-
-    -- ** DeliveryStreamFailureType
-    DeliveryStreamFailureType (..),
-
-    -- ** DeliveryStreamStatus
-    DeliveryStreamStatus (..),
-
-    -- ** DeliveryStreamType
-    DeliveryStreamType (..),
+    -- ** S3DestinationConfiguration
+    S3DestinationConfiguration (..),
+    mkS3DestinationConfiguration,
+    sdcRoleARN,
+    sdcBucketARN,
+    sdcBufferingHints,
+    sdcCloudWatchLoggingOptions,
+    sdcCompressionFormat,
+    sdcEncryptionConfiguration,
+    sdcErrorOutputPrefix,
+    sdcPrefix,
 
     -- ** ElasticsearchIndexRotationPeriod
     ElasticsearchIndexRotationPeriod (..),
 
-    -- ** ElasticsearchS3BackupMode
-    ElasticsearchS3BackupMode (..),
+    -- ** DeliveryStreamStatus
+    DeliveryStreamStatus (..),
 
-    -- ** HECEndpointType
-    HECEndpointType (..),
+    -- ** HttpEndpointAttributeValue
+    HttpEndpointAttributeValue (..),
 
-    -- ** HTTPEndpointS3BackupMode
-    HTTPEndpointS3BackupMode (..),
+    -- ** OutputFormatConfiguration
+    OutputFormatConfiguration (..),
+    mkOutputFormatConfiguration,
+    ofcSerializer,
+
+    -- ** RedshiftDestinationConfiguration
+    RedshiftDestinationConfiguration (..),
+    mkRedshiftDestinationConfiguration,
+    rdcRoleARN,
+    rdcClusterJDBCURL,
+    rdcCopyCommand,
+    rdcUsername,
+    rdcPassword,
+    rdcS3Configuration,
+    rdcCloudWatchLoggingOptions,
+    rdcProcessingConfiguration,
+    rdcRetryOptions,
+    rdcS3BackupConfiguration,
+    rdcS3BackupMode,
+
+    -- ** PutRecordBatchResponseEntry
+    PutRecordBatchResponseEntry (..),
+    mkPutRecordBatchResponseEntry,
+    prbreErrorCode,
+    prbreErrorMessage,
+    prbreRecordId,
+
+    -- ** DeliveryStreamVersionId
+    DeliveryStreamVersionId (..),
+
+    -- ** ProcessorParameter
+    ProcessorParameter (..),
+    mkProcessorParameter,
+    ppParameterName,
+    ppParameterValue,
+
+    -- ** ElasticsearchDestinationConfiguration
+    ElasticsearchDestinationConfiguration (..),
+    mkElasticsearchDestinationConfiguration,
+    edcRoleARN,
+    edcIndexName,
+    edcS3Configuration,
+    edcBufferingHints,
+    edcCloudWatchLoggingOptions,
+    edcClusterEndpoint,
+    edcDomainARN,
+    edcIndexRotationPeriod,
+    edcProcessingConfiguration,
+    edcRetryOptions,
+    edcS3BackupMode,
+    edcTypeName,
+    edcVpcConfiguration,
 
     -- ** KeyType
     KeyType (..),
 
-    -- ** NoEncryptionConfig
-    NoEncryptionConfig (..),
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** OrcCompression
-    OrcCompression (..),
+    -- ** SplunkDestinationUpdate
+    SplunkDestinationUpdate (..),
+    mkSplunkDestinationUpdate,
+    sduCloudWatchLoggingOptions,
+    sduHECAcknowledgmentTimeoutInSeconds,
+    sduHECEndpoint,
+    sduHECEndpointType,
+    sduHECToken,
+    sduProcessingConfiguration,
+    sduRetryOptions,
+    sduS3BackupMode,
+    sduS3Update,
 
-    -- ** OrcFormatVersion
-    OrcFormatVersion (..),
-
-    -- ** ParquetCompression
-    ParquetCompression (..),
-
-    -- ** ParquetWriterVersion
-    ParquetWriterVersion (..),
-
-    -- ** ProcessorParameterName
-    ProcessorParameterName (..),
-
-    -- ** ProcessorType
-    ProcessorType (..),
-
-    -- ** RedshiftS3BackupMode
-    RedshiftS3BackupMode (..),
-
-    -- ** S3BackupMode
-    S3BackupMode (..),
+    -- ** DestinationDescription
+    DestinationDescription (..),
+    mkDestinationDescription,
+    ddDestinationId,
+    ddElasticsearchDestinationDescription,
+    ddExtendedS3DestinationDescription,
+    ddHttpEndpointDestinationDescription,
+    ddRedshiftDestinationDescription,
+    ddS3DestinationDescription,
+    ddSplunkDestinationDescription,
 
     -- ** SplunkS3BackupMode
     SplunkS3BackupMode (..),
 
-    -- ** BufferingHints
-    BufferingHints (..),
-    mkBufferingHints,
-    bhSizeInMBs,
-    bhIntervalInSeconds,
+    -- ** S3DestinationUpdate
+    S3DestinationUpdate (..),
+    mkS3DestinationUpdate,
+    sBucketARN,
+    sBufferingHints,
+    sCloudWatchLoggingOptions,
+    sCompressionFormat,
+    sEncryptionConfiguration,
+    sErrorOutputPrefix,
+    sPrefix,
+    sRoleARN,
+
+    -- ** S3BackupMode
+    S3BackupMode (..),
+
+    -- ** CopyOptions
+    CopyOptions (..),
+
+    -- ** HECToken
+    HECToken (..),
+
+    -- ** SplunkDestinationDescription
+    SplunkDestinationDescription (..),
+    mkSplunkDestinationDescription,
+    sddfCloudWatchLoggingOptions,
+    sddfHECAcknowledgmentTimeoutInSeconds,
+    sddfHECEndpoint,
+    sddfHECEndpointType,
+    sddfHECToken,
+    sddfProcessingConfiguration,
+    sddfRetryOptions,
+    sddfS3BackupMode,
+    sddfS3DestinationDescription,
+
+    -- ** HECEndpointType
+    HECEndpointType (..),
+
+    -- ** DeliveryStreamARN
+    DeliveryStreamARN (..),
+
+    -- ** OrcCompression
+    OrcCompression (..),
+
+    -- ** DeliveryStreamFailureType
+    DeliveryStreamFailureType (..),
+
+    -- ** Prefix
+    Prefix (..),
+
+    -- ** HttpEndpointAccessKey
+    HttpEndpointAccessKey (..),
+
+    -- ** HttpEndpointAttributeName
+    HttpEndpointAttributeName (..),
+
+    -- ** ParquetCompression
+    ParquetCompression (..),
+
+    -- ** ElasticsearchRetryOptions
+    ElasticsearchRetryOptions (..),
+    mkElasticsearchRetryOptions,
+    eroDurationInSeconds,
+
+    -- ** HttpEndpointConfiguration
+    HttpEndpointConfiguration (..),
+    mkHttpEndpointConfiguration,
+    hecUrl,
+    hecAccessKey,
+    hecName,
+
+    -- ** VpcConfigurationDescription
+    VpcConfigurationDescription (..),
+    mkVpcConfigurationDescription,
+    vcdSubnetIds,
+    vcdRoleARN,
+    vcdSecurityGroupIds,
+    vcdVpcId,
+
+    -- ** ExtendedS3DestinationConfiguration
+    ExtendedS3DestinationConfiguration (..),
+    mkExtendedS3DestinationConfiguration,
+    esdcRoleARN,
+    esdcBucketARN,
+    esdcBufferingHints,
+    esdcCloudWatchLoggingOptions,
+    esdcCompressionFormat,
+    esdcDataFormatConversionConfiguration,
+    esdcEncryptionConfiguration,
+    esdcErrorOutputPrefix,
+    esdcPrefix,
+    esdcProcessingConfiguration,
+    esdcS3BackupConfiguration,
+    esdcS3BackupMode,
 
     -- ** CloudWatchLoggingOptions
     CloudWatchLoggingOptions (..),
@@ -141,283 +296,164 @@ module Network.AWS.Firehose
     cwloLogGroupName,
     cwloLogStreamName,
 
-    -- ** CopyCommand
-    CopyCommand (..),
-    mkCopyCommand,
-    ccCopyOptions,
-    ccDataTableColumns,
-    ccDataTableName,
+    -- ** SourceDescription
+    SourceDescription (..),
+    mkSourceDescription,
+    sdKinesisStreamSourceDescription,
 
-    -- ** DataFormatConversionConfiguration
-    DataFormatConversionConfiguration (..),
-    mkDataFormatConversionConfiguration,
-    dfccOutputFormatConfiguration,
-    dfccEnabled,
-    dfccSchemaConfiguration,
-    dfccInputFormatConfiguration,
-
-    -- ** DeliveryStreamDescription
-    DeliveryStreamDescription (..),
-    mkDeliveryStreamDescription,
-    dsdDeliveryStreamStatus,
-    dsdVersionId,
-    dsdDeliveryStreamARN,
-    dsdHasMoreDestinations,
-    dsdFailureDescription,
-    dsdDeliveryStreamEncryptionConfiguration,
-    dsdDestinations,
-    dsdDeliveryStreamName,
-    dsdCreateTimestamp,
-    dsdSource,
-    dsdLastUpdateTimestamp,
-    dsdDeliveryStreamType,
-
-    -- ** DeliveryStreamEncryptionConfiguration
-    DeliveryStreamEncryptionConfiguration (..),
-    mkDeliveryStreamEncryptionConfiguration,
-    dsecStatus,
-    dsecKeyType,
-    dsecKeyARN,
-    dsecFailureDescription,
-
-    -- ** DeliveryStreamEncryptionConfigurationInput
-    DeliveryStreamEncryptionConfigurationInput (..),
-    mkDeliveryStreamEncryptionConfigurationInput,
-    dseciKeyType,
-    dseciKeyARN,
-
-    -- ** Deserializer
-    Deserializer (..),
-    mkDeserializer,
-    dOpenXJSONSerDe,
-    dHiveJSONSerDe,
-
-    -- ** DestinationDescription
-    DestinationDescription (..),
-    mkDestinationDescription,
-    ddSplunkDestinationDescription,
-    ddHTTPEndpointDestinationDescription,
-    ddS3DestinationDescription,
-    ddExtendedS3DestinationDescription,
-    ddElasticsearchDestinationDescription,
-    ddRedshiftDestinationDescription,
-    ddDestinationId,
+    -- ** RedshiftRetryOptions
+    RedshiftRetryOptions (..),
+    mkRedshiftRetryOptions,
+    rroDurationInSeconds,
 
     -- ** ElasticsearchBufferingHints
     ElasticsearchBufferingHints (..),
     mkElasticsearchBufferingHints,
-    ebhSizeInMBs,
     ebhIntervalInSeconds,
+    ebhSizeInMBs,
 
-    -- ** ElasticsearchDestinationConfiguration
-    ElasticsearchDestinationConfiguration (..),
-    mkElasticsearchDestinationConfiguration,
-    edcIndexRotationPeriod,
-    edcTypeName,
-    edcS3BackupMode,
-    edcDomainARN,
-    edcS3Configuration,
-    edcCloudWatchLoggingOptions,
-    edcVPCConfiguration,
-    edcBufferingHints,
-    edcRetryOptions,
-    edcProcessingConfiguration,
-    edcRoleARN,
-    edcClusterEndpoint,
-    edcIndexName,
-
-    -- ** ElasticsearchDestinationDescription
-    ElasticsearchDestinationDescription (..),
-    mkElasticsearchDestinationDescription,
-    eddIndexRotationPeriod,
-    eddTypeName,
-    eddS3BackupMode,
-    eddDomainARN,
-    eddVPCConfigurationDescription,
-    eddCloudWatchLoggingOptions,
-    eddS3DestinationDescription,
-    eddBufferingHints,
-    eddRetryOptions,
-    eddProcessingConfiguration,
-    eddRoleARN,
-    eddClusterEndpoint,
-    eddIndexName,
-
-    -- ** ElasticsearchDestinationUpdate
-    ElasticsearchDestinationUpdate (..),
-    mkElasticsearchDestinationUpdate,
-    eduIndexRotationPeriod,
-    eduTypeName,
-    eduDomainARN,
-    eduCloudWatchLoggingOptions,
-    eduS3Update,
-    eduBufferingHints,
-    eduRetryOptions,
-    eduProcessingConfiguration,
-    eduRoleARN,
-    eduClusterEndpoint,
-    eduIndexName,
-
-    -- ** ElasticsearchRetryOptions
-    ElasticsearchRetryOptions (..),
-    mkElasticsearchRetryOptions,
-    eroDurationInSeconds,
-
-    -- ** EncryptionConfiguration
-    EncryptionConfiguration (..),
-    mkEncryptionConfiguration,
-    ecNoEncryptionConfig,
-    ecKMSEncryptionConfig,
-
-    -- ** ExtendedS3DestinationConfiguration
-    ExtendedS3DestinationConfiguration (..),
-    mkExtendedS3DestinationConfiguration,
-    esdcS3BackupMode,
-    esdcPrefix,
-    esdcCloudWatchLoggingOptions,
-    esdcS3BackupConfiguration,
-    esdcErrorOutputPrefix,
-    esdcEncryptionConfiguration,
-    esdcCompressionFormat,
-    esdcBufferingHints,
-    esdcDataFormatConversionConfiguration,
-    esdcBucketARN,
-    esdcProcessingConfiguration,
-    esdcRoleARN,
-
-    -- ** ExtendedS3DestinationDescription
-    ExtendedS3DestinationDescription (..),
-    mkExtendedS3DestinationDescription,
-    esddS3BackupMode,
-    esddS3BackupDescription,
-    esddPrefix,
-    esddCloudWatchLoggingOptions,
-    esddErrorOutputPrefix,
-    esddEncryptionConfiguration,
-    esddCompressionFormat,
-    esddBufferingHints,
-    esddDataFormatConversionConfiguration,
-    esddBucketARN,
-    esddProcessingConfiguration,
-    esddRoleARN,
-
-    -- ** ExtendedS3DestinationUpdate
-    ExtendedS3DestinationUpdate (..),
-    mkExtendedS3DestinationUpdate,
-    esduS3BackupMode,
-    esduPrefix,
-    esduCloudWatchLoggingOptions,
-    esduErrorOutputPrefix,
-    esduS3BackupUpdate,
-    esduEncryptionConfiguration,
-    esduCompressionFormat,
-    esduBufferingHints,
-    esduDataFormatConversionConfiguration,
-    esduBucketARN,
-    esduProcessingConfiguration,
-    esduRoleARN,
+    -- ** Processor
+    Processor (..),
+    mkProcessor,
+    pType,
+    pParameters,
 
     -- ** FailureDescription
     FailureDescription (..),
     mkFailureDescription,
-    fdDetails,
     fdType,
+    fdDetails,
 
-    -- ** HTTPEndpointBufferingHints
-    HTTPEndpointBufferingHints (..),
-    mkHTTPEndpointBufferingHints,
-    httpebhSizeInMBs,
-    httpebhIntervalInSeconds,
+    -- ** ElasticsearchS3BackupMode
+    ElasticsearchS3BackupMode (..),
 
-    -- ** HTTPEndpointCommonAttribute
-    HTTPEndpointCommonAttribute (..),
-    mkHTTPEndpointCommonAttribute,
-    httpecaAttributeValue,
-    httpecaAttributeName,
+    -- ** RedshiftDestinationUpdate
+    RedshiftDestinationUpdate (..),
+    mkRedshiftDestinationUpdate,
+    rduCloudWatchLoggingOptions,
+    rduClusterJDBCURL,
+    rduCopyCommand,
+    rduPassword,
+    rduProcessingConfiguration,
+    rduRetryOptions,
+    rduRoleARN,
+    rduS3BackupMode,
+    rduS3BackupUpdate,
+    rduS3Update,
+    rduUsername,
 
-    -- ** HTTPEndpointConfiguration
-    HTTPEndpointConfiguration (..),
-    mkHTTPEndpointConfiguration,
-    httpecURL,
-    httpecName,
-    httpecAccessKey,
+    -- ** RedshiftS3BackupMode
+    RedshiftS3BackupMode (..),
 
-    -- ** HTTPEndpointDescription
-    HTTPEndpointDescription (..),
-    mkHTTPEndpointDescription,
-    httpedURL,
-    httpedName,
+    -- ** ElasticsearchDestinationUpdate
+    ElasticsearchDestinationUpdate (..),
+    mkElasticsearchDestinationUpdate,
+    eduBufferingHints,
+    eduCloudWatchLoggingOptions,
+    eduClusterEndpoint,
+    eduDomainARN,
+    eduIndexName,
+    eduIndexRotationPeriod,
+    eduProcessingConfiguration,
+    eduRetryOptions,
+    eduRoleARN,
+    eduS3Update,
+    eduTypeName,
 
-    -- ** HTTPEndpointDestinationConfiguration
-    HTTPEndpointDestinationConfiguration (..),
-    mkHTTPEndpointDestinationConfiguration,
-    httpedcS3BackupMode,
-    httpedcS3Configuration,
-    httpedcCloudWatchLoggingOptions,
-    httpedcBufferingHints,
-    httpedcRetryOptions,
-    httpedcEndpointConfiguration,
-    httpedcProcessingConfiguration,
-    httpedcRequestConfiguration,
-    httpedcRoleARN,
+    -- ** Username
+    Username (..),
 
-    -- ** HTTPEndpointDestinationDescription
-    HTTPEndpointDestinationDescription (..),
-    mkHTTPEndpointDestinationDescription,
-    httpeddS3BackupMode,
-    httpeddCloudWatchLoggingOptions,
-    httpeddS3DestinationDescription,
-    httpeddBufferingHints,
-    httpeddRetryOptions,
-    httpeddEndpointConfiguration,
-    httpeddProcessingConfiguration,
-    httpeddRequestConfiguration,
-    httpeddRoleARN,
+    -- ** SchemaConfiguration
+    SchemaConfiguration (..),
+    mkSchemaConfiguration,
+    scCatalogId,
+    scDatabaseName,
+    scRegion,
+    scRoleARN,
+    scTableName,
+    scVersionId,
 
-    -- ** HTTPEndpointDestinationUpdate
-    HTTPEndpointDestinationUpdate (..),
-    mkHTTPEndpointDestinationUpdate,
-    httpeduS3BackupMode,
-    httpeduCloudWatchLoggingOptions,
-    httpeduS3Update,
-    httpeduBufferingHints,
-    httpeduRetryOptions,
-    httpeduEndpointConfiguration,
-    httpeduProcessingConfiguration,
-    httpeduRequestConfiguration,
-    httpeduRoleARN,
-
-    -- ** HTTPEndpointRequestConfiguration
-    HTTPEndpointRequestConfiguration (..),
-    mkHTTPEndpointRequestConfiguration,
-    httpercCommonAttributes,
-    httpercContentEncoding,
-
-    -- ** HTTPEndpointRetryOptions
-    HTTPEndpointRetryOptions (..),
-    mkHTTPEndpointRetryOptions,
-    httperoDurationInSeconds,
-
-    -- ** HiveJSONSerDe
-    HiveJSONSerDe (..),
-    mkHiveJSONSerDe,
-    hjsdTimestampFormats,
-
-    -- ** InputFormatConfiguration
-    InputFormatConfiguration (..),
-    mkInputFormatConfiguration,
-    ifcDeserializer,
-
-    -- ** KMSEncryptionConfig
-    KMSEncryptionConfig (..),
-    mkKMSEncryptionConfig,
-    kecAWSKMSKeyARN,
+    -- ** HttpEndpointDestinationDescription
+    HttpEndpointDestinationDescription (..),
+    mkHttpEndpointDestinationDescription,
+    heddBufferingHints,
+    heddCloudWatchLoggingOptions,
+    heddEndpointConfiguration,
+    heddProcessingConfiguration,
+    heddRequestConfiguration,
+    heddRetryOptions,
+    heddRoleARN,
+    heddS3BackupMode,
+    heddS3DestinationDescription,
 
     -- ** KinesisStreamSourceConfiguration
     KinesisStreamSourceConfiguration (..),
     mkKinesisStreamSourceConfiguration,
     ksscKinesisStreamARN,
     ksscRoleARN,
+
+    -- ** OpenXJsonSerDe
+    OpenXJsonSerDe (..),
+    mkOpenXJsonSerDe,
+    oxjsdCaseInsensitive,
+    oxjsdColumnToJsonKeyMappings,
+    oxjsdConvertDotsInJsonKeysToUnderscores,
+
+    -- ** LogGroupName
+    LogGroupName (..),
+
+    -- ** HttpEndpointName
+    HttpEndpointName (..),
+
+    -- ** ElasticsearchTypeName
+    ElasticsearchTypeName (..),
+
+    -- ** Serializer
+    Serializer (..),
+    mkSerializer,
+    sOrcSerDe,
+    sParquetSerDe,
+
+    -- ** NoEncryptionConfig
+    NoEncryptionConfig (..),
+
+    -- ** NonEmptyString
+    NonEmptyString (..),
+
+    -- ** ErrorOutputPrefix
+    ErrorOutputPrefix (..),
+
+    -- ** LogStreamName
+    LogStreamName (..),
+
+    -- ** OrcFormatVersion
+    OrcFormatVersion (..),
+
+    -- ** HttpEndpointDestinationConfiguration
+    HttpEndpointDestinationConfiguration (..),
+    mkHttpEndpointDestinationConfiguration,
+    hedcEndpointConfiguration,
+    hedcS3Configuration,
+    hedcBufferingHints,
+    hedcCloudWatchLoggingOptions,
+    hedcProcessingConfiguration,
+    hedcRequestConfiguration,
+    hedcRetryOptions,
+    hedcRoleARN,
+    hedcS3BackupMode,
+
+    -- ** SplunkRetryOptions
+    SplunkRetryOptions (..),
+    mkSplunkRetryOptions,
+    sroDurationInSeconds,
+
+    -- ** DeliveryStreamEncryptionConfiguration
+    DeliveryStreamEncryptionConfiguration (..),
+    mkDeliveryStreamEncryptionConfiguration,
+    dsecFailureDescription,
+    dsecKeyARN,
+    dsecKeyType,
+    dsecStatus,
 
     -- ** KinesisStreamSourceDescription
     KinesisStreamSourceDescription (..),
@@ -426,41 +462,232 @@ module Network.AWS.Firehose
     kssdKinesisStreamARN,
     kssdRoleARN,
 
-    -- ** OpenXJSONSerDe
-    OpenXJSONSerDe (..),
-    mkOpenXJSONSerDe,
-    oxjsdColumnToJSONKeyMappings,
-    oxjsdCaseInsensitive,
-    oxjsdConvertDotsInJSONKeysToUnderscores,
+    -- ** HiveJsonSerDe
+    HiveJsonSerDe (..),
+    mkHiveJsonSerDe,
+    hjsdTimestampFormats,
+
+    -- ** Password
+    Password (..),
+
+    -- ** DeliveryStreamName
+    DeliveryStreamName (..),
+
+    -- ** EncryptionConfiguration
+    EncryptionConfiguration (..),
+    mkEncryptionConfiguration,
+    ecKMSEncryptionConfig,
+    ecNoEncryptionConfig,
+
+    -- ** S3DestinationDescription
+    S3DestinationDescription (..),
+    mkS3DestinationDescription,
+    sddRoleARN,
+    sddBucketARN,
+    sddBufferingHints,
+    sddCompressionFormat,
+    sddEncryptionConfiguration,
+    sddCloudWatchLoggingOptions,
+    sddErrorOutputPrefix,
+    sddPrefix,
+
+    -- ** HttpEndpointRequestConfiguration
+    HttpEndpointRequestConfiguration (..),
+    mkHttpEndpointRequestConfiguration,
+    hercCommonAttributes,
+    hercContentEncoding,
+
+    -- ** HttpEndpointCommonAttribute
+    HttpEndpointCommonAttribute (..),
+    mkHttpEndpointCommonAttribute,
+    hecaAttributeName,
+    hecaAttributeValue,
+
+    -- ** AWSKMSKeyARN
+    AWSKMSKeyARN (..),
+
+    -- ** PutResponseRecordId
+    PutResponseRecordId (..),
+
+    -- ** ElasticsearchClusterEndpoint
+    ElasticsearchClusterEndpoint (..),
+
+    -- ** ExtendedS3DestinationUpdate
+    ExtendedS3DestinationUpdate (..),
+    mkExtendedS3DestinationUpdate,
+    esduBucketARN,
+    esduBufferingHints,
+    esduCloudWatchLoggingOptions,
+    esduCompressionFormat,
+    esduDataFormatConversionConfiguration,
+    esduEncryptionConfiguration,
+    esduErrorOutputPrefix,
+    esduPrefix,
+    esduProcessingConfiguration,
+    esduRoleARN,
+    esduS3BackupMode,
+    esduS3BackupUpdate,
+
+    -- ** CopyCommand
+    CopyCommand (..),
+    mkCopyCommand,
+    ccDataTableName,
+    ccCopyOptions,
+    ccDataTableColumns,
+
+    -- ** ContentEncoding
+    ContentEncoding (..),
+
+    -- ** ElasticsearchIndexName
+    ElasticsearchIndexName (..),
+
+    -- ** Deserializer
+    Deserializer (..),
+    mkDeserializer,
+    dHiveJsonSerDe,
+    dOpenXJsonSerDe,
+
+    -- ** ErrorCode
+    ErrorCode (..),
+
+    -- ** HttpEndpointDescription
+    HttpEndpointDescription (..),
+    mkHttpEndpointDescription,
+    hedName,
+    hedUrl,
+
+    -- ** VpcConfiguration
+    VpcConfiguration (..),
+    mkVpcConfiguration,
+    vcSubnetIds,
+    vcRoleARN,
+    vcSecurityGroupIds,
+
+    -- ** HECEndpoint
+    HECEndpoint (..),
+
+    -- ** ExtendedS3DestinationDescription
+    ExtendedS3DestinationDescription (..),
+    mkExtendedS3DestinationDescription,
+    esddRoleARN,
+    esddBucketARN,
+    esddBufferingHints,
+    esddCompressionFormat,
+    esddEncryptionConfiguration,
+    esddCloudWatchLoggingOptions,
+    esddDataFormatConversionConfiguration,
+    esddErrorOutputPrefix,
+    esddPrefix,
+    esddProcessingConfiguration,
+    esddS3BackupDescription,
+    esddS3BackupMode,
+
+    -- ** CompressionFormat
+    CompressionFormat (..),
+
+    -- ** InputFormatConfiguration
+    InputFormatConfiguration (..),
+    mkInputFormatConfiguration,
+    ifcDeserializer,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Record
+    Record (..),
+    mkRecord,
+    rData,
+
+    -- ** KMSEncryptionConfig
+    KMSEncryptionConfig (..),
+    mkKMSEncryptionConfig,
+    kmsecAWSKMSKeyARN,
+
+    -- ** BufferingHints
+    BufferingHints (..),
+    mkBufferingHints,
+    bhIntervalInSeconds,
+    bhSizeInMBs,
+
+    -- ** DeliveryStreamType
+    DeliveryStreamType (..),
+
+    -- ** NonEmptyStringWithoutWhitespace
+    NonEmptyStringWithoutWhitespace (..),
+
+    -- ** ProcessorParameterName
+    ProcessorParameterName (..),
+
+    -- ** DataFormatConversionConfiguration
+    DataFormatConversionConfiguration (..),
+    mkDataFormatConversionConfiguration,
+    dfccEnabled,
+    dfccInputFormatConfiguration,
+    dfccOutputFormatConfiguration,
+    dfccSchemaConfiguration,
+
+    -- ** DeliveryStreamEncryptionStatus
+    DeliveryStreamEncryptionStatus (..),
+
+    -- ** HttpEndpointBufferingHints
+    HttpEndpointBufferingHints (..),
+    mkHttpEndpointBufferingHints,
+    hebhIntervalInSeconds,
+    hebhSizeInMBs,
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** HttpEndpointRetryOptions
+    HttpEndpointRetryOptions (..),
+    mkHttpEndpointRetryOptions,
+    heroDurationInSeconds,
+
+    -- ** BucketARN
+    BucketARN (..),
+
+    -- ** DataTableColumns
+    DataTableColumns (..),
+
+    -- ** ParquetWriterVersion
+    ParquetWriterVersion (..),
 
     -- ** OrcSerDe
     OrcSerDe (..),
     mkOrcSerDe,
+    osdBlockSizeBytes,
+    osdBloomFilterColumns,
     osdBloomFilterFalsePositiveProbability,
+    osdCompression,
     osdDictionaryKeyThreshold,
     osdEnablePadding,
-    osdCompression,
-    osdBloomFilterColumns,
-    osdRowIndexStride,
     osdFormatVersion,
-    osdBlockSizeBytes,
-    osdStripeSizeBytes,
     osdPaddingTolerance,
-
-    -- ** OutputFormatConfiguration
-    OutputFormatConfiguration (..),
-    mkOutputFormatConfiguration,
-    ofcSerializer,
+    osdRowIndexStride,
+    osdStripeSizeBytes,
 
     -- ** ParquetSerDe
     ParquetSerDe (..),
     mkParquetSerDe,
-    psdWriterVersion,
-    psdCompression,
-    psdMaxPaddingBytes,
-    psdEnableDictionaryCompression,
-    psdPageSizeBytes,
     psdBlockSizeBytes,
+    psdCompression,
+    psdEnableDictionaryCompression,
+    psdMaxPaddingBytes,
+    psdPageSizeBytes,
+    psdWriterVersion,
+
+    -- ** SplunkDestinationConfiguration
+    SplunkDestinationConfiguration (..),
+    mkSplunkDestinationConfiguration,
+    sdcfHECEndpoint,
+    sdcfHECEndpointType,
+    sdcfHECToken,
+    sdcfS3Configuration,
+    sdcfCloudWatchLoggingOptions,
+    sdcfHECAcknowledgmentTimeoutInSeconds,
+    sdcfProcessingConfiguration,
+    sdcfRetryOptions,
+    sdcfS3BackupMode,
 
     -- ** ProcessingConfiguration
     ProcessingConfiguration (..),
@@ -468,210 +695,163 @@ module Network.AWS.Firehose
     pcEnabled,
     pcProcessors,
 
-    -- ** Processor
-    Processor (..),
-    mkProcessor,
-    pParameters,
-    pType,
+    -- ** ClusterJDBCURL
+    ClusterJDBCURL (..),
 
-    -- ** ProcessorParameter
-    ProcessorParameter (..),
-    mkProcessorParameter,
-    ppParameterValue,
-    ppParameterName,
+    -- ** HttpEndpointS3BackupMode
+    HttpEndpointS3BackupMode (..),
 
-    -- ** PutRecordBatchResponseEntry
-    PutRecordBatchResponseEntry (..),
-    mkPutRecordBatchResponseEntry,
-    prbreRecordId,
-    prbreErrorCode,
-    prbreErrorMessage,
+    -- ** ProcessorType
+    ProcessorType (..),
 
-    -- ** Record
-    Record (..),
-    mkRecord,
-    rData,
+    -- ** DeliveryStreamDescription
+    DeliveryStreamDescription (..),
+    mkDeliveryStreamDescription,
+    dsdDeliveryStreamName,
+    dsdDeliveryStreamARN,
+    dsdDeliveryStreamStatus,
+    dsdDeliveryStreamType,
+    dsdVersionId,
+    dsdDestinations,
+    dsdHasMoreDestinations,
+    dsdCreateTimestamp,
+    dsdDeliveryStreamEncryptionConfiguration,
+    dsdFailureDescription,
+    dsdLastUpdateTimestamp,
+    dsdSource,
 
-    -- ** RedshiftDestinationConfiguration
-    RedshiftDestinationConfiguration (..),
-    mkRedshiftDestinationConfiguration,
-    rdcS3BackupMode,
-    rdcS3Configuration,
-    rdcCloudWatchLoggingOptions,
-    rdcS3BackupConfiguration,
-    rdcUsername,
-    rdcPassword,
-    rdcCopyCommand,
-    rdcRetryOptions,
-    rdcProcessingConfiguration,
-    rdcClusterJDBCURL,
-    rdcRoleARN,
+    -- ** HttpEndpointDestinationUpdate
+    HttpEndpointDestinationUpdate (..),
+    mkHttpEndpointDestinationUpdate,
+    heduBufferingHints,
+    heduCloudWatchLoggingOptions,
+    heduEndpointConfiguration,
+    heduProcessingConfiguration,
+    heduRequestConfiguration,
+    heduRetryOptions,
+    heduRoleARN,
+    heduS3BackupMode,
+    heduS3Update,
+
+    -- ** ElasticsearchDomainARN
+    ElasticsearchDomainARN (..),
+
+    -- ** KinesisStreamARN
+    KinesisStreamARN (..),
+
+    -- ** RoleARN
+    RoleARN (..),
+
+    -- ** ElasticsearchDestinationDescription
+    ElasticsearchDestinationDescription (..),
+    mkElasticsearchDestinationDescription,
+    eddBufferingHints,
+    eddCloudWatchLoggingOptions,
+    eddClusterEndpoint,
+    eddDomainARN,
+    eddIndexName,
+    eddIndexRotationPeriod,
+    eddProcessingConfiguration,
+    eddRetryOptions,
+    eddRoleARN,
+    eddS3BackupMode,
+    eddS3DestinationDescription,
+    eddTypeName,
+    eddVpcConfigurationDescription,
+
+    -- ** DataTableName
+    DataTableName (..),
 
     -- ** RedshiftDestinationDescription
     RedshiftDestinationDescription (..),
     mkRedshiftDestinationDescription,
-    rddS3BackupMode,
-    rddS3BackupDescription,
-    rddCloudWatchLoggingOptions,
+    rddRoleARN,
+    rddClusterJDBCURL,
+    rddCopyCommand,
     rddUsername,
     rddS3DestinationDescription,
-    rddCopyCommand,
-    rddRetryOptions,
+    rddCloudWatchLoggingOptions,
     rddProcessingConfiguration,
-    rddClusterJDBCURL,
-    rddRoleARN,
+    rddRetryOptions,
+    rddS3BackupDescription,
+    rddS3BackupMode,
 
-    -- ** RedshiftDestinationUpdate
-    RedshiftDestinationUpdate (..),
-    mkRedshiftDestinationUpdate,
-    rduS3BackupMode,
-    rduCloudWatchLoggingOptions,
-    rduUsername,
-    rduS3Update,
-    rduPassword,
-    rduS3BackupUpdate,
-    rduCopyCommand,
-    rduRetryOptions,
-    rduProcessingConfiguration,
-    rduClusterJDBCURL,
-    rduRoleARN,
+    -- ** DestinationId
+    DestinationId (..),
 
-    -- ** RedshiftRetryOptions
-    RedshiftRetryOptions (..),
-    mkRedshiftRetryOptions,
-    rroDurationInSeconds,
+    -- ** DeliveryStreamEncryptionConfigurationInput
+    DeliveryStreamEncryptionConfigurationInput (..),
+    mkDeliveryStreamEncryptionConfigurationInput,
+    dseciKeyType,
+    dseciKeyARN,
 
-    -- ** S3DestinationConfiguration
-    S3DestinationConfiguration (..),
-    mkS3DestinationConfiguration,
-    sdcPrefix,
-    sdcCloudWatchLoggingOptions,
-    sdcErrorOutputPrefix,
-    sdcEncryptionConfiguration,
-    sdcCompressionFormat,
-    sdcBufferingHints,
-    sdcBucketARN,
-    sdcRoleARN,
+    -- ** RecordId
+    RecordId (..),
 
-    -- ** S3DestinationDescription
-    S3DestinationDescription (..),
-    mkS3DestinationDescription,
-    sddfPrefix,
-    sddfCloudWatchLoggingOptions,
-    sddfErrorOutputPrefix,
-    sddfEncryptionConfiguration,
-    sddfCompressionFormat,
-    sddfBufferingHints,
-    sddfBucketARN,
-    sddfRoleARN,
+    -- ** ParameterValue
+    ParameterValue (..),
 
-    -- ** S3DestinationUpdate
-    S3DestinationUpdate (..),
-    mkS3DestinationUpdate,
-    sdufPrefix,
-    sdufCloudWatchLoggingOptions,
-    sdufErrorOutputPrefix,
-    sdufEncryptionConfiguration,
-    sdufCompressionFormat,
-    sdufBufferingHints,
-    sdufBucketARN,
-    sdufRoleARN,
+    -- ** IndexName
+    IndexName (..),
 
-    -- ** SchemaConfiguration
-    SchemaConfiguration (..),
-    mkSchemaConfiguration,
-    scVersionId,
-    scCatalogId,
-    scDatabaseName,
-    scRegion,
-    scTableName,
-    scRoleARN,
+    -- ** ClusterEndpoint
+    ClusterEndpoint (..),
 
-    -- ** Serializer
-    Serializer (..),
-    mkSerializer,
-    sOrcSerDe,
-    sParquetSerDe,
+    -- ** DomainARN
+    DomainARN (..),
 
-    -- ** SourceDescription
-    SourceDescription (..),
-    mkSourceDescription,
-    sdKinesisStreamSourceDescription,
+    -- ** TypeName
+    TypeName (..),
 
-    -- ** SplunkDestinationConfiguration
-    SplunkDestinationConfiguration (..),
-    mkSplunkDestinationConfiguration,
-    sS3BackupMode,
-    sHECToken,
-    sHECEndpointType,
-    sS3Configuration,
-    sCloudWatchLoggingOptions,
-    sHECAcknowledgmentTimeoutInSeconds,
-    sHECEndpoint,
-    sRetryOptions,
-    sProcessingConfiguration,
+    -- ** Key
+    Key (..),
 
-    -- ** SplunkDestinationDescription
-    SplunkDestinationDescription (..),
-    mkSplunkDestinationDescription,
-    sddS3BackupMode,
-    sddHECToken,
-    sddHECEndpointType,
-    sddCloudWatchLoggingOptions,
-    sddHECAcknowledgmentTimeoutInSeconds,
-    sddS3DestinationDescription,
-    sddHECEndpoint,
-    sddRetryOptions,
-    sddProcessingConfiguration,
+    -- ** Value
+    Value (..),
 
-    -- ** SplunkDestinationUpdate
-    SplunkDestinationUpdate (..),
-    mkSplunkDestinationUpdate,
-    sduS3BackupMode,
-    sduHECToken,
-    sduHECEndpointType,
-    sduCloudWatchLoggingOptions,
-    sduHECAcknowledgmentTimeoutInSeconds,
-    sduS3Update,
-    sduHECEndpoint,
-    sduRetryOptions,
-    sduProcessingConfiguration,
+    -- ** Url
+    Url (..),
 
-    -- ** SplunkRetryOptions
-    SplunkRetryOptions (..),
-    mkSplunkRetryOptions,
-    sroDurationInSeconds,
+    -- ** Name
+    Name (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** VpcId
+    VpcId (..),
 
-    -- ** VPCConfiguration
-    VPCConfiguration (..),
-    mkVPCConfiguration,
-    vcSecurityGroupIds,
-    vcSubnetIds,
-    vcRoleARN,
+    -- ** Details
+    Details (..),
 
-    -- ** VPCConfigurationDescription
-    VPCConfigurationDescription (..),
-    mkVPCConfigurationDescription,
-    vcdSecurityGroupIds,
-    vcdSubnetIds,
-    vcdVPCId,
-    vcdRoleARN,
+    -- ** CatalogId
+    CatalogId (..),
+
+    -- ** DatabaseName
+    DatabaseName (..),
+
+    -- ** Region
+    Region (..),
+
+    -- ** TableName
+    TableName (..),
+
+    -- ** VersionId
+    VersionId (..),
+
+    -- ** ExclusiveStartDeliveryStreamName
+    ExclusiveStartDeliveryStreamName (..),
+
+    -- ** KeyARN
+    KeyARN (..),
+
+    -- ** ExclusiveStartDestinationId
+    ExclusiveStartDestinationId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

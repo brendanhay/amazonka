@@ -20,115 +20,99 @@ module Network.AWS.CodeBuild.GetResourcePolicy
     mkGetResourcePolicy,
 
     -- ** Request lenses
-    grpResourceARN,
+    grpResourceArn,
 
     -- * Destructuring the response
     GetResourcePolicyResponse (..),
     mkGetResourcePolicyResponse,
 
     -- ** Response lenses
-    grprsPolicy,
-    grprsResponseStatus,
+    grprrsPolicy,
+    grprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetResourcePolicy' smart constructor.
 newtype GetResourcePolicy = GetResourcePolicy'
   { -- | The ARN of the resource that is associated with the resource policy.
-    resourceARN :: Lude.Text
+    resourceArn :: Types.ResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetResourcePolicy' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The ARN of the resource that is associated with the resource policy.
+-- | Creates a 'GetResourcePolicy' value with any optional fields omitted.
 mkGetResourcePolicy ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   GetResourcePolicy
-mkGetResourcePolicy pResourceARN_ =
-  GetResourcePolicy' {resourceARN = pResourceARN_}
+mkGetResourcePolicy resourceArn = GetResourcePolicy' {resourceArn}
 
 -- | The ARN of the resource that is associated with the resource policy.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grpResourceARN :: Lens.Lens' GetResourcePolicy Lude.Text
-grpResourceARN = Lens.lens (resourceARN :: GetResourcePolicy -> Lude.Text) (\s a -> s {resourceARN = a} :: GetResourcePolicy)
-{-# DEPRECATED grpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grpResourceArn :: Lens.Lens' GetResourcePolicy Types.ResourceArn
+grpResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED grpResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
-instance Lude.AWSRequest GetResourcePolicy where
+instance Core.FromJSON GetResourcePolicy where
+  toJSON GetResourcePolicy {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("resourceArn" Core..= resourceArn)])
+
+instance Core.AWSRequest GetResourcePolicy where
   type Rs GetResourcePolicy = GetResourcePolicyResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.GetResourcePolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetResourcePolicyResponse'
-            Lude.<$> (x Lude..?> "policy") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "policy") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetResourcePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.GetResourcePolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetResourcePolicy where
-  toJSON GetResourcePolicy' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("resourceArn" Lude..= resourceARN)])
-
-instance Lude.ToPath GetResourcePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetResourcePolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetResourcePolicyResponse' smart constructor.
 data GetResourcePolicyResponse = GetResourcePolicyResponse'
   { -- | The resource policy for the resource identified by the input ARN parameter.
-    policy :: Lude.Maybe Lude.Text,
+    policy :: Core.Maybe Types.Policy,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetResourcePolicyResponse' with the minimum fields required to make a request.
---
--- * 'policy' - The resource policy for the resource identified by the input ARN parameter.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetResourcePolicyResponse' value with any optional fields omitted.
 mkGetResourcePolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetResourcePolicyResponse
-mkGetResourcePolicyResponse pResponseStatus_ =
-  GetResourcePolicyResponse'
-    { policy = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetResourcePolicyResponse responseStatus =
+  GetResourcePolicyResponse' {policy = Core.Nothing, responseStatus}
 
 -- | The resource policy for the resource identified by the input ARN parameter.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprsPolicy :: Lens.Lens' GetResourcePolicyResponse (Lude.Maybe Lude.Text)
-grprsPolicy = Lens.lens (policy :: GetResourcePolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: GetResourcePolicyResponse)
-{-# DEPRECATED grprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+grprrsPolicy :: Lens.Lens' GetResourcePolicyResponse (Core.Maybe Types.Policy)
+grprrsPolicy = Lens.field @"policy"
+{-# DEPRECATED grprrsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grprsResponseStatus :: Lens.Lens' GetResourcePolicyResponse Lude.Int
-grprsResponseStatus = Lens.lens (responseStatus :: GetResourcePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetResourcePolicyResponse)
-{-# DEPRECATED grprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grprrsResponseStatus :: Lens.Lens' GetResourcePolicyResponse Core.Int
+grprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

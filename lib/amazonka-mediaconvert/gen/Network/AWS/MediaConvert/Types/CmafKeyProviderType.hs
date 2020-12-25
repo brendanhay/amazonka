@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.CmafKeyProviderType
   ( CmafKeyProviderType
       ( CmafKeyProviderType',
-        Speke,
-        StaticKey
+        CmafKeyProviderTypeSpeke,
+        CmafKeyProviderTypeStaticKey,
+        fromCmafKeyProviderType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
-newtype CmafKeyProviderType = CmafKeyProviderType' Lude.Text
+newtype CmafKeyProviderType = CmafKeyProviderType'
+  { fromCmafKeyProviderType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Speke :: CmafKeyProviderType
-pattern Speke = CmafKeyProviderType' "SPEKE"
+pattern CmafKeyProviderTypeSpeke :: CmafKeyProviderType
+pattern CmafKeyProviderTypeSpeke = CmafKeyProviderType' "SPEKE"
 
-pattern StaticKey :: CmafKeyProviderType
-pattern StaticKey = CmafKeyProviderType' "STATIC_KEY"
+pattern CmafKeyProviderTypeStaticKey :: CmafKeyProviderType
+pattern CmafKeyProviderTypeStaticKey = CmafKeyProviderType' "STATIC_KEY"
 
 {-# COMPLETE
-  Speke,
-  StaticKey,
+  CmafKeyProviderTypeSpeke,
+  CmafKeyProviderTypeStaticKey,
   CmafKeyProviderType'
   #-}

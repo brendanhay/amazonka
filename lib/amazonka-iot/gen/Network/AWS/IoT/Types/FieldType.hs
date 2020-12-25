@@ -13,51 +13,53 @@
 module Network.AWS.IoT.Types.FieldType
   ( FieldType
       ( FieldType',
-        Number,
-        String,
-        Boolean
+        FieldTypeNumber,
+        FieldTypeString,
+        FieldTypeBoolean,
+        fromFieldType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FieldType = FieldType' Lude.Text
+newtype FieldType = FieldType' {fromFieldType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Number :: FieldType
-pattern Number = FieldType' "Number"
+pattern FieldTypeNumber :: FieldType
+pattern FieldTypeNumber = FieldType' "Number"
 
-pattern String :: FieldType
-pattern String = FieldType' "String"
+pattern FieldTypeString :: FieldType
+pattern FieldTypeString = FieldType' "String"
 
-pattern Boolean :: FieldType
-pattern Boolean = FieldType' "Boolean"
+pattern FieldTypeBoolean :: FieldType
+pattern FieldTypeBoolean = FieldType' "Boolean"
 
 {-# COMPLETE
-  Number,
-  String,
-  Boolean,
+  FieldTypeNumber,
+  FieldTypeString,
+  FieldTypeBoolean,
   FieldType'
   #-}

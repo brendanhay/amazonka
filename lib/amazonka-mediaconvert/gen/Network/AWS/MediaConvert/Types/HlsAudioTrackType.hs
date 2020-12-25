@@ -13,57 +13,62 @@
 module Network.AWS.MediaConvert.Types.HlsAudioTrackType
   ( HlsAudioTrackType
       ( HlsAudioTrackType',
-        AlternateAudioAutoSelectDefault,
-        AlternateAudioAutoSelect,
-        AlternateAudioNotAutoSelect,
-        AudioOnlyVariantStream
+        HlsAudioTrackTypeAlternateAudioAutoSelectDefault,
+        HlsAudioTrackTypeAlternateAudioAutoSelect,
+        HlsAudioTrackTypeAlternateAudioNotAutoSelect,
+        HlsAudioTrackTypeAudioOnlyVariantStream,
+        fromHlsAudioTrackType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-newtype HlsAudioTrackType = HlsAudioTrackType' Lude.Text
+newtype HlsAudioTrackType = HlsAudioTrackType'
+  { fromHlsAudioTrackType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AlternateAudioAutoSelectDefault :: HlsAudioTrackType
-pattern AlternateAudioAutoSelectDefault = HlsAudioTrackType' "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"
+pattern HlsAudioTrackTypeAlternateAudioAutoSelectDefault :: HlsAudioTrackType
+pattern HlsAudioTrackTypeAlternateAudioAutoSelectDefault = HlsAudioTrackType' "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"
 
-pattern AlternateAudioAutoSelect :: HlsAudioTrackType
-pattern AlternateAudioAutoSelect = HlsAudioTrackType' "ALTERNATE_AUDIO_AUTO_SELECT"
+pattern HlsAudioTrackTypeAlternateAudioAutoSelect :: HlsAudioTrackType
+pattern HlsAudioTrackTypeAlternateAudioAutoSelect = HlsAudioTrackType' "ALTERNATE_AUDIO_AUTO_SELECT"
 
-pattern AlternateAudioNotAutoSelect :: HlsAudioTrackType
-pattern AlternateAudioNotAutoSelect = HlsAudioTrackType' "ALTERNATE_AUDIO_NOT_AUTO_SELECT"
+pattern HlsAudioTrackTypeAlternateAudioNotAutoSelect :: HlsAudioTrackType
+pattern HlsAudioTrackTypeAlternateAudioNotAutoSelect = HlsAudioTrackType' "ALTERNATE_AUDIO_NOT_AUTO_SELECT"
 
-pattern AudioOnlyVariantStream :: HlsAudioTrackType
-pattern AudioOnlyVariantStream = HlsAudioTrackType' "AUDIO_ONLY_VARIANT_STREAM"
+pattern HlsAudioTrackTypeAudioOnlyVariantStream :: HlsAudioTrackType
+pattern HlsAudioTrackTypeAudioOnlyVariantStream = HlsAudioTrackType' "AUDIO_ONLY_VARIANT_STREAM"
 
 {-# COMPLETE
-  AlternateAudioAutoSelectDefault,
-  AlternateAudioAutoSelect,
-  AlternateAudioNotAutoSelect,
-  AudioOnlyVariantStream,
+  HlsAudioTrackTypeAlternateAudioAutoSelectDefault,
+  HlsAudioTrackTypeAlternateAudioAutoSelect,
+  HlsAudioTrackTypeAlternateAudioNotAutoSelect,
+  HlsAudioTrackTypeAudioOnlyVariantStream,
   HlsAudioTrackType'
   #-}

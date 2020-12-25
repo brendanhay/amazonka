@@ -22,8 +22,8 @@ module Network.AWS.WorkDocs.UpdateDocumentVersion
     mkUpdateDocumentVersion,
 
     -- ** Request lenses
-    udvVersionId,
     udvDocumentId,
+    udvVersionId,
     udvAuthenticationToken,
     udvVersionStatus,
 
@@ -34,109 +34,99 @@ module Network.AWS.WorkDocs.UpdateDocumentVersion
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkUpdateDocumentVersion' smart constructor.
 data UpdateDocumentVersion = UpdateDocumentVersion'
-  { -- | The version ID of the document.
-    versionId :: Lude.Text,
-    -- | The ID of the document.
-    documentId :: Lude.Text,
+  { -- | The ID of the document.
+    documentId :: Types.DocumentId,
+    -- | The version ID of the document.
+    versionId :: Types.VersionId,
     -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType,
     -- | The status of the version.
-    versionStatus :: Lude.Maybe DocumentVersionStatus
+    versionStatus :: Core.Maybe Types.DocumentVersionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDocumentVersion' with the minimum fields required to make a request.
---
--- * 'versionId' - The version ID of the document.
--- * 'documentId' - The ID of the document.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'versionStatus' - The status of the version.
+-- | Creates a 'UpdateDocumentVersion' value with any optional fields omitted.
 mkUpdateDocumentVersion ::
-  -- | 'versionId'
-  Lude.Text ->
   -- | 'documentId'
-  Lude.Text ->
+  Types.DocumentId ->
+  -- | 'versionId'
+  Types.VersionId ->
   UpdateDocumentVersion
-mkUpdateDocumentVersion pVersionId_ pDocumentId_ =
+mkUpdateDocumentVersion documentId versionId =
   UpdateDocumentVersion'
-    { versionId = pVersionId_,
-      documentId = pDocumentId_,
-      authenticationToken = Lude.Nothing,
-      versionStatus = Lude.Nothing
+    { documentId,
+      versionId,
+      authenticationToken = Core.Nothing,
+      versionStatus = Core.Nothing
     }
-
--- | The version ID of the document.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udvVersionId :: Lens.Lens' UpdateDocumentVersion Lude.Text
-udvVersionId = Lens.lens (versionId :: UpdateDocumentVersion -> Lude.Text) (\s a -> s {versionId = a} :: UpdateDocumentVersion)
-{-# DEPRECATED udvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The ID of the document.
 --
 -- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udvDocumentId :: Lens.Lens' UpdateDocumentVersion Lude.Text
-udvDocumentId = Lens.lens (documentId :: UpdateDocumentVersion -> Lude.Text) (\s a -> s {documentId = a} :: UpdateDocumentVersion)
+udvDocumentId :: Lens.Lens' UpdateDocumentVersion Types.DocumentId
+udvDocumentId = Lens.field @"documentId"
 {-# DEPRECATED udvDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
+
+-- | The version ID of the document.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udvVersionId :: Lens.Lens' UpdateDocumentVersion Types.VersionId
+udvVersionId = Lens.field @"versionId"
+{-# DEPRECATED udvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udvAuthenticationToken :: Lens.Lens' UpdateDocumentVersion (Lude.Maybe (Lude.Sensitive Lude.Text))
-udvAuthenticationToken = Lens.lens (authenticationToken :: UpdateDocumentVersion -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: UpdateDocumentVersion)
+udvAuthenticationToken :: Lens.Lens' UpdateDocumentVersion (Core.Maybe Types.AuthenticationHeaderType)
+udvAuthenticationToken = Lens.field @"authenticationToken"
 {-# DEPRECATED udvAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
 -- | The status of the version.
 --
 -- /Note:/ Consider using 'versionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udvVersionStatus :: Lens.Lens' UpdateDocumentVersion (Lude.Maybe DocumentVersionStatus)
-udvVersionStatus = Lens.lens (versionStatus :: UpdateDocumentVersion -> Lude.Maybe DocumentVersionStatus) (\s a -> s {versionStatus = a} :: UpdateDocumentVersion)
+udvVersionStatus :: Lens.Lens' UpdateDocumentVersion (Core.Maybe Types.DocumentVersionStatus)
+udvVersionStatus = Lens.field @"versionStatus"
 {-# DEPRECATED udvVersionStatus "Use generic-lens or generic-optics with 'versionStatus' instead." #-}
 
-instance Lude.AWSRequest UpdateDocumentVersion where
+instance Core.FromJSON UpdateDocumentVersion where
+  toJSON UpdateDocumentVersion {..} =
+    Core.object
+      (Core.catMaybes [("VersionStatus" Core..=) Core.<$> versionStatus])
+
+instance Core.AWSRequest UpdateDocumentVersion where
   type Rs UpdateDocumentVersion = UpdateDocumentVersionResponse
-  request = Req.patchJSON workDocsService
-  response = Res.receiveNull UpdateDocumentVersionResponse'
-
-instance Lude.ToHeaders UpdateDocumentVersion where
-  toHeaders UpdateDocumentVersion' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToJSON UpdateDocumentVersion where
-  toJSON UpdateDocumentVersion' {..} =
-    Lude.object
-      (Lude.catMaybes [("VersionStatus" Lude..=) Lude.<$> versionStatus])
-
-instance Lude.ToPath UpdateDocumentVersion where
-  toPath UpdateDocumentVersion' {..} =
-    Lude.mconcat
-      [ "/api/v1/documents/",
-        Lude.toBS documentId,
-        "/versions/",
-        Lude.toBS versionId
-      ]
-
-instance Lude.ToQuery UpdateDocumentVersion where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath =
+          Core.rawPath
+            ( "/api/v1/documents/" Core.<> (Core.toText documentId)
+                Core.<> ("/versions/")
+                Core.<> (Core.toText versionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull UpdateDocumentVersionResponse'
 
 -- | /See:/ 'mkUpdateDocumentVersionResponse' smart constructor.
 data UpdateDocumentVersionResponse = UpdateDocumentVersionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDocumentVersionResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateDocumentVersionResponse' value with any optional fields omitted.
 mkUpdateDocumentVersionResponse ::
   UpdateDocumentVersionResponse
 mkUpdateDocumentVersionResponse = UpdateDocumentVersionResponse'

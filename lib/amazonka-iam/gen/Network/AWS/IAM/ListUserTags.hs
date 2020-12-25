@@ -29,53 +29,45 @@ module Network.AWS.IAM.ListUserTags
     mkListUserTagsResponse,
 
     -- ** Response lenses
-    lutrsMarker,
-    lutrsIsTruncated,
-    lutrsTags,
-    lutrsResponseStatus,
+    lutrrsTags,
+    lutrrsIsTruncated,
+    lutrrsMarker,
+    lutrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListUserTags' smart constructor.
 data ListUserTags = ListUserTags'
   { -- | The name of the IAM user whose tags you want to see.
     --
     -- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
-    userName :: Lude.Text,
+    userName :: Types.UserName,
     -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.MarkerType,
     -- | (Optional) Use this only when paginating results to indicate the maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the @IsTruncated@ response element is @true@ .
     --
     -- If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when more results are available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
-    maxItems :: Lude.Maybe Lude.Natural
+    maxItems :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListUserTags' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the IAM user whose tags you want to see.
---
--- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
--- * 'marker' - Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
--- * 'maxItems' - (Optional) Use this only when paginating results to indicate the maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the @IsTruncated@ response element is @true@ .
---
--- If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when more results are available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
+-- | Creates a 'ListUserTags' value with any optional fields omitted.
 mkListUserTags ::
   -- | 'userName'
-  Lude.Text ->
+  Types.UserName ->
   ListUserTags
-mkListUserTags pUserName_ =
+mkListUserTags userName =
   ListUserTags'
-    { userName = pUserName_,
-      marker = Lude.Nothing,
-      maxItems = Lude.Nothing
+    { userName,
+      marker = Core.Nothing,
+      maxItems = Core.Nothing
     }
 
 -- | The name of the IAM user whose tags you want to see.
@@ -83,15 +75,15 @@ mkListUserTags pUserName_ =
 -- This parameter accepts (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters that consist of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: =,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lutUserName :: Lens.Lens' ListUserTags Lude.Text
-lutUserName = Lens.lens (userName :: ListUserTags -> Lude.Text) (\s a -> s {userName = a} :: ListUserTags)
+lutUserName :: Lens.Lens' ListUserTags Types.UserName
+lutUserName = Lens.field @"userName"
 {-# DEPRECATED lutUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the @Marker@ element in the response that you received to indicate where the next call should start.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lutMarker :: Lens.Lens' ListUserTags (Lude.Maybe Lude.Text)
-lutMarker = Lens.lens (marker :: ListUserTags -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListUserTags)
+lutMarker :: Lens.Lens' ListUserTags (Core.Maybe Types.MarkerType)
+lutMarker = Lens.field @"marker"
 {-# DEPRECATED lutMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | (Optional) Use this only when paginating results to indicate the maximum number of items that you want in the response. If additional items exist beyond the maximum that you specify, the @IsTruncated@ response element is @true@ .
@@ -99,98 +91,96 @@ lutMarker = Lens.lens (marker :: ListUserTags -> Lude.Maybe Lude.Text) (\s a -> 
 -- If you do not include this parameter, it defaults to 100. Note that IAM might return fewer results, even when more results are available. In that case, the @IsTruncated@ response element returns @true@ , and @Marker@ contains a value to include in the subsequent call that tells the service where to continue from.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lutMaxItems :: Lens.Lens' ListUserTags (Lude.Maybe Lude.Natural)
-lutMaxItems = Lens.lens (maxItems :: ListUserTags -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListUserTags)
+lutMaxItems :: Lens.Lens' ListUserTags (Core.Maybe Core.Natural)
+lutMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED lutMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Lude.AWSRequest ListUserTags where
+instance Core.AWSRequest ListUserTags where
   type Rs ListUserTags = ListUserTagsResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListUserTags")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" userName)
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListUserTagsResult"
       ( \s h x ->
           ListUserTagsResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> (x Lude..@? "IsTruncated")
-            Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "member"
+            Core.<$> ( x Core..@? "Tags" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "IsTruncated")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListUserTags where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListUserTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListUserTags where
-  toQuery ListUserTags' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ListUserTags" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "Marker" Lude.=: marker,
-        "MaxItems" Lude.=: maxItems
-      ]
 
 -- | /See:/ 'mkListUserTagsResponse' smart constructor.
 data ListUserTagsResponse = ListUserTagsResponse'
-  { -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The list of tags that are currently attached to the user. Each tag consists of a key name and an associated value. If no tags are attached to the specified user, the response contains an empty list.
+    tags :: [Types.Tag],
     -- | A flag that indicates whether there are more items to return. If your results were truncated, you can use the @Marker@ request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the @MaxItems@ number of results even when more results are available. Check @IsTruncated@ after every call to ensure that you receive all of your results.
-    isTruncated :: Lude.Maybe Lude.Bool,
-    -- | The list of tags that are currently attached to the user. Each tag consists of a key name and an associated value. If no tags are attached to the specified user, the response contains an empty list.
-    tags :: [Tag],
+    isTruncated :: Core.Maybe Core.Bool,
+    -- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+    marker :: Core.Maybe Types.ResponseMarkerType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListUserTagsResponse' with the minimum fields required to make a request.
---
--- * 'marker' - When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
--- * 'isTruncated' - A flag that indicates whether there are more items to return. If your results were truncated, you can use the @Marker@ request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the @MaxItems@ number of results even when more results are available. Check @IsTruncated@ after every call to ensure that you receive all of your results.
--- * 'tags' - The list of tags that are currently attached to the user. Each tag consists of a key name and an associated value. If no tags are attached to the specified user, the response contains an empty list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListUserTagsResponse' value with any optional fields omitted.
 mkListUserTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListUserTagsResponse
-mkListUserTagsResponse pResponseStatus_ =
+mkListUserTagsResponse responseStatus =
   ListUserTagsResponse'
-    { marker = Lude.Nothing,
-      isTruncated = Lude.Nothing,
-      tags = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { tags = Core.mempty,
+      isTruncated = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
-
--- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lutrsMarker :: Lens.Lens' ListUserTagsResponse (Lude.Maybe Lude.Text)
-lutrsMarker = Lens.lens (marker :: ListUserTagsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListUserTagsResponse)
-{-# DEPRECATED lutrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | A flag that indicates whether there are more items to return. If your results were truncated, you can use the @Marker@ request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the @MaxItems@ number of results even when more results are available. Check @IsTruncated@ after every call to ensure that you receive all of your results.
---
--- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lutrsIsTruncated :: Lens.Lens' ListUserTagsResponse (Lude.Maybe Lude.Bool)
-lutrsIsTruncated = Lens.lens (isTruncated :: ListUserTagsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isTruncated = a} :: ListUserTagsResponse)
-{-# DEPRECATED lutrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
 
 -- | The list of tags that are currently attached to the user. Each tag consists of a key name and an associated value. If no tags are attached to the specified user, the response contains an empty list.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lutrsTags :: Lens.Lens' ListUserTagsResponse [Tag]
-lutrsTags = Lens.lens (tags :: ListUserTagsResponse -> [Tag]) (\s a -> s {tags = a} :: ListUserTagsResponse)
-{-# DEPRECATED lutrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+lutrrsTags :: Lens.Lens' ListUserTagsResponse [Types.Tag]
+lutrrsTags = Lens.field @"tags"
+{-# DEPRECATED lutrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | A flag that indicates whether there are more items to return. If your results were truncated, you can use the @Marker@ request parameter to make a subsequent pagination request that retrieves more items. Note that IAM might return fewer than the @MaxItems@ number of results even when more results are available. Check @IsTruncated@ after every call to ensure that you receive all of your results.
+--
+-- /Note:/ Consider using 'isTruncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lutrrsIsTruncated :: Lens.Lens' ListUserTagsResponse (Core.Maybe Core.Bool)
+lutrrsIsTruncated = Lens.field @"isTruncated"
+{-# DEPRECATED lutrrsIsTruncated "Use generic-lens or generic-optics with 'isTruncated' instead." #-}
+
+-- | When @IsTruncated@ is @true@ , this element is present and contains the value to use for the @Marker@ parameter in a subsequent pagination request.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lutrrsMarker :: Lens.Lens' ListUserTagsResponse (Core.Maybe Types.ResponseMarkerType)
+lutrrsMarker = Lens.field @"marker"
+{-# DEPRECATED lutrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lutrsResponseStatus :: Lens.Lens' ListUserTagsResponse Lude.Int
-lutrsResponseStatus = Lens.lens (responseStatus :: ListUserTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListUserTagsResponse)
-{-# DEPRECATED lutrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lutrrsResponseStatus :: Lens.Lens' ListUserTagsResponse Core.Int
+lutrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lutrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -18,13 +18,14 @@ module Network.AWS.ElasticBeanstalk.Types.EnvironmentTier
 
     -- * Lenses
     etName,
-    etVersion,
     etType,
+    etVersion,
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the properties of an environment tier
 --
@@ -38,9 +39,7 @@ data EnvironmentTier = EnvironmentTier'
     --
     --
     --     * For /Worker tier/ – @Worker@
-    name :: Lude.Maybe Lude.Text,
-    -- | The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
-    version :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.String,
     -- | The type of this environment tier.
     --
     -- Valid values:
@@ -49,39 +48,21 @@ data EnvironmentTier = EnvironmentTier'
     --
     --
     --     * For /Worker tier/ – @SQS/HTTP@
-    type' :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.String,
+    -- | The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+    version :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnvironmentTier' with the minimum fields required to make a request.
---
--- * 'name' - The name of this environment tier.
---
--- Valid values:
---
---     * For /Web server tier/ – @WebServer@
---
---
---     * For /Worker tier/ – @Worker@
---
---
--- * 'version' - The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
--- * 'type'' - The type of this environment tier.
---
--- Valid values:
---
---     * For /Web server tier/ – @Standard@
---
---
---     * For /Worker tier/ – @SQS/HTTP@
+-- | Creates a 'EnvironmentTier' value with any optional fields omitted.
 mkEnvironmentTier ::
   EnvironmentTier
 mkEnvironmentTier =
   EnvironmentTier'
-    { name = Lude.Nothing,
-      version = Lude.Nothing,
-      type' = Lude.Nothing
+    { name = Core.Nothing,
+      type' = Core.Nothing,
+      version = Core.Nothing
     }
 
 -- | The name of this environment tier.
@@ -96,16 +77,9 @@ mkEnvironmentTier =
 --
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etName :: Lens.Lens' EnvironmentTier (Lude.Maybe Lude.Text)
-etName = Lens.lens (name :: EnvironmentTier -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: EnvironmentTier)
+etName :: Lens.Lens' EnvironmentTier (Core.Maybe Types.String)
+etName = Lens.field @"name"
 {-# DEPRECATED etName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etVersion :: Lens.Lens' EnvironmentTier (Lude.Maybe Lude.Text)
-etVersion = Lens.lens (version :: EnvironmentTier -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: EnvironmentTier)
-{-# DEPRECATED etVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The type of this environment tier.
 --
@@ -119,21 +93,20 @@ etVersion = Lens.lens (version :: EnvironmentTier -> Lude.Maybe Lude.Text) (\s a
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etType :: Lens.Lens' EnvironmentTier (Lude.Maybe Lude.Text)
-etType = Lens.lens (type' :: EnvironmentTier -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: EnvironmentTier)
+etType :: Lens.Lens' EnvironmentTier (Core.Maybe Types.String)
+etType = Lens.field @"type'"
 {-# DEPRECATED etType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromXML EnvironmentTier where
+-- | The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the latest compatible worker tier version.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+etVersion :: Lens.Lens' EnvironmentTier (Core.Maybe Types.String)
+etVersion = Lens.field @"version"
+{-# DEPRECATED etVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+instance Core.FromXML EnvironmentTier where
   parseXML x =
     EnvironmentTier'
-      Lude.<$> (x Lude..@? "Name")
-      Lude.<*> (x Lude..@? "Version")
-      Lude.<*> (x Lude..@? "Type")
-
-instance Lude.ToQuery EnvironmentTier where
-  toQuery EnvironmentTier' {..} =
-    Lude.mconcat
-      [ "Name" Lude.=: name,
-        "Version" Lude.=: version,
-        "Type" Lude.=: type'
-      ]
+      Core.<$> (x Core..@? "Name")
+      Core.<*> (x Core..@? "Type")
+      Core.<*> (x Core..@? "Version")

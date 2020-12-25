@@ -30,123 +30,106 @@ module Network.AWS.OpsWorks.DescribeLayers
     mkDescribeLayersResponse,
 
     -- ** Response lenses
-    dlrsLayers,
-    dlrsResponseStatus,
+    dlrrsLayers,
+    dlrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLayers' smart constructor.
 data DescribeLayers = DescribeLayers'
   { -- | An array of layer IDs that specify the layers to be described. If you omit this parameter, @DescribeLayers@ returns a description of every layer in the specified stack.
-    layerIds :: Lude.Maybe [Lude.Text],
+    layerIds :: Core.Maybe [Types.String],
     -- | The stack ID.
-    stackId :: Lude.Maybe Lude.Text
+    stackId :: Core.Maybe Types.StackId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLayers' with the minimum fields required to make a request.
---
--- * 'layerIds' - An array of layer IDs that specify the layers to be described. If you omit this parameter, @DescribeLayers@ returns a description of every layer in the specified stack.
--- * 'stackId' - The stack ID.
+-- | Creates a 'DescribeLayers' value with any optional fields omitted.
 mkDescribeLayers ::
   DescribeLayers
 mkDescribeLayers =
-  DescribeLayers' {layerIds = Lude.Nothing, stackId = Lude.Nothing}
+  DescribeLayers' {layerIds = Core.Nothing, stackId = Core.Nothing}
 
 -- | An array of layer IDs that specify the layers to be described. If you omit this parameter, @DescribeLayers@ returns a description of every layer in the specified stack.
 --
 -- /Note:/ Consider using 'layerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlLayerIds :: Lens.Lens' DescribeLayers (Lude.Maybe [Lude.Text])
-dlLayerIds = Lens.lens (layerIds :: DescribeLayers -> Lude.Maybe [Lude.Text]) (\s a -> s {layerIds = a} :: DescribeLayers)
+dlLayerIds :: Lens.Lens' DescribeLayers (Core.Maybe [Types.String])
+dlLayerIds = Lens.field @"layerIds"
 {-# DEPRECATED dlLayerIds "Use generic-lens or generic-optics with 'layerIds' instead." #-}
 
 -- | The stack ID.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlStackId :: Lens.Lens' DescribeLayers (Lude.Maybe Lude.Text)
-dlStackId = Lens.lens (stackId :: DescribeLayers -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: DescribeLayers)
+dlStackId :: Lens.Lens' DescribeLayers (Core.Maybe Types.StackId)
+dlStackId = Lens.field @"stackId"
 {-# DEPRECATED dlStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance Lude.AWSRequest DescribeLayers where
+instance Core.FromJSON DescribeLayers where
+  toJSON DescribeLayers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("LayerIds" Core..=) Core.<$> layerIds,
+            ("StackId" Core..=) Core.<$> stackId
+          ]
+      )
+
+instance Core.AWSRequest DescribeLayers where
   type Rs DescribeLayers = DescribeLayersResponse
-  request = Req.postJSON opsWorksService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.DescribeLayers")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeLayersResponse'
-            Lude.<$> (x Lude..?> "Layers" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Layers") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeLayers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.DescribeLayers" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeLayers where
-  toJSON DescribeLayers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("LayerIds" Lude..=) Lude.<$> layerIds,
-            ("StackId" Lude..=) Lude.<$> stackId
-          ]
-      )
-
-instance Lude.ToPath DescribeLayers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLayers where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeLayers@ request.
 --
 -- /See:/ 'mkDescribeLayersResponse' smart constructor.
 data DescribeLayersResponse = DescribeLayersResponse'
   { -- | An array of @Layer@ objects that describe the layers.
-    layers :: Lude.Maybe [Layer],
+    layers :: Core.Maybe [Types.Layer],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLayersResponse' with the minimum fields required to make a request.
---
--- * 'layers' - An array of @Layer@ objects that describe the layers.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLayersResponse' value with any optional fields omitted.
 mkDescribeLayersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLayersResponse
-mkDescribeLayersResponse pResponseStatus_ =
-  DescribeLayersResponse'
-    { layers = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeLayersResponse responseStatus =
+  DescribeLayersResponse' {layers = Core.Nothing, responseStatus}
 
 -- | An array of @Layer@ objects that describe the layers.
 --
 -- /Note:/ Consider using 'layers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsLayers :: Lens.Lens' DescribeLayersResponse (Lude.Maybe [Layer])
-dlrsLayers = Lens.lens (layers :: DescribeLayersResponse -> Lude.Maybe [Layer]) (\s a -> s {layers = a} :: DescribeLayersResponse)
-{-# DEPRECATED dlrsLayers "Use generic-lens or generic-optics with 'layers' instead." #-}
+dlrrsLayers :: Lens.Lens' DescribeLayersResponse (Core.Maybe [Types.Layer])
+dlrrsLayers = Lens.field @"layers"
+{-# DEPRECATED dlrrsLayers "Use generic-lens or generic-optics with 'layers' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsResponseStatus :: Lens.Lens' DescribeLayersResponse Lude.Int
-dlrsResponseStatus = Lens.lens (responseStatus :: DescribeLayersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLayersResponse)
-{-# DEPRECATED dlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlrrsResponseStatus :: Lens.Lens' DescribeLayersResponse Core.Int
+dlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

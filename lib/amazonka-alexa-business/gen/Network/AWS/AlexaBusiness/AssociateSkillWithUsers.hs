@@ -27,97 +27,84 @@ module Network.AWS.AlexaBusiness.AssociateSkillWithUsers
     mkAssociateSkillWithUsersResponse,
 
     -- ** Response lenses
-    aswursResponseStatus,
+    aswurrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateSkillWithUsers' smart constructor.
 newtype AssociateSkillWithUsers = AssociateSkillWithUsers'
   { -- | The private skill ID you want to make available to enrolled users.
-    skillId :: Lude.Text
+    skillId :: Types.SkillId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateSkillWithUsers' with the minimum fields required to make a request.
---
--- * 'skillId' - The private skill ID you want to make available to enrolled users.
+-- | Creates a 'AssociateSkillWithUsers' value with any optional fields omitted.
 mkAssociateSkillWithUsers ::
   -- | 'skillId'
-  Lude.Text ->
+  Types.SkillId ->
   AssociateSkillWithUsers
-mkAssociateSkillWithUsers pSkillId_ =
-  AssociateSkillWithUsers' {skillId = pSkillId_}
+mkAssociateSkillWithUsers skillId =
+  AssociateSkillWithUsers' {skillId}
 
 -- | The private skill ID you want to make available to enrolled users.
 --
 -- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aswuSkillId :: Lens.Lens' AssociateSkillWithUsers Lude.Text
-aswuSkillId = Lens.lens (skillId :: AssociateSkillWithUsers -> Lude.Text) (\s a -> s {skillId = a} :: AssociateSkillWithUsers)
+aswuSkillId :: Lens.Lens' AssociateSkillWithUsers Types.SkillId
+aswuSkillId = Lens.field @"skillId"
 {-# DEPRECATED aswuSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
 
-instance Lude.AWSRequest AssociateSkillWithUsers where
+instance Core.FromJSON AssociateSkillWithUsers where
+  toJSON AssociateSkillWithUsers {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("SkillId" Core..= skillId)])
+
+instance Core.AWSRequest AssociateSkillWithUsers where
   type Rs AssociateSkillWithUsers = AssociateSkillWithUsersResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.AssociateSkillWithUsers")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AssociateSkillWithUsersResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateSkillWithUsers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.AssociateSkillWithUsers" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateSkillWithUsers where
-  toJSON AssociateSkillWithUsers' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("SkillId" Lude..= skillId)])
-
-instance Lude.ToPath AssociateSkillWithUsers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateSkillWithUsers where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateSkillWithUsersResponse' smart constructor.
 newtype AssociateSkillWithUsersResponse = AssociateSkillWithUsersResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateSkillWithUsersResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateSkillWithUsersResponse' value with any optional fields omitted.
 mkAssociateSkillWithUsersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateSkillWithUsersResponse
-mkAssociateSkillWithUsersResponse pResponseStatus_ =
-  AssociateSkillWithUsersResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkAssociateSkillWithUsersResponse responseStatus =
+  AssociateSkillWithUsersResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aswursResponseStatus :: Lens.Lens' AssociateSkillWithUsersResponse Lude.Int
-aswursResponseStatus = Lens.lens (responseStatus :: AssociateSkillWithUsersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateSkillWithUsersResponse)
-{-# DEPRECATED aswursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aswurrsResponseStatus :: Lens.Lens' AssociateSkillWithUsersResponse Core.Int
+aswurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aswurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

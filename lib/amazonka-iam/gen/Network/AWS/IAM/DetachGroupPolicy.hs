@@ -22,8 +22,8 @@ module Network.AWS.IAM.DetachGroupPolicy
     mkDetachGroupPolicy,
 
     -- ** Request lenses
-    dPolicyARN,
-    dGroupName,
+    dgpGroupName,
+    dgpPolicyArn,
 
     -- * Destructuring the response
     DetachGroupPolicyResponse (..),
@@ -31,90 +31,83 @@ module Network.AWS.IAM.DetachGroupPolicy
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetachGroupPolicy' smart constructor.
 data DetachGroupPolicy = DetachGroupPolicy'
-  { -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
-    --
-    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-    policyARN :: Lude.Text,
-    -- | The name (friendly name, not ARN) of the IAM group to detach the policy from.
+  { -- | The name (friendly name, not ARN) of the IAM group to detach the policy from.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    groupName :: Lude.Text
+    groupName :: Types.GroupNameType,
+    -- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
+    --
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+    policyArn :: Types.ArnType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachGroupPolicy' with the minimum fields required to make a request.
---
--- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to detach.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
--- * 'groupName' - The name (friendly name, not ARN) of the IAM group to detach the policy from.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'DetachGroupPolicy' value with any optional fields omitted.
 mkDetachGroupPolicy ::
-  -- | 'policyARN'
-  Lude.Text ->
   -- | 'groupName'
-  Lude.Text ->
+  Types.GroupNameType ->
+  -- | 'policyArn'
+  Types.ArnType ->
   DetachGroupPolicy
-mkDetachGroupPolicy pPolicyARN_ pGroupName_ =
-  DetachGroupPolicy'
-    { policyARN = pPolicyARN_,
-      groupName = pGroupName_
-    }
-
--- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
---
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPolicyARN :: Lens.Lens' DetachGroupPolicy Lude.Text
-dPolicyARN = Lens.lens (policyARN :: DetachGroupPolicy -> Lude.Text) (\s a -> s {policyARN = a} :: DetachGroupPolicy)
-{-# DEPRECATED dPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
+mkDetachGroupPolicy groupName policyArn =
+  DetachGroupPolicy' {groupName, policyArn}
 
 -- | The name (friendly name, not ARN) of the IAM group to detach the policy from.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dGroupName :: Lens.Lens' DetachGroupPolicy Lude.Text
-dGroupName = Lens.lens (groupName :: DetachGroupPolicy -> Lude.Text) (\s a -> s {groupName = a} :: DetachGroupPolicy)
-{-# DEPRECATED dGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+dgpGroupName :: Lens.Lens' DetachGroupPolicy Types.GroupNameType
+dgpGroupName = Lens.field @"groupName"
+{-# DEPRECATED dgpGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.AWSRequest DetachGroupPolicy where
+-- | The Amazon Resource Name (ARN) of the IAM policy you want to detach.
+--
+-- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+--
+-- /Note:/ Consider using 'policyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dgpPolicyArn :: Lens.Lens' DetachGroupPolicy Types.ArnType
+dgpPolicyArn = Lens.field @"policyArn"
+{-# DEPRECATED dgpPolicyArn "Use generic-lens or generic-optics with 'policyArn' instead." #-}
+
+instance Core.AWSRequest DetachGroupPolicy where
   type Rs DetachGroupPolicy = DetachGroupPolicyResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DetachGroupPolicyResponse'
-
-instance Lude.ToHeaders DetachGroupPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DetachGroupPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetachGroupPolicy where
-  toQuery DetachGroupPolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DetachGroupPolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyArn" Lude.=: policyARN,
-        "GroupName" Lude.=: groupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DetachGroupPolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "GroupName" groupName)
+                Core.<> (Core.toQueryValue "PolicyArn" policyArn)
+            )
+      }
+  response = Response.receiveNull DetachGroupPolicyResponse'
 
 -- | /See:/ 'mkDetachGroupPolicyResponse' smart constructor.
 data DetachGroupPolicyResponse = DetachGroupPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachGroupPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DetachGroupPolicyResponse' value with any optional fields omitted.
 mkDetachGroupPolicyResponse ::
   DetachGroupPolicyResponse
 mkDetachGroupPolicyResponse = DetachGroupPolicyResponse'

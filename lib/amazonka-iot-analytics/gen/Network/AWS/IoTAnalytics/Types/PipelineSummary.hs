@@ -18,84 +18,78 @@ module Network.AWS.IoTAnalytics.Types.PipelineSummary
 
     -- * Lenses
     psCreationTime,
+    psLastUpdateTime,
     psPipelineName,
     psReprocessingSummaries,
-    psLastUpdateTime,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.ReprocessingSummary
+import qualified Network.AWS.IoTAnalytics.Types.PipelineName as Types
+import qualified Network.AWS.IoTAnalytics.Types.ReprocessingSummary as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A summary of information about a pipeline.
 --
 -- /See:/ 'mkPipelineSummary' smart constructor.
 data PipelineSummary = PipelineSummary'
   { -- | When the pipeline was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the pipeline.
-    pipelineName :: Lude.Maybe Lude.Text,
-    -- | A summary of information about the pipeline reprocessing.
-    reprocessingSummaries :: Lude.Maybe [ReprocessingSummary],
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | When the pipeline was last updated.
-    lastUpdateTime :: Lude.Maybe Lude.Timestamp
+    lastUpdateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the pipeline.
+    pipelineName :: Core.Maybe Types.PipelineName,
+    -- | A summary of information about the pipeline reprocessing.
+    reprocessingSummaries :: Core.Maybe [Types.ReprocessingSummary]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PipelineSummary' with the minimum fields required to make a request.
---
--- * 'creationTime' - When the pipeline was created.
--- * 'pipelineName' - The name of the pipeline.
--- * 'reprocessingSummaries' - A summary of information about the pipeline reprocessing.
--- * 'lastUpdateTime' - When the pipeline was last updated.
+-- | Creates a 'PipelineSummary' value with any optional fields omitted.
 mkPipelineSummary ::
   PipelineSummary
 mkPipelineSummary =
   PipelineSummary'
-    { creationTime = Lude.Nothing,
-      pipelineName = Lude.Nothing,
-      reprocessingSummaries = Lude.Nothing,
-      lastUpdateTime = Lude.Nothing
+    { creationTime = Core.Nothing,
+      lastUpdateTime = Core.Nothing,
+      pipelineName = Core.Nothing,
+      reprocessingSummaries = Core.Nothing
     }
 
 -- | When the pipeline was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psCreationTime :: Lens.Lens' PipelineSummary (Lude.Maybe Lude.Timestamp)
-psCreationTime = Lens.lens (creationTime :: PipelineSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: PipelineSummary)
+psCreationTime :: Lens.Lens' PipelineSummary (Core.Maybe Core.NominalDiffTime)
+psCreationTime = Lens.field @"creationTime"
 {-# DEPRECATED psCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | When the pipeline was last updated.
+--
+-- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psLastUpdateTime :: Lens.Lens' PipelineSummary (Core.Maybe Core.NominalDiffTime)
+psLastUpdateTime = Lens.field @"lastUpdateTime"
+{-# DEPRECATED psLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
 -- | The name of the pipeline.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psPipelineName :: Lens.Lens' PipelineSummary (Lude.Maybe Lude.Text)
-psPipelineName = Lens.lens (pipelineName :: PipelineSummary -> Lude.Maybe Lude.Text) (\s a -> s {pipelineName = a} :: PipelineSummary)
+psPipelineName :: Lens.Lens' PipelineSummary (Core.Maybe Types.PipelineName)
+psPipelineName = Lens.field @"pipelineName"
 {-# DEPRECATED psPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
 -- | A summary of information about the pipeline reprocessing.
 --
 -- /Note:/ Consider using 'reprocessingSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psReprocessingSummaries :: Lens.Lens' PipelineSummary (Lude.Maybe [ReprocessingSummary])
-psReprocessingSummaries = Lens.lens (reprocessingSummaries :: PipelineSummary -> Lude.Maybe [ReprocessingSummary]) (\s a -> s {reprocessingSummaries = a} :: PipelineSummary)
+psReprocessingSummaries :: Lens.Lens' PipelineSummary (Core.Maybe [Types.ReprocessingSummary])
+psReprocessingSummaries = Lens.field @"reprocessingSummaries"
 {-# DEPRECATED psReprocessingSummaries "Use generic-lens or generic-optics with 'reprocessingSummaries' instead." #-}
 
--- | When the pipeline was last updated.
---
--- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psLastUpdateTime :: Lens.Lens' PipelineSummary (Lude.Maybe Lude.Timestamp)
-psLastUpdateTime = Lens.lens (lastUpdateTime :: PipelineSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: PipelineSummary)
-{-# DEPRECATED psLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
-
-instance Lude.FromJSON PipelineSummary where
+instance Core.FromJSON PipelineSummary where
   parseJSON =
-    Lude.withObject
-      "PipelineSummary"
-      ( \x ->
-          PipelineSummary'
-            Lude.<$> (x Lude..:? "creationTime")
-            Lude.<*> (x Lude..:? "pipelineName")
-            Lude.<*> (x Lude..:? "reprocessingSummaries" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "lastUpdateTime")
-      )
+    Core.withObject "PipelineSummary" Core.$
+      \x ->
+        PipelineSummary'
+          Core.<$> (x Core..:? "creationTime")
+          Core.<*> (x Core..:? "lastUpdateTime")
+          Core.<*> (x Core..:? "pipelineName")
+          Core.<*> (x Core..:? "reprocessingSummaries")

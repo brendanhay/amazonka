@@ -22,54 +22,48 @@ module Network.AWS.Comprehend.Types.BatchDetectEntitiesItemResult
   )
 where
 
-import Network.AWS.Comprehend.Types.Entity
+import qualified Network.AWS.Comprehend.Types.Entity as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.
 --
 -- /See:/ 'mkBatchDetectEntitiesItemResult' smart constructor.
 data BatchDetectEntitiesItemResult = BatchDetectEntitiesItemResult'
   { -- | One or more 'Entity' objects, one for each entity detected in the document.
-    entities :: Lude.Maybe [Entity],
+    entities :: Core.Maybe [Types.Entity],
     -- | The zero-based index of the document in the input list.
-    index :: Lude.Maybe Lude.Int
+    index :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetectEntitiesItemResult' with the minimum fields required to make a request.
---
--- * 'entities' - One or more 'Entity' objects, one for each entity detected in the document.
--- * 'index' - The zero-based index of the document in the input list.
+-- | Creates a 'BatchDetectEntitiesItemResult' value with any optional fields omitted.
 mkBatchDetectEntitiesItemResult ::
   BatchDetectEntitiesItemResult
 mkBatchDetectEntitiesItemResult =
   BatchDetectEntitiesItemResult'
-    { entities = Lude.Nothing,
-      index = Lude.Nothing
+    { entities = Core.Nothing,
+      index = Core.Nothing
     }
 
 -- | One or more 'Entity' objects, one for each entity detected in the document.
 --
 -- /Note:/ Consider using 'entities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdeirEntities :: Lens.Lens' BatchDetectEntitiesItemResult (Lude.Maybe [Entity])
-bdeirEntities = Lens.lens (entities :: BatchDetectEntitiesItemResult -> Lude.Maybe [Entity]) (\s a -> s {entities = a} :: BatchDetectEntitiesItemResult)
+bdeirEntities :: Lens.Lens' BatchDetectEntitiesItemResult (Core.Maybe [Types.Entity])
+bdeirEntities = Lens.field @"entities"
 {-# DEPRECATED bdeirEntities "Use generic-lens or generic-optics with 'entities' instead." #-}
 
 -- | The zero-based index of the document in the input list.
 --
 -- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdeirIndex :: Lens.Lens' BatchDetectEntitiesItemResult (Lude.Maybe Lude.Int)
-bdeirIndex = Lens.lens (index :: BatchDetectEntitiesItemResult -> Lude.Maybe Lude.Int) (\s a -> s {index = a} :: BatchDetectEntitiesItemResult)
+bdeirIndex :: Lens.Lens' BatchDetectEntitiesItemResult (Core.Maybe Core.Int)
+bdeirIndex = Lens.field @"index"
 {-# DEPRECATED bdeirIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
-instance Lude.FromJSON BatchDetectEntitiesItemResult where
+instance Core.FromJSON BatchDetectEntitiesItemResult where
   parseJSON =
-    Lude.withObject
-      "BatchDetectEntitiesItemResult"
-      ( \x ->
-          BatchDetectEntitiesItemResult'
-            Lude.<$> (x Lude..:? "Entities" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Index")
-      )
+    Core.withObject "BatchDetectEntitiesItemResult" Core.$
+      \x ->
+        BatchDetectEntitiesItemResult'
+          Core.<$> (x Core..:? "Entities") Core.<*> (x Core..:? "Index")

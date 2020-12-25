@@ -17,73 +17,68 @@ module Network.AWS.WorkDocs.Types.Principal
     mkPrincipal,
 
     -- * Lenses
-    pRoles,
     pId,
+    pRoles,
     pType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkDocs.Types.PermissionInfo
-import Network.AWS.WorkDocs.Types.PrincipalType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.IdType as Types
+import qualified Network.AWS.WorkDocs.Types.PermissionInfo as Types
+import qualified Network.AWS.WorkDocs.Types.PrincipalType as Types
 
 -- | Describes a resource.
 --
 -- /See:/ 'mkPrincipal' smart constructor.
 data Principal = Principal'
-  { -- | The permission information for the resource.
-    roles :: Lude.Maybe [PermissionInfo],
-    -- | The ID of the resource.
-    id :: Lude.Maybe Lude.Text,
+  { -- | The ID of the resource.
+    id :: Core.Maybe Types.IdType,
+    -- | The permission information for the resource.
+    roles :: Core.Maybe [Types.PermissionInfo],
     -- | The type of resource.
-    type' :: Lude.Maybe PrincipalType
+    type' :: Core.Maybe Types.PrincipalType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Principal' with the minimum fields required to make a request.
---
--- * 'roles' - The permission information for the resource.
--- * 'id' - The ID of the resource.
--- * 'type'' - The type of resource.
+-- | Creates a 'Principal' value with any optional fields omitted.
 mkPrincipal ::
   Principal
 mkPrincipal =
   Principal'
-    { roles = Lude.Nothing,
-      id = Lude.Nothing,
-      type' = Lude.Nothing
+    { id = Core.Nothing,
+      roles = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The permission information for the resource.
---
--- /Note:/ Consider using 'roles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pRoles :: Lens.Lens' Principal (Lude.Maybe [PermissionInfo])
-pRoles = Lens.lens (roles :: Principal -> Lude.Maybe [PermissionInfo]) (\s a -> s {roles = a} :: Principal)
-{-# DEPRECATED pRoles "Use generic-lens or generic-optics with 'roles' instead." #-}
 
 -- | The ID of the resource.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pId :: Lens.Lens' Principal (Lude.Maybe Lude.Text)
-pId = Lens.lens (id :: Principal -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Principal)
+pId :: Lens.Lens' Principal (Core.Maybe Types.IdType)
+pId = Lens.field @"id"
 {-# DEPRECATED pId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The permission information for the resource.
+--
+-- /Note:/ Consider using 'roles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pRoles :: Lens.Lens' Principal (Core.Maybe [Types.PermissionInfo])
+pRoles = Lens.field @"roles"
+{-# DEPRECATED pRoles "Use generic-lens or generic-optics with 'roles' instead." #-}
 
 -- | The type of resource.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pType :: Lens.Lens' Principal (Lude.Maybe PrincipalType)
-pType = Lens.lens (type' :: Principal -> Lude.Maybe PrincipalType) (\s a -> s {type' = a} :: Principal)
+pType :: Lens.Lens' Principal (Core.Maybe Types.PrincipalType)
+pType = Lens.field @"type'"
 {-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Principal where
+instance Core.FromJSON Principal where
   parseJSON =
-    Lude.withObject
-      "Principal"
-      ( \x ->
-          Principal'
-            Lude.<$> (x Lude..:? "Roles" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "Principal" Core.$
+      \x ->
+        Principal'
+          Core.<$> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Roles")
+          Core.<*> (x Core..:? "Type")

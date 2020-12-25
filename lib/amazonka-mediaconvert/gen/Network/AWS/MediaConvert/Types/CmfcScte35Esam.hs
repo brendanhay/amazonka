@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.CmfcScte35Esam
   ( CmfcScte35Esam
       ( CmfcScte35Esam',
-        CSEInsert,
-        CSENone
+        CmfcScte35EsamInsert,
+        CmfcScte35EsamNone,
+        fromCmfcScte35Esam
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
-newtype CmfcScte35Esam = CmfcScte35Esam' Lude.Text
+newtype CmfcScte35Esam = CmfcScte35Esam'
+  { fromCmfcScte35Esam ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSEInsert :: CmfcScte35Esam
-pattern CSEInsert = CmfcScte35Esam' "INSERT"
+pattern CmfcScte35EsamInsert :: CmfcScte35Esam
+pattern CmfcScte35EsamInsert = CmfcScte35Esam' "INSERT"
 
-pattern CSENone :: CmfcScte35Esam
-pattern CSENone = CmfcScte35Esam' "NONE"
+pattern CmfcScte35EsamNone :: CmfcScte35Esam
+pattern CmfcScte35EsamNone = CmfcScte35Esam' "NONE"
 
 {-# COMPLETE
-  CSEInsert,
-  CSENone,
+  CmfcScte35EsamInsert,
+  CmfcScte35EsamNone,
   CmfcScte35Esam'
   #-}

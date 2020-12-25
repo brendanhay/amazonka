@@ -13,46 +13,51 @@
 module Network.AWS.ELBv2.Types.RedirectActionStatusCodeEnum
   ( RedirectActionStatusCodeEnum
       ( RedirectActionStatusCodeEnum',
-        HTTP301,
-        HTTP302
+        RedirectActionStatusCodeEnumHttp301,
+        RedirectActionStatusCodeEnumHttp302,
+        fromRedirectActionStatusCodeEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RedirectActionStatusCodeEnum = RedirectActionStatusCodeEnum' Lude.Text
+newtype RedirectActionStatusCodeEnum = RedirectActionStatusCodeEnum'
+  { fromRedirectActionStatusCodeEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HTTP301 :: RedirectActionStatusCodeEnum
-pattern HTTP301 = RedirectActionStatusCodeEnum' "HTTP_301"
+pattern RedirectActionStatusCodeEnumHttp301 :: RedirectActionStatusCodeEnum
+pattern RedirectActionStatusCodeEnumHttp301 = RedirectActionStatusCodeEnum' "HTTP_301"
 
-pattern HTTP302 :: RedirectActionStatusCodeEnum
-pattern HTTP302 = RedirectActionStatusCodeEnum' "HTTP_302"
+pattern RedirectActionStatusCodeEnumHttp302 :: RedirectActionStatusCodeEnum
+pattern RedirectActionStatusCodeEnumHttp302 = RedirectActionStatusCodeEnum' "HTTP_302"
 
 {-# COMPLETE
-  HTTP301,
-  HTTP302,
+  RedirectActionStatusCodeEnumHttp301,
+  RedirectActionStatusCodeEnumHttp302,
   RedirectActionStatusCodeEnum'
   #-}

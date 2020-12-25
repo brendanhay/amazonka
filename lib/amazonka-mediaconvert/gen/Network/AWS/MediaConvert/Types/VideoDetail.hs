@@ -23,48 +23,43 @@ module Network.AWS.MediaConvert.Types.VideoDetail
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains details about the output's video stream
 --
 -- /See:/ 'mkVideoDetail' smart constructor.
 data VideoDetail = VideoDetail'
   { -- | Height in pixels for the output
-    heightInPx :: Lude.Maybe Lude.Int,
+    heightInPx :: Core.Maybe Core.Int,
     -- | Width in pixels for the output
-    widthInPx :: Lude.Maybe Lude.Int
+    widthInPx :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VideoDetail' with the minimum fields required to make a request.
---
--- * 'heightInPx' - Height in pixels for the output
--- * 'widthInPx' - Width in pixels for the output
+-- | Creates a 'VideoDetail' value with any optional fields omitted.
 mkVideoDetail ::
   VideoDetail
 mkVideoDetail =
-  VideoDetail' {heightInPx = Lude.Nothing, widthInPx = Lude.Nothing}
+  VideoDetail' {heightInPx = Core.Nothing, widthInPx = Core.Nothing}
 
 -- | Height in pixels for the output
 --
 -- /Note:/ Consider using 'heightInPx' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdHeightInPx :: Lens.Lens' VideoDetail (Lude.Maybe Lude.Int)
-vdHeightInPx = Lens.lens (heightInPx :: VideoDetail -> Lude.Maybe Lude.Int) (\s a -> s {heightInPx = a} :: VideoDetail)
+vdHeightInPx :: Lens.Lens' VideoDetail (Core.Maybe Core.Int)
+vdHeightInPx = Lens.field @"heightInPx"
 {-# DEPRECATED vdHeightInPx "Use generic-lens or generic-optics with 'heightInPx' instead." #-}
 
 -- | Width in pixels for the output
 --
 -- /Note:/ Consider using 'widthInPx' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdWidthInPx :: Lens.Lens' VideoDetail (Lude.Maybe Lude.Int)
-vdWidthInPx = Lens.lens (widthInPx :: VideoDetail -> Lude.Maybe Lude.Int) (\s a -> s {widthInPx = a} :: VideoDetail)
+vdWidthInPx :: Lens.Lens' VideoDetail (Core.Maybe Core.Int)
+vdWidthInPx = Lens.field @"widthInPx"
 {-# DEPRECATED vdWidthInPx "Use generic-lens or generic-optics with 'widthInPx' instead." #-}
 
-instance Lude.FromJSON VideoDetail where
+instance Core.FromJSON VideoDetail where
   parseJSON =
-    Lude.withObject
-      "VideoDetail"
-      ( \x ->
-          VideoDetail'
-            Lude.<$> (x Lude..:? "heightInPx") Lude.<*> (x Lude..:? "widthInPx")
-      )
+    Core.withObject "VideoDetail" Core.$
+      \x ->
+        VideoDetail'
+          Core.<$> (x Core..:? "heightInPx") Core.<*> (x Core..:? "widthInPx")

@@ -17,57 +17,53 @@ module Network.AWS.StepFunctions.Types.MapIterationEventDetails
     mkMapIterationEventDetails,
 
     -- * Lenses
-    miedName,
     miedIndex,
+    miedName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.Name as Types
 
 -- | Contains details about an iteration of a Map state.
 --
 -- /See:/ 'mkMapIterationEventDetails' smart constructor.
 data MapIterationEventDetails = MapIterationEventDetails'
-  { -- | The name of the iteration’s parent Map state.
-    name :: Lude.Maybe Lude.Text,
-    -- | The index of the array belonging to the Map state iteration.
-    index :: Lude.Maybe Lude.Natural
+  { -- | The index of the array belonging to the Map state iteration.
+    index :: Core.Maybe Core.Natural,
+    -- | The name of the iteration’s parent Map state.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MapIterationEventDetails' with the minimum fields required to make a request.
---
--- * 'name' - The name of the iteration’s parent Map state.
--- * 'index' - The index of the array belonging to the Map state iteration.
+-- | Creates a 'MapIterationEventDetails' value with any optional fields omitted.
 mkMapIterationEventDetails ::
   MapIterationEventDetails
 mkMapIterationEventDetails =
   MapIterationEventDetails'
-    { name = Lude.Nothing,
-      index = Lude.Nothing
+    { index = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The name of the iteration’s parent Map state.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miedName :: Lens.Lens' MapIterationEventDetails (Lude.Maybe Lude.Text)
-miedName = Lens.lens (name :: MapIterationEventDetails -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: MapIterationEventDetails)
-{-# DEPRECATED miedName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The index of the array belonging to the Map state iteration.
 --
 -- /Note:/ Consider using 'index' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-miedIndex :: Lens.Lens' MapIterationEventDetails (Lude.Maybe Lude.Natural)
-miedIndex = Lens.lens (index :: MapIterationEventDetails -> Lude.Maybe Lude.Natural) (\s a -> s {index = a} :: MapIterationEventDetails)
+miedIndex :: Lens.Lens' MapIterationEventDetails (Core.Maybe Core.Natural)
+miedIndex = Lens.field @"index"
 {-# DEPRECATED miedIndex "Use generic-lens or generic-optics with 'index' instead." #-}
 
-instance Lude.FromJSON MapIterationEventDetails where
+-- | The name of the iteration’s parent Map state.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+miedName :: Lens.Lens' MapIterationEventDetails (Core.Maybe Types.Name)
+miedName = Lens.field @"name"
+{-# DEPRECATED miedName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON MapIterationEventDetails where
   parseJSON =
-    Lude.withObject
-      "MapIterationEventDetails"
-      ( \x ->
-          MapIterationEventDetails'
-            Lude.<$> (x Lude..:? "name") Lude.<*> (x Lude..:? "index")
-      )
+    Core.withObject "MapIterationEventDetails" Core.$
+      \x ->
+        MapIterationEventDetails'
+          Core.<$> (x Core..:? "index") Core.<*> (x Core..:? "name")

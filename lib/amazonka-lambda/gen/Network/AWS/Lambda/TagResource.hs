@@ -29,72 +29,67 @@ module Network.AWS.Lambda.TagResource
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The function's Amazon Resource Name (ARN).
-    resource :: Lude.Text,
+    resource :: Types.FunctionArn,
     -- | A list of tags to apply to the function.
-    tags :: Lude.HashMap Lude.Text (Lude.Text)
+    tags :: Core.HashMap Types.TagKey Types.TagValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResource' with the minimum fields required to make a request.
---
--- * 'resource' - The function's Amazon Resource Name (ARN).
--- * 'tags' - A list of tags to apply to the function.
+-- | Creates a 'TagResource' value with any optional fields omitted.
 mkTagResource ::
   -- | 'resource'
-  Lude.Text ->
+  Types.FunctionArn ->
   TagResource
-mkTagResource pResource_ =
-  TagResource' {resource = pResource_, tags = Lude.mempty}
+mkTagResource resource = TagResource' {resource, tags = Core.mempty}
 
 -- | The function's Amazon Resource Name (ARN).
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trResource :: Lens.Lens' TagResource Lude.Text
-trResource = Lens.lens (resource :: TagResource -> Lude.Text) (\s a -> s {resource = a} :: TagResource)
+trResource :: Lens.Lens' TagResource Types.FunctionArn
+trResource = Lens.field @"resource"
 {-# DEPRECATED trResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
 -- | A list of tags to apply to the function.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trTags :: Lens.Lens' TagResource (Lude.HashMap Lude.Text (Lude.Text))
-trTags = Lens.lens (tags :: TagResource -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: TagResource)
+trTags :: Lens.Lens' TagResource (Core.HashMap Types.TagKey Types.TagValue)
+trTags = Lens.field @"tags"
 {-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagResource where
+instance Core.FromJSON TagResource where
+  toJSON TagResource {..} =
+    Core.object (Core.catMaybes [Core.Just ("Tags" Core..= tags)])
+
+instance Core.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = Req.postJSON lambdaService
-  response = Res.receiveNull TagResourceResponse'
-
-instance Lude.ToHeaders TagResource where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON TagResource where
-  toJSON TagResource' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Tags" Lude..= tags)])
-
-instance Lude.ToPath TagResource where
-  toPath TagResource' {..} =
-    Lude.mconcat ["/2017-03-31/tags/", Lude.toBS resource]
-
-instance Lude.ToQuery TagResource where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath ("/2017-03-31/tags/" Core.<> (Core.toText resource)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull TagResourceResponse'
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
+-- | Creates a 'TagResourceResponse' value with any optional fields omitted.
 mkTagResourceResponse ::
   TagResourceResponse
 mkTagResourceResponse = TagResourceResponse'

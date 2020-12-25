@@ -22,65 +22,58 @@ module Network.AWS.ECS.Types.InferenceAccelerator
   )
 where
 
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details on a Elastic Inference accelerator. For more information, see <https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-eia.html Working with Amazon Elastic Inference on Amazon ECS> in the /Amazon Elastic Container Service Developer Guide/ .
 --
 -- /See:/ 'mkInferenceAccelerator' smart constructor.
 data InferenceAccelerator = InferenceAccelerator'
   { -- | The Elastic Inference accelerator device name. The @deviceName@ must also be referenced in a container definition as a 'ResourceRequirement' .
-    deviceName :: Lude.Text,
+    deviceName :: Types.String,
     -- | The Elastic Inference accelerator type to use.
-    deviceType :: Lude.Text
+    deviceType :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InferenceAccelerator' with the minimum fields required to make a request.
---
--- * 'deviceName' - The Elastic Inference accelerator device name. The @deviceName@ must also be referenced in a container definition as a 'ResourceRequirement' .
--- * 'deviceType' - The Elastic Inference accelerator type to use.
+-- | Creates a 'InferenceAccelerator' value with any optional fields omitted.
 mkInferenceAccelerator ::
   -- | 'deviceName'
-  Lude.Text ->
+  Types.String ->
   -- | 'deviceType'
-  Lude.Text ->
+  Types.String ->
   InferenceAccelerator
-mkInferenceAccelerator pDeviceName_ pDeviceType_ =
-  InferenceAccelerator'
-    { deviceName = pDeviceName_,
-      deviceType = pDeviceType_
-    }
+mkInferenceAccelerator deviceName deviceType =
+  InferenceAccelerator' {deviceName, deviceType}
 
 -- | The Elastic Inference accelerator device name. The @deviceName@ must also be referenced in a container definition as a 'ResourceRequirement' .
 --
 -- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaDeviceName :: Lens.Lens' InferenceAccelerator Lude.Text
-iaDeviceName = Lens.lens (deviceName :: InferenceAccelerator -> Lude.Text) (\s a -> s {deviceName = a} :: InferenceAccelerator)
+iaDeviceName :: Lens.Lens' InferenceAccelerator Types.String
+iaDeviceName = Lens.field @"deviceName"
 {-# DEPRECATED iaDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
 
 -- | The Elastic Inference accelerator type to use.
 --
 -- /Note:/ Consider using 'deviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaDeviceType :: Lens.Lens' InferenceAccelerator Lude.Text
-iaDeviceType = Lens.lens (deviceType :: InferenceAccelerator -> Lude.Text) (\s a -> s {deviceType = a} :: InferenceAccelerator)
+iaDeviceType :: Lens.Lens' InferenceAccelerator Types.String
+iaDeviceType = Lens.field @"deviceType"
 {-# DEPRECATED iaDeviceType "Use generic-lens or generic-optics with 'deviceType' instead." #-}
 
-instance Lude.FromJSON InferenceAccelerator where
-  parseJSON =
-    Lude.withObject
-      "InferenceAccelerator"
-      ( \x ->
-          InferenceAccelerator'
-            Lude.<$> (x Lude..: "deviceName") Lude.<*> (x Lude..: "deviceType")
-      )
-
-instance Lude.ToJSON InferenceAccelerator where
-  toJSON InferenceAccelerator' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("deviceName" Lude..= deviceName),
-            Lude.Just ("deviceType" Lude..= deviceType)
+instance Core.FromJSON InferenceAccelerator where
+  toJSON InferenceAccelerator {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("deviceName" Core..= deviceName),
+            Core.Just ("deviceType" Core..= deviceType)
           ]
       )
+
+instance Core.FromJSON InferenceAccelerator where
+  parseJSON =
+    Core.withObject "InferenceAccelerator" Core.$
+      \x ->
+        InferenceAccelerator'
+          Core.<$> (x Core..: "deviceName") Core.<*> (x Core..: "deviceType")

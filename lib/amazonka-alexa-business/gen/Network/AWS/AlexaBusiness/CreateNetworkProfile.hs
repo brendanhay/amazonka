@@ -23,245 +23,224 @@ module Network.AWS.AlexaBusiness.CreateNetworkProfile
     cnpNetworkProfileName,
     cnpSsid,
     cnpSecurityType,
-    cnpCurrentPassword,
-    cnpNextPassword,
-    cnpEapMethod,
     cnpClientRequestToken,
+    cnpCertificateAuthorityArn,
+    cnpCurrentPassword,
     cnpDescription,
+    cnpEapMethod,
+    cnpNextPassword,
     cnpTrustAnchors,
-    cnpCertificateAuthorityARN,
 
     -- * Destructuring the response
     CreateNetworkProfileResponse (..),
     mkCreateNetworkProfileResponse,
 
     -- ** Response lenses
-    cnprsNetworkProfileARN,
-    cnprsResponseStatus,
+    cnprrsNetworkProfileArn,
+    cnprrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateNetworkProfile' smart constructor.
 data CreateNetworkProfile = CreateNetworkProfile'
   { -- | The name of the network profile associated with a device.
-    networkProfileName :: Lude.Text,
+    networkProfileName :: Types.NetworkProfileName,
     -- | The SSID of the Wi-Fi network.
-    ssid :: Lude.Text,
+    ssid :: Types.Ssid,
     -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.
-    securityType :: NetworkSecurityType,
-    -- | The current password of the Wi-Fi network.
-    currentPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword.
-    nextPassword :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.
-    eapMethod :: Lude.Maybe NetworkEapMethod,
-    clientRequestToken :: Lude.Text,
-    -- | Detailed information about a device's network profile.
-    description :: Lude.Maybe Lude.Text,
-    -- | The root certificates of your authentication server that is installed on your devices and used to trust your authentication server during EAP negotiation.
-    trustAnchors :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+    securityType :: Types.NetworkSecurityType,
+    clientRequestToken :: Types.ClientRequestToken,
     -- | The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
-    certificateAuthorityARN :: Lude.Maybe Lude.Text
+    certificateAuthorityArn :: Core.Maybe Types.Arn,
+    -- | The current password of the Wi-Fi network.
+    currentPassword :: Core.Maybe Types.CurrentWiFiPassword,
+    -- | Detailed information about a device's network profile.
+    description :: Core.Maybe Types.Description,
+    -- | The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.
+    eapMethod :: Core.Maybe Types.NetworkEapMethod,
+    -- | The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword.
+    nextPassword :: Core.Maybe Types.NextPassword,
+    -- | The root certificates of your authentication server that is installed on your devices and used to trust your authentication server during EAP negotiation.
+    trustAnchors :: Core.Maybe (Core.NonEmpty Types.TrustAnchor)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNetworkProfile' with the minimum fields required to make a request.
---
--- * 'networkProfileName' - The name of the network profile associated with a device.
--- * 'ssid' - The SSID of the Wi-Fi network.
--- * 'securityType' - The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.
--- * 'currentPassword' - The current password of the Wi-Fi network.
--- * 'nextPassword' - The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword.
--- * 'eapMethod' - The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.
--- * 'clientRequestToken' -
--- * 'description' - Detailed information about a device's network profile.
--- * 'trustAnchors' - The root certificates of your authentication server that is installed on your devices and used to trust your authentication server during EAP negotiation.
--- * 'certificateAuthorityARN' - The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
+-- | Creates a 'CreateNetworkProfile' value with any optional fields omitted.
 mkCreateNetworkProfile ::
   -- | 'networkProfileName'
-  Lude.Text ->
+  Types.NetworkProfileName ->
   -- | 'ssid'
-  Lude.Text ->
+  Types.Ssid ->
   -- | 'securityType'
-  NetworkSecurityType ->
+  Types.NetworkSecurityType ->
   -- | 'clientRequestToken'
-  Lude.Text ->
+  Types.ClientRequestToken ->
   CreateNetworkProfile
 mkCreateNetworkProfile
-  pNetworkProfileName_
-  pSsid_
-  pSecurityType_
-  pClientRequestToken_ =
+  networkProfileName
+  ssid
+  securityType
+  clientRequestToken =
     CreateNetworkProfile'
-      { networkProfileName = pNetworkProfileName_,
-        ssid = pSsid_,
-        securityType = pSecurityType_,
-        currentPassword = Lude.Nothing,
-        nextPassword = Lude.Nothing,
-        eapMethod = Lude.Nothing,
-        clientRequestToken = pClientRequestToken_,
-        description = Lude.Nothing,
-        trustAnchors = Lude.Nothing,
-        certificateAuthorityARN = Lude.Nothing
+      { networkProfileName,
+        ssid,
+        securityType,
+        clientRequestToken,
+        certificateAuthorityArn = Core.Nothing,
+        currentPassword = Core.Nothing,
+        description = Core.Nothing,
+        eapMethod = Core.Nothing,
+        nextPassword = Core.Nothing,
+        trustAnchors = Core.Nothing
       }
 
 -- | The name of the network profile associated with a device.
 --
 -- /Note:/ Consider using 'networkProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpNetworkProfileName :: Lens.Lens' CreateNetworkProfile Lude.Text
-cnpNetworkProfileName = Lens.lens (networkProfileName :: CreateNetworkProfile -> Lude.Text) (\s a -> s {networkProfileName = a} :: CreateNetworkProfile)
+cnpNetworkProfileName :: Lens.Lens' CreateNetworkProfile Types.NetworkProfileName
+cnpNetworkProfileName = Lens.field @"networkProfileName"
 {-# DEPRECATED cnpNetworkProfileName "Use generic-lens or generic-optics with 'networkProfileName' instead." #-}
 
 -- | The SSID of the Wi-Fi network.
 --
 -- /Note:/ Consider using 'ssid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpSsid :: Lens.Lens' CreateNetworkProfile Lude.Text
-cnpSsid = Lens.lens (ssid :: CreateNetworkProfile -> Lude.Text) (\s a -> s {ssid = a} :: CreateNetworkProfile)
+cnpSsid :: Lens.Lens' CreateNetworkProfile Types.Ssid
+cnpSsid = Lens.field @"ssid"
 {-# DEPRECATED cnpSsid "Use generic-lens or generic-optics with 'ssid' instead." #-}
 
 -- | The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK, WEP, or OPEN.
 --
 -- /Note:/ Consider using 'securityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpSecurityType :: Lens.Lens' CreateNetworkProfile NetworkSecurityType
-cnpSecurityType = Lens.lens (securityType :: CreateNetworkProfile -> NetworkSecurityType) (\s a -> s {securityType = a} :: CreateNetworkProfile)
+cnpSecurityType :: Lens.Lens' CreateNetworkProfile Types.NetworkSecurityType
+cnpSecurityType = Lens.field @"securityType"
 {-# DEPRECATED cnpSecurityType "Use generic-lens or generic-optics with 'securityType' instead." #-}
-
--- | The current password of the Wi-Fi network.
---
--- /Note:/ Consider using 'currentPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpCurrentPassword :: Lens.Lens' CreateNetworkProfile (Lude.Maybe (Lude.Sensitive Lude.Text))
-cnpCurrentPassword = Lens.lens (currentPassword :: CreateNetworkProfile -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {currentPassword = a} :: CreateNetworkProfile)
-{-# DEPRECATED cnpCurrentPassword "Use generic-lens or generic-optics with 'currentPassword' instead." #-}
-
--- | The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword.
---
--- /Note:/ Consider using 'nextPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpNextPassword :: Lens.Lens' CreateNetworkProfile (Lude.Maybe (Lude.Sensitive Lude.Text))
-cnpNextPassword = Lens.lens (nextPassword :: CreateNetworkProfile -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {nextPassword = a} :: CreateNetworkProfile)
-{-# DEPRECATED cnpNextPassword "Use generic-lens or generic-optics with 'nextPassword' instead." #-}
-
--- | The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.
---
--- /Note:/ Consider using 'eapMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpEapMethod :: Lens.Lens' CreateNetworkProfile (Lude.Maybe NetworkEapMethod)
-cnpEapMethod = Lens.lens (eapMethod :: CreateNetworkProfile -> Lude.Maybe NetworkEapMethod) (\s a -> s {eapMethod = a} :: CreateNetworkProfile)
-{-# DEPRECATED cnpEapMethod "Use generic-lens or generic-optics with 'eapMethod' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpClientRequestToken :: Lens.Lens' CreateNetworkProfile Lude.Text
-cnpClientRequestToken = Lens.lens (clientRequestToken :: CreateNetworkProfile -> Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateNetworkProfile)
+cnpClientRequestToken :: Lens.Lens' CreateNetworkProfile Types.ClientRequestToken
+cnpClientRequestToken = Lens.field @"clientRequestToken"
 {-# DEPRECATED cnpClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+
+-- | The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
+--
+-- /Note:/ Consider using 'certificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpCertificateAuthorityArn :: Lens.Lens' CreateNetworkProfile (Core.Maybe Types.Arn)
+cnpCertificateAuthorityArn = Lens.field @"certificateAuthorityArn"
+{-# DEPRECATED cnpCertificateAuthorityArn "Use generic-lens or generic-optics with 'certificateAuthorityArn' instead." #-}
+
+-- | The current password of the Wi-Fi network.
+--
+-- /Note:/ Consider using 'currentPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpCurrentPassword :: Lens.Lens' CreateNetworkProfile (Core.Maybe Types.CurrentWiFiPassword)
+cnpCurrentPassword = Lens.field @"currentPassword"
+{-# DEPRECATED cnpCurrentPassword "Use generic-lens or generic-optics with 'currentPassword' instead." #-}
 
 -- | Detailed information about a device's network profile.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpDescription :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Text)
-cnpDescription = Lens.lens (description :: CreateNetworkProfile -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateNetworkProfile)
+cnpDescription :: Lens.Lens' CreateNetworkProfile (Core.Maybe Types.Description)
+cnpDescription = Lens.field @"description"
 {-# DEPRECATED cnpDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The authentication standard that is used in the EAP framework. Currently, EAP_TLS is supported.
+--
+-- /Note:/ Consider using 'eapMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpEapMethod :: Lens.Lens' CreateNetworkProfile (Core.Maybe Types.NetworkEapMethod)
+cnpEapMethod = Lens.field @"eapMethod"
+{-# DEPRECATED cnpEapMethod "Use generic-lens or generic-optics with 'eapMethod' instead." #-}
+
+-- | The next, or subsequent, password of the Wi-Fi network. This password is asynchronously transmitted to the device and is used when the password of the network changes to NextPassword.
+--
+-- /Note:/ Consider using 'nextPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnpNextPassword :: Lens.Lens' CreateNetworkProfile (Core.Maybe Types.NextPassword)
+cnpNextPassword = Lens.field @"nextPassword"
+{-# DEPRECATED cnpNextPassword "Use generic-lens or generic-optics with 'nextPassword' instead." #-}
 
 -- | The root certificates of your authentication server that is installed on your devices and used to trust your authentication server during EAP negotiation.
 --
 -- /Note:/ Consider using 'trustAnchors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpTrustAnchors :: Lens.Lens' CreateNetworkProfile (Lude.Maybe (Lude.NonEmpty Lude.Text))
-cnpTrustAnchors = Lens.lens (trustAnchors :: CreateNetworkProfile -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {trustAnchors = a} :: CreateNetworkProfile)
+cnpTrustAnchors :: Lens.Lens' CreateNetworkProfile (Core.Maybe (Core.NonEmpty Types.TrustAnchor))
+cnpTrustAnchors = Lens.field @"trustAnchors"
 {-# DEPRECATED cnpTrustAnchors "Use generic-lens or generic-optics with 'trustAnchors' instead." #-}
 
--- | The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager (ACM). This is used to issue certificates to the devices.
---
--- /Note:/ Consider using 'certificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnpCertificateAuthorityARN :: Lens.Lens' CreateNetworkProfile (Lude.Maybe Lude.Text)
-cnpCertificateAuthorityARN = Lens.lens (certificateAuthorityARN :: CreateNetworkProfile -> Lude.Maybe Lude.Text) (\s a -> s {certificateAuthorityARN = a} :: CreateNetworkProfile)
-{-# DEPRECATED cnpCertificateAuthorityARN "Use generic-lens or generic-optics with 'certificateAuthorityARN' instead." #-}
+instance Core.FromJSON CreateNetworkProfile where
+  toJSON CreateNetworkProfile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("NetworkProfileName" Core..= networkProfileName),
+            Core.Just ("Ssid" Core..= ssid),
+            Core.Just ("SecurityType" Core..= securityType),
+            Core.Just ("ClientRequestToken" Core..= clientRequestToken),
+            ("CertificateAuthorityArn" Core..=)
+              Core.<$> certificateAuthorityArn,
+            ("CurrentPassword" Core..=) Core.<$> currentPassword,
+            ("Description" Core..=) Core.<$> description,
+            ("EapMethod" Core..=) Core.<$> eapMethod,
+            ("NextPassword" Core..=) Core.<$> nextPassword,
+            ("TrustAnchors" Core..=) Core.<$> trustAnchors
+          ]
+      )
 
-instance Lude.AWSRequest CreateNetworkProfile where
+instance Core.AWSRequest CreateNetworkProfile where
   type Rs CreateNetworkProfile = CreateNetworkProfileResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.CreateNetworkProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateNetworkProfileResponse'
-            Lude.<$> (x Lude..?> "NetworkProfileArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NetworkProfileArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateNetworkProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.CreateNetworkProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateNetworkProfile where
-  toJSON CreateNetworkProfile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("NetworkProfileName" Lude..= networkProfileName),
-            Lude.Just ("Ssid" Lude..= ssid),
-            Lude.Just ("SecurityType" Lude..= securityType),
-            ("CurrentPassword" Lude..=) Lude.<$> currentPassword,
-            ("NextPassword" Lude..=) Lude.<$> nextPassword,
-            ("EapMethod" Lude..=) Lude.<$> eapMethod,
-            Lude.Just ("ClientRequestToken" Lude..= clientRequestToken),
-            ("Description" Lude..=) Lude.<$> description,
-            ("TrustAnchors" Lude..=) Lude.<$> trustAnchors,
-            ("CertificateAuthorityArn" Lude..=)
-              Lude.<$> certificateAuthorityARN
-          ]
-      )
-
-instance Lude.ToPath CreateNetworkProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateNetworkProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateNetworkProfileResponse' smart constructor.
 data CreateNetworkProfileResponse = CreateNetworkProfileResponse'
   { -- | The ARN of the network profile associated with a device.
-    networkProfileARN :: Lude.Maybe Lude.Text,
+    networkProfileArn :: Core.Maybe Types.NetworkProfileArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateNetworkProfileResponse' with the minimum fields required to make a request.
---
--- * 'networkProfileARN' - The ARN of the network profile associated with a device.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateNetworkProfileResponse' value with any optional fields omitted.
 mkCreateNetworkProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateNetworkProfileResponse
-mkCreateNetworkProfileResponse pResponseStatus_ =
+mkCreateNetworkProfileResponse responseStatus =
   CreateNetworkProfileResponse'
-    { networkProfileARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { networkProfileArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the network profile associated with a device.
 --
--- /Note:/ Consider using 'networkProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnprsNetworkProfileARN :: Lens.Lens' CreateNetworkProfileResponse (Lude.Maybe Lude.Text)
-cnprsNetworkProfileARN = Lens.lens (networkProfileARN :: CreateNetworkProfileResponse -> Lude.Maybe Lude.Text) (\s a -> s {networkProfileARN = a} :: CreateNetworkProfileResponse)
-{-# DEPRECATED cnprsNetworkProfileARN "Use generic-lens or generic-optics with 'networkProfileARN' instead." #-}
+-- /Note:/ Consider using 'networkProfileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cnprrsNetworkProfileArn :: Lens.Lens' CreateNetworkProfileResponse (Core.Maybe Types.NetworkProfileArn)
+cnprrsNetworkProfileArn = Lens.field @"networkProfileArn"
+{-# DEPRECATED cnprrsNetworkProfileArn "Use generic-lens or generic-optics with 'networkProfileArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnprsResponseStatus :: Lens.Lens' CreateNetworkProfileResponse Lude.Int
-cnprsResponseStatus = Lens.lens (responseStatus :: CreateNetworkProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateNetworkProfileResponse)
-{-# DEPRECATED cnprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cnprrsResponseStatus :: Lens.Lens' CreateNetworkProfileResponse Core.Int
+cnprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cnprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

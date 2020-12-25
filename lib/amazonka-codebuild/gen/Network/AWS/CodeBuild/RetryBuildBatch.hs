@@ -20,8 +20,8 @@ module Network.AWS.CodeBuild.RetryBuildBatch
     mkRetryBuildBatch,
 
     -- ** Request lenses
-    rbbIdempotencyToken,
     rbbId,
+    rbbIdempotencyToken,
     rbbRetryType,
 
     -- * Destructuring the response
@@ -29,134 +29,120 @@ module Network.AWS.CodeBuild.RetryBuildBatch
     mkRetryBuildBatchResponse,
 
     -- ** Response lenses
-    rbbrsBuildBatch,
-    rbbrsResponseStatus,
+    rbbrrsBuildBatch,
+    rbbrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRetryBuildBatch' smart constructor.
 data RetryBuildBatch = RetryBuildBatch'
-  { -- | A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuildBatch@ request. The token is included in the @RetryBuildBatch@ request and is valid for five minutes. If you repeat the @RetryBuildBatch@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
-    idempotencyToken :: Lude.Maybe Lude.Text,
-    -- | Specifies the identifier of the batch build to restart.
-    id :: Lude.Maybe Lude.Text,
+  { -- | Specifies the identifier of the batch build to restart.
+    id :: Core.Maybe Types.Id,
+    -- | A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuildBatch@ request. The token is included in the @RetryBuildBatch@ request and is valid for five minutes. If you repeat the @RetryBuildBatch@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
+    idempotencyToken :: Core.Maybe Types.IdempotencyToken,
     -- | Specifies the type of retry to perform.
-    retryType :: Lude.Maybe RetryBuildBatchType
+    retryType :: Core.Maybe Types.RetryBuildBatchType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RetryBuildBatch' with the minimum fields required to make a request.
---
--- * 'idempotencyToken' - A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuildBatch@ request. The token is included in the @RetryBuildBatch@ request and is valid for five minutes. If you repeat the @RetryBuildBatch@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
--- * 'id' - Specifies the identifier of the batch build to restart.
--- * 'retryType' - Specifies the type of retry to perform.
+-- | Creates a 'RetryBuildBatch' value with any optional fields omitted.
 mkRetryBuildBatch ::
   RetryBuildBatch
 mkRetryBuildBatch =
   RetryBuildBatch'
-    { idempotencyToken = Lude.Nothing,
-      id = Lude.Nothing,
-      retryType = Lude.Nothing
+    { id = Core.Nothing,
+      idempotencyToken = Core.Nothing,
+      retryType = Core.Nothing
     }
-
--- | A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuildBatch@ request. The token is included in the @RetryBuildBatch@ request and is valid for five minutes. If you repeat the @RetryBuildBatch@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
---
--- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rbbIdempotencyToken :: Lens.Lens' RetryBuildBatch (Lude.Maybe Lude.Text)
-rbbIdempotencyToken = Lens.lens (idempotencyToken :: RetryBuildBatch -> Lude.Maybe Lude.Text) (\s a -> s {idempotencyToken = a} :: RetryBuildBatch)
-{-# DEPRECATED rbbIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 -- | Specifies the identifier of the batch build to restart.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rbbId :: Lens.Lens' RetryBuildBatch (Lude.Maybe Lude.Text)
-rbbId = Lens.lens (id :: RetryBuildBatch -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: RetryBuildBatch)
+rbbId :: Lens.Lens' RetryBuildBatch (Core.Maybe Types.Id)
+rbbId = Lens.field @"id"
 {-# DEPRECATED rbbId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | A unique, case sensitive identifier you provide to ensure the idempotency of the @RetryBuildBatch@ request. The token is included in the @RetryBuildBatch@ request and is valid for five minutes. If you repeat the @RetryBuildBatch@ request with the same token, but change a parameter, AWS CodeBuild returns a parameter mismatch error.
+--
+-- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rbbIdempotencyToken :: Lens.Lens' RetryBuildBatch (Core.Maybe Types.IdempotencyToken)
+rbbIdempotencyToken = Lens.field @"idempotencyToken"
+{-# DEPRECATED rbbIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 -- | Specifies the type of retry to perform.
 --
 -- /Note:/ Consider using 'retryType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rbbRetryType :: Lens.Lens' RetryBuildBatch (Lude.Maybe RetryBuildBatchType)
-rbbRetryType = Lens.lens (retryType :: RetryBuildBatch -> Lude.Maybe RetryBuildBatchType) (\s a -> s {retryType = a} :: RetryBuildBatch)
+rbbRetryType :: Lens.Lens' RetryBuildBatch (Core.Maybe Types.RetryBuildBatchType)
+rbbRetryType = Lens.field @"retryType"
 {-# DEPRECATED rbbRetryType "Use generic-lens or generic-optics with 'retryType' instead." #-}
 
-instance Lude.AWSRequest RetryBuildBatch where
+instance Core.FromJSON RetryBuildBatch where
+  toJSON RetryBuildBatch {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("id" Core..=) Core.<$> id,
+            ("idempotencyToken" Core..=) Core.<$> idempotencyToken,
+            ("retryType" Core..=) Core.<$> retryType
+          ]
+      )
+
+instance Core.AWSRequest RetryBuildBatch where
   type Rs RetryBuildBatch = RetryBuildBatchResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.RetryBuildBatch")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RetryBuildBatchResponse'
-            Lude.<$> (x Lude..?> "buildBatch") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "buildBatch") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RetryBuildBatch where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.RetryBuildBatch" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RetryBuildBatch where
-  toJSON RetryBuildBatch' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("idempotencyToken" Lude..=) Lude.<$> idempotencyToken,
-            ("id" Lude..=) Lude.<$> id,
-            ("retryType" Lude..=) Lude.<$> retryType
-          ]
-      )
-
-instance Lude.ToPath RetryBuildBatch where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RetryBuildBatch where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRetryBuildBatchResponse' smart constructor.
 data RetryBuildBatchResponse = RetryBuildBatchResponse'
-  { buildBatch :: Lude.Maybe BuildBatch,
+  { buildBatch :: Core.Maybe Types.BuildBatch,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RetryBuildBatchResponse' with the minimum fields required to make a request.
---
--- * 'buildBatch' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RetryBuildBatchResponse' value with any optional fields omitted.
 mkRetryBuildBatchResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RetryBuildBatchResponse
-mkRetryBuildBatchResponse pResponseStatus_ =
+mkRetryBuildBatchResponse responseStatus =
   RetryBuildBatchResponse'
-    { buildBatch = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { buildBatch = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'buildBatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rbbrsBuildBatch :: Lens.Lens' RetryBuildBatchResponse (Lude.Maybe BuildBatch)
-rbbrsBuildBatch = Lens.lens (buildBatch :: RetryBuildBatchResponse -> Lude.Maybe BuildBatch) (\s a -> s {buildBatch = a} :: RetryBuildBatchResponse)
-{-# DEPRECATED rbbrsBuildBatch "Use generic-lens or generic-optics with 'buildBatch' instead." #-}
+rbbrrsBuildBatch :: Lens.Lens' RetryBuildBatchResponse (Core.Maybe Types.BuildBatch)
+rbbrrsBuildBatch = Lens.field @"buildBatch"
+{-# DEPRECATED rbbrrsBuildBatch "Use generic-lens or generic-optics with 'buildBatch' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rbbrsResponseStatus :: Lens.Lens' RetryBuildBatchResponse Lude.Int
-rbbrsResponseStatus = Lens.lens (responseStatus :: RetryBuildBatchResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RetryBuildBatchResponse)
-{-# DEPRECATED rbbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rbbrrsResponseStatus :: Lens.Lens' RetryBuildBatchResponse Core.Int
+rbbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rbbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

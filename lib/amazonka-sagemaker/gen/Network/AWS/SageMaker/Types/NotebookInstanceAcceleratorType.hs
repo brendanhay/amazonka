@@ -13,66 +13,71 @@
 module Network.AWS.SageMaker.Types.NotebookInstanceAcceleratorType
   ( NotebookInstanceAcceleratorType
       ( NotebookInstanceAcceleratorType',
-        Ml_EIA1_Medium,
-        Ml_EIA1_Large,
-        Ml_EIA1_XLarge,
-        Ml_EIA2_Medium,
-        Ml_EIA2_Large,
-        Ml_EIA2_XLarge
+        NotebookInstanceAcceleratorTypeMl_EIA1_Medium,
+        NotebookInstanceAcceleratorTypeMl_EIA1_Large,
+        NotebookInstanceAcceleratorTypeMl_EIA1_Xlarge,
+        NotebookInstanceAcceleratorTypeMl_EIA2_Medium,
+        NotebookInstanceAcceleratorTypeMl_EIA2_Large,
+        NotebookInstanceAcceleratorTypeMl_EIA2_Xlarge,
+        fromNotebookInstanceAcceleratorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype NotebookInstanceAcceleratorType = NotebookInstanceAcceleratorType' Lude.Text
+newtype NotebookInstanceAcceleratorType = NotebookInstanceAcceleratorType'
+  { fromNotebookInstanceAcceleratorType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Ml_EIA1_Medium :: NotebookInstanceAcceleratorType
-pattern Ml_EIA1_Medium = NotebookInstanceAcceleratorType' "ml.eia1.medium"
+pattern NotebookInstanceAcceleratorTypeMl_EIA1_Medium :: NotebookInstanceAcceleratorType
+pattern NotebookInstanceAcceleratorTypeMl_EIA1_Medium = NotebookInstanceAcceleratorType' "ml.eia1.medium"
 
-pattern Ml_EIA1_Large :: NotebookInstanceAcceleratorType
-pattern Ml_EIA1_Large = NotebookInstanceAcceleratorType' "ml.eia1.large"
+pattern NotebookInstanceAcceleratorTypeMl_EIA1_Large :: NotebookInstanceAcceleratorType
+pattern NotebookInstanceAcceleratorTypeMl_EIA1_Large = NotebookInstanceAcceleratorType' "ml.eia1.large"
 
-pattern Ml_EIA1_XLarge :: NotebookInstanceAcceleratorType
-pattern Ml_EIA1_XLarge = NotebookInstanceAcceleratorType' "ml.eia1.xlarge"
+pattern NotebookInstanceAcceleratorTypeMl_EIA1_Xlarge :: NotebookInstanceAcceleratorType
+pattern NotebookInstanceAcceleratorTypeMl_EIA1_Xlarge = NotebookInstanceAcceleratorType' "ml.eia1.xlarge"
 
-pattern Ml_EIA2_Medium :: NotebookInstanceAcceleratorType
-pattern Ml_EIA2_Medium = NotebookInstanceAcceleratorType' "ml.eia2.medium"
+pattern NotebookInstanceAcceleratorTypeMl_EIA2_Medium :: NotebookInstanceAcceleratorType
+pattern NotebookInstanceAcceleratorTypeMl_EIA2_Medium = NotebookInstanceAcceleratorType' "ml.eia2.medium"
 
-pattern Ml_EIA2_Large :: NotebookInstanceAcceleratorType
-pattern Ml_EIA2_Large = NotebookInstanceAcceleratorType' "ml.eia2.large"
+pattern NotebookInstanceAcceleratorTypeMl_EIA2_Large :: NotebookInstanceAcceleratorType
+pattern NotebookInstanceAcceleratorTypeMl_EIA2_Large = NotebookInstanceAcceleratorType' "ml.eia2.large"
 
-pattern Ml_EIA2_XLarge :: NotebookInstanceAcceleratorType
-pattern Ml_EIA2_XLarge = NotebookInstanceAcceleratorType' "ml.eia2.xlarge"
+pattern NotebookInstanceAcceleratorTypeMl_EIA2_Xlarge :: NotebookInstanceAcceleratorType
+pattern NotebookInstanceAcceleratorTypeMl_EIA2_Xlarge = NotebookInstanceAcceleratorType' "ml.eia2.xlarge"
 
 {-# COMPLETE
-  Ml_EIA1_Medium,
-  Ml_EIA1_Large,
-  Ml_EIA1_XLarge,
-  Ml_EIA2_Medium,
-  Ml_EIA2_Large,
-  Ml_EIA2_XLarge,
+  NotebookInstanceAcceleratorTypeMl_EIA1_Medium,
+  NotebookInstanceAcceleratorTypeMl_EIA1_Large,
+  NotebookInstanceAcceleratorTypeMl_EIA1_Xlarge,
+  NotebookInstanceAcceleratorTypeMl_EIA2_Medium,
+  NotebookInstanceAcceleratorTypeMl_EIA2_Large,
+  NotebookInstanceAcceleratorTypeMl_EIA2_Xlarge,
   NotebookInstanceAcceleratorType'
   #-}

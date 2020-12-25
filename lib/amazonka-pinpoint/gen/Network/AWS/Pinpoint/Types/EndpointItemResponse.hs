@@ -17,57 +17,52 @@ module Network.AWS.Pinpoint.Types.EndpointItemResponse
     mkEndpointItemResponse,
 
     -- * Lenses
-    eiMessage,
-    eiStatusCode,
+    eirMessage,
+    eirStatusCode,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides the status code and message that result from processing data for an endpoint.
 --
 -- /See:/ 'mkEndpointItemResponse' smart constructor.
 data EndpointItemResponse = EndpointItemResponse'
   { -- | The custom message that's returned in the response as a result of processing the endpoint data.
-    message :: Lude.Maybe Lude.Text,
+    message :: Core.Maybe Core.Text,
     -- | The status code that's returned in the response as a result of processing the endpoint data.
-    statusCode :: Lude.Maybe Lude.Int
+    statusCode :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndpointItemResponse' with the minimum fields required to make a request.
---
--- * 'message' - The custom message that's returned in the response as a result of processing the endpoint data.
--- * 'statusCode' - The status code that's returned in the response as a result of processing the endpoint data.
+-- | Creates a 'EndpointItemResponse' value with any optional fields omitted.
 mkEndpointItemResponse ::
   EndpointItemResponse
 mkEndpointItemResponse =
   EndpointItemResponse'
-    { message = Lude.Nothing,
-      statusCode = Lude.Nothing
+    { message = Core.Nothing,
+      statusCode = Core.Nothing
     }
 
 -- | The custom message that's returned in the response as a result of processing the endpoint data.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiMessage :: Lens.Lens' EndpointItemResponse (Lude.Maybe Lude.Text)
-eiMessage = Lens.lens (message :: EndpointItemResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: EndpointItemResponse)
-{-# DEPRECATED eiMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+eirMessage :: Lens.Lens' EndpointItemResponse (Core.Maybe Core.Text)
+eirMessage = Lens.field @"message"
+{-# DEPRECATED eirMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The status code that's returned in the response as a result of processing the endpoint data.
 --
 -- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eiStatusCode :: Lens.Lens' EndpointItemResponse (Lude.Maybe Lude.Int)
-eiStatusCode = Lens.lens (statusCode :: EndpointItemResponse -> Lude.Maybe Lude.Int) (\s a -> s {statusCode = a} :: EndpointItemResponse)
-{-# DEPRECATED eiStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
+eirStatusCode :: Lens.Lens' EndpointItemResponse (Core.Maybe Core.Int)
+eirStatusCode = Lens.field @"statusCode"
+{-# DEPRECATED eirStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
-instance Lude.FromJSON EndpointItemResponse where
+instance Core.FromJSON EndpointItemResponse where
   parseJSON =
-    Lude.withObject
-      "EndpointItemResponse"
-      ( \x ->
-          EndpointItemResponse'
-            Lude.<$> (x Lude..:? "Message") Lude.<*> (x Lude..:? "StatusCode")
-      )
+    Core.withObject "EndpointItemResponse" Core.$
+      \x ->
+        EndpointItemResponse'
+          Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "StatusCode")

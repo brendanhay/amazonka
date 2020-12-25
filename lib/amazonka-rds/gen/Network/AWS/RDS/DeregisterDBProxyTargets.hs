@@ -20,142 +20,137 @@ module Network.AWS.RDS.DeregisterDBProxyTargets
     mkDeregisterDBProxyTargets,
 
     -- ** Request lenses
-    ddbptDBClusterIdentifiers,
-    ddbptDBInstanceIdentifiers,
-    ddbptDBProxyName,
-    ddbptTargetGroupName,
+    dDBProxyName,
+    dDBClusterIdentifiers,
+    dDBInstanceIdentifiers,
+    dTargetGroupName,
 
     -- * Destructuring the response
     DeregisterDBProxyTargetsResponse (..),
     mkDeregisterDBProxyTargetsResponse,
 
     -- ** Response lenses
-    ddptrsResponseStatus,
+    ddbptrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeregisterDBProxyTargets' smart constructor.
 data DeregisterDBProxyTargets = DeregisterDBProxyTargets'
-  { -- | One or more DB cluster identifiers.
-    dbClusterIdentifiers :: Lude.Maybe [Lude.Text],
+  { -- | The identifier of the @DBProxy@ that is associated with the @DBProxyTargetGroup@ .
+    dBProxyName :: Types.String,
+    -- | One or more DB cluster identifiers.
+    dBClusterIdentifiers :: Core.Maybe [Types.String],
     -- | One or more DB instance identifiers.
-    dbInstanceIdentifiers :: Lude.Maybe [Lude.Text],
-    -- | The identifier of the @DBProxy@ that is associated with the @DBProxyTargetGroup@ .
-    dbProxyName :: Lude.Text,
+    dBInstanceIdentifiers :: Core.Maybe [Types.String],
     -- | The identifier of the @DBProxyTargetGroup@ .
-    targetGroupName :: Lude.Maybe Lude.Text
+    targetGroupName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterDBProxyTargets' with the minimum fields required to make a request.
---
--- * 'dbClusterIdentifiers' - One or more DB cluster identifiers.
--- * 'dbInstanceIdentifiers' - One or more DB instance identifiers.
--- * 'dbProxyName' - The identifier of the @DBProxy@ that is associated with the @DBProxyTargetGroup@ .
--- * 'targetGroupName' - The identifier of the @DBProxyTargetGroup@ .
+-- | Creates a 'DeregisterDBProxyTargets' value with any optional fields omitted.
 mkDeregisterDBProxyTargets ::
-  -- | 'dbProxyName'
-  Lude.Text ->
+  -- | 'dBProxyName'
+  Types.String ->
   DeregisterDBProxyTargets
-mkDeregisterDBProxyTargets pDBProxyName_ =
+mkDeregisterDBProxyTargets dBProxyName =
   DeregisterDBProxyTargets'
-    { dbClusterIdentifiers = Lude.Nothing,
-      dbInstanceIdentifiers = Lude.Nothing,
-      dbProxyName = pDBProxyName_,
-      targetGroupName = Lude.Nothing
+    { dBProxyName,
+      dBClusterIdentifiers = Core.Nothing,
+      dBInstanceIdentifiers = Core.Nothing,
+      targetGroupName = Core.Nothing
     }
-
--- | One or more DB cluster identifiers.
---
--- /Note:/ Consider using 'dbClusterIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbptDBClusterIdentifiers :: Lens.Lens' DeregisterDBProxyTargets (Lude.Maybe [Lude.Text])
-ddbptDBClusterIdentifiers = Lens.lens (dbClusterIdentifiers :: DeregisterDBProxyTargets -> Lude.Maybe [Lude.Text]) (\s a -> s {dbClusterIdentifiers = a} :: DeregisterDBProxyTargets)
-{-# DEPRECATED ddbptDBClusterIdentifiers "Use generic-lens or generic-optics with 'dbClusterIdentifiers' instead." #-}
-
--- | One or more DB instance identifiers.
---
--- /Note:/ Consider using 'dbInstanceIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbptDBInstanceIdentifiers :: Lens.Lens' DeregisterDBProxyTargets (Lude.Maybe [Lude.Text])
-ddbptDBInstanceIdentifiers = Lens.lens (dbInstanceIdentifiers :: DeregisterDBProxyTargets -> Lude.Maybe [Lude.Text]) (\s a -> s {dbInstanceIdentifiers = a} :: DeregisterDBProxyTargets)
-{-# DEPRECATED ddbptDBInstanceIdentifiers "Use generic-lens or generic-optics with 'dbInstanceIdentifiers' instead." #-}
 
 -- | The identifier of the @DBProxy@ that is associated with the @DBProxyTargetGroup@ .
 --
--- /Note:/ Consider using 'dbProxyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbptDBProxyName :: Lens.Lens' DeregisterDBProxyTargets Lude.Text
-ddbptDBProxyName = Lens.lens (dbProxyName :: DeregisterDBProxyTargets -> Lude.Text) (\s a -> s {dbProxyName = a} :: DeregisterDBProxyTargets)
-{-# DEPRECATED ddbptDBProxyName "Use generic-lens or generic-optics with 'dbProxyName' instead." #-}
+-- /Note:/ Consider using 'dBProxyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDBProxyName :: Lens.Lens' DeregisterDBProxyTargets Types.String
+dDBProxyName = Lens.field @"dBProxyName"
+{-# DEPRECATED dDBProxyName "Use generic-lens or generic-optics with 'dBProxyName' instead." #-}
+
+-- | One or more DB cluster identifiers.
+--
+-- /Note:/ Consider using 'dBClusterIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDBClusterIdentifiers :: Lens.Lens' DeregisterDBProxyTargets (Core.Maybe [Types.String])
+dDBClusterIdentifiers = Lens.field @"dBClusterIdentifiers"
+{-# DEPRECATED dDBClusterIdentifiers "Use generic-lens or generic-optics with 'dBClusterIdentifiers' instead." #-}
+
+-- | One or more DB instance identifiers.
+--
+-- /Note:/ Consider using 'dBInstanceIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDBInstanceIdentifiers :: Lens.Lens' DeregisterDBProxyTargets (Core.Maybe [Types.String])
+dDBInstanceIdentifiers = Lens.field @"dBInstanceIdentifiers"
+{-# DEPRECATED dDBInstanceIdentifiers "Use generic-lens or generic-optics with 'dBInstanceIdentifiers' instead." #-}
 
 -- | The identifier of the @DBProxyTargetGroup@ .
 --
 -- /Note:/ Consider using 'targetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbptTargetGroupName :: Lens.Lens' DeregisterDBProxyTargets (Lude.Maybe Lude.Text)
-ddbptTargetGroupName = Lens.lens (targetGroupName :: DeregisterDBProxyTargets -> Lude.Maybe Lude.Text) (\s a -> s {targetGroupName = a} :: DeregisterDBProxyTargets)
-{-# DEPRECATED ddbptTargetGroupName "Use generic-lens or generic-optics with 'targetGroupName' instead." #-}
+dTargetGroupName :: Lens.Lens' DeregisterDBProxyTargets (Core.Maybe Types.String)
+dTargetGroupName = Lens.field @"targetGroupName"
+{-# DEPRECATED dTargetGroupName "Use generic-lens or generic-optics with 'targetGroupName' instead." #-}
 
-instance Lude.AWSRequest DeregisterDBProxyTargets where
+instance Core.AWSRequest DeregisterDBProxyTargets where
   type Rs DeregisterDBProxyTargets = DeregisterDBProxyTargetsResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeregisterDBProxyTargets")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBProxyName" dBProxyName)
+                Core.<> ( Core.toQueryValue
+                            "DBClusterIdentifiers"
+                            (Core.toQueryList "member" Core.<$> dBClusterIdentifiers)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "DBInstanceIdentifiers"
+                            (Core.toQueryList "member" Core.<$> dBInstanceIdentifiers)
+                        )
+                Core.<> (Core.toQueryValue "TargetGroupName" Core.<$> targetGroupName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeregisterDBProxyTargetsResult"
       ( \s h x ->
           DeregisterDBProxyTargetsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeregisterDBProxyTargets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeregisterDBProxyTargets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeregisterDBProxyTargets where
-  toQuery DeregisterDBProxyTargets' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeregisterDBProxyTargets" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBClusterIdentifiers"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> dbClusterIdentifiers),
-        "DBInstanceIdentifiers"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> dbInstanceIdentifiers),
-        "DBProxyName" Lude.=: dbProxyName,
-        "TargetGroupName" Lude.=: targetGroupName
-      ]
 
 -- | /See:/ 'mkDeregisterDBProxyTargetsResponse' smart constructor.
 newtype DeregisterDBProxyTargetsResponse = DeregisterDBProxyTargetsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterDBProxyTargetsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeregisterDBProxyTargetsResponse' value with any optional fields omitted.
 mkDeregisterDBProxyTargetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeregisterDBProxyTargetsResponse
-mkDeregisterDBProxyTargetsResponse pResponseStatus_ =
-  DeregisterDBProxyTargetsResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeregisterDBProxyTargetsResponse responseStatus =
+  DeregisterDBProxyTargetsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddptrsResponseStatus :: Lens.Lens' DeregisterDBProxyTargetsResponse Lude.Int
-ddptrsResponseStatus = Lens.lens (responseStatus :: DeregisterDBProxyTargetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterDBProxyTargetsResponse)
-{-# DEPRECATED ddptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddbptrrsResponseStatus :: Lens.Lens' DeregisterDBProxyTargetsResponse Core.Int
+ddbptrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddbptrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

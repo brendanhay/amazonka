@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +18,70 @@
 -- Amazon CloudFormation makes use of other AWS products. If you need additional technical information about a specific AWS product, you can find the product's technical documentation at <https://docs.aws.amazon.com/ docs.aws.amazon.com> .
 module Network.AWS.CloudFormation
   ( -- * Service configuration
-    cloudFormationService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** TypeNotFoundException
+    _TypeNotFoundException,
+
+    -- ** CreatedButModifiedException
+    _CreatedButModifiedException,
+
+    -- ** ChangeSetNotFoundException
+    _ChangeSetNotFoundException,
+
+    -- ** OperationInProgressException
+    _OperationInProgressException,
+
+    -- ** InvalidChangeSetStatusException
+    _InvalidChangeSetStatusException,
+
+    -- ** OperationNotFoundException
+    _OperationNotFoundException,
+
+    -- ** OperationIdAlreadyExistsException
+    _OperationIdAlreadyExistsException,
+
+    -- ** InsufficientCapabilitiesException
+    _InsufficientCapabilitiesException,
+
+    -- ** TokenAlreadyExistsException
+    _TokenAlreadyExistsException,
+
+    -- ** StackSetNotFoundException
+    _StackSetNotFoundException,
+
+    -- ** StackInstanceNotFoundException
+    _StackInstanceNotFoundException,
+
+    -- ** OperationStatusCheckFailedException
+    _OperationStatusCheckFailedException,
+
+    -- ** StackSetNotEmptyException
+    _StackSetNotEmptyException,
+
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
+    -- ** InvalidStateTransitionException
+    _InvalidStateTransitionException,
+
+    -- ** NameAlreadyExistsException
+    _NameAlreadyExistsException,
+
+    -- ** CFNRegistryException
+    _CFNRegistryException,
+
+    -- ** StaleRequestException
+    _StaleRequestException,
+
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -221,309 +280,103 @@ module Network.AWS.CloudFormation
 
     -- * Types
 
-    -- ** AccountGateStatus
-    AccountGateStatus (..),
+    -- ** ResourceChange
+    ResourceChange (..),
+    mkResourceChange,
+    rcAction,
+    rcChangeSetId,
+    rcDetails,
+    rcLogicalResourceId,
+    rcModuleInfo,
+    rcPhysicalResourceId,
+    rcReplacement,
+    rcResourceType,
+    rcScope,
 
-    -- ** Capability
-    Capability (..),
-
-    -- ** ChangeAction
-    ChangeAction (..),
-
-    -- ** ChangeSetStatus
-    ChangeSetStatus (..),
-
-    -- ** ChangeSetType
-    ChangeSetType (..),
-
-    -- ** ChangeSource
-    ChangeSource (..),
-
-    -- ** ChangeType
-    ChangeType (..),
-
-    -- ** DeprecatedStatus
-    DeprecatedStatus (..),
-
-    -- ** DifferenceType
-    DifferenceType (..),
-
-    -- ** EvaluationType
-    EvaluationType (..),
-
-    -- ** ExecutionStatus
-    ExecutionStatus (..),
-
-    -- ** HandlerErrorCode
-    HandlerErrorCode (..),
-
-    -- ** OnFailure
-    OnFailure (..),
-
-    -- ** OperationStatus
-    OperationStatus (..),
-
-    -- ** PermissionModels
-    PermissionModels (..),
-
-    -- ** ProvisioningType
-    ProvisioningType (..),
-
-    -- ** RegistrationStatus
-    RegistrationStatus (..),
-
-    -- ** RegistryType
-    RegistryType (..),
-
-    -- ** Replacement
-    Replacement (..),
-
-    -- ** RequiresRecreation
-    RequiresRecreation (..),
-
-    -- ** ResourceAttribute
-    ResourceAttribute (..),
-
-    -- ** ResourceSignalStatus
-    ResourceSignalStatus (..),
-
-    -- ** ResourceStatus
-    ResourceStatus (..),
-
-    -- ** StackDriftDetectionStatus
-    StackDriftDetectionStatus (..),
-
-    -- ** StackDriftStatus
-    StackDriftStatus (..),
-
-    -- ** StackInstanceDetailedStatus
-    StackInstanceDetailedStatus (..),
-
-    -- ** StackInstanceFilterName
-    StackInstanceFilterName (..),
-
-    -- ** StackInstanceStatus
-    StackInstanceStatus (..),
-
-    -- ** StackResourceDriftStatus
-    StackResourceDriftStatus (..),
-
-    -- ** StackSetDriftDetectionStatus
-    StackSetDriftDetectionStatus (..),
-
-    -- ** StackSetDriftStatus
-    StackSetDriftStatus (..),
-
-    -- ** StackSetOperationAction
-    StackSetOperationAction (..),
-
-    -- ** StackSetOperationResultStatus
-    StackSetOperationResultStatus (..),
-
-    -- ** StackSetOperationStatus
-    StackSetOperationStatus (..),
-
-    -- ** StackSetStatus
-    StackSetStatus (..),
-
-    -- ** StackStatus
-    StackStatus (..),
-
-    -- ** TemplateStage
-    TemplateStage (..),
-
-    -- ** Visibility
-    Visibility (..),
-
-    -- ** AccountGateResult
-    AccountGateResult (..),
-    mkAccountGateResult,
-    agrStatus,
-    agrStatusReason,
+    -- ** OutputValue
+    OutputValue (..),
 
     -- ** AccountLimit
     AccountLimit (..),
     mkAccountLimit,
-    alValue,
     alName,
+    alValue,
 
-    -- ** AutoDeployment
-    AutoDeployment (..),
-    mkAutoDeployment,
-    adEnabled,
-    adRetainStacksOnAccountRemoval,
+    -- ** StackSetOperationResultStatus
+    StackSetOperationResultStatus (..),
 
-    -- ** Change
-    Change (..),
-    mkChange,
-    cResourceChange,
-    cType,
+    -- ** StackSetOperationResultSummary
+    StackSetOperationResultSummary (..),
+    mkStackSetOperationResultSummary,
+    ssorsAccount,
+    ssorsAccountGateResult,
+    ssorsOrganizationalUnitId,
+    ssorsRegion,
+    ssorsStatus,
+    ssorsStatusReason,
 
-    -- ** ChangeSetSummary
-    ChangeSetSummary (..),
-    mkChangeSetSummary,
-    cssCreationTime,
-    cssStatus,
-    cssParentChangeSetId,
-    cssChangeSetName,
-    cssExecutionStatus,
-    cssChangeSetId,
-    cssIncludeNestedStacks,
-    cssRootChangeSetId,
-    cssStatusReason,
-    cssStackId,
-    cssDescription,
-    cssStackName,
-
-    -- ** DeploymentTargets
-    DeploymentTargets (..),
-    mkDeploymentTargets,
-    dtAccounts,
-    dtOrganizationalUnitIds,
+    -- ** ChangeSetType
+    ChangeSetType (..),
 
     -- ** Export
     Export (..),
     mkExport,
-    eValue,
     eExportingStackId,
     eName,
+    eValue,
 
-    -- ** LoggingConfig
-    LoggingConfig (..),
-    mkLoggingConfig,
-    lcLogGroupName,
-    lcLogRoleARN,
+    -- ** StackSet
+    StackSet (..),
+    mkStackSet,
+    ssAdministrationRoleARN,
+    ssAutoDeployment,
+    ssCapabilities,
+    ssDescription,
+    ssExecutionRoleName,
+    ssOrganizationalUnitIds,
+    ssParameters,
+    ssPermissionModel,
+    ssStackSetARN,
+    ssStackSetDriftDetectionDetails,
+    ssStackSetId,
+    ssStackSetName,
+    ssStatus,
+    ssTags,
+    ssTemplateBody,
 
-    -- ** ModuleInfo
-    ModuleInfo (..),
-    mkModuleInfo,
-    miTypeHierarchy,
-    miLogicalIdHierarchy,
-
-    -- ** Output
-    Output (..),
-    mkOutput,
-    oOutputValue,
-    oOutputKey,
-    oExportName,
-    oDescription,
-
-    -- ** Parameter
-    Parameter (..),
-    mkParameter,
-    pParameterValue,
-    pResolvedValue,
-    pParameterKey,
-    pUsePreviousValue,
-
-    -- ** ParameterConstraints
-    ParameterConstraints (..),
-    mkParameterConstraints,
-    pcAllowedValues,
-
-    -- ** ParameterDeclaration
-    ParameterDeclaration (..),
-    mkParameterDeclaration,
-    pdParameterKey,
-    pdParameterType,
-    pdParameterConstraints,
-    pdDefaultValue,
-    pdNoEcho,
-    pdDescription,
-
-    -- ** PhysicalResourceIdContextKeyValuePair
-    PhysicalResourceIdContextKeyValuePair (..),
-    mkPhysicalResourceIdContextKeyValuePair,
-    prickvpValue,
-    prickvpKey,
-
-    -- ** PropertyDifference
-    PropertyDifference (..),
-    mkPropertyDifference,
-    pdDifferenceType,
-    pdPropertyPath,
-    pdExpectedValue,
-    pdActualValue,
-
-    -- ** ResourceChange
-    ResourceChange (..),
-    mkResourceChange,
-    rcLogicalResourceId,
-    rcPhysicalResourceId,
-    rcResourceType,
-    rcAction,
-    rcChangeSetId,
-    rcModuleInfo,
-    rcScope,
-    rcDetails,
-    rcReplacement,
-
-    -- ** ResourceChangeDetail
-    ResourceChangeDetail (..),
-    mkResourceChangeDetail,
-    rcdCausingEntity,
-    rcdChangeSource,
-    rcdEvaluation,
-    rcdTarget,
-
-    -- ** ResourceIdentifierSummary
-    ResourceIdentifierSummary (..),
-    mkResourceIdentifierSummary,
-    risResourceType,
-    risLogicalResourceIds,
-    risResourceIdentifiers,
-
-    -- ** ResourceTargetDefinition
-    ResourceTargetDefinition (..),
-    mkResourceTargetDefinition,
-    rtdAttribute,
-    rtdRequiresRecreation,
-    rtdName,
+    -- ** StackSetDriftDetectionDetails
+    StackSetDriftDetectionDetails (..),
+    mkStackSetDriftDetectionDetails,
+    ssdddDriftDetectionStatus,
+    ssdddDriftStatus,
+    ssdddDriftedStackInstancesCount,
+    ssdddFailedStackInstancesCount,
+    ssdddInProgressStackInstancesCount,
+    ssdddInSyncStackInstancesCount,
+    ssdddLastDriftCheckTimestamp,
+    ssdddTotalStackInstancesCount,
 
     -- ** ResourceToImport
     ResourceToImport (..),
     mkResourceToImport,
-    rtiLogicalResourceId,
     rtiResourceType,
+    rtiLogicalResourceId,
     rtiResourceIdentifier,
 
-    -- ** RollbackConfiguration
-    RollbackConfiguration (..),
-    mkRollbackConfiguration,
-    rcRollbackTriggers,
-    rcMonitoringTimeInMinutes,
+    -- ** LogicalResourceId
+    LogicalResourceId (..),
 
-    -- ** RollbackTrigger
-    RollbackTrigger (..),
-    mkRollbackTrigger,
-    rtARN,
-    rtType,
+    -- ** ChangeSetStatusReason
+    ChangeSetStatusReason (..),
 
-    -- ** Stack
-    Stack (..),
-    mkStack,
-    sfCreationTime,
-    sfStackStatus,
-    sfDisableRollback,
-    sfLastUpdatedTime,
-    sfRootId,
-    sfNotificationARNs,
-    sfStackStatusReason,
-    sfEnableTerminationProtection,
-    sfDriftInformation,
-    sfChangeSetId,
-    sfDeletionTime,
-    sfOutputs,
-    sfParameters,
-    sfStackId,
-    sfDescription,
-    sfCapabilities,
-    sfRollbackConfiguration,
-    sfTags,
-    sfTimeoutInMinutes,
-    sfParentId,
-    sfRoleARN,
-    sfStackName,
+    -- ** StackDriftDetectionStatusReason
+    StackDriftDetectionStatusReason (..),
+
+    -- ** TypeHierarchy
+    TypeHierarchy (..),
+
+    -- ** PermissionModels
+    PermissionModels (..),
 
     -- ** StackDriftInformation
     StackDriftInformation (..),
@@ -531,41 +384,11 @@ module Network.AWS.CloudFormation
     sdiStackDriftStatus,
     sdiLastCheckTimestamp,
 
-    -- ** StackDriftInformationSummary
-    StackDriftInformationSummary (..),
-    mkStackDriftInformationSummary,
-    sdisStackDriftStatus,
-    sdisLastCheckTimestamp,
+    -- ** DifferenceType
+    DifferenceType (..),
 
-    -- ** StackEvent
-    StackEvent (..),
-    mkStackEvent,
-    seLogicalResourceId,
-    sePhysicalResourceId,
-    seResourceType,
-    seResourceStatusReason,
-    seResourceProperties,
-    seResourceStatus,
-    seStackId,
-    seClientRequestToken,
-    seTimestamp,
-    seEventId,
-    seStackName,
-
-    -- ** StackInstance
-    StackInstance (..),
-    mkStackInstance,
-    siStatus,
-    siLastDriftCheckTimestamp,
-    siAccount,
-    siDriftStatus,
-    siOrganizationalUnitId,
-    siRegion,
-    siStatusReason,
-    siStackId,
-    siStackInstanceStatus,
-    siParameterOverrides,
-    siStackSetId,
+    -- ** StackDriftStatus
+    StackDriftStatus (..),
 
     -- ** StackInstanceComprehensiveStatus
     StackInstanceComprehensiveStatus (..),
@@ -575,239 +398,749 @@ module Network.AWS.CloudFormation
     -- ** StackInstanceFilter
     StackInstanceFilter (..),
     mkStackInstanceFilter,
-    sifValues,
     sifName,
+    sifValues,
 
-    -- ** StackInstanceSummary
-    StackInstanceSummary (..),
-    mkStackInstanceSummary,
-    sisStatus,
-    sisLastDriftCheckTimestamp,
-    sisAccount,
-    sisDriftStatus,
-    sisOrganizationalUnitId,
-    sisRegion,
-    sisStatusReason,
-    sisStackId,
-    sisStackInstanceStatus,
-    sisStackSetId,
+    -- ** CausingEntity
+    CausingEntity (..),
 
-    -- ** StackResource
-    StackResource (..),
-    mkStackResource,
-    srLogicalResourceId,
-    srPhysicalResourceId,
-    srResourceType,
-    srResourceStatusReason,
-    srResourceStatus,
-    srDriftInformation,
-    srModuleInfo,
-    srStackId,
-    srDescription,
-    srTimestamp,
-    srStackName,
+    -- ** TypeName
+    TypeName (..),
+
+    -- ** RequestToken
+    RequestToken (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** StackStatus
+    StackStatus (..),
+
+    -- ** PhysicalResourceId
+    PhysicalResourceId (..),
+
+    -- ** RegistrationToken
+    RegistrationToken (..),
+
+    -- ** StackEvent
+    StackEvent (..),
+    mkStackEvent,
+    seStackId,
+    seEventId,
+    seStackName,
+    seTimestamp,
+    seClientRequestToken,
+    seLogicalResourceId,
+    sePhysicalResourceId,
+    seResourceProperties,
+    seResourceStatus,
+    seResourceStatusReason,
+    seResourceType,
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** StackSummary
+    StackSummary (..),
+    mkStackSummary,
+    ssStackName,
+    ssCreationTime,
+    ssStackStatus,
+    ssDeletionTime,
+    ssDriftInformation,
+    ssLastUpdatedTime,
+    ssParentId,
+    ssRootId,
+    ssStackId,
+    ssStackStatusReason,
+    ssTemplateDescription,
+
+    -- ** ClientToken
+    ClientToken (..),
+
+    -- ** ParameterValue
+    ParameterValue (..),
+
+    -- ** PropertyPath
+    PropertyPath (..),
+
+    -- ** ResourceStatusReason
+    ResourceStatusReason (..),
+
+    -- ** ResourceIdentifierSummary
+    ResourceIdentifierSummary (..),
+    mkResourceIdentifierSummary,
+    risLogicalResourceIds,
+    risResourceIdentifiers,
+    risResourceType,
+
+    -- ** ResourceModel
+    ResourceModel (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** RegistryType
+    RegistryType (..),
+
+    -- ** HandlerErrorCode
+    HandlerErrorCode (..),
+
+    -- ** StackSetOperationStatus
+    StackSetOperationStatus (..),
+
+    -- ** StackSetDriftStatus
+    StackSetDriftStatus (..),
 
     -- ** StackResourceDetail
     StackResourceDetail (..),
     mkStackResourceDetail,
     srdLogicalResourceId,
-    srdPhysicalResourceId,
     srdResourceType,
-    srdResourceStatusReason,
-    srdResourceStatus,
-    srdDriftInformation,
-    srdModuleInfo,
-    srdMetadata,
-    srdStackId,
-    srdDescription,
     srdLastUpdatedTimestamp,
+    srdResourceStatus,
+    srdDescription,
+    srdDriftInformation,
+    srdMetadata,
+    srdModuleInfo,
+    srdPhysicalResourceId,
+    srdResourceStatusReason,
+    srdStackId,
     srdStackName,
 
-    -- ** StackResourceDrift
-    StackResourceDrift (..),
-    mkStackResourceDrift,
-    srdfLogicalResourceId,
-    srdfActualProperties,
-    srdfPhysicalResourceId,
-    srdfResourceType,
-    srdfPhysicalResourceIdContext,
-    srdfPropertyDifferences,
-    srdfModuleInfo,
-    srdfExpectedProperties,
-    srdfStackResourceDriftStatus,
-    srdfStackId,
-    srdfTimestamp,
+    -- ** StackSetStatus
+    StackSetStatus (..),
 
-    -- ** StackResourceDriftInformation
-    StackResourceDriftInformation (..),
-    mkStackResourceDriftInformation,
-    srdiLastCheckTimestamp,
-    srdiStackResourceDriftStatus,
+    -- ** StackSetSummary
+    StackSetSummary (..),
+    mkStackSetSummary,
+    sssAutoDeployment,
+    sssDescription,
+    sssDriftStatus,
+    sssLastDriftCheckTimestamp,
+    sssPermissionModel,
+    sssStackSetId,
+    sssStackSetName,
+    sssStatus,
+
+    -- ** ChangeAction
+    ChangeAction (..),
+
+    -- ** PrivateTypeArn
+    PrivateTypeArn (..),
+
+    -- ** RequiresRecreation
+    RequiresRecreation (..),
+
+    -- ** StackInstanceSummary
+    StackInstanceSummary (..),
+    mkStackInstanceSummary,
+    sisAccount,
+    sisDriftStatus,
+    sisLastDriftCheckTimestamp,
+    sisOrganizationalUnitId,
+    sisRegion,
+    sisStackId,
+    sisStackInstanceStatus,
+    sisStackSetId,
+    sisStatus,
+    sisStatusReason,
+
+    -- ** ResourceProperties
+    ResourceProperties (..),
+
+    -- ** Url
+    Url (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ChangeSetNameOrId
+    ChangeSetNameOrId (..),
+
+    -- ** ChangeSource
+    ChangeSource (..),
+
+    -- ** ChangeSetName
+    ChangeSetName (..),
+
+    -- ** AutoDeployment
+    AutoDeployment (..),
+    mkAutoDeployment,
+    adEnabled,
+    adRetainStacksOnAccountRemoval,
+
+    -- ** StackStatusReason
+    StackStatusReason (..),
+
+    -- ** ExecutionStatus
+    ExecutionStatus (..),
+
+    -- ** ParameterKey
+    ParameterKey (..),
+
+    -- ** ResourceAttribute
+    ResourceAttribute (..),
+
+    -- ** StackPolicyBody
+    StackPolicyBody (..),
+
+    -- ** TemplateDescription
+    TemplateDescription (..),
+
+    -- ** ResourceStatus
+    ResourceStatus (..),
+
+    -- ** Change
+    Change (..),
+    mkChange,
+    cResourceChange,
+    cType,
+
+    -- ** EvaluationType
+    EvaluationType (..),
+
+    -- ** Visibility
+    Visibility (..),
+
+    -- ** LogicalIdHierarchy
+    LogicalIdHierarchy (..),
+
+    -- ** TemplateParameter
+    TemplateParameter (..),
+    mkTemplateParameter,
+    tpDefaultValue,
+    tpDescription,
+    tpNoEcho,
+    tpParameterKey,
+
+    -- ** OperationStatus
+    OperationStatus (..),
+
+    -- ** ParameterType
+    ParameterType (..),
+
+    -- ** ParameterDeclaration
+    ParameterDeclaration (..),
+    mkParameterDeclaration,
+    pdDefaultValue,
+    pdDescription,
+    pdNoEcho,
+    pdParameterConstraints,
+    pdParameterKey,
+    pdParameterType,
+
+    -- ** ChangeSetId
+    ChangeSetId (..),
+
+    -- ** StackSetOperation
+    StackSetOperation (..),
+    mkStackSetOperation,
+    ssoAction,
+    ssoAdministrationRoleARN,
+    ssoCreationTimestamp,
+    ssoDeploymentTargets,
+    ssoEndTimestamp,
+    ssoExecutionRoleName,
+    ssoOperationId,
+    ssoOperationPreferences,
+    ssoRetainStacks,
+    ssoStackSetDriftDetectionDetails,
+    ssoStackSetId,
+    ssoStatus,
+
+    -- ** ResourceIdentifierPropertyKey
+    ResourceIdentifierPropertyKey (..),
+
+    -- ** StackSetARN
+    StackSetARN (..),
 
     -- ** StackResourceDriftInformationSummary
     StackResourceDriftInformationSummary (..),
     mkStackResourceDriftInformationSummary,
-    srdisLastCheckTimestamp,
     srdisStackResourceDriftStatus,
+    srdisLastCheckTimestamp,
+
+    -- ** StackDriftDetectionId
+    StackDriftDetectionId (..),
+
+    -- ** Account
+    Account (..),
+
+    -- ** LogGroupName
+    LogGroupName (..),
+
+    -- ** PropertyValue
+    PropertyValue (..),
+
+    -- ** TypeSummary
+    TypeSummary (..),
+    mkTypeSummary,
+    tsDefaultVersionId,
+    tsDescription,
+    tsLastUpdated,
+    tsType,
+    tsTypeArn,
+    tsTypeName,
+
+    -- ** Reason
+    Reason (..),
+
+    -- ** ModuleInfo
+    ModuleInfo (..),
+    mkModuleInfo,
+    miLogicalIdHierarchy,
+    miTypeHierarchy,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** StackPolicyDuringUpdateBody
+    StackPolicyDuringUpdateBody (..),
+
+    -- ** TemplateStage
+    TemplateStage (..),
+
+    -- ** StackResource
+    StackResource (..),
+    mkStackResource,
+    srLogicalResourceId,
+    srResourceType,
+    srTimestamp,
+    srResourceStatus,
+    srDescription,
+    srDriftInformation,
+    srModuleInfo,
+    srPhysicalResourceId,
+    srResourceStatusReason,
+    srStackId,
+    srStackName,
+
+    -- ** Output
+    Output (..),
+    mkOutput,
+    oDescription,
+    oExportName,
+    oOutputKey,
+    oOutputValue,
+
+    -- ** ParameterConstraints
+    ParameterConstraints (..),
+    mkParameterConstraints,
+    pcAllowedValues,
+
+    -- ** StackSetOperationAction
+    StackSetOperationAction (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** StackInstance
+    StackInstance (..),
+    mkStackInstance,
+    siAccount,
+    siDriftStatus,
+    siLastDriftCheckTimestamp,
+    siOrganizationalUnitId,
+    siParameterOverrides,
+    siRegion,
+    siStackId,
+    siStackInstanceStatus,
+    siStackSetId,
+    siStatus,
+    siStatusReason,
+
+    -- ** StatusMessage
+    StatusMessage (..),
+
+    -- ** TypeVersionId
+    TypeVersionId (..),
+
+    -- ** StackPolicyDuringUpdateURL
+    StackPolicyDuringUpdateURL (..),
+
+    -- ** AccountGateResult
+    AccountGateResult (..),
+    mkAccountGateResult,
+    agrStatus,
+    agrStatusReason,
+
+    -- ** AccountGateStatus
+    AccountGateStatus (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** StackSetDriftDetectionStatus
+    StackSetDriftDetectionStatus (..),
+
+    -- ** CapabilitiesReason
+    CapabilitiesReason (..),
+
+    -- ** ResourceIdentifierPropertyValue
+    ResourceIdentifierPropertyValue (..),
+
+    -- ** DeprecatedStatus
+    DeprecatedStatus (..),
+
+    -- ** TypeArn
+    TypeArn (..),
+
+    -- ** StackResourceDriftInformation
+    StackResourceDriftInformation (..),
+    mkStackResourceDriftInformation,
+    srdiStackResourceDriftStatus,
+    srdiLastCheckTimestamp,
+
+    -- ** ResourceChangeDetail
+    ResourceChangeDetail (..),
+    mkResourceChangeDetail,
+    rcdCausingEntity,
+    rcdChangeSource,
+    rcdEvaluation,
+    rcdTarget,
+
+    -- ** OrganizationalUnitId
+    OrganizationalUnitId (..),
+
+    -- ** Metadata
+    Metadata (..),
+
+    -- ** StackSetOperationSummary
+    StackSetOperationSummary (..),
+    mkStackSetOperationSummary,
+    ssosAction,
+    ssosCreationTimestamp,
+    ssosEndTimestamp,
+    ssosOperationId,
+    ssosStatus,
+
+    -- ** StackResourceDriftStatus
+    StackResourceDriftStatus (..),
+
+    -- ** StackPolicyURL
+    StackPolicyURL (..),
+
+    -- ** RegistrationStatus
+    RegistrationStatus (..),
+
+    -- ** StackDriftDetectionStatus
+    StackDriftDetectionStatus (..),
 
     -- ** StackResourceSummary
     StackResourceSummary (..),
     mkStackResourceSummary,
     srsLogicalResourceId,
-    srsPhysicalResourceId,
     srsResourceType,
-    srsResourceStatusReason,
+    srsLastUpdatedTimestamp,
     srsResourceStatus,
     srsDriftInformation,
     srsModuleInfo,
-    srsLastUpdatedTimestamp,
+    srsPhysicalResourceId,
+    srsResourceStatusReason,
 
-    -- ** StackSet
-    StackSet (..),
-    mkStackSet,
-    ssStackSetDriftDetectionDetails,
-    ssStatus,
-    ssAdministrationRoleARN,
-    ssAutoDeployment,
-    ssOrganizationalUnitIds,
-    ssStackSetARN,
-    ssPermissionModel,
-    ssParameters,
-    ssTemplateBody,
-    ssStackSetName,
-    ssDescription,
-    ssCapabilities,
-    ssTags,
-    ssStackSetId,
-    ssExecutionRoleName,
+    -- ** Region
+    Region (..),
 
-    -- ** StackSetDriftDetectionDetails
-    StackSetDriftDetectionDetails (..),
-    mkStackSetDriftDetectionDetails,
-    ssdddLastDriftCheckTimestamp,
-    ssdddTotalStackInstancesCount,
-    ssdddInProgressStackInstancesCount,
-    ssdddDriftedStackInstancesCount,
-    ssdddDriftDetectionStatus,
-    ssdddDriftStatus,
-    ssdddFailedStackInstancesCount,
-    ssdddInSyncStackInstancesCount,
+    -- ** NotificationARN
+    NotificationARN (..),
 
-    -- ** StackSetOperation
-    StackSetOperation (..),
-    mkStackSetOperation,
-    ssoStackSetDriftDetectionDetails,
-    ssoStatus,
-    ssoAdministrationRoleARN,
-    ssoAction,
-    ssoEndTimestamp,
-    ssoCreationTimestamp,
-    ssoOperationPreferences,
-    ssoOperationId,
-    ssoRetainStacks,
-    ssoDeploymentTargets,
-    ssoStackSetId,
-    ssoExecutionRoleName,
+    -- ** Capability
+    Capability (..),
 
-    -- ** StackSetOperationPreferences
-    StackSetOperationPreferences (..),
-    mkStackSetOperationPreferences,
-    ssopRegionOrder,
-    ssopMaxConcurrentCount,
-    ssopMaxConcurrentPercentage,
-    ssopFailureToleranceCount,
-    ssopFailureTolerancePercentage,
+    -- ** PropertyDifference
+    PropertyDifference (..),
+    mkPropertyDifference,
+    pdPropertyPath,
+    pdExpectedValue,
+    pdActualValue,
+    pdDifferenceType,
 
-    -- ** StackSetOperationResultSummary
-    StackSetOperationResultSummary (..),
-    mkStackSetOperationResultSummary,
-    ssorsStatus,
-    ssorsAccount,
-    ssorsAccountGateResult,
-    ssorsOrganizationalUnitId,
-    ssorsRegion,
-    ssorsStatusReason,
+    -- ** ChangeSetSummary
+    ChangeSetSummary (..),
+    mkChangeSetSummary,
+    cssChangeSetId,
+    cssChangeSetName,
+    cssCreationTime,
+    cssDescription,
+    cssExecutionStatus,
+    cssIncludeNestedStacks,
+    cssParentChangeSetId,
+    cssRootChangeSetId,
+    cssStackId,
+    cssStackName,
+    cssStatus,
+    cssStatusReason,
 
-    -- ** StackSetOperationSummary
-    StackSetOperationSummary (..),
-    mkStackSetOperationSummary,
-    ssosStatus,
-    ssosAction,
-    ssosEndTimestamp,
-    ssosCreationTimestamp,
-    ssosOperationId,
+    -- ** Type
+    Type (..),
 
-    -- ** StackSetSummary
-    StackSetSummary (..),
-    mkStackSetSummary,
-    sssStatus,
-    sssLastDriftCheckTimestamp,
-    sssAutoDeployment,
-    sssDriftStatus,
-    sssPermissionModel,
-    sssStackSetName,
-    sssDescription,
-    sssStackSetId,
+    -- ** TemplateBody
+    TemplateBody (..),
 
-    -- ** StackSummary
-    StackSummary (..),
-    mkStackSummary,
-    ssCreationTime,
-    ssStackStatus,
-    ssLastUpdatedTime,
-    ssRootId,
-    ssStackStatusReason,
-    ssTemplateDescription,
-    ssDriftInformation,
-    ssDeletionTime,
-    ssStackId,
-    ssParentId,
-    ssStackName,
+    -- ** PropertyName
+    PropertyName (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** OutputKey
+    OutputKey (..),
 
-    -- ** TemplateParameter
-    TemplateParameter (..),
-    mkTemplateParameter,
-    tpParameterKey,
-    tpDefaultValue,
-    tpNoEcho,
-    tpDescription,
+    -- ** StackInstanceFilterName
+    StackInstanceFilterName (..),
 
-    -- ** TypeSummary
-    TypeSummary (..),
-    mkTypeSummary,
-    tsLastUpdated,
-    tsTypeName,
-    tsDefaultVersionId,
-    tsTypeARN,
-    tsType,
-    tsDescription,
+    -- ** ChangeSetStatus
+    ChangeSetStatus (..),
+
+    -- ** ResourceSignalStatus
+    ResourceSignalStatus (..),
+
+    -- ** ResourceToSkip
+    ResourceToSkip (..),
+
+    -- ** TemplateURL
+    TemplateURL (..),
+
+    -- ** TransformName
+    TransformName (..),
+
+    -- ** StackInstanceDetailedStatus
+    StackInstanceDetailedStatus (..),
+
+    -- ** DeploymentTargets
+    DeploymentTargets (..),
+    mkDeploymentTargets,
+    dtAccounts,
+    dtOrganizationalUnitIds,
+
+    -- ** StackId
+    StackId (..),
+
+    -- ** StackSetName
+    StackSetName (..),
+
+    -- ** ExportName
+    ExportName (..),
+
+    -- ** PhysicalResourceIdContextKeyValuePair
+    PhysicalResourceIdContextKeyValuePair (..),
+    mkPhysicalResourceIdContextKeyValuePair,
+    prickvpKey,
+    prickvpValue,
+
+    -- ** StackInstanceStatus
+    StackInstanceStatus (..),
+
+    -- ** StackDriftInformationSummary
+    StackDriftInformationSummary (..),
+    mkStackDriftInformationSummary,
+    sdisStackDriftStatus,
+    sdisLastCheckTimestamp,
+
+    -- ** AllowedValue
+    AllowedValue (..),
+
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
+    -- ** Replacement
+    Replacement (..),
 
     -- ** TypeVersionSummary
     TypeVersionSummary (..),
     mkTypeVersionSummary,
-    tvsVersionId,
-    tvsTypeName,
-    tvsARN,
+    tvsArn,
+    tvsDescription,
+    tvsIsDefaultVersion,
     tvsTimeCreated,
     tvsType,
-    tvsIsDefaultVersion,
-    tvsDescription,
+    tvsTypeName,
+    tvsVersionId,
+
+    -- ** Description
+    Description (..),
+
+    -- ** Stack
+    Stack (..),
+    mkStack,
+    sfStackName,
+    sfCreationTime,
+    sfStackStatus,
+    sfCapabilities,
+    sfChangeSetId,
+    sfDeletionTime,
+    sfDescription,
+    sfDisableRollback,
+    sfDriftInformation,
+    sfEnableTerminationProtection,
+    sfLastUpdatedTime,
+    sfNotificationARNs,
+    sfOutputs,
+    sfParameters,
+    sfParentId,
+    sfRoleARN,
+    sfRollbackConfiguration,
+    sfRootId,
+    sfStackId,
+    sfStackStatusReason,
+    sfTags,
+    sfTimeoutInMinutes,
+
+    -- ** ChangeType
+    ChangeType (..),
+
+    -- ** RollbackConfiguration
+    RollbackConfiguration (..),
+    mkRollbackConfiguration,
+    rcMonitoringTimeInMinutes,
+    rcRollbackTriggers,
+
+    -- ** ResourceTargetDefinition
+    ResourceTargetDefinition (..),
+    mkResourceTargetDefinition,
+    rtdAttribute,
+    rtdName,
+    rtdRequiresRecreation,
+
+    -- ** RollbackTrigger
+    RollbackTrigger (..),
+    mkRollbackTrigger,
+    rtArn,
+    rtType,
+
+    -- ** OnFailure
+    OnFailure (..),
+
+    -- ** StackResourceDrift
+    StackResourceDrift (..),
+    mkStackResourceDrift,
+    sStackId,
+    sLogicalResourceId,
+    sResourceType,
+    sStackResourceDriftStatus,
+    sTimestamp,
+    sActualProperties,
+    sExpectedProperties,
+    sModuleInfo,
+    sPhysicalResourceId,
+    sPhysicalResourceIdContext,
+    sPropertyDifferences,
+
+    -- ** StackSetOperationPreferences
+    StackSetOperationPreferences (..),
+    mkStackSetOperationPreferences,
+    ssopFailureToleranceCount,
+    ssopFailureTolerancePercentage,
+    ssopMaxConcurrentCount,
+    ssopMaxConcurrentPercentage,
+    ssopRegionOrder,
+
+    -- ** Parameter
+    Parameter (..),
+    mkParameter,
+    pParameterKey,
+    pParameterValue,
+    pResolvedValue,
+    pUsePreviousValue,
+
+    -- ** ProvisioningType
+    ProvisioningType (..),
+
+    -- ** StackSetId
+    StackSetId (..),
+
+    -- ** RoleARN
+    RoleARN (..),
+
+    -- ** LoggingConfig
+    LoggingConfig (..),
+    mkLoggingConfig,
+    lcLogRoleArn,
+    lcLogGroupName,
+
+    -- ** ExecutionRoleName
+    ExecutionRoleName (..),
+
+    -- ** EventId
+    EventId (..),
+
+    -- ** StackName
+    StackName (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** StatusReason
+    StatusReason (..),
+
+    -- ** ExportingStackId
+    ExportingStackId (..),
+
+    -- ** AdministrationRoleARN
+    AdministrationRoleARN (..),
+
+    -- ** StackInstanceAccount
+    StackInstanceAccount (..),
+
+    -- ** StackInstanceRegion
+    StackInstanceRegion (..),
+
+    -- ** Values
+    Values (..),
+
+    -- ** UniqueId
+    UniqueId (..),
+
+    -- ** ParentId
+    ParentId (..),
+
+    -- ** RootId
+    RootId (..),
+
+    -- ** OperationId
+    OperationId (..),
+
+    -- ** TypeVersionArn
+    TypeVersionArn (..),
+
+    -- ** VersionId
+    VersionId (..),
+
+    -- ** DefaultVersionId
+    DefaultVersionId (..),
+
+    -- ** SchemaHandlerPackage
+    SchemaHandlerPackage (..),
+
+    -- ** ExecutionRoleArn
+    ExecutionRoleArn (..),
+
+    -- ** DocumentationUrl
+    DocumentationUrl (..),
+
+    -- ** Schema
+    Schema (..),
+
+    -- ** SourceUrl
+    SourceUrl (..),
+
+    -- ** ActualProperties
+    ActualProperties (..),
+
+    -- ** ExpectedProperties
+    ExpectedProperties (..),
+
+    -- ** LogRoleArn
+    LogRoleArn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

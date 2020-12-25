@@ -22,109 +22,95 @@ module Network.AWS.DirectConnect.DisassociateConnectionFromLag
     mkDisassociateConnectionFromLag,
 
     -- ** Request lenses
-    dcflLagId,
     dcflConnectionId,
+    dcflLagId,
 
     -- * Destructuring the response
-    Connection (..),
-    mkConnection,
+    Types.Connection (..),
+    Types.mkConnection,
 
     -- ** Response lenses
-    cLagId,
-    cVlan,
-    cLocation,
-    cAwsDevice,
-    cHasLogicalRedundancy,
-    cConnectionId,
-    cLoaIssueTime,
-    cPartnerName,
-    cConnectionName,
-    cBandwidth,
-    cJumboFrameCapable,
-    cOwnerAccount,
-    cRegion,
-    cProviderName,
-    cAwsDeviceV2,
-    cConnectionState,
-    cTags,
+    Types.cAwsDevice,
+    Types.cAwsDeviceV2,
+    Types.cBandwidth,
+    Types.cConnectionId,
+    Types.cConnectionName,
+    Types.cConnectionState,
+    Types.cHasLogicalRedundancy,
+    Types.cJumboFrameCapable,
+    Types.cLagId,
+    Types.cLoaIssueTime,
+    Types.cLocation,
+    Types.cOwnerAccount,
+    Types.cPartnerName,
+    Types.cProviderName,
+    Types.cRegion,
+    Types.cTags,
+    Types.cVlan,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateConnectionFromLag' smart constructor.
 data DisassociateConnectionFromLag = DisassociateConnectionFromLag'
-  { -- | The ID of the LAG.
-    lagId :: Lude.Text,
-    -- | The ID of the connection.
-    connectionId :: Lude.Text
+  { -- | The ID of the connection.
+    connectionId :: Types.ConnectionId,
+    -- | The ID of the LAG.
+    lagId :: Types.LagId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateConnectionFromLag' with the minimum fields required to make a request.
---
--- * 'lagId' - The ID of the LAG.
--- * 'connectionId' - The ID of the connection.
+-- | Creates a 'DisassociateConnectionFromLag' value with any optional fields omitted.
 mkDisassociateConnectionFromLag ::
-  -- | 'lagId'
-  Lude.Text ->
   -- | 'connectionId'
-  Lude.Text ->
+  Types.ConnectionId ->
+  -- | 'lagId'
+  Types.LagId ->
   DisassociateConnectionFromLag
-mkDisassociateConnectionFromLag pLagId_ pConnectionId_ =
-  DisassociateConnectionFromLag'
-    { lagId = pLagId_,
-      connectionId = pConnectionId_
-    }
-
--- | The ID of the LAG.
---
--- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcflLagId :: Lens.Lens' DisassociateConnectionFromLag Lude.Text
-dcflLagId = Lens.lens (lagId :: DisassociateConnectionFromLag -> Lude.Text) (\s a -> s {lagId = a} :: DisassociateConnectionFromLag)
-{-# DEPRECATED dcflLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
+mkDisassociateConnectionFromLag connectionId lagId =
+  DisassociateConnectionFromLag' {connectionId, lagId}
 
 -- | The ID of the connection.
 --
 -- /Note:/ Consider using 'connectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcflConnectionId :: Lens.Lens' DisassociateConnectionFromLag Lude.Text
-dcflConnectionId = Lens.lens (connectionId :: DisassociateConnectionFromLag -> Lude.Text) (\s a -> s {connectionId = a} :: DisassociateConnectionFromLag)
+dcflConnectionId :: Lens.Lens' DisassociateConnectionFromLag Types.ConnectionId
+dcflConnectionId = Lens.field @"connectionId"
 {-# DEPRECATED dcflConnectionId "Use generic-lens or generic-optics with 'connectionId' instead." #-}
 
-instance Lude.AWSRequest DisassociateConnectionFromLag where
-  type Rs DisassociateConnectionFromLag = Connection
-  request = Req.postJSON directConnectService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | The ID of the LAG.
+--
+-- /Note:/ Consider using 'lagId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcflLagId :: Lens.Lens' DisassociateConnectionFromLag Types.LagId
+dcflLagId = Lens.field @"lagId"
+{-# DEPRECATED dcflLagId "Use generic-lens or generic-optics with 'lagId' instead." #-}
 
-instance Lude.ToHeaders DisassociateConnectionFromLag where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "OvertureService.DisassociateConnectionFromLag" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
+instance Core.FromJSON DisassociateConnectionFromLag where
+  toJSON DisassociateConnectionFromLag {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("connectionId" Core..= connectionId),
+            Core.Just ("lagId" Core..= lagId)
           ]
       )
 
-instance Lude.ToJSON DisassociateConnectionFromLag where
-  toJSON DisassociateConnectionFromLag' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("lagId" Lude..= lagId),
-            Lude.Just ("connectionId" Lude..= connectionId)
-          ]
-      )
-
-instance Lude.ToPath DisassociateConnectionFromLag where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateConnectionFromLag where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DisassociateConnectionFromLag where
+  type Rs DisassociateConnectionFromLag = Types.Connection
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OvertureService.DisassociateConnectionFromLag")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

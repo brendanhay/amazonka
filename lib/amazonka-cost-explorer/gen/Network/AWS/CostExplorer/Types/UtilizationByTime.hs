@@ -23,68 +23,62 @@ module Network.AWS.CostExplorer.Types.UtilizationByTime
   )
 where
 
-import Network.AWS.CostExplorer.Types.DateInterval
-import Network.AWS.CostExplorer.Types.ReservationAggregates
-import Network.AWS.CostExplorer.Types.ReservationUtilizationGroup
+import qualified Network.AWS.CostExplorer.Types.DateInterval as Types
+import qualified Network.AWS.CostExplorer.Types.ReservationAggregates as Types
+import qualified Network.AWS.CostExplorer.Types.ReservationUtilizationGroup as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The amount of utilization, in hours.
 --
 -- /See:/ 'mkUtilizationByTime' smart constructor.
 data UtilizationByTime = UtilizationByTime'
   { -- | The groups that this utilization result uses.
-    groups :: Lude.Maybe [ReservationUtilizationGroup],
+    groups :: Core.Maybe [Types.ReservationUtilizationGroup],
     -- | The period of time that this utilization was used for.
-    timePeriod :: Lude.Maybe DateInterval,
+    timePeriod :: Core.Maybe Types.DateInterval,
     -- | The total number of reservation hours that were used.
-    total :: Lude.Maybe ReservationAggregates
+    total :: Core.Maybe Types.ReservationAggregates
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UtilizationByTime' with the minimum fields required to make a request.
---
--- * 'groups' - The groups that this utilization result uses.
--- * 'timePeriod' - The period of time that this utilization was used for.
--- * 'total' - The total number of reservation hours that were used.
+-- | Creates a 'UtilizationByTime' value with any optional fields omitted.
 mkUtilizationByTime ::
   UtilizationByTime
 mkUtilizationByTime =
   UtilizationByTime'
-    { groups = Lude.Nothing,
-      timePeriod = Lude.Nothing,
-      total = Lude.Nothing
+    { groups = Core.Nothing,
+      timePeriod = Core.Nothing,
+      total = Core.Nothing
     }
 
 -- | The groups that this utilization result uses.
 --
 -- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubtGroups :: Lens.Lens' UtilizationByTime (Lude.Maybe [ReservationUtilizationGroup])
-ubtGroups = Lens.lens (groups :: UtilizationByTime -> Lude.Maybe [ReservationUtilizationGroup]) (\s a -> s {groups = a} :: UtilizationByTime)
+ubtGroups :: Lens.Lens' UtilizationByTime (Core.Maybe [Types.ReservationUtilizationGroup])
+ubtGroups = Lens.field @"groups"
 {-# DEPRECATED ubtGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | The period of time that this utilization was used for.
 --
 -- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubtTimePeriod :: Lens.Lens' UtilizationByTime (Lude.Maybe DateInterval)
-ubtTimePeriod = Lens.lens (timePeriod :: UtilizationByTime -> Lude.Maybe DateInterval) (\s a -> s {timePeriod = a} :: UtilizationByTime)
+ubtTimePeriod :: Lens.Lens' UtilizationByTime (Core.Maybe Types.DateInterval)
+ubtTimePeriod = Lens.field @"timePeriod"
 {-# DEPRECATED ubtTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
 
 -- | The total number of reservation hours that were used.
 --
 -- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubtTotal :: Lens.Lens' UtilizationByTime (Lude.Maybe ReservationAggregates)
-ubtTotal = Lens.lens (total :: UtilizationByTime -> Lude.Maybe ReservationAggregates) (\s a -> s {total = a} :: UtilizationByTime)
+ubtTotal :: Lens.Lens' UtilizationByTime (Core.Maybe Types.ReservationAggregates)
+ubtTotal = Lens.field @"total"
 {-# DEPRECATED ubtTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
-instance Lude.FromJSON UtilizationByTime where
+instance Core.FromJSON UtilizationByTime where
   parseJSON =
-    Lude.withObject
-      "UtilizationByTime"
-      ( \x ->
-          UtilizationByTime'
-            Lude.<$> (x Lude..:? "Groups" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "TimePeriod")
-            Lude.<*> (x Lude..:? "Total")
-      )
+    Core.withObject "UtilizationByTime" Core.$
+      \x ->
+        UtilizationByTime'
+          Core.<$> (x Core..:? "Groups")
+          Core.<*> (x Core..:? "TimePeriod")
+          Core.<*> (x Core..:? "Total")

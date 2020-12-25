@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,28 @@
 -- Pending
 module Network.AWS.Route53Domains
   ( -- * Service configuration
-    route53DomainsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidInput
+    _InvalidInput,
+
+    -- ** OperationLimitExceeded
+    _OperationLimitExceeded,
+
+    -- ** DomainLimitExceeded
+    _DomainLimitExceeded,
+
+    -- ** UnsupportedTLD
+    _UnsupportedTLD,
+
+    -- ** TLDRulesViolation
+    _TLDRulesViolation,
+
+    -- ** DuplicateRequest
+    _DuplicateRequest,
 
     -- * Waiters
     -- $waiters
@@ -40,8 +57,8 @@ module Network.AWS.Route53Domains
     -- ** GetOperationDetail
     module Network.AWS.Route53Domains.GetOperationDetail,
 
-    -- ** RejectDomainTransferFromAnotherAWSAccount
-    module Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAWSAccount,
+    -- ** RejectDomainTransferFromAnotherAwsAccount
+    module Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount,
 
     -- ** EnableDomainAutoRenew
     module Network.AWS.Route53Domains.EnableDomainAutoRenew,
@@ -76,11 +93,11 @@ module Network.AWS.Route53Domains
     -- ** CheckDomainAvailability
     module Network.AWS.Route53Domains.CheckDomainAvailability,
 
-    -- ** TransferDomainToAnotherAWSAccount
-    module Network.AWS.Route53Domains.TransferDomainToAnotherAWSAccount,
+    -- ** TransferDomainToAnotherAwsAccount
+    module Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount,
 
-    -- ** AcceptDomainTransferFromAnotherAWSAccount
-    module Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAWSAccount,
+    -- ** AcceptDomainTransferFromAnotherAwsAccount
+    module Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount,
 
     -- ** GetContactReachabilityStatus
     module Network.AWS.Route53Domains.GetContactReachabilityStatus,
@@ -106,61 +123,24 @@ module Network.AWS.Route53Domains
     -- ** ListDomains (Paginated)
     module Network.AWS.Route53Domains.ListDomains,
 
-    -- ** CancelDomainTransferToAnotherAWSAccount
-    module Network.AWS.Route53Domains.CancelDomainTransferToAnotherAWSAccount,
+    -- ** CancelDomainTransferToAnotherAwsAccount
+    module Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount,
 
     -- * Types
 
-    -- ** ContactType
-    ContactType (..),
+    -- ** DomainSummary
+    DomainSummary (..),
+    mkDomainSummary,
+    dsDomainName,
+    dsAutoRenew,
+    dsExpiry,
+    dsTransferLock,
 
-    -- ** CountryCode
-    CountryCode (..),
+    -- ** DomainStatus
+    DomainStatus (..),
 
-    -- ** DomainAvailability
-    DomainAvailability (..),
-
-    -- ** ExtraParamName
-    ExtraParamName (..),
-
-    -- ** OperationStatus
-    OperationStatus (..),
-
-    -- ** OperationType
-    OperationType (..),
-
-    -- ** ReachabilityStatus
-    ReachabilityStatus (..),
-
-    -- ** Transferable
-    Transferable (..),
-
-    -- ** BillingRecord
-    BillingRecord (..),
-    mkBillingRecord,
-    brOperation,
-    brInvoiceId,
-    brDomainName,
-    brBillDate,
-    brPrice,
-
-    -- ** ContactDetail
-    ContactDetail (..),
-    mkContactDetail,
-    cdOrganizationName,
-    cdEmail,
-    cdState,
-    cdFax,
-    cdLastName,
-    cdExtraParams,
-    cdZipCode,
-    cdAddressLine1,
-    cdCity,
-    cdPhoneNumber,
-    cdAddressLine2,
-    cdFirstName,
-    cdCountryCode,
-    cdContactType,
+    -- ** DNSSec
+    DNSSec (..),
 
     -- ** DomainSuggestion
     DomainSuggestion (..),
@@ -168,60 +148,197 @@ module Network.AWS.Route53Domains
     dAvailability,
     dDomainName,
 
-    -- ** DomainSummary
-    DomainSummary (..),
-    mkDomainSummary,
-    dsExpiry,
-    dsTransferLock,
-    dsAutoRenew,
-    dsDomainName,
+    -- ** Email
+    Email (..),
+
+    -- ** State
+    State (..),
+
+    -- ** HostName
+    HostName (..),
+
+    -- ** GlueIp
+    GlueIp (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** ExtraParamName
+    ExtraParamName (..),
+
+    -- ** Nameserver
+    Nameserver (..),
+    mkNameserver,
+    nName,
+    nGlueIps,
+
+    -- ** String
+    String (..),
+
+    -- ** AddressLine
+    AddressLine (..),
+
+    -- ** RegistryDomainId
+    RegistryDomainId (..),
+
+    -- ** ReachabilityStatus
+    ReachabilityStatus (..),
+
+    -- ** ZipCode
+    ZipCode (..),
+
+    -- ** OperationStatus
+    OperationStatus (..),
+
+    -- ** LangCode
+    LangCode (..),
+
+    -- ** DomainAvailability
+    DomainAvailability (..),
+
+    -- ** Transferable
+    Transferable (..),
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** RegistrarUrl
+    RegistrarUrl (..),
+
+    -- ** InvoiceId
+    InvoiceId (..),
+
+    -- ** City
+    City (..),
+
+    -- ** DomainName
+    DomainName (..),
+
+    -- ** ContactName
+    ContactName (..),
+
+    -- ** OperationType
+    OperationType (..),
+
+    -- ** CountryCode
+    CountryCode (..),
+
+    -- ** DomainAuthCode
+    DomainAuthCode (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** ExtraParam
+    ExtraParam (..),
+    mkExtraParam,
+    epName,
+    epValue,
+
+    -- ** ContactType
+    ContactType (..),
+
+    -- ** OperationId
+    OperationId (..),
+
+    -- ** FIAuthKey
+    FIAuthKey (..),
+
+    -- ** RegistrarName
+    RegistrarName (..),
+
+    -- ** ContactNumber
+    ContactNumber (..),
+
+    -- ** Reseller
+    Reseller (..),
+
+    -- ** BillingRecord
+    BillingRecord (..),
+    mkBillingRecord,
+    brBillDate,
+    brDomainName,
+    brInvoiceId,
+    brOperation,
+    brPrice,
+
+    -- ** ContactDetail
+    ContactDetail (..),
+    mkContactDetail,
+    cdAddressLine1,
+    cdAddressLine2,
+    cdCity,
+    cdContactType,
+    cdCountryCode,
+    cdEmail,
+    cdExtraParams,
+    cdFax,
+    cdFirstName,
+    cdLastName,
+    cdOrganizationName,
+    cdPhoneNumber,
+    cdState,
+    cdZipCode,
+
+    -- ** OperationSummary
+    OperationSummary (..),
+    mkOperationSummary,
+    osOperationId,
+    osStatus,
+    osType,
+    osSubmittedDate,
 
     -- ** DomainTransferability
     DomainTransferability (..),
     mkDomainTransferability,
     dtTransferable,
 
-    -- ** ExtraParam
-    ExtraParam (..),
-    mkExtraParam,
-    epValue,
-    epName,
+    -- ** Availability
+    Availability (..),
 
-    -- ** Nameserver
-    Nameserver (..),
-    mkNameserver,
-    nName,
-    nGlueIPs,
+    -- ** AbuseContactPhone
+    AbuseContactPhone (..),
 
-    -- ** OperationSummary
-    OperationSummary (..),
-    mkOperationSummary,
-    osStatus,
-    osSubmittedDate,
-    osOperationId,
-    osType,
+    -- ** WhoIsServer
+    WhoIsServer (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** NextPageMarker
+    NextPageMarker (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** IdnLangCode
+    IdnLangCode (..),
+
+    -- ** AuthCode
+    AuthCode (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
 import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAWSAccount
-import Network.AWS.Route53Domains.CancelDomainTransferToAnotherAWSAccount
+import Network.AWS.Route53Domains.AcceptDomainTransferFromAnotherAwsAccount
+import Network.AWS.Route53Domains.CancelDomainTransferToAnotherAwsAccount
 import Network.AWS.Route53Domains.CheckDomainAvailability
 import Network.AWS.Route53Domains.CheckDomainTransferability
 import Network.AWS.Route53Domains.DeleteTagsForDomain
@@ -237,12 +354,12 @@ import Network.AWS.Route53Domains.ListDomains
 import Network.AWS.Route53Domains.ListOperations
 import Network.AWS.Route53Domains.ListTagsForDomain
 import Network.AWS.Route53Domains.RegisterDomain
-import Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAWSAccount
+import Network.AWS.Route53Domains.RejectDomainTransferFromAnotherAwsAccount
 import Network.AWS.Route53Domains.RenewDomain
 import Network.AWS.Route53Domains.ResendContactReachabilityEmail
 import Network.AWS.Route53Domains.RetrieveDomainAuthCode
 import Network.AWS.Route53Domains.TransferDomain
-import Network.AWS.Route53Domains.TransferDomainToAnotherAWSAccount
+import Network.AWS.Route53Domains.TransferDomainToAnotherAwsAccount
 import Network.AWS.Route53Domains.Types
 import Network.AWS.Route53Domains.UpdateDomainContact
 import Network.AWS.Route53Domains.UpdateDomainContactPrivacy

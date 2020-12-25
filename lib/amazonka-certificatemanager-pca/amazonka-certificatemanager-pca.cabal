@@ -48,25 +48,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CertificateManagerPCA
     Network.AWS.CertificateManagerPCA.CreateCertificateAuthority
@@ -79,7 +85,7 @@ library
     Network.AWS.CertificateManagerPCA.DescribeCertificateAuthorityAuditReport
     Network.AWS.CertificateManagerPCA.GetCertificate
     Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCertificate
-    Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCSR
+    Network.AWS.CertificateManagerPCA.GetCertificateAuthorityCsr
     Network.AWS.CertificateManagerPCA.GetPolicy
     Network.AWS.CertificateManagerPCA.ImportCertificateAuthorityCertificate
     Network.AWS.CertificateManagerPCA.IssueCertificate
@@ -96,25 +102,58 @@ library
     Network.AWS.CertificateManagerPCA.Waiters
 
   other-modules:
+    Network.AWS.CertificateManagerPCA.Types.AccountId
     Network.AWS.CertificateManagerPCA.Types.ActionType
+    Network.AWS.CertificateManagerPCA.Types.Arn
     Network.AWS.CertificateManagerPCA.Types.ASN1Subject
+    Network.AWS.CertificateManagerPCA.Types.AuditReportId
     Network.AWS.CertificateManagerPCA.Types.AuditReportResponseFormat
     Network.AWS.CertificateManagerPCA.Types.AuditReportStatus
+    Network.AWS.CertificateManagerPCA.Types.AWSPolicy
+    Network.AWS.CertificateManagerPCA.Types.Certificate
+    Network.AWS.CertificateManagerPCA.Types.CertificateArn
     Network.AWS.CertificateManagerPCA.Types.CertificateAuthority
+    Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityArn
     Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
     Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus
     Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType
+    Network.AWS.CertificateManagerPCA.Types.CertificateChain
+    Network.AWS.CertificateManagerPCA.Types.CertificateSerial
+    Network.AWS.CertificateManagerPCA.Types.CommonName
+    Network.AWS.CertificateManagerPCA.Types.Country
     Network.AWS.CertificateManagerPCA.Types.CrlConfiguration
+    Network.AWS.CertificateManagerPCA.Types.CsrBody
+    Network.AWS.CertificateManagerPCA.Types.CustomCname
+    Network.AWS.CertificateManagerPCA.Types.DistinguishedNameQualifier
     Network.AWS.CertificateManagerPCA.Types.FailureReason
+    Network.AWS.CertificateManagerPCA.Types.GenerationQualifier
+    Network.AWS.CertificateManagerPCA.Types.GivenName
+    Network.AWS.CertificateManagerPCA.Types.IdempotencyToken
+    Network.AWS.CertificateManagerPCA.Types.Key
     Network.AWS.CertificateManagerPCA.Types.KeyAlgorithm
+    Network.AWS.CertificateManagerPCA.Types.NextToken
+    Network.AWS.CertificateManagerPCA.Types.Organization
+    Network.AWS.CertificateManagerPCA.Types.OrganizationalUnit
     Network.AWS.CertificateManagerPCA.Types.Permission
+    Network.AWS.CertificateManagerPCA.Types.Policy
+    Network.AWS.CertificateManagerPCA.Types.Principal
     Network.AWS.CertificateManagerPCA.Types.ResourceOwner
     Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
     Network.AWS.CertificateManagerPCA.Types.RevocationReason
+    Network.AWS.CertificateManagerPCA.Types.S3BucketName
+    Network.AWS.CertificateManagerPCA.Types.S3Key
+    Network.AWS.CertificateManagerPCA.Types.SerialNumber
     Network.AWS.CertificateManagerPCA.Types.SigningAlgorithm
+    Network.AWS.CertificateManagerPCA.Types.String
+    Network.AWS.CertificateManagerPCA.Types.String128
+    Network.AWS.CertificateManagerPCA.Types.String3To255
+    Network.AWS.CertificateManagerPCA.Types.String5
+    Network.AWS.CertificateManagerPCA.Types.Surname
     Network.AWS.CertificateManagerPCA.Types.Tag
+    Network.AWS.CertificateManagerPCA.Types.Title
     Network.AWS.CertificateManagerPCA.Types.Validity
     Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType
+    Network.AWS.CertificateManagerPCA.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

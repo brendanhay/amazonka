@@ -24,66 +24,61 @@ module Network.AWS.SSM.Types.FailedCreateAssociation
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.CreateAssociationBatchRequestEntry
-import Network.AWS.SSM.Types.Fault
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.BatchErrorMessage as Types
+import qualified Network.AWS.SSM.Types.CreateAssociationBatchRequestEntry as Types
+import qualified Network.AWS.SSM.Types.Fault as Types
 
 -- | Describes a failed association.
 --
 -- /See:/ 'mkFailedCreateAssociation' smart constructor.
 data FailedCreateAssociation = FailedCreateAssociation'
   { -- | The association.
-    entry :: Lude.Maybe CreateAssociationBatchRequestEntry,
+    entry :: Core.Maybe Types.CreateAssociationBatchRequestEntry,
     -- | The source of the failure.
-    fault :: Lude.Maybe Fault,
+    fault :: Core.Maybe Types.Fault,
     -- | A description of the failure.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.BatchErrorMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailedCreateAssociation' with the minimum fields required to make a request.
---
--- * 'entry' - The association.
--- * 'fault' - The source of the failure.
--- * 'message' - A description of the failure.
+-- | Creates a 'FailedCreateAssociation' value with any optional fields omitted.
 mkFailedCreateAssociation ::
   FailedCreateAssociation
 mkFailedCreateAssociation =
   FailedCreateAssociation'
-    { entry = Lude.Nothing,
-      fault = Lude.Nothing,
-      message = Lude.Nothing
+    { entry = Core.Nothing,
+      fault = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The association.
 --
 -- /Note:/ Consider using 'entry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcaEntry :: Lens.Lens' FailedCreateAssociation (Lude.Maybe CreateAssociationBatchRequestEntry)
-fcaEntry = Lens.lens (entry :: FailedCreateAssociation -> Lude.Maybe CreateAssociationBatchRequestEntry) (\s a -> s {entry = a} :: FailedCreateAssociation)
+fcaEntry :: Lens.Lens' FailedCreateAssociation (Core.Maybe Types.CreateAssociationBatchRequestEntry)
+fcaEntry = Lens.field @"entry"
 {-# DEPRECATED fcaEntry "Use generic-lens or generic-optics with 'entry' instead." #-}
 
 -- | The source of the failure.
 --
 -- /Note:/ Consider using 'fault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcaFault :: Lens.Lens' FailedCreateAssociation (Lude.Maybe Fault)
-fcaFault = Lens.lens (fault :: FailedCreateAssociation -> Lude.Maybe Fault) (\s a -> s {fault = a} :: FailedCreateAssociation)
+fcaFault :: Lens.Lens' FailedCreateAssociation (Core.Maybe Types.Fault)
+fcaFault = Lens.field @"fault"
 {-# DEPRECATED fcaFault "Use generic-lens or generic-optics with 'fault' instead." #-}
 
 -- | A description of the failure.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcaMessage :: Lens.Lens' FailedCreateAssociation (Lude.Maybe Lude.Text)
-fcaMessage = Lens.lens (message :: FailedCreateAssociation -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: FailedCreateAssociation)
+fcaMessage :: Lens.Lens' FailedCreateAssociation (Core.Maybe Types.BatchErrorMessage)
+fcaMessage = Lens.field @"message"
 {-# DEPRECATED fcaMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON FailedCreateAssociation where
+instance Core.FromJSON FailedCreateAssociation where
   parseJSON =
-    Lude.withObject
-      "FailedCreateAssociation"
-      ( \x ->
-          FailedCreateAssociation'
-            Lude.<$> (x Lude..:? "Entry")
-            Lude.<*> (x Lude..:? "Fault")
-            Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "FailedCreateAssociation" Core.$
+      \x ->
+        FailedCreateAssociation'
+          Core.<$> (x Core..:? "Entry")
+          Core.<*> (x Core..:? "Fault")
+          Core.<*> (x Core..:? "Message")

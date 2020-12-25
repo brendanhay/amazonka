@@ -23,51 +23,50 @@ module Network.AWS.Lightsail.Types.DiskMap
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.OriginalDiskPath as Types
+import qualified Network.AWS.Lightsail.Types.ResourceName as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a block storage disk mapping.
 --
 -- /See:/ 'mkDiskMap' smart constructor.
 data DiskMap = DiskMap'
   { -- | The new disk name (e.g., @my-new-disk@ ).
-    newDiskName :: Lude.Maybe Lude.Text,
+    newDiskName :: Core.Maybe Types.ResourceName,
     -- | The original disk path exposed to the instance (for example, @/dev/sdh@ ).
-    originalDiskPath :: Lude.Maybe Lude.Text
+    originalDiskPath :: Core.Maybe Types.OriginalDiskPath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DiskMap' with the minimum fields required to make a request.
---
--- * 'newDiskName' - The new disk name (e.g., @my-new-disk@ ).
--- * 'originalDiskPath' - The original disk path exposed to the instance (for example, @/dev/sdh@ ).
+-- | Creates a 'DiskMap' value with any optional fields omitted.
 mkDiskMap ::
   DiskMap
 mkDiskMap =
   DiskMap'
-    { newDiskName = Lude.Nothing,
-      originalDiskPath = Lude.Nothing
+    { newDiskName = Core.Nothing,
+      originalDiskPath = Core.Nothing
     }
 
 -- | The new disk name (e.g., @my-new-disk@ ).
 --
 -- /Note:/ Consider using 'newDiskName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmNewDiskName :: Lens.Lens' DiskMap (Lude.Maybe Lude.Text)
-dmNewDiskName = Lens.lens (newDiskName :: DiskMap -> Lude.Maybe Lude.Text) (\s a -> s {newDiskName = a} :: DiskMap)
+dmNewDiskName :: Lens.Lens' DiskMap (Core.Maybe Types.ResourceName)
+dmNewDiskName = Lens.field @"newDiskName"
 {-# DEPRECATED dmNewDiskName "Use generic-lens or generic-optics with 'newDiskName' instead." #-}
 
 -- | The original disk path exposed to the instance (for example, @/dev/sdh@ ).
 --
 -- /Note:/ Consider using 'originalDiskPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmOriginalDiskPath :: Lens.Lens' DiskMap (Lude.Maybe Lude.Text)
-dmOriginalDiskPath = Lens.lens (originalDiskPath :: DiskMap -> Lude.Maybe Lude.Text) (\s a -> s {originalDiskPath = a} :: DiskMap)
+dmOriginalDiskPath :: Lens.Lens' DiskMap (Core.Maybe Types.OriginalDiskPath)
+dmOriginalDiskPath = Lens.field @"originalDiskPath"
 {-# DEPRECATED dmOriginalDiskPath "Use generic-lens or generic-optics with 'originalDiskPath' instead." #-}
 
-instance Lude.ToJSON DiskMap where
-  toJSON DiskMap' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("newDiskName" Lude..=) Lude.<$> newDiskName,
-            ("originalDiskPath" Lude..=) Lude.<$> originalDiskPath
+instance Core.FromJSON DiskMap where
+  toJSON DiskMap {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("newDiskName" Core..=) Core.<$> newDiskName,
+            ("originalDiskPath" Core..=) Core.<$> originalDiskPath
           ]
       )

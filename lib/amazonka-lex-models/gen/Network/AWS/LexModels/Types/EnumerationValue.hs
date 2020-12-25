@@ -23,7 +23,8 @@ module Network.AWS.LexModels.Types.EnumerationValue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.Value as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Each slot type can have a set of values. Each enumeration value represents a value the slot type can take.
 --
@@ -42,53 +43,47 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkEnumerationValue' smart constructor.
 data EnumerationValue = EnumerationValue'
   { -- | The value of the slot type.
-    value :: Lude.Text,
+    value :: Types.Value,
     -- | Additional values related to the slot type value.
-    synonyms :: Lude.Maybe [Lude.Text]
+    synonyms :: Core.Maybe [Types.Value]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnumerationValue' with the minimum fields required to make a request.
---
--- * 'value' - The value of the slot type.
--- * 'synonyms' - Additional values related to the slot type value.
+-- | Creates a 'EnumerationValue' value with any optional fields omitted.
 mkEnumerationValue ::
   -- | 'value'
-  Lude.Text ->
+  Types.Value ->
   EnumerationValue
-mkEnumerationValue pValue_ =
-  EnumerationValue' {value = pValue_, synonyms = Lude.Nothing}
+mkEnumerationValue value =
+  EnumerationValue' {value, synonyms = Core.Nothing}
 
 -- | The value of the slot type.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-evValue :: Lens.Lens' EnumerationValue Lude.Text
-evValue = Lens.lens (value :: EnumerationValue -> Lude.Text) (\s a -> s {value = a} :: EnumerationValue)
+evValue :: Lens.Lens' EnumerationValue Types.Value
+evValue = Lens.field @"value"
 {-# DEPRECATED evValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | Additional values related to the slot type value.
 --
 -- /Note:/ Consider using 'synonyms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-evSynonyms :: Lens.Lens' EnumerationValue (Lude.Maybe [Lude.Text])
-evSynonyms = Lens.lens (synonyms :: EnumerationValue -> Lude.Maybe [Lude.Text]) (\s a -> s {synonyms = a} :: EnumerationValue)
+evSynonyms :: Lens.Lens' EnumerationValue (Core.Maybe [Types.Value])
+evSynonyms = Lens.field @"synonyms"
 {-# DEPRECATED evSynonyms "Use generic-lens or generic-optics with 'synonyms' instead." #-}
 
-instance Lude.FromJSON EnumerationValue where
-  parseJSON =
-    Lude.withObject
-      "EnumerationValue"
-      ( \x ->
-          EnumerationValue'
-            Lude.<$> (x Lude..: "value")
-            Lude.<*> (x Lude..:? "synonyms" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON EnumerationValue where
-  toJSON EnumerationValue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("value" Lude..= value),
-            ("synonyms" Lude..=) Lude.<$> synonyms
+instance Core.FromJSON EnumerationValue where
+  toJSON EnumerationValue {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("value" Core..= value),
+            ("synonyms" Core..=) Core.<$> synonyms
           ]
       )
+
+instance Core.FromJSON EnumerationValue where
+  parseJSON =
+    Core.withObject "EnumerationValue" Core.$
+      \x ->
+        EnumerationValue'
+          Core.<$> (x Core..: "value") Core.<*> (x Core..:? "synonyms")

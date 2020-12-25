@@ -13,56 +13,58 @@
 module Network.AWS.AutoScaling.Types.MetricType
   ( MetricType
       ( MetricType',
-        ASGAverageCPUUtilization,
-        ASGAverageNetworkIn,
-        ASGAverageNetworkOut,
-        ALBRequestCountPerTarget
+        MetricTypeASGAverageCPUUtilization,
+        MetricTypeASGAverageNetworkIn,
+        MetricTypeASGAverageNetworkOut,
+        MetricTypeALBRequestCountPerTarget,
+        fromMetricType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MetricType = MetricType' Lude.Text
+newtype MetricType = MetricType' {fromMetricType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ASGAverageCPUUtilization :: MetricType
-pattern ASGAverageCPUUtilization = MetricType' "ASGAverageCPUUtilization"
+pattern MetricTypeASGAverageCPUUtilization :: MetricType
+pattern MetricTypeASGAverageCPUUtilization = MetricType' "ASGAverageCPUUtilization"
 
-pattern ASGAverageNetworkIn :: MetricType
-pattern ASGAverageNetworkIn = MetricType' "ASGAverageNetworkIn"
+pattern MetricTypeASGAverageNetworkIn :: MetricType
+pattern MetricTypeASGAverageNetworkIn = MetricType' "ASGAverageNetworkIn"
 
-pattern ASGAverageNetworkOut :: MetricType
-pattern ASGAverageNetworkOut = MetricType' "ASGAverageNetworkOut"
+pattern MetricTypeASGAverageNetworkOut :: MetricType
+pattern MetricTypeASGAverageNetworkOut = MetricType' "ASGAverageNetworkOut"
 
-pattern ALBRequestCountPerTarget :: MetricType
-pattern ALBRequestCountPerTarget = MetricType' "ALBRequestCountPerTarget"
+pattern MetricTypeALBRequestCountPerTarget :: MetricType
+pattern MetricTypeALBRequestCountPerTarget = MetricType' "ALBRequestCountPerTarget"
 
 {-# COMPLETE
-  ASGAverageCPUUtilization,
-  ASGAverageNetworkIn,
-  ASGAverageNetworkOut,
-  ALBRequestCountPerTarget,
+  MetricTypeASGAverageCPUUtilization,
+  MetricTypeASGAverageNetworkIn,
+  MetricTypeASGAverageNetworkOut,
+  MetricTypeALBRequestCountPerTarget,
   MetricType'
   #-}

@@ -28,111 +28,105 @@ module Network.AWS.CloudFront.ListFieldLevelEncryptionProfiles
     mkListFieldLevelEncryptionProfilesResponse,
 
     -- ** Response lenses
-    lfleprsFieldLevelEncryptionProfileList,
-    lfleprsResponseStatus,
+    lfleprrsFieldLevelEncryptionProfileList,
+    lfleprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListFieldLevelEncryptionProfiles' smart constructor.
 data ListFieldLevelEncryptionProfiles = ListFieldLevelEncryptionProfiles'
   { -- | Use this when paginating results to indicate where to begin in your list of profiles. The results include profiles in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last profile on that page).
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of field-level encryption profiles you want in the response body.
-    maxItems :: Lude.Maybe Lude.Text
+    maxItems :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListFieldLevelEncryptionProfiles' with the minimum fields required to make a request.
---
--- * 'marker' - Use this when paginating results to indicate where to begin in your list of profiles. The results include profiles in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last profile on that page).
--- * 'maxItems' - The maximum number of field-level encryption profiles you want in the response body.
+-- | Creates a 'ListFieldLevelEncryptionProfiles' value with any optional fields omitted.
 mkListFieldLevelEncryptionProfiles ::
   ListFieldLevelEncryptionProfiles
 mkListFieldLevelEncryptionProfiles =
   ListFieldLevelEncryptionProfiles'
-    { marker = Lude.Nothing,
-      maxItems = Lude.Nothing
+    { marker = Core.Nothing,
+      maxItems = Core.Nothing
     }
 
 -- | Use this when paginating results to indicate where to begin in your list of profiles. The results include profiles in the list that occur after the marker. To get the next page of results, set the @Marker@ to the value of the @NextMarker@ from the current page's response (which is also the ID of the last profile on that page).
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lflepMarker :: Lens.Lens' ListFieldLevelEncryptionProfiles (Lude.Maybe Lude.Text)
-lflepMarker = Lens.lens (marker :: ListFieldLevelEncryptionProfiles -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListFieldLevelEncryptionProfiles)
+lflepMarker :: Lens.Lens' ListFieldLevelEncryptionProfiles (Core.Maybe Types.String)
+lflepMarker = Lens.field @"marker"
 {-# DEPRECATED lflepMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of field-level encryption profiles you want in the response body.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lflepMaxItems :: Lens.Lens' ListFieldLevelEncryptionProfiles (Lude.Maybe Lude.Text)
-lflepMaxItems = Lens.lens (maxItems :: ListFieldLevelEncryptionProfiles -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListFieldLevelEncryptionProfiles)
+lflepMaxItems :: Lens.Lens' ListFieldLevelEncryptionProfiles (Core.Maybe Types.String)
+lflepMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED lflepMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Lude.AWSRequest ListFieldLevelEncryptionProfiles where
+instance Core.AWSRequest ListFieldLevelEncryptionProfiles where
   type
     Rs ListFieldLevelEncryptionProfiles =
       ListFieldLevelEncryptionProfilesResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath "/2020-05-31/field-level-encryption-profile",
+        Core._rqQuery =
+          Core.toQueryValue "Marker" Core.<$> marker
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListFieldLevelEncryptionProfilesResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListFieldLevelEncryptionProfiles where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListFieldLevelEncryptionProfiles where
-  toPath = Lude.const "/2020-05-31/field-level-encryption-profile"
-
-instance Lude.ToQuery ListFieldLevelEncryptionProfiles where
-  toQuery ListFieldLevelEncryptionProfiles' {..} =
-    Lude.mconcat
-      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
 -- | /See:/ 'mkListFieldLevelEncryptionProfilesResponse' smart constructor.
 data ListFieldLevelEncryptionProfilesResponse = ListFieldLevelEncryptionProfilesResponse'
   { -- | Returns a list of the field-level encryption profiles that have been created in CloudFront for this account.
-    fieldLevelEncryptionProfileList :: Lude.Maybe FieldLevelEncryptionProfileList,
+    fieldLevelEncryptionProfileList :: Core.Maybe Types.FieldLevelEncryptionProfileList,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListFieldLevelEncryptionProfilesResponse' with the minimum fields required to make a request.
---
--- * 'fieldLevelEncryptionProfileList' - Returns a list of the field-level encryption profiles that have been created in CloudFront for this account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListFieldLevelEncryptionProfilesResponse' value with any optional fields omitted.
 mkListFieldLevelEncryptionProfilesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListFieldLevelEncryptionProfilesResponse
-mkListFieldLevelEncryptionProfilesResponse pResponseStatus_ =
+mkListFieldLevelEncryptionProfilesResponse responseStatus =
   ListFieldLevelEncryptionProfilesResponse'
     { fieldLevelEncryptionProfileList =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Returns a list of the field-level encryption profiles that have been created in CloudFront for this account.
 --
 -- /Note:/ Consider using 'fieldLevelEncryptionProfileList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfleprsFieldLevelEncryptionProfileList :: Lens.Lens' ListFieldLevelEncryptionProfilesResponse (Lude.Maybe FieldLevelEncryptionProfileList)
-lfleprsFieldLevelEncryptionProfileList = Lens.lens (fieldLevelEncryptionProfileList :: ListFieldLevelEncryptionProfilesResponse -> Lude.Maybe FieldLevelEncryptionProfileList) (\s a -> s {fieldLevelEncryptionProfileList = a} :: ListFieldLevelEncryptionProfilesResponse)
-{-# DEPRECATED lfleprsFieldLevelEncryptionProfileList "Use generic-lens or generic-optics with 'fieldLevelEncryptionProfileList' instead." #-}
+lfleprrsFieldLevelEncryptionProfileList :: Lens.Lens' ListFieldLevelEncryptionProfilesResponse (Core.Maybe Types.FieldLevelEncryptionProfileList)
+lfleprrsFieldLevelEncryptionProfileList = Lens.field @"fieldLevelEncryptionProfileList"
+{-# DEPRECATED lfleprrsFieldLevelEncryptionProfileList "Use generic-lens or generic-optics with 'fieldLevelEncryptionProfileList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lfleprsResponseStatus :: Lens.Lens' ListFieldLevelEncryptionProfilesResponse Lude.Int
-lfleprsResponseStatus = Lens.lens (responseStatus :: ListFieldLevelEncryptionProfilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListFieldLevelEncryptionProfilesResponse)
-{-# DEPRECATED lfleprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lfleprrsResponseStatus :: Lens.Lens' ListFieldLevelEncryptionProfilesResponse Core.Int
+lfleprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lfleprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,47 +13,52 @@
 module Network.AWS.Redshift.Types.ReservedNodeOfferingType
   ( ReservedNodeOfferingType
       ( ReservedNodeOfferingType',
-        Regular,
-        Upgradable
+        ReservedNodeOfferingTypeRegular,
+        ReservedNodeOfferingTypeUpgradable,
+        fromReservedNodeOfferingType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
 
-newtype ReservedNodeOfferingType = ReservedNodeOfferingType' Lude.Text
+newtype ReservedNodeOfferingType = ReservedNodeOfferingType'
+  { fromReservedNodeOfferingType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Regular :: ReservedNodeOfferingType
-pattern Regular = ReservedNodeOfferingType' "Regular"
+pattern ReservedNodeOfferingTypeRegular :: ReservedNodeOfferingType
+pattern ReservedNodeOfferingTypeRegular = ReservedNodeOfferingType' "Regular"
 
-pattern Upgradable :: ReservedNodeOfferingType
-pattern Upgradable = ReservedNodeOfferingType' "Upgradable"
+pattern ReservedNodeOfferingTypeUpgradable :: ReservedNodeOfferingType
+pattern ReservedNodeOfferingTypeUpgradable = ReservedNodeOfferingType' "Upgradable"
 
 {-# COMPLETE
-  Regular,
-  Upgradable,
+  ReservedNodeOfferingTypeRegular,
+  ReservedNodeOfferingTypeUpgradable,
   ReservedNodeOfferingType'
   #-}

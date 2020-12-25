@@ -17,85 +17,57 @@ module Network.AWS.MediaStore.Types.Container
     mkContainer,
 
     -- * Lenses
-    cCreationTime,
-    cStatus,
-    cAccessLoggingEnabled,
     cARN,
-    cName,
+    cAccessLoggingEnabled,
+    cCreationTime,
     cEndpoint,
+    cName,
+    cStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types.ContainerStatus
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaStore.Types.ContainerARN as Types
+import qualified Network.AWS.MediaStore.Types.ContainerName as Types
+import qualified Network.AWS.MediaStore.Types.ContainerStatus as Types
+import qualified Network.AWS.MediaStore.Types.Endpoint as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | This section describes operations that you can perform on an AWS Elemental MediaStore container.
 --
 -- /See:/ 'mkContainer' smart constructor.
 data Container = Container'
-  { -- | Unix timestamp.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The status of container creation or deletion. The status is one of the following: @CREATING@ , @ACTIVE@ , or @DELETING@ . While the service is creating the container, the status is @CREATING@ . When the endpoint is available, the status changes to @ACTIVE@ .
-    status :: Lude.Maybe ContainerStatus,
-    -- | The state of access logging on the container. This value is @false@ by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to @true@ , indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.
-    accessLoggingEnabled :: Lude.Maybe Lude.Bool,
-    -- | The Amazon Resource Name (ARN) of the container. The ARN has the following format:
+  { -- | The Amazon Resource Name (ARN) of the container. The ARN has the following format:
     --
     -- arn:aws:<region>:<account that owns this container>:container/<name of container>
     -- For example: arn:aws:mediastore:us-west-2:111122223333:container/movies
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the container.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.ContainerARN,
+    -- | The state of access logging on the container. This value is @false@ by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to @true@ , indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.
+    accessLoggingEnabled :: Core.Maybe Core.Bool,
+    -- | Unix timestamp.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The DNS endpoint of the container. Use the endpoint to identify the specific container when sending requests to the data plane. The service assigns this value when the container is created. Once the value has been assigned, it does not change.
-    endpoint :: Lude.Maybe Lude.Text
+    endpoint :: Core.Maybe Types.Endpoint,
+    -- | The name of the container.
+    name :: Core.Maybe Types.ContainerName,
+    -- | The status of container creation or deletion. The status is one of the following: @CREATING@ , @ACTIVE@ , or @DELETING@ . While the service is creating the container, the status is @CREATING@ . When the endpoint is available, the status changes to @ACTIVE@ .
+    status :: Core.Maybe Types.ContainerStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Container' with the minimum fields required to make a request.
---
--- * 'creationTime' - Unix timestamp.
--- * 'status' - The status of container creation or deletion. The status is one of the following: @CREATING@ , @ACTIVE@ , or @DELETING@ . While the service is creating the container, the status is @CREATING@ . When the endpoint is available, the status changes to @ACTIVE@ .
--- * 'accessLoggingEnabled' - The state of access logging on the container. This value is @false@ by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to @true@ , indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.
--- * 'arn' - The Amazon Resource Name (ARN) of the container. The ARN has the following format:
---
--- arn:aws:<region>:<account that owns this container>:container/<name of container>
--- For example: arn:aws:mediastore:us-west-2:111122223333:container/movies
--- * 'name' - The name of the container.
--- * 'endpoint' - The DNS endpoint of the container. Use the endpoint to identify the specific container when sending requests to the data plane. The service assigns this value when the container is created. Once the value has been assigned, it does not change.
+-- | Creates a 'Container' value with any optional fields omitted.
 mkContainer ::
   Container
 mkContainer =
   Container'
-    { creationTime = Lude.Nothing,
-      status = Lude.Nothing,
-      accessLoggingEnabled = Lude.Nothing,
-      arn = Lude.Nothing,
-      name = Lude.Nothing,
-      endpoint = Lude.Nothing
+    { arn = Core.Nothing,
+      accessLoggingEnabled = Core.Nothing,
+      creationTime = Core.Nothing,
+      endpoint = Core.Nothing,
+      name = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | Unix timestamp.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCreationTime :: Lens.Lens' Container (Lude.Maybe Lude.Timestamp)
-cCreationTime = Lens.lens (creationTime :: Container -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: Container)
-{-# DEPRECATED cCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The status of container creation or deletion. The status is one of the following: @CREATING@ , @ACTIVE@ , or @DELETING@ . While the service is creating the container, the status is @CREATING@ . When the endpoint is available, the status changes to @ACTIVE@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cStatus :: Lens.Lens' Container (Lude.Maybe ContainerStatus)
-cStatus = Lens.lens (status :: Container -> Lude.Maybe ContainerStatus) (\s a -> s {status = a} :: Container)
-{-# DEPRECATED cStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The state of access logging on the container. This value is @false@ by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to @true@ , indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.
---
--- /Note:/ Consider using 'accessLoggingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cAccessLoggingEnabled :: Lens.Lens' Container (Lude.Maybe Lude.Bool)
-cAccessLoggingEnabled = Lens.lens (accessLoggingEnabled :: Container -> Lude.Maybe Lude.Bool) (\s a -> s {accessLoggingEnabled = a} :: Container)
-{-# DEPRECATED cAccessLoggingEnabled "Use generic-lens or generic-optics with 'accessLoggingEnabled' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the container. The ARN has the following format:
 --
@@ -103,34 +75,53 @@ cAccessLoggingEnabled = Lens.lens (accessLoggingEnabled :: Container -> Lude.May
 -- For example: arn:aws:mediastore:us-west-2:111122223333:container/movies
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cARN :: Lens.Lens' Container (Lude.Maybe Lude.Text)
-cARN = Lens.lens (arn :: Container -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Container)
+cARN :: Lens.Lens' Container (Core.Maybe Types.ContainerARN)
+cARN = Lens.field @"arn"
 {-# DEPRECATED cARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The name of the container.
+-- | The state of access logging on the container. This value is @false@ by default, indicating that AWS Elemental MediaStore does not send access logs to Amazon CloudWatch Logs. When you enable access logging on the container, MediaStore changes this value to @true@ , indicating that the service delivers access logs for objects stored in that container to CloudWatch Logs.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cName :: Lens.Lens' Container (Lude.Maybe Lude.Text)
-cName = Lens.lens (name :: Container -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Container)
-{-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'accessLoggingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cAccessLoggingEnabled :: Lens.Lens' Container (Core.Maybe Core.Bool)
+cAccessLoggingEnabled = Lens.field @"accessLoggingEnabled"
+{-# DEPRECATED cAccessLoggingEnabled "Use generic-lens or generic-optics with 'accessLoggingEnabled' instead." #-}
+
+-- | Unix timestamp.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCreationTime :: Lens.Lens' Container (Core.Maybe Core.NominalDiffTime)
+cCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED cCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The DNS endpoint of the container. Use the endpoint to identify the specific container when sending requests to the data plane. The service assigns this value when the container is created. Once the value has been assigned, it does not change.
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cEndpoint :: Lens.Lens' Container (Lude.Maybe Lude.Text)
-cEndpoint = Lens.lens (endpoint :: Container -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: Container)
+cEndpoint :: Lens.Lens' Container (Core.Maybe Types.Endpoint)
+cEndpoint = Lens.field @"endpoint"
 {-# DEPRECATED cEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
 
-instance Lude.FromJSON Container where
+-- | The name of the container.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cName :: Lens.Lens' Container (Core.Maybe Types.ContainerName)
+cName = Lens.field @"name"
+{-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The status of container creation or deletion. The status is one of the following: @CREATING@ , @ACTIVE@ , or @DELETING@ . While the service is creating the container, the status is @CREATING@ . When the endpoint is available, the status changes to @ACTIVE@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cStatus :: Lens.Lens' Container (Core.Maybe Types.ContainerStatus)
+cStatus = Lens.field @"status"
+{-# DEPRECATED cStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON Container where
   parseJSON =
-    Lude.withObject
-      "Container"
-      ( \x ->
-          Container'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "AccessLoggingEnabled")
-            Lude.<*> (x Lude..:? "ARN")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Endpoint")
-      )
+    Core.withObject "Container" Core.$
+      \x ->
+        Container'
+          Core.<$> (x Core..:? "ARN")
+          Core.<*> (x Core..:? "AccessLoggingEnabled")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "Endpoint")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Status")

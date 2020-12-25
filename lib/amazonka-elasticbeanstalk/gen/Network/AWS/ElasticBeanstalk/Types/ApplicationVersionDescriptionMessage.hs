@@ -21,39 +21,37 @@ module Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescription
+import qualified Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescription as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Result message wrapping a single description of an application version.
 --
 -- /See:/ 'mkApplicationVersionDescriptionMessage' smart constructor.
 newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage'
   { -- | The 'ApplicationVersionDescription' of the application version.
-    applicationVersion :: Lude.Maybe ApplicationVersionDescription
+    applicationVersion :: Core.Maybe Types.ApplicationVersionDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'ApplicationVersionDescriptionMessage' with the minimum fields required to make a request.
---
--- * 'applicationVersion' - The 'ApplicationVersionDescription' of the application version.
+-- | Creates a 'ApplicationVersionDescriptionMessage' value with any optional fields omitted.
 mkApplicationVersionDescriptionMessage ::
   ApplicationVersionDescriptionMessage
 mkApplicationVersionDescriptionMessage =
   ApplicationVersionDescriptionMessage'
     { applicationVersion =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The 'ApplicationVersionDescription' of the application version.
 --
 -- /Note:/ Consider using 'applicationVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdmApplicationVersion :: Lens.Lens' ApplicationVersionDescriptionMessage (Lude.Maybe ApplicationVersionDescription)
-avdmApplicationVersion = Lens.lens (applicationVersion :: ApplicationVersionDescriptionMessage -> Lude.Maybe ApplicationVersionDescription) (\s a -> s {applicationVersion = a} :: ApplicationVersionDescriptionMessage)
+avdmApplicationVersion :: Lens.Lens' ApplicationVersionDescriptionMessage (Core.Maybe Types.ApplicationVersionDescription)
+avdmApplicationVersion = Lens.field @"applicationVersion"
 {-# DEPRECATED avdmApplicationVersion "Use generic-lens or generic-optics with 'applicationVersion' instead." #-}
 
-instance Lude.FromXML ApplicationVersionDescriptionMessage where
+instance Core.FromXML ApplicationVersionDescriptionMessage where
   parseXML x =
     ApplicationVersionDescriptionMessage'
-      Lude.<$> (x Lude..@? "ApplicationVersion")
+      Core.<$> (x Core..@? "ApplicationVersion")

@@ -39,72 +39,63 @@ module Network.AWS.S3.DeleteBucketWebsite
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkDeleteBucketWebsite' smart constructor.
 data DeleteBucketWebsite = DeleteBucketWebsite'
   { -- | The bucket name for which you want to remove the website configuration.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketWebsite' with the minimum fields required to make a request.
---
--- * 'bucket' - The bucket name for which you want to remove the website configuration.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'DeleteBucketWebsite' value with any optional fields omitted.
 mkDeleteBucketWebsite ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   DeleteBucketWebsite
-mkDeleteBucketWebsite pBucket_ =
-  DeleteBucketWebsite'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
-    }
+mkDeleteBucketWebsite bucket =
+  DeleteBucketWebsite' {bucket, expectedBucketOwner = Core.Nothing}
 
 -- | The bucket name for which you want to remove the website configuration.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbwBucket :: Lens.Lens' DeleteBucketWebsite BucketName
-dbwBucket = Lens.lens (bucket :: DeleteBucketWebsite -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketWebsite)
+dbwBucket :: Lens.Lens' DeleteBucketWebsite Types.BucketName
+dbwBucket = Lens.field @"bucket"
 {-# DEPRECATED dbwBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbwExpectedBucketOwner :: Lens.Lens' DeleteBucketWebsite (Lude.Maybe Lude.Text)
-dbwExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketWebsite -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketWebsite)
+dbwExpectedBucketOwner :: Lens.Lens' DeleteBucketWebsite (Core.Maybe Types.ExpectedBucketOwner)
+dbwExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED dbwExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest DeleteBucketWebsite where
+instance Core.AWSRequest DeleteBucketWebsite where
   type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
-  request = Req.delete s3Service
-  response = Res.receiveNull DeleteBucketWebsiteResponse'
-
-instance Lude.ToHeaders DeleteBucketWebsite where
-  toHeaders DeleteBucketWebsite' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath DeleteBucketWebsite where
-  toPath DeleteBucketWebsite' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery DeleteBucketWebsite where
-  toQuery = Lude.const (Lude.mconcat ["website"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("website", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteBucketWebsiteResponse'
 
 -- | /See:/ 'mkDeleteBucketWebsiteResponse' smart constructor.
 data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketWebsiteResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteBucketWebsiteResponse' value with any optional fields omitted.
 mkDeleteBucketWebsiteResponse ::
   DeleteBucketWebsiteResponse
 mkDeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse'

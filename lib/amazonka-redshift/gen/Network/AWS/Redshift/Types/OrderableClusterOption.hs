@@ -25,76 +25,72 @@ module Network.AWS.Redshift.Types.OrderableClusterOption
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.AvailabilityZone
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.AvailabilityZone as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes an orderable cluster option.
 --
 -- /See:/ 'mkOrderableClusterOption' smart constructor.
 data OrderableClusterOption = OrderableClusterOption'
   { -- | A list of availability zones for the orderable cluster.
-    availabilityZones :: Lude.Maybe [AvailabilityZone],
+    availabilityZones :: Core.Maybe [Types.AvailabilityZone],
     -- | The cluster type, for example @multi-node@ .
-    clusterType :: Lude.Maybe Lude.Text,
+    clusterType :: Core.Maybe Types.String,
     -- | The version of the orderable cluster.
-    clusterVersion :: Lude.Maybe Lude.Text,
+    clusterVersion :: Core.Maybe Types.String,
     -- | The node type for the orderable cluster.
-    nodeType :: Lude.Maybe Lude.Text
+    nodeType :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OrderableClusterOption' with the minimum fields required to make a request.
---
--- * 'availabilityZones' - A list of availability zones for the orderable cluster.
--- * 'clusterType' - The cluster type, for example @multi-node@ .
--- * 'clusterVersion' - The version of the orderable cluster.
--- * 'nodeType' - The node type for the orderable cluster.
+-- | Creates a 'OrderableClusterOption' value with any optional fields omitted.
 mkOrderableClusterOption ::
   OrderableClusterOption
 mkOrderableClusterOption =
   OrderableClusterOption'
-    { availabilityZones = Lude.Nothing,
-      clusterType = Lude.Nothing,
-      clusterVersion = Lude.Nothing,
-      nodeType = Lude.Nothing
+    { availabilityZones = Core.Nothing,
+      clusterType = Core.Nothing,
+      clusterVersion = Core.Nothing,
+      nodeType = Core.Nothing
     }
 
 -- | A list of availability zones for the orderable cluster.
 --
 -- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocoAvailabilityZones :: Lens.Lens' OrderableClusterOption (Lude.Maybe [AvailabilityZone])
-ocoAvailabilityZones = Lens.lens (availabilityZones :: OrderableClusterOption -> Lude.Maybe [AvailabilityZone]) (\s a -> s {availabilityZones = a} :: OrderableClusterOption)
+ocoAvailabilityZones :: Lens.Lens' OrderableClusterOption (Core.Maybe [Types.AvailabilityZone])
+ocoAvailabilityZones = Lens.field @"availabilityZones"
 {-# DEPRECATED ocoAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | The cluster type, for example @multi-node@ .
 --
 -- /Note:/ Consider using 'clusterType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocoClusterType :: Lens.Lens' OrderableClusterOption (Lude.Maybe Lude.Text)
-ocoClusterType = Lens.lens (clusterType :: OrderableClusterOption -> Lude.Maybe Lude.Text) (\s a -> s {clusterType = a} :: OrderableClusterOption)
+ocoClusterType :: Lens.Lens' OrderableClusterOption (Core.Maybe Types.String)
+ocoClusterType = Lens.field @"clusterType"
 {-# DEPRECATED ocoClusterType "Use generic-lens or generic-optics with 'clusterType' instead." #-}
 
 -- | The version of the orderable cluster.
 --
 -- /Note:/ Consider using 'clusterVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocoClusterVersion :: Lens.Lens' OrderableClusterOption (Lude.Maybe Lude.Text)
-ocoClusterVersion = Lens.lens (clusterVersion :: OrderableClusterOption -> Lude.Maybe Lude.Text) (\s a -> s {clusterVersion = a} :: OrderableClusterOption)
+ocoClusterVersion :: Lens.Lens' OrderableClusterOption (Core.Maybe Types.String)
+ocoClusterVersion = Lens.field @"clusterVersion"
 {-# DEPRECATED ocoClusterVersion "Use generic-lens or generic-optics with 'clusterVersion' instead." #-}
 
 -- | The node type for the orderable cluster.
 --
 -- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocoNodeType :: Lens.Lens' OrderableClusterOption (Lude.Maybe Lude.Text)
-ocoNodeType = Lens.lens (nodeType :: OrderableClusterOption -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: OrderableClusterOption)
+ocoNodeType :: Lens.Lens' OrderableClusterOption (Core.Maybe Types.String)
+ocoNodeType = Lens.field @"nodeType"
 {-# DEPRECATED ocoNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
-instance Lude.FromXML OrderableClusterOption where
+instance Core.FromXML OrderableClusterOption where
   parseXML x =
     OrderableClusterOption'
-      Lude.<$> ( x Lude..@? "AvailabilityZones" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "AvailabilityZone")
+      Core.<$> ( x Core..@? "AvailabilityZones"
+                   Core..<@> Core.parseXMLList "AvailabilityZone"
                )
-      Lude.<*> (x Lude..@? "ClusterType")
-      Lude.<*> (x Lude..@? "ClusterVersion")
-      Lude.<*> (x Lude..@? "NodeType")
+      Core.<*> (x Core..@? "ClusterType")
+      Core.<*> (x Core..@? "ClusterVersion")
+      Core.<*> (x Core..@? "NodeType")

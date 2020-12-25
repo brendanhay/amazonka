@@ -13,81 +13,86 @@
 module Network.AWS.DirectConnect.Types.ConnectionState
   ( ConnectionState
       ( ConnectionState',
-        CSOrdering,
-        CSRequested,
-        CSPending,
-        CSAvailable,
-        CSDown,
-        CSDeleting,
-        CSDeleted,
-        CSRejected,
-        CSUnknown
+        ConnectionStateOrdering,
+        ConnectionStateRequested,
+        ConnectionStatePending,
+        ConnectionStateAvailable,
+        ConnectionStateDown,
+        ConnectionStateDeleting,
+        ConnectionStateDeleted,
+        ConnectionStateRejected,
+        ConnectionStateUnknown,
+        fromConnectionState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConnectionState = ConnectionState' Lude.Text
+newtype ConnectionState = ConnectionState'
+  { fromConnectionState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSOrdering :: ConnectionState
-pattern CSOrdering = ConnectionState' "ordering"
+pattern ConnectionStateOrdering :: ConnectionState
+pattern ConnectionStateOrdering = ConnectionState' "ordering"
 
-pattern CSRequested :: ConnectionState
-pattern CSRequested = ConnectionState' "requested"
+pattern ConnectionStateRequested :: ConnectionState
+pattern ConnectionStateRequested = ConnectionState' "requested"
 
-pattern CSPending :: ConnectionState
-pattern CSPending = ConnectionState' "pending"
+pattern ConnectionStatePending :: ConnectionState
+pattern ConnectionStatePending = ConnectionState' "pending"
 
-pattern CSAvailable :: ConnectionState
-pattern CSAvailable = ConnectionState' "available"
+pattern ConnectionStateAvailable :: ConnectionState
+pattern ConnectionStateAvailable = ConnectionState' "available"
 
-pattern CSDown :: ConnectionState
-pattern CSDown = ConnectionState' "down"
+pattern ConnectionStateDown :: ConnectionState
+pattern ConnectionStateDown = ConnectionState' "down"
 
-pattern CSDeleting :: ConnectionState
-pattern CSDeleting = ConnectionState' "deleting"
+pattern ConnectionStateDeleting :: ConnectionState
+pattern ConnectionStateDeleting = ConnectionState' "deleting"
 
-pattern CSDeleted :: ConnectionState
-pattern CSDeleted = ConnectionState' "deleted"
+pattern ConnectionStateDeleted :: ConnectionState
+pattern ConnectionStateDeleted = ConnectionState' "deleted"
 
-pattern CSRejected :: ConnectionState
-pattern CSRejected = ConnectionState' "rejected"
+pattern ConnectionStateRejected :: ConnectionState
+pattern ConnectionStateRejected = ConnectionState' "rejected"
 
-pattern CSUnknown :: ConnectionState
-pattern CSUnknown = ConnectionState' "unknown"
+pattern ConnectionStateUnknown :: ConnectionState
+pattern ConnectionStateUnknown = ConnectionState' "unknown"
 
 {-# COMPLETE
-  CSOrdering,
-  CSRequested,
-  CSPending,
-  CSAvailable,
-  CSDown,
-  CSDeleting,
-  CSDeleted,
-  CSRejected,
-  CSUnknown,
+  ConnectionStateOrdering,
+  ConnectionStateRequested,
+  ConnectionStatePending,
+  ConnectionStateAvailable,
+  ConnectionStateDown,
+  ConnectionStateDeleting,
+  ConnectionStateDeleted,
+  ConnectionStateRejected,
+  ConnectionStateUnknown,
   ConnectionState'
   #-}

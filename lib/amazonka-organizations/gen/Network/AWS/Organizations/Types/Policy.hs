@@ -23,49 +23,45 @@ module Network.AWS.Organizations.Types.Policy
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Organizations.Types.PolicySummary
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Organizations.Types.Content as Types
+import qualified Network.AWS.Organizations.Types.PolicySummary as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains rules to be applied to the affected accounts. Policies can be attached directly to accounts, or to roots and OUs to affect all accounts in those hierarchies.
 --
 -- /See:/ 'mkPolicy' smart constructor.
 data Policy = Policy'
   { -- | The text content of the policy.
-    content :: Lude.Maybe Lude.Text,
+    content :: Core.Maybe Types.Content,
     -- | A structure that contains additional details about the policy.
-    policySummary :: Lude.Maybe PolicySummary
+    policySummary :: Core.Maybe Types.PolicySummary
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Policy' with the minimum fields required to make a request.
---
--- * 'content' - The text content of the policy.
--- * 'policySummary' - A structure that contains additional details about the policy.
+-- | Creates a 'Policy' value with any optional fields omitted.
 mkPolicy ::
   Policy
 mkPolicy =
-  Policy' {content = Lude.Nothing, policySummary = Lude.Nothing}
+  Policy' {content = Core.Nothing, policySummary = Core.Nothing}
 
 -- | The text content of the policy.
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pContent :: Lens.Lens' Policy (Lude.Maybe Lude.Text)
-pContent = Lens.lens (content :: Policy -> Lude.Maybe Lude.Text) (\s a -> s {content = a} :: Policy)
+pContent :: Lens.Lens' Policy (Core.Maybe Types.Content)
+pContent = Lens.field @"content"
 {-# DEPRECATED pContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | A structure that contains additional details about the policy.
 --
 -- /Note:/ Consider using 'policySummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPolicySummary :: Lens.Lens' Policy (Lude.Maybe PolicySummary)
-pPolicySummary = Lens.lens (policySummary :: Policy -> Lude.Maybe PolicySummary) (\s a -> s {policySummary = a} :: Policy)
+pPolicySummary :: Lens.Lens' Policy (Core.Maybe Types.PolicySummary)
+pPolicySummary = Lens.field @"policySummary"
 {-# DEPRECATED pPolicySummary "Use generic-lens or generic-optics with 'policySummary' instead." #-}
 
-instance Lude.FromJSON Policy where
+instance Core.FromJSON Policy where
   parseJSON =
-    Lude.withObject
-      "Policy"
-      ( \x ->
-          Policy'
-            Lude.<$> (x Lude..:? "Content") Lude.<*> (x Lude..:? "PolicySummary")
-      )
+    Core.withObject "Policy" Core.$
+      \x ->
+        Policy'
+          Core.<$> (x Core..:? "Content") Core.<*> (x Core..:? "PolicySummary")

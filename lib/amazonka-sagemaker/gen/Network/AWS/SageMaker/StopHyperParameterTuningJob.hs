@@ -31,80 +31,69 @@ module Network.AWS.SageMaker.StopHyperParameterTuningJob
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkStopHyperParameterTuningJob' smart constructor.
 newtype StopHyperParameterTuningJob = StopHyperParameterTuningJob'
   { -- | The name of the tuning job to stop.
-    hyperParameterTuningJobName :: Lude.Text
+    hyperParameterTuningJobName :: Types.HyperParameterTuningJobName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopHyperParameterTuningJob' with the minimum fields required to make a request.
---
--- * 'hyperParameterTuningJobName' - The name of the tuning job to stop.
+-- | Creates a 'StopHyperParameterTuningJob' value with any optional fields omitted.
 mkStopHyperParameterTuningJob ::
   -- | 'hyperParameterTuningJobName'
-  Lude.Text ->
+  Types.HyperParameterTuningJobName ->
   StopHyperParameterTuningJob
-mkStopHyperParameterTuningJob pHyperParameterTuningJobName_ =
-  StopHyperParameterTuningJob'
-    { hyperParameterTuningJobName =
-        pHyperParameterTuningJobName_
-    }
+mkStopHyperParameterTuningJob hyperParameterTuningJobName =
+  StopHyperParameterTuningJob' {hyperParameterTuningJobName}
 
 -- | The name of the tuning job to stop.
 --
 -- /Note:/ Consider using 'hyperParameterTuningJobName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-shptjHyperParameterTuningJobName :: Lens.Lens' StopHyperParameterTuningJob Lude.Text
-shptjHyperParameterTuningJobName = Lens.lens (hyperParameterTuningJobName :: StopHyperParameterTuningJob -> Lude.Text) (\s a -> s {hyperParameterTuningJobName = a} :: StopHyperParameterTuningJob)
+shptjHyperParameterTuningJobName :: Lens.Lens' StopHyperParameterTuningJob Types.HyperParameterTuningJobName
+shptjHyperParameterTuningJobName = Lens.field @"hyperParameterTuningJobName"
 {-# DEPRECATED shptjHyperParameterTuningJobName "Use generic-lens or generic-optics with 'hyperParameterTuningJobName' instead." #-}
 
-instance Lude.AWSRequest StopHyperParameterTuningJob where
-  type
-    Rs StopHyperParameterTuningJob =
-      StopHyperParameterTuningJobResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull StopHyperParameterTuningJobResponse'
-
-instance Lude.ToHeaders StopHyperParameterTuningJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.StopHyperParameterTuningJob" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopHyperParameterTuningJob where
-  toJSON StopHyperParameterTuningJob' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON StopHyperParameterTuningJob where
+  toJSON StopHyperParameterTuningJob {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "HyperParameterTuningJobName"
-                  Lude..= hyperParameterTuningJobName
+                  Core..= hyperParameterTuningJobName
               )
           ]
       )
 
-instance Lude.ToPath StopHyperParameterTuningJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopHyperParameterTuningJob where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest StopHyperParameterTuningJob where
+  type
+    Rs StopHyperParameterTuningJob =
+      StopHyperParameterTuningJobResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.StopHyperParameterTuningJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveNull StopHyperParameterTuningJobResponse'
 
 -- | /See:/ 'mkStopHyperParameterTuningJobResponse' smart constructor.
 data StopHyperParameterTuningJobResponse = StopHyperParameterTuningJobResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopHyperParameterTuningJobResponse' with the minimum fields required to make a request.
+-- | Creates a 'StopHyperParameterTuningJobResponse' value with any optional fields omitted.
 mkStopHyperParameterTuningJobResponse ::
   StopHyperParameterTuningJobResponse
 mkStopHyperParameterTuningJobResponse =

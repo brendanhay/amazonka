@@ -20,10 +20,10 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     mkSwapEnvironmentCNAMEs,
 
     -- ** Request lenses
-    secnameDestinationEnvironmentName,
     secnameDestinationEnvironmentId,
-    secnameSourceEnvironmentName,
+    secnameDestinationEnvironmentName,
     secnameSourceEnvironmentId,
+    secnameSourceEnvironmentName,
 
     -- * Destructuring the response
     SwapEnvironmentCNAMEsResponse (..),
@@ -31,124 +31,122 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Swaps the CNAMEs of two environments.
 --
 -- /See:/ 'mkSwapEnvironmentCNAMEs' smart constructor.
 data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
-  { -- | The name of the destination environment.
-    --
-    -- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentName@ with the @DestinationEnvironmentName@ .
-    destinationEnvironmentName :: Lude.Maybe Lude.Text,
-    -- | The ID of the destination environment.
+  { -- | The ID of the destination environment.
     --
     -- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@ .
-    destinationEnvironmentId :: Lude.Maybe Lude.Text,
-    -- | The name of the source environment.
+    destinationEnvironmentId :: Core.Maybe Types.DestinationEnvironmentId,
+    -- | The name of the destination environment.
     --
-    -- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentName@ , you must specify the @DestinationEnvironmentName@ .
-    sourceEnvironmentName :: Lude.Maybe Lude.Text,
+    -- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentName@ with the @DestinationEnvironmentName@ .
+    destinationEnvironmentName :: Core.Maybe Types.DestinationEnvironmentName,
     -- | The ID of the source environment.
     --
     -- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentId@ , you must specify the @DestinationEnvironmentId@ .
-    sourceEnvironmentId :: Lude.Maybe Lude.Text
+    sourceEnvironmentId :: Core.Maybe Types.SourceEnvironmentId,
+    -- | The name of the source environment.
+    --
+    -- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentName@ , you must specify the @DestinationEnvironmentName@ .
+    sourceEnvironmentName :: Core.Maybe Types.SourceEnvironmentName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SwapEnvironmentCNAMEs' with the minimum fields required to make a request.
---
--- * 'destinationEnvironmentName' - The name of the destination environment.
---
--- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentName@ with the @DestinationEnvironmentName@ .
--- * 'destinationEnvironmentId' - The ID of the destination environment.
---
--- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@ .
--- * 'sourceEnvironmentName' - The name of the source environment.
---
--- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentName@ , you must specify the @DestinationEnvironmentName@ .
--- * 'sourceEnvironmentId' - The ID of the source environment.
---
--- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentId@ , you must specify the @DestinationEnvironmentId@ .
+-- | Creates a 'SwapEnvironmentCNAMEs' value with any optional fields omitted.
 mkSwapEnvironmentCNAMEs ::
   SwapEnvironmentCNAMEs
 mkSwapEnvironmentCNAMEs =
   SwapEnvironmentCNAMEs'
-    { destinationEnvironmentName = Lude.Nothing,
-      destinationEnvironmentId = Lude.Nothing,
-      sourceEnvironmentName = Lude.Nothing,
-      sourceEnvironmentId = Lude.Nothing
+    { destinationEnvironmentId = Core.Nothing,
+      destinationEnvironmentName = Core.Nothing,
+      sourceEnvironmentId = Core.Nothing,
+      sourceEnvironmentName = Core.Nothing
     }
-
--- | The name of the destination environment.
---
--- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentName@ with the @DestinationEnvironmentName@ .
---
--- /Note:/ Consider using 'destinationEnvironmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-secnameDestinationEnvironmentName :: Lens.Lens' SwapEnvironmentCNAMEs (Lude.Maybe Lude.Text)
-secnameDestinationEnvironmentName = Lens.lens (destinationEnvironmentName :: SwapEnvironmentCNAMEs -> Lude.Maybe Lude.Text) (\s a -> s {destinationEnvironmentName = a} :: SwapEnvironmentCNAMEs)
-{-# DEPRECATED secnameDestinationEnvironmentName "Use generic-lens or generic-optics with 'destinationEnvironmentName' instead." #-}
 
 -- | The ID of the destination environment.
 --
 -- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentId@ with the @DestinationEnvironmentId@ .
 --
 -- /Note:/ Consider using 'destinationEnvironmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-secnameDestinationEnvironmentId :: Lens.Lens' SwapEnvironmentCNAMEs (Lude.Maybe Lude.Text)
-secnameDestinationEnvironmentId = Lens.lens (destinationEnvironmentId :: SwapEnvironmentCNAMEs -> Lude.Maybe Lude.Text) (\s a -> s {destinationEnvironmentId = a} :: SwapEnvironmentCNAMEs)
+secnameDestinationEnvironmentId :: Lens.Lens' SwapEnvironmentCNAMEs (Core.Maybe Types.DestinationEnvironmentId)
+secnameDestinationEnvironmentId = Lens.field @"destinationEnvironmentId"
 {-# DEPRECATED secnameDestinationEnvironmentId "Use generic-lens or generic-optics with 'destinationEnvironmentId' instead." #-}
 
--- | The name of the source environment.
+-- | The name of the destination environment.
 --
--- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentName@ , you must specify the @DestinationEnvironmentName@ .
+-- Condition: You must specify at least the @DestinationEnvironmentID@ or the @DestinationEnvironmentName@ . You may also specify both. You must specify the @SourceEnvironmentName@ with the @DestinationEnvironmentName@ .
 --
--- /Note:/ Consider using 'sourceEnvironmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-secnameSourceEnvironmentName :: Lens.Lens' SwapEnvironmentCNAMEs (Lude.Maybe Lude.Text)
-secnameSourceEnvironmentName = Lens.lens (sourceEnvironmentName :: SwapEnvironmentCNAMEs -> Lude.Maybe Lude.Text) (\s a -> s {sourceEnvironmentName = a} :: SwapEnvironmentCNAMEs)
-{-# DEPRECATED secnameSourceEnvironmentName "Use generic-lens or generic-optics with 'sourceEnvironmentName' instead." #-}
+-- /Note:/ Consider using 'destinationEnvironmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+secnameDestinationEnvironmentName :: Lens.Lens' SwapEnvironmentCNAMEs (Core.Maybe Types.DestinationEnvironmentName)
+secnameDestinationEnvironmentName = Lens.field @"destinationEnvironmentName"
+{-# DEPRECATED secnameDestinationEnvironmentName "Use generic-lens or generic-optics with 'destinationEnvironmentName' instead." #-}
 
 -- | The ID of the source environment.
 --
 -- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentId@ , you must specify the @DestinationEnvironmentId@ .
 --
 -- /Note:/ Consider using 'sourceEnvironmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-secnameSourceEnvironmentId :: Lens.Lens' SwapEnvironmentCNAMEs (Lude.Maybe Lude.Text)
-secnameSourceEnvironmentId = Lens.lens (sourceEnvironmentId :: SwapEnvironmentCNAMEs -> Lude.Maybe Lude.Text) (\s a -> s {sourceEnvironmentId = a} :: SwapEnvironmentCNAMEs)
+secnameSourceEnvironmentId :: Lens.Lens' SwapEnvironmentCNAMEs (Core.Maybe Types.SourceEnvironmentId)
+secnameSourceEnvironmentId = Lens.field @"sourceEnvironmentId"
 {-# DEPRECATED secnameSourceEnvironmentId "Use generic-lens or generic-optics with 'sourceEnvironmentId' instead." #-}
 
-instance Lude.AWSRequest SwapEnvironmentCNAMEs where
+-- | The name of the source environment.
+--
+-- Condition: You must specify at least the @SourceEnvironmentID@ or the @SourceEnvironmentName@ . You may also specify both. If you specify the @SourceEnvironmentName@ , you must specify the @DestinationEnvironmentName@ .
+--
+-- /Note:/ Consider using 'sourceEnvironmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+secnameSourceEnvironmentName :: Lens.Lens' SwapEnvironmentCNAMEs (Core.Maybe Types.SourceEnvironmentName)
+secnameSourceEnvironmentName = Lens.field @"sourceEnvironmentName"
+{-# DEPRECATED secnameSourceEnvironmentName "Use generic-lens or generic-optics with 'sourceEnvironmentName' instead." #-}
+
+instance Core.AWSRequest SwapEnvironmentCNAMEs where
   type Rs SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEsResponse
-  request = Req.postQuery elasticBeanstalkService
-  response = Res.receiveNull SwapEnvironmentCNAMEsResponse'
-
-instance Lude.ToHeaders SwapEnvironmentCNAMEs where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SwapEnvironmentCNAMEs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SwapEnvironmentCNAMEs where
-  toQuery SwapEnvironmentCNAMEs' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SwapEnvironmentCNAMEs" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "DestinationEnvironmentName" Lude.=: destinationEnvironmentName,
-        "DestinationEnvironmentId" Lude.=: destinationEnvironmentId,
-        "SourceEnvironmentName" Lude.=: sourceEnvironmentName,
-        "SourceEnvironmentId" Lude.=: sourceEnvironmentId
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SwapEnvironmentCNAMEs")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> ( Core.toQueryValue "DestinationEnvironmentId"
+                            Core.<$> destinationEnvironmentId
+                        )
+                Core.<> ( Core.toQueryValue "DestinationEnvironmentName"
+                            Core.<$> destinationEnvironmentName
+                        )
+                Core.<> ( Core.toQueryValue "SourceEnvironmentId"
+                            Core.<$> sourceEnvironmentId
+                        )
+                Core.<> ( Core.toQueryValue "SourceEnvironmentName"
+                            Core.<$> sourceEnvironmentName
+                        )
+            )
+      }
+  response = Response.receiveNull SwapEnvironmentCNAMEsResponse'
 
 -- | /See:/ 'mkSwapEnvironmentCNAMEsResponse' smart constructor.
 data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SwapEnvironmentCNAMEsResponse' with the minimum fields required to make a request.
+-- | Creates a 'SwapEnvironmentCNAMEsResponse' value with any optional fields omitted.
 mkSwapEnvironmentCNAMEsResponse ::
   SwapEnvironmentCNAMEsResponse
 mkSwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse'

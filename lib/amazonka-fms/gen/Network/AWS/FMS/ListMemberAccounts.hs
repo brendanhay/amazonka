@@ -24,155 +24,144 @@ module Network.AWS.FMS.ListMemberAccounts
     mkListMemberAccounts,
 
     -- ** Request lenses
-    lmaNextToken,
     lmaMaxResults,
+    lmaNextToken,
 
     -- * Destructuring the response
     ListMemberAccountsResponse (..),
     mkListMemberAccountsResponse,
 
     -- ** Response lenses
-    lmarsNextToken,
-    lmarsMemberAccounts,
-    lmarsResponseStatus,
+    lmarrsMemberAccounts,
+    lmarrsNextToken,
+    lmarrsResponseStatus,
   )
 where
 
-import Network.AWS.FMS.Types
+import qualified Network.AWS.FMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListMemberAccounts' smart constructor.
 data ListMemberAccounts = ListMemberAccounts'
-  { -- | If you specify a value for @MaxResults@ and you have more account IDs than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of IDs. For the second and subsequent @ListMemberAccountsRequest@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of member account IDs.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Specifies the number of member account IDs that you want AWS Firewall Manager to return for this request. If you have more IDs than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of member account IDs.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | Specifies the number of member account IDs that you want AWS Firewall Manager to return for this request. If you have more IDs than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of member account IDs.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If you specify a value for @MaxResults@ and you have more account IDs than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of IDs. For the second and subsequent @ListMemberAccountsRequest@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of member account IDs.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMemberAccounts' with the minimum fields required to make a request.
---
--- * 'nextToken' - If you specify a value for @MaxResults@ and you have more account IDs than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of IDs. For the second and subsequent @ListMemberAccountsRequest@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of member account IDs.
--- * 'maxResults' - Specifies the number of member account IDs that you want AWS Firewall Manager to return for this request. If you have more IDs than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of member account IDs.
+-- | Creates a 'ListMemberAccounts' value with any optional fields omitted.
 mkListMemberAccounts ::
   ListMemberAccounts
 mkListMemberAccounts =
   ListMemberAccounts'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | If you specify a value for @MaxResults@ and you have more account IDs than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of IDs. For the second and subsequent @ListMemberAccountsRequest@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of member account IDs.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmaNextToken :: Lens.Lens' ListMemberAccounts (Lude.Maybe Lude.Text)
-lmaNextToken = Lens.lens (nextToken :: ListMemberAccounts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMemberAccounts)
-{-# DEPRECATED lmaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specifies the number of member account IDs that you want AWS Firewall Manager to return for this request. If you have more IDs than the number that you specify for @MaxResults@ , the response includes a @NextToken@ value that you can use to get another batch of member account IDs.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmaMaxResults :: Lens.Lens' ListMemberAccounts (Lude.Maybe Lude.Natural)
-lmaMaxResults = Lens.lens (maxResults :: ListMemberAccounts -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListMemberAccounts)
+lmaMaxResults :: Lens.Lens' ListMemberAccounts (Core.Maybe Core.Natural)
+lmaMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lmaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListMemberAccounts where
-  page rq rs
-    | Page.stop (rs Lens.^. lmarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lmarsMemberAccounts) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lmaNextToken Lens..~ rs Lens.^. lmarsNextToken
+-- | If you specify a value for @MaxResults@ and you have more account IDs than the number that you specify for @MaxResults@ , AWS Firewall Manager returns a @NextToken@ value in the response that allows you to list another group of IDs. For the second and subsequent @ListMemberAccountsRequest@ requests, specify the value of @NextToken@ from the previous response to get information about another batch of member account IDs.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmaNextToken :: Lens.Lens' ListMemberAccounts (Core.Maybe Types.PaginationToken)
+lmaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListMemberAccounts where
+instance Core.FromJSON ListMemberAccounts where
+  toJSON ListMemberAccounts {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListMemberAccounts where
   type Rs ListMemberAccounts = ListMemberAccountsResponse
-  request = Req.postJSON fmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSFMS_20180101.ListMemberAccounts")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListMemberAccountsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "MemberAccounts" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "MemberAccounts")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListMemberAccounts where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSFMS_20180101.ListMemberAccounts" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListMemberAccounts where
-  toJSON ListMemberAccounts' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListMemberAccounts where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListMemberAccounts where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListMemberAccounts where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"memberAccounts" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListMemberAccountsResponse' smart constructor.
 data ListMemberAccountsResponse = ListMemberAccountsResponse'
-  { -- | If you have more member account IDs than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more IDs, submit another @ListMemberAccounts@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | An array of account IDs.
-    memberAccounts :: Lude.Maybe [Lude.Text],
+  { -- | An array of account IDs.
+    memberAccounts :: Core.Maybe [Types.AWSAccountId],
+    -- | If you have more member account IDs than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more IDs, submit another @ListMemberAccounts@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListMemberAccountsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If you have more member account IDs than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more IDs, submit another @ListMemberAccounts@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
--- * 'memberAccounts' - An array of account IDs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListMemberAccountsResponse' value with any optional fields omitted.
 mkListMemberAccountsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListMemberAccountsResponse
-mkListMemberAccountsResponse pResponseStatus_ =
+mkListMemberAccountsResponse responseStatus =
   ListMemberAccountsResponse'
-    { nextToken = Lude.Nothing,
-      memberAccounts = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { memberAccounts = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | If you have more member account IDs than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more IDs, submit another @ListMemberAccounts@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmarsNextToken :: Lens.Lens' ListMemberAccountsResponse (Lude.Maybe Lude.Text)
-lmarsNextToken = Lens.lens (nextToken :: ListMemberAccountsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListMemberAccountsResponse)
-{-# DEPRECATED lmarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of account IDs.
 --
 -- /Note:/ Consider using 'memberAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmarsMemberAccounts :: Lens.Lens' ListMemberAccountsResponse (Lude.Maybe [Lude.Text])
-lmarsMemberAccounts = Lens.lens (memberAccounts :: ListMemberAccountsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {memberAccounts = a} :: ListMemberAccountsResponse)
-{-# DEPRECATED lmarsMemberAccounts "Use generic-lens or generic-optics with 'memberAccounts' instead." #-}
+lmarrsMemberAccounts :: Lens.Lens' ListMemberAccountsResponse (Core.Maybe [Types.AWSAccountId])
+lmarrsMemberAccounts = Lens.field @"memberAccounts"
+{-# DEPRECATED lmarrsMemberAccounts "Use generic-lens or generic-optics with 'memberAccounts' instead." #-}
+
+-- | If you have more member account IDs than the number that you specified for @MaxResults@ in the request, the response includes a @NextToken@ value. To list more IDs, submit another @ListMemberAccounts@ request, and specify the @NextToken@ value from the response in the @NextToken@ value in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lmarrsNextToken :: Lens.Lens' ListMemberAccountsResponse (Core.Maybe Types.PaginationToken)
+lmarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lmarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lmarsResponseStatus :: Lens.Lens' ListMemberAccountsResponse Lude.Int
-lmarsResponseStatus = Lens.lens (responseStatus :: ListMemberAccountsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListMemberAccountsResponse)
-{-# DEPRECATED lmarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lmarrsResponseStatus :: Lens.Lens' ListMemberAccountsResponse Core.Int
+lmarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lmarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

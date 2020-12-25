@@ -13,152 +13,154 @@
 module Network.AWS.CostAndUsageReport.Types.AWSRegion
   ( AWSRegion
       ( AWSRegion',
-        AfSouth1,
-        ApEast1,
-        ApSouth1,
-        ApSoutheast1,
-        ApSoutheast2,
-        ApNortheast1,
-        ApNortheast2,
-        ApNortheast3,
-        CaCentral1,
-        EuCentral1,
-        EuWest1,
-        EuWest2,
-        EuWest3,
-        EuNorth1,
-        EuSouth1,
-        MeSouth1,
-        SaEast1,
-        UsEast1,
-        UsEast2,
-        UsWest1,
-        UsWest2,
-        CnNorth1,
-        CnNorthwest1
+        AWSRegionAfSouth1,
+        AWSRegionApEast1,
+        AWSRegionApSouth1,
+        AWSRegionApSoutheast1,
+        AWSRegionApSoutheast2,
+        AWSRegionApNortheast1,
+        AWSRegionApNortheast2,
+        AWSRegionApNortheast3,
+        AWSRegionCaCentral1,
+        AWSRegionEuCentral1,
+        AWSRegionEuWest1,
+        AWSRegionEuWest2,
+        AWSRegionEuWest3,
+        AWSRegionEuNorth1,
+        AWSRegionEuSouth1,
+        AWSRegionMeSouth1,
+        AWSRegionSaEast1,
+        AWSRegionUsEast1,
+        AWSRegionUsEast2,
+        AWSRegionUsWest1,
+        AWSRegionUsWest2,
+        AWSRegionCnNorth1,
+        AWSRegionCnNorthwest1,
+        fromAWSRegion
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The region of the S3 bucket that AWS delivers the report into.
-newtype AWSRegion = AWSRegion' Lude.Text
+newtype AWSRegion = AWSRegion' {fromAWSRegion :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AfSouth1 :: AWSRegion
-pattern AfSouth1 = AWSRegion' "af-south-1"
+pattern AWSRegionAfSouth1 :: AWSRegion
+pattern AWSRegionAfSouth1 = AWSRegion' "af-south-1"
 
-pattern ApEast1 :: AWSRegion
-pattern ApEast1 = AWSRegion' "ap-east-1"
+pattern AWSRegionApEast1 :: AWSRegion
+pattern AWSRegionApEast1 = AWSRegion' "ap-east-1"
 
-pattern ApSouth1 :: AWSRegion
-pattern ApSouth1 = AWSRegion' "ap-south-1"
+pattern AWSRegionApSouth1 :: AWSRegion
+pattern AWSRegionApSouth1 = AWSRegion' "ap-south-1"
 
-pattern ApSoutheast1 :: AWSRegion
-pattern ApSoutheast1 = AWSRegion' "ap-southeast-1"
+pattern AWSRegionApSoutheast1 :: AWSRegion
+pattern AWSRegionApSoutheast1 = AWSRegion' "ap-southeast-1"
 
-pattern ApSoutheast2 :: AWSRegion
-pattern ApSoutheast2 = AWSRegion' "ap-southeast-2"
+pattern AWSRegionApSoutheast2 :: AWSRegion
+pattern AWSRegionApSoutheast2 = AWSRegion' "ap-southeast-2"
 
-pattern ApNortheast1 :: AWSRegion
-pattern ApNortheast1 = AWSRegion' "ap-northeast-1"
+pattern AWSRegionApNortheast1 :: AWSRegion
+pattern AWSRegionApNortheast1 = AWSRegion' "ap-northeast-1"
 
-pattern ApNortheast2 :: AWSRegion
-pattern ApNortheast2 = AWSRegion' "ap-northeast-2"
+pattern AWSRegionApNortheast2 :: AWSRegion
+pattern AWSRegionApNortheast2 = AWSRegion' "ap-northeast-2"
 
-pattern ApNortheast3 :: AWSRegion
-pattern ApNortheast3 = AWSRegion' "ap-northeast-3"
+pattern AWSRegionApNortheast3 :: AWSRegion
+pattern AWSRegionApNortheast3 = AWSRegion' "ap-northeast-3"
 
-pattern CaCentral1 :: AWSRegion
-pattern CaCentral1 = AWSRegion' "ca-central-1"
+pattern AWSRegionCaCentral1 :: AWSRegion
+pattern AWSRegionCaCentral1 = AWSRegion' "ca-central-1"
 
-pattern EuCentral1 :: AWSRegion
-pattern EuCentral1 = AWSRegion' "eu-central-1"
+pattern AWSRegionEuCentral1 :: AWSRegion
+pattern AWSRegionEuCentral1 = AWSRegion' "eu-central-1"
 
-pattern EuWest1 :: AWSRegion
-pattern EuWest1 = AWSRegion' "eu-west-1"
+pattern AWSRegionEuWest1 :: AWSRegion
+pattern AWSRegionEuWest1 = AWSRegion' "eu-west-1"
 
-pattern EuWest2 :: AWSRegion
-pattern EuWest2 = AWSRegion' "eu-west-2"
+pattern AWSRegionEuWest2 :: AWSRegion
+pattern AWSRegionEuWest2 = AWSRegion' "eu-west-2"
 
-pattern EuWest3 :: AWSRegion
-pattern EuWest3 = AWSRegion' "eu-west-3"
+pattern AWSRegionEuWest3 :: AWSRegion
+pattern AWSRegionEuWest3 = AWSRegion' "eu-west-3"
 
-pattern EuNorth1 :: AWSRegion
-pattern EuNorth1 = AWSRegion' "eu-north-1"
+pattern AWSRegionEuNorth1 :: AWSRegion
+pattern AWSRegionEuNorth1 = AWSRegion' "eu-north-1"
 
-pattern EuSouth1 :: AWSRegion
-pattern EuSouth1 = AWSRegion' "eu-south-1"
+pattern AWSRegionEuSouth1 :: AWSRegion
+pattern AWSRegionEuSouth1 = AWSRegion' "eu-south-1"
 
-pattern MeSouth1 :: AWSRegion
-pattern MeSouth1 = AWSRegion' "me-south-1"
+pattern AWSRegionMeSouth1 :: AWSRegion
+pattern AWSRegionMeSouth1 = AWSRegion' "me-south-1"
 
-pattern SaEast1 :: AWSRegion
-pattern SaEast1 = AWSRegion' "sa-east-1"
+pattern AWSRegionSaEast1 :: AWSRegion
+pattern AWSRegionSaEast1 = AWSRegion' "sa-east-1"
 
-pattern UsEast1 :: AWSRegion
-pattern UsEast1 = AWSRegion' "us-east-1"
+pattern AWSRegionUsEast1 :: AWSRegion
+pattern AWSRegionUsEast1 = AWSRegion' "us-east-1"
 
-pattern UsEast2 :: AWSRegion
-pattern UsEast2 = AWSRegion' "us-east-2"
+pattern AWSRegionUsEast2 :: AWSRegion
+pattern AWSRegionUsEast2 = AWSRegion' "us-east-2"
 
-pattern UsWest1 :: AWSRegion
-pattern UsWest1 = AWSRegion' "us-west-1"
+pattern AWSRegionUsWest1 :: AWSRegion
+pattern AWSRegionUsWest1 = AWSRegion' "us-west-1"
 
-pattern UsWest2 :: AWSRegion
-pattern UsWest2 = AWSRegion' "us-west-2"
+pattern AWSRegionUsWest2 :: AWSRegion
+pattern AWSRegionUsWest2 = AWSRegion' "us-west-2"
 
-pattern CnNorth1 :: AWSRegion
-pattern CnNorth1 = AWSRegion' "cn-north-1"
+pattern AWSRegionCnNorth1 :: AWSRegion
+pattern AWSRegionCnNorth1 = AWSRegion' "cn-north-1"
 
-pattern CnNorthwest1 :: AWSRegion
-pattern CnNorthwest1 = AWSRegion' "cn-northwest-1"
+pattern AWSRegionCnNorthwest1 :: AWSRegion
+pattern AWSRegionCnNorthwest1 = AWSRegion' "cn-northwest-1"
 
 {-# COMPLETE
-  AfSouth1,
-  ApEast1,
-  ApSouth1,
-  ApSoutheast1,
-  ApSoutheast2,
-  ApNortheast1,
-  ApNortheast2,
-  ApNortheast3,
-  CaCentral1,
-  EuCentral1,
-  EuWest1,
-  EuWest2,
-  EuWest3,
-  EuNorth1,
-  EuSouth1,
-  MeSouth1,
-  SaEast1,
-  UsEast1,
-  UsEast2,
-  UsWest1,
-  UsWest2,
-  CnNorth1,
-  CnNorthwest1,
+  AWSRegionAfSouth1,
+  AWSRegionApEast1,
+  AWSRegionApSouth1,
+  AWSRegionApSoutheast1,
+  AWSRegionApSoutheast2,
+  AWSRegionApNortheast1,
+  AWSRegionApNortheast2,
+  AWSRegionApNortheast3,
+  AWSRegionCaCentral1,
+  AWSRegionEuCentral1,
+  AWSRegionEuWest1,
+  AWSRegionEuWest2,
+  AWSRegionEuWest3,
+  AWSRegionEuNorth1,
+  AWSRegionEuSouth1,
+  AWSRegionMeSouth1,
+  AWSRegionSaEast1,
+  AWSRegionUsEast1,
+  AWSRegionUsEast2,
+  AWSRegionUsWest1,
+  AWSRegionUsWest2,
+  AWSRegionCnNorth1,
+  AWSRegionCnNorthwest1,
   AWSRegion'
   #-}

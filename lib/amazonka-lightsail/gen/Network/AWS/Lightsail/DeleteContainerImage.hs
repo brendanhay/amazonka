@@ -20,127 +20,111 @@ module Network.AWS.Lightsail.DeleteContainerImage
     mkDeleteContainerImage,
 
     -- ** Request lenses
-    dciImage,
     dciServiceName,
+    dciImage,
 
     -- * Destructuring the response
     DeleteContainerImageResponse (..),
     mkDeleteContainerImageResponse,
 
     -- ** Response lenses
-    dcirsResponseStatus,
+    dcirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteContainerImage' smart constructor.
 data DeleteContainerImage = DeleteContainerImage'
-  { -- | The name of the container image to delete from the container service.
+  { -- | The name of the container service for which to delete a registered container image.
+    serviceName :: Types.ContainerServiceName,
+    -- | The name of the container image to delete from the container service.
     --
     -- Use the @GetContainerImages@ action to get the name of the container images that are registered to a container service.
-    image :: Lude.Text,
-    -- | The name of the container service for which to delete a registered container image.
-    serviceName :: Lude.Text
+    image :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteContainerImage' with the minimum fields required to make a request.
---
--- * 'image' - The name of the container image to delete from the container service.
---
--- Use the @GetContainerImages@ action to get the name of the container images that are registered to a container service.
--- * 'serviceName' - The name of the container service for which to delete a registered container image.
+-- | Creates a 'DeleteContainerImage' value with any optional fields omitted.
 mkDeleteContainerImage ::
-  -- | 'image'
-  Lude.Text ->
   -- | 'serviceName'
-  Lude.Text ->
+  Types.ContainerServiceName ->
+  -- | 'image'
+  Types.String ->
   DeleteContainerImage
-mkDeleteContainerImage pImage_ pServiceName_ =
-  DeleteContainerImage'
-    { image = pImage_,
-      serviceName = pServiceName_
-    }
+mkDeleteContainerImage serviceName image =
+  DeleteContainerImage' {serviceName, image}
+
+-- | The name of the container service for which to delete a registered container image.
+--
+-- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dciServiceName :: Lens.Lens' DeleteContainerImage Types.ContainerServiceName
+dciServiceName = Lens.field @"serviceName"
+{-# DEPRECATED dciServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
 
 -- | The name of the container image to delete from the container service.
 --
 -- Use the @GetContainerImages@ action to get the name of the container images that are registered to a container service.
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dciImage :: Lens.Lens' DeleteContainerImage Lude.Text
-dciImage = Lens.lens (image :: DeleteContainerImage -> Lude.Text) (\s a -> s {image = a} :: DeleteContainerImage)
+dciImage :: Lens.Lens' DeleteContainerImage Types.String
+dciImage = Lens.field @"image"
 {-# DEPRECATED dciImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
--- | The name of the container service for which to delete a registered container image.
---
--- /Note:/ Consider using 'serviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dciServiceName :: Lens.Lens' DeleteContainerImage Lude.Text
-dciServiceName = Lens.lens (serviceName :: DeleteContainerImage -> Lude.Text) (\s a -> s {serviceName = a} :: DeleteContainerImage)
-{-# DEPRECATED dciServiceName "Use generic-lens or generic-optics with 'serviceName' instead." #-}
+instance Core.FromJSON DeleteContainerImage where
+  toJSON DeleteContainerImage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("serviceName" Core..= serviceName),
+            Core.Just ("image" Core..= image)
+          ]
+      )
 
-instance Lude.AWSRequest DeleteContainerImage where
+instance Core.AWSRequest DeleteContainerImage where
   type Rs DeleteContainerImage = DeleteContainerImageResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.DeleteContainerImage")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteContainerImageResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteContainerImage where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.DeleteContainerImage" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteContainerImage where
-  toJSON DeleteContainerImage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("image" Lude..= image),
-            Lude.Just ("serviceName" Lude..= serviceName)
-          ]
-      )
-
-instance Lude.ToPath DeleteContainerImage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteContainerImage where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteContainerImageResponse' smart constructor.
 newtype DeleteContainerImageResponse = DeleteContainerImageResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteContainerImageResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteContainerImageResponse' value with any optional fields omitted.
 mkDeleteContainerImageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteContainerImageResponse
-mkDeleteContainerImageResponse pResponseStatus_ =
-  DeleteContainerImageResponse' {responseStatus = pResponseStatus_}
+mkDeleteContainerImageResponse responseStatus =
+  DeleteContainerImageResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcirsResponseStatus :: Lens.Lens' DeleteContainerImageResponse Lude.Int
-dcirsResponseStatus = Lens.lens (responseStatus :: DeleteContainerImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteContainerImageResponse)
-{-# DEPRECATED dcirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcirrsResponseStatus :: Lens.Lens' DeleteContainerImageResponse Core.Int
+dcirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -18,73 +18,71 @@ module Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate
 
     -- * Lenses
     cwlouCloudWatchLoggingOptionId,
-    cwlouRoleARNUpdate,
     cwlouLogStreamARNUpdate,
+    cwlouRoleARNUpdate,
   )
 where
 
+import qualified Network.AWS.KinesisAnalytics.Types.CloudWatchLoggingOptionId as Types
+import qualified Network.AWS.KinesisAnalytics.Types.LogStreamARN as Types
+import qualified Network.AWS.KinesisAnalytics.Types.RoleARNUpdate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes CloudWatch logging option updates.
 --
 -- /See:/ 'mkCloudWatchLoggingOptionUpdate' smart constructor.
 data CloudWatchLoggingOptionUpdate = CloudWatchLoggingOptionUpdate'
   { -- | ID of the CloudWatch logging option to update
-    cloudWatchLoggingOptionId :: Lude.Text,
-    -- | IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
-    roleARNUpdate :: Lude.Maybe Lude.Text,
+    cloudWatchLoggingOptionId :: Types.CloudWatchLoggingOptionId,
     -- | ARN of the CloudWatch log to receive application messages.
-    logStreamARNUpdate :: Lude.Maybe Lude.Text
+    logStreamARNUpdate :: Core.Maybe Types.LogStreamARN,
+    -- | IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
+    roleARNUpdate :: Core.Maybe Types.RoleARNUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudWatchLoggingOptionUpdate' with the minimum fields required to make a request.
---
--- * 'cloudWatchLoggingOptionId' - ID of the CloudWatch logging option to update
--- * 'roleARNUpdate' - IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
--- * 'logStreamARNUpdate' - ARN of the CloudWatch log to receive application messages.
+-- | Creates a 'CloudWatchLoggingOptionUpdate' value with any optional fields omitted.
 mkCloudWatchLoggingOptionUpdate ::
   -- | 'cloudWatchLoggingOptionId'
-  Lude.Text ->
+  Types.CloudWatchLoggingOptionId ->
   CloudWatchLoggingOptionUpdate
-mkCloudWatchLoggingOptionUpdate pCloudWatchLoggingOptionId_ =
+mkCloudWatchLoggingOptionUpdate cloudWatchLoggingOptionId =
   CloudWatchLoggingOptionUpdate'
-    { cloudWatchLoggingOptionId =
-        pCloudWatchLoggingOptionId_,
-      roleARNUpdate = Lude.Nothing,
-      logStreamARNUpdate = Lude.Nothing
+    { cloudWatchLoggingOptionId,
+      logStreamARNUpdate = Core.Nothing,
+      roleARNUpdate = Core.Nothing
     }
 
 -- | ID of the CloudWatch logging option to update
 --
 -- /Note:/ Consider using 'cloudWatchLoggingOptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwlouCloudWatchLoggingOptionId :: Lens.Lens' CloudWatchLoggingOptionUpdate Lude.Text
-cwlouCloudWatchLoggingOptionId = Lens.lens (cloudWatchLoggingOptionId :: CloudWatchLoggingOptionUpdate -> Lude.Text) (\s a -> s {cloudWatchLoggingOptionId = a} :: CloudWatchLoggingOptionUpdate)
+cwlouCloudWatchLoggingOptionId :: Lens.Lens' CloudWatchLoggingOptionUpdate Types.CloudWatchLoggingOptionId
+cwlouCloudWatchLoggingOptionId = Lens.field @"cloudWatchLoggingOptionId"
 {-# DEPRECATED cwlouCloudWatchLoggingOptionId "Use generic-lens or generic-optics with 'cloudWatchLoggingOptionId' instead." #-}
-
--- | IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
---
--- /Note:/ Consider using 'roleARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwlouRoleARNUpdate :: Lens.Lens' CloudWatchLoggingOptionUpdate (Lude.Maybe Lude.Text)
-cwlouRoleARNUpdate = Lens.lens (roleARNUpdate :: CloudWatchLoggingOptionUpdate -> Lude.Maybe Lude.Text) (\s a -> s {roleARNUpdate = a} :: CloudWatchLoggingOptionUpdate)
-{-# DEPRECATED cwlouRoleARNUpdate "Use generic-lens or generic-optics with 'roleARNUpdate' instead." #-}
 
 -- | ARN of the CloudWatch log to receive application messages.
 --
 -- /Note:/ Consider using 'logStreamARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwlouLogStreamARNUpdate :: Lens.Lens' CloudWatchLoggingOptionUpdate (Lude.Maybe Lude.Text)
-cwlouLogStreamARNUpdate = Lens.lens (logStreamARNUpdate :: CloudWatchLoggingOptionUpdate -> Lude.Maybe Lude.Text) (\s a -> s {logStreamARNUpdate = a} :: CloudWatchLoggingOptionUpdate)
+cwlouLogStreamARNUpdate :: Lens.Lens' CloudWatchLoggingOptionUpdate (Core.Maybe Types.LogStreamARN)
+cwlouLogStreamARNUpdate = Lens.field @"logStreamARNUpdate"
 {-# DEPRECATED cwlouLogStreamARNUpdate "Use generic-lens or generic-optics with 'logStreamARNUpdate' instead." #-}
 
-instance Lude.ToJSON CloudWatchLoggingOptionUpdate where
-  toJSON CloudWatchLoggingOptionUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("CloudWatchLoggingOptionId" Lude..= cloudWatchLoggingOptionId),
-            ("RoleARNUpdate" Lude..=) Lude.<$> roleARNUpdate,
-            ("LogStreamARNUpdate" Lude..=) Lude.<$> logStreamARNUpdate
+-- | IAM ARN of the role to use to send application messages. Note: To write application messages to CloudWatch, the IAM role used must have the @PutLogEvents@ policy action enabled.
+--
+-- /Note:/ Consider using 'roleARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwlouRoleARNUpdate :: Lens.Lens' CloudWatchLoggingOptionUpdate (Core.Maybe Types.RoleARNUpdate)
+cwlouRoleARNUpdate = Lens.field @"roleARNUpdate"
+{-# DEPRECATED cwlouRoleARNUpdate "Use generic-lens or generic-optics with 'roleARNUpdate' instead." #-}
+
+instance Core.FromJSON CloudWatchLoggingOptionUpdate where
+  toJSON CloudWatchLoggingOptionUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("CloudWatchLoggingOptionId" Core..= cloudWatchLoggingOptionId),
+            ("LogStreamARNUpdate" Core..=) Core.<$> logStreamARNUpdate,
+            ("RoleARNUpdate" Core..=) Core.<$> roleARNUpdate
           ]
       )

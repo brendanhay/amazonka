@@ -22,48 +22,46 @@ module Network.AWS.EC2.Types.PrefixListAssociation
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the resource with which a prefix list is associated.
 --
 -- /See:/ 'mkPrefixListAssociation' smart constructor.
 data PrefixListAssociation = PrefixListAssociation'
   { -- | The ID of the resource.
-    resourceId :: Lude.Maybe Lude.Text,
+    resourceId :: Core.Maybe Types.String,
     -- | The owner of the resource.
-    resourceOwner :: Lude.Maybe Lude.Text
+    resourceOwner :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PrefixListAssociation' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource.
--- * 'resourceOwner' - The owner of the resource.
+-- | Creates a 'PrefixListAssociation' value with any optional fields omitted.
 mkPrefixListAssociation ::
   PrefixListAssociation
 mkPrefixListAssociation =
   PrefixListAssociation'
-    { resourceId = Lude.Nothing,
-      resourceOwner = Lude.Nothing
+    { resourceId = Core.Nothing,
+      resourceOwner = Core.Nothing
     }
 
 -- | The ID of the resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plaResourceId :: Lens.Lens' PrefixListAssociation (Lude.Maybe Lude.Text)
-plaResourceId = Lens.lens (resourceId :: PrefixListAssociation -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: PrefixListAssociation)
+plaResourceId :: Lens.Lens' PrefixListAssociation (Core.Maybe Types.String)
+plaResourceId = Lens.field @"resourceId"
 {-# DEPRECATED plaResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The owner of the resource.
 --
 -- /Note:/ Consider using 'resourceOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plaResourceOwner :: Lens.Lens' PrefixListAssociation (Lude.Maybe Lude.Text)
-plaResourceOwner = Lens.lens (resourceOwner :: PrefixListAssociation -> Lude.Maybe Lude.Text) (\s a -> s {resourceOwner = a} :: PrefixListAssociation)
+plaResourceOwner :: Lens.Lens' PrefixListAssociation (Core.Maybe Types.String)
+plaResourceOwner = Lens.field @"resourceOwner"
 {-# DEPRECATED plaResourceOwner "Use generic-lens or generic-optics with 'resourceOwner' instead." #-}
 
-instance Lude.FromXML PrefixListAssociation where
+instance Core.FromXML PrefixListAssociation where
   parseXML x =
     PrefixListAssociation'
-      Lude.<$> (x Lude..@? "resourceId") Lude.<*> (x Lude..@? "resourceOwner")
+      Core.<$> (x Core..@? "resourceId") Core.<*> (x Core..@? "resourceOwner")

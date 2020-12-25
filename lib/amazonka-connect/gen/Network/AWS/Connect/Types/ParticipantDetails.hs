@@ -21,37 +21,35 @@ module Network.AWS.Connect.Types.ParticipantDetails
   )
 where
 
+import qualified Network.AWS.Connect.Types.DisplayName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The customer's details.
 --
 -- /See:/ 'mkParticipantDetails' smart constructor.
 newtype ParticipantDetails = ParticipantDetails'
   { -- | Display name of the participant.
-    displayName :: Lude.Text
+    displayName :: Types.DisplayName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParticipantDetails' with the minimum fields required to make a request.
---
--- * 'displayName' - Display name of the participant.
+-- | Creates a 'ParticipantDetails' value with any optional fields omitted.
 mkParticipantDetails ::
   -- | 'displayName'
-  Lude.Text ->
+  Types.DisplayName ->
   ParticipantDetails
-mkParticipantDetails pDisplayName_ =
-  ParticipantDetails' {displayName = pDisplayName_}
+mkParticipantDetails displayName = ParticipantDetails' {displayName}
 
 -- | Display name of the participant.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdDisplayName :: Lens.Lens' ParticipantDetails Lude.Text
-pdDisplayName = Lens.lens (displayName :: ParticipantDetails -> Lude.Text) (\s a -> s {displayName = a} :: ParticipantDetails)
+pdDisplayName :: Lens.Lens' ParticipantDetails Types.DisplayName
+pdDisplayName = Lens.field @"displayName"
 {-# DEPRECATED pdDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
-instance Lude.ToJSON ParticipantDetails where
-  toJSON ParticipantDetails' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DisplayName" Lude..= displayName)])
+instance Core.FromJSON ParticipantDetails where
+  toJSON ParticipantDetails {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DisplayName" Core..= displayName)])

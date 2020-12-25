@@ -13,61 +13,66 @@
 module Network.AWS.Inspector.Types.InspectorEvent
   ( InspectorEvent
       ( InspectorEvent',
-        AssessmentRunStarted,
-        AssessmentRunCompleted,
-        AssessmentRunStateChanged,
-        FindingReported,
-        Other
+        InspectorEventAssessmentRunStarted,
+        InspectorEventAssessmentRunCompleted,
+        InspectorEventAssessmentRunStateChanged,
+        InspectorEventFindingReported,
+        InspectorEventOther,
+        fromInspectorEvent
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InspectorEvent = InspectorEvent' Lude.Text
+newtype InspectorEvent = InspectorEvent'
+  { fromInspectorEvent ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AssessmentRunStarted :: InspectorEvent
-pattern AssessmentRunStarted = InspectorEvent' "ASSESSMENT_RUN_STARTED"
+pattern InspectorEventAssessmentRunStarted :: InspectorEvent
+pattern InspectorEventAssessmentRunStarted = InspectorEvent' "ASSESSMENT_RUN_STARTED"
 
-pattern AssessmentRunCompleted :: InspectorEvent
-pattern AssessmentRunCompleted = InspectorEvent' "ASSESSMENT_RUN_COMPLETED"
+pattern InspectorEventAssessmentRunCompleted :: InspectorEvent
+pattern InspectorEventAssessmentRunCompleted = InspectorEvent' "ASSESSMENT_RUN_COMPLETED"
 
-pattern AssessmentRunStateChanged :: InspectorEvent
-pattern AssessmentRunStateChanged = InspectorEvent' "ASSESSMENT_RUN_STATE_CHANGED"
+pattern InspectorEventAssessmentRunStateChanged :: InspectorEvent
+pattern InspectorEventAssessmentRunStateChanged = InspectorEvent' "ASSESSMENT_RUN_STATE_CHANGED"
 
-pattern FindingReported :: InspectorEvent
-pattern FindingReported = InspectorEvent' "FINDING_REPORTED"
+pattern InspectorEventFindingReported :: InspectorEvent
+pattern InspectorEventFindingReported = InspectorEvent' "FINDING_REPORTED"
 
-pattern Other :: InspectorEvent
-pattern Other = InspectorEvent' "OTHER"
+pattern InspectorEventOther :: InspectorEvent
+pattern InspectorEventOther = InspectorEvent' "OTHER"
 
 {-# COMPLETE
-  AssessmentRunStarted,
-  AssessmentRunCompleted,
-  AssessmentRunStateChanged,
-  FindingReported,
-  Other,
+  InspectorEventAssessmentRunStarted,
+  InspectorEventAssessmentRunCompleted,
+  InspectorEventAssessmentRunStateChanged,
+  InspectorEventFindingReported,
+  InspectorEventOther,
   InspectorEvent'
   #-}

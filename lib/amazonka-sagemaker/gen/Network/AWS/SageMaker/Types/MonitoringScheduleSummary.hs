@@ -17,126 +17,120 @@ module Network.AWS.SageMaker.Types.MonitoringScheduleSummary
     mkMonitoringScheduleSummary,
 
     -- * Lenses
+    mssMonitoringScheduleName,
+    mssMonitoringScheduleArn,
     mssCreationTime,
-    mssMonitoringScheduleARN,
-    mssEndpointName,
     mssLastModifiedTime,
     mssMonitoringScheduleStatus,
-    mssMonitoringScheduleName,
+    mssEndpointName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.ScheduleStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.EndpointName as Types
+import qualified Network.AWS.SageMaker.Types.MonitoringScheduleArn as Types
+import qualified Network.AWS.SageMaker.Types.MonitoringScheduleName as Types
+import qualified Network.AWS.SageMaker.Types.ScheduleStatus as Types
 
 -- | Summarizes the monitoring schedule.
 --
 -- /See:/ 'mkMonitoringScheduleSummary' smart constructor.
 data MonitoringScheduleSummary = MonitoringScheduleSummary'
-  { -- | The creation time of the monitoring schedule.
-    creationTime :: Lude.Timestamp,
+  { -- | The name of the monitoring schedule.
+    monitoringScheduleName :: Types.MonitoringScheduleName,
     -- | The Amazon Resource Name (ARN) of the monitoring schedule.
-    monitoringScheduleARN :: Lude.Text,
-    -- | The name of the endpoint using the monitoring schedule.
-    endpointName :: Lude.Maybe Lude.Text,
+    monitoringScheduleArn :: Types.MonitoringScheduleArn,
+    -- | The creation time of the monitoring schedule.
+    creationTime :: Core.NominalDiffTime,
     -- | The last time the monitoring schedule was modified.
-    lastModifiedTime :: Lude.Timestamp,
+    lastModifiedTime :: Core.NominalDiffTime,
     -- | The status of the monitoring schedule.
-    monitoringScheduleStatus :: ScheduleStatus,
-    -- | The name of the monitoring schedule.
-    monitoringScheduleName :: Lude.Text
+    monitoringScheduleStatus :: Types.ScheduleStatus,
+    -- | The name of the endpoint using the monitoring schedule.
+    endpointName :: Core.Maybe Types.EndpointName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'MonitoringScheduleSummary' with the minimum fields required to make a request.
---
--- * 'creationTime' - The creation time of the monitoring schedule.
--- * 'monitoringScheduleARN' - The Amazon Resource Name (ARN) of the monitoring schedule.
--- * 'endpointName' - The name of the endpoint using the monitoring schedule.
--- * 'lastModifiedTime' - The last time the monitoring schedule was modified.
--- * 'monitoringScheduleStatus' - The status of the monitoring schedule.
--- * 'monitoringScheduleName' - The name of the monitoring schedule.
+-- | Creates a 'MonitoringScheduleSummary' value with any optional fields omitted.
 mkMonitoringScheduleSummary ::
-  -- | 'creationTime'
-  Lude.Timestamp ->
-  -- | 'monitoringScheduleARN'
-  Lude.Text ->
-  -- | 'lastModifiedTime'
-  Lude.Timestamp ->
-  -- | 'monitoringScheduleStatus'
-  ScheduleStatus ->
   -- | 'monitoringScheduleName'
-  Lude.Text ->
+  Types.MonitoringScheduleName ->
+  -- | 'monitoringScheduleArn'
+  Types.MonitoringScheduleArn ->
+  -- | 'creationTime'
+  Core.NominalDiffTime ->
+  -- | 'lastModifiedTime'
+  Core.NominalDiffTime ->
+  -- | 'monitoringScheduleStatus'
+  Types.ScheduleStatus ->
   MonitoringScheduleSummary
 mkMonitoringScheduleSummary
-  pCreationTime_
-  pMonitoringScheduleARN_
-  pLastModifiedTime_
-  pMonitoringScheduleStatus_
-  pMonitoringScheduleName_ =
+  monitoringScheduleName
+  monitoringScheduleArn
+  creationTime
+  lastModifiedTime
+  monitoringScheduleStatus =
     MonitoringScheduleSummary'
-      { creationTime = pCreationTime_,
-        monitoringScheduleARN = pMonitoringScheduleARN_,
-        endpointName = Lude.Nothing,
-        lastModifiedTime = pLastModifiedTime_,
-        monitoringScheduleStatus = pMonitoringScheduleStatus_,
-        monitoringScheduleName = pMonitoringScheduleName_
+      { monitoringScheduleName,
+        monitoringScheduleArn,
+        creationTime,
+        lastModifiedTime,
+        monitoringScheduleStatus,
+        endpointName = Core.Nothing
       }
+
+-- | The name of the monitoring schedule.
+--
+-- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssMonitoringScheduleName :: Lens.Lens' MonitoringScheduleSummary Types.MonitoringScheduleName
+mssMonitoringScheduleName = Lens.field @"monitoringScheduleName"
+{-# DEPRECATED mssMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the monitoring schedule.
+--
+-- /Note:/ Consider using 'monitoringScheduleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssMonitoringScheduleArn :: Lens.Lens' MonitoringScheduleSummary Types.MonitoringScheduleArn
+mssMonitoringScheduleArn = Lens.field @"monitoringScheduleArn"
+{-# DEPRECATED mssMonitoringScheduleArn "Use generic-lens or generic-optics with 'monitoringScheduleArn' instead." #-}
 
 -- | The creation time of the monitoring schedule.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mssCreationTime :: Lens.Lens' MonitoringScheduleSummary Lude.Timestamp
-mssCreationTime = Lens.lens (creationTime :: MonitoringScheduleSummary -> Lude.Timestamp) (\s a -> s {creationTime = a} :: MonitoringScheduleSummary)
+mssCreationTime :: Lens.Lens' MonitoringScheduleSummary Core.NominalDiffTime
+mssCreationTime = Lens.field @"creationTime"
 {-# DEPRECATED mssCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the monitoring schedule.
---
--- /Note:/ Consider using 'monitoringScheduleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mssMonitoringScheduleARN :: Lens.Lens' MonitoringScheduleSummary Lude.Text
-mssMonitoringScheduleARN = Lens.lens (monitoringScheduleARN :: MonitoringScheduleSummary -> Lude.Text) (\s a -> s {monitoringScheduleARN = a} :: MonitoringScheduleSummary)
-{-# DEPRECATED mssMonitoringScheduleARN "Use generic-lens or generic-optics with 'monitoringScheduleARN' instead." #-}
-
--- | The name of the endpoint using the monitoring schedule.
---
--- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mssEndpointName :: Lens.Lens' MonitoringScheduleSummary (Lude.Maybe Lude.Text)
-mssEndpointName = Lens.lens (endpointName :: MonitoringScheduleSummary -> Lude.Maybe Lude.Text) (\s a -> s {endpointName = a} :: MonitoringScheduleSummary)
-{-# DEPRECATED mssEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
 -- | The last time the monitoring schedule was modified.
 --
 -- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mssLastModifiedTime :: Lens.Lens' MonitoringScheduleSummary Lude.Timestamp
-mssLastModifiedTime = Lens.lens (lastModifiedTime :: MonitoringScheduleSummary -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: MonitoringScheduleSummary)
+mssLastModifiedTime :: Lens.Lens' MonitoringScheduleSummary Core.NominalDiffTime
+mssLastModifiedTime = Lens.field @"lastModifiedTime"
 {-# DEPRECATED mssLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The status of the monitoring schedule.
 --
 -- /Note:/ Consider using 'monitoringScheduleStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mssMonitoringScheduleStatus :: Lens.Lens' MonitoringScheduleSummary ScheduleStatus
-mssMonitoringScheduleStatus = Lens.lens (monitoringScheduleStatus :: MonitoringScheduleSummary -> ScheduleStatus) (\s a -> s {monitoringScheduleStatus = a} :: MonitoringScheduleSummary)
+mssMonitoringScheduleStatus :: Lens.Lens' MonitoringScheduleSummary Types.ScheduleStatus
+mssMonitoringScheduleStatus = Lens.field @"monitoringScheduleStatus"
 {-# DEPRECATED mssMonitoringScheduleStatus "Use generic-lens or generic-optics with 'monitoringScheduleStatus' instead." #-}
 
--- | The name of the monitoring schedule.
+-- | The name of the endpoint using the monitoring schedule.
 --
--- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mssMonitoringScheduleName :: Lens.Lens' MonitoringScheduleSummary Lude.Text
-mssMonitoringScheduleName = Lens.lens (monitoringScheduleName :: MonitoringScheduleSummary -> Lude.Text) (\s a -> s {monitoringScheduleName = a} :: MonitoringScheduleSummary)
-{-# DEPRECATED mssMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
+-- /Note:/ Consider using 'endpointName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mssEndpointName :: Lens.Lens' MonitoringScheduleSummary (Core.Maybe Types.EndpointName)
+mssEndpointName = Lens.field @"endpointName"
+{-# DEPRECATED mssEndpointName "Use generic-lens or generic-optics with 'endpointName' instead." #-}
 
-instance Lude.FromJSON MonitoringScheduleSummary where
+instance Core.FromJSON MonitoringScheduleSummary where
   parseJSON =
-    Lude.withObject
-      "MonitoringScheduleSummary"
-      ( \x ->
-          MonitoringScheduleSummary'
-            Lude.<$> (x Lude..: "CreationTime")
-            Lude.<*> (x Lude..: "MonitoringScheduleArn")
-            Lude.<*> (x Lude..:? "EndpointName")
-            Lude.<*> (x Lude..: "LastModifiedTime")
-            Lude.<*> (x Lude..: "MonitoringScheduleStatus")
-            Lude.<*> (x Lude..: "MonitoringScheduleName")
-      )
+    Core.withObject "MonitoringScheduleSummary" Core.$
+      \x ->
+        MonitoringScheduleSummary'
+          Core.<$> (x Core..: "MonitoringScheduleName")
+          Core.<*> (x Core..: "MonitoringScheduleArn")
+          Core.<*> (x Core..: "CreationTime")
+          Core.<*> (x Core..: "LastModifiedTime")
+          Core.<*> (x Core..: "MonitoringScheduleStatus")
+          Core.<*> (x Core..:? "EndpointName")

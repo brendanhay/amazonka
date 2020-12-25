@@ -28,123 +28,109 @@ module Network.AWS.WorkSpaces.ModifyWorkspaceAccessProperties
     mkModifyWorkspaceAccessPropertiesResponse,
 
     -- ** Response lenses
-    mwaprsResponseStatus,
+    mwaprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkModifyWorkspaceAccessProperties' smart constructor.
 data ModifyWorkspaceAccessProperties = ModifyWorkspaceAccessProperties'
   { -- | The identifier of the directory.
-    resourceId :: Lude.Text,
+    resourceId :: Types.DirectoryId,
     -- | The device types and operating systems to enable or disable for access.
-    workspaceAccessProperties :: WorkspaceAccessProperties
+    workspaceAccessProperties :: Types.WorkspaceAccessProperties
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyWorkspaceAccessProperties' with the minimum fields required to make a request.
---
--- * 'resourceId' - The identifier of the directory.
--- * 'workspaceAccessProperties' - The device types and operating systems to enable or disable for access.
+-- | Creates a 'ModifyWorkspaceAccessProperties' value with any optional fields omitted.
 mkModifyWorkspaceAccessProperties ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.DirectoryId ->
   -- | 'workspaceAccessProperties'
-  WorkspaceAccessProperties ->
+  Types.WorkspaceAccessProperties ->
   ModifyWorkspaceAccessProperties
 mkModifyWorkspaceAccessProperties
-  pResourceId_
-  pWorkspaceAccessProperties_ =
+  resourceId
+  workspaceAccessProperties =
     ModifyWorkspaceAccessProperties'
-      { resourceId = pResourceId_,
-        workspaceAccessProperties = pWorkspaceAccessProperties_
+      { resourceId,
+        workspaceAccessProperties
       }
 
 -- | The identifier of the directory.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwapResourceId :: Lens.Lens' ModifyWorkspaceAccessProperties Lude.Text
-mwapResourceId = Lens.lens (resourceId :: ModifyWorkspaceAccessProperties -> Lude.Text) (\s a -> s {resourceId = a} :: ModifyWorkspaceAccessProperties)
+mwapResourceId :: Lens.Lens' ModifyWorkspaceAccessProperties Types.DirectoryId
+mwapResourceId = Lens.field @"resourceId"
 {-# DEPRECATED mwapResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The device types and operating systems to enable or disable for access.
 --
 -- /Note:/ Consider using 'workspaceAccessProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwapWorkspaceAccessProperties :: Lens.Lens' ModifyWorkspaceAccessProperties WorkspaceAccessProperties
-mwapWorkspaceAccessProperties = Lens.lens (workspaceAccessProperties :: ModifyWorkspaceAccessProperties -> WorkspaceAccessProperties) (\s a -> s {workspaceAccessProperties = a} :: ModifyWorkspaceAccessProperties)
+mwapWorkspaceAccessProperties :: Lens.Lens' ModifyWorkspaceAccessProperties Types.WorkspaceAccessProperties
+mwapWorkspaceAccessProperties = Lens.field @"workspaceAccessProperties"
 {-# DEPRECATED mwapWorkspaceAccessProperties "Use generic-lens or generic-optics with 'workspaceAccessProperties' instead." #-}
 
-instance Lude.AWSRequest ModifyWorkspaceAccessProperties where
+instance Core.FromJSON ModifyWorkspaceAccessProperties where
+  toJSON ModifyWorkspaceAccessProperties {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just
+              ("WorkspaceAccessProperties" Core..= workspaceAccessProperties)
+          ]
+      )
+
+instance Core.AWSRequest ModifyWorkspaceAccessProperties where
   type
     Rs ModifyWorkspaceAccessProperties =
       ModifyWorkspaceAccessPropertiesResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "WorkspacesService.ModifyWorkspaceAccessProperties"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           ModifyWorkspaceAccessPropertiesResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyWorkspaceAccessProperties where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "WorkspacesService.ModifyWorkspaceAccessProperties" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ModifyWorkspaceAccessProperties where
-  toJSON ModifyWorkspaceAccessProperties' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just
-              ("WorkspaceAccessProperties" Lude..= workspaceAccessProperties)
-          ]
-      )
-
-instance Lude.ToPath ModifyWorkspaceAccessProperties where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyWorkspaceAccessProperties where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkModifyWorkspaceAccessPropertiesResponse' smart constructor.
 newtype ModifyWorkspaceAccessPropertiesResponse = ModifyWorkspaceAccessPropertiesResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyWorkspaceAccessPropertiesResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyWorkspaceAccessPropertiesResponse' value with any optional fields omitted.
 mkModifyWorkspaceAccessPropertiesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyWorkspaceAccessPropertiesResponse
-mkModifyWorkspaceAccessPropertiesResponse pResponseStatus_ =
-  ModifyWorkspaceAccessPropertiesResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkModifyWorkspaceAccessPropertiesResponse responseStatus =
+  ModifyWorkspaceAccessPropertiesResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mwaprsResponseStatus :: Lens.Lens' ModifyWorkspaceAccessPropertiesResponse Lude.Int
-mwaprsResponseStatus = Lens.lens (responseStatus :: ModifyWorkspaceAccessPropertiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyWorkspaceAccessPropertiesResponse)
-{-# DEPRECATED mwaprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mwaprrsResponseStatus :: Lens.Lens' ModifyWorkspaceAccessPropertiesResponse Core.Int
+mwaprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mwaprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

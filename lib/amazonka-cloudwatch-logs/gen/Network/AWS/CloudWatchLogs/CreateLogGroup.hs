@@ -46,99 +46,88 @@ module Network.AWS.CloudWatchLogs.CreateLogGroup
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types
+import qualified Network.AWS.CloudWatchLogs.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateLogGroup' smart constructor.
 data CreateLogGroup = CreateLogGroup'
   { -- | The name of the log group.
-    logGroupName :: Lude.Text,
+    logGroupName :: Types.LogGroupName,
     -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)> .
-    kmsKeyId :: Lude.Maybe Lude.Text,
+    kmsKeyId :: Core.Maybe Types.KmsKeyId,
     -- | The key-value pairs to use for the tags.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.TagKey Types.TagValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLogGroup' with the minimum fields required to make a request.
---
--- * 'logGroupName' - The name of the log group.
--- * 'kmsKeyId' - The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)> .
--- * 'tags' - The key-value pairs to use for the tags.
+-- | Creates a 'CreateLogGroup' value with any optional fields omitted.
 mkCreateLogGroup ::
   -- | 'logGroupName'
-  Lude.Text ->
+  Types.LogGroupName ->
   CreateLogGroup
-mkCreateLogGroup pLogGroupName_ =
+mkCreateLogGroup logGroupName =
   CreateLogGroup'
-    { logGroupName = pLogGroupName_,
-      kmsKeyId = Lude.Nothing,
-      tags = Lude.Nothing
+    { logGroupName,
+      kmsKeyId = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The name of the log group.
 --
 -- /Note:/ Consider using 'logGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clgLogGroupName :: Lens.Lens' CreateLogGroup Lude.Text
-clgLogGroupName = Lens.lens (logGroupName :: CreateLogGroup -> Lude.Text) (\s a -> s {logGroupName = a} :: CreateLogGroup)
+clgLogGroupName :: Lens.Lens' CreateLogGroup Types.LogGroupName
+clgLogGroupName = Lens.field @"logGroupName"
 {-# DEPRECATED clgLogGroupName "Use generic-lens or generic-optics with 'logGroupName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms Amazon Resource Names - AWS Key Management Service (AWS KMS)> .
 --
 -- /Note:/ Consider using 'kmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clgKmsKeyId :: Lens.Lens' CreateLogGroup (Lude.Maybe Lude.Text)
-clgKmsKeyId = Lens.lens (kmsKeyId :: CreateLogGroup -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyId = a} :: CreateLogGroup)
+clgKmsKeyId :: Lens.Lens' CreateLogGroup (Core.Maybe Types.KmsKeyId)
+clgKmsKeyId = Lens.field @"kmsKeyId"
 {-# DEPRECATED clgKmsKeyId "Use generic-lens or generic-optics with 'kmsKeyId' instead." #-}
 
 -- | The key-value pairs to use for the tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clgTags :: Lens.Lens' CreateLogGroup (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-clgTags = Lens.lens (tags :: CreateLogGroup -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateLogGroup)
+clgTags :: Lens.Lens' CreateLogGroup (Core.Maybe (Core.HashMap Types.TagKey Types.TagValue))
+clgTags = Lens.field @"tags"
 {-# DEPRECATED clgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateLogGroup where
+instance Core.FromJSON CreateLogGroup where
+  toJSON CreateLogGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("logGroupName" Core..= logGroupName),
+            ("kmsKeyId" Core..=) Core.<$> kmsKeyId,
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateLogGroup where
   type Rs CreateLogGroup = CreateLogGroupResponse
-  request = Req.postJSON cloudWatchLogsService
-  response = Res.receiveNull CreateLogGroupResponse'
-
-instance Lude.ToHeaders CreateLogGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Logs_20140328.CreateLogGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateLogGroup where
-  toJSON CreateLogGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("logGroupName" Lude..= logGroupName),
-            ("kmsKeyId" Lude..=) Lude.<$> kmsKeyId,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateLogGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateLogGroup where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Logs_20140328.CreateLogGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull CreateLogGroupResponse'
 
 -- | /See:/ 'mkCreateLogGroupResponse' smart constructor.
 data CreateLogGroupResponse = CreateLogGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLogGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'CreateLogGroupResponse' value with any optional fields omitted.
 mkCreateLogGroupResponse ::
   CreateLogGroupResponse
 mkCreateLogGroupResponse = CreateLogGroupResponse'

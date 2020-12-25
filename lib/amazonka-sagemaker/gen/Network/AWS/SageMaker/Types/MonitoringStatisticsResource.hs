@@ -17,46 +17,42 @@ module Network.AWS.SageMaker.Types.MonitoringStatisticsResource
     mkMonitoringStatisticsResource,
 
     -- * Lenses
-    msrS3URI,
+    msrS3Uri,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.S3Uri as Types
 
 -- | The statistics resource for a monitoring job.
 --
 -- /See:/ 'mkMonitoringStatisticsResource' smart constructor.
 newtype MonitoringStatisticsResource = MonitoringStatisticsResource'
   { -- | The Amazon S3 URI for the statistics resource.
-    s3URI :: Lude.Maybe Lude.Text
+    s3Uri :: Core.Maybe Types.S3Uri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MonitoringStatisticsResource' with the minimum fields required to make a request.
---
--- * 's3URI' - The Amazon S3 URI for the statistics resource.
+-- | Creates a 'MonitoringStatisticsResource' value with any optional fields omitted.
 mkMonitoringStatisticsResource ::
   MonitoringStatisticsResource
 mkMonitoringStatisticsResource =
-  MonitoringStatisticsResource' {s3URI = Lude.Nothing}
+  MonitoringStatisticsResource' {s3Uri = Core.Nothing}
 
 -- | The Amazon S3 URI for the statistics resource.
 --
--- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msrS3URI :: Lens.Lens' MonitoringStatisticsResource (Lude.Maybe Lude.Text)
-msrS3URI = Lens.lens (s3URI :: MonitoringStatisticsResource -> Lude.Maybe Lude.Text) (\s a -> s {s3URI = a} :: MonitoringStatisticsResource)
-{-# DEPRECATED msrS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
+-- /Note:/ Consider using 's3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msrS3Uri :: Lens.Lens' MonitoringStatisticsResource (Core.Maybe Types.S3Uri)
+msrS3Uri = Lens.field @"s3Uri"
+{-# DEPRECATED msrS3Uri "Use generic-lens or generic-optics with 's3Uri' instead." #-}
 
-instance Lude.FromJSON MonitoringStatisticsResource where
+instance Core.FromJSON MonitoringStatisticsResource where
+  toJSON MonitoringStatisticsResource {..} =
+    Core.object (Core.catMaybes [("S3Uri" Core..=) Core.<$> s3Uri])
+
+instance Core.FromJSON MonitoringStatisticsResource where
   parseJSON =
-    Lude.withObject
-      "MonitoringStatisticsResource"
-      ( \x ->
-          MonitoringStatisticsResource' Lude.<$> (x Lude..:? "S3Uri")
-      )
-
-instance Lude.ToJSON MonitoringStatisticsResource where
-  toJSON MonitoringStatisticsResource' {..} =
-    Lude.object (Lude.catMaybes [("S3Uri" Lude..=) Lude.<$> s3URI])
+    Core.withObject "MonitoringStatisticsResource" Core.$
+      \x -> MonitoringStatisticsResource' Core.<$> (x Core..:? "S3Uri")

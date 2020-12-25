@@ -17,18 +17,24 @@ module Network.AWS.AutoScaling.Types.LifecycleHookSpecification
     mkLifecycleHookSpecification,
 
     -- * Lenses
-    lhsDefaultResult,
     lhsLifecycleHookName,
+    lhsLifecycleTransition,
+    lhsDefaultResult,
     lhsHeartbeatTimeout,
     lhsNotificationMetadata,
     lhsNotificationTargetARN,
-    lhsLifecycleTransition,
     lhsRoleARN,
   )
 where
 
+import qualified Network.AWS.AutoScaling.Types.AsciiStringMaxLen255 as Types
+import qualified Network.AWS.AutoScaling.Types.LifecycleActionResult as Types
+import qualified Network.AWS.AutoScaling.Types.LifecycleTransition as Types
+import qualified Network.AWS.AutoScaling.Types.NotificationTargetARN as Types
+import qualified Network.AWS.AutoScaling.Types.ResourceName as Types
+import qualified Network.AWS.AutoScaling.Types.XmlStringMaxLen1023 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes information used to specify a lifecycle hook for an Auto Scaling group.
 --
@@ -54,18 +60,8 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkLifecycleHookSpecification' smart constructor.
 data LifecycleHookSpecification = LifecycleHookSpecification'
-  { -- | Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are @CONTINUE@ and @ABANDON@ . The default value is @ABANDON@ .
-    defaultResult :: Lude.Maybe Lude.Text,
-    -- | The name of the lifecycle hook.
-    lifecycleHookName :: Lude.Text,
-    -- | The maximum time, in seconds, that can elapse before the lifecycle hook times out.
-    --
-    -- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the @DefaultResult@ parameter. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
-    heartbeatTimeout :: Lude.Maybe Lude.Int,
-    -- | Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
-    notificationMetadata :: Lude.Maybe Lude.Text,
-    -- | The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
-    notificationTargetARN :: Lude.Maybe Lude.Text,
+  { -- | The name of the lifecycle hook.
+    lifecycleHookName :: Types.AsciiStringMaxLen255,
     -- | The state of the EC2 instance to which you want to attach the lifecycle hook. The valid values are:
     --
     --
@@ -73,87 +69,47 @@ data LifecycleHookSpecification = LifecycleHookSpecification'
     --
     --
     --     * autoscaling:EC2_INSTANCE_TERMINATING
-    lifecycleTransition :: Lude.Text,
+    lifecycleTransition :: Types.LifecycleTransition,
+    -- | Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are @CONTINUE@ and @ABANDON@ . The default value is @ABANDON@ .
+    defaultResult :: Core.Maybe Types.LifecycleActionResult,
+    -- | The maximum time, in seconds, that can elapse before the lifecycle hook times out.
+    --
+    -- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the @DefaultResult@ parameter. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
+    heartbeatTimeout :: Core.Maybe Core.Int,
+    -- | Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
+    notificationMetadata :: Core.Maybe Types.XmlStringMaxLen1023,
+    -- | The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
+    notificationTargetARN :: Core.Maybe Types.NotificationTargetARN,
     -- | The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
-    roleARN :: Lude.Maybe Lude.Text
+    roleARN :: Core.Maybe Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LifecycleHookSpecification' with the minimum fields required to make a request.
---
--- * 'defaultResult' - Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are @CONTINUE@ and @ABANDON@ . The default value is @ABANDON@ .
--- * 'lifecycleHookName' - The name of the lifecycle hook.
--- * 'heartbeatTimeout' - The maximum time, in seconds, that can elapse before the lifecycle hook times out.
---
--- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the @DefaultResult@ parameter. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
--- * 'notificationMetadata' - Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
--- * 'notificationTargetARN' - The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
--- * 'lifecycleTransition' - The state of the EC2 instance to which you want to attach the lifecycle hook. The valid values are:
---
---
---     * autoscaling:EC2_INSTANCE_LAUNCHING
---
---
---     * autoscaling:EC2_INSTANCE_TERMINATING
---
---
--- * 'roleARN' - The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
+-- | Creates a 'LifecycleHookSpecification' value with any optional fields omitted.
 mkLifecycleHookSpecification ::
   -- | 'lifecycleHookName'
-  Lude.Text ->
+  Types.AsciiStringMaxLen255 ->
   -- | 'lifecycleTransition'
-  Lude.Text ->
+  Types.LifecycleTransition ->
   LifecycleHookSpecification
-mkLifecycleHookSpecification
-  pLifecycleHookName_
-  pLifecycleTransition_ =
-    LifecycleHookSpecification'
-      { defaultResult = Lude.Nothing,
-        lifecycleHookName = pLifecycleHookName_,
-        heartbeatTimeout = Lude.Nothing,
-        notificationMetadata = Lude.Nothing,
-        notificationTargetARN = Lude.Nothing,
-        lifecycleTransition = pLifecycleTransition_,
-        roleARN = Lude.Nothing
-      }
-
--- | Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are @CONTINUE@ and @ABANDON@ . The default value is @ABANDON@ .
---
--- /Note:/ Consider using 'defaultResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhsDefaultResult :: Lens.Lens' LifecycleHookSpecification (Lude.Maybe Lude.Text)
-lhsDefaultResult = Lens.lens (defaultResult :: LifecycleHookSpecification -> Lude.Maybe Lude.Text) (\s a -> s {defaultResult = a} :: LifecycleHookSpecification)
-{-# DEPRECATED lhsDefaultResult "Use generic-lens or generic-optics with 'defaultResult' instead." #-}
+mkLifecycleHookSpecification lifecycleHookName lifecycleTransition =
+  LifecycleHookSpecification'
+    { lifecycleHookName,
+      lifecycleTransition,
+      defaultResult = Core.Nothing,
+      heartbeatTimeout = Core.Nothing,
+      notificationMetadata = Core.Nothing,
+      notificationTargetARN = Core.Nothing,
+      roleARN = Core.Nothing
+    }
 
 -- | The name of the lifecycle hook.
 --
 -- /Note:/ Consider using 'lifecycleHookName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhsLifecycleHookName :: Lens.Lens' LifecycleHookSpecification Lude.Text
-lhsLifecycleHookName = Lens.lens (lifecycleHookName :: LifecycleHookSpecification -> Lude.Text) (\s a -> s {lifecycleHookName = a} :: LifecycleHookSpecification)
+lhsLifecycleHookName :: Lens.Lens' LifecycleHookSpecification Types.AsciiStringMaxLen255
+lhsLifecycleHookName = Lens.field @"lifecycleHookName"
 {-# DEPRECATED lhsLifecycleHookName "Use generic-lens or generic-optics with 'lifecycleHookName' instead." #-}
-
--- | The maximum time, in seconds, that can elapse before the lifecycle hook times out.
---
--- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the @DefaultResult@ parameter. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
---
--- /Note:/ Consider using 'heartbeatTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhsHeartbeatTimeout :: Lens.Lens' LifecycleHookSpecification (Lude.Maybe Lude.Int)
-lhsHeartbeatTimeout = Lens.lens (heartbeatTimeout :: LifecycleHookSpecification -> Lude.Maybe Lude.Int) (\s a -> s {heartbeatTimeout = a} :: LifecycleHookSpecification)
-{-# DEPRECATED lhsHeartbeatTimeout "Use generic-lens or generic-optics with 'heartbeatTimeout' instead." #-}
-
--- | Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
---
--- /Note:/ Consider using 'notificationMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhsNotificationMetadata :: Lens.Lens' LifecycleHookSpecification (Lude.Maybe Lude.Text)
-lhsNotificationMetadata = Lens.lens (notificationMetadata :: LifecycleHookSpecification -> Lude.Maybe Lude.Text) (\s a -> s {notificationMetadata = a} :: LifecycleHookSpecification)
-{-# DEPRECATED lhsNotificationMetadata "Use generic-lens or generic-optics with 'notificationMetadata' instead." #-}
-
--- | The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
---
--- /Note:/ Consider using 'notificationTargetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhsNotificationTargetARN :: Lens.Lens' LifecycleHookSpecification (Lude.Maybe Lude.Text)
-lhsNotificationTargetARN = Lens.lens (notificationTargetARN :: LifecycleHookSpecification -> Lude.Maybe Lude.Text) (\s a -> s {notificationTargetARN = a} :: LifecycleHookSpecification)
-{-# DEPRECATED lhsNotificationTargetARN "Use generic-lens or generic-optics with 'notificationTargetARN' instead." #-}
 
 -- | The state of the EC2 instance to which you want to attach the lifecycle hook. The valid values are:
 --
@@ -166,25 +122,43 @@ lhsNotificationTargetARN = Lens.lens (notificationTargetARN :: LifecycleHookSpec
 --
 --
 -- /Note:/ Consider using 'lifecycleTransition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhsLifecycleTransition :: Lens.Lens' LifecycleHookSpecification Lude.Text
-lhsLifecycleTransition = Lens.lens (lifecycleTransition :: LifecycleHookSpecification -> Lude.Text) (\s a -> s {lifecycleTransition = a} :: LifecycleHookSpecification)
+lhsLifecycleTransition :: Lens.Lens' LifecycleHookSpecification Types.LifecycleTransition
+lhsLifecycleTransition = Lens.field @"lifecycleTransition"
 {-# DEPRECATED lhsLifecycleTransition "Use generic-lens or generic-optics with 'lifecycleTransition' instead." #-}
+
+-- | Defines the action the Auto Scaling group should take when the lifecycle hook timeout elapses or if an unexpected failure occurs. The valid values are @CONTINUE@ and @ABANDON@ . The default value is @ABANDON@ .
+--
+-- /Note:/ Consider using 'defaultResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhsDefaultResult :: Lens.Lens' LifecycleHookSpecification (Core.Maybe Types.LifecycleActionResult)
+lhsDefaultResult = Lens.field @"defaultResult"
+{-# DEPRECATED lhsDefaultResult "Use generic-lens or generic-optics with 'defaultResult' instead." #-}
+
+-- | The maximum time, in seconds, that can elapse before the lifecycle hook times out.
+--
+-- If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that you specified in the @DefaultResult@ parameter. You can prevent the lifecycle hook from timing out by calling 'RecordLifecycleActionHeartbeat' .
+--
+-- /Note:/ Consider using 'heartbeatTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhsHeartbeatTimeout :: Lens.Lens' LifecycleHookSpecification (Core.Maybe Core.Int)
+lhsHeartbeatTimeout = Lens.field @"heartbeatTimeout"
+{-# DEPRECATED lhsHeartbeatTimeout "Use generic-lens or generic-optics with 'heartbeatTimeout' instead." #-}
+
+-- | Additional information that you want to include any time Amazon EC2 Auto Scaling sends a message to the notification target.
+--
+-- /Note:/ Consider using 'notificationMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhsNotificationMetadata :: Lens.Lens' LifecycleHookSpecification (Core.Maybe Types.XmlStringMaxLen1023)
+lhsNotificationMetadata = Lens.field @"notificationMetadata"
+{-# DEPRECATED lhsNotificationMetadata "Use generic-lens or generic-optics with 'notificationMetadata' instead." #-}
+
+-- | The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.
+--
+-- /Note:/ Consider using 'notificationTargetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lhsNotificationTargetARN :: Lens.Lens' LifecycleHookSpecification (Core.Maybe Types.NotificationTargetARN)
+lhsNotificationTargetARN = Lens.field @"notificationTargetARN"
+{-# DEPRECATED lhsNotificationTargetARN "Use generic-lens or generic-optics with 'notificationTargetARN' instead." #-}
 
 -- | The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lhsRoleARN :: Lens.Lens' LifecycleHookSpecification (Lude.Maybe Lude.Text)
-lhsRoleARN = Lens.lens (roleARN :: LifecycleHookSpecification -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: LifecycleHookSpecification)
+lhsRoleARN :: Lens.Lens' LifecycleHookSpecification (Core.Maybe Types.ResourceName)
+lhsRoleARN = Lens.field @"roleARN"
 {-# DEPRECATED lhsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.ToQuery LifecycleHookSpecification where
-  toQuery LifecycleHookSpecification' {..} =
-    Lude.mconcat
-      [ "DefaultResult" Lude.=: defaultResult,
-        "LifecycleHookName" Lude.=: lifecycleHookName,
-        "HeartbeatTimeout" Lude.=: heartbeatTimeout,
-        "NotificationMetadata" Lude.=: notificationMetadata,
-        "NotificationTargetARN" Lude.=: notificationTargetARN,
-        "LifecycleTransition" Lude.=: lifecycleTransition,
-        "RoleARN" Lude.=: roleARN
-      ]

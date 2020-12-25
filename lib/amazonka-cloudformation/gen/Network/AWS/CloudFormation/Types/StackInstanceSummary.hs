@@ -17,30 +17,64 @@ module Network.AWS.CloudFormation.Types.StackInstanceSummary
     mkStackInstanceSummary,
 
     -- * Lenses
-    sisStatus,
-    sisLastDriftCheckTimestamp,
     sisAccount,
     sisDriftStatus,
+    sisLastDriftCheckTimestamp,
     sisOrganizationalUnitId,
     sisRegion,
-    sisStatusReason,
     sisStackId,
     sisStackInstanceStatus,
     sisStackSetId,
+    sisStatus,
+    sisStatusReason,
   )
 where
 
-import Network.AWS.CloudFormation.Types.StackDriftStatus
-import Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus
-import Network.AWS.CloudFormation.Types.StackInstanceStatus
+import qualified Network.AWS.CloudFormation.Types.Account as Types
+import qualified Network.AWS.CloudFormation.Types.OrganizationalUnitId as Types
+import qualified Network.AWS.CloudFormation.Types.Region as Types
+import qualified Network.AWS.CloudFormation.Types.StackDriftStatus as Types
+import qualified Network.AWS.CloudFormation.Types.StackId as Types
+import qualified Network.AWS.CloudFormation.Types.StackInstanceComprehensiveStatus as Types
+import qualified Network.AWS.CloudFormation.Types.StackInstanceStatus as Types
+import qualified Network.AWS.CloudFormation.Types.StackSetId as Types
+import qualified Network.AWS.CloudFormation.Types.StatusReason as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The structure that contains summary information about a stack instance.
 --
 -- /See:/ 'mkStackInstanceSummary' smart constructor.
 data StackInstanceSummary = StackInstanceSummary'
-  { -- | The status of the stack instance, in terms of its synchronization with its associated stack set.
+  { -- | [@Self-managed@ permissions] The name of the AWS account that the stack instance is associated with.
+    account :: Core.Maybe Types.Account,
+    -- | Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs.
+    --
+    --
+    --     * @DRIFTED@ : The stack differs from the expected template and parameter configuration of the stack set to which it belongs. A stack instance is considered to have drifted if one or more of the resources in the associated stack have drifted.
+    --
+    --
+    --     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack instance differs from its expected stack set configuration.
+    --
+    --
+    --     * @IN_SYNC@ : The stack instance's actual configuration matches its expected stack set configuration.
+    --
+    --
+    --     * @UNKNOWN@ : This value is reserved for future use.
+    driftStatus :: Core.Maybe Types.StackDriftStatus,
+    -- | Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be @NULL@ for any stack instance on which drift detection has not yet been performed.
+    lastDriftCheckTimestamp :: Core.Maybe Core.UTCTime,
+    -- | [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
+    organizationalUnitId :: Core.Maybe Types.OrganizationalUnitId,
+    -- | The name of the AWS Region that the stack instance is associated with.
+    region :: Core.Maybe Types.Region,
+    -- | The ID of the stack instance.
+    stackId :: Core.Maybe Types.StackId,
+    -- | The detailed status of the stack instance.
+    stackInstanceStatus :: Core.Maybe Types.StackInstanceComprehensiveStatus,
+    -- | The name or unique ID of the stack set that the stack instance is associated with.
+    stackSetId :: Core.Maybe Types.StackSetId,
+    -- | The status of the stack instance, in terms of its synchronization with its associated stack set.
     --
     --
     --     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ operations. You might need to perform a @DeleteStackInstances@ operation, with @RetainStacks@ set to @true@ , to delete the stack instance, and then delete the stack manually.
@@ -57,65 +91,38 @@ data StackInstanceSummary = StackInstanceSummary'
     --
     --
     --     * @CURRENT@ : The stack is currently up to date with the stack set.
-    status :: Lude.Maybe StackInstanceStatus,
-    -- | Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be @NULL@ for any stack instance on which drift detection has not yet been performed.
-    lastDriftCheckTimestamp :: Lude.Maybe Lude.DateTime,
-    -- | [@Self-managed@ permissions] The name of the AWS account that the stack instance is associated with.
-    account :: Lude.Maybe Lude.Text,
-    -- | Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs.
-    --
-    --
-    --     * @DRIFTED@ : The stack differs from the expected template and parameter configuration of the stack set to which it belongs. A stack instance is considered to have drifted if one or more of the resources in the associated stack have drifted.
-    --
-    --
-    --     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack instance differs from its expected stack set configuration.
-    --
-    --
-    --     * @IN_SYNC@ : The stack instance's actual configuration matches its expected stack set configuration.
-    --
-    --
-    --     * @UNKNOWN@ : This value is reserved for future use.
-    driftStatus :: Lude.Maybe StackDriftStatus,
-    -- | [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
-    organizationalUnitId :: Lude.Maybe Lude.Text,
-    -- | The name of the AWS Region that the stack instance is associated with.
-    region :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.StackInstanceStatus,
     -- | The explanation for the specific status code assigned to this stack instance.
-    statusReason :: Lude.Maybe Lude.Text,
-    -- | The ID of the stack instance.
-    stackId :: Lude.Maybe Lude.Text,
-    -- | The detailed status of the stack instance.
-    stackInstanceStatus :: Lude.Maybe StackInstanceComprehensiveStatus,
-    -- | The name or unique ID of the stack set that the stack instance is associated with.
-    stackSetId :: Lude.Maybe Lude.Text
+    statusReason :: Core.Maybe Types.StatusReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StackInstanceSummary' with the minimum fields required to make a request.
+-- | Creates a 'StackInstanceSummary' value with any optional fields omitted.
+mkStackInstanceSummary ::
+  StackInstanceSummary
+mkStackInstanceSummary =
+  StackInstanceSummary'
+    { account = Core.Nothing,
+      driftStatus = Core.Nothing,
+      lastDriftCheckTimestamp = Core.Nothing,
+      organizationalUnitId = Core.Nothing,
+      region = Core.Nothing,
+      stackId = Core.Nothing,
+      stackInstanceStatus = Core.Nothing,
+      stackSetId = Core.Nothing,
+      status = Core.Nothing,
+      statusReason = Core.Nothing
+    }
+
+-- | [@Self-managed@ permissions] The name of the AWS account that the stack instance is associated with.
 --
--- * 'status' - The status of the stack instance, in terms of its synchronization with its associated stack set.
---
---
---     * @INOPERABLE@ : A @DeleteStackInstances@ operation has failed and left the stack in an unstable state. Stacks in this state are excluded from further @UpdateStackSet@ operations. You might need to perform a @DeleteStackInstances@ operation, with @RetainStacks@ set to @true@ , to delete the stack instance, and then delete the stack manually.
---
---
---     * @OUTDATED@ : The stack isn't currently up to date with the stack set because:
---
---     * The associated stack failed during a @CreateStackSet@ or @UpdateStackSet@ operation.
---
---
---     * The stack was part of a @CreateStackSet@ or @UpdateStackSet@ operation that failed or was stopped before the stack was created or updated.
---
---
---
---
---     * @CURRENT@ : The stack is currently up to date with the stack set.
---
---
--- * 'lastDriftCheckTimestamp' - Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be @NULL@ for any stack instance on which drift detection has not yet been performed.
--- * 'account' - [@Self-managed@ permissions] The name of the AWS account that the stack instance is associated with.
--- * 'driftStatus' - Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs.
+-- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisAccount :: Lens.Lens' StackInstanceSummary (Core.Maybe Types.Account)
+sisAccount = Lens.field @"account"
+{-# DEPRECATED sisAccount "Use generic-lens or generic-optics with 'account' instead." #-}
+
+-- | Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs.
 --
 --
 --     * @DRIFTED@ : The stack differs from the expected template and parameter configuration of the stack set to which it belongs. A stack instance is considered to have drifted if one or more of the resources in the associated stack have drifted.
@@ -130,27 +137,53 @@ data StackInstanceSummary = StackInstanceSummary'
 --     * @UNKNOWN@ : This value is reserved for future use.
 --
 --
--- * 'organizationalUnitId' - [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
--- * 'region' - The name of the AWS Region that the stack instance is associated with.
--- * 'statusReason' - The explanation for the specific status code assigned to this stack instance.
--- * 'stackId' - The ID of the stack instance.
--- * 'stackInstanceStatus' - The detailed status of the stack instance.
--- * 'stackSetId' - The name or unique ID of the stack set that the stack instance is associated with.
-mkStackInstanceSummary ::
-  StackInstanceSummary
-mkStackInstanceSummary =
-  StackInstanceSummary'
-    { status = Lude.Nothing,
-      lastDriftCheckTimestamp = Lude.Nothing,
-      account = Lude.Nothing,
-      driftStatus = Lude.Nothing,
-      organizationalUnitId = Lude.Nothing,
-      region = Lude.Nothing,
-      statusReason = Lude.Nothing,
-      stackId = Lude.Nothing,
-      stackInstanceStatus = Lude.Nothing,
-      stackSetId = Lude.Nothing
-    }
+--
+-- /Note:/ Consider using 'driftStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisDriftStatus :: Lens.Lens' StackInstanceSummary (Core.Maybe Types.StackDriftStatus)
+sisDriftStatus = Lens.field @"driftStatus"
+{-# DEPRECATED sisDriftStatus "Use generic-lens or generic-optics with 'driftStatus' instead." #-}
+
+-- | Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be @NULL@ for any stack instance on which drift detection has not yet been performed.
+--
+-- /Note:/ Consider using 'lastDriftCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisLastDriftCheckTimestamp :: Lens.Lens' StackInstanceSummary (Core.Maybe Core.UTCTime)
+sisLastDriftCheckTimestamp = Lens.field @"lastDriftCheckTimestamp"
+{-# DEPRECATED sisLastDriftCheckTimestamp "Use generic-lens or generic-optics with 'lastDriftCheckTimestamp' instead." #-}
+
+-- | [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
+--
+-- /Note:/ Consider using 'organizationalUnitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisOrganizationalUnitId :: Lens.Lens' StackInstanceSummary (Core.Maybe Types.OrganizationalUnitId)
+sisOrganizationalUnitId = Lens.field @"organizationalUnitId"
+{-# DEPRECATED sisOrganizationalUnitId "Use generic-lens or generic-optics with 'organizationalUnitId' instead." #-}
+
+-- | The name of the AWS Region that the stack instance is associated with.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisRegion :: Lens.Lens' StackInstanceSummary (Core.Maybe Types.Region)
+sisRegion = Lens.field @"region"
+{-# DEPRECATED sisRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+
+-- | The ID of the stack instance.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisStackId :: Lens.Lens' StackInstanceSummary (Core.Maybe Types.StackId)
+sisStackId = Lens.field @"stackId"
+{-# DEPRECATED sisStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+
+-- | The detailed status of the stack instance.
+--
+-- /Note:/ Consider using 'stackInstanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisStackInstanceStatus :: Lens.Lens' StackInstanceSummary (Core.Maybe Types.StackInstanceComprehensiveStatus)
+sisStackInstanceStatus = Lens.field @"stackInstanceStatus"
+{-# DEPRECATED sisStackInstanceStatus "Use generic-lens or generic-optics with 'stackInstanceStatus' instead." #-}
+
+-- | The name or unique ID of the stack set that the stack instance is associated with.
+--
+-- /Note:/ Consider using 'stackSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sisStackSetId :: Lens.Lens' StackInstanceSummary (Core.Maybe Types.StackSetId)
+sisStackSetId = Lens.field @"stackSetId"
+{-# DEPRECATED sisStackSetId "Use generic-lens or generic-optics with 'stackSetId' instead." #-}
 
 -- | The status of the stack instance, in terms of its synchronization with its associated stack set.
 --
@@ -173,97 +206,27 @@ mkStackInstanceSummary =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisStatus :: Lens.Lens' StackInstanceSummary (Lude.Maybe StackInstanceStatus)
-sisStatus = Lens.lens (status :: StackInstanceSummary -> Lude.Maybe StackInstanceStatus) (\s a -> s {status = a} :: StackInstanceSummary)
+sisStatus :: Lens.Lens' StackInstanceSummary (Core.Maybe Types.StackInstanceStatus)
+sisStatus = Lens.field @"status"
 {-# DEPRECATED sisStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Most recent time when CloudFormation performed a drift detection operation on the stack instance. This value will be @NULL@ for any stack instance on which drift detection has not yet been performed.
---
--- /Note:/ Consider using 'lastDriftCheckTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisLastDriftCheckTimestamp :: Lens.Lens' StackInstanceSummary (Lude.Maybe Lude.DateTime)
-sisLastDriftCheckTimestamp = Lens.lens (lastDriftCheckTimestamp :: StackInstanceSummary -> Lude.Maybe Lude.DateTime) (\s a -> s {lastDriftCheckTimestamp = a} :: StackInstanceSummary)
-{-# DEPRECATED sisLastDriftCheckTimestamp "Use generic-lens or generic-optics with 'lastDriftCheckTimestamp' instead." #-}
-
--- | [@Self-managed@ permissions] The name of the AWS account that the stack instance is associated with.
---
--- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisAccount :: Lens.Lens' StackInstanceSummary (Lude.Maybe Lude.Text)
-sisAccount = Lens.lens (account :: StackInstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {account = a} :: StackInstanceSummary)
-{-# DEPRECATED sisAccount "Use generic-lens or generic-optics with 'account' instead." #-}
-
--- | Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs.
---
---
---     * @DRIFTED@ : The stack differs from the expected template and parameter configuration of the stack set to which it belongs. A stack instance is considered to have drifted if one or more of the resources in the associated stack have drifted.
---
---
---     * @NOT_CHECKED@ : AWS CloudFormation has not checked if the stack instance differs from its expected stack set configuration.
---
---
---     * @IN_SYNC@ : The stack instance's actual configuration matches its expected stack set configuration.
---
---
---     * @UNKNOWN@ : This value is reserved for future use.
---
---
---
--- /Note:/ Consider using 'driftStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisDriftStatus :: Lens.Lens' StackInstanceSummary (Lude.Maybe StackDriftStatus)
-sisDriftStatus = Lens.lens (driftStatus :: StackInstanceSummary -> Lude.Maybe StackDriftStatus) (\s a -> s {driftStatus = a} :: StackInstanceSummary)
-{-# DEPRECATED sisDriftStatus "Use generic-lens or generic-optics with 'driftStatus' instead." #-}
-
--- | [@Service-managed@ permissions] The organization root ID or organizational unit (OU) IDs that you specified for <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html DeploymentTargets> .
---
--- /Note:/ Consider using 'organizationalUnitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisOrganizationalUnitId :: Lens.Lens' StackInstanceSummary (Lude.Maybe Lude.Text)
-sisOrganizationalUnitId = Lens.lens (organizationalUnitId :: StackInstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {organizationalUnitId = a} :: StackInstanceSummary)
-{-# DEPRECATED sisOrganizationalUnitId "Use generic-lens or generic-optics with 'organizationalUnitId' instead." #-}
-
--- | The name of the AWS Region that the stack instance is associated with.
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisRegion :: Lens.Lens' StackInstanceSummary (Lude.Maybe Lude.Text)
-sisRegion = Lens.lens (region :: StackInstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: StackInstanceSummary)
-{-# DEPRECATED sisRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The explanation for the specific status code assigned to this stack instance.
 --
 -- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisStatusReason :: Lens.Lens' StackInstanceSummary (Lude.Maybe Lude.Text)
-sisStatusReason = Lens.lens (statusReason :: StackInstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: StackInstanceSummary)
+sisStatusReason :: Lens.Lens' StackInstanceSummary (Core.Maybe Types.StatusReason)
+sisStatusReason = Lens.field @"statusReason"
 {-# DEPRECATED sisStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
--- | The ID of the stack instance.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisStackId :: Lens.Lens' StackInstanceSummary (Lude.Maybe Lude.Text)
-sisStackId = Lens.lens (stackId :: StackInstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: StackInstanceSummary)
-{-# DEPRECATED sisStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
-
--- | The detailed status of the stack instance.
---
--- /Note:/ Consider using 'stackInstanceStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisStackInstanceStatus :: Lens.Lens' StackInstanceSummary (Lude.Maybe StackInstanceComprehensiveStatus)
-sisStackInstanceStatus = Lens.lens (stackInstanceStatus :: StackInstanceSummary -> Lude.Maybe StackInstanceComprehensiveStatus) (\s a -> s {stackInstanceStatus = a} :: StackInstanceSummary)
-{-# DEPRECATED sisStackInstanceStatus "Use generic-lens or generic-optics with 'stackInstanceStatus' instead." #-}
-
--- | The name or unique ID of the stack set that the stack instance is associated with.
---
--- /Note:/ Consider using 'stackSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sisStackSetId :: Lens.Lens' StackInstanceSummary (Lude.Maybe Lude.Text)
-sisStackSetId = Lens.lens (stackSetId :: StackInstanceSummary -> Lude.Maybe Lude.Text) (\s a -> s {stackSetId = a} :: StackInstanceSummary)
-{-# DEPRECATED sisStackSetId "Use generic-lens or generic-optics with 'stackSetId' instead." #-}
-
-instance Lude.FromXML StackInstanceSummary where
+instance Core.FromXML StackInstanceSummary where
   parseXML x =
     StackInstanceSummary'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "LastDriftCheckTimestamp")
-      Lude.<*> (x Lude..@? "Account")
-      Lude.<*> (x Lude..@? "DriftStatus")
-      Lude.<*> (x Lude..@? "OrganizationalUnitId")
-      Lude.<*> (x Lude..@? "Region")
-      Lude.<*> (x Lude..@? "StatusReason")
-      Lude.<*> (x Lude..@? "StackId")
-      Lude.<*> (x Lude..@? "StackInstanceStatus")
-      Lude.<*> (x Lude..@? "StackSetId")
+      Core.<$> (x Core..@? "Account")
+      Core.<*> (x Core..@? "DriftStatus")
+      Core.<*> (x Core..@? "LastDriftCheckTimestamp")
+      Core.<*> (x Core..@? "OrganizationalUnitId")
+      Core.<*> (x Core..@? "Region")
+      Core.<*> (x Core..@? "StackId")
+      Core.<*> (x Core..@? "StackInstanceStatus")
+      Core.<*> (x Core..@? "StackSetId")
+      Core.<*> (x Core..@? "Status")
+      Core.<*> (x Core..@? "StatusReason")

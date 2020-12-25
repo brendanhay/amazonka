@@ -22,9 +22,10 @@ module Network.AWS.ECS.Types.ContainerDependency
   )
 where
 
-import Network.AWS.ECS.Types.ContainerCondition
+import qualified Network.AWS.ECS.Types.ContainerCondition as Types
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The dependencies defined for container startup and shutdown. A container can contain multiple dependencies. When a dependency is defined for container startup, for container shutdown it is reversed.
 --
@@ -33,7 +34,7 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkContainerDependency' smart constructor.
 data ContainerDependency = ContainerDependency'
   { -- | The name of a container.
-    containerName :: Lude.Text,
+    containerName :: Types.String,
     -- | The dependency condition of the container. The following are the available conditions and their behavior:
     --
     --
@@ -47,44 +48,26 @@ data ContainerDependency = ContainerDependency'
     --
     --
     --     * @HEALTHY@ - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
-    condition :: ContainerCondition
+    condition :: Types.ContainerCondition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContainerDependency' with the minimum fields required to make a request.
---
--- * 'containerName' - The name of a container.
--- * 'condition' - The dependency condition of the container. The following are the available conditions and their behavior:
---
---
---     * @START@ - This condition emulates the behavior of links and volumes today. It validates that a dependent container is started before permitting other containers to start.
---
---
---     * @COMPLETE@ - This condition validates that a dependent container runs to completion (exits) before permitting other containers to start. This can be useful for nonessential containers that run a script and then exit. This condition cannot be set on an essential container.
---
---
---     * @SUCCESS@ - This condition is the same as @COMPLETE@ , but it also requires that the container exits with a @zero@ status. This condition cannot be set on an essential container.
---
---
---     * @HEALTHY@ - This condition validates that the dependent container passes its Docker health check before permitting other containers to start. This requires that the dependent container has health checks configured. This condition is confirmed only at task startup.
+-- | Creates a 'ContainerDependency' value with any optional fields omitted.
 mkContainerDependency ::
   -- | 'containerName'
-  Lude.Text ->
+  Types.String ->
   -- | 'condition'
-  ContainerCondition ->
+  Types.ContainerCondition ->
   ContainerDependency
-mkContainerDependency pContainerName_ pCondition_ =
-  ContainerDependency'
-    { containerName = pContainerName_,
-      condition = pCondition_
-    }
+mkContainerDependency containerName condition =
+  ContainerDependency' {containerName, condition}
 
 -- | The name of a container.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdContainerName :: Lens.Lens' ContainerDependency Lude.Text
-cdContainerName = Lens.lens (containerName :: ContainerDependency -> Lude.Text) (\s a -> s {containerName = a} :: ContainerDependency)
+cdContainerName :: Lens.Lens' ContainerDependency Types.String
+cdContainerName = Lens.field @"containerName"
 {-# DEPRECATED cdContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
 -- | The dependency condition of the container. The following are the available conditions and their behavior:
@@ -104,24 +87,22 @@ cdContainerName = Lens.lens (containerName :: ContainerDependency -> Lude.Text) 
 --
 --
 -- /Note:/ Consider using 'condition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdCondition :: Lens.Lens' ContainerDependency ContainerCondition
-cdCondition = Lens.lens (condition :: ContainerDependency -> ContainerCondition) (\s a -> s {condition = a} :: ContainerDependency)
+cdCondition :: Lens.Lens' ContainerDependency Types.ContainerCondition
+cdCondition = Lens.field @"condition"
 {-# DEPRECATED cdCondition "Use generic-lens or generic-optics with 'condition' instead." #-}
 
-instance Lude.FromJSON ContainerDependency where
-  parseJSON =
-    Lude.withObject
-      "ContainerDependency"
-      ( \x ->
-          ContainerDependency'
-            Lude.<$> (x Lude..: "containerName") Lude.<*> (x Lude..: "condition")
-      )
-
-instance Lude.ToJSON ContainerDependency where
-  toJSON ContainerDependency' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("containerName" Lude..= containerName),
-            Lude.Just ("condition" Lude..= condition)
+instance Core.FromJSON ContainerDependency where
+  toJSON ContainerDependency {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("containerName" Core..= containerName),
+            Core.Just ("condition" Core..= condition)
           ]
       )
+
+instance Core.FromJSON ContainerDependency where
+  parseJSON =
+    Core.withObject "ContainerDependency" Core.$
+      \x ->
+        ContainerDependency'
+          Core.<$> (x Core..: "containerName") Core.<*> (x Core..: "condition")

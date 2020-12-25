@@ -22,35 +22,32 @@ module Network.AWS.IoT.Types.BillingGroupMetadata
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Additional information about the billing group.
 --
 -- /See:/ 'mkBillingGroupMetadata' smart constructor.
 newtype BillingGroupMetadata = BillingGroupMetadata'
   { -- | The date the billing group was created.
-    creationDate :: Lude.Maybe Lude.Timestamp
+    creationDate :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'BillingGroupMetadata' with the minimum fields required to make a request.
---
--- * 'creationDate' - The date the billing group was created.
+-- | Creates a 'BillingGroupMetadata' value with any optional fields omitted.
 mkBillingGroupMetadata ::
   BillingGroupMetadata
 mkBillingGroupMetadata =
-  BillingGroupMetadata' {creationDate = Lude.Nothing}
+  BillingGroupMetadata' {creationDate = Core.Nothing}
 
 -- | The date the billing group was created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgmCreationDate :: Lens.Lens' BillingGroupMetadata (Lude.Maybe Lude.Timestamp)
-bgmCreationDate = Lens.lens (creationDate :: BillingGroupMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: BillingGroupMetadata)
+bgmCreationDate :: Lens.Lens' BillingGroupMetadata (Core.Maybe Core.NominalDiffTime)
+bgmCreationDate = Lens.field @"creationDate"
 {-# DEPRECATED bgmCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
-instance Lude.FromJSON BillingGroupMetadata where
+instance Core.FromJSON BillingGroupMetadata where
   parseJSON =
-    Lude.withObject
-      "BillingGroupMetadata"
-      (\x -> BillingGroupMetadata' Lude.<$> (x Lude..:? "creationDate"))
+    Core.withObject "BillingGroupMetadata" Core.$
+      \x -> BillingGroupMetadata' Core.<$> (x Core..:? "creationDate")

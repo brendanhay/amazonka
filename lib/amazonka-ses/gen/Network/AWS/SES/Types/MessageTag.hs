@@ -17,13 +17,15 @@ module Network.AWS.SES.Types.MessageTag
     mkMessageTag,
 
     -- * Lenses
-    mtValue,
     mtName,
+    mtValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.MessageTagName as Types
+import qualified Network.AWS.SES.Types.Value as Types
 
 -- | Contains the name and value of a tag that you can provide to @SendEmail@ or @SendRawEmail@ to apply to an email.
 --
@@ -31,67 +33,34 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkMessageTag' smart constructor.
 data MessageTag = MessageTag'
-  { -- | The value of the tag. The value must:
+  { -- | The name of the tag. The name must:
     --
     --
     --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
     --
     --
     --     * Contain less than 256 characters.
-    value :: Lude.Text,
-    -- | The name of the tag. The name must:
+    name :: Types.MessageTagName,
+    -- | The value of the tag. The value must:
     --
     --
     --     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
     --
     --
     --     * Contain less than 256 characters.
-    name :: Lude.Text
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MessageTag' with the minimum fields required to make a request.
---
--- * 'value' - The value of the tag. The value must:
---
---
---     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
---
---
---     * Contain less than 256 characters.
---
---
--- * 'name' - The name of the tag. The name must:
---
---
---     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
---
---
---     * Contain less than 256 characters.
+-- | Creates a 'MessageTag' value with any optional fields omitted.
 mkMessageTag ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.MessageTagName ->
+  -- | 'value'
+  Types.Value ->
   MessageTag
-mkMessageTag pValue_ pName_ =
-  MessageTag' {value = pValue_, name = pName_}
-
--- | The value of the tag. The value must:
---
---
---     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
---
---
---     * Contain less than 256 characters.
---
---
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtValue :: Lens.Lens' MessageTag Lude.Text
-mtValue = Lens.lens (value :: MessageTag -> Lude.Text) (\s a -> s {value = a} :: MessageTag)
-{-# DEPRECATED mtValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkMessageTag name value = MessageTag' {name, value}
 
 -- | The name of the tag. The name must:
 --
@@ -104,10 +73,21 @@ mtValue = Lens.lens (value :: MessageTag -> Lude.Text) (\s a -> s {value = a} ::
 --
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtName :: Lens.Lens' MessageTag Lude.Text
-mtName = Lens.lens (name :: MessageTag -> Lude.Text) (\s a -> s {name = a} :: MessageTag)
+mtName :: Lens.Lens' MessageTag Types.MessageTagName
+mtName = Lens.field @"name"
 {-# DEPRECATED mtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToQuery MessageTag where
-  toQuery MessageTag' {..} =
-    Lude.mconcat ["Value" Lude.=: value, "Name" Lude.=: name]
+-- | The value of the tag. The value must:
+--
+--
+--     * This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).
+--
+--
+--     * Contain less than 256 characters.
+--
+--
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtValue :: Lens.Lens' MessageTag Types.Value
+mtValue = Lens.field @"value"
+{-# DEPRECATED mtValue "Use generic-lens or generic-optics with 'value' instead." #-}

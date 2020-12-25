@@ -13,72 +13,74 @@
 module Network.AWS.Redshift.Types.OperatorType
   ( OperatorType
       ( OperatorType',
-        EQ,
-        LT,
-        GT,
-        LE,
-        GE,
-        IN,
-        Between
+        OperatorTypeEQ,
+        OperatorTypeLT,
+        OperatorTypeGT,
+        OperatorTypeLE,
+        OperatorTypeGE,
+        OperatorTypeIN,
+        OperatorTypeBetween,
+        fromOperatorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
 
-newtype OperatorType = OperatorType' Lude.Text
+newtype OperatorType = OperatorType' {fromOperatorType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EQ :: OperatorType
-pattern EQ = OperatorType' "eq"
+pattern OperatorTypeEQ :: OperatorType
+pattern OperatorTypeEQ = OperatorType' "eq"
 
-pattern LT :: OperatorType
-pattern LT = OperatorType' "lt"
+pattern OperatorTypeLT :: OperatorType
+pattern OperatorTypeLT = OperatorType' "lt"
 
-pattern GT :: OperatorType
-pattern GT = OperatorType' "gt"
+pattern OperatorTypeGT :: OperatorType
+pattern OperatorTypeGT = OperatorType' "gt"
 
-pattern LE :: OperatorType
-pattern LE = OperatorType' "le"
+pattern OperatorTypeLE :: OperatorType
+pattern OperatorTypeLE = OperatorType' "le"
 
-pattern GE :: OperatorType
-pattern GE = OperatorType' "ge"
+pattern OperatorTypeGE :: OperatorType
+pattern OperatorTypeGE = OperatorType' "ge"
 
-pattern IN :: OperatorType
-pattern IN = OperatorType' "in"
+pattern OperatorTypeIN :: OperatorType
+pattern OperatorTypeIN = OperatorType' "in"
 
-pattern Between :: OperatorType
-pattern Between = OperatorType' "between"
+pattern OperatorTypeBetween :: OperatorType
+pattern OperatorTypeBetween = OperatorType' "between"
 
 {-# COMPLETE
-  EQ,
-  LT,
-  GT,
-  LE,
-  GE,
-  IN,
-  Between,
+  OperatorTypeEQ,
+  OperatorTypeLT,
+  OperatorTypeGT,
+  OperatorTypeLE,
+  OperatorTypeGE,
+  OperatorTypeIN,
+  OperatorTypeBetween,
   OperatorType'
   #-}

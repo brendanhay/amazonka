@@ -17,72 +17,59 @@ module Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration
     mkAnomalyDetectorConfiguration,
 
     -- * Lenses
-    adcMetricTimezone,
     adcExcludedTimeRanges,
+    adcMetricTimezone,
   )
 where
 
-import Network.AWS.CloudWatch.Types.Range
+import qualified Network.AWS.CloudWatch.Types.AnomalyDetectorMetricTimezone as Types
+import qualified Network.AWS.CloudWatch.Types.Range as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The configuration specifies details about how the anomaly detection model is to be trained, including time ranges to exclude from use for training the model and the time zone to use for the metric.
 --
 -- /See:/ 'mkAnomalyDetectorConfiguration' smart constructor.
 data AnomalyDetectorConfiguration = AnomalyDetectorConfiguration'
-  { -- | The time zone to use for the metric. This is useful to enable the model to automatically account for daylight savings time changes if the metric is sensitive to such time changes.
+  { -- | An array of time ranges to exclude from use when the anomaly detection model is trained. Use this to make sure that events that could cause unusual values for the metric, such as deployments, aren't used when CloudWatch creates the model.
+    excludedTimeRanges :: Core.Maybe [Types.Range],
+    -- | The time zone to use for the metric. This is useful to enable the model to automatically account for daylight savings time changes if the metric is sensitive to such time changes.
     --
     -- To specify a time zone, use the name of the time zone as specified in the standard tz database. For more information, see <https://en.wikipedia.org/wiki/Tz_database tz database> .
-    metricTimezone :: Lude.Maybe Lude.Text,
-    -- | An array of time ranges to exclude from use when the anomaly detection model is trained. Use this to make sure that events that could cause unusual values for the metric, such as deployments, aren't used when CloudWatch creates the model.
-    excludedTimeRanges :: Lude.Maybe [Range]
+    metricTimezone :: Core.Maybe Types.AnomalyDetectorMetricTimezone
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AnomalyDetectorConfiguration' with the minimum fields required to make a request.
---
--- * 'metricTimezone' - The time zone to use for the metric. This is useful to enable the model to automatically account for daylight savings time changes if the metric is sensitive to such time changes.
---
--- To specify a time zone, use the name of the time zone as specified in the standard tz database. For more information, see <https://en.wikipedia.org/wiki/Tz_database tz database> .
--- * 'excludedTimeRanges' - An array of time ranges to exclude from use when the anomaly detection model is trained. Use this to make sure that events that could cause unusual values for the metric, such as deployments, aren't used when CloudWatch creates the model.
+-- | Creates a 'AnomalyDetectorConfiguration' value with any optional fields omitted.
 mkAnomalyDetectorConfiguration ::
   AnomalyDetectorConfiguration
 mkAnomalyDetectorConfiguration =
   AnomalyDetectorConfiguration'
-    { metricTimezone = Lude.Nothing,
-      excludedTimeRanges = Lude.Nothing
+    { excludedTimeRanges = Core.Nothing,
+      metricTimezone = Core.Nothing
     }
+
+-- | An array of time ranges to exclude from use when the anomaly detection model is trained. Use this to make sure that events that could cause unusual values for the metric, such as deployments, aren't used when CloudWatch creates the model.
+--
+-- /Note:/ Consider using 'excludedTimeRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adcExcludedTimeRanges :: Lens.Lens' AnomalyDetectorConfiguration (Core.Maybe [Types.Range])
+adcExcludedTimeRanges = Lens.field @"excludedTimeRanges"
+{-# DEPRECATED adcExcludedTimeRanges "Use generic-lens or generic-optics with 'excludedTimeRanges' instead." #-}
 
 -- | The time zone to use for the metric. This is useful to enable the model to automatically account for daylight savings time changes if the metric is sensitive to such time changes.
 --
 -- To specify a time zone, use the name of the time zone as specified in the standard tz database. For more information, see <https://en.wikipedia.org/wiki/Tz_database tz database> .
 --
 -- /Note:/ Consider using 'metricTimezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adcMetricTimezone :: Lens.Lens' AnomalyDetectorConfiguration (Lude.Maybe Lude.Text)
-adcMetricTimezone = Lens.lens (metricTimezone :: AnomalyDetectorConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {metricTimezone = a} :: AnomalyDetectorConfiguration)
+adcMetricTimezone :: Lens.Lens' AnomalyDetectorConfiguration (Core.Maybe Types.AnomalyDetectorMetricTimezone)
+adcMetricTimezone = Lens.field @"metricTimezone"
 {-# DEPRECATED adcMetricTimezone "Use generic-lens or generic-optics with 'metricTimezone' instead." #-}
 
--- | An array of time ranges to exclude from use when the anomaly detection model is trained. Use this to make sure that events that could cause unusual values for the metric, such as deployments, aren't used when CloudWatch creates the model.
---
--- /Note:/ Consider using 'excludedTimeRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adcExcludedTimeRanges :: Lens.Lens' AnomalyDetectorConfiguration (Lude.Maybe [Range])
-adcExcludedTimeRanges = Lens.lens (excludedTimeRanges :: AnomalyDetectorConfiguration -> Lude.Maybe [Range]) (\s a -> s {excludedTimeRanges = a} :: AnomalyDetectorConfiguration)
-{-# DEPRECATED adcExcludedTimeRanges "Use generic-lens or generic-optics with 'excludedTimeRanges' instead." #-}
-
-instance Lude.FromXML AnomalyDetectorConfiguration where
+instance Core.FromXML AnomalyDetectorConfiguration where
   parseXML x =
     AnomalyDetectorConfiguration'
-      Lude.<$> (x Lude..@? "MetricTimezone")
-      Lude.<*> ( x Lude..@? "ExcludedTimeRanges" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> ( x Core..@? "ExcludedTimeRanges"
+                   Core..<@> Core.parseXMLList "member"
                )
-
-instance Lude.ToQuery AnomalyDetectorConfiguration where
-  toQuery AnomalyDetectorConfiguration' {..} =
-    Lude.mconcat
-      [ "MetricTimezone" Lude.=: metricTimezone,
-        "ExcludedTimeRanges"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> excludedTimeRanges)
-      ]
+      Core.<*> (x Core..@? "MetricTimezone")

@@ -23,62 +23,57 @@ module Network.AWS.MediaConvert.Types.S3DestinationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.S3DestinationAccessControl
-import Network.AWS.MediaConvert.Types.S3EncryptionSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.S3DestinationAccessControl as Types
+import qualified Network.AWS.MediaConvert.Types.S3EncryptionSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings associated with S3 destination
 --
 -- /See:/ 'mkS3DestinationSettings' smart constructor.
 data S3DestinationSettings = S3DestinationSettings'
   { -- | Optional. Have MediaConvert automatically apply Amazon S3 access control for the outputs in this output group. When you don't use this setting, S3 automatically applies the default access control list PRIVATE.
-    accessControl :: Lude.Maybe S3DestinationAccessControl,
+    accessControl :: Core.Maybe Types.S3DestinationAccessControl,
     -- | Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
-    encryption :: Lude.Maybe S3EncryptionSettings
+    encryption :: Core.Maybe Types.S3EncryptionSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3DestinationSettings' with the minimum fields required to make a request.
---
--- * 'accessControl' - Optional. Have MediaConvert automatically apply Amazon S3 access control for the outputs in this output group. When you don't use this setting, S3 automatically applies the default access control list PRIVATE.
--- * 'encryption' - Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+-- | Creates a 'S3DestinationSettings' value with any optional fields omitted.
 mkS3DestinationSettings ::
   S3DestinationSettings
 mkS3DestinationSettings =
   S3DestinationSettings'
-    { accessControl = Lude.Nothing,
-      encryption = Lude.Nothing
+    { accessControl = Core.Nothing,
+      encryption = Core.Nothing
     }
 
 -- | Optional. Have MediaConvert automatically apply Amazon S3 access control for the outputs in this output group. When you don't use this setting, S3 automatically applies the default access control list PRIVATE.
 --
 -- /Note:/ Consider using 'accessControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdsAccessControl :: Lens.Lens' S3DestinationSettings (Lude.Maybe S3DestinationAccessControl)
-sdsAccessControl = Lens.lens (accessControl :: S3DestinationSettings -> Lude.Maybe S3DestinationAccessControl) (\s a -> s {accessControl = a} :: S3DestinationSettings)
+sdsAccessControl :: Lens.Lens' S3DestinationSettings (Core.Maybe Types.S3DestinationAccessControl)
+sdsAccessControl = Lens.field @"accessControl"
 {-# DEPRECATED sdsAccessControl "Use generic-lens or generic-optics with 'accessControl' instead." #-}
 
 -- | Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
 --
 -- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdsEncryption :: Lens.Lens' S3DestinationSettings (Lude.Maybe S3EncryptionSettings)
-sdsEncryption = Lens.lens (encryption :: S3DestinationSettings -> Lude.Maybe S3EncryptionSettings) (\s a -> s {encryption = a} :: S3DestinationSettings)
+sdsEncryption :: Lens.Lens' S3DestinationSettings (Core.Maybe Types.S3EncryptionSettings)
+sdsEncryption = Lens.field @"encryption"
 {-# DEPRECATED sdsEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
-instance Lude.FromJSON S3DestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "S3DestinationSettings"
-      ( \x ->
-          S3DestinationSettings'
-            Lude.<$> (x Lude..:? "accessControl") Lude.<*> (x Lude..:? "encryption")
-      )
-
-instance Lude.ToJSON S3DestinationSettings where
-  toJSON S3DestinationSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("accessControl" Lude..=) Lude.<$> accessControl,
-            ("encryption" Lude..=) Lude.<$> encryption
+instance Core.FromJSON S3DestinationSettings where
+  toJSON S3DestinationSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("accessControl" Core..=) Core.<$> accessControl,
+            ("encryption" Core..=) Core.<$> encryption
           ]
       )
+
+instance Core.FromJSON S3DestinationSettings where
+  parseJSON =
+    Core.withObject "S3DestinationSettings" Core.$
+      \x ->
+        S3DestinationSettings'
+          Core.<$> (x Core..:? "accessControl") Core.<*> (x Core..:? "encryption")

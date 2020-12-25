@@ -22,147 +22,137 @@ module Network.AWS.Mobile.ListBundles
     mkListBundles,
 
     -- ** Request lenses
-    lbNextToken,
     lbMaxResults,
+    lbNextToken,
 
     -- * Destructuring the response
     ListBundlesResponse (..),
     mkListBundlesResponse,
 
     -- ** Response lenses
-    lbrsBundleList,
-    lbrsNextToken,
-    lbrsResponseStatus,
+    lbrrsBundleList,
+    lbrrsNextToken,
+    lbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Mobile.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Mobile.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request structure to request all available bundles.
 --
 -- /See:/ 'mkListBundles' smart constructor.
 data ListBundles = ListBundles'
-  { -- | Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Maximum number of records to list in a single response.
-    maxResults :: Lude.Maybe Lude.Int
+  { -- | Maximum number of records to list in a single response.
+    maxResults :: Core.Maybe Core.Int,
+    -- | Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBundles' with the minimum fields required to make a request.
---
--- * 'nextToken' - Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles.
--- * 'maxResults' - Maximum number of records to list in a single response.
+-- | Creates a 'ListBundles' value with any optional fields omitted.
 mkListBundles ::
   ListBundles
 mkListBundles =
-  ListBundles' {nextToken = Lude.Nothing, maxResults = Lude.Nothing}
-
--- | Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbNextToken :: Lens.Lens' ListBundles (Lude.Maybe Lude.Text)
-lbNextToken = Lens.lens (nextToken :: ListBundles -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBundles)
-{-# DEPRECATED lbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  ListBundles' {maxResults = Core.Nothing, nextToken = Core.Nothing}
 
 -- | Maximum number of records to list in a single response.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbMaxResults :: Lens.Lens' ListBundles (Lude.Maybe Lude.Int)
-lbMaxResults = Lens.lens (maxResults :: ListBundles -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListBundles)
+lbMaxResults :: Lens.Lens' ListBundles (Core.Maybe Core.Int)
+lbMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListBundles where
-  page rq rs
-    | Page.stop (rs Lens.^. lbrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lbrsBundleList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lbNextToken Lens..~ rs Lens.^. lbrsNextToken
+-- | Pagination token. Set to null to start listing bundles from start. If non-null pagination token is returned in a result, then pass its value in here in another request to list more bundles.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbNextToken :: Lens.Lens' ListBundles (Core.Maybe Types.NextToken)
+lbNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListBundles where
+instance Core.AWSRequest ListBundles where
   type Rs ListBundles = ListBundlesResponse
-  request = Req.get mobileService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/bundles",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListBundlesResponse'
-            Lude.<$> (x Lude..?> "bundleList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "bundleList")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListBundles where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListBundles where
-  toPath = Lude.const "/bundles"
-
-instance Lude.ToQuery ListBundles where
-  toQuery ListBundles' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListBundles where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"bundleList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Result structure contains a list of all available bundles with details.
 --
 -- /See:/ 'mkListBundlesResponse' smart constructor.
 data ListBundlesResponse = ListBundlesResponse'
   { -- | A list of bundles.
-    bundleList :: Lude.Maybe [BundleDetails],
+    bundleList :: Core.Maybe [Types.BundleDetails],
     -- | Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBundlesResponse' with the minimum fields required to make a request.
---
--- * 'bundleList' - A list of bundles.
--- * 'nextToken' - Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListBundlesResponse' value with any optional fields omitted.
 mkListBundlesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListBundlesResponse
-mkListBundlesResponse pResponseStatus_ =
+mkListBundlesResponse responseStatus =
   ListBundlesResponse'
-    { bundleList = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { bundleList = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of bundles.
 --
 -- /Note:/ Consider using 'bundleList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsBundleList :: Lens.Lens' ListBundlesResponse (Lude.Maybe [BundleDetails])
-lbrsBundleList = Lens.lens (bundleList :: ListBundlesResponse -> Lude.Maybe [BundleDetails]) (\s a -> s {bundleList = a} :: ListBundlesResponse)
-{-# DEPRECATED lbrsBundleList "Use generic-lens or generic-optics with 'bundleList' instead." #-}
+lbrrsBundleList :: Lens.Lens' ListBundlesResponse (Core.Maybe [Types.BundleDetails])
+lbrrsBundleList = Lens.field @"bundleList"
+{-# DEPRECATED lbrrsBundleList "Use generic-lens or generic-optics with 'bundleList' instead." #-}
 
 -- | Pagination token. If non-null pagination token is returned in a result, then pass its value in another request to fetch more entries.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsNextToken :: Lens.Lens' ListBundlesResponse (Lude.Maybe Lude.Text)
-lbrsNextToken = Lens.lens (nextToken :: ListBundlesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBundlesResponse)
-{-# DEPRECATED lbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lbrrsNextToken :: Lens.Lens' ListBundlesResponse (Core.Maybe Types.NextToken)
+lbrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lbrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbrsResponseStatus :: Lens.Lens' ListBundlesResponse Lude.Int
-lbrsResponseStatus = Lens.lens (responseStatus :: ListBundlesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBundlesResponse)
-{-# DEPRECATED lbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lbrrsResponseStatus :: Lens.Lens' ListBundlesResponse Core.Int
+lbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

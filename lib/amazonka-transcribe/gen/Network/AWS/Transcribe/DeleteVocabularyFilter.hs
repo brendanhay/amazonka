@@ -29,74 +29,62 @@ module Network.AWS.Transcribe.DeleteVocabularyFilter
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Transcribe.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Transcribe.Types as Types
 
 -- | /See:/ 'mkDeleteVocabularyFilter' smart constructor.
 newtype DeleteVocabularyFilter = DeleteVocabularyFilter'
   { -- | The name of the vocabulary filter to remove.
-    vocabularyFilterName :: Lude.Text
+    vocabularyFilterName :: Types.VocabularyFilterName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVocabularyFilter' with the minimum fields required to make a request.
---
--- * 'vocabularyFilterName' - The name of the vocabulary filter to remove.
+-- | Creates a 'DeleteVocabularyFilter' value with any optional fields omitted.
 mkDeleteVocabularyFilter ::
   -- | 'vocabularyFilterName'
-  Lude.Text ->
+  Types.VocabularyFilterName ->
   DeleteVocabularyFilter
-mkDeleteVocabularyFilter pVocabularyFilterName_ =
-  DeleteVocabularyFilter'
-    { vocabularyFilterName =
-        pVocabularyFilterName_
-    }
+mkDeleteVocabularyFilter vocabularyFilterName =
+  DeleteVocabularyFilter' {vocabularyFilterName}
 
 -- | The name of the vocabulary filter to remove.
 --
 -- /Note:/ Consider using 'vocabularyFilterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvfVocabularyFilterName :: Lens.Lens' DeleteVocabularyFilter Lude.Text
-dvfVocabularyFilterName = Lens.lens (vocabularyFilterName :: DeleteVocabularyFilter -> Lude.Text) (\s a -> s {vocabularyFilterName = a} :: DeleteVocabularyFilter)
+dvfVocabularyFilterName :: Lens.Lens' DeleteVocabularyFilter Types.VocabularyFilterName
+dvfVocabularyFilterName = Lens.field @"vocabularyFilterName"
 {-# DEPRECATED dvfVocabularyFilterName "Use generic-lens or generic-optics with 'vocabularyFilterName' instead." #-}
 
-instance Lude.AWSRequest DeleteVocabularyFilter where
+instance Core.FromJSON DeleteVocabularyFilter where
+  toJSON DeleteVocabularyFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("VocabularyFilterName" Core..= vocabularyFilterName)]
+      )
+
+instance Core.AWSRequest DeleteVocabularyFilter where
   type Rs DeleteVocabularyFilter = DeleteVocabularyFilterResponse
-  request = Req.postJSON transcribeService
-  response = Res.receiveNull DeleteVocabularyFilterResponse'
-
-instance Lude.ToHeaders DeleteVocabularyFilter where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Transcribe.DeleteVocabularyFilter" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteVocabularyFilter where
-  toJSON DeleteVocabularyFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("VocabularyFilterName" Lude..= vocabularyFilterName)]
-      )
-
-instance Lude.ToPath DeleteVocabularyFilter where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteVocabularyFilter where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Transcribe.DeleteVocabularyFilter")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteVocabularyFilterResponse'
 
 -- | /See:/ 'mkDeleteVocabularyFilterResponse' smart constructor.
 data DeleteVocabularyFilterResponse = DeleteVocabularyFilterResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVocabularyFilterResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteVocabularyFilterResponse' value with any optional fields omitted.
 mkDeleteVocabularyFilterResponse ::
   DeleteVocabularyFilterResponse
 mkDeleteVocabularyFilterResponse = DeleteVocabularyFilterResponse'

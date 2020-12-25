@@ -17,28 +17,36 @@ module Network.AWS.MachineLearning.Types.BatchPrediction
     mkBatchPrediction,
 
     -- * Lenses
-    bpStatus,
-    bpLastUpdatedAt,
-    bpCreatedAt,
-    bpComputeTime,
-    bpInputDataLocationS3,
-    bpMLModelId,
     bpBatchPredictionDataSourceId,
-    bpTotalRecordCount,
-    bpStartedAt,
     bpBatchPredictionId,
+    bpComputeTime,
+    bpCreatedAt,
+    bpCreatedByIamUser,
     bpFinishedAt,
+    bpInputDataLocationS3,
     bpInvalidRecordCount,
-    bpCreatedByIAMUser,
-    bpName,
+    bpLastUpdatedAt,
+    bpMLModelId,
     bpMessage,
-    bpOutputURI,
+    bpName,
+    bpOutputUri,
+    bpStartedAt,
+    bpStatus,
+    bpTotalRecordCount,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types.EntityStatus
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MachineLearning.Types.AwsUserArn as Types
+import qualified Network.AWS.MachineLearning.Types.BatchPredictionDataSourceId as Types
+import qualified Network.AWS.MachineLearning.Types.BatchPredictionId as Types
+import qualified Network.AWS.MachineLearning.Types.EntityName as Types
+import qualified Network.AWS.MachineLearning.Types.EntityStatus as Types
+import qualified Network.AWS.MachineLearning.Types.InputDataLocationS3 as Types
+import qualified Network.AWS.MachineLearning.Types.MLModelId as Types
+import qualified Network.AWS.MachineLearning.Types.Message as Types
+import qualified Network.AWS.MachineLearning.Types.OutputUri as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a @GetBatchPrediction@ operation.
 --
@@ -46,7 +54,31 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkBatchPrediction' smart constructor.
 data BatchPrediction = BatchPrediction'
-  { -- | The status of the @BatchPrediction@ . This element can have one of the following values:
+  { -- | The ID of the @DataSource@ that points to the group of observations to predict.
+    batchPredictionDataSourceId :: Core.Maybe Types.BatchPredictionDataSourceId,
+    -- | The ID assigned to the @BatchPrediction@ at creation. This value should be identical to the value of the @BatchPredictionID@ in the request.
+    batchPredictionId :: Core.Maybe Types.BatchPredictionId,
+    computeTime :: Core.Maybe Core.Integer,
+    -- | The time that the @BatchPrediction@ was created. The time is expressed in epoch time.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The AWS user account that invoked the @BatchPrediction@ . The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+    createdByIamUser :: Core.Maybe Types.AwsUserArn,
+    finishedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+    inputDataLocationS3 :: Core.Maybe Types.InputDataLocationS3,
+    invalidRecordCount :: Core.Maybe Core.Integer,
+    -- | The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
+    lastUpdatedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID of the @MLModel@ that generated predictions for the @BatchPrediction@ request.
+    mLModelId :: Core.Maybe Types.MLModelId,
+    -- | A description of the most recent details about processing the batch prediction request.
+    message :: Core.Maybe Types.Message,
+    -- | A user-supplied name or description of the @BatchPrediction@ .
+    name :: Core.Maybe Types.EntityName,
+    -- | The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
+    outputUri :: Core.Maybe Types.OutputUri,
+    startedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the @BatchPrediction@ . This element can have one of the following values:
     --
     --
     --     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to generate predictions for a batch of observations.
@@ -58,87 +90,132 @@ data BatchPrediction = BatchPrediction'
     --     * @COMPLETED@ - The batch prediction process completed successfully.
     --
     --     * @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not usable.
-    status :: Lude.Maybe EntityStatus,
-    -- | The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
-    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
-    -- | The time that the @BatchPrediction@ was created. The time is expressed in epoch time.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    computeTime :: Lude.Maybe Lude.Integer,
-    -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
-    inputDataLocationS3 :: Lude.Maybe Lude.Text,
-    -- | The ID of the @MLModel@ that generated predictions for the @BatchPrediction@ request.
-    mLModelId :: Lude.Maybe Lude.Text,
-    -- | The ID of the @DataSource@ that points to the group of observations to predict.
-    batchPredictionDataSourceId :: Lude.Maybe Lude.Text,
-    totalRecordCount :: Lude.Maybe Lude.Integer,
-    startedAt :: Lude.Maybe Lude.Timestamp,
-    -- | The ID assigned to the @BatchPrediction@ at creation. This value should be identical to the value of the @BatchPredictionID@ in the request.
-    batchPredictionId :: Lude.Maybe Lude.Text,
-    finishedAt :: Lude.Maybe Lude.Timestamp,
-    invalidRecordCount :: Lude.Maybe Lude.Integer,
-    -- | The AWS user account that invoked the @BatchPrediction@ . The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
-    createdByIAMUser :: Lude.Maybe Lude.Text,
-    -- | A user-supplied name or description of the @BatchPrediction@ .
-    name :: Lude.Maybe Lude.Text,
-    -- | A description of the most recent details about processing the batch prediction request.
-    message :: Lude.Maybe Lude.Text,
-    -- | The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
-    outputURI :: Lude.Maybe Lude.Text
+    status :: Core.Maybe Types.EntityStatus,
+    totalRecordCount :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchPrediction' with the minimum fields required to make a request.
---
--- * 'status' - The status of the @BatchPrediction@ . This element can have one of the following values:
---
---
---     * @PENDING@ - Amazon Machine Learning (Amazon ML) submitted a request to generate predictions for a batch of observations.
---
---     * @INPROGRESS@ - The process is underway.
---
---     * @FAILED@ - The request to perform a batch prediction did not run to completion. It is not usable.
---
---     * @COMPLETED@ - The batch prediction process completed successfully.
---
---     * @DELETED@ - The @BatchPrediction@ is marked as deleted. It is not usable.
---
--- * 'lastUpdatedAt' - The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
--- * 'createdAt' - The time that the @BatchPrediction@ was created. The time is expressed in epoch time.
--- * 'computeTime' -
--- * 'inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
--- * 'mLModelId' - The ID of the @MLModel@ that generated predictions for the @BatchPrediction@ request.
--- * 'batchPredictionDataSourceId' - The ID of the @DataSource@ that points to the group of observations to predict.
--- * 'totalRecordCount' -
--- * 'startedAt' -
--- * 'batchPredictionId' - The ID assigned to the @BatchPrediction@ at creation. This value should be identical to the value of the @BatchPredictionID@ in the request.
--- * 'finishedAt' -
--- * 'invalidRecordCount' -
--- * 'createdByIAMUser' - The AWS user account that invoked the @BatchPrediction@ . The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
--- * 'name' - A user-supplied name or description of the @BatchPrediction@ .
--- * 'message' - A description of the most recent details about processing the batch prediction request.
--- * 'outputURI' - The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
+-- | Creates a 'BatchPrediction' value with any optional fields omitted.
 mkBatchPrediction ::
   BatchPrediction
 mkBatchPrediction =
   BatchPrediction'
-    { status = Lude.Nothing,
-      lastUpdatedAt = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      computeTime = Lude.Nothing,
-      inputDataLocationS3 = Lude.Nothing,
-      mLModelId = Lude.Nothing,
-      batchPredictionDataSourceId = Lude.Nothing,
-      totalRecordCount = Lude.Nothing,
-      startedAt = Lude.Nothing,
-      batchPredictionId = Lude.Nothing,
-      finishedAt = Lude.Nothing,
-      invalidRecordCount = Lude.Nothing,
-      createdByIAMUser = Lude.Nothing,
-      name = Lude.Nothing,
-      message = Lude.Nothing,
-      outputURI = Lude.Nothing
+    { batchPredictionDataSourceId = Core.Nothing,
+      batchPredictionId = Core.Nothing,
+      computeTime = Core.Nothing,
+      createdAt = Core.Nothing,
+      createdByIamUser = Core.Nothing,
+      finishedAt = Core.Nothing,
+      inputDataLocationS3 = Core.Nothing,
+      invalidRecordCount = Core.Nothing,
+      lastUpdatedAt = Core.Nothing,
+      mLModelId = Core.Nothing,
+      message = Core.Nothing,
+      name = Core.Nothing,
+      outputUri = Core.Nothing,
+      startedAt = Core.Nothing,
+      status = Core.Nothing,
+      totalRecordCount = Core.Nothing
     }
+
+-- | The ID of the @DataSource@ that points to the group of observations to predict.
+--
+-- /Note:/ Consider using 'batchPredictionDataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpBatchPredictionDataSourceId :: Lens.Lens' BatchPrediction (Core.Maybe Types.BatchPredictionDataSourceId)
+bpBatchPredictionDataSourceId = Lens.field @"batchPredictionDataSourceId"
+{-# DEPRECATED bpBatchPredictionDataSourceId "Use generic-lens or generic-optics with 'batchPredictionDataSourceId' instead." #-}
+
+-- | The ID assigned to the @BatchPrediction@ at creation. This value should be identical to the value of the @BatchPredictionID@ in the request.
+--
+-- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpBatchPredictionId :: Lens.Lens' BatchPrediction (Core.Maybe Types.BatchPredictionId)
+bpBatchPredictionId = Lens.field @"batchPredictionId"
+{-# DEPRECATED bpBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'computeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpComputeTime :: Lens.Lens' BatchPrediction (Core.Maybe Core.Integer)
+bpComputeTime = Lens.field @"computeTime"
+{-# DEPRECATED bpComputeTime "Use generic-lens or generic-optics with 'computeTime' instead." #-}
+
+-- | The time that the @BatchPrediction@ was created. The time is expressed in epoch time.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpCreatedAt :: Lens.Lens' BatchPrediction (Core.Maybe Core.NominalDiffTime)
+bpCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED bpCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The AWS user account that invoked the @BatchPrediction@ . The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+--
+-- /Note:/ Consider using 'createdByIamUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpCreatedByIamUser :: Lens.Lens' BatchPrediction (Core.Maybe Types.AwsUserArn)
+bpCreatedByIamUser = Lens.field @"createdByIamUser"
+{-# DEPRECATED bpCreatedByIamUser "Use generic-lens or generic-optics with 'createdByIamUser' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'finishedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpFinishedAt :: Lens.Lens' BatchPrediction (Core.Maybe Core.NominalDiffTime)
+bpFinishedAt = Lens.field @"finishedAt"
+{-# DEPRECATED bpFinishedAt "Use generic-lens or generic-optics with 'finishedAt' instead." #-}
+
+-- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+--
+-- /Note:/ Consider using 'inputDataLocationS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpInputDataLocationS3 :: Lens.Lens' BatchPrediction (Core.Maybe Types.InputDataLocationS3)
+bpInputDataLocationS3 = Lens.field @"inputDataLocationS3"
+{-# DEPRECATED bpInputDataLocationS3 "Use generic-lens or generic-optics with 'inputDataLocationS3' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'invalidRecordCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpInvalidRecordCount :: Lens.Lens' BatchPrediction (Core.Maybe Core.Integer)
+bpInvalidRecordCount = Lens.field @"invalidRecordCount"
+{-# DEPRECATED bpInvalidRecordCount "Use generic-lens or generic-optics with 'invalidRecordCount' instead." #-}
+
+-- | The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
+--
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpLastUpdatedAt :: Lens.Lens' BatchPrediction (Core.Maybe Core.NominalDiffTime)
+bpLastUpdatedAt = Lens.field @"lastUpdatedAt"
+{-# DEPRECATED bpLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
+
+-- | The ID of the @MLModel@ that generated predictions for the @BatchPrediction@ request.
+--
+-- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpMLModelId :: Lens.Lens' BatchPrediction (Core.Maybe Types.MLModelId)
+bpMLModelId = Lens.field @"mLModelId"
+{-# DEPRECATED bpMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
+
+-- | A description of the most recent details about processing the batch prediction request.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpMessage :: Lens.Lens' BatchPrediction (Core.Maybe Types.Message)
+bpMessage = Lens.field @"message"
+{-# DEPRECATED bpMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | A user-supplied name or description of the @BatchPrediction@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpName :: Lens.Lens' BatchPrediction (Core.Maybe Types.EntityName)
+bpName = Lens.field @"name"
+{-# DEPRECATED bpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
+--
+-- /Note:/ Consider using 'outputUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpOutputUri :: Lens.Lens' BatchPrediction (Core.Maybe Types.OutputUri)
+bpOutputUri = Lens.field @"outputUri"
+{-# DEPRECATED bpOutputUri "Use generic-lens or generic-optics with 'outputUri' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpStartedAt :: Lens.Lens' BatchPrediction (Core.Maybe Core.NominalDiffTime)
+bpStartedAt = Lens.field @"startedAt"
+{-# DEPRECATED bpStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
 -- | The status of the @BatchPrediction@ . This element can have one of the following values:
 --
@@ -155,135 +232,35 @@ mkBatchPrediction =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpStatus :: Lens.Lens' BatchPrediction (Lude.Maybe EntityStatus)
-bpStatus = Lens.lens (status :: BatchPrediction -> Lude.Maybe EntityStatus) (\s a -> s {status = a} :: BatchPrediction)
+bpStatus :: Lens.Lens' BatchPrediction (Core.Maybe Types.EntityStatus)
+bpStatus = Lens.field @"status"
 {-# DEPRECATED bpStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The time of the most recent edit to the @BatchPrediction@ . The time is expressed in epoch time.
---
--- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpLastUpdatedAt :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Timestamp)
-bpLastUpdatedAt = Lens.lens (lastUpdatedAt :: BatchPrediction -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: BatchPrediction)
-{-# DEPRECATED bpLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
-
--- | The time that the @BatchPrediction@ was created. The time is expressed in epoch time.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpCreatedAt :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Timestamp)
-bpCreatedAt = Lens.lens (createdAt :: BatchPrediction -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: BatchPrediction)
-{-# DEPRECATED bpCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'computeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpComputeTime :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Integer)
-bpComputeTime = Lens.lens (computeTime :: BatchPrediction -> Lude.Maybe Lude.Integer) (\s a -> s {computeTime = a} :: BatchPrediction)
-{-# DEPRECATED bpComputeTime "Use generic-lens or generic-optics with 'computeTime' instead." #-}
-
--- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
---
--- /Note:/ Consider using 'inputDataLocationS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpInputDataLocationS3 :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Text)
-bpInputDataLocationS3 = Lens.lens (inputDataLocationS3 :: BatchPrediction -> Lude.Maybe Lude.Text) (\s a -> s {inputDataLocationS3 = a} :: BatchPrediction)
-{-# DEPRECATED bpInputDataLocationS3 "Use generic-lens or generic-optics with 'inputDataLocationS3' instead." #-}
-
--- | The ID of the @MLModel@ that generated predictions for the @BatchPrediction@ request.
---
--- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpMLModelId :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Text)
-bpMLModelId = Lens.lens (mLModelId :: BatchPrediction -> Lude.Maybe Lude.Text) (\s a -> s {mLModelId = a} :: BatchPrediction)
-{-# DEPRECATED bpMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
-
--- | The ID of the @DataSource@ that points to the group of observations to predict.
---
--- /Note:/ Consider using 'batchPredictionDataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpBatchPredictionDataSourceId :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Text)
-bpBatchPredictionDataSourceId = Lens.lens (batchPredictionDataSourceId :: BatchPrediction -> Lude.Maybe Lude.Text) (\s a -> s {batchPredictionDataSourceId = a} :: BatchPrediction)
-{-# DEPRECATED bpBatchPredictionDataSourceId "Use generic-lens or generic-optics with 'batchPredictionDataSourceId' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'totalRecordCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpTotalRecordCount :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Integer)
-bpTotalRecordCount = Lens.lens (totalRecordCount :: BatchPrediction -> Lude.Maybe Lude.Integer) (\s a -> s {totalRecordCount = a} :: BatchPrediction)
+bpTotalRecordCount :: Lens.Lens' BatchPrediction (Core.Maybe Core.Integer)
+bpTotalRecordCount = Lens.field @"totalRecordCount"
 {-# DEPRECATED bpTotalRecordCount "Use generic-lens or generic-optics with 'totalRecordCount' instead." #-}
 
--- | Undocumented field.
---
--- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpStartedAt :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Timestamp)
-bpStartedAt = Lens.lens (startedAt :: BatchPrediction -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedAt = a} :: BatchPrediction)
-{-# DEPRECATED bpStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
-
--- | The ID assigned to the @BatchPrediction@ at creation. This value should be identical to the value of the @BatchPredictionID@ in the request.
---
--- /Note:/ Consider using 'batchPredictionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpBatchPredictionId :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Text)
-bpBatchPredictionId = Lens.lens (batchPredictionId :: BatchPrediction -> Lude.Maybe Lude.Text) (\s a -> s {batchPredictionId = a} :: BatchPrediction)
-{-# DEPRECATED bpBatchPredictionId "Use generic-lens or generic-optics with 'batchPredictionId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'finishedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpFinishedAt :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Timestamp)
-bpFinishedAt = Lens.lens (finishedAt :: BatchPrediction -> Lude.Maybe Lude.Timestamp) (\s a -> s {finishedAt = a} :: BatchPrediction)
-{-# DEPRECATED bpFinishedAt "Use generic-lens or generic-optics with 'finishedAt' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'invalidRecordCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpInvalidRecordCount :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Integer)
-bpInvalidRecordCount = Lens.lens (invalidRecordCount :: BatchPrediction -> Lude.Maybe Lude.Integer) (\s a -> s {invalidRecordCount = a} :: BatchPrediction)
-{-# DEPRECATED bpInvalidRecordCount "Use generic-lens or generic-optics with 'invalidRecordCount' instead." #-}
-
--- | The AWS user account that invoked the @BatchPrediction@ . The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
---
--- /Note:/ Consider using 'createdByIAMUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpCreatedByIAMUser :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Text)
-bpCreatedByIAMUser = Lens.lens (createdByIAMUser :: BatchPrediction -> Lude.Maybe Lude.Text) (\s a -> s {createdByIAMUser = a} :: BatchPrediction)
-{-# DEPRECATED bpCreatedByIAMUser "Use generic-lens or generic-optics with 'createdByIAMUser' instead." #-}
-
--- | A user-supplied name or description of the @BatchPrediction@ .
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpName :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Text)
-bpName = Lens.lens (name :: BatchPrediction -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: BatchPrediction)
-{-# DEPRECATED bpName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A description of the most recent details about processing the batch prediction request.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpMessage :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Text)
-bpMessage = Lens.lens (message :: BatchPrediction -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: BatchPrediction)
-{-# DEPRECATED bpMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
--- | The location of an Amazon S3 bucket or directory to receive the operation results. The following substrings are not allowed in the @s3 key@ portion of the @outputURI@ field: ':', '//', '/./', '/../'.
---
--- /Note:/ Consider using 'outputURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpOutputURI :: Lens.Lens' BatchPrediction (Lude.Maybe Lude.Text)
-bpOutputURI = Lens.lens (outputURI :: BatchPrediction -> Lude.Maybe Lude.Text) (\s a -> s {outputURI = a} :: BatchPrediction)
-{-# DEPRECATED bpOutputURI "Use generic-lens or generic-optics with 'outputURI' instead." #-}
-
-instance Lude.FromJSON BatchPrediction where
+instance Core.FromJSON BatchPrediction where
   parseJSON =
-    Lude.withObject
-      "BatchPrediction"
-      ( \x ->
-          BatchPrediction'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "LastUpdatedAt")
-            Lude.<*> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "ComputeTime")
-            Lude.<*> (x Lude..:? "InputDataLocationS3")
-            Lude.<*> (x Lude..:? "MLModelId")
-            Lude.<*> (x Lude..:? "BatchPredictionDataSourceId")
-            Lude.<*> (x Lude..:? "TotalRecordCount")
-            Lude.<*> (x Lude..:? "StartedAt")
-            Lude.<*> (x Lude..:? "BatchPredictionId")
-            Lude.<*> (x Lude..:? "FinishedAt")
-            Lude.<*> (x Lude..:? "InvalidRecordCount")
-            Lude.<*> (x Lude..:? "CreatedByIamUser")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Message")
-            Lude.<*> (x Lude..:? "OutputUri")
-      )
+    Core.withObject "BatchPrediction" Core.$
+      \x ->
+        BatchPrediction'
+          Core.<$> (x Core..:? "BatchPredictionDataSourceId")
+          Core.<*> (x Core..:? "BatchPredictionId")
+          Core.<*> (x Core..:? "ComputeTime")
+          Core.<*> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "CreatedByIamUser")
+          Core.<*> (x Core..:? "FinishedAt")
+          Core.<*> (x Core..:? "InputDataLocationS3")
+          Core.<*> (x Core..:? "InvalidRecordCount")
+          Core.<*> (x Core..:? "LastUpdatedAt")
+          Core.<*> (x Core..:? "MLModelId")
+          Core.<*> (x Core..:? "Message")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "OutputUri")
+          Core.<*> (x Core..:? "StartedAt")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "TotalRecordCount")

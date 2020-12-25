@@ -34,136 +34,120 @@ module Network.AWS.SWF.DescribeDomain
     mkDescribeDomain,
 
     -- ** Request lenses
-    dName,
+    ddName,
 
     -- * Destructuring the response
     DescribeDomainResponse (..),
     mkDescribeDomainResponse,
 
     -- ** Response lenses
-    ddrsConfiguration,
-    ddrsDomainInfo,
-    ddrsResponseStatus,
+    ddrrsDomainInfo,
+    ddrrsConfiguration,
+    ddrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkDescribeDomain' smart constructor.
 newtype DescribeDomain = DescribeDomain'
   { -- | The name of the domain to describe.
-    name :: Lude.Text
+    name :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDomain' with the minimum fields required to make a request.
---
--- * 'name' - The name of the domain to describe.
+-- | Creates a 'DescribeDomain' value with any optional fields omitted.
 mkDescribeDomain ::
   -- | 'name'
-  Lude.Text ->
+  Types.DomainName ->
   DescribeDomain
-mkDescribeDomain pName_ = DescribeDomain' {name = pName_}
+mkDescribeDomain name = DescribeDomain' {name}
 
 -- | The name of the domain to describe.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' DescribeDomain Lude.Text
-dName = Lens.lens (name :: DescribeDomain -> Lude.Text) (\s a -> s {name = a} :: DescribeDomain)
-{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
+ddName :: Lens.Lens' DescribeDomain Types.DomainName
+ddName = Lens.field @"name"
+{-# DEPRECATED ddName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DescribeDomain where
+instance Core.FromJSON DescribeDomain where
+  toJSON DescribeDomain {..} =
+    Core.object (Core.catMaybes [Core.Just ("name" Core..= name)])
+
+instance Core.AWSRequest DescribeDomain where
   type Rs DescribeDomain = DescribeDomainResponse
-  request = Req.postJSON swfService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SimpleWorkflowService.DescribeDomain")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeDomainResponse'
-            Lude.<$> (x Lude..:> "configuration")
-            Lude.<*> (x Lude..:> "domainInfo")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "domainInfo")
+            Core.<*> (x Core..: "configuration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeDomain where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SimpleWorkflowService.DescribeDomain" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeDomain where
-  toJSON DescribeDomain' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])
-
-instance Lude.ToPath DescribeDomain where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDomain where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains details of a domain.
 --
 -- /See:/ 'mkDescribeDomainResponse' smart constructor.
 data DescribeDomainResponse = DescribeDomainResponse'
-  { -- | The domain configuration. Currently, this includes only the domain's retention period.
-    configuration :: DomainConfiguration,
-    -- | The basic information about a domain, such as its name, status, and description.
-    domainInfo :: DomainInfo,
+  { -- | The basic information about a domain, such as its name, status, and description.
+    domainInfo :: Types.DomainInfo,
+    -- | The domain configuration. Currently, this includes only the domain's retention period.
+    configuration :: Types.DomainConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDomainResponse' with the minimum fields required to make a request.
---
--- * 'configuration' - The domain configuration. Currently, this includes only the domain's retention period.
--- * 'domainInfo' - The basic information about a domain, such as its name, status, and description.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDomainResponse' value with any optional fields omitted.
 mkDescribeDomainResponse ::
-  -- | 'configuration'
-  DomainConfiguration ->
   -- | 'domainInfo'
-  DomainInfo ->
+  Types.DomainInfo ->
+  -- | 'configuration'
+  Types.DomainConfiguration ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDomainResponse
-mkDescribeDomainResponse
-  pConfiguration_
-  pDomainInfo_
-  pResponseStatus_ =
-    DescribeDomainResponse'
-      { configuration = pConfiguration_,
-        domainInfo = pDomainInfo_,
-        responseStatus = pResponseStatus_
-      }
-
--- | The domain configuration. Currently, this includes only the domain's retention period.
---
--- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsConfiguration :: Lens.Lens' DescribeDomainResponse DomainConfiguration
-ddrsConfiguration = Lens.lens (configuration :: DescribeDomainResponse -> DomainConfiguration) (\s a -> s {configuration = a} :: DescribeDomainResponse)
-{-# DEPRECATED ddrsConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
+mkDescribeDomainResponse domainInfo configuration responseStatus =
+  DescribeDomainResponse'
+    { domainInfo,
+      configuration,
+      responseStatus
+    }
 
 -- | The basic information about a domain, such as its name, status, and description.
 --
 -- /Note:/ Consider using 'domainInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsDomainInfo :: Lens.Lens' DescribeDomainResponse DomainInfo
-ddrsDomainInfo = Lens.lens (domainInfo :: DescribeDomainResponse -> DomainInfo) (\s a -> s {domainInfo = a} :: DescribeDomainResponse)
-{-# DEPRECATED ddrsDomainInfo "Use generic-lens or generic-optics with 'domainInfo' instead." #-}
+ddrrsDomainInfo :: Lens.Lens' DescribeDomainResponse Types.DomainInfo
+ddrrsDomainInfo = Lens.field @"domainInfo"
+{-# DEPRECATED ddrrsDomainInfo "Use generic-lens or generic-optics with 'domainInfo' instead." #-}
+
+-- | The domain configuration. Currently, this includes only the domain's retention period.
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddrrsConfiguration :: Lens.Lens' DescribeDomainResponse Types.DomainConfiguration
+ddrrsConfiguration = Lens.field @"configuration"
+{-# DEPRECATED ddrrsConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsResponseStatus :: Lens.Lens' DescribeDomainResponse Lude.Int
-ddrsResponseStatus = Lens.lens (responseStatus :: DescribeDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDomainResponse)
-{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrrsResponseStatus :: Lens.Lens' DescribeDomainResponse Core.Int
+ddrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

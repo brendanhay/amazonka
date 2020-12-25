@@ -13,46 +13,48 @@
 module Network.AWS.Glue.Types.Language
   ( Language
       ( Language',
-        Python,
-        Scala
+        LanguagePython,
+        LanguageScala,
+        fromLanguage
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Language = Language' Lude.Text
+newtype Language = Language' {fromLanguage :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Python :: Language
-pattern Python = Language' "PYTHON"
+pattern LanguagePython :: Language
+pattern LanguagePython = Language' "PYTHON"
 
-pattern Scala :: Language
-pattern Scala = Language' "SCALA"
+pattern LanguageScala :: Language
+pattern LanguageScala = Language' "SCALA"
 
 {-# COMPLETE
-  Python,
-  Scala,
+  LanguagePython,
+  LanguageScala,
   Language'
   #-}

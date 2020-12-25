@@ -17,88 +17,73 @@ module Network.AWS.EC2.Types.SnapshotDiskContainer
     mkSnapshotDiskContainer,
 
     -- * Lenses
-    sdcFormat,
-    sdcURL,
-    sdcUserBucket,
     sdcDescription,
+    sdcFormat,
+    sdcUrl,
+    sdcUserBucket,
   )
 where
 
-import Network.AWS.EC2.Types.UserBucket
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.UserBucket as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The disk container object for the import snapshot request.
 --
 -- /See:/ 'mkSnapshotDiskContainer' smart constructor.
 data SnapshotDiskContainer = SnapshotDiskContainer'
-  { -- | The format of the disk image being imported.
+  { -- | The description of the disk image being imported.
+    description :: Core.Maybe Types.String,
+    -- | The format of the disk image being imported.
     --
     -- Valid values: @VHD@ | @VMDK@
-    format :: Lude.Maybe Lude.Text,
+    format :: Core.Maybe Types.String,
     -- | The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..).
-    url :: Lude.Maybe Lude.Text,
+    url :: Core.Maybe Types.String,
     -- | The Amazon S3 bucket for the disk image.
-    userBucket :: Lude.Maybe UserBucket,
-    -- | The description of the disk image being imported.
-    description :: Lude.Maybe Lude.Text
+    userBucket :: Core.Maybe Types.UserBucket
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SnapshotDiskContainer' with the minimum fields required to make a request.
---
--- * 'format' - The format of the disk image being imported.
---
--- Valid values: @VHD@ | @VMDK@
--- * 'url' - The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..).
--- * 'userBucket' - The Amazon S3 bucket for the disk image.
--- * 'description' - The description of the disk image being imported.
+-- | Creates a 'SnapshotDiskContainer' value with any optional fields omitted.
 mkSnapshotDiskContainer ::
   SnapshotDiskContainer
 mkSnapshotDiskContainer =
   SnapshotDiskContainer'
-    { format = Lude.Nothing,
-      url = Lude.Nothing,
-      userBucket = Lude.Nothing,
-      description = Lude.Nothing
+    { description = Core.Nothing,
+      format = Core.Nothing,
+      url = Core.Nothing,
+      userBucket = Core.Nothing
     }
+
+-- | The description of the disk image being imported.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdcDescription :: Lens.Lens' SnapshotDiskContainer (Core.Maybe Types.String)
+sdcDescription = Lens.field @"description"
+{-# DEPRECATED sdcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The format of the disk image being imported.
 --
 -- Valid values: @VHD@ | @VMDK@
 --
 -- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcFormat :: Lens.Lens' SnapshotDiskContainer (Lude.Maybe Lude.Text)
-sdcFormat = Lens.lens (format :: SnapshotDiskContainer -> Lude.Maybe Lude.Text) (\s a -> s {format = a} :: SnapshotDiskContainer)
+sdcFormat :: Lens.Lens' SnapshotDiskContainer (Core.Maybe Types.String)
+sdcFormat = Lens.field @"format"
 {-# DEPRECATED sdcFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
 -- | The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..).
 --
 -- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcURL :: Lens.Lens' SnapshotDiskContainer (Lude.Maybe Lude.Text)
-sdcURL = Lens.lens (url :: SnapshotDiskContainer -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: SnapshotDiskContainer)
-{-# DEPRECATED sdcURL "Use generic-lens or generic-optics with 'url' instead." #-}
+sdcUrl :: Lens.Lens' SnapshotDiskContainer (Core.Maybe Types.String)
+sdcUrl = Lens.field @"url"
+{-# DEPRECATED sdcUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The Amazon S3 bucket for the disk image.
 --
 -- /Note:/ Consider using 'userBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcUserBucket :: Lens.Lens' SnapshotDiskContainer (Lude.Maybe UserBucket)
-sdcUserBucket = Lens.lens (userBucket :: SnapshotDiskContainer -> Lude.Maybe UserBucket) (\s a -> s {userBucket = a} :: SnapshotDiskContainer)
+sdcUserBucket :: Lens.Lens' SnapshotDiskContainer (Core.Maybe Types.UserBucket)
+sdcUserBucket = Lens.field @"userBucket"
 {-# DEPRECATED sdcUserBucket "Use generic-lens or generic-optics with 'userBucket' instead." #-}
-
--- | The description of the disk image being imported.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdcDescription :: Lens.Lens' SnapshotDiskContainer (Lude.Maybe Lude.Text)
-sdcDescription = Lens.lens (description :: SnapshotDiskContainer -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: SnapshotDiskContainer)
-{-# DEPRECATED sdcDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.ToQuery SnapshotDiskContainer where
-  toQuery SnapshotDiskContainer' {..} =
-    Lude.mconcat
-      [ "Format" Lude.=: format,
-        "Url" Lude.=: url,
-        "UserBucket" Lude.=: userBucket,
-        "Description" Lude.=: description
-      ]

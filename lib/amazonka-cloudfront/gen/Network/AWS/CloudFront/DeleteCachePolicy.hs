@@ -23,8 +23,8 @@ module Network.AWS.CloudFront.DeleteCachePolicy
     mkDeleteCachePolicy,
 
     -- ** Request lenses
-    dcpIfMatch,
     dcpId,
+    dcpIfMatch,
 
     -- * Destructuring the response
     DeleteCachePolicyResponse (..),
@@ -32,69 +32,65 @@ module Network.AWS.CloudFront.DeleteCachePolicy
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteCachePolicy' smart constructor.
 data DeleteCachePolicy = DeleteCachePolicy'
-  { -- | The version of the cache policy that you are deleting. The version is the cache policy’s @ETag@ value, which you can get using @ListCachePolicies@ , @GetCachePolicy@ , or @GetCachePolicyConfig@ .
-    ifMatch :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the cache policy that you are deleting. To get the identifier, you can use @ListCachePolicies@ .
-    id :: Lude.Text
+  { -- | The unique identifier for the cache policy that you are deleting. To get the identifier, you can use @ListCachePolicies@ .
+    id :: Types.Id,
+    -- | The version of the cache policy that you are deleting. The version is the cache policy’s @ETag@ value, which you can get using @ListCachePolicies@ , @GetCachePolicy@ , or @GetCachePolicyConfig@ .
+    ifMatch :: Core.Maybe Types.IfMatch
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCachePolicy' with the minimum fields required to make a request.
---
--- * 'ifMatch' - The version of the cache policy that you are deleting. The version is the cache policy’s @ETag@ value, which you can get using @ListCachePolicies@ , @GetCachePolicy@ , or @GetCachePolicyConfig@ .
--- * 'id' - The unique identifier for the cache policy that you are deleting. To get the identifier, you can use @ListCachePolicies@ .
+-- | Creates a 'DeleteCachePolicy' value with any optional fields omitted.
 mkDeleteCachePolicy ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DeleteCachePolicy
-mkDeleteCachePolicy pId_ =
-  DeleteCachePolicy' {ifMatch = Lude.Nothing, id = pId_}
-
--- | The version of the cache policy that you are deleting. The version is the cache policy’s @ETag@ value, which you can get using @ListCachePolicies@ , @GetCachePolicy@ , or @GetCachePolicyConfig@ .
---
--- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpIfMatch :: Lens.Lens' DeleteCachePolicy (Lude.Maybe Lude.Text)
-dcpIfMatch = Lens.lens (ifMatch :: DeleteCachePolicy -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: DeleteCachePolicy)
-{-# DEPRECATED dcpIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+mkDeleteCachePolicy id =
+  DeleteCachePolicy' {id, ifMatch = Core.Nothing}
 
 -- | The unique identifier for the cache policy that you are deleting. To get the identifier, you can use @ListCachePolicies@ .
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpId :: Lens.Lens' DeleteCachePolicy Lude.Text
-dcpId = Lens.lens (id :: DeleteCachePolicy -> Lude.Text) (\s a -> s {id = a} :: DeleteCachePolicy)
+dcpId :: Lens.Lens' DeleteCachePolicy Types.Id
+dcpId = Lens.field @"id"
 {-# DEPRECATED dcpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DeleteCachePolicy where
+-- | The version of the cache policy that you are deleting. The version is the cache policy’s @ETag@ value, which you can get using @ListCachePolicies@ , @GetCachePolicy@ , or @GetCachePolicyConfig@ .
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcpIfMatch :: Lens.Lens' DeleteCachePolicy (Core.Maybe Types.IfMatch)
+dcpIfMatch = Lens.field @"ifMatch"
+{-# DEPRECATED dcpIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+
+instance Core.AWSRequest DeleteCachePolicy where
   type Rs DeleteCachePolicy = DeleteCachePolicyResponse
-  request = Req.delete cloudFrontService
-  response = Res.receiveNull DeleteCachePolicyResponse'
-
-instance Lude.ToHeaders DeleteCachePolicy where
-  toHeaders DeleteCachePolicy' {..} =
-    Lude.mconcat ["If-Match" Lude.=# ifMatch]
-
-instance Lude.ToPath DeleteCachePolicy where
-  toPath DeleteCachePolicy' {..} =
-    Lude.mconcat ["/2020-05-31/cache-policy/", Lude.toBS id]
-
-instance Lude.ToQuery DeleteCachePolicy where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/2020-05-31/cache-policy/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "If-Match" ifMatch,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteCachePolicyResponse'
 
 -- | /See:/ 'mkDeleteCachePolicyResponse' smart constructor.
 data DeleteCachePolicyResponse = DeleteCachePolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCachePolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteCachePolicyResponse' value with any optional fields omitted.
 mkDeleteCachePolicyResponse ::
   DeleteCachePolicyResponse
 mkDeleteCachePolicyResponse = DeleteCachePolicyResponse'

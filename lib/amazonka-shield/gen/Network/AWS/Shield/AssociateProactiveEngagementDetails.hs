@@ -29,37 +29,33 @@ module Network.AWS.Shield.AssociateProactiveEngagementDetails
     mkAssociateProactiveEngagementDetailsResponse,
 
     -- ** Response lenses
-    apedrsResponseStatus,
+    apedrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkAssociateProactiveEngagementDetails' smart constructor.
 newtype AssociateProactiveEngagementDetails = AssociateProactiveEngagementDetails'
   { -- | A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you for escalations to the DRT and to initiate proactive customer support.
     --
     -- To enable proactive engagement, the contact list must include at least one phone number.
-    emergencyContactList :: [EmergencyContact]
+    emergencyContactList :: [Types.EmergencyContact]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateProactiveEngagementDetails' with the minimum fields required to make a request.
---
--- * 'emergencyContactList' - A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you for escalations to the DRT and to initiate proactive customer support.
---
--- To enable proactive engagement, the contact list must include at least one phone number.
+-- | Creates a 'AssociateProactiveEngagementDetails' value with any optional fields omitted.
 mkAssociateProactiveEngagementDetails ::
   AssociateProactiveEngagementDetails
 mkAssociateProactiveEngagementDetails =
   AssociateProactiveEngagementDetails'
     { emergencyContactList =
-        Lude.mempty
+        Core.mempty
     }
 
 -- | A list of email addresses and phone numbers that the DDoS Response Team (DRT) can use to contact you for escalations to the DRT and to initiate proactive customer support.
@@ -67,72 +63,61 @@ mkAssociateProactiveEngagementDetails =
 -- To enable proactive engagement, the contact list must include at least one phone number.
 --
 -- /Note:/ Consider using 'emergencyContactList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apedEmergencyContactList :: Lens.Lens' AssociateProactiveEngagementDetails [EmergencyContact]
-apedEmergencyContactList = Lens.lens (emergencyContactList :: AssociateProactiveEngagementDetails -> [EmergencyContact]) (\s a -> s {emergencyContactList = a} :: AssociateProactiveEngagementDetails)
+apedEmergencyContactList :: Lens.Lens' AssociateProactiveEngagementDetails [Types.EmergencyContact]
+apedEmergencyContactList = Lens.field @"emergencyContactList"
 {-# DEPRECATED apedEmergencyContactList "Use generic-lens or generic-optics with 'emergencyContactList' instead." #-}
 
-instance Lude.AWSRequest AssociateProactiveEngagementDetails where
+instance Core.FromJSON AssociateProactiveEngagementDetails where
+  toJSON AssociateProactiveEngagementDetails {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EmergencyContactList" Core..= emergencyContactList)]
+      )
+
+instance Core.AWSRequest AssociateProactiveEngagementDetails where
   type
     Rs AssociateProactiveEngagementDetails =
       AssociateProactiveEngagementDetailsResponse
-  request = Req.postJSON shieldService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSShield_20160616.AssociateProactiveEngagementDetails"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AssociateProactiveEngagementDetailsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateProactiveEngagementDetails where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShield_20160616.AssociateProactiveEngagementDetails" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateProactiveEngagementDetails where
-  toJSON AssociateProactiveEngagementDetails' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("EmergencyContactList" Lude..= emergencyContactList)]
-      )
-
-instance Lude.ToPath AssociateProactiveEngagementDetails where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateProactiveEngagementDetails where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateProactiveEngagementDetailsResponse' smart constructor.
 newtype AssociateProactiveEngagementDetailsResponse = AssociateProactiveEngagementDetailsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateProactiveEngagementDetailsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateProactiveEngagementDetailsResponse' value with any optional fields omitted.
 mkAssociateProactiveEngagementDetailsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateProactiveEngagementDetailsResponse
-mkAssociateProactiveEngagementDetailsResponse pResponseStatus_ =
-  AssociateProactiveEngagementDetailsResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkAssociateProactiveEngagementDetailsResponse responseStatus =
+  AssociateProactiveEngagementDetailsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apedrsResponseStatus :: Lens.Lens' AssociateProactiveEngagementDetailsResponse Lude.Int
-apedrsResponseStatus = Lens.lens (responseStatus :: AssociateProactiveEngagementDetailsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateProactiveEngagementDetailsResponse)
-{-# DEPRECATED apedrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+apedrrsResponseStatus :: Lens.Lens' AssociateProactiveEngagementDetailsResponse Core.Int
+apedrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED apedrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -23,53 +23,50 @@ module Network.AWS.SageMaker.Types.AutoMLJobArtifacts
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.CandidateDefinitionNotebookLocation as Types
+import qualified Network.AWS.SageMaker.Types.DataExplorationNotebookLocation as Types
 
 -- | Artifacts that are generation during a job.
 --
 -- /See:/ 'mkAutoMLJobArtifacts' smart constructor.
 data AutoMLJobArtifacts = AutoMLJobArtifacts'
   { -- | The URL to the notebook location.
-    candidateDefinitionNotebookLocation :: Lude.Maybe Lude.Text,
+    candidateDefinitionNotebookLocation :: Core.Maybe Types.CandidateDefinitionNotebookLocation,
     -- | The URL to the notebook location.
-    dataExplorationNotebookLocation :: Lude.Maybe Lude.Text
+    dataExplorationNotebookLocation :: Core.Maybe Types.DataExplorationNotebookLocation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoMLJobArtifacts' with the minimum fields required to make a request.
---
--- * 'candidateDefinitionNotebookLocation' - The URL to the notebook location.
--- * 'dataExplorationNotebookLocation' - The URL to the notebook location.
+-- | Creates a 'AutoMLJobArtifacts' value with any optional fields omitted.
 mkAutoMLJobArtifacts ::
   AutoMLJobArtifacts
 mkAutoMLJobArtifacts =
   AutoMLJobArtifacts'
     { candidateDefinitionNotebookLocation =
-        Lude.Nothing,
-      dataExplorationNotebookLocation = Lude.Nothing
+        Core.Nothing,
+      dataExplorationNotebookLocation = Core.Nothing
     }
 
 -- | The URL to the notebook location.
 --
 -- /Note:/ Consider using 'candidateDefinitionNotebookLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljaCandidateDefinitionNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Lude.Maybe Lude.Text)
-amljaCandidateDefinitionNotebookLocation = Lens.lens (candidateDefinitionNotebookLocation :: AutoMLJobArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {candidateDefinitionNotebookLocation = a} :: AutoMLJobArtifacts)
+amljaCandidateDefinitionNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Core.Maybe Types.CandidateDefinitionNotebookLocation)
+amljaCandidateDefinitionNotebookLocation = Lens.field @"candidateDefinitionNotebookLocation"
 {-# DEPRECATED amljaCandidateDefinitionNotebookLocation "Use generic-lens or generic-optics with 'candidateDefinitionNotebookLocation' instead." #-}
 
 -- | The URL to the notebook location.
 --
 -- /Note:/ Consider using 'dataExplorationNotebookLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amljaDataExplorationNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Lude.Maybe Lude.Text)
-amljaDataExplorationNotebookLocation = Lens.lens (dataExplorationNotebookLocation :: AutoMLJobArtifacts -> Lude.Maybe Lude.Text) (\s a -> s {dataExplorationNotebookLocation = a} :: AutoMLJobArtifacts)
+amljaDataExplorationNotebookLocation :: Lens.Lens' AutoMLJobArtifacts (Core.Maybe Types.DataExplorationNotebookLocation)
+amljaDataExplorationNotebookLocation = Lens.field @"dataExplorationNotebookLocation"
 {-# DEPRECATED amljaDataExplorationNotebookLocation "Use generic-lens or generic-optics with 'dataExplorationNotebookLocation' instead." #-}
 
-instance Lude.FromJSON AutoMLJobArtifacts where
+instance Core.FromJSON AutoMLJobArtifacts where
   parseJSON =
-    Lude.withObject
-      "AutoMLJobArtifacts"
-      ( \x ->
-          AutoMLJobArtifacts'
-            Lude.<$> (x Lude..:? "CandidateDefinitionNotebookLocation")
-            Lude.<*> (x Lude..:? "DataExplorationNotebookLocation")
-      )
+    Core.withObject "AutoMLJobArtifacts" Core.$
+      \x ->
+        AutoMLJobArtifacts'
+          Core.<$> (x Core..:? "CandidateDefinitionNotebookLocation")
+          Core.<*> (x Core..:? "DataExplorationNotebookLocation")

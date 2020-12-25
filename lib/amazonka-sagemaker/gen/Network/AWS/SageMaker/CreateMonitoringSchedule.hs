@@ -20,8 +20,8 @@ module Network.AWS.SageMaker.CreateMonitoringSchedule
     mkCreateMonitoringSchedule,
 
     -- ** Request lenses
-    cmsMonitoringScheduleConfig,
     cmsMonitoringScheduleName,
+    cmsMonitoringScheduleConfig,
     cmsTags,
 
     -- * Destructuring the response
@@ -29,150 +29,134 @@ module Network.AWS.SageMaker.CreateMonitoringSchedule
     mkCreateMonitoringScheduleResponse,
 
     -- ** Response lenses
-    cmsrsMonitoringScheduleARN,
-    cmsrsResponseStatus,
+    cmsrrsMonitoringScheduleArn,
+    cmsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateMonitoringSchedule' smart constructor.
 data CreateMonitoringSchedule = CreateMonitoringSchedule'
-  { -- | The configuration object that specifies the monitoring schedule and defines the monitoring job.
-    monitoringScheduleConfig :: MonitoringScheduleConfig,
-    -- | The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account.
-    monitoringScheduleName :: Lude.Text,
+  { -- | The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account.
+    monitoringScheduleName :: Types.MonitoringScheduleName,
+    -- | The configuration object that specifies the monitoring schedule and defines the monitoring job.
+    monitoringScheduleConfig :: Types.MonitoringScheduleConfig,
     -- | (Optional) An array of key-value pairs. For more information, see < https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateMonitoringSchedule' with the minimum fields required to make a request.
---
--- * 'monitoringScheduleConfig' - The configuration object that specifies the monitoring schedule and defines the monitoring job.
--- * 'monitoringScheduleName' - The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account.
--- * 'tags' - (Optional) An array of key-value pairs. For more information, see < https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
+-- | Creates a 'CreateMonitoringSchedule' value with any optional fields omitted.
 mkCreateMonitoringSchedule ::
-  -- | 'monitoringScheduleConfig'
-  MonitoringScheduleConfig ->
   -- | 'monitoringScheduleName'
-  Lude.Text ->
+  Types.MonitoringScheduleName ->
+  -- | 'monitoringScheduleConfig'
+  Types.MonitoringScheduleConfig ->
   CreateMonitoringSchedule
 mkCreateMonitoringSchedule
-  pMonitoringScheduleConfig_
-  pMonitoringScheduleName_ =
+  monitoringScheduleName
+  monitoringScheduleConfig =
     CreateMonitoringSchedule'
-      { monitoringScheduleConfig =
-          pMonitoringScheduleConfig_,
-        monitoringScheduleName = pMonitoringScheduleName_,
-        tags = Lude.Nothing
+      { monitoringScheduleName,
+        monitoringScheduleConfig,
+        tags = Core.Nothing
       }
-
--- | The configuration object that specifies the monitoring schedule and defines the monitoring job.
---
--- /Note:/ Consider using 'monitoringScheduleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmsMonitoringScheduleConfig :: Lens.Lens' CreateMonitoringSchedule MonitoringScheduleConfig
-cmsMonitoringScheduleConfig = Lens.lens (monitoringScheduleConfig :: CreateMonitoringSchedule -> MonitoringScheduleConfig) (\s a -> s {monitoringScheduleConfig = a} :: CreateMonitoringSchedule)
-{-# DEPRECATED cmsMonitoringScheduleConfig "Use generic-lens or generic-optics with 'monitoringScheduleConfig' instead." #-}
 
 -- | The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account.
 --
 -- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmsMonitoringScheduleName :: Lens.Lens' CreateMonitoringSchedule Lude.Text
-cmsMonitoringScheduleName = Lens.lens (monitoringScheduleName :: CreateMonitoringSchedule -> Lude.Text) (\s a -> s {monitoringScheduleName = a} :: CreateMonitoringSchedule)
+cmsMonitoringScheduleName :: Lens.Lens' CreateMonitoringSchedule Types.MonitoringScheduleName
+cmsMonitoringScheduleName = Lens.field @"monitoringScheduleName"
 {-# DEPRECATED cmsMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
+
+-- | The configuration object that specifies the monitoring schedule and defines the monitoring job.
+--
+-- /Note:/ Consider using 'monitoringScheduleConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmsMonitoringScheduleConfig :: Lens.Lens' CreateMonitoringSchedule Types.MonitoringScheduleConfig
+cmsMonitoringScheduleConfig = Lens.field @"monitoringScheduleConfig"
+{-# DEPRECATED cmsMonitoringScheduleConfig "Use generic-lens or generic-optics with 'monitoringScheduleConfig' instead." #-}
 
 -- | (Optional) An array of key-value pairs. For more information, see < https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-whatURL Using Cost Allocation Tags> in the /AWS Billing and Cost Management User Guide/ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmsTags :: Lens.Lens' CreateMonitoringSchedule (Lude.Maybe [Tag])
-cmsTags = Lens.lens (tags :: CreateMonitoringSchedule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateMonitoringSchedule)
+cmsTags :: Lens.Lens' CreateMonitoringSchedule (Core.Maybe [Types.Tag])
+cmsTags = Lens.field @"tags"
 {-# DEPRECATED cmsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateMonitoringSchedule where
+instance Core.FromJSON CreateMonitoringSchedule where
+  toJSON CreateMonitoringSchedule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("MonitoringScheduleName" Core..= monitoringScheduleName),
+            Core.Just
+              ("MonitoringScheduleConfig" Core..= monitoringScheduleConfig),
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateMonitoringSchedule where
   type Rs CreateMonitoringSchedule = CreateMonitoringScheduleResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.CreateMonitoringSchedule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateMonitoringScheduleResponse'
-            Lude.<$> (x Lude..:> "MonitoringScheduleArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "MonitoringScheduleArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateMonitoringSchedule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.CreateMonitoringSchedule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateMonitoringSchedule where
-  toJSON CreateMonitoringSchedule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("MonitoringScheduleConfig" Lude..= monitoringScheduleConfig),
-            Lude.Just
-              ("MonitoringScheduleName" Lude..= monitoringScheduleName),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateMonitoringSchedule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateMonitoringSchedule where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateMonitoringScheduleResponse' smart constructor.
 data CreateMonitoringScheduleResponse = CreateMonitoringScheduleResponse'
   { -- | The Amazon Resource Name (ARN) of the monitoring schedule.
-    monitoringScheduleARN :: Lude.Text,
+    monitoringScheduleArn :: Types.MonitoringScheduleArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateMonitoringScheduleResponse' with the minimum fields required to make a request.
---
--- * 'monitoringScheduleARN' - The Amazon Resource Name (ARN) of the monitoring schedule.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateMonitoringScheduleResponse' value with any optional fields omitted.
 mkCreateMonitoringScheduleResponse ::
-  -- | 'monitoringScheduleARN'
-  Lude.Text ->
+  -- | 'monitoringScheduleArn'
+  Types.MonitoringScheduleArn ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateMonitoringScheduleResponse
 mkCreateMonitoringScheduleResponse
-  pMonitoringScheduleARN_
-  pResponseStatus_ =
+  monitoringScheduleArn
+  responseStatus =
     CreateMonitoringScheduleResponse'
-      { monitoringScheduleARN =
-          pMonitoringScheduleARN_,
-        responseStatus = pResponseStatus_
+      { monitoringScheduleArn,
+        responseStatus
       }
 
 -- | The Amazon Resource Name (ARN) of the monitoring schedule.
 --
--- /Note:/ Consider using 'monitoringScheduleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmsrsMonitoringScheduleARN :: Lens.Lens' CreateMonitoringScheduleResponse Lude.Text
-cmsrsMonitoringScheduleARN = Lens.lens (monitoringScheduleARN :: CreateMonitoringScheduleResponse -> Lude.Text) (\s a -> s {monitoringScheduleARN = a} :: CreateMonitoringScheduleResponse)
-{-# DEPRECATED cmsrsMonitoringScheduleARN "Use generic-lens or generic-optics with 'monitoringScheduleARN' instead." #-}
+-- /Note:/ Consider using 'monitoringScheduleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmsrrsMonitoringScheduleArn :: Lens.Lens' CreateMonitoringScheduleResponse Types.MonitoringScheduleArn
+cmsrrsMonitoringScheduleArn = Lens.field @"monitoringScheduleArn"
+{-# DEPRECATED cmsrrsMonitoringScheduleArn "Use generic-lens or generic-optics with 'monitoringScheduleArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmsrsResponseStatus :: Lens.Lens' CreateMonitoringScheduleResponse Lude.Int
-cmsrsResponseStatus = Lens.lens (responseStatus :: CreateMonitoringScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMonitoringScheduleResponse)
-{-# DEPRECATED cmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cmsrrsResponseStatus :: Lens.Lens' CreateMonitoringScheduleResponse Core.Int
+cmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

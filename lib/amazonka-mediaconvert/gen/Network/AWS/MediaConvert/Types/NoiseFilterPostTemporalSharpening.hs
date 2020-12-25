@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.NoiseFilterPostTemporalSharpening
   ( NoiseFilterPostTemporalSharpening
       ( NoiseFilterPostTemporalSharpening',
-        NFPTSDisabled,
-        NFPTSEnabled,
-        NFPTSAuto
+        NoiseFilterPostTemporalSharpeningDisabled,
+        NoiseFilterPostTemporalSharpeningEnabled,
+        NoiseFilterPostTemporalSharpeningAuto,
+        fromNoiseFilterPostTemporalSharpening
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. When you set Noise reducer (noiseReducer) to Temporal (TEMPORAL), you can use this setting to apply sharpening. The default behavior, Auto (AUTO), allows the transcoder to determine whether to apply filtering, depending on input type and quality. When you set Noise reducer to Temporal, your output bandwidth is reduced. When Post temporal sharpening is also enabled, that bandwidth reduction is smaller.
-newtype NoiseFilterPostTemporalSharpening = NoiseFilterPostTemporalSharpening' Lude.Text
+newtype NoiseFilterPostTemporalSharpening = NoiseFilterPostTemporalSharpening'
+  { fromNoiseFilterPostTemporalSharpening ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NFPTSDisabled :: NoiseFilterPostTemporalSharpening
-pattern NFPTSDisabled = NoiseFilterPostTemporalSharpening' "DISABLED"
+pattern NoiseFilterPostTemporalSharpeningDisabled :: NoiseFilterPostTemporalSharpening
+pattern NoiseFilterPostTemporalSharpeningDisabled = NoiseFilterPostTemporalSharpening' "DISABLED"
 
-pattern NFPTSEnabled :: NoiseFilterPostTemporalSharpening
-pattern NFPTSEnabled = NoiseFilterPostTemporalSharpening' "ENABLED"
+pattern NoiseFilterPostTemporalSharpeningEnabled :: NoiseFilterPostTemporalSharpening
+pattern NoiseFilterPostTemporalSharpeningEnabled = NoiseFilterPostTemporalSharpening' "ENABLED"
 
-pattern NFPTSAuto :: NoiseFilterPostTemporalSharpening
-pattern NFPTSAuto = NoiseFilterPostTemporalSharpening' "AUTO"
+pattern NoiseFilterPostTemporalSharpeningAuto :: NoiseFilterPostTemporalSharpening
+pattern NoiseFilterPostTemporalSharpeningAuto = NoiseFilterPostTemporalSharpening' "AUTO"
 
 {-# COMPLETE
-  NFPTSDisabled,
-  NFPTSEnabled,
-  NFPTSAuto,
+  NoiseFilterPostTemporalSharpeningDisabled,
+  NoiseFilterPostTemporalSharpeningEnabled,
+  NoiseFilterPostTemporalSharpeningAuto,
   NoiseFilterPostTemporalSharpening'
   #-}

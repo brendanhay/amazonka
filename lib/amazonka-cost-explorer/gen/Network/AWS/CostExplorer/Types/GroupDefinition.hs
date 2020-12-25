@@ -22,57 +22,53 @@ module Network.AWS.CostExplorer.Types.GroupDefinition
   )
 where
 
-import Network.AWS.CostExplorer.Types.GroupDefinitionType
+import qualified Network.AWS.CostExplorer.Types.GroupDefinitionType as Types
+import qualified Network.AWS.CostExplorer.Types.Key as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a group when you specify a group by criteria or in the response to a query with a specific grouping.
 --
 -- /See:/ 'mkGroupDefinition' smart constructor.
 data GroupDefinition = GroupDefinition'
   { -- | The string that represents a key for a specified group.
-    key :: Lude.Maybe Lude.Text,
+    key :: Core.Maybe Types.Key,
     -- | The string that represents the type of group.
-    type' :: Lude.Maybe GroupDefinitionType
+    type' :: Core.Maybe Types.GroupDefinitionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GroupDefinition' with the minimum fields required to make a request.
---
--- * 'key' - The string that represents a key for a specified group.
--- * 'type'' - The string that represents the type of group.
+-- | Creates a 'GroupDefinition' value with any optional fields omitted.
 mkGroupDefinition ::
   GroupDefinition
 mkGroupDefinition =
-  GroupDefinition' {key = Lude.Nothing, type' = Lude.Nothing}
+  GroupDefinition' {key = Core.Nothing, type' = Core.Nothing}
 
 -- | The string that represents a key for a specified group.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdKey :: Lens.Lens' GroupDefinition (Lude.Maybe Lude.Text)
-gdKey = Lens.lens (key :: GroupDefinition -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: GroupDefinition)
+gdKey :: Lens.Lens' GroupDefinition (Core.Maybe Types.Key)
+gdKey = Lens.field @"key"
 {-# DEPRECATED gdKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The string that represents the type of group.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdType :: Lens.Lens' GroupDefinition (Lude.Maybe GroupDefinitionType)
-gdType = Lens.lens (type' :: GroupDefinition -> Lude.Maybe GroupDefinitionType) (\s a -> s {type' = a} :: GroupDefinition)
+gdType :: Lens.Lens' GroupDefinition (Core.Maybe Types.GroupDefinitionType)
+gdType = Lens.field @"type'"
 {-# DEPRECATED gdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON GroupDefinition where
-  parseJSON =
-    Lude.withObject
-      "GroupDefinition"
-      ( \x ->
-          GroupDefinition'
-            Lude.<$> (x Lude..:? "Key") Lude.<*> (x Lude..:? "Type")
+instance Core.FromJSON GroupDefinition where
+  toJSON GroupDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [("Key" Core..=) Core.<$> key, ("Type" Core..=) Core.<$> type']
       )
 
-instance Lude.ToJSON GroupDefinition where
-  toJSON GroupDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Key" Lude..=) Lude.<$> key, ("Type" Lude..=) Lude.<$> type']
-      )
+instance Core.FromJSON GroupDefinition where
+  parseJSON =
+    Core.withObject "GroupDefinition" Core.$
+      \x ->
+        GroupDefinition'
+          Core.<$> (x Core..:? "Key") Core.<*> (x Core..:? "Type")

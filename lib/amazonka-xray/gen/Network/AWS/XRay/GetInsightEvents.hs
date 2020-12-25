@@ -21,151 +21,142 @@ module Network.AWS.XRay.GetInsightEvents
 
     -- ** Request lenses
     gieInsightId,
-    gieNextToken,
     gieMaxResults,
+    gieNextToken,
 
     -- * Destructuring the response
     GetInsightEventsResponse (..),
     mkGetInsightEventsResponse,
 
     -- ** Response lenses
-    giersInsightEvents,
-    giersNextToken,
-    giersResponseStatus,
+    gierrsInsightEvents,
+    gierrsNextToken,
+    gierrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.XRay.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.XRay.Types as Types
 
 -- | /See:/ 'mkGetInsightEvents' smart constructor.
 data GetInsightEvents = GetInsightEvents'
   { -- | The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
-    insightId :: Lude.Text,
-    -- | Specify the pagination token returned by a previous request to retrieve the next page of events.
-    nextToken :: Lude.Maybe Lude.Text,
+    insightId :: Types.InsightId,
     -- | Used to retrieve at most the specified value of events.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Specify the pagination token returned by a previous request to retrieve the next page of events.
+    nextToken :: Core.Maybe Types.Token
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInsightEvents' with the minimum fields required to make a request.
---
--- * 'insightId' - The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
--- * 'nextToken' - Specify the pagination token returned by a previous request to retrieve the next page of events.
--- * 'maxResults' - Used to retrieve at most the specified value of events.
+-- | Creates a 'GetInsightEvents' value with any optional fields omitted.
 mkGetInsightEvents ::
   -- | 'insightId'
-  Lude.Text ->
+  Types.InsightId ->
   GetInsightEvents
-mkGetInsightEvents pInsightId_ =
+mkGetInsightEvents insightId =
   GetInsightEvents'
-    { insightId = pInsightId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { insightId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The insight's unique identifier. Use the GetInsightSummaries action to retrieve an InsightId.
 --
 -- /Note:/ Consider using 'insightId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gieInsightId :: Lens.Lens' GetInsightEvents Lude.Text
-gieInsightId = Lens.lens (insightId :: GetInsightEvents -> Lude.Text) (\s a -> s {insightId = a} :: GetInsightEvents)
+gieInsightId :: Lens.Lens' GetInsightEvents Types.InsightId
+gieInsightId = Lens.field @"insightId"
 {-# DEPRECATED gieInsightId "Use generic-lens or generic-optics with 'insightId' instead." #-}
-
--- | Specify the pagination token returned by a previous request to retrieve the next page of events.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gieNextToken :: Lens.Lens' GetInsightEvents (Lude.Maybe Lude.Text)
-gieNextToken = Lens.lens (nextToken :: GetInsightEvents -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInsightEvents)
-{-# DEPRECATED gieNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Used to retrieve at most the specified value of events.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gieMaxResults :: Lens.Lens' GetInsightEvents (Lude.Maybe Lude.Natural)
-gieMaxResults = Lens.lens (maxResults :: GetInsightEvents -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetInsightEvents)
+gieMaxResults :: Lens.Lens' GetInsightEvents (Core.Maybe Core.Natural)
+gieMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED gieMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest GetInsightEvents where
-  type Rs GetInsightEvents = GetInsightEventsResponse
-  request = Req.postJSON xRayService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          GetInsightEventsResponse'
-            Lude.<$> (x Lude..?> "InsightEvents" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | Specify the pagination token returned by a previous request to retrieve the next page of events.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gieNextToken :: Lens.Lens' GetInsightEvents (Core.Maybe Types.Token)
+gieNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gieNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.ToHeaders GetInsightEvents where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetInsightEvents where
-  toJSON GetInsightEvents' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InsightId" Lude..= insightId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
+instance Core.FromJSON GetInsightEvents where
+  toJSON GetInsightEvents {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InsightId" Core..= insightId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
           ]
       )
 
-instance Lude.ToPath GetInsightEvents where
-  toPath = Lude.const "/InsightEvents"
-
-instance Lude.ToQuery GetInsightEvents where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest GetInsightEvents where
+  type Rs GetInsightEvents = GetInsightEventsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/InsightEvents",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetInsightEventsResponse'
+            Core.<$> (x Core..:? "InsightEvents")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkGetInsightEventsResponse' smart constructor.
 data GetInsightEventsResponse = GetInsightEventsResponse'
   { -- | A detailed description of the event. This includes the time of the event, client and root cause impact statistics, and the top anomalous service at the time of the event.
-    insightEvents :: Lude.Maybe [InsightEvent],
+    insightEvents :: Core.Maybe [Types.InsightEvent],
     -- | Use this token to retrieve the next page of insight events.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.Token,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetInsightEventsResponse' with the minimum fields required to make a request.
---
--- * 'insightEvents' - A detailed description of the event. This includes the time of the event, client and root cause impact statistics, and the top anomalous service at the time of the event.
--- * 'nextToken' - Use this token to retrieve the next page of insight events.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInsightEventsResponse' value with any optional fields omitted.
 mkGetInsightEventsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInsightEventsResponse
-mkGetInsightEventsResponse pResponseStatus_ =
+mkGetInsightEventsResponse responseStatus =
   GetInsightEventsResponse'
-    { insightEvents = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { insightEvents = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A detailed description of the event. This includes the time of the event, client and root cause impact statistics, and the top anomalous service at the time of the event.
 --
 -- /Note:/ Consider using 'insightEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giersInsightEvents :: Lens.Lens' GetInsightEventsResponse (Lude.Maybe [InsightEvent])
-giersInsightEvents = Lens.lens (insightEvents :: GetInsightEventsResponse -> Lude.Maybe [InsightEvent]) (\s a -> s {insightEvents = a} :: GetInsightEventsResponse)
-{-# DEPRECATED giersInsightEvents "Use generic-lens or generic-optics with 'insightEvents' instead." #-}
+gierrsInsightEvents :: Lens.Lens' GetInsightEventsResponse (Core.Maybe [Types.InsightEvent])
+gierrsInsightEvents = Lens.field @"insightEvents"
+{-# DEPRECATED gierrsInsightEvents "Use generic-lens or generic-optics with 'insightEvents' instead." #-}
 
 -- | Use this token to retrieve the next page of insight events.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giersNextToken :: Lens.Lens' GetInsightEventsResponse (Lude.Maybe Lude.Text)
-giersNextToken = Lens.lens (nextToken :: GetInsightEventsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetInsightEventsResponse)
-{-# DEPRECATED giersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gierrsNextToken :: Lens.Lens' GetInsightEventsResponse (Core.Maybe Types.Token)
+gierrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gierrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giersResponseStatus :: Lens.Lens' GetInsightEventsResponse Lude.Int
-giersResponseStatus = Lens.lens (responseStatus :: GetInsightEventsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInsightEventsResponse)
-{-# DEPRECATED giersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gierrsResponseStatus :: Lens.Lens' GetInsightEventsResponse Core.Int
+gierrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gierrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

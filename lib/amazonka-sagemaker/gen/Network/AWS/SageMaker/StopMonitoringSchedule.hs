@@ -29,76 +29,64 @@ module Network.AWS.SageMaker.StopMonitoringSchedule
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkStopMonitoringSchedule' smart constructor.
 newtype StopMonitoringSchedule = StopMonitoringSchedule'
   { -- | The name of the schedule to stop.
-    monitoringScheduleName :: Lude.Text
+    monitoringScheduleName :: Types.MonitoringScheduleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopMonitoringSchedule' with the minimum fields required to make a request.
---
--- * 'monitoringScheduleName' - The name of the schedule to stop.
+-- | Creates a 'StopMonitoringSchedule' value with any optional fields omitted.
 mkStopMonitoringSchedule ::
   -- | 'monitoringScheduleName'
-  Lude.Text ->
+  Types.MonitoringScheduleName ->
   StopMonitoringSchedule
-mkStopMonitoringSchedule pMonitoringScheduleName_ =
-  StopMonitoringSchedule'
-    { monitoringScheduleName =
-        pMonitoringScheduleName_
-    }
+mkStopMonitoringSchedule monitoringScheduleName =
+  StopMonitoringSchedule' {monitoringScheduleName}
 
 -- | The name of the schedule to stop.
 --
 -- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smsMonitoringScheduleName :: Lens.Lens' StopMonitoringSchedule Lude.Text
-smsMonitoringScheduleName = Lens.lens (monitoringScheduleName :: StopMonitoringSchedule -> Lude.Text) (\s a -> s {monitoringScheduleName = a} :: StopMonitoringSchedule)
+smsMonitoringScheduleName :: Lens.Lens' StopMonitoringSchedule Types.MonitoringScheduleName
+smsMonitoringScheduleName = Lens.field @"monitoringScheduleName"
 {-# DEPRECATED smsMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
 
-instance Lude.AWSRequest StopMonitoringSchedule where
+instance Core.FromJSON StopMonitoringSchedule where
+  toJSON StopMonitoringSchedule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("MonitoringScheduleName" Core..= monitoringScheduleName)
+          ]
+      )
+
+instance Core.AWSRequest StopMonitoringSchedule where
   type Rs StopMonitoringSchedule = StopMonitoringScheduleResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull StopMonitoringScheduleResponse'
-
-instance Lude.ToHeaders StopMonitoringSchedule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.StopMonitoringSchedule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopMonitoringSchedule where
-  toJSON StopMonitoringSchedule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("MonitoringScheduleName" Lude..= monitoringScheduleName)
-          ]
-      )
-
-instance Lude.ToPath StopMonitoringSchedule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopMonitoringSchedule where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.StopMonitoringSchedule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull StopMonitoringScheduleResponse'
 
 -- | /See:/ 'mkStopMonitoringScheduleResponse' smart constructor.
 data StopMonitoringScheduleResponse = StopMonitoringScheduleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopMonitoringScheduleResponse' with the minimum fields required to make a request.
+-- | Creates a 'StopMonitoringScheduleResponse' value with any optional fields omitted.
 mkStopMonitoringScheduleResponse ::
   StopMonitoringScheduleResponse
 mkStopMonitoringScheduleResponse = StopMonitoringScheduleResponse'

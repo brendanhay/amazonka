@@ -17,82 +17,78 @@ module Network.AWS.CostExplorer.Types.TagValues
     mkTagValues,
 
     -- * Lenses
-    tvValues,
     tvKey,
     tvMatchOptions,
+    tvValues,
   )
 where
 
-import Network.AWS.CostExplorer.Types.MatchOption
+import qualified Network.AWS.CostExplorer.Types.Key as Types
+import qualified Network.AWS.CostExplorer.Types.MatchOption as Types
+import qualified Network.AWS.CostExplorer.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The values that are available for a tag.
 --
 -- /See:/ 'mkTagValues' smart constructor.
 data TagValues = TagValues'
-  { -- | The specific value of the tag.
-    values :: Lude.Maybe [Lude.Text],
-    -- | The key for the tag.
-    key :: Lude.Maybe Lude.Text,
+  { -- | The key for the tag.
+    key :: Core.Maybe Types.Key,
     -- | The match options that you can use to filter your results. @MatchOptions@ is only applicable for actions related to Cost Category. The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@ .
-    matchOptions :: Lude.Maybe [MatchOption]
+    matchOptions :: Core.Maybe [Types.MatchOption],
+    -- | The specific value of the tag.
+    values :: Core.Maybe [Types.Value]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagValues' with the minimum fields required to make a request.
---
--- * 'values' - The specific value of the tag.
--- * 'key' - The key for the tag.
--- * 'matchOptions' - The match options that you can use to filter your results. @MatchOptions@ is only applicable for actions related to Cost Category. The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@ .
+-- | Creates a 'TagValues' value with any optional fields omitted.
 mkTagValues ::
   TagValues
 mkTagValues =
   TagValues'
-    { values = Lude.Nothing,
-      key = Lude.Nothing,
-      matchOptions = Lude.Nothing
+    { key = Core.Nothing,
+      matchOptions = Core.Nothing,
+      values = Core.Nothing
     }
-
--- | The specific value of the tag.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvValues :: Lens.Lens' TagValues (Lude.Maybe [Lude.Text])
-tvValues = Lens.lens (values :: TagValues -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: TagValues)
-{-# DEPRECATED tvValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The key for the tag.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvKey :: Lens.Lens' TagValues (Lude.Maybe Lude.Text)
-tvKey = Lens.lens (key :: TagValues -> Lude.Maybe Lude.Text) (\s a -> s {key = a} :: TagValues)
+tvKey :: Lens.Lens' TagValues (Core.Maybe Types.Key)
+tvKey = Lens.field @"key"
 {-# DEPRECATED tvKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | The match options that you can use to filter your results. @MatchOptions@ is only applicable for actions related to Cost Category. The default values for @MatchOptions@ are @EQUALS@ and @CASE_SENSITIVE@ .
 --
 -- /Note:/ Consider using 'matchOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tvMatchOptions :: Lens.Lens' TagValues (Lude.Maybe [MatchOption])
-tvMatchOptions = Lens.lens (matchOptions :: TagValues -> Lude.Maybe [MatchOption]) (\s a -> s {matchOptions = a} :: TagValues)
+tvMatchOptions :: Lens.Lens' TagValues (Core.Maybe [Types.MatchOption])
+tvMatchOptions = Lens.field @"matchOptions"
 {-# DEPRECATED tvMatchOptions "Use generic-lens or generic-optics with 'matchOptions' instead." #-}
 
-instance Lude.FromJSON TagValues where
-  parseJSON =
-    Lude.withObject
-      "TagValues"
-      ( \x ->
-          TagValues'
-            Lude.<$> (x Lude..:? "Values" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Key")
-            Lude.<*> (x Lude..:? "MatchOptions" Lude..!= Lude.mempty)
-      )
+-- | The specific value of the tag.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tvValues :: Lens.Lens' TagValues (Core.Maybe [Types.Value])
+tvValues = Lens.field @"values"
+{-# DEPRECATED tvValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Lude.ToJSON TagValues where
-  toJSON TagValues' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Values" Lude..=) Lude.<$> values,
-            ("Key" Lude..=) Lude.<$> key,
-            ("MatchOptions" Lude..=) Lude.<$> matchOptions
+instance Core.FromJSON TagValues where
+  toJSON TagValues {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Key" Core..=) Core.<$> key,
+            ("MatchOptions" Core..=) Core.<$> matchOptions,
+            ("Values" Core..=) Core.<$> values
           ]
       )
+
+instance Core.FromJSON TagValues where
+  parseJSON =
+    Core.withObject "TagValues" Core.$
+      \x ->
+        TagValues'
+          Core.<$> (x Core..:? "Key")
+          Core.<*> (x Core..:? "MatchOptions")
+          Core.<*> (x Core..:? "Values")

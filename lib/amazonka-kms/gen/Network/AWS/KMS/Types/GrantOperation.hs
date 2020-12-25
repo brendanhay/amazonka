@@ -13,106 +13,111 @@
 module Network.AWS.KMS.Types.GrantOperation
   ( GrantOperation
       ( GrantOperation',
-        Decrypt,
-        Encrypt,
-        GenerateDataKey,
-        GenerateDataKeyWithoutPlaintext,
-        ReEncryptFrom,
-        ReEncryptTo,
-        Sign,
-        Verify,
-        GetPublicKey,
-        CreateGrant,
-        RetireGrant,
-        DescribeKey,
-        GenerateDataKeyPair,
-        GenerateDataKeyPairWithoutPlaintext
+        GrantOperationDecrypt,
+        GrantOperationEncrypt,
+        GrantOperationGenerateDataKey,
+        GrantOperationGenerateDataKeyWithoutPlaintext,
+        GrantOperationReEncryptFrom,
+        GrantOperationReEncryptTo,
+        GrantOperationSign,
+        GrantOperationVerify,
+        GrantOperationGetPublicKey,
+        GrantOperationCreateGrant,
+        GrantOperationRetireGrant,
+        GrantOperationDescribeKey,
+        GrantOperationGenerateDataKeyPair,
+        GrantOperationGenerateDataKeyPairWithoutPlaintext,
+        fromGrantOperation
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype GrantOperation = GrantOperation' Lude.Text
+newtype GrantOperation = GrantOperation'
+  { fromGrantOperation ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Decrypt :: GrantOperation
-pattern Decrypt = GrantOperation' "Decrypt"
+pattern GrantOperationDecrypt :: GrantOperation
+pattern GrantOperationDecrypt = GrantOperation' "Decrypt"
 
-pattern Encrypt :: GrantOperation
-pattern Encrypt = GrantOperation' "Encrypt"
+pattern GrantOperationEncrypt :: GrantOperation
+pattern GrantOperationEncrypt = GrantOperation' "Encrypt"
 
-pattern GenerateDataKey :: GrantOperation
-pattern GenerateDataKey = GrantOperation' "GenerateDataKey"
+pattern GrantOperationGenerateDataKey :: GrantOperation
+pattern GrantOperationGenerateDataKey = GrantOperation' "GenerateDataKey"
 
-pattern GenerateDataKeyWithoutPlaintext :: GrantOperation
-pattern GenerateDataKeyWithoutPlaintext = GrantOperation' "GenerateDataKeyWithoutPlaintext"
+pattern GrantOperationGenerateDataKeyWithoutPlaintext :: GrantOperation
+pattern GrantOperationGenerateDataKeyWithoutPlaintext = GrantOperation' "GenerateDataKeyWithoutPlaintext"
 
-pattern ReEncryptFrom :: GrantOperation
-pattern ReEncryptFrom = GrantOperation' "ReEncryptFrom"
+pattern GrantOperationReEncryptFrom :: GrantOperation
+pattern GrantOperationReEncryptFrom = GrantOperation' "ReEncryptFrom"
 
-pattern ReEncryptTo :: GrantOperation
-pattern ReEncryptTo = GrantOperation' "ReEncryptTo"
+pattern GrantOperationReEncryptTo :: GrantOperation
+pattern GrantOperationReEncryptTo = GrantOperation' "ReEncryptTo"
 
-pattern Sign :: GrantOperation
-pattern Sign = GrantOperation' "Sign"
+pattern GrantOperationSign :: GrantOperation
+pattern GrantOperationSign = GrantOperation' "Sign"
 
-pattern Verify :: GrantOperation
-pattern Verify = GrantOperation' "Verify"
+pattern GrantOperationVerify :: GrantOperation
+pattern GrantOperationVerify = GrantOperation' "Verify"
 
-pattern GetPublicKey :: GrantOperation
-pattern GetPublicKey = GrantOperation' "GetPublicKey"
+pattern GrantOperationGetPublicKey :: GrantOperation
+pattern GrantOperationGetPublicKey = GrantOperation' "GetPublicKey"
 
-pattern CreateGrant :: GrantOperation
-pattern CreateGrant = GrantOperation' "CreateGrant"
+pattern GrantOperationCreateGrant :: GrantOperation
+pattern GrantOperationCreateGrant = GrantOperation' "CreateGrant"
 
-pattern RetireGrant :: GrantOperation
-pattern RetireGrant = GrantOperation' "RetireGrant"
+pattern GrantOperationRetireGrant :: GrantOperation
+pattern GrantOperationRetireGrant = GrantOperation' "RetireGrant"
 
-pattern DescribeKey :: GrantOperation
-pattern DescribeKey = GrantOperation' "DescribeKey"
+pattern GrantOperationDescribeKey :: GrantOperation
+pattern GrantOperationDescribeKey = GrantOperation' "DescribeKey"
 
-pattern GenerateDataKeyPair :: GrantOperation
-pattern GenerateDataKeyPair = GrantOperation' "GenerateDataKeyPair"
+pattern GrantOperationGenerateDataKeyPair :: GrantOperation
+pattern GrantOperationGenerateDataKeyPair = GrantOperation' "GenerateDataKeyPair"
 
-pattern GenerateDataKeyPairWithoutPlaintext :: GrantOperation
-pattern GenerateDataKeyPairWithoutPlaintext = GrantOperation' "GenerateDataKeyPairWithoutPlaintext"
+pattern GrantOperationGenerateDataKeyPairWithoutPlaintext :: GrantOperation
+pattern GrantOperationGenerateDataKeyPairWithoutPlaintext = GrantOperation' "GenerateDataKeyPairWithoutPlaintext"
 
 {-# COMPLETE
-  Decrypt,
-  Encrypt,
-  GenerateDataKey,
-  GenerateDataKeyWithoutPlaintext,
-  ReEncryptFrom,
-  ReEncryptTo,
-  Sign,
-  Verify,
-  GetPublicKey,
-  CreateGrant,
-  RetireGrant,
-  DescribeKey,
-  GenerateDataKeyPair,
-  GenerateDataKeyPairWithoutPlaintext,
+  GrantOperationDecrypt,
+  GrantOperationEncrypt,
+  GrantOperationGenerateDataKey,
+  GrantOperationGenerateDataKeyWithoutPlaintext,
+  GrantOperationReEncryptFrom,
+  GrantOperationReEncryptTo,
+  GrantOperationSign,
+  GrantOperationVerify,
+  GrantOperationGetPublicKey,
+  GrantOperationCreateGrant,
+  GrantOperationRetireGrant,
+  GrantOperationDescribeKey,
+  GrantOperationGenerateDataKeyPair,
+  GrantOperationGenerateDataKeyPairWithoutPlaintext,
   GrantOperation'
   #-}

@@ -17,12 +17,13 @@ module Network.AWS.Transcribe.Types.Media
     mkMedia,
 
     -- * Lenses
-    mMediaFileURI,
+    mMediaFileUri,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Transcribe.Types.Uri as Types
 
 -- | Describes the input media file in a transcription request.
 --
@@ -32,38 +33,32 @@ newtype Media = Media'
     --
     -- For example:
     -- For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
-    mediaFileURI :: Lude.Maybe Lude.Text
+    mediaFileUri :: Core.Maybe Types.Uri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Media' with the minimum fields required to make a request.
---
--- * 'mediaFileURI' - The S3 object location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:
---
--- For example:
--- For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
+-- | Creates a 'Media' value with any optional fields omitted.
 mkMedia ::
   Media
-mkMedia = Media' {mediaFileURI = Lude.Nothing}
+mkMedia = Media' {mediaFileUri = Core.Nothing}
 
 -- | The S3 object location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:
 --
 -- For example:
 -- For more information about S3 object names, see <http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys Object Keys> in the /Amazon S3 Developer Guide/ .
 --
--- /Note:/ Consider using 'mediaFileURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mMediaFileURI :: Lens.Lens' Media (Lude.Maybe Lude.Text)
-mMediaFileURI = Lens.lens (mediaFileURI :: Media -> Lude.Maybe Lude.Text) (\s a -> s {mediaFileURI = a} :: Media)
-{-# DEPRECATED mMediaFileURI "Use generic-lens or generic-optics with 'mediaFileURI' instead." #-}
+-- /Note:/ Consider using 'mediaFileUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mMediaFileUri :: Lens.Lens' Media (Core.Maybe Types.Uri)
+mMediaFileUri = Lens.field @"mediaFileUri"
+{-# DEPRECATED mMediaFileUri "Use generic-lens or generic-optics with 'mediaFileUri' instead." #-}
 
-instance Lude.FromJSON Media where
+instance Core.FromJSON Media where
+  toJSON Media {..} =
+    Core.object
+      (Core.catMaybes [("MediaFileUri" Core..=) Core.<$> mediaFileUri])
+
+instance Core.FromJSON Media where
   parseJSON =
-    Lude.withObject
-      "Media"
-      (\x -> Media' Lude.<$> (x Lude..:? "MediaFileUri"))
-
-instance Lude.ToJSON Media where
-  toJSON Media' {..} =
-    Lude.object
-      (Lude.catMaybes [("MediaFileUri" Lude..=) Lude.<$> mediaFileURI])
+    Core.withObject "Media" Core.$
+      \x -> Media' Core.<$> (x Core..:? "MediaFileUri")

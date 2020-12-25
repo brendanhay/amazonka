@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,16 @@
 -- __Amazon Mechanical Turk API Reference__
 module Network.AWS.MechanicalTurk
   ( -- * Service configuration
-    mechanicalTurkService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ServiceFault
+    _ServiceFault,
+
+    -- ** RequestError
+    _RequestError,
 
     -- * Waiters
     -- $waiters
@@ -144,215 +149,20 @@ module Network.AWS.MechanicalTurk
 
     -- * Types
 
-    -- ** AssignmentStatus
-    AssignmentStatus (..),
-
-    -- ** Comparator
-    Comparator (..),
-
-    -- ** EventType
-    EventType (..),
-
-    -- ** HITAccessActions
-    HITAccessActions (..),
-
-    -- ** HITReviewStatus
-    HITReviewStatus (..),
-
-    -- ** HITStatus
-    HITStatus (..),
-
-    -- ** NotificationTransport
-    NotificationTransport (..),
-
-    -- ** NotifyWorkersFailureCode
-    NotifyWorkersFailureCode (..),
-
-    -- ** QualificationStatus
-    QualificationStatus (..),
-
-    -- ** QualificationTypeStatus
-    QualificationTypeStatus (..),
-
-    -- ** ReviewActionStatus
-    ReviewActionStatus (..),
-
-    -- ** ReviewPolicyLevel
-    ReviewPolicyLevel (..),
-
-    -- ** ReviewableHITStatus
-    ReviewableHITStatus (..),
-
-    -- ** Assignment
-    Assignment (..),
-    mkAssignment,
-    aAcceptTime,
-    aAnswer,
-    aAssignmentStatus,
-    aRequesterFeedback,
-    aDeadline,
-    aApprovalTime,
-    aRejectionTime,
-    aAutoApprovalTime,
-    aHITId,
-    aWorkerId,
-    aAssignmentId,
-    aSubmitTime,
-
-    -- ** BonusPayment
-    BonusPayment (..),
-    mkBonusPayment,
-    bpReason,
-    bpGrantTime,
-    bpWorkerId,
-    bpAssignmentId,
-    bpBonusAmount,
-
-    -- ** HIT
-    HIT (..),
-    mkHIT,
-    hitCreationTime,
-    hitHITGroupId,
-    hitNumberOfAssignmentsPending,
-    hitHITTypeId,
-    hitExpiration,
-    hitAutoApprovalDelayInSeconds,
-    hitRequesterAnnotation,
-    hitHITStatus,
-    hitMaxAssignments,
-    hitNumberOfAssignmentsCompleted,
-    hitReward,
-    hitKeywords,
-    hitHITLayoutId,
-    hitQualificationRequirements,
-    hitTitle,
-    hitHITId,
-    hitHITReviewStatus,
-    hitNumberOfAssignmentsAvailable,
-    hitDescription,
-    hitQuestion,
-    hitAssignmentDurationInSeconds,
-
-    -- ** HITLayoutParameter
-    HITLayoutParameter (..),
-    mkHITLayoutParameter,
-    hitlpValue,
-    hitlpName,
-
-    -- ** Locale
-    Locale (..),
-    mkLocale,
-    lCountry,
-    lSubdivision,
-
-    -- ** NotificationSpecification
-    NotificationSpecification (..),
-    mkNotificationSpecification,
-    nsDestination,
-    nsEventTypes,
-    nsVersion,
-    nsTransport,
-
-    -- ** NotifyWorkersFailureStatus
-    NotifyWorkersFailureStatus (..),
-    mkNotifyWorkersFailureStatus,
-    nwfsNotifyWorkersFailureMessage,
-    nwfsNotifyWorkersFailureCode,
-    nwfsWorkerId,
-
-    -- ** ParameterMapEntry
-    ParameterMapEntry (..),
-    mkParameterMapEntry,
-    pmeValues,
-    pmeKey,
-
-    -- ** PolicyParameter
-    PolicyParameter (..),
-    mkPolicyParameter,
-    ppValues,
-    ppMapEntries,
-    ppKey,
-
-    -- ** Qualification
-    Qualification (..),
-    mkQualification,
-    qStatus,
-    qIntegerValue,
-    qLocaleValue,
-    qQualificationTypeId,
-    qGrantTime,
-    qWorkerId,
-
-    -- ** QualificationRequest
-    QualificationRequest (..),
-    mkQualificationRequest,
-    qrfQualificationRequestId,
-    qrfTest,
-    qrfQualificationTypeId,
-    qrfAnswer,
-    qrfWorkerId,
-    qrfSubmitTime,
-
-    -- ** QualificationRequirement
-    QualificationRequirement (..),
-    mkQualificationRequirement,
-    qrLocaleValues,
-    qrActionsGuarded,
-    qrQualificationTypeId,
-    qrComparator,
-    qrRequiredToPreview,
-    qrIntegerValues,
-
-    -- ** QualificationType
-    QualificationType (..),
-    mkQualificationType,
-    qtCreationTime,
-    qtTestDurationInSeconds,
-    qtQualificationTypeStatus,
-    qtAnswerKey,
-    qtTest,
-    qtQualificationTypeId,
-    qtName,
-    qtKeywords,
-    qtAutoGranted,
-    qtAutoGrantedValue,
-    qtDescription,
-    qtIsRequestable,
-    qtRetryDelayInSeconds,
-
-    -- ** ReviewActionDetail
-    ReviewActionDetail (..),
-    mkReviewActionDetail,
-    radStatus,
-    radTargetId,
-    radActionId,
-    radTargetType,
-    radResult,
-    radActionName,
-    radCompleteTime,
-    radErrorCode,
-
-    -- ** ReviewPolicy
-    ReviewPolicy (..),
-    mkReviewPolicy,
-    rpPolicyName,
-    rpParameters,
-
     -- ** ReviewReport
     ReviewReport (..),
     mkReviewReport,
     rrReviewActions,
     rrReviewResults,
 
-    -- ** ReviewResultDetail
-    ReviewResultDetail (..),
-    mkReviewResultDetail,
-    rrdValue,
-    rrdActionId,
-    rrdSubjectType,
-    rrdKey,
-    rrdQuestionId,
-    rrdSubjectId,
+    -- ** IdempotencyToken
+    IdempotencyToken (..),
+
+    -- ** ReviewPolicyLevel
+    ReviewPolicyLevel (..),
+
+    -- ** PaginationToken
+    PaginationToken (..),
 
     -- ** WorkerBlock
     WorkerBlock (..),
@@ -360,15 +170,304 @@ module Network.AWS.MechanicalTurk
     wbReason,
     wbWorkerId,
 
+    -- ** BonusPayment
+    BonusPayment (..),
+    mkBonusPayment,
+    bpAssignmentId,
+    bpBonusAmount,
+    bpGrantTime,
+    bpReason,
+    bpWorkerId,
+
+    -- ** ReviewResultDetail
+    ReviewResultDetail (..),
+    mkReviewResultDetail,
+    rrdActionId,
+    rrdKey,
+    rrdQuestionId,
+    rrdSubjectId,
+    rrdSubjectType,
+    rrdValue,
+
+    -- ** ReviewPolicy
+    ReviewPolicy (..),
+    mkReviewPolicy,
+    rpPolicyName,
+    rpParameters,
+
+    -- ** NotifyWorkersFailureStatus
+    NotifyWorkersFailureStatus (..),
+    mkNotifyWorkersFailureStatus,
+    nwfsNotifyWorkersFailureCode,
+    nwfsNotifyWorkersFailureMessage,
+    nwfsWorkerId,
+
+    -- ** QualificationTypeStatus
+    QualificationTypeStatus (..),
+
+    -- ** String
+    String (..),
+
+    -- ** HIT
+    HIT (..),
+    mkHIT,
+    hitAssignmentDurationInSeconds,
+    hitAutoApprovalDelayInSeconds,
+    hitCreationTime,
+    hitDescription,
+    hitExpiration,
+    hitHITGroupId,
+    hitHITId,
+    hitHITLayoutId,
+    hitHITReviewStatus,
+    hitHITStatus,
+    hitHITTypeId,
+    hitKeywords,
+    hitMaxAssignments,
+    hitNumberOfAssignmentsAvailable,
+    hitNumberOfAssignmentsCompleted,
+    hitNumberOfAssignmentsPending,
+    hitQualificationRequirements,
+    hitQuestion,
+    hitRequesterAnnotation,
+    hitReward,
+    hitTitle,
+
+    -- ** NotificationSpecification
+    NotificationSpecification (..),
+    mkNotificationSpecification,
+    nsDestination,
+    nsTransport,
+    nsVersion,
+    nsEventTypes,
+
+    -- ** Locale
+    Locale (..),
+    mkLocale,
+    lCountry,
+    lSubdivision,
+
+    -- ** ReviewActionStatus
+    ReviewActionStatus (..),
+
+    -- ** CustomerId
+    CustomerId (..),
+
+    -- ** QualificationType
+    QualificationType (..),
+    mkQualificationType,
+    qtAnswerKey,
+    qtAutoGranted,
+    qtAutoGrantedValue,
+    qtCreationTime,
+    qtDescription,
+    qtIsRequestable,
+    qtKeywords,
+    qtName,
+    qtQualificationTypeId,
+    qtQualificationTypeStatus,
+    qtRetryDelayInSeconds,
+    qtTest,
+    qtTestDurationInSeconds,
+
+    -- ** PolicyParameter
+    PolicyParameter (..),
+    mkPolicyParameter,
+    ppKey,
+    ppMapEntries,
+    ppValues,
+
+    -- ** HITStatus
+    HITStatus (..),
+
+    -- ** ReviewableHITStatus
+    ReviewableHITStatus (..),
+
+    -- ** HITAccessActions
+    HITAccessActions (..),
+
+    -- ** EventType
+    EventType (..),
+
+    -- ** AssignmentStatus
+    AssignmentStatus (..),
+
+    -- ** Comparator
+    Comparator (..),
+
+    -- ** QualificationStatus
+    QualificationStatus (..),
+
+    -- ** ReviewActionDetail
+    ReviewActionDetail (..),
+    mkReviewActionDetail,
+    radActionId,
+    radActionName,
+    radCompleteTime,
+    radErrorCode,
+    radResult,
+    radStatus,
+    radTargetId,
+    radTargetType,
+
+    -- ** QualificationRequest
+    QualificationRequest (..),
+    mkQualificationRequest,
+    qrfAnswer,
+    qrfQualificationRequestId,
+    qrfQualificationTypeId,
+    qrfSubmitTime,
+    qrfTest,
+    qrfWorkerId,
+
+    -- ** NotifyWorkersFailureCode
+    NotifyWorkersFailureCode (..),
+
+    -- ** HITReviewStatus
+    HITReviewStatus (..),
+
+    -- ** Assignment
+    Assignment (..),
+    mkAssignment,
+    aAcceptTime,
+    aAnswer,
+    aApprovalTime,
+    aAssignmentId,
+    aAssignmentStatus,
+    aAutoApprovalTime,
+    aDeadline,
+    aHITId,
+    aRejectionTime,
+    aRequesterFeedback,
+    aSubmitTime,
+    aWorkerId,
+
+    -- ** QualificationRequirement
+    QualificationRequirement (..),
+    mkQualificationRequirement,
+    qrQualificationTypeId,
+    qrComparator,
+    qrActionsGuarded,
+    qrIntegerValues,
+    qrLocaleValues,
+    qrRequiredToPreview,
+
+    -- ** EntityId
+    EntityId (..),
+
+    -- ** HITLayoutParameter
+    HITLayoutParameter (..),
+    mkHITLayoutParameter,
+    hitlpName,
+    hitlpValue,
+
+    -- ** NotificationTransport
+    NotificationTransport (..),
+
+    -- ** ParameterMapEntry
+    ParameterMapEntry (..),
+    mkParameterMapEntry,
+    pmeKey,
+    pmeValues,
+
+    -- ** Qualification
+    Qualification (..),
+    mkQualification,
+    qGrantTime,
+    qIntegerValue,
+    qLocaleValue,
+    qQualificationTypeId,
+    qStatus,
+    qWorkerId,
+
+    -- ** AssignmentId
+    AssignmentId (..),
+
+    -- ** HITId
+    HITId (..),
+
+    -- ** Reason
+    Reason (..),
+
+    -- ** WorkerId
+    WorkerId (..),
+
+    -- ** Subject
+    Subject (..),
+
+    -- ** MessageText
+    MessageText (..),
+
+    -- ** HITTypeId
+    HITTypeId (..),
+
+    -- ** HITLayoutId
+    HITLayoutId (..),
+
+    -- ** Question
+    Question (..),
+
+    -- ** RequesterAnnotation
+    RequesterAnnotation (..),
+
+    -- ** BonusAmount
+    BonusAmount (..),
+
+    -- ** ActionId
+    ActionId (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** QuestionId
+    QuestionId (..),
+
+    -- ** SubjectId
+    SubjectId (..),
+
+    -- ** SubjectType
+    SubjectType (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** PolicyName
+    PolicyName (..),
+
+    -- ** QualificationTypeId
+    QualificationTypeId (..),
+
+    -- ** NotifyWorkersFailureMessage
+    NotifyWorkersFailureMessage (..),
+
+    -- ** HITGroupId
+    HITGroupId (..),
+
+    -- ** Reward
+    Reward (..),
+
+    -- ** Country
+    Country (..),
+
+    -- ** Subdivision
+    Subdivision (..),
+
+    -- ** AvailableBalance
+    AvailableBalance (..),
+
+    -- ** OnHoldBalance
+    OnHoldBalance (..),
+
+    -- ** TargetId
+    TargetId (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -22,8 +22,8 @@ module Network.AWS.IAM.ChangePassword
     mkChangePassword,
 
     -- ** Request lenses
-    cpNewPassword,
     cpOldPassword,
+    cpNewPassword,
 
     -- * Destructuring the response
     ChangePasswordResponse (..),
@@ -31,84 +31,79 @@ module Network.AWS.IAM.ChangePassword
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkChangePassword' smart constructor.
 data ChangePassword = ChangePassword'
-  { -- | The new password. The new password must conform to the AWS account's password policy, if one exists.
+  { -- | The IAM user's current password.
+    oldPassword :: Types.PasswordType,
+    -- | The new password. The new password must conform to the AWS account's password policy, if one exists.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of characters. That string can include almost any printable ASCII character from the space (@\u0020@ ) through the end of the ASCII character range (@\u00FF@ ). You can also include the tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ ) characters. Any of these characters are valid in a password. However, many tools, such as the AWS Management Console, might restrict the ability to type certain characters because they have special meaning within that tool.
-    newPassword :: Lude.Sensitive Lude.Text,
-    -- | The IAM user's current password.
-    oldPassword :: Lude.Sensitive Lude.Text
+    newPassword :: Types.PasswordType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChangePassword' with the minimum fields required to make a request.
---
--- * 'newPassword' - The new password. The new password must conform to the AWS account's password policy, if one exists.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of characters. That string can include almost any printable ASCII character from the space (@\u0020@ ) through the end of the ASCII character range (@\u00FF@ ). You can also include the tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ ) characters. Any of these characters are valid in a password. However, many tools, such as the AWS Management Console, might restrict the ability to type certain characters because they have special meaning within that tool.
--- * 'oldPassword' - The IAM user's current password.
+-- | Creates a 'ChangePassword' value with any optional fields omitted.
 mkChangePassword ::
-  -- | 'newPassword'
-  Lude.Sensitive Lude.Text ->
   -- | 'oldPassword'
-  Lude.Sensitive Lude.Text ->
+  Types.PasswordType ->
+  -- | 'newPassword'
+  Types.PasswordType ->
   ChangePassword
-mkChangePassword pNewPassword_ pOldPassword_ =
-  ChangePassword'
-    { newPassword = pNewPassword_,
-      oldPassword = pOldPassword_
-    }
+mkChangePassword oldPassword newPassword =
+  ChangePassword' {oldPassword, newPassword}
+
+-- | The IAM user's current password.
+--
+-- /Note:/ Consider using 'oldPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpOldPassword :: Lens.Lens' ChangePassword Types.PasswordType
+cpOldPassword = Lens.field @"oldPassword"
+{-# DEPRECATED cpOldPassword "Use generic-lens or generic-optics with 'oldPassword' instead." #-}
 
 -- | The new password. The new password must conform to the AWS account's password policy, if one exists.
 --
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of characters. That string can include almost any printable ASCII character from the space (@\u0020@ ) through the end of the ASCII character range (@\u00FF@ ). You can also include the tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ ) characters. Any of these characters are valid in a password. However, many tools, such as the AWS Management Console, might restrict the ability to type certain characters because they have special meaning within that tool.
 --
 -- /Note:/ Consider using 'newPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpNewPassword :: Lens.Lens' ChangePassword (Lude.Sensitive Lude.Text)
-cpNewPassword = Lens.lens (newPassword :: ChangePassword -> Lude.Sensitive Lude.Text) (\s a -> s {newPassword = a} :: ChangePassword)
+cpNewPassword :: Lens.Lens' ChangePassword Types.PasswordType
+cpNewPassword = Lens.field @"newPassword"
 {-# DEPRECATED cpNewPassword "Use generic-lens or generic-optics with 'newPassword' instead." #-}
 
--- | The IAM user's current password.
---
--- /Note:/ Consider using 'oldPassword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpOldPassword :: Lens.Lens' ChangePassword (Lude.Sensitive Lude.Text)
-cpOldPassword = Lens.lens (oldPassword :: ChangePassword -> Lude.Sensitive Lude.Text) (\s a -> s {oldPassword = a} :: ChangePassword)
-{-# DEPRECATED cpOldPassword "Use generic-lens or generic-optics with 'oldPassword' instead." #-}
-
-instance Lude.AWSRequest ChangePassword where
+instance Core.AWSRequest ChangePassword where
   type Rs ChangePassword = ChangePasswordResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull ChangePasswordResponse'
-
-instance Lude.ToHeaders ChangePassword where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ChangePassword where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ChangePassword where
-  toQuery ChangePassword' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ChangePassword" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "NewPassword" Lude.=: newPassword,
-        "OldPassword" Lude.=: oldPassword
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ChangePassword")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "OldPassword" oldPassword)
+                Core.<> (Core.toQueryValue "NewPassword" newPassword)
+            )
+      }
+  response = Response.receiveNull ChangePasswordResponse'
 
 -- | /See:/ 'mkChangePasswordResponse' smart constructor.
 data ChangePasswordResponse = ChangePasswordResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChangePasswordResponse' with the minimum fields required to make a request.
+-- | Creates a 'ChangePasswordResponse' value with any optional fields omitted.
 mkChangePasswordResponse ::
   ChangePasswordResponse
 mkChangePasswordResponse = ChangePasswordResponse'

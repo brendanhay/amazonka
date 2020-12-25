@@ -17,59 +17,53 @@ module Network.AWS.CloudSearch.Types.DomainEndpointOptionsStatus
     mkDomainEndpointOptionsStatus,
 
     -- * Lenses
-    deosStatus,
     deosOptions,
+    deosStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types.DomainEndpointOptions
-import Network.AWS.CloudSearch.Types.OptionStatus
+import qualified Network.AWS.CloudSearch.Types.DomainEndpointOptions as Types
+import qualified Network.AWS.CloudSearch.Types.OptionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The configuration and status of the domain's endpoint options.
 --
 -- /See:/ 'mkDomainEndpointOptionsStatus' smart constructor.
 data DomainEndpointOptionsStatus = DomainEndpointOptionsStatus'
-  { -- | The status of the configured domain endpoint options.
-    status :: OptionStatus,
-    -- | The domain endpoint options configured for the domain.
-    options :: DomainEndpointOptions
+  { -- | The domain endpoint options configured for the domain.
+    options :: Types.DomainEndpointOptions,
+    -- | The status of the configured domain endpoint options.
+    status :: Types.OptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DomainEndpointOptionsStatus' with the minimum fields required to make a request.
---
--- * 'status' - The status of the configured domain endpoint options.
--- * 'options' - The domain endpoint options configured for the domain.
+-- | Creates a 'DomainEndpointOptionsStatus' value with any optional fields omitted.
 mkDomainEndpointOptionsStatus ::
-  -- | 'status'
-  OptionStatus ->
   -- | 'options'
-  DomainEndpointOptions ->
+  Types.DomainEndpointOptions ->
+  -- | 'status'
+  Types.OptionStatus ->
   DomainEndpointOptionsStatus
-mkDomainEndpointOptionsStatus pStatus_ pOptions_ =
-  DomainEndpointOptionsStatus'
-    { status = pStatus_,
-      options = pOptions_
-    }
-
--- | The status of the configured domain endpoint options.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deosStatus :: Lens.Lens' DomainEndpointOptionsStatus OptionStatus
-deosStatus = Lens.lens (status :: DomainEndpointOptionsStatus -> OptionStatus) (\s a -> s {status = a} :: DomainEndpointOptionsStatus)
-{-# DEPRECATED deosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkDomainEndpointOptionsStatus options status =
+  DomainEndpointOptionsStatus' {options, status}
 
 -- | The domain endpoint options configured for the domain.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deosOptions :: Lens.Lens' DomainEndpointOptionsStatus DomainEndpointOptions
-deosOptions = Lens.lens (options :: DomainEndpointOptionsStatus -> DomainEndpointOptions) (\s a -> s {options = a} :: DomainEndpointOptionsStatus)
+deosOptions :: Lens.Lens' DomainEndpointOptionsStatus Types.DomainEndpointOptions
+deosOptions = Lens.field @"options"
 {-# DEPRECATED deosOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.FromXML DomainEndpointOptionsStatus where
+-- | The status of the configured domain endpoint options.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deosStatus :: Lens.Lens' DomainEndpointOptionsStatus Types.OptionStatus
+deosStatus = Lens.field @"status"
+{-# DEPRECATED deosStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML DomainEndpointOptionsStatus where
   parseXML x =
     DomainEndpointOptionsStatus'
-      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Options")
+      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")

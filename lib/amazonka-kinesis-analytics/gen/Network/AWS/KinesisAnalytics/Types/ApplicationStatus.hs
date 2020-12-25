@@ -13,66 +13,71 @@
 module Network.AWS.KinesisAnalytics.Types.ApplicationStatus
   ( ApplicationStatus
       ( ApplicationStatus',
-        Deleting,
-        Starting,
-        Stopping,
-        Ready,
-        Running,
-        Updating
+        ApplicationStatusDeleting,
+        ApplicationStatusStarting,
+        ApplicationStatusStopping,
+        ApplicationStatusReady,
+        ApplicationStatusRunning,
+        ApplicationStatusUpdating,
+        fromApplicationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ApplicationStatus = ApplicationStatus' Lude.Text
+newtype ApplicationStatus = ApplicationStatus'
+  { fromApplicationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Deleting :: ApplicationStatus
-pattern Deleting = ApplicationStatus' "DELETING"
+pattern ApplicationStatusDeleting :: ApplicationStatus
+pattern ApplicationStatusDeleting = ApplicationStatus' "DELETING"
 
-pattern Starting :: ApplicationStatus
-pattern Starting = ApplicationStatus' "STARTING"
+pattern ApplicationStatusStarting :: ApplicationStatus
+pattern ApplicationStatusStarting = ApplicationStatus' "STARTING"
 
-pattern Stopping :: ApplicationStatus
-pattern Stopping = ApplicationStatus' "STOPPING"
+pattern ApplicationStatusStopping :: ApplicationStatus
+pattern ApplicationStatusStopping = ApplicationStatus' "STOPPING"
 
-pattern Ready :: ApplicationStatus
-pattern Ready = ApplicationStatus' "READY"
+pattern ApplicationStatusReady :: ApplicationStatus
+pattern ApplicationStatusReady = ApplicationStatus' "READY"
 
-pattern Running :: ApplicationStatus
-pattern Running = ApplicationStatus' "RUNNING"
+pattern ApplicationStatusRunning :: ApplicationStatus
+pattern ApplicationStatusRunning = ApplicationStatus' "RUNNING"
 
-pattern Updating :: ApplicationStatus
-pattern Updating = ApplicationStatus' "UPDATING"
+pattern ApplicationStatusUpdating :: ApplicationStatus
+pattern ApplicationStatusUpdating = ApplicationStatus' "UPDATING"
 
 {-# COMPLETE
-  Deleting,
-  Starting,
-  Stopping,
-  Ready,
-  Running,
-  Updating,
+  ApplicationStatusDeleting,
+  ApplicationStatusStarting,
+  ApplicationStatusStopping,
+  ApplicationStatusReady,
+  ApplicationStatusRunning,
+  ApplicationStatusUpdating,
   ApplicationStatus'
   #-}

@@ -17,84 +17,78 @@ module Network.AWS.Pinpoint.Types.SimpleCondition
     mkSimpleCondition,
 
     -- * Lenses
-    scSegmentDimensions,
     scEventCondition,
     scSegmentCondition,
+    scSegmentDimensions,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.EventCondition
-import Network.AWS.Pinpoint.Types.SegmentCondition
-import Network.AWS.Pinpoint.Types.SegmentDimensions
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.EventCondition as Types
+import qualified Network.AWS.Pinpoint.Types.SegmentCondition as Types
+import qualified Network.AWS.Pinpoint.Types.SegmentDimensions as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a condition to evaluate for an activity in a journey.
 --
 -- /See:/ 'mkSimpleCondition' smart constructor.
 data SimpleCondition = SimpleCondition'
-  { -- | The dimension settings for the segment that's associated with the activity.
-    segmentDimensions :: Lude.Maybe SegmentDimensions,
-    -- | The dimension settings for the event that's associated with the activity.
-    eventCondition :: Lude.Maybe EventCondition,
+  { -- | The dimension settings for the event that's associated with the activity.
+    eventCondition :: Core.Maybe Types.EventCondition,
     -- | The segment that's associated with the activity.
-    segmentCondition :: Lude.Maybe SegmentCondition
+    segmentCondition :: Core.Maybe Types.SegmentCondition,
+    -- | The dimension settings for the segment that's associated with the activity.
+    segmentDimensions :: Core.Maybe Types.SegmentDimensions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SimpleCondition' with the minimum fields required to make a request.
---
--- * 'segmentDimensions' - The dimension settings for the segment that's associated with the activity.
--- * 'eventCondition' - The dimension settings for the event that's associated with the activity.
--- * 'segmentCondition' - The segment that's associated with the activity.
+-- | Creates a 'SimpleCondition' value with any optional fields omitted.
 mkSimpleCondition ::
   SimpleCondition
 mkSimpleCondition =
   SimpleCondition'
-    { segmentDimensions = Lude.Nothing,
-      eventCondition = Lude.Nothing,
-      segmentCondition = Lude.Nothing
+    { eventCondition = Core.Nothing,
+      segmentCondition = Core.Nothing,
+      segmentDimensions = Core.Nothing
     }
-
--- | The dimension settings for the segment that's associated with the activity.
---
--- /Note:/ Consider using 'segmentDimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scSegmentDimensions :: Lens.Lens' SimpleCondition (Lude.Maybe SegmentDimensions)
-scSegmentDimensions = Lens.lens (segmentDimensions :: SimpleCondition -> Lude.Maybe SegmentDimensions) (\s a -> s {segmentDimensions = a} :: SimpleCondition)
-{-# DEPRECATED scSegmentDimensions "Use generic-lens or generic-optics with 'segmentDimensions' instead." #-}
 
 -- | The dimension settings for the event that's associated with the activity.
 --
 -- /Note:/ Consider using 'eventCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scEventCondition :: Lens.Lens' SimpleCondition (Lude.Maybe EventCondition)
-scEventCondition = Lens.lens (eventCondition :: SimpleCondition -> Lude.Maybe EventCondition) (\s a -> s {eventCondition = a} :: SimpleCondition)
+scEventCondition :: Lens.Lens' SimpleCondition (Core.Maybe Types.EventCondition)
+scEventCondition = Lens.field @"eventCondition"
 {-# DEPRECATED scEventCondition "Use generic-lens or generic-optics with 'eventCondition' instead." #-}
 
 -- | The segment that's associated with the activity.
 --
 -- /Note:/ Consider using 'segmentCondition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scSegmentCondition :: Lens.Lens' SimpleCondition (Lude.Maybe SegmentCondition)
-scSegmentCondition = Lens.lens (segmentCondition :: SimpleCondition -> Lude.Maybe SegmentCondition) (\s a -> s {segmentCondition = a} :: SimpleCondition)
+scSegmentCondition :: Lens.Lens' SimpleCondition (Core.Maybe Types.SegmentCondition)
+scSegmentCondition = Lens.field @"segmentCondition"
 {-# DEPRECATED scSegmentCondition "Use generic-lens or generic-optics with 'segmentCondition' instead." #-}
 
-instance Lude.FromJSON SimpleCondition where
-  parseJSON =
-    Lude.withObject
-      "SimpleCondition"
-      ( \x ->
-          SimpleCondition'
-            Lude.<$> (x Lude..:? "segmentDimensions")
-            Lude.<*> (x Lude..:? "EventCondition")
-            Lude.<*> (x Lude..:? "SegmentCondition")
-      )
+-- | The dimension settings for the segment that's associated with the activity.
+--
+-- /Note:/ Consider using 'segmentDimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scSegmentDimensions :: Lens.Lens' SimpleCondition (Core.Maybe Types.SegmentDimensions)
+scSegmentDimensions = Lens.field @"segmentDimensions"
+{-# DEPRECATED scSegmentDimensions "Use generic-lens or generic-optics with 'segmentDimensions' instead." #-}
 
-instance Lude.ToJSON SimpleCondition where
-  toJSON SimpleCondition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("segmentDimensions" Lude..=) Lude.<$> segmentDimensions,
-            ("EventCondition" Lude..=) Lude.<$> eventCondition,
-            ("SegmentCondition" Lude..=) Lude.<$> segmentCondition
+instance Core.FromJSON SimpleCondition where
+  toJSON SimpleCondition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EventCondition" Core..=) Core.<$> eventCondition,
+            ("SegmentCondition" Core..=) Core.<$> segmentCondition,
+            ("segmentDimensions" Core..=) Core.<$> segmentDimensions
           ]
       )
+
+instance Core.FromJSON SimpleCondition where
+  parseJSON =
+    Core.withObject "SimpleCondition" Core.$
+      \x ->
+        SimpleCondition'
+          Core.<$> (x Core..:? "EventCondition")
+          Core.<*> (x Core..:? "SegmentCondition")
+          Core.<*> (x Core..:? "segmentDimensions")

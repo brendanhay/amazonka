@@ -27,215 +27,195 @@ module Network.AWS.SageMaker.DescribeExperiment
     mkDescribeExperimentResponse,
 
     -- ** Response lenses
-    dersCreationTime,
-    dersCreatedBy,
-    dersLastModifiedTime,
-    dersExperimentName,
-    dersExperimentARN,
-    dersSource,
-    dersDisplayName,
-    dersLastModifiedBy,
-    dersDescription,
-    dersResponseStatus,
+    derrsCreatedBy,
+    derrsCreationTime,
+    derrsDescription,
+    derrsDisplayName,
+    derrsExperimentArn,
+    derrsExperimentName,
+    derrsLastModifiedBy,
+    derrsLastModifiedTime,
+    derrsSource,
+    derrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDescribeExperiment' smart constructor.
 newtype DescribeExperiment = DescribeExperiment'
   { -- | The name of the experiment to describe.
-    experimentName :: Lude.Text
+    experimentName :: Types.ExperimentName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeExperiment' with the minimum fields required to make a request.
---
--- * 'experimentName' - The name of the experiment to describe.
+-- | Creates a 'DescribeExperiment' value with any optional fields omitted.
 mkDescribeExperiment ::
   -- | 'experimentName'
-  Lude.Text ->
+  Types.ExperimentName ->
   DescribeExperiment
-mkDescribeExperiment pExperimentName_ =
-  DescribeExperiment' {experimentName = pExperimentName_}
+mkDescribeExperiment experimentName =
+  DescribeExperiment' {experimentName}
 
 -- | The name of the experiment to describe.
 --
 -- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deExperimentName :: Lens.Lens' DescribeExperiment Lude.Text
-deExperimentName = Lens.lens (experimentName :: DescribeExperiment -> Lude.Text) (\s a -> s {experimentName = a} :: DescribeExperiment)
+deExperimentName :: Lens.Lens' DescribeExperiment Types.ExperimentName
+deExperimentName = Lens.field @"experimentName"
 {-# DEPRECATED deExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
-instance Lude.AWSRequest DescribeExperiment where
+instance Core.FromJSON DescribeExperiment where
+  toJSON DescribeExperiment {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ExperimentName" Core..= experimentName)]
+      )
+
+instance Core.AWSRequest DescribeExperiment where
   type Rs DescribeExperiment = DescribeExperimentResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DescribeExperiment")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeExperimentResponse'
-            Lude.<$> (x Lude..?> "CreationTime")
-            Lude.<*> (x Lude..?> "CreatedBy")
-            Lude.<*> (x Lude..?> "LastModifiedTime")
-            Lude.<*> (x Lude..?> "ExperimentName")
-            Lude.<*> (x Lude..?> "ExperimentArn")
-            Lude.<*> (x Lude..?> "Source")
-            Lude.<*> (x Lude..?> "DisplayName")
-            Lude.<*> (x Lude..?> "LastModifiedBy")
-            Lude.<*> (x Lude..?> "Description")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CreatedBy")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "DisplayName")
+            Core.<*> (x Core..:? "ExperimentArn")
+            Core.<*> (x Core..:? "ExperimentName")
+            Core.<*> (x Core..:? "LastModifiedBy")
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (x Core..:? "Source")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeExperiment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DescribeExperiment" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeExperiment where
-  toJSON DescribeExperiment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ExperimentName" Lude..= experimentName)]
-      )
-
-instance Lude.ToPath DescribeExperiment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeExperiment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeExperimentResponse' smart constructor.
 data DescribeExperimentResponse = DescribeExperimentResponse'
-  { -- | When the experiment was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | Who created the experiment.
-    createdBy :: Lude.Maybe UserContext,
-    -- | When the experiment was last modified.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the experiment.
-    experimentName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the experiment.
-    experimentARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the source and, optionally, the type.
-    source :: Lude.Maybe ExperimentSource,
-    -- | The name of the experiment as displayed. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
-    displayName :: Lude.Maybe Lude.Text,
-    -- | Who last modified the experiment.
-    lastModifiedBy :: Lude.Maybe UserContext,
+  { -- | Who created the experiment.
+    createdBy :: Core.Maybe Types.UserContext,
+    -- | When the experiment was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The description of the experiment.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
+    -- | The name of the experiment as displayed. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
+    displayName :: Core.Maybe Types.ExperimentEntityName,
+    -- | The Amazon Resource Name (ARN) of the experiment.
+    experimentArn :: Core.Maybe Types.ExperimentArn,
+    -- | The name of the experiment.
+    experimentName :: Core.Maybe Types.ExperimentEntityName,
+    -- | Who last modified the experiment.
+    lastModifiedBy :: Core.Maybe Types.UserContext,
+    -- | When the experiment was last modified.
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The ARN of the source and, optionally, the type.
+    source :: Core.Maybe Types.ExperimentSource,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeExperimentResponse' with the minimum fields required to make a request.
---
--- * 'creationTime' - When the experiment was created.
--- * 'createdBy' - Who created the experiment.
--- * 'lastModifiedTime' - When the experiment was last modified.
--- * 'experimentName' - The name of the experiment.
--- * 'experimentARN' - The Amazon Resource Name (ARN) of the experiment.
--- * 'source' - The ARN of the source and, optionally, the type.
--- * 'displayName' - The name of the experiment as displayed. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
--- * 'lastModifiedBy' - Who last modified the experiment.
--- * 'description' - The description of the experiment.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeExperimentResponse' value with any optional fields omitted.
 mkDescribeExperimentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeExperimentResponse
-mkDescribeExperimentResponse pResponseStatus_ =
+mkDescribeExperimentResponse responseStatus =
   DescribeExperimentResponse'
-    { creationTime = Lude.Nothing,
-      createdBy = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      experimentName = Lude.Nothing,
-      experimentARN = Lude.Nothing,
-      source = Lude.Nothing,
-      displayName = Lude.Nothing,
-      lastModifiedBy = Lude.Nothing,
-      description = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { createdBy = Core.Nothing,
+      creationTime = Core.Nothing,
+      description = Core.Nothing,
+      displayName = Core.Nothing,
+      experimentArn = Core.Nothing,
+      experimentName = Core.Nothing,
+      lastModifiedBy = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      source = Core.Nothing,
+      responseStatus
     }
-
--- | When the experiment was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersCreationTime :: Lens.Lens' DescribeExperimentResponse (Lude.Maybe Lude.Timestamp)
-dersCreationTime = Lens.lens (creationTime :: DescribeExperimentResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeExperimentResponse)
-{-# DEPRECATED dersCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | Who created the experiment.
 --
 -- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersCreatedBy :: Lens.Lens' DescribeExperimentResponse (Lude.Maybe UserContext)
-dersCreatedBy = Lens.lens (createdBy :: DescribeExperimentResponse -> Lude.Maybe UserContext) (\s a -> s {createdBy = a} :: DescribeExperimentResponse)
-{-# DEPRECATED dersCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
+derrsCreatedBy :: Lens.Lens' DescribeExperimentResponse (Core.Maybe Types.UserContext)
+derrsCreatedBy = Lens.field @"createdBy"
+{-# DEPRECATED derrsCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
 
--- | When the experiment was last modified.
+-- | When the experiment was created.
 --
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersLastModifiedTime :: Lens.Lens' DescribeExperimentResponse (Lude.Maybe Lude.Timestamp)
-dersLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeExperimentResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeExperimentResponse)
-{-# DEPRECATED dersLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
-
--- | The name of the experiment.
---
--- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersExperimentName :: Lens.Lens' DescribeExperimentResponse (Lude.Maybe Lude.Text)
-dersExperimentName = Lens.lens (experimentName :: DescribeExperimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {experimentName = a} :: DescribeExperimentResponse)
-{-# DEPRECATED dersExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the experiment.
---
--- /Note:/ Consider using 'experimentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersExperimentARN :: Lens.Lens' DescribeExperimentResponse (Lude.Maybe Lude.Text)
-dersExperimentARN = Lens.lens (experimentARN :: DescribeExperimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {experimentARN = a} :: DescribeExperimentResponse)
-{-# DEPRECATED dersExperimentARN "Use generic-lens or generic-optics with 'experimentARN' instead." #-}
-
--- | The ARN of the source and, optionally, the type.
---
--- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersSource :: Lens.Lens' DescribeExperimentResponse (Lude.Maybe ExperimentSource)
-dersSource = Lens.lens (source :: DescribeExperimentResponse -> Lude.Maybe ExperimentSource) (\s a -> s {source = a} :: DescribeExperimentResponse)
-{-# DEPRECATED dersSource "Use generic-lens or generic-optics with 'source' instead." #-}
-
--- | The name of the experiment as displayed. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
---
--- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersDisplayName :: Lens.Lens' DescribeExperimentResponse (Lude.Maybe Lude.Text)
-dersDisplayName = Lens.lens (displayName :: DescribeExperimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: DescribeExperimentResponse)
-{-# DEPRECATED dersDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
-
--- | Who last modified the experiment.
---
--- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersLastModifiedBy :: Lens.Lens' DescribeExperimentResponse (Lude.Maybe UserContext)
-dersLastModifiedBy = Lens.lens (lastModifiedBy :: DescribeExperimentResponse -> Lude.Maybe UserContext) (\s a -> s {lastModifiedBy = a} :: DescribeExperimentResponse)
-{-# DEPRECATED dersLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derrsCreationTime :: Lens.Lens' DescribeExperimentResponse (Core.Maybe Core.NominalDiffTime)
+derrsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED derrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The description of the experiment.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersDescription :: Lens.Lens' DescribeExperimentResponse (Lude.Maybe Lude.Text)
-dersDescription = Lens.lens (description :: DescribeExperimentResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeExperimentResponse)
-{-# DEPRECATED dersDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+derrsDescription :: Lens.Lens' DescribeExperimentResponse (Core.Maybe Types.Description)
+derrsDescription = Lens.field @"description"
+{-# DEPRECATED derrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The name of the experiment as displayed. If @DisplayName@ isn't specified, @ExperimentName@ is displayed.
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derrsDisplayName :: Lens.Lens' DescribeExperimentResponse (Core.Maybe Types.ExperimentEntityName)
+derrsDisplayName = Lens.field @"displayName"
+{-# DEPRECATED derrsDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the experiment.
+--
+-- /Note:/ Consider using 'experimentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derrsExperimentArn :: Lens.Lens' DescribeExperimentResponse (Core.Maybe Types.ExperimentArn)
+derrsExperimentArn = Lens.field @"experimentArn"
+{-# DEPRECATED derrsExperimentArn "Use generic-lens or generic-optics with 'experimentArn' instead." #-}
+
+-- | The name of the experiment.
+--
+-- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derrsExperimentName :: Lens.Lens' DescribeExperimentResponse (Core.Maybe Types.ExperimentEntityName)
+derrsExperimentName = Lens.field @"experimentName"
+{-# DEPRECATED derrsExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
+
+-- | Who last modified the experiment.
+--
+-- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derrsLastModifiedBy :: Lens.Lens' DescribeExperimentResponse (Core.Maybe Types.UserContext)
+derrsLastModifiedBy = Lens.field @"lastModifiedBy"
+{-# DEPRECATED derrsLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
+
+-- | When the experiment was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derrsLastModifiedTime :: Lens.Lens' DescribeExperimentResponse (Core.Maybe Core.NominalDiffTime)
+derrsLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED derrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | The ARN of the source and, optionally, the type.
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derrsSource :: Lens.Lens' DescribeExperimentResponse (Core.Maybe Types.ExperimentSource)
+derrsSource = Lens.field @"source"
+{-# DEPRECATED derrsSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dersResponseStatus :: Lens.Lens' DescribeExperimentResponse Lude.Int
-dersResponseStatus = Lens.lens (responseStatus :: DescribeExperimentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExperimentResponse)
-{-# DEPRECATED dersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+derrsResponseStatus :: Lens.Lens' DescribeExperimentResponse Core.Int
+derrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

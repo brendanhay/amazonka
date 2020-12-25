@@ -17,17 +17,19 @@ module Network.AWS.IAM.Types.AccessKeyInfo
     mkAccessKeyInfo,
 
     -- * Lenses
+    akiUserName,
+    akiAccessKeyId,
     akiStatus,
     akiSecretAccessKey,
     akiCreateDate,
-    akiUserName,
-    akiAccessKeyId,
   )
 where
 
-import Network.AWS.IAM.Types.StatusType
+import qualified Network.AWS.IAM.Types.AccessKeySecretType as Types
+import qualified Network.AWS.IAM.Types.StatusType as Types
+import qualified Network.AWS.IAM.Types.UserName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an AWS access key.
 --
@@ -35,86 +37,80 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAccessKeyInfo' smart constructor.
 data AccessKeyInfo = AccessKeyInfo'
-  { -- | The status of the access key. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
-    status :: StatusType,
-    -- | The secret key used to sign requests.
-    secretAccessKey :: Lude.Sensitive Lude.Text,
-    -- | The date when the access key was created.
-    createDate :: Lude.Maybe Lude.DateTime,
-    -- | The name of the IAM user that the access key is associated with.
-    userName :: Lude.Text,
+  { -- | The name of the IAM user that the access key is associated with.
+    userName :: Types.UserName,
     -- | The ID for this access key.
-    accessKeyId :: AccessKey
+    accessKeyId :: Types.AccessKey,
+    -- | The status of the access key. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
+    status :: Types.StatusType,
+    -- | The secret key used to sign requests.
+    secretAccessKey :: Types.AccessKeySecretType,
+    -- | The date when the access key was created.
+    createDate :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AccessKeyInfo' with the minimum fields required to make a request.
---
--- * 'status' - The status of the access key. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
--- * 'secretAccessKey' - The secret key used to sign requests.
--- * 'createDate' - The date when the access key was created.
--- * 'userName' - The name of the IAM user that the access key is associated with.
--- * 'accessKeyId' - The ID for this access key.
+-- | Creates a 'AccessKeyInfo' value with any optional fields omitted.
 mkAccessKeyInfo ::
-  -- | 'status'
-  StatusType ->
-  -- | 'secretAccessKey'
-  Lude.Sensitive Lude.Text ->
   -- | 'userName'
-  Lude.Text ->
+  Types.UserName ->
   -- | 'accessKeyId'
-  AccessKey ->
+  Types.AccessKey ->
+  -- | 'status'
+  Types.StatusType ->
+  -- | 'secretAccessKey'
+  Types.AccessKeySecretType ->
   AccessKeyInfo
-mkAccessKeyInfo pStatus_ pSecretAccessKey_ pUserName_ pAccessKeyId_ =
+mkAccessKeyInfo userName accessKeyId status secretAccessKey =
   AccessKeyInfo'
-    { status = pStatus_,
-      secretAccessKey = pSecretAccessKey_,
-      createDate = Lude.Nothing,
-      userName = pUserName_,
-      accessKeyId = pAccessKeyId_
+    { userName,
+      accessKeyId,
+      status,
+      secretAccessKey,
+      createDate = Core.Nothing
     }
-
--- | The status of the access key. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akiStatus :: Lens.Lens' AccessKeyInfo StatusType
-akiStatus = Lens.lens (status :: AccessKeyInfo -> StatusType) (\s a -> s {status = a} :: AccessKeyInfo)
-{-# DEPRECATED akiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The secret key used to sign requests.
---
--- /Note:/ Consider using 'secretAccessKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akiSecretAccessKey :: Lens.Lens' AccessKeyInfo (Lude.Sensitive Lude.Text)
-akiSecretAccessKey = Lens.lens (secretAccessKey :: AccessKeyInfo -> Lude.Sensitive Lude.Text) (\s a -> s {secretAccessKey = a} :: AccessKeyInfo)
-{-# DEPRECATED akiSecretAccessKey "Use generic-lens or generic-optics with 'secretAccessKey' instead." #-}
-
--- | The date when the access key was created.
---
--- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akiCreateDate :: Lens.Lens' AccessKeyInfo (Lude.Maybe Lude.DateTime)
-akiCreateDate = Lens.lens (createDate :: AccessKeyInfo -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: AccessKeyInfo)
-{-# DEPRECATED akiCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The name of the IAM user that the access key is associated with.
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akiUserName :: Lens.Lens' AccessKeyInfo Lude.Text
-akiUserName = Lens.lens (userName :: AccessKeyInfo -> Lude.Text) (\s a -> s {userName = a} :: AccessKeyInfo)
+akiUserName :: Lens.Lens' AccessKeyInfo Types.UserName
+akiUserName = Lens.field @"userName"
 {-# DEPRECATED akiUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The ID for this access key.
 --
 -- /Note:/ Consider using 'accessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-akiAccessKeyId :: Lens.Lens' AccessKeyInfo AccessKey
-akiAccessKeyId = Lens.lens (accessKeyId :: AccessKeyInfo -> AccessKey) (\s a -> s {accessKeyId = a} :: AccessKeyInfo)
+akiAccessKeyId :: Lens.Lens' AccessKeyInfo Types.AccessKey
+akiAccessKeyId = Lens.field @"accessKeyId"
 {-# DEPRECATED akiAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
 
-instance Lude.FromXML AccessKeyInfo where
+-- | The status of the access key. @Active@ means that the key is valid for API calls, while @Inactive@ means it is not.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akiStatus :: Lens.Lens' AccessKeyInfo Types.StatusType
+akiStatus = Lens.field @"status"
+{-# DEPRECATED akiStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The secret key used to sign requests.
+--
+-- /Note:/ Consider using 'secretAccessKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akiSecretAccessKey :: Lens.Lens' AccessKeyInfo Types.AccessKeySecretType
+akiSecretAccessKey = Lens.field @"secretAccessKey"
+{-# DEPRECATED akiSecretAccessKey "Use generic-lens or generic-optics with 'secretAccessKey' instead." #-}
+
+-- | The date when the access key was created.
+--
+-- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+akiCreateDate :: Lens.Lens' AccessKeyInfo (Core.Maybe Core.UTCTime)
+akiCreateDate = Lens.field @"createDate"
+{-# DEPRECATED akiCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
+
+instance Core.FromXML AccessKeyInfo where
   parseXML x =
     AccessKeyInfo'
-      Lude.<$> (x Lude..@ "Status")
-      Lude.<*> (x Lude..@ "SecretAccessKey")
-      Lude.<*> (x Lude..@? "CreateDate")
-      Lude.<*> (x Lude..@ "UserName")
-      Lude.<*> (x Lude..@ "AccessKeyId")
+      Core.<$> (x Core..@ "UserName")
+      Core.<*> (x Core..@ "AccessKeyId")
+      Core.<*> (x Core..@ "Status")
+      Core.<*> (x Core..@ "SecretAccessKey")
+      Core.<*> (x Core..@? "CreateDate")

@@ -13,66 +13,71 @@
 module Network.AWS.CloudFormation.Types.ExecutionStatus
   ( ExecutionStatus
       ( ExecutionStatus',
-        Unavailable,
-        Available,
-        ExecuteInProgress,
-        ExecuteComplete,
-        ExecuteFailed,
-        Obsolete
+        ExecutionStatusUnavailable,
+        ExecutionStatusAvailable,
+        ExecutionStatusExecuteInProgress,
+        ExecutionStatusExecuteComplete,
+        ExecutionStatusExecuteFailed,
+        ExecutionStatusObsolete,
+        fromExecutionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExecutionStatus = ExecutionStatus' Lude.Text
+newtype ExecutionStatus = ExecutionStatus'
+  { fromExecutionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Unavailable :: ExecutionStatus
-pattern Unavailable = ExecutionStatus' "UNAVAILABLE"
+pattern ExecutionStatusUnavailable :: ExecutionStatus
+pattern ExecutionStatusUnavailable = ExecutionStatus' "UNAVAILABLE"
 
-pattern Available :: ExecutionStatus
-pattern Available = ExecutionStatus' "AVAILABLE"
+pattern ExecutionStatusAvailable :: ExecutionStatus
+pattern ExecutionStatusAvailable = ExecutionStatus' "AVAILABLE"
 
-pattern ExecuteInProgress :: ExecutionStatus
-pattern ExecuteInProgress = ExecutionStatus' "EXECUTE_IN_PROGRESS"
+pattern ExecutionStatusExecuteInProgress :: ExecutionStatus
+pattern ExecutionStatusExecuteInProgress = ExecutionStatus' "EXECUTE_IN_PROGRESS"
 
-pattern ExecuteComplete :: ExecutionStatus
-pattern ExecuteComplete = ExecutionStatus' "EXECUTE_COMPLETE"
+pattern ExecutionStatusExecuteComplete :: ExecutionStatus
+pattern ExecutionStatusExecuteComplete = ExecutionStatus' "EXECUTE_COMPLETE"
 
-pattern ExecuteFailed :: ExecutionStatus
-pattern ExecuteFailed = ExecutionStatus' "EXECUTE_FAILED"
+pattern ExecutionStatusExecuteFailed :: ExecutionStatus
+pattern ExecutionStatusExecuteFailed = ExecutionStatus' "EXECUTE_FAILED"
 
-pattern Obsolete :: ExecutionStatus
-pattern Obsolete = ExecutionStatus' "OBSOLETE"
+pattern ExecutionStatusObsolete :: ExecutionStatus
+pattern ExecutionStatusObsolete = ExecutionStatus' "OBSOLETE"
 
 {-# COMPLETE
-  Unavailable,
-  Available,
-  ExecuteInProgress,
-  ExecuteComplete,
-  ExecuteFailed,
-  Obsolete,
+  ExecutionStatusUnavailable,
+  ExecutionStatusAvailable,
+  ExecutionStatusExecuteInProgress,
+  ExecutionStatusExecuteComplete,
+  ExecutionStatusExecuteFailed,
+  ExecutionStatusObsolete,
   ExecutionStatus'
   #-}

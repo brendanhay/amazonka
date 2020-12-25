@@ -29,91 +29,80 @@ module Network.AWS.Batch.DeleteJobQueue
     mkDeleteJobQueueResponse,
 
     -- ** Response lenses
-    djqrsResponseStatus,
+    djqrrsResponseStatus,
   )
 where
 
-import Network.AWS.Batch.Types
+import qualified Network.AWS.Batch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteJobQueue' smart constructor.
 newtype DeleteJobQueue = DeleteJobQueue'
   { -- | The short name or full Amazon Resource Name (ARN) of the queue to delete.
-    jobQueue :: Lude.Text
+    jobQueue :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteJobQueue' with the minimum fields required to make a request.
---
--- * 'jobQueue' - The short name or full Amazon Resource Name (ARN) of the queue to delete.
+-- | Creates a 'DeleteJobQueue' value with any optional fields omitted.
 mkDeleteJobQueue ::
   -- | 'jobQueue'
-  Lude.Text ->
+  Types.String ->
   DeleteJobQueue
-mkDeleteJobQueue pJobQueue_ =
-  DeleteJobQueue' {jobQueue = pJobQueue_}
+mkDeleteJobQueue jobQueue = DeleteJobQueue' {jobQueue}
 
 -- | The short name or full Amazon Resource Name (ARN) of the queue to delete.
 --
 -- /Note:/ Consider using 'jobQueue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djqJobQueue :: Lens.Lens' DeleteJobQueue Lude.Text
-djqJobQueue = Lens.lens (jobQueue :: DeleteJobQueue -> Lude.Text) (\s a -> s {jobQueue = a} :: DeleteJobQueue)
+djqJobQueue :: Lens.Lens' DeleteJobQueue Types.String
+djqJobQueue = Lens.field @"jobQueue"
 {-# DEPRECATED djqJobQueue "Use generic-lens or generic-optics with 'jobQueue' instead." #-}
 
-instance Lude.AWSRequest DeleteJobQueue where
+instance Core.FromJSON DeleteJobQueue where
+  toJSON DeleteJobQueue {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("jobQueue" Core..= jobQueue)])
+
+instance Core.AWSRequest DeleteJobQueue where
   type Rs DeleteJobQueue = DeleteJobQueueResponse
-  request = Req.postJSON batchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/v1/deletejobqueue",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteJobQueueResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteJobQueueResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteJobQueue where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteJobQueue where
-  toJSON DeleteJobQueue' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("jobQueue" Lude..= jobQueue)])
-
-instance Lude.ToPath DeleteJobQueue where
-  toPath = Lude.const "/v1/deletejobqueue"
-
-instance Lude.ToQuery DeleteJobQueue where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteJobQueueResponse' smart constructor.
 newtype DeleteJobQueueResponse = DeleteJobQueueResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteJobQueueResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteJobQueueResponse' value with any optional fields omitted.
 mkDeleteJobQueueResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteJobQueueResponse
-mkDeleteJobQueueResponse pResponseStatus_ =
-  DeleteJobQueueResponse' {responseStatus = pResponseStatus_}
+mkDeleteJobQueueResponse responseStatus =
+  DeleteJobQueueResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-djqrsResponseStatus :: Lens.Lens' DeleteJobQueueResponse Lude.Int
-djqrsResponseStatus = Lens.lens (responseStatus :: DeleteJobQueueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteJobQueueResponse)
-{-# DEPRECATED djqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+djqrrsResponseStatus :: Lens.Lens' DeleteJobQueueResponse Core.Int
+djqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED djqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

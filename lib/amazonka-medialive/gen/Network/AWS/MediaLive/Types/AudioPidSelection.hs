@@ -22,40 +22,37 @@ module Network.AWS.MediaLive.Types.AudioPidSelection
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Audio Pid Selection
 --
 -- /See:/ 'mkAudioPidSelection' smart constructor.
 newtype AudioPidSelection = AudioPidSelection'
   { -- | Selects a specific PID from within a source.
-    pid :: Lude.Natural
+    pid :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AudioPidSelection' with the minimum fields required to make a request.
---
--- * 'pid' - Selects a specific PID from within a source.
+-- | Creates a 'AudioPidSelection' value with any optional fields omitted.
 mkAudioPidSelection ::
   -- | 'pid'
-  Lude.Natural ->
+  Core.Natural ->
   AudioPidSelection
-mkAudioPidSelection pPid_ = AudioPidSelection' {pid = pPid_}
+mkAudioPidSelection pid = AudioPidSelection' {pid}
 
 -- | Selects a specific PID from within a source.
 --
 -- /Note:/ Consider using 'pid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apsPid :: Lens.Lens' AudioPidSelection Lude.Natural
-apsPid = Lens.lens (pid :: AudioPidSelection -> Lude.Natural) (\s a -> s {pid = a} :: AudioPidSelection)
+apsPid :: Lens.Lens' AudioPidSelection Core.Natural
+apsPid = Lens.field @"pid"
 {-# DEPRECATED apsPid "Use generic-lens or generic-optics with 'pid' instead." #-}
 
-instance Lude.FromJSON AudioPidSelection where
-  parseJSON =
-    Lude.withObject
-      "AudioPidSelection"
-      (\x -> AudioPidSelection' Lude.<$> (x Lude..: "pid"))
+instance Core.FromJSON AudioPidSelection where
+  toJSON AudioPidSelection {..} =
+    Core.object (Core.catMaybes [Core.Just ("pid" Core..= pid)])
 
-instance Lude.ToJSON AudioPidSelection where
-  toJSON AudioPidSelection' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("pid" Lude..= pid)])
+instance Core.FromJSON AudioPidSelection where
+  parseJSON =
+    Core.withObject "AudioPidSelection" Core.$
+      \x -> AudioPidSelection' Core.<$> (x Core..: "pid")

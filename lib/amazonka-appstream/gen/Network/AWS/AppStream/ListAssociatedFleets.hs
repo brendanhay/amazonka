@@ -22,159 +22,143 @@ module Network.AWS.AppStream.ListAssociatedFleets
     mkListAssociatedFleets,
 
     -- ** Request lenses
-    lafNextToken,
     lafStackName,
+    lafNextToken,
 
     -- * Destructuring the response
     ListAssociatedFleetsResponse (..),
     mkListAssociatedFleetsResponse,
 
     -- ** Response lenses
-    lafrsNextToken,
-    lafrsNames,
-    lafrsResponseStatus,
+    lafrrsNames,
+    lafrrsNextToken,
+    lafrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListAssociatedFleets' smart constructor.
 data ListAssociatedFleets = ListAssociatedFleets'
-  { -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name of the stack.
-    stackName :: Lude.Text
+  { -- | The name of the stack.
+    stackName :: Types.String,
+    -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAssociatedFleets' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
--- * 'stackName' - The name of the stack.
+-- | Creates a 'ListAssociatedFleets' value with any optional fields omitted.
 mkListAssociatedFleets ::
   -- | 'stackName'
-  Lude.Text ->
+  Types.String ->
   ListAssociatedFleets
-mkListAssociatedFleets pStackName_ =
-  ListAssociatedFleets'
-    { nextToken = Lude.Nothing,
-      stackName = pStackName_
-    }
-
--- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafNextToken :: Lens.Lens' ListAssociatedFleets (Lude.Maybe Lude.Text)
-lafNextToken = Lens.lens (nextToken :: ListAssociatedFleets -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssociatedFleets)
-{-# DEPRECATED lafNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+mkListAssociatedFleets stackName =
+  ListAssociatedFleets' {stackName, nextToken = Core.Nothing}
 
 -- | The name of the stack.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafStackName :: Lens.Lens' ListAssociatedFleets Lude.Text
-lafStackName = Lens.lens (stackName :: ListAssociatedFleets -> Lude.Text) (\s a -> s {stackName = a} :: ListAssociatedFleets)
+lafStackName :: Lens.Lens' ListAssociatedFleets Types.String
+lafStackName = Lens.field @"stackName"
 {-# DEPRECATED lafStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Page.AWSPager ListAssociatedFleets where
-  page rq rs
-    | Page.stop (rs Lens.^. lafrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lafrsNames) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lafNextToken Lens..~ rs Lens.^. lafrsNextToken
+-- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafNextToken :: Lens.Lens' ListAssociatedFleets (Core.Maybe Types.String)
+lafNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lafNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListAssociatedFleets where
+instance Core.FromJSON ListAssociatedFleets where
+  toJSON ListAssociatedFleets {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StackName" Core..= stackName),
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListAssociatedFleets where
   type Rs ListAssociatedFleets = ListAssociatedFleetsResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "PhotonAdminProxyService.ListAssociatedFleets")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAssociatedFleetsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Names" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Names")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAssociatedFleets where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "PhotonAdminProxyService.ListAssociatedFleets" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAssociatedFleets where
-  toJSON ListAssociatedFleets' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("StackName" Lude..= stackName)
-          ]
-      )
-
-instance Lude.ToPath ListAssociatedFleets where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAssociatedFleets where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAssociatedFleets where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"names" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListAssociatedFleetsResponse' smart constructor.
 data ListAssociatedFleetsResponse = ListAssociatedFleetsResponse'
-  { -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name of the fleet.
-    names :: Lude.Maybe [Lude.Text],
+  { -- | The name of the fleet.
+    names :: Core.Maybe [Types.String],
+    -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAssociatedFleetsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
--- * 'names' - The name of the fleet.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAssociatedFleetsResponse' value with any optional fields omitted.
 mkListAssociatedFleetsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAssociatedFleetsResponse
-mkListAssociatedFleetsResponse pResponseStatus_ =
+mkListAssociatedFleetsResponse responseStatus =
   ListAssociatedFleetsResponse'
-    { nextToken = Lude.Nothing,
-      names = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { names = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafrsNextToken :: Lens.Lens' ListAssociatedFleetsResponse (Lude.Maybe Lude.Text)
-lafrsNextToken = Lens.lens (nextToken :: ListAssociatedFleetsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssociatedFleetsResponse)
-{-# DEPRECATED lafrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the fleet.
 --
 -- /Note:/ Consider using 'names' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafrsNames :: Lens.Lens' ListAssociatedFleetsResponse (Lude.Maybe [Lude.Text])
-lafrsNames = Lens.lens (names :: ListAssociatedFleetsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {names = a} :: ListAssociatedFleetsResponse)
-{-# DEPRECATED lafrsNames "Use generic-lens or generic-optics with 'names' instead." #-}
+lafrrsNames :: Lens.Lens' ListAssociatedFleetsResponse (Core.Maybe [Types.String])
+lafrrsNames = Lens.field @"names"
+{-# DEPRECATED lafrrsNames "Use generic-lens or generic-optics with 'names' instead." #-}
+
+-- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafrrsNextToken :: Lens.Lens' ListAssociatedFleetsResponse (Core.Maybe Types.String)
+lafrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lafrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafrsResponseStatus :: Lens.Lens' ListAssociatedFleetsResponse Lude.Int
-lafrsResponseStatus = Lens.lens (responseStatus :: ListAssociatedFleetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAssociatedFleetsResponse)
-{-# DEPRECATED lafrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lafrrsResponseStatus :: Lens.Lens' ListAssociatedFleetsResponse Core.Int
+lafrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lafrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

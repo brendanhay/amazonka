@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen src
   exposed-modules:
     Network.AWS.Route53
     Network.AWS.Route53.AssociateVPCWithHostedZone
@@ -88,7 +94,7 @@ library
     Network.AWS.Route53.DisassociateVPCFromHostedZone
     Network.AWS.Route53.GetAccountLimit
     Network.AWS.Route53.GetChange
-    Network.AWS.Route53.GetCheckerIPRanges
+    Network.AWS.Route53.GetCheckerIpRanges
     Network.AWS.Route53.GetGeoLocation
     Network.AWS.Route53.GetHealthCheck
     Network.AWS.Route53.GetHealthCheckCount
@@ -132,49 +138,122 @@ library
     Network.AWS.Route53.Types.AccountLimit
     Network.AWS.Route53.Types.AccountLimitType
     Network.AWS.Route53.Types.AlarmIdentifier
+    Network.AWS.Route53.Types.AlarmName
     Network.AWS.Route53.Types.AliasTarget
+    Network.AWS.Route53.Types.AssociateVPCComment
+    Network.AWS.Route53.Types.AWSAccountID
+    Network.AWS.Route53.Types.CallerReference
     Network.AWS.Route53.Types.Change
     Network.AWS.Route53.Types.ChangeAction
     Network.AWS.Route53.Types.ChangeBatch
     Network.AWS.Route53.Types.ChangeInfo
     Network.AWS.Route53.Types.ChangeStatus
     Network.AWS.Route53.Types.CloudWatchAlarmConfiguration
+    Network.AWS.Route53.Types.CloudWatchLogsLogGroupArn
     Network.AWS.Route53.Types.CloudWatchRegion
+    Network.AWS.Route53.Types.Comment
     Network.AWS.Route53.Types.ComparisonOperator
+    Network.AWS.Route53.Types.ContinentCode
+    Network.AWS.Route53.Types.ContinentName
+    Network.AWS.Route53.Types.CountryCode
     Network.AWS.Route53.Types.DelegationSet
+    Network.AWS.Route53.Types.DelegationSetId
+    Network.AWS.Route53.Types.Description
     Network.AWS.Route53.Types.Dimension
+    Network.AWS.Route53.Types.DimensionField
+    Network.AWS.Route53.Types.DNSName
+    Network.AWS.Route53.Types.Document
     Network.AWS.Route53.Types.Failover
+    Network.AWS.Route53.Types.FullyQualifiedDomainName
     Network.AWS.Route53.Types.GeoLocation
+    Network.AWS.Route53.Types.GeoLocationContinentCode
+    Network.AWS.Route53.Types.GeoLocationCountryCode
+    Network.AWS.Route53.Types.GeoLocationCountryName
     Network.AWS.Route53.Types.GeoLocationDetails
+    Network.AWS.Route53.Types.GeoLocationSubdivisionCode
     Network.AWS.Route53.Types.HealthCheck
     Network.AWS.Route53.Types.HealthCheckConfig
+    Network.AWS.Route53.Types.HealthCheckId
     Network.AWS.Route53.Types.HealthCheckObservation
     Network.AWS.Route53.Types.HealthCheckRegion
     Network.AWS.Route53.Types.HealthCheckType
     Network.AWS.Route53.Types.HostedZone
     Network.AWS.Route53.Types.HostedZoneConfig
+    Network.AWS.Route53.Types.HostedZoneId
+    Network.AWS.Route53.Types.HostedZoneIdMarker
     Network.AWS.Route53.Types.HostedZoneLimit
     Network.AWS.Route53.Types.HostedZoneLimitType
     Network.AWS.Route53.Types.HostedZoneOwner
+    Network.AWS.Route53.Types.HostedZoneOwningService
     Network.AWS.Route53.Types.HostedZoneSummary
+    Network.AWS.Route53.Types.Id
     Network.AWS.Route53.Types.InsufficientDataHealthStatus
+    Network.AWS.Route53.Types.IPAddress
+    Network.AWS.Route53.Types.IPAddressCidr
+    Network.AWS.Route53.Types.Key
     Network.AWS.Route53.Types.LinkedService
+    Network.AWS.Route53.Types.Marker
+    Network.AWS.Route53.Types.MaxItems
+    Network.AWS.Route53.Types.MaxResults
+    Network.AWS.Route53.Types.Message
+    Network.AWS.Route53.Types.MetricName
+    Network.AWS.Route53.Types.Name
+    Network.AWS.Route53.Types.Nameserver
+    Network.AWS.Route53.Types.Namespace
+    Network.AWS.Route53.Types.NextContinentCode
+    Network.AWS.Route53.Types.NextCountryCode
+    Network.AWS.Route53.Types.NextDNSName
+    Network.AWS.Route53.Types.NextMarker
+    Network.AWS.Route53.Types.NextRecordName
+    Network.AWS.Route53.Types.NextSubdivisionCode
+    Network.AWS.Route53.Types.PaginationToken
     Network.AWS.Route53.Types.QueryLoggingConfig
+    Network.AWS.Route53.Types.QueryLoggingConfigId
+    Network.AWS.Route53.Types.RecordDataEntry
+    Network.AWS.Route53.Types.RecordName
     Network.AWS.Route53.Types.RecordType
     Network.AWS.Route53.Types.ResettableElementName
+    Network.AWS.Route53.Types.ResourceDescription
+    Network.AWS.Route53.Types.ResourcePath
     Network.AWS.Route53.Types.ResourceRecord
     Network.AWS.Route53.Types.ResourceRecordSet
+    Network.AWS.Route53.Types.ResourceRecordSetIdentifier
     Network.AWS.Route53.Types.ResourceTagSet
+    Network.AWS.Route53.Types.ResourceURI
+    Network.AWS.Route53.Types.ResponseCode
     Network.AWS.Route53.Types.ReusableDelegationSetLimit
     Network.AWS.Route53.Types.ReusableDelegationSetLimitType
+    Network.AWS.Route53.Types.SearchString
+    Network.AWS.Route53.Types.ServicePrincipal
+    Network.AWS.Route53.Types.StartContinentCode
+    Network.AWS.Route53.Types.StartRecordIdentifier
+    Network.AWS.Route53.Types.StartRecordName
+    Network.AWS.Route53.Types.StartSubdivisionCode
+    Network.AWS.Route53.Types.State
     Network.AWS.Route53.Types.Statistic
+    Network.AWS.Route53.Types.Status
     Network.AWS.Route53.Types.StatusReport
+    Network.AWS.Route53.Types.SubdivisionCode
+    Network.AWS.Route53.Types.SubdivisionName
+    Network.AWS.Route53.Types.SubnetMask
     Network.AWS.Route53.Types.Tag
+    Network.AWS.Route53.Types.TagKey
+    Network.AWS.Route53.Types.TagResourceId
     Network.AWS.Route53.Types.TagResourceType
     Network.AWS.Route53.Types.TrafficPolicy
+    Network.AWS.Route53.Types.TrafficPolicyDocument
+    Network.AWS.Route53.Types.TrafficPolicyId
+    Network.AWS.Route53.Types.TrafficPolicyIdMarker
     Network.AWS.Route53.Types.TrafficPolicyInstance
+    Network.AWS.Route53.Types.TrafficPolicyInstanceId
+    Network.AWS.Route53.Types.TrafficPolicyInstanceNameMarker
+    Network.AWS.Route53.Types.TrafficPolicyName
     Network.AWS.Route53.Types.TrafficPolicySummary
+    Network.AWS.Route53.Types.TrafficPolicyVersionMarker
+    Network.AWS.Route53.Types.TransportProtocol
+    Network.AWS.Route53.Types.Value
     Network.AWS.Route53.Types.VPC
+    Network.AWS.Route53.Types.VPCId
     Network.AWS.Route53.Types.VPCRegion
 
   build-depends:

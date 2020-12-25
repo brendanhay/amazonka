@@ -20,147 +20,131 @@ module Network.AWS.Comprehend.BatchDetectSentiment
     mkBatchDetectSentiment,
 
     -- ** Request lenses
-    bdsLanguageCode,
     bdsTextList,
+    bdsLanguageCode,
 
     -- * Destructuring the response
     BatchDetectSentimentResponse (..),
     mkBatchDetectSentimentResponse,
 
     -- ** Response lenses
-    bdsrsErrorList,
-    bdsrsResultList,
-    bdsrsResponseStatus,
+    bdsrrsResultList,
+    bdsrrsErrorList,
+    bdsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchDetectSentiment' smart constructor.
 data BatchDetectSentiment = BatchDetectSentiment'
-  { -- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
-    languageCode :: LanguageCode,
-    -- | A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
-    textList :: [Lude.Sensitive Lude.Text]
+  { -- | A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+    textList :: [Types.CustomerInputString],
+    -- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+    languageCode :: Types.LanguageCode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetectSentiment' with the minimum fields required to make a request.
---
--- * 'languageCode' - The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
--- * 'textList' - A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
+-- | Creates a 'BatchDetectSentiment' value with any optional fields omitted.
 mkBatchDetectSentiment ::
   -- | 'languageCode'
-  LanguageCode ->
+  Types.LanguageCode ->
   BatchDetectSentiment
-mkBatchDetectSentiment pLanguageCode_ =
-  BatchDetectSentiment'
-    { languageCode = pLanguageCode_,
-      textList = Lude.mempty
-    }
-
--- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdsLanguageCode :: Lens.Lens' BatchDetectSentiment LanguageCode
-bdsLanguageCode = Lens.lens (languageCode :: BatchDetectSentiment -> LanguageCode) (\s a -> s {languageCode = a} :: BatchDetectSentiment)
-{-# DEPRECATED bdsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+mkBatchDetectSentiment languageCode =
+  BatchDetectSentiment' {textList = Core.mempty, languageCode}
 
 -- | A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.
 --
 -- /Note:/ Consider using 'textList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdsTextList :: Lens.Lens' BatchDetectSentiment [Lude.Sensitive Lude.Text]
-bdsTextList = Lens.lens (textList :: BatchDetectSentiment -> [Lude.Sensitive Lude.Text]) (\s a -> s {textList = a} :: BatchDetectSentiment)
+bdsTextList :: Lens.Lens' BatchDetectSentiment [Types.CustomerInputString]
+bdsTextList = Lens.field @"textList"
 {-# DEPRECATED bdsTextList "Use generic-lens or generic-optics with 'textList' instead." #-}
 
-instance Lude.AWSRequest BatchDetectSentiment where
+-- | The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdsLanguageCode :: Lens.Lens' BatchDetectSentiment Types.LanguageCode
+bdsLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED bdsLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+instance Core.FromJSON BatchDetectSentiment where
+  toJSON BatchDetectSentiment {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TextList" Core..= textList),
+            Core.Just ("LanguageCode" Core..= languageCode)
+          ]
+      )
+
+instance Core.AWSRequest BatchDetectSentiment where
   type Rs BatchDetectSentiment = BatchDetectSentimentResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Comprehend_20171127.BatchDetectSentiment")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchDetectSentimentResponse'
-            Lude.<$> (x Lude..?> "ErrorList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "ResultList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ResultList" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "ErrorList" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchDetectSentiment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Comprehend_20171127.BatchDetectSentiment" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchDetectSentiment where
-  toJSON BatchDetectSentiment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("LanguageCode" Lude..= languageCode),
-            Lude.Just ("TextList" Lude..= textList)
-          ]
-      )
-
-instance Lude.ToPath BatchDetectSentiment where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchDetectSentiment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchDetectSentimentResponse' smart constructor.
 data BatchDetectSentimentResponse = BatchDetectSentimentResponse'
-  { -- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
-    errorList :: [BatchItemError],
-    -- | A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
-    resultList :: [BatchDetectSentimentItemResult],
+  { -- | A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
+    resultList :: [Types.BatchDetectSentimentItemResult],
+    -- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
+    errorList :: [Types.BatchItemError],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetectSentimentResponse' with the minimum fields required to make a request.
---
--- * 'errorList' - A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
--- * 'resultList' - A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchDetectSentimentResponse' value with any optional fields omitted.
 mkBatchDetectSentimentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchDetectSentimentResponse
-mkBatchDetectSentimentResponse pResponseStatus_ =
+mkBatchDetectSentimentResponse responseStatus =
   BatchDetectSentimentResponse'
-    { errorList = Lude.mempty,
-      resultList = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { resultList = Core.mempty,
+      errorList = Core.mempty,
+      responseStatus
     }
-
--- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
---
--- /Note:/ Consider using 'errorList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdsrsErrorList :: Lens.Lens' BatchDetectSentimentResponse [BatchItemError]
-bdsrsErrorList = Lens.lens (errorList :: BatchDetectSentimentResponse -> [BatchItemError]) (\s a -> s {errorList = a} :: BatchDetectSentimentResponse)
-{-# DEPRECATED bdsrsErrorList "Use generic-lens or generic-optics with 'errorList' instead." #-}
 
 -- | A list of objects containing the results of the operation. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If all of the documents contain an error, the @ResultList@ is empty.
 --
 -- /Note:/ Consider using 'resultList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdsrsResultList :: Lens.Lens' BatchDetectSentimentResponse [BatchDetectSentimentItemResult]
-bdsrsResultList = Lens.lens (resultList :: BatchDetectSentimentResponse -> [BatchDetectSentimentItemResult]) (\s a -> s {resultList = a} :: BatchDetectSentimentResponse)
-{-# DEPRECATED bdsrsResultList "Use generic-lens or generic-optics with 'resultList' instead." #-}
+bdsrrsResultList :: Lens.Lens' BatchDetectSentimentResponse [Types.BatchDetectSentimentItemResult]
+bdsrrsResultList = Lens.field @"resultList"
+{-# DEPRECATED bdsrrsResultList "Use generic-lens or generic-optics with 'resultList' instead." #-}
+
+-- | A list containing one object for each document that contained an error. The results are sorted in ascending order by the @Index@ field and match the order of the documents in the input list. If there are no errors in the batch, the @ErrorList@ is empty.
+--
+-- /Note:/ Consider using 'errorList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdsrrsErrorList :: Lens.Lens' BatchDetectSentimentResponse [Types.BatchItemError]
+bdsrrsErrorList = Lens.field @"errorList"
+{-# DEPRECATED bdsrrsErrorList "Use generic-lens or generic-optics with 'errorList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdsrsResponseStatus :: Lens.Lens' BatchDetectSentimentResponse Lude.Int
-bdsrsResponseStatus = Lens.lens (responseStatus :: BatchDetectSentimentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDetectSentimentResponse)
-{-# DEPRECATED bdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bdsrrsResponseStatus :: Lens.Lens' BatchDetectSentimentResponse Core.Int
+bdsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bdsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

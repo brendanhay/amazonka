@@ -20,112 +20,107 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     mkUpdateApplicationVersion,
 
     -- ** Request lenses
-    uavVersionLabel,
     uavApplicationName,
+    uavVersionLabel,
     uavDescription,
 
     -- * Destructuring the response
-    ApplicationVersionDescriptionMessage (..),
-    mkApplicationVersionDescriptionMessage,
+    Types.ApplicationVersionDescriptionMessage (..),
+    Types.mkApplicationVersionDescriptionMessage,
 
     -- ** Response lenses
-    avdmApplicationVersion,
+    Types.avdmApplicationVersion,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkUpdateApplicationVersion' smart constructor.
 data UpdateApplicationVersion = UpdateApplicationVersion'
-  { -- | The name of the version to update.
-    --
-    -- If no application version is found with this label, @UpdateApplication@ returns an @InvalidParameterValue@ error.
-    versionLabel :: Lude.Text,
-    -- | The name of the application associated with this version.
+  { -- | The name of the application associated with this version.
     --
     -- If no application is found with this name, @UpdateApplication@ returns an @InvalidParameterValue@ error.
-    applicationName :: Lude.Text,
+    applicationName :: Types.ApplicationName,
+    -- | The name of the version to update.
+    --
+    -- If no application version is found with this label, @UpdateApplication@ returns an @InvalidParameterValue@ error.
+    versionLabel :: Types.VersionLabel,
     -- | A new description for this version.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApplicationVersion' with the minimum fields required to make a request.
---
--- * 'versionLabel' - The name of the version to update.
---
--- If no application version is found with this label, @UpdateApplication@ returns an @InvalidParameterValue@ error.
--- * 'applicationName' - The name of the application associated with this version.
---
--- If no application is found with this name, @UpdateApplication@ returns an @InvalidParameterValue@ error.
--- * 'description' - A new description for this version.
+-- | Creates a 'UpdateApplicationVersion' value with any optional fields omitted.
 mkUpdateApplicationVersion ::
-  -- | 'versionLabel'
-  Lude.Text ->
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
+  -- | 'versionLabel'
+  Types.VersionLabel ->
   UpdateApplicationVersion
-mkUpdateApplicationVersion pVersionLabel_ pApplicationName_ =
+mkUpdateApplicationVersion applicationName versionLabel =
   UpdateApplicationVersion'
-    { versionLabel = pVersionLabel_,
-      applicationName = pApplicationName_,
-      description = Lude.Nothing
+    { applicationName,
+      versionLabel,
+      description = Core.Nothing
     }
-
--- | The name of the version to update.
---
--- If no application version is found with this label, @UpdateApplication@ returns an @InvalidParameterValue@ error.
---
--- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uavVersionLabel :: Lens.Lens' UpdateApplicationVersion Lude.Text
-uavVersionLabel = Lens.lens (versionLabel :: UpdateApplicationVersion -> Lude.Text) (\s a -> s {versionLabel = a} :: UpdateApplicationVersion)
-{-# DEPRECATED uavVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
 
 -- | The name of the application associated with this version.
 --
 -- If no application is found with this name, @UpdateApplication@ returns an @InvalidParameterValue@ error.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uavApplicationName :: Lens.Lens' UpdateApplicationVersion Lude.Text
-uavApplicationName = Lens.lens (applicationName :: UpdateApplicationVersion -> Lude.Text) (\s a -> s {applicationName = a} :: UpdateApplicationVersion)
+uavApplicationName :: Lens.Lens' UpdateApplicationVersion Types.ApplicationName
+uavApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED uavApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+
+-- | The name of the version to update.
+--
+-- If no application version is found with this label, @UpdateApplication@ returns an @InvalidParameterValue@ error.
+--
+-- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uavVersionLabel :: Lens.Lens' UpdateApplicationVersion Types.VersionLabel
+uavVersionLabel = Lens.field @"versionLabel"
+{-# DEPRECATED uavVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
 
 -- | A new description for this version.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uavDescription :: Lens.Lens' UpdateApplicationVersion (Lude.Maybe Lude.Text)
-uavDescription = Lens.lens (description :: UpdateApplicationVersion -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateApplicationVersion)
+uavDescription :: Lens.Lens' UpdateApplicationVersion (Core.Maybe Types.Description)
+uavDescription = Lens.field @"description"
 {-# DEPRECATED uavDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest UpdateApplicationVersion where
+instance Core.AWSRequest UpdateApplicationVersion where
   type
     Rs UpdateApplicationVersion =
-      ApplicationVersionDescriptionMessage
-  request = Req.postQuery elasticBeanstalkService
+      Types.ApplicationVersionDescriptionMessage
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateApplicationVersion")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ApplicationName" applicationName)
+                Core.<> (Core.toQueryValue "VersionLabel" versionLabel)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UpdateApplicationVersionResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders UpdateApplicationVersion where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateApplicationVersion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateApplicationVersion where
-  toQuery UpdateApplicationVersion' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UpdateApplicationVersion" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "VersionLabel" Lude.=: versionLabel,
-        "ApplicationName" Lude.=: applicationName,
-        "Description" Lude.=: description
-      ]
+      (\s h x -> Core.parseXML x)

@@ -17,18 +17,22 @@ module Network.AWS.IAM.Types.SSHPublicKey
     mkSSHPublicKey,
 
     -- * Lenses
-    spkStatus,
-    spkUploadDate,
-    spkFingerprint,
-    spkSSHPublicKeyId,
-    spkUserName,
-    spkSSHPublicKeyBody,
+    sshpkUserName,
+    sshpkSSHPublicKeyId,
+    sshpkFingerprint,
+    sshpkSSHPublicKeyBody,
+    sshpkStatus,
+    sshpkUploadDate,
   )
 where
 
-import Network.AWS.IAM.Types.StatusType
+import qualified Network.AWS.IAM.Types.Fingerprint as Types
+import qualified Network.AWS.IAM.Types.PublicKeyMaterialType as Types
+import qualified Network.AWS.IAM.Types.SSHPublicKeyId as Types
+import qualified Network.AWS.IAM.Types.StatusType as Types
+import qualified Network.AWS.IAM.Types.UserName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about an SSH public key.
 --
@@ -36,105 +40,98 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSSHPublicKey' smart constructor.
 data SSHPublicKey = SSHPublicKey'
-  { -- | The status of the SSH public key. @Active@ means that the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means that the key cannot be used.
-    status :: StatusType,
-    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the SSH public key was uploaded.
-    uploadDate :: Lude.Maybe Lude.DateTime,
-    -- | The MD5 message digest of the SSH public key.
-    fingerprint :: Lude.Text,
+  { -- | The name of the IAM user associated with the SSH public key.
+    userName :: Types.UserName,
     -- | The unique identifier for the SSH public key.
-    sshPublicKeyId :: Lude.Text,
-    -- | The name of the IAM user associated with the SSH public key.
-    userName :: Lude.Text,
+    sSHPublicKeyId :: Types.SSHPublicKeyId,
+    -- | The MD5 message digest of the SSH public key.
+    fingerprint :: Types.Fingerprint,
     -- | The SSH public key.
-    sshPublicKeyBody :: Lude.Text
+    sSHPublicKeyBody :: Types.PublicKeyMaterialType,
+    -- | The status of the SSH public key. @Active@ means that the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means that the key cannot be used.
+    status :: Types.StatusType,
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the SSH public key was uploaded.
+    uploadDate :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SSHPublicKey' with the minimum fields required to make a request.
---
--- * 'status' - The status of the SSH public key. @Active@ means that the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means that the key cannot be used.
--- * 'uploadDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the SSH public key was uploaded.
--- * 'fingerprint' - The MD5 message digest of the SSH public key.
--- * 'sshPublicKeyId' - The unique identifier for the SSH public key.
--- * 'userName' - The name of the IAM user associated with the SSH public key.
--- * 'sshPublicKeyBody' - The SSH public key.
+-- | Creates a 'SSHPublicKey' value with any optional fields omitted.
 mkSSHPublicKey ::
-  -- | 'status'
-  StatusType ->
-  -- | 'fingerprint'
-  Lude.Text ->
-  -- | 'sshPublicKeyId'
-  Lude.Text ->
   -- | 'userName'
-  Lude.Text ->
-  -- | 'sshPublicKeyBody'
-  Lude.Text ->
+  Types.UserName ->
+  -- | 'sSHPublicKeyId'
+  Types.SSHPublicKeyId ->
+  -- | 'fingerprint'
+  Types.Fingerprint ->
+  -- | 'sSHPublicKeyBody'
+  Types.PublicKeyMaterialType ->
+  -- | 'status'
+  Types.StatusType ->
   SSHPublicKey
 mkSSHPublicKey
-  pStatus_
-  pFingerprint_
-  pSSHPublicKeyId_
-  pUserName_
-  pSSHPublicKeyBody_ =
+  userName
+  sSHPublicKeyId
+  fingerprint
+  sSHPublicKeyBody
+  status =
     SSHPublicKey'
-      { status = pStatus_,
-        uploadDate = Lude.Nothing,
-        fingerprint = pFingerprint_,
-        sshPublicKeyId = pSSHPublicKeyId_,
-        userName = pUserName_,
-        sshPublicKeyBody = pSSHPublicKeyBody_
+      { userName,
+        sSHPublicKeyId,
+        fingerprint,
+        sSHPublicKeyBody,
+        status,
+        uploadDate = Core.Nothing
       }
-
--- | The status of the SSH public key. @Active@ means that the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means that the key cannot be used.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spkStatus :: Lens.Lens' SSHPublicKey StatusType
-spkStatus = Lens.lens (status :: SSHPublicKey -> StatusType) (\s a -> s {status = a} :: SSHPublicKey)
-{-# DEPRECATED spkStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the SSH public key was uploaded.
---
--- /Note:/ Consider using 'uploadDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spkUploadDate :: Lens.Lens' SSHPublicKey (Lude.Maybe Lude.DateTime)
-spkUploadDate = Lens.lens (uploadDate :: SSHPublicKey -> Lude.Maybe Lude.DateTime) (\s a -> s {uploadDate = a} :: SSHPublicKey)
-{-# DEPRECATED spkUploadDate "Use generic-lens or generic-optics with 'uploadDate' instead." #-}
-
--- | The MD5 message digest of the SSH public key.
---
--- /Note:/ Consider using 'fingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spkFingerprint :: Lens.Lens' SSHPublicKey Lude.Text
-spkFingerprint = Lens.lens (fingerprint :: SSHPublicKey -> Lude.Text) (\s a -> s {fingerprint = a} :: SSHPublicKey)
-{-# DEPRECATED spkFingerprint "Use generic-lens or generic-optics with 'fingerprint' instead." #-}
-
--- | The unique identifier for the SSH public key.
---
--- /Note:/ Consider using 'sshPublicKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spkSSHPublicKeyId :: Lens.Lens' SSHPublicKey Lude.Text
-spkSSHPublicKeyId = Lens.lens (sshPublicKeyId :: SSHPublicKey -> Lude.Text) (\s a -> s {sshPublicKeyId = a} :: SSHPublicKey)
-{-# DEPRECATED spkSSHPublicKeyId "Use generic-lens or generic-optics with 'sshPublicKeyId' instead." #-}
 
 -- | The name of the IAM user associated with the SSH public key.
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spkUserName :: Lens.Lens' SSHPublicKey Lude.Text
-spkUserName = Lens.lens (userName :: SSHPublicKey -> Lude.Text) (\s a -> s {userName = a} :: SSHPublicKey)
-{-# DEPRECATED spkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+sshpkUserName :: Lens.Lens' SSHPublicKey Types.UserName
+sshpkUserName = Lens.field @"userName"
+{-# DEPRECATED sshpkUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+-- | The unique identifier for the SSH public key.
+--
+-- /Note:/ Consider using 'sSHPublicKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sshpkSSHPublicKeyId :: Lens.Lens' SSHPublicKey Types.SSHPublicKeyId
+sshpkSSHPublicKeyId = Lens.field @"sSHPublicKeyId"
+{-# DEPRECATED sshpkSSHPublicKeyId "Use generic-lens or generic-optics with 'sSHPublicKeyId' instead." #-}
+
+-- | The MD5 message digest of the SSH public key.
+--
+-- /Note:/ Consider using 'fingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sshpkFingerprint :: Lens.Lens' SSHPublicKey Types.Fingerprint
+sshpkFingerprint = Lens.field @"fingerprint"
+{-# DEPRECATED sshpkFingerprint "Use generic-lens or generic-optics with 'fingerprint' instead." #-}
 
 -- | The SSH public key.
 --
--- /Note:/ Consider using 'sshPublicKeyBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spkSSHPublicKeyBody :: Lens.Lens' SSHPublicKey Lude.Text
-spkSSHPublicKeyBody = Lens.lens (sshPublicKeyBody :: SSHPublicKey -> Lude.Text) (\s a -> s {sshPublicKeyBody = a} :: SSHPublicKey)
-{-# DEPRECATED spkSSHPublicKeyBody "Use generic-lens or generic-optics with 'sshPublicKeyBody' instead." #-}
+-- /Note:/ Consider using 'sSHPublicKeyBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sshpkSSHPublicKeyBody :: Lens.Lens' SSHPublicKey Types.PublicKeyMaterialType
+sshpkSSHPublicKeyBody = Lens.field @"sSHPublicKeyBody"
+{-# DEPRECATED sshpkSSHPublicKeyBody "Use generic-lens or generic-optics with 'sSHPublicKeyBody' instead." #-}
 
-instance Lude.FromXML SSHPublicKey where
+-- | The status of the SSH public key. @Active@ means that the key can be used for authentication with an AWS CodeCommit repository. @Inactive@ means that the key cannot be used.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sshpkStatus :: Lens.Lens' SSHPublicKey Types.StatusType
+sshpkStatus = Lens.field @"status"
+{-# DEPRECATED sshpkStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the SSH public key was uploaded.
+--
+-- /Note:/ Consider using 'uploadDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sshpkUploadDate :: Lens.Lens' SSHPublicKey (Core.Maybe Core.UTCTime)
+sshpkUploadDate = Lens.field @"uploadDate"
+{-# DEPRECATED sshpkUploadDate "Use generic-lens or generic-optics with 'uploadDate' instead." #-}
+
+instance Core.FromXML SSHPublicKey where
   parseXML x =
     SSHPublicKey'
-      Lude.<$> (x Lude..@ "Status")
-      Lude.<*> (x Lude..@? "UploadDate")
-      Lude.<*> (x Lude..@ "Fingerprint")
-      Lude.<*> (x Lude..@ "SSHPublicKeyId")
-      Lude.<*> (x Lude..@ "UserName")
-      Lude.<*> (x Lude..@ "SSHPublicKeyBody")
+      Core.<$> (x Core..@ "UserName")
+      Core.<*> (x Core..@ "SSHPublicKeyId")
+      Core.<*> (x Core..@ "Fingerprint")
+      Core.<*> (x Core..@ "SSHPublicKeyBody")
+      Core.<*> (x Core..@ "Status")
+      Core.<*> (x Core..@? "UploadDate")

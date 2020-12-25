@@ -25,8 +25,8 @@ module Network.AWS.SDB.BatchDeleteAttributes
     mkBatchDeleteAttributes,
 
     -- ** Request lenses
-    bdaItems,
     bdaDomainName,
+    bdaItems,
 
     -- * Destructuring the response
     BatchDeleteAttributesResponse (..),
@@ -35,75 +35,72 @@ module Network.AWS.SDB.BatchDeleteAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SDB.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SDB.Types as Types
 
 -- | /See:/ 'mkBatchDeleteAttributes' smart constructor.
 data BatchDeleteAttributes = BatchDeleteAttributes'
-  { -- | A list of items on which to perform the operation.
-    items :: [DeletableItem],
-    -- | The name of the domain in which the attributes are being deleted.
-    domainName :: Lude.Text
+  { -- | The name of the domain in which the attributes are being deleted.
+    domainName :: Types.String,
+    -- | A list of items on which to perform the operation.
+    items :: [Types.DeletableItem]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteAttributes' with the minimum fields required to make a request.
---
--- * 'items' - A list of items on which to perform the operation.
--- * 'domainName' - The name of the domain in which the attributes are being deleted.
+-- | Creates a 'BatchDeleteAttributes' value with any optional fields omitted.
 mkBatchDeleteAttributes ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.String ->
   BatchDeleteAttributes
-mkBatchDeleteAttributes pDomainName_ =
-  BatchDeleteAttributes'
-    { items = Lude.mempty,
-      domainName = pDomainName_
-    }
-
--- | A list of items on which to perform the operation.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdaItems :: Lens.Lens' BatchDeleteAttributes [DeletableItem]
-bdaItems = Lens.lens (items :: BatchDeleteAttributes -> [DeletableItem]) (\s a -> s {items = a} :: BatchDeleteAttributes)
-{-# DEPRECATED bdaItems "Use generic-lens or generic-optics with 'items' instead." #-}
+mkBatchDeleteAttributes domainName =
+  BatchDeleteAttributes' {domainName, items = Core.mempty}
 
 -- | The name of the domain in which the attributes are being deleted.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdaDomainName :: Lens.Lens' BatchDeleteAttributes Lude.Text
-bdaDomainName = Lens.lens (domainName :: BatchDeleteAttributes -> Lude.Text) (\s a -> s {domainName = a} :: BatchDeleteAttributes)
+bdaDomainName :: Lens.Lens' BatchDeleteAttributes Types.String
+bdaDomainName = Lens.field @"domainName"
 {-# DEPRECATED bdaDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest BatchDeleteAttributes where
+-- | A list of items on which to perform the operation.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdaItems :: Lens.Lens' BatchDeleteAttributes [Types.DeletableItem]
+bdaItems = Lens.field @"items"
+{-# DEPRECATED bdaItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
+instance Core.AWSRequest BatchDeleteAttributes where
   type Rs BatchDeleteAttributes = BatchDeleteAttributesResponse
-  request = Req.postQuery sdbService
-  response = Res.receiveNull BatchDeleteAttributesResponse'
-
-instance Lude.ToHeaders BatchDeleteAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath BatchDeleteAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchDeleteAttributes where
-  toQuery BatchDeleteAttributes' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("BatchDeleteAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
-        Lude.toQueryList "Item" items,
-        "DomainName" Lude.=: domainName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "BatchDeleteAttributes")
+                Core.<> (Core.pure ("Version", "2009-04-15"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryList "Item" items)
+            )
+      }
+  response = Response.receiveNull BatchDeleteAttributesResponse'
 
 -- | /See:/ 'mkBatchDeleteAttributesResponse' smart constructor.
 data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteAttributesResponse' with the minimum fields required to make a request.
+-- | Creates a 'BatchDeleteAttributesResponse' value with any optional fields omitted.
 mkBatchDeleteAttributesResponse ::
   BatchDeleteAttributesResponse
 mkBatchDeleteAttributesResponse = BatchDeleteAttributesResponse'

@@ -27,130 +27,120 @@ module Network.AWS.Route53.GetHostedZone
     mkGetHostedZoneResponse,
 
     -- ** Response lenses
-    ghzrsVPCs,
-    ghzrsHostedZone,
-    ghzrsDelegationSet,
-    ghzrsResponseStatus,
+    ghzrrsHostedZone,
+    ghzrrsDelegationSet,
+    ghzrrsVPCs,
+    ghzrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A request to get information about a specified hosted zone.
 --
 -- /See:/ 'mkGetHostedZone' smart constructor.
 newtype GetHostedZone = GetHostedZone'
   { -- | The ID of the hosted zone that you want to get information about.
-    id :: ResourceId
+    id :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetHostedZone' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the hosted zone that you want to get information about.
+-- | Creates a 'GetHostedZone' value with any optional fields omitted.
 mkGetHostedZone ::
   -- | 'id'
-  ResourceId ->
+  Types.ResourceId ->
   GetHostedZone
-mkGetHostedZone pId_ = GetHostedZone' {id = pId_}
+mkGetHostedZone id = GetHostedZone' {id}
 
 -- | The ID of the hosted zone that you want to get information about.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzId :: Lens.Lens' GetHostedZone ResourceId
-ghzId = Lens.lens (id :: GetHostedZone -> ResourceId) (\s a -> s {id = a} :: GetHostedZone)
+ghzId :: Lens.Lens' GetHostedZone Types.ResourceId
+ghzId = Lens.field @"id"
 {-# DEPRECATED ghzId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest GetHostedZone where
+instance Core.AWSRequest GetHostedZone where
   type Rs GetHostedZone = GetHostedZoneResponse
-  request = Req.get route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/2013-04-01/hostedzone/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetHostedZoneResponse'
-            Lude.<$> ( x Lude..@? "VPCs" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLNonEmpty "VPC")
-                     )
-            Lude.<*> (x Lude..@ "HostedZone")
-            Lude.<*> (x Lude..@? "DelegationSet")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "HostedZone")
+            Core.<*> (x Core..@? "DelegationSet")
+            Core.<*> (x Core..@? "VPCs" Core..<@> Core.parseXMLNonEmpty "VPC")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetHostedZone where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetHostedZone where
-  toPath GetHostedZone' {..} =
-    Lude.mconcat ["/2013-04-01/hostedzone/", Lude.toBS id]
-
-instance Lude.ToQuery GetHostedZone where
-  toQuery = Lude.const Lude.mempty
 
 -- | A complex type that contain the response to a @GetHostedZone@ request.
 --
 -- /See:/ 'mkGetHostedZoneResponse' smart constructor.
 data GetHostedZoneResponse = GetHostedZoneResponse'
-  { -- | A complex type that contains information about the VPCs that are associated with the specified hosted zone.
-    vpcs :: Lude.Maybe (Lude.NonEmpty VPC),
-    -- | A complex type that contains general information about the specified hosted zone.
-    hostedZone :: HostedZone,
+  { -- | A complex type that contains general information about the specified hosted zone.
+    hostedZone :: Types.HostedZone,
     -- | A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.
-    delegationSet :: Lude.Maybe DelegationSet,
+    delegationSet :: Core.Maybe Types.DelegationSet,
+    -- | A complex type that contains information about the VPCs that are associated with the specified hosted zone.
+    vPCs :: Core.Maybe (Core.NonEmpty Types.VPC),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetHostedZoneResponse' with the minimum fields required to make a request.
---
--- * 'vpcs' - A complex type that contains information about the VPCs that are associated with the specified hosted zone.
--- * 'hostedZone' - A complex type that contains general information about the specified hosted zone.
--- * 'delegationSet' - A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetHostedZoneResponse' value with any optional fields omitted.
 mkGetHostedZoneResponse ::
   -- | 'hostedZone'
-  HostedZone ->
+  Types.HostedZone ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetHostedZoneResponse
-mkGetHostedZoneResponse pHostedZone_ pResponseStatus_ =
+mkGetHostedZoneResponse hostedZone responseStatus =
   GetHostedZoneResponse'
-    { vpcs = Lude.Nothing,
-      hostedZone = pHostedZone_,
-      delegationSet = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { hostedZone,
+      delegationSet = Core.Nothing,
+      vPCs = Core.Nothing,
+      responseStatus
     }
-
--- | A complex type that contains information about the VPCs that are associated with the specified hosted zone.
---
--- /Note:/ Consider using 'vpcs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzrsVPCs :: Lens.Lens' GetHostedZoneResponse (Lude.Maybe (Lude.NonEmpty VPC))
-ghzrsVPCs = Lens.lens (vpcs :: GetHostedZoneResponse -> Lude.Maybe (Lude.NonEmpty VPC)) (\s a -> s {vpcs = a} :: GetHostedZoneResponse)
-{-# DEPRECATED ghzrsVPCs "Use generic-lens or generic-optics with 'vpcs' instead." #-}
 
 -- | A complex type that contains general information about the specified hosted zone.
 --
 -- /Note:/ Consider using 'hostedZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzrsHostedZone :: Lens.Lens' GetHostedZoneResponse HostedZone
-ghzrsHostedZone = Lens.lens (hostedZone :: GetHostedZoneResponse -> HostedZone) (\s a -> s {hostedZone = a} :: GetHostedZoneResponse)
-{-# DEPRECATED ghzrsHostedZone "Use generic-lens or generic-optics with 'hostedZone' instead." #-}
+ghzrrsHostedZone :: Lens.Lens' GetHostedZoneResponse Types.HostedZone
+ghzrrsHostedZone = Lens.field @"hostedZone"
+{-# DEPRECATED ghzrrsHostedZone "Use generic-lens or generic-optics with 'hostedZone' instead." #-}
 
 -- | A complex type that lists the Amazon Route 53 name servers for the specified hosted zone.
 --
 -- /Note:/ Consider using 'delegationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzrsDelegationSet :: Lens.Lens' GetHostedZoneResponse (Lude.Maybe DelegationSet)
-ghzrsDelegationSet = Lens.lens (delegationSet :: GetHostedZoneResponse -> Lude.Maybe DelegationSet) (\s a -> s {delegationSet = a} :: GetHostedZoneResponse)
-{-# DEPRECATED ghzrsDelegationSet "Use generic-lens or generic-optics with 'delegationSet' instead." #-}
+ghzrrsDelegationSet :: Lens.Lens' GetHostedZoneResponse (Core.Maybe Types.DelegationSet)
+ghzrrsDelegationSet = Lens.field @"delegationSet"
+{-# DEPRECATED ghzrrsDelegationSet "Use generic-lens or generic-optics with 'delegationSet' instead." #-}
+
+-- | A complex type that contains information about the VPCs that are associated with the specified hosted zone.
+--
+-- /Note:/ Consider using 'vPCs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghzrrsVPCs :: Lens.Lens' GetHostedZoneResponse (Core.Maybe (Core.NonEmpty Types.VPC))
+ghzrrsVPCs = Lens.field @"vPCs"
+{-# DEPRECATED ghzrrsVPCs "Use generic-lens or generic-optics with 'vPCs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghzrsResponseStatus :: Lens.Lens' GetHostedZoneResponse Lude.Int
-ghzrsResponseStatus = Lens.lens (responseStatus :: GetHostedZoneResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHostedZoneResponse)
-{-# DEPRECATED ghzrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ghzrrsResponseStatus :: Lens.Lens' GetHostedZoneResponse Core.Int
+ghzrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ghzrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

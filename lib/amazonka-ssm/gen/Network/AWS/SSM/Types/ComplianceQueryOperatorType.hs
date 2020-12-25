@@ -13,61 +13,66 @@
 module Network.AWS.SSM.Types.ComplianceQueryOperatorType
   ( ComplianceQueryOperatorType
       ( ComplianceQueryOperatorType',
-        CQOTEqual,
-        CQOTNotEqual,
-        CQOTBeginWith,
-        CQOTLessThan,
-        CQOTGreaterThan
+        ComplianceQueryOperatorTypeEqual,
+        ComplianceQueryOperatorTypeNotEqual,
+        ComplianceQueryOperatorTypeBeginWith,
+        ComplianceQueryOperatorTypeLessThan,
+        ComplianceQueryOperatorTypeGreaterThan,
+        fromComplianceQueryOperatorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ComplianceQueryOperatorType = ComplianceQueryOperatorType' Lude.Text
+newtype ComplianceQueryOperatorType = ComplianceQueryOperatorType'
+  { fromComplianceQueryOperatorType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CQOTEqual :: ComplianceQueryOperatorType
-pattern CQOTEqual = ComplianceQueryOperatorType' "EQUAL"
+pattern ComplianceQueryOperatorTypeEqual :: ComplianceQueryOperatorType
+pattern ComplianceQueryOperatorTypeEqual = ComplianceQueryOperatorType' "EQUAL"
 
-pattern CQOTNotEqual :: ComplianceQueryOperatorType
-pattern CQOTNotEqual = ComplianceQueryOperatorType' "NOT_EQUAL"
+pattern ComplianceQueryOperatorTypeNotEqual :: ComplianceQueryOperatorType
+pattern ComplianceQueryOperatorTypeNotEqual = ComplianceQueryOperatorType' "NOT_EQUAL"
 
-pattern CQOTBeginWith :: ComplianceQueryOperatorType
-pattern CQOTBeginWith = ComplianceQueryOperatorType' "BEGIN_WITH"
+pattern ComplianceQueryOperatorTypeBeginWith :: ComplianceQueryOperatorType
+pattern ComplianceQueryOperatorTypeBeginWith = ComplianceQueryOperatorType' "BEGIN_WITH"
 
-pattern CQOTLessThan :: ComplianceQueryOperatorType
-pattern CQOTLessThan = ComplianceQueryOperatorType' "LESS_THAN"
+pattern ComplianceQueryOperatorTypeLessThan :: ComplianceQueryOperatorType
+pattern ComplianceQueryOperatorTypeLessThan = ComplianceQueryOperatorType' "LESS_THAN"
 
-pattern CQOTGreaterThan :: ComplianceQueryOperatorType
-pattern CQOTGreaterThan = ComplianceQueryOperatorType' "GREATER_THAN"
+pattern ComplianceQueryOperatorTypeGreaterThan :: ComplianceQueryOperatorType
+pattern ComplianceQueryOperatorTypeGreaterThan = ComplianceQueryOperatorType' "GREATER_THAN"
 
 {-# COMPLETE
-  CQOTEqual,
-  CQOTNotEqual,
-  CQOTBeginWith,
-  CQOTLessThan,
-  CQOTGreaterThan,
+  ComplianceQueryOperatorTypeEqual,
+  ComplianceQueryOperatorTypeNotEqual,
+  ComplianceQueryOperatorTypeBeginWith,
+  ComplianceQueryOperatorTypeLessThan,
+  ComplianceQueryOperatorTypeGreaterThan,
   ComplianceQueryOperatorType'
   #-}

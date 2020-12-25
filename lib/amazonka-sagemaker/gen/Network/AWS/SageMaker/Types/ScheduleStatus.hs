@@ -13,56 +13,61 @@
 module Network.AWS.SageMaker.Types.ScheduleStatus
   ( ScheduleStatus
       ( ScheduleStatus',
-        SSPending,
-        SSFailed,
-        SSScheduled,
-        SSStopped
+        ScheduleStatusPending,
+        ScheduleStatusFailed,
+        ScheduleStatusScheduled,
+        ScheduleStatusStopped,
+        fromScheduleStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScheduleStatus = ScheduleStatus' Lude.Text
+newtype ScheduleStatus = ScheduleStatus'
+  { fromScheduleStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSPending :: ScheduleStatus
-pattern SSPending = ScheduleStatus' "Pending"
+pattern ScheduleStatusPending :: ScheduleStatus
+pattern ScheduleStatusPending = ScheduleStatus' "Pending"
 
-pattern SSFailed :: ScheduleStatus
-pattern SSFailed = ScheduleStatus' "Failed"
+pattern ScheduleStatusFailed :: ScheduleStatus
+pattern ScheduleStatusFailed = ScheduleStatus' "Failed"
 
-pattern SSScheduled :: ScheduleStatus
-pattern SSScheduled = ScheduleStatus' "Scheduled"
+pattern ScheduleStatusScheduled :: ScheduleStatus
+pattern ScheduleStatusScheduled = ScheduleStatus' "Scheduled"
 
-pattern SSStopped :: ScheduleStatus
-pattern SSStopped = ScheduleStatus' "Stopped"
+pattern ScheduleStatusStopped :: ScheduleStatus
+pattern ScheduleStatusStopped = ScheduleStatus' "Stopped"
 
 {-# COMPLETE
-  SSPending,
-  SSFailed,
-  SSScheduled,
-  SSStopped,
+  ScheduleStatusPending,
+  ScheduleStatusFailed,
+  ScheduleStatusScheduled,
+  ScheduleStatusStopped,
   ScheduleStatus'
   #-}

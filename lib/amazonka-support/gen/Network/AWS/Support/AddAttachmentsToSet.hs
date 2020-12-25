@@ -30,42 +30,37 @@ module Network.AWS.Support.AddAttachmentsToSet
     mkAddAttachmentsToSetResponse,
 
     -- ** Response lenses
-    aatsrsExpiryTime,
-    aatsrsAttachmentSetId,
-    aatsrsResponseStatus,
+    aatsrrsAttachmentSetId,
+    aatsrrsExpiryTime,
+    aatsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Support.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Support.Types as Types
 
 -- | /See:/ 'mkAddAttachmentsToSet' smart constructor.
 data AddAttachmentsToSet = AddAttachmentsToSet'
   { -- | One or more attachments to add to the set. You can add up to three attachments per set. The size limit is 5 MB per attachment.
     --
     -- In the @Attachment@ object, use the @data@ parameter to specify the contents of the attachment file. In the previous request syntax, the value for @data@ appear as @blob@ , which is represented as a base64-encoded string. The value for @fileName@ is the name of the attachment, such as @troubleshoot-screenshot.png@ .
-    attachments :: [Attachment],
+    attachments :: [Types.Attachment],
     -- | The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
-    attachmentSetId :: Lude.Maybe Lude.Text
+    attachmentSetId :: Core.Maybe Types.AttachmentSetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddAttachmentsToSet' with the minimum fields required to make a request.
---
--- * 'attachments' - One or more attachments to add to the set. You can add up to three attachments per set. The size limit is 5 MB per attachment.
---
--- In the @Attachment@ object, use the @data@ parameter to specify the contents of the attachment file. In the previous request syntax, the value for @data@ appear as @blob@ , which is represented as a base64-encoded string. The value for @fileName@ is the name of the attachment, such as @troubleshoot-screenshot.png@ .
--- * 'attachmentSetId' - The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
+-- | Creates a 'AddAttachmentsToSet' value with any optional fields omitted.
 mkAddAttachmentsToSet ::
   AddAttachmentsToSet
 mkAddAttachmentsToSet =
   AddAttachmentsToSet'
-    { attachments = Lude.mempty,
-      attachmentSetId = Lude.Nothing
+    { attachments = Core.mempty,
+      attachmentSetId = Core.Nothing
     }
 
 -- | One or more attachments to add to the set. You can add up to three attachments per set. The size limit is 5 MB per attachment.
@@ -73,102 +68,92 @@ mkAddAttachmentsToSet =
 -- In the @Attachment@ object, use the @data@ parameter to specify the contents of the attachment file. In the previous request syntax, the value for @data@ appear as @blob@ , which is represented as a base64-encoded string. The value for @fileName@ is the name of the attachment, such as @troubleshoot-screenshot.png@ .
 --
 -- /Note:/ Consider using 'attachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aatsAttachments :: Lens.Lens' AddAttachmentsToSet [Attachment]
-aatsAttachments = Lens.lens (attachments :: AddAttachmentsToSet -> [Attachment]) (\s a -> s {attachments = a} :: AddAttachmentsToSet)
+aatsAttachments :: Lens.Lens' AddAttachmentsToSet [Types.Attachment]
+aatsAttachments = Lens.field @"attachments"
 {-# DEPRECATED aatsAttachments "Use generic-lens or generic-optics with 'attachments' instead." #-}
 
 -- | The ID of the attachment set. If an @attachmentSetId@ is not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ is specified, the attachments are added to the specified set, if it exists.
 --
 -- /Note:/ Consider using 'attachmentSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aatsAttachmentSetId :: Lens.Lens' AddAttachmentsToSet (Lude.Maybe Lude.Text)
-aatsAttachmentSetId = Lens.lens (attachmentSetId :: AddAttachmentsToSet -> Lude.Maybe Lude.Text) (\s a -> s {attachmentSetId = a} :: AddAttachmentsToSet)
+aatsAttachmentSetId :: Lens.Lens' AddAttachmentsToSet (Core.Maybe Types.AttachmentSetId)
+aatsAttachmentSetId = Lens.field @"attachmentSetId"
 {-# DEPRECATED aatsAttachmentSetId "Use generic-lens or generic-optics with 'attachmentSetId' instead." #-}
 
-instance Lude.AWSRequest AddAttachmentsToSet where
+instance Core.FromJSON AddAttachmentsToSet where
+  toJSON AddAttachmentsToSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("attachments" Core..= attachments),
+            ("attachmentSetId" Core..=) Core.<$> attachmentSetId
+          ]
+      )
+
+instance Core.AWSRequest AddAttachmentsToSet where
   type Rs AddAttachmentsToSet = AddAttachmentsToSetResponse
-  request = Req.postJSON supportService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSSupport_20130415.AddAttachmentsToSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AddAttachmentsToSetResponse'
-            Lude.<$> (x Lude..?> "expiryTime")
-            Lude.<*> (x Lude..?> "attachmentSetId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "attachmentSetId")
+            Core.<*> (x Core..:? "expiryTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddAttachmentsToSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSSupport_20130415.AddAttachmentsToSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AddAttachmentsToSet where
-  toJSON AddAttachmentsToSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("attachments" Lude..= attachments),
-            ("attachmentSetId" Lude..=) Lude.<$> attachmentSetId
-          ]
-      )
-
-instance Lude.ToPath AddAttachmentsToSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddAttachmentsToSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | The ID and expiry time of the attachment set returned by the 'AddAttachmentsToSet' operation.
 --
 -- /See:/ 'mkAddAttachmentsToSetResponse' smart constructor.
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
-  { -- | The time and date when the attachment set expires.
-    expiryTime :: Lude.Maybe Lude.Text,
-    -- | The ID of the attachment set. If an @attachmentSetId@ was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ was specified, the attachments are added to the specified set, if it exists.
-    attachmentSetId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the attachment set. If an @attachmentSetId@ was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ was specified, the attachments are added to the specified set, if it exists.
+    attachmentSetId :: Core.Maybe Types.AttachmentSetId,
+    -- | The time and date when the attachment set expires.
+    expiryTime :: Core.Maybe Types.ExpiryTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddAttachmentsToSetResponse' with the minimum fields required to make a request.
---
--- * 'expiryTime' - The time and date when the attachment set expires.
--- * 'attachmentSetId' - The ID of the attachment set. If an @attachmentSetId@ was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ was specified, the attachments are added to the specified set, if it exists.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddAttachmentsToSetResponse' value with any optional fields omitted.
 mkAddAttachmentsToSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddAttachmentsToSetResponse
-mkAddAttachmentsToSetResponse pResponseStatus_ =
+mkAddAttachmentsToSetResponse responseStatus =
   AddAttachmentsToSetResponse'
-    { expiryTime = Lude.Nothing,
-      attachmentSetId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { attachmentSetId = Core.Nothing,
+      expiryTime = Core.Nothing,
+      responseStatus
     }
-
--- | The time and date when the attachment set expires.
---
--- /Note:/ Consider using 'expiryTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aatsrsExpiryTime :: Lens.Lens' AddAttachmentsToSetResponse (Lude.Maybe Lude.Text)
-aatsrsExpiryTime = Lens.lens (expiryTime :: AddAttachmentsToSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {expiryTime = a} :: AddAttachmentsToSetResponse)
-{-# DEPRECATED aatsrsExpiryTime "Use generic-lens or generic-optics with 'expiryTime' instead." #-}
 
 -- | The ID of the attachment set. If an @attachmentSetId@ was not specified, a new attachment set is created, and the ID of the set is returned in the response. If an @attachmentSetId@ was specified, the attachments are added to the specified set, if it exists.
 --
 -- /Note:/ Consider using 'attachmentSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aatsrsAttachmentSetId :: Lens.Lens' AddAttachmentsToSetResponse (Lude.Maybe Lude.Text)
-aatsrsAttachmentSetId = Lens.lens (attachmentSetId :: AddAttachmentsToSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {attachmentSetId = a} :: AddAttachmentsToSetResponse)
-{-# DEPRECATED aatsrsAttachmentSetId "Use generic-lens or generic-optics with 'attachmentSetId' instead." #-}
+aatsrrsAttachmentSetId :: Lens.Lens' AddAttachmentsToSetResponse (Core.Maybe Types.AttachmentSetId)
+aatsrrsAttachmentSetId = Lens.field @"attachmentSetId"
+{-# DEPRECATED aatsrrsAttachmentSetId "Use generic-lens or generic-optics with 'attachmentSetId' instead." #-}
+
+-- | The time and date when the attachment set expires.
+--
+-- /Note:/ Consider using 'expiryTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aatsrrsExpiryTime :: Lens.Lens' AddAttachmentsToSetResponse (Core.Maybe Types.ExpiryTime)
+aatsrrsExpiryTime = Lens.field @"expiryTime"
+{-# DEPRECATED aatsrrsExpiryTime "Use generic-lens or generic-optics with 'expiryTime' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aatsrsResponseStatus :: Lens.Lens' AddAttachmentsToSetResponse Lude.Int
-aatsrsResponseStatus = Lens.lens (responseStatus :: AddAttachmentsToSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddAttachmentsToSetResponse)
-{-# DEPRECATED aatsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aatsrrsResponseStatus :: Lens.Lens' AddAttachmentsToSetResponse Core.Int
+aatsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aatsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

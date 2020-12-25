@@ -27,193 +27,175 @@ module Network.AWS.Greengrass.GetGroup
     mkGetGroupResponse,
 
     -- ** Response lenses
-    ggrsLatestVersionARN,
-    ggrsARN,
-    ggrsName,
-    ggrsCreationTimestamp,
-    ggrsId,
-    ggrsLatestVersion,
-    ggrsLastUpdatedTimestamp,
-    ggrsTags,
-    ggrsResponseStatus,
+    ggrrsArn,
+    ggrrsCreationTimestamp,
+    ggrrsId,
+    ggrrsLastUpdatedTimestamp,
+    ggrrsLatestVersion,
+    ggrrsLatestVersionArn,
+    ggrrsName,
+    ggrrsTags,
+    ggrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetGroup' smart constructor.
 newtype GetGroup = GetGroup'
   { -- | The ID of the Greengrass group.
-    groupId :: Lude.Text
+    groupId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroup' with the minimum fields required to make a request.
---
--- * 'groupId' - The ID of the Greengrass group.
+-- | Creates a 'GetGroup' value with any optional fields omitted.
 mkGetGroup ::
   -- | 'groupId'
-  Lude.Text ->
+  Core.Text ->
   GetGroup
-mkGetGroup pGroupId_ = GetGroup' {groupId = pGroupId_}
+mkGetGroup groupId = GetGroup' {groupId}
 
 -- | The ID of the Greengrass group.
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggGroupId :: Lens.Lens' GetGroup Lude.Text
-ggGroupId = Lens.lens (groupId :: GetGroup -> Lude.Text) (\s a -> s {groupId = a} :: GetGroup)
+ggGroupId :: Lens.Lens' GetGroup Core.Text
+ggGroupId = Lens.field @"groupId"
 {-# DEPRECATED ggGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance Lude.AWSRequest GetGroup where
+instance Core.AWSRequest GetGroup where
   type Rs GetGroup = GetGroupResponse
-  request = Req.get greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/greengrass/groups/" Core.<> (Core.toText groupId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetGroupResponse'
-            Lude.<$> (x Lude..?> "LatestVersionArn")
-            Lude.<*> (x Lude..?> "Arn")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (x Lude..?> "CreationTimestamp")
-            Lude.<*> (x Lude..?> "Id")
-            Lude.<*> (x Lude..?> "LatestVersion")
-            Lude.<*> (x Lude..?> "LastUpdatedTimestamp")
-            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "CreationTimestamp")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "LastUpdatedTimestamp")
+            Core.<*> (x Core..:? "LatestVersion")
+            Core.<*> (x Core..:? "LatestVersionArn")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetGroup where
-  toPath GetGroup' {..} =
-    Lude.mconcat ["/greengrass/groups/", Lude.toBS groupId]
-
-instance Lude.ToQuery GetGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetGroupResponse' smart constructor.
 data GetGroupResponse = GetGroupResponse'
-  { -- | The ARN of the latest version associated with the definition.
-    latestVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the definition.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the definition.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the definition.
+    arn :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the definition was created.
-    creationTimestamp :: Lude.Maybe Lude.Text,
+    creationTimestamp :: Core.Maybe Core.Text,
     -- | The ID of the definition.
-    id :: Lude.Maybe Lude.Text,
-    -- | The ID of the latest version associated with the definition.
-    latestVersion :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the definition was last updated.
-    lastUpdatedTimestamp :: Lude.Maybe Lude.Text,
+    lastUpdatedTimestamp :: Core.Maybe Core.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Core.Maybe Core.Text,
+    -- | The ARN of the latest version associated with the definition.
+    latestVersionArn :: Core.Maybe Core.Text,
+    -- | The name of the definition.
+    name :: Core.Maybe Core.Text,
     -- | Tag(s) attached to the resource arn.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroupResponse' with the minimum fields required to make a request.
---
--- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
--- * 'arn' - The ARN of the definition.
--- * 'name' - The name of the definition.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
--- * 'id' - The ID of the definition.
--- * 'latestVersion' - The ID of the latest version associated with the definition.
--- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
--- * 'tags' - Tag(s) attached to the resource arn.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetGroupResponse' value with any optional fields omitted.
 mkGetGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetGroupResponse
-mkGetGroupResponse pResponseStatus_ =
+mkGetGroupResponse responseStatus =
   GetGroupResponse'
-    { latestVersionARN = Lude.Nothing,
-      arn = Lude.Nothing,
-      name = Lude.Nothing,
-      creationTimestamp = Lude.Nothing,
-      id = Lude.Nothing,
-      latestVersion = Lude.Nothing,
-      lastUpdatedTimestamp = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      creationTimestamp = Core.Nothing,
+      id = Core.Nothing,
+      lastUpdatedTimestamp = Core.Nothing,
+      latestVersion = Core.Nothing,
+      latestVersionArn = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
-
--- | The ARN of the latest version associated with the definition.
---
--- /Note:/ Consider using 'latestVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsLatestVersionARN :: Lens.Lens' GetGroupResponse (Lude.Maybe Lude.Text)
-ggrsLatestVersionARN = Lens.lens (latestVersionARN :: GetGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersionARN = a} :: GetGroupResponse)
-{-# DEPRECATED ggrsLatestVersionARN "Use generic-lens or generic-optics with 'latestVersionARN' instead." #-}
 
 -- | The ARN of the definition.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsARN :: Lens.Lens' GetGroupResponse (Lude.Maybe Lude.Text)
-ggrsARN = Lens.lens (arn :: GetGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetGroupResponse)
-{-# DEPRECATED ggrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the definition.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsName :: Lens.Lens' GetGroupResponse (Lude.Maybe Lude.Text)
-ggrsName = Lens.lens (name :: GetGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetGroupResponse)
-{-# DEPRECATED ggrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+ggrrsArn :: Lens.Lens' GetGroupResponse (Core.Maybe Core.Text)
+ggrrsArn = Lens.field @"arn"
+{-# DEPRECATED ggrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was created.
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsCreationTimestamp :: Lens.Lens' GetGroupResponse (Lude.Maybe Lude.Text)
-ggrsCreationTimestamp = Lens.lens (creationTimestamp :: GetGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: GetGroupResponse)
-{-# DEPRECATED ggrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
+ggrrsCreationTimestamp :: Lens.Lens' GetGroupResponse (Core.Maybe Core.Text)
+ggrrsCreationTimestamp = Lens.field @"creationTimestamp"
+{-# DEPRECATED ggrrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the definition.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsId :: Lens.Lens' GetGroupResponse (Lude.Maybe Lude.Text)
-ggrsId = Lens.lens (id :: GetGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GetGroupResponse)
-{-# DEPRECATED ggrsId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The ID of the latest version associated with the definition.
---
--- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsLatestVersion :: Lens.Lens' GetGroupResponse (Lude.Maybe Lude.Text)
-ggrsLatestVersion = Lens.lens (latestVersion :: GetGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: GetGroupResponse)
-{-# DEPRECATED ggrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
+ggrrsId :: Lens.Lens' GetGroupResponse (Core.Maybe Core.Text)
+ggrrsId = Lens.field @"id"
+{-# DEPRECATED ggrrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsLastUpdatedTimestamp :: Lens.Lens' GetGroupResponse (Lude.Maybe Lude.Text)
-ggrsLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: GetGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedTimestamp = a} :: GetGroupResponse)
-{-# DEPRECATED ggrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
+ggrrsLastUpdatedTimestamp :: Lens.Lens' GetGroupResponse (Core.Maybe Core.Text)
+ggrrsLastUpdatedTimestamp = Lens.field @"lastUpdatedTimestamp"
+{-# DEPRECATED ggrrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
+
+-- | The ID of the latest version associated with the definition.
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrrsLatestVersion :: Lens.Lens' GetGroupResponse (Core.Maybe Core.Text)
+ggrrsLatestVersion = Lens.field @"latestVersion"
+{-# DEPRECATED ggrrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
+
+-- | The ARN of the latest version associated with the definition.
+--
+-- /Note:/ Consider using 'latestVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrrsLatestVersionArn :: Lens.Lens' GetGroupResponse (Core.Maybe Core.Text)
+ggrrsLatestVersionArn = Lens.field @"latestVersionArn"
+{-# DEPRECATED ggrrsLatestVersionArn "Use generic-lens or generic-optics with 'latestVersionArn' instead." #-}
+
+-- | The name of the definition.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ggrrsName :: Lens.Lens' GetGroupResponse (Core.Maybe Core.Text)
+ggrrsName = Lens.field @"name"
+{-# DEPRECATED ggrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Tag(s) attached to the resource arn.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsTags :: Lens.Lens' GetGroupResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ggrsTags = Lens.lens (tags :: GetGroupResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: GetGroupResponse)
-{-# DEPRECATED ggrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+ggrrsTags :: Lens.Lens' GetGroupResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+ggrrsTags = Lens.field @"tags"
+{-# DEPRECATED ggrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggrsResponseStatus :: Lens.Lens' GetGroupResponse Lude.Int
-ggrsResponseStatus = Lens.lens (responseStatus :: GetGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGroupResponse)
-{-# DEPRECATED ggrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ggrrsResponseStatus :: Lens.Lens' GetGroupResponse Core.Int
+ggrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ggrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

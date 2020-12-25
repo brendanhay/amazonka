@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ElasticBeanstalk
     Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
@@ -121,34 +127,56 @@ library
     Network.AWS.ElasticBeanstalk.Types.ActionHistoryStatus
     Network.AWS.ElasticBeanstalk.Types.ActionStatus
     Network.AWS.ElasticBeanstalk.Types.ActionType
+    Network.AWS.ElasticBeanstalk.Types.ApplicationArn
     Network.AWS.ElasticBeanstalk.Types.ApplicationDescription
     Network.AWS.ElasticBeanstalk.Types.ApplicationDescriptionMessage
     Network.AWS.ElasticBeanstalk.Types.ApplicationMetrics
+    Network.AWS.ElasticBeanstalk.Types.ApplicationName
     Network.AWS.ElasticBeanstalk.Types.ApplicationResourceLifecycleConfig
+    Network.AWS.ElasticBeanstalk.Types.ApplicationVersionArn
     Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescription
     Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescriptionMessage
     Network.AWS.ElasticBeanstalk.Types.ApplicationVersionLifecycleConfig
     Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus
+    Network.AWS.ElasticBeanstalk.Types.ARN
+    Network.AWS.ElasticBeanstalk.Types.Attribute
     Network.AWS.ElasticBeanstalk.Types.AutoScalingGroup
+    Network.AWS.ElasticBeanstalk.Types.BranchName
     Network.AWS.ElasticBeanstalk.Types.BuildConfiguration
     Network.AWS.ElasticBeanstalk.Types.Builder
+    Network.AWS.ElasticBeanstalk.Types.Cause
     Network.AWS.ElasticBeanstalk.Types.ComputeType
     Network.AWS.ElasticBeanstalk.Types.ConfigurationDeploymentStatus
     Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionDescription
+    Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionName
+    Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionPossibleValue
     Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionSetting
+    Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionSeverity
     Network.AWS.ElasticBeanstalk.Types.ConfigurationOptionValueType
     Network.AWS.ElasticBeanstalk.Types.ConfigurationSettingsDescription
+    Network.AWS.ElasticBeanstalk.Types.ConfigurationTemplateName
     Network.AWS.ElasticBeanstalk.Types.CPUUtilization
-    Network.AWS.ElasticBeanstalk.Types.CustomAMI
+    Network.AWS.ElasticBeanstalk.Types.CustomAmi
+    Network.AWS.ElasticBeanstalk.Types.DefaultValue
     Network.AWS.ElasticBeanstalk.Types.Deployment
+    Network.AWS.ElasticBeanstalk.Types.Description
+    Network.AWS.ElasticBeanstalk.Types.DestinationEnvironmentId
+    Network.AWS.ElasticBeanstalk.Types.DestinationEnvironmentName
+    Network.AWS.ElasticBeanstalk.Types.DNSCname
+    Network.AWS.ElasticBeanstalk.Types.DNSCnamePrefix
+    Network.AWS.ElasticBeanstalk.Types.Ec2InstanceId
+    Network.AWS.ElasticBeanstalk.Types.EndpointURL
+    Network.AWS.ElasticBeanstalk.Types.EnvironmentArn
     Network.AWS.ElasticBeanstalk.Types.EnvironmentDescription
     Network.AWS.ElasticBeanstalk.Types.EnvironmentDescriptionsMessage
     Network.AWS.ElasticBeanstalk.Types.EnvironmentHealth
     Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthAttribute
     Network.AWS.ElasticBeanstalk.Types.EnvironmentHealthStatus
+    Network.AWS.ElasticBeanstalk.Types.EnvironmentId
     Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoDescription
     Network.AWS.ElasticBeanstalk.Types.EnvironmentInfoType
     Network.AWS.ElasticBeanstalk.Types.EnvironmentLink
+    Network.AWS.ElasticBeanstalk.Types.EnvironmentName
     Network.AWS.ElasticBeanstalk.Types.EnvironmentResourceDescription
     Network.AWS.ElasticBeanstalk.Types.EnvironmentResourcesDescription
     Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus
@@ -156,45 +184,98 @@ library
     Network.AWS.ElasticBeanstalk.Types.EventDescription
     Network.AWS.ElasticBeanstalk.Types.EventSeverity
     Network.AWS.ElasticBeanstalk.Types.FailureType
+    Network.AWS.ElasticBeanstalk.Types.FileTypeExtension
+    Network.AWS.ElasticBeanstalk.Types.FullyQualifiedCNAME
+    Network.AWS.ElasticBeanstalk.Types.GroupName
+    Network.AWS.ElasticBeanstalk.Types.ImageId
     Network.AWS.ElasticBeanstalk.Types.Instance
     Network.AWS.ElasticBeanstalk.Types.InstanceHealthSummary
+    Network.AWS.ElasticBeanstalk.Types.InstanceId
     Network.AWS.ElasticBeanstalk.Types.InstancesHealthAttribute
+    Network.AWS.ElasticBeanstalk.Types.Key
+    Network.AWS.ElasticBeanstalk.Types.Label
     Network.AWS.ElasticBeanstalk.Types.Latency
     Network.AWS.ElasticBeanstalk.Types.LaunchConfiguration
     Network.AWS.ElasticBeanstalk.Types.LaunchTemplate
+    Network.AWS.ElasticBeanstalk.Types.LifecycleState
     Network.AWS.ElasticBeanstalk.Types.Listener
     Network.AWS.ElasticBeanstalk.Types.LoadBalancer
     Network.AWS.ElasticBeanstalk.Types.LoadBalancerDescription
+    Network.AWS.ElasticBeanstalk.Types.Maintainer
     Network.AWS.ElasticBeanstalk.Types.ManagedAction
     Network.AWS.ElasticBeanstalk.Types.ManagedActionHistoryItem
     Network.AWS.ElasticBeanstalk.Types.MaxAgeRule
     Network.AWS.ElasticBeanstalk.Types.MaxCountRule
+    Network.AWS.ElasticBeanstalk.Types.Message
+    Network.AWS.ElasticBeanstalk.Types.Name
+    Network.AWS.ElasticBeanstalk.Types.Namespace
+    Network.AWS.ElasticBeanstalk.Types.NextToken
+    Network.AWS.ElasticBeanstalk.Types.NonEmptyString
+    Network.AWS.ElasticBeanstalk.Types.OperatingSystemName
+    Network.AWS.ElasticBeanstalk.Types.OperatingSystemVersion
+    Network.AWS.ElasticBeanstalk.Types.OperationsRole
+    Network.AWS.ElasticBeanstalk.Types.Operator
+    Network.AWS.ElasticBeanstalk.Types.OptionName
+    Network.AWS.ElasticBeanstalk.Types.OptionNamespace
     Network.AWS.ElasticBeanstalk.Types.OptionRestrictionRegex
     Network.AWS.ElasticBeanstalk.Types.OptionSpecification
+    Network.AWS.ElasticBeanstalk.Types.Pattern
+    Network.AWS.ElasticBeanstalk.Types.PlatformArn
+    Network.AWS.ElasticBeanstalk.Types.PlatformBranchLifecycleState
     Network.AWS.ElasticBeanstalk.Types.PlatformBranchSummary
+    Network.AWS.ElasticBeanstalk.Types.PlatformCategory
     Network.AWS.ElasticBeanstalk.Types.PlatformDescription
     Network.AWS.ElasticBeanstalk.Types.PlatformFilter
+    Network.AWS.ElasticBeanstalk.Types.PlatformFilterType
+    Network.AWS.ElasticBeanstalk.Types.PlatformFilterValue
     Network.AWS.ElasticBeanstalk.Types.PlatformFramework
+    Network.AWS.ElasticBeanstalk.Types.PlatformLifecycleState
+    Network.AWS.ElasticBeanstalk.Types.PlatformName
+    Network.AWS.ElasticBeanstalk.Types.PlatformOwner
     Network.AWS.ElasticBeanstalk.Types.PlatformProgrammingLanguage
     Network.AWS.ElasticBeanstalk.Types.PlatformStatus
     Network.AWS.ElasticBeanstalk.Types.PlatformSummary
+    Network.AWS.ElasticBeanstalk.Types.PlatformVersion
     Network.AWS.ElasticBeanstalk.Types.Queue
+    Network.AWS.ElasticBeanstalk.Types.RequestId
+    Network.AWS.ElasticBeanstalk.Types.ResourceArn
+    Network.AWS.ElasticBeanstalk.Types.ResourceId
+    Network.AWS.ElasticBeanstalk.Types.ResourceName
     Network.AWS.ElasticBeanstalk.Types.ResourceQuota
     Network.AWS.ElasticBeanstalk.Types.ResourceQuotas
+    Network.AWS.ElasticBeanstalk.Types.S3Bucket
+    Network.AWS.ElasticBeanstalk.Types.S3Key
     Network.AWS.ElasticBeanstalk.Types.S3Location
     Network.AWS.ElasticBeanstalk.Types.SearchFilter
+    Network.AWS.ElasticBeanstalk.Types.SearchFilterValue
+    Network.AWS.ElasticBeanstalk.Types.ServiceRole
     Network.AWS.ElasticBeanstalk.Types.SingleInstanceHealth
     Network.AWS.ElasticBeanstalk.Types.SolutionStackDescription
+    Network.AWS.ElasticBeanstalk.Types.SolutionStackName
     Network.AWS.ElasticBeanstalk.Types.SourceBuildInformation
     Network.AWS.ElasticBeanstalk.Types.SourceConfiguration
+    Network.AWS.ElasticBeanstalk.Types.SourceEnvironmentId
+    Network.AWS.ElasticBeanstalk.Types.SourceEnvironmentName
+    Network.AWS.ElasticBeanstalk.Types.SourceLocation
     Network.AWS.ElasticBeanstalk.Types.SourceRepository
     Network.AWS.ElasticBeanstalk.Types.SourceType
     Network.AWS.ElasticBeanstalk.Types.StatusCodes
+    Network.AWS.ElasticBeanstalk.Types.String
+    Network.AWS.ElasticBeanstalk.Types.SupportedAddon
+    Network.AWS.ElasticBeanstalk.Types.SupportedTier
     Network.AWS.ElasticBeanstalk.Types.SystemStatus
     Network.AWS.ElasticBeanstalk.Types.Tag
+    Network.AWS.ElasticBeanstalk.Types.TagKey
+    Network.AWS.ElasticBeanstalk.Types.TemplateName
+    Network.AWS.ElasticBeanstalk.Types.Token
     Network.AWS.ElasticBeanstalk.Types.Trigger
     Network.AWS.ElasticBeanstalk.Types.ValidationMessage
+    Network.AWS.ElasticBeanstalk.Types.ValidationMessageString
     Network.AWS.ElasticBeanstalk.Types.ValidationSeverity
+    Network.AWS.ElasticBeanstalk.Types.Value
+    Network.AWS.ElasticBeanstalk.Types.Version
+    Network.AWS.ElasticBeanstalk.Types.VersionLabel
+    Network.AWS.ElasticBeanstalk.Types.VirtualizationType
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

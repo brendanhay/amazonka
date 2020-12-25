@@ -21,8 +21,9 @@ module Network.AWS.ELBv2.Types.HostHeaderConditionConfig
   )
 where
 
+import qualified Network.AWS.ELBv2.Types.StringValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a host header condition.
 --
@@ -31,40 +32,27 @@ newtype HostHeaderConditionConfig = HostHeaderConditionConfig'
   { -- | One or more host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
     --
     -- If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
-    values :: Lude.Maybe [Lude.Text]
+    values :: Core.Maybe [Types.StringValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HostHeaderConditionConfig' with the minimum fields required to make a request.
---
--- * 'values' - One or more host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
---
--- If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
+-- | Creates a 'HostHeaderConditionConfig' value with any optional fields omitted.
 mkHostHeaderConditionConfig ::
   HostHeaderConditionConfig
 mkHostHeaderConditionConfig =
-  HostHeaderConditionConfig' {values = Lude.Nothing}
+  HostHeaderConditionConfig' {values = Core.Nothing}
 
 -- | One or more host names. The maximum size of each name is 128 characters. The comparison is case insensitive. The following wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).
 --
 -- If you specify multiple strings, the condition is satisfied if one of the strings matches the host name.
 --
 -- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hhccValues :: Lens.Lens' HostHeaderConditionConfig (Lude.Maybe [Lude.Text])
-hhccValues = Lens.lens (values :: HostHeaderConditionConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {values = a} :: HostHeaderConditionConfig)
+hhccValues :: Lens.Lens' HostHeaderConditionConfig (Core.Maybe [Types.StringValue])
+hhccValues = Lens.field @"values"
 {-# DEPRECATED hhccValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
-instance Lude.FromXML HostHeaderConditionConfig where
+instance Core.FromXML HostHeaderConditionConfig where
   parseXML x =
     HostHeaderConditionConfig'
-      Lude.<$> ( x Lude..@? "Values" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-
-instance Lude.ToQuery HostHeaderConditionConfig where
-  toQuery HostHeaderConditionConfig' {..} =
-    Lude.mconcat
-      [ "Values"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> values)
-      ]
+      Core.<$> (x Core..@? "Values" Core..<@> Core.parseXMLList "member")

@@ -18,71 +18,66 @@ module Network.AWS.IoTAnalytics.Types.ReprocessingSummary
 
     -- * Lenses
     rsCreationTime,
-    rsStatus,
     rsId,
+    rsStatus,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.ReprocessingStatus
+import qualified Network.AWS.IoTAnalytics.Types.ReprocessingId as Types
+import qualified Network.AWS.IoTAnalytics.Types.ReprocessingStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about pipeline reprocessing.
 --
 -- /See:/ 'mkReprocessingSummary' smart constructor.
 data ReprocessingSummary = ReprocessingSummary'
   { -- | The time the pipeline reprocessing was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The status of the pipeline reprocessing.
-    status :: Lude.Maybe ReprocessingStatus,
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The @reprocessingId@ returned by @StartPipelineReprocessing@ .
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.ReprocessingId,
+    -- | The status of the pipeline reprocessing.
+    status :: Core.Maybe Types.ReprocessingStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ReprocessingSummary' with the minimum fields required to make a request.
---
--- * 'creationTime' - The time the pipeline reprocessing was created.
--- * 'status' - The status of the pipeline reprocessing.
--- * 'id' - The @reprocessingId@ returned by @StartPipelineReprocessing@ .
+-- | Creates a 'ReprocessingSummary' value with any optional fields omitted.
 mkReprocessingSummary ::
   ReprocessingSummary
 mkReprocessingSummary =
   ReprocessingSummary'
-    { creationTime = Lude.Nothing,
-      status = Lude.Nothing,
-      id = Lude.Nothing
+    { creationTime = Core.Nothing,
+      id = Core.Nothing,
+      status = Core.Nothing
     }
 
 -- | The time the pipeline reprocessing was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsCreationTime :: Lens.Lens' ReprocessingSummary (Lude.Maybe Lude.Timestamp)
-rsCreationTime = Lens.lens (creationTime :: ReprocessingSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: ReprocessingSummary)
+rsCreationTime :: Lens.Lens' ReprocessingSummary (Core.Maybe Core.NominalDiffTime)
+rsCreationTime = Lens.field @"creationTime"
 {-# DEPRECATED rsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The status of the pipeline reprocessing.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsStatus :: Lens.Lens' ReprocessingSummary (Lude.Maybe ReprocessingStatus)
-rsStatus = Lens.lens (status :: ReprocessingSummary -> Lude.Maybe ReprocessingStatus) (\s a -> s {status = a} :: ReprocessingSummary)
-{-# DEPRECATED rsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The @reprocessingId@ returned by @StartPipelineReprocessing@ .
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsId :: Lens.Lens' ReprocessingSummary (Lude.Maybe Lude.Text)
-rsId = Lens.lens (id :: ReprocessingSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ReprocessingSummary)
+rsId :: Lens.Lens' ReprocessingSummary (Core.Maybe Types.ReprocessingId)
+rsId = Lens.field @"id"
 {-# DEPRECATED rsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON ReprocessingSummary where
+-- | The status of the pipeline reprocessing.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsStatus :: Lens.Lens' ReprocessingSummary (Core.Maybe Types.ReprocessingStatus)
+rsStatus = Lens.field @"status"
+{-# DEPRECATED rsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON ReprocessingSummary where
   parseJSON =
-    Lude.withObject
-      "ReprocessingSummary"
-      ( \x ->
-          ReprocessingSummary'
-            Lude.<$> (x Lude..:? "creationTime")
-            Lude.<*> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "id")
-      )
+    Core.withObject "ReprocessingSummary" Core.$
+      \x ->
+        ReprocessingSummary'
+          Core.<$> (x Core..:? "creationTime")
+          Core.<*> (x Core..:? "id")
+          Core.<*> (x Core..:? "status")

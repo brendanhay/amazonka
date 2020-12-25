@@ -13,51 +13,56 @@
 module Network.AWS.Discovery.Types.BatchDeleteImportDataErrorCode
   ( BatchDeleteImportDataErrorCode
       ( BatchDeleteImportDataErrorCode',
-        NotFound,
-        InternalServerError,
-        OverLimit
+        BatchDeleteImportDataErrorCodeNotFound,
+        BatchDeleteImportDataErrorCodeInternalServerError,
+        BatchDeleteImportDataErrorCodeOverLimit,
+        fromBatchDeleteImportDataErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BatchDeleteImportDataErrorCode = BatchDeleteImportDataErrorCode' Lude.Text
+newtype BatchDeleteImportDataErrorCode = BatchDeleteImportDataErrorCode'
+  { fromBatchDeleteImportDataErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NotFound :: BatchDeleteImportDataErrorCode
-pattern NotFound = BatchDeleteImportDataErrorCode' "NOT_FOUND"
+pattern BatchDeleteImportDataErrorCodeNotFound :: BatchDeleteImportDataErrorCode
+pattern BatchDeleteImportDataErrorCodeNotFound = BatchDeleteImportDataErrorCode' "NOT_FOUND"
 
-pattern InternalServerError :: BatchDeleteImportDataErrorCode
-pattern InternalServerError = BatchDeleteImportDataErrorCode' "INTERNAL_SERVER_ERROR"
+pattern BatchDeleteImportDataErrorCodeInternalServerError :: BatchDeleteImportDataErrorCode
+pattern BatchDeleteImportDataErrorCodeInternalServerError = BatchDeleteImportDataErrorCode' "INTERNAL_SERVER_ERROR"
 
-pattern OverLimit :: BatchDeleteImportDataErrorCode
-pattern OverLimit = BatchDeleteImportDataErrorCode' "OVER_LIMIT"
+pattern BatchDeleteImportDataErrorCodeOverLimit :: BatchDeleteImportDataErrorCode
+pattern BatchDeleteImportDataErrorCodeOverLimit = BatchDeleteImportDataErrorCode' "OVER_LIMIT"
 
 {-# COMPLETE
-  NotFound,
-  InternalServerError,
-  OverLimit,
+  BatchDeleteImportDataErrorCodeNotFound,
+  BatchDeleteImportDataErrorCodeInternalServerError,
+  BatchDeleteImportDataErrorCodeOverLimit,
   BatchDeleteImportDataErrorCode'
   #-}

@@ -31,11 +31,11 @@ module Network.AWS.Lambda.DeleteFunction
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFunction' smart constructor.
 data DeleteFunction = DeleteFunction'
@@ -53,39 +53,20 @@ data DeleteFunction = DeleteFunction'
     --
     --
     -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-    functionName :: Lude.Text,
+    functionName :: Types.FunctionName,
     -- | Specify a version to delete. You can't delete a version that's referenced by an alias.
-    qualifier :: Lude.Maybe Lude.Text
+    qualifier :: Core.Maybe Types.Qualifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFunction' with the minimum fields required to make a request.
---
--- * 'functionName' - The name of the Lambda function or version.
---
--- __Name formats__
---
---     * __Function name__ - @my-function@ (name-only), @my-function:1@ (with version).
---
---
---     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
---
---
---     * __Partial ARN__ - @123456789012:function:my-function@ .
---
---
--- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'qualifier' - Specify a version to delete. You can't delete a version that's referenced by an alias.
+-- | Creates a 'DeleteFunction' value with any optional fields omitted.
 mkDeleteFunction ::
   -- | 'functionName'
-  Lude.Text ->
+  Types.FunctionName ->
   DeleteFunction
-mkDeleteFunction pFunctionName_ =
-  DeleteFunction'
-    { functionName = pFunctionName_,
-      qualifier = Lude.Nothing
-    }
+mkDeleteFunction functionName =
+  DeleteFunction' {functionName, qualifier = Core.Nothing}
 
 -- | The name of the Lambda function or version.
 --
@@ -103,39 +84,38 @@ mkDeleteFunction pFunctionName_ =
 -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfFunctionName :: Lens.Lens' DeleteFunction Lude.Text
-dfFunctionName = Lens.lens (functionName :: DeleteFunction -> Lude.Text) (\s a -> s {functionName = a} :: DeleteFunction)
+dfFunctionName :: Lens.Lens' DeleteFunction Types.FunctionName
+dfFunctionName = Lens.field @"functionName"
 {-# DEPRECATED dfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | Specify a version to delete. You can't delete a version that's referenced by an alias.
 --
 -- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfQualifier :: Lens.Lens' DeleteFunction (Lude.Maybe Lude.Text)
-dfQualifier = Lens.lens (qualifier :: DeleteFunction -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: DeleteFunction)
+dfQualifier :: Lens.Lens' DeleteFunction (Core.Maybe Types.Qualifier)
+dfQualifier = Lens.field @"qualifier"
 {-# DEPRECATED dfQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
-instance Lude.AWSRequest DeleteFunction where
+instance Core.AWSRequest DeleteFunction where
   type Rs DeleteFunction = DeleteFunctionResponse
-  request = Req.delete lambdaService
-  response = Res.receiveNull DeleteFunctionResponse'
-
-instance Lude.ToHeaders DeleteFunction where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteFunction where
-  toPath DeleteFunction' {..} =
-    Lude.mconcat ["/2015-03-31/functions/", Lude.toBS functionName]
-
-instance Lude.ToQuery DeleteFunction where
-  toQuery DeleteFunction' {..} =
-    Lude.mconcat ["Qualifier" Lude.=: qualifier]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/2015-03-31/functions/" Core.<> (Core.toText functionName)),
+        Core._rqQuery = Core.toQueryValue "Qualifier" Core.<$> qualifier,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteFunctionResponse'
 
 -- | /See:/ 'mkDeleteFunctionResponse' smart constructor.
 data DeleteFunctionResponse = DeleteFunctionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFunctionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteFunctionResponse' value with any optional fields omitted.
 mkDeleteFunctionResponse ::
   DeleteFunctionResponse
 mkDeleteFunctionResponse = DeleteFunctionResponse'

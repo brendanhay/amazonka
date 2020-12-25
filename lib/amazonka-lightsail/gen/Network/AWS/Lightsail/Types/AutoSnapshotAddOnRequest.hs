@@ -22,7 +22,8 @@ module Network.AWS.Lightsail.Types.AutoSnapshotAddOnRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.SnapshotTimeOfDay as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a request to enable or modify the automatic snapshot add-on for an Amazon Lightsail instance or disk.
 --
@@ -54,28 +55,16 @@ newtype AutoSnapshotAddOnRequest = AutoSnapshotAddOnRequest'
     --
     --
     --     * The snapshot will be automatically created between the time specified and up to 45 minutes after.
-    snapshotTimeOfDay :: Lude.Maybe Lude.Text
+    snapshotTimeOfDay :: Core.Maybe Types.SnapshotTimeOfDay
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoSnapshotAddOnRequest' with the minimum fields required to make a request.
---
--- * 'snapshotTimeOfDay' - The daily time when an automatic snapshot will be created.
---
--- Constraints:
---
---     * Must be in @HH:00@ format, and in an hourly increment.
---
---
---     * Specified in Coordinated Universal Time (UTC).
---
---
---     * The snapshot will be automatically created between the time specified and up to 45 minutes after.
+-- | Creates a 'AutoSnapshotAddOnRequest' value with any optional fields omitted.
 mkAutoSnapshotAddOnRequest ::
   AutoSnapshotAddOnRequest
 mkAutoSnapshotAddOnRequest =
-  AutoSnapshotAddOnRequest' {snapshotTimeOfDay = Lude.Nothing}
+  AutoSnapshotAddOnRequest' {snapshotTimeOfDay = Core.Nothing}
 
 -- | The daily time when an automatic snapshot will be created.
 --
@@ -92,13 +81,13 @@ mkAutoSnapshotAddOnRequest =
 --
 --
 -- /Note:/ Consider using 'snapshotTimeOfDay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asaorSnapshotTimeOfDay :: Lens.Lens' AutoSnapshotAddOnRequest (Lude.Maybe Lude.Text)
-asaorSnapshotTimeOfDay = Lens.lens (snapshotTimeOfDay :: AutoSnapshotAddOnRequest -> Lude.Maybe Lude.Text) (\s a -> s {snapshotTimeOfDay = a} :: AutoSnapshotAddOnRequest)
+asaorSnapshotTimeOfDay :: Lens.Lens' AutoSnapshotAddOnRequest (Core.Maybe Types.SnapshotTimeOfDay)
+asaorSnapshotTimeOfDay = Lens.field @"snapshotTimeOfDay"
 {-# DEPRECATED asaorSnapshotTimeOfDay "Use generic-lens or generic-optics with 'snapshotTimeOfDay' instead." #-}
 
-instance Lude.ToJSON AutoSnapshotAddOnRequest where
-  toJSON AutoSnapshotAddOnRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("snapshotTimeOfDay" Lude..=) Lude.<$> snapshotTimeOfDay]
+instance Core.FromJSON AutoSnapshotAddOnRequest where
+  toJSON AutoSnapshotAddOnRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [("snapshotTimeOfDay" Core..=) Core.<$> snapshotTimeOfDay]
       )

@@ -17,125 +17,119 @@ module Network.AWS.Inspector.Types.AssessmentRunFilter
     mkAssessmentRunFilter,
 
     -- * Lenses
-    arfStates,
-    arfNamePattern,
-    arfStartTimeRange,
-    arfStateChangeTimeRange,
-    arfRulesPackageARNs,
     arfCompletionTimeRange,
     arfDurationRange,
+    arfNamePattern,
+    arfRulesPackageArns,
+    arfStartTimeRange,
+    arfStateChangeTimeRange,
+    arfStates,
   )
 where
 
-import Network.AWS.Inspector.Types.AssessmentRunState
-import Network.AWS.Inspector.Types.DurationRange
-import Network.AWS.Inspector.Types.TimestampRange
+import qualified Network.AWS.Inspector.Types.Arn as Types
+import qualified Network.AWS.Inspector.Types.AssessmentRunState as Types
+import qualified Network.AWS.Inspector.Types.DurationRange as Types
+import qualified Network.AWS.Inspector.Types.NamePattern as Types
+import qualified Network.AWS.Inspector.Types.TimestampRange as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Used as the request parameter in the 'ListAssessmentRuns' action.
 --
 -- /See:/ 'mkAssessmentRunFilter' smart constructor.
 data AssessmentRunFilter = AssessmentRunFilter'
-  { -- | For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the 'AssessmentRun' data type.
-    states :: Lude.Maybe [AssessmentRunState],
-    -- | For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the __assessmentRunName__ property of the 'AssessmentRun' data type.
-    namePattern :: Lude.Maybe Lude.Text,
-    -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __startTime__ property of the 'AssessmentRun' data type.
-    startTimeRange :: Lude.Maybe TimestampRange,
-    -- | For a record to match a filter, the value that is specified for this data type property must match the __stateChangedAt__ property of the 'AssessmentRun' data type.
-    stateChangeTimeRange :: Lude.Maybe TimestampRange,
-    -- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the 'AssessmentRun' data type.
-    rulesPackageARNs :: Lude.Maybe [Lude.Text],
-    -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __completedAt__ property of the 'AssessmentRun' data type.
-    completionTimeRange :: Lude.Maybe TimestampRange,
+  { -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __completedAt__ property of the 'AssessmentRun' data type.
+    completionTimeRange :: Core.Maybe Types.TimestampRange,
     -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentRun' data type.
-    durationRange :: Lude.Maybe DurationRange
+    durationRange :: Core.Maybe Types.DurationRange,
+    -- | For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the __assessmentRunName__ property of the 'AssessmentRun' data type.
+    namePattern :: Core.Maybe Types.NamePattern,
+    -- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the 'AssessmentRun' data type.
+    rulesPackageArns :: Core.Maybe [Types.Arn],
+    -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __startTime__ property of the 'AssessmentRun' data type.
+    startTimeRange :: Core.Maybe Types.TimestampRange,
+    -- | For a record to match a filter, the value that is specified for this data type property must match the __stateChangedAt__ property of the 'AssessmentRun' data type.
+    stateChangeTimeRange :: Core.Maybe Types.TimestampRange,
+    -- | For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the 'AssessmentRun' data type.
+    states :: Core.Maybe [Types.AssessmentRunState]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AssessmentRunFilter' with the minimum fields required to make a request.
---
--- * 'states' - For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the 'AssessmentRun' data type.
--- * 'namePattern' - For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the __assessmentRunName__ property of the 'AssessmentRun' data type.
--- * 'startTimeRange' - For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __startTime__ property of the 'AssessmentRun' data type.
--- * 'stateChangeTimeRange' - For a record to match a filter, the value that is specified for this data type property must match the __stateChangedAt__ property of the 'AssessmentRun' data type.
--- * 'rulesPackageARNs' - For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the 'AssessmentRun' data type.
--- * 'completionTimeRange' - For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __completedAt__ property of the 'AssessmentRun' data type.
--- * 'durationRange' - For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentRun' data type.
+-- | Creates a 'AssessmentRunFilter' value with any optional fields omitted.
 mkAssessmentRunFilter ::
   AssessmentRunFilter
 mkAssessmentRunFilter =
   AssessmentRunFilter'
-    { states = Lude.Nothing,
-      namePattern = Lude.Nothing,
-      startTimeRange = Lude.Nothing,
-      stateChangeTimeRange = Lude.Nothing,
-      rulesPackageARNs = Lude.Nothing,
-      completionTimeRange = Lude.Nothing,
-      durationRange = Lude.Nothing
+    { completionTimeRange = Core.Nothing,
+      durationRange = Core.Nothing,
+      namePattern = Core.Nothing,
+      rulesPackageArns = Core.Nothing,
+      startTimeRange = Core.Nothing,
+      stateChangeTimeRange = Core.Nothing,
+      states = Core.Nothing
     }
-
--- | For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the 'AssessmentRun' data type.
---
--- /Note:/ Consider using 'states' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arfStates :: Lens.Lens' AssessmentRunFilter (Lude.Maybe [AssessmentRunState])
-arfStates = Lens.lens (states :: AssessmentRunFilter -> Lude.Maybe [AssessmentRunState]) (\s a -> s {states = a} :: AssessmentRunFilter)
-{-# DEPRECATED arfStates "Use generic-lens or generic-optics with 'states' instead." #-}
-
--- | For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the __assessmentRunName__ property of the 'AssessmentRun' data type.
---
--- /Note:/ Consider using 'namePattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arfNamePattern :: Lens.Lens' AssessmentRunFilter (Lude.Maybe Lude.Text)
-arfNamePattern = Lens.lens (namePattern :: AssessmentRunFilter -> Lude.Maybe Lude.Text) (\s a -> s {namePattern = a} :: AssessmentRunFilter)
-{-# DEPRECATED arfNamePattern "Use generic-lens or generic-optics with 'namePattern' instead." #-}
-
--- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __startTime__ property of the 'AssessmentRun' data type.
---
--- /Note:/ Consider using 'startTimeRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arfStartTimeRange :: Lens.Lens' AssessmentRunFilter (Lude.Maybe TimestampRange)
-arfStartTimeRange = Lens.lens (startTimeRange :: AssessmentRunFilter -> Lude.Maybe TimestampRange) (\s a -> s {startTimeRange = a} :: AssessmentRunFilter)
-{-# DEPRECATED arfStartTimeRange "Use generic-lens or generic-optics with 'startTimeRange' instead." #-}
-
--- | For a record to match a filter, the value that is specified for this data type property must match the __stateChangedAt__ property of the 'AssessmentRun' data type.
---
--- /Note:/ Consider using 'stateChangeTimeRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arfStateChangeTimeRange :: Lens.Lens' AssessmentRunFilter (Lude.Maybe TimestampRange)
-arfStateChangeTimeRange = Lens.lens (stateChangeTimeRange :: AssessmentRunFilter -> Lude.Maybe TimestampRange) (\s a -> s {stateChangeTimeRange = a} :: AssessmentRunFilter)
-{-# DEPRECATED arfStateChangeTimeRange "Use generic-lens or generic-optics with 'stateChangeTimeRange' instead." #-}
-
--- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the 'AssessmentRun' data type.
---
--- /Note:/ Consider using 'rulesPackageARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arfRulesPackageARNs :: Lens.Lens' AssessmentRunFilter (Lude.Maybe [Lude.Text])
-arfRulesPackageARNs = Lens.lens (rulesPackageARNs :: AssessmentRunFilter -> Lude.Maybe [Lude.Text]) (\s a -> s {rulesPackageARNs = a} :: AssessmentRunFilter)
-{-# DEPRECATED arfRulesPackageARNs "Use generic-lens or generic-optics with 'rulesPackageARNs' instead." #-}
 
 -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __completedAt__ property of the 'AssessmentRun' data type.
 --
 -- /Note:/ Consider using 'completionTimeRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arfCompletionTimeRange :: Lens.Lens' AssessmentRunFilter (Lude.Maybe TimestampRange)
-arfCompletionTimeRange = Lens.lens (completionTimeRange :: AssessmentRunFilter -> Lude.Maybe TimestampRange) (\s a -> s {completionTimeRange = a} :: AssessmentRunFilter)
+arfCompletionTimeRange :: Lens.Lens' AssessmentRunFilter (Core.Maybe Types.TimestampRange)
+arfCompletionTimeRange = Lens.field @"completionTimeRange"
 {-# DEPRECATED arfCompletionTimeRange "Use generic-lens or generic-optics with 'completionTimeRange' instead." #-}
 
 -- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __durationInSeconds__ property of the 'AssessmentRun' data type.
 --
 -- /Note:/ Consider using 'durationRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arfDurationRange :: Lens.Lens' AssessmentRunFilter (Lude.Maybe DurationRange)
-arfDurationRange = Lens.lens (durationRange :: AssessmentRunFilter -> Lude.Maybe DurationRange) (\s a -> s {durationRange = a} :: AssessmentRunFilter)
+arfDurationRange :: Lens.Lens' AssessmentRunFilter (Core.Maybe Types.DurationRange)
+arfDurationRange = Lens.field @"durationRange"
 {-# DEPRECATED arfDurationRange "Use generic-lens or generic-optics with 'durationRange' instead." #-}
 
-instance Lude.ToJSON AssessmentRunFilter where
-  toJSON AssessmentRunFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("states" Lude..=) Lude.<$> states,
-            ("namePattern" Lude..=) Lude.<$> namePattern,
-            ("startTimeRange" Lude..=) Lude.<$> startTimeRange,
-            ("stateChangeTimeRange" Lude..=) Lude.<$> stateChangeTimeRange,
-            ("rulesPackageArns" Lude..=) Lude.<$> rulesPackageARNs,
-            ("completionTimeRange" Lude..=) Lude.<$> completionTimeRange,
-            ("durationRange" Lude..=) Lude.<$> durationRange
+-- | For a record to match a filter, an explicit value or a string containing a wildcard that is specified for this data type property must match the value of the __assessmentRunName__ property of the 'AssessmentRun' data type.
+--
+-- /Note:/ Consider using 'namePattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arfNamePattern :: Lens.Lens' AssessmentRunFilter (Core.Maybe Types.NamePattern)
+arfNamePattern = Lens.field @"namePattern"
+{-# DEPRECATED arfNamePattern "Use generic-lens or generic-optics with 'namePattern' instead." #-}
+
+-- | For a record to match a filter, the value that is specified for this data type property must be contained in the list of values of the __rulesPackages__ property of the 'AssessmentRun' data type.
+--
+-- /Note:/ Consider using 'rulesPackageArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arfRulesPackageArns :: Lens.Lens' AssessmentRunFilter (Core.Maybe [Types.Arn])
+arfRulesPackageArns = Lens.field @"rulesPackageArns"
+{-# DEPRECATED arfRulesPackageArns "Use generic-lens or generic-optics with 'rulesPackageArns' instead." #-}
+
+-- | For a record to match a filter, the value that is specified for this data type property must inclusively match any value between the specified minimum and maximum values of the __startTime__ property of the 'AssessmentRun' data type.
+--
+-- /Note:/ Consider using 'startTimeRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arfStartTimeRange :: Lens.Lens' AssessmentRunFilter (Core.Maybe Types.TimestampRange)
+arfStartTimeRange = Lens.field @"startTimeRange"
+{-# DEPRECATED arfStartTimeRange "Use generic-lens or generic-optics with 'startTimeRange' instead." #-}
+
+-- | For a record to match a filter, the value that is specified for this data type property must match the __stateChangedAt__ property of the 'AssessmentRun' data type.
+--
+-- /Note:/ Consider using 'stateChangeTimeRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arfStateChangeTimeRange :: Lens.Lens' AssessmentRunFilter (Core.Maybe Types.TimestampRange)
+arfStateChangeTimeRange = Lens.field @"stateChangeTimeRange"
+{-# DEPRECATED arfStateChangeTimeRange "Use generic-lens or generic-optics with 'stateChangeTimeRange' instead." #-}
+
+-- | For a record to match a filter, one of the values specified for this data type property must be the exact match of the value of the __assessmentRunState__ property of the 'AssessmentRun' data type.
+--
+-- /Note:/ Consider using 'states' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arfStates :: Lens.Lens' AssessmentRunFilter (Core.Maybe [Types.AssessmentRunState])
+arfStates = Lens.field @"states"
+{-# DEPRECATED arfStates "Use generic-lens or generic-optics with 'states' instead." #-}
+
+instance Core.FromJSON AssessmentRunFilter where
+  toJSON AssessmentRunFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("completionTimeRange" Core..=) Core.<$> completionTimeRange,
+            ("durationRange" Core..=) Core.<$> durationRange,
+            ("namePattern" Core..=) Core.<$> namePattern,
+            ("rulesPackageArns" Core..=) Core.<$> rulesPackageArns,
+            ("startTimeRange" Core..=) Core.<$> startTimeRange,
+            ("stateChangeTimeRange" Core..=) Core.<$> stateChangeTimeRange,
+            ("states" Core..=) Core.<$> states
           ]
       )

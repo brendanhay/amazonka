@@ -32,139 +32,140 @@ module Network.AWS.CloudWatch.ListDashboards
     mkListDashboardsResponse,
 
     -- ** Response lenses
-    ldrsDashboardEntries,
-    ldrsNextToken,
-    ldrsResponseStatus,
+    ldrrsDashboardEntries,
+    ldrrsNextToken,
+    ldrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDashboards' smart constructor.
 data ListDashboards = ListDashboards'
   { -- | If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, ".", "-", and "_".
-    dashboardNamePrefix :: Lude.Maybe Lude.Text,
+    dashboardNamePrefix :: Core.Maybe Types.DashboardNamePrefix,
     -- | The token returned by a previous call to indicate that there is more data available.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDashboards' with the minimum fields required to make a request.
---
--- * 'dashboardNamePrefix' - If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, ".", "-", and "_".
--- * 'nextToken' - The token returned by a previous call to indicate that there is more data available.
+-- | Creates a 'ListDashboards' value with any optional fields omitted.
 mkListDashboards ::
   ListDashboards
 mkListDashboards =
   ListDashboards'
-    { dashboardNamePrefix = Lude.Nothing,
-      nextToken = Lude.Nothing
+    { dashboardNamePrefix = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, ".", "-", and "_".
 --
 -- /Note:/ Consider using 'dashboardNamePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldDashboardNamePrefix :: Lens.Lens' ListDashboards (Lude.Maybe Lude.Text)
-ldDashboardNamePrefix = Lens.lens (dashboardNamePrefix :: ListDashboards -> Lude.Maybe Lude.Text) (\s a -> s {dashboardNamePrefix = a} :: ListDashboards)
+ldDashboardNamePrefix :: Lens.Lens' ListDashboards (Core.Maybe Types.DashboardNamePrefix)
+ldDashboardNamePrefix = Lens.field @"dashboardNamePrefix"
 {-# DEPRECATED ldDashboardNamePrefix "Use generic-lens or generic-optics with 'dashboardNamePrefix' instead." #-}
 
 -- | The token returned by a previous call to indicate that there is more data available.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldNextToken :: Lens.Lens' ListDashboards (Lude.Maybe Lude.Text)
-ldNextToken = Lens.lens (nextToken :: ListDashboards -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDashboards)
+ldNextToken :: Lens.Lens' ListDashboards (Core.Maybe Types.NextToken)
+ldNextToken = Lens.field @"nextToken"
 {-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager ListDashboards where
-  page rq rs
-    | Page.stop (rs Lens.^. ldrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ldrsDashboardEntries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ldNextToken Lens..~ rs Lens.^. ldrsNextToken
-
-instance Lude.AWSRequest ListDashboards where
+instance Core.AWSRequest ListDashboards where
   type Rs ListDashboards = ListDashboardsResponse
-  request = Req.postQuery cloudWatchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListDashboards")
+                Core.<> (Core.pure ("Version", "2010-08-01"))
+                Core.<> ( Core.toQueryValue "DashboardNamePrefix"
+                            Core.<$> dashboardNamePrefix
+                        )
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListDashboardsResult"
       ( \s h x ->
           ListDashboardsResponse'
-            Lude.<$> ( x Lude..@? "DashboardEntries" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "DashboardEntries"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListDashboards where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListDashboards where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListDashboards where
-  toQuery ListDashboards' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ListDashboards" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
-        "DashboardNamePrefix" Lude.=: dashboardNamePrefix,
-        "NextToken" Lude.=: nextToken
-      ]
+instance Pager.AWSPager ListDashboards where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"dashboardEntries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListDashboardsResponse' smart constructor.
 data ListDashboardsResponse = ListDashboardsResponse'
   { -- | The list of matching dashboards.
-    dashboardEntries :: Lude.Maybe [DashboardEntry],
+    dashboardEntries :: Core.Maybe [Types.DashboardEntry],
     -- | The token that marks the start of the next batch of returned results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListDashboardsResponse' with the minimum fields required to make a request.
---
--- * 'dashboardEntries' - The list of matching dashboards.
--- * 'nextToken' - The token that marks the start of the next batch of returned results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDashboardsResponse' value with any optional fields omitted.
 mkListDashboardsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDashboardsResponse
-mkListDashboardsResponse pResponseStatus_ =
+mkListDashboardsResponse responseStatus =
   ListDashboardsResponse'
-    { dashboardEntries = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dashboardEntries = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of matching dashboards.
 --
 -- /Note:/ Consider using 'dashboardEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsDashboardEntries :: Lens.Lens' ListDashboardsResponse (Lude.Maybe [DashboardEntry])
-ldrsDashboardEntries = Lens.lens (dashboardEntries :: ListDashboardsResponse -> Lude.Maybe [DashboardEntry]) (\s a -> s {dashboardEntries = a} :: ListDashboardsResponse)
-{-# DEPRECATED ldrsDashboardEntries "Use generic-lens or generic-optics with 'dashboardEntries' instead." #-}
+ldrrsDashboardEntries :: Lens.Lens' ListDashboardsResponse (Core.Maybe [Types.DashboardEntry])
+ldrrsDashboardEntries = Lens.field @"dashboardEntries"
+{-# DEPRECATED ldrrsDashboardEntries "Use generic-lens or generic-optics with 'dashboardEntries' instead." #-}
 
 -- | The token that marks the start of the next batch of returned results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsNextToken :: Lens.Lens' ListDashboardsResponse (Lude.Maybe Lude.Text)
-ldrsNextToken = Lens.lens (nextToken :: ListDashboardsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDashboardsResponse)
-{-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ldrrsNextToken :: Lens.Lens' ListDashboardsResponse (Core.Maybe Types.NextToken)
+ldrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsResponseStatus :: Lens.Lens' ListDashboardsResponse Lude.Int
-ldrsResponseStatus = Lens.lens (responseStatus :: ListDashboardsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDashboardsResponse)
-{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldrrsResponseStatus :: Lens.Lens' ListDashboardsResponse Core.Int
+ldrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

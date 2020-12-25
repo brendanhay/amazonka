@@ -22,46 +22,44 @@ module Network.AWS.EC2.Types.SubnetAssociation
   )
 where
 
-import Network.AWS.EC2.Types.TransitGatewayMulitcastDomainAssociationState
+import qualified Network.AWS.EC2.Types.SubnetId as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayMulitcastDomainAssociationState as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the subnet association with the transit gateway multicast domain.
 --
 -- /See:/ 'mkSubnetAssociation' smart constructor.
 data SubnetAssociation = SubnetAssociation'
   { -- | The state of the subnet association.
-    state :: Lude.Maybe TransitGatewayMulitcastDomainAssociationState,
+    state :: Core.Maybe Types.TransitGatewayMulitcastDomainAssociationState,
     -- | The ID of the subnet.
-    subnetId :: Lude.Maybe Lude.Text
+    subnetId :: Core.Maybe Types.SubnetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SubnetAssociation' with the minimum fields required to make a request.
---
--- * 'state' - The state of the subnet association.
--- * 'subnetId' - The ID of the subnet.
+-- | Creates a 'SubnetAssociation' value with any optional fields omitted.
 mkSubnetAssociation ::
   SubnetAssociation
 mkSubnetAssociation =
-  SubnetAssociation' {state = Lude.Nothing, subnetId = Lude.Nothing}
+  SubnetAssociation' {state = Core.Nothing, subnetId = Core.Nothing}
 
 -- | The state of the subnet association.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saState :: Lens.Lens' SubnetAssociation (Lude.Maybe TransitGatewayMulitcastDomainAssociationState)
-saState = Lens.lens (state :: SubnetAssociation -> Lude.Maybe TransitGatewayMulitcastDomainAssociationState) (\s a -> s {state = a} :: SubnetAssociation)
+saState :: Lens.Lens' SubnetAssociation (Core.Maybe Types.TransitGatewayMulitcastDomainAssociationState)
+saState = Lens.field @"state"
 {-# DEPRECATED saState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ID of the subnet.
 --
 -- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saSubnetId :: Lens.Lens' SubnetAssociation (Lude.Maybe Lude.Text)
-saSubnetId = Lens.lens (subnetId :: SubnetAssociation -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: SubnetAssociation)
+saSubnetId :: Lens.Lens' SubnetAssociation (Core.Maybe Types.SubnetId)
+saSubnetId = Lens.field @"subnetId"
 {-# DEPRECATED saSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
-instance Lude.FromXML SubnetAssociation where
+instance Core.FromXML SubnetAssociation where
   parseXML x =
     SubnetAssociation'
-      Lude.<$> (x Lude..@? "state") Lude.<*> (x Lude..@? "subnetId")
+      Core.<$> (x Core..@? "state") Core.<*> (x Core..@? "subnetId")

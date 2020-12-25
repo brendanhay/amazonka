@@ -13,66 +13,71 @@
 module Network.AWS.CostExplorer.Types.NumericOperator
   ( NumericOperator
       ( NumericOperator',
-        Equal,
-        GreaterThanOrEqual,
-        LessThanOrEqual,
-        GreaterThan,
-        LessThan,
-        Between
+        NumericOperatorEqual,
+        NumericOperatorGreaterThanOrEqual,
+        NumericOperatorLessThanOrEqual,
+        NumericOperatorGreaterThan,
+        NumericOperatorLessThan,
+        NumericOperatorBetween,
+        fromNumericOperator
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype NumericOperator = NumericOperator' Lude.Text
+newtype NumericOperator = NumericOperator'
+  { fromNumericOperator ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Equal :: NumericOperator
-pattern Equal = NumericOperator' "EQUAL"
+pattern NumericOperatorEqual :: NumericOperator
+pattern NumericOperatorEqual = NumericOperator' "EQUAL"
 
-pattern GreaterThanOrEqual :: NumericOperator
-pattern GreaterThanOrEqual = NumericOperator' "GREATER_THAN_OR_EQUAL"
+pattern NumericOperatorGreaterThanOrEqual :: NumericOperator
+pattern NumericOperatorGreaterThanOrEqual = NumericOperator' "GREATER_THAN_OR_EQUAL"
 
-pattern LessThanOrEqual :: NumericOperator
-pattern LessThanOrEqual = NumericOperator' "LESS_THAN_OR_EQUAL"
+pattern NumericOperatorLessThanOrEqual :: NumericOperator
+pattern NumericOperatorLessThanOrEqual = NumericOperator' "LESS_THAN_OR_EQUAL"
 
-pattern GreaterThan :: NumericOperator
-pattern GreaterThan = NumericOperator' "GREATER_THAN"
+pattern NumericOperatorGreaterThan :: NumericOperator
+pattern NumericOperatorGreaterThan = NumericOperator' "GREATER_THAN"
 
-pattern LessThan :: NumericOperator
-pattern LessThan = NumericOperator' "LESS_THAN"
+pattern NumericOperatorLessThan :: NumericOperator
+pattern NumericOperatorLessThan = NumericOperator' "LESS_THAN"
 
-pattern Between :: NumericOperator
-pattern Between = NumericOperator' "BETWEEN"
+pattern NumericOperatorBetween :: NumericOperator
+pattern NumericOperatorBetween = NumericOperator' "BETWEEN"
 
 {-# COMPLETE
-  Equal,
-  GreaterThanOrEqual,
-  LessThanOrEqual,
-  GreaterThan,
-  LessThan,
-  Between,
+  NumericOperatorEqual,
+  NumericOperatorGreaterThanOrEqual,
+  NumericOperatorLessThanOrEqual,
+  NumericOperatorGreaterThan,
+  NumericOperatorLessThan,
+  NumericOperatorBetween,
   NumericOperator'
   #-}

@@ -30,114 +30,102 @@ module Network.AWS.Kinesis.DescribeStreamSummary
     mkDescribeStreamSummaryResponse,
 
     -- ** Response lenses
-    dssrsStreamDescriptionSummary,
-    dssrsResponseStatus,
+    dssrrsStreamDescriptionSummary,
+    dssrrsResponseStatus,
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeStreamSummary' smart constructor.
 newtype DescribeStreamSummary = DescribeStreamSummary'
   { -- | The name of the stream to describe.
-    streamName :: Lude.Text
+    streamName :: Types.StreamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeStreamSummary' with the minimum fields required to make a request.
---
--- * 'streamName' - The name of the stream to describe.
+-- | Creates a 'DescribeStreamSummary' value with any optional fields omitted.
 mkDescribeStreamSummary ::
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
   DescribeStreamSummary
-mkDescribeStreamSummary pStreamName_ =
-  DescribeStreamSummary' {streamName = pStreamName_}
+mkDescribeStreamSummary streamName =
+  DescribeStreamSummary' {streamName}
 
 -- | The name of the stream to describe.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssStreamName :: Lens.Lens' DescribeStreamSummary Lude.Text
-dssStreamName = Lens.lens (streamName :: DescribeStreamSummary -> Lude.Text) (\s a -> s {streamName = a} :: DescribeStreamSummary)
+dssStreamName :: Lens.Lens' DescribeStreamSummary Types.StreamName
+dssStreamName = Lens.field @"streamName"
 {-# DEPRECATED dssStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Lude.AWSRequest DescribeStreamSummary where
+instance Core.FromJSON DescribeStreamSummary where
+  toJSON DescribeStreamSummary {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("StreamName" Core..= streamName)])
+
+instance Core.AWSRequest DescribeStreamSummary where
   type Rs DescribeStreamSummary = DescribeStreamSummaryResponse
-  request = Req.postJSON kinesisService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Kinesis_20131202.DescribeStreamSummary")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeStreamSummaryResponse'
-            Lude.<$> (x Lude..:> "StreamDescriptionSummary")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "StreamDescriptionSummary")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeStreamSummary where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.DescribeStreamSummary" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeStreamSummary where
-  toJSON DescribeStreamSummary' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("StreamName" Lude..= streamName)])
-
-instance Lude.ToPath DescribeStreamSummary where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeStreamSummary where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeStreamSummaryResponse' smart constructor.
 data DescribeStreamSummaryResponse = DescribeStreamSummaryResponse'
   { -- | A 'StreamDescriptionSummary' containing information about the stream.
-    streamDescriptionSummary :: StreamDescriptionSummary,
+    streamDescriptionSummary :: Types.StreamDescriptionSummary,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeStreamSummaryResponse' with the minimum fields required to make a request.
---
--- * 'streamDescriptionSummary' - A 'StreamDescriptionSummary' containing information about the stream.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeStreamSummaryResponse' value with any optional fields omitted.
 mkDescribeStreamSummaryResponse ::
   -- | 'streamDescriptionSummary'
-  StreamDescriptionSummary ->
+  Types.StreamDescriptionSummary ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeStreamSummaryResponse
 mkDescribeStreamSummaryResponse
-  pStreamDescriptionSummary_
-  pResponseStatus_ =
+  streamDescriptionSummary
+  responseStatus =
     DescribeStreamSummaryResponse'
-      { streamDescriptionSummary =
-          pStreamDescriptionSummary_,
-        responseStatus = pResponseStatus_
+      { streamDescriptionSummary,
+        responseStatus
       }
 
 -- | A 'StreamDescriptionSummary' containing information about the stream.
 --
 -- /Note:/ Consider using 'streamDescriptionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssrsStreamDescriptionSummary :: Lens.Lens' DescribeStreamSummaryResponse StreamDescriptionSummary
-dssrsStreamDescriptionSummary = Lens.lens (streamDescriptionSummary :: DescribeStreamSummaryResponse -> StreamDescriptionSummary) (\s a -> s {streamDescriptionSummary = a} :: DescribeStreamSummaryResponse)
-{-# DEPRECATED dssrsStreamDescriptionSummary "Use generic-lens or generic-optics with 'streamDescriptionSummary' instead." #-}
+dssrrsStreamDescriptionSummary :: Lens.Lens' DescribeStreamSummaryResponse Types.StreamDescriptionSummary
+dssrrsStreamDescriptionSummary = Lens.field @"streamDescriptionSummary"
+{-# DEPRECATED dssrrsStreamDescriptionSummary "Use generic-lens or generic-optics with 'streamDescriptionSummary' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssrsResponseStatus :: Lens.Lens' DescribeStreamSummaryResponse Lude.Int
-dssrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamSummaryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamSummaryResponse)
-{-# DEPRECATED dssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dssrrsResponseStatus :: Lens.Lens' DescribeStreamSummaryResponse Core.Int
+dssrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

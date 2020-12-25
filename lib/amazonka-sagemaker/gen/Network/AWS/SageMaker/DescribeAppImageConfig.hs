@@ -27,166 +27,147 @@ module Network.AWS.SageMaker.DescribeAppImageConfig
     mkDescribeAppImageConfigResponse,
 
     -- ** Response lenses
-    daicrsCreationTime,
-    daicrsAppImageConfigName,
-    daicrsLastModifiedTime,
-    daicrsKernelGatewayImageConfig,
-    daicrsAppImageConfigARN,
-    daicrsResponseStatus,
+    daicrrsAppImageConfigArn,
+    daicrrsAppImageConfigName,
+    daicrrsCreationTime,
+    daicrrsKernelGatewayImageConfig,
+    daicrrsLastModifiedTime,
+    daicrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDescribeAppImageConfig' smart constructor.
 newtype DescribeAppImageConfig = DescribeAppImageConfig'
   { -- | The name of the AppImageConfig to describe.
-    appImageConfigName :: Lude.Text
+    appImageConfigName :: Types.AppImageConfigName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAppImageConfig' with the minimum fields required to make a request.
---
--- * 'appImageConfigName' - The name of the AppImageConfig to describe.
+-- | Creates a 'DescribeAppImageConfig' value with any optional fields omitted.
 mkDescribeAppImageConfig ::
   -- | 'appImageConfigName'
-  Lude.Text ->
+  Types.AppImageConfigName ->
   DescribeAppImageConfig
-mkDescribeAppImageConfig pAppImageConfigName_ =
-  DescribeAppImageConfig'
-    { appImageConfigName =
-        pAppImageConfigName_
-    }
+mkDescribeAppImageConfig appImageConfigName =
+  DescribeAppImageConfig' {appImageConfigName}
 
 -- | The name of the AppImageConfig to describe.
 --
 -- /Note:/ Consider using 'appImageConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAppImageConfigName :: Lens.Lens' DescribeAppImageConfig Lude.Text
-dAppImageConfigName = Lens.lens (appImageConfigName :: DescribeAppImageConfig -> Lude.Text) (\s a -> s {appImageConfigName = a} :: DescribeAppImageConfig)
+dAppImageConfigName :: Lens.Lens' DescribeAppImageConfig Types.AppImageConfigName
+dAppImageConfigName = Lens.field @"appImageConfigName"
 {-# DEPRECATED dAppImageConfigName "Use generic-lens or generic-optics with 'appImageConfigName' instead." #-}
 
-instance Lude.AWSRequest DescribeAppImageConfig where
+instance Core.FromJSON DescribeAppImageConfig where
+  toJSON DescribeAppImageConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("AppImageConfigName" Core..= appImageConfigName)]
+      )
+
+instance Core.AWSRequest DescribeAppImageConfig where
   type Rs DescribeAppImageConfig = DescribeAppImageConfigResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DescribeAppImageConfig")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAppImageConfigResponse'
-            Lude.<$> (x Lude..?> "CreationTime")
-            Lude.<*> (x Lude..?> "AppImageConfigName")
-            Lude.<*> (x Lude..?> "LastModifiedTime")
-            Lude.<*> (x Lude..?> "KernelGatewayImageConfig")
-            Lude.<*> (x Lude..?> "AppImageConfigArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AppImageConfigArn")
+            Core.<*> (x Core..:? "AppImageConfigName")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "KernelGatewayImageConfig")
+            Core.<*> (x Core..:? "LastModifiedTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAppImageConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DescribeAppImageConfig" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeAppImageConfig where
-  toJSON DescribeAppImageConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("AppImageConfigName" Lude..= appImageConfigName)]
-      )
-
-instance Lude.ToPath DescribeAppImageConfig where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAppImageConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeAppImageConfigResponse' smart constructor.
 data DescribeAppImageConfigResponse = DescribeAppImageConfigResponse'
-  { -- | When the AppImageConfig was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The Amazon Resource Name (ARN) of the AppImageConfig.
+    appImageConfigArn :: Core.Maybe Types.AppImageConfigArn,
     -- | The name of the AppImageConfig.
-    appImageConfigName :: Lude.Maybe Lude.Text,
-    -- | When the AppImageConfig was last modified.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
+    appImageConfigName :: Core.Maybe Types.AppImageConfigName,
+    -- | When the AppImageConfig was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The configuration of a KernelGateway app.
-    kernelGatewayImageConfig :: Lude.Maybe KernelGatewayImageConfig,
-    -- | The Amazon Resource Name (ARN) of the AppImageConfig.
-    appImageConfigARN :: Lude.Maybe Lude.Text,
+    kernelGatewayImageConfig :: Core.Maybe Types.KernelGatewayImageConfig,
+    -- | When the AppImageConfig was last modified.
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAppImageConfigResponse' with the minimum fields required to make a request.
---
--- * 'creationTime' - When the AppImageConfig was created.
--- * 'appImageConfigName' - The name of the AppImageConfig.
--- * 'lastModifiedTime' - When the AppImageConfig was last modified.
--- * 'kernelGatewayImageConfig' - The configuration of a KernelGateway app.
--- * 'appImageConfigARN' - The Amazon Resource Name (ARN) of the AppImageConfig.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAppImageConfigResponse' value with any optional fields omitted.
 mkDescribeAppImageConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAppImageConfigResponse
-mkDescribeAppImageConfigResponse pResponseStatus_ =
+mkDescribeAppImageConfigResponse responseStatus =
   DescribeAppImageConfigResponse'
-    { creationTime = Lude.Nothing,
-      appImageConfigName = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      kernelGatewayImageConfig = Lude.Nothing,
-      appImageConfigARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { appImageConfigArn = Core.Nothing,
+      appImageConfigName = Core.Nothing,
+      creationTime = Core.Nothing,
+      kernelGatewayImageConfig = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      responseStatus
     }
 
--- | When the AppImageConfig was created.
+-- | The Amazon Resource Name (ARN) of the AppImageConfig.
 --
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daicrsCreationTime :: Lens.Lens' DescribeAppImageConfigResponse (Lude.Maybe Lude.Timestamp)
-daicrsCreationTime = Lens.lens (creationTime :: DescribeAppImageConfigResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeAppImageConfigResponse)
-{-# DEPRECATED daicrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+-- /Note:/ Consider using 'appImageConfigArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daicrrsAppImageConfigArn :: Lens.Lens' DescribeAppImageConfigResponse (Core.Maybe Types.AppImageConfigArn)
+daicrrsAppImageConfigArn = Lens.field @"appImageConfigArn"
+{-# DEPRECATED daicrrsAppImageConfigArn "Use generic-lens or generic-optics with 'appImageConfigArn' instead." #-}
 
 -- | The name of the AppImageConfig.
 --
 -- /Note:/ Consider using 'appImageConfigName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daicrsAppImageConfigName :: Lens.Lens' DescribeAppImageConfigResponse (Lude.Maybe Lude.Text)
-daicrsAppImageConfigName = Lens.lens (appImageConfigName :: DescribeAppImageConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {appImageConfigName = a} :: DescribeAppImageConfigResponse)
-{-# DEPRECATED daicrsAppImageConfigName "Use generic-lens or generic-optics with 'appImageConfigName' instead." #-}
+daicrrsAppImageConfigName :: Lens.Lens' DescribeAppImageConfigResponse (Core.Maybe Types.AppImageConfigName)
+daicrrsAppImageConfigName = Lens.field @"appImageConfigName"
+{-# DEPRECATED daicrrsAppImageConfigName "Use generic-lens or generic-optics with 'appImageConfigName' instead." #-}
 
--- | When the AppImageConfig was last modified.
+-- | When the AppImageConfig was created.
 --
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daicrsLastModifiedTime :: Lens.Lens' DescribeAppImageConfigResponse (Lude.Maybe Lude.Timestamp)
-daicrsLastModifiedTime = Lens.lens (lastModifiedTime :: DescribeAppImageConfigResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: DescribeAppImageConfigResponse)
-{-# DEPRECATED daicrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daicrrsCreationTime :: Lens.Lens' DescribeAppImageConfigResponse (Core.Maybe Core.NominalDiffTime)
+daicrrsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED daicrrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The configuration of a KernelGateway app.
 --
 -- /Note:/ Consider using 'kernelGatewayImageConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daicrsKernelGatewayImageConfig :: Lens.Lens' DescribeAppImageConfigResponse (Lude.Maybe KernelGatewayImageConfig)
-daicrsKernelGatewayImageConfig = Lens.lens (kernelGatewayImageConfig :: DescribeAppImageConfigResponse -> Lude.Maybe KernelGatewayImageConfig) (\s a -> s {kernelGatewayImageConfig = a} :: DescribeAppImageConfigResponse)
-{-# DEPRECATED daicrsKernelGatewayImageConfig "Use generic-lens or generic-optics with 'kernelGatewayImageConfig' instead." #-}
+daicrrsKernelGatewayImageConfig :: Lens.Lens' DescribeAppImageConfigResponse (Core.Maybe Types.KernelGatewayImageConfig)
+daicrrsKernelGatewayImageConfig = Lens.field @"kernelGatewayImageConfig"
+{-# DEPRECATED daicrrsKernelGatewayImageConfig "Use generic-lens or generic-optics with 'kernelGatewayImageConfig' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the AppImageConfig.
+-- | When the AppImageConfig was last modified.
 --
--- /Note:/ Consider using 'appImageConfigARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daicrsAppImageConfigARN :: Lens.Lens' DescribeAppImageConfigResponse (Lude.Maybe Lude.Text)
-daicrsAppImageConfigARN = Lens.lens (appImageConfigARN :: DescribeAppImageConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {appImageConfigARN = a} :: DescribeAppImageConfigResponse)
-{-# DEPRECATED daicrsAppImageConfigARN "Use generic-lens or generic-optics with 'appImageConfigARN' instead." #-}
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daicrrsLastModifiedTime :: Lens.Lens' DescribeAppImageConfigResponse (Core.Maybe Core.NominalDiffTime)
+daicrrsLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED daicrrsLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daicrsResponseStatus :: Lens.Lens' DescribeAppImageConfigResponse Lude.Int
-daicrsResponseStatus = Lens.lens (responseStatus :: DescribeAppImageConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAppImageConfigResponse)
-{-# DEPRECATED daicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daicrrsResponseStatus :: Lens.Lens' DescribeAppImageConfigResponse Core.Int
+daicrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daicrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

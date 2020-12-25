@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Greengrass
     Network.AWS.Greengrass.AssociateRoleToGroup
@@ -208,6 +214,7 @@ library
     Network.AWS.Greengrass.Types.ResourceDownloadOwnerSetting
     Network.AWS.Greengrass.Types.RuntimeConfiguration
     Network.AWS.Greengrass.Types.S3MachineLearningModelResourceData
+    Network.AWS.Greengrass.Types.S3UrlSignerRole
     Network.AWS.Greengrass.Types.SageMakerMachineLearningModelResourceData
     Network.AWS.Greengrass.Types.SecretsManagerSecretResourceData
     Network.AWS.Greengrass.Types.SoftwareToUpdate

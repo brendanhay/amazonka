@@ -33,151 +33,143 @@ module Network.AWS.EC2.GetPasswordData
     mkGetPasswordDataResponse,
 
     -- ** Response lenses
-    gpdrsInstanceId,
-    gpdrsPasswordData,
-    gpdrsTimestamp,
-    gpdrsResponseStatus,
+    gpdrrsInstanceId,
+    gpdrrsPasswordData,
+    gpdrrsTimestamp,
+    gpdrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPasswordData' smart constructor.
 data GetPasswordData = GetPasswordData'
   { -- | The ID of the Windows instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPasswordData' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the Windows instance.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'GetPasswordData' value with any optional fields omitted.
 mkGetPasswordData ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   GetPasswordData
-mkGetPasswordData pInstanceId_ =
-  GetPasswordData'
-    { instanceId = pInstanceId_,
-      dryRun = Lude.Nothing
-    }
+mkGetPasswordData instanceId =
+  GetPasswordData' {instanceId, dryRun = Core.Nothing}
 
 -- | The ID of the Windows instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpdInstanceId :: Lens.Lens' GetPasswordData Lude.Text
-gpdInstanceId = Lens.lens (instanceId :: GetPasswordData -> Lude.Text) (\s a -> s {instanceId = a} :: GetPasswordData)
+gpdInstanceId :: Lens.Lens' GetPasswordData Types.InstanceId
+gpdInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED gpdInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpdDryRun :: Lens.Lens' GetPasswordData (Lude.Maybe Lude.Bool)
-gpdDryRun = Lens.lens (dryRun :: GetPasswordData -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: GetPasswordData)
+gpdDryRun :: Lens.Lens' GetPasswordData (Core.Maybe Core.Bool)
+gpdDryRun = Lens.field @"dryRun"
 {-# DEPRECATED gpdDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest GetPasswordData where
+instance Core.AWSRequest GetPasswordData where
   type Rs GetPasswordData = GetPasswordDataResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetPasswordData")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetPasswordDataResponse'
-            Lude.<$> (x Lude..@ "instanceId")
-            Lude.<*> (x Lude..@ "passwordData")
-            Lude.<*> (x Lude..@ "timestamp")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "instanceId")
+            Core.<*> (x Core..@ "passwordData")
+            Core.<*> (x Core..@ "timestamp")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPasswordData where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetPasswordData where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPasswordData where
-  toQuery GetPasswordData' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetPasswordData" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkGetPasswordDataResponse' smart constructor.
 data GetPasswordDataResponse = GetPasswordDataResponse'
   { -- | The ID of the Windows instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.String,
     -- | The password of the instance. Returns an empty string if the password is not available.
-    passwordData :: Lude.Text,
+    passwordData :: Types.String,
     -- | The time the data was last updated.
-    timestamp :: Lude.DateTime,
+    timestamp :: Core.UTCTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetPasswordDataResponse' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the Windows instance.
--- * 'passwordData' - The password of the instance. Returns an empty string if the password is not available.
--- * 'timestamp' - The time the data was last updated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPasswordDataResponse' value with any optional fields omitted.
 mkGetPasswordDataResponse ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.String ->
   -- | 'passwordData'
-  Lude.Text ->
+  Types.String ->
   -- | 'timestamp'
-  Lude.DateTime ->
+  Core.UTCTime ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPasswordDataResponse
 mkGetPasswordDataResponse
-  pInstanceId_
-  pPasswordData_
-  pTimestamp_
-  pResponseStatus_ =
+  instanceId
+  passwordData
+  timestamp
+  responseStatus =
     GetPasswordDataResponse'
-      { instanceId = pInstanceId_,
-        passwordData = pPasswordData_,
-        timestamp = pTimestamp_,
-        responseStatus = pResponseStatus_
+      { instanceId,
+        passwordData,
+        timestamp,
+        responseStatus
       }
 
 -- | The ID of the Windows instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpdrsInstanceId :: Lens.Lens' GetPasswordDataResponse Lude.Text
-gpdrsInstanceId = Lens.lens (instanceId :: GetPasswordDataResponse -> Lude.Text) (\s a -> s {instanceId = a} :: GetPasswordDataResponse)
-{-# DEPRECATED gpdrsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+gpdrrsInstanceId :: Lens.Lens' GetPasswordDataResponse Types.String
+gpdrrsInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED gpdrrsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The password of the instance. Returns an empty string if the password is not available.
 --
 -- /Note:/ Consider using 'passwordData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpdrsPasswordData :: Lens.Lens' GetPasswordDataResponse Lude.Text
-gpdrsPasswordData = Lens.lens (passwordData :: GetPasswordDataResponse -> Lude.Text) (\s a -> s {passwordData = a} :: GetPasswordDataResponse)
-{-# DEPRECATED gpdrsPasswordData "Use generic-lens or generic-optics with 'passwordData' instead." #-}
+gpdrrsPasswordData :: Lens.Lens' GetPasswordDataResponse Types.String
+gpdrrsPasswordData = Lens.field @"passwordData"
+{-# DEPRECATED gpdrrsPasswordData "Use generic-lens or generic-optics with 'passwordData' instead." #-}
 
 -- | The time the data was last updated.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpdrsTimestamp :: Lens.Lens' GetPasswordDataResponse Lude.DateTime
-gpdrsTimestamp = Lens.lens (timestamp :: GetPasswordDataResponse -> Lude.DateTime) (\s a -> s {timestamp = a} :: GetPasswordDataResponse)
-{-# DEPRECATED gpdrsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+gpdrrsTimestamp :: Lens.Lens' GetPasswordDataResponse Core.UTCTime
+gpdrrsTimestamp = Lens.field @"timestamp"
+{-# DEPRECATED gpdrrsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpdrsResponseStatus :: Lens.Lens' GetPasswordDataResponse Lude.Int
-gpdrsResponseStatus = Lens.lens (responseStatus :: GetPasswordDataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPasswordDataResponse)
-{-# DEPRECATED gpdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gpdrrsResponseStatus :: Lens.Lens' GetPasswordDataResponse Core.Int
+gpdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gpdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

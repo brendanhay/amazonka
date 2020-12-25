@@ -17,64 +17,57 @@ module Network.AWS.CloudFront.Types.EndPoint
     mkEndPoint,
 
     -- * Lenses
-    epKinesisStreamConfig,
     epStreamType,
+    epKinesisStreamConfig,
   )
 where
 
-import Network.AWS.CloudFront.Types.KinesisStreamConfig
+import qualified Network.AWS.CloudFront.Types.KinesisStreamConfig as Types
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data in a real-time log configuration.
 --
 -- /See:/ 'mkEndPoint' smart constructor.
 data EndPoint = EndPoint'
-  { -- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
-    kinesisStreamConfig :: Lude.Maybe KinesisStreamConfig,
-    -- | The type of data stream where you are sending real-time log data. The only valid value is @Kinesis@ .
-    streamType :: Lude.Text
+  { -- | The type of data stream where you are sending real-time log data. The only valid value is @Kinesis@ .
+    streamType :: Types.String,
+    -- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+    kinesisStreamConfig :: Core.Maybe Types.KinesisStreamConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EndPoint' with the minimum fields required to make a request.
---
--- * 'kinesisStreamConfig' - Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
--- * 'streamType' - The type of data stream where you are sending real-time log data. The only valid value is @Kinesis@ .
+-- | Creates a 'EndPoint' value with any optional fields omitted.
 mkEndPoint ::
   -- | 'streamType'
-  Lude.Text ->
+  Types.String ->
   EndPoint
-mkEndPoint pStreamType_ =
-  EndPoint'
-    { kinesisStreamConfig = Lude.Nothing,
-      streamType = pStreamType_
-    }
-
--- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
---
--- /Note:/ Consider using 'kinesisStreamConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epKinesisStreamConfig :: Lens.Lens' EndPoint (Lude.Maybe KinesisStreamConfig)
-epKinesisStreamConfig = Lens.lens (kinesisStreamConfig :: EndPoint -> Lude.Maybe KinesisStreamConfig) (\s a -> s {kinesisStreamConfig = a} :: EndPoint)
-{-# DEPRECATED epKinesisStreamConfig "Use generic-lens or generic-optics with 'kinesisStreamConfig' instead." #-}
+mkEndPoint streamType =
+  EndPoint' {streamType, kinesisStreamConfig = Core.Nothing}
 
 -- | The type of data stream where you are sending real-time log data. The only valid value is @Kinesis@ .
 --
 -- /Note:/ Consider using 'streamType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epStreamType :: Lens.Lens' EndPoint Lude.Text
-epStreamType = Lens.lens (streamType :: EndPoint -> Lude.Text) (\s a -> s {streamType = a} :: EndPoint)
+epStreamType :: Lens.Lens' EndPoint Types.String
+epStreamType = Lens.field @"streamType"
 {-# DEPRECATED epStreamType "Use generic-lens or generic-optics with 'streamType' instead." #-}
 
-instance Lude.FromXML EndPoint where
+-- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
+--
+-- /Note:/ Consider using 'kinesisStreamConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epKinesisStreamConfig :: Lens.Lens' EndPoint (Core.Maybe Types.KinesisStreamConfig)
+epKinesisStreamConfig = Lens.field @"kinesisStreamConfig"
+{-# DEPRECATED epKinesisStreamConfig "Use generic-lens or generic-optics with 'kinesisStreamConfig' instead." #-}
+
+instance Core.ToXML EndPoint where
+  toXML EndPoint {..} =
+    Core.toXMLNode "StreamType" streamType
+      Core.<> Core.toXMLNode "KinesisStreamConfig" Core.<$> kinesisStreamConfig
+
+instance Core.FromXML EndPoint where
   parseXML x =
     EndPoint'
-      Lude.<$> (x Lude..@? "KinesisStreamConfig")
-      Lude.<*> (x Lude..@ "StreamType")
-
-instance Lude.ToXML EndPoint where
-  toXML EndPoint' {..} =
-    Lude.mconcat
-      [ "KinesisStreamConfig" Lude.@= kinesisStreamConfig,
-        "StreamType" Lude.@= streamType
-      ]
+      Core.<$> (x Core..@ "StreamType")
+      Core.<*> (x Core..@? "KinesisStreamConfig")

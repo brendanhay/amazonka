@@ -27,116 +27,106 @@ module Network.AWS.ElasticSearch.RejectInboundCrossClusterSearchConnection
     mkRejectInboundCrossClusterSearchConnectionResponse,
 
     -- ** Response lenses
-    riccscrsCrossClusterSearchConnection,
-    riccscrsResponseStatus,
+    riccscrrsCrossClusterSearchConnection,
+    riccscrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'RejectInboundCrossClusterSearchConnection' @ operation.
 --
 -- /See:/ 'mkRejectInboundCrossClusterSearchConnection' smart constructor.
 newtype RejectInboundCrossClusterSearchConnection = RejectInboundCrossClusterSearchConnection'
   { -- | The id of the inbound connection that you want to reject.
-    crossClusterSearchConnectionId :: Lude.Text
+    crossClusterSearchConnectionId :: Types.CrossClusterSearchConnectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RejectInboundCrossClusterSearchConnection' with the minimum fields required to make a request.
---
--- * 'crossClusterSearchConnectionId' - The id of the inbound connection that you want to reject.
+-- | Creates a 'RejectInboundCrossClusterSearchConnection' value with any optional fields omitted.
 mkRejectInboundCrossClusterSearchConnection ::
   -- | 'crossClusterSearchConnectionId'
-  Lude.Text ->
+  Types.CrossClusterSearchConnectionId ->
   RejectInboundCrossClusterSearchConnection
 mkRejectInboundCrossClusterSearchConnection
-  pCrossClusterSearchConnectionId_ =
-    RejectInboundCrossClusterSearchConnection'
-      { crossClusterSearchConnectionId =
-          pCrossClusterSearchConnectionId_
-      }
+  crossClusterSearchConnectionId =
+    RejectInboundCrossClusterSearchConnection' {crossClusterSearchConnectionId}
 
 -- | The id of the inbound connection that you want to reject.
 --
 -- /Note:/ Consider using 'crossClusterSearchConnectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riccscCrossClusterSearchConnectionId :: Lens.Lens' RejectInboundCrossClusterSearchConnection Lude.Text
-riccscCrossClusterSearchConnectionId = Lens.lens (crossClusterSearchConnectionId :: RejectInboundCrossClusterSearchConnection -> Lude.Text) (\s a -> s {crossClusterSearchConnectionId = a} :: RejectInboundCrossClusterSearchConnection)
+riccscCrossClusterSearchConnectionId :: Lens.Lens' RejectInboundCrossClusterSearchConnection Types.CrossClusterSearchConnectionId
+riccscCrossClusterSearchConnectionId = Lens.field @"crossClusterSearchConnectionId"
 {-# DEPRECATED riccscCrossClusterSearchConnectionId "Use generic-lens or generic-optics with 'crossClusterSearchConnectionId' instead." #-}
 
-instance Lude.AWSRequest RejectInboundCrossClusterSearchConnection where
+instance Core.FromJSON RejectInboundCrossClusterSearchConnection where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest RejectInboundCrossClusterSearchConnection where
   type
     Rs RejectInboundCrossClusterSearchConnection =
       RejectInboundCrossClusterSearchConnectionResponse
-  request = Req.putJSON elasticSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-01-01/es/ccs/inboundConnection/"
+                Core.<> (Core.toText crossClusterSearchConnectionId)
+                Core.<> ("/reject")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RejectInboundCrossClusterSearchConnectionResponse'
-            Lude.<$> (x Lude..?> "CrossClusterSearchConnection")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CrossClusterSearchConnection")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RejectInboundCrossClusterSearchConnection where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON RejectInboundCrossClusterSearchConnection where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath RejectInboundCrossClusterSearchConnection where
-  toPath RejectInboundCrossClusterSearchConnection' {..} =
-    Lude.mconcat
-      [ "/2015-01-01/es/ccs/inboundConnection/",
-        Lude.toBS crossClusterSearchConnectionId,
-        "/reject"
-      ]
-
-instance Lude.ToQuery RejectInboundCrossClusterSearchConnection where
-  toQuery = Lude.const Lude.mempty
 
 -- | The result of a @'RejectInboundCrossClusterSearchConnection' @ operation. Contains details of rejected inbound connection.
 --
 -- /See:/ 'mkRejectInboundCrossClusterSearchConnectionResponse' smart constructor.
 data RejectInboundCrossClusterSearchConnectionResponse = RejectInboundCrossClusterSearchConnectionResponse'
   { -- | Specifies the @'InboundCrossClusterSearchConnection' @ of rejected inbound connection.
-    crossClusterSearchConnection :: Lude.Maybe InboundCrossClusterSearchConnection,
+    crossClusterSearchConnection :: Core.Maybe Types.InboundCrossClusterSearchConnection,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RejectInboundCrossClusterSearchConnectionResponse' with the minimum fields required to make a request.
---
--- * 'crossClusterSearchConnection' - Specifies the @'InboundCrossClusterSearchConnection' @ of rejected inbound connection.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RejectInboundCrossClusterSearchConnectionResponse' value with any optional fields omitted.
 mkRejectInboundCrossClusterSearchConnectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RejectInboundCrossClusterSearchConnectionResponse
-mkRejectInboundCrossClusterSearchConnectionResponse
-  pResponseStatus_ =
-    RejectInboundCrossClusterSearchConnectionResponse'
-      { crossClusterSearchConnection =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_
-      }
+mkRejectInboundCrossClusterSearchConnectionResponse responseStatus =
+  RejectInboundCrossClusterSearchConnectionResponse'
+    { crossClusterSearchConnection =
+        Core.Nothing,
+      responseStatus
+    }
 
 -- | Specifies the @'InboundCrossClusterSearchConnection' @ of rejected inbound connection.
 --
 -- /Note:/ Consider using 'crossClusterSearchConnection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riccscrsCrossClusterSearchConnection :: Lens.Lens' RejectInboundCrossClusterSearchConnectionResponse (Lude.Maybe InboundCrossClusterSearchConnection)
-riccscrsCrossClusterSearchConnection = Lens.lens (crossClusterSearchConnection :: RejectInboundCrossClusterSearchConnectionResponse -> Lude.Maybe InboundCrossClusterSearchConnection) (\s a -> s {crossClusterSearchConnection = a} :: RejectInboundCrossClusterSearchConnectionResponse)
-{-# DEPRECATED riccscrsCrossClusterSearchConnection "Use generic-lens or generic-optics with 'crossClusterSearchConnection' instead." #-}
+riccscrrsCrossClusterSearchConnection :: Lens.Lens' RejectInboundCrossClusterSearchConnectionResponse (Core.Maybe Types.InboundCrossClusterSearchConnection)
+riccscrrsCrossClusterSearchConnection = Lens.field @"crossClusterSearchConnection"
+{-# DEPRECATED riccscrrsCrossClusterSearchConnection "Use generic-lens or generic-optics with 'crossClusterSearchConnection' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-riccscrsResponseStatus :: Lens.Lens' RejectInboundCrossClusterSearchConnectionResponse Lude.Int
-riccscrsResponseStatus = Lens.lens (responseStatus :: RejectInboundCrossClusterSearchConnectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RejectInboundCrossClusterSearchConnectionResponse)
-{-# DEPRECATED riccscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+riccscrrsResponseStatus :: Lens.Lens' RejectInboundCrossClusterSearchConnectionResponse Core.Int
+riccscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED riccscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

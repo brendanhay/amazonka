@@ -20,113 +20,106 @@ module Network.AWS.IoT.AttachThingPrincipal
     mkAttachThingPrincipal,
 
     -- ** Request lenses
-    atpPrincipal,
     atpThingName,
+    atpPrincipal,
 
     -- * Destructuring the response
     AttachThingPrincipalResponse (..),
     mkAttachThingPrincipalResponse,
 
     -- ** Response lenses
-    atprsResponseStatus,
+    atprrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the AttachThingPrincipal operation.
 --
 -- /See:/ 'mkAttachThingPrincipal' smart constructor.
 data AttachThingPrincipal = AttachThingPrincipal'
-  { -- | The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
-    principal :: Lude.Text,
-    -- | The name of the thing.
-    thingName :: Lude.Text
+  { -- | The name of the thing.
+    thingName :: Types.ThingName,
+    -- | The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
+    principal :: Types.Principal
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachThingPrincipal' with the minimum fields required to make a request.
---
--- * 'principal' - The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
--- * 'thingName' - The name of the thing.
+-- | Creates a 'AttachThingPrincipal' value with any optional fields omitted.
 mkAttachThingPrincipal ::
-  -- | 'principal'
-  Lude.Text ->
   -- | 'thingName'
-  Lude.Text ->
+  Types.ThingName ->
+  -- | 'principal'
+  Types.Principal ->
   AttachThingPrincipal
-mkAttachThingPrincipal pPrincipal_ pThingName_ =
-  AttachThingPrincipal'
-    { principal = pPrincipal_,
-      thingName = pThingName_
-    }
-
--- | The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
---
--- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atpPrincipal :: Lens.Lens' AttachThingPrincipal Lude.Text
-atpPrincipal = Lens.lens (principal :: AttachThingPrincipal -> Lude.Text) (\s a -> s {principal = a} :: AttachThingPrincipal)
-{-# DEPRECATED atpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
+mkAttachThingPrincipal thingName principal =
+  AttachThingPrincipal' {thingName, principal}
 
 -- | The name of the thing.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atpThingName :: Lens.Lens' AttachThingPrincipal Lude.Text
-atpThingName = Lens.lens (thingName :: AttachThingPrincipal -> Lude.Text) (\s a -> s {thingName = a} :: AttachThingPrincipal)
+atpThingName :: Lens.Lens' AttachThingPrincipal Types.ThingName
+atpThingName = Lens.field @"thingName"
 {-# DEPRECATED atpThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance Lude.AWSRequest AttachThingPrincipal where
+-- | The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.
+--
+-- /Note:/ Consider using 'principal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atpPrincipal :: Lens.Lens' AttachThingPrincipal Types.Principal
+atpPrincipal = Lens.field @"principal"
+{-# DEPRECATED atpPrincipal "Use generic-lens or generic-optics with 'principal' instead." #-}
+
+instance Core.FromJSON AttachThingPrincipal where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest AttachThingPrincipal where
   type Rs AttachThingPrincipal = AttachThingPrincipalResponse
-  request = Req.putJSON ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/things/" Core.<> (Core.toText thingName)
+                Core.<> ("/principals")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "x-amzn-principal" principal,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AttachThingPrincipalResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AttachThingPrincipal where
-  toHeaders AttachThingPrincipal' {..} =
-    Lude.mconcat ["x-amzn-principal" Lude.=# principal]
-
-instance Lude.ToJSON AttachThingPrincipal where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath AttachThingPrincipal where
-  toPath AttachThingPrincipal' {..} =
-    Lude.mconcat ["/things/", Lude.toBS thingName, "/principals"]
-
-instance Lude.ToQuery AttachThingPrincipal where
-  toQuery = Lude.const Lude.mempty
 
 -- | The output from the AttachThingPrincipal operation.
 --
 -- /See:/ 'mkAttachThingPrincipalResponse' smart constructor.
 newtype AttachThingPrincipalResponse = AttachThingPrincipalResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachThingPrincipalResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AttachThingPrincipalResponse' value with any optional fields omitted.
 mkAttachThingPrincipalResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AttachThingPrincipalResponse
-mkAttachThingPrincipalResponse pResponseStatus_ =
-  AttachThingPrincipalResponse' {responseStatus = pResponseStatus_}
+mkAttachThingPrincipalResponse responseStatus =
+  AttachThingPrincipalResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atprsResponseStatus :: Lens.Lens' AttachThingPrincipalResponse Lude.Int
-atprsResponseStatus = Lens.lens (responseStatus :: AttachThingPrincipalResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachThingPrincipalResponse)
-{-# DEPRECATED atprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+atprrsResponseStatus :: Lens.Lens' AttachThingPrincipalResponse Core.Int
+atprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED atprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

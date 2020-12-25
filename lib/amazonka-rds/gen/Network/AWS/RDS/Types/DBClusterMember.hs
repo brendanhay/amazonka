@@ -17,80 +17,76 @@ module Network.AWS.RDS.Types.DBClusterMember
     mkDBClusterMember,
 
     -- * Lenses
-    dcmPromotionTier,
-    dcmDBInstanceIdentifier,
-    dcmIsClusterWriter,
-    dcmDBClusterParameterGroupStatus,
+    dbcmDBClusterParameterGroupStatus,
+    dbcmDBInstanceIdentifier,
+    dbcmIsClusterWriter,
+    dbcmPromotionTier,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | Contains information about an instance that is part of a DB cluster.
 --
 -- /See:/ 'mkDBClusterMember' smart constructor.
 data DBClusterMember = DBClusterMember'
-  { -- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
-    promotionTier :: Lude.Maybe Lude.Int,
+  { -- | Specifies the status of the DB cluster parameter group for this member of the DB cluster.
+    dBClusterParameterGroupStatus :: Core.Maybe Types.String,
     -- | Specifies the instance identifier for this member of the DB cluster.
-    dbInstanceIdentifier :: Lude.Maybe Lude.Text,
+    dBInstanceIdentifier :: Core.Maybe Types.String,
     -- | Value that is @true@ if the cluster member is the primary instance for the DB cluster and @false@ otherwise.
-    isClusterWriter :: Lude.Maybe Lude.Bool,
-    -- | Specifies the status of the DB cluster parameter group for this member of the DB cluster.
-    dbClusterParameterGroupStatus :: Lude.Maybe Lude.Text
+    isClusterWriter :: Core.Maybe Core.Bool,
+    -- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
+    promotionTier :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DBClusterMember' with the minimum fields required to make a request.
---
--- * 'promotionTier' - A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
--- * 'dbInstanceIdentifier' - Specifies the instance identifier for this member of the DB cluster.
--- * 'isClusterWriter' - Value that is @true@ if the cluster member is the primary instance for the DB cluster and @false@ otherwise.
--- * 'dbClusterParameterGroupStatus' - Specifies the status of the DB cluster parameter group for this member of the DB cluster.
+-- | Creates a 'DBClusterMember' value with any optional fields omitted.
 mkDBClusterMember ::
   DBClusterMember
 mkDBClusterMember =
   DBClusterMember'
-    { promotionTier = Lude.Nothing,
-      dbInstanceIdentifier = Lude.Nothing,
-      isClusterWriter = Lude.Nothing,
-      dbClusterParameterGroupStatus = Lude.Nothing
+    { dBClusterParameterGroupStatus = Core.Nothing,
+      dBInstanceIdentifier = Core.Nothing,
+      isClusterWriter = Core.Nothing,
+      promotionTier = Core.Nothing
     }
 
--- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
+-- | Specifies the status of the DB cluster parameter group for this member of the DB cluster.
 --
--- /Note:/ Consider using 'promotionTier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcmPromotionTier :: Lens.Lens' DBClusterMember (Lude.Maybe Lude.Int)
-dcmPromotionTier = Lens.lens (promotionTier :: DBClusterMember -> Lude.Maybe Lude.Int) (\s a -> s {promotionTier = a} :: DBClusterMember)
-{-# DEPRECATED dcmPromotionTier "Use generic-lens or generic-optics with 'promotionTier' instead." #-}
+-- /Note:/ Consider using 'dBClusterParameterGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcmDBClusterParameterGroupStatus :: Lens.Lens' DBClusterMember (Core.Maybe Types.String)
+dbcmDBClusterParameterGroupStatus = Lens.field @"dBClusterParameterGroupStatus"
+{-# DEPRECATED dbcmDBClusterParameterGroupStatus "Use generic-lens or generic-optics with 'dBClusterParameterGroupStatus' instead." #-}
 
 -- | Specifies the instance identifier for this member of the DB cluster.
 --
--- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcmDBInstanceIdentifier :: Lens.Lens' DBClusterMember (Lude.Maybe Lude.Text)
-dcmDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DBClusterMember -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DBClusterMember)
-{-# DEPRECATED dcmDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcmDBInstanceIdentifier :: Lens.Lens' DBClusterMember (Core.Maybe Types.String)
+dbcmDBInstanceIdentifier = Lens.field @"dBInstanceIdentifier"
+{-# DEPRECATED dbcmDBInstanceIdentifier "Use generic-lens or generic-optics with 'dBInstanceIdentifier' instead." #-}
 
 -- | Value that is @true@ if the cluster member is the primary instance for the DB cluster and @false@ otherwise.
 --
 -- /Note:/ Consider using 'isClusterWriter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcmIsClusterWriter :: Lens.Lens' DBClusterMember (Lude.Maybe Lude.Bool)
-dcmIsClusterWriter = Lens.lens (isClusterWriter :: DBClusterMember -> Lude.Maybe Lude.Bool) (\s a -> s {isClusterWriter = a} :: DBClusterMember)
-{-# DEPRECATED dcmIsClusterWriter "Use generic-lens or generic-optics with 'isClusterWriter' instead." #-}
+dbcmIsClusterWriter :: Lens.Lens' DBClusterMember (Core.Maybe Core.Bool)
+dbcmIsClusterWriter = Lens.field @"isClusterWriter"
+{-# DEPRECATED dbcmIsClusterWriter "Use generic-lens or generic-optics with 'isClusterWriter' instead." #-}
 
--- | Specifies the status of the DB cluster parameter group for this member of the DB cluster.
+-- | A value that specifies the order in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see <https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Managing.Backups.html#Aurora.Managing.FaultTolerance Fault Tolerance for an Aurora DB Cluster> in the /Amazon Aurora User Guide/ .
 --
--- /Note:/ Consider using 'dbClusterParameterGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcmDBClusterParameterGroupStatus :: Lens.Lens' DBClusterMember (Lude.Maybe Lude.Text)
-dcmDBClusterParameterGroupStatus = Lens.lens (dbClusterParameterGroupStatus :: DBClusterMember -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterParameterGroupStatus = a} :: DBClusterMember)
-{-# DEPRECATED dcmDBClusterParameterGroupStatus "Use generic-lens or generic-optics with 'dbClusterParameterGroupStatus' instead." #-}
+-- /Note:/ Consider using 'promotionTier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcmPromotionTier :: Lens.Lens' DBClusterMember (Core.Maybe Core.Int)
+dbcmPromotionTier = Lens.field @"promotionTier"
+{-# DEPRECATED dbcmPromotionTier "Use generic-lens or generic-optics with 'promotionTier' instead." #-}
 
-instance Lude.FromXML DBClusterMember where
+instance Core.FromXML DBClusterMember where
   parseXML x =
     DBClusterMember'
-      Lude.<$> (x Lude..@? "PromotionTier")
-      Lude.<*> (x Lude..@? "DBInstanceIdentifier")
-      Lude.<*> (x Lude..@? "IsClusterWriter")
-      Lude.<*> (x Lude..@? "DBClusterParameterGroupStatus")
+      Core.<$> (x Core..@? "DBClusterParameterGroupStatus")
+      Core.<*> (x Core..@? "DBInstanceIdentifier")
+      Core.<*> (x Core..@? "IsClusterWriter")
+      Core.<*> (x Core..@? "PromotionTier")

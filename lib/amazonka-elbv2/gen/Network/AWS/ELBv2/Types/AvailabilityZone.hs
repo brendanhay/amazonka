@@ -17,83 +17,81 @@ module Network.AWS.ELBv2.Types.AvailabilityZone
     mkAvailabilityZone,
 
     -- * Lenses
-    azSubnetId,
-    azZoneName,
     azLoadBalancerAddresses,
     azOutpostId,
+    azSubnetId,
+    azZoneName,
   )
 where
 
-import Network.AWS.ELBv2.Types.LoadBalancerAddress
+import qualified Network.AWS.ELBv2.Types.LoadBalancerAddress as Types
+import qualified Network.AWS.ELBv2.Types.OutpostId as Types
+import qualified Network.AWS.ELBv2.Types.SubnetId as Types
+import qualified Network.AWS.ELBv2.Types.ZoneName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an Availability Zone.
 --
 -- /See:/ 'mkAvailabilityZone' smart constructor.
 data AvailabilityZone = AvailabilityZone'
-  { -- | The ID of the subnet. You can specify one subnet per Availability Zone.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | The name of the Availability Zone.
-    zoneName :: Lude.Maybe Lude.Text,
-    -- | [Network Load Balancers] If you need static IP addresses for your load balancer, you can specify one Elastic IP address per Availability Zone when you create an internal-facing load balancer. For internal load balancers, you can specify a private IP address from the IPv4 range of the subnet.
-    loadBalancerAddresses :: Lude.Maybe [LoadBalancerAddress],
+  { -- | [Network Load Balancers] If you need static IP addresses for your load balancer, you can specify one Elastic IP address per Availability Zone when you create an internal-facing load balancer. For internal load balancers, you can specify a private IP address from the IPv4 range of the subnet.
+    loadBalancerAddresses :: Core.Maybe [Types.LoadBalancerAddress],
     -- | [Application Load Balancers on Outposts] The ID of the Outpost.
-    outpostId :: Lude.Maybe Lude.Text
+    outpostId :: Core.Maybe Types.OutpostId,
+    -- | The ID of the subnet. You can specify one subnet per Availability Zone.
+    subnetId :: Core.Maybe Types.SubnetId,
+    -- | The name of the Availability Zone.
+    zoneName :: Core.Maybe Types.ZoneName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AvailabilityZone' with the minimum fields required to make a request.
---
--- * 'subnetId' - The ID of the subnet. You can specify one subnet per Availability Zone.
--- * 'zoneName' - The name of the Availability Zone.
--- * 'loadBalancerAddresses' - [Network Load Balancers] If you need static IP addresses for your load balancer, you can specify one Elastic IP address per Availability Zone when you create an internal-facing load balancer. For internal load balancers, you can specify a private IP address from the IPv4 range of the subnet.
--- * 'outpostId' - [Application Load Balancers on Outposts] The ID of the Outpost.
+-- | Creates a 'AvailabilityZone' value with any optional fields omitted.
 mkAvailabilityZone ::
   AvailabilityZone
 mkAvailabilityZone =
   AvailabilityZone'
-    { subnetId = Lude.Nothing,
-      zoneName = Lude.Nothing,
-      loadBalancerAddresses = Lude.Nothing,
-      outpostId = Lude.Nothing
+    { loadBalancerAddresses = Core.Nothing,
+      outpostId = Core.Nothing,
+      subnetId = Core.Nothing,
+      zoneName = Core.Nothing
     }
-
--- | The ID of the subnet. You can specify one subnet per Availability Zone.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-azSubnetId :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
-azSubnetId = Lens.lens (subnetId :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: AvailabilityZone)
-{-# DEPRECATED azSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | The name of the Availability Zone.
---
--- /Note:/ Consider using 'zoneName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-azZoneName :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
-azZoneName = Lens.lens (zoneName :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {zoneName = a} :: AvailabilityZone)
-{-# DEPRECATED azZoneName "Use generic-lens or generic-optics with 'zoneName' instead." #-}
 
 -- | [Network Load Balancers] If you need static IP addresses for your load balancer, you can specify one Elastic IP address per Availability Zone when you create an internal-facing load balancer. For internal load balancers, you can specify a private IP address from the IPv4 range of the subnet.
 --
 -- /Note:/ Consider using 'loadBalancerAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-azLoadBalancerAddresses :: Lens.Lens' AvailabilityZone (Lude.Maybe [LoadBalancerAddress])
-azLoadBalancerAddresses = Lens.lens (loadBalancerAddresses :: AvailabilityZone -> Lude.Maybe [LoadBalancerAddress]) (\s a -> s {loadBalancerAddresses = a} :: AvailabilityZone)
+azLoadBalancerAddresses :: Lens.Lens' AvailabilityZone (Core.Maybe [Types.LoadBalancerAddress])
+azLoadBalancerAddresses = Lens.field @"loadBalancerAddresses"
 {-# DEPRECATED azLoadBalancerAddresses "Use generic-lens or generic-optics with 'loadBalancerAddresses' instead." #-}
 
 -- | [Application Load Balancers on Outposts] The ID of the Outpost.
 --
 -- /Note:/ Consider using 'outpostId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-azOutpostId :: Lens.Lens' AvailabilityZone (Lude.Maybe Lude.Text)
-azOutpostId = Lens.lens (outpostId :: AvailabilityZone -> Lude.Maybe Lude.Text) (\s a -> s {outpostId = a} :: AvailabilityZone)
+azOutpostId :: Lens.Lens' AvailabilityZone (Core.Maybe Types.OutpostId)
+azOutpostId = Lens.field @"outpostId"
 {-# DEPRECATED azOutpostId "Use generic-lens or generic-optics with 'outpostId' instead." #-}
 
-instance Lude.FromXML AvailabilityZone where
+-- | The ID of the subnet. You can specify one subnet per Availability Zone.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azSubnetId :: Lens.Lens' AvailabilityZone (Core.Maybe Types.SubnetId)
+azSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED azSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
+
+-- | The name of the Availability Zone.
+--
+-- /Note:/ Consider using 'zoneName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+azZoneName :: Lens.Lens' AvailabilityZone (Core.Maybe Types.ZoneName)
+azZoneName = Lens.field @"zoneName"
+{-# DEPRECATED azZoneName "Use generic-lens or generic-optics with 'zoneName' instead." #-}
+
+instance Core.FromXML AvailabilityZone where
   parseXML x =
     AvailabilityZone'
-      Lude.<$> (x Lude..@? "SubnetId")
-      Lude.<*> (x Lude..@? "ZoneName")
-      Lude.<*> ( x Lude..@? "LoadBalancerAddresses" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> ( x Core..@? "LoadBalancerAddresses"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "OutpostId")
+      Core.<*> (x Core..@? "OutpostId")
+      Core.<*> (x Core..@? "SubnetId")
+      Core.<*> (x Core..@? "ZoneName")

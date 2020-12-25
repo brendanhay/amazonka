@@ -17,156 +17,145 @@ module Network.AWS.MediaConvert.Types.Output
     mkOutput,
 
     -- * Lenses
+    oAudioDescriptions,
     oCaptionDescriptions,
-    oExtension,
-    oVideoDescription,
     oContainerSettings,
+    oExtension,
+    oNameModifier,
     oOutputSettings,
     oPreset,
-    oNameModifier,
-    oAudioDescriptions,
+    oVideoDescription,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AudioDescription
-import Network.AWS.MediaConvert.Types.CaptionDescription
-import Network.AWS.MediaConvert.Types.ContainerSettings
-import Network.AWS.MediaConvert.Types.OutputSettings
-import Network.AWS.MediaConvert.Types.VideoDescription
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.AudioDescription as Types
+import qualified Network.AWS.MediaConvert.Types.CaptionDescription as Types
+import qualified Network.AWS.MediaConvert.Types.ContainerSettings as Types
+import qualified Network.AWS.MediaConvert.Types.OutputSettings as Types
+import qualified Network.AWS.MediaConvert.Types.VideoDescription as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | An output object describes the settings for a single output file or stream in an output group.
 --
 -- /See:/ 'mkOutput' smart constructor.
 data Output = Output'
-  { -- | (CaptionDescriptions) contains groups of captions settings. For each output that has captions, include one instance of (CaptionDescriptions). (CaptionDescriptions) can contain multiple groups of captions settings.
-    captionDescriptions :: Lude.Maybe [CaptionDescription],
-    -- | Use Extension (Extension) to specify the file extension for outputs in File output groups. If you do not specify a value, the service will use default extensions by container type as follows * MPEG-2 transport stream, m2ts * Quicktime, mov * MXF container, mxf * MPEG-4 container, mp4 * WebM container, webm * No Container, the service will use codec extensions (e.g. AAC, H265, H265, AC3)
-    extension :: Lude.Maybe Lude.Text,
-    -- | (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
-    videoDescription :: Lude.Maybe VideoDescription,
+  { -- | (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
+    audioDescriptions :: Core.Maybe [Types.AudioDescription],
+    -- | (CaptionDescriptions) contains groups of captions settings. For each output that has captions, include one instance of (CaptionDescriptions). (CaptionDescriptions) can contain multiple groups of captions settings.
+    captionDescriptions :: Core.Maybe [Types.CaptionDescription],
     -- | Container specific settings.
-    containerSettings :: Lude.Maybe ContainerSettings,
-    -- | Specific settings for this type of output.
-    outputSettings :: Lude.Maybe OutputSettings,
-    -- | Use Preset (Preset) to specifiy a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset (Preset) or Container settings (ContainerSettings), but not both.
-    preset :: Lude.Maybe Lude.Text,
+    containerSettings :: Core.Maybe Types.ContainerSettings,
+    -- | Use Extension (Extension) to specify the file extension for outputs in File output groups. If you do not specify a value, the service will use default extensions by container type as follows * MPEG-2 transport stream, m2ts * Quicktime, mov * MXF container, mxf * MPEG-4 container, mp4 * WebM container, webm * No Container, the service will use codec extensions (e.g. AAC, H265, H265, AC3)
+    extension :: Core.Maybe Core.Text,
     -- | Use Name modifier (NameModifier) to have the service add a string to the end of each output filename. You specify the base filename as part of your destination URI. When you create multiple outputs in the same output group, Name modifier (NameModifier) is required. Name modifier also accepts format identifiers. For DASH ISO outputs, if you use the format identifiers $Number$ or $Time$ in one output, you must use them in the same way in all outputs of the output group.
-    nameModifier :: Lude.Maybe Lude.Text,
-    -- | (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
-    audioDescriptions :: Lude.Maybe [AudioDescription]
+    nameModifier :: Core.Maybe Core.Text,
+    -- | Specific settings for this type of output.
+    outputSettings :: Core.Maybe Types.OutputSettings,
+    -- | Use Preset (Preset) to specifiy a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset (Preset) or Container settings (ContainerSettings), but not both.
+    preset :: Core.Maybe Core.Text,
+    -- | (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
+    videoDescription :: Core.Maybe Types.VideoDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Output' with the minimum fields required to make a request.
---
--- * 'captionDescriptions' - (CaptionDescriptions) contains groups of captions settings. For each output that has captions, include one instance of (CaptionDescriptions). (CaptionDescriptions) can contain multiple groups of captions settings.
--- * 'extension' - Use Extension (Extension) to specify the file extension for outputs in File output groups. If you do not specify a value, the service will use default extensions by container type as follows * MPEG-2 transport stream, m2ts * Quicktime, mov * MXF container, mxf * MPEG-4 container, mp4 * WebM container, webm * No Container, the service will use codec extensions (e.g. AAC, H265, H265, AC3)
--- * 'videoDescription' - (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
--- * 'containerSettings' - Container specific settings.
--- * 'outputSettings' - Specific settings for this type of output.
--- * 'preset' - Use Preset (Preset) to specifiy a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset (Preset) or Container settings (ContainerSettings), but not both.
--- * 'nameModifier' - Use Name modifier (NameModifier) to have the service add a string to the end of each output filename. You specify the base filename as part of your destination URI. When you create multiple outputs in the same output group, Name modifier (NameModifier) is required. Name modifier also accepts format identifiers. For DASH ISO outputs, if you use the format identifiers $Number$ or $Time$ in one output, you must use them in the same way in all outputs of the output group.
--- * 'audioDescriptions' - (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
+-- | Creates a 'Output' value with any optional fields omitted.
 mkOutput ::
   Output
 mkOutput =
   Output'
-    { captionDescriptions = Lude.Nothing,
-      extension = Lude.Nothing,
-      videoDescription = Lude.Nothing,
-      containerSettings = Lude.Nothing,
-      outputSettings = Lude.Nothing,
-      preset = Lude.Nothing,
-      nameModifier = Lude.Nothing,
-      audioDescriptions = Lude.Nothing
+    { audioDescriptions = Core.Nothing,
+      captionDescriptions = Core.Nothing,
+      containerSettings = Core.Nothing,
+      extension = Core.Nothing,
+      nameModifier = Core.Nothing,
+      outputSettings = Core.Nothing,
+      preset = Core.Nothing,
+      videoDescription = Core.Nothing
     }
+
+-- | (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
+--
+-- /Note:/ Consider using 'audioDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oAudioDescriptions :: Lens.Lens' Output (Core.Maybe [Types.AudioDescription])
+oAudioDescriptions = Lens.field @"audioDescriptions"
+{-# DEPRECATED oAudioDescriptions "Use generic-lens or generic-optics with 'audioDescriptions' instead." #-}
 
 -- | (CaptionDescriptions) contains groups of captions settings. For each output that has captions, include one instance of (CaptionDescriptions). (CaptionDescriptions) can contain multiple groups of captions settings.
 --
 -- /Note:/ Consider using 'captionDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oCaptionDescriptions :: Lens.Lens' Output (Lude.Maybe [CaptionDescription])
-oCaptionDescriptions = Lens.lens (captionDescriptions :: Output -> Lude.Maybe [CaptionDescription]) (\s a -> s {captionDescriptions = a} :: Output)
+oCaptionDescriptions :: Lens.Lens' Output (Core.Maybe [Types.CaptionDescription])
+oCaptionDescriptions = Lens.field @"captionDescriptions"
 {-# DEPRECATED oCaptionDescriptions "Use generic-lens or generic-optics with 'captionDescriptions' instead." #-}
-
--- | Use Extension (Extension) to specify the file extension for outputs in File output groups. If you do not specify a value, the service will use default extensions by container type as follows * MPEG-2 transport stream, m2ts * Quicktime, mov * MXF container, mxf * MPEG-4 container, mp4 * WebM container, webm * No Container, the service will use codec extensions (e.g. AAC, H265, H265, AC3)
---
--- /Note:/ Consider using 'extension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oExtension :: Lens.Lens' Output (Lude.Maybe Lude.Text)
-oExtension = Lens.lens (extension :: Output -> Lude.Maybe Lude.Text) (\s a -> s {extension = a} :: Output)
-{-# DEPRECATED oExtension "Use generic-lens or generic-optics with 'extension' instead." #-}
-
--- | (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
---
--- /Note:/ Consider using 'videoDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oVideoDescription :: Lens.Lens' Output (Lude.Maybe VideoDescription)
-oVideoDescription = Lens.lens (videoDescription :: Output -> Lude.Maybe VideoDescription) (\s a -> s {videoDescription = a} :: Output)
-{-# DEPRECATED oVideoDescription "Use generic-lens or generic-optics with 'videoDescription' instead." #-}
 
 -- | Container specific settings.
 --
 -- /Note:/ Consider using 'containerSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oContainerSettings :: Lens.Lens' Output (Lude.Maybe ContainerSettings)
-oContainerSettings = Lens.lens (containerSettings :: Output -> Lude.Maybe ContainerSettings) (\s a -> s {containerSettings = a} :: Output)
+oContainerSettings :: Lens.Lens' Output (Core.Maybe Types.ContainerSettings)
+oContainerSettings = Lens.field @"containerSettings"
 {-# DEPRECATED oContainerSettings "Use generic-lens or generic-optics with 'containerSettings' instead." #-}
+
+-- | Use Extension (Extension) to specify the file extension for outputs in File output groups. If you do not specify a value, the service will use default extensions by container type as follows * MPEG-2 transport stream, m2ts * Quicktime, mov * MXF container, mxf * MPEG-4 container, mp4 * WebM container, webm * No Container, the service will use codec extensions (e.g. AAC, H265, H265, AC3)
+--
+-- /Note:/ Consider using 'extension' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oExtension :: Lens.Lens' Output (Core.Maybe Core.Text)
+oExtension = Lens.field @"extension"
+{-# DEPRECATED oExtension "Use generic-lens or generic-optics with 'extension' instead." #-}
+
+-- | Use Name modifier (NameModifier) to have the service add a string to the end of each output filename. You specify the base filename as part of your destination URI. When you create multiple outputs in the same output group, Name modifier (NameModifier) is required. Name modifier also accepts format identifiers. For DASH ISO outputs, if you use the format identifiers $Number$ or $Time$ in one output, you must use them in the same way in all outputs of the output group.
+--
+-- /Note:/ Consider using 'nameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oNameModifier :: Lens.Lens' Output (Core.Maybe Core.Text)
+oNameModifier = Lens.field @"nameModifier"
+{-# DEPRECATED oNameModifier "Use generic-lens or generic-optics with 'nameModifier' instead." #-}
 
 -- | Specific settings for this type of output.
 --
 -- /Note:/ Consider using 'outputSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oOutputSettings :: Lens.Lens' Output (Lude.Maybe OutputSettings)
-oOutputSettings = Lens.lens (outputSettings :: Output -> Lude.Maybe OutputSettings) (\s a -> s {outputSettings = a} :: Output)
+oOutputSettings :: Lens.Lens' Output (Core.Maybe Types.OutputSettings)
+oOutputSettings = Lens.field @"outputSettings"
 {-# DEPRECATED oOutputSettings "Use generic-lens or generic-optics with 'outputSettings' instead." #-}
 
 -- | Use Preset (Preset) to specifiy a preset for your transcoding settings. Provide the system or custom preset name. You can specify either Preset (Preset) or Container settings (ContainerSettings), but not both.
 --
 -- /Note:/ Consider using 'preset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oPreset :: Lens.Lens' Output (Lude.Maybe Lude.Text)
-oPreset = Lens.lens (preset :: Output -> Lude.Maybe Lude.Text) (\s a -> s {preset = a} :: Output)
+oPreset :: Lens.Lens' Output (Core.Maybe Core.Text)
+oPreset = Lens.field @"preset"
 {-# DEPRECATED oPreset "Use generic-lens or generic-optics with 'preset' instead." #-}
 
--- | Use Name modifier (NameModifier) to have the service add a string to the end of each output filename. You specify the base filename as part of your destination URI. When you create multiple outputs in the same output group, Name modifier (NameModifier) is required. Name modifier also accepts format identifiers. For DASH ISO outputs, if you use the format identifiers $Number$ or $Time$ in one output, you must use them in the same way in all outputs of the output group.
+-- | (VideoDescription) contains a group of video encoding settings. The specific video settings depend on the video codec that you choose when you specify a value for Video codec (codec). Include one instance of (VideoDescription) per output.
 --
--- /Note:/ Consider using 'nameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oNameModifier :: Lens.Lens' Output (Lude.Maybe Lude.Text)
-oNameModifier = Lens.lens (nameModifier :: Output -> Lude.Maybe Lude.Text) (\s a -> s {nameModifier = a} :: Output)
-{-# DEPRECATED oNameModifier "Use generic-lens or generic-optics with 'nameModifier' instead." #-}
+-- /Note:/ Consider using 'videoDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oVideoDescription :: Lens.Lens' Output (Core.Maybe Types.VideoDescription)
+oVideoDescription = Lens.field @"videoDescription"
+{-# DEPRECATED oVideoDescription "Use generic-lens or generic-optics with 'videoDescription' instead." #-}
 
--- | (AudioDescriptions) contains groups of audio encoding settings organized by audio codec. Include one instance of (AudioDescriptions) per output. (AudioDescriptions) can contain multiple groups of encoding settings.
---
--- /Note:/ Consider using 'audioDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oAudioDescriptions :: Lens.Lens' Output (Lude.Maybe [AudioDescription])
-oAudioDescriptions = Lens.lens (audioDescriptions :: Output -> Lude.Maybe [AudioDescription]) (\s a -> s {audioDescriptions = a} :: Output)
-{-# DEPRECATED oAudioDescriptions "Use generic-lens or generic-optics with 'audioDescriptions' instead." #-}
-
-instance Lude.FromJSON Output where
-  parseJSON =
-    Lude.withObject
-      "Output"
-      ( \x ->
-          Output'
-            Lude.<$> (x Lude..:? "captionDescriptions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "extension")
-            Lude.<*> (x Lude..:? "videoDescription")
-            Lude.<*> (x Lude..:? "containerSettings")
-            Lude.<*> (x Lude..:? "outputSettings")
-            Lude.<*> (x Lude..:? "preset")
-            Lude.<*> (x Lude..:? "nameModifier")
-            Lude.<*> (x Lude..:? "audioDescriptions" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON Output where
-  toJSON Output' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("captionDescriptions" Lude..=) Lude.<$> captionDescriptions,
-            ("extension" Lude..=) Lude.<$> extension,
-            ("videoDescription" Lude..=) Lude.<$> videoDescription,
-            ("containerSettings" Lude..=) Lude.<$> containerSettings,
-            ("outputSettings" Lude..=) Lude.<$> outputSettings,
-            ("preset" Lude..=) Lude.<$> preset,
-            ("nameModifier" Lude..=) Lude.<$> nameModifier,
-            ("audioDescriptions" Lude..=) Lude.<$> audioDescriptions
+instance Core.FromJSON Output where
+  toJSON Output {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("audioDescriptions" Core..=) Core.<$> audioDescriptions,
+            ("captionDescriptions" Core..=) Core.<$> captionDescriptions,
+            ("containerSettings" Core..=) Core.<$> containerSettings,
+            ("extension" Core..=) Core.<$> extension,
+            ("nameModifier" Core..=) Core.<$> nameModifier,
+            ("outputSettings" Core..=) Core.<$> outputSettings,
+            ("preset" Core..=) Core.<$> preset,
+            ("videoDescription" Core..=) Core.<$> videoDescription
           ]
       )
+
+instance Core.FromJSON Output where
+  parseJSON =
+    Core.withObject "Output" Core.$
+      \x ->
+        Output'
+          Core.<$> (x Core..:? "audioDescriptions")
+          Core.<*> (x Core..:? "captionDescriptions")
+          Core.<*> (x Core..:? "containerSettings")
+          Core.<*> (x Core..:? "extension")
+          Core.<*> (x Core..:? "nameModifier")
+          Core.<*> (x Core..:? "outputSettings")
+          Core.<*> (x Core..:? "preset")
+          Core.<*> (x Core..:? "videoDescription")

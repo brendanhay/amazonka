@@ -22,61 +22,62 @@ module Network.AWS.EFS.DescribeFileSystemPolicy
     mkDescribeFileSystemPolicy,
 
     -- ** Request lenses
-    dfspFileSystemId,
+    dfspfFileSystemId,
 
     -- * Destructuring the response
-    FileSystemPolicyDescription (..),
-    mkFileSystemPolicyDescription,
+    Types.FileSystemPolicyDescription (..),
+    Types.mkFileSystemPolicyDescription,
 
     -- ** Response lenses
-    fspdFileSystemId,
-    fspdPolicy,
+    Types.fspdFileSystemId,
+    Types.fspdPolicy,
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeFileSystemPolicy' smart constructor.
 newtype DescribeFileSystemPolicy = DescribeFileSystemPolicy'
   { -- | Specifies which EFS file system to retrieve the @FileSystemPolicy@ for.
-    fileSystemId :: Lude.Text
+    fileSystemId :: Types.FileSystemId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeFileSystemPolicy' with the minimum fields required to make a request.
---
--- * 'fileSystemId' - Specifies which EFS file system to retrieve the @FileSystemPolicy@ for.
+-- | Creates a 'DescribeFileSystemPolicy' value with any optional fields omitted.
 mkDescribeFileSystemPolicy ::
   -- | 'fileSystemId'
-  Lude.Text ->
+  Types.FileSystemId ->
   DescribeFileSystemPolicy
-mkDescribeFileSystemPolicy pFileSystemId_ =
-  DescribeFileSystemPolicy' {fileSystemId = pFileSystemId_}
+mkDescribeFileSystemPolicy fileSystemId =
+  DescribeFileSystemPolicy' {fileSystemId}
 
 -- | Specifies which EFS file system to retrieve the @FileSystemPolicy@ for.
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfspFileSystemId :: Lens.Lens' DescribeFileSystemPolicy Lude.Text
-dfspFileSystemId = Lens.lens (fileSystemId :: DescribeFileSystemPolicy -> Lude.Text) (\s a -> s {fileSystemId = a} :: DescribeFileSystemPolicy)
-{-# DEPRECATED dfspFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
+dfspfFileSystemId :: Lens.Lens' DescribeFileSystemPolicy Types.FileSystemId
+dfspfFileSystemId = Lens.field @"fileSystemId"
+{-# DEPRECATED dfspfFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
-instance Lude.AWSRequest DescribeFileSystemPolicy where
-  type Rs DescribeFileSystemPolicy = FileSystemPolicyDescription
-  request = Req.get efsService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders DescribeFileSystemPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeFileSystemPolicy where
-  toPath DescribeFileSystemPolicy' {..} =
-    Lude.mconcat
-      ["/2015-02-01/file-systems/", Lude.toBS fileSystemId, "/policy"]
-
-instance Lude.ToQuery DescribeFileSystemPolicy where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DescribeFileSystemPolicy where
+  type
+    Rs DescribeFileSystemPolicy =
+      Types.FileSystemPolicyDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-02-01/file-systems/" Core.<> (Core.toText fileSystemId)
+                Core.<> ("/policy")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

@@ -24,92 +24,82 @@ module Network.AWS.Lightsail.GetContainerAPIMetadata
     mkGetContainerAPIMetadataResponse,
 
     -- ** Response lenses
-    gcamrsMetadata,
-    gcamrsResponseStatus,
+    gcapimrrsMetadata,
+    gcapimrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetContainerAPIMetadata' smart constructor.
 data GetContainerAPIMetadata = GetContainerAPIMetadata'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetContainerAPIMetadata' with the minimum fields required to make a request.
+-- | Creates a 'GetContainerAPIMetadata' value with any optional fields omitted.
 mkGetContainerAPIMetadata ::
   GetContainerAPIMetadata
 mkGetContainerAPIMetadata = GetContainerAPIMetadata'
 
-instance Lude.AWSRequest GetContainerAPIMetadata where
+instance Core.FromJSON GetContainerAPIMetadata where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest GetContainerAPIMetadata where
   type Rs GetContainerAPIMetadata = GetContainerAPIMetadataResponse
-  request = Req.postJSON lightsailService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.GetContainerAPIMetadata")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetContainerAPIMetadataResponse'
-            Lude.<$> (x Lude..?> "metadata" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "metadata") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetContainerAPIMetadata where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetContainerAPIMetadata" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetContainerAPIMetadata where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath GetContainerAPIMetadata where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetContainerAPIMetadata where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetContainerAPIMetadataResponse' smart constructor.
 data GetContainerAPIMetadataResponse = GetContainerAPIMetadataResponse'
   { -- | Metadata about Lightsail containers, such as the current version of the Lightsail Control (lightsailctl) plugin.
-    metadata :: Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
+    metadata :: Core.Maybe [Core.HashMap Types.String Types.String],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetContainerAPIMetadataResponse' with the minimum fields required to make a request.
---
--- * 'metadata' - Metadata about Lightsail containers, such as the current version of the Lightsail Control (lightsailctl) plugin.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetContainerAPIMetadataResponse' value with any optional fields omitted.
 mkGetContainerAPIMetadataResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetContainerAPIMetadataResponse
-mkGetContainerAPIMetadataResponse pResponseStatus_ =
+mkGetContainerAPIMetadataResponse responseStatus =
   GetContainerAPIMetadataResponse'
-    { metadata = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { metadata = Core.Nothing,
+      responseStatus
     }
 
 -- | Metadata about Lightsail containers, such as the current version of the Lightsail Control (lightsailctl) plugin.
 --
 -- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcamrsMetadata :: Lens.Lens' GetContainerAPIMetadataResponse (Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)])
-gcamrsMetadata = Lens.lens (metadata :: GetContainerAPIMetadataResponse -> Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)]) (\s a -> s {metadata = a} :: GetContainerAPIMetadataResponse)
-{-# DEPRECATED gcamrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+gcapimrrsMetadata :: Lens.Lens' GetContainerAPIMetadataResponse (Core.Maybe [Core.HashMap Types.String Types.String])
+gcapimrrsMetadata = Lens.field @"metadata"
+{-# DEPRECATED gcapimrrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcamrsResponseStatus :: Lens.Lens' GetContainerAPIMetadataResponse Lude.Int
-gcamrsResponseStatus = Lens.lens (responseStatus :: GetContainerAPIMetadataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContainerAPIMetadataResponse)
-{-# DEPRECATED gcamrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcapimrrsResponseStatus :: Lens.Lens' GetContainerAPIMetadataResponse Core.Int
+gcapimrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcapimrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

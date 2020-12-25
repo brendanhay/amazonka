@@ -21,32 +21,31 @@ module Network.AWS.ElasticBeanstalk.Types.LaunchTemplate
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.ResourceId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an Amazon EC2 launch template.
 --
 -- /See:/ 'mkLaunchTemplate' smart constructor.
 newtype LaunchTemplate = LaunchTemplate'
   { -- | The ID of the launch template.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplate' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the launch template.
+-- | Creates a 'LaunchTemplate' value with any optional fields omitted.
 mkLaunchTemplate ::
   LaunchTemplate
-mkLaunchTemplate = LaunchTemplate' {id = Lude.Nothing}
+mkLaunchTemplate = LaunchTemplate' {id = Core.Nothing}
 
 -- | The ID of the launch template.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltId :: Lens.Lens' LaunchTemplate (Lude.Maybe Lude.Text)
-ltId = Lens.lens (id :: LaunchTemplate -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: LaunchTemplate)
+ltId :: Lens.Lens' LaunchTemplate (Core.Maybe Types.ResourceId)
+ltId = Lens.field @"id"
 {-# DEPRECATED ltId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromXML LaunchTemplate where
-  parseXML x = LaunchTemplate' Lude.<$> (x Lude..@? "Id")
+instance Core.FromXML LaunchTemplate where
+  parseXML x = LaunchTemplate' Core.<$> (x Core..@? "Id")

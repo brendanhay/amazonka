@@ -22,33 +22,37 @@ module Network.AWS.ServiceCatalog.CreateProvisioningArtifact
     mkCreateProvisioningArtifact,
 
     -- ** Request lenses
+    cpaProductId,
+    cpaParameters,
     cpaIdempotencyToken,
     cpaAcceptLanguage,
-    cpaParameters,
-    cpaProductId,
 
     -- * Destructuring the response
     CreateProvisioningArtifactResponse (..),
     mkCreateProvisioningArtifactResponse,
 
     -- ** Response lenses
-    cparsStatus,
-    cparsInfo,
-    cparsProvisioningArtifactDetail,
-    cparsResponseStatus,
+    cparrsInfo,
+    cparrsProvisioningArtifactDetail,
+    cparrsStatus,
+    cparrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkCreateProvisioningArtifact' smart constructor.
 data CreateProvisioningArtifact = CreateProvisioningArtifact'
-  { -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
-    idempotencyToken :: Lude.Text,
+  { -- | The product identifier.
+    productId :: Types.ProductId,
+    -- | The configuration for the provisioning artifact. The @info@ field accepts @ImportFromPhysicalID@ .
+    parameters :: Types.ProvisioningArtifactProperties,
+    -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
+    idempotencyToken :: Types.IdempotencyToken,
     -- | The language code.
     --
     --
@@ -59,57 +63,47 @@ data CreateProvisioningArtifact = CreateProvisioningArtifact'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The configuration for the provisioning artifact. The @info@ field accepts @ImportFromPhysicalID@ .
-    parameters :: ProvisioningArtifactProperties,
-    -- | The product identifier.
-    productId :: Lude.Text
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateProvisioningArtifact' with the minimum fields required to make a request.
---
--- * 'idempotencyToken' - A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'parameters' - The configuration for the provisioning artifact. The @info@ field accepts @ImportFromPhysicalID@ .
--- * 'productId' - The product identifier.
+-- | Creates a 'CreateProvisioningArtifact' value with any optional fields omitted.
 mkCreateProvisioningArtifact ::
-  -- | 'idempotencyToken'
-  Lude.Text ->
-  -- | 'parameters'
-  ProvisioningArtifactProperties ->
   -- | 'productId'
-  Lude.Text ->
+  Types.ProductId ->
+  -- | 'parameters'
+  Types.ProvisioningArtifactProperties ->
+  -- | 'idempotencyToken'
+  Types.IdempotencyToken ->
   CreateProvisioningArtifact
-mkCreateProvisioningArtifact
-  pIdempotencyToken_
-  pParameters_
-  pProductId_ =
-    CreateProvisioningArtifact'
-      { idempotencyToken =
-          pIdempotencyToken_,
-        acceptLanguage = Lude.Nothing,
-        parameters = pParameters_,
-        productId = pProductId_
-      }
+mkCreateProvisioningArtifact productId parameters idempotencyToken =
+  CreateProvisioningArtifact'
+    { productId,
+      parameters,
+      idempotencyToken,
+      acceptLanguage = Core.Nothing
+    }
+
+-- | The product identifier.
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpaProductId :: Lens.Lens' CreateProvisioningArtifact Types.ProductId
+cpaProductId = Lens.field @"productId"
+{-# DEPRECATED cpaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
+
+-- | The configuration for the provisioning artifact. The @info@ field accepts @ImportFromPhysicalID@ .
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpaParameters :: Lens.Lens' CreateProvisioningArtifact Types.ProvisioningArtifactProperties
+cpaParameters = Lens.field @"parameters"
+{-# DEPRECATED cpaParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
 -- | A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token, the same response is returned for each repeated request.
 --
 -- /Note:/ Consider using 'idempotencyToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpaIdempotencyToken :: Lens.Lens' CreateProvisioningArtifact Lude.Text
-cpaIdempotencyToken = Lens.lens (idempotencyToken :: CreateProvisioningArtifact -> Lude.Text) (\s a -> s {idempotencyToken = a} :: CreateProvisioningArtifact)
+cpaIdempotencyToken :: Lens.Lens' CreateProvisioningArtifact Types.IdempotencyToken
+cpaIdempotencyToken = Lens.field @"idempotencyToken"
 {-# DEPRECATED cpaIdempotencyToken "Use generic-lens or generic-optics with 'idempotencyToken' instead." #-}
 
 -- | The language code.
@@ -126,125 +120,100 @@ cpaIdempotencyToken = Lens.lens (idempotencyToken :: CreateProvisioningArtifact 
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpaAcceptLanguage :: Lens.Lens' CreateProvisioningArtifact (Lude.Maybe Lude.Text)
-cpaAcceptLanguage = Lens.lens (acceptLanguage :: CreateProvisioningArtifact -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: CreateProvisioningArtifact)
+cpaAcceptLanguage :: Lens.Lens' CreateProvisioningArtifact (Core.Maybe Types.AcceptLanguage)
+cpaAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED cpaAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
--- | The configuration for the provisioning artifact. The @info@ field accepts @ImportFromPhysicalID@ .
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpaParameters :: Lens.Lens' CreateProvisioningArtifact ProvisioningArtifactProperties
-cpaParameters = Lens.lens (parameters :: CreateProvisioningArtifact -> ProvisioningArtifactProperties) (\s a -> s {parameters = a} :: CreateProvisioningArtifact)
-{-# DEPRECATED cpaParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+instance Core.FromJSON CreateProvisioningArtifact where
+  toJSON CreateProvisioningArtifact {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProductId" Core..= productId),
+            Core.Just ("Parameters" Core..= parameters),
+            Core.Just ("IdempotencyToken" Core..= idempotencyToken),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+          ]
+      )
 
--- | The product identifier.
---
--- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpaProductId :: Lens.Lens' CreateProvisioningArtifact Lude.Text
-cpaProductId = Lens.lens (productId :: CreateProvisioningArtifact -> Lude.Text) (\s a -> s {productId = a} :: CreateProvisioningArtifact)
-{-# DEPRECATED cpaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
-
-instance Lude.AWSRequest CreateProvisioningArtifact where
+instance Core.AWSRequest CreateProvisioningArtifact where
   type
     Rs CreateProvisioningArtifact =
       CreateProvisioningArtifactResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.CreateProvisioningArtifact"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateProvisioningArtifactResponse'
-            Lude.<$> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "Info" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "ProvisioningArtifactDetail")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Info")
+            Core.<*> (x Core..:? "ProvisioningArtifactDetail")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateProvisioningArtifact where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.CreateProvisioningArtifact" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateProvisioningArtifact where
-  toJSON CreateProvisioningArtifact' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("IdempotencyToken" Lude..= idempotencyToken),
-            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("Parameters" Lude..= parameters),
-            Lude.Just ("ProductId" Lude..= productId)
-          ]
-      )
-
-instance Lude.ToPath CreateProvisioningArtifact where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateProvisioningArtifact where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateProvisioningArtifactResponse' smart constructor.
 data CreateProvisioningArtifactResponse = CreateProvisioningArtifactResponse'
-  { -- | The status of the current request.
-    status :: Lude.Maybe RequestStatus,
-    -- | The URL of the CloudFormation template in Amazon S3, in JSON format.
-    info :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+  { -- | The URL of the CloudFormation template in Amazon S3, in JSON format.
+    info :: Core.Maybe (Core.HashMap Types.ProvisioningArtifactInfoKey Types.ProvisioningArtifactInfoValue),
     -- | Information about the provisioning artifact.
-    provisioningArtifactDetail :: Lude.Maybe ProvisioningArtifactDetail,
+    provisioningArtifactDetail :: Core.Maybe Types.ProvisioningArtifactDetail,
+    -- | The status of the current request.
+    status :: Core.Maybe Types.RequestStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateProvisioningArtifactResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the current request.
--- * 'info' - The URL of the CloudFormation template in Amazon S3, in JSON format.
--- * 'provisioningArtifactDetail' - Information about the provisioning artifact.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateProvisioningArtifactResponse' value with any optional fields omitted.
 mkCreateProvisioningArtifactResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateProvisioningArtifactResponse
-mkCreateProvisioningArtifactResponse pResponseStatus_ =
+mkCreateProvisioningArtifactResponse responseStatus =
   CreateProvisioningArtifactResponse'
-    { status = Lude.Nothing,
-      info = Lude.Nothing,
-      provisioningArtifactDetail = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { info = Core.Nothing,
+      provisioningArtifactDetail = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
-
--- | The status of the current request.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cparsStatus :: Lens.Lens' CreateProvisioningArtifactResponse (Lude.Maybe RequestStatus)
-cparsStatus = Lens.lens (status :: CreateProvisioningArtifactResponse -> Lude.Maybe RequestStatus) (\s a -> s {status = a} :: CreateProvisioningArtifactResponse)
-{-# DEPRECATED cparsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The URL of the CloudFormation template in Amazon S3, in JSON format.
 --
 -- /Note:/ Consider using 'info' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cparsInfo :: Lens.Lens' CreateProvisioningArtifactResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cparsInfo = Lens.lens (info :: CreateProvisioningArtifactResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {info = a} :: CreateProvisioningArtifactResponse)
-{-# DEPRECATED cparsInfo "Use generic-lens or generic-optics with 'info' instead." #-}
+cparrsInfo :: Lens.Lens' CreateProvisioningArtifactResponse (Core.Maybe (Core.HashMap Types.ProvisioningArtifactInfoKey Types.ProvisioningArtifactInfoValue))
+cparrsInfo = Lens.field @"info"
+{-# DEPRECATED cparrsInfo "Use generic-lens or generic-optics with 'info' instead." #-}
 
 -- | Information about the provisioning artifact.
 --
 -- /Note:/ Consider using 'provisioningArtifactDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cparsProvisioningArtifactDetail :: Lens.Lens' CreateProvisioningArtifactResponse (Lude.Maybe ProvisioningArtifactDetail)
-cparsProvisioningArtifactDetail = Lens.lens (provisioningArtifactDetail :: CreateProvisioningArtifactResponse -> Lude.Maybe ProvisioningArtifactDetail) (\s a -> s {provisioningArtifactDetail = a} :: CreateProvisioningArtifactResponse)
-{-# DEPRECATED cparsProvisioningArtifactDetail "Use generic-lens or generic-optics with 'provisioningArtifactDetail' instead." #-}
+cparrsProvisioningArtifactDetail :: Lens.Lens' CreateProvisioningArtifactResponse (Core.Maybe Types.ProvisioningArtifactDetail)
+cparrsProvisioningArtifactDetail = Lens.field @"provisioningArtifactDetail"
+{-# DEPRECATED cparrsProvisioningArtifactDetail "Use generic-lens or generic-optics with 'provisioningArtifactDetail' instead." #-}
+
+-- | The status of the current request.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cparrsStatus :: Lens.Lens' CreateProvisioningArtifactResponse (Core.Maybe Types.RequestStatus)
+cparrsStatus = Lens.field @"status"
+{-# DEPRECATED cparrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cparsResponseStatus :: Lens.Lens' CreateProvisioningArtifactResponse Lude.Int
-cparsResponseStatus = Lens.lens (responseStatus :: CreateProvisioningArtifactResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProvisioningArtifactResponse)
-{-# DEPRECATED cparsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cparrsResponseStatus :: Lens.Lens' CreateProvisioningArtifactResponse Core.Int
+cparrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cparrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

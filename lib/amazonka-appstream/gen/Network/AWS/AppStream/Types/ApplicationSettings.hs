@@ -17,59 +17,54 @@ module Network.AWS.AppStream.Types.ApplicationSettings
     mkApplicationSettings,
 
     -- * Lenses
-    aEnabled,
-    aSettingsGroup,
+    asEnabled,
+    asSettingsGroup,
   )
 where
 
+import qualified Network.AWS.AppStream.Types.SettingsGroup as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The persistent application settings for users of a stack.
 --
 -- /See:/ 'mkApplicationSettings' smart constructor.
 data ApplicationSettings = ApplicationSettings'
   { -- | Enables or disables persistent application settings for users during their streaming sessions.
-    enabled :: Lude.Bool,
+    enabled :: Core.Bool,
     -- | The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
-    settingsGroup :: Lude.Maybe Lude.Text
+    settingsGroup :: Core.Maybe Types.SettingsGroup
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplicationSettings' with the minimum fields required to make a request.
---
--- * 'enabled' - Enables or disables persistent application settings for users during their streaming sessions.
--- * 'settingsGroup' - The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
+-- | Creates a 'ApplicationSettings' value with any optional fields omitted.
 mkApplicationSettings ::
   -- | 'enabled'
-  Lude.Bool ->
+  Core.Bool ->
   ApplicationSettings
-mkApplicationSettings pEnabled_ =
-  ApplicationSettings'
-    { enabled = pEnabled_,
-      settingsGroup = Lude.Nothing
-    }
+mkApplicationSettings enabled =
+  ApplicationSettings' {enabled, settingsGroup = Core.Nothing}
 
 -- | Enables or disables persistent application settings for users during their streaming sessions.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aEnabled :: Lens.Lens' ApplicationSettings Lude.Bool
-aEnabled = Lens.lens (enabled :: ApplicationSettings -> Lude.Bool) (\s a -> s {enabled = a} :: ApplicationSettings)
-{-# DEPRECATED aEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+asEnabled :: Lens.Lens' ApplicationSettings Core.Bool
+asEnabled = Lens.field @"enabled"
+{-# DEPRECATED asEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The path prefix for the S3 bucket where users’ persistent application settings are stored. You can allow the same persistent application settings to be used across multiple stacks by specifying the same settings group for each stack.
 --
 -- /Note:/ Consider using 'settingsGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aSettingsGroup :: Lens.Lens' ApplicationSettings (Lude.Maybe Lude.Text)
-aSettingsGroup = Lens.lens (settingsGroup :: ApplicationSettings -> Lude.Maybe Lude.Text) (\s a -> s {settingsGroup = a} :: ApplicationSettings)
-{-# DEPRECATED aSettingsGroup "Use generic-lens or generic-optics with 'settingsGroup' instead." #-}
+asSettingsGroup :: Lens.Lens' ApplicationSettings (Core.Maybe Types.SettingsGroup)
+asSettingsGroup = Lens.field @"settingsGroup"
+{-# DEPRECATED asSettingsGroup "Use generic-lens or generic-optics with 'settingsGroup' instead." #-}
 
-instance Lude.ToJSON ApplicationSettings where
-  toJSON ApplicationSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Enabled" Lude..= enabled),
-            ("SettingsGroup" Lude..=) Lude.<$> settingsGroup
+instance Core.FromJSON ApplicationSettings where
+  toJSON ApplicationSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Enabled" Core..= enabled),
+            ("SettingsGroup" Core..=) Core.<$> settingsGroup
           ]
       )

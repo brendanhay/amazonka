@@ -13,61 +13,66 @@
 module Network.AWS.SQS.Types.MessageAttribute
   ( MessageAttribute
       ( MessageAttribute',
-        All,
-        ApproximateFirstReceiveTimestamp,
-        ApproximateReceiveCount,
-        SenderId,
-        SentTimestamp
+        MessageAttributeAll,
+        MessageAttributeApproximateFirstReceiveTimestamp,
+        MessageAttributeApproximateReceiveCount,
+        MessageAttributeSenderId,
+        MessageAttributeSentTimestamp,
+        fromMessageAttribute
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MessageAttribute = MessageAttribute' Lude.Text
+newtype MessageAttribute = MessageAttribute'
+  { fromMessageAttribute ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern All :: MessageAttribute
-pattern All = MessageAttribute' "All"
+pattern MessageAttributeAll :: MessageAttribute
+pattern MessageAttributeAll = MessageAttribute' "All"
 
-pattern ApproximateFirstReceiveTimestamp :: MessageAttribute
-pattern ApproximateFirstReceiveTimestamp = MessageAttribute' "ApproximateFirstReceiveTimestamp"
+pattern MessageAttributeApproximateFirstReceiveTimestamp :: MessageAttribute
+pattern MessageAttributeApproximateFirstReceiveTimestamp = MessageAttribute' "ApproximateFirstReceiveTimestamp"
 
-pattern ApproximateReceiveCount :: MessageAttribute
-pattern ApproximateReceiveCount = MessageAttribute' "ApproximateReceiveCount"
+pattern MessageAttributeApproximateReceiveCount :: MessageAttribute
+pattern MessageAttributeApproximateReceiveCount = MessageAttribute' "ApproximateReceiveCount"
 
-pattern SenderId :: MessageAttribute
-pattern SenderId = MessageAttribute' "SenderId"
+pattern MessageAttributeSenderId :: MessageAttribute
+pattern MessageAttributeSenderId = MessageAttribute' "SenderId"
 
-pattern SentTimestamp :: MessageAttribute
-pattern SentTimestamp = MessageAttribute' "SentTimestamp"
+pattern MessageAttributeSentTimestamp :: MessageAttribute
+pattern MessageAttributeSentTimestamp = MessageAttribute' "SentTimestamp"
 
 {-# COMPLETE
-  All,
-  ApproximateFirstReceiveTimestamp,
-  ApproximateReceiveCount,
-  SenderId,
-  SentTimestamp,
+  MessageAttributeAll,
+  MessageAttributeApproximateFirstReceiveTimestamp,
+  MessageAttributeApproximateReceiveCount,
+  MessageAttributeSenderId,
+  MessageAttributeSentTimestamp,
   MessageAttribute'
   #-}

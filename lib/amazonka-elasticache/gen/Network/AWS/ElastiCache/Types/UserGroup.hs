@@ -17,122 +17,115 @@ module Network.AWS.ElastiCache.Types.UserGroup
     mkUserGroup,
 
     -- * Lenses
-    ugStatus,
-    ugUserIds,
     ugARN,
-    ugUserGroupId,
     ugEngine,
     ugPendingChanges,
     ugReplicationGroups,
+    ugStatus,
+    ugUserGroupId,
+    ugUserIds,
   )
 where
 
-import Network.AWS.ElastiCache.Types.UserGroupPendingChanges
+import qualified Network.AWS.ElastiCache.Types.Engine as Types
+import qualified Network.AWS.ElastiCache.Types.String as Types
+import qualified Network.AWS.ElastiCache.Types.UserGroupPendingChanges as Types
+import qualified Network.AWS.ElastiCache.Types.UserId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkUserGroup' smart constructor.
 data UserGroup = UserGroup'
-  { -- | Indicates user group status. Can be "creating", "active", "modifying", "deleting".
-    status :: Lude.Maybe Lude.Text,
-    -- | The list of user IDs that belong to the user group.
-    userIds :: Lude.Maybe [Lude.Text],
-    -- | The Amazon Resource Name (ARN) of the user group.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The ID of the user group.
-    userGroupId :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the user group.
+    arn :: Core.Maybe Types.String,
     -- | Must be Redis.
-    engine :: Lude.Maybe Lude.Text,
+    engine :: Core.Maybe Types.Engine,
     -- | A list of updates being applied to the user groups.
-    pendingChanges :: Lude.Maybe UserGroupPendingChanges,
+    pendingChanges :: Core.Maybe Types.UserGroupPendingChanges,
     -- | A list of replication groups that the user group can access.
-    replicationGroups :: Lude.Maybe [Lude.Text]
+    replicationGroups :: Core.Maybe [Types.String],
+    -- | Indicates user group status. Can be "creating", "active", "modifying", "deleting".
+    status :: Core.Maybe Types.String,
+    -- | The ID of the user group.
+    userGroupId :: Core.Maybe Types.String,
+    -- | The list of user IDs that belong to the user group.
+    userIds :: Core.Maybe [Types.UserId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserGroup' with the minimum fields required to make a request.
---
--- * 'status' - Indicates user group status. Can be "creating", "active", "modifying", "deleting".
--- * 'userIds' - The list of user IDs that belong to the user group.
--- * 'arn' - The Amazon Resource Name (ARN) of the user group.
--- * 'userGroupId' - The ID of the user group.
--- * 'engine' - Must be Redis.
--- * 'pendingChanges' - A list of updates being applied to the user groups.
--- * 'replicationGroups' - A list of replication groups that the user group can access.
+-- | Creates a 'UserGroup' value with any optional fields omitted.
 mkUserGroup ::
   UserGroup
 mkUserGroup =
   UserGroup'
-    { status = Lude.Nothing,
-      userIds = Lude.Nothing,
-      arn = Lude.Nothing,
-      userGroupId = Lude.Nothing,
-      engine = Lude.Nothing,
-      pendingChanges = Lude.Nothing,
-      replicationGroups = Lude.Nothing
+    { arn = Core.Nothing,
+      engine = Core.Nothing,
+      pendingChanges = Core.Nothing,
+      replicationGroups = Core.Nothing,
+      status = Core.Nothing,
+      userGroupId = Core.Nothing,
+      userIds = Core.Nothing
     }
-
--- | Indicates user group status. Can be "creating", "active", "modifying", "deleting".
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugStatus :: Lens.Lens' UserGroup (Lude.Maybe Lude.Text)
-ugStatus = Lens.lens (status :: UserGroup -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: UserGroup)
-{-# DEPRECATED ugStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The list of user IDs that belong to the user group.
---
--- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugUserIds :: Lens.Lens' UserGroup (Lude.Maybe [Lude.Text])
-ugUserIds = Lens.lens (userIds :: UserGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {userIds = a} :: UserGroup)
-{-# DEPRECATED ugUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the user group.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugARN :: Lens.Lens' UserGroup (Lude.Maybe Lude.Text)
-ugARN = Lens.lens (arn :: UserGroup -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: UserGroup)
+ugARN :: Lens.Lens' UserGroup (Core.Maybe Types.String)
+ugARN = Lens.field @"arn"
 {-# DEPRECATED ugARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The ID of the user group.
---
--- /Note:/ Consider using 'userGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugUserGroupId :: Lens.Lens' UserGroup (Lude.Maybe Lude.Text)
-ugUserGroupId = Lens.lens (userGroupId :: UserGroup -> Lude.Maybe Lude.Text) (\s a -> s {userGroupId = a} :: UserGroup)
-{-# DEPRECATED ugUserGroupId "Use generic-lens or generic-optics with 'userGroupId' instead." #-}
 
 -- | Must be Redis.
 --
 -- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugEngine :: Lens.Lens' UserGroup (Lude.Maybe Lude.Text)
-ugEngine = Lens.lens (engine :: UserGroup -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: UserGroup)
+ugEngine :: Lens.Lens' UserGroup (Core.Maybe Types.Engine)
+ugEngine = Lens.field @"engine"
 {-# DEPRECATED ugEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | A list of updates being applied to the user groups.
 --
 -- /Note:/ Consider using 'pendingChanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugPendingChanges :: Lens.Lens' UserGroup (Lude.Maybe UserGroupPendingChanges)
-ugPendingChanges = Lens.lens (pendingChanges :: UserGroup -> Lude.Maybe UserGroupPendingChanges) (\s a -> s {pendingChanges = a} :: UserGroup)
+ugPendingChanges :: Lens.Lens' UserGroup (Core.Maybe Types.UserGroupPendingChanges)
+ugPendingChanges = Lens.field @"pendingChanges"
 {-# DEPRECATED ugPendingChanges "Use generic-lens or generic-optics with 'pendingChanges' instead." #-}
 
 -- | A list of replication groups that the user group can access.
 --
 -- /Note:/ Consider using 'replicationGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugReplicationGroups :: Lens.Lens' UserGroup (Lude.Maybe [Lude.Text])
-ugReplicationGroups = Lens.lens (replicationGroups :: UserGroup -> Lude.Maybe [Lude.Text]) (\s a -> s {replicationGroups = a} :: UserGroup)
+ugReplicationGroups :: Lens.Lens' UserGroup (Core.Maybe [Types.String])
+ugReplicationGroups = Lens.field @"replicationGroups"
 {-# DEPRECATED ugReplicationGroups "Use generic-lens or generic-optics with 'replicationGroups' instead." #-}
 
-instance Lude.FromXML UserGroup where
+-- | Indicates user group status. Can be "creating", "active", "modifying", "deleting".
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugStatus :: Lens.Lens' UserGroup (Core.Maybe Types.String)
+ugStatus = Lens.field @"status"
+{-# DEPRECATED ugStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The ID of the user group.
+--
+-- /Note:/ Consider using 'userGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugUserGroupId :: Lens.Lens' UserGroup (Core.Maybe Types.String)
+ugUserGroupId = Lens.field @"userGroupId"
+{-# DEPRECATED ugUserGroupId "Use generic-lens or generic-optics with 'userGroupId' instead." #-}
+
+-- | The list of user IDs that belong to the user group.
+--
+-- /Note:/ Consider using 'userIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugUserIds :: Lens.Lens' UserGroup (Core.Maybe [Types.UserId])
+ugUserIds = Lens.field @"userIds"
+{-# DEPRECATED ugUserIds "Use generic-lens or generic-optics with 'userIds' instead." #-}
+
+instance Core.FromXML UserGroup where
   parseXML x =
     UserGroup'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> ( x Lude..@? "UserIds" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
+      Core.<$> (x Core..@? "ARN")
+      Core.<*> (x Core..@? "Engine")
+      Core.<*> (x Core..@? "PendingChanges")
+      Core.<*> ( x Core..@? "ReplicationGroups"
+                   Core..<@> Core.parseXMLList "member"
                )
-      Lude.<*> (x Lude..@? "ARN")
-      Lude.<*> (x Lude..@? "UserGroupId")
-      Lude.<*> (x Lude..@? "Engine")
-      Lude.<*> (x Lude..@? "PendingChanges")
-      Lude.<*> ( x Lude..@? "ReplicationGroups" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
+      Core.<*> (x Core..@? "Status")
+      Core.<*> (x Core..@? "UserGroupId")
+      Core.<*> (x Core..@? "UserIds" Core..<@> Core.parseXMLList "member")

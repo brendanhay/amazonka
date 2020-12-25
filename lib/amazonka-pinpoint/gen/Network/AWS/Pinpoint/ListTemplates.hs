@@ -20,151 +20,132 @@ module Network.AWS.Pinpoint.ListTemplates
     mkListTemplates,
 
     -- ** Request lenses
-    ltTemplateType,
-    ltPrefix,
     ltNextToken,
     ltPageSize,
+    ltPrefix,
+    ltTemplateType,
 
     -- * Destructuring the response
     ListTemplatesResponse (..),
     mkListTemplatesResponse,
 
     -- ** Response lenses
-    ltrsTemplatesResponse,
-    ltrsResponseStatus,
+    ltrrsTemplatesResponse,
+    ltrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTemplates' smart constructor.
 data ListTemplates = ListTemplates'
-  { -- | The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don't include this parameter in your request.
-    templateType :: Lude.Maybe Lude.Text,
-    -- | The substring to match in the names of the message templates to include in the results. If you specify this value, Amazon Pinpoint returns only those templates whose names begin with the value that you specify.
-    prefix :: Lude.Maybe Lude.Text,
-    -- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+    nextToken :: Core.Maybe Core.Text,
     -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-    pageSize :: Lude.Maybe Lude.Text
+    pageSize :: Core.Maybe Core.Text,
+    -- | The substring to match in the names of the message templates to include in the results. If you specify this value, Amazon Pinpoint returns only those templates whose names begin with the value that you specify.
+    prefix :: Core.Maybe Core.Text,
+    -- | The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don't include this parameter in your request.
+    templateType :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTemplates' with the minimum fields required to make a request.
---
--- * 'templateType' - The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don't include this parameter in your request.
--- * 'prefix' - The substring to match in the names of the message templates to include in the results. If you specify this value, Amazon Pinpoint returns only those templates whose names begin with the value that you specify.
--- * 'nextToken' - The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
--- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- | Creates a 'ListTemplates' value with any optional fields omitted.
 mkListTemplates ::
   ListTemplates
 mkListTemplates =
   ListTemplates'
-    { templateType = Lude.Nothing,
-      prefix = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { nextToken = Core.Nothing,
+      pageSize = Core.Nothing,
+      prefix = Core.Nothing,
+      templateType = Core.Nothing
     }
-
--- | The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don't include this parameter in your request.
---
--- /Note:/ Consider using 'templateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltTemplateType :: Lens.Lens' ListTemplates (Lude.Maybe Lude.Text)
-ltTemplateType = Lens.lens (templateType :: ListTemplates -> Lude.Maybe Lude.Text) (\s a -> s {templateType = a} :: ListTemplates)
-{-# DEPRECATED ltTemplateType "Use generic-lens or generic-optics with 'templateType' instead." #-}
-
--- | The substring to match in the names of the message templates to include in the results. If you specify this value, Amazon Pinpoint returns only those templates whose names begin with the value that you specify.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltPrefix :: Lens.Lens' ListTemplates (Lude.Maybe Lude.Text)
-ltPrefix = Lens.lens (prefix :: ListTemplates -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: ListTemplates)
-{-# DEPRECATED ltPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | The  string that specifies which page of results to return in a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltNextToken :: Lens.Lens' ListTemplates (Lude.Maybe Lude.Text)
-ltNextToken = Lens.lens (nextToken :: ListTemplates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTemplates)
+ltNextToken :: Lens.Lens' ListTemplates (Core.Maybe Core.Text)
+ltNextToken = Lens.field @"nextToken"
 {-# DEPRECATED ltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltPageSize :: Lens.Lens' ListTemplates (Lude.Maybe Lude.Text)
-ltPageSize = Lens.lens (pageSize :: ListTemplates -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: ListTemplates)
+ltPageSize :: Lens.Lens' ListTemplates (Core.Maybe Core.Text)
+ltPageSize = Lens.field @"pageSize"
 {-# DEPRECATED ltPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Lude.AWSRequest ListTemplates where
+-- | The substring to match in the names of the message templates to include in the results. If you specify this value, Amazon Pinpoint returns only those templates whose names begin with the value that you specify.
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltPrefix :: Lens.Lens' ListTemplates (Core.Maybe Core.Text)
+ltPrefix = Lens.field @"prefix"
+{-# DEPRECATED ltPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+-- | The type of message template to include in the results. Valid values are: EMAIL, PUSH, SMS, and VOICE. To include all types of templates in the results, don't include this parameter in your request.
+--
+-- /Note:/ Consider using 'templateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltTemplateType :: Lens.Lens' ListTemplates (Core.Maybe Core.Text)
+ltTemplateType = Lens.field @"templateType"
+{-# DEPRECATED ltTemplateType "Use generic-lens or generic-optics with 'templateType' instead." #-}
+
+instance Core.AWSRequest ListTemplates where
   type Rs ListTemplates = ListTemplatesResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/v1/templates",
+        Core._rqQuery =
+          Core.toQueryValue "next-token" Core.<$> nextToken
+            Core.<> (Core.toQueryValue "page-size" Core.<$> pageSize)
+            Core.<> (Core.toQueryValue "prefix" Core.<$> prefix)
+            Core.<> (Core.toQueryValue "template-type" Core.<$> templateType),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTemplatesResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListTemplates where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListTemplates where
-  toPath = Lude.const "/v1/templates"
-
-instance Lude.ToQuery ListTemplates where
-  toQuery ListTemplates' {..} =
-    Lude.mconcat
-      [ "template-type" Lude.=: templateType,
-        "prefix" Lude.=: prefix,
-        "next-token" Lude.=: nextToken,
-        "page-size" Lude.=: pageSize
-      ]
 
 -- | /See:/ 'mkListTemplatesResponse' smart constructor.
 data ListTemplatesResponse = ListTemplatesResponse'
-  { templatesResponse :: TemplatesResponse,
+  { templatesResponse :: Types.TemplatesResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTemplatesResponse' with the minimum fields required to make a request.
---
--- * 'templatesResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTemplatesResponse' value with any optional fields omitted.
 mkListTemplatesResponse ::
   -- | 'templatesResponse'
-  TemplatesResponse ->
+  Types.TemplatesResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTemplatesResponse
-mkListTemplatesResponse pTemplatesResponse_ pResponseStatus_ =
-  ListTemplatesResponse'
-    { templatesResponse = pTemplatesResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkListTemplatesResponse templatesResponse responseStatus =
+  ListTemplatesResponse' {templatesResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'templatesResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrsTemplatesResponse :: Lens.Lens' ListTemplatesResponse TemplatesResponse
-ltrsTemplatesResponse = Lens.lens (templatesResponse :: ListTemplatesResponse -> TemplatesResponse) (\s a -> s {templatesResponse = a} :: ListTemplatesResponse)
-{-# DEPRECATED ltrsTemplatesResponse "Use generic-lens or generic-optics with 'templatesResponse' instead." #-}
+ltrrsTemplatesResponse :: Lens.Lens' ListTemplatesResponse Types.TemplatesResponse
+ltrrsTemplatesResponse = Lens.field @"templatesResponse"
+{-# DEPRECATED ltrrsTemplatesResponse "Use generic-lens or generic-optics with 'templatesResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrsResponseStatus :: Lens.Lens' ListTemplatesResponse Lude.Int
-ltrsResponseStatus = Lens.lens (responseStatus :: ListTemplatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTemplatesResponse)
-{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltrrsResponseStatus :: Lens.Lens' ListTemplatesResponse Core.Int
+ltrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CloudWatch
     Network.AWS.CloudWatch.DeleteAlarms
@@ -101,40 +107,99 @@ library
     Network.AWS.CloudWatch.Waiters
 
   other-modules:
+    Network.AWS.CloudWatch.Types.ActionPrefix
+    Network.AWS.CloudWatch.Types.AggregationStatistic
+    Network.AWS.CloudWatch.Types.AlarmArn
+    Network.AWS.CloudWatch.Types.AlarmDescription
     Network.AWS.CloudWatch.Types.AlarmHistoryItem
+    Network.AWS.CloudWatch.Types.AlarmName
+    Network.AWS.CloudWatch.Types.AlarmNamePrefix
+    Network.AWS.CloudWatch.Types.AlarmRule
     Network.AWS.CloudWatch.Types.AlarmType
+    Network.AWS.CloudWatch.Types.AmazonResourceName
     Network.AWS.CloudWatch.Types.AnomalyDetector
     Network.AWS.CloudWatch.Types.AnomalyDetectorConfiguration
+    Network.AWS.CloudWatch.Types.AnomalyDetectorMetricStat
+    Network.AWS.CloudWatch.Types.AnomalyDetectorMetricTimezone
     Network.AWS.CloudWatch.Types.AnomalyDetectorStateValue
+    Network.AWS.CloudWatch.Types.Code
     Network.AWS.CloudWatch.Types.ComparisonOperator
     Network.AWS.CloudWatch.Types.CompositeAlarm
+    Network.AWS.CloudWatch.Types.DashboardArn
+    Network.AWS.CloudWatch.Types.DashboardBody
     Network.AWS.CloudWatch.Types.DashboardEntry
+    Network.AWS.CloudWatch.Types.DashboardName
+    Network.AWS.CloudWatch.Types.DashboardNamePrefix
     Network.AWS.CloudWatch.Types.DashboardValidationMessage
+    Network.AWS.CloudWatch.Types.DataPath
     Network.AWS.CloudWatch.Types.Datapoint
     Network.AWS.CloudWatch.Types.Dimension
     Network.AWS.CloudWatch.Types.DimensionFilter
+    Network.AWS.CloudWatch.Types.DimensionName
+    Network.AWS.CloudWatch.Types.DimensionValue
+    Network.AWS.CloudWatch.Types.EvaluateLowSampleCountPercentile
+    Network.AWS.CloudWatch.Types.ExceptionType
+    Network.AWS.CloudWatch.Types.Expression
+    Network.AWS.CloudWatch.Types.ExtendedStatistic
+    Network.AWS.CloudWatch.Types.FailureCode
+    Network.AWS.CloudWatch.Types.FailureDescription
+    Network.AWS.CloudWatch.Types.FailureResource
+    Network.AWS.CloudWatch.Types.HistoryData
     Network.AWS.CloudWatch.Types.HistoryItemType
+    Network.AWS.CloudWatch.Types.HistorySummary
     Network.AWS.CloudWatch.Types.InsightRule
     Network.AWS.CloudWatch.Types.InsightRuleContributor
     Network.AWS.CloudWatch.Types.InsightRuleContributorDatapoint
+    Network.AWS.CloudWatch.Types.InsightRuleContributorKey
+    Network.AWS.CloudWatch.Types.InsightRuleContributorKeyLabel
+    Network.AWS.CloudWatch.Types.InsightRuleDefinition
     Network.AWS.CloudWatch.Types.InsightRuleMetricDatapoint
+    Network.AWS.CloudWatch.Types.InsightRuleMetricName
+    Network.AWS.CloudWatch.Types.InsightRuleName
+    Network.AWS.CloudWatch.Types.InsightRuleOrderBy
+    Network.AWS.CloudWatch.Types.InsightRuleState
+    Network.AWS.CloudWatch.Types.Key
+    Network.AWS.CloudWatch.Types.Label
+    Network.AWS.CloudWatch.Types.Message
     Network.AWS.CloudWatch.Types.MessageData
+    Network.AWS.CloudWatch.Types.MessageDataValue
     Network.AWS.CloudWatch.Types.Metric
     Network.AWS.CloudWatch.Types.MetricAlarm
     Network.AWS.CloudWatch.Types.MetricDataQuery
     Network.AWS.CloudWatch.Types.MetricDataResult
     Network.AWS.CloudWatch.Types.MetricDatum
+    Network.AWS.CloudWatch.Types.MetricId
+    Network.AWS.CloudWatch.Types.MetricLabel
+    Network.AWS.CloudWatch.Types.MetricName
     Network.AWS.CloudWatch.Types.MetricStat
+    Network.AWS.CloudWatch.Types.MetricWidget
+    Network.AWS.CloudWatch.Types.Name
+    Network.AWS.CloudWatch.Types.Namespace
+    Network.AWS.CloudWatch.Types.NextToken
+    Network.AWS.CloudWatch.Types.OutputFormat
     Network.AWS.CloudWatch.Types.PartialFailure
     Network.AWS.CloudWatch.Types.Range
     Network.AWS.CloudWatch.Types.RecentlyActive
+    Network.AWS.CloudWatch.Types.ResourceARN
+    Network.AWS.CloudWatch.Types.ResourceName
+    Network.AWS.CloudWatch.Types.RuleDefinition
+    Network.AWS.CloudWatch.Types.RuleName
+    Network.AWS.CloudWatch.Types.RuleState
     Network.AWS.CloudWatch.Types.ScanBy
+    Network.AWS.CloudWatch.Types.Schema
     Network.AWS.CloudWatch.Types.StandardUnit
+    Network.AWS.CloudWatch.Types.Stat
+    Network.AWS.CloudWatch.Types.StateReason
+    Network.AWS.CloudWatch.Types.StateReasonData
     Network.AWS.CloudWatch.Types.StateValue
     Network.AWS.CloudWatch.Types.Statistic
     Network.AWS.CloudWatch.Types.StatisticSet
     Network.AWS.CloudWatch.Types.StatusCode
     Network.AWS.CloudWatch.Types.Tag
+    Network.AWS.CloudWatch.Types.TagKey
+    Network.AWS.CloudWatch.Types.ThresholdMetricId
+    Network.AWS.CloudWatch.Types.TreatMissingData
+    Network.AWS.CloudWatch.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

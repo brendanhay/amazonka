@@ -13,51 +13,56 @@
 module Network.AWS.EMR.Types.AutoScalingPolicyStateChangeReasonCode
   ( AutoScalingPolicyStateChangeReasonCode
       ( AutoScalingPolicyStateChangeReasonCode',
-        UserRequest,
-        ProvisionFailure,
-        CleanupFailure
+        AutoScalingPolicyStateChangeReasonCodeUserRequest,
+        AutoScalingPolicyStateChangeReasonCodeProvisionFailure,
+        AutoScalingPolicyStateChangeReasonCodeCleanupFailure,
+        fromAutoScalingPolicyStateChangeReasonCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AutoScalingPolicyStateChangeReasonCode = AutoScalingPolicyStateChangeReasonCode' Lude.Text
+newtype AutoScalingPolicyStateChangeReasonCode = AutoScalingPolicyStateChangeReasonCode'
+  { fromAutoScalingPolicyStateChangeReasonCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UserRequest :: AutoScalingPolicyStateChangeReasonCode
-pattern UserRequest = AutoScalingPolicyStateChangeReasonCode' "USER_REQUEST"
+pattern AutoScalingPolicyStateChangeReasonCodeUserRequest :: AutoScalingPolicyStateChangeReasonCode
+pattern AutoScalingPolicyStateChangeReasonCodeUserRequest = AutoScalingPolicyStateChangeReasonCode' "USER_REQUEST"
 
-pattern ProvisionFailure :: AutoScalingPolicyStateChangeReasonCode
-pattern ProvisionFailure = AutoScalingPolicyStateChangeReasonCode' "PROVISION_FAILURE"
+pattern AutoScalingPolicyStateChangeReasonCodeProvisionFailure :: AutoScalingPolicyStateChangeReasonCode
+pattern AutoScalingPolicyStateChangeReasonCodeProvisionFailure = AutoScalingPolicyStateChangeReasonCode' "PROVISION_FAILURE"
 
-pattern CleanupFailure :: AutoScalingPolicyStateChangeReasonCode
-pattern CleanupFailure = AutoScalingPolicyStateChangeReasonCode' "CLEANUP_FAILURE"
+pattern AutoScalingPolicyStateChangeReasonCodeCleanupFailure :: AutoScalingPolicyStateChangeReasonCode
+pattern AutoScalingPolicyStateChangeReasonCodeCleanupFailure = AutoScalingPolicyStateChangeReasonCode' "CLEANUP_FAILURE"
 
 {-# COMPLETE
-  UserRequest,
-  ProvisionFailure,
-  CleanupFailure,
+  AutoScalingPolicyStateChangeReasonCodeUserRequest,
+  AutoScalingPolicyStateChangeReasonCodeProvisionFailure,
+  AutoScalingPolicyStateChangeReasonCodeCleanupFailure,
   AutoScalingPolicyStateChangeReasonCode'
   #-}

@@ -17,59 +17,54 @@ module Network.AWS.Greengrass.Types.GroupCertificateAuthorityProperties
     mkGroupCertificateAuthorityProperties,
 
     -- * Lenses
-    gcapGroupCertificateAuthorityARN,
+    gcapGroupCertificateAuthorityArn,
     gcapGroupCertificateAuthorityId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a certificate authority for a group.
 --
 -- /See:/ 'mkGroupCertificateAuthorityProperties' smart constructor.
 data GroupCertificateAuthorityProperties = GroupCertificateAuthorityProperties'
   { -- | The ARN of the certificate authority for the group.
-    groupCertificateAuthorityARN :: Lude.Maybe Lude.Text,
+    groupCertificateAuthorityArn :: Core.Maybe Core.Text,
     -- | The ID of the certificate authority for the group.
-    groupCertificateAuthorityId :: Lude.Maybe Lude.Text
+    groupCertificateAuthorityId :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GroupCertificateAuthorityProperties' with the minimum fields required to make a request.
---
--- * 'groupCertificateAuthorityARN' - The ARN of the certificate authority for the group.
--- * 'groupCertificateAuthorityId' - The ID of the certificate authority for the group.
+-- | Creates a 'GroupCertificateAuthorityProperties' value with any optional fields omitted.
 mkGroupCertificateAuthorityProperties ::
   GroupCertificateAuthorityProperties
 mkGroupCertificateAuthorityProperties =
   GroupCertificateAuthorityProperties'
-    { groupCertificateAuthorityARN =
-        Lude.Nothing,
-      groupCertificateAuthorityId = Lude.Nothing
+    { groupCertificateAuthorityArn =
+        Core.Nothing,
+      groupCertificateAuthorityId = Core.Nothing
     }
 
 -- | The ARN of the certificate authority for the group.
 --
--- /Note:/ Consider using 'groupCertificateAuthorityARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcapGroupCertificateAuthorityARN :: Lens.Lens' GroupCertificateAuthorityProperties (Lude.Maybe Lude.Text)
-gcapGroupCertificateAuthorityARN = Lens.lens (groupCertificateAuthorityARN :: GroupCertificateAuthorityProperties -> Lude.Maybe Lude.Text) (\s a -> s {groupCertificateAuthorityARN = a} :: GroupCertificateAuthorityProperties)
-{-# DEPRECATED gcapGroupCertificateAuthorityARN "Use generic-lens or generic-optics with 'groupCertificateAuthorityARN' instead." #-}
+-- /Note:/ Consider using 'groupCertificateAuthorityArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcapGroupCertificateAuthorityArn :: Lens.Lens' GroupCertificateAuthorityProperties (Core.Maybe Core.Text)
+gcapGroupCertificateAuthorityArn = Lens.field @"groupCertificateAuthorityArn"
+{-# DEPRECATED gcapGroupCertificateAuthorityArn "Use generic-lens or generic-optics with 'groupCertificateAuthorityArn' instead." #-}
 
 -- | The ID of the certificate authority for the group.
 --
 -- /Note:/ Consider using 'groupCertificateAuthorityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcapGroupCertificateAuthorityId :: Lens.Lens' GroupCertificateAuthorityProperties (Lude.Maybe Lude.Text)
-gcapGroupCertificateAuthorityId = Lens.lens (groupCertificateAuthorityId :: GroupCertificateAuthorityProperties -> Lude.Maybe Lude.Text) (\s a -> s {groupCertificateAuthorityId = a} :: GroupCertificateAuthorityProperties)
+gcapGroupCertificateAuthorityId :: Lens.Lens' GroupCertificateAuthorityProperties (Core.Maybe Core.Text)
+gcapGroupCertificateAuthorityId = Lens.field @"groupCertificateAuthorityId"
 {-# DEPRECATED gcapGroupCertificateAuthorityId "Use generic-lens or generic-optics with 'groupCertificateAuthorityId' instead." #-}
 
-instance Lude.FromJSON GroupCertificateAuthorityProperties where
+instance Core.FromJSON GroupCertificateAuthorityProperties where
   parseJSON =
-    Lude.withObject
-      "GroupCertificateAuthorityProperties"
-      ( \x ->
-          GroupCertificateAuthorityProperties'
-            Lude.<$> (x Lude..:? "GroupCertificateAuthorityArn")
-            Lude.<*> (x Lude..:? "GroupCertificateAuthorityId")
-      )
+    Core.withObject "GroupCertificateAuthorityProperties" Core.$
+      \x ->
+        GroupCertificateAuthorityProperties'
+          Core.<$> (x Core..:? "GroupCertificateAuthorityArn")
+          Core.<*> (x Core..:? "GroupCertificateAuthorityId")

@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Mp4MoovPlacement
   ( Mp4MoovPlacement
       ( Mp4MoovPlacement',
-        MMPProgressiveDownload,
-        MMPNormal
+        Mp4MoovPlacementProgressiveDownload,
+        Mp4MoovPlacementNormal,
+        fromMp4MoovPlacement
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If set to PROGRESSIVE_DOWNLOAD, the MOOV atom is relocated to the beginning of the archive as required for progressive downloading. Otherwise it is placed normally at the end.
-newtype Mp4MoovPlacement = Mp4MoovPlacement' Lude.Text
+newtype Mp4MoovPlacement = Mp4MoovPlacement'
+  { fromMp4MoovPlacement ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MMPProgressiveDownload :: Mp4MoovPlacement
-pattern MMPProgressiveDownload = Mp4MoovPlacement' "PROGRESSIVE_DOWNLOAD"
+pattern Mp4MoovPlacementProgressiveDownload :: Mp4MoovPlacement
+pattern Mp4MoovPlacementProgressiveDownload = Mp4MoovPlacement' "PROGRESSIVE_DOWNLOAD"
 
-pattern MMPNormal :: Mp4MoovPlacement
-pattern MMPNormal = Mp4MoovPlacement' "NORMAL"
+pattern Mp4MoovPlacementNormal :: Mp4MoovPlacement
+pattern Mp4MoovPlacementNormal = Mp4MoovPlacement' "NORMAL"
 
 {-# COMPLETE
-  MMPProgressiveDownload,
-  MMPNormal,
+  Mp4MoovPlacementProgressiveDownload,
+  Mp4MoovPlacementNormal,
   Mp4MoovPlacement'
   #-}

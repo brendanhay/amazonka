@@ -18,69 +18,66 @@ module Network.AWS.Route53.Types.HealthCheckObservation
 
     -- * Lenses
     hcoIPAddress,
-    hcoStatusReport,
     hcoRegion,
+    hcoStatusReport,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
-import Network.AWS.Route53.Types.HealthCheckRegion
-import Network.AWS.Route53.Types.StatusReport
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
+import qualified Network.AWS.Route53.Types.HealthCheckRegion as Types
+import qualified Network.AWS.Route53.Types.IPAddress as Types
+import qualified Network.AWS.Route53.Types.StatusReport as Types
 
 -- | A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker.
 --
 -- /See:/ 'mkHealthCheckObservation' smart constructor.
 data HealthCheckObservation = HealthCheckObservation'
   { -- | The IP address of the Amazon Route 53 health checker that provided the failure reason in @StatusReport@ .
-    ipAddress :: Lude.Maybe Lude.Text,
-    -- | A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check.
-    statusReport :: Lude.Maybe StatusReport,
+    iPAddress :: Core.Maybe Types.IPAddress,
     -- | The region of the Amazon Route 53 health checker that provided the status in @StatusReport@ .
-    region :: Lude.Maybe HealthCheckRegion
+    region :: Core.Maybe Types.HealthCheckRegion,
+    -- | A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check.
+    statusReport :: Core.Maybe Types.StatusReport
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'HealthCheckObservation' with the minimum fields required to make a request.
---
--- * 'ipAddress' - The IP address of the Amazon Route 53 health checker that provided the failure reason in @StatusReport@ .
--- * 'statusReport' - A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check.
--- * 'region' - The region of the Amazon Route 53 health checker that provided the status in @StatusReport@ .
+-- | Creates a 'HealthCheckObservation' value with any optional fields omitted.
 mkHealthCheckObservation ::
   HealthCheckObservation
 mkHealthCheckObservation =
   HealthCheckObservation'
-    { ipAddress = Lude.Nothing,
-      statusReport = Lude.Nothing,
-      region = Lude.Nothing
+    { iPAddress = Core.Nothing,
+      region = Core.Nothing,
+      statusReport = Core.Nothing
     }
 
 -- | The IP address of the Amazon Route 53 health checker that provided the failure reason in @StatusReport@ .
 --
--- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcoIPAddress :: Lens.Lens' HealthCheckObservation (Lude.Maybe Lude.Text)
-hcoIPAddress = Lens.lens (ipAddress :: HealthCheckObservation -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: HealthCheckObservation)
-{-# DEPRECATED hcoIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
-
--- | A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check.
---
--- /Note:/ Consider using 'statusReport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcoStatusReport :: Lens.Lens' HealthCheckObservation (Lude.Maybe StatusReport)
-hcoStatusReport = Lens.lens (statusReport :: HealthCheckObservation -> Lude.Maybe StatusReport) (\s a -> s {statusReport = a} :: HealthCheckObservation)
-{-# DEPRECATED hcoStatusReport "Use generic-lens or generic-optics with 'statusReport' instead." #-}
+-- /Note:/ Consider using 'iPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcoIPAddress :: Lens.Lens' HealthCheckObservation (Core.Maybe Types.IPAddress)
+hcoIPAddress = Lens.field @"iPAddress"
+{-# DEPRECATED hcoIPAddress "Use generic-lens or generic-optics with 'iPAddress' instead." #-}
 
 -- | The region of the Amazon Route 53 health checker that provided the status in @StatusReport@ .
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hcoRegion :: Lens.Lens' HealthCheckObservation (Lude.Maybe HealthCheckRegion)
-hcoRegion = Lens.lens (region :: HealthCheckObservation -> Lude.Maybe HealthCheckRegion) (\s a -> s {region = a} :: HealthCheckObservation)
+hcoRegion :: Lens.Lens' HealthCheckObservation (Core.Maybe Types.HealthCheckRegion)
+hcoRegion = Lens.field @"region"
 {-# DEPRECATED hcoRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance Lude.FromXML HealthCheckObservation where
+-- | A complex type that contains the last failure reason as reported by one Amazon Route 53 health checker and the time of the failed health check.
+--
+-- /Note:/ Consider using 'statusReport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hcoStatusReport :: Lens.Lens' HealthCheckObservation (Core.Maybe Types.StatusReport)
+hcoStatusReport = Lens.field @"statusReport"
+{-# DEPRECATED hcoStatusReport "Use generic-lens or generic-optics with 'statusReport' instead." #-}
+
+instance Core.FromXML HealthCheckObservation where
   parseXML x =
     HealthCheckObservation'
-      Lude.<$> (x Lude..@? "IPAddress")
-      Lude.<*> (x Lude..@? "StatusReport")
-      Lude.<*> (x Lude..@? "Region")
+      Core.<$> (x Core..@? "IPAddress")
+      Core.<*> (x Core..@? "Region")
+      Core.<*> (x Core..@? "StatusReport")

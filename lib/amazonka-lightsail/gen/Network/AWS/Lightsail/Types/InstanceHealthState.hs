@@ -13,66 +13,71 @@
 module Network.AWS.Lightsail.Types.InstanceHealthState
   ( InstanceHealthState
       ( InstanceHealthState',
-        Initial,
-        Healthy,
-        Unhealthy,
-        Unused,
-        Draining,
-        Unavailable
+        InstanceHealthStateInitial,
+        InstanceHealthStateHealthy,
+        InstanceHealthStateUnhealthy,
+        InstanceHealthStateUnused,
+        InstanceHealthStateDraining,
+        InstanceHealthStateUnavailable,
+        fromInstanceHealthState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceHealthState = InstanceHealthState' Lude.Text
+newtype InstanceHealthState = InstanceHealthState'
+  { fromInstanceHealthState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Initial :: InstanceHealthState
-pattern Initial = InstanceHealthState' "initial"
+pattern InstanceHealthStateInitial :: InstanceHealthState
+pattern InstanceHealthStateInitial = InstanceHealthState' "initial"
 
-pattern Healthy :: InstanceHealthState
-pattern Healthy = InstanceHealthState' "healthy"
+pattern InstanceHealthStateHealthy :: InstanceHealthState
+pattern InstanceHealthStateHealthy = InstanceHealthState' "healthy"
 
-pattern Unhealthy :: InstanceHealthState
-pattern Unhealthy = InstanceHealthState' "unhealthy"
+pattern InstanceHealthStateUnhealthy :: InstanceHealthState
+pattern InstanceHealthStateUnhealthy = InstanceHealthState' "unhealthy"
 
-pattern Unused :: InstanceHealthState
-pattern Unused = InstanceHealthState' "unused"
+pattern InstanceHealthStateUnused :: InstanceHealthState
+pattern InstanceHealthStateUnused = InstanceHealthState' "unused"
 
-pattern Draining :: InstanceHealthState
-pattern Draining = InstanceHealthState' "draining"
+pattern InstanceHealthStateDraining :: InstanceHealthState
+pattern InstanceHealthStateDraining = InstanceHealthState' "draining"
 
-pattern Unavailable :: InstanceHealthState
-pattern Unavailable = InstanceHealthState' "unavailable"
+pattern InstanceHealthStateUnavailable :: InstanceHealthState
+pattern InstanceHealthStateUnavailable = InstanceHealthState' "unavailable"
 
 {-# COMPLETE
-  Initial,
-  Healthy,
-  Unhealthy,
-  Unused,
-  Draining,
-  Unavailable,
+  InstanceHealthStateInitial,
+  InstanceHealthStateHealthy,
+  InstanceHealthStateUnhealthy,
+  InstanceHealthStateUnused,
+  InstanceHealthStateDraining,
+  InstanceHealthStateUnavailable,
   InstanceHealthState'
   #-}

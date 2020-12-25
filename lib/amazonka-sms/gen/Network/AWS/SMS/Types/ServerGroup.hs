@@ -17,82 +17,78 @@ module Network.AWS.SMS.Types.ServerGroup
     mkServerGroup,
 
     -- * Lenses
-    sgServerList,
     sgName,
     sgServerGroupId,
+    sgServerList,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.Server
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.Name as Types
+import qualified Network.AWS.SMS.Types.Server as Types
+import qualified Network.AWS.SMS.Types.ServerGroupId as Types
 
 -- | Logical grouping of servers.
 --
 -- /See:/ 'mkServerGroup' smart constructor.
 data ServerGroup = ServerGroup'
-  { -- | The servers that belong to a server group.
-    serverList :: Lude.Maybe [Server],
-    -- | The name of a server group.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The name of a server group.
+    name :: Core.Maybe Types.Name,
     -- | The ID of a server group.
-    serverGroupId :: Lude.Maybe Lude.Text
+    serverGroupId :: Core.Maybe Types.ServerGroupId,
+    -- | The servers that belong to a server group.
+    serverList :: Core.Maybe [Types.Server]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServerGroup' with the minimum fields required to make a request.
---
--- * 'serverList' - The servers that belong to a server group.
--- * 'name' - The name of a server group.
--- * 'serverGroupId' - The ID of a server group.
+-- | Creates a 'ServerGroup' value with any optional fields omitted.
 mkServerGroup ::
   ServerGroup
 mkServerGroup =
   ServerGroup'
-    { serverList = Lude.Nothing,
-      name = Lude.Nothing,
-      serverGroupId = Lude.Nothing
+    { name = Core.Nothing,
+      serverGroupId = Core.Nothing,
+      serverList = Core.Nothing
     }
-
--- | The servers that belong to a server group.
---
--- /Note:/ Consider using 'serverList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgServerList :: Lens.Lens' ServerGroup (Lude.Maybe [Server])
-sgServerList = Lens.lens (serverList :: ServerGroup -> Lude.Maybe [Server]) (\s a -> s {serverList = a} :: ServerGroup)
-{-# DEPRECATED sgServerList "Use generic-lens or generic-optics with 'serverList' instead." #-}
 
 -- | The name of a server group.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgName :: Lens.Lens' ServerGroup (Lude.Maybe Lude.Text)
-sgName = Lens.lens (name :: ServerGroup -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ServerGroup)
+sgName :: Lens.Lens' ServerGroup (Core.Maybe Types.Name)
+sgName = Lens.field @"name"
 {-# DEPRECATED sgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of a server group.
 --
 -- /Note:/ Consider using 'serverGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgServerGroupId :: Lens.Lens' ServerGroup (Lude.Maybe Lude.Text)
-sgServerGroupId = Lens.lens (serverGroupId :: ServerGroup -> Lude.Maybe Lude.Text) (\s a -> s {serverGroupId = a} :: ServerGroup)
+sgServerGroupId :: Lens.Lens' ServerGroup (Core.Maybe Types.ServerGroupId)
+sgServerGroupId = Lens.field @"serverGroupId"
 {-# DEPRECATED sgServerGroupId "Use generic-lens or generic-optics with 'serverGroupId' instead." #-}
 
-instance Lude.FromJSON ServerGroup where
-  parseJSON =
-    Lude.withObject
-      "ServerGroup"
-      ( \x ->
-          ServerGroup'
-            Lude.<$> (x Lude..:? "serverList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "serverGroupId")
-      )
+-- | The servers that belong to a server group.
+--
+-- /Note:/ Consider using 'serverList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sgServerList :: Lens.Lens' ServerGroup (Core.Maybe [Types.Server])
+sgServerList = Lens.field @"serverList"
+{-# DEPRECATED sgServerList "Use generic-lens or generic-optics with 'serverList' instead." #-}
 
-instance Lude.ToJSON ServerGroup where
-  toJSON ServerGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("serverList" Lude..=) Lude.<$> serverList,
-            ("name" Lude..=) Lude.<$> name,
-            ("serverGroupId" Lude..=) Lude.<$> serverGroupId
+instance Core.FromJSON ServerGroup where
+  toJSON ServerGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("name" Core..=) Core.<$> name,
+            ("serverGroupId" Core..=) Core.<$> serverGroupId,
+            ("serverList" Core..=) Core.<$> serverList
           ]
       )
+
+instance Core.FromJSON ServerGroup where
+  parseJSON =
+    Core.withObject "ServerGroup" Core.$
+      \x ->
+        ServerGroup'
+          Core.<$> (x Core..:? "name")
+          Core.<*> (x Core..:? "serverGroupId")
+          Core.<*> (x Core..:? "serverList")

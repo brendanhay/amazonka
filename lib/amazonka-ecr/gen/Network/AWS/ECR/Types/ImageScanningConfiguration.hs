@@ -22,42 +22,38 @@ module Network.AWS.ECR.Types.ImageScanningConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The image scanning configuration for a repository.
 --
 -- /See:/ 'mkImageScanningConfiguration' smart constructor.
 newtype ImageScanningConfiguration = ImageScanningConfiguration'
   { -- | The setting that determines whether images are scanned after being pushed to a repository. If set to @true@ , images will be scanned after being pushed. If this parameter is not specified, it will default to @false@ and images will not be scanned unless a scan is manually started with the 'StartImageScan' API.
-    scanOnPush :: Lude.Maybe Lude.Bool
+    scanOnPush :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImageScanningConfiguration' with the minimum fields required to make a request.
---
--- * 'scanOnPush' - The setting that determines whether images are scanned after being pushed to a repository. If set to @true@ , images will be scanned after being pushed. If this parameter is not specified, it will default to @false@ and images will not be scanned unless a scan is manually started with the 'StartImageScan' API.
+-- | Creates a 'ImageScanningConfiguration' value with any optional fields omitted.
 mkImageScanningConfiguration ::
   ImageScanningConfiguration
 mkImageScanningConfiguration =
-  ImageScanningConfiguration' {scanOnPush = Lude.Nothing}
+  ImageScanningConfiguration' {scanOnPush = Core.Nothing}
 
 -- | The setting that determines whether images are scanned after being pushed to a repository. If set to @true@ , images will be scanned after being pushed. If this parameter is not specified, it will default to @false@ and images will not be scanned unless a scan is manually started with the 'StartImageScan' API.
 --
 -- /Note:/ Consider using 'scanOnPush' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iscScanOnPush :: Lens.Lens' ImageScanningConfiguration (Lude.Maybe Lude.Bool)
-iscScanOnPush = Lens.lens (scanOnPush :: ImageScanningConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {scanOnPush = a} :: ImageScanningConfiguration)
+iscScanOnPush :: Lens.Lens' ImageScanningConfiguration (Core.Maybe Core.Bool)
+iscScanOnPush = Lens.field @"scanOnPush"
 {-# DEPRECATED iscScanOnPush "Use generic-lens or generic-optics with 'scanOnPush' instead." #-}
 
-instance Lude.FromJSON ImageScanningConfiguration where
-  parseJSON =
-    Lude.withObject
-      "ImageScanningConfiguration"
-      ( \x ->
-          ImageScanningConfiguration' Lude.<$> (x Lude..:? "scanOnPush")
-      )
+instance Core.FromJSON ImageScanningConfiguration where
+  toJSON ImageScanningConfiguration {..} =
+    Core.object
+      (Core.catMaybes [("scanOnPush" Core..=) Core.<$> scanOnPush])
 
-instance Lude.ToJSON ImageScanningConfiguration where
-  toJSON ImageScanningConfiguration' {..} =
-    Lude.object
-      (Lude.catMaybes [("scanOnPush" Lude..=) Lude.<$> scanOnPush])
+instance Core.FromJSON ImageScanningConfiguration where
+  parseJSON =
+    Core.withObject "ImageScanningConfiguration" Core.$
+      \x ->
+        ImageScanningConfiguration' Core.<$> (x Core..:? "scanOnPush")

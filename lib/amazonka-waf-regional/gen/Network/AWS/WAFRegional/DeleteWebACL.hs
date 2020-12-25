@@ -30,132 +30,116 @@ module Network.AWS.WAFRegional.DeleteWebACL
     mkDeleteWebACL,
 
     -- ** Request lenses
-    dwaWebACLId,
-    dwaChangeToken,
+    dwaclWebACLId,
+    dwaclChangeToken,
 
     -- * Destructuring the response
     DeleteWebACLResponse (..),
     mkDeleteWebACLResponse,
 
     -- ** Response lenses
-    dwarsChangeToken,
-    dwarsResponseStatus,
+    dwaclrrsChangeToken,
+    dwaclrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkDeleteWebACL' smart constructor.
 data DeleteWebACL = DeleteWebACL'
   { -- | The @WebACLId@ of the 'WebACL' that you want to delete. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
-    webACLId :: Lude.Text,
+    webACLId :: Types.ResourceId,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    changeToken :: Types.ChangeToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteWebACL' with the minimum fields required to make a request.
---
--- * 'webACLId' - The @WebACLId@ of the 'WebACL' that you want to delete. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'DeleteWebACL' value with any optional fields omitted.
 mkDeleteWebACL ::
   -- | 'webACLId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   DeleteWebACL
-mkDeleteWebACL pWebACLId_ pChangeToken_ =
-  DeleteWebACL' {webACLId = pWebACLId_, changeToken = pChangeToken_}
+mkDeleteWebACL webACLId changeToken =
+  DeleteWebACL' {webACLId, changeToken}
 
 -- | The @WebACLId@ of the 'WebACL' that you want to delete. @WebACLId@ is returned by 'CreateWebACL' and by 'ListWebACLs' .
 --
 -- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwaWebACLId :: Lens.Lens' DeleteWebACL Lude.Text
-dwaWebACLId = Lens.lens (webACLId :: DeleteWebACL -> Lude.Text) (\s a -> s {webACLId = a} :: DeleteWebACL)
-{-# DEPRECATED dwaWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
+dwaclWebACLId :: Lens.Lens' DeleteWebACL Types.ResourceId
+dwaclWebACLId = Lens.field @"webACLId"
+{-# DEPRECATED dwaclWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwaChangeToken :: Lens.Lens' DeleteWebACL Lude.Text
-dwaChangeToken = Lens.lens (changeToken :: DeleteWebACL -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteWebACL)
-{-# DEPRECATED dwaChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+dwaclChangeToken :: Lens.Lens' DeleteWebACL Types.ChangeToken
+dwaclChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED dwaclChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance Lude.AWSRequest DeleteWebACL where
+instance Core.FromJSON DeleteWebACL where
+  toJSON DeleteWebACL {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("WebACLId" Core..= webACLId),
+            Core.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
+
+instance Core.AWSRequest DeleteWebACL where
   type Rs DeleteWebACL = DeleteWebACLResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_Regional_20161128.DeleteWebACL")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteWebACLResponse'
-            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteWebACL where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.DeleteWebACL" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteWebACL where
-  toJSON DeleteWebACL' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("WebACLId" Lude..= webACLId),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath DeleteWebACL where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteWebACL where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteWebACLResponse' smart constructor.
 data DeleteWebACLResponse = DeleteWebACLResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteWebACLResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @DeleteWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteWebACLResponse' value with any optional fields omitted.
 mkDeleteWebACLResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteWebACLResponse
-mkDeleteWebACLResponse pResponseStatus_ =
-  DeleteWebACLResponse'
-    { changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteWebACLResponse responseStatus =
+  DeleteWebACLResponse' {changeToken = Core.Nothing, responseStatus}
 
 -- | The @ChangeToken@ that you used to submit the @DeleteWebACL@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwarsChangeToken :: Lens.Lens' DeleteWebACLResponse (Lude.Maybe Lude.Text)
-dwarsChangeToken = Lens.lens (changeToken :: DeleteWebACLResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: DeleteWebACLResponse)
-{-# DEPRECATED dwarsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+dwaclrrsChangeToken :: Lens.Lens' DeleteWebACLResponse (Core.Maybe Types.ChangeToken)
+dwaclrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED dwaclrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwarsResponseStatus :: Lens.Lens' DeleteWebACLResponse Lude.Int
-dwarsResponseStatus = Lens.lens (responseStatus :: DeleteWebACLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWebACLResponse)
-{-# DEPRECATED dwarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwaclrrsResponseStatus :: Lens.Lens' DeleteWebACLResponse Core.Int
+dwaclrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dwaclrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

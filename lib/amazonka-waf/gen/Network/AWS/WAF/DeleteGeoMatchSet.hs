@@ -39,127 +39,111 @@ module Network.AWS.WAF.DeleteGeoMatchSet
     mkDeleteGeoMatchSetResponse,
 
     -- ** Response lenses
-    dgmsrsChangeToken,
-    dgmsrsResponseStatus,
+    dgmsrrsChangeToken,
+    dgmsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkDeleteGeoMatchSet' smart constructor.
 data DeleteGeoMatchSet = DeleteGeoMatchSet'
   { -- | The @GeoMatchSetID@ of the 'GeoMatchSet' that you want to delete. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
-    geoMatchSetId :: Lude.Text,
+    geoMatchSetId :: Types.ResourceId,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    changeToken :: Types.ChangeToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGeoMatchSet' with the minimum fields required to make a request.
---
--- * 'geoMatchSetId' - The @GeoMatchSetID@ of the 'GeoMatchSet' that you want to delete. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'DeleteGeoMatchSet' value with any optional fields omitted.
 mkDeleteGeoMatchSet ::
   -- | 'geoMatchSetId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   DeleteGeoMatchSet
-mkDeleteGeoMatchSet pGeoMatchSetId_ pChangeToken_ =
-  DeleteGeoMatchSet'
-    { geoMatchSetId = pGeoMatchSetId_,
-      changeToken = pChangeToken_
-    }
+mkDeleteGeoMatchSet geoMatchSetId changeToken =
+  DeleteGeoMatchSet' {geoMatchSetId, changeToken}
 
 -- | The @GeoMatchSetID@ of the 'GeoMatchSet' that you want to delete. @GeoMatchSetId@ is returned by 'CreateGeoMatchSet' and by 'ListGeoMatchSets' .
 --
 -- /Note:/ Consider using 'geoMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgmsGeoMatchSetId :: Lens.Lens' DeleteGeoMatchSet Lude.Text
-dgmsGeoMatchSetId = Lens.lens (geoMatchSetId :: DeleteGeoMatchSet -> Lude.Text) (\s a -> s {geoMatchSetId = a} :: DeleteGeoMatchSet)
+dgmsGeoMatchSetId :: Lens.Lens' DeleteGeoMatchSet Types.ResourceId
+dgmsGeoMatchSetId = Lens.field @"geoMatchSetId"
 {-# DEPRECATED dgmsGeoMatchSetId "Use generic-lens or generic-optics with 'geoMatchSetId' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgmsChangeToken :: Lens.Lens' DeleteGeoMatchSet Lude.Text
-dgmsChangeToken = Lens.lens (changeToken :: DeleteGeoMatchSet -> Lude.Text) (\s a -> s {changeToken = a} :: DeleteGeoMatchSet)
+dgmsChangeToken :: Lens.Lens' DeleteGeoMatchSet Types.ChangeToken
+dgmsChangeToken = Lens.field @"changeToken"
 {-# DEPRECATED dgmsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance Lude.AWSRequest DeleteGeoMatchSet where
+instance Core.FromJSON DeleteGeoMatchSet where
+  toJSON DeleteGeoMatchSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GeoMatchSetId" Core..= geoMatchSetId),
+            Core.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
+
+instance Core.AWSRequest DeleteGeoMatchSet where
   type Rs DeleteGeoMatchSet = DeleteGeoMatchSetResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_20150824.DeleteGeoMatchSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteGeoMatchSetResponse'
-            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteGeoMatchSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.DeleteGeoMatchSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteGeoMatchSet where
-  toJSON DeleteGeoMatchSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GeoMatchSetId" Lude..= geoMatchSetId),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath DeleteGeoMatchSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteGeoMatchSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteGeoMatchSetResponse' smart constructor.
 data DeleteGeoMatchSetResponse = DeleteGeoMatchSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @DeleteGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGeoMatchSetResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @DeleteGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteGeoMatchSetResponse' value with any optional fields omitted.
 mkDeleteGeoMatchSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteGeoMatchSetResponse
-mkDeleteGeoMatchSetResponse pResponseStatus_ =
+mkDeleteGeoMatchSetResponse responseStatus =
   DeleteGeoMatchSetResponse'
-    { changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The @ChangeToken@ that you used to submit the @DeleteGeoMatchSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgmsrsChangeToken :: Lens.Lens' DeleteGeoMatchSetResponse (Lude.Maybe Lude.Text)
-dgmsrsChangeToken = Lens.lens (changeToken :: DeleteGeoMatchSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: DeleteGeoMatchSetResponse)
-{-# DEPRECATED dgmsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+dgmsrrsChangeToken :: Lens.Lens' DeleteGeoMatchSetResponse (Core.Maybe Types.ChangeToken)
+dgmsrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED dgmsrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgmsrsResponseStatus :: Lens.Lens' DeleteGeoMatchSetResponse Lude.Int
-dgmsrsResponseStatus = Lens.lens (responseStatus :: DeleteGeoMatchSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGeoMatchSetResponse)
-{-# DEPRECATED dgmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgmsrrsResponseStatus :: Lens.Lens' DeleteGeoMatchSetResponse Core.Int
+dgmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dgmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

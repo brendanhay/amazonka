@@ -21,50 +21,44 @@ module Network.AWS.ECS.Types.RepositoryCredentials
   )
 where
 
+import qualified Network.AWS.ECS.Types.CredentialsParameter as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The repository credentials for private registry authentication.
 --
 -- /See:/ 'mkRepositoryCredentials' smart constructor.
 newtype RepositoryCredentials = RepositoryCredentials'
   { -- | The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
-    credentialsParameter :: Lude.Text
+    credentialsParameter :: Types.CredentialsParameter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RepositoryCredentials' with the minimum fields required to make a request.
---
--- * 'credentialsParameter' - The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
+-- | Creates a 'RepositoryCredentials' value with any optional fields omitted.
 mkRepositoryCredentials ::
   -- | 'credentialsParameter'
-  Lude.Text ->
+  Types.CredentialsParameter ->
   RepositoryCredentials
-mkRepositoryCredentials pCredentialsParameter_ =
-  RepositoryCredentials'
-    { credentialsParameter =
-        pCredentialsParameter_
-    }
+mkRepositoryCredentials credentialsParameter =
+  RepositoryCredentials' {credentialsParameter}
 
 -- | The Amazon Resource Name (ARN) of the secret containing the private repository credentials.
 --
 -- /Note:/ Consider using 'credentialsParameter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcCredentialsParameter :: Lens.Lens' RepositoryCredentials Lude.Text
-rcCredentialsParameter = Lens.lens (credentialsParameter :: RepositoryCredentials -> Lude.Text) (\s a -> s {credentialsParameter = a} :: RepositoryCredentials)
+rcCredentialsParameter :: Lens.Lens' RepositoryCredentials Types.CredentialsParameter
+rcCredentialsParameter = Lens.field @"credentialsParameter"
 {-# DEPRECATED rcCredentialsParameter "Use generic-lens or generic-optics with 'credentialsParameter' instead." #-}
 
-instance Lude.FromJSON RepositoryCredentials where
-  parseJSON =
-    Lude.withObject
-      "RepositoryCredentials"
-      ( \x ->
-          RepositoryCredentials' Lude.<$> (x Lude..: "credentialsParameter")
+instance Core.FromJSON RepositoryCredentials where
+  toJSON RepositoryCredentials {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("credentialsParameter" Core..= credentialsParameter)]
       )
 
-instance Lude.ToJSON RepositoryCredentials where
-  toJSON RepositoryCredentials' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("credentialsParameter" Lude..= credentialsParameter)]
-      )
+instance Core.FromJSON RepositoryCredentials where
+  parseJSON =
+    Core.withObject "RepositoryCredentials" Core.$
+      \x ->
+        RepositoryCredentials' Core.<$> (x Core..: "credentialsParameter")

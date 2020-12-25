@@ -20,132 +20,117 @@ module Network.AWS.Pinpoint.CreateJourney
     mkCreateJourney,
 
     -- ** Request lenses
-    cjWriteJourneyRequest,
     cjApplicationId,
+    cjWriteJourneyRequest,
 
     -- * Destructuring the response
     CreateJourneyResponse (..),
     mkCreateJourneyResponse,
 
     -- ** Response lenses
-    cjrsJourneyResponse,
-    cjrsResponseStatus,
+    cjrrsJourneyResponse,
+    cjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateJourney' smart constructor.
 data CreateJourney = CreateJourney'
-  { writeJourneyRequest :: WriteJourneyRequest,
-    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Core.Text,
+    writeJourneyRequest :: Types.WriteJourneyRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateJourney' with the minimum fields required to make a request.
---
--- * 'writeJourneyRequest' -
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- | Creates a 'CreateJourney' value with any optional fields omitted.
 mkCreateJourney ::
-  -- | 'writeJourneyRequest'
-  WriteJourneyRequest ->
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'writeJourneyRequest'
+  Types.WriteJourneyRequest ->
   CreateJourney
-mkCreateJourney pWriteJourneyRequest_ pApplicationId_ =
-  CreateJourney'
-    { writeJourneyRequest = pWriteJourneyRequest_,
-      applicationId = pApplicationId_
-    }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'writeJourneyRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjWriteJourneyRequest :: Lens.Lens' CreateJourney WriteJourneyRequest
-cjWriteJourneyRequest = Lens.lens (writeJourneyRequest :: CreateJourney -> WriteJourneyRequest) (\s a -> s {writeJourneyRequest = a} :: CreateJourney)
-{-# DEPRECATED cjWriteJourneyRequest "Use generic-lens or generic-optics with 'writeJourneyRequest' instead." #-}
+mkCreateJourney applicationId writeJourneyRequest =
+  CreateJourney' {applicationId, writeJourneyRequest}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjApplicationId :: Lens.Lens' CreateJourney Lude.Text
-cjApplicationId = Lens.lens (applicationId :: CreateJourney -> Lude.Text) (\s a -> s {applicationId = a} :: CreateJourney)
+cjApplicationId :: Lens.Lens' CreateJourney Core.Text
+cjApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED cjApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance Lude.AWSRequest CreateJourney where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'writeJourneyRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cjWriteJourneyRequest :: Lens.Lens' CreateJourney Types.WriteJourneyRequest
+cjWriteJourneyRequest = Lens.field @"writeJourneyRequest"
+{-# DEPRECATED cjWriteJourneyRequest "Use generic-lens or generic-optics with 'writeJourneyRequest' instead." #-}
+
+instance Core.FromJSON CreateJourney where
+  toJSON CreateJourney {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("WriteJourneyRequest" Core..= writeJourneyRequest)]
+      )
+
+instance Core.AWSRequest CreateJourney where
   type Rs CreateJourney = CreateJourneyResponse
-  request = Req.postJSON pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/journeys")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateJourneyResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateJourney where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateJourney where
-  toJSON CreateJourney' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("WriteJourneyRequest" Lude..= writeJourneyRequest)]
-      )
-
-instance Lude.ToPath CreateJourney where
-  toPath CreateJourney' {..} =
-    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId, "/journeys"]
-
-instance Lude.ToQuery CreateJourney where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateJourneyResponse' smart constructor.
 data CreateJourneyResponse = CreateJourneyResponse'
-  { journeyResponse :: JourneyResponse,
+  { journeyResponse :: Types.JourneyResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateJourneyResponse' with the minimum fields required to make a request.
---
--- * 'journeyResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateJourneyResponse' value with any optional fields omitted.
 mkCreateJourneyResponse ::
   -- | 'journeyResponse'
-  JourneyResponse ->
+  Types.JourneyResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateJourneyResponse
-mkCreateJourneyResponse pJourneyResponse_ pResponseStatus_ =
-  CreateJourneyResponse'
-    { journeyResponse = pJourneyResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateJourneyResponse journeyResponse responseStatus =
+  CreateJourneyResponse' {journeyResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'journeyResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsJourneyResponse :: Lens.Lens' CreateJourneyResponse JourneyResponse
-cjrsJourneyResponse = Lens.lens (journeyResponse :: CreateJourneyResponse -> JourneyResponse) (\s a -> s {journeyResponse = a} :: CreateJourneyResponse)
-{-# DEPRECATED cjrsJourneyResponse "Use generic-lens or generic-optics with 'journeyResponse' instead." #-}
+cjrrsJourneyResponse :: Lens.Lens' CreateJourneyResponse Types.JourneyResponse
+cjrrsJourneyResponse = Lens.field @"journeyResponse"
+{-# DEPRECATED cjrrsJourneyResponse "Use generic-lens or generic-optics with 'journeyResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cjrsResponseStatus :: Lens.Lens' CreateJourneyResponse Lude.Int
-cjrsResponseStatus = Lens.lens (responseStatus :: CreateJourneyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateJourneyResponse)
-{-# DEPRECATED cjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cjrrsResponseStatus :: Lens.Lens' CreateJourneyResponse Core.Int
+cjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

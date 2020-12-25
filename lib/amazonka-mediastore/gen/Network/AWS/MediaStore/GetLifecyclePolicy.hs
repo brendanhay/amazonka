@@ -27,113 +27,99 @@ module Network.AWS.MediaStore.GetLifecyclePolicy
     mkGetLifecyclePolicyResponse,
 
     -- ** Response lenses
-    glprsLifecyclePolicy,
-    glprsResponseStatus,
+    glprrsLifecyclePolicy,
+    glprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaStore.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetLifecyclePolicy' smart constructor.
 newtype GetLifecyclePolicy = GetLifecyclePolicy'
   { -- | The name of the container that the object lifecycle policy is assigned to.
-    containerName :: Lude.Text
+    containerName :: Types.ContainerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetLifecyclePolicy' with the minimum fields required to make a request.
---
--- * 'containerName' - The name of the container that the object lifecycle policy is assigned to.
+-- | Creates a 'GetLifecyclePolicy' value with any optional fields omitted.
 mkGetLifecyclePolicy ::
   -- | 'containerName'
-  Lude.Text ->
+  Types.ContainerName ->
   GetLifecyclePolicy
-mkGetLifecyclePolicy pContainerName_ =
-  GetLifecyclePolicy' {containerName = pContainerName_}
+mkGetLifecyclePolicy containerName =
+  GetLifecyclePolicy' {containerName}
 
 -- | The name of the container that the object lifecycle policy is assigned to.
 --
 -- /Note:/ Consider using 'containerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glpContainerName :: Lens.Lens' GetLifecyclePolicy Lude.Text
-glpContainerName = Lens.lens (containerName :: GetLifecyclePolicy -> Lude.Text) (\s a -> s {containerName = a} :: GetLifecyclePolicy)
+glpContainerName :: Lens.Lens' GetLifecyclePolicy Types.ContainerName
+glpContainerName = Lens.field @"containerName"
 {-# DEPRECATED glpContainerName "Use generic-lens or generic-optics with 'containerName' instead." #-}
 
-instance Lude.AWSRequest GetLifecyclePolicy where
+instance Core.FromJSON GetLifecyclePolicy where
+  toJSON GetLifecyclePolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ContainerName" Core..= containerName)]
+      )
+
+instance Core.AWSRequest GetLifecyclePolicy where
   type Rs GetLifecyclePolicy = GetLifecyclePolicyResponse
-  request = Req.postJSON mediaStoreService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "MediaStore_20170901.GetLifecyclePolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetLifecyclePolicyResponse'
-            Lude.<$> (x Lude..:> "LifecyclePolicy")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "LifecyclePolicy")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetLifecyclePolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("MediaStore_20170901.GetLifecyclePolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetLifecyclePolicy where
-  toJSON GetLifecyclePolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ContainerName" Lude..= containerName)]
-      )
-
-instance Lude.ToPath GetLifecyclePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetLifecyclePolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetLifecyclePolicyResponse' smart constructor.
 data GetLifecyclePolicyResponse = GetLifecyclePolicyResponse'
   { -- | The object lifecycle policy that is assigned to the container.
-    lifecyclePolicy :: Lude.Text,
+    lifecyclePolicy :: Types.LifecyclePolicy,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetLifecyclePolicyResponse' with the minimum fields required to make a request.
---
--- * 'lifecyclePolicy' - The object lifecycle policy that is assigned to the container.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetLifecyclePolicyResponse' value with any optional fields omitted.
 mkGetLifecyclePolicyResponse ::
   -- | 'lifecyclePolicy'
-  Lude.Text ->
+  Types.LifecyclePolicy ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetLifecyclePolicyResponse
-mkGetLifecyclePolicyResponse pLifecyclePolicy_ pResponseStatus_ =
-  GetLifecyclePolicyResponse'
-    { lifecyclePolicy = pLifecyclePolicy_,
-      responseStatus = pResponseStatus_
-    }
+mkGetLifecyclePolicyResponse lifecyclePolicy responseStatus =
+  GetLifecyclePolicyResponse' {lifecyclePolicy, responseStatus}
 
 -- | The object lifecycle policy that is assigned to the container.
 --
 -- /Note:/ Consider using 'lifecyclePolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glprsLifecyclePolicy :: Lens.Lens' GetLifecyclePolicyResponse Lude.Text
-glprsLifecyclePolicy = Lens.lens (lifecyclePolicy :: GetLifecyclePolicyResponse -> Lude.Text) (\s a -> s {lifecyclePolicy = a} :: GetLifecyclePolicyResponse)
-{-# DEPRECATED glprsLifecyclePolicy "Use generic-lens or generic-optics with 'lifecyclePolicy' instead." #-}
+glprrsLifecyclePolicy :: Lens.Lens' GetLifecyclePolicyResponse Types.LifecyclePolicy
+glprrsLifecyclePolicy = Lens.field @"lifecyclePolicy"
+{-# DEPRECATED glprrsLifecyclePolicy "Use generic-lens or generic-optics with 'lifecyclePolicy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glprsResponseStatus :: Lens.Lens' GetLifecyclePolicyResponse Lude.Int
-glprsResponseStatus = Lens.lens (responseStatus :: GetLifecyclePolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetLifecyclePolicyResponse)
-{-# DEPRECATED glprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+glprrsResponseStatus :: Lens.Lens' GetLifecyclePolicyResponse Core.Int
+glprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED glprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

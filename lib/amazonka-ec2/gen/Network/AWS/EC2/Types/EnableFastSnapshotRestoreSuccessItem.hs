@@ -17,42 +17,49 @@ module Network.AWS.EC2.Types.EnableFastSnapshotRestoreSuccessItem
     mkEnableFastSnapshotRestoreSuccessItem,
 
     -- * Lenses
-    efsrsiDisablingTime,
-    efsrsiState,
-    efsrsiOwnerAlias,
-    efsrsiDisabledTime,
-    efsrsiEnabledTime,
-    efsrsiOptimizingTime,
-    efsrsiOwnerId,
-    efsrsiStateTransitionReason,
     efsrsiAvailabilityZone,
-    efsrsiSnapshotId,
+    efsrsiDisabledTime,
+    efsrsiDisablingTime,
+    efsrsiEnabledTime,
     efsrsiEnablingTime,
+    efsrsiOptimizingTime,
+    efsrsiOwnerAlias,
+    efsrsiOwnerId,
+    efsrsiSnapshotId,
+    efsrsiState,
+    efsrsiStateTransitionReason,
   )
 where
 
-import Network.AWS.EC2.Types.FastSnapshotRestoreStateCode
+import qualified Network.AWS.EC2.Types.FastSnapshotRestoreStateCode as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes fast snapshot restores that were successfully enabled.
 --
 -- /See:/ 'mkEnableFastSnapshotRestoreSuccessItem' smart constructor.
 data EnableFastSnapshotRestoreSuccessItem = EnableFastSnapshotRestoreSuccessItem'
-  { -- | The time at which fast snapshot restores entered the @disabling@ state.
-    disablingTime :: Lude.Maybe Lude.DateTime,
-    -- | The state of fast snapshot restores.
-    state :: Lude.Maybe FastSnapshotRestoreStateCode,
-    -- | The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.
-    ownerAlias :: Lude.Maybe Lude.Text,
+  { -- | The Availability Zone.
+    availabilityZone :: Core.Maybe Types.String,
     -- | The time at which fast snapshot restores entered the @disabled@ state.
-    disabledTime :: Lude.Maybe Lude.DateTime,
+    disabledTime :: Core.Maybe Core.UTCTime,
+    -- | The time at which fast snapshot restores entered the @disabling@ state.
+    disablingTime :: Core.Maybe Core.UTCTime,
     -- | The time at which fast snapshot restores entered the @enabled@ state.
-    enabledTime :: Lude.Maybe Lude.DateTime,
+    enabledTime :: Core.Maybe Core.UTCTime,
+    -- | The time at which fast snapshot restores entered the @enabling@ state.
+    enablingTime :: Core.Maybe Core.UTCTime,
     -- | The time at which fast snapshot restores entered the @optimizing@ state.
-    optimizingTime :: Lude.Maybe Lude.DateTime,
+    optimizingTime :: Core.Maybe Core.UTCTime,
+    -- | The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.
+    ownerAlias :: Core.Maybe Types.String,
     -- | The ID of the AWS account that enabled fast snapshot restores on the snapshot.
-    ownerId :: Lude.Maybe Lude.Text,
+    ownerId :: Core.Maybe Types.String,
+    -- | The ID of the snapshot.
+    snapshotId :: Core.Maybe Types.String,
+    -- | The state of fast snapshot restores.
+    state :: Core.Maybe Types.FastSnapshotRestoreStateCode,
     -- | The reason for the state transition. The possible values are as follows:
     --
     --
@@ -60,104 +67,99 @@ data EnableFastSnapshotRestoreSuccessItem = EnableFastSnapshotRestoreSuccessItem
     --
     --
     --     * @Client.UserInitiated - Lifecycle state transition@ - The state successfully transitioned to @optimizing@ , @enabled@ , or @disabled@ .
-    stateTransitionReason :: Lude.Maybe Lude.Text,
-    -- | The Availability Zone.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | The ID of the snapshot.
-    snapshotId :: Lude.Maybe Lude.Text,
-    -- | The time at which fast snapshot restores entered the @enabling@ state.
-    enablingTime :: Lude.Maybe Lude.DateTime
+    stateTransitionReason :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EnableFastSnapshotRestoreSuccessItem' with the minimum fields required to make a request.
---
--- * 'disablingTime' - The time at which fast snapshot restores entered the @disabling@ state.
--- * 'state' - The state of fast snapshot restores.
--- * 'ownerAlias' - The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.
--- * 'disabledTime' - The time at which fast snapshot restores entered the @disabled@ state.
--- * 'enabledTime' - The time at which fast snapshot restores entered the @enabled@ state.
--- * 'optimizingTime' - The time at which fast snapshot restores entered the @optimizing@ state.
--- * 'ownerId' - The ID of the AWS account that enabled fast snapshot restores on the snapshot.
--- * 'stateTransitionReason' - The reason for the state transition. The possible values are as follows:
---
---
---     * @Client.UserInitiated@ - The state successfully transitioned to @enabling@ or @disabling@ .
---
---
---     * @Client.UserInitiated - Lifecycle state transition@ - The state successfully transitioned to @optimizing@ , @enabled@ , or @disabled@ .
---
---
--- * 'availabilityZone' - The Availability Zone.
--- * 'snapshotId' - The ID of the snapshot.
--- * 'enablingTime' - The time at which fast snapshot restores entered the @enabling@ state.
+-- | Creates a 'EnableFastSnapshotRestoreSuccessItem' value with any optional fields omitted.
 mkEnableFastSnapshotRestoreSuccessItem ::
   EnableFastSnapshotRestoreSuccessItem
 mkEnableFastSnapshotRestoreSuccessItem =
   EnableFastSnapshotRestoreSuccessItem'
-    { disablingTime =
-        Lude.Nothing,
-      state = Lude.Nothing,
-      ownerAlias = Lude.Nothing,
-      disabledTime = Lude.Nothing,
-      enabledTime = Lude.Nothing,
-      optimizingTime = Lude.Nothing,
-      ownerId = Lude.Nothing,
-      stateTransitionReason = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      snapshotId = Lude.Nothing,
-      enablingTime = Lude.Nothing
+    { availabilityZone =
+        Core.Nothing,
+      disabledTime = Core.Nothing,
+      disablingTime = Core.Nothing,
+      enabledTime = Core.Nothing,
+      enablingTime = Core.Nothing,
+      optimizingTime = Core.Nothing,
+      ownerAlias = Core.Nothing,
+      ownerId = Core.Nothing,
+      snapshotId = Core.Nothing,
+      state = Core.Nothing,
+      stateTransitionReason = Core.Nothing
     }
 
--- | The time at which fast snapshot restores entered the @disabling@ state.
+-- | The Availability Zone.
 --
--- /Note:/ Consider using 'disablingTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrsiDisablingTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.DateTime)
-efsrsiDisablingTime = Lens.lens (disablingTime :: EnableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.DateTime) (\s a -> s {disablingTime = a} :: EnableFastSnapshotRestoreSuccessItem)
-{-# DEPRECATED efsrsiDisablingTime "Use generic-lens or generic-optics with 'disablingTime' instead." #-}
-
--- | The state of fast snapshot restores.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrsiState :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Lude.Maybe FastSnapshotRestoreStateCode)
-efsrsiState = Lens.lens (state :: EnableFastSnapshotRestoreSuccessItem -> Lude.Maybe FastSnapshotRestoreStateCode) (\s a -> s {state = a} :: EnableFastSnapshotRestoreSuccessItem)
-{-# DEPRECATED efsrsiState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.
---
--- /Note:/ Consider using 'ownerAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrsiOwnerAlias :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.Text)
-efsrsiOwnerAlias = Lens.lens (ownerAlias :: EnableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.Text) (\s a -> s {ownerAlias = a} :: EnableFastSnapshotRestoreSuccessItem)
-{-# DEPRECATED efsrsiOwnerAlias "Use generic-lens or generic-optics with 'ownerAlias' instead." #-}
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsrsiAvailabilityZone :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Core.Maybe Types.String)
+efsrsiAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED efsrsiAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The time at which fast snapshot restores entered the @disabled@ state.
 --
 -- /Note:/ Consider using 'disabledTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrsiDisabledTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.DateTime)
-efsrsiDisabledTime = Lens.lens (disabledTime :: EnableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.DateTime) (\s a -> s {disabledTime = a} :: EnableFastSnapshotRestoreSuccessItem)
+efsrsiDisabledTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Core.Maybe Core.UTCTime)
+efsrsiDisabledTime = Lens.field @"disabledTime"
 {-# DEPRECATED efsrsiDisabledTime "Use generic-lens or generic-optics with 'disabledTime' instead." #-}
+
+-- | The time at which fast snapshot restores entered the @disabling@ state.
+--
+-- /Note:/ Consider using 'disablingTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsrsiDisablingTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Core.Maybe Core.UTCTime)
+efsrsiDisablingTime = Lens.field @"disablingTime"
+{-# DEPRECATED efsrsiDisablingTime "Use generic-lens or generic-optics with 'disablingTime' instead." #-}
 
 -- | The time at which fast snapshot restores entered the @enabled@ state.
 --
 -- /Note:/ Consider using 'enabledTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrsiEnabledTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.DateTime)
-efsrsiEnabledTime = Lens.lens (enabledTime :: EnableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.DateTime) (\s a -> s {enabledTime = a} :: EnableFastSnapshotRestoreSuccessItem)
+efsrsiEnabledTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Core.Maybe Core.UTCTime)
+efsrsiEnabledTime = Lens.field @"enabledTime"
 {-# DEPRECATED efsrsiEnabledTime "Use generic-lens or generic-optics with 'enabledTime' instead." #-}
+
+-- | The time at which fast snapshot restores entered the @enabling@ state.
+--
+-- /Note:/ Consider using 'enablingTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsrsiEnablingTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Core.Maybe Core.UTCTime)
+efsrsiEnablingTime = Lens.field @"enablingTime"
+{-# DEPRECATED efsrsiEnablingTime "Use generic-lens or generic-optics with 'enablingTime' instead." #-}
 
 -- | The time at which fast snapshot restores entered the @optimizing@ state.
 --
 -- /Note:/ Consider using 'optimizingTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrsiOptimizingTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.DateTime)
-efsrsiOptimizingTime = Lens.lens (optimizingTime :: EnableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.DateTime) (\s a -> s {optimizingTime = a} :: EnableFastSnapshotRestoreSuccessItem)
+efsrsiOptimizingTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Core.Maybe Core.UTCTime)
+efsrsiOptimizingTime = Lens.field @"optimizingTime"
 {-# DEPRECATED efsrsiOptimizingTime "Use generic-lens or generic-optics with 'optimizingTime' instead." #-}
+
+-- | The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.
+--
+-- /Note:/ Consider using 'ownerAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsrsiOwnerAlias :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Core.Maybe Types.String)
+efsrsiOwnerAlias = Lens.field @"ownerAlias"
+{-# DEPRECATED efsrsiOwnerAlias "Use generic-lens or generic-optics with 'ownerAlias' instead." #-}
 
 -- | The ID of the AWS account that enabled fast snapshot restores on the snapshot.
 --
 -- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrsiOwnerId :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.Text)
-efsrsiOwnerId = Lens.lens (ownerId :: EnableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: EnableFastSnapshotRestoreSuccessItem)
+efsrsiOwnerId :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Core.Maybe Types.String)
+efsrsiOwnerId = Lens.field @"ownerId"
 {-# DEPRECATED efsrsiOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+
+-- | The ID of the snapshot.
+--
+-- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsrsiSnapshotId :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Core.Maybe Types.String)
+efsrsiSnapshotId = Lens.field @"snapshotId"
+{-# DEPRECATED efsrsiSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
+
+-- | The state of fast snapshot restores.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efsrsiState :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Core.Maybe Types.FastSnapshotRestoreStateCode)
+efsrsiState = Lens.field @"state"
+{-# DEPRECATED efsrsiState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The reason for the state transition. The possible values are as follows:
 --
@@ -170,42 +172,21 @@ efsrsiOwnerId = Lens.lens (ownerId :: EnableFastSnapshotRestoreSuccessItem -> Lu
 --
 --
 -- /Note:/ Consider using 'stateTransitionReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrsiStateTransitionReason :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.Text)
-efsrsiStateTransitionReason = Lens.lens (stateTransitionReason :: EnableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.Text) (\s a -> s {stateTransitionReason = a} :: EnableFastSnapshotRestoreSuccessItem)
+efsrsiStateTransitionReason :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Core.Maybe Types.String)
+efsrsiStateTransitionReason = Lens.field @"stateTransitionReason"
 {-# DEPRECATED efsrsiStateTransitionReason "Use generic-lens or generic-optics with 'stateTransitionReason' instead." #-}
 
--- | The Availability Zone.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrsiAvailabilityZone :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.Text)
-efsrsiAvailabilityZone = Lens.lens (availabilityZone :: EnableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: EnableFastSnapshotRestoreSuccessItem)
-{-# DEPRECATED efsrsiAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | The ID of the snapshot.
---
--- /Note:/ Consider using 'snapshotId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrsiSnapshotId :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.Text)
-efsrsiSnapshotId = Lens.lens (snapshotId :: EnableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.Text) (\s a -> s {snapshotId = a} :: EnableFastSnapshotRestoreSuccessItem)
-{-# DEPRECATED efsrsiSnapshotId "Use generic-lens or generic-optics with 'snapshotId' instead." #-}
-
--- | The time at which fast snapshot restores entered the @enabling@ state.
---
--- /Note:/ Consider using 'enablingTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efsrsiEnablingTime :: Lens.Lens' EnableFastSnapshotRestoreSuccessItem (Lude.Maybe Lude.DateTime)
-efsrsiEnablingTime = Lens.lens (enablingTime :: EnableFastSnapshotRestoreSuccessItem -> Lude.Maybe Lude.DateTime) (\s a -> s {enablingTime = a} :: EnableFastSnapshotRestoreSuccessItem)
-{-# DEPRECATED efsrsiEnablingTime "Use generic-lens or generic-optics with 'enablingTime' instead." #-}
-
-instance Lude.FromXML EnableFastSnapshotRestoreSuccessItem where
+instance Core.FromXML EnableFastSnapshotRestoreSuccessItem where
   parseXML x =
     EnableFastSnapshotRestoreSuccessItem'
-      Lude.<$> (x Lude..@? "disablingTime")
-      Lude.<*> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "ownerAlias")
-      Lude.<*> (x Lude..@? "disabledTime")
-      Lude.<*> (x Lude..@? "enabledTime")
-      Lude.<*> (x Lude..@? "optimizingTime")
-      Lude.<*> (x Lude..@? "ownerId")
-      Lude.<*> (x Lude..@? "stateTransitionReason")
-      Lude.<*> (x Lude..@? "availabilityZone")
-      Lude.<*> (x Lude..@? "snapshotId")
-      Lude.<*> (x Lude..@? "enablingTime")
+      Core.<$> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "disabledTime")
+      Core.<*> (x Core..@? "disablingTime")
+      Core.<*> (x Core..@? "enabledTime")
+      Core.<*> (x Core..@? "enablingTime")
+      Core.<*> (x Core..@? "optimizingTime")
+      Core.<*> (x Core..@? "ownerAlias")
+      Core.<*> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "snapshotId")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "stateTransitionReason")

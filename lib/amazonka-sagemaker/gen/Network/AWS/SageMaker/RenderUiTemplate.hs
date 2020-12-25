@@ -20,183 +20,165 @@ module Network.AWS.SageMaker.RenderUiTemplate
     mkRenderUiTemplate,
 
     -- ** Request lenses
-    rutUiTemplate,
     rutTask,
-    rutHumanTaskUiARN,
-    rutRoleARN,
+    rutRoleArn,
+    rutHumanTaskUiArn,
+    rutUiTemplate,
 
     -- * Destructuring the response
     RenderUiTemplateResponse (..),
     mkRenderUiTemplateResponse,
 
     -- ** Response lenses
-    rutrsRenderedContent,
-    rutrsErrors,
-    rutrsResponseStatus,
+    rutrrsRenderedContent,
+    rutrrsErrors,
+    rutrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkRenderUiTemplate' smart constructor.
 data RenderUiTemplate = RenderUiTemplate'
-  { -- | A @Template@ object containing the worker UI template to render.
-    uiTemplate :: Lude.Maybe UiTemplate,
-    -- | A @RenderableTask@ object containing a representative task to render.
-    task :: RenderableTask,
+  { -- | A @RenderableTask@ object containing a representative task to render.
+    task :: Types.RenderableTask,
+    -- | The Amazon Resource Name (ARN) that has access to the S3 objects that are used by the template.
+    roleArn :: Types.RoleArn,
     -- | The @HumanTaskUiArn@ of the worker UI that you want to render. Do not provide a @HumanTaskUiArn@ if you use the @UiTemplate@ parameter.
     --
     -- See a list of available Human Ui Amazon Resource Names (ARNs) in 'UiConfig' .
-    humanTaskUiARN :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) that has access to the S3 objects that are used by the template.
-    roleARN :: Lude.Text
+    humanTaskUiArn :: Core.Maybe Types.HumanTaskUiArn,
+    -- | A @Template@ object containing the worker UI template to render.
+    uiTemplate :: Core.Maybe Types.UiTemplate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RenderUiTemplate' with the minimum fields required to make a request.
---
--- * 'uiTemplate' - A @Template@ object containing the worker UI template to render.
--- * 'task' - A @RenderableTask@ object containing a representative task to render.
--- * 'humanTaskUiARN' - The @HumanTaskUiArn@ of the worker UI that you want to render. Do not provide a @HumanTaskUiArn@ if you use the @UiTemplate@ parameter.
---
--- See a list of available Human Ui Amazon Resource Names (ARNs) in 'UiConfig' .
--- * 'roleARN' - The Amazon Resource Name (ARN) that has access to the S3 objects that are used by the template.
+-- | Creates a 'RenderUiTemplate' value with any optional fields omitted.
 mkRenderUiTemplate ::
   -- | 'task'
-  RenderableTask ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.RenderableTask ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   RenderUiTemplate
-mkRenderUiTemplate pTask_ pRoleARN_ =
+mkRenderUiTemplate task roleArn =
   RenderUiTemplate'
-    { uiTemplate = Lude.Nothing,
-      task = pTask_,
-      humanTaskUiARN = Lude.Nothing,
-      roleARN = pRoleARN_
+    { task,
+      roleArn,
+      humanTaskUiArn = Core.Nothing,
+      uiTemplate = Core.Nothing
     }
-
--- | A @Template@ object containing the worker UI template to render.
---
--- /Note:/ Consider using 'uiTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rutUiTemplate :: Lens.Lens' RenderUiTemplate (Lude.Maybe UiTemplate)
-rutUiTemplate = Lens.lens (uiTemplate :: RenderUiTemplate -> Lude.Maybe UiTemplate) (\s a -> s {uiTemplate = a} :: RenderUiTemplate)
-{-# DEPRECATED rutUiTemplate "Use generic-lens or generic-optics with 'uiTemplate' instead." #-}
 
 -- | A @RenderableTask@ object containing a representative task to render.
 --
 -- /Note:/ Consider using 'task' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rutTask :: Lens.Lens' RenderUiTemplate RenderableTask
-rutTask = Lens.lens (task :: RenderUiTemplate -> RenderableTask) (\s a -> s {task = a} :: RenderUiTemplate)
+rutTask :: Lens.Lens' RenderUiTemplate Types.RenderableTask
+rutTask = Lens.field @"task"
 {-# DEPRECATED rutTask "Use generic-lens or generic-optics with 'task' instead." #-}
+
+-- | The Amazon Resource Name (ARN) that has access to the S3 objects that are used by the template.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rutRoleArn :: Lens.Lens' RenderUiTemplate Types.RoleArn
+rutRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED rutRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The @HumanTaskUiArn@ of the worker UI that you want to render. Do not provide a @HumanTaskUiArn@ if you use the @UiTemplate@ parameter.
 --
 -- See a list of available Human Ui Amazon Resource Names (ARNs) in 'UiConfig' .
 --
--- /Note:/ Consider using 'humanTaskUiARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rutHumanTaskUiARN :: Lens.Lens' RenderUiTemplate (Lude.Maybe Lude.Text)
-rutHumanTaskUiARN = Lens.lens (humanTaskUiARN :: RenderUiTemplate -> Lude.Maybe Lude.Text) (\s a -> s {humanTaskUiARN = a} :: RenderUiTemplate)
-{-# DEPRECATED rutHumanTaskUiARN "Use generic-lens or generic-optics with 'humanTaskUiARN' instead." #-}
+-- /Note:/ Consider using 'humanTaskUiArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rutHumanTaskUiArn :: Lens.Lens' RenderUiTemplate (Core.Maybe Types.HumanTaskUiArn)
+rutHumanTaskUiArn = Lens.field @"humanTaskUiArn"
+{-# DEPRECATED rutHumanTaskUiArn "Use generic-lens or generic-optics with 'humanTaskUiArn' instead." #-}
 
--- | The Amazon Resource Name (ARN) that has access to the S3 objects that are used by the template.
+-- | A @Template@ object containing the worker UI template to render.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rutRoleARN :: Lens.Lens' RenderUiTemplate Lude.Text
-rutRoleARN = Lens.lens (roleARN :: RenderUiTemplate -> Lude.Text) (\s a -> s {roleARN = a} :: RenderUiTemplate)
-{-# DEPRECATED rutRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'uiTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rutUiTemplate :: Lens.Lens' RenderUiTemplate (Core.Maybe Types.UiTemplate)
+rutUiTemplate = Lens.field @"uiTemplate"
+{-# DEPRECATED rutUiTemplate "Use generic-lens or generic-optics with 'uiTemplate' instead." #-}
 
-instance Lude.AWSRequest RenderUiTemplate where
+instance Core.FromJSON RenderUiTemplate where
+  toJSON RenderUiTemplate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Task" Core..= task),
+            Core.Just ("RoleArn" Core..= roleArn),
+            ("HumanTaskUiArn" Core..=) Core.<$> humanTaskUiArn,
+            ("UiTemplate" Core..=) Core.<$> uiTemplate
+          ]
+      )
+
+instance Core.AWSRequest RenderUiTemplate where
   type Rs RenderUiTemplate = RenderUiTemplateResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.RenderUiTemplate")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RenderUiTemplateResponse'
-            Lude.<$> (x Lude..:> "RenderedContent")
-            Lude.<*> (x Lude..?> "Errors" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "RenderedContent")
+            Core.<*> (x Core..:? "Errors" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RenderUiTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.RenderUiTemplate" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RenderUiTemplate where
-  toJSON RenderUiTemplate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("UiTemplate" Lude..=) Lude.<$> uiTemplate,
-            Lude.Just ("Task" Lude..= task),
-            ("HumanTaskUiArn" Lude..=) Lude.<$> humanTaskUiARN,
-            Lude.Just ("RoleArn" Lude..= roleARN)
-          ]
-      )
-
-instance Lude.ToPath RenderUiTemplate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RenderUiTemplate where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRenderUiTemplateResponse' smart constructor.
 data RenderUiTemplateResponse = RenderUiTemplateResponse'
   { -- | A Liquid template that renders the HTML for the worker UI.
-    renderedContent :: Lude.Text,
+    renderedContent :: Types.String,
     -- | A list of one or more @RenderingError@ objects if any were encountered while rendering the template. If there were no errors, the list is empty.
-    errors :: [RenderingError],
+    errors :: [Types.RenderingError],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RenderUiTemplateResponse' with the minimum fields required to make a request.
---
--- * 'renderedContent' - A Liquid template that renders the HTML for the worker UI.
--- * 'errors' - A list of one or more @RenderingError@ objects if any were encountered while rendering the template. If there were no errors, the list is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RenderUiTemplateResponse' value with any optional fields omitted.
 mkRenderUiTemplateResponse ::
   -- | 'renderedContent'
-  Lude.Text ->
+  Types.String ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RenderUiTemplateResponse
-mkRenderUiTemplateResponse pRenderedContent_ pResponseStatus_ =
+mkRenderUiTemplateResponse renderedContent responseStatus =
   RenderUiTemplateResponse'
-    { renderedContent = pRenderedContent_,
-      errors = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { renderedContent,
+      errors = Core.mempty,
+      responseStatus
     }
 
 -- | A Liquid template that renders the HTML for the worker UI.
 --
 -- /Note:/ Consider using 'renderedContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rutrsRenderedContent :: Lens.Lens' RenderUiTemplateResponse Lude.Text
-rutrsRenderedContent = Lens.lens (renderedContent :: RenderUiTemplateResponse -> Lude.Text) (\s a -> s {renderedContent = a} :: RenderUiTemplateResponse)
-{-# DEPRECATED rutrsRenderedContent "Use generic-lens or generic-optics with 'renderedContent' instead." #-}
+rutrrsRenderedContent :: Lens.Lens' RenderUiTemplateResponse Types.String
+rutrrsRenderedContent = Lens.field @"renderedContent"
+{-# DEPRECATED rutrrsRenderedContent "Use generic-lens or generic-optics with 'renderedContent' instead." #-}
 
 -- | A list of one or more @RenderingError@ objects if any were encountered while rendering the template. If there were no errors, the list is empty.
 --
 -- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rutrsErrors :: Lens.Lens' RenderUiTemplateResponse [RenderingError]
-rutrsErrors = Lens.lens (errors :: RenderUiTemplateResponse -> [RenderingError]) (\s a -> s {errors = a} :: RenderUiTemplateResponse)
-{-# DEPRECATED rutrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
+rutrrsErrors :: Lens.Lens' RenderUiTemplateResponse [Types.RenderingError]
+rutrrsErrors = Lens.field @"errors"
+{-# DEPRECATED rutrrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rutrsResponseStatus :: Lens.Lens' RenderUiTemplateResponse Lude.Int
-rutrsResponseStatus = Lens.lens (responseStatus :: RenderUiTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RenderUiTemplateResponse)
-{-# DEPRECATED rutrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rutrrsResponseStatus :: Lens.Lens' RenderUiTemplateResponse Core.Int
+rutrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rutrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

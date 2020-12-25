@@ -72,116 +72,104 @@ module Network.AWS.GameLift.DescribeRuntimeConfiguration
     mkDescribeRuntimeConfigurationResponse,
 
     -- ** Response lenses
-    drcrsRuntimeConfiguration,
-    drcrsResponseStatus,
+    drcrrsRuntimeConfiguration,
+    drcrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDescribeRuntimeConfiguration' smart constructor.
 newtype DescribeRuntimeConfiguration = DescribeRuntimeConfiguration'
   { -- | A unique identifier for a fleet to get the runtime configuration for. You can use either the fleet ID or ARN value.
-    fleetId :: Lude.Text
+    fleetId :: Types.FleetIdOrArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeRuntimeConfiguration' with the minimum fields required to make a request.
---
--- * 'fleetId' - A unique identifier for a fleet to get the runtime configuration for. You can use either the fleet ID or ARN value.
+-- | Creates a 'DescribeRuntimeConfiguration' value with any optional fields omitted.
 mkDescribeRuntimeConfiguration ::
   -- | 'fleetId'
-  Lude.Text ->
+  Types.FleetIdOrArn ->
   DescribeRuntimeConfiguration
-mkDescribeRuntimeConfiguration pFleetId_ =
-  DescribeRuntimeConfiguration' {fleetId = pFleetId_}
+mkDescribeRuntimeConfiguration fleetId =
+  DescribeRuntimeConfiguration' {fleetId}
 
 -- | A unique identifier for a fleet to get the runtime configuration for. You can use either the fleet ID or ARN value.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcFleetId :: Lens.Lens' DescribeRuntimeConfiguration Lude.Text
-drcFleetId = Lens.lens (fleetId :: DescribeRuntimeConfiguration -> Lude.Text) (\s a -> s {fleetId = a} :: DescribeRuntimeConfiguration)
+drcFleetId :: Lens.Lens' DescribeRuntimeConfiguration Types.FleetIdOrArn
+drcFleetId = Lens.field @"fleetId"
 {-# DEPRECATED drcFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance Lude.AWSRequest DescribeRuntimeConfiguration where
+instance Core.FromJSON DescribeRuntimeConfiguration where
+  toJSON DescribeRuntimeConfiguration {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("FleetId" Core..= fleetId)])
+
+instance Core.AWSRequest DescribeRuntimeConfiguration where
   type
     Rs DescribeRuntimeConfiguration =
       DescribeRuntimeConfigurationResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DescribeRuntimeConfiguration")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeRuntimeConfigurationResponse'
-            Lude.<$> (x Lude..?> "RuntimeConfiguration")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RuntimeConfiguration")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeRuntimeConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DescribeRuntimeConfiguration" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeRuntimeConfiguration where
-  toJSON DescribeRuntimeConfiguration' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("FleetId" Lude..= fleetId)])
-
-instance Lude.ToPath DescribeRuntimeConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeRuntimeConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkDescribeRuntimeConfigurationResponse' smart constructor.
 data DescribeRuntimeConfigurationResponse = DescribeRuntimeConfigurationResponse'
   { -- | Instructions describing how server processes should be launched and maintained on each instance in the fleet.
-    runtimeConfiguration :: Lude.Maybe RuntimeConfiguration,
+    runtimeConfiguration :: Core.Maybe Types.RuntimeConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeRuntimeConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'runtimeConfiguration' - Instructions describing how server processes should be launched and maintained on each instance in the fleet.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeRuntimeConfigurationResponse' value with any optional fields omitted.
 mkDescribeRuntimeConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeRuntimeConfigurationResponse
-mkDescribeRuntimeConfigurationResponse pResponseStatus_ =
+mkDescribeRuntimeConfigurationResponse responseStatus =
   DescribeRuntimeConfigurationResponse'
     { runtimeConfiguration =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Instructions describing how server processes should be launched and maintained on each instance in the fleet.
 --
 -- /Note:/ Consider using 'runtimeConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcrsRuntimeConfiguration :: Lens.Lens' DescribeRuntimeConfigurationResponse (Lude.Maybe RuntimeConfiguration)
-drcrsRuntimeConfiguration = Lens.lens (runtimeConfiguration :: DescribeRuntimeConfigurationResponse -> Lude.Maybe RuntimeConfiguration) (\s a -> s {runtimeConfiguration = a} :: DescribeRuntimeConfigurationResponse)
-{-# DEPRECATED drcrsRuntimeConfiguration "Use generic-lens or generic-optics with 'runtimeConfiguration' instead." #-}
+drcrrsRuntimeConfiguration :: Lens.Lens' DescribeRuntimeConfigurationResponse (Core.Maybe Types.RuntimeConfiguration)
+drcrrsRuntimeConfiguration = Lens.field @"runtimeConfiguration"
+{-# DEPRECATED drcrrsRuntimeConfiguration "Use generic-lens or generic-optics with 'runtimeConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drcrsResponseStatus :: Lens.Lens' DescribeRuntimeConfigurationResponse Lude.Int
-drcrsResponseStatus = Lens.lens (responseStatus :: DescribeRuntimeConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRuntimeConfigurationResponse)
-{-# DEPRECATED drcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drcrrsResponseStatus :: Lens.Lens' DescribeRuntimeConfigurationResponse Core.Int
+drcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

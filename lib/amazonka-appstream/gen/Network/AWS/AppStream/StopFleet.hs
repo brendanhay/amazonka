@@ -27,91 +27,80 @@ module Network.AWS.AppStream.StopFleet
     mkStopFleetResponse,
 
     -- ** Response lenses
-    sffrsResponseStatus,
+    sfrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopFleet' smart constructor.
 newtype StopFleet = StopFleet'
   { -- | The name of the fleet.
-    name :: Lude.Text
+    name :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopFleet' with the minimum fields required to make a request.
---
--- * 'name' - The name of the fleet.
+-- | Creates a 'StopFleet' value with any optional fields omitted.
 mkStopFleet ::
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
   StopFleet
-mkStopFleet pName_ = StopFleet' {name = pName_}
+mkStopFleet name = StopFleet' {name}
 
 -- | The name of the fleet.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfName :: Lens.Lens' StopFleet Lude.Text
-sfName = Lens.lens (name :: StopFleet -> Lude.Text) (\s a -> s {name = a} :: StopFleet)
+sfName :: Lens.Lens' StopFleet Types.String
+sfName = Lens.field @"name"
 {-# DEPRECATED sfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest StopFleet where
+instance Core.FromJSON StopFleet where
+  toJSON StopFleet {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest StopFleet where
   type Rs StopFleet = StopFleetResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "PhotonAdminProxyService.StopFleet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          StopFleetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          StopFleetResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopFleet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("PhotonAdminProxyService.StopFleet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopFleet where
-  toJSON StopFleet' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath StopFleet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopFleet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopFleetResponse' smart constructor.
 newtype StopFleetResponse = StopFleetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopFleetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopFleetResponse' value with any optional fields omitted.
 mkStopFleetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopFleetResponse
-mkStopFleetResponse pResponseStatus_ =
-  StopFleetResponse' {responseStatus = pResponseStatus_}
+mkStopFleetResponse responseStatus =
+  StopFleetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sffrsResponseStatus :: Lens.Lens' StopFleetResponse Lude.Int
-sffrsResponseStatus = Lens.lens (responseStatus :: StopFleetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopFleetResponse)
-{-# DEPRECATED sffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sfrrsResponseStatus :: Lens.Lens' StopFleetResponse Core.Int
+sfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,59 +17,55 @@ module Network.AWS.MachineLearning.Types.RDSDatabaseCredentials
     mkRDSDatabaseCredentials,
 
     -- * Lenses
-    rdcUsername,
-    rdcPassword,
+    rdsdcUsername,
+    rdsdcPassword,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MachineLearning.Types.RDSDatabasePassword as Types
+import qualified Network.AWS.MachineLearning.Types.Username as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The database credentials to connect to a database on an RDS DB instance.
 --
 -- /See:/ 'mkRDSDatabaseCredentials' smart constructor.
 data RDSDatabaseCredentials = RDSDatabaseCredentials'
-  { username :: Lude.Text,
-    password :: Lude.Text
+  { username :: Types.Username,
+    password :: Types.RDSDatabasePassword
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RDSDatabaseCredentials' with the minimum fields required to make a request.
---
--- * 'username' -
--- * 'password' -
+-- | Creates a 'RDSDatabaseCredentials' value with any optional fields omitted.
 mkRDSDatabaseCredentials ::
   -- | 'username'
-  Lude.Text ->
+  Types.Username ->
   -- | 'password'
-  Lude.Text ->
+  Types.RDSDatabasePassword ->
   RDSDatabaseCredentials
-mkRDSDatabaseCredentials pUsername_ pPassword_ =
-  RDSDatabaseCredentials'
-    { username = pUsername_,
-      password = pPassword_
-    }
+mkRDSDatabaseCredentials username password =
+  RDSDatabaseCredentials' {username, password}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdcUsername :: Lens.Lens' RDSDatabaseCredentials Lude.Text
-rdcUsername = Lens.lens (username :: RDSDatabaseCredentials -> Lude.Text) (\s a -> s {username = a} :: RDSDatabaseCredentials)
-{-# DEPRECATED rdcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+rdsdcUsername :: Lens.Lens' RDSDatabaseCredentials Types.Username
+rdsdcUsername = Lens.field @"username"
+{-# DEPRECATED rdsdcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdcPassword :: Lens.Lens' RDSDatabaseCredentials Lude.Text
-rdcPassword = Lens.lens (password :: RDSDatabaseCredentials -> Lude.Text) (\s a -> s {password = a} :: RDSDatabaseCredentials)
-{-# DEPRECATED rdcPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+rdsdcPassword :: Lens.Lens' RDSDatabaseCredentials Types.RDSDatabasePassword
+rdsdcPassword = Lens.field @"password"
+{-# DEPRECATED rdsdcPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
-instance Lude.ToJSON RDSDatabaseCredentials where
-  toJSON RDSDatabaseCredentials' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Username" Lude..= username),
-            Lude.Just ("Password" Lude..= password)
+instance Core.FromJSON RDSDatabaseCredentials where
+  toJSON RDSDatabaseCredentials {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Username" Core..= username),
+            Core.Just ("Password" Core..= password)
           ]
       )

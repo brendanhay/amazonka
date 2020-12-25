@@ -28,128 +28,113 @@ module Network.AWS.Discovery.DisassociateConfigurationItemsFromApplication
     mkDisassociateConfigurationItemsFromApplicationResponse,
 
     -- ** Response lenses
-    dcifarsResponseStatus,
+    dcifarrsResponseStatus,
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateConfigurationItemsFromApplication' smart constructor.
 data DisassociateConfigurationItemsFromApplication = DisassociateConfigurationItemsFromApplication'
   { -- | Configuration ID of an application from which each item is disassociated.
-    applicationConfigurationId :: Lude.Text,
+    applicationConfigurationId :: Types.ApplicationConfigurationId,
     -- | Configuration ID of each item to be disassociated from an application.
-    configurationIds :: [Lude.Text]
+    configurationIds :: [Types.ConfigurationId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateConfigurationItemsFromApplication' with the minimum fields required to make a request.
---
--- * 'applicationConfigurationId' - Configuration ID of an application from which each item is disassociated.
--- * 'configurationIds' - Configuration ID of each item to be disassociated from an application.
+-- | Creates a 'DisassociateConfigurationItemsFromApplication' value with any optional fields omitted.
 mkDisassociateConfigurationItemsFromApplication ::
   -- | 'applicationConfigurationId'
-  Lude.Text ->
+  Types.ApplicationConfigurationId ->
   DisassociateConfigurationItemsFromApplication
 mkDisassociateConfigurationItemsFromApplication
-  pApplicationConfigurationId_ =
+  applicationConfigurationId =
     DisassociateConfigurationItemsFromApplication'
-      { applicationConfigurationId =
-          pApplicationConfigurationId_,
-        configurationIds = Lude.mempty
+      { applicationConfigurationId,
+        configurationIds = Core.mempty
       }
 
 -- | Configuration ID of an application from which each item is disassociated.
 --
 -- /Note:/ Consider using 'applicationConfigurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcifaApplicationConfigurationId :: Lens.Lens' DisassociateConfigurationItemsFromApplication Lude.Text
-dcifaApplicationConfigurationId = Lens.lens (applicationConfigurationId :: DisassociateConfigurationItemsFromApplication -> Lude.Text) (\s a -> s {applicationConfigurationId = a} :: DisassociateConfigurationItemsFromApplication)
+dcifaApplicationConfigurationId :: Lens.Lens' DisassociateConfigurationItemsFromApplication Types.ApplicationConfigurationId
+dcifaApplicationConfigurationId = Lens.field @"applicationConfigurationId"
 {-# DEPRECATED dcifaApplicationConfigurationId "Use generic-lens or generic-optics with 'applicationConfigurationId' instead." #-}
 
 -- | Configuration ID of each item to be disassociated from an application.
 --
 -- /Note:/ Consider using 'configurationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcifaConfigurationIds :: Lens.Lens' DisassociateConfigurationItemsFromApplication [Lude.Text]
-dcifaConfigurationIds = Lens.lens (configurationIds :: DisassociateConfigurationItemsFromApplication -> [Lude.Text]) (\s a -> s {configurationIds = a} :: DisassociateConfigurationItemsFromApplication)
+dcifaConfigurationIds :: Lens.Lens' DisassociateConfigurationItemsFromApplication [Types.ConfigurationId]
+dcifaConfigurationIds = Lens.field @"configurationIds"
 {-# DEPRECATED dcifaConfigurationIds "Use generic-lens or generic-optics with 'configurationIds' instead." #-}
 
 instance
-  Lude.AWSRequest
+  Core.FromJSON
+    DisassociateConfigurationItemsFromApplication
+  where
+  toJSON DisassociateConfigurationItemsFromApplication {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("applicationConfigurationId" Core..= applicationConfigurationId),
+            Core.Just ("configurationIds" Core..= configurationIds)
+          ]
+      )
+
+instance
+  Core.AWSRequest
     DisassociateConfigurationItemsFromApplication
   where
   type
     Rs DisassociateConfigurationItemsFromApplication =
       DisassociateConfigurationItemsFromApplicationResponse
-  request = Req.postJSON discoveryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateConfigurationItemsFromApplicationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance
-  Lude.ToHeaders
-    DisassociateConfigurationItemsFromApplication
-  where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSPoseidonService_V2015_11_01.DisassociateConfigurationItemsFromApplication" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateConfigurationItemsFromApplication where
-  toJSON DisassociateConfigurationItemsFromApplication' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("applicationConfigurationId" Lude..= applicationConfigurationId),
-            Lude.Just ("configurationIds" Lude..= configurationIds)
-          ]
-      )
-
-instance Lude.ToPath DisassociateConfigurationItemsFromApplication where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateConfigurationItemsFromApplication where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateConfigurationItemsFromApplicationResponse' smart constructor.
 newtype DisassociateConfigurationItemsFromApplicationResponse = DisassociateConfigurationItemsFromApplicationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateConfigurationItemsFromApplicationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateConfigurationItemsFromApplicationResponse' value with any optional fields omitted.
 mkDisassociateConfigurationItemsFromApplicationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateConfigurationItemsFromApplicationResponse
 mkDisassociateConfigurationItemsFromApplicationResponse
-  pResponseStatus_ =
-    DisassociateConfigurationItemsFromApplicationResponse'
-      { responseStatus =
-          pResponseStatus_
-      }
+  responseStatus =
+    DisassociateConfigurationItemsFromApplicationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcifarsResponseStatus :: Lens.Lens' DisassociateConfigurationItemsFromApplicationResponse Lude.Int
-dcifarsResponseStatus = Lens.lens (responseStatus :: DisassociateConfigurationItemsFromApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateConfigurationItemsFromApplicationResponse)
-{-# DEPRECATED dcifarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcifarrsResponseStatus :: Lens.Lens' DisassociateConfigurationItemsFromApplicationResponse Core.Int
+dcifarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcifarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

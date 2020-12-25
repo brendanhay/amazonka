@@ -20,8 +20,8 @@ module Network.AWS.SageMaker.CreateImageVersion
     mkCreateImageVersion,
 
     -- ** Request lenses
-    civClientToken,
     civBaseImage,
+    civClientToken,
     civImageName,
 
     -- * Destructuring the response
@@ -29,148 +29,128 @@ module Network.AWS.SageMaker.CreateImageVersion
     mkCreateImageVersionResponse,
 
     -- ** Response lenses
-    civrsImageVersionARN,
-    civrsResponseStatus,
+    civrrsImageVersionArn,
+    civrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateImageVersion' smart constructor.
 data CreateImageVersion = CreateImageVersion'
-  { -- | A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK for Python (Boto3), add a unique value to the call.
-    clientToken :: Lude.Text,
-    -- | The registry path of the container image to use as the starting point for this version. The path is an Amazon Container Registry (ECR) URI in the following format:
+  { -- | The registry path of the container image to use as the starting point for this version. The path is an Amazon Container Registry (ECR) URI in the following format:
     --
     -- @<acct-id>.dkr.ecr.<region>.amazonaws.com/<repo-name[:tag] or [@digest]>@
-    baseImage :: Lude.Text,
+    baseImage :: Types.ImageBaseImage,
+    -- | A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK for Python (Boto3), add a unique value to the call.
+    clientToken :: Types.ClientToken,
     -- | The @ImageName@ of the @Image@ to create a version of.
-    imageName :: Lude.Text
+    imageName :: Types.ImageName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateImageVersion' with the minimum fields required to make a request.
---
--- * 'clientToken' - A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK for Python (Boto3), add a unique value to the call.
--- * 'baseImage' - The registry path of the container image to use as the starting point for this version. The path is an Amazon Container Registry (ECR) URI in the following format:
---
--- @<acct-id>.dkr.ecr.<region>.amazonaws.com/<repo-name[:tag] or [@digest]>@
--- * 'imageName' - The @ImageName@ of the @Image@ to create a version of.
+-- | Creates a 'CreateImageVersion' value with any optional fields omitted.
 mkCreateImageVersion ::
-  -- | 'clientToken'
-  Lude.Text ->
   -- | 'baseImage'
-  Lude.Text ->
+  Types.ImageBaseImage ->
+  -- | 'clientToken'
+  Types.ClientToken ->
   -- | 'imageName'
-  Lude.Text ->
+  Types.ImageName ->
   CreateImageVersion
-mkCreateImageVersion pClientToken_ pBaseImage_ pImageName_ =
-  CreateImageVersion'
-    { clientToken = pClientToken_,
-      baseImage = pBaseImage_,
-      imageName = pImageName_
-    }
-
--- | A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK for Python (Boto3), add a unique value to the call.
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-civClientToken :: Lens.Lens' CreateImageVersion Lude.Text
-civClientToken = Lens.lens (clientToken :: CreateImageVersion -> Lude.Text) (\s a -> s {clientToken = a} :: CreateImageVersion)
-{-# DEPRECATED civClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+mkCreateImageVersion baseImage clientToken imageName =
+  CreateImageVersion' {baseImage, clientToken, imageName}
 
 -- | The registry path of the container image to use as the starting point for this version. The path is an Amazon Container Registry (ECR) URI in the following format:
 --
 -- @<acct-id>.dkr.ecr.<region>.amazonaws.com/<repo-name[:tag] or [@digest]>@
 --
 -- /Note:/ Consider using 'baseImage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-civBaseImage :: Lens.Lens' CreateImageVersion Lude.Text
-civBaseImage = Lens.lens (baseImage :: CreateImageVersion -> Lude.Text) (\s a -> s {baseImage = a} :: CreateImageVersion)
+civBaseImage :: Lens.Lens' CreateImageVersion Types.ImageBaseImage
+civBaseImage = Lens.field @"baseImage"
 {-# DEPRECATED civBaseImage "Use generic-lens or generic-optics with 'baseImage' instead." #-}
+
+-- | A unique ID. If not specified, the AWS CLI and AWS SDKs, such as the SDK for Python (Boto3), add a unique value to the call.
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civClientToken :: Lens.Lens' CreateImageVersion Types.ClientToken
+civClientToken = Lens.field @"clientToken"
+{-# DEPRECATED civClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The @ImageName@ of the @Image@ to create a version of.
 --
 -- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-civImageName :: Lens.Lens' CreateImageVersion Lude.Text
-civImageName = Lens.lens (imageName :: CreateImageVersion -> Lude.Text) (\s a -> s {imageName = a} :: CreateImageVersion)
+civImageName :: Lens.Lens' CreateImageVersion Types.ImageName
+civImageName = Lens.field @"imageName"
 {-# DEPRECATED civImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
 
-instance Lude.AWSRequest CreateImageVersion where
+instance Core.FromJSON CreateImageVersion where
+  toJSON CreateImageVersion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("BaseImage" Core..= baseImage),
+            Core.Just ("ClientToken" Core..= clientToken),
+            Core.Just ("ImageName" Core..= imageName)
+          ]
+      )
+
+instance Core.AWSRequest CreateImageVersion where
   type Rs CreateImageVersion = CreateImageVersionResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.CreateImageVersion")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateImageVersionResponse'
-            Lude.<$> (x Lude..?> "ImageVersionArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ImageVersionArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateImageVersion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.CreateImageVersion" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateImageVersion where
-  toJSON CreateImageVersion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ClientToken" Lude..= clientToken),
-            Lude.Just ("BaseImage" Lude..= baseImage),
-            Lude.Just ("ImageName" Lude..= imageName)
-          ]
-      )
-
-instance Lude.ToPath CreateImageVersion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateImageVersion where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateImageVersionResponse' smart constructor.
 data CreateImageVersionResponse = CreateImageVersionResponse'
   { -- | The Amazon Resource Name (ARN) of the image version.
-    imageVersionARN :: Lude.Maybe Lude.Text,
+    imageVersionArn :: Core.Maybe Types.ImageVersionArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateImageVersionResponse' with the minimum fields required to make a request.
---
--- * 'imageVersionARN' - The Amazon Resource Name (ARN) of the image version.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateImageVersionResponse' value with any optional fields omitted.
 mkCreateImageVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateImageVersionResponse
-mkCreateImageVersionResponse pResponseStatus_ =
+mkCreateImageVersionResponse responseStatus =
   CreateImageVersionResponse'
-    { imageVersionARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { imageVersionArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the image version.
 --
--- /Note:/ Consider using 'imageVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-civrsImageVersionARN :: Lens.Lens' CreateImageVersionResponse (Lude.Maybe Lude.Text)
-civrsImageVersionARN = Lens.lens (imageVersionARN :: CreateImageVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageVersionARN = a} :: CreateImageVersionResponse)
-{-# DEPRECATED civrsImageVersionARN "Use generic-lens or generic-optics with 'imageVersionARN' instead." #-}
+-- /Note:/ Consider using 'imageVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+civrrsImageVersionArn :: Lens.Lens' CreateImageVersionResponse (Core.Maybe Types.ImageVersionArn)
+civrrsImageVersionArn = Lens.field @"imageVersionArn"
+{-# DEPRECATED civrrsImageVersionArn "Use generic-lens or generic-optics with 'imageVersionArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-civrsResponseStatus :: Lens.Lens' CreateImageVersionResponse Lude.Int
-civrsResponseStatus = Lens.lens (responseStatus :: CreateImageVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateImageVersionResponse)
-{-# DEPRECATED civrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+civrrsResponseStatus :: Lens.Lens' CreateImageVersionResponse Core.Int
+civrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED civrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

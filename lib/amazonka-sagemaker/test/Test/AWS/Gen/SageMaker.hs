@@ -81,8 +81,8 @@ import Test.Tasty
 --         , requestDescribeTrial $
 --             mkDescribeTrial
 --
---         , requestCreatePresignedDomainURL $
---             mkCreatePresignedDomainURL
+--         , requestCreatePresignedDomainUrl $
+--             mkCreatePresignedDomainUrl
 --
 --         , requestDescribeCodeRepository $
 --             mkDescribeCodeRepository
@@ -315,8 +315,8 @@ import Test.Tasty
 --         , requestDescribeFlowDefinition $
 --             mkDescribeFlowDefinition
 --
---         , requestCreatePresignedNotebookInstanceURL $
---             mkCreatePresignedNotebookInstanceURL
+--         , requestCreatePresignedNotebookInstanceUrl $
+--             mkCreatePresignedNotebookInstanceUrl
 --
 --         , requestListTrainingJobsForHyperParameterTuningJob $
 --             mkListTrainingJobsForHyperParameterTuningJob
@@ -537,8 +537,8 @@ import Test.Tasty
 --         , responseDescribeTrial $
 --             mkDescribeTrialResponse
 --
---         , responseCreatePresignedDomainURL $
---             mkCreatePresignedDomainURLResponse
+--         , responseCreatePresignedDomainUrl $
+--             mkCreatePresignedDomainUrlResponse
 --
 --         , responseDescribeCodeRepository $
 --             mkDescribeCodeRepositoryResponse
@@ -771,8 +771,8 @@ import Test.Tasty
 --         , responseDescribeFlowDefinition $
 --             mkDescribeFlowDefinitionResponse
 --
---         , responseCreatePresignedNotebookInstanceURL $
---             mkCreatePresignedNotebookInstanceURLResponse
+--         , responseCreatePresignedNotebookInstanceUrl $
+--             mkCreatePresignedNotebookInstanceUrlResponse
 --
 --         , responseListTrainingJobsForHyperParameterTuningJob $
 --             mkListTrainingJobsForHyperParameterTuningJobResponse
@@ -1049,11 +1049,11 @@ requestDescribeTrial =
     "DescribeTrial"
     "fixture/DescribeTrial.yaml"
 
-requestCreatePresignedDomainURL :: CreatePresignedDomainURL -> TestTree
-requestCreatePresignedDomainURL =
+requestCreatePresignedDomainUrl :: CreatePresignedDomainUrl -> TestTree
+requestCreatePresignedDomainUrl =
   req
-    "CreatePresignedDomainURL"
-    "fixture/CreatePresignedDomainURL.yaml"
+    "CreatePresignedDomainUrl"
+    "fixture/CreatePresignedDomainUrl.yaml"
 
 requestDescribeCodeRepository :: DescribeCodeRepository -> TestTree
 requestDescribeCodeRepository =
@@ -1517,11 +1517,11 @@ requestDescribeFlowDefinition =
     "DescribeFlowDefinition"
     "fixture/DescribeFlowDefinition.yaml"
 
-requestCreatePresignedNotebookInstanceURL :: CreatePresignedNotebookInstanceURL -> TestTree
-requestCreatePresignedNotebookInstanceURL =
+requestCreatePresignedNotebookInstanceUrl :: CreatePresignedNotebookInstanceUrl -> TestTree
+requestCreatePresignedNotebookInstanceUrl =
   req
-    "CreatePresignedNotebookInstanceURL"
-    "fixture/CreatePresignedNotebookInstanceURL.yaml"
+    "CreatePresignedNotebookInstanceUrl"
+    "fixture/CreatePresignedNotebookInstanceUrl.yaml"
 
 requestListTrainingJobsForHyperParameterTuningJob :: ListTrainingJobsForHyperParameterTuningJob -> TestTree
 requestListTrainingJobsForHyperParameterTuningJob =
@@ -1854,7 +1854,7 @@ responseCreateNotebookInstance =
   res
     "CreateNotebookInstanceResponse"
     "fixture/CreateNotebookInstanceResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateNotebookInstance)
 
 responseDeleteModelPackage :: DeleteModelPackageResponse -> TestTree
@@ -1862,7 +1862,7 @@ responseDeleteModelPackage =
   res
     "DeleteModelPackageResponse"
     "fixture/DeleteModelPackageResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteModelPackage)
 
 responseDescribeMonitoringSchedule :: DescribeMonitoringScheduleResponse -> TestTree
@@ -1870,7 +1870,7 @@ responseDescribeMonitoringSchedule =
   res
     "DescribeMonitoringScheduleResponse"
     "fixture/DescribeMonitoringScheduleResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeMonitoringSchedule)
 
 responseListTrialComponents :: ListTrialComponentsResponse -> TestTree
@@ -1878,7 +1878,7 @@ responseListTrialComponents =
   res
     "ListTrialComponentsResponse"
     "fixture/ListTrialComponentsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListTrialComponents)
 
 responseDescribeEndpointConfig :: DescribeEndpointConfigResponse -> TestTree
@@ -1886,7 +1886,7 @@ responseDescribeEndpointConfig =
   res
     "DescribeEndpointConfigResponse"
     "fixture/DescribeEndpointConfigResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEndpointConfig)
 
 responseDescribeApp :: DescribeAppResponse -> TestTree
@@ -1894,7 +1894,7 @@ responseDescribeApp =
   res
     "DescribeAppResponse"
     "fixture/DescribeAppResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeApp)
 
 responseListImageVersions :: ListImageVersionsResponse -> TestTree
@@ -1902,7 +1902,7 @@ responseListImageVersions =
   res
     "ListImageVersionsResponse"
     "fixture/ListImageVersionsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListImageVersions)
 
 responseDescribeAutoMLJob :: DescribeAutoMLJobResponse -> TestTree
@@ -1910,7 +1910,7 @@ responseDescribeAutoMLJob =
   res
     "DescribeAutoMLJobResponse"
     "fixture/DescribeAutoMLJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAutoMLJob)
 
 responseStopProcessingJob :: StopProcessingJobResponse -> TestTree
@@ -1918,7 +1918,7 @@ responseStopProcessingJob =
   res
     "StopProcessingJobResponse"
     "fixture/StopProcessingJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy StopProcessingJob)
 
 responseListLabelingJobsForWorkteam :: ListLabelingJobsForWorkteamResponse -> TestTree
@@ -1926,7 +1926,7 @@ responseListLabelingJobsForWorkteam =
   res
     "ListLabelingJobsForWorkteamResponse"
     "fixture/ListLabelingJobsForWorkteamResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListLabelingJobsForWorkteam)
 
 responseCreateTransformJob :: CreateTransformJobResponse -> TestTree
@@ -1934,7 +1934,7 @@ responseCreateTransformJob =
   res
     "CreateTransformJobResponse"
     "fixture/CreateTransformJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateTransformJob)
 
 responseListCompilationJobs :: ListCompilationJobsResponse -> TestTree
@@ -1942,7 +1942,7 @@ responseListCompilationJobs =
   res
     "ListCompilationJobsResponse"
     "fixture/ListCompilationJobsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListCompilationJobs)
 
 responseDisassociateTrialComponent :: DisassociateTrialComponentResponse -> TestTree
@@ -1950,7 +1950,7 @@ responseDisassociateTrialComponent =
   res
     "DisassociateTrialComponentResponse"
     "fixture/DisassociateTrialComponentResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateTrialComponent)
 
 responseStopHyperParameterTuningJob :: StopHyperParameterTuningJobResponse -> TestTree
@@ -1958,7 +1958,7 @@ responseStopHyperParameterTuningJob =
   res
     "StopHyperParameterTuningJobResponse"
     "fixture/StopHyperParameterTuningJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy StopHyperParameterTuningJob)
 
 responseListHumanTaskUis :: ListHumanTaskUisResponse -> TestTree
@@ -1966,7 +1966,7 @@ responseListHumanTaskUis =
   res
     "ListHumanTaskUisResponse"
     "fixture/ListHumanTaskUisResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListHumanTaskUis)
 
 responseCreateEndpoint :: CreateEndpointResponse -> TestTree
@@ -1974,7 +1974,7 @@ responseCreateEndpoint =
   res
     "CreateEndpointResponse"
     "fixture/CreateEndpointResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateEndpoint)
 
 responseGetSearchSuggestions :: GetSearchSuggestionsResponse -> TestTree
@@ -1982,7 +1982,7 @@ responseGetSearchSuggestions =
   res
     "GetSearchSuggestionsResponse"
     "fixture/GetSearchSuggestionsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy GetSearchSuggestions)
 
 responseDescribeTrial :: DescribeTrialResponse -> TestTree
@@ -1990,23 +1990,23 @@ responseDescribeTrial =
   res
     "DescribeTrialResponse"
     "fixture/DescribeTrialResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTrial)
 
-responseCreatePresignedDomainURL :: CreatePresignedDomainURLResponse -> TestTree
-responseCreatePresignedDomainURL =
+responseCreatePresignedDomainUrl :: CreatePresignedDomainUrlResponse -> TestTree
+responseCreatePresignedDomainUrl =
   res
-    "CreatePresignedDomainURLResponse"
-    "fixture/CreatePresignedDomainURLResponse.proto"
-    sageMakerService
-    (Proxy :: Proxy CreatePresignedDomainURL)
+    "CreatePresignedDomainUrlResponse"
+    "fixture/CreatePresignedDomainUrlResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy CreatePresignedDomainUrl)
 
 responseDescribeCodeRepository :: DescribeCodeRepositoryResponse -> TestTree
 responseDescribeCodeRepository =
   res
     "DescribeCodeRepositoryResponse"
     "fixture/DescribeCodeRepositoryResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCodeRepository)
 
 responseDescribeImage :: DescribeImageResponse -> TestTree
@@ -2014,7 +2014,7 @@ responseDescribeImage =
   res
     "DescribeImageResponse"
     "fixture/DescribeImageResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeImage)
 
 responseDescribeTrainingJob :: DescribeTrainingJobResponse -> TestTree
@@ -2022,7 +2022,7 @@ responseDescribeTrainingJob =
   res
     "DescribeTrainingJobResponse"
     "fixture/DescribeTrainingJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTrainingJob)
 
 responseDeleteEndpoint :: DeleteEndpointResponse -> TestTree
@@ -2030,7 +2030,7 @@ responseDeleteEndpoint =
   res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEndpoint)
 
 responseUpdateEndpoint :: UpdateEndpointResponse -> TestTree
@@ -2038,7 +2038,7 @@ responseUpdateEndpoint =
   res
     "UpdateEndpointResponse"
     "fixture/UpdateEndpointResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateEndpoint)
 
 responseCreateHumanTaskUi :: CreateHumanTaskUiResponse -> TestTree
@@ -2046,7 +2046,7 @@ responseCreateHumanTaskUi =
   res
     "CreateHumanTaskUiResponse"
     "fixture/CreateHumanTaskUiResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateHumanTaskUi)
 
 responseCreateCompilationJob :: CreateCompilationJobResponse -> TestTree
@@ -2054,7 +2054,7 @@ responseCreateCompilationJob =
   res
     "CreateCompilationJobResponse"
     "fixture/CreateCompilationJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateCompilationJob)
 
 responseDeleteAppImageConfig :: DeleteAppImageConfigResponse -> TestTree
@@ -2062,7 +2062,7 @@ responseDeleteAppImageConfig =
   res
     "DeleteAppImageConfigResponse"
     "fixture/DeleteAppImageConfigResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAppImageConfig)
 
 responseUpdateAppImageConfig :: UpdateAppImageConfigResponse -> TestTree
@@ -2070,7 +2070,7 @@ responseUpdateAppImageConfig =
   res
     "UpdateAppImageConfigResponse"
     "fixture/UpdateAppImageConfigResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateAppImageConfig)
 
 responseDeleteNotebookInstanceLifecycleConfig :: DeleteNotebookInstanceLifecycleConfigResponse -> TestTree
@@ -2078,7 +2078,7 @@ responseDeleteNotebookInstanceLifecycleConfig =
   res
     "DeleteNotebookInstanceLifecycleConfigResponse"
     "fixture/DeleteNotebookInstanceLifecycleConfigResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteNotebookInstanceLifecycleConfig)
 
 responseUpdateNotebookInstanceLifecycleConfig :: UpdateNotebookInstanceLifecycleConfigResponse -> TestTree
@@ -2086,7 +2086,7 @@ responseUpdateNotebookInstanceLifecycleConfig =
   res
     "UpdateNotebookInstanceLifecycleConfigResponse"
     "fixture/UpdateNotebookInstanceLifecycleConfigResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateNotebookInstanceLifecycleConfig)
 
 responseDeleteWorkforce :: DeleteWorkforceResponse -> TestTree
@@ -2094,7 +2094,7 @@ responseDeleteWorkforce =
   res
     "DeleteWorkforceResponse"
     "fixture/DeleteWorkforceResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteWorkforce)
 
 responseUpdateWorkforce :: UpdateWorkforceResponse -> TestTree
@@ -2102,7 +2102,7 @@ responseUpdateWorkforce =
   res
     "UpdateWorkforceResponse"
     "fixture/UpdateWorkforceResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateWorkforce)
 
 responseListProcessingJobs :: ListProcessingJobsResponse -> TestTree
@@ -2110,7 +2110,7 @@ responseListProcessingJobs =
   res
     "ListProcessingJobsResponse"
     "fixture/ListProcessingJobsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListProcessingJobs)
 
 responseCreateLabelingJob :: CreateLabelingJobResponse -> TestTree
@@ -2118,7 +2118,7 @@ responseCreateLabelingJob =
   res
     "CreateLabelingJobResponse"
     "fixture/CreateLabelingJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateLabelingJob)
 
 responseDescribeNotebookInstance :: DescribeNotebookInstanceResponse -> TestTree
@@ -2126,7 +2126,7 @@ responseDescribeNotebookInstance =
   res
     "DescribeNotebookInstanceResponse"
     "fixture/DescribeNotebookInstanceResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeNotebookInstance)
 
 responseCreateMonitoringSchedule :: CreateMonitoringScheduleResponse -> TestTree
@@ -2134,7 +2134,7 @@ responseCreateMonitoringSchedule =
   res
     "CreateMonitoringScheduleResponse"
     "fixture/CreateMonitoringScheduleResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateMonitoringSchedule)
 
 responseListAppImageConfigs :: ListAppImageConfigsResponse -> TestTree
@@ -2142,7 +2142,7 @@ responseListAppImageConfigs =
   res
     "ListAppImageConfigsResponse"
     "fixture/ListAppImageConfigsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListAppImageConfigs)
 
 responseCreateEndpointConfig :: CreateEndpointConfigResponse -> TestTree
@@ -2150,7 +2150,7 @@ responseCreateEndpointConfig =
   res
     "CreateEndpointConfigResponse"
     "fixture/CreateEndpointConfigResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateEndpointConfig)
 
 responseStopNotebookInstance :: StopNotebookInstanceResponse -> TestTree
@@ -2158,7 +2158,7 @@ responseStopNotebookInstance =
   res
     "StopNotebookInstanceResponse"
     "fixture/StopNotebookInstanceResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy StopNotebookInstance)
 
 responseUpdateEndpointWeightsAndCapacities :: UpdateEndpointWeightsAndCapacitiesResponse -> TestTree
@@ -2166,7 +2166,7 @@ responseUpdateEndpointWeightsAndCapacities =
   res
     "UpdateEndpointWeightsAndCapacitiesResponse"
     "fixture/UpdateEndpointWeightsAndCapacitiesResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateEndpointWeightsAndCapacities)
 
 responseCreateAppImageConfig :: CreateAppImageConfigResponse -> TestTree
@@ -2174,7 +2174,7 @@ responseCreateAppImageConfig =
   res
     "CreateAppImageConfigResponse"
     "fixture/CreateAppImageConfigResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateAppImageConfig)
 
 responseDeleteTags :: DeleteTagsResponse -> TestTree
@@ -2182,7 +2182,7 @@ responseDeleteTags =
   res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTags)
 
 responseListExperiments :: ListExperimentsResponse -> TestTree
@@ -2190,7 +2190,7 @@ responseListExperiments =
   res
     "ListExperimentsResponse"
     "fixture/ListExperimentsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListExperiments)
 
 responseListAutoMLJobs :: ListAutoMLJobsResponse -> TestTree
@@ -2198,7 +2198,7 @@ responseListAutoMLJobs =
   res
     "ListAutoMLJobsResponse"
     "fixture/ListAutoMLJobsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListAutoMLJobs)
 
 responseListApps :: ListAppsResponse -> TestTree
@@ -2206,7 +2206,7 @@ responseListApps =
   res
     "ListAppsResponse"
     "fixture/ListAppsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListApps)
 
 responseCreateProcessingJob :: CreateProcessingJobResponse -> TestTree
@@ -2214,7 +2214,7 @@ responseCreateProcessingJob =
   res
     "CreateProcessingJobResponse"
     "fixture/CreateProcessingJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateProcessingJob)
 
 responseDeleteMonitoringSchedule :: DeleteMonitoringScheduleResponse -> TestTree
@@ -2222,7 +2222,7 @@ responseDeleteMonitoringSchedule =
   res
     "DeleteMonitoringScheduleResponse"
     "fixture/DeleteMonitoringScheduleResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteMonitoringSchedule)
 
 responseDescribeModelPackage :: DescribeModelPackageResponse -> TestTree
@@ -2230,7 +2230,7 @@ responseDescribeModelPackage =
   res
     "DescribeModelPackageResponse"
     "fixture/DescribeModelPackageResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeModelPackage)
 
 responseDeleteEndpointConfig :: DeleteEndpointConfigResponse -> TestTree
@@ -2238,7 +2238,7 @@ responseDeleteEndpointConfig =
   res
     "DeleteEndpointConfigResponse"
     "fixture/DeleteEndpointConfigResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEndpointConfig)
 
 responseUpdateMonitoringSchedule :: UpdateMonitoringScheduleResponse -> TestTree
@@ -2246,7 +2246,7 @@ responseUpdateMonitoringSchedule =
   res
     "UpdateMonitoringScheduleResponse"
     "fixture/UpdateMonitoringScheduleResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateMonitoringSchedule)
 
 responseDeleteApp :: DeleteAppResponse -> TestTree
@@ -2254,7 +2254,7 @@ responseDeleteApp =
   res
     "DeleteAppResponse"
     "fixture/DeleteAppResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteApp)
 
 responseCreateAlgorithm :: CreateAlgorithmResponse -> TestTree
@@ -2262,7 +2262,7 @@ responseCreateAlgorithm =
   res
     "CreateAlgorithmResponse"
     "fixture/CreateAlgorithmResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateAlgorithm)
 
 responseStopTransformJob :: StopTransformJobResponse -> TestTree
@@ -2270,7 +2270,7 @@ responseStopTransformJob =
   res
     "StopTransformJobResponse"
     "fixture/StopTransformJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy StopTransformJob)
 
 responseCreateModel :: CreateModelResponse -> TestTree
@@ -2278,7 +2278,7 @@ responseCreateModel =
   res
     "CreateModelResponse"
     "fixture/CreateModelResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateModel)
 
 responseListUserProfiles :: ListUserProfilesResponse -> TestTree
@@ -2286,7 +2286,7 @@ responseListUserProfiles =
   res
     "ListUserProfilesResponse"
     "fixture/ListUserProfilesResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListUserProfiles)
 
 responseCreateCodeRepository :: CreateCodeRepositoryResponse -> TestTree
@@ -2294,7 +2294,7 @@ responseCreateCodeRepository =
   res
     "CreateCodeRepositoryResponse"
     "fixture/CreateCodeRepositoryResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateCodeRepository)
 
 responseCreateHyperParameterTuningJob :: CreateHyperParameterTuningJobResponse -> TestTree
@@ -2302,7 +2302,7 @@ responseCreateHyperParameterTuningJob =
   res
     "CreateHyperParameterTuningJobResponse"
     "fixture/CreateHyperParameterTuningJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateHyperParameterTuningJob)
 
 responseDeleteTrial :: DeleteTrialResponse -> TestTree
@@ -2310,7 +2310,7 @@ responseDeleteTrial =
   res
     "DeleteTrialResponse"
     "fixture/DeleteTrialResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTrial)
 
 responseUpdateTrial :: UpdateTrialResponse -> TestTree
@@ -2318,7 +2318,7 @@ responseUpdateTrial =
   res
     "UpdateTrialResponse"
     "fixture/UpdateTrialResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTrial)
 
 responseListCodeRepositories :: ListCodeRepositoriesResponse -> TestTree
@@ -2326,7 +2326,7 @@ responseListCodeRepositories =
   res
     "ListCodeRepositoriesResponse"
     "fixture/ListCodeRepositoriesResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListCodeRepositories)
 
 responseDescribeCompilationJob :: DescribeCompilationJobResponse -> TestTree
@@ -2334,7 +2334,7 @@ responseDescribeCompilationJob =
   res
     "DescribeCompilationJobResponse"
     "fixture/DescribeCompilationJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCompilationJob)
 
 responseListHyperParameterTuningJobs :: ListHyperParameterTuningJobsResponse -> TestTree
@@ -2342,7 +2342,7 @@ responseListHyperParameterTuningJobs =
   res
     "ListHyperParameterTuningJobsResponse"
     "fixture/ListHyperParameterTuningJobsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListHyperParameterTuningJobs)
 
 responseListAlgorithms :: ListAlgorithmsResponse -> TestTree
@@ -2350,7 +2350,7 @@ responseListAlgorithms =
   res
     "ListAlgorithmsResponse"
     "fixture/ListAlgorithmsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListAlgorithms)
 
 responseRenderUiTemplate :: RenderUiTemplateResponse -> TestTree
@@ -2358,7 +2358,7 @@ responseRenderUiTemplate =
   res
     "RenderUiTemplateResponse"
     "fixture/RenderUiTemplateResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy RenderUiTemplate)
 
 responseDeleteFlowDefinition :: DeleteFlowDefinitionResponse -> TestTree
@@ -2366,7 +2366,7 @@ responseDeleteFlowDefinition =
   res
     "DeleteFlowDefinitionResponse"
     "fixture/DeleteFlowDefinitionResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFlowDefinition)
 
 responseCreateTrial :: CreateTrialResponse -> TestTree
@@ -2374,7 +2374,7 @@ responseCreateTrial =
   res
     "CreateTrialResponse"
     "fixture/CreateTrialResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateTrial)
 
 responseDeleteModel :: DeleteModelResponse -> TestTree
@@ -2382,7 +2382,7 @@ responseDeleteModel =
   res
     "DeleteModelResponse"
     "fixture/DeleteModelResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteModel)
 
 responseListModels :: ListModelsResponse -> TestTree
@@ -2390,7 +2390,7 @@ responseListModels =
   res
     "ListModelsResponse"
     "fixture/ListModelsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListModels)
 
 responseDeleteAlgorithm :: DeleteAlgorithmResponse -> TestTree
@@ -2398,7 +2398,7 @@ responseDeleteAlgorithm =
   res
     "DeleteAlgorithmResponse"
     "fixture/DeleteAlgorithmResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAlgorithm)
 
 responseAssociateTrialComponent :: AssociateTrialComponentResponse -> TestTree
@@ -2406,7 +2406,7 @@ responseAssociateTrialComponent =
   res
     "AssociateTrialComponentResponse"
     "fixture/AssociateTrialComponentResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy AssociateTrialComponent)
 
 responseDescribeNotebookInstanceLifecycleConfig :: DescribeNotebookInstanceLifecycleConfigResponse -> TestTree
@@ -2414,7 +2414,7 @@ responseDescribeNotebookInstanceLifecycleConfig =
   res
     "DescribeNotebookInstanceLifecycleConfigResponse"
     "fixture/DescribeNotebookInstanceLifecycleConfigResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeNotebookInstanceLifecycleConfig)
 
 responseDescribeWorkforce :: DescribeWorkforceResponse -> TestTree
@@ -2422,7 +2422,7 @@ responseDescribeWorkforce =
   res
     "DescribeWorkforceResponse"
     "fixture/DescribeWorkforceResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeWorkforce)
 
 responseCreateModelPackage :: CreateModelPackageResponse -> TestTree
@@ -2430,7 +2430,7 @@ responseCreateModelPackage =
   res
     "CreateModelPackageResponse"
     "fixture/CreateModelPackageResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateModelPackage)
 
 responseStopMonitoringSchedule :: StopMonitoringScheduleResponse -> TestTree
@@ -2438,7 +2438,7 @@ responseStopMonitoringSchedule =
   res
     "StopMonitoringScheduleResponse"
     "fixture/StopMonitoringScheduleResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy StopMonitoringSchedule)
 
 responseDescribeAppImageConfig :: DescribeAppImageConfigResponse -> TestTree
@@ -2446,7 +2446,7 @@ responseDescribeAppImageConfig =
   res
     "DescribeAppImageConfigResponse"
     "fixture/DescribeAppImageConfigResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAppImageConfig)
 
 responseListNotebookInstances :: ListNotebookInstancesResponse -> TestTree
@@ -2454,7 +2454,7 @@ responseListNotebookInstances =
   res
     "ListNotebookInstancesResponse"
     "fixture/ListNotebookInstancesResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListNotebookInstances)
 
 responseStopLabelingJob :: StopLabelingJobResponse -> TestTree
@@ -2462,7 +2462,7 @@ responseStopLabelingJob =
   res
     "StopLabelingJobResponse"
     "fixture/StopLabelingJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy StopLabelingJob)
 
 responseDeleteNotebookInstance :: DeleteNotebookInstanceResponse -> TestTree
@@ -2470,7 +2470,7 @@ responseDeleteNotebookInstance =
   res
     "DeleteNotebookInstanceResponse"
     "fixture/DeleteNotebookInstanceResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteNotebookInstance)
 
 responseUpdateNotebookInstance :: UpdateNotebookInstanceResponse -> TestTree
@@ -2478,7 +2478,7 @@ responseUpdateNotebookInstance =
   res
     "UpdateNotebookInstanceResponse"
     "fixture/UpdateNotebookInstanceResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateNotebookInstance)
 
 responseListModelPackages :: ListModelPackagesResponse -> TestTree
@@ -2486,7 +2486,7 @@ responseListModelPackages =
   res
     "ListModelPackagesResponse"
     "fixture/ListModelPackagesResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListModelPackages)
 
 responseDeleteImageVersion :: DeleteImageVersionResponse -> TestTree
@@ -2494,7 +2494,7 @@ responseDeleteImageVersion =
   res
     "DeleteImageVersionResponse"
     "fixture/DeleteImageVersionResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteImageVersion)
 
 responseDescribeExperiment :: DescribeExperimentResponse -> TestTree
@@ -2502,7 +2502,7 @@ responseDescribeExperiment =
   res
     "DescribeExperimentResponse"
     "fixture/DescribeExperimentResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeExperiment)
 
 responseDeleteTrialComponent :: DeleteTrialComponentResponse -> TestTree
@@ -2510,7 +2510,7 @@ responseDeleteTrialComponent =
   res
     "DeleteTrialComponentResponse"
     "fixture/DeleteTrialComponentResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTrialComponent)
 
 responseUpdateTrialComponent :: UpdateTrialComponentResponse -> TestTree
@@ -2518,7 +2518,7 @@ responseUpdateTrialComponent =
   res
     "UpdateTrialComponentResponse"
     "fixture/UpdateTrialComponentResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTrialComponent)
 
 responseDescribeLabelingJob :: DescribeLabelingJobResponse -> TestTree
@@ -2526,7 +2526,7 @@ responseDescribeLabelingJob =
   res
     "DescribeLabelingJobResponse"
     "fixture/DescribeLabelingJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLabelingJob)
 
 responseCreateDomain :: CreateDomainResponse -> TestTree
@@ -2534,7 +2534,7 @@ responseCreateDomain =
   res
     "CreateDomainResponse"
     "fixture/CreateDomainResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateDomain)
 
 responseDescribeUserProfile :: DescribeUserProfileResponse -> TestTree
@@ -2542,7 +2542,7 @@ responseDescribeUserProfile =
   res
     "DescribeUserProfileResponse"
     "fixture/DescribeUserProfileResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUserProfile)
 
 responseListMonitoringExecutions :: ListMonitoringExecutionsResponse -> TestTree
@@ -2550,7 +2550,7 @@ responseListMonitoringExecutions =
   res
     "ListMonitoringExecutionsResponse"
     "fixture/ListMonitoringExecutionsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListMonitoringExecutions)
 
 responseDeleteHumanTaskUi :: DeleteHumanTaskUiResponse -> TestTree
@@ -2558,7 +2558,7 @@ responseDeleteHumanTaskUi =
   res
     "DeleteHumanTaskUiResponse"
     "fixture/DeleteHumanTaskUiResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteHumanTaskUi)
 
 responseStopTrainingJob :: StopTrainingJobResponse -> TestTree
@@ -2566,7 +2566,7 @@ responseStopTrainingJob =
   res
     "StopTrainingJobResponse"
     "fixture/StopTrainingJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy StopTrainingJob)
 
 responseDescribeAlgorithm :: DescribeAlgorithmResponse -> TestTree
@@ -2574,7 +2574,7 @@ responseDescribeAlgorithm =
   res
     "DescribeAlgorithmResponse"
     "fixture/DescribeAlgorithmResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAlgorithm)
 
 responseDescribeModel :: DescribeModelResponse -> TestTree
@@ -2582,7 +2582,7 @@ responseDescribeModel =
   res
     "DescribeModelResponse"
     "fixture/DescribeModelResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeModel)
 
 responseListTransformJobs :: ListTransformJobsResponse -> TestTree
@@ -2590,7 +2590,7 @@ responseListTransformJobs =
   res
     "ListTransformJobsResponse"
     "fixture/ListTransformJobsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListTransformJobs)
 
 responseDescribeHyperParameterTuningJob :: DescribeHyperParameterTuningJobResponse -> TestTree
@@ -2598,7 +2598,7 @@ responseDescribeHyperParameterTuningJob =
   res
     "DescribeHyperParameterTuningJobResponse"
     "fixture/DescribeHyperParameterTuningJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeHyperParameterTuningJob)
 
 responseListEndpoints :: ListEndpointsResponse -> TestTree
@@ -2606,7 +2606,7 @@ responseListEndpoints =
   res
     "ListEndpointsResponse"
     "fixture/ListEndpointsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListEndpoints)
 
 responseDescribeFlowDefinition :: DescribeFlowDefinitionResponse -> TestTree
@@ -2614,23 +2614,23 @@ responseDescribeFlowDefinition =
   res
     "DescribeFlowDefinitionResponse"
     "fixture/DescribeFlowDefinitionResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeFlowDefinition)
 
-responseCreatePresignedNotebookInstanceURL :: CreatePresignedNotebookInstanceURLResponse -> TestTree
-responseCreatePresignedNotebookInstanceURL =
+responseCreatePresignedNotebookInstanceUrl :: CreatePresignedNotebookInstanceUrlResponse -> TestTree
+responseCreatePresignedNotebookInstanceUrl =
   res
-    "CreatePresignedNotebookInstanceURLResponse"
-    "fixture/CreatePresignedNotebookInstanceURLResponse.proto"
-    sageMakerService
-    (Proxy :: Proxy CreatePresignedNotebookInstanceURL)
+    "CreatePresignedNotebookInstanceUrlResponse"
+    "fixture/CreatePresignedNotebookInstanceUrlResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy CreatePresignedNotebookInstanceUrl)
 
 responseListTrainingJobsForHyperParameterTuningJob :: ListTrainingJobsForHyperParameterTuningJobResponse -> TestTree
 responseListTrainingJobsForHyperParameterTuningJob =
   res
     "ListTrainingJobsForHyperParameterTuningJobResponse"
     "fixture/ListTrainingJobsForHyperParameterTuningJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListTrainingJobsForHyperParameterTuningJob)
 
 responseDescribeDomain :: DescribeDomainResponse -> TestTree
@@ -2638,7 +2638,7 @@ responseDescribeDomain =
   res
     "DescribeDomainResponse"
     "fixture/DescribeDomainResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDomain)
 
 responseUpdateWorkteam :: UpdateWorkteamResponse -> TestTree
@@ -2646,7 +2646,7 @@ responseUpdateWorkteam =
   res
     "UpdateWorkteamResponse"
     "fixture/UpdateWorkteamResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateWorkteam)
 
 responseDeleteWorkteam :: DeleteWorkteamResponse -> TestTree
@@ -2654,7 +2654,7 @@ responseDeleteWorkteam =
   res
     "DeleteWorkteamResponse"
     "fixture/DeleteWorkteamResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteWorkteam)
 
 responseListWorkteams :: ListWorkteamsResponse -> TestTree
@@ -2662,7 +2662,7 @@ responseListWorkteams =
   res
     "ListWorkteamsResponse"
     "fixture/ListWorkteamsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListWorkteams)
 
 responseCreateAutoMLJob :: CreateAutoMLJobResponse -> TestTree
@@ -2670,7 +2670,7 @@ responseCreateAutoMLJob =
   res
     "CreateAutoMLJobResponse"
     "fixture/CreateAutoMLJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateAutoMLJob)
 
 responseCreateApp :: CreateAppResponse -> TestTree
@@ -2678,7 +2678,7 @@ responseCreateApp =
   res
     "CreateAppResponse"
     "fixture/CreateAppResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateApp)
 
 responseCreateExperiment :: CreateExperimentResponse -> TestTree
@@ -2686,7 +2686,7 @@ responseCreateExperiment =
   res
     "CreateExperimentResponse"
     "fixture/CreateExperimentResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateExperiment)
 
 responseListNotebookInstanceLifecycleConfigs :: ListNotebookInstanceLifecycleConfigsResponse -> TestTree
@@ -2694,7 +2694,7 @@ responseListNotebookInstanceLifecycleConfigs =
   res
     "ListNotebookInstanceLifecycleConfigsResponse"
     "fixture/ListNotebookInstanceLifecycleConfigsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListNotebookInstanceLifecycleConfigs)
 
 responseListWorkforces :: ListWorkforcesResponse -> TestTree
@@ -2702,7 +2702,7 @@ responseListWorkforces =
   res
     "ListWorkforcesResponse"
     "fixture/ListWorkforcesResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListWorkforces)
 
 responseDescribeSubscribedWorkteam :: DescribeSubscribedWorkteamResponse -> TestTree
@@ -2710,7 +2710,7 @@ responseDescribeSubscribedWorkteam =
   res
     "DescribeSubscribedWorkteamResponse"
     "fixture/DescribeSubscribedWorkteamResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeSubscribedWorkteam)
 
 responseCreateWorkteam :: CreateWorkteamResponse -> TestTree
@@ -2718,7 +2718,7 @@ responseCreateWorkteam =
   res
     "CreateWorkteamResponse"
     "fixture/CreateWorkteamResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateWorkteam)
 
 responseCreateNotebookInstanceLifecycleConfig :: CreateNotebookInstanceLifecycleConfigResponse -> TestTree
@@ -2726,7 +2726,7 @@ responseCreateNotebookInstanceLifecycleConfig =
   res
     "CreateNotebookInstanceLifecycleConfigResponse"
     "fixture/CreateNotebookInstanceLifecycleConfigResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateNotebookInstanceLifecycleConfig)
 
 responseListMonitoringSchedules :: ListMonitoringSchedulesResponse -> TestTree
@@ -2734,7 +2734,7 @@ responseListMonitoringSchedules =
   res
     "ListMonitoringSchedulesResponse"
     "fixture/ListMonitoringSchedulesResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListMonitoringSchedules)
 
 responseListLabelingJobs :: ListLabelingJobsResponse -> TestTree
@@ -2742,7 +2742,7 @@ responseListLabelingJobs =
   res
     "ListLabelingJobsResponse"
     "fixture/ListLabelingJobsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListLabelingJobs)
 
 responseStartNotebookInstance :: StartNotebookInstanceResponse -> TestTree
@@ -2750,7 +2750,7 @@ responseStartNotebookInstance =
   res
     "StartNotebookInstanceResponse"
     "fixture/StartNotebookInstanceResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy StartNotebookInstance)
 
 responseUpdateExperiment :: UpdateExperimentResponse -> TestTree
@@ -2758,7 +2758,7 @@ responseUpdateExperiment =
   res
     "UpdateExperimentResponse"
     "fixture/UpdateExperimentResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateExperiment)
 
 responseDeleteExperiment :: DeleteExperimentResponse -> TestTree
@@ -2766,7 +2766,7 @@ responseDeleteExperiment =
   res
     "DeleteExperimentResponse"
     "fixture/DeleteExperimentResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteExperiment)
 
 responseAddTags :: AddTagsResponse -> TestTree
@@ -2774,7 +2774,7 @@ responseAddTags =
   res
     "AddTagsResponse"
     "fixture/AddTagsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy AddTags)
 
 responseCreateWorkforce :: CreateWorkforceResponse -> TestTree
@@ -2782,7 +2782,7 @@ responseCreateWorkforce =
   res
     "CreateWorkforceResponse"
     "fixture/CreateWorkforceResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateWorkforce)
 
 responseDescribeTrialComponent :: DescribeTrialComponentResponse -> TestTree
@@ -2790,7 +2790,7 @@ responseDescribeTrialComponent =
   res
     "DescribeTrialComponentResponse"
     "fixture/DescribeTrialComponentResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTrialComponent)
 
 responseDescribeImageVersion :: DescribeImageVersionResponse -> TestTree
@@ -2798,7 +2798,7 @@ responseDescribeImageVersion =
   res
     "DescribeImageVersionResponse"
     "fixture/DescribeImageVersionResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeImageVersion)
 
 responseListEndpointConfigs :: ListEndpointConfigsResponse -> TestTree
@@ -2806,7 +2806,7 @@ responseListEndpointConfigs =
   res
     "ListEndpointConfigsResponse"
     "fixture/ListEndpointConfigsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListEndpointConfigs)
 
 responseCreateFlowDefinition :: CreateFlowDefinitionResponse -> TestTree
@@ -2814,7 +2814,7 @@ responseCreateFlowDefinition =
   res
     "CreateFlowDefinitionResponse"
     "fixture/CreateFlowDefinitionResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateFlowDefinition)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -2822,7 +2822,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListTags)
 
 responseDescribeHumanTaskUi :: DescribeHumanTaskUiResponse -> TestTree
@@ -2830,7 +2830,7 @@ responseDescribeHumanTaskUi =
   res
     "DescribeHumanTaskUiResponse"
     "fixture/DescribeHumanTaskUiResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeHumanTaskUi)
 
 responseCreateTrainingJob :: CreateTrainingJobResponse -> TestTree
@@ -2838,7 +2838,7 @@ responseCreateTrainingJob =
   res
     "CreateTrainingJobResponse"
     "fixture/CreateTrainingJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateTrainingJob)
 
 responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
@@ -2846,7 +2846,7 @@ responseDeleteUserProfile =
   res
     "DeleteUserProfileResponse"
     "fixture/DeleteUserProfileResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUserProfile)
 
 responseUpdateUserProfile :: UpdateUserProfileResponse -> TestTree
@@ -2854,7 +2854,7 @@ responseUpdateUserProfile =
   res
     "UpdateUserProfileResponse"
     "fixture/UpdateUserProfileResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateUserProfile)
 
 responseCreateImage :: CreateImageResponse -> TestTree
@@ -2862,7 +2862,7 @@ responseCreateImage =
   res
     "CreateImageResponse"
     "fixture/CreateImageResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateImage)
 
 responseListTrials :: ListTrialsResponse -> TestTree
@@ -2870,7 +2870,7 @@ responseListTrials =
   res
     "ListTrialsResponse"
     "fixture/ListTrialsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListTrials)
 
 responseStopCompilationJob :: StopCompilationJobResponse -> TestTree
@@ -2878,7 +2878,7 @@ responseStopCompilationJob =
   res
     "StopCompilationJobResponse"
     "fixture/StopCompilationJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy StopCompilationJob)
 
 responseListImages :: ListImagesResponse -> TestTree
@@ -2886,7 +2886,7 @@ responseListImages =
   res
     "ListImagesResponse"
     "fixture/ListImagesResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListImages)
 
 responseCreateUserProfile :: CreateUserProfileResponse -> TestTree
@@ -2894,7 +2894,7 @@ responseCreateUserProfile =
   res
     "CreateUserProfileResponse"
     "fixture/CreateUserProfileResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateUserProfile)
 
 responseSearch :: SearchResponse -> TestTree
@@ -2902,7 +2902,7 @@ responseSearch =
   res
     "SearchResponse"
     "fixture/SearchResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy Search)
 
 responseUpdateCodeRepository :: UpdateCodeRepositoryResponse -> TestTree
@@ -2910,7 +2910,7 @@ responseUpdateCodeRepository =
   res
     "UpdateCodeRepositoryResponse"
     "fixture/UpdateCodeRepositoryResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateCodeRepository)
 
 responseDeleteCodeRepository :: DeleteCodeRepositoryResponse -> TestTree
@@ -2918,7 +2918,7 @@ responseDeleteCodeRepository =
   res
     "DeleteCodeRepositoryResponse"
     "fixture/DeleteCodeRepositoryResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCodeRepository)
 
 responseDescribeTransformJob :: DescribeTransformJobResponse -> TestTree
@@ -2926,7 +2926,7 @@ responseDescribeTransformJob =
   res
     "DescribeTransformJobResponse"
     "fixture/DescribeTransformJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeTransformJob)
 
 responseListCandidatesForAutoMLJob :: ListCandidatesForAutoMLJobResponse -> TestTree
@@ -2934,7 +2934,7 @@ responseListCandidatesForAutoMLJob =
   res
     "ListCandidatesForAutoMLJobResponse"
     "fixture/ListCandidatesForAutoMLJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListCandidatesForAutoMLJob)
 
 responseDeleteImage :: DeleteImageResponse -> TestTree
@@ -2942,7 +2942,7 @@ responseDeleteImage =
   res
     "DeleteImageResponse"
     "fixture/DeleteImageResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteImage)
 
 responseUpdateImage :: UpdateImageResponse -> TestTree
@@ -2950,7 +2950,7 @@ responseUpdateImage =
   res
     "UpdateImageResponse"
     "fixture/UpdateImageResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateImage)
 
 responseListFlowDefinitions :: ListFlowDefinitionsResponse -> TestTree
@@ -2958,7 +2958,7 @@ responseListFlowDefinitions =
   res
     "ListFlowDefinitionsResponse"
     "fixture/ListFlowDefinitionsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListFlowDefinitions)
 
 responseDescribeEndpoint :: DescribeEndpointResponse -> TestTree
@@ -2966,7 +2966,7 @@ responseDescribeEndpoint =
   res
     "DescribeEndpointResponse"
     "fixture/DescribeEndpointResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeEndpoint)
 
 responseListTrainingJobs :: ListTrainingJobsResponse -> TestTree
@@ -2974,7 +2974,7 @@ responseListTrainingJobs =
   res
     "ListTrainingJobsResponse"
     "fixture/ListTrainingJobsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListTrainingJobs)
 
 responseDescribeWorkteam :: DescribeWorkteamResponse -> TestTree
@@ -2982,7 +2982,7 @@ responseDescribeWorkteam =
   res
     "DescribeWorkteamResponse"
     "fixture/DescribeWorkteamResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeWorkteam)
 
 responseListSubscribedWorkteams :: ListSubscribedWorkteamsResponse -> TestTree
@@ -2990,7 +2990,7 @@ responseListSubscribedWorkteams =
   res
     "ListSubscribedWorkteamsResponse"
     "fixture/ListSubscribedWorkteamsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListSubscribedWorkteams)
 
 responseDeleteDomain :: DeleteDomainResponse -> TestTree
@@ -2998,7 +2998,7 @@ responseDeleteDomain =
   res
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDomain)
 
 responseUpdateDomain :: UpdateDomainResponse -> TestTree
@@ -3006,7 +3006,7 @@ responseUpdateDomain =
   res
     "UpdateDomainResponse"
     "fixture/UpdateDomainResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDomain)
 
 responseListDomains :: ListDomainsResponse -> TestTree
@@ -3014,7 +3014,7 @@ responseListDomains =
   res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy ListDomains)
 
 responseCreateImageVersion :: CreateImageVersionResponse -> TestTree
@@ -3022,7 +3022,7 @@ responseCreateImageVersion =
   res
     "CreateImageVersionResponse"
     "fixture/CreateImageVersionResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateImageVersion)
 
 responseStartMonitoringSchedule :: StartMonitoringScheduleResponse -> TestTree
@@ -3030,7 +3030,7 @@ responseStartMonitoringSchedule =
   res
     "StartMonitoringScheduleResponse"
     "fixture/StartMonitoringScheduleResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy StartMonitoringSchedule)
 
 responseStopAutoMLJob :: StopAutoMLJobResponse -> TestTree
@@ -3038,7 +3038,7 @@ responseStopAutoMLJob =
   res
     "StopAutoMLJobResponse"
     "fixture/StopAutoMLJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy StopAutoMLJob)
 
 responseCreateTrialComponent :: CreateTrialComponentResponse -> TestTree
@@ -3046,7 +3046,7 @@ responseCreateTrialComponent =
   res
     "CreateTrialComponentResponse"
     "fixture/CreateTrialComponentResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy CreateTrialComponent)
 
 responseDescribeProcessingJob :: DescribeProcessingJobResponse -> TestTree
@@ -3054,5 +3054,5 @@ responseDescribeProcessingJob =
   res
     "DescribeProcessingJobResponse"
     "fixture/DescribeProcessingJobResponse.proto"
-    sageMakerService
+    mkServiceConfig
     (Proxy :: Proxy DescribeProcessingJob)

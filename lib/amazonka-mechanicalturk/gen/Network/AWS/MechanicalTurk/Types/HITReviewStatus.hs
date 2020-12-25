@@ -13,56 +13,61 @@
 module Network.AWS.MechanicalTurk.Types.HITReviewStatus
   ( HITReviewStatus
       ( HITReviewStatus',
-        NotReviewed,
-        MarkedForReview,
-        ReviewedAppropriate,
-        ReviewedInappropriate
+        HITReviewStatusNotReviewed,
+        HITReviewStatusMarkedForReview,
+        HITReviewStatusReviewedAppropriate,
+        HITReviewStatusReviewedInappropriate,
+        fromHITReviewStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HITReviewStatus = HITReviewStatus' Lude.Text
+newtype HITReviewStatus = HITReviewStatus'
+  { fromHITReviewStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NotReviewed :: HITReviewStatus
-pattern NotReviewed = HITReviewStatus' "NotReviewed"
+pattern HITReviewStatusNotReviewed :: HITReviewStatus
+pattern HITReviewStatusNotReviewed = HITReviewStatus' "NotReviewed"
 
-pattern MarkedForReview :: HITReviewStatus
-pattern MarkedForReview = HITReviewStatus' "MarkedForReview"
+pattern HITReviewStatusMarkedForReview :: HITReviewStatus
+pattern HITReviewStatusMarkedForReview = HITReviewStatus' "MarkedForReview"
 
-pattern ReviewedAppropriate :: HITReviewStatus
-pattern ReviewedAppropriate = HITReviewStatus' "ReviewedAppropriate"
+pattern HITReviewStatusReviewedAppropriate :: HITReviewStatus
+pattern HITReviewStatusReviewedAppropriate = HITReviewStatus' "ReviewedAppropriate"
 
-pattern ReviewedInappropriate :: HITReviewStatus
-pattern ReviewedInappropriate = HITReviewStatus' "ReviewedInappropriate"
+pattern HITReviewStatusReviewedInappropriate :: HITReviewStatus
+pattern HITReviewStatusReviewedInappropriate = HITReviewStatus' "ReviewedInappropriate"
 
 {-# COMPLETE
-  NotReviewed,
-  MarkedForReview,
-  ReviewedAppropriate,
-  ReviewedInappropriate,
+  HITReviewStatusNotReviewed,
+  HITReviewStatusMarkedForReview,
+  HITReviewStatusReviewedAppropriate,
+  HITReviewStatusReviewedInappropriate,
   HITReviewStatus'
   #-}

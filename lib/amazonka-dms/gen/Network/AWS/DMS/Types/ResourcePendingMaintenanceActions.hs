@@ -22,55 +22,51 @@ module Network.AWS.DMS.Types.ResourcePendingMaintenanceActions
   )
 where
 
-import Network.AWS.DMS.Types.PendingMaintenanceAction
+import qualified Network.AWS.DMS.Types.PendingMaintenanceAction as Types
+import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies an AWS DMS resource and any pending actions for it.
 --
 -- /See:/ 'mkResourcePendingMaintenanceActions' smart constructor.
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
   { -- | Detailed information about the pending maintenance action.
-    pendingMaintenanceActionDetails :: Lude.Maybe [PendingMaintenanceAction],
+    pendingMaintenanceActionDetails :: Core.Maybe [Types.PendingMaintenanceAction],
     -- | The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action applies to. For information about creating an ARN, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS> in the DMS documentation.
-    resourceIdentifier :: Lude.Maybe Lude.Text
+    resourceIdentifier :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ResourcePendingMaintenanceActions' with the minimum fields required to make a request.
---
--- * 'pendingMaintenanceActionDetails' - Detailed information about the pending maintenance action.
--- * 'resourceIdentifier' - The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action applies to. For information about creating an ARN, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS> in the DMS documentation.
+-- | Creates a 'ResourcePendingMaintenanceActions' value with any optional fields omitted.
 mkResourcePendingMaintenanceActions ::
   ResourcePendingMaintenanceActions
 mkResourcePendingMaintenanceActions =
   ResourcePendingMaintenanceActions'
     { pendingMaintenanceActionDetails =
-        Lude.Nothing,
-      resourceIdentifier = Lude.Nothing
+        Core.Nothing,
+      resourceIdentifier = Core.Nothing
     }
 
 -- | Detailed information about the pending maintenance action.
 --
 -- /Note:/ Consider using 'pendingMaintenanceActionDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpmaPendingMaintenanceActionDetails :: Lens.Lens' ResourcePendingMaintenanceActions (Lude.Maybe [PendingMaintenanceAction])
-rpmaPendingMaintenanceActionDetails = Lens.lens (pendingMaintenanceActionDetails :: ResourcePendingMaintenanceActions -> Lude.Maybe [PendingMaintenanceAction]) (\s a -> s {pendingMaintenanceActionDetails = a} :: ResourcePendingMaintenanceActions)
+rpmaPendingMaintenanceActionDetails :: Lens.Lens' ResourcePendingMaintenanceActions (Core.Maybe [Types.PendingMaintenanceAction])
+rpmaPendingMaintenanceActionDetails = Lens.field @"pendingMaintenanceActionDetails"
 {-# DEPRECATED rpmaPendingMaintenanceActionDetails "Use generic-lens or generic-optics with 'pendingMaintenanceActionDetails' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the DMS resource that the pending maintenance action applies to. For information about creating an ARN, see <https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.AWS.ARN.html Constructing an Amazon Resource Name (ARN) for AWS DMS> in the DMS documentation.
 --
 -- /Note:/ Consider using 'resourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpmaResourceIdentifier :: Lens.Lens' ResourcePendingMaintenanceActions (Lude.Maybe Lude.Text)
-rpmaResourceIdentifier = Lens.lens (resourceIdentifier :: ResourcePendingMaintenanceActions -> Lude.Maybe Lude.Text) (\s a -> s {resourceIdentifier = a} :: ResourcePendingMaintenanceActions)
+rpmaResourceIdentifier :: Lens.Lens' ResourcePendingMaintenanceActions (Core.Maybe Types.String)
+rpmaResourceIdentifier = Lens.field @"resourceIdentifier"
 {-# DEPRECATED rpmaResourceIdentifier "Use generic-lens or generic-optics with 'resourceIdentifier' instead." #-}
 
-instance Lude.FromJSON ResourcePendingMaintenanceActions where
+instance Core.FromJSON ResourcePendingMaintenanceActions where
   parseJSON =
-    Lude.withObject
-      "ResourcePendingMaintenanceActions"
-      ( \x ->
-          ResourcePendingMaintenanceActions'
-            Lude.<$> (x Lude..:? "PendingMaintenanceActionDetails" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ResourceIdentifier")
-      )
+    Core.withObject "ResourcePendingMaintenanceActions" Core.$
+      \x ->
+        ResourcePendingMaintenanceActions'
+          Core.<$> (x Core..:? "PendingMaintenanceActionDetails")
+          Core.<*> (x Core..:? "ResourceIdentifier")

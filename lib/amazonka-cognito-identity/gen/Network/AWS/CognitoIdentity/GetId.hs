@@ -31,25 +31,25 @@ module Network.AWS.CognitoIdentity.GetId
     mkGetIdResponse,
 
     -- ** Response lenses
-    girsIdentityId,
-    girsResponseStatus,
+    girrsIdentityId,
+    girrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentity.Types
+import qualified Network.AWS.CognitoIdentity.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Input to the GetId action.
 --
 -- /See:/ 'mkGetId' smart constructor.
 data GetId = GetId'
   { -- | An identity pool ID in the format REGION:GUID.
-    identityPoolId :: Lude.Text,
+    identityPoolId :: Types.IdentityPoolId,
     -- | A standard AWS account ID (9+ digits).
-    accountId :: Lude.Maybe Lude.Text,
+    accountId :: Core.Maybe Types.AccountId,
     -- | A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:
     --
     --
@@ -69,57 +69,35 @@ data GetId = GetId'
     --
     --
     --     * Digits: @www.digits.com@
-    logins :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    logins :: Core.Maybe (Core.HashMap Types.IdentityProviderName Types.IdentityProviderToken)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetId' with the minimum fields required to make a request.
---
--- * 'identityPoolId' - An identity pool ID in the format REGION:GUID.
--- * 'accountId' - A standard AWS account ID (9+ digits).
--- * 'logins' - A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:
---
---
---     * Facebook: @graph.facebook.com@
---
---
---     * Amazon Cognito user pool: @cognito-idp.<region>.amazonaws.com/<YOUR_USER_POOL_ID>@ , for example, @cognito-idp.us-east-1.amazonaws.com/us-east-1_123456789@ .
---
---
---     * Google: @accounts.google.com@
---
---
---     * Amazon: @www.amazon.com@
---
---
---     * Twitter: @api.twitter.com@
---
---
---     * Digits: @www.digits.com@
+-- | Creates a 'GetId' value with any optional fields omitted.
 mkGetId ::
   -- | 'identityPoolId'
-  Lude.Text ->
+  Types.IdentityPoolId ->
   GetId
-mkGetId pIdentityPoolId_ =
+mkGetId identityPoolId =
   GetId'
-    { identityPoolId = pIdentityPoolId_,
-      accountId = Lude.Nothing,
-      logins = Lude.Nothing
+    { identityPoolId,
+      accountId = Core.Nothing,
+      logins = Core.Nothing
     }
 
 -- | An identity pool ID in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giIdentityPoolId :: Lens.Lens' GetId Lude.Text
-giIdentityPoolId = Lens.lens (identityPoolId :: GetId -> Lude.Text) (\s a -> s {identityPoolId = a} :: GetId)
+giIdentityPoolId :: Lens.Lens' GetId Types.IdentityPoolId
+giIdentityPoolId = Lens.field @"identityPoolId"
 {-# DEPRECATED giIdentityPoolId "Use generic-lens or generic-optics with 'identityPoolId' instead." #-}
 
 -- | A standard AWS account ID (9+ digits).
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giAccountId :: Lens.Lens' GetId (Lude.Maybe Lude.Text)
-giAccountId = Lens.lens (accountId :: GetId -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: GetId)
+giAccountId :: Lens.Lens' GetId (Core.Maybe Types.AccountId)
+giAccountId = Lens.field @"accountId"
 {-# DEPRECATED giAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | A set of optional name-value pairs that map provider names to provider tokens. The available provider names for @Logins@ are as follows:
@@ -145,83 +123,70 @@ giAccountId = Lens.lens (accountId :: GetId -> Lude.Maybe Lude.Text) (\s a -> s 
 --
 --
 -- /Note:/ Consider using 'logins' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giLogins :: Lens.Lens' GetId (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-giLogins = Lens.lens (logins :: GetId -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {logins = a} :: GetId)
+giLogins :: Lens.Lens' GetId (Core.Maybe (Core.HashMap Types.IdentityProviderName Types.IdentityProviderToken))
+giLogins = Lens.field @"logins"
 {-# DEPRECATED giLogins "Use generic-lens or generic-optics with 'logins' instead." #-}
 
-instance Lude.AWSRequest GetId where
+instance Core.FromJSON GetId where
+  toJSON GetId {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("IdentityPoolId" Core..= identityPoolId),
+            ("AccountId" Core..=) Core.<$> accountId,
+            ("Logins" Core..=) Core.<$> logins
+          ]
+      )
+
+instance Core.AWSRequest GetId where
   type Rs GetId = GetIdResponse
-  request = Req.postJSON cognitoIdentityService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSCognitoIdentityService.GetId")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetIdResponse'
-            Lude.<$> (x Lude..?> "IdentityId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "IdentityId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetId where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSCognitoIdentityService.GetId" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetId where
-  toJSON GetId' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("IdentityPoolId" Lude..= identityPoolId),
-            ("AccountId" Lude..=) Lude.<$> accountId,
-            ("Logins" Lude..=) Lude.<$> logins
-          ]
-      )
-
-instance Lude.ToPath GetId where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetId where
-  toQuery = Lude.const Lude.mempty
 
 -- | Returned in response to a GetId request.
 --
 -- /See:/ 'mkGetIdResponse' smart constructor.
 data GetIdResponse = GetIdResponse'
   { -- | A unique identifier in the format REGION:GUID.
-    identityId :: Lude.Maybe Lude.Text,
+    identityId :: Core.Maybe Types.IdentityId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetIdResponse' with the minimum fields required to make a request.
---
--- * 'identityId' - A unique identifier in the format REGION:GUID.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetIdResponse' value with any optional fields omitted.
 mkGetIdResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetIdResponse
-mkGetIdResponse pResponseStatus_ =
-  GetIdResponse'
-    { identityId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetIdResponse responseStatus =
+  GetIdResponse' {identityId = Core.Nothing, responseStatus}
 
 -- | A unique identifier in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-girsIdentityId :: Lens.Lens' GetIdResponse (Lude.Maybe Lude.Text)
-girsIdentityId = Lens.lens (identityId :: GetIdResponse -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: GetIdResponse)
-{-# DEPRECATED girsIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
+girrsIdentityId :: Lens.Lens' GetIdResponse (Core.Maybe Types.IdentityId)
+girrsIdentityId = Lens.field @"identityId"
+{-# DEPRECATED girrsIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-girsResponseStatus :: Lens.Lens' GetIdResponse Lude.Int
-girsResponseStatus = Lens.lens (responseStatus :: GetIdResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetIdResponse)
-{-# DEPRECATED girsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+girrsResponseStatus :: Lens.Lens' GetIdResponse Core.Int
+girrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED girrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

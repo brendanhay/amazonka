@@ -17,85 +17,79 @@ module Network.AWS.ECS.Types.Attachment
     mkAttachment,
 
     -- * Lenses
-    aStatus,
     aDetails,
     aId,
+    aStatus,
     aType,
   )
 where
 
-import Network.AWS.ECS.Types.KeyValuePair
+import qualified Network.AWS.ECS.Types.KeyValuePair as Types
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing a container instance or task attachment.
 --
 -- /See:/ 'mkAttachment' smart constructor.
 data Attachment = Attachment'
-  { -- | The status of the attachment. Valid values are @PRECREATED@ , @CREATED@ , @ATTACHING@ , @ATTACHED@ , @DETACHING@ , @DETACHED@ , and @DELETED@ .
-    status :: Lude.Maybe Lude.Text,
-    -- | Details of the attachment. For elastic network interfaces, this includes the network interface ID, the MAC address, the subnet ID, and the private IPv4 address.
-    details :: Lude.Maybe [KeyValuePair],
+  { -- | Details of the attachment. For elastic network interfaces, this includes the network interface ID, the MAC address, the subnet ID, and the private IPv4 address.
+    details :: Core.Maybe [Types.KeyValuePair],
     -- | The unique identifier for the attachment.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.String,
+    -- | The status of the attachment. Valid values are @PRECREATED@ , @CREATED@ , @ATTACHING@ , @ATTACHED@ , @DETACHING@ , @DETACHED@ , and @DELETED@ .
+    status :: Core.Maybe Types.String,
     -- | The type of the attachment, such as @ElasticNetworkInterface@ .
-    type' :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Attachment' with the minimum fields required to make a request.
---
--- * 'status' - The status of the attachment. Valid values are @PRECREATED@ , @CREATED@ , @ATTACHING@ , @ATTACHED@ , @DETACHING@ , @DETACHED@ , and @DELETED@ .
--- * 'details' - Details of the attachment. For elastic network interfaces, this includes the network interface ID, the MAC address, the subnet ID, and the private IPv4 address.
--- * 'id' - The unique identifier for the attachment.
--- * 'type'' - The type of the attachment, such as @ElasticNetworkInterface@ .
+-- | Creates a 'Attachment' value with any optional fields omitted.
 mkAttachment ::
   Attachment
 mkAttachment =
   Attachment'
-    { status = Lude.Nothing,
-      details = Lude.Nothing,
-      id = Lude.Nothing,
-      type' = Lude.Nothing
+    { details = Core.Nothing,
+      id = Core.Nothing,
+      status = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The status of the attachment. Valid values are @PRECREATED@ , @CREATED@ , @ATTACHING@ , @ATTACHED@ , @DETACHING@ , @DETACHED@ , and @DELETED@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aStatus :: Lens.Lens' Attachment (Lude.Maybe Lude.Text)
-aStatus = Lens.lens (status :: Attachment -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: Attachment)
-{-# DEPRECATED aStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Details of the attachment. For elastic network interfaces, this includes the network interface ID, the MAC address, the subnet ID, and the private IPv4 address.
 --
 -- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aDetails :: Lens.Lens' Attachment (Lude.Maybe [KeyValuePair])
-aDetails = Lens.lens (details :: Attachment -> Lude.Maybe [KeyValuePair]) (\s a -> s {details = a} :: Attachment)
+aDetails :: Lens.Lens' Attachment (Core.Maybe [Types.KeyValuePair])
+aDetails = Lens.field @"details"
 {-# DEPRECATED aDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
 -- | The unique identifier for the attachment.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aId :: Lens.Lens' Attachment (Lude.Maybe Lude.Text)
-aId = Lens.lens (id :: Attachment -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Attachment)
+aId :: Lens.Lens' Attachment (Core.Maybe Types.String)
+aId = Lens.field @"id"
 {-# DEPRECATED aId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The status of the attachment. Valid values are @PRECREATED@ , @CREATED@ , @ATTACHING@ , @ATTACHED@ , @DETACHING@ , @DETACHED@ , and @DELETED@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aStatus :: Lens.Lens' Attachment (Core.Maybe Types.String)
+aStatus = Lens.field @"status"
+{-# DEPRECATED aStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The type of the attachment, such as @ElasticNetworkInterface@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aType :: Lens.Lens' Attachment (Lude.Maybe Lude.Text)
-aType = Lens.lens (type' :: Attachment -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: Attachment)
+aType :: Lens.Lens' Attachment (Core.Maybe Types.String)
+aType = Lens.field @"type'"
 {-# DEPRECATED aType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Attachment where
+instance Core.FromJSON Attachment where
   parseJSON =
-    Lude.withObject
-      "Attachment"
-      ( \x ->
-          Attachment'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "details" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "id")
-            Lude.<*> (x Lude..:? "type")
-      )
+    Core.withObject "Attachment" Core.$
+      \x ->
+        Attachment'
+          Core.<$> (x Core..:? "details")
+          Core.<*> (x Core..:? "id")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "type")

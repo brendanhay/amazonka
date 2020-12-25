@@ -23,115 +23,108 @@ module Network.AWS.IAM.GetPolicy
     mkGetPolicy,
 
     -- ** Request lenses
-    gpPolicyARN,
+    gpPolicyArn,
 
     -- * Destructuring the response
     GetPolicyResponse (..),
     mkGetPolicyResponse,
 
     -- ** Response lenses
-    gprsPolicy,
-    gprsResponseStatus,
+    gprrsPolicy,
+    gprrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPolicy' smart constructor.
 newtype GetPolicy = GetPolicy'
   { -- | The Amazon Resource Name (ARN) of the managed policy that you want information about.
     --
     -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-    policyARN :: Lude.Text
+    policyArn :: Types.PolicyArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
---
--- * 'policyARN' - The Amazon Resource Name (ARN) of the managed policy that you want information about.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- | Creates a 'GetPolicy' value with any optional fields omitted.
 mkGetPolicy ::
-  -- | 'policyARN'
-  Lude.Text ->
+  -- | 'policyArn'
+  Types.PolicyArn ->
   GetPolicy
-mkGetPolicy pPolicyARN_ = GetPolicy' {policyARN = pPolicyARN_}
+mkGetPolicy policyArn = GetPolicy' {policyArn}
 
 -- | The Amazon Resource Name (ARN) of the managed policy that you want information about.
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpPolicyARN :: Lens.Lens' GetPolicy Lude.Text
-gpPolicyARN = Lens.lens (policyARN :: GetPolicy -> Lude.Text) (\s a -> s {policyARN = a} :: GetPolicy)
-{-# DEPRECATED gpPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
+-- /Note:/ Consider using 'policyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpPolicyArn :: Lens.Lens' GetPolicy Types.PolicyArn
+gpPolicyArn = Lens.field @"policyArn"
+{-# DEPRECATED gpPolicyArn "Use generic-lens or generic-optics with 'policyArn' instead." #-}
 
-instance Lude.AWSRequest GetPolicy where
+instance Core.AWSRequest GetPolicy where
   type Rs GetPolicy = GetPolicyResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetPolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "PolicyArn" policyArn)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetPolicyResult"
       ( \s h x ->
           GetPolicyResponse'
-            Lude.<$> (x Lude..@? "Policy") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Policy") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPolicy where
-  toQuery GetPolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetPolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyArn" Lude.=: policyARN
-      ]
 
 -- | Contains the response to a successful 'GetPolicy' request.
 --
 -- /See:/ 'mkGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
   { -- | A structure containing details about the policy.
-    policy :: Lude.Maybe Policy,
+    policy :: Core.Maybe Types.Policy,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
---
--- * 'policy' - A structure containing details about the policy.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPolicyResponse' value with any optional fields omitted.
 mkGetPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPolicyResponse
-mkGetPolicyResponse pResponseStatus_ =
-  GetPolicyResponse'
-    { policy = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetPolicyResponse responseStatus =
+  GetPolicyResponse' {policy = Core.Nothing, responseStatus}
 
 -- | A structure containing details about the policy.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsPolicy :: Lens.Lens' GetPolicyResponse (Lude.Maybe Policy)
-gprsPolicy = Lens.lens (policy :: GetPolicyResponse -> Lude.Maybe Policy) (\s a -> s {policy = a} :: GetPolicyResponse)
-{-# DEPRECATED gprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+gprrsPolicy :: Lens.Lens' GetPolicyResponse (Core.Maybe Types.Policy)
+gprrsPolicy = Lens.field @"policy"
+{-# DEPRECATED gprrsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsResponseStatus :: Lens.Lens' GetPolicyResponse Lude.Int
-gprsResponseStatus = Lens.lens (responseStatus :: GetPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPolicyResponse)
-{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gprrsResponseStatus :: Lens.Lens' GetPolicyResponse Core.Int
+gprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

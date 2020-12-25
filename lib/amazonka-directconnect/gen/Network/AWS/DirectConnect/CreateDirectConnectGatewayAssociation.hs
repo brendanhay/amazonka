@@ -20,78 +20,62 @@ module Network.AWS.DirectConnect.CreateDirectConnectGatewayAssociation
     mkCreateDirectConnectGatewayAssociation,
 
     -- ** Request lenses
-    cdcgaVirtualGatewayId,
     cdcgaDirectConnectGatewayId,
     cdcgaAddAllowedPrefixesToDirectConnectGateway,
     cdcgaGatewayId,
+    cdcgaVirtualGatewayId,
 
     -- * Destructuring the response
     CreateDirectConnectGatewayAssociationResponse (..),
     mkCreateDirectConnectGatewayAssociationResponse,
 
     -- ** Response lenses
-    cdcgarsDirectConnectGatewayAssociation,
-    cdcgarsResponseStatus,
+    cdcgarrsDirectConnectGatewayAssociation,
+    cdcgarrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateDirectConnectGatewayAssociation' smart constructor.
 data CreateDirectConnectGatewayAssociation = CreateDirectConnectGatewayAssociation'
-  { -- | The ID of the virtual private gateway.
-    virtualGatewayId :: Lude.Maybe Lude.Text,
-    -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Lude.Text,
+  { -- | The ID of the Direct Connect gateway.
+    directConnectGatewayId :: Types.DirectConnectGatewayId,
     -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway
     --
     -- This parameter is required when you create an association to a transit gateway.
     -- For information about how to set the prefixes, see <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes> in the /AWS Direct Connect User Guide/ .
-    addAllowedPrefixesToDirectConnectGateway :: Lude.Maybe [RouteFilterPrefix],
+    addAllowedPrefixesToDirectConnectGateway :: Core.Maybe [Types.RouteFilterPrefix],
     -- | The ID of the virtual private gateway or transit gateway.
-    gatewayId :: Lude.Maybe Lude.Text
+    gatewayId :: Core.Maybe Types.GatewayId,
+    -- | The ID of the virtual private gateway.
+    virtualGatewayId :: Core.Maybe Types.VirtualGatewayId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDirectConnectGatewayAssociation' with the minimum fields required to make a request.
---
--- * 'virtualGatewayId' - The ID of the virtual private gateway.
--- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
--- * 'addAllowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway
---
--- This parameter is required when you create an association to a transit gateway.
--- For information about how to set the prefixes, see <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes> in the /AWS Direct Connect User Guide/ .
--- * 'gatewayId' - The ID of the virtual private gateway or transit gateway.
+-- | Creates a 'CreateDirectConnectGatewayAssociation' value with any optional fields omitted.
 mkCreateDirectConnectGatewayAssociation ::
   -- | 'directConnectGatewayId'
-  Lude.Text ->
+  Types.DirectConnectGatewayId ->
   CreateDirectConnectGatewayAssociation
-mkCreateDirectConnectGatewayAssociation pDirectConnectGatewayId_ =
+mkCreateDirectConnectGatewayAssociation directConnectGatewayId =
   CreateDirectConnectGatewayAssociation'
-    { virtualGatewayId =
-        Lude.Nothing,
-      directConnectGatewayId = pDirectConnectGatewayId_,
-      addAllowedPrefixesToDirectConnectGateway = Lude.Nothing,
-      gatewayId = Lude.Nothing
+    { directConnectGatewayId,
+      addAllowedPrefixesToDirectConnectGateway = Core.Nothing,
+      gatewayId = Core.Nothing,
+      virtualGatewayId = Core.Nothing
     }
-
--- | The ID of the virtual private gateway.
---
--- /Note:/ Consider using 'virtualGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcgaVirtualGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
-cdcgaVirtualGatewayId = Lens.lens (virtualGatewayId :: CreateDirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {virtualGatewayId = a} :: CreateDirectConnectGatewayAssociation)
-{-# DEPRECATED cdcgaVirtualGatewayId "Use generic-lens or generic-optics with 'virtualGatewayId' instead." #-}
 
 -- | The ID of the Direct Connect gateway.
 --
 -- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcgaDirectConnectGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation Lude.Text
-cdcgaDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: CreateDirectConnectGatewayAssociation -> Lude.Text) (\s a -> s {directConnectGatewayId = a} :: CreateDirectConnectGatewayAssociation)
+cdcgaDirectConnectGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation Types.DirectConnectGatewayId
+cdcgaDirectConnectGatewayId = Lens.field @"directConnectGatewayId"
 {-# DEPRECATED cdcgaDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
 
 -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway
@@ -100,97 +84,95 @@ cdcgaDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: CreateDirectC
 -- For information about how to set the prefixes, see <https://docs.aws.amazon.com/directconnect/latest/UserGuide/multi-account-associate-vgw.html#allowed-prefixes Allowed Prefixes> in the /AWS Direct Connect User Guide/ .
 --
 -- /Note:/ Consider using 'addAllowedPrefixesToDirectConnectGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcgaAddAllowedPrefixesToDirectConnectGateway :: Lens.Lens' CreateDirectConnectGatewayAssociation (Lude.Maybe [RouteFilterPrefix])
-cdcgaAddAllowedPrefixesToDirectConnectGateway = Lens.lens (addAllowedPrefixesToDirectConnectGateway :: CreateDirectConnectGatewayAssociation -> Lude.Maybe [RouteFilterPrefix]) (\s a -> s {addAllowedPrefixesToDirectConnectGateway = a} :: CreateDirectConnectGatewayAssociation)
+cdcgaAddAllowedPrefixesToDirectConnectGateway :: Lens.Lens' CreateDirectConnectGatewayAssociation (Core.Maybe [Types.RouteFilterPrefix])
+cdcgaAddAllowedPrefixesToDirectConnectGateway = Lens.field @"addAllowedPrefixesToDirectConnectGateway"
 {-# DEPRECATED cdcgaAddAllowedPrefixesToDirectConnectGateway "Use generic-lens or generic-optics with 'addAllowedPrefixesToDirectConnectGateway' instead." #-}
 
 -- | The ID of the virtual private gateway or transit gateway.
 --
 -- /Note:/ Consider using 'gatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcgaGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation (Lude.Maybe Lude.Text)
-cdcgaGatewayId = Lens.lens (gatewayId :: CreateDirectConnectGatewayAssociation -> Lude.Maybe Lude.Text) (\s a -> s {gatewayId = a} :: CreateDirectConnectGatewayAssociation)
+cdcgaGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation (Core.Maybe Types.GatewayId)
+cdcgaGatewayId = Lens.field @"gatewayId"
 {-# DEPRECATED cdcgaGatewayId "Use generic-lens or generic-optics with 'gatewayId' instead." #-}
 
-instance Lude.AWSRequest CreateDirectConnectGatewayAssociation where
+-- | The ID of the virtual private gateway.
+--
+-- /Note:/ Consider using 'virtualGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdcgaVirtualGatewayId :: Lens.Lens' CreateDirectConnectGatewayAssociation (Core.Maybe Types.VirtualGatewayId)
+cdcgaVirtualGatewayId = Lens.field @"virtualGatewayId"
+{-# DEPRECATED cdcgaVirtualGatewayId "Use generic-lens or generic-optics with 'virtualGatewayId' instead." #-}
+
+instance Core.FromJSON CreateDirectConnectGatewayAssociation where
+  toJSON CreateDirectConnectGatewayAssociation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("directConnectGatewayId" Core..= directConnectGatewayId),
+            ("addAllowedPrefixesToDirectConnectGateway" Core..=)
+              Core.<$> addAllowedPrefixesToDirectConnectGateway,
+            ("gatewayId" Core..=) Core.<$> gatewayId,
+            ("virtualGatewayId" Core..=) Core.<$> virtualGatewayId
+          ]
+      )
+
+instance Core.AWSRequest CreateDirectConnectGatewayAssociation where
   type
     Rs CreateDirectConnectGatewayAssociation =
       CreateDirectConnectGatewayAssociationResponse
-  request = Req.postJSON directConnectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "OvertureService.CreateDirectConnectGatewayAssociation"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateDirectConnectGatewayAssociationResponse'
-            Lude.<$> (x Lude..?> "directConnectGatewayAssociation")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "directConnectGatewayAssociation")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDirectConnectGatewayAssociation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "OvertureService.CreateDirectConnectGatewayAssociation" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateDirectConnectGatewayAssociation where
-  toJSON CreateDirectConnectGatewayAssociation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("virtualGatewayId" Lude..=) Lude.<$> virtualGatewayId,
-            Lude.Just
-              ("directConnectGatewayId" Lude..= directConnectGatewayId),
-            ("addAllowedPrefixesToDirectConnectGateway" Lude..=)
-              Lude.<$> addAllowedPrefixesToDirectConnectGateway,
-            ("gatewayId" Lude..=) Lude.<$> gatewayId
-          ]
-      )
-
-instance Lude.ToPath CreateDirectConnectGatewayAssociation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDirectConnectGatewayAssociation where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateDirectConnectGatewayAssociationResponse' smart constructor.
 data CreateDirectConnectGatewayAssociationResponse = CreateDirectConnectGatewayAssociationResponse'
   { -- | The association to be created.
-    directConnectGatewayAssociation :: Lude.Maybe DirectConnectGatewayAssociation,
+    directConnectGatewayAssociation :: Core.Maybe Types.DirectConnectGatewayAssociation,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDirectConnectGatewayAssociationResponse' with the minimum fields required to make a request.
---
--- * 'directConnectGatewayAssociation' - The association to be created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDirectConnectGatewayAssociationResponse' value with any optional fields omitted.
 mkCreateDirectConnectGatewayAssociationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDirectConnectGatewayAssociationResponse
-mkCreateDirectConnectGatewayAssociationResponse pResponseStatus_ =
+mkCreateDirectConnectGatewayAssociationResponse responseStatus =
   CreateDirectConnectGatewayAssociationResponse'
     { directConnectGatewayAssociation =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The association to be created.
 --
 -- /Note:/ Consider using 'directConnectGatewayAssociation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcgarsDirectConnectGatewayAssociation :: Lens.Lens' CreateDirectConnectGatewayAssociationResponse (Lude.Maybe DirectConnectGatewayAssociation)
-cdcgarsDirectConnectGatewayAssociation = Lens.lens (directConnectGatewayAssociation :: CreateDirectConnectGatewayAssociationResponse -> Lude.Maybe DirectConnectGatewayAssociation) (\s a -> s {directConnectGatewayAssociation = a} :: CreateDirectConnectGatewayAssociationResponse)
-{-# DEPRECATED cdcgarsDirectConnectGatewayAssociation "Use generic-lens or generic-optics with 'directConnectGatewayAssociation' instead." #-}
+cdcgarrsDirectConnectGatewayAssociation :: Lens.Lens' CreateDirectConnectGatewayAssociationResponse (Core.Maybe Types.DirectConnectGatewayAssociation)
+cdcgarrsDirectConnectGatewayAssociation = Lens.field @"directConnectGatewayAssociation"
+{-# DEPRECATED cdcgarrsDirectConnectGatewayAssociation "Use generic-lens or generic-optics with 'directConnectGatewayAssociation' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdcgarsResponseStatus :: Lens.Lens' CreateDirectConnectGatewayAssociationResponse Lude.Int
-cdcgarsResponseStatus = Lens.lens (responseStatus :: CreateDirectConnectGatewayAssociationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDirectConnectGatewayAssociationResponse)
-{-# DEPRECATED cdcgarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdcgarrsResponseStatus :: Lens.Lens' CreateDirectConnectGatewayAssociationResponse Core.Int
+cdcgarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdcgarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

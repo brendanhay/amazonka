@@ -22,45 +22,41 @@ module Network.AWS.MediaConvert.Types.ImscDestinationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.ImscStylePassthrough
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.ImscStylePassthrough as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings specific to IMSC caption outputs.
 --
 -- /See:/ 'mkImscDestinationSettings' smart constructor.
 newtype ImscDestinationSettings = ImscDestinationSettings'
   { -- | Keep this setting enabled to have MediaConvert use the font style and position information from the captions source in the output. This option is available only when your input captions are IMSC, SMPTE-TT, or TTML. Disable this setting for simplified output captions.
-    stylePassthrough :: Lude.Maybe ImscStylePassthrough
+    stylePassthrough :: Core.Maybe Types.ImscStylePassthrough
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImscDestinationSettings' with the minimum fields required to make a request.
---
--- * 'stylePassthrough' - Keep this setting enabled to have MediaConvert use the font style and position information from the captions source in the output. This option is available only when your input captions are IMSC, SMPTE-TT, or TTML. Disable this setting for simplified output captions.
+-- | Creates a 'ImscDestinationSettings' value with any optional fields omitted.
 mkImscDestinationSettings ::
   ImscDestinationSettings
 mkImscDestinationSettings =
-  ImscDestinationSettings' {stylePassthrough = Lude.Nothing}
+  ImscDestinationSettings' {stylePassthrough = Core.Nothing}
 
 -- | Keep this setting enabled to have MediaConvert use the font style and position information from the captions source in the output. This option is available only when your input captions are IMSC, SMPTE-TT, or TTML. Disable this setting for simplified output captions.
 --
 -- /Note:/ Consider using 'stylePassthrough' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idsStylePassthrough :: Lens.Lens' ImscDestinationSettings (Lude.Maybe ImscStylePassthrough)
-idsStylePassthrough = Lens.lens (stylePassthrough :: ImscDestinationSettings -> Lude.Maybe ImscStylePassthrough) (\s a -> s {stylePassthrough = a} :: ImscDestinationSettings)
+idsStylePassthrough :: Lens.Lens' ImscDestinationSettings (Core.Maybe Types.ImscStylePassthrough)
+idsStylePassthrough = Lens.field @"stylePassthrough"
 {-# DEPRECATED idsStylePassthrough "Use generic-lens or generic-optics with 'stylePassthrough' instead." #-}
 
-instance Lude.FromJSON ImscDestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "ImscDestinationSettings"
-      ( \x ->
-          ImscDestinationSettings' Lude.<$> (x Lude..:? "stylePassthrough")
+instance Core.FromJSON ImscDestinationSettings where
+  toJSON ImscDestinationSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [("stylePassthrough" Core..=) Core.<$> stylePassthrough]
       )
 
-instance Lude.ToJSON ImscDestinationSettings where
-  toJSON ImscDestinationSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("stylePassthrough" Lude..=) Lude.<$> stylePassthrough]
-      )
+instance Core.FromJSON ImscDestinationSettings where
+  parseJSON =
+    Core.withObject "ImscDestinationSettings" Core.$
+      \x ->
+        ImscDestinationSettings' Core.<$> (x Core..:? "stylePassthrough")

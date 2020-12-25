@@ -17,54 +17,49 @@ module Network.AWS.Pinpoint.Types.MessageBody
     mkMessageBody,
 
     -- * Lenses
-    mbRequestId,
     mbMessage,
+    mbRequestID,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about an API request or response.
 --
 -- /See:/ 'mkMessageBody' smart constructor.
 data MessageBody = MessageBody'
-  { -- | The unique identifier for the request or response.
-    requestId :: Lude.Maybe Lude.Text,
-    -- | The message that's returned from the API.
-    message :: Lude.Maybe Lude.Text
+  { -- | The message that's returned from the API.
+    message :: Core.Maybe Core.Text,
+    -- | The unique identifier for the request or response.
+    requestID :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MessageBody' with the minimum fields required to make a request.
---
--- * 'requestId' - The unique identifier for the request or response.
--- * 'message' - The message that's returned from the API.
+-- | Creates a 'MessageBody' value with any optional fields omitted.
 mkMessageBody ::
   MessageBody
 mkMessageBody =
-  MessageBody' {requestId = Lude.Nothing, message = Lude.Nothing}
-
--- | The unique identifier for the request or response.
---
--- /Note:/ Consider using 'requestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbRequestId :: Lens.Lens' MessageBody (Lude.Maybe Lude.Text)
-mbRequestId = Lens.lens (requestId :: MessageBody -> Lude.Maybe Lude.Text) (\s a -> s {requestId = a} :: MessageBody)
-{-# DEPRECATED mbRequestId "Use generic-lens or generic-optics with 'requestId' instead." #-}
+  MessageBody' {message = Core.Nothing, requestID = Core.Nothing}
 
 -- | The message that's returned from the API.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mbMessage :: Lens.Lens' MessageBody (Lude.Maybe Lude.Text)
-mbMessage = Lens.lens (message :: MessageBody -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: MessageBody)
+mbMessage :: Lens.Lens' MessageBody (Core.Maybe Core.Text)
+mbMessage = Lens.field @"message"
 {-# DEPRECATED mbMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON MessageBody where
+-- | The unique identifier for the request or response.
+--
+-- /Note:/ Consider using 'requestID' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mbRequestID :: Lens.Lens' MessageBody (Core.Maybe Core.Text)
+mbRequestID = Lens.field @"requestID"
+{-# DEPRECATED mbRequestID "Use generic-lens or generic-optics with 'requestID' instead." #-}
+
+instance Core.FromJSON MessageBody where
   parseJSON =
-    Lude.withObject
-      "MessageBody"
-      ( \x ->
-          MessageBody'
-            Lude.<$> (x Lude..:? "RequestID") Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "MessageBody" Core.$
+      \x ->
+        MessageBody'
+          Core.<$> (x Core..:? "Message") Core.<*> (x Core..:? "RequestID")

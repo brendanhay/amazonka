@@ -22,57 +22,49 @@ module Network.AWS.Inspector.Types.EventSubscription
   )
 where
 
-import Network.AWS.Inspector.Types.InspectorEvent
+import qualified Network.AWS.Inspector.Types.InspectorEvent as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This data type is used in the 'Subscription' data type.
 --
 -- /See:/ 'mkEventSubscription' smart constructor.
 data EventSubscription = EventSubscription'
   { -- | The event for which Amazon Simple Notification Service (SNS) notifications are sent.
-    event :: InspectorEvent,
+    event :: Types.InspectorEvent,
     -- | The time at which 'SubscribeToEvent' is called.
-    subscribedAt :: Lude.Timestamp
+    subscribedAt :: Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EventSubscription' with the minimum fields required to make a request.
---
--- * 'event' - The event for which Amazon Simple Notification Service (SNS) notifications are sent.
--- * 'subscribedAt' - The time at which 'SubscribeToEvent' is called.
+-- | Creates a 'EventSubscription' value with any optional fields omitted.
 mkEventSubscription ::
   -- | 'event'
-  InspectorEvent ->
+  Types.InspectorEvent ->
   -- | 'subscribedAt'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   EventSubscription
-mkEventSubscription pEvent_ pSubscribedAt_ =
-  EventSubscription'
-    { event = pEvent_,
-      subscribedAt = pSubscribedAt_
-    }
+mkEventSubscription event subscribedAt =
+  EventSubscription' {event, subscribedAt}
 
 -- | The event for which Amazon Simple Notification Service (SNS) notifications are sent.
 --
 -- /Note:/ Consider using 'event' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esEvent :: Lens.Lens' EventSubscription InspectorEvent
-esEvent = Lens.lens (event :: EventSubscription -> InspectorEvent) (\s a -> s {event = a} :: EventSubscription)
+esEvent :: Lens.Lens' EventSubscription Types.InspectorEvent
+esEvent = Lens.field @"event"
 {-# DEPRECATED esEvent "Use generic-lens or generic-optics with 'event' instead." #-}
 
 -- | The time at which 'SubscribeToEvent' is called.
 --
 -- /Note:/ Consider using 'subscribedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esSubscribedAt :: Lens.Lens' EventSubscription Lude.Timestamp
-esSubscribedAt = Lens.lens (subscribedAt :: EventSubscription -> Lude.Timestamp) (\s a -> s {subscribedAt = a} :: EventSubscription)
+esSubscribedAt :: Lens.Lens' EventSubscription Core.NominalDiffTime
+esSubscribedAt = Lens.field @"subscribedAt"
 {-# DEPRECATED esSubscribedAt "Use generic-lens or generic-optics with 'subscribedAt' instead." #-}
 
-instance Lude.FromJSON EventSubscription where
+instance Core.FromJSON EventSubscription where
   parseJSON =
-    Lude.withObject
-      "EventSubscription"
-      ( \x ->
-          EventSubscription'
-            Lude.<$> (x Lude..: "event") Lude.<*> (x Lude..: "subscribedAt")
-      )
+    Core.withObject "EventSubscription" Core.$
+      \x ->
+        EventSubscription'
+          Core.<$> (x Core..: "event") Core.<*> (x Core..: "subscribedAt")

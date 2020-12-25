@@ -22,46 +22,41 @@ module Network.AWS.SageMaker.Types.TensorBoardAppSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.ResourceSpec
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ResourceSpec as Types
 
 -- | The TensorBoard app settings.
 --
 -- /See:/ 'mkTensorBoardAppSettings' smart constructor.
 newtype TensorBoardAppSettings = TensorBoardAppSettings'
   { -- | The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-    defaultResourceSpec :: Lude.Maybe ResourceSpec
+    defaultResourceSpec :: Core.Maybe Types.ResourceSpec
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TensorBoardAppSettings' with the minimum fields required to make a request.
---
--- * 'defaultResourceSpec' - The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+-- | Creates a 'TensorBoardAppSettings' value with any optional fields omitted.
 mkTensorBoardAppSettings ::
   TensorBoardAppSettings
 mkTensorBoardAppSettings =
-  TensorBoardAppSettings' {defaultResourceSpec = Lude.Nothing}
+  TensorBoardAppSettings' {defaultResourceSpec = Core.Nothing}
 
 -- | The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
 --
 -- /Note:/ Consider using 'defaultResourceSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tbasDefaultResourceSpec :: Lens.Lens' TensorBoardAppSettings (Lude.Maybe ResourceSpec)
-tbasDefaultResourceSpec = Lens.lens (defaultResourceSpec :: TensorBoardAppSettings -> Lude.Maybe ResourceSpec) (\s a -> s {defaultResourceSpec = a} :: TensorBoardAppSettings)
+tbasDefaultResourceSpec :: Lens.Lens' TensorBoardAppSettings (Core.Maybe Types.ResourceSpec)
+tbasDefaultResourceSpec = Lens.field @"defaultResourceSpec"
 {-# DEPRECATED tbasDefaultResourceSpec "Use generic-lens or generic-optics with 'defaultResourceSpec' instead." #-}
 
-instance Lude.FromJSON TensorBoardAppSettings where
-  parseJSON =
-    Lude.withObject
-      "TensorBoardAppSettings"
-      ( \x ->
-          TensorBoardAppSettings'
-            Lude.<$> (x Lude..:? "DefaultResourceSpec")
+instance Core.FromJSON TensorBoardAppSettings where
+  toJSON TensorBoardAppSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [("DefaultResourceSpec" Core..=) Core.<$> defaultResourceSpec]
       )
 
-instance Lude.ToJSON TensorBoardAppSettings where
-  toJSON TensorBoardAppSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("DefaultResourceSpec" Lude..=) Lude.<$> defaultResourceSpec]
-      )
+instance Core.FromJSON TensorBoardAppSettings where
+  parseJSON =
+    Core.withObject "TensorBoardAppSettings" Core.$
+      \x ->
+        TensorBoardAppSettings' Core.<$> (x Core..:? "DefaultResourceSpec")

@@ -13,46 +13,51 @@
 module Network.AWS.GameLift.Types.GameServerUtilizationStatus
   ( GameServerUtilizationStatus
       ( GameServerUtilizationStatus',
-        Available,
-        Utilized
+        GameServerUtilizationStatusAvailable,
+        GameServerUtilizationStatusUtilized,
+        fromGameServerUtilizationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype GameServerUtilizationStatus = GameServerUtilizationStatus' Lude.Text
+newtype GameServerUtilizationStatus = GameServerUtilizationStatus'
+  { fromGameServerUtilizationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Available :: GameServerUtilizationStatus
-pattern Available = GameServerUtilizationStatus' "AVAILABLE"
+pattern GameServerUtilizationStatusAvailable :: GameServerUtilizationStatus
+pattern GameServerUtilizationStatusAvailable = GameServerUtilizationStatus' "AVAILABLE"
 
-pattern Utilized :: GameServerUtilizationStatus
-pattern Utilized = GameServerUtilizationStatus' "UTILIZED"
+pattern GameServerUtilizationStatusUtilized :: GameServerUtilizationStatus
+pattern GameServerUtilizationStatusUtilized = GameServerUtilizationStatus' "UTILIZED"
 
 {-# COMPLETE
-  Available,
-  Utilized,
+  GameServerUtilizationStatusAvailable,
+  GameServerUtilizationStatusUtilized,
   GameServerUtilizationStatus'
   #-}

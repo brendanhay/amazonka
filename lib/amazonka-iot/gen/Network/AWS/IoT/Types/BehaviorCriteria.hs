@@ -17,128 +17,119 @@ module Network.AWS.IoT.Types.BehaviorCriteria
     mkBehaviorCriteria,
 
     -- * Lenses
-    bcValue,
-    bcConsecutiveDatapointsToAlarm,
     bcComparisonOperator,
-    bcStatisticalThreshold,
-    bcDurationSeconds,
+    bcConsecutiveDatapointsToAlarm,
     bcConsecutiveDatapointsToClear,
+    bcDurationSeconds,
+    bcStatisticalThreshold,
+    bcValue,
   )
 where
 
-import Network.AWS.IoT.Types.ComparisonOperator
-import Network.AWS.IoT.Types.MetricValue
-import Network.AWS.IoT.Types.StatisticalThreshold
+import qualified Network.AWS.IoT.Types.ComparisonOperator as Types
+import qualified Network.AWS.IoT.Types.MetricValue as Types
+import qualified Network.AWS.IoT.Types.StatisticalThreshold as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The criteria by which the behavior is determined to be normal.
 --
 -- /See:/ 'mkBehaviorCriteria' smart constructor.
 data BehaviorCriteria = BehaviorCriteria'
-  { -- | The value to be compared with the @metric@ .
-    value :: Lude.Maybe MetricValue,
+  { -- | The operator that relates the thing measured (@metric@ ) to the criteria (containing a @value@ or @statisticalThreshold@ ).
+    comparisonOperator :: Core.Maybe Types.ComparisonOperator,
     -- | If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
-    consecutiveDatapointsToAlarm :: Lude.Maybe Lude.Natural,
-    -- | The operator that relates the thing measured (@metric@ ) to the criteria (containing a @value@ or @statisticalThreshold@ ).
-    comparisonOperator :: Lude.Maybe ComparisonOperator,
-    -- | A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
-    statisticalThreshold :: Lude.Maybe StatisticalThreshold,
-    -- | Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, @NUM_MESSAGES_SENT@ ). For a @statisticalThreshhold@ metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank.
-    durationSeconds :: Lude.Maybe Lude.Int,
+    consecutiveDatapointsToAlarm :: Core.Maybe Core.Natural,
     -- | If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
-    consecutiveDatapointsToClear :: Lude.Maybe Lude.Natural
+    consecutiveDatapointsToClear :: Core.Maybe Core.Natural,
+    -- | Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, @NUM_MESSAGES_SENT@ ). For a @statisticalThreshhold@ metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank.
+    durationSeconds :: Core.Maybe Core.Int,
+    -- | A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+    statisticalThreshold :: Core.Maybe Types.StatisticalThreshold,
+    -- | The value to be compared with the @metric@ .
+    value :: Core.Maybe Types.MetricValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BehaviorCriteria' with the minimum fields required to make a request.
---
--- * 'value' - The value to be compared with the @metric@ .
--- * 'consecutiveDatapointsToAlarm' - If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
--- * 'comparisonOperator' - The operator that relates the thing measured (@metric@ ) to the criteria (containing a @value@ or @statisticalThreshold@ ).
--- * 'statisticalThreshold' - A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
--- * 'durationSeconds' - Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, @NUM_MESSAGES_SENT@ ). For a @statisticalThreshhold@ metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank.
--- * 'consecutiveDatapointsToClear' - If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
+-- | Creates a 'BehaviorCriteria' value with any optional fields omitted.
 mkBehaviorCriteria ::
   BehaviorCriteria
 mkBehaviorCriteria =
   BehaviorCriteria'
-    { value = Lude.Nothing,
-      consecutiveDatapointsToAlarm = Lude.Nothing,
-      comparisonOperator = Lude.Nothing,
-      statisticalThreshold = Lude.Nothing,
-      durationSeconds = Lude.Nothing,
-      consecutiveDatapointsToClear = Lude.Nothing
+    { comparisonOperator = Core.Nothing,
+      consecutiveDatapointsToAlarm = Core.Nothing,
+      consecutiveDatapointsToClear = Core.Nothing,
+      durationSeconds = Core.Nothing,
+      statisticalThreshold = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The value to be compared with the @metric@ .
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcValue :: Lens.Lens' BehaviorCriteria (Lude.Maybe MetricValue)
-bcValue = Lens.lens (value :: BehaviorCriteria -> Lude.Maybe MetricValue) (\s a -> s {value = a} :: BehaviorCriteria)
-{-# DEPRECATED bcValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
--- | If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
---
--- /Note:/ Consider using 'consecutiveDatapointsToAlarm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcConsecutiveDatapointsToAlarm :: Lens.Lens' BehaviorCriteria (Lude.Maybe Lude.Natural)
-bcConsecutiveDatapointsToAlarm = Lens.lens (consecutiveDatapointsToAlarm :: BehaviorCriteria -> Lude.Maybe Lude.Natural) (\s a -> s {consecutiveDatapointsToAlarm = a} :: BehaviorCriteria)
-{-# DEPRECATED bcConsecutiveDatapointsToAlarm "Use generic-lens or generic-optics with 'consecutiveDatapointsToAlarm' instead." #-}
 
 -- | The operator that relates the thing measured (@metric@ ) to the criteria (containing a @value@ or @statisticalThreshold@ ).
 --
 -- /Note:/ Consider using 'comparisonOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcComparisonOperator :: Lens.Lens' BehaviorCriteria (Lude.Maybe ComparisonOperator)
-bcComparisonOperator = Lens.lens (comparisonOperator :: BehaviorCriteria -> Lude.Maybe ComparisonOperator) (\s a -> s {comparisonOperator = a} :: BehaviorCriteria)
+bcComparisonOperator :: Lens.Lens' BehaviorCriteria (Core.Maybe Types.ComparisonOperator)
+bcComparisonOperator = Lens.field @"comparisonOperator"
 {-# DEPRECATED bcComparisonOperator "Use generic-lens or generic-optics with 'comparisonOperator' instead." #-}
 
--- | A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+-- | If a device is in violation of the behavior for the specified number of consecutive datapoints, an alarm occurs. If not specified, the default is 1.
 --
--- /Note:/ Consider using 'statisticalThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcStatisticalThreshold :: Lens.Lens' BehaviorCriteria (Lude.Maybe StatisticalThreshold)
-bcStatisticalThreshold = Lens.lens (statisticalThreshold :: BehaviorCriteria -> Lude.Maybe StatisticalThreshold) (\s a -> s {statisticalThreshold = a} :: BehaviorCriteria)
-{-# DEPRECATED bcStatisticalThreshold "Use generic-lens or generic-optics with 'statisticalThreshold' instead." #-}
-
--- | Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, @NUM_MESSAGES_SENT@ ). For a @statisticalThreshhold@ metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank.
---
--- /Note:/ Consider using 'durationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcDurationSeconds :: Lens.Lens' BehaviorCriteria (Lude.Maybe Lude.Int)
-bcDurationSeconds = Lens.lens (durationSeconds :: BehaviorCriteria -> Lude.Maybe Lude.Int) (\s a -> s {durationSeconds = a} :: BehaviorCriteria)
-{-# DEPRECATED bcDurationSeconds "Use generic-lens or generic-optics with 'durationSeconds' instead." #-}
+-- /Note:/ Consider using 'consecutiveDatapointsToAlarm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcConsecutiveDatapointsToAlarm :: Lens.Lens' BehaviorCriteria (Core.Maybe Core.Natural)
+bcConsecutiveDatapointsToAlarm = Lens.field @"consecutiveDatapointsToAlarm"
+{-# DEPRECATED bcConsecutiveDatapointsToAlarm "Use generic-lens or generic-optics with 'consecutiveDatapointsToAlarm' instead." #-}
 
 -- | If an alarm has occurred and the offending device is no longer in violation of the behavior for the specified number of consecutive datapoints, the alarm is cleared. If not specified, the default is 1.
 --
 -- /Note:/ Consider using 'consecutiveDatapointsToClear' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcConsecutiveDatapointsToClear :: Lens.Lens' BehaviorCriteria (Lude.Maybe Lude.Natural)
-bcConsecutiveDatapointsToClear = Lens.lens (consecutiveDatapointsToClear :: BehaviorCriteria -> Lude.Maybe Lude.Natural) (\s a -> s {consecutiveDatapointsToClear = a} :: BehaviorCriteria)
+bcConsecutiveDatapointsToClear :: Lens.Lens' BehaviorCriteria (Core.Maybe Core.Natural)
+bcConsecutiveDatapointsToClear = Lens.field @"consecutiveDatapointsToClear"
 {-# DEPRECATED bcConsecutiveDatapointsToClear "Use generic-lens or generic-optics with 'consecutiveDatapointsToClear' instead." #-}
 
-instance Lude.FromJSON BehaviorCriteria where
-  parseJSON =
-    Lude.withObject
-      "BehaviorCriteria"
-      ( \x ->
-          BehaviorCriteria'
-            Lude.<$> (x Lude..:? "value")
-            Lude.<*> (x Lude..:? "consecutiveDatapointsToAlarm")
-            Lude.<*> (x Lude..:? "comparisonOperator")
-            Lude.<*> (x Lude..:? "statisticalThreshold")
-            Lude.<*> (x Lude..:? "durationSeconds")
-            Lude.<*> (x Lude..:? "consecutiveDatapointsToClear")
-      )
+-- | Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, @NUM_MESSAGES_SENT@ ). For a @statisticalThreshhold@ metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank.
+--
+-- /Note:/ Consider using 'durationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcDurationSeconds :: Lens.Lens' BehaviorCriteria (Core.Maybe Core.Int)
+bcDurationSeconds = Lens.field @"durationSeconds"
+{-# DEPRECATED bcDurationSeconds "Use generic-lens or generic-optics with 'durationSeconds' instead." #-}
 
-instance Lude.ToJSON BehaviorCriteria where
-  toJSON BehaviorCriteria' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("value" Lude..=) Lude.<$> value,
-            ("consecutiveDatapointsToAlarm" Lude..=)
-              Lude.<$> consecutiveDatapointsToAlarm,
-            ("comparisonOperator" Lude..=) Lude.<$> comparisonOperator,
-            ("statisticalThreshold" Lude..=) Lude.<$> statisticalThreshold,
-            ("durationSeconds" Lude..=) Lude.<$> durationSeconds,
-            ("consecutiveDatapointsToClear" Lude..=)
-              Lude.<$> consecutiveDatapointsToClear
+-- | A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.
+--
+-- /Note:/ Consider using 'statisticalThreshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcStatisticalThreshold :: Lens.Lens' BehaviorCriteria (Core.Maybe Types.StatisticalThreshold)
+bcStatisticalThreshold = Lens.field @"statisticalThreshold"
+{-# DEPRECATED bcStatisticalThreshold "Use generic-lens or generic-optics with 'statisticalThreshold' instead." #-}
+
+-- | The value to be compared with the @metric@ .
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcValue :: Lens.Lens' BehaviorCriteria (Core.Maybe Types.MetricValue)
+bcValue = Lens.field @"value"
+{-# DEPRECATED bcValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON BehaviorCriteria where
+  toJSON BehaviorCriteria {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("comparisonOperator" Core..=) Core.<$> comparisonOperator,
+            ("consecutiveDatapointsToAlarm" Core..=)
+              Core.<$> consecutiveDatapointsToAlarm,
+            ("consecutiveDatapointsToClear" Core..=)
+              Core.<$> consecutiveDatapointsToClear,
+            ("durationSeconds" Core..=) Core.<$> durationSeconds,
+            ("statisticalThreshold" Core..=) Core.<$> statisticalThreshold,
+            ("value" Core..=) Core.<$> value
           ]
       )
+
+instance Core.FromJSON BehaviorCriteria where
+  parseJSON =
+    Core.withObject "BehaviorCriteria" Core.$
+      \x ->
+        BehaviorCriteria'
+          Core.<$> (x Core..:? "comparisonOperator")
+          Core.<*> (x Core..:? "consecutiveDatapointsToAlarm")
+          Core.<*> (x Core..:? "consecutiveDatapointsToClear")
+          Core.<*> (x Core..:? "durationSeconds")
+          Core.<*> (x Core..:? "statisticalThreshold")
+          Core.<*> (x Core..:? "value")

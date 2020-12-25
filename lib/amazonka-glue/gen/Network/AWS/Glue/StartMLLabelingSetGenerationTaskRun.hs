@@ -24,139 +24,123 @@ module Network.AWS.Glue.StartMLLabelingSetGenerationTaskRun
     mkStartMLLabelingSetGenerationTaskRun,
 
     -- ** Request lenses
-    smllsgtrOutputS3Path,
     smllsgtrTransformId,
+    smllsgtrOutputS3Path,
 
     -- * Destructuring the response
     StartMLLabelingSetGenerationTaskRunResponse (..),
     mkStartMLLabelingSetGenerationTaskRunResponse,
 
     -- ** Response lenses
-    smllsgtrrsTaskRunId,
-    smllsgtrrsResponseStatus,
+    smllsgtrrrsTaskRunId,
+    smllsgtrrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartMLLabelingSetGenerationTaskRun' smart constructor.
 data StartMLLabelingSetGenerationTaskRun = StartMLLabelingSetGenerationTaskRun'
-  { -- | The Amazon Simple Storage Service (Amazon S3) path where you generate the labeling set.
-    outputS3Path :: Lude.Text,
-    -- | The unique identifier of the machine learning transform.
-    transformId :: Lude.Text
+  { -- | The unique identifier of the machine learning transform.
+    transformId :: Types.HashString,
+    -- | The Amazon Simple Storage Service (Amazon S3) path where you generate the labeling set.
+    outputS3Path :: Types.OutputS3Path
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartMLLabelingSetGenerationTaskRun' with the minimum fields required to make a request.
---
--- * 'outputS3Path' - The Amazon Simple Storage Service (Amazon S3) path where you generate the labeling set.
--- * 'transformId' - The unique identifier of the machine learning transform.
+-- | Creates a 'StartMLLabelingSetGenerationTaskRun' value with any optional fields omitted.
 mkStartMLLabelingSetGenerationTaskRun ::
-  -- | 'outputS3Path'
-  Lude.Text ->
   -- | 'transformId'
-  Lude.Text ->
+  Types.HashString ->
+  -- | 'outputS3Path'
+  Types.OutputS3Path ->
   StartMLLabelingSetGenerationTaskRun
-mkStartMLLabelingSetGenerationTaskRun pOutputS3Path_ pTransformId_ =
-  StartMLLabelingSetGenerationTaskRun'
-    { outputS3Path =
-        pOutputS3Path_,
-      transformId = pTransformId_
-    }
-
--- | The Amazon Simple Storage Service (Amazon S3) path where you generate the labeling set.
---
--- /Note:/ Consider using 'outputS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smllsgtrOutputS3Path :: Lens.Lens' StartMLLabelingSetGenerationTaskRun Lude.Text
-smllsgtrOutputS3Path = Lens.lens (outputS3Path :: StartMLLabelingSetGenerationTaskRun -> Lude.Text) (\s a -> s {outputS3Path = a} :: StartMLLabelingSetGenerationTaskRun)
-{-# DEPRECATED smllsgtrOutputS3Path "Use generic-lens or generic-optics with 'outputS3Path' instead." #-}
+mkStartMLLabelingSetGenerationTaskRun transformId outputS3Path =
+  StartMLLabelingSetGenerationTaskRun' {transformId, outputS3Path}
 
 -- | The unique identifier of the machine learning transform.
 --
 -- /Note:/ Consider using 'transformId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smllsgtrTransformId :: Lens.Lens' StartMLLabelingSetGenerationTaskRun Lude.Text
-smllsgtrTransformId = Lens.lens (transformId :: StartMLLabelingSetGenerationTaskRun -> Lude.Text) (\s a -> s {transformId = a} :: StartMLLabelingSetGenerationTaskRun)
+smllsgtrTransformId :: Lens.Lens' StartMLLabelingSetGenerationTaskRun Types.HashString
+smllsgtrTransformId = Lens.field @"transformId"
 {-# DEPRECATED smllsgtrTransformId "Use generic-lens or generic-optics with 'transformId' instead." #-}
 
-instance Lude.AWSRequest StartMLLabelingSetGenerationTaskRun where
+-- | The Amazon Simple Storage Service (Amazon S3) path where you generate the labeling set.
+--
+-- /Note:/ Consider using 'outputS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smllsgtrOutputS3Path :: Lens.Lens' StartMLLabelingSetGenerationTaskRun Types.OutputS3Path
+smllsgtrOutputS3Path = Lens.field @"outputS3Path"
+{-# DEPRECATED smllsgtrOutputS3Path "Use generic-lens or generic-optics with 'outputS3Path' instead." #-}
+
+instance Core.FromJSON StartMLLabelingSetGenerationTaskRun where
+  toJSON StartMLLabelingSetGenerationTaskRun {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TransformId" Core..= transformId),
+            Core.Just ("OutputS3Path" Core..= outputS3Path)
+          ]
+      )
+
+instance Core.AWSRequest StartMLLabelingSetGenerationTaskRun where
   type
     Rs StartMLLabelingSetGenerationTaskRun =
       StartMLLabelingSetGenerationTaskRunResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSGlue.StartMLLabelingSetGenerationTaskRun")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartMLLabelingSetGenerationTaskRunResponse'
-            Lude.<$> (x Lude..?> "TaskRunId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TaskRunId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartMLLabelingSetGenerationTaskRun where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.StartMLLabelingSetGenerationTaskRun" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartMLLabelingSetGenerationTaskRun where
-  toJSON StartMLLabelingSetGenerationTaskRun' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("OutputS3Path" Lude..= outputS3Path),
-            Lude.Just ("TransformId" Lude..= transformId)
-          ]
-      )
-
-instance Lude.ToPath StartMLLabelingSetGenerationTaskRun where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartMLLabelingSetGenerationTaskRun where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartMLLabelingSetGenerationTaskRunResponse' smart constructor.
 data StartMLLabelingSetGenerationTaskRunResponse = StartMLLabelingSetGenerationTaskRunResponse'
   { -- | The unique run identifier that is associated with this task run.
-    taskRunId :: Lude.Maybe Lude.Text,
+    taskRunId :: Core.Maybe Types.HashString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartMLLabelingSetGenerationTaskRunResponse' with the minimum fields required to make a request.
---
--- * 'taskRunId' - The unique run identifier that is associated with this task run.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartMLLabelingSetGenerationTaskRunResponse' value with any optional fields omitted.
 mkStartMLLabelingSetGenerationTaskRunResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartMLLabelingSetGenerationTaskRunResponse
-mkStartMLLabelingSetGenerationTaskRunResponse pResponseStatus_ =
+mkStartMLLabelingSetGenerationTaskRunResponse responseStatus =
   StartMLLabelingSetGenerationTaskRunResponse'
     { taskRunId =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The unique run identifier that is associated with this task run.
 --
 -- /Note:/ Consider using 'taskRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smllsgtrrsTaskRunId :: Lens.Lens' StartMLLabelingSetGenerationTaskRunResponse (Lude.Maybe Lude.Text)
-smllsgtrrsTaskRunId = Lens.lens (taskRunId :: StartMLLabelingSetGenerationTaskRunResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskRunId = a} :: StartMLLabelingSetGenerationTaskRunResponse)
-{-# DEPRECATED smllsgtrrsTaskRunId "Use generic-lens or generic-optics with 'taskRunId' instead." #-}
+smllsgtrrrsTaskRunId :: Lens.Lens' StartMLLabelingSetGenerationTaskRunResponse (Core.Maybe Types.HashString)
+smllsgtrrrsTaskRunId = Lens.field @"taskRunId"
+{-# DEPRECATED smllsgtrrrsTaskRunId "Use generic-lens or generic-optics with 'taskRunId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smllsgtrrsResponseStatus :: Lens.Lens' StartMLLabelingSetGenerationTaskRunResponse Lude.Int
-smllsgtrrsResponseStatus = Lens.lens (responseStatus :: StartMLLabelingSetGenerationTaskRunResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartMLLabelingSetGenerationTaskRunResponse)
-{-# DEPRECATED smllsgtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+smllsgtrrrsResponseStatus :: Lens.Lens' StartMLLabelingSetGenerationTaskRunResponse Core.Int
+smllsgtrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED smllsgtrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

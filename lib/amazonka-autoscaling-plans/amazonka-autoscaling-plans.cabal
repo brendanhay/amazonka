@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.AutoScalingPlans
     Network.AWS.AutoScalingPlans.CreateScalingPlan
@@ -84,24 +90,41 @@ library
     Network.AWS.AutoScalingPlans.Types.ForecastDataType
     Network.AWS.AutoScalingPlans.Types.LoadMetricType
     Network.AWS.AutoScalingPlans.Types.MetricDimension
+    Network.AWS.AutoScalingPlans.Types.MetricDimensionName
+    Network.AWS.AutoScalingPlans.Types.MetricName
+    Network.AWS.AutoScalingPlans.Types.MetricNamespace
     Network.AWS.AutoScalingPlans.Types.MetricStatistic
+    Network.AWS.AutoScalingPlans.Types.MetricUnit
+    Network.AWS.AutoScalingPlans.Types.Namespace
+    Network.AWS.AutoScalingPlans.Types.NextToken
+    Network.AWS.AutoScalingPlans.Types.PolicyName
     Network.AWS.AutoScalingPlans.Types.PolicyType
     Network.AWS.AutoScalingPlans.Types.PredefinedLoadMetricSpecification
     Network.AWS.AutoScalingPlans.Types.PredefinedScalingMetricSpecification
     Network.AWS.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior
     Network.AWS.AutoScalingPlans.Types.PredictiveScalingMode
+    Network.AWS.AutoScalingPlans.Types.ResourceId
+    Network.AWS.AutoScalingPlans.Types.ResourceIdMaxLen1600
+    Network.AWS.AutoScalingPlans.Types.ResourceLabel
     Network.AWS.AutoScalingPlans.Types.ScalableDimension
     Network.AWS.AutoScalingPlans.Types.ScalingInstruction
     Network.AWS.AutoScalingPlans.Types.ScalingMetricType
     Network.AWS.AutoScalingPlans.Types.ScalingPlan
+    Network.AWS.AutoScalingPlans.Types.ScalingPlanName
     Network.AWS.AutoScalingPlans.Types.ScalingPlanResource
     Network.AWS.AutoScalingPlans.Types.ScalingPlanStatusCode
     Network.AWS.AutoScalingPlans.Types.ScalingPolicy
     Network.AWS.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior
     Network.AWS.AutoScalingPlans.Types.ScalingStatusCode
+    Network.AWS.AutoScalingPlans.Types.ScalingStatusMessage
     Network.AWS.AutoScalingPlans.Types.ServiceNamespace
     Network.AWS.AutoScalingPlans.Types.TagFilter
     Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration
+    Network.AWS.AutoScalingPlans.Types.Unit
+    Network.AWS.AutoScalingPlans.Types.Value
+    Network.AWS.AutoScalingPlans.Types.XmlString
+    Network.AWS.AutoScalingPlans.Types.XmlStringMaxLen128
+    Network.AWS.AutoScalingPlans.Types.XmlStringMaxLen256
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

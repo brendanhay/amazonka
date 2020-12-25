@@ -20,138 +20,125 @@ module Network.AWS.Pinpoint.GetCampaigns
     mkGetCampaigns,
 
     -- ** Request lenses
-    gcsToken,
-    gcsApplicationId,
-    gcsPageSize,
+    gcfApplicationId,
+    gcfPageSize,
+    gcfToken,
 
     -- * Destructuring the response
     GetCampaignsResponse (..),
     mkGetCampaignsResponse,
 
     -- ** Response lenses
-    gcfrsCampaignsResponse,
-    gcfrsResponseStatus,
+    gcrgrsCampaignsResponse,
+    gcrgrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetCampaigns' smart constructor.
 data GetCampaigns = GetCampaigns'
-  { -- | The NextToken string that specifies which page of results to return in a paginated response.
-    token :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
+  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Core.Text,
     -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
-    pageSize :: Lude.Maybe Lude.Text
+    pageSize :: Core.Maybe Core.Text,
+    -- | The NextToken string that specifies which page of results to return in a paginated response.
+    token :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCampaigns' with the minimum fields required to make a request.
---
--- * 'token' - The NextToken string that specifies which page of results to return in a paginated response.
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'pageSize' - The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
+-- | Creates a 'GetCampaigns' value with any optional fields omitted.
 mkGetCampaigns ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   GetCampaigns
-mkGetCampaigns pApplicationId_ =
+mkGetCampaigns applicationId =
   GetCampaigns'
-    { token = Lude.Nothing,
-      applicationId = pApplicationId_,
-      pageSize = Lude.Nothing
+    { applicationId,
+      pageSize = Core.Nothing,
+      token = Core.Nothing
     }
-
--- | The NextToken string that specifies which page of results to return in a paginated response.
---
--- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsToken :: Lens.Lens' GetCampaigns (Lude.Maybe Lude.Text)
-gcsToken = Lens.lens (token :: GetCampaigns -> Lude.Maybe Lude.Text) (\s a -> s {token = a} :: GetCampaigns)
-{-# DEPRECATED gcsToken "Use generic-lens or generic-optics with 'token' instead." #-}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsApplicationId :: Lens.Lens' GetCampaigns Lude.Text
-gcsApplicationId = Lens.lens (applicationId :: GetCampaigns -> Lude.Text) (\s a -> s {applicationId = a} :: GetCampaigns)
-{-# DEPRECATED gcsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+gcfApplicationId :: Lens.Lens' GetCampaigns Core.Text
+gcfApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED gcfApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The maximum number of items to include in each page of a paginated response. This parameter is not supported for application, campaign, and journey metrics.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsPageSize :: Lens.Lens' GetCampaigns (Lude.Maybe Lude.Text)
-gcsPageSize = Lens.lens (pageSize :: GetCampaigns -> Lude.Maybe Lude.Text) (\s a -> s {pageSize = a} :: GetCampaigns)
-{-# DEPRECATED gcsPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
+gcfPageSize :: Lens.Lens' GetCampaigns (Core.Maybe Core.Text)
+gcfPageSize = Lens.field @"pageSize"
+{-# DEPRECATED gcfPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Lude.AWSRequest GetCampaigns where
+-- | The NextToken string that specifies which page of results to return in a paginated response.
+--
+-- /Note:/ Consider using 'token' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcfToken :: Lens.Lens' GetCampaigns (Core.Maybe Core.Text)
+gcfToken = Lens.field @"token"
+{-# DEPRECATED gcfToken "Use generic-lens or generic-optics with 'token' instead." #-}
+
+instance Core.AWSRequest GetCampaigns where
   type Rs GetCampaigns = GetCampaignsResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/campaigns")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "page-size" Core.<$> pageSize
+            Core.<> (Core.toQueryValue "token" Core.<$> token),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCampaignsResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCampaigns where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetCampaigns where
-  toPath GetCampaigns' {..} =
-    Lude.mconcat ["/v1/apps/", Lude.toBS applicationId, "/campaigns"]
-
-instance Lude.ToQuery GetCampaigns where
-  toQuery GetCampaigns' {..} =
-    Lude.mconcat
-      ["token" Lude.=: token, "page-size" Lude.=: pageSize]
 
 -- | /See:/ 'mkGetCampaignsResponse' smart constructor.
 data GetCampaignsResponse = GetCampaignsResponse'
-  { campaignsResponse :: CampaignsResponse,
+  { campaignsResponse :: Types.CampaignsResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCampaignsResponse' with the minimum fields required to make a request.
---
--- * 'campaignsResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCampaignsResponse' value with any optional fields omitted.
 mkGetCampaignsResponse ::
   -- | 'campaignsResponse'
-  CampaignsResponse ->
+  Types.CampaignsResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCampaignsResponse
-mkGetCampaignsResponse pCampaignsResponse_ pResponseStatus_ =
-  GetCampaignsResponse'
-    { campaignsResponse = pCampaignsResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkGetCampaignsResponse campaignsResponse responseStatus =
+  GetCampaignsResponse' {campaignsResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'campaignsResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfrsCampaignsResponse :: Lens.Lens' GetCampaignsResponse CampaignsResponse
-gcfrsCampaignsResponse = Lens.lens (campaignsResponse :: GetCampaignsResponse -> CampaignsResponse) (\s a -> s {campaignsResponse = a} :: GetCampaignsResponse)
-{-# DEPRECATED gcfrsCampaignsResponse "Use generic-lens or generic-optics with 'campaignsResponse' instead." #-}
+gcrgrsCampaignsResponse :: Lens.Lens' GetCampaignsResponse Types.CampaignsResponse
+gcrgrsCampaignsResponse = Lens.field @"campaignsResponse"
+{-# DEPRECATED gcrgrsCampaignsResponse "Use generic-lens or generic-optics with 'campaignsResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfrsResponseStatus :: Lens.Lens' GetCampaignsResponse Lude.Int
-gcfrsResponseStatus = Lens.lens (responseStatus :: GetCampaignsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCampaignsResponse)
-{-# DEPRECATED gcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcrgrsResponseStatus :: Lens.Lens' GetCampaignsResponse Core.Int
+gcrgrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

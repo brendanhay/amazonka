@@ -13,57 +13,62 @@
 module Network.AWS.MediaConvert.Types.Eac3StereoDownmix
   ( Eac3StereoDownmix
       ( Eac3StereoDownmix',
-        ESDNotIndicated,
-        ESDLoRo,
-        ESDLtRt,
-        ESDDPL2
+        Eac3StereoDownmixNotIndicated,
+        Eac3StereoDownmixLoRo,
+        Eac3StereoDownmixLtRt,
+        Eac3StereoDownmixDPL2,
+        fromEac3StereoDownmix
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose how the service does stereo downmixing. This setting only applies if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Stereo downmix (Eac3StereoDownmix).
-newtype Eac3StereoDownmix = Eac3StereoDownmix' Lude.Text
+newtype Eac3StereoDownmix = Eac3StereoDownmix'
+  { fromEac3StereoDownmix ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ESDNotIndicated :: Eac3StereoDownmix
-pattern ESDNotIndicated = Eac3StereoDownmix' "NOT_INDICATED"
+pattern Eac3StereoDownmixNotIndicated :: Eac3StereoDownmix
+pattern Eac3StereoDownmixNotIndicated = Eac3StereoDownmix' "NOT_INDICATED"
 
-pattern ESDLoRo :: Eac3StereoDownmix
-pattern ESDLoRo = Eac3StereoDownmix' "LO_RO"
+pattern Eac3StereoDownmixLoRo :: Eac3StereoDownmix
+pattern Eac3StereoDownmixLoRo = Eac3StereoDownmix' "LO_RO"
 
-pattern ESDLtRt :: Eac3StereoDownmix
-pattern ESDLtRt = Eac3StereoDownmix' "LT_RT"
+pattern Eac3StereoDownmixLtRt :: Eac3StereoDownmix
+pattern Eac3StereoDownmixLtRt = Eac3StereoDownmix' "LT_RT"
 
-pattern ESDDPL2 :: Eac3StereoDownmix
-pattern ESDDPL2 = Eac3StereoDownmix' "DPL2"
+pattern Eac3StereoDownmixDPL2 :: Eac3StereoDownmix
+pattern Eac3StereoDownmixDPL2 = Eac3StereoDownmix' "DPL2"
 
 {-# COMPLETE
-  ESDNotIndicated,
-  ESDLoRo,
-  ESDLtRt,
-  ESDDPL2,
+  Eac3StereoDownmixNotIndicated,
+  Eac3StereoDownmixLoRo,
+  Eac3StereoDownmixLtRt,
+  Eac3StereoDownmixDPL2,
   Eac3StereoDownmix'
   #-}

@@ -22,49 +22,47 @@ module Network.AWS.EC2.Types.DeleteQueuedReservedInstancesError
   )
 where
 
-import Network.AWS.EC2.Types.DeleteQueuedReservedInstancesErrorCode
+import qualified Network.AWS.EC2.Types.DeleteQueuedReservedInstancesErrorCode as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the error for a Reserved Instance whose queued purchase could not be deleted.
 --
 -- /See:/ 'mkDeleteQueuedReservedInstancesError' smart constructor.
 data DeleteQueuedReservedInstancesError = DeleteQueuedReservedInstancesError'
   { -- | The error code.
-    code :: Lude.Maybe DeleteQueuedReservedInstancesErrorCode,
+    code :: Core.Maybe Types.DeleteQueuedReservedInstancesErrorCode,
     -- | The error message.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteQueuedReservedInstancesError' with the minimum fields required to make a request.
---
--- * 'code' - The error code.
--- * 'message' - The error message.
+-- | Creates a 'DeleteQueuedReservedInstancesError' value with any optional fields omitted.
 mkDeleteQueuedReservedInstancesError ::
   DeleteQueuedReservedInstancesError
 mkDeleteQueuedReservedInstancesError =
   DeleteQueuedReservedInstancesError'
-    { code = Lude.Nothing,
-      message = Lude.Nothing
+    { code = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The error code.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dqrieCode :: Lens.Lens' DeleteQueuedReservedInstancesError (Lude.Maybe DeleteQueuedReservedInstancesErrorCode)
-dqrieCode = Lens.lens (code :: DeleteQueuedReservedInstancesError -> Lude.Maybe DeleteQueuedReservedInstancesErrorCode) (\s a -> s {code = a} :: DeleteQueuedReservedInstancesError)
+dqrieCode :: Lens.Lens' DeleteQueuedReservedInstancesError (Core.Maybe Types.DeleteQueuedReservedInstancesErrorCode)
+dqrieCode = Lens.field @"code"
 {-# DEPRECATED dqrieCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The error message.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dqrieMessage :: Lens.Lens' DeleteQueuedReservedInstancesError (Lude.Maybe Lude.Text)
-dqrieMessage = Lens.lens (message :: DeleteQueuedReservedInstancesError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DeleteQueuedReservedInstancesError)
+dqrieMessage :: Lens.Lens' DeleteQueuedReservedInstancesError (Core.Maybe Types.String)
+dqrieMessage = Lens.field @"message"
 {-# DEPRECATED dqrieMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML DeleteQueuedReservedInstancesError where
+instance Core.FromXML DeleteQueuedReservedInstancesError where
   parseXML x =
     DeleteQueuedReservedInstancesError'
-      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")
+      Core.<$> (x Core..@? "code") Core.<*> (x Core..@? "message")

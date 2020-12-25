@@ -22,38 +22,40 @@ module Network.AWS.Glue.GetPartitions
     mkGetPartitions,
 
     -- ** Request lenses
-    gpCatalogId,
-    gpNextToken,
-    gpExpression,
-    gpDatabaseName,
-    gpSegment,
-    gpMaxResults,
-    gpTableName,
+    gpsDatabaseName,
+    gpsTableName,
+    gpsCatalogId,
+    gpsExpression,
+    gpsMaxResults,
+    gpsNextToken,
+    gpsSegment,
 
     -- * Destructuring the response
     GetPartitionsResponse (..),
     mkGetPartitionsResponse,
 
     -- ** Response lenses
-    gpsrsPartitions,
-    gpsrsNextToken,
-    gpsrsResponseStatus,
+    gprgrsNextToken,
+    gprgrsPartitions,
+    gprgrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPartitions' smart constructor.
 data GetPartitions = GetPartitions'
-  { -- | The ID of the Data Catalog where the partitions in question reside. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | A continuation token, if this is not the first call to retrieve these partitions.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The name of the catalog database where the partitions reside.
+    databaseName :: Types.DatabaseName,
+    -- | The name of the partitions' table.
+    tableName :: Types.TableName,
+    -- | The ID of the Data Catalog where the partitions in question reside. If none is provided, the AWS account ID is used by default.
+    catalogId :: Core.Maybe Types.CatalogId,
     -- | An expression that filters the partitions to be returned.
     --
     -- The expression uses SQL syntax similar to the SQL @WHERE@ filter clause. The SQL statement parser <http://jsqlparser.sourceforge.net/home.php JSQLParser> parses the expression.
@@ -133,136 +135,55 @@ data GetPartitions = GetPartitions'
     -- If an invalid type is encountered, an exception is thrown.
     -- The following list shows the valid operators on each type. When you define a crawler, the @partitionKey@ type is created as a @STRING@ , to be compatible with the catalog partitions.
     -- /Sample API Call/ :
-    expression :: Lude.Maybe Lude.Text,
-    -- | The name of the catalog database where the partitions reside.
-    databaseName :: Lude.Text,
-    -- | The segment of the table's partitions to scan in this request.
-    segment :: Lude.Maybe Segment,
+    expression :: Core.Maybe Types.PredicateString,
     -- | The maximum number of partitions to return in a single response.
-    maxResults :: Lude.Maybe Lude.Natural,
-    -- | The name of the partitions' table.
-    tableName :: Lude.Text
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A continuation token, if this is not the first call to retrieve these partitions.
+    nextToken :: Core.Maybe Types.Token,
+    -- | The segment of the table's partitions to scan in this request.
+    segment :: Core.Maybe Types.Segment
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPartitions' with the minimum fields required to make a request.
---
--- * 'catalogId' - The ID of the Data Catalog where the partitions in question reside. If none is provided, the AWS account ID is used by default.
--- * 'nextToken' - A continuation token, if this is not the first call to retrieve these partitions.
--- * 'expression' - An expression that filters the partitions to be returned.
---
--- The expression uses SQL syntax similar to the SQL @WHERE@ filter clause. The SQL statement parser <http://jsqlparser.sourceforge.net/home.php JSQLParser> parses the expression.
--- /Operators/ : The following are the operators that you can use in the @Expression@ API call:
---
---     * =
---
---     * Checks whether the values of the two operands are equal; if yes, then the condition becomes true.
--- Example: Assume 'variable a' holds 10 and 'variable b' holds 20.
--- (a = b) is not true.
---
---
---     * < >
---
---     * Checks whether the values of two operands are equal; if the values are not equal, then the condition becomes true.
--- Example: (a < > b) is true.
---
---
---     * >
---
---     * Checks whether the value of the left operand is greater than the value of the right operand; if yes, then the condition becomes true.
--- Example: (a > b) is not true.
---
---
---     * <
---
---     * Checks whether the value of the left operand is less than the value of the right operand; if yes, then the condition becomes true.
--- Example: (a < b) is true.
---
---
---     * >=
---
---     * Checks whether the value of the left operand is greater than or equal to the value of the right operand; if yes, then the condition becomes true.
--- Example: (a >= b) is not true.
---
---
---     * <=
---
---     * Checks whether the value of the left operand is less than or equal to the value of the right operand; if yes, then the condition becomes true.
--- Example: (a <= b) is true.
---
---
---     * AND, OR, IN, BETWEEN, LIKE, NOT, IS NULL
---
---     * Logical operators.
---
---
--- /Supported Partition Key Types/ : The following are the supported partition keys.
---
---     * @string@
---
---
---     * @date@
---
---
---     * @timestamp@
---
---
---     * @int@
---
---
---     * @bigint@
---
---
---     * @long@
---
---
---     * @tinyint@
---
---
---     * @smallint@
---
---
---     * @decimal@
---
---
--- If an invalid type is encountered, an exception is thrown.
--- The following list shows the valid operators on each type. When you define a crawler, the @partitionKey@ type is created as a @STRING@ , to be compatible with the catalog partitions.
--- /Sample API Call/ :
--- * 'databaseName' - The name of the catalog database where the partitions reside.
--- * 'segment' - The segment of the table's partitions to scan in this request.
--- * 'maxResults' - The maximum number of partitions to return in a single response.
--- * 'tableName' - The name of the partitions' table.
+-- | Creates a 'GetPartitions' value with any optional fields omitted.
 mkGetPartitions ::
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   GetPartitions
-mkGetPartitions pDatabaseName_ pTableName_ =
+mkGetPartitions databaseName tableName =
   GetPartitions'
-    { catalogId = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      expression = Lude.Nothing,
-      databaseName = pDatabaseName_,
-      segment = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      tableName = pTableName_
+    { databaseName,
+      tableName,
+      catalogId = Core.Nothing,
+      expression = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      segment = Core.Nothing
     }
+
+-- | The name of the catalog database where the partitions reside.
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsDatabaseName :: Lens.Lens' GetPartitions Types.DatabaseName
+gpsDatabaseName = Lens.field @"databaseName"
+{-# DEPRECATED gpsDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+
+-- | The name of the partitions' table.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsTableName :: Lens.Lens' GetPartitions Types.TableName
+gpsTableName = Lens.field @"tableName"
+{-# DEPRECATED gpsTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The ID of the Data Catalog where the partitions in question reside. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpCatalogId :: Lens.Lens' GetPartitions (Lude.Maybe Lude.Text)
-gpCatalogId = Lens.lens (catalogId :: GetPartitions -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetPartitions)
-{-# DEPRECATED gpCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
-
--- | A continuation token, if this is not the first call to retrieve these partitions.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpNextToken :: Lens.Lens' GetPartitions (Lude.Maybe Lude.Text)
-gpNextToken = Lens.lens (nextToken :: GetPartitions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetPartitions)
-{-# DEPRECATED gpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gpsCatalogId :: Lens.Lens' GetPartitions (Core.Maybe Types.CatalogId)
+gpsCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED gpsCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | An expression that filters the partitions to be returned.
 --
@@ -345,135 +266,120 @@ gpNextToken = Lens.lens (nextToken :: GetPartitions -> Lude.Maybe Lude.Text) (\s
 -- /Sample API Call/ :
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpExpression :: Lens.Lens' GetPartitions (Lude.Maybe Lude.Text)
-gpExpression = Lens.lens (expression :: GetPartitions -> Lude.Maybe Lude.Text) (\s a -> s {expression = a} :: GetPartitions)
-{-# DEPRECATED gpExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
-
--- | The name of the catalog database where the partitions reside.
---
--- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpDatabaseName :: Lens.Lens' GetPartitions Lude.Text
-gpDatabaseName = Lens.lens (databaseName :: GetPartitions -> Lude.Text) (\s a -> s {databaseName = a} :: GetPartitions)
-{-# DEPRECATED gpDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
-
--- | The segment of the table's partitions to scan in this request.
---
--- /Note:/ Consider using 'segment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpSegment :: Lens.Lens' GetPartitions (Lude.Maybe Segment)
-gpSegment = Lens.lens (segment :: GetPartitions -> Lude.Maybe Segment) (\s a -> s {segment = a} :: GetPartitions)
-{-# DEPRECATED gpSegment "Use generic-lens or generic-optics with 'segment' instead." #-}
+gpsExpression :: Lens.Lens' GetPartitions (Core.Maybe Types.PredicateString)
+gpsExpression = Lens.field @"expression"
+{-# DEPRECATED gpsExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
 -- | The maximum number of partitions to return in a single response.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpMaxResults :: Lens.Lens' GetPartitions (Lude.Maybe Lude.Natural)
-gpMaxResults = Lens.lens (maxResults :: GetPartitions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetPartitions)
-{-# DEPRECATED gpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+gpsMaxResults :: Lens.Lens' GetPartitions (Core.Maybe Core.Natural)
+gpsMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED gpsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The name of the partitions' table.
+-- | A continuation token, if this is not the first call to retrieve these partitions.
 --
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpTableName :: Lens.Lens' GetPartitions Lude.Text
-gpTableName = Lens.lens (tableName :: GetPartitions -> Lude.Text) (\s a -> s {tableName = a} :: GetPartitions)
-{-# DEPRECATED gpTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsNextToken :: Lens.Lens' GetPartitions (Core.Maybe Types.Token)
+gpsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gpsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager GetPartitions where
-  page rq rs
-    | Page.stop (rs Lens.^. gpsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gpsrsPartitions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gpNextToken Lens..~ rs Lens.^. gpsrsNextToken
+-- | The segment of the table's partitions to scan in this request.
+--
+-- /Note:/ Consider using 'segment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpsSegment :: Lens.Lens' GetPartitions (Core.Maybe Types.Segment)
+gpsSegment = Lens.field @"segment"
+{-# DEPRECATED gpsSegment "Use generic-lens or generic-optics with 'segment' instead." #-}
 
-instance Lude.AWSRequest GetPartitions where
+instance Core.FromJSON GetPartitions where
+  toJSON GetPartitions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            ("CatalogId" Core..=) Core.<$> catalogId,
+            ("Expression" Core..=) Core.<$> expression,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Segment" Core..=) Core.<$> segment
+          ]
+      )
+
+instance Core.AWSRequest GetPartitions where
   type Rs GetPartitions = GetPartitionsResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetPartitions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPartitionsResponse'
-            Lude.<$> (x Lude..?> "Partitions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Partitions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetPartitions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetPartitions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPartitions where
-  toJSON GetPartitions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Expression" Lude..=) Lude.<$> expression,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            ("Segment" Lude..=) Lude.<$> segment,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("TableName" Lude..= tableName)
-          ]
-      )
-
-instance Lude.ToPath GetPartitions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPartitions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetPartitions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"partitions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetPartitionsResponse' smart constructor.
 data GetPartitionsResponse = GetPartitionsResponse'
-  { -- | A list of requested partitions.
-    partitions :: Lude.Maybe [Partition],
-    -- | A continuation token, if the returned list of partitions does not include the last one.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A continuation token, if the returned list of partitions does not include the last one.
+    nextToken :: Core.Maybe Types.Token,
+    -- | A list of requested partitions.
+    partitions :: Core.Maybe [Types.Partition],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetPartitionsResponse' with the minimum fields required to make a request.
---
--- * 'partitions' - A list of requested partitions.
--- * 'nextToken' - A continuation token, if the returned list of partitions does not include the last one.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPartitionsResponse' value with any optional fields omitted.
 mkGetPartitionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPartitionsResponse
-mkGetPartitionsResponse pResponseStatus_ =
+mkGetPartitionsResponse responseStatus =
   GetPartitionsResponse'
-    { partitions = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      partitions = Core.Nothing,
+      responseStatus
     }
-
--- | A list of requested partitions.
---
--- /Note:/ Consider using 'partitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpsrsPartitions :: Lens.Lens' GetPartitionsResponse (Lude.Maybe [Partition])
-gpsrsPartitions = Lens.lens (partitions :: GetPartitionsResponse -> Lude.Maybe [Partition]) (\s a -> s {partitions = a} :: GetPartitionsResponse)
-{-# DEPRECATED gpsrsPartitions "Use generic-lens or generic-optics with 'partitions' instead." #-}
 
 -- | A continuation token, if the returned list of partitions does not include the last one.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpsrsNextToken :: Lens.Lens' GetPartitionsResponse (Lude.Maybe Lude.Text)
-gpsrsNextToken = Lens.lens (nextToken :: GetPartitionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetPartitionsResponse)
-{-# DEPRECATED gpsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gprgrsNextToken :: Lens.Lens' GetPartitionsResponse (Core.Maybe Types.Token)
+gprgrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gprgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of requested partitions.
+--
+-- /Note:/ Consider using 'partitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gprgrsPartitions :: Lens.Lens' GetPartitionsResponse (Core.Maybe [Types.Partition])
+gprgrsPartitions = Lens.field @"partitions"
+{-# DEPRECATED gprgrsPartitions "Use generic-lens or generic-optics with 'partitions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpsrsResponseStatus :: Lens.Lens' GetPartitionsResponse Lude.Int
-gpsrsResponseStatus = Lens.lens (responseStatus :: GetPartitionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPartitionsResponse)
-{-# DEPRECATED gpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gprgrsResponseStatus :: Lens.Lens' GetPartitionsResponse Core.Int
+gprgrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gprgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

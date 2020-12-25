@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.KinesisVideo
     Network.AWS.KinesisVideo.CreateSignalingChannel
@@ -91,20 +97,38 @@ library
 
   other-modules:
     Network.AWS.KinesisVideo.Types.APIName
+    Network.AWS.KinesisVideo.Types.ChannelARN
     Network.AWS.KinesisVideo.Types.ChannelInfo
+    Network.AWS.KinesisVideo.Types.ChannelName
     Network.AWS.KinesisVideo.Types.ChannelNameCondition
     Network.AWS.KinesisVideo.Types.ChannelProtocol
     Network.AWS.KinesisVideo.Types.ChannelRole
     Network.AWS.KinesisVideo.Types.ChannelType
     Network.AWS.KinesisVideo.Types.ComparisonOperator
+    Network.AWS.KinesisVideo.Types.ComparisonValue
+    Network.AWS.KinesisVideo.Types.CurrentVersion
+    Network.AWS.KinesisVideo.Types.DataEndpoint
+    Network.AWS.KinesisVideo.Types.DeviceName
+    Network.AWS.KinesisVideo.Types.Key
+    Network.AWS.KinesisVideo.Types.KmsKeyId
+    Network.AWS.KinesisVideo.Types.MediaType
+    Network.AWS.KinesisVideo.Types.NextToken
+    Network.AWS.KinesisVideo.Types.ResourceARN
+    Network.AWS.KinesisVideo.Types.ResourceEndpoint
     Network.AWS.KinesisVideo.Types.ResourceEndpointListItem
     Network.AWS.KinesisVideo.Types.SingleMasterChannelEndpointConfiguration
     Network.AWS.KinesisVideo.Types.SingleMasterConfiguration
+    Network.AWS.KinesisVideo.Types.StreamARN
     Network.AWS.KinesisVideo.Types.StreamInfo
+    Network.AWS.KinesisVideo.Types.StreamName
     Network.AWS.KinesisVideo.Types.StreamNameCondition
     Network.AWS.KinesisVideo.Types.StreamStatus
     Network.AWS.KinesisVideo.Types.Tag
+    Network.AWS.KinesisVideo.Types.TagKey
+    Network.AWS.KinesisVideo.Types.TagValue
     Network.AWS.KinesisVideo.Types.UpdateDataRetentionOperation
+    Network.AWS.KinesisVideo.Types.Value
+    Network.AWS.KinesisVideo.Types.Version
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

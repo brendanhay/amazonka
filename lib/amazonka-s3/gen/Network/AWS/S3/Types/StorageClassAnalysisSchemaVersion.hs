@@ -13,42 +13,47 @@
 module Network.AWS.S3.Types.StorageClassAnalysisSchemaVersion
   ( StorageClassAnalysisSchemaVersion
       ( StorageClassAnalysisSchemaVersion',
-        V1
+        StorageClassAnalysisSchemaVersionV1,
+        fromStorageClassAnalysisSchemaVersion
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype StorageClassAnalysisSchemaVersion = StorageClassAnalysisSchemaVersion' Lude.Text
+newtype StorageClassAnalysisSchemaVersion = StorageClassAnalysisSchemaVersion'
+  { fromStorageClassAnalysisSchemaVersion ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern V1 :: StorageClassAnalysisSchemaVersion
-pattern V1 = StorageClassAnalysisSchemaVersion' "V_1"
+pattern StorageClassAnalysisSchemaVersionV1 :: StorageClassAnalysisSchemaVersion
+pattern StorageClassAnalysisSchemaVersionV1 = StorageClassAnalysisSchemaVersion' "V_1"
 
 {-# COMPLETE
-  V1,
+  StorageClassAnalysisSchemaVersionV1,
   StorageClassAnalysisSchemaVersion'
   #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,25 @@
 -- AWS Data Pipeline implements two main sets of functionality. Use the first set to create a pipeline and define data sources, schedules, dependencies, and the transforms to be performed on the data. Use the second set in your task runner application to receive the next task ready for processing. The logic for performing the task, such as querying the data, running data analysis, or converting the data from one format to another, is contained within the task runner. The task runner performs the task assigned to it by the web service, reporting progress to the web service as it does so. When the task is done, the task runner reports the final success or failure of the task to the web service.
 module Network.AWS.DataPipeline
   ( -- * Service configuration
-    dataPipelineService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** InternalServiceError
+    _InternalServiceError,
+
+    -- ** PipelineDeletedException
+    _PipelineDeletedException,
+
+    -- ** PipelineNotFoundException
+    _PipelineNotFoundException,
+
+    -- ** TaskNotFoundException
+    _TaskNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -87,117 +101,178 @@ module Network.AWS.DataPipeline
 
     -- * Types
 
-    -- ** OperatorType
-    OperatorType (..),
+    -- ** ParameterObject
+    ParameterObject (..),
+    mkParameterObject,
+    poId,
+    poAttributes,
 
-    -- ** TaskStatus
-    TaskStatus (..),
+    -- ** PipelineObject
+    PipelineObject (..),
+    mkPipelineObject,
+    pId,
+    pName,
+    pFields,
+
+    -- ** LongString
+    LongString (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
     -- ** Field
     Field (..),
     mkField,
+    fKey,
     fRefValue,
     fStringValue,
-    fKey,
 
-    -- ** InstanceIdentity
-    InstanceIdentity (..),
-    mkInstanceIdentity,
-    iiSignature,
-    iiDocument,
-
-    -- ** Operator
-    Operator (..),
-    mkOperator,
-    oValues,
-    oType,
-
-    -- ** ParameterAttribute
-    ParameterAttribute (..),
-    mkParameterAttribute,
-    paStringValue,
-    paKey,
-
-    -- ** ParameterObject
-    ParameterObject (..),
-    mkParameterObject,
-    poAttributes,
-    poId,
+    -- ** AttributeValueString
+    AttributeValueString (..),
 
     -- ** ParameterValue
     ParameterValue (..),
     mkParameterValue,
-    pvStringValue,
     pvId,
+    pvStringValue,
+
+    -- ** Selector
+    Selector (..),
+    mkSelector,
+    sFieldName,
+    sOperator,
+
+    -- ** ParameterAttribute
+    ParameterAttribute (..),
+    mkParameterAttribute,
+    paKey,
+    paStringValue,
+
+    -- ** String
+    String (..),
+
+    -- ** TaskId
+    TaskId (..),
+
+    -- ** Operator
+    Operator (..),
+    mkOperator,
+    oType,
+    oValues,
+
+    -- ** TaskObject
+    TaskObject (..),
+    mkTaskObject,
+    toAttemptId,
+    toObjects,
+    toPipelineId,
+    toTaskId,
+
+    -- ** ValidationError
+    ValidationError (..),
+    mkValidationError,
+    veErrors,
+    veId,
 
     -- ** PipelineDescription
     PipelineDescription (..),
     mkPipelineDescription,
     pdPipelineId,
     pdName,
+    pdFields,
     pdDescription,
     pdTags,
-    pdFields,
 
-    -- ** PipelineIdName
-    PipelineIdName (..),
-    mkPipelineIdName,
-    pinName,
-    pinId,
-
-    -- ** PipelineObject
-    PipelineObject (..),
-    mkPipelineObject,
-    pName,
-    pId,
-    pFields,
+    -- ** InstanceIdentity
+    InstanceIdentity (..),
+    mkInstanceIdentity,
+    iiDocument,
+    iiSignature,
 
     -- ** Query
     Query (..),
     mkQuery,
     qSelectors,
 
-    -- ** Selector
-    Selector (..),
-    mkSelector,
-    sOperator,
-    sFieldName,
+    -- ** Id
+    Id (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** ValidationMessage
+    ValidationMessage (..),
 
-    -- ** TaskObject
-    TaskObject (..),
-    mkTaskObject,
-    toPipelineId,
-    toAttemptId,
-    toTaskId,
-    toObjects,
+    -- ** OperatorType
+    OperatorType (..),
 
-    -- ** ValidationError
-    ValidationError (..),
-    mkValidationError,
-    veId,
-    veErrors,
+    -- ** PipelineIdName
+    PipelineIdName (..),
+    mkPipelineIdName,
+    pinId,
+    pinName,
+
+    -- ** TaskStatus
+    TaskStatus (..),
 
     -- ** ValidationWarning
     ValidationWarning (..),
     mkValidationWarning,
-    vwWarnings,
     vwId,
+    vwWarnings,
+
+    -- ** Id
+    Id (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** PipelineId
+    PipelineId (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** ObjectId
+    ObjectId (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** WorkerGroup
+    WorkerGroup (..),
+
+    -- ** Hostname
+    Hostname (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** RefValue
+    RefValue (..),
+
+    -- ** StringValue
+    StringValue (..),
+
+    -- ** FieldName
+    FieldName (..),
+
+    -- ** AttemptId
+    AttemptId (..),
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

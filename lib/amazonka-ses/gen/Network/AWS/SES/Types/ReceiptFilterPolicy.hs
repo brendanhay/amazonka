@@ -13,46 +13,51 @@
 module Network.AWS.SES.Types.ReceiptFilterPolicy
   ( ReceiptFilterPolicy
       ( ReceiptFilterPolicy',
-        Block,
-        Allow
+        ReceiptFilterPolicyBlock,
+        ReceiptFilterPolicyAllow,
+        fromReceiptFilterPolicy
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReceiptFilterPolicy = ReceiptFilterPolicy' Lude.Text
+newtype ReceiptFilterPolicy = ReceiptFilterPolicy'
+  { fromReceiptFilterPolicy ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Block :: ReceiptFilterPolicy
-pattern Block = ReceiptFilterPolicy' "Block"
+pattern ReceiptFilterPolicyBlock :: ReceiptFilterPolicy
+pattern ReceiptFilterPolicyBlock = ReceiptFilterPolicy' "Block"
 
-pattern Allow :: ReceiptFilterPolicy
-pattern Allow = ReceiptFilterPolicy' "Allow"
+pattern ReceiptFilterPolicyAllow :: ReceiptFilterPolicy
+pattern ReceiptFilterPolicyAllow = ReceiptFilterPolicy' "Allow"
 
 {-# COMPLETE
-  Block,
-  Allow,
+  ReceiptFilterPolicyBlock,
+  ReceiptFilterPolicyAllow,
   ReceiptFilterPolicy'
   #-}

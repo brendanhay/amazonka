@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.M2tsBufferModel
   ( M2tsBufferModel
       ( M2tsBufferModel',
-        MBMMultiplex,
-        MBMNone
+        M2tsBufferModelMultiplex,
+        M2tsBufferModelNone,
+        fromM2tsBufferModel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
-newtype M2tsBufferModel = M2tsBufferModel' Lude.Text
+newtype M2tsBufferModel = M2tsBufferModel'
+  { fromM2tsBufferModel ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MBMMultiplex :: M2tsBufferModel
-pattern MBMMultiplex = M2tsBufferModel' "MULTIPLEX"
+pattern M2tsBufferModelMultiplex :: M2tsBufferModel
+pattern M2tsBufferModelMultiplex = M2tsBufferModel' "MULTIPLEX"
 
-pattern MBMNone :: M2tsBufferModel
-pattern MBMNone = M2tsBufferModel' "NONE"
+pattern M2tsBufferModelNone :: M2tsBufferModel
+pattern M2tsBufferModelNone = M2tsBufferModel' "NONE"
 
 {-# COMPLETE
-  MBMMultiplex,
-  MBMNone,
+  M2tsBufferModelMultiplex,
+  M2tsBufferModelNone,
   M2tsBufferModel'
   #-}

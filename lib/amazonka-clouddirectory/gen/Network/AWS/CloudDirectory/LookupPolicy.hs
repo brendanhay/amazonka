@@ -22,178 +22,171 @@ module Network.AWS.CloudDirectory.LookupPolicy
     mkLookupPolicy,
 
     -- ** Request lenses
-    lpDirectoryARN,
-    lpNextToken,
+    lpDirectoryArn,
     lpObjectReference,
     lpMaxResults,
+    lpNextToken,
 
     -- * Destructuring the response
     LookupPolicyResponse (..),
     mkLookupPolicyResponse,
 
     -- ** Response lenses
-    lprsNextToken,
-    lprsPolicyToPathList,
-    lprsResponseStatus,
+    lprrsNextToken,
+    lprrsPolicyToPathList,
+    lprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkLookupPolicy' smart constructor.
 data LookupPolicy = LookupPolicy'
   { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
-    directoryARN :: Lude.Text,
-    -- | The token to request the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    directoryArn :: Types.Arn,
     -- | Reference that identifies the object whose policies will be looked up.
-    objectReference :: ObjectReference,
+    objectReference :: Types.ObjectReference,
     -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LookupPolicy' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
--- * 'nextToken' - The token to request the next page of results.
--- * 'objectReference' - Reference that identifies the object whose policies will be looked up.
--- * 'maxResults' - The maximum number of items to be retrieved in a single call. This is an approximate number.
+-- | Creates a 'LookupPolicy' value with any optional fields omitted.
 mkLookupPolicy ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   LookupPolicy
-mkLookupPolicy pDirectoryARN_ pObjectReference_ =
+mkLookupPolicy directoryArn objectReference =
   LookupPolicy'
-    { directoryARN = pDirectoryARN_,
-      nextToken = Lude.Nothing,
-      objectReference = pObjectReference_,
-      maxResults = Lude.Nothing
+    { directoryArn,
+      objectReference,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpDirectoryARN :: Lens.Lens' LookupPolicy Lude.Text
-lpDirectoryARN = Lens.lens (directoryARN :: LookupPolicy -> Lude.Text) (\s a -> s {directoryARN = a} :: LookupPolicy)
-{-# DEPRECATED lpDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
--- | The token to request the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpNextToken :: Lens.Lens' LookupPolicy (Lude.Maybe Lude.Text)
-lpNextToken = Lens.lens (nextToken :: LookupPolicy -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: LookupPolicy)
-{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpDirectoryArn :: Lens.Lens' LookupPolicy Types.Arn
+lpDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED lpDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | Reference that identifies the object whose policies will be looked up.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpObjectReference :: Lens.Lens' LookupPolicy ObjectReference
-lpObjectReference = Lens.lens (objectReference :: LookupPolicy -> ObjectReference) (\s a -> s {objectReference = a} :: LookupPolicy)
+lpObjectReference :: Lens.Lens' LookupPolicy Types.ObjectReference
+lpObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED lpObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
 -- | The maximum number of items to be retrieved in a single call. This is an approximate number.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpMaxResults :: Lens.Lens' LookupPolicy (Lude.Maybe Lude.Natural)
-lpMaxResults = Lens.lens (maxResults :: LookupPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: LookupPolicy)
+lpMaxResults :: Lens.Lens' LookupPolicy (Core.Maybe Core.Natural)
+lpMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager LookupPolicy where
-  page rq rs
-    | Page.stop (rs Lens.^. lprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lprsPolicyToPathList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lpNextToken Lens..~ rs Lens.^. lprsNextToken
+-- | The token to request the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpNextToken :: Lens.Lens' LookupPolicy (Core.Maybe Types.NextToken)
+lpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest LookupPolicy where
-  type Rs LookupPolicy = LookupPolicyResponse
-  request = Req.postJSON cloudDirectoryService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          LookupPolicyResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "PolicyToPathList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders LookupPolicy where
-  toHeaders LookupPolicy' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
-
-instance Lude.ToJSON LookupPolicy where
-  toJSON LookupPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("ObjectReference" Lude..= objectReference),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
+instance Core.FromJSON LookupPolicy where
+  toJSON LookupPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ObjectReference" Core..= objectReference),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
           ]
       )
 
-instance Lude.ToPath LookupPolicy where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/policy/lookup"
+instance Core.AWSRequest LookupPolicy where
+  type Rs LookupPolicy = LookupPolicyResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/policy/lookup",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          LookupPolicyResponse'
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "PolicyToPathList")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
-instance Lude.ToQuery LookupPolicy where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager LookupPolicy where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"policyToPathList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkLookupPolicyResponse' smart constructor.
 data LookupPolicyResponse = LookupPolicyResponse'
   { -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
-    policyToPathList :: Lude.Maybe [PolicyToPath],
+    policyToPathList :: Core.Maybe [Types.PolicyToPath],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LookupPolicyResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token.
--- * 'policyToPathList' - Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'LookupPolicyResponse' value with any optional fields omitted.
 mkLookupPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   LookupPolicyResponse
-mkLookupPolicyResponse pResponseStatus_ =
+mkLookupPolicyResponse responseStatus =
   LookupPolicyResponse'
-    { nextToken = Lude.Nothing,
-      policyToPathList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      policyToPathList = Core.Nothing,
+      responseStatus
     }
 
 -- | The pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsNextToken :: Lens.Lens' LookupPolicyResponse (Lude.Maybe Lude.Text)
-lprsNextToken = Lens.lens (nextToken :: LookupPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: LookupPolicyResponse)
-{-# DEPRECATED lprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lprrsNextToken :: Lens.Lens' LookupPolicyResponse (Core.Maybe Types.NextToken)
+lprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
 --
 -- /Note:/ Consider using 'policyToPathList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsPolicyToPathList :: Lens.Lens' LookupPolicyResponse (Lude.Maybe [PolicyToPath])
-lprsPolicyToPathList = Lens.lens (policyToPathList :: LookupPolicyResponse -> Lude.Maybe [PolicyToPath]) (\s a -> s {policyToPathList = a} :: LookupPolicyResponse)
-{-# DEPRECATED lprsPolicyToPathList "Use generic-lens or generic-optics with 'policyToPathList' instead." #-}
+lprrsPolicyToPathList :: Lens.Lens' LookupPolicyResponse (Core.Maybe [Types.PolicyToPath])
+lprrsPolicyToPathList = Lens.field @"policyToPathList"
+{-# DEPRECATED lprrsPolicyToPathList "Use generic-lens or generic-optics with 'policyToPathList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lprsResponseStatus :: Lens.Lens' LookupPolicyResponse Lude.Int
-lprsResponseStatus = Lens.lens (responseStatus :: LookupPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: LookupPolicyResponse)
-{-# DEPRECATED lprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lprrsResponseStatus :: Lens.Lens' LookupPolicyResponse Core.Int
+lprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -27,98 +27,85 @@ module Network.AWS.SMS.DeleteAppReplicationConfiguration
     mkDeleteAppReplicationConfigurationResponse,
 
     -- ** Response lenses
-    darcrsResponseStatus,
+    darcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkDeleteAppReplicationConfiguration' smart constructor.
 newtype DeleteAppReplicationConfiguration = DeleteAppReplicationConfiguration'
   { -- | The ID of the application.
-    appId :: Lude.Maybe Lude.Text
+    appId :: Core.Maybe Types.AppId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAppReplicationConfiguration' with the minimum fields required to make a request.
---
--- * 'appId' - The ID of the application.
+-- | Creates a 'DeleteAppReplicationConfiguration' value with any optional fields omitted.
 mkDeleteAppReplicationConfiguration ::
   DeleteAppReplicationConfiguration
 mkDeleteAppReplicationConfiguration =
-  DeleteAppReplicationConfiguration' {appId = Lude.Nothing}
+  DeleteAppReplicationConfiguration' {appId = Core.Nothing}
 
 -- | The ID of the application.
 --
 -- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darcAppId :: Lens.Lens' DeleteAppReplicationConfiguration (Lude.Maybe Lude.Text)
-darcAppId = Lens.lens (appId :: DeleteAppReplicationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: DeleteAppReplicationConfiguration)
+darcAppId :: Lens.Lens' DeleteAppReplicationConfiguration (Core.Maybe Types.AppId)
+darcAppId = Lens.field @"appId"
 {-# DEPRECATED darcAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance Lude.AWSRequest DeleteAppReplicationConfiguration where
+instance Core.FromJSON DeleteAppReplicationConfiguration where
+  toJSON DeleteAppReplicationConfiguration {..} =
+    Core.object (Core.catMaybes [("appId" Core..=) Core.<$> appId])
+
+instance Core.AWSRequest DeleteAppReplicationConfiguration where
   type
     Rs DeleteAppReplicationConfiguration =
       DeleteAppReplicationConfigurationResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteAppReplicationConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteAppReplicationConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.DeleteAppReplicationConfiguration" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAppReplicationConfiguration where
-  toJSON DeleteAppReplicationConfiguration' {..} =
-    Lude.object (Lude.catMaybes [("appId" Lude..=) Lude.<$> appId])
-
-instance Lude.ToPath DeleteAppReplicationConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAppReplicationConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteAppReplicationConfigurationResponse' smart constructor.
 newtype DeleteAppReplicationConfigurationResponse = DeleteAppReplicationConfigurationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAppReplicationConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteAppReplicationConfigurationResponse' value with any optional fields omitted.
 mkDeleteAppReplicationConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteAppReplicationConfigurationResponse
-mkDeleteAppReplicationConfigurationResponse pResponseStatus_ =
-  DeleteAppReplicationConfigurationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteAppReplicationConfigurationResponse responseStatus =
+  DeleteAppReplicationConfigurationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darcrsResponseStatus :: Lens.Lens' DeleteAppReplicationConfigurationResponse Lude.Int
-darcrsResponseStatus = Lens.lens (responseStatus :: DeleteAppReplicationConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAppReplicationConfigurationResponse)
-{-# DEPRECATED darcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darcrrsResponseStatus :: Lens.Lens' DeleteAppReplicationConfigurationResponse Core.Int
+darcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

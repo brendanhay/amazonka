@@ -22,248 +22,234 @@ module Network.AWS.WorkDocs.DescribeActivities
     mkDescribeActivities,
 
     -- ** Request lenses
-    daResourceId,
-    daIncludeIndirectActivities,
-    daStartTime,
-    daAuthenticationToken,
-    daUserId,
-    daMarker,
-    daEndTime,
-    daLimit,
     daActivityTypes,
+    daAuthenticationToken,
+    daEndTime,
+    daIncludeIndirectActivities,
+    daLimit,
+    daMarker,
     daOrganizationId,
+    daResourceId,
+    daStartTime,
+    daUserId,
 
     -- * Destructuring the response
     DescribeActivitiesResponse (..),
     mkDescribeActivitiesResponse,
 
     -- ** Response lenses
-    darsUserActivities,
-    darsMarker,
-    darsResponseStatus,
+    darrsMarker,
+    darrsUserActivities,
+    darrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDescribeActivities' smart constructor.
 data DescribeActivities = DescribeActivities'
-  { -- | The document or folder ID for which to describe activity types.
-    resourceId :: Lude.Maybe Lude.Text,
-    -- | Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
-    includeIndirectActivities :: Lude.Maybe Lude.Bool,
-    -- | The timestamp that determines the starting time of the activities. The response includes the activities performed after the specified timestamp.
-    startTime :: Lude.Maybe Lude.Timestamp,
+  { -- | Specifies which activity types to include in the response. If this field is left empty, all activity types are returned.
+    activityTypes :: Core.Maybe Types.ActivityTypes,
     -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The ID of the user who performed the action. The response includes activities pertaining to this user. This is an optional parameter and is only applicable for administrative API (SigV4) requests.
-    userId :: Lude.Maybe Lude.Text,
-    -- | The marker for the next set of results.
-    marker :: Lude.Maybe Lude.Text,
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType,
     -- | The timestamp that determines the end time of the activities. The response includes the activities performed before the specified timestamp.
-    endTime :: Lude.Maybe Lude.Timestamp,
+    endTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
+    includeIndirectActivities :: Core.Maybe Core.Bool,
     -- | The maximum number of items to return.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | Specifies which activity types to include in the response. If this field is left empty, all activity types are returned.
-    activityTypes :: Lude.Maybe Lude.Text,
+    limit :: Core.Maybe Core.Natural,
+    -- | The marker for the next set of results.
+    marker :: Core.Maybe Types.Marker,
     -- | The ID of the organization. This is a mandatory parameter when using administrative API (SigV4) requests.
-    organizationId :: Lude.Maybe Lude.Text
+    organizationId :: Core.Maybe Types.OrganizationId,
+    -- | The document or folder ID for which to describe activity types.
+    resourceId :: Core.Maybe Types.ResourceId,
+    -- | The timestamp that determines the starting time of the activities. The response includes the activities performed after the specified timestamp.
+    startTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID of the user who performed the action. The response includes activities pertaining to this user. This is an optional parameter and is only applicable for administrative API (SigV4) requests.
+    userId :: Core.Maybe Types.UserId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeActivities' with the minimum fields required to make a request.
---
--- * 'resourceId' - The document or folder ID for which to describe activity types.
--- * 'includeIndirectActivities' - Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
--- * 'startTime' - The timestamp that determines the starting time of the activities. The response includes the activities performed after the specified timestamp.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'userId' - The ID of the user who performed the action. The response includes activities pertaining to this user. This is an optional parameter and is only applicable for administrative API (SigV4) requests.
--- * 'marker' - The marker for the next set of results.
--- * 'endTime' - The timestamp that determines the end time of the activities. The response includes the activities performed before the specified timestamp.
--- * 'limit' - The maximum number of items to return.
--- * 'activityTypes' - Specifies which activity types to include in the response. If this field is left empty, all activity types are returned.
--- * 'organizationId' - The ID of the organization. This is a mandatory parameter when using administrative API (SigV4) requests.
+-- | Creates a 'DescribeActivities' value with any optional fields omitted.
 mkDescribeActivities ::
   DescribeActivities
 mkDescribeActivities =
   DescribeActivities'
-    { resourceId = Lude.Nothing,
-      includeIndirectActivities = Lude.Nothing,
-      startTime = Lude.Nothing,
-      authenticationToken = Lude.Nothing,
-      userId = Lude.Nothing,
-      marker = Lude.Nothing,
-      endTime = Lude.Nothing,
-      limit = Lude.Nothing,
-      activityTypes = Lude.Nothing,
-      organizationId = Lude.Nothing
+    { activityTypes = Core.Nothing,
+      authenticationToken = Core.Nothing,
+      endTime = Core.Nothing,
+      includeIndirectActivities = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing,
+      organizationId = Core.Nothing,
+      resourceId = Core.Nothing,
+      startTime = Core.Nothing,
+      userId = Core.Nothing
     }
-
--- | The document or folder ID for which to describe activity types.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daResourceId :: Lens.Lens' DescribeActivities (Lude.Maybe Lude.Text)
-daResourceId = Lens.lens (resourceId :: DescribeActivities -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: DescribeActivities)
-{-# DEPRECATED daResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
---
--- /Note:/ Consider using 'includeIndirectActivities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daIncludeIndirectActivities :: Lens.Lens' DescribeActivities (Lude.Maybe Lude.Bool)
-daIncludeIndirectActivities = Lens.lens (includeIndirectActivities :: DescribeActivities -> Lude.Maybe Lude.Bool) (\s a -> s {includeIndirectActivities = a} :: DescribeActivities)
-{-# DEPRECATED daIncludeIndirectActivities "Use generic-lens or generic-optics with 'includeIndirectActivities' instead." #-}
-
--- | The timestamp that determines the starting time of the activities. The response includes the activities performed after the specified timestamp.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daStartTime :: Lens.Lens' DescribeActivities (Lude.Maybe Lude.Timestamp)
-daStartTime = Lens.lens (startTime :: DescribeActivities -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: DescribeActivities)
-{-# DEPRECATED daStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
---
--- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAuthenticationToken :: Lens.Lens' DescribeActivities (Lude.Maybe (Lude.Sensitive Lude.Text))
-daAuthenticationToken = Lens.lens (authenticationToken :: DescribeActivities -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DescribeActivities)
-{-# DEPRECATED daAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
-
--- | The ID of the user who performed the action. The response includes activities pertaining to this user. This is an optional parameter and is only applicable for administrative API (SigV4) requests.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daUserId :: Lens.Lens' DescribeActivities (Lude.Maybe Lude.Text)
-daUserId = Lens.lens (userId :: DescribeActivities -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: DescribeActivities)
-{-# DEPRECATED daUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
-
--- | The marker for the next set of results.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daMarker :: Lens.Lens' DescribeActivities (Lude.Maybe Lude.Text)
-daMarker = Lens.lens (marker :: DescribeActivities -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeActivities)
-{-# DEPRECATED daMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The timestamp that determines the end time of the activities. The response includes the activities performed before the specified timestamp.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daEndTime :: Lens.Lens' DescribeActivities (Lude.Maybe Lude.Timestamp)
-daEndTime = Lens.lens (endTime :: DescribeActivities -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: DescribeActivities)
-{-# DEPRECATED daEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | The maximum number of items to return.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daLimit :: Lens.Lens' DescribeActivities (Lude.Maybe Lude.Natural)
-daLimit = Lens.lens (limit :: DescribeActivities -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeActivities)
-{-# DEPRECATED daLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | Specifies which activity types to include in the response. If this field is left empty, all activity types are returned.
 --
 -- /Note:/ Consider using 'activityTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daActivityTypes :: Lens.Lens' DescribeActivities (Lude.Maybe Lude.Text)
-daActivityTypes = Lens.lens (activityTypes :: DescribeActivities -> Lude.Maybe Lude.Text) (\s a -> s {activityTypes = a} :: DescribeActivities)
+daActivityTypes :: Lens.Lens' DescribeActivities (Core.Maybe Types.ActivityTypes)
+daActivityTypes = Lens.field @"activityTypes"
 {-# DEPRECATED daActivityTypes "Use generic-lens or generic-optics with 'activityTypes' instead." #-}
 
--- | The ID of the organization. This is a mandatory parameter when using administrative API (SigV4) requests.
+-- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daOrganizationId :: Lens.Lens' DescribeActivities (Lude.Maybe Lude.Text)
-daOrganizationId = Lens.lens (organizationId :: DescribeActivities -> Lude.Maybe Lude.Text) (\s a -> s {organizationId = a} :: DescribeActivities)
-{-# DEPRECATED daOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+-- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daAuthenticationToken :: Lens.Lens' DescribeActivities (Core.Maybe Types.AuthenticationHeaderType)
+daAuthenticationToken = Lens.field @"authenticationToken"
+{-# DEPRECATED daAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
-instance Page.AWSPager DescribeActivities where
-  page rq rs
-    | Page.stop (rs Lens.^. darsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. darsUserActivities) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& daMarker Lens..~ rs Lens.^. darsMarker
-
-instance Lude.AWSRequest DescribeActivities where
-  type Rs DescribeActivities = DescribeActivitiesResponse
-  request = Req.get workDocsService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DescribeActivitiesResponse'
-            Lude.<$> (x Lude..?> "UserActivities" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeActivities where
-  toHeaders DescribeActivities' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath DescribeActivities where
-  toPath = Lude.const "/api/v1/activities"
-
-instance Lude.ToQuery DescribeActivities where
-  toQuery DescribeActivities' {..} =
-    Lude.mconcat
-      [ "resourceId" Lude.=: resourceId,
-        "includeIndirectActivities" Lude.=: includeIndirectActivities,
-        "startTime" Lude.=: startTime,
-        "userId" Lude.=: userId,
-        "marker" Lude.=: marker,
-        "endTime" Lude.=: endTime,
-        "limit" Lude.=: limit,
-        "activityTypes" Lude.=: activityTypes,
-        "organizationId" Lude.=: organizationId
-      ]
-
--- | /See:/ 'mkDescribeActivitiesResponse' smart constructor.
-data DescribeActivitiesResponse = DescribeActivitiesResponse'
-  { -- | The list of activities for the specified user and time period.
-    userActivities :: Lude.Maybe [Activity],
-    -- | The marker for the next set of results.
-    marker :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'DescribeActivitiesResponse' with the minimum fields required to make a request.
+-- | The timestamp that determines the end time of the activities. The response includes the activities performed before the specified timestamp.
 --
--- * 'userActivities' - The list of activities for the specified user and time period.
--- * 'marker' - The marker for the next set of results.
--- * 'responseStatus' - The response status code.
-mkDescribeActivitiesResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  DescribeActivitiesResponse
-mkDescribeActivitiesResponse pResponseStatus_ =
-  DescribeActivitiesResponse'
-    { userActivities = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daEndTime :: Lens.Lens' DescribeActivities (Core.Maybe Core.NominalDiffTime)
+daEndTime = Lens.field @"endTime"
+{-# DEPRECATED daEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
--- | The list of activities for the specified user and time period.
+-- | Includes indirect activities. An indirect activity results from a direct activity performed on a parent resource. For example, sharing a parent folder (the direct activity) shares all of the subfolders and documents within the parent folder (the indirect activity).
 --
--- /Note:/ Consider using 'userActivities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsUserActivities :: Lens.Lens' DescribeActivitiesResponse (Lude.Maybe [Activity])
-darsUserActivities = Lens.lens (userActivities :: DescribeActivitiesResponse -> Lude.Maybe [Activity]) (\s a -> s {userActivities = a} :: DescribeActivitiesResponse)
-{-# DEPRECATED darsUserActivities "Use generic-lens or generic-optics with 'userActivities' instead." #-}
+-- /Note:/ Consider using 'includeIndirectActivities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daIncludeIndirectActivities :: Lens.Lens' DescribeActivities (Core.Maybe Core.Bool)
+daIncludeIndirectActivities = Lens.field @"includeIndirectActivities"
+{-# DEPRECATED daIncludeIndirectActivities "Use generic-lens or generic-optics with 'includeIndirectActivities' instead." #-}
+
+-- | The maximum number of items to return.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daLimit :: Lens.Lens' DescribeActivities (Core.Maybe Core.Natural)
+daLimit = Lens.field @"limit"
+{-# DEPRECATED daLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The marker for the next set of results.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsMarker :: Lens.Lens' DescribeActivitiesResponse (Lude.Maybe Lude.Text)
-darsMarker = Lens.lens (marker :: DescribeActivitiesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeActivitiesResponse)
-{-# DEPRECATED darsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+daMarker :: Lens.Lens' DescribeActivities (Core.Maybe Types.Marker)
+daMarker = Lens.field @"marker"
+{-# DEPRECATED daMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The ID of the organization. This is a mandatory parameter when using administrative API (SigV4) requests.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daOrganizationId :: Lens.Lens' DescribeActivities (Core.Maybe Types.OrganizationId)
+daOrganizationId = Lens.field @"organizationId"
+{-# DEPRECATED daOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+
+-- | The document or folder ID for which to describe activity types.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daResourceId :: Lens.Lens' DescribeActivities (Core.Maybe Types.ResourceId)
+daResourceId = Lens.field @"resourceId"
+{-# DEPRECATED daResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The timestamp that determines the starting time of the activities. The response includes the activities performed after the specified timestamp.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daStartTime :: Lens.Lens' DescribeActivities (Core.Maybe Core.NominalDiffTime)
+daStartTime = Lens.field @"startTime"
+{-# DEPRECATED daStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The ID of the user who performed the action. The response includes activities pertaining to this user. This is an optional parameter and is only applicable for administrative API (SigV4) requests.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+daUserId :: Lens.Lens' DescribeActivities (Core.Maybe Types.UserId)
+daUserId = Lens.field @"userId"
+{-# DEPRECATED daUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+instance Core.AWSRequest DescribeActivities where
+  type Rs DescribeActivities = DescribeActivitiesResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/api/v1/activities",
+        Core._rqQuery =
+          Core.toQueryValue "activityTypes" Core.<$> activityTypes
+            Core.<> (Core.toQueryValue "endTime" Core.<$> endTime)
+            Core.<> ( Core.toQueryValue "includeIndirectActivities"
+                        Core.<$> includeIndirectActivities
+                    )
+            Core.<> (Core.toQueryValue "limit" Core.<$> limit)
+            Core.<> (Core.toQueryValue "marker" Core.<$> marker)
+            Core.<> (Core.toQueryValue "organizationId" Core.<$> organizationId)
+            Core.<> (Core.toQueryValue "resourceId" Core.<$> resourceId)
+            Core.<> (Core.toQueryValue "startTime" Core.<$> startTime)
+            Core.<> (Core.toQueryValue "userId" Core.<$> userId),
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeActivitiesResponse'
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "UserActivities")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager DescribeActivities where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"userActivities" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
+
+-- | /See:/ 'mkDescribeActivitiesResponse' smart constructor.
+data DescribeActivitiesResponse = DescribeActivitiesResponse'
+  { -- | The marker for the next set of results.
+    marker :: Core.Maybe Types.MarkerType,
+    -- | The list of activities for the specified user and time period.
+    userActivities :: Core.Maybe [Types.Activity],
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'DescribeActivitiesResponse' value with any optional fields omitted.
+mkDescribeActivitiesResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  DescribeActivitiesResponse
+mkDescribeActivitiesResponse responseStatus =
+  DescribeActivitiesResponse'
+    { marker = Core.Nothing,
+      userActivities = Core.Nothing,
+      responseStatus
+    }
+
+-- | The marker for the next set of results.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darrsMarker :: Lens.Lens' DescribeActivitiesResponse (Core.Maybe Types.MarkerType)
+darrsMarker = Lens.field @"marker"
+{-# DEPRECATED darrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The list of activities for the specified user and time period.
+--
+-- /Note:/ Consider using 'userActivities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darrsUserActivities :: Lens.Lens' DescribeActivitiesResponse (Core.Maybe [Types.Activity])
+darrsUserActivities = Lens.field @"userActivities"
+{-# DEPRECATED darrsUserActivities "Use generic-lens or generic-optics with 'userActivities' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsResponseStatus :: Lens.Lens' DescribeActivitiesResponse Lude.Int
-darsResponseStatus = Lens.lens (responseStatus :: DescribeActivitiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeActivitiesResponse)
-{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darrsResponseStatus :: Lens.Lens' DescribeActivitiesResponse Core.Int
+darrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

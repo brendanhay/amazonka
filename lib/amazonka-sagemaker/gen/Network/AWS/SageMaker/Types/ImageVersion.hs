@@ -18,141 +18,134 @@ module Network.AWS.SageMaker.Types.ImageVersion
 
     -- * Lenses
     ivCreationTime,
-    ivFailureReason,
-    ivLastModifiedTime,
+    ivImageArn,
+    ivImageVersionArn,
     ivImageVersionStatus,
+    ivLastModifiedTime,
     ivVersion,
-    ivImageARN,
-    ivImageVersionARN,
+    ivFailureReason,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.ImageVersionStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.FailureReason as Types
+import qualified Network.AWS.SageMaker.Types.ImageArn as Types
+import qualified Network.AWS.SageMaker.Types.ImageVersionArn as Types
+import qualified Network.AWS.SageMaker.Types.ImageVersionStatus as Types
 
 -- | A version of a SageMaker @Image@ . A version represents an existing container image.
 --
 -- /See:/ 'mkImageVersion' smart constructor.
 data ImageVersion = ImageVersion'
   { -- | When the version was created.
-    creationTime :: Lude.Timestamp,
-    -- | When a create or delete operation fails, the reason for the failure.
-    failureReason :: Lude.Maybe Lude.Text,
-    -- | When the version was last modified.
-    lastModifiedTime :: Lude.Timestamp,
-    -- | The status of the version.
-    imageVersionStatus :: ImageVersionStatus,
-    -- | The version number.
-    version :: Lude.Natural,
+    creationTime :: Core.NominalDiffTime,
     -- | The Amazon Resource Name (ARN) of the image the version is based on.
-    imageARN :: Lude.Text,
+    imageArn :: Types.ImageArn,
     -- | The ARN of the version.
-    imageVersionARN :: Lude.Text
+    imageVersionArn :: Types.ImageVersionArn,
+    -- | The status of the version.
+    imageVersionStatus :: Types.ImageVersionStatus,
+    -- | When the version was last modified.
+    lastModifiedTime :: Core.NominalDiffTime,
+    -- | The version number.
+    version :: Core.Natural,
+    -- | When a create or delete operation fails, the reason for the failure.
+    failureReason :: Core.Maybe Types.FailureReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ImageVersion' with the minimum fields required to make a request.
---
--- * 'creationTime' - When the version was created.
--- * 'failureReason' - When a create or delete operation fails, the reason for the failure.
--- * 'lastModifiedTime' - When the version was last modified.
--- * 'imageVersionStatus' - The status of the version.
--- * 'version' - The version number.
--- * 'imageARN' - The Amazon Resource Name (ARN) of the image the version is based on.
--- * 'imageVersionARN' - The ARN of the version.
+-- | Creates a 'ImageVersion' value with any optional fields omitted.
 mkImageVersion ::
   -- | 'creationTime'
-  Lude.Timestamp ->
-  -- | 'lastModifiedTime'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
+  -- | 'imageArn'
+  Types.ImageArn ->
+  -- | 'imageVersionArn'
+  Types.ImageVersionArn ->
   -- | 'imageVersionStatus'
-  ImageVersionStatus ->
+  Types.ImageVersionStatus ->
+  -- | 'lastModifiedTime'
+  Core.NominalDiffTime ->
   -- | 'version'
-  Lude.Natural ->
-  -- | 'imageARN'
-  Lude.Text ->
-  -- | 'imageVersionARN'
-  Lude.Text ->
+  Core.Natural ->
   ImageVersion
 mkImageVersion
-  pCreationTime_
-  pLastModifiedTime_
-  pImageVersionStatus_
-  pVersion_
-  pImageARN_
-  pImageVersionARN_ =
+  creationTime
+  imageArn
+  imageVersionArn
+  imageVersionStatus
+  lastModifiedTime
+  version =
     ImageVersion'
-      { creationTime = pCreationTime_,
-        failureReason = Lude.Nothing,
-        lastModifiedTime = pLastModifiedTime_,
-        imageVersionStatus = pImageVersionStatus_,
-        version = pVersion_,
-        imageARN = pImageARN_,
-        imageVersionARN = pImageVersionARN_
+      { creationTime,
+        imageArn,
+        imageVersionArn,
+        imageVersionStatus,
+        lastModifiedTime,
+        version,
+        failureReason = Core.Nothing
       }
 
 -- | When the version was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivCreationTime :: Lens.Lens' ImageVersion Lude.Timestamp
-ivCreationTime = Lens.lens (creationTime :: ImageVersion -> Lude.Timestamp) (\s a -> s {creationTime = a} :: ImageVersion)
+ivCreationTime :: Lens.Lens' ImageVersion Core.NominalDiffTime
+ivCreationTime = Lens.field @"creationTime"
 {-# DEPRECATED ivCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
--- | When a create or delete operation fails, the reason for the failure.
+-- | The Amazon Resource Name (ARN) of the image the version is based on.
 --
--- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivFailureReason :: Lens.Lens' ImageVersion (Lude.Maybe Lude.Text)
-ivFailureReason = Lens.lens (failureReason :: ImageVersion -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: ImageVersion)
-{-# DEPRECATED ivFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
+-- /Note:/ Consider using 'imageArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivImageArn :: Lens.Lens' ImageVersion Types.ImageArn
+ivImageArn = Lens.field @"imageArn"
+{-# DEPRECATED ivImageArn "Use generic-lens or generic-optics with 'imageArn' instead." #-}
 
--- | When the version was last modified.
+-- | The ARN of the version.
 --
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivLastModifiedTime :: Lens.Lens' ImageVersion Lude.Timestamp
-ivLastModifiedTime = Lens.lens (lastModifiedTime :: ImageVersion -> Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: ImageVersion)
-{-# DEPRECATED ivLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+-- /Note:/ Consider using 'imageVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivImageVersionArn :: Lens.Lens' ImageVersion Types.ImageVersionArn
+ivImageVersionArn = Lens.field @"imageVersionArn"
+{-# DEPRECATED ivImageVersionArn "Use generic-lens or generic-optics with 'imageVersionArn' instead." #-}
 
 -- | The status of the version.
 --
 -- /Note:/ Consider using 'imageVersionStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivImageVersionStatus :: Lens.Lens' ImageVersion ImageVersionStatus
-ivImageVersionStatus = Lens.lens (imageVersionStatus :: ImageVersion -> ImageVersionStatus) (\s a -> s {imageVersionStatus = a} :: ImageVersion)
+ivImageVersionStatus :: Lens.Lens' ImageVersion Types.ImageVersionStatus
+ivImageVersionStatus = Lens.field @"imageVersionStatus"
 {-# DEPRECATED ivImageVersionStatus "Use generic-lens or generic-optics with 'imageVersionStatus' instead." #-}
+
+-- | When the version was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivLastModifiedTime :: Lens.Lens' ImageVersion Core.NominalDiffTime
+ivLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED ivLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The version number.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivVersion :: Lens.Lens' ImageVersion Lude.Natural
-ivVersion = Lens.lens (version :: ImageVersion -> Lude.Natural) (\s a -> s {version = a} :: ImageVersion)
+ivVersion :: Lens.Lens' ImageVersion Core.Natural
+ivVersion = Lens.field @"version"
 {-# DEPRECATED ivVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the image the version is based on.
+-- | When a create or delete operation fails, the reason for the failure.
 --
--- /Note:/ Consider using 'imageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivImageARN :: Lens.Lens' ImageVersion Lude.Text
-ivImageARN = Lens.lens (imageARN :: ImageVersion -> Lude.Text) (\s a -> s {imageARN = a} :: ImageVersion)
-{-# DEPRECATED ivImageARN "Use generic-lens or generic-optics with 'imageARN' instead." #-}
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivFailureReason :: Lens.Lens' ImageVersion (Core.Maybe Types.FailureReason)
+ivFailureReason = Lens.field @"failureReason"
+{-# DEPRECATED ivFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
--- | The ARN of the version.
---
--- /Note:/ Consider using 'imageVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivImageVersionARN :: Lens.Lens' ImageVersion Lude.Text
-ivImageVersionARN = Lens.lens (imageVersionARN :: ImageVersion -> Lude.Text) (\s a -> s {imageVersionARN = a} :: ImageVersion)
-{-# DEPRECATED ivImageVersionARN "Use generic-lens or generic-optics with 'imageVersionARN' instead." #-}
-
-instance Lude.FromJSON ImageVersion where
+instance Core.FromJSON ImageVersion where
   parseJSON =
-    Lude.withObject
-      "ImageVersion"
-      ( \x ->
-          ImageVersion'
-            Lude.<$> (x Lude..: "CreationTime")
-            Lude.<*> (x Lude..:? "FailureReason")
-            Lude.<*> (x Lude..: "LastModifiedTime")
-            Lude.<*> (x Lude..: "ImageVersionStatus")
-            Lude.<*> (x Lude..: "Version")
-            Lude.<*> (x Lude..: "ImageArn")
-            Lude.<*> (x Lude..: "ImageVersionArn")
-      )
+    Core.withObject "ImageVersion" Core.$
+      \x ->
+        ImageVersion'
+          Core.<$> (x Core..: "CreationTime")
+          Core.<*> (x Core..: "ImageArn")
+          Core.<*> (x Core..: "ImageVersionArn")
+          Core.<*> (x Core..: "ImageVersionStatus")
+          Core.<*> (x Core..: "LastModifiedTime")
+          Core.<*> (x Core..: "Version")
+          Core.<*> (x Core..:? "FailureReason")

@@ -16,6 +16,6 @@ module Network.AWS.Pricing.Waiters
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Pricing.Types
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Pricing.Types as Types
+import qualified Network.AWS.Waiter as Waiter

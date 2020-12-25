@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.MarketplaceMetering
     Network.AWS.MarketplaceMetering.BatchMeterUsage
@@ -75,11 +81,21 @@ library
     Network.AWS.MarketplaceMetering.Waiters
 
   other-modules:
+    Network.AWS.MarketplaceMetering.Types.CustomerIdentifier
+    Network.AWS.MarketplaceMetering.Types.Key
+    Network.AWS.MarketplaceMetering.Types.MeteringRecordId
+    Network.AWS.MarketplaceMetering.Types.Nonce
+    Network.AWS.MarketplaceMetering.Types.NonEmptyString
+    Network.AWS.MarketplaceMetering.Types.ProductCode
+    Network.AWS.MarketplaceMetering.Types.Signature
+    Network.AWS.MarketplaceMetering.Types.String
     Network.AWS.MarketplaceMetering.Types.Tag
     Network.AWS.MarketplaceMetering.Types.UsageAllocation
+    Network.AWS.MarketplaceMetering.Types.UsageDimension
     Network.AWS.MarketplaceMetering.Types.UsageRecord
     Network.AWS.MarketplaceMetering.Types.UsageRecordResult
     Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus
+    Network.AWS.MarketplaceMetering.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

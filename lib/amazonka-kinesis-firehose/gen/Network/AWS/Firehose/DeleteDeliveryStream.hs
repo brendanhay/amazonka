@@ -23,8 +23,8 @@ module Network.AWS.Firehose.DeleteDeliveryStream
     mkDeleteDeliveryStream,
 
     -- ** Request lenses
-    ddsAllowForceDelete,
-    ddsDeliveryStreamName,
+    dDeliveryStreamName,
+    dAllowForceDelete,
 
     -- * Destructuring the response
     DeleteDeliveryStreamResponse (..),
@@ -35,113 +35,100 @@ module Network.AWS.Firehose.DeleteDeliveryStream
   )
 where
 
-import Network.AWS.Firehose.Types
+import qualified Network.AWS.Firehose.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDeliveryStream' smart constructor.
 data DeleteDeliveryStream = DeleteDeliveryStream'
-  { -- | Set this to true if you want to delete the delivery stream even if Kinesis Data Firehose is unable to retire the grant for the CMK. Kinesis Data Firehose might be unable to retire the grant due to a customer error, such as when the CMK or the grant are in an invalid state. If you force deletion, you can then use the <https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html RevokeGrant> operation to revoke the grant you gave to Kinesis Data Firehose. If a failure to retire the grant happens due to an AWS KMS issue, Kinesis Data Firehose keeps retrying the delete operation.
+  { -- | The name of the delivery stream.
+    deliveryStreamName :: Types.DeliveryStreamName,
+    -- | Set this to true if you want to delete the delivery stream even if Kinesis Data Firehose is unable to retire the grant for the CMK. Kinesis Data Firehose might be unable to retire the grant due to a customer error, such as when the CMK or the grant are in an invalid state. If you force deletion, you can then use the <https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html RevokeGrant> operation to revoke the grant you gave to Kinesis Data Firehose. If a failure to retire the grant happens due to an AWS KMS issue, Kinesis Data Firehose keeps retrying the delete operation.
     --
     -- The default value is false.
-    allowForceDelete :: Lude.Maybe Lude.Bool,
-    -- | The name of the delivery stream.
-    deliveryStreamName :: Lude.Text
+    allowForceDelete :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDeliveryStream' with the minimum fields required to make a request.
---
--- * 'allowForceDelete' - Set this to true if you want to delete the delivery stream even if Kinesis Data Firehose is unable to retire the grant for the CMK. Kinesis Data Firehose might be unable to retire the grant due to a customer error, such as when the CMK or the grant are in an invalid state. If you force deletion, you can then use the <https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html RevokeGrant> operation to revoke the grant you gave to Kinesis Data Firehose. If a failure to retire the grant happens due to an AWS KMS issue, Kinesis Data Firehose keeps retrying the delete operation.
---
--- The default value is false.
--- * 'deliveryStreamName' - The name of the delivery stream.
+-- | Creates a 'DeleteDeliveryStream' value with any optional fields omitted.
 mkDeleteDeliveryStream ::
   -- | 'deliveryStreamName'
-  Lude.Text ->
+  Types.DeliveryStreamName ->
   DeleteDeliveryStream
-mkDeleteDeliveryStream pDeliveryStreamName_ =
+mkDeleteDeliveryStream deliveryStreamName =
   DeleteDeliveryStream'
-    { allowForceDelete = Lude.Nothing,
-      deliveryStreamName = pDeliveryStreamName_
+    { deliveryStreamName,
+      allowForceDelete = Core.Nothing
     }
+
+-- | The name of the delivery stream.
+--
+-- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDeliveryStreamName :: Lens.Lens' DeleteDeliveryStream Types.DeliveryStreamName
+dDeliveryStreamName = Lens.field @"deliveryStreamName"
+{-# DEPRECATED dDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
 -- | Set this to true if you want to delete the delivery stream even if Kinesis Data Firehose is unable to retire the grant for the CMK. Kinesis Data Firehose might be unable to retire the grant due to a customer error, such as when the CMK or the grant are in an invalid state. If you force deletion, you can then use the <https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html RevokeGrant> operation to revoke the grant you gave to Kinesis Data Firehose. If a failure to retire the grant happens due to an AWS KMS issue, Kinesis Data Firehose keeps retrying the delete operation.
 --
 -- The default value is false.
 --
 -- /Note:/ Consider using 'allowForceDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsAllowForceDelete :: Lens.Lens' DeleteDeliveryStream (Lude.Maybe Lude.Bool)
-ddsAllowForceDelete = Lens.lens (allowForceDelete :: DeleteDeliveryStream -> Lude.Maybe Lude.Bool) (\s a -> s {allowForceDelete = a} :: DeleteDeliveryStream)
-{-# DEPRECATED ddsAllowForceDelete "Use generic-lens or generic-optics with 'allowForceDelete' instead." #-}
+dAllowForceDelete :: Lens.Lens' DeleteDeliveryStream (Core.Maybe Core.Bool)
+dAllowForceDelete = Lens.field @"allowForceDelete"
+{-# DEPRECATED dAllowForceDelete "Use generic-lens or generic-optics with 'allowForceDelete' instead." #-}
 
--- | The name of the delivery stream.
---
--- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsDeliveryStreamName :: Lens.Lens' DeleteDeliveryStream Lude.Text
-ddsDeliveryStreamName = Lens.lens (deliveryStreamName :: DeleteDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: DeleteDeliveryStream)
-{-# DEPRECATED ddsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
+instance Core.FromJSON DeleteDeliveryStream where
+  toJSON DeleteDeliveryStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DeliveryStreamName" Core..= deliveryStreamName),
+            ("AllowForceDelete" Core..=) Core.<$> allowForceDelete
+          ]
+      )
 
-instance Lude.AWSRequest DeleteDeliveryStream where
+instance Core.AWSRequest DeleteDeliveryStream where
   type Rs DeleteDeliveryStream = DeleteDeliveryStreamResponse
-  request = Req.postJSON firehoseService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Firehose_20150804.DeleteDeliveryStream")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteDeliveryStreamResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDeliveryStream where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Firehose_20150804.DeleteDeliveryStream" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteDeliveryStream where
-  toJSON DeleteDeliveryStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AllowForceDelete" Lude..=) Lude.<$> allowForceDelete,
-            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName)
-          ]
-      )
-
-instance Lude.ToPath DeleteDeliveryStream where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDeliveryStream where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteDeliveryStreamResponse' smart constructor.
 newtype DeleteDeliveryStreamResponse = DeleteDeliveryStreamResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDeliveryStreamResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDeliveryStreamResponse' value with any optional fields omitted.
 mkDeleteDeliveryStreamResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDeliveryStreamResponse
-mkDeleteDeliveryStreamResponse pResponseStatus_ =
-  DeleteDeliveryStreamResponse' {responseStatus = pResponseStatus_}
+mkDeleteDeliveryStreamResponse responseStatus =
+  DeleteDeliveryStreamResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteDeliveryStreamResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteDeliveryStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDeliveryStreamResponse)
+drsResponseStatus :: Lens.Lens' DeleteDeliveryStreamResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

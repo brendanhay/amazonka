@@ -23,72 +23,39 @@ module Network.AWS.MachineLearning.DescribeMLModels
 
     -- ** Request lenses
     dmlmEQ,
+    dmlmFilterVariable,
     dmlmGE,
-    dmlmPrefix,
     dmlmGT,
+    dmlmLE,
+    dmlmLT,
+    dmlmLimit,
     dmlmNE,
     dmlmNextToken,
+    dmlmPrefix,
     dmlmSortOrder,
-    dmlmLimit,
-    dmlmLT,
-    dmlmFilterVariable,
-    dmlmLE,
 
     -- * Destructuring the response
     DescribeMLModelsResponse (..),
     mkDescribeMLModelsResponse,
 
     -- ** Response lenses
-    dmlmrsResults,
-    dmlmrsNextToken,
-    dmlmrsResponseStatus,
+    dmlmrfrsNextToken,
+    dmlmrfrsResults,
+    dmlmrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeMLModels' smart constructor.
 data DescribeMLModels = DescribeMLModels'
   { -- | The equal to operator. The @MLModel@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
-    eQ :: Lude.Maybe Lude.Text,
-    -- | The greater than or equal to operator. The @MLModel@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
-    gE :: Lude.Maybe Lude.Text,
-    -- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
-    --
-    -- For example, an @MLModel@ could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @MLModel@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
-    --
-    --     * 2014-09
-    --
-    --
-    --     * 2014-09-09
-    --
-    --
-    --     * 2014-09-09-Holiday
-    prefix :: Lude.Maybe Lude.Text,
-    -- | The greater than operator. The @MLModel@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
-    gT :: Lude.Maybe Lude.Text,
-    -- | The not equal to operator. The @MLModel@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
-    nE :: Lude.Maybe Lude.Text,
-    -- | The ID of the page in the paginated results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A two-value parameter that determines the sequence of the resulting list of @MLModel@ .
-    --
-    --
-    --     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
-    --
-    --     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
-    --
-    -- Results are sorted by @FilterVariable@ .
-    sortOrder :: Lude.Maybe SortOrder,
-    -- | The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
-    limit :: Lude.Maybe Lude.Natural,
-    -- | The less than operator. The @MLModel@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
-    lT :: Lude.Maybe Lude.Text,
+    eq :: Core.Maybe Types.EQ,
     -- | Use one of the following variables to filter a list of @MLModel@ :
     --
     --
@@ -109,163 +76,70 @@ data DescribeMLModels = DescribeMLModels'
     --     * @Algorithm@ - Sets the search criteria to the algorithm that the @MLModel@ uses.
     --
     --     * @TrainingDataURI@ - Sets the search criteria to the data file(s) used in training a @MLModel@ . The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
-    filterVariable :: Lude.Maybe MLModelFilterVariable,
+    filterVariable :: Core.Maybe Types.MLModelFilterVariable,
+    -- | The greater than or equal to operator. The @MLModel@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
+    ge :: Core.Maybe Types.GE,
+    -- | The greater than operator. The @MLModel@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
+    gt :: Core.Maybe Types.GT,
     -- | The less than or equal to operator. The @MLModel@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
-    lE :: Lude.Maybe Lude.Text
+    le :: Core.Maybe Types.LE,
+    -- | The less than operator. The @MLModel@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
+    lt :: Core.Maybe Types.LT,
+    -- | The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
+    limit :: Core.Maybe Core.Natural,
+    -- | The not equal to operator. The @MLModel@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
+    ne :: Core.Maybe Types.NE,
+    -- | The ID of the page in the paginated results.
+    nextToken :: Core.Maybe Types.StringType,
+    -- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
+    --
+    -- For example, an @MLModel@ could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @MLModel@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
+    --
+    --     * 2014-09
+    --
+    --
+    --     * 2014-09-09
+    --
+    --
+    --     * 2014-09-09-Holiday
+    prefix :: Core.Maybe Types.Prefix,
+    -- | A two-value parameter that determines the sequence of the resulting list of @MLModel@ .
+    --
+    --
+    --     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+    --
+    --     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+    --
+    -- Results are sorted by @FilterVariable@ .
+    sortOrder :: Core.Maybe Types.SortOrder
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMLModels' with the minimum fields required to make a request.
---
--- * 'eQ' - The equal to operator. The @MLModel@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
--- * 'gE' - The greater than or equal to operator. The @MLModel@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
--- * 'prefix' - A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
---
--- For example, an @MLModel@ could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @MLModel@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
---
---     * 2014-09
---
---
---     * 2014-09-09
---
---
---     * 2014-09-09-Holiday
---
---
--- * 'gT' - The greater than operator. The @MLModel@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
--- * 'nE' - The not equal to operator. The @MLModel@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
--- * 'nextToken' - The ID of the page in the paginated results.
--- * 'sortOrder' - A two-value parameter that determines the sequence of the resulting list of @MLModel@ .
---
---
---     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
---
---     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@ .
--- * 'limit' - The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
--- * 'lT' - The less than operator. The @MLModel@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
--- * 'filterVariable' - Use one of the following variables to filter a list of @MLModel@ :
---
---
---     * @CreatedAt@ - Sets the search criteria to @MLModel@ creation date.
---
---     * @Status@ - Sets the search criteria to @MLModel@ status.
---
---     * @Name@ - Sets the search criteria to the contents of @MLModel@ ____ @Name@ .
---
---     * @IAMUser@ - Sets the search criteria to the user account that invoked the @MLModel@ creation.
---
---     * @TrainingDataSourceId@ - Sets the search criteria to the @DataSource@ used to train one or more @MLModel@ .
---
---     * @RealtimeEndpointStatus@ - Sets the search criteria to the @MLModel@ real-time endpoint status.
---
---     * @MLModelType@ - Sets the search criteria to @MLModel@ type: binary, regression, or multi-class.
---
---     * @Algorithm@ - Sets the search criteria to the algorithm that the @MLModel@ uses.
---
---     * @TrainingDataURI@ - Sets the search criteria to the data file(s) used in training a @MLModel@ . The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
---
--- * 'lE' - The less than or equal to operator. The @MLModel@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
+-- | Creates a 'DescribeMLModels' value with any optional fields omitted.
 mkDescribeMLModels ::
   DescribeMLModels
 mkDescribeMLModels =
   DescribeMLModels'
-    { eQ = Lude.Nothing,
-      gE = Lude.Nothing,
-      prefix = Lude.Nothing,
-      gT = Lude.Nothing,
-      nE = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      limit = Lude.Nothing,
-      lT = Lude.Nothing,
-      filterVariable = Lude.Nothing,
-      lE = Lude.Nothing
+    { eq = Core.Nothing,
+      filterVariable = Core.Nothing,
+      ge = Core.Nothing,
+      gt = Core.Nothing,
+      le = Core.Nothing,
+      lt = Core.Nothing,
+      limit = Core.Nothing,
+      ne = Core.Nothing,
+      nextToken = Core.Nothing,
+      prefix = Core.Nothing,
+      sortOrder = Core.Nothing
     }
 
 -- | The equal to operator. The @MLModel@ results will have @FilterVariable@ values that exactly match the value specified with @EQ@ .
 --
--- /Note:/ Consider using 'eQ' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmEQ :: Lens.Lens' DescribeMLModels (Lude.Maybe Lude.Text)
-dmlmEQ = Lens.lens (eQ :: DescribeMLModels -> Lude.Maybe Lude.Text) (\s a -> s {eQ = a} :: DescribeMLModels)
-{-# DEPRECATED dmlmEQ "Use generic-lens or generic-optics with 'eQ' instead." #-}
-
--- | The greater than or equal to operator. The @MLModel@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
---
--- /Note:/ Consider using 'gE' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmGE :: Lens.Lens' DescribeMLModels (Lude.Maybe Lude.Text)
-dmlmGE = Lens.lens (gE :: DescribeMLModels -> Lude.Maybe Lude.Text) (\s a -> s {gE = a} :: DescribeMLModels)
-{-# DEPRECATED dmlmGE "Use generic-lens or generic-optics with 'gE' instead." #-}
-
--- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
---
--- For example, an @MLModel@ could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @MLModel@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
---
---     * 2014-09
---
---
---     * 2014-09-09
---
---
---     * 2014-09-09-Holiday
---
---
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmPrefix :: Lens.Lens' DescribeMLModels (Lude.Maybe Lude.Text)
-dmlmPrefix = Lens.lens (prefix :: DescribeMLModels -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: DescribeMLModels)
-{-# DEPRECATED dmlmPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
-
--- | The greater than operator. The @MLModel@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
---
--- /Note:/ Consider using 'gT' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmGT :: Lens.Lens' DescribeMLModels (Lude.Maybe Lude.Text)
-dmlmGT = Lens.lens (gT :: DescribeMLModels -> Lude.Maybe Lude.Text) (\s a -> s {gT = a} :: DescribeMLModels)
-{-# DEPRECATED dmlmGT "Use generic-lens or generic-optics with 'gT' instead." #-}
-
--- | The not equal to operator. The @MLModel@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
---
--- /Note:/ Consider using 'nE' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmNE :: Lens.Lens' DescribeMLModels (Lude.Maybe Lude.Text)
-dmlmNE = Lens.lens (nE :: DescribeMLModels -> Lude.Maybe Lude.Text) (\s a -> s {nE = a} :: DescribeMLModels)
-{-# DEPRECATED dmlmNE "Use generic-lens or generic-optics with 'nE' instead." #-}
-
--- | The ID of the page in the paginated results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmNextToken :: Lens.Lens' DescribeMLModels (Lude.Maybe Lude.Text)
-dmlmNextToken = Lens.lens (nextToken :: DescribeMLModels -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMLModels)
-{-# DEPRECATED dmlmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | A two-value parameter that determines the sequence of the resulting list of @MLModel@ .
---
---
---     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
---
---     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
---
--- Results are sorted by @FilterVariable@ .
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmSortOrder :: Lens.Lens' DescribeMLModels (Lude.Maybe SortOrder)
-dmlmSortOrder = Lens.lens (sortOrder :: DescribeMLModels -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: DescribeMLModels)
-{-# DEPRECATED dmlmSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
-
--- | The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmLimit :: Lens.Lens' DescribeMLModels (Lude.Maybe Lude.Natural)
-dmlmLimit = Lens.lens (limit :: DescribeMLModels -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeMLModels)
-{-# DEPRECATED dmlmLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
-
--- | The less than operator. The @MLModel@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
---
--- /Note:/ Consider using 'lT' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmLT :: Lens.Lens' DescribeMLModels (Lude.Maybe Lude.Text)
-dmlmLT = Lens.lens (lT :: DescribeMLModels -> Lude.Maybe Lude.Text) (\s a -> s {lT = a} :: DescribeMLModels)
-{-# DEPRECATED dmlmLT "Use generic-lens or generic-optics with 'lT' instead." #-}
+-- /Note:/ Consider using 'eq' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmEQ :: Lens.Lens' DescribeMLModels (Core.Maybe Types.EQ)
+dmlmEQ = Lens.field @"eq"
+{-# DEPRECATED dmlmEQ "Use generic-lens or generic-optics with 'eq' instead." #-}
 
 -- | Use one of the following variables to filter a list of @MLModel@ :
 --
@@ -290,120 +164,186 @@ dmlmLT = Lens.lens (lT :: DescribeMLModels -> Lude.Maybe Lude.Text) (\s a -> s {
 --
 --
 -- /Note:/ Consider using 'filterVariable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmFilterVariable :: Lens.Lens' DescribeMLModels (Lude.Maybe MLModelFilterVariable)
-dmlmFilterVariable = Lens.lens (filterVariable :: DescribeMLModels -> Lude.Maybe MLModelFilterVariable) (\s a -> s {filterVariable = a} :: DescribeMLModels)
+dmlmFilterVariable :: Lens.Lens' DescribeMLModels (Core.Maybe Types.MLModelFilterVariable)
+dmlmFilterVariable = Lens.field @"filterVariable"
 {-# DEPRECATED dmlmFilterVariable "Use generic-lens or generic-optics with 'filterVariable' instead." #-}
+
+-- | The greater than or equal to operator. The @MLModel@ results will have @FilterVariable@ values that are greater than or equal to the value specified with @GE@ .
+--
+-- /Note:/ Consider using 'ge' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmGE :: Lens.Lens' DescribeMLModels (Core.Maybe Types.GE)
+dmlmGE = Lens.field @"ge"
+{-# DEPRECATED dmlmGE "Use generic-lens or generic-optics with 'ge' instead." #-}
+
+-- | The greater than operator. The @MLModel@ results will have @FilterVariable@ values that are greater than the value specified with @GT@ .
+--
+-- /Note:/ Consider using 'gt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmGT :: Lens.Lens' DescribeMLModels (Core.Maybe Types.GT)
+dmlmGT = Lens.field @"gt"
+{-# DEPRECATED dmlmGT "Use generic-lens or generic-optics with 'gt' instead." #-}
 
 -- | The less than or equal to operator. The @MLModel@ results will have @FilterVariable@ values that are less than or equal to the value specified with @LE@ .
 --
--- /Note:/ Consider using 'lE' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmLE :: Lens.Lens' DescribeMLModels (Lude.Maybe Lude.Text)
-dmlmLE = Lens.lens (lE :: DescribeMLModels -> Lude.Maybe Lude.Text) (\s a -> s {lE = a} :: DescribeMLModels)
-{-# DEPRECATED dmlmLE "Use generic-lens or generic-optics with 'lE' instead." #-}
+-- /Note:/ Consider using 'le' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmLE :: Lens.Lens' DescribeMLModels (Core.Maybe Types.LE)
+dmlmLE = Lens.field @"le"
+{-# DEPRECATED dmlmLE "Use generic-lens or generic-optics with 'le' instead." #-}
 
-instance Page.AWSPager DescribeMLModels where
-  page rq rs
-    | Page.stop (rs Lens.^. dmlmrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dmlmrsResults) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dmlmNextToken Lens..~ rs Lens.^. dmlmrsNextToken
+-- | The less than operator. The @MLModel@ results will have @FilterVariable@ values that are less than the value specified with @LT@ .
+--
+-- /Note:/ Consider using 'lt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmLT :: Lens.Lens' DescribeMLModels (Core.Maybe Types.LT)
+dmlmLT = Lens.field @"lt"
+{-# DEPRECATED dmlmLT "Use generic-lens or generic-optics with 'lt' instead." #-}
 
-instance Lude.AWSRequest DescribeMLModels where
+-- | The number of pages of information to include in the result. The range of acceptable values is @1@ through @100@ . The default value is @100@ .
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmLimit :: Lens.Lens' DescribeMLModels (Core.Maybe Core.Natural)
+dmlmLimit = Lens.field @"limit"
+{-# DEPRECATED dmlmLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | The not equal to operator. The @MLModel@ results will have @FilterVariable@ values not equal to the value specified with @NE@ .
+--
+-- /Note:/ Consider using 'ne' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmNE :: Lens.Lens' DescribeMLModels (Core.Maybe Types.NE)
+dmlmNE = Lens.field @"ne"
+{-# DEPRECATED dmlmNE "Use generic-lens or generic-optics with 'ne' instead." #-}
+
+-- | The ID of the page in the paginated results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmNextToken :: Lens.Lens' DescribeMLModels (Core.Maybe Types.StringType)
+dmlmNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dmlmNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A string that is found at the beginning of a variable, such as @Name@ or @Id@ .
+--
+-- For example, an @MLModel@ could have the @Name@ @2014-09-09-HolidayGiftMailer@ . To search for this @MLModel@ , select @Name@ for the @FilterVariable@ and any of the following strings for the @Prefix@ :
+--
+--     * 2014-09
+--
+--
+--     * 2014-09-09
+--
+--
+--     * 2014-09-09-Holiday
+--
+--
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmPrefix :: Lens.Lens' DescribeMLModels (Core.Maybe Types.Prefix)
+dmlmPrefix = Lens.field @"prefix"
+{-# DEPRECATED dmlmPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+-- | A two-value parameter that determines the sequence of the resulting list of @MLModel@ .
+--
+--
+--     * @asc@ - Arranges the list in ascending order (A-Z, 0-9).
+--
+--     * @dsc@ - Arranges the list in descending order (Z-A, 9-0).
+--
+-- Results are sorted by @FilterVariable@ .
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmSortOrder :: Lens.Lens' DescribeMLModels (Core.Maybe Types.SortOrder)
+dmlmSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED dmlmSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
+
+instance Core.FromJSON DescribeMLModels where
+  toJSON DescribeMLModels {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EQ" Core..=) Core.<$> eq,
+            ("FilterVariable" Core..=) Core.<$> filterVariable,
+            ("GE" Core..=) Core.<$> ge,
+            ("GT" Core..=) Core.<$> gt,
+            ("LE" Core..=) Core.<$> le,
+            ("LT" Core..=) Core.<$> lt,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NE" Core..=) Core.<$> ne,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Prefix" Core..=) Core.<$> prefix,
+            ("SortOrder" Core..=) Core.<$> sortOrder
+          ]
+      )
+
+instance Core.AWSRequest DescribeMLModels where
   type Rs DescribeMLModels = DescribeMLModelsResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonML_20141212.DescribeMLModels")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeMLModelsResponse'
-            Lude.<$> (x Lude..?> "Results" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Results")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeMLModels where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.DescribeMLModels" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeMLModels where
-  toJSON DescribeMLModels' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EQ" Lude..=) Lude.<$> eQ,
-            ("GE" Lude..=) Lude.<$> gE,
-            ("Prefix" Lude..=) Lude.<$> prefix,
-            ("GT" Lude..=) Lude.<$> gT,
-            ("NE" Lude..=) Lude.<$> nE,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("LT" Lude..=) Lude.<$> lT,
-            ("FilterVariable" Lude..=) Lude.<$> filterVariable,
-            ("LE" Lude..=) Lude.<$> lE
-          ]
-      )
-
-instance Lude.ToPath DescribeMLModels where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeMLModels where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeMLModels where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"results" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the output of a @DescribeMLModels@ operation. The content is essentially a list of @MLModel@ .
 --
 -- /See:/ 'mkDescribeMLModelsResponse' smart constructor.
 data DescribeMLModelsResponse = DescribeMLModelsResponse'
-  { -- | A list of @MLModel@ that meet the search criteria.
-    results :: Lude.Maybe [MLModel],
-    -- | The ID of the next page in the paginated results that indicates at least one more page follows.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The ID of the next page in the paginated results that indicates at least one more page follows.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A list of @MLModel@ that meet the search criteria.
+    results :: Core.Maybe [Types.MLModel],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeMLModelsResponse' with the minimum fields required to make a request.
---
--- * 'results' - A list of @MLModel@ that meet the search criteria.
--- * 'nextToken' - The ID of the next page in the paginated results that indicates at least one more page follows.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeMLModelsResponse' value with any optional fields omitted.
 mkDescribeMLModelsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeMLModelsResponse
-mkDescribeMLModelsResponse pResponseStatus_ =
+mkDescribeMLModelsResponse responseStatus =
   DescribeMLModelsResponse'
-    { results = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      results = Core.Nothing,
+      responseStatus
     }
-
--- | A list of @MLModel@ that meet the search criteria.
---
--- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmrsResults :: Lens.Lens' DescribeMLModelsResponse (Lude.Maybe [MLModel])
-dmlmrsResults = Lens.lens (results :: DescribeMLModelsResponse -> Lude.Maybe [MLModel]) (\s a -> s {results = a} :: DescribeMLModelsResponse)
-{-# DEPRECATED dmlmrsResults "Use generic-lens or generic-optics with 'results' instead." #-}
 
 -- | The ID of the next page in the paginated results that indicates at least one more page follows.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmrsNextToken :: Lens.Lens' DescribeMLModelsResponse (Lude.Maybe Lude.Text)
-dmlmrsNextToken = Lens.lens (nextToken :: DescribeMLModelsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMLModelsResponse)
-{-# DEPRECATED dmlmrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dmlmrfrsNextToken :: Lens.Lens' DescribeMLModelsResponse (Core.Maybe Types.NextToken)
+dmlmrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dmlmrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of @MLModel@ that meet the search criteria.
+--
+-- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmlmrfrsResults :: Lens.Lens' DescribeMLModelsResponse (Core.Maybe [Types.MLModel])
+dmlmrfrsResults = Lens.field @"results"
+{-# DEPRECATED dmlmrfrsResults "Use generic-lens or generic-optics with 'results' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmlmrsResponseStatus :: Lens.Lens' DescribeMLModelsResponse Lude.Int
-dmlmrsResponseStatus = Lens.lens (responseStatus :: DescribeMLModelsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMLModelsResponse)
-{-# DEPRECATED dmlmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmlmrfrsResponseStatus :: Lens.Lens' DescribeMLModelsResponse Core.Int
+dmlmrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmlmrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

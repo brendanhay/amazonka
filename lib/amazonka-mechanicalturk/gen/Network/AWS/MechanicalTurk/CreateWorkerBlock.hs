@@ -20,119 +20,108 @@ module Network.AWS.MechanicalTurk.CreateWorkerBlock
     mkCreateWorkerBlock,
 
     -- ** Request lenses
-    cwbReason,
     cwbWorkerId,
+    cwbReason,
 
     -- * Destructuring the response
     CreateWorkerBlockResponse (..),
     mkCreateWorkerBlockResponse,
 
     -- ** Response lenses
-    cwbrsResponseStatus,
+    cwbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateWorkerBlock' smart constructor.
 data CreateWorkerBlock = CreateWorkerBlock'
-  { -- | A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
-    reason :: Lude.Text,
-    -- | The ID of the Worker to block.
-    workerId :: Lude.Text
+  { -- | The ID of the Worker to block.
+    workerId :: Types.CustomerId,
+    -- | A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
+    reason :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateWorkerBlock' with the minimum fields required to make a request.
---
--- * 'reason' - A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
--- * 'workerId' - The ID of the Worker to block.
+-- | Creates a 'CreateWorkerBlock' value with any optional fields omitted.
 mkCreateWorkerBlock ::
-  -- | 'reason'
-  Lude.Text ->
   -- | 'workerId'
-  Lude.Text ->
+  Types.CustomerId ->
+  -- | 'reason'
+  Types.String ->
   CreateWorkerBlock
-mkCreateWorkerBlock pReason_ pWorkerId_ =
-  CreateWorkerBlock' {reason = pReason_, workerId = pWorkerId_}
-
--- | A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwbReason :: Lens.Lens' CreateWorkerBlock Lude.Text
-cwbReason = Lens.lens (reason :: CreateWorkerBlock -> Lude.Text) (\s a -> s {reason = a} :: CreateWorkerBlock)
-{-# DEPRECATED cwbReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+mkCreateWorkerBlock workerId reason =
+  CreateWorkerBlock' {workerId, reason}
 
 -- | The ID of the Worker to block.
 --
 -- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwbWorkerId :: Lens.Lens' CreateWorkerBlock Lude.Text
-cwbWorkerId = Lens.lens (workerId :: CreateWorkerBlock -> Lude.Text) (\s a -> s {workerId = a} :: CreateWorkerBlock)
+cwbWorkerId :: Lens.Lens' CreateWorkerBlock Types.CustomerId
+cwbWorkerId = Lens.field @"workerId"
 {-# DEPRECATED cwbWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
 
-instance Lude.AWSRequest CreateWorkerBlock where
+-- | A message explaining the reason for blocking the Worker. This parameter enables you to keep track of your Workers. The Worker does not see this message.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cwbReason :: Lens.Lens' CreateWorkerBlock Types.String
+cwbReason = Lens.field @"reason"
+{-# DEPRECATED cwbReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+instance Core.FromJSON CreateWorkerBlock where
+  toJSON CreateWorkerBlock {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("WorkerId" Core..= workerId),
+            Core.Just ("Reason" Core..= reason)
+          ]
+      )
+
+instance Core.AWSRequest CreateWorkerBlock where
   type Rs CreateWorkerBlock = CreateWorkerBlockResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.CreateWorkerBlock"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          CreateWorkerBlockResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          CreateWorkerBlockResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateWorkerBlock where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.CreateWorkerBlock" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateWorkerBlock where
-  toJSON CreateWorkerBlock' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Reason" Lude..= reason),
-            Lude.Just ("WorkerId" Lude..= workerId)
-          ]
-      )
-
-instance Lude.ToPath CreateWorkerBlock where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateWorkerBlock where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateWorkerBlockResponse' smart constructor.
 newtype CreateWorkerBlockResponse = CreateWorkerBlockResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateWorkerBlockResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateWorkerBlockResponse' value with any optional fields omitted.
 mkCreateWorkerBlockResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateWorkerBlockResponse
-mkCreateWorkerBlockResponse pResponseStatus_ =
-  CreateWorkerBlockResponse' {responseStatus = pResponseStatus_}
+mkCreateWorkerBlockResponse responseStatus =
+  CreateWorkerBlockResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cwbrsResponseStatus :: Lens.Lens' CreateWorkerBlockResponse Lude.Int
-cwbrsResponseStatus = Lens.lens (responseStatus :: CreateWorkerBlockResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateWorkerBlockResponse)
-{-# DEPRECATED cwbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cwbrrsResponseStatus :: Lens.Lens' CreateWorkerBlockResponse Core.Int
+cwbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cwbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

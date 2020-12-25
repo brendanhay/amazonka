@@ -20,119 +20,103 @@ module Network.AWS.DynamoDB.DescribeTable
     mkDescribeTable,
 
     -- ** Request lenses
-    dtTableName,
+    dtfTableName,
 
     -- * Destructuring the response
     DescribeTableResponse (..),
     mkDescribeTableResponse,
 
     -- ** Response lenses
-    dtrsTable,
-    dtrsResponseStatus,
+    drsTable,
+    drsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DescribeTable@ operation.
 --
 -- /See:/ 'mkDescribeTable' smart constructor.
 newtype DescribeTable = DescribeTable'
   { -- | The name of the table to describe.
-    tableName :: Lude.Text
+    tableName :: Types.TableName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTable' with the minimum fields required to make a request.
---
--- * 'tableName' - The name of the table to describe.
+-- | Creates a 'DescribeTable' value with any optional fields omitted.
 mkDescribeTable ::
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   DescribeTable
-mkDescribeTable pTableName_ =
-  DescribeTable' {tableName = pTableName_}
+mkDescribeTable tableName = DescribeTable' {tableName}
 
 -- | The name of the table to describe.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtTableName :: Lens.Lens' DescribeTable Lude.Text
-dtTableName = Lens.lens (tableName :: DescribeTable -> Lude.Text) (\s a -> s {tableName = a} :: DescribeTable)
-{-# DEPRECATED dtTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+dtfTableName :: Lens.Lens' DescribeTable Types.TableName
+dtfTableName = Lens.field @"tableName"
+{-# DEPRECATED dtfTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest DescribeTable where
+instance Core.FromJSON DescribeTable where
+  toJSON DescribeTable {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TableName" Core..= tableName)])
+
+instance Core.AWSRequest DescribeTable where
   type Rs DescribeTable = DescribeTableResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DynamoDB_20120810.DescribeTable")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTableResponse'
-            Lude.<$> (x Lude..?> "Table") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Table") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTable where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.DescribeTable" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTable where
-  toJSON DescribeTable' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TableName" Lude..= tableName)])
-
-instance Lude.ToPath DescribeTable where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTable where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @DescribeTable@ operation.
 --
 -- /See:/ 'mkDescribeTableResponse' smart constructor.
 data DescribeTableResponse = DescribeTableResponse'
   { -- | The properties of the table.
-    table :: Lude.Maybe TableDescription,
+    table :: Core.Maybe Types.TableDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeTableResponse' with the minimum fields required to make a request.
---
--- * 'table' - The properties of the table.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTableResponse' value with any optional fields omitted.
 mkDescribeTableResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTableResponse
-mkDescribeTableResponse pResponseStatus_ =
-  DescribeTableResponse'
-    { table = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeTableResponse responseStatus =
+  DescribeTableResponse' {table = Core.Nothing, responseStatus}
 
 -- | The properties of the table.
 --
 -- /Note:/ Consider using 'table' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsTable :: Lens.Lens' DescribeTableResponse (Lude.Maybe TableDescription)
-dtrsTable = Lens.lens (table :: DescribeTableResponse -> Lude.Maybe TableDescription) (\s a -> s {table = a} :: DescribeTableResponse)
-{-# DEPRECATED dtrsTable "Use generic-lens or generic-optics with 'table' instead." #-}
+drsTable :: Lens.Lens' DescribeTableResponse (Core.Maybe Types.TableDescription)
+drsTable = Lens.field @"table"
+{-# DEPRECATED drsTable "Use generic-lens or generic-optics with 'table' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DescribeTableResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DescribeTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTableResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeTableResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

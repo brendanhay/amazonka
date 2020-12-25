@@ -17,55 +17,53 @@ module Network.AWS.DMS.Types.Filter
     mkFilter,
 
     -- * Lenses
-    fValues,
     fName,
+    fValues,
   )
 where
 
+import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies the name and value of a filter object. This filter is used to limit the number and type of AWS DMS objects that are returned for a particular @Describe*@ call or similar operation. Filters are used as an optional parameter to the following APIs.
 --
 -- /See:/ 'mkFilter' smart constructor.
 data Filter = Filter'
-  { -- | The filter value, which can specify one or more values used to narrow the returned results.
-    values :: [Lude.Text],
-    -- | The name of the filter as specified for a @Describe*@ or similar operation.
-    name :: Lude.Text
+  { -- | The name of the filter as specified for a @Describe*@ or similar operation.
+    name :: Types.String,
+    -- | The filter value, which can specify one or more values used to narrow the returned results.
+    values :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Filter' with the minimum fields required to make a request.
---
--- * 'values' - The filter value, which can specify one or more values used to narrow the returned results.
--- * 'name' - The name of the filter as specified for a @Describe*@ or similar operation.
+-- | Creates a 'Filter' value with any optional fields omitted.
 mkFilter ::
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
   Filter
-mkFilter pName_ = Filter' {values = Lude.mempty, name = pName_}
-
--- | The filter value, which can specify one or more values used to narrow the returned results.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fValues :: Lens.Lens' Filter [Lude.Text]
-fValues = Lens.lens (values :: Filter -> [Lude.Text]) (\s a -> s {values = a} :: Filter)
-{-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkFilter name = Filter' {name, values = Core.mempty}
 
 -- | The name of the filter as specified for a @Describe*@ or similar operation.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fName :: Lens.Lens' Filter Lude.Text
-fName = Lens.lens (name :: Filter -> Lude.Text) (\s a -> s {name = a} :: Filter)
+fName :: Lens.Lens' Filter Types.String
+fName = Lens.field @"name"
 {-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON Filter where
-  toJSON Filter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Values" Lude..= values),
-            Lude.Just ("Name" Lude..= name)
+-- | The filter value, which can specify one or more values used to narrow the returned results.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fValues :: Lens.Lens' Filter [Types.String]
+fValues = Lens.field @"values"
+{-# DEPRECATED fValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON Filter where
+  toJSON Filter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Values" Core..= values)
           ]
       )

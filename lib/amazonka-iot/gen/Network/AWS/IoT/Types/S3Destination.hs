@@ -17,63 +17,60 @@ module Network.AWS.IoT.Types.S3Destination
     mkS3Destination,
 
     -- * Lenses
-    sdPrefix,
     sdBucket,
+    sdPrefix,
   )
 where
 
+import qualified Network.AWS.IoT.Types.Bucket as Types
+import qualified Network.AWS.IoT.Types.Prefix as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the location of updated firmware in S3.
 --
 -- /See:/ 'mkS3Destination' smart constructor.
 data S3Destination = S3Destination'
-  { -- | The S3 prefix.
-    prefix :: Lude.Maybe Lude.Text,
-    -- | The S3 bucket that contains the updated firmware.
-    bucket :: Lude.Maybe Lude.Text
+  { -- | The S3 bucket that contains the updated firmware.
+    bucket :: Core.Maybe Types.Bucket,
+    -- | The S3 prefix.
+    prefix :: Core.Maybe Types.Prefix
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3Destination' with the minimum fields required to make a request.
---
--- * 'prefix' - The S3 prefix.
--- * 'bucket' - The S3 bucket that contains the updated firmware.
+-- | Creates a 'S3Destination' value with any optional fields omitted.
 mkS3Destination ::
   S3Destination
 mkS3Destination =
-  S3Destination' {prefix = Lude.Nothing, bucket = Lude.Nothing}
-
--- | The S3 prefix.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdPrefix :: Lens.Lens' S3Destination (Lude.Maybe Lude.Text)
-sdPrefix = Lens.lens (prefix :: S3Destination -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: S3Destination)
-{-# DEPRECATED sdPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+  S3Destination' {bucket = Core.Nothing, prefix = Core.Nothing}
 
 -- | The S3 bucket that contains the updated firmware.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdBucket :: Lens.Lens' S3Destination (Lude.Maybe Lude.Text)
-sdBucket = Lens.lens (bucket :: S3Destination -> Lude.Maybe Lude.Text) (\s a -> s {bucket = a} :: S3Destination)
+sdBucket :: Lens.Lens' S3Destination (Core.Maybe Types.Bucket)
+sdBucket = Lens.field @"bucket"
 {-# DEPRECATED sdBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
-instance Lude.FromJSON S3Destination where
-  parseJSON =
-    Lude.withObject
-      "S3Destination"
-      ( \x ->
-          S3Destination'
-            Lude.<$> (x Lude..:? "prefix") Lude.<*> (x Lude..:? "bucket")
-      )
+-- | The S3 prefix.
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdPrefix :: Lens.Lens' S3Destination (Core.Maybe Types.Prefix)
+sdPrefix = Lens.field @"prefix"
+{-# DEPRECATED sdPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
-instance Lude.ToJSON S3Destination where
-  toJSON S3Destination' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("prefix" Lude..=) Lude.<$> prefix,
-            ("bucket" Lude..=) Lude.<$> bucket
+instance Core.FromJSON S3Destination where
+  toJSON S3Destination {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("bucket" Core..=) Core.<$> bucket,
+            ("prefix" Core..=) Core.<$> prefix
           ]
       )
+
+instance Core.FromJSON S3Destination where
+  parseJSON =
+    Core.withObject "S3Destination" Core.$
+      \x ->
+        S3Destination'
+          Core.<$> (x Core..:? "bucket") Core.<*> (x Core..:? "prefix")

@@ -13,51 +13,56 @@
 module Network.AWS.SageMaker.Types.MonitoringScheduleSortKey
   ( MonitoringScheduleSortKey
       ( MonitoringScheduleSortKey',
-        Name,
-        CreationTime,
-        Status
+        MonitoringScheduleSortKeyName,
+        MonitoringScheduleSortKeyCreationTime,
+        MonitoringScheduleSortKeyStatus,
+        fromMonitoringScheduleSortKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype MonitoringScheduleSortKey = MonitoringScheduleSortKey' Lude.Text
+newtype MonitoringScheduleSortKey = MonitoringScheduleSortKey'
+  { fromMonitoringScheduleSortKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Name :: MonitoringScheduleSortKey
-pattern Name = MonitoringScheduleSortKey' "Name"
+pattern MonitoringScheduleSortKeyName :: MonitoringScheduleSortKey
+pattern MonitoringScheduleSortKeyName = MonitoringScheduleSortKey' "Name"
 
-pattern CreationTime :: MonitoringScheduleSortKey
-pattern CreationTime = MonitoringScheduleSortKey' "CreationTime"
+pattern MonitoringScheduleSortKeyCreationTime :: MonitoringScheduleSortKey
+pattern MonitoringScheduleSortKeyCreationTime = MonitoringScheduleSortKey' "CreationTime"
 
-pattern Status :: MonitoringScheduleSortKey
-pattern Status = MonitoringScheduleSortKey' "Status"
+pattern MonitoringScheduleSortKeyStatus :: MonitoringScheduleSortKey
+pattern MonitoringScheduleSortKeyStatus = MonitoringScheduleSortKey' "Status"
 
 {-# COMPLETE
-  Name,
-  CreationTime,
-  Status,
+  MonitoringScheduleSortKeyName,
+  MonitoringScheduleSortKeyCreationTime,
+  MonitoringScheduleSortKeyStatus,
   MonitoringScheduleSortKey'
   #-}

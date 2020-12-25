@@ -20,166 +20,158 @@ module Network.AWS.IoT.UpdateScheduledAudit
     mkUpdateScheduledAudit,
 
     -- ** Request lenses
-    usaFrequency,
     usaScheduledAuditName,
     usaDayOfMonth,
-    usaTargetCheckNames,
     usaDayOfWeek,
+    usaFrequency,
+    usaTargetCheckNames,
 
     -- * Destructuring the response
     UpdateScheduledAuditResponse (..),
     mkUpdateScheduledAuditResponse,
 
     -- ** Response lenses
-    usarsScheduledAuditARN,
-    usarsResponseStatus,
+    usarrsScheduledAuditArn,
+    usarrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateScheduledAudit' smart constructor.
 data UpdateScheduledAudit = UpdateScheduledAudit'
-  { -- | How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.
-    frequency :: Lude.Maybe AuditFrequency,
-    -- | The name of the scheduled audit. (Max. 128 chars)
-    scheduledAuditName :: Lude.Text,
+  { -- | The name of the scheduled audit. (Max. 128 chars)
+    scheduledAuditName :: Types.ScheduledAuditName,
     -- | The day of the month on which the scheduled audit takes place. Can be "1" through "31" or "LAST". This field is required if the "frequency" parameter is set to "MONTHLY". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
-    dayOfMonth :: Lude.Maybe Lude.Text,
-    -- | Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
-    targetCheckNames :: Lude.Maybe [Lude.Text],
+    dayOfMonth :: Core.Maybe Types.DayOfMonth,
     -- | The day of the week on which the scheduled audit takes place. Can be one of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".
-    dayOfWeek :: Lude.Maybe DayOfWeek
+    dayOfWeek :: Core.Maybe Types.DayOfWeek,
+    -- | How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.
+    frequency :: Core.Maybe Types.AuditFrequency,
+    -- | Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
+    targetCheckNames :: Core.Maybe [Types.AuditCheckName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateScheduledAudit' with the minimum fields required to make a request.
---
--- * 'frequency' - How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.
--- * 'scheduledAuditName' - The name of the scheduled audit. (Max. 128 chars)
--- * 'dayOfMonth' - The day of the month on which the scheduled audit takes place. Can be "1" through "31" or "LAST". This field is required if the "frequency" parameter is set to "MONTHLY". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
--- * 'targetCheckNames' - Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
--- * 'dayOfWeek' - The day of the week on which the scheduled audit takes place. Can be one of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".
+-- | Creates a 'UpdateScheduledAudit' value with any optional fields omitted.
 mkUpdateScheduledAudit ::
   -- | 'scheduledAuditName'
-  Lude.Text ->
+  Types.ScheduledAuditName ->
   UpdateScheduledAudit
-mkUpdateScheduledAudit pScheduledAuditName_ =
+mkUpdateScheduledAudit scheduledAuditName =
   UpdateScheduledAudit'
-    { frequency = Lude.Nothing,
-      scheduledAuditName = pScheduledAuditName_,
-      dayOfMonth = Lude.Nothing,
-      targetCheckNames = Lude.Nothing,
-      dayOfWeek = Lude.Nothing
+    { scheduledAuditName,
+      dayOfMonth = Core.Nothing,
+      dayOfWeek = Core.Nothing,
+      frequency = Core.Nothing,
+      targetCheckNames = Core.Nothing
     }
-
--- | How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.
---
--- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usaFrequency :: Lens.Lens' UpdateScheduledAudit (Lude.Maybe AuditFrequency)
-usaFrequency = Lens.lens (frequency :: UpdateScheduledAudit -> Lude.Maybe AuditFrequency) (\s a -> s {frequency = a} :: UpdateScheduledAudit)
-{-# DEPRECATED usaFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
 -- | The name of the scheduled audit. (Max. 128 chars)
 --
 -- /Note:/ Consider using 'scheduledAuditName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usaScheduledAuditName :: Lens.Lens' UpdateScheduledAudit Lude.Text
-usaScheduledAuditName = Lens.lens (scheduledAuditName :: UpdateScheduledAudit -> Lude.Text) (\s a -> s {scheduledAuditName = a} :: UpdateScheduledAudit)
+usaScheduledAuditName :: Lens.Lens' UpdateScheduledAudit Types.ScheduledAuditName
+usaScheduledAuditName = Lens.field @"scheduledAuditName"
 {-# DEPRECATED usaScheduledAuditName "Use generic-lens or generic-optics with 'scheduledAuditName' instead." #-}
 
 -- | The day of the month on which the scheduled audit takes place. Can be "1" through "31" or "LAST". This field is required if the "frequency" parameter is set to "MONTHLY". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.
 --
 -- /Note:/ Consider using 'dayOfMonth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usaDayOfMonth :: Lens.Lens' UpdateScheduledAudit (Lude.Maybe Lude.Text)
-usaDayOfMonth = Lens.lens (dayOfMonth :: UpdateScheduledAudit -> Lude.Maybe Lude.Text) (\s a -> s {dayOfMonth = a} :: UpdateScheduledAudit)
+usaDayOfMonth :: Lens.Lens' UpdateScheduledAudit (Core.Maybe Types.DayOfMonth)
+usaDayOfMonth = Lens.field @"dayOfMonth"
 {-# DEPRECATED usaDayOfMonth "Use generic-lens or generic-optics with 'dayOfMonth' instead." #-}
-
--- | Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
---
--- /Note:/ Consider using 'targetCheckNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usaTargetCheckNames :: Lens.Lens' UpdateScheduledAudit (Lude.Maybe [Lude.Text])
-usaTargetCheckNames = Lens.lens (targetCheckNames :: UpdateScheduledAudit -> Lude.Maybe [Lude.Text]) (\s a -> s {targetCheckNames = a} :: UpdateScheduledAudit)
-{-# DEPRECATED usaTargetCheckNames "Use generic-lens or generic-optics with 'targetCheckNames' instead." #-}
 
 -- | The day of the week on which the scheduled audit takes place. Can be one of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".
 --
 -- /Note:/ Consider using 'dayOfWeek' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usaDayOfWeek :: Lens.Lens' UpdateScheduledAudit (Lude.Maybe DayOfWeek)
-usaDayOfWeek = Lens.lens (dayOfWeek :: UpdateScheduledAudit -> Lude.Maybe DayOfWeek) (\s a -> s {dayOfWeek = a} :: UpdateScheduledAudit)
+usaDayOfWeek :: Lens.Lens' UpdateScheduledAudit (Core.Maybe Types.DayOfWeek)
+usaDayOfWeek = Lens.field @"dayOfWeek"
 {-# DEPRECATED usaDayOfWeek "Use generic-lens or generic-optics with 'dayOfWeek' instead." #-}
 
-instance Lude.AWSRequest UpdateScheduledAudit where
-  type Rs UpdateScheduledAudit = UpdateScheduledAuditResponse
-  request = Req.patchJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateScheduledAuditResponse'
-            Lude.<$> (x Lude..?> "scheduledAuditArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.
+--
+-- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usaFrequency :: Lens.Lens' UpdateScheduledAudit (Core.Maybe Types.AuditFrequency)
+usaFrequency = Lens.field @"frequency"
+{-# DEPRECATED usaFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
 
-instance Lude.ToHeaders UpdateScheduledAudit where
-  toHeaders = Lude.const Lude.mempty
+-- | Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use @DescribeAccountAuditConfiguration@ to see the list of all checks, including those that are enabled or use @UpdateAccountAuditConfiguration@ to select which checks are enabled.)
+--
+-- /Note:/ Consider using 'targetCheckNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usaTargetCheckNames :: Lens.Lens' UpdateScheduledAudit (Core.Maybe [Types.AuditCheckName])
+usaTargetCheckNames = Lens.field @"targetCheckNames"
+{-# DEPRECATED usaTargetCheckNames "Use generic-lens or generic-optics with 'targetCheckNames' instead." #-}
 
-instance Lude.ToJSON UpdateScheduledAudit where
-  toJSON UpdateScheduledAudit' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("frequency" Lude..=) Lude.<$> frequency,
-            ("dayOfMonth" Lude..=) Lude.<$> dayOfMonth,
-            ("targetCheckNames" Lude..=) Lude.<$> targetCheckNames,
-            ("dayOfWeek" Lude..=) Lude.<$> dayOfWeek
+instance Core.FromJSON UpdateScheduledAudit where
+  toJSON UpdateScheduledAudit {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("dayOfMonth" Core..=) Core.<$> dayOfMonth,
+            ("dayOfWeek" Core..=) Core.<$> dayOfWeek,
+            ("frequency" Core..=) Core.<$> frequency,
+            ("targetCheckNames" Core..=) Core.<$> targetCheckNames
           ]
       )
 
-instance Lude.ToPath UpdateScheduledAudit where
-  toPath UpdateScheduledAudit' {..} =
-    Lude.mconcat
-      ["/audit/scheduledaudits/", Lude.toBS scheduledAuditName]
-
-instance Lude.ToQuery UpdateScheduledAudit where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateScheduledAudit where
+  type Rs UpdateScheduledAudit = UpdateScheduledAuditResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath =
+          Core.rawPath
+            ( "/audit/scheduledaudits/"
+                Core.<> (Core.toText scheduledAuditName)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateScheduledAuditResponse'
+            Core.<$> (x Core..:? "scheduledAuditArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateScheduledAuditResponse' smart constructor.
 data UpdateScheduledAuditResponse = UpdateScheduledAuditResponse'
   { -- | The ARN of the scheduled audit.
-    scheduledAuditARN :: Lude.Maybe Lude.Text,
+    scheduledAuditArn :: Core.Maybe Types.ScheduledAuditArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateScheduledAuditResponse' with the minimum fields required to make a request.
---
--- * 'scheduledAuditARN' - The ARN of the scheduled audit.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateScheduledAuditResponse' value with any optional fields omitted.
 mkUpdateScheduledAuditResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateScheduledAuditResponse
-mkUpdateScheduledAuditResponse pResponseStatus_ =
+mkUpdateScheduledAuditResponse responseStatus =
   UpdateScheduledAuditResponse'
-    { scheduledAuditARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { scheduledAuditArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the scheduled audit.
 --
--- /Note:/ Consider using 'scheduledAuditARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usarsScheduledAuditARN :: Lens.Lens' UpdateScheduledAuditResponse (Lude.Maybe Lude.Text)
-usarsScheduledAuditARN = Lens.lens (scheduledAuditARN :: UpdateScheduledAuditResponse -> Lude.Maybe Lude.Text) (\s a -> s {scheduledAuditARN = a} :: UpdateScheduledAuditResponse)
-{-# DEPRECATED usarsScheduledAuditARN "Use generic-lens or generic-optics with 'scheduledAuditARN' instead." #-}
+-- /Note:/ Consider using 'scheduledAuditArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usarrsScheduledAuditArn :: Lens.Lens' UpdateScheduledAuditResponse (Core.Maybe Types.ScheduledAuditArn)
+usarrsScheduledAuditArn = Lens.field @"scheduledAuditArn"
+{-# DEPRECATED usarrsScheduledAuditArn "Use generic-lens or generic-optics with 'scheduledAuditArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usarsResponseStatus :: Lens.Lens' UpdateScheduledAuditResponse Lude.Int
-usarsResponseStatus = Lens.lens (responseStatus :: UpdateScheduledAuditResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateScheduledAuditResponse)
-{-# DEPRECATED usarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usarrsResponseStatus :: Lens.Lens' UpdateScheduledAuditResponse Core.Int
+usarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

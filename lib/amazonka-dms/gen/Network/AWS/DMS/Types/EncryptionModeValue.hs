@@ -13,46 +13,51 @@
 module Network.AWS.DMS.Types.EncryptionModeValue
   ( EncryptionModeValue
       ( EncryptionModeValue',
-        SseS3,
-        SseKMS
+        EncryptionModeValueSseS3,
+        EncryptionModeValueSseKms,
+        fromEncryptionModeValue
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EncryptionModeValue = EncryptionModeValue' Lude.Text
+newtype EncryptionModeValue = EncryptionModeValue'
+  { fromEncryptionModeValue ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SseS3 :: EncryptionModeValue
-pattern SseS3 = EncryptionModeValue' "sse-s3"
+pattern EncryptionModeValueSseS3 :: EncryptionModeValue
+pattern EncryptionModeValueSseS3 = EncryptionModeValue' "sse-s3"
 
-pattern SseKMS :: EncryptionModeValue
-pattern SseKMS = EncryptionModeValue' "sse-kms"
+pattern EncryptionModeValueSseKms :: EncryptionModeValue
+pattern EncryptionModeValueSseKms = EncryptionModeValue' "sse-kms"
 
 {-# COMPLETE
-  SseS3,
-  SseKMS,
+  EncryptionModeValueSseS3,
+  EncryptionModeValueSseKms,
   EncryptionModeValue'
   #-}

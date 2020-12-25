@@ -27,92 +27,82 @@ module Network.AWS.SMS.ImportAppCatalog
     mkImportAppCatalogResponse,
 
     -- ** Response lenses
-    iacrsResponseStatus,
+    iacrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkImportAppCatalog' smart constructor.
 newtype ImportAppCatalog = ImportAppCatalog'
   { -- | The name of the service role. If you omit this parameter, we create a service-linked role for AWS Migration Hub in your account. Otherwise, the role that you provide must have the <https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy> described in the /AWS Migration Hub User Guide/ .
-    roleName :: Lude.Maybe Lude.Text
+    roleName :: Core.Maybe Types.RoleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportAppCatalog' with the minimum fields required to make a request.
---
--- * 'roleName' - The name of the service role. If you omit this parameter, we create a service-linked role for AWS Migration Hub in your account. Otherwise, the role that you provide must have the <https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy> described in the /AWS Migration Hub User Guide/ .
+-- | Creates a 'ImportAppCatalog' value with any optional fields omitted.
 mkImportAppCatalog ::
   ImportAppCatalog
-mkImportAppCatalog = ImportAppCatalog' {roleName = Lude.Nothing}
+mkImportAppCatalog = ImportAppCatalog' {roleName = Core.Nothing}
 
 -- | The name of the service role. If you omit this parameter, we create a service-linked role for AWS Migration Hub in your account. Otherwise, the role that you provide must have the <https://docs.aws.amazon.com/migrationhub/latest/ug/new-customer-setup.html#sms-managed policy and trust policy> described in the /AWS Migration Hub User Guide/ .
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iacRoleName :: Lens.Lens' ImportAppCatalog (Lude.Maybe Lude.Text)
-iacRoleName = Lens.lens (roleName :: ImportAppCatalog -> Lude.Maybe Lude.Text) (\s a -> s {roleName = a} :: ImportAppCatalog)
+iacRoleName :: Lens.Lens' ImportAppCatalog (Core.Maybe Types.RoleName)
+iacRoleName = Lens.field @"roleName"
 {-# DEPRECATED iacRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
-instance Lude.AWSRequest ImportAppCatalog where
+instance Core.FromJSON ImportAppCatalog where
+  toJSON ImportAppCatalog {..} =
+    Core.object
+      (Core.catMaybes [("roleName" Core..=) Core.<$> roleName])
+
+instance Core.AWSRequest ImportAppCatalog where
   type Rs ImportAppCatalog = ImportAppCatalogResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSServerMigrationService_V2016_10_24.ImportAppCatalog"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          ImportAppCatalogResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          ImportAppCatalogResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ImportAppCatalog where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.ImportAppCatalog" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ImportAppCatalog where
-  toJSON ImportAppCatalog' {..} =
-    Lude.object
-      (Lude.catMaybes [("roleName" Lude..=) Lude.<$> roleName])
-
-instance Lude.ToPath ImportAppCatalog where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ImportAppCatalog where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkImportAppCatalogResponse' smart constructor.
 newtype ImportAppCatalogResponse = ImportAppCatalogResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportAppCatalogResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ImportAppCatalogResponse' value with any optional fields omitted.
 mkImportAppCatalogResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ImportAppCatalogResponse
-mkImportAppCatalogResponse pResponseStatus_ =
-  ImportAppCatalogResponse' {responseStatus = pResponseStatus_}
+mkImportAppCatalogResponse responseStatus =
+  ImportAppCatalogResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iacrsResponseStatus :: Lens.Lens' ImportAppCatalogResponse Lude.Int
-iacrsResponseStatus = Lens.lens (responseStatus :: ImportAppCatalogResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportAppCatalogResponse)
-{-# DEPRECATED iacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+iacrrsResponseStatus :: Lens.Lens' ImportAppCatalogResponse Core.Int
+iacrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED iacrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

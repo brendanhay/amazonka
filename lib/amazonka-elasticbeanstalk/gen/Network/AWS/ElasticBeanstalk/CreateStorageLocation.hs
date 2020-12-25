@@ -24,51 +24,52 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     mkCreateStorageLocationResponse,
 
     -- ** Response lenses
-    cslrsS3Bucket,
-    cslrsResponseStatus,
+    cslrrsS3Bucket,
+    cslrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateStorageLocation' smart constructor.
 data CreateStorageLocation = CreateStorageLocation'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStorageLocation' with the minimum fields required to make a request.
+-- | Creates a 'CreateStorageLocation' value with any optional fields omitted.
 mkCreateStorageLocation ::
   CreateStorageLocation
 mkCreateStorageLocation = CreateStorageLocation'
 
-instance Lude.AWSRequest CreateStorageLocation where
+instance Core.AWSRequest CreateStorageLocation where
   type Rs CreateStorageLocation = CreateStorageLocationResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateStorageLocation")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateStorageLocationResult"
       ( \s h x ->
           CreateStorageLocationResponse'
-            Lude.<$> (x Lude..@? "S3Bucket") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateStorageLocation where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateStorageLocation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateStorageLocation where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action" Lude.=: ("CreateStorageLocation" :: Lude.ByteString),
-            "Version" Lude.=: ("2010-12-01" :: Lude.ByteString)
-          ]
+            Core.<$> (x Core..@? "S3Bucket") Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | Results of a 'CreateStorageLocationResult' call.
@@ -76,37 +77,34 @@ instance Lude.ToQuery CreateStorageLocation where
 -- /See:/ 'mkCreateStorageLocationResponse' smart constructor.
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
   { -- | The name of the Amazon S3 bucket created.
-    s3Bucket :: Lude.Maybe Lude.Text,
+    s3Bucket :: Core.Maybe Types.S3Bucket,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStorageLocationResponse' with the minimum fields required to make a request.
---
--- * 's3Bucket' - The name of the Amazon S3 bucket created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateStorageLocationResponse' value with any optional fields omitted.
 mkCreateStorageLocationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateStorageLocationResponse
-mkCreateStorageLocationResponse pResponseStatus_ =
+mkCreateStorageLocationResponse responseStatus =
   CreateStorageLocationResponse'
-    { s3Bucket = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { s3Bucket = Core.Nothing,
+      responseStatus
     }
 
 -- | The name of the Amazon S3 bucket created.
 --
 -- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cslrsS3Bucket :: Lens.Lens' CreateStorageLocationResponse (Lude.Maybe Lude.Text)
-cslrsS3Bucket = Lens.lens (s3Bucket :: CreateStorageLocationResponse -> Lude.Maybe Lude.Text) (\s a -> s {s3Bucket = a} :: CreateStorageLocationResponse)
-{-# DEPRECATED cslrsS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
+cslrrsS3Bucket :: Lens.Lens' CreateStorageLocationResponse (Core.Maybe Types.S3Bucket)
+cslrrsS3Bucket = Lens.field @"s3Bucket"
+{-# DEPRECATED cslrrsS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cslrsResponseStatus :: Lens.Lens' CreateStorageLocationResponse Lude.Int
-cslrsResponseStatus = Lens.lens (responseStatus :: CreateStorageLocationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateStorageLocationResponse)
-{-# DEPRECATED cslrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cslrrsResponseStatus :: Lens.Lens' CreateStorageLocationResponse Core.Int
+cslrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cslrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

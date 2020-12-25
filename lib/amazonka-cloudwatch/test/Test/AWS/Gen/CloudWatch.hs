@@ -402,7 +402,7 @@ responseEnableAlarmActions =
   res
     "EnableAlarmActionsResponse"
     "fixture/EnableAlarmActionsResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy EnableAlarmActions)
 
 responseDisableInsightRules :: DisableInsightRulesResponse -> TestTree
@@ -410,7 +410,7 @@ responseDisableInsightRules =
   res
     "DisableInsightRulesResponse"
     "fixture/DisableInsightRulesResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy DisableInsightRules)
 
 responsePutCompositeAlarm :: PutCompositeAlarmResponse -> TestTree
@@ -418,7 +418,7 @@ responsePutCompositeAlarm =
   res
     "PutCompositeAlarmResponse"
     "fixture/PutCompositeAlarmResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy PutCompositeAlarm)
 
 responseDeleteAnomalyDetector :: DeleteAnomalyDetectorResponse -> TestTree
@@ -426,7 +426,7 @@ responseDeleteAnomalyDetector =
   res
     "DeleteAnomalyDetectorResponse"
     "fixture/DeleteAnomalyDetectorResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAnomalyDetector)
 
 responseDeleteInsightRules :: DeleteInsightRulesResponse -> TestTree
@@ -434,7 +434,7 @@ responseDeleteInsightRules =
   res
     "DeleteInsightRulesResponse"
     "fixture/DeleteInsightRulesResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteInsightRules)
 
 responseGetDashboard :: GetDashboardResponse -> TestTree
@@ -442,7 +442,7 @@ responseGetDashboard =
   res
     "GetDashboardResponse"
     "fixture/GetDashboardResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy GetDashboard)
 
 responsePutAnomalyDetector :: PutAnomalyDetectorResponse -> TestTree
@@ -450,7 +450,7 @@ responsePutAnomalyDetector =
   res
     "PutAnomalyDetectorResponse"
     "fixture/PutAnomalyDetectorResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy PutAnomalyDetector)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -458,7 +458,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetMetricData :: GetMetricDataResponse -> TestTree
@@ -466,7 +466,7 @@ responseGetMetricData =
   res
     "GetMetricDataResponse"
     "fixture/GetMetricDataResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy GetMetricData)
 
 responsePutMetricData :: PutMetricDataResponse -> TestTree
@@ -474,7 +474,7 @@ responsePutMetricData =
   res
     "PutMetricDataResponse"
     "fixture/PutMetricDataResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy PutMetricData)
 
 responseListDashboards :: ListDashboardsResponse -> TestTree
@@ -482,7 +482,7 @@ responseListDashboards =
   res
     "ListDashboardsResponse"
     "fixture/ListDashboardsResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy ListDashboards)
 
 responseDescribeAlarms :: DescribeAlarmsResponse -> TestTree
@@ -490,7 +490,7 @@ responseDescribeAlarms =
   res
     "DescribeAlarmsResponse"
     "fixture/DescribeAlarmsResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAlarms)
 
 responseListMetrics :: ListMetricsResponse -> TestTree
@@ -498,7 +498,7 @@ responseListMetrics =
   res
     "ListMetricsResponse"
     "fixture/ListMetricsResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy ListMetrics)
 
 responseGetInsightRuleReport :: GetInsightRuleReportResponse -> TestTree
@@ -506,7 +506,7 @@ responseGetInsightRuleReport =
   res
     "GetInsightRuleReportResponse"
     "fixture/GetInsightRuleReportResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy GetInsightRuleReport)
 
 responseDeleteDashboards :: DeleteDashboardsResponse -> TestTree
@@ -514,7 +514,7 @@ responseDeleteDashboards =
   res
     "DeleteDashboardsResponse"
     "fixture/DeleteDashboardsResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDashboards)
 
 responsePutInsightRule :: PutInsightRuleResponse -> TestTree
@@ -522,7 +522,7 @@ responsePutInsightRule =
   res
     "PutInsightRuleResponse"
     "fixture/PutInsightRuleResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy PutInsightRule)
 
 responseGetMetricWidgetImage :: GetMetricWidgetImageResponse -> TestTree
@@ -530,7 +530,7 @@ responseGetMetricWidgetImage =
   res
     "GetMetricWidgetImageResponse"
     "fixture/GetMetricWidgetImageResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy GetMetricWidgetImage)
 
 responseDeleteAlarms :: DeleteAlarmsResponse -> TestTree
@@ -538,7 +538,7 @@ responseDeleteAlarms =
   res
     "DeleteAlarmsResponse"
     "fixture/DeleteAlarmsResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAlarms)
 
 responseDescribeAlarmHistory :: DescribeAlarmHistoryResponse -> TestTree
@@ -546,7 +546,7 @@ responseDescribeAlarmHistory =
   res
     "DescribeAlarmHistoryResponse"
     "fixture/DescribeAlarmHistoryResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAlarmHistory)
 
 responseGetMetricStatistics :: GetMetricStatisticsResponse -> TestTree
@@ -554,7 +554,7 @@ responseGetMetricStatistics =
   res
     "GetMetricStatisticsResponse"
     "fixture/GetMetricStatisticsResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy GetMetricStatistics)
 
 responseDescribeAlarmsForMetric :: DescribeAlarmsForMetricResponse -> TestTree
@@ -562,7 +562,7 @@ responseDescribeAlarmsForMetric =
   res
     "DescribeAlarmsForMetricResponse"
     "fixture/DescribeAlarmsForMetricResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAlarmsForMetric)
 
 responseEnableInsightRules :: EnableInsightRulesResponse -> TestTree
@@ -570,7 +570,7 @@ responseEnableInsightRules =
   res
     "EnableInsightRulesResponse"
     "fixture/EnableInsightRulesResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy EnableInsightRules)
 
 responseDisableAlarmActions :: DisableAlarmActionsResponse -> TestTree
@@ -578,7 +578,7 @@ responseDisableAlarmActions =
   res
     "DisableAlarmActionsResponse"
     "fixture/DisableAlarmActionsResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy DisableAlarmActions)
 
 responseDescribeAnomalyDetectors :: DescribeAnomalyDetectorsResponse -> TestTree
@@ -586,7 +586,7 @@ responseDescribeAnomalyDetectors =
   res
     "DescribeAnomalyDetectorsResponse"
     "fixture/DescribeAnomalyDetectorsResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAnomalyDetectors)
 
 responsePutDashboard :: PutDashboardResponse -> TestTree
@@ -594,7 +594,7 @@ responsePutDashboard =
   res
     "PutDashboardResponse"
     "fixture/PutDashboardResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy PutDashboard)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -602,7 +602,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -610,7 +610,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responsePutMetricAlarm :: PutMetricAlarmResponse -> TestTree
@@ -618,7 +618,7 @@ responsePutMetricAlarm =
   res
     "PutMetricAlarmResponse"
     "fixture/PutMetricAlarmResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy PutMetricAlarm)
 
 responseSetAlarmState :: SetAlarmStateResponse -> TestTree
@@ -626,7 +626,7 @@ responseSetAlarmState =
   res
     "SetAlarmStateResponse"
     "fixture/SetAlarmStateResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy SetAlarmState)
 
 responseDescribeInsightRules :: DescribeInsightRulesResponse -> TestTree
@@ -634,5 +634,5 @@ responseDescribeInsightRules =
   res
     "DescribeInsightRulesResponse"
     "fixture/DescribeInsightRulesResponse.proto"
-    cloudWatchService
+    mkServiceConfig
     (Proxy :: Proxy DescribeInsightRules)

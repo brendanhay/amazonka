@@ -17,66 +17,61 @@ module Network.AWS.Greengrass.Types.FunctionDefaultExecutionConfig
     mkFunctionDefaultExecutionConfig,
 
     -- * Lenses
-    fdecRunAs,
     fdecIsolationMode,
+    fdecRunAs,
   )
 where
 
-import Network.AWS.Greengrass.Types.FunctionIsolationMode
-import Network.AWS.Greengrass.Types.FunctionRunAsConfig
+import qualified Network.AWS.Greengrass.Types.FunctionIsolationMode as Types
+import qualified Network.AWS.Greengrass.Types.FunctionRunAsConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration information that specifies how a Lambda function runs.
 --
 -- /See:/ 'mkFunctionDefaultExecutionConfig' smart constructor.
 data FunctionDefaultExecutionConfig = FunctionDefaultExecutionConfig'
-  { runAs :: Lude.Maybe FunctionRunAsConfig,
-    isolationMode :: Lude.Maybe FunctionIsolationMode
+  { isolationMode :: Core.Maybe Types.FunctionIsolationMode,
+    runAs :: Core.Maybe Types.FunctionRunAsConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FunctionDefaultExecutionConfig' with the minimum fields required to make a request.
---
--- * 'runAs' -
--- * 'isolationMode' -
+-- | Creates a 'FunctionDefaultExecutionConfig' value with any optional fields omitted.
 mkFunctionDefaultExecutionConfig ::
   FunctionDefaultExecutionConfig
 mkFunctionDefaultExecutionConfig =
   FunctionDefaultExecutionConfig'
-    { runAs = Lude.Nothing,
-      isolationMode = Lude.Nothing
+    { isolationMode = Core.Nothing,
+      runAs = Core.Nothing
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'runAs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdecRunAs :: Lens.Lens' FunctionDefaultExecutionConfig (Lude.Maybe FunctionRunAsConfig)
-fdecRunAs = Lens.lens (runAs :: FunctionDefaultExecutionConfig -> Lude.Maybe FunctionRunAsConfig) (\s a -> s {runAs = a} :: FunctionDefaultExecutionConfig)
-{-# DEPRECATED fdecRunAs "Use generic-lens or generic-optics with 'runAs' instead." #-}
+-- /Note:/ Consider using 'isolationMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdecIsolationMode :: Lens.Lens' FunctionDefaultExecutionConfig (Core.Maybe Types.FunctionIsolationMode)
+fdecIsolationMode = Lens.field @"isolationMode"
+{-# DEPRECATED fdecIsolationMode "Use generic-lens or generic-optics with 'isolationMode' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'isolationMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fdecIsolationMode :: Lens.Lens' FunctionDefaultExecutionConfig (Lude.Maybe FunctionIsolationMode)
-fdecIsolationMode = Lens.lens (isolationMode :: FunctionDefaultExecutionConfig -> Lude.Maybe FunctionIsolationMode) (\s a -> s {isolationMode = a} :: FunctionDefaultExecutionConfig)
-{-# DEPRECATED fdecIsolationMode "Use generic-lens or generic-optics with 'isolationMode' instead." #-}
+-- /Note:/ Consider using 'runAs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fdecRunAs :: Lens.Lens' FunctionDefaultExecutionConfig (Core.Maybe Types.FunctionRunAsConfig)
+fdecRunAs = Lens.field @"runAs"
+{-# DEPRECATED fdecRunAs "Use generic-lens or generic-optics with 'runAs' instead." #-}
 
-instance Lude.FromJSON FunctionDefaultExecutionConfig where
-  parseJSON =
-    Lude.withObject
-      "FunctionDefaultExecutionConfig"
-      ( \x ->
-          FunctionDefaultExecutionConfig'
-            Lude.<$> (x Lude..:? "RunAs") Lude.<*> (x Lude..:? "IsolationMode")
-      )
-
-instance Lude.ToJSON FunctionDefaultExecutionConfig where
-  toJSON FunctionDefaultExecutionConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RunAs" Lude..=) Lude.<$> runAs,
-            ("IsolationMode" Lude..=) Lude.<$> isolationMode
+instance Core.FromJSON FunctionDefaultExecutionConfig where
+  toJSON FunctionDefaultExecutionConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("IsolationMode" Core..=) Core.<$> isolationMode,
+            ("RunAs" Core..=) Core.<$> runAs
           ]
       )
+
+instance Core.FromJSON FunctionDefaultExecutionConfig where
+  parseJSON =
+    Core.withObject "FunctionDefaultExecutionConfig" Core.$
+      \x ->
+        FunctionDefaultExecutionConfig'
+          Core.<$> (x Core..:? "IsolationMode") Core.<*> (x Core..:? "RunAs")

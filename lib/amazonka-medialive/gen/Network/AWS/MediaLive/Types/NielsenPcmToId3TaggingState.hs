@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.NielsenPcmToId3TaggingState
   ( NielsenPcmToId3TaggingState
       ( NielsenPcmToId3TaggingState',
-        NPTITSDisabled,
-        NPTITSEnabled
+        NielsenPcmToId3TaggingStateDisabled,
+        NielsenPcmToId3TaggingStateEnabled,
+        fromNielsenPcmToId3TaggingState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | State of Nielsen PCM to ID3 tagging
-newtype NielsenPcmToId3TaggingState = NielsenPcmToId3TaggingState' Lude.Text
+newtype NielsenPcmToId3TaggingState = NielsenPcmToId3TaggingState'
+  { fromNielsenPcmToId3TaggingState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NPTITSDisabled :: NielsenPcmToId3TaggingState
-pattern NPTITSDisabled = NielsenPcmToId3TaggingState' "DISABLED"
+pattern NielsenPcmToId3TaggingStateDisabled :: NielsenPcmToId3TaggingState
+pattern NielsenPcmToId3TaggingStateDisabled = NielsenPcmToId3TaggingState' "DISABLED"
 
-pattern NPTITSEnabled :: NielsenPcmToId3TaggingState
-pattern NPTITSEnabled = NielsenPcmToId3TaggingState' "ENABLED"
+pattern NielsenPcmToId3TaggingStateEnabled :: NielsenPcmToId3TaggingState
+pattern NielsenPcmToId3TaggingStateEnabled = NielsenPcmToId3TaggingState' "ENABLED"
 
 {-# COMPLETE
-  NPTITSDisabled,
-  NPTITSEnabled,
+  NielsenPcmToId3TaggingStateDisabled,
+  NielsenPcmToId3TaggingStateEnabled,
   NielsenPcmToId3TaggingState'
   #-}

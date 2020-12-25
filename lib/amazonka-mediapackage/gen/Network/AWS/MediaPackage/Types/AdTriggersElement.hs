@@ -13,76 +13,81 @@
 module Network.AWS.MediaPackage.Types.AdTriggersElement
   ( AdTriggersElement
       ( AdTriggersElement',
-        SpliceInsert,
-        Break,
-        ProviderAdvertisement,
-        DistributorAdvertisement,
-        ProviderPlacementOpportunity,
-        DistributorPlacementOpportunity,
-        ProviderOverlayPlacementOpportunity,
-        DistributorOverlayPlacementOpportunity
+        AdTriggersElementSpliceInsert,
+        AdTriggersElementBreak,
+        AdTriggersElementProviderAdvertisement,
+        AdTriggersElementDistributorAdvertisement,
+        AdTriggersElementProviderPlacementOpportunity,
+        AdTriggersElementDistributorPlacementOpportunity,
+        AdTriggersElementProviderOverlayPlacementOpportunity,
+        AdTriggersElementDistributorOverlayPlacementOpportunity,
+        fromAdTriggersElement
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AdTriggersElement = AdTriggersElement' Lude.Text
+newtype AdTriggersElement = AdTriggersElement'
+  { fromAdTriggersElement ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SpliceInsert :: AdTriggersElement
-pattern SpliceInsert = AdTriggersElement' "SPLICE_INSERT"
+pattern AdTriggersElementSpliceInsert :: AdTriggersElement
+pattern AdTriggersElementSpliceInsert = AdTriggersElement' "SPLICE_INSERT"
 
-pattern Break :: AdTriggersElement
-pattern Break = AdTriggersElement' "BREAK"
+pattern AdTriggersElementBreak :: AdTriggersElement
+pattern AdTriggersElementBreak = AdTriggersElement' "BREAK"
 
-pattern ProviderAdvertisement :: AdTriggersElement
-pattern ProviderAdvertisement = AdTriggersElement' "PROVIDER_ADVERTISEMENT"
+pattern AdTriggersElementProviderAdvertisement :: AdTriggersElement
+pattern AdTriggersElementProviderAdvertisement = AdTriggersElement' "PROVIDER_ADVERTISEMENT"
 
-pattern DistributorAdvertisement :: AdTriggersElement
-pattern DistributorAdvertisement = AdTriggersElement' "DISTRIBUTOR_ADVERTISEMENT"
+pattern AdTriggersElementDistributorAdvertisement :: AdTriggersElement
+pattern AdTriggersElementDistributorAdvertisement = AdTriggersElement' "DISTRIBUTOR_ADVERTISEMENT"
 
-pattern ProviderPlacementOpportunity :: AdTriggersElement
-pattern ProviderPlacementOpportunity = AdTriggersElement' "PROVIDER_PLACEMENT_OPPORTUNITY"
+pattern AdTriggersElementProviderPlacementOpportunity :: AdTriggersElement
+pattern AdTriggersElementProviderPlacementOpportunity = AdTriggersElement' "PROVIDER_PLACEMENT_OPPORTUNITY"
 
-pattern DistributorPlacementOpportunity :: AdTriggersElement
-pattern DistributorPlacementOpportunity = AdTriggersElement' "DISTRIBUTOR_PLACEMENT_OPPORTUNITY"
+pattern AdTriggersElementDistributorPlacementOpportunity :: AdTriggersElement
+pattern AdTriggersElementDistributorPlacementOpportunity = AdTriggersElement' "DISTRIBUTOR_PLACEMENT_OPPORTUNITY"
 
-pattern ProviderOverlayPlacementOpportunity :: AdTriggersElement
-pattern ProviderOverlayPlacementOpportunity = AdTriggersElement' "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY"
+pattern AdTriggersElementProviderOverlayPlacementOpportunity :: AdTriggersElement
+pattern AdTriggersElementProviderOverlayPlacementOpportunity = AdTriggersElement' "PROVIDER_OVERLAY_PLACEMENT_OPPORTUNITY"
 
-pattern DistributorOverlayPlacementOpportunity :: AdTriggersElement
-pattern DistributorOverlayPlacementOpportunity = AdTriggersElement' "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
+pattern AdTriggersElementDistributorOverlayPlacementOpportunity :: AdTriggersElement
+pattern AdTriggersElementDistributorOverlayPlacementOpportunity = AdTriggersElement' "DISTRIBUTOR_OVERLAY_PLACEMENT_OPPORTUNITY"
 
 {-# COMPLETE
-  SpliceInsert,
-  Break,
-  ProviderAdvertisement,
-  DistributorAdvertisement,
-  ProviderPlacementOpportunity,
-  DistributorPlacementOpportunity,
-  ProviderOverlayPlacementOpportunity,
-  DistributorOverlayPlacementOpportunity,
+  AdTriggersElementSpliceInsert,
+  AdTriggersElementBreak,
+  AdTriggersElementProviderAdvertisement,
+  AdTriggersElementDistributorAdvertisement,
+  AdTriggersElementProviderPlacementOpportunity,
+  AdTriggersElementDistributorPlacementOpportunity,
+  AdTriggersElementProviderOverlayPlacementOpportunity,
+  AdTriggersElementDistributorOverlayPlacementOpportunity,
   AdTriggersElement'
   #-}

@@ -13,61 +13,66 @@
 module Network.AWS.SageMaker.Types.AlgorithmStatus
   ( AlgorithmStatus
       ( AlgorithmStatus',
-        APending,
-        AInProgress,
-        ACompleted,
-        AFailed,
-        ADeleting
+        AlgorithmStatusPending,
+        AlgorithmStatusInProgress,
+        AlgorithmStatusCompleted,
+        AlgorithmStatusFailed,
+        AlgorithmStatusDeleting,
+        fromAlgorithmStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AlgorithmStatus = AlgorithmStatus' Lude.Text
+newtype AlgorithmStatus = AlgorithmStatus'
+  { fromAlgorithmStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern APending :: AlgorithmStatus
-pattern APending = AlgorithmStatus' "Pending"
+pattern AlgorithmStatusPending :: AlgorithmStatus
+pattern AlgorithmStatusPending = AlgorithmStatus' "Pending"
 
-pattern AInProgress :: AlgorithmStatus
-pattern AInProgress = AlgorithmStatus' "InProgress"
+pattern AlgorithmStatusInProgress :: AlgorithmStatus
+pattern AlgorithmStatusInProgress = AlgorithmStatus' "InProgress"
 
-pattern ACompleted :: AlgorithmStatus
-pattern ACompleted = AlgorithmStatus' "Completed"
+pattern AlgorithmStatusCompleted :: AlgorithmStatus
+pattern AlgorithmStatusCompleted = AlgorithmStatus' "Completed"
 
-pattern AFailed :: AlgorithmStatus
-pattern AFailed = AlgorithmStatus' "Failed"
+pattern AlgorithmStatusFailed :: AlgorithmStatus
+pattern AlgorithmStatusFailed = AlgorithmStatus' "Failed"
 
-pattern ADeleting :: AlgorithmStatus
-pattern ADeleting = AlgorithmStatus' "Deleting"
+pattern AlgorithmStatusDeleting :: AlgorithmStatus
+pattern AlgorithmStatusDeleting = AlgorithmStatus' "Deleting"
 
 {-# COMPLETE
-  APending,
-  AInProgress,
-  ACompleted,
-  AFailed,
-  ADeleting,
+  AlgorithmStatusPending,
+  AlgorithmStatusInProgress,
+  AlgorithmStatusCompleted,
+  AlgorithmStatusFailed,
+  AlgorithmStatusDeleting,
   AlgorithmStatus'
   #-}

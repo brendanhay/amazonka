@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleAlignment
   ( BurninSubtitleAlignment
       ( BurninSubtitleAlignment',
-        BSACentered,
-        BSALeft
+        BurninSubtitleAlignmentCentered,
+        BurninSubtitleAlignmentLeft,
+        fromBurninSubtitleAlignment
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-newtype BurninSubtitleAlignment = BurninSubtitleAlignment' Lude.Text
+newtype BurninSubtitleAlignment = BurninSubtitleAlignment'
+  { fromBurninSubtitleAlignment ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BSACentered :: BurninSubtitleAlignment
-pattern BSACentered = BurninSubtitleAlignment' "CENTERED"
+pattern BurninSubtitleAlignmentCentered :: BurninSubtitleAlignment
+pattern BurninSubtitleAlignmentCentered = BurninSubtitleAlignment' "CENTERED"
 
-pattern BSALeft :: BurninSubtitleAlignment
-pattern BSALeft = BurninSubtitleAlignment' "LEFT"
+pattern BurninSubtitleAlignmentLeft :: BurninSubtitleAlignment
+pattern BurninSubtitleAlignmentLeft = BurninSubtitleAlignment' "LEFT"
 
 {-# COMPLETE
-  BSACentered,
-  BSALeft,
+  BurninSubtitleAlignmentCentered,
+  BurninSubtitleAlignmentLeft,
   BurninSubtitleAlignment'
   #-}

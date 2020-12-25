@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Ac3DynamicRangeCompressionProfile
   ( Ac3DynamicRangeCompressionProfile
       ( Ac3DynamicRangeCompressionProfile',
-        ADRCPFilmStandard,
-        ADRCPNone
+        Ac3DynamicRangeCompressionProfileFilmStandard,
+        Ac3DynamicRangeCompressionProfileNone,
+        fromAc3DynamicRangeCompressionProfile
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If set to FILM_STANDARD, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
-newtype Ac3DynamicRangeCompressionProfile = Ac3DynamicRangeCompressionProfile' Lude.Text
+newtype Ac3DynamicRangeCompressionProfile = Ac3DynamicRangeCompressionProfile'
+  { fromAc3DynamicRangeCompressionProfile ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ADRCPFilmStandard :: Ac3DynamicRangeCompressionProfile
-pattern ADRCPFilmStandard = Ac3DynamicRangeCompressionProfile' "FILM_STANDARD"
+pattern Ac3DynamicRangeCompressionProfileFilmStandard :: Ac3DynamicRangeCompressionProfile
+pattern Ac3DynamicRangeCompressionProfileFilmStandard = Ac3DynamicRangeCompressionProfile' "FILM_STANDARD"
 
-pattern ADRCPNone :: Ac3DynamicRangeCompressionProfile
-pattern ADRCPNone = Ac3DynamicRangeCompressionProfile' "NONE"
+pattern Ac3DynamicRangeCompressionProfileNone :: Ac3DynamicRangeCompressionProfile
+pattern Ac3DynamicRangeCompressionProfileNone = Ac3DynamicRangeCompressionProfile' "NONE"
 
 {-# COMPLETE
-  ADRCPFilmStandard,
-  ADRCPNone,
+  Ac3DynamicRangeCompressionProfileFilmStandard,
+  Ac3DynamicRangeCompressionProfileNone,
   Ac3DynamicRangeCompressionProfile'
   #-}

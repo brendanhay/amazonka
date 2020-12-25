@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -33,10 +32,70 @@
 -- All WorkMail API operations are Amazon-authenticated and certificate-signed. They not only require the use of the AWS SDK, but also allow for the exclusive use of AWS Identity and Access Management users and roles to help facilitate access, trust, and permission policies. By creating a role and allowing an IAM user to access the WorkMail site, the IAM user gains full administrative visibility into the entire WorkMail organization (or as set in the IAM policy). This includes, but is not limited to, the ability to create, update, and delete users, groups, and resources. This allows developers to perform the scenarios listed above, as well as give users the ability to grant access on a selective basis using the IAM model.
 module Network.AWS.WorkMail
   ( -- * Service configuration
-    workMailService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** DirectoryUnavailableException
+    _DirectoryUnavailableException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** UnsupportedOperationException
+    _UnsupportedOperationException,
+
+    -- ** DirectoryServiceAuthenticationFailedException
+    _DirectoryServiceAuthenticationFailedException,
+
+    -- ** OrganizationStateException
+    _OrganizationStateException,
+
+    -- ** EntityStateException
+    _EntityStateException,
+
+    -- ** InvalidConfigurationException
+    _InvalidConfigurationException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** MailDomainStateException
+    _MailDomainStateException,
+
+    -- ** ReservedNameException
+    _ReservedNameException,
+
+    -- ** OrganizationNotFoundException
+    _OrganizationNotFoundException,
+
+    -- ** EntityNotFoundException
+    _EntityNotFoundException,
+
+    -- ** EntityAlreadyRegisteredException
+    _EntityAlreadyRegisteredException,
+
+    -- ** DirectoryInUseException
+    _DirectoryInUseException,
+
+    -- ** MailDomainNotFoundException
+    _MailDomainNotFoundException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** EmailAddressInUseException
+    _EmailAddressInUseException,
+
+    -- ** NameAvailabilityException
+    _NameAvailabilityException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** InvalidPasswordException
+    _InvalidPasswordException,
 
     -- * Waiters
     -- $waiters
@@ -193,54 +252,14 @@ module Network.AWS.WorkMail
 
     -- * Types
 
-    -- ** AccessControlRuleEffect
-    AccessControlRuleEffect (..),
-
     -- ** EntityState
     EntityState (..),
 
-    -- ** FolderName
-    FolderName (..),
+    -- ** OrganizationName
+    OrganizationName (..),
 
-    -- ** MailboxExportJobState
-    MailboxExportJobState (..),
-
-    -- ** MemberType
-    MemberType (..),
-
-    -- ** PermissionType
-    PermissionType (..),
-
-    -- ** ResourceType
-    ResourceType (..),
-
-    -- ** RetentionAction
-    RetentionAction (..),
-
-    -- ** UserRole
-    UserRole (..),
-
-    -- ** AccessControlRule
-    AccessControlRule (..),
-    mkAccessControlRule,
-    acrEffect,
-    acrUserIds,
-    acrActions,
-    acrDateCreated,
-    acrName,
-    acrNotUserIds,
-    acrDateModified,
-    acrIPRanges,
-    acrNotIPRanges,
-    acrNotActions,
-    acrDescription,
-
-    -- ** BookingOptions
-    BookingOptions (..),
-    mkBookingOptions,
-    boAutoDeclineConflictingRequests,
-    boAutoDeclineRecurringRequests,
-    boAutoAcceptRequests,
+    -- ** DirectoryId
+    DirectoryId (..),
 
     -- ** Delegate
     Delegate (..),
@@ -248,106 +267,282 @@ module Network.AWS.WorkMail
     dId,
     dType,
 
-    -- ** Domain
-    Domain (..),
-    mkDomain,
-    dHostedZoneId,
-    dDomainName,
-
-    -- ** FolderConfiguration
-    FolderConfiguration (..),
-    mkFolderConfiguration,
-    fcPeriod,
-    fcAction,
-    fcName,
-
     -- ** Group
     Group (..),
     mkGroup,
-    gEmail,
-    gState,
     gDisabledDate,
-    gName,
-    gId,
+    gEmail,
     gEnabledDate,
-
-    -- ** MailboxExportJob
-    MailboxExportJob (..),
-    mkMailboxExportJob,
-    mejState,
-    mejJobId,
-    mejStartTime,
-    mejEstimatedProgress,
-    mejEndTime,
-    mejS3Path,
-    mejEntityId,
-    mejDescription,
-    mejS3BucketName,
-
-    -- ** Member
-    Member (..),
-    mkMember,
-    mState,
-    mDisabledDate,
-    mName,
-    mId,
-    mType,
-    mEnabledDate,
+    gId,
+    gName,
+    gState,
 
     -- ** OrganizationSummary
     OrganizationSummary (..),
     mkOrganizationSummary,
-    osState,
     osAlias,
     osDefaultMailDomain,
     osErrorMessage,
     osOrganizationId,
+    osState,
 
-    -- ** Permission
-    Permission (..),
-    mkPermission,
-    pGranteeType,
-    pPermissionValues,
-    pGranteeId,
+    -- ** KmsKeyArn
+    KmsKeyArn (..),
 
-    -- ** Resource
-    Resource (..),
-    mkResource,
-    rEmail,
-    rState,
-    rDisabledDate,
-    rName,
-    rId,
-    rType,
-    rEnabledDate,
+    -- ** IpAddress
+    IpAddress (..),
+
+    -- ** ResourceId
+    ResourceId (..),
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
+
+    -- ** MailboxExportJobId
+    MailboxExportJobId (..),
+
+    -- ** S3ObjectKey
+    S3ObjectKey (..),
+
+    -- ** HostedZoneId
+    HostedZoneId (..),
+
+    -- ** AccessControlRuleName
+    AccessControlRuleName (..),
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** IdempotencyClientToken
+    IdempotencyClientToken (..),
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** String
+    String (..),
+
+    -- ** MemberType
+    MemberType (..),
+
+    -- ** MailboxExportJobState
+    MailboxExportJobState (..),
+
+    -- ** Domain
+    Domain (..),
+    mkDomain,
+    dDomainName,
+    dHostedZoneId,
+
+    -- ** AccessControlRuleAction
+    AccessControlRuleAction (..),
+
+    -- ** AccessControlRuleDescription
+    AccessControlRuleDescription (..),
+
+    -- ** WorkMailIdentifier
+    WorkMailIdentifier (..),
+
+    -- ** PermissionType
+    PermissionType (..),
+
+    -- ** UserName
+    UserName (..),
+
+    -- ** PolicyDescription
+    PolicyDescription (..),
 
     -- ** User
     User (..),
     mkUser,
-    uEmail,
-    uState,
     uDisabledDate,
-    uName,
-    uId,
     uDisplayName,
-    uUserRole,
+    uEmail,
     uEnabledDate,
+    uId,
+    uName,
+    uState,
+    uUserRole,
+
+    -- ** FolderName
+    FolderName (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** MailboxExportJob
+    MailboxExportJob (..),
+    mkMailboxExportJob,
+    mejDescription,
+    mejEndTime,
+    mejEntityId,
+    mejEstimatedProgress,
+    mejJobId,
+    mejS3BucketName,
+    mejS3Path,
+    mejStartTime,
+    mejState,
+
+    -- ** DomainName
+    DomainName (..),
+
+    -- ** ShortString
+    ShortString (..),
+
+    -- ** Password
+    Password (..),
+
+    -- ** EmailAddress
+    EmailAddress (..),
+
+    -- ** RetentionAction
+    RetentionAction (..),
+
+    -- ** AccessControlRuleEffect
+    AccessControlRuleEffect (..),
+
+    -- ** Resource
+    Resource (..),
+    mkResource,
+    rDisabledDate,
+    rEmail,
+    rEnabledDate,
+    rId,
+    rName,
+    rState,
+    rType,
+
+    -- ** AccessControlRule
+    AccessControlRule (..),
+    mkAccessControlRule,
+    acrActions,
+    acrDateCreated,
+    acrDateModified,
+    acrDescription,
+    acrEffect,
+    acrIpRanges,
+    acrName,
+    acrNotActions,
+    acrNotIpRanges,
+    acrNotUserIds,
+    acrUserIds,
+
+    -- ** UserRole
+    UserRole (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Member
+    Member (..),
+    mkMember,
+    mDisabledDate,
+    mEnabledDate,
+    mId,
+    mName,
+    mState,
+    mType,
+
+    -- ** Permission
+    Permission (..),
+    mkPermission,
+    pGranteeId,
+    pGranteeType,
+    pPermissionValues,
+
+    -- ** AmazonResourceName
+    AmazonResourceName (..),
+
+    -- ** IpRange
+    IpRange (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** FolderConfiguration
+    FolderConfiguration (..),
+    mkFolderConfiguration,
+    fcName,
+    fcAction,
+    fcPeriod,
+
+    -- ** OrganizationId
+    OrganizationId (..),
+
+    -- ** S3BucketName
+    S3BucketName (..),
+
+    -- ** BookingOptions
+    BookingOptions (..),
+    mkBookingOptions,
+    boAutoAcceptRequests,
+    boAutoDeclineConflictingRequests,
+    boAutoDeclineRecurringRequests,
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** Email
+    Email (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** EntityId
+    EntityId (..),
+
+    -- ** GranteeId
+    GranteeId (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** DefaultMailDomain
+    DefaultMailDomain (..),
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** State
+    State (..),
+
+    -- ** GroupId
+    GroupId (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** MemberId
+    MemberId (..),
+
+    -- ** UserId
+    UserId (..),
+
+    -- ** ARN
+    ARN (..),
+
+    -- ** Alias
+    Alias (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** ErrorInfo
+    ErrorInfo (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

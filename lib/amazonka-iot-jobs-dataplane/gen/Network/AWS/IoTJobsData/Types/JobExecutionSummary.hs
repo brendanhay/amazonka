@@ -17,110 +17,102 @@ module Network.AWS.IoTJobsData.Types.JobExecutionSummary
     mkJobExecutionSummary,
 
     -- * Lenses
+    jExecutionNumber,
     jJobId,
     jLastUpdatedAt,
     jQueuedAt,
-    jExecutionNumber,
-    jVersionNumber,
     jStartedAt,
+    jVersionNumber,
   )
 where
 
+import qualified Network.AWS.IoTJobsData.Types.JobId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains a subset of information about a job execution.
 --
 -- /See:/ 'mkJobExecutionSummary' smart constructor.
 data JobExecutionSummary = JobExecutionSummary'
-  { -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Lude.Maybe Lude.Text,
+  { -- | A number that identifies a particular job execution on a particular device.
+    executionNumber :: Core.Maybe Core.Integer,
+    -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Core.Maybe Types.JobId,
     -- | The time, in milliseconds since the epoch, when the job execution was last updated.
-    lastUpdatedAt :: Lude.Maybe Lude.Integer,
+    lastUpdatedAt :: Core.Maybe Core.Integer,
     -- | The time, in milliseconds since the epoch, when the job execution was enqueued.
-    queuedAt :: Lude.Maybe Lude.Integer,
-    -- | A number that identifies a particular job execution on a particular device.
-    executionNumber :: Lude.Maybe Lude.Integer,
-    -- | The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives an update from a device.
-    versionNumber :: Lude.Maybe Lude.Integer,
+    queuedAt :: Core.Maybe Core.Integer,
     -- | The time, in milliseconds since the epoch, when the job execution started.
-    startedAt :: Lude.Maybe Lude.Integer
+    startedAt :: Core.Maybe Core.Integer,
+    -- | The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives an update from a device.
+    versionNumber :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobExecutionSummary' with the minimum fields required to make a request.
---
--- * 'jobId' - The unique identifier you assigned to this job when it was created.
--- * 'lastUpdatedAt' - The time, in milliseconds since the epoch, when the job execution was last updated.
--- * 'queuedAt' - The time, in milliseconds since the epoch, when the job execution was enqueued.
--- * 'executionNumber' - A number that identifies a particular job execution on a particular device.
--- * 'versionNumber' - The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives an update from a device.
--- * 'startedAt' - The time, in milliseconds since the epoch, when the job execution started.
+-- | Creates a 'JobExecutionSummary' value with any optional fields omitted.
 mkJobExecutionSummary ::
   JobExecutionSummary
 mkJobExecutionSummary =
   JobExecutionSummary'
-    { jobId = Lude.Nothing,
-      lastUpdatedAt = Lude.Nothing,
-      queuedAt = Lude.Nothing,
-      executionNumber = Lude.Nothing,
-      versionNumber = Lude.Nothing,
-      startedAt = Lude.Nothing
+    { executionNumber = Core.Nothing,
+      jobId = Core.Nothing,
+      lastUpdatedAt = Core.Nothing,
+      queuedAt = Core.Nothing,
+      startedAt = Core.Nothing,
+      versionNumber = Core.Nothing
     }
+
+-- | A number that identifies a particular job execution on a particular device.
+--
+-- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jExecutionNumber :: Lens.Lens' JobExecutionSummary (Core.Maybe Core.Integer)
+jExecutionNumber = Lens.field @"executionNumber"
+{-# DEPRECATED jExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
 
 -- | The unique identifier you assigned to this job when it was created.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jJobId :: Lens.Lens' JobExecutionSummary (Lude.Maybe Lude.Text)
-jJobId = Lens.lens (jobId :: JobExecutionSummary -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: JobExecutionSummary)
+jJobId :: Lens.Lens' JobExecutionSummary (Core.Maybe Types.JobId)
+jJobId = Lens.field @"jobId"
 {-# DEPRECATED jJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the job execution was last updated.
 --
 -- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jLastUpdatedAt :: Lens.Lens' JobExecutionSummary (Lude.Maybe Lude.Integer)
-jLastUpdatedAt = Lens.lens (lastUpdatedAt :: JobExecutionSummary -> Lude.Maybe Lude.Integer) (\s a -> s {lastUpdatedAt = a} :: JobExecutionSummary)
+jLastUpdatedAt :: Lens.Lens' JobExecutionSummary (Core.Maybe Core.Integer)
+jLastUpdatedAt = Lens.field @"lastUpdatedAt"
 {-# DEPRECATED jLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the job execution was enqueued.
 --
 -- /Note:/ Consider using 'queuedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jQueuedAt :: Lens.Lens' JobExecutionSummary (Lude.Maybe Lude.Integer)
-jQueuedAt = Lens.lens (queuedAt :: JobExecutionSummary -> Lude.Maybe Lude.Integer) (\s a -> s {queuedAt = a} :: JobExecutionSummary)
+jQueuedAt :: Lens.Lens' JobExecutionSummary (Core.Maybe Core.Integer)
+jQueuedAt = Lens.field @"queuedAt"
 {-# DEPRECATED jQueuedAt "Use generic-lens or generic-optics with 'queuedAt' instead." #-}
-
--- | A number that identifies a particular job execution on a particular device.
---
--- /Note:/ Consider using 'executionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jExecutionNumber :: Lens.Lens' JobExecutionSummary (Lude.Maybe Lude.Integer)
-jExecutionNumber = Lens.lens (executionNumber :: JobExecutionSummary -> Lude.Maybe Lude.Integer) (\s a -> s {executionNumber = a} :: JobExecutionSummary)
-{-# DEPRECATED jExecutionNumber "Use generic-lens or generic-optics with 'executionNumber' instead." #-}
-
--- | The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives an update from a device.
---
--- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jVersionNumber :: Lens.Lens' JobExecutionSummary (Lude.Maybe Lude.Integer)
-jVersionNumber = Lens.lens (versionNumber :: JobExecutionSummary -> Lude.Maybe Lude.Integer) (\s a -> s {versionNumber = a} :: JobExecutionSummary)
-{-# DEPRECATED jVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the job execution started.
 --
 -- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jStartedAt :: Lens.Lens' JobExecutionSummary (Lude.Maybe Lude.Integer)
-jStartedAt = Lens.lens (startedAt :: JobExecutionSummary -> Lude.Maybe Lude.Integer) (\s a -> s {startedAt = a} :: JobExecutionSummary)
+jStartedAt :: Lens.Lens' JobExecutionSummary (Core.Maybe Core.Integer)
+jStartedAt = Lens.field @"startedAt"
 {-# DEPRECATED jStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
-instance Lude.FromJSON JobExecutionSummary where
+-- | The version of the job execution. Job execution versions are incremented each time AWS IoT Jobs receives an update from a device.
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jVersionNumber :: Lens.Lens' JobExecutionSummary (Core.Maybe Core.Integer)
+jVersionNumber = Lens.field @"versionNumber"
+{-# DEPRECATED jVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
+
+instance Core.FromJSON JobExecutionSummary where
   parseJSON =
-    Lude.withObject
-      "JobExecutionSummary"
-      ( \x ->
-          JobExecutionSummary'
-            Lude.<$> (x Lude..:? "jobId")
-            Lude.<*> (x Lude..:? "lastUpdatedAt")
-            Lude.<*> (x Lude..:? "queuedAt")
-            Lude.<*> (x Lude..:? "executionNumber")
-            Lude.<*> (x Lude..:? "versionNumber")
-            Lude.<*> (x Lude..:? "startedAt")
-      )
+    Core.withObject "JobExecutionSummary" Core.$
+      \x ->
+        JobExecutionSummary'
+          Core.<$> (x Core..:? "executionNumber")
+          Core.<*> (x Core..:? "jobId")
+          Core.<*> (x Core..:? "lastUpdatedAt")
+          Core.<*> (x Core..:? "queuedAt")
+          Core.<*> (x Core..:? "startedAt")
+          Core.<*> (x Core..:? "versionNumber")

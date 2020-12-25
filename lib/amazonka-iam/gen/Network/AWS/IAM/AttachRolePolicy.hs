@@ -23,7 +23,7 @@ module Network.AWS.IAM.AttachRolePolicy
 
     -- ** Request lenses
     arpRoleName,
-    arpPolicyARN,
+    arpPolicyArn,
 
     -- * Destructuring the response
     AttachRolePolicyResponse (..),
@@ -31,87 +31,83 @@ module Network.AWS.IAM.AttachRolePolicy
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAttachRolePolicy' smart constructor.
 data AttachRolePolicy = AttachRolePolicy'
   { -- | The name (friendly name, not ARN) of the role to attach the policy to.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    roleName :: Lude.Text,
+    roleName :: Types.RoleNameType,
     -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
     --
     -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-    policyARN :: Lude.Text
+    policyArn :: Types.ArnType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachRolePolicy' with the minimum fields required to make a request.
---
--- * 'roleName' - The name (friendly name, not ARN) of the role to attach the policy to.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to attach.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- | Creates a 'AttachRolePolicy' value with any optional fields omitted.
 mkAttachRolePolicy ::
   -- | 'roleName'
-  Lude.Text ->
-  -- | 'policyARN'
-  Lude.Text ->
+  Types.RoleNameType ->
+  -- | 'policyArn'
+  Types.ArnType ->
   AttachRolePolicy
-mkAttachRolePolicy pRoleName_ pPolicyARN_ =
-  AttachRolePolicy' {roleName = pRoleName_, policyARN = pPolicyARN_}
+mkAttachRolePolicy roleName policyArn =
+  AttachRolePolicy' {roleName, policyArn}
 
 -- | The name (friendly name, not ARN) of the role to attach the policy to.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arpRoleName :: Lens.Lens' AttachRolePolicy Lude.Text
-arpRoleName = Lens.lens (roleName :: AttachRolePolicy -> Lude.Text) (\s a -> s {roleName = a} :: AttachRolePolicy)
+arpRoleName :: Lens.Lens' AttachRolePolicy Types.RoleNameType
+arpRoleName = Lens.field @"roleName"
 {-# DEPRECATED arpRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to attach.
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arpPolicyARN :: Lens.Lens' AttachRolePolicy Lude.Text
-arpPolicyARN = Lens.lens (policyARN :: AttachRolePolicy -> Lude.Text) (\s a -> s {policyARN = a} :: AttachRolePolicy)
-{-# DEPRECATED arpPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
+-- /Note:/ Consider using 'policyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arpPolicyArn :: Lens.Lens' AttachRolePolicy Types.ArnType
+arpPolicyArn = Lens.field @"policyArn"
+{-# DEPRECATED arpPolicyArn "Use generic-lens or generic-optics with 'policyArn' instead." #-}
 
-instance Lude.AWSRequest AttachRolePolicy where
+instance Core.AWSRequest AttachRolePolicy where
   type Rs AttachRolePolicy = AttachRolePolicyResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull AttachRolePolicyResponse'
-
-instance Lude.ToHeaders AttachRolePolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AttachRolePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AttachRolePolicy where
-  toQuery AttachRolePolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AttachRolePolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName,
-        "PolicyArn" Lude.=: policyARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AttachRolePolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+                Core.<> (Core.toQueryValue "PolicyArn" policyArn)
+            )
+      }
+  response = Response.receiveNull AttachRolePolicyResponse'
 
 -- | /See:/ 'mkAttachRolePolicyResponse' smart constructor.
 data AttachRolePolicyResponse = AttachRolePolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttachRolePolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'AttachRolePolicyResponse' value with any optional fields omitted.
 mkAttachRolePolicyResponse ::
   AttachRolePolicyResponse
 mkAttachRolePolicyResponse = AttachRolePolicyResponse'

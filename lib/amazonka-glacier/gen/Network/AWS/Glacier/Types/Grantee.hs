@@ -17,112 +17,105 @@ module Network.AWS.Glacier.Types.Grantee
     mkGrantee,
 
     -- * Lenses
-    gURI,
-    gEmailAddress,
-    gDisplayName,
-    gId,
     gType,
+    gDisplayName,
+    gEmailAddress,
+    gID,
+    gURI,
   )
 where
 
-import Network.AWS.Glacier.Types.Type
+import qualified Network.AWS.Glacier.Types.String as Types
+import qualified Network.AWS.Glacier.Types.Type as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the grantee.
 --
 -- /See:/ 'mkGrantee' smart constructor.
 data Grantee = Grantee'
-  { -- | URI of the grantee group.
-    uri :: Lude.Maybe Lude.Text,
-    -- | Email address of the grantee.
-    emailAddress :: Lude.Maybe Lude.Text,
+  { -- | Type of grantee
+    type' :: Types.Type,
     -- | Screen name of the grantee.
-    displayName :: Lude.Maybe Lude.Text,
+    displayName :: Core.Maybe Types.String,
+    -- | Email address of the grantee.
+    emailAddress :: Core.Maybe Types.String,
     -- | The canonical user ID of the grantee.
-    id :: Lude.Maybe Lude.Text,
-    -- | Type of grantee
-    type' :: Type
+    id :: Core.Maybe Types.String,
+    -- | URI of the grantee group.
+    uri :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Grantee' with the minimum fields required to make a request.
---
--- * 'uri' - URI of the grantee group.
--- * 'emailAddress' - Email address of the grantee.
--- * 'displayName' - Screen name of the grantee.
--- * 'id' - The canonical user ID of the grantee.
--- * 'type'' - Type of grantee
+-- | Creates a 'Grantee' value with any optional fields omitted.
 mkGrantee ::
-  -- | 'type''
-  Type ->
+  -- | 'type\''
+  Types.Type ->
   Grantee
-mkGrantee pType_ =
+mkGrantee type' =
   Grantee'
-    { uri = Lude.Nothing,
-      emailAddress = Lude.Nothing,
-      displayName = Lude.Nothing,
-      id = Lude.Nothing,
-      type' = pType_
+    { type',
+      displayName = Core.Nothing,
+      emailAddress = Core.Nothing,
+      id = Core.Nothing,
+      uri = Core.Nothing
     }
-
--- | URI of the grantee group.
---
--- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gURI :: Lens.Lens' Grantee (Lude.Maybe Lude.Text)
-gURI = Lens.lens (uri :: Grantee -> Lude.Maybe Lude.Text) (\s a -> s {uri = a} :: Grantee)
-{-# DEPRECATED gURI "Use generic-lens or generic-optics with 'uri' instead." #-}
-
--- | Email address of the grantee.
---
--- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gEmailAddress :: Lens.Lens' Grantee (Lude.Maybe Lude.Text)
-gEmailAddress = Lens.lens (emailAddress :: Grantee -> Lude.Maybe Lude.Text) (\s a -> s {emailAddress = a} :: Grantee)
-{-# DEPRECATED gEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
-
--- | Screen name of the grantee.
---
--- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gDisplayName :: Lens.Lens' Grantee (Lude.Maybe Lude.Text)
-gDisplayName = Lens.lens (displayName :: Grantee -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: Grantee)
-{-# DEPRECATED gDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
-
--- | The canonical user ID of the grantee.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gId :: Lens.Lens' Grantee (Lude.Maybe Lude.Text)
-gId = Lens.lens (id :: Grantee -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Grantee)
-{-# DEPRECATED gId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Type of grantee
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gType :: Lens.Lens' Grantee Type
-gType = Lens.lens (type' :: Grantee -> Type) (\s a -> s {type' = a} :: Grantee)
+gType :: Lens.Lens' Grantee Types.Type
+gType = Lens.field @"type'"
 {-# DEPRECATED gType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Grantee where
-  parseJSON =
-    Lude.withObject
-      "Grantee"
-      ( \x ->
-          Grantee'
-            Lude.<$> (x Lude..:? "URI")
-            Lude.<*> (x Lude..:? "EmailAddress")
-            Lude.<*> (x Lude..:? "DisplayName")
-            Lude.<*> (x Lude..:? "ID")
-            Lude.<*> (x Lude..: "Type")
-      )
+-- | Screen name of the grantee.
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gDisplayName :: Lens.Lens' Grantee (Core.Maybe Types.String)
+gDisplayName = Lens.field @"displayName"
+{-# DEPRECATED gDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
-instance Lude.ToJSON Grantee where
-  toJSON Grantee' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("URI" Lude..=) Lude.<$> uri,
-            ("EmailAddress" Lude..=) Lude.<$> emailAddress,
-            ("DisplayName" Lude..=) Lude.<$> displayName,
-            ("ID" Lude..=) Lude.<$> id,
-            Lude.Just ("Type" Lude..= type')
+-- | Email address of the grantee.
+--
+-- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gEmailAddress :: Lens.Lens' Grantee (Core.Maybe Types.String)
+gEmailAddress = Lens.field @"emailAddress"
+{-# DEPRECATED gEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
+
+-- | The canonical user ID of the grantee.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gID :: Lens.Lens' Grantee (Core.Maybe Types.String)
+gID = Lens.field @"id"
+{-# DEPRECATED gID "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | URI of the grantee group.
+--
+-- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gURI :: Lens.Lens' Grantee (Core.Maybe Types.String)
+gURI = Lens.field @"uri"
+{-# DEPRECATED gURI "Use generic-lens or generic-optics with 'uri' instead." #-}
+
+instance Core.FromJSON Grantee where
+  toJSON Grantee {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            ("DisplayName" Core..=) Core.<$> displayName,
+            ("EmailAddress" Core..=) Core.<$> emailAddress,
+            ("ID" Core..=) Core.<$> id,
+            ("URI" Core..=) Core.<$> uri
           ]
       )
+
+instance Core.FromJSON Grantee where
+  parseJSON =
+    Core.withObject "Grantee" Core.$
+      \x ->
+        Grantee'
+          Core.<$> (x Core..: "Type")
+          Core.<*> (x Core..:? "DisplayName")
+          Core.<*> (x Core..:? "EmailAddress")
+          Core.<*> (x Core..:? "ID")
+          Core.<*> (x Core..:? "URI")

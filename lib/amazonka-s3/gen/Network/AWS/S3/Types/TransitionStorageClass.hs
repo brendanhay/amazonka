@@ -13,62 +13,67 @@
 module Network.AWS.S3.Types.TransitionStorageClass
   ( TransitionStorageClass
       ( TransitionStorageClass',
-        TSCGlacier,
-        TSCStandardIA,
-        TSCOnezoneIA,
-        TSCIntelligentTiering,
-        TSCDeepArchive
+        TransitionStorageClassGlacier,
+        TransitionStorageClassStandardIa,
+        TransitionStorageClassOnezoneIa,
+        TransitionStorageClassIntelligentTiering,
+        TransitionStorageClassDeepArchive,
+        fromTransitionStorageClass
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype TransitionStorageClass = TransitionStorageClass' Lude.Text
+newtype TransitionStorageClass = TransitionStorageClass'
+  { fromTransitionStorageClass ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TSCGlacier :: TransitionStorageClass
-pattern TSCGlacier = TransitionStorageClass' "GLACIER"
+pattern TransitionStorageClassGlacier :: TransitionStorageClass
+pattern TransitionStorageClassGlacier = TransitionStorageClass' "GLACIER"
 
-pattern TSCStandardIA :: TransitionStorageClass
-pattern TSCStandardIA = TransitionStorageClass' "STANDARD_IA"
+pattern TransitionStorageClassStandardIa :: TransitionStorageClass
+pattern TransitionStorageClassStandardIa = TransitionStorageClass' "STANDARD_IA"
 
-pattern TSCOnezoneIA :: TransitionStorageClass
-pattern TSCOnezoneIA = TransitionStorageClass' "ONEZONE_IA"
+pattern TransitionStorageClassOnezoneIa :: TransitionStorageClass
+pattern TransitionStorageClassOnezoneIa = TransitionStorageClass' "ONEZONE_IA"
 
-pattern TSCIntelligentTiering :: TransitionStorageClass
-pattern TSCIntelligentTiering = TransitionStorageClass' "INTELLIGENT_TIERING"
+pattern TransitionStorageClassIntelligentTiering :: TransitionStorageClass
+pattern TransitionStorageClassIntelligentTiering = TransitionStorageClass' "INTELLIGENT_TIERING"
 
-pattern TSCDeepArchive :: TransitionStorageClass
-pattern TSCDeepArchive = TransitionStorageClass' "DEEP_ARCHIVE"
+pattern TransitionStorageClassDeepArchive :: TransitionStorageClass
+pattern TransitionStorageClassDeepArchive = TransitionStorageClass' "DEEP_ARCHIVE"
 
 {-# COMPLETE
-  TSCGlacier,
-  TSCStandardIA,
-  TSCOnezoneIA,
-  TSCIntelligentTiering,
-  TSCDeepArchive,
+  TransitionStorageClassGlacier,
+  TransitionStorageClassStandardIa,
+  TransitionStorageClassOnezoneIa,
+  TransitionStorageClassIntelligentTiering,
+  TransitionStorageClassDeepArchive,
   TransitionStorageClass'
   #-}

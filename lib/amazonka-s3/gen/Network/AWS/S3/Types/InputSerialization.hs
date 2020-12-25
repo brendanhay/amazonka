@@ -17,86 +17,79 @@ module Network.AWS.S3.Types.InputSerialization
     mkInputSerialization,
 
     -- * Lenses
-    isJSON,
     isCSV,
-    isParquet,
     isCompressionType,
+    isJSON,
+    isParquet,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.CSVInput
-import Network.AWS.S3.Types.CompressionType
-import Network.AWS.S3.Types.JSONInput
-import Network.AWS.S3.Types.ParquetInput
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.CSVInput as Types
+import qualified Network.AWS.S3.Types.CompressionType as Types
+import qualified Network.AWS.S3.Types.JSONInput as Types
+import qualified Network.AWS.S3.Types.ParquetInput as Types
 
 -- | Describes the serialization format of the object.
 --
 -- /See:/ 'mkInputSerialization' smart constructor.
 data InputSerialization = InputSerialization'
-  { -- | Specifies JSON as object's input serialization format.
-    json :: Lude.Maybe JSONInput,
-    -- | Describes the serialization of a CSV-encoded object.
-    csv :: Lude.Maybe CSVInput,
-    -- | Specifies Parquet as object's input serialization format.
-    parquet :: Lude.Maybe ParquetInput,
+  { -- | Describes the serialization of a CSV-encoded object.
+    csv :: Core.Maybe Types.CSVInput,
     -- | Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
-    compressionType :: Lude.Maybe CompressionType
+    compressionType :: Core.Maybe Types.CompressionType,
+    -- | Specifies JSON as object's input serialization format.
+    json :: Core.Maybe Types.JSONInput,
+    -- | Specifies Parquet as object's input serialization format.
+    parquet :: Core.Maybe Types.ParquetInput
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputSerialization' with the minimum fields required to make a request.
---
--- * 'json' - Specifies JSON as object's input serialization format.
--- * 'csv' - Describes the serialization of a CSV-encoded object.
--- * 'parquet' - Specifies Parquet as object's input serialization format.
--- * 'compressionType' - Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
+-- | Creates a 'InputSerialization' value with any optional fields omitted.
 mkInputSerialization ::
   InputSerialization
 mkInputSerialization =
   InputSerialization'
-    { json = Lude.Nothing,
-      csv = Lude.Nothing,
-      parquet = Lude.Nothing,
-      compressionType = Lude.Nothing
+    { csv = Core.Nothing,
+      compressionType = Core.Nothing,
+      json = Core.Nothing,
+      parquet = Core.Nothing
     }
-
--- | Specifies JSON as object's input serialization format.
---
--- /Note:/ Consider using 'json' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isJSON :: Lens.Lens' InputSerialization (Lude.Maybe JSONInput)
-isJSON = Lens.lens (json :: InputSerialization -> Lude.Maybe JSONInput) (\s a -> s {json = a} :: InputSerialization)
-{-# DEPRECATED isJSON "Use generic-lens or generic-optics with 'json' instead." #-}
 
 -- | Describes the serialization of a CSV-encoded object.
 --
 -- /Note:/ Consider using 'csv' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isCSV :: Lens.Lens' InputSerialization (Lude.Maybe CSVInput)
-isCSV = Lens.lens (csv :: InputSerialization -> Lude.Maybe CSVInput) (\s a -> s {csv = a} :: InputSerialization)
+isCSV :: Lens.Lens' InputSerialization (Core.Maybe Types.CSVInput)
+isCSV = Lens.field @"csv"
 {-# DEPRECATED isCSV "Use generic-lens or generic-optics with 'csv' instead." #-}
-
--- | Specifies Parquet as object's input serialization format.
---
--- /Note:/ Consider using 'parquet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isParquet :: Lens.Lens' InputSerialization (Lude.Maybe ParquetInput)
-isParquet = Lens.lens (parquet :: InputSerialization -> Lude.Maybe ParquetInput) (\s a -> s {parquet = a} :: InputSerialization)
-{-# DEPRECATED isParquet "Use generic-lens or generic-optics with 'parquet' instead." #-}
 
 -- | Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.
 --
 -- /Note:/ Consider using 'compressionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isCompressionType :: Lens.Lens' InputSerialization (Lude.Maybe CompressionType)
-isCompressionType = Lens.lens (compressionType :: InputSerialization -> Lude.Maybe CompressionType) (\s a -> s {compressionType = a} :: InputSerialization)
+isCompressionType :: Lens.Lens' InputSerialization (Core.Maybe Types.CompressionType)
+isCompressionType = Lens.field @"compressionType"
 {-# DEPRECATED isCompressionType "Use generic-lens or generic-optics with 'compressionType' instead." #-}
 
-instance Lude.ToXML InputSerialization where
-  toXML InputSerialization' {..} =
-    Lude.mconcat
-      [ "JSON" Lude.@= json,
-        "CSV" Lude.@= csv,
-        "Parquet" Lude.@= parquet,
-        "CompressionType" Lude.@= compressionType
-      ]
+-- | Specifies JSON as object's input serialization format.
+--
+-- /Note:/ Consider using 'json' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isJSON :: Lens.Lens' InputSerialization (Core.Maybe Types.JSONInput)
+isJSON = Lens.field @"json"
+{-# DEPRECATED isJSON "Use generic-lens or generic-optics with 'json' instead." #-}
+
+-- | Specifies Parquet as object's input serialization format.
+--
+-- /Note:/ Consider using 'parquet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+isParquet :: Lens.Lens' InputSerialization (Core.Maybe Types.ParquetInput)
+isParquet = Lens.field @"parquet"
+{-# DEPRECATED isParquet "Use generic-lens or generic-optics with 'parquet' instead." #-}
+
+instance Core.ToXML InputSerialization where
+  toXML InputSerialization {..} =
+    Core.toXMLNode "CSV" Core.<$> csv
+      Core.<> Core.toXMLNode "CompressionType" Core.<$> compressionType
+      Core.<> Core.toXMLNode "JSON" Core.<$> json
+      Core.<> Core.toXMLNode "Parquet" Core.<$> parquet

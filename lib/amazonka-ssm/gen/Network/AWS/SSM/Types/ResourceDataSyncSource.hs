@@ -17,86 +17,83 @@ module Network.AWS.SSM.Types.ResourceDataSyncSource
     mkResourceDataSyncSource,
 
     -- * Lenses
-    rdssIncludeFutureRegions,
     rdssSourceType,
-    rdssAWSOrganizationsSource,
     rdssSourceRegions,
+    rdssAwsOrganizationsSource,
+    rdssIncludeFutureRegions,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.ResourceDataSyncAWSOrganizationsSource
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.ResourceDataSyncAwsOrganizationsSource as Types
+import qualified Network.AWS.SSM.Types.ResourceDataSyncSourceRegion as Types
+import qualified Network.AWS.SSM.Types.ResourceDataSyncSourceType as Types
 
 -- | Information about the source of the data included in the resource data sync.
 --
 -- /See:/ 'mkResourceDataSyncSource' smart constructor.
 data ResourceDataSyncSource = ResourceDataSyncSource'
-  { -- | Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
-    includeFutureRegions :: Lude.Maybe Lude.Bool,
-    -- | The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
-    sourceType :: Lude.Text,
-    -- | Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations.
-    awsOrganizationsSource :: Lude.Maybe ResourceDataSyncAWSOrganizationsSource,
+  { -- | The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
+    sourceType :: Types.ResourceDataSyncSourceType,
     -- | The @SyncSource@ AWS Regions included in the resource data sync.
-    sourceRegions :: [Lude.Text]
+    sourceRegions :: [Types.ResourceDataSyncSourceRegion],
+    -- | Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations.
+    awsOrganizationsSource :: Core.Maybe Types.ResourceDataSyncAwsOrganizationsSource,
+    -- | Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+    includeFutureRegions :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceDataSyncSource' with the minimum fields required to make a request.
---
--- * 'includeFutureRegions' - Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
--- * 'sourceType' - The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
--- * 'awsOrganizationsSource' - Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations.
--- * 'sourceRegions' - The @SyncSource@ AWS Regions included in the resource data sync.
+-- | Creates a 'ResourceDataSyncSource' value with any optional fields omitted.
 mkResourceDataSyncSource ::
   -- | 'sourceType'
-  Lude.Text ->
+  Types.ResourceDataSyncSourceType ->
   ResourceDataSyncSource
-mkResourceDataSyncSource pSourceType_ =
+mkResourceDataSyncSource sourceType =
   ResourceDataSyncSource'
-    { includeFutureRegions = Lude.Nothing,
-      sourceType = pSourceType_,
-      awsOrganizationsSource = Lude.Nothing,
-      sourceRegions = Lude.mempty
+    { sourceType,
+      sourceRegions = Core.mempty,
+      awsOrganizationsSource = Core.Nothing,
+      includeFutureRegions = Core.Nothing
     }
-
--- | Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
---
--- /Note:/ Consider using 'includeFutureRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdssIncludeFutureRegions :: Lens.Lens' ResourceDataSyncSource (Lude.Maybe Lude.Bool)
-rdssIncludeFutureRegions = Lens.lens (includeFutureRegions :: ResourceDataSyncSource -> Lude.Maybe Lude.Bool) (\s a -> s {includeFutureRegions = a} :: ResourceDataSyncSource)
-{-# DEPRECATED rdssIncludeFutureRegions "Use generic-lens or generic-optics with 'includeFutureRegions' instead." #-}
 
 -- | The type of data source for the resource data sync. @SourceType@ is either @AwsOrganizations@ (if an organization is present in AWS Organizations) or @singleAccountMultiRegions@ .
 --
 -- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdssSourceType :: Lens.Lens' ResourceDataSyncSource Lude.Text
-rdssSourceType = Lens.lens (sourceType :: ResourceDataSyncSource -> Lude.Text) (\s a -> s {sourceType = a} :: ResourceDataSyncSource)
+rdssSourceType :: Lens.Lens' ResourceDataSyncSource Types.ResourceDataSyncSourceType
+rdssSourceType = Lens.field @"sourceType"
 {-# DEPRECATED rdssSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
-
--- | Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations.
---
--- /Note:/ Consider using 'awsOrganizationsSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdssAWSOrganizationsSource :: Lens.Lens' ResourceDataSyncSource (Lude.Maybe ResourceDataSyncAWSOrganizationsSource)
-rdssAWSOrganizationsSource = Lens.lens (awsOrganizationsSource :: ResourceDataSyncSource -> Lude.Maybe ResourceDataSyncAWSOrganizationsSource) (\s a -> s {awsOrganizationsSource = a} :: ResourceDataSyncSource)
-{-# DEPRECATED rdssAWSOrganizationsSource "Use generic-lens or generic-optics with 'awsOrganizationsSource' instead." #-}
 
 -- | The @SyncSource@ AWS Regions included in the resource data sync.
 --
 -- /Note:/ Consider using 'sourceRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdssSourceRegions :: Lens.Lens' ResourceDataSyncSource [Lude.Text]
-rdssSourceRegions = Lens.lens (sourceRegions :: ResourceDataSyncSource -> [Lude.Text]) (\s a -> s {sourceRegions = a} :: ResourceDataSyncSource)
+rdssSourceRegions :: Lens.Lens' ResourceDataSyncSource [Types.ResourceDataSyncSourceRegion]
+rdssSourceRegions = Lens.field @"sourceRegions"
 {-# DEPRECATED rdssSourceRegions "Use generic-lens or generic-optics with 'sourceRegions' instead." #-}
 
-instance Lude.ToJSON ResourceDataSyncSource where
-  toJSON ResourceDataSyncSource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("IncludeFutureRegions" Lude..=) Lude.<$> includeFutureRegions,
-            Lude.Just ("SourceType" Lude..= sourceType),
-            ("AwsOrganizationsSource" Lude..=) Lude.<$> awsOrganizationsSource,
-            Lude.Just ("SourceRegions" Lude..= sourceRegions)
+-- | Information about the AwsOrganizationsSource resource data sync source. A sync source of this type can synchronize data from AWS Organizations.
+--
+-- /Note:/ Consider using 'awsOrganizationsSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssAwsOrganizationsSource :: Lens.Lens' ResourceDataSyncSource (Core.Maybe Types.ResourceDataSyncAwsOrganizationsSource)
+rdssAwsOrganizationsSource = Lens.field @"awsOrganizationsSource"
+{-# DEPRECATED rdssAwsOrganizationsSource "Use generic-lens or generic-optics with 'awsOrganizationsSource' instead." #-}
+
+-- | Whether to automatically synchronize and aggregate data from new AWS Regions when those Regions come online.
+--
+-- /Note:/ Consider using 'includeFutureRegions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdssIncludeFutureRegions :: Lens.Lens' ResourceDataSyncSource (Core.Maybe Core.Bool)
+rdssIncludeFutureRegions = Lens.field @"includeFutureRegions"
+{-# DEPRECATED rdssIncludeFutureRegions "Use generic-lens or generic-optics with 'includeFutureRegions' instead." #-}
+
+instance Core.FromJSON ResourceDataSyncSource where
+  toJSON ResourceDataSyncSource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SourceType" Core..= sourceType),
+            Core.Just ("SourceRegions" Core..= sourceRegions),
+            ("AwsOrganizationsSource" Core..=) Core.<$> awsOrganizationsSource,
+            ("IncludeFutureRegions" Core..=) Core.<$> includeFutureRegions
           ]
       )

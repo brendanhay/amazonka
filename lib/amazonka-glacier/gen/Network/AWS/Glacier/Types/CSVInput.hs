@@ -17,124 +17,116 @@ module Network.AWS.Glacier.Types.CSVInput
     mkCSVInput,
 
     -- * Lenses
-    ciQuoteCharacter,
-    ciRecordDelimiter,
-    ciFileHeaderInfo,
-    ciQuoteEscapeCharacter,
-    ciComments,
-    ciFieldDelimiter,
+    csviComments,
+    csviFieldDelimiter,
+    csviFileHeaderInfo,
+    csviQuoteCharacter,
+    csviQuoteEscapeCharacter,
+    csviRecordDelimiter,
   )
 where
 
-import Network.AWS.Glacier.Types.FileHeaderInfo
+import qualified Network.AWS.Glacier.Types.FileHeaderInfo as Types
+import qualified Network.AWS.Glacier.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the comma-separated value (CSV) file to select from.
 --
 -- /See:/ 'mkCSVInput' smart constructor.
 data CSVInput = CSVInput'
-  { -- | A value used as an escape character where the field delimiter is part of the value.
-    quoteCharacter :: Lude.Maybe Lude.Text,
-    -- | A value used to separate individual records from each other.
-    recordDelimiter :: Lude.Maybe Lude.Text,
-    -- | Describes the first line of input. Valid values are @None@ , @Ignore@ , and @Use@ .
-    fileHeaderInfo :: Lude.Maybe FileHeaderInfo,
-    -- | A single character used for escaping the quotation-mark character inside an already escaped value.
-    quoteEscapeCharacter :: Lude.Maybe Lude.Text,
-    -- | A single character used to indicate that a row should be ignored when the character is present at the start of that row.
-    comments :: Lude.Maybe Lude.Text,
+  { -- | A single character used to indicate that a row should be ignored when the character is present at the start of that row.
+    comments :: Core.Maybe Types.String,
     -- | A value used to separate individual fields from each other within a record.
-    fieldDelimiter :: Lude.Maybe Lude.Text
+    fieldDelimiter :: Core.Maybe Types.String,
+    -- | Describes the first line of input. Valid values are @None@ , @Ignore@ , and @Use@ .
+    fileHeaderInfo :: Core.Maybe Types.FileHeaderInfo,
+    -- | A value used as an escape character where the field delimiter is part of the value.
+    quoteCharacter :: Core.Maybe Types.String,
+    -- | A single character used for escaping the quotation-mark character inside an already escaped value.
+    quoteEscapeCharacter :: Core.Maybe Types.String,
+    -- | A value used to separate individual records from each other.
+    recordDelimiter :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CSVInput' with the minimum fields required to make a request.
---
--- * 'quoteCharacter' - A value used as an escape character where the field delimiter is part of the value.
--- * 'recordDelimiter' - A value used to separate individual records from each other.
--- * 'fileHeaderInfo' - Describes the first line of input. Valid values are @None@ , @Ignore@ , and @Use@ .
--- * 'quoteEscapeCharacter' - A single character used for escaping the quotation-mark character inside an already escaped value.
--- * 'comments' - A single character used to indicate that a row should be ignored when the character is present at the start of that row.
--- * 'fieldDelimiter' - A value used to separate individual fields from each other within a record.
+-- | Creates a 'CSVInput' value with any optional fields omitted.
 mkCSVInput ::
   CSVInput
 mkCSVInput =
   CSVInput'
-    { quoteCharacter = Lude.Nothing,
-      recordDelimiter = Lude.Nothing,
-      fileHeaderInfo = Lude.Nothing,
-      quoteEscapeCharacter = Lude.Nothing,
-      comments = Lude.Nothing,
-      fieldDelimiter = Lude.Nothing
+    { comments = Core.Nothing,
+      fieldDelimiter = Core.Nothing,
+      fileHeaderInfo = Core.Nothing,
+      quoteCharacter = Core.Nothing,
+      quoteEscapeCharacter = Core.Nothing,
+      recordDelimiter = Core.Nothing
     }
-
--- | A value used as an escape character where the field delimiter is part of the value.
---
--- /Note:/ Consider using 'quoteCharacter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciQuoteCharacter :: Lens.Lens' CSVInput (Lude.Maybe Lude.Text)
-ciQuoteCharacter = Lens.lens (quoteCharacter :: CSVInput -> Lude.Maybe Lude.Text) (\s a -> s {quoteCharacter = a} :: CSVInput)
-{-# DEPRECATED ciQuoteCharacter "Use generic-lens or generic-optics with 'quoteCharacter' instead." #-}
-
--- | A value used to separate individual records from each other.
---
--- /Note:/ Consider using 'recordDelimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciRecordDelimiter :: Lens.Lens' CSVInput (Lude.Maybe Lude.Text)
-ciRecordDelimiter = Lens.lens (recordDelimiter :: CSVInput -> Lude.Maybe Lude.Text) (\s a -> s {recordDelimiter = a} :: CSVInput)
-{-# DEPRECATED ciRecordDelimiter "Use generic-lens or generic-optics with 'recordDelimiter' instead." #-}
-
--- | Describes the first line of input. Valid values are @None@ , @Ignore@ , and @Use@ .
---
--- /Note:/ Consider using 'fileHeaderInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciFileHeaderInfo :: Lens.Lens' CSVInput (Lude.Maybe FileHeaderInfo)
-ciFileHeaderInfo = Lens.lens (fileHeaderInfo :: CSVInput -> Lude.Maybe FileHeaderInfo) (\s a -> s {fileHeaderInfo = a} :: CSVInput)
-{-# DEPRECATED ciFileHeaderInfo "Use generic-lens or generic-optics with 'fileHeaderInfo' instead." #-}
-
--- | A single character used for escaping the quotation-mark character inside an already escaped value.
---
--- /Note:/ Consider using 'quoteEscapeCharacter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciQuoteEscapeCharacter :: Lens.Lens' CSVInput (Lude.Maybe Lude.Text)
-ciQuoteEscapeCharacter = Lens.lens (quoteEscapeCharacter :: CSVInput -> Lude.Maybe Lude.Text) (\s a -> s {quoteEscapeCharacter = a} :: CSVInput)
-{-# DEPRECATED ciQuoteEscapeCharacter "Use generic-lens or generic-optics with 'quoteEscapeCharacter' instead." #-}
 
 -- | A single character used to indicate that a row should be ignored when the character is present at the start of that row.
 --
 -- /Note:/ Consider using 'comments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciComments :: Lens.Lens' CSVInput (Lude.Maybe Lude.Text)
-ciComments = Lens.lens (comments :: CSVInput -> Lude.Maybe Lude.Text) (\s a -> s {comments = a} :: CSVInput)
-{-# DEPRECATED ciComments "Use generic-lens or generic-optics with 'comments' instead." #-}
+csviComments :: Lens.Lens' CSVInput (Core.Maybe Types.String)
+csviComments = Lens.field @"comments"
+{-# DEPRECATED csviComments "Use generic-lens or generic-optics with 'comments' instead." #-}
 
 -- | A value used to separate individual fields from each other within a record.
 --
 -- /Note:/ Consider using 'fieldDelimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciFieldDelimiter :: Lens.Lens' CSVInput (Lude.Maybe Lude.Text)
-ciFieldDelimiter = Lens.lens (fieldDelimiter :: CSVInput -> Lude.Maybe Lude.Text) (\s a -> s {fieldDelimiter = a} :: CSVInput)
-{-# DEPRECATED ciFieldDelimiter "Use generic-lens or generic-optics with 'fieldDelimiter' instead." #-}
+csviFieldDelimiter :: Lens.Lens' CSVInput (Core.Maybe Types.String)
+csviFieldDelimiter = Lens.field @"fieldDelimiter"
+{-# DEPRECATED csviFieldDelimiter "Use generic-lens or generic-optics with 'fieldDelimiter' instead." #-}
 
-instance Lude.FromJSON CSVInput where
-  parseJSON =
-    Lude.withObject
-      "CSVInput"
-      ( \x ->
-          CSVInput'
-            Lude.<$> (x Lude..:? "QuoteCharacter")
-            Lude.<*> (x Lude..:? "RecordDelimiter")
-            Lude.<*> (x Lude..:? "FileHeaderInfo")
-            Lude.<*> (x Lude..:? "QuoteEscapeCharacter")
-            Lude.<*> (x Lude..:? "Comments")
-            Lude.<*> (x Lude..:? "FieldDelimiter")
-      )
+-- | Describes the first line of input. Valid values are @None@ , @Ignore@ , and @Use@ .
+--
+-- /Note:/ Consider using 'fileHeaderInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csviFileHeaderInfo :: Lens.Lens' CSVInput (Core.Maybe Types.FileHeaderInfo)
+csviFileHeaderInfo = Lens.field @"fileHeaderInfo"
+{-# DEPRECATED csviFileHeaderInfo "Use generic-lens or generic-optics with 'fileHeaderInfo' instead." #-}
 
-instance Lude.ToJSON CSVInput where
-  toJSON CSVInput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("QuoteCharacter" Lude..=) Lude.<$> quoteCharacter,
-            ("RecordDelimiter" Lude..=) Lude.<$> recordDelimiter,
-            ("FileHeaderInfo" Lude..=) Lude.<$> fileHeaderInfo,
-            ("QuoteEscapeCharacter" Lude..=) Lude.<$> quoteEscapeCharacter,
-            ("Comments" Lude..=) Lude.<$> comments,
-            ("FieldDelimiter" Lude..=) Lude.<$> fieldDelimiter
+-- | A value used as an escape character where the field delimiter is part of the value.
+--
+-- /Note:/ Consider using 'quoteCharacter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csviQuoteCharacter :: Lens.Lens' CSVInput (Core.Maybe Types.String)
+csviQuoteCharacter = Lens.field @"quoteCharacter"
+{-# DEPRECATED csviQuoteCharacter "Use generic-lens or generic-optics with 'quoteCharacter' instead." #-}
+
+-- | A single character used for escaping the quotation-mark character inside an already escaped value.
+--
+-- /Note:/ Consider using 'quoteEscapeCharacter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csviQuoteEscapeCharacter :: Lens.Lens' CSVInput (Core.Maybe Types.String)
+csviQuoteEscapeCharacter = Lens.field @"quoteEscapeCharacter"
+{-# DEPRECATED csviQuoteEscapeCharacter "Use generic-lens or generic-optics with 'quoteEscapeCharacter' instead." #-}
+
+-- | A value used to separate individual records from each other.
+--
+-- /Note:/ Consider using 'recordDelimiter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csviRecordDelimiter :: Lens.Lens' CSVInput (Core.Maybe Types.String)
+csviRecordDelimiter = Lens.field @"recordDelimiter"
+{-# DEPRECATED csviRecordDelimiter "Use generic-lens or generic-optics with 'recordDelimiter' instead." #-}
+
+instance Core.FromJSON CSVInput where
+  toJSON CSVInput {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Comments" Core..=) Core.<$> comments,
+            ("FieldDelimiter" Core..=) Core.<$> fieldDelimiter,
+            ("FileHeaderInfo" Core..=) Core.<$> fileHeaderInfo,
+            ("QuoteCharacter" Core..=) Core.<$> quoteCharacter,
+            ("QuoteEscapeCharacter" Core..=) Core.<$> quoteEscapeCharacter,
+            ("RecordDelimiter" Core..=) Core.<$> recordDelimiter
           ]
       )
+
+instance Core.FromJSON CSVInput where
+  parseJSON =
+    Core.withObject "CSVInput" Core.$
+      \x ->
+        CSVInput'
+          Core.<$> (x Core..:? "Comments")
+          Core.<*> (x Core..:? "FieldDelimiter")
+          Core.<*> (x Core..:? "FileHeaderInfo")
+          Core.<*> (x Core..:? "QuoteCharacter")
+          Core.<*> (x Core..:? "QuoteEscapeCharacter")
+          Core.<*> (x Core..:? "RecordDelimiter")

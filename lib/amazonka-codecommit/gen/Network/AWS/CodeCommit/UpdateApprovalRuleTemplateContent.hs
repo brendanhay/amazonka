@@ -20,162 +20,147 @@ module Network.AWS.CodeCommit.UpdateApprovalRuleTemplateContent
     mkUpdateApprovalRuleTemplateContent,
 
     -- ** Request lenses
-    uartcExistingRuleContentSha256,
-    uartcNewRuleContent,
     uartcApprovalRuleTemplateName,
+    uartcNewRuleContent,
+    uartcExistingRuleContentSha256,
 
     -- * Destructuring the response
     UpdateApprovalRuleTemplateContentResponse (..),
     mkUpdateApprovalRuleTemplateContentResponse,
 
     -- ** Response lenses
-    uartcrsApprovalRuleTemplate,
-    uartcrsResponseStatus,
+    uartcrrsApprovalRuleTemplate,
+    uartcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateApprovalRuleTemplateContent' smart constructor.
 data UpdateApprovalRuleTemplateContent = UpdateApprovalRuleTemplateContent'
-  { -- | The SHA-256 hash signature for the content of the approval rule. You can retrieve this information by using 'GetPullRequest' .
-    existingRuleContentSha256 :: Lude.Maybe Lude.Text,
+  { -- | The name of the approval rule template where you want to update the content of the rule.
+    approvalRuleTemplateName :: Types.ApprovalRuleTemplateName,
     -- | The content that replaces the existing content of the rule. Content statements must be complete. You cannot provide only the changes.
-    newRuleContent :: Lude.Text,
-    -- | The name of the approval rule template where you want to update the content of the rule.
-    approvalRuleTemplateName :: Lude.Text
+    newRuleContent :: Types.NewRuleContent,
+    -- | The SHA-256 hash signature for the content of the approval rule. You can retrieve this information by using 'GetPullRequest' .
+    existingRuleContentSha256 :: Core.Maybe Types.RuleContentSha256
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateApprovalRuleTemplateContent' with the minimum fields required to make a request.
---
--- * 'existingRuleContentSha256' - The SHA-256 hash signature for the content of the approval rule. You can retrieve this information by using 'GetPullRequest' .
--- * 'newRuleContent' - The content that replaces the existing content of the rule. Content statements must be complete. You cannot provide only the changes.
--- * 'approvalRuleTemplateName' - The name of the approval rule template where you want to update the content of the rule.
+-- | Creates a 'UpdateApprovalRuleTemplateContent' value with any optional fields omitted.
 mkUpdateApprovalRuleTemplateContent ::
-  -- | 'newRuleContent'
-  Lude.Text ->
   -- | 'approvalRuleTemplateName'
-  Lude.Text ->
+  Types.ApprovalRuleTemplateName ->
+  -- | 'newRuleContent'
+  Types.NewRuleContent ->
   UpdateApprovalRuleTemplateContent
 mkUpdateApprovalRuleTemplateContent
-  pNewRuleContent_
-  pApprovalRuleTemplateName_ =
+  approvalRuleTemplateName
+  newRuleContent =
     UpdateApprovalRuleTemplateContent'
-      { existingRuleContentSha256 =
-          Lude.Nothing,
-        newRuleContent = pNewRuleContent_,
-        approvalRuleTemplateName = pApprovalRuleTemplateName_
+      { approvalRuleTemplateName,
+        newRuleContent,
+        existingRuleContentSha256 = Core.Nothing
       }
-
--- | The SHA-256 hash signature for the content of the approval rule. You can retrieve this information by using 'GetPullRequest' .
---
--- /Note:/ Consider using 'existingRuleContentSha256' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uartcExistingRuleContentSha256 :: Lens.Lens' UpdateApprovalRuleTemplateContent (Lude.Maybe Lude.Text)
-uartcExistingRuleContentSha256 = Lens.lens (existingRuleContentSha256 :: UpdateApprovalRuleTemplateContent -> Lude.Maybe Lude.Text) (\s a -> s {existingRuleContentSha256 = a} :: UpdateApprovalRuleTemplateContent)
-{-# DEPRECATED uartcExistingRuleContentSha256 "Use generic-lens or generic-optics with 'existingRuleContentSha256' instead." #-}
-
--- | The content that replaces the existing content of the rule. Content statements must be complete. You cannot provide only the changes.
---
--- /Note:/ Consider using 'newRuleContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uartcNewRuleContent :: Lens.Lens' UpdateApprovalRuleTemplateContent Lude.Text
-uartcNewRuleContent = Lens.lens (newRuleContent :: UpdateApprovalRuleTemplateContent -> Lude.Text) (\s a -> s {newRuleContent = a} :: UpdateApprovalRuleTemplateContent)
-{-# DEPRECATED uartcNewRuleContent "Use generic-lens or generic-optics with 'newRuleContent' instead." #-}
 
 -- | The name of the approval rule template where you want to update the content of the rule.
 --
 -- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uartcApprovalRuleTemplateName :: Lens.Lens' UpdateApprovalRuleTemplateContent Lude.Text
-uartcApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: UpdateApprovalRuleTemplateContent -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: UpdateApprovalRuleTemplateContent)
+uartcApprovalRuleTemplateName :: Lens.Lens' UpdateApprovalRuleTemplateContent Types.ApprovalRuleTemplateName
+uartcApprovalRuleTemplateName = Lens.field @"approvalRuleTemplateName"
 {-# DEPRECATED uartcApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
-instance Lude.AWSRequest UpdateApprovalRuleTemplateContent where
+-- | The content that replaces the existing content of the rule. Content statements must be complete. You cannot provide only the changes.
+--
+-- /Note:/ Consider using 'newRuleContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uartcNewRuleContent :: Lens.Lens' UpdateApprovalRuleTemplateContent Types.NewRuleContent
+uartcNewRuleContent = Lens.field @"newRuleContent"
+{-# DEPRECATED uartcNewRuleContent "Use generic-lens or generic-optics with 'newRuleContent' instead." #-}
+
+-- | The SHA-256 hash signature for the content of the approval rule. You can retrieve this information by using 'GetPullRequest' .
+--
+-- /Note:/ Consider using 'existingRuleContentSha256' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uartcExistingRuleContentSha256 :: Lens.Lens' UpdateApprovalRuleTemplateContent (Core.Maybe Types.RuleContentSha256)
+uartcExistingRuleContentSha256 = Lens.field @"existingRuleContentSha256"
+{-# DEPRECATED uartcExistingRuleContentSha256 "Use generic-lens or generic-optics with 'existingRuleContentSha256' instead." #-}
+
+instance Core.FromJSON UpdateApprovalRuleTemplateContent where
+  toJSON UpdateApprovalRuleTemplateContent {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("approvalRuleTemplateName" Core..= approvalRuleTemplateName),
+            Core.Just ("newRuleContent" Core..= newRuleContent),
+            ("existingRuleContentSha256" Core..=)
+              Core.<$> existingRuleContentSha256
+          ]
+      )
+
+instance Core.AWSRequest UpdateApprovalRuleTemplateContent where
   type
     Rs UpdateApprovalRuleTemplateContent =
       UpdateApprovalRuleTemplateContentResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "CodeCommit_20150413.UpdateApprovalRuleTemplateContent"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateApprovalRuleTemplateContentResponse'
-            Lude.<$> (x Lude..:> "approvalRuleTemplate")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "approvalRuleTemplate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateApprovalRuleTemplateContent where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeCommit_20150413.UpdateApprovalRuleTemplateContent" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateApprovalRuleTemplateContent where
-  toJSON UpdateApprovalRuleTemplateContent' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("existingRuleContentSha256" Lude..=)
-              Lude.<$> existingRuleContentSha256,
-            Lude.Just ("newRuleContent" Lude..= newRuleContent),
-            Lude.Just
-              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName)
-          ]
-      )
-
-instance Lude.ToPath UpdateApprovalRuleTemplateContent where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateApprovalRuleTemplateContent where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateApprovalRuleTemplateContentResponse' smart constructor.
 data UpdateApprovalRuleTemplateContentResponse = UpdateApprovalRuleTemplateContentResponse'
-  { approvalRuleTemplate :: ApprovalRuleTemplate,
+  { approvalRuleTemplate :: Types.ApprovalRuleTemplate,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateApprovalRuleTemplateContentResponse' with the minimum fields required to make a request.
---
--- * 'approvalRuleTemplate' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateApprovalRuleTemplateContentResponse' value with any optional fields omitted.
 mkUpdateApprovalRuleTemplateContentResponse ::
   -- | 'approvalRuleTemplate'
-  ApprovalRuleTemplate ->
+  Types.ApprovalRuleTemplate ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateApprovalRuleTemplateContentResponse
 mkUpdateApprovalRuleTemplateContentResponse
-  pApprovalRuleTemplate_
-  pResponseStatus_ =
+  approvalRuleTemplate
+  responseStatus =
     UpdateApprovalRuleTemplateContentResponse'
-      { approvalRuleTemplate =
-          pApprovalRuleTemplate_,
-        responseStatus = pResponseStatus_
+      { approvalRuleTemplate,
+        responseStatus
       }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'approvalRuleTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uartcrsApprovalRuleTemplate :: Lens.Lens' UpdateApprovalRuleTemplateContentResponse ApprovalRuleTemplate
-uartcrsApprovalRuleTemplate = Lens.lens (approvalRuleTemplate :: UpdateApprovalRuleTemplateContentResponse -> ApprovalRuleTemplate) (\s a -> s {approvalRuleTemplate = a} :: UpdateApprovalRuleTemplateContentResponse)
-{-# DEPRECATED uartcrsApprovalRuleTemplate "Use generic-lens or generic-optics with 'approvalRuleTemplate' instead." #-}
+uartcrrsApprovalRuleTemplate :: Lens.Lens' UpdateApprovalRuleTemplateContentResponse Types.ApprovalRuleTemplate
+uartcrrsApprovalRuleTemplate = Lens.field @"approvalRuleTemplate"
+{-# DEPRECATED uartcrrsApprovalRuleTemplate "Use generic-lens or generic-optics with 'approvalRuleTemplate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uartcrsResponseStatus :: Lens.Lens' UpdateApprovalRuleTemplateContentResponse Lude.Int
-uartcrsResponseStatus = Lens.lens (responseStatus :: UpdateApprovalRuleTemplateContentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateApprovalRuleTemplateContentResponse)
-{-# DEPRECATED uartcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uartcrrsResponseStatus :: Lens.Lens' UpdateApprovalRuleTemplateContentResponse Core.Int
+uartcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uartcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

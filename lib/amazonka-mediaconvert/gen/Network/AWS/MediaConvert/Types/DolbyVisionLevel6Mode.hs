@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.DolbyVisionLevel6Mode
   ( DolbyVisionLevel6Mode
       ( DolbyVisionLevel6Mode',
-        Passthrough,
-        Recalculate,
-        Specify
+        DolbyVisionLevel6ModePassthrough,
+        DolbyVisionLevel6ModeRecalculate,
+        DolbyVisionLevel6ModeSpecify,
+        fromDolbyVisionLevel6Mode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use Dolby Vision Mode to choose how the service will handle Dolby Vision MaxCLL and MaxFALL properies.
-newtype DolbyVisionLevel6Mode = DolbyVisionLevel6Mode' Lude.Text
+newtype DolbyVisionLevel6Mode = DolbyVisionLevel6Mode'
+  { fromDolbyVisionLevel6Mode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Passthrough :: DolbyVisionLevel6Mode
-pattern Passthrough = DolbyVisionLevel6Mode' "PASSTHROUGH"
+pattern DolbyVisionLevel6ModePassthrough :: DolbyVisionLevel6Mode
+pattern DolbyVisionLevel6ModePassthrough = DolbyVisionLevel6Mode' "PASSTHROUGH"
 
-pattern Recalculate :: DolbyVisionLevel6Mode
-pattern Recalculate = DolbyVisionLevel6Mode' "RECALCULATE"
+pattern DolbyVisionLevel6ModeRecalculate :: DolbyVisionLevel6Mode
+pattern DolbyVisionLevel6ModeRecalculate = DolbyVisionLevel6Mode' "RECALCULATE"
 
-pattern Specify :: DolbyVisionLevel6Mode
-pattern Specify = DolbyVisionLevel6Mode' "SPECIFY"
+pattern DolbyVisionLevel6ModeSpecify :: DolbyVisionLevel6Mode
+pattern DolbyVisionLevel6ModeSpecify = DolbyVisionLevel6Mode' "SPECIFY"
 
 {-# COMPLETE
-  Passthrough,
-  Recalculate,
-  Specify,
+  DolbyVisionLevel6ModePassthrough,
+  DolbyVisionLevel6ModeRecalculate,
+  DolbyVisionLevel6ModeSpecify,
   DolbyVisionLevel6Mode'
   #-}

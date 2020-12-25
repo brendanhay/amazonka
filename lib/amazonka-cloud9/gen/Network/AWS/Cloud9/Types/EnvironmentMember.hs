@@ -17,28 +17,29 @@ module Network.AWS.Cloud9.Types.EnvironmentMember
     mkEnvironmentMember,
 
     -- * Lenses
-    emLastAccess,
-    emUserId,
-    emUserARN,
-    emPermissions,
     emEnvironmentId,
+    emLastAccess,
+    emPermissions,
+    emUserArn,
+    emUserId,
   )
 where
 
-import Network.AWS.Cloud9.Types.Permissions
+import qualified Network.AWS.Cloud9.Types.EnvironmentId as Types
+import qualified Network.AWS.Cloud9.Types.Permissions as Types
+import qualified Network.AWS.Cloud9.Types.String as Types
+import qualified Network.AWS.Cloud9.Types.UserArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an environment member for an AWS Cloud9 development environment.
 --
 -- /See:/ 'mkEnvironmentMember' smart constructor.
 data EnvironmentMember = EnvironmentMember'
-  { -- | The time, expressed in epoch time format, when the environment member last opened the environment.
-    lastAccess :: Lude.Maybe Lude.Timestamp,
-    -- | The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
-    userId :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the environment member.
-    userARN :: Lude.Maybe Lude.Text,
+  { -- | The ID of the environment for the environment member.
+    environmentId :: Core.Maybe Types.EnvironmentId,
+    -- | The time, expressed in epoch time format, when the environment member last opened the environment.
+    lastAccess :: Core.Maybe Core.NominalDiffTime,
     -- | The type of environment member permissions associated with this environment member. Available values include:
     --
     --
@@ -49,62 +50,40 @@ data EnvironmentMember = EnvironmentMember'
     --
     --
     --     * @read-write@ : Has read-write access to the environment.
-    permissions :: Lude.Maybe Permissions,
-    -- | The ID of the environment for the environment member.
-    environmentId :: Lude.Maybe Lude.Text
+    permissions :: Core.Maybe Types.Permissions,
+    -- | The Amazon Resource Name (ARN) of the environment member.
+    userArn :: Core.Maybe Types.UserArn,
+    -- | The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+    userId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EnvironmentMember' with the minimum fields required to make a request.
---
--- * 'lastAccess' - The time, expressed in epoch time format, when the environment member last opened the environment.
--- * 'userId' - The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
--- * 'userARN' - The Amazon Resource Name (ARN) of the environment member.
--- * 'permissions' - The type of environment member permissions associated with this environment member. Available values include:
---
---
---     * @owner@ : Owns the environment.
---
---
---     * @read-only@ : Has read-only access to the environment.
---
---
---     * @read-write@ : Has read-write access to the environment.
---
---
--- * 'environmentId' - The ID of the environment for the environment member.
+-- | Creates a 'EnvironmentMember' value with any optional fields omitted.
 mkEnvironmentMember ::
   EnvironmentMember
 mkEnvironmentMember =
   EnvironmentMember'
-    { lastAccess = Lude.Nothing,
-      userId = Lude.Nothing,
-      userARN = Lude.Nothing,
-      permissions = Lude.Nothing,
-      environmentId = Lude.Nothing
+    { environmentId = Core.Nothing,
+      lastAccess = Core.Nothing,
+      permissions = Core.Nothing,
+      userArn = Core.Nothing,
+      userId = Core.Nothing
     }
+
+-- | The ID of the environment for the environment member.
+--
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emEnvironmentId :: Lens.Lens' EnvironmentMember (Core.Maybe Types.EnvironmentId)
+emEnvironmentId = Lens.field @"environmentId"
+{-# DEPRECATED emEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 -- | The time, expressed in epoch time format, when the environment member last opened the environment.
 --
 -- /Note:/ Consider using 'lastAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emLastAccess :: Lens.Lens' EnvironmentMember (Lude.Maybe Lude.Timestamp)
-emLastAccess = Lens.lens (lastAccess :: EnvironmentMember -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastAccess = a} :: EnvironmentMember)
+emLastAccess :: Lens.Lens' EnvironmentMember (Core.Maybe Core.NominalDiffTime)
+emLastAccess = Lens.field @"lastAccess"
 {-# DEPRECATED emLastAccess "Use generic-lens or generic-optics with 'lastAccess' instead." #-}
-
--- | The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
---
--- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emUserId :: Lens.Lens' EnvironmentMember (Lude.Maybe Lude.Text)
-emUserId = Lens.lens (userId :: EnvironmentMember -> Lude.Maybe Lude.Text) (\s a -> s {userId = a} :: EnvironmentMember)
-{-# DEPRECATED emUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the environment member.
---
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emUserARN :: Lens.Lens' EnvironmentMember (Lude.Maybe Lude.Text)
-emUserARN = Lens.lens (userARN :: EnvironmentMember -> Lude.Maybe Lude.Text) (\s a -> s {userARN = a} :: EnvironmentMember)
-{-# DEPRECATED emUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
 
 -- | The type of environment member permissions associated with this environment member. Available values include:
 --
@@ -120,26 +99,31 @@ emUserARN = Lens.lens (userARN :: EnvironmentMember -> Lude.Maybe Lude.Text) (\s
 --
 --
 -- /Note:/ Consider using 'permissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emPermissions :: Lens.Lens' EnvironmentMember (Lude.Maybe Permissions)
-emPermissions = Lens.lens (permissions :: EnvironmentMember -> Lude.Maybe Permissions) (\s a -> s {permissions = a} :: EnvironmentMember)
+emPermissions :: Lens.Lens' EnvironmentMember (Core.Maybe Types.Permissions)
+emPermissions = Lens.field @"permissions"
 {-# DEPRECATED emPermissions "Use generic-lens or generic-optics with 'permissions' instead." #-}
 
--- | The ID of the environment for the environment member.
+-- | The Amazon Resource Name (ARN) of the environment member.
 --
--- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-emEnvironmentId :: Lens.Lens' EnvironmentMember (Lude.Maybe Lude.Text)
-emEnvironmentId = Lens.lens (environmentId :: EnvironmentMember -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: EnvironmentMember)
-{-# DEPRECATED emEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emUserArn :: Lens.Lens' EnvironmentMember (Core.Maybe Types.UserArn)
+emUserArn = Lens.field @"userArn"
+{-# DEPRECATED emUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
 
-instance Lude.FromJSON EnvironmentMember where
+-- | The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
+--
+-- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+emUserId :: Lens.Lens' EnvironmentMember (Core.Maybe Types.String)
+emUserId = Lens.field @"userId"
+{-# DEPRECATED emUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
+
+instance Core.FromJSON EnvironmentMember where
   parseJSON =
-    Lude.withObject
-      "EnvironmentMember"
-      ( \x ->
-          EnvironmentMember'
-            Lude.<$> (x Lude..:? "lastAccess")
-            Lude.<*> (x Lude..:? "userId")
-            Lude.<*> (x Lude..:? "userArn")
-            Lude.<*> (x Lude..:? "permissions")
-            Lude.<*> (x Lude..:? "environmentId")
-      )
+    Core.withObject "EnvironmentMember" Core.$
+      \x ->
+        EnvironmentMember'
+          Core.<$> (x Core..:? "environmentId")
+          Core.<*> (x Core..:? "lastAccess")
+          Core.<*> (x Core..:? "permissions")
+          Core.<*> (x Core..:? "userArn")
+          Core.<*> (x Core..:? "userId")

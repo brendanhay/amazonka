@@ -17,124 +17,118 @@ module Network.AWS.CodeCommit.Types.PullRequestTarget
     mkPullRequestTarget,
 
     -- * Lenses
-    prtSourceCommit,
-    prtDestinationReference,
-    prtMergeMetadata,
-    prtMergeBase,
     prtDestinationCommit,
+    prtDestinationReference,
+    prtMergeBase,
+    prtMergeMetadata,
     prtRepositoryName,
+    prtSourceCommit,
     prtSourceReference,
   )
 where
 
-import Network.AWS.CodeCommit.Types.MergeMetadata
+import qualified Network.AWS.CodeCommit.Types.CommitId as Types
+import qualified Network.AWS.CodeCommit.Types.DestinationReference as Types
+import qualified Network.AWS.CodeCommit.Types.MergeMetadata as Types
+import qualified Network.AWS.CodeCommit.Types.RepositoryName as Types
+import qualified Network.AWS.CodeCommit.Types.SourceReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about a pull request target.
 --
 -- /See:/ 'mkPullRequestTarget' smart constructor.
 data PullRequestTarget = PullRequestTarget'
-  { -- | The full commit ID of the tip of the source branch used to create the pull request. If the pull request branch is updated by a push while the pull request is open, the commit ID changes to reflect the new tip of the branch.
-    sourceCommit :: Lude.Maybe Lude.Text,
+  { -- | The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.
+    destinationCommit :: Core.Maybe Types.CommitId,
     -- | The branch of the repository where the pull request changes are merged. Also known as the destination branch.
-    destinationReference :: Lude.Maybe Lude.Text,
-    -- | Returns metadata about the state of the merge, including whether the merge has been made.
-    mergeMetadata :: Lude.Maybe MergeMetadata,
+    destinationReference :: Core.Maybe Types.DestinationReference,
     -- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
-    mergeBase :: Lude.Maybe Lude.Text,
-    -- | The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.
-    destinationCommit :: Lude.Maybe Lude.Text,
+    mergeBase :: Core.Maybe Types.CommitId,
+    -- | Returns metadata about the state of the merge, including whether the merge has been made.
+    mergeMetadata :: Core.Maybe Types.MergeMetadata,
     -- | The name of the repository that contains the pull request source and destination branches.
-    repositoryName :: Lude.Maybe Lude.Text,
+    repositoryName :: Core.Maybe Types.RepositoryName,
+    -- | The full commit ID of the tip of the source branch used to create the pull request. If the pull request branch is updated by a push while the pull request is open, the commit ID changes to reflect the new tip of the branch.
+    sourceCommit :: Core.Maybe Types.CommitId,
     -- | The branch of the repository that contains the changes for the pull request. Also known as the source branch.
-    sourceReference :: Lude.Maybe Lude.Text
+    sourceReference :: Core.Maybe Types.SourceReference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PullRequestTarget' with the minimum fields required to make a request.
---
--- * 'sourceCommit' - The full commit ID of the tip of the source branch used to create the pull request. If the pull request branch is updated by a push while the pull request is open, the commit ID changes to reflect the new tip of the branch.
--- * 'destinationReference' - The branch of the repository where the pull request changes are merged. Also known as the destination branch.
--- * 'mergeMetadata' - Returns metadata about the state of the merge, including whether the merge has been made.
--- * 'mergeBase' - The commit ID of the most recent commit that the source branch and the destination branch have in common.
--- * 'destinationCommit' - The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.
--- * 'repositoryName' - The name of the repository that contains the pull request source and destination branches.
--- * 'sourceReference' - The branch of the repository that contains the changes for the pull request. Also known as the source branch.
+-- | Creates a 'PullRequestTarget' value with any optional fields omitted.
 mkPullRequestTarget ::
   PullRequestTarget
 mkPullRequestTarget =
   PullRequestTarget'
-    { sourceCommit = Lude.Nothing,
-      destinationReference = Lude.Nothing,
-      mergeMetadata = Lude.Nothing,
-      mergeBase = Lude.Nothing,
-      destinationCommit = Lude.Nothing,
-      repositoryName = Lude.Nothing,
-      sourceReference = Lude.Nothing
+    { destinationCommit = Core.Nothing,
+      destinationReference = Core.Nothing,
+      mergeBase = Core.Nothing,
+      mergeMetadata = Core.Nothing,
+      repositoryName = Core.Nothing,
+      sourceCommit = Core.Nothing,
+      sourceReference = Core.Nothing
     }
-
--- | The full commit ID of the tip of the source branch used to create the pull request. If the pull request branch is updated by a push while the pull request is open, the commit ID changes to reflect the new tip of the branch.
---
--- /Note:/ Consider using 'sourceCommit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prtSourceCommit :: Lens.Lens' PullRequestTarget (Lude.Maybe Lude.Text)
-prtSourceCommit = Lens.lens (sourceCommit :: PullRequestTarget -> Lude.Maybe Lude.Text) (\s a -> s {sourceCommit = a} :: PullRequestTarget)
-{-# DEPRECATED prtSourceCommit "Use generic-lens or generic-optics with 'sourceCommit' instead." #-}
-
--- | The branch of the repository where the pull request changes are merged. Also known as the destination branch.
---
--- /Note:/ Consider using 'destinationReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prtDestinationReference :: Lens.Lens' PullRequestTarget (Lude.Maybe Lude.Text)
-prtDestinationReference = Lens.lens (destinationReference :: PullRequestTarget -> Lude.Maybe Lude.Text) (\s a -> s {destinationReference = a} :: PullRequestTarget)
-{-# DEPRECATED prtDestinationReference "Use generic-lens or generic-optics with 'destinationReference' instead." #-}
-
--- | Returns metadata about the state of the merge, including whether the merge has been made.
---
--- /Note:/ Consider using 'mergeMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prtMergeMetadata :: Lens.Lens' PullRequestTarget (Lude.Maybe MergeMetadata)
-prtMergeMetadata = Lens.lens (mergeMetadata :: PullRequestTarget -> Lude.Maybe MergeMetadata) (\s a -> s {mergeMetadata = a} :: PullRequestTarget)
-{-# DEPRECATED prtMergeMetadata "Use generic-lens or generic-optics with 'mergeMetadata' instead." #-}
-
--- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
---
--- /Note:/ Consider using 'mergeBase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prtMergeBase :: Lens.Lens' PullRequestTarget (Lude.Maybe Lude.Text)
-prtMergeBase = Lens.lens (mergeBase :: PullRequestTarget -> Lude.Maybe Lude.Text) (\s a -> s {mergeBase = a} :: PullRequestTarget)
-{-# DEPRECATED prtMergeBase "Use generic-lens or generic-optics with 'mergeBase' instead." #-}
 
 -- | The full commit ID that is the tip of the destination branch. This is the commit where the pull request was or will be merged.
 --
 -- /Note:/ Consider using 'destinationCommit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prtDestinationCommit :: Lens.Lens' PullRequestTarget (Lude.Maybe Lude.Text)
-prtDestinationCommit = Lens.lens (destinationCommit :: PullRequestTarget -> Lude.Maybe Lude.Text) (\s a -> s {destinationCommit = a} :: PullRequestTarget)
+prtDestinationCommit :: Lens.Lens' PullRequestTarget (Core.Maybe Types.CommitId)
+prtDestinationCommit = Lens.field @"destinationCommit"
 {-# DEPRECATED prtDestinationCommit "Use generic-lens or generic-optics with 'destinationCommit' instead." #-}
+
+-- | The branch of the repository where the pull request changes are merged. Also known as the destination branch.
+--
+-- /Note:/ Consider using 'destinationReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prtDestinationReference :: Lens.Lens' PullRequestTarget (Core.Maybe Types.DestinationReference)
+prtDestinationReference = Lens.field @"destinationReference"
+{-# DEPRECATED prtDestinationReference "Use generic-lens or generic-optics with 'destinationReference' instead." #-}
+
+-- | The commit ID of the most recent commit that the source branch and the destination branch have in common.
+--
+-- /Note:/ Consider using 'mergeBase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prtMergeBase :: Lens.Lens' PullRequestTarget (Core.Maybe Types.CommitId)
+prtMergeBase = Lens.field @"mergeBase"
+{-# DEPRECATED prtMergeBase "Use generic-lens or generic-optics with 'mergeBase' instead." #-}
+
+-- | Returns metadata about the state of the merge, including whether the merge has been made.
+--
+-- /Note:/ Consider using 'mergeMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prtMergeMetadata :: Lens.Lens' PullRequestTarget (Core.Maybe Types.MergeMetadata)
+prtMergeMetadata = Lens.field @"mergeMetadata"
+{-# DEPRECATED prtMergeMetadata "Use generic-lens or generic-optics with 'mergeMetadata' instead." #-}
 
 -- | The name of the repository that contains the pull request source and destination branches.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prtRepositoryName :: Lens.Lens' PullRequestTarget (Lude.Maybe Lude.Text)
-prtRepositoryName = Lens.lens (repositoryName :: PullRequestTarget -> Lude.Maybe Lude.Text) (\s a -> s {repositoryName = a} :: PullRequestTarget)
+prtRepositoryName :: Lens.Lens' PullRequestTarget (Core.Maybe Types.RepositoryName)
+prtRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED prtRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | The full commit ID of the tip of the source branch used to create the pull request. If the pull request branch is updated by a push while the pull request is open, the commit ID changes to reflect the new tip of the branch.
+--
+-- /Note:/ Consider using 'sourceCommit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prtSourceCommit :: Lens.Lens' PullRequestTarget (Core.Maybe Types.CommitId)
+prtSourceCommit = Lens.field @"sourceCommit"
+{-# DEPRECATED prtSourceCommit "Use generic-lens or generic-optics with 'sourceCommit' instead." #-}
 
 -- | The branch of the repository that contains the changes for the pull request. Also known as the source branch.
 --
 -- /Note:/ Consider using 'sourceReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prtSourceReference :: Lens.Lens' PullRequestTarget (Lude.Maybe Lude.Text)
-prtSourceReference = Lens.lens (sourceReference :: PullRequestTarget -> Lude.Maybe Lude.Text) (\s a -> s {sourceReference = a} :: PullRequestTarget)
+prtSourceReference :: Lens.Lens' PullRequestTarget (Core.Maybe Types.SourceReference)
+prtSourceReference = Lens.field @"sourceReference"
 {-# DEPRECATED prtSourceReference "Use generic-lens or generic-optics with 'sourceReference' instead." #-}
 
-instance Lude.FromJSON PullRequestTarget where
+instance Core.FromJSON PullRequestTarget where
   parseJSON =
-    Lude.withObject
-      "PullRequestTarget"
-      ( \x ->
-          PullRequestTarget'
-            Lude.<$> (x Lude..:? "sourceCommit")
-            Lude.<*> (x Lude..:? "destinationReference")
-            Lude.<*> (x Lude..:? "mergeMetadata")
-            Lude.<*> (x Lude..:? "mergeBase")
-            Lude.<*> (x Lude..:? "destinationCommit")
-            Lude.<*> (x Lude..:? "repositoryName")
-            Lude.<*> (x Lude..:? "sourceReference")
-      )
+    Core.withObject "PullRequestTarget" Core.$
+      \x ->
+        PullRequestTarget'
+          Core.<$> (x Core..:? "destinationCommit")
+          Core.<*> (x Core..:? "destinationReference")
+          Core.<*> (x Core..:? "mergeBase")
+          Core.<*> (x Core..:? "mergeMetadata")
+          Core.<*> (x Core..:? "repositoryName")
+          Core.<*> (x Core..:? "sourceCommit")
+          Core.<*> (x Core..:? "sourceReference")

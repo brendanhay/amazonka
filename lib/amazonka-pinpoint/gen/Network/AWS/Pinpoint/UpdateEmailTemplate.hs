@@ -22,30 +22,34 @@ module Network.AWS.Pinpoint.UpdateEmailTemplate
     -- ** Request lenses
     uetTemplateName,
     uetEmailTemplateRequest,
-    uetVersion,
     uetCreateNewVersion,
+    uetVersion,
 
     -- * Destructuring the response
     UpdateEmailTemplateResponse (..),
     mkUpdateEmailTemplateResponse,
 
     -- ** Response lenses
-    uetrsMessageBody,
-    uetrsResponseStatus,
+    uetrrsMessageBody,
+    uetrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateEmailTemplate' smart constructor.
 data UpdateEmailTemplate = UpdateEmailTemplate'
   { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-    templateName :: Lude.Text,
-    emailTemplateRequest :: EmailTemplateRequest,
+    templateName :: Core.Text,
+    emailTemplateRequest :: Types.EmailTemplateRequest,
+    -- | Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
+    --
+    -- If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
+    createNewVersion :: Core.Maybe Core.Bool,
     -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
     --
     -- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
@@ -58,63 +62,48 @@ data UpdateEmailTemplate = UpdateEmailTemplate'
     --
     --
     --     * For a delete operation, deletes the template, including all versions of the template.
-    version :: Lude.Maybe Lude.Text,
-    -- | Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
-    --
-    -- If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
-    createNewVersion :: Lude.Maybe Lude.Bool
+    version :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateEmailTemplate' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
--- * 'emailTemplateRequest' -
--- * 'version' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
---
--- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
--- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
---
---     * For a get operation, retrieves information about the active version of the template.
---
---
---     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
---
---
---     * For a delete operation, deletes the template, including all versions of the template.
---
---
--- * 'createNewVersion' - Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
---
--- If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
+-- | Creates a 'UpdateEmailTemplate' value with any optional fields omitted.
 mkUpdateEmailTemplate ::
   -- | 'templateName'
-  Lude.Text ->
+  Core.Text ->
   -- | 'emailTemplateRequest'
-  EmailTemplateRequest ->
+  Types.EmailTemplateRequest ->
   UpdateEmailTemplate
-mkUpdateEmailTemplate pTemplateName_ pEmailTemplateRequest_ =
+mkUpdateEmailTemplate templateName emailTemplateRequest =
   UpdateEmailTemplate'
-    { templateName = pTemplateName_,
-      emailTemplateRequest = pEmailTemplateRequest_,
-      version = Lude.Nothing,
-      createNewVersion = Lude.Nothing
+    { templateName,
+      emailTemplateRequest,
+      createNewVersion = Core.Nothing,
+      version = Core.Nothing
     }
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uetTemplateName :: Lens.Lens' UpdateEmailTemplate Lude.Text
-uetTemplateName = Lens.lens (templateName :: UpdateEmailTemplate -> Lude.Text) (\s a -> s {templateName = a} :: UpdateEmailTemplate)
+uetTemplateName :: Lens.Lens' UpdateEmailTemplate Core.Text
+uetTemplateName = Lens.field @"templateName"
 {-# DEPRECATED uetTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'emailTemplateRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uetEmailTemplateRequest :: Lens.Lens' UpdateEmailTemplate EmailTemplateRequest
-uetEmailTemplateRequest = Lens.lens (emailTemplateRequest :: UpdateEmailTemplate -> EmailTemplateRequest) (\s a -> s {emailTemplateRequest = a} :: UpdateEmailTemplate)
+uetEmailTemplateRequest :: Lens.Lens' UpdateEmailTemplate Types.EmailTemplateRequest
+uetEmailTemplateRequest = Lens.field @"emailTemplateRequest"
 {-# DEPRECATED uetEmailTemplateRequest "Use generic-lens or generic-optics with 'emailTemplateRequest' instead." #-}
+
+-- | Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
+--
+-- If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
+--
+-- /Note:/ Consider using 'createNewVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uetCreateNewVersion :: Lens.Lens' UpdateEmailTemplate (Core.Maybe Core.Bool)
+uetCreateNewVersion = Lens.field @"createNewVersion"
+{-# DEPRECATED uetCreateNewVersion "Use generic-lens or generic-optics with 'createNewVersion' instead." #-}
 
 -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
 --
@@ -132,91 +121,71 @@ uetEmailTemplateRequest = Lens.lens (emailTemplateRequest :: UpdateEmailTemplate
 --
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uetVersion :: Lens.Lens' UpdateEmailTemplate (Lude.Maybe Lude.Text)
-uetVersion = Lens.lens (version :: UpdateEmailTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: UpdateEmailTemplate)
+uetVersion :: Lens.Lens' UpdateEmailTemplate (Core.Maybe Core.Text)
+uetVersion = Lens.field @"version"
 {-# DEPRECATED uetVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | Specifies whether to save the updates as a new version of the message template. Valid values are: true, save the updates as a new version; and, false, save the updates to (overwrite) the latest existing version of the template.
---
--- If you don't specify a value for this parameter, Amazon Pinpoint saves the updates to (overwrites) the latest existing version of the template. If you specify a value of true for this parameter, don't specify a value for the version parameter. Otherwise, an error will occur.
---
--- /Note:/ Consider using 'createNewVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uetCreateNewVersion :: Lens.Lens' UpdateEmailTemplate (Lude.Maybe Lude.Bool)
-uetCreateNewVersion = Lens.lens (createNewVersion :: UpdateEmailTemplate -> Lude.Maybe Lude.Bool) (\s a -> s {createNewVersion = a} :: UpdateEmailTemplate)
-{-# DEPRECATED uetCreateNewVersion "Use generic-lens or generic-optics with 'createNewVersion' instead." #-}
+instance Core.FromJSON UpdateEmailTemplate where
+  toJSON UpdateEmailTemplate {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("EmailTemplateRequest" Core..= emailTemplateRequest)]
+      )
 
-instance Lude.AWSRequest UpdateEmailTemplate where
+instance Core.AWSRequest UpdateEmailTemplate where
   type Rs UpdateEmailTemplate = UpdateEmailTemplateResponse
-  request = Req.putJSON pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/templates/" Core.<> (Core.toText templateName)
+                Core.<> ("/email")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "create-new-version" Core.<$> createNewVersion
+            Core.<> (Core.toQueryValue "version" Core.<$> version),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateEmailTemplateResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateEmailTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateEmailTemplate where
-  toJSON UpdateEmailTemplate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("EmailTemplateRequest" Lude..= emailTemplateRequest)]
-      )
-
-instance Lude.ToPath UpdateEmailTemplate where
-  toPath UpdateEmailTemplate' {..} =
-    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/email"]
-
-instance Lude.ToQuery UpdateEmailTemplate where
-  toQuery UpdateEmailTemplate' {..} =
-    Lude.mconcat
-      [ "version" Lude.=: version,
-        "create-new-version" Lude.=: createNewVersion
-      ]
 
 -- | /See:/ 'mkUpdateEmailTemplateResponse' smart constructor.
 data UpdateEmailTemplateResponse = UpdateEmailTemplateResponse'
-  { messageBody :: MessageBody,
+  { messageBody :: Types.MessageBody,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateEmailTemplateResponse' with the minimum fields required to make a request.
---
--- * 'messageBody' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateEmailTemplateResponse' value with any optional fields omitted.
 mkUpdateEmailTemplateResponse ::
   -- | 'messageBody'
-  MessageBody ->
+  Types.MessageBody ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateEmailTemplateResponse
-mkUpdateEmailTemplateResponse pMessageBody_ pResponseStatus_ =
-  UpdateEmailTemplateResponse'
-    { messageBody = pMessageBody_,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateEmailTemplateResponse messageBody responseStatus =
+  UpdateEmailTemplateResponse' {messageBody, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uetrsMessageBody :: Lens.Lens' UpdateEmailTemplateResponse MessageBody
-uetrsMessageBody = Lens.lens (messageBody :: UpdateEmailTemplateResponse -> MessageBody) (\s a -> s {messageBody = a} :: UpdateEmailTemplateResponse)
-{-# DEPRECATED uetrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}
+uetrrsMessageBody :: Lens.Lens' UpdateEmailTemplateResponse Types.MessageBody
+uetrrsMessageBody = Lens.field @"messageBody"
+{-# DEPRECATED uetrrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uetrsResponseStatus :: Lens.Lens' UpdateEmailTemplateResponse Lude.Int
-uetrsResponseStatus = Lens.lens (responseStatus :: UpdateEmailTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateEmailTemplateResponse)
-{-# DEPRECATED uetrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uetrrsResponseStatus :: Lens.Lens' UpdateEmailTemplateResponse Core.Int
+uetrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uetrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

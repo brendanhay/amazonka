@@ -22,53 +22,49 @@ module Network.AWS.Glue.Types.KeySchemaElement
   )
 where
 
+import qualified Network.AWS.Glue.Types.NameString as Types
+import qualified Network.AWS.Glue.Types.Type as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A partition key pair consisting of a name and a type.
 --
 -- /See:/ 'mkKeySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
   { -- | The name of a partition key.
-    name :: Lude.Text,
+    name :: Types.NameString,
     -- | The type of a partition key.
-    type' :: Lude.Text
+    type' :: Types.Type
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeySchemaElement' with the minimum fields required to make a request.
---
--- * 'name' - The name of a partition key.
--- * 'type'' - The type of a partition key.
+-- | Creates a 'KeySchemaElement' value with any optional fields omitted.
 mkKeySchemaElement ::
   -- | 'name'
-  Lude.Text ->
-  -- | 'type''
-  Lude.Text ->
+  Types.NameString ->
+  -- | 'type\''
+  Types.Type ->
   KeySchemaElement
-mkKeySchemaElement pName_ pType_ =
-  KeySchemaElement' {name = pName_, type' = pType_}
+mkKeySchemaElement name type' = KeySchemaElement' {name, type'}
 
 -- | The name of a partition key.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kseName :: Lens.Lens' KeySchemaElement Lude.Text
-kseName = Lens.lens (name :: KeySchemaElement -> Lude.Text) (\s a -> s {name = a} :: KeySchemaElement)
+kseName :: Lens.Lens' KeySchemaElement Types.NameString
+kseName = Lens.field @"name"
 {-# DEPRECATED kseName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of a partition key.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kseType :: Lens.Lens' KeySchemaElement Lude.Text
-kseType = Lens.lens (type' :: KeySchemaElement -> Lude.Text) (\s a -> s {type' = a} :: KeySchemaElement)
+kseType :: Lens.Lens' KeySchemaElement Types.Type
+kseType = Lens.field @"type'"
 {-# DEPRECATED kseType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON KeySchemaElement where
+instance Core.FromJSON KeySchemaElement where
   parseJSON =
-    Lude.withObject
-      "KeySchemaElement"
-      ( \x ->
-          KeySchemaElement'
-            Lude.<$> (x Lude..: "Name") Lude.<*> (x Lude..: "Type")
-      )
+    Core.withObject "KeySchemaElement" Core.$
+      \x ->
+        KeySchemaElement'
+          Core.<$> (x Core..: "Name") Core.<*> (x Core..: "Type")

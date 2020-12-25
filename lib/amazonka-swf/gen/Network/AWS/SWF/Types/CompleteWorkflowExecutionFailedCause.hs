@@ -13,46 +13,51 @@
 module Network.AWS.SWF.Types.CompleteWorkflowExecutionFailedCause
   ( CompleteWorkflowExecutionFailedCause
       ( CompleteWorkflowExecutionFailedCause',
-        CWEFCUnhandledDecision,
-        CWEFCOperationNotPermitted
+        CompleteWorkflowExecutionFailedCauseUnhandledDecision,
+        CompleteWorkflowExecutionFailedCauseOperationNotPermitted,
+        fromCompleteWorkflowExecutionFailedCause
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CompleteWorkflowExecutionFailedCause = CompleteWorkflowExecutionFailedCause' Lude.Text
+newtype CompleteWorkflowExecutionFailedCause = CompleteWorkflowExecutionFailedCause'
+  { fromCompleteWorkflowExecutionFailedCause ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CWEFCUnhandledDecision :: CompleteWorkflowExecutionFailedCause
-pattern CWEFCUnhandledDecision = CompleteWorkflowExecutionFailedCause' "UNHANDLED_DECISION"
+pattern CompleteWorkflowExecutionFailedCauseUnhandledDecision :: CompleteWorkflowExecutionFailedCause
+pattern CompleteWorkflowExecutionFailedCauseUnhandledDecision = CompleteWorkflowExecutionFailedCause' "UNHANDLED_DECISION"
 
-pattern CWEFCOperationNotPermitted :: CompleteWorkflowExecutionFailedCause
-pattern CWEFCOperationNotPermitted = CompleteWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
+pattern CompleteWorkflowExecutionFailedCauseOperationNotPermitted :: CompleteWorkflowExecutionFailedCause
+pattern CompleteWorkflowExecutionFailedCauseOperationNotPermitted = CompleteWorkflowExecutionFailedCause' "OPERATION_NOT_PERMITTED"
 
 {-# COMPLETE
-  CWEFCUnhandledDecision,
-  CWEFCOperationNotPermitted,
+  CompleteWorkflowExecutionFailedCauseUnhandledDecision,
+  CompleteWorkflowExecutionFailedCauseOperationNotPermitted,
   CompleteWorkflowExecutionFailedCause'
   #-}

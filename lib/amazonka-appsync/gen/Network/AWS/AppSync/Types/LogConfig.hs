@@ -17,23 +17,22 @@ module Network.AWS.AppSync.Types.LogConfig
     mkLogConfig,
 
     -- * Lenses
-    lcExcludeVerboseContent,
     lcFieldLogLevel,
-    lcCloudWatchLogsRoleARN,
+    lcCloudWatchLogsRoleArn,
+    lcExcludeVerboseContent,
   )
 where
 
-import Network.AWS.AppSync.Types.FieldLogLevel
+import qualified Network.AWS.AppSync.Types.FieldLogLevel as Types
+import qualified Network.AWS.AppSync.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The CloudWatch Logs configuration.
 --
 -- /See:/ 'mkLogConfig' smart constructor.
 data LogConfig = LogConfig'
-  { -- | Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
-    excludeVerboseContent :: Lude.Maybe Lude.Bool,
-    -- | The field logging level. Values can be NONE, ERROR, or ALL.
+  { -- | The field logging level. Values can be NONE, ERROR, or ALL.
     --
     --
     --     * __NONE__ : No field-level logs are captured.
@@ -58,65 +57,28 @@ data LogConfig = LogConfig'
     --
     --
     --     * The generated request/response functions that got resolved for each field.
-    fieldLogLevel :: FieldLogLevel,
+    fieldLogLevel :: Types.FieldLogLevel,
     -- | The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
-    cloudWatchLogsRoleARN :: Lude.Text
+    cloudWatchLogsRoleArn :: Types.String,
+    -- | Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
+    excludeVerboseContent :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LogConfig' with the minimum fields required to make a request.
---
--- * 'excludeVerboseContent' - Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
--- * 'fieldLogLevel' - The field logging level. Values can be NONE, ERROR, or ALL.
---
---
---     * __NONE__ : No field-level logs are captured.
---
---
---     * __ERROR__ : Logs the following information only for the fields that are in error:
---
---     * The error section in the server response.
---
---
---     * Field-level errors.
---
---
---     * The generated request/response functions that got resolved for error fields.
---
---
---
---
---     * __ALL__ : The following information is logged for all fields in the query:
---
---     * Field-level tracing information.
---
---
---     * The generated request/response functions that got resolved for each field.
---
---
---
---
--- * 'cloudWatchLogsRoleARN' - The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+-- | Creates a 'LogConfig' value with any optional fields omitted.
 mkLogConfig ::
   -- | 'fieldLogLevel'
-  FieldLogLevel ->
-  -- | 'cloudWatchLogsRoleARN'
-  Lude.Text ->
+  Types.FieldLogLevel ->
+  -- | 'cloudWatchLogsRoleArn'
+  Types.String ->
   LogConfig
-mkLogConfig pFieldLogLevel_ pCloudWatchLogsRoleARN_ =
+mkLogConfig fieldLogLevel cloudWatchLogsRoleArn =
   LogConfig'
-    { excludeVerboseContent = Lude.Nothing,
-      fieldLogLevel = pFieldLogLevel_,
-      cloudWatchLogsRoleARN = pCloudWatchLogsRoleARN_
+    { fieldLogLevel,
+      cloudWatchLogsRoleArn,
+      excludeVerboseContent = Core.Nothing
     }
-
--- | Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
---
--- /Note:/ Consider using 'excludeVerboseContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcExcludeVerboseContent :: Lens.Lens' LogConfig (Lude.Maybe Lude.Bool)
-lcExcludeVerboseContent = Lens.lens (excludeVerboseContent :: LogConfig -> Lude.Maybe Lude.Bool) (\s a -> s {excludeVerboseContent = a} :: LogConfig)
-{-# DEPRECATED lcExcludeVerboseContent "Use generic-lens or generic-optics with 'excludeVerboseContent' instead." #-}
 
 -- | The field logging level. Values can be NONE, ERROR, or ALL.
 --
@@ -149,34 +111,39 @@ lcExcludeVerboseContent = Lens.lens (excludeVerboseContent :: LogConfig -> Lude.
 --
 --
 -- /Note:/ Consider using 'fieldLogLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcFieldLogLevel :: Lens.Lens' LogConfig FieldLogLevel
-lcFieldLogLevel = Lens.lens (fieldLogLevel :: LogConfig -> FieldLogLevel) (\s a -> s {fieldLogLevel = a} :: LogConfig)
+lcFieldLogLevel :: Lens.Lens' LogConfig Types.FieldLogLevel
+lcFieldLogLevel = Lens.field @"fieldLogLevel"
 {-# DEPRECATED lcFieldLogLevel "Use generic-lens or generic-optics with 'fieldLogLevel' instead." #-}
 
 -- | The service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
 --
--- /Note:/ Consider using 'cloudWatchLogsRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcCloudWatchLogsRoleARN :: Lens.Lens' LogConfig Lude.Text
-lcCloudWatchLogsRoleARN = Lens.lens (cloudWatchLogsRoleARN :: LogConfig -> Lude.Text) (\s a -> s {cloudWatchLogsRoleARN = a} :: LogConfig)
-{-# DEPRECATED lcCloudWatchLogsRoleARN "Use generic-lens or generic-optics with 'cloudWatchLogsRoleARN' instead." #-}
+-- /Note:/ Consider using 'cloudWatchLogsRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcCloudWatchLogsRoleArn :: Lens.Lens' LogConfig Types.String
+lcCloudWatchLogsRoleArn = Lens.field @"cloudWatchLogsRoleArn"
+{-# DEPRECATED lcCloudWatchLogsRoleArn "Use generic-lens or generic-optics with 'cloudWatchLogsRoleArn' instead." #-}
 
-instance Lude.FromJSON LogConfig where
-  parseJSON =
-    Lude.withObject
-      "LogConfig"
-      ( \x ->
-          LogConfig'
-            Lude.<$> (x Lude..:? "excludeVerboseContent")
-            Lude.<*> (x Lude..: "fieldLogLevel")
-            Lude.<*> (x Lude..: "cloudWatchLogsRoleArn")
-      )
+-- | Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging level.
+--
+-- /Note:/ Consider using 'excludeVerboseContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcExcludeVerboseContent :: Lens.Lens' LogConfig (Core.Maybe Core.Bool)
+lcExcludeVerboseContent = Lens.field @"excludeVerboseContent"
+{-# DEPRECATED lcExcludeVerboseContent "Use generic-lens or generic-optics with 'excludeVerboseContent' instead." #-}
 
-instance Lude.ToJSON LogConfig where
-  toJSON LogConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("excludeVerboseContent" Lude..=) Lude.<$> excludeVerboseContent,
-            Lude.Just ("fieldLogLevel" Lude..= fieldLogLevel),
-            Lude.Just ("cloudWatchLogsRoleArn" Lude..= cloudWatchLogsRoleARN)
+instance Core.FromJSON LogConfig where
+  toJSON LogConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("fieldLogLevel" Core..= fieldLogLevel),
+            Core.Just ("cloudWatchLogsRoleArn" Core..= cloudWatchLogsRoleArn),
+            ("excludeVerboseContent" Core..=) Core.<$> excludeVerboseContent
           ]
       )
+
+instance Core.FromJSON LogConfig where
+  parseJSON =
+    Core.withObject "LogConfig" Core.$
+      \x ->
+        LogConfig'
+          Core.<$> (x Core..: "fieldLogLevel")
+          Core.<*> (x Core..: "cloudWatchLogsRoleArn")
+          Core.<*> (x Core..:? "excludeVerboseContent")

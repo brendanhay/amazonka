@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -18,10 +17,28 @@
 -- For more information about AWS Auto Scaling, including information about granting IAM users required permissions for AWS Auto Scaling actions, see the <https://docs.aws.amazon.com/autoscaling/plans/userguide/what-is-aws-auto-scaling.html AWS Auto Scaling User Guide> .
 module Network.AWS.AutoScalingPlans
   ( -- * Service configuration
-    autoScalingPlansService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** ConcurrentUpdateException
+    _ConcurrentUpdateException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** ObjectNotFoundException
+    _ObjectNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -49,131 +66,41 @@ module Network.AWS.AutoScalingPlans
 
     -- * Types
 
-    -- ** ForecastDataType
-    ForecastDataType (..),
-
-    -- ** LoadMetricType
-    LoadMetricType (..),
-
-    -- ** MetricStatistic
-    MetricStatistic (..),
-
-    -- ** PolicyType
-    PolicyType (..),
-
-    -- ** PredictiveScalingMaxCapacityBehavior
-    PredictiveScalingMaxCapacityBehavior (..),
-
-    -- ** PredictiveScalingMode
-    PredictiveScalingMode (..),
-
-    -- ** ScalableDimension
-    ScalableDimension (..),
-
-    -- ** ScalingMetricType
-    ScalingMetricType (..),
-
-    -- ** ScalingPlanStatusCode
-    ScalingPlanStatusCode (..),
-
-    -- ** ScalingPolicyUpdateBehavior
-    ScalingPolicyUpdateBehavior (..),
-
     -- ** ScalingStatusCode
     ScalingStatusCode (..),
-
-    -- ** ServiceNamespace
-    ServiceNamespace (..),
-
-    -- ** ApplicationSource
-    ApplicationSource (..),
-    mkApplicationSource,
-    asTagFilters,
-    asCloudFormationStackARN,
-
-    -- ** CustomizedLoadMetricSpecification
-    CustomizedLoadMetricSpecification (..),
-    mkCustomizedLoadMetricSpecification,
-    clmsMetricName,
-    clmsNamespace,
-    clmsDimensions,
-    clmsUnit,
-    clmsStatistic,
-
-    -- ** CustomizedScalingMetricSpecification
-    CustomizedScalingMetricSpecification (..),
-    mkCustomizedScalingMetricSpecification,
-    csmsMetricName,
-    csmsNamespace,
-    csmsDimensions,
-    csmsUnit,
-    csmsStatistic,
-
-    -- ** Datapoint
-    Datapoint (..),
-    mkDatapoint,
-    dValue,
-    dTimestamp,
-
-    -- ** MetricDimension
-    MetricDimension (..),
-    mkMetricDimension,
-    mdValue,
-    mdName,
-
-    -- ** PredefinedLoadMetricSpecification
-    PredefinedLoadMetricSpecification (..),
-    mkPredefinedLoadMetricSpecification,
-    plmsResourceLabel,
-    plmsPredefinedLoadMetricType,
-
-    -- ** PredefinedScalingMetricSpecification
-    PredefinedScalingMetricSpecification (..),
-    mkPredefinedScalingMetricSpecification,
-    psmsResourceLabel,
-    psmsPredefinedScalingMetricType,
-
-    -- ** ScalingInstruction
-    ScalingInstruction (..),
-    mkScalingInstruction,
-    siScalableDimension,
-    siResourceId,
-    siScheduledActionBufferTime,
-    siPredictiveScalingMaxCapacityBuffer,
-    siTargetTrackingConfigurations,
-    siScalingPolicyUpdateBehavior,
-    siCustomizedLoadMetricSpecification,
-    siServiceNamespace,
-    siPredictiveScalingMode,
-    siDisableDynamicScaling,
-    siMaxCapacity,
-    siMinCapacity,
-    siPredictiveScalingMaxCapacityBehavior,
-    siPredefinedLoadMetricSpecification,
-
-    -- ** ScalingPlan
-    ScalingPlan (..),
-    mkScalingPlan,
-    spCreationTime,
-    spScalingPlanVersion,
-    spScalingInstructions,
-    spStatusStartTime,
-    spScalingPlanName,
-    spApplicationSource,
-    spStatusMessage,
-    spStatusCode,
 
     -- ** ScalingPlanResource
     ScalingPlanResource (..),
     mkScalingPlanResource,
-    sprScalingStatusCode,
-    sprScalingPlanVersion,
-    sprScalableDimension,
-    sprResourceId,
-    sprServiceNamespace,
     sprScalingPlanName,
-    sprScalingStatusMessage,
+    sprScalingPlanVersion,
+    sprServiceNamespace,
+    sprResourceId,
+    sprScalableDimension,
+    sprScalingStatusCode,
     sprScalingPolicies,
+    sprScalingStatusMessage,
+
+    -- ** XmlString
+    XmlString (..),
+
+    -- ** XmlStringMaxLen128
+    XmlStringMaxLen128 (..),
+
+    -- ** ScalableDimension
+    ScalableDimension (..),
+
+    -- ** ScalingPlanStatusCode
+    ScalingPlanStatusCode (..),
+
+    -- ** PolicyName
+    PolicyName (..),
+
+    -- ** PredefinedScalingMetricSpecification
+    PredefinedScalingMetricSpecification (..),
+    mkPredefinedScalingMetricSpecification,
+    psmsPredefinedScalingMetricType,
+    psmsResourceLabel,
 
     -- ** ScalingPolicy
     ScalingPolicy (..),
@@ -182,32 +109,171 @@ module Network.AWS.AutoScalingPlans
     spPolicyType,
     spTargetTrackingConfiguration,
 
-    -- ** TagFilter
-    TagFilter (..),
-    mkTagFilter,
-    tfValues,
-    tfKey,
+    -- ** ScalingPolicyUpdateBehavior
+    ScalingPolicyUpdateBehavior (..),
+
+    -- ** PolicyType
+    PolicyType (..),
+
+    -- ** MetricDimensionName
+    MetricDimensionName (..),
+
+    -- ** MetricName
+    MetricName (..),
+
+    -- ** ResourceIdMaxLen1600
+    ResourceIdMaxLen1600 (..),
+
+    -- ** ScalingPlan
+    ScalingPlan (..),
+    mkScalingPlan,
+    spScalingPlanName,
+    spScalingPlanVersion,
+    spApplicationSource,
+    spScalingInstructions,
+    spStatusCode,
+    spCreationTime,
+    spStatusMessage,
+    spStatusStartTime,
+
+    -- ** CustomizedLoadMetricSpecification
+    CustomizedLoadMetricSpecification (..),
+    mkCustomizedLoadMetricSpecification,
+    clmsMetricName,
+    clmsNamespace,
+    clmsStatistic,
+    clmsDimensions,
+    clmsUnit,
+
+    -- ** XmlStringMaxLen256
+    XmlStringMaxLen256 (..),
 
     -- ** TargetTrackingConfiguration
     TargetTrackingConfiguration (..),
     mkTargetTrackingConfiguration,
+    ttcTargetValue,
+    ttcCustomizedScalingMetricSpecification,
+    ttcDisableScaleIn,
     ttcEstimatedInstanceWarmup,
     ttcPredefinedScalingMetricSpecification,
-    ttcTargetValue,
     ttcScaleInCooldown,
-    ttcDisableScaleIn,
-    ttcCustomizedScalingMetricSpecification,
     ttcScaleOutCooldown,
+
+    -- ** ServiceNamespace
+    ServiceNamespace (..),
+
+    -- ** PredictiveScalingMode
+    PredictiveScalingMode (..),
+
+    -- ** ScalingPlanName
+    ScalingPlanName (..),
+
+    -- ** MetricDimension
+    MetricDimension (..),
+    mkMetricDimension,
+    mdName,
+    mdValue,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ResourceLabel
+    ResourceLabel (..),
+
+    -- ** Datapoint
+    Datapoint (..),
+    mkDatapoint,
+    dTimestamp,
+    dValue,
+
+    -- ** MetricNamespace
+    MetricNamespace (..),
+
+    -- ** ApplicationSource
+    ApplicationSource (..),
+    mkApplicationSource,
+    asCloudFormationStackARN,
+    asTagFilters,
+
+    -- ** MetricUnit
+    MetricUnit (..),
+
+    -- ** MetricStatistic
+    MetricStatistic (..),
+
+    -- ** LoadMetricType
+    LoadMetricType (..),
+
+    -- ** TagFilter
+    TagFilter (..),
+    mkTagFilter,
+    tfKey,
+    tfValues,
+
+    -- ** CustomizedScalingMetricSpecification
+    CustomizedScalingMetricSpecification (..),
+    mkCustomizedScalingMetricSpecification,
+    csmsMetricName,
+    csmsNamespace,
+    csmsStatistic,
+    csmsDimensions,
+    csmsUnit,
+
+    -- ** ScalingInstruction
+    ScalingInstruction (..),
+    mkScalingInstruction,
+    siServiceNamespace,
+    siResourceId,
+    siScalableDimension,
+    siMinCapacity,
+    siMaxCapacity,
+    siTargetTrackingConfigurations,
+    siCustomizedLoadMetricSpecification,
+    siDisableDynamicScaling,
+    siPredefinedLoadMetricSpecification,
+    siPredictiveScalingMaxCapacityBehavior,
+    siPredictiveScalingMaxCapacityBuffer,
+    siPredictiveScalingMode,
+    siScalingPolicyUpdateBehavior,
+    siScheduledActionBufferTime,
+
+    -- ** ForecastDataType
+    ForecastDataType (..),
+
+    -- ** PredictiveScalingMaxCapacityBehavior
+    PredictiveScalingMaxCapacityBehavior (..),
+
+    -- ** PredefinedLoadMetricSpecification
+    PredefinedLoadMetricSpecification (..),
+    mkPredefinedLoadMetricSpecification,
+    plmsPredefinedLoadMetricType,
+    plmsResourceLabel,
+
+    -- ** ScalingMetricType
+    ScalingMetricType (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** ScalingStatusMessage
+    ScalingStatusMessage (..),
+
+    -- ** Namespace
+    Namespace (..),
+
+    -- ** Unit
+    Unit (..),
+
+    -- ** Value
+    Value (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

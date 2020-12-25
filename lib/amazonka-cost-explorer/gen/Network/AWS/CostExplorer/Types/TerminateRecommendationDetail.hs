@@ -22,53 +22,49 @@ module Network.AWS.CostExplorer.Types.TerminateRecommendationDetail
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.GenericString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details on termination recommendation.
 --
 -- /See:/ 'mkTerminateRecommendationDetail' smart constructor.
 data TerminateRecommendationDetail = TerminateRecommendationDetail'
   { -- | The currency code that AWS used to calculate the costs for this instance.
-    currencyCode :: Lude.Maybe Lude.Text,
+    currencyCode :: Core.Maybe Types.GenericString,
     -- | Estimated savings resulting from modification, on a monthly basis.
-    estimatedMonthlySavings :: Lude.Maybe Lude.Text
+    estimatedMonthlySavings :: Core.Maybe Types.GenericString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateRecommendationDetail' with the minimum fields required to make a request.
---
--- * 'currencyCode' - The currency code that AWS used to calculate the costs for this instance.
--- * 'estimatedMonthlySavings' - Estimated savings resulting from modification, on a monthly basis.
+-- | Creates a 'TerminateRecommendationDetail' value with any optional fields omitted.
 mkTerminateRecommendationDetail ::
   TerminateRecommendationDetail
 mkTerminateRecommendationDetail =
   TerminateRecommendationDetail'
-    { currencyCode = Lude.Nothing,
-      estimatedMonthlySavings = Lude.Nothing
+    { currencyCode = Core.Nothing,
+      estimatedMonthlySavings = Core.Nothing
     }
 
 -- | The currency code that AWS used to calculate the costs for this instance.
 --
 -- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trdCurrencyCode :: Lens.Lens' TerminateRecommendationDetail (Lude.Maybe Lude.Text)
-trdCurrencyCode = Lens.lens (currencyCode :: TerminateRecommendationDetail -> Lude.Maybe Lude.Text) (\s a -> s {currencyCode = a} :: TerminateRecommendationDetail)
+trdCurrencyCode :: Lens.Lens' TerminateRecommendationDetail (Core.Maybe Types.GenericString)
+trdCurrencyCode = Lens.field @"currencyCode"
 {-# DEPRECATED trdCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
 
 -- | Estimated savings resulting from modification, on a monthly basis.
 --
 -- /Note:/ Consider using 'estimatedMonthlySavings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trdEstimatedMonthlySavings :: Lens.Lens' TerminateRecommendationDetail (Lude.Maybe Lude.Text)
-trdEstimatedMonthlySavings = Lens.lens (estimatedMonthlySavings :: TerminateRecommendationDetail -> Lude.Maybe Lude.Text) (\s a -> s {estimatedMonthlySavings = a} :: TerminateRecommendationDetail)
+trdEstimatedMonthlySavings :: Lens.Lens' TerminateRecommendationDetail (Core.Maybe Types.GenericString)
+trdEstimatedMonthlySavings = Lens.field @"estimatedMonthlySavings"
 {-# DEPRECATED trdEstimatedMonthlySavings "Use generic-lens or generic-optics with 'estimatedMonthlySavings' instead." #-}
 
-instance Lude.FromJSON TerminateRecommendationDetail where
+instance Core.FromJSON TerminateRecommendationDetail where
   parseJSON =
-    Lude.withObject
-      "TerminateRecommendationDetail"
-      ( \x ->
-          TerminateRecommendationDetail'
-            Lude.<$> (x Lude..:? "CurrencyCode")
-            Lude.<*> (x Lude..:? "EstimatedMonthlySavings")
-      )
+    Core.withObject "TerminateRecommendationDetail" Core.$
+      \x ->
+        TerminateRecommendationDetail'
+          Core.<$> (x Core..:? "CurrencyCode")
+          Core.<*> (x Core..:? "EstimatedMonthlySavings")

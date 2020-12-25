@@ -20,149 +20,135 @@ module Network.AWS.Glue.DeletePartitionIndex
     mkDeletePartitionIndex,
 
     -- ** Request lenses
-    dpiCatalogId,
     dpiDatabaseName,
     dpiTableName,
     dpiIndexName,
+    dpiCatalogId,
 
     -- * Destructuring the response
     DeletePartitionIndexResponse (..),
     mkDeletePartitionIndexResponse,
 
     -- ** Response lenses
-    dpirsResponseStatus,
+    dpirrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePartitionIndex' smart constructor.
 data DeletePartitionIndex = DeletePartitionIndex'
-  { -- | The catalog ID where the table resides.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | Specifies the name of a database from which you want to delete a partition index.
-    databaseName :: Lude.Text,
+  { -- | Specifies the name of a database from which you want to delete a partition index.
+    databaseName :: Types.DatabaseName,
     -- | Specifies the name of a table from which you want to delete a partition index.
-    tableName :: Lude.Text,
+    tableName :: Types.TableName,
     -- | The name of the partition index to be deleted.
-    indexName :: Lude.Text
+    indexName :: Types.IndexName,
+    -- | The catalog ID where the table resides.
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePartitionIndex' with the minimum fields required to make a request.
---
--- * 'catalogId' - The catalog ID where the table resides.
--- * 'databaseName' - Specifies the name of a database from which you want to delete a partition index.
--- * 'tableName' - Specifies the name of a table from which you want to delete a partition index.
--- * 'indexName' - The name of the partition index to be deleted.
+-- | Creates a 'DeletePartitionIndex' value with any optional fields omitted.
 mkDeletePartitionIndex ::
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
   -- | 'indexName'
-  Lude.Text ->
+  Types.IndexName ->
   DeletePartitionIndex
-mkDeletePartitionIndex pDatabaseName_ pTableName_ pIndexName_ =
+mkDeletePartitionIndex databaseName tableName indexName =
   DeletePartitionIndex'
-    { catalogId = Lude.Nothing,
-      databaseName = pDatabaseName_,
-      tableName = pTableName_,
-      indexName = pIndexName_
+    { databaseName,
+      tableName,
+      indexName,
+      catalogId = Core.Nothing
     }
-
--- | The catalog ID where the table resides.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpiCatalogId :: Lens.Lens' DeletePartitionIndex (Lude.Maybe Lude.Text)
-dpiCatalogId = Lens.lens (catalogId :: DeletePartitionIndex -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: DeletePartitionIndex)
-{-# DEPRECATED dpiCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | Specifies the name of a database from which you want to delete a partition index.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpiDatabaseName :: Lens.Lens' DeletePartitionIndex Lude.Text
-dpiDatabaseName = Lens.lens (databaseName :: DeletePartitionIndex -> Lude.Text) (\s a -> s {databaseName = a} :: DeletePartitionIndex)
+dpiDatabaseName :: Lens.Lens' DeletePartitionIndex Types.DatabaseName
+dpiDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED dpiDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | Specifies the name of a table from which you want to delete a partition index.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpiTableName :: Lens.Lens' DeletePartitionIndex Lude.Text
-dpiTableName = Lens.lens (tableName :: DeletePartitionIndex -> Lude.Text) (\s a -> s {tableName = a} :: DeletePartitionIndex)
+dpiTableName :: Lens.Lens' DeletePartitionIndex Types.TableName
+dpiTableName = Lens.field @"tableName"
 {-# DEPRECATED dpiTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The name of the partition index to be deleted.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpiIndexName :: Lens.Lens' DeletePartitionIndex Lude.Text
-dpiIndexName = Lens.lens (indexName :: DeletePartitionIndex -> Lude.Text) (\s a -> s {indexName = a} :: DeletePartitionIndex)
+dpiIndexName :: Lens.Lens' DeletePartitionIndex Types.IndexName
+dpiIndexName = Lens.field @"indexName"
 {-# DEPRECATED dpiIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance Lude.AWSRequest DeletePartitionIndex where
+-- | The catalog ID where the table resides.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpiCatalogId :: Lens.Lens' DeletePartitionIndex (Core.Maybe Types.CatalogId)
+dpiCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED dpiCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+instance Core.FromJSON DeletePartitionIndex where
+  toJSON DeletePartitionIndex {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TableName" Core..= tableName),
+            Core.Just ("IndexName" Core..= indexName),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest DeletePartitionIndex where
   type Rs DeletePartitionIndex = DeletePartitionIndexResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.DeletePartitionIndex")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeletePartitionIndexResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeletePartitionIndex where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.DeletePartitionIndex" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeletePartitionIndex where
-  toJSON DeletePartitionIndex' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("TableName" Lude..= tableName),
-            Lude.Just ("IndexName" Lude..= indexName)
-          ]
-      )
-
-instance Lude.ToPath DeletePartitionIndex where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePartitionIndex where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeletePartitionIndexResponse' smart constructor.
 newtype DeletePartitionIndexResponse = DeletePartitionIndexResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePartitionIndexResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeletePartitionIndexResponse' value with any optional fields omitted.
 mkDeletePartitionIndexResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeletePartitionIndexResponse
-mkDeletePartitionIndexResponse pResponseStatus_ =
-  DeletePartitionIndexResponse' {responseStatus = pResponseStatus_}
+mkDeletePartitionIndexResponse responseStatus =
+  DeletePartitionIndexResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpirsResponseStatus :: Lens.Lens' DeletePartitionIndexResponse Lude.Int
-dpirsResponseStatus = Lens.lens (responseStatus :: DeletePartitionIndexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePartitionIndexResponse)
-{-# DEPRECATED dpirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpirrsResponseStatus :: Lens.Lens' DeletePartitionIndexResponse Core.Int
+dpirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

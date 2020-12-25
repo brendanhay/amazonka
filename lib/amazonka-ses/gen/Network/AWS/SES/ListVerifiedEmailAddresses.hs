@@ -24,57 +24,57 @@ module Network.AWS.SES.ListVerifiedEmailAddresses
     mkListVerifiedEmailAddressesResponse,
 
     -- ** Response lenses
-    lvearsVerifiedEmailAddresses,
-    lvearsResponseStatus,
+    lvearrsVerifiedEmailAddresses,
+    lvearrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | /See:/ 'mkListVerifiedEmailAddresses' smart constructor.
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListVerifiedEmailAddresses' with the minimum fields required to make a request.
+-- | Creates a 'ListVerifiedEmailAddresses' value with any optional fields omitted.
 mkListVerifiedEmailAddresses ::
   ListVerifiedEmailAddresses
 mkListVerifiedEmailAddresses = ListVerifiedEmailAddresses'
 
-instance Lude.AWSRequest ListVerifiedEmailAddresses where
+instance Core.AWSRequest ListVerifiedEmailAddresses where
   type
     Rs ListVerifiedEmailAddresses =
       ListVerifiedEmailAddressesResponse
-  request = Req.postQuery sesService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListVerifiedEmailAddresses")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListVerifiedEmailAddressesResult"
       ( \s h x ->
           ListVerifiedEmailAddressesResponse'
-            Lude.<$> ( x Lude..@? "VerifiedEmailAddresses" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "VerifiedEmailAddresses"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListVerifiedEmailAddresses where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListVerifiedEmailAddresses where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListVerifiedEmailAddresses where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action"
-              Lude.=: ("ListVerifiedEmailAddresses" :: Lude.ByteString),
-            "Version" Lude.=: ("2010-12-01" :: Lude.ByteString)
-          ]
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | A list of email addresses that you have verified with Amazon SES under your AWS account.
@@ -82,38 +82,35 @@ instance Lude.ToQuery ListVerifiedEmailAddresses where
 -- /See:/ 'mkListVerifiedEmailAddressesResponse' smart constructor.
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
   { -- | A list of email addresses that have been verified.
-    verifiedEmailAddresses :: Lude.Maybe [Lude.Text],
+    verifiedEmailAddresses :: Core.Maybe [Types.Address],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListVerifiedEmailAddressesResponse' with the minimum fields required to make a request.
---
--- * 'verifiedEmailAddresses' - A list of email addresses that have been verified.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListVerifiedEmailAddressesResponse' value with any optional fields omitted.
 mkListVerifiedEmailAddressesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListVerifiedEmailAddressesResponse
-mkListVerifiedEmailAddressesResponse pResponseStatus_ =
+mkListVerifiedEmailAddressesResponse responseStatus =
   ListVerifiedEmailAddressesResponse'
     { verifiedEmailAddresses =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of email addresses that have been verified.
 --
 -- /Note:/ Consider using 'verifiedEmailAddresses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvearsVerifiedEmailAddresses :: Lens.Lens' ListVerifiedEmailAddressesResponse (Lude.Maybe [Lude.Text])
-lvearsVerifiedEmailAddresses = Lens.lens (verifiedEmailAddresses :: ListVerifiedEmailAddressesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {verifiedEmailAddresses = a} :: ListVerifiedEmailAddressesResponse)
-{-# DEPRECATED lvearsVerifiedEmailAddresses "Use generic-lens or generic-optics with 'verifiedEmailAddresses' instead." #-}
+lvearrsVerifiedEmailAddresses :: Lens.Lens' ListVerifiedEmailAddressesResponse (Core.Maybe [Types.Address])
+lvearrsVerifiedEmailAddresses = Lens.field @"verifiedEmailAddresses"
+{-# DEPRECATED lvearrsVerifiedEmailAddresses "Use generic-lens or generic-optics with 'verifiedEmailAddresses' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvearsResponseStatus :: Lens.Lens' ListVerifiedEmailAddressesResponse Lude.Int
-lvearsResponseStatus = Lens.lens (responseStatus :: ListVerifiedEmailAddressesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListVerifiedEmailAddressesResponse)
-{-# DEPRECATED lvearsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lvearrsResponseStatus :: Lens.Lens' ListVerifiedEmailAddressesResponse Core.Int
+lvearrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lvearrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

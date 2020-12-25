@@ -17,23 +17,27 @@ module Network.AWS.Config.Types.OrganizationConfigRuleStatus
     mkOrganizationConfigRuleStatus,
 
     -- * Lenses
+    ocrsOrganizationConfigRuleName,
     ocrsOrganizationRuleStatus,
     ocrsErrorCode,
-    ocrsOrganizationConfigRuleName,
     ocrsErrorMessage,
     ocrsLastUpdateTime,
   )
 where
 
-import Network.AWS.Config.Types.OrganizationRuleStatus
+import qualified Network.AWS.Config.Types.OrganizationConfigRuleName as Types
+import qualified Network.AWS.Config.Types.OrganizationRuleStatus as Types
+import qualified Network.AWS.Config.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns the status for an organization config rule in an organization.
 --
 -- /See:/ 'mkOrganizationConfigRuleStatus' smart constructor.
 data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
-  { -- | Indicates deployment status of an organization config rule. When master account calls PutOrganizationConfigRule action for the first time, config rule status is created in all the member accounts. When master account calls PutOrganizationConfigRule action for the second time, config rule status is updated in all the member accounts. Additionally, config rule status is updated when one or more member accounts join or leave an organization. Config rule status is deleted when the master account deletes OrganizationConfigRule in all the member accounts and disables service access for @config-multiaccountsetup.amazonaws.com@ .
+  { -- | The name that you assign to organization config rule.
+    organizationConfigRuleName :: Types.OrganizationConfigRuleName,
+    -- | Indicates deployment status of an organization config rule. When master account calls PutOrganizationConfigRule action for the first time, config rule status is created in all the member accounts. When master account calls PutOrganizationConfigRule action for the second time, config rule status is updated in all the member accounts. Additionally, config rule status is updated when one or more member accounts join or leave an organization. Config rule status is deleted when the master account deletes OrganizationConfigRule in all the member accounts and disables service access for @config-multiaccountsetup.amazonaws.com@ .
     --
     -- AWS Config sets the state of the rule to:
     --
@@ -62,73 +66,41 @@ data OrganizationConfigRuleStatus = OrganizationConfigRuleStatus'
     --
     --
     --     * @UPDATE_FAILED@ when an organization config rule update failed in one or more member accounts within that organization.
-    organizationRuleStatus :: OrganizationRuleStatus,
+    organizationRuleStatus :: Types.OrganizationRuleStatus,
     -- | An error code that is returned when organization config rule creation or deletion has failed.
-    errorCode :: Lude.Maybe Lude.Text,
-    -- | The name that you assign to organization config rule.
-    organizationConfigRuleName :: Lude.Text,
+    errorCode :: Core.Maybe Types.String,
     -- | An error message indicating that organization config rule creation or deletion failed due to an error.
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.String,
     -- | The timestamp of the last update.
-    lastUpdateTime :: Lude.Maybe Lude.Timestamp
+    lastUpdateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OrganizationConfigRuleStatus' with the minimum fields required to make a request.
---
--- * 'organizationRuleStatus' - Indicates deployment status of an organization config rule. When master account calls PutOrganizationConfigRule action for the first time, config rule status is created in all the member accounts. When master account calls PutOrganizationConfigRule action for the second time, config rule status is updated in all the member accounts. Additionally, config rule status is updated when one or more member accounts join or leave an organization. Config rule status is deleted when the master account deletes OrganizationConfigRule in all the member accounts and disables service access for @config-multiaccountsetup.amazonaws.com@ .
---
--- AWS Config sets the state of the rule to:
---
---     * @CREATE_SUCCESSFUL@ when an organization config rule has been successfully created in all the member accounts.
---
---
---     * @CREATE_IN_PROGRESS@ when an organization config rule creation is in progress.
---
---
---     * @CREATE_FAILED@ when an organization config rule creation failed in one or more member accounts within that organization.
---
---
---     * @DELETE_FAILED@ when an organization config rule deletion failed in one or more member accounts within that organization.
---
---
---     * @DELETE_IN_PROGRESS@ when an organization config rule deletion is in progress.
---
---
---     * @DELETE_SUCCESSFUL@ when an organization config rule has been successfully deleted from all the member accounts.
---
---
---     * @UPDATE_SUCCESSFUL@ when an organization config rule has been successfully updated in all the member accounts.
---
---
---     * @UPDATE_IN_PROGRESS@ when an organization config rule update is in progress.
---
---
---     * @UPDATE_FAILED@ when an organization config rule update failed in one or more member accounts within that organization.
---
---
--- * 'errorCode' - An error code that is returned when organization config rule creation or deletion has failed.
--- * 'organizationConfigRuleName' - The name that you assign to organization config rule.
--- * 'errorMessage' - An error message indicating that organization config rule creation or deletion failed due to an error.
--- * 'lastUpdateTime' - The timestamp of the last update.
+-- | Creates a 'OrganizationConfigRuleStatus' value with any optional fields omitted.
 mkOrganizationConfigRuleStatus ::
-  -- | 'organizationRuleStatus'
-  OrganizationRuleStatus ->
   -- | 'organizationConfigRuleName'
-  Lude.Text ->
+  Types.OrganizationConfigRuleName ->
+  -- | 'organizationRuleStatus'
+  Types.OrganizationRuleStatus ->
   OrganizationConfigRuleStatus
 mkOrganizationConfigRuleStatus
-  pOrganizationRuleStatus_
-  pOrganizationConfigRuleName_ =
+  organizationConfigRuleName
+  organizationRuleStatus =
     OrganizationConfigRuleStatus'
-      { organizationRuleStatus =
-          pOrganizationRuleStatus_,
-        errorCode = Lude.Nothing,
-        organizationConfigRuleName = pOrganizationConfigRuleName_,
-        errorMessage = Lude.Nothing,
-        lastUpdateTime = Lude.Nothing
+      { organizationConfigRuleName,
+        organizationRuleStatus,
+        errorCode = Core.Nothing,
+        errorMessage = Core.Nothing,
+        lastUpdateTime = Core.Nothing
       }
+
+-- | The name that you assign to organization config rule.
+--
+-- /Note:/ Consider using 'organizationConfigRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ocrsOrganizationConfigRuleName :: Lens.Lens' OrganizationConfigRuleStatus Types.OrganizationConfigRuleName
+ocrsOrganizationConfigRuleName = Lens.field @"organizationConfigRuleName"
+{-# DEPRECATED ocrsOrganizationConfigRuleName "Use generic-lens or generic-optics with 'organizationConfigRuleName' instead." #-}
 
 -- | Indicates deployment status of an organization config rule. When master account calls PutOrganizationConfigRule action for the first time, config rule status is created in all the member accounts. When master account calls PutOrganizationConfigRule action for the second time, config rule status is updated in all the member accounts. Additionally, config rule status is updated when one or more member accounts join or leave an organization. Config rule status is deleted when the master account deletes OrganizationConfigRule in all the member accounts and disables service access for @config-multiaccountsetup.amazonaws.com@ .
 --
@@ -163,47 +135,38 @@ mkOrganizationConfigRuleStatus
 --
 --
 -- /Note:/ Consider using 'organizationRuleStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocrsOrganizationRuleStatus :: Lens.Lens' OrganizationConfigRuleStatus OrganizationRuleStatus
-ocrsOrganizationRuleStatus = Lens.lens (organizationRuleStatus :: OrganizationConfigRuleStatus -> OrganizationRuleStatus) (\s a -> s {organizationRuleStatus = a} :: OrganizationConfigRuleStatus)
+ocrsOrganizationRuleStatus :: Lens.Lens' OrganizationConfigRuleStatus Types.OrganizationRuleStatus
+ocrsOrganizationRuleStatus = Lens.field @"organizationRuleStatus"
 {-# DEPRECATED ocrsOrganizationRuleStatus "Use generic-lens or generic-optics with 'organizationRuleStatus' instead." #-}
 
 -- | An error code that is returned when organization config rule creation or deletion has failed.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocrsErrorCode :: Lens.Lens' OrganizationConfigRuleStatus (Lude.Maybe Lude.Text)
-ocrsErrorCode = Lens.lens (errorCode :: OrganizationConfigRuleStatus -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: OrganizationConfigRuleStatus)
+ocrsErrorCode :: Lens.Lens' OrganizationConfigRuleStatus (Core.Maybe Types.String)
+ocrsErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED ocrsErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
-
--- | The name that you assign to organization config rule.
---
--- /Note:/ Consider using 'organizationConfigRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocrsOrganizationConfigRuleName :: Lens.Lens' OrganizationConfigRuleStatus Lude.Text
-ocrsOrganizationConfigRuleName = Lens.lens (organizationConfigRuleName :: OrganizationConfigRuleStatus -> Lude.Text) (\s a -> s {organizationConfigRuleName = a} :: OrganizationConfigRuleStatus)
-{-# DEPRECATED ocrsOrganizationConfigRuleName "Use generic-lens or generic-optics with 'organizationConfigRuleName' instead." #-}
 
 -- | An error message indicating that organization config rule creation or deletion failed due to an error.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocrsErrorMessage :: Lens.Lens' OrganizationConfigRuleStatus (Lude.Maybe Lude.Text)
-ocrsErrorMessage = Lens.lens (errorMessage :: OrganizationConfigRuleStatus -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: OrganizationConfigRuleStatus)
+ocrsErrorMessage :: Lens.Lens' OrganizationConfigRuleStatus (Core.Maybe Types.String)
+ocrsErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED ocrsErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The timestamp of the last update.
 --
 -- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ocrsLastUpdateTime :: Lens.Lens' OrganizationConfigRuleStatus (Lude.Maybe Lude.Timestamp)
-ocrsLastUpdateTime = Lens.lens (lastUpdateTime :: OrganizationConfigRuleStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: OrganizationConfigRuleStatus)
+ocrsLastUpdateTime :: Lens.Lens' OrganizationConfigRuleStatus (Core.Maybe Core.NominalDiffTime)
+ocrsLastUpdateTime = Lens.field @"lastUpdateTime"
 {-# DEPRECATED ocrsLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
 
-instance Lude.FromJSON OrganizationConfigRuleStatus where
+instance Core.FromJSON OrganizationConfigRuleStatus where
   parseJSON =
-    Lude.withObject
-      "OrganizationConfigRuleStatus"
-      ( \x ->
-          OrganizationConfigRuleStatus'
-            Lude.<$> (x Lude..: "OrganizationRuleStatus")
-            Lude.<*> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..: "OrganizationConfigRuleName")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-            Lude.<*> (x Lude..:? "LastUpdateTime")
-      )
+    Core.withObject "OrganizationConfigRuleStatus" Core.$
+      \x ->
+        OrganizationConfigRuleStatus'
+          Core.<$> (x Core..: "OrganizationConfigRuleName")
+          Core.<*> (x Core..: "OrganizationRuleStatus")
+          Core.<*> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "LastUpdateTime")

@@ -13,81 +13,86 @@
 module Network.AWS.Rekognition.Types.ProjectVersionStatus
   ( ProjectVersionStatus
       ( ProjectVersionStatus',
-        TrainingInProgress,
-        TrainingCompleted,
-        TrainingFailed,
-        Starting,
-        Running,
-        Failed,
-        Stopping,
-        Stopped,
-        Deleting
+        ProjectVersionStatusTrainingInProgress,
+        ProjectVersionStatusTrainingCompleted,
+        ProjectVersionStatusTrainingFailed,
+        ProjectVersionStatusStarting,
+        ProjectVersionStatusRunning,
+        ProjectVersionStatusFailed,
+        ProjectVersionStatusStopping,
+        ProjectVersionStatusStopped,
+        ProjectVersionStatusDeleting,
+        fromProjectVersionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProjectVersionStatus = ProjectVersionStatus' Lude.Text
+newtype ProjectVersionStatus = ProjectVersionStatus'
+  { fromProjectVersionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TrainingInProgress :: ProjectVersionStatus
-pattern TrainingInProgress = ProjectVersionStatus' "TRAINING_IN_PROGRESS"
+pattern ProjectVersionStatusTrainingInProgress :: ProjectVersionStatus
+pattern ProjectVersionStatusTrainingInProgress = ProjectVersionStatus' "TRAINING_IN_PROGRESS"
 
-pattern TrainingCompleted :: ProjectVersionStatus
-pattern TrainingCompleted = ProjectVersionStatus' "TRAINING_COMPLETED"
+pattern ProjectVersionStatusTrainingCompleted :: ProjectVersionStatus
+pattern ProjectVersionStatusTrainingCompleted = ProjectVersionStatus' "TRAINING_COMPLETED"
 
-pattern TrainingFailed :: ProjectVersionStatus
-pattern TrainingFailed = ProjectVersionStatus' "TRAINING_FAILED"
+pattern ProjectVersionStatusTrainingFailed :: ProjectVersionStatus
+pattern ProjectVersionStatusTrainingFailed = ProjectVersionStatus' "TRAINING_FAILED"
 
-pattern Starting :: ProjectVersionStatus
-pattern Starting = ProjectVersionStatus' "STARTING"
+pattern ProjectVersionStatusStarting :: ProjectVersionStatus
+pattern ProjectVersionStatusStarting = ProjectVersionStatus' "STARTING"
 
-pattern Running :: ProjectVersionStatus
-pattern Running = ProjectVersionStatus' "RUNNING"
+pattern ProjectVersionStatusRunning :: ProjectVersionStatus
+pattern ProjectVersionStatusRunning = ProjectVersionStatus' "RUNNING"
 
-pattern Failed :: ProjectVersionStatus
-pattern Failed = ProjectVersionStatus' "FAILED"
+pattern ProjectVersionStatusFailed :: ProjectVersionStatus
+pattern ProjectVersionStatusFailed = ProjectVersionStatus' "FAILED"
 
-pattern Stopping :: ProjectVersionStatus
-pattern Stopping = ProjectVersionStatus' "STOPPING"
+pattern ProjectVersionStatusStopping :: ProjectVersionStatus
+pattern ProjectVersionStatusStopping = ProjectVersionStatus' "STOPPING"
 
-pattern Stopped :: ProjectVersionStatus
-pattern Stopped = ProjectVersionStatus' "STOPPED"
+pattern ProjectVersionStatusStopped :: ProjectVersionStatus
+pattern ProjectVersionStatusStopped = ProjectVersionStatus' "STOPPED"
 
-pattern Deleting :: ProjectVersionStatus
-pattern Deleting = ProjectVersionStatus' "DELETING"
+pattern ProjectVersionStatusDeleting :: ProjectVersionStatus
+pattern ProjectVersionStatusDeleting = ProjectVersionStatus' "DELETING"
 
 {-# COMPLETE
-  TrainingInProgress,
-  TrainingCompleted,
-  TrainingFailed,
-  Starting,
-  Running,
-  Failed,
-  Stopping,
-  Stopped,
-  Deleting,
+  ProjectVersionStatusTrainingInProgress,
+  ProjectVersionStatusTrainingCompleted,
+  ProjectVersionStatusTrainingFailed,
+  ProjectVersionStatusStarting,
+  ProjectVersionStatusRunning,
+  ProjectVersionStatusFailed,
+  ProjectVersionStatusStopping,
+  ProjectVersionStatusStopped,
+  ProjectVersionStatusDeleting,
   ProjectVersionStatus'
   #-}

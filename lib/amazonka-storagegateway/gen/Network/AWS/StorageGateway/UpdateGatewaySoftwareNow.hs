@@ -29,112 +29,101 @@ module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     mkUpdateGatewaySoftwareNowResponse,
 
     -- ** Response lenses
-    ugsnrsGatewayARN,
-    ugsnrsResponseStatus,
+    ugsnrrsGatewayARN,
+    ugsnrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway to update.
 --
 -- /See:/ 'mkUpdateGatewaySoftwareNow' smart constructor.
 newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateGatewaySoftwareNow' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'UpdateGatewaySoftwareNow' value with any optional fields omitted.
 mkUpdateGatewaySoftwareNow ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   UpdateGatewaySoftwareNow
-mkUpdateGatewaySoftwareNow pGatewayARN_ =
-  UpdateGatewaySoftwareNow' {gatewayARN = pGatewayARN_}
+mkUpdateGatewaySoftwareNow gatewayARN =
+  UpdateGatewaySoftwareNow' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugsnGatewayARN :: Lens.Lens' UpdateGatewaySoftwareNow Lude.Text
-ugsnGatewayARN = Lens.lens (gatewayARN :: UpdateGatewaySoftwareNow -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateGatewaySoftwareNow)
+ugsnGatewayARN :: Lens.Lens' UpdateGatewaySoftwareNow Types.GatewayARN
+ugsnGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED ugsnGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest UpdateGatewaySoftwareNow where
+instance Core.FromJSON UpdateGatewaySoftwareNow where
+  toJSON UpdateGatewaySoftwareNow {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest UpdateGatewaySoftwareNow where
   type Rs UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNowResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.UpdateGatewaySoftwareNow"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateGatewaySoftwareNowResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateGatewaySoftwareNow where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.UpdateGatewaySoftwareNow" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateGatewaySoftwareNow where
-  toJSON UpdateGatewaySoftwareNow' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath UpdateGatewaySoftwareNow where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateGatewaySoftwareNow where
-  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway that was updated.
 --
 -- /See:/ 'mkUpdateGatewaySoftwareNowResponse' smart constructor.
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateGatewaySoftwareNowResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateGatewaySoftwareNowResponse' value with any optional fields omitted.
 mkUpdateGatewaySoftwareNowResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateGatewaySoftwareNowResponse
-mkUpdateGatewaySoftwareNowResponse pResponseStatus_ =
+mkUpdateGatewaySoftwareNowResponse responseStatus =
   UpdateGatewaySoftwareNowResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gatewayARN = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugsnrsGatewayARN :: Lens.Lens' UpdateGatewaySoftwareNowResponse (Lude.Maybe Lude.Text)
-ugsnrsGatewayARN = Lens.lens (gatewayARN :: UpdateGatewaySoftwareNowResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateGatewaySoftwareNowResponse)
-{-# DEPRECATED ugsnrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+ugsnrrsGatewayARN :: Lens.Lens' UpdateGatewaySoftwareNowResponse (Core.Maybe Types.GatewayARN)
+ugsnrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED ugsnrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugsnrsResponseStatus :: Lens.Lens' UpdateGatewaySoftwareNowResponse Lude.Int
-ugsnrsResponseStatus = Lens.lens (responseStatus :: UpdateGatewaySoftwareNowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateGatewaySoftwareNowResponse)
-{-# DEPRECATED ugsnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ugsnrrsResponseStatus :: Lens.Lens' UpdateGatewaySoftwareNowResponse Core.Int
+ugsnrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ugsnrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

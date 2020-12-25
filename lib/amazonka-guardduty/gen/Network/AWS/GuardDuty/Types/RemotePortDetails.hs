@@ -17,54 +17,50 @@ module Network.AWS.GuardDuty.Types.RemotePortDetails
     mkRemotePortDetails,
 
     -- * Lenses
-    rpdPortName,
     rpdPort,
+    rpdPortName,
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the remote port.
 --
 -- /See:/ 'mkRemotePortDetails' smart constructor.
 data RemotePortDetails = RemotePortDetails'
-  { -- | The port name of the remote connection.
-    portName :: Lude.Maybe Lude.Text,
-    -- | The port number of the remote connection.
-    port :: Lude.Maybe Lude.Int
+  { -- | The port number of the remote connection.
+    port :: Core.Maybe Core.Int,
+    -- | The port name of the remote connection.
+    portName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemotePortDetails' with the minimum fields required to make a request.
---
--- * 'portName' - The port name of the remote connection.
--- * 'port' - The port number of the remote connection.
+-- | Creates a 'RemotePortDetails' value with any optional fields omitted.
 mkRemotePortDetails ::
   RemotePortDetails
 mkRemotePortDetails =
-  RemotePortDetails' {portName = Lude.Nothing, port = Lude.Nothing}
-
--- | The port name of the remote connection.
---
--- /Note:/ Consider using 'portName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpdPortName :: Lens.Lens' RemotePortDetails (Lude.Maybe Lude.Text)
-rpdPortName = Lens.lens (portName :: RemotePortDetails -> Lude.Maybe Lude.Text) (\s a -> s {portName = a} :: RemotePortDetails)
-{-# DEPRECATED rpdPortName "Use generic-lens or generic-optics with 'portName' instead." #-}
+  RemotePortDetails' {port = Core.Nothing, portName = Core.Nothing}
 
 -- | The port number of the remote connection.
 --
 -- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpdPort :: Lens.Lens' RemotePortDetails (Lude.Maybe Lude.Int)
-rpdPort = Lens.lens (port :: RemotePortDetails -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: RemotePortDetails)
+rpdPort :: Lens.Lens' RemotePortDetails (Core.Maybe Core.Int)
+rpdPort = Lens.field @"port"
 {-# DEPRECATED rpdPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance Lude.FromJSON RemotePortDetails where
+-- | The port name of the remote connection.
+--
+-- /Note:/ Consider using 'portName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpdPortName :: Lens.Lens' RemotePortDetails (Core.Maybe Types.String)
+rpdPortName = Lens.field @"portName"
+{-# DEPRECATED rpdPortName "Use generic-lens or generic-optics with 'portName' instead." #-}
+
+instance Core.FromJSON RemotePortDetails where
   parseJSON =
-    Lude.withObject
-      "RemotePortDetails"
-      ( \x ->
-          RemotePortDetails'
-            Lude.<$> (x Lude..:? "portName") Lude.<*> (x Lude..:? "port")
-      )
+    Core.withObject "RemotePortDetails" Core.$
+      \x ->
+        RemotePortDetails'
+          Core.<$> (x Core..:? "port") Core.<*> (x Core..:? "portName")

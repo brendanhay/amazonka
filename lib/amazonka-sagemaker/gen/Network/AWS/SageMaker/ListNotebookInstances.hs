@@ -22,301 +22,280 @@ module Network.AWS.SageMaker.ListNotebookInstances
     mkListNotebookInstances,
 
     -- ** Request lenses
-    lniNameContains,
-    lniDefaultCodeRepositoryContains,
-    lniLastModifiedTimeBefore,
-    lniNotebookInstanceLifecycleConfigNameContains,
-    lniCreationTimeAfter,
     lniAdditionalCodeRepositoryEquals,
-    lniNextToken,
-    lniSortOrder,
-    lniLastModifiedTimeAfter,
+    lniCreationTimeAfter,
     lniCreationTimeBefore,
-    lniStatusEquals,
+    lniDefaultCodeRepositoryContains,
+    lniLastModifiedTimeAfter,
+    lniLastModifiedTimeBefore,
     lniMaxResults,
+    lniNameContains,
+    lniNextToken,
+    lniNotebookInstanceLifecycleConfigNameContains,
     lniSortBy,
+    lniSortOrder,
+    lniStatusEquals,
 
     -- * Destructuring the response
     ListNotebookInstancesResponse (..),
     mkListNotebookInstancesResponse,
 
     -- ** Response lenses
-    lnirsNotebookInstances,
-    lnirsNextToken,
-    lnirsResponseStatus,
+    lnirrsNextToken,
+    lnirrsNotebookInstances,
+    lnirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListNotebookInstances' smart constructor.
 data ListNotebookInstances = ListNotebookInstances'
-  { -- | A string in the notebook instances' name. This filter returns only notebook instances whose name contains the specified string.
-    nameContains :: Lude.Maybe Lude.Text,
-    -- | A string in the name or URL of a Git repository associated with this notebook instance. This filter returns only notebook instances associated with a git repository with a name that contains the specified string.
-    defaultCodeRepositoryContains :: Lude.Maybe Lude.Text,
-    -- | A filter that returns only notebook instances that were modified before the specified time (timestamp).
-    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
-    -- | A string in the name of a notebook instances lifecycle configuration associated with this notebook instance. This filter returns only notebook instances associated with a lifecycle configuration with a name that contains the specified string.
-    notebookInstanceLifecycleConfigNameContains :: Lude.Maybe Lude.Text,
+  { -- | A filter that returns only notebook instances with associated with the specified git repository.
+    additionalCodeRepositoryEquals :: Core.Maybe Types.AdditionalCodeRepositoryEquals,
     -- | A filter that returns only notebook instances that were created after the specified time (timestamp).
-    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
-    -- | A filter that returns only notebook instances with associated with the specified git repository.
-    additionalCodeRepositoryEquals :: Lude.Maybe Lude.Text,
-    -- | If the previous call to the @ListNotebookInstances@ is truncated, the response includes a @NextToken@ . You can use this token in your subsequent @ListNotebookInstances@ request to fetch the next set of notebook instances.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sort order for results.
-    sortOrder :: Lude.Maybe NotebookInstanceSortOrder,
-    -- | A filter that returns only notebook instances that were modified after the specified time (timestamp).
-    lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+    creationTimeAfter :: Core.Maybe Core.NominalDiffTime,
     -- | A filter that returns only notebook instances that were created before the specified time (timestamp).
-    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
-    -- | A filter that returns only notebook instances with the specified status.
-    statusEquals :: Lude.Maybe NotebookInstanceStatus,
+    creationTimeBefore :: Core.Maybe Core.NominalDiffTime,
+    -- | A string in the name or URL of a Git repository associated with this notebook instance. This filter returns only notebook instances associated with a git repository with a name that contains the specified string.
+    defaultCodeRepositoryContains :: Core.Maybe Types.CodeRepositoryContains,
+    -- | A filter that returns only notebook instances that were modified after the specified time (timestamp).
+    lastModifiedTimeAfter :: Core.Maybe Core.NominalDiffTime,
+    -- | A filter that returns only notebook instances that were modified before the specified time (timestamp).
+    lastModifiedTimeBefore :: Core.Maybe Core.NominalDiffTime,
     -- | The maximum number of notebook instances to return.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A string in the notebook instances' name. This filter returns only notebook instances whose name contains the specified string.
+    nameContains :: Core.Maybe Types.NameContains,
+    -- | If the previous call to the @ListNotebookInstances@ is truncated, the response includes a @NextToken@ . You can use this token in your subsequent @ListNotebookInstances@ request to fetch the next set of notebook instances.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A string in the name of a notebook instances lifecycle configuration associated with this notebook instance. This filter returns only notebook instances associated with a lifecycle configuration with a name that contains the specified string.
+    notebookInstanceLifecycleConfigNameContains :: Core.Maybe Types.NotebookInstanceLifecycleConfigName,
     -- | The field to sort results by. The default is @Name@ .
-    sortBy :: Lude.Maybe NotebookInstanceSortKey
+    sortBy :: Core.Maybe Types.NotebookInstanceSortKey,
+    -- | The sort order for results.
+    sortOrder :: Core.Maybe Types.NotebookInstanceSortOrder,
+    -- | A filter that returns only notebook instances with the specified status.
+    statusEquals :: Core.Maybe Types.NotebookInstanceStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListNotebookInstances' with the minimum fields required to make a request.
---
--- * 'nameContains' - A string in the notebook instances' name. This filter returns only notebook instances whose name contains the specified string.
--- * 'defaultCodeRepositoryContains' - A string in the name or URL of a Git repository associated with this notebook instance. This filter returns only notebook instances associated with a git repository with a name that contains the specified string.
--- * 'lastModifiedTimeBefore' - A filter that returns only notebook instances that were modified before the specified time (timestamp).
--- * 'notebookInstanceLifecycleConfigNameContains' - A string in the name of a notebook instances lifecycle configuration associated with this notebook instance. This filter returns only notebook instances associated with a lifecycle configuration with a name that contains the specified string.
--- * 'creationTimeAfter' - A filter that returns only notebook instances that were created after the specified time (timestamp).
--- * 'additionalCodeRepositoryEquals' - A filter that returns only notebook instances with associated with the specified git repository.
--- * 'nextToken' - If the previous call to the @ListNotebookInstances@ is truncated, the response includes a @NextToken@ . You can use this token in your subsequent @ListNotebookInstances@ request to fetch the next set of notebook instances.
--- * 'sortOrder' - The sort order for results.
--- * 'lastModifiedTimeAfter' - A filter that returns only notebook instances that were modified after the specified time (timestamp).
--- * 'creationTimeBefore' - A filter that returns only notebook instances that were created before the specified time (timestamp).
--- * 'statusEquals' - A filter that returns only notebook instances with the specified status.
--- * 'maxResults' - The maximum number of notebook instances to return.
--- * 'sortBy' - The field to sort results by. The default is @Name@ .
+-- | Creates a 'ListNotebookInstances' value with any optional fields omitted.
 mkListNotebookInstances ::
   ListNotebookInstances
 mkListNotebookInstances =
   ListNotebookInstances'
-    { nameContains = Lude.Nothing,
-      defaultCodeRepositoryContains = Lude.Nothing,
-      lastModifiedTimeBefore = Lude.Nothing,
-      notebookInstanceLifecycleConfigNameContains = Lude.Nothing,
-      creationTimeAfter = Lude.Nothing,
-      additionalCodeRepositoryEquals = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      lastModifiedTimeAfter = Lude.Nothing,
-      creationTimeBefore = Lude.Nothing,
-      statusEquals = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { additionalCodeRepositoryEquals =
+        Core.Nothing,
+      creationTimeAfter = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      defaultCodeRepositoryContains = Core.Nothing,
+      lastModifiedTimeAfter = Core.Nothing,
+      lastModifiedTimeBefore = Core.Nothing,
+      maxResults = Core.Nothing,
+      nameContains = Core.Nothing,
+      nextToken = Core.Nothing,
+      notebookInstanceLifecycleConfigNameContains = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing,
+      statusEquals = Core.Nothing
     }
-
--- | A string in the notebook instances' name. This filter returns only notebook instances whose name contains the specified string.
---
--- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniNameContains :: Lens.Lens' ListNotebookInstances (Lude.Maybe Lude.Text)
-lniNameContains = Lens.lens (nameContains :: ListNotebookInstances -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListNotebookInstances)
-{-# DEPRECATED lniNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
-
--- | A string in the name or URL of a Git repository associated with this notebook instance. This filter returns only notebook instances associated with a git repository with a name that contains the specified string.
---
--- /Note:/ Consider using 'defaultCodeRepositoryContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniDefaultCodeRepositoryContains :: Lens.Lens' ListNotebookInstances (Lude.Maybe Lude.Text)
-lniDefaultCodeRepositoryContains = Lens.lens (defaultCodeRepositoryContains :: ListNotebookInstances -> Lude.Maybe Lude.Text) (\s a -> s {defaultCodeRepositoryContains = a} :: ListNotebookInstances)
-{-# DEPRECATED lniDefaultCodeRepositoryContains "Use generic-lens or generic-optics with 'defaultCodeRepositoryContains' instead." #-}
-
--- | A filter that returns only notebook instances that were modified before the specified time (timestamp).
---
--- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniLastModifiedTimeBefore :: Lens.Lens' ListNotebookInstances (Lude.Maybe Lude.Timestamp)
-lniLastModifiedTimeBefore = Lens.lens (lastModifiedTimeBefore :: ListNotebookInstances -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeBefore = a} :: ListNotebookInstances)
-{-# DEPRECATED lniLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
-
--- | A string in the name of a notebook instances lifecycle configuration associated with this notebook instance. This filter returns only notebook instances associated with a lifecycle configuration with a name that contains the specified string.
---
--- /Note:/ Consider using 'notebookInstanceLifecycleConfigNameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniNotebookInstanceLifecycleConfigNameContains :: Lens.Lens' ListNotebookInstances (Lude.Maybe Lude.Text)
-lniNotebookInstanceLifecycleConfigNameContains = Lens.lens (notebookInstanceLifecycleConfigNameContains :: ListNotebookInstances -> Lude.Maybe Lude.Text) (\s a -> s {notebookInstanceLifecycleConfigNameContains = a} :: ListNotebookInstances)
-{-# DEPRECATED lniNotebookInstanceLifecycleConfigNameContains "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigNameContains' instead." #-}
-
--- | A filter that returns only notebook instances that were created after the specified time (timestamp).
---
--- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniCreationTimeAfter :: Lens.Lens' ListNotebookInstances (Lude.Maybe Lude.Timestamp)
-lniCreationTimeAfter = Lens.lens (creationTimeAfter :: ListNotebookInstances -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListNotebookInstances)
-{-# DEPRECATED lniCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | A filter that returns only notebook instances with associated with the specified git repository.
 --
 -- /Note:/ Consider using 'additionalCodeRepositoryEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniAdditionalCodeRepositoryEquals :: Lens.Lens' ListNotebookInstances (Lude.Maybe Lude.Text)
-lniAdditionalCodeRepositoryEquals = Lens.lens (additionalCodeRepositoryEquals :: ListNotebookInstances -> Lude.Maybe Lude.Text) (\s a -> s {additionalCodeRepositoryEquals = a} :: ListNotebookInstances)
+lniAdditionalCodeRepositoryEquals :: Lens.Lens' ListNotebookInstances (Core.Maybe Types.AdditionalCodeRepositoryEquals)
+lniAdditionalCodeRepositoryEquals = Lens.field @"additionalCodeRepositoryEquals"
 {-# DEPRECATED lniAdditionalCodeRepositoryEquals "Use generic-lens or generic-optics with 'additionalCodeRepositoryEquals' instead." #-}
 
--- | If the previous call to the @ListNotebookInstances@ is truncated, the response includes a @NextToken@ . You can use this token in your subsequent @ListNotebookInstances@ request to fetch the next set of notebook instances.
+-- | A filter that returns only notebook instances that were created after the specified time (timestamp).
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniNextToken :: Lens.Lens' ListNotebookInstances (Lude.Maybe Lude.Text)
-lniNextToken = Lens.lens (nextToken :: ListNotebookInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListNotebookInstances)
-{-# DEPRECATED lniNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sort order for results.
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniSortOrder :: Lens.Lens' ListNotebookInstances (Lude.Maybe NotebookInstanceSortOrder)
-lniSortOrder = Lens.lens (sortOrder :: ListNotebookInstances -> Lude.Maybe NotebookInstanceSortOrder) (\s a -> s {sortOrder = a} :: ListNotebookInstances)
-{-# DEPRECATED lniSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
-
--- | A filter that returns only notebook instances that were modified after the specified time (timestamp).
---
--- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniLastModifiedTimeAfter :: Lens.Lens' ListNotebookInstances (Lude.Maybe Lude.Timestamp)
-lniLastModifiedTimeAfter = Lens.lens (lastModifiedTimeAfter :: ListNotebookInstances -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeAfter = a} :: ListNotebookInstances)
-{-# DEPRECATED lniLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
+-- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lniCreationTimeAfter :: Lens.Lens' ListNotebookInstances (Core.Maybe Core.NominalDiffTime)
+lniCreationTimeAfter = Lens.field @"creationTimeAfter"
+{-# DEPRECATED lniCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | A filter that returns only notebook instances that were created before the specified time (timestamp).
 --
 -- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniCreationTimeBefore :: Lens.Lens' ListNotebookInstances (Lude.Maybe Lude.Timestamp)
-lniCreationTimeBefore = Lens.lens (creationTimeBefore :: ListNotebookInstances -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListNotebookInstances)
+lniCreationTimeBefore :: Lens.Lens' ListNotebookInstances (Core.Maybe Core.NominalDiffTime)
+lniCreationTimeBefore = Lens.field @"creationTimeBefore"
 {-# DEPRECATED lniCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
--- | A filter that returns only notebook instances with the specified status.
+-- | A string in the name or URL of a Git repository associated with this notebook instance. This filter returns only notebook instances associated with a git repository with a name that contains the specified string.
 --
--- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniStatusEquals :: Lens.Lens' ListNotebookInstances (Lude.Maybe NotebookInstanceStatus)
-lniStatusEquals = Lens.lens (statusEquals :: ListNotebookInstances -> Lude.Maybe NotebookInstanceStatus) (\s a -> s {statusEquals = a} :: ListNotebookInstances)
-{-# DEPRECATED lniStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
+-- /Note:/ Consider using 'defaultCodeRepositoryContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lniDefaultCodeRepositoryContains :: Lens.Lens' ListNotebookInstances (Core.Maybe Types.CodeRepositoryContains)
+lniDefaultCodeRepositoryContains = Lens.field @"defaultCodeRepositoryContains"
+{-# DEPRECATED lniDefaultCodeRepositoryContains "Use generic-lens or generic-optics with 'defaultCodeRepositoryContains' instead." #-}
+
+-- | A filter that returns only notebook instances that were modified after the specified time (timestamp).
+--
+-- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lniLastModifiedTimeAfter :: Lens.Lens' ListNotebookInstances (Core.Maybe Core.NominalDiffTime)
+lniLastModifiedTimeAfter = Lens.field @"lastModifiedTimeAfter"
+{-# DEPRECATED lniLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
+
+-- | A filter that returns only notebook instances that were modified before the specified time (timestamp).
+--
+-- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lniLastModifiedTimeBefore :: Lens.Lens' ListNotebookInstances (Core.Maybe Core.NominalDiffTime)
+lniLastModifiedTimeBefore = Lens.field @"lastModifiedTimeBefore"
+{-# DEPRECATED lniLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | The maximum number of notebook instances to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniMaxResults :: Lens.Lens' ListNotebookInstances (Lude.Maybe Lude.Natural)
-lniMaxResults = Lens.lens (maxResults :: ListNotebookInstances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListNotebookInstances)
+lniMaxResults :: Lens.Lens' ListNotebookInstances (Core.Maybe Core.Natural)
+lniMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lniMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A string in the notebook instances' name. This filter returns only notebook instances whose name contains the specified string.
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lniNameContains :: Lens.Lens' ListNotebookInstances (Core.Maybe Types.NameContains)
+lniNameContains = Lens.field @"nameContains"
+{-# DEPRECATED lniNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
+
+-- | If the previous call to the @ListNotebookInstances@ is truncated, the response includes a @NextToken@ . You can use this token in your subsequent @ListNotebookInstances@ request to fetch the next set of notebook instances.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lniNextToken :: Lens.Lens' ListNotebookInstances (Core.Maybe Types.NextToken)
+lniNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lniNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A string in the name of a notebook instances lifecycle configuration associated with this notebook instance. This filter returns only notebook instances associated with a lifecycle configuration with a name that contains the specified string.
+--
+-- /Note:/ Consider using 'notebookInstanceLifecycleConfigNameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lniNotebookInstanceLifecycleConfigNameContains :: Lens.Lens' ListNotebookInstances (Core.Maybe Types.NotebookInstanceLifecycleConfigName)
+lniNotebookInstanceLifecycleConfigNameContains = Lens.field @"notebookInstanceLifecycleConfigNameContains"
+{-# DEPRECATED lniNotebookInstanceLifecycleConfigNameContains "Use generic-lens or generic-optics with 'notebookInstanceLifecycleConfigNameContains' instead." #-}
 
 -- | The field to sort results by. The default is @Name@ .
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lniSortBy :: Lens.Lens' ListNotebookInstances (Lude.Maybe NotebookInstanceSortKey)
-lniSortBy = Lens.lens (sortBy :: ListNotebookInstances -> Lude.Maybe NotebookInstanceSortKey) (\s a -> s {sortBy = a} :: ListNotebookInstances)
+lniSortBy :: Lens.Lens' ListNotebookInstances (Core.Maybe Types.NotebookInstanceSortKey)
+lniSortBy = Lens.field @"sortBy"
 {-# DEPRECATED lniSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager ListNotebookInstances where
-  page rq rs
-    | Page.stop (rs Lens.^. lnirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lnirsNotebookInstances) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lniNextToken Lens..~ rs Lens.^. lnirsNextToken
+-- | The sort order for results.
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lniSortOrder :: Lens.Lens' ListNotebookInstances (Core.Maybe Types.NotebookInstanceSortOrder)
+lniSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED lniSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest ListNotebookInstances where
+-- | A filter that returns only notebook instances with the specified status.
+--
+-- /Note:/ Consider using 'statusEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lniStatusEquals :: Lens.Lens' ListNotebookInstances (Core.Maybe Types.NotebookInstanceStatus)
+lniStatusEquals = Lens.field @"statusEquals"
+{-# DEPRECATED lniStatusEquals "Use generic-lens or generic-optics with 'statusEquals' instead." #-}
+
+instance Core.FromJSON ListNotebookInstances where
+  toJSON ListNotebookInstances {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AdditionalCodeRepositoryEquals" Core..=)
+              Core.<$> additionalCodeRepositoryEquals,
+            ("CreationTimeAfter" Core..=) Core.<$> creationTimeAfter,
+            ("CreationTimeBefore" Core..=) Core.<$> creationTimeBefore,
+            ("DefaultCodeRepositoryContains" Core..=)
+              Core.<$> defaultCodeRepositoryContains,
+            ("LastModifiedTimeAfter" Core..=) Core.<$> lastModifiedTimeAfter,
+            ("LastModifiedTimeBefore" Core..=) Core.<$> lastModifiedTimeBefore,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("NotebookInstanceLifecycleConfigNameContains" Core..=)
+              Core.<$> notebookInstanceLifecycleConfigNameContains,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("StatusEquals" Core..=) Core.<$> statusEquals
+          ]
+      )
+
+instance Core.AWSRequest ListNotebookInstances where
   type Rs ListNotebookInstances = ListNotebookInstancesResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListNotebookInstances")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListNotebookInstancesResponse'
-            Lude.<$> (x Lude..?> "NotebookInstances" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "NotebookInstances")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListNotebookInstances where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.ListNotebookInstances" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListNotebookInstances where
-  toJSON ListNotebookInstances' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NameContains" Lude..=) Lude.<$> nameContains,
-            ("DefaultCodeRepositoryContains" Lude..=)
-              Lude.<$> defaultCodeRepositoryContains,
-            ("LastModifiedTimeBefore" Lude..=) Lude.<$> lastModifiedTimeBefore,
-            ("NotebookInstanceLifecycleConfigNameContains" Lude..=)
-              Lude.<$> notebookInstanceLifecycleConfigNameContains,
-            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
-            ("AdditionalCodeRepositoryEquals" Lude..=)
-              Lude.<$> additionalCodeRepositoryEquals,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("LastModifiedTimeAfter" Lude..=) Lude.<$> lastModifiedTimeAfter,
-            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
-            ("StatusEquals" Lude..=) Lude.<$> statusEquals,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListNotebookInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListNotebookInstances where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListNotebookInstances where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"notebookInstances" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListNotebookInstancesResponse' smart constructor.
 data ListNotebookInstancesResponse = ListNotebookInstancesResponse'
-  { -- | An array of @NotebookInstanceSummary@ objects, one for each notebook instance.
-    notebookInstances :: Lude.Maybe [NotebookInstanceSummary],
-    -- | If the response to the previous @ListNotebookInstances@ request was truncated, Amazon SageMaker returns this token. To retrieve the next set of notebook instances, use the token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | If the response to the previous @ListNotebookInstances@ request was truncated, Amazon SageMaker returns this token. To retrieve the next set of notebook instances, use the token in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | An array of @NotebookInstanceSummary@ objects, one for each notebook instance.
+    notebookInstances :: Core.Maybe [Types.NotebookInstanceSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListNotebookInstancesResponse' with the minimum fields required to make a request.
---
--- * 'notebookInstances' - An array of @NotebookInstanceSummary@ objects, one for each notebook instance.
--- * 'nextToken' - If the response to the previous @ListNotebookInstances@ request was truncated, Amazon SageMaker returns this token. To retrieve the next set of notebook instances, use the token in the next request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListNotebookInstancesResponse' value with any optional fields omitted.
 mkListNotebookInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListNotebookInstancesResponse
-mkListNotebookInstancesResponse pResponseStatus_ =
+mkListNotebookInstancesResponse responseStatus =
   ListNotebookInstancesResponse'
-    { notebookInstances = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      notebookInstances = Core.Nothing,
+      responseStatus
     }
-
--- | An array of @NotebookInstanceSummary@ objects, one for each notebook instance.
---
--- /Note:/ Consider using 'notebookInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lnirsNotebookInstances :: Lens.Lens' ListNotebookInstancesResponse (Lude.Maybe [NotebookInstanceSummary])
-lnirsNotebookInstances = Lens.lens (notebookInstances :: ListNotebookInstancesResponse -> Lude.Maybe [NotebookInstanceSummary]) (\s a -> s {notebookInstances = a} :: ListNotebookInstancesResponse)
-{-# DEPRECATED lnirsNotebookInstances "Use generic-lens or generic-optics with 'notebookInstances' instead." #-}
 
 -- | If the response to the previous @ListNotebookInstances@ request was truncated, Amazon SageMaker returns this token. To retrieve the next set of notebook instances, use the token in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lnirsNextToken :: Lens.Lens' ListNotebookInstancesResponse (Lude.Maybe Lude.Text)
-lnirsNextToken = Lens.lens (nextToken :: ListNotebookInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListNotebookInstancesResponse)
-{-# DEPRECATED lnirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lnirrsNextToken :: Lens.Lens' ListNotebookInstancesResponse (Core.Maybe Types.NextToken)
+lnirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lnirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | An array of @NotebookInstanceSummary@ objects, one for each notebook instance.
+--
+-- /Note:/ Consider using 'notebookInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lnirrsNotebookInstances :: Lens.Lens' ListNotebookInstancesResponse (Core.Maybe [Types.NotebookInstanceSummary])
+lnirrsNotebookInstances = Lens.field @"notebookInstances"
+{-# DEPRECATED lnirrsNotebookInstances "Use generic-lens or generic-optics with 'notebookInstances' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lnirsResponseStatus :: Lens.Lens' ListNotebookInstancesResponse Lude.Int
-lnirsResponseStatus = Lens.lens (responseStatus :: ListNotebookInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListNotebookInstancesResponse)
-{-# DEPRECATED lnirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lnirrsResponseStatus :: Lens.Lens' ListNotebookInstancesResponse Core.Int
+lnirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lnirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

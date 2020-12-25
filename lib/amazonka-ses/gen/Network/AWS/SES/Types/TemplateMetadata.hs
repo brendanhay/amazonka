@@ -17,53 +17,51 @@ module Network.AWS.SES.Types.TemplateMetadata
     mkTemplateMetadata,
 
     -- * Lenses
-    tmName,
     tmCreatedTimestamp,
+    tmName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.TemplateName as Types
 
 -- | Contains information about an email template.
 --
 -- /See:/ 'mkTemplateMetadata' smart constructor.
 data TemplateMetadata = TemplateMetadata'
-  { -- | The name of the template.
-    name :: Lude.Maybe Lude.Text,
-    -- | The time and date the template was created.
-    createdTimestamp :: Lude.Maybe Lude.DateTime
+  { -- | The time and date the template was created.
+    createdTimestamp :: Core.Maybe Core.UTCTime,
+    -- | The name of the template.
+    name :: Core.Maybe Types.TemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TemplateMetadata' with the minimum fields required to make a request.
---
--- * 'name' - The name of the template.
--- * 'createdTimestamp' - The time and date the template was created.
+-- | Creates a 'TemplateMetadata' value with any optional fields omitted.
 mkTemplateMetadata ::
   TemplateMetadata
 mkTemplateMetadata =
   TemplateMetadata'
-    { name = Lude.Nothing,
-      createdTimestamp = Lude.Nothing
+    { createdTimestamp = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The name of the template.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmName :: Lens.Lens' TemplateMetadata (Lude.Maybe Lude.Text)
-tmName = Lens.lens (name :: TemplateMetadata -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: TemplateMetadata)
-{-# DEPRECATED tmName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The time and date the template was created.
 --
 -- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmCreatedTimestamp :: Lens.Lens' TemplateMetadata (Lude.Maybe Lude.DateTime)
-tmCreatedTimestamp = Lens.lens (createdTimestamp :: TemplateMetadata -> Lude.Maybe Lude.DateTime) (\s a -> s {createdTimestamp = a} :: TemplateMetadata)
+tmCreatedTimestamp :: Lens.Lens' TemplateMetadata (Core.Maybe Core.UTCTime)
+tmCreatedTimestamp = Lens.field @"createdTimestamp"
 {-# DEPRECATED tmCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
 
-instance Lude.FromXML TemplateMetadata where
+-- | The name of the template.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tmName :: Lens.Lens' TemplateMetadata (Core.Maybe Types.TemplateName)
+tmName = Lens.field @"name"
+{-# DEPRECATED tmName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromXML TemplateMetadata where
   parseXML x =
     TemplateMetadata'
-      Lude.<$> (x Lude..@? "Name") Lude.<*> (x Lude..@? "CreatedTimestamp")
+      Core.<$> (x Core..@? "CreatedTimestamp") Core.<*> (x Core..@? "Name")

@@ -17,54 +17,49 @@ module Network.AWS.Rekognition.Types.CoversBodyPart
     mkCoversBodyPart,
 
     -- * Lenses
-    cbpValue,
     cbpConfidence,
+    cbpValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an item of Personal Protective Equipment covering a corresponding body part. For more information, see 'DetectProtectiveEquipment' .
 --
 -- /See:/ 'mkCoversBodyPart' smart constructor.
 data CoversBodyPart = CoversBodyPart'
-  { -- | True if the PPE covers the corresponding body part, otherwise false.
-    value :: Lude.Maybe Lude.Bool,
-    -- | The confidence that Amazon Rekognition has in the value of @Value@ .
-    confidence :: Lude.Maybe Lude.Double
+  { -- | The confidence that Amazon Rekognition has in the value of @Value@ .
+    confidence :: Core.Maybe Core.Double,
+    -- | True if the PPE covers the corresponding body part, otherwise false.
+    value :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CoversBodyPart' with the minimum fields required to make a request.
---
--- * 'value' - True if the PPE covers the corresponding body part, otherwise false.
--- * 'confidence' - The confidence that Amazon Rekognition has in the value of @Value@ .
+-- | Creates a 'CoversBodyPart' value with any optional fields omitted.
 mkCoversBodyPart ::
   CoversBodyPart
 mkCoversBodyPart =
-  CoversBodyPart' {value = Lude.Nothing, confidence = Lude.Nothing}
-
--- | True if the PPE covers the corresponding body part, otherwise false.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbpValue :: Lens.Lens' CoversBodyPart (Lude.Maybe Lude.Bool)
-cbpValue = Lens.lens (value :: CoversBodyPart -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: CoversBodyPart)
-{-# DEPRECATED cbpValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  CoversBodyPart' {confidence = Core.Nothing, value = Core.Nothing}
 
 -- | The confidence that Amazon Rekognition has in the value of @Value@ .
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbpConfidence :: Lens.Lens' CoversBodyPart (Lude.Maybe Lude.Double)
-cbpConfidence = Lens.lens (confidence :: CoversBodyPart -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: CoversBodyPart)
+cbpConfidence :: Lens.Lens' CoversBodyPart (Core.Maybe Core.Double)
+cbpConfidence = Lens.field @"confidence"
 {-# DEPRECATED cbpConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance Lude.FromJSON CoversBodyPart where
+-- | True if the PPE covers the corresponding body part, otherwise false.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbpValue :: Lens.Lens' CoversBodyPart (Core.Maybe Core.Bool)
+cbpValue = Lens.field @"value"
+{-# DEPRECATED cbpValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON CoversBodyPart where
   parseJSON =
-    Lude.withObject
-      "CoversBodyPart"
-      ( \x ->
-          CoversBodyPart'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
-      )
+    Core.withObject "CoversBodyPart" Core.$
+      \x ->
+        CoversBodyPart'
+          Core.<$> (x Core..:? "Confidence") Core.<*> (x Core..:? "Value")

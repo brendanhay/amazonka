@@ -13,41 +13,46 @@
 module Network.AWS.ECS.Types.EnvironmentFileType
   ( EnvironmentFileType
       ( EnvironmentFileType',
-        S3
+        EnvironmentFileTypeS3,
+        fromEnvironmentFileType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EnvironmentFileType = EnvironmentFileType' Lude.Text
+newtype EnvironmentFileType = EnvironmentFileType'
+  { fromEnvironmentFileType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern S3 :: EnvironmentFileType
-pattern S3 = EnvironmentFileType' "s3"
+pattern EnvironmentFileTypeS3 :: EnvironmentFileType
+pattern EnvironmentFileTypeS3 = EnvironmentFileType' "s3"
 
 {-# COMPLETE
-  S3,
+  EnvironmentFileTypeS3,
   EnvironmentFileType'
   #-}

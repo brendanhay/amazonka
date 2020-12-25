@@ -24,110 +24,103 @@ module Network.AWS.IoT.DescribeEventConfigurations
     mkDescribeEventConfigurationsResponse,
 
     -- ** Response lenses
-    decrsLastModifiedDate,
-    decrsEventConfigurations,
-    decrsCreationDate,
-    decrsResponseStatus,
+    decrrsCreationDate,
+    decrrsEventConfigurations,
+    decrrsLastModifiedDate,
+    decrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeEventConfigurations' smart constructor.
 data DescribeEventConfigurations = DescribeEventConfigurations'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEventConfigurations' with the minimum fields required to make a request.
+-- | Creates a 'DescribeEventConfigurations' value with any optional fields omitted.
 mkDescribeEventConfigurations ::
   DescribeEventConfigurations
 mkDescribeEventConfigurations = DescribeEventConfigurations'
 
-instance Lude.AWSRequest DescribeEventConfigurations where
+instance Core.AWSRequest DescribeEventConfigurations where
   type
     Rs DescribeEventConfigurations =
       DescribeEventConfigurationsResponse
-  request = Req.get ioTService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/event-configurations",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeEventConfigurationsResponse'
-            Lude.<$> (x Lude..?> "lastModifiedDate")
-            Lude.<*> (x Lude..?> "eventConfigurations" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "creationDate")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "creationDate")
+            Core.<*> (x Core..:? "eventConfigurations")
+            Core.<*> (x Core..:? "lastModifiedDate")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeEventConfigurations where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeEventConfigurations where
-  toPath = Lude.const "/event-configurations"
-
-instance Lude.ToQuery DescribeEventConfigurations where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeEventConfigurationsResponse' smart constructor.
 data DescribeEventConfigurationsResponse = DescribeEventConfigurationsResponse'
-  { -- | The date the event configurations were last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+  { -- | The creation date of the event configuration.
+    creationDate :: Core.Maybe Core.NominalDiffTime,
     -- | The event configurations.
-    eventConfigurations :: Lude.Maybe (Lude.HashMap EventType (Configuration)),
-    -- | The creation date of the event configuration.
-    creationDate :: Lude.Maybe Lude.Timestamp,
+    eventConfigurations :: Core.Maybe (Core.HashMap Types.EventType Types.Configuration),
+    -- | The date the event configurations were last modified.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeEventConfigurationsResponse' with the minimum fields required to make a request.
---
--- * 'lastModifiedDate' - The date the event configurations were last modified.
--- * 'eventConfigurations' - The event configurations.
--- * 'creationDate' - The creation date of the event configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEventConfigurationsResponse' value with any optional fields omitted.
 mkDescribeEventConfigurationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEventConfigurationsResponse
-mkDescribeEventConfigurationsResponse pResponseStatus_ =
+mkDescribeEventConfigurationsResponse responseStatus =
   DescribeEventConfigurationsResponse'
-    { lastModifiedDate =
-        Lude.Nothing,
-      eventConfigurations = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { creationDate = Core.Nothing,
+      eventConfigurations = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      responseStatus
     }
-
--- | The date the event configurations were last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decrsLastModifiedDate :: Lens.Lens' DescribeEventConfigurationsResponse (Lude.Maybe Lude.Timestamp)
-decrsLastModifiedDate = Lens.lens (lastModifiedDate :: DescribeEventConfigurationsResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: DescribeEventConfigurationsResponse)
-{-# DEPRECATED decrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The event configurations.
---
--- /Note:/ Consider using 'eventConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decrsEventConfigurations :: Lens.Lens' DescribeEventConfigurationsResponse (Lude.Maybe (Lude.HashMap EventType (Configuration)))
-decrsEventConfigurations = Lens.lens (eventConfigurations :: DescribeEventConfigurationsResponse -> Lude.Maybe (Lude.HashMap EventType (Configuration))) (\s a -> s {eventConfigurations = a} :: DescribeEventConfigurationsResponse)
-{-# DEPRECATED decrsEventConfigurations "Use generic-lens or generic-optics with 'eventConfigurations' instead." #-}
 
 -- | The creation date of the event configuration.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decrsCreationDate :: Lens.Lens' DescribeEventConfigurationsResponse (Lude.Maybe Lude.Timestamp)
-decrsCreationDate = Lens.lens (creationDate :: DescribeEventConfigurationsResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: DescribeEventConfigurationsResponse)
-{-# DEPRECATED decrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+decrrsCreationDate :: Lens.Lens' DescribeEventConfigurationsResponse (Core.Maybe Core.NominalDiffTime)
+decrrsCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED decrrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The event configurations.
+--
+-- /Note:/ Consider using 'eventConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrrsEventConfigurations :: Lens.Lens' DescribeEventConfigurationsResponse (Core.Maybe (Core.HashMap Types.EventType Types.Configuration))
+decrrsEventConfigurations = Lens.field @"eventConfigurations"
+{-# DEPRECATED decrrsEventConfigurations "Use generic-lens or generic-optics with 'eventConfigurations' instead." #-}
+
+-- | The date the event configurations were last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+decrrsLastModifiedDate :: Lens.Lens' DescribeEventConfigurationsResponse (Core.Maybe Core.NominalDiffTime)
+decrrsLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED decrrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-decrsResponseStatus :: Lens.Lens' DescribeEventConfigurationsResponse Lude.Int
-decrsResponseStatus = Lens.lens (responseStatus :: DescribeEventConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventConfigurationsResponse)
-{-# DEPRECATED decrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+decrrsResponseStatus :: Lens.Lens' DescribeEventConfigurationsResponse Core.Int
+decrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED decrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

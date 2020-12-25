@@ -17,70 +17,63 @@ module Network.AWS.SageMaker.Types.IntegerParameterRangeSpecification
     mkIntegerParameterRangeSpecification,
 
     -- * Lenses
-    iprsMaxValue,
     iprsMinValue,
+    iprsMaxValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.ParameterValue as Types
 
 -- | Defines the possible values for an integer hyperparameter.
 --
 -- /See:/ 'mkIntegerParameterRangeSpecification' smart constructor.
 data IntegerParameterRangeSpecification = IntegerParameterRangeSpecification'
-  { -- | The maximum integer value allowed.
-    maxValue :: Lude.Text,
-    -- | The minimum integer value allowed.
-    minValue :: Lude.Text
+  { -- | The minimum integer value allowed.
+    minValue :: Types.ParameterValue,
+    -- | The maximum integer value allowed.
+    maxValue :: Types.ParameterValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IntegerParameterRangeSpecification' with the minimum fields required to make a request.
---
--- * 'maxValue' - The maximum integer value allowed.
--- * 'minValue' - The minimum integer value allowed.
+-- | Creates a 'IntegerParameterRangeSpecification' value with any optional fields omitted.
 mkIntegerParameterRangeSpecification ::
-  -- | 'maxValue'
-  Lude.Text ->
   -- | 'minValue'
-  Lude.Text ->
+  Types.ParameterValue ->
+  -- | 'maxValue'
+  Types.ParameterValue ->
   IntegerParameterRangeSpecification
-mkIntegerParameterRangeSpecification pMaxValue_ pMinValue_ =
-  IntegerParameterRangeSpecification'
-    { maxValue = pMaxValue_,
-      minValue = pMinValue_
-    }
-
--- | The maximum integer value allowed.
---
--- /Note:/ Consider using 'maxValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iprsMaxValue :: Lens.Lens' IntegerParameterRangeSpecification Lude.Text
-iprsMaxValue = Lens.lens (maxValue :: IntegerParameterRangeSpecification -> Lude.Text) (\s a -> s {maxValue = a} :: IntegerParameterRangeSpecification)
-{-# DEPRECATED iprsMaxValue "Use generic-lens or generic-optics with 'maxValue' instead." #-}
+mkIntegerParameterRangeSpecification minValue maxValue =
+  IntegerParameterRangeSpecification' {minValue, maxValue}
 
 -- | The minimum integer value allowed.
 --
 -- /Note:/ Consider using 'minValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iprsMinValue :: Lens.Lens' IntegerParameterRangeSpecification Lude.Text
-iprsMinValue = Lens.lens (minValue :: IntegerParameterRangeSpecification -> Lude.Text) (\s a -> s {minValue = a} :: IntegerParameterRangeSpecification)
+iprsMinValue :: Lens.Lens' IntegerParameterRangeSpecification Types.ParameterValue
+iprsMinValue = Lens.field @"minValue"
 {-# DEPRECATED iprsMinValue "Use generic-lens or generic-optics with 'minValue' instead." #-}
 
-instance Lude.FromJSON IntegerParameterRangeSpecification where
-  parseJSON =
-    Lude.withObject
-      "IntegerParameterRangeSpecification"
-      ( \x ->
-          IntegerParameterRangeSpecification'
-            Lude.<$> (x Lude..: "MaxValue") Lude.<*> (x Lude..: "MinValue")
-      )
+-- | The maximum integer value allowed.
+--
+-- /Note:/ Consider using 'maxValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iprsMaxValue :: Lens.Lens' IntegerParameterRangeSpecification Types.ParameterValue
+iprsMaxValue = Lens.field @"maxValue"
+{-# DEPRECATED iprsMaxValue "Use generic-lens or generic-optics with 'maxValue' instead." #-}
 
-instance Lude.ToJSON IntegerParameterRangeSpecification where
-  toJSON IntegerParameterRangeSpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MaxValue" Lude..= maxValue),
-            Lude.Just ("MinValue" Lude..= minValue)
+instance Core.FromJSON IntegerParameterRangeSpecification where
+  toJSON IntegerParameterRangeSpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MinValue" Core..= minValue),
+            Core.Just ("MaxValue" Core..= maxValue)
           ]
       )
+
+instance Core.FromJSON IntegerParameterRangeSpecification where
+  parseJSON =
+    Core.withObject "IntegerParameterRangeSpecification" Core.$
+      \x ->
+        IntegerParameterRangeSpecification'
+          Core.<$> (x Core..: "MinValue") Core.<*> (x Core..: "MaxValue")

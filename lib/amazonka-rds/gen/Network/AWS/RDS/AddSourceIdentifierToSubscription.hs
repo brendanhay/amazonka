@@ -28,23 +28,23 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     mkAddSourceIdentifierToSubscriptionResponse,
 
     -- ** Response lenses
-    asitsrsEventSubscription,
-    asitsrsResponseStatus,
+    asitsrrsEventSubscription,
+    asitsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkAddSourceIdentifierToSubscription' smart constructor.
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
   { -- | The name of the RDS event notification subscription you want to add a source identifier to.
-    subscriptionName :: Lude.Text,
+    subscriptionName :: Types.SubscriptionName,
     -- | The identifier of the event source to be added.
     --
     -- Constraints:
@@ -65,54 +65,31 @@ data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
     --
     --
     --     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.
-    sourceIdentifier :: Lude.Text
+    sourceIdentifier :: Types.SourceIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddSourceIdentifierToSubscription' with the minimum fields required to make a request.
---
--- * 'subscriptionName' - The name of the RDS event notification subscription you want to add a source identifier to.
--- * 'sourceIdentifier' - The identifier of the event source to be added.
---
--- Constraints:
---
---     * If the source type is a DB instance, a @DBInstanceIdentifier@ value must be supplied.
---
---
---     * If the source type is a DB cluster, a @DBClusterIdentifier@ value must be supplied.
---
---
---     * If the source type is a DB parameter group, a @DBParameterGroupName@ value must be supplied.
---
---
---     * If the source type is a DB security group, a @DBSecurityGroupName@ value must be supplied.
---
---
---     * If the source type is a DB snapshot, a @DBSnapshotIdentifier@ value must be supplied.
---
---
---     * If the source type is a DB cluster snapshot, a @DBClusterSnapshotIdentifier@ value must be supplied.
+-- | Creates a 'AddSourceIdentifierToSubscription' value with any optional fields omitted.
 mkAddSourceIdentifierToSubscription ::
   -- | 'subscriptionName'
-  Lude.Text ->
+  Types.SubscriptionName ->
   -- | 'sourceIdentifier'
-  Lude.Text ->
+  Types.SourceIdentifier ->
   AddSourceIdentifierToSubscription
 mkAddSourceIdentifierToSubscription
-  pSubscriptionName_
-  pSourceIdentifier_ =
+  subscriptionName
+  sourceIdentifier =
     AddSourceIdentifierToSubscription'
-      { subscriptionName =
-          pSubscriptionName_,
-        sourceIdentifier = pSourceIdentifier_
+      { subscriptionName,
+        sourceIdentifier
       }
 
 -- | The name of the RDS event notification subscription you want to add a source identifier to.
 --
 -- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asitsSubscriptionName :: Lens.Lens' AddSourceIdentifierToSubscription Lude.Text
-asitsSubscriptionName = Lens.lens (subscriptionName :: AddSourceIdentifierToSubscription -> Lude.Text) (\s a -> s {subscriptionName = a} :: AddSourceIdentifierToSubscription)
+asitsSubscriptionName :: Lens.Lens' AddSourceIdentifierToSubscription Types.SubscriptionName
+asitsSubscriptionName = Lens.field @"subscriptionName"
 {-# DEPRECATED asitsSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
 
 -- | The identifier of the event source to be added.
@@ -139,74 +116,73 @@ asitsSubscriptionName = Lens.lens (subscriptionName :: AddSourceIdentifierToSubs
 --
 --
 -- /Note:/ Consider using 'sourceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asitsSourceIdentifier :: Lens.Lens' AddSourceIdentifierToSubscription Lude.Text
-asitsSourceIdentifier = Lens.lens (sourceIdentifier :: AddSourceIdentifierToSubscription -> Lude.Text) (\s a -> s {sourceIdentifier = a} :: AddSourceIdentifierToSubscription)
+asitsSourceIdentifier :: Lens.Lens' AddSourceIdentifierToSubscription Types.SourceIdentifier
+asitsSourceIdentifier = Lens.field @"sourceIdentifier"
 {-# DEPRECATED asitsSourceIdentifier "Use generic-lens or generic-optics with 'sourceIdentifier' instead." #-}
 
-instance Lude.AWSRequest AddSourceIdentifierToSubscription where
+instance Core.AWSRequest AddSourceIdentifierToSubscription where
   type
     Rs AddSourceIdentifierToSubscription =
       AddSourceIdentifierToSubscriptionResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AddSourceIdentifierToSubscription")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "SubscriptionName" subscriptionName)
+                Core.<> (Core.toQueryValue "SourceIdentifier" sourceIdentifier)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "AddSourceIdentifierToSubscriptionResult"
       ( \s h x ->
           AddSourceIdentifierToSubscriptionResponse'
-            Lude.<$> (x Lude..@? "EventSubscription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "EventSubscription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddSourceIdentifierToSubscription where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AddSourceIdentifierToSubscription where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddSourceIdentifierToSubscription where
-  toQuery AddSourceIdentifierToSubscription' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("AddSourceIdentifierToSubscription" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "SubscriptionName" Lude.=: subscriptionName,
-        "SourceIdentifier" Lude.=: sourceIdentifier
-      ]
 
 -- | /See:/ 'mkAddSourceIdentifierToSubscriptionResponse' smart constructor.
 data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
-  { eventSubscription :: Lude.Maybe EventSubscription,
+  { eventSubscription :: Core.Maybe Types.EventSubscription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddSourceIdentifierToSubscriptionResponse' with the minimum fields required to make a request.
---
--- * 'eventSubscription' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddSourceIdentifierToSubscriptionResponse' value with any optional fields omitted.
 mkAddSourceIdentifierToSubscriptionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddSourceIdentifierToSubscriptionResponse
-mkAddSourceIdentifierToSubscriptionResponse pResponseStatus_ =
+mkAddSourceIdentifierToSubscriptionResponse responseStatus =
   AddSourceIdentifierToSubscriptionResponse'
     { eventSubscription =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'eventSubscription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asitsrsEventSubscription :: Lens.Lens' AddSourceIdentifierToSubscriptionResponse (Lude.Maybe EventSubscription)
-asitsrsEventSubscription = Lens.lens (eventSubscription :: AddSourceIdentifierToSubscriptionResponse -> Lude.Maybe EventSubscription) (\s a -> s {eventSubscription = a} :: AddSourceIdentifierToSubscriptionResponse)
-{-# DEPRECATED asitsrsEventSubscription "Use generic-lens or generic-optics with 'eventSubscription' instead." #-}
+asitsrrsEventSubscription :: Lens.Lens' AddSourceIdentifierToSubscriptionResponse (Core.Maybe Types.EventSubscription)
+asitsrrsEventSubscription = Lens.field @"eventSubscription"
+{-# DEPRECATED asitsrrsEventSubscription "Use generic-lens or generic-optics with 'eventSubscription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asitsrsResponseStatus :: Lens.Lens' AddSourceIdentifierToSubscriptionResponse Lude.Int
-asitsrsResponseStatus = Lens.lens (responseStatus :: AddSourceIdentifierToSubscriptionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddSourceIdentifierToSubscriptionResponse)
-{-# DEPRECATED asitsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+asitsrrsResponseStatus :: Lens.Lens' AddSourceIdentifierToSubscriptionResponse Core.Int
+asitsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED asitsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

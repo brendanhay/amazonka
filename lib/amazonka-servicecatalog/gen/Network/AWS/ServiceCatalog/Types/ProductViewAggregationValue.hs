@@ -17,57 +17,53 @@ module Network.AWS.ServiceCatalog.Types.ProductViewAggregationValue
     mkProductViewAggregationValue,
 
     -- * Lenses
-    pvavValue,
     pvavApproximateCount,
+    pvavValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.AttributeValue as Types
 
 -- | A single product view aggregation value/count pair, containing metadata about each product to which the calling user has access.
 --
 -- /See:/ 'mkProductViewAggregationValue' smart constructor.
 data ProductViewAggregationValue = ProductViewAggregationValue'
-  { -- | The value of the product view aggregation.
-    value :: Lude.Maybe Lude.Text,
-    -- | An approximate count of the products that match the value.
-    approximateCount :: Lude.Maybe Lude.Int
+  { -- | An approximate count of the products that match the value.
+    approximateCount :: Core.Maybe Core.Int,
+    -- | The value of the product view aggregation.
+    value :: Core.Maybe Types.AttributeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProductViewAggregationValue' with the minimum fields required to make a request.
---
--- * 'value' - The value of the product view aggregation.
--- * 'approximateCount' - An approximate count of the products that match the value.
+-- | Creates a 'ProductViewAggregationValue' value with any optional fields omitted.
 mkProductViewAggregationValue ::
   ProductViewAggregationValue
 mkProductViewAggregationValue =
   ProductViewAggregationValue'
-    { value = Lude.Nothing,
-      approximateCount = Lude.Nothing
+    { approximateCount = Core.Nothing,
+      value = Core.Nothing
     }
-
--- | The value of the product view aggregation.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvavValue :: Lens.Lens' ProductViewAggregationValue (Lude.Maybe Lude.Text)
-pvavValue = Lens.lens (value :: ProductViewAggregationValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ProductViewAggregationValue)
-{-# DEPRECATED pvavValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
 -- | An approximate count of the products that match the value.
 --
 -- /Note:/ Consider using 'approximateCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvavApproximateCount :: Lens.Lens' ProductViewAggregationValue (Lude.Maybe Lude.Int)
-pvavApproximateCount = Lens.lens (approximateCount :: ProductViewAggregationValue -> Lude.Maybe Lude.Int) (\s a -> s {approximateCount = a} :: ProductViewAggregationValue)
+pvavApproximateCount :: Lens.Lens' ProductViewAggregationValue (Core.Maybe Core.Int)
+pvavApproximateCount = Lens.field @"approximateCount"
 {-# DEPRECATED pvavApproximateCount "Use generic-lens or generic-optics with 'approximateCount' instead." #-}
 
-instance Lude.FromJSON ProductViewAggregationValue where
+-- | The value of the product view aggregation.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvavValue :: Lens.Lens' ProductViewAggregationValue (Core.Maybe Types.AttributeValue)
+pvavValue = Lens.field @"value"
+{-# DEPRECATED pvavValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON ProductViewAggregationValue where
   parseJSON =
-    Lude.withObject
-      "ProductViewAggregationValue"
-      ( \x ->
-          ProductViewAggregationValue'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "ApproximateCount")
-      )
+    Core.withObject "ProductViewAggregationValue" Core.$
+      \x ->
+        ProductViewAggregationValue'
+          Core.<$> (x Core..:? "ApproximateCount") Core.<*> (x Core..:? "Value")

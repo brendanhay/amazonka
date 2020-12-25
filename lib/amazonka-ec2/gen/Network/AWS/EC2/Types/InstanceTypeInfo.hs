@@ -17,348 +17,324 @@ module Network.AWS.EC2.Types.InstanceTypeInfo
     mkInstanceTypeInfo,
 
     -- * Lenses
-    itiHypervisor,
+    itiAutoRecoverySupported,
+    itiBareMetal,
+    itiBurstablePerformanceSupported,
     itiCurrentGeneration,
+    itiDedicatedHostsSupported,
+    itiEbsInfo,
+    itiFpgaInfo,
+    itiFreeTierEligible,
+    itiGpuInfo,
+    itiHibernationSupported,
+    itiHypervisor,
+    itiInferenceAcceleratorInfo,
+    itiInstanceStorageInfo,
+    itiInstanceStorageSupported,
+    itiInstanceType,
     itiMemoryInfo,
+    itiNetworkInfo,
     itiPlacementGroupInfo,
+    itiProcessorInfo,
     itiSupportedRootDeviceTypes,
     itiSupportedUsageClasses,
-    itiInstanceStorageSupported,
-    itiFpgaInfo,
-    itiBurstablePerformanceSupported,
-    itiInstanceType,
-    itiGpuInfo,
     itiSupportedVirtualizationTypes,
-    itiEBSInfo,
-    itiAutoRecoverySupported,
-    itiInferenceAcceleratorInfo,
-    itiBareMetal,
-    itiNetworkInfo,
-    itiProcessorInfo,
-    itiFreeTierEligible,
-    itiVCPUInfo,
-    itiInstanceStorageInfo,
-    itiDedicatedHostsSupported,
-    itiHibernationSupported,
+    itiVCpuInfo,
   )
 where
 
-import Network.AWS.EC2.Types.EBSInfo
-import Network.AWS.EC2.Types.FpgaInfo
-import Network.AWS.EC2.Types.GpuInfo
-import Network.AWS.EC2.Types.InferenceAcceleratorInfo
-import Network.AWS.EC2.Types.InstanceStorageInfo
-import Network.AWS.EC2.Types.InstanceType
-import Network.AWS.EC2.Types.InstanceTypeHypervisor
-import Network.AWS.EC2.Types.MemoryInfo
-import Network.AWS.EC2.Types.NetworkInfo
-import Network.AWS.EC2.Types.PlacementGroupInfo
-import Network.AWS.EC2.Types.ProcessorInfo
-import Network.AWS.EC2.Types.RootDeviceType
-import Network.AWS.EC2.Types.UsageClassType
-import Network.AWS.EC2.Types.VCPUInfo
-import Network.AWS.EC2.Types.VirtualizationType
+import qualified Network.AWS.EC2.Types.EbsInfo as Types
+import qualified Network.AWS.EC2.Types.FpgaInfo as Types
+import qualified Network.AWS.EC2.Types.GpuInfo as Types
+import qualified Network.AWS.EC2.Types.InferenceAcceleratorInfo as Types
+import qualified Network.AWS.EC2.Types.InstanceStorageInfo as Types
+import qualified Network.AWS.EC2.Types.InstanceType as Types
+import qualified Network.AWS.EC2.Types.InstanceTypeHypervisor as Types
+import qualified Network.AWS.EC2.Types.MemoryInfo as Types
+import qualified Network.AWS.EC2.Types.NetworkInfo as Types
+import qualified Network.AWS.EC2.Types.PlacementGroupInfo as Types
+import qualified Network.AWS.EC2.Types.ProcessorInfo as Types
+import qualified Network.AWS.EC2.Types.RootDeviceType as Types
+import qualified Network.AWS.EC2.Types.UsageClassType as Types
+import qualified Network.AWS.EC2.Types.VCpuInfo as Types
+import qualified Network.AWS.EC2.Types.VirtualizationType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the instance type.
 --
 -- /See:/ 'mkInstanceTypeInfo' smart constructor.
 data InstanceTypeInfo = InstanceTypeInfo'
-  { -- | The hypervisor for the instance type.
-    hypervisor :: Lude.Maybe InstanceTypeHypervisor,
-    -- | Indicates whether the instance type is current generation.
-    currentGeneration :: Lude.Maybe Lude.Bool,
-    -- | Describes the memory for the instance type.
-    memoryInfo :: Lude.Maybe MemoryInfo,
-    -- | Describes the placement group settings for the instance type.
-    placementGroupInfo :: Lude.Maybe PlacementGroupInfo,
-    -- | The supported root device types.
-    supportedRootDeviceTypes :: Lude.Maybe [RootDeviceType],
-    -- | Indicates whether the instance type is offered for spot or On-Demand.
-    supportedUsageClasses :: Lude.Maybe [UsageClassType],
-    -- | Indicates whether instance storage is supported.
-    instanceStorageSupported :: Lude.Maybe Lude.Bool,
-    -- | Describes the FPGA accelerator settings for the instance type.
-    fpgaInfo :: Lude.Maybe FpgaInfo,
-    -- | Indicates whether the instance type is a burstable performance instance type.
-    burstablePerformanceSupported :: Lude.Maybe Lude.Bool,
-    -- | The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
-    instanceType :: Lude.Maybe InstanceType,
-    -- | Describes the GPU accelerator settings for the instance type.
-    gpuInfo :: Lude.Maybe GpuInfo,
-    -- | The supported virtualization types.
-    supportedVirtualizationTypes :: Lude.Maybe [VirtualizationType],
-    -- | Describes the Amazon EBS settings for the instance type.
-    ebsInfo :: Lude.Maybe EBSInfo,
-    -- | Indicates whether auto recovery is supported.
-    autoRecoverySupported :: Lude.Maybe Lude.Bool,
-    -- | Describes the Inference accelerator settings for the instance type.
-    inferenceAcceleratorInfo :: Lude.Maybe InferenceAcceleratorInfo,
+  { -- | Indicates whether auto recovery is supported.
+    autoRecoverySupported :: Core.Maybe Core.Bool,
     -- | Indicates whether the instance is a bare metal instance type.
-    bareMetal :: Lude.Maybe Lude.Bool,
-    -- | Describes the network settings for the instance type.
-    networkInfo :: Lude.Maybe NetworkInfo,
-    -- | Describes the processor.
-    processorInfo :: Lude.Maybe ProcessorInfo,
-    -- | Indicates whether the instance type is eligible for the free tier.
-    freeTierEligible :: Lude.Maybe Lude.Bool,
-    -- | Describes the vCPU configurations for the instance type.
-    vCPUInfo :: Lude.Maybe VCPUInfo,
-    -- | Describes the instance storage for the instance type.
-    instanceStorageInfo :: Lude.Maybe InstanceStorageInfo,
+    bareMetal :: Core.Maybe Core.Bool,
+    -- | Indicates whether the instance type is a burstable performance instance type.
+    burstablePerformanceSupported :: Core.Maybe Core.Bool,
+    -- | Indicates whether the instance type is current generation.
+    currentGeneration :: Core.Maybe Core.Bool,
     -- | Indicates whether Dedicated Hosts are supported on the instance type.
-    dedicatedHostsSupported :: Lude.Maybe Lude.Bool,
+    dedicatedHostsSupported :: Core.Maybe Core.Bool,
+    -- | Describes the Amazon EBS settings for the instance type.
+    ebsInfo :: Core.Maybe Types.EbsInfo,
+    -- | Describes the FPGA accelerator settings for the instance type.
+    fpgaInfo :: Core.Maybe Types.FpgaInfo,
+    -- | Indicates whether the instance type is eligible for the free tier.
+    freeTierEligible :: Core.Maybe Core.Bool,
+    -- | Describes the GPU accelerator settings for the instance type.
+    gpuInfo :: Core.Maybe Types.GpuInfo,
     -- | Indicates whether On-Demand hibernation is supported.
-    hibernationSupported :: Lude.Maybe Lude.Bool
+    hibernationSupported :: Core.Maybe Core.Bool,
+    -- | The hypervisor for the instance type.
+    hypervisor :: Core.Maybe Types.InstanceTypeHypervisor,
+    -- | Describes the Inference accelerator settings for the instance type.
+    inferenceAcceleratorInfo :: Core.Maybe Types.InferenceAcceleratorInfo,
+    -- | Describes the instance storage for the instance type.
+    instanceStorageInfo :: Core.Maybe Types.InstanceStorageInfo,
+    -- | Indicates whether instance storage is supported.
+    instanceStorageSupported :: Core.Maybe Core.Bool,
+    -- | The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+    instanceType :: Core.Maybe Types.InstanceType,
+    -- | Describes the memory for the instance type.
+    memoryInfo :: Core.Maybe Types.MemoryInfo,
+    -- | Describes the network settings for the instance type.
+    networkInfo :: Core.Maybe Types.NetworkInfo,
+    -- | Describes the placement group settings for the instance type.
+    placementGroupInfo :: Core.Maybe Types.PlacementGroupInfo,
+    -- | Describes the processor.
+    processorInfo :: Core.Maybe Types.ProcessorInfo,
+    -- | The supported root device types.
+    supportedRootDeviceTypes :: Core.Maybe [Types.RootDeviceType],
+    -- | Indicates whether the instance type is offered for spot or On-Demand.
+    supportedUsageClasses :: Core.Maybe [Types.UsageClassType],
+    -- | The supported virtualization types.
+    supportedVirtualizationTypes :: Core.Maybe [Types.VirtualizationType],
+    -- | Describes the vCPU configurations for the instance type.
+    vCpuInfo :: Core.Maybe Types.VCpuInfo
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceTypeInfo' with the minimum fields required to make a request.
---
--- * 'hypervisor' - The hypervisor for the instance type.
--- * 'currentGeneration' - Indicates whether the instance type is current generation.
--- * 'memoryInfo' - Describes the memory for the instance type.
--- * 'placementGroupInfo' - Describes the placement group settings for the instance type.
--- * 'supportedRootDeviceTypes' - The supported root device types.
--- * 'supportedUsageClasses' - Indicates whether the instance type is offered for spot or On-Demand.
--- * 'instanceStorageSupported' - Indicates whether instance storage is supported.
--- * 'fpgaInfo' - Describes the FPGA accelerator settings for the instance type.
--- * 'burstablePerformanceSupported' - Indicates whether the instance type is a burstable performance instance type.
--- * 'instanceType' - The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
--- * 'gpuInfo' - Describes the GPU accelerator settings for the instance type.
--- * 'supportedVirtualizationTypes' - The supported virtualization types.
--- * 'ebsInfo' - Describes the Amazon EBS settings for the instance type.
--- * 'autoRecoverySupported' - Indicates whether auto recovery is supported.
--- * 'inferenceAcceleratorInfo' - Describes the Inference accelerator settings for the instance type.
--- * 'bareMetal' - Indicates whether the instance is a bare metal instance type.
--- * 'networkInfo' - Describes the network settings for the instance type.
--- * 'processorInfo' - Describes the processor.
--- * 'freeTierEligible' - Indicates whether the instance type is eligible for the free tier.
--- * 'vCPUInfo' - Describes the vCPU configurations for the instance type.
--- * 'instanceStorageInfo' - Describes the instance storage for the instance type.
--- * 'dedicatedHostsSupported' - Indicates whether Dedicated Hosts are supported on the instance type.
--- * 'hibernationSupported' - Indicates whether On-Demand hibernation is supported.
+-- | Creates a 'InstanceTypeInfo' value with any optional fields omitted.
 mkInstanceTypeInfo ::
   InstanceTypeInfo
 mkInstanceTypeInfo =
   InstanceTypeInfo'
-    { hypervisor = Lude.Nothing,
-      currentGeneration = Lude.Nothing,
-      memoryInfo = Lude.Nothing,
-      placementGroupInfo = Lude.Nothing,
-      supportedRootDeviceTypes = Lude.Nothing,
-      supportedUsageClasses = Lude.Nothing,
-      instanceStorageSupported = Lude.Nothing,
-      fpgaInfo = Lude.Nothing,
-      burstablePerformanceSupported = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      gpuInfo = Lude.Nothing,
-      supportedVirtualizationTypes = Lude.Nothing,
-      ebsInfo = Lude.Nothing,
-      autoRecoverySupported = Lude.Nothing,
-      inferenceAcceleratorInfo = Lude.Nothing,
-      bareMetal = Lude.Nothing,
-      networkInfo = Lude.Nothing,
-      processorInfo = Lude.Nothing,
-      freeTierEligible = Lude.Nothing,
-      vCPUInfo = Lude.Nothing,
-      instanceStorageInfo = Lude.Nothing,
-      dedicatedHostsSupported = Lude.Nothing,
-      hibernationSupported = Lude.Nothing
+    { autoRecoverySupported = Core.Nothing,
+      bareMetal = Core.Nothing,
+      burstablePerformanceSupported = Core.Nothing,
+      currentGeneration = Core.Nothing,
+      dedicatedHostsSupported = Core.Nothing,
+      ebsInfo = Core.Nothing,
+      fpgaInfo = Core.Nothing,
+      freeTierEligible = Core.Nothing,
+      gpuInfo = Core.Nothing,
+      hibernationSupported = Core.Nothing,
+      hypervisor = Core.Nothing,
+      inferenceAcceleratorInfo = Core.Nothing,
+      instanceStorageInfo = Core.Nothing,
+      instanceStorageSupported = Core.Nothing,
+      instanceType = Core.Nothing,
+      memoryInfo = Core.Nothing,
+      networkInfo = Core.Nothing,
+      placementGroupInfo = Core.Nothing,
+      processorInfo = Core.Nothing,
+      supportedRootDeviceTypes = Core.Nothing,
+      supportedUsageClasses = Core.Nothing,
+      supportedVirtualizationTypes = Core.Nothing,
+      vCpuInfo = Core.Nothing
     }
 
--- | The hypervisor for the instance type.
+-- | Indicates whether auto recovery is supported.
 --
--- /Note:/ Consider using 'hypervisor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiHypervisor :: Lens.Lens' InstanceTypeInfo (Lude.Maybe InstanceTypeHypervisor)
-itiHypervisor = Lens.lens (hypervisor :: InstanceTypeInfo -> Lude.Maybe InstanceTypeHypervisor) (\s a -> s {hypervisor = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiHypervisor "Use generic-lens or generic-optics with 'hypervisor' instead." #-}
+-- /Note:/ Consider using 'autoRecoverySupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiAutoRecoverySupported :: Lens.Lens' InstanceTypeInfo (Core.Maybe Core.Bool)
+itiAutoRecoverySupported = Lens.field @"autoRecoverySupported"
+{-# DEPRECATED itiAutoRecoverySupported "Use generic-lens or generic-optics with 'autoRecoverySupported' instead." #-}
+
+-- | Indicates whether the instance is a bare metal instance type.
+--
+-- /Note:/ Consider using 'bareMetal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiBareMetal :: Lens.Lens' InstanceTypeInfo (Core.Maybe Core.Bool)
+itiBareMetal = Lens.field @"bareMetal"
+{-# DEPRECATED itiBareMetal "Use generic-lens or generic-optics with 'bareMetal' instead." #-}
+
+-- | Indicates whether the instance type is a burstable performance instance type.
+--
+-- /Note:/ Consider using 'burstablePerformanceSupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiBurstablePerformanceSupported :: Lens.Lens' InstanceTypeInfo (Core.Maybe Core.Bool)
+itiBurstablePerformanceSupported = Lens.field @"burstablePerformanceSupported"
+{-# DEPRECATED itiBurstablePerformanceSupported "Use generic-lens or generic-optics with 'burstablePerformanceSupported' instead." #-}
 
 -- | Indicates whether the instance type is current generation.
 --
 -- /Note:/ Consider using 'currentGeneration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiCurrentGeneration :: Lens.Lens' InstanceTypeInfo (Lude.Maybe Lude.Bool)
-itiCurrentGeneration = Lens.lens (currentGeneration :: InstanceTypeInfo -> Lude.Maybe Lude.Bool) (\s a -> s {currentGeneration = a} :: InstanceTypeInfo)
+itiCurrentGeneration :: Lens.Lens' InstanceTypeInfo (Core.Maybe Core.Bool)
+itiCurrentGeneration = Lens.field @"currentGeneration"
 {-# DEPRECATED itiCurrentGeneration "Use generic-lens or generic-optics with 'currentGeneration' instead." #-}
+
+-- | Indicates whether Dedicated Hosts are supported on the instance type.
+--
+-- /Note:/ Consider using 'dedicatedHostsSupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiDedicatedHostsSupported :: Lens.Lens' InstanceTypeInfo (Core.Maybe Core.Bool)
+itiDedicatedHostsSupported = Lens.field @"dedicatedHostsSupported"
+{-# DEPRECATED itiDedicatedHostsSupported "Use generic-lens or generic-optics with 'dedicatedHostsSupported' instead." #-}
+
+-- | Describes the Amazon EBS settings for the instance type.
+--
+-- /Note:/ Consider using 'ebsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiEbsInfo :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.EbsInfo)
+itiEbsInfo = Lens.field @"ebsInfo"
+{-# DEPRECATED itiEbsInfo "Use generic-lens or generic-optics with 'ebsInfo' instead." #-}
+
+-- | Describes the FPGA accelerator settings for the instance type.
+--
+-- /Note:/ Consider using 'fpgaInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiFpgaInfo :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.FpgaInfo)
+itiFpgaInfo = Lens.field @"fpgaInfo"
+{-# DEPRECATED itiFpgaInfo "Use generic-lens or generic-optics with 'fpgaInfo' instead." #-}
+
+-- | Indicates whether the instance type is eligible for the free tier.
+--
+-- /Note:/ Consider using 'freeTierEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiFreeTierEligible :: Lens.Lens' InstanceTypeInfo (Core.Maybe Core.Bool)
+itiFreeTierEligible = Lens.field @"freeTierEligible"
+{-# DEPRECATED itiFreeTierEligible "Use generic-lens or generic-optics with 'freeTierEligible' instead." #-}
+
+-- | Describes the GPU accelerator settings for the instance type.
+--
+-- /Note:/ Consider using 'gpuInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiGpuInfo :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.GpuInfo)
+itiGpuInfo = Lens.field @"gpuInfo"
+{-# DEPRECATED itiGpuInfo "Use generic-lens or generic-optics with 'gpuInfo' instead." #-}
+
+-- | Indicates whether On-Demand hibernation is supported.
+--
+-- /Note:/ Consider using 'hibernationSupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiHibernationSupported :: Lens.Lens' InstanceTypeInfo (Core.Maybe Core.Bool)
+itiHibernationSupported = Lens.field @"hibernationSupported"
+{-# DEPRECATED itiHibernationSupported "Use generic-lens or generic-optics with 'hibernationSupported' instead." #-}
+
+-- | The hypervisor for the instance type.
+--
+-- /Note:/ Consider using 'hypervisor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiHypervisor :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.InstanceTypeHypervisor)
+itiHypervisor = Lens.field @"hypervisor"
+{-# DEPRECATED itiHypervisor "Use generic-lens or generic-optics with 'hypervisor' instead." #-}
+
+-- | Describes the Inference accelerator settings for the instance type.
+--
+-- /Note:/ Consider using 'inferenceAcceleratorInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiInferenceAcceleratorInfo :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.InferenceAcceleratorInfo)
+itiInferenceAcceleratorInfo = Lens.field @"inferenceAcceleratorInfo"
+{-# DEPRECATED itiInferenceAcceleratorInfo "Use generic-lens or generic-optics with 'inferenceAcceleratorInfo' instead." #-}
+
+-- | Describes the instance storage for the instance type.
+--
+-- /Note:/ Consider using 'instanceStorageInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiInstanceStorageInfo :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.InstanceStorageInfo)
+itiInstanceStorageInfo = Lens.field @"instanceStorageInfo"
+{-# DEPRECATED itiInstanceStorageInfo "Use generic-lens or generic-optics with 'instanceStorageInfo' instead." #-}
+
+-- | Indicates whether instance storage is supported.
+--
+-- /Note:/ Consider using 'instanceStorageSupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiInstanceStorageSupported :: Lens.Lens' InstanceTypeInfo (Core.Maybe Core.Bool)
+itiInstanceStorageSupported = Lens.field @"instanceStorageSupported"
+{-# DEPRECATED itiInstanceStorageSupported "Use generic-lens or generic-optics with 'instanceStorageSupported' instead." #-}
+
+-- | The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiInstanceType :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.InstanceType)
+itiInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED itiInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | Describes the memory for the instance type.
 --
 -- /Note:/ Consider using 'memoryInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiMemoryInfo :: Lens.Lens' InstanceTypeInfo (Lude.Maybe MemoryInfo)
-itiMemoryInfo = Lens.lens (memoryInfo :: InstanceTypeInfo -> Lude.Maybe MemoryInfo) (\s a -> s {memoryInfo = a} :: InstanceTypeInfo)
+itiMemoryInfo :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.MemoryInfo)
+itiMemoryInfo = Lens.field @"memoryInfo"
 {-# DEPRECATED itiMemoryInfo "Use generic-lens or generic-optics with 'memoryInfo' instead." #-}
+
+-- | Describes the network settings for the instance type.
+--
+-- /Note:/ Consider using 'networkInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiNetworkInfo :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.NetworkInfo)
+itiNetworkInfo = Lens.field @"networkInfo"
+{-# DEPRECATED itiNetworkInfo "Use generic-lens or generic-optics with 'networkInfo' instead." #-}
 
 -- | Describes the placement group settings for the instance type.
 --
 -- /Note:/ Consider using 'placementGroupInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiPlacementGroupInfo :: Lens.Lens' InstanceTypeInfo (Lude.Maybe PlacementGroupInfo)
-itiPlacementGroupInfo = Lens.lens (placementGroupInfo :: InstanceTypeInfo -> Lude.Maybe PlacementGroupInfo) (\s a -> s {placementGroupInfo = a} :: InstanceTypeInfo)
+itiPlacementGroupInfo :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.PlacementGroupInfo)
+itiPlacementGroupInfo = Lens.field @"placementGroupInfo"
 {-# DEPRECATED itiPlacementGroupInfo "Use generic-lens or generic-optics with 'placementGroupInfo' instead." #-}
+
+-- | Describes the processor.
+--
+-- /Note:/ Consider using 'processorInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiProcessorInfo :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.ProcessorInfo)
+itiProcessorInfo = Lens.field @"processorInfo"
+{-# DEPRECATED itiProcessorInfo "Use generic-lens or generic-optics with 'processorInfo' instead." #-}
 
 -- | The supported root device types.
 --
 -- /Note:/ Consider using 'supportedRootDeviceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiSupportedRootDeviceTypes :: Lens.Lens' InstanceTypeInfo (Lude.Maybe [RootDeviceType])
-itiSupportedRootDeviceTypes = Lens.lens (supportedRootDeviceTypes :: InstanceTypeInfo -> Lude.Maybe [RootDeviceType]) (\s a -> s {supportedRootDeviceTypes = a} :: InstanceTypeInfo)
+itiSupportedRootDeviceTypes :: Lens.Lens' InstanceTypeInfo (Core.Maybe [Types.RootDeviceType])
+itiSupportedRootDeviceTypes = Lens.field @"supportedRootDeviceTypes"
 {-# DEPRECATED itiSupportedRootDeviceTypes "Use generic-lens or generic-optics with 'supportedRootDeviceTypes' instead." #-}
 
 -- | Indicates whether the instance type is offered for spot or On-Demand.
 --
 -- /Note:/ Consider using 'supportedUsageClasses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiSupportedUsageClasses :: Lens.Lens' InstanceTypeInfo (Lude.Maybe [UsageClassType])
-itiSupportedUsageClasses = Lens.lens (supportedUsageClasses :: InstanceTypeInfo -> Lude.Maybe [UsageClassType]) (\s a -> s {supportedUsageClasses = a} :: InstanceTypeInfo)
+itiSupportedUsageClasses :: Lens.Lens' InstanceTypeInfo (Core.Maybe [Types.UsageClassType])
+itiSupportedUsageClasses = Lens.field @"supportedUsageClasses"
 {-# DEPRECATED itiSupportedUsageClasses "Use generic-lens or generic-optics with 'supportedUsageClasses' instead." #-}
-
--- | Indicates whether instance storage is supported.
---
--- /Note:/ Consider using 'instanceStorageSupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiInstanceStorageSupported :: Lens.Lens' InstanceTypeInfo (Lude.Maybe Lude.Bool)
-itiInstanceStorageSupported = Lens.lens (instanceStorageSupported :: InstanceTypeInfo -> Lude.Maybe Lude.Bool) (\s a -> s {instanceStorageSupported = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiInstanceStorageSupported "Use generic-lens or generic-optics with 'instanceStorageSupported' instead." #-}
-
--- | Describes the FPGA accelerator settings for the instance type.
---
--- /Note:/ Consider using 'fpgaInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiFpgaInfo :: Lens.Lens' InstanceTypeInfo (Lude.Maybe FpgaInfo)
-itiFpgaInfo = Lens.lens (fpgaInfo :: InstanceTypeInfo -> Lude.Maybe FpgaInfo) (\s a -> s {fpgaInfo = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiFpgaInfo "Use generic-lens or generic-optics with 'fpgaInfo' instead." #-}
-
--- | Indicates whether the instance type is a burstable performance instance type.
---
--- /Note:/ Consider using 'burstablePerformanceSupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiBurstablePerformanceSupported :: Lens.Lens' InstanceTypeInfo (Lude.Maybe Lude.Bool)
-itiBurstablePerformanceSupported = Lens.lens (burstablePerformanceSupported :: InstanceTypeInfo -> Lude.Maybe Lude.Bool) (\s a -> s {burstablePerformanceSupported = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiBurstablePerformanceSupported "Use generic-lens or generic-optics with 'burstablePerformanceSupported' instead." #-}
-
--- | The instance type. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/ .
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiInstanceType :: Lens.Lens' InstanceTypeInfo (Lude.Maybe InstanceType)
-itiInstanceType = Lens.lens (instanceType :: InstanceTypeInfo -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | Describes the GPU accelerator settings for the instance type.
---
--- /Note:/ Consider using 'gpuInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiGpuInfo :: Lens.Lens' InstanceTypeInfo (Lude.Maybe GpuInfo)
-itiGpuInfo = Lens.lens (gpuInfo :: InstanceTypeInfo -> Lude.Maybe GpuInfo) (\s a -> s {gpuInfo = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiGpuInfo "Use generic-lens or generic-optics with 'gpuInfo' instead." #-}
 
 -- | The supported virtualization types.
 --
 -- /Note:/ Consider using 'supportedVirtualizationTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiSupportedVirtualizationTypes :: Lens.Lens' InstanceTypeInfo (Lude.Maybe [VirtualizationType])
-itiSupportedVirtualizationTypes = Lens.lens (supportedVirtualizationTypes :: InstanceTypeInfo -> Lude.Maybe [VirtualizationType]) (\s a -> s {supportedVirtualizationTypes = a} :: InstanceTypeInfo)
+itiSupportedVirtualizationTypes :: Lens.Lens' InstanceTypeInfo (Core.Maybe [Types.VirtualizationType])
+itiSupportedVirtualizationTypes = Lens.field @"supportedVirtualizationTypes"
 {-# DEPRECATED itiSupportedVirtualizationTypes "Use generic-lens or generic-optics with 'supportedVirtualizationTypes' instead." #-}
-
--- | Describes the Amazon EBS settings for the instance type.
---
--- /Note:/ Consider using 'ebsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiEBSInfo :: Lens.Lens' InstanceTypeInfo (Lude.Maybe EBSInfo)
-itiEBSInfo = Lens.lens (ebsInfo :: InstanceTypeInfo -> Lude.Maybe EBSInfo) (\s a -> s {ebsInfo = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiEBSInfo "Use generic-lens or generic-optics with 'ebsInfo' instead." #-}
-
--- | Indicates whether auto recovery is supported.
---
--- /Note:/ Consider using 'autoRecoverySupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiAutoRecoverySupported :: Lens.Lens' InstanceTypeInfo (Lude.Maybe Lude.Bool)
-itiAutoRecoverySupported = Lens.lens (autoRecoverySupported :: InstanceTypeInfo -> Lude.Maybe Lude.Bool) (\s a -> s {autoRecoverySupported = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiAutoRecoverySupported "Use generic-lens or generic-optics with 'autoRecoverySupported' instead." #-}
-
--- | Describes the Inference accelerator settings for the instance type.
---
--- /Note:/ Consider using 'inferenceAcceleratorInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiInferenceAcceleratorInfo :: Lens.Lens' InstanceTypeInfo (Lude.Maybe InferenceAcceleratorInfo)
-itiInferenceAcceleratorInfo = Lens.lens (inferenceAcceleratorInfo :: InstanceTypeInfo -> Lude.Maybe InferenceAcceleratorInfo) (\s a -> s {inferenceAcceleratorInfo = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiInferenceAcceleratorInfo "Use generic-lens or generic-optics with 'inferenceAcceleratorInfo' instead." #-}
-
--- | Indicates whether the instance is a bare metal instance type.
---
--- /Note:/ Consider using 'bareMetal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiBareMetal :: Lens.Lens' InstanceTypeInfo (Lude.Maybe Lude.Bool)
-itiBareMetal = Lens.lens (bareMetal :: InstanceTypeInfo -> Lude.Maybe Lude.Bool) (\s a -> s {bareMetal = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiBareMetal "Use generic-lens or generic-optics with 'bareMetal' instead." #-}
-
--- | Describes the network settings for the instance type.
---
--- /Note:/ Consider using 'networkInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiNetworkInfo :: Lens.Lens' InstanceTypeInfo (Lude.Maybe NetworkInfo)
-itiNetworkInfo = Lens.lens (networkInfo :: InstanceTypeInfo -> Lude.Maybe NetworkInfo) (\s a -> s {networkInfo = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiNetworkInfo "Use generic-lens or generic-optics with 'networkInfo' instead." #-}
-
--- | Describes the processor.
---
--- /Note:/ Consider using 'processorInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiProcessorInfo :: Lens.Lens' InstanceTypeInfo (Lude.Maybe ProcessorInfo)
-itiProcessorInfo = Lens.lens (processorInfo :: InstanceTypeInfo -> Lude.Maybe ProcessorInfo) (\s a -> s {processorInfo = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiProcessorInfo "Use generic-lens or generic-optics with 'processorInfo' instead." #-}
-
--- | Indicates whether the instance type is eligible for the free tier.
---
--- /Note:/ Consider using 'freeTierEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiFreeTierEligible :: Lens.Lens' InstanceTypeInfo (Lude.Maybe Lude.Bool)
-itiFreeTierEligible = Lens.lens (freeTierEligible :: InstanceTypeInfo -> Lude.Maybe Lude.Bool) (\s a -> s {freeTierEligible = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiFreeTierEligible "Use generic-lens or generic-optics with 'freeTierEligible' instead." #-}
 
 -- | Describes the vCPU configurations for the instance type.
 --
--- /Note:/ Consider using 'vCPUInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiVCPUInfo :: Lens.Lens' InstanceTypeInfo (Lude.Maybe VCPUInfo)
-itiVCPUInfo = Lens.lens (vCPUInfo :: InstanceTypeInfo -> Lude.Maybe VCPUInfo) (\s a -> s {vCPUInfo = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiVCPUInfo "Use generic-lens or generic-optics with 'vCPUInfo' instead." #-}
+-- /Note:/ Consider using 'vCpuInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+itiVCpuInfo :: Lens.Lens' InstanceTypeInfo (Core.Maybe Types.VCpuInfo)
+itiVCpuInfo = Lens.field @"vCpuInfo"
+{-# DEPRECATED itiVCpuInfo "Use generic-lens or generic-optics with 'vCpuInfo' instead." #-}
 
--- | Describes the instance storage for the instance type.
---
--- /Note:/ Consider using 'instanceStorageInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiInstanceStorageInfo :: Lens.Lens' InstanceTypeInfo (Lude.Maybe InstanceStorageInfo)
-itiInstanceStorageInfo = Lens.lens (instanceStorageInfo :: InstanceTypeInfo -> Lude.Maybe InstanceStorageInfo) (\s a -> s {instanceStorageInfo = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiInstanceStorageInfo "Use generic-lens or generic-optics with 'instanceStorageInfo' instead." #-}
-
--- | Indicates whether Dedicated Hosts are supported on the instance type.
---
--- /Note:/ Consider using 'dedicatedHostsSupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiDedicatedHostsSupported :: Lens.Lens' InstanceTypeInfo (Lude.Maybe Lude.Bool)
-itiDedicatedHostsSupported = Lens.lens (dedicatedHostsSupported :: InstanceTypeInfo -> Lude.Maybe Lude.Bool) (\s a -> s {dedicatedHostsSupported = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiDedicatedHostsSupported "Use generic-lens or generic-optics with 'dedicatedHostsSupported' instead." #-}
-
--- | Indicates whether On-Demand hibernation is supported.
---
--- /Note:/ Consider using 'hibernationSupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-itiHibernationSupported :: Lens.Lens' InstanceTypeInfo (Lude.Maybe Lude.Bool)
-itiHibernationSupported = Lens.lens (hibernationSupported :: InstanceTypeInfo -> Lude.Maybe Lude.Bool) (\s a -> s {hibernationSupported = a} :: InstanceTypeInfo)
-{-# DEPRECATED itiHibernationSupported "Use generic-lens or generic-optics with 'hibernationSupported' instead." #-}
-
-instance Lude.FromXML InstanceTypeInfo where
+instance Core.FromXML InstanceTypeInfo where
   parseXML x =
     InstanceTypeInfo'
-      Lude.<$> (x Lude..@? "hypervisor")
-      Lude.<*> (x Lude..@? "currentGeneration")
-      Lude.<*> (x Lude..@? "memoryInfo")
-      Lude.<*> (x Lude..@? "placementGroupInfo")
-      Lude.<*> ( x Lude..@? "supportedRootDeviceTypes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> (x Core..@? "autoRecoverySupported")
+      Core.<*> (x Core..@? "bareMetal")
+      Core.<*> (x Core..@? "burstablePerformanceSupported")
+      Core.<*> (x Core..@? "currentGeneration")
+      Core.<*> (x Core..@? "dedicatedHostsSupported")
+      Core.<*> (x Core..@? "ebsInfo")
+      Core.<*> (x Core..@? "fpgaInfo")
+      Core.<*> (x Core..@? "freeTierEligible")
+      Core.<*> (x Core..@? "gpuInfo")
+      Core.<*> (x Core..@? "hibernationSupported")
+      Core.<*> (x Core..@? "hypervisor")
+      Core.<*> (x Core..@? "inferenceAcceleratorInfo")
+      Core.<*> (x Core..@? "instanceStorageInfo")
+      Core.<*> (x Core..@? "instanceStorageSupported")
+      Core.<*> (x Core..@? "instanceType")
+      Core.<*> (x Core..@? "memoryInfo")
+      Core.<*> (x Core..@? "networkInfo")
+      Core.<*> (x Core..@? "placementGroupInfo")
+      Core.<*> (x Core..@? "processorInfo")
+      Core.<*> ( x Core..@? "supportedRootDeviceTypes"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> ( x Lude..@? "supportedUsageClasses" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<*> ( x Core..@? "supportedUsageClasses"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "instanceStorageSupported")
-      Lude.<*> (x Lude..@? "fpgaInfo")
-      Lude.<*> (x Lude..@? "burstablePerformanceSupported")
-      Lude.<*> (x Lude..@? "instanceType")
-      Lude.<*> (x Lude..@? "gpuInfo")
-      Lude.<*> ( x Lude..@? "supportedVirtualizationTypes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<*> ( x Core..@? "supportedVirtualizationTypes"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "ebsInfo")
-      Lude.<*> (x Lude..@? "autoRecoverySupported")
-      Lude.<*> (x Lude..@? "inferenceAcceleratorInfo")
-      Lude.<*> (x Lude..@? "bareMetal")
-      Lude.<*> (x Lude..@? "networkInfo")
-      Lude.<*> (x Lude..@? "processorInfo")
-      Lude.<*> (x Lude..@? "freeTierEligible")
-      Lude.<*> (x Lude..@? "vCpuInfo")
-      Lude.<*> (x Lude..@? "instanceStorageInfo")
-      Lude.<*> (x Lude..@? "dedicatedHostsSupported")
-      Lude.<*> (x Lude..@? "hibernationSupported")
+      Core.<*> (x Core..@? "vCpuInfo")

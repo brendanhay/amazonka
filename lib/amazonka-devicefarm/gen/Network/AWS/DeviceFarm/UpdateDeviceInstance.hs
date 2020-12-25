@@ -21,146 +21,133 @@ module Network.AWS.DeviceFarm.UpdateDeviceInstance
 
     -- ** Request lenses
     udiArn,
-    udiProfileARN,
     udiLabels,
+    udiProfileArn,
 
     -- * Destructuring the response
     UpdateDeviceInstanceResponse (..),
     mkUpdateDeviceInstanceResponse,
 
     -- ** Response lenses
-    udirsDeviceInstance,
-    udirsResponseStatus,
+    udirrsDeviceInstance,
+    udirrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateDeviceInstance' smart constructor.
 data UpdateDeviceInstance = UpdateDeviceInstance'
   { -- | The Amazon Resource Name (ARN) of the device instance.
-    arn :: Lude.Text,
-    -- | The ARN of the profile that you want to associate with the device instance.
-    profileARN :: Lude.Maybe Lude.Text,
+    arn :: Types.AmazonResourceName,
     -- | An array of strings that you want to associate with the device instance.
-    labels :: Lude.Maybe [Lude.Text]
+    labels :: Core.Maybe [Types.String],
+    -- | The ARN of the profile that you want to associate with the device instance.
+    profileArn :: Core.Maybe Types.AmazonResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDeviceInstance' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the device instance.
--- * 'profileARN' - The ARN of the profile that you want to associate with the device instance.
--- * 'labels' - An array of strings that you want to associate with the device instance.
+-- | Creates a 'UpdateDeviceInstance' value with any optional fields omitted.
 mkUpdateDeviceInstance ::
   -- | 'arn'
-  Lude.Text ->
+  Types.AmazonResourceName ->
   UpdateDeviceInstance
-mkUpdateDeviceInstance pArn_ =
+mkUpdateDeviceInstance arn =
   UpdateDeviceInstance'
-    { arn = pArn_,
-      profileARN = Lude.Nothing,
-      labels = Lude.Nothing
+    { arn,
+      labels = Core.Nothing,
+      profileArn = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the device instance.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udiArn :: Lens.Lens' UpdateDeviceInstance Lude.Text
-udiArn = Lens.lens (arn :: UpdateDeviceInstance -> Lude.Text) (\s a -> s {arn = a} :: UpdateDeviceInstance)
+udiArn :: Lens.Lens' UpdateDeviceInstance Types.AmazonResourceName
+udiArn = Lens.field @"arn"
 {-# DEPRECATED udiArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The ARN of the profile that you want to associate with the device instance.
---
--- /Note:/ Consider using 'profileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udiProfileARN :: Lens.Lens' UpdateDeviceInstance (Lude.Maybe Lude.Text)
-udiProfileARN = Lens.lens (profileARN :: UpdateDeviceInstance -> Lude.Maybe Lude.Text) (\s a -> s {profileARN = a} :: UpdateDeviceInstance)
-{-# DEPRECATED udiProfileARN "Use generic-lens or generic-optics with 'profileARN' instead." #-}
 
 -- | An array of strings that you want to associate with the device instance.
 --
 -- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udiLabels :: Lens.Lens' UpdateDeviceInstance (Lude.Maybe [Lude.Text])
-udiLabels = Lens.lens (labels :: UpdateDeviceInstance -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: UpdateDeviceInstance)
+udiLabels :: Lens.Lens' UpdateDeviceInstance (Core.Maybe [Types.String])
+udiLabels = Lens.field @"labels"
 {-# DEPRECATED udiLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
 
-instance Lude.AWSRequest UpdateDeviceInstance where
+-- | The ARN of the profile that you want to associate with the device instance.
+--
+-- /Note:/ Consider using 'profileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udiProfileArn :: Lens.Lens' UpdateDeviceInstance (Core.Maybe Types.AmazonResourceName)
+udiProfileArn = Lens.field @"profileArn"
+{-# DEPRECATED udiProfileArn "Use generic-lens or generic-optics with 'profileArn' instead." #-}
+
+instance Core.FromJSON UpdateDeviceInstance where
+  toJSON UpdateDeviceInstance {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("arn" Core..= arn),
+            ("labels" Core..=) Core.<$> labels,
+            ("profileArn" Core..=) Core.<$> profileArn
+          ]
+      )
+
+instance Core.AWSRequest UpdateDeviceInstance where
   type Rs UpdateDeviceInstance = UpdateDeviceInstanceResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DeviceFarm_20150623.UpdateDeviceInstance")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateDeviceInstanceResponse'
-            Lude.<$> (x Lude..?> "deviceInstance")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "deviceInstance")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateDeviceInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.UpdateDeviceInstance" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateDeviceInstance where
-  toJSON UpdateDeviceInstance' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("arn" Lude..= arn),
-            ("profileArn" Lude..=) Lude.<$> profileARN,
-            ("labels" Lude..=) Lude.<$> labels
-          ]
-      )
-
-instance Lude.ToPath UpdateDeviceInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateDeviceInstance where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateDeviceInstanceResponse' smart constructor.
 data UpdateDeviceInstanceResponse = UpdateDeviceInstanceResponse'
   { -- | An object that contains information about your device instance.
-    deviceInstance :: Lude.Maybe DeviceInstance,
+    deviceInstance :: Core.Maybe Types.DeviceInstance,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDeviceInstanceResponse' with the minimum fields required to make a request.
---
--- * 'deviceInstance' - An object that contains information about your device instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateDeviceInstanceResponse' value with any optional fields omitted.
 mkUpdateDeviceInstanceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateDeviceInstanceResponse
-mkUpdateDeviceInstanceResponse pResponseStatus_ =
+mkUpdateDeviceInstanceResponse responseStatus =
   UpdateDeviceInstanceResponse'
-    { deviceInstance = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { deviceInstance = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that contains information about your device instance.
 --
 -- /Note:/ Consider using 'deviceInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udirsDeviceInstance :: Lens.Lens' UpdateDeviceInstanceResponse (Lude.Maybe DeviceInstance)
-udirsDeviceInstance = Lens.lens (deviceInstance :: UpdateDeviceInstanceResponse -> Lude.Maybe DeviceInstance) (\s a -> s {deviceInstance = a} :: UpdateDeviceInstanceResponse)
-{-# DEPRECATED udirsDeviceInstance "Use generic-lens or generic-optics with 'deviceInstance' instead." #-}
+udirrsDeviceInstance :: Lens.Lens' UpdateDeviceInstanceResponse (Core.Maybe Types.DeviceInstance)
+udirrsDeviceInstance = Lens.field @"deviceInstance"
+{-# DEPRECATED udirrsDeviceInstance "Use generic-lens or generic-optics with 'deviceInstance' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udirsResponseStatus :: Lens.Lens' UpdateDeviceInstanceResponse Lude.Int
-udirsResponseStatus = Lens.lens (responseStatus :: UpdateDeviceInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDeviceInstanceResponse)
-{-# DEPRECATED udirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udirrsResponseStatus :: Lens.Lens' UpdateDeviceInstanceResponse Core.Int
+udirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

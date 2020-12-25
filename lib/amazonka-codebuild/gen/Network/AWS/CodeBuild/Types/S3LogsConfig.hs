@@ -18,14 +18,15 @@ module Network.AWS.CodeBuild.Types.S3LogsConfig
 
     -- * Lenses
     slcStatus,
-    slcLocation,
     slcEncryptionDisabled,
+    slcLocation,
   )
 where
 
-import Network.AWS.CodeBuild.Types.LogsConfigStatusType
+import qualified Network.AWS.CodeBuild.Types.Location as Types
+import qualified Network.AWS.CodeBuild.Types.LogsConfigStatusType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about S3 logs for a build project.
 --
@@ -38,37 +39,25 @@ data S3LogsConfig = S3LogsConfig'
     --
     --
     --     * @DISABLED@ : S3 build logs are not enabled for this build project.
-    status :: LogsConfigStatusType,
-    -- | The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is @my-bucket@ , and your path prefix is @build-log@ , then acceptable formats are @my-bucket/build-log@ or @arn:aws:s3:::my-bucket/build-log@ .
-    location :: Lude.Maybe Lude.Text,
+    status :: Types.LogsConfigStatusType,
     -- | Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
-    encryptionDisabled :: Lude.Maybe Lude.Bool
+    encryptionDisabled :: Core.Maybe Core.Bool,
+    -- | The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is @my-bucket@ , and your path prefix is @build-log@ , then acceptable formats are @my-bucket/build-log@ or @arn:aws:s3:::my-bucket/build-log@ .
+    location :: Core.Maybe Types.Location
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3LogsConfig' with the minimum fields required to make a request.
---
--- * 'status' - The current status of the S3 build logs. Valid values are:
---
---
---     * @ENABLED@ : S3 build logs are enabled for this build project.
---
---
---     * @DISABLED@ : S3 build logs are not enabled for this build project.
---
---
--- * 'location' - The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is @my-bucket@ , and your path prefix is @build-log@ , then acceptable formats are @my-bucket/build-log@ or @arn:aws:s3:::my-bucket/build-log@ .
--- * 'encryptionDisabled' - Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
+-- | Creates a 'S3LogsConfig' value with any optional fields omitted.
 mkS3LogsConfig ::
   -- | 'status'
-  LogsConfigStatusType ->
+  Types.LogsConfigStatusType ->
   S3LogsConfig
-mkS3LogsConfig pStatus_ =
+mkS3LogsConfig status =
   S3LogsConfig'
-    { status = pStatus_,
-      location = Lude.Nothing,
-      encryptionDisabled = Lude.Nothing
+    { status,
+      encryptionDisabled = Core.Nothing,
+      location = Core.Nothing
     }
 
 -- | The current status of the S3 build logs. Valid values are:
@@ -82,41 +71,39 @@ mkS3LogsConfig pStatus_ =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcStatus :: Lens.Lens' S3LogsConfig LogsConfigStatusType
-slcStatus = Lens.lens (status :: S3LogsConfig -> LogsConfigStatusType) (\s a -> s {status = a} :: S3LogsConfig)
+slcStatus :: Lens.Lens' S3LogsConfig Types.LogsConfigStatusType
+slcStatus = Lens.field @"status"
 {-# DEPRECATED slcStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is @my-bucket@ , and your path prefix is @build-log@ , then acceptable formats are @my-bucket/build-log@ or @arn:aws:s3:::my-bucket/build-log@ .
---
--- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcLocation :: Lens.Lens' S3LogsConfig (Lude.Maybe Lude.Text)
-slcLocation = Lens.lens (location :: S3LogsConfig -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: S3LogsConfig)
-{-# DEPRECATED slcLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | Set to true if you do not want your S3 build log output encrypted. By default S3 build logs are encrypted.
 --
 -- /Note:/ Consider using 'encryptionDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-slcEncryptionDisabled :: Lens.Lens' S3LogsConfig (Lude.Maybe Lude.Bool)
-slcEncryptionDisabled = Lens.lens (encryptionDisabled :: S3LogsConfig -> Lude.Maybe Lude.Bool) (\s a -> s {encryptionDisabled = a} :: S3LogsConfig)
+slcEncryptionDisabled :: Lens.Lens' S3LogsConfig (Core.Maybe Core.Bool)
+slcEncryptionDisabled = Lens.field @"encryptionDisabled"
 {-# DEPRECATED slcEncryptionDisabled "Use generic-lens or generic-optics with 'encryptionDisabled' instead." #-}
 
-instance Lude.FromJSON S3LogsConfig where
-  parseJSON =
-    Lude.withObject
-      "S3LogsConfig"
-      ( \x ->
-          S3LogsConfig'
-            Lude.<$> (x Lude..: "status")
-            Lude.<*> (x Lude..:? "location")
-            Lude.<*> (x Lude..:? "encryptionDisabled")
-      )
+-- | The ARN of an S3 bucket and the path prefix for S3 logs. If your Amazon S3 bucket name is @my-bucket@ , and your path prefix is @build-log@ , then acceptable formats are @my-bucket/build-log@ or @arn:aws:s3:::my-bucket/build-log@ .
+--
+-- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+slcLocation :: Lens.Lens' S3LogsConfig (Core.Maybe Types.Location)
+slcLocation = Lens.field @"location"
+{-# DEPRECATED slcLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
-instance Lude.ToJSON S3LogsConfig where
-  toJSON S3LogsConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("status" Lude..= status),
-            ("location" Lude..=) Lude.<$> location,
-            ("encryptionDisabled" Lude..=) Lude.<$> encryptionDisabled
+instance Core.FromJSON S3LogsConfig where
+  toJSON S3LogsConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("status" Core..= status),
+            ("encryptionDisabled" Core..=) Core.<$> encryptionDisabled,
+            ("location" Core..=) Core.<$> location
           ]
       )
+
+instance Core.FromJSON S3LogsConfig where
+  parseJSON =
+    Core.withObject "S3LogsConfig" Core.$
+      \x ->
+        S3LogsConfig'
+          Core.<$> (x Core..: "status")
+          Core.<*> (x Core..:? "encryptionDisabled")
+          Core.<*> (x Core..:? "location")

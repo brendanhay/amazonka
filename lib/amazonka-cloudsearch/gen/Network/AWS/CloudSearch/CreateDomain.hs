@@ -27,104 +27,101 @@ module Network.AWS.CloudSearch.CreateDomain
     mkCreateDomainResponse,
 
     -- ** Response lenses
-    cdrsDomainStatus,
-    cdrsResponseStatus,
+    cdrrsDomainStatus,
+    cdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'CreateDomain' @ operation. Specifies a name for the new search domain.
 --
 -- /See:/ 'mkCreateDomain' smart constructor.
 newtype CreateDomain = CreateDomain'
   { -- | A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.
-    domainName :: Lude.Text
+    domainName :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDomain' with the minimum fields required to make a request.
---
--- * 'domainName' - A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.
+-- | Creates a 'CreateDomain' value with any optional fields omitted.
 mkCreateDomain ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   CreateDomain
-mkCreateDomain pDomainName_ =
-  CreateDomain' {domainName = pDomainName_}
+mkCreateDomain domainName = CreateDomain' {domainName}
 
 -- | A name for the domain you are creating. Allowed characters are a-z (lower-case letters), 0-9, and hyphen (-). Domain names must start with a letter or number and be at least 3 and no more than 28 characters long.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDomainName :: Lens.Lens' CreateDomain Lude.Text
-cdDomainName = Lens.lens (domainName :: CreateDomain -> Lude.Text) (\s a -> s {domainName = a} :: CreateDomain)
+cdDomainName :: Lens.Lens' CreateDomain Types.DomainName
+cdDomainName = Lens.field @"domainName"
 {-# DEPRECATED cdDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest CreateDomain where
+instance Core.AWSRequest CreateDomain where
   type Rs CreateDomain = CreateDomainResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateDomain")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateDomainResult"
       ( \s h x ->
           CreateDomainResponse'
-            Lude.<$> (x Lude..@? "DomainStatus") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DomainStatus") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDomain where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateDomain where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDomain where
-  toQuery CreateDomain' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateDomain" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | The result of a @CreateDomainRequest@ . Contains the status of a newly created domain.
 --
 -- /See:/ 'mkCreateDomainResponse' smart constructor.
 data CreateDomainResponse = CreateDomainResponse'
-  { domainStatus :: Lude.Maybe DomainStatus,
+  { domainStatus :: Core.Maybe Types.DomainStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDomainResponse' with the minimum fields required to make a request.
---
--- * 'domainStatus' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDomainResponse' value with any optional fields omitted.
 mkCreateDomainResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDomainResponse
-mkCreateDomainResponse pResponseStatus_ =
+mkCreateDomainResponse responseStatus =
   CreateDomainResponse'
-    { domainStatus = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { domainStatus = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsDomainStatus :: Lens.Lens' CreateDomainResponse (Lude.Maybe DomainStatus)
-cdrsDomainStatus = Lens.lens (domainStatus :: CreateDomainResponse -> Lude.Maybe DomainStatus) (\s a -> s {domainStatus = a} :: CreateDomainResponse)
-{-# DEPRECATED cdrsDomainStatus "Use generic-lens or generic-optics with 'domainStatus' instead." #-}
+cdrrsDomainStatus :: Lens.Lens' CreateDomainResponse (Core.Maybe Types.DomainStatus)
+cdrrsDomainStatus = Lens.field @"domainStatus"
+{-# DEPRECATED cdrrsDomainStatus "Use generic-lens or generic-optics with 'domainStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdrsResponseStatus :: Lens.Lens' CreateDomainResponse Lude.Int
-cdrsResponseStatus = Lens.lens (responseStatus :: CreateDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDomainResponse)
-{-# DEPRECATED cdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cdrrsResponseStatus :: Lens.Lens' CreateDomainResponse Core.Int
+cdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

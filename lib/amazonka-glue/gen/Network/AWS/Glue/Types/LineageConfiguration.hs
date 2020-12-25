@@ -21,9 +21,9 @@ module Network.AWS.Glue.Types.LineageConfiguration
   )
 where
 
-import Network.AWS.Glue.Types.CrawlerLineageSettings
+import qualified Network.AWS.Glue.Types.CrawlerLineageSettings as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies data lineage configuration settings for the crawler.
 --
@@ -36,24 +36,16 @@ newtype LineageConfiguration = LineageConfiguration'
     --
     --
     --     * DISABLE: disables data lineage for the crawler
-    crawlerLineageSettings :: Lude.Maybe CrawlerLineageSettings
+    crawlerLineageSettings :: Core.Maybe Types.CrawlerLineageSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LineageConfiguration' with the minimum fields required to make a request.
---
--- * 'crawlerLineageSettings' - Specifies whether data lineage is enabled for the crawler. Valid values are:
---
---
---     * ENABLE: enables data lineage for the crawler
---
---
---     * DISABLE: disables data lineage for the crawler
+-- | Creates a 'LineageConfiguration' value with any optional fields omitted.
 mkLineageConfiguration ::
   LineageConfiguration
 mkLineageConfiguration =
-  LineageConfiguration' {crawlerLineageSettings = Lude.Nothing}
+  LineageConfiguration' {crawlerLineageSettings = Core.Nothing}
 
 -- | Specifies whether data lineage is enabled for the crawler. Valid values are:
 --
@@ -66,24 +58,22 @@ mkLineageConfiguration =
 --
 --
 -- /Note:/ Consider using 'crawlerLineageSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcCrawlerLineageSettings :: Lens.Lens' LineageConfiguration (Lude.Maybe CrawlerLineageSettings)
-lcCrawlerLineageSettings = Lens.lens (crawlerLineageSettings :: LineageConfiguration -> Lude.Maybe CrawlerLineageSettings) (\s a -> s {crawlerLineageSettings = a} :: LineageConfiguration)
+lcCrawlerLineageSettings :: Lens.Lens' LineageConfiguration (Core.Maybe Types.CrawlerLineageSettings)
+lcCrawlerLineageSettings = Lens.field @"crawlerLineageSettings"
 {-# DEPRECATED lcCrawlerLineageSettings "Use generic-lens or generic-optics with 'crawlerLineageSettings' instead." #-}
 
-instance Lude.FromJSON LineageConfiguration where
-  parseJSON =
-    Lude.withObject
-      "LineageConfiguration"
-      ( \x ->
-          LineageConfiguration'
-            Lude.<$> (x Lude..:? "CrawlerLineageSettings")
-      )
-
-instance Lude.ToJSON LineageConfiguration where
-  toJSON LineageConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CrawlerLineageSettings" Lude..=)
-              Lude.<$> crawlerLineageSettings
+instance Core.FromJSON LineageConfiguration where
+  toJSON LineageConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CrawlerLineageSettings" Core..=)
+              Core.<$> crawlerLineageSettings
           ]
       )
+
+instance Core.FromJSON LineageConfiguration where
+  parseJSON =
+    Core.withObject "LineageConfiguration" Core.$
+      \x ->
+        LineageConfiguration'
+          Core.<$> (x Core..:? "CrawlerLineageSettings")

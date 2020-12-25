@@ -27,91 +27,80 @@ module Network.AWS.Glue.DeleteCrawler
     mkDeleteCrawlerResponse,
 
     -- ** Response lenses
-    dcfrsResponseStatus,
+    dcrfrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteCrawler' smart constructor.
 newtype DeleteCrawler = DeleteCrawler'
   { -- | The name of the crawler to remove.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCrawler' with the minimum fields required to make a request.
---
--- * 'name' - The name of the crawler to remove.
+-- | Creates a 'DeleteCrawler' value with any optional fields omitted.
 mkDeleteCrawler ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   DeleteCrawler
-mkDeleteCrawler pName_ = DeleteCrawler' {name = pName_}
+mkDeleteCrawler name = DeleteCrawler' {name}
 
 -- | The name of the crawler to remove.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcName :: Lens.Lens' DeleteCrawler Lude.Text
-dcName = Lens.lens (name :: DeleteCrawler -> Lude.Text) (\s a -> s {name = a} :: DeleteCrawler)
+dcName :: Lens.Lens' DeleteCrawler Types.Name
+dcName = Lens.field @"name"
 {-# DEPRECATED dcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteCrawler where
+instance Core.FromJSON DeleteCrawler where
+  toJSON DeleteCrawler {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteCrawler where
   type Rs DeleteCrawler = DeleteCrawlerResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.DeleteCrawler")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteCrawlerResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteCrawlerResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteCrawler where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.DeleteCrawler" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteCrawler where
-  toJSON DeleteCrawler' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteCrawler where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteCrawler where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteCrawlerResponse' smart constructor.
 newtype DeleteCrawlerResponse = DeleteCrawlerResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCrawlerResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteCrawlerResponse' value with any optional fields omitted.
 mkDeleteCrawlerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteCrawlerResponse
-mkDeleteCrawlerResponse pResponseStatus_ =
-  DeleteCrawlerResponse' {responseStatus = pResponseStatus_}
+mkDeleteCrawlerResponse responseStatus =
+  DeleteCrawlerResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfrsResponseStatus :: Lens.Lens' DeleteCrawlerResponse Lude.Int
-dcfrsResponseStatus = Lens.lens (responseStatus :: DeleteCrawlerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCrawlerResponse)
-{-# DEPRECATED dcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrfrsResponseStatus :: Lens.Lens' DeleteCrawlerResponse Core.Int
+dcrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

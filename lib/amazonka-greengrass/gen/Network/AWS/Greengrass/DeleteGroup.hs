@@ -27,86 +27,76 @@ module Network.AWS.Greengrass.DeleteGroup
     mkDeleteGroupResponse,
 
     -- ** Response lenses
-    dgrsResponseStatus,
+    dgrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteGroup' smart constructor.
 newtype DeleteGroup = DeleteGroup'
   { -- | The ID of the Greengrass group.
-    groupId :: Lude.Text
+    groupId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGroup' with the minimum fields required to make a request.
---
--- * 'groupId' - The ID of the Greengrass group.
+-- | Creates a 'DeleteGroup' value with any optional fields omitted.
 mkDeleteGroup ::
   -- | 'groupId'
-  Lude.Text ->
+  Core.Text ->
   DeleteGroup
-mkDeleteGroup pGroupId_ = DeleteGroup' {groupId = pGroupId_}
+mkDeleteGroup groupId = DeleteGroup' {groupId}
 
 -- | The ID of the Greengrass group.
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgGroupId :: Lens.Lens' DeleteGroup Lude.Text
-dgGroupId = Lens.lens (groupId :: DeleteGroup -> Lude.Text) (\s a -> s {groupId = a} :: DeleteGroup)
+dgGroupId :: Lens.Lens' DeleteGroup Core.Text
+dgGroupId = Lens.field @"groupId"
 {-# DEPRECATED dgGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
-instance Lude.AWSRequest DeleteGroup where
+instance Core.AWSRequest DeleteGroup where
   type Rs DeleteGroup = DeleteGroupResponse
-  request = Req.delete greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/greengrass/groups/" Core.<> (Core.toText groupId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteGroupResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteGroup where
-  toPath DeleteGroup' {..} =
-    Lude.mconcat ["/greengrass/groups/", Lude.toBS groupId]
-
-instance Lude.ToQuery DeleteGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteGroupResponse' smart constructor.
 newtype DeleteGroupResponse = DeleteGroupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteGroupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteGroupResponse' value with any optional fields omitted.
 mkDeleteGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteGroupResponse
-mkDeleteGroupResponse pResponseStatus_ =
-  DeleteGroupResponse' {responseStatus = pResponseStatus_}
+mkDeleteGroupResponse responseStatus =
+  DeleteGroupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dgrsResponseStatus :: Lens.Lens' DeleteGroupResponse Lude.Int
-dgrsResponseStatus = Lens.lens (responseStatus :: DeleteGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteGroupResponse)
-{-# DEPRECATED dgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dgrrsResponseStatus :: Lens.Lens' DeleteGroupResponse Core.Int
+dgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

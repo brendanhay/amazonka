@@ -24,66 +24,61 @@ module Network.AWS.ResourceGroupsTagging.Types.ResourceTagMapping
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails
-import Network.AWS.ResourceGroupsTagging.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroupsTagging.Types.ComplianceDetails as Types
+import qualified Network.AWS.ResourceGroupsTagging.Types.ResourceARN as Types
+import qualified Network.AWS.ResourceGroupsTagging.Types.Tag as Types
 
 -- | A list of resource ARNs and the tags (keys and values) that are associated with each.
 --
 -- /See:/ 'mkResourceTagMapping' smart constructor.
 data ResourceTagMapping = ResourceTagMapping'
   { -- | Information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
-    complianceDetails :: Lude.Maybe ComplianceDetails,
+    complianceDetails :: Core.Maybe Types.ComplianceDetails,
     -- | The ARN of the resource.
-    resourceARN :: Lude.Maybe Lude.Text,
+    resourceARN :: Core.Maybe Types.ResourceARN,
     -- | The tags that have been applied to one or more AWS resources.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceTagMapping' with the minimum fields required to make a request.
---
--- * 'complianceDetails' - Information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
--- * 'resourceARN' - The ARN of the resource.
--- * 'tags' - The tags that have been applied to one or more AWS resources.
+-- | Creates a 'ResourceTagMapping' value with any optional fields omitted.
 mkResourceTagMapping ::
   ResourceTagMapping
 mkResourceTagMapping =
   ResourceTagMapping'
-    { complianceDetails = Lude.Nothing,
-      resourceARN = Lude.Nothing,
-      tags = Lude.Nothing
+    { complianceDetails = Core.Nothing,
+      resourceARN = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | Information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
 --
 -- /Note:/ Consider using 'complianceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtmComplianceDetails :: Lens.Lens' ResourceTagMapping (Lude.Maybe ComplianceDetails)
-rtmComplianceDetails = Lens.lens (complianceDetails :: ResourceTagMapping -> Lude.Maybe ComplianceDetails) (\s a -> s {complianceDetails = a} :: ResourceTagMapping)
+rtmComplianceDetails :: Lens.Lens' ResourceTagMapping (Core.Maybe Types.ComplianceDetails)
+rtmComplianceDetails = Lens.field @"complianceDetails"
 {-# DEPRECATED rtmComplianceDetails "Use generic-lens or generic-optics with 'complianceDetails' instead." #-}
 
 -- | The ARN of the resource.
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtmResourceARN :: Lens.Lens' ResourceTagMapping (Lude.Maybe Lude.Text)
-rtmResourceARN = Lens.lens (resourceARN :: ResourceTagMapping -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: ResourceTagMapping)
+rtmResourceARN :: Lens.Lens' ResourceTagMapping (Core.Maybe Types.ResourceARN)
+rtmResourceARN = Lens.field @"resourceARN"
 {-# DEPRECATED rtmResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The tags that have been applied to one or more AWS resources.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtmTags :: Lens.Lens' ResourceTagMapping (Lude.Maybe [Tag])
-rtmTags = Lens.lens (tags :: ResourceTagMapping -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ResourceTagMapping)
+rtmTags :: Lens.Lens' ResourceTagMapping (Core.Maybe [Types.Tag])
+rtmTags = Lens.field @"tags"
 {-# DEPRECATED rtmTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON ResourceTagMapping where
+instance Core.FromJSON ResourceTagMapping where
   parseJSON =
-    Lude.withObject
-      "ResourceTagMapping"
-      ( \x ->
-          ResourceTagMapping'
-            Lude.<$> (x Lude..:? "ComplianceDetails")
-            Lude.<*> (x Lude..:? "ResourceARN")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ResourceTagMapping" Core.$
+      \x ->
+        ResourceTagMapping'
+          Core.<$> (x Core..:? "ComplianceDetails")
+          Core.<*> (x Core..:? "ResourceARN")
+          Core.<*> (x Core..:? "Tags")

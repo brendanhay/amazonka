@@ -23,135 +23,120 @@ module Network.AWS.Rekognition.StartProjectVersion
     mkStartProjectVersion,
 
     -- ** Request lenses
-    sMinInferenceUnits,
-    sProjectVersionARN,
+    spvProjectVersionArn,
+    spvMinInferenceUnits,
 
     -- * Destructuring the response
     StartProjectVersionResponse (..),
     mkStartProjectVersionResponse,
 
     -- ** Response lenses
-    spvrsStatus,
-    spvrsResponseStatus,
+    spvrrsStatus,
+    spvrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartProjectVersion' smart constructor.
 data StartProjectVersion = StartProjectVersion'
-  { -- | The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use.
-    minInferenceUnits :: Lude.Natural,
-    -- | The Amazon Resource Name(ARN) of the model version that you want to start.
-    projectVersionARN :: Lude.Text
+  { -- | The Amazon Resource Name(ARN) of the model version that you want to start.
+    projectVersionArn :: Types.ProjectVersionArn,
+    -- | The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use.
+    minInferenceUnits :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartProjectVersion' with the minimum fields required to make a request.
---
--- * 'minInferenceUnits' - The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use.
--- * 'projectVersionARN' - The Amazon Resource Name(ARN) of the model version that you want to start.
+-- | Creates a 'StartProjectVersion' value with any optional fields omitted.
 mkStartProjectVersion ::
+  -- | 'projectVersionArn'
+  Types.ProjectVersionArn ->
   -- | 'minInferenceUnits'
-  Lude.Natural ->
-  -- | 'projectVersionARN'
-  Lude.Text ->
+  Core.Natural ->
   StartProjectVersion
-mkStartProjectVersion pMinInferenceUnits_ pProjectVersionARN_ =
-  StartProjectVersion'
-    { minInferenceUnits = pMinInferenceUnits_,
-      projectVersionARN = pProjectVersionARN_
-    }
+mkStartProjectVersion projectVersionArn minInferenceUnits =
+  StartProjectVersion' {projectVersionArn, minInferenceUnits}
+
+-- | The Amazon Resource Name(ARN) of the model version that you want to start.
+--
+-- /Note:/ Consider using 'projectVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spvProjectVersionArn :: Lens.Lens' StartProjectVersion Types.ProjectVersionArn
+spvProjectVersionArn = Lens.field @"projectVersionArn"
+{-# DEPRECATED spvProjectVersionArn "Use generic-lens or generic-optics with 'projectVersionArn' instead." #-}
 
 -- | The minimum number of inference units to use. A single inference unit represents 1 hour of processing and can support up to 5 Transaction Pers Second (TPS). Use a higher number to increase the TPS throughput of your model. You are charged for the number of inference units that you use.
 --
 -- /Note:/ Consider using 'minInferenceUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sMinInferenceUnits :: Lens.Lens' StartProjectVersion Lude.Natural
-sMinInferenceUnits = Lens.lens (minInferenceUnits :: StartProjectVersion -> Lude.Natural) (\s a -> s {minInferenceUnits = a} :: StartProjectVersion)
-{-# DEPRECATED sMinInferenceUnits "Use generic-lens or generic-optics with 'minInferenceUnits' instead." #-}
+spvMinInferenceUnits :: Lens.Lens' StartProjectVersion Core.Natural
+spvMinInferenceUnits = Lens.field @"minInferenceUnits"
+{-# DEPRECATED spvMinInferenceUnits "Use generic-lens or generic-optics with 'minInferenceUnits' instead." #-}
 
--- | The Amazon Resource Name(ARN) of the model version that you want to start.
---
--- /Note:/ Consider using 'projectVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sProjectVersionARN :: Lens.Lens' StartProjectVersion Lude.Text
-sProjectVersionARN = Lens.lens (projectVersionARN :: StartProjectVersion -> Lude.Text) (\s a -> s {projectVersionARN = a} :: StartProjectVersion)
-{-# DEPRECATED sProjectVersionARN "Use generic-lens or generic-optics with 'projectVersionARN' instead." #-}
+instance Core.FromJSON StartProjectVersion where
+  toJSON StartProjectVersion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProjectVersionArn" Core..= projectVersionArn),
+            Core.Just ("MinInferenceUnits" Core..= minInferenceUnits)
+          ]
+      )
 
-instance Lude.AWSRequest StartProjectVersion where
+instance Core.AWSRequest StartProjectVersion where
   type Rs StartProjectVersion = StartProjectVersionResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "RekognitionService.StartProjectVersion")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartProjectVersionResponse'
-            Lude.<$> (x Lude..?> "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Status") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartProjectVersion where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.StartProjectVersion" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartProjectVersion where
-  toJSON StartProjectVersion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MinInferenceUnits" Lude..= minInferenceUnits),
-            Lude.Just ("ProjectVersionArn" Lude..= projectVersionARN)
-          ]
-      )
-
-instance Lude.ToPath StartProjectVersion where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartProjectVersion where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartProjectVersionResponse' smart constructor.
 data StartProjectVersionResponse = StartProjectVersionResponse'
   { -- | The current running status of the model.
-    status :: Lude.Maybe ProjectVersionStatus,
+    status :: Core.Maybe Types.ProjectVersionStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartProjectVersionResponse' with the minimum fields required to make a request.
---
--- * 'status' - The current running status of the model.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartProjectVersionResponse' value with any optional fields omitted.
 mkStartProjectVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartProjectVersionResponse
-mkStartProjectVersionResponse pResponseStatus_ =
+mkStartProjectVersionResponse responseStatus =
   StartProjectVersionResponse'
-    { status = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { status = Core.Nothing,
+      responseStatus
     }
 
 -- | The current running status of the model.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spvrsStatus :: Lens.Lens' StartProjectVersionResponse (Lude.Maybe ProjectVersionStatus)
-spvrsStatus = Lens.lens (status :: StartProjectVersionResponse -> Lude.Maybe ProjectVersionStatus) (\s a -> s {status = a} :: StartProjectVersionResponse)
-{-# DEPRECATED spvrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+spvrrsStatus :: Lens.Lens' StartProjectVersionResponse (Core.Maybe Types.ProjectVersionStatus)
+spvrrsStatus = Lens.field @"status"
+{-# DEPRECATED spvrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spvrsResponseStatus :: Lens.Lens' StartProjectVersionResponse Lude.Int
-spvrsResponseStatus = Lens.lens (responseStatus :: StartProjectVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartProjectVersionResponse)
-{-# DEPRECATED spvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+spvrrsResponseStatus :: Lens.Lens' StartProjectVersionResponse Core.Int
+spvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED spvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

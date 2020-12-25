@@ -21,25 +21,24 @@ module Network.AWS.MediaLive.Types.EmbeddedDestinationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Embedded Destination Settings
 --
 -- /See:/ 'mkEmbeddedDestinationSettings' smart constructor.
 data EmbeddedDestinationSettings = EmbeddedDestinationSettings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EmbeddedDestinationSettings' with the minimum fields required to make a request.
+-- | Creates a 'EmbeddedDestinationSettings' value with any optional fields omitted.
 mkEmbeddedDestinationSettings ::
   EmbeddedDestinationSettings
 mkEmbeddedDestinationSettings = EmbeddedDestinationSettings'
 
-instance Lude.FromJSON EmbeddedDestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "EmbeddedDestinationSettings"
-      (\x -> Lude.pure EmbeddedDestinationSettings')
+instance Core.FromJSON EmbeddedDestinationSettings where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.ToJSON EmbeddedDestinationSettings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
+instance Core.FromJSON EmbeddedDestinationSettings where
+  parseJSON =
+    Core.withObject "EmbeddedDestinationSettings" Core.$
+      \x -> Core.pure EmbeddedDestinationSettings'

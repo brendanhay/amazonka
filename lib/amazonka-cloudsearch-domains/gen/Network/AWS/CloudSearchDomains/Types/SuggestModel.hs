@@ -18,71 +18,66 @@ module Network.AWS.CloudSearchDomains.Types.SuggestModel
 
     -- * Lenses
     smFound,
-    smSuggestions,
     smQuery,
+    smSuggestions,
   )
 where
 
-import Network.AWS.CloudSearchDomains.Types.SuggestionMatch
+import qualified Network.AWS.CloudSearchDomains.Types.String as Types
+import qualified Network.AWS.CloudSearchDomains.Types.SuggestionMatch as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Container for the suggestion information returned in a @SuggestResponse@ .
 --
 -- /See:/ 'mkSuggestModel' smart constructor.
 data SuggestModel = SuggestModel'
   { -- | The number of documents that were found to match the query string.
-    found :: Lude.Maybe Lude.Integer,
-    -- | The documents that match the query string.
-    suggestions :: Lude.Maybe [SuggestionMatch],
+    found :: Core.Maybe Core.Integer,
     -- | The query string specified in the suggest request.
-    query :: Lude.Maybe Lude.Text
+    query :: Core.Maybe Types.String,
+    -- | The documents that match the query string.
+    suggestions :: Core.Maybe [Types.SuggestionMatch]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SuggestModel' with the minimum fields required to make a request.
---
--- * 'found' - The number of documents that were found to match the query string.
--- * 'suggestions' - The documents that match the query string.
--- * 'query' - The query string specified in the suggest request.
+-- | Creates a 'SuggestModel' value with any optional fields omitted.
 mkSuggestModel ::
   SuggestModel
 mkSuggestModel =
   SuggestModel'
-    { found = Lude.Nothing,
-      suggestions = Lude.Nothing,
-      query = Lude.Nothing
+    { found = Core.Nothing,
+      query = Core.Nothing,
+      suggestions = Core.Nothing
     }
 
 -- | The number of documents that were found to match the query string.
 --
 -- /Note:/ Consider using 'found' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smFound :: Lens.Lens' SuggestModel (Lude.Maybe Lude.Integer)
-smFound = Lens.lens (found :: SuggestModel -> Lude.Maybe Lude.Integer) (\s a -> s {found = a} :: SuggestModel)
+smFound :: Lens.Lens' SuggestModel (Core.Maybe Core.Integer)
+smFound = Lens.field @"found"
 {-# DEPRECATED smFound "Use generic-lens or generic-optics with 'found' instead." #-}
-
--- | The documents that match the query string.
---
--- /Note:/ Consider using 'suggestions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smSuggestions :: Lens.Lens' SuggestModel (Lude.Maybe [SuggestionMatch])
-smSuggestions = Lens.lens (suggestions :: SuggestModel -> Lude.Maybe [SuggestionMatch]) (\s a -> s {suggestions = a} :: SuggestModel)
-{-# DEPRECATED smSuggestions "Use generic-lens or generic-optics with 'suggestions' instead." #-}
 
 -- | The query string specified in the suggest request.
 --
 -- /Note:/ Consider using 'query' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smQuery :: Lens.Lens' SuggestModel (Lude.Maybe Lude.Text)
-smQuery = Lens.lens (query :: SuggestModel -> Lude.Maybe Lude.Text) (\s a -> s {query = a} :: SuggestModel)
+smQuery :: Lens.Lens' SuggestModel (Core.Maybe Types.String)
+smQuery = Lens.field @"query"
 {-# DEPRECATED smQuery "Use generic-lens or generic-optics with 'query' instead." #-}
 
-instance Lude.FromJSON SuggestModel where
+-- | The documents that match the query string.
+--
+-- /Note:/ Consider using 'suggestions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smSuggestions :: Lens.Lens' SuggestModel (Core.Maybe [Types.SuggestionMatch])
+smSuggestions = Lens.field @"suggestions"
+{-# DEPRECATED smSuggestions "Use generic-lens or generic-optics with 'suggestions' instead." #-}
+
+instance Core.FromJSON SuggestModel where
   parseJSON =
-    Lude.withObject
-      "SuggestModel"
-      ( \x ->
-          SuggestModel'
-            Lude.<$> (x Lude..:? "found")
-            Lude.<*> (x Lude..:? "suggestions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "query")
-      )
+    Core.withObject "SuggestModel" Core.$
+      \x ->
+        SuggestModel'
+          Core.<$> (x Core..:? "found")
+          Core.<*> (x Core..:? "query")
+          Core.<*> (x Core..:? "suggestions")

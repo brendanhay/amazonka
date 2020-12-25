@@ -22,37 +22,32 @@ module Network.AWS.StepFunctions.Types.MapStateStartedEventDetails
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about a Map state that was started.
 --
 -- /See:/ 'mkMapStateStartedEventDetails' smart constructor.
 newtype MapStateStartedEventDetails = MapStateStartedEventDetails'
   { -- | The size of the array for Map state iterations.
-    length :: Lude.Maybe Lude.Natural
+    length :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MapStateStartedEventDetails' with the minimum fields required to make a request.
---
--- * 'length' - The size of the array for Map state iterations.
+-- | Creates a 'MapStateStartedEventDetails' value with any optional fields omitted.
 mkMapStateStartedEventDetails ::
   MapStateStartedEventDetails
 mkMapStateStartedEventDetails =
-  MapStateStartedEventDetails' {length = Lude.Nothing}
+  MapStateStartedEventDetails' {length = Core.Nothing}
 
 -- | The size of the array for Map state iterations.
 --
 -- /Note:/ Consider using 'length' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mssedLength :: Lens.Lens' MapStateStartedEventDetails (Lude.Maybe Lude.Natural)
-mssedLength = Lens.lens (length :: MapStateStartedEventDetails -> Lude.Maybe Lude.Natural) (\s a -> s {length = a} :: MapStateStartedEventDetails)
+mssedLength :: Lens.Lens' MapStateStartedEventDetails (Core.Maybe Core.Natural)
+mssedLength = Lens.field @"length"
 {-# DEPRECATED mssedLength "Use generic-lens or generic-optics with 'length' instead." #-}
 
-instance Lude.FromJSON MapStateStartedEventDetails where
+instance Core.FromJSON MapStateStartedEventDetails where
   parseJSON =
-    Lude.withObject
-      "MapStateStartedEventDetails"
-      ( \x ->
-          MapStateStartedEventDetails' Lude.<$> (x Lude..:? "length")
-      )
+    Core.withObject "MapStateStartedEventDetails" Core.$
+      \x -> MapStateStartedEventDetails' Core.<$> (x Core..:? "length")

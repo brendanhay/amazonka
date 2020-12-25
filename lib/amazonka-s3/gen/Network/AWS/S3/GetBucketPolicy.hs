@@ -35,112 +35,98 @@ module Network.AWS.S3.GetBucketPolicy
     mkGetBucketPolicyResponse,
 
     -- ** Response lenses
-    gbprsPolicy,
-    gbprsResponseStatus,
+    gbprrsPolicy,
+    gbprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketPolicy' smart constructor.
 data GetBucketPolicy = GetBucketPolicy'
   { -- | The bucket name for which to get the bucket policy.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketPolicy' with the minimum fields required to make a request.
---
--- * 'bucket' - The bucket name for which to get the bucket policy.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetBucketPolicy' value with any optional fields omitted.
 mkGetBucketPolicy ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   GetBucketPolicy
-mkGetBucketPolicy pBucket_ =
-  GetBucketPolicy'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
-    }
+mkGetBucketPolicy bucket =
+  GetBucketPolicy' {bucket, expectedBucketOwner = Core.Nothing}
 
 -- | The bucket name for which to get the bucket policy.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbpBucket :: Lens.Lens' GetBucketPolicy BucketName
-gbpBucket = Lens.lens (bucket :: GetBucketPolicy -> BucketName) (\s a -> s {bucket = a} :: GetBucketPolicy)
+gbpBucket :: Lens.Lens' GetBucketPolicy Types.BucketName
+gbpBucket = Lens.field @"bucket"
 {-# DEPRECATED gbpBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbpExpectedBucketOwner :: Lens.Lens' GetBucketPolicy (Lude.Maybe Lude.Text)
-gbpExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketPolicy -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketPolicy)
+gbpExpectedBucketOwner :: Lens.Lens' GetBucketPolicy (Core.Maybe Types.ExpectedBucketOwner)
+gbpExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED gbpExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetBucketPolicy where
+instance Core.AWSRequest GetBucketPolicy where
   type Rs GetBucketPolicy = GetBucketPolicyResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("policy", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveBytes
+    Response.receiveBytes
       ( \s h x ->
           GetBucketPolicyResponse'
-            Lude.<$> (Lude.pure x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.Just x)) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBucketPolicy where
-  toHeaders GetBucketPolicy' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetBucketPolicy where
-  toPath GetBucketPolicy' {..} = Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketPolicy where
-  toQuery = Lude.const (Lude.mconcat ["policy"])
 
 -- | /See:/ 'mkGetBucketPolicyResponse' smart constructor.
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
   { -- | The bucket policy as a JSON document.
-    policy :: Lude.ByteString,
+    policy :: Core.ByteString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketPolicyResponse' with the minimum fields required to make a request.
---
--- * 'policy' - The bucket policy as a JSON document.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBucketPolicyResponse' value with any optional fields omitted.
 mkGetBucketPolicyResponse ::
   -- | 'policy'
-  Lude.ByteString ->
+  Core.ByteString ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBucketPolicyResponse
-mkGetBucketPolicyResponse pPolicy_ pResponseStatus_ =
-  GetBucketPolicyResponse'
-    { policy = pPolicy_,
-      responseStatus = pResponseStatus_
-    }
+mkGetBucketPolicyResponse policy responseStatus =
+  GetBucketPolicyResponse' {policy, responseStatus}
 
 -- | The bucket policy as a JSON document.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbprsPolicy :: Lens.Lens' GetBucketPolicyResponse Lude.ByteString
-gbprsPolicy = Lens.lens (policy :: GetBucketPolicyResponse -> Lude.ByteString) (\s a -> s {policy = a} :: GetBucketPolicyResponse)
-{-# DEPRECATED gbprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+gbprrsPolicy :: Lens.Lens' GetBucketPolicyResponse Core.ByteString
+gbprrsPolicy = Lens.field @"policy"
+{-# DEPRECATED gbprrsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbprsResponseStatus :: Lens.Lens' GetBucketPolicyResponse Lude.Int
-gbprsResponseStatus = Lens.lens (responseStatus :: GetBucketPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketPolicyResponse)
-{-# DEPRECATED gbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbprrsResponseStatus :: Lens.Lens' GetBucketPolicyResponse Core.Int
+gbprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

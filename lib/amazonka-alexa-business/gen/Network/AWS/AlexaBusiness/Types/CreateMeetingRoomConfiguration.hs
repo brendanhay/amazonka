@@ -17,86 +17,82 @@ module Network.AWS.AlexaBusiness.Types.CreateMeetingRoomConfiguration
     mkCreateMeetingRoomConfiguration,
 
     -- * Lenses
-    cmrcInstantBooking,
     cmrcEndOfMeetingReminder,
+    cmrcInstantBooking,
     cmrcRequireCheckIn,
     cmrcRoomUtilizationMetricsEnabled,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types.CreateEndOfMeetingReminder
-import Network.AWS.AlexaBusiness.Types.CreateInstantBooking
-import Network.AWS.AlexaBusiness.Types.CreateRequireCheckIn
+import qualified Network.AWS.AlexaBusiness.Types.CreateEndOfMeetingReminder as Types
+import qualified Network.AWS.AlexaBusiness.Types.CreateInstantBooking as Types
+import qualified Network.AWS.AlexaBusiness.Types.CreateRequireCheckIn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Creates meeting room settings of a room profile.
 --
 -- /See:/ 'mkCreateMeetingRoomConfiguration' smart constructor.
 data CreateMeetingRoomConfiguration = CreateMeetingRoomConfiguration'
-  { -- | Settings to automatically book a room for a configured duration if it's free when joining a meeting with Alexa.
-    instantBooking :: Lude.Maybe CreateInstantBooking,
-    endOfMeetingReminder :: Lude.Maybe CreateEndOfMeetingReminder,
+  { endOfMeetingReminder :: Core.Maybe Types.CreateEndOfMeetingReminder,
+    -- | Settings to automatically book a room for a configured duration if it's free when joining a meeting with Alexa.
+    instantBooking :: Core.Maybe Types.CreateInstantBooking,
     -- | Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.”
-    requireCheckIn :: Lude.Maybe CreateRequireCheckIn,
+    requireCheckIn :: Core.Maybe Types.CreateRequireCheckIn,
     -- | Whether room utilization metrics are enabled or not.
-    roomUtilizationMetricsEnabled :: Lude.Maybe Lude.Bool
+    roomUtilizationMetricsEnabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateMeetingRoomConfiguration' with the minimum fields required to make a request.
---
--- * 'instantBooking' - Settings to automatically book a room for a configured duration if it's free when joining a meeting with Alexa.
--- * 'endOfMeetingReminder' -
--- * 'requireCheckIn' - Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.”
--- * 'roomUtilizationMetricsEnabled' - Whether room utilization metrics are enabled or not.
+-- | Creates a 'CreateMeetingRoomConfiguration' value with any optional fields omitted.
 mkCreateMeetingRoomConfiguration ::
   CreateMeetingRoomConfiguration
 mkCreateMeetingRoomConfiguration =
   CreateMeetingRoomConfiguration'
-    { instantBooking = Lude.Nothing,
-      endOfMeetingReminder = Lude.Nothing,
-      requireCheckIn = Lude.Nothing,
-      roomUtilizationMetricsEnabled = Lude.Nothing
+    { endOfMeetingReminder =
+        Core.Nothing,
+      instantBooking = Core.Nothing,
+      requireCheckIn = Core.Nothing,
+      roomUtilizationMetricsEnabled = Core.Nothing
     }
-
--- | Settings to automatically book a room for a configured duration if it's free when joining a meeting with Alexa.
---
--- /Note:/ Consider using 'instantBooking' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrcInstantBooking :: Lens.Lens' CreateMeetingRoomConfiguration (Lude.Maybe CreateInstantBooking)
-cmrcInstantBooking = Lens.lens (instantBooking :: CreateMeetingRoomConfiguration -> Lude.Maybe CreateInstantBooking) (\s a -> s {instantBooking = a} :: CreateMeetingRoomConfiguration)
-{-# DEPRECATED cmrcInstantBooking "Use generic-lens or generic-optics with 'instantBooking' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'endOfMeetingReminder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrcEndOfMeetingReminder :: Lens.Lens' CreateMeetingRoomConfiguration (Lude.Maybe CreateEndOfMeetingReminder)
-cmrcEndOfMeetingReminder = Lens.lens (endOfMeetingReminder :: CreateMeetingRoomConfiguration -> Lude.Maybe CreateEndOfMeetingReminder) (\s a -> s {endOfMeetingReminder = a} :: CreateMeetingRoomConfiguration)
+cmrcEndOfMeetingReminder :: Lens.Lens' CreateMeetingRoomConfiguration (Core.Maybe Types.CreateEndOfMeetingReminder)
+cmrcEndOfMeetingReminder = Lens.field @"endOfMeetingReminder"
 {-# DEPRECATED cmrcEndOfMeetingReminder "Use generic-lens or generic-optics with 'endOfMeetingReminder' instead." #-}
+
+-- | Settings to automatically book a room for a configured duration if it's free when joining a meeting with Alexa.
+--
+-- /Note:/ Consider using 'instantBooking' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrcInstantBooking :: Lens.Lens' CreateMeetingRoomConfiguration (Core.Maybe Types.CreateInstantBooking)
+cmrcInstantBooking = Lens.field @"instantBooking"
+{-# DEPRECATED cmrcInstantBooking "Use generic-lens or generic-optics with 'instantBooking' instead." #-}
 
 -- | Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.”
 --
 -- /Note:/ Consider using 'requireCheckIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrcRequireCheckIn :: Lens.Lens' CreateMeetingRoomConfiguration (Lude.Maybe CreateRequireCheckIn)
-cmrcRequireCheckIn = Lens.lens (requireCheckIn :: CreateMeetingRoomConfiguration -> Lude.Maybe CreateRequireCheckIn) (\s a -> s {requireCheckIn = a} :: CreateMeetingRoomConfiguration)
+cmrcRequireCheckIn :: Lens.Lens' CreateMeetingRoomConfiguration (Core.Maybe Types.CreateRequireCheckIn)
+cmrcRequireCheckIn = Lens.field @"requireCheckIn"
 {-# DEPRECATED cmrcRequireCheckIn "Use generic-lens or generic-optics with 'requireCheckIn' instead." #-}
 
 -- | Whether room utilization metrics are enabled or not.
 --
 -- /Note:/ Consider using 'roomUtilizationMetricsEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrcRoomUtilizationMetricsEnabled :: Lens.Lens' CreateMeetingRoomConfiguration (Lude.Maybe Lude.Bool)
-cmrcRoomUtilizationMetricsEnabled = Lens.lens (roomUtilizationMetricsEnabled :: CreateMeetingRoomConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {roomUtilizationMetricsEnabled = a} :: CreateMeetingRoomConfiguration)
+cmrcRoomUtilizationMetricsEnabled :: Lens.Lens' CreateMeetingRoomConfiguration (Core.Maybe Core.Bool)
+cmrcRoomUtilizationMetricsEnabled = Lens.field @"roomUtilizationMetricsEnabled"
 {-# DEPRECATED cmrcRoomUtilizationMetricsEnabled "Use generic-lens or generic-optics with 'roomUtilizationMetricsEnabled' instead." #-}
 
-instance Lude.ToJSON CreateMeetingRoomConfiguration where
-  toJSON CreateMeetingRoomConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("InstantBooking" Lude..=) Lude.<$> instantBooking,
-            ("EndOfMeetingReminder" Lude..=) Lude.<$> endOfMeetingReminder,
-            ("RequireCheckIn" Lude..=) Lude.<$> requireCheckIn,
-            ("RoomUtilizationMetricsEnabled" Lude..=)
-              Lude.<$> roomUtilizationMetricsEnabled
+instance Core.FromJSON CreateMeetingRoomConfiguration where
+  toJSON CreateMeetingRoomConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EndOfMeetingReminder" Core..=) Core.<$> endOfMeetingReminder,
+            ("InstantBooking" Core..=) Core.<$> instantBooking,
+            ("RequireCheckIn" Core..=) Core.<$> requireCheckIn,
+            ("RoomUtilizationMetricsEnabled" Core..=)
+              Core.<$> roomUtilizationMetricsEnabled
           ]
       )

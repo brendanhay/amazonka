@@ -21,39 +21,35 @@ module Network.AWS.Glue.Types.ExportLabelsTaskRunProperties
   )
 where
 
+import qualified Network.AWS.Glue.Types.OutputS3Path as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies configuration properties for an exporting labels task run.
 --
 -- /See:/ 'mkExportLabelsTaskRunProperties' smart constructor.
 newtype ExportLabelsTaskRunProperties = ExportLabelsTaskRunProperties'
   { -- | The Amazon Simple Storage Service (Amazon S3) path where you will export the labels.
-    outputS3Path :: Lude.Maybe Lude.Text
+    outputS3Path :: Core.Maybe Types.OutputS3Path
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportLabelsTaskRunProperties' with the minimum fields required to make a request.
---
--- * 'outputS3Path' - The Amazon Simple Storage Service (Amazon S3) path where you will export the labels.
+-- | Creates a 'ExportLabelsTaskRunProperties' value with any optional fields omitted.
 mkExportLabelsTaskRunProperties ::
   ExportLabelsTaskRunProperties
 mkExportLabelsTaskRunProperties =
-  ExportLabelsTaskRunProperties' {outputS3Path = Lude.Nothing}
+  ExportLabelsTaskRunProperties' {outputS3Path = Core.Nothing}
 
 -- | The Amazon Simple Storage Service (Amazon S3) path where you will export the labels.
 --
 -- /Note:/ Consider using 'outputS3Path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eltrpOutputS3Path :: Lens.Lens' ExportLabelsTaskRunProperties (Lude.Maybe Lude.Text)
-eltrpOutputS3Path = Lens.lens (outputS3Path :: ExportLabelsTaskRunProperties -> Lude.Maybe Lude.Text) (\s a -> s {outputS3Path = a} :: ExportLabelsTaskRunProperties)
+eltrpOutputS3Path :: Lens.Lens' ExportLabelsTaskRunProperties (Core.Maybe Types.OutputS3Path)
+eltrpOutputS3Path = Lens.field @"outputS3Path"
 {-# DEPRECATED eltrpOutputS3Path "Use generic-lens or generic-optics with 'outputS3Path' instead." #-}
 
-instance Lude.FromJSON ExportLabelsTaskRunProperties where
+instance Core.FromJSON ExportLabelsTaskRunProperties where
   parseJSON =
-    Lude.withObject
-      "ExportLabelsTaskRunProperties"
-      ( \x ->
-          ExportLabelsTaskRunProperties'
-            Lude.<$> (x Lude..:? "OutputS3Path")
-      )
+    Core.withObject "ExportLabelsTaskRunProperties" Core.$
+      \x ->
+        ExportLabelsTaskRunProperties' Core.<$> (x Core..:? "OutputS3Path")

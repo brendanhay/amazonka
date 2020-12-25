@@ -18,23 +18,25 @@ module Network.AWS.DynamoDB.Types.GlobalSecondaryIndexDescription
 
     -- * Lenses
     gsidBackfilling,
+    gsidIndexArn,
+    gsidIndexName,
     gsidIndexSizeBytes,
     gsidIndexStatus,
-    gsidProvisionedThroughput,
-    gsidIndexARN,
+    gsidItemCount,
     gsidKeySchema,
     gsidProjection,
-    gsidItemCount,
-    gsidIndexName,
+    gsidProvisionedThroughput,
   )
 where
 
-import Network.AWS.DynamoDB.Types.IndexStatus
-import Network.AWS.DynamoDB.Types.KeySchemaElement
-import Network.AWS.DynamoDB.Types.Projection
-import Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription
+import qualified Network.AWS.DynamoDB.Types.IndexName as Types
+import qualified Network.AWS.DynamoDB.Types.IndexStatus as Types
+import qualified Network.AWS.DynamoDB.Types.KeySchemaElement as Types
+import qualified Network.AWS.DynamoDB.Types.Projection as Types
+import qualified Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription as Types
+import qualified Network.AWS.DynamoDB.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the properties of a global secondary index.
 --
@@ -43,9 +45,13 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
   { -- | Indicates whether the index is currently backfilling. /Backfilling/ is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and @Backfilling@ is false.
     --
     -- You can delete an index that is being created during the @Backfilling@ phase when @IndexStatus@ is set to CREATING and @Backfilling@ is true. You can't delete the index that is being created when @IndexStatus@ is set to CREATING and @Backfilling@ is false.
-    backfilling :: Lude.Maybe Lude.Bool,
+    backfilling :: Core.Maybe Core.Bool,
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
+    indexArn :: Core.Maybe Types.String,
+    -- | The name of the global secondary index.
+    indexName :: Core.Maybe Types.IndexName,
     -- | The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
-    indexSizeBytes :: Lude.Maybe Lude.Integer,
+    indexSizeBytes :: Core.Maybe Core.Integer,
     -- | The current state of the global secondary index:
     --
     --
@@ -59,13 +65,9 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     --
     --
     --     * @ACTIVE@ - The index is ready for use.
-    indexStatus :: Lude.Maybe IndexStatus,
-    -- | Represents the provisioned throughput settings for the specified global secondary index.
-    --
-    -- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
-    provisionedThroughput :: Lude.Maybe ProvisionedThroughputDescription,
-    -- | The Amazon Resource Name (ARN) that uniquely identifies the index.
-    indexARN :: Lude.Maybe Lude.Text,
+    indexStatus :: Core.Maybe Types.IndexStatus,
+    -- | The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+    itemCount :: Core.Maybe Core.Integer,
     -- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
     --
     --
@@ -73,67 +75,31 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     --
     --
     --     * @RANGE@ - sort key
-    keySchema :: Lude.Maybe (Lude.NonEmpty KeySchemaElement),
+    keySchema :: Core.Maybe (Core.NonEmpty Types.KeySchemaElement),
     -- | Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
-    projection :: Lude.Maybe Projection,
-    -- | The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
-    itemCount :: Lude.Maybe Lude.Integer,
-    -- | The name of the global secondary index.
-    indexName :: Lude.Maybe Lude.Text
+    projection :: Core.Maybe Types.Projection,
+    -- | Represents the provisioned throughput settings for the specified global secondary index.
+    --
+    -- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
+    provisionedThroughput :: Core.Maybe Types.ProvisionedThroughputDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GlobalSecondaryIndexDescription' with the minimum fields required to make a request.
---
--- * 'backfilling' - Indicates whether the index is currently backfilling. /Backfilling/ is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and @Backfilling@ is false.
---
--- You can delete an index that is being created during the @Backfilling@ phase when @IndexStatus@ is set to CREATING and @Backfilling@ is true. You can't delete the index that is being created when @IndexStatus@ is set to CREATING and @Backfilling@ is false.
--- * 'indexSizeBytes' - The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
--- * 'indexStatus' - The current state of the global secondary index:
---
---
---     * @CREATING@ - The index is being created.
---
---
---     * @UPDATING@ - The index is being updated.
---
---
---     * @DELETING@ - The index is being deleted.
---
---
---     * @ACTIVE@ - The index is ready for use.
---
---
--- * 'provisionedThroughput' - Represents the provisioned throughput settings for the specified global secondary index.
---
--- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
--- * 'indexARN' - The Amazon Resource Name (ARN) that uniquely identifies the index.
--- * 'keySchema' - The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
---
---
---     * @HASH@ - partition key
---
---
---     * @RANGE@ - sort key
---
---
--- * 'projection' - Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
--- * 'itemCount' - The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
--- * 'indexName' - The name of the global secondary index.
+-- | Creates a 'GlobalSecondaryIndexDescription' value with any optional fields omitted.
 mkGlobalSecondaryIndexDescription ::
   GlobalSecondaryIndexDescription
 mkGlobalSecondaryIndexDescription =
   GlobalSecondaryIndexDescription'
-    { backfilling = Lude.Nothing,
-      indexSizeBytes = Lude.Nothing,
-      indexStatus = Lude.Nothing,
-      provisionedThroughput = Lude.Nothing,
-      indexARN = Lude.Nothing,
-      keySchema = Lude.Nothing,
-      projection = Lude.Nothing,
-      itemCount = Lude.Nothing,
-      indexName = Lude.Nothing
+    { backfilling = Core.Nothing,
+      indexArn = Core.Nothing,
+      indexName = Core.Nothing,
+      indexSizeBytes = Core.Nothing,
+      indexStatus = Core.Nothing,
+      itemCount = Core.Nothing,
+      keySchema = Core.Nothing,
+      projection = Core.Nothing,
+      provisionedThroughput = Core.Nothing
     }
 
 -- | Indicates whether the index is currently backfilling. /Backfilling/ is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and @Backfilling@ is false.
@@ -141,15 +107,29 @@ mkGlobalSecondaryIndexDescription =
 -- You can delete an index that is being created during the @Backfilling@ phase when @IndexStatus@ is set to CREATING and @Backfilling@ is true. You can't delete the index that is being created when @IndexStatus@ is set to CREATING and @Backfilling@ is false.
 --
 -- /Note:/ Consider using 'backfilling' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsidBackfilling :: Lens.Lens' GlobalSecondaryIndexDescription (Lude.Maybe Lude.Bool)
-gsidBackfilling = Lens.lens (backfilling :: GlobalSecondaryIndexDescription -> Lude.Maybe Lude.Bool) (\s a -> s {backfilling = a} :: GlobalSecondaryIndexDescription)
+gsidBackfilling :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Core.Bool)
+gsidBackfilling = Lens.field @"backfilling"
 {-# DEPRECATED gsidBackfilling "Use generic-lens or generic-optics with 'backfilling' instead." #-}
+
+-- | The Amazon Resource Name (ARN) that uniquely identifies the index.
+--
+-- /Note:/ Consider using 'indexArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsidIndexArn :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Types.String)
+gsidIndexArn = Lens.field @"indexArn"
+{-# DEPRECATED gsidIndexArn "Use generic-lens or generic-optics with 'indexArn' instead." #-}
+
+-- | The name of the global secondary index.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsidIndexName :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Types.IndexName)
+gsidIndexName = Lens.field @"indexName"
+{-# DEPRECATED gsidIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 --
 -- /Note:/ Consider using 'indexSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsidIndexSizeBytes :: Lens.Lens' GlobalSecondaryIndexDescription (Lude.Maybe Lude.Integer)
-gsidIndexSizeBytes = Lens.lens (indexSizeBytes :: GlobalSecondaryIndexDescription -> Lude.Maybe Lude.Integer) (\s a -> s {indexSizeBytes = a} :: GlobalSecondaryIndexDescription)
+gsidIndexSizeBytes :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Core.Integer)
+gsidIndexSizeBytes = Lens.field @"indexSizeBytes"
 {-# DEPRECATED gsidIndexSizeBytes "Use generic-lens or generic-optics with 'indexSizeBytes' instead." #-}
 
 -- | The current state of the global secondary index:
@@ -169,25 +149,16 @@ gsidIndexSizeBytes = Lens.lens (indexSizeBytes :: GlobalSecondaryIndexDescriptio
 --
 --
 -- /Note:/ Consider using 'indexStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsidIndexStatus :: Lens.Lens' GlobalSecondaryIndexDescription (Lude.Maybe IndexStatus)
-gsidIndexStatus = Lens.lens (indexStatus :: GlobalSecondaryIndexDescription -> Lude.Maybe IndexStatus) (\s a -> s {indexStatus = a} :: GlobalSecondaryIndexDescription)
+gsidIndexStatus :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Types.IndexStatus)
+gsidIndexStatus = Lens.field @"indexStatus"
 {-# DEPRECATED gsidIndexStatus "Use generic-lens or generic-optics with 'indexStatus' instead." #-}
 
--- | Represents the provisioned throughput settings for the specified global secondary index.
+-- | The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
 --
--- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
---
--- /Note:/ Consider using 'provisionedThroughput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsidProvisionedThroughput :: Lens.Lens' GlobalSecondaryIndexDescription (Lude.Maybe ProvisionedThroughputDescription)
-gsidProvisionedThroughput = Lens.lens (provisionedThroughput :: GlobalSecondaryIndexDescription -> Lude.Maybe ProvisionedThroughputDescription) (\s a -> s {provisionedThroughput = a} :: GlobalSecondaryIndexDescription)
-{-# DEPRECATED gsidProvisionedThroughput "Use generic-lens or generic-optics with 'provisionedThroughput' instead." #-}
-
--- | The Amazon Resource Name (ARN) that uniquely identifies the index.
---
--- /Note:/ Consider using 'indexARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsidIndexARN :: Lens.Lens' GlobalSecondaryIndexDescription (Lude.Maybe Lude.Text)
-gsidIndexARN = Lens.lens (indexARN :: GlobalSecondaryIndexDescription -> Lude.Maybe Lude.Text) (\s a -> s {indexARN = a} :: GlobalSecondaryIndexDescription)
-{-# DEPRECATED gsidIndexARN "Use generic-lens or generic-optics with 'indexARN' instead." #-}
+-- /Note:/ Consider using 'itemCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsidItemCount :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Core.Integer)
+gsidItemCount = Lens.field @"itemCount"
+{-# DEPRECATED gsidItemCount "Use generic-lens or generic-optics with 'itemCount' instead." #-}
 
 -- | The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:
 --
@@ -200,44 +171,37 @@ gsidIndexARN = Lens.lens (indexARN :: GlobalSecondaryIndexDescription -> Lude.Ma
 --
 --
 -- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsidKeySchema :: Lens.Lens' GlobalSecondaryIndexDescription (Lude.Maybe (Lude.NonEmpty KeySchemaElement))
-gsidKeySchema = Lens.lens (keySchema :: GlobalSecondaryIndexDescription -> Lude.Maybe (Lude.NonEmpty KeySchemaElement)) (\s a -> s {keySchema = a} :: GlobalSecondaryIndexDescription)
+gsidKeySchema :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe (Core.NonEmpty Types.KeySchemaElement))
+gsidKeySchema = Lens.field @"keySchema"
 {-# DEPRECATED gsidKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
 
 -- | Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.
 --
 -- /Note:/ Consider using 'projection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsidProjection :: Lens.Lens' GlobalSecondaryIndexDescription (Lude.Maybe Projection)
-gsidProjection = Lens.lens (projection :: GlobalSecondaryIndexDescription -> Lude.Maybe Projection) (\s a -> s {projection = a} :: GlobalSecondaryIndexDescription)
+gsidProjection :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Types.Projection)
+gsidProjection = Lens.field @"projection"
 {-# DEPRECATED gsidProjection "Use generic-lens or generic-optics with 'projection' instead." #-}
 
--- | The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+-- | Represents the provisioned throughput settings for the specified global secondary index.
 --
--- /Note:/ Consider using 'itemCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsidItemCount :: Lens.Lens' GlobalSecondaryIndexDescription (Lude.Maybe Lude.Integer)
-gsidItemCount = Lens.lens (itemCount :: GlobalSecondaryIndexDescription -> Lude.Maybe Lude.Integer) (\s a -> s {itemCount = a} :: GlobalSecondaryIndexDescription)
-{-# DEPRECATED gsidItemCount "Use generic-lens or generic-optics with 'itemCount' instead." #-}
-
--- | The name of the global secondary index.
+-- For current minimum and maximum provisioned throughput values, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Service, Account, and Table Quotas> in the /Amazon DynamoDB Developer Guide/ .
 --
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsidIndexName :: Lens.Lens' GlobalSecondaryIndexDescription (Lude.Maybe Lude.Text)
-gsidIndexName = Lens.lens (indexName :: GlobalSecondaryIndexDescription -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: GlobalSecondaryIndexDescription)
-{-# DEPRECATED gsidIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
+-- /Note:/ Consider using 'provisionedThroughput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsidProvisionedThroughput :: Lens.Lens' GlobalSecondaryIndexDescription (Core.Maybe Types.ProvisionedThroughputDescription)
+gsidProvisionedThroughput = Lens.field @"provisionedThroughput"
+{-# DEPRECATED gsidProvisionedThroughput "Use generic-lens or generic-optics with 'provisionedThroughput' instead." #-}
 
-instance Lude.FromJSON GlobalSecondaryIndexDescription where
+instance Core.FromJSON GlobalSecondaryIndexDescription where
   parseJSON =
-    Lude.withObject
-      "GlobalSecondaryIndexDescription"
-      ( \x ->
-          GlobalSecondaryIndexDescription'
-            Lude.<$> (x Lude..:? "Backfilling")
-            Lude.<*> (x Lude..:? "IndexSizeBytes")
-            Lude.<*> (x Lude..:? "IndexStatus")
-            Lude.<*> (x Lude..:? "ProvisionedThroughput")
-            Lude.<*> (x Lude..:? "IndexArn")
-            Lude.<*> (x Lude..:? "KeySchema")
-            Lude.<*> (x Lude..:? "Projection")
-            Lude.<*> (x Lude..:? "ItemCount")
-            Lude.<*> (x Lude..:? "IndexName")
-      )
+    Core.withObject "GlobalSecondaryIndexDescription" Core.$
+      \x ->
+        GlobalSecondaryIndexDescription'
+          Core.<$> (x Core..:? "Backfilling")
+          Core.<*> (x Core..:? "IndexArn")
+          Core.<*> (x Core..:? "IndexName")
+          Core.<*> (x Core..:? "IndexSizeBytes")
+          Core.<*> (x Core..:? "IndexStatus")
+          Core.<*> (x Core..:? "ItemCount")
+          Core.<*> (x Core..:? "KeySchema")
+          Core.<*> (x Core..:? "Projection")
+          Core.<*> (x Core..:? "ProvisionedThroughput")

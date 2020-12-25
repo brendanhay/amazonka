@@ -31,64 +31,65 @@ module Network.AWS.SES.UpdateAccountSendingEnabled
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to enable or disable the email sending capabilities for your entire Amazon SES account.
 --
 -- /See:/ 'mkUpdateAccountSendingEnabled' smart constructor.
 newtype UpdateAccountSendingEnabled = UpdateAccountSendingEnabled'
   { -- | Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAccountSendingEnabled' with the minimum fields required to make a request.
---
--- * 'enabled' - Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
+-- | Creates a 'UpdateAccountSendingEnabled' value with any optional fields omitted.
 mkUpdateAccountSendingEnabled ::
   UpdateAccountSendingEnabled
 mkUpdateAccountSendingEnabled =
-  UpdateAccountSendingEnabled' {enabled = Lude.Nothing}
+  UpdateAccountSendingEnabled' {enabled = Core.Nothing}
 
 -- | Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaseEnabled :: Lens.Lens' UpdateAccountSendingEnabled (Lude.Maybe Lude.Bool)
-uaseEnabled = Lens.lens (enabled :: UpdateAccountSendingEnabled -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: UpdateAccountSendingEnabled)
+uaseEnabled :: Lens.Lens' UpdateAccountSendingEnabled (Core.Maybe Core.Bool)
+uaseEnabled = Lens.field @"enabled"
 {-# DEPRECATED uaseEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.AWSRequest UpdateAccountSendingEnabled where
+instance Core.AWSRequest UpdateAccountSendingEnabled where
   type
     Rs UpdateAccountSendingEnabled =
       UpdateAccountSendingEnabledResponse
-  request = Req.postQuery sesService
-  response = Res.receiveNull UpdateAccountSendingEnabledResponse'
-
-instance Lude.ToHeaders UpdateAccountSendingEnabled where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateAccountSendingEnabled where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateAccountSendingEnabled where
-  toQuery UpdateAccountSendingEnabled' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("UpdateAccountSendingEnabled" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Enabled" Lude.=: enabled
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateAccountSendingEnabled")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "Enabled" Core.<$> enabled)
+            )
+      }
+  response =
+    Response.receiveNull UpdateAccountSendingEnabledResponse'
 
 -- | /See:/ 'mkUpdateAccountSendingEnabledResponse' smart constructor.
 data UpdateAccountSendingEnabledResponse = UpdateAccountSendingEnabledResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAccountSendingEnabledResponse' with the minimum fields required to make a request.
+-- | Creates a 'UpdateAccountSendingEnabledResponse' value with any optional fields omitted.
 mkUpdateAccountSendingEnabledResponse ::
   UpdateAccountSendingEnabledResponse
 mkUpdateAccountSendingEnabledResponse =

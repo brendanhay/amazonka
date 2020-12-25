@@ -23,78 +23,78 @@ module Network.AWS.Redshift.CancelResize
     crClusterIdentifier,
 
     -- * Destructuring the response
-    ResizeProgressMessage (..),
-    mkResizeProgressMessage,
+    Types.ResizeProgressMessage (..),
+    Types.mkResizeProgressMessage,
 
     -- ** Response lenses
-    rpmImportTablesNotStarted,
-    rpmStatus,
-    rpmEstimatedTimeToCompletionInSeconds,
-    rpmAvgResizeRateInMegaBytesPerSecond,
-    rpmTargetNumberOfNodes,
-    rpmTargetEncryptionType,
-    rpmTargetNodeType,
-    rpmImportTablesInProgress,
-    rpmResizeType,
-    rpmImportTablesCompleted,
-    rpmProgressInMegaBytes,
-    rpmDataTransferProgressPercent,
-    rpmTotalResizeDataInMegaBytes,
-    rpmTargetClusterType,
-    rpmMessage,
-    rpmElapsedTimeInSeconds,
+    Types.rpmAvgResizeRateInMegaBytesPerSecond,
+    Types.rpmDataTransferProgressPercent,
+    Types.rpmElapsedTimeInSeconds,
+    Types.rpmEstimatedTimeToCompletionInSeconds,
+    Types.rpmImportTablesCompleted,
+    Types.rpmImportTablesInProgress,
+    Types.rpmImportTablesNotStarted,
+    Types.rpmMessage,
+    Types.rpmProgressInMegaBytes,
+    Types.rpmResizeType,
+    Types.rpmStatus,
+    Types.rpmTargetClusterType,
+    Types.rpmTargetEncryptionType,
+    Types.rpmTargetNodeType,
+    Types.rpmTargetNumberOfNodes,
+    Types.rpmTotalResizeDataInMegaBytes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCancelResize' smart constructor.
 newtype CancelResize = CancelResize'
   { -- | The unique identifier for the cluster that you want to cancel a resize operation for.
-    clusterIdentifier :: Lude.Text
+    clusterIdentifier :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelResize' with the minimum fields required to make a request.
---
--- * 'clusterIdentifier' - The unique identifier for the cluster that you want to cancel a resize operation for.
+-- | Creates a 'CancelResize' value with any optional fields omitted.
 mkCancelResize ::
   -- | 'clusterIdentifier'
-  Lude.Text ->
+  Types.String ->
   CancelResize
-mkCancelResize pClusterIdentifier_ =
-  CancelResize' {clusterIdentifier = pClusterIdentifier_}
+mkCancelResize clusterIdentifier = CancelResize' {clusterIdentifier}
 
 -- | The unique identifier for the cluster that you want to cancel a resize operation for.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crClusterIdentifier :: Lens.Lens' CancelResize Lude.Text
-crClusterIdentifier = Lens.lens (clusterIdentifier :: CancelResize -> Lude.Text) (\s a -> s {clusterIdentifier = a} :: CancelResize)
+crClusterIdentifier :: Lens.Lens' CancelResize Types.String
+crClusterIdentifier = Lens.field @"clusterIdentifier"
 {-# DEPRECATED crClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
-instance Lude.AWSRequest CancelResize where
-  type Rs CancelResize = ResizeProgressMessage
-  request = Req.postQuery redshiftService
+instance Core.AWSRequest CancelResize where
+  type Rs CancelResize = Types.ResizeProgressMessage
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CancelResize")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ClusterIdentifier" clusterIdentifier)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CancelResizeResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders CancelResize where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CancelResize where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CancelResize where
-  toQuery CancelResize' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CancelResize" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ClusterIdentifier" Lude.=: clusterIdentifier
-      ]
+      (\s h x -> Core.parseXML x)

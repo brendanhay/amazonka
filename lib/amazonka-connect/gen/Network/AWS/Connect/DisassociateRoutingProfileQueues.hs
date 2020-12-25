@@ -30,106 +30,95 @@ module Network.AWS.Connect.DisassociateRoutingProfileQueues
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateRoutingProfileQueues' smart constructor.
 data DisassociateRoutingProfileQueues = DisassociateRoutingProfileQueues'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The identifier of the routing profile.
-    routingProfileId :: Lude.Text,
+    routingProfileId :: Types.RoutingProfileId,
     -- | The queues to disassociate from this routing profile.
-    queueReferences :: [RoutingProfileQueueReference]
+    queueReferences :: [Types.RoutingProfileQueueReference]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateRoutingProfileQueues' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'routingProfileId' - The identifier of the routing profile.
--- * 'queueReferences' - The queues to disassociate from this routing profile.
+-- | Creates a 'DisassociateRoutingProfileQueues' value with any optional fields omitted.
 mkDisassociateRoutingProfileQueues ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'routingProfileId'
-  Lude.Text ->
+  Types.RoutingProfileId ->
   DisassociateRoutingProfileQueues
-mkDisassociateRoutingProfileQueues pInstanceId_ pRoutingProfileId_ =
+mkDisassociateRoutingProfileQueues instanceId routingProfileId =
   DisassociateRoutingProfileQueues'
-    { instanceId = pInstanceId_,
-      routingProfileId = pRoutingProfileId_,
-      queueReferences = Lude.mempty
+    { instanceId,
+      routingProfileId,
+      queueReferences = Core.mempty
     }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpqInstanceId :: Lens.Lens' DisassociateRoutingProfileQueues Lude.Text
-drpqInstanceId = Lens.lens (instanceId :: DisassociateRoutingProfileQueues -> Lude.Text) (\s a -> s {instanceId = a} :: DisassociateRoutingProfileQueues)
+drpqInstanceId :: Lens.Lens' DisassociateRoutingProfileQueues Types.InstanceId
+drpqInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED drpqInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the routing profile.
 --
 -- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpqRoutingProfileId :: Lens.Lens' DisassociateRoutingProfileQueues Lude.Text
-drpqRoutingProfileId = Lens.lens (routingProfileId :: DisassociateRoutingProfileQueues -> Lude.Text) (\s a -> s {routingProfileId = a} :: DisassociateRoutingProfileQueues)
+drpqRoutingProfileId :: Lens.Lens' DisassociateRoutingProfileQueues Types.RoutingProfileId
+drpqRoutingProfileId = Lens.field @"routingProfileId"
 {-# DEPRECATED drpqRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
 
 -- | The queues to disassociate from this routing profile.
 --
 -- /Note:/ Consider using 'queueReferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpqQueueReferences :: Lens.Lens' DisassociateRoutingProfileQueues [RoutingProfileQueueReference]
-drpqQueueReferences = Lens.lens (queueReferences :: DisassociateRoutingProfileQueues -> [RoutingProfileQueueReference]) (\s a -> s {queueReferences = a} :: DisassociateRoutingProfileQueues)
+drpqQueueReferences :: Lens.Lens' DisassociateRoutingProfileQueues [Types.RoutingProfileQueueReference]
+drpqQueueReferences = Lens.field @"queueReferences"
 {-# DEPRECATED drpqQueueReferences "Use generic-lens or generic-optics with 'queueReferences' instead." #-}
 
-instance Lude.AWSRequest DisassociateRoutingProfileQueues where
+instance Core.FromJSON DisassociateRoutingProfileQueues where
+  toJSON DisassociateRoutingProfileQueues {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("QueueReferences" Core..= queueReferences)]
+      )
+
+instance Core.AWSRequest DisassociateRoutingProfileQueues where
   type
     Rs DisassociateRoutingProfileQueues =
       DisassociateRoutingProfileQueuesResponse
-  request = Req.postJSON connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/routing-profiles/" Core.<> (Core.toText instanceId)
+                Core.<> ("/")
+                Core.<> (Core.toText routingProfileId)
+                Core.<> ("/disassociate-queues")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveNull DisassociateRoutingProfileQueuesResponse'
-
-instance Lude.ToHeaders DisassociateRoutingProfileQueues where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateRoutingProfileQueues where
-  toJSON DisassociateRoutingProfileQueues' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("QueueReferences" Lude..= queueReferences)]
-      )
-
-instance Lude.ToPath DisassociateRoutingProfileQueues where
-  toPath DisassociateRoutingProfileQueues' {..} =
-    Lude.mconcat
-      [ "/routing-profiles/",
-        Lude.toBS instanceId,
-        "/",
-        Lude.toBS routingProfileId,
-        "/disassociate-queues"
-      ]
-
-instance Lude.ToQuery DisassociateRoutingProfileQueues where
-  toQuery = Lude.const Lude.mempty
+    Response.receiveNull DisassociateRoutingProfileQueuesResponse'
 
 -- | /See:/ 'mkDisassociateRoutingProfileQueuesResponse' smart constructor.
 data DisassociateRoutingProfileQueuesResponse = DisassociateRoutingProfileQueuesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateRoutingProfileQueuesResponse' with the minimum fields required to make a request.
+-- | Creates a 'DisassociateRoutingProfileQueuesResponse' value with any optional fields omitted.
 mkDisassociateRoutingProfileQueuesResponse ::
   DisassociateRoutingProfileQueuesResponse
 mkDisassociateRoutingProfileQueuesResponse =

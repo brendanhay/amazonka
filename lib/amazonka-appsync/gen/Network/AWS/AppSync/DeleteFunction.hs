@@ -28,100 +28,91 @@ module Network.AWS.AppSync.DeleteFunction
     mkDeleteFunctionResponse,
 
     -- ** Response lenses
-    dfrsResponseStatus,
+    dfrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppSync.Types
+import qualified Network.AWS.AppSync.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteFunction' smart constructor.
 data DeleteFunction = DeleteFunction'
   { -- | The GraphQL API ID.
-    apiId :: Lude.Text,
+    apiId :: Types.String,
     -- | The @Function@ ID.
-    functionId :: Lude.Text
+    functionId :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFunction' with the minimum fields required to make a request.
---
--- * 'apiId' - The GraphQL API ID.
--- * 'functionId' - The @Function@ ID.
+-- | Creates a 'DeleteFunction' value with any optional fields omitted.
 mkDeleteFunction ::
   -- | 'apiId'
-  Lude.Text ->
+  Types.String ->
   -- | 'functionId'
-  Lude.Text ->
+  Types.ResourceName ->
   DeleteFunction
-mkDeleteFunction pApiId_ pFunctionId_ =
-  DeleteFunction' {apiId = pApiId_, functionId = pFunctionId_}
+mkDeleteFunction apiId functionId =
+  DeleteFunction' {apiId, functionId}
 
 -- | The GraphQL API ID.
 --
 -- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfApiId :: Lens.Lens' DeleteFunction Lude.Text
-dfApiId = Lens.lens (apiId :: DeleteFunction -> Lude.Text) (\s a -> s {apiId = a} :: DeleteFunction)
+dfApiId :: Lens.Lens' DeleteFunction Types.String
+dfApiId = Lens.field @"apiId"
 {-# DEPRECATED dfApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
 
 -- | The @Function@ ID.
 --
 -- /Note:/ Consider using 'functionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfFunctionId :: Lens.Lens' DeleteFunction Lude.Text
-dfFunctionId = Lens.lens (functionId :: DeleteFunction -> Lude.Text) (\s a -> s {functionId = a} :: DeleteFunction)
+dfFunctionId :: Lens.Lens' DeleteFunction Types.ResourceName
+dfFunctionId = Lens.field @"functionId"
 {-# DEPRECATED dfFunctionId "Use generic-lens or generic-optics with 'functionId' instead." #-}
 
-instance Lude.AWSRequest DeleteFunction where
+instance Core.AWSRequest DeleteFunction where
   type Rs DeleteFunction = DeleteFunctionResponse
-  request = Req.delete appSyncService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apis/" Core.<> (Core.toText apiId) Core.<> ("/functions/")
+                Core.<> (Core.toText functionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteFunctionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteFunctionResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteFunction where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteFunction where
-  toPath DeleteFunction' {..} =
-    Lude.mconcat
-      ["/v1/apis/", Lude.toBS apiId, "/functions/", Lude.toBS functionId]
-
-instance Lude.ToQuery DeleteFunction where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteFunctionResponse' smart constructor.
 newtype DeleteFunctionResponse = DeleteFunctionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteFunctionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteFunctionResponse' value with any optional fields omitted.
 mkDeleteFunctionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteFunctionResponse
-mkDeleteFunctionResponse pResponseStatus_ =
-  DeleteFunctionResponse' {responseStatus = pResponseStatus_}
+mkDeleteFunctionResponse responseStatus =
+  DeleteFunctionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfrsResponseStatus :: Lens.Lens' DeleteFunctionResponse Lude.Int
-dfrsResponseStatus = Lens.lens (responseStatus :: DeleteFunctionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteFunctionResponse)
-{-# DEPRECATED dfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfrrsResponseStatus :: Lens.Lens' DeleteFunctionResponse Core.Int
+dfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

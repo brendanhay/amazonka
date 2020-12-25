@@ -22,10 +22,10 @@ module Network.AWS.IAM.ResyncMFADevice
     mkResyncMFADevice,
 
     -- ** Request lenses
-    rmdAuthenticationCode1,
-    rmdUserName,
-    rmdAuthenticationCode2,
-    rmdSerialNumber,
+    rmfadUserName,
+    rmfadSerialNumber,
+    rmfadAuthenticationCode1,
+    rmfadAuthenticationCode2,
 
     -- * Destructuring the response
     ResyncMFADeviceResponse (..),
@@ -33,134 +33,124 @@ module Network.AWS.IAM.ResyncMFADevice
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkResyncMFADevice' smart constructor.
 data ResyncMFADevice = ResyncMFADevice'
-  { -- | An authentication code emitted by the device.
-    --
-    -- The format for this parameter is a sequence of six digits.
-    authenticationCode1 :: Lude.Text,
-    -- | The name of the user whose MFA device you want to resynchronize.
+  { -- | The name of the user whose MFA device you want to resynchronize.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Text,
-    -- | A subsequent authentication code emitted by the device.
-    --
-    -- The format for this parameter is a sequence of six digits.
-    authenticationCode2 :: Lude.Text,
+    userName :: Types.UserName,
     -- | Serial number that uniquely identifies the MFA device.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    serialNumber :: Lude.Text
+    serialNumber :: Types.SerialNumberType,
+    -- | An authentication code emitted by the device.
+    --
+    -- The format for this parameter is a sequence of six digits.
+    authenticationCode1 :: Types.AuthenticationCodeType,
+    -- | A subsequent authentication code emitted by the device.
+    --
+    -- The format for this parameter is a sequence of six digits.
+    authenticationCode2 :: Types.AuthenticationCodeType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResyncMFADevice' with the minimum fields required to make a request.
---
--- * 'authenticationCode1' - An authentication code emitted by the device.
---
--- The format for this parameter is a sequence of six digits.
--- * 'userName' - The name of the user whose MFA device you want to resynchronize.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'authenticationCode2' - A subsequent authentication code emitted by the device.
---
--- The format for this parameter is a sequence of six digits.
--- * 'serialNumber' - Serial number that uniquely identifies the MFA device.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'ResyncMFADevice' value with any optional fields omitted.
 mkResyncMFADevice ::
-  -- | 'authenticationCode1'
-  Lude.Text ->
   -- | 'userName'
-  Lude.Text ->
-  -- | 'authenticationCode2'
-  Lude.Text ->
+  Types.UserName ->
   -- | 'serialNumber'
-  Lude.Text ->
+  Types.SerialNumberType ->
+  -- | 'authenticationCode1'
+  Types.AuthenticationCodeType ->
+  -- | 'authenticationCode2'
+  Types.AuthenticationCodeType ->
   ResyncMFADevice
 mkResyncMFADevice
-  pAuthenticationCode1_
-  pUserName_
-  pAuthenticationCode2_
-  pSerialNumber_ =
+  userName
+  serialNumber
+  authenticationCode1
+  authenticationCode2 =
     ResyncMFADevice'
-      { authenticationCode1 = pAuthenticationCode1_,
-        userName = pUserName_,
-        authenticationCode2 = pAuthenticationCode2_,
-        serialNumber = pSerialNumber_
+      { userName,
+        serialNumber,
+        authenticationCode1,
+        authenticationCode2
       }
-
--- | An authentication code emitted by the device.
---
--- The format for this parameter is a sequence of six digits.
---
--- /Note:/ Consider using 'authenticationCode1' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmdAuthenticationCode1 :: Lens.Lens' ResyncMFADevice Lude.Text
-rmdAuthenticationCode1 = Lens.lens (authenticationCode1 :: ResyncMFADevice -> Lude.Text) (\s a -> s {authenticationCode1 = a} :: ResyncMFADevice)
-{-# DEPRECATED rmdAuthenticationCode1 "Use generic-lens or generic-optics with 'authenticationCode1' instead." #-}
 
 -- | The name of the user whose MFA device you want to resynchronize.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmdUserName :: Lens.Lens' ResyncMFADevice Lude.Text
-rmdUserName = Lens.lens (userName :: ResyncMFADevice -> Lude.Text) (\s a -> s {userName = a} :: ResyncMFADevice)
-{-# DEPRECATED rmdUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
-
--- | A subsequent authentication code emitted by the device.
---
--- The format for this parameter is a sequence of six digits.
---
--- /Note:/ Consider using 'authenticationCode2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmdAuthenticationCode2 :: Lens.Lens' ResyncMFADevice Lude.Text
-rmdAuthenticationCode2 = Lens.lens (authenticationCode2 :: ResyncMFADevice -> Lude.Text) (\s a -> s {authenticationCode2 = a} :: ResyncMFADevice)
-{-# DEPRECATED rmdAuthenticationCode2 "Use generic-lens or generic-optics with 'authenticationCode2' instead." #-}
+rmfadUserName :: Lens.Lens' ResyncMFADevice Types.UserName
+rmfadUserName = Lens.field @"userName"
+{-# DEPRECATED rmfadUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | Serial number that uniquely identifies the MFA device.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'serialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmdSerialNumber :: Lens.Lens' ResyncMFADevice Lude.Text
-rmdSerialNumber = Lens.lens (serialNumber :: ResyncMFADevice -> Lude.Text) (\s a -> s {serialNumber = a} :: ResyncMFADevice)
-{-# DEPRECATED rmdSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
+rmfadSerialNumber :: Lens.Lens' ResyncMFADevice Types.SerialNumberType
+rmfadSerialNumber = Lens.field @"serialNumber"
+{-# DEPRECATED rmfadSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
 
-instance Lude.AWSRequest ResyncMFADevice where
+-- | An authentication code emitted by the device.
+--
+-- The format for this parameter is a sequence of six digits.
+--
+-- /Note:/ Consider using 'authenticationCode1' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmfadAuthenticationCode1 :: Lens.Lens' ResyncMFADevice Types.AuthenticationCodeType
+rmfadAuthenticationCode1 = Lens.field @"authenticationCode1"
+{-# DEPRECATED rmfadAuthenticationCode1 "Use generic-lens or generic-optics with 'authenticationCode1' instead." #-}
+
+-- | A subsequent authentication code emitted by the device.
+--
+-- The format for this parameter is a sequence of six digits.
+--
+-- /Note:/ Consider using 'authenticationCode2' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmfadAuthenticationCode2 :: Lens.Lens' ResyncMFADevice Types.AuthenticationCodeType
+rmfadAuthenticationCode2 = Lens.field @"authenticationCode2"
+{-# DEPRECATED rmfadAuthenticationCode2 "Use generic-lens or generic-optics with 'authenticationCode2' instead." #-}
+
+instance Core.AWSRequest ResyncMFADevice where
   type Rs ResyncMFADevice = ResyncMFADeviceResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull ResyncMFADeviceResponse'
-
-instance Lude.ToHeaders ResyncMFADevice where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ResyncMFADevice where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResyncMFADevice where
-  toQuery ResyncMFADevice' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ResyncMFADevice" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "AuthenticationCode1" Lude.=: authenticationCode1,
-        "UserName" Lude.=: userName,
-        "AuthenticationCode2" Lude.=: authenticationCode2,
-        "SerialNumber" Lude.=: serialNumber
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ResyncMFADevice")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" userName)
+                Core.<> (Core.toQueryValue "SerialNumber" serialNumber)
+                Core.<> (Core.toQueryValue "AuthenticationCode1" authenticationCode1)
+                Core.<> (Core.toQueryValue "AuthenticationCode2" authenticationCode2)
+            )
+      }
+  response = Response.receiveNull ResyncMFADeviceResponse'
 
 -- | /See:/ 'mkResyncMFADeviceResponse' smart constructor.
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResyncMFADeviceResponse' with the minimum fields required to make a request.
+-- | Creates a 'ResyncMFADeviceResponse' value with any optional fields omitted.
 mkResyncMFADeviceResponse ::
   ResyncMFADeviceResponse
 mkResyncMFADeviceResponse = ResyncMFADeviceResponse'

@@ -18,29 +18,32 @@ module Network.AWS.DeviceFarm.Types.Problem
 
     -- * Lenses
     pDevice,
-    pTest,
-    pResult,
-    pRun,
     pJob,
     pMessage,
+    pResult,
+    pRun,
     pSuite,
+    pTest,
   )
 where
 
-import Network.AWS.DeviceFarm.Types.Device
-import Network.AWS.DeviceFarm.Types.ExecutionResult
-import Network.AWS.DeviceFarm.Types.ProblemDetail
+import qualified Network.AWS.DeviceFarm.Types.Device as Types
+import qualified Network.AWS.DeviceFarm.Types.ExecutionResult as Types
+import qualified Network.AWS.DeviceFarm.Types.Message as Types
+import qualified Network.AWS.DeviceFarm.Types.ProblemDetail as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a specific warning or failure.
 --
 -- /See:/ 'mkProblem' smart constructor.
 data Problem = Problem'
   { -- | Information about the associated device.
-    device :: Lude.Maybe Device,
-    -- | Information about the associated test.
-    test :: Lude.Maybe ProblemDetail,
+    device :: Core.Maybe Types.Device,
+    -- | Information about the associated job.
+    job :: Core.Maybe Types.ProblemDetail,
+    -- | A message about the problem's result.
+    message :: Core.Maybe Types.Message,
     -- | The problem's result.
     --
     -- Allowed values include:
@@ -64,78 +67,51 @@ data Problem = Problem'
     --
     --
     --     * STOPPED
-    result :: Lude.Maybe ExecutionResult,
+    result :: Core.Maybe Types.ExecutionResult,
     -- | Information about the associated run.
-    run :: Lude.Maybe ProblemDetail,
-    -- | Information about the associated job.
-    job :: Lude.Maybe ProblemDetail,
-    -- | A message about the problem's result.
-    message :: Lude.Maybe Lude.Text,
+    run :: Core.Maybe Types.ProblemDetail,
     -- | Information about the associated suite.
-    suite :: Lude.Maybe ProblemDetail
+    suite :: Core.Maybe Types.ProblemDetail,
+    -- | Information about the associated test.
+    test :: Core.Maybe Types.ProblemDetail
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Problem' with the minimum fields required to make a request.
---
--- * 'device' - Information about the associated device.
--- * 'test' - Information about the associated test.
--- * 'result' - The problem's result.
---
--- Allowed values include:
---
---     * PENDING
---
---
---     * PASSED
---
---
---     * WARNED
---
---
---     * FAILED
---
---
---     * SKIPPED
---
---
---     * ERRORED
---
---
---     * STOPPED
---
---
--- * 'run' - Information about the associated run.
--- * 'job' - Information about the associated job.
--- * 'message' - A message about the problem's result.
--- * 'suite' - Information about the associated suite.
+-- | Creates a 'Problem' value with any optional fields omitted.
 mkProblem ::
   Problem
 mkProblem =
   Problem'
-    { device = Lude.Nothing,
-      test = Lude.Nothing,
-      result = Lude.Nothing,
-      run = Lude.Nothing,
-      job = Lude.Nothing,
-      message = Lude.Nothing,
-      suite = Lude.Nothing
+    { device = Core.Nothing,
+      job = Core.Nothing,
+      message = Core.Nothing,
+      result = Core.Nothing,
+      run = Core.Nothing,
+      suite = Core.Nothing,
+      test = Core.Nothing
     }
 
 -- | Information about the associated device.
 --
 -- /Note:/ Consider using 'device' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDevice :: Lens.Lens' Problem (Lude.Maybe Device)
-pDevice = Lens.lens (device :: Problem -> Lude.Maybe Device) (\s a -> s {device = a} :: Problem)
+pDevice :: Lens.Lens' Problem (Core.Maybe Types.Device)
+pDevice = Lens.field @"device"
 {-# DEPRECATED pDevice "Use generic-lens or generic-optics with 'device' instead." #-}
 
--- | Information about the associated test.
+-- | Information about the associated job.
 --
--- /Note:/ Consider using 'test' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pTest :: Lens.Lens' Problem (Lude.Maybe ProblemDetail)
-pTest = Lens.lens (test :: Problem -> Lude.Maybe ProblemDetail) (\s a -> s {test = a} :: Problem)
-{-# DEPRECATED pTest "Use generic-lens or generic-optics with 'test' instead." #-}
+-- /Note:/ Consider using 'job' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pJob :: Lens.Lens' Problem (Core.Maybe Types.ProblemDetail)
+pJob = Lens.field @"job"
+{-# DEPRECATED pJob "Use generic-lens or generic-optics with 'job' instead." #-}
+
+-- | A message about the problem's result.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pMessage :: Lens.Lens' Problem (Core.Maybe Types.Message)
+pMessage = Lens.field @"message"
+{-# DEPRECATED pMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | The problem's result.
 --
@@ -164,49 +140,40 @@ pTest = Lens.lens (test :: Problem -> Lude.Maybe ProblemDetail) (\s a -> s {test
 --
 --
 -- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pResult :: Lens.Lens' Problem (Lude.Maybe ExecutionResult)
-pResult = Lens.lens (result :: Problem -> Lude.Maybe ExecutionResult) (\s a -> s {result = a} :: Problem)
+pResult :: Lens.Lens' Problem (Core.Maybe Types.ExecutionResult)
+pResult = Lens.field @"result"
 {-# DEPRECATED pResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | Information about the associated run.
 --
 -- /Note:/ Consider using 'run' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pRun :: Lens.Lens' Problem (Lude.Maybe ProblemDetail)
-pRun = Lens.lens (run :: Problem -> Lude.Maybe ProblemDetail) (\s a -> s {run = a} :: Problem)
+pRun :: Lens.Lens' Problem (Core.Maybe Types.ProblemDetail)
+pRun = Lens.field @"run"
 {-# DEPRECATED pRun "Use generic-lens or generic-optics with 'run' instead." #-}
-
--- | Information about the associated job.
---
--- /Note:/ Consider using 'job' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pJob :: Lens.Lens' Problem (Lude.Maybe ProblemDetail)
-pJob = Lens.lens (job :: Problem -> Lude.Maybe ProblemDetail) (\s a -> s {job = a} :: Problem)
-{-# DEPRECATED pJob "Use generic-lens or generic-optics with 'job' instead." #-}
-
--- | A message about the problem's result.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pMessage :: Lens.Lens' Problem (Lude.Maybe Lude.Text)
-pMessage = Lens.lens (message :: Problem -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: Problem)
-{-# DEPRECATED pMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
 -- | Information about the associated suite.
 --
 -- /Note:/ Consider using 'suite' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pSuite :: Lens.Lens' Problem (Lude.Maybe ProblemDetail)
-pSuite = Lens.lens (suite :: Problem -> Lude.Maybe ProblemDetail) (\s a -> s {suite = a} :: Problem)
+pSuite :: Lens.Lens' Problem (Core.Maybe Types.ProblemDetail)
+pSuite = Lens.field @"suite"
 {-# DEPRECATED pSuite "Use generic-lens or generic-optics with 'suite' instead." #-}
 
-instance Lude.FromJSON Problem where
+-- | Information about the associated test.
+--
+-- /Note:/ Consider using 'test' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pTest :: Lens.Lens' Problem (Core.Maybe Types.ProblemDetail)
+pTest = Lens.field @"test"
+{-# DEPRECATED pTest "Use generic-lens or generic-optics with 'test' instead." #-}
+
+instance Core.FromJSON Problem where
   parseJSON =
-    Lude.withObject
-      "Problem"
-      ( \x ->
-          Problem'
-            Lude.<$> (x Lude..:? "device")
-            Lude.<*> (x Lude..:? "test")
-            Lude.<*> (x Lude..:? "result")
-            Lude.<*> (x Lude..:? "run")
-            Lude.<*> (x Lude..:? "job")
-            Lude.<*> (x Lude..:? "message")
-            Lude.<*> (x Lude..:? "suite")
-      )
+    Core.withObject "Problem" Core.$
+      \x ->
+        Problem'
+          Core.<$> (x Core..:? "device")
+          Core.<*> (x Core..:? "job")
+          Core.<*> (x Core..:? "message")
+          Core.<*> (x Core..:? "result")
+          Core.<*> (x Core..:? "run")
+          Core.<*> (x Core..:? "suite")
+          Core.<*> (x Core..:? "test")

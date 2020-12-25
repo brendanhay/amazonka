@@ -22,38 +22,34 @@ module Network.AWS.Lambda.UpdateFunctionEventInvokeConfig
     mkUpdateFunctionEventInvokeConfig,
 
     -- ** Request lenses
+    ufeicFunctionName,
+    ufeicDestinationConfig,
     ufeicMaximumEventAgeInSeconds,
     ufeicMaximumRetryAttempts,
-    ufeicFunctionName,
     ufeicQualifier,
-    ufeicDestinationConfig,
 
     -- * Destructuring the response
-    FunctionEventInvokeConfig (..),
-    mkFunctionEventInvokeConfig,
+    Types.FunctionEventInvokeConfig (..),
+    Types.mkFunctionEventInvokeConfig,
 
     -- ** Response lenses
-    feicFunctionARN,
-    feicMaximumEventAgeInSeconds,
-    feicMaximumRetryAttempts,
-    feicLastModified,
-    feicDestinationConfig,
+    Types.feicDestinationConfig,
+    Types.feicFunctionArn,
+    Types.feicLastModified,
+    Types.feicMaximumEventAgeInSeconds,
+    Types.feicMaximumRetryAttempts,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateFunctionEventInvokeConfig' smart constructor.
 data UpdateFunctionEventInvokeConfig = UpdateFunctionEventInvokeConfig'
-  { -- | The maximum age of a request that Lambda sends to a function for processing.
-    maximumEventAgeInSeconds :: Lude.Maybe Lude.Natural,
-    -- | The maximum number of times to retry when the function returns an error.
-    maximumRetryAttempts :: Lude.Maybe Lude.Natural,
-    -- | The name of the Lambda function, version, or alias.
+  { -- | The name of the Lambda function, version, or alias.
     --
     -- __Name formats__
     --
@@ -67,9 +63,7 @@ data UpdateFunctionEventInvokeConfig = UpdateFunctionEventInvokeConfig'
     --
     --
     -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-    functionName :: Lude.Text,
-    -- | A version number or alias name.
-    qualifier :: Lude.Maybe Lude.Text,
+    functionName :: Types.FunctionName,
     -- | A destination for events after they have been sent to a function for processing.
     --
     -- __Destinations__
@@ -84,71 +78,30 @@ data UpdateFunctionEventInvokeConfig = UpdateFunctionEventInvokeConfig'
     --
     --
     --     * __Event Bus__ - The ARN of an Amazon EventBridge event bus.
-    destinationConfig :: Lude.Maybe DestinationConfig
+    destinationConfig :: Core.Maybe Types.DestinationConfig,
+    -- | The maximum age of a request that Lambda sends to a function for processing.
+    maximumEventAgeInSeconds :: Core.Maybe Core.Natural,
+    -- | The maximum number of times to retry when the function returns an error.
+    maximumRetryAttempts :: Core.Maybe Core.Natural,
+    -- | A version number or alias name.
+    qualifier :: Core.Maybe Types.Qualifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateFunctionEventInvokeConfig' with the minimum fields required to make a request.
---
--- * 'maximumEventAgeInSeconds' - The maximum age of a request that Lambda sends to a function for processing.
--- * 'maximumRetryAttempts' - The maximum number of times to retry when the function returns an error.
--- * 'functionName' - The name of the Lambda function, version, or alias.
---
--- __Name formats__
---
---     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
---
---
---     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
---
---
---     * __Partial ARN__ - @123456789012:function:my-function@ .
---
---
--- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'qualifier' - A version number or alias name.
--- * 'destinationConfig' - A destination for events after they have been sent to a function for processing.
---
--- __Destinations__
---
---     * __Function__ - The Amazon Resource Name (ARN) of a Lambda function.
---
---
---     * __Queue__ - The ARN of an SQS queue.
---
---
---     * __Topic__ - The ARN of an SNS topic.
---
---
---     * __Event Bus__ - The ARN of an Amazon EventBridge event bus.
+-- | Creates a 'UpdateFunctionEventInvokeConfig' value with any optional fields omitted.
 mkUpdateFunctionEventInvokeConfig ::
   -- | 'functionName'
-  Lude.Text ->
+  Types.FunctionName ->
   UpdateFunctionEventInvokeConfig
-mkUpdateFunctionEventInvokeConfig pFunctionName_ =
+mkUpdateFunctionEventInvokeConfig functionName =
   UpdateFunctionEventInvokeConfig'
-    { maximumEventAgeInSeconds =
-        Lude.Nothing,
-      maximumRetryAttempts = Lude.Nothing,
-      functionName = pFunctionName_,
-      qualifier = Lude.Nothing,
-      destinationConfig = Lude.Nothing
+    { functionName,
+      destinationConfig = Core.Nothing,
+      maximumEventAgeInSeconds = Core.Nothing,
+      maximumRetryAttempts = Core.Nothing,
+      qualifier = Core.Nothing
     }
-
--- | The maximum age of a request that Lambda sends to a function for processing.
---
--- /Note:/ Consider using 'maximumEventAgeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufeicMaximumEventAgeInSeconds :: Lens.Lens' UpdateFunctionEventInvokeConfig (Lude.Maybe Lude.Natural)
-ufeicMaximumEventAgeInSeconds = Lens.lens (maximumEventAgeInSeconds :: UpdateFunctionEventInvokeConfig -> Lude.Maybe Lude.Natural) (\s a -> s {maximumEventAgeInSeconds = a} :: UpdateFunctionEventInvokeConfig)
-{-# DEPRECATED ufeicMaximumEventAgeInSeconds "Use generic-lens or generic-optics with 'maximumEventAgeInSeconds' instead." #-}
-
--- | The maximum number of times to retry when the function returns an error.
---
--- /Note:/ Consider using 'maximumRetryAttempts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufeicMaximumRetryAttempts :: Lens.Lens' UpdateFunctionEventInvokeConfig (Lude.Maybe Lude.Natural)
-ufeicMaximumRetryAttempts = Lens.lens (maximumRetryAttempts :: UpdateFunctionEventInvokeConfig -> Lude.Maybe Lude.Natural) (\s a -> s {maximumRetryAttempts = a} :: UpdateFunctionEventInvokeConfig)
-{-# DEPRECATED ufeicMaximumRetryAttempts "Use generic-lens or generic-optics with 'maximumRetryAttempts' instead." #-}
 
 -- | The name of the Lambda function, version, or alias.
 --
@@ -166,16 +119,9 @@ ufeicMaximumRetryAttempts = Lens.lens (maximumRetryAttempts :: UpdateFunctionEve
 -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufeicFunctionName :: Lens.Lens' UpdateFunctionEventInvokeConfig Lude.Text
-ufeicFunctionName = Lens.lens (functionName :: UpdateFunctionEventInvokeConfig -> Lude.Text) (\s a -> s {functionName = a} :: UpdateFunctionEventInvokeConfig)
+ufeicFunctionName :: Lens.Lens' UpdateFunctionEventInvokeConfig Types.FunctionName
+ufeicFunctionName = Lens.field @"functionName"
 {-# DEPRECATED ufeicFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
-
--- | A version number or alias name.
---
--- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufeicQualifier :: Lens.Lens' UpdateFunctionEventInvokeConfig (Lude.Maybe Lude.Text)
-ufeicQualifier = Lens.lens (qualifier :: UpdateFunctionEventInvokeConfig -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: UpdateFunctionEventInvokeConfig)
-{-# DEPRECATED ufeicQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
 -- | A destination for events after they have been sent to a function for processing.
 --
@@ -195,37 +141,57 @@ ufeicQualifier = Lens.lens (qualifier :: UpdateFunctionEventInvokeConfig -> Lude
 --
 --
 -- /Note:/ Consider using 'destinationConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ufeicDestinationConfig :: Lens.Lens' UpdateFunctionEventInvokeConfig (Lude.Maybe DestinationConfig)
-ufeicDestinationConfig = Lens.lens (destinationConfig :: UpdateFunctionEventInvokeConfig -> Lude.Maybe DestinationConfig) (\s a -> s {destinationConfig = a} :: UpdateFunctionEventInvokeConfig)
+ufeicDestinationConfig :: Lens.Lens' UpdateFunctionEventInvokeConfig (Core.Maybe Types.DestinationConfig)
+ufeicDestinationConfig = Lens.field @"destinationConfig"
 {-# DEPRECATED ufeicDestinationConfig "Use generic-lens or generic-optics with 'destinationConfig' instead." #-}
 
-instance Lude.AWSRequest UpdateFunctionEventInvokeConfig where
-  type Rs UpdateFunctionEventInvokeConfig = FunctionEventInvokeConfig
-  request = Req.postJSON lambdaService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
+-- | The maximum age of a request that Lambda sends to a function for processing.
+--
+-- /Note:/ Consider using 'maximumEventAgeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufeicMaximumEventAgeInSeconds :: Lens.Lens' UpdateFunctionEventInvokeConfig (Core.Maybe Core.Natural)
+ufeicMaximumEventAgeInSeconds = Lens.field @"maximumEventAgeInSeconds"
+{-# DEPRECATED ufeicMaximumEventAgeInSeconds "Use generic-lens or generic-optics with 'maximumEventAgeInSeconds' instead." #-}
 
-instance Lude.ToHeaders UpdateFunctionEventInvokeConfig where
-  toHeaders = Lude.const Lude.mempty
+-- | The maximum number of times to retry when the function returns an error.
+--
+-- /Note:/ Consider using 'maximumRetryAttempts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufeicMaximumRetryAttempts :: Lens.Lens' UpdateFunctionEventInvokeConfig (Core.Maybe Core.Natural)
+ufeicMaximumRetryAttempts = Lens.field @"maximumRetryAttempts"
+{-# DEPRECATED ufeicMaximumRetryAttempts "Use generic-lens or generic-optics with 'maximumRetryAttempts' instead." #-}
 
-instance Lude.ToJSON UpdateFunctionEventInvokeConfig where
-  toJSON UpdateFunctionEventInvokeConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MaximumEventAgeInSeconds" Lude..=)
-              Lude.<$> maximumEventAgeInSeconds,
-            ("MaximumRetryAttempts" Lude..=) Lude.<$> maximumRetryAttempts,
-            ("DestinationConfig" Lude..=) Lude.<$> destinationConfig
+-- | A version number or alias name.
+--
+-- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ufeicQualifier :: Lens.Lens' UpdateFunctionEventInvokeConfig (Core.Maybe Types.Qualifier)
+ufeicQualifier = Lens.field @"qualifier"
+{-# DEPRECATED ufeicQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
+
+instance Core.FromJSON UpdateFunctionEventInvokeConfig where
+  toJSON UpdateFunctionEventInvokeConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DestinationConfig" Core..=) Core.<$> destinationConfig,
+            ("MaximumEventAgeInSeconds" Core..=)
+              Core.<$> maximumEventAgeInSeconds,
+            ("MaximumRetryAttempts" Core..=) Core.<$> maximumRetryAttempts
           ]
       )
 
-instance Lude.ToPath UpdateFunctionEventInvokeConfig where
-  toPath UpdateFunctionEventInvokeConfig' {..} =
-    Lude.mconcat
-      [ "/2019-09-25/functions/",
-        Lude.toBS functionName,
-        "/event-invoke-config"
-      ]
-
-instance Lude.ToQuery UpdateFunctionEventInvokeConfig where
-  toQuery UpdateFunctionEventInvokeConfig' {..} =
-    Lude.mconcat ["Qualifier" Lude.=: qualifier]
+instance Core.AWSRequest UpdateFunctionEventInvokeConfig where
+  type
+    Rs UpdateFunctionEventInvokeConfig =
+      Types.FunctionEventInvokeConfig
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2019-09-25/functions/" Core.<> (Core.toText functionName)
+                Core.<> ("/event-invoke-config")
+            ),
+        Core._rqQuery = Core.toQueryValue "Qualifier" Core.<$> qualifier,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

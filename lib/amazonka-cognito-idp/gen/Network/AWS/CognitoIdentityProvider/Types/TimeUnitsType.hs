@@ -13,56 +13,61 @@
 module Network.AWS.CognitoIdentityProvider.Types.TimeUnitsType
   ( TimeUnitsType
       ( TimeUnitsType',
-        Seconds,
-        Minutes,
-        Hours,
-        Days
+        TimeUnitsTypeSeconds,
+        TimeUnitsTypeMinutes,
+        TimeUnitsTypeHours,
+        TimeUnitsTypeDays,
+        fromTimeUnitsType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TimeUnitsType = TimeUnitsType' Lude.Text
+newtype TimeUnitsType = TimeUnitsType'
+  { fromTimeUnitsType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Seconds :: TimeUnitsType
-pattern Seconds = TimeUnitsType' "seconds"
+pattern TimeUnitsTypeSeconds :: TimeUnitsType
+pattern TimeUnitsTypeSeconds = TimeUnitsType' "seconds"
 
-pattern Minutes :: TimeUnitsType
-pattern Minutes = TimeUnitsType' "minutes"
+pattern TimeUnitsTypeMinutes :: TimeUnitsType
+pattern TimeUnitsTypeMinutes = TimeUnitsType' "minutes"
 
-pattern Hours :: TimeUnitsType
-pattern Hours = TimeUnitsType' "hours"
+pattern TimeUnitsTypeHours :: TimeUnitsType
+pattern TimeUnitsTypeHours = TimeUnitsType' "hours"
 
-pattern Days :: TimeUnitsType
-pattern Days = TimeUnitsType' "days"
+pattern TimeUnitsTypeDays :: TimeUnitsType
+pattern TimeUnitsTypeDays = TimeUnitsType' "days"
 
 {-# COMPLETE
-  Seconds,
-  Minutes,
-  Hours,
-  Days,
+  TimeUnitsTypeSeconds,
+  TimeUnitsTypeMinutes,
+  TimeUnitsTypeHours,
+  TimeUnitsTypeDays,
   TimeUnitsType'
   #-}

@@ -13,46 +13,51 @@
 module Network.AWS.EC2.Types.DatafeedSubscriptionState
   ( DatafeedSubscriptionState
       ( DatafeedSubscriptionState',
-        DSSActive,
-        DSSInactive
+        DatafeedSubscriptionStateActive,
+        DatafeedSubscriptionStateInactive,
+        fromDatafeedSubscriptionState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DatafeedSubscriptionState = DatafeedSubscriptionState' Lude.Text
+newtype DatafeedSubscriptionState = DatafeedSubscriptionState'
+  { fromDatafeedSubscriptionState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSSActive :: DatafeedSubscriptionState
-pattern DSSActive = DatafeedSubscriptionState' "Active"
+pattern DatafeedSubscriptionStateActive :: DatafeedSubscriptionState
+pattern DatafeedSubscriptionStateActive = DatafeedSubscriptionState' "Active"
 
-pattern DSSInactive :: DatafeedSubscriptionState
-pattern DSSInactive = DatafeedSubscriptionState' "Inactive"
+pattern DatafeedSubscriptionStateInactive :: DatafeedSubscriptionState
+pattern DatafeedSubscriptionStateInactive = DatafeedSubscriptionState' "Inactive"
 
 {-# COMPLETE
-  DSSActive,
-  DSSInactive,
+  DatafeedSubscriptionStateActive,
+  DatafeedSubscriptionStateInactive,
   DatafeedSubscriptionState'
   #-}

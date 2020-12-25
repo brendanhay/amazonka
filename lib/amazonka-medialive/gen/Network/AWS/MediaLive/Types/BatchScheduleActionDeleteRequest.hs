@@ -22,34 +22,32 @@ module Network.AWS.MediaLive.Types.BatchScheduleActionDeleteRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of schedule actions to delete.
 --
 -- /See:/ 'mkBatchScheduleActionDeleteRequest' smart constructor.
 newtype BatchScheduleActionDeleteRequest = BatchScheduleActionDeleteRequest'
   { -- | A list of schedule actions to delete.
-    actionNames :: [Lude.Text]
+    actionNames :: [Core.Text]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchScheduleActionDeleteRequest' with the minimum fields required to make a request.
---
--- * 'actionNames' - A list of schedule actions to delete.
+-- | Creates a 'BatchScheduleActionDeleteRequest' value with any optional fields omitted.
 mkBatchScheduleActionDeleteRequest ::
   BatchScheduleActionDeleteRequest
 mkBatchScheduleActionDeleteRequest =
-  BatchScheduleActionDeleteRequest' {actionNames = Lude.mempty}
+  BatchScheduleActionDeleteRequest' {actionNames = Core.mempty}
 
 -- | A list of schedule actions to delete.
 --
 -- /Note:/ Consider using 'actionNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsadrActionNames :: Lens.Lens' BatchScheduleActionDeleteRequest [Lude.Text]
-bsadrActionNames = Lens.lens (actionNames :: BatchScheduleActionDeleteRequest -> [Lude.Text]) (\s a -> s {actionNames = a} :: BatchScheduleActionDeleteRequest)
+bsadrActionNames :: Lens.Lens' BatchScheduleActionDeleteRequest [Core.Text]
+bsadrActionNames = Lens.field @"actionNames"
 {-# DEPRECATED bsadrActionNames "Use generic-lens or generic-optics with 'actionNames' instead." #-}
 
-instance Lude.ToJSON BatchScheduleActionDeleteRequest where
-  toJSON BatchScheduleActionDeleteRequest' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("actionNames" Lude..= actionNames)])
+instance Core.FromJSON BatchScheduleActionDeleteRequest where
+  toJSON BatchScheduleActionDeleteRequest {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("actionNames" Core..= actionNames)])

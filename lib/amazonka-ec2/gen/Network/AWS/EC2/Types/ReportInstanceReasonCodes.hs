@@ -13,81 +13,86 @@
 module Network.AWS.EC2.Types.ReportInstanceReasonCodes
   ( ReportInstanceReasonCodes
       ( ReportInstanceReasonCodes',
-        InstanceStuckInState,
-        Unresponsive,
-        NotAcceptingCredentials,
-        PasswordNotAvailable,
-        PerformanceNetwork,
-        PerformanceInstanceStore,
-        PerformanceEBSVolume,
-        PerformanceOther,
-        Other
+        ReportInstanceReasonCodesInstanceStuckInState,
+        ReportInstanceReasonCodesUnresponsive,
+        ReportInstanceReasonCodesNotAcceptingCredentials,
+        ReportInstanceReasonCodesPasswordNotAvailable,
+        ReportInstanceReasonCodesPerformanceNetwork,
+        ReportInstanceReasonCodesPerformanceInstanceStore,
+        ReportInstanceReasonCodesPerformanceEbsVolume,
+        ReportInstanceReasonCodesPerformanceOther,
+        ReportInstanceReasonCodesOther,
+        fromReportInstanceReasonCodes
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReportInstanceReasonCodes = ReportInstanceReasonCodes' Lude.Text
+newtype ReportInstanceReasonCodes = ReportInstanceReasonCodes'
+  { fromReportInstanceReasonCodes ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InstanceStuckInState :: ReportInstanceReasonCodes
-pattern InstanceStuckInState = ReportInstanceReasonCodes' "instance-stuck-in-state"
+pattern ReportInstanceReasonCodesInstanceStuckInState :: ReportInstanceReasonCodes
+pattern ReportInstanceReasonCodesInstanceStuckInState = ReportInstanceReasonCodes' "instance-stuck-in-state"
 
-pattern Unresponsive :: ReportInstanceReasonCodes
-pattern Unresponsive = ReportInstanceReasonCodes' "unresponsive"
+pattern ReportInstanceReasonCodesUnresponsive :: ReportInstanceReasonCodes
+pattern ReportInstanceReasonCodesUnresponsive = ReportInstanceReasonCodes' "unresponsive"
 
-pattern NotAcceptingCredentials :: ReportInstanceReasonCodes
-pattern NotAcceptingCredentials = ReportInstanceReasonCodes' "not-accepting-credentials"
+pattern ReportInstanceReasonCodesNotAcceptingCredentials :: ReportInstanceReasonCodes
+pattern ReportInstanceReasonCodesNotAcceptingCredentials = ReportInstanceReasonCodes' "not-accepting-credentials"
 
-pattern PasswordNotAvailable :: ReportInstanceReasonCodes
-pattern PasswordNotAvailable = ReportInstanceReasonCodes' "password-not-available"
+pattern ReportInstanceReasonCodesPasswordNotAvailable :: ReportInstanceReasonCodes
+pattern ReportInstanceReasonCodesPasswordNotAvailable = ReportInstanceReasonCodes' "password-not-available"
 
-pattern PerformanceNetwork :: ReportInstanceReasonCodes
-pattern PerformanceNetwork = ReportInstanceReasonCodes' "performance-network"
+pattern ReportInstanceReasonCodesPerformanceNetwork :: ReportInstanceReasonCodes
+pattern ReportInstanceReasonCodesPerformanceNetwork = ReportInstanceReasonCodes' "performance-network"
 
-pattern PerformanceInstanceStore :: ReportInstanceReasonCodes
-pattern PerformanceInstanceStore = ReportInstanceReasonCodes' "performance-instance-store"
+pattern ReportInstanceReasonCodesPerformanceInstanceStore :: ReportInstanceReasonCodes
+pattern ReportInstanceReasonCodesPerformanceInstanceStore = ReportInstanceReasonCodes' "performance-instance-store"
 
-pattern PerformanceEBSVolume :: ReportInstanceReasonCodes
-pattern PerformanceEBSVolume = ReportInstanceReasonCodes' "performance-ebs-volume"
+pattern ReportInstanceReasonCodesPerformanceEbsVolume :: ReportInstanceReasonCodes
+pattern ReportInstanceReasonCodesPerformanceEbsVolume = ReportInstanceReasonCodes' "performance-ebs-volume"
 
-pattern PerformanceOther :: ReportInstanceReasonCodes
-pattern PerformanceOther = ReportInstanceReasonCodes' "performance-other"
+pattern ReportInstanceReasonCodesPerformanceOther :: ReportInstanceReasonCodes
+pattern ReportInstanceReasonCodesPerformanceOther = ReportInstanceReasonCodes' "performance-other"
 
-pattern Other :: ReportInstanceReasonCodes
-pattern Other = ReportInstanceReasonCodes' "other"
+pattern ReportInstanceReasonCodesOther :: ReportInstanceReasonCodes
+pattern ReportInstanceReasonCodesOther = ReportInstanceReasonCodes' "other"
 
 {-# COMPLETE
-  InstanceStuckInState,
-  Unresponsive,
-  NotAcceptingCredentials,
-  PasswordNotAvailable,
-  PerformanceNetwork,
-  PerformanceInstanceStore,
-  PerformanceEBSVolume,
-  PerformanceOther,
-  Other,
+  ReportInstanceReasonCodesInstanceStuckInState,
+  ReportInstanceReasonCodesUnresponsive,
+  ReportInstanceReasonCodesNotAcceptingCredentials,
+  ReportInstanceReasonCodesPasswordNotAvailable,
+  ReportInstanceReasonCodesPerformanceNetwork,
+  ReportInstanceReasonCodesPerformanceInstanceStore,
+  ReportInstanceReasonCodesPerformanceEbsVolume,
+  ReportInstanceReasonCodesPerformanceOther,
+  ReportInstanceReasonCodesOther,
   ReportInstanceReasonCodes'
   #-}

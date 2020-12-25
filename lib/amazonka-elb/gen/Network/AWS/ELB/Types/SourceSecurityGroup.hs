@@ -17,54 +17,53 @@ module Network.AWS.ELB.Types.SourceSecurityGroup
     mkSourceSecurityGroup,
 
     -- * Lenses
-    ssgOwnerAlias,
     ssgGroupName,
+    ssgOwnerAlias,
   )
 where
 
-import Network.AWS.ELB.Internal
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.GroupName as Types
+import qualified Network.AWS.ELB.Types.OwnerAlias as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a source security group.
 --
 -- /See:/ 'mkSourceSecurityGroup' smart constructor.
 data SourceSecurityGroup = SourceSecurityGroup'
-  { -- | The owner of the security group.
-    ownerAlias :: Lude.Maybe Lude.Text,
-    -- | The name of the security group.
-    groupName :: Lude.Maybe Lude.Text
+  { -- | The name of the security group.
+    groupName :: Core.Maybe Types.GroupName,
+    -- | The owner of the security group.
+    ownerAlias :: Core.Maybe Types.OwnerAlias
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SourceSecurityGroup' with the minimum fields required to make a request.
---
--- * 'ownerAlias' - The owner of the security group.
--- * 'groupName' - The name of the security group.
+-- | Creates a 'SourceSecurityGroup' value with any optional fields omitted.
 mkSourceSecurityGroup ::
   SourceSecurityGroup
 mkSourceSecurityGroup =
   SourceSecurityGroup'
-    { ownerAlias = Lude.Nothing,
-      groupName = Lude.Nothing
+    { groupName = Core.Nothing,
+      ownerAlias = Core.Nothing
     }
-
--- | The owner of the security group.
---
--- /Note:/ Consider using 'ownerAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssgOwnerAlias :: Lens.Lens' SourceSecurityGroup (Lude.Maybe Lude.Text)
-ssgOwnerAlias = Lens.lens (ownerAlias :: SourceSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {ownerAlias = a} :: SourceSecurityGroup)
-{-# DEPRECATED ssgOwnerAlias "Use generic-lens or generic-optics with 'ownerAlias' instead." #-}
 
 -- | The name of the security group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssgGroupName :: Lens.Lens' SourceSecurityGroup (Lude.Maybe Lude.Text)
-ssgGroupName = Lens.lens (groupName :: SourceSecurityGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: SourceSecurityGroup)
+ssgGroupName :: Lens.Lens' SourceSecurityGroup (Core.Maybe Types.GroupName)
+ssgGroupName = Lens.field @"groupName"
 {-# DEPRECATED ssgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.FromXML SourceSecurityGroup where
+-- | The owner of the security group.
+--
+-- /Note:/ Consider using 'ownerAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssgOwnerAlias :: Lens.Lens' SourceSecurityGroup (Core.Maybe Types.OwnerAlias)
+ssgOwnerAlias = Lens.field @"ownerAlias"
+{-# DEPRECATED ssgOwnerAlias "Use generic-lens or generic-optics with 'ownerAlias' instead." #-}
+
+instance Core.FromXML SourceSecurityGroup where
   parseXML x =
     SourceSecurityGroup'
-      Lude.<$> (x Lude..@? "OwnerAlias") Lude.<*> (x Lude..@? "GroupName")
+      Core.<$> (x Core..@? "GroupName") Core.<*> (x Core..@? "OwnerAlias")

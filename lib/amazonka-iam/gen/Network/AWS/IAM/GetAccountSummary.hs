@@ -26,54 +26,55 @@ module Network.AWS.IAM.GetAccountSummary
     mkGetAccountSummaryResponse,
 
     -- ** Response lenses
-    gasrsSummaryMap,
-    gasrsResponseStatus,
+    gasrrsSummaryMap,
+    gasrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetAccountSummary' smart constructor.
 data GetAccountSummary = GetAccountSummary'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAccountSummary' with the minimum fields required to make a request.
+-- | Creates a 'GetAccountSummary' value with any optional fields omitted.
 mkGetAccountSummary ::
   GetAccountSummary
 mkGetAccountSummary = GetAccountSummary'
 
-instance Lude.AWSRequest GetAccountSummary where
+instance Core.AWSRequest GetAccountSummary where
   type Rs GetAccountSummary = GetAccountSummaryResponse
-  request = Req.postQuery iamService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetAccountSummary")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetAccountSummaryResult"
       ( \s h x ->
           GetAccountSummaryResponse'
-            Lude.<$> ( x Lude..@? "SummaryMap" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLMap "entry" "key" "value")
+            Core.<$> ( x Core..@? "SummaryMap"
+                         Core..<@> Core.parseXMLMap "entry" "key" "value"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders GetAccountSummary where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetAccountSummary where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetAccountSummary where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action" Lude.=: ("GetAccountSummary" :: Lude.ByteString),
-            "Version" Lude.=: ("2010-05-08" :: Lude.ByteString)
-          ]
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | Contains the response to a successful 'GetAccountSummary' request.
@@ -81,37 +82,34 @@ instance Lude.ToQuery GetAccountSummary where
 -- /See:/ 'mkGetAccountSummaryResponse' smart constructor.
 data GetAccountSummaryResponse = GetAccountSummaryResponse'
   { -- | A set of key–value pairs containing information about IAM entity usage and IAM quotas.
-    summaryMap :: Lude.Maybe (Lude.HashMap SummaryKeyType (Lude.Int)),
+    summaryMap :: Core.Maybe (Core.HashMap Types.SummaryKeyType Core.Int),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAccountSummaryResponse' with the minimum fields required to make a request.
---
--- * 'summaryMap' - A set of key–value pairs containing information about IAM entity usage and IAM quotas.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAccountSummaryResponse' value with any optional fields omitted.
 mkGetAccountSummaryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAccountSummaryResponse
-mkGetAccountSummaryResponse pResponseStatus_ =
+mkGetAccountSummaryResponse responseStatus =
   GetAccountSummaryResponse'
-    { summaryMap = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { summaryMap = Core.Nothing,
+      responseStatus
     }
 
 -- | A set of key–value pairs containing information about IAM entity usage and IAM quotas.
 --
 -- /Note:/ Consider using 'summaryMap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gasrsSummaryMap :: Lens.Lens' GetAccountSummaryResponse (Lude.Maybe (Lude.HashMap SummaryKeyType (Lude.Int)))
-gasrsSummaryMap = Lens.lens (summaryMap :: GetAccountSummaryResponse -> Lude.Maybe (Lude.HashMap SummaryKeyType (Lude.Int))) (\s a -> s {summaryMap = a} :: GetAccountSummaryResponse)
-{-# DEPRECATED gasrsSummaryMap "Use generic-lens or generic-optics with 'summaryMap' instead." #-}
+gasrrsSummaryMap :: Lens.Lens' GetAccountSummaryResponse (Core.Maybe (Core.HashMap Types.SummaryKeyType Core.Int))
+gasrrsSummaryMap = Lens.field @"summaryMap"
+{-# DEPRECATED gasrrsSummaryMap "Use generic-lens or generic-optics with 'summaryMap' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gasrsResponseStatus :: Lens.Lens' GetAccountSummaryResponse Lude.Int
-gasrsResponseStatus = Lens.lens (responseStatus :: GetAccountSummaryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccountSummaryResponse)
-{-# DEPRECATED gasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gasrrsResponseStatus :: Lens.Lens' GetAccountSummaryResponse Core.Int
+gasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

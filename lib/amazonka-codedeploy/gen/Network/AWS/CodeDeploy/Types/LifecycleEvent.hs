@@ -17,24 +17,33 @@ module Network.AWS.CodeDeploy.Types.LifecycleEvent
     mkLifecycleEvent,
 
     -- * Lenses
-    leStatus,
-    leLifecycleEventName,
-    leStartTime,
     leDiagnostics,
     leEndTime,
+    leLifecycleEventName,
+    leStartTime,
+    leStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types.Diagnostics
-import Network.AWS.CodeDeploy.Types.LifecycleEventStatus
+import qualified Network.AWS.CodeDeploy.Types.Diagnostics as Types
+import qualified Network.AWS.CodeDeploy.Types.LifecycleEventName as Types
+import qualified Network.AWS.CodeDeploy.Types.LifecycleEventStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a deployment lifecycle event.
 --
 -- /See:/ 'mkLifecycleEvent' smart constructor.
 data LifecycleEvent = LifecycleEvent'
-  { -- | The deployment lifecycle event status:
+  { -- | Diagnostic information about the deployment lifecycle event.
+    diagnostics :: Core.Maybe Types.Diagnostics,
+    -- | A timestamp that indicates when the deployment lifecycle event ended.
+    endTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The deployment lifecycle event name, such as @ApplicationStop@ , @BeforeInstall@ , @AfterInstall@ , @ApplicationStart@ , or @ValidateService@ .
+    lifecycleEventName :: Core.Maybe Types.LifecycleEventName,
+    -- | A timestamp that indicates when the deployment lifecycle event started.
+    startTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The deployment lifecycle event status:
     --
     --
     --     * Pending: The deployment lifecycle event is pending.
@@ -53,56 +62,50 @@ data LifecycleEvent = LifecycleEvent'
     --
     --
     --     * Unknown: The deployment lifecycle event is unknown.
-    status :: Lude.Maybe LifecycleEventStatus,
-    -- | The deployment lifecycle event name, such as @ApplicationStop@ , @BeforeInstall@ , @AfterInstall@ , @ApplicationStart@ , or @ValidateService@ .
-    lifecycleEventName :: Lude.Maybe Lude.Text,
-    -- | A timestamp that indicates when the deployment lifecycle event started.
-    startTime :: Lude.Maybe Lude.Timestamp,
-    -- | Diagnostic information about the deployment lifecycle event.
-    diagnostics :: Lude.Maybe Diagnostics,
-    -- | A timestamp that indicates when the deployment lifecycle event ended.
-    endTime :: Lude.Maybe Lude.Timestamp
+    status :: Core.Maybe Types.LifecycleEventStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'LifecycleEvent' with the minimum fields required to make a request.
---
--- * 'status' - The deployment lifecycle event status:
---
---
---     * Pending: The deployment lifecycle event is pending.
---
---
---     * InProgress: The deployment lifecycle event is in progress.
---
---
---     * Succeeded: The deployment lifecycle event ran successfully.
---
---
---     * Failed: The deployment lifecycle event has failed.
---
---
---     * Skipped: The deployment lifecycle event has been skipped.
---
---
---     * Unknown: The deployment lifecycle event is unknown.
---
---
--- * 'lifecycleEventName' - The deployment lifecycle event name, such as @ApplicationStop@ , @BeforeInstall@ , @AfterInstall@ , @ApplicationStart@ , or @ValidateService@ .
--- * 'startTime' - A timestamp that indicates when the deployment lifecycle event started.
--- * 'diagnostics' - Diagnostic information about the deployment lifecycle event.
--- * 'endTime' - A timestamp that indicates when the deployment lifecycle event ended.
+-- | Creates a 'LifecycleEvent' value with any optional fields omitted.
 mkLifecycleEvent ::
   LifecycleEvent
 mkLifecycleEvent =
   LifecycleEvent'
-    { status = Lude.Nothing,
-      lifecycleEventName = Lude.Nothing,
-      startTime = Lude.Nothing,
-      diagnostics = Lude.Nothing,
-      endTime = Lude.Nothing
+    { diagnostics = Core.Nothing,
+      endTime = Core.Nothing,
+      lifecycleEventName = Core.Nothing,
+      startTime = Core.Nothing,
+      status = Core.Nothing
     }
+
+-- | Diagnostic information about the deployment lifecycle event.
+--
+-- /Note:/ Consider using 'diagnostics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leDiagnostics :: Lens.Lens' LifecycleEvent (Core.Maybe Types.Diagnostics)
+leDiagnostics = Lens.field @"diagnostics"
+{-# DEPRECATED leDiagnostics "Use generic-lens or generic-optics with 'diagnostics' instead." #-}
+
+-- | A timestamp that indicates when the deployment lifecycle event ended.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leEndTime :: Lens.Lens' LifecycleEvent (Core.Maybe Core.NominalDiffTime)
+leEndTime = Lens.field @"endTime"
+{-# DEPRECATED leEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | The deployment lifecycle event name, such as @ApplicationStop@ , @BeforeInstall@ , @AfterInstall@ , @ApplicationStart@ , or @ValidateService@ .
+--
+-- /Note:/ Consider using 'lifecycleEventName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leLifecycleEventName :: Lens.Lens' LifecycleEvent (Core.Maybe Types.LifecycleEventName)
+leLifecycleEventName = Lens.field @"lifecycleEventName"
+{-# DEPRECATED leLifecycleEventName "Use generic-lens or generic-optics with 'lifecycleEventName' instead." #-}
+
+-- | A timestamp that indicates when the deployment lifecycle event started.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leStartTime :: Lens.Lens' LifecycleEvent (Core.Maybe Core.NominalDiffTime)
+leStartTime = Lens.field @"startTime"
+{-# DEPRECATED leStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The deployment lifecycle event status:
 --
@@ -127,47 +130,17 @@ mkLifecycleEvent =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leStatus :: Lens.Lens' LifecycleEvent (Lude.Maybe LifecycleEventStatus)
-leStatus = Lens.lens (status :: LifecycleEvent -> Lude.Maybe LifecycleEventStatus) (\s a -> s {status = a} :: LifecycleEvent)
+leStatus :: Lens.Lens' LifecycleEvent (Core.Maybe Types.LifecycleEventStatus)
+leStatus = Lens.field @"status"
 {-# DEPRECATED leStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The deployment lifecycle event name, such as @ApplicationStop@ , @BeforeInstall@ , @AfterInstall@ , @ApplicationStart@ , or @ValidateService@ .
---
--- /Note:/ Consider using 'lifecycleEventName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leLifecycleEventName :: Lens.Lens' LifecycleEvent (Lude.Maybe Lude.Text)
-leLifecycleEventName = Lens.lens (lifecycleEventName :: LifecycleEvent -> Lude.Maybe Lude.Text) (\s a -> s {lifecycleEventName = a} :: LifecycleEvent)
-{-# DEPRECATED leLifecycleEventName "Use generic-lens or generic-optics with 'lifecycleEventName' instead." #-}
-
--- | A timestamp that indicates when the deployment lifecycle event started.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leStartTime :: Lens.Lens' LifecycleEvent (Lude.Maybe Lude.Timestamp)
-leStartTime = Lens.lens (startTime :: LifecycleEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: LifecycleEvent)
-{-# DEPRECATED leStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | Diagnostic information about the deployment lifecycle event.
---
--- /Note:/ Consider using 'diagnostics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leDiagnostics :: Lens.Lens' LifecycleEvent (Lude.Maybe Diagnostics)
-leDiagnostics = Lens.lens (diagnostics :: LifecycleEvent -> Lude.Maybe Diagnostics) (\s a -> s {diagnostics = a} :: LifecycleEvent)
-{-# DEPRECATED leDiagnostics "Use generic-lens or generic-optics with 'diagnostics' instead." #-}
-
--- | A timestamp that indicates when the deployment lifecycle event ended.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leEndTime :: Lens.Lens' LifecycleEvent (Lude.Maybe Lude.Timestamp)
-leEndTime = Lens.lens (endTime :: LifecycleEvent -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: LifecycleEvent)
-{-# DEPRECATED leEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
-instance Lude.FromJSON LifecycleEvent where
+instance Core.FromJSON LifecycleEvent where
   parseJSON =
-    Lude.withObject
-      "LifecycleEvent"
-      ( \x ->
-          LifecycleEvent'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "lifecycleEventName")
-            Lude.<*> (x Lude..:? "startTime")
-            Lude.<*> (x Lude..:? "diagnostics")
-            Lude.<*> (x Lude..:? "endTime")
-      )
+    Core.withObject "LifecycleEvent" Core.$
+      \x ->
+        LifecycleEvent'
+          Core.<$> (x Core..:? "diagnostics")
+          Core.<*> (x Core..:? "endTime")
+          Core.<*> (x Core..:? "lifecycleEventName")
+          Core.<*> (x Core..:? "startTime")
+          Core.<*> (x Core..:? "status")

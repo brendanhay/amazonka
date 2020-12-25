@@ -13,47 +13,49 @@
 module Network.AWS.MediaLive.Types.Eac3DcFilter
   ( Eac3DcFilter
       ( Eac3DcFilter',
-        EDFDisabled,
-        EDFEnabled
+        Eac3DcFilterDisabled,
+        Eac3DcFilterEnabled,
+        fromEac3DcFilter
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Eac3 Dc Filter
-newtype Eac3DcFilter = Eac3DcFilter' Lude.Text
+newtype Eac3DcFilter = Eac3DcFilter' {fromEac3DcFilter :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EDFDisabled :: Eac3DcFilter
-pattern EDFDisabled = Eac3DcFilter' "DISABLED"
+pattern Eac3DcFilterDisabled :: Eac3DcFilter
+pattern Eac3DcFilterDisabled = Eac3DcFilter' "DISABLED"
 
-pattern EDFEnabled :: Eac3DcFilter
-pattern EDFEnabled = Eac3DcFilter' "ENABLED"
+pattern Eac3DcFilterEnabled :: Eac3DcFilter
+pattern Eac3DcFilterEnabled = Eac3DcFilter' "ENABLED"
 
 {-# COMPLETE
-  EDFDisabled,
-  EDFEnabled,
+  Eac3DcFilterDisabled,
+  Eac3DcFilterEnabled,
   Eac3DcFilter'
   #-}

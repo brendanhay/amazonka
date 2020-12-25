@@ -21,22 +21,21 @@ module Network.AWS.CloudDirectory.Types.BatchAddFacetToObjectResponse
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The result of a batch add facet to object operation.
 --
 -- /See:/ 'mkBatchAddFacetToObjectResponse' smart constructor.
 data BatchAddFacetToObjectResponse = BatchAddFacetToObjectResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchAddFacetToObjectResponse' with the minimum fields required to make a request.
+-- | Creates a 'BatchAddFacetToObjectResponse' value with any optional fields omitted.
 mkBatchAddFacetToObjectResponse ::
   BatchAddFacetToObjectResponse
 mkBatchAddFacetToObjectResponse = BatchAddFacetToObjectResponse'
 
-instance Lude.FromJSON BatchAddFacetToObjectResponse where
+instance Core.FromJSON BatchAddFacetToObjectResponse where
   parseJSON =
-    Lude.withObject
-      "BatchAddFacetToObjectResponse"
-      (\x -> Lude.pure BatchAddFacetToObjectResponse')
+    Core.withObject "BatchAddFacetToObjectResponse" Core.$
+      \x -> Core.pure BatchAddFacetToObjectResponse'

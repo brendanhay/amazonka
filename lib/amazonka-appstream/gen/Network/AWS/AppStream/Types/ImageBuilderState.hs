@@ -13,81 +13,86 @@
 module Network.AWS.AppStream.Types.ImageBuilderState
   ( ImageBuilderState
       ( ImageBuilderState',
-        IBSPending,
-        IBSUpdatingAgent,
-        IBSRunning,
-        IBSStopping,
-        IBSStopped,
-        IBSRebooting,
-        IBSSnapshotting,
-        IBSDeleting,
-        IBSFailed
+        ImageBuilderStatePending,
+        ImageBuilderStateUpdatingAgent,
+        ImageBuilderStateRunning,
+        ImageBuilderStateStopping,
+        ImageBuilderStateStopped,
+        ImageBuilderStateRebooting,
+        ImageBuilderStateSnapshotting,
+        ImageBuilderStateDeleting,
+        ImageBuilderStateFailed,
+        fromImageBuilderState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ImageBuilderState = ImageBuilderState' Lude.Text
+newtype ImageBuilderState = ImageBuilderState'
+  { fromImageBuilderState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IBSPending :: ImageBuilderState
-pattern IBSPending = ImageBuilderState' "PENDING"
+pattern ImageBuilderStatePending :: ImageBuilderState
+pattern ImageBuilderStatePending = ImageBuilderState' "PENDING"
 
-pattern IBSUpdatingAgent :: ImageBuilderState
-pattern IBSUpdatingAgent = ImageBuilderState' "UPDATING_AGENT"
+pattern ImageBuilderStateUpdatingAgent :: ImageBuilderState
+pattern ImageBuilderStateUpdatingAgent = ImageBuilderState' "UPDATING_AGENT"
 
-pattern IBSRunning :: ImageBuilderState
-pattern IBSRunning = ImageBuilderState' "RUNNING"
+pattern ImageBuilderStateRunning :: ImageBuilderState
+pattern ImageBuilderStateRunning = ImageBuilderState' "RUNNING"
 
-pattern IBSStopping :: ImageBuilderState
-pattern IBSStopping = ImageBuilderState' "STOPPING"
+pattern ImageBuilderStateStopping :: ImageBuilderState
+pattern ImageBuilderStateStopping = ImageBuilderState' "STOPPING"
 
-pattern IBSStopped :: ImageBuilderState
-pattern IBSStopped = ImageBuilderState' "STOPPED"
+pattern ImageBuilderStateStopped :: ImageBuilderState
+pattern ImageBuilderStateStopped = ImageBuilderState' "STOPPED"
 
-pattern IBSRebooting :: ImageBuilderState
-pattern IBSRebooting = ImageBuilderState' "REBOOTING"
+pattern ImageBuilderStateRebooting :: ImageBuilderState
+pattern ImageBuilderStateRebooting = ImageBuilderState' "REBOOTING"
 
-pattern IBSSnapshotting :: ImageBuilderState
-pattern IBSSnapshotting = ImageBuilderState' "SNAPSHOTTING"
+pattern ImageBuilderStateSnapshotting :: ImageBuilderState
+pattern ImageBuilderStateSnapshotting = ImageBuilderState' "SNAPSHOTTING"
 
-pattern IBSDeleting :: ImageBuilderState
-pattern IBSDeleting = ImageBuilderState' "DELETING"
+pattern ImageBuilderStateDeleting :: ImageBuilderState
+pattern ImageBuilderStateDeleting = ImageBuilderState' "DELETING"
 
-pattern IBSFailed :: ImageBuilderState
-pattern IBSFailed = ImageBuilderState' "FAILED"
+pattern ImageBuilderStateFailed :: ImageBuilderState
+pattern ImageBuilderStateFailed = ImageBuilderState' "FAILED"
 
 {-# COMPLETE
-  IBSPending,
-  IBSUpdatingAgent,
-  IBSRunning,
-  IBSStopping,
-  IBSStopped,
-  IBSRebooting,
-  IBSSnapshotting,
-  IBSDeleting,
-  IBSFailed,
+  ImageBuilderStatePending,
+  ImageBuilderStateUpdatingAgent,
+  ImageBuilderStateRunning,
+  ImageBuilderStateStopping,
+  ImageBuilderStateStopped,
+  ImageBuilderStateRebooting,
+  ImageBuilderStateSnapshotting,
+  ImageBuilderStateDeleting,
+  ImageBuilderStateFailed,
   ImageBuilderState'
   #-}

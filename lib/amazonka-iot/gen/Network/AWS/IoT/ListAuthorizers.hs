@@ -22,168 +22,159 @@ module Network.AWS.IoT.ListAuthorizers
     mkListAuthorizers,
 
     -- ** Request lenses
-    laStatus,
-    laMarker,
     laAscendingOrder,
+    laMarker,
     laPageSize,
+    laStatus,
 
     -- * Destructuring the response
     ListAuthorizersResponse (..),
     mkListAuthorizersResponse,
 
     -- ** Response lenses
-    larsAuthorizers,
-    larsNextMarker,
-    larsResponseStatus,
+    larrsAuthorizers,
+    larrsNextMarker,
+    larrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListAuthorizers' smart constructor.
 data ListAuthorizers = ListAuthorizers'
-  { -- | The status of the list authorizers request.
-    status :: Lude.Maybe AuthorizerStatus,
+  { -- | Return the list of authorizers in ascending alphabetical order.
+    ascendingOrder :: Core.Maybe Core.Bool,
     -- | A marker used to get the next set of results.
-    marker :: Lude.Maybe Lude.Text,
-    -- | Return the list of authorizers in ascending alphabetical order.
-    ascendingOrder :: Lude.Maybe Lude.Bool,
+    marker :: Core.Maybe Types.Marker,
     -- | The maximum number of results to return at one time.
-    pageSize :: Lude.Maybe Lude.Natural
+    pageSize :: Core.Maybe Core.Natural,
+    -- | The status of the list authorizers request.
+    status :: Core.Maybe Types.AuthorizerStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAuthorizers' with the minimum fields required to make a request.
---
--- * 'status' - The status of the list authorizers request.
--- * 'marker' - A marker used to get the next set of results.
--- * 'ascendingOrder' - Return the list of authorizers in ascending alphabetical order.
--- * 'pageSize' - The maximum number of results to return at one time.
+-- | Creates a 'ListAuthorizers' value with any optional fields omitted.
 mkListAuthorizers ::
   ListAuthorizers
 mkListAuthorizers =
   ListAuthorizers'
-    { status = Lude.Nothing,
-      marker = Lude.Nothing,
-      ascendingOrder = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { ascendingOrder = Core.Nothing,
+      marker = Core.Nothing,
+      pageSize = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the list authorizers request.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laStatus :: Lens.Lens' ListAuthorizers (Lude.Maybe AuthorizerStatus)
-laStatus = Lens.lens (status :: ListAuthorizers -> Lude.Maybe AuthorizerStatus) (\s a -> s {status = a} :: ListAuthorizers)
-{-# DEPRECATED laStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | A marker used to get the next set of results.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laMarker :: Lens.Lens' ListAuthorizers (Lude.Maybe Lude.Text)
-laMarker = Lens.lens (marker :: ListAuthorizers -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListAuthorizers)
-{-# DEPRECATED laMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Return the list of authorizers in ascending alphabetical order.
 --
 -- /Note:/ Consider using 'ascendingOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laAscendingOrder :: Lens.Lens' ListAuthorizers (Lude.Maybe Lude.Bool)
-laAscendingOrder = Lens.lens (ascendingOrder :: ListAuthorizers -> Lude.Maybe Lude.Bool) (\s a -> s {ascendingOrder = a} :: ListAuthorizers)
+laAscendingOrder :: Lens.Lens' ListAuthorizers (Core.Maybe Core.Bool)
+laAscendingOrder = Lens.field @"ascendingOrder"
 {-# DEPRECATED laAscendingOrder "Use generic-lens or generic-optics with 'ascendingOrder' instead." #-}
+
+-- | A marker used to get the next set of results.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laMarker :: Lens.Lens' ListAuthorizers (Core.Maybe Types.Marker)
+laMarker = Lens.field @"marker"
+{-# DEPRECATED laMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of results to return at one time.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laPageSize :: Lens.Lens' ListAuthorizers (Lude.Maybe Lude.Natural)
-laPageSize = Lens.lens (pageSize :: ListAuthorizers -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListAuthorizers)
+laPageSize :: Lens.Lens' ListAuthorizers (Core.Maybe Core.Natural)
+laPageSize = Lens.field @"pageSize"
 {-# DEPRECATED laPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Page.AWSPager ListAuthorizers where
-  page rq rs
-    | Page.stop (rs Lens.^. larsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. larsAuthorizers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& laMarker Lens..~ rs Lens.^. larsNextMarker
+-- | The status of the list authorizers request.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laStatus :: Lens.Lens' ListAuthorizers (Core.Maybe Types.AuthorizerStatus)
+laStatus = Lens.field @"status"
+{-# DEPRECATED laStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.AWSRequest ListAuthorizers where
+instance Core.AWSRequest ListAuthorizers where
   type Rs ListAuthorizers = ListAuthorizersResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/authorizers/",
+        Core._rqQuery =
+          Core.toQueryValue "isAscendingOrder" Core.<$> ascendingOrder
+            Core.<> (Core.toQueryValue "marker" Core.<$> marker)
+            Core.<> (Core.toQueryValue "pageSize" Core.<$> pageSize)
+            Core.<> (Core.toQueryValue "status" Core.<$> status),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAuthorizersResponse'
-            Lude.<$> (x Lude..?> "authorizers" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "authorizers")
+            Core.<*> (x Core..:? "nextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAuthorizers where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListAuthorizers where
-  toPath = Lude.const "/authorizers/"
-
-instance Lude.ToQuery ListAuthorizers where
-  toQuery ListAuthorizers' {..} =
-    Lude.mconcat
-      [ "status" Lude.=: status,
-        "marker" Lude.=: marker,
-        "isAscendingOrder" Lude.=: ascendingOrder,
-        "pageSize" Lude.=: pageSize
-      ]
+instance Pager.AWSPager ListAuthorizers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"authorizers" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkListAuthorizersResponse' smart constructor.
 data ListAuthorizersResponse = ListAuthorizersResponse'
   { -- | The authorizers.
-    authorizers :: Lude.Maybe [AuthorizerSummary],
+    authorizers :: Core.Maybe [Types.AuthorizerSummary],
     -- | A marker used to get the next set of results.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.NextMarker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAuthorizersResponse' with the minimum fields required to make a request.
---
--- * 'authorizers' - The authorizers.
--- * 'nextMarker' - A marker used to get the next set of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAuthorizersResponse' value with any optional fields omitted.
 mkListAuthorizersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAuthorizersResponse
-mkListAuthorizersResponse pResponseStatus_ =
+mkListAuthorizersResponse responseStatus =
   ListAuthorizersResponse'
-    { authorizers = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { authorizers = Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
 
 -- | The authorizers.
 --
 -- /Note:/ Consider using 'authorizers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsAuthorizers :: Lens.Lens' ListAuthorizersResponse (Lude.Maybe [AuthorizerSummary])
-larsAuthorizers = Lens.lens (authorizers :: ListAuthorizersResponse -> Lude.Maybe [AuthorizerSummary]) (\s a -> s {authorizers = a} :: ListAuthorizersResponse)
-{-# DEPRECATED larsAuthorizers "Use generic-lens or generic-optics with 'authorizers' instead." #-}
+larrsAuthorizers :: Lens.Lens' ListAuthorizersResponse (Core.Maybe [Types.AuthorizerSummary])
+larrsAuthorizers = Lens.field @"authorizers"
+{-# DEPRECATED larrsAuthorizers "Use generic-lens or generic-optics with 'authorizers' instead." #-}
 
 -- | A marker used to get the next set of results.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsNextMarker :: Lens.Lens' ListAuthorizersResponse (Lude.Maybe Lude.Text)
-larsNextMarker = Lens.lens (nextMarker :: ListAuthorizersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListAuthorizersResponse)
-{-# DEPRECATED larsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+larrsNextMarker :: Lens.Lens' ListAuthorizersResponse (Core.Maybe Types.NextMarker)
+larrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED larrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsResponseStatus :: Lens.Lens' ListAuthorizersResponse Lude.Int
-larsResponseStatus = Lens.lens (responseStatus :: ListAuthorizersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAuthorizersResponse)
-{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+larrsResponseStatus :: Lens.Lens' ListAuthorizersResponse Core.Int
+larrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED larrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

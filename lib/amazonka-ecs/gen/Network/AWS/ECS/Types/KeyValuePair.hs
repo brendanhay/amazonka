@@ -17,61 +17,57 @@ module Network.AWS.ECS.Types.KeyValuePair
     mkKeyValuePair,
 
     -- * Lenses
-    kvpValue,
     kvpName,
+    kvpValue,
   )
 where
 
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A key-value pair object.
 --
 -- /See:/ 'mkKeyValuePair' smart constructor.
 data KeyValuePair = KeyValuePair'
-  { -- | The value of the key-value pair. For environment variables, this is the value of the environment variable.
-    value :: Lude.Maybe Lude.Text,
-    -- | The name of the key-value pair. For environment variables, this is the name of the environment variable.
-    name :: Lude.Maybe Lude.Text
+  { -- | The name of the key-value pair. For environment variables, this is the name of the environment variable.
+    name :: Core.Maybe Types.String,
+    -- | The value of the key-value pair. For environment variables, this is the value of the environment variable.
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeyValuePair' with the minimum fields required to make a request.
---
--- * 'value' - The value of the key-value pair. For environment variables, this is the value of the environment variable.
--- * 'name' - The name of the key-value pair. For environment variables, this is the name of the environment variable.
+-- | Creates a 'KeyValuePair' value with any optional fields omitted.
 mkKeyValuePair ::
   KeyValuePair
 mkKeyValuePair =
-  KeyValuePair' {value = Lude.Nothing, name = Lude.Nothing}
-
--- | The value of the key-value pair. For environment variables, this is the value of the environment variable.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kvpValue :: Lens.Lens' KeyValuePair (Lude.Maybe Lude.Text)
-kvpValue = Lens.lens (value :: KeyValuePair -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: KeyValuePair)
-{-# DEPRECATED kvpValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  KeyValuePair' {name = Core.Nothing, value = Core.Nothing}
 
 -- | The name of the key-value pair. For environment variables, this is the name of the environment variable.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kvpName :: Lens.Lens' KeyValuePair (Lude.Maybe Lude.Text)
-kvpName = Lens.lens (name :: KeyValuePair -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: KeyValuePair)
+kvpName :: Lens.Lens' KeyValuePair (Core.Maybe Types.String)
+kvpName = Lens.field @"name"
 {-# DEPRECATED kvpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON KeyValuePair where
-  parseJSON =
-    Lude.withObject
-      "KeyValuePair"
-      ( \x ->
-          KeyValuePair'
-            Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "name")
+-- | The value of the key-value pair. For environment variables, this is the value of the environment variable.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kvpValue :: Lens.Lens' KeyValuePair (Core.Maybe Types.String)
+kvpValue = Lens.field @"value"
+{-# DEPRECATED kvpValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON KeyValuePair where
+  toJSON KeyValuePair {..} =
+    Core.object
+      ( Core.catMaybes
+          [("name" Core..=) Core.<$> name, ("value" Core..=) Core.<$> value]
       )
 
-instance Lude.ToJSON KeyValuePair where
-  toJSON KeyValuePair' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("value" Lude..=) Lude.<$> value, ("name" Lude..=) Lude.<$> name]
-      )
+instance Core.FromJSON KeyValuePair where
+  parseJSON =
+    Core.withObject "KeyValuePair" Core.$
+      \x ->
+        KeyValuePair'
+          Core.<$> (x Core..:? "name") Core.<*> (x Core..:? "value")

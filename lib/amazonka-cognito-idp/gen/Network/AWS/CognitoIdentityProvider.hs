@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,121 @@
 -- For more information, see the Amazon Cognito Documentation.
 module Network.AWS.CognitoIdentityProvider
   ( -- * Service configuration
-    cognitoIdentityProviderService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** UnsupportedUserStateException
+    _UnsupportedUserStateException,
+
+    -- ** PasswordResetRequiredException
+    _PasswordResetRequiredException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidLambdaResponseException
+    _InvalidLambdaResponseException,
+
+    -- ** InvalidEmailRoleAccessPolicyException
+    _InvalidEmailRoleAccessPolicyException,
+
+    -- ** UnsupportedIdentityProviderException
+    _UnsupportedIdentityProviderException,
+
+    -- ** UserNotFoundException
+    _UserNotFoundException,
+
+    -- ** UnexpectedLambdaException
+    _UnexpectedLambdaException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** InvalidUserPoolConfigurationException
+    _InvalidUserPoolConfigurationException,
+
+    -- ** InvalidSmsRoleAccessPolicyException
+    _InvalidSmsRoleAccessPolicyException,
+
+    -- ** InvalidOAuthFlowException
+    _InvalidOAuthFlowException,
+
+    -- ** CodeMismatchException
+    _CodeMismatchException,
+
+    -- ** UserImportInProgressException
+    _UserImportInProgressException,
+
+    -- ** InvalidSmsRoleTrustRelationshipException
+    _InvalidSmsRoleTrustRelationshipException,
+
+    -- ** UserPoolTaggingException
+    _UserPoolTaggingException,
+
+    -- ** SoftwareTokenMFANotFoundException
+    _SoftwareTokenMFANotFoundException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** UserPoolAddOnNotEnabledException
+    _UserPoolAddOnNotEnabledException,
+
+    -- ** UserLambdaValidationException
+    _UserLambdaValidationException,
+
+    -- ** PreconditionNotMetException
+    _PreconditionNotMetException,
+
+    -- ** ExpiredCodeException
+    _ExpiredCodeException,
+
+    -- ** TooManyFailedAttemptsException
+    _TooManyFailedAttemptsException,
+
+    -- ** EnableSoftwareTokenMFAException
+    _EnableSoftwareTokenMFAException,
+
+    -- ** UserNotConfirmedException
+    _UserNotConfirmedException,
+
+    -- ** GroupExistsException
+    _GroupExistsException,
+
+    -- ** CodeDeliveryFailureException
+    _CodeDeliveryFailureException,
+
+    -- ** ScopeDoesNotExistException
+    _ScopeDoesNotExistException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** MFAMethodNotFoundException
+    _MFAMethodNotFoundException,
+
+    -- ** AliasExistsException
+    _AliasExistsException,
+
+    -- ** DuplicateProviderException
+    _DuplicateProviderException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** InvalidPasswordException
+    _InvalidPasswordException,
+
+    -- ** UsernameExistsException
+    _UsernameExistsException,
 
     -- * Waiters
     -- $waiters
@@ -52,8 +162,8 @@ module Network.AWS.CognitoIdentityProvider
     -- ** GetUserAttributeVerificationCode
     module Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode,
 
-    -- ** SetUserPoolMFAConfig
-    module Network.AWS.CognitoIdentityProvider.SetUserPoolMFAConfig,
+    -- ** SetUserPoolMfaConfig
+    module Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig,
 
     -- ** UpdateUserAttributes
     module Network.AWS.CognitoIdentityProvider.UpdateUserAttributes,
@@ -253,8 +363,8 @@ module Network.AWS.CognitoIdentityProvider
     -- ** CreateUserPoolClient
     module Network.AWS.CognitoIdentityProvider.CreateUserPoolClient,
 
-    -- ** GetUserPoolMFAConfig
-    module Network.AWS.CognitoIdentityProvider.GetUserPoolMFAConfig,
+    -- ** GetUserPoolMfaConfig
+    module Network.AWS.CognitoIdentityProvider.GetUserPoolMfaConfig,
 
     -- ** CreateResourceServer
     module Network.AWS.CognitoIdentityProvider.CreateResourceServer,
@@ -330,490 +440,65 @@ module Network.AWS.CognitoIdentityProvider
 
     -- * Types
 
-    -- ** AccountTakeoverEventActionType
-    AccountTakeoverEventActionType (..),
+    -- ** ImageUrlType
+    ImageUrlType (..),
 
-    -- ** AdvancedSecurityModeType
-    AdvancedSecurityModeType (..),
+    -- ** UserImportJobNameType
+    UserImportJobNameType (..),
 
-    -- ** AliasAttributeType
-    AliasAttributeType (..),
-
-    -- ** AttributeDataType
-    AttributeDataType (..),
-
-    -- ** AuthFlowType
-    AuthFlowType (..),
-
-    -- ** ChallengeName
-    ChallengeName (..),
-
-    -- ** ChallengeNameType
-    ChallengeNameType (..),
-
-    -- ** ChallengeResponse
-    ChallengeResponse (..),
-
-    -- ** CompromisedCredentialsEventActionType
-    CompromisedCredentialsEventActionType (..),
-
-    -- ** CustomEmailSenderLambdaVersionType
-    CustomEmailSenderLambdaVersionType (..),
-
-    -- ** CustomSMSSenderLambdaVersionType
-    CustomSMSSenderLambdaVersionType (..),
-
-    -- ** DefaultEmailOptionType
-    DefaultEmailOptionType (..),
-
-    -- ** DeliveryMediumType
-    DeliveryMediumType (..),
-
-    -- ** DeviceRememberedStatusType
-    DeviceRememberedStatusType (..),
-
-    -- ** DomainStatusType
-    DomainStatusType (..),
-
-    -- ** EmailSendingAccountType
-    EmailSendingAccountType (..),
+    -- ** SecretHashType
+    SecretHashType (..),
 
     -- ** EventFilterType
     EventFilterType (..),
 
-    -- ** EventResponseType
-    EventResponseType (..),
+    -- ** EmailConfigurationType
+    EmailConfigurationType (..),
+    mkEmailConfigurationType,
+    ectConfigurationSet,
+    ectEmailSendingAccount,
+    ectFrom,
+    ectReplyToEmailAddress,
+    ectSourceArn,
 
-    -- ** EventType
-    EventType (..),
+    -- ** ChallengeName
+    ChallengeName (..),
 
-    -- ** ExplicitAuthFlowsType
-    ExplicitAuthFlowsType (..),
-
-    -- ** FeedbackValueType
-    FeedbackValueType (..),
-
-    -- ** IdentityProviderTypeType
-    IdentityProviderTypeType (..),
-
-    -- ** MessageActionType
-    MessageActionType (..),
-
-    -- ** OAuthFlowType
-    OAuthFlowType (..),
-
-    -- ** PreventUserExistenceErrorTypes
-    PreventUserExistenceErrorTypes (..),
-
-    -- ** RecoveryOptionNameType
-    RecoveryOptionNameType (..),
-
-    -- ** RiskDecisionType
-    RiskDecisionType (..),
-
-    -- ** RiskLevelType
-    RiskLevelType (..),
-
-    -- ** StatusType
-    StatusType (..),
-
-    -- ** TimeUnitsType
-    TimeUnitsType (..),
-
-    -- ** UserImportJobStatusType
-    UserImportJobStatusType (..),
-
-    -- ** UserPoolMFAType
-    UserPoolMFAType (..),
-
-    -- ** UserStatusType
-    UserStatusType (..),
-
-    -- ** UsernameAttributeType
-    UsernameAttributeType (..),
-
-    -- ** VerifiedAttributeType
-    VerifiedAttributeType (..),
-
-    -- ** VerifySoftwareTokenResponseType
-    VerifySoftwareTokenResponseType (..),
+    -- ** TokenValidityUnitsType
+    TokenValidityUnitsType (..),
+    mkTokenValidityUnitsType,
+    tvutAccessToken,
+    tvutIdToken,
+    tvutRefreshToken,
 
     -- ** AccountRecoverySettingType
     AccountRecoverySettingType (..),
     mkAccountRecoverySettingType,
     arstRecoveryMechanisms,
 
-    -- ** AccountTakeoverActionType
-    AccountTakeoverActionType (..),
-    mkAccountTakeoverActionType,
-    atatEventAction,
-    atatNotify,
-
-    -- ** AccountTakeoverActionsType
-    AccountTakeoverActionsType (..),
-    mkAccountTakeoverActionsType,
-    atatLowAction,
-    atatHighAction,
-    atatMediumAction,
-
-    -- ** AccountTakeoverRiskConfigurationType
-    AccountTakeoverRiskConfigurationType (..),
-    mkAccountTakeoverRiskConfigurationType,
-    atrctActions,
-    atrctNotifyConfiguration,
-
-    -- ** AdminCreateUserConfigType
-    AdminCreateUserConfigType (..),
-    mkAdminCreateUserConfigType,
-    acuctAllowAdminCreateUserOnly,
-    acuctUnusedAccountValidityDays,
-    acuctInviteMessageTemplate,
-
-    -- ** AnalyticsConfigurationType
-    AnalyticsConfigurationType (..),
-    mkAnalyticsConfigurationType,
-    actApplicationARN,
-    actUserDataShared,
-    actApplicationId,
-    actExternalId,
-    actRoleARN,
-
-    -- ** AnalyticsMetadataType
-    AnalyticsMetadataType (..),
-    mkAnalyticsMetadataType,
-    amtAnalyticsEndpointId,
-
-    -- ** AttributeType
-    AttributeType (..),
-    mkAttributeType,
-    atValue,
-    atName,
-
-    -- ** AuthEventType
-    AuthEventType (..),
-    mkAuthEventType,
-    aetEventRisk,
-    aetEventResponse,
-    aetEventContextData,
-    aetChallengeResponses,
-    aetEventType,
-    aetCreationDate,
-    aetEventFeedback,
-    aetEventId,
-
-    -- ** AuthenticationResultType
-    AuthenticationResultType (..),
-    mkAuthenticationResultType,
-    artAccessToken,
-    artRefreshToken,
-    artNewDeviceMetadata,
-    artExpiresIn,
-    artTokenType,
-    artIdToken,
-
-    -- ** ChallengeResponseType
-    ChallengeResponseType (..),
-    mkChallengeResponseType,
-    crtChallengeName,
-    crtChallengeResponse,
-
-    -- ** CodeDeliveryDetailsType
-    CodeDeliveryDetailsType (..),
-    mkCodeDeliveryDetailsType,
-    cddtDestination,
-    cddtDeliveryMedium,
-    cddtAttributeName,
-
-    -- ** CompromisedCredentialsActionsType
-    CompromisedCredentialsActionsType (..),
-    mkCompromisedCredentialsActionsType,
-    ccatEventAction,
-
-    -- ** CompromisedCredentialsRiskConfigurationType
-    CompromisedCredentialsRiskConfigurationType (..),
-    mkCompromisedCredentialsRiskConfigurationType,
-    ccrctActions,
-    ccrctEventFilter,
-
-    -- ** ContextDataType
-    ContextDataType (..),
-    mkContextDataType,
-    cdtHTTPHeaders,
-    cdtIPAddress,
-    cdtServerName,
-    cdtEncodedData,
-    cdtServerPath,
-
-    -- ** CustomDomainConfigType
-    CustomDomainConfigType (..),
-    mkCustomDomainConfigType,
-    cdctCertificateARN,
-
-    -- ** CustomEmailLambdaVersionConfigType
-    CustomEmailLambdaVersionConfigType (..),
-    mkCustomEmailLambdaVersionConfigType,
-    celvctLambdaARN,
-    celvctLambdaVersion,
-
-    -- ** CustomSMSLambdaVersionConfigType
-    CustomSMSLambdaVersionConfigType (..),
-    mkCustomSMSLambdaVersionConfigType,
-    csmslvctLambdaARN,
-    csmslvctLambdaVersion,
-
-    -- ** DeviceConfigurationType
-    DeviceConfigurationType (..),
-    mkDeviceConfigurationType,
-    dctChallengeRequiredOnNewDevice,
-    dctDeviceOnlyRememberedOnUserPrompt,
-
-    -- ** DeviceSecretVerifierConfigType
-    DeviceSecretVerifierConfigType (..),
-    mkDeviceSecretVerifierConfigType,
-    dsvctPasswordVerifier,
-    dsvctSalt,
-
-    -- ** DeviceType
-    DeviceType (..),
-    mkDeviceType,
-    dtDeviceLastModifiedDate,
-    dtDeviceCreateDate,
-    dtDeviceAttributes,
-    dtDeviceKey,
-    dtDeviceLastAuthenticatedDate,
-
-    -- ** DomainDescriptionType
-    DomainDescriptionType (..),
-    mkDomainDescriptionType,
-    ddtStatus,
-    ddtCloudFrontDistribution,
-    ddtUserPoolId,
-    ddtDomain,
-    ddtAWSAccountId,
-    ddtCustomDomainConfig,
-    ddtVersion,
-    ddtS3Bucket,
-
-    -- ** EmailConfigurationType
-    EmailConfigurationType (..),
-    mkEmailConfigurationType,
-    ectSourceARN,
-    ectFrom,
-    ectConfigurationSet,
-    ectReplyToEmailAddress,
-    ectEmailSendingAccount,
-
-    -- ** EventContextDataType
-    EventContextDataType (..),
-    mkEventContextDataType,
-    ecdtIPAddress,
-    ecdtCountry,
-    ecdtCity,
-    ecdtDeviceName,
-    ecdtTimezone,
-
-    -- ** EventFeedbackType
-    EventFeedbackType (..),
-    mkEventFeedbackType,
-    eftFeedbackValue,
-    eftFeedbackDate,
-    eftProvider,
-
-    -- ** EventRiskType
-    EventRiskType (..),
-    mkEventRiskType,
-    ertCompromisedCredentialsDetected,
-    ertRiskLevel,
-    ertRiskDecision,
-
-    -- ** GroupType
-    GroupType (..),
-    mkGroupType,
-    gtLastModifiedDate,
-    gtUserPoolId,
-    gtCreationDate,
-    gtPrecedence,
-    gtGroupName,
-    gtDescription,
-    gtRoleARN,
-
-    -- ** HTTPHeader
-    HTTPHeader (..),
-    mkHTTPHeader,
-    httphHeaderValue,
-    httphHeaderName,
+    -- ** CompletionMessageType
+    CompletionMessageType (..),
 
     -- ** IdentityProviderType
     IdentityProviderType (..),
     mkIdentityProviderType,
-    iptLastModifiedDate,
-    iptUserPoolId,
-    iptProviderType,
+    iptAttributeMapping,
     iptCreationDate,
     iptIdpIdentifiers,
-    iptAttributeMapping,
+    iptLastModifiedDate,
     iptProviderDetails,
     iptProviderName,
+    iptProviderType,
+    iptUserPoolId,
 
-    -- ** LambdaConfigType
-    LambdaConfigType (..),
-    mkLambdaConfigType,
-    lctPreAuthentication,
-    lctCreateAuthChallenge,
-    lctVerifyAuthChallengeResponse,
-    lctCustomSMSSender,
-    lctPostAuthentication,
-    lctCustomMessage,
-    lctDefineAuthChallenge,
-    lctCustomEmailSender,
-    lctKMSKeyId,
-    lctPostConfirmation,
-    lctPreTokenGeneration,
-    lctUserMigration,
-    lctPreSignUp,
+    -- ** DeviceKeyType
+    DeviceKeyType (..),
 
-    -- ** MFAOptionType
-    MFAOptionType (..),
-    mkMFAOptionType,
-    motDeliveryMedium,
-    motAttributeName,
-
-    -- ** MessageTemplateType
-    MessageTemplateType (..),
-    mkMessageTemplateType,
-    mttEmailSubject,
-    mttSMSMessage,
-    mttEmailMessage,
-
-    -- ** NewDeviceMetadataType
-    NewDeviceMetadataType (..),
-    mkNewDeviceMetadataType,
-    ndmtDeviceGroupKey,
-    ndmtDeviceKey,
-
-    -- ** NotifyConfigurationType
-    NotifyConfigurationType (..),
-    mkNotifyConfigurationType,
-    nctSourceARN,
-    nctNoActionEmail,
-    nctFrom,
-    nctReplyTo,
-    nctBlockEmail,
-    nctMFAEmail,
-
-    -- ** NotifyEmailType
-    NotifyEmailType (..),
-    mkNotifyEmailType,
-    netSubject,
-    netTextBody,
-    netHTMLBody,
-
-    -- ** NumberAttributeConstraintsType
-    NumberAttributeConstraintsType (..),
-    mkNumberAttributeConstraintsType,
-    nactMaxValue,
-    nactMinValue,
-
-    -- ** PasswordPolicyType
-    PasswordPolicyType (..),
-    mkPasswordPolicyType,
-    pptRequireNumbers,
-    pptRequireUppercase,
-    pptRequireLowercase,
-    pptMinimumLength,
-    pptRequireSymbols,
-    pptTemporaryPasswordValidityDays,
-
-    -- ** ProviderDescription
-    ProviderDescription (..),
-    mkProviderDescription,
-    pdLastModifiedDate,
-    pdProviderType,
-    pdCreationDate,
-    pdProviderName,
-
-    -- ** ProviderUserIdentifierType
-    ProviderUserIdentifierType (..),
-    mkProviderUserIdentifierType,
-    puitProviderAttributeValue,
-    puitProviderAttributeName,
-    puitProviderName,
-
-    -- ** RecoveryOptionType
-    RecoveryOptionType (..),
-    mkRecoveryOptionType,
-    rotPriority,
-    rotName,
-
-    -- ** ResourceServerScopeType
-    ResourceServerScopeType (..),
-    mkResourceServerScopeType,
-    rsstScopeName,
-    rsstScopeDescription,
-
-    -- ** ResourceServerType
-    ResourceServerType (..),
-    mkResourceServerType,
-    rstUserPoolId,
-    rstIdentifier,
-    rstScopes,
-    rstName,
-
-    -- ** RiskConfigurationType
-    RiskConfigurationType (..),
-    mkRiskConfigurationType,
-    rctRiskExceptionConfiguration,
-    rctClientId,
-    rctAccountTakeoverRiskConfiguration,
-    rctLastModifiedDate,
-    rctUserPoolId,
-    rctCompromisedCredentialsRiskConfiguration,
-
-    -- ** RiskExceptionConfigurationType
-    RiskExceptionConfigurationType (..),
-    mkRiskExceptionConfigurationType,
-    rectSkippedIPRangeList,
-    rectBlockedIPRangeList,
-
-    -- ** SMSMFASettingsType
-    SMSMFASettingsType (..),
-    mkSMSMFASettingsType,
-    smsmstEnabled,
-    smsmstPreferredMFA,
-
-    -- ** SchemaAttributeType
-    SchemaAttributeType (..),
-    mkSchemaAttributeType,
-    satNumberAttributeConstraints,
-    satRequired,
-    satAttributeDataType,
-    satStringAttributeConstraints,
-    satName,
-    satDeveloperOnlyAttribute,
-    satMutable,
-
-    -- ** SmsConfigurationType
-    SmsConfigurationType (..),
-    mkSmsConfigurationType,
-    sctSNSCallerARN,
-    sctExternalId,
-
-    -- ** SmsMFAConfigType
-    SmsMFAConfigType (..),
-    mkSmsMFAConfigType,
-    smctSmsAuthenticationMessage,
-    smctSmsConfiguration,
-
-    -- ** SoftwareTokenMFAConfigType
-    SoftwareTokenMFAConfigType (..),
-    mkSoftwareTokenMFAConfigType,
-    stmctEnabled,
-
-    -- ** SoftwareTokenMFASettingsType
-    SoftwareTokenMFASettingsType (..),
-    mkSoftwareTokenMFASettingsType,
-    stmstEnabled,
-    stmstPreferredMFA,
+    -- ** HttpHeader
+    HttpHeader (..),
+    mkHttpHeader,
+    hhHeaderName,
+    hhHeaderValue,
 
     -- ** StringAttributeConstraintsType
     StringAttributeConstraintsType (..),
@@ -821,169 +506,964 @@ module Network.AWS.CognitoIdentityProvider
     sactMaxLength,
     sactMinLength,
 
-    -- ** TokenValidityUnitsType
-    TokenValidityUnitsType (..),
-    mkTokenValidityUnitsType,
-    tvutAccessToken,
-    tvutRefreshToken,
-    tvutIdToken,
+    -- ** DeviceNameType
+    DeviceNameType (..),
 
-    -- ** UICustomizationType
-    UICustomizationType (..),
-    mkUICustomizationType,
-    uictClientId,
-    uictLastModifiedDate,
-    uictUserPoolId,
-    uictCSS,
-    uictCSSVersion,
-    uictImageURL,
-    uictCreationDate,
+    -- ** PasswordType
+    PasswordType (..),
 
-    -- ** UserContextDataType
-    UserContextDataType (..),
-    mkUserContextDataType,
-    ucdtEncodedData,
+    -- ** ProviderDescription
+    ProviderDescription (..),
+    mkProviderDescription,
+    pdCreationDate,
+    pdLastModifiedDate,
+    pdProviderName,
+    pdProviderType,
 
-    -- ** UserImportJobType
-    UserImportJobType (..),
-    mkUserImportJobType,
-    uijtStatus,
-    uijtSkippedUsers,
-    uijtJobId,
-    uijtUserPoolId,
-    uijtJobName,
-    uijtPreSignedURL,
-    uijtFailedUsers,
-    uijtStartDate,
-    uijtCompletionMessage,
-    uijtCreationDate,
-    uijtCompletionDate,
-    uijtCloudWatchLogsRoleARN,
-    uijtImportedUsers,
-
-    -- ** UserPoolAddOnsType
-    UserPoolAddOnsType (..),
-    mkUserPoolAddOnsType,
-    upaotAdvancedSecurityMode,
+    -- ** SmsVerificationMessageType
+    SmsVerificationMessageType (..),
 
     -- ** UserPoolClientDescription
     UserPoolClientDescription (..),
     mkUserPoolClientDescription,
     upcdClientId,
-    upcdUserPoolId,
     upcdClientName,
+    upcdUserPoolId,
 
-    -- ** UserPoolClientType
-    UserPoolClientType (..),
-    mkUserPoolClientType,
-    upctRefreshTokenValidity,
-    upctClientId,
-    upctExplicitAuthFlows,
-    upctClientSecret,
-    upctLastModifiedDate,
-    upctSupportedIdentityProviders,
-    upctLogoutURLs,
-    upctAllowedOAuthFlowsUserPoolClient,
-    upctUserPoolId,
-    upctIdTokenValidity,
-    upctTokenValidityUnits,
-    upctDefaultRedirectURI,
-    upctWriteAttributes,
-    upctPreventUserExistenceErrors,
-    upctAccessTokenValidity,
-    upctCreationDate,
-    upctReadAttributes,
-    upctAllowedOAuthScopes,
-    upctAllowedOAuthFlows,
-    upctAnalyticsConfiguration,
-    upctClientName,
-    upctCallbackURLs,
+    -- ** ResourceServerScopeNameType
+    ResourceServerScopeNameType (..),
 
-    -- ** UserPoolDescriptionType
-    UserPoolDescriptionType (..),
-    mkUserPoolDescriptionType,
-    updtStatus,
-    updtLastModifiedDate,
-    updtName,
-    updtId,
-    updtCreationDate,
-    updtLambdaConfig,
+    -- ** PreventUserExistenceErrorTypes
+    PreventUserExistenceErrorTypes (..),
 
-    -- ** UserPoolPolicyType
-    UserPoolPolicyType (..),
-    mkUserPoolPolicyType,
-    upptPasswordPolicy,
+    -- ** ScopeType
+    ScopeType (..),
+
+    -- ** AliasAttributeType
+    AliasAttributeType (..),
+
+    -- ** AccountTakeoverActionType
+    AccountTakeoverActionType (..),
+    mkAccountTakeoverActionType,
+    atatNotify,
+    atatEventAction,
+
+    -- ** DomainVersionType
+    DomainVersionType (..),
+
+    -- ** SoftwareTokenMFAUserCodeType
+    SoftwareTokenMFAUserCodeType (..),
+
+    -- ** UsernameAttributeType
+    UsernameAttributeType (..),
+
+    -- ** VerifiedAttributeType
+    VerifiedAttributeType (..),
+
+    -- ** SchemaAttributeType
+    SchemaAttributeType (..),
+    mkSchemaAttributeType,
+    satAttributeDataType,
+    satDeveloperOnlyAttribute,
+    satMutable,
+    satName,
+    satNumberAttributeConstraints,
+    satRequired,
+    satStringAttributeConstraints,
+
+    -- ** EmailVerificationMessageByLinkType
+    EmailVerificationMessageByLinkType (..),
+
+    -- ** SmsConfigurationType
+    SmsConfigurationType (..),
+    mkSmsConfigurationType,
+    sctSnsCallerArn,
+    sctExternalId,
+
+    -- ** EventFeedbackType
+    EventFeedbackType (..),
+    mkEventFeedbackType,
+    eftFeedbackValue,
+    eftProvider,
+    eftFeedbackDate,
+
+    -- ** LambdaConfigType
+    LambdaConfigType (..),
+    mkLambdaConfigType,
+    lctCreateAuthChallenge,
+    lctCustomEmailSender,
+    lctCustomMessage,
+    lctCustomSMSSender,
+    lctDefineAuthChallenge,
+    lctKMSKeyID,
+    lctPostAuthentication,
+    lctPostConfirmation,
+    lctPreAuthentication,
+    lctPreSignUp,
+    lctPreTokenGeneration,
+    lctUserMigration,
+    lctVerifyAuthChallengeResponse,
 
     -- ** UserPoolType
     UserPoolType (..),
     mkUserPoolType,
-    uptStatus,
-    uptUserPoolTags,
-    uptEmailConfigurationFailure,
-    uptLastModifiedDate,
-    uptVerificationMessageTemplate,
-    uptEstimatedNumberOfUsers,
-    uptARN,
-    uptDomain,
-    uptCustomDomain,
-    uptEmailVerificationMessage,
-    uptSmsAuthenticationMessage,
-    uptUserPoolAddOns,
-    uptSchemaAttributes,
-    uptEmailVerificationSubject,
-    uptUsernameAttributes,
-    uptAliasAttributes,
     uptAccountRecoverySetting,
-    uptEmailConfiguration,
-    uptSmsVerificationMessage,
-    uptName,
-    uptMFAConfiguration,
-    uptId,
-    uptSmsConfigurationFailure,
-    uptCreationDate,
-    uptLambdaConfig,
-    uptSmsConfiguration,
     uptAdminCreateUserConfig,
-    uptDeviceConfiguration,
+    uptAliasAttributes,
+    uptArn,
     uptAutoVerifiedAttributes,
+    uptCreationDate,
+    uptCustomDomain,
+    uptDeviceConfiguration,
+    uptDomain,
+    uptEmailConfiguration,
+    uptEmailConfigurationFailure,
+    uptEmailVerificationMessage,
+    uptEmailVerificationSubject,
+    uptEstimatedNumberOfUsers,
+    uptId,
+    uptLambdaConfig,
+    uptLastModifiedDate,
+    uptMfaConfiguration,
+    uptName,
     uptPolicies,
+    uptSchemaAttributes,
+    uptSmsAuthenticationMessage,
+    uptSmsConfiguration,
+    uptSmsConfigurationFailure,
+    uptSmsVerificationMessage,
+    uptStatus,
+    uptUserPoolAddOns,
+    uptUserPoolTags,
+    uptUsernameAttributes,
     uptUsernameConfiguration,
+    uptVerificationMessageTemplate,
 
-    -- ** UserType
-    UserType (..),
-    mkUserType,
-    utEnabled,
-    utUserStatus,
-    utUsername,
-    utUserCreateDate,
-    utAttributes,
-    utMFAOptions,
-    utUserLastModifiedDate,
+    -- ** RiskLevelType
+    RiskLevelType (..),
+
+    -- ** OAuthFlowType
+    OAuthFlowType (..),
+
+    -- ** EmailNotificationSubjectType
+    EmailNotificationSubjectType (..),
+
+    -- ** ResourceServerNameType
+    ResourceServerNameType (..),
+
+    -- ** ChallengeResponseType
+    ChallengeResponseType (..),
+    mkChallengeResponseType,
+    crtChallengeName,
+    crtChallengeResponse,
+
+    -- ** RecoveryOptionType
+    RecoveryOptionType (..),
+    mkRecoveryOptionType,
+    rotPriority,
+    rotName,
+
+    -- ** AdminCreateUserConfigType
+    AdminCreateUserConfigType (..),
+    mkAdminCreateUserConfigType,
+    acuctAllowAdminCreateUserOnly,
+    acuctInviteMessageTemplate,
+    acuctUnusedAccountValidityDays,
+
+    -- ** CustomEmailLambdaVersionConfigType
+    CustomEmailLambdaVersionConfigType (..),
+    mkCustomEmailLambdaVersionConfigType,
+    celvctLambdaVersion,
+    celvctLambdaArn,
+
+    -- ** VerifySoftwareTokenResponseType
+    VerifySoftwareTokenResponseType (..),
+
+    -- ** GroupNameType
+    GroupNameType (..),
+
+    -- ** DeviceConfigurationType
+    DeviceConfigurationType (..),
+    mkDeviceConfigurationType,
+    dctChallengeRequiredOnNewDevice,
+    dctDeviceOnlyRememberedOnUserPrompt,
+
+    -- ** CompromisedCredentialsEventActionType
+    CompromisedCredentialsEventActionType (..),
+
+    -- ** PaginationKeyType
+    PaginationKeyType (..),
+
+    -- ** RiskDecisionType
+    RiskDecisionType (..),
+
+    -- ** ProviderUserIdentifierType
+    ProviderUserIdentifierType (..),
+    mkProviderUserIdentifierType,
+    puitProviderAttributeName,
+    puitProviderAttributeValue,
+    puitProviderName,
+
+    -- ** NotifyConfigurationType
+    NotifyConfigurationType (..),
+    mkNotifyConfigurationType,
+    nctSourceArn,
+    nctBlockEmail,
+    nctFrom,
+    nctMfaEmail,
+    nctNoActionEmail,
+    nctReplyTo,
+
+    -- ** CodeDeliveryDetailsType
+    CodeDeliveryDetailsType (..),
+    mkCodeDeliveryDetailsType,
+    cddtAttributeName,
+    cddtDeliveryMedium,
+    cddtDestination,
+
+    -- ** AdvancedSecurityModeType
+    AdvancedSecurityModeType (..),
+
+    -- ** AttributeNameType
+    AttributeNameType (..),
+
+    -- ** ResourceServerScopeDescriptionType
+    ResourceServerScopeDescriptionType (..),
+
+    -- ** DescriptionType
+    DescriptionType (..),
+
+    -- ** ClientNameType
+    ClientNameType (..),
+
+    -- ** IdpIdentifierType
+    IdpIdentifierType (..),
+
+    -- ** AnalyticsConfigurationType
+    AnalyticsConfigurationType (..),
+    mkAnalyticsConfigurationType,
+    actApplicationArn,
+    actApplicationId,
+    actExternalId,
+    actRoleArn,
+    actUserDataShared,
+
+    -- ** S3BucketType
+    S3BucketType (..),
+
+    -- ** DomainDescriptionType
+    DomainDescriptionType (..),
+    mkDomainDescriptionType,
+    ddtAWSAccountId,
+    ddtCloudFrontDistribution,
+    ddtCustomDomainConfig,
+    ddtDomain,
+    ddtS3Bucket,
+    ddtStatus,
+    ddtUserPoolId,
+    ddtVersion,
+
+    -- ** ProviderNameType
+    ProviderNameType (..),
+
+    -- ** SessionType
+    SessionType (..),
 
     -- ** UsernameConfigurationType
     UsernameConfigurationType (..),
     mkUsernameConfigurationType,
     uctCaseSensitive,
 
+    -- ** RedirectUrlType
+    RedirectUrlType (..),
+
+    -- ** UserFilterType
+    UserFilterType (..),
+
+    -- ** EmailSendingAccountType
+    EmailSendingAccountType (..),
+
+    -- ** CustomSMSLambdaVersionConfigType
+    CustomSMSLambdaVersionConfigType (..),
+    mkCustomSMSLambdaVersionConfigType,
+    csmslvctLambdaVersion,
+    csmslvctLambdaArn,
+
+    -- ** MFAOptionType
+    MFAOptionType (..),
+    mkMFAOptionType,
+    mfaotAttributeName,
+    mfaotDeliveryMedium,
+
+    -- ** ResourceServerIdentifierType
+    ResourceServerIdentifierType (..),
+
+    -- ** ChallengeNameType
+    ChallengeNameType (..),
+
+    -- ** UserPoolClientType
+    UserPoolClientType (..),
+    mkUserPoolClientType,
+    upctAccessTokenValidity,
+    upctAllowedOAuthFlows,
+    upctAllowedOAuthFlowsUserPoolClient,
+    upctAllowedOAuthScopes,
+    upctAnalyticsConfiguration,
+    upctCallbackURLs,
+    upctClientId,
+    upctClientName,
+    upctClientSecret,
+    upctCreationDate,
+    upctDefaultRedirectURI,
+    upctExplicitAuthFlows,
+    upctIdTokenValidity,
+    upctLastModifiedDate,
+    upctLogoutURLs,
+    upctPreventUserExistenceErrors,
+    upctReadAttributes,
+    upctRefreshTokenValidity,
+    upctSupportedIdentityProviders,
+    upctTokenValidityUnits,
+    upctUserPoolId,
+    upctWriteAttributes,
+
+    -- ** AuthEventType
+    AuthEventType (..),
+    mkAuthEventType,
+    aetChallengeResponses,
+    aetCreationDate,
+    aetEventContextData,
+    aetEventFeedback,
+    aetEventId,
+    aetEventResponse,
+    aetEventRisk,
+    aetEventType,
+
+    -- ** DomainStatusType
+    DomainStatusType (..),
+
+    -- ** TokenModelType
+    TokenModelType (..),
+
+    -- ** SoftwareTokenMfaConfigType
+    SoftwareTokenMfaConfigType (..),
+    mkSoftwareTokenMfaConfigType,
+    stmctEnabled,
+
+    -- ** DeviceSecretVerifierConfigType
+    DeviceSecretVerifierConfigType (..),
+    mkDeviceSecretVerifierConfigType,
+    dsvctPasswordVerifier,
+    dsvctSalt,
+
+    -- ** AttributeDataType
+    AttributeDataType (..),
+
+    -- ** ClientIdType
+    ClientIdType (..),
+
+    -- ** EventType
+    EventType (..),
+
+    -- ** DefaultEmailOptionType
+    DefaultEmailOptionType (..),
+
+    -- ** AttributeType
+    AttributeType (..),
+    mkAttributeType,
+    atName,
+    atValue,
+
+    -- ** RiskExceptionConfigurationType
+    RiskExceptionConfigurationType (..),
+    mkRiskExceptionConfigurationType,
+    rectBlockedIPRangeList,
+    rectSkippedIPRangeList,
+
+    -- ** StatusType
+    StatusType (..),
+
+    -- ** ContextDataType
+    ContextDataType (..),
+    mkContextDataType,
+    cdtIpAddress,
+    cdtServerName,
+    cdtServerPath,
+    cdtHttpHeaders,
+    cdtEncodedData,
+
+    -- ** EventRiskType
+    EventRiskType (..),
+    mkEventRiskType,
+    ertCompromisedCredentialsDetected,
+    ertRiskDecision,
+    ertRiskLevel,
+
+    -- ** CompromisedCredentialsActionsType
+    CompromisedCredentialsActionsType (..),
+    mkCompromisedCredentialsActionsType,
+    ccatEventAction,
+
+    -- ** EventResponseType
+    EventResponseType (..),
+
+    -- ** ResourceServerType
+    ResourceServerType (..),
+    mkResourceServerType,
+    rstIdentifier,
+    rstName,
+    rstScopes,
+    rstUserPoolId,
+
+    -- ** UserPoolMfaType
+    UserPoolMfaType (..),
+
+    -- ** IdentityProviderTypeType
+    IdentityProviderTypeType (..),
+
+    -- ** ExplicitAuthFlowsType
+    ExplicitAuthFlowsType (..),
+
+    -- ** AccountTakeoverRiskConfigurationType
+    AccountTakeoverRiskConfigurationType (..),
+    mkAccountTakeoverRiskConfigurationType,
+    atrctActions,
+    atrctNotifyConfiguration,
+
+    -- ** UserImportJobStatusType
+    UserImportJobStatusType (..),
+
+    -- ** NotifyEmailType
+    NotifyEmailType (..),
+    mkNotifyEmailType,
+    netSubject,
+    netHtmlBody,
+    netTextBody,
+
+    -- ** PasswordPolicyType
+    PasswordPolicyType (..),
+    mkPasswordPolicyType,
+    pptMinimumLength,
+    pptRequireLowercase,
+    pptRequireNumbers,
+    pptRequireSymbols,
+    pptRequireUppercase,
+    pptTemporaryPasswordValidityDays,
+
+    -- ** GroupType
+    GroupType (..),
+    mkGroupType,
+    gtCreationDate,
+    gtDescription,
+    gtGroupName,
+    gtLastModifiedDate,
+    gtPrecedence,
+    gtRoleArn,
+    gtUserPoolId,
+
+    -- ** RecoveryOptionNameType
+    RecoveryOptionNameType (..),
+
+    -- ** AttributeMappingKeyType
+    AttributeMappingKeyType (..),
+
+    -- ** ConfirmationCodeType
+    ConfirmationCodeType (..),
+
+    -- ** EmailVerificationSubjectByLinkType
+    EmailVerificationSubjectByLinkType (..),
+
+    -- ** AuthFlowType
+    AuthFlowType (..),
+
+    -- ** DeviceRememberedStatusType
+    DeviceRememberedStatusType (..),
+
+    -- ** FeedbackValueType
+    FeedbackValueType (..),
+
     -- ** VerificationMessageTemplateType
     VerificationMessageTemplateType (..),
     mkVerificationMessageTemplateType,
     vmttDefaultEmailOption,
+    vmttEmailMessage,
+    vmttEmailMessageByLink,
     vmttEmailSubject,
     vmttEmailSubjectByLink,
     vmttSmsMessage,
-    vmttEmailMessageByLink,
-    vmttEmailMessage,
+
+    -- ** ClientPermissionType
+    ClientPermissionType (..),
+
+    -- ** UserPoolNameType
+    UserPoolNameType (..),
+
+    -- ** SMSMfaSettingsType
+    SMSMfaSettingsType (..),
+    mkSMSMfaSettingsType,
+    smsmstEnabled,
+    smsmstPreferredMfa,
+
+    -- ** UserPoolPolicyType
+    UserPoolPolicyType (..),
+    mkUserPoolPolicyType,
+    upptPasswordPolicy,
+
+    -- ** ResourceServerScopeType
+    ResourceServerScopeType (..),
+    mkResourceServerScopeType,
+    rsstScopeName,
+    rsstScopeDescription,
+
+    -- ** SmsMfaConfigType
+    SmsMfaConfigType (..),
+    mkSmsMfaConfigType,
+    smctSmsAuthenticationMessage,
+    smctSmsConfiguration,
+
+    -- ** StringType
+    StringType (..),
+
+    -- ** MessageActionType
+    MessageActionType (..),
+
+    -- ** ArnType
+    ArnType (..),
+
+    -- ** UserStatusType
+    UserStatusType (..),
+
+    -- ** DeviceType
+    DeviceType (..),
+    mkDeviceType,
+    dtDeviceAttributes,
+    dtDeviceCreateDate,
+    dtDeviceKey,
+    dtDeviceLastAuthenticatedDate,
+    dtDeviceLastModifiedDate,
+
+    -- ** DomainType
+    DomainType (..),
+
+    -- ** UserPoolIdType
+    UserPoolIdType (..),
+
+    -- ** CustomSMSSenderLambdaVersionType
+    CustomSMSSenderLambdaVersionType (..),
+
+    -- ** TimeUnitsType
+    TimeUnitsType (..),
+
+    -- ** ChallengeResponse
+    ChallengeResponse (..),
+
+    -- ** UserPoolDescriptionType
+    UserPoolDescriptionType (..),
+    mkUserPoolDescriptionType,
+    updtCreationDate,
+    updtId,
+    updtLambdaConfig,
+    updtLastModifiedDate,
+    updtName,
+    updtStatus,
+
+    -- ** MessageTemplateType
+    MessageTemplateType (..),
+    mkMessageTemplateType,
+    mttEmailMessage,
+    mttEmailSubject,
+    mttSMSMessage,
+
+    -- ** SoftwareTokenMfaSettingsType
+    SoftwareTokenMfaSettingsType (..),
+    mkSoftwareTokenMfaSettingsType,
+    stmstEnabled,
+    stmstPreferredMfa,
+
+    -- ** EventContextDataType
+    EventContextDataType (..),
+    mkEventContextDataType,
+    ecdtCity,
+    ecdtCountry,
+    ecdtDeviceName,
+    ecdtIpAddress,
+    ecdtTimezone,
+
+    -- ** RiskConfigurationType
+    RiskConfigurationType (..),
+    mkRiskConfigurationType,
+    rctAccountTakeoverRiskConfiguration,
+    rctClientId,
+    rctCompromisedCredentialsRiskConfiguration,
+    rctLastModifiedDate,
+    rctRiskExceptionConfiguration,
+    rctUserPoolId,
+
+    -- ** AnalyticsMetadataType
+    AnalyticsMetadataType (..),
+    mkAnalyticsMetadataType,
+    amtAnalyticsEndpointId,
+
+    -- ** CSSType
+    CSSType (..),
+
+    -- ** UserImportJobType
+    UserImportJobType (..),
+    mkUserImportJobType,
+    uijtCloudWatchLogsRoleArn,
+    uijtCompletionDate,
+    uijtCompletionMessage,
+    uijtCreationDate,
+    uijtFailedUsers,
+    uijtImportedUsers,
+    uijtJobId,
+    uijtJobName,
+    uijtPreSignedUrl,
+    uijtSkippedUsers,
+    uijtStartDate,
+    uijtStatus,
+    uijtUserPoolId,
+
+    -- ** PaginationKey
+    PaginationKey (..),
+
+    -- ** TagKeysType
+    TagKeysType (..),
+
+    -- ** UserContextDataType
+    UserContextDataType (..),
+    mkUserContextDataType,
+    ucdtEncodedData,
+
+    -- ** UsernameType
+    UsernameType (..),
+
+    -- ** UserPoolAddOnsType
+    UserPoolAddOnsType (..),
+    mkUserPoolAddOnsType,
+    upaotAdvancedSecurityMode,
+
+    -- ** AccountTakeoverEventActionType
+    AccountTakeoverEventActionType (..),
+
+    -- ** UICustomizationType
+    UICustomizationType (..),
+    mkUICustomizationType,
+    uictCSS,
+    uictCSSVersion,
+    uictClientId,
+    uictCreationDate,
+    uictImageUrl,
+    uictLastModifiedDate,
+    uictUserPoolId,
+
+    -- ** CustomEmailSenderLambdaVersionType
+    CustomEmailSenderLambdaVersionType (..),
+
+    -- ** SearchPaginationTokenType
+    SearchPaginationTokenType (..),
+
+    -- ** DeliveryMediumType
+    DeliveryMediumType (..),
+
+    -- ** AccountTakeoverActionsType
+    AccountTakeoverActionsType (..),
+    mkAccountTakeoverActionsType,
+    atatHighAction,
+    atatLowAction,
+    atatMediumAction,
+
+    -- ** AuthenticationResultType
+    AuthenticationResultType (..),
+    mkAuthenticationResultType,
+    artAccessToken,
+    artExpiresIn,
+    artIdToken,
+    artNewDeviceMetadata,
+    artRefreshToken,
+    artTokenType,
+
+    -- ** CustomDomainConfigType
+    CustomDomainConfigType (..),
+    mkCustomDomainConfigType,
+    cdctCertificateArn,
+
+    -- ** TagValueType
+    TagValueType (..),
+
+    -- ** UserType
+    UserType (..),
+    mkUserType,
+    utAttributes,
+    utEnabled,
+    utMFAOptions,
+    utUserCreateDate,
+    utUserLastModifiedDate,
+    utUserStatus,
+    utUsername,
+
+    -- ** NumberAttributeConstraintsType
+    NumberAttributeConstraintsType (..),
+    mkNumberAttributeConstraintsType,
+    nactMaxValue,
+    nactMinValue,
+
+    -- ** NewDeviceMetadataType
+    NewDeviceMetadataType (..),
+    mkNewDeviceMetadataType,
+    ndmtDeviceGroupKey,
+    ndmtDeviceKey,
+
+    -- ** CompromisedCredentialsRiskConfigurationType
+    CompromisedCredentialsRiskConfigurationType (..),
+    mkCompromisedCredentialsRiskConfigurationType,
+    ccrctActions,
+    ccrctEventFilter,
+
+    -- ** ConfigurationSet
+    ConfigurationSet (..),
+
+    -- ** From
+    From (..),
+
+    -- ** ReplyToEmailAddress
+    ReplyToEmailAddress (..),
+
+    -- ** SourceArn
+    SourceArn (..),
+
+    -- ** ProviderName
+    ProviderName (..),
+
+    -- ** UserPoolId
+    UserPoolId (..),
+
+    -- ** Identifier
+    Identifier (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Session
+    Session (..),
+
+    -- ** AccessToken
+    AccessToken (..),
+
+    -- ** CloudFrontDomain
+    CloudFrontDomain (..),
+
+    -- ** HeaderName
+    HeaderName (..),
+
+    -- ** HeaderValue
+    HeaderValue (..),
+
+    -- ** MaxLength
+    MaxLength (..),
+
+    -- ** MinLength
+    MinLength (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ClientId
+    ClientId (..),
+
+    -- ** Username
+    Username (..),
+
+    -- ** ClientName
+    ClientName (..),
+
+    -- ** EventId
+    EventId (..),
+
+    -- ** JobId
+    JobId (..),
+
+    -- ** CSS
+    CSS (..),
+
+    -- ** ConfirmationCode
+    ConfirmationCode (..),
+
+    -- ** SnsCallerArn
+    SnsCallerArn (..),
+
+    -- ** ExternalId
+    ExternalId (..),
+
+    -- ** Provider
+    Provider (..),
+
+    -- ** CreateAuthChallenge
+    CreateAuthChallenge (..),
+
+    -- ** CustomMessage
+    CustomMessage (..),
+
+    -- ** DefineAuthChallenge
+    DefineAuthChallenge (..),
+
+    -- ** KMSKeyID
+    KMSKeyID (..),
+
+    -- ** PostAuthentication
+    PostAuthentication (..),
+
+    -- ** PostConfirmation
+    PostConfirmation (..),
+
+    -- ** PreAuthentication
+    PreAuthentication (..),
+
+    -- ** PreSignUp
+    PreSignUp (..),
+
+    -- ** PreTokenGeneration
+    PreTokenGeneration (..),
+
+    -- ** UserMigration
+    UserMigration (..),
+
+    -- ** VerifyAuthChallengeResponse
+    VerifyAuthChallengeResponse (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** CustomDomain
+    CustomDomain (..),
+
+    -- ** Domain
+    Domain (..),
+
+    -- ** EmailConfigurationFailure
+    EmailConfigurationFailure (..),
+
+    -- ** EmailVerificationMessage
+    EmailVerificationMessage (..),
+
+    -- ** EmailVerificationSubject
+    EmailVerificationSubject (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** SmsConfigurationFailure
+    SmsConfigurationFailure (..),
+
+    -- ** FeedbackToken
+    FeedbackToken (..),
+
+    -- ** PaginationToken
+    PaginationToken (..),
+
+    -- ** PoolName
+    PoolName (..),
+
+    -- ** IdpIdentifier
+    IdpIdentifier (..),
+
+    -- ** LambdaArn
+    LambdaArn (..),
+
+    -- ** PreferredMfaSetting
+    PreferredMfaSetting (..),
+
+    -- ** ProviderAttributeName
+    ProviderAttributeName (..),
+
+    -- ** ProviderAttributeValue
+    ProviderAttributeValue (..),
+
+    -- ** ReplyTo
+    ReplyTo (..),
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** Destination
+    Destination (..),
+
+    -- ** SecretCode
+    SecretCode (..),
+
+    -- ** CloudWatchLogsRoleArn
+    CloudWatchLogsRoleArn (..),
+
+    -- ** ApplicationArn
+    ApplicationArn (..),
+
+    -- ** ApplicationId
+    ApplicationId (..),
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** AWSAccountId
+    AWSAccountId (..),
+
+    -- ** CloudFrontDistribution
+    CloudFrontDistribution (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** ClientSecret
+    ClientSecret (..),
+
+    -- ** PasswordVerifier
+    PasswordVerifier (..),
+
+    -- ** Salt
+    Salt (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** IpAddress
+    IpAddress (..),
+
+    -- ** ServerName
+    ServerName (..),
+
+    -- ** ServerPath
+    ServerPath (..),
+
+    -- ** EncodedData
+    EncodedData (..),
+
+    -- ** HtmlBody
+    HtmlBody (..),
+
+    -- ** TextBody
+    TextBody (..),
+
+    -- ** FriendlyDeviceName
+    FriendlyDeviceName (..),
+
+    -- ** EmailMessage
+    EmailMessage (..),
+
+    -- ** EmailSubject
+    EmailSubject (..),
+
+    -- ** PreSignedUrl
+    PreSignedUrl (..),
+
+    -- ** CSSVersion
+    CSSVersion (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -1051,7 +1531,7 @@ import Network.AWS.CognitoIdentityProvider.GetSigningCertificate
 import Network.AWS.CognitoIdentityProvider.GetUICustomization
 import Network.AWS.CognitoIdentityProvider.GetUser
 import Network.AWS.CognitoIdentityProvider.GetUserAttributeVerificationCode
-import Network.AWS.CognitoIdentityProvider.GetUserPoolMFAConfig
+import Network.AWS.CognitoIdentityProvider.GetUserPoolMfaConfig
 import Network.AWS.CognitoIdentityProvider.GlobalSignOut
 import Network.AWS.CognitoIdentityProvider.InitiateAuth
 import Network.AWS.CognitoIdentityProvider.ListDevices
@@ -1069,7 +1549,7 @@ import Network.AWS.CognitoIdentityProvider.RespondToAuthChallenge
 import Network.AWS.CognitoIdentityProvider.SetRiskConfiguration
 import Network.AWS.CognitoIdentityProvider.SetUICustomization
 import Network.AWS.CognitoIdentityProvider.SetUserMFAPreference
-import Network.AWS.CognitoIdentityProvider.SetUserPoolMFAConfig
+import Network.AWS.CognitoIdentityProvider.SetUserPoolMfaConfig
 import Network.AWS.CognitoIdentityProvider.SetUserSettings
 import Network.AWS.CognitoIdentityProvider.SignUp
 import Network.AWS.CognitoIdentityProvider.StartUserImportJob

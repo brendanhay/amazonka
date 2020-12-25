@@ -18,81 +18,75 @@ module Network.AWS.MediaLive.Types.AudioSelectorSettings
 
     -- * Lenses
     assAudioLanguageSelection,
-    assAudioTrackSelection,
     assAudioPidSelection,
+    assAudioTrackSelection,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AudioLanguageSelection
-import Network.AWS.MediaLive.Types.AudioPidSelection
-import Network.AWS.MediaLive.Types.AudioTrackSelection
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.AudioLanguageSelection as Types
+import qualified Network.AWS.MediaLive.Types.AudioPidSelection as Types
+import qualified Network.AWS.MediaLive.Types.AudioTrackSelection as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Audio Selector Settings
 --
 -- /See:/ 'mkAudioSelectorSettings' smart constructor.
 data AudioSelectorSettings = AudioSelectorSettings'
-  { audioLanguageSelection :: Lude.Maybe AudioLanguageSelection,
-    audioTrackSelection :: Lude.Maybe AudioTrackSelection,
-    audioPidSelection :: Lude.Maybe AudioPidSelection
+  { audioLanguageSelection :: Core.Maybe Types.AudioLanguageSelection,
+    audioPidSelection :: Core.Maybe Types.AudioPidSelection,
+    audioTrackSelection :: Core.Maybe Types.AudioTrackSelection
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AudioSelectorSettings' with the minimum fields required to make a request.
---
--- * 'audioLanguageSelection' -
--- * 'audioTrackSelection' -
--- * 'audioPidSelection' -
+-- | Creates a 'AudioSelectorSettings' value with any optional fields omitted.
 mkAudioSelectorSettings ::
   AudioSelectorSettings
 mkAudioSelectorSettings =
   AudioSelectorSettings'
-    { audioLanguageSelection = Lude.Nothing,
-      audioTrackSelection = Lude.Nothing,
-      audioPidSelection = Lude.Nothing
+    { audioLanguageSelection = Core.Nothing,
+      audioPidSelection = Core.Nothing,
+      audioTrackSelection = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'audioLanguageSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assAudioLanguageSelection :: Lens.Lens' AudioSelectorSettings (Lude.Maybe AudioLanguageSelection)
-assAudioLanguageSelection = Lens.lens (audioLanguageSelection :: AudioSelectorSettings -> Lude.Maybe AudioLanguageSelection) (\s a -> s {audioLanguageSelection = a} :: AudioSelectorSettings)
+assAudioLanguageSelection :: Lens.Lens' AudioSelectorSettings (Core.Maybe Types.AudioLanguageSelection)
+assAudioLanguageSelection = Lens.field @"audioLanguageSelection"
 {-# DEPRECATED assAudioLanguageSelection "Use generic-lens or generic-optics with 'audioLanguageSelection' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'audioTrackSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assAudioTrackSelection :: Lens.Lens' AudioSelectorSettings (Lude.Maybe AudioTrackSelection)
-assAudioTrackSelection = Lens.lens (audioTrackSelection :: AudioSelectorSettings -> Lude.Maybe AudioTrackSelection) (\s a -> s {audioTrackSelection = a} :: AudioSelectorSettings)
-{-# DEPRECATED assAudioTrackSelection "Use generic-lens or generic-optics with 'audioTrackSelection' instead." #-}
+-- /Note:/ Consider using 'audioPidSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assAudioPidSelection :: Lens.Lens' AudioSelectorSettings (Core.Maybe Types.AudioPidSelection)
+assAudioPidSelection = Lens.field @"audioPidSelection"
+{-# DEPRECATED assAudioPidSelection "Use generic-lens or generic-optics with 'audioPidSelection' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'audioPidSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assAudioPidSelection :: Lens.Lens' AudioSelectorSettings (Lude.Maybe AudioPidSelection)
-assAudioPidSelection = Lens.lens (audioPidSelection :: AudioSelectorSettings -> Lude.Maybe AudioPidSelection) (\s a -> s {audioPidSelection = a} :: AudioSelectorSettings)
-{-# DEPRECATED assAudioPidSelection "Use generic-lens or generic-optics with 'audioPidSelection' instead." #-}
+-- /Note:/ Consider using 'audioTrackSelection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assAudioTrackSelection :: Lens.Lens' AudioSelectorSettings (Core.Maybe Types.AudioTrackSelection)
+assAudioTrackSelection = Lens.field @"audioTrackSelection"
+{-# DEPRECATED assAudioTrackSelection "Use generic-lens or generic-optics with 'audioTrackSelection' instead." #-}
 
-instance Lude.FromJSON AudioSelectorSettings where
-  parseJSON =
-    Lude.withObject
-      "AudioSelectorSettings"
-      ( \x ->
-          AudioSelectorSettings'
-            Lude.<$> (x Lude..:? "audioLanguageSelection")
-            Lude.<*> (x Lude..:? "audioTrackSelection")
-            Lude.<*> (x Lude..:? "audioPidSelection")
-      )
-
-instance Lude.ToJSON AudioSelectorSettings where
-  toJSON AudioSelectorSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("audioLanguageSelection" Lude..=)
-              Lude.<$> audioLanguageSelection,
-            ("audioTrackSelection" Lude..=) Lude.<$> audioTrackSelection,
-            ("audioPidSelection" Lude..=) Lude.<$> audioPidSelection
+instance Core.FromJSON AudioSelectorSettings where
+  toJSON AudioSelectorSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("audioLanguageSelection" Core..=)
+              Core.<$> audioLanguageSelection,
+            ("audioPidSelection" Core..=) Core.<$> audioPidSelection,
+            ("audioTrackSelection" Core..=) Core.<$> audioTrackSelection
           ]
       )
+
+instance Core.FromJSON AudioSelectorSettings where
+  parseJSON =
+    Core.withObject "AudioSelectorSettings" Core.$
+      \x ->
+        AudioSelectorSettings'
+          Core.<$> (x Core..:? "audioLanguageSelection")
+          Core.<*> (x Core..:? "audioPidSelection")
+          Core.<*> (x Core..:? "audioTrackSelection")

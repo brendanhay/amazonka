@@ -18,135 +18,129 @@ module Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory
 
     -- * Lenses
     vithBgpPeers,
-    vithStatus,
-    vithTestDurationInMinutes,
-    vithStartTime,
-    vithTestId,
     vithEndTime,
     vithOwnerAccount,
+    vithStartTime,
+    vithStatus,
+    vithTestDurationInMinutes,
+    vithTestId,
     vithVirtualInterfaceId,
   )
 where
 
+import qualified Network.AWS.DirectConnect.Types.BGPPeerId as Types
+import qualified Network.AWS.DirectConnect.Types.FailureTestHistoryStatus as Types
+import qualified Network.AWS.DirectConnect.Types.OwnerAccount as Types
+import qualified Network.AWS.DirectConnect.Types.TestId as Types
+import qualified Network.AWS.DirectConnect.Types.VirtualInterfaceId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the virtual interface failover test.
 --
 -- /See:/ 'mkVirtualInterfaceTestHistory' smart constructor.
 data VirtualInterfaceTestHistory = VirtualInterfaceTestHistory'
   { -- | The BGP peers that were put in the DOWN state as part of the virtual interface failover test.
-    bgpPeers :: Lude.Maybe [Lude.Text],
-    -- | The status of the virtual interface failover test.
-    status :: Lude.Maybe Lude.Text,
-    -- | The time that the virtual interface failover test ran in minutes.
-    testDurationInMinutes :: Lude.Maybe Lude.Int,
-    -- | The time that the virtual interface moves to the DOWN state.
-    startTime :: Lude.Maybe Lude.Timestamp,
-    -- | The ID of the virtual interface failover test.
-    testId :: Lude.Maybe Lude.Text,
+    bgpPeers :: Core.Maybe [Types.BGPPeerId],
     -- | The time that the virtual interface moves out of the DOWN state.
-    endTime :: Lude.Maybe Lude.Timestamp,
+    endTime :: Core.Maybe Core.NominalDiffTime,
     -- | The owner ID of the tested virtual interface.
-    ownerAccount :: Lude.Maybe Lude.Text,
+    ownerAccount :: Core.Maybe Types.OwnerAccount,
+    -- | The time that the virtual interface moves to the DOWN state.
+    startTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the virtual interface failover test.
+    status :: Core.Maybe Types.FailureTestHistoryStatus,
+    -- | The time that the virtual interface failover test ran in minutes.
+    testDurationInMinutes :: Core.Maybe Core.Int,
+    -- | The ID of the virtual interface failover test.
+    testId :: Core.Maybe Types.TestId,
     -- | The ID of the tested virtual interface.
-    virtualInterfaceId :: Lude.Maybe Lude.Text
+    virtualInterfaceId :: Core.Maybe Types.VirtualInterfaceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'VirtualInterfaceTestHistory' with the minimum fields required to make a request.
---
--- * 'bgpPeers' - The BGP peers that were put in the DOWN state as part of the virtual interface failover test.
--- * 'status' - The status of the virtual interface failover test.
--- * 'testDurationInMinutes' - The time that the virtual interface failover test ran in minutes.
--- * 'startTime' - The time that the virtual interface moves to the DOWN state.
--- * 'testId' - The ID of the virtual interface failover test.
--- * 'endTime' - The time that the virtual interface moves out of the DOWN state.
--- * 'ownerAccount' - The owner ID of the tested virtual interface.
--- * 'virtualInterfaceId' - The ID of the tested virtual interface.
+-- | Creates a 'VirtualInterfaceTestHistory' value with any optional fields omitted.
 mkVirtualInterfaceTestHistory ::
   VirtualInterfaceTestHistory
 mkVirtualInterfaceTestHistory =
   VirtualInterfaceTestHistory'
-    { bgpPeers = Lude.Nothing,
-      status = Lude.Nothing,
-      testDurationInMinutes = Lude.Nothing,
-      startTime = Lude.Nothing,
-      testId = Lude.Nothing,
-      endTime = Lude.Nothing,
-      ownerAccount = Lude.Nothing,
-      virtualInterfaceId = Lude.Nothing
+    { bgpPeers = Core.Nothing,
+      endTime = Core.Nothing,
+      ownerAccount = Core.Nothing,
+      startTime = Core.Nothing,
+      status = Core.Nothing,
+      testDurationInMinutes = Core.Nothing,
+      testId = Core.Nothing,
+      virtualInterfaceId = Core.Nothing
     }
 
 -- | The BGP peers that were put in the DOWN state as part of the virtual interface failover test.
 --
 -- /Note:/ Consider using 'bgpPeers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vithBgpPeers :: Lens.Lens' VirtualInterfaceTestHistory (Lude.Maybe [Lude.Text])
-vithBgpPeers = Lens.lens (bgpPeers :: VirtualInterfaceTestHistory -> Lude.Maybe [Lude.Text]) (\s a -> s {bgpPeers = a} :: VirtualInterfaceTestHistory)
+vithBgpPeers :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe [Types.BGPPeerId])
+vithBgpPeers = Lens.field @"bgpPeers"
 {-# DEPRECATED vithBgpPeers "Use generic-lens or generic-optics with 'bgpPeers' instead." #-}
-
--- | The status of the virtual interface failover test.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vithStatus :: Lens.Lens' VirtualInterfaceTestHistory (Lude.Maybe Lude.Text)
-vithStatus = Lens.lens (status :: VirtualInterfaceTestHistory -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: VirtualInterfaceTestHistory)
-{-# DEPRECATED vithStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The time that the virtual interface failover test ran in minutes.
---
--- /Note:/ Consider using 'testDurationInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vithTestDurationInMinutes :: Lens.Lens' VirtualInterfaceTestHistory (Lude.Maybe Lude.Int)
-vithTestDurationInMinutes = Lens.lens (testDurationInMinutes :: VirtualInterfaceTestHistory -> Lude.Maybe Lude.Int) (\s a -> s {testDurationInMinutes = a} :: VirtualInterfaceTestHistory)
-{-# DEPRECATED vithTestDurationInMinutes "Use generic-lens or generic-optics with 'testDurationInMinutes' instead." #-}
-
--- | The time that the virtual interface moves to the DOWN state.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vithStartTime :: Lens.Lens' VirtualInterfaceTestHistory (Lude.Maybe Lude.Timestamp)
-vithStartTime = Lens.lens (startTime :: VirtualInterfaceTestHistory -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: VirtualInterfaceTestHistory)
-{-# DEPRECATED vithStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The ID of the virtual interface failover test.
---
--- /Note:/ Consider using 'testId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vithTestId :: Lens.Lens' VirtualInterfaceTestHistory (Lude.Maybe Lude.Text)
-vithTestId = Lens.lens (testId :: VirtualInterfaceTestHistory -> Lude.Maybe Lude.Text) (\s a -> s {testId = a} :: VirtualInterfaceTestHistory)
-{-# DEPRECATED vithTestId "Use generic-lens or generic-optics with 'testId' instead." #-}
 
 -- | The time that the virtual interface moves out of the DOWN state.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vithEndTime :: Lens.Lens' VirtualInterfaceTestHistory (Lude.Maybe Lude.Timestamp)
-vithEndTime = Lens.lens (endTime :: VirtualInterfaceTestHistory -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: VirtualInterfaceTestHistory)
+vithEndTime :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Core.NominalDiffTime)
+vithEndTime = Lens.field @"endTime"
 {-# DEPRECATED vithEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | The owner ID of the tested virtual interface.
 --
 -- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vithOwnerAccount :: Lens.Lens' VirtualInterfaceTestHistory (Lude.Maybe Lude.Text)
-vithOwnerAccount = Lens.lens (ownerAccount :: VirtualInterfaceTestHistory -> Lude.Maybe Lude.Text) (\s a -> s {ownerAccount = a} :: VirtualInterfaceTestHistory)
+vithOwnerAccount :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Types.OwnerAccount)
+vithOwnerAccount = Lens.field @"ownerAccount"
 {-# DEPRECATED vithOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
+
+-- | The time that the virtual interface moves to the DOWN state.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vithStartTime :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Core.NominalDiffTime)
+vithStartTime = Lens.field @"startTime"
+{-# DEPRECATED vithStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | The status of the virtual interface failover test.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vithStatus :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Types.FailureTestHistoryStatus)
+vithStatus = Lens.field @"status"
+{-# DEPRECATED vithStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The time that the virtual interface failover test ran in minutes.
+--
+-- /Note:/ Consider using 'testDurationInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vithTestDurationInMinutes :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Core.Int)
+vithTestDurationInMinutes = Lens.field @"testDurationInMinutes"
+{-# DEPRECATED vithTestDurationInMinutes "Use generic-lens or generic-optics with 'testDurationInMinutes' instead." #-}
+
+-- | The ID of the virtual interface failover test.
+--
+-- /Note:/ Consider using 'testId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vithTestId :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Types.TestId)
+vithTestId = Lens.field @"testId"
+{-# DEPRECATED vithTestId "Use generic-lens or generic-optics with 'testId' instead." #-}
 
 -- | The ID of the tested virtual interface.
 --
 -- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vithVirtualInterfaceId :: Lens.Lens' VirtualInterfaceTestHistory (Lude.Maybe Lude.Text)
-vithVirtualInterfaceId = Lens.lens (virtualInterfaceId :: VirtualInterfaceTestHistory -> Lude.Maybe Lude.Text) (\s a -> s {virtualInterfaceId = a} :: VirtualInterfaceTestHistory)
+vithVirtualInterfaceId :: Lens.Lens' VirtualInterfaceTestHistory (Core.Maybe Types.VirtualInterfaceId)
+vithVirtualInterfaceId = Lens.field @"virtualInterfaceId"
 {-# DEPRECATED vithVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
-instance Lude.FromJSON VirtualInterfaceTestHistory where
+instance Core.FromJSON VirtualInterfaceTestHistory where
   parseJSON =
-    Lude.withObject
-      "VirtualInterfaceTestHistory"
-      ( \x ->
-          VirtualInterfaceTestHistory'
-            Lude.<$> (x Lude..:? "bgpPeers" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "testDurationInMinutes")
-            Lude.<*> (x Lude..:? "startTime")
-            Lude.<*> (x Lude..:? "testId")
-            Lude.<*> (x Lude..:? "endTime")
-            Lude.<*> (x Lude..:? "ownerAccount")
-            Lude.<*> (x Lude..:? "virtualInterfaceId")
-      )
+    Core.withObject "VirtualInterfaceTestHistory" Core.$
+      \x ->
+        VirtualInterfaceTestHistory'
+          Core.<$> (x Core..:? "bgpPeers")
+          Core.<*> (x Core..:? "endTime")
+          Core.<*> (x Core..:? "ownerAccount")
+          Core.<*> (x Core..:? "startTime")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "testDurationInMinutes")
+          Core.<*> (x Core..:? "testId")
+          Core.<*> (x Core..:? "virtualInterfaceId")

@@ -31,103 +31,101 @@ module Network.AWS.SES.UpdateReceiptRule
     mkUpdateReceiptRuleResponse,
 
     -- ** Response lenses
-    urrrsResponseStatus,
+    urrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide> .
 --
 -- /See:/ 'mkUpdateReceiptRule' smart constructor.
 data UpdateReceiptRule = UpdateReceiptRule'
   { -- | The name of the receipt rule set that the receipt rule belongs to.
-    ruleSetName :: Lude.Text,
+    ruleSetName :: Types.ReceiptRuleSetName,
     -- | A data structure that contains the updated receipt rule information.
-    rule :: ReceiptRule
+    rule :: Types.ReceiptRule
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateReceiptRule' with the minimum fields required to make a request.
---
--- * 'ruleSetName' - The name of the receipt rule set that the receipt rule belongs to.
--- * 'rule' - A data structure that contains the updated receipt rule information.
+-- | Creates a 'UpdateReceiptRule' value with any optional fields omitted.
 mkUpdateReceiptRule ::
   -- | 'ruleSetName'
-  Lude.Text ->
+  Types.ReceiptRuleSetName ->
   -- | 'rule'
-  ReceiptRule ->
+  Types.ReceiptRule ->
   UpdateReceiptRule
-mkUpdateReceiptRule pRuleSetName_ pRule_ =
-  UpdateReceiptRule' {ruleSetName = pRuleSetName_, rule = pRule_}
+mkUpdateReceiptRule ruleSetName rule =
+  UpdateReceiptRule' {ruleSetName, rule}
 
 -- | The name of the receipt rule set that the receipt rule belongs to.
 --
 -- /Note:/ Consider using 'ruleSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrRuleSetName :: Lens.Lens' UpdateReceiptRule Lude.Text
-urrRuleSetName = Lens.lens (ruleSetName :: UpdateReceiptRule -> Lude.Text) (\s a -> s {ruleSetName = a} :: UpdateReceiptRule)
+urrRuleSetName :: Lens.Lens' UpdateReceiptRule Types.ReceiptRuleSetName
+urrRuleSetName = Lens.field @"ruleSetName"
 {-# DEPRECATED urrRuleSetName "Use generic-lens or generic-optics with 'ruleSetName' instead." #-}
 
 -- | A data structure that contains the updated receipt rule information.
 --
 -- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrRule :: Lens.Lens' UpdateReceiptRule ReceiptRule
-urrRule = Lens.lens (rule :: UpdateReceiptRule -> ReceiptRule) (\s a -> s {rule = a} :: UpdateReceiptRule)
+urrRule :: Lens.Lens' UpdateReceiptRule Types.ReceiptRule
+urrRule = Lens.field @"rule"
 {-# DEPRECATED urrRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
-instance Lude.AWSRequest UpdateReceiptRule where
+instance Core.AWSRequest UpdateReceiptRule where
   type Rs UpdateReceiptRule = UpdateReceiptRuleResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateReceiptRule")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "RuleSetName" ruleSetName)
+                Core.<> (Core.toQueryValue "Rule" rule)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UpdateReceiptRuleResult"
       ( \s h x ->
-          UpdateReceiptRuleResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateReceiptRuleResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateReceiptRule where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateReceiptRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateReceiptRule where
-  toQuery UpdateReceiptRule' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UpdateReceiptRule" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "RuleSetName" Lude.=: ruleSetName,
-        "Rule" Lude.=: rule
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkUpdateReceiptRuleResponse' smart constructor.
 newtype UpdateReceiptRuleResponse = UpdateReceiptRuleResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateReceiptRuleResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateReceiptRuleResponse' value with any optional fields omitted.
 mkUpdateReceiptRuleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateReceiptRuleResponse
-mkUpdateReceiptRuleResponse pResponseStatus_ =
-  UpdateReceiptRuleResponse' {responseStatus = pResponseStatus_}
+mkUpdateReceiptRuleResponse responseStatus =
+  UpdateReceiptRuleResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrrsResponseStatus :: Lens.Lens' UpdateReceiptRuleResponse Lude.Int
-urrrsResponseStatus = Lens.lens (responseStatus :: UpdateReceiptRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateReceiptRuleResponse)
-{-# DEPRECATED urrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urrrrsResponseStatus :: Lens.Lens' UpdateReceiptRuleResponse Core.Int
+urrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

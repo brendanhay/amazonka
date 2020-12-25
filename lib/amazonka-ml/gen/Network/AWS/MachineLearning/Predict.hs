@@ -29,136 +29,115 @@ module Network.AWS.MachineLearning.Predict
     mkPredictResponse,
 
     -- ** Response lenses
-    prsPrediction,
-    prsResponseStatus,
+    prrsPrediction,
+    prrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPredict' smart constructor.
 data Predict = Predict'
   { -- | A unique identifier of the @MLModel@ .
-    mLModelId :: Lude.Text,
-    record :: Lude.HashMap Lude.Text (Lude.Text),
-    predictEndpoint :: Lude.Text
+    mLModelId :: Types.MLModelId,
+    record :: Core.HashMap Types.VariableName Types.VariableValue,
+    predictEndpoint :: Types.VipURL
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Predict' with the minimum fields required to make a request.
---
--- * 'mLModelId' - A unique identifier of the @MLModel@ .
--- * 'record' -
--- * 'predictEndpoint' -
+-- | Creates a 'Predict' value with any optional fields omitted.
 mkPredict ::
   -- | 'mLModelId'
-  Lude.Text ->
+  Types.MLModelId ->
   -- | 'predictEndpoint'
-  Lude.Text ->
+  Types.VipURL ->
   Predict
-mkPredict pMLModelId_ pPredictEndpoint_ =
-  Predict'
-    { mLModelId = pMLModelId_,
-      record = Lude.mempty,
-      predictEndpoint = pPredictEndpoint_
-    }
+mkPredict mLModelId predictEndpoint =
+  Predict' {mLModelId, record = Core.mempty, predictEndpoint}
 
 -- | A unique identifier of the @MLModel@ .
 --
 -- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pMLModelId :: Lens.Lens' Predict Lude.Text
-pMLModelId = Lens.lens (mLModelId :: Predict -> Lude.Text) (\s a -> s {mLModelId = a} :: Predict)
+pMLModelId :: Lens.Lens' Predict Types.MLModelId
+pMLModelId = Lens.field @"mLModelId"
 {-# DEPRECATED pMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'record' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pRecord :: Lens.Lens' Predict (Lude.HashMap Lude.Text (Lude.Text))
-pRecord = Lens.lens (record :: Predict -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {record = a} :: Predict)
+pRecord :: Lens.Lens' Predict (Core.HashMap Types.VariableName Types.VariableValue)
+pRecord = Lens.field @"record"
 {-# DEPRECATED pRecord "Use generic-lens or generic-optics with 'record' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'predictEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPredictEndpoint :: Lens.Lens' Predict Lude.Text
-pPredictEndpoint = Lens.lens (predictEndpoint :: Predict -> Lude.Text) (\s a -> s {predictEndpoint = a} :: Predict)
+pPredictEndpoint :: Lens.Lens' Predict Types.VipURL
+pPredictEndpoint = Lens.field @"predictEndpoint"
 {-# DEPRECATED pPredictEndpoint "Use generic-lens or generic-optics with 'predictEndpoint' instead." #-}
 
-instance Lude.AWSRequest Predict where
+instance Core.FromJSON Predict where
+  toJSON Predict {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MLModelId" Core..= mLModelId),
+            Core.Just ("Record" Core..= record),
+            Core.Just ("PredictEndpoint" Core..= predictEndpoint)
+          ]
+      )
+
+instance Core.AWSRequest Predict where
   type Rs Predict = PredictResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonML_20141212.Predict")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PredictResponse'
-            Lude.<$> (x Lude..?> "Prediction") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Prediction") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders Predict where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.Predict" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON Predict where
-  toJSON Predict' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MLModelId" Lude..= mLModelId),
-            Lude.Just ("Record" Lude..= record),
-            Lude.Just ("PredictEndpoint" Lude..= predictEndpoint)
-          ]
-      )
-
-instance Lude.ToPath Predict where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery Predict where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPredictResponse' smart constructor.
 data PredictResponse = PredictResponse'
-  { prediction :: Lude.Maybe Prediction,
+  { prediction :: Core.Maybe Types.Prediction,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PredictResponse' with the minimum fields required to make a request.
---
--- * 'prediction' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PredictResponse' value with any optional fields omitted.
 mkPredictResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PredictResponse
-mkPredictResponse pResponseStatus_ =
-  PredictResponse'
-    { prediction = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkPredictResponse responseStatus =
+  PredictResponse' {prediction = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'prediction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsPrediction :: Lens.Lens' PredictResponse (Lude.Maybe Prediction)
-prsPrediction = Lens.lens (prediction :: PredictResponse -> Lude.Maybe Prediction) (\s a -> s {prediction = a} :: PredictResponse)
-{-# DEPRECATED prsPrediction "Use generic-lens or generic-optics with 'prediction' instead." #-}
+prrsPrediction :: Lens.Lens' PredictResponse (Core.Maybe Types.Prediction)
+prrsPrediction = Lens.field @"prediction"
+{-# DEPRECATED prrsPrediction "Use generic-lens or generic-optics with 'prediction' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prsResponseStatus :: Lens.Lens' PredictResponse Lude.Int
-prsResponseStatus = Lens.lens (responseStatus :: PredictResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PredictResponse)
-{-# DEPRECATED prsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prrsResponseStatus :: Lens.Lens' PredictResponse Core.Int
+prrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

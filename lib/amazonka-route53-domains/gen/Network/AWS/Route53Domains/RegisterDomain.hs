@@ -36,52 +36,38 @@ module Network.AWS.Route53Domains.RegisterDomain
     mkRegisterDomain,
 
     -- ** Request lenses
-    rPrivacyProtectTechContact,
-    rPrivacyProtectRegistrantContact,
-    rAutoRenew,
-    rRegistrantContact,
     rDomainName,
-    rAdminContact,
-    rPrivacyProtectAdminContact,
-    rIDNLangCode,
-    rTechContact,
     rDurationInYears,
+    rAdminContact,
+    rRegistrantContact,
+    rTechContact,
+    rAutoRenew,
+    rIdnLangCode,
+    rPrivacyProtectAdminContact,
+    rPrivacyProtectRegistrantContact,
+    rPrivacyProtectTechContact,
 
     -- * Destructuring the response
     RegisterDomainResponse (..),
     mkRegisterDomainResponse,
 
     -- ** Response lenses
-    rdrsOperationId,
-    rdrsResponseStatus,
+    rdrrsOperationId,
+    rdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53Domains.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53Domains.Types as Types
 
 -- | The RegisterDomain request includes the following elements.
 --
 -- /See:/ 'mkRegisterDomain' smart constructor.
 data RegisterDomain = RegisterDomain'
-  { -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
-    --
-    -- Default: @true@
-    privacyProtectTechContact :: Lude.Maybe Lude.Bool,
-    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (the domain owner).
-    --
-    -- Default: @true@
-    privacyProtectRegistrantContact :: Lude.Maybe Lude.Bool,
-    -- | Indicates whether the domain will be automatically renewed (@true@ ) or not (@false@ ). Autorenewal only takes effect after the account is charged.
-    --
-    -- Default: @true@
-    autoRenew :: Lude.Maybe Lude.Bool,
-    -- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
-    registrantContact :: ContactDetail,
-    -- | The domain name that you want to register. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
+  { -- | The domain name that you want to register. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
     --
     -- The domain name can contain only the following characters:
     --
@@ -98,127 +84,70 @@ data RegisterDomain = RegisterDomain'
     --
     --
     -- Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> . For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns Formatting Internationalized Domain Names> .
-    domainName :: Lude.Text,
-    -- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
-    adminContact :: ContactDetail,
-    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
-    --
-    -- Default: @true@
-    privacyProtectAdminContact :: Lude.Maybe Lude.Bool,
-    -- | Reserved for future use.
-    idNLangCode :: Lude.Maybe Lude.Text,
-    -- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
-    techContact :: ContactDetail,
+    domainName :: Types.DomainName,
     -- | The number of years that you want to register the domain for. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain. For the range of valid values for your domain, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
     --
     -- Default: 1
-    durationInYears :: Lude.Natural
+    durationInYears :: Core.Natural,
+    -- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
+    adminContact :: Types.ContactDetail,
+    -- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
+    registrantContact :: Types.ContactDetail,
+    -- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
+    techContact :: Types.ContactDetail,
+    -- | Indicates whether the domain will be automatically renewed (@true@ ) or not (@false@ ). Autorenewal only takes effect after the account is charged.
+    --
+    -- Default: @true@
+    autoRenew :: Core.Maybe Core.Bool,
+    -- | Reserved for future use.
+    idnLangCode :: Core.Maybe Types.IdnLangCode,
+    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
+    --
+    -- Default: @true@
+    privacyProtectAdminContact :: Core.Maybe Core.Bool,
+    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (the domain owner).
+    --
+    -- Default: @true@
+    privacyProtectRegistrantContact :: Core.Maybe Core.Bool,
+    -- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
+    --
+    -- Default: @true@
+    privacyProtectTechContact :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterDomain' with the minimum fields required to make a request.
---
--- * 'privacyProtectTechContact' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
---
--- Default: @true@
--- * 'privacyProtectRegistrantContact' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (the domain owner).
---
--- Default: @true@
--- * 'autoRenew' - Indicates whether the domain will be automatically renewed (@true@ ) or not (@false@ ). Autorenewal only takes effect after the account is charged.
---
--- Default: @true@
--- * 'registrantContact' - Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
--- * 'domainName' - The domain name that you want to register. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
---
--- The domain name can contain only the following characters:
---
---     * Letters a through z. Domain names are not case sensitive.
---
---
---     * Numbers 0 through 9.
---
---
---     * Hyphen (-). You can't specify a hyphen at the beginning or end of a label.
---
---
---     * Period (.) to separate the labels in the name, such as the @.@ in @example.com@ .
---
---
--- Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> . For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns Formatting Internationalized Domain Names> .
--- * 'adminContact' - Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
--- * 'privacyProtectAdminContact' - Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
---
--- Default: @true@
--- * 'idNLangCode' - Reserved for future use.
--- * 'techContact' - Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
--- * 'durationInYears' - The number of years that you want to register the domain for. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain. For the range of valid values for your domain, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
---
--- Default: 1
+-- | Creates a 'RegisterDomain' value with any optional fields omitted.
 mkRegisterDomain ::
-  -- | 'registrantContact'
-  ContactDetail ->
   -- | 'domainName'
-  Lude.Text ->
-  -- | 'adminContact'
-  ContactDetail ->
-  -- | 'techContact'
-  ContactDetail ->
+  Types.DomainName ->
   -- | 'durationInYears'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'adminContact'
+  Types.ContactDetail ->
+  -- | 'registrantContact'
+  Types.ContactDetail ->
+  -- | 'techContact'
+  Types.ContactDetail ->
   RegisterDomain
 mkRegisterDomain
-  pRegistrantContact_
-  pDomainName_
-  pAdminContact_
-  pTechContact_
-  pDurationInYears_ =
+  domainName
+  durationInYears
+  adminContact
+  registrantContact
+  techContact =
     RegisterDomain'
-      { privacyProtectTechContact = Lude.Nothing,
-        privacyProtectRegistrantContact = Lude.Nothing,
-        autoRenew = Lude.Nothing,
-        registrantContact = pRegistrantContact_,
-        domainName = pDomainName_,
-        adminContact = pAdminContact_,
-        privacyProtectAdminContact = Lude.Nothing,
-        idNLangCode = Lude.Nothing,
-        techContact = pTechContact_,
-        durationInYears = pDurationInYears_
+      { domainName,
+        durationInYears,
+        adminContact,
+        registrantContact,
+        techContact,
+        autoRenew = Core.Nothing,
+        idnLangCode = Core.Nothing,
+        privacyProtectAdminContact = Core.Nothing,
+        privacyProtectRegistrantContact = Core.Nothing,
+        privacyProtectTechContact = Core.Nothing
       }
-
--- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
---
--- Default: @true@
---
--- /Note:/ Consider using 'privacyProtectTechContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rPrivacyProtectTechContact :: Lens.Lens' RegisterDomain (Lude.Maybe Lude.Bool)
-rPrivacyProtectTechContact = Lens.lens (privacyProtectTechContact :: RegisterDomain -> Lude.Maybe Lude.Bool) (\s a -> s {privacyProtectTechContact = a} :: RegisterDomain)
-{-# DEPRECATED rPrivacyProtectTechContact "Use generic-lens or generic-optics with 'privacyProtectTechContact' instead." #-}
-
--- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (the domain owner).
---
--- Default: @true@
---
--- /Note:/ Consider using 'privacyProtectRegistrantContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rPrivacyProtectRegistrantContact :: Lens.Lens' RegisterDomain (Lude.Maybe Lude.Bool)
-rPrivacyProtectRegistrantContact = Lens.lens (privacyProtectRegistrantContact :: RegisterDomain -> Lude.Maybe Lude.Bool) (\s a -> s {privacyProtectRegistrantContact = a} :: RegisterDomain)
-{-# DEPRECATED rPrivacyProtectRegistrantContact "Use generic-lens or generic-optics with 'privacyProtectRegistrantContact' instead." #-}
-
--- | Indicates whether the domain will be automatically renewed (@true@ ) or not (@false@ ). Autorenewal only takes effect after the account is charged.
---
--- Default: @true@
---
--- /Note:/ Consider using 'autoRenew' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rAutoRenew :: Lens.Lens' RegisterDomain (Lude.Maybe Lude.Bool)
-rAutoRenew = Lens.lens (autoRenew :: RegisterDomain -> Lude.Maybe Lude.Bool) (\s a -> s {autoRenew = a} :: RegisterDomain)
-{-# DEPRECATED rAutoRenew "Use generic-lens or generic-optics with 'autoRenew' instead." #-}
-
--- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
---
--- /Note:/ Consider using 'registrantContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rRegistrantContact :: Lens.Lens' RegisterDomain ContactDetail
-rRegistrantContact = Lens.lens (registrantContact :: RegisterDomain -> ContactDetail) (\s a -> s {registrantContact = a} :: RegisterDomain)
-{-# DEPRECATED rRegistrantContact "Use generic-lens or generic-optics with 'registrantContact' instead." #-}
 
 -- | The domain name that you want to register. The top-level domain (TLD), such as .com, must be a TLD that Route 53 supports. For a list of supported TLDs, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 --
@@ -239,134 +168,156 @@ rRegistrantContact = Lens.lens (registrantContact :: RegisterDomain -> ContactDe
 -- Internationalized domain names are not supported for some top-level domains. To determine whether the TLD that you want to use supports internationalized domain names, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> . For more information, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DomainNameFormat.html#domain-name-format-idns Formatting Internationalized Domain Names> .
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rDomainName :: Lens.Lens' RegisterDomain Lude.Text
-rDomainName = Lens.lens (domainName :: RegisterDomain -> Lude.Text) (\s a -> s {domainName = a} :: RegisterDomain)
+rDomainName :: Lens.Lens' RegisterDomain Types.DomainName
+rDomainName = Lens.field @"domainName"
 {-# DEPRECATED rDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
-
--- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
---
--- /Note:/ Consider using 'adminContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rAdminContact :: Lens.Lens' RegisterDomain ContactDetail
-rAdminContact = Lens.lens (adminContact :: RegisterDomain -> ContactDetail) (\s a -> s {adminContact = a} :: RegisterDomain)
-{-# DEPRECATED rAdminContact "Use generic-lens or generic-optics with 'adminContact' instead." #-}
-
--- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
---
--- Default: @true@
---
--- /Note:/ Consider using 'privacyProtectAdminContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rPrivacyProtectAdminContact :: Lens.Lens' RegisterDomain (Lude.Maybe Lude.Bool)
-rPrivacyProtectAdminContact = Lens.lens (privacyProtectAdminContact :: RegisterDomain -> Lude.Maybe Lude.Bool) (\s a -> s {privacyProtectAdminContact = a} :: RegisterDomain)
-{-# DEPRECATED rPrivacyProtectAdminContact "Use generic-lens or generic-optics with 'privacyProtectAdminContact' instead." #-}
-
--- | Reserved for future use.
---
--- /Note:/ Consider using 'idNLangCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rIDNLangCode :: Lens.Lens' RegisterDomain (Lude.Maybe Lude.Text)
-rIDNLangCode = Lens.lens (idNLangCode :: RegisterDomain -> Lude.Maybe Lude.Text) (\s a -> s {idNLangCode = a} :: RegisterDomain)
-{-# DEPRECATED rIDNLangCode "Use generic-lens or generic-optics with 'idNLangCode' instead." #-}
-
--- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
---
--- /Note:/ Consider using 'techContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rTechContact :: Lens.Lens' RegisterDomain ContactDetail
-rTechContact = Lens.lens (techContact :: RegisterDomain -> ContactDetail) (\s a -> s {techContact = a} :: RegisterDomain)
-{-# DEPRECATED rTechContact "Use generic-lens or generic-optics with 'techContact' instead." #-}
 
 -- | The number of years that you want to register the domain for. Domains are registered for a minimum of one year. The maximum period depends on the top-level domain. For the range of valid values for your domain, see <https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/registrar-tld-list.html Domains that You Can Register with Amazon Route 53> in the /Amazon Route 53 Developer Guide/ .
 --
 -- Default: 1
 --
 -- /Note:/ Consider using 'durationInYears' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rDurationInYears :: Lens.Lens' RegisterDomain Lude.Natural
-rDurationInYears = Lens.lens (durationInYears :: RegisterDomain -> Lude.Natural) (\s a -> s {durationInYears = a} :: RegisterDomain)
+rDurationInYears :: Lens.Lens' RegisterDomain Core.Natural
+rDurationInYears = Lens.field @"durationInYears"
 {-# DEPRECATED rDurationInYears "Use generic-lens or generic-optics with 'durationInYears' instead." #-}
 
-instance Lude.AWSRequest RegisterDomain where
+-- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
+--
+-- /Note:/ Consider using 'adminContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rAdminContact :: Lens.Lens' RegisterDomain Types.ContactDetail
+rAdminContact = Lens.field @"adminContact"
+{-# DEPRECATED rAdminContact "Use generic-lens or generic-optics with 'adminContact' instead." #-}
+
+-- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
+--
+-- /Note:/ Consider using 'registrantContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rRegistrantContact :: Lens.Lens' RegisterDomain Types.ContactDetail
+rRegistrantContact = Lens.field @"registrantContact"
+{-# DEPRECATED rRegistrantContact "Use generic-lens or generic-optics with 'registrantContact' instead." #-}
+
+-- | Provides detailed contact information. For information about the values that you specify for each element, see <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html ContactDetail> .
+--
+-- /Note:/ Consider using 'techContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rTechContact :: Lens.Lens' RegisterDomain Types.ContactDetail
+rTechContact = Lens.field @"techContact"
+{-# DEPRECATED rTechContact "Use generic-lens or generic-optics with 'techContact' instead." #-}
+
+-- | Indicates whether the domain will be automatically renewed (@true@ ) or not (@false@ ). Autorenewal only takes effect after the account is charged.
+--
+-- Default: @true@
+--
+-- /Note:/ Consider using 'autoRenew' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rAutoRenew :: Lens.Lens' RegisterDomain (Core.Maybe Core.Bool)
+rAutoRenew = Lens.field @"autoRenew"
+{-# DEPRECATED rAutoRenew "Use generic-lens or generic-optics with 'autoRenew' instead." #-}
+
+-- | Reserved for future use.
+--
+-- /Note:/ Consider using 'idnLangCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rIdnLangCode :: Lens.Lens' RegisterDomain (Core.Maybe Types.IdnLangCode)
+rIdnLangCode = Lens.field @"idnLangCode"
+{-# DEPRECATED rIdnLangCode "Use generic-lens or generic-optics with 'idnLangCode' instead." #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the admin contact.
+--
+-- Default: @true@
+--
+-- /Note:/ Consider using 'privacyProtectAdminContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rPrivacyProtectAdminContact :: Lens.Lens' RegisterDomain (Core.Maybe Core.Bool)
+rPrivacyProtectAdminContact = Lens.field @"privacyProtectAdminContact"
+{-# DEPRECATED rPrivacyProtectAdminContact "Use generic-lens or generic-optics with 'privacyProtectAdminContact' instead." #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the registrant contact (the domain owner).
+--
+-- Default: @true@
+--
+-- /Note:/ Consider using 'privacyProtectRegistrantContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rPrivacyProtectRegistrantContact :: Lens.Lens' RegisterDomain (Core.Maybe Core.Bool)
+rPrivacyProtectRegistrantContact = Lens.field @"privacyProtectRegistrantContact"
+{-# DEPRECATED rPrivacyProtectRegistrantContact "Use generic-lens or generic-optics with 'privacyProtectRegistrantContact' instead." #-}
+
+-- | Whether you want to conceal contact information from WHOIS queries. If you specify @true@ , WHOIS ("who is") queries return contact information either for Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate, Gandi (for all other TLDs). If you specify @false@ , WHOIS queries return the information that you entered for the technical contact.
+--
+-- Default: @true@
+--
+-- /Note:/ Consider using 'privacyProtectTechContact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rPrivacyProtectTechContact :: Lens.Lens' RegisterDomain (Core.Maybe Core.Bool)
+rPrivacyProtectTechContact = Lens.field @"privacyProtectTechContact"
+{-# DEPRECATED rPrivacyProtectTechContact "Use generic-lens or generic-optics with 'privacyProtectTechContact' instead." #-}
+
+instance Core.FromJSON RegisterDomain where
+  toJSON RegisterDomain {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DomainName" Core..= domainName),
+            Core.Just ("DurationInYears" Core..= durationInYears),
+            Core.Just ("AdminContact" Core..= adminContact),
+            Core.Just ("RegistrantContact" Core..= registrantContact),
+            Core.Just ("TechContact" Core..= techContact),
+            ("AutoRenew" Core..=) Core.<$> autoRenew,
+            ("IdnLangCode" Core..=) Core.<$> idnLangCode,
+            ("PrivacyProtectAdminContact" Core..=)
+              Core.<$> privacyProtectAdminContact,
+            ("PrivacyProtectRegistrantContact" Core..=)
+              Core.<$> privacyProtectRegistrantContact,
+            ("PrivacyProtectTechContact" Core..=)
+              Core.<$> privacyProtectTechContact
+          ]
+      )
+
+instance Core.AWSRequest RegisterDomain where
   type Rs RegisterDomain = RegisterDomainResponse
-  request = Req.postJSON route53DomainsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53Domains_v20140515.RegisterDomain")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RegisterDomainResponse'
-            Lude.<$> (x Lude..:> "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "OperationId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RegisterDomain where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Route53Domains_v20140515.RegisterDomain" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RegisterDomain where
-  toJSON RegisterDomain' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("PrivacyProtectTechContact" Lude..=)
-              Lude.<$> privacyProtectTechContact,
-            ("PrivacyProtectRegistrantContact" Lude..=)
-              Lude.<$> privacyProtectRegistrantContact,
-            ("AutoRenew" Lude..=) Lude.<$> autoRenew,
-            Lude.Just ("RegistrantContact" Lude..= registrantContact),
-            Lude.Just ("DomainName" Lude..= domainName),
-            Lude.Just ("AdminContact" Lude..= adminContact),
-            ("PrivacyProtectAdminContact" Lude..=)
-              Lude.<$> privacyProtectAdminContact,
-            ("IdnLangCode" Lude..=) Lude.<$> idNLangCode,
-            Lude.Just ("TechContact" Lude..= techContact),
-            Lude.Just ("DurationInYears" Lude..= durationInYears)
-          ]
-      )
-
-instance Lude.ToPath RegisterDomain where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterDomain where
-  toQuery = Lude.const Lude.mempty
 
 -- | The RegisterDomain response includes the following element.
 --
 -- /See:/ 'mkRegisterDomainResponse' smart constructor.
 data RegisterDomainResponse = RegisterDomainResponse'
   { -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
-    operationId :: Lude.Text,
+    operationId :: Types.OperationId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterDomainResponse' with the minimum fields required to make a request.
---
--- * 'operationId' - Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RegisterDomainResponse' value with any optional fields omitted.
 mkRegisterDomainResponse ::
   -- | 'operationId'
-  Lude.Text ->
+  Types.OperationId ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RegisterDomainResponse
-mkRegisterDomainResponse pOperationId_ pResponseStatus_ =
-  RegisterDomainResponse'
-    { operationId = pOperationId_,
-      responseStatus = pResponseStatus_
-    }
+mkRegisterDomainResponse operationId responseStatus =
+  RegisterDomainResponse' {operationId, responseStatus}
 
 -- | Identifier for tracking the progress of the request. To query the operation status, use <https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html GetOperationDetail> .
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdrsOperationId :: Lens.Lens' RegisterDomainResponse Lude.Text
-rdrsOperationId = Lens.lens (operationId :: RegisterDomainResponse -> Lude.Text) (\s a -> s {operationId = a} :: RegisterDomainResponse)
-{-# DEPRECATED rdrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+rdrrsOperationId :: Lens.Lens' RegisterDomainResponse Types.OperationId
+rdrrsOperationId = Lens.field @"operationId"
+{-# DEPRECATED rdrrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdrsResponseStatus :: Lens.Lens' RegisterDomainResponse Lude.Int
-rdrsResponseStatus = Lens.lens (responseStatus :: RegisterDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterDomainResponse)
-{-# DEPRECATED rdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rdrrsResponseStatus :: Lens.Lens' RegisterDomainResponse Core.Int
+rdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

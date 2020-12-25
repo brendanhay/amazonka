@@ -22,38 +22,36 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     mkDescribeAvailabilityZones,
 
     -- ** Request lenses
-    dazZoneNames,
     dazAllAvailabilityZones,
-    dazZoneIds,
-    dazFilters,
     dazDryRun,
+    dazFilters,
+    dazZoneIds,
+    dazZoneNames,
 
     -- * Destructuring the response
     DescribeAvailabilityZonesResponse (..),
     mkDescribeAvailabilityZonesResponse,
 
     -- ** Response lenses
-    dazrsAvailabilityZones,
-    dazrsResponseStatus,
+    dazrrsAvailabilityZones,
+    dazrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAvailabilityZones' smart constructor.
 data DescribeAvailabilityZones = DescribeAvailabilityZones'
-  { -- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
-    zoneNames :: Lude.Maybe [Lude.Text],
-    -- | Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in status.
+  { -- | Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in status.
     --
     -- If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.
-    allAvailabilityZones :: Lude.Maybe Lude.Bool,
-    -- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
-    zoneIds :: Lude.Maybe [Lude.Text],
+    allAvailabilityZones :: Core.Maybe Core.Bool,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | The filters.
     --
     --
@@ -88,90 +86,42 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
     --
     --
     --     * @zone-type@ - The type of zone, for example, @local-zone@ .
-    filters :: Lude.Maybe [Filter],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    filters :: Core.Maybe [Types.Filter],
+    -- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
+    zoneIds :: Core.Maybe [Types.String],
+    -- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
+    zoneNames :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAvailabilityZones' with the minimum fields required to make a request.
---
--- * 'zoneNames' - The names of the Availability Zones, Local Zones, and Wavelength Zones.
--- * 'allAvailabilityZones' - Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in status.
---
--- If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.
--- * 'zoneIds' - The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
--- * 'filters' - The filters.
---
---
---     * @group-name@ - For Availability Zones, use the Region name. For Local Zones, use the name of the group associated with the Local Zone (for example, @us-west-2-lax-1@ ) For Wavelength Zones, use the name of the group associated with the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@ ).
---
---
---     * @message@ - The Zone message.
---
---
---     * @opt-in-status@ - The opt-in status (@opted-in@ , and @not-opted-in@ | @opt-in-not-required@ ).
---
---
---     * @parent-zoneID@ - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.
---
---
---     * @parent-zoneName@ - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.
---
---
---     * @region-name@ - The name of the Region for the Zone (for example, @us-east-1@ ).
---
---
---     * @state@ - The state of the Availability Zone, the Local Zone, or the Wavelength Zone (@available@ | @information@ | @impaired@ | @unavailable@ ).
---
---
---     * @zone-id@ - The ID of the Availability Zone (for example, @use1-az1@ ), the Local Zone (for example, @usw2-lax1-az1@ ), or the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@ ).
---
---
---     * @zone-type@ - The type of zone, for example, @local-zone@ .
---
---
---     * @zone-name@ - The name of the Availability Zone (for example, @us-east-1a@ ), the Local Zone (for example, @us-west-2-lax-1a@ ), or the Wavelength Zone (for example, @us-east-1-wl1-bos-wlz-1@ ).
---
---
---     * @zone-type@ - The type of zone, for example, @local-zone@ .
---
---
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DescribeAvailabilityZones' value with any optional fields omitted.
 mkDescribeAvailabilityZones ::
   DescribeAvailabilityZones
 mkDescribeAvailabilityZones =
   DescribeAvailabilityZones'
-    { zoneNames = Lude.Nothing,
-      allAvailabilityZones = Lude.Nothing,
-      zoneIds = Lude.Nothing,
-      filters = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { allAvailabilityZones = Core.Nothing,
+      dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      zoneIds = Core.Nothing,
+      zoneNames = Core.Nothing
     }
-
--- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
---
--- /Note:/ Consider using 'zoneNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dazZoneNames :: Lens.Lens' DescribeAvailabilityZones (Lude.Maybe [Lude.Text])
-dazZoneNames = Lens.lens (zoneNames :: DescribeAvailabilityZones -> Lude.Maybe [Lude.Text]) (\s a -> s {zoneNames = a} :: DescribeAvailabilityZones)
-{-# DEPRECATED dazZoneNames "Use generic-lens or generic-optics with 'zoneNames' instead." #-}
 
 -- | Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in status.
 --
 -- If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.
 --
 -- /Note:/ Consider using 'allAvailabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dazAllAvailabilityZones :: Lens.Lens' DescribeAvailabilityZones (Lude.Maybe Lude.Bool)
-dazAllAvailabilityZones = Lens.lens (allAvailabilityZones :: DescribeAvailabilityZones -> Lude.Maybe Lude.Bool) (\s a -> s {allAvailabilityZones = a} :: DescribeAvailabilityZones)
+dazAllAvailabilityZones :: Lens.Lens' DescribeAvailabilityZones (Core.Maybe Core.Bool)
+dazAllAvailabilityZones = Lens.field @"allAvailabilityZones"
 {-# DEPRECATED dazAllAvailabilityZones "Use generic-lens or generic-optics with 'allAvailabilityZones' instead." #-}
 
--- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
--- /Note:/ Consider using 'zoneIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dazZoneIds :: Lens.Lens' DescribeAvailabilityZones (Lude.Maybe [Lude.Text])
-dazZoneIds = Lens.lens (zoneIds :: DescribeAvailabilityZones -> Lude.Maybe [Lude.Text]) (\s a -> s {zoneIds = a} :: DescribeAvailabilityZones)
-{-# DEPRECATED dazZoneIds "Use generic-lens or generic-optics with 'zoneIds' instead." #-}
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dazDryRun :: Lens.Lens' DescribeAvailabilityZones (Core.Maybe Core.Bool)
+dazDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dazDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The filters.
 --
@@ -211,85 +161,94 @@ dazZoneIds = Lens.lens (zoneIds :: DescribeAvailabilityZones -> Lude.Maybe [Lude
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dazFilters :: Lens.Lens' DescribeAvailabilityZones (Lude.Maybe [Filter])
-dazFilters = Lens.lens (filters :: DescribeAvailabilityZones -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeAvailabilityZones)
+dazFilters :: Lens.Lens' DescribeAvailabilityZones (Core.Maybe [Types.Filter])
+dazFilters = Lens.field @"filters"
 {-# DEPRECATED dazFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | The IDs of the Availability Zones, Local Zones, and Wavelength Zones.
 --
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dazDryRun :: Lens.Lens' DescribeAvailabilityZones (Lude.Maybe Lude.Bool)
-dazDryRun = Lens.lens (dryRun :: DescribeAvailabilityZones -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeAvailabilityZones)
-{-# DEPRECATED dazDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+-- /Note:/ Consider using 'zoneIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dazZoneIds :: Lens.Lens' DescribeAvailabilityZones (Core.Maybe [Types.String])
+dazZoneIds = Lens.field @"zoneIds"
+{-# DEPRECATED dazZoneIds "Use generic-lens or generic-optics with 'zoneIds' instead." #-}
 
-instance Lude.AWSRequest DescribeAvailabilityZones where
+-- | The names of the Availability Zones, Local Zones, and Wavelength Zones.
+--
+-- /Note:/ Consider using 'zoneNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dazZoneNames :: Lens.Lens' DescribeAvailabilityZones (Core.Maybe [Types.String])
+dazZoneNames = Lens.field @"zoneNames"
+{-# DEPRECATED dazZoneNames "Use generic-lens or generic-optics with 'zoneNames' instead." #-}
+
+instance Core.AWSRequest DescribeAvailabilityZones where
   type
     Rs DescribeAvailabilityZones =
       DescribeAvailabilityZonesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeAvailabilityZones")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> ( Core.toQueryValue "AllAvailabilityZones"
+                            Core.<$> allAvailabilityZones
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryList "ZoneId" Core.<$> zoneIds)
+                Core.<> (Core.toQueryList "ZoneName" Core.<$> zoneNames)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeAvailabilityZonesResponse'
-            Lude.<$> ( x Lude..@? "availabilityZoneInfo" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "availabilityZoneInfo"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAvailabilityZones where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAvailabilityZones where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAvailabilityZones where
-  toQuery DescribeAvailabilityZones' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeAvailabilityZones" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "ZoneName" Lude.<$> zoneNames),
-        "AllAvailabilityZones" Lude.=: allAvailabilityZones,
-        Lude.toQuery (Lude.toQueryList "ZoneId" Lude.<$> zoneIds),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkDescribeAvailabilityZonesResponse' smart constructor.
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
   { -- | Information about the Availability Zones, Local Zones, and Wavelength Zones.
-    availabilityZones :: Lude.Maybe [AvailabilityZone],
+    availabilityZones :: Core.Maybe [Types.AvailabilityZone],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAvailabilityZonesResponse' with the minimum fields required to make a request.
---
--- * 'availabilityZones' - Information about the Availability Zones, Local Zones, and Wavelength Zones.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAvailabilityZonesResponse' value with any optional fields omitted.
 mkDescribeAvailabilityZonesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAvailabilityZonesResponse
-mkDescribeAvailabilityZonesResponse pResponseStatus_ =
+mkDescribeAvailabilityZonesResponse responseStatus =
   DescribeAvailabilityZonesResponse'
     { availabilityZones =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the Availability Zones, Local Zones, and Wavelength Zones.
 --
 -- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dazrsAvailabilityZones :: Lens.Lens' DescribeAvailabilityZonesResponse (Lude.Maybe [AvailabilityZone])
-dazrsAvailabilityZones = Lens.lens (availabilityZones :: DescribeAvailabilityZonesResponse -> Lude.Maybe [AvailabilityZone]) (\s a -> s {availabilityZones = a} :: DescribeAvailabilityZonesResponse)
-{-# DEPRECATED dazrsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
+dazrrsAvailabilityZones :: Lens.Lens' DescribeAvailabilityZonesResponse (Core.Maybe [Types.AvailabilityZone])
+dazrrsAvailabilityZones = Lens.field @"availabilityZones"
+{-# DEPRECATED dazrrsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dazrsResponseStatus :: Lens.Lens' DescribeAvailabilityZonesResponse Lude.Int
-dazrsResponseStatus = Lens.lens (responseStatus :: DescribeAvailabilityZonesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAvailabilityZonesResponse)
-{-# DEPRECATED dazrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dazrrsResponseStatus :: Lens.Lens' DescribeAvailabilityZonesResponse Core.Int
+dazrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dazrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

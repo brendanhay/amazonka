@@ -17,46 +17,43 @@ module Network.AWS.CloudDirectory.Types.BatchAttachObjectResponse
     mkBatchAttachObjectResponse,
 
     -- * Lenses
-    baoAttachedObjectIdentifier,
+    baorAttachedObjectIdentifier,
   )
 where
 
+import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output batch 'AttachObject' response operation.
 --
 -- /See:/ 'mkBatchAttachObjectResponse' smart constructor.
 newtype BatchAttachObjectResponse = BatchAttachObjectResponse'
   { -- | The @ObjectIdentifier@ of the object that has been attached.
-    attachedObjectIdentifier :: Lude.Maybe Lude.Text
+    attachedObjectIdentifier :: Core.Maybe Types.ObjectIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchAttachObjectResponse' with the minimum fields required to make a request.
---
--- * 'attachedObjectIdentifier' - The @ObjectIdentifier@ of the object that has been attached.
+-- | Creates a 'BatchAttachObjectResponse' value with any optional fields omitted.
 mkBatchAttachObjectResponse ::
   BatchAttachObjectResponse
 mkBatchAttachObjectResponse =
   BatchAttachObjectResponse'
     { attachedObjectIdentifier =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The @ObjectIdentifier@ of the object that has been attached.
 --
 -- /Note:/ Consider using 'attachedObjectIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-baoAttachedObjectIdentifier :: Lens.Lens' BatchAttachObjectResponse (Lude.Maybe Lude.Text)
-baoAttachedObjectIdentifier = Lens.lens (attachedObjectIdentifier :: BatchAttachObjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {attachedObjectIdentifier = a} :: BatchAttachObjectResponse)
-{-# DEPRECATED baoAttachedObjectIdentifier "Use generic-lens or generic-optics with 'attachedObjectIdentifier' instead." #-}
+baorAttachedObjectIdentifier :: Lens.Lens' BatchAttachObjectResponse (Core.Maybe Types.ObjectIdentifier)
+baorAttachedObjectIdentifier = Lens.field @"attachedObjectIdentifier"
+{-# DEPRECATED baorAttachedObjectIdentifier "Use generic-lens or generic-optics with 'attachedObjectIdentifier' instead." #-}
 
-instance Lude.FromJSON BatchAttachObjectResponse where
+instance Core.FromJSON BatchAttachObjectResponse where
   parseJSON =
-    Lude.withObject
-      "BatchAttachObjectResponse"
-      ( \x ->
-          BatchAttachObjectResponse'
-            Lude.<$> (x Lude..:? "attachedObjectIdentifier")
-      )
+    Core.withObject "BatchAttachObjectResponse" Core.$
+      \x ->
+        BatchAttachObjectResponse'
+          Core.<$> (x Core..:? "attachedObjectIdentifier")

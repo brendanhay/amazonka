@@ -13,46 +13,51 @@
 module Network.AWS.ECR.Types.LayerAvailability
   ( LayerAvailability
       ( LayerAvailability',
-        Available,
-        Unavailable
+        LayerAvailabilityAvailable,
+        LayerAvailabilityUnavailable,
+        fromLayerAvailability
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LayerAvailability = LayerAvailability' Lude.Text
+newtype LayerAvailability = LayerAvailability'
+  { fromLayerAvailability ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Available :: LayerAvailability
-pattern Available = LayerAvailability' "AVAILABLE"
+pattern LayerAvailabilityAvailable :: LayerAvailability
+pattern LayerAvailabilityAvailable = LayerAvailability' "AVAILABLE"
 
-pattern Unavailable :: LayerAvailability
-pattern Unavailable = LayerAvailability' "UNAVAILABLE"
+pattern LayerAvailabilityUnavailable :: LayerAvailability
+pattern LayerAvailabilityUnavailable = LayerAvailability' "UNAVAILABLE"
 
 {-# COMPLETE
-  Available,
-  Unavailable,
+  LayerAvailabilityAvailable,
+  LayerAvailabilityUnavailable,
   LayerAvailability'
   #-}

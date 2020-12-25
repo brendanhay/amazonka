@@ -30,75 +30,66 @@ module Network.AWS.WorkDocs.DeleteDocument
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDeleteDocument' smart constructor.
 data DeleteDocument = DeleteDocument'
   { -- | The ID of the document.
-    documentId :: Lude.Text,
+    documentId :: Types.DocumentId,
     -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text)
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDocument' with the minimum fields required to make a request.
---
--- * 'documentId' - The ID of the document.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
+-- | Creates a 'DeleteDocument' value with any optional fields omitted.
 mkDeleteDocument ::
   -- | 'documentId'
-  Lude.Text ->
+  Types.DocumentId ->
   DeleteDocument
-mkDeleteDocument pDocumentId_ =
-  DeleteDocument'
-    { documentId = pDocumentId_,
-      authenticationToken = Lude.Nothing
-    }
+mkDeleteDocument documentId =
+  DeleteDocument' {documentId, authenticationToken = Core.Nothing}
 
 -- | The ID of the document.
 --
 -- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDocumentId :: Lens.Lens' DeleteDocument Lude.Text
-ddDocumentId = Lens.lens (documentId :: DeleteDocument -> Lude.Text) (\s a -> s {documentId = a} :: DeleteDocument)
+ddDocumentId :: Lens.Lens' DeleteDocument Types.DocumentId
+ddDocumentId = Lens.field @"documentId"
 {-# DEPRECATED ddDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddAuthenticationToken :: Lens.Lens' DeleteDocument (Lude.Maybe (Lude.Sensitive Lude.Text))
-ddAuthenticationToken = Lens.lens (authenticationToken :: DeleteDocument -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DeleteDocument)
+ddAuthenticationToken :: Lens.Lens' DeleteDocument (Core.Maybe Types.AuthenticationHeaderType)
+ddAuthenticationToken = Lens.field @"authenticationToken"
 {-# DEPRECATED ddAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
-instance Lude.AWSRequest DeleteDocument where
+instance Core.AWSRequest DeleteDocument where
   type Rs DeleteDocument = DeleteDocumentResponse
-  request = Req.delete workDocsService
-  response = Res.receiveNull DeleteDocumentResponse'
-
-instance Lude.ToHeaders DeleteDocument where
-  toHeaders DeleteDocument' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath DeleteDocument where
-  toPath DeleteDocument' {..} =
-    Lude.mconcat ["/api/v1/documents/", Lude.toBS documentId]
-
-instance Lude.ToQuery DeleteDocument where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/api/v1/documents/" Core.<> (Core.toText documentId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteDocumentResponse'
 
 -- | /See:/ 'mkDeleteDocumentResponse' smart constructor.
 data DeleteDocumentResponse = DeleteDocumentResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDocumentResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteDocumentResponse' value with any optional fields omitted.
 mkDeleteDocumentResponse ::
   DeleteDocumentResponse
 mkDeleteDocumentResponse = DeleteDocumentResponse'

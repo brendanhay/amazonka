@@ -58,8 +58,8 @@ module Network.AWS.GameLift.CreateMatchmakingRuleSet
     mkCreateMatchmakingRuleSet,
 
     -- ** Request lenses
-    cmrsRuleSetBody,
     cmrsName,
+    cmrsRuleSetBody,
     cmrsTags,
 
     -- * Destructuring the response
@@ -67,145 +67,124 @@ module Network.AWS.GameLift.CreateMatchmakingRuleSet
     mkCreateMatchmakingRuleSetResponse,
 
     -- ** Response lenses
-    cmrsrsRuleSet,
-    cmrsrsResponseStatus,
+    cmrsrrsRuleSet,
+    cmrsrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkCreateMatchmakingRuleSet' smart constructor.
 data CreateMatchmakingRuleSet = CreateMatchmakingRuleSet'
-  { -- | A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
-    ruleSetBody :: Lude.Text,
-    -- | A unique identifier for a matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional @name@ field in the rule set body.
-    name :: Lude.Text,
+  { -- | A unique identifier for a matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional @name@ field in the rule set body.
+    name :: Types.Name,
+    -- | A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
+    ruleSetBody :: Types.RuleSetBody,
     -- | A list of labels to assign to the new matchmaking rule set resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateMatchmakingRuleSet' with the minimum fields required to make a request.
---
--- * 'ruleSetBody' - A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
--- * 'name' - A unique identifier for a matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional @name@ field in the rule set body.
--- * 'tags' - A list of labels to assign to the new matchmaking rule set resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+-- | Creates a 'CreateMatchmakingRuleSet' value with any optional fields omitted.
 mkCreateMatchmakingRuleSet ::
-  -- | 'ruleSetBody'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'ruleSetBody'
+  Types.RuleSetBody ->
   CreateMatchmakingRuleSet
-mkCreateMatchmakingRuleSet pRuleSetBody_ pName_ =
-  CreateMatchmakingRuleSet'
-    { ruleSetBody = pRuleSetBody_,
-      name = pName_,
-      tags = Lude.Nothing
-    }
-
--- | A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
---
--- /Note:/ Consider using 'ruleSetBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsRuleSetBody :: Lens.Lens' CreateMatchmakingRuleSet Lude.Text
-cmrsRuleSetBody = Lens.lens (ruleSetBody :: CreateMatchmakingRuleSet -> Lude.Text) (\s a -> s {ruleSetBody = a} :: CreateMatchmakingRuleSet)
-{-# DEPRECATED cmrsRuleSetBody "Use generic-lens or generic-optics with 'ruleSetBody' instead." #-}
+mkCreateMatchmakingRuleSet name ruleSetBody =
+  CreateMatchmakingRuleSet' {name, ruleSetBody, tags = Core.Nothing}
 
 -- | A unique identifier for a matchmaking rule set. A matchmaking configuration identifies the rule set it uses by this name value. Note that the rule set name is different from the optional @name@ field in the rule set body.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsName :: Lens.Lens' CreateMatchmakingRuleSet Lude.Text
-cmrsName = Lens.lens (name :: CreateMatchmakingRuleSet -> Lude.Text) (\s a -> s {name = a} :: CreateMatchmakingRuleSet)
+cmrsName :: Lens.Lens' CreateMatchmakingRuleSet Types.Name
+cmrsName = Lens.field @"name"
 {-# DEPRECATED cmrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | A collection of matchmaking rules, formatted as a JSON string. Comments are not allowed in JSON, but most elements support a description field.
+--
+-- /Note:/ Consider using 'ruleSetBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cmrsRuleSetBody :: Lens.Lens' CreateMatchmakingRuleSet Types.RuleSetBody
+cmrsRuleSetBody = Lens.field @"ruleSetBody"
+{-# DEPRECATED cmrsRuleSetBody "Use generic-lens or generic-optics with 'ruleSetBody' instead." #-}
 
 -- | A list of labels to assign to the new matchmaking rule set resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsTags :: Lens.Lens' CreateMatchmakingRuleSet (Lude.Maybe [Tag])
-cmrsTags = Lens.lens (tags :: CreateMatchmakingRuleSet -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateMatchmakingRuleSet)
+cmrsTags :: Lens.Lens' CreateMatchmakingRuleSet (Core.Maybe [Types.Tag])
+cmrsTags = Lens.field @"tags"
 {-# DEPRECATED cmrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateMatchmakingRuleSet where
+instance Core.FromJSON CreateMatchmakingRuleSet where
+  toJSON CreateMatchmakingRuleSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("RuleSetBody" Core..= ruleSetBody),
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateMatchmakingRuleSet where
   type Rs CreateMatchmakingRuleSet = CreateMatchmakingRuleSetResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.CreateMatchmakingRuleSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateMatchmakingRuleSetResponse'
-            Lude.<$> (x Lude..:> "RuleSet") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "RuleSet") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateMatchmakingRuleSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.CreateMatchmakingRuleSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateMatchmakingRuleSet where
-  toJSON CreateMatchmakingRuleSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RuleSetBody" Lude..= ruleSetBody),
-            Lude.Just ("Name" Lude..= name),
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateMatchmakingRuleSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateMatchmakingRuleSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkCreateMatchmakingRuleSetResponse' smart constructor.
 data CreateMatchmakingRuleSetResponse = CreateMatchmakingRuleSetResponse'
   { -- | The newly created matchmaking rule set.
-    ruleSet :: MatchmakingRuleSet,
+    ruleSet :: Types.MatchmakingRuleSet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateMatchmakingRuleSetResponse' with the minimum fields required to make a request.
---
--- * 'ruleSet' - The newly created matchmaking rule set.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateMatchmakingRuleSetResponse' value with any optional fields omitted.
 mkCreateMatchmakingRuleSetResponse ::
   -- | 'ruleSet'
-  MatchmakingRuleSet ->
+  Types.MatchmakingRuleSet ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateMatchmakingRuleSetResponse
-mkCreateMatchmakingRuleSetResponse pRuleSet_ pResponseStatus_ =
-  CreateMatchmakingRuleSetResponse'
-    { ruleSet = pRuleSet_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateMatchmakingRuleSetResponse ruleSet responseStatus =
+  CreateMatchmakingRuleSetResponse' {ruleSet, responseStatus}
 
 -- | The newly created matchmaking rule set.
 --
 -- /Note:/ Consider using 'ruleSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsrsRuleSet :: Lens.Lens' CreateMatchmakingRuleSetResponse MatchmakingRuleSet
-cmrsrsRuleSet = Lens.lens (ruleSet :: CreateMatchmakingRuleSetResponse -> MatchmakingRuleSet) (\s a -> s {ruleSet = a} :: CreateMatchmakingRuleSetResponse)
-{-# DEPRECATED cmrsrsRuleSet "Use generic-lens or generic-optics with 'ruleSet' instead." #-}
+cmrsrrsRuleSet :: Lens.Lens' CreateMatchmakingRuleSetResponse Types.MatchmakingRuleSet
+cmrsrrsRuleSet = Lens.field @"ruleSet"
+{-# DEPRECATED cmrsrrsRuleSet "Use generic-lens or generic-optics with 'ruleSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrsrsResponseStatus :: Lens.Lens' CreateMatchmakingRuleSetResponse Lude.Int
-cmrsrsResponseStatus = Lens.lens (responseStatus :: CreateMatchmakingRuleSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateMatchmakingRuleSetResponse)
-{-# DEPRECATED cmrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cmrsrrsResponseStatus :: Lens.Lens' CreateMatchmakingRuleSetResponse Core.Int
+cmrsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cmrsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

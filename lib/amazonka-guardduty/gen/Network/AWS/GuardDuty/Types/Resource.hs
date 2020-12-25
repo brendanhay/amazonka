@@ -17,87 +17,81 @@ module Network.AWS.GuardDuty.Types.Resource
     mkResource,
 
     -- * Lenses
+    rAccessKeyDetails,
+    rInstanceDetails,
     rResourceType,
     rS3BucketDetails,
-    rInstanceDetails,
-    rAccessKeyDetails,
   )
 where
 
-import Network.AWS.GuardDuty.Types.AccessKeyDetails
-import Network.AWS.GuardDuty.Types.InstanceDetails
-import Network.AWS.GuardDuty.Types.S3BucketDetail
+import qualified Network.AWS.GuardDuty.Types.AccessKeyDetails as Types
+import qualified Network.AWS.GuardDuty.Types.InstanceDetails as Types
+import qualified Network.AWS.GuardDuty.Types.S3BucketDetail as Types
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the AWS resource associated with the activity that prompted GuardDuty to generate a finding.
 --
 -- /See:/ 'mkResource' smart constructor.
 data Resource = Resource'
-  { -- | The type of AWS resource.
-    resourceType :: Lude.Maybe Lude.Text,
-    -- | Contains information on the S3 bucket.
-    s3BucketDetails :: Lude.Maybe [S3BucketDetail],
+  { -- | The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.
+    accessKeyDetails :: Core.Maybe Types.AccessKeyDetails,
     -- | The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.
-    instanceDetails :: Lude.Maybe InstanceDetails,
-    -- | The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.
-    accessKeyDetails :: Lude.Maybe AccessKeyDetails
+    instanceDetails :: Core.Maybe Types.InstanceDetails,
+    -- | The type of AWS resource.
+    resourceType :: Core.Maybe Types.String,
+    -- | Contains information on the S3 bucket.
+    s3BucketDetails :: Core.Maybe [Types.S3BucketDetail]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Resource' with the minimum fields required to make a request.
---
--- * 'resourceType' - The type of AWS resource.
--- * 's3BucketDetails' - Contains information on the S3 bucket.
--- * 'instanceDetails' - The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.
--- * 'accessKeyDetails' - The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.
+-- | Creates a 'Resource' value with any optional fields omitted.
 mkResource ::
   Resource
 mkResource =
   Resource'
-    { resourceType = Lude.Nothing,
-      s3BucketDetails = Lude.Nothing,
-      instanceDetails = Lude.Nothing,
-      accessKeyDetails = Lude.Nothing
+    { accessKeyDetails = Core.Nothing,
+      instanceDetails = Core.Nothing,
+      resourceType = Core.Nothing,
+      s3BucketDetails = Core.Nothing
     }
+
+-- | The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.
+--
+-- /Note:/ Consider using 'accessKeyDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rAccessKeyDetails :: Lens.Lens' Resource (Core.Maybe Types.AccessKeyDetails)
+rAccessKeyDetails = Lens.field @"accessKeyDetails"
+{-# DEPRECATED rAccessKeyDetails "Use generic-lens or generic-optics with 'accessKeyDetails' instead." #-}
+
+-- | The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.
+--
+-- /Note:/ Consider using 'instanceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rInstanceDetails :: Lens.Lens' Resource (Core.Maybe Types.InstanceDetails)
+rInstanceDetails = Lens.field @"instanceDetails"
+{-# DEPRECATED rInstanceDetails "Use generic-lens or generic-optics with 'instanceDetails' instead." #-}
 
 -- | The type of AWS resource.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rResourceType :: Lens.Lens' Resource (Lude.Maybe Lude.Text)
-rResourceType = Lens.lens (resourceType :: Resource -> Lude.Maybe Lude.Text) (\s a -> s {resourceType = a} :: Resource)
+rResourceType :: Lens.Lens' Resource (Core.Maybe Types.String)
+rResourceType = Lens.field @"resourceType"
 {-# DEPRECATED rResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | Contains information on the S3 bucket.
 --
 -- /Note:/ Consider using 's3BucketDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rS3BucketDetails :: Lens.Lens' Resource (Lude.Maybe [S3BucketDetail])
-rS3BucketDetails = Lens.lens (s3BucketDetails :: Resource -> Lude.Maybe [S3BucketDetail]) (\s a -> s {s3BucketDetails = a} :: Resource)
+rS3BucketDetails :: Lens.Lens' Resource (Core.Maybe [Types.S3BucketDetail])
+rS3BucketDetails = Lens.field @"s3BucketDetails"
 {-# DEPRECATED rS3BucketDetails "Use generic-lens or generic-optics with 's3BucketDetails' instead." #-}
 
--- | The information about the EC2 instance associated with the activity that prompted GuardDuty to generate a finding.
---
--- /Note:/ Consider using 'instanceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rInstanceDetails :: Lens.Lens' Resource (Lude.Maybe InstanceDetails)
-rInstanceDetails = Lens.lens (instanceDetails :: Resource -> Lude.Maybe InstanceDetails) (\s a -> s {instanceDetails = a} :: Resource)
-{-# DEPRECATED rInstanceDetails "Use generic-lens or generic-optics with 'instanceDetails' instead." #-}
-
--- | The IAM access key details (IAM user information) of a user that engaged in the activity that prompted GuardDuty to generate a finding.
---
--- /Note:/ Consider using 'accessKeyDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rAccessKeyDetails :: Lens.Lens' Resource (Lude.Maybe AccessKeyDetails)
-rAccessKeyDetails = Lens.lens (accessKeyDetails :: Resource -> Lude.Maybe AccessKeyDetails) (\s a -> s {accessKeyDetails = a} :: Resource)
-{-# DEPRECATED rAccessKeyDetails "Use generic-lens or generic-optics with 'accessKeyDetails' instead." #-}
-
-instance Lude.FromJSON Resource where
+instance Core.FromJSON Resource where
   parseJSON =
-    Lude.withObject
-      "Resource"
-      ( \x ->
-          Resource'
-            Lude.<$> (x Lude..:? "resourceType")
-            Lude.<*> (x Lude..:? "s3BucketDetails" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "instanceDetails")
-            Lude.<*> (x Lude..:? "accessKeyDetails")
-      )
+    Core.withObject "Resource" Core.$
+      \x ->
+        Resource'
+          Core.<$> (x Core..:? "accessKeyDetails")
+          Core.<*> (x Core..:? "instanceDetails")
+          Core.<*> (x Core..:? "resourceType")
+          Core.<*> (x Core..:? "s3BucketDetails")

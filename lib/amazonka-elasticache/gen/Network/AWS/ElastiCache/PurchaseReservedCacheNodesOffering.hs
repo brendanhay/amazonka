@@ -20,77 +20,74 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     mkPurchaseReservedCacheNodesOffering,
 
     -- ** Request lenses
+    prcnoReservedCacheNodesOfferingId,
     prcnoCacheNodeCount,
     prcnoReservedCacheNodeId,
-    prcnoReservedCacheNodesOfferingId,
 
     -- * Destructuring the response
     PurchaseReservedCacheNodesOfferingResponse (..),
     mkPurchaseReservedCacheNodesOfferingResponse,
 
     -- ** Response lenses
-    prcnorsReservedCacheNode,
-    prcnorsResponseStatus,
+    prcnorrsReservedCacheNode,
+    prcnorrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @PurchaseReservedCacheNodesOffering@ operation.
 --
 -- /See:/ 'mkPurchaseReservedCacheNodesOffering' smart constructor.
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
-  { -- | The number of cache node instances to reserve.
+  { -- | The ID of the reserved cache node offering to purchase.
+    --
+    -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
+    reservedCacheNodesOfferingId :: Types.String,
+    -- | The number of cache node instances to reserve.
     --
     -- Default: @1@
-    cacheNodeCount :: Lude.Maybe Lude.Int,
+    cacheNodeCount :: Core.Maybe Core.Int,
     -- | A customer-specified identifier to track this reservation.
     --
     -- Example: myreservationID
-    reservedCacheNodeId :: Lude.Maybe Lude.Text,
-    -- | The ID of the reserved cache node offering to purchase.
-    --
-    -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
-    reservedCacheNodesOfferingId :: Lude.Text
+    reservedCacheNodeId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PurchaseReservedCacheNodesOffering' with the minimum fields required to make a request.
---
--- * 'cacheNodeCount' - The number of cache node instances to reserve.
---
--- Default: @1@
--- * 'reservedCacheNodeId' - A customer-specified identifier to track this reservation.
---
--- Example: myreservationID
--- * 'reservedCacheNodesOfferingId' - The ID of the reserved cache node offering to purchase.
---
--- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
+-- | Creates a 'PurchaseReservedCacheNodesOffering' value with any optional fields omitted.
 mkPurchaseReservedCacheNodesOffering ::
   -- | 'reservedCacheNodesOfferingId'
-  Lude.Text ->
+  Types.String ->
   PurchaseReservedCacheNodesOffering
-mkPurchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId_ =
+mkPurchaseReservedCacheNodesOffering reservedCacheNodesOfferingId =
   PurchaseReservedCacheNodesOffering'
-    { cacheNodeCount =
-        Lude.Nothing,
-      reservedCacheNodeId = Lude.Nothing,
-      reservedCacheNodesOfferingId =
-        pReservedCacheNodesOfferingId_
+    { reservedCacheNodesOfferingId,
+      cacheNodeCount = Core.Nothing,
+      reservedCacheNodeId = Core.Nothing
     }
+
+-- | The ID of the reserved cache node offering to purchase.
+--
+-- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
+--
+-- /Note:/ Consider using 'reservedCacheNodesOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prcnoReservedCacheNodesOfferingId :: Lens.Lens' PurchaseReservedCacheNodesOffering Types.String
+prcnoReservedCacheNodesOfferingId = Lens.field @"reservedCacheNodesOfferingId"
+{-# DEPRECATED prcnoReservedCacheNodesOfferingId "Use generic-lens or generic-optics with 'reservedCacheNodesOfferingId' instead." #-}
 
 -- | The number of cache node instances to reserve.
 --
 -- Default: @1@
 --
 -- /Note:/ Consider using 'cacheNodeCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcnoCacheNodeCount :: Lens.Lens' PurchaseReservedCacheNodesOffering (Lude.Maybe Lude.Int)
-prcnoCacheNodeCount = Lens.lens (cacheNodeCount :: PurchaseReservedCacheNodesOffering -> Lude.Maybe Lude.Int) (\s a -> s {cacheNodeCount = a} :: PurchaseReservedCacheNodesOffering)
+prcnoCacheNodeCount :: Lens.Lens' PurchaseReservedCacheNodesOffering (Core.Maybe Core.Int)
+prcnoCacheNodeCount = Lens.field @"cacheNodeCount"
 {-# DEPRECATED prcnoCacheNodeCount "Use generic-lens or generic-optics with 'cacheNodeCount' instead." #-}
 
 -- | A customer-specified identifier to track this reservation.
@@ -98,85 +95,79 @@ prcnoCacheNodeCount = Lens.lens (cacheNodeCount :: PurchaseReservedCacheNodesOff
 -- Example: myreservationID
 --
 -- /Note:/ Consider using 'reservedCacheNodeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcnoReservedCacheNodeId :: Lens.Lens' PurchaseReservedCacheNodesOffering (Lude.Maybe Lude.Text)
-prcnoReservedCacheNodeId = Lens.lens (reservedCacheNodeId :: PurchaseReservedCacheNodesOffering -> Lude.Maybe Lude.Text) (\s a -> s {reservedCacheNodeId = a} :: PurchaseReservedCacheNodesOffering)
+prcnoReservedCacheNodeId :: Lens.Lens' PurchaseReservedCacheNodesOffering (Core.Maybe Types.String)
+prcnoReservedCacheNodeId = Lens.field @"reservedCacheNodeId"
 {-# DEPRECATED prcnoReservedCacheNodeId "Use generic-lens or generic-optics with 'reservedCacheNodeId' instead." #-}
 
--- | The ID of the reserved cache node offering to purchase.
---
--- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
---
--- /Note:/ Consider using 'reservedCacheNodesOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcnoReservedCacheNodesOfferingId :: Lens.Lens' PurchaseReservedCacheNodesOffering Lude.Text
-prcnoReservedCacheNodesOfferingId = Lens.lens (reservedCacheNodesOfferingId :: PurchaseReservedCacheNodesOffering -> Lude.Text) (\s a -> s {reservedCacheNodesOfferingId = a} :: PurchaseReservedCacheNodesOffering)
-{-# DEPRECATED prcnoReservedCacheNodesOfferingId "Use generic-lens or generic-optics with 'reservedCacheNodesOfferingId' instead." #-}
-
-instance Lude.AWSRequest PurchaseReservedCacheNodesOffering where
+instance Core.AWSRequest PurchaseReservedCacheNodesOffering where
   type
     Rs PurchaseReservedCacheNodesOffering =
       PurchaseReservedCacheNodesOfferingResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PurchaseReservedCacheNodesOffering")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> ( Core.toQueryValue
+                            "ReservedCacheNodesOfferingId"
+                            reservedCacheNodesOfferingId
+                        )
+                Core.<> (Core.toQueryValue "CacheNodeCount" Core.<$> cacheNodeCount)
+                Core.<> ( Core.toQueryValue "ReservedCacheNodeId"
+                            Core.<$> reservedCacheNodeId
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "PurchaseReservedCacheNodesOfferingResult"
       ( \s h x ->
           PurchaseReservedCacheNodesOfferingResponse'
-            Lude.<$> (x Lude..@? "ReservedCacheNode")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ReservedCacheNode")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PurchaseReservedCacheNodesOffering where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PurchaseReservedCacheNodesOffering where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PurchaseReservedCacheNodesOffering where
-  toQuery PurchaseReservedCacheNodesOffering' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("PurchaseReservedCacheNodesOffering" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheNodeCount" Lude.=: cacheNodeCount,
-        "ReservedCacheNodeId" Lude.=: reservedCacheNodeId,
-        "ReservedCacheNodesOfferingId"
-          Lude.=: reservedCacheNodesOfferingId
-      ]
 
 -- | /See:/ 'mkPurchaseReservedCacheNodesOfferingResponse' smart constructor.
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
-  { reservedCacheNode :: Lude.Maybe ReservedCacheNode,
+  { reservedCacheNode :: Core.Maybe Types.ReservedCacheNode,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PurchaseReservedCacheNodesOfferingResponse' with the minimum fields required to make a request.
---
--- * 'reservedCacheNode' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PurchaseReservedCacheNodesOfferingResponse' value with any optional fields omitted.
 mkPurchaseReservedCacheNodesOfferingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PurchaseReservedCacheNodesOfferingResponse
-mkPurchaseReservedCacheNodesOfferingResponse pResponseStatus_ =
+mkPurchaseReservedCacheNodesOfferingResponse responseStatus =
   PurchaseReservedCacheNodesOfferingResponse'
     { reservedCacheNode =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'reservedCacheNode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcnorsReservedCacheNode :: Lens.Lens' PurchaseReservedCacheNodesOfferingResponse (Lude.Maybe ReservedCacheNode)
-prcnorsReservedCacheNode = Lens.lens (reservedCacheNode :: PurchaseReservedCacheNodesOfferingResponse -> Lude.Maybe ReservedCacheNode) (\s a -> s {reservedCacheNode = a} :: PurchaseReservedCacheNodesOfferingResponse)
-{-# DEPRECATED prcnorsReservedCacheNode "Use generic-lens or generic-optics with 'reservedCacheNode' instead." #-}
+prcnorrsReservedCacheNode :: Lens.Lens' PurchaseReservedCacheNodesOfferingResponse (Core.Maybe Types.ReservedCacheNode)
+prcnorrsReservedCacheNode = Lens.field @"reservedCacheNode"
+{-# DEPRECATED prcnorrsReservedCacheNode "Use generic-lens or generic-optics with 'reservedCacheNode' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prcnorsResponseStatus :: Lens.Lens' PurchaseReservedCacheNodesOfferingResponse Lude.Int
-prcnorsResponseStatus = Lens.lens (responseStatus :: PurchaseReservedCacheNodesOfferingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PurchaseReservedCacheNodesOfferingResponse)
-{-# DEPRECATED prcnorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prcnorrsResponseStatus :: Lens.Lens' PurchaseReservedCacheNodesOfferingResponse Core.Int
+prcnorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prcnorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

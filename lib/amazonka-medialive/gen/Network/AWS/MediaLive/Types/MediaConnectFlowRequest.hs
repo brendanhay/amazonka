@@ -17,39 +17,37 @@ module Network.AWS.MediaLive.Types.MediaConnectFlowRequest
     mkMediaConnectFlowRequest,
 
     -- * Lenses
-    mcfrFlowARN,
+    mcfrFlowArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The settings for a MediaConnect Flow.
 --
 -- /See:/ 'mkMediaConnectFlowRequest' smart constructor.
 newtype MediaConnectFlowRequest = MediaConnectFlowRequest'
   { -- | The ARN of the MediaConnect Flow that you want to use as a source.
-    flowARN :: Lude.Maybe Lude.Text
+    flowArn :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MediaConnectFlowRequest' with the minimum fields required to make a request.
---
--- * 'flowARN' - The ARN of the MediaConnect Flow that you want to use as a source.
+-- | Creates a 'MediaConnectFlowRequest' value with any optional fields omitted.
 mkMediaConnectFlowRequest ::
   MediaConnectFlowRequest
 mkMediaConnectFlowRequest =
-  MediaConnectFlowRequest' {flowARN = Lude.Nothing}
+  MediaConnectFlowRequest' {flowArn = Core.Nothing}
 
 -- | The ARN of the MediaConnect Flow that you want to use as a source.
 --
--- /Note:/ Consider using 'flowARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcfrFlowARN :: Lens.Lens' MediaConnectFlowRequest (Lude.Maybe Lude.Text)
-mcfrFlowARN = Lens.lens (flowARN :: MediaConnectFlowRequest -> Lude.Maybe Lude.Text) (\s a -> s {flowARN = a} :: MediaConnectFlowRequest)
-{-# DEPRECATED mcfrFlowARN "Use generic-lens or generic-optics with 'flowARN' instead." #-}
+-- /Note:/ Consider using 'flowArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mcfrFlowArn :: Lens.Lens' MediaConnectFlowRequest (Core.Maybe Core.Text)
+mcfrFlowArn = Lens.field @"flowArn"
+{-# DEPRECATED mcfrFlowArn "Use generic-lens or generic-optics with 'flowArn' instead." #-}
 
-instance Lude.ToJSON MediaConnectFlowRequest where
-  toJSON MediaConnectFlowRequest' {..} =
-    Lude.object
-      (Lude.catMaybes [("flowArn" Lude..=) Lude.<$> flowARN])
+instance Core.FromJSON MediaConnectFlowRequest where
+  toJSON MediaConnectFlowRequest {..} =
+    Core.object
+      (Core.catMaybes [("flowArn" Core..=) Core.<$> flowArn])

@@ -21,34 +21,29 @@ module Network.AWS.EC2.Types.Phase2EncryptionAlgorithmsRequestListValue
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the encryption algorithm for the VPN tunnel for phase 2 IKE negotiations.
 --
 -- /See:/ 'mkPhase2EncryptionAlgorithmsRequestListValue' smart constructor.
 newtype Phase2EncryptionAlgorithmsRequestListValue = Phase2EncryptionAlgorithmsRequestListValue'
   { -- | The encryption algorithm.
-    value :: Lude.Maybe Lude.Text
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Phase2EncryptionAlgorithmsRequestListValue' with the minimum fields required to make a request.
---
--- * 'value' - The encryption algorithm.
+-- | Creates a 'Phase2EncryptionAlgorithmsRequestListValue' value with any optional fields omitted.
 mkPhase2EncryptionAlgorithmsRequestListValue ::
   Phase2EncryptionAlgorithmsRequestListValue
 mkPhase2EncryptionAlgorithmsRequestListValue =
-  Phase2EncryptionAlgorithmsRequestListValue' {value = Lude.Nothing}
+  Phase2EncryptionAlgorithmsRequestListValue' {value = Core.Nothing}
 
 -- | The encryption algorithm.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pearlvfValue :: Lens.Lens' Phase2EncryptionAlgorithmsRequestListValue (Lude.Maybe Lude.Text)
-pearlvfValue = Lens.lens (value :: Phase2EncryptionAlgorithmsRequestListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase2EncryptionAlgorithmsRequestListValue)
+pearlvfValue :: Lens.Lens' Phase2EncryptionAlgorithmsRequestListValue (Core.Maybe Types.String)
+pearlvfValue = Lens.field @"value"
 {-# DEPRECATED pearlvfValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
-instance Lude.ToQuery Phase2EncryptionAlgorithmsRequestListValue where
-  toQuery Phase2EncryptionAlgorithmsRequestListValue' {..} =
-    Lude.mconcat ["Value" Lude.=: value]

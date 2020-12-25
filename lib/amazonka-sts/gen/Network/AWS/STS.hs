@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,34 @@
 -- AWS Security Token Service (STS) enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users). This guide provides descriptions of the STS API. For more information about using this service, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html Temporary Security Credentials> .
 module Network.AWS.STS
   ( -- * Service configuration
-    stsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** MalformedPolicyDocumentException
+    _MalformedPolicyDocumentException,
+
+    -- ** InvalidAuthorizationMessageException
+    _InvalidAuthorizationMessageException,
+
+    -- ** PackedPolicyTooLargeException
+    _PackedPolicyTooLargeException,
+
+    -- ** RegionDisabledException
+    _RegionDisabledException,
+
+    -- ** IDPCommunicationErrorException
+    _IDPCommunicationErrorException,
+
+    -- ** InvalidIdentityTokenException
+    _InvalidIdentityTokenException,
+
+    -- ** ExpiredTokenException
+    _ExpiredTokenException,
+
+    -- ** IDPRejectedClaimException
+    _IDPRejectedClaimException,
 
     -- * Waiters
     -- $waiters
@@ -53,38 +76,138 @@ module Network.AWS.STS
 
     -- * Types
 
-    -- ** AssumedRoleUser
-    AssumedRoleUser (..),
-    mkAssumedRoleUser,
-    aruARN,
-    aruAssumedRoleId,
+    -- ** Subject
+    Subject (..),
+
+    -- ** UserIdType
+    UserIdType (..),
+
+    -- ** Audience
+    Audience (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** WebIdentitySubjectType
+    WebIdentitySubjectType (..),
+
+    -- ** TagKeyType
+    TagKeyType (..),
+
+    -- ** ExternalIdType
+    ExternalIdType (..),
+
+    -- ** SerialNumberType
+    SerialNumberType (..),
+
+    -- ** DecodedMessageType
+    DecodedMessageType (..),
+
+    -- ** SAMLAssertionType
+    SAMLAssertionType (..),
+
+    -- ** SubjectType
+    SubjectType (..),
+
+    -- ** NameQualifier
+    NameQualifier (..),
 
     -- ** FederatedUser
     FederatedUser (..),
     mkFederatedUser,
-    fuARN,
     fuFederatedUserId,
+    fuArn,
+
+    -- ** RoleSessionNameType
+    RoleSessionNameType (..),
+
+    -- ** ArnType
+    ArnType (..),
+
+    -- ** AssumedRoleUser
+    AssumedRoleUser (..),
+    mkAssumedRoleUser,
+    aruAssumedRoleId,
+    aruArn,
 
     -- ** PolicyDescriptorType
     PolicyDescriptorType (..),
     mkPolicyDescriptorType,
     pdtArn,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** Issuer
+    Issuer (..),
+
+    -- ** TokenCodeType
+    TokenCodeType (..),
+
+    -- ** SessionPolicyDocumentType
+    SessionPolicyDocumentType (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** AccessKeyId
+    AccessKeyId (..),
+
+    -- ** EncodedMessage
+    EncodedMessage (..),
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** RoleSessionName
+    RoleSessionName (..),
+
+    -- ** WebIdentityToken
+    WebIdentityToken (..),
+
+    -- ** Policy
+    Policy (..),
+
+    -- ** ProviderId
+    ProviderId (..),
+
+    -- ** SecretAccessKey
+    SecretAccessKey (..),
+
+    -- ** SessionToken
+    SessionToken (..),
+
+    -- ** Account
+    Account (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Provider
+    Provider (..),
+
+    -- ** TokenCode
+    TokenCode (..),
+
+    -- ** FederatedUserId
+    FederatedUserId (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** AssumedRoleId
+    AssumedRoleId (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

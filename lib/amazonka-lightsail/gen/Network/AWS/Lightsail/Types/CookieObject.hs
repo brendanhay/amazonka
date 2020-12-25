@@ -23,8 +23,9 @@ module Network.AWS.Lightsail.Types.CookieObject
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.ForwardValues
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.ForwardValues as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes whether an Amazon Lightsail content delivery network (CDN) distribution forwards cookies to the origin and, if so, which ones.
 --
@@ -33,54 +34,48 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkCookieObject' smart constructor.
 data CookieObject = CookieObject'
   { -- | The specific cookies to forward to your distribution's origin.
-    cookiesAllowList :: Lude.Maybe [Lude.Text],
+    cookiesAllowList :: Core.Maybe [Types.String],
     -- | Specifies which cookies to forward to the distribution's origin for a cache behavior: @all@ , @none@ , or @allow-list@ to forward only the cookies specified in the @cookiesAllowList@ parameter.
-    option :: Lude.Maybe ForwardValues
+    option :: Core.Maybe Types.ForwardValues
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CookieObject' with the minimum fields required to make a request.
---
--- * 'cookiesAllowList' - The specific cookies to forward to your distribution's origin.
--- * 'option' - Specifies which cookies to forward to the distribution's origin for a cache behavior: @all@ , @none@ , or @allow-list@ to forward only the cookies specified in the @cookiesAllowList@ parameter.
+-- | Creates a 'CookieObject' value with any optional fields omitted.
 mkCookieObject ::
   CookieObject
 mkCookieObject =
   CookieObject'
-    { cookiesAllowList = Lude.Nothing,
-      option = Lude.Nothing
+    { cookiesAllowList = Core.Nothing,
+      option = Core.Nothing
     }
 
 -- | The specific cookies to forward to your distribution's origin.
 --
 -- /Note:/ Consider using 'cookiesAllowList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coCookiesAllowList :: Lens.Lens' CookieObject (Lude.Maybe [Lude.Text])
-coCookiesAllowList = Lens.lens (cookiesAllowList :: CookieObject -> Lude.Maybe [Lude.Text]) (\s a -> s {cookiesAllowList = a} :: CookieObject)
+coCookiesAllowList :: Lens.Lens' CookieObject (Core.Maybe [Types.String])
+coCookiesAllowList = Lens.field @"cookiesAllowList"
 {-# DEPRECATED coCookiesAllowList "Use generic-lens or generic-optics with 'cookiesAllowList' instead." #-}
 
 -- | Specifies which cookies to forward to the distribution's origin for a cache behavior: @all@ , @none@ , or @allow-list@ to forward only the cookies specified in the @cookiesAllowList@ parameter.
 --
 -- /Note:/ Consider using 'option' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coOption :: Lens.Lens' CookieObject (Lude.Maybe ForwardValues)
-coOption = Lens.lens (option :: CookieObject -> Lude.Maybe ForwardValues) (\s a -> s {option = a} :: CookieObject)
+coOption :: Lens.Lens' CookieObject (Core.Maybe Types.ForwardValues)
+coOption = Lens.field @"option"
 {-# DEPRECATED coOption "Use generic-lens or generic-optics with 'option' instead." #-}
 
-instance Lude.FromJSON CookieObject where
-  parseJSON =
-    Lude.withObject
-      "CookieObject"
-      ( \x ->
-          CookieObject'
-            Lude.<$> (x Lude..:? "cookiesAllowList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "option")
-      )
-
-instance Lude.ToJSON CookieObject where
-  toJSON CookieObject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("cookiesAllowList" Lude..=) Lude.<$> cookiesAllowList,
-            ("option" Lude..=) Lude.<$> option
+instance Core.FromJSON CookieObject where
+  toJSON CookieObject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("cookiesAllowList" Core..=) Core.<$> cookiesAllowList,
+            ("option" Core..=) Core.<$> option
           ]
       )
+
+instance Core.FromJSON CookieObject where
+  parseJSON =
+    Core.withObject "CookieObject" Core.$
+      \x ->
+        CookieObject'
+          Core.<$> (x Core..:? "cookiesAllowList") Core.<*> (x Core..:? "option")

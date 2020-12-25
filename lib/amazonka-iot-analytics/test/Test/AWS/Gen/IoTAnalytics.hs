@@ -450,7 +450,7 @@ responseDescribePipeline =
   res
     "DescribePipelineResponse"
     "fixture/DescribePipelineResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DescribePipeline)
 
 responseDescribeDataset :: DescribeDatasetResponse -> TestTree
@@ -458,7 +458,7 @@ responseDescribeDataset =
   res
     "DescribeDatasetResponse"
     "fixture/DescribeDatasetResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDataset)
 
 responseListChannels :: ListChannelsResponse -> TestTree
@@ -466,7 +466,7 @@ responseListChannels =
   res
     "ListChannelsResponse"
     "fixture/ListChannelsResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy ListChannels)
 
 responseListDatasetContents :: ListDatasetContentsResponse -> TestTree
@@ -474,7 +474,7 @@ responseListDatasetContents =
   res
     "ListDatasetContentsResponse"
     "fixture/ListDatasetContentsResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy ListDatasetContents)
 
 responsePutLoggingOptions :: PutLoggingOptionsResponse -> TestTree
@@ -482,7 +482,7 @@ responsePutLoggingOptions =
   res
     "PutLoggingOptionsResponse"
     "fixture/PutLoggingOptionsResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy PutLoggingOptions)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -490,7 +490,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseDeleteChannel :: DeleteChannelResponse -> TestTree
@@ -498,7 +498,7 @@ responseDeleteChannel =
   res
     "DeleteChannelResponse"
     "fixture/DeleteChannelResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteChannel)
 
 responseUpdateChannel :: UpdateChannelResponse -> TestTree
@@ -506,7 +506,7 @@ responseUpdateChannel =
   res
     "UpdateChannelResponse"
     "fixture/UpdateChannelResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateChannel)
 
 responseSampleChannelData :: SampleChannelDataResponse -> TestTree
@@ -514,7 +514,7 @@ responseSampleChannelData =
   res
     "SampleChannelDataResponse"
     "fixture/SampleChannelDataResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy SampleChannelData)
 
 responseCancelPipelineReprocessing :: CancelPipelineReprocessingResponse -> TestTree
@@ -522,7 +522,7 @@ responseCancelPipelineReprocessing =
   res
     "CancelPipelineReprocessingResponse"
     "fixture/CancelPipelineReprocessingResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy CancelPipelineReprocessing)
 
 responseCreateDatastore :: CreateDatastoreResponse -> TestTree
@@ -530,7 +530,7 @@ responseCreateDatastore =
   res
     "CreateDatastoreResponse"
     "fixture/CreateDatastoreResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDatastore)
 
 responseUpdatePipeline :: UpdatePipelineResponse -> TestTree
@@ -538,7 +538,7 @@ responseUpdatePipeline =
   res
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy UpdatePipeline)
 
 responseDeletePipeline :: DeletePipelineResponse -> TestTree
@@ -546,7 +546,7 @@ responseDeletePipeline =
   res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DeletePipeline)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
@@ -554,7 +554,7 @@ responseDeleteDataset =
   res
     "DeleteDatasetResponse"
     "fixture/DeleteDatasetResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDataset)
 
 responseUpdateDataset :: UpdateDatasetResponse -> TestTree
@@ -562,7 +562,7 @@ responseUpdateDataset =
   res
     "UpdateDatasetResponse"
     "fixture/UpdateDatasetResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDataset)
 
 responseListPipelines :: ListPipelinesResponse -> TestTree
@@ -570,7 +570,7 @@ responseListPipelines =
   res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy ListPipelines)
 
 responseDeleteDatastore :: DeleteDatastoreResponse -> TestTree
@@ -578,7 +578,7 @@ responseDeleteDatastore =
   res
     "DeleteDatastoreResponse"
     "fixture/DeleteDatastoreResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDatastore)
 
 responseUpdateDatastore :: UpdateDatastoreResponse -> TestTree
@@ -586,7 +586,7 @@ responseUpdateDatastore =
   res
     "UpdateDatastoreResponse"
     "fixture/UpdateDatastoreResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDatastore)
 
 responseCreateDataset :: CreateDatasetResponse -> TestTree
@@ -594,7 +594,7 @@ responseCreateDataset =
   res
     "CreateDatasetResponse"
     "fixture/CreateDatasetResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDataset)
 
 responseBatchPutMessage :: BatchPutMessageResponse -> TestTree
@@ -602,7 +602,7 @@ responseBatchPutMessage =
   res
     "BatchPutMessageResponse"
     "fixture/BatchPutMessageResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy BatchPutMessage)
 
 responseListDatastores :: ListDatastoresResponse -> TestTree
@@ -610,7 +610,7 @@ responseListDatastores =
   res
     "ListDatastoresResponse"
     "fixture/ListDatastoresResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy ListDatastores)
 
 responseCreateDatasetContent :: CreateDatasetContentResponse -> TestTree
@@ -618,7 +618,7 @@ responseCreateDatasetContent =
   res
     "CreateDatasetContentResponse"
     "fixture/CreateDatasetContentResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy CreateDatasetContent)
 
 responseCreateChannel :: CreateChannelResponse -> TestTree
@@ -626,7 +626,7 @@ responseCreateChannel =
   res
     "CreateChannelResponse"
     "fixture/CreateChannelResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy CreateChannel)
 
 responseDeleteDatasetContent :: DeleteDatasetContentResponse -> TestTree
@@ -634,7 +634,7 @@ responseDeleteDatasetContent =
   res
     "DeleteDatasetContentResponse"
     "fixture/DeleteDatasetContentResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDatasetContent)
 
 responseDescribeDatastore :: DescribeDatastoreResponse -> TestTree
@@ -642,7 +642,7 @@ responseDescribeDatastore =
   res
     "DescribeDatastoreResponse"
     "fixture/DescribeDatastoreResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDatastore)
 
 responseGetDatasetContent :: GetDatasetContentResponse -> TestTree
@@ -650,7 +650,7 @@ responseGetDatasetContent =
   res
     "GetDatasetContentResponse"
     "fixture/GetDatasetContentResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy GetDatasetContent)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -658,7 +658,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseListDatasets :: ListDatasetsResponse -> TestTree
@@ -666,7 +666,7 @@ responseListDatasets =
   res
     "ListDatasetsResponse"
     "fixture/ListDatasetsResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy ListDatasets)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -674,7 +674,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseRunPipelineActivity :: RunPipelineActivityResponse -> TestTree
@@ -682,7 +682,7 @@ responseRunPipelineActivity =
   res
     "RunPipelineActivityResponse"
     "fixture/RunPipelineActivityResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy RunPipelineActivity)
 
 responseDescribeChannel :: DescribeChannelResponse -> TestTree
@@ -690,7 +690,7 @@ responseDescribeChannel =
   res
     "DescribeChannelResponse"
     "fixture/DescribeChannelResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeChannel)
 
 responseCreatePipeline :: CreatePipelineResponse -> TestTree
@@ -698,7 +698,7 @@ responseCreatePipeline =
   res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy CreatePipeline)
 
 responseStartPipelineReprocessing :: StartPipelineReprocessingResponse -> TestTree
@@ -706,7 +706,7 @@ responseStartPipelineReprocessing =
   res
     "StartPipelineReprocessingResponse"
     "fixture/StartPipelineReprocessingResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy StartPipelineReprocessing)
 
 responseDescribeLoggingOptions :: DescribeLoggingOptionsResponse -> TestTree
@@ -714,5 +714,5 @@ responseDescribeLoggingOptions =
   res
     "DescribeLoggingOptionsResponse"
     "fixture/DescribeLoggingOptionsResponse.proto"
-    ioTAnalyticsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLoggingOptions)

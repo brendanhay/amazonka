@@ -21,8 +21,8 @@ module Network.AWS.DirectoryService.DescribeLDAPSSettings
 
     -- ** Request lenses
     dldapssDirectoryId,
-    dldapssNextToken,
     dldapssLimit,
+    dldapssNextToken,
     dldapssType,
 
     -- * Destructuring the response
@@ -30,165 +30,148 @@ module Network.AWS.DirectoryService.DescribeLDAPSSettings
     mkDescribeLDAPSSettingsResponse,
 
     -- ** Response lenses
-    dldapssrsLDAPSSettingsInfo,
-    dldapssrsNextToken,
-    dldapssrsResponseStatus,
+    dldapssrrsLDAPSSettingsInfo,
+    dldapssrrsNextToken,
+    dldapssrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLDAPSSettings' smart constructor.
 data DescribeLDAPSSettings = DescribeLDAPSSettings'
   { -- | The identifier of the directory.
-    directoryId :: Lude.Text,
-    -- | The type of next token used for pagination.
-    nextToken :: Lude.Maybe Lude.Text,
+    directoryId :: Types.DirectoryId,
     -- | Specifies the number of items that should be displayed on one page.
-    limit :: Lude.Maybe Lude.Natural,
+    limit :: Core.Maybe Core.Natural,
+    -- | The type of next token used for pagination.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The type of LDAP security to enable. Currently only the value @Client@ is supported.
-    type' :: Lude.Maybe LDAPSType
+    type' :: Core.Maybe Types.LDAPSType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLDAPSSettings' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory.
--- * 'nextToken' - The type of next token used for pagination.
--- * 'limit' - Specifies the number of items that should be displayed on one page.
--- * 'type'' - The type of LDAP security to enable. Currently only the value @Client@ is supported.
+-- | Creates a 'DescribeLDAPSSettings' value with any optional fields omitted.
 mkDescribeLDAPSSettings ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   DescribeLDAPSSettings
-mkDescribeLDAPSSettings pDirectoryId_ =
+mkDescribeLDAPSSettings directoryId =
   DescribeLDAPSSettings'
-    { directoryId = pDirectoryId_,
-      nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      type' = Lude.Nothing
+    { directoryId,
+      limit = Core.Nothing,
+      nextToken = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The identifier of the directory.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dldapssDirectoryId :: Lens.Lens' DescribeLDAPSSettings Lude.Text
-dldapssDirectoryId = Lens.lens (directoryId :: DescribeLDAPSSettings -> Lude.Text) (\s a -> s {directoryId = a} :: DescribeLDAPSSettings)
+dldapssDirectoryId :: Lens.Lens' DescribeLDAPSSettings Types.DirectoryId
+dldapssDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED dldapssDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
-
--- | The type of next token used for pagination.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dldapssNextToken :: Lens.Lens' DescribeLDAPSSettings (Lude.Maybe Lude.Text)
-dldapssNextToken = Lens.lens (nextToken :: DescribeLDAPSSettings -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLDAPSSettings)
-{-# DEPRECATED dldapssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specifies the number of items that should be displayed on one page.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dldapssLimit :: Lens.Lens' DescribeLDAPSSettings (Lude.Maybe Lude.Natural)
-dldapssLimit = Lens.lens (limit :: DescribeLDAPSSettings -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeLDAPSSettings)
+dldapssLimit :: Lens.Lens' DescribeLDAPSSettings (Core.Maybe Core.Natural)
+dldapssLimit = Lens.field @"limit"
 {-# DEPRECATED dldapssLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | The type of next token used for pagination.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dldapssNextToken :: Lens.Lens' DescribeLDAPSSettings (Core.Maybe Types.NextToken)
+dldapssNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dldapssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The type of LDAP security to enable. Currently only the value @Client@ is supported.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dldapssType :: Lens.Lens' DescribeLDAPSSettings (Lude.Maybe LDAPSType)
-dldapssType = Lens.lens (type' :: DescribeLDAPSSettings -> Lude.Maybe LDAPSType) (\s a -> s {type' = a} :: DescribeLDAPSSettings)
+dldapssType :: Lens.Lens' DescribeLDAPSSettings (Core.Maybe Types.LDAPSType)
+dldapssType = Lens.field @"type'"
 {-# DEPRECATED dldapssType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.AWSRequest DescribeLDAPSSettings where
+instance Core.FromJSON DescribeLDAPSSettings where
+  toJSON DescribeLDAPSSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("Type" Core..=) Core.<$> type'
+          ]
+      )
+
+instance Core.AWSRequest DescribeLDAPSSettings where
   type Rs DescribeLDAPSSettings = DescribeLDAPSSettingsResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.DescribeLDAPSSettings")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeLDAPSSettingsResponse'
-            Lude.<$> (x Lude..?> "LDAPSSettingsInfo" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "LDAPSSettingsInfo")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeLDAPSSettings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DirectoryService_20150416.DescribeLDAPSSettings" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeLDAPSSettings where
-  toJSON DescribeLDAPSSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("Type" Lude..=) Lude.<$> type'
-          ]
-      )
-
-instance Lude.ToPath DescribeLDAPSSettings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLDAPSSettings where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeLDAPSSettingsResponse' smart constructor.
 data DescribeLDAPSSettingsResponse = DescribeLDAPSSettingsResponse'
   { -- | Information about LDAP security for the specified directory, including status of enablement, state last updated date time, and the reason for the state.
-    lDAPSSettingsInfo :: Lude.Maybe [LDAPSSettingInfo],
+    lDAPSSettingsInfo :: Core.Maybe [Types.LDAPSSettingInfo],
     -- | The next token used to retrieve the LDAPS settings if the number of setting types exceeds page limit and there is another page.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeLDAPSSettingsResponse' with the minimum fields required to make a request.
---
--- * 'lDAPSSettingsInfo' - Information about LDAP security for the specified directory, including status of enablement, state last updated date time, and the reason for the state.
--- * 'nextToken' - The next token used to retrieve the LDAPS settings if the number of setting types exceeds page limit and there is another page.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLDAPSSettingsResponse' value with any optional fields omitted.
 mkDescribeLDAPSSettingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLDAPSSettingsResponse
-mkDescribeLDAPSSettingsResponse pResponseStatus_ =
+mkDescribeLDAPSSettingsResponse responseStatus =
   DescribeLDAPSSettingsResponse'
-    { lDAPSSettingsInfo = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { lDAPSSettingsInfo = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about LDAP security for the specified directory, including status of enablement, state last updated date time, and the reason for the state.
 --
 -- /Note:/ Consider using 'lDAPSSettingsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dldapssrsLDAPSSettingsInfo :: Lens.Lens' DescribeLDAPSSettingsResponse (Lude.Maybe [LDAPSSettingInfo])
-dldapssrsLDAPSSettingsInfo = Lens.lens (lDAPSSettingsInfo :: DescribeLDAPSSettingsResponse -> Lude.Maybe [LDAPSSettingInfo]) (\s a -> s {lDAPSSettingsInfo = a} :: DescribeLDAPSSettingsResponse)
-{-# DEPRECATED dldapssrsLDAPSSettingsInfo "Use generic-lens or generic-optics with 'lDAPSSettingsInfo' instead." #-}
+dldapssrrsLDAPSSettingsInfo :: Lens.Lens' DescribeLDAPSSettingsResponse (Core.Maybe [Types.LDAPSSettingInfo])
+dldapssrrsLDAPSSettingsInfo = Lens.field @"lDAPSSettingsInfo"
+{-# DEPRECATED dldapssrrsLDAPSSettingsInfo "Use generic-lens or generic-optics with 'lDAPSSettingsInfo' instead." #-}
 
 -- | The next token used to retrieve the LDAPS settings if the number of setting types exceeds page limit and there is another page.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dldapssrsNextToken :: Lens.Lens' DescribeLDAPSSettingsResponse (Lude.Maybe Lude.Text)
-dldapssrsNextToken = Lens.lens (nextToken :: DescribeLDAPSSettingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLDAPSSettingsResponse)
-{-# DEPRECATED dldapssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dldapssrrsNextToken :: Lens.Lens' DescribeLDAPSSettingsResponse (Core.Maybe Types.NextToken)
+dldapssrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dldapssrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dldapssrsResponseStatus :: Lens.Lens' DescribeLDAPSSettingsResponse Lude.Int
-dldapssrsResponseStatus = Lens.lens (responseStatus :: DescribeLDAPSSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLDAPSSettingsResponse)
-{-# DEPRECATED dldapssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dldapssrrsResponseStatus :: Lens.Lens' DescribeLDAPSSettingsResponse Core.Int
+dldapssrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dldapssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

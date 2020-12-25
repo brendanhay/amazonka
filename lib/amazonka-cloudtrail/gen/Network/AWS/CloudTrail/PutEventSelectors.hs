@@ -41,34 +41,31 @@ module Network.AWS.CloudTrail.PutEventSelectors
     mkPutEventSelectors,
 
     -- ** Request lenses
-    pesEventSelectors,
-    pesAdvancedEventSelectors,
     pesTrailName,
+    pesAdvancedEventSelectors,
+    pesEventSelectors,
 
     -- * Destructuring the response
     PutEventSelectorsResponse (..),
     mkPutEventSelectorsResponse,
 
     -- ** Response lenses
-    pesrsTrailARN,
-    pesrsEventSelectors,
-    pesrsAdvancedEventSelectors,
-    pesrsResponseStatus,
+    pesrrsAdvancedEventSelectors,
+    pesrrsEventSelectors,
+    pesrrsTrailARN,
+    pesrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.CloudTrail.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutEventSelectors' smart constructor.
 data PutEventSelectors = PutEventSelectors'
-  { -- | Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.
-    eventSelectors :: Lude.Maybe [EventSelector],
-    advancedEventSelectors :: Lude.Maybe [AdvancedEventSelector],
-    -- | Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:
+  { -- | Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:
     --
     --
     --     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
@@ -88,59 +85,25 @@ data PutEventSelectors = PutEventSelectors'
     --
     -- If you specify a trail ARN, it must be in the format:
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
-    trailName :: Lude.Text
+    trailName :: Types.String,
+    advancedEventSelectors :: Core.Maybe [Types.AdvancedEventSelector],
+    -- | Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.
+    eventSelectors :: Core.Maybe [Types.EventSelector]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutEventSelectors' with the minimum fields required to make a request.
---
--- * 'eventSelectors' - Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.
--- * 'advancedEventSelectors' -
--- * 'trailName' - Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:
---
---
---     * Contain only ASCII letters (a-z, A-Z), numbers (0-9), periods (.), underscores (_), or dashes (-)
---
---
---     * Start with a letter or number, and end with a letter or number
---
---
---     * Be between 3 and 128 characters
---
---
---     * Have no adjacent periods, underscores or dashes. Names like @my-_namespace@ and @my--namespace@ are invalid.
---
---
---     * Not be in IP address format (for example, 192.168.5.4)
---
---
--- If you specify a trail ARN, it must be in the format:
--- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
+-- | Creates a 'PutEventSelectors' value with any optional fields omitted.
 mkPutEventSelectors ::
   -- | 'trailName'
-  Lude.Text ->
+  Types.String ->
   PutEventSelectors
-mkPutEventSelectors pTrailName_ =
+mkPutEventSelectors trailName =
   PutEventSelectors'
-    { eventSelectors = Lude.Nothing,
-      advancedEventSelectors = Lude.Nothing,
-      trailName = pTrailName_
+    { trailName,
+      advancedEventSelectors = Core.Nothing,
+      eventSelectors = Core.Nothing
     }
-
--- | Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.
---
--- /Note:/ Consider using 'eventSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesEventSelectors :: Lens.Lens' PutEventSelectors (Lude.Maybe [EventSelector])
-pesEventSelectors = Lens.lens (eventSelectors :: PutEventSelectors -> Lude.Maybe [EventSelector]) (\s a -> s {eventSelectors = a} :: PutEventSelectors)
-{-# DEPRECATED pesEventSelectors "Use generic-lens or generic-optics with 'eventSelectors' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'advancedEventSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesAdvancedEventSelectors :: Lens.Lens' PutEventSelectors (Lude.Maybe [AdvancedEventSelector])
-pesAdvancedEventSelectors = Lens.lens (advancedEventSelectors :: PutEventSelectors -> Lude.Maybe [AdvancedEventSelector]) (\s a -> s {advancedEventSelectors = a} :: PutEventSelectors)
-{-# DEPRECATED pesAdvancedEventSelectors "Use generic-lens or generic-optics with 'advancedEventSelectors' instead." #-}
 
 -- | Specifies the name of the trail or trail ARN. If you specify a trail name, the string must meet the following requirements:
 --
@@ -164,113 +127,114 @@ pesAdvancedEventSelectors = Lens.lens (advancedEventSelectors :: PutEventSelecto
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 --
 -- /Note:/ Consider using 'trailName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesTrailName :: Lens.Lens' PutEventSelectors Lude.Text
-pesTrailName = Lens.lens (trailName :: PutEventSelectors -> Lude.Text) (\s a -> s {trailName = a} :: PutEventSelectors)
+pesTrailName :: Lens.Lens' PutEventSelectors Types.String
+pesTrailName = Lens.field @"trailName"
 {-# DEPRECATED pesTrailName "Use generic-lens or generic-optics with 'trailName' instead." #-}
 
-instance Lude.AWSRequest PutEventSelectors where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'advancedEventSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesAdvancedEventSelectors :: Lens.Lens' PutEventSelectors (Core.Maybe [Types.AdvancedEventSelector])
+pesAdvancedEventSelectors = Lens.field @"advancedEventSelectors"
+{-# DEPRECATED pesAdvancedEventSelectors "Use generic-lens or generic-optics with 'advancedEventSelectors' instead." #-}
+
+-- | Specifies the settings for your event selectors. You can configure up to five event selectors for a trail.
+--
+-- /Note:/ Consider using 'eventSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesEventSelectors :: Lens.Lens' PutEventSelectors (Core.Maybe [Types.EventSelector])
+pesEventSelectors = Lens.field @"eventSelectors"
+{-# DEPRECATED pesEventSelectors "Use generic-lens or generic-optics with 'eventSelectors' instead." #-}
+
+instance Core.FromJSON PutEventSelectors where
+  toJSON PutEventSelectors {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TrailName" Core..= trailName),
+            ("AdvancedEventSelectors" Core..=) Core.<$> advancedEventSelectors,
+            ("EventSelectors" Core..=) Core.<$> eventSelectors
+          ]
+      )
+
+instance Core.AWSRequest PutEventSelectors where
   type Rs PutEventSelectors = PutEventSelectorsResponse
-  request = Req.postJSON cloudTrailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutEventSelectors"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutEventSelectorsResponse'
-            Lude.<$> (x Lude..?> "TrailARN")
-            Lude.<*> (x Lude..?> "EventSelectors" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "AdvancedEventSelectors" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AdvancedEventSelectors")
+            Core.<*> (x Core..:? "EventSelectors")
+            Core.<*> (x Core..:? "TrailARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutEventSelectors where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutEventSelectors" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutEventSelectors where
-  toJSON PutEventSelectors' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EventSelectors" Lude..=) Lude.<$> eventSelectors,
-            ("AdvancedEventSelectors" Lude..=) Lude.<$> advancedEventSelectors,
-            Lude.Just ("TrailName" Lude..= trailName)
-          ]
-      )
-
-instance Lude.ToPath PutEventSelectors where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutEventSelectors where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutEventSelectorsResponse' smart constructor.
 data PutEventSelectorsResponse = PutEventSelectorsResponse'
-  { -- | Specifies the ARN of the trail that was updated with event selectors. The format of a trail ARN is:
+  { advancedEventSelectors :: Core.Maybe [Types.AdvancedEventSelector],
+    -- | Specifies the event selectors configured for your trail.
+    eventSelectors :: Core.Maybe [Types.EventSelector],
+    -- | Specifies the ARN of the trail that was updated with event selectors. The format of a trail ARN is:
     --
     -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
-    trailARN :: Lude.Maybe Lude.Text,
-    -- | Specifies the event selectors configured for your trail.
-    eventSelectors :: Lude.Maybe [EventSelector],
-    advancedEventSelectors :: Lude.Maybe [AdvancedEventSelector],
+    trailARN :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutEventSelectorsResponse' with the minimum fields required to make a request.
---
--- * 'trailARN' - Specifies the ARN of the trail that was updated with event selectors. The format of a trail ARN is:
---
--- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
--- * 'eventSelectors' - Specifies the event selectors configured for your trail.
--- * 'advancedEventSelectors' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutEventSelectorsResponse' value with any optional fields omitted.
 mkPutEventSelectorsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutEventSelectorsResponse
-mkPutEventSelectorsResponse pResponseStatus_ =
+mkPutEventSelectorsResponse responseStatus =
   PutEventSelectorsResponse'
-    { trailARN = Lude.Nothing,
-      eventSelectors = Lude.Nothing,
-      advancedEventSelectors = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { advancedEventSelectors = Core.Nothing,
+      eventSelectors = Core.Nothing,
+      trailARN = Core.Nothing,
+      responseStatus
     }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'advancedEventSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesrrsAdvancedEventSelectors :: Lens.Lens' PutEventSelectorsResponse (Core.Maybe [Types.AdvancedEventSelector])
+pesrrsAdvancedEventSelectors = Lens.field @"advancedEventSelectors"
+{-# DEPRECATED pesrrsAdvancedEventSelectors "Use generic-lens or generic-optics with 'advancedEventSelectors' instead." #-}
+
+-- | Specifies the event selectors configured for your trail.
+--
+-- /Note:/ Consider using 'eventSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesrrsEventSelectors :: Lens.Lens' PutEventSelectorsResponse (Core.Maybe [Types.EventSelector])
+pesrrsEventSelectors = Lens.field @"eventSelectors"
+{-# DEPRECATED pesrrsEventSelectors "Use generic-lens or generic-optics with 'eventSelectors' instead." #-}
 
 -- | Specifies the ARN of the trail that was updated with event selectors. The format of a trail ARN is:
 --
 -- @arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail@
 --
 -- /Note:/ Consider using 'trailARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesrsTrailARN :: Lens.Lens' PutEventSelectorsResponse (Lude.Maybe Lude.Text)
-pesrsTrailARN = Lens.lens (trailARN :: PutEventSelectorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {trailARN = a} :: PutEventSelectorsResponse)
-{-# DEPRECATED pesrsTrailARN "Use generic-lens or generic-optics with 'trailARN' instead." #-}
-
--- | Specifies the event selectors configured for your trail.
---
--- /Note:/ Consider using 'eventSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesrsEventSelectors :: Lens.Lens' PutEventSelectorsResponse (Lude.Maybe [EventSelector])
-pesrsEventSelectors = Lens.lens (eventSelectors :: PutEventSelectorsResponse -> Lude.Maybe [EventSelector]) (\s a -> s {eventSelectors = a} :: PutEventSelectorsResponse)
-{-# DEPRECATED pesrsEventSelectors "Use generic-lens or generic-optics with 'eventSelectors' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'advancedEventSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesrsAdvancedEventSelectors :: Lens.Lens' PutEventSelectorsResponse (Lude.Maybe [AdvancedEventSelector])
-pesrsAdvancedEventSelectors = Lens.lens (advancedEventSelectors :: PutEventSelectorsResponse -> Lude.Maybe [AdvancedEventSelector]) (\s a -> s {advancedEventSelectors = a} :: PutEventSelectorsResponse)
-{-# DEPRECATED pesrsAdvancedEventSelectors "Use generic-lens or generic-optics with 'advancedEventSelectors' instead." #-}
+pesrrsTrailARN :: Lens.Lens' PutEventSelectorsResponse (Core.Maybe Types.String)
+pesrrsTrailARN = Lens.field @"trailARN"
+{-# DEPRECATED pesrrsTrailARN "Use generic-lens or generic-optics with 'trailARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesrsResponseStatus :: Lens.Lens' PutEventSelectorsResponse Lude.Int
-pesrsResponseStatus = Lens.lens (responseStatus :: PutEventSelectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutEventSelectorsResponse)
-{-# DEPRECATED pesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pesrrsResponseStatus :: Lens.Lens' PutEventSelectorsResponse Core.Int
+pesrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pesrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

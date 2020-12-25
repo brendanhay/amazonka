@@ -28,121 +28,106 @@ module Network.AWS.Discovery.AssociateConfigurationItemsToApplication
     mkAssociateConfigurationItemsToApplicationResponse,
 
     -- ** Response lenses
-    acitarsResponseStatus,
+    acitarrsResponseStatus,
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateConfigurationItemsToApplication' smart constructor.
 data AssociateConfigurationItemsToApplication = AssociateConfigurationItemsToApplication'
   { -- | The configuration ID of an application with which items are to be associated.
-    applicationConfigurationId :: Lude.Text,
+    applicationConfigurationId :: Types.ApplicationId,
     -- | The ID of each configuration item to be associated with an application.
-    configurationIds :: [Lude.Text]
+    configurationIds :: [Types.ConfigurationId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateConfigurationItemsToApplication' with the minimum fields required to make a request.
---
--- * 'applicationConfigurationId' - The configuration ID of an application with which items are to be associated.
--- * 'configurationIds' - The ID of each configuration item to be associated with an application.
+-- | Creates a 'AssociateConfigurationItemsToApplication' value with any optional fields omitted.
 mkAssociateConfigurationItemsToApplication ::
   -- | 'applicationConfigurationId'
-  Lude.Text ->
+  Types.ApplicationId ->
   AssociateConfigurationItemsToApplication
 mkAssociateConfigurationItemsToApplication
-  pApplicationConfigurationId_ =
+  applicationConfigurationId =
     AssociateConfigurationItemsToApplication'
-      { applicationConfigurationId =
-          pApplicationConfigurationId_,
-        configurationIds = Lude.mempty
+      { applicationConfigurationId,
+        configurationIds = Core.mempty
       }
 
 -- | The configuration ID of an application with which items are to be associated.
 --
 -- /Note:/ Consider using 'applicationConfigurationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acitaApplicationConfigurationId :: Lens.Lens' AssociateConfigurationItemsToApplication Lude.Text
-acitaApplicationConfigurationId = Lens.lens (applicationConfigurationId :: AssociateConfigurationItemsToApplication -> Lude.Text) (\s a -> s {applicationConfigurationId = a} :: AssociateConfigurationItemsToApplication)
+acitaApplicationConfigurationId :: Lens.Lens' AssociateConfigurationItemsToApplication Types.ApplicationId
+acitaApplicationConfigurationId = Lens.field @"applicationConfigurationId"
 {-# DEPRECATED acitaApplicationConfigurationId "Use generic-lens or generic-optics with 'applicationConfigurationId' instead." #-}
 
 -- | The ID of each configuration item to be associated with an application.
 --
 -- /Note:/ Consider using 'configurationIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acitaConfigurationIds :: Lens.Lens' AssociateConfigurationItemsToApplication [Lude.Text]
-acitaConfigurationIds = Lens.lens (configurationIds :: AssociateConfigurationItemsToApplication -> [Lude.Text]) (\s a -> s {configurationIds = a} :: AssociateConfigurationItemsToApplication)
+acitaConfigurationIds :: Lens.Lens' AssociateConfigurationItemsToApplication [Types.ConfigurationId]
+acitaConfigurationIds = Lens.field @"configurationIds"
 {-# DEPRECATED acitaConfigurationIds "Use generic-lens or generic-optics with 'configurationIds' instead." #-}
 
-instance Lude.AWSRequest AssociateConfigurationItemsToApplication where
+instance Core.FromJSON AssociateConfigurationItemsToApplication where
+  toJSON AssociateConfigurationItemsToApplication {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("applicationConfigurationId" Core..= applicationConfigurationId),
+            Core.Just ("configurationIds" Core..= configurationIds)
+          ]
+      )
+
+instance Core.AWSRequest AssociateConfigurationItemsToApplication where
   type
     Rs AssociateConfigurationItemsToApplication =
       AssociateConfigurationItemsToApplicationResponse
-  request = Req.postJSON discoveryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AssociateConfigurationItemsToApplicationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateConfigurationItemsToApplication where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSPoseidonService_V2015_11_01.AssociateConfigurationItemsToApplication" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateConfigurationItemsToApplication where
-  toJSON AssociateConfigurationItemsToApplication' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("applicationConfigurationId" Lude..= applicationConfigurationId),
-            Lude.Just ("configurationIds" Lude..= configurationIds)
-          ]
-      )
-
-instance Lude.ToPath AssociateConfigurationItemsToApplication where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateConfigurationItemsToApplication where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateConfigurationItemsToApplicationResponse' smart constructor.
 newtype AssociateConfigurationItemsToApplicationResponse = AssociateConfigurationItemsToApplicationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateConfigurationItemsToApplicationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateConfigurationItemsToApplicationResponse' value with any optional fields omitted.
 mkAssociateConfigurationItemsToApplicationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateConfigurationItemsToApplicationResponse
-mkAssociateConfigurationItemsToApplicationResponse pResponseStatus_ =
-  AssociateConfigurationItemsToApplicationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkAssociateConfigurationItemsToApplicationResponse responseStatus =
+  AssociateConfigurationItemsToApplicationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acitarsResponseStatus :: Lens.Lens' AssociateConfigurationItemsToApplicationResponse Lude.Int
-acitarsResponseStatus = Lens.lens (responseStatus :: AssociateConfigurationItemsToApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateConfigurationItemsToApplicationResponse)
-{-# DEPRECATED acitarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+acitarrsResponseStatus :: Lens.Lens' AssociateConfigurationItemsToApplicationResponse Core.Int
+acitarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED acitarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

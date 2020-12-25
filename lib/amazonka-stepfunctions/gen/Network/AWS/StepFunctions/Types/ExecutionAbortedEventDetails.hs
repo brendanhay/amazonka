@@ -17,57 +17,54 @@ module Network.AWS.StepFunctions.Types.ExecutionAbortedEventDetails
     mkExecutionAbortedEventDetails,
 
     -- * Lenses
-    eaedError,
     eaedCause,
+    eaedError,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.SensitiveCause as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveError as Types
 
 -- | Contains details about an abort of an execution.
 --
 -- /See:/ 'mkExecutionAbortedEventDetails' smart constructor.
 data ExecutionAbortedEventDetails = ExecutionAbortedEventDetails'
-  { -- | The error code of the failure.
-    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | A more detailed explanation of the cause of the failure.
-    cause :: Lude.Maybe (Lude.Sensitive Lude.Text)
+  { -- | A more detailed explanation of the cause of the failure.
+    cause :: Core.Maybe Types.SensitiveCause,
+    -- | The error code of the failure.
+    error :: Core.Maybe Types.SensitiveError
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExecutionAbortedEventDetails' with the minimum fields required to make a request.
---
--- * 'error' - The error code of the failure.
--- * 'cause' - A more detailed explanation of the cause of the failure.
+-- | Creates a 'ExecutionAbortedEventDetails' value with any optional fields omitted.
 mkExecutionAbortedEventDetails ::
   ExecutionAbortedEventDetails
 mkExecutionAbortedEventDetails =
   ExecutionAbortedEventDetails'
-    { error = Lude.Nothing,
-      cause = Lude.Nothing
+    { cause = Core.Nothing,
+      error = Core.Nothing
     }
-
--- | The error code of the failure.
---
--- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaedError :: Lens.Lens' ExecutionAbortedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-eaedError = Lens.lens (error :: ExecutionAbortedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: ExecutionAbortedEventDetails)
-{-# DEPRECATED eaedError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | A more detailed explanation of the cause of the failure.
 --
 -- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaedCause :: Lens.Lens' ExecutionAbortedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-eaedCause = Lens.lens (cause :: ExecutionAbortedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: ExecutionAbortedEventDetails)
+eaedCause :: Lens.Lens' ExecutionAbortedEventDetails (Core.Maybe Types.SensitiveCause)
+eaedCause = Lens.field @"cause"
 {-# DEPRECATED eaedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
-instance Lude.FromJSON ExecutionAbortedEventDetails where
+-- | The error code of the failure.
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eaedError :: Lens.Lens' ExecutionAbortedEventDetails (Core.Maybe Types.SensitiveError)
+eaedError = Lens.field @"error"
+{-# DEPRECATED eaedError "Use generic-lens or generic-optics with 'error' instead." #-}
+
+instance Core.FromJSON ExecutionAbortedEventDetails where
   parseJSON =
-    Lude.withObject
-      "ExecutionAbortedEventDetails"
-      ( \x ->
-          ExecutionAbortedEventDetails'
-            Lude.<$> (x Lude..:? "error") Lude.<*> (x Lude..:? "cause")
-      )
+    Core.withObject "ExecutionAbortedEventDetails" Core.$
+      \x ->
+        ExecutionAbortedEventDetails'
+          Core.<$> (x Core..:? "cause") Core.<*> (x Core..:? "error")

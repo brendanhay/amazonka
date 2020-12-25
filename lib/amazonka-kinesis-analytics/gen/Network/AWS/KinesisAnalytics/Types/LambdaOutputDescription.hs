@@ -22,52 +22,49 @@ module Network.AWS.KinesisAnalytics.Types.LambdaOutputDescription
   )
 where
 
+import qualified Network.AWS.KinesisAnalytics.Types.ResourceARN as Types
+import qualified Network.AWS.KinesisAnalytics.Types.RoleARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | For an application output, describes the AWS Lambda function configured as its destination.
 --
 -- /See:/ 'mkLambdaOutputDescription' smart constructor.
 data LambdaOutputDescription = LambdaOutputDescription'
   { -- | Amazon Resource Name (ARN) of the destination Lambda function.
-    resourceARN :: Lude.Maybe Lude.Text,
+    resourceARN :: Core.Maybe Types.ResourceARN,
     -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function.
-    roleARN :: Lude.Maybe Lude.Text
+    roleARN :: Core.Maybe Types.RoleARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LambdaOutputDescription' with the minimum fields required to make a request.
---
--- * 'resourceARN' - Amazon Resource Name (ARN) of the destination Lambda function.
--- * 'roleARN' - ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function.
+-- | Creates a 'LambdaOutputDescription' value with any optional fields omitted.
 mkLambdaOutputDescription ::
   LambdaOutputDescription
 mkLambdaOutputDescription =
   LambdaOutputDescription'
-    { resourceARN = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { resourceARN = Core.Nothing,
+      roleARN = Core.Nothing
     }
 
 -- | Amazon Resource Name (ARN) of the destination Lambda function.
 --
 -- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lodResourceARN :: Lens.Lens' LambdaOutputDescription (Lude.Maybe Lude.Text)
-lodResourceARN = Lens.lens (resourceARN :: LambdaOutputDescription -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: LambdaOutputDescription)
+lodResourceARN :: Lens.Lens' LambdaOutputDescription (Core.Maybe Types.ResourceARN)
+lodResourceARN = Lens.field @"resourceARN"
 {-# DEPRECATED lodResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination function.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lodRoleARN :: Lens.Lens' LambdaOutputDescription (Lude.Maybe Lude.Text)
-lodRoleARN = Lens.lens (roleARN :: LambdaOutputDescription -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: LambdaOutputDescription)
+lodRoleARN :: Lens.Lens' LambdaOutputDescription (Core.Maybe Types.RoleARN)
+lodRoleARN = Lens.field @"roleARN"
 {-# DEPRECATED lodRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Lude.FromJSON LambdaOutputDescription where
+instance Core.FromJSON LambdaOutputDescription where
   parseJSON =
-    Lude.withObject
-      "LambdaOutputDescription"
-      ( \x ->
-          LambdaOutputDescription'
-            Lude.<$> (x Lude..:? "ResourceARN") Lude.<*> (x Lude..:? "RoleARN")
-      )
+    Core.withObject "LambdaOutputDescription" Core.$
+      \x ->
+        LambdaOutputDescription'
+          Core.<$> (x Core..:? "ResourceARN") Core.<*> (x Core..:? "RoleARN")

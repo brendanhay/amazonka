@@ -17,164 +17,151 @@ module Network.AWS.Pinpoint.Types.VoiceChannelResponse
     mkVoiceChannelResponse,
 
     -- * Lenses
-    vcPlatform,
-    vcLastModifiedDate,
-    vcEnabled,
-    vcIsArchived,
-    vcApplicationId,
-    vcVersion,
-    vcId,
-    vcCreationDate,
-    vcLastModifiedBy,
-    vcHasCredential,
+    vcrfPlatform,
+    vcrfApplicationId,
+    vcrfCreationDate,
+    vcrfEnabled,
+    vcrfHasCredential,
+    vcrfId,
+    vcrfIsArchived,
+    vcrfLastModifiedBy,
+    vcrfLastModifiedDate,
+    vcrfVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the status and settings of the voice channel for an application.
 --
 -- /See:/ 'mkVoiceChannelResponse' smart constructor.
 data VoiceChannelResponse = VoiceChannelResponse'
   { -- | The type of messaging or notification platform for the channel. For the voice channel, this value is VOICE.
-    platform :: Lude.Text,
-    -- | The date and time, in ISO 8601 format, when the voice channel was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Text,
-    -- | Specifies whether the voice channel is enabled for the application.
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | Specifies whether the voice channel is archived.
-    isArchived :: Lude.Maybe Lude.Bool,
+    platform :: Core.Text,
     -- | The unique identifier for the application that the voice channel applies to.
-    applicationId :: Lude.Maybe Lude.Text,
-    -- | The current version of the voice channel.
-    version :: Lude.Maybe Lude.Int,
-    -- | (Deprecated) An identifier for the voice channel. This property is retained only for backward compatibility.
-    id :: Lude.Maybe Lude.Text,
+    applicationId :: Core.Maybe Core.Text,
     -- | The date and time, in ISO 8601 format, when the voice channel was enabled.
-    creationDate :: Lude.Maybe Lude.Text,
-    -- | The user who last modified the voice channel.
-    lastModifiedBy :: Lude.Maybe Lude.Text,
+    creationDate :: Core.Maybe Core.Text,
+    -- | Specifies whether the voice channel is enabled for the application.
+    enabled :: Core.Maybe Core.Bool,
     -- | (Not used) This property is retained only for backward compatibility.
-    hasCredential :: Lude.Maybe Lude.Bool
+    hasCredential :: Core.Maybe Core.Bool,
+    -- | (Deprecated) An identifier for the voice channel. This property is retained only for backward compatibility.
+    id :: Core.Maybe Core.Text,
+    -- | Specifies whether the voice channel is archived.
+    isArchived :: Core.Maybe Core.Bool,
+    -- | The user who last modified the voice channel.
+    lastModifiedBy :: Core.Maybe Core.Text,
+    -- | The date and time, in ISO 8601 format, when the voice channel was last modified.
+    lastModifiedDate :: Core.Maybe Core.Text,
+    -- | The current version of the voice channel.
+    version :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VoiceChannelResponse' with the minimum fields required to make a request.
---
--- * 'platform' - The type of messaging or notification platform for the channel. For the voice channel, this value is VOICE.
--- * 'lastModifiedDate' - The date and time, in ISO 8601 format, when the voice channel was last modified.
--- * 'enabled' - Specifies whether the voice channel is enabled for the application.
--- * 'isArchived' - Specifies whether the voice channel is archived.
--- * 'applicationId' - The unique identifier for the application that the voice channel applies to.
--- * 'version' - The current version of the voice channel.
--- * 'id' - (Deprecated) An identifier for the voice channel. This property is retained only for backward compatibility.
--- * 'creationDate' - The date and time, in ISO 8601 format, when the voice channel was enabled.
--- * 'lastModifiedBy' - The user who last modified the voice channel.
--- * 'hasCredential' - (Not used) This property is retained only for backward compatibility.
+-- | Creates a 'VoiceChannelResponse' value with any optional fields omitted.
 mkVoiceChannelResponse ::
   -- | 'platform'
-  Lude.Text ->
+  Core.Text ->
   VoiceChannelResponse
-mkVoiceChannelResponse pPlatform_ =
+mkVoiceChannelResponse platform =
   VoiceChannelResponse'
-    { platform = pPlatform_,
-      lastModifiedDate = Lude.Nothing,
-      enabled = Lude.Nothing,
-      isArchived = Lude.Nothing,
-      applicationId = Lude.Nothing,
-      version = Lude.Nothing,
-      id = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      lastModifiedBy = Lude.Nothing,
-      hasCredential = Lude.Nothing
+    { platform,
+      applicationId = Core.Nothing,
+      creationDate = Core.Nothing,
+      enabled = Core.Nothing,
+      hasCredential = Core.Nothing,
+      id = Core.Nothing,
+      isArchived = Core.Nothing,
+      lastModifiedBy = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      version = Core.Nothing
     }
 
 -- | The type of messaging or notification platform for the channel. For the voice channel, this value is VOICE.
 --
 -- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcPlatform :: Lens.Lens' VoiceChannelResponse Lude.Text
-vcPlatform = Lens.lens (platform :: VoiceChannelResponse -> Lude.Text) (\s a -> s {platform = a} :: VoiceChannelResponse)
-{-# DEPRECATED vcPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
--- | The date and time, in ISO 8601 format, when the voice channel was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcLastModifiedDate :: Lens.Lens' VoiceChannelResponse (Lude.Maybe Lude.Text)
-vcLastModifiedDate = Lens.lens (lastModifiedDate :: VoiceChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedDate = a} :: VoiceChannelResponse)
-{-# DEPRECATED vcLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | Specifies whether the voice channel is enabled for the application.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcEnabled :: Lens.Lens' VoiceChannelResponse (Lude.Maybe Lude.Bool)
-vcEnabled = Lens.lens (enabled :: VoiceChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: VoiceChannelResponse)
-{-# DEPRECATED vcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
--- | Specifies whether the voice channel is archived.
---
--- /Note:/ Consider using 'isArchived' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcIsArchived :: Lens.Lens' VoiceChannelResponse (Lude.Maybe Lude.Bool)
-vcIsArchived = Lens.lens (isArchived :: VoiceChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {isArchived = a} :: VoiceChannelResponse)
-{-# DEPRECATED vcIsArchived "Use generic-lens or generic-optics with 'isArchived' instead." #-}
+vcrfPlatform :: Lens.Lens' VoiceChannelResponse Core.Text
+vcrfPlatform = Lens.field @"platform"
+{-# DEPRECATED vcrfPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The unique identifier for the application that the voice channel applies to.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcApplicationId :: Lens.Lens' VoiceChannelResponse (Lude.Maybe Lude.Text)
-vcApplicationId = Lens.lens (applicationId :: VoiceChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {applicationId = a} :: VoiceChannelResponse)
-{-# DEPRECATED vcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
-
--- | The current version of the voice channel.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcVersion :: Lens.Lens' VoiceChannelResponse (Lude.Maybe Lude.Int)
-vcVersion = Lens.lens (version :: VoiceChannelResponse -> Lude.Maybe Lude.Int) (\s a -> s {version = a} :: VoiceChannelResponse)
-{-# DEPRECATED vcVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | (Deprecated) An identifier for the voice channel. This property is retained only for backward compatibility.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcId :: Lens.Lens' VoiceChannelResponse (Lude.Maybe Lude.Text)
-vcId = Lens.lens (id :: VoiceChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: VoiceChannelResponse)
-{-# DEPRECATED vcId "Use generic-lens or generic-optics with 'id' instead." #-}
+vcrfApplicationId :: Lens.Lens' VoiceChannelResponse (Core.Maybe Core.Text)
+vcrfApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED vcrfApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The date and time, in ISO 8601 format, when the voice channel was enabled.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcCreationDate :: Lens.Lens' VoiceChannelResponse (Lude.Maybe Lude.Text)
-vcCreationDate = Lens.lens (creationDate :: VoiceChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: VoiceChannelResponse)
-{-# DEPRECATED vcCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+vcrfCreationDate :: Lens.Lens' VoiceChannelResponse (Core.Maybe Core.Text)
+vcrfCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED vcrfCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
--- | The user who last modified the voice channel.
+-- | Specifies whether the voice channel is enabled for the application.
 --
--- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcLastModifiedBy :: Lens.Lens' VoiceChannelResponse (Lude.Maybe Lude.Text)
-vcLastModifiedBy = Lens.lens (lastModifiedBy :: VoiceChannelResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastModifiedBy = a} :: VoiceChannelResponse)
-{-# DEPRECATED vcLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcrfEnabled :: Lens.Lens' VoiceChannelResponse (Core.Maybe Core.Bool)
+vcrfEnabled = Lens.field @"enabled"
+{-# DEPRECATED vcrfEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | (Not used) This property is retained only for backward compatibility.
 --
 -- /Note:/ Consider using 'hasCredential' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vcHasCredential :: Lens.Lens' VoiceChannelResponse (Lude.Maybe Lude.Bool)
-vcHasCredential = Lens.lens (hasCredential :: VoiceChannelResponse -> Lude.Maybe Lude.Bool) (\s a -> s {hasCredential = a} :: VoiceChannelResponse)
-{-# DEPRECATED vcHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
+vcrfHasCredential :: Lens.Lens' VoiceChannelResponse (Core.Maybe Core.Bool)
+vcrfHasCredential = Lens.field @"hasCredential"
+{-# DEPRECATED vcrfHasCredential "Use generic-lens or generic-optics with 'hasCredential' instead." #-}
 
-instance Lude.FromJSON VoiceChannelResponse where
+-- | (Deprecated) An identifier for the voice channel. This property is retained only for backward compatibility.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcrfId :: Lens.Lens' VoiceChannelResponse (Core.Maybe Core.Text)
+vcrfId = Lens.field @"id"
+{-# DEPRECATED vcrfId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Specifies whether the voice channel is archived.
+--
+-- /Note:/ Consider using 'isArchived' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcrfIsArchived :: Lens.Lens' VoiceChannelResponse (Core.Maybe Core.Bool)
+vcrfIsArchived = Lens.field @"isArchived"
+{-# DEPRECATED vcrfIsArchived "Use generic-lens or generic-optics with 'isArchived' instead." #-}
+
+-- | The user who last modified the voice channel.
+--
+-- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcrfLastModifiedBy :: Lens.Lens' VoiceChannelResponse (Core.Maybe Core.Text)
+vcrfLastModifiedBy = Lens.field @"lastModifiedBy"
+{-# DEPRECATED vcrfLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
+
+-- | The date and time, in ISO 8601 format, when the voice channel was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcrfLastModifiedDate :: Lens.Lens' VoiceChannelResponse (Core.Maybe Core.Text)
+vcrfLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED vcrfLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The current version of the voice channel.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vcrfVersion :: Lens.Lens' VoiceChannelResponse (Core.Maybe Core.Int)
+vcrfVersion = Lens.field @"version"
+{-# DEPRECATED vcrfVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+instance Core.FromJSON VoiceChannelResponse where
   parseJSON =
-    Lude.withObject
-      "VoiceChannelResponse"
-      ( \x ->
-          VoiceChannelResponse'
-            Lude.<$> (x Lude..: "Platform")
-            Lude.<*> (x Lude..:? "LastModifiedDate")
-            Lude.<*> (x Lude..:? "Enabled")
-            Lude.<*> (x Lude..:? "IsArchived")
-            Lude.<*> (x Lude..:? "ApplicationId")
-            Lude.<*> (x Lude..:? "Version")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "CreationDate")
-            Lude.<*> (x Lude..:? "LastModifiedBy")
-            Lude.<*> (x Lude..:? "HasCredential")
-      )
+    Core.withObject "VoiceChannelResponse" Core.$
+      \x ->
+        VoiceChannelResponse'
+          Core.<$> (x Core..: "Platform")
+          Core.<*> (x Core..:? "ApplicationId")
+          Core.<*> (x Core..:? "CreationDate")
+          Core.<*> (x Core..:? "Enabled")
+          Core.<*> (x Core..:? "HasCredential")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "IsArchived")
+          Core.<*> (x Core..:? "LastModifiedBy")
+          Core.<*> (x Core..:? "LastModifiedDate")
+          Core.<*> (x Core..:? "Version")

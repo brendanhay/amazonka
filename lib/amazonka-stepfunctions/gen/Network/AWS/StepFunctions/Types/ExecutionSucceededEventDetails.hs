@@ -23,52 +23,48 @@ module Network.AWS.StepFunctions.Types.ExecutionSucceededEventDetails
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveData as Types
 
 -- | Contains details about the successful termination of the execution.
 --
 -- /See:/ 'mkExecutionSucceededEventDetails' smart constructor.
 data ExecutionSucceededEventDetails = ExecutionSucceededEventDetails'
   { -- | The JSON data output by the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    output :: Core.Maybe Types.SensitiveData,
     -- | Contains details about the output of an execution history event.
-    outputDetails :: Lude.Maybe HistoryEventExecutionDataDetails
+    outputDetails :: Core.Maybe Types.HistoryEventExecutionDataDetails
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExecutionSucceededEventDetails' with the minimum fields required to make a request.
---
--- * 'output' - The JSON data output by the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
--- * 'outputDetails' - Contains details about the output of an execution history event.
+-- | Creates a 'ExecutionSucceededEventDetails' value with any optional fields omitted.
 mkExecutionSucceededEventDetails ::
   ExecutionSucceededEventDetails
 mkExecutionSucceededEventDetails =
   ExecutionSucceededEventDetails'
-    { output = Lude.Nothing,
-      outputDetails = Lude.Nothing
+    { output = Core.Nothing,
+      outputDetails = Core.Nothing
     }
 
 -- | The JSON data output by the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 --
 -- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esedOutput :: Lens.Lens' ExecutionSucceededEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-esedOutput = Lens.lens (output :: ExecutionSucceededEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {output = a} :: ExecutionSucceededEventDetails)
+esedOutput :: Lens.Lens' ExecutionSucceededEventDetails (Core.Maybe Types.SensitiveData)
+esedOutput = Lens.field @"output"
 {-# DEPRECATED esedOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | Contains details about the output of an execution history event.
 --
 -- /Note:/ Consider using 'outputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esedOutputDetails :: Lens.Lens' ExecutionSucceededEventDetails (Lude.Maybe HistoryEventExecutionDataDetails)
-esedOutputDetails = Lens.lens (outputDetails :: ExecutionSucceededEventDetails -> Lude.Maybe HistoryEventExecutionDataDetails) (\s a -> s {outputDetails = a} :: ExecutionSucceededEventDetails)
+esedOutputDetails :: Lens.Lens' ExecutionSucceededEventDetails (Core.Maybe Types.HistoryEventExecutionDataDetails)
+esedOutputDetails = Lens.field @"outputDetails"
 {-# DEPRECATED esedOutputDetails "Use generic-lens or generic-optics with 'outputDetails' instead." #-}
 
-instance Lude.FromJSON ExecutionSucceededEventDetails where
+instance Core.FromJSON ExecutionSucceededEventDetails where
   parseJSON =
-    Lude.withObject
-      "ExecutionSucceededEventDetails"
-      ( \x ->
-          ExecutionSucceededEventDetails'
-            Lude.<$> (x Lude..:? "output") Lude.<*> (x Lude..:? "outputDetails")
-      )
+    Core.withObject "ExecutionSucceededEventDetails" Core.$
+      \x ->
+        ExecutionSucceededEventDetails'
+          Core.<$> (x Core..:? "output") Core.<*> (x Core..:? "outputDetails")

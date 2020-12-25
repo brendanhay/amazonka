@@ -20,94 +20,89 @@ module Network.AWS.CostExplorer.Types.ESInstanceDetails
     esidCurrentGeneration,
     esidInstanceClass,
     esidInstanceSize,
-    esidSizeFlexEligible,
     esidRegion,
+    esidSizeFlexEligible,
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.InstanceClass as Types
+import qualified Network.AWS.CostExplorer.Types.InstanceSize as Types
+import qualified Network.AWS.CostExplorer.Types.Region as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the Amazon ES instances that AWS recommends that you purchase.
 --
 -- /See:/ 'mkESInstanceDetails' smart constructor.
 data ESInstanceDetails = ESInstanceDetails'
   { -- | Whether the recommendation is for a current-generation instance.
-    currentGeneration :: Lude.Maybe Lude.Bool,
+    currentGeneration :: Core.Maybe Core.Bool,
     -- | The class of instance that AWS recommends.
-    instanceClass :: Lude.Maybe Lude.Text,
+    instanceClass :: Core.Maybe Types.InstanceClass,
     -- | The size of instance that AWS recommends.
-    instanceSize :: Lude.Maybe Lude.Text,
-    -- | Whether the recommended reservation is size flexible.
-    sizeFlexEligible :: Lude.Maybe Lude.Bool,
+    instanceSize :: Core.Maybe Types.InstanceSize,
     -- | The AWS Region of the recommended reservation.
-    region :: Lude.Maybe Lude.Text
+    region :: Core.Maybe Types.Region,
+    -- | Whether the recommended reservation is size flexible.
+    sizeFlexEligible :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ESInstanceDetails' with the minimum fields required to make a request.
---
--- * 'currentGeneration' - Whether the recommendation is for a current-generation instance.
--- * 'instanceClass' - The class of instance that AWS recommends.
--- * 'instanceSize' - The size of instance that AWS recommends.
--- * 'sizeFlexEligible' - Whether the recommended reservation is size flexible.
--- * 'region' - The AWS Region of the recommended reservation.
+-- | Creates a 'ESInstanceDetails' value with any optional fields omitted.
 mkESInstanceDetails ::
   ESInstanceDetails
 mkESInstanceDetails =
   ESInstanceDetails'
-    { currentGeneration = Lude.Nothing,
-      instanceClass = Lude.Nothing,
-      instanceSize = Lude.Nothing,
-      sizeFlexEligible = Lude.Nothing,
-      region = Lude.Nothing
+    { currentGeneration = Core.Nothing,
+      instanceClass = Core.Nothing,
+      instanceSize = Core.Nothing,
+      region = Core.Nothing,
+      sizeFlexEligible = Core.Nothing
     }
 
 -- | Whether the recommendation is for a current-generation instance.
 --
 -- /Note:/ Consider using 'currentGeneration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esidCurrentGeneration :: Lens.Lens' ESInstanceDetails (Lude.Maybe Lude.Bool)
-esidCurrentGeneration = Lens.lens (currentGeneration :: ESInstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {currentGeneration = a} :: ESInstanceDetails)
+esidCurrentGeneration :: Lens.Lens' ESInstanceDetails (Core.Maybe Core.Bool)
+esidCurrentGeneration = Lens.field @"currentGeneration"
 {-# DEPRECATED esidCurrentGeneration "Use generic-lens or generic-optics with 'currentGeneration' instead." #-}
 
 -- | The class of instance that AWS recommends.
 --
 -- /Note:/ Consider using 'instanceClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esidInstanceClass :: Lens.Lens' ESInstanceDetails (Lude.Maybe Lude.Text)
-esidInstanceClass = Lens.lens (instanceClass :: ESInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {instanceClass = a} :: ESInstanceDetails)
+esidInstanceClass :: Lens.Lens' ESInstanceDetails (Core.Maybe Types.InstanceClass)
+esidInstanceClass = Lens.field @"instanceClass"
 {-# DEPRECATED esidInstanceClass "Use generic-lens or generic-optics with 'instanceClass' instead." #-}
 
 -- | The size of instance that AWS recommends.
 --
 -- /Note:/ Consider using 'instanceSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esidInstanceSize :: Lens.Lens' ESInstanceDetails (Lude.Maybe Lude.Text)
-esidInstanceSize = Lens.lens (instanceSize :: ESInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {instanceSize = a} :: ESInstanceDetails)
+esidInstanceSize :: Lens.Lens' ESInstanceDetails (Core.Maybe Types.InstanceSize)
+esidInstanceSize = Lens.field @"instanceSize"
 {-# DEPRECATED esidInstanceSize "Use generic-lens or generic-optics with 'instanceSize' instead." #-}
-
--- | Whether the recommended reservation is size flexible.
---
--- /Note:/ Consider using 'sizeFlexEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esidSizeFlexEligible :: Lens.Lens' ESInstanceDetails (Lude.Maybe Lude.Bool)
-esidSizeFlexEligible = Lens.lens (sizeFlexEligible :: ESInstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {sizeFlexEligible = a} :: ESInstanceDetails)
-{-# DEPRECATED esidSizeFlexEligible "Use generic-lens or generic-optics with 'sizeFlexEligible' instead." #-}
 
 -- | The AWS Region of the recommended reservation.
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esidRegion :: Lens.Lens' ESInstanceDetails (Lude.Maybe Lude.Text)
-esidRegion = Lens.lens (region :: ESInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: ESInstanceDetails)
+esidRegion :: Lens.Lens' ESInstanceDetails (Core.Maybe Types.Region)
+esidRegion = Lens.field @"region"
 {-# DEPRECATED esidRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
-instance Lude.FromJSON ESInstanceDetails where
+-- | Whether the recommended reservation is size flexible.
+--
+-- /Note:/ Consider using 'sizeFlexEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esidSizeFlexEligible :: Lens.Lens' ESInstanceDetails (Core.Maybe Core.Bool)
+esidSizeFlexEligible = Lens.field @"sizeFlexEligible"
+{-# DEPRECATED esidSizeFlexEligible "Use generic-lens or generic-optics with 'sizeFlexEligible' instead." #-}
+
+instance Core.FromJSON ESInstanceDetails where
   parseJSON =
-    Lude.withObject
-      "ESInstanceDetails"
-      ( \x ->
-          ESInstanceDetails'
-            Lude.<$> (x Lude..:? "CurrentGeneration")
-            Lude.<*> (x Lude..:? "InstanceClass")
-            Lude.<*> (x Lude..:? "InstanceSize")
-            Lude.<*> (x Lude..:? "SizeFlexEligible")
-            Lude.<*> (x Lude..:? "Region")
-      )
+    Core.withObject "ESInstanceDetails" Core.$
+      \x ->
+        ESInstanceDetails'
+          Core.<$> (x Core..:? "CurrentGeneration")
+          Core.<*> (x Core..:? "InstanceClass")
+          Core.<*> (x Core..:? "InstanceSize")
+          Core.<*> (x Core..:? "Region")
+          Core.<*> (x Core..:? "SizeFlexEligible")

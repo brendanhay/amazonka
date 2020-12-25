@@ -17,67 +17,64 @@ module Network.AWS.DataPipeline.Types.ParameterAttribute
     mkParameterAttribute,
 
     -- * Lenses
-    paStringValue,
     paKey,
+    paStringValue,
   )
 where
 
+import qualified Network.AWS.DataPipeline.Types.AttributeValueString as Types
+import qualified Network.AWS.DataPipeline.Types.Key as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The attributes allowed or specified with a parameter object.
 --
 -- /See:/ 'mkParameterAttribute' smart constructor.
 data ParameterAttribute = ParameterAttribute'
-  { -- | The field value, expressed as a String.
-    stringValue :: Lude.Text,
-    -- | The field identifier.
-    key :: Lude.Text
+  { -- | The field identifier.
+    key :: Types.Key,
+    -- | The field value, expressed as a String.
+    stringValue :: Types.AttributeValueString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ParameterAttribute' with the minimum fields required to make a request.
---
--- * 'stringValue' - The field value, expressed as a String.
--- * 'key' - The field identifier.
+-- | Creates a 'ParameterAttribute' value with any optional fields omitted.
 mkParameterAttribute ::
-  -- | 'stringValue'
-  Lude.Text ->
   -- | 'key'
-  Lude.Text ->
+  Types.Key ->
+  -- | 'stringValue'
+  Types.AttributeValueString ->
   ParameterAttribute
-mkParameterAttribute pStringValue_ pKey_ =
-  ParameterAttribute' {stringValue = pStringValue_, key = pKey_}
-
--- | The field value, expressed as a String.
---
--- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paStringValue :: Lens.Lens' ParameterAttribute Lude.Text
-paStringValue = Lens.lens (stringValue :: ParameterAttribute -> Lude.Text) (\s a -> s {stringValue = a} :: ParameterAttribute)
-{-# DEPRECATED paStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
+mkParameterAttribute key stringValue =
+  ParameterAttribute' {key, stringValue}
 
 -- | The field identifier.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-paKey :: Lens.Lens' ParameterAttribute Lude.Text
-paKey = Lens.lens (key :: ParameterAttribute -> Lude.Text) (\s a -> s {key = a} :: ParameterAttribute)
+paKey :: Lens.Lens' ParameterAttribute Types.Key
+paKey = Lens.field @"key"
 {-# DEPRECATED paKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON ParameterAttribute where
-  parseJSON =
-    Lude.withObject
-      "ParameterAttribute"
-      ( \x ->
-          ParameterAttribute'
-            Lude.<$> (x Lude..: "stringValue") Lude.<*> (x Lude..: "key")
-      )
+-- | The field value, expressed as a String.
+--
+-- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+paStringValue :: Lens.Lens' ParameterAttribute Types.AttributeValueString
+paStringValue = Lens.field @"stringValue"
+{-# DEPRECATED paStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
-instance Lude.ToJSON ParameterAttribute where
-  toJSON ParameterAttribute' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("stringValue" Lude..= stringValue),
-            Lude.Just ("key" Lude..= key)
+instance Core.FromJSON ParameterAttribute where
+  toJSON ParameterAttribute {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("key" Core..= key),
+            Core.Just ("stringValue" Core..= stringValue)
           ]
       )
+
+instance Core.FromJSON ParameterAttribute where
+  parseJSON =
+    Core.withObject "ParameterAttribute" Core.$
+      \x ->
+        ParameterAttribute'
+          Core.<$> (x Core..: "key") Core.<*> (x Core..: "stringValue")

@@ -27,106 +27,91 @@ module Network.AWS.Glue.DeleteWorkflow
     mkDeleteWorkflowResponse,
 
     -- ** Response lenses
-    dwrsName,
-    dwrsResponseStatus,
+    dwrrsName,
+    dwrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteWorkflow' smart constructor.
 newtype DeleteWorkflow = DeleteWorkflow'
   { -- | Name of the workflow to be deleted.
-    name :: Lude.Text
+    name :: Types.NameString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteWorkflow' with the minimum fields required to make a request.
---
--- * 'name' - Name of the workflow to be deleted.
+-- | Creates a 'DeleteWorkflow' value with any optional fields omitted.
 mkDeleteWorkflow ::
   -- | 'name'
-  Lude.Text ->
+  Types.NameString ->
   DeleteWorkflow
-mkDeleteWorkflow pName_ = DeleteWorkflow' {name = pName_}
+mkDeleteWorkflow name = DeleteWorkflow' {name}
 
 -- | Name of the workflow to be deleted.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwName :: Lens.Lens' DeleteWorkflow Lude.Text
-dwName = Lens.lens (name :: DeleteWorkflow -> Lude.Text) (\s a -> s {name = a} :: DeleteWorkflow)
+dwName :: Lens.Lens' DeleteWorkflow Types.NameString
+dwName = Lens.field @"name"
 {-# DEPRECATED dwName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteWorkflow where
+instance Core.FromJSON DeleteWorkflow where
+  toJSON DeleteWorkflow {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteWorkflow where
   type Rs DeleteWorkflow = DeleteWorkflowResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.DeleteWorkflow")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteWorkflowResponse'
-            Lude.<$> (x Lude..?> "Name") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Name") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteWorkflow where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.DeleteWorkflow" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteWorkflow where
-  toJSON DeleteWorkflow' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteWorkflow where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteWorkflow where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteWorkflowResponse' smart constructor.
 data DeleteWorkflowResponse = DeleteWorkflowResponse'
   { -- | Name of the workflow specified in input.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteWorkflowResponse' with the minimum fields required to make a request.
---
--- * 'name' - Name of the workflow specified in input.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteWorkflowResponse' value with any optional fields omitted.
 mkDeleteWorkflowResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteWorkflowResponse
-mkDeleteWorkflowResponse pResponseStatus_ =
-  DeleteWorkflowResponse'
-    { name = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteWorkflowResponse responseStatus =
+  DeleteWorkflowResponse' {name = Core.Nothing, responseStatus}
 
 -- | Name of the workflow specified in input.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwrsName :: Lens.Lens' DeleteWorkflowResponse (Lude.Maybe Lude.Text)
-dwrsName = Lens.lens (name :: DeleteWorkflowResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DeleteWorkflowResponse)
-{-# DEPRECATED dwrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+dwrrsName :: Lens.Lens' DeleteWorkflowResponse (Core.Maybe Types.Name)
+dwrrsName = Lens.field @"name"
+{-# DEPRECATED dwrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwrsResponseStatus :: Lens.Lens' DeleteWorkflowResponse Lude.Int
-dwrsResponseStatus = Lens.lens (responseStatus :: DeleteWorkflowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkflowResponse)
-{-# DEPRECATED dwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwrrsResponseStatus :: Lens.Lens' DeleteWorkflowResponse Core.Int
+dwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

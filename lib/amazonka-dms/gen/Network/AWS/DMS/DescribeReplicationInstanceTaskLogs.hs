@@ -20,67 +20,67 @@ module Network.AWS.DMS.DescribeReplicationInstanceTaskLogs
     mkDescribeReplicationInstanceTaskLogs,
 
     -- ** Request lenses
+    dritlReplicationInstanceArn,
     dritlMarker,
     dritlMaxRecords,
-    dritlReplicationInstanceARN,
 
     -- * Destructuring the response
     DescribeReplicationInstanceTaskLogsResponse (..),
     mkDescribeReplicationInstanceTaskLogsResponse,
 
     -- ** Response lenses
-    dritlrsReplicationInstanceTaskLogs,
-    dritlrsMarker,
-    dritlrsReplicationInstanceARN,
-    dritlrsResponseStatus,
+    dritlrrsMarker,
+    dritlrrsReplicationInstanceArn,
+    dritlrrsReplicationInstanceTaskLogs,
+    dritlrrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeReplicationInstanceTaskLogs' smart constructor.
 data DescribeReplicationInstanceTaskLogs = DescribeReplicationInstanceTaskLogs'
-  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceArn :: Types.String,
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int,
-    -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceARN :: Lude.Text
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReplicationInstanceTaskLogs' with the minimum fields required to make a request.
---
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
--- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
+-- | Creates a 'DescribeReplicationInstanceTaskLogs' value with any optional fields omitted.
 mkDescribeReplicationInstanceTaskLogs ::
-  -- | 'replicationInstanceARN'
-  Lude.Text ->
+  -- | 'replicationInstanceArn'
+  Types.String ->
   DescribeReplicationInstanceTaskLogs
-mkDescribeReplicationInstanceTaskLogs pReplicationInstanceARN_ =
+mkDescribeReplicationInstanceTaskLogs replicationInstanceArn =
   DescribeReplicationInstanceTaskLogs'
-    { marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      replicationInstanceARN = pReplicationInstanceARN_
+    { replicationInstanceArn,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the replication instance.
+--
+-- /Note:/ Consider using 'replicationInstanceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dritlReplicationInstanceArn :: Lens.Lens' DescribeReplicationInstanceTaskLogs Types.String
+dritlReplicationInstanceArn = Lens.field @"replicationInstanceArn"
+{-# DEPRECATED dritlReplicationInstanceArn "Use generic-lens or generic-optics with 'replicationInstanceArn' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dritlMarker :: Lens.Lens' DescribeReplicationInstanceTaskLogs (Lude.Maybe Lude.Text)
-dritlMarker = Lens.lens (marker :: DescribeReplicationInstanceTaskLogs -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationInstanceTaskLogs)
+dritlMarker :: Lens.Lens' DescribeReplicationInstanceTaskLogs (Core.Maybe Types.String)
+dritlMarker = Lens.field @"marker"
 {-# DEPRECATED dritlMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
@@ -89,119 +89,101 @@ dritlMarker = Lens.lens (marker :: DescribeReplicationInstanceTaskLogs -> Lude.M
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dritlMaxRecords :: Lens.Lens' DescribeReplicationInstanceTaskLogs (Lude.Maybe Lude.Int)
-dritlMaxRecords = Lens.lens (maxRecords :: DescribeReplicationInstanceTaskLogs -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeReplicationInstanceTaskLogs)
+dritlMaxRecords :: Lens.Lens' DescribeReplicationInstanceTaskLogs (Core.Maybe Core.Int)
+dritlMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dritlMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the replication instance.
---
--- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dritlReplicationInstanceARN :: Lens.Lens' DescribeReplicationInstanceTaskLogs Lude.Text
-dritlReplicationInstanceARN = Lens.lens (replicationInstanceARN :: DescribeReplicationInstanceTaskLogs -> Lude.Text) (\s a -> s {replicationInstanceARN = a} :: DescribeReplicationInstanceTaskLogs)
-{-# DEPRECATED dritlReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
+instance Core.FromJSON DescribeReplicationInstanceTaskLogs where
+  toJSON DescribeReplicationInstanceTaskLogs {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("ReplicationInstanceArn" Core..= replicationInstanceArn),
+            ("Marker" Core..=) Core.<$> marker,
+            ("MaxRecords" Core..=) Core.<$> maxRecords
+          ]
+      )
 
-instance Lude.AWSRequest DescribeReplicationInstanceTaskLogs where
+instance Core.AWSRequest DescribeReplicationInstanceTaskLogs where
   type
     Rs DescribeReplicationInstanceTaskLogs =
       DescribeReplicationInstanceTaskLogsResponse
-  request = Req.postJSON dmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonDMSv20160101.DescribeReplicationInstanceTaskLogs"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeReplicationInstanceTaskLogsResponse'
-            Lude.<$> (x Lude..?> "ReplicationInstanceTaskLogs" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (x Lude..?> "ReplicationInstanceArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "ReplicationInstanceArn")
+            Core.<*> (x Core..:? "ReplicationInstanceTaskLogs")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeReplicationInstanceTaskLogs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonDMSv20160101.DescribeReplicationInstanceTaskLogs" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeReplicationInstanceTaskLogs where
-  toJSON DescribeReplicationInstanceTaskLogs' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Marker" Lude..=) Lude.<$> marker,
-            ("MaxRecords" Lude..=) Lude.<$> maxRecords,
-            Lude.Just
-              ("ReplicationInstanceArn" Lude..= replicationInstanceARN)
-          ]
-      )
-
-instance Lude.ToPath DescribeReplicationInstanceTaskLogs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeReplicationInstanceTaskLogs where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeReplicationInstanceTaskLogsResponse' smart constructor.
 data DescribeReplicationInstanceTaskLogsResponse = DescribeReplicationInstanceTaskLogsResponse'
-  { -- | An array of replication task log metadata. Each member of the array contains the replication task name, ARN, and task log size (in bytes).
-    replicationInstanceTaskLogs :: Lude.Maybe [ReplicationInstanceTaskLog],
-    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
     -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceARN :: Lude.Maybe Lude.Text,
+    replicationInstanceArn :: Core.Maybe Types.String,
+    -- | An array of replication task log metadata. Each member of the array contains the replication task name, ARN, and task log size (in bytes).
+    replicationInstanceTaskLogs :: Core.Maybe [Types.ReplicationInstanceTaskLog],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeReplicationInstanceTaskLogsResponse' with the minimum fields required to make a request.
---
--- * 'replicationInstanceTaskLogs' - An array of replication task log metadata. Each member of the array contains the replication task name, ARN, and task log size (in bytes).
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeReplicationInstanceTaskLogsResponse' value with any optional fields omitted.
 mkDescribeReplicationInstanceTaskLogsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeReplicationInstanceTaskLogsResponse
-mkDescribeReplicationInstanceTaskLogsResponse pResponseStatus_ =
+mkDescribeReplicationInstanceTaskLogsResponse responseStatus =
   DescribeReplicationInstanceTaskLogsResponse'
-    { replicationInstanceTaskLogs =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      replicationInstanceARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker =
+        Core.Nothing,
+      replicationInstanceArn = Core.Nothing,
+      replicationInstanceTaskLogs = Core.Nothing,
+      responseStatus
     }
-
--- | An array of replication task log metadata. Each member of the array contains the replication task name, ARN, and task log size (in bytes).
---
--- /Note:/ Consider using 'replicationInstanceTaskLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dritlrsReplicationInstanceTaskLogs :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Lude.Maybe [ReplicationInstanceTaskLog])
-dritlrsReplicationInstanceTaskLogs = Lens.lens (replicationInstanceTaskLogs :: DescribeReplicationInstanceTaskLogsResponse -> Lude.Maybe [ReplicationInstanceTaskLog]) (\s a -> s {replicationInstanceTaskLogs = a} :: DescribeReplicationInstanceTaskLogsResponse)
-{-# DEPRECATED dritlrsReplicationInstanceTaskLogs "Use generic-lens or generic-optics with 'replicationInstanceTaskLogs' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dritlrsMarker :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Lude.Maybe Lude.Text)
-dritlrsMarker = Lens.lens (marker :: DescribeReplicationInstanceTaskLogsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeReplicationInstanceTaskLogsResponse)
-{-# DEPRECATED dritlrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dritlrrsMarker :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Core.Maybe Types.String)
+dritlrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dritlrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the replication instance.
 --
--- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dritlrsReplicationInstanceARN :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Lude.Maybe Lude.Text)
-dritlrsReplicationInstanceARN = Lens.lens (replicationInstanceARN :: DescribeReplicationInstanceTaskLogsResponse -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstanceARN = a} :: DescribeReplicationInstanceTaskLogsResponse)
-{-# DEPRECATED dritlrsReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
+-- /Note:/ Consider using 'replicationInstanceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dritlrrsReplicationInstanceArn :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Core.Maybe Types.String)
+dritlrrsReplicationInstanceArn = Lens.field @"replicationInstanceArn"
+{-# DEPRECATED dritlrrsReplicationInstanceArn "Use generic-lens or generic-optics with 'replicationInstanceArn' instead." #-}
+
+-- | An array of replication task log metadata. Each member of the array contains the replication task name, ARN, and task log size (in bytes).
+--
+-- /Note:/ Consider using 'replicationInstanceTaskLogs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dritlrrsReplicationInstanceTaskLogs :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse (Core.Maybe [Types.ReplicationInstanceTaskLog])
+dritlrrsReplicationInstanceTaskLogs = Lens.field @"replicationInstanceTaskLogs"
+{-# DEPRECATED dritlrrsReplicationInstanceTaskLogs "Use generic-lens or generic-optics with 'replicationInstanceTaskLogs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dritlrsResponseStatus :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse Lude.Int
-dritlrsResponseStatus = Lens.lens (responseStatus :: DescribeReplicationInstanceTaskLogsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeReplicationInstanceTaskLogsResponse)
-{-# DEPRECATED dritlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dritlrrsResponseStatus :: Lens.Lens' DescribeReplicationInstanceTaskLogsResponse Core.Int
+dritlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dritlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

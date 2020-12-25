@@ -17,55 +17,50 @@ module Network.AWS.Comprehend.Types.PartOfSpeechTag
     mkPartOfSpeechTag,
 
     -- * Lenses
-    postTag,
     postScore,
+    postTag,
   )
 where
 
-import Network.AWS.Comprehend.Types.PartOfSpeechTagType
+import qualified Network.AWS.Comprehend.Types.PartOfSpeechTagType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies the part of speech represented by the token and gives the confidence that Amazon Comprehend has that the part of speech was correctly identified. For more information about the parts of speech that Amazon Comprehend can identify, see 'how-syntax' .
 --
 -- /See:/ 'mkPartOfSpeechTag' smart constructor.
 data PartOfSpeechTag = PartOfSpeechTag'
-  { -- | Identifies the part of speech that the token represents.
-    tag :: Lude.Maybe PartOfSpeechTagType,
-    -- | The confidence that Amazon Comprehend has that the part of speech was correctly identified.
-    score :: Lude.Maybe Lude.Double
+  { -- | The confidence that Amazon Comprehend has that the part of speech was correctly identified.
+    score :: Core.Maybe Core.Double,
+    -- | Identifies the part of speech that the token represents.
+    tag :: Core.Maybe Types.PartOfSpeechTagType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PartOfSpeechTag' with the minimum fields required to make a request.
---
--- * 'tag' - Identifies the part of speech that the token represents.
--- * 'score' - The confidence that Amazon Comprehend has that the part of speech was correctly identified.
+-- | Creates a 'PartOfSpeechTag' value with any optional fields omitted.
 mkPartOfSpeechTag ::
   PartOfSpeechTag
 mkPartOfSpeechTag =
-  PartOfSpeechTag' {tag = Lude.Nothing, score = Lude.Nothing}
-
--- | Identifies the part of speech that the token represents.
---
--- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-postTag :: Lens.Lens' PartOfSpeechTag (Lude.Maybe PartOfSpeechTagType)
-postTag = Lens.lens (tag :: PartOfSpeechTag -> Lude.Maybe PartOfSpeechTagType) (\s a -> s {tag = a} :: PartOfSpeechTag)
-{-# DEPRECATED postTag "Use generic-lens or generic-optics with 'tag' instead." #-}
+  PartOfSpeechTag' {score = Core.Nothing, tag = Core.Nothing}
 
 -- | The confidence that Amazon Comprehend has that the part of speech was correctly identified.
 --
 -- /Note:/ Consider using 'score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-postScore :: Lens.Lens' PartOfSpeechTag (Lude.Maybe Lude.Double)
-postScore = Lens.lens (score :: PartOfSpeechTag -> Lude.Maybe Lude.Double) (\s a -> s {score = a} :: PartOfSpeechTag)
+postScore :: Lens.Lens' PartOfSpeechTag (Core.Maybe Core.Double)
+postScore = Lens.field @"score"
 {-# DEPRECATED postScore "Use generic-lens or generic-optics with 'score' instead." #-}
 
-instance Lude.FromJSON PartOfSpeechTag where
+-- | Identifies the part of speech that the token represents.
+--
+-- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+postTag :: Lens.Lens' PartOfSpeechTag (Core.Maybe Types.PartOfSpeechTagType)
+postTag = Lens.field @"tag"
+{-# DEPRECATED postTag "Use generic-lens or generic-optics with 'tag' instead." #-}
+
+instance Core.FromJSON PartOfSpeechTag where
   parseJSON =
-    Lude.withObject
-      "PartOfSpeechTag"
-      ( \x ->
-          PartOfSpeechTag'
-            Lude.<$> (x Lude..:? "Tag") Lude.<*> (x Lude..:? "Score")
-      )
+    Core.withObject "PartOfSpeechTag" Core.$
+      \x ->
+        PartOfSpeechTag'
+          Core.<$> (x Core..:? "Score") Core.<*> (x Core..:? "Tag")

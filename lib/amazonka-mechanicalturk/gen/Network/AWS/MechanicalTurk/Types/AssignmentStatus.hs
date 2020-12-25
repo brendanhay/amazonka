@@ -13,51 +13,56 @@
 module Network.AWS.MechanicalTurk.Types.AssignmentStatus
   ( AssignmentStatus
       ( AssignmentStatus',
-        Submitted,
-        Approved,
-        Rejected
+        AssignmentStatusSubmitted,
+        AssignmentStatusApproved,
+        AssignmentStatusRejected,
+        fromAssignmentStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AssignmentStatus = AssignmentStatus' Lude.Text
+newtype AssignmentStatus = AssignmentStatus'
+  { fromAssignmentStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Submitted :: AssignmentStatus
-pattern Submitted = AssignmentStatus' "Submitted"
+pattern AssignmentStatusSubmitted :: AssignmentStatus
+pattern AssignmentStatusSubmitted = AssignmentStatus' "Submitted"
 
-pattern Approved :: AssignmentStatus
-pattern Approved = AssignmentStatus' "Approved"
+pattern AssignmentStatusApproved :: AssignmentStatus
+pattern AssignmentStatusApproved = AssignmentStatus' "Approved"
 
-pattern Rejected :: AssignmentStatus
-pattern Rejected = AssignmentStatus' "Rejected"
+pattern AssignmentStatusRejected :: AssignmentStatus
+pattern AssignmentStatusRejected = AssignmentStatus' "Rejected"
 
 {-# COMPLETE
-  Submitted,
-  Approved,
-  Rejected,
+  AssignmentStatusSubmitted,
+  AssignmentStatusApproved,
+  AssignmentStatusRejected,
   AssignmentStatus'
   #-}

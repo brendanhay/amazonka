@@ -13,76 +13,81 @@
 module Network.AWS.CognitoIdentityProvider.Types.UserImportJobStatusType
   ( UserImportJobStatusType
       ( UserImportJobStatusType',
-        Created,
-        Pending,
-        InProgress,
-        Stopping,
-        Expired,
-        Stopped,
-        Failed,
-        Succeeded
+        UserImportJobStatusTypeCreated,
+        UserImportJobStatusTypePending,
+        UserImportJobStatusTypeInProgress,
+        UserImportJobStatusTypeStopping,
+        UserImportJobStatusTypeExpired,
+        UserImportJobStatusTypeStopped,
+        UserImportJobStatusTypeFailed,
+        UserImportJobStatusTypeSucceeded,
+        fromUserImportJobStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UserImportJobStatusType = UserImportJobStatusType' Lude.Text
+newtype UserImportJobStatusType = UserImportJobStatusType'
+  { fromUserImportJobStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Created :: UserImportJobStatusType
-pattern Created = UserImportJobStatusType' "Created"
+pattern UserImportJobStatusTypeCreated :: UserImportJobStatusType
+pattern UserImportJobStatusTypeCreated = UserImportJobStatusType' "Created"
 
-pattern Pending :: UserImportJobStatusType
-pattern Pending = UserImportJobStatusType' "Pending"
+pattern UserImportJobStatusTypePending :: UserImportJobStatusType
+pattern UserImportJobStatusTypePending = UserImportJobStatusType' "Pending"
 
-pattern InProgress :: UserImportJobStatusType
-pattern InProgress = UserImportJobStatusType' "InProgress"
+pattern UserImportJobStatusTypeInProgress :: UserImportJobStatusType
+pattern UserImportJobStatusTypeInProgress = UserImportJobStatusType' "InProgress"
 
-pattern Stopping :: UserImportJobStatusType
-pattern Stopping = UserImportJobStatusType' "Stopping"
+pattern UserImportJobStatusTypeStopping :: UserImportJobStatusType
+pattern UserImportJobStatusTypeStopping = UserImportJobStatusType' "Stopping"
 
-pattern Expired :: UserImportJobStatusType
-pattern Expired = UserImportJobStatusType' "Expired"
+pattern UserImportJobStatusTypeExpired :: UserImportJobStatusType
+pattern UserImportJobStatusTypeExpired = UserImportJobStatusType' "Expired"
 
-pattern Stopped :: UserImportJobStatusType
-pattern Stopped = UserImportJobStatusType' "Stopped"
+pattern UserImportJobStatusTypeStopped :: UserImportJobStatusType
+pattern UserImportJobStatusTypeStopped = UserImportJobStatusType' "Stopped"
 
-pattern Failed :: UserImportJobStatusType
-pattern Failed = UserImportJobStatusType' "Failed"
+pattern UserImportJobStatusTypeFailed :: UserImportJobStatusType
+pattern UserImportJobStatusTypeFailed = UserImportJobStatusType' "Failed"
 
-pattern Succeeded :: UserImportJobStatusType
-pattern Succeeded = UserImportJobStatusType' "Succeeded"
+pattern UserImportJobStatusTypeSucceeded :: UserImportJobStatusType
+pattern UserImportJobStatusTypeSucceeded = UserImportJobStatusType' "Succeeded"
 
 {-# COMPLETE
-  Created,
-  Pending,
-  InProgress,
-  Stopping,
-  Expired,
-  Stopped,
-  Failed,
-  Succeeded,
+  UserImportJobStatusTypeCreated,
+  UserImportJobStatusTypePending,
+  UserImportJobStatusTypeInProgress,
+  UserImportJobStatusTypeStopping,
+  UserImportJobStatusTypeExpired,
+  UserImportJobStatusTypeStopped,
+  UserImportJobStatusTypeFailed,
+  UserImportJobStatusTypeSucceeded,
   UserImportJobStatusType'
   #-}

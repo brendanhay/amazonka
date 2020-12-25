@@ -17,114 +17,108 @@ module Network.AWS.IoTAnalytics.Types.Variable
     mkVariable,
 
     -- * Lenses
-    vOutputFileURIValue,
-    vDoubleValue,
-    vStringValue,
     vName,
     vDatasetContentVersionValue,
+    vDoubleValue,
+    vOutputFileUriValue,
+    vStringValue,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.DatasetContentVersionValue
-import Network.AWS.IoTAnalytics.Types.OutputFileURIValue
+import qualified Network.AWS.IoTAnalytics.Types.DatasetContentVersionValue as Types
+import qualified Network.AWS.IoTAnalytics.Types.Name as Types
+import qualified Network.AWS.IoTAnalytics.Types.OutputFileUriValue as Types
+import qualified Network.AWS.IoTAnalytics.Types.StringValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An instance of a variable to be passed to the @containerAction@ execution. Each variable must have a name and a value given by one of @stringValue@ , @datasetContentVersionValue@ , or @outputFileUriValue@ .
 --
 -- /See:/ 'mkVariable' smart constructor.
 data Variable = Variable'
-  { -- | The value of the variable as a structure that specifies an output file URI.
-    outputFileURIValue :: Lude.Maybe OutputFileURIValue,
-    -- | The value of the variable as a double (numeric).
-    doubleValue :: Lude.Maybe Lude.Double,
-    -- | The value of the variable as a string.
-    stringValue :: Lude.Maybe Lude.Text,
-    -- | The name of the variable.
-    name :: Lude.Text,
+  { -- | The name of the variable.
+    name :: Types.Name,
     -- | The value of the variable as a structure that specifies a dataset content version.
-    datasetContentVersionValue :: Lude.Maybe DatasetContentVersionValue
+    datasetContentVersionValue :: Core.Maybe Types.DatasetContentVersionValue,
+    -- | The value of the variable as a double (numeric).
+    doubleValue :: Core.Maybe Core.Double,
+    -- | The value of the variable as a structure that specifies an output file URI.
+    outputFileUriValue :: Core.Maybe Types.OutputFileUriValue,
+    -- | The value of the variable as a string.
+    stringValue :: Core.Maybe Types.StringValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Variable' with the minimum fields required to make a request.
---
--- * 'outputFileURIValue' - The value of the variable as a structure that specifies an output file URI.
--- * 'doubleValue' - The value of the variable as a double (numeric).
--- * 'stringValue' - The value of the variable as a string.
--- * 'name' - The name of the variable.
--- * 'datasetContentVersionValue' - The value of the variable as a structure that specifies a dataset content version.
+-- | Creates a 'Variable' value with any optional fields omitted.
 mkVariable ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   Variable
-mkVariable pName_ =
+mkVariable name =
   Variable'
-    { outputFileURIValue = Lude.Nothing,
-      doubleValue = Lude.Nothing,
-      stringValue = Lude.Nothing,
-      name = pName_,
-      datasetContentVersionValue = Lude.Nothing
+    { name,
+      datasetContentVersionValue = Core.Nothing,
+      doubleValue = Core.Nothing,
+      outputFileUriValue = Core.Nothing,
+      stringValue = Core.Nothing
     }
-
--- | The value of the variable as a structure that specifies an output file URI.
---
--- /Note:/ Consider using 'outputFileURIValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vOutputFileURIValue :: Lens.Lens' Variable (Lude.Maybe OutputFileURIValue)
-vOutputFileURIValue = Lens.lens (outputFileURIValue :: Variable -> Lude.Maybe OutputFileURIValue) (\s a -> s {outputFileURIValue = a} :: Variable)
-{-# DEPRECATED vOutputFileURIValue "Use generic-lens or generic-optics with 'outputFileURIValue' instead." #-}
-
--- | The value of the variable as a double (numeric).
---
--- /Note:/ Consider using 'doubleValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vDoubleValue :: Lens.Lens' Variable (Lude.Maybe Lude.Double)
-vDoubleValue = Lens.lens (doubleValue :: Variable -> Lude.Maybe Lude.Double) (\s a -> s {doubleValue = a} :: Variable)
-{-# DEPRECATED vDoubleValue "Use generic-lens or generic-optics with 'doubleValue' instead." #-}
-
--- | The value of the variable as a string.
---
--- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vStringValue :: Lens.Lens' Variable (Lude.Maybe Lude.Text)
-vStringValue = Lens.lens (stringValue :: Variable -> Lude.Maybe Lude.Text) (\s a -> s {stringValue = a} :: Variable)
-{-# DEPRECATED vStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
 
 -- | The name of the variable.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vName :: Lens.Lens' Variable Lude.Text
-vName = Lens.lens (name :: Variable -> Lude.Text) (\s a -> s {name = a} :: Variable)
+vName :: Lens.Lens' Variable Types.Name
+vName = Lens.field @"name"
 {-# DEPRECATED vName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value of the variable as a structure that specifies a dataset content version.
 --
 -- /Note:/ Consider using 'datasetContentVersionValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vDatasetContentVersionValue :: Lens.Lens' Variable (Lude.Maybe DatasetContentVersionValue)
-vDatasetContentVersionValue = Lens.lens (datasetContentVersionValue :: Variable -> Lude.Maybe DatasetContentVersionValue) (\s a -> s {datasetContentVersionValue = a} :: Variable)
+vDatasetContentVersionValue :: Lens.Lens' Variable (Core.Maybe Types.DatasetContentVersionValue)
+vDatasetContentVersionValue = Lens.field @"datasetContentVersionValue"
 {-# DEPRECATED vDatasetContentVersionValue "Use generic-lens or generic-optics with 'datasetContentVersionValue' instead." #-}
 
-instance Lude.FromJSON Variable where
-  parseJSON =
-    Lude.withObject
-      "Variable"
-      ( \x ->
-          Variable'
-            Lude.<$> (x Lude..:? "outputFileUriValue")
-            Lude.<*> (x Lude..:? "doubleValue")
-            Lude.<*> (x Lude..:? "stringValue")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..:? "datasetContentVersionValue")
-      )
+-- | The value of the variable as a double (numeric).
+--
+-- /Note:/ Consider using 'doubleValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vDoubleValue :: Lens.Lens' Variable (Core.Maybe Core.Double)
+vDoubleValue = Lens.field @"doubleValue"
+{-# DEPRECATED vDoubleValue "Use generic-lens or generic-optics with 'doubleValue' instead." #-}
 
-instance Lude.ToJSON Variable where
-  toJSON Variable' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("outputFileUriValue" Lude..=) Lude.<$> outputFileURIValue,
-            ("doubleValue" Lude..=) Lude.<$> doubleValue,
-            ("stringValue" Lude..=) Lude.<$> stringValue,
-            Lude.Just ("name" Lude..= name),
-            ("datasetContentVersionValue" Lude..=)
-              Lude.<$> datasetContentVersionValue
+-- | The value of the variable as a structure that specifies an output file URI.
+--
+-- /Note:/ Consider using 'outputFileUriValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vOutputFileUriValue :: Lens.Lens' Variable (Core.Maybe Types.OutputFileUriValue)
+vOutputFileUriValue = Lens.field @"outputFileUriValue"
+{-# DEPRECATED vOutputFileUriValue "Use generic-lens or generic-optics with 'outputFileUriValue' instead." #-}
+
+-- | The value of the variable as a string.
+--
+-- /Note:/ Consider using 'stringValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vStringValue :: Lens.Lens' Variable (Core.Maybe Types.StringValue)
+vStringValue = Lens.field @"stringValue"
+{-# DEPRECATED vStringValue "Use generic-lens or generic-optics with 'stringValue' instead." #-}
+
+instance Core.FromJSON Variable where
+  toJSON Variable {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            ("datasetContentVersionValue" Core..=)
+              Core.<$> datasetContentVersionValue,
+            ("doubleValue" Core..=) Core.<$> doubleValue,
+            ("outputFileUriValue" Core..=) Core.<$> outputFileUriValue,
+            ("stringValue" Core..=) Core.<$> stringValue
           ]
       )
+
+instance Core.FromJSON Variable where
+  parseJSON =
+    Core.withObject "Variable" Core.$
+      \x ->
+        Variable'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..:? "datasetContentVersionValue")
+          Core.<*> (x Core..:? "doubleValue")
+          Core.<*> (x Core..:? "outputFileUriValue")
+          Core.<*> (x Core..:? "stringValue")

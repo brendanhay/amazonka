@@ -22,115 +22,102 @@ module Network.AWS.Rekognition.DeleteCollection
     mkDeleteCollection,
 
     -- ** Request lenses
-    dCollectionId,
+    dcCollectionId,
 
     -- * Destructuring the response
     DeleteCollectionResponse (..),
     mkDeleteCollectionResponse,
 
     -- ** Response lenses
-    dcrsStatusCode,
-    dcrsResponseStatus,
+    dcrrsStatusCode,
+    dcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteCollection' smart constructor.
 newtype DeleteCollection = DeleteCollection'
   { -- | ID of the collection to delete.
-    collectionId :: Lude.Text
+    collectionId :: Types.CollectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCollection' with the minimum fields required to make a request.
---
--- * 'collectionId' - ID of the collection to delete.
+-- | Creates a 'DeleteCollection' value with any optional fields omitted.
 mkDeleteCollection ::
   -- | 'collectionId'
-  Lude.Text ->
+  Types.CollectionId ->
   DeleteCollection
-mkDeleteCollection pCollectionId_ =
-  DeleteCollection' {collectionId = pCollectionId_}
+mkDeleteCollection collectionId = DeleteCollection' {collectionId}
 
 -- | ID of the collection to delete.
 --
 -- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCollectionId :: Lens.Lens' DeleteCollection Lude.Text
-dCollectionId = Lens.lens (collectionId :: DeleteCollection -> Lude.Text) (\s a -> s {collectionId = a} :: DeleteCollection)
-{-# DEPRECATED dCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
+dcCollectionId :: Lens.Lens' DeleteCollection Types.CollectionId
+dcCollectionId = Lens.field @"collectionId"
+{-# DEPRECATED dcCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
-instance Lude.AWSRequest DeleteCollection where
+instance Core.FromJSON DeleteCollection where
+  toJSON DeleteCollection {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("CollectionId" Core..= collectionId)])
+
+instance Core.AWSRequest DeleteCollection where
   type Rs DeleteCollection = DeleteCollectionResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.DeleteCollection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteCollectionResponse'
-            Lude.<$> (x Lude..?> "StatusCode") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "StatusCode") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteCollection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.DeleteCollection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteCollection where
-  toJSON DeleteCollection' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("CollectionId" Lude..= collectionId)])
-
-instance Lude.ToPath DeleteCollection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteCollection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteCollectionResponse' smart constructor.
 data DeleteCollectionResponse = DeleteCollectionResponse'
   { -- | HTTP status code that indicates the result of the operation.
-    statusCode :: Lude.Maybe Lude.Natural,
+    statusCode :: Core.Maybe Core.Natural,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCollectionResponse' with the minimum fields required to make a request.
---
--- * 'statusCode' - HTTP status code that indicates the result of the operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteCollectionResponse' value with any optional fields omitted.
 mkDeleteCollectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteCollectionResponse
-mkDeleteCollectionResponse pResponseStatus_ =
+mkDeleteCollectionResponse responseStatus =
   DeleteCollectionResponse'
-    { statusCode = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { statusCode = Core.Nothing,
+      responseStatus
     }
 
 -- | HTTP status code that indicates the result of the operation.
 --
 -- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsStatusCode :: Lens.Lens' DeleteCollectionResponse (Lude.Maybe Lude.Natural)
-dcrsStatusCode = Lens.lens (statusCode :: DeleteCollectionResponse -> Lude.Maybe Lude.Natural) (\s a -> s {statusCode = a} :: DeleteCollectionResponse)
-{-# DEPRECATED dcrsStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
+dcrrsStatusCode :: Lens.Lens' DeleteCollectionResponse (Core.Maybe Core.Natural)
+dcrrsStatusCode = Lens.field @"statusCode"
+{-# DEPRECATED dcrrsStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrsResponseStatus :: Lens.Lens' DeleteCollectionResponse Lude.Int
-dcrsResponseStatus = Lens.lens (responseStatus :: DeleteCollectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCollectionResponse)
-{-# DEPRECATED dcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DeleteCollectionResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

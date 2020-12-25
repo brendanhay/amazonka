@@ -22,115 +22,99 @@ module Network.AWS.Rekognition.DeleteProject
     mkDeleteProject,
 
     -- ** Request lenses
-    dpProjectARN,
+    dpProjectArn,
 
     -- * Destructuring the response
     DeleteProjectResponse (..),
     mkDeleteProjectResponse,
 
     -- ** Response lenses
-    dprsStatus,
-    dprsResponseStatus,
+    dprrsStatus,
+    dprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteProject' smart constructor.
 newtype DeleteProject = DeleteProject'
   { -- | The Amazon Resource Name (ARN) of the project that you want to delete.
-    projectARN :: Lude.Text
+    projectArn :: Types.ProjectArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProject' with the minimum fields required to make a request.
---
--- * 'projectARN' - The Amazon Resource Name (ARN) of the project that you want to delete.
+-- | Creates a 'DeleteProject' value with any optional fields omitted.
 mkDeleteProject ::
-  -- | 'projectARN'
-  Lude.Text ->
+  -- | 'projectArn'
+  Types.ProjectArn ->
   DeleteProject
-mkDeleteProject pProjectARN_ =
-  DeleteProject' {projectARN = pProjectARN_}
+mkDeleteProject projectArn = DeleteProject' {projectArn}
 
 -- | The Amazon Resource Name (ARN) of the project that you want to delete.
 --
--- /Note:/ Consider using 'projectARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpProjectARN :: Lens.Lens' DeleteProject Lude.Text
-dpProjectARN = Lens.lens (projectARN :: DeleteProject -> Lude.Text) (\s a -> s {projectARN = a} :: DeleteProject)
-{-# DEPRECATED dpProjectARN "Use generic-lens or generic-optics with 'projectARN' instead." #-}
+-- /Note:/ Consider using 'projectArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpProjectArn :: Lens.Lens' DeleteProject Types.ProjectArn
+dpProjectArn = Lens.field @"projectArn"
+{-# DEPRECATED dpProjectArn "Use generic-lens or generic-optics with 'projectArn' instead." #-}
 
-instance Lude.AWSRequest DeleteProject where
+instance Core.FromJSON DeleteProject where
+  toJSON DeleteProject {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ProjectArn" Core..= projectArn)])
+
+instance Core.AWSRequest DeleteProject where
   type Rs DeleteProject = DeleteProjectResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.DeleteProject")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteProjectResponse'
-            Lude.<$> (x Lude..?> "Status") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Status") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.DeleteProject" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteProject where
-  toJSON DeleteProject' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ProjectArn" Lude..= projectARN)])
-
-instance Lude.ToPath DeleteProject where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteProject where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteProjectResponse' smart constructor.
 data DeleteProjectResponse = DeleteProjectResponse'
   { -- | The current status of the delete project operation.
-    status :: Lude.Maybe ProjectStatus,
+    status :: Core.Maybe Types.ProjectStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProjectResponse' with the minimum fields required to make a request.
---
--- * 'status' - The current status of the delete project operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteProjectResponse' value with any optional fields omitted.
 mkDeleteProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteProjectResponse
-mkDeleteProjectResponse pResponseStatus_ =
-  DeleteProjectResponse'
-    { status = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteProjectResponse responseStatus =
+  DeleteProjectResponse' {status = Core.Nothing, responseStatus}
 
 -- | The current status of the delete project operation.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsStatus :: Lens.Lens' DeleteProjectResponse (Lude.Maybe ProjectStatus)
-dprsStatus = Lens.lens (status :: DeleteProjectResponse -> Lude.Maybe ProjectStatus) (\s a -> s {status = a} :: DeleteProjectResponse)
-{-# DEPRECATED dprsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+dprrsStatus :: Lens.Lens' DeleteProjectResponse (Core.Maybe Types.ProjectStatus)
+dprrsStatus = Lens.field @"status"
+{-# DEPRECATED dprrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DeleteProjectResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DeleteProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProjectResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprrsResponseStatus :: Lens.Lens' DeleteProjectResponse Core.Int
+dprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

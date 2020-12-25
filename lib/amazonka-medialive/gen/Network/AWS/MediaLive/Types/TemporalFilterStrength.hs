@@ -13,122 +13,127 @@
 module Network.AWS.MediaLive.Types.TemporalFilterStrength
   ( TemporalFilterStrength
       ( TemporalFilterStrength',
-        Auto,
-        Strength1,
-        Strength2,
-        Strength3,
-        Strength4,
-        Strength5,
-        Strength6,
-        Strength7,
-        Strength8,
-        Strength9,
-        Strength10,
-        Strength11,
-        Strength12,
-        Strength13,
-        Strength14,
-        Strength15,
-        Strength16
+        TemporalFilterStrengthAuto,
+        TemporalFilterStrengthStrength1,
+        TemporalFilterStrengthStrength2,
+        TemporalFilterStrengthStrength3,
+        TemporalFilterStrengthStrength4,
+        TemporalFilterStrengthStrength5,
+        TemporalFilterStrengthStrength6,
+        TemporalFilterStrengthStrength7,
+        TemporalFilterStrengthStrength8,
+        TemporalFilterStrengthStrength9,
+        TemporalFilterStrengthStrength10,
+        TemporalFilterStrengthStrength11,
+        TemporalFilterStrengthStrength12,
+        TemporalFilterStrengthStrength13,
+        TemporalFilterStrengthStrength14,
+        TemporalFilterStrengthStrength15,
+        TemporalFilterStrengthStrength16,
+        fromTemporalFilterStrength
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Temporal Filter Strength
-newtype TemporalFilterStrength = TemporalFilterStrength' Lude.Text
+newtype TemporalFilterStrength = TemporalFilterStrength'
+  { fromTemporalFilterStrength ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Auto :: TemporalFilterStrength
-pattern Auto = TemporalFilterStrength' "AUTO"
+pattern TemporalFilterStrengthAuto :: TemporalFilterStrength
+pattern TemporalFilterStrengthAuto = TemporalFilterStrength' "AUTO"
 
-pattern Strength1 :: TemporalFilterStrength
-pattern Strength1 = TemporalFilterStrength' "STRENGTH_1"
+pattern TemporalFilterStrengthStrength1 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength1 = TemporalFilterStrength' "STRENGTH_1"
 
-pattern Strength2 :: TemporalFilterStrength
-pattern Strength2 = TemporalFilterStrength' "STRENGTH_2"
+pattern TemporalFilterStrengthStrength2 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength2 = TemporalFilterStrength' "STRENGTH_2"
 
-pattern Strength3 :: TemporalFilterStrength
-pattern Strength3 = TemporalFilterStrength' "STRENGTH_3"
+pattern TemporalFilterStrengthStrength3 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength3 = TemporalFilterStrength' "STRENGTH_3"
 
-pattern Strength4 :: TemporalFilterStrength
-pattern Strength4 = TemporalFilterStrength' "STRENGTH_4"
+pattern TemporalFilterStrengthStrength4 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength4 = TemporalFilterStrength' "STRENGTH_4"
 
-pattern Strength5 :: TemporalFilterStrength
-pattern Strength5 = TemporalFilterStrength' "STRENGTH_5"
+pattern TemporalFilterStrengthStrength5 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength5 = TemporalFilterStrength' "STRENGTH_5"
 
-pattern Strength6 :: TemporalFilterStrength
-pattern Strength6 = TemporalFilterStrength' "STRENGTH_6"
+pattern TemporalFilterStrengthStrength6 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength6 = TemporalFilterStrength' "STRENGTH_6"
 
-pattern Strength7 :: TemporalFilterStrength
-pattern Strength7 = TemporalFilterStrength' "STRENGTH_7"
+pattern TemporalFilterStrengthStrength7 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength7 = TemporalFilterStrength' "STRENGTH_7"
 
-pattern Strength8 :: TemporalFilterStrength
-pattern Strength8 = TemporalFilterStrength' "STRENGTH_8"
+pattern TemporalFilterStrengthStrength8 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength8 = TemporalFilterStrength' "STRENGTH_8"
 
-pattern Strength9 :: TemporalFilterStrength
-pattern Strength9 = TemporalFilterStrength' "STRENGTH_9"
+pattern TemporalFilterStrengthStrength9 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength9 = TemporalFilterStrength' "STRENGTH_9"
 
-pattern Strength10 :: TemporalFilterStrength
-pattern Strength10 = TemporalFilterStrength' "STRENGTH_10"
+pattern TemporalFilterStrengthStrength10 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength10 = TemporalFilterStrength' "STRENGTH_10"
 
-pattern Strength11 :: TemporalFilterStrength
-pattern Strength11 = TemporalFilterStrength' "STRENGTH_11"
+pattern TemporalFilterStrengthStrength11 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength11 = TemporalFilterStrength' "STRENGTH_11"
 
-pattern Strength12 :: TemporalFilterStrength
-pattern Strength12 = TemporalFilterStrength' "STRENGTH_12"
+pattern TemporalFilterStrengthStrength12 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength12 = TemporalFilterStrength' "STRENGTH_12"
 
-pattern Strength13 :: TemporalFilterStrength
-pattern Strength13 = TemporalFilterStrength' "STRENGTH_13"
+pattern TemporalFilterStrengthStrength13 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength13 = TemporalFilterStrength' "STRENGTH_13"
 
-pattern Strength14 :: TemporalFilterStrength
-pattern Strength14 = TemporalFilterStrength' "STRENGTH_14"
+pattern TemporalFilterStrengthStrength14 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength14 = TemporalFilterStrength' "STRENGTH_14"
 
-pattern Strength15 :: TemporalFilterStrength
-pattern Strength15 = TemporalFilterStrength' "STRENGTH_15"
+pattern TemporalFilterStrengthStrength15 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength15 = TemporalFilterStrength' "STRENGTH_15"
 
-pattern Strength16 :: TemporalFilterStrength
-pattern Strength16 = TemporalFilterStrength' "STRENGTH_16"
+pattern TemporalFilterStrengthStrength16 :: TemporalFilterStrength
+pattern TemporalFilterStrengthStrength16 = TemporalFilterStrength' "STRENGTH_16"
 
 {-# COMPLETE
-  Auto,
-  Strength1,
-  Strength2,
-  Strength3,
-  Strength4,
-  Strength5,
-  Strength6,
-  Strength7,
-  Strength8,
-  Strength9,
-  Strength10,
-  Strength11,
-  Strength12,
-  Strength13,
-  Strength14,
-  Strength15,
-  Strength16,
+  TemporalFilterStrengthAuto,
+  TemporalFilterStrengthStrength1,
+  TemporalFilterStrengthStrength2,
+  TemporalFilterStrengthStrength3,
+  TemporalFilterStrengthStrength4,
+  TemporalFilterStrengthStrength5,
+  TemporalFilterStrengthStrength6,
+  TemporalFilterStrengthStrength7,
+  TemporalFilterStrengthStrength8,
+  TemporalFilterStrengthStrength9,
+  TemporalFilterStrengthStrength10,
+  TemporalFilterStrengthStrength11,
+  TemporalFilterStrengthStrength12,
+  TemporalFilterStrengthStrength13,
+  TemporalFilterStrengthStrength14,
+  TemporalFilterStrengthStrength15,
+  TemporalFilterStrengthStrength16,
   TemporalFilterStrength'
   #-}

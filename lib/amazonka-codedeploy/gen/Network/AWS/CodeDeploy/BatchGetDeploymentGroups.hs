@@ -20,154 +20,139 @@ module Network.AWS.CodeDeploy.BatchGetDeploymentGroups
     mkBatchGetDeploymentGroups,
 
     -- ** Request lenses
-    bgdgDeploymentGroupNames,
     bgdgApplicationName,
+    bgdgDeploymentGroupNames,
 
     -- * Destructuring the response
     BatchGetDeploymentGroupsResponse (..),
     mkBatchGetDeploymentGroupsResponse,
 
     -- ** Response lenses
-    bgdgrsDeploymentGroupsInfo,
-    bgdgrsErrorMessage,
-    bgdgrsResponseStatus,
+    bgdgrrsDeploymentGroupsInfo,
+    bgdgrrsErrorMessage,
+    bgdgrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @BatchGetDeploymentGroups@ operation.
 --
 -- /See:/ 'mkBatchGetDeploymentGroups' smart constructor.
 data BatchGetDeploymentGroups = BatchGetDeploymentGroups'
-  { -- | The names of the deployment groups.
-    deploymentGroupNames :: [Lude.Text],
-    -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
-    applicationName :: Lude.Text
+  { -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
+    applicationName :: Types.ApplicationName,
+    -- | The names of the deployment groups.
+    deploymentGroupNames :: [Types.DeploymentGroupName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetDeploymentGroups' with the minimum fields required to make a request.
---
--- * 'deploymentGroupNames' - The names of the deployment groups.
--- * 'applicationName' - The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
+-- | Creates a 'BatchGetDeploymentGroups' value with any optional fields omitted.
 mkBatchGetDeploymentGroups ::
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
   BatchGetDeploymentGroups
-mkBatchGetDeploymentGroups pApplicationName_ =
+mkBatchGetDeploymentGroups applicationName =
   BatchGetDeploymentGroups'
-    { deploymentGroupNames = Lude.mempty,
-      applicationName = pApplicationName_
+    { applicationName,
+      deploymentGroupNames = Core.mempty
     }
-
--- | The names of the deployment groups.
---
--- /Note:/ Consider using 'deploymentGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdgDeploymentGroupNames :: Lens.Lens' BatchGetDeploymentGroups [Lude.Text]
-bgdgDeploymentGroupNames = Lens.lens (deploymentGroupNames :: BatchGetDeploymentGroups -> [Lude.Text]) (\s a -> s {deploymentGroupNames = a} :: BatchGetDeploymentGroups)
-{-# DEPRECATED bgdgDeploymentGroupNames "Use generic-lens or generic-optics with 'deploymentGroupNames' instead." #-}
 
 -- | The name of an AWS CodeDeploy application associated with the applicable IAM user or AWS account.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdgApplicationName :: Lens.Lens' BatchGetDeploymentGroups Lude.Text
-bgdgApplicationName = Lens.lens (applicationName :: BatchGetDeploymentGroups -> Lude.Text) (\s a -> s {applicationName = a} :: BatchGetDeploymentGroups)
+bgdgApplicationName :: Lens.Lens' BatchGetDeploymentGroups Types.ApplicationName
+bgdgApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED bgdgApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance Lude.AWSRequest BatchGetDeploymentGroups where
+-- | The names of the deployment groups.
+--
+-- /Note:/ Consider using 'deploymentGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bgdgDeploymentGroupNames :: Lens.Lens' BatchGetDeploymentGroups [Types.DeploymentGroupName]
+bgdgDeploymentGroupNames = Lens.field @"deploymentGroupNames"
+{-# DEPRECATED bgdgDeploymentGroupNames "Use generic-lens or generic-optics with 'deploymentGroupNames' instead." #-}
+
+instance Core.FromJSON BatchGetDeploymentGroups where
+  toJSON BatchGetDeploymentGroups {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("applicationName" Core..= applicationName),
+            Core.Just ("deploymentGroupNames" Core..= deploymentGroupNames)
+          ]
+      )
+
+instance Core.AWSRequest BatchGetDeploymentGroups where
   type Rs BatchGetDeploymentGroups = BatchGetDeploymentGroupsResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeDeploy_20141006.BatchGetDeploymentGroups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchGetDeploymentGroupsResponse'
-            Lude.<$> (x Lude..?> "deploymentGroupsInfo" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "errorMessage")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "deploymentGroupsInfo")
+            Core.<*> (x Core..:? "errorMessage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchGetDeploymentGroups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeDeploy_20141006.BatchGetDeploymentGroups" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchGetDeploymentGroups where
-  toJSON BatchGetDeploymentGroups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("deploymentGroupNames" Lude..= deploymentGroupNames),
-            Lude.Just ("applicationName" Lude..= applicationName)
-          ]
-      )
-
-instance Lude.ToPath BatchGetDeploymentGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchGetDeploymentGroups where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @BatchGetDeploymentGroups@ operation.
 --
 -- /See:/ 'mkBatchGetDeploymentGroupsResponse' smart constructor.
 data BatchGetDeploymentGroupsResponse = BatchGetDeploymentGroupsResponse'
   { -- | Information about the deployment groups.
-    deploymentGroupsInfo :: Lude.Maybe [DeploymentGroupInfo],
+    deploymentGroupsInfo :: Core.Maybe [Types.DeploymentGroupInfo],
     -- | Information about errors that might have occurred during the API call.
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.ErrorMessage,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchGetDeploymentGroupsResponse' with the minimum fields required to make a request.
---
--- * 'deploymentGroupsInfo' - Information about the deployment groups.
--- * 'errorMessage' - Information about errors that might have occurred during the API call.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchGetDeploymentGroupsResponse' value with any optional fields omitted.
 mkBatchGetDeploymentGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchGetDeploymentGroupsResponse
-mkBatchGetDeploymentGroupsResponse pResponseStatus_ =
+mkBatchGetDeploymentGroupsResponse responseStatus =
   BatchGetDeploymentGroupsResponse'
     { deploymentGroupsInfo =
-        Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      errorMessage = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the deployment groups.
 --
 -- /Note:/ Consider using 'deploymentGroupsInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdgrsDeploymentGroupsInfo :: Lens.Lens' BatchGetDeploymentGroupsResponse (Lude.Maybe [DeploymentGroupInfo])
-bgdgrsDeploymentGroupsInfo = Lens.lens (deploymentGroupsInfo :: BatchGetDeploymentGroupsResponse -> Lude.Maybe [DeploymentGroupInfo]) (\s a -> s {deploymentGroupsInfo = a} :: BatchGetDeploymentGroupsResponse)
-{-# DEPRECATED bgdgrsDeploymentGroupsInfo "Use generic-lens or generic-optics with 'deploymentGroupsInfo' instead." #-}
+bgdgrrsDeploymentGroupsInfo :: Lens.Lens' BatchGetDeploymentGroupsResponse (Core.Maybe [Types.DeploymentGroupInfo])
+bgdgrrsDeploymentGroupsInfo = Lens.field @"deploymentGroupsInfo"
+{-# DEPRECATED bgdgrrsDeploymentGroupsInfo "Use generic-lens or generic-optics with 'deploymentGroupsInfo' instead." #-}
 
 -- | Information about errors that might have occurred during the API call.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdgrsErrorMessage :: Lens.Lens' BatchGetDeploymentGroupsResponse (Lude.Maybe Lude.Text)
-bgdgrsErrorMessage = Lens.lens (errorMessage :: BatchGetDeploymentGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: BatchGetDeploymentGroupsResponse)
-{-# DEPRECATED bgdgrsErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
+bgdgrrsErrorMessage :: Lens.Lens' BatchGetDeploymentGroupsResponse (Core.Maybe Types.ErrorMessage)
+bgdgrrsErrorMessage = Lens.field @"errorMessage"
+{-# DEPRECATED bgdgrrsErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgdgrsResponseStatus :: Lens.Lens' BatchGetDeploymentGroupsResponse Lude.Int
-bgdgrsResponseStatus = Lens.lens (responseStatus :: BatchGetDeploymentGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetDeploymentGroupsResponse)
-{-# DEPRECATED bgdgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bgdgrrsResponseStatus :: Lens.Lens' BatchGetDeploymentGroupsResponse Core.Int
+bgdgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bgdgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

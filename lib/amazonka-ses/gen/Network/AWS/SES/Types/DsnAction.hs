@@ -13,61 +13,63 @@
 module Network.AWS.SES.Types.DsnAction
   ( DsnAction
       ( DsnAction',
-        DAFailed,
-        DADelayed,
-        DADelivered,
-        DARelayed,
-        DAExpanded
+        DsnActionFailed,
+        DsnActionDelayed,
+        DsnActionDelivered,
+        DsnActionRelayed,
+        DsnActionExpanded,
+        fromDsnAction
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DsnAction = DsnAction' Lude.Text
+newtype DsnAction = DsnAction' {fromDsnAction :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DAFailed :: DsnAction
-pattern DAFailed = DsnAction' "failed"
+pattern DsnActionFailed :: DsnAction
+pattern DsnActionFailed = DsnAction' "failed"
 
-pattern DADelayed :: DsnAction
-pattern DADelayed = DsnAction' "delayed"
+pattern DsnActionDelayed :: DsnAction
+pattern DsnActionDelayed = DsnAction' "delayed"
 
-pattern DADelivered :: DsnAction
-pattern DADelivered = DsnAction' "delivered"
+pattern DsnActionDelivered :: DsnAction
+pattern DsnActionDelivered = DsnAction' "delivered"
 
-pattern DARelayed :: DsnAction
-pattern DARelayed = DsnAction' "relayed"
+pattern DsnActionRelayed :: DsnAction
+pattern DsnActionRelayed = DsnAction' "relayed"
 
-pattern DAExpanded :: DsnAction
-pattern DAExpanded = DsnAction' "expanded"
+pattern DsnActionExpanded :: DsnAction
+pattern DsnActionExpanded = DsnAction' "expanded"
 
 {-# COMPLETE
-  DAFailed,
-  DADelayed,
-  DADelivered,
-  DARelayed,
-  DAExpanded,
+  DsnActionFailed,
+  DsnActionDelayed,
+  DsnActionDelivered,
+  DsnActionRelayed,
+  DsnActionExpanded,
   DsnAction'
   #-}

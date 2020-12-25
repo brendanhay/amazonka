@@ -17,50 +17,47 @@ module Network.AWS.RDS.Types.DoubleRange
     mkDoubleRange,
 
     -- * Lenses
-    drTo,
     drFrom,
+    drTo,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A range of double values.
 --
 -- /See:/ 'mkDoubleRange' smart constructor.
 data DoubleRange = DoubleRange'
-  { -- | The maximum value in the range.
-    to :: Lude.Maybe Lude.Double,
-    -- | The minimum value in the range.
-    from :: Lude.Maybe Lude.Double
+  { -- | The minimum value in the range.
+    from :: Core.Maybe Core.Double,
+    -- | The maximum value in the range.
+    to :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DoubleRange' with the minimum fields required to make a request.
---
--- * 'to' - The maximum value in the range.
--- * 'from' - The minimum value in the range.
+-- | Creates a 'DoubleRange' value with any optional fields omitted.
 mkDoubleRange ::
   DoubleRange
 mkDoubleRange =
-  DoubleRange' {to = Lude.Nothing, from = Lude.Nothing}
-
--- | The maximum value in the range.
---
--- /Note:/ Consider using 'to' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drTo :: Lens.Lens' DoubleRange (Lude.Maybe Lude.Double)
-drTo = Lens.lens (to :: DoubleRange -> Lude.Maybe Lude.Double) (\s a -> s {to = a} :: DoubleRange)
-{-# DEPRECATED drTo "Use generic-lens or generic-optics with 'to' instead." #-}
+  DoubleRange' {from = Core.Nothing, to = Core.Nothing}
 
 -- | The minimum value in the range.
 --
 -- /Note:/ Consider using 'from' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drFrom :: Lens.Lens' DoubleRange (Lude.Maybe Lude.Double)
-drFrom = Lens.lens (from :: DoubleRange -> Lude.Maybe Lude.Double) (\s a -> s {from = a} :: DoubleRange)
+drFrom :: Lens.Lens' DoubleRange (Core.Maybe Core.Double)
+drFrom = Lens.field @"from"
 {-# DEPRECATED drFrom "Use generic-lens or generic-optics with 'from' instead." #-}
 
-instance Lude.FromXML DoubleRange where
+-- | The maximum value in the range.
+--
+-- /Note:/ Consider using 'to' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drTo :: Lens.Lens' DoubleRange (Core.Maybe Core.Double)
+drTo = Lens.field @"to"
+{-# DEPRECATED drTo "Use generic-lens or generic-optics with 'to' instead." #-}
+
+instance Core.FromXML DoubleRange where
   parseXML x =
     DoubleRange'
-      Lude.<$> (x Lude..@? "To") Lude.<*> (x Lude..@? "From")
+      Core.<$> (x Core..@? "From") Core.<*> (x Core..@? "To")

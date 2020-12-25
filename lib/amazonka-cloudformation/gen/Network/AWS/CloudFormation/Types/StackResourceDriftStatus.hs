@@ -13,56 +13,61 @@
 module Network.AWS.CloudFormation.Types.StackResourceDriftStatus
   ( StackResourceDriftStatus
       ( StackResourceDriftStatus',
-        SRDSInSync,
-        SRDSModified,
-        SRDSDeleted,
-        SRDSNotChecked
+        StackResourceDriftStatusInSync,
+        StackResourceDriftStatusModified,
+        StackResourceDriftStatusDeleted,
+        StackResourceDriftStatusNotChecked,
+        fromStackResourceDriftStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StackResourceDriftStatus = StackResourceDriftStatus' Lude.Text
+newtype StackResourceDriftStatus = StackResourceDriftStatus'
+  { fromStackResourceDriftStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SRDSInSync :: StackResourceDriftStatus
-pattern SRDSInSync = StackResourceDriftStatus' "IN_SYNC"
+pattern StackResourceDriftStatusInSync :: StackResourceDriftStatus
+pattern StackResourceDriftStatusInSync = StackResourceDriftStatus' "IN_SYNC"
 
-pattern SRDSModified :: StackResourceDriftStatus
-pattern SRDSModified = StackResourceDriftStatus' "MODIFIED"
+pattern StackResourceDriftStatusModified :: StackResourceDriftStatus
+pattern StackResourceDriftStatusModified = StackResourceDriftStatus' "MODIFIED"
 
-pattern SRDSDeleted :: StackResourceDriftStatus
-pattern SRDSDeleted = StackResourceDriftStatus' "DELETED"
+pattern StackResourceDriftStatusDeleted :: StackResourceDriftStatus
+pattern StackResourceDriftStatusDeleted = StackResourceDriftStatus' "DELETED"
 
-pattern SRDSNotChecked :: StackResourceDriftStatus
-pattern SRDSNotChecked = StackResourceDriftStatus' "NOT_CHECKED"
+pattern StackResourceDriftStatusNotChecked :: StackResourceDriftStatus
+pattern StackResourceDriftStatusNotChecked = StackResourceDriftStatus' "NOT_CHECKED"
 
 {-# COMPLETE
-  SRDSInSync,
-  SRDSModified,
-  SRDSDeleted,
-  SRDSNotChecked,
+  StackResourceDriftStatusInSync,
+  StackResourceDriftStatusModified,
+  StackResourceDriftStatusDeleted,
+  StackResourceDriftStatusNotChecked,
   StackResourceDriftStatus'
   #-}

@@ -17,103 +17,90 @@ module Network.AWS.CloudSearch.Types.TextArrayOptions
     mkTextArrayOptions,
 
     -- * Lenses
-    taoSourceFields,
-    taoReturnEnabled,
     taoAnalysisScheme,
-    taoHighlightEnabled,
     taoDefaultValue,
+    taoHighlightEnabled,
+    taoReturnEnabled,
+    taoSourceFields,
   )
 where
 
+import qualified Network.AWS.CloudSearch.Types.DefaultValue as Types
+import qualified Network.AWS.CloudSearch.Types.SourceFields as Types
+import qualified Network.AWS.CloudSearch.Types.Word as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Options for a field that contains an array of text strings. Present if @IndexFieldType@ specifies the field is of type @text-array@ . A @text-array@ field is always searchable. All options are enabled by default.
 --
 -- /See:/ 'mkTextArrayOptions' smart constructor.
 data TextArrayOptions = TextArrayOptions'
-  { -- | A list of source fields to map to the field.
-    sourceFields :: Lude.Maybe Lude.Text,
-    -- | Whether the contents of the field can be returned in the search results.
-    returnEnabled :: Lude.Maybe Lude.Bool,
-    -- | The name of an analysis scheme for a @text-array@ field.
-    analysisScheme :: Lude.Maybe Lude.Text,
-    -- | Whether highlights can be returned for the field.
-    highlightEnabled :: Lude.Maybe Lude.Bool,
+  { -- | The name of an analysis scheme for a @text-array@ field.
+    analysisScheme :: Core.Maybe Types.Word,
     -- | A value to use for the field if the field isn't specified for a document.
-    defaultValue :: Lude.Maybe Lude.Text
+    defaultValue :: Core.Maybe Types.DefaultValue,
+    -- | Whether highlights can be returned for the field.
+    highlightEnabled :: Core.Maybe Core.Bool,
+    -- | Whether the contents of the field can be returned in the search results.
+    returnEnabled :: Core.Maybe Core.Bool,
+    -- | A list of source fields to map to the field.
+    sourceFields :: Core.Maybe Types.SourceFields
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TextArrayOptions' with the minimum fields required to make a request.
---
--- * 'sourceFields' - A list of source fields to map to the field.
--- * 'returnEnabled' - Whether the contents of the field can be returned in the search results.
--- * 'analysisScheme' - The name of an analysis scheme for a @text-array@ field.
--- * 'highlightEnabled' - Whether highlights can be returned for the field.
--- * 'defaultValue' - A value to use for the field if the field isn't specified for a document.
+-- | Creates a 'TextArrayOptions' value with any optional fields omitted.
 mkTextArrayOptions ::
   TextArrayOptions
 mkTextArrayOptions =
   TextArrayOptions'
-    { sourceFields = Lude.Nothing,
-      returnEnabled = Lude.Nothing,
-      analysisScheme = Lude.Nothing,
-      highlightEnabled = Lude.Nothing,
-      defaultValue = Lude.Nothing
+    { analysisScheme = Core.Nothing,
+      defaultValue = Core.Nothing,
+      highlightEnabled = Core.Nothing,
+      returnEnabled = Core.Nothing,
+      sourceFields = Core.Nothing
     }
-
--- | A list of source fields to map to the field.
---
--- /Note:/ Consider using 'sourceFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taoSourceFields :: Lens.Lens' TextArrayOptions (Lude.Maybe Lude.Text)
-taoSourceFields = Lens.lens (sourceFields :: TextArrayOptions -> Lude.Maybe Lude.Text) (\s a -> s {sourceFields = a} :: TextArrayOptions)
-{-# DEPRECATED taoSourceFields "Use generic-lens or generic-optics with 'sourceFields' instead." #-}
-
--- | Whether the contents of the field can be returned in the search results.
---
--- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taoReturnEnabled :: Lens.Lens' TextArrayOptions (Lude.Maybe Lude.Bool)
-taoReturnEnabled = Lens.lens (returnEnabled :: TextArrayOptions -> Lude.Maybe Lude.Bool) (\s a -> s {returnEnabled = a} :: TextArrayOptions)
-{-# DEPRECATED taoReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
 
 -- | The name of an analysis scheme for a @text-array@ field.
 --
 -- /Note:/ Consider using 'analysisScheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taoAnalysisScheme :: Lens.Lens' TextArrayOptions (Lude.Maybe Lude.Text)
-taoAnalysisScheme = Lens.lens (analysisScheme :: TextArrayOptions -> Lude.Maybe Lude.Text) (\s a -> s {analysisScheme = a} :: TextArrayOptions)
+taoAnalysisScheme :: Lens.Lens' TextArrayOptions (Core.Maybe Types.Word)
+taoAnalysisScheme = Lens.field @"analysisScheme"
 {-# DEPRECATED taoAnalysisScheme "Use generic-lens or generic-optics with 'analysisScheme' instead." #-}
-
--- | Whether highlights can be returned for the field.
---
--- /Note:/ Consider using 'highlightEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taoHighlightEnabled :: Lens.Lens' TextArrayOptions (Lude.Maybe Lude.Bool)
-taoHighlightEnabled = Lens.lens (highlightEnabled :: TextArrayOptions -> Lude.Maybe Lude.Bool) (\s a -> s {highlightEnabled = a} :: TextArrayOptions)
-{-# DEPRECATED taoHighlightEnabled "Use generic-lens or generic-optics with 'highlightEnabled' instead." #-}
 
 -- | A value to use for the field if the field isn't specified for a document.
 --
 -- /Note:/ Consider using 'defaultValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-taoDefaultValue :: Lens.Lens' TextArrayOptions (Lude.Maybe Lude.Text)
-taoDefaultValue = Lens.lens (defaultValue :: TextArrayOptions -> Lude.Maybe Lude.Text) (\s a -> s {defaultValue = a} :: TextArrayOptions)
+taoDefaultValue :: Lens.Lens' TextArrayOptions (Core.Maybe Types.DefaultValue)
+taoDefaultValue = Lens.field @"defaultValue"
 {-# DEPRECATED taoDefaultValue "Use generic-lens or generic-optics with 'defaultValue' instead." #-}
 
-instance Lude.FromXML TextArrayOptions where
+-- | Whether highlights can be returned for the field.
+--
+-- /Note:/ Consider using 'highlightEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taoHighlightEnabled :: Lens.Lens' TextArrayOptions (Core.Maybe Core.Bool)
+taoHighlightEnabled = Lens.field @"highlightEnabled"
+{-# DEPRECATED taoHighlightEnabled "Use generic-lens or generic-optics with 'highlightEnabled' instead." #-}
+
+-- | Whether the contents of the field can be returned in the search results.
+--
+-- /Note:/ Consider using 'returnEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taoReturnEnabled :: Lens.Lens' TextArrayOptions (Core.Maybe Core.Bool)
+taoReturnEnabled = Lens.field @"returnEnabled"
+{-# DEPRECATED taoReturnEnabled "Use generic-lens or generic-optics with 'returnEnabled' instead." #-}
+
+-- | A list of source fields to map to the field.
+--
+-- /Note:/ Consider using 'sourceFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+taoSourceFields :: Lens.Lens' TextArrayOptions (Core.Maybe Types.SourceFields)
+taoSourceFields = Lens.field @"sourceFields"
+{-# DEPRECATED taoSourceFields "Use generic-lens or generic-optics with 'sourceFields' instead." #-}
+
+instance Core.FromXML TextArrayOptions where
   parseXML x =
     TextArrayOptions'
-      Lude.<$> (x Lude..@? "SourceFields")
-      Lude.<*> (x Lude..@? "ReturnEnabled")
-      Lude.<*> (x Lude..@? "AnalysisScheme")
-      Lude.<*> (x Lude..@? "HighlightEnabled")
-      Lude.<*> (x Lude..@? "DefaultValue")
-
-instance Lude.ToQuery TextArrayOptions where
-  toQuery TextArrayOptions' {..} =
-    Lude.mconcat
-      [ "SourceFields" Lude.=: sourceFields,
-        "ReturnEnabled" Lude.=: returnEnabled,
-        "AnalysisScheme" Lude.=: analysisScheme,
-        "HighlightEnabled" Lude.=: highlightEnabled,
-        "DefaultValue" Lude.=: defaultValue
-      ]
+      Core.<$> (x Core..@? "AnalysisScheme")
+      Core.<*> (x Core..@? "DefaultValue")
+      Core.<*> (x Core..@? "HighlightEnabled")
+      Core.<*> (x Core..@? "ReturnEnabled")
+      Core.<*> (x Core..@? "SourceFields")

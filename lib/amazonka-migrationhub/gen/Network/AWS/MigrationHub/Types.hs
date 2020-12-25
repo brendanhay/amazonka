@@ -9,31 +9,45 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MigrationHub.Types
   ( -- * Service configuration
-    migrationHubService,
+    mkServiceConfig,
 
     -- * Errors
-
-    -- * ApplicationStatus
-    ApplicationStatus (..),
+    _AccessDeniedException,
+    _HomeRegionNotSetException,
+    _DryRunOperation,
+    _PolicyErrorException,
+    _ThrottlingException,
+    _InternalServerError,
+    _InvalidInputException,
+    _ServiceUnavailableException,
+    _ResourceNotFoundException,
+    _UnauthorizedOperation,
 
     -- * MigrationStatus
     MigrationStatus (..),
 
-    -- * ResourceAttributeType
-    ResourceAttributeType (..),
+    -- * MigrationTaskSummary
+    MigrationTaskSummary (..),
+    mkMigrationTaskSummary,
+    mtsMigrationTaskName,
+    mtsProgressPercent,
+    mtsProgressUpdateStream,
+    mtsStatus,
+    mtsStatusDetail,
+    mtsUpdateDateTime,
+
+    -- * ResourceName
+    ResourceName (..),
+
+    -- * ConfigurationId
+    ConfigurationId (..),
 
     -- * ApplicationState
     ApplicationState (..),
     mkApplicationState,
-    asLastUpdatedTime,
     asApplicationId,
     asApplicationStatus,
-
-    -- * CreatedArtifact
-    CreatedArtifact (..),
-    mkCreatedArtifact,
-    caName,
-    caDescription,
+    asLastUpdatedTime,
 
     -- * DiscoveredResource
     DiscoveredResource (..),
@@ -41,35 +55,34 @@ module Network.AWS.MigrationHub.Types
     drConfigurationId,
     drDescription,
 
-    -- * MigrationTask
-    MigrationTask (..),
-    mkMigrationTask,
-    mtUpdateDateTime,
-    mtResourceAttributeList,
-    mtTask,
-    mtProgressUpdateStream,
-    mtMigrationTaskName,
+    -- * Token
+    Token (..),
 
-    -- * MigrationTaskSummary
-    MigrationTaskSummary (..),
-    mkMigrationTaskSummary,
-    mtsStatus,
-    mtsUpdateDateTime,
-    mtsProgressPercent,
-    mtsStatusDetail,
-    mtsProgressUpdateStream,
-    mtsMigrationTaskName,
+    -- * CreatedArtifact
+    CreatedArtifact (..),
+    mkCreatedArtifact,
+    caName,
+    caDescription,
+
+    -- * ResourceAttribute
+    ResourceAttribute (..),
+    mkResourceAttribute,
+    raType,
+    raValue,
+
+    -- * CreatedArtifactName
+    CreatedArtifactName (..),
 
     -- * ProgressUpdateStreamSummary
     ProgressUpdateStreamSummary (..),
     mkProgressUpdateStreamSummary,
     pussProgressUpdateStreamName,
 
-    -- * ResourceAttribute
-    ResourceAttribute (..),
-    mkResourceAttribute,
-    raValue,
-    raType,
+    -- * ApplicationId
+    ApplicationId (..),
+
+    -- * StatusDetail
+    StatusDetail (..),
 
     -- * Task
     Task (..),
@@ -77,74 +90,189 @@ module Network.AWS.MigrationHub.Types
     tStatus,
     tProgressPercent,
     tStatusDetail,
+
+    -- * ProgressUpdateStream
+    ProgressUpdateStream (..),
+
+    -- * ApplicationStatus
+    ApplicationStatus (..),
+
+    -- * MigrationTaskName
+    MigrationTaskName (..),
+
+    -- * ResourceAttributeType
+    ResourceAttributeType (..),
+
+    -- * MigrationTask
+    MigrationTask (..),
+    mkMigrationTask,
+    mtMigrationTaskName,
+    mtProgressUpdateStream,
+    mtResourceAttributeList,
+    mtTask,
+    mtUpdateDateTime,
+
+    -- * NextToken
+    NextToken (..),
+
+    -- * ProgressUpdateStreamName
+    ProgressUpdateStreamName (..),
+
+    -- * Description
+    Description (..),
+
+    -- * Name
+    Name (..),
+
+    -- * Value
+    Value (..),
   )
 where
 
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.MigrationHub.Types.ApplicationId
 import Network.AWS.MigrationHub.Types.ApplicationState
 import Network.AWS.MigrationHub.Types.ApplicationStatus
+import Network.AWS.MigrationHub.Types.ConfigurationId
 import Network.AWS.MigrationHub.Types.CreatedArtifact
+import Network.AWS.MigrationHub.Types.CreatedArtifactName
+import Network.AWS.MigrationHub.Types.Description
 import Network.AWS.MigrationHub.Types.DiscoveredResource
 import Network.AWS.MigrationHub.Types.MigrationStatus
 import Network.AWS.MigrationHub.Types.MigrationTask
+import Network.AWS.MigrationHub.Types.MigrationTaskName
 import Network.AWS.MigrationHub.Types.MigrationTaskSummary
+import Network.AWS.MigrationHub.Types.Name
+import Network.AWS.MigrationHub.Types.NextToken
+import Network.AWS.MigrationHub.Types.ProgressUpdateStream
+import Network.AWS.MigrationHub.Types.ProgressUpdateStreamName
 import Network.AWS.MigrationHub.Types.ProgressUpdateStreamSummary
 import Network.AWS.MigrationHub.Types.ResourceAttribute
 import Network.AWS.MigrationHub.Types.ResourceAttributeType
+import Network.AWS.MigrationHub.Types.ResourceName
+import Network.AWS.MigrationHub.Types.StatusDetail
 import Network.AWS.MigrationHub.Types.Task
-import qualified Network.AWS.Prelude as Lude
+import Network.AWS.MigrationHub.Types.Token
+import Network.AWS.MigrationHub.Types.Value
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-05-31@ of the Amazon Migration Hub SDK configuration.
-migrationHubService :: Lude.Service
-migrationHubService =
-  Lude.Service
-    { Lude._svcAbbrev = "MigrationHub",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "mgh",
-      Lude._svcVersion = "2017-05-31",
-      Lude._svcEndpoint = Lude.defaultEndpoint migrationHubService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "MigrationHub",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "MigrationHub",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "mgh",
+      Core._svcVersion = "2017-05-31",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "MigrationHub",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | You do not have sufficient access to perform this action.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError mkServiceConfig "AccessDeniedException"
+{-# DEPRECATED _AccessDeniedException "Use generic-lens or generic-optics instead." #-}
+
+-- | The home region is not set. Set the home region to continue.
+_HomeRegionNotSetException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_HomeRegionNotSetException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "HomeRegionNotSetException"
+{-# DEPRECATED _HomeRegionNotSetException "Use generic-lens or generic-optics instead." #-}
+
+-- | Exception raised to indicate a successfully authorized action when the @DryRun@ flag is set to "true".
+_DryRunOperation :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_DryRunOperation =
+  Core._MatchServiceError mkServiceConfig "DryRunOperation"
+{-# DEPRECATED _DryRunOperation "Use generic-lens or generic-optics instead." #-}
+
+-- | Exception raised when there are problems accessing Application Discovery Service (Application Discovery Service); most likely due to a misconfigured policy or the @migrationhub-discovery@ role is missing or not configured correctly.
+_PolicyErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_PolicyErrorException =
+  Core._MatchServiceError mkServiceConfig "PolicyErrorException"
+{-# DEPRECATED _PolicyErrorException "Use generic-lens or generic-optics instead." #-}
+
+-- | The request was denied due to request throttling.
+_ThrottlingException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ThrottlingException =
+  Core._MatchServiceError mkServiceConfig "ThrottlingException"
+{-# DEPRECATED _ThrottlingException "Use generic-lens or generic-optics instead." #-}
+
+-- | Exception raised when an internal, configuration, or dependency error is encountered.
+_InternalServerError :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError mkServiceConfig "InternalServerError"
+{-# DEPRECATED _InternalServerError "Use generic-lens or generic-optics instead." #-}
+
+-- | Exception raised when the provided input violates a policy constraint or is entered in the wrong format or data type.
+_InvalidInputException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidInputException =
+  Core._MatchServiceError mkServiceConfig "InvalidInputException"
+{-# DEPRECATED _InvalidInputException "Use generic-lens or generic-optics instead." #-}
+
+-- | Exception raised when there is an internal, configuration, or dependency error encountered.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ServiceUnavailableException"
+{-# DEPRECATED _ServiceUnavailableException "Use generic-lens or generic-optics instead." #-}
+
+-- | Exception raised when the request references a resource (Application Discovery Service configuration, update stream, migration task, etc.) that does not exist in Application Discovery Service (Application Discovery Service) or in Migration Hub's repository.
+_ResourceNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ResourceNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ResourceNotFoundException"
+{-# DEPRECATED _ResourceNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | Exception raised to indicate a request was not authorized when the @DryRun@ flag is set to "true".
+_UnauthorizedOperation :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedOperation =
+  Core._MatchServiceError mkServiceConfig "UnauthorizedOperation"
+{-# DEPRECATED _UnauthorizedOperation "Use generic-lens or generic-optics instead." #-}

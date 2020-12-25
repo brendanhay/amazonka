@@ -29,139 +29,127 @@ module Network.AWS.CodeDeploy.ListGitHubAccountTokenNames
     mkListGitHubAccountTokenNamesResponse,
 
     -- ** Response lenses
-    lghatnrsTokenNameList,
-    lghatnrsNextToken,
-    lghatnrsResponseStatus,
+    lghatnrrsNextToken,
+    lghatnrrsTokenNameList,
+    lghatnrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @ListGitHubAccountTokenNames@ operation.
 --
 -- /See:/ 'mkListGitHubAccountTokenNames' smart constructor.
 newtype ListGitHubAccountTokenNames = ListGitHubAccountTokenNames'
   { -- | An identifier returned from the previous @ListGitHubAccountTokenNames@ call. It can be used to return the next set of names in the list.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListGitHubAccountTokenNames' with the minimum fields required to make a request.
---
--- * 'nextToken' - An identifier returned from the previous @ListGitHubAccountTokenNames@ call. It can be used to return the next set of names in the list.
+-- | Creates a 'ListGitHubAccountTokenNames' value with any optional fields omitted.
 mkListGitHubAccountTokenNames ::
   ListGitHubAccountTokenNames
 mkListGitHubAccountTokenNames =
-  ListGitHubAccountTokenNames' {nextToken = Lude.Nothing}
+  ListGitHubAccountTokenNames' {nextToken = Core.Nothing}
 
 -- | An identifier returned from the previous @ListGitHubAccountTokenNames@ call. It can be used to return the next set of names in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lghatnNextToken :: Lens.Lens' ListGitHubAccountTokenNames (Lude.Maybe Lude.Text)
-lghatnNextToken = Lens.lens (nextToken :: ListGitHubAccountTokenNames -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGitHubAccountTokenNames)
+lghatnNextToken :: Lens.Lens' ListGitHubAccountTokenNames (Core.Maybe Types.NextToken)
+lghatnNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lghatnNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager ListGitHubAccountTokenNames where
-  page rq rs
-    | Page.stop (rs Lens.^. lghatnrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lghatnrsTokenNameList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lghatnNextToken Lens..~ rs Lens.^. lghatnrsNextToken
+instance Core.FromJSON ListGitHubAccountTokenNames where
+  toJSON ListGitHubAccountTokenNames {..} =
+    Core.object
+      (Core.catMaybes [("nextToken" Core..=) Core.<$> nextToken])
 
-instance Lude.AWSRequest ListGitHubAccountTokenNames where
+instance Core.AWSRequest ListGitHubAccountTokenNames where
   type
     Rs ListGitHubAccountTokenNames =
       ListGitHubAccountTokenNamesResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeDeploy_20141006.ListGitHubAccountTokenNames")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListGitHubAccountTokenNamesResponse'
-            Lude.<$> (x Lude..?> "tokenNameList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "tokenNameList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListGitHubAccountTokenNames where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeDeploy_20141006.ListGitHubAccountTokenNames" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListGitHubAccountTokenNames where
-  toJSON ListGitHubAccountTokenNames' {..} =
-    Lude.object
-      (Lude.catMaybes [("nextToken" Lude..=) Lude.<$> nextToken])
-
-instance Lude.ToPath ListGitHubAccountTokenNames where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListGitHubAccountTokenNames where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListGitHubAccountTokenNames where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"tokenNameList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the output of a @ListGitHubAccountTokenNames@ operation.
 --
 -- /See:/ 'mkListGitHubAccountTokenNamesResponse' smart constructor.
 data ListGitHubAccountTokenNamesResponse = ListGitHubAccountTokenNamesResponse'
-  { -- | A list of names of connections to GitHub accounts.
-    tokenNameList :: Lude.Maybe [Lude.Text],
-    -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent @ListGitHubAccountTokenNames@ call to return the next set of names in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent @ListGitHubAccountTokenNames@ call to return the next set of names in the list.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A list of names of connections to GitHub accounts.
+    tokenNameList :: Core.Maybe [Types.GitHubAccountTokenName],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListGitHubAccountTokenNamesResponse' with the minimum fields required to make a request.
---
--- * 'tokenNameList' - A list of names of connections to GitHub accounts.
--- * 'nextToken' - If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent @ListGitHubAccountTokenNames@ call to return the next set of names in the list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListGitHubAccountTokenNamesResponse' value with any optional fields omitted.
 mkListGitHubAccountTokenNamesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListGitHubAccountTokenNamesResponse
-mkListGitHubAccountTokenNamesResponse pResponseStatus_ =
+mkListGitHubAccountTokenNamesResponse responseStatus =
   ListGitHubAccountTokenNamesResponse'
-    { tokenNameList =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      tokenNameList = Core.Nothing,
+      responseStatus
     }
-
--- | A list of names of connections to GitHub accounts.
---
--- /Note:/ Consider using 'tokenNameList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lghatnrsTokenNameList :: Lens.Lens' ListGitHubAccountTokenNamesResponse (Lude.Maybe [Lude.Text])
-lghatnrsTokenNameList = Lens.lens (tokenNameList :: ListGitHubAccountTokenNamesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {tokenNameList = a} :: ListGitHubAccountTokenNamesResponse)
-{-# DEPRECATED lghatnrsTokenNameList "Use generic-lens or generic-optics with 'tokenNameList' instead." #-}
 
 -- | If a large amount of information is returned, an identifier is also returned. It can be used in a subsequent @ListGitHubAccountTokenNames@ call to return the next set of names in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lghatnrsNextToken :: Lens.Lens' ListGitHubAccountTokenNamesResponse (Lude.Maybe Lude.Text)
-lghatnrsNextToken = Lens.lens (nextToken :: ListGitHubAccountTokenNamesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListGitHubAccountTokenNamesResponse)
-{-# DEPRECATED lghatnrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lghatnrrsNextToken :: Lens.Lens' ListGitHubAccountTokenNamesResponse (Core.Maybe Types.NextToken)
+lghatnrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lghatnrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A list of names of connections to GitHub accounts.
+--
+-- /Note:/ Consider using 'tokenNameList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lghatnrrsTokenNameList :: Lens.Lens' ListGitHubAccountTokenNamesResponse (Core.Maybe [Types.GitHubAccountTokenName])
+lghatnrrsTokenNameList = Lens.field @"tokenNameList"
+{-# DEPRECATED lghatnrrsTokenNameList "Use generic-lens or generic-optics with 'tokenNameList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lghatnrsResponseStatus :: Lens.Lens' ListGitHubAccountTokenNamesResponse Lude.Int
-lghatnrsResponseStatus = Lens.lens (responseStatus :: ListGitHubAccountTokenNamesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListGitHubAccountTokenNamesResponse)
-{-# DEPRECATED lghatnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lghatnrrsResponseStatus :: Lens.Lens' ListGitHubAccountTokenNamesResponse Core.Int
+lghatnrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lghatnrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

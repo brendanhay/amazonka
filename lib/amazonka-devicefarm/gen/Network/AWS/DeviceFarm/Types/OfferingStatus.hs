@@ -24,79 +24,72 @@ module Network.AWS.DeviceFarm.Types.OfferingStatus
   )
 where
 
-import Network.AWS.DeviceFarm.Types.Offering
-import Network.AWS.DeviceFarm.Types.OfferingTransactionType
+import qualified Network.AWS.DeviceFarm.Types.Offering as Types
+import qualified Network.AWS.DeviceFarm.Types.OfferingTransactionType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of the offering.
 --
 -- /See:/ 'mkOfferingStatus' smart constructor.
 data OfferingStatus = OfferingStatus'
   { -- | The date on which the offering is effective.
-    effectiveOn :: Lude.Maybe Lude.Timestamp,
+    effectiveOn :: Core.Maybe Core.NominalDiffTime,
     -- | Represents the metadata of an offering status.
-    offering :: Lude.Maybe Offering,
+    offering :: Core.Maybe Types.Offering,
     -- | The number of available devices in the offering.
-    quantity :: Lude.Maybe Lude.Int,
+    quantity :: Core.Maybe Core.Int,
     -- | The type specified for the offering status.
-    type' :: Lude.Maybe OfferingTransactionType
+    type' :: Core.Maybe Types.OfferingTransactionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'OfferingStatus' with the minimum fields required to make a request.
---
--- * 'effectiveOn' - The date on which the offering is effective.
--- * 'offering' - Represents the metadata of an offering status.
--- * 'quantity' - The number of available devices in the offering.
--- * 'type'' - The type specified for the offering status.
+-- | Creates a 'OfferingStatus' value with any optional fields omitted.
 mkOfferingStatus ::
   OfferingStatus
 mkOfferingStatus =
   OfferingStatus'
-    { effectiveOn = Lude.Nothing,
-      offering = Lude.Nothing,
-      quantity = Lude.Nothing,
-      type' = Lude.Nothing
+    { effectiveOn = Core.Nothing,
+      offering = Core.Nothing,
+      quantity = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The date on which the offering is effective.
 --
 -- /Note:/ Consider using 'effectiveOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osEffectiveOn :: Lens.Lens' OfferingStatus (Lude.Maybe Lude.Timestamp)
-osEffectiveOn = Lens.lens (effectiveOn :: OfferingStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {effectiveOn = a} :: OfferingStatus)
+osEffectiveOn :: Lens.Lens' OfferingStatus (Core.Maybe Core.NominalDiffTime)
+osEffectiveOn = Lens.field @"effectiveOn"
 {-# DEPRECATED osEffectiveOn "Use generic-lens or generic-optics with 'effectiveOn' instead." #-}
 
 -- | Represents the metadata of an offering status.
 --
 -- /Note:/ Consider using 'offering' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osOffering :: Lens.Lens' OfferingStatus (Lude.Maybe Offering)
-osOffering = Lens.lens (offering :: OfferingStatus -> Lude.Maybe Offering) (\s a -> s {offering = a} :: OfferingStatus)
+osOffering :: Lens.Lens' OfferingStatus (Core.Maybe Types.Offering)
+osOffering = Lens.field @"offering"
 {-# DEPRECATED osOffering "Use generic-lens or generic-optics with 'offering' instead." #-}
 
 -- | The number of available devices in the offering.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osQuantity :: Lens.Lens' OfferingStatus (Lude.Maybe Lude.Int)
-osQuantity = Lens.lens (quantity :: OfferingStatus -> Lude.Maybe Lude.Int) (\s a -> s {quantity = a} :: OfferingStatus)
+osQuantity :: Lens.Lens' OfferingStatus (Core.Maybe Core.Int)
+osQuantity = Lens.field @"quantity"
 {-# DEPRECATED osQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | The type specified for the offering status.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osType :: Lens.Lens' OfferingStatus (Lude.Maybe OfferingTransactionType)
-osType = Lens.lens (type' :: OfferingStatus -> Lude.Maybe OfferingTransactionType) (\s a -> s {type' = a} :: OfferingStatus)
+osType :: Lens.Lens' OfferingStatus (Core.Maybe Types.OfferingTransactionType)
+osType = Lens.field @"type'"
 {-# DEPRECATED osType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON OfferingStatus where
+instance Core.FromJSON OfferingStatus where
   parseJSON =
-    Lude.withObject
-      "OfferingStatus"
-      ( \x ->
-          OfferingStatus'
-            Lude.<$> (x Lude..:? "effectiveOn")
-            Lude.<*> (x Lude..:? "offering")
-            Lude.<*> (x Lude..:? "quantity")
-            Lude.<*> (x Lude..:? "type")
-      )
+    Core.withObject "OfferingStatus" Core.$
+      \x ->
+        OfferingStatus'
+          Core.<$> (x Core..:? "effectiveOn")
+          Core.<*> (x Core..:? "offering")
+          Core.<*> (x Core..:? "quantity")
+          Core.<*> (x Core..:? "type")

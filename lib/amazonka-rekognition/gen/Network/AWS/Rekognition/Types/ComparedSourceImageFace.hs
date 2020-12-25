@@ -23,52 +23,47 @@ module Network.AWS.Rekognition.Types.ComparedSourceImageFace
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.BoundingBox
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.BoundingBox as Types
 
 -- | Type that describes the face Amazon Rekognition chose to compare with the faces in the target. This contains a bounding box for the selected face and confidence level that the bounding box contains a face. Note that Amazon Rekognition selects the largest face in the source image for this comparison.
 --
 -- /See:/ 'mkComparedSourceImageFace' smart constructor.
 data ComparedSourceImageFace = ComparedSourceImageFace'
   { -- | Bounding box of the face.
-    boundingBox :: Lude.Maybe BoundingBox,
+    boundingBox :: Core.Maybe Types.BoundingBox,
     -- | Confidence level that the selected bounding box contains a face.
-    confidence :: Lude.Maybe Lude.Double
+    confidence :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ComparedSourceImageFace' with the minimum fields required to make a request.
---
--- * 'boundingBox' - Bounding box of the face.
--- * 'confidence' - Confidence level that the selected bounding box contains a face.
+-- | Creates a 'ComparedSourceImageFace' value with any optional fields omitted.
 mkComparedSourceImageFace ::
   ComparedSourceImageFace
 mkComparedSourceImageFace =
   ComparedSourceImageFace'
-    { boundingBox = Lude.Nothing,
-      confidence = Lude.Nothing
+    { boundingBox = Core.Nothing,
+      confidence = Core.Nothing
     }
 
 -- | Bounding box of the face.
 --
 -- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csifBoundingBox :: Lens.Lens' ComparedSourceImageFace (Lude.Maybe BoundingBox)
-csifBoundingBox = Lens.lens (boundingBox :: ComparedSourceImageFace -> Lude.Maybe BoundingBox) (\s a -> s {boundingBox = a} :: ComparedSourceImageFace)
+csifBoundingBox :: Lens.Lens' ComparedSourceImageFace (Core.Maybe Types.BoundingBox)
+csifBoundingBox = Lens.field @"boundingBox"
 {-# DEPRECATED csifBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
 
 -- | Confidence level that the selected bounding box contains a face.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csifConfidence :: Lens.Lens' ComparedSourceImageFace (Lude.Maybe Lude.Double)
-csifConfidence = Lens.lens (confidence :: ComparedSourceImageFace -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: ComparedSourceImageFace)
+csifConfidence :: Lens.Lens' ComparedSourceImageFace (Core.Maybe Core.Double)
+csifConfidence = Lens.field @"confidence"
 {-# DEPRECATED csifConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance Lude.FromJSON ComparedSourceImageFace where
+instance Core.FromJSON ComparedSourceImageFace where
   parseJSON =
-    Lude.withObject
-      "ComparedSourceImageFace"
-      ( \x ->
-          ComparedSourceImageFace'
-            Lude.<$> (x Lude..:? "BoundingBox") Lude.<*> (x Lude..:? "Confidence")
-      )
+    Core.withObject "ComparedSourceImageFace" Core.$
+      \x ->
+        ComparedSourceImageFace'
+          Core.<$> (x Core..:? "BoundingBox") Core.<*> (x Core..:? "Confidence")

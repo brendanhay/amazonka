@@ -22,64 +22,59 @@ module Network.AWS.Glue.Types.SchemaChangePolicy
   )
 where
 
-import Network.AWS.Glue.Types.DeleteBehavior
-import Network.AWS.Glue.Types.UpdateBehavior
+import qualified Network.AWS.Glue.Types.DeleteBehavior as Types
+import qualified Network.AWS.Glue.Types.UpdateBehavior as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A policy that specifies update and deletion behaviors for the crawler.
 --
 -- /See:/ 'mkSchemaChangePolicy' smart constructor.
 data SchemaChangePolicy = SchemaChangePolicy'
   { -- | The deletion behavior when the crawler finds a deleted object.
-    deleteBehavior :: Lude.Maybe DeleteBehavior,
+    deleteBehavior :: Core.Maybe Types.DeleteBehavior,
     -- | The update behavior when the crawler finds a changed schema.
-    updateBehavior :: Lude.Maybe UpdateBehavior
+    updateBehavior :: Core.Maybe Types.UpdateBehavior
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SchemaChangePolicy' with the minimum fields required to make a request.
---
--- * 'deleteBehavior' - The deletion behavior when the crawler finds a deleted object.
--- * 'updateBehavior' - The update behavior when the crawler finds a changed schema.
+-- | Creates a 'SchemaChangePolicy' value with any optional fields omitted.
 mkSchemaChangePolicy ::
   SchemaChangePolicy
 mkSchemaChangePolicy =
   SchemaChangePolicy'
-    { deleteBehavior = Lude.Nothing,
-      updateBehavior = Lude.Nothing
+    { deleteBehavior = Core.Nothing,
+      updateBehavior = Core.Nothing
     }
 
 -- | The deletion behavior when the crawler finds a deleted object.
 --
 -- /Note:/ Consider using 'deleteBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scpDeleteBehavior :: Lens.Lens' SchemaChangePolicy (Lude.Maybe DeleteBehavior)
-scpDeleteBehavior = Lens.lens (deleteBehavior :: SchemaChangePolicy -> Lude.Maybe DeleteBehavior) (\s a -> s {deleteBehavior = a} :: SchemaChangePolicy)
+scpDeleteBehavior :: Lens.Lens' SchemaChangePolicy (Core.Maybe Types.DeleteBehavior)
+scpDeleteBehavior = Lens.field @"deleteBehavior"
 {-# DEPRECATED scpDeleteBehavior "Use generic-lens or generic-optics with 'deleteBehavior' instead." #-}
 
 -- | The update behavior when the crawler finds a changed schema.
 --
 -- /Note:/ Consider using 'updateBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scpUpdateBehavior :: Lens.Lens' SchemaChangePolicy (Lude.Maybe UpdateBehavior)
-scpUpdateBehavior = Lens.lens (updateBehavior :: SchemaChangePolicy -> Lude.Maybe UpdateBehavior) (\s a -> s {updateBehavior = a} :: SchemaChangePolicy)
+scpUpdateBehavior :: Lens.Lens' SchemaChangePolicy (Core.Maybe Types.UpdateBehavior)
+scpUpdateBehavior = Lens.field @"updateBehavior"
 {-# DEPRECATED scpUpdateBehavior "Use generic-lens or generic-optics with 'updateBehavior' instead." #-}
 
-instance Lude.FromJSON SchemaChangePolicy where
-  parseJSON =
-    Lude.withObject
-      "SchemaChangePolicy"
-      ( \x ->
-          SchemaChangePolicy'
-            Lude.<$> (x Lude..:? "DeleteBehavior")
-            Lude.<*> (x Lude..:? "UpdateBehavior")
-      )
-
-instance Lude.ToJSON SchemaChangePolicy where
-  toJSON SchemaChangePolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DeleteBehavior" Lude..=) Lude.<$> deleteBehavior,
-            ("UpdateBehavior" Lude..=) Lude.<$> updateBehavior
+instance Core.FromJSON SchemaChangePolicy where
+  toJSON SchemaChangePolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DeleteBehavior" Core..=) Core.<$> deleteBehavior,
+            ("UpdateBehavior" Core..=) Core.<$> updateBehavior
           ]
       )
+
+instance Core.FromJSON SchemaChangePolicy where
+  parseJSON =
+    Core.withObject "SchemaChangePolicy" Core.$
+      \x ->
+        SchemaChangePolicy'
+          Core.<$> (x Core..:? "DeleteBehavior")
+          Core.<*> (x Core..:? "UpdateBehavior")

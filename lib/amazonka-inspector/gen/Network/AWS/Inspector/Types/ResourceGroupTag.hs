@@ -17,63 +17,60 @@ module Network.AWS.Inspector.Types.ResourceGroupTag
     mkResourceGroupTag,
 
     -- * Lenses
-    rgtValue,
     rgtKey,
+    rgtValue,
   )
 where
 
+import qualified Network.AWS.Inspector.Types.Key as Types
+import qualified Network.AWS.Inspector.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This data type is used as one of the elements of the 'ResourceGroup' data type.
 --
 -- /See:/ 'mkResourceGroupTag' smart constructor.
 data ResourceGroupTag = ResourceGroupTag'
-  { -- | The value assigned to a tag key.
-    value :: Lude.Maybe Lude.Text,
-    -- | A tag key.
-    key :: Lude.Text
+  { -- | A tag key.
+    key :: Types.Key,
+    -- | The value assigned to a tag key.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceGroupTag' with the minimum fields required to make a request.
---
--- * 'value' - The value assigned to a tag key.
--- * 'key' - A tag key.
+-- | Creates a 'ResourceGroupTag' value with any optional fields omitted.
 mkResourceGroupTag ::
   -- | 'key'
-  Lude.Text ->
+  Types.Key ->
   ResourceGroupTag
-mkResourceGroupTag pKey_ =
-  ResourceGroupTag' {value = Lude.Nothing, key = pKey_}
-
--- | The value assigned to a tag key.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgtValue :: Lens.Lens' ResourceGroupTag (Lude.Maybe Lude.Text)
-rgtValue = Lens.lens (value :: ResourceGroupTag -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: ResourceGroupTag)
-{-# DEPRECATED rgtValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkResourceGroupTag key =
+  ResourceGroupTag' {key, value = Core.Nothing}
 
 -- | A tag key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgtKey :: Lens.Lens' ResourceGroupTag Lude.Text
-rgtKey = Lens.lens (key :: ResourceGroupTag -> Lude.Text) (\s a -> s {key = a} :: ResourceGroupTag)
+rgtKey :: Lens.Lens' ResourceGroupTag Types.Key
+rgtKey = Lens.field @"key"
 {-# DEPRECATED rgtKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON ResourceGroupTag where
-  parseJSON =
-    Lude.withObject
-      "ResourceGroupTag"
-      ( \x ->
-          ResourceGroupTag'
-            Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..: "key")
+-- | The value assigned to a tag key.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgtValue :: Lens.Lens' ResourceGroupTag (Core.Maybe Types.Value)
+rgtValue = Lens.field @"value"
+{-# DEPRECATED rgtValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON ResourceGroupTag where
+  toJSON ResourceGroupTag {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("key" Core..= key), ("value" Core..=) Core.<$> value]
       )
 
-instance Lude.ToJSON ResourceGroupTag where
-  toJSON ResourceGroupTag' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("value" Lude..=) Lude.<$> value, Lude.Just ("key" Lude..= key)]
-      )
+instance Core.FromJSON ResourceGroupTag where
+  parseJSON =
+    Core.withObject "ResourceGroupTag" Core.$
+      \x ->
+        ResourceGroupTag'
+          Core.<$> (x Core..: "key") Core.<*> (x Core..:? "value")

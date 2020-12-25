@@ -20,25 +20,25 @@ module Network.AWS.RDS.CreateDBSnapshot
     mkCreateDBSnapshot,
 
     -- ** Request lenses
-    cdbsDBSnapshotIdentifier,
-    cdbsDBInstanceIdentifier,
-    cdbsTags,
+    cDBSnapshotIdentifier,
+    cDBInstanceIdentifier,
+    cTags,
 
     -- * Destructuring the response
     CreateDBSnapshotResponse (..),
     mkCreateDBSnapshotResponse,
 
     -- ** Response lenses
-    cdsrsDBSnapshot,
-    cdsrsResponseStatus,
+    crsDBSnapshot,
+    crsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -61,56 +61,30 @@ data CreateDBSnapshot = CreateDBSnapshot'
     --
     --
     -- Example: @my-snapshot-id@
-    dbSnapshotIdentifier :: Lude.Text,
+    dBSnapshotIdentifier :: Types.String,
     -- | The identifier of the DB instance that you want to create the snapshot of.
     --
     -- Constraints:
     --
     --     * Must match the identifier of an existing DBInstance.
-    dbInstanceIdentifier :: Lude.Text,
-    tags :: Lude.Maybe [Tag]
+    dBInstanceIdentifier :: Types.String,
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateDBSnapshot' with the minimum fields required to make a request.
---
--- * 'dbSnapshotIdentifier' - The identifier for the DB snapshot.
---
--- Constraints:
---
---     * Can't be null, empty, or blank
---
---
---     * Must contain from 1 to 255 letters, numbers, or hyphens
---
---
---     * First character must be a letter
---
---
---     * Can't end with a hyphen or contain two consecutive hyphens
---
---
--- Example: @my-snapshot-id@
--- * 'dbInstanceIdentifier' - The identifier of the DB instance that you want to create the snapshot of.
---
--- Constraints:
---
---     * Must match the identifier of an existing DBInstance.
---
---
--- * 'tags' -
+-- | Creates a 'CreateDBSnapshot' value with any optional fields omitted.
 mkCreateDBSnapshot ::
-  -- | 'dbSnapshotIdentifier'
-  Lude.Text ->
-  -- | 'dbInstanceIdentifier'
-  Lude.Text ->
+  -- | 'dBSnapshotIdentifier'
+  Types.String ->
+  -- | 'dBInstanceIdentifier'
+  Types.String ->
   CreateDBSnapshot
-mkCreateDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
+mkCreateDBSnapshot dBSnapshotIdentifier dBInstanceIdentifier =
   CreateDBSnapshot'
-    { dbSnapshotIdentifier = pDBSnapshotIdentifier_,
-      dbInstanceIdentifier = pDBInstanceIdentifier_,
-      tags = Lude.Nothing
+    { dBSnapshotIdentifier,
+      dBInstanceIdentifier,
+      tags = Core.Nothing
     }
 
 -- | The identifier for the DB snapshot.
@@ -131,10 +105,10 @@ mkCreateDBSnapshot pDBSnapshotIdentifier_ pDBInstanceIdentifier_ =
 --
 -- Example: @my-snapshot-id@
 --
--- /Note:/ Consider using 'dbSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdbsDBSnapshotIdentifier :: Lens.Lens' CreateDBSnapshot Lude.Text
-cdbsDBSnapshotIdentifier = Lens.lens (dbSnapshotIdentifier :: CreateDBSnapshot -> Lude.Text) (\s a -> s {dbSnapshotIdentifier = a} :: CreateDBSnapshot)
-{-# DEPRECATED cdbsDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dbSnapshotIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDBSnapshotIdentifier :: Lens.Lens' CreateDBSnapshot Types.String
+cDBSnapshotIdentifier = Lens.field @"dBSnapshotIdentifier"
+{-# DEPRECATED cDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dBSnapshotIdentifier' instead." #-}
 
 -- | The identifier of the DB instance that you want to create the snapshot of.
 --
@@ -144,78 +118,78 @@ cdbsDBSnapshotIdentifier = Lens.lens (dbSnapshotIdentifier :: CreateDBSnapshot -
 --
 --
 --
--- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdbsDBInstanceIdentifier :: Lens.Lens' CreateDBSnapshot Lude.Text
-cdbsDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: CreateDBSnapshot -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: CreateDBSnapshot)
-{-# DEPRECATED cdbsDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDBInstanceIdentifier :: Lens.Lens' CreateDBSnapshot Types.String
+cDBInstanceIdentifier = Lens.field @"dBInstanceIdentifier"
+{-# DEPRECATED cDBInstanceIdentifier "Use generic-lens or generic-optics with 'dBInstanceIdentifier' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdbsTags :: Lens.Lens' CreateDBSnapshot (Lude.Maybe [Tag])
-cdbsTags = Lens.lens (tags :: CreateDBSnapshot -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateDBSnapshot)
-{-# DEPRECATED cdbsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+cTags :: Lens.Lens' CreateDBSnapshot (Core.Maybe [Types.Tag])
+cTags = Lens.field @"tags"
+{-# DEPRECATED cTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateDBSnapshot where
+instance Core.AWSRequest CreateDBSnapshot where
   type Rs CreateDBSnapshot = CreateDBSnapshotResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateDBSnapshot")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBSnapshotIdentifier" dBSnapshotIdentifier)
+                Core.<> (Core.toQueryValue "DBInstanceIdentifier" dBInstanceIdentifier)
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "Tag" Core.<$> tags))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateDBSnapshotResult"
       ( \s h x ->
           CreateDBSnapshotResponse'
-            Lude.<$> (x Lude..@? "DBSnapshot") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBSnapshot") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateDBSnapshot where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateDBSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateDBSnapshot where
-  toQuery CreateDBSnapshot' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateDBSnapshot" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBSnapshotIdentifier" Lude.=: dbSnapshotIdentifier,
-        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier,
-        "Tags" Lude.=: Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
-      ]
 
 -- | /See:/ 'mkCreateDBSnapshotResponse' smart constructor.
 data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
-  { dbSnapshot :: Lude.Maybe DBSnapshot,
+  { dBSnapshot :: Core.Maybe Types.DBSnapshot,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateDBSnapshotResponse' with the minimum fields required to make a request.
---
--- * 'dbSnapshot' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateDBSnapshotResponse' value with any optional fields omitted.
 mkCreateDBSnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateDBSnapshotResponse
-mkCreateDBSnapshotResponse pResponseStatus_ =
+mkCreateDBSnapshotResponse responseStatus =
   CreateDBSnapshotResponse'
-    { dbSnapshot = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBSnapshot = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'dbSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsrsDBSnapshot :: Lens.Lens' CreateDBSnapshotResponse (Lude.Maybe DBSnapshot)
-cdsrsDBSnapshot = Lens.lens (dbSnapshot :: CreateDBSnapshotResponse -> Lude.Maybe DBSnapshot) (\s a -> s {dbSnapshot = a} :: CreateDBSnapshotResponse)
-{-# DEPRECATED cdsrsDBSnapshot "Use generic-lens or generic-optics with 'dbSnapshot' instead." #-}
+-- /Note:/ Consider using 'dBSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crsDBSnapshot :: Lens.Lens' CreateDBSnapshotResponse (Core.Maybe Types.DBSnapshot)
+crsDBSnapshot = Lens.field @"dBSnapshot"
+{-# DEPRECATED crsDBSnapshot "Use generic-lens or generic-optics with 'dBSnapshot' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsrsResponseStatus :: Lens.Lens' CreateDBSnapshotResponse Lude.Int
-cdsrsResponseStatus = Lens.lens (responseStatus :: CreateDBSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateDBSnapshotResponse)
-{-# DEPRECATED cdsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crsResponseStatus :: Lens.Lens' CreateDBSnapshotResponse Core.Int
+crsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

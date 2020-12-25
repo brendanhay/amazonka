@@ -17,107 +17,100 @@ module Network.AWS.Inspector.Types.ExclusionPreview
     mkExclusionPreview,
 
     -- * Lenses
-    epScopes,
-    epAttributes,
     epTitle,
     epDescription,
     epRecommendation,
+    epScopes,
+    epAttributes,
   )
 where
 
-import Network.AWS.Inspector.Types.Attribute
-import Network.AWS.Inspector.Types.Scope
+import qualified Network.AWS.Inspector.Types.Attribute as Types
+import qualified Network.AWS.Inspector.Types.Scope as Types
+import qualified Network.AWS.Inspector.Types.Text as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about what is excluded from an assessment run given the current state of the assessment template.
 --
 -- /See:/ 'mkExclusionPreview' smart constructor.
 data ExclusionPreview = ExclusionPreview'
-  { -- | The AWS resources for which the exclusion preview pertains.
-    scopes :: Lude.NonEmpty Scope,
-    -- | The system-defined attributes for the exclusion preview.
-    attributes :: Lude.Maybe [Attribute],
-    -- | The name of the exclusion preview.
-    title :: Lude.Text,
+  { -- | The name of the exclusion preview.
+    title :: Types.Text,
     -- | The description of the exclusion preview.
-    description :: Lude.Text,
+    description :: Types.Text,
     -- | The recommendation for the exclusion preview.
-    recommendation :: Lude.Text
+    recommendation :: Types.Text,
+    -- | The AWS resources for which the exclusion preview pertains.
+    scopes :: Core.NonEmpty Types.Scope,
+    -- | The system-defined attributes for the exclusion preview.
+    attributes :: Core.Maybe [Types.Attribute]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExclusionPreview' with the minimum fields required to make a request.
---
--- * 'scopes' - The AWS resources for which the exclusion preview pertains.
--- * 'attributes' - The system-defined attributes for the exclusion preview.
--- * 'title' - The name of the exclusion preview.
--- * 'description' - The description of the exclusion preview.
--- * 'recommendation' - The recommendation for the exclusion preview.
+-- | Creates a 'ExclusionPreview' value with any optional fields omitted.
 mkExclusionPreview ::
-  -- | 'scopes'
-  Lude.NonEmpty Scope ->
   -- | 'title'
-  Lude.Text ->
+  Types.Text ->
   -- | 'description'
-  Lude.Text ->
+  Types.Text ->
   -- | 'recommendation'
-  Lude.Text ->
+  Types.Text ->
+  -- | 'scopes'
+  Core.NonEmpty Types.Scope ->
   ExclusionPreview
-mkExclusionPreview pScopes_ pTitle_ pDescription_ pRecommendation_ =
+mkExclusionPreview title description recommendation scopes =
   ExclusionPreview'
-    { scopes = pScopes_,
-      attributes = Lude.Nothing,
-      title = pTitle_,
-      description = pDescription_,
-      recommendation = pRecommendation_
+    { title,
+      description,
+      recommendation,
+      scopes,
+      attributes = Core.Nothing
     }
-
--- | The AWS resources for which the exclusion preview pertains.
---
--- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epScopes :: Lens.Lens' ExclusionPreview (Lude.NonEmpty Scope)
-epScopes = Lens.lens (scopes :: ExclusionPreview -> Lude.NonEmpty Scope) (\s a -> s {scopes = a} :: ExclusionPreview)
-{-# DEPRECATED epScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
-
--- | The system-defined attributes for the exclusion preview.
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epAttributes :: Lens.Lens' ExclusionPreview (Lude.Maybe [Attribute])
-epAttributes = Lens.lens (attributes :: ExclusionPreview -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: ExclusionPreview)
-{-# DEPRECATED epAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The name of the exclusion preview.
 --
 -- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epTitle :: Lens.Lens' ExclusionPreview Lude.Text
-epTitle = Lens.lens (title :: ExclusionPreview -> Lude.Text) (\s a -> s {title = a} :: ExclusionPreview)
+epTitle :: Lens.Lens' ExclusionPreview Types.Text
+epTitle = Lens.field @"title"
 {-# DEPRECATED epTitle "Use generic-lens or generic-optics with 'title' instead." #-}
 
 -- | The description of the exclusion preview.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epDescription :: Lens.Lens' ExclusionPreview Lude.Text
-epDescription = Lens.lens (description :: ExclusionPreview -> Lude.Text) (\s a -> s {description = a} :: ExclusionPreview)
+epDescription :: Lens.Lens' ExclusionPreview Types.Text
+epDescription = Lens.field @"description"
 {-# DEPRECATED epDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The recommendation for the exclusion preview.
 --
 -- /Note:/ Consider using 'recommendation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-epRecommendation :: Lens.Lens' ExclusionPreview Lude.Text
-epRecommendation = Lens.lens (recommendation :: ExclusionPreview -> Lude.Text) (\s a -> s {recommendation = a} :: ExclusionPreview)
+epRecommendation :: Lens.Lens' ExclusionPreview Types.Text
+epRecommendation = Lens.field @"recommendation"
 {-# DEPRECATED epRecommendation "Use generic-lens or generic-optics with 'recommendation' instead." #-}
 
-instance Lude.FromJSON ExclusionPreview where
+-- | The AWS resources for which the exclusion preview pertains.
+--
+-- /Note:/ Consider using 'scopes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epScopes :: Lens.Lens' ExclusionPreview (Core.NonEmpty Types.Scope)
+epScopes = Lens.field @"scopes"
+{-# DEPRECATED epScopes "Use generic-lens or generic-optics with 'scopes' instead." #-}
+
+-- | The system-defined attributes for the exclusion preview.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+epAttributes :: Lens.Lens' ExclusionPreview (Core.Maybe [Types.Attribute])
+epAttributes = Lens.field @"attributes"
+{-# DEPRECATED epAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+instance Core.FromJSON ExclusionPreview where
   parseJSON =
-    Lude.withObject
-      "ExclusionPreview"
-      ( \x ->
-          ExclusionPreview'
-            Lude.<$> (x Lude..: "scopes")
-            Lude.<*> (x Lude..:? "attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "title")
-            Lude.<*> (x Lude..: "description")
-            Lude.<*> (x Lude..: "recommendation")
-      )
+    Core.withObject "ExclusionPreview" Core.$
+      \x ->
+        ExclusionPreview'
+          Core.<$> (x Core..: "title")
+          Core.<*> (x Core..: "description")
+          Core.<*> (x Core..: "recommendation")
+          Core.<*> (x Core..: "scopes")
+          Core.<*> (x Core..:? "attributes")

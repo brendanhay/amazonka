@@ -17,55 +17,50 @@ module Network.AWS.CostExplorer.Types.Group
     mkGroup,
 
     -- * Lenses
-    gMetrics,
     gKeys,
+    gMetrics,
   )
 where
 
-import Network.AWS.CostExplorer.Types.MetricValue
+import qualified Network.AWS.CostExplorer.Types.Key as Types
+import qualified Network.AWS.CostExplorer.Types.MetricName as Types
+import qualified Network.AWS.CostExplorer.Types.MetricValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | One level of grouped data in the results.
 --
 -- /See:/ 'mkGroup' smart constructor.
 data Group = Group'
-  { -- | The metrics that are included in this group.
-    metrics :: Lude.Maybe (Lude.HashMap Lude.Text (MetricValue)),
-    -- | The keys that are included in this group.
-    keys :: Lude.Maybe [Lude.Text]
+  { -- | The keys that are included in this group.
+    keys :: Core.Maybe [Types.Key],
+    -- | The metrics that are included in this group.
+    metrics :: Core.Maybe (Core.HashMap Types.MetricName Types.MetricValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Group' with the minimum fields required to make a request.
---
--- * 'metrics' - The metrics that are included in this group.
--- * 'keys' - The keys that are included in this group.
+-- | Creates a 'Group' value with any optional fields omitted.
 mkGroup ::
   Group
-mkGroup = Group' {metrics = Lude.Nothing, keys = Lude.Nothing}
-
--- | The metrics that are included in this group.
---
--- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gMetrics :: Lens.Lens' Group (Lude.Maybe (Lude.HashMap Lude.Text (MetricValue)))
-gMetrics = Lens.lens (metrics :: Group -> Lude.Maybe (Lude.HashMap Lude.Text (MetricValue))) (\s a -> s {metrics = a} :: Group)
-{-# DEPRECATED gMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
+mkGroup = Group' {keys = Core.Nothing, metrics = Core.Nothing}
 
 -- | The keys that are included in this group.
 --
 -- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gKeys :: Lens.Lens' Group (Lude.Maybe [Lude.Text])
-gKeys = Lens.lens (keys :: Group -> Lude.Maybe [Lude.Text]) (\s a -> s {keys = a} :: Group)
+gKeys :: Lens.Lens' Group (Core.Maybe [Types.Key])
+gKeys = Lens.field @"keys"
 {-# DEPRECATED gKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
 
-instance Lude.FromJSON Group where
+-- | The metrics that are included in this group.
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gMetrics :: Lens.Lens' Group (Core.Maybe (Core.HashMap Types.MetricName Types.MetricValue))
+gMetrics = Lens.field @"metrics"
+{-# DEPRECATED gMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
+
+instance Core.FromJSON Group where
   parseJSON =
-    Lude.withObject
-      "Group"
-      ( \x ->
-          Group'
-            Lude.<$> (x Lude..:? "Metrics" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Keys" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Group" Core.$
+      \x ->
+        Group' Core.<$> (x Core..:? "Keys") Core.<*> (x Core..:? "Metrics")

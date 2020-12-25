@@ -13,76 +13,81 @@
 module Network.AWS.CloudTrail.Types.LookupAttributeKey
   ( LookupAttributeKey
       ( LookupAttributeKey',
-        EventId,
-        EventName,
-        ReadOnly,
-        Username,
-        ResourceType,
-        ResourceName,
-        EventSource,
-        AccessKeyId
+        LookupAttributeKeyEventId,
+        LookupAttributeKeyEventName,
+        LookupAttributeKeyReadOnly,
+        LookupAttributeKeyUsername,
+        LookupAttributeKeyResourceType,
+        LookupAttributeKeyResourceName,
+        LookupAttributeKeyEventSource,
+        LookupAttributeKeyAccessKeyId,
+        fromLookupAttributeKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LookupAttributeKey = LookupAttributeKey' Lude.Text
+newtype LookupAttributeKey = LookupAttributeKey'
+  { fromLookupAttributeKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EventId :: LookupAttributeKey
-pattern EventId = LookupAttributeKey' "EventId"
+pattern LookupAttributeKeyEventId :: LookupAttributeKey
+pattern LookupAttributeKeyEventId = LookupAttributeKey' "EventId"
 
-pattern EventName :: LookupAttributeKey
-pattern EventName = LookupAttributeKey' "EventName"
+pattern LookupAttributeKeyEventName :: LookupAttributeKey
+pattern LookupAttributeKeyEventName = LookupAttributeKey' "EventName"
 
-pattern ReadOnly :: LookupAttributeKey
-pattern ReadOnly = LookupAttributeKey' "ReadOnly"
+pattern LookupAttributeKeyReadOnly :: LookupAttributeKey
+pattern LookupAttributeKeyReadOnly = LookupAttributeKey' "ReadOnly"
 
-pattern Username :: LookupAttributeKey
-pattern Username = LookupAttributeKey' "Username"
+pattern LookupAttributeKeyUsername :: LookupAttributeKey
+pattern LookupAttributeKeyUsername = LookupAttributeKey' "Username"
 
-pattern ResourceType :: LookupAttributeKey
-pattern ResourceType = LookupAttributeKey' "ResourceType"
+pattern LookupAttributeKeyResourceType :: LookupAttributeKey
+pattern LookupAttributeKeyResourceType = LookupAttributeKey' "ResourceType"
 
-pattern ResourceName :: LookupAttributeKey
-pattern ResourceName = LookupAttributeKey' "ResourceName"
+pattern LookupAttributeKeyResourceName :: LookupAttributeKey
+pattern LookupAttributeKeyResourceName = LookupAttributeKey' "ResourceName"
 
-pattern EventSource :: LookupAttributeKey
-pattern EventSource = LookupAttributeKey' "EventSource"
+pattern LookupAttributeKeyEventSource :: LookupAttributeKey
+pattern LookupAttributeKeyEventSource = LookupAttributeKey' "EventSource"
 
-pattern AccessKeyId :: LookupAttributeKey
-pattern AccessKeyId = LookupAttributeKey' "AccessKeyId"
+pattern LookupAttributeKeyAccessKeyId :: LookupAttributeKey
+pattern LookupAttributeKeyAccessKeyId = LookupAttributeKey' "AccessKeyId"
 
 {-# COMPLETE
-  EventId,
-  EventName,
-  ReadOnly,
-  Username,
-  ResourceType,
-  ResourceName,
-  EventSource,
-  AccessKeyId,
+  LookupAttributeKeyEventId,
+  LookupAttributeKeyEventName,
+  LookupAttributeKeyReadOnly,
+  LookupAttributeKeyUsername,
+  LookupAttributeKeyResourceType,
+  LookupAttributeKeyResourceName,
+  LookupAttributeKeyEventSource,
+  LookupAttributeKeyAccessKeyId,
   LookupAttributeKey'
   #-}

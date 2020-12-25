@@ -22,186 +22,184 @@ module Network.AWS.RDS.CreateGlobalCluster
     mkCreateGlobalCluster,
 
     -- ** Request lenses
-    cgcEngineVersion,
-    cgcDeletionProtection,
-    cgcStorageEncrypted,
-    cgcSourceDBClusterIdentifier,
-    cgcGlobalClusterIdentifier,
-    cgcEngine,
     cgcDatabaseName,
+    cgcDeletionProtection,
+    cgcEngine,
+    cgcEngineVersion,
+    cgcGlobalClusterIdentifier,
+    cgcSourceDBClusterIdentifier,
+    cgcStorageEncrypted,
 
     -- * Destructuring the response
     CreateGlobalClusterResponse (..),
     mkCreateGlobalClusterResponse,
 
     -- ** Response lenses
-    cgcrsGlobalCluster,
-    cgcrsResponseStatus,
+    cgcrrsGlobalCluster,
+    cgcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateGlobalCluster' smart constructor.
 data CreateGlobalCluster = CreateGlobalCluster'
-  { -- | The engine version of the Aurora global database.
-    engineVersion :: Lude.Maybe Lude.Text,
+  { -- | The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon Aurora will not create a database in the global database cluster you are creating.
+    databaseName :: Core.Maybe Types.String,
     -- | The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
-    deletionProtection :: Lude.Maybe Lude.Bool,
-    -- | The storage encryption setting for the new global database cluster.
-    storageEncrypted :: Lude.Maybe Lude.Bool,
-    -- | The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional.
-    sourceDBClusterIdentifier :: Lude.Maybe Lude.Text,
-    -- | The cluster identifier of the new global database cluster.
-    globalClusterIdentifier :: Lude.Maybe Lude.Text,
+    deletionProtection :: Core.Maybe Core.Bool,
     -- | The name of the database engine to be used for this DB cluster.
-    engine :: Lude.Maybe Lude.Text,
-    -- | The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon Aurora will not create a database in the global database cluster you are creating.
-    databaseName :: Lude.Maybe Lude.Text
+    engine :: Core.Maybe Types.String,
+    -- | The engine version of the Aurora global database.
+    engineVersion :: Core.Maybe Types.String,
+    -- | The cluster identifier of the new global database cluster.
+    globalClusterIdentifier :: Core.Maybe Types.String,
+    -- | The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional.
+    sourceDBClusterIdentifier :: Core.Maybe Types.String,
+    -- | The storage encryption setting for the new global database cluster.
+    storageEncrypted :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGlobalCluster' with the minimum fields required to make a request.
---
--- * 'engineVersion' - The engine version of the Aurora global database.
--- * 'deletionProtection' - The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
--- * 'storageEncrypted' - The storage encryption setting for the new global database cluster.
--- * 'sourceDBClusterIdentifier' - The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional.
--- * 'globalClusterIdentifier' - The cluster identifier of the new global database cluster.
--- * 'engine' - The name of the database engine to be used for this DB cluster.
--- * 'databaseName' - The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon Aurora will not create a database in the global database cluster you are creating.
+-- | Creates a 'CreateGlobalCluster' value with any optional fields omitted.
 mkCreateGlobalCluster ::
   CreateGlobalCluster
 mkCreateGlobalCluster =
   CreateGlobalCluster'
-    { engineVersion = Lude.Nothing,
-      deletionProtection = Lude.Nothing,
-      storageEncrypted = Lude.Nothing,
-      sourceDBClusterIdentifier = Lude.Nothing,
-      globalClusterIdentifier = Lude.Nothing,
-      engine = Lude.Nothing,
-      databaseName = Lude.Nothing
+    { databaseName = Core.Nothing,
+      deletionProtection = Core.Nothing,
+      engine = Core.Nothing,
+      engineVersion = Core.Nothing,
+      globalClusterIdentifier = Core.Nothing,
+      sourceDBClusterIdentifier = Core.Nothing,
+      storageEncrypted = Core.Nothing
     }
-
--- | The engine version of the Aurora global database.
---
--- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgcEngineVersion :: Lens.Lens' CreateGlobalCluster (Lude.Maybe Lude.Text)
-cgcEngineVersion = Lens.lens (engineVersion :: CreateGlobalCluster -> Lude.Maybe Lude.Text) (\s a -> s {engineVersion = a} :: CreateGlobalCluster)
-{-# DEPRECATED cgcEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
-
--- | The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
---
--- /Note:/ Consider using 'deletionProtection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgcDeletionProtection :: Lens.Lens' CreateGlobalCluster (Lude.Maybe Lude.Bool)
-cgcDeletionProtection = Lens.lens (deletionProtection :: CreateGlobalCluster -> Lude.Maybe Lude.Bool) (\s a -> s {deletionProtection = a} :: CreateGlobalCluster)
-{-# DEPRECATED cgcDeletionProtection "Use generic-lens or generic-optics with 'deletionProtection' instead." #-}
-
--- | The storage encryption setting for the new global database cluster.
---
--- /Note:/ Consider using 'storageEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgcStorageEncrypted :: Lens.Lens' CreateGlobalCluster (Lude.Maybe Lude.Bool)
-cgcStorageEncrypted = Lens.lens (storageEncrypted :: CreateGlobalCluster -> Lude.Maybe Lude.Bool) (\s a -> s {storageEncrypted = a} :: CreateGlobalCluster)
-{-# DEPRECATED cgcStorageEncrypted "Use generic-lens or generic-optics with 'storageEncrypted' instead." #-}
-
--- | The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional.
---
--- /Note:/ Consider using 'sourceDBClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgcSourceDBClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Lude.Maybe Lude.Text)
-cgcSourceDBClusterIdentifier = Lens.lens (sourceDBClusterIdentifier :: CreateGlobalCluster -> Lude.Maybe Lude.Text) (\s a -> s {sourceDBClusterIdentifier = a} :: CreateGlobalCluster)
-{-# DEPRECATED cgcSourceDBClusterIdentifier "Use generic-lens or generic-optics with 'sourceDBClusterIdentifier' instead." #-}
-
--- | The cluster identifier of the new global database cluster.
---
--- /Note:/ Consider using 'globalClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgcGlobalClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Lude.Maybe Lude.Text)
-cgcGlobalClusterIdentifier = Lens.lens (globalClusterIdentifier :: CreateGlobalCluster -> Lude.Maybe Lude.Text) (\s a -> s {globalClusterIdentifier = a} :: CreateGlobalCluster)
-{-# DEPRECATED cgcGlobalClusterIdentifier "Use generic-lens or generic-optics with 'globalClusterIdentifier' instead." #-}
-
--- | The name of the database engine to be used for this DB cluster.
---
--- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgcEngine :: Lens.Lens' CreateGlobalCluster (Lude.Maybe Lude.Text)
-cgcEngine = Lens.lens (engine :: CreateGlobalCluster -> Lude.Maybe Lude.Text) (\s a -> s {engine = a} :: CreateGlobalCluster)
-{-# DEPRECATED cgcEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
 
 -- | The name for your database of up to 64 alpha-numeric characters. If you do not provide a name, Amazon Aurora will not create a database in the global database cluster you are creating.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgcDatabaseName :: Lens.Lens' CreateGlobalCluster (Lude.Maybe Lude.Text)
-cgcDatabaseName = Lens.lens (databaseName :: CreateGlobalCluster -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: CreateGlobalCluster)
+cgcDatabaseName :: Lens.Lens' CreateGlobalCluster (Core.Maybe Types.String)
+cgcDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED cgcDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
-instance Lude.AWSRequest CreateGlobalCluster where
+-- | The deletion protection setting for the new global database. The global database can't be deleted when deletion protection is enabled.
+--
+-- /Note:/ Consider using 'deletionProtection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcDeletionProtection :: Lens.Lens' CreateGlobalCluster (Core.Maybe Core.Bool)
+cgcDeletionProtection = Lens.field @"deletionProtection"
+{-# DEPRECATED cgcDeletionProtection "Use generic-lens or generic-optics with 'deletionProtection' instead." #-}
+
+-- | The name of the database engine to be used for this DB cluster.
+--
+-- /Note:/ Consider using 'engine' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcEngine :: Lens.Lens' CreateGlobalCluster (Core.Maybe Types.String)
+cgcEngine = Lens.field @"engine"
+{-# DEPRECATED cgcEngine "Use generic-lens or generic-optics with 'engine' instead." #-}
+
+-- | The engine version of the Aurora global database.
+--
+-- /Note:/ Consider using 'engineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcEngineVersion :: Lens.Lens' CreateGlobalCluster (Core.Maybe Types.String)
+cgcEngineVersion = Lens.field @"engineVersion"
+{-# DEPRECATED cgcEngineVersion "Use generic-lens or generic-optics with 'engineVersion' instead." #-}
+
+-- | The cluster identifier of the new global database cluster.
+--
+-- /Note:/ Consider using 'globalClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcGlobalClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Core.Maybe Types.String)
+cgcGlobalClusterIdentifier = Lens.field @"globalClusterIdentifier"
+{-# DEPRECATED cgcGlobalClusterIdentifier "Use generic-lens or generic-optics with 'globalClusterIdentifier' instead." #-}
+
+-- | The Amazon Resource Name (ARN) to use as the primary cluster of the global database. This parameter is optional.
+--
+-- /Note:/ Consider using 'sourceDBClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcSourceDBClusterIdentifier :: Lens.Lens' CreateGlobalCluster (Core.Maybe Types.String)
+cgcSourceDBClusterIdentifier = Lens.field @"sourceDBClusterIdentifier"
+{-# DEPRECATED cgcSourceDBClusterIdentifier "Use generic-lens or generic-optics with 'sourceDBClusterIdentifier' instead." #-}
+
+-- | The storage encryption setting for the new global database cluster.
+--
+-- /Note:/ Consider using 'storageEncrypted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgcStorageEncrypted :: Lens.Lens' CreateGlobalCluster (Core.Maybe Core.Bool)
+cgcStorageEncrypted = Lens.field @"storageEncrypted"
+{-# DEPRECATED cgcStorageEncrypted "Use generic-lens or generic-optics with 'storageEncrypted' instead." #-}
+
+instance Core.AWSRequest CreateGlobalCluster where
   type Rs CreateGlobalCluster = CreateGlobalClusterResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateGlobalCluster")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DatabaseName" Core.<$> databaseName)
+                Core.<> ( Core.toQueryValue "DeletionProtection"
+                            Core.<$> deletionProtection
+                        )
+                Core.<> (Core.toQueryValue "Engine" Core.<$> engine)
+                Core.<> (Core.toQueryValue "EngineVersion" Core.<$> engineVersion)
+                Core.<> ( Core.toQueryValue "GlobalClusterIdentifier"
+                            Core.<$> globalClusterIdentifier
+                        )
+                Core.<> ( Core.toQueryValue "SourceDBClusterIdentifier"
+                            Core.<$> sourceDBClusterIdentifier
+                        )
+                Core.<> (Core.toQueryValue "StorageEncrypted" Core.<$> storageEncrypted)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateGlobalClusterResult"
       ( \s h x ->
           CreateGlobalClusterResponse'
-            Lude.<$> (x Lude..@? "GlobalCluster")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "GlobalCluster")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateGlobalCluster where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateGlobalCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateGlobalCluster where
-  toQuery CreateGlobalCluster' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateGlobalCluster" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "EngineVersion" Lude.=: engineVersion,
-        "DeletionProtection" Lude.=: deletionProtection,
-        "StorageEncrypted" Lude.=: storageEncrypted,
-        "SourceDBClusterIdentifier" Lude.=: sourceDBClusterIdentifier,
-        "GlobalClusterIdentifier" Lude.=: globalClusterIdentifier,
-        "Engine" Lude.=: engine,
-        "DatabaseName" Lude.=: databaseName
-      ]
 
 -- | /See:/ 'mkCreateGlobalClusterResponse' smart constructor.
 data CreateGlobalClusterResponse = CreateGlobalClusterResponse'
-  { globalCluster :: Lude.Maybe GlobalCluster,
+  { globalCluster :: Core.Maybe Types.GlobalCluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGlobalClusterResponse' with the minimum fields required to make a request.
---
--- * 'globalCluster' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateGlobalClusterResponse' value with any optional fields omitted.
 mkCreateGlobalClusterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateGlobalClusterResponse
-mkCreateGlobalClusterResponse pResponseStatus_ =
+mkCreateGlobalClusterResponse responseStatus =
   CreateGlobalClusterResponse'
-    { globalCluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { globalCluster = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'globalCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgcrsGlobalCluster :: Lens.Lens' CreateGlobalClusterResponse (Lude.Maybe GlobalCluster)
-cgcrsGlobalCluster = Lens.lens (globalCluster :: CreateGlobalClusterResponse -> Lude.Maybe GlobalCluster) (\s a -> s {globalCluster = a} :: CreateGlobalClusterResponse)
-{-# DEPRECATED cgcrsGlobalCluster "Use generic-lens or generic-optics with 'globalCluster' instead." #-}
+cgcrrsGlobalCluster :: Lens.Lens' CreateGlobalClusterResponse (Core.Maybe Types.GlobalCluster)
+cgcrrsGlobalCluster = Lens.field @"globalCluster"
+{-# DEPRECATED cgcrrsGlobalCluster "Use generic-lens or generic-optics with 'globalCluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgcrsResponseStatus :: Lens.Lens' CreateGlobalClusterResponse Lude.Int
-cgcrsResponseStatus = Lens.lens (responseStatus :: CreateGlobalClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGlobalClusterResponse)
-{-# DEPRECATED cgcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cgcrrsResponseStatus :: Lens.Lens' CreateGlobalClusterResponse Core.Int
+cgcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cgcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

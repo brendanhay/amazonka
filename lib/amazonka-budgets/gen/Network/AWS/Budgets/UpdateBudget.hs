@@ -30,113 +30,101 @@ module Network.AWS.Budgets.UpdateBudget
     mkUpdateBudgetResponse,
 
     -- ** Response lenses
-    ubrsResponseStatus,
+    ubrrsResponseStatus,
   )
 where
 
-import Network.AWS.Budgets.Types
+import qualified Network.AWS.Budgets.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request of UpdateBudget
 --
 -- /See:/ 'mkUpdateBudget' smart constructor.
 data UpdateBudget = UpdateBudget'
   { -- | The @accountId@ that is associated with the budget that you want to update.
-    accountId :: Lude.Text,
+    accountId :: Types.AccountId,
     -- | The budget that you want to update your budget to.
-    newBudget :: Budget
+    newBudget :: Types.Budget
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateBudget' with the minimum fields required to make a request.
---
--- * 'accountId' - The @accountId@ that is associated with the budget that you want to update.
--- * 'newBudget' - The budget that you want to update your budget to.
+-- | Creates a 'UpdateBudget' value with any optional fields omitted.
 mkUpdateBudget ::
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
   -- | 'newBudget'
-  Budget ->
+  Types.Budget ->
   UpdateBudget
-mkUpdateBudget pAccountId_ pNewBudget_ =
-  UpdateBudget' {accountId = pAccountId_, newBudget = pNewBudget_}
+mkUpdateBudget accountId newBudget =
+  UpdateBudget' {accountId, newBudget}
 
 -- | The @accountId@ that is associated with the budget that you want to update.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubAccountId :: Lens.Lens' UpdateBudget Lude.Text
-ubAccountId = Lens.lens (accountId :: UpdateBudget -> Lude.Text) (\s a -> s {accountId = a} :: UpdateBudget)
+ubAccountId :: Lens.Lens' UpdateBudget Types.AccountId
+ubAccountId = Lens.field @"accountId"
 {-# DEPRECATED ubAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The budget that you want to update your budget to.
 --
 -- /Note:/ Consider using 'newBudget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubNewBudget :: Lens.Lens' UpdateBudget Budget
-ubNewBudget = Lens.lens (newBudget :: UpdateBudget -> Budget) (\s a -> s {newBudget = a} :: UpdateBudget)
+ubNewBudget :: Lens.Lens' UpdateBudget Types.Budget
+ubNewBudget = Lens.field @"newBudget"
 {-# DEPRECATED ubNewBudget "Use generic-lens or generic-optics with 'newBudget' instead." #-}
 
-instance Lude.AWSRequest UpdateBudget where
+instance Core.FromJSON UpdateBudget where
+  toJSON UpdateBudget {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            Core.Just ("NewBudget" Core..= newBudget)
+          ]
+      )
+
+instance Core.AWSRequest UpdateBudget where
   type Rs UpdateBudget = UpdateBudgetResponse
-  request = Req.postJSON budgetsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSBudgetServiceGateway.UpdateBudget")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          UpdateBudgetResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UpdateBudgetResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateBudget where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSBudgetServiceGateway.UpdateBudget" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateBudget where
-  toJSON UpdateBudget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AccountId" Lude..= accountId),
-            Lude.Just ("NewBudget" Lude..= newBudget)
-          ]
-      )
-
-instance Lude.ToPath UpdateBudget where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateBudget where
-  toQuery = Lude.const Lude.mempty
 
 -- | Response of UpdateBudget
 --
 -- /See:/ 'mkUpdateBudgetResponse' smart constructor.
 newtype UpdateBudgetResponse = UpdateBudgetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateBudgetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateBudgetResponse' value with any optional fields omitted.
 mkUpdateBudgetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateBudgetResponse
-mkUpdateBudgetResponse pResponseStatus_ =
-  UpdateBudgetResponse' {responseStatus = pResponseStatus_}
+mkUpdateBudgetResponse responseStatus =
+  UpdateBudgetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ubrsResponseStatus :: Lens.Lens' UpdateBudgetResponse Lude.Int
-ubrsResponseStatus = Lens.lens (responseStatus :: UpdateBudgetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateBudgetResponse)
-{-# DEPRECATED ubrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ubrrsResponseStatus :: Lens.Lens' UpdateBudgetResponse Core.Int
+ubrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ubrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

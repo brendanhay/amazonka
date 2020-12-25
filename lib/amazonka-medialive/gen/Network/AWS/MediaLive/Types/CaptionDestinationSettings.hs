@@ -17,235 +17,219 @@ module Network.AWS.MediaLive.Types.CaptionDestinationSettings
     mkCaptionDestinationSettings,
 
     -- * Lenses
-    cdsTeletextDestinationSettings,
-    cdsEbuTtDDestinationSettings,
-    cdsRtmpCaptionInfoDestinationSettings,
-    cdsDvbSubDestinationSettings,
-    cdsScte27DestinationSettings,
-    cdsTtmlDestinationSettings,
-    cdsScte20PlusEmbeddedDestinationSettings,
-    cdsEmbeddedPlusScte20DestinationSettings,
-    cdsSmpteTtDestinationSettings,
-    cdsWebvttDestinationSettings,
-    cdsEmbeddedDestinationSettings,
-    cdsBurnInDestinationSettings,
     cdsAribDestinationSettings,
+    cdsBurnInDestinationSettings,
+    cdsDvbSubDestinationSettings,
+    cdsEbuTtDDestinationSettings,
+    cdsEmbeddedDestinationSettings,
+    cdsEmbeddedPlusScte20DestinationSettings,
+    cdsRtmpCaptionInfoDestinationSettings,
+    cdsScte20PlusEmbeddedDestinationSettings,
+    cdsScte27DestinationSettings,
+    cdsSmpteTtDestinationSettings,
+    cdsTeletextDestinationSettings,
+    cdsTtmlDestinationSettings,
+    cdsWebvttDestinationSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.AribDestinationSettings
-import Network.AWS.MediaLive.Types.BurnInDestinationSettings
-import Network.AWS.MediaLive.Types.DvbSubDestinationSettings
-import Network.AWS.MediaLive.Types.EbuTtDDestinationSettings
-import Network.AWS.MediaLive.Types.EmbeddedDestinationSettings
-import Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings
-import Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings
-import Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings
-import Network.AWS.MediaLive.Types.Scte27DestinationSettings
-import Network.AWS.MediaLive.Types.SmpteTtDestinationSettings
-import Network.AWS.MediaLive.Types.TeletextDestinationSettings
-import Network.AWS.MediaLive.Types.TtmlDestinationSettings
-import Network.AWS.MediaLive.Types.WebvttDestinationSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.AribDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.BurnInDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.DvbSubDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.EbuTtDDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.EmbeddedDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.EmbeddedPlusScte20DestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.RtmpCaptionInfoDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.Scte20PlusEmbeddedDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.Scte27DestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.SmpteTtDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.TeletextDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.TtmlDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.WebvttDestinationSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Caption Destination Settings
 --
 -- /See:/ 'mkCaptionDestinationSettings' smart constructor.
 data CaptionDestinationSettings = CaptionDestinationSettings'
-  { teletextDestinationSettings :: Lude.Maybe TeletextDestinationSettings,
-    ebuTtDDestinationSettings :: Lude.Maybe EbuTtDDestinationSettings,
-    rtmpCaptionInfoDestinationSettings :: Lude.Maybe RtmpCaptionInfoDestinationSettings,
-    dvbSubDestinationSettings :: Lude.Maybe DvbSubDestinationSettings,
-    scte27DestinationSettings :: Lude.Maybe Scte27DestinationSettings,
-    ttmlDestinationSettings :: Lude.Maybe TtmlDestinationSettings,
-    scte20PlusEmbeddedDestinationSettings :: Lude.Maybe Scte20PlusEmbeddedDestinationSettings,
-    embeddedPlusScte20DestinationSettings :: Lude.Maybe EmbeddedPlusScte20DestinationSettings,
-    smpteTtDestinationSettings :: Lude.Maybe SmpteTtDestinationSettings,
-    webvttDestinationSettings :: Lude.Maybe WebvttDestinationSettings,
-    embeddedDestinationSettings :: Lude.Maybe EmbeddedDestinationSettings,
-    burnInDestinationSettings :: Lude.Maybe BurnInDestinationSettings,
-    aribDestinationSettings :: Lude.Maybe AribDestinationSettings
+  { aribDestinationSettings :: Core.Maybe Types.AribDestinationSettings,
+    burnInDestinationSettings :: Core.Maybe Types.BurnInDestinationSettings,
+    dvbSubDestinationSettings :: Core.Maybe Types.DvbSubDestinationSettings,
+    ebuTtDDestinationSettings :: Core.Maybe Types.EbuTtDDestinationSettings,
+    embeddedDestinationSettings :: Core.Maybe Types.EmbeddedDestinationSettings,
+    embeddedPlusScte20DestinationSettings :: Core.Maybe Types.EmbeddedPlusScte20DestinationSettings,
+    rtmpCaptionInfoDestinationSettings :: Core.Maybe Types.RtmpCaptionInfoDestinationSettings,
+    scte20PlusEmbeddedDestinationSettings :: Core.Maybe Types.Scte20PlusEmbeddedDestinationSettings,
+    scte27DestinationSettings :: Core.Maybe Types.Scte27DestinationSettings,
+    smpteTtDestinationSettings :: Core.Maybe Types.SmpteTtDestinationSettings,
+    teletextDestinationSettings :: Core.Maybe Types.TeletextDestinationSettings,
+    ttmlDestinationSettings :: Core.Maybe Types.TtmlDestinationSettings,
+    webvttDestinationSettings :: Core.Maybe Types.WebvttDestinationSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CaptionDestinationSettings' with the minimum fields required to make a request.
---
--- * 'teletextDestinationSettings' -
--- * 'ebuTtDDestinationSettings' -
--- * 'rtmpCaptionInfoDestinationSettings' -
--- * 'dvbSubDestinationSettings' -
--- * 'scte27DestinationSettings' -
--- * 'ttmlDestinationSettings' -
--- * 'scte20PlusEmbeddedDestinationSettings' -
--- * 'embeddedPlusScte20DestinationSettings' -
--- * 'smpteTtDestinationSettings' -
--- * 'webvttDestinationSettings' -
--- * 'embeddedDestinationSettings' -
--- * 'burnInDestinationSettings' -
--- * 'aribDestinationSettings' -
+-- | Creates a 'CaptionDestinationSettings' value with any optional fields omitted.
 mkCaptionDestinationSettings ::
   CaptionDestinationSettings
 mkCaptionDestinationSettings =
   CaptionDestinationSettings'
-    { teletextDestinationSettings =
-        Lude.Nothing,
-      ebuTtDDestinationSettings = Lude.Nothing,
-      rtmpCaptionInfoDestinationSettings = Lude.Nothing,
-      dvbSubDestinationSettings = Lude.Nothing,
-      scte27DestinationSettings = Lude.Nothing,
-      ttmlDestinationSettings = Lude.Nothing,
-      scte20PlusEmbeddedDestinationSettings = Lude.Nothing,
-      embeddedPlusScte20DestinationSettings = Lude.Nothing,
-      smpteTtDestinationSettings = Lude.Nothing,
-      webvttDestinationSettings = Lude.Nothing,
-      embeddedDestinationSettings = Lude.Nothing,
-      burnInDestinationSettings = Lude.Nothing,
-      aribDestinationSettings = Lude.Nothing
+    { aribDestinationSettings =
+        Core.Nothing,
+      burnInDestinationSettings = Core.Nothing,
+      dvbSubDestinationSettings = Core.Nothing,
+      ebuTtDDestinationSettings = Core.Nothing,
+      embeddedDestinationSettings = Core.Nothing,
+      embeddedPlusScte20DestinationSettings = Core.Nothing,
+      rtmpCaptionInfoDestinationSettings = Core.Nothing,
+      scte20PlusEmbeddedDestinationSettings = Core.Nothing,
+      scte27DestinationSettings = Core.Nothing,
+      smpteTtDestinationSettings = Core.Nothing,
+      teletextDestinationSettings = Core.Nothing,
+      ttmlDestinationSettings = Core.Nothing,
+      webvttDestinationSettings = Core.Nothing
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'teletextDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsTeletextDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe TeletextDestinationSettings)
-cdsTeletextDestinationSettings = Lens.lens (teletextDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe TeletextDestinationSettings) (\s a -> s {teletextDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsTeletextDestinationSettings "Use generic-lens or generic-optics with 'teletextDestinationSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'ebuTtDDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsEbuTtDDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe EbuTtDDestinationSettings)
-cdsEbuTtDDestinationSettings = Lens.lens (ebuTtDDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe EbuTtDDestinationSettings) (\s a -> s {ebuTtDDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsEbuTtDDestinationSettings "Use generic-lens or generic-optics with 'ebuTtDDestinationSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'rtmpCaptionInfoDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsRtmpCaptionInfoDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe RtmpCaptionInfoDestinationSettings)
-cdsRtmpCaptionInfoDestinationSettings = Lens.lens (rtmpCaptionInfoDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe RtmpCaptionInfoDestinationSettings) (\s a -> s {rtmpCaptionInfoDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsRtmpCaptionInfoDestinationSettings "Use generic-lens or generic-optics with 'rtmpCaptionInfoDestinationSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'dvbSubDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsDvbSubDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe DvbSubDestinationSettings)
-cdsDvbSubDestinationSettings = Lens.lens (dvbSubDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe DvbSubDestinationSettings) (\s a -> s {dvbSubDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsDvbSubDestinationSettings "Use generic-lens or generic-optics with 'dvbSubDestinationSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'scte27DestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsScte27DestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe Scte27DestinationSettings)
-cdsScte27DestinationSettings = Lens.lens (scte27DestinationSettings :: CaptionDestinationSettings -> Lude.Maybe Scte27DestinationSettings) (\s a -> s {scte27DestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsScte27DestinationSettings "Use generic-lens or generic-optics with 'scte27DestinationSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'ttmlDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsTtmlDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe TtmlDestinationSettings)
-cdsTtmlDestinationSettings = Lens.lens (ttmlDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe TtmlDestinationSettings) (\s a -> s {ttmlDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsTtmlDestinationSettings "Use generic-lens or generic-optics with 'ttmlDestinationSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'scte20PlusEmbeddedDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsScte20PlusEmbeddedDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe Scte20PlusEmbeddedDestinationSettings)
-cdsScte20PlusEmbeddedDestinationSettings = Lens.lens (scte20PlusEmbeddedDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe Scte20PlusEmbeddedDestinationSettings) (\s a -> s {scte20PlusEmbeddedDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsScte20PlusEmbeddedDestinationSettings "Use generic-lens or generic-optics with 'scte20PlusEmbeddedDestinationSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'embeddedPlusScte20DestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsEmbeddedPlusScte20DestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe EmbeddedPlusScte20DestinationSettings)
-cdsEmbeddedPlusScte20DestinationSettings = Lens.lens (embeddedPlusScte20DestinationSettings :: CaptionDestinationSettings -> Lude.Maybe EmbeddedPlusScte20DestinationSettings) (\s a -> s {embeddedPlusScte20DestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsEmbeddedPlusScte20DestinationSettings "Use generic-lens or generic-optics with 'embeddedPlusScte20DestinationSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'smpteTtDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsSmpteTtDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe SmpteTtDestinationSettings)
-cdsSmpteTtDestinationSettings = Lens.lens (smpteTtDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe SmpteTtDestinationSettings) (\s a -> s {smpteTtDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsSmpteTtDestinationSettings "Use generic-lens or generic-optics with 'smpteTtDestinationSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'webvttDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsWebvttDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe WebvttDestinationSettings)
-cdsWebvttDestinationSettings = Lens.lens (webvttDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe WebvttDestinationSettings) (\s a -> s {webvttDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsWebvttDestinationSettings "Use generic-lens or generic-optics with 'webvttDestinationSettings' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'embeddedDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsEmbeddedDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe EmbeddedDestinationSettings)
-cdsEmbeddedDestinationSettings = Lens.lens (embeddedDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe EmbeddedDestinationSettings) (\s a -> s {embeddedDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsEmbeddedDestinationSettings "Use generic-lens or generic-optics with 'embeddedDestinationSettings' instead." #-}
+-- /Note:/ Consider using 'aribDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsAribDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.AribDestinationSettings)
+cdsAribDestinationSettings = Lens.field @"aribDestinationSettings"
+{-# DEPRECATED cdsAribDestinationSettings "Use generic-lens or generic-optics with 'aribDestinationSettings' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'burnInDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsBurnInDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe BurnInDestinationSettings)
-cdsBurnInDestinationSettings = Lens.lens (burnInDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe BurnInDestinationSettings) (\s a -> s {burnInDestinationSettings = a} :: CaptionDestinationSettings)
+cdsBurnInDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.BurnInDestinationSettings)
+cdsBurnInDestinationSettings = Lens.field @"burnInDestinationSettings"
 {-# DEPRECATED cdsBurnInDestinationSettings "Use generic-lens or generic-optics with 'burnInDestinationSettings' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'aribDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdsAribDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Lude.Maybe AribDestinationSettings)
-cdsAribDestinationSettings = Lens.lens (aribDestinationSettings :: CaptionDestinationSettings -> Lude.Maybe AribDestinationSettings) (\s a -> s {aribDestinationSettings = a} :: CaptionDestinationSettings)
-{-# DEPRECATED cdsAribDestinationSettings "Use generic-lens or generic-optics with 'aribDestinationSettings' instead." #-}
+-- /Note:/ Consider using 'dvbSubDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsDvbSubDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.DvbSubDestinationSettings)
+cdsDvbSubDestinationSettings = Lens.field @"dvbSubDestinationSettings"
+{-# DEPRECATED cdsDvbSubDestinationSettings "Use generic-lens or generic-optics with 'dvbSubDestinationSettings' instead." #-}
 
-instance Lude.FromJSON CaptionDestinationSettings where
-  parseJSON =
-    Lude.withObject
-      "CaptionDestinationSettings"
-      ( \x ->
-          CaptionDestinationSettings'
-            Lude.<$> (x Lude..:? "teletextDestinationSettings")
-            Lude.<*> (x Lude..:? "ebuTtDDestinationSettings")
-            Lude.<*> (x Lude..:? "rtmpCaptionInfoDestinationSettings")
-            Lude.<*> (x Lude..:? "dvbSubDestinationSettings")
-            Lude.<*> (x Lude..:? "scte27DestinationSettings")
-            Lude.<*> (x Lude..:? "ttmlDestinationSettings")
-            Lude.<*> (x Lude..:? "scte20PlusEmbeddedDestinationSettings")
-            Lude.<*> (x Lude..:? "embeddedPlusScte20DestinationSettings")
-            Lude.<*> (x Lude..:? "smpteTtDestinationSettings")
-            Lude.<*> (x Lude..:? "webvttDestinationSettings")
-            Lude.<*> (x Lude..:? "embeddedDestinationSettings")
-            Lude.<*> (x Lude..:? "burnInDestinationSettings")
-            Lude.<*> (x Lude..:? "aribDestinationSettings")
-      )
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ebuTtDDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsEbuTtDDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.EbuTtDDestinationSettings)
+cdsEbuTtDDestinationSettings = Lens.field @"ebuTtDDestinationSettings"
+{-# DEPRECATED cdsEbuTtDDestinationSettings "Use generic-lens or generic-optics with 'ebuTtDDestinationSettings' instead." #-}
 
-instance Lude.ToJSON CaptionDestinationSettings where
-  toJSON CaptionDestinationSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("teletextDestinationSettings" Lude..=)
-              Lude.<$> teletextDestinationSettings,
-            ("ebuTtDDestinationSettings" Lude..=)
-              Lude.<$> ebuTtDDestinationSettings,
-            ("rtmpCaptionInfoDestinationSettings" Lude..=)
-              Lude.<$> rtmpCaptionInfoDestinationSettings,
-            ("dvbSubDestinationSettings" Lude..=)
-              Lude.<$> dvbSubDestinationSettings,
-            ("scte27DestinationSettings" Lude..=)
-              Lude.<$> scte27DestinationSettings,
-            ("ttmlDestinationSettings" Lude..=)
-              Lude.<$> ttmlDestinationSettings,
-            ("scte20PlusEmbeddedDestinationSettings" Lude..=)
-              Lude.<$> scte20PlusEmbeddedDestinationSettings,
-            ("embeddedPlusScte20DestinationSettings" Lude..=)
-              Lude.<$> embeddedPlusScte20DestinationSettings,
-            ("smpteTtDestinationSettings" Lude..=)
-              Lude.<$> smpteTtDestinationSettings,
-            ("webvttDestinationSettings" Lude..=)
-              Lude.<$> webvttDestinationSettings,
-            ("embeddedDestinationSettings" Lude..=)
-              Lude.<$> embeddedDestinationSettings,
-            ("burnInDestinationSettings" Lude..=)
-              Lude.<$> burnInDestinationSettings,
-            ("aribDestinationSettings" Lude..=)
-              Lude.<$> aribDestinationSettings
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'embeddedDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsEmbeddedDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.EmbeddedDestinationSettings)
+cdsEmbeddedDestinationSettings = Lens.field @"embeddedDestinationSettings"
+{-# DEPRECATED cdsEmbeddedDestinationSettings "Use generic-lens or generic-optics with 'embeddedDestinationSettings' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'embeddedPlusScte20DestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsEmbeddedPlusScte20DestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.EmbeddedPlusScte20DestinationSettings)
+cdsEmbeddedPlusScte20DestinationSettings = Lens.field @"embeddedPlusScte20DestinationSettings"
+{-# DEPRECATED cdsEmbeddedPlusScte20DestinationSettings "Use generic-lens or generic-optics with 'embeddedPlusScte20DestinationSettings' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'rtmpCaptionInfoDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsRtmpCaptionInfoDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.RtmpCaptionInfoDestinationSettings)
+cdsRtmpCaptionInfoDestinationSettings = Lens.field @"rtmpCaptionInfoDestinationSettings"
+{-# DEPRECATED cdsRtmpCaptionInfoDestinationSettings "Use generic-lens or generic-optics with 'rtmpCaptionInfoDestinationSettings' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'scte20PlusEmbeddedDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsScte20PlusEmbeddedDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.Scte20PlusEmbeddedDestinationSettings)
+cdsScte20PlusEmbeddedDestinationSettings = Lens.field @"scte20PlusEmbeddedDestinationSettings"
+{-# DEPRECATED cdsScte20PlusEmbeddedDestinationSettings "Use generic-lens or generic-optics with 'scte20PlusEmbeddedDestinationSettings' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'scte27DestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsScte27DestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.Scte27DestinationSettings)
+cdsScte27DestinationSettings = Lens.field @"scte27DestinationSettings"
+{-# DEPRECATED cdsScte27DestinationSettings "Use generic-lens or generic-optics with 'scte27DestinationSettings' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'smpteTtDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsSmpteTtDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.SmpteTtDestinationSettings)
+cdsSmpteTtDestinationSettings = Lens.field @"smpteTtDestinationSettings"
+{-# DEPRECATED cdsSmpteTtDestinationSettings "Use generic-lens or generic-optics with 'smpteTtDestinationSettings' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'teletextDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsTeletextDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.TeletextDestinationSettings)
+cdsTeletextDestinationSettings = Lens.field @"teletextDestinationSettings"
+{-# DEPRECATED cdsTeletextDestinationSettings "Use generic-lens or generic-optics with 'teletextDestinationSettings' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'ttmlDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsTtmlDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.TtmlDestinationSettings)
+cdsTtmlDestinationSettings = Lens.field @"ttmlDestinationSettings"
+{-# DEPRECATED cdsTtmlDestinationSettings "Use generic-lens or generic-optics with 'ttmlDestinationSettings' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'webvttDestinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdsWebvttDestinationSettings :: Lens.Lens' CaptionDestinationSettings (Core.Maybe Types.WebvttDestinationSettings)
+cdsWebvttDestinationSettings = Lens.field @"webvttDestinationSettings"
+{-# DEPRECATED cdsWebvttDestinationSettings "Use generic-lens or generic-optics with 'webvttDestinationSettings' instead." #-}
+
+instance Core.FromJSON CaptionDestinationSettings where
+  toJSON CaptionDestinationSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("aribDestinationSettings" Core..=)
+              Core.<$> aribDestinationSettings,
+            ("burnInDestinationSettings" Core..=)
+              Core.<$> burnInDestinationSettings,
+            ("dvbSubDestinationSettings" Core..=)
+              Core.<$> dvbSubDestinationSettings,
+            ("ebuTtDDestinationSettings" Core..=)
+              Core.<$> ebuTtDDestinationSettings,
+            ("embeddedDestinationSettings" Core..=)
+              Core.<$> embeddedDestinationSettings,
+            ("embeddedPlusScte20DestinationSettings" Core..=)
+              Core.<$> embeddedPlusScte20DestinationSettings,
+            ("rtmpCaptionInfoDestinationSettings" Core..=)
+              Core.<$> rtmpCaptionInfoDestinationSettings,
+            ("scte20PlusEmbeddedDestinationSettings" Core..=)
+              Core.<$> scte20PlusEmbeddedDestinationSettings,
+            ("scte27DestinationSettings" Core..=)
+              Core.<$> scte27DestinationSettings,
+            ("smpteTtDestinationSettings" Core..=)
+              Core.<$> smpteTtDestinationSettings,
+            ("teletextDestinationSettings" Core..=)
+              Core.<$> teletextDestinationSettings,
+            ("ttmlDestinationSettings" Core..=)
+              Core.<$> ttmlDestinationSettings,
+            ("webvttDestinationSettings" Core..=)
+              Core.<$> webvttDestinationSettings
           ]
       )
+
+instance Core.FromJSON CaptionDestinationSettings where
+  parseJSON =
+    Core.withObject "CaptionDestinationSettings" Core.$
+      \x ->
+        CaptionDestinationSettings'
+          Core.<$> (x Core..:? "aribDestinationSettings")
+          Core.<*> (x Core..:? "burnInDestinationSettings")
+          Core.<*> (x Core..:? "dvbSubDestinationSettings")
+          Core.<*> (x Core..:? "ebuTtDDestinationSettings")
+          Core.<*> (x Core..:? "embeddedDestinationSettings")
+          Core.<*> (x Core..:? "embeddedPlusScte20DestinationSettings")
+          Core.<*> (x Core..:? "rtmpCaptionInfoDestinationSettings")
+          Core.<*> (x Core..:? "scte20PlusEmbeddedDestinationSettings")
+          Core.<*> (x Core..:? "scte27DestinationSettings")
+          Core.<*> (x Core..:? "smpteTtDestinationSettings")
+          Core.<*> (x Core..:? "teletextDestinationSettings")
+          Core.<*> (x Core..:? "ttmlDestinationSettings")
+          Core.<*> (x Core..:? "webvttDestinationSettings")

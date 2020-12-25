@@ -27,110 +27,94 @@ module Network.AWS.SageMaker.DeleteWorkteam
     mkDeleteWorkteamResponse,
 
     -- ** Response lenses
-    dwfrsSuccess,
-    dwfrsResponseStatus,
+    dwrfrsSuccess,
+    dwrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteWorkteam' smart constructor.
 newtype DeleteWorkteam = DeleteWorkteam'
   { -- | The name of the work team to delete.
-    workteamName :: Lude.Text
+    workteamName :: Types.WorkteamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteWorkteam' with the minimum fields required to make a request.
---
--- * 'workteamName' - The name of the work team to delete.
+-- | Creates a 'DeleteWorkteam' value with any optional fields omitted.
 mkDeleteWorkteam ::
   -- | 'workteamName'
-  Lude.Text ->
+  Types.WorkteamName ->
   DeleteWorkteam
-mkDeleteWorkteam pWorkteamName_ =
-  DeleteWorkteam' {workteamName = pWorkteamName_}
+mkDeleteWorkteam workteamName = DeleteWorkteam' {workteamName}
 
 -- | The name of the work team to delete.
 --
 -- /Note:/ Consider using 'workteamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwWorkteamName :: Lens.Lens' DeleteWorkteam Lude.Text
-dwWorkteamName = Lens.lens (workteamName :: DeleteWorkteam -> Lude.Text) (\s a -> s {workteamName = a} :: DeleteWorkteam)
+dwWorkteamName :: Lens.Lens' DeleteWorkteam Types.WorkteamName
+dwWorkteamName = Lens.field @"workteamName"
 {-# DEPRECATED dwWorkteamName "Use generic-lens or generic-optics with 'workteamName' instead." #-}
 
-instance Lude.AWSRequest DeleteWorkteam where
+instance Core.FromJSON DeleteWorkteam where
+  toJSON DeleteWorkteam {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("WorkteamName" Core..= workteamName)])
+
+instance Core.AWSRequest DeleteWorkteam where
   type Rs DeleteWorkteam = DeleteWorkteamResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteWorkteam")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteWorkteamResponse'
-            Lude.<$> (x Lude..:> "Success") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "Success") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteWorkteam where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteWorkteam" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteWorkteam where
-  toJSON DeleteWorkteam' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("WorkteamName" Lude..= workteamName)])
-
-instance Lude.ToPath DeleteWorkteam where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteWorkteam where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteWorkteamResponse' smart constructor.
 data DeleteWorkteamResponse = DeleteWorkteamResponse'
   { -- | Returns @true@ if the work team was successfully deleted; otherwise, returns @false@ .
-    success :: Lude.Bool,
+    success :: Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteWorkteamResponse' with the minimum fields required to make a request.
---
--- * 'success' - Returns @true@ if the work team was successfully deleted; otherwise, returns @false@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteWorkteamResponse' value with any optional fields omitted.
 mkDeleteWorkteamResponse ::
   -- | 'success'
-  Lude.Bool ->
+  Core.Bool ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteWorkteamResponse
-mkDeleteWorkteamResponse pSuccess_ pResponseStatus_ =
-  DeleteWorkteamResponse'
-    { success = pSuccess_,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteWorkteamResponse success responseStatus =
+  DeleteWorkteamResponse' {success, responseStatus}
 
 -- | Returns @true@ if the work team was successfully deleted; otherwise, returns @false@ .
 --
 -- /Note:/ Consider using 'success' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwfrsSuccess :: Lens.Lens' DeleteWorkteamResponse Lude.Bool
-dwfrsSuccess = Lens.lens (success :: DeleteWorkteamResponse -> Lude.Bool) (\s a -> s {success = a} :: DeleteWorkteamResponse)
-{-# DEPRECATED dwfrsSuccess "Use generic-lens or generic-optics with 'success' instead." #-}
+dwrfrsSuccess :: Lens.Lens' DeleteWorkteamResponse Core.Bool
+dwrfrsSuccess = Lens.field @"success"
+{-# DEPRECATED dwrfrsSuccess "Use generic-lens or generic-optics with 'success' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwfrsResponseStatus :: Lens.Lens' DeleteWorkteamResponse Lude.Int
-dwfrsResponseStatus = Lens.lens (responseStatus :: DeleteWorkteamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWorkteamResponse)
-{-# DEPRECATED dwfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwrfrsResponseStatus :: Lens.Lens' DeleteWorkteamResponse Core.Int
+dwrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dwrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

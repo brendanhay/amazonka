@@ -54,13 +54,13 @@ module Network.AWS.KMS.CreateKey
     mkCreateKey,
 
     -- ** Request lenses
-    ckOrigin,
-    ckCustomerMasterKeySpec,
-    ckKeyUsage,
     ckBypassPolicyLockoutSafetyCheck,
-    ckPolicy,
-    ckDescription,
     ckCustomKeyStoreId,
+    ckCustomerMasterKeySpec,
+    ckDescription,
+    ckKeyUsage,
+    ckOrigin,
+    ckPolicy,
     ckTags,
 
     -- * Destructuring the response
@@ -68,24 +68,33 @@ module Network.AWS.KMS.CreateKey
     mkCreateKeyResponse,
 
     -- ** Response lenses
-    ckrsKeyMetadata,
-    ckrsResponseStatus,
+    ckrrsKeyMetadata,
+    ckrrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateKey' smart constructor.
 data CreateKey = CreateKey'
-  { -- | The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is @AWS_KMS@ , which means AWS KMS creates the key material.
+  { -- | A flag to indicate whether to bypass the key policy lockout safety check.
     --
-    -- When the parameter value is @EXTERNAL@ , AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ . This value is valid only for symmetric CMKs.
-    -- When the parameter value is @AWS_CLOUDHSM@ , AWS KMS creates the CMK in an AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and creates its key material in the associated AWS CloudHSM cluster. You must also use the @CustomKeyStoreId@ parameter to identify the custom key store. This value is valid only for symmetric CMKs.
-    origin :: Lude.Maybe OriginType,
+    -- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
+    -- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /\/AWS Key Management Service Developer Guide\/ / .
+    -- Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent 'PutKeyPolicy' request on the CMK.
+    -- The default value is false.
+    bypassPolicyLockoutSafetyCheck :: Core.Maybe Core.Bool,
+    -- | Creates the CMK in the specified <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the @Origin@ parameter with a value of @AWS_CLOUDHSM@ . The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.
+    --
+    -- This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a custom key store.
+    -- To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
+    -- The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.
+    -- This operation is part of the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.
+    customKeyStoreId :: Core.Maybe Types.CustomKeyStoreId,
     -- | Specifies the type of CMK to create. The default value, @SYMMETRIC_DEFAULT@ , creates a CMK with a 256-bit symmetric key for encryption and decryption. For help choosing a key spec for your CMK, see <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html How to Choose Your CMK Configuration> in the /AWS Key Management Service Developer Guide/ .
     --
     -- The @CustomerMasterKeySpec@ determines whether the CMK contains a symmetric key or an asymmetric key pair. It also determines the encryption algorithms or signing algorithms that the CMK supports. You can't change the @CustomerMasterKeySpec@ after the CMK is created. To further restrict the algorithms that can be used with the CMK, use a condition key in its key policy or IAM policy. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm kms:EncryptionAlgorithm> or <https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm kms:Signing Algorithm> in the /AWS Key Management Service Developer Guide/ .
@@ -128,7 +137,11 @@ data CreateKey = CreateKey'
     --     * Other asymmetric elliptic curve key pairs
     --
     --     * @ECC_SECG_P256K1@ (secp256k1), commonly used for cryptocurrencies.
-    customerMasterKeySpec :: Lude.Maybe CustomerMasterKeySpec,
+    customerMasterKeySpec :: Core.Maybe Types.CustomerMasterKeySpec,
+    -- | A description of the CMK.
+    --
+    -- Use a description that helps you decide whether the CMK is appropriate for a task.
+    description :: Core.Maybe Types.Description,
     -- | Determines the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> for which you can use the CMK. The default value is @ENCRYPT_DECRYPT@ . This parameter is required only for asymmetric CMKs. You can't change the @KeyUsage@ value after the CMK is created.
     --
     -- Select only one valid value.
@@ -140,14 +153,12 @@ data CreateKey = CreateKey'
     --
     --
     --     * For asymmetric CMKs with ECC key material, specify @SIGN_VERIFY@ .
-    keyUsage :: Lude.Maybe KeyUsageType,
-    -- | A flag to indicate whether to bypass the key policy lockout safety check.
+    keyUsage :: Core.Maybe Types.KeyUsageType,
+    -- | The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is @AWS_KMS@ , which means AWS KMS creates the key material.
     --
-    -- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
-    -- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /\/AWS Key Management Service Developer Guide\/ / .
-    -- Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent 'PutKeyPolicy' request on the CMK.
-    -- The default value is false.
-    bypassPolicyLockoutSafetyCheck :: Lude.Maybe Lude.Bool,
+    -- When the parameter value is @EXTERNAL@ , AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ . This value is valid only for symmetric CMKs.
+    -- When the parameter value is @AWS_CLOUDHSM@ , AWS KMS creates the CMK in an AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and creates its key material in the associated AWS CloudHSM cluster. You must also use the @CustomKeyStoreId@ parameter to identify the custom key store. This value is valid only for symmetric CMKs.
+    origin :: Core.Maybe Types.OriginType,
     -- | The key policy to attach to the CMK.
     --
     -- If you provide a key policy, it must meet the following criteria:
@@ -160,146 +171,54 @@ data CreateKey = CreateKey'
     --
     -- If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy> in the /AWS Key Management Service Developer Guide/ .
     -- The key policy size quota is 32 kilobytes (32768 bytes).
-    policy :: Lude.Maybe Lude.Text,
-    -- | A description of the CMK.
-    --
-    -- Use a description that helps you decide whether the CMK is appropriate for a task.
-    description :: Lude.Maybe Lude.Text,
-    -- | Creates the CMK in the specified <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the @Origin@ parameter with a value of @AWS_CLOUDHSM@ . The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.
-    --
-    -- This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a custom key store.
-    -- To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
-    -- The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.
-    -- This operation is part of the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.
-    customKeyStoreId :: Lude.Maybe Lude.Text,
+    policy :: Core.Maybe Types.Policy,
     -- | One or more tags. Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string.
     --
     -- When you add tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. For information about adding, changing, deleting and listing tags for CMKs, see <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys> .
     -- Use this parameter to tag the CMK when it is created. To add tags to an existing CMK, use the 'TagResource' operation.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateKey' with the minimum fields required to make a request.
---
--- * 'origin' - The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is @AWS_KMS@ , which means AWS KMS creates the key material.
---
--- When the parameter value is @EXTERNAL@ , AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ . This value is valid only for symmetric CMKs.
--- When the parameter value is @AWS_CLOUDHSM@ , AWS KMS creates the CMK in an AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and creates its key material in the associated AWS CloudHSM cluster. You must also use the @CustomKeyStoreId@ parameter to identify the custom key store. This value is valid only for symmetric CMKs.
--- * 'customerMasterKeySpec' - Specifies the type of CMK to create. The default value, @SYMMETRIC_DEFAULT@ , creates a CMK with a 256-bit symmetric key for encryption and decryption. For help choosing a key spec for your CMK, see <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html How to Choose Your CMK Configuration> in the /AWS Key Management Service Developer Guide/ .
---
--- The @CustomerMasterKeySpec@ determines whether the CMK contains a symmetric key or an asymmetric key pair. It also determines the encryption algorithms or signing algorithms that the CMK supports. You can't change the @CustomerMasterKeySpec@ after the CMK is created. To further restrict the algorithms that can be used with the CMK, use a condition key in its key policy or IAM policy. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-encryption-algorithm kms:EncryptionAlgorithm> or <https://docs.aws.amazon.com/kms/latest/developerguide/policy-conditions.html#conditions-kms-signing-algorithm kms:Signing Algorithm> in the /AWS Key Management Service Developer Guide/ .
--- /Important:/ <http://aws.amazon.com/kms/features/#AWS_Service_Integration AWS services that are integrated with AWS KMS> use symmetric CMKs to protect your data. These services do not support asymmetric CMKs. For help determining whether a CMK is symmetric or asymmetric, see <https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html Identifying Symmetric and Asymmetric CMKs> in the /AWS Key Management Service Developer Guide/ .
--- AWS KMS supports the following key specs for CMKs:
---
---     * Symmetric key (default)
---
---     * @SYMMETRIC_DEFAULT@ (AES-256-GCM)
---
---
---
---
---     * Asymmetric RSA key pairs
---
---     * @RSA_2048@
---
---
---     * @RSA_3072@
---
---
---     * @RSA_4096@
---
---
---
---
---     * Asymmetric NIST-recommended elliptic curve key pairs
---
---     * @ECC_NIST_P256@ (secp256r1)
---
---
---     * @ECC_NIST_P384@ (secp384r1)
---
---
---     * @ECC_NIST_P521@ (secp521r1)
---
---
---
---
---     * Other asymmetric elliptic curve key pairs
---
---     * @ECC_SECG_P256K1@ (secp256k1), commonly used for cryptocurrencies.
---
---
---
---
--- * 'keyUsage' - Determines the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> for which you can use the CMK. The default value is @ENCRYPT_DECRYPT@ . This parameter is required only for asymmetric CMKs. You can't change the @KeyUsage@ value after the CMK is created.
---
--- Select only one valid value.
---
---     * For symmetric CMKs, omit the parameter or specify @ENCRYPT_DECRYPT@ .
---
---
---     * For asymmetric CMKs with RSA key material, specify @ENCRYPT_DECRYPT@ or @SIGN_VERIFY@ .
---
---
---     * For asymmetric CMKs with ECC key material, specify @SIGN_VERIFY@ .
---
---
--- * 'bypassPolicyLockoutSafetyCheck' - A flag to indicate whether to bypass the key policy lockout safety check.
+-- | Creates a 'CreateKey' value with any optional fields omitted.
+mkCreateKey ::
+  CreateKey
+mkCreateKey =
+  CreateKey'
+    { bypassPolicyLockoutSafetyCheck = Core.Nothing,
+      customKeyStoreId = Core.Nothing,
+      customerMasterKeySpec = Core.Nothing,
+      description = Core.Nothing,
+      keyUsage = Core.Nothing,
+      origin = Core.Nothing,
+      policy = Core.Nothing,
+      tags = Core.Nothing
+    }
+
+-- | A flag to indicate whether to bypass the key policy lockout safety check.
 --
 -- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
 -- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /\/AWS Key Management Service Developer Guide\/ / .
 -- Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent 'PutKeyPolicy' request on the CMK.
 -- The default value is false.
--- * 'policy' - The key policy to attach to the CMK.
 --
--- If you provide a key policy, it must meet the following criteria:
---
---     * If you don't set @BypassPolicyLockoutSafetyCheck@ to true, the key policy must allow the principal that is making the @CreateKey@ request to make a subsequent 'PutKeyPolicy' request on the CMK. This reduces the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section of the /\/AWS Key Management Service Developer Guide\/ / .
---
---
---     * Each statement in the key policy must contain one or more principals. The principals in the key policy must exist and be visible to AWS KMS. When you create a new AWS principal (for example, an IAM user or role), you might need to enforce a delay before including the new principal in a key policy because the new principal might not be immediately visible to AWS KMS. For more information, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency Changes that I make are not always immediately visible> in the /AWS Identity and Access Management User Guide/ .
---
---
--- If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK. For more information, see <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default Default Key Policy> in the /AWS Key Management Service Developer Guide/ .
--- The key policy size quota is 32 kilobytes (32768 bytes).
--- * 'description' - A description of the CMK.
---
--- Use a description that helps you decide whether the CMK is appropriate for a task.
--- * 'customKeyStoreId' - Creates the CMK in the specified <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the @Origin@ parameter with a value of @AWS_CLOUDHSM@ . The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.
+-- /Note:/ Consider using 'bypassPolicyLockoutSafetyCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckBypassPolicyLockoutSafetyCheck :: Lens.Lens' CreateKey (Core.Maybe Core.Bool)
+ckBypassPolicyLockoutSafetyCheck = Lens.field @"bypassPolicyLockoutSafetyCheck"
+{-# DEPRECATED ckBypassPolicyLockoutSafetyCheck "Use generic-lens or generic-optics with 'bypassPolicyLockoutSafetyCheck' instead." #-}
+
+-- | Creates the CMK in the specified <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the @Origin@ parameter with a value of @AWS_CLOUDHSM@ . The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.
 --
 -- This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a custom key store.
 -- To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
 -- The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.
 -- This operation is part of the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.
--- * 'tags' - One or more tags. Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string.
 --
--- When you add tags to an AWS resource, AWS generates a cost allocation report with usage and costs aggregated by tags. For information about adding, changing, deleting and listing tags for CMKs, see <https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html Tagging Keys> .
--- Use this parameter to tag the CMK when it is created. To add tags to an existing CMK, use the 'TagResource' operation.
-mkCreateKey ::
-  CreateKey
-mkCreateKey =
-  CreateKey'
-    { origin = Lude.Nothing,
-      customerMasterKeySpec = Lude.Nothing,
-      keyUsage = Lude.Nothing,
-      bypassPolicyLockoutSafetyCheck = Lude.Nothing,
-      policy = Lude.Nothing,
-      description = Lude.Nothing,
-      customKeyStoreId = Lude.Nothing,
-      tags = Lude.Nothing
-    }
-
--- | The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is @AWS_KMS@ , which means AWS KMS creates the key material.
---
--- When the parameter value is @EXTERNAL@ , AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ . This value is valid only for symmetric CMKs.
--- When the parameter value is @AWS_CLOUDHSM@ , AWS KMS creates the CMK in an AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and creates its key material in the associated AWS CloudHSM cluster. You must also use the @CustomKeyStoreId@ parameter to identify the custom key store. This value is valid only for symmetric CMKs.
---
--- /Note:/ Consider using 'origin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckOrigin :: Lens.Lens' CreateKey (Lude.Maybe OriginType)
-ckOrigin = Lens.lens (origin :: CreateKey -> Lude.Maybe OriginType) (\s a -> s {origin = a} :: CreateKey)
-{-# DEPRECATED ckOrigin "Use generic-lens or generic-optics with 'origin' instead." #-}
+-- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckCustomKeyStoreId :: Lens.Lens' CreateKey (Core.Maybe Types.CustomKeyStoreId)
+ckCustomKeyStoreId = Lens.field @"customKeyStoreId"
+{-# DEPRECATED ckCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
 
 -- | Specifies the type of CMK to create. The default value, @SYMMETRIC_DEFAULT@ , creates a CMK with a 256-bit symmetric key for encryption and decryption. For help choosing a key spec for your CMK, see <https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-choose.html How to Choose Your CMK Configuration> in the /AWS Key Management Service Developer Guide/ .
 --
@@ -349,9 +268,18 @@ ckOrigin = Lens.lens (origin :: CreateKey -> Lude.Maybe OriginType) (\s a -> s {
 --
 --
 -- /Note:/ Consider using 'customerMasterKeySpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckCustomerMasterKeySpec :: Lens.Lens' CreateKey (Lude.Maybe CustomerMasterKeySpec)
-ckCustomerMasterKeySpec = Lens.lens (customerMasterKeySpec :: CreateKey -> Lude.Maybe CustomerMasterKeySpec) (\s a -> s {customerMasterKeySpec = a} :: CreateKey)
+ckCustomerMasterKeySpec :: Lens.Lens' CreateKey (Core.Maybe Types.CustomerMasterKeySpec)
+ckCustomerMasterKeySpec = Lens.field @"customerMasterKeySpec"
 {-# DEPRECATED ckCustomerMasterKeySpec "Use generic-lens or generic-optics with 'customerMasterKeySpec' instead." #-}
+
+-- | A description of the CMK.
+--
+-- Use a description that helps you decide whether the CMK is appropriate for a task.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckDescription :: Lens.Lens' CreateKey (Core.Maybe Types.Description)
+ckDescription = Lens.field @"description"
+{-# DEPRECATED ckDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Determines the <https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations cryptographic operations> for which you can use the CMK. The default value is @ENCRYPT_DECRYPT@ . This parameter is required only for asymmetric CMKs. You can't change the @KeyUsage@ value after the CMK is created.
 --
@@ -368,21 +296,19 @@ ckCustomerMasterKeySpec = Lens.lens (customerMasterKeySpec :: CreateKey -> Lude.
 --
 --
 -- /Note:/ Consider using 'keyUsage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckKeyUsage :: Lens.Lens' CreateKey (Lude.Maybe KeyUsageType)
-ckKeyUsage = Lens.lens (keyUsage :: CreateKey -> Lude.Maybe KeyUsageType) (\s a -> s {keyUsage = a} :: CreateKey)
+ckKeyUsage :: Lens.Lens' CreateKey (Core.Maybe Types.KeyUsageType)
+ckKeyUsage = Lens.field @"keyUsage"
 {-# DEPRECATED ckKeyUsage "Use generic-lens or generic-optics with 'keyUsage' instead." #-}
 
--- | A flag to indicate whether to bypass the key policy lockout safety check.
+-- | The source of the key material for the CMK. You cannot change the origin after you create the CMK. The default is @AWS_KMS@ , which means AWS KMS creates the key material.
 --
--- /Important:/ Setting this value to true increases the risk that the CMK becomes unmanageable. Do not set this value to true indiscriminately.
--- For more information, refer to the scenario in the <https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam Default Key Policy> section in the /\/AWS Key Management Service Developer Guide\/ / .
--- Use this parameter only when you include a policy in the request and you intend to prevent the principal that is making the request from making a subsequent 'PutKeyPolicy' request on the CMK.
--- The default value is false.
+-- When the parameter value is @EXTERNAL@ , AWS KMS creates a CMK without key material so that you can import key material from your existing key management infrastructure. For more information about importing key material into AWS KMS, see <https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html Importing Key Material> in the /AWS Key Management Service Developer Guide/ . This value is valid only for symmetric CMKs.
+-- When the parameter value is @AWS_CLOUDHSM@ , AWS KMS creates the CMK in an AWS KMS <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and creates its key material in the associated AWS CloudHSM cluster. You must also use the @CustomKeyStoreId@ parameter to identify the custom key store. This value is valid only for symmetric CMKs.
 --
--- /Note:/ Consider using 'bypassPolicyLockoutSafetyCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckBypassPolicyLockoutSafetyCheck :: Lens.Lens' CreateKey (Lude.Maybe Lude.Bool)
-ckBypassPolicyLockoutSafetyCheck = Lens.lens (bypassPolicyLockoutSafetyCheck :: CreateKey -> Lude.Maybe Lude.Bool) (\s a -> s {bypassPolicyLockoutSafetyCheck = a} :: CreateKey)
-{-# DEPRECATED ckBypassPolicyLockoutSafetyCheck "Use generic-lens or generic-optics with 'bypassPolicyLockoutSafetyCheck' instead." #-}
+-- /Note:/ Consider using 'origin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckOrigin :: Lens.Lens' CreateKey (Core.Maybe Types.OriginType)
+ckOrigin = Lens.field @"origin"
+{-# DEPRECATED ckOrigin "Use generic-lens or generic-optics with 'origin' instead." #-}
 
 -- | The key policy to attach to the CMK.
 --
@@ -398,30 +324,9 @@ ckBypassPolicyLockoutSafetyCheck = Lens.lens (bypassPolicyLockoutSafetyCheck :: 
 -- The key policy size quota is 32 kilobytes (32768 bytes).
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckPolicy :: Lens.Lens' CreateKey (Lude.Maybe Lude.Text)
-ckPolicy = Lens.lens (policy :: CreateKey -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: CreateKey)
+ckPolicy :: Lens.Lens' CreateKey (Core.Maybe Types.Policy)
+ckPolicy = Lens.field @"policy"
 {-# DEPRECATED ckPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
-
--- | A description of the CMK.
---
--- Use a description that helps you decide whether the CMK is appropriate for a task.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckDescription :: Lens.Lens' CreateKey (Lude.Maybe Lude.Text)
-ckDescription = Lens.lens (description :: CreateKey -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateKey)
-{-# DEPRECATED ckDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | Creates the CMK in the specified <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> and the key material in its associated AWS CloudHSM cluster. To create a CMK in a custom key store, you must also specify the @Origin@ parameter with a value of @AWS_CLOUDHSM@ . The AWS CloudHSM cluster that is associated with the custom key store must have at least two active HSMs, each in a different Availability Zone in the Region.
---
--- This parameter is valid only for symmetric CMKs. You cannot create an asymmetric CMK in a custom key store.
--- To find the ID of a custom key store, use the 'DescribeCustomKeyStores' operation.
--- The response includes the custom key store ID and the ID of the AWS CloudHSM cluster.
--- This operation is part of the <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html Custom Key Store feature> feature in AWS KMS, which combines the convenience and extensive integration of AWS KMS with the isolation and control of a single-tenant key store.
---
--- /Note:/ Consider using 'customKeyStoreId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckCustomKeyStoreId :: Lens.Lens' CreateKey (Lude.Maybe Lude.Text)
-ckCustomKeyStoreId = Lens.lens (customKeyStoreId :: CreateKey -> Lude.Maybe Lude.Text) (\s a -> s {customKeyStoreId = a} :: CreateKey)
-{-# DEPRECATED ckCustomKeyStoreId "Use generic-lens or generic-optics with 'customKeyStoreId' instead." #-}
 
 -- | One or more tags. Each tag consists of a tag key and a tag value. Both the tag key and the tag value are required, but the tag value can be an empty (null) string.
 --
@@ -429,87 +334,74 @@ ckCustomKeyStoreId = Lens.lens (customKeyStoreId :: CreateKey -> Lude.Maybe Lude
 -- Use this parameter to tag the CMK when it is created. To add tags to an existing CMK, use the 'TagResource' operation.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckTags :: Lens.Lens' CreateKey (Lude.Maybe [Tag])
-ckTags = Lens.lens (tags :: CreateKey -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateKey)
+ckTags :: Lens.Lens' CreateKey (Core.Maybe [Types.Tag])
+ckTags = Lens.field @"tags"
 {-# DEPRECATED ckTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateKey where
+instance Core.FromJSON CreateKey where
+  toJSON CreateKey {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BypassPolicyLockoutSafetyCheck" Core..=)
+              Core.<$> bypassPolicyLockoutSafetyCheck,
+            ("CustomKeyStoreId" Core..=) Core.<$> customKeyStoreId,
+            ("CustomerMasterKeySpec" Core..=) Core.<$> customerMasterKeySpec,
+            ("Description" Core..=) Core.<$> description,
+            ("KeyUsage" Core..=) Core.<$> keyUsage,
+            ("Origin" Core..=) Core.<$> origin,
+            ("Policy" Core..=) Core.<$> policy,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateKey where
   type Rs CreateKey = CreateKeyResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.CreateKey")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateKeyResponse'
-            Lude.<$> (x Lude..?> "KeyMetadata") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "KeyMetadata") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateKey where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.CreateKey" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateKey where
-  toJSON CreateKey' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Origin" Lude..=) Lude.<$> origin,
-            ("CustomerMasterKeySpec" Lude..=) Lude.<$> customerMasterKeySpec,
-            ("KeyUsage" Lude..=) Lude.<$> keyUsage,
-            ("BypassPolicyLockoutSafetyCheck" Lude..=)
-              Lude.<$> bypassPolicyLockoutSafetyCheck,
-            ("Policy" Lude..=) Lude.<$> policy,
-            ("Description" Lude..=) Lude.<$> description,
-            ("CustomKeyStoreId" Lude..=) Lude.<$> customKeyStoreId,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateKey where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateKey where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateKeyResponse' smart constructor.
 data CreateKeyResponse = CreateKeyResponse'
   { -- | Metadata associated with the CMK.
-    keyMetadata :: Lude.Maybe KeyMetadata,
+    keyMetadata :: Core.Maybe Types.KeyMetadata,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateKeyResponse' with the minimum fields required to make a request.
---
--- * 'keyMetadata' - Metadata associated with the CMK.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateKeyResponse' value with any optional fields omitted.
 mkCreateKeyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateKeyResponse
-mkCreateKeyResponse pResponseStatus_ =
-  CreateKeyResponse'
-    { keyMetadata = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateKeyResponse responseStatus =
+  CreateKeyResponse' {keyMetadata = Core.Nothing, responseStatus}
 
 -- | Metadata associated with the CMK.
 --
 -- /Note:/ Consider using 'keyMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckrsKeyMetadata :: Lens.Lens' CreateKeyResponse (Lude.Maybe KeyMetadata)
-ckrsKeyMetadata = Lens.lens (keyMetadata :: CreateKeyResponse -> Lude.Maybe KeyMetadata) (\s a -> s {keyMetadata = a} :: CreateKeyResponse)
-{-# DEPRECATED ckrsKeyMetadata "Use generic-lens or generic-optics with 'keyMetadata' instead." #-}
+ckrrsKeyMetadata :: Lens.Lens' CreateKeyResponse (Core.Maybe Types.KeyMetadata)
+ckrrsKeyMetadata = Lens.field @"keyMetadata"
+{-# DEPRECATED ckrrsKeyMetadata "Use generic-lens or generic-optics with 'keyMetadata' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckrsResponseStatus :: Lens.Lens' CreateKeyResponse Lude.Int
-ckrsResponseStatus = Lens.lens (responseStatus :: CreateKeyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateKeyResponse)
-{-# DEPRECATED ckrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ckrrsResponseStatus :: Lens.Lens' CreateKeyResponse Core.Int
+ckrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ckrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

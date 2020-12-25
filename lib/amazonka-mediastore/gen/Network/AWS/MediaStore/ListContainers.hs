@@ -25,155 +25,142 @@ module Network.AWS.MediaStore.ListContainers
     mkListContainers,
 
     -- ** Request lenses
-    lcNextToken,
     lcMaxResults,
+    lcNextToken,
 
     -- * Destructuring the response
     ListContainersResponse (..),
     mkListContainersResponse,
 
     -- ** Response lenses
-    lcrsNextToken,
-    lcrsContainers,
-    lcrsResponseStatus,
+    lcrrsContainers,
+    lcrrsNextToken,
+    lcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStore.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaStore.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListContainers' smart constructor.
 data ListContainers = ListContainers'
-  { -- | Only if you used @MaxResults@ in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Enter the maximum number of containers in the response. Use from 1 to 255 characters.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | Enter the maximum number of containers in the response. Use from 1 to 255 characters.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Only if you used @MaxResults@ in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListContainers' with the minimum fields required to make a request.
---
--- * 'nextToken' - Only if you used @MaxResults@ in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list.
--- * 'maxResults' - Enter the maximum number of containers in the response. Use from 1 to 255 characters.
+-- | Creates a 'ListContainers' value with any optional fields omitted.
 mkListContainers ::
   ListContainers
 mkListContainers =
   ListContainers'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | Only if you used @MaxResults@ in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcNextToken :: Lens.Lens' ListContainers (Lude.Maybe Lude.Text)
-lcNextToken = Lens.lens (nextToken :: ListContainers -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListContainers)
-{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Enter the maximum number of containers in the response. Use from 1 to 255 characters.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcMaxResults :: Lens.Lens' ListContainers (Lude.Maybe Lude.Natural)
-lcMaxResults = Lens.lens (maxResults :: ListContainers -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListContainers)
+lcMaxResults :: Lens.Lens' ListContainers (Core.Maybe Core.Natural)
+lcMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListContainers where
-  page rq rs
-    | Page.stop (rs Lens.^. lcrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lcrsContainers) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lcNextToken Lens..~ rs Lens.^. lcrsNextToken
+-- | Only if you used @MaxResults@ in the first command, enter the token (which was included in the previous response) to obtain the next set of containers. This token is included in a response only if there actually are more containers to list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcNextToken :: Lens.Lens' ListContainers (Core.Maybe Types.PaginationToken)
+lcNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListContainers where
+instance Core.FromJSON ListContainers where
+  toJSON ListContainers {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListContainers where
   type Rs ListContainers = ListContainersResponse
-  request = Req.postJSON mediaStoreService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "MediaStore_20170901.ListContainers")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListContainersResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Containers" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Containers" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListContainers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("MediaStore_20170901.ListContainers" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListContainers where
-  toJSON ListContainers' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListContainers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListContainers where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListContainers where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"containers") = Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListContainersResponse' smart constructor.
 data ListContainersResponse = ListContainersResponse'
-  { -- | @NextToken@ is the token to use in the next call to @ListContainers@ . This token is returned only if you included the @MaxResults@ tag in the original command, and only if there are still containers to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The names of the containers.
-    containers :: [Container],
+  { -- | The names of the containers.
+    containers :: [Types.Container],
+    -- | @NextToken@ is the token to use in the next call to @ListContainers@ . This token is returned only if you included the @MaxResults@ tag in the original command, and only if there are still containers to return.
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListContainersResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - @NextToken@ is the token to use in the next call to @ListContainers@ . This token is returned only if you included the @MaxResults@ tag in the original command, and only if there are still containers to return.
--- * 'containers' - The names of the containers.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListContainersResponse' value with any optional fields omitted.
 mkListContainersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListContainersResponse
-mkListContainersResponse pResponseStatus_ =
+mkListContainersResponse responseStatus =
   ListContainersResponse'
-    { nextToken = Lude.Nothing,
-      containers = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { containers = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | @NextToken@ is the token to use in the next call to @ListContainers@ . This token is returned only if you included the @MaxResults@ tag in the original command, and only if there are still containers to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsNextToken :: Lens.Lens' ListContainersResponse (Lude.Maybe Lude.Text)
-lcrsNextToken = Lens.lens (nextToken :: ListContainersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListContainersResponse)
-{-# DEPRECATED lcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The names of the containers.
 --
 -- /Note:/ Consider using 'containers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsContainers :: Lens.Lens' ListContainersResponse [Container]
-lcrsContainers = Lens.lens (containers :: ListContainersResponse -> [Container]) (\s a -> s {containers = a} :: ListContainersResponse)
-{-# DEPRECATED lcrsContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
+lcrrsContainers :: Lens.Lens' ListContainersResponse [Types.Container]
+lcrrsContainers = Lens.field @"containers"
+{-# DEPRECATED lcrrsContainers "Use generic-lens or generic-optics with 'containers' instead." #-}
+
+-- | @NextToken@ is the token to use in the next call to @ListContainers@ . This token is returned only if you included the @MaxResults@ tag in the original command, and only if there are still containers to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrrsNextToken :: Lens.Lens' ListContainersResponse (Core.Maybe Types.PaginationToken)
+lcrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsResponseStatus :: Lens.Lens' ListContainersResponse Lude.Int
-lcrsResponseStatus = Lens.lens (responseStatus :: ListContainersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListContainersResponse)
-{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lcrrsResponseStatus :: Lens.Lens' ListContainersResponse Core.Int
+lcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

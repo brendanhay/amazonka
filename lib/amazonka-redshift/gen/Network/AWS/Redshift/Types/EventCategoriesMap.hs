@@ -17,58 +17,54 @@ module Network.AWS.Redshift.Types.EventCategoriesMap
     mkEventCategoriesMap,
 
     -- * Lenses
-    ecmSourceType,
     ecmEvents,
+    ecmSourceType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.EventInfoMap
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.EventInfoMap as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes event categories.
 --
 -- /See:/ 'mkEventCategoriesMap' smart constructor.
 data EventCategoriesMap = EventCategoriesMap'
-  { -- | The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
-    sourceType :: Lude.Maybe Lude.Text,
-    -- | The events in the event category.
-    events :: Lude.Maybe [EventInfoMap]
+  { -- | The events in the event category.
+    events :: Core.Maybe [Types.EventInfoMap],
+    -- | The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
+    sourceType :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventCategoriesMap' with the minimum fields required to make a request.
---
--- * 'sourceType' - The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
--- * 'events' - The events in the event category.
+-- | Creates a 'EventCategoriesMap' value with any optional fields omitted.
 mkEventCategoriesMap ::
   EventCategoriesMap
 mkEventCategoriesMap =
   EventCategoriesMap'
-    { sourceType = Lude.Nothing,
-      events = Lude.Nothing
+    { events = Core.Nothing,
+      sourceType = Core.Nothing
     }
-
--- | The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
---
--- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecmSourceType :: Lens.Lens' EventCategoriesMap (Lude.Maybe Lude.Text)
-ecmSourceType = Lens.lens (sourceType :: EventCategoriesMap -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: EventCategoriesMap)
-{-# DEPRECATED ecmSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
 
 -- | The events in the event category.
 --
 -- /Note:/ Consider using 'events' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecmEvents :: Lens.Lens' EventCategoriesMap (Lude.Maybe [EventInfoMap])
-ecmEvents = Lens.lens (events :: EventCategoriesMap -> Lude.Maybe [EventInfoMap]) (\s a -> s {events = a} :: EventCategoriesMap)
+ecmEvents :: Lens.Lens' EventCategoriesMap (Core.Maybe [Types.EventInfoMap])
+ecmEvents = Lens.field @"events"
 {-# DEPRECATED ecmEvents "Use generic-lens or generic-optics with 'events' instead." #-}
 
-instance Lude.FromXML EventCategoriesMap where
+-- | The source type, such as cluster or cluster-snapshot, that the returned categories belong to.
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecmSourceType :: Lens.Lens' EventCategoriesMap (Core.Maybe Types.String)
+ecmSourceType = Lens.field @"sourceType"
+{-# DEPRECATED ecmSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
+
+instance Core.FromXML EventCategoriesMap where
   parseXML x =
     EventCategoriesMap'
-      Lude.<$> (x Lude..@? "SourceType")
-      Lude.<*> ( x Lude..@? "Events" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "EventInfoMap")
-               )
+      Core.<$> (x Core..@? "Events" Core..<@> Core.parseXMLList "EventInfoMap")
+      Core.<*> (x Core..@? "SourceType")

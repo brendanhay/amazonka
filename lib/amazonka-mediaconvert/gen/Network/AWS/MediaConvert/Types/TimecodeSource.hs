@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.TimecodeSource
   ( TimecodeSource
       ( TimecodeSource',
-        TSEmbedded,
-        TSZerobased,
-        TSSpecifiedstart
+        TimecodeSourceEmbedded,
+        TimecodeSourceZerobased,
+        TimecodeSourceSpecifiedstart,
+        fromTimecodeSource
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use Source (TimecodeSource) to set how timecodes are handled within this job. To make sure that your video, audio, captions, and markers are synchronized and that time-based features, such as image inserter, work correctly, choose the Timecode source option that matches your assets. All timecodes are in a 24-hour format with frame number (HH:MM:SS:FF). * Embedded (EMBEDDED) - Use the timecode that is in the input video. If no embedded timecode is in the source, the service will use Start at 0 (ZEROBASED) instead. * Start at 0 (ZEROBASED) - Set the timecode of the initial frame to 00:00:00:00. * Specified Start (SPECIFIEDSTART) - Set the timecode of the initial frame to a value other than zero. You use Start timecode (Start) to provide this value.
-newtype TimecodeSource = TimecodeSource' Lude.Text
+newtype TimecodeSource = TimecodeSource'
+  { fromTimecodeSource ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TSEmbedded :: TimecodeSource
-pattern TSEmbedded = TimecodeSource' "EMBEDDED"
+pattern TimecodeSourceEmbedded :: TimecodeSource
+pattern TimecodeSourceEmbedded = TimecodeSource' "EMBEDDED"
 
-pattern TSZerobased :: TimecodeSource
-pattern TSZerobased = TimecodeSource' "ZEROBASED"
+pattern TimecodeSourceZerobased :: TimecodeSource
+pattern TimecodeSourceZerobased = TimecodeSource' "ZEROBASED"
 
-pattern TSSpecifiedstart :: TimecodeSource
-pattern TSSpecifiedstart = TimecodeSource' "SPECIFIEDSTART"
+pattern TimecodeSourceSpecifiedstart :: TimecodeSource
+pattern TimecodeSourceSpecifiedstart = TimecodeSource' "SPECIFIEDSTART"
 
 {-# COMPLETE
-  TSEmbedded,
-  TSZerobased,
-  TSSpecifiedstart,
+  TimecodeSourceEmbedded,
+  TimecodeSourceZerobased,
+  TimecodeSourceSpecifiedstart,
   TimecodeSource'
   #-}

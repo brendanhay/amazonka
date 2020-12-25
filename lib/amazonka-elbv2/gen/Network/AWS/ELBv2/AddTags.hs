@@ -22,7 +22,7 @@ module Network.AWS.ELBv2.AddTags
     mkAddTags,
 
     -- ** Request lenses
-    atResourceARNs,
+    atResourceArns,
     atTags,
 
     -- * Destructuring the response
@@ -30,97 +30,96 @@ module Network.AWS.ELBv2.AddTags
     mkAddTagsResponse,
 
     -- ** Response lenses
-    atrsResponseStatus,
+    atrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAddTags' smart constructor.
 data AddTags = AddTags'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceARNs :: [Lude.Text],
+    resourceArns :: [Types.ResourceArn],
     -- | The tags.
-    tags :: Lude.NonEmpty Tag
+    tags :: Core.NonEmpty Types.Tag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTags' with the minimum fields required to make a request.
---
--- * 'resourceARNs' - The Amazon Resource Name (ARN) of the resource.
--- * 'tags' - The tags.
+-- | Creates a 'AddTags' value with any optional fields omitted.
 mkAddTags ::
   -- | 'tags'
-  Lude.NonEmpty Tag ->
+  Core.NonEmpty Types.Tag ->
   AddTags
-mkAddTags pTags_ =
-  AddTags' {resourceARNs = Lude.mempty, tags = pTags_}
+mkAddTags tags = AddTags' {resourceArns = Core.mempty, tags}
 
 -- | The Amazon Resource Name (ARN) of the resource.
 --
--- /Note:/ Consider using 'resourceARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atResourceARNs :: Lens.Lens' AddTags [Lude.Text]
-atResourceARNs = Lens.lens (resourceARNs :: AddTags -> [Lude.Text]) (\s a -> s {resourceARNs = a} :: AddTags)
-{-# DEPRECATED atResourceARNs "Use generic-lens or generic-optics with 'resourceARNs' instead." #-}
+-- /Note:/ Consider using 'resourceArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atResourceArns :: Lens.Lens' AddTags [Types.ResourceArn]
+atResourceArns = Lens.field @"resourceArns"
+{-# DEPRECATED atResourceArns "Use generic-lens or generic-optics with 'resourceArns' instead." #-}
 
 -- | The tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atTags :: Lens.Lens' AddTags (Lude.NonEmpty Tag)
-atTags = Lens.lens (tags :: AddTags -> Lude.NonEmpty Tag) (\s a -> s {tags = a} :: AddTags)
+atTags :: Lens.Lens' AddTags (Core.NonEmpty Types.Tag)
+atTags = Lens.field @"tags"
 {-# DEPRECATED atTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest AddTags where
+instance Core.AWSRequest AddTags where
   type Rs AddTags = AddTagsResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "AddTags")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "ResourceArns"
+                            (Core.toQueryList "member" resourceArns)
+                        )
+                Core.<> (Core.toQueryValue "Tags" (Core.toQueryList "member" tags))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "AddTagsResult"
       ( \s h x ->
-          AddTagsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          AddTagsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AddTags where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AddTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AddTags where
-  toQuery AddTags' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("AddTags" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "ResourceArns" Lude.=: Lude.toQueryList "member" resourceARNs,
-        "Tags" Lude.=: Lude.toQueryList "member" tags
-      ]
 
 -- | /See:/ 'mkAddTagsResponse' smart constructor.
 newtype AddTagsResponse = AddTagsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddTagsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AddTagsResponse' value with any optional fields omitted.
 mkAddTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AddTagsResponse
-mkAddTagsResponse pResponseStatus_ =
-  AddTagsResponse' {responseStatus = pResponseStatus_}
+mkAddTagsResponse responseStatus = AddTagsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atrsResponseStatus :: Lens.Lens' AddTagsResponse Lude.Int
-atrsResponseStatus = Lens.lens (responseStatus :: AddTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AddTagsResponse)
-{-# DEPRECATED atrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+atrrsResponseStatus :: Lens.Lens' AddTagsResponse Core.Int
+atrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED atrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

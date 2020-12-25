@@ -27,108 +27,92 @@ module Network.AWS.Lightsail.GetInstance
     mkGetInstanceResponse,
 
     -- ** Response lenses
-    gifrsInstance,
-    gifrsResponseStatus,
+    grsInstance,
+    grsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetInstance' smart constructor.
 newtype GetInstance = GetInstance'
   { -- | The name of the instance.
-    instanceName :: Lude.Text
+    instanceName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInstance' with the minimum fields required to make a request.
---
--- * 'instanceName' - The name of the instance.
+-- | Creates a 'GetInstance' value with any optional fields omitted.
 mkGetInstance ::
   -- | 'instanceName'
-  Lude.Text ->
+  Types.ResourceName ->
   GetInstance
-mkGetInstance pInstanceName_ =
-  GetInstance' {instanceName = pInstanceName_}
+mkGetInstance instanceName = GetInstance' {instanceName}
 
 -- | The name of the instance.
 --
 -- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-giInstanceName :: Lens.Lens' GetInstance Lude.Text
-giInstanceName = Lens.lens (instanceName :: GetInstance -> Lude.Text) (\s a -> s {instanceName = a} :: GetInstance)
+giInstanceName :: Lens.Lens' GetInstance Types.ResourceName
+giInstanceName = Lens.field @"instanceName"
 {-# DEPRECATED giInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance Lude.AWSRequest GetInstance where
+instance Core.FromJSON GetInstance where
+  toJSON GetInstance {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("instanceName" Core..= instanceName)])
+
+instance Core.AWSRequest GetInstance where
   type Rs GetInstance = GetInstanceResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.GetInstance")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetInstanceResponse'
-            Lude.<$> (x Lude..?> "instance") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "instance") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetInstance" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetInstance where
-  toJSON GetInstance' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("instanceName" Lude..= instanceName)])
-
-instance Lude.ToPath GetInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetInstance where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetInstanceResponse' smart constructor.
 data GetInstanceResponse = GetInstanceResponse'
   { -- | An array of key-value pairs containing information about the specified instance.
-    instance' :: Lude.Maybe Instance,
+    instance' :: Core.Maybe Types.Instance,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetInstanceResponse' with the minimum fields required to make a request.
---
--- * 'instance'' - An array of key-value pairs containing information about the specified instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInstanceResponse' value with any optional fields omitted.
 mkGetInstanceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInstanceResponse
-mkGetInstanceResponse pResponseStatus_ =
-  GetInstanceResponse'
-    { instance' = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetInstanceResponse responseStatus =
+  GetInstanceResponse' {instance' = Core.Nothing, responseStatus}
 
 -- | An array of key-value pairs containing information about the specified instance.
 --
 -- /Note:/ Consider using 'instance'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gifrsInstance :: Lens.Lens' GetInstanceResponse (Lude.Maybe Instance)
-gifrsInstance = Lens.lens (instance' :: GetInstanceResponse -> Lude.Maybe Instance) (\s a -> s {instance' = a} :: GetInstanceResponse)
-{-# DEPRECATED gifrsInstance "Use generic-lens or generic-optics with 'instance'' instead." #-}
+grsInstance :: Lens.Lens' GetInstanceResponse (Core.Maybe Types.Instance)
+grsInstance = Lens.field @"instance'"
+{-# DEPRECATED grsInstance "Use generic-lens or generic-optics with 'instance'' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gifrsResponseStatus :: Lens.Lens' GetInstanceResponse Lude.Int
-gifrsResponseStatus = Lens.lens (responseStatus :: GetInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceResponse)
-{-# DEPRECATED gifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grsResponseStatus :: Lens.Lens' GetInstanceResponse Core.Int
+grsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

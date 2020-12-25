@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,34 @@
 -- AWS Mobile Service provides mobile app and website developers with capabilities required to configure AWS resources and bootstrap their developer desktop projects with the necessary SDKs, constants, tools and samples to make use of those resources.
 module Network.AWS.Mobile
   ( -- * Service configuration
-    mobileService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** AccountActionRequiredException
+    _AccountActionRequiredException,
 
     -- * Waiters
     -- $waiters
@@ -54,33 +77,99 @@ module Network.AWS.Mobile
 
     -- * Types
 
+    -- ** BundleTitle
+    BundleTitle (..),
+
+    -- ** Feature
+    Feature (..),
+
     -- ** Platform
     Platform (..),
 
+    -- ** AttributeValue
+    AttributeValue (..),
+
+    -- ** ProjectDetails
+    ProjectDetails (..),
+    mkProjectDetails,
+    pdConsoleUrl,
+    pdCreatedDate,
+    pdLastUpdatedDate,
+    pdName,
+    pdProjectId,
+    pdRegion,
+    pdResources,
+    pdState,
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** ShareUrl
+    ShareUrl (..),
+
+    -- ** BundleId
+    BundleId (..),
+
+    -- ** ConsoleUrl
+    ConsoleUrl (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** DownloadUrl
+    DownloadUrl (..),
+
+    -- ** BundleDescription
+    BundleDescription (..),
+
+    -- ** Resource
+    Resource (..),
+    mkResource,
+    rArn,
+    rAttributes,
+    rFeature,
+    rName,
+    rType,
+
     -- ** ProjectState
     ProjectState (..),
+
+    -- ** ProjectName
+    ProjectName (..),
+
+    -- ** ProjectRegion
+    ProjectRegion (..),
+
+    -- ** ProjectId
+    ProjectId (..),
+
+    -- ** IconUrl
+    IconUrl (..),
+
+    -- ** AttributeKey
+    AttributeKey (..),
+
+    -- ** BundleVersion
+    BundleVersion (..),
 
     -- ** BundleDetails
     BundleDetails (..),
     mkBundleDetails,
     bdAvailablePlatforms,
     bdBundleId,
-    bdVersion,
-    bdIconURL,
-    bdTitle,
     bdDescription,
+    bdIconUrl,
+    bdTitle,
+    bdVersion,
 
-    -- ** ProjectDetails
-    ProjectDetails (..),
-    mkProjectDetails,
-    pdState,
-    pdResources,
-    pdCreatedDate,
-    pdConsoleURL,
-    pdName,
-    pdRegion,
-    pdProjectId,
-    pdLastUpdatedDate,
+    -- ** SnapshotId
+    SnapshotId (..),
 
     -- ** ProjectSummary
     ProjectSummary (..),
@@ -88,24 +177,19 @@ module Network.AWS.Mobile
     psName,
     psProjectId,
 
-    -- ** Resource
-    Resource (..),
-    mkResource,
-    rFeature,
-    rArn,
-    rName,
-    rAttributes,
-    rType,
+    -- ** Name
+    Name (..),
+
+    -- ** Region
+    Region (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

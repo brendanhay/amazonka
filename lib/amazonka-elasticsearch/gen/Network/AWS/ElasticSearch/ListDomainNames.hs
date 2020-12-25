@@ -24,83 +24,78 @@ module Network.AWS.ElasticSearch.ListDomainNames
     mkListDomainNamesResponse,
 
     -- ** Response lenses
-    ldnrsDomainNames,
-    ldnrsResponseStatus,
+    ldnrrsDomainNames,
+    ldnrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListDomainNames' smart constructor.
 data ListDomainNames = ListDomainNames'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDomainNames' with the minimum fields required to make a request.
+-- | Creates a 'ListDomainNames' value with any optional fields omitted.
 mkListDomainNames ::
   ListDomainNames
 mkListDomainNames = ListDomainNames'
 
-instance Lude.AWSRequest ListDomainNames where
+instance Core.AWSRequest ListDomainNames where
   type Rs ListDomainNames = ListDomainNamesResponse
-  request = Req.get elasticSearchService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2015-01-01/domain",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListDomainNamesResponse'
-            Lude.<$> (x Lude..?> "DomainNames" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DomainNames") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListDomainNames where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListDomainNames where
-  toPath = Lude.const "/2015-01-01/domain"
-
-instance Lude.ToQuery ListDomainNames where
-  toQuery = Lude.const Lude.mempty
 
 -- | The result of a @ListDomainNames@ operation. Contains the names of all Elasticsearch domains owned by this account.
 --
 -- /See:/ 'mkListDomainNamesResponse' smart constructor.
 data ListDomainNamesResponse = ListDomainNamesResponse'
   { -- | List of Elasticsearch domain names.
-    domainNames :: Lude.Maybe [DomainInfo],
+    domainNames :: Core.Maybe [Types.DomainInfo],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDomainNamesResponse' with the minimum fields required to make a request.
---
--- * 'domainNames' - List of Elasticsearch domain names.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDomainNamesResponse' value with any optional fields omitted.
 mkListDomainNamesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDomainNamesResponse
-mkListDomainNamesResponse pResponseStatus_ =
+mkListDomainNamesResponse responseStatus =
   ListDomainNamesResponse'
-    { domainNames = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { domainNames = Core.Nothing,
+      responseStatus
     }
 
 -- | List of Elasticsearch domain names.
 --
 -- /Note:/ Consider using 'domainNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldnrsDomainNames :: Lens.Lens' ListDomainNamesResponse (Lude.Maybe [DomainInfo])
-ldnrsDomainNames = Lens.lens (domainNames :: ListDomainNamesResponse -> Lude.Maybe [DomainInfo]) (\s a -> s {domainNames = a} :: ListDomainNamesResponse)
-{-# DEPRECATED ldnrsDomainNames "Use generic-lens or generic-optics with 'domainNames' instead." #-}
+ldnrrsDomainNames :: Lens.Lens' ListDomainNamesResponse (Core.Maybe [Types.DomainInfo])
+ldnrrsDomainNames = Lens.field @"domainNames"
+{-# DEPRECATED ldnrrsDomainNames "Use generic-lens or generic-optics with 'domainNames' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldnrsResponseStatus :: Lens.Lens' ListDomainNamesResponse Lude.Int
-ldnrsResponseStatus = Lens.lens (responseStatus :: ListDomainNamesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDomainNamesResponse)
-{-# DEPRECATED ldnrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldnrrsResponseStatus :: Lens.Lens' ListDomainNamesResponse Core.Int
+ldnrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldnrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

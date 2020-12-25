@@ -13,46 +13,51 @@
 module Network.AWS.CognitoIdentityProvider.Types.DeliveryMediumType
   ( DeliveryMediumType
       ( DeliveryMediumType',
-        Sms,
-        Email
+        DeliveryMediumTypeSms,
+        DeliveryMediumTypeEmail,
+        fromDeliveryMediumType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeliveryMediumType = DeliveryMediumType' Lude.Text
+newtype DeliveryMediumType = DeliveryMediumType'
+  { fromDeliveryMediumType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Sms :: DeliveryMediumType
-pattern Sms = DeliveryMediumType' "SMS"
+pattern DeliveryMediumTypeSms :: DeliveryMediumType
+pattern DeliveryMediumTypeSms = DeliveryMediumType' "SMS"
 
-pattern Email :: DeliveryMediumType
-pattern Email = DeliveryMediumType' "EMAIL"
+pattern DeliveryMediumTypeEmail :: DeliveryMediumType
+pattern DeliveryMediumTypeEmail = DeliveryMediumType' "EMAIL"
 
 {-# COMPLETE
-  Sms,
-  Email,
+  DeliveryMediumTypeSms,
+  DeliveryMediumTypeEmail,
   DeliveryMediumType'
   #-}

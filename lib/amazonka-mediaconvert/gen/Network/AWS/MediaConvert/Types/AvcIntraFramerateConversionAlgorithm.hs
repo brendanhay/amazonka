@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.AvcIntraFramerateConversionAlgorithm
   ( AvcIntraFramerateConversionAlgorithm
       ( AvcIntraFramerateConversionAlgorithm',
-        DuplicateDrop,
-        Interpolate,
-        Frameformer
+        AvcIntraFramerateConversionAlgorithmDuplicateDrop,
+        AvcIntraFramerateConversionAlgorithmInterpolate,
+        AvcIntraFramerateConversionAlgorithmFrameformer,
+        fromAvcIntraFramerateConversionAlgorithm
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
-newtype AvcIntraFramerateConversionAlgorithm = AvcIntraFramerateConversionAlgorithm' Lude.Text
+newtype AvcIntraFramerateConversionAlgorithm = AvcIntraFramerateConversionAlgorithm'
+  { fromAvcIntraFramerateConversionAlgorithm ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DuplicateDrop :: AvcIntraFramerateConversionAlgorithm
-pattern DuplicateDrop = AvcIntraFramerateConversionAlgorithm' "DUPLICATE_DROP"
+pattern AvcIntraFramerateConversionAlgorithmDuplicateDrop :: AvcIntraFramerateConversionAlgorithm
+pattern AvcIntraFramerateConversionAlgorithmDuplicateDrop = AvcIntraFramerateConversionAlgorithm' "DUPLICATE_DROP"
 
-pattern Interpolate :: AvcIntraFramerateConversionAlgorithm
-pattern Interpolate = AvcIntraFramerateConversionAlgorithm' "INTERPOLATE"
+pattern AvcIntraFramerateConversionAlgorithmInterpolate :: AvcIntraFramerateConversionAlgorithm
+pattern AvcIntraFramerateConversionAlgorithmInterpolate = AvcIntraFramerateConversionAlgorithm' "INTERPOLATE"
 
-pattern Frameformer :: AvcIntraFramerateConversionAlgorithm
-pattern Frameformer = AvcIntraFramerateConversionAlgorithm' "FRAMEFORMER"
+pattern AvcIntraFramerateConversionAlgorithmFrameformer :: AvcIntraFramerateConversionAlgorithm
+pattern AvcIntraFramerateConversionAlgorithmFrameformer = AvcIntraFramerateConversionAlgorithm' "FRAMEFORMER"
 
 {-# COMPLETE
-  DuplicateDrop,
-  Interpolate,
-  Frameformer,
+  AvcIntraFramerateConversionAlgorithmDuplicateDrop,
+  AvcIntraFramerateConversionAlgorithmInterpolate,
+  AvcIntraFramerateConversionAlgorithmFrameformer,
   AvcIntraFramerateConversionAlgorithm'
   #-}

@@ -17,97 +17,93 @@ module Network.AWS.Glacier.Types.UploadListElement
     mkUploadListElement,
 
     -- * Lenses
+    uleArchiveDescription,
+    uleCreationDate,
     uleMultipartUploadId,
     ulePartSizeInBytes,
-    uleArchiveDescription,
     uleVaultARN,
-    uleCreationDate,
   )
 where
 
+import qualified Network.AWS.Glacier.Types.ArchiveDescription as Types
+import qualified Network.AWS.Glacier.Types.CreationDate as Types
+import qualified Network.AWS.Glacier.Types.MultipartUploadId as Types
+import qualified Network.AWS.Glacier.Types.VaultARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of in-progress multipart uploads for a vault.
 --
 -- /See:/ 'mkUploadListElement' smart constructor.
 data UploadListElement = UploadListElement'
-  { -- | The ID of a multipart upload.
-    multipartUploadId :: Lude.Maybe Lude.Text,
-    -- | The part size, in bytes, specified in the Initiate Multipart Upload request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.
-    partSizeInBytes :: Lude.Maybe Lude.Integer,
-    -- | The description of the archive that was specified in the Initiate Multipart Upload request.
-    archiveDescription :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the vault that contains the archive.
-    vaultARN :: Lude.Maybe Lude.Text,
+  { -- | The description of the archive that was specified in the Initiate Multipart Upload request.
+    archiveDescription :: Core.Maybe Types.ArchiveDescription,
     -- | The UTC time at which the multipart upload was initiated.
-    creationDate :: Lude.Maybe Lude.Text
+    creationDate :: Core.Maybe Types.CreationDate,
+    -- | The ID of a multipart upload.
+    multipartUploadId :: Core.Maybe Types.MultipartUploadId,
+    -- | The part size, in bytes, specified in the Initiate Multipart Upload request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.
+    partSizeInBytes :: Core.Maybe Core.Integer,
+    -- | The Amazon Resource Name (ARN) of the vault that contains the archive.
+    vaultARN :: Core.Maybe Types.VaultARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UploadListElement' with the minimum fields required to make a request.
---
--- * 'multipartUploadId' - The ID of a multipart upload.
--- * 'partSizeInBytes' - The part size, in bytes, specified in the Initiate Multipart Upload request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.
--- * 'archiveDescription' - The description of the archive that was specified in the Initiate Multipart Upload request.
--- * 'vaultARN' - The Amazon Resource Name (ARN) of the vault that contains the archive.
--- * 'creationDate' - The UTC time at which the multipart upload was initiated.
+-- | Creates a 'UploadListElement' value with any optional fields omitted.
 mkUploadListElement ::
   UploadListElement
 mkUploadListElement =
   UploadListElement'
-    { multipartUploadId = Lude.Nothing,
-      partSizeInBytes = Lude.Nothing,
-      archiveDescription = Lude.Nothing,
-      vaultARN = Lude.Nothing,
-      creationDate = Lude.Nothing
+    { archiveDescription = Core.Nothing,
+      creationDate = Core.Nothing,
+      multipartUploadId = Core.Nothing,
+      partSizeInBytes = Core.Nothing,
+      vaultARN = Core.Nothing
     }
+
+-- | The description of the archive that was specified in the Initiate Multipart Upload request.
+--
+-- /Note:/ Consider using 'archiveDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uleArchiveDescription :: Lens.Lens' UploadListElement (Core.Maybe Types.ArchiveDescription)
+uleArchiveDescription = Lens.field @"archiveDescription"
+{-# DEPRECATED uleArchiveDescription "Use generic-lens or generic-optics with 'archiveDescription' instead." #-}
+
+-- | The UTC time at which the multipart upload was initiated.
+--
+-- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uleCreationDate :: Lens.Lens' UploadListElement (Core.Maybe Types.CreationDate)
+uleCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED uleCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The ID of a multipart upload.
 --
 -- /Note:/ Consider using 'multipartUploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uleMultipartUploadId :: Lens.Lens' UploadListElement (Lude.Maybe Lude.Text)
-uleMultipartUploadId = Lens.lens (multipartUploadId :: UploadListElement -> Lude.Maybe Lude.Text) (\s a -> s {multipartUploadId = a} :: UploadListElement)
+uleMultipartUploadId :: Lens.Lens' UploadListElement (Core.Maybe Types.MultipartUploadId)
+uleMultipartUploadId = Lens.field @"multipartUploadId"
 {-# DEPRECATED uleMultipartUploadId "Use generic-lens or generic-optics with 'multipartUploadId' instead." #-}
 
 -- | The part size, in bytes, specified in the Initiate Multipart Upload request. This is the size of all the parts in the upload except the last part, which may be smaller than this size.
 --
 -- /Note:/ Consider using 'partSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ulePartSizeInBytes :: Lens.Lens' UploadListElement (Lude.Maybe Lude.Integer)
-ulePartSizeInBytes = Lens.lens (partSizeInBytes :: UploadListElement -> Lude.Maybe Lude.Integer) (\s a -> s {partSizeInBytes = a} :: UploadListElement)
+ulePartSizeInBytes :: Lens.Lens' UploadListElement (Core.Maybe Core.Integer)
+ulePartSizeInBytes = Lens.field @"partSizeInBytes"
 {-# DEPRECATED ulePartSizeInBytes "Use generic-lens or generic-optics with 'partSizeInBytes' instead." #-}
-
--- | The description of the archive that was specified in the Initiate Multipart Upload request.
---
--- /Note:/ Consider using 'archiveDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uleArchiveDescription :: Lens.Lens' UploadListElement (Lude.Maybe Lude.Text)
-uleArchiveDescription = Lens.lens (archiveDescription :: UploadListElement -> Lude.Maybe Lude.Text) (\s a -> s {archiveDescription = a} :: UploadListElement)
-{-# DEPRECATED uleArchiveDescription "Use generic-lens or generic-optics with 'archiveDescription' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the vault that contains the archive.
 --
 -- /Note:/ Consider using 'vaultARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uleVaultARN :: Lens.Lens' UploadListElement (Lude.Maybe Lude.Text)
-uleVaultARN = Lens.lens (vaultARN :: UploadListElement -> Lude.Maybe Lude.Text) (\s a -> s {vaultARN = a} :: UploadListElement)
+uleVaultARN :: Lens.Lens' UploadListElement (Core.Maybe Types.VaultARN)
+uleVaultARN = Lens.field @"vaultARN"
 {-# DEPRECATED uleVaultARN "Use generic-lens or generic-optics with 'vaultARN' instead." #-}
 
--- | The UTC time at which the multipart upload was initiated.
---
--- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uleCreationDate :: Lens.Lens' UploadListElement (Lude.Maybe Lude.Text)
-uleCreationDate = Lens.lens (creationDate :: UploadListElement -> Lude.Maybe Lude.Text) (\s a -> s {creationDate = a} :: UploadListElement)
-{-# DEPRECATED uleCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
-
-instance Lude.FromJSON UploadListElement where
+instance Core.FromJSON UploadListElement where
   parseJSON =
-    Lude.withObject
-      "UploadListElement"
-      ( \x ->
-          UploadListElement'
-            Lude.<$> (x Lude..:? "MultipartUploadId")
-            Lude.<*> (x Lude..:? "PartSizeInBytes")
-            Lude.<*> (x Lude..:? "ArchiveDescription")
-            Lude.<*> (x Lude..:? "VaultARN")
-            Lude.<*> (x Lude..:? "CreationDate")
-      )
+    Core.withObject "UploadListElement" Core.$
+      \x ->
+        UploadListElement'
+          Core.<$> (x Core..:? "ArchiveDescription")
+          Core.<*> (x Core..:? "CreationDate")
+          Core.<*> (x Core..:? "MultipartUploadId")
+          Core.<*> (x Core..:? "PartSizeInBytes")
+          Core.<*> (x Core..:? "VaultARN")

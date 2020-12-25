@@ -18,36 +18,45 @@ module Network.AWS.Cloud9.Types.Environment
 
     -- * Lenses
     eArn,
-    eLifecycle,
-    eOwnerARN,
-    eName,
-    eId,
-    eType,
     eConnectionType,
     eDescription,
+    eId,
+    eLifecycle,
+    eName,
+    eOwnerArn,
+    eType,
   )
 where
 
-import Network.AWS.Cloud9.Types.ConnectionType
-import Network.AWS.Cloud9.Types.EnvironmentLifecycle
-import Network.AWS.Cloud9.Types.EnvironmentType
+import qualified Network.AWS.Cloud9.Types.Arn as Types
+import qualified Network.AWS.Cloud9.Types.ConnectionType as Types
+import qualified Network.AWS.Cloud9.Types.Description as Types
+import qualified Network.AWS.Cloud9.Types.EnvironmentLifecycle as Types
+import qualified Network.AWS.Cloud9.Types.EnvironmentType as Types
+import qualified Network.AWS.Cloud9.Types.Id as Types
+import qualified Network.AWS.Cloud9.Types.Name as Types
+import qualified Network.AWS.Cloud9.Types.OwnerArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an AWS Cloud9 development environment.
 --
 -- /See:/ 'mkEnvironment' smart constructor.
 data Environment = Environment'
   { -- | The Amazon Resource Name (ARN) of the environment.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The state of the environment in its creation or deletion lifecycle.
-    lifecycle :: Lude.Maybe EnvironmentLifecycle,
-    -- | The Amazon Resource Name (ARN) of the environment owner.
-    ownerARN :: Lude.Maybe Lude.Text,
-    -- | The name of the environment.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
+    -- | The connection type used for connecting to an Amazon EC2 environment.
+    connectionType :: Core.Maybe Types.ConnectionType,
+    -- | The description for the environment.
+    description :: Core.Maybe Types.Description,
     -- | The ID of the environment.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.Id,
+    -- | The state of the environment in its creation or deletion lifecycle.
+    lifecycle :: Core.Maybe Types.EnvironmentLifecycle,
+    -- | The name of the environment.
+    name :: Core.Maybe Types.Name,
+    -- | The Amazon Resource Name (ARN) of the environment owner.
+    ownerArn :: Core.Maybe Types.OwnerArn,
     -- | The type of environment. Valid values include the following:
     --
     --
@@ -55,81 +64,74 @@ data Environment = Environment'
     --
     --
     --     * @ssh@ : Your own server connects to the environment.
-    type' :: Lude.Maybe EnvironmentType,
-    -- | The connection type used for connecting to an Amazon EC2 environment.
-    connectionType :: Lude.Maybe ConnectionType,
-    -- | The description for the environment.
-    description :: Lude.Maybe (Lude.Sensitive Lude.Text)
+    type' :: Core.Maybe Types.EnvironmentType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Environment' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the environment.
--- * 'lifecycle' - The state of the environment in its creation or deletion lifecycle.
--- * 'ownerARN' - The Amazon Resource Name (ARN) of the environment owner.
--- * 'name' - The name of the environment.
--- * 'id' - The ID of the environment.
--- * 'type'' - The type of environment. Valid values include the following:
---
---
---     * @ec2@ : An Amazon Elastic Compute Cloud (Amazon EC2) instance connects to the environment.
---
---
---     * @ssh@ : Your own server connects to the environment.
---
---
--- * 'connectionType' - The connection type used for connecting to an Amazon EC2 environment.
--- * 'description' - The description for the environment.
+-- | Creates a 'Environment' value with any optional fields omitted.
 mkEnvironment ::
   Environment
 mkEnvironment =
   Environment'
-    { arn = Lude.Nothing,
-      lifecycle = Lude.Nothing,
-      ownerARN = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      type' = Lude.Nothing,
-      connectionType = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      connectionType = Core.Nothing,
+      description = Core.Nothing,
+      id = Core.Nothing,
+      lifecycle = Core.Nothing,
+      name = Core.Nothing,
+      ownerArn = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the environment.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eArn :: Lens.Lens' Environment (Lude.Maybe Lude.Text)
-eArn = Lens.lens (arn :: Environment -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Environment)
+eArn :: Lens.Lens' Environment (Core.Maybe Types.Arn)
+eArn = Lens.field @"arn"
 {-# DEPRECATED eArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The state of the environment in its creation or deletion lifecycle.
+-- | The connection type used for connecting to an Amazon EC2 environment.
 --
--- /Note:/ Consider using 'lifecycle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eLifecycle :: Lens.Lens' Environment (Lude.Maybe EnvironmentLifecycle)
-eLifecycle = Lens.lens (lifecycle :: Environment -> Lude.Maybe EnvironmentLifecycle) (\s a -> s {lifecycle = a} :: Environment)
-{-# DEPRECATED eLifecycle "Use generic-lens or generic-optics with 'lifecycle' instead." #-}
+-- /Note:/ Consider using 'connectionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eConnectionType :: Lens.Lens' Environment (Core.Maybe Types.ConnectionType)
+eConnectionType = Lens.field @"connectionType"
+{-# DEPRECATED eConnectionType "Use generic-lens or generic-optics with 'connectionType' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the environment owner.
+-- | The description for the environment.
 --
--- /Note:/ Consider using 'ownerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eOwnerARN :: Lens.Lens' Environment (Lude.Maybe Lude.Text)
-eOwnerARN = Lens.lens (ownerARN :: Environment -> Lude.Maybe Lude.Text) (\s a -> s {ownerARN = a} :: Environment)
-{-# DEPRECATED eOwnerARN "Use generic-lens or generic-optics with 'ownerARN' instead." #-}
-
--- | The name of the environment.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eName :: Lens.Lens' Environment (Lude.Maybe Lude.Text)
-eName = Lens.lens (name :: Environment -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Environment)
-{-# DEPRECATED eName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eDescription :: Lens.Lens' Environment (Core.Maybe Types.Description)
+eDescription = Lens.field @"description"
+{-# DEPRECATED eDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The ID of the environment.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eId :: Lens.Lens' Environment (Lude.Maybe Lude.Text)
-eId = Lens.lens (id :: Environment -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Environment)
+eId :: Lens.Lens' Environment (Core.Maybe Types.Id)
+eId = Lens.field @"id"
 {-# DEPRECATED eId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The state of the environment in its creation or deletion lifecycle.
+--
+-- /Note:/ Consider using 'lifecycle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eLifecycle :: Lens.Lens' Environment (Core.Maybe Types.EnvironmentLifecycle)
+eLifecycle = Lens.field @"lifecycle"
+{-# DEPRECATED eLifecycle "Use generic-lens or generic-optics with 'lifecycle' instead." #-}
+
+-- | The name of the environment.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eName :: Lens.Lens' Environment (Core.Maybe Types.Name)
+eName = Lens.field @"name"
+{-# DEPRECATED eName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the environment owner.
+--
+-- /Note:/ Consider using 'ownerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eOwnerArn :: Lens.Lens' Environment (Core.Maybe Types.OwnerArn)
+eOwnerArn = Lens.field @"ownerArn"
+{-# DEPRECATED eOwnerArn "Use generic-lens or generic-optics with 'ownerArn' instead." #-}
 
 -- | The type of environment. Valid values include the following:
 --
@@ -142,36 +144,20 @@ eId = Lens.lens (id :: Environment -> Lude.Maybe Lude.Text) (\s a -> s {id = a} 
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eType :: Lens.Lens' Environment (Lude.Maybe EnvironmentType)
-eType = Lens.lens (type' :: Environment -> Lude.Maybe EnvironmentType) (\s a -> s {type' = a} :: Environment)
+eType :: Lens.Lens' Environment (Core.Maybe Types.EnvironmentType)
+eType = Lens.field @"type'"
 {-# DEPRECATED eType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The connection type used for connecting to an Amazon EC2 environment.
---
--- /Note:/ Consider using 'connectionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eConnectionType :: Lens.Lens' Environment (Lude.Maybe ConnectionType)
-eConnectionType = Lens.lens (connectionType :: Environment -> Lude.Maybe ConnectionType) (\s a -> s {connectionType = a} :: Environment)
-{-# DEPRECATED eConnectionType "Use generic-lens or generic-optics with 'connectionType' instead." #-}
-
--- | The description for the environment.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eDescription :: Lens.Lens' Environment (Lude.Maybe (Lude.Sensitive Lude.Text))
-eDescription = Lens.lens (description :: Environment -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: Environment)
-{-# DEPRECATED eDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.FromJSON Environment where
+instance Core.FromJSON Environment where
   parseJSON =
-    Lude.withObject
-      "Environment"
-      ( \x ->
-          Environment'
-            Lude.<$> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "lifecycle")
-            Lude.<*> (x Lude..:? "ownerArn")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "id")
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "connectionType")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "Environment" Core.$
+      \x ->
+        Environment'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "connectionType")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "id")
+          Core.<*> (x Core..:? "lifecycle")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "ownerArn")
+          Core.<*> (x Core..:? "type")

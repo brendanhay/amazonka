@@ -21,37 +21,32 @@ module Network.AWS.EC2.Types.DirectoryServiceAuthenticationRequest
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the Active Directory to be used for client authentication.
 --
 -- /See:/ 'mkDirectoryServiceAuthenticationRequest' smart constructor.
 newtype DirectoryServiceAuthenticationRequest = DirectoryServiceAuthenticationRequest'
   { -- | The ID of the Active Directory to be used for authentication.
-    directoryId :: Lude.Maybe Lude.Text
+    directoryId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DirectoryServiceAuthenticationRequest' with the minimum fields required to make a request.
---
--- * 'directoryId' - The ID of the Active Directory to be used for authentication.
+-- | Creates a 'DirectoryServiceAuthenticationRequest' value with any optional fields omitted.
 mkDirectoryServiceAuthenticationRequest ::
   DirectoryServiceAuthenticationRequest
 mkDirectoryServiceAuthenticationRequest =
   DirectoryServiceAuthenticationRequest'
     { directoryId =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the Active Directory to be used for authentication.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsarDirectoryId :: Lens.Lens' DirectoryServiceAuthenticationRequest (Lude.Maybe Lude.Text)
-dsarDirectoryId = Lens.lens (directoryId :: DirectoryServiceAuthenticationRequest -> Lude.Maybe Lude.Text) (\s a -> s {directoryId = a} :: DirectoryServiceAuthenticationRequest)
+dsarDirectoryId :: Lens.Lens' DirectoryServiceAuthenticationRequest (Core.Maybe Types.String)
+dsarDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED dsarDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
-
-instance Lude.ToQuery DirectoryServiceAuthenticationRequest where
-  toQuery DirectoryServiceAuthenticationRequest' {..} =
-    Lude.mconcat ["DirectoryId" Lude.=: directoryId]

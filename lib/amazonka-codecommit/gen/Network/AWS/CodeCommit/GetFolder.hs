@@ -20,231 +20,211 @@ module Network.AWS.CodeCommit.GetFolder
     mkGetFolder,
 
     -- ** Request lenses
-    gfCommitSpecifier,
     gfRepositoryName,
     gfFolderPath,
+    gfCommitSpecifier,
 
     -- * Destructuring the response
     GetFolderResponse (..),
     mkGetFolderResponse,
 
     -- ** Response lenses
-    gffrsCommitId,
-    gffrsSubModules,
-    gffrsTreeId,
-    gffrsSubFolders,
-    gffrsSymbolicLinks,
-    gffrsFiles,
-    gffrsFolderPath,
-    gffrsResponseStatus,
+    gfrrsCommitId,
+    gfrrsFolderPath,
+    gfrrsFiles,
+    gfrrsSubFolders,
+    gfrrsSubModules,
+    gfrrsSymbolicLinks,
+    gfrrsTreeId,
+    gfrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetFolder' smart constructor.
 data GetFolder = GetFolder'
-  { -- | A fully qualified reference used to identify a commit that contains the version of the folder's content to return. A fully qualified reference can be a commit ID, branch name, tag, or reference such as HEAD. If no specifier is provided, the folder content is returned as it exists in the HEAD commit.
-    commitSpecifier :: Lude.Maybe Lude.Text,
-    -- | The name of the repository.
-    repositoryName :: Lude.Text,
+  { -- | The name of the repository.
+    repositoryName :: Types.RepositoryName,
     -- | The fully qualified path to the folder whose contents are returned, including the folder name. For example, /examples is a fully-qualified path to a folder named examples that was created off of the root directory (/) of a repository.
-    folderPath :: Lude.Text
+    folderPath :: Types.Path,
+    -- | A fully qualified reference used to identify a commit that contains the version of the folder's content to return. A fully qualified reference can be a commit ID, branch name, tag, or reference such as HEAD. If no specifier is provided, the folder content is returned as it exists in the HEAD commit.
+    commitSpecifier :: Core.Maybe Types.CommitSpecifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFolder' with the minimum fields required to make a request.
---
--- * 'commitSpecifier' - A fully qualified reference used to identify a commit that contains the version of the folder's content to return. A fully qualified reference can be a commit ID, branch name, tag, or reference such as HEAD. If no specifier is provided, the folder content is returned as it exists in the HEAD commit.
--- * 'repositoryName' - The name of the repository.
--- * 'folderPath' - The fully qualified path to the folder whose contents are returned, including the folder name. For example, /examples is a fully-qualified path to a folder named examples that was created off of the root directory (/) of a repository.
+-- | Creates a 'GetFolder' value with any optional fields omitted.
 mkGetFolder ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   -- | 'folderPath'
-  Lude.Text ->
+  Types.Path ->
   GetFolder
-mkGetFolder pRepositoryName_ pFolderPath_ =
+mkGetFolder repositoryName folderPath =
   GetFolder'
-    { commitSpecifier = Lude.Nothing,
-      repositoryName = pRepositoryName_,
-      folderPath = pFolderPath_
+    { repositoryName,
+      folderPath,
+      commitSpecifier = Core.Nothing
     }
-
--- | A fully qualified reference used to identify a commit that contains the version of the folder's content to return. A fully qualified reference can be a commit ID, branch name, tag, or reference such as HEAD. If no specifier is provided, the folder content is returned as it exists in the HEAD commit.
---
--- /Note:/ Consider using 'commitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfCommitSpecifier :: Lens.Lens' GetFolder (Lude.Maybe Lude.Text)
-gfCommitSpecifier = Lens.lens (commitSpecifier :: GetFolder -> Lude.Maybe Lude.Text) (\s a -> s {commitSpecifier = a} :: GetFolder)
-{-# DEPRECATED gfCommitSpecifier "Use generic-lens or generic-optics with 'commitSpecifier' instead." #-}
 
 -- | The name of the repository.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfRepositoryName :: Lens.Lens' GetFolder Lude.Text
-gfRepositoryName = Lens.lens (repositoryName :: GetFolder -> Lude.Text) (\s a -> s {repositoryName = a} :: GetFolder)
+gfRepositoryName :: Lens.Lens' GetFolder Types.RepositoryName
+gfRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED gfRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
 -- | The fully qualified path to the folder whose contents are returned, including the folder name. For example, /examples is a fully-qualified path to a folder named examples that was created off of the root directory (/) of a repository.
 --
 -- /Note:/ Consider using 'folderPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfFolderPath :: Lens.Lens' GetFolder Lude.Text
-gfFolderPath = Lens.lens (folderPath :: GetFolder -> Lude.Text) (\s a -> s {folderPath = a} :: GetFolder)
+gfFolderPath :: Lens.Lens' GetFolder Types.Path
+gfFolderPath = Lens.field @"folderPath"
 {-# DEPRECATED gfFolderPath "Use generic-lens or generic-optics with 'folderPath' instead." #-}
 
-instance Lude.AWSRequest GetFolder where
+-- | A fully qualified reference used to identify a commit that contains the version of the folder's content to return. A fully qualified reference can be a commit ID, branch name, tag, or reference such as HEAD. If no specifier is provided, the folder content is returned as it exists in the HEAD commit.
+--
+-- /Note:/ Consider using 'commitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfCommitSpecifier :: Lens.Lens' GetFolder (Core.Maybe Types.CommitSpecifier)
+gfCommitSpecifier = Lens.field @"commitSpecifier"
+{-# DEPRECATED gfCommitSpecifier "Use generic-lens or generic-optics with 'commitSpecifier' instead." #-}
+
+instance Core.FromJSON GetFolder where
+  toJSON GetFolder {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("folderPath" Core..= folderPath),
+            ("commitSpecifier" Core..=) Core.<$> commitSpecifier
+          ]
+      )
+
+instance Core.AWSRequest GetFolder where
   type Rs GetFolder = GetFolderResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeCommit_20150413.GetFolder")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetFolderResponse'
-            Lude.<$> (x Lude..:> "commitId")
-            Lude.<*> (x Lude..?> "subModules" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "treeId")
-            Lude.<*> (x Lude..?> "subFolders" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "symbolicLinks" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "files" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..:> "folderPath")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "commitId")
+            Core.<*> (x Core..: "folderPath")
+            Core.<*> (x Core..:? "files")
+            Core.<*> (x Core..:? "subFolders")
+            Core.<*> (x Core..:? "subModules")
+            Core.<*> (x Core..:? "symbolicLinks")
+            Core.<*> (x Core..:? "treeId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetFolder where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.GetFolder" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetFolder where
-  toJSON GetFolder' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("commitSpecifier" Lude..=) Lude.<$> commitSpecifier,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            Lude.Just ("folderPath" Lude..= folderPath)
-          ]
-      )
-
-instance Lude.ToPath GetFolder where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetFolder where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetFolderResponse' smart constructor.
 data GetFolderResponse = GetFolderResponse'
   { -- | The full commit ID used as a reference for the returned version of the folder content.
-    commitId :: Lude.Text,
-    -- | The list of submodules in the specified folder, if any.
-    subModules :: Lude.Maybe [SubModule],
-    -- | The full SHA-1 pointer of the tree information for the commit that contains the folder.
-    treeId :: Lude.Maybe Lude.Text,
-    -- | The list of folders that exist under the specified folder, if any.
-    subFolders :: Lude.Maybe [Folder],
-    -- | The list of symbolic links to other files and folders in the specified folder, if any.
-    symbolicLinks :: Lude.Maybe [SymbolicLink],
-    -- | The list of files in the specified folder, if any.
-    files :: Lude.Maybe [File],
+    commitId :: Types.ObjectId,
     -- | The fully qualified path of the folder whose contents are returned.
-    folderPath :: Lude.Text,
+    folderPath :: Types.Path,
+    -- | The list of files in the specified folder, if any.
+    files :: Core.Maybe [Types.File],
+    -- | The list of folders that exist under the specified folder, if any.
+    subFolders :: Core.Maybe [Types.Folder],
+    -- | The list of submodules in the specified folder, if any.
+    subModules :: Core.Maybe [Types.SubModule],
+    -- | The list of symbolic links to other files and folders in the specified folder, if any.
+    symbolicLinks :: Core.Maybe [Types.SymbolicLink],
+    -- | The full SHA-1 pointer of the tree information for the commit that contains the folder.
+    treeId :: Core.Maybe Types.ObjectId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFolderResponse' with the minimum fields required to make a request.
---
--- * 'commitId' - The full commit ID used as a reference for the returned version of the folder content.
--- * 'subModules' - The list of submodules in the specified folder, if any.
--- * 'treeId' - The full SHA-1 pointer of the tree information for the commit that contains the folder.
--- * 'subFolders' - The list of folders that exist under the specified folder, if any.
--- * 'symbolicLinks' - The list of symbolic links to other files and folders in the specified folder, if any.
--- * 'files' - The list of files in the specified folder, if any.
--- * 'folderPath' - The fully qualified path of the folder whose contents are returned.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetFolderResponse' value with any optional fields omitted.
 mkGetFolderResponse ::
   -- | 'commitId'
-  Lude.Text ->
+  Types.ObjectId ->
   -- | 'folderPath'
-  Lude.Text ->
+  Types.Path ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetFolderResponse
-mkGetFolderResponse pCommitId_ pFolderPath_ pResponseStatus_ =
+mkGetFolderResponse commitId folderPath responseStatus =
   GetFolderResponse'
-    { commitId = pCommitId_,
-      subModules = Lude.Nothing,
-      treeId = Lude.Nothing,
-      subFolders = Lude.Nothing,
-      symbolicLinks = Lude.Nothing,
-      files = Lude.Nothing,
-      folderPath = pFolderPath_,
-      responseStatus = pResponseStatus_
+    { commitId,
+      folderPath,
+      files = Core.Nothing,
+      subFolders = Core.Nothing,
+      subModules = Core.Nothing,
+      symbolicLinks = Core.Nothing,
+      treeId = Core.Nothing,
+      responseStatus
     }
 
 -- | The full commit ID used as a reference for the returned version of the folder content.
 --
 -- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gffrsCommitId :: Lens.Lens' GetFolderResponse Lude.Text
-gffrsCommitId = Lens.lens (commitId :: GetFolderResponse -> Lude.Text) (\s a -> s {commitId = a} :: GetFolderResponse)
-{-# DEPRECATED gffrsCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
-
--- | The list of submodules in the specified folder, if any.
---
--- /Note:/ Consider using 'subModules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gffrsSubModules :: Lens.Lens' GetFolderResponse (Lude.Maybe [SubModule])
-gffrsSubModules = Lens.lens (subModules :: GetFolderResponse -> Lude.Maybe [SubModule]) (\s a -> s {subModules = a} :: GetFolderResponse)
-{-# DEPRECATED gffrsSubModules "Use generic-lens or generic-optics with 'subModules' instead." #-}
-
--- | The full SHA-1 pointer of the tree information for the commit that contains the folder.
---
--- /Note:/ Consider using 'treeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gffrsTreeId :: Lens.Lens' GetFolderResponse (Lude.Maybe Lude.Text)
-gffrsTreeId = Lens.lens (treeId :: GetFolderResponse -> Lude.Maybe Lude.Text) (\s a -> s {treeId = a} :: GetFolderResponse)
-{-# DEPRECATED gffrsTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
-
--- | The list of folders that exist under the specified folder, if any.
---
--- /Note:/ Consider using 'subFolders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gffrsSubFolders :: Lens.Lens' GetFolderResponse (Lude.Maybe [Folder])
-gffrsSubFolders = Lens.lens (subFolders :: GetFolderResponse -> Lude.Maybe [Folder]) (\s a -> s {subFolders = a} :: GetFolderResponse)
-{-# DEPRECATED gffrsSubFolders "Use generic-lens or generic-optics with 'subFolders' instead." #-}
-
--- | The list of symbolic links to other files and folders in the specified folder, if any.
---
--- /Note:/ Consider using 'symbolicLinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gffrsSymbolicLinks :: Lens.Lens' GetFolderResponse (Lude.Maybe [SymbolicLink])
-gffrsSymbolicLinks = Lens.lens (symbolicLinks :: GetFolderResponse -> Lude.Maybe [SymbolicLink]) (\s a -> s {symbolicLinks = a} :: GetFolderResponse)
-{-# DEPRECATED gffrsSymbolicLinks "Use generic-lens or generic-optics with 'symbolicLinks' instead." #-}
-
--- | The list of files in the specified folder, if any.
---
--- /Note:/ Consider using 'files' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gffrsFiles :: Lens.Lens' GetFolderResponse (Lude.Maybe [File])
-gffrsFiles = Lens.lens (files :: GetFolderResponse -> Lude.Maybe [File]) (\s a -> s {files = a} :: GetFolderResponse)
-{-# DEPRECATED gffrsFiles "Use generic-lens or generic-optics with 'files' instead." #-}
+gfrrsCommitId :: Lens.Lens' GetFolderResponse Types.ObjectId
+gfrrsCommitId = Lens.field @"commitId"
+{-# DEPRECATED gfrrsCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
 
 -- | The fully qualified path of the folder whose contents are returned.
 --
 -- /Note:/ Consider using 'folderPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gffrsFolderPath :: Lens.Lens' GetFolderResponse Lude.Text
-gffrsFolderPath = Lens.lens (folderPath :: GetFolderResponse -> Lude.Text) (\s a -> s {folderPath = a} :: GetFolderResponse)
-{-# DEPRECATED gffrsFolderPath "Use generic-lens or generic-optics with 'folderPath' instead." #-}
+gfrrsFolderPath :: Lens.Lens' GetFolderResponse Types.Path
+gfrrsFolderPath = Lens.field @"folderPath"
+{-# DEPRECATED gfrrsFolderPath "Use generic-lens or generic-optics with 'folderPath' instead." #-}
+
+-- | The list of files in the specified folder, if any.
+--
+-- /Note:/ Consider using 'files' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrrsFiles :: Lens.Lens' GetFolderResponse (Core.Maybe [Types.File])
+gfrrsFiles = Lens.field @"files"
+{-# DEPRECATED gfrrsFiles "Use generic-lens or generic-optics with 'files' instead." #-}
+
+-- | The list of folders that exist under the specified folder, if any.
+--
+-- /Note:/ Consider using 'subFolders' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrrsSubFolders :: Lens.Lens' GetFolderResponse (Core.Maybe [Types.Folder])
+gfrrsSubFolders = Lens.field @"subFolders"
+{-# DEPRECATED gfrrsSubFolders "Use generic-lens or generic-optics with 'subFolders' instead." #-}
+
+-- | The list of submodules in the specified folder, if any.
+--
+-- /Note:/ Consider using 'subModules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrrsSubModules :: Lens.Lens' GetFolderResponse (Core.Maybe [Types.SubModule])
+gfrrsSubModules = Lens.field @"subModules"
+{-# DEPRECATED gfrrsSubModules "Use generic-lens or generic-optics with 'subModules' instead." #-}
+
+-- | The list of symbolic links to other files and folders in the specified folder, if any.
+--
+-- /Note:/ Consider using 'symbolicLinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrrsSymbolicLinks :: Lens.Lens' GetFolderResponse (Core.Maybe [Types.SymbolicLink])
+gfrrsSymbolicLinks = Lens.field @"symbolicLinks"
+{-# DEPRECATED gfrrsSymbolicLinks "Use generic-lens or generic-optics with 'symbolicLinks' instead." #-}
+
+-- | The full SHA-1 pointer of the tree information for the commit that contains the folder.
+--
+-- /Note:/ Consider using 'treeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfrrsTreeId :: Lens.Lens' GetFolderResponse (Core.Maybe Types.ObjectId)
+gfrrsTreeId = Lens.field @"treeId"
+{-# DEPRECATED gfrrsTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gffrsResponseStatus :: Lens.Lens' GetFolderResponse Lude.Int
-gffrsResponseStatus = Lens.lens (responseStatus :: GetFolderResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFolderResponse)
-{-# DEPRECATED gffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gfrrsResponseStatus :: Lens.Lens' GetFolderResponse Core.Int
+gfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

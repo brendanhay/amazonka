@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.HlsInitializationVectorInManifest
   ( HlsInitializationVectorInManifest
       ( HlsInitializationVectorInManifest',
-        HIVIMInclude,
-        HIVIMExclude
+        HlsInitializationVectorInManifestInclude,
+        HlsInitializationVectorInManifestExclude,
+        fromHlsInitializationVectorInManifest
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
-newtype HlsInitializationVectorInManifest = HlsInitializationVectorInManifest' Lude.Text
+newtype HlsInitializationVectorInManifest = HlsInitializationVectorInManifest'
+  { fromHlsInitializationVectorInManifest ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HIVIMInclude :: HlsInitializationVectorInManifest
-pattern HIVIMInclude = HlsInitializationVectorInManifest' "INCLUDE"
+pattern HlsInitializationVectorInManifestInclude :: HlsInitializationVectorInManifest
+pattern HlsInitializationVectorInManifestInclude = HlsInitializationVectorInManifest' "INCLUDE"
 
-pattern HIVIMExclude :: HlsInitializationVectorInManifest
-pattern HIVIMExclude = HlsInitializationVectorInManifest' "EXCLUDE"
+pattern HlsInitializationVectorInManifestExclude :: HlsInitializationVectorInManifest
+pattern HlsInitializationVectorInManifestExclude = HlsInitializationVectorInManifest' "EXCLUDE"
 
 {-# COMPLETE
-  HIVIMInclude,
-  HIVIMExclude,
+  HlsInitializationVectorInManifestInclude,
+  HlsInitializationVectorInManifestExclude,
   HlsInitializationVectorInManifest'
   #-}

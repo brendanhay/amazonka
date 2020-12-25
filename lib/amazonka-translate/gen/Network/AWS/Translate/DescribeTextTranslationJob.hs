@@ -27,113 +27,102 @@ module Network.AWS.Translate.DescribeTextTranslationJob
     mkDescribeTextTranslationJobResponse,
 
     -- ** Response lenses
-    dttjrsTextTranslationJobProperties,
-    dttjrsResponseStatus,
+    dttjrrsTextTranslationJobProperties,
+    dttjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Translate.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Translate.Types as Types
 
 -- | /See:/ 'mkDescribeTextTranslationJob' smart constructor.
 newtype DescribeTextTranslationJob = DescribeTextTranslationJob'
   { -- | The identifier that Amazon Translate generated for the job. The 'StartTextTranslationJob' operation returns this identifier in its response.
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTextTranslationJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier that Amazon Translate generated for the job. The 'StartTextTranslationJob' operation returns this identifier in its response.
+-- | Creates a 'DescribeTextTranslationJob' value with any optional fields omitted.
 mkDescribeTextTranslationJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   DescribeTextTranslationJob
-mkDescribeTextTranslationJob pJobId_ =
-  DescribeTextTranslationJob' {jobId = pJobId_}
+mkDescribeTextTranslationJob jobId =
+  DescribeTextTranslationJob' {jobId}
 
 -- | The identifier that Amazon Translate generated for the job. The 'StartTextTranslationJob' operation returns this identifier in its response.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dttjJobId :: Lens.Lens' DescribeTextTranslationJob Lude.Text
-dttjJobId = Lens.lens (jobId :: DescribeTextTranslationJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeTextTranslationJob)
+dttjJobId :: Lens.Lens' DescribeTextTranslationJob Types.JobId
+dttjJobId = Lens.field @"jobId"
 {-# DEPRECATED dttjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest DescribeTextTranslationJob where
+instance Core.FromJSON DescribeTextTranslationJob where
+  toJSON DescribeTextTranslationJob {..} =
+    Core.object (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.AWSRequest DescribeTextTranslationJob where
   type
     Rs DescribeTextTranslationJob =
       DescribeTextTranslationJobResponse
-  request = Req.postJSON translateService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSShineFrontendService_20170701.DescribeTextTranslationJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTextTranslationJobResponse'
-            Lude.<$> (x Lude..?> "TextTranslationJobProperties")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TextTranslationJobProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTextTranslationJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSShineFrontendService_20170701.DescribeTextTranslationJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTextTranslationJob where
-  toJSON DescribeTextTranslationJob' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
-
-instance Lude.ToPath DescribeTextTranslationJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTextTranslationJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeTextTranslationJobResponse' smart constructor.
 data DescribeTextTranslationJobResponse = DescribeTextTranslationJobResponse'
   { -- | An object that contains the properties associated with an asynchronous batch translation job.
-    textTranslationJobProperties :: Lude.Maybe TextTranslationJobProperties,
+    textTranslationJobProperties :: Core.Maybe Types.TextTranslationJobProperties,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeTextTranslationJobResponse' with the minimum fields required to make a request.
---
--- * 'textTranslationJobProperties' - An object that contains the properties associated with an asynchronous batch translation job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTextTranslationJobResponse' value with any optional fields omitted.
 mkDescribeTextTranslationJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTextTranslationJobResponse
-mkDescribeTextTranslationJobResponse pResponseStatus_ =
+mkDescribeTextTranslationJobResponse responseStatus =
   DescribeTextTranslationJobResponse'
     { textTranslationJobProperties =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An object that contains the properties associated with an asynchronous batch translation job.
 --
 -- /Note:/ Consider using 'textTranslationJobProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dttjrsTextTranslationJobProperties :: Lens.Lens' DescribeTextTranslationJobResponse (Lude.Maybe TextTranslationJobProperties)
-dttjrsTextTranslationJobProperties = Lens.lens (textTranslationJobProperties :: DescribeTextTranslationJobResponse -> Lude.Maybe TextTranslationJobProperties) (\s a -> s {textTranslationJobProperties = a} :: DescribeTextTranslationJobResponse)
-{-# DEPRECATED dttjrsTextTranslationJobProperties "Use generic-lens or generic-optics with 'textTranslationJobProperties' instead." #-}
+dttjrrsTextTranslationJobProperties :: Lens.Lens' DescribeTextTranslationJobResponse (Core.Maybe Types.TextTranslationJobProperties)
+dttjrrsTextTranslationJobProperties = Lens.field @"textTranslationJobProperties"
+{-# DEPRECATED dttjrrsTextTranslationJobProperties "Use generic-lens or generic-optics with 'textTranslationJobProperties' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dttjrsResponseStatus :: Lens.Lens' DescribeTextTranslationJobResponse Lude.Int
-dttjrsResponseStatus = Lens.lens (responseStatus :: DescribeTextTranslationJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTextTranslationJobResponse)
-{-# DEPRECATED dttjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dttjrrsResponseStatus :: Lens.Lens' DescribeTextTranslationJobResponse Core.Int
+dttjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dttjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

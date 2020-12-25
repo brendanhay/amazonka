@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,58 @@
 -- Amazon Comprehend is an AWS service for gaining insight into the content of documents. Use these actions to determine the topics contained in your documents, the topics they discuss, the predominant sentiment expressed in them, the predominant language used, and more.
 module Network.AWS.Comprehend
   ( -- * Service configuration
-    comprehendService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ResourceUnavailableException
+    _ResourceUnavailableException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** ResourceLimitExceededException
+    _ResourceLimitExceededException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** InternalServerException
+    _InternalServerException,
+
+    -- ** BatchSizeLimitExceededException
+    _BatchSizeLimitExceededException,
+
+    -- ** UnsupportedLanguageException
+    _UnsupportedLanguageException,
+
+    -- ** JobNotFoundException
+    _JobNotFoundException,
+
+    -- ** TooManyTagKeysException
+    _TooManyTagKeysException,
+
+    -- ** InvalidFilterException
+    _InvalidFilterException,
+
+    -- ** KmsKeyValidationException
+    _KmsKeyValidationException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** TextSizeLimitExceededException
+    _TextSizeLimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -207,62 +254,120 @@ module Network.AWS.Comprehend
 
     -- * Types
 
-    -- ** DocumentClassifierDataFormat
-    DocumentClassifierDataFormat (..),
+    -- ** EntityRecognizerEntityList
+    EntityRecognizerEntityList (..),
+    mkEntityRecognizerEntityList,
+    erelS3Uri,
 
-    -- ** DocumentClassifierMode
-    DocumentClassifierMode (..),
+    -- ** IamRoleArn
+    IamRoleArn (..),
 
-    -- ** EndpointStatus
-    EndpointStatus (..),
+    -- ** EntityRecognizerEvaluationMetrics
+    EntityRecognizerEvaluationMetrics (..),
+    mkEntityRecognizerEvaluationMetrics,
+    eremF1Score,
+    eremPrecision,
+    eremRecall,
 
-    -- ** EntityRecognizerDataFormat
-    EntityRecognizerDataFormat (..),
+    -- ** PartOfSpeechTag
+    PartOfSpeechTag (..),
+    mkPartOfSpeechTag,
+    postScore,
+    postTag,
 
-    -- ** EntityType
-    EntityType (..),
+    -- ** EntityRecognizerProperties
+    EntityRecognizerProperties (..),
+    mkEntityRecognizerProperties,
+    erpDataAccessRoleArn,
+    erpEndTime,
+    erpEntityRecognizerArn,
+    erpInputDataConfig,
+    erpLanguageCode,
+    erpMessage,
+    erpRecognizerMetadata,
+    erpStatus,
+    erpSubmitTime,
+    erpTrainingEndTime,
+    erpTrainingStartTime,
+    erpVolumeKmsKeyId,
+    erpVpcConfig,
 
-    -- ** InputFormat
-    InputFormat (..),
+    -- ** PiiEntitiesDetectionJobProperties
+    PiiEntitiesDetectionJobProperties (..),
+    mkPiiEntitiesDetectionJobProperties,
+    pedjpDataAccessRoleArn,
+    pedjpEndTime,
+    pedjpInputDataConfig,
+    pedjpJobId,
+    pedjpJobName,
+    pedjpJobStatus,
+    pedjpLanguageCode,
+    pedjpMessage,
+    pedjpMode,
+    pedjpOutputDataConfig,
+    pedjpRedactionConfig,
+    pedjpSubmitTime,
 
-    -- ** JobStatus
-    JobStatus (..),
+    -- ** EventsDetectionJobFilter
+    EventsDetectionJobFilter (..),
+    mkEventsDetectionJobFilter,
+    edjfJobName,
+    edjfJobStatus,
+    edjfSubmitTimeAfter,
+    edjfSubmitTimeBefore,
 
-    -- ** LanguageCode
-    LanguageCode (..),
+    -- ** AnyLengthString
+    AnyLengthString (..),
 
-    -- ** ModelStatus
-    ModelStatus (..),
-
-    -- ** PartOfSpeechTagType
-    PartOfSpeechTagType (..),
-
-    -- ** PiiEntitiesDetectionMaskMode
-    PiiEntitiesDetectionMaskMode (..),
-
-    -- ** PiiEntitiesDetectionMode
-    PiiEntitiesDetectionMode (..),
-
-    -- ** PiiEntityType
-    PiiEntityType (..),
-
-    -- ** SentimentType
-    SentimentType (..),
-
-    -- ** SyntaxLanguageCode
-    SyntaxLanguageCode (..),
-
-    -- ** AugmentedManifestsListItem
-    AugmentedManifestsListItem (..),
-    mkAugmentedManifestsListItem,
-    amliAttributeNames,
-    amliS3URI,
+    -- ** AttributeNamesListItem
+    AttributeNamesListItem (..),
 
     -- ** BatchDetectDominantLanguageItemResult
     BatchDetectDominantLanguageItemResult (..),
     mkBatchDetectDominantLanguageItemResult,
-    bddlirLanguages,
     bddlirIndex,
+    bddlirLanguages,
+
+    -- ** CustomerInputString
+    CustomerInputString (..),
+
+    -- ** LanguageCode
+    LanguageCode (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** EndpointProperties
+    EndpointProperties (..),
+    mkEndpointProperties,
+    epCreationTime,
+    epCurrentInferenceUnits,
+    epDesiredInferenceUnits,
+    epEndpointArn,
+    epLastModifiedTime,
+    epMessage,
+    epModelArn,
+    epStatus,
+
+    -- ** KeyPhrase
+    KeyPhrase (..),
+    mkKeyPhrase,
+    kpBeginOffset,
+    kpEndOffset,
+    kpScore,
+    kpText,
+
+    -- ** SyntaxToken
+    SyntaxToken (..),
+    mkSyntaxToken,
+    stBeginOffset,
+    stEndOffset,
+    stPartOfSpeech,
+    stText,
+    stTokenId,
 
     -- ** BatchDetectEntitiesItemResult
     BatchDetectEntitiesItemResult (..),
@@ -270,232 +375,25 @@ module Network.AWS.Comprehend
     bdeirEntities,
     bdeirIndex,
 
-    -- ** BatchDetectKeyPhrasesItemResult
-    BatchDetectKeyPhrasesItemResult (..),
-    mkBatchDetectKeyPhrasesItemResult,
-    bdkpirIndex,
-    bdkpirKeyPhrases,
-
-    -- ** BatchDetectSentimentItemResult
-    BatchDetectSentimentItemResult (..),
-    mkBatchDetectSentimentItemResult,
-    bSentiment,
-    bSentimentScore,
-    bIndex,
-
-    -- ** BatchDetectSyntaxItemResult
-    BatchDetectSyntaxItemResult (..),
-    mkBatchDetectSyntaxItemResult,
-    bdsirIndex,
-    bdsirSyntaxTokens,
-
-    -- ** BatchItemError
-    BatchItemError (..),
-    mkBatchItemError,
-    bieErrorCode,
-    bieErrorMessage,
-    bieIndex,
-
-    -- ** ClassifierEvaluationMetrics
-    ClassifierEvaluationMetrics (..),
-    mkClassifierEvaluationMetrics,
-    cemMicroPrecision,
-    cemMicroF1Score,
-    cemRecall,
-    cemPrecision,
-    cemMicroRecall,
-    cemF1Score,
-    cemHammingLoss,
-    cemAccuracy,
-
     -- ** ClassifierMetadata
     ClassifierMetadata (..),
     mkClassifierMetadata,
-    cmNumberOfLabels,
     cmEvaluationMetrics,
-    cmNumberOfTrainedDocuments,
+    cmNumberOfLabels,
     cmNumberOfTestDocuments,
+    cmNumberOfTrainedDocuments,
 
-    -- ** DocumentClass
-    DocumentClass (..),
-    mkDocumentClass,
-    dcScore,
-    dcName,
+    -- ** JobId
+    JobId (..),
 
-    -- ** DocumentClassificationJobFilter
-    DocumentClassificationJobFilter (..),
-    mkDocumentClassificationJobFilter,
-    dcjfSubmitTimeAfter,
-    dcjfSubmitTimeBefore,
-    dcjfJobName,
-    dcjfJobStatus,
+    -- ** DocumentClassifierArn
+    DocumentClassifierArn (..),
 
-    -- ** DocumentClassificationJobProperties
-    DocumentClassificationJobProperties (..),
-    mkDocumentClassificationJobProperties,
-    dcjpJobId,
-    dcjpDocumentClassifierARN,
-    dcjpJobName,
-    dcjpInputDataConfig,
-    dcjpVPCConfig,
-    dcjpVolumeKMSKeyId,
-    dcjpEndTime,
-    dcjpOutputDataConfig,
-    dcjpDataAccessRoleARN,
-    dcjpJobStatus,
-    dcjpMessage,
-    dcjpSubmitTime,
+    -- ** MaskCharacter
+    MaskCharacter (..),
 
-    -- ** DocumentClassifierFilter
-    DocumentClassifierFilter (..),
-    mkDocumentClassifierFilter,
-    dcfStatus,
-    dcfSubmitTimeAfter,
-    dcfSubmitTimeBefore,
-
-    -- ** DocumentClassifierInputDataConfig
-    DocumentClassifierInputDataConfig (..),
-    mkDocumentClassifierInputDataConfig,
-    dcidcAugmentedManifests,
-    dcidcDataFormat,
-    dcidcLabelDelimiter,
-    dcidcS3URI,
-
-    -- ** DocumentClassifierOutputDataConfig
-    DocumentClassifierOutputDataConfig (..),
-    mkDocumentClassifierOutputDataConfig,
-    dcodcKMSKeyId,
-    dcodcS3URI,
-
-    -- ** DocumentClassifierProperties
-    DocumentClassifierProperties (..),
-    mkDocumentClassifierProperties,
-    dcpStatus,
-    dcpLanguageCode,
-    dcpClassifierMetadata,
-    dcpTrainingEndTime,
-    dcpDocumentClassifierARN,
-    dcpMode,
-    dcpInputDataConfig,
-    dcpVPCConfig,
-    dcpVolumeKMSKeyId,
-    dcpEndTime,
-    dcpOutputDataConfig,
-    dcpTrainingStartTime,
-    dcpDataAccessRoleARN,
-    dcpMessage,
-    dcpSubmitTime,
-
-    -- ** DocumentLabel
-    DocumentLabel (..),
-    mkDocumentLabel,
-    dScore,
-    dName,
-
-    -- ** DominantLanguage
-    DominantLanguage (..),
-    mkDominantLanguage,
-    dlLanguageCode,
-    dlScore,
-
-    -- ** DominantLanguageDetectionJobFilter
-    DominantLanguageDetectionJobFilter (..),
-    mkDominantLanguageDetectionJobFilter,
-    dldjfSubmitTimeAfter,
-    dldjfSubmitTimeBefore,
-    dldjfJobName,
-    dldjfJobStatus,
-
-    -- ** DominantLanguageDetectionJobProperties
-    DominantLanguageDetectionJobProperties (..),
-    mkDominantLanguageDetectionJobProperties,
-    dldjpJobId,
-    dldjpJobName,
-    dldjpInputDataConfig,
-    dldjpVPCConfig,
-    dldjpVolumeKMSKeyId,
-    dldjpEndTime,
-    dldjpOutputDataConfig,
-    dldjpDataAccessRoleARN,
-    dldjpJobStatus,
-    dldjpMessage,
-    dldjpSubmitTime,
-
-    -- ** EndpointFilter
-    EndpointFilter (..),
-    mkEndpointFilter,
-    efStatus,
-    efModelARN,
-    efCreationTimeAfter,
-    efCreationTimeBefore,
-
-    -- ** EndpointProperties
-    EndpointProperties (..),
-    mkEndpointProperties,
-    epCreationTime,
-    epStatus,
-    epModelARN,
-    epLastModifiedTime,
-    epDesiredInferenceUnits,
-    epCurrentInferenceUnits,
-    epMessage,
-    epEndpointARN,
-
-    -- ** EntitiesDetectionJobFilter
-    EntitiesDetectionJobFilter (..),
-    mkEntitiesDetectionJobFilter,
-    edjffSubmitTimeAfter,
-    edjffSubmitTimeBefore,
-    edjffJobName,
-    edjffJobStatus,
-
-    -- ** EntitiesDetectionJobProperties
-    EntitiesDetectionJobProperties (..),
-    mkEntitiesDetectionJobProperties,
-    eLanguageCode,
-    eJobId,
-    eEntityRecognizerARN,
-    eJobName,
-    eInputDataConfig,
-    eVPCConfig,
-    eVolumeKMSKeyId,
-    eEndTime,
-    eOutputDataConfig,
-    eDataAccessRoleARN,
-    eJobStatus,
-    eMessage,
-    eSubmitTime,
-
-    -- ** Entity
-    Entity (..),
-    mkEntity,
-    eBeginOffset,
-    eText,
-    eScore,
-    eEndOffset,
-    eType,
-
-    -- ** EntityRecognizerAnnotations
-    EntityRecognizerAnnotations (..),
-    mkEntityRecognizerAnnotations,
-    eraS3URI,
-
-    -- ** EntityRecognizerDocuments
-    EntityRecognizerDocuments (..),
-    mkEntityRecognizerDocuments,
-    erdS3URI,
-
-    -- ** EntityRecognizerEntityList
-    EntityRecognizerEntityList (..),
-    mkEntityRecognizerEntityList,
-    erelS3URI,
-
-    -- ** EntityRecognizerEvaluationMetrics
-    EntityRecognizerEvaluationMetrics (..),
-    mkEntityRecognizerEvaluationMetrics,
-    eremRecall,
-    eremPrecision,
-    eremF1Score,
+    -- ** String
+    String (..),
 
     -- ** EntityRecognizerFilter
     EntityRecognizerFilter (..),
@@ -504,170 +402,230 @@ module Network.AWS.Comprehend
     erfSubmitTimeAfter,
     erfSubmitTimeBefore,
 
-    -- ** EntityRecognizerInputDataConfig
-    EntityRecognizerInputDataConfig (..),
-    mkEntityRecognizerInputDataConfig,
-    eridcAugmentedManifests,
-    eridcAnnotations,
-    eridcEntityTypes,
-    eridcDataFormat,
-    eridcDocuments,
-    eridcEntityList,
+    -- ** PiiEntitiesDetectionJobFilter
+    PiiEntitiesDetectionJobFilter (..),
+    mkPiiEntitiesDetectionJobFilter,
+    pedjfJobName,
+    pedjfJobStatus,
+    pedjfSubmitTimeAfter,
+    pedjfSubmitTimeBefore,
+
+    -- ** PiiOutputDataConfig
+    PiiOutputDataConfig (..),
+    mkPiiOutputDataConfig,
+    podcS3Uri,
+    podcKmsKeyId,
+
+    -- ** ComprehendEndpointName
+    ComprehendEndpointName (..),
+
+    -- ** DominantLanguage
+    DominantLanguage (..),
+    mkDominantLanguage,
+    dlLanguageCode,
+    dlScore,
+
+    -- ** EntityRecognizerArn
+    EntityRecognizerArn (..),
 
     -- ** EntityRecognizerMetadata
     EntityRecognizerMetadata (..),
     mkEntityRecognizerMetadata,
     ermEntityTypes,
     ermEvaluationMetrics,
-    ermNumberOfTrainedDocuments,
     ermNumberOfTestDocuments,
+    ermNumberOfTrainedDocuments,
 
-    -- ** EntityRecognizerMetadataEntityTypesListItem
-    EntityRecognizerMetadataEntityTypesListItem (..),
-    mkEntityRecognizerMetadataEntityTypesListItem,
-    ermetliEvaluationMetrics,
-    ermetliType,
-    ermetliNumberOfTrainMentions,
-
-    -- ** EntityRecognizerProperties
-    EntityRecognizerProperties (..),
-    mkEntityRecognizerProperties,
-    erpStatus,
-    erpLanguageCode,
-    erpTrainingEndTime,
-    erpEntityRecognizerARN,
-    erpInputDataConfig,
-    erpVPCConfig,
-    erpVolumeKMSKeyId,
-    erpEndTime,
-    erpTrainingStartTime,
-    erpDataAccessRoleARN,
-    erpRecognizerMetadata,
-    erpMessage,
-    erpSubmitTime,
-
-    -- ** EntityTypesEvaluationMetrics
-    EntityTypesEvaluationMetrics (..),
-    mkEntityTypesEvaluationMetrics,
-    etemRecall,
-    etemPrecision,
-    etemF1Score,
-
-    -- ** EntityTypesListItem
-    EntityTypesListItem (..),
-    mkEntityTypesListItem,
-    etliType,
-
-    -- ** EventsDetectionJobFilter
-    EventsDetectionJobFilter (..),
-    mkEventsDetectionJobFilter,
-    edjfSubmitTimeAfter,
-    edjfSubmitTimeBefore,
-    edjfJobName,
-    edjfJobStatus,
-
-    -- ** EventsDetectionJobProperties
-    EventsDetectionJobProperties (..),
-    mkEventsDetectionJobProperties,
-    edjpLanguageCode,
-    edjpJobId,
-    edjpJobName,
-    edjpTargetEventTypes,
-    edjpInputDataConfig,
-    edjpEndTime,
-    edjpOutputDataConfig,
-    edjpDataAccessRoleARN,
-    edjpJobStatus,
-    edjpMessage,
-    edjpSubmitTime,
-
-    -- ** InputDataConfig
-    InputDataConfig (..),
-    mkInputDataConfig,
-    idcInputFormat,
-    idcS3URI,
-
-    -- ** KeyPhrase
-    KeyPhrase (..),
-    mkKeyPhrase,
-    kpBeginOffset,
-    kpText,
-    kpScore,
-    kpEndOffset,
-
-    -- ** KeyPhrasesDetectionJobFilter
-    KeyPhrasesDetectionJobFilter (..),
-    mkKeyPhrasesDetectionJobFilter,
-    kpdjfSubmitTimeAfter,
-    kpdjfSubmitTimeBefore,
-    kpdjfJobName,
-    kpdjfJobStatus,
+    -- ** JobName
+    JobName (..),
 
     -- ** KeyPhrasesDetectionJobProperties
     KeyPhrasesDetectionJobProperties (..),
     mkKeyPhrasesDetectionJobProperties,
-    kpdjpLanguageCode,
+    kpdjpDataAccessRoleArn,
+    kpdjpEndTime,
+    kpdjpInputDataConfig,
     kpdjpJobId,
     kpdjpJobName,
-    kpdjpInputDataConfig,
-    kpdjpVPCConfig,
-    kpdjpVolumeKMSKeyId,
-    kpdjpEndTime,
-    kpdjpOutputDataConfig,
-    kpdjpDataAccessRoleARN,
     kpdjpJobStatus,
+    kpdjpLanguageCode,
     kpdjpMessage,
+    kpdjpOutputDataConfig,
     kpdjpSubmitTime,
+    kpdjpVolumeKmsKeyId,
+    kpdjpVpcConfig,
 
-    -- ** OutputDataConfig
-    OutputDataConfig (..),
-    mkOutputDataConfig,
-    odcKMSKeyId,
-    odcS3URI,
+    -- ** EntityType
+    EntityType (..),
 
-    -- ** PartOfSpeechTag
-    PartOfSpeechTag (..),
-    mkPartOfSpeechTag,
-    postTag,
-    postScore,
+    -- ** DocumentClassifierMode
+    DocumentClassifierMode (..),
 
-    -- ** PiiEntitiesDetectionJobFilter
-    PiiEntitiesDetectionJobFilter (..),
-    mkPiiEntitiesDetectionJobFilter,
-    pedjfSubmitTimeAfter,
-    pedjfSubmitTimeBefore,
-    pedjfJobName,
-    pedjfJobStatus,
-
-    -- ** PiiEntitiesDetectionJobProperties
-    PiiEntitiesDetectionJobProperties (..),
-    mkPiiEntitiesDetectionJobProperties,
-    pedjpLanguageCode,
-    pedjpJobId,
-    pedjpJobName,
-    pedjpMode,
-    pedjpInputDataConfig,
-    pedjpRedactionConfig,
-    pedjpEndTime,
-    pedjpOutputDataConfig,
-    pedjpDataAccessRoleARN,
-    pedjpJobStatus,
-    pedjpMessage,
-    pedjpSubmitTime,
+    -- ** ComprehendModelArn
+    ComprehendModelArn (..),
 
     -- ** PiiEntity
     PiiEntity (..),
     mkPiiEntity,
     peBeginOffset,
-    peScore,
     peEndOffset,
+    peScore,
     peType,
 
-    -- ** PiiOutputDataConfig
-    PiiOutputDataConfig (..),
-    mkPiiOutputDataConfig,
-    podcKMSKeyId,
-    podcS3URI,
+    -- ** DocumentClassifierDataFormat
+    DocumentClassifierDataFormat (..),
+
+    -- ** EndpointFilter
+    EndpointFilter (..),
+    mkEndpointFilter,
+    efCreationTimeAfter,
+    efCreationTimeBefore,
+    efModelArn,
+    efStatus,
+
+    -- ** BatchDetectSyntaxItemResult
+    BatchDetectSyntaxItemResult (..),
+    mkBatchDetectSyntaxItemResult,
+    bdsirIndex,
+    bdsirSyntaxTokens,
+
+    -- ** ClientRequestTokenString
+    ClientRequestTokenString (..),
+
+    -- ** DocumentClassificationJobFilter
+    DocumentClassificationJobFilter (..),
+    mkDocumentClassificationJobFilter,
+    dcjfJobName,
+    dcjfJobStatus,
+    dcjfSubmitTimeAfter,
+    dcjfSubmitTimeBefore,
+
+    -- ** EntityRecognizerDataFormat
+    EntityRecognizerDataFormat (..),
+
+    -- ** SyntaxLanguageCode
+    SyntaxLanguageCode (..),
+
+    -- ** SentimentDetectionJobProperties
+    SentimentDetectionJobProperties (..),
+    mkSentimentDetectionJobProperties,
+    sdjpDataAccessRoleArn,
+    sdjpEndTime,
+    sdjpInputDataConfig,
+    sdjpJobId,
+    sdjpJobName,
+    sdjpJobStatus,
+    sdjpLanguageCode,
+    sdjpMessage,
+    sdjpOutputDataConfig,
+    sdjpSubmitTime,
+    sdjpVolumeKmsKeyId,
+    sdjpVpcConfig,
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** BatchDetectKeyPhrasesItemResult
+    BatchDetectKeyPhrasesItemResult (..),
+    mkBatchDetectKeyPhrasesItemResult,
+    bdkpirIndex,
+    bdkpirKeyPhrases,
+
+    -- ** EntityTypesEvaluationMetrics
+    EntityTypesEvaluationMetrics (..),
+    mkEntityTypesEvaluationMetrics,
+    etemF1Score,
+    etemPrecision,
+    etemRecall,
+
+    -- ** PiiEntitiesDetectionMode
+    PiiEntitiesDetectionMode (..),
+
+    -- ** BatchItemError
+    BatchItemError (..),
+    mkBatchItemError,
+    bieErrorCode,
+    bieErrorMessage,
+    bieIndex,
+
+    -- ** KeyPhrasesDetectionJobFilter
+    KeyPhrasesDetectionJobFilter (..),
+    mkKeyPhrasesDetectionJobFilter,
+    kpdjfJobName,
+    kpdjfJobStatus,
+    kpdjfSubmitTimeAfter,
+    kpdjfSubmitTimeBefore,
+
+    -- ** DocumentClass
+    DocumentClass (..),
+    mkDocumentClass,
+    dcName,
+    dcScore,
+
+    -- ** EntityRecognizerAnnotations
+    EntityRecognizerAnnotations (..),
+    mkEntityRecognizerAnnotations,
+    eraS3Uri,
+
+    -- ** DocumentLabel
+    DocumentLabel (..),
+    mkDocumentLabel,
+    dName,
+    dScore,
+
+    -- ** SecurityGroupId
+    SecurityGroupId (..),
+
+    -- ** EntitiesDetectionJobProperties
+    EntitiesDetectionJobProperties (..),
+    mkEntitiesDetectionJobProperties,
+    eDataAccessRoleArn,
+    eEndTime,
+    eEntityRecognizerArn,
+    eInputDataConfig,
+    eJobId,
+    eJobName,
+    eJobStatus,
+    eLanguageCode,
+    eMessage,
+    eOutputDataConfig,
+    eSubmitTime,
+    eVolumeKmsKeyId,
+    eVpcConfig,
+
+    -- ** ComprehendArn
+    ComprehendArn (..),
+
+    -- ** PartOfSpeechTagType
+    PartOfSpeechTagType (..),
+
+    -- ** EntityTypeName
+    EntityTypeName (..),
+
+    -- ** InputDataConfig
+    InputDataConfig (..),
+    mkInputDataConfig,
+    idcS3Uri,
+    idcInputFormat,
+
+    -- ** DocumentClassifierInputDataConfig
+    DocumentClassifierInputDataConfig (..),
+    mkDocumentClassifierInputDataConfig,
+    dcidcAugmentedManifests,
+    dcidcDataFormat,
+    dcidcLabelDelimiter,
+    dcidcS3Uri,
+
+    -- ** VpcConfig
+    VpcConfig (..),
+    mkVpcConfig,
+    vcSecurityGroupIds,
+    vcSubnets,
+
+    -- ** EntityTypesListItem
+    EntityTypesListItem (..),
+    mkEntityTypesListItem,
+    etliType,
 
     -- ** RedactionConfig
     RedactionConfig (..),
@@ -676,29 +634,29 @@ module Network.AWS.Comprehend
     rcMaskMode,
     rcPiiEntityTypes,
 
+    -- ** SentimentType
+    SentimentType (..),
+
+    -- ** KmsKeyId
+    KmsKeyId (..),
+
+    -- ** EntityRecognizerMetadataEntityTypesListItem
+    EntityRecognizerMetadataEntityTypesListItem (..),
+    mkEntityRecognizerMetadataEntityTypesListItem,
+    ermetliEvaluationMetrics,
+    ermetliNumberOfTrainMentions,
+    ermetliType,
+
+    -- ** ComprehendEndpointArn
+    ComprehendEndpointArn (..),
+
     -- ** SentimentDetectionJobFilter
     SentimentDetectionJobFilter (..),
     mkSentimentDetectionJobFilter,
-    sdjfSubmitTimeAfter,
-    sdjfSubmitTimeBefore,
     sdjfJobName,
     sdjfJobStatus,
-
-    -- ** SentimentDetectionJobProperties
-    SentimentDetectionJobProperties (..),
-    mkSentimentDetectionJobProperties,
-    sdjpLanguageCode,
-    sdjpJobId,
-    sdjpJobName,
-    sdjpInputDataConfig,
-    sdjpVPCConfig,
-    sdjpVolumeKMSKeyId,
-    sdjpEndTime,
-    sdjpOutputDataConfig,
-    sdjpDataAccessRoleARN,
-    sdjpJobStatus,
-    sdjpMessage,
-    sdjpSubmitTime,
+    sdjfSubmitTimeAfter,
+    sdjfSubmitTimeBefore,
 
     -- ** SentimentScore
     SentimentScore (..),
@@ -708,60 +666,255 @@ module Network.AWS.Comprehend
     ssNeutral,
     ssPositive,
 
-    -- ** SyntaxToken
-    SyntaxToken (..),
-    mkSyntaxToken,
-    stBeginOffset,
-    stText,
-    stTokenId,
-    stEndOffset,
-    stPartOfSpeech,
+    -- ** DocumentClassificationJobProperties
+    DocumentClassificationJobProperties (..),
+    mkDocumentClassificationJobProperties,
+    dcjpDataAccessRoleArn,
+    dcjpDocumentClassifierArn,
+    dcjpEndTime,
+    dcjpInputDataConfig,
+    dcjpJobId,
+    dcjpJobName,
+    dcjpJobStatus,
+    dcjpMessage,
+    dcjpOutputDataConfig,
+    dcjpSubmitTime,
+    dcjpVolumeKmsKeyId,
+    dcjpVpcConfig,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** EndpointStatus
+    EndpointStatus (..),
 
     -- ** TopicsDetectionJobFilter
     TopicsDetectionJobFilter (..),
     mkTopicsDetectionJobFilter,
-    tdjfSubmitTimeAfter,
-    tdjfSubmitTimeBefore,
     tdjfJobName,
     tdjfJobStatus,
+    tdjfSubmitTimeAfter,
+    tdjfSubmitTimeBefore,
+
+    -- ** InputFormat
+    InputFormat (..),
+
+    -- ** EntitiesDetectionJobFilter
+    EntitiesDetectionJobFilter (..),
+    mkEntitiesDetectionJobFilter,
+    edjffJobName,
+    edjffJobStatus,
+    edjffSubmitTimeAfter,
+    edjffSubmitTimeBefore,
+
+    -- ** OutputDataConfig
+    OutputDataConfig (..),
+    mkOutputDataConfig,
+    odcS3Uri,
+    odcKmsKeyId,
+
+    -- ** PiiEntitiesDetectionMaskMode
+    PiiEntitiesDetectionMaskMode (..),
+
+    -- ** LabelDelimiter
+    LabelDelimiter (..),
+
+    -- ** DocumentClassifierOutputDataConfig
+    DocumentClassifierOutputDataConfig (..),
+    mkDocumentClassifierOutputDataConfig,
+    dcodcKmsKeyId,
+    dcodcS3Uri,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** DocumentClassifierFilter
+    DocumentClassifierFilter (..),
+    mkDocumentClassifierFilter,
+    dcfStatus,
+    dcfSubmitTimeAfter,
+    dcfSubmitTimeBefore,
+
+    -- ** DominantLanguageDetectionJobFilter
+    DominantLanguageDetectionJobFilter (..),
+    mkDominantLanguageDetectionJobFilter,
+    dldjfJobName,
+    dldjfJobStatus,
+    dldjfSubmitTimeAfter,
+    dldjfSubmitTimeBefore,
+
+    -- ** BatchDetectSentimentItemResult
+    BatchDetectSentimentItemResult (..),
+    mkBatchDetectSentimentItemResult,
+    bIndex,
+    bSentiment,
+    bSentimentScore,
+
+    -- ** JobStatus
+    JobStatus (..),
 
     -- ** TopicsDetectionJobProperties
     TopicsDetectionJobProperties (..),
     mkTopicsDetectionJobProperties,
+    tdjpDataAccessRoleArn,
+    tdjpEndTime,
+    tdjpInputDataConfig,
     tdjpJobId,
     tdjpJobName,
-    tdjpInputDataConfig,
-    tdjpVPCConfig,
-    tdjpVolumeKMSKeyId,
-    tdjpEndTime,
-    tdjpOutputDataConfig,
-    tdjpDataAccessRoleARN,
-    tdjpNumberOfTopics,
     tdjpJobStatus,
     tdjpMessage,
+    tdjpNumberOfTopics,
+    tdjpOutputDataConfig,
     tdjpSubmitTime,
+    tdjpVolumeKmsKeyId,
+    tdjpVpcConfig,
 
-    -- ** VPCConfig
-    VPCConfig (..),
-    mkVPCConfig,
-    vcSecurityGroupIds,
-    vcSubnets,
+    -- ** AugmentedManifestsListItem
+    AugmentedManifestsListItem (..),
+    mkAugmentedManifestsListItem,
+    amliS3Uri,
+    amliAttributeNames,
+
+    -- ** Entity
+    Entity (..),
+    mkEntity,
+    eBeginOffset,
+    eEndOffset,
+    eScore,
+    eText,
+    eType,
+
+    -- ** PiiEntityType
+    PiiEntityType (..),
+
+    -- ** ModelStatus
+    ModelStatus (..),
+
+    -- ** S3Uri
+    S3Uri (..),
+
+    -- ** EventsDetectionJobProperties
+    EventsDetectionJobProperties (..),
+    mkEventsDetectionJobProperties,
+    edjpDataAccessRoleArn,
+    edjpEndTime,
+    edjpInputDataConfig,
+    edjpJobId,
+    edjpJobName,
+    edjpJobStatus,
+    edjpLanguageCode,
+    edjpMessage,
+    edjpOutputDataConfig,
+    edjpSubmitTime,
+    edjpTargetEventTypes,
+
+    -- ** ClassifierEvaluationMetrics
+    ClassifierEvaluationMetrics (..),
+    mkClassifierEvaluationMetrics,
+    cemAccuracy,
+    cemF1Score,
+    cemHammingLoss,
+    cemMicroF1Score,
+    cemMicroPrecision,
+    cemMicroRecall,
+    cemPrecision,
+    cemRecall,
+
+    -- ** EventTypeString
+    EventTypeString (..),
+
+    -- ** DominantLanguageDetectionJobProperties
+    DominantLanguageDetectionJobProperties (..),
+    mkDominantLanguageDetectionJobProperties,
+    dldjpDataAccessRoleArn,
+    dldjpEndTime,
+    dldjpInputDataConfig,
+    dldjpJobId,
+    dldjpJobName,
+    dldjpJobStatus,
+    dldjpMessage,
+    dldjpOutputDataConfig,
+    dldjpSubmitTime,
+    dldjpVolumeKmsKeyId,
+    dldjpVpcConfig,
+
+    -- ** EntityRecognizerInputDataConfig
+    EntityRecognizerInputDataConfig (..),
+    mkEntityRecognizerInputDataConfig,
+    eridcEntityTypes,
+    eridcAnnotations,
+    eridcAugmentedManifests,
+    eridcDataFormat,
+    eridcDocuments,
+    eridcEntityList,
+
+    -- ** EntityRecognizerDocuments
+    EntityRecognizerDocuments (..),
+    mkEntityRecognizerDocuments,
+    erdS3Uri,
+
+    -- ** DocumentClassifierProperties
+    DocumentClassifierProperties (..),
+    mkDocumentClassifierProperties,
+    dcpClassifierMetadata,
+    dcpDataAccessRoleArn,
+    dcpDocumentClassifierArn,
+    dcpEndTime,
+    dcpInputDataConfig,
+    dcpLanguageCode,
+    dcpMessage,
+    dcpMode,
+    dcpOutputDataConfig,
+    dcpStatus,
+    dcpSubmitTime,
+    dcpTrainingEndTime,
+    dcpTrainingStartTime,
+    dcpVolumeKmsKeyId,
+    dcpVpcConfig,
+
+    -- ** DataAccessRoleArn
+    DataAccessRoleArn (..),
+
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
+    -- ** VolumeKmsKeyId
+    VolumeKmsKeyId (..),
+
+    -- ** EndpointArn
+    EndpointArn (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ModelArn
+    ModelArn (..),
+
+    -- ** Text
+    Text (..),
+
+    -- ** DocumentClassifierName
+    DocumentClassifierName (..),
+
+    -- ** RecognizerName
+    RecognizerName (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

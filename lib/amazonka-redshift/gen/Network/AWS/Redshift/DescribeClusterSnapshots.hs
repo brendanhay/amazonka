@@ -25,46 +25,42 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     mkDescribeClusterSnapshots,
 
     -- ** Request lenses
-    dcssSnapshotIdentifier,
-    dcssTagValues,
-    dcssClusterExists,
-    dcssStartTime,
-    dcssTagKeys,
-    dcssClusterIdentifier,
-    dcssSnapshotType,
-    dcssSortingEntities,
-    dcssMarker,
-    dcssMaxRecords,
-    dcssEndTime,
-    dcssOwnerAccount,
+    dClusterExists,
+    dClusterIdentifier,
+    dEndTime,
+    dMarker,
+    dMaxRecords,
+    dOwnerAccount,
+    dSnapshotIdentifier,
+    dSnapshotType,
+    dSortingEntities,
+    dStartTime,
+    dTagKeys,
+    dTagValues,
 
     -- * Destructuring the response
     DescribeClusterSnapshotsResponse (..),
     mkDescribeClusterSnapshotsResponse,
 
     -- ** Response lenses
-    dcsrsSnapshots,
-    dcsrsMarker,
-    dcsrsResponseStatus,
+    drsMarker,
+    drsSnapshots,
+    drsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeClusterSnapshots' smart constructor.
 data DescribeClusterSnapshots = DescribeClusterSnapshots'
-  { -- | The snapshot identifier of the snapshot about which to return information.
-    snapshotIdentifier :: Lude.Maybe Lude.Text,
-    -- | A tag value or values for which you want to return all matching cluster snapshots that are associated with the specified tag value or values. For example, suppose that you have snapshots that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag values associated with them.
-    tagValues :: Lude.Maybe [Lude.Text],
-    -- | A value that indicates whether to return snapshots only for an existing cluster. You can perform table-level restore only by using a snapshot of an existing cluster, that is, a cluster that has not been deleted. Values for this parameter work as follows:
+  { -- | A value that indicates whether to return snapshots only for an existing cluster. You can perform table-level restore only by using a snapshot of an existing cluster, that is, a cluster that has not been deleted. Values for this parameter work as follows:
     --
     --
     --     * If @ClusterExists@ is set to @true@ , @ClusterIdentifier@ is required.
@@ -77,106 +73,60 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
     --
     --
     --     * If @ClusterExists@ is set to @false@ and @ClusterIdentifier@ is specified for an existing cluster, no snapshots are returned.
-    clusterExists :: Lude.Maybe Lude.Bool,
-    -- | A value that requests only snapshots created at or after the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+    clusterExists :: Core.Maybe Core.Bool,
+    -- | The identifier of the cluster which generated the requested snapshots.
+    clusterIdentifier :: Core.Maybe Types.String,
+    -- | A time value that requests only snapshots created at or before the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
     --
     -- Example: @2012-07-16T18:00:00Z@
-    startTime :: Lude.Maybe Lude.DateTime,
-    -- | A tag key or keys for which you want to return all matching cluster snapshots that are associated with the specified key or keys. For example, suppose that you have snapshots that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag keys associated with them.
-    tagKeys :: Lude.Maybe [Lude.Text],
-    -- | The identifier of the cluster which generated the requested snapshots.
-    clusterIdentifier :: Lude.Maybe Lude.Text,
-    -- | The type of snapshots for which you are requesting information. By default, snapshots of all types are returned.
-    --
-    -- Valid Values: @automated@ | @manual@
-    snapshotType :: Lude.Maybe Lude.Text,
-    -- |
-    sortingEntities :: Lude.Maybe [SnapshotSortingEntity],
+    endTime :: Core.Maybe Core.UTCTime,
     -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterSnapshots' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
     --
     -- Default: @100@
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int,
-    -- | A time value that requests only snapshots created at or before the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+    maxRecords :: Core.Maybe Core.Int,
+    -- | The AWS customer account used to create or copy the snapshot. Use this field to filter the results to snapshots owned by a particular account. To describe snapshots you own, either specify your AWS customer account, or do not specify the parameter.
+    ownerAccount :: Core.Maybe Types.String,
+    -- | The snapshot identifier of the snapshot about which to return information.
+    snapshotIdentifier :: Core.Maybe Types.String,
+    -- | The type of snapshots for which you are requesting information. By default, snapshots of all types are returned.
+    --
+    -- Valid Values: @automated@ | @manual@
+    snapshotType :: Core.Maybe Types.String,
+    -- |
+    sortingEntities :: Core.Maybe [Types.SnapshotSortingEntity],
+    -- | A value that requests only snapshots created at or after the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
     --
     -- Example: @2012-07-16T18:00:00Z@
-    endTime :: Lude.Maybe Lude.DateTime,
-    -- | The AWS customer account used to create or copy the snapshot. Use this field to filter the results to snapshots owned by a particular account. To describe snapshots you own, either specify your AWS customer account, or do not specify the parameter.
-    ownerAccount :: Lude.Maybe Lude.Text
+    startTime :: Core.Maybe Core.UTCTime,
+    -- | A tag key or keys for which you want to return all matching cluster snapshots that are associated with the specified key or keys. For example, suppose that you have snapshots that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag keys associated with them.
+    tagKeys :: Core.Maybe [Types.String],
+    -- | A tag value or values for which you want to return all matching cluster snapshots that are associated with the specified tag value or values. For example, suppose that you have snapshots that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag values associated with them.
+    tagValues :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeClusterSnapshots' with the minimum fields required to make a request.
---
--- * 'snapshotIdentifier' - The snapshot identifier of the snapshot about which to return information.
--- * 'tagValues' - A tag value or values for which you want to return all matching cluster snapshots that are associated with the specified tag value or values. For example, suppose that you have snapshots that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag values associated with them.
--- * 'clusterExists' - A value that indicates whether to return snapshots only for an existing cluster. You can perform table-level restore only by using a snapshot of an existing cluster, that is, a cluster that has not been deleted. Values for this parameter work as follows:
---
---
---     * If @ClusterExists@ is set to @true@ , @ClusterIdentifier@ is required.
---
---
---     * If @ClusterExists@ is set to @false@ and @ClusterIdentifier@ isn't specified, all snapshots associated with deleted clusters (orphaned snapshots) are returned.
---
---
---     * If @ClusterExists@ is set to @false@ and @ClusterIdentifier@ is specified for a deleted cluster, snapshots associated with that cluster are returned.
---
---
---     * If @ClusterExists@ is set to @false@ and @ClusterIdentifier@ is specified for an existing cluster, no snapshots are returned.
---
---
--- * 'startTime' - A value that requests only snapshots created at or after the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
---
--- Example: @2012-07-16T18:00:00Z@
--- * 'tagKeys' - A tag key or keys for which you want to return all matching cluster snapshots that are associated with the specified key or keys. For example, suppose that you have snapshots that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag keys associated with them.
--- * 'clusterIdentifier' - The identifier of the cluster which generated the requested snapshots.
--- * 'snapshotType' - The type of snapshots for which you are requesting information. By default, snapshots of all types are returned.
---
--- Valid Values: @automated@ | @manual@
--- * 'sortingEntities' -
--- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterSnapshots' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
--- * 'maxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
---
--- Default: @100@
--- Constraints: minimum 20, maximum 100.
--- * 'endTime' - A time value that requests only snapshots created at or before the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
---
--- Example: @2012-07-16T18:00:00Z@
--- * 'ownerAccount' - The AWS customer account used to create or copy the snapshot. Use this field to filter the results to snapshots owned by a particular account. To describe snapshots you own, either specify your AWS customer account, or do not specify the parameter.
+-- | Creates a 'DescribeClusterSnapshots' value with any optional fields omitted.
 mkDescribeClusterSnapshots ::
   DescribeClusterSnapshots
 mkDescribeClusterSnapshots =
   DescribeClusterSnapshots'
-    { snapshotIdentifier = Lude.Nothing,
-      tagValues = Lude.Nothing,
-      clusterExists = Lude.Nothing,
-      startTime = Lude.Nothing,
-      tagKeys = Lude.Nothing,
-      clusterIdentifier = Lude.Nothing,
-      snapshotType = Lude.Nothing,
-      sortingEntities = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      endTime = Lude.Nothing,
-      ownerAccount = Lude.Nothing
+    { clusterExists = Core.Nothing,
+      clusterIdentifier = Core.Nothing,
+      endTime = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      ownerAccount = Core.Nothing,
+      snapshotIdentifier = Core.Nothing,
+      snapshotType = Core.Nothing,
+      sortingEntities = Core.Nothing,
+      startTime = Core.Nothing,
+      tagKeys = Core.Nothing,
+      tagValues = Core.Nothing
     }
-
--- | The snapshot identifier of the snapshot about which to return information.
---
--- /Note:/ Consider using 'snapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssSnapshotIdentifier :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.Text)
-dcssSnapshotIdentifier = Lens.lens (snapshotIdentifier :: DescribeClusterSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {snapshotIdentifier = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
-
--- | A tag value or values for which you want to return all matching cluster snapshots that are associated with the specified tag value or values. For example, suppose that you have snapshots that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag values associated with them.
---
--- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssTagValues :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe [Lude.Text])
-dcssTagValues = Lens.lens (tagValues :: DescribeClusterSnapshots -> Lude.Maybe [Lude.Text]) (\s a -> s {tagValues = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
 
 -- | A value that indicates whether to return snapshots only for an existing cluster. You can perform table-level restore only by using a snapshot of an existing cluster, that is, a cluster that has not been deleted. Values for this parameter work as follows:
 --
@@ -195,55 +145,32 @@ dcssTagValues = Lens.lens (tagValues :: DescribeClusterSnapshots -> Lude.Maybe [
 --
 --
 -- /Note:/ Consider using 'clusterExists' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssClusterExists :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.Bool)
-dcssClusterExists = Lens.lens (clusterExists :: DescribeClusterSnapshots -> Lude.Maybe Lude.Bool) (\s a -> s {clusterExists = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssClusterExists "Use generic-lens or generic-optics with 'clusterExists' instead." #-}
-
--- | A value that requests only snapshots created at or after the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
---
--- Example: @2012-07-16T18:00:00Z@
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssStartTime :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.DateTime)
-dcssStartTime = Lens.lens (startTime :: DescribeClusterSnapshots -> Lude.Maybe Lude.DateTime) (\s a -> s {startTime = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | A tag key or keys for which you want to return all matching cluster snapshots that are associated with the specified key or keys. For example, suppose that you have snapshots that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag keys associated with them.
---
--- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssTagKeys :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe [Lude.Text])
-dcssTagKeys = Lens.lens (tagKeys :: DescribeClusterSnapshots -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+dClusterExists :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe Core.Bool)
+dClusterExists = Lens.field @"clusterExists"
+{-# DEPRECATED dClusterExists "Use generic-lens or generic-optics with 'clusterExists' instead." #-}
 
 -- | The identifier of the cluster which generated the requested snapshots.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssClusterIdentifier :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.Text)
-dcssClusterIdentifier = Lens.lens (clusterIdentifier :: DescribeClusterSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {clusterIdentifier = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
+dClusterIdentifier :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe Types.String)
+dClusterIdentifier = Lens.field @"clusterIdentifier"
+{-# DEPRECATED dClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
--- | The type of snapshots for which you are requesting information. By default, snapshots of all types are returned.
+-- | A time value that requests only snapshots created at or before the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
--- Valid Values: @automated@ | @manual@
+-- Example: @2012-07-16T18:00:00Z@
 --
--- /Note:/ Consider using 'snapshotType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssSnapshotType :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.Text)
-dcssSnapshotType = Lens.lens (snapshotType :: DescribeClusterSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {snapshotType = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssSnapshotType "Use generic-lens or generic-optics with 'snapshotType' instead." #-}
-
--- |
---
--- /Note:/ Consider using 'sortingEntities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssSortingEntities :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe [SnapshotSortingEntity])
-dcssSortingEntities = Lens.lens (sortingEntities :: DescribeClusterSnapshots -> Lude.Maybe [SnapshotSortingEntity]) (\s a -> s {sortingEntities = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssSortingEntities "Use generic-lens or generic-optics with 'sortingEntities' instead." #-}
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dEndTime :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe Core.UTCTime)
+dEndTime = Lens.field @"endTime"
+{-# DEPRECATED dEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusterSnapshots' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssMarker :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.Text)
-dcssMarker = Lens.lens (marker :: DescribeClusterSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dMarker :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe Types.String)
+dMarker = Lens.field @"marker"
+{-# DEPRECATED dMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
@@ -251,128 +178,171 @@ dcssMarker = Lens.lens (marker :: DescribeClusterSnapshots -> Lude.Maybe Lude.Te
 -- Constraints: minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssMaxRecords :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.Int)
-dcssMaxRecords = Lens.lens (maxRecords :: DescribeClusterSnapshots -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
-
--- | A time value that requests only snapshots created at or before the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
---
--- Example: @2012-07-16T18:00:00Z@
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssEndTime :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.DateTime)
-dcssEndTime = Lens.lens (endTime :: DescribeClusterSnapshots -> Lude.Maybe Lude.DateTime) (\s a -> s {endTime = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+dMaxRecords :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe Core.Int)
+dMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED dMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The AWS customer account used to create or copy the snapshot. Use this field to filter the results to snapshots owned by a particular account. To describe snapshots you own, either specify your AWS customer account, or do not specify the parameter.
 --
 -- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcssOwnerAccount :: Lens.Lens' DescribeClusterSnapshots (Lude.Maybe Lude.Text)
-dcssOwnerAccount = Lens.lens (ownerAccount :: DescribeClusterSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {ownerAccount = a} :: DescribeClusterSnapshots)
-{-# DEPRECATED dcssOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
+dOwnerAccount :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe Types.String)
+dOwnerAccount = Lens.field @"ownerAccount"
+{-# DEPRECATED dOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
 
-instance Page.AWSPager DescribeClusterSnapshots where
-  page rq rs
-    | Page.stop (rs Lens.^. dcsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcsrsSnapshots) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dcssMarker Lens..~ rs Lens.^. dcsrsMarker
+-- | The snapshot identifier of the snapshot about which to return information.
+--
+-- /Note:/ Consider using 'snapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSnapshotIdentifier :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe Types.String)
+dSnapshotIdentifier = Lens.field @"snapshotIdentifier"
+{-# DEPRECATED dSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
 
-instance Lude.AWSRequest DescribeClusterSnapshots where
+-- | The type of snapshots for which you are requesting information. By default, snapshots of all types are returned.
+--
+-- Valid Values: @automated@ | @manual@
+--
+-- /Note:/ Consider using 'snapshotType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSnapshotType :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe Types.String)
+dSnapshotType = Lens.field @"snapshotType"
+{-# DEPRECATED dSnapshotType "Use generic-lens or generic-optics with 'snapshotType' instead." #-}
+
+-- |
+--
+-- /Note:/ Consider using 'sortingEntities' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSortingEntities :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe [Types.SnapshotSortingEntity])
+dSortingEntities = Lens.field @"sortingEntities"
+{-# DEPRECATED dSortingEntities "Use generic-lens or generic-optics with 'sortingEntities' instead." #-}
+
+-- | A value that requests only snapshots created at or after the specified time. The time value is specified in ISO 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
+--
+-- Example: @2012-07-16T18:00:00Z@
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dStartTime :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe Core.UTCTime)
+dStartTime = Lens.field @"startTime"
+{-# DEPRECATED dStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+-- | A tag key or keys for which you want to return all matching cluster snapshots that are associated with the specified key or keys. For example, suppose that you have snapshots that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag keys associated with them.
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dTagKeys :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe [Types.String])
+dTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED dTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+-- | A tag value or values for which you want to return all matching cluster snapshots that are associated with the specified tag value or values. For example, suppose that you have snapshots that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the snapshots that have either or both of these tag values associated with them.
+--
+-- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dTagValues :: Lens.Lens' DescribeClusterSnapshots (Core.Maybe [Types.String])
+dTagValues = Lens.field @"tagValues"
+{-# DEPRECATED dTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
+
+instance Core.AWSRequest DescribeClusterSnapshots where
   type Rs DescribeClusterSnapshots = DescribeClusterSnapshotsResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeClusterSnapshots")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ClusterExists" Core.<$> clusterExists)
+                Core.<> (Core.toQueryValue "ClusterIdentifier" Core.<$> clusterIdentifier)
+                Core.<> (Core.toQueryValue "EndTime" Core.<$> endTime)
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "OwnerAccount" Core.<$> ownerAccount)
+                Core.<> ( Core.toQueryValue "SnapshotIdentifier"
+                            Core.<$> snapshotIdentifier
+                        )
+                Core.<> (Core.toQueryValue "SnapshotType" Core.<$> snapshotType)
+                Core.<> ( Core.toQueryValue
+                            "SortingEntities"
+                            ( Core.toQueryList "SnapshotSortingEntity"
+                                Core.<$> sortingEntities
+                            )
+                        )
+                Core.<> (Core.toQueryValue "StartTime" Core.<$> startTime)
+                Core.<> ( Core.toQueryValue
+                            "TagKeys"
+                            (Core.toQueryList "TagKey" Core.<$> tagKeys)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "TagValues"
+                            (Core.toQueryList "TagValue" Core.<$> tagValues)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeClusterSnapshotsResult"
       ( \s h x ->
           DescribeClusterSnapshotsResponse'
-            Lude.<$> ( x Lude..@? "Snapshots" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "Snapshot")
-                     )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Marker")
+            Core.<*> (x Core..@? "Snapshots" Core..<@> Core.parseXMLList "Snapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeClusterSnapshots where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeClusterSnapshots where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeClusterSnapshots where
-  toQuery DescribeClusterSnapshots' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeClusterSnapshots" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "SnapshotIdentifier" Lude.=: snapshotIdentifier,
-        "TagValues"
-          Lude.=: Lude.toQuery (Lude.toQueryList "TagValue" Lude.<$> tagValues),
-        "ClusterExists" Lude.=: clusterExists,
-        "StartTime" Lude.=: startTime,
-        "TagKeys"
-          Lude.=: Lude.toQuery (Lude.toQueryList "TagKey" Lude.<$> tagKeys),
-        "ClusterIdentifier" Lude.=: clusterIdentifier,
-        "SnapshotType" Lude.=: snapshotType,
-        "SortingEntities"
-          Lude.=: Lude.toQuery
-            ( Lude.toQueryList "SnapshotSortingEntity"
-                Lude.<$> sortingEntities
-            ),
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "EndTime" Lude.=: endTime,
-        "OwnerAccount" Lude.=: ownerAccount
-      ]
+instance Pager.AWSPager DescribeClusterSnapshots where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"snapshots" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Contains the output from the 'DescribeClusterSnapshots' action.
 --
 -- /See:/ 'mkDescribeClusterSnapshotsResponse' smart constructor.
 data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
-  { -- | A list of 'Snapshot' instances.
-    snapshots :: Lude.Maybe [Snapshot],
-    -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+    marker :: Core.Maybe Types.String,
+    -- | A list of 'Snapshot' instances.
+    snapshots :: Core.Maybe [Types.Snapshot],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeClusterSnapshotsResponse' with the minimum fields required to make a request.
---
--- * 'snapshots' - A list of 'Snapshot' instances.
--- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeClusterSnapshotsResponse' value with any optional fields omitted.
 mkDescribeClusterSnapshotsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeClusterSnapshotsResponse
-mkDescribeClusterSnapshotsResponse pResponseStatus_ =
+mkDescribeClusterSnapshotsResponse responseStatus =
   DescribeClusterSnapshotsResponse'
-    { snapshots = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      snapshots = Core.Nothing,
+      responseStatus
     }
-
--- | A list of 'Snapshot' instances.
---
--- /Note:/ Consider using 'snapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsSnapshots :: Lens.Lens' DescribeClusterSnapshotsResponse (Lude.Maybe [Snapshot])
-dcsrsSnapshots = Lens.lens (snapshots :: DescribeClusterSnapshotsResponse -> Lude.Maybe [Snapshot]) (\s a -> s {snapshots = a} :: DescribeClusterSnapshotsResponse)
-{-# DEPRECATED dcsrsSnapshots "Use generic-lens or generic-optics with 'snapshots' instead." #-}
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsMarker :: Lens.Lens' DescribeClusterSnapshotsResponse (Lude.Maybe Lude.Text)
-dcsrsMarker = Lens.lens (marker :: DescribeClusterSnapshotsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClusterSnapshotsResponse)
-{-# DEPRECATED dcsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+drsMarker :: Lens.Lens' DescribeClusterSnapshotsResponse (Core.Maybe Types.String)
+drsMarker = Lens.field @"marker"
+{-# DEPRECATED drsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | A list of 'Snapshot' instances.
+--
+-- /Note:/ Consider using 'snapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsSnapshots :: Lens.Lens' DescribeClusterSnapshotsResponse (Core.Maybe [Types.Snapshot])
+drsSnapshots = Lens.field @"snapshots"
+{-# DEPRECATED drsSnapshots "Use generic-lens or generic-optics with 'snapshots' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsResponseStatus :: Lens.Lens' DescribeClusterSnapshotsResponse Lude.Int
-dcsrsResponseStatus = Lens.lens (responseStatus :: DescribeClusterSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClusterSnapshotsResponse)
-{-# DEPRECATED dcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drsResponseStatus :: Lens.Lens' DescribeClusterSnapshotsResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

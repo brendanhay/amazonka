@@ -23,64 +23,58 @@ module Network.AWS.MediaStore.Types.MetricPolicyRule
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaStore.Types.ObjectGroup as Types
+import qualified Network.AWS.MediaStore.Types.ObjectGroupName as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | A setting that enables metrics at the object level. Each rule contains an object group and an object group name. If the policy includes the MetricPolicyRules parameter, you must include at least one rule. Each metric policy can include up to five rules by default. You can also <https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas request a quota increase> to allow up to 300 rules per policy.
 --
 -- /See:/ 'mkMetricPolicyRule' smart constructor.
 data MetricPolicyRule = MetricPolicyRule'
   { -- | A path or file name that defines which objects to include in the group. Wildcards (*) are acceptable.
-    objectGroup :: Lude.Text,
+    objectGroup :: Types.ObjectGroup,
     -- | A name that allows you to refer to the object group.
-    objectGroupName :: Lude.Text
+    objectGroupName :: Types.ObjectGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MetricPolicyRule' with the minimum fields required to make a request.
---
--- * 'objectGroup' - A path or file name that defines which objects to include in the group. Wildcards (*) are acceptable.
--- * 'objectGroupName' - A name that allows you to refer to the object group.
+-- | Creates a 'MetricPolicyRule' value with any optional fields omitted.
 mkMetricPolicyRule ::
   -- | 'objectGroup'
-  Lude.Text ->
+  Types.ObjectGroup ->
   -- | 'objectGroupName'
-  Lude.Text ->
+  Types.ObjectGroupName ->
   MetricPolicyRule
-mkMetricPolicyRule pObjectGroup_ pObjectGroupName_ =
-  MetricPolicyRule'
-    { objectGroup = pObjectGroup_,
-      objectGroupName = pObjectGroupName_
-    }
+mkMetricPolicyRule objectGroup objectGroupName =
+  MetricPolicyRule' {objectGroup, objectGroupName}
 
 -- | A path or file name that defines which objects to include in the group. Wildcards (*) are acceptable.
 --
 -- /Note:/ Consider using 'objectGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprObjectGroup :: Lens.Lens' MetricPolicyRule Lude.Text
-mprObjectGroup = Lens.lens (objectGroup :: MetricPolicyRule -> Lude.Text) (\s a -> s {objectGroup = a} :: MetricPolicyRule)
+mprObjectGroup :: Lens.Lens' MetricPolicyRule Types.ObjectGroup
+mprObjectGroup = Lens.field @"objectGroup"
 {-# DEPRECATED mprObjectGroup "Use generic-lens or generic-optics with 'objectGroup' instead." #-}
 
 -- | A name that allows you to refer to the object group.
 --
 -- /Note:/ Consider using 'objectGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mprObjectGroupName :: Lens.Lens' MetricPolicyRule Lude.Text
-mprObjectGroupName = Lens.lens (objectGroupName :: MetricPolicyRule -> Lude.Text) (\s a -> s {objectGroupName = a} :: MetricPolicyRule)
+mprObjectGroupName :: Lens.Lens' MetricPolicyRule Types.ObjectGroupName
+mprObjectGroupName = Lens.field @"objectGroupName"
 {-# DEPRECATED mprObjectGroupName "Use generic-lens or generic-optics with 'objectGroupName' instead." #-}
 
-instance Lude.FromJSON MetricPolicyRule where
-  parseJSON =
-    Lude.withObject
-      "MetricPolicyRule"
-      ( \x ->
-          MetricPolicyRule'
-            Lude.<$> (x Lude..: "ObjectGroup") Lude.<*> (x Lude..: "ObjectGroupName")
-      )
-
-instance Lude.ToJSON MetricPolicyRule where
-  toJSON MetricPolicyRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ObjectGroup" Lude..= objectGroup),
-            Lude.Just ("ObjectGroupName" Lude..= objectGroupName)
+instance Core.FromJSON MetricPolicyRule where
+  toJSON MetricPolicyRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ObjectGroup" Core..= objectGroup),
+            Core.Just ("ObjectGroupName" Core..= objectGroupName)
           ]
       )
+
+instance Core.FromJSON MetricPolicyRule where
+  parseJSON =
+    Core.withObject "MetricPolicyRule" Core.$
+      \x ->
+        MetricPolicyRule'
+          Core.<$> (x Core..: "ObjectGroup") Core.<*> (x Core..: "ObjectGroupName")

@@ -20,135 +20,118 @@ module Network.AWS.WorkMail.ResetPassword
     mkResetPassword,
 
     -- ** Request lenses
+    rpOrganizationId,
     rpUserId,
     rpPassword,
-    rpOrganizationId,
 
     -- * Destructuring the response
     ResetPasswordResponse (..),
     mkResetPasswordResponse,
 
     -- ** Response lenses
-    rprsResponseStatus,
+    rprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkResetPassword' smart constructor.
 data ResetPassword = ResetPassword'
-  { -- | The identifier of the user for whom the password is reset.
-    userId :: Lude.Text,
+  { -- | The identifier of the organization that contains the user for which the password is reset.
+    organizationId :: Types.OrganizationId,
+    -- | The identifier of the user for whom the password is reset.
+    userId :: Types.WorkMailIdentifier,
     -- | The new password for the user.
-    password :: Lude.Sensitive Lude.Text,
-    -- | The identifier of the organization that contains the user for which the password is reset.
-    organizationId :: Lude.Text
+    password :: Types.Password
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetPassword' with the minimum fields required to make a request.
---
--- * 'userId' - The identifier of the user for whom the password is reset.
--- * 'password' - The new password for the user.
--- * 'organizationId' - The identifier of the organization that contains the user for which the password is reset.
+-- | Creates a 'ResetPassword' value with any optional fields omitted.
 mkResetPassword ::
-  -- | 'userId'
-  Lude.Text ->
-  -- | 'password'
-  Lude.Sensitive Lude.Text ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'userId'
+  Types.WorkMailIdentifier ->
+  -- | 'password'
+  Types.Password ->
   ResetPassword
-mkResetPassword pUserId_ pPassword_ pOrganizationId_ =
-  ResetPassword'
-    { userId = pUserId_,
-      password = pPassword_,
-      organizationId = pOrganizationId_
-    }
+mkResetPassword organizationId userId password =
+  ResetPassword' {organizationId, userId, password}
+
+-- | The identifier of the organization that contains the user for which the password is reset.
+--
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpOrganizationId :: Lens.Lens' ResetPassword Types.OrganizationId
+rpOrganizationId = Lens.field @"organizationId"
+{-# DEPRECATED rpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The identifier of the user for whom the password is reset.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpUserId :: Lens.Lens' ResetPassword Lude.Text
-rpUserId = Lens.lens (userId :: ResetPassword -> Lude.Text) (\s a -> s {userId = a} :: ResetPassword)
+rpUserId :: Lens.Lens' ResetPassword Types.WorkMailIdentifier
+rpUserId = Lens.field @"userId"
 {-# DEPRECATED rpUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
 -- | The new password for the user.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpPassword :: Lens.Lens' ResetPassword (Lude.Sensitive Lude.Text)
-rpPassword = Lens.lens (password :: ResetPassword -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: ResetPassword)
+rpPassword :: Lens.Lens' ResetPassword Types.Password
+rpPassword = Lens.field @"password"
 {-# DEPRECATED rpPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
--- | The identifier of the organization that contains the user for which the password is reset.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpOrganizationId :: Lens.Lens' ResetPassword Lude.Text
-rpOrganizationId = Lens.lens (organizationId :: ResetPassword -> Lude.Text) (\s a -> s {organizationId = a} :: ResetPassword)
-{-# DEPRECATED rpOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+instance Core.FromJSON ResetPassword where
+  toJSON ResetPassword {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("UserId" Core..= userId),
+            Core.Just ("Password" Core..= password)
+          ]
+      )
 
-instance Lude.AWSRequest ResetPassword where
+instance Core.AWSRequest ResetPassword where
   type Rs ResetPassword = ResetPasswordResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.ResetPassword")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          ResetPasswordResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          ResetPasswordResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ResetPassword where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.ResetPassword" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ResetPassword where
-  toJSON ResetPassword' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserId" Lude..= userId),
-            Lude.Just ("Password" Lude..= password),
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath ResetPassword where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResetPassword where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkResetPasswordResponse' smart constructor.
 newtype ResetPasswordResponse = ResetPasswordResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResetPasswordResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ResetPasswordResponse' value with any optional fields omitted.
 mkResetPasswordResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ResetPasswordResponse
-mkResetPasswordResponse pResponseStatus_ =
-  ResetPasswordResponse' {responseStatus = pResponseStatus_}
+mkResetPasswordResponse responseStatus =
+  ResetPasswordResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rprsResponseStatus :: Lens.Lens' ResetPasswordResponse Lude.Int
-rprsResponseStatus = Lens.lens (responseStatus :: ResetPasswordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResetPasswordResponse)
-{-# DEPRECATED rprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rprrsResponseStatus :: Lens.Lens' ResetPasswordResponse Core.Int
+rprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,168 +22,161 @@ module Network.AWS.IoT.ListActiveViolations
     mkListActiveViolations,
 
     -- ** Request lenses
+    lavMaxResults,
     lavNextToken,
     lavSecurityProfileName,
     lavThingName,
-    lavMaxResults,
 
     -- * Destructuring the response
     ListActiveViolationsResponse (..),
     mkListActiveViolationsResponse,
 
     -- ** Response lenses
-    lavrsActiveViolations,
-    lavrsNextToken,
-    lavrsResponseStatus,
+    lavrrsActiveViolations,
+    lavrrsNextToken,
+    lavrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListActiveViolations' smart constructor.
 data ListActiveViolations = ListActiveViolations'
-  { -- | The token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The maximum number of results to return at one time.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The name of the Device Defender security profile for which violations are listed.
-    securityProfileName :: Lude.Maybe Lude.Text,
+    securityProfileName :: Core.Maybe Types.SecurityProfileName,
     -- | The name of the thing whose active violations are listed.
-    thingName :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Lude.Maybe Lude.Natural
+    thingName :: Core.Maybe Types.DeviceDefenderThingName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListActiveViolations' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of results.
--- * 'securityProfileName' - The name of the Device Defender security profile for which violations are listed.
--- * 'thingName' - The name of the thing whose active violations are listed.
--- * 'maxResults' - The maximum number of results to return at one time.
+-- | Creates a 'ListActiveViolations' value with any optional fields omitted.
 mkListActiveViolations ::
   ListActiveViolations
 mkListActiveViolations =
   ListActiveViolations'
-    { nextToken = Lude.Nothing,
-      securityProfileName = Lude.Nothing,
-      thingName = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      securityProfileName = Core.Nothing,
+      thingName = Core.Nothing
     }
+
+-- | The maximum number of results to return at one time.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lavMaxResults :: Lens.Lens' ListActiveViolations (Core.Maybe Core.Natural)
+lavMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lavMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | The token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavNextToken :: Lens.Lens' ListActiveViolations (Lude.Maybe Lude.Text)
-lavNextToken = Lens.lens (nextToken :: ListActiveViolations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListActiveViolations)
+lavNextToken :: Lens.Lens' ListActiveViolations (Core.Maybe Types.NextToken)
+lavNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lavNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the Device Defender security profile for which violations are listed.
 --
 -- /Note:/ Consider using 'securityProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavSecurityProfileName :: Lens.Lens' ListActiveViolations (Lude.Maybe Lude.Text)
-lavSecurityProfileName = Lens.lens (securityProfileName :: ListActiveViolations -> Lude.Maybe Lude.Text) (\s a -> s {securityProfileName = a} :: ListActiveViolations)
+lavSecurityProfileName :: Lens.Lens' ListActiveViolations (Core.Maybe Types.SecurityProfileName)
+lavSecurityProfileName = Lens.field @"securityProfileName"
 {-# DEPRECATED lavSecurityProfileName "Use generic-lens or generic-optics with 'securityProfileName' instead." #-}
 
 -- | The name of the thing whose active violations are listed.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavThingName :: Lens.Lens' ListActiveViolations (Lude.Maybe Lude.Text)
-lavThingName = Lens.lens (thingName :: ListActiveViolations -> Lude.Maybe Lude.Text) (\s a -> s {thingName = a} :: ListActiveViolations)
+lavThingName :: Lens.Lens' ListActiveViolations (Core.Maybe Types.DeviceDefenderThingName)
+lavThingName = Lens.field @"thingName"
 {-# DEPRECATED lavThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
--- | The maximum number of results to return at one time.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavMaxResults :: Lens.Lens' ListActiveViolations (Lude.Maybe Lude.Natural)
-lavMaxResults = Lens.lens (maxResults :: ListActiveViolations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListActiveViolations)
-{-# DEPRECATED lavMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListActiveViolations where
-  page rq rs
-    | Page.stop (rs Lens.^. lavrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lavrsActiveViolations) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lavNextToken Lens..~ rs Lens.^. lavrsNextToken
-
-instance Lude.AWSRequest ListActiveViolations where
+instance Core.AWSRequest ListActiveViolations where
   type Rs ListActiveViolations = ListActiveViolationsResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/active-violations",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> ( Core.toQueryValue "securityProfileName"
+                        Core.<$> securityProfileName
+                    )
+            Core.<> (Core.toQueryValue "thingName" Core.<$> thingName),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListActiveViolationsResponse'
-            Lude.<$> (x Lude..?> "activeViolations" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "activeViolations")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListActiveViolations where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListActiveViolations where
-  toPath = Lude.const "/active-violations"
-
-instance Lude.ToQuery ListActiveViolations where
-  toQuery ListActiveViolations' {..} =
-    Lude.mconcat
-      [ "nextToken" Lude.=: nextToken,
-        "securityProfileName" Lude.=: securityProfileName,
-        "thingName" Lude.=: thingName,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListActiveViolations where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"activeViolations" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListActiveViolationsResponse' smart constructor.
 data ListActiveViolationsResponse = ListActiveViolationsResponse'
   { -- | The list of active violations.
-    activeViolations :: Lude.Maybe [ActiveViolation],
+    activeViolations :: Core.Maybe [Types.ActiveViolation],
     -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListActiveViolationsResponse' with the minimum fields required to make a request.
---
--- * 'activeViolations' - The list of active violations.
--- * 'nextToken' - A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListActiveViolationsResponse' value with any optional fields omitted.
 mkListActiveViolationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListActiveViolationsResponse
-mkListActiveViolationsResponse pResponseStatus_ =
+mkListActiveViolationsResponse responseStatus =
   ListActiveViolationsResponse'
-    { activeViolations = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { activeViolations = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of active violations.
 --
 -- /Note:/ Consider using 'activeViolations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavrsActiveViolations :: Lens.Lens' ListActiveViolationsResponse (Lude.Maybe [ActiveViolation])
-lavrsActiveViolations = Lens.lens (activeViolations :: ListActiveViolationsResponse -> Lude.Maybe [ActiveViolation]) (\s a -> s {activeViolations = a} :: ListActiveViolationsResponse)
-{-# DEPRECATED lavrsActiveViolations "Use generic-lens or generic-optics with 'activeViolations' instead." #-}
+lavrrsActiveViolations :: Lens.Lens' ListActiveViolationsResponse (Core.Maybe [Types.ActiveViolation])
+lavrrsActiveViolations = Lens.field @"activeViolations"
+{-# DEPRECATED lavrrsActiveViolations "Use generic-lens or generic-optics with 'activeViolations' instead." #-}
 
 -- | A token that can be used to retrieve the next set of results, or @null@ if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavrsNextToken :: Lens.Lens' ListActiveViolationsResponse (Lude.Maybe Lude.Text)
-lavrsNextToken = Lens.lens (nextToken :: ListActiveViolationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListActiveViolationsResponse)
-{-# DEPRECATED lavrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lavrrsNextToken :: Lens.Lens' ListActiveViolationsResponse (Core.Maybe Types.NextToken)
+lavrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lavrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lavrsResponseStatus :: Lens.Lens' ListActiveViolationsResponse Lude.Int
-lavrsResponseStatus = Lens.lens (responseStatus :: ListActiveViolationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListActiveViolationsResponse)
-{-# DEPRECATED lavrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lavrrsResponseStatus :: Lens.Lens' ListActiveViolationsResponse Core.Int
+lavrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lavrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

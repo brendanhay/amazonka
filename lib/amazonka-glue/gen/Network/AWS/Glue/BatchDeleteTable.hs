@@ -20,147 +20,129 @@ module Network.AWS.Glue.BatchDeleteTable
     mkBatchDeleteTable,
 
     -- ** Request lenses
+    bdtDatabaseName,
     bdtTablesToDelete,
     bdtCatalogId,
-    bdtDatabaseName,
 
     -- * Destructuring the response
     BatchDeleteTableResponse (..),
     mkBatchDeleteTableResponse,
 
     -- ** Response lenses
-    bdtrsErrors,
-    bdtrsResponseStatus,
+    bdtrrsErrors,
+    bdtrrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchDeleteTable' smart constructor.
 data BatchDeleteTable = BatchDeleteTable'
-  { -- | A list of the table to delete.
-    tablesToDelete :: [Lude.Text],
+  { -- | The name of the catalog database in which the tables to delete reside. For Hive compatibility, this name is entirely lowercase.
+    databaseName :: Types.DatabaseName,
+    -- | A list of the table to delete.
+    tablesToDelete :: [Types.NameString],
     -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | The name of the catalog database in which the tables to delete reside. For Hive compatibility, this name is entirely lowercase.
-    databaseName :: Lude.Text
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteTable' with the minimum fields required to make a request.
---
--- * 'tablesToDelete' - A list of the table to delete.
--- * 'catalogId' - The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
--- * 'databaseName' - The name of the catalog database in which the tables to delete reside. For Hive compatibility, this name is entirely lowercase.
+-- | Creates a 'BatchDeleteTable' value with any optional fields omitted.
 mkBatchDeleteTable ::
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
   BatchDeleteTable
-mkBatchDeleteTable pDatabaseName_ =
+mkBatchDeleteTable databaseName =
   BatchDeleteTable'
-    { tablesToDelete = Lude.mempty,
-      catalogId = Lude.Nothing,
-      databaseName = pDatabaseName_
+    { databaseName,
+      tablesToDelete = Core.mempty,
+      catalogId = Core.Nothing
     }
+
+-- | The name of the catalog database in which the tables to delete reside. For Hive compatibility, this name is entirely lowercase.
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdtDatabaseName :: Lens.Lens' BatchDeleteTable Types.DatabaseName
+bdtDatabaseName = Lens.field @"databaseName"
+{-# DEPRECATED bdtDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | A list of the table to delete.
 --
 -- /Note:/ Consider using 'tablesToDelete' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdtTablesToDelete :: Lens.Lens' BatchDeleteTable [Lude.Text]
-bdtTablesToDelete = Lens.lens (tablesToDelete :: BatchDeleteTable -> [Lude.Text]) (\s a -> s {tablesToDelete = a} :: BatchDeleteTable)
+bdtTablesToDelete :: Lens.Lens' BatchDeleteTable [Types.NameString]
+bdtTablesToDelete = Lens.field @"tablesToDelete"
 {-# DEPRECATED bdtTablesToDelete "Use generic-lens or generic-optics with 'tablesToDelete' instead." #-}
 
 -- | The ID of the Data Catalog where the table resides. If none is provided, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdtCatalogId :: Lens.Lens' BatchDeleteTable (Lude.Maybe Lude.Text)
-bdtCatalogId = Lens.lens (catalogId :: BatchDeleteTable -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: BatchDeleteTable)
+bdtCatalogId :: Lens.Lens' BatchDeleteTable (Core.Maybe Types.CatalogId)
+bdtCatalogId = Lens.field @"catalogId"
 {-# DEPRECATED bdtCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
--- | The name of the catalog database in which the tables to delete reside. For Hive compatibility, this name is entirely lowercase.
---
--- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdtDatabaseName :: Lens.Lens' BatchDeleteTable Lude.Text
-bdtDatabaseName = Lens.lens (databaseName :: BatchDeleteTable -> Lude.Text) (\s a -> s {databaseName = a} :: BatchDeleteTable)
-{-# DEPRECATED bdtDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+instance Core.FromJSON BatchDeleteTable where
+  toJSON BatchDeleteTable {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("TablesToDelete" Core..= tablesToDelete),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
 
-instance Lude.AWSRequest BatchDeleteTable where
+instance Core.AWSRequest BatchDeleteTable where
   type Rs BatchDeleteTable = BatchDeleteTableResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.BatchDeleteTable")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchDeleteTableResponse'
-            Lude.<$> (x Lude..?> "Errors" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Errors") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchDeleteTable where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.BatchDeleteTable" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchDeleteTable where
-  toJSON BatchDeleteTable' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TablesToDelete" Lude..= tablesToDelete),
-            ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseName" Lude..= databaseName)
-          ]
-      )
-
-instance Lude.ToPath BatchDeleteTable where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchDeleteTable where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchDeleteTableResponse' smart constructor.
 data BatchDeleteTableResponse = BatchDeleteTableResponse'
   { -- | A list of errors encountered in attempting to delete the specified tables.
-    errors :: Lude.Maybe [TableError],
+    errors :: Core.Maybe [Types.TableError],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteTableResponse' with the minimum fields required to make a request.
---
--- * 'errors' - A list of errors encountered in attempting to delete the specified tables.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchDeleteTableResponse' value with any optional fields omitted.
 mkBatchDeleteTableResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchDeleteTableResponse
-mkBatchDeleteTableResponse pResponseStatus_ =
-  BatchDeleteTableResponse'
-    { errors = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkBatchDeleteTableResponse responseStatus =
+  BatchDeleteTableResponse' {errors = Core.Nothing, responseStatus}
 
 -- | A list of errors encountered in attempting to delete the specified tables.
 --
 -- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdtrsErrors :: Lens.Lens' BatchDeleteTableResponse (Lude.Maybe [TableError])
-bdtrsErrors = Lens.lens (errors :: BatchDeleteTableResponse -> Lude.Maybe [TableError]) (\s a -> s {errors = a} :: BatchDeleteTableResponse)
-{-# DEPRECATED bdtrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
+bdtrrsErrors :: Lens.Lens' BatchDeleteTableResponse (Core.Maybe [Types.TableError])
+bdtrrsErrors = Lens.field @"errors"
+{-# DEPRECATED bdtrrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdtrsResponseStatus :: Lens.Lens' BatchDeleteTableResponse Lude.Int
-bdtrsResponseStatus = Lens.lens (responseStatus :: BatchDeleteTableResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDeleteTableResponse)
-{-# DEPRECATED bdtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bdtrrsResponseStatus :: Lens.Lens' BatchDeleteTableResponse Core.Int
+bdtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bdtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

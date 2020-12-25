@@ -27,108 +27,92 @@ module Network.AWS.Lightsail.GetInstanceState
     mkGetInstanceStateResponse,
 
     -- ** Response lenses
-    gisfrsState,
-    gisfrsResponseStatus,
+    gisrgrsState,
+    gisrgrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetInstanceState' smart constructor.
 newtype GetInstanceState = GetInstanceState'
   { -- | The name of the instance to get state information about.
-    instanceName :: Lude.Text
+    instanceName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInstanceState' with the minimum fields required to make a request.
---
--- * 'instanceName' - The name of the instance to get state information about.
+-- | Creates a 'GetInstanceState' value with any optional fields omitted.
 mkGetInstanceState ::
   -- | 'instanceName'
-  Lude.Text ->
+  Types.ResourceName ->
   GetInstanceState
-mkGetInstanceState pInstanceName_ =
-  GetInstanceState' {instanceName = pInstanceName_}
+mkGetInstanceState instanceName = GetInstanceState' {instanceName}
 
 -- | The name of the instance to get state information about.
 --
 -- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisInstanceName :: Lens.Lens' GetInstanceState Lude.Text
-gisInstanceName = Lens.lens (instanceName :: GetInstanceState -> Lude.Text) (\s a -> s {instanceName = a} :: GetInstanceState)
+gisInstanceName :: Lens.Lens' GetInstanceState Types.ResourceName
+gisInstanceName = Lens.field @"instanceName"
 {-# DEPRECATED gisInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance Lude.AWSRequest GetInstanceState where
+instance Core.FromJSON GetInstanceState where
+  toJSON GetInstanceState {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("instanceName" Core..= instanceName)])
+
+instance Core.AWSRequest GetInstanceState where
   type Rs GetInstanceState = GetInstanceStateResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.GetInstanceState")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetInstanceStateResponse'
-            Lude.<$> (x Lude..?> "state") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "state") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetInstanceState where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetInstanceState" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetInstanceState where
-  toJSON GetInstanceState' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("instanceName" Lude..= instanceName)])
-
-instance Lude.ToPath GetInstanceState where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetInstanceState where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetInstanceStateResponse' smart constructor.
 data GetInstanceStateResponse = GetInstanceStateResponse'
   { -- | The state of the instance.
-    state :: Lude.Maybe InstanceState,
+    state :: Core.Maybe Types.InstanceState,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInstanceStateResponse' with the minimum fields required to make a request.
---
--- * 'state' - The state of the instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInstanceStateResponse' value with any optional fields omitted.
 mkGetInstanceStateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInstanceStateResponse
-mkGetInstanceStateResponse pResponseStatus_ =
-  GetInstanceStateResponse'
-    { state = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetInstanceStateResponse responseStatus =
+  GetInstanceStateResponse' {state = Core.Nothing, responseStatus}
 
 -- | The state of the instance.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisfrsState :: Lens.Lens' GetInstanceStateResponse (Lude.Maybe InstanceState)
-gisfrsState = Lens.lens (state :: GetInstanceStateResponse -> Lude.Maybe InstanceState) (\s a -> s {state = a} :: GetInstanceStateResponse)
-{-# DEPRECATED gisfrsState "Use generic-lens or generic-optics with 'state' instead." #-}
+gisrgrsState :: Lens.Lens' GetInstanceStateResponse (Core.Maybe Types.InstanceState)
+gisrgrsState = Lens.field @"state"
+{-# DEPRECATED gisrgrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gisfrsResponseStatus :: Lens.Lens' GetInstanceStateResponse Lude.Int
-gisfrsResponseStatus = Lens.lens (responseStatus :: GetInstanceStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInstanceStateResponse)
-{-# DEPRECATED gisfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gisrgrsResponseStatus :: Lens.Lens' GetInstanceStateResponse Core.Int
+gisrgrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gisrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

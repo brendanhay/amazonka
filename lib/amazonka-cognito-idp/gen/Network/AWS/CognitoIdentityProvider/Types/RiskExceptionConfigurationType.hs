@@ -17,68 +17,64 @@ module Network.AWS.CognitoIdentityProvider.Types.RiskExceptionConfigurationType
     mkRiskExceptionConfigurationType,
 
     -- * Lenses
-    rectSkippedIPRangeList,
     rectBlockedIPRangeList,
+    rectSkippedIPRangeList,
   )
 where
 
+import qualified Network.AWS.CognitoIdentityProvider.Types.StringType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The type of the configuration to override the risk decision.
 --
 -- /See:/ 'mkRiskExceptionConfigurationType' smart constructor.
 data RiskExceptionConfigurationType = RiskExceptionConfigurationType'
-  { -- | Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.
-    skippedIPRangeList :: Lude.Maybe [Lude.Text],
-    -- | Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
-    blockedIPRangeList :: Lude.Maybe [Lude.Text]
+  { -- | Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
+    blockedIPRangeList :: Core.Maybe [Types.StringType],
+    -- | Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.
+    skippedIPRangeList :: Core.Maybe [Types.StringType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RiskExceptionConfigurationType' with the minimum fields required to make a request.
---
--- * 'skippedIPRangeList' - Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.
--- * 'blockedIPRangeList' - Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
+-- | Creates a 'RiskExceptionConfigurationType' value with any optional fields omitted.
 mkRiskExceptionConfigurationType ::
   RiskExceptionConfigurationType
 mkRiskExceptionConfigurationType =
   RiskExceptionConfigurationType'
-    { skippedIPRangeList =
-        Lude.Nothing,
-      blockedIPRangeList = Lude.Nothing
+    { blockedIPRangeList =
+        Core.Nothing,
+      skippedIPRangeList = Core.Nothing
     }
-
--- | Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.
---
--- /Note:/ Consider using 'skippedIPRangeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rectSkippedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Lude.Maybe [Lude.Text])
-rectSkippedIPRangeList = Lens.lens (skippedIPRangeList :: RiskExceptionConfigurationType -> Lude.Maybe [Lude.Text]) (\s a -> s {skippedIPRangeList = a} :: RiskExceptionConfigurationType)
-{-# DEPRECATED rectSkippedIPRangeList "Use generic-lens or generic-optics with 'skippedIPRangeList' instead." #-}
 
 -- | Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.
 --
 -- /Note:/ Consider using 'blockedIPRangeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rectBlockedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Lude.Maybe [Lude.Text])
-rectBlockedIPRangeList = Lens.lens (blockedIPRangeList :: RiskExceptionConfigurationType -> Lude.Maybe [Lude.Text]) (\s a -> s {blockedIPRangeList = a} :: RiskExceptionConfigurationType)
+rectBlockedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Core.Maybe [Types.StringType])
+rectBlockedIPRangeList = Lens.field @"blockedIPRangeList"
 {-# DEPRECATED rectBlockedIPRangeList "Use generic-lens or generic-optics with 'blockedIPRangeList' instead." #-}
 
-instance Lude.FromJSON RiskExceptionConfigurationType where
-  parseJSON =
-    Lude.withObject
-      "RiskExceptionConfigurationType"
-      ( \x ->
-          RiskExceptionConfigurationType'
-            Lude.<$> (x Lude..:? "SkippedIPRangeList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "BlockedIPRangeList" Lude..!= Lude.mempty)
-      )
+-- | Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.
+--
+-- /Note:/ Consider using 'skippedIPRangeList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rectSkippedIPRangeList :: Lens.Lens' RiskExceptionConfigurationType (Core.Maybe [Types.StringType])
+rectSkippedIPRangeList = Lens.field @"skippedIPRangeList"
+{-# DEPRECATED rectSkippedIPRangeList "Use generic-lens or generic-optics with 'skippedIPRangeList' instead." #-}
 
-instance Lude.ToJSON RiskExceptionConfigurationType where
-  toJSON RiskExceptionConfigurationType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SkippedIPRangeList" Lude..=) Lude.<$> skippedIPRangeList,
-            ("BlockedIPRangeList" Lude..=) Lude.<$> blockedIPRangeList
+instance Core.FromJSON RiskExceptionConfigurationType where
+  toJSON RiskExceptionConfigurationType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("BlockedIPRangeList" Core..=) Core.<$> blockedIPRangeList,
+            ("SkippedIPRangeList" Core..=) Core.<$> skippedIPRangeList
           ]
       )
+
+instance Core.FromJSON RiskExceptionConfigurationType where
+  parseJSON =
+    Core.withObject "RiskExceptionConfigurationType" Core.$
+      \x ->
+        RiskExceptionConfigurationType'
+          Core.<$> (x Core..:? "BlockedIPRangeList")
+          Core.<*> (x Core..:? "SkippedIPRangeList")

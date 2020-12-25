@@ -17,69 +17,64 @@ module Network.AWS.SWF.Types.ExternalWorkflowExecutionSignaledEventAttributes
     mkExternalWorkflowExecutionSignaledEventAttributes,
 
     -- * Lenses
-    eweseaInitiatedEventId,
     eweseaWorkflowExecution,
+    eweseaInitiatedEventId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SWF.Types.WorkflowExecution
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.WorkflowExecution as Types
 
 -- | Provides the details of the @ExternalWorkflowExecutionSignaled@ event.
 --
 -- /See:/ 'mkExternalWorkflowExecutionSignaledEventAttributes' smart constructor.
 data ExternalWorkflowExecutionSignaledEventAttributes = ExternalWorkflowExecutionSignaledEventAttributes'
-  { -- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event corresponding to the @SignalExternalWorkflowExecution@ decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
-    initiatedEventId :: Lude.Integer,
-    -- | The external workflow execution that the signal was delivered to.
-    workflowExecution :: WorkflowExecution
+  { -- | The external workflow execution that the signal was delivered to.
+    workflowExecution :: Types.WorkflowExecution,
+    -- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event corresponding to the @SignalExternalWorkflowExecution@ decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+    initiatedEventId :: Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExternalWorkflowExecutionSignaledEventAttributes' with the minimum fields required to make a request.
---
--- * 'initiatedEventId' - The ID of the @SignalExternalWorkflowExecutionInitiated@ event corresponding to the @SignalExternalWorkflowExecution@ decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
--- * 'workflowExecution' - The external workflow execution that the signal was delivered to.
+-- | Creates a 'ExternalWorkflowExecutionSignaledEventAttributes' value with any optional fields omitted.
 mkExternalWorkflowExecutionSignaledEventAttributes ::
-  -- | 'initiatedEventId'
-  Lude.Integer ->
   -- | 'workflowExecution'
-  WorkflowExecution ->
+  Types.WorkflowExecution ->
+  -- | 'initiatedEventId'
+  Core.Integer ->
   ExternalWorkflowExecutionSignaledEventAttributes
 mkExternalWorkflowExecutionSignaledEventAttributes
-  pInitiatedEventId_
-  pWorkflowExecution_ =
+  workflowExecution
+  initiatedEventId =
     ExternalWorkflowExecutionSignaledEventAttributes'
-      { initiatedEventId =
-          pInitiatedEventId_,
-        workflowExecution = pWorkflowExecution_
+      { workflowExecution,
+        initiatedEventId
       }
-
--- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event corresponding to the @SignalExternalWorkflowExecution@ decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
---
--- /Note:/ Consider using 'initiatedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eweseaInitiatedEventId :: Lens.Lens' ExternalWorkflowExecutionSignaledEventAttributes Lude.Integer
-eweseaInitiatedEventId = Lens.lens (initiatedEventId :: ExternalWorkflowExecutionSignaledEventAttributes -> Lude.Integer) (\s a -> s {initiatedEventId = a} :: ExternalWorkflowExecutionSignaledEventAttributes)
-{-# DEPRECATED eweseaInitiatedEventId "Use generic-lens or generic-optics with 'initiatedEventId' instead." #-}
 
 -- | The external workflow execution that the signal was delivered to.
 --
 -- /Note:/ Consider using 'workflowExecution' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eweseaWorkflowExecution :: Lens.Lens' ExternalWorkflowExecutionSignaledEventAttributes WorkflowExecution
-eweseaWorkflowExecution = Lens.lens (workflowExecution :: ExternalWorkflowExecutionSignaledEventAttributes -> WorkflowExecution) (\s a -> s {workflowExecution = a} :: ExternalWorkflowExecutionSignaledEventAttributes)
+eweseaWorkflowExecution :: Lens.Lens' ExternalWorkflowExecutionSignaledEventAttributes Types.WorkflowExecution
+eweseaWorkflowExecution = Lens.field @"workflowExecution"
 {-# DEPRECATED eweseaWorkflowExecution "Use generic-lens or generic-optics with 'workflowExecution' instead." #-}
 
+-- | The ID of the @SignalExternalWorkflowExecutionInitiated@ event corresponding to the @SignalExternalWorkflowExecution@ decision to request this signal. This information can be useful for diagnosing problems by tracing back the chain of events leading up to this event.
+--
+-- /Note:/ Consider using 'initiatedEventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eweseaInitiatedEventId :: Lens.Lens' ExternalWorkflowExecutionSignaledEventAttributes Core.Integer
+eweseaInitiatedEventId = Lens.field @"initiatedEventId"
+{-# DEPRECATED eweseaInitiatedEventId "Use generic-lens or generic-optics with 'initiatedEventId' instead." #-}
+
 instance
-  Lude.FromJSON
+  Core.FromJSON
     ExternalWorkflowExecutionSignaledEventAttributes
   where
   parseJSON =
-    Lude.withObject
+    Core.withObject
       "ExternalWorkflowExecutionSignaledEventAttributes"
-      ( \x ->
-          ExternalWorkflowExecutionSignaledEventAttributes'
-            Lude.<$> (x Lude..: "initiatedEventId")
-            Lude.<*> (x Lude..: "workflowExecution")
-      )
+      Core.$ \x ->
+        ExternalWorkflowExecutionSignaledEventAttributes'
+          Core.<$> (x Core..: "workflowExecution")
+          Core.<*> (x Core..: "initiatedEventId")

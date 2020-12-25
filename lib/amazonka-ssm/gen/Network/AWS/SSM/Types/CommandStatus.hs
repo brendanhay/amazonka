@@ -13,71 +13,76 @@
 module Network.AWS.SSM.Types.CommandStatus
   ( CommandStatus
       ( CommandStatus',
-        CSPending,
-        CSInProgress,
-        CSSuccess,
-        CSCancelled,
-        CSFailed,
-        CSTimedOut,
-        CSCancelling
+        CommandStatusPending,
+        CommandStatusInProgress,
+        CommandStatusSuccess,
+        CommandStatusCancelled,
+        CommandStatusFailed,
+        CommandStatusTimedOut,
+        CommandStatusCancelling,
+        fromCommandStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CommandStatus = CommandStatus' Lude.Text
+newtype CommandStatus = CommandStatus'
+  { fromCommandStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSPending :: CommandStatus
-pattern CSPending = CommandStatus' "Pending"
+pattern CommandStatusPending :: CommandStatus
+pattern CommandStatusPending = CommandStatus' "Pending"
 
-pattern CSInProgress :: CommandStatus
-pattern CSInProgress = CommandStatus' "InProgress"
+pattern CommandStatusInProgress :: CommandStatus
+pattern CommandStatusInProgress = CommandStatus' "InProgress"
 
-pattern CSSuccess :: CommandStatus
-pattern CSSuccess = CommandStatus' "Success"
+pattern CommandStatusSuccess :: CommandStatus
+pattern CommandStatusSuccess = CommandStatus' "Success"
 
-pattern CSCancelled :: CommandStatus
-pattern CSCancelled = CommandStatus' "Cancelled"
+pattern CommandStatusCancelled :: CommandStatus
+pattern CommandStatusCancelled = CommandStatus' "Cancelled"
 
-pattern CSFailed :: CommandStatus
-pattern CSFailed = CommandStatus' "Failed"
+pattern CommandStatusFailed :: CommandStatus
+pattern CommandStatusFailed = CommandStatus' "Failed"
 
-pattern CSTimedOut :: CommandStatus
-pattern CSTimedOut = CommandStatus' "TimedOut"
+pattern CommandStatusTimedOut :: CommandStatus
+pattern CommandStatusTimedOut = CommandStatus' "TimedOut"
 
-pattern CSCancelling :: CommandStatus
-pattern CSCancelling = CommandStatus' "Cancelling"
+pattern CommandStatusCancelling :: CommandStatus
+pattern CommandStatusCancelling = CommandStatus' "Cancelling"
 
 {-# COMPLETE
-  CSPending,
-  CSInProgress,
-  CSSuccess,
-  CSCancelled,
-  CSFailed,
-  CSTimedOut,
-  CSCancelling,
+  CommandStatusPending,
+  CommandStatusInProgress,
+  CommandStatusSuccess,
+  CommandStatusCancelled,
+  CommandStatusFailed,
+  CommandStatusTimedOut,
+  CommandStatusCancelling,
   CommandStatus'
   #-}

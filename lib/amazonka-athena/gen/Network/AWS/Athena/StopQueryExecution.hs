@@ -29,95 +29,84 @@ module Network.AWS.Athena.StopQueryExecution
     mkStopQueryExecutionResponse,
 
     -- ** Response lenses
-    sqersResponseStatus,
+    srsResponseStatus,
   )
 where
 
-import Network.AWS.Athena.Types
+import qualified Network.AWS.Athena.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopQueryExecution' smart constructor.
 newtype StopQueryExecution = StopQueryExecution'
   { -- | The unique ID of the query execution to stop.
-    queryExecutionId :: Lude.Text
+    queryExecutionId :: Types.QueryExecutionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopQueryExecution' with the minimum fields required to make a request.
---
--- * 'queryExecutionId' - The unique ID of the query execution to stop.
+-- | Creates a 'StopQueryExecution' value with any optional fields omitted.
 mkStopQueryExecution ::
   -- | 'queryExecutionId'
-  Lude.Text ->
+  Types.QueryExecutionId ->
   StopQueryExecution
-mkStopQueryExecution pQueryExecutionId_ =
-  StopQueryExecution' {queryExecutionId = pQueryExecutionId_}
+mkStopQueryExecution queryExecutionId =
+  StopQueryExecution' {queryExecutionId}
 
 -- | The unique ID of the query execution to stop.
 --
 -- /Note:/ Consider using 'queryExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqeQueryExecutionId :: Lens.Lens' StopQueryExecution Lude.Text
-sqeQueryExecutionId = Lens.lens (queryExecutionId :: StopQueryExecution -> Lude.Text) (\s a -> s {queryExecutionId = a} :: StopQueryExecution)
+sqeQueryExecutionId :: Lens.Lens' StopQueryExecution Types.QueryExecutionId
+sqeQueryExecutionId = Lens.field @"queryExecutionId"
 {-# DEPRECATED sqeQueryExecutionId "Use generic-lens or generic-optics with 'queryExecutionId' instead." #-}
 
-instance Lude.AWSRequest StopQueryExecution where
+instance Core.FromJSON StopQueryExecution where
+  toJSON StopQueryExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("QueryExecutionId" Core..= queryExecutionId)]
+      )
+
+instance Core.AWSRequest StopQueryExecution where
   type Rs StopQueryExecution = StopQueryExecutionResponse
-  request = Req.postJSON athenaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonAthena.StopQueryExecution")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          StopQueryExecutionResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          StopQueryExecutionResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopQueryExecution where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonAthena.StopQueryExecution" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopQueryExecution where
-  toJSON StopQueryExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("QueryExecutionId" Lude..= queryExecutionId)]
-      )
-
-instance Lude.ToPath StopQueryExecution where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopQueryExecution where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopQueryExecutionResponse' smart constructor.
 newtype StopQueryExecutionResponse = StopQueryExecutionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopQueryExecutionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopQueryExecutionResponse' value with any optional fields omitted.
 mkStopQueryExecutionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopQueryExecutionResponse
-mkStopQueryExecutionResponse pResponseStatus_ =
-  StopQueryExecutionResponse' {responseStatus = pResponseStatus_}
+mkStopQueryExecutionResponse responseStatus =
+  StopQueryExecutionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sqersResponseStatus :: Lens.Lens' StopQueryExecutionResponse Lude.Int
-sqersResponseStatus = Lens.lens (responseStatus :: StopQueryExecutionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopQueryExecutionResponse)
-{-# DEPRECATED sqersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srsResponseStatus :: Lens.Lens' StopQueryExecutionResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

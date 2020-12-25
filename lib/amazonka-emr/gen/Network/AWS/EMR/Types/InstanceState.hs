@@ -13,61 +13,66 @@
 module Network.AWS.EMR.Types.InstanceState
   ( InstanceState
       ( InstanceState',
-        ISAwaitingFulfillment,
-        ISProvisioning,
-        ISBootstrapping,
-        ISRunning,
-        ISTerminated
+        InstanceStateAwaitingFulfillment,
+        InstanceStateProvisioning,
+        InstanceStateBootstrapping,
+        InstanceStateRunning,
+        InstanceStateTerminated,
+        fromInstanceState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceState = InstanceState' Lude.Text
+newtype InstanceState = InstanceState'
+  { fromInstanceState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISAwaitingFulfillment :: InstanceState
-pattern ISAwaitingFulfillment = InstanceState' "AWAITING_FULFILLMENT"
+pattern InstanceStateAwaitingFulfillment :: InstanceState
+pattern InstanceStateAwaitingFulfillment = InstanceState' "AWAITING_FULFILLMENT"
 
-pattern ISProvisioning :: InstanceState
-pattern ISProvisioning = InstanceState' "PROVISIONING"
+pattern InstanceStateProvisioning :: InstanceState
+pattern InstanceStateProvisioning = InstanceState' "PROVISIONING"
 
-pattern ISBootstrapping :: InstanceState
-pattern ISBootstrapping = InstanceState' "BOOTSTRAPPING"
+pattern InstanceStateBootstrapping :: InstanceState
+pattern InstanceStateBootstrapping = InstanceState' "BOOTSTRAPPING"
 
-pattern ISRunning :: InstanceState
-pattern ISRunning = InstanceState' "RUNNING"
+pattern InstanceStateRunning :: InstanceState
+pattern InstanceStateRunning = InstanceState' "RUNNING"
 
-pattern ISTerminated :: InstanceState
-pattern ISTerminated = InstanceState' "TERMINATED"
+pattern InstanceStateTerminated :: InstanceState
+pattern InstanceStateTerminated = InstanceState' "TERMINATED"
 
 {-# COMPLETE
-  ISAwaitingFulfillment,
-  ISProvisioning,
-  ISBootstrapping,
-  ISRunning,
-  ISTerminated,
+  InstanceStateAwaitingFulfillment,
+  InstanceStateProvisioning,
+  InstanceStateBootstrapping,
+  InstanceStateRunning,
+  InstanceStateTerminated,
   InstanceState'
   #-}

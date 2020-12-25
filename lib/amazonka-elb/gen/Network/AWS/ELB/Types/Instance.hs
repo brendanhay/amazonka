@@ -21,37 +21,32 @@ module Network.AWS.ELB.Types.Instance
   )
 where
 
-import Network.AWS.ELB.Internal
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.InstanceId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The ID of an EC2 instance.
 --
 -- /See:/ 'mkInstance' smart constructor.
 newtype Instance = Instance'
   { -- | The instance ID.
-    instanceId :: Lude.Maybe Lude.Text
+    instanceId :: Core.Maybe Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Instance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance ID.
+-- | Creates a 'Instance' value with any optional fields omitted.
 mkInstance ::
   Instance
-mkInstance = Instance' {instanceId = Lude.Nothing}
+mkInstance = Instance' {instanceId = Core.Nothing}
 
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iInstanceId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-iInstanceId = Lens.lens (instanceId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: Instance)
+iInstanceId :: Lens.Lens' Instance (Core.Maybe Types.InstanceId)
+iInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED iInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance Lude.FromXML Instance where
-  parseXML x = Instance' Lude.<$> (x Lude..@? "InstanceId")
-
-instance Lude.ToQuery Instance where
-  toQuery Instance' {..} =
-    Lude.mconcat ["InstanceId" Lude.=: instanceId]
+instance Core.FromXML Instance where
+  parseXML x = Instance' Core.<$> (x Core..@? "InstanceId")

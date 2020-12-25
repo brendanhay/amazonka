@@ -23,62 +23,60 @@ module Network.AWS.EC2.Types.TransitGatewayPrefixListAttachment
   )
 where
 
-import Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType
+import qualified Network.AWS.EC2.Types.ResourceId as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayAttachmentId as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayAttachmentResourceType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a transit gateway prefix list attachment.
 --
 -- /See:/ 'mkTransitGatewayPrefixListAttachment' smart constructor.
 data TransitGatewayPrefixListAttachment = TransitGatewayPrefixListAttachment'
   { -- | The ID of the resource.
-    resourceId :: Lude.Maybe Lude.Text,
+    resourceId :: Core.Maybe Types.ResourceId,
     -- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
-    resourceType :: Lude.Maybe TransitGatewayAttachmentResourceType,
+    resourceType :: Core.Maybe Types.TransitGatewayAttachmentResourceType,
     -- | The ID of the attachment.
-    transitGatewayAttachmentId :: Lude.Maybe Lude.Text
+    transitGatewayAttachmentId :: Core.Maybe Types.TransitGatewayAttachmentId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransitGatewayPrefixListAttachment' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource.
--- * 'resourceType' - The resource type. Note that the @tgw-peering@ resource type has been deprecated.
--- * 'transitGatewayAttachmentId' - The ID of the attachment.
+-- | Creates a 'TransitGatewayPrefixListAttachment' value with any optional fields omitted.
 mkTransitGatewayPrefixListAttachment ::
   TransitGatewayPrefixListAttachment
 mkTransitGatewayPrefixListAttachment =
   TransitGatewayPrefixListAttachment'
-    { resourceId = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      transitGatewayAttachmentId = Lude.Nothing
+    { resourceId = Core.Nothing,
+      resourceType = Core.Nothing,
+      transitGatewayAttachmentId = Core.Nothing
     }
 
 -- | The ID of the resource.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgplaResourceId :: Lens.Lens' TransitGatewayPrefixListAttachment (Lude.Maybe Lude.Text)
-tgplaResourceId = Lens.lens (resourceId :: TransitGatewayPrefixListAttachment -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: TransitGatewayPrefixListAttachment)
+tgplaResourceId :: Lens.Lens' TransitGatewayPrefixListAttachment (Core.Maybe Types.ResourceId)
+tgplaResourceId = Lens.field @"resourceId"
 {-# DEPRECATED tgplaResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The resource type. Note that the @tgw-peering@ resource type has been deprecated.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgplaResourceType :: Lens.Lens' TransitGatewayPrefixListAttachment (Lude.Maybe TransitGatewayAttachmentResourceType)
-tgplaResourceType = Lens.lens (resourceType :: TransitGatewayPrefixListAttachment -> Lude.Maybe TransitGatewayAttachmentResourceType) (\s a -> s {resourceType = a} :: TransitGatewayPrefixListAttachment)
+tgplaResourceType :: Lens.Lens' TransitGatewayPrefixListAttachment (Core.Maybe Types.TransitGatewayAttachmentResourceType)
+tgplaResourceType = Lens.field @"resourceType"
 {-# DEPRECATED tgplaResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The ID of the attachment.
 --
 -- /Note:/ Consider using 'transitGatewayAttachmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgplaTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayPrefixListAttachment (Lude.Maybe Lude.Text)
-tgplaTransitGatewayAttachmentId = Lens.lens (transitGatewayAttachmentId :: TransitGatewayPrefixListAttachment -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayAttachmentId = a} :: TransitGatewayPrefixListAttachment)
+tgplaTransitGatewayAttachmentId :: Lens.Lens' TransitGatewayPrefixListAttachment (Core.Maybe Types.TransitGatewayAttachmentId)
+tgplaTransitGatewayAttachmentId = Lens.field @"transitGatewayAttachmentId"
 {-# DEPRECATED tgplaTransitGatewayAttachmentId "Use generic-lens or generic-optics with 'transitGatewayAttachmentId' instead." #-}
 
-instance Lude.FromXML TransitGatewayPrefixListAttachment where
+instance Core.FromXML TransitGatewayPrefixListAttachment where
   parseXML x =
     TransitGatewayPrefixListAttachment'
-      Lude.<$> (x Lude..@? "resourceId")
-      Lude.<*> (x Lude..@? "resourceType")
-      Lude.<*> (x Lude..@? "transitGatewayAttachmentId")
+      Core.<$> (x Core..@? "resourceId")
+      Core.<*> (x Core..@? "resourceType")
+      Core.<*> (x Core..@? "transitGatewayAttachmentId")

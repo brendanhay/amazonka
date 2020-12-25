@@ -13,56 +13,61 @@
 module Network.AWS.Lightsail.Types.DiskSnapshotState
   ( DiskSnapshotState
       ( DiskSnapshotState',
-        DSSPending,
-        DSSCompleted,
-        DSSError,
-        DSSUnknown
+        DiskSnapshotStatePending,
+        DiskSnapshotStateCompleted,
+        DiskSnapshotStateError,
+        DiskSnapshotStateUnknown,
+        fromDiskSnapshotState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DiskSnapshotState = DiskSnapshotState' Lude.Text
+newtype DiskSnapshotState = DiskSnapshotState'
+  { fromDiskSnapshotState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSSPending :: DiskSnapshotState
-pattern DSSPending = DiskSnapshotState' "pending"
+pattern DiskSnapshotStatePending :: DiskSnapshotState
+pattern DiskSnapshotStatePending = DiskSnapshotState' "pending"
 
-pattern DSSCompleted :: DiskSnapshotState
-pattern DSSCompleted = DiskSnapshotState' "completed"
+pattern DiskSnapshotStateCompleted :: DiskSnapshotState
+pattern DiskSnapshotStateCompleted = DiskSnapshotState' "completed"
 
-pattern DSSError :: DiskSnapshotState
-pattern DSSError = DiskSnapshotState' "error"
+pattern DiskSnapshotStateError :: DiskSnapshotState
+pattern DiskSnapshotStateError = DiskSnapshotState' "error"
 
-pattern DSSUnknown :: DiskSnapshotState
-pattern DSSUnknown = DiskSnapshotState' "unknown"
+pattern DiskSnapshotStateUnknown :: DiskSnapshotState
+pattern DiskSnapshotStateUnknown = DiskSnapshotState' "unknown"
 
 {-# COMPLETE
-  DSSPending,
-  DSSCompleted,
-  DSSError,
-  DSSUnknown,
+  DiskSnapshotStatePending,
+  DiskSnapshotStateCompleted,
+  DiskSnapshotStateError,
+  DiskSnapshotStateUnknown,
   DiskSnapshotState'
   #-}

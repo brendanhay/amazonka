@@ -46,29 +46,35 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.DirectoryService
     Network.AWS.DirectoryService.AcceptSharedDirectory
-    Network.AWS.DirectoryService.AddIPRoutes
+    Network.AWS.DirectoryService.AddIpRoutes
     Network.AWS.DirectoryService.AddRegion
     Network.AWS.DirectoryService.AddTagsToResource
     Network.AWS.DirectoryService.CancelSchemaExtension
@@ -100,21 +106,21 @@ library
     Network.AWS.DirectoryService.DescribeTrusts
     Network.AWS.DirectoryService.DisableLDAPS
     Network.AWS.DirectoryService.DisableRadius
-    Network.AWS.DirectoryService.DisableSSO
+    Network.AWS.DirectoryService.DisableSso
     Network.AWS.DirectoryService.EnableLDAPS
     Network.AWS.DirectoryService.EnableRadius
-    Network.AWS.DirectoryService.EnableSSO
+    Network.AWS.DirectoryService.EnableSso
     Network.AWS.DirectoryService.GetDirectoryLimits
     Network.AWS.DirectoryService.GetSnapshotLimits
     Network.AWS.DirectoryService.ListCertificates
-    Network.AWS.DirectoryService.ListIPRoutes
+    Network.AWS.DirectoryService.ListIpRoutes
     Network.AWS.DirectoryService.ListLogSubscriptions
     Network.AWS.DirectoryService.ListSchemaExtensions
     Network.AWS.DirectoryService.ListTagsForResource
     Network.AWS.DirectoryService.RegisterCertificate
     Network.AWS.DirectoryService.RegisterEventTopic
     Network.AWS.DirectoryService.RejectSharedDirectory
-    Network.AWS.DirectoryService.RemoveIPRoutes
+    Network.AWS.DirectoryService.RemoveIpRoutes
     Network.AWS.DirectoryService.RemoveRegion
     Network.AWS.DirectoryService.RemoveTagsFromResource
     Network.AWS.DirectoryService.ResetUserPassword
@@ -131,59 +137,117 @@ library
     Network.AWS.DirectoryService.Waiters
 
   other-modules:
+    Network.AWS.DirectoryService.Types.AccessUrl
+    Network.AWS.DirectoryService.Types.Alias
+    Network.AWS.DirectoryService.Types.AliasName
     Network.AWS.DirectoryService.Types.Attribute
+    Network.AWS.DirectoryService.Types.AvailabilityZone
     Network.AWS.DirectoryService.Types.Certificate
+    Network.AWS.DirectoryService.Types.CertificateCN
+    Network.AWS.DirectoryService.Types.CertificateData
+    Network.AWS.DirectoryService.Types.CertificateId
     Network.AWS.DirectoryService.Types.CertificateInfo
     Network.AWS.DirectoryService.Types.CertificateState
+    Network.AWS.DirectoryService.Types.CertificateStateReason
+    Network.AWS.DirectoryService.Types.CidrIp
     Network.AWS.DirectoryService.Types.Computer
+    Network.AWS.DirectoryService.Types.ComputerId
+    Network.AWS.DirectoryService.Types.ComputerName
     Network.AWS.DirectoryService.Types.ConditionalForwarder
+    Network.AWS.DirectoryService.Types.ConnectPassword
+    Network.AWS.DirectoryService.Types.CustomerId
+    Network.AWS.DirectoryService.Types.CustomerUserName
+    Network.AWS.DirectoryService.Types.Description
     Network.AWS.DirectoryService.Types.DirectoryConnectSettings
     Network.AWS.DirectoryService.Types.DirectoryConnectSettingsDescription
     Network.AWS.DirectoryService.Types.DirectoryDescription
     Network.AWS.DirectoryService.Types.DirectoryEdition
+    Network.AWS.DirectoryService.Types.DirectoryId
     Network.AWS.DirectoryService.Types.DirectoryLimits
+    Network.AWS.DirectoryService.Types.DirectoryName
+    Network.AWS.DirectoryService.Types.DirectoryShortName
     Network.AWS.DirectoryService.Types.DirectorySize
     Network.AWS.DirectoryService.Types.DirectoryStage
     Network.AWS.DirectoryService.Types.DirectoryType
-    Network.AWS.DirectoryService.Types.DirectoryVPCSettings
-    Network.AWS.DirectoryService.Types.DirectoryVPCSettingsDescription
+    Network.AWS.DirectoryService.Types.DirectoryVpcSettings
+    Network.AWS.DirectoryService.Types.DirectoryVpcSettingsDescription
+    Network.AWS.DirectoryService.Types.DnsIpAddr
     Network.AWS.DirectoryService.Types.DomainController
+    Network.AWS.DirectoryService.Types.DomainControllerId
     Network.AWS.DirectoryService.Types.DomainControllerStatus
     Network.AWS.DirectoryService.Types.EventTopic
-    Network.AWS.DirectoryService.Types.IPRoute
-    Network.AWS.DirectoryService.Types.IPRouteInfo
-    Network.AWS.DirectoryService.Types.IPRouteStatusMsg
+    Network.AWS.DirectoryService.Types.IpAddr
+    Network.AWS.DirectoryService.Types.IpRoute
+    Network.AWS.DirectoryService.Types.IpRouteInfo
+    Network.AWS.DirectoryService.Types.IpRouteStatusMsg
+    Network.AWS.DirectoryService.Types.IpRouteStatusReason
+    Network.AWS.DirectoryService.Types.Key
     Network.AWS.DirectoryService.Types.LDAPSSettingInfo
     Network.AWS.DirectoryService.Types.LDAPSStatus
+    Network.AWS.DirectoryService.Types.LDAPSStatusReason
     Network.AWS.DirectoryService.Types.LDAPSType
+    Network.AWS.DirectoryService.Types.LdifContent
+    Network.AWS.DirectoryService.Types.LogGroupName
     Network.AWS.DirectoryService.Types.LogSubscription
+    Network.AWS.DirectoryService.Types.Name
+    Network.AWS.DirectoryService.Types.NewPassword
+    Network.AWS.DirectoryService.Types.NextToken
+    Network.AWS.DirectoryService.Types.OrganizationalUnitDN
+    Network.AWS.DirectoryService.Types.OwnerAccountId
     Network.AWS.DirectoryService.Types.OwnerDirectoryDescription
+    Network.AWS.DirectoryService.Types.Password
     Network.AWS.DirectoryService.Types.RadiusAuthenticationProtocol
+    Network.AWS.DirectoryService.Types.RadiusDisplayLabel
     Network.AWS.DirectoryService.Types.RadiusSettings
     Network.AWS.DirectoryService.Types.RadiusStatus
     Network.AWS.DirectoryService.Types.RegionDescription
+    Network.AWS.DirectoryService.Types.RegionName
     Network.AWS.DirectoryService.Types.RegionsInfo
     Network.AWS.DirectoryService.Types.RegionType
+    Network.AWS.DirectoryService.Types.RemoteDomainName
     Network.AWS.DirectoryService.Types.ReplicationScope
+    Network.AWS.DirectoryService.Types.RequestId
+    Network.AWS.DirectoryService.Types.ResourceId
+    Network.AWS.DirectoryService.Types.SchemaExtensionId
     Network.AWS.DirectoryService.Types.SchemaExtensionInfo
     Network.AWS.DirectoryService.Types.SchemaExtensionStatus
+    Network.AWS.DirectoryService.Types.SchemaExtensionStatusReason
+    Network.AWS.DirectoryService.Types.SecurityGroupId
     Network.AWS.DirectoryService.Types.SelectiveAuth
+    Network.AWS.DirectoryService.Types.Server
+    Network.AWS.DirectoryService.Types.SharedAccountId
     Network.AWS.DirectoryService.Types.SharedDirectory
+    Network.AWS.DirectoryService.Types.SharedSecret
     Network.AWS.DirectoryService.Types.ShareMethod
+    Network.AWS.DirectoryService.Types.ShareNotes
     Network.AWS.DirectoryService.Types.ShareStatus
     Network.AWS.DirectoryService.Types.ShareTarget
     Network.AWS.DirectoryService.Types.Snapshot
+    Network.AWS.DirectoryService.Types.SnapshotId
     Network.AWS.DirectoryService.Types.SnapshotLimits
     Network.AWS.DirectoryService.Types.SnapshotStatus
     Network.AWS.DirectoryService.Types.SnapshotType
+    Network.AWS.DirectoryService.Types.StageReason
+    Network.AWS.DirectoryService.Types.StatusReason
+    Network.AWS.DirectoryService.Types.SubnetId
     Network.AWS.DirectoryService.Types.Tag
+    Network.AWS.DirectoryService.Types.TagKey
+    Network.AWS.DirectoryService.Types.TargetId
     Network.AWS.DirectoryService.Types.TargetType
+    Network.AWS.DirectoryService.Types.TopicArn
+    Network.AWS.DirectoryService.Types.TopicName
     Network.AWS.DirectoryService.Types.TopicStatus
     Network.AWS.DirectoryService.Types.Trust
     Network.AWS.DirectoryService.Types.TrustDirection
+    Network.AWS.DirectoryService.Types.TrustId
+    Network.AWS.DirectoryService.Types.TrustPassword
     Network.AWS.DirectoryService.Types.TrustState
+    Network.AWS.DirectoryService.Types.TrustStateReason
     Network.AWS.DirectoryService.Types.TrustType
     Network.AWS.DirectoryService.Types.UnshareTarget
+    Network.AWS.DirectoryService.Types.UserName
+    Network.AWS.DirectoryService.Types.Value
+    Network.AWS.DirectoryService.Types.VpcId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

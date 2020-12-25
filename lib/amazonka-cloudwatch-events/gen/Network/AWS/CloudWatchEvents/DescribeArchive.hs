@@ -27,239 +27,216 @@ module Network.AWS.CloudWatchEvents.DescribeArchive
     mkDescribeArchiveResponse,
 
     -- ** Response lenses
-    darsCreationTime,
-    darsSizeBytes,
-    darsEventSourceARN,
-    darsEventPattern,
-    darsState,
-    darsEventCount,
-    darsArchiveName,
-    darsRetentionDays,
-    darsArchiveARN,
-    darsStateReason,
-    darsDescription,
-    darsResponseStatus,
+    darrsArchiveArn,
+    darrsArchiveName,
+    darrsCreationTime,
+    darrsDescription,
+    darrsEventCount,
+    darrsEventPattern,
+    darrsEventSourceArn,
+    darrsRetentionDays,
+    darrsSizeBytes,
+    darrsState,
+    darrsStateReason,
+    darrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeArchive' smart constructor.
 newtype DescribeArchive = DescribeArchive'
   { -- | The name of the archive to retrieve.
-    archiveName :: Lude.Text
+    archiveName :: Types.ArchiveName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeArchive' with the minimum fields required to make a request.
---
--- * 'archiveName' - The name of the archive to retrieve.
+-- | Creates a 'DescribeArchive' value with any optional fields omitted.
 mkDescribeArchive ::
   -- | 'archiveName'
-  Lude.Text ->
+  Types.ArchiveName ->
   DescribeArchive
-mkDescribeArchive pArchiveName_ =
-  DescribeArchive' {archiveName = pArchiveName_}
+mkDescribeArchive archiveName = DescribeArchive' {archiveName}
 
 -- | The name of the archive to retrieve.
 --
 -- /Note:/ Consider using 'archiveName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daArchiveName :: Lens.Lens' DescribeArchive Lude.Text
-daArchiveName = Lens.lens (archiveName :: DescribeArchive -> Lude.Text) (\s a -> s {archiveName = a} :: DescribeArchive)
+daArchiveName :: Lens.Lens' DescribeArchive Types.ArchiveName
+daArchiveName = Lens.field @"archiveName"
 {-# DEPRECATED daArchiveName "Use generic-lens or generic-optics with 'archiveName' instead." #-}
 
-instance Lude.AWSRequest DescribeArchive where
+instance Core.FromJSON DescribeArchive where
+  toJSON DescribeArchive {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ArchiveName" Core..= archiveName)])
+
+instance Core.AWSRequest DescribeArchive where
   type Rs DescribeArchive = DescribeArchiveResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.DescribeArchive")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeArchiveResponse'
-            Lude.<$> (x Lude..?> "CreationTime")
-            Lude.<*> (x Lude..?> "SizeBytes")
-            Lude.<*> (x Lude..?> "EventSourceArn")
-            Lude.<*> (x Lude..?> "EventPattern")
-            Lude.<*> (x Lude..?> "State")
-            Lude.<*> (x Lude..?> "EventCount")
-            Lude.<*> (x Lude..?> "ArchiveName")
-            Lude.<*> (x Lude..?> "RetentionDays")
-            Lude.<*> (x Lude..?> "ArchiveArn")
-            Lude.<*> (x Lude..?> "StateReason")
-            Lude.<*> (x Lude..?> "Description")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ArchiveArn")
+            Core.<*> (x Core..:? "ArchiveName")
+            Core.<*> (x Core..:? "CreationTime")
+            Core.<*> (x Core..:? "Description")
+            Core.<*> (x Core..:? "EventCount")
+            Core.<*> (x Core..:? "EventPattern")
+            Core.<*> (x Core..:? "EventSourceArn")
+            Core.<*> (x Core..:? "RetentionDays")
+            Core.<*> (x Core..:? "SizeBytes")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (x Core..:? "StateReason")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeArchive where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.DescribeArchive" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeArchive where
-  toJSON DescribeArchive' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ArchiveName" Lude..= archiveName)])
-
-instance Lude.ToPath DescribeArchive where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeArchive where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeArchiveResponse' smart constructor.
 data DescribeArchiveResponse = DescribeArchiveResponse'
-  { -- | The time at which the archive was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The size of the archive in bytes.
-    sizeBytes :: Lude.Maybe Lude.Integer,
-    -- | The ARN of the event source associated with the archive.
-    eventSourceARN :: Lude.Maybe Lude.Text,
-    -- | The event pattern used to filter events sent to the archive.
-    eventPattern :: Lude.Maybe Lude.Text,
-    -- | The state of the archive.
-    state :: Lude.Maybe ArchiveState,
-    -- | The number of events in the archive.
-    eventCount :: Lude.Maybe Lude.Integer,
+  { -- | The ARN of the archive.
+    archiveArn :: Core.Maybe Types.ArchiveArn,
     -- | The name of the archive.
-    archiveName :: Lude.Maybe Lude.Text,
-    -- | The number of days to retain events for in the archive.
-    retentionDays :: Lude.Maybe Lude.Natural,
-    -- | The ARN of the archive.
-    archiveARN :: Lude.Maybe Lude.Text,
-    -- | The reason that the archive is in the state.
-    stateReason :: Lude.Maybe Lude.Text,
+    archiveName :: Core.Maybe Types.ArchiveName,
+    -- | The time at which the archive was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The description of the archive.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
+    -- | The number of events in the archive.
+    eventCount :: Core.Maybe Core.Integer,
+    -- | The event pattern used to filter events sent to the archive.
+    eventPattern :: Core.Maybe Types.EventPattern,
+    -- | The ARN of the event source associated with the archive.
+    eventSourceArn :: Core.Maybe Types.Arn,
+    -- | The number of days to retain events for in the archive.
+    retentionDays :: Core.Maybe Core.Natural,
+    -- | The size of the archive in bytes.
+    sizeBytes :: Core.Maybe Core.Integer,
+    -- | The state of the archive.
+    state :: Core.Maybe Types.ArchiveState,
+    -- | The reason that the archive is in the state.
+    stateReason :: Core.Maybe Types.ArchiveStateReason,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeArchiveResponse' with the minimum fields required to make a request.
---
--- * 'creationTime' - The time at which the archive was created.
--- * 'sizeBytes' - The size of the archive in bytes.
--- * 'eventSourceARN' - The ARN of the event source associated with the archive.
--- * 'eventPattern' - The event pattern used to filter events sent to the archive.
--- * 'state' - The state of the archive.
--- * 'eventCount' - The number of events in the archive.
--- * 'archiveName' - The name of the archive.
--- * 'retentionDays' - The number of days to retain events for in the archive.
--- * 'archiveARN' - The ARN of the archive.
--- * 'stateReason' - The reason that the archive is in the state.
--- * 'description' - The description of the archive.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeArchiveResponse' value with any optional fields omitted.
 mkDescribeArchiveResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeArchiveResponse
-mkDescribeArchiveResponse pResponseStatus_ =
+mkDescribeArchiveResponse responseStatus =
   DescribeArchiveResponse'
-    { creationTime = Lude.Nothing,
-      sizeBytes = Lude.Nothing,
-      eventSourceARN = Lude.Nothing,
-      eventPattern = Lude.Nothing,
-      state = Lude.Nothing,
-      eventCount = Lude.Nothing,
-      archiveName = Lude.Nothing,
-      retentionDays = Lude.Nothing,
-      archiveARN = Lude.Nothing,
-      stateReason = Lude.Nothing,
-      description = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { archiveArn = Core.Nothing,
+      archiveName = Core.Nothing,
+      creationTime = Core.Nothing,
+      description = Core.Nothing,
+      eventCount = Core.Nothing,
+      eventPattern = Core.Nothing,
+      eventSourceArn = Core.Nothing,
+      retentionDays = Core.Nothing,
+      sizeBytes = Core.Nothing,
+      state = Core.Nothing,
+      stateReason = Core.Nothing,
+      responseStatus
     }
 
--- | The time at which the archive was created.
+-- | The ARN of the archive.
 --
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsCreationTime :: Lens.Lens' DescribeArchiveResponse (Lude.Maybe Lude.Timestamp)
-darsCreationTime = Lens.lens (creationTime :: DescribeArchiveResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The size of the archive in bytes.
---
--- /Note:/ Consider using 'sizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsSizeBytes :: Lens.Lens' DescribeArchiveResponse (Lude.Maybe Lude.Integer)
-darsSizeBytes = Lens.lens (sizeBytes :: DescribeArchiveResponse -> Lude.Maybe Lude.Integer) (\s a -> s {sizeBytes = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsSizeBytes "Use generic-lens or generic-optics with 'sizeBytes' instead." #-}
-
--- | The ARN of the event source associated with the archive.
---
--- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsEventSourceARN :: Lens.Lens' DescribeArchiveResponse (Lude.Maybe Lude.Text)
-darsEventSourceARN = Lens.lens (eventSourceARN :: DescribeArchiveResponse -> Lude.Maybe Lude.Text) (\s a -> s {eventSourceARN = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
-
--- | The event pattern used to filter events sent to the archive.
---
--- /Note:/ Consider using 'eventPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsEventPattern :: Lens.Lens' DescribeArchiveResponse (Lude.Maybe Lude.Text)
-darsEventPattern = Lens.lens (eventPattern :: DescribeArchiveResponse -> Lude.Maybe Lude.Text) (\s a -> s {eventPattern = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsEventPattern "Use generic-lens or generic-optics with 'eventPattern' instead." #-}
-
--- | The state of the archive.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsState :: Lens.Lens' DescribeArchiveResponse (Lude.Maybe ArchiveState)
-darsState = Lens.lens (state :: DescribeArchiveResponse -> Lude.Maybe ArchiveState) (\s a -> s {state = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The number of events in the archive.
---
--- /Note:/ Consider using 'eventCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsEventCount :: Lens.Lens' DescribeArchiveResponse (Lude.Maybe Lude.Integer)
-darsEventCount = Lens.lens (eventCount :: DescribeArchiveResponse -> Lude.Maybe Lude.Integer) (\s a -> s {eventCount = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsEventCount "Use generic-lens or generic-optics with 'eventCount' instead." #-}
+-- /Note:/ Consider using 'archiveArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darrsArchiveArn :: Lens.Lens' DescribeArchiveResponse (Core.Maybe Types.ArchiveArn)
+darrsArchiveArn = Lens.field @"archiveArn"
+{-# DEPRECATED darrsArchiveArn "Use generic-lens or generic-optics with 'archiveArn' instead." #-}
 
 -- | The name of the archive.
 --
 -- /Note:/ Consider using 'archiveName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsArchiveName :: Lens.Lens' DescribeArchiveResponse (Lude.Maybe Lude.Text)
-darsArchiveName = Lens.lens (archiveName :: DescribeArchiveResponse -> Lude.Maybe Lude.Text) (\s a -> s {archiveName = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsArchiveName "Use generic-lens or generic-optics with 'archiveName' instead." #-}
+darrsArchiveName :: Lens.Lens' DescribeArchiveResponse (Core.Maybe Types.ArchiveName)
+darrsArchiveName = Lens.field @"archiveName"
+{-# DEPRECATED darrsArchiveName "Use generic-lens or generic-optics with 'archiveName' instead." #-}
 
--- | The number of days to retain events for in the archive.
+-- | The time at which the archive was created.
 --
--- /Note:/ Consider using 'retentionDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsRetentionDays :: Lens.Lens' DescribeArchiveResponse (Lude.Maybe Lude.Natural)
-darsRetentionDays = Lens.lens (retentionDays :: DescribeArchiveResponse -> Lude.Maybe Lude.Natural) (\s a -> s {retentionDays = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsRetentionDays "Use generic-lens or generic-optics with 'retentionDays' instead." #-}
-
--- | The ARN of the archive.
---
--- /Note:/ Consider using 'archiveARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsArchiveARN :: Lens.Lens' DescribeArchiveResponse (Lude.Maybe Lude.Text)
-darsArchiveARN = Lens.lens (archiveARN :: DescribeArchiveResponse -> Lude.Maybe Lude.Text) (\s a -> s {archiveARN = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsArchiveARN "Use generic-lens or generic-optics with 'archiveARN' instead." #-}
-
--- | The reason that the archive is in the state.
---
--- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsStateReason :: Lens.Lens' DescribeArchiveResponse (Lude.Maybe Lude.Text)
-darsStateReason = Lens.lens (stateReason :: DescribeArchiveResponse -> Lude.Maybe Lude.Text) (\s a -> s {stateReason = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darrsCreationTime :: Lens.Lens' DescribeArchiveResponse (Core.Maybe Core.NominalDiffTime)
+darrsCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED darrsCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The description of the archive.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsDescription :: Lens.Lens' DescribeArchiveResponse (Lude.Maybe Lude.Text)
-darsDescription = Lens.lens (description :: DescribeArchiveResponse -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+darrsDescription :: Lens.Lens' DescribeArchiveResponse (Core.Maybe Types.Description)
+darrsDescription = Lens.field @"description"
+{-# DEPRECATED darrsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The number of events in the archive.
+--
+-- /Note:/ Consider using 'eventCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darrsEventCount :: Lens.Lens' DescribeArchiveResponse (Core.Maybe Core.Integer)
+darrsEventCount = Lens.field @"eventCount"
+{-# DEPRECATED darrsEventCount "Use generic-lens or generic-optics with 'eventCount' instead." #-}
+
+-- | The event pattern used to filter events sent to the archive.
+--
+-- /Note:/ Consider using 'eventPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darrsEventPattern :: Lens.Lens' DescribeArchiveResponse (Core.Maybe Types.EventPattern)
+darrsEventPattern = Lens.field @"eventPattern"
+{-# DEPRECATED darrsEventPattern "Use generic-lens or generic-optics with 'eventPattern' instead." #-}
+
+-- | The ARN of the event source associated with the archive.
+--
+-- /Note:/ Consider using 'eventSourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darrsEventSourceArn :: Lens.Lens' DescribeArchiveResponse (Core.Maybe Types.Arn)
+darrsEventSourceArn = Lens.field @"eventSourceArn"
+{-# DEPRECATED darrsEventSourceArn "Use generic-lens or generic-optics with 'eventSourceArn' instead." #-}
+
+-- | The number of days to retain events for in the archive.
+--
+-- /Note:/ Consider using 'retentionDays' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darrsRetentionDays :: Lens.Lens' DescribeArchiveResponse (Core.Maybe Core.Natural)
+darrsRetentionDays = Lens.field @"retentionDays"
+{-# DEPRECATED darrsRetentionDays "Use generic-lens or generic-optics with 'retentionDays' instead." #-}
+
+-- | The size of the archive in bytes.
+--
+-- /Note:/ Consider using 'sizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darrsSizeBytes :: Lens.Lens' DescribeArchiveResponse (Core.Maybe Core.Integer)
+darrsSizeBytes = Lens.field @"sizeBytes"
+{-# DEPRECATED darrsSizeBytes "Use generic-lens or generic-optics with 'sizeBytes' instead." #-}
+
+-- | The state of the archive.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darrsState :: Lens.Lens' DescribeArchiveResponse (Core.Maybe Types.ArchiveState)
+darrsState = Lens.field @"state"
+{-# DEPRECATED darrsState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The reason that the archive is in the state.
+--
+-- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+darrsStateReason :: Lens.Lens' DescribeArchiveResponse (Core.Maybe Types.ArchiveStateReason)
+darrsStateReason = Lens.field @"stateReason"
+{-# DEPRECATED darrsStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsResponseStatus :: Lens.Lens' DescribeArchiveResponse Lude.Int
-darsResponseStatus = Lens.lens (responseStatus :: DescribeArchiveResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeArchiveResponse)
-{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darrsResponseStatus :: Lens.Lens' DescribeArchiveResponse Core.Int
+darrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

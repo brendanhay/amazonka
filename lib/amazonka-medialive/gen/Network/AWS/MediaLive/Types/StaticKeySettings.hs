@@ -23,64 +23,59 @@ module Network.AWS.MediaLive.Types.StaticKeySettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.InputLocation
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.InputLocation as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Static Key Settings
 --
 -- /See:/ 'mkStaticKeySettings' smart constructor.
 data StaticKeySettings = StaticKeySettings'
   { -- | Static key value as a 32 character hexadecimal string.
-    staticKeyValue :: Lude.Text,
+    staticKeyValue :: Core.Text,
     -- | The URL of the license server used for protecting content.
-    keyProviderServer :: Lude.Maybe InputLocation
+    keyProviderServer :: Core.Maybe Types.InputLocation
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StaticKeySettings' with the minimum fields required to make a request.
---
--- * 'staticKeyValue' - Static key value as a 32 character hexadecimal string.
--- * 'keyProviderServer' - The URL of the license server used for protecting content.
+-- | Creates a 'StaticKeySettings' value with any optional fields omitted.
 mkStaticKeySettings ::
   -- | 'staticKeyValue'
-  Lude.Text ->
+  Core.Text ->
   StaticKeySettings
-mkStaticKeySettings pStaticKeyValue_ =
+mkStaticKeySettings staticKeyValue =
   StaticKeySettings'
-    { staticKeyValue = pStaticKeyValue_,
-      keyProviderServer = Lude.Nothing
+    { staticKeyValue,
+      keyProviderServer = Core.Nothing
     }
 
 -- | Static key value as a 32 character hexadecimal string.
 --
 -- /Note:/ Consider using 'staticKeyValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sksStaticKeyValue :: Lens.Lens' StaticKeySettings Lude.Text
-sksStaticKeyValue = Lens.lens (staticKeyValue :: StaticKeySettings -> Lude.Text) (\s a -> s {staticKeyValue = a} :: StaticKeySettings)
+sksStaticKeyValue :: Lens.Lens' StaticKeySettings Core.Text
+sksStaticKeyValue = Lens.field @"staticKeyValue"
 {-# DEPRECATED sksStaticKeyValue "Use generic-lens or generic-optics with 'staticKeyValue' instead." #-}
 
 -- | The URL of the license server used for protecting content.
 --
 -- /Note:/ Consider using 'keyProviderServer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sksKeyProviderServer :: Lens.Lens' StaticKeySettings (Lude.Maybe InputLocation)
-sksKeyProviderServer = Lens.lens (keyProviderServer :: StaticKeySettings -> Lude.Maybe InputLocation) (\s a -> s {keyProviderServer = a} :: StaticKeySettings)
+sksKeyProviderServer :: Lens.Lens' StaticKeySettings (Core.Maybe Types.InputLocation)
+sksKeyProviderServer = Lens.field @"keyProviderServer"
 {-# DEPRECATED sksKeyProviderServer "Use generic-lens or generic-optics with 'keyProviderServer' instead." #-}
 
-instance Lude.FromJSON StaticKeySettings where
-  parseJSON =
-    Lude.withObject
-      "StaticKeySettings"
-      ( \x ->
-          StaticKeySettings'
-            Lude.<$> (x Lude..: "staticKeyValue")
-            Lude.<*> (x Lude..:? "keyProviderServer")
-      )
-
-instance Lude.ToJSON StaticKeySettings where
-  toJSON StaticKeySettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("staticKeyValue" Lude..= staticKeyValue),
-            ("keyProviderServer" Lude..=) Lude.<$> keyProviderServer
+instance Core.FromJSON StaticKeySettings where
+  toJSON StaticKeySettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("staticKeyValue" Core..= staticKeyValue),
+            ("keyProviderServer" Core..=) Core.<$> keyProviderServer
           ]
       )
+
+instance Core.FromJSON StaticKeySettings where
+  parseJSON =
+    Core.withObject "StaticKeySettings" Core.$
+      \x ->
+        StaticKeySettings'
+          Core.<$> (x Core..: "staticKeyValue")
+          Core.<*> (x Core..:? "keyProviderServer")

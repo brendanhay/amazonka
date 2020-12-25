@@ -28,21 +28,21 @@ module Network.AWS.Pinpoint.DeletePushTemplate
     mkDeletePushTemplateResponse,
 
     -- ** Response lenses
-    dptrsMessageBody,
-    dptrsResponseStatus,
+    dptrrsMessageBody,
+    dptrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePushTemplate' smart constructor.
 data DeletePushTemplate = DeletePushTemplate'
   { -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
-    templateName :: Lude.Text,
+    templateName :: Core.Text,
     -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
     --
     -- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
@@ -55,41 +55,24 @@ data DeletePushTemplate = DeletePushTemplate'
     --
     --
     --     * For a delete operation, deletes the template, including all versions of the template.
-    version :: Lude.Maybe Lude.Text
+    version :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePushTemplate' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
--- * 'version' - The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
---
--- If specified, this value must match the identifier for an existing template version. If specified for an update operation, this value must match the identifier for the latest existing version of the template. This restriction helps ensure that race conditions don't occur.
--- If you don't specify a value for this parameter, Amazon Pinpoint does the following:
---
---     * For a get operation, retrieves information about the active version of the template.
---
---
---     * For an update operation, saves the updates to (overwrites) the latest existing version of the template, if the create-new-version parameter isn't used or is set to false.
---
---
---     * For a delete operation, deletes the template, including all versions of the template.
+-- | Creates a 'DeletePushTemplate' value with any optional fields omitted.
 mkDeletePushTemplate ::
   -- | 'templateName'
-  Lude.Text ->
+  Core.Text ->
   DeletePushTemplate
-mkDeletePushTemplate pTemplateName_ =
-  DeletePushTemplate'
-    { templateName = pTemplateName_,
-      version = Lude.Nothing
-    }
+mkDeletePushTemplate templateName =
+  DeletePushTemplate' {templateName, version = Core.Nothing}
 
 -- | The name of the message template. A template name must start with an alphanumeric character and can contain a maximum of 128 characters. The characters can be alphanumeric characters, underscores (_), or hyphens (-). Template names are case sensitive.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptTemplateName :: Lens.Lens' DeletePushTemplate Lude.Text
-dptTemplateName = Lens.lens (templateName :: DeletePushTemplate -> Lude.Text) (\s a -> s {templateName = a} :: DeletePushTemplate)
+dptTemplateName :: Lens.Lens' DeletePushTemplate Core.Text
+dptTemplateName = Lens.field @"templateName"
 {-# DEPRECATED dptTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The unique identifier for the version of the message template to update, retrieve information about, or delete. To retrieve identifiers and other information for all the versions of a template, use the <link>Template Versions resource.
@@ -108,72 +91,62 @@ dptTemplateName = Lens.lens (templateName :: DeletePushTemplate -> Lude.Text) (\
 --
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptVersion :: Lens.Lens' DeletePushTemplate (Lude.Maybe Lude.Text)
-dptVersion = Lens.lens (version :: DeletePushTemplate -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: DeletePushTemplate)
+dptVersion :: Lens.Lens' DeletePushTemplate (Core.Maybe Core.Text)
+dptVersion = Lens.field @"version"
 {-# DEPRECATED dptVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.AWSRequest DeletePushTemplate where
+instance Core.AWSRequest DeletePushTemplate where
   type Rs DeletePushTemplate = DeletePushTemplateResponse
-  request = Req.delete pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/templates/" Core.<> (Core.toText templateName)
+                Core.<> ("/push")
+            ),
+        Core._rqQuery = Core.toQueryValue "version" Core.<$> version,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeletePushTemplateResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeletePushTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeletePushTemplate where
-  toPath DeletePushTemplate' {..} =
-    Lude.mconcat ["/v1/templates/", Lude.toBS templateName, "/push"]
-
-instance Lude.ToQuery DeletePushTemplate where
-  toQuery DeletePushTemplate' {..} =
-    Lude.mconcat ["version" Lude.=: version]
 
 -- | /See:/ 'mkDeletePushTemplateResponse' smart constructor.
 data DeletePushTemplateResponse = DeletePushTemplateResponse'
-  { messageBody :: MessageBody,
+  { messageBody :: Types.MessageBody,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePushTemplateResponse' with the minimum fields required to make a request.
---
--- * 'messageBody' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeletePushTemplateResponse' value with any optional fields omitted.
 mkDeletePushTemplateResponse ::
   -- | 'messageBody'
-  MessageBody ->
+  Types.MessageBody ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeletePushTemplateResponse
-mkDeletePushTemplateResponse pMessageBody_ pResponseStatus_ =
-  DeletePushTemplateResponse'
-    { messageBody = pMessageBody_,
-      responseStatus = pResponseStatus_
-    }
+mkDeletePushTemplateResponse messageBody responseStatus =
+  DeletePushTemplateResponse' {messageBody, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'messageBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptrsMessageBody :: Lens.Lens' DeletePushTemplateResponse MessageBody
-dptrsMessageBody = Lens.lens (messageBody :: DeletePushTemplateResponse -> MessageBody) (\s a -> s {messageBody = a} :: DeletePushTemplateResponse)
-{-# DEPRECATED dptrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}
+dptrrsMessageBody :: Lens.Lens' DeletePushTemplateResponse Types.MessageBody
+dptrrsMessageBody = Lens.field @"messageBody"
+{-# DEPRECATED dptrrsMessageBody "Use generic-lens or generic-optics with 'messageBody' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptrsResponseStatus :: Lens.Lens' DeletePushTemplateResponse Lude.Int
-dptrsResponseStatus = Lens.lens (responseStatus :: DeletePushTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeletePushTemplateResponse)
-{-# DEPRECATED dptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dptrrsResponseStatus :: Lens.Lens' DeletePushTemplateResponse Core.Int
+dptrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dptrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

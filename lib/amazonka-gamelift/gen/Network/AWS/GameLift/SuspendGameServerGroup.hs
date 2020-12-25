@@ -61,129 +61,112 @@ module Network.AWS.GameLift.SuspendGameServerGroup
     mkSuspendGameServerGroupResponse,
 
     -- ** Response lenses
-    sgsgrsGameServerGroup,
-    sgsgrsResponseStatus,
+    sgsgrrsGameServerGroup,
+    sgsgrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSuspendGameServerGroup' smart constructor.
 data SuspendGameServerGroup = SuspendGameServerGroup'
   { -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
-    gameServerGroupName :: Lude.Text,
+    gameServerGroupName :: Types.GameServerGroupName,
     -- | The activity to suspend for this game server group.
-    suspendActions :: Lude.NonEmpty GameServerGroupAction
+    suspendActions :: Core.NonEmpty Types.GameServerGroupAction
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SuspendGameServerGroup' with the minimum fields required to make a request.
---
--- * 'gameServerGroupName' - A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
--- * 'suspendActions' - The activity to suspend for this game server group.
+-- | Creates a 'SuspendGameServerGroup' value with any optional fields omitted.
 mkSuspendGameServerGroup ::
   -- | 'gameServerGroupName'
-  Lude.Text ->
+  Types.GameServerGroupName ->
   -- | 'suspendActions'
-  Lude.NonEmpty GameServerGroupAction ->
+  Core.NonEmpty Types.GameServerGroupAction ->
   SuspendGameServerGroup
-mkSuspendGameServerGroup pGameServerGroupName_ pSuspendActions_ =
-  SuspendGameServerGroup'
-    { gameServerGroupName =
-        pGameServerGroupName_,
-      suspendActions = pSuspendActions_
-    }
+mkSuspendGameServerGroup gameServerGroupName suspendActions =
+  SuspendGameServerGroup' {gameServerGroupName, suspendActions}
 
 -- | A unique identifier for the game server group. Use either the 'GameServerGroup' name or ARN value.
 --
 -- /Note:/ Consider using 'gameServerGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgsgGameServerGroupName :: Lens.Lens' SuspendGameServerGroup Lude.Text
-sgsgGameServerGroupName = Lens.lens (gameServerGroupName :: SuspendGameServerGroup -> Lude.Text) (\s a -> s {gameServerGroupName = a} :: SuspendGameServerGroup)
+sgsgGameServerGroupName :: Lens.Lens' SuspendGameServerGroup Types.GameServerGroupName
+sgsgGameServerGroupName = Lens.field @"gameServerGroupName"
 {-# DEPRECATED sgsgGameServerGroupName "Use generic-lens or generic-optics with 'gameServerGroupName' instead." #-}
 
 -- | The activity to suspend for this game server group.
 --
 -- /Note:/ Consider using 'suspendActions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgsgSuspendActions :: Lens.Lens' SuspendGameServerGroup (Lude.NonEmpty GameServerGroupAction)
-sgsgSuspendActions = Lens.lens (suspendActions :: SuspendGameServerGroup -> Lude.NonEmpty GameServerGroupAction) (\s a -> s {suspendActions = a} :: SuspendGameServerGroup)
+sgsgSuspendActions :: Lens.Lens' SuspendGameServerGroup (Core.NonEmpty Types.GameServerGroupAction)
+sgsgSuspendActions = Lens.field @"suspendActions"
 {-# DEPRECATED sgsgSuspendActions "Use generic-lens or generic-optics with 'suspendActions' instead." #-}
 
-instance Lude.AWSRequest SuspendGameServerGroup where
+instance Core.FromJSON SuspendGameServerGroup where
+  toJSON SuspendGameServerGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GameServerGroupName" Core..= gameServerGroupName),
+            Core.Just ("SuspendActions" Core..= suspendActions)
+          ]
+      )
+
+instance Core.AWSRequest SuspendGameServerGroup where
   type Rs SuspendGameServerGroup = SuspendGameServerGroupResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.SuspendGameServerGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SuspendGameServerGroupResponse'
-            Lude.<$> (x Lude..?> "GameServerGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "GameServerGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SuspendGameServerGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.SuspendGameServerGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SuspendGameServerGroup where
-  toJSON SuspendGameServerGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GameServerGroupName" Lude..= gameServerGroupName),
-            Lude.Just ("SuspendActions" Lude..= suspendActions)
-          ]
-      )
-
-instance Lude.ToPath SuspendGameServerGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SuspendGameServerGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkSuspendGameServerGroupResponse' smart constructor.
 data SuspendGameServerGroupResponse = SuspendGameServerGroupResponse'
   { -- | An object that describes the game server group resource, with the @SuspendedActions@ property updated to reflect the suspended activity.
-    gameServerGroup :: Lude.Maybe GameServerGroup,
+    gameServerGroup :: Core.Maybe Types.GameServerGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SuspendGameServerGroupResponse' with the minimum fields required to make a request.
---
--- * 'gameServerGroup' - An object that describes the game server group resource, with the @SuspendedActions@ property updated to reflect the suspended activity.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SuspendGameServerGroupResponse' value with any optional fields omitted.
 mkSuspendGameServerGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SuspendGameServerGroupResponse
-mkSuspendGameServerGroupResponse pResponseStatus_ =
+mkSuspendGameServerGroupResponse responseStatus =
   SuspendGameServerGroupResponse'
-    { gameServerGroup = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { gameServerGroup = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that describes the game server group resource, with the @SuspendedActions@ property updated to reflect the suspended activity.
 --
 -- /Note:/ Consider using 'gameServerGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgsgrsGameServerGroup :: Lens.Lens' SuspendGameServerGroupResponse (Lude.Maybe GameServerGroup)
-sgsgrsGameServerGroup = Lens.lens (gameServerGroup :: SuspendGameServerGroupResponse -> Lude.Maybe GameServerGroup) (\s a -> s {gameServerGroup = a} :: SuspendGameServerGroupResponse)
-{-# DEPRECATED sgsgrsGameServerGroup "Use generic-lens or generic-optics with 'gameServerGroup' instead." #-}
+sgsgrrsGameServerGroup :: Lens.Lens' SuspendGameServerGroupResponse (Core.Maybe Types.GameServerGroup)
+sgsgrrsGameServerGroup = Lens.field @"gameServerGroup"
+{-# DEPRECATED sgsgrrsGameServerGroup "Use generic-lens or generic-optics with 'gameServerGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sgsgrsResponseStatus :: Lens.Lens' SuspendGameServerGroupResponse Lude.Int
-sgsgrsResponseStatus = Lens.lens (responseStatus :: SuspendGameServerGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SuspendGameServerGroupResponse)
-{-# DEPRECATED sgsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sgsgrrsResponseStatus :: Lens.Lens' SuspendGameServerGroupResponse Core.Int
+sgsgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sgsgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

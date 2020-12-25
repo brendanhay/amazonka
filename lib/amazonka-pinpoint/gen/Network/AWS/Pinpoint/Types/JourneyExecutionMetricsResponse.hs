@@ -17,93 +17,86 @@ module Network.AWS.Pinpoint.Types.JourneyExecutionMetricsResponse
     mkJourneyExecutionMetricsResponse,
 
     -- * Lenses
-    jemMetrics,
-    jemLastEvaluatedTime,
-    jemApplicationId,
-    jemJourneyId,
+    jemrMetrics,
+    jemrJourneyId,
+    jemrLastEvaluatedTime,
+    jemrApplicationId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides the results of a query that retrieved the data for a standard execution metric that applies to a journey, and provides information about that query.
 --
 -- /See:/ 'mkJourneyExecutionMetricsResponse' smart constructor.
 data JourneyExecutionMetricsResponse = JourneyExecutionMetricsResponse'
   { -- | A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
-    metrics :: Lude.HashMap Lude.Text (Lude.Text),
-    -- | The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
-    lastEvaluatedTime :: Lude.Text,
-    -- | The unique identifier for the application that the metric applies to.
-    applicationId :: Lude.Text,
+    metrics :: Core.HashMap Core.Text Core.Text,
     -- | The unique identifier for the journey that the metric applies to.
-    journeyId :: Lude.Text
+    journeyId :: Core.Text,
+    -- | The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
+    lastEvaluatedTime :: Core.Text,
+    -- | The unique identifier for the application that the metric applies to.
+    applicationId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JourneyExecutionMetricsResponse' with the minimum fields required to make a request.
---
--- * 'metrics' - A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
--- * 'lastEvaluatedTime' - The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
--- * 'applicationId' - The unique identifier for the application that the metric applies to.
--- * 'journeyId' - The unique identifier for the journey that the metric applies to.
+-- | Creates a 'JourneyExecutionMetricsResponse' value with any optional fields omitted.
 mkJourneyExecutionMetricsResponse ::
-  -- | 'lastEvaluatedTime'
-  Lude.Text ->
-  -- | 'applicationId'
-  Lude.Text ->
   -- | 'journeyId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'lastEvaluatedTime'
+  Core.Text ->
+  -- | 'applicationId'
+  Core.Text ->
   JourneyExecutionMetricsResponse
 mkJourneyExecutionMetricsResponse
-  pLastEvaluatedTime_
-  pApplicationId_
-  pJourneyId_ =
+  journeyId
+  lastEvaluatedTime
+  applicationId =
     JourneyExecutionMetricsResponse'
-      { metrics = Lude.mempty,
-        lastEvaluatedTime = pLastEvaluatedTime_,
-        applicationId = pApplicationId_,
-        journeyId = pJourneyId_
+      { metrics = Core.mempty,
+        journeyId,
+        lastEvaluatedTime,
+        applicationId
       }
 
 -- | A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html Amazon Pinpoint Developer Guide> .
 --
 -- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jemMetrics :: Lens.Lens' JourneyExecutionMetricsResponse (Lude.HashMap Lude.Text (Lude.Text))
-jemMetrics = Lens.lens (metrics :: JourneyExecutionMetricsResponse -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {metrics = a} :: JourneyExecutionMetricsResponse)
-{-# DEPRECATED jemMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
-
--- | The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
---
--- /Note:/ Consider using 'lastEvaluatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jemLastEvaluatedTime :: Lens.Lens' JourneyExecutionMetricsResponse Lude.Text
-jemLastEvaluatedTime = Lens.lens (lastEvaluatedTime :: JourneyExecutionMetricsResponse -> Lude.Text) (\s a -> s {lastEvaluatedTime = a} :: JourneyExecutionMetricsResponse)
-{-# DEPRECATED jemLastEvaluatedTime "Use generic-lens or generic-optics with 'lastEvaluatedTime' instead." #-}
-
--- | The unique identifier for the application that the metric applies to.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jemApplicationId :: Lens.Lens' JourneyExecutionMetricsResponse Lude.Text
-jemApplicationId = Lens.lens (applicationId :: JourneyExecutionMetricsResponse -> Lude.Text) (\s a -> s {applicationId = a} :: JourneyExecutionMetricsResponse)
-{-# DEPRECATED jemApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+jemrMetrics :: Lens.Lens' JourneyExecutionMetricsResponse (Core.HashMap Core.Text Core.Text)
+jemrMetrics = Lens.field @"metrics"
+{-# DEPRECATED jemrMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
 
 -- | The unique identifier for the journey that the metric applies to.
 --
 -- /Note:/ Consider using 'journeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jemJourneyId :: Lens.Lens' JourneyExecutionMetricsResponse Lude.Text
-jemJourneyId = Lens.lens (journeyId :: JourneyExecutionMetricsResponse -> Lude.Text) (\s a -> s {journeyId = a} :: JourneyExecutionMetricsResponse)
-{-# DEPRECATED jemJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
+jemrJourneyId :: Lens.Lens' JourneyExecutionMetricsResponse Core.Text
+jemrJourneyId = Lens.field @"journeyId"
+{-# DEPRECATED jemrJourneyId "Use generic-lens or generic-optics with 'journeyId' instead." #-}
 
-instance Lude.FromJSON JourneyExecutionMetricsResponse where
+-- | The date and time, in ISO 8601 format, when Amazon Pinpoint last evaluated the journey and updated the data for the metric.
+--
+-- /Note:/ Consider using 'lastEvaluatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jemrLastEvaluatedTime :: Lens.Lens' JourneyExecutionMetricsResponse Core.Text
+jemrLastEvaluatedTime = Lens.field @"lastEvaluatedTime"
+{-# DEPRECATED jemrLastEvaluatedTime "Use generic-lens or generic-optics with 'lastEvaluatedTime' instead." #-}
+
+-- | The unique identifier for the application that the metric applies to.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jemrApplicationId :: Lens.Lens' JourneyExecutionMetricsResponse Core.Text
+jemrApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED jemrApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+instance Core.FromJSON JourneyExecutionMetricsResponse where
   parseJSON =
-    Lude.withObject
-      "JourneyExecutionMetricsResponse"
-      ( \x ->
-          JourneyExecutionMetricsResponse'
-            Lude.<$> (x Lude..:? "Metrics" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "LastEvaluatedTime")
-            Lude.<*> (x Lude..: "ApplicationId")
-            Lude.<*> (x Lude..: "JourneyId")
-      )
+    Core.withObject "JourneyExecutionMetricsResponse" Core.$
+      \x ->
+        JourneyExecutionMetricsResponse'
+          Core.<$> (x Core..:? "Metrics" Core..!= Core.mempty)
+          Core.<*> (x Core..: "JourneyId")
+          Core.<*> (x Core..: "LastEvaluatedTime")
+          Core.<*> (x Core..: "ApplicationId")

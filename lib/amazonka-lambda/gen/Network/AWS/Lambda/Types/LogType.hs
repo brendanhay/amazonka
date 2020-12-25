@@ -13,46 +13,48 @@
 module Network.AWS.Lambda.Types.LogType
   ( LogType
       ( LogType',
-        None,
-        Tail
+        LogTypeNone,
+        LogTypeTail,
+        fromLogType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LogType = LogType' Lude.Text
+newtype LogType = LogType' {fromLogType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern None :: LogType
-pattern None = LogType' "None"
+pattern LogTypeNone :: LogType
+pattern LogTypeNone = LogType' "None"
 
-pattern Tail :: LogType
-pattern Tail = LogType' "Tail"
+pattern LogTypeTail :: LogType
+pattern LogTypeTail = LogType' "Tail"
 
 {-# COMPLETE
-  None,
-  Tail,
+  LogTypeNone,
+  LogTypeTail,
   LogType'
   #-}

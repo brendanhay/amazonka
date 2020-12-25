@@ -22,44 +22,40 @@ module Network.AWS.MediaLive.Types.KeyProviderSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.StaticKeySettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.StaticKeySettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Key Provider Settings
 --
 -- /See:/ 'mkKeyProviderSettings' smart constructor.
 newtype KeyProviderSettings = KeyProviderSettings'
-  { staticKeySettings :: Lude.Maybe StaticKeySettings
+  { staticKeySettings :: Core.Maybe Types.StaticKeySettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeyProviderSettings' with the minimum fields required to make a request.
---
--- * 'staticKeySettings' -
+-- | Creates a 'KeyProviderSettings' value with any optional fields omitted.
 mkKeyProviderSettings ::
   KeyProviderSettings
 mkKeyProviderSettings =
-  KeyProviderSettings' {staticKeySettings = Lude.Nothing}
+  KeyProviderSettings' {staticKeySettings = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'staticKeySettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpsStaticKeySettings :: Lens.Lens' KeyProviderSettings (Lude.Maybe StaticKeySettings)
-kpsStaticKeySettings = Lens.lens (staticKeySettings :: KeyProviderSettings -> Lude.Maybe StaticKeySettings) (\s a -> s {staticKeySettings = a} :: KeyProviderSettings)
+kpsStaticKeySettings :: Lens.Lens' KeyProviderSettings (Core.Maybe Types.StaticKeySettings)
+kpsStaticKeySettings = Lens.field @"staticKeySettings"
 {-# DEPRECATED kpsStaticKeySettings "Use generic-lens or generic-optics with 'staticKeySettings' instead." #-}
 
-instance Lude.FromJSON KeyProviderSettings where
-  parseJSON =
-    Lude.withObject
-      "KeyProviderSettings"
-      ( \x ->
-          KeyProviderSettings' Lude.<$> (x Lude..:? "staticKeySettings")
+instance Core.FromJSON KeyProviderSettings where
+  toJSON KeyProviderSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [("staticKeySettings" Core..=) Core.<$> staticKeySettings]
       )
 
-instance Lude.ToJSON KeyProviderSettings where
-  toJSON KeyProviderSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("staticKeySettings" Lude..=) Lude.<$> staticKeySettings]
-      )
+instance Core.FromJSON KeyProviderSettings where
+  parseJSON =
+    Core.withObject "KeyProviderSettings" Core.$
+      \x ->
+        KeyProviderSettings' Core.<$> (x Core..:? "staticKeySettings")

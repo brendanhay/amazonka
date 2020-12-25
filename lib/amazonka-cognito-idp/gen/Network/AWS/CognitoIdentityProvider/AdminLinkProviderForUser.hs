@@ -24,8 +24,8 @@ module Network.AWS.CognitoIdentityProvider.AdminLinkProviderForUser
     mkAdminLinkProviderForUser,
 
     -- ** Request lenses
-    alpfuDestinationUser,
     alpfuUserPoolId,
+    alpfuDestinationUser,
     alpfuSourceUser,
 
     -- * Destructuring the response
@@ -33,66 +33,58 @@ module Network.AWS.CognitoIdentityProvider.AdminLinkProviderForUser
     mkAdminLinkProviderForUserResponse,
 
     -- ** Response lenses
-    alpfursResponseStatus,
+    alpfurrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAdminLinkProviderForUser' smart constructor.
 data AdminLinkProviderForUser = AdminLinkProviderForUser'
-  { -- | The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.
+  { -- | The user pool ID for the user pool.
+    userPoolId :: Types.StringType,
+    -- | The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.
     --
     -- For a native username + password user, the @ProviderAttributeValue@ for the @DestinationUser@ should be the username in the user pool. For a federated user, it should be the provider-specific @user_id@ .
     -- The @ProviderAttributeName@ of the @DestinationUser@ is ignored.
     -- The @ProviderName@ should be set to @Cognito@ for users in Cognito user pools.
-    destinationUser :: ProviderUserIdentifierType,
-    -- | The user pool ID for the user pool.
-    userPoolId :: Lude.Text,
+    destinationUser :: Types.ProviderUserIdentifierType,
     -- | An external identity provider account for a user who does not currently exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.
     --
     -- If the @SourceUser@ is a federated social identity provider user (Facebook, Google, or Login with Amazon), you must set the @ProviderAttributeName@ to @Cognito_Subject@ . For social identity providers, the @ProviderName@ will be @Facebook@ , @Google@ , or @LoginWithAmazon@ , and Cognito will automatically parse the Facebook, Google, and Login with Amazon tokens for @id@ , @sub@ , and @user_id@ , respectively. The @ProviderAttributeValue@ for the user must be the same value as the @id@ , @sub@ , or @user_id@ value found in the social identity provider token.
     --
     -- For SAML, the @ProviderAttributeName@ can be any value that matches a claim in the SAML assertion. If you wish to link SAML users based on the subject of the SAML assertion, you should map the subject to a claim through the SAML identity provider and submit that claim name as the @ProviderAttributeName@ . If you set @ProviderAttributeName@ to @Cognito_Subject@ , Cognito will automatically parse the default unique identifier found in the subject from the SAML token.
-    sourceUser :: ProviderUserIdentifierType
+    sourceUser :: Types.ProviderUserIdentifierType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminLinkProviderForUser' with the minimum fields required to make a request.
---
--- * 'destinationUser' - The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.
---
--- For a native username + password user, the @ProviderAttributeValue@ for the @DestinationUser@ should be the username in the user pool. For a federated user, it should be the provider-specific @user_id@ .
--- The @ProviderAttributeName@ of the @DestinationUser@ is ignored.
--- The @ProviderName@ should be set to @Cognito@ for users in Cognito user pools.
--- * 'userPoolId' - The user pool ID for the user pool.
--- * 'sourceUser' - An external identity provider account for a user who does not currently exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.
---
--- If the @SourceUser@ is a federated social identity provider user (Facebook, Google, or Login with Amazon), you must set the @ProviderAttributeName@ to @Cognito_Subject@ . For social identity providers, the @ProviderName@ will be @Facebook@ , @Google@ , or @LoginWithAmazon@ , and Cognito will automatically parse the Facebook, Google, and Login with Amazon tokens for @id@ , @sub@ , and @user_id@ , respectively. The @ProviderAttributeValue@ for the user must be the same value as the @id@ , @sub@ , or @user_id@ value found in the social identity provider token.
---
--- For SAML, the @ProviderAttributeName@ can be any value that matches a claim in the SAML assertion. If you wish to link SAML users based on the subject of the SAML assertion, you should map the subject to a claim through the SAML identity provider and submit that claim name as the @ProviderAttributeName@ . If you set @ProviderAttributeName@ to @Cognito_Subject@ , Cognito will automatically parse the default unique identifier found in the subject from the SAML token.
+-- | Creates a 'AdminLinkProviderForUser' value with any optional fields omitted.
 mkAdminLinkProviderForUser ::
-  -- | 'destinationUser'
-  ProviderUserIdentifierType ->
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.StringType ->
+  -- | 'destinationUser'
+  Types.ProviderUserIdentifierType ->
   -- | 'sourceUser'
-  ProviderUserIdentifierType ->
+  Types.ProviderUserIdentifierType ->
   AdminLinkProviderForUser
-mkAdminLinkProviderForUser
-  pDestinationUser_
-  pUserPoolId_
-  pSourceUser_ =
-    AdminLinkProviderForUser'
-      { destinationUser = pDestinationUser_,
-        userPoolId = pUserPoolId_,
-        sourceUser = pSourceUser_
-      }
+mkAdminLinkProviderForUser userPoolId destinationUser sourceUser =
+  AdminLinkProviderForUser'
+    { userPoolId,
+      destinationUser,
+      sourceUser
+    }
+
+-- | The user pool ID for the user pool.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+alpfuUserPoolId :: Lens.Lens' AdminLinkProviderForUser Types.StringType
+alpfuUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED alpfuUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn't exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.
 --
@@ -101,16 +93,9 @@ mkAdminLinkProviderForUser
 -- The @ProviderName@ should be set to @Cognito@ for users in Cognito user pools.
 --
 -- /Note:/ Consider using 'destinationUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alpfuDestinationUser :: Lens.Lens' AdminLinkProviderForUser ProviderUserIdentifierType
-alpfuDestinationUser = Lens.lens (destinationUser :: AdminLinkProviderForUser -> ProviderUserIdentifierType) (\s a -> s {destinationUser = a} :: AdminLinkProviderForUser)
+alpfuDestinationUser :: Lens.Lens' AdminLinkProviderForUser Types.ProviderUserIdentifierType
+alpfuDestinationUser = Lens.field @"destinationUser"
 {-# DEPRECATED alpfuDestinationUser "Use generic-lens or generic-optics with 'destinationUser' instead." #-}
-
--- | The user pool ID for the user pool.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alpfuUserPoolId :: Lens.Lens' AdminLinkProviderForUser Lude.Text
-alpfuUserPoolId = Lens.lens (userPoolId :: AdminLinkProviderForUser -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminLinkProviderForUser)
-{-# DEPRECATED alpfuUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | An external identity provider account for a user who does not currently exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.
 --
@@ -119,73 +104,62 @@ alpfuUserPoolId = Lens.lens (userPoolId :: AdminLinkProviderForUser -> Lude.Text
 -- For SAML, the @ProviderAttributeName@ can be any value that matches a claim in the SAML assertion. If you wish to link SAML users based on the subject of the SAML assertion, you should map the subject to a claim through the SAML identity provider and submit that claim name as the @ProviderAttributeName@ . If you set @ProviderAttributeName@ to @Cognito_Subject@ , Cognito will automatically parse the default unique identifier found in the subject from the SAML token.
 --
 -- /Note:/ Consider using 'sourceUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alpfuSourceUser :: Lens.Lens' AdminLinkProviderForUser ProviderUserIdentifierType
-alpfuSourceUser = Lens.lens (sourceUser :: AdminLinkProviderForUser -> ProviderUserIdentifierType) (\s a -> s {sourceUser = a} :: AdminLinkProviderForUser)
+alpfuSourceUser :: Lens.Lens' AdminLinkProviderForUser Types.ProviderUserIdentifierType
+alpfuSourceUser = Lens.field @"sourceUser"
 {-# DEPRECATED alpfuSourceUser "Use generic-lens or generic-optics with 'sourceUser' instead." #-}
 
-instance Lude.AWSRequest AdminLinkProviderForUser where
+instance Core.FromJSON AdminLinkProviderForUser where
+  toJSON AdminLinkProviderForUser {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("DestinationUser" Core..= destinationUser),
+            Core.Just ("SourceUser" Core..= sourceUser)
+          ]
+      )
+
+instance Core.AWSRequest AdminLinkProviderForUser where
   type Rs AdminLinkProviderForUser = AdminLinkProviderForUserResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.AdminLinkProviderForUser"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AdminLinkProviderForUserResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AdminLinkProviderForUser where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.AdminLinkProviderForUser" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AdminLinkProviderForUser where
-  toJSON AdminLinkProviderForUser' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DestinationUser" Lude..= destinationUser),
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("SourceUser" Lude..= sourceUser)
-          ]
-      )
-
-instance Lude.ToPath AdminLinkProviderForUser where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AdminLinkProviderForUser where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAdminLinkProviderForUserResponse' smart constructor.
 newtype AdminLinkProviderForUserResponse = AdminLinkProviderForUserResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminLinkProviderForUserResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AdminLinkProviderForUserResponse' value with any optional fields omitted.
 mkAdminLinkProviderForUserResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AdminLinkProviderForUserResponse
-mkAdminLinkProviderForUserResponse pResponseStatus_ =
-  AdminLinkProviderForUserResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkAdminLinkProviderForUserResponse responseStatus =
+  AdminLinkProviderForUserResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alpfursResponseStatus :: Lens.Lens' AdminLinkProviderForUserResponse Lude.Int
-alpfursResponseStatus = Lens.lens (responseStatus :: AdminLinkProviderForUserResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminLinkProviderForUserResponse)
-{-# DEPRECATED alpfursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+alpfurrsResponseStatus :: Lens.Lens' AdminLinkProviderForUserResponse Core.Int
+alpfurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED alpfurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,47 +21,36 @@ module Network.AWS.EC2.Types.ClassicLoadBalancersConfig
   )
 where
 
-import Network.AWS.EC2.Types.ClassicLoadBalancer
+import qualified Network.AWS.EC2.Types.ClassicLoadBalancer as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers the running Spot Instances with these Classic Load Balancers.
 --
 -- /See:/ 'mkClassicLoadBalancersConfig' smart constructor.
 newtype ClassicLoadBalancersConfig = ClassicLoadBalancersConfig'
   { -- | One or more Classic Load Balancers.
-    classicLoadBalancers :: Lude.Maybe (Lude.NonEmpty ClassicLoadBalancer)
+    classicLoadBalancers :: Core.Maybe (Core.NonEmpty Types.ClassicLoadBalancer)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClassicLoadBalancersConfig' with the minimum fields required to make a request.
---
--- * 'classicLoadBalancers' - One or more Classic Load Balancers.
+-- | Creates a 'ClassicLoadBalancersConfig' value with any optional fields omitted.
 mkClassicLoadBalancersConfig ::
   ClassicLoadBalancersConfig
 mkClassicLoadBalancersConfig =
-  ClassicLoadBalancersConfig' {classicLoadBalancers = Lude.Nothing}
+  ClassicLoadBalancersConfig' {classicLoadBalancers = Core.Nothing}
 
 -- | One or more Classic Load Balancers.
 --
 -- /Note:/ Consider using 'classicLoadBalancers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbcClassicLoadBalancers :: Lens.Lens' ClassicLoadBalancersConfig (Lude.Maybe (Lude.NonEmpty ClassicLoadBalancer))
-clbcClassicLoadBalancers = Lens.lens (classicLoadBalancers :: ClassicLoadBalancersConfig -> Lude.Maybe (Lude.NonEmpty ClassicLoadBalancer)) (\s a -> s {classicLoadBalancers = a} :: ClassicLoadBalancersConfig)
+clbcClassicLoadBalancers :: Lens.Lens' ClassicLoadBalancersConfig (Core.Maybe (Core.NonEmpty Types.ClassicLoadBalancer))
+clbcClassicLoadBalancers = Lens.field @"classicLoadBalancers"
 {-# DEPRECATED clbcClassicLoadBalancers "Use generic-lens or generic-optics with 'classicLoadBalancers' instead." #-}
 
-instance Lude.FromXML ClassicLoadBalancersConfig where
+instance Core.FromXML ClassicLoadBalancersConfig where
   parseXML x =
     ClassicLoadBalancersConfig'
-      Lude.<$> ( x Lude..@? "classicLoadBalancers" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLNonEmpty "item")
+      Core.<$> ( x Core..@? "classicLoadBalancers"
+                   Core..<@> Core.parseXMLNonEmpty "item"
                )
-
-instance Lude.ToQuery ClassicLoadBalancersConfig where
-  toQuery ClassicLoadBalancersConfig' {..} =
-    Lude.mconcat
-      [ Lude.toQuery
-          ( Lude.toQueryList "ClassicLoadBalancers"
-              Lude.<$> classicLoadBalancers
-          )
-      ]

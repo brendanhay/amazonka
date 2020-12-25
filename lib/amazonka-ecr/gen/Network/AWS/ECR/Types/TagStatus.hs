@@ -13,51 +13,53 @@
 module Network.AWS.ECR.Types.TagStatus
   ( TagStatus
       ( TagStatus',
-        Tagged,
-        Untagged,
-        Any
+        TagStatusTagged,
+        TagStatusUntagged,
+        TagStatusAny,
+        fromTagStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TagStatus = TagStatus' Lude.Text
+newtype TagStatus = TagStatus' {fromTagStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Tagged :: TagStatus
-pattern Tagged = TagStatus' "TAGGED"
+pattern TagStatusTagged :: TagStatus
+pattern TagStatusTagged = TagStatus' "TAGGED"
 
-pattern Untagged :: TagStatus
-pattern Untagged = TagStatus' "UNTAGGED"
+pattern TagStatusUntagged :: TagStatus
+pattern TagStatusUntagged = TagStatus' "UNTAGGED"
 
-pattern Any :: TagStatus
-pattern Any = TagStatus' "ANY"
+pattern TagStatusAny :: TagStatus
+pattern TagStatusAny = TagStatus' "ANY"
 
 {-# COMPLETE
-  Tagged,
-  Untagged,
-  Any,
+  TagStatusTagged,
+  TagStatusUntagged,
+  TagStatusAny,
   TagStatus'
   #-}

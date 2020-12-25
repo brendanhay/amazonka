@@ -17,53 +17,51 @@ module Network.AWS.RDS.Types.OptionGroupMembership
     mkOptionGroupMembership,
 
     -- * Lenses
-    ogmStatus,
     ogmOptionGroupName,
+    ogmStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | Provides information on the option groups the DB instance is a member of.
 --
 -- /See:/ 'mkOptionGroupMembership' smart constructor.
 data OptionGroupMembership = OptionGroupMembership'
-  { -- | The status of the DB instance's option group membership. Valid values are: @in-sync@ , @pending-apply@ , @pending-removal@ , @pending-maintenance-apply@ , @pending-maintenance-removal@ , @applying@ , @removing@ , and @failed@ .
-    status :: Lude.Maybe Lude.Text,
-    -- | The name of the option group that the instance belongs to.
-    optionGroupName :: Lude.Maybe Lude.Text
+  { -- | The name of the option group that the instance belongs to.
+    optionGroupName :: Core.Maybe Types.String,
+    -- | The status of the DB instance's option group membership. Valid values are: @in-sync@ , @pending-apply@ , @pending-removal@ , @pending-maintenance-apply@ , @pending-maintenance-removal@ , @applying@ , @removing@ , and @failed@ .
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OptionGroupMembership' with the minimum fields required to make a request.
---
--- * 'status' - The status of the DB instance's option group membership. Valid values are: @in-sync@ , @pending-apply@ , @pending-removal@ , @pending-maintenance-apply@ , @pending-maintenance-removal@ , @applying@ , @removing@ , and @failed@ .
--- * 'optionGroupName' - The name of the option group that the instance belongs to.
+-- | Creates a 'OptionGroupMembership' value with any optional fields omitted.
 mkOptionGroupMembership ::
   OptionGroupMembership
 mkOptionGroupMembership =
   OptionGroupMembership'
-    { status = Lude.Nothing,
-      optionGroupName = Lude.Nothing
+    { optionGroupName = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the DB instance's option group membership. Valid values are: @in-sync@ , @pending-apply@ , @pending-removal@ , @pending-maintenance-apply@ , @pending-maintenance-removal@ , @applying@ , @removing@ , and @failed@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogmStatus :: Lens.Lens' OptionGroupMembership (Lude.Maybe Lude.Text)
-ogmStatus = Lens.lens (status :: OptionGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: OptionGroupMembership)
-{-# DEPRECATED ogmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the option group that the instance belongs to.
 --
 -- /Note:/ Consider using 'optionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogmOptionGroupName :: Lens.Lens' OptionGroupMembership (Lude.Maybe Lude.Text)
-ogmOptionGroupName = Lens.lens (optionGroupName :: OptionGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {optionGroupName = a} :: OptionGroupMembership)
+ogmOptionGroupName :: Lens.Lens' OptionGroupMembership (Core.Maybe Types.String)
+ogmOptionGroupName = Lens.field @"optionGroupName"
 {-# DEPRECATED ogmOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
 
-instance Lude.FromXML OptionGroupMembership where
+-- | The status of the DB instance's option group membership. Valid values are: @in-sync@ , @pending-apply@ , @pending-removal@ , @pending-maintenance-apply@ , @pending-maintenance-removal@ , @applying@ , @removing@ , and @failed@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ogmStatus :: Lens.Lens' OptionGroupMembership (Core.Maybe Types.String)
+ogmStatus = Lens.field @"status"
+{-# DEPRECATED ogmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML OptionGroupMembership where
   parseXML x =
     OptionGroupMembership'
-      Lude.<$> (x Lude..@? "Status") Lude.<*> (x Lude..@? "OptionGroupName")
+      Core.<$> (x Core..@? "OptionGroupName") Core.<*> (x Core..@? "Status")

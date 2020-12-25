@@ -17,54 +17,52 @@ module Network.AWS.EC2.Types.FederatedAuthentication
     mkFederatedAuthentication,
 
     -- * Lenses
-    faSamlProviderARN,
-    faSelfServiceSamlProviderARN,
+    faSamlProviderArn,
+    faSelfServiceSamlProviderArn,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the IAM SAML identity providers used for federated authentication.
 --
 -- /See:/ 'mkFederatedAuthentication' smart constructor.
 data FederatedAuthentication = FederatedAuthentication'
   { -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.
-    samlProviderARN :: Lude.Maybe Lude.Text,
+    samlProviderArn :: Core.Maybe Types.String,
     -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
-    selfServiceSamlProviderARN :: Lude.Maybe Lude.Text
+    selfServiceSamlProviderArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FederatedAuthentication' with the minimum fields required to make a request.
---
--- * 'samlProviderARN' - The Amazon Resource Name (ARN) of the IAM SAML identity provider.
--- * 'selfServiceSamlProviderARN' - The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+-- | Creates a 'FederatedAuthentication' value with any optional fields omitted.
 mkFederatedAuthentication ::
   FederatedAuthentication
 mkFederatedAuthentication =
   FederatedAuthentication'
-    { samlProviderARN = Lude.Nothing,
-      selfServiceSamlProviderARN = Lude.Nothing
+    { samlProviderArn = Core.Nothing,
+      selfServiceSamlProviderArn = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider.
 --
--- /Note:/ Consider using 'samlProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faSamlProviderARN :: Lens.Lens' FederatedAuthentication (Lude.Maybe Lude.Text)
-faSamlProviderARN = Lens.lens (samlProviderARN :: FederatedAuthentication -> Lude.Maybe Lude.Text) (\s a -> s {samlProviderARN = a} :: FederatedAuthentication)
-{-# DEPRECATED faSamlProviderARN "Use generic-lens or generic-optics with 'samlProviderARN' instead." #-}
+-- /Note:/ Consider using 'samlProviderArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faSamlProviderArn :: Lens.Lens' FederatedAuthentication (Core.Maybe Types.String)
+faSamlProviderArn = Lens.field @"samlProviderArn"
+{-# DEPRECATED faSamlProviderArn "Use generic-lens or generic-optics with 'samlProviderArn' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
 --
--- /Note:/ Consider using 'selfServiceSamlProviderARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faSelfServiceSamlProviderARN :: Lens.Lens' FederatedAuthentication (Lude.Maybe Lude.Text)
-faSelfServiceSamlProviderARN = Lens.lens (selfServiceSamlProviderARN :: FederatedAuthentication -> Lude.Maybe Lude.Text) (\s a -> s {selfServiceSamlProviderARN = a} :: FederatedAuthentication)
-{-# DEPRECATED faSelfServiceSamlProviderARN "Use generic-lens or generic-optics with 'selfServiceSamlProviderARN' instead." #-}
+-- /Note:/ Consider using 'selfServiceSamlProviderArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faSelfServiceSamlProviderArn :: Lens.Lens' FederatedAuthentication (Core.Maybe Types.String)
+faSelfServiceSamlProviderArn = Lens.field @"selfServiceSamlProviderArn"
+{-# DEPRECATED faSelfServiceSamlProviderArn "Use generic-lens or generic-optics with 'selfServiceSamlProviderArn' instead." #-}
 
-instance Lude.FromXML FederatedAuthentication where
+instance Core.FromXML FederatedAuthentication where
   parseXML x =
     FederatedAuthentication'
-      Lude.<$> (x Lude..@? "samlProviderArn")
-      Lude.<*> (x Lude..@? "selfServiceSamlProviderArn")
+      Core.<$> (x Core..@? "samlProviderArn")
+      Core.<*> (x Core..@? "selfServiceSamlProviderArn")

@@ -17,57 +17,52 @@ module Network.AWS.EC2.Types.FpgaInfo
     mkFpgaInfo,
 
     -- * Lenses
-    fiTotalFpgaMemoryInMiB,
     fiFpgas,
+    fiTotalFpgaMemoryInMiB,
   )
 where
 
-import Network.AWS.EC2.Types.FpgaDeviceInfo
+import qualified Network.AWS.EC2.Types.FpgaDeviceInfo as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the FPGAs for the instance type.
 --
 -- /See:/ 'mkFpgaInfo' smart constructor.
 data FpgaInfo = FpgaInfo'
-  { -- | The total memory of all FPGA accelerators for the instance type.
-    totalFpgaMemoryInMiB :: Lude.Maybe Lude.Int,
-    -- | Describes the FPGAs for the instance type.
-    fpgas :: Lude.Maybe [FpgaDeviceInfo]
+  { -- | Describes the FPGAs for the instance type.
+    fpgas :: Core.Maybe [Types.FpgaDeviceInfo],
+    -- | The total memory of all FPGA accelerators for the instance type.
+    totalFpgaMemoryInMiB :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FpgaInfo' with the minimum fields required to make a request.
---
--- * 'totalFpgaMemoryInMiB' - The total memory of all FPGA accelerators for the instance type.
--- * 'fpgas' - Describes the FPGAs for the instance type.
+-- | Creates a 'FpgaInfo' value with any optional fields omitted.
 mkFpgaInfo ::
   FpgaInfo
 mkFpgaInfo =
   FpgaInfo'
-    { totalFpgaMemoryInMiB = Lude.Nothing,
-      fpgas = Lude.Nothing
+    { fpgas = Core.Nothing,
+      totalFpgaMemoryInMiB = Core.Nothing
     }
-
--- | The total memory of all FPGA accelerators for the instance type.
---
--- /Note:/ Consider using 'totalFpgaMemoryInMiB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fiTotalFpgaMemoryInMiB :: Lens.Lens' FpgaInfo (Lude.Maybe Lude.Int)
-fiTotalFpgaMemoryInMiB = Lens.lens (totalFpgaMemoryInMiB :: FpgaInfo -> Lude.Maybe Lude.Int) (\s a -> s {totalFpgaMemoryInMiB = a} :: FpgaInfo)
-{-# DEPRECATED fiTotalFpgaMemoryInMiB "Use generic-lens or generic-optics with 'totalFpgaMemoryInMiB' instead." #-}
 
 -- | Describes the FPGAs for the instance type.
 --
 -- /Note:/ Consider using 'fpgas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fiFpgas :: Lens.Lens' FpgaInfo (Lude.Maybe [FpgaDeviceInfo])
-fiFpgas = Lens.lens (fpgas :: FpgaInfo -> Lude.Maybe [FpgaDeviceInfo]) (\s a -> s {fpgas = a} :: FpgaInfo)
+fiFpgas :: Lens.Lens' FpgaInfo (Core.Maybe [Types.FpgaDeviceInfo])
+fiFpgas = Lens.field @"fpgas"
 {-# DEPRECATED fiFpgas "Use generic-lens or generic-optics with 'fpgas' instead." #-}
 
-instance Lude.FromXML FpgaInfo where
+-- | The total memory of all FPGA accelerators for the instance type.
+--
+-- /Note:/ Consider using 'totalFpgaMemoryInMiB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fiTotalFpgaMemoryInMiB :: Lens.Lens' FpgaInfo (Core.Maybe Core.Int)
+fiTotalFpgaMemoryInMiB = Lens.field @"totalFpgaMemoryInMiB"
+{-# DEPRECATED fiTotalFpgaMemoryInMiB "Use generic-lens or generic-optics with 'totalFpgaMemoryInMiB' instead." #-}
+
+instance Core.FromXML FpgaInfo where
   parseXML x =
     FpgaInfo'
-      Lude.<$> (x Lude..@? "totalFpgaMemoryInMiB")
-      Lude.<*> ( x Lude..@? "fpgas" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "fpgas" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "totalFpgaMemoryInMiB")

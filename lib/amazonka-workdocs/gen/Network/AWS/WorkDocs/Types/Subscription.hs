@@ -17,72 +17,68 @@ module Network.AWS.WorkDocs.Types.Subscription
     mkSubscription,
 
     -- * Lenses
-    sProtocol,
     sEndPoint,
+    sProtocol,
     sSubscriptionId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkDocs.Types.SubscriptionProtocolType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.IdType as Types
+import qualified Network.AWS.WorkDocs.Types.SubscriptionEndPointType as Types
+import qualified Network.AWS.WorkDocs.Types.SubscriptionProtocolType as Types
 
 -- | Describes a subscription.
 --
 -- /See:/ 'mkSubscription' smart constructor.
 data Subscription = Subscription'
-  { -- | The protocol of the subscription.
-    protocol :: Lude.Maybe SubscriptionProtocolType,
-    -- | The endpoint of the subscription.
-    endPoint :: Lude.Maybe Lude.Text,
+  { -- | The endpoint of the subscription.
+    endPoint :: Core.Maybe Types.SubscriptionEndPointType,
+    -- | The protocol of the subscription.
+    protocol :: Core.Maybe Types.SubscriptionProtocolType,
     -- | The ID of the subscription.
-    subscriptionId :: Lude.Maybe Lude.Text
+    subscriptionId :: Core.Maybe Types.IdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Subscription' with the minimum fields required to make a request.
---
--- * 'protocol' - The protocol of the subscription.
--- * 'endPoint' - The endpoint of the subscription.
--- * 'subscriptionId' - The ID of the subscription.
+-- | Creates a 'Subscription' value with any optional fields omitted.
 mkSubscription ::
   Subscription
 mkSubscription =
   Subscription'
-    { protocol = Lude.Nothing,
-      endPoint = Lude.Nothing,
-      subscriptionId = Lude.Nothing
+    { endPoint = Core.Nothing,
+      protocol = Core.Nothing,
+      subscriptionId = Core.Nothing
     }
-
--- | The protocol of the subscription.
---
--- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sProtocol :: Lens.Lens' Subscription (Lude.Maybe SubscriptionProtocolType)
-sProtocol = Lens.lens (protocol :: Subscription -> Lude.Maybe SubscriptionProtocolType) (\s a -> s {protocol = a} :: Subscription)
-{-# DEPRECATED sProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The endpoint of the subscription.
 --
 -- /Note:/ Consider using 'endPoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sEndPoint :: Lens.Lens' Subscription (Lude.Maybe Lude.Text)
-sEndPoint = Lens.lens (endPoint :: Subscription -> Lude.Maybe Lude.Text) (\s a -> s {endPoint = a} :: Subscription)
+sEndPoint :: Lens.Lens' Subscription (Core.Maybe Types.SubscriptionEndPointType)
+sEndPoint = Lens.field @"endPoint"
 {-# DEPRECATED sEndPoint "Use generic-lens or generic-optics with 'endPoint' instead." #-}
+
+-- | The protocol of the subscription.
+--
+-- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sProtocol :: Lens.Lens' Subscription (Core.Maybe Types.SubscriptionProtocolType)
+sProtocol = Lens.field @"protocol"
+{-# DEPRECATED sProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The ID of the subscription.
 --
 -- /Note:/ Consider using 'subscriptionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSubscriptionId :: Lens.Lens' Subscription (Lude.Maybe Lude.Text)
-sSubscriptionId = Lens.lens (subscriptionId :: Subscription -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionId = a} :: Subscription)
+sSubscriptionId :: Lens.Lens' Subscription (Core.Maybe Types.IdType)
+sSubscriptionId = Lens.field @"subscriptionId"
 {-# DEPRECATED sSubscriptionId "Use generic-lens or generic-optics with 'subscriptionId' instead." #-}
 
-instance Lude.FromJSON Subscription where
+instance Core.FromJSON Subscription where
   parseJSON =
-    Lude.withObject
-      "Subscription"
-      ( \x ->
-          Subscription'
-            Lude.<$> (x Lude..:? "Protocol")
-            Lude.<*> (x Lude..:? "EndPoint")
-            Lude.<*> (x Lude..:? "SubscriptionId")
-      )
+    Core.withObject "Subscription" Core.$
+      \x ->
+        Subscription'
+          Core.<$> (x Core..:? "EndPoint")
+          Core.<*> (x Core..:? "Protocol")
+          Core.<*> (x Core..:? "SubscriptionId")

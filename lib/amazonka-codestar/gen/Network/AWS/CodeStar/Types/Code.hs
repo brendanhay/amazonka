@@ -17,60 +17,56 @@ module Network.AWS.CodeStar.Types.Code
     mkCode,
 
     -- * Lenses
-    cDestination,
     cSource,
+    cDestination,
   )
 where
 
-import Network.AWS.CodeStar.Types.CodeDestination
-import Network.AWS.CodeStar.Types.CodeSource
+import qualified Network.AWS.CodeStar.Types.CodeDestination as Types
+import qualified Network.AWS.CodeStar.Types.CodeSource as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Location and destination information about the source code files provided with the project request. The source code is uploaded to the new project source repository after project creation.
 --
 -- /See:/ 'mkCode' smart constructor.
 data Code = Code'
-  { -- | The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
-    destination :: CodeDestination,
-    -- | The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
-    source :: CodeSource
+  { -- | The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
+    source :: Types.CodeSource,
+    -- | The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
+    destination :: Types.CodeDestination
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Code' with the minimum fields required to make a request.
---
--- * 'destination' - The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
--- * 'source' - The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
+-- | Creates a 'Code' value with any optional fields omitted.
 mkCode ::
-  -- | 'destination'
-  CodeDestination ->
   -- | 'source'
-  CodeSource ->
+  Types.CodeSource ->
+  -- | 'destination'
+  Types.CodeDestination ->
   Code
-mkCode pDestination_ pSource_ =
-  Code' {destination = pDestination_, source = pSource_}
-
--- | The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cDestination :: Lens.Lens' Code CodeDestination
-cDestination = Lens.lens (destination :: Code -> CodeDestination) (\s a -> s {destination = a} :: Code)
-{-# DEPRECATED cDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
+mkCode source destination = Code' {source, destination}
 
 -- | The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
 --
 -- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cSource :: Lens.Lens' Code CodeSource
-cSource = Lens.lens (source :: Code -> CodeSource) (\s a -> s {source = a} :: Code)
+cSource :: Lens.Lens' Code Types.CodeSource
+cSource = Lens.field @"source"
 {-# DEPRECATED cSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
-instance Lude.ToJSON Code where
-  toJSON Code' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("destination" Lude..= destination),
-            Lude.Just ("source" Lude..= source)
+-- | The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cDestination :: Lens.Lens' Code Types.CodeDestination
+cDestination = Lens.field @"destination"
+{-# DEPRECATED cDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
+
+instance Core.FromJSON Code where
+  toJSON Code {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("source" Core..= source),
+            Core.Just ("destination" Core..= destination)
           ]
       )

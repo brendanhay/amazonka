@@ -21,47 +21,43 @@ module Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsActionsTy
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsEventActionType
+import qualified Network.AWS.CognitoIdentityProvider.Types.CompromisedCredentialsEventActionType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The compromised credentials actions type
 --
 -- /See:/ 'mkCompromisedCredentialsActionsType' smart constructor.
 newtype CompromisedCredentialsActionsType = CompromisedCredentialsActionsType'
   { -- | The event action.
-    eventAction :: CompromisedCredentialsEventActionType
+    eventAction :: Types.CompromisedCredentialsEventActionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CompromisedCredentialsActionsType' with the minimum fields required to make a request.
---
--- * 'eventAction' - The event action.
+-- | Creates a 'CompromisedCredentialsActionsType' value with any optional fields omitted.
 mkCompromisedCredentialsActionsType ::
   -- | 'eventAction'
-  CompromisedCredentialsEventActionType ->
+  Types.CompromisedCredentialsEventActionType ->
   CompromisedCredentialsActionsType
-mkCompromisedCredentialsActionsType pEventAction_ =
-  CompromisedCredentialsActionsType' {eventAction = pEventAction_}
+mkCompromisedCredentialsActionsType eventAction =
+  CompromisedCredentialsActionsType' {eventAction}
 
 -- | The event action.
 --
 -- /Note:/ Consider using 'eventAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccatEventAction :: Lens.Lens' CompromisedCredentialsActionsType CompromisedCredentialsEventActionType
-ccatEventAction = Lens.lens (eventAction :: CompromisedCredentialsActionsType -> CompromisedCredentialsEventActionType) (\s a -> s {eventAction = a} :: CompromisedCredentialsActionsType)
+ccatEventAction :: Lens.Lens' CompromisedCredentialsActionsType Types.CompromisedCredentialsEventActionType
+ccatEventAction = Lens.field @"eventAction"
 {-# DEPRECATED ccatEventAction "Use generic-lens or generic-optics with 'eventAction' instead." #-}
 
-instance Lude.FromJSON CompromisedCredentialsActionsType where
-  parseJSON =
-    Lude.withObject
-      "CompromisedCredentialsActionsType"
-      ( \x ->
-          CompromisedCredentialsActionsType'
-            Lude.<$> (x Lude..: "EventAction")
-      )
+instance Core.FromJSON CompromisedCredentialsActionsType where
+  toJSON CompromisedCredentialsActionsType {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("EventAction" Core..= eventAction)])
 
-instance Lude.ToJSON CompromisedCredentialsActionsType where
-  toJSON CompromisedCredentialsActionsType' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("EventAction" Lude..= eventAction)])
+instance Core.FromJSON CompromisedCredentialsActionsType where
+  parseJSON =
+    Core.withObject "CompromisedCredentialsActionsType" Core.$
+      \x ->
+        CompromisedCredentialsActionsType'
+          Core.<$> (x Core..: "EventAction")

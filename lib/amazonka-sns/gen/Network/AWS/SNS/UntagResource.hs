@@ -20,108 +20,103 @@ module Network.AWS.SNS.UntagResource
     mkUntagResource,
 
     -- ** Request lenses
+    urResourceArn,
     urTagKeys,
-    urResourceARN,
 
     -- * Destructuring the response
     UntagResourceResponse (..),
     mkUntagResourceResponse,
 
     -- ** Response lenses
-    urrsResponseStatus,
+    urrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | /See:/ 'mkUntagResource' smart constructor.
 data UntagResource = UntagResource'
-  { -- | The list of tag keys to remove from the specified topic.
-    tagKeys :: [Lude.Text],
-    -- | The ARN of the topic from which to remove tags.
-    resourceARN :: Lude.Text
+  { -- | The ARN of the topic from which to remove tags.
+    resourceArn :: Types.ResourceArn,
+    -- | The list of tag keys to remove from the specified topic.
+    tagKeys :: [Types.TagKey]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResource' with the minimum fields required to make a request.
---
--- * 'tagKeys' - The list of tag keys to remove from the specified topic.
--- * 'resourceARN' - The ARN of the topic from which to remove tags.
+-- | Creates a 'UntagResource' value with any optional fields omitted.
 mkUntagResource ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   UntagResource
-mkUntagResource pResourceARN_ =
-  UntagResource'
-    { tagKeys = Lude.mempty,
-      resourceARN = pResourceARN_
-    }
+mkUntagResource resourceArn =
+  UntagResource' {resourceArn, tagKeys = Core.mempty}
+
+-- | The ARN of the topic from which to remove tags.
+--
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urResourceArn :: Lens.Lens' UntagResource Types.ResourceArn
+urResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED urResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | The list of tag keys to remove from the specified topic.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urTagKeys :: Lens.Lens' UntagResource [Lude.Text]
-urTagKeys = Lens.lens (tagKeys :: UntagResource -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagResource)
+urTagKeys :: Lens.Lens' UntagResource [Types.TagKey]
+urTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED urTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
--- | The ARN of the topic from which to remove tags.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urResourceARN :: Lens.Lens' UntagResource Lude.Text
-urResourceARN = Lens.lens (resourceARN :: UntagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: UntagResource)
-{-# DEPRECATED urResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
-
-instance Lude.AWSRequest UntagResource where
+instance Core.AWSRequest UntagResource where
   type Rs UntagResource = UntagResourceResponse
-  request = Req.postQuery snsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UntagResource")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "ResourceArn" resourceArn)
+                Core.<> (Core.toQueryValue "TagKeys" (Core.toQueryList "member" tagKeys))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UntagResourceResult"
       ( \s h x ->
-          UntagResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          UntagResourceResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UntagResource where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UntagResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UntagResource where
-  toQuery UntagResource' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UntagResource" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "TagKeys" Lude.=: Lude.toQueryList "member" tagKeys,
-        "ResourceArn" Lude.=: resourceARN
-      ]
 
 -- | /See:/ 'mkUntagResourceResponse' smart constructor.
 newtype UntagResourceResponse = UntagResourceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagResourceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UntagResourceResponse' value with any optional fields omitted.
 mkUntagResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UntagResourceResponse
-mkUntagResourceResponse pResponseStatus_ =
-  UntagResourceResponse' {responseStatus = pResponseStatus_}
+mkUntagResourceResponse responseStatus =
+  UntagResourceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urrsResponseStatus :: Lens.Lens' UntagResourceResponse Lude.Int
-urrsResponseStatus = Lens.lens (responseStatus :: UntagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagResourceResponse)
-{-# DEPRECATED urrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urrrsResponseStatus :: Lens.Lens' UntagResourceResponse Core.Int
+urrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

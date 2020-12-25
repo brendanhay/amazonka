@@ -90,7 +90,7 @@ responseRegisterUsage =
   res
     "RegisterUsageResponse"
     "fixture/RegisterUsageResponse.proto"
-    marketplaceMeteringService
+    mkServiceConfig
     (Proxy :: Proxy RegisterUsage)
 
 responseBatchMeterUsage :: BatchMeterUsageResponse -> TestTree
@@ -98,7 +98,7 @@ responseBatchMeterUsage =
   res
     "BatchMeterUsageResponse"
     "fixture/BatchMeterUsageResponse.proto"
-    marketplaceMeteringService
+    mkServiceConfig
     (Proxy :: Proxy BatchMeterUsage)
 
 responseResolveCustomer :: ResolveCustomerResponse -> TestTree
@@ -106,7 +106,7 @@ responseResolveCustomer =
   res
     "ResolveCustomerResponse"
     "fixture/ResolveCustomerResponse.proto"
-    marketplaceMeteringService
+    mkServiceConfig
     (Proxy :: Proxy ResolveCustomer)
 
 responseMeterUsage :: MeterUsageResponse -> TestTree
@@ -114,5 +114,5 @@ responseMeterUsage =
   res
     "MeterUsageResponse"
     "fixture/MeterUsageResponse.proto"
-    marketplaceMeteringService
+    mkServiceConfig
     (Proxy :: Proxy MeterUsage)

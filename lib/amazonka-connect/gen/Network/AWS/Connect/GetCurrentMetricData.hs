@@ -25,34 +25,34 @@ module Network.AWS.Connect.GetCurrentMetricData
     gcmdInstanceId,
     gcmdFilters,
     gcmdCurrentMetrics,
-    gcmdNextToken,
     gcmdGroupings,
     gcmdMaxResults,
+    gcmdNextToken,
 
     -- * Destructuring the response
     GetCurrentMetricDataResponse (..),
     mkGetCurrentMetricDataResponse,
 
     -- ** Response lenses
-    gcmdrsMetricResults,
-    gcmdrsDataSnapshotTime,
-    gcmdrsNextToken,
-    gcmdrsResponseStatus,
+    gcmdrrsDataSnapshotTime,
+    gcmdrrsMetricResults,
+    gcmdrrsNextToken,
+    gcmdrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetCurrentMetricData' smart constructor.
 data GetCurrentMetricData = GetCurrentMetricData'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. Both @VOICE@ and @CHAT@ channels are supported.
-    filters :: Filters,
+    filters :: Types.Filters,
     -- | The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available. For a description of all the metrics, see <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html Real-time Metrics Definitions> in the /Amazon Connect Administrator Guide/ .
     --
     --
@@ -135,144 +135,50 @@ data GetCurrentMetricData = GetCurrentMetricData'
     --
     --     * Unit: COUNT
     -- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time Availability>
-    currentMetrics :: [CurrentMetric],
-    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-    --
-    -- The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.
-    nextToken :: Lude.Maybe Lude.Text,
+    currentMetrics :: [Types.CurrentMetric],
     -- | The grouping applied to the metrics returned. For example, when grouped by @QUEUE@ , the metrics returned apply to each queue rather than aggregated for all queues. If you group by @CHANNEL@ , you should include a Channels filter. Both @VOICE@ and @CHAT@ channels are supported.
     --
     -- If no @Grouping@ is included in the request, a summary of metrics is returned.
-    groupings :: Lude.Maybe [Grouping],
+    groupings :: Core.Maybe [Types.Grouping],
     -- | The maximimum number of results to return per page.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    --
+    -- The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCurrentMetricData' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'filters' - The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. Both @VOICE@ and @CHAT@ channels are supported.
--- * 'currentMetrics' - The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available. For a description of all the metrics, see <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html Real-time Metrics Definitions> in the /Amazon Connect Administrator Guide/ .
---
---
---     * AGENTS_AFTER_CONTACT_WORK
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#aftercallwork-real-time ACW>
---
---
---     * AGENTS_AVAILABLE
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#available-real-time Available>
---
---
---     * AGENTS_ERROR
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#error-real-time Error>
---
---
---     * AGENTS_NON_PRODUCTIVE
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#non-productive-time-real-time NPT (Non-Productive Time)>
---
---
---     * AGENTS_ON_CALL
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time On contact>
---
---
---     * AGENTS_ON_CONTACT
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time On contact>
---
---
---     * AGENTS_ONLINE
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#online-real-time Online>
---
---
---     * AGENTS_STAFFED
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#staffed-real-time Staffed>
---
---
---     * CONTACTS_IN_QUEUE
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#in-queue-real-time In queue>
---
---
---     * CONTACTS_SCHEDULED
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#scheduled-real-time Scheduled>
---
---
---     * OLDEST_CONTACT_AGE
---
---     * Unit: SECONDS
--- When you use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if you get a response like this:
--- @{ "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0 @ }
--- The actual OLDEST_CONTACT_AGE is 24 seconds.
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time Oldest>
---
---
---     * SLOTS_ACTIVE
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#active-real-time Active>
---
---
---     * SLOTS_AVAILABLE
---
---     * Unit: COUNT
--- Name in real-time metrics report: <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time Availability>
---
---
--- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.
--- * 'groupings' - The grouping applied to the metrics returned. For example, when grouped by @QUEUE@ , the metrics returned apply to each queue rather than aggregated for all queues. If you group by @CHANNEL@ , you should include a Channels filter. Both @VOICE@ and @CHAT@ channels are supported.
---
--- If no @Grouping@ is included in the request, a summary of metrics is returned.
--- * 'maxResults' - The maximimum number of results to return per page.
+-- | Creates a 'GetCurrentMetricData' value with any optional fields omitted.
 mkGetCurrentMetricData ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'filters'
-  Filters ->
+  Types.Filters ->
   GetCurrentMetricData
-mkGetCurrentMetricData pInstanceId_ pFilters_ =
+mkGetCurrentMetricData instanceId filters =
   GetCurrentMetricData'
-    { instanceId = pInstanceId_,
-      filters = pFilters_,
-      currentMetrics = Lude.mempty,
-      nextToken = Lude.Nothing,
-      groupings = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { instanceId,
+      filters,
+      currentMetrics = Core.mempty,
+      groupings = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmdInstanceId :: Lens.Lens' GetCurrentMetricData Lude.Text
-gcmdInstanceId = Lens.lens (instanceId :: GetCurrentMetricData -> Lude.Text) (\s a -> s {instanceId = a} :: GetCurrentMetricData)
+gcmdInstanceId :: Lens.Lens' GetCurrentMetricData Types.InstanceId
+gcmdInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED gcmdInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. Both @VOICE@ and @CHAT@ channels are supported.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmdFilters :: Lens.Lens' GetCurrentMetricData Filters
-gcmdFilters = Lens.lens (filters :: GetCurrentMetricData -> Filters) (\s a -> s {filters = a} :: GetCurrentMetricData)
+gcmdFilters :: Lens.Lens' GetCurrentMetricData Types.Filters
+gcmdFilters = Lens.field @"filters"
 {-# DEPRECATED gcmdFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available. For a description of all the metrics, see <https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html Real-time Metrics Definitions> in the /Amazon Connect Administrator Guide/ .
@@ -361,138 +267,126 @@ gcmdFilters = Lens.lens (filters :: GetCurrentMetricData -> Filters) (\s a -> s 
 --
 --
 -- /Note:/ Consider using 'currentMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmdCurrentMetrics :: Lens.Lens' GetCurrentMetricData [CurrentMetric]
-gcmdCurrentMetrics = Lens.lens (currentMetrics :: GetCurrentMetricData -> [CurrentMetric]) (\s a -> s {currentMetrics = a} :: GetCurrentMetricData)
+gcmdCurrentMetrics :: Lens.Lens' GetCurrentMetricData [Types.CurrentMetric]
+gcmdCurrentMetrics = Lens.field @"currentMetrics"
 {-# DEPRECATED gcmdCurrentMetrics "Use generic-lens or generic-optics with 'currentMetrics' instead." #-}
-
--- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmdNextToken :: Lens.Lens' GetCurrentMetricData (Lude.Maybe Lude.Text)
-gcmdNextToken = Lens.lens (nextToken :: GetCurrentMetricData -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCurrentMetricData)
-{-# DEPRECATED gcmdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The grouping applied to the metrics returned. For example, when grouped by @QUEUE@ , the metrics returned apply to each queue rather than aggregated for all queues. If you group by @CHANNEL@ , you should include a Channels filter. Both @VOICE@ and @CHAT@ channels are supported.
 --
 -- If no @Grouping@ is included in the request, a summary of metrics is returned.
 --
 -- /Note:/ Consider using 'groupings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmdGroupings :: Lens.Lens' GetCurrentMetricData (Lude.Maybe [Grouping])
-gcmdGroupings = Lens.lens (groupings :: GetCurrentMetricData -> Lude.Maybe [Grouping]) (\s a -> s {groupings = a} :: GetCurrentMetricData)
+gcmdGroupings :: Lens.Lens' GetCurrentMetricData (Core.Maybe [Types.Grouping])
+gcmdGroupings = Lens.field @"groupings"
 {-# DEPRECATED gcmdGroupings "Use generic-lens or generic-optics with 'groupings' instead." #-}
 
 -- | The maximimum number of results to return per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmdMaxResults :: Lens.Lens' GetCurrentMetricData (Lude.Maybe Lude.Natural)
-gcmdMaxResults = Lens.lens (maxResults :: GetCurrentMetricData -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetCurrentMetricData)
+gcmdMaxResults :: Lens.Lens' GetCurrentMetricData (Core.Maybe Core.Natural)
+gcmdMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED gcmdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest GetCurrentMetricData where
+-- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+--
+-- The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmdNextToken :: Lens.Lens' GetCurrentMetricData (Core.Maybe Types.NextToken)
+gcmdNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gcmdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON GetCurrentMetricData where
+  toJSON GetCurrentMetricData {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Filters" Core..= filters),
+            Core.Just ("CurrentMetrics" Core..= currentMetrics),
+            ("Groupings" Core..=) Core.<$> groupings,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest GetCurrentMetricData where
   type Rs GetCurrentMetricData = GetCurrentMetricDataResponse
-  request = Req.postJSON connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ("/metrics/current/" Core.<> (Core.toText instanceId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCurrentMetricDataResponse'
-            Lude.<$> (x Lude..?> "MetricResults" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "DataSnapshotTime")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DataSnapshotTime")
+            Core.<*> (x Core..:? "MetricResults")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCurrentMetricData where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetCurrentMetricData where
-  toJSON GetCurrentMetricData' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Filters" Lude..= filters),
-            Lude.Just ("CurrentMetrics" Lude..= currentMetrics),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Groupings" Lude..=) Lude.<$> groupings,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath GetCurrentMetricData where
-  toPath GetCurrentMetricData' {..} =
-    Lude.mconcat ["/metrics/current/", Lude.toBS instanceId]
-
-instance Lude.ToQuery GetCurrentMetricData where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetCurrentMetricDataResponse' smart constructor.
 data GetCurrentMetricDataResponse = GetCurrentMetricDataResponse'
-  { -- | Information about the real-time metrics.
-    metricResults :: Lude.Maybe [CurrentMetricResult],
-    -- | The time at which the metrics were retrieved and cached for pagination.
-    dataSnapshotTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The time at which the metrics were retrieved and cached for pagination.
+    dataSnapshotTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Information about the real-time metrics.
+    metricResults :: Core.Maybe [Types.CurrentMetricResult],
     -- | If there are additional results, this is the token for the next set of results.
     --
     -- The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetCurrentMetricDataResponse' with the minimum fields required to make a request.
---
--- * 'metricResults' - Information about the real-time metrics.
--- * 'dataSnapshotTime' - The time at which the metrics were retrieved and cached for pagination.
--- * 'nextToken' - If there are additional results, this is the token for the next set of results.
---
--- The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCurrentMetricDataResponse' value with any optional fields omitted.
 mkGetCurrentMetricDataResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCurrentMetricDataResponse
-mkGetCurrentMetricDataResponse pResponseStatus_ =
+mkGetCurrentMetricDataResponse responseStatus =
   GetCurrentMetricDataResponse'
-    { metricResults = Lude.Nothing,
-      dataSnapshotTime = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dataSnapshotTime = Core.Nothing,
+      metricResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the real-time metrics.
---
--- /Note:/ Consider using 'metricResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmdrsMetricResults :: Lens.Lens' GetCurrentMetricDataResponse (Lude.Maybe [CurrentMetricResult])
-gcmdrsMetricResults = Lens.lens (metricResults :: GetCurrentMetricDataResponse -> Lude.Maybe [CurrentMetricResult]) (\s a -> s {metricResults = a} :: GetCurrentMetricDataResponse)
-{-# DEPRECATED gcmdrsMetricResults "Use generic-lens or generic-optics with 'metricResults' instead." #-}
 
 -- | The time at which the metrics were retrieved and cached for pagination.
 --
 -- /Note:/ Consider using 'dataSnapshotTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmdrsDataSnapshotTime :: Lens.Lens' GetCurrentMetricDataResponse (Lude.Maybe Lude.Timestamp)
-gcmdrsDataSnapshotTime = Lens.lens (dataSnapshotTime :: GetCurrentMetricDataResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {dataSnapshotTime = a} :: GetCurrentMetricDataResponse)
-{-# DEPRECATED gcmdrsDataSnapshotTime "Use generic-lens or generic-optics with 'dataSnapshotTime' instead." #-}
+gcmdrrsDataSnapshotTime :: Lens.Lens' GetCurrentMetricDataResponse (Core.Maybe Core.NominalDiffTime)
+gcmdrrsDataSnapshotTime = Lens.field @"dataSnapshotTime"
+{-# DEPRECATED gcmdrrsDataSnapshotTime "Use generic-lens or generic-optics with 'dataSnapshotTime' instead." #-}
+
+-- | Information about the real-time metrics.
+--
+-- /Note:/ Consider using 'metricResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcmdrrsMetricResults :: Lens.Lens' GetCurrentMetricDataResponse (Core.Maybe [Types.CurrentMetricResult])
+gcmdrrsMetricResults = Lens.field @"metricResults"
+{-# DEPRECATED gcmdrrsMetricResults "Use generic-lens or generic-optics with 'metricResults' instead." #-}
 
 -- | If there are additional results, this is the token for the next set of results.
 --
 -- The token expires after 5 minutes from the time it is created. Subsequent requests that use the token must use the same request parameters as the request that generated the token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmdrsNextToken :: Lens.Lens' GetCurrentMetricDataResponse (Lude.Maybe Lude.Text)
-gcmdrsNextToken = Lens.lens (nextToken :: GetCurrentMetricDataResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCurrentMetricDataResponse)
-{-# DEPRECATED gcmdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gcmdrrsNextToken :: Lens.Lens' GetCurrentMetricDataResponse (Core.Maybe Types.NextToken)
+gcmdrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gcmdrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcmdrsResponseStatus :: Lens.Lens' GetCurrentMetricDataResponse Lude.Int
-gcmdrsResponseStatus = Lens.lens (responseStatus :: GetCurrentMetricDataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCurrentMetricDataResponse)
-{-# DEPRECATED gcmdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcmdrrsResponseStatus :: Lens.Lens' GetCurrentMetricDataResponse Core.Int
+gcmdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcmdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,340 @@
 -- Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, for example, .html, .css, .php, image, and media files, to end users. CloudFront delivers your content through a worldwide network of edge locations. When an end user requests content that you're serving with CloudFront, the user is routed to the edge location that provides the lowest latency, so content is delivered with the best possible performance. If the content is already in that edge location, CloudFront delivers it immediately. If the content is not currently in that edge location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server (for example, a web server) that you have identified as the source for the definitive version of your content.
 module Network.AWS.CloudFront
   ( -- * Service configuration
-    cloudFrontService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** TooManyOriginCustomHeaders
+    _TooManyOriginCustomHeaders,
+
+    -- ** InvalidTagging
+    _InvalidTagging,
+
+    -- ** InvalidErrorCode
+    _InvalidErrorCode,
+
+    -- ** NoSuchFieldLevelEncryptionProfile
+    _NoSuchFieldLevelEncryptionProfile,
+
+    -- ** FieldLevelEncryptionProfileInUse
+    _FieldLevelEncryptionProfileInUse,
+
+    -- ** InvalidOriginReadTimeout
+    _InvalidOriginReadTimeout,
+
+    -- ** TooManyFieldLevelEncryptionProfiles
+    _TooManyFieldLevelEncryptionProfiles,
+
+    -- ** TooManyCacheBehaviors
+    _TooManyCacheBehaviors,
+
+    -- ** TooManyCloudFrontOriginAccessIdentities
+    _TooManyCloudFrontOriginAccessIdentities,
+
+    -- ** RealtimeLogConfigAlreadyExists
+    _RealtimeLogConfigAlreadyExists,
+
+    -- ** InvalidOriginAccessIdentity
+    _InvalidOriginAccessIdentity,
+
+    -- ** DistributionNotDisabled
+    _DistributionNotDisabled,
+
+    -- ** NoSuchStreamingDistribution
+    _NoSuchStreamingDistribution,
+
+    -- ** InconsistentQuantities
+    _InconsistentQuantities,
+
+    -- ** InvalidArgument
+    _InvalidArgument,
+
+    -- ** InvalidOriginKeepaliveTimeout
+    _InvalidOriginKeepaliveTimeout,
+
+    -- ** TooManyInvalidationsInProgress
+    _TooManyInvalidationsInProgress,
+
+    -- ** InvalidWebACLId
+    _InvalidWebACLId,
+
+    -- ** TooManyQueryStringParameters
+    _TooManyQueryStringParameters,
+
+    -- ** TooManyFieldLevelEncryptionQueryArgProfiles
+    _TooManyFieldLevelEncryptionQueryArgProfiles,
+
+    -- ** TooManyDistributionCNAMEs
+    _TooManyDistributionCNAMEs,
+
+    -- ** NoSuchCloudFrontOriginAccessIdentity
+    _NoSuchCloudFrontOriginAccessIdentity,
+
+    -- ** CloudFrontOriginAccessIdentityInUse
+    _CloudFrontOriginAccessIdentityInUse,
+
+    -- ** TooManyStreamingDistributions
+    _TooManyStreamingDistributions,
+
+    -- ** CannotChangeImmutablePublicKeyFields
+    _CannotChangeImmutablePublicKeyFields,
+
+    -- ** BatchTooLarge
+    _BatchTooLarge,
+
+    -- ** TooManyCookieNamesInWhiteList
+    _TooManyCookieNamesInWhiteList,
+
+    -- ** TooManyPublicKeysInKeyGroup
+    _TooManyPublicKeysInKeyGroup,
+
+    -- ** InvalidLambdaFunctionAssociation
+    _InvalidLambdaFunctionAssociation,
+
+    -- ** TooManyKeyGroupsAssociatedToDistribution
+    _TooManyKeyGroupsAssociatedToDistribution,
+
+    -- ** NoSuchRealtimeLogConfig
+    _NoSuchRealtimeLogConfig,
+
+    -- ** InvalidForwardCookies
+    _InvalidForwardCookies,
+
+    -- ** FieldLevelEncryptionConfigInUse
+    _FieldLevelEncryptionConfigInUse,
+
+    -- ** TooManyTrustedSigners
+    _TooManyTrustedSigners,
+
+    -- ** TooManyDistributionsAssociatedToKeyGroup
+    _TooManyDistributionsAssociatedToKeyGroup,
+
+    -- ** InvalidOrigin
+    _InvalidOrigin,
+
+    -- ** CachePolicyInUse
+    _CachePolicyInUse,
+
+    -- ** NoSuchInvalidation
+    _NoSuchInvalidation,
+
+    -- ** PublicKeyAlreadyExists
+    _PublicKeyAlreadyExists,
+
+    -- ** NoSuchOrigin
+    _NoSuchOrigin,
+
+    -- ** TooManyHeadersInCachePolicy
+    _TooManyHeadersInCachePolicy,
+
+    -- ** NoSuchCachePolicy
+    _NoSuchCachePolicy,
+
+    -- ** InvalidTTLOrder
+    _InvalidTTLOrder,
+
+    -- ** StreamingDistributionNotDisabled
+    _StreamingDistributionNotDisabled,
+
+    -- ** OriginRequestPolicyAlreadyExists
+    _OriginRequestPolicyAlreadyExists,
+
+    -- ** TooManyHeadersInForwardedValues
+    _TooManyHeadersInForwardedValues,
+
+    -- ** NoSuchResource
+    _NoSuchResource,
+
+    -- ** TooManyFieldLevelEncryptionEncryptionEntities
+    _TooManyFieldLevelEncryptionEncryptionEntities,
+
+    -- ** TooManyStreamingDistributionCNAMEs
+    _TooManyStreamingDistributionCNAMEs,
+
+    -- ** FieldLevelEncryptionProfileAlreadyExists
+    _FieldLevelEncryptionProfileAlreadyExists,
+
+    -- ** KeyGroupAlreadyExists
+    _KeyGroupAlreadyExists,
+
+    -- ** TrustedKeyGroupDoesNotExist
+    _TrustedKeyGroupDoesNotExist,
+
+    -- ** ResourceInUse
+    _ResourceInUse,
+
+    -- ** InvalidRequiredProtocol
+    _InvalidRequiredProtocol,
+
+    -- ** TooManyDistributions
+    _TooManyDistributions,
+
+    -- ** TooManyDistributionsWithSingleFunctionARN
+    _TooManyDistributionsWithSingleFunctionARN,
+
+    -- ** TooManyHeadersInOriginRequestPolicy
+    _TooManyHeadersInOriginRequestPolicy,
+
+    -- ** TooManyCertificates
+    _TooManyCertificates,
+
+    -- ** NoSuchOriginRequestPolicy
+    _NoSuchOriginRequestPolicy,
+
+    -- ** DistributionAlreadyExists
+    _DistributionAlreadyExists,
+
+    -- ** TooManyDistributionsAssociatedToFieldLevelEncryptionConfig
+    _TooManyDistributionsAssociatedToFieldLevelEncryptionConfig,
+
+    -- ** TooManyKeyGroups
+    _TooManyKeyGroups,
+
+    -- ** InvalidQueryStringParameters
+    _InvalidQueryStringParameters,
+
+    -- ** MissingBody
+    _MissingBody,
+
+    -- ** IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior
+    _IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
+
+    -- ** TooManyOriginRequestPolicies
+    _TooManyOriginRequestPolicies,
+
+    -- ** IllegalDelete
+    _IllegalDelete,
+
+    -- ** IllegalUpdate
+    _IllegalUpdate,
+
+    -- ** InvalidIfMatchVersion
+    _InvalidIfMatchVersion,
+
+    -- ** FieldLevelEncryptionConfigAlreadyExists
+    _FieldLevelEncryptionConfigAlreadyExists,
+
+    -- ** PreconditionFailed
+    _PreconditionFailed,
+
+    -- ** InvalidResponseCode
+    _InvalidResponseCode,
+
+    -- ** InvalidHeadersForS3Origin
+    _InvalidHeadersForS3Origin,
+
+    -- ** CNAMEAlreadyExists
+    _CNAMEAlreadyExists,
+
+    -- ** NoSuchPublicKey
+    _NoSuchPublicKey,
+
+    -- ** PublicKeyInUse
+    _PublicKeyInUse,
+
+    -- ** TrustedSignerDoesNotExist
+    _TrustedSignerDoesNotExist,
+
+    -- ** InvalidProtocolSettings
+    _InvalidProtocolSettings,
+
+    -- ** CachePolicyAlreadyExists
+    _CachePolicyAlreadyExists,
+
+    -- ** TooManyCookiesInOriginRequestPolicy
+    _TooManyCookiesInOriginRequestPolicy,
+
+    -- ** TooManyOriginGroupsPerDistribution
+    _TooManyOriginGroupsPerDistribution,
+
+    -- ** TooManyPublicKeys
+    _TooManyPublicKeys,
+
+    -- ** NoSuchFieldLevelEncryptionConfig
+    _NoSuchFieldLevelEncryptionConfig,
+
+    -- ** TooManyRealtimeLogConfigs
+    _TooManyRealtimeLogConfigs,
+
+    -- ** RealtimeLogConfigInUse
+    _RealtimeLogConfigInUse,
+
+    -- ** TooManyCachePolicies
+    _TooManyCachePolicies,
+
+    -- ** TooManyFieldLevelEncryptionContentTypeProfiles
+    _TooManyFieldLevelEncryptionContentTypeProfiles,
+
+    -- ** TooManyFieldLevelEncryptionFieldPatterns
+    _TooManyFieldLevelEncryptionFieldPatterns,
+
+    -- ** TooManyFieldLevelEncryptionConfigs
+    _TooManyFieldLevelEncryptionConfigs,
+
+    -- ** TooManyLambdaFunctionAssociations
+    _TooManyLambdaFunctionAssociations,
+
+    -- ** CloudFrontOriginAccessIdentityAlreadyExists
+    _CloudFrontOriginAccessIdentityAlreadyExists,
+
+    -- ** TooManyQueryStringsInCachePolicy
+    _TooManyQueryStringsInCachePolicy,
+
+    -- ** TooManyOrigins
+    _TooManyOrigins,
+
+    -- ** InvalidRelativePath
+    _InvalidRelativePath,
+
+    -- ** StreamingDistributionAlreadyExists
+    _StreamingDistributionAlreadyExists,
+
+    -- ** TooManyDistributionsAssociatedToOriginRequestPolicy
+    _TooManyDistributionsAssociatedToOriginRequestPolicy,
+
+    -- ** QueryArgProfileEmpty
+    _QueryArgProfileEmpty,
+
+    -- ** TooManyCookiesInCachePolicy
+    _TooManyCookiesInCachePolicy,
+
+    -- ** InvalidMinimumProtocolVersion
+    _InvalidMinimumProtocolVersion,
+
+    -- ** AccessDenied
+    _AccessDenied,
+
+    -- ** InvalidViewerCertificate
+    _InvalidViewerCertificate,
+
+    -- ** NoSuchDistribution
+    _NoSuchDistribution,
+
+    -- ** FieldLevelEncryptionProfileSizeExceeded
+    _FieldLevelEncryptionProfileSizeExceeded,
+
+    -- ** TooManyQueryStringsInOriginRequestPolicy
+    _TooManyQueryStringsInOriginRequestPolicy,
+
+    -- ** InvalidDefaultRootObject
+    _InvalidDefaultRootObject,
+
+    -- ** TooManyDistributionsWithLambdaAssociations
+    _TooManyDistributionsWithLambdaAssociations,
+
+    -- ** TooManyDistributionsAssociatedToCachePolicy
+    _TooManyDistributionsAssociatedToCachePolicy,
+
+    -- ** InvalidGeoRestrictionParameter
+    _InvalidGeoRestrictionParameter,
+
+    -- ** OriginRequestPolicyInUse
+    _OriginRequestPolicyInUse,
+
+    -- ** InvalidLocationCode
+    _InvalidLocationCode,
 
     -- * Waiters
     -- $waiters
@@ -261,100 +590,40 @@ module Network.AWS.CloudFront
 
     -- * Types
 
-    -- ** CachePolicyCookieBehavior
-    CachePolicyCookieBehavior (..),
+    -- ** EncryptionEntity
+    EncryptionEntity (..),
+    mkEncryptionEntity,
+    eePublicKeyId,
+    eeProviderId,
+    eeFieldPatterns,
 
-    -- ** CachePolicyHeaderBehavior
-    CachePolicyHeaderBehavior (..),
+    -- ** CloudFrontOriginAccessIdentityList
+    CloudFrontOriginAccessIdentityList (..),
+    mkCloudFrontOriginAccessIdentityList,
+    cfoailMarker,
+    cfoailMaxItems,
+    cfoailIsTruncated,
+    cfoailQuantity,
+    cfoailItems,
+    cfoailNextMarker,
 
-    -- ** CachePolicyQueryStringBehavior
-    CachePolicyQueryStringBehavior (..),
+    -- ** CachePolicy
+    CachePolicy (..),
+    mkCachePolicy,
+    cpId,
+    cpLastModifiedTime,
+    cpCachePolicyConfig,
 
-    -- ** CachePolicyType
-    CachePolicyType (..),
-
-    -- ** CertificateSource
-    CertificateSource (..),
-
-    -- ** EventType
-    EventType (..),
-
-    -- ** Format
-    Format (..),
-
-    -- ** GeoRestrictionType
-    GeoRestrictionType (..),
-
-    -- ** HTTPVersion
-    HTTPVersion (..),
-
-    -- ** ICPRecordalStatus
-    ICPRecordalStatus (..),
-
-    -- ** ItemSelection
-    ItemSelection (..),
-
-    -- ** Method
-    Method (..),
-
-    -- ** MinimumProtocolVersion
-    MinimumProtocolVersion (..),
-
-    -- ** OriginProtocolPolicy
-    OriginProtocolPolicy (..),
-
-    -- ** OriginRequestPolicyCookieBehavior
-    OriginRequestPolicyCookieBehavior (..),
-
-    -- ** OriginRequestPolicyHeaderBehavior
-    OriginRequestPolicyHeaderBehavior (..),
-
-    -- ** OriginRequestPolicyQueryStringBehavior
-    OriginRequestPolicyQueryStringBehavior (..),
-
-    -- ** OriginRequestPolicyType
-    OriginRequestPolicyType (..),
-
-    -- ** PriceClass
-    PriceClass (..),
-
-    -- ** RealtimeMetricsSubscriptionStatus
-    RealtimeMetricsSubscriptionStatus (..),
-
-    -- ** SSLProtocol
-    SSLProtocol (..),
+    -- ** Invalidation
+    Invalidation (..),
+    mkInvalidation,
+    iId,
+    iStatus,
+    iCreateTime,
+    iInvalidationBatch,
 
     -- ** SSLSupportMethod
     SSLSupportMethod (..),
-
-    -- ** ViewerProtocolPolicy
-    ViewerProtocolPolicy (..),
-
-    -- ** ActiveTrustedKeyGroups
-    ActiveTrustedKeyGroups (..),
-    mkActiveTrustedKeyGroups,
-    atkgEnabled,
-    atkgQuantity,
-    atkgItems,
-
-    -- ** ActiveTrustedSigners
-    ActiveTrustedSigners (..),
-    mkActiveTrustedSigners,
-    atsEnabled,
-    atsQuantity,
-    atsItems,
-
-    -- ** AliasICPRecordal
-    AliasICPRecordal (..),
-    mkAliasICPRecordal,
-    aicprCNAME,
-    aicprICPRecordalStatus,
-
-    -- ** Aliases
-    Aliases (..),
-    mkAliases,
-    aQuantity,
-    aItems,
 
     -- ** AllowedMethods
     AllowedMethods (..),
@@ -363,662 +632,86 @@ module Network.AWS.CloudFront
     amItems,
     amCachedMethods,
 
-    -- ** CacheBehavior
-    CacheBehavior (..),
-    mkCacheBehavior,
-    cbAllowedMethods,
-    cbViewerProtocolPolicy,
-    cbLambdaFunctionAssociations,
-    cbMaxTTL,
-    cbTargetOriginId,
-    cbMinTTL,
-    cbCompress,
-    cbSmoothStreaming,
-    cbTrustedKeyGroups,
-    cbRealtimeLogConfigARN,
-    cbDefaultTTL,
-    cbForwardedValues,
-    cbTrustedSigners,
-    cbPathPattern,
-    cbOriginRequestPolicyId,
-    cbFieldLevelEncryptionId,
-    cbCachePolicyId,
+    -- ** OriginGroupFailoverCriteria
+    OriginGroupFailoverCriteria (..),
+    mkOriginGroupFailoverCriteria,
+    ogfcStatusCodes,
 
-    -- ** CacheBehaviors
-    CacheBehaviors (..),
-    mkCacheBehaviors,
-    cbQuantity,
-    cbItems,
-
-    -- ** CachePolicy
-    CachePolicy (..),
-    mkCachePolicy,
-    cpLastModifiedTime,
-    cpId,
-    cpCachePolicyConfig,
-
-    -- ** CachePolicyConfig
-    CachePolicyConfig (..),
-    mkCachePolicyConfig,
-    cpcMaxTTL,
-    cpcParametersInCacheKeyAndForwardedToOrigin,
-    cpcMinTTL,
-    cpcName,
-    cpcDefaultTTL,
-    cpcComment,
-
-    -- ** CachePolicyCookiesConfig
-    CachePolicyCookiesConfig (..),
-    mkCachePolicyCookiesConfig,
-    cpccCookies,
-    cpccCookieBehavior,
-
-    -- ** CachePolicyHeadersConfig
-    CachePolicyHeadersConfig (..),
-    mkCachePolicyHeadersConfig,
-    cphcHeaderBehavior,
-    cphcHeaders,
-
-    -- ** CachePolicyList
-    CachePolicyList (..),
-    mkCachePolicyList,
-    cplQuantity,
-    cplItems,
-    cplMaxItems,
-    cplNextMarker,
-
-    -- ** CachePolicyQueryStringsConfig
-    CachePolicyQueryStringsConfig (..),
-    mkCachePolicyQueryStringsConfig,
-    cpqscQueryStringBehavior,
-    cpqscQueryStrings,
-
-    -- ** CachePolicySummary
-    CachePolicySummary (..),
-    mkCachePolicySummary,
-    cpsCachePolicy,
-    cpsType,
-
-    -- ** CachedMethods
-    CachedMethods (..),
-    mkCachedMethods,
-    cmQuantity,
-    cmItems,
-
-    -- ** CloudFrontOriginAccessIdentity
-    CloudFrontOriginAccessIdentity (..),
-    mkCloudFrontOriginAccessIdentity,
-    cfoaiCloudFrontOriginAccessIdentityConfig,
-    cfoaiId,
-    cfoaiS3CanonicalUserId,
+    -- ** AliasICPRecordal
+    AliasICPRecordal (..),
+    mkAliasICPRecordal,
+    aicprCNAME,
+    aicprICPRecordalStatus,
 
     -- ** CloudFrontOriginAccessIdentityConfig
     CloudFrontOriginAccessIdentityConfig (..),
     mkCloudFrontOriginAccessIdentityConfig,
-    cfoaicComment,
     cfoaicCallerReference,
+    cfoaicComment,
 
-    -- ** CloudFrontOriginAccessIdentityList
-    CloudFrontOriginAccessIdentityList (..),
-    mkCloudFrontOriginAccessIdentityList,
-    cfoailQuantity,
-    cfoailItems,
-    cfoailMarker,
-    cfoailMaxItems,
-    cfoailNextMarker,
-    cfoailIsTruncated,
-
-    -- ** CloudFrontOriginAccessIdentitySummary
-    CloudFrontOriginAccessIdentitySummary (..),
-    mkCloudFrontOriginAccessIdentitySummary,
-    cfoaisId,
-    cfoaisComment,
-    cfoaisS3CanonicalUserId,
-
-    -- ** ContentTypeProfile
-    ContentTypeProfile (..),
-    mkContentTypeProfile,
-    ctpFormat,
-    ctpProfileId,
-    ctpContentType,
-
-    -- ** ContentTypeProfileConfig
-    ContentTypeProfileConfig (..),
-    mkContentTypeProfileConfig,
-    ctpcForwardWhenContentTypeIsUnknown,
-    ctpcContentTypeProfiles,
-
-    -- ** ContentTypeProfiles
-    ContentTypeProfiles (..),
-    mkContentTypeProfiles,
-    ctpQuantity,
-    ctpItems,
-
-    -- ** CookieNames
-    CookieNames (..),
-    mkCookieNames,
-    cnQuantity,
-    cnItems,
-
-    -- ** CookiePreference
-    CookiePreference (..),
-    mkCookiePreference,
-    cpWhitelistedNames,
-    cpForward,
-
-    -- ** CustomErrorResponse
-    CustomErrorResponse (..),
-    mkCustomErrorResponse,
-    ceResponsePagePath,
-    ceResponseCode,
-    ceErrorCachingMinTTL,
-    ceErrorCode,
-
-    -- ** CustomErrorResponses
-    CustomErrorResponses (..),
-    mkCustomErrorResponses,
-    cerQuantity,
-    cerItems,
-
-    -- ** CustomHeaders
-    CustomHeaders (..),
-    mkCustomHeaders,
-    chQuantity,
-    chItems,
-
-    -- ** CustomOriginConfig
-    CustomOriginConfig (..),
-    mkCustomOriginConfig,
-    cocOriginProtocolPolicy,
-    cocOriginKeepaliveTimeout,
-    cocHTTPPort,
-    cocHTTPSPort,
-    cocOriginReadTimeout,
-    cocOriginSSLProtocols,
-
-    -- ** DefaultCacheBehavior
-    DefaultCacheBehavior (..),
-    mkDefaultCacheBehavior,
-    dcbAllowedMethods,
-    dcbViewerProtocolPolicy,
-    dcbLambdaFunctionAssociations,
-    dcbMaxTTL,
-    dcbTargetOriginId,
-    dcbMinTTL,
-    dcbCompress,
-    dcbSmoothStreaming,
-    dcbTrustedKeyGroups,
-    dcbRealtimeLogConfigARN,
-    dcbDefaultTTL,
-    dcbForwardedValues,
-    dcbTrustedSigners,
-    dcbOriginRequestPolicyId,
-    dcbFieldLevelEncryptionId,
-    dcbCachePolicyId,
-
-    -- ** Distribution
-    Distribution (..),
-    mkDistribution,
-    dInProgressInvalidationBatches,
-    dStatus,
-    dActiveTrustedKeyGroups,
-    dARN,
-    dDistributionConfig,
-    dLastModifiedTime,
-    dDomainName,
-    dAliasICPRecordals,
-    dId,
-    dActiveTrustedSigners,
-
-    -- ** DistributionConfig
-    DistributionConfig (..),
-    mkDistributionConfig,
-    dcHTTPVersion,
-    dcEnabled,
-    dcOriginGroups,
-    dcAliases,
-    dcDefaultRootObject,
-    dcPriceClass,
-    dcCustomErrorResponses,
-    dcWebACLId,
-    dcViewerCertificate,
-    dcRestrictions,
-    dcOrigins,
-    dcLogging,
-    dcCacheBehaviors,
-    dcDefaultCacheBehavior,
-    dcComment,
-    dcCallerReference,
-    dcIsIPV6Enabled,
-
-    -- ** DistributionConfigWithTags
-    DistributionConfigWithTags (..),
-    mkDistributionConfigWithTags,
-    dcwtDistributionConfig,
-    dcwtTags,
-
-    -- ** DistributionIdList
-    DistributionIdList (..),
-    mkDistributionIdList,
-    dilQuantity,
-    dilItems,
-    dilMarker,
-    dilMaxItems,
-    dilNextMarker,
-    dilIsTruncated,
-
-    -- ** DistributionList
-    DistributionList (..),
-    mkDistributionList,
-    dlQuantity,
-    dlItems,
-    dlMarker,
-    dlMaxItems,
-    dlNextMarker,
-    dlIsTruncated,
-
-    -- ** DistributionSummary
-    DistributionSummary (..),
-    mkDistributionSummary,
-    dsStatus,
-    dsHTTPVersion,
-    dsEnabled,
-    dsARN,
-    dsOriginGroups,
-    dsAliases,
-    dsPriceClass,
-    dsCustomErrorResponses,
-    dsWebACLId,
-    dsLastModifiedTime,
-    dsViewerCertificate,
-    dsDomainName,
-    dsRestrictions,
-    dsOrigins,
-    dsAliasICPRecordals,
-    dsId,
-    dsCacheBehaviors,
-    dsDefaultCacheBehavior,
-    dsComment,
-    dsIsIPV6Enabled,
-
-    -- ** EncryptionEntities
-    EncryptionEntities (..),
-    mkEncryptionEntities,
-    eeQuantity,
-    eeItems,
-
-    -- ** EncryptionEntity
-    EncryptionEntity (..),
-    mkEncryptionEntity,
-    eeProviderId,
-    eePublicKeyId,
-    eeFieldPatterns,
-
-    -- ** EndPoint
-    EndPoint (..),
-    mkEndPoint,
-    epKinesisStreamConfig,
-    epStreamType,
-
-    -- ** FieldLevelEncryption
-    FieldLevelEncryption (..),
-    mkFieldLevelEncryption,
-    fleLastModifiedTime,
-    fleId,
-    fleFieldLevelEncryptionConfig,
-
-    -- ** FieldLevelEncryptionConfig
-    FieldLevelEncryptionConfig (..),
-    mkFieldLevelEncryptionConfig,
-    flecQueryArgProfileConfig,
-    flecContentTypeProfileConfig,
-    flecComment,
-    flecCallerReference,
-
-    -- ** FieldLevelEncryptionList
-    FieldLevelEncryptionList (..),
-    mkFieldLevelEncryptionList,
-    flelQuantity,
-    flelItems,
-    flelMaxItems,
-    flelNextMarker,
-
-    -- ** FieldLevelEncryptionProfile
-    FieldLevelEncryptionProfile (..),
-    mkFieldLevelEncryptionProfile,
-    flepFieldLevelEncryptionProfileConfig,
-    flepLastModifiedTime,
-    flepId,
-
-    -- ** FieldLevelEncryptionProfileConfig
-    FieldLevelEncryptionProfileConfig (..),
-    mkFieldLevelEncryptionProfileConfig,
-    flepcName,
-    flepcEncryptionEntities,
-    flepcComment,
-    flepcCallerReference,
-
-    -- ** FieldLevelEncryptionProfileList
-    FieldLevelEncryptionProfileList (..),
-    mkFieldLevelEncryptionProfileList,
-    fleplQuantity,
-    fleplItems,
-    fleplMaxItems,
-    fleplNextMarker,
+    -- ** Origin
+    Origin (..),
+    mkOrigin,
+    oId,
+    oDomainName,
+    oConnectionAttempts,
+    oConnectionTimeout,
+    oCustomHeaders,
+    oCustomOriginConfig,
+    oOriginPath,
+    oOriginShield,
+    oS3OriginConfig,
 
     -- ** FieldLevelEncryptionProfileSummary
     FieldLevelEncryptionProfileSummary (..),
     mkFieldLevelEncryptionProfileSummary,
+    flepsId,
     flepsLastModifiedTime,
     flepsName,
     flepsEncryptionEntities,
-    flepsId,
     flepsComment,
 
-    -- ** FieldLevelEncryptionSummary
-    FieldLevelEncryptionSummary (..),
-    mkFieldLevelEncryptionSummary,
-    flesQueryArgProfileConfig,
-    flesContentTypeProfileConfig,
-    flesLastModifiedTime,
-    flesId,
-    flesComment,
+    -- ** ViewerProtocolPolicy
+    ViewerProtocolPolicy (..),
 
-    -- ** FieldPatterns
-    FieldPatterns (..),
-    mkFieldPatterns,
-    fpQuantity,
-    fpItems,
-
-    -- ** ForwardedValues
-    ForwardedValues (..),
-    mkForwardedValues,
-    fvQueryStringCacheKeys,
-    fvHeaders,
-    fvCookies,
-    fvQueryString,
-
-    -- ** GeoRestriction
-    GeoRestriction (..),
-    mkGeoRestriction,
-    grQuantity,
-    grItems,
-    grRestrictionType,
-
-    -- ** Headers
-    Headers (..),
-    mkHeaders,
-    hQuantity,
-    hItems,
-
-    -- ** Invalidation
-    Invalidation (..),
-    mkInvalidation,
-    iStatus,
-    iInvalidationBatch,
-    iId,
-    iCreateTime,
-
-    -- ** InvalidationBatch
-    InvalidationBatch (..),
-    mkInvalidationBatch,
-    ibCallerReference,
-    ibPaths,
-
-    -- ** InvalidationList
-    InvalidationList (..),
-    mkInvalidationList,
-    ilQuantity,
-    ilItems,
-    ilMarker,
-    ilMaxItems,
-    ilNextMarker,
-    ilIsTruncated,
-
-    -- ** InvalidationSummary
-    InvalidationSummary (..),
-    mkInvalidationSummary,
-    isStatus,
-    isId,
-    isCreateTime,
-
-    -- ** KGKeyPairIds
-    KGKeyPairIds (..),
-    mkKGKeyPairIds,
-    kgkpiKeyPairIds,
-    kgkpiKeyGroupId,
-
-    -- ** KeyGroup
-    KeyGroup (..),
-    mkKeyGroup,
-    kgKeyGroupConfig,
-    kgLastModifiedTime,
-    kgId,
-
-    -- ** KeyGroupConfig
-    KeyGroupConfig (..),
-    mkKeyGroupConfig,
-    kgcItems,
-    kgcName,
-    kgcComment,
-
-    -- ** KeyGroupList
-    KeyGroupList (..),
-    mkKeyGroupList,
-    kglQuantity,
-    kglItems,
-    kglMaxItems,
-    kglNextMarker,
+    -- ** StreamingDistributionList
+    StreamingDistributionList (..),
+    mkStreamingDistributionList,
+    sdlMarker,
+    sdlMaxItems,
+    sdlIsTruncated,
+    sdlQuantity,
+    sdlItems,
+    sdlNextMarker,
 
     -- ** KeyGroupSummary
     KeyGroupSummary (..),
     mkKeyGroupSummary,
     kgsKeyGroup,
 
-    -- ** KeyPairIds
-    KeyPairIds (..),
-    mkKeyPairIds,
-    kpiQuantity,
-    kpiItems,
+    -- ** StreamingDistributionConfig
+    StreamingDistributionConfig (..),
+    mkStreamingDistributionConfig,
+    sdcCallerReference,
+    sdcS3Origin,
+    sdcComment,
+    sdcTrustedSigners,
+    sdcEnabled,
+    sdcAliases,
+    sdcLogging,
+    sdcPriceClass,
 
-    -- ** KinesisStreamConfig
-    KinesisStreamConfig (..),
-    mkKinesisStreamConfig,
-    kscStreamARN,
-    kscRoleARN,
+    -- ** Signer
+    Signer (..),
+    mkSigner,
+    sAwsAccountNumber,
+    sKeyPairIds,
 
-    -- ** LambdaFunctionAssociation
-    LambdaFunctionAssociation (..),
-    mkLambdaFunctionAssociation,
-    lfaIncludeBody,
-    lfaLambdaFunctionARN,
-    lfaEventType,
-
-    -- ** LambdaFunctionAssociations
-    LambdaFunctionAssociations (..),
-    mkLambdaFunctionAssociations,
-    lfaQuantity,
-    lfaItems,
-
-    -- ** LoggingConfig
-    LoggingConfig (..),
-    mkLoggingConfig,
-    lcEnabled,
-    lcPrefix,
-    lcBucket,
-    lcIncludeCookies,
-
-    -- ** MonitoringSubscription
-    MonitoringSubscription (..),
-    mkMonitoringSubscription,
-    msRealtimeMetricsSubscriptionConfig,
-
-    -- ** Origin
-    Origin (..),
-    mkOrigin,
-    oCustomHeaders,
-    oCustomOriginConfig,
-    oConnectionTimeout,
-    oConnectionAttempts,
-    oS3OriginConfig,
-    oOriginPath,
-    oDomainName,
-    oId,
-    oOriginShield,
-
-    -- ** OriginCustomHeader
-    OriginCustomHeader (..),
-    mkOriginCustomHeader,
-    ochHeaderValue,
-    ochHeaderName,
-
-    -- ** OriginGroup
-    OriginGroup (..),
-    mkOriginGroup,
-    ogFailoverCriteria,
-    ogMembers,
-    ogId,
-
-    -- ** OriginGroupFailoverCriteria
-    OriginGroupFailoverCriteria (..),
-    mkOriginGroupFailoverCriteria,
-    ogfcStatusCodes,
-
-    -- ** OriginGroupMember
-    OriginGroupMember (..),
-    mkOriginGroupMember,
-    ogmOriginId,
-
-    -- ** OriginGroupMembers
-    OriginGroupMembers (..),
-    mkOriginGroupMembers,
-    ogmQuantity,
-    ogmItems,
-
-    -- ** OriginGroups
-    OriginGroups (..),
-    mkOriginGroups,
-    ogQuantity,
-    ogItems,
-
-    -- ** OriginRequestPolicy
-    OriginRequestPolicy (..),
-    mkOriginRequestPolicy,
-    orpOriginRequestPolicyConfig,
-    orpLastModifiedTime,
-    orpId,
-
-    -- ** OriginRequestPolicyConfig
-    OriginRequestPolicyConfig (..),
-    mkOriginRequestPolicyConfig,
-    orpcQueryStringsConfig,
-    orpcHeadersConfig,
-    orpcName,
-    orpcCookiesConfig,
-    orpcComment,
-
-    -- ** OriginRequestPolicyCookiesConfig
-    OriginRequestPolicyCookiesConfig (..),
-    mkOriginRequestPolicyCookiesConfig,
-    orpccCookies,
-    orpccCookieBehavior,
-
-    -- ** OriginRequestPolicyHeadersConfig
-    OriginRequestPolicyHeadersConfig (..),
-    mkOriginRequestPolicyHeadersConfig,
-    orphcHeaderBehavior,
-    orphcHeaders,
-
-    -- ** OriginRequestPolicyList
-    OriginRequestPolicyList (..),
-    mkOriginRequestPolicyList,
-    orplQuantity,
-    orplItems,
-    orplMaxItems,
-    orplNextMarker,
-
-    -- ** OriginRequestPolicyQueryStringsConfig
-    OriginRequestPolicyQueryStringsConfig (..),
-    mkOriginRequestPolicyQueryStringsConfig,
-    orpqscQueryStringBehavior,
-    orpqscQueryStrings,
-
-    -- ** OriginRequestPolicySummary
-    OriginRequestPolicySummary (..),
-    mkOriginRequestPolicySummary,
-    orpsOriginRequestPolicy,
-    orpsType,
-
-    -- ** OriginSSLProtocols
-    OriginSSLProtocols (..),
-    mkOriginSSLProtocols,
-    ospQuantity,
-    ospItems,
-
-    -- ** OriginShield
-    OriginShield (..),
-    mkOriginShield,
-    osEnabled,
-    osOriginShieldRegion,
-
-    -- ** Origins
-    Origins (..),
-    mkOrigins,
-    oQuantity,
-    oItems,
-
-    -- ** ParametersInCacheKeyAndForwardedToOrigin
-    ParametersInCacheKeyAndForwardedToOrigin (..),
-    mkParametersInCacheKeyAndForwardedToOrigin,
-    pickaftoQueryStringsConfig,
-    pickaftoHeadersConfig,
-    pickaftoEnableAcceptEncodingBrotli,
-    pickaftoCookiesConfig,
-    pickaftoEnableAcceptEncodingGzip,
-
-    -- ** Paths
-    Paths (..),
-    mkPaths,
-    pQuantity,
-    pItems,
-
-    -- ** PublicKey
-    PublicKey (..),
-    mkPublicKey,
-    pkCreatedTime,
-    pkPublicKeyConfig,
-    pkId,
-
-    -- ** PublicKeyConfig
-    PublicKeyConfig (..),
-    mkPublicKeyConfig,
-    pkcEncodedKey,
-    pkcName,
-    pkcComment,
-    pkcCallerReference,
-
-    -- ** PublicKeyList
-    PublicKeyList (..),
-    mkPublicKeyList,
-    pklQuantity,
-    pklItems,
-    pklMaxItems,
-    pklNextMarker,
-
-    -- ** PublicKeySummary
-    PublicKeySummary (..),
-    mkPublicKeySummary,
-    pksEncodedKey,
-    pksCreatedTime,
-    pksName,
-    pksId,
-    pksComment,
-
-    -- ** QueryArgProfile
-    QueryArgProfile (..),
-    mkQueryArgProfile,
-    qapProfileId,
-    qapQueryArg,
+    -- ** CookiePreference
+    CookiePreference (..),
+    mkCookiePreference,
+    cpForward,
+    cpWhitelistedNames,
 
     -- ** QueryArgProfileConfig
     QueryArgProfileConfig (..),
@@ -1026,11 +719,20 @@ module Network.AWS.CloudFront
     qapcForwardWhenQueryArgProfileIsUnknown,
     qapcQueryArgProfiles,
 
-    -- ** QueryArgProfiles
-    QueryArgProfiles (..),
-    mkQueryArgProfiles,
-    qapQuantity,
-    qapItems,
+    -- ** CustomHeaders
+    CustomHeaders (..),
+    mkCustomHeaders,
+    chQuantity,
+    chItems,
+
+    -- ** CachePolicyHeaderBehavior
+    CachePolicyHeaderBehavior (..),
+
+    -- ** LambdaFunctionAssociations
+    LambdaFunctionAssociations (..),
+    mkLambdaFunctionAssociations,
+    lfaQuantity,
+    lfaItems,
 
     -- ** QueryStringCacheKeys
     QueryStringCacheKeys (..),
@@ -1038,139 +740,357 @@ module Network.AWS.CloudFront
     qsckQuantity,
     qsckItems,
 
-    -- ** QueryStringNames
-    QueryStringNames (..),
-    mkQueryStringNames,
-    qsnQuantity,
-    qsnItems,
+    -- ** CachePolicyQueryStringBehavior
+    CachePolicyQueryStringBehavior (..),
 
-    -- ** RealtimeLogConfig
-    RealtimeLogConfig (..),
-    mkRealtimeLogConfig,
-    rlcARN,
-    rlcSamplingRate,
-    rlcName,
-    rlcEndPoints,
-    rlcFields,
+    -- ** OriginRequestPolicyList
+    OriginRequestPolicyList (..),
+    mkOriginRequestPolicyList,
+    orplMaxItems,
+    orplQuantity,
+    orplItems,
+    orplNextMarker,
 
-    -- ** RealtimeLogConfigs
-    RealtimeLogConfigs (..),
-    mkRealtimeLogConfigs,
-    rlcItems,
-    rlcMarker,
-    rlcMaxItems,
-    rlcNextMarker,
-    rlcIsTruncated,
+    -- ** FieldLevelEncryptionSummary
+    FieldLevelEncryptionSummary (..),
+    mkFieldLevelEncryptionSummary,
+    flesId,
+    flesLastModifiedTime,
+    flesComment,
+    flesContentTypeProfileConfig,
+    flesQueryArgProfileConfig,
 
-    -- ** RealtimeMetricsSubscriptionConfig
-    RealtimeMetricsSubscriptionConfig (..),
-    mkRealtimeMetricsSubscriptionConfig,
-    rmscRealtimeMetricsSubscriptionStatus,
+    -- ** OriginRequestPolicyConfig
+    OriginRequestPolicyConfig (..),
+    mkOriginRequestPolicyConfig,
+    orpcName,
+    orpcHeadersConfig,
+    orpcCookiesConfig,
+    orpcQueryStringsConfig,
+    orpcComment,
 
-    -- ** Restrictions
-    Restrictions (..),
-    mkRestrictions,
-    rGeoRestriction,
+    -- ** MonitoringSubscription
+    MonitoringSubscription (..),
+    mkMonitoringSubscription,
+    msRealtimeMetricsSubscriptionConfig,
 
-    -- ** S3Origin
-    S3Origin (..),
-    mkS3Origin,
-    soDomainName,
-    soOriginAccessIdentity,
+    -- ** ActiveTrustedKeyGroups
+    ActiveTrustedKeyGroups (..),
+    mkActiveTrustedKeyGroups,
+    atkgEnabled,
+    atkgQuantity,
+    atkgItems,
 
-    -- ** S3OriginConfig
-    S3OriginConfig (..),
-    mkS3OriginConfig,
-    socOriginAccessIdentity,
-
-    -- ** Signer
-    Signer (..),
-    mkSigner,
-    sAWSAccountNumber,
-    sKeyPairIds,
-
-    -- ** StatusCodes
-    StatusCodes (..),
-    mkStatusCodes,
-    scQuantity,
-    scItems,
-
-    -- ** StreamingDistribution
-    StreamingDistribution (..),
-    mkStreamingDistribution,
-    sdStatus,
-    sdStreamingDistributionConfig,
-    sdARN,
-    sdLastModifiedTime,
-    sdDomainName,
-    sdId,
-    sdActiveTrustedSigners,
-
-    -- ** StreamingDistributionConfig
-    StreamingDistributionConfig (..),
-    mkStreamingDistributionConfig,
-    sdcEnabled,
-    sdcAliases,
-    sdcPriceClass,
-    sdcS3Origin,
-    sdcTrustedSigners,
-    sdcLogging,
-    sdcComment,
-    sdcCallerReference,
-
-    -- ** StreamingDistributionConfigWithTags
-    StreamingDistributionConfigWithTags (..),
-    mkStreamingDistributionConfigWithTags,
-    sdcwtStreamingDistributionConfig,
-    sdcwtTags,
-
-    -- ** StreamingDistributionList
-    StreamingDistributionList (..),
-    mkStreamingDistributionList,
-    sdlQuantity,
-    sdlItems,
-    sdlMarker,
-    sdlMaxItems,
-    sdlNextMarker,
-    sdlIsTruncated,
-
-    -- ** StreamingDistributionSummary
-    StreamingDistributionSummary (..),
-    mkStreamingDistributionSummary,
-    sdsStatus,
-    sdsEnabled,
-    sdsARN,
-    sdsAliases,
-    sdsPriceClass,
-    sdsLastModifiedTime,
-    sdsS3Origin,
-    sdsDomainName,
-    sdsTrustedSigners,
-    sdsId,
-    sdsComment,
-
-    -- ** StreamingLoggingConfig
-    StreamingLoggingConfig (..),
-    mkStreamingLoggingConfig,
-    slcEnabled,
-    slcPrefix,
-    slcBucket,
+    -- ** OriginProtocolPolicy
+    OriginProtocolPolicy (..),
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
+
+    -- ** ContentTypeProfile
+    ContentTypeProfile (..),
+    mkContentTypeProfile,
+    ctpFormat,
+    ctpContentType,
+    ctpProfileId,
+
+    -- ** Distribution
+    Distribution (..),
+    mkDistribution,
+    dId,
+    dARN,
+    dStatus,
+    dLastModifiedTime,
+    dInProgressInvalidationBatches,
+    dDomainName,
+    dDistributionConfig,
+    dActiveTrustedKeyGroups,
+    dActiveTrustedSigners,
+    dAliasICPRecordals,
+
+    -- ** HttpVersion
+    HttpVersion (..),
+
+    -- ** FieldLevelEncryptionProfileList
+    FieldLevelEncryptionProfileList (..),
+    mkFieldLevelEncryptionProfileList,
+    fleplMaxItems,
+    fleplQuantity,
+    fleplItems,
+    fleplNextMarker,
+
+    -- ** SslProtocol
+    SslProtocol (..),
+
+    -- ** KeyGroupConfig
+    KeyGroupConfig (..),
+    mkKeyGroupConfig,
+    kgcName,
+    kgcItems,
+    kgcComment,
+
+    -- ** RealtimeLogConfigs
+    RealtimeLogConfigs (..),
+    mkRealtimeLogConfigs,
+    rlcMaxItems,
+    rlcIsTruncated,
+    rlcMarker,
+    rlcItems,
+    rlcNextMarker,
+
+    -- ** FieldLevelEncryptionProfileConfig
+    FieldLevelEncryptionProfileConfig (..),
+    mkFieldLevelEncryptionProfileConfig,
+    flepcName,
+    flepcCallerReference,
+    flepcEncryptionEntities,
+    flepcComment,
+
+    -- ** CloudFrontOriginAccessIdentitySummary
+    CloudFrontOriginAccessIdentitySummary (..),
+    mkCloudFrontOriginAccessIdentitySummary,
+    cfoaisId,
+    cfoaisS3CanonicalUserId,
+    cfoaisComment,
+
+    -- ** KeyGroupList
+    KeyGroupList (..),
+    mkKeyGroupList,
+    kglMaxItems,
+    kglQuantity,
+    kglItems,
+    kglNextMarker,
+
+    -- ** StreamingDistributionSummary
+    StreamingDistributionSummary (..),
+    mkStreamingDistributionSummary,
+    sdsId,
+    sdsARN,
+    sdsStatus,
+    sdsLastModifiedTime,
+    sdsDomainName,
+    sdsS3Origin,
+    sdsAliases,
+    sdsTrustedSigners,
+    sdsComment,
+    sdsPriceClass,
+    sdsEnabled,
+
+    -- ** OriginRequestPolicy
+    OriginRequestPolicy (..),
+    mkOriginRequestPolicy,
+    orpId,
+    orpLastModifiedTime,
+    orpOriginRequestPolicyConfig,
+
+    -- ** CustomOriginConfig
+    CustomOriginConfig (..),
+    mkCustomOriginConfig,
+    cocHTTPPort,
+    cocHTTPSPort,
+    cocOriginProtocolPolicy,
+    cocOriginKeepaliveTimeout,
+    cocOriginReadTimeout,
+    cocOriginSslProtocols,
+
+    -- ** String
+    String (..),
+
+    -- ** QueryArgProfile
+    QueryArgProfile (..),
+    mkQueryArgProfile,
+    qapQueryArg,
+    qapProfileId,
+
+    -- ** FieldLevelEncryptionProfile
+    FieldLevelEncryptionProfile (..),
+    mkFieldLevelEncryptionProfile,
+    flepId,
+    flepLastModifiedTime,
+    flepFieldLevelEncryptionProfileConfig,
+
+    -- ** OriginRequestPolicyCookiesConfig
+    OriginRequestPolicyCookiesConfig (..),
+    mkOriginRequestPolicyCookiesConfig,
+    orpccCookieBehavior,
+    orpccCookies,
+
+    -- ** OriginGroups
+    OriginGroups (..),
+    mkOriginGroups,
+    ogQuantity,
+    ogItems,
+
+    -- ** Aliases
+    Aliases (..),
+    mkAliases,
+    aQuantity,
+    aItems,
+
+    -- ** InvalidationBatch
+    InvalidationBatch (..),
+    mkInvalidationBatch,
+    ibPaths,
+    ibCallerReference,
+
+    -- ** CertificateSource
+    CertificateSource (..),
+
+    -- ** InvalidationSummary
+    InvalidationSummary (..),
+    mkInvalidationSummary,
+    isId,
+    isCreateTime,
+    isStatus,
+
+    -- ** LambdaFunctionARN
+    LambdaFunctionARN (..),
+
+    -- ** DistributionConfig
+    DistributionConfig (..),
+    mkDistributionConfig,
+    dcCallerReference,
+    dcOrigins,
+    dcDefaultCacheBehavior,
+    dcComment,
+    dcEnabled,
+    dcAliases,
+    dcCacheBehaviors,
+    dcCustomErrorResponses,
+    dcDefaultRootObject,
+    dcHttpVersion,
+    dcIsIPV6Enabled,
+    dcLogging,
+    dcOriginGroups,
+    dcPriceClass,
+    dcRestrictions,
+    dcViewerCertificate,
+    dcWebACLId,
+
+    -- ** CachePolicySummary
+    CachePolicySummary (..),
+    mkCachePolicySummary,
+    cpsType,
+    cpsCachePolicy,
+
+    -- ** CacheBehavior
+    CacheBehavior (..),
+    mkCacheBehavior,
+    cbPathPattern,
+    cbTargetOriginId,
+    cbViewerProtocolPolicy,
+    cbAllowedMethods,
+    cbCachePolicyId,
+    cbCompress,
+    cbDefaultTTL,
+    cbFieldLevelEncryptionId,
+    cbForwardedValues,
+    cbLambdaFunctionAssociations,
+    cbMaxTTL,
+    cbMinTTL,
+    cbOriginRequestPolicyId,
+    cbRealtimeLogConfigArn,
+    cbSmoothStreaming,
+    cbTrustedKeyGroups,
+    cbTrustedSigners,
+
+    -- ** KeyGroup
+    KeyGroup (..),
+    mkKeyGroup,
+    kgId,
+    kgLastModifiedTime,
+    kgKeyGroupConfig,
+
+    -- ** ContentTypeProfileConfig
+    ContentTypeProfileConfig (..),
+    mkContentTypeProfileConfig,
+    ctpcForwardWhenContentTypeIsUnknown,
+    ctpcContentTypeProfiles,
+
+    -- ** ParametersInCacheKeyAndForwardedToOrigin
+    ParametersInCacheKeyAndForwardedToOrigin (..),
+    mkParametersInCacheKeyAndForwardedToOrigin,
+    pickaftoEnableAcceptEncodingGzip,
+    pickaftoHeadersConfig,
+    pickaftoCookiesConfig,
+    pickaftoQueryStringsConfig,
+    pickaftoEnableAcceptEncodingBrotli,
+
+    -- ** DistributionList
+    DistributionList (..),
+    mkDistributionList,
+    dlMarker,
+    dlMaxItems,
+    dlIsTruncated,
+    dlQuantity,
+    dlItems,
+    dlNextMarker,
+
+    -- ** Format
+    Format (..),
+
+    -- ** KeyPairIds
+    KeyPairIds (..),
+    mkKeyPairIds,
+    kpiQuantity,
+    kpiItems,
+
+    -- ** PriceClass
+    PriceClass (..),
+
+    -- ** OriginShieldRegion
+    OriginShieldRegion (..),
+
+    -- ** OriginGroup
+    OriginGroup (..),
+    mkOriginGroup,
+    ogId,
+    ogFailoverCriteria,
+    ogMembers,
+
+    -- ** CustomErrorResponses
+    CustomErrorResponses (..),
+    mkCustomErrorResponses,
+    cerQuantity,
+    cerItems,
+
+    -- ** OriginRequestPolicyHeadersConfig
+    OriginRequestPolicyHeadersConfig (..),
+    mkOriginRequestPolicyHeadersConfig,
+    orphcHeaderBehavior,
+    orphcHeaders,
+
+    -- ** ICPRecordalStatus
+    ICPRecordalStatus (..),
 
     -- ** TagKeys
     TagKeys (..),
     mkTagKeys,
     tkItems,
 
-    -- ** Tags
-    Tags (..),
-    mkTags,
-    tItems,
+    -- ** PublicKey
+    PublicKey (..),
+    mkPublicKey,
+    pkId,
+    pkCreatedTime,
+    pkPublicKeyConfig,
+
+    -- ** S3OriginConfig
+    S3OriginConfig (..),
+    mkS3OriginConfig,
+    socOriginAccessIdentity,
+
+    -- ** OriginRequestPolicyQueryStringBehavior
+    OriginRequestPolicyQueryStringBehavior (..),
+
+    -- ** KinesisStreamConfig
+    KinesisStreamConfig (..),
+    mkKinesisStreamConfig,
+    kscRoleARN,
+    kscStreamARN,
 
     -- ** TrustedKeyGroups
     TrustedKeyGroups (..),
@@ -1179,6 +1099,138 @@ module Network.AWS.CloudFront
     tkgQuantity,
     tkgItems,
 
+    -- ** GeoRestriction
+    GeoRestriction (..),
+    mkGeoRestriction,
+    grRestrictionType,
+    grQuantity,
+    grItems,
+
+    -- ** RealtimeLogConfig
+    RealtimeLogConfig (..),
+    mkRealtimeLogConfig,
+    rlcARN,
+    rlcName,
+    rlcSamplingRate,
+    rlcEndPoints,
+    rlcFields,
+
+    -- ** S3Origin
+    S3Origin (..),
+    mkS3Origin,
+    soDomainName,
+    soOriginAccessIdentity,
+
+    -- ** PublicKeyList
+    PublicKeyList (..),
+    mkPublicKeyList,
+    pklMaxItems,
+    pklQuantity,
+    pklItems,
+    pklNextMarker,
+
+    -- ** Headers
+    Headers (..),
+    mkHeaders,
+    hQuantity,
+    hItems,
+
+    -- ** CachePolicyCookieBehavior
+    CachePolicyCookieBehavior (..),
+
+    -- ** PublicKeyConfig
+    PublicKeyConfig (..),
+    mkPublicKeyConfig,
+    pkcCallerReference,
+    pkcName,
+    pkcEncodedKey,
+    pkcComment,
+
+    -- ** LambdaFunctionAssociation
+    LambdaFunctionAssociation (..),
+    mkLambdaFunctionAssociation,
+    lfaLambdaFunctionARN,
+    lfaEventType,
+    lfaIncludeBody,
+
+    -- ** EventType
+    EventType (..),
+
+    -- ** CachedMethods
+    CachedMethods (..),
+    mkCachedMethods,
+    cmQuantity,
+    cmItems,
+
+    -- ** CachePolicyType
+    CachePolicyType (..),
+
+    -- ** ViewerCertificate
+    ViewerCertificate (..),
+    mkViewerCertificate,
+    vcACMCertificateArn,
+    vcCertificate,
+    vcCertificateSource,
+    vcCloudFrontDefaultCertificate,
+    vcIAMCertificateId,
+    vcMinimumProtocolVersion,
+    vcSSLSupportMethod,
+
+    -- ** RealtimeMetricsSubscriptionStatus
+    RealtimeMetricsSubscriptionStatus (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** Restrictions
+    Restrictions (..),
+    mkRestrictions,
+    rGeoRestriction,
+
+    -- ** KGKeyPairIds
+    KGKeyPairIds (..),
+    mkKGKeyPairIds,
+    kgkpiKeyGroupId,
+    kgkpiKeyPairIds,
+
+    -- ** Origins
+    Origins (..),
+    mkOrigins,
+    oQuantity,
+    oItems,
+
+    -- ** Method
+    Method (..),
+
+    -- ** StreamingDistributionConfigWithTags
+    StreamingDistributionConfigWithTags (..),
+    mkStreamingDistributionConfigWithTags,
+    sdcwtStreamingDistributionConfig,
+    sdcwtTags,
+
+    -- ** MinimumProtocolVersion
+    MinimumProtocolVersion (..),
+
+    -- ** ForwardedValues
+    ForwardedValues (..),
+    mkForwardedValues,
+    fvQueryString,
+    fvCookies,
+    fvHeaders,
+    fvQueryStringCacheKeys,
+
+    -- ** EncryptionEntities
+    EncryptionEntities (..),
+    mkEncryptionEntities,
+    eeQuantity,
+    eeItems,
+
+    -- ** StatusCodes
+    StatusCodes (..),
+    mkStatusCodes,
+    scQuantity,
+    scItems,
+
     -- ** TrustedSigners
     TrustedSigners (..),
     mkTrustedSigners,
@@ -1186,26 +1238,388 @@ module Network.AWS.CloudFront
     tsQuantity,
     tsItems,
 
-    -- ** ViewerCertificate
-    ViewerCertificate (..),
-    mkViewerCertificate,
-    vcSSLSupportMethod,
-    vcACMCertificateARN,
-    vcCertificateSource,
-    vcMinimumProtocolVersion,
-    vcCertificate,
-    vcIAMCertificateId,
-    vcCloudFrontDefaultCertificate,
+    -- ** PublicKeySummary
+    PublicKeySummary (..),
+    mkPublicKeySummary,
+    pksId,
+    pksName,
+    pksCreatedTime,
+    pksEncodedKey,
+    pksComment,
+
+    -- ** CachePolicyQueryStringsConfig
+    CachePolicyQueryStringsConfig (..),
+    mkCachePolicyQueryStringsConfig,
+    cpqscQueryStringBehavior,
+    cpqscQueryStrings,
+
+    -- ** CachePolicyHeadersConfig
+    CachePolicyHeadersConfig (..),
+    mkCachePolicyHeadersConfig,
+    cphcHeaderBehavior,
+    cphcHeaders,
+
+    -- ** ItemSelection
+    ItemSelection (..),
+
+    -- ** OriginRequestPolicyCookieBehavior
+    OriginRequestPolicyCookieBehavior (..),
+
+    -- ** OriginSslProtocols
+    OriginSslProtocols (..),
+    mkOriginSslProtocols,
+    ospQuantity,
+    ospItems,
+
+    -- ** DistributionIdList
+    DistributionIdList (..),
+    mkDistributionIdList,
+    dilMarker,
+    dilMaxItems,
+    dilIsTruncated,
+    dilQuantity,
+    dilItems,
+    dilNextMarker,
+
+    -- ** OriginRequestPolicyType
+    OriginRequestPolicyType (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** StreamingLoggingConfig
+    StreamingLoggingConfig (..),
+    mkStreamingLoggingConfig,
+    slcEnabled,
+    slcBucket,
+    slcPrefix,
+
+    -- ** OriginGroupMembers
+    OriginGroupMembers (..),
+    mkOriginGroupMembers,
+    ogmQuantity,
+    ogmItems,
+
+    -- ** OriginCustomHeader
+    OriginCustomHeader (..),
+    mkOriginCustomHeader,
+    ochHeaderName,
+    ochHeaderValue,
+
+    -- ** CookieNames
+    CookieNames (..),
+    mkCookieNames,
+    cnQuantity,
+    cnItems,
+
+    -- ** CustomErrorResponse
+    CustomErrorResponse (..),
+    mkCustomErrorResponse,
+    cerErrorCode,
+    cerErrorCachingMinTTL,
+    cerResponseCode,
+    cerResponsePagePath,
+
+    -- ** EndPoint
+    EndPoint (..),
+    mkEndPoint,
+    epStreamType,
+    epKinesisStreamConfig,
+
+    -- ** QueryStringNames
+    QueryStringNames (..),
+    mkQueryStringNames,
+    qsnQuantity,
+    qsnItems,
+
+    -- ** FieldLevelEncryption
+    FieldLevelEncryption (..),
+    mkFieldLevelEncryption,
+    fleId,
+    fleLastModifiedTime,
+    fleFieldLevelEncryptionConfig,
+
+    -- ** DistributionConfigWithTags
+    DistributionConfigWithTags (..),
+    mkDistributionConfigWithTags,
+    dcwtDistributionConfig,
+    dcwtTags,
+
+    -- ** OriginRequestPolicyQueryStringsConfig
+    OriginRequestPolicyQueryStringsConfig (..),
+    mkOriginRequestPolicyQueryStringsConfig,
+    orpqscQueryStringBehavior,
+    orpqscQueryStrings,
+
+    -- ** OriginGroupMember
+    OriginGroupMember (..),
+    mkOriginGroupMember,
+    ogmOriginId,
+
+    -- ** OriginShield
+    OriginShield (..),
+    mkOriginShield,
+    osEnabled,
+    osOriginShieldRegion,
+
+    -- ** CacheBehaviors
+    CacheBehaviors (..),
+    mkCacheBehaviors,
+    cbQuantity,
+    cbItems,
+
+    -- ** DefaultCacheBehavior
+    DefaultCacheBehavior (..),
+    mkDefaultCacheBehavior,
+    dcbTargetOriginId,
+    dcbViewerProtocolPolicy,
+    dcbAllowedMethods,
+    dcbCachePolicyId,
+    dcbCompress,
+    dcbDefaultTTL,
+    dcbFieldLevelEncryptionId,
+    dcbForwardedValues,
+    dcbLambdaFunctionAssociations,
+    dcbMaxTTL,
+    dcbMinTTL,
+    dcbOriginRequestPolicyId,
+    dcbRealtimeLogConfigArn,
+    dcbSmoothStreaming,
+    dcbTrustedKeyGroups,
+    dcbTrustedSigners,
+
+    -- ** InvalidationList
+    InvalidationList (..),
+    mkInvalidationList,
+    ilMarker,
+    ilMaxItems,
+    ilIsTruncated,
+    ilQuantity,
+    ilItems,
+    ilNextMarker,
+
+    -- ** QueryArgProfiles
+    QueryArgProfiles (..),
+    mkQueryArgProfiles,
+    qapQuantity,
+    qapItems,
+
+    -- ** CachePolicyConfig
+    CachePolicyConfig (..),
+    mkCachePolicyConfig,
+    cpcName,
+    cpcMinTTL,
+    cpcComment,
+    cpcDefaultTTL,
+    cpcMaxTTL,
+    cpcParametersInCacheKeyAndForwardedToOrigin,
+
+    -- ** StreamingDistribution
+    StreamingDistribution (..),
+    mkStreamingDistribution,
+    sdId,
+    sdARN,
+    sdStatus,
+    sdDomainName,
+    sdActiveTrustedSigners,
+    sdStreamingDistributionConfig,
+    sdLastModifiedTime,
+
+    -- ** CachePolicyList
+    CachePolicyList (..),
+    mkCachePolicyList,
+    cplMaxItems,
+    cplQuantity,
+    cplItems,
+    cplNextMarker,
+
+    -- ** Paths
+    Paths (..),
+    mkPaths,
+    pQuantity,
+    pItems,
+
+    -- ** CloudFrontOriginAccessIdentity
+    CloudFrontOriginAccessIdentity (..),
+    mkCloudFrontOriginAccessIdentity,
+    cfoaiId,
+    cfoaiS3CanonicalUserId,
+    cfoaiCloudFrontOriginAccessIdentityConfig,
+
+    -- ** OriginRequestPolicyHeaderBehavior
+    OriginRequestPolicyHeaderBehavior (..),
+
+    -- ** ActiveTrustedSigners
+    ActiveTrustedSigners (..),
+    mkActiveTrustedSigners,
+    atsEnabled,
+    atsQuantity,
+    atsItems,
+
+    -- ** DistributionSummary
+    DistributionSummary (..),
+    mkDistributionSummary,
+    dsId,
+    dsARN,
+    dsStatus,
+    dsLastModifiedTime,
+    dsDomainName,
+    dsAliases,
+    dsOrigins,
+    dsDefaultCacheBehavior,
+    dsCacheBehaviors,
+    dsCustomErrorResponses,
+    dsComment,
+    dsPriceClass,
+    dsEnabled,
+    dsViewerCertificate,
+    dsRestrictions,
+    dsWebACLId,
+    dsHttpVersion,
+    dsIsIPV6Enabled,
+    dsAliasICPRecordals,
+    dsOriginGroups,
+
+    -- ** OriginRequestPolicySummary
+    OriginRequestPolicySummary (..),
+    mkOriginRequestPolicySummary,
+    orpsType,
+    orpsOriginRequestPolicy,
+
+    -- ** ContentTypeProfiles
+    ContentTypeProfiles (..),
+    mkContentTypeProfiles,
+    ctpQuantity,
+    ctpItems,
+
+    -- ** Tags
+    Tags (..),
+    mkTags,
+    tItems,
+
+    -- ** CachePolicyCookiesConfig
+    CachePolicyCookiesConfig (..),
+    mkCachePolicyCookiesConfig,
+    cpccCookieBehavior,
+    cpccCookies,
+
+    -- ** GeoRestrictionType
+    GeoRestrictionType (..),
+
+    -- ** LoggingConfig
+    LoggingConfig (..),
+    mkLoggingConfig,
+    lcEnabled,
+    lcIncludeCookies,
+    lcBucket,
+    lcPrefix,
+
+    -- ** FieldLevelEncryptionConfig
+    FieldLevelEncryptionConfig (..),
+    mkFieldLevelEncryptionConfig,
+    flecCallerReference,
+    flecComment,
+    flecContentTypeProfileConfig,
+    flecQueryArgProfileConfig,
+
+    -- ** FieldLevelEncryptionList
+    FieldLevelEncryptionList (..),
+    mkFieldLevelEncryptionList,
+    flelMaxItems,
+    flelQuantity,
+    flelItems,
+    flelNextMarker,
+
+    -- ** FieldPatterns
+    FieldPatterns (..),
+    mkFieldPatterns,
+    fpQuantity,
+    fpItems,
+
+    -- ** RealtimeMetricsSubscriptionConfig
+    RealtimeMetricsSubscriptionConfig (..),
+    mkRealtimeMetricsSubscriptionConfig,
+    rmscRealtimeMetricsSubscriptionStatus,
+
+    -- ** PublicKeyId
+    PublicKeyId (..),
+
+    -- ** ProviderId
+    ProviderId (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** ETag
+    ETag (..),
+
+    -- ** Location
+    Location (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** NextMarker
+    NextMarker (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** CNAME
+    CNAME (..),
+
+    -- ** CallerReference
+    CallerReference (..),
+
+    -- ** Comment
+    Comment (..),
+
+    -- ** DomainName
+    DomainName (..),
+
+    -- ** OriginPath
+    OriginPath (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** IfMatch
+    IfMatch (..),
+
+    -- ** AwsAccountNumber
+    AwsAccountNumber (..),
+
+    -- ** DistributionId
+    DistributionId (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** ProfileId
+    ProfileId (..),
+
+    -- ** ARN
+    ARN (..),
+
+    -- ** S3CanonicalUserId
+    S3CanonicalUserId (..),
+
+    -- ** Resource
+    Resource (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

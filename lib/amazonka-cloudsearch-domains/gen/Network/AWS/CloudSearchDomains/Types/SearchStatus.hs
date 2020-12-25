@@ -22,49 +22,45 @@ module Network.AWS.CloudSearchDomains.Types.SearchStatus
   )
 where
 
+import qualified Network.AWS.CloudSearchDomains.Types.Rid as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the resource id (@rid@ ) and the time it took to process the request (@timems@ ).
 --
 -- /See:/ 'mkSearchStatus' smart constructor.
 data SearchStatus = SearchStatus'
   { -- | The encrypted resource ID for the request.
-    rid :: Lude.Maybe Lude.Text,
+    rid :: Core.Maybe Types.Rid,
     -- | How long it took to process the request, in milliseconds.
-    timems :: Lude.Maybe Lude.Integer
+    timems :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SearchStatus' with the minimum fields required to make a request.
---
--- * 'rid' - The encrypted resource ID for the request.
--- * 'timems' - How long it took to process the request, in milliseconds.
+-- | Creates a 'SearchStatus' value with any optional fields omitted.
 mkSearchStatus ::
   SearchStatus
 mkSearchStatus =
-  SearchStatus' {rid = Lude.Nothing, timems = Lude.Nothing}
+  SearchStatus' {rid = Core.Nothing, timems = Core.Nothing}
 
 -- | The encrypted resource ID for the request.
 --
 -- /Note:/ Consider using 'rid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sRid :: Lens.Lens' SearchStatus (Lude.Maybe Lude.Text)
-sRid = Lens.lens (rid :: SearchStatus -> Lude.Maybe Lude.Text) (\s a -> s {rid = a} :: SearchStatus)
+sRid :: Lens.Lens' SearchStatus (Core.Maybe Types.Rid)
+sRid = Lens.field @"rid"
 {-# DEPRECATED sRid "Use generic-lens or generic-optics with 'rid' instead." #-}
 
 -- | How long it took to process the request, in milliseconds.
 --
 -- /Note:/ Consider using 'timems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTimems :: Lens.Lens' SearchStatus (Lude.Maybe Lude.Integer)
-sTimems = Lens.lens (timems :: SearchStatus -> Lude.Maybe Lude.Integer) (\s a -> s {timems = a} :: SearchStatus)
+sTimems :: Lens.Lens' SearchStatus (Core.Maybe Core.Integer)
+sTimems = Lens.field @"timems"
 {-# DEPRECATED sTimems "Use generic-lens or generic-optics with 'timems' instead." #-}
 
-instance Lude.FromJSON SearchStatus where
+instance Core.FromJSON SearchStatus where
   parseJSON =
-    Lude.withObject
-      "SearchStatus"
-      ( \x ->
-          SearchStatus'
-            Lude.<$> (x Lude..:? "rid") Lude.<*> (x Lude..:? "timems")
-      )
+    Core.withObject "SearchStatus" Core.$
+      \x ->
+        SearchStatus'
+          Core.<$> (x Core..:? "rid") Core.<*> (x Core..:? "timems")

@@ -23,53 +23,48 @@ module Network.AWS.SSM.Types.NonCompliantSummary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.SeveritySummary
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.SeveritySummary as Types
 
 -- | A summary of resources that are not compliant. The summary is organized according to resource type.
 --
 -- /See:/ 'mkNonCompliantSummary' smart constructor.
 data NonCompliantSummary = NonCompliantSummary'
   { -- | The total number of compliance items that are not compliant.
-    nonCompliantCount :: Lude.Maybe Lude.Int,
+    nonCompliantCount :: Core.Maybe Core.Int,
     -- | A summary of the non-compliance severity by compliance type
-    severitySummary :: Lude.Maybe SeveritySummary
+    severitySummary :: Core.Maybe Types.SeveritySummary
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NonCompliantSummary' with the minimum fields required to make a request.
---
--- * 'nonCompliantCount' - The total number of compliance items that are not compliant.
--- * 'severitySummary' - A summary of the non-compliance severity by compliance type
+-- | Creates a 'NonCompliantSummary' value with any optional fields omitted.
 mkNonCompliantSummary ::
   NonCompliantSummary
 mkNonCompliantSummary =
   NonCompliantSummary'
-    { nonCompliantCount = Lude.Nothing,
-      severitySummary = Lude.Nothing
+    { nonCompliantCount = Core.Nothing,
+      severitySummary = Core.Nothing
     }
 
 -- | The total number of compliance items that are not compliant.
 --
 -- /Note:/ Consider using 'nonCompliantCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncsNonCompliantCount :: Lens.Lens' NonCompliantSummary (Lude.Maybe Lude.Int)
-ncsNonCompliantCount = Lens.lens (nonCompliantCount :: NonCompliantSummary -> Lude.Maybe Lude.Int) (\s a -> s {nonCompliantCount = a} :: NonCompliantSummary)
+ncsNonCompliantCount :: Lens.Lens' NonCompliantSummary (Core.Maybe Core.Int)
+ncsNonCompliantCount = Lens.field @"nonCompliantCount"
 {-# DEPRECATED ncsNonCompliantCount "Use generic-lens or generic-optics with 'nonCompliantCount' instead." #-}
 
 -- | A summary of the non-compliance severity by compliance type
 --
 -- /Note:/ Consider using 'severitySummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncsSeveritySummary :: Lens.Lens' NonCompliantSummary (Lude.Maybe SeveritySummary)
-ncsSeveritySummary = Lens.lens (severitySummary :: NonCompliantSummary -> Lude.Maybe SeveritySummary) (\s a -> s {severitySummary = a} :: NonCompliantSummary)
+ncsSeveritySummary :: Lens.Lens' NonCompliantSummary (Core.Maybe Types.SeveritySummary)
+ncsSeveritySummary = Lens.field @"severitySummary"
 {-# DEPRECATED ncsSeveritySummary "Use generic-lens or generic-optics with 'severitySummary' instead." #-}
 
-instance Lude.FromJSON NonCompliantSummary where
+instance Core.FromJSON NonCompliantSummary where
   parseJSON =
-    Lude.withObject
-      "NonCompliantSummary"
-      ( \x ->
-          NonCompliantSummary'
-            Lude.<$> (x Lude..:? "NonCompliantCount")
-            Lude.<*> (x Lude..:? "SeveritySummary")
-      )
+    Core.withObject "NonCompliantSummary" Core.$
+      \x ->
+        NonCompliantSummary'
+          Core.<$> (x Core..:? "NonCompliantCount")
+          Core.<*> (x Core..:? "SeveritySummary")

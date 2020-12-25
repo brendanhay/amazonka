@@ -23,52 +23,48 @@ module Network.AWS.Rekognition.Types.SegmentTypeInfo
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.SegmentType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.SegmentType as Types
+import qualified Network.AWS.Rekognition.Types.String as Types
 
 -- | Information about the type of a segment requested in a call to 'StartSegmentDetection' . An array of @SegmentTypeInfo@ objects is returned by the response from 'GetSegmentDetection' .
 --
 -- /See:/ 'mkSegmentTypeInfo' smart constructor.
 data SegmentTypeInfo = SegmentTypeInfo'
   { -- | The version of the model used to detect segments.
-    modelVersion :: Lude.Maybe Lude.Text,
+    modelVersion :: Core.Maybe Types.String,
     -- | The type of a segment (technical cue or shot detection).
-    type' :: Lude.Maybe SegmentType
+    type' :: Core.Maybe Types.SegmentType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SegmentTypeInfo' with the minimum fields required to make a request.
---
--- * 'modelVersion' - The version of the model used to detect segments.
--- * 'type'' - The type of a segment (technical cue or shot detection).
+-- | Creates a 'SegmentTypeInfo' value with any optional fields omitted.
 mkSegmentTypeInfo ::
   SegmentTypeInfo
 mkSegmentTypeInfo =
   SegmentTypeInfo'
-    { modelVersion = Lude.Nothing,
-      type' = Lude.Nothing
+    { modelVersion = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The version of the model used to detect segments.
 --
 -- /Note:/ Consider using 'modelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stiModelVersion :: Lens.Lens' SegmentTypeInfo (Lude.Maybe Lude.Text)
-stiModelVersion = Lens.lens (modelVersion :: SegmentTypeInfo -> Lude.Maybe Lude.Text) (\s a -> s {modelVersion = a} :: SegmentTypeInfo)
+stiModelVersion :: Lens.Lens' SegmentTypeInfo (Core.Maybe Types.String)
+stiModelVersion = Lens.field @"modelVersion"
 {-# DEPRECATED stiModelVersion "Use generic-lens or generic-optics with 'modelVersion' instead." #-}
 
 -- | The type of a segment (technical cue or shot detection).
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stiType :: Lens.Lens' SegmentTypeInfo (Lude.Maybe SegmentType)
-stiType = Lens.lens (type' :: SegmentTypeInfo -> Lude.Maybe SegmentType) (\s a -> s {type' = a} :: SegmentTypeInfo)
+stiType :: Lens.Lens' SegmentTypeInfo (Core.Maybe Types.SegmentType)
+stiType = Lens.field @"type'"
 {-# DEPRECATED stiType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON SegmentTypeInfo where
+instance Core.FromJSON SegmentTypeInfo where
   parseJSON =
-    Lude.withObject
-      "SegmentTypeInfo"
-      ( \x ->
-          SegmentTypeInfo'
-            Lude.<$> (x Lude..:? "ModelVersion") Lude.<*> (x Lude..:? "Type")
-      )
+    Core.withObject "SegmentTypeInfo" Core.$
+      \x ->
+        SegmentTypeInfo'
+          Core.<$> (x Core..:? "ModelVersion") Core.<*> (x Core..:? "Type")

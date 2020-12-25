@@ -22,7 +22,7 @@ module Network.AWS.EC2.Types.LaunchTemplateHibernationOptionsRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether the instance is configured for hibernation. This parameter is valid only if the instance meets the <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites hibernation prerequisites> .
 --
@@ -31,22 +31,18 @@ newtype LaunchTemplateHibernationOptionsRequest = LaunchTemplateHibernationOptio
   { -- | If you set this parameter to @true@ , the instance is enabled for hibernation.
     --
     -- Default: @false@
-    configured :: Lude.Maybe Lude.Bool
+    configured :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplateHibernationOptionsRequest' with the minimum fields required to make a request.
---
--- * 'configured' - If you set this parameter to @true@ , the instance is enabled for hibernation.
---
--- Default: @false@
+-- | Creates a 'LaunchTemplateHibernationOptionsRequest' value with any optional fields omitted.
 mkLaunchTemplateHibernationOptionsRequest ::
   LaunchTemplateHibernationOptionsRequest
 mkLaunchTemplateHibernationOptionsRequest =
   LaunchTemplateHibernationOptionsRequest'
     { configured =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | If you set this parameter to @true@ , the instance is enabled for hibernation.
@@ -54,10 +50,6 @@ mkLaunchTemplateHibernationOptionsRequest =
 -- Default: @false@
 --
 -- /Note:/ Consider using 'configured' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lthorConfigured :: Lens.Lens' LaunchTemplateHibernationOptionsRequest (Lude.Maybe Lude.Bool)
-lthorConfigured = Lens.lens (configured :: LaunchTemplateHibernationOptionsRequest -> Lude.Maybe Lude.Bool) (\s a -> s {configured = a} :: LaunchTemplateHibernationOptionsRequest)
+lthorConfigured :: Lens.Lens' LaunchTemplateHibernationOptionsRequest (Core.Maybe Core.Bool)
+lthorConfigured = Lens.field @"configured"
 {-# DEPRECATED lthorConfigured "Use generic-lens or generic-optics with 'configured' instead." #-}
-
-instance Lude.ToQuery LaunchTemplateHibernationOptionsRequest where
-  toQuery LaunchTemplateHibernationOptionsRequest' {..} =
-    Lude.mconcat ["Configured" Lude.=: configured]

@@ -13,46 +13,48 @@
 module Network.AWS.Discovery.Types.OrderString
   ( OrderString
       ( OrderString',
-        Asc,
-        Desc
+        OrderStringAsc,
+        OrderStringDesc,
+        fromOrderString
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OrderString = OrderString' Lude.Text
+newtype OrderString = OrderString' {fromOrderString :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Asc :: OrderString
-pattern Asc = OrderString' "ASC"
+pattern OrderStringAsc :: OrderString
+pattern OrderStringAsc = OrderString' "ASC"
 
-pattern Desc :: OrderString
-pattern Desc = OrderString' "DESC"
+pattern OrderStringDesc :: OrderString
+pattern OrderStringDesc = OrderString' "DESC"
 
 {-# COMPLETE
-  Asc,
-  Desc,
+  OrderStringAsc,
+  OrderStringDesc,
   OrderString'
   #-}

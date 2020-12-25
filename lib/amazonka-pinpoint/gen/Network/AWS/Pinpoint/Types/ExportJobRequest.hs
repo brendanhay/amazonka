@@ -17,87 +17,82 @@ module Network.AWS.Pinpoint.Types.ExportJobRequest
     mkExportJobRequest,
 
     -- * Lenses
-    eS3URLPrefix,
+    eS3UrlPrefix,
+    eRoleArn,
     eSegmentId,
-    eRoleARN,
     eSegmentVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the settings for a job that exports endpoint definitions to an Amazon Simple Storage Service (Amazon S3) bucket.
 --
 -- /See:/ 'mkExportJobRequest' smart constructor.
 data ExportJobRequest = ExportJobRequest'
   { -- | The URL of the location in an Amazon Simple Storage Service (Amazon S3) bucket where you want to export endpoint definitions to. This location is typically a folder that contains multiple files. The URL should be in the following format: s3://<replaceable>bucket-name/<replaceable>folder-name/.
-    s3URLPrefix :: Lude.Text,
-    -- | The identifier for the segment to export endpoint definitions from. If you don't specify this value, Amazon Pinpoint exports definitions for all the endpoints that are associated with the application.
-    segmentId :: Lude.Maybe Lude.Text,
+    s3UrlPrefix :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location where you want to export endpoint definitions to.
-    roleARN :: Lude.Text,
+    roleArn :: Core.Text,
+    -- | The identifier for the segment to export endpoint definitions from. If you don't specify this value, Amazon Pinpoint exports definitions for all the endpoints that are associated with the application.
+    segmentId :: Core.Maybe Core.Text,
     -- | The version of the segment to export endpoint definitions from, if specified.
-    segmentVersion :: Lude.Maybe Lude.Int
+    segmentVersion :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportJobRequest' with the minimum fields required to make a request.
---
--- * 's3URLPrefix' - The URL of the location in an Amazon Simple Storage Service (Amazon S3) bucket where you want to export endpoint definitions to. This location is typically a folder that contains multiple files. The URL should be in the following format: s3://<replaceable>bucket-name/<replaceable>folder-name/.
--- * 'segmentId' - The identifier for the segment to export endpoint definitions from. If you don't specify this value, Amazon Pinpoint exports definitions for all the endpoints that are associated with the application.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location where you want to export endpoint definitions to.
--- * 'segmentVersion' - The version of the segment to export endpoint definitions from, if specified.
+-- | Creates a 'ExportJobRequest' value with any optional fields omitted.
 mkExportJobRequest ::
-  -- | 's3URLPrefix'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  -- | 's3UrlPrefix'
+  Core.Text ->
+  -- | 'roleArn'
+  Core.Text ->
   ExportJobRequest
-mkExportJobRequest pS3URLPrefix_ pRoleARN_ =
+mkExportJobRequest s3UrlPrefix roleArn =
   ExportJobRequest'
-    { s3URLPrefix = pS3URLPrefix_,
-      segmentId = Lude.Nothing,
-      roleARN = pRoleARN_,
-      segmentVersion = Lude.Nothing
+    { s3UrlPrefix,
+      roleArn,
+      segmentId = Core.Nothing,
+      segmentVersion = Core.Nothing
     }
 
 -- | The URL of the location in an Amazon Simple Storage Service (Amazon S3) bucket where you want to export endpoint definitions to. This location is typically a folder that contains multiple files. The URL should be in the following format: s3://<replaceable>bucket-name/<replaceable>folder-name/.
 --
--- /Note:/ Consider using 's3URLPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eS3URLPrefix :: Lens.Lens' ExportJobRequest Lude.Text
-eS3URLPrefix = Lens.lens (s3URLPrefix :: ExportJobRequest -> Lude.Text) (\s a -> s {s3URLPrefix = a} :: ExportJobRequest)
-{-# DEPRECATED eS3URLPrefix "Use generic-lens or generic-optics with 's3URLPrefix' instead." #-}
+-- /Note:/ Consider using 's3UrlPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eS3UrlPrefix :: Lens.Lens' ExportJobRequest Core.Text
+eS3UrlPrefix = Lens.field @"s3UrlPrefix"
+{-# DEPRECATED eS3UrlPrefix "Use generic-lens or generic-optics with 's3UrlPrefix' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location where you want to export endpoint definitions to.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eRoleArn :: Lens.Lens' ExportJobRequest Core.Text
+eRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED eRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The identifier for the segment to export endpoint definitions from. If you don't specify this value, Amazon Pinpoint exports definitions for all the endpoints that are associated with the application.
 --
 -- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSegmentId :: Lens.Lens' ExportJobRequest (Lude.Maybe Lude.Text)
-eSegmentId = Lens.lens (segmentId :: ExportJobRequest -> Lude.Maybe Lude.Text) (\s a -> s {segmentId = a} :: ExportJobRequest)
+eSegmentId :: Lens.Lens' ExportJobRequest (Core.Maybe Core.Text)
+eSegmentId = Lens.field @"segmentId"
 {-# DEPRECATED eSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorizes Amazon Pinpoint to access the Amazon S3 location where you want to export endpoint definitions to.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eRoleARN :: Lens.Lens' ExportJobRequest Lude.Text
-eRoleARN = Lens.lens (roleARN :: ExportJobRequest -> Lude.Text) (\s a -> s {roleARN = a} :: ExportJobRequest)
-{-# DEPRECATED eRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
 -- | The version of the segment to export endpoint definitions from, if specified.
 --
 -- /Note:/ Consider using 'segmentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eSegmentVersion :: Lens.Lens' ExportJobRequest (Lude.Maybe Lude.Int)
-eSegmentVersion = Lens.lens (segmentVersion :: ExportJobRequest -> Lude.Maybe Lude.Int) (\s a -> s {segmentVersion = a} :: ExportJobRequest)
+eSegmentVersion :: Lens.Lens' ExportJobRequest (Core.Maybe Core.Int)
+eSegmentVersion = Lens.field @"segmentVersion"
 {-# DEPRECATED eSegmentVersion "Use generic-lens or generic-optics with 'segmentVersion' instead." #-}
 
-instance Lude.ToJSON ExportJobRequest where
-  toJSON ExportJobRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("S3UrlPrefix" Lude..= s3URLPrefix),
-            ("SegmentId" Lude..=) Lude.<$> segmentId,
-            Lude.Just ("RoleArn" Lude..= roleARN),
-            ("SegmentVersion" Lude..=) Lude.<$> segmentVersion
+instance Core.FromJSON ExportJobRequest where
+  toJSON ExportJobRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("S3UrlPrefix" Core..= s3UrlPrefix),
+            Core.Just ("RoleArn" Core..= roleArn),
+            ("SegmentId" Core..=) Core.<$> segmentId,
+            ("SegmentVersion" Core..=) Core.<$> segmentVersion
           ]
       )

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,22 @@
 -- The Amazon SageMaker runtime API.
 module Network.AWS.SageMakerRuntime
   ( -- * Service configuration
-    sageMakerRuntimeService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ServiceUnavailable
+    _ServiceUnavailable,
+
+    -- ** ModelError
+    _ModelError,
+
+    -- ** InternalFailure
+    _InternalFailure,
+
+    -- ** ValidationError
+    _ValidationError,
 
     -- * Waiters
     -- $waiters
@@ -30,15 +41,37 @@ module Network.AWS.SageMakerRuntime
 
     -- * Types
 
+    -- ** EndpointName
+    EndpointName (..),
+
+    -- ** CustomAttributesHeader
+    CustomAttributesHeader (..),
+
+    -- ** TargetModelHeader
+    TargetModelHeader (..),
+
+    -- ** Header
+    Header (..),
+
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** CustomAttributes
+    CustomAttributes (..),
+
+    -- ** InvokedProductionVariant
+    InvokedProductionVariant (..),
+
+    -- ** TargetVariant
+    TargetVariant (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -21,35 +21,33 @@ module Network.AWS.ElastiCache.Types.ReshardingStatus
   )
 where
 
-import Network.AWS.ElastiCache.Types.SlotMigration
+import qualified Network.AWS.ElastiCache.Types.SlotMigration as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of an online resharding operation.
 --
 -- /See:/ 'mkReshardingStatus' smart constructor.
 newtype ReshardingStatus = ReshardingStatus'
   { -- | Represents the progress of an online resharding operation.
-    slotMigration :: Lude.Maybe SlotMigration
+    slotMigration :: Core.Maybe Types.SlotMigration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReshardingStatus' with the minimum fields required to make a request.
---
--- * 'slotMigration' - Represents the progress of an online resharding operation.
+-- | Creates a 'ReshardingStatus' value with any optional fields omitted.
 mkReshardingStatus ::
   ReshardingStatus
 mkReshardingStatus =
-  ReshardingStatus' {slotMigration = Lude.Nothing}
+  ReshardingStatus' {slotMigration = Core.Nothing}
 
 -- | Represents the progress of an online resharding operation.
 --
 -- /Note:/ Consider using 'slotMigration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsSlotMigration :: Lens.Lens' ReshardingStatus (Lude.Maybe SlotMigration)
-rsSlotMigration = Lens.lens (slotMigration :: ReshardingStatus -> Lude.Maybe SlotMigration) (\s a -> s {slotMigration = a} :: ReshardingStatus)
+rsSlotMigration :: Lens.Lens' ReshardingStatus (Core.Maybe Types.SlotMigration)
+rsSlotMigration = Lens.field @"slotMigration"
 {-# DEPRECATED rsSlotMigration "Use generic-lens or generic-optics with 'slotMigration' instead." #-}
 
-instance Lude.FromXML ReshardingStatus where
+instance Core.FromXML ReshardingStatus where
   parseXML x =
-    ReshardingStatus' Lude.<$> (x Lude..@? "SlotMigration")
+    ReshardingStatus' Core.<$> (x Core..@? "SlotMigration")

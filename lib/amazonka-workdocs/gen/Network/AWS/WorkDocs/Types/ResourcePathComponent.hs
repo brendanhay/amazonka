@@ -17,54 +17,51 @@ module Network.AWS.WorkDocs.Types.ResourcePathComponent
     mkResourcePathComponent,
 
     -- * Lenses
-    rpcName,
     rpcId,
+    rpcName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.IdType as Types
+import qualified Network.AWS.WorkDocs.Types.Name as Types
 
 -- | Describes the resource path.
 --
 -- /See:/ 'mkResourcePathComponent' smart constructor.
 data ResourcePathComponent = ResourcePathComponent'
-  { -- | The name of the resource path.
-    name :: Lude.Maybe Lude.Text,
-    -- | The ID of the resource path.
-    id :: Lude.Maybe Lude.Text
+  { -- | The ID of the resource path.
+    id :: Core.Maybe Types.IdType,
+    -- | The name of the resource path.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourcePathComponent' with the minimum fields required to make a request.
---
--- * 'name' - The name of the resource path.
--- * 'id' - The ID of the resource path.
+-- | Creates a 'ResourcePathComponent' value with any optional fields omitted.
 mkResourcePathComponent ::
   ResourcePathComponent
 mkResourcePathComponent =
-  ResourcePathComponent' {name = Lude.Nothing, id = Lude.Nothing}
-
--- | The name of the resource path.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpcName :: Lens.Lens' ResourcePathComponent (Lude.Maybe Lude.Text)
-rpcName = Lens.lens (name :: ResourcePathComponent -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ResourcePathComponent)
-{-# DEPRECATED rpcName "Use generic-lens or generic-optics with 'name' instead." #-}
+  ResourcePathComponent' {id = Core.Nothing, name = Core.Nothing}
 
 -- | The ID of the resource path.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpcId :: Lens.Lens' ResourcePathComponent (Lude.Maybe Lude.Text)
-rpcId = Lens.lens (id :: ResourcePathComponent -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ResourcePathComponent)
+rpcId :: Lens.Lens' ResourcePathComponent (Core.Maybe Types.IdType)
+rpcId = Lens.field @"id"
 {-# DEPRECATED rpcId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON ResourcePathComponent where
+-- | The name of the resource path.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpcName :: Lens.Lens' ResourcePathComponent (Core.Maybe Types.Name)
+rpcName = Lens.field @"name"
+{-# DEPRECATED rpcName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON ResourcePathComponent where
   parseJSON =
-    Lude.withObject
-      "ResourcePathComponent"
-      ( \x ->
-          ResourcePathComponent'
-            Lude.<$> (x Lude..:? "Name") Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "ResourcePathComponent" Core.$
+      \x ->
+        ResourcePathComponent'
+          Core.<$> (x Core..:? "Id") Core.<*> (x Core..:? "Name")

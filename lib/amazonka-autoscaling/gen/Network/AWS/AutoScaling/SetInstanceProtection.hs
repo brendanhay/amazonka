@@ -23,127 +23,124 @@ module Network.AWS.AutoScaling.SetInstanceProtection
     mkSetInstanceProtection,
 
     -- ** Request lenses
-    sipProtectedFromScaleIn,
     sipInstanceIds,
     sipAutoScalingGroupName,
+    sipProtectedFromScaleIn,
 
     -- * Destructuring the response
     SetInstanceProtectionResponse (..),
     mkSetInstanceProtectionResponse,
 
     -- ** Response lenses
-    siprsResponseStatus,
+    siprrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSetInstanceProtection' smart constructor.
 data SetInstanceProtection = SetInstanceProtection'
-  { -- | Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
-    protectedFromScaleIn :: Lude.Bool,
-    -- | One or more instance IDs. You can specify up to 50 instances.
-    instanceIds :: [Lude.Text],
+  { -- | One or more instance IDs. You can specify up to 50 instances.
+    instanceIds :: [Types.XmlStringMaxLen19],
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text
+    autoScalingGroupName :: Types.AutoScalingGroupName,
+    -- | Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+    protectedFromScaleIn :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetInstanceProtection' with the minimum fields required to make a request.
---
--- * 'protectedFromScaleIn' - Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
--- * 'instanceIds' - One or more instance IDs. You can specify up to 50 instances.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'SetInstanceProtection' value with any optional fields omitted.
 mkSetInstanceProtection ::
-  -- | 'protectedFromScaleIn'
-  Lude.Bool ->
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.AutoScalingGroupName ->
+  -- | 'protectedFromScaleIn'
+  Core.Bool ->
   SetInstanceProtection
-mkSetInstanceProtection
-  pProtectedFromScaleIn_
-  pAutoScalingGroupName_ =
-    SetInstanceProtection'
-      { protectedFromScaleIn =
-          pProtectedFromScaleIn_,
-        instanceIds = Lude.mempty,
-        autoScalingGroupName = pAutoScalingGroupName_
-      }
-
--- | Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
---
--- /Note:/ Consider using 'protectedFromScaleIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sipProtectedFromScaleIn :: Lens.Lens' SetInstanceProtection Lude.Bool
-sipProtectedFromScaleIn = Lens.lens (protectedFromScaleIn :: SetInstanceProtection -> Lude.Bool) (\s a -> s {protectedFromScaleIn = a} :: SetInstanceProtection)
-{-# DEPRECATED sipProtectedFromScaleIn "Use generic-lens or generic-optics with 'protectedFromScaleIn' instead." #-}
+mkSetInstanceProtection autoScalingGroupName protectedFromScaleIn =
+  SetInstanceProtection'
+    { instanceIds = Core.mempty,
+      autoScalingGroupName,
+      protectedFromScaleIn
+    }
 
 -- | One or more instance IDs. You can specify up to 50 instances.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sipInstanceIds :: Lens.Lens' SetInstanceProtection [Lude.Text]
-sipInstanceIds = Lens.lens (instanceIds :: SetInstanceProtection -> [Lude.Text]) (\s a -> s {instanceIds = a} :: SetInstanceProtection)
+sipInstanceIds :: Lens.Lens' SetInstanceProtection [Types.XmlStringMaxLen19]
+sipInstanceIds = Lens.field @"instanceIds"
 {-# DEPRECATED sipInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sipAutoScalingGroupName :: Lens.Lens' SetInstanceProtection Lude.Text
-sipAutoScalingGroupName = Lens.lens (autoScalingGroupName :: SetInstanceProtection -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: SetInstanceProtection)
+sipAutoScalingGroupName :: Lens.Lens' SetInstanceProtection Types.AutoScalingGroupName
+sipAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED sipAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance Lude.AWSRequest SetInstanceProtection where
+-- | Indicates whether the instance is protected from termination by Amazon EC2 Auto Scaling when scaling in.
+--
+-- /Note:/ Consider using 'protectedFromScaleIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sipProtectedFromScaleIn :: Lens.Lens' SetInstanceProtection Core.Bool
+sipProtectedFromScaleIn = Lens.field @"protectedFromScaleIn"
+{-# DEPRECATED sipProtectedFromScaleIn "Use generic-lens or generic-optics with 'protectedFromScaleIn' instead." #-}
+
+instance Core.AWSRequest SetInstanceProtection where
   type Rs SetInstanceProtection = SetInstanceProtectionResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SetInstanceProtection")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> ( Core.toQueryValue
+                            "InstanceIds"
+                            (Core.toQueryList "member" instanceIds)
+                        )
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> (Core.toQueryValue "ProtectedFromScaleIn" protectedFromScaleIn)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "SetInstanceProtectionResult"
       ( \s h x ->
           SetInstanceProtectionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetInstanceProtection where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SetInstanceProtection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetInstanceProtection where
-  toQuery SetInstanceProtection' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SetInstanceProtection" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "ProtectedFromScaleIn" Lude.=: protectedFromScaleIn,
-        "InstanceIds" Lude.=: Lude.toQueryList "member" instanceIds,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
 
 -- | /See:/ 'mkSetInstanceProtectionResponse' smart constructor.
 newtype SetInstanceProtectionResponse = SetInstanceProtectionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetInstanceProtectionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetInstanceProtectionResponse' value with any optional fields omitted.
 mkSetInstanceProtectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetInstanceProtectionResponse
-mkSetInstanceProtectionResponse pResponseStatus_ =
-  SetInstanceProtectionResponse' {responseStatus = pResponseStatus_}
+mkSetInstanceProtectionResponse responseStatus =
+  SetInstanceProtectionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siprsResponseStatus :: Lens.Lens' SetInstanceProtectionResponse Lude.Int
-siprsResponseStatus = Lens.lens (responseStatus :: SetInstanceProtectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetInstanceProtectionResponse)
-{-# DEPRECATED siprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+siprrsResponseStatus :: Lens.Lens' SetInstanceProtectionResponse Core.Int
+siprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED siprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,31 +20,33 @@ module Network.AWS.ServiceCatalog.ListStackInstancesForProvisionedProduct
     mkListStackInstancesForProvisionedProduct,
 
     -- ** Request lenses
-    lsifppAcceptLanguage,
-    lsifppPageToken,
-    lsifppPageSize,
     lsifppProvisionedProductId,
+    lsifppAcceptLanguage,
+    lsifppPageSize,
+    lsifppPageToken,
 
     -- * Destructuring the response
     ListStackInstancesForProvisionedProductResponse (..),
     mkListStackInstancesForProvisionedProductResponse,
 
     -- ** Response lenses
-    lsifpprsNextPageToken,
-    lsifpprsStackInstances,
-    lsifpprsResponseStatus,
+    lsifpprrsNextPageToken,
+    lsifpprrsStackInstances,
+    lsifpprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkListStackInstancesForProvisionedProduct' smart constructor.
 data ListStackInstancesForProvisionedProduct = ListStackInstancesForProvisionedProduct'
-  { -- | The language code.
+  { -- | The identifier of the provisioned product.
+    provisionedProductId :: Types.ProvisionedProductId,
+    -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -54,46 +56,34 @@ data ListStackInstancesForProvisionedProduct = ListStackInstancesForProvisionedP
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of results, use null.
-    pageToken :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
     -- | The maximum number of items to return with this call.
-    pageSize :: Lude.Maybe Lude.Natural,
-    -- | The identifier of the provisioned product.
-    provisionedProductId :: Lude.Text
+    pageSize :: Core.Maybe Core.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
+    pageToken :: Core.Maybe Types.PageToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListStackInstancesForProvisionedProduct' with the minimum fields required to make a request.
---
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'pageSize' - The maximum number of items to return with this call.
--- * 'provisionedProductId' - The identifier of the provisioned product.
+-- | Creates a 'ListStackInstancesForProvisionedProduct' value with any optional fields omitted.
 mkListStackInstancesForProvisionedProduct ::
   -- | 'provisionedProductId'
-  Lude.Text ->
+  Types.ProvisionedProductId ->
   ListStackInstancesForProvisionedProduct
-mkListStackInstancesForProvisionedProduct pProvisionedProductId_ =
+mkListStackInstancesForProvisionedProduct provisionedProductId =
   ListStackInstancesForProvisionedProduct'
-    { acceptLanguage =
-        Lude.Nothing,
-      pageToken = Lude.Nothing,
-      pageSize = Lude.Nothing,
-      provisionedProductId = pProvisionedProductId_
+    { provisionedProductId,
+      acceptLanguage = Core.Nothing,
+      pageSize = Core.Nothing,
+      pageToken = Core.Nothing
     }
+
+-- | The identifier of the provisioned product.
+--
+-- /Note:/ Consider using 'provisionedProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsifppProvisionedProductId :: Lens.Lens' ListStackInstancesForProvisionedProduct Types.ProvisionedProductId
+lsifppProvisionedProductId = Lens.field @"provisionedProductId"
+{-# DEPRECATED lsifppProvisionedProductId "Use generic-lens or generic-optics with 'provisionedProductId' instead." #-}
 
 -- | The language code.
 --
@@ -109,121 +99,104 @@ mkListStackInstancesForProvisionedProduct pProvisionedProductId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsifppAcceptLanguage :: Lens.Lens' ListStackInstancesForProvisionedProduct (Lude.Maybe Lude.Text)
-lsifppAcceptLanguage = Lens.lens (acceptLanguage :: ListStackInstancesForProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListStackInstancesForProvisionedProduct)
+lsifppAcceptLanguage :: Lens.Lens' ListStackInstancesForProvisionedProduct (Core.Maybe Types.AcceptLanguage)
+lsifppAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED lsifppAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
-
--- | The page token for the next set of results. To retrieve the first set of results, use null.
---
--- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsifppPageToken :: Lens.Lens' ListStackInstancesForProvisionedProduct (Lude.Maybe Lude.Text)
-lsifppPageToken = Lens.lens (pageToken :: ListStackInstancesForProvisionedProduct -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListStackInstancesForProvisionedProduct)
-{-# DEPRECATED lsifppPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsifppPageSize :: Lens.Lens' ListStackInstancesForProvisionedProduct (Lude.Maybe Lude.Natural)
-lsifppPageSize = Lens.lens (pageSize :: ListStackInstancesForProvisionedProduct -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListStackInstancesForProvisionedProduct)
+lsifppPageSize :: Lens.Lens' ListStackInstancesForProvisionedProduct (Core.Maybe Core.Natural)
+lsifppPageSize = Lens.field @"pageSize"
 {-# DEPRECATED lsifppPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
--- | The identifier of the provisioned product.
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
 --
--- /Note:/ Consider using 'provisionedProductId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsifppProvisionedProductId :: Lens.Lens' ListStackInstancesForProvisionedProduct Lude.Text
-lsifppProvisionedProductId = Lens.lens (provisionedProductId :: ListStackInstancesForProvisionedProduct -> Lude.Text) (\s a -> s {provisionedProductId = a} :: ListStackInstancesForProvisionedProduct)
-{-# DEPRECATED lsifppProvisionedProductId "Use generic-lens or generic-optics with 'provisionedProductId' instead." #-}
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsifppPageToken :: Lens.Lens' ListStackInstancesForProvisionedProduct (Core.Maybe Types.PageToken)
+lsifppPageToken = Lens.field @"pageToken"
+{-# DEPRECATED lsifppPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Lude.AWSRequest ListStackInstancesForProvisionedProduct where
+instance Core.FromJSON ListStackInstancesForProvisionedProduct where
+  toJSON ListStackInstancesForProvisionedProduct {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ProvisionedProductId" Core..= provisionedProductId),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken
+          ]
+      )
+
+instance Core.AWSRequest ListStackInstancesForProvisionedProduct where
   type
     Rs ListStackInstancesForProvisionedProduct =
       ListStackInstancesForProvisionedProductResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.ListStackInstancesForProvisionedProduct"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListStackInstancesForProvisionedProductResponse'
-            Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "StackInstances" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextPageToken")
+            Core.<*> (x Core..:? "StackInstances")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListStackInstancesForProvisionedProduct where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.ListStackInstancesForProvisionedProduct" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListStackInstancesForProvisionedProduct where
-  toJSON ListStackInstancesForProvisionedProduct' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("PageToken" Lude..=) Lude.<$> pageToken,
-            ("PageSize" Lude..=) Lude.<$> pageSize,
-            Lude.Just ("ProvisionedProductId" Lude..= provisionedProductId)
-          ]
-      )
-
-instance Lude.ToPath ListStackInstancesForProvisionedProduct where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListStackInstancesForProvisionedProduct where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListStackInstancesForProvisionedProductResponse' smart constructor.
 data ListStackInstancesForProvisionedProductResponse = ListStackInstancesForProvisionedProductResponse'
   { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | List of stack instances.
-    stackInstances :: Lude.Maybe [StackInstance],
+    stackInstances :: Core.Maybe [Types.StackInstance],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListStackInstancesForProvisionedProductResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
--- * 'stackInstances' - List of stack instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListStackInstancesForProvisionedProductResponse' value with any optional fields omitted.
 mkListStackInstancesForProvisionedProductResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListStackInstancesForProvisionedProductResponse
-mkListStackInstancesForProvisionedProductResponse pResponseStatus_ =
+mkListStackInstancesForProvisionedProductResponse responseStatus =
   ListStackInstancesForProvisionedProductResponse'
     { nextPageToken =
-        Lude.Nothing,
-      stackInstances = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      stackInstances = Core.Nothing,
+      responseStatus
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsifpprsNextPageToken :: Lens.Lens' ListStackInstancesForProvisionedProductResponse (Lude.Maybe Lude.Text)
-lsifpprsNextPageToken = Lens.lens (nextPageToken :: ListStackInstancesForProvisionedProductResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListStackInstancesForProvisionedProductResponse)
-{-# DEPRECATED lsifpprsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+lsifpprrsNextPageToken :: Lens.Lens' ListStackInstancesForProvisionedProductResponse (Core.Maybe Types.NextPageToken)
+lsifpprrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED lsifpprrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | List of stack instances.
 --
 -- /Note:/ Consider using 'stackInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsifpprsStackInstances :: Lens.Lens' ListStackInstancesForProvisionedProductResponse (Lude.Maybe [StackInstance])
-lsifpprsStackInstances = Lens.lens (stackInstances :: ListStackInstancesForProvisionedProductResponse -> Lude.Maybe [StackInstance]) (\s a -> s {stackInstances = a} :: ListStackInstancesForProvisionedProductResponse)
-{-# DEPRECATED lsifpprsStackInstances "Use generic-lens or generic-optics with 'stackInstances' instead." #-}
+lsifpprrsStackInstances :: Lens.Lens' ListStackInstancesForProvisionedProductResponse (Core.Maybe [Types.StackInstance])
+lsifpprrsStackInstances = Lens.field @"stackInstances"
+{-# DEPRECATED lsifpprrsStackInstances "Use generic-lens or generic-optics with 'stackInstances' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsifpprsResponseStatus :: Lens.Lens' ListStackInstancesForProvisionedProductResponse Lude.Int
-lsifpprsResponseStatus = Lens.lens (responseStatus :: ListStackInstancesForProvisionedProductResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStackInstancesForProvisionedProductResponse)
-{-# DEPRECATED lsifpprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsifpprrsResponseStatus :: Lens.Lens' ListStackInstancesForProvisionedProductResponse Core.Int
+lsifpprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsifpprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

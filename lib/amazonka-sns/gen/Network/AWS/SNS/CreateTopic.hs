@@ -20,8 +20,8 @@ module Network.AWS.SNS.CreateTopic
     mkCreateTopic,
 
     -- ** Request lenses
-    ctAttributes,
     ctName,
+    ctAttributes,
     ctTags,
 
     -- * Destructuring the response
@@ -29,22 +29,27 @@ module Network.AWS.SNS.CreateTopic
     mkCreateTopicResponse,
 
     -- ** Response lenses
-    ctrsTopicARN,
-    ctrsResponseStatus,
+    ctrrsTopicArn,
+    ctrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | Input for CreateTopic action.
 --
 -- /See:/ 'mkCreateTopic' smart constructor.
 data CreateTopic = CreateTopic'
-  { -- | A map of attributes with their corresponding values.
+  { -- | The name of the topic you want to create.
+    --
+    -- Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
+    -- For a FIFO (first-in-first-out) topic, the name must end with the @.fifo@ suffix.
+    name :: Types.TopicName,
+    -- | A map of attributes with their corresponding values.
     --
     -- The following lists the names, descriptions, and values of the special request parameters that the @CreateTopic@ action uses:
     --
@@ -77,72 +82,34 @@ data CreateTopic = CreateTopic'
     --
     --     * When you set @ContentBasedDeduplication@ to @true@ , Amazon SNS uses a SHA-256 hash to generate the @MessageDeduplicationId@ using the body of the message (but not the attributes of the message).
     -- (Optional) To override the generated value, you can specify a value for the the @MessageDeduplicationId@ parameter for the @Publish@ action.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The name of the topic you want to create.
-    --
-    -- Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
-    -- For a FIFO (first-in-first-out) topic, the name must end with the @.fifo@ suffix.
-    name :: Lude.Text,
+    attributes :: Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue),
     -- | The list of tags to add to a new topic.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTopic' with the minimum fields required to make a request.
---
--- * 'attributes' - A map of attributes with their corresponding values.
---
--- The following lists the names, descriptions, and values of the special request parameters that the @CreateTopic@ action uses:
---
---     * @DeliveryPolicy@ – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.
---
---
---     * @DisplayName@ – The display name to use for a topic with SMS subscriptions.
---
---
---     * @FifoTopic@ – Set to true to create a FIFO topic.
---
---
---     * @Policy@ – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.
---
---
--- The following attribute applies only to <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html server-side-encryption> :
---
---     * @KmsMasterKeyId@ – The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms Key Terms> . For more examples, see <https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters KeyId> in the /AWS Key Management Service API Reference/ .
---
---
--- The following attributes apply only to <https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html FIFO topics> :
---
---     * @FifoTopic@ – When this is set to @true@ , a FIFO topic is created.
---
---
---     * @ContentBasedDeduplication@ – Enables content-based deduplication for FIFO topics.
---
---     * By default, @ContentBasedDeduplication@ is set to @false@ . If you create a FIFO topic and this attribute is @false@ , you must specify a value for the @MessageDeduplicationId@ parameter for the <https://docs.aws.amazon.com/sns/latest/api/API_Publish.html Publish> action.
---
---
---     * When you set @ContentBasedDeduplication@ to @true@ , Amazon SNS uses a SHA-256 hash to generate the @MessageDeduplicationId@ using the body of the message (but not the attributes of the message).
--- (Optional) To override the generated value, you can specify a value for the the @MessageDeduplicationId@ parameter for the @Publish@ action.
---
---
---
---
--- * 'name' - The name of the topic you want to create.
+-- | Creates a 'CreateTopic' value with any optional fields omitted.
+mkCreateTopic ::
+  -- | 'name'
+  Types.TopicName ->
+  CreateTopic
+mkCreateTopic name =
+  CreateTopic'
+    { name,
+      attributes = Core.Nothing,
+      tags = Core.Nothing
+    }
+
+-- | The name of the topic you want to create.
 --
 -- Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
 -- For a FIFO (first-in-first-out) topic, the name must end with the @.fifo@ suffix.
--- * 'tags' - The list of tags to add to a new topic.
-mkCreateTopic ::
-  -- | 'name'
-  Lude.Text ->
-  CreateTopic
-mkCreateTopic pName_ =
-  CreateTopic'
-    { attributes = Lude.Nothing,
-      name = pName_,
-      tags = Lude.Nothing
-    }
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctName :: Lens.Lens' CreateTopic Types.TopicName
+ctName = Lens.field @"name"
+{-# DEPRECATED ctName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A map of attributes with their corresponding values.
 --
@@ -183,93 +150,83 @@ mkCreateTopic pName_ =
 --
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctAttributes :: Lens.Lens' CreateTopic (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ctAttributes = Lens.lens (attributes :: CreateTopic -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: CreateTopic)
+ctAttributes :: Lens.Lens' CreateTopic (Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue))
+ctAttributes = Lens.field @"attributes"
 {-# DEPRECATED ctAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
-
--- | The name of the topic you want to create.
---
--- Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.
--- For a FIFO (first-in-first-out) topic, the name must end with the @.fifo@ suffix.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctName :: Lens.Lens' CreateTopic Lude.Text
-ctName = Lens.lens (name :: CreateTopic -> Lude.Text) (\s a -> s {name = a} :: CreateTopic)
-{-# DEPRECATED ctName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The list of tags to add to a new topic.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctTags :: Lens.Lens' CreateTopic (Lude.Maybe [Tag])
-ctTags = Lens.lens (tags :: CreateTopic -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateTopic)
+ctTags :: Lens.Lens' CreateTopic (Core.Maybe [Types.Tag])
+ctTags = Lens.field @"tags"
 {-# DEPRECATED ctTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateTopic where
+instance Core.AWSRequest CreateTopic where
   type Rs CreateTopic = CreateTopicResponse
-  request = Req.postQuery snsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateTopic")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "Name" name)
+                Core.<> ( Core.toQueryValue
+                            "Attributes"
+                            (Core.toQueryMap "entry" "key" "value" Core.<$> attributes)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Tags"
+                            (Core.toQueryList "member" Core.<$> tags)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateTopicResult"
       ( \s h x ->
           CreateTopicResponse'
-            Lude.<$> (x Lude..@? "TopicArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "TopicArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTopic where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateTopic where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTopic where
-  toQuery CreateTopic' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateTopic" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "Attributes"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryMap "entry" "key" "value" Lude.<$> attributes),
-        "Name" Lude.=: name,
-        "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags)
-      ]
 
 -- | Response from CreateTopic action.
 --
 -- /See:/ 'mkCreateTopicResponse' smart constructor.
 data CreateTopicResponse = CreateTopicResponse'
   { -- | The Amazon Resource Name (ARN) assigned to the created topic.
-    topicARN :: Lude.Maybe Lude.Text,
+    topicArn :: Core.Maybe Types.TopicArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTopicResponse' with the minimum fields required to make a request.
---
--- * 'topicARN' - The Amazon Resource Name (ARN) assigned to the created topic.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTopicResponse' value with any optional fields omitted.
 mkCreateTopicResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTopicResponse
-mkCreateTopicResponse pResponseStatus_ =
-  CreateTopicResponse'
-    { topicARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateTopicResponse responseStatus =
+  CreateTopicResponse' {topicArn = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
 --
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrsTopicARN :: Lens.Lens' CreateTopicResponse (Lude.Maybe Lude.Text)
-ctrsTopicARN = Lens.lens (topicARN :: CreateTopicResponse -> Lude.Maybe Lude.Text) (\s a -> s {topicARN = a} :: CreateTopicResponse)
-{-# DEPRECATED ctrsTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+-- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctrrsTopicArn :: Lens.Lens' CreateTopicResponse (Core.Maybe Types.TopicArn)
+ctrrsTopicArn = Lens.field @"topicArn"
+{-# DEPRECATED ctrrsTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctrsResponseStatus :: Lens.Lens' CreateTopicResponse Lude.Int
-ctrsResponseStatus = Lens.lens (responseStatus :: CreateTopicResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTopicResponse)
-{-# DEPRECATED ctrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctrrsResponseStatus :: Lens.Lens' CreateTopicResponse Core.Int
+ctrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

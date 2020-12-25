@@ -13,51 +13,53 @@
 module Network.AWS.Organizations.Types.TargetType
   ( TargetType
       ( TargetType',
-        TTAccount,
-        TTOrganizationalUnit,
-        TTRoot
+        TargetTypeAccount,
+        TargetTypeOrganizationalUnit,
+        TargetTypeRoot,
+        fromTargetType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TargetType = TargetType' Lude.Text
+newtype TargetType = TargetType' {fromTargetType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TTAccount :: TargetType
-pattern TTAccount = TargetType' "ACCOUNT"
+pattern TargetTypeAccount :: TargetType
+pattern TargetTypeAccount = TargetType' "ACCOUNT"
 
-pattern TTOrganizationalUnit :: TargetType
-pattern TTOrganizationalUnit = TargetType' "ORGANIZATIONAL_UNIT"
+pattern TargetTypeOrganizationalUnit :: TargetType
+pattern TargetTypeOrganizationalUnit = TargetType' "ORGANIZATIONAL_UNIT"
 
-pattern TTRoot :: TargetType
-pattern TTRoot = TargetType' "ROOT"
+pattern TargetTypeRoot :: TargetType
+pattern TargetTypeRoot = TargetType' "ROOT"
 
 {-# COMPLETE
-  TTAccount,
-  TTOrganizationalUnit,
-  TTRoot,
+  TargetTypeAccount,
+  TargetTypeOrganizationalUnit,
+  TargetTypeRoot,
   TargetType'
   #-}

@@ -22,115 +22,73 @@ module Network.AWS.RDS.DescribeDBLogFiles
     mkDescribeDBLogFiles,
 
     -- ** Request lenses
-    ddlfFilenameContains,
-    ddlfFilters,
-    ddlfFileSize,
-    ddlfFileLastWritten,
-    ddlfDBInstanceIdentifier,
-    ddlfMarker,
-    ddlfMaxRecords,
+    ddblfDBInstanceIdentifier,
+    ddblfFileLastWritten,
+    ddblfFileSize,
+    ddblfFilenameContains,
+    ddblfFilters,
+    ddblfMarker,
+    ddblfMaxRecords,
 
     -- * Destructuring the response
     DescribeDBLogFilesResponse (..),
     mkDescribeDBLogFilesResponse,
 
     -- ** Response lenses
-    ddlfrsDescribeDBLogFiles,
-    ddlfrsMarker,
-    ddlfrsResponseStatus,
+    ddblfrrsDescribeDBLogFiles,
+    ddblfrrsMarker,
+    ddblfrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeDBLogFiles' smart constructor.
 data DescribeDBLogFiles = DescribeDBLogFiles'
-  { -- | Filters the available log files for log file names that contain the specified string.
-    filenameContains :: Lude.Maybe Lude.Text,
-    -- | This parameter isn't currently supported.
-    filters :: Lude.Maybe [Filter],
-    -- | Filters the available log files for files larger than the specified size.
-    fileSize :: Lude.Maybe Lude.Integer,
-    -- | Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
-    fileLastWritten :: Lude.Maybe Lude.Integer,
-    -- | The customer-assigned name of the DB instance that contains the log files you want to list.
+  { -- | The customer-assigned name of the DB instance that contains the log files you want to list.
     --
     -- Constraints:
     --
     --     * Must match the identifier of an existing DBInstance.
-    dbInstanceIdentifier :: Lude.Text,
+    dBInstanceIdentifier :: Types.String,
+    -- | Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
+    fileLastWritten :: Core.Maybe Core.Integer,
+    -- | Filters the available log files for files larger than the specified size.
+    fileSize :: Core.Maybe Core.Integer,
+    -- | Filters the available log files for log file names that contain the specified string.
+    filenameContains :: Core.Maybe Types.String,
+    -- | This parameter isn't currently supported.
+    filters :: Core.Maybe [Types.Filter],
     -- | The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBLogFiles' with the minimum fields required to make a request.
---
--- * 'filenameContains' - Filters the available log files for log file names that contain the specified string.
--- * 'filters' - This parameter isn't currently supported.
--- * 'fileSize' - Filters the available log files for files larger than the specified size.
--- * 'fileLastWritten' - Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
--- * 'dbInstanceIdentifier' - The customer-assigned name of the DB instance that contains the log files you want to list.
---
--- Constraints:
---
---     * Must match the identifier of an existing DBInstance.
---
---
--- * 'marker' - The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
+-- | Creates a 'DescribeDBLogFiles' value with any optional fields omitted.
 mkDescribeDBLogFiles ::
-  -- | 'dbInstanceIdentifier'
-  Lude.Text ->
+  -- | 'dBInstanceIdentifier'
+  Types.String ->
   DescribeDBLogFiles
-mkDescribeDBLogFiles pDBInstanceIdentifier_ =
+mkDescribeDBLogFiles dBInstanceIdentifier =
   DescribeDBLogFiles'
-    { filenameContains = Lude.Nothing,
-      filters = Lude.Nothing,
-      fileSize = Lude.Nothing,
-      fileLastWritten = Lude.Nothing,
-      dbInstanceIdentifier = pDBInstanceIdentifier_,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { dBInstanceIdentifier,
+      fileLastWritten = Core.Nothing,
+      fileSize = Core.Nothing,
+      filenameContains = Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
-
--- | Filters the available log files for log file names that contain the specified string.
---
--- /Note:/ Consider using 'filenameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfFilenameContains :: Lens.Lens' DescribeDBLogFiles (Lude.Maybe Lude.Text)
-ddlfFilenameContains = Lens.lens (filenameContains :: DescribeDBLogFiles -> Lude.Maybe Lude.Text) (\s a -> s {filenameContains = a} :: DescribeDBLogFiles)
-{-# DEPRECATED ddlfFilenameContains "Use generic-lens or generic-optics with 'filenameContains' instead." #-}
-
--- | This parameter isn't currently supported.
---
--- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfFilters :: Lens.Lens' DescribeDBLogFiles (Lude.Maybe [Filter])
-ddlfFilters = Lens.lens (filters :: DescribeDBLogFiles -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBLogFiles)
-{-# DEPRECATED ddlfFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | Filters the available log files for files larger than the specified size.
---
--- /Note:/ Consider using 'fileSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfFileSize :: Lens.Lens' DescribeDBLogFiles (Lude.Maybe Lude.Integer)
-ddlfFileSize = Lens.lens (fileSize :: DescribeDBLogFiles -> Lude.Maybe Lude.Integer) (\s a -> s {fileSize = a} :: DescribeDBLogFiles)
-{-# DEPRECATED ddlfFileSize "Use generic-lens or generic-optics with 'fileSize' instead." #-}
-
--- | Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
---
--- /Note:/ Consider using 'fileLastWritten' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfFileLastWritten :: Lens.Lens' DescribeDBLogFiles (Lude.Maybe Lude.Integer)
-ddlfFileLastWritten = Lens.lens (fileLastWritten :: DescribeDBLogFiles -> Lude.Maybe Lude.Integer) (\s a -> s {fileLastWritten = a} :: DescribeDBLogFiles)
-{-# DEPRECATED ddlfFileLastWritten "Use generic-lens or generic-optics with 'fileLastWritten' instead." #-}
 
 -- | The customer-assigned name of the DB instance that contains the log files you want to list.
 --
@@ -140,117 +98,149 @@ ddlfFileLastWritten = Lens.lens (fileLastWritten :: DescribeDBLogFiles -> Lude.M
 --
 --
 --
--- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfDBInstanceIdentifier :: Lens.Lens' DescribeDBLogFiles Lude.Text
-ddlfDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DescribeDBLogFiles -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DescribeDBLogFiles)
-{-# DEPRECATED ddlfDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddblfDBInstanceIdentifier :: Lens.Lens' DescribeDBLogFiles Types.String
+ddblfDBInstanceIdentifier = Lens.field @"dBInstanceIdentifier"
+{-# DEPRECATED ddblfDBInstanceIdentifier "Use generic-lens or generic-optics with 'dBInstanceIdentifier' instead." #-}
+
+-- | Filters the available log files for files written since the specified date, in POSIX timestamp format with milliseconds.
+--
+-- /Note:/ Consider using 'fileLastWritten' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddblfFileLastWritten :: Lens.Lens' DescribeDBLogFiles (Core.Maybe Core.Integer)
+ddblfFileLastWritten = Lens.field @"fileLastWritten"
+{-# DEPRECATED ddblfFileLastWritten "Use generic-lens or generic-optics with 'fileLastWritten' instead." #-}
+
+-- | Filters the available log files for files larger than the specified size.
+--
+-- /Note:/ Consider using 'fileSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddblfFileSize :: Lens.Lens' DescribeDBLogFiles (Core.Maybe Core.Integer)
+ddblfFileSize = Lens.field @"fileSize"
+{-# DEPRECATED ddblfFileSize "Use generic-lens or generic-optics with 'fileSize' instead." #-}
+
+-- | Filters the available log files for log file names that contain the specified string.
+--
+-- /Note:/ Consider using 'filenameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddblfFilenameContains :: Lens.Lens' DescribeDBLogFiles (Core.Maybe Types.String)
+ddblfFilenameContains = Lens.field @"filenameContains"
+{-# DEPRECATED ddblfFilenameContains "Use generic-lens or generic-optics with 'filenameContains' instead." #-}
+
+-- | This parameter isn't currently supported.
+--
+-- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddblfFilters :: Lens.Lens' DescribeDBLogFiles (Core.Maybe [Types.Filter])
+ddblfFilters = Lens.field @"filters"
+{-# DEPRECATED ddblfFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | The pagination token provided in the previous request. If this parameter is specified the response includes only records beyond the marker, up to MaxRecords.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfMarker :: Lens.Lens' DescribeDBLogFiles (Lude.Maybe Lude.Text)
-ddlfMarker = Lens.lens (marker :: DescribeDBLogFiles -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBLogFiles)
-{-# DEPRECATED ddlfMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddblfMarker :: Lens.Lens' DescribeDBLogFiles (Core.Maybe Types.String)
+ddblfMarker = Lens.field @"marker"
+{-# DEPRECATED ddblfMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified MaxRecords value, a pagination token called a marker is included in the response so you can retrieve the remaining results.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfMaxRecords :: Lens.Lens' DescribeDBLogFiles (Lude.Maybe Lude.Int)
-ddlfMaxRecords = Lens.lens (maxRecords :: DescribeDBLogFiles -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBLogFiles)
-{-# DEPRECATED ddlfMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+ddblfMaxRecords :: Lens.Lens' DescribeDBLogFiles (Core.Maybe Core.Int)
+ddblfMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED ddblfMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeDBLogFiles where
-  page rq rs
-    | Page.stop (rs Lens.^. ddlfrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ddlfrsDescribeDBLogFiles) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ddlfMarker Lens..~ rs Lens.^. ddlfrsMarker
-
-instance Lude.AWSRequest DescribeDBLogFiles where
+instance Core.AWSRequest DescribeDBLogFiles where
   type Rs DescribeDBLogFiles = DescribeDBLogFilesResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeDBLogFiles")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBInstanceIdentifier" dBInstanceIdentifier)
+                Core.<> (Core.toQueryValue "FileLastWritten" Core.<$> fileLastWritten)
+                Core.<> (Core.toQueryValue "FileSize" Core.<$> fileSize)
+                Core.<> (Core.toQueryValue "FilenameContains" Core.<$> filenameContains)
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "Filter" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeDBLogFilesResult"
       ( \s h x ->
           DescribeDBLogFilesResponse'
-            Lude.<$> ( x Lude..@? "DescribeDBLogFiles" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "DescribeDBLogFilesDetails")
+            Core.<$> ( x Core..@? "DescribeDBLogFiles"
+                         Core..<@> Core.parseXMLList "DescribeDBLogFilesDetails"
                      )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeDBLogFiles where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeDBLogFiles where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDBLogFiles where
-  toQuery DescribeDBLogFiles' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeDBLogFiles" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "FilenameContains" Lude.=: filenameContains,
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "FileSize" Lude.=: fileSize,
-        "FileLastWritten" Lude.=: fileLastWritten,
-        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeDBLogFiles where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"describeDBLogFiles" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | The response from a call to @DescribeDBLogFiles@ .
 --
 -- /See:/ 'mkDescribeDBLogFilesResponse' smart constructor.
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
   { -- | The DB log files returned.
-    describeDBLogFiles :: Lude.Maybe [DescribeDBLogFilesDetails],
+    describeDBLogFiles :: Core.Maybe [Types.DescribeDBLogFilesDetails],
     -- | A pagination token that can be used in a later DescribeDBLogFiles request.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBLogFilesResponse' with the minimum fields required to make a request.
---
--- * 'describeDBLogFiles' - The DB log files returned.
--- * 'marker' - A pagination token that can be used in a later DescribeDBLogFiles request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDBLogFilesResponse' value with any optional fields omitted.
 mkDescribeDBLogFilesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDBLogFilesResponse
-mkDescribeDBLogFilesResponse pResponseStatus_ =
+mkDescribeDBLogFilesResponse responseStatus =
   DescribeDBLogFilesResponse'
-    { describeDBLogFiles = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { describeDBLogFiles = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
 
 -- | The DB log files returned.
 --
 -- /Note:/ Consider using 'describeDBLogFiles' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfrsDescribeDBLogFiles :: Lens.Lens' DescribeDBLogFilesResponse (Lude.Maybe [DescribeDBLogFilesDetails])
-ddlfrsDescribeDBLogFiles = Lens.lens (describeDBLogFiles :: DescribeDBLogFilesResponse -> Lude.Maybe [DescribeDBLogFilesDetails]) (\s a -> s {describeDBLogFiles = a} :: DescribeDBLogFilesResponse)
-{-# DEPRECATED ddlfrsDescribeDBLogFiles "Use generic-lens or generic-optics with 'describeDBLogFiles' instead." #-}
+ddblfrrsDescribeDBLogFiles :: Lens.Lens' DescribeDBLogFilesResponse (Core.Maybe [Types.DescribeDBLogFilesDetails])
+ddblfrrsDescribeDBLogFiles = Lens.field @"describeDBLogFiles"
+{-# DEPRECATED ddblfrrsDescribeDBLogFiles "Use generic-lens or generic-optics with 'describeDBLogFiles' instead." #-}
 
 -- | A pagination token that can be used in a later DescribeDBLogFiles request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfrsMarker :: Lens.Lens' DescribeDBLogFilesResponse (Lude.Maybe Lude.Text)
-ddlfrsMarker = Lens.lens (marker :: DescribeDBLogFilesResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBLogFilesResponse)
-{-# DEPRECATED ddlfrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddblfrrsMarker :: Lens.Lens' DescribeDBLogFilesResponse (Core.Maybe Types.String)
+ddblfrrsMarker = Lens.field @"marker"
+{-# DEPRECATED ddblfrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddlfrsResponseStatus :: Lens.Lens' DescribeDBLogFilesResponse Lude.Int
-ddlfrsResponseStatus = Lens.lens (responseStatus :: DescribeDBLogFilesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBLogFilesResponse)
-{-# DEPRECATED ddlfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddblfrrsResponseStatus :: Lens.Lens' DescribeDBLogFilesResponse Core.Int
+ddblfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddblfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

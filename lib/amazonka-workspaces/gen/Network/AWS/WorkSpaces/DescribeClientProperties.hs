@@ -27,110 +27,99 @@ module Network.AWS.WorkSpaces.DescribeClientProperties
     mkDescribeClientPropertiesResponse,
 
     -- ** Response lenses
-    dcprsClientPropertiesList,
-    dcprsResponseStatus,
+    dcprrsClientPropertiesList,
+    dcprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkDescribeClientProperties' smart constructor.
 newtype DescribeClientProperties = DescribeClientProperties'
   { -- | The resource identifier, in the form of directory IDs.
-    resourceIds :: Lude.NonEmpty Lude.Text
+    resourceIds :: Core.NonEmpty Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeClientProperties' with the minimum fields required to make a request.
---
--- * 'resourceIds' - The resource identifier, in the form of directory IDs.
+-- | Creates a 'DescribeClientProperties' value with any optional fields omitted.
 mkDescribeClientProperties ::
   -- | 'resourceIds'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.NonEmptyString ->
   DescribeClientProperties
-mkDescribeClientProperties pResourceIds_ =
-  DescribeClientProperties' {resourceIds = pResourceIds_}
+mkDescribeClientProperties resourceIds =
+  DescribeClientProperties' {resourceIds}
 
 -- | The resource identifier, in the form of directory IDs.
 --
 -- /Note:/ Consider using 'resourceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpResourceIds :: Lens.Lens' DescribeClientProperties (Lude.NonEmpty Lude.Text)
-dcpResourceIds = Lens.lens (resourceIds :: DescribeClientProperties -> Lude.NonEmpty Lude.Text) (\s a -> s {resourceIds = a} :: DescribeClientProperties)
+dcpResourceIds :: Lens.Lens' DescribeClientProperties (Core.NonEmpty Types.NonEmptyString)
+dcpResourceIds = Lens.field @"resourceIds"
 {-# DEPRECATED dcpResourceIds "Use generic-lens or generic-optics with 'resourceIds' instead." #-}
 
-instance Lude.AWSRequest DescribeClientProperties where
+instance Core.FromJSON DescribeClientProperties where
+  toJSON DescribeClientProperties {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ResourceIds" Core..= resourceIds)])
+
+instance Core.AWSRequest DescribeClientProperties where
   type Rs DescribeClientProperties = DescribeClientPropertiesResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "WorkspacesService.DescribeClientProperties")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeClientPropertiesResponse'
-            Lude.<$> (x Lude..?> "ClientPropertiesList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ClientPropertiesList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeClientProperties where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.DescribeClientProperties" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeClientProperties where
-  toJSON DescribeClientProperties' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ResourceIds" Lude..= resourceIds)])
-
-instance Lude.ToPath DescribeClientProperties where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeClientProperties where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeClientPropertiesResponse' smart constructor.
 data DescribeClientPropertiesResponse = DescribeClientPropertiesResponse'
   { -- | Information about the specified Amazon WorkSpaces clients.
-    clientPropertiesList :: Lude.Maybe [ClientPropertiesResult],
+    clientPropertiesList :: Core.Maybe [Types.ClientPropertiesResult],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeClientPropertiesResponse' with the minimum fields required to make a request.
---
--- * 'clientPropertiesList' - Information about the specified Amazon WorkSpaces clients.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeClientPropertiesResponse' value with any optional fields omitted.
 mkDescribeClientPropertiesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeClientPropertiesResponse
-mkDescribeClientPropertiesResponse pResponseStatus_ =
+mkDescribeClientPropertiesResponse responseStatus =
   DescribeClientPropertiesResponse'
     { clientPropertiesList =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the specified Amazon WorkSpaces clients.
 --
 -- /Note:/ Consider using 'clientPropertiesList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcprsClientPropertiesList :: Lens.Lens' DescribeClientPropertiesResponse (Lude.Maybe [ClientPropertiesResult])
-dcprsClientPropertiesList = Lens.lens (clientPropertiesList :: DescribeClientPropertiesResponse -> Lude.Maybe [ClientPropertiesResult]) (\s a -> s {clientPropertiesList = a} :: DescribeClientPropertiesResponse)
-{-# DEPRECATED dcprsClientPropertiesList "Use generic-lens or generic-optics with 'clientPropertiesList' instead." #-}
+dcprrsClientPropertiesList :: Lens.Lens' DescribeClientPropertiesResponse (Core.Maybe [Types.ClientPropertiesResult])
+dcprrsClientPropertiesList = Lens.field @"clientPropertiesList"
+{-# DEPRECATED dcprrsClientPropertiesList "Use generic-lens or generic-optics with 'clientPropertiesList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcprsResponseStatus :: Lens.Lens' DescribeClientPropertiesResponse Lude.Int
-dcprsResponseStatus = Lens.lens (responseStatus :: DescribeClientPropertiesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClientPropertiesResponse)
-{-# DEPRECATED dcprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcprrsResponseStatus :: Lens.Lens' DescribeClientPropertiesResponse Core.Int
+dcprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -23,51 +23,48 @@ module Network.AWS.Pinpoint.Types.NumberValidateRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a phone number to validate and retrieve information about.
 --
 -- /See:/ 'mkNumberValidateRequest' smart constructor.
 data NumberValidateRequest = NumberValidateRequest'
   { -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.
-    isoCountryCode :: Lude.Maybe Lude.Text,
+    isoCountryCode :: Core.Maybe Core.Text,
     -- | The phone number to retrieve information about. The phone number that you provide should include a valid numeric country code. Otherwise, the operation might result in an error.
-    phoneNumber :: Lude.Maybe Lude.Text
+    phoneNumber :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NumberValidateRequest' with the minimum fields required to make a request.
---
--- * 'isoCountryCode' - The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.
--- * 'phoneNumber' - The phone number to retrieve information about. The phone number that you provide should include a valid numeric country code. Otherwise, the operation might result in an error.
+-- | Creates a 'NumberValidateRequest' value with any optional fields omitted.
 mkNumberValidateRequest ::
   NumberValidateRequest
 mkNumberValidateRequest =
   NumberValidateRequest'
-    { isoCountryCode = Lude.Nothing,
-      phoneNumber = Lude.Nothing
+    { isoCountryCode = Core.Nothing,
+      phoneNumber = Core.Nothing
     }
 
 -- | The two-character code, in ISO 3166-1 alpha-2 format, for the country or region where the phone number was originally registered.
 --
 -- /Note:/ Consider using 'isoCountryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nvrIsoCountryCode :: Lens.Lens' NumberValidateRequest (Lude.Maybe Lude.Text)
-nvrIsoCountryCode = Lens.lens (isoCountryCode :: NumberValidateRequest -> Lude.Maybe Lude.Text) (\s a -> s {isoCountryCode = a} :: NumberValidateRequest)
+nvrIsoCountryCode :: Lens.Lens' NumberValidateRequest (Core.Maybe Core.Text)
+nvrIsoCountryCode = Lens.field @"isoCountryCode"
 {-# DEPRECATED nvrIsoCountryCode "Use generic-lens or generic-optics with 'isoCountryCode' instead." #-}
 
 -- | The phone number to retrieve information about. The phone number that you provide should include a valid numeric country code. Otherwise, the operation might result in an error.
 --
 -- /Note:/ Consider using 'phoneNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nvrPhoneNumber :: Lens.Lens' NumberValidateRequest (Lude.Maybe Lude.Text)
-nvrPhoneNumber = Lens.lens (phoneNumber :: NumberValidateRequest -> Lude.Maybe Lude.Text) (\s a -> s {phoneNumber = a} :: NumberValidateRequest)
+nvrPhoneNumber :: Lens.Lens' NumberValidateRequest (Core.Maybe Core.Text)
+nvrPhoneNumber = Lens.field @"phoneNumber"
 {-# DEPRECATED nvrPhoneNumber "Use generic-lens or generic-optics with 'phoneNumber' instead." #-}
 
-instance Lude.ToJSON NumberValidateRequest where
-  toJSON NumberValidateRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("IsoCountryCode" Lude..=) Lude.<$> isoCountryCode,
-            ("PhoneNumber" Lude..=) Lude.<$> phoneNumber
+instance Core.FromJSON NumberValidateRequest where
+  toJSON NumberValidateRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("IsoCountryCode" Core..=) Core.<$> isoCountryCode,
+            ("PhoneNumber" Core..=) Core.<$> phoneNumber
           ]
       )

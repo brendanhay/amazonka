@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.M3u8PcrControl
   ( M3u8PcrControl
       ( M3u8PcrControl',
-        MPCPcrEveryPesPacket,
-        MPCConfiguredPcrPeriod
+        M3u8PcrControlPcrEveryPesPacket,
+        M3u8PcrControlConfiguredPcrPeriod,
+        fromM3u8PcrControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
-newtype M3u8PcrControl = M3u8PcrControl' Lude.Text
+newtype M3u8PcrControl = M3u8PcrControl'
+  { fromM3u8PcrControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MPCPcrEveryPesPacket :: M3u8PcrControl
-pattern MPCPcrEveryPesPacket = M3u8PcrControl' "PCR_EVERY_PES_PACKET"
+pattern M3u8PcrControlPcrEveryPesPacket :: M3u8PcrControl
+pattern M3u8PcrControlPcrEveryPesPacket = M3u8PcrControl' "PCR_EVERY_PES_PACKET"
 
-pattern MPCConfiguredPcrPeriod :: M3u8PcrControl
-pattern MPCConfiguredPcrPeriod = M3u8PcrControl' "CONFIGURED_PCR_PERIOD"
+pattern M3u8PcrControlConfiguredPcrPeriod :: M3u8PcrControl
+pattern M3u8PcrControlConfiguredPcrPeriod = M3u8PcrControl' "CONFIGURED_PCR_PERIOD"
 
 {-# COMPLETE
-  MPCPcrEveryPesPacket,
-  MPCConfiguredPcrPeriod,
+  M3u8PcrControlPcrEveryPesPacket,
+  M3u8PcrControlConfiguredPcrPeriod,
   M3u8PcrControl'
   #-}

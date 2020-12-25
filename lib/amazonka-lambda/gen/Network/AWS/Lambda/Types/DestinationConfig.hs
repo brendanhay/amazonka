@@ -17,68 +17,63 @@ module Network.AWS.Lambda.Types.DestinationConfig
     mkDestinationConfig,
 
     -- * Lenses
-    dcOnSuccess,
     dcOnFailure,
+    dcOnSuccess,
   )
 where
 
-import Network.AWS.Lambda.Types.OnFailure
-import Network.AWS.Lambda.Types.OnSuccess
+import qualified Network.AWS.Lambda.Types.OnFailure as Types
+import qualified Network.AWS.Lambda.Types.OnSuccess as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A configuration object that specifies the destination of an event after Lambda processes it.
 --
 -- /See:/ 'mkDestinationConfig' smart constructor.
 data DestinationConfig = DestinationConfig'
-  { -- | The destination configuration for successful invocations.
-    onSuccess :: Lude.Maybe OnSuccess,
-    -- | The destination configuration for failed invocations.
-    onFailure :: Lude.Maybe OnFailure
+  { -- | The destination configuration for failed invocations.
+    onFailure :: Core.Maybe Types.OnFailure,
+    -- | The destination configuration for successful invocations.
+    onSuccess :: Core.Maybe Types.OnSuccess
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DestinationConfig' with the minimum fields required to make a request.
---
--- * 'onSuccess' - The destination configuration for successful invocations.
--- * 'onFailure' - The destination configuration for failed invocations.
+-- | Creates a 'DestinationConfig' value with any optional fields omitted.
 mkDestinationConfig ::
   DestinationConfig
 mkDestinationConfig =
   DestinationConfig'
-    { onSuccess = Lude.Nothing,
-      onFailure = Lude.Nothing
+    { onFailure = Core.Nothing,
+      onSuccess = Core.Nothing
     }
-
--- | The destination configuration for successful invocations.
---
--- /Note:/ Consider using 'onSuccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcOnSuccess :: Lens.Lens' DestinationConfig (Lude.Maybe OnSuccess)
-dcOnSuccess = Lens.lens (onSuccess :: DestinationConfig -> Lude.Maybe OnSuccess) (\s a -> s {onSuccess = a} :: DestinationConfig)
-{-# DEPRECATED dcOnSuccess "Use generic-lens or generic-optics with 'onSuccess' instead." #-}
 
 -- | The destination configuration for failed invocations.
 --
 -- /Note:/ Consider using 'onFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcOnFailure :: Lens.Lens' DestinationConfig (Lude.Maybe OnFailure)
-dcOnFailure = Lens.lens (onFailure :: DestinationConfig -> Lude.Maybe OnFailure) (\s a -> s {onFailure = a} :: DestinationConfig)
+dcOnFailure :: Lens.Lens' DestinationConfig (Core.Maybe Types.OnFailure)
+dcOnFailure = Lens.field @"onFailure"
 {-# DEPRECATED dcOnFailure "Use generic-lens or generic-optics with 'onFailure' instead." #-}
 
-instance Lude.FromJSON DestinationConfig where
-  parseJSON =
-    Lude.withObject
-      "DestinationConfig"
-      ( \x ->
-          DestinationConfig'
-            Lude.<$> (x Lude..:? "OnSuccess") Lude.<*> (x Lude..:? "OnFailure")
-      )
+-- | The destination configuration for successful invocations.
+--
+-- /Note:/ Consider using 'onSuccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcOnSuccess :: Lens.Lens' DestinationConfig (Core.Maybe Types.OnSuccess)
+dcOnSuccess = Lens.field @"onSuccess"
+{-# DEPRECATED dcOnSuccess "Use generic-lens or generic-optics with 'onSuccess' instead." #-}
 
-instance Lude.ToJSON DestinationConfig where
-  toJSON DestinationConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("OnSuccess" Lude..=) Lude.<$> onSuccess,
-            ("OnFailure" Lude..=) Lude.<$> onFailure
+instance Core.FromJSON DestinationConfig where
+  toJSON DestinationConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("OnFailure" Core..=) Core.<$> onFailure,
+            ("OnSuccess" Core..=) Core.<$> onSuccess
           ]
       )
+
+instance Core.FromJSON DestinationConfig where
+  parseJSON =
+    Core.withObject "DestinationConfig" Core.$
+      \x ->
+        DestinationConfig'
+          Core.<$> (x Core..:? "OnFailure") Core.<*> (x Core..:? "OnSuccess")

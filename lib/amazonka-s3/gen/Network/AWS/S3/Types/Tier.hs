@@ -13,52 +13,54 @@
 module Network.AWS.S3.Types.Tier
   ( Tier
       ( Tier',
-        TStandard,
-        TBulk,
-        TExpedited
+        TierStandard,
+        TierBulk,
+        TierExpedited,
+        fromTier
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype Tier = Tier' Lude.Text
+newtype Tier = Tier' {fromTier :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TStandard :: Tier
-pattern TStandard = Tier' "Standard"
+pattern TierStandard :: Tier
+pattern TierStandard = Tier' "Standard"
 
-pattern TBulk :: Tier
-pattern TBulk = Tier' "Bulk"
+pattern TierBulk :: Tier
+pattern TierBulk = Tier' "Bulk"
 
-pattern TExpedited :: Tier
-pattern TExpedited = Tier' "Expedited"
+pattern TierExpedited :: Tier
+pattern TierExpedited = Tier' "Expedited"
 
 {-# COMPLETE
-  TStandard,
-  TBulk,
-  TExpedited,
+  TierStandard,
+  TierBulk,
+  TierExpedited,
   Tier'
   #-}

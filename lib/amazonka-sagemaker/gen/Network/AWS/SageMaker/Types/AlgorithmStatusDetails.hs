@@ -23,53 +23,48 @@ module Network.AWS.SageMaker.Types.AlgorithmStatusDetails
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.AlgorithmStatusItem
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.AlgorithmStatusItem as Types
 
 -- | Specifies the validation and image scan statuses of the algorithm.
 --
 -- /See:/ 'mkAlgorithmStatusDetails' smart constructor.
 data AlgorithmStatusDetails = AlgorithmStatusDetails'
   { -- | The status of the scan of the algorithm's Docker image container.
-    imageScanStatuses :: Lude.Maybe [AlgorithmStatusItem],
+    imageScanStatuses :: Core.Maybe [Types.AlgorithmStatusItem],
     -- | The status of algorithm validation.
-    validationStatuses :: Lude.Maybe [AlgorithmStatusItem]
+    validationStatuses :: Core.Maybe [Types.AlgorithmStatusItem]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AlgorithmStatusDetails' with the minimum fields required to make a request.
---
--- * 'imageScanStatuses' - The status of the scan of the algorithm's Docker image container.
--- * 'validationStatuses' - The status of algorithm validation.
+-- | Creates a 'AlgorithmStatusDetails' value with any optional fields omitted.
 mkAlgorithmStatusDetails ::
   AlgorithmStatusDetails
 mkAlgorithmStatusDetails =
   AlgorithmStatusDetails'
-    { imageScanStatuses = Lude.Nothing,
-      validationStatuses = Lude.Nothing
+    { imageScanStatuses = Core.Nothing,
+      validationStatuses = Core.Nothing
     }
 
 -- | The status of the scan of the algorithm's Docker image container.
 --
 -- /Note:/ Consider using 'imageScanStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asdImageScanStatuses :: Lens.Lens' AlgorithmStatusDetails (Lude.Maybe [AlgorithmStatusItem])
-asdImageScanStatuses = Lens.lens (imageScanStatuses :: AlgorithmStatusDetails -> Lude.Maybe [AlgorithmStatusItem]) (\s a -> s {imageScanStatuses = a} :: AlgorithmStatusDetails)
+asdImageScanStatuses :: Lens.Lens' AlgorithmStatusDetails (Core.Maybe [Types.AlgorithmStatusItem])
+asdImageScanStatuses = Lens.field @"imageScanStatuses"
 {-# DEPRECATED asdImageScanStatuses "Use generic-lens or generic-optics with 'imageScanStatuses' instead." #-}
 
 -- | The status of algorithm validation.
 --
 -- /Note:/ Consider using 'validationStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asdValidationStatuses :: Lens.Lens' AlgorithmStatusDetails (Lude.Maybe [AlgorithmStatusItem])
-asdValidationStatuses = Lens.lens (validationStatuses :: AlgorithmStatusDetails -> Lude.Maybe [AlgorithmStatusItem]) (\s a -> s {validationStatuses = a} :: AlgorithmStatusDetails)
+asdValidationStatuses :: Lens.Lens' AlgorithmStatusDetails (Core.Maybe [Types.AlgorithmStatusItem])
+asdValidationStatuses = Lens.field @"validationStatuses"
 {-# DEPRECATED asdValidationStatuses "Use generic-lens or generic-optics with 'validationStatuses' instead." #-}
 
-instance Lude.FromJSON AlgorithmStatusDetails where
+instance Core.FromJSON AlgorithmStatusDetails where
   parseJSON =
-    Lude.withObject
-      "AlgorithmStatusDetails"
-      ( \x ->
-          AlgorithmStatusDetails'
-            Lude.<$> (x Lude..:? "ImageScanStatuses" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ValidationStatuses" Lude..!= Lude.mempty)
-      )
+    Core.withObject "AlgorithmStatusDetails" Core.$
+      \x ->
+        AlgorithmStatusDetails'
+          Core.<$> (x Core..:? "ImageScanStatuses")
+          Core.<*> (x Core..:? "ValidationStatuses")

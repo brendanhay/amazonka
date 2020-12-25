@@ -17,28 +17,30 @@ module Network.AWS.GameLift.Types.ScalingPolicy
     mkScalingPolicy,
 
     -- * Lenses
-    spStatus,
-    spScalingAdjustmentType,
-    spEvaluationPeriods,
-    spPolicyType,
-    spMetricName,
     spComparisonOperator,
-    spName,
-    spThreshold,
-    spScalingAdjustment,
+    spEvaluationPeriods,
     spFleetId,
+    spMetricName,
+    spName,
+    spPolicyType,
+    spScalingAdjustment,
+    spScalingAdjustmentType,
+    spStatus,
     spTargetConfiguration,
+    spThreshold,
   )
 where
 
-import Network.AWS.GameLift.Types.ComparisonOperatorType
-import Network.AWS.GameLift.Types.MetricName
-import Network.AWS.GameLift.Types.PolicyType
-import Network.AWS.GameLift.Types.ScalingAdjustmentType
-import Network.AWS.GameLift.Types.ScalingStatusType
-import Network.AWS.GameLift.Types.TargetConfiguration
+import qualified Network.AWS.GameLift.Types.ComparisonOperatorType as Types
+import qualified Network.AWS.GameLift.Types.FleetId as Types
+import qualified Network.AWS.GameLift.Types.MetricName as Types
+import qualified Network.AWS.GameLift.Types.NonZeroAndMaxString as Types
+import qualified Network.AWS.GameLift.Types.PolicyType as Types
+import qualified Network.AWS.GameLift.Types.ScalingAdjustmentType as Types
+import qualified Network.AWS.GameLift.Types.ScalingStatusType as Types
+import qualified Network.AWS.GameLift.Types.TargetConfiguration as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
 --
@@ -78,44 +80,12 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkScalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
-  { -- | Current status of the scaling policy. The scaling policy can be in force only when in an @ACTIVE@ status. Scaling policies can be suspended for individual fleets (see 'StopFleetActions' ; if suspended for a fleet, the policy status does not change. View a fleet's stopped actions by calling 'DescribeFleetCapacity' .
-    --
-    --
-    --     * __ACTIVE__ -- The scaling policy can be used for auto-scaling a fleet.
-    --
-    --
-    --     * __UPDATE_REQUESTED__ -- A request to update the scaling policy has been received.
-    --
-    --
-    --     * __UPDATING__ -- A change is being made to the scaling policy.
-    --
-    --
-    --     * __DELETE_REQUESTED__ -- A request to delete the scaling policy has been received.
-    --
-    --
-    --     * __DELETING__ -- The scaling policy is being deleted.
-    --
-    --
-    --     * __DELETED__ -- The scaling policy has been deleted.
-    --
-    --
-    --     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
-    status :: Lude.Maybe ScalingStatusType,
-    -- | The type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):
-    --
-    --
-    --     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
-    --
-    --
-    --     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.
-    --
-    --
-    --     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
-    scalingAdjustmentType :: Lude.Maybe ScalingAdjustmentType,
+  { -- | Comparison operator to use when measuring a metric against the threshold value.
+    comparisonOperator :: Core.Maybe Types.ComparisonOperatorType,
     -- | Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
-    evaluationPeriods :: Lude.Maybe Lude.Natural,
-    -- | The type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
-    policyType :: Lude.Maybe PolicyType,
+    evaluationPeriods :: Core.Maybe Core.Natural,
+    -- | A unique identifier for a fleet that is associated with this scaling policy.
+    fleetId :: Core.Maybe Types.FleetId,
     -- | Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For detailed descriptions of fleet metrics, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html Monitor Amazon GameLift with Amazon CloudWatch> .
     --
     --
@@ -150,183 +120,93 @@ data ScalingPolicy = ScalingPolicy'
     --
     --
     --     * __WaitTime__ -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
-    metricName :: Lude.Maybe MetricName,
-    -- | Comparison operator to use when measuring a metric against the threshold value.
-    comparisonOperator :: Lude.Maybe ComparisonOperatorType,
+    metricName :: Core.Maybe Types.MetricName,
     -- | A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
-    name :: Lude.Maybe Lude.Text,
-    -- | Metric value used to trigger a scaling event.
-    threshold :: Lude.Maybe Lude.Double,
+    name :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | The type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
+    policyType :: Core.Maybe Types.PolicyType,
     -- | Amount of adjustment to make, based on the scaling adjustment type.
-    scalingAdjustment :: Lude.Maybe Lude.Int,
-    -- | A unique identifier for a fleet that is associated with this scaling policy.
-    fleetId :: Lude.Maybe Lude.Text,
+    scalingAdjustment :: Core.Maybe Core.Int,
+    -- | The type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):
+    --
+    --
+    --     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
+    --
+    --
+    --     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.
+    --
+    --
+    --     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
+    scalingAdjustmentType :: Core.Maybe Types.ScalingAdjustmentType,
+    -- | Current status of the scaling policy. The scaling policy can be in force only when in an @ACTIVE@ status. Scaling policies can be suspended for individual fleets (see 'StopFleetActions' ; if suspended for a fleet, the policy status does not change. View a fleet's stopped actions by calling 'DescribeFleetCapacity' .
+    --
+    --
+    --     * __ACTIVE__ -- The scaling policy can be used for auto-scaling a fleet.
+    --
+    --
+    --     * __UPDATE_REQUESTED__ -- A request to update the scaling policy has been received.
+    --
+    --
+    --     * __UPDATING__ -- A change is being made to the scaling policy.
+    --
+    --
+    --     * __DELETE_REQUESTED__ -- A request to delete the scaling policy has been received.
+    --
+    --
+    --     * __DELETING__ -- The scaling policy is being deleted.
+    --
+    --
+    --     * __DELETED__ -- The scaling policy has been deleted.
+    --
+    --
+    --     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
+    status :: Core.Maybe Types.ScalingStatusType,
     -- | The settings for a target-based scaling policy.
-    targetConfiguration :: Lude.Maybe TargetConfiguration
+    targetConfiguration :: Core.Maybe Types.TargetConfiguration,
+    -- | Metric value used to trigger a scaling event.
+    threshold :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScalingPolicy' with the minimum fields required to make a request.
---
--- * 'status' - Current status of the scaling policy. The scaling policy can be in force only when in an @ACTIVE@ status. Scaling policies can be suspended for individual fleets (see 'StopFleetActions' ; if suspended for a fleet, the policy status does not change. View a fleet's stopped actions by calling 'DescribeFleetCapacity' .
---
---
---     * __ACTIVE__ -- The scaling policy can be used for auto-scaling a fleet.
---
---
---     * __UPDATE_REQUESTED__ -- A request to update the scaling policy has been received.
---
---
---     * __UPDATING__ -- A change is being made to the scaling policy.
---
---
---     * __DELETE_REQUESTED__ -- A request to delete the scaling policy has been received.
---
---
---     * __DELETING__ -- The scaling policy is being deleted.
---
---
---     * __DELETED__ -- The scaling policy has been deleted.
---
---
---     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
---
---
--- * 'scalingAdjustmentType' - The type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):
---
---
---     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
---
---
---     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.
---
---
---     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
---
---
--- * 'evaluationPeriods' - Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
--- * 'policyType' - The type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
--- * 'metricName' - Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For detailed descriptions of fleet metrics, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html Monitor Amazon GameLift with Amazon CloudWatch> .
---
---
---     * __ActivatingGameSessions__ -- Game sessions in the process of being created.
---
---
---     * __ActiveGameSessions__ -- Game sessions that are currently running.
---
---
---     * __ActiveInstances__ -- Fleet instances that are currently running at least one game session.
---
---
---     * __AvailableGameSessions__ -- Additional game sessions that fleet could host simultaneously, given current capacity.
---
---
---     * __AvailablePlayerSessions__ -- Empty player slots in currently active game sessions. This includes game sessions that are not currently accepting players. Reserved player slots are not included.
---
---
---     * __CurrentPlayerSessions__ -- Player slots in active game sessions that are being used by a player or are reserved for a player.
---
---
---     * __IdleInstances__ -- Active instances that are currently hosting zero game sessions.
---
---
---     * __PercentAvailableGameSessions__ -- Unused percentage of the total number of game sessions that a fleet could host simultaneously, given current capacity. Use this metric for a target-based scaling policy.
---
---
---     * __PercentIdleInstances__ -- Percentage of the total number of active instances that are hosting zero game sessions.
---
---
---     * __QueueDepth__ -- Pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
---
---
---     * __WaitTime__ -- Current wait time for pending game session placement requests, in any queue, where the current fleet is the top-priority destination.
---
---
--- * 'comparisonOperator' - Comparison operator to use when measuring a metric against the threshold value.
--- * 'name' - A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
--- * 'threshold' - Metric value used to trigger a scaling event.
--- * 'scalingAdjustment' - Amount of adjustment to make, based on the scaling adjustment type.
--- * 'fleetId' - A unique identifier for a fleet that is associated with this scaling policy.
--- * 'targetConfiguration' - The settings for a target-based scaling policy.
+-- | Creates a 'ScalingPolicy' value with any optional fields omitted.
 mkScalingPolicy ::
   ScalingPolicy
 mkScalingPolicy =
   ScalingPolicy'
-    { status = Lude.Nothing,
-      scalingAdjustmentType = Lude.Nothing,
-      evaluationPeriods = Lude.Nothing,
-      policyType = Lude.Nothing,
-      metricName = Lude.Nothing,
-      comparisonOperator = Lude.Nothing,
-      name = Lude.Nothing,
-      threshold = Lude.Nothing,
-      scalingAdjustment = Lude.Nothing,
-      fleetId = Lude.Nothing,
-      targetConfiguration = Lude.Nothing
+    { comparisonOperator = Core.Nothing,
+      evaluationPeriods = Core.Nothing,
+      fleetId = Core.Nothing,
+      metricName = Core.Nothing,
+      name = Core.Nothing,
+      policyType = Core.Nothing,
+      scalingAdjustment = Core.Nothing,
+      scalingAdjustmentType = Core.Nothing,
+      status = Core.Nothing,
+      targetConfiguration = Core.Nothing,
+      threshold = Core.Nothing
     }
 
--- | Current status of the scaling policy. The scaling policy can be in force only when in an @ACTIVE@ status. Scaling policies can be suspended for individual fleets (see 'StopFleetActions' ; if suspended for a fleet, the policy status does not change. View a fleet's stopped actions by calling 'DescribeFleetCapacity' .
+-- | Comparison operator to use when measuring a metric against the threshold value.
 --
---
---     * __ACTIVE__ -- The scaling policy can be used for auto-scaling a fleet.
---
---
---     * __UPDATE_REQUESTED__ -- A request to update the scaling policy has been received.
---
---
---     * __UPDATING__ -- A change is being made to the scaling policy.
---
---
---     * __DELETE_REQUESTED__ -- A request to delete the scaling policy has been received.
---
---
---     * __DELETING__ -- The scaling policy is being deleted.
---
---
---     * __DELETED__ -- The scaling policy has been deleted.
---
---
---     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
---
---
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spStatus :: Lens.Lens' ScalingPolicy (Lude.Maybe ScalingStatusType)
-spStatus = Lens.lens (status :: ScalingPolicy -> Lude.Maybe ScalingStatusType) (\s a -> s {status = a} :: ScalingPolicy)
-{-# DEPRECATED spStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):
---
---
---     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
---
---
---     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.
---
---
---     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
---
---
---
--- /Note:/ Consider using 'scalingAdjustmentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spScalingAdjustmentType :: Lens.Lens' ScalingPolicy (Lude.Maybe ScalingAdjustmentType)
-spScalingAdjustmentType = Lens.lens (scalingAdjustmentType :: ScalingPolicy -> Lude.Maybe ScalingAdjustmentType) (\s a -> s {scalingAdjustmentType = a} :: ScalingPolicy)
-{-# DEPRECATED spScalingAdjustmentType "Use generic-lens or generic-optics with 'scalingAdjustmentType' instead." #-}
+-- /Note:/ Consider using 'comparisonOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spComparisonOperator :: Lens.Lens' ScalingPolicy (Core.Maybe Types.ComparisonOperatorType)
+spComparisonOperator = Lens.field @"comparisonOperator"
+{-# DEPRECATED spComparisonOperator "Use generic-lens or generic-optics with 'comparisonOperator' instead." #-}
 
 -- | Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
 --
 -- /Note:/ Consider using 'evaluationPeriods' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spEvaluationPeriods :: Lens.Lens' ScalingPolicy (Lude.Maybe Lude.Natural)
-spEvaluationPeriods = Lens.lens (evaluationPeriods :: ScalingPolicy -> Lude.Maybe Lude.Natural) (\s a -> s {evaluationPeriods = a} :: ScalingPolicy)
+spEvaluationPeriods :: Lens.Lens' ScalingPolicy (Core.Maybe Core.Natural)
+spEvaluationPeriods = Lens.field @"evaluationPeriods"
 {-# DEPRECATED spEvaluationPeriods "Use generic-lens or generic-optics with 'evaluationPeriods' instead." #-}
 
--- | The type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
+-- | A unique identifier for a fleet that is associated with this scaling policy.
 --
--- /Note:/ Consider using 'policyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spPolicyType :: Lens.Lens' ScalingPolicy (Lude.Maybe PolicyType)
-spPolicyType = Lens.lens (policyType :: ScalingPolicy -> Lude.Maybe PolicyType) (\s a -> s {policyType = a} :: ScalingPolicy)
-{-# DEPRECATED spPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
+-- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spFleetId :: Lens.Lens' ScalingPolicy (Core.Maybe Types.FleetId)
+spFleetId = Lens.field @"fleetId"
+{-# DEPRECATED spFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
 -- | Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. For detailed descriptions of fleet metrics, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html Monitor Amazon GameLift with Amazon CloudWatch> .
 --
@@ -366,67 +246,106 @@ spPolicyType = Lens.lens (policyType :: ScalingPolicy -> Lude.Maybe PolicyType) 
 --
 --
 -- /Note:/ Consider using 'metricName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spMetricName :: Lens.Lens' ScalingPolicy (Lude.Maybe MetricName)
-spMetricName = Lens.lens (metricName :: ScalingPolicy -> Lude.Maybe MetricName) (\s a -> s {metricName = a} :: ScalingPolicy)
+spMetricName :: Lens.Lens' ScalingPolicy (Core.Maybe Types.MetricName)
+spMetricName = Lens.field @"metricName"
 {-# DEPRECATED spMetricName "Use generic-lens or generic-optics with 'metricName' instead." #-}
-
--- | Comparison operator to use when measuring a metric against the threshold value.
---
--- /Note:/ Consider using 'comparisonOperator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spComparisonOperator :: Lens.Lens' ScalingPolicy (Lude.Maybe ComparisonOperatorType)
-spComparisonOperator = Lens.lens (comparisonOperator :: ScalingPolicy -> Lude.Maybe ComparisonOperatorType) (\s a -> s {comparisonOperator = a} :: ScalingPolicy)
-{-# DEPRECATED spComparisonOperator "Use generic-lens or generic-optics with 'comparisonOperator' instead." #-}
 
 -- | A descriptive label that is associated with a scaling policy. Policy names do not need to be unique.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spName :: Lens.Lens' ScalingPolicy (Lude.Maybe Lude.Text)
-spName = Lens.lens (name :: ScalingPolicy -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ScalingPolicy)
+spName :: Lens.Lens' ScalingPolicy (Core.Maybe Types.NonZeroAndMaxString)
+spName = Lens.field @"name"
 {-# DEPRECATED spName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | Metric value used to trigger a scaling event.
+-- | The type of scaling policy to create. For a target-based policy, set the parameter /MetricName/ to 'PercentAvailableGameSessions' and specify a /TargetConfiguration/ . For a rule-based policy set the following parameters: /MetricName/ , /ComparisonOperator/ , /Threshold/ , /EvaluationPeriods/ , /ScalingAdjustmentType/ , and /ScalingAdjustment/ .
 --
--- /Note:/ Consider using 'threshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spThreshold :: Lens.Lens' ScalingPolicy (Lude.Maybe Lude.Double)
-spThreshold = Lens.lens (threshold :: ScalingPolicy -> Lude.Maybe Lude.Double) (\s a -> s {threshold = a} :: ScalingPolicy)
-{-# DEPRECATED spThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
+-- /Note:/ Consider using 'policyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spPolicyType :: Lens.Lens' ScalingPolicy (Core.Maybe Types.PolicyType)
+spPolicyType = Lens.field @"policyType"
+{-# DEPRECATED spPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
 
 -- | Amount of adjustment to make, based on the scaling adjustment type.
 --
 -- /Note:/ Consider using 'scalingAdjustment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spScalingAdjustment :: Lens.Lens' ScalingPolicy (Lude.Maybe Lude.Int)
-spScalingAdjustment = Lens.lens (scalingAdjustment :: ScalingPolicy -> Lude.Maybe Lude.Int) (\s a -> s {scalingAdjustment = a} :: ScalingPolicy)
+spScalingAdjustment :: Lens.Lens' ScalingPolicy (Core.Maybe Core.Int)
+spScalingAdjustment = Lens.field @"scalingAdjustment"
 {-# DEPRECATED spScalingAdjustment "Use generic-lens or generic-optics with 'scalingAdjustment' instead." #-}
 
--- | A unique identifier for a fleet that is associated with this scaling policy.
+-- | The type of adjustment to make to a fleet's instance count (see 'FleetCapacity' ):
 --
--- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spFleetId :: Lens.Lens' ScalingPolicy (Lude.Maybe Lude.Text)
-spFleetId = Lens.lens (fleetId :: ScalingPolicy -> Lude.Maybe Lude.Text) (\s a -> s {fleetId = a} :: ScalingPolicy)
-{-# DEPRECATED spFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
+--
+--     * __ChangeInCapacity__ -- add (or subtract) the scaling adjustment value from the current instance count. Positive values scale up while negative values scale down.
+--
+--
+--     * __ExactCapacity__ -- set the instance count to the scaling adjustment value.
+--
+--
+--     * __PercentChangeInCapacity__ -- increase or reduce the current instance count by the scaling adjustment, read as a percentage. Positive values scale up while negative values scale down.
+--
+--
+--
+-- /Note:/ Consider using 'scalingAdjustmentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spScalingAdjustmentType :: Lens.Lens' ScalingPolicy (Core.Maybe Types.ScalingAdjustmentType)
+spScalingAdjustmentType = Lens.field @"scalingAdjustmentType"
+{-# DEPRECATED spScalingAdjustmentType "Use generic-lens or generic-optics with 'scalingAdjustmentType' instead." #-}
+
+-- | Current status of the scaling policy. The scaling policy can be in force only when in an @ACTIVE@ status. Scaling policies can be suspended for individual fleets (see 'StopFleetActions' ; if suspended for a fleet, the policy status does not change. View a fleet's stopped actions by calling 'DescribeFleetCapacity' .
+--
+--
+--     * __ACTIVE__ -- The scaling policy can be used for auto-scaling a fleet.
+--
+--
+--     * __UPDATE_REQUESTED__ -- A request to update the scaling policy has been received.
+--
+--
+--     * __UPDATING__ -- A change is being made to the scaling policy.
+--
+--
+--     * __DELETE_REQUESTED__ -- A request to delete the scaling policy has been received.
+--
+--
+--     * __DELETING__ -- The scaling policy is being deleted.
+--
+--
+--     * __DELETED__ -- The scaling policy has been deleted.
+--
+--
+--     * __ERROR__ -- An error occurred in creating the policy. It should be removed and recreated.
+--
+--
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spStatus :: Lens.Lens' ScalingPolicy (Core.Maybe Types.ScalingStatusType)
+spStatus = Lens.field @"status"
+{-# DEPRECATED spStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The settings for a target-based scaling policy.
 --
 -- /Note:/ Consider using 'targetConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spTargetConfiguration :: Lens.Lens' ScalingPolicy (Lude.Maybe TargetConfiguration)
-spTargetConfiguration = Lens.lens (targetConfiguration :: ScalingPolicy -> Lude.Maybe TargetConfiguration) (\s a -> s {targetConfiguration = a} :: ScalingPolicy)
+spTargetConfiguration :: Lens.Lens' ScalingPolicy (Core.Maybe Types.TargetConfiguration)
+spTargetConfiguration = Lens.field @"targetConfiguration"
 {-# DEPRECATED spTargetConfiguration "Use generic-lens or generic-optics with 'targetConfiguration' instead." #-}
 
-instance Lude.FromJSON ScalingPolicy where
+-- | Metric value used to trigger a scaling event.
+--
+-- /Note:/ Consider using 'threshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spThreshold :: Lens.Lens' ScalingPolicy (Core.Maybe Core.Double)
+spThreshold = Lens.field @"threshold"
+{-# DEPRECATED spThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
+
+instance Core.FromJSON ScalingPolicy where
   parseJSON =
-    Lude.withObject
-      "ScalingPolicy"
-      ( \x ->
-          ScalingPolicy'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "ScalingAdjustmentType")
-            Lude.<*> (x Lude..:? "EvaluationPeriods")
-            Lude.<*> (x Lude..:? "PolicyType")
-            Lude.<*> (x Lude..:? "MetricName")
-            Lude.<*> (x Lude..:? "ComparisonOperator")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Threshold")
-            Lude.<*> (x Lude..:? "ScalingAdjustment")
-            Lude.<*> (x Lude..:? "FleetId")
-            Lude.<*> (x Lude..:? "TargetConfiguration")
-      )
+    Core.withObject "ScalingPolicy" Core.$
+      \x ->
+        ScalingPolicy'
+          Core.<$> (x Core..:? "ComparisonOperator")
+          Core.<*> (x Core..:? "EvaluationPeriods")
+          Core.<*> (x Core..:? "FleetId")
+          Core.<*> (x Core..:? "MetricName")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "PolicyType")
+          Core.<*> (x Core..:? "ScalingAdjustment")
+          Core.<*> (x Core..:? "ScalingAdjustmentType")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "TargetConfiguration")
+          Core.<*> (x Core..:? "Threshold")

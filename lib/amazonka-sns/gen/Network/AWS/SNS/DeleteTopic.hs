@@ -20,7 +20,7 @@ module Network.AWS.SNS.DeleteTopic
     mkDeleteTopic,
 
     -- ** Request lenses
-    dtTopicARN,
+    dtTopicArn,
 
     -- * Destructuring the response
     DeleteTopicResponse (..),
@@ -29,60 +29,61 @@ module Network.AWS.SNS.DeleteTopic
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | /See:/ 'mkDeleteTopic' smart constructor.
 newtype DeleteTopic = DeleteTopic'
   { -- | The ARN of the topic you want to delete.
-    topicARN :: Lude.Text
+    topicArn :: Types.TopicArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTopic' with the minimum fields required to make a request.
---
--- * 'topicARN' - The ARN of the topic you want to delete.
+-- | Creates a 'DeleteTopic' value with any optional fields omitted.
 mkDeleteTopic ::
-  -- | 'topicARN'
-  Lude.Text ->
+  -- | 'topicArn'
+  Types.TopicArn ->
   DeleteTopic
-mkDeleteTopic pTopicARN_ = DeleteTopic' {topicARN = pTopicARN_}
+mkDeleteTopic topicArn = DeleteTopic' {topicArn}
 
 -- | The ARN of the topic you want to delete.
 --
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtTopicARN :: Lens.Lens' DeleteTopic Lude.Text
-dtTopicARN = Lens.lens (topicARN :: DeleteTopic -> Lude.Text) (\s a -> s {topicARN = a} :: DeleteTopic)
-{-# DEPRECATED dtTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+-- /Note:/ Consider using 'topicArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtTopicArn :: Lens.Lens' DeleteTopic Types.TopicArn
+dtTopicArn = Lens.field @"topicArn"
+{-# DEPRECATED dtTopicArn "Use generic-lens or generic-optics with 'topicArn' instead." #-}
 
-instance Lude.AWSRequest DeleteTopic where
+instance Core.AWSRequest DeleteTopic where
   type Rs DeleteTopic = DeleteTopicResponse
-  request = Req.postQuery snsService
-  response = Res.receiveNull DeleteTopicResponse'
-
-instance Lude.ToHeaders DeleteTopic where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteTopic where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTopic where
-  toQuery DeleteTopic' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteTopic" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "TopicArn" Lude.=: topicARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteTopic")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> (Core.toQueryValue "TopicArn" topicArn)
+            )
+      }
+  response = Response.receiveNull DeleteTopicResponse'
 
 -- | /See:/ 'mkDeleteTopicResponse' smart constructor.
 data DeleteTopicResponse = DeleteTopicResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTopicResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteTopicResponse' value with any optional fields omitted.
 mkDeleteTopicResponse ::
   DeleteTopicResponse
 mkDeleteTopicResponse = DeleteTopicResponse'

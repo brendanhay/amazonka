@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.M2tsSegmentationStyle
   ( M2tsSegmentationStyle
       ( M2tsSegmentationStyle',
-        MaintainCadence,
-        ResetCadence
+        M2tsSegmentationStyleMaintainCadence,
+        M2tsSegmentationStyleResetCadence,
+        fromM2tsSegmentationStyle
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Segmentation Style
-newtype M2tsSegmentationStyle = M2tsSegmentationStyle' Lude.Text
+newtype M2tsSegmentationStyle = M2tsSegmentationStyle'
+  { fromM2tsSegmentationStyle ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MaintainCadence :: M2tsSegmentationStyle
-pattern MaintainCadence = M2tsSegmentationStyle' "MAINTAIN_CADENCE"
+pattern M2tsSegmentationStyleMaintainCadence :: M2tsSegmentationStyle
+pattern M2tsSegmentationStyleMaintainCadence = M2tsSegmentationStyle' "MAINTAIN_CADENCE"
 
-pattern ResetCadence :: M2tsSegmentationStyle
-pattern ResetCadence = M2tsSegmentationStyle' "RESET_CADENCE"
+pattern M2tsSegmentationStyleResetCadence :: M2tsSegmentationStyle
+pattern M2tsSegmentationStyleResetCadence = M2tsSegmentationStyle' "RESET_CADENCE"
 
 {-# COMPLETE
-  MaintainCadence,
-  ResetCadence,
+  M2tsSegmentationStyleMaintainCadence,
+  M2tsSegmentationStyleResetCadence,
   M2tsSegmentationStyle'
   #-}

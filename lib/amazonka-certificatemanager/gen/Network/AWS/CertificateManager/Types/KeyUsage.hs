@@ -21,36 +21,33 @@ module Network.AWS.CertificateManager.Types.KeyUsage
   )
 where
 
-import Network.AWS.CertificateManager.Types.KeyUsageName
+import qualified Network.AWS.CertificateManager.Types.KeyUsageName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Key Usage X.509 v3 extension defines the purpose of the public key contained in the certificate.
 --
 -- /See:/ 'mkKeyUsage' smart constructor.
 newtype KeyUsage = KeyUsage'
   { -- | A string value that contains a Key Usage extension name.
-    name :: Lude.Maybe KeyUsageName
+    name :: Core.Maybe Types.KeyUsageName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeyUsage' with the minimum fields required to make a request.
---
--- * 'name' - A string value that contains a Key Usage extension name.
+-- | Creates a 'KeyUsage' value with any optional fields omitted.
 mkKeyUsage ::
   KeyUsage
-mkKeyUsage = KeyUsage' {name = Lude.Nothing}
+mkKeyUsage = KeyUsage' {name = Core.Nothing}
 
 -- | A string value that contains a Key Usage extension name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kuName :: Lens.Lens' KeyUsage (Lude.Maybe KeyUsageName)
-kuName = Lens.lens (name :: KeyUsage -> Lude.Maybe KeyUsageName) (\s a -> s {name = a} :: KeyUsage)
+kuName :: Lens.Lens' KeyUsage (Core.Maybe Types.KeyUsageName)
+kuName = Lens.field @"name"
 {-# DEPRECATED kuName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON KeyUsage where
+instance Core.FromJSON KeyUsage where
   parseJSON =
-    Lude.withObject
-      "KeyUsage"
-      (\x -> KeyUsage' Lude.<$> (x Lude..:? "Name"))
+    Core.withObject "KeyUsage" Core.$
+      \x -> KeyUsage' Core.<$> (x Core..:? "Name")

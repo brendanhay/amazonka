@@ -20,128 +20,111 @@ module Network.AWS.ServiceCatalog.AssociateBudgetWithResource
     mkAssociateBudgetWithResource,
 
     -- ** Request lenses
-    abwrResourceId,
     abwrBudgetName,
+    abwrResourceId,
 
     -- * Destructuring the response
     AssociateBudgetWithResourceResponse (..),
     mkAssociateBudgetWithResourceResponse,
 
     -- ** Response lenses
-    abwrrsResponseStatus,
+    abwrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkAssociateBudgetWithResource' smart constructor.
 data AssociateBudgetWithResource = AssociateBudgetWithResource'
-  { -- | The resource identifier. Either a portfolio-id or a product-id.
-    resourceId :: Lude.Text,
-    -- | The name of the budget you want to associate.
-    budgetName :: Lude.Text
+  { -- | The name of the budget you want to associate.
+    budgetName :: Types.BudgetName,
+    -- | The resource identifier. Either a portfolio-id or a product-id.
+    resourceId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateBudgetWithResource' with the minimum fields required to make a request.
---
--- * 'resourceId' - The resource identifier. Either a portfolio-id or a product-id.
--- * 'budgetName' - The name of the budget you want to associate.
+-- | Creates a 'AssociateBudgetWithResource' value with any optional fields omitted.
 mkAssociateBudgetWithResource ::
-  -- | 'resourceId'
-  Lude.Text ->
   -- | 'budgetName'
-  Lude.Text ->
+  Types.BudgetName ->
+  -- | 'resourceId'
+  Types.ResourceId ->
   AssociateBudgetWithResource
-mkAssociateBudgetWithResource pResourceId_ pBudgetName_ =
-  AssociateBudgetWithResource'
-    { resourceId = pResourceId_,
-      budgetName = pBudgetName_
-    }
-
--- | The resource identifier. Either a portfolio-id or a product-id.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abwrResourceId :: Lens.Lens' AssociateBudgetWithResource Lude.Text
-abwrResourceId = Lens.lens (resourceId :: AssociateBudgetWithResource -> Lude.Text) (\s a -> s {resourceId = a} :: AssociateBudgetWithResource)
-{-# DEPRECATED abwrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+mkAssociateBudgetWithResource budgetName resourceId =
+  AssociateBudgetWithResource' {budgetName, resourceId}
 
 -- | The name of the budget you want to associate.
 --
 -- /Note:/ Consider using 'budgetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abwrBudgetName :: Lens.Lens' AssociateBudgetWithResource Lude.Text
-abwrBudgetName = Lens.lens (budgetName :: AssociateBudgetWithResource -> Lude.Text) (\s a -> s {budgetName = a} :: AssociateBudgetWithResource)
+abwrBudgetName :: Lens.Lens' AssociateBudgetWithResource Types.BudgetName
+abwrBudgetName = Lens.field @"budgetName"
 {-# DEPRECATED abwrBudgetName "Use generic-lens or generic-optics with 'budgetName' instead." #-}
 
-instance Lude.AWSRequest AssociateBudgetWithResource where
+-- | The resource identifier. Either a portfolio-id or a product-id.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+abwrResourceId :: Lens.Lens' AssociateBudgetWithResource Types.ResourceId
+abwrResourceId = Lens.field @"resourceId"
+{-# DEPRECATED abwrResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+instance Core.FromJSON AssociateBudgetWithResource where
+  toJSON AssociateBudgetWithResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("BudgetName" Core..= budgetName),
+            Core.Just ("ResourceId" Core..= resourceId)
+          ]
+      )
+
+instance Core.AWSRequest AssociateBudgetWithResource where
   type
     Rs AssociateBudgetWithResource =
       AssociateBudgetWithResourceResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.AssociateBudgetWithResource"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AssociateBudgetWithResourceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateBudgetWithResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.AssociateBudgetWithResource" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateBudgetWithResource where
-  toJSON AssociateBudgetWithResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just ("BudgetName" Lude..= budgetName)
-          ]
-      )
-
-instance Lude.ToPath AssociateBudgetWithResource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateBudgetWithResource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateBudgetWithResourceResponse' smart constructor.
 newtype AssociateBudgetWithResourceResponse = AssociateBudgetWithResourceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateBudgetWithResourceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateBudgetWithResourceResponse' value with any optional fields omitted.
 mkAssociateBudgetWithResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateBudgetWithResourceResponse
-mkAssociateBudgetWithResourceResponse pResponseStatus_ =
-  AssociateBudgetWithResourceResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkAssociateBudgetWithResourceResponse responseStatus =
+  AssociateBudgetWithResourceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-abwrrsResponseStatus :: Lens.Lens' AssociateBudgetWithResourceResponse Lude.Int
-abwrrsResponseStatus = Lens.lens (responseStatus :: AssociateBudgetWithResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateBudgetWithResourceResponse)
-{-# DEPRECATED abwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+abwrrrsResponseStatus :: Lens.Lens' AssociateBudgetWithResourceResponse Core.Int
+abwrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED abwrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

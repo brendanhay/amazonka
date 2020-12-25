@@ -27,81 +27,76 @@ module Network.AWS.IoT.DeleteAuthorizer
     mkDeleteAuthorizerResponse,
 
     -- ** Response lenses
-    dafrsResponseStatus,
+    darfrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAuthorizer' smart constructor.
 newtype DeleteAuthorizer = DeleteAuthorizer'
   { -- | The name of the authorizer to delete.
-    authorizerName :: Lude.Text
+    authorizerName :: Types.AuthorizerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAuthorizer' with the minimum fields required to make a request.
---
--- * 'authorizerName' - The name of the authorizer to delete.
+-- | Creates a 'DeleteAuthorizer' value with any optional fields omitted.
 mkDeleteAuthorizer ::
   -- | 'authorizerName'
-  Lude.Text ->
+  Types.AuthorizerName ->
   DeleteAuthorizer
-mkDeleteAuthorizer pAuthorizerName_ =
-  DeleteAuthorizer' {authorizerName = pAuthorizerName_}
+mkDeleteAuthorizer authorizerName =
+  DeleteAuthorizer' {authorizerName}
 
 -- | The name of the authorizer to delete.
 --
 -- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAuthorizerName :: Lens.Lens' DeleteAuthorizer Lude.Text
-dAuthorizerName = Lens.lens (authorizerName :: DeleteAuthorizer -> Lude.Text) (\s a -> s {authorizerName = a} :: DeleteAuthorizer)
+dAuthorizerName :: Lens.Lens' DeleteAuthorizer Types.AuthorizerName
+dAuthorizerName = Lens.field @"authorizerName"
 {-# DEPRECATED dAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
-instance Lude.AWSRequest DeleteAuthorizer where
+instance Core.AWSRequest DeleteAuthorizer where
   type Rs DeleteAuthorizer = DeleteAuthorizerResponse
-  request = Req.delete ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/authorizer/" Core.<> (Core.toText authorizerName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteAuthorizerResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteAuthorizerResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteAuthorizer where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteAuthorizer where
-  toPath DeleteAuthorizer' {..} =
-    Lude.mconcat ["/authorizer/", Lude.toBS authorizerName]
-
-instance Lude.ToQuery DeleteAuthorizer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteAuthorizerResponse' smart constructor.
 newtype DeleteAuthorizerResponse = DeleteAuthorizerResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAuthorizerResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteAuthorizerResponse' value with any optional fields omitted.
 mkDeleteAuthorizerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteAuthorizerResponse
-mkDeleteAuthorizerResponse pResponseStatus_ =
-  DeleteAuthorizerResponse' {responseStatus = pResponseStatus_}
+mkDeleteAuthorizerResponse responseStatus =
+  DeleteAuthorizerResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dafrsResponseStatus :: Lens.Lens' DeleteAuthorizerResponse Lude.Int
-dafrsResponseStatus = Lens.lens (responseStatus :: DeleteAuthorizerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAuthorizerResponse)
-{-# DEPRECATED dafrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darfrsResponseStatus :: Lens.Lens' DeleteAuthorizerResponse Core.Int
+darfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

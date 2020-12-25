@@ -22,27 +22,27 @@ module Network.AWS.DMS.DescribeConnections
     mkDescribeConnections,
 
     -- ** Request lenses
-    dFilters,
-    dMarker,
-    dMaxRecords,
+    dcFilters,
+    dcMarker,
+    dcMaxRecords,
 
     -- * Destructuring the response
     DescribeConnectionsResponse (..),
     mkDescribeConnectionsResponse,
 
     -- ** Response lenses
-    dcsrsConnections,
-    dcsrsMarker,
-    dcsrsResponseStatus,
+    dcrfrsConnections,
+    dcrfrsMarker,
+    dcrfrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -51,35 +51,26 @@ data DescribeConnections = DescribeConnections'
   { -- | The filters applied to the connection.
     --
     -- Valid filter names: endpoint-arn | replication-instance-arn
-    filters :: Lude.Maybe [Filter],
+    filters :: Core.Maybe [Types.Filter],
     -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConnections' with the minimum fields required to make a request.
---
--- * 'filters' - The filters applied to the connection.
---
--- Valid filter names: endpoint-arn | replication-instance-arn
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
+-- | Creates a 'DescribeConnections' value with any optional fields omitted.
 mkDescribeConnections ::
   DescribeConnections
 mkDescribeConnections =
   DescribeConnections'
-    { filters = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing
     }
 
 -- | The filters applied to the connection.
@@ -87,16 +78,16 @@ mkDescribeConnections =
 -- Valid filter names: endpoint-arn | replication-instance-arn
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dFilters :: Lens.Lens' DescribeConnections (Lude.Maybe [Filter])
-dFilters = Lens.lens (filters :: DescribeConnections -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeConnections)
-{-# DEPRECATED dFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+dcFilters :: Lens.Lens' DescribeConnections (Core.Maybe [Types.Filter])
+dcFilters = Lens.field @"filters"
+{-# DEPRECATED dcFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMarker :: Lens.Lens' DescribeConnections (Lude.Maybe Lude.Text)
-dMarker = Lens.lens (marker :: DescribeConnections -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeConnections)
-{-# DEPRECATED dMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dcMarker :: Lens.Lens' DescribeConnections (Core.Maybe Types.String)
+dcMarker = Lens.field @"marker"
+{-# DEPRECATED dcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that the remaining results can be retrieved.
 --
@@ -104,103 +95,98 @@ dMarker = Lens.lens (marker :: DescribeConnections -> Lude.Maybe Lude.Text) (\s 
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMaxRecords :: Lens.Lens' DescribeConnections (Lude.Maybe Lude.Int)
-dMaxRecords = Lens.lens (maxRecords :: DescribeConnections -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeConnections)
-{-# DEPRECATED dMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dcMaxRecords :: Lens.Lens' DescribeConnections (Core.Maybe Core.Int)
+dcMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED dcMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeConnections where
-  page rq rs
-    | Page.stop (rs Lens.^. dcsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcsrsConnections) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dMarker Lens..~ rs Lens.^. dcsrsMarker
+instance Core.FromJSON DescribeConnections where
+  toJSON DescribeConnections {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("Marker" Core..=) Core.<$> marker,
+            ("MaxRecords" Core..=) Core.<$> maxRecords
+          ]
+      )
 
-instance Lude.AWSRequest DescribeConnections where
+instance Core.AWSRequest DescribeConnections where
   type Rs DescribeConnections = DescribeConnectionsResponse
-  request = Req.postJSON dmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonDMSv20160101.DescribeConnections")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeConnectionsResponse'
-            Lude.<$> (x Lude..?> "Connections" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Connections")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeConnections where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDMSv20160101.DescribeConnections" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeConnections where
-  toJSON DescribeConnections' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("MaxRecords" Lude..=) Lude.<$> maxRecords
-          ]
-      )
-
-instance Lude.ToPath DescribeConnections where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeConnections where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeConnections where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"connections" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- |
 --
 -- /See:/ 'mkDescribeConnectionsResponse' smart constructor.
 data DescribeConnectionsResponse = DescribeConnectionsResponse'
   { -- | A description of the connections.
-    connections :: Lude.Maybe [Connection],
+    connections :: Core.Maybe [Types.Connection],
     -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConnectionsResponse' with the minimum fields required to make a request.
---
--- * 'connections' - A description of the connections.
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeConnectionsResponse' value with any optional fields omitted.
 mkDescribeConnectionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeConnectionsResponse
-mkDescribeConnectionsResponse pResponseStatus_ =
+mkDescribeConnectionsResponse responseStatus =
   DescribeConnectionsResponse'
-    { connections = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { connections = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
 
 -- | A description of the connections.
 --
 -- /Note:/ Consider using 'connections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsConnections :: Lens.Lens' DescribeConnectionsResponse (Lude.Maybe [Connection])
-dcsrsConnections = Lens.lens (connections :: DescribeConnectionsResponse -> Lude.Maybe [Connection]) (\s a -> s {connections = a} :: DescribeConnectionsResponse)
-{-# DEPRECATED dcsrsConnections "Use generic-lens or generic-optics with 'connections' instead." #-}
+dcrfrsConnections :: Lens.Lens' DescribeConnectionsResponse (Core.Maybe [Types.Connection])
+dcrfrsConnections = Lens.field @"connections"
+{-# DEPRECATED dcrfrsConnections "Use generic-lens or generic-optics with 'connections' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsMarker :: Lens.Lens' DescribeConnectionsResponse (Lude.Maybe Lude.Text)
-dcsrsMarker = Lens.lens (marker :: DescribeConnectionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeConnectionsResponse)
-{-# DEPRECATED dcsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dcrfrsMarker :: Lens.Lens' DescribeConnectionsResponse (Core.Maybe Types.String)
+dcrfrsMarker = Lens.field @"marker"
+{-# DEPRECATED dcrfrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsrsResponseStatus :: Lens.Lens' DescribeConnectionsResponse Lude.Int
-dcsrsResponseStatus = Lens.lens (responseStatus :: DescribeConnectionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConnectionsResponse)
-{-# DEPRECATED dcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrfrsResponseStatus :: Lens.Lens' DescribeConnectionsResponse Core.Int
+dcrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

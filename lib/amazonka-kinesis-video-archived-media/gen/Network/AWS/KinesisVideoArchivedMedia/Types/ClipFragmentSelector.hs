@@ -22,10 +22,10 @@ module Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelector
   )
 where
 
-import Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
-import Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange
+import qualified Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType as Types
+import qualified Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the timestamp range and timestamp origin of a range of fragments.
 --
@@ -34,49 +34,42 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkClipFragmentSelector' smart constructor.
 data ClipFragmentSelector = ClipFragmentSelector'
   { -- | The origin of the timestamps to use (Server or Producer).
-    fragmentSelectorType :: ClipFragmentSelectorType,
+    fragmentSelectorType :: Types.ClipFragmentSelectorType,
     -- | The range of timestamps to return.
-    timestampRange :: ClipTimestampRange
+    timestampRange :: Types.ClipTimestampRange
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ClipFragmentSelector' with the minimum fields required to make a request.
---
--- * 'fragmentSelectorType' - The origin of the timestamps to use (Server or Producer).
--- * 'timestampRange' - The range of timestamps to return.
+-- | Creates a 'ClipFragmentSelector' value with any optional fields omitted.
 mkClipFragmentSelector ::
   -- | 'fragmentSelectorType'
-  ClipFragmentSelectorType ->
+  Types.ClipFragmentSelectorType ->
   -- | 'timestampRange'
-  ClipTimestampRange ->
+  Types.ClipTimestampRange ->
   ClipFragmentSelector
-mkClipFragmentSelector pFragmentSelectorType_ pTimestampRange_ =
-  ClipFragmentSelector'
-    { fragmentSelectorType =
-        pFragmentSelectorType_,
-      timestampRange = pTimestampRange_
-    }
+mkClipFragmentSelector fragmentSelectorType timestampRange =
+  ClipFragmentSelector' {fragmentSelectorType, timestampRange}
 
 -- | The origin of the timestamps to use (Server or Producer).
 --
 -- /Note:/ Consider using 'fragmentSelectorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfsFragmentSelectorType :: Lens.Lens' ClipFragmentSelector ClipFragmentSelectorType
-cfsFragmentSelectorType = Lens.lens (fragmentSelectorType :: ClipFragmentSelector -> ClipFragmentSelectorType) (\s a -> s {fragmentSelectorType = a} :: ClipFragmentSelector)
+cfsFragmentSelectorType :: Lens.Lens' ClipFragmentSelector Types.ClipFragmentSelectorType
+cfsFragmentSelectorType = Lens.field @"fragmentSelectorType"
 {-# DEPRECATED cfsFragmentSelectorType "Use generic-lens or generic-optics with 'fragmentSelectorType' instead." #-}
 
 -- | The range of timestamps to return.
 --
 -- /Note:/ Consider using 'timestampRange' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfsTimestampRange :: Lens.Lens' ClipFragmentSelector ClipTimestampRange
-cfsTimestampRange = Lens.lens (timestampRange :: ClipFragmentSelector -> ClipTimestampRange) (\s a -> s {timestampRange = a} :: ClipFragmentSelector)
+cfsTimestampRange :: Lens.Lens' ClipFragmentSelector Types.ClipTimestampRange
+cfsTimestampRange = Lens.field @"timestampRange"
 {-# DEPRECATED cfsTimestampRange "Use generic-lens or generic-optics with 'timestampRange' instead." #-}
 
-instance Lude.ToJSON ClipFragmentSelector where
-  toJSON ClipFragmentSelector' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("FragmentSelectorType" Lude..= fragmentSelectorType),
-            Lude.Just ("TimestampRange" Lude..= timestampRange)
+instance Core.FromJSON ClipFragmentSelector where
+  toJSON ClipFragmentSelector {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FragmentSelectorType" Core..= fragmentSelectorType),
+            Core.Just ("TimestampRange" Core..= timestampRange)
           ]
       )

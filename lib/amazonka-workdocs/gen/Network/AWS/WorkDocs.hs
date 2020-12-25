@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -26,10 +25,85 @@
 -- All Amazon WorkDocs API actions are Amazon authenticated and certificate-signed. They not only require the use of the AWS SDK, but also allow for the exclusive use of IAM users and roles to help facilitate access, trust, and permission policies. By creating a role and allowing an IAM user to access the Amazon WorkDocs site, the IAM user gains full administrative visibility into the entire Amazon WorkDocs site (or as set in the IAM policy). This includes, but is not limited to, the ability to modify file permissions and upload any file to any user. This allows developers to perform the three use cases above, as well as give users the ability to grant access on a selective basis using the IAM model.
 module Network.AWS.WorkDocs
   ( -- * Service configuration
-    workDocsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** CustomMetadataLimitExceededException
+    _CustomMetadataLimitExceededException,
+
+    -- ** EntityAlreadyExistsException
+    _EntityAlreadyExistsException,
+
+    -- ** ResourceAlreadyCheckedOutException
+    _ResourceAlreadyCheckedOutException,
+
+    -- ** ProhibitedStateException
+    _ProhibitedStateException,
+
+    -- ** TooManyLabelsException
+    _TooManyLabelsException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
+    -- ** UnauthorizedResourceAccessException
+    _UnauthorizedResourceAccessException,
+
+    -- ** TooManySubscriptionsException
+    _TooManySubscriptionsException,
+
+    -- ** FailedDependencyException
+    _FailedDependencyException,
+
+    -- ** DocumentLockedForCommentsException
+    _DocumentLockedForCommentsException,
+
+    -- ** EntityNotExistsException
+    _EntityNotExistsException,
+
+    -- ** ConflictingOperationException
+    _ConflictingOperationException,
+
+    -- ** DeactivatingLastSystemUserException
+    _DeactivatingLastSystemUserException,
+
+    -- ** IllegalUserStateException
+    _IllegalUserStateException,
+
+    -- ** StorageLimitWillExceedException
+    _StorageLimitWillExceedException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** RequestedEntityTooLargeException
+    _RequestedEntityTooLargeException,
+
+    -- ** StorageLimitExceededException
+    _StorageLimitExceededException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** InvalidCommentOperationException
+    _InvalidCommentOperationException,
+
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
+    -- ** UnauthorizedOperationException
+    _UnauthorizedOperationException,
+
+    -- ** DraftUploadOutOfSyncException
+    _DraftUploadOutOfSyncException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** InvalidPasswordException
+    _InvalidPasswordException,
 
     -- * Waiters
     -- $waiters
@@ -162,232 +236,48 @@ module Network.AWS.WorkDocs
 
     -- * Types
 
-    -- ** ActivityType
-    ActivityType (..),
-
-    -- ** BooleanEnumType
-    BooleanEnumType (..),
-
-    -- ** CommentStatusType
-    CommentStatusType (..),
-
-    -- ** CommentVisibilityType
-    CommentVisibilityType (..),
-
-    -- ** DocumentSourceType
-    DocumentSourceType (..),
-
-    -- ** DocumentStatusType
-    DocumentStatusType (..),
-
-    -- ** DocumentThumbnailType
-    DocumentThumbnailType (..),
-
-    -- ** DocumentVersionStatus
-    DocumentVersionStatus (..),
-
-    -- ** FolderContentType
-    FolderContentType (..),
-
-    -- ** LocaleType
-    LocaleType (..),
-
-    -- ** OrderType
-    OrderType (..),
-
-    -- ** PrincipalType
-    PrincipalType (..),
-
-    -- ** ResourceCollectionType
-    ResourceCollectionType (..),
-
-    -- ** ResourceSortType
-    ResourceSortType (..),
-
-    -- ** ResourceStateType
-    ResourceStateType (..),
-
-    -- ** ResourceType
-    ResourceType (..),
-
-    -- ** RolePermissionType
-    RolePermissionType (..),
-
     -- ** RoleType
     RoleType (..),
-
-    -- ** ShareStatusType
-    ShareStatusType (..),
-
-    -- ** StorageType
-    StorageType (..),
-
-    -- ** SubscriptionProtocolType
-    SubscriptionProtocolType (..),
-
-    -- ** SubscriptionType
-    SubscriptionType (..),
-
-    -- ** UserFilterType
-    UserFilterType (..),
-
-    -- ** UserSortType
-    UserSortType (..),
-
-    -- ** UserStatusType
-    UserStatusType (..),
-
-    -- ** UserType
-    UserType (..),
-
-    -- ** Activity
-    Activity (..),
-    mkActivity,
-    aResourceMetadata,
-    aIsIndirectActivity,
-    aInitiator,
-    aParticipants,
-    aOriginalParent,
-    aType,
-    aCommentMetadata,
-    aTimeStamp,
-    aOrganizationId,
-
-    -- ** Comment
-    Comment (..),
-    mkComment,
-    cStatus,
-    cText,
-    cVisibility,
-    cThreadId,
-    cContributor,
-    cCommentId,
-    cCreatedTimestamp,
-    cRecipientId,
-    cParentId,
-
-    -- ** CommentMetadata
-    CommentMetadata (..),
-    mkCommentMetadata,
-    cmCommentStatus,
-    cmContributor,
-    cmCommentId,
-    cmCreatedTimestamp,
-    cmRecipientId,
-
-    -- ** DocumentMetadata
-    DocumentMetadata (..),
-    mkDocumentMetadata,
-    dmLatestVersionMetadata,
-    dmParentFolderId,
-    dmModifiedTimestamp,
-    dmId,
-    dmLabels,
-    dmResourceState,
-    dmCreatedTimestamp,
-    dmCreatorId,
-
-    -- ** DocumentVersionMetadata
-    DocumentVersionMetadata (..),
-    mkDocumentVersionMetadata,
-    dvmThumbnail,
-    dvmStatus,
-    dvmSignature,
-    dvmContentCreatedTimestamp,
-    dvmSize,
-    dvmName,
-    dvmModifiedTimestamp,
-    dvmSource,
-    dvmId,
-    dvmCreatedTimestamp,
-    dvmContentModifiedTimestamp,
-    dvmCreatorId,
-    dvmContentType,
-
-    -- ** FolderMetadata
-    FolderMetadata (..),
-    mkFolderMetadata,
-    fmSignature,
-    fmParentFolderId,
-    fmSize,
-    fmLatestVersionSize,
-    fmName,
-    fmModifiedTimestamp,
-    fmId,
-    fmLabels,
-    fmResourceState,
-    fmCreatedTimestamp,
-    fmCreatorId,
-
-    -- ** GroupMetadata
-    GroupMetadata (..),
-    mkGroupMetadata,
-    gmName,
-    gmId,
-
-    -- ** NotificationOptions
-    NotificationOptions (..),
-    mkNotificationOptions,
-    noEmailMessage,
-    noSendEmail,
-
-    -- ** Participants
-    Participants (..),
-    mkParticipants,
-    pGroups,
-    pUsers,
-
-    -- ** PermissionInfo
-    PermissionInfo (..),
-    mkPermissionInfo,
-    piRole,
-    piType,
-
-    -- ** Principal
-    Principal (..),
-    mkPrincipal,
-    pRoles,
-    pId,
-    pType,
-
-    -- ** ResourceMetadata
-    ResourceMetadata (..),
-    mkResourceMetadata,
-    rmVersionId,
-    rmOwner,
-    rmName,
-    rmId,
-    rmType,
-    rmOriginalName,
-    rmParentId,
-
-    -- ** ResourcePath
-    ResourcePath (..),
-    mkResourcePath,
-    rpComponents,
-
-    -- ** ResourcePathComponent
-    ResourcePathComponent (..),
-    mkResourcePathComponent,
-    rpcName,
-    rpcId,
-
-    -- ** SharePrincipal
-    SharePrincipal (..),
-    mkSharePrincipal,
-    spRole,
-    spId,
-    spType,
 
     -- ** ShareResult
     ShareResult (..),
     mkShareResult,
-    srStatus,
-    srPrincipalId,
     srInviteePrincipalId,
+    srPrincipalId,
     srRole,
-    srStatusMessage,
     srShareId,
+    srStatus,
+    srStatusMessage,
+
+    -- ** SearchQueryType
+    SearchQueryType (..),
+
+    -- ** SharePrincipal
+    SharePrincipal (..),
+    mkSharePrincipal,
+    spId,
+    spType,
+    spRole,
+
+    -- ** FolderContentType
+    FolderContentType (..),
+
+    -- ** AuthenticationHeaderType
+    AuthenticationHeaderType (..),
+
+    -- ** ResourceMetadata
+    ResourceMetadata (..),
+    mkResourceMetadata,
+    rmId,
+    rmName,
+    rmOriginalName,
+    rmOwner,
+    rmParentId,
+    rmType,
+    rmVersionId,
+
+    -- ** CommentStatusType
+    CommentStatusType (..),
 
     -- ** StorageRuleType
     StorageRuleType (..),
@@ -395,62 +285,403 @@ module Network.AWS.WorkDocs
     srtStorageAllocatedInBytes,
     srtStorageType,
 
-    -- ** Subscription
-    Subscription (..),
-    mkSubscription,
-    sProtocol,
-    sEndPoint,
-    sSubscriptionId,
+    -- ** PasswordType
+    PasswordType (..),
 
-    -- ** UploadMetadata
-    UploadMetadata (..),
-    mkUploadMetadata,
-    umUploadURL,
-    umSignedHeaders,
+    -- ** DocumentMetadata
+    DocumentMetadata (..),
+    mkDocumentMetadata,
+    dmCreatedTimestamp,
+    dmCreatorId,
+    dmId,
+    dmLabels,
+    dmLatestVersionMetadata,
+    dmModifiedTimestamp,
+    dmParentFolderId,
+    dmResourceState,
 
-    -- ** User
-    User (..),
-    mkUser,
-    uGivenName,
-    uStatus,
-    uLocale,
-    uUsername,
-    uStorage,
-    uModifiedTimestamp,
-    uEmailAddress,
-    uId,
-    uRootFolderId,
-    uType,
-    uSurname,
-    uTimeZoneId,
-    uCreatedTimestamp,
-    uOrganizationId,
-    uRecycleBinFolderId,
+    -- ** EmailAddressType
+    EmailAddressType (..),
 
-    -- ** UserMetadata
-    UserMetadata (..),
-    mkUserMetadata,
-    umGivenName,
-    umUsername,
-    umEmailAddress,
-    umId,
-    umSurname,
+    -- ** MarkerType
+    MarkerType (..),
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** PrincipalType
+    PrincipalType (..),
 
     -- ** UserStorageMetadata
     UserStorageMetadata (..),
     mkUserStorageMetadata,
-    usmStorageUtilizedInBytes,
     usmStorageRule,
+    usmStorageUtilizedInBytes,
+
+    -- ** CustomMetadataValueType
+    CustomMetadataValueType (..),
+
+    -- ** ActivityType
+    ActivityType (..),
+
+    -- ** ResourceStateType
+    ResourceStateType (..),
+
+    -- ** IdType
+    IdType (..),
+
+    -- ** NotificationOptions
+    NotificationOptions (..),
+    mkNotificationOptions,
+    noEmailMessage,
+    noSendEmail,
+
+    -- ** ResourcePathComponent
+    ResourcePathComponent (..),
+    mkResourcePathComponent,
+    rpcId,
+    rpcName,
+
+    -- ** GroupNameType
+    GroupNameType (..),
+
+    -- ** DocumentVersionMetadata
+    DocumentVersionMetadata (..),
+    mkDocumentVersionMetadata,
+    dvmContentCreatedTimestamp,
+    dvmContentModifiedTimestamp,
+    dvmContentType,
+    dvmCreatedTimestamp,
+    dvmCreatorId,
+    dvmId,
+    dvmModifiedTimestamp,
+    dvmName,
+    dvmSignature,
+    dvmSize,
+    dvmSource,
+    dvmStatus,
+    dvmThumbnail,
+
+    -- ** DocumentStatusType
+    DocumentStatusType (..),
+
+    -- ** SubscriptionType
+    SubscriptionType (..),
+
+    -- ** UserSortType
+    UserSortType (..),
+
+    -- ** FolderMetadata
+    FolderMetadata (..),
+    mkFolderMetadata,
+    fmCreatedTimestamp,
+    fmCreatorId,
+    fmId,
+    fmLabels,
+    fmLatestVersionSize,
+    fmModifiedTimestamp,
+    fmName,
+    fmParentFolderId,
+    fmResourceState,
+    fmSignature,
+    fmSize,
+
+    -- ** DocumentContentType
+    DocumentContentType (..),
+
+    -- ** UserAttributeValueType
+    UserAttributeValueType (..),
+
+    -- ** TimeZoneIdType
+    TimeZoneIdType (..),
+
+    -- ** CommentIdType
+    CommentIdType (..),
+
+    -- ** OrderType
+    OrderType (..),
+
+    -- ** PageMarkerType
+    PageMarkerType (..),
+
+    -- ** UserFilterType
+    UserFilterType (..),
+
+    -- ** User
+    User (..),
+    mkUser,
+    uCreatedTimestamp,
+    uEmailAddress,
+    uGivenName,
+    uId,
+    uLocale,
+    uModifiedTimestamp,
+    uOrganizationId,
+    uRecycleBinFolderId,
+    uRootFolderId,
+    uStatus,
+    uStorage,
+    uSurname,
+    uTimeZoneId,
+    uType,
+    uUsername,
+
+    -- ** Participants
+    Participants (..),
+    mkParticipants,
+    pGroups,
+    pUsers,
+
+    -- ** UserMetadata
+    UserMetadata (..),
+    mkUserMetadata,
+    umEmailAddress,
+    umGivenName,
+    umId,
+    umSurname,
+    umUsername,
+
+    -- ** ResourceCollectionType
+    ResourceCollectionType (..),
+
+    -- ** HeaderValueType
+    HeaderValueType (..),
+
+    -- ** SharedLabel
+    SharedLabel (..),
+
+    -- ** RolePermissionType
+    RolePermissionType (..),
+
+    -- ** BooleanEnumType
+    BooleanEnumType (..),
+
+    -- ** ResourceIdType
+    ResourceIdType (..),
+
+    -- ** ResourcePath
+    ResourcePath (..),
+    mkResourcePath,
+    rpComponents,
+
+    -- ** UserIdsType
+    UserIdsType (..),
+
+    -- ** Principal
+    Principal (..),
+    mkPrincipal,
+    pId,
+    pRoles,
+    pType,
+
+    -- ** GroupMetadata
+    GroupMetadata (..),
+    mkGroupMetadata,
+    gmId,
+    gmName,
+
+    -- ** DocumentSourceType
+    DocumentSourceType (..),
+
+    -- ** ResourceNameType
+    ResourceNameType (..),
+
+    -- ** PermissionInfo
+    PermissionInfo (..),
+    mkPermissionInfo,
+    piRole,
+    piType,
+
+    -- ** SubscriptionProtocolType
+    SubscriptionProtocolType (..),
+
+    -- ** UserStatusType
+    UserStatusType (..),
+
+    -- ** Activity
+    Activity (..),
+    mkActivity,
+    aCommentMetadata,
+    aInitiator,
+    aIsIndirectActivity,
+    aOrganizationId,
+    aOriginalParent,
+    aParticipants,
+    aResourceMetadata,
+    aTimeStamp,
+    aType,
+
+    -- ** CommentVisibilityType
+    CommentVisibilityType (..),
+
+    -- ** ResourceSortType
+    ResourceSortType (..),
+
+    -- ** HeaderNameType
+    HeaderNameType (..),
+
+    -- ** DocumentVersionIdType
+    DocumentVersionIdType (..),
+
+    -- ** LocaleType
+    LocaleType (..),
+
+    -- ** SubscriptionEndPointType
+    SubscriptionEndPointType (..),
+
+    -- ** DocumentThumbnailType
+    DocumentThumbnailType (..),
+
+    -- ** Subscription
+    Subscription (..),
+    mkSubscription,
+    sEndPoint,
+    sProtocol,
+    sSubscriptionId,
+
+    -- ** UrlType
+    UrlType (..),
+
+    -- ** Comment
+    Comment (..),
+    mkComment,
+    cCommentId,
+    cContributor,
+    cCreatedTimestamp,
+    cParentId,
+    cRecipientId,
+    cStatus,
+    cText,
+    cThreadId,
+    cVisibility,
+
+    -- ** CommentMetadata
+    CommentMetadata (..),
+    mkCommentMetadata,
+    cmCommentId,
+    cmCommentStatus,
+    cmContributor,
+    cmCreatedTimestamp,
+    cmRecipientId,
+
+    -- ** CommentTextType
+    CommentTextType (..),
+
+    -- ** UploadMetadata
+    UploadMetadata (..),
+    mkUploadMetadata,
+    umSignedHeaders,
+    umUploadUrl,
+
+    -- ** CustomMetadataKeyType
+    CustomMetadataKeyType (..),
+
+    -- ** DocumentVersionStatus
+    DocumentVersionStatus (..),
+
+    -- ** StorageType
+    StorageType (..),
+
+    -- ** UserType
+    UserType (..),
+
+    -- ** ShareStatusType
+    ShareStatusType (..),
+
+    -- ** FolderId
+    FolderId (..),
+
+    -- ** AuthenticationToken
+    AuthenticationToken (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** DocumentId
+    DocumentId (..),
+
+    -- ** VersionId
+    VersionId (..),
+
+    -- ** InviteePrincipalId
+    InviteePrincipalId (..),
+
+    -- ** PrincipalId
+    PrincipalId (..),
+
+    -- ** ShareId
+    ShareId (..),
+
+    -- ** StatusMessage
+    StatusMessage (..),
+
+    -- ** Fields
+    Fields (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** OriginalName
+    OriginalName (..),
+
+    -- ** ParentId
+    ParentId (..),
+
+    -- ** ActivityTypes
+    ActivityTypes (..),
+
+    -- ** OrganizationId
+    OrganizationId (..),
+
+    -- ** UserId
+    UserId (..),
+
+    -- ** CreatorId
+    CreatorId (..),
+
+    -- ** ParentFolderId
+    ParentFolderId (..),
+
+    -- ** Include
+    Include (..),
+
+    -- ** EmailMessage
+    EmailMessage (..),
+
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** Signature
+    Signature (..),
+
+    -- ** CommentId
+    CommentId (..),
+
+    -- ** RecycleBinFolderId
+    RecycleBinFolderId (..),
+
+    -- ** RootFolderId
+    RootFolderId (..),
+
+    -- ** Username
+    Username (..),
+
+    -- ** Text
+    Text (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -27,79 +27,67 @@ module Network.AWS.WAF.GetSizeConstraintSet
     mkGetSizeConstraintSetResponse,
 
     -- ** Response lenses
-    gscsrsSizeConstraintSet,
-    gscsrsResponseStatus,
+    gscsrrsSizeConstraintSet,
+    gscsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkGetSizeConstraintSet' smart constructor.
 newtype GetSizeConstraintSet = GetSizeConstraintSet'
   { -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
-    sizeConstraintSetId :: Lude.Text
+    sizeConstraintSetId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSizeConstraintSet' with the minimum fields required to make a request.
---
--- * 'sizeConstraintSetId' - The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
+-- | Creates a 'GetSizeConstraintSet' value with any optional fields omitted.
 mkGetSizeConstraintSet ::
   -- | 'sizeConstraintSetId'
-  Lude.Text ->
+  Types.ResourceId ->
   GetSizeConstraintSet
-mkGetSizeConstraintSet pSizeConstraintSetId_ =
-  GetSizeConstraintSet'
-    { sizeConstraintSetId =
-        pSizeConstraintSetId_
-    }
+mkGetSizeConstraintSet sizeConstraintSetId =
+  GetSizeConstraintSet' {sizeConstraintSetId}
 
 -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to get. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 --
 -- /Note:/ Consider using 'sizeConstraintSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gscsSizeConstraintSetId :: Lens.Lens' GetSizeConstraintSet Lude.Text
-gscsSizeConstraintSetId = Lens.lens (sizeConstraintSetId :: GetSizeConstraintSet -> Lude.Text) (\s a -> s {sizeConstraintSetId = a} :: GetSizeConstraintSet)
+gscsSizeConstraintSetId :: Lens.Lens' GetSizeConstraintSet Types.ResourceId
+gscsSizeConstraintSetId = Lens.field @"sizeConstraintSetId"
 {-# DEPRECATED gscsSizeConstraintSetId "Use generic-lens or generic-optics with 'sizeConstraintSetId' instead." #-}
 
-instance Lude.AWSRequest GetSizeConstraintSet where
+instance Core.FromJSON GetSizeConstraintSet where
+  toJSON GetSizeConstraintSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("SizeConstraintSetId" Core..= sizeConstraintSetId)]
+      )
+
+instance Core.AWSRequest GetSizeConstraintSet where
   type Rs GetSizeConstraintSet = GetSizeConstraintSetResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_20150824.GetSizeConstraintSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSizeConstraintSetResponse'
-            Lude.<$> (x Lude..?> "SizeConstraintSet")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SizeConstraintSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSizeConstraintSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.GetSizeConstraintSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetSizeConstraintSet where
-  toJSON GetSizeConstraintSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("SizeConstraintSetId" Lude..= sizeConstraintSetId)]
-      )
-
-instance Lude.ToPath GetSizeConstraintSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetSizeConstraintSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetSizeConstraintSetResponse' smart constructor.
 data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
@@ -113,36 +101,22 @@ data GetSizeConstraintSetResponse = GetSizeConstraintSetResponse'
     --
     --
     --     * 'FieldToMatch' : Contains @Data@ and @Type@
-    sizeConstraintSet :: Lude.Maybe SizeConstraintSet,
+    sizeConstraintSet :: Core.Maybe Types.SizeConstraintSet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSizeConstraintSetResponse' with the minimum fields required to make a request.
---
--- * 'sizeConstraintSet' - Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:
---
---
---     * 'SizeConstraintSet' : Contains @SizeConstraintSetId@ , @SizeConstraints@ , and @Name@
---
---
---     * @SizeConstraints@ : Contains an array of 'SizeConstraint' objects. Each @SizeConstraint@ object contains 'FieldToMatch' , @TextTransformation@ , @ComparisonOperator@ , and @Size@
---
---
---     * 'FieldToMatch' : Contains @Data@ and @Type@
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSizeConstraintSetResponse' value with any optional fields omitted.
 mkGetSizeConstraintSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSizeConstraintSetResponse
-mkGetSizeConstraintSetResponse pResponseStatus_ =
+mkGetSizeConstraintSetResponse responseStatus =
   GetSizeConstraintSetResponse'
-    { sizeConstraintSet = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { sizeConstraintSet = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the 'SizeConstraintSet' that you specified in the @GetSizeConstraintSet@ request. For more information, see the following topics:
@@ -159,13 +133,13 @@ mkGetSizeConstraintSetResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'sizeConstraintSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gscsrsSizeConstraintSet :: Lens.Lens' GetSizeConstraintSetResponse (Lude.Maybe SizeConstraintSet)
-gscsrsSizeConstraintSet = Lens.lens (sizeConstraintSet :: GetSizeConstraintSetResponse -> Lude.Maybe SizeConstraintSet) (\s a -> s {sizeConstraintSet = a} :: GetSizeConstraintSetResponse)
-{-# DEPRECATED gscsrsSizeConstraintSet "Use generic-lens or generic-optics with 'sizeConstraintSet' instead." #-}
+gscsrrsSizeConstraintSet :: Lens.Lens' GetSizeConstraintSetResponse (Core.Maybe Types.SizeConstraintSet)
+gscsrrsSizeConstraintSet = Lens.field @"sizeConstraintSet"
+{-# DEPRECATED gscsrrsSizeConstraintSet "Use generic-lens or generic-optics with 'sizeConstraintSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gscsrsResponseStatus :: Lens.Lens' GetSizeConstraintSetResponse Lude.Int
-gscsrsResponseStatus = Lens.lens (responseStatus :: GetSizeConstraintSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSizeConstraintSetResponse)
-{-# DEPRECATED gscsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gscsrrsResponseStatus :: Lens.Lens' GetSizeConstraintSetResponse Core.Int
+gscsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gscsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

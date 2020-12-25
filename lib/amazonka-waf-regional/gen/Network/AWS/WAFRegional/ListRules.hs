@@ -20,142 +20,128 @@ module Network.AWS.WAFRegional.ListRules
     mkListRules,
 
     -- ** Request lenses
-    lrNextMarker,
     lrLimit,
+    lrNextMarker,
 
     -- * Destructuring the response
     ListRulesResponse (..),
     mkListRulesResponse,
 
     -- ** Response lenses
-    lrrsRules,
-    lrrsNextMarker,
-    lrrsResponseStatus,
+    lrrrsNextMarker,
+    lrrrsRules,
+    lrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkListRules' smart constructor.
 data ListRules = ListRules'
-  { -- | If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
-    nextMarker :: Lude.Maybe Lude.Text,
-    -- | Specifies the number of @Rules@ that you want AWS WAF to return for this request. If you have more @Rules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
-    limit :: Lude.Maybe Lude.Natural
+  { -- | Specifies the number of @Rules@ that you want AWS WAF to return for this request. If you have more @Rules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
+    limit :: Core.Maybe Core.Natural,
+    -- | If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
+    nextMarker :: Core.Maybe Types.NextMarker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRules' with the minimum fields required to make a request.
---
--- * 'nextMarker' - If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
--- * 'limit' - Specifies the number of @Rules@ that you want AWS WAF to return for this request. If you have more @Rules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
+-- | Creates a 'ListRules' value with any optional fields omitted.
 mkListRules ::
   ListRules
 mkListRules =
-  ListRules' {nextMarker = Lude.Nothing, limit = Lude.Nothing}
-
--- | If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrNextMarker :: Lens.Lens' ListRules (Lude.Maybe Lude.Text)
-lrNextMarker = Lens.lens (nextMarker :: ListRules -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListRules)
-{-# DEPRECATED lrNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+  ListRules' {limit = Core.Nothing, nextMarker = Core.Nothing}
 
 -- | Specifies the number of @Rules@ that you want AWS WAF to return for this request. If you have more @Rules@ than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @Rules@ .
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrLimit :: Lens.Lens' ListRules (Lude.Maybe Lude.Natural)
-lrLimit = Lens.lens (limit :: ListRules -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListRules)
+lrLimit :: Lens.Lens' ListRules (Core.Maybe Core.Natural)
+lrLimit = Lens.field @"limit"
 {-# DEPRECATED lrLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest ListRules where
+-- | If you specify a value for @Limit@ and you have more @Rules@ than the value of @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @Rules@ . For the second and subsequent @ListRules@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @Rules@ .
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrNextMarker :: Lens.Lens' ListRules (Core.Maybe Types.NextMarker)
+lrNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lrNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+instance Core.FromJSON ListRules where
+  toJSON ListRules {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("NextMarker" Core..=) Core.<$> nextMarker
+          ]
+      )
+
+instance Core.AWSRequest ListRules where
   type Rs ListRules = ListRulesResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_Regional_20161128.ListRules")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListRulesResponse'
-            Lude.<$> (x Lude..?> "Rules" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextMarker")
+            Core.<*> (x Core..:? "Rules")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListRules where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.ListRules" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListRules where
-  toJSON ListRules' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListRules where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListRules where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListRulesResponse' smart constructor.
 data ListRulesResponse = ListRulesResponse'
-  { -- | An array of 'RuleSummary' objects.
-    rules :: Lude.Maybe [RuleSummary],
-    -- | If you have more @Rules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @Rules@ , submit another @ListRules@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
-    nextMarker :: Lude.Maybe Lude.Text,
+  { -- | If you have more @Rules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @Rules@ , submit another @ListRules@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+    nextMarker :: Core.Maybe Types.NextMarker,
+    -- | An array of 'RuleSummary' objects.
+    rules :: Core.Maybe [Types.RuleSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRulesResponse' with the minimum fields required to make a request.
---
--- * 'rules' - An array of 'RuleSummary' objects.
--- * 'nextMarker' - If you have more @Rules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @Rules@ , submit another @ListRules@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListRulesResponse' value with any optional fields omitted.
 mkListRulesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListRulesResponse
-mkListRulesResponse pResponseStatus_ =
+mkListRulesResponse responseStatus =
   ListRulesResponse'
-    { rules = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextMarker = Core.Nothing,
+      rules = Core.Nothing,
+      responseStatus
     }
-
--- | An array of 'RuleSummary' objects.
---
--- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsRules :: Lens.Lens' ListRulesResponse (Lude.Maybe [RuleSummary])
-lrrsRules = Lens.lens (rules :: ListRulesResponse -> Lude.Maybe [RuleSummary]) (\s a -> s {rules = a} :: ListRulesResponse)
-{-# DEPRECATED lrrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | If you have more @Rules@ than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @Rules@ , submit another @ListRules@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsNextMarker :: Lens.Lens' ListRulesResponse (Lude.Maybe Lude.Text)
-lrrsNextMarker = Lens.lens (nextMarker :: ListRulesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListRulesResponse)
-{-# DEPRECATED lrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+lrrrsNextMarker :: Lens.Lens' ListRulesResponse (Core.Maybe Types.NextMarker)
+lrrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lrrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+-- | An array of 'RuleSummary' objects.
+--
+-- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrrrsRules :: Lens.Lens' ListRulesResponse (Core.Maybe [Types.RuleSummary])
+lrrrsRules = Lens.field @"rules"
+{-# DEPRECATED lrrrsRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrrsResponseStatus :: Lens.Lens' ListRulesResponse Lude.Int
-lrrsResponseStatus = Lens.lens (responseStatus :: ListRulesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRulesResponse)
-{-# DEPRECATED lrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrrrsResponseStatus :: Lens.Lens' ListRulesResponse Core.Int
+lrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

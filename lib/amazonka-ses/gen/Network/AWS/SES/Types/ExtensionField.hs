@@ -17,13 +17,15 @@ module Network.AWS.SES.Types.ExtensionField
     mkExtensionField,
 
     -- * Lenses
-    efValue,
     efName,
+    efValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SES.Types.ExtensionFieldName as Types
+import qualified Network.AWS.SES.Types.ExtensionFieldValue as Types
 
 -- | Additional X-headers to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.
 --
@@ -31,41 +33,33 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkExtensionField' smart constructor.
 data ExtensionField = ExtensionField'
-  { -- | The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
-    value :: Lude.Text,
-    -- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
-    name :: Lude.Text
+  { -- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
+    name :: Types.ExtensionFieldName,
+    -- | The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+    value :: Types.ExtensionFieldValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExtensionField' with the minimum fields required to make a request.
---
--- * 'value' - The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
--- * 'name' - The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
+-- | Creates a 'ExtensionField' value with any optional fields omitted.
 mkExtensionField ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.ExtensionFieldName ->
+  -- | 'value'
+  Types.ExtensionFieldValue ->
   ExtensionField
-mkExtensionField pValue_ pName_ =
-  ExtensionField' {value = pValue_, name = pName_}
-
--- | The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efValue :: Lens.Lens' ExtensionField Lude.Text
-efValue = Lens.lens (value :: ExtensionField -> Lude.Text) (\s a -> s {value = a} :: ExtensionField)
-{-# DEPRECATED efValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkExtensionField name value = ExtensionField' {name, value}
 
 -- | The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-efName :: Lens.Lens' ExtensionField Lude.Text
-efName = Lens.lens (name :: ExtensionField -> Lude.Text) (\s a -> s {name = a} :: ExtensionField)
+efName :: Lens.Lens' ExtensionField Types.ExtensionFieldName
+efName = Lens.field @"name"
 {-# DEPRECATED efName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToQuery ExtensionField where
-  toQuery ExtensionField' {..} =
-    Lude.mconcat ["Value" Lude.=: value, "Name" Lude.=: name]
+-- | The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+efValue :: Lens.Lens' ExtensionField Types.ExtensionFieldValue
+efValue = Lens.field @"value"
+{-# DEPRECATED efValue "Use generic-lens or generic-optics with 'value' instead." #-}

@@ -15,7 +15,7 @@ module Network.AWS.CostAndUsageReport.Waiters
   )
 where
 
-import Network.AWS.CostAndUsageReport.Types
+import qualified Network.AWS.CostAndUsageReport.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter

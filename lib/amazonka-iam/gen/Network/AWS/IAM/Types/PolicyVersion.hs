@@ -17,15 +17,17 @@ module Network.AWS.IAM.Types.PolicyVersion
     mkPolicyVersion,
 
     -- * Lenses
-    pvVersionId,
     pvCreateDate,
     pvDocument,
     pvIsDefaultVersion,
+    pvVersionId,
   )
 where
 
+import qualified Network.AWS.IAM.Types.Document as Types
+import qualified Network.AWS.IAM.Types.PolicyVersionIdType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a version of a managed policy.
 --
@@ -34,58 +36,39 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPolicyVersion' smart constructor.
 data PolicyVersion = PolicyVersion'
-  { -- | The identifier for the policy version.
-    --
-    -- Policy version identifiers always begin with @v@ (always lowercase). When a policy is created, the first policy version is @v1@ .
-    versionId :: Lude.Maybe Lude.Text,
-    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy version was created.
-    createDate :: Lude.Maybe Lude.DateTime,
+  { -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy version was created.
+    createDate :: Core.Maybe Core.UTCTime,
     -- | The policy document.
     --
     -- The policy document is returned in the response to the 'GetPolicyVersion' and 'GetAccountAuthorizationDetails' operations. It is not returned in the response to the 'CreatePolicyVersion' or 'ListPolicyVersions' operations.
     -- The policy document returned in this structure is URL-encoded compliant with <https://tools.ietf.org/html/rfc3986 RFC 3986> . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the @decode@ method of the @java.net.URLDecoder@ utility class in the Java SDK. Other languages and SDKs provide similar functionality.
-    document :: Lude.Maybe Lude.Text,
+    document :: Core.Maybe Types.Document,
     -- | Specifies whether the policy version is set as the policy's default version.
-    isDefaultVersion :: Lude.Maybe Lude.Bool
+    isDefaultVersion :: Core.Maybe Core.Bool,
+    -- | The identifier for the policy version.
+    --
+    -- Policy version identifiers always begin with @v@ (always lowercase). When a policy is created, the first policy version is @v1@ .
+    versionId :: Core.Maybe Types.PolicyVersionIdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PolicyVersion' with the minimum fields required to make a request.
---
--- * 'versionId' - The identifier for the policy version.
---
--- Policy version identifiers always begin with @v@ (always lowercase). When a policy is created, the first policy version is @v1@ .
--- * 'createDate' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy version was created.
--- * 'document' - The policy document.
---
--- The policy document is returned in the response to the 'GetPolicyVersion' and 'GetAccountAuthorizationDetails' operations. It is not returned in the response to the 'CreatePolicyVersion' or 'ListPolicyVersions' operations.
--- The policy document returned in this structure is URL-encoded compliant with <https://tools.ietf.org/html/rfc3986 RFC 3986> . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the @decode@ method of the @java.net.URLDecoder@ utility class in the Java SDK. Other languages and SDKs provide similar functionality.
--- * 'isDefaultVersion' - Specifies whether the policy version is set as the policy's default version.
+-- | Creates a 'PolicyVersion' value with any optional fields omitted.
 mkPolicyVersion ::
   PolicyVersion
 mkPolicyVersion =
   PolicyVersion'
-    { versionId = Lude.Nothing,
-      createDate = Lude.Nothing,
-      document = Lude.Nothing,
-      isDefaultVersion = Lude.Nothing
+    { createDate = Core.Nothing,
+      document = Core.Nothing,
+      isDefaultVersion = Core.Nothing,
+      versionId = Core.Nothing
     }
-
--- | The identifier for the policy version.
---
--- Policy version identifiers always begin with @v@ (always lowercase). When a policy is created, the first policy version is @v1@ .
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvVersionId :: Lens.Lens' PolicyVersion (Lude.Maybe Lude.Text)
-pvVersionId = Lens.lens (versionId :: PolicyVersion -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: PolicyVersion)
-{-# DEPRECATED pvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the policy version was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvCreateDate :: Lens.Lens' PolicyVersion (Lude.Maybe Lude.DateTime)
-pvCreateDate = Lens.lens (createDate :: PolicyVersion -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: PolicyVersion)
+pvCreateDate :: Lens.Lens' PolicyVersion (Core.Maybe Core.UTCTime)
+pvCreateDate = Lens.field @"createDate"
 {-# DEPRECATED pvCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The policy document.
@@ -94,21 +77,30 @@ pvCreateDate = Lens.lens (createDate :: PolicyVersion -> Lude.Maybe Lude.DateTim
 -- The policy document returned in this structure is URL-encoded compliant with <https://tools.ietf.org/html/rfc3986 RFC 3986> . You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the @decode@ method of the @java.net.URLDecoder@ utility class in the Java SDK. Other languages and SDKs provide similar functionality.
 --
 -- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvDocument :: Lens.Lens' PolicyVersion (Lude.Maybe Lude.Text)
-pvDocument = Lens.lens (document :: PolicyVersion -> Lude.Maybe Lude.Text) (\s a -> s {document = a} :: PolicyVersion)
+pvDocument :: Lens.Lens' PolicyVersion (Core.Maybe Types.Document)
+pvDocument = Lens.field @"document"
 {-# DEPRECATED pvDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
 -- | Specifies whether the policy version is set as the policy's default version.
 --
 -- /Note:/ Consider using 'isDefaultVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pvIsDefaultVersion :: Lens.Lens' PolicyVersion (Lude.Maybe Lude.Bool)
-pvIsDefaultVersion = Lens.lens (isDefaultVersion :: PolicyVersion -> Lude.Maybe Lude.Bool) (\s a -> s {isDefaultVersion = a} :: PolicyVersion)
+pvIsDefaultVersion :: Lens.Lens' PolicyVersion (Core.Maybe Core.Bool)
+pvIsDefaultVersion = Lens.field @"isDefaultVersion"
 {-# DEPRECATED pvIsDefaultVersion "Use generic-lens or generic-optics with 'isDefaultVersion' instead." #-}
 
-instance Lude.FromXML PolicyVersion where
+-- | The identifier for the policy version.
+--
+-- Policy version identifiers always begin with @v@ (always lowercase). When a policy is created, the first policy version is @v1@ .
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pvVersionId :: Lens.Lens' PolicyVersion (Core.Maybe Types.PolicyVersionIdType)
+pvVersionId = Lens.field @"versionId"
+{-# DEPRECATED pvVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+instance Core.FromXML PolicyVersion where
   parseXML x =
     PolicyVersion'
-      Lude.<$> (x Lude..@? "VersionId")
-      Lude.<*> (x Lude..@? "CreateDate")
-      Lude.<*> (x Lude..@? "Document")
-      Lude.<*> (x Lude..@? "IsDefaultVersion")
+      Core.<$> (x Core..@? "CreateDate")
+      Core.<*> (x Core..@? "Document")
+      Core.<*> (x Core..@? "IsDefaultVersion")
+      Core.<*> (x Core..@? "VersionId")

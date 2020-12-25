@@ -22,58 +22,53 @@ module Network.AWS.CloudFront.Types.FieldPatterns
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex data type that includes the field patterns to match for field-level encryption.
 --
 -- /See:/ 'mkFieldPatterns' smart constructor.
 data FieldPatterns = FieldPatterns'
   { -- | The number of field-level encryption field patterns.
-    quantity :: Lude.Int,
+    quantity :: Core.Int,
     -- | An array of the field-level encryption field patterns.
-    items :: Lude.Maybe [Lude.Text]
+    items :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FieldPatterns' with the minimum fields required to make a request.
---
--- * 'quantity' - The number of field-level encryption field patterns.
--- * 'items' - An array of the field-level encryption field patterns.
+-- | Creates a 'FieldPatterns' value with any optional fields omitted.
 mkFieldPatterns ::
   -- | 'quantity'
-  Lude.Int ->
+  Core.Int ->
   FieldPatterns
-mkFieldPatterns pQuantity_ =
-  FieldPatterns' {quantity = pQuantity_, items = Lude.Nothing}
+mkFieldPatterns quantity =
+  FieldPatterns' {quantity, items = Core.Nothing}
 
 -- | The number of field-level encryption field patterns.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fpQuantity :: Lens.Lens' FieldPatterns Lude.Int
-fpQuantity = Lens.lens (quantity :: FieldPatterns -> Lude.Int) (\s a -> s {quantity = a} :: FieldPatterns)
+fpQuantity :: Lens.Lens' FieldPatterns Core.Int
+fpQuantity = Lens.field @"quantity"
 {-# DEPRECATED fpQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | An array of the field-level encryption field patterns.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fpItems :: Lens.Lens' FieldPatterns (Lude.Maybe [Lude.Text])
-fpItems = Lens.lens (items :: FieldPatterns -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: FieldPatterns)
+fpItems :: Lens.Lens' FieldPatterns (Core.Maybe [Types.String])
+fpItems = Lens.field @"items"
 {-# DEPRECATED fpItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.FromXML FieldPatterns where
+instance Core.ToXML FieldPatterns where
+  toXML FieldPatterns {..} =
+    Core.toXMLNode "Quantity" quantity
+      Core.<> Core.toXMLNode
+        "Items"
+        (Core.toXMLList "FieldPattern" Core.<$> items)
+
+instance Core.FromXML FieldPatterns where
   parseXML x =
     FieldPatterns'
-      Lude.<$> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "FieldPattern")
-               )
-
-instance Lude.ToXML FieldPatterns where
-  toXML FieldPatterns' {..} =
-    Lude.mconcat
-      [ "Quantity" Lude.@= quantity,
-        "Items"
-          Lude.@= Lude.toXML (Lude.toXMLList "FieldPattern" Lude.<$> items)
-      ]
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> (x Core..@? "Items" Core..<@> Core.parseXMLList "FieldPattern")

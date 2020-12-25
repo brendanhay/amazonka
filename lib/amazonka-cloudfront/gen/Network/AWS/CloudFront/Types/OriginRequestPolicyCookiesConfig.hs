@@ -17,22 +17,21 @@ module Network.AWS.CloudFront.Types.OriginRequestPolicyCookiesConfig
     mkOriginRequestPolicyCookiesConfig,
 
     -- * Lenses
-    orpccCookies,
     orpccCookieBehavior,
+    orpccCookies,
   )
 where
 
-import Network.AWS.CloudFront.Types.CookieNames
-import Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior
+import qualified Network.AWS.CloudFront.Types.CookieNames as Types
+import qualified Network.AWS.CloudFront.Types.OriginRequestPolicyCookieBehavior as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that determines whether any cookies in viewer requests (and if so, which cookies) are included in requests that CloudFront sends to the origin.
 --
 -- /See:/ 'mkOriginRequestPolicyCookiesConfig' smart constructor.
 data OriginRequestPolicyCookiesConfig = OriginRequestPolicyCookiesConfig'
-  { cookies :: Lude.Maybe CookieNames,
-    -- | Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
+  { -- | Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
     --
     --
     --     * @none@ – Cookies in viewer requests are not included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any cookies that are listed in a @CachePolicy@ /are/ included in origin requests.
@@ -42,40 +41,22 @@ data OriginRequestPolicyCookiesConfig = OriginRequestPolicyCookiesConfig'
     --
     --
     --     * @all@ – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
-    cookieBehavior :: OriginRequestPolicyCookieBehavior
+    cookieBehavior :: Types.OriginRequestPolicyCookieBehavior,
+    cookies :: Core.Maybe Types.CookieNames
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OriginRequestPolicyCookiesConfig' with the minimum fields required to make a request.
---
--- * 'cookies' -
--- * 'cookieBehavior' - Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
---
---
---     * @none@ – Cookies in viewer requests are not included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any cookies that are listed in a @CachePolicy@ /are/ included in origin requests.
---
---
---     * @whitelist@ – The cookies in viewer requests that are listed in the @CookieNames@ type are included in requests that CloudFront sends to the origin.
---
---
---     * @all@ – All cookies in viewer requests are included in requests that CloudFront sends to the origin.
+-- | Creates a 'OriginRequestPolicyCookiesConfig' value with any optional fields omitted.
 mkOriginRequestPolicyCookiesConfig ::
   -- | 'cookieBehavior'
-  OriginRequestPolicyCookieBehavior ->
+  Types.OriginRequestPolicyCookieBehavior ->
   OriginRequestPolicyCookiesConfig
-mkOriginRequestPolicyCookiesConfig pCookieBehavior_ =
+mkOriginRequestPolicyCookiesConfig cookieBehavior =
   OriginRequestPolicyCookiesConfig'
-    { cookies = Lude.Nothing,
-      cookieBehavior = pCookieBehavior_
+    { cookieBehavior,
+      cookies = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'cookies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpccCookies :: Lens.Lens' OriginRequestPolicyCookiesConfig (Lude.Maybe CookieNames)
-orpccCookies = Lens.lens (cookies :: OriginRequestPolicyCookiesConfig -> Lude.Maybe CookieNames) (\s a -> s {cookies = a} :: OriginRequestPolicyCookiesConfig)
-{-# DEPRECATED orpccCookies "Use generic-lens or generic-optics with 'cookies' instead." #-}
 
 -- | Determines whether cookies in viewer requests are included in requests that CloudFront sends to the origin. Valid values are:
 --
@@ -91,18 +72,23 @@ orpccCookies = Lens.lens (cookies :: OriginRequestPolicyCookiesConfig -> Lude.Ma
 --
 --
 -- /Note:/ Consider using 'cookieBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-orpccCookieBehavior :: Lens.Lens' OriginRequestPolicyCookiesConfig OriginRequestPolicyCookieBehavior
-orpccCookieBehavior = Lens.lens (cookieBehavior :: OriginRequestPolicyCookiesConfig -> OriginRequestPolicyCookieBehavior) (\s a -> s {cookieBehavior = a} :: OriginRequestPolicyCookiesConfig)
+orpccCookieBehavior :: Lens.Lens' OriginRequestPolicyCookiesConfig Types.OriginRequestPolicyCookieBehavior
+orpccCookieBehavior = Lens.field @"cookieBehavior"
 {-# DEPRECATED orpccCookieBehavior "Use generic-lens or generic-optics with 'cookieBehavior' instead." #-}
 
-instance Lude.FromXML OriginRequestPolicyCookiesConfig where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'cookies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+orpccCookies :: Lens.Lens' OriginRequestPolicyCookiesConfig (Core.Maybe Types.CookieNames)
+orpccCookies = Lens.field @"cookies"
+{-# DEPRECATED orpccCookies "Use generic-lens or generic-optics with 'cookies' instead." #-}
+
+instance Core.ToXML OriginRequestPolicyCookiesConfig where
+  toXML OriginRequestPolicyCookiesConfig {..} =
+    Core.toXMLNode "CookieBehavior" cookieBehavior
+      Core.<> Core.toXMLNode "Cookies" Core.<$> cookies
+
+instance Core.FromXML OriginRequestPolicyCookiesConfig where
   parseXML x =
     OriginRequestPolicyCookiesConfig'
-      Lude.<$> (x Lude..@? "Cookies") Lude.<*> (x Lude..@ "CookieBehavior")
-
-instance Lude.ToXML OriginRequestPolicyCookiesConfig where
-  toXML OriginRequestPolicyCookiesConfig' {..} =
-    Lude.mconcat
-      [ "Cookies" Lude.@= cookies,
-        "CookieBehavior" Lude.@= cookieBehavior
-      ]
+      Core.<$> (x Core..@ "CookieBehavior") Core.<*> (x Core..@? "Cookies")

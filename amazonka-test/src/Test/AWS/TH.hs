@@ -14,7 +14,7 @@ module Test.AWS.TH where
 import Data.Time
 import Language.Haskell.TH
 import Language.Haskell.TH.Syntax
-import Network.AWS.Data.Text
+import Network.AWS.Data.Text as AWS.Text
 import Network.AWS.Data.Time
 import Network.AWS.Lens (view)
 

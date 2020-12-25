@@ -31,115 +31,104 @@ module Network.AWS.EMR.DeleteStudioSessionMapping
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteStudioSessionMapping' smart constructor.
 data DeleteStudioSessionMapping = DeleteStudioSessionMapping'
   { -- | The ID of the Amazon EMR Studio.
-    studioId :: Lude.Text,
+    studioId :: Types.XmlStringMaxLen256,
     -- | Specifies whether the identity to delete from the Studio is a user or a group.
-    identityType :: IdentityType,
+    identityType :: Types.IdentityType,
     -- | The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
-    identityId :: Lude.Maybe Lude.Text,
+    identityId :: Core.Maybe Types.XmlStringMaxLen256,
     -- | The name of the user name or group to remove from the Studio. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
-    identityName :: Lude.Maybe Lude.Text
+    identityName :: Core.Maybe Types.XmlStringMaxLen256
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStudioSessionMapping' with the minimum fields required to make a request.
---
--- * 'studioId' - The ID of the Amazon EMR Studio.
--- * 'identityType' - Specifies whether the identity to delete from the Studio is a user or a group.
--- * 'identityId' - The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
--- * 'identityName' - The name of the user name or group to remove from the Studio. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
+-- | Creates a 'DeleteStudioSessionMapping' value with any optional fields omitted.
 mkDeleteStudioSessionMapping ::
   -- | 'studioId'
-  Lude.Text ->
+  Types.XmlStringMaxLen256 ->
   -- | 'identityType'
-  IdentityType ->
+  Types.IdentityType ->
   DeleteStudioSessionMapping
-mkDeleteStudioSessionMapping pStudioId_ pIdentityType_ =
+mkDeleteStudioSessionMapping studioId identityType =
   DeleteStudioSessionMapping'
-    { studioId = pStudioId_,
-      identityType = pIdentityType_,
-      identityId = Lude.Nothing,
-      identityName = Lude.Nothing
+    { studioId,
+      identityType,
+      identityId = Core.Nothing,
+      identityName = Core.Nothing
     }
 
 -- | The ID of the Amazon EMR Studio.
 --
 -- /Note:/ Consider using 'studioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssmStudioId :: Lens.Lens' DeleteStudioSessionMapping Lude.Text
-dssmStudioId = Lens.lens (studioId :: DeleteStudioSessionMapping -> Lude.Text) (\s a -> s {studioId = a} :: DeleteStudioSessionMapping)
+dssmStudioId :: Lens.Lens' DeleteStudioSessionMapping Types.XmlStringMaxLen256
+dssmStudioId = Lens.field @"studioId"
 {-# DEPRECATED dssmStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
 
 -- | Specifies whether the identity to delete from the Studio is a user or a group.
 --
 -- /Note:/ Consider using 'identityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssmIdentityType :: Lens.Lens' DeleteStudioSessionMapping IdentityType
-dssmIdentityType = Lens.lens (identityType :: DeleteStudioSessionMapping -> IdentityType) (\s a -> s {identityType = a} :: DeleteStudioSessionMapping)
+dssmIdentityType :: Lens.Lens' DeleteStudioSessionMapping Types.IdentityType
+dssmIdentityType = Lens.field @"identityType"
 {-# DEPRECATED dssmIdentityType "Use generic-lens or generic-optics with 'identityType' instead." #-}
 
 -- | The globally unique identifier (GUID) of the user or group to remove from the Amazon EMR Studio. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserId> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-GroupId GroupId> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
 --
 -- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssmIdentityId :: Lens.Lens' DeleteStudioSessionMapping (Lude.Maybe Lude.Text)
-dssmIdentityId = Lens.lens (identityId :: DeleteStudioSessionMapping -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: DeleteStudioSessionMapping)
+dssmIdentityId :: Lens.Lens' DeleteStudioSessionMapping (Core.Maybe Types.XmlStringMaxLen256)
+dssmIdentityId = Lens.field @"identityId"
 {-# DEPRECATED dssmIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
 -- | The name of the user name or group to remove from the Studio. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ . Either @IdentityName@ or @IdentityId@ must be specified.
 --
 -- /Note:/ Consider using 'identityName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssmIdentityName :: Lens.Lens' DeleteStudioSessionMapping (Lude.Maybe Lude.Text)
-dssmIdentityName = Lens.lens (identityName :: DeleteStudioSessionMapping -> Lude.Maybe Lude.Text) (\s a -> s {identityName = a} :: DeleteStudioSessionMapping)
+dssmIdentityName :: Lens.Lens' DeleteStudioSessionMapping (Core.Maybe Types.XmlStringMaxLen256)
+dssmIdentityName = Lens.field @"identityName"
 {-# DEPRECATED dssmIdentityName "Use generic-lens or generic-optics with 'identityName' instead." #-}
 
-instance Lude.AWSRequest DeleteStudioSessionMapping where
+instance Core.FromJSON DeleteStudioSessionMapping where
+  toJSON DeleteStudioSessionMapping {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StudioId" Core..= studioId),
+            Core.Just ("IdentityType" Core..= identityType),
+            ("IdentityId" Core..=) Core.<$> identityId,
+            ("IdentityName" Core..=) Core.<$> identityName
+          ]
+      )
+
+instance Core.AWSRequest DeleteStudioSessionMapping where
   type
     Rs DeleteStudioSessionMapping =
       DeleteStudioSessionMappingResponse
-  request = Req.postJSON emrService
-  response = Res.receiveNull DeleteStudioSessionMappingResponse'
-
-instance Lude.ToHeaders DeleteStudioSessionMapping where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.DeleteStudioSessionMapping" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteStudioSessionMapping where
-  toJSON DeleteStudioSessionMapping' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("StudioId" Lude..= studioId),
-            Lude.Just ("IdentityType" Lude..= identityType),
-            ("IdentityId" Lude..=) Lude.<$> identityId,
-            ("IdentityName" Lude..=) Lude.<$> identityName
-          ]
-      )
-
-instance Lude.ToPath DeleteStudioSessionMapping where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteStudioSessionMapping where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ElasticMapReduce.DeleteStudioSessionMapping")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteStudioSessionMappingResponse'
 
 -- | /See:/ 'mkDeleteStudioSessionMappingResponse' smart constructor.
 data DeleteStudioSessionMappingResponse = DeleteStudioSessionMappingResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteStudioSessionMappingResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteStudioSessionMappingResponse' value with any optional fields omitted.
 mkDeleteStudioSessionMappingResponse ::
   DeleteStudioSessionMappingResponse
 mkDeleteStudioSessionMappingResponse =

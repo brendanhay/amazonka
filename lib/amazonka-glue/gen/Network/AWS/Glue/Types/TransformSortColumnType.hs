@@ -13,61 +13,66 @@
 module Network.AWS.Glue.Types.TransformSortColumnType
   ( TransformSortColumnType
       ( TransformSortColumnType',
-        TSCTName,
-        TSCTTransformType,
-        TSCTStatus,
-        TSCTCreated,
-        TSCTLastModified
+        TransformSortColumnTypeName,
+        TransformSortColumnTypeTransformType,
+        TransformSortColumnTypeStatus,
+        TransformSortColumnTypeCreated,
+        TransformSortColumnTypeLastModified,
+        fromTransformSortColumnType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TransformSortColumnType = TransformSortColumnType' Lude.Text
+newtype TransformSortColumnType = TransformSortColumnType'
+  { fromTransformSortColumnType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TSCTName :: TransformSortColumnType
-pattern TSCTName = TransformSortColumnType' "NAME"
+pattern TransformSortColumnTypeName :: TransformSortColumnType
+pattern TransformSortColumnTypeName = TransformSortColumnType' "NAME"
 
-pattern TSCTTransformType :: TransformSortColumnType
-pattern TSCTTransformType = TransformSortColumnType' "TRANSFORM_TYPE"
+pattern TransformSortColumnTypeTransformType :: TransformSortColumnType
+pattern TransformSortColumnTypeTransformType = TransformSortColumnType' "TRANSFORM_TYPE"
 
-pattern TSCTStatus :: TransformSortColumnType
-pattern TSCTStatus = TransformSortColumnType' "STATUS"
+pattern TransformSortColumnTypeStatus :: TransformSortColumnType
+pattern TransformSortColumnTypeStatus = TransformSortColumnType' "STATUS"
 
-pattern TSCTCreated :: TransformSortColumnType
-pattern TSCTCreated = TransformSortColumnType' "CREATED"
+pattern TransformSortColumnTypeCreated :: TransformSortColumnType
+pattern TransformSortColumnTypeCreated = TransformSortColumnType' "CREATED"
 
-pattern TSCTLastModified :: TransformSortColumnType
-pattern TSCTLastModified = TransformSortColumnType' "LAST_MODIFIED"
+pattern TransformSortColumnTypeLastModified :: TransformSortColumnType
+pattern TransformSortColumnTypeLastModified = TransformSortColumnType' "LAST_MODIFIED"
 
 {-# COMPLETE
-  TSCTName,
-  TSCTTransformType,
-  TSCTStatus,
-  TSCTCreated,
-  TSCTLastModified,
+  TransformSortColumnTypeName,
+  TransformSortColumnTypeTransformType,
+  TransformSortColumnTypeStatus,
+  TransformSortColumnTypeCreated,
+  TransformSortColumnTypeLastModified,
   TransformSortColumnType'
   #-}

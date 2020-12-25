@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -22,10 +21,46 @@
 -- Device Farm makes it possible for you to test apps on physical phones, tablets, and other devices in the cloud. For more information, see the <https://docs.aws.amazon.com/devicefarm/latest/developerguide/ Device Farm Developer Guide> .
 module Network.AWS.DeviceFarm
   ( -- * Service configuration
-    deviceFarmService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** NotEligibleException
+    _NotEligibleException,
+
+    -- ** CannotDeleteException
+    _CannotDeleteException,
+
+    -- ** IdempotencyException
+    _IdempotencyException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** ArgumentException
+    _ArgumentException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** TagPolicyException
+    _TagPolicyException,
+
+    -- ** TagOperationException
+    _TagOperationException,
+
+    -- ** ServiceAccountException
+    _ServiceAccountException,
+
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -258,315 +293,28 @@ module Network.AWS.DeviceFarm
     -- ** ListTestGridSessions
     module Network.AWS.DeviceFarm.ListTestGridSessions,
 
-    -- ** CreateTestGridURL
-    module Network.AWS.DeviceFarm.CreateTestGridURL,
+    -- ** CreateTestGridUrl
+    module Network.AWS.DeviceFarm.CreateTestGridUrl,
 
     -- ** ListOfferings (Paginated)
     module Network.AWS.DeviceFarm.ListOfferings,
 
     -- * Types
 
-    -- ** ArtifactCategory
-    ArtifactCategory (..),
-
-    -- ** ArtifactType
-    ArtifactType (..),
-
-    -- ** BillingMethod
-    BillingMethod (..),
-
-    -- ** CurrencyCode
-    CurrencyCode (..),
-
-    -- ** DeviceAttribute
-    DeviceAttribute (..),
-
-    -- ** DeviceAvailability
-    DeviceAvailability (..),
-
-    -- ** DeviceFilterAttribute
-    DeviceFilterAttribute (..),
-
-    -- ** DeviceFormFactor
-    DeviceFormFactor (..),
-
-    -- ** DevicePlatform
-    DevicePlatform (..),
-
-    -- ** DevicePoolType
-    DevicePoolType (..),
-
-    -- ** ExecutionResult
-    ExecutionResult (..),
-
-    -- ** ExecutionResultCode
-    ExecutionResultCode (..),
-
-    -- ** ExecutionStatus
-    ExecutionStatus (..),
-
-    -- ** InstanceStatus
-    InstanceStatus (..),
-
-    -- ** InteractionMode
-    InteractionMode (..),
-
-    -- ** NetworkProfileType
-    NetworkProfileType (..),
-
     -- ** OfferingTransactionType
     OfferingTransactionType (..),
-
-    -- ** OfferingType
-    OfferingType (..),
-
-    -- ** RecurringChargeFrequency
-    RecurringChargeFrequency (..),
-
-    -- ** RuleOperator
-    RuleOperator (..),
-
-    -- ** SampleType
-    SampleType (..),
-
-    -- ** TestGridSessionArtifactCategory
-    TestGridSessionArtifactCategory (..),
-
-    -- ** TestGridSessionArtifactType
-    TestGridSessionArtifactType (..),
-
-    -- ** TestGridSessionStatus
-    TestGridSessionStatus (..),
-
-    -- ** TestType
-    TestType (..),
-
-    -- ** UploadCategory
-    UploadCategory (..),
-
-    -- ** UploadStatus
-    UploadStatus (..),
-
-    -- ** UploadType
-    UploadType (..),
 
     -- ** AccountSettings
     AccountSettings (..),
     mkAccountSettings,
-    asSkipAppResign,
     asAwsAccountNumber,
+    asDefaultJobTimeoutMinutes,
     asMaxJobTimeoutMinutes,
     asMaxSlots,
+    asSkipAppResign,
     asTrialMinutes,
     asUnmeteredDevices,
     asUnmeteredRemoteAccessDevices,
-    asDefaultJobTimeoutMinutes,
-
-    -- ** Artifact
-    Artifact (..),
-    mkArtifact,
-    aArn,
-    aUrl,
-    aExtension,
-    aName,
-    aType,
-
-    -- ** CPU
-    CPU (..),
-    mkCPU,
-    cpuFrequency,
-    cpuClock,
-    cpuArchitecture,
-
-    -- ** Counters
-    Counters (..),
-    mkCounters,
-    cPassed,
-    cSkipped,
-    cWarned,
-    cStopped,
-    cTotal,
-    cFailed,
-    cErrored,
-
-    -- ** CreateRemoteAccessSessionConfiguration
-    CreateRemoteAccessSessionConfiguration (..),
-    mkCreateRemoteAccessSessionConfiguration,
-    crascBillingMethod,
-    crascVpceConfigurationARNs,
-
-    -- ** CustomerArtifactPaths
-    CustomerArtifactPaths (..),
-    mkCustomerArtifactPaths,
-    capAndroidPaths,
-    capDeviceHostPaths,
-    capIosPaths,
-
-    -- ** Device
-    Device (..),
-    mkDevice,
-    dCarrier,
-    dImage,
-    dManufacturer,
-    dPlatform,
-    dModelId,
-    dRemoteAccessEnabled,
-    dArn,
-    dFormFactor,
-    dFleetType,
-    dResolution,
-    dAvailability,
-    dMemory,
-    dRadio,
-    dOs,
-    dName,
-    dModel,
-    dInstances,
-    dRemoteDebugEnabled,
-    dCpu,
-    dHeapSize,
-    dFleetName,
-
-    -- ** DeviceFilter
-    DeviceFilter (..),
-    mkDeviceFilter,
-    dfAttribute,
-    dfOperator,
-    dfValues,
-
-    -- ** DeviceInstance
-    DeviceInstance (..),
-    mkDeviceInstance,
-    diStatus,
-    diUdid,
-    diInstanceProfile,
-    diArn,
-    diDeviceARN,
-    diLabels,
-
-    -- ** DeviceMinutes
-    DeviceMinutes (..),
-    mkDeviceMinutes,
-    dmMetered,
-    dmTotal,
-    dmUnmetered,
-
-    -- ** DevicePool
-    DevicePool (..),
-    mkDevicePool,
-    dpArn,
-    dpRules,
-    dpName,
-    dpMaxDevices,
-    dpType,
-    dpDescription,
-
-    -- ** DevicePoolCompatibilityResult
-    DevicePoolCompatibilityResult (..),
-    mkDevicePoolCompatibilityResult,
-    dpcrDevice,
-    dpcrCompatible,
-    dpcrIncompatibilityMessages,
-
-    -- ** DeviceSelectionConfiguration
-    DeviceSelectionConfiguration (..),
-    mkDeviceSelectionConfiguration,
-    dscFilters,
-    dscMaxDevices,
-
-    -- ** DeviceSelectionResult
-    DeviceSelectionResult (..),
-    mkDeviceSelectionResult,
-    dsrMatchedDevicesCount,
-    dsrFilters,
-    dsrMaxDevices,
-
-    -- ** ExecutionConfiguration
-    ExecutionConfiguration (..),
-    mkExecutionConfiguration,
-    ecSkipAppResign,
-    ecAccountsCleanup,
-    ecAppPackagesCleanup,
-    ecJobTimeoutMinutes,
-    ecVideoCapture,
-
-    -- ** IncompatibilityMessage
-    IncompatibilityMessage (..),
-    mkIncompatibilityMessage,
-    imType,
-    imMessage,
-
-    -- ** InstanceProfile
-    InstanceProfile (..),
-    mkInstanceProfile,
-    ipArn,
-    ipRebootAfterUse,
-    ipName,
-    ipPackageCleanup,
-    ipExcludeAppPackagesFromCleanup,
-    ipDescription,
-
-    -- ** Job
-    Job (..),
-    mkJob,
-    jInstanceARN,
-    jStatus,
-    jCounters,
-    jArn,
-    jCreated,
-    jDevice,
-    jStopped,
-    jResult,
-    jName,
-    jVideoEndpoint,
-    jDeviceMinutes,
-    jVideoCapture,
-    jType,
-    jMessage,
-    jStarted,
-
-    -- ** Location
-    Location (..),
-    mkLocation,
-    lLatitude,
-    lLongitude,
-
-    -- ** MonetaryAmount
-    MonetaryAmount (..),
-    mkMonetaryAmount,
-    maAmount,
-    maCurrencyCode,
-
-    -- ** NetworkProfile
-    NetworkProfile (..),
-    mkNetworkProfile,
-    npUplinkJitterMs,
-    npArn,
-    npUplinkLossPercent,
-    npDownlinkJitterMs,
-    npName,
-    npDownlinkLossPercent,
-    npType,
-    npUplinkDelayMs,
-    npUplinkBandwidthBits,
-    npDescription,
-    npDownlinkDelayMs,
-    npDownlinkBandwidthBits,
-
-    -- ** Offering
-    Offering (..),
-    mkOffering,
-    oPlatform,
-    oId,
-    oRecurringCharges,
-    oType,
-    oDescription,
-
-    -- ** OfferingPromotion
-    OfferingPromotion (..),
-    mkOfferingPromotion,
-    opId,
-    opDescription,
 
     -- ** OfferingStatus
     OfferingStatus (..),
@@ -576,25 +324,92 @@ module Network.AWS.DeviceFarm
     osQuantity,
     osType,
 
-    -- ** OfferingTransaction
-    OfferingTransaction (..),
-    mkOfferingTransaction,
-    otOfferingStatus,
-    otCost,
-    otTransactionId,
-    otOfferingPromotionId,
-    otCreatedOn,
+    -- ** DevicePoolType
+    DevicePoolType (..),
 
-    -- ** Problem
-    Problem (..),
-    mkProblem,
-    pDevice,
-    pTest,
-    pResult,
-    pRun,
-    pJob,
-    pMessage,
-    pSuite,
+    -- ** ScheduleRunConfiguration
+    ScheduleRunConfiguration (..),
+    mkScheduleRunConfiguration,
+    srcAuxiliaryApps,
+    srcBillingMethod,
+    srcCustomerArtifactPaths,
+    srcExtraDataPackageArn,
+    srcLocale,
+    srcLocation,
+    srcNetworkProfileArn,
+    srcRadios,
+    srcVpceConfigurationArns,
+
+    -- ** TestGridSessionStatus
+    TestGridSessionStatus (..),
+
+    -- ** CustomerArtifactPaths
+    CustomerArtifactPaths (..),
+    mkCustomerArtifactPaths,
+    capAndroidPaths,
+    capDeviceHostPaths,
+    capIosPaths,
+
+    -- ** DeviceAttribute
+    DeviceAttribute (..),
+
+    -- ** ClientId
+    ClientId (..),
+
+    -- ** BillingMethod
+    BillingMethod (..),
+
+    -- ** PaginationToken
+    PaginationToken (..),
+
+    -- ** DevicePlatform
+    DevicePlatform (..),
+
+    -- ** RecurringChargeFrequency
+    RecurringChargeFrequency (..),
+
+    -- ** Counters
+    Counters (..),
+    mkCounters,
+    cErrored,
+    cFailed,
+    cPassed,
+    cSkipped,
+    cStopped,
+    cTotal,
+    cWarned,
+
+    -- ** Radios
+    Radios (..),
+    mkRadios,
+    rBluetooth,
+    rGps,
+    rNfc,
+    rWifi,
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** CreateRemoteAccessSessionConfiguration
+    CreateRemoteAccessSessionConfiguration (..),
+    mkCreateRemoteAccessSessionConfiguration,
+    crascBillingMethod,
+    crascVpceConfigurationArns,
+
+    -- ** ExecutionConfiguration
+    ExecutionConfiguration (..),
+    mkExecutionConfiguration,
+    ecAccountsCleanup,
+    ecAppPackagesCleanup,
+    ecJobTimeoutMinutes,
+    ecSkipAppResign,
+    ecVideoCapture,
+
+    -- ** CurrencyCode
+    CurrencyCode (..),
 
     -- ** ProblemDetail
     ProblemDetail (..),
@@ -602,52 +417,147 @@ module Network.AWS.DeviceFarm
     pdArn,
     pdName,
 
+    -- ** VPCEServiceName
+    VPCEServiceName (..),
+
+    -- ** InstanceProfile
+    InstanceProfile (..),
+    mkInstanceProfile,
+    ipArn,
+    ipDescription,
+    ipExcludeAppPackagesFromCleanup,
+    ipName,
+    ipPackageCleanup,
+    ipRebootAfterUse,
+
+    -- ** IncompatibilityMessage
+    IncompatibilityMessage (..),
+    mkIncompatibilityMessage,
+    imMessage,
+    imType,
+
+    -- ** ScheduleRunTest
+    ScheduleRunTest (..),
+    mkScheduleRunTest,
+    srtType,
+    srtFilter,
+    srtParameters,
+    srtTestPackageArn,
+    srtTestSpecArn,
+
+    -- ** Location
+    Location (..),
+    mkLocation,
+    lLatitude,
+    lLongitude,
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** String
+    String (..),
+
+    -- ** NetworkProfileType
+    NetworkProfileType (..),
+
     -- ** Project
     Project (..),
     mkProject,
     pArn,
     pCreated,
-    pName,
     pDefaultJobTimeoutMinutes,
+    pName,
 
-    -- ** Radios
-    Radios (..),
-    mkRadios,
-    rNfc,
-    rGps,
-    rBluetooth,
-    rWifi,
+    -- ** UniqueProblem
+    UniqueProblem (..),
+    mkUniqueProblem,
+    upMessage,
+    upProblems,
 
-    -- ** RecurringCharge
-    RecurringCharge (..),
-    mkRecurringCharge,
-    rcFrequency,
-    rcCost,
+    -- ** VPCEConfiguration
+    VPCEConfiguration (..),
+    mkVPCEConfiguration,
+    vpcecArn,
+    vpcecServiceDnsName,
+    vpcecVpceConfigurationDescription,
+    vpcecVpceConfigurationName,
+    vpcecVpceServiceName,
 
-    -- ** RemoteAccessSession
-    RemoteAccessSession (..),
-    mkRemoteAccessSession,
-    rasBillingMethod,
-    rasClientId,
-    rasDeviceUdid,
-    rasSkipAppResign,
-    rasInstanceARN,
-    rasStatus,
-    rasRemoteRecordEnabled,
-    rasArn,
-    rasRemoteRecordAppARN,
-    rasCreated,
-    rasDevice,
-    rasStopped,
-    rasResult,
-    rasName,
-    rasDeviceMinutes,
-    rasRemoteDebugEnabled,
-    rasEndpoint,
-    rasMessage,
-    rasHostAddress,
-    rasInteractionMode,
-    rasStarted,
+    -- ** Device
+    Device (..),
+    mkDevice,
+    dArn,
+    dAvailability,
+    dCarrier,
+    dCpu,
+    dFleetName,
+    dFleetType,
+    dFormFactor,
+    dHeapSize,
+    dImage,
+    dInstances,
+    dManufacturer,
+    dMemory,
+    dModel,
+    dModelId,
+    dName,
+    dOs,
+    dPlatform,
+    dRadio,
+    dRemoteAccessEnabled,
+    dRemoteDebugEnabled,
+    dResolution,
+
+    -- ** DeviceSelectionConfiguration
+    DeviceSelectionConfiguration (..),
+    mkDeviceSelectionConfiguration,
+    dscFilters,
+    dscMaxDevices,
+
+    -- ** Offering
+    Offering (..),
+    mkOffering,
+    oDescription,
+    oId,
+    oPlatform,
+    oRecurringCharges,
+    oType,
+
+    -- ** TestGridSession
+    TestGridSession (..),
+    mkTestGridSession,
+    tgsArn,
+    tgsBillingMinutes,
+    tgsCreated,
+    tgsEnded,
+    tgsSeleniumProperties,
+    tgsStatus,
+
+    -- ** TestGridProject
+    TestGridProject (..),
+    mkTestGridProject,
+    tgpArn,
+    tgpCreated,
+    tgpDescription,
+    tgpName,
+
+    -- ** OfferingIdentifier
+    OfferingIdentifier (..),
+
+    -- ** UploadType
+    UploadType (..),
+
+    -- ** DeviceFormFactor
+    DeviceFormFactor (..),
+
+    -- ** URL
+    URL (..),
+
+    -- ** TestGridSessionArtifactCategory
+    TestGridSessionArtifactCategory (..),
+
+    -- ** RuleOperator
+    RuleOperator (..),
 
     -- ** Resolution
     Resolution (..),
@@ -655,130 +565,17 @@ module Network.AWS.DeviceFarm
     rHeight,
     rWidth,
 
-    -- ** Rule
-    Rule (..),
-    mkRule,
-    rAttribute,
-    rOperator,
-    rValue,
+    -- ** ExecutionStatus
+    ExecutionStatus (..),
 
-    -- ** Run
-    Run (..),
-    mkRun,
-    rBillingMethod,
-    rSkipAppResign,
-    rStatus,
-    rCustomerArtifactPaths,
-    rEventCount,
-    rCounters,
-    rPlatform,
-    rSeed,
-    rRadios,
-    rArn,
-    rLocation,
-    rCreated,
-    rLocale,
-    rTestSpecARN,
-    rStopped,
-    rResult,
-    rJobTimeoutMinutes,
-    rCompletedJobs,
-    rResultCode,
-    rName,
-    rAppUpload,
-    rParsingResultURL,
-    rNetworkProfile,
-    rDeviceMinutes,
-    rType,
-    rMessage,
-    rWebURL,
-    rTotalJobs,
-    rDevicePoolARN,
-    rStarted,
-    rDeviceSelectionResult,
-
-    -- ** Sample
-    Sample (..),
-    mkSample,
-    sfArn,
-    sfUrl,
-    sfType,
-
-    -- ** ScheduleRunConfiguration
-    ScheduleRunConfiguration (..),
-    mkScheduleRunConfiguration,
-    srcBillingMethod,
-    srcCustomerArtifactPaths,
-    srcRadios,
-    srcLocation,
-    srcLocale,
-    srcNetworkProfileARN,
-    srcExtraDataPackageARN,
-    srcAuxiliaryApps,
-    srcVpceConfigurationARNs,
-
-    -- ** ScheduleRunTest
-    ScheduleRunTest (..),
-    mkScheduleRunTest,
-    srtTestSpecARN,
-    srtTestPackageARN,
-    srtParameters,
-    srtFilter,
-    srtType,
-
-    -- ** Suite
-    Suite (..),
-    mkSuite,
-    sStatus,
-    sCounters,
-    sArn,
-    sCreated,
-    sStopped,
-    sResult,
-    sName,
-    sDeviceMinutes,
-    sType,
-    sMessage,
-    sStarted,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- ** Test
-    Test (..),
-    mkTest,
-    tStatus,
-    tCounters,
-    tArn,
-    tCreated,
-    tStopped,
-    tResult,
-    tName,
-    tDeviceMinutes,
-    tType,
-    tMessage,
-    tStarted,
-
-    -- ** TestGridProject
-    TestGridProject (..),
-    mkTestGridProject,
-    tgpArn,
-    tgpCreated,
-    tgpName,
-    tgpDescription,
-
-    -- ** TestGridSession
-    TestGridSession (..),
-    mkTestGridSession,
-    tgsStatus,
-    tgsArn,
-    tgsCreated,
-    tgsBillingMinutes,
-    tgsEnded,
-    tgsSeleniumProperties,
+    -- ** Artifact
+    Artifact (..),
+    mkArtifact,
+    aArn,
+    aExtension,
+    aName,
+    aType,
+    aUrl,
 
     -- ** TestGridSessionAction
     TestGridSessionAction (..),
@@ -789,12 +586,109 @@ module Network.AWS.DeviceFarm
     tgsaStarted,
     tgsaStatusCode,
 
+    -- ** Rule
+    Rule (..),
+    mkRule,
+    rAttribute,
+    rOperator,
+    rValue,
+
+    -- ** Test
+    Test (..),
+    mkTest,
+    tArn,
+    tCounters,
+    tCreated,
+    tDeviceMinutes,
+    tMessage,
+    tName,
+    tResult,
+    tStarted,
+    tStatus,
+    tStopped,
+    tType,
+
+    -- ** SampleType
+    SampleType (..),
+
+    -- ** ArtifactCategory
+    ArtifactCategory (..),
+
+    -- ** SshPublicKey
+    SshPublicKey (..),
+
     -- ** TestGridSessionArtifact
     TestGridSessionArtifact (..),
     mkTestGridSessionArtifact,
-    tgsaUrl,
-    tgsaType,
     tgsaFilename,
+    tgsaType,
+    tgsaUrl,
+
+    -- ** DeviceAvailability
+    DeviceAvailability (..),
+
+    -- ** Run
+    Run (..),
+    mkRun,
+    rAppUpload,
+    rArn,
+    rBillingMethod,
+    rCompletedJobs,
+    rCounters,
+    rCreated,
+    rCustomerArtifactPaths,
+    rDeviceMinutes,
+    rDevicePoolArn,
+    rDeviceSelectionResult,
+    rEventCount,
+    rJobTimeoutMinutes,
+    rLocale,
+    rLocation,
+    rMessage,
+    rName,
+    rNetworkProfile,
+    rParsingResultUrl,
+    rPlatform,
+    rRadios,
+    rResult,
+    rResultCode,
+    rSeed,
+    rSkipAppResign,
+    rStarted,
+    rStatus,
+    rStopped,
+    rTestSpecArn,
+    rTotalJobs,
+    rType,
+    rWebUrl,
+
+    -- ** DeviceFilterAttribute
+    DeviceFilterAttribute (..),
+
+    -- ** ResourceDescription
+    ResourceDescription (..),
+
+    -- ** DevicePool
+    DevicePool (..),
+    mkDevicePool,
+    dpArn,
+    dpDescription,
+    dpMaxDevices,
+    dpName,
+    dpRules,
+    dpType,
+
+    -- ** OfferingTransaction
+    OfferingTransaction (..),
+    mkOfferingTransaction,
+    otCost,
+    otCreatedOn,
+    otOfferingPromotionId,
+    otOfferingStatus,
+    otTransactionId,
+
+    -- ** UploadStatus
+    UploadStatus (..),
 
     -- ** TrialMinutes
     TrialMinutes (..),
@@ -802,44 +696,327 @@ module Network.AWS.DeviceFarm
     tmRemaining,
     tmTotal,
 
-    -- ** UniqueProblem
-    UniqueProblem (..),
-    mkUniqueProblem,
-    upProblems,
-    upMessage,
+    -- ** Job
+    Job (..),
+    mkJob,
+    jArn,
+    jCounters,
+    jCreated,
+    jDevice,
+    jDeviceMinutes,
+    jInstanceArn,
+    jMessage,
+    jName,
+    jResult,
+    jStarted,
+    jStatus,
+    jStopped,
+    jType,
+    jVideoCapture,
+    jVideoEndpoint,
+
+    -- ** Name
+    Name (..),
+
+    -- ** DeviceMinutes
+    DeviceMinutes (..),
+    mkDeviceMinutes,
+    dmMetered,
+    dmTotal,
+    dmUnmetered,
+
+    -- ** InstanceStatus
+    InstanceStatus (..),
+
+    -- ** DeviceFarmArn
+    DeviceFarmArn (..),
+
+    -- ** NetworkProfile
+    NetworkProfile (..),
+    mkNetworkProfile,
+    npArn,
+    npDescription,
+    npDownlinkBandwidthBits,
+    npDownlinkDelayMs,
+    npDownlinkJitterMs,
+    npDownlinkLossPercent,
+    npName,
+    npType,
+    npUplinkBandwidthBits,
+    npUplinkDelayMs,
+    npUplinkJitterMs,
+    npUplinkLossPercent,
+
+    -- ** Metadata
+    Metadata (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** DeviceFilter
+    DeviceFilter (..),
+    mkDeviceFilter,
+    dfAttribute,
+    dfOperator,
+    dfValues,
+
+    -- ** OfferingType
+    OfferingType (..),
+
+    -- ** OfferingPromotionIdentifier
+    OfferingPromotionIdentifier (..),
+
+    -- ** Filter
+    Filter (..),
+
+    -- ** MonetaryAmount
+    MonetaryAmount (..),
+    mkMonetaryAmount,
+    maAmount,
+    maCurrencyCode,
+
+    -- ** RecurringCharge
+    RecurringCharge (..),
+    mkRecurringCharge,
+    rcCost,
+    rcFrequency,
+
+    -- ** ExecutionResult
+    ExecutionResult (..),
+
+    -- ** OfferingPromotion
+    OfferingPromotion (..),
+    mkOfferingPromotion,
+    opDescription,
+    opId,
+
+    -- ** Problem
+    Problem (..),
+    mkProblem,
+    pDevice,
+    pJob,
+    pMessage,
+    pResult,
+    pRun,
+    pSuite,
+    pTest,
+
+    -- ** UploadCategory
+    UploadCategory (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** AmazonResourceName
+    AmazonResourceName (..),
+
+    -- ** ServiceDnsName
+    ServiceDnsName (..),
+
+    -- ** DevicePoolCompatibilityResult
+    DevicePoolCompatibilityResult (..),
+    mkDevicePoolCompatibilityResult,
+    dpcrCompatible,
+    dpcrDevice,
+    dpcrIncompatibilityMessages,
 
     -- ** Upload
     Upload (..),
     mkUpload,
-    uStatus,
     uArn,
-    uCreated,
     uCategory,
-    uUrl,
-    uName,
-    uMetadata,
-    uType,
-    uMessage,
     uContentType,
+    uCreated,
+    uMessage,
+    uMetadata,
+    uName,
+    uStatus,
+    uType,
+    uUrl,
 
-    -- ** VPCEConfiguration
-    VPCEConfiguration (..),
-    mkVPCEConfiguration,
-    vecVpceServiceName,
-    vecArn,
-    vecVpceConfigurationName,
-    vecServiceDNSName,
-    vecVpceConfigurationDescription,
+    -- ** CPU
+    CPU (..),
+    mkCPU,
+    cpuArchitecture,
+    cpuClock,
+    cpuFrequency,
+
+    -- ** HostAddress
+    HostAddress (..),
+
+    -- ** ArtifactType
+    ArtifactType (..),
+
+    -- ** Suite
+    Suite (..),
+    mkSuite,
+    sArn,
+    sCounters,
+    sCreated,
+    sDeviceMinutes,
+    sMessage,
+    sName,
+    sResult,
+    sStarted,
+    sStatus,
+    sStopped,
+    sType,
+
+    -- ** TestType
+    TestType (..),
+
+    -- ** RemoteAccessSession
+    RemoteAccessSession (..),
+    mkRemoteAccessSession,
+    rasArn,
+    rasBillingMethod,
+    rasClientId,
+    rasCreated,
+    rasDevice,
+    rasDeviceMinutes,
+    rasDeviceUdid,
+    rasEndpoint,
+    rasHostAddress,
+    rasInstanceArn,
+    rasInteractionMode,
+    rasMessage,
+    rasName,
+    rasRemoteDebugEnabled,
+    rasRemoteRecordAppArn,
+    rasRemoteRecordEnabled,
+    rasResult,
+    rasSkipAppResign,
+    rasStarted,
+    rasStatus,
+    rasStopped,
+
+    -- ** Sample
+    Sample (..),
+    mkSample,
+    sfArn,
+    sfType,
+    sfUrl,
+
+    -- ** TestGridSessionArtifactType
+    TestGridSessionArtifactType (..),
+
+    -- ** ExecutionResultCode
+    ExecutionResultCode (..),
+
+    -- ** DeviceSelectionResult
+    DeviceSelectionResult (..),
+    mkDeviceSelectionResult,
+    dsrFilters,
+    dsrMatchedDevicesCount,
+    dsrMaxDevices,
+
+    -- ** DeviceInstance
+    DeviceInstance (..),
+    mkDeviceInstance,
+    diArn,
+    diDeviceArn,
+    diInstanceProfile,
+    diLabels,
+    diStatus,
+    diUdid,
+
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** InteractionMode
+    InteractionMode (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** AwsAccountNumber
+    AwsAccountNumber (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** ExtraDataPackageArn
+    ExtraDataPackageArn (..),
+
+    -- ** Locale
+    Locale (..),
+
+    -- ** NetworkProfileArn
+    NetworkProfileArn (..),
+
+    -- ** ProjectArn
+    ProjectArn (..),
+
+    -- ** SessionArn
+    SessionArn (..),
+
+    -- ** SessionId
+    SessionId (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** TestPackageArn
+    TestPackageArn (..),
+
+    -- ** TestSpecArn
+    TestSpecArn (..),
+
+    -- ** OfferingId
+    OfferingId (..),
+
+    -- ** VpceConfigurationName
+    VpceConfigurationName (..),
+
+    -- ** VpceConfigurationDescription
+    VpceConfigurationDescription (..),
+
+    -- ** AppArn
+    AppArn (..),
+
+    -- ** DevicePoolArn
+    DevicePoolArn (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** DeviceArn
+    DeviceArn (..),
+
+    -- ** InstanceArn
+    InstanceArn (..),
+
+    -- ** RemoteRecordAppArn
+    RemoteRecordAppArn (..),
+
+    -- ** ResourceARN
+    ResourceARN (..),
+
+    -- ** AppUpload
+    AppUpload (..),
+
+    -- ** OfferingPromotionId
+    OfferingPromotionId (..),
+
+    -- ** TransactionId
+    TransactionId (..),
+
+    -- ** RemoteAccessSessionArn
+    RemoteAccessSessionArn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -849,7 +1026,7 @@ import Network.AWS.DeviceFarm.CreateNetworkProfile
 import Network.AWS.DeviceFarm.CreateProject
 import Network.AWS.DeviceFarm.CreateRemoteAccessSession
 import Network.AWS.DeviceFarm.CreateTestGridProject
-import Network.AWS.DeviceFarm.CreateTestGridURL
+import Network.AWS.DeviceFarm.CreateTestGridUrl
 import Network.AWS.DeviceFarm.CreateUpload
 import Network.AWS.DeviceFarm.CreateVPCEConfiguration
 import Network.AWS.DeviceFarm.DeleteDevicePool

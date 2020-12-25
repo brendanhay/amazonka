@@ -28,50 +28,45 @@ module Network.AWS.SageMaker.UpdateCodeRepository
     mkUpdateCodeRepositoryResponse,
 
     -- ** Response lenses
-    ucrrsCodeRepositoryARN,
-    ucrrsResponseStatus,
+    ucrrrsCodeRepositoryArn,
+    ucrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkUpdateCodeRepository' smart constructor.
 data UpdateCodeRepository = UpdateCodeRepository'
   { -- | The name of the Git repository to update.
-    codeRepositoryName :: Lude.Text,
+    codeRepositoryName :: Types.EntityName,
     -- | The configuration of the git repository, including the URL and the Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
     --
     -- @{"username": /UserName/ , "password": /Password/ }@
-    gitConfig :: Lude.Maybe GitConfigForUpdate
+    gitConfig :: Core.Maybe Types.GitConfigForUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCodeRepository' with the minimum fields required to make a request.
---
--- * 'codeRepositoryName' - The name of the Git repository to update.
--- * 'gitConfig' - The configuration of the git repository, including the URL and the Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
---
--- @{"username": /UserName/ , "password": /Password/ }@
+-- | Creates a 'UpdateCodeRepository' value with any optional fields omitted.
 mkUpdateCodeRepository ::
   -- | 'codeRepositoryName'
-  Lude.Text ->
+  Types.EntityName ->
   UpdateCodeRepository
-mkUpdateCodeRepository pCodeRepositoryName_ =
+mkUpdateCodeRepository codeRepositoryName =
   UpdateCodeRepository'
-    { codeRepositoryName = pCodeRepositoryName_,
-      gitConfig = Lude.Nothing
+    { codeRepositoryName,
+      gitConfig = Core.Nothing
     }
 
 -- | The name of the Git repository to update.
 --
 -- /Note:/ Consider using 'codeRepositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrCodeRepositoryName :: Lens.Lens' UpdateCodeRepository Lude.Text
-ucrCodeRepositoryName = Lens.lens (codeRepositoryName :: UpdateCodeRepository -> Lude.Text) (\s a -> s {codeRepositoryName = a} :: UpdateCodeRepository)
+ucrCodeRepositoryName :: Lens.Lens' UpdateCodeRepository Types.EntityName
+ucrCodeRepositoryName = Lens.field @"codeRepositoryName"
 {-# DEPRECATED ucrCodeRepositoryName "Use generic-lens or generic-optics with 'codeRepositoryName' instead." #-}
 
 -- | The configuration of the git repository, including the URL and the Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the repository. The secret must have a staging label of @AWSCURRENT@ and must be in the following format:
@@ -79,84 +74,70 @@ ucrCodeRepositoryName = Lens.lens (codeRepositoryName :: UpdateCodeRepository ->
 -- @{"username": /UserName/ , "password": /Password/ }@
 --
 -- /Note:/ Consider using 'gitConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrGitConfig :: Lens.Lens' UpdateCodeRepository (Lude.Maybe GitConfigForUpdate)
-ucrGitConfig = Lens.lens (gitConfig :: UpdateCodeRepository -> Lude.Maybe GitConfigForUpdate) (\s a -> s {gitConfig = a} :: UpdateCodeRepository)
+ucrGitConfig :: Lens.Lens' UpdateCodeRepository (Core.Maybe Types.GitConfigForUpdate)
+ucrGitConfig = Lens.field @"gitConfig"
 {-# DEPRECATED ucrGitConfig "Use generic-lens or generic-optics with 'gitConfig' instead." #-}
 
-instance Lude.AWSRequest UpdateCodeRepository where
+instance Core.FromJSON UpdateCodeRepository where
+  toJSON UpdateCodeRepository {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CodeRepositoryName" Core..= codeRepositoryName),
+            ("GitConfig" Core..=) Core.<$> gitConfig
+          ]
+      )
+
+instance Core.AWSRequest UpdateCodeRepository where
   type Rs UpdateCodeRepository = UpdateCodeRepositoryResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.UpdateCodeRepository")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateCodeRepositoryResponse'
-            Lude.<$> (x Lude..:> "CodeRepositoryArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "CodeRepositoryArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateCodeRepository where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.UpdateCodeRepository" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateCodeRepository where
-  toJSON UpdateCodeRepository' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("CodeRepositoryName" Lude..= codeRepositoryName),
-            ("GitConfig" Lude..=) Lude.<$> gitConfig
-          ]
-      )
-
-instance Lude.ToPath UpdateCodeRepository where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateCodeRepository where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateCodeRepositoryResponse' smart constructor.
 data UpdateCodeRepositoryResponse = UpdateCodeRepositoryResponse'
   { -- | The ARN of the Git repository.
-    codeRepositoryARN :: Lude.Text,
+    codeRepositoryArn :: Types.CodeRepositoryArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateCodeRepositoryResponse' with the minimum fields required to make a request.
---
--- * 'codeRepositoryARN' - The ARN of the Git repository.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateCodeRepositoryResponse' value with any optional fields omitted.
 mkUpdateCodeRepositoryResponse ::
-  -- | 'codeRepositoryARN'
-  Lude.Text ->
+  -- | 'codeRepositoryArn'
+  Types.CodeRepositoryArn ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateCodeRepositoryResponse
-mkUpdateCodeRepositoryResponse pCodeRepositoryARN_ pResponseStatus_ =
-  UpdateCodeRepositoryResponse'
-    { codeRepositoryARN =
-        pCodeRepositoryARN_,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateCodeRepositoryResponse codeRepositoryArn responseStatus =
+  UpdateCodeRepositoryResponse' {codeRepositoryArn, responseStatus}
 
 -- | The ARN of the Git repository.
 --
--- /Note:/ Consider using 'codeRepositoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrrsCodeRepositoryARN :: Lens.Lens' UpdateCodeRepositoryResponse Lude.Text
-ucrrsCodeRepositoryARN = Lens.lens (codeRepositoryARN :: UpdateCodeRepositoryResponse -> Lude.Text) (\s a -> s {codeRepositoryARN = a} :: UpdateCodeRepositoryResponse)
-{-# DEPRECATED ucrrsCodeRepositoryARN "Use generic-lens or generic-optics with 'codeRepositoryARN' instead." #-}
+-- /Note:/ Consider using 'codeRepositoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucrrrsCodeRepositoryArn :: Lens.Lens' UpdateCodeRepositoryResponse Types.CodeRepositoryArn
+ucrrrsCodeRepositoryArn = Lens.field @"codeRepositoryArn"
+{-# DEPRECATED ucrrrsCodeRepositoryArn "Use generic-lens or generic-optics with 'codeRepositoryArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucrrsResponseStatus :: Lens.Lens' UpdateCodeRepositoryResponse Lude.Int
-ucrrsResponseStatus = Lens.lens (responseStatus :: UpdateCodeRepositoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateCodeRepositoryResponse)
-{-# DEPRECATED ucrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucrrrsResponseStatus :: Lens.Lens' UpdateCodeRepositoryResponse Core.Int
+ucrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

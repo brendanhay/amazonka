@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleTeletextSpacing
   ( BurninSubtitleTeletextSpacing
       ( BurninSubtitleTeletextSpacing',
-        BSTSFixedGrid,
-        BSTSProportional
+        BurninSubtitleTeletextSpacingFixedGrid,
+        BurninSubtitleTeletextSpacingProportional,
+        fromBurninSubtitleTeletextSpacing
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
-newtype BurninSubtitleTeletextSpacing = BurninSubtitleTeletextSpacing' Lude.Text
+newtype BurninSubtitleTeletextSpacing = BurninSubtitleTeletextSpacing'
+  { fromBurninSubtitleTeletextSpacing ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BSTSFixedGrid :: BurninSubtitleTeletextSpacing
-pattern BSTSFixedGrid = BurninSubtitleTeletextSpacing' "FIXED_GRID"
+pattern BurninSubtitleTeletextSpacingFixedGrid :: BurninSubtitleTeletextSpacing
+pattern BurninSubtitleTeletextSpacingFixedGrid = BurninSubtitleTeletextSpacing' "FIXED_GRID"
 
-pattern BSTSProportional :: BurninSubtitleTeletextSpacing
-pattern BSTSProportional = BurninSubtitleTeletextSpacing' "PROPORTIONAL"
+pattern BurninSubtitleTeletextSpacingProportional :: BurninSubtitleTeletextSpacing
+pattern BurninSubtitleTeletextSpacingProportional = BurninSubtitleTeletextSpacing' "PROPORTIONAL"
 
 {-# COMPLETE
-  BSTSFixedGrid,
-  BSTSProportional,
+  BurninSubtitleTeletextSpacingFixedGrid,
+  BurninSubtitleTeletextSpacingProportional,
   BurninSubtitleTeletextSpacing'
   #-}

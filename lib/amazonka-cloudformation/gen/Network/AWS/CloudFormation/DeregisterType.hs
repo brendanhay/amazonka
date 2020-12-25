@@ -23,94 +23,66 @@ module Network.AWS.CloudFormation.DeregisterType
     mkDeregisterType,
 
     -- ** Request lenses
-    dVersionId,
-    dTypeName,
-    dARN,
+    dArn,
     dType,
+    dTypeName,
+    dVersionId,
 
     -- * Destructuring the response
     DeregisterTypeResponse (..),
     mkDeregisterTypeResponse,
 
     -- ** Response lenses
-    dtrsResponseStatus,
+    dtrfrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeregisterType' smart constructor.
 data DeregisterType = DeregisterType'
-  { -- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
-    versionId :: Lude.Maybe Lude.Text,
-    -- | The name of the type.
+  { -- | The Amazon Resource Name (ARN) of the type.
     --
     -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-    typeName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the type.
-    --
-    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.PrivateTypeArn,
     -- | The kind of type.
     --
     -- Currently the only valid value is @RESOURCE@ .
     -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
-    type' :: Lude.Maybe RegistryType
+    type' :: Core.Maybe Types.RegistryType,
+    -- | The name of the type.
+    --
+    -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+    typeName :: Core.Maybe Types.TypeName,
+    -- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
+    versionId :: Core.Maybe Types.TypeVersionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterType' with the minimum fields required to make a request.
---
--- * 'versionId' - The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
--- * 'typeName' - The name of the type.
---
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
--- * 'arn' - The Amazon Resource Name (ARN) of the type.
---
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
--- * 'type'' - The kind of type.
---
--- Currently the only valid value is @RESOURCE@ .
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+-- | Creates a 'DeregisterType' value with any optional fields omitted.
 mkDeregisterType ::
   DeregisterType
 mkDeregisterType =
   DeregisterType'
-    { versionId = Lude.Nothing,
-      typeName = Lude.Nothing,
-      arn = Lude.Nothing,
-      type' = Lude.Nothing
+    { arn = Core.Nothing,
+      type' = Core.Nothing,
+      typeName = Core.Nothing,
+      versionId = Core.Nothing
     }
-
--- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dVersionId :: Lens.Lens' DeregisterType (Lude.Maybe Lude.Text)
-dVersionId = Lens.lens (versionId :: DeregisterType -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: DeregisterType)
-{-# DEPRECATED dVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
-
--- | The name of the type.
---
--- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dTypeName :: Lens.Lens' DeregisterType (Lude.Maybe Lude.Text)
-dTypeName = Lens.lens (typeName :: DeregisterType -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: DeregisterType)
-{-# DEPRECATED dTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the type.
 --
 -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dARN :: Lens.Lens' DeregisterType (Lude.Maybe Lude.Text)
-dARN = Lens.lens (arn :: DeregisterType -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DeregisterType)
-{-# DEPRECATED dARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+dArn :: Lens.Lens' DeregisterType (Core.Maybe Types.PrivateTypeArn)
+dArn = Lens.field @"arn"
+{-# DEPRECATED dArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The kind of type.
 --
@@ -118,58 +90,75 @@ dARN = Lens.lens (arn :: DeregisterType -> Lude.Maybe Lude.Text) (\s a -> s {arn
 -- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dType :: Lens.Lens' DeregisterType (Lude.Maybe RegistryType)
-dType = Lens.lens (type' :: DeregisterType -> Lude.Maybe RegistryType) (\s a -> s {type' = a} :: DeregisterType)
+dType :: Lens.Lens' DeregisterType (Core.Maybe Types.RegistryType)
+dType = Lens.field @"type'"
 {-# DEPRECATED dType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.AWSRequest DeregisterType where
+-- | The name of the type.
+--
+-- Conditional: You must specify either @TypeName@ and @Type@ , or @Arn@ .
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dTypeName :: Lens.Lens' DeregisterType (Core.Maybe Types.TypeName)
+dTypeName = Lens.field @"typeName"
+{-# DEPRECATED dTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+
+-- | The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dVersionId :: Lens.Lens' DeregisterType (Core.Maybe Types.TypeVersionId)
+dVersionId = Lens.field @"versionId"
+{-# DEPRECATED dVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+instance Core.AWSRequest DeregisterType where
   type Rs DeregisterType = DeregisterTypeResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeregisterType")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "Arn" Core.<$> arn)
+                Core.<> (Core.toQueryValue "Type" Core.<$> type')
+                Core.<> (Core.toQueryValue "TypeName" Core.<$> typeName)
+                Core.<> (Core.toQueryValue "VersionId" Core.<$> versionId)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeregisterTypeResult"
       ( \s h x ->
-          DeregisterTypeResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeregisterTypeResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeregisterType where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeregisterType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeregisterType where
-  toQuery DeregisterType' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeregisterType" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "VersionId" Lude.=: versionId,
-        "TypeName" Lude.=: typeName,
-        "Arn" Lude.=: arn,
-        "Type" Lude.=: type'
-      ]
 
 -- | /See:/ 'mkDeregisterTypeResponse' smart constructor.
 newtype DeregisterTypeResponse = DeregisterTypeResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterTypeResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeregisterTypeResponse' value with any optional fields omitted.
 mkDeregisterTypeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeregisterTypeResponse
-mkDeregisterTypeResponse pResponseStatus_ =
-  DeregisterTypeResponse' {responseStatus = pResponseStatus_}
+mkDeregisterTypeResponse responseStatus =
+  DeregisterTypeResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrsResponseStatus :: Lens.Lens' DeregisterTypeResponse Lude.Int
-dtrsResponseStatus = Lens.lens (responseStatus :: DeregisterTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterTypeResponse)
-{-# DEPRECATED dtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrfrsResponseStatus :: Lens.Lens' DeregisterTypeResponse Core.Int
+dtrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

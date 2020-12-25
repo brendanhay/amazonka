@@ -17,97 +17,90 @@ module Network.AWS.CognitoIdentityProvider.Types.EventContextDataType
     mkEventContextDataType,
 
     -- * Lenses
-    ecdtIPAddress,
-    ecdtCountry,
     ecdtCity,
+    ecdtCountry,
     ecdtDeviceName,
+    ecdtIpAddress,
     ecdtTimezone,
   )
 where
 
+import qualified Network.AWS.CognitoIdentityProvider.Types.StringType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the user context data captured at the time of an event request.
 --
 -- /See:/ 'mkEventContextDataType' smart constructor.
 data EventContextDataType = EventContextDataType'
-  { -- | The user's IP address.
-    ipAddress :: Lude.Maybe Lude.Text,
+  { -- | The user's city.
+    city :: Core.Maybe Types.StringType,
     -- | The user's country.
-    country :: Lude.Maybe Lude.Text,
-    -- | The user's city.
-    city :: Lude.Maybe Lude.Text,
+    country :: Core.Maybe Types.StringType,
     -- | The user's device name.
-    deviceName :: Lude.Maybe Lude.Text,
+    deviceName :: Core.Maybe Types.StringType,
+    -- | The user's IP address.
+    ipAddress :: Core.Maybe Types.StringType,
     -- | The user's time zone.
-    timezone :: Lude.Maybe Lude.Text
+    timezone :: Core.Maybe Types.StringType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventContextDataType' with the minimum fields required to make a request.
---
--- * 'ipAddress' - The user's IP address.
--- * 'country' - The user's country.
--- * 'city' - The user's city.
--- * 'deviceName' - The user's device name.
--- * 'timezone' - The user's time zone.
+-- | Creates a 'EventContextDataType' value with any optional fields omitted.
 mkEventContextDataType ::
   EventContextDataType
 mkEventContextDataType =
   EventContextDataType'
-    { ipAddress = Lude.Nothing,
-      country = Lude.Nothing,
-      city = Lude.Nothing,
-      deviceName = Lude.Nothing,
-      timezone = Lude.Nothing
+    { city = Core.Nothing,
+      country = Core.Nothing,
+      deviceName = Core.Nothing,
+      ipAddress = Core.Nothing,
+      timezone = Core.Nothing
     }
-
--- | The user's IP address.
---
--- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecdtIPAddress :: Lens.Lens' EventContextDataType (Lude.Maybe Lude.Text)
-ecdtIPAddress = Lens.lens (ipAddress :: EventContextDataType -> Lude.Maybe Lude.Text) (\s a -> s {ipAddress = a} :: EventContextDataType)
-{-# DEPRECATED ecdtIPAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
-
--- | The user's country.
---
--- /Note:/ Consider using 'country' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecdtCountry :: Lens.Lens' EventContextDataType (Lude.Maybe Lude.Text)
-ecdtCountry = Lens.lens (country :: EventContextDataType -> Lude.Maybe Lude.Text) (\s a -> s {country = a} :: EventContextDataType)
-{-# DEPRECATED ecdtCountry "Use generic-lens or generic-optics with 'country' instead." #-}
 
 -- | The user's city.
 --
 -- /Note:/ Consider using 'city' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecdtCity :: Lens.Lens' EventContextDataType (Lude.Maybe Lude.Text)
-ecdtCity = Lens.lens (city :: EventContextDataType -> Lude.Maybe Lude.Text) (\s a -> s {city = a} :: EventContextDataType)
+ecdtCity :: Lens.Lens' EventContextDataType (Core.Maybe Types.StringType)
+ecdtCity = Lens.field @"city"
 {-# DEPRECATED ecdtCity "Use generic-lens or generic-optics with 'city' instead." #-}
+
+-- | The user's country.
+--
+-- /Note:/ Consider using 'country' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecdtCountry :: Lens.Lens' EventContextDataType (Core.Maybe Types.StringType)
+ecdtCountry = Lens.field @"country"
+{-# DEPRECATED ecdtCountry "Use generic-lens or generic-optics with 'country' instead." #-}
 
 -- | The user's device name.
 --
 -- /Note:/ Consider using 'deviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecdtDeviceName :: Lens.Lens' EventContextDataType (Lude.Maybe Lude.Text)
-ecdtDeviceName = Lens.lens (deviceName :: EventContextDataType -> Lude.Maybe Lude.Text) (\s a -> s {deviceName = a} :: EventContextDataType)
+ecdtDeviceName :: Lens.Lens' EventContextDataType (Core.Maybe Types.StringType)
+ecdtDeviceName = Lens.field @"deviceName"
 {-# DEPRECATED ecdtDeviceName "Use generic-lens or generic-optics with 'deviceName' instead." #-}
+
+-- | The user's IP address.
+--
+-- /Note:/ Consider using 'ipAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecdtIpAddress :: Lens.Lens' EventContextDataType (Core.Maybe Types.StringType)
+ecdtIpAddress = Lens.field @"ipAddress"
+{-# DEPRECATED ecdtIpAddress "Use generic-lens or generic-optics with 'ipAddress' instead." #-}
 
 -- | The user's time zone.
 --
 -- /Note:/ Consider using 'timezone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecdtTimezone :: Lens.Lens' EventContextDataType (Lude.Maybe Lude.Text)
-ecdtTimezone = Lens.lens (timezone :: EventContextDataType -> Lude.Maybe Lude.Text) (\s a -> s {timezone = a} :: EventContextDataType)
+ecdtTimezone :: Lens.Lens' EventContextDataType (Core.Maybe Types.StringType)
+ecdtTimezone = Lens.field @"timezone"
 {-# DEPRECATED ecdtTimezone "Use generic-lens or generic-optics with 'timezone' instead." #-}
 
-instance Lude.FromJSON EventContextDataType where
+instance Core.FromJSON EventContextDataType where
   parseJSON =
-    Lude.withObject
-      "EventContextDataType"
-      ( \x ->
-          EventContextDataType'
-            Lude.<$> (x Lude..:? "IpAddress")
-            Lude.<*> (x Lude..:? "Country")
-            Lude.<*> (x Lude..:? "City")
-            Lude.<*> (x Lude..:? "DeviceName")
-            Lude.<*> (x Lude..:? "Timezone")
-      )
+    Core.withObject "EventContextDataType" Core.$
+      \x ->
+        EventContextDataType'
+          Core.<$> (x Core..:? "City")
+          Core.<*> (x Core..:? "Country")
+          Core.<*> (x Core..:? "DeviceName")
+          Core.<*> (x Core..:? "IpAddress")
+          Core.<*> (x Core..:? "Timezone")

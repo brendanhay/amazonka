@@ -13,51 +13,53 @@
 module Network.AWS.GameLift.Types.BuildStatus
   ( BuildStatus
       ( BuildStatus',
-        Initialized,
-        Ready,
-        Failed
+        BuildStatusInitialized,
+        BuildStatusReady,
+        BuildStatusFailed,
+        fromBuildStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BuildStatus = BuildStatus' Lude.Text
+newtype BuildStatus = BuildStatus' {fromBuildStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Initialized :: BuildStatus
-pattern Initialized = BuildStatus' "INITIALIZED"
+pattern BuildStatusInitialized :: BuildStatus
+pattern BuildStatusInitialized = BuildStatus' "INITIALIZED"
 
-pattern Ready :: BuildStatus
-pattern Ready = BuildStatus' "READY"
+pattern BuildStatusReady :: BuildStatus
+pattern BuildStatusReady = BuildStatus' "READY"
 
-pattern Failed :: BuildStatus
-pattern Failed = BuildStatus' "FAILED"
+pattern BuildStatusFailed :: BuildStatus
+pattern BuildStatusFailed = BuildStatus' "FAILED"
 
 {-# COMPLETE
-  Initialized,
-  Ready,
-  Failed,
+  BuildStatusInitialized,
+  BuildStatusReady,
+  BuildStatusFailed,
   BuildStatus'
   #-}

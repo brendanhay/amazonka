@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.DvbSubtitleAlignment
   ( DvbSubtitleAlignment
       ( DvbSubtitleAlignment',
-        Centered,
-        Left
+        DvbSubtitleAlignmentCentered,
+        DvbSubtitleAlignmentLeft,
+        fromDvbSubtitleAlignment
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-newtype DvbSubtitleAlignment = DvbSubtitleAlignment' Lude.Text
+newtype DvbSubtitleAlignment = DvbSubtitleAlignment'
+  { fromDvbSubtitleAlignment ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Centered :: DvbSubtitleAlignment
-pattern Centered = DvbSubtitleAlignment' "CENTERED"
+pattern DvbSubtitleAlignmentCentered :: DvbSubtitleAlignment
+pattern DvbSubtitleAlignmentCentered = DvbSubtitleAlignment' "CENTERED"
 
-pattern Left :: DvbSubtitleAlignment
-pattern Left = DvbSubtitleAlignment' "LEFT"
+pattern DvbSubtitleAlignmentLeft :: DvbSubtitleAlignment
+pattern DvbSubtitleAlignmentLeft = DvbSubtitleAlignment' "LEFT"
 
 {-# COMPLETE
-  Centered,
-  Left,
+  DvbSubtitleAlignmentCentered,
+  DvbSubtitleAlignmentLeft,
   DvbSubtitleAlignment'
   #-}

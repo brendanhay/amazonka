@@ -17,59 +17,55 @@ module Network.AWS.MachineLearning.Types.RedshiftDatabaseCredentials
     mkRedshiftDatabaseCredentials,
 
     -- * Lenses
-    rUsername,
-    rPassword,
+    rdcUsername,
+    rdcPassword,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MachineLearning.Types.Password as Types
+import qualified Network.AWS.MachineLearning.Types.RedshiftDatabaseUsername as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the database credentials for connecting to a database on an Amazon Redshift cluster.
 --
 -- /See:/ 'mkRedshiftDatabaseCredentials' smart constructor.
 data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'
-  { username :: Lude.Text,
-    password :: Lude.Text
+  { username :: Types.RedshiftDatabaseUsername,
+    password :: Types.Password
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RedshiftDatabaseCredentials' with the minimum fields required to make a request.
---
--- * 'username' -
--- * 'password' -
+-- | Creates a 'RedshiftDatabaseCredentials' value with any optional fields omitted.
 mkRedshiftDatabaseCredentials ::
   -- | 'username'
-  Lude.Text ->
+  Types.RedshiftDatabaseUsername ->
   -- | 'password'
-  Lude.Text ->
+  Types.Password ->
   RedshiftDatabaseCredentials
-mkRedshiftDatabaseCredentials pUsername_ pPassword_ =
-  RedshiftDatabaseCredentials'
-    { username = pUsername_,
-      password = pPassword_
-    }
+mkRedshiftDatabaseCredentials username password =
+  RedshiftDatabaseCredentials' {username, password}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rUsername :: Lens.Lens' RedshiftDatabaseCredentials Lude.Text
-rUsername = Lens.lens (username :: RedshiftDatabaseCredentials -> Lude.Text) (\s a -> s {username = a} :: RedshiftDatabaseCredentials)
-{-# DEPRECATED rUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+rdcUsername :: Lens.Lens' RedshiftDatabaseCredentials Types.RedshiftDatabaseUsername
+rdcUsername = Lens.field @"username"
+{-# DEPRECATED rdcUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rPassword :: Lens.Lens' RedshiftDatabaseCredentials Lude.Text
-rPassword = Lens.lens (password :: RedshiftDatabaseCredentials -> Lude.Text) (\s a -> s {password = a} :: RedshiftDatabaseCredentials)
-{-# DEPRECATED rPassword "Use generic-lens or generic-optics with 'password' instead." #-}
+rdcPassword :: Lens.Lens' RedshiftDatabaseCredentials Types.Password
+rdcPassword = Lens.field @"password"
+{-# DEPRECATED rdcPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
-instance Lude.ToJSON RedshiftDatabaseCredentials where
-  toJSON RedshiftDatabaseCredentials' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Username" Lude..= username),
-            Lude.Just ("Password" Lude..= password)
+instance Core.FromJSON RedshiftDatabaseCredentials where
+  toJSON RedshiftDatabaseCredentials {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Username" Core..= username),
+            Core.Just ("Password" Core..= password)
           ]
       )

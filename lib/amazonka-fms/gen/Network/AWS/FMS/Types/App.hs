@@ -23,77 +23,72 @@ module Network.AWS.FMS.Types.App
   )
 where
 
+import qualified Network.AWS.FMS.Types.Protocol as Types
+import qualified Network.AWS.FMS.Types.ResourceName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An individual AWS Firewall Manager application.
 --
 -- /See:/ 'mkApp' smart constructor.
 data App = App'
   { -- | The application's name.
-    appName :: Lude.Text,
+    appName :: Types.ResourceName,
     -- | The IP protocol name or number. The name can be one of @tcp@ , @udp@ , or @icmp@ . For information on possible numbers, see <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> .
-    protocol :: Lude.Text,
+    protocol :: Types.Protocol,
     -- | The application's port number, for example @80@ .
-    port :: Lude.Natural
+    port :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'App' with the minimum fields required to make a request.
---
--- * 'appName' - The application's name.
--- * 'protocol' - The IP protocol name or number. The name can be one of @tcp@ , @udp@ , or @icmp@ . For information on possible numbers, see <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> .
--- * 'port' - The application's port number, for example @80@ .
+-- | Creates a 'App' value with any optional fields omitted.
 mkApp ::
   -- | 'appName'
-  Lude.Text ->
+  Types.ResourceName ->
   -- | 'protocol'
-  Lude.Text ->
+  Types.Protocol ->
   -- | 'port'
-  Lude.Natural ->
+  Core.Natural ->
   App
-mkApp pAppName_ pProtocol_ pPort_ =
-  App' {appName = pAppName_, protocol = pProtocol_, port = pPort_}
+mkApp appName protocol port = App' {appName, protocol, port}
 
 -- | The application's name.
 --
 -- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aAppName :: Lens.Lens' App Lude.Text
-aAppName = Lens.lens (appName :: App -> Lude.Text) (\s a -> s {appName = a} :: App)
+aAppName :: Lens.Lens' App Types.ResourceName
+aAppName = Lens.field @"appName"
 {-# DEPRECATED aAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
 
 -- | The IP protocol name or number. The name can be one of @tcp@ , @udp@ , or @icmp@ . For information on possible numbers, see <https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers> .
 --
 -- /Note:/ Consider using 'protocol' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aProtocol :: Lens.Lens' App Lude.Text
-aProtocol = Lens.lens (protocol :: App -> Lude.Text) (\s a -> s {protocol = a} :: App)
+aProtocol :: Lens.Lens' App Types.Protocol
+aProtocol = Lens.field @"protocol"
 {-# DEPRECATED aProtocol "Use generic-lens or generic-optics with 'protocol' instead." #-}
 
 -- | The application's port number, for example @80@ .
 --
 -- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aPort :: Lens.Lens' App Lude.Natural
-aPort = Lens.lens (port :: App -> Lude.Natural) (\s a -> s {port = a} :: App)
+aPort :: Lens.Lens' App Core.Natural
+aPort = Lens.field @"port"
 {-# DEPRECATED aPort "Use generic-lens or generic-optics with 'port' instead." #-}
 
-instance Lude.FromJSON App where
-  parseJSON =
-    Lude.withObject
-      "App"
-      ( \x ->
-          App'
-            Lude.<$> (x Lude..: "AppName")
-            Lude.<*> (x Lude..: "Protocol")
-            Lude.<*> (x Lude..: "Port")
-      )
-
-instance Lude.ToJSON App where
-  toJSON App' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AppName" Lude..= appName),
-            Lude.Just ("Protocol" Lude..= protocol),
-            Lude.Just ("Port" Lude..= port)
+instance Core.FromJSON App where
+  toJSON App {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AppName" Core..= appName),
+            Core.Just ("Protocol" Core..= protocol),
+            Core.Just ("Port" Core..= port)
           ]
       )
+
+instance Core.FromJSON App where
+  parseJSON =
+    Core.withObject "App" Core.$
+      \x ->
+        App'
+          Core.<$> (x Core..: "AppName")
+          Core.<*> (x Core..: "Protocol")
+          Core.<*> (x Core..: "Port")

@@ -17,176 +17,164 @@ module Network.AWS.Lightsail.Types.Bundle
     mkBundle,
 
     -- * Lenses
-    bfCpuCount,
-    bfTransferPerMonthInGb,
     bfBundleId,
+    bfCpuCount,
+    bfDiskSizeInGb,
     bfInstanceType,
+    bfIsActive,
     bfName,
     bfPower,
-    bfDiskSizeInGb,
-    bfSupportedPlatforms,
     bfPrice,
-    bfIsActive,
     bfRamSizeInGb,
+    bfSupportedPlatforms,
+    bfTransferPerMonthInGb,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.InstancePlatform
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.BundleId as Types
+import qualified Network.AWS.Lightsail.Types.InstancePlatform as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a bundle, which is a set of specs describing your virtual private server (or /instance/ ).
 --
 -- /See:/ 'mkBundle' smart constructor.
 data Bundle = Bundle'
-  { -- | The number of vCPUs included in the bundle (e.g., @2@ ).
-    cpuCount :: Lude.Maybe Lude.Int,
-    -- | The data transfer rate per month in GB (e.g., @2000@ ).
-    transferPerMonthInGb :: Lude.Maybe Lude.Int,
-    -- | The bundle ID (e.g., @micro_1_0@ ).
-    bundleId :: Lude.Maybe Lude.Text,
-    -- | The Amazon EC2 instance type (e.g., @t2.micro@ ).
-    instanceType :: Lude.Maybe Lude.Text,
-    -- | A friendly name for the bundle (e.g., @Micro@ ).
-    name :: Lude.Maybe Lude.Text,
-    -- | A numeric value that represents the power of the bundle (e.g., @500@ ). You can use the bundle's power value in conjunction with a blueprint's minimum power value to determine whether the blueprint will run on the bundle. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500.
-    power :: Lude.Maybe Lude.Int,
+  { -- | The bundle ID (e.g., @micro_1_0@ ).
+    bundleId :: Core.Maybe Types.BundleId,
+    -- | The number of vCPUs included in the bundle (e.g., @2@ ).
+    cpuCount :: Core.Maybe Core.Int,
     -- | The size of the SSD (e.g., @30@ ).
-    diskSizeInGb :: Lude.Maybe Lude.Int,
-    -- | The operating system platform (Linux/Unix-based or Windows Server-based) that the bundle supports. You can only launch a @WINDOWS@ bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@ blueprints require a @LINUX_UNIX@ bundle.
-    supportedPlatforms :: Lude.Maybe [InstancePlatform],
-    -- | The price in US dollars (e.g., @5.0@ ) of the bundle.
-    price :: Lude.Maybe Lude.Double,
+    diskSizeInGb :: Core.Maybe Core.Int,
+    -- | The Amazon EC2 instance type (e.g., @t2.micro@ ).
+    instanceType :: Core.Maybe Types.String,
     -- | A Boolean value indicating whether the bundle is active.
-    isActive :: Lude.Maybe Lude.Bool,
+    isActive :: Core.Maybe Core.Bool,
+    -- | A friendly name for the bundle (e.g., @Micro@ ).
+    name :: Core.Maybe Types.String,
+    -- | A numeric value that represents the power of the bundle (e.g., @500@ ). You can use the bundle's power value in conjunction with a blueprint's minimum power value to determine whether the blueprint will run on the bundle. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500.
+    power :: Core.Maybe Core.Int,
+    -- | The price in US dollars (e.g., @5.0@ ) of the bundle.
+    price :: Core.Maybe Core.Double,
     -- | The amount of RAM in GB (e.g., @2.0@ ).
-    ramSizeInGb :: Lude.Maybe Lude.Double
+    ramSizeInGb :: Core.Maybe Core.Double,
+    -- | The operating system platform (Linux/Unix-based or Windows Server-based) that the bundle supports. You can only launch a @WINDOWS@ bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@ blueprints require a @LINUX_UNIX@ bundle.
+    supportedPlatforms :: Core.Maybe [Types.InstancePlatform],
+    -- | The data transfer rate per month in GB (e.g., @2000@ ).
+    transferPerMonthInGb :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Bundle' with the minimum fields required to make a request.
---
--- * 'cpuCount' - The number of vCPUs included in the bundle (e.g., @2@ ).
--- * 'transferPerMonthInGb' - The data transfer rate per month in GB (e.g., @2000@ ).
--- * 'bundleId' - The bundle ID (e.g., @micro_1_0@ ).
--- * 'instanceType' - The Amazon EC2 instance type (e.g., @t2.micro@ ).
--- * 'name' - A friendly name for the bundle (e.g., @Micro@ ).
--- * 'power' - A numeric value that represents the power of the bundle (e.g., @500@ ). You can use the bundle's power value in conjunction with a blueprint's minimum power value to determine whether the blueprint will run on the bundle. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500.
--- * 'diskSizeInGb' - The size of the SSD (e.g., @30@ ).
--- * 'supportedPlatforms' - The operating system platform (Linux/Unix-based or Windows Server-based) that the bundle supports. You can only launch a @WINDOWS@ bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@ blueprints require a @LINUX_UNIX@ bundle.
--- * 'price' - The price in US dollars (e.g., @5.0@ ) of the bundle.
--- * 'isActive' - A Boolean value indicating whether the bundle is active.
--- * 'ramSizeInGb' - The amount of RAM in GB (e.g., @2.0@ ).
+-- | Creates a 'Bundle' value with any optional fields omitted.
 mkBundle ::
   Bundle
 mkBundle =
   Bundle'
-    { cpuCount = Lude.Nothing,
-      transferPerMonthInGb = Lude.Nothing,
-      bundleId = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      name = Lude.Nothing,
-      power = Lude.Nothing,
-      diskSizeInGb = Lude.Nothing,
-      supportedPlatforms = Lude.Nothing,
-      price = Lude.Nothing,
-      isActive = Lude.Nothing,
-      ramSizeInGb = Lude.Nothing
+    { bundleId = Core.Nothing,
+      cpuCount = Core.Nothing,
+      diskSizeInGb = Core.Nothing,
+      instanceType = Core.Nothing,
+      isActive = Core.Nothing,
+      name = Core.Nothing,
+      power = Core.Nothing,
+      price = Core.Nothing,
+      ramSizeInGb = Core.Nothing,
+      supportedPlatforms = Core.Nothing,
+      transferPerMonthInGb = Core.Nothing
     }
-
--- | The number of vCPUs included in the bundle (e.g., @2@ ).
---
--- /Note:/ Consider using 'cpuCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bfCpuCount :: Lens.Lens' Bundle (Lude.Maybe Lude.Int)
-bfCpuCount = Lens.lens (cpuCount :: Bundle -> Lude.Maybe Lude.Int) (\s a -> s {cpuCount = a} :: Bundle)
-{-# DEPRECATED bfCpuCount "Use generic-lens or generic-optics with 'cpuCount' instead." #-}
-
--- | The data transfer rate per month in GB (e.g., @2000@ ).
---
--- /Note:/ Consider using 'transferPerMonthInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bfTransferPerMonthInGb :: Lens.Lens' Bundle (Lude.Maybe Lude.Int)
-bfTransferPerMonthInGb = Lens.lens (transferPerMonthInGb :: Bundle -> Lude.Maybe Lude.Int) (\s a -> s {transferPerMonthInGb = a} :: Bundle)
-{-# DEPRECATED bfTransferPerMonthInGb "Use generic-lens or generic-optics with 'transferPerMonthInGb' instead." #-}
 
 -- | The bundle ID (e.g., @micro_1_0@ ).
 --
 -- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bfBundleId :: Lens.Lens' Bundle (Lude.Maybe Lude.Text)
-bfBundleId = Lens.lens (bundleId :: Bundle -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: Bundle)
+bfBundleId :: Lens.Lens' Bundle (Core.Maybe Types.BundleId)
+bfBundleId = Lens.field @"bundleId"
 {-# DEPRECATED bfBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
+
+-- | The number of vCPUs included in the bundle (e.g., @2@ ).
+--
+-- /Note:/ Consider using 'cpuCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bfCpuCount :: Lens.Lens' Bundle (Core.Maybe Core.Int)
+bfCpuCount = Lens.field @"cpuCount"
+{-# DEPRECATED bfCpuCount "Use generic-lens or generic-optics with 'cpuCount' instead." #-}
+
+-- | The size of the SSD (e.g., @30@ ).
+--
+-- /Note:/ Consider using 'diskSizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bfDiskSizeInGb :: Lens.Lens' Bundle (Core.Maybe Core.Int)
+bfDiskSizeInGb = Lens.field @"diskSizeInGb"
+{-# DEPRECATED bfDiskSizeInGb "Use generic-lens or generic-optics with 'diskSizeInGb' instead." #-}
 
 -- | The Amazon EC2 instance type (e.g., @t2.micro@ ).
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bfInstanceType :: Lens.Lens' Bundle (Lude.Maybe Lude.Text)
-bfInstanceType = Lens.lens (instanceType :: Bundle -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: Bundle)
+bfInstanceType :: Lens.Lens' Bundle (Core.Maybe Types.String)
+bfInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED bfInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | A Boolean value indicating whether the bundle is active.
+--
+-- /Note:/ Consider using 'isActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bfIsActive :: Lens.Lens' Bundle (Core.Maybe Core.Bool)
+bfIsActive = Lens.field @"isActive"
+{-# DEPRECATED bfIsActive "Use generic-lens or generic-optics with 'isActive' instead." #-}
 
 -- | A friendly name for the bundle (e.g., @Micro@ ).
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bfName :: Lens.Lens' Bundle (Lude.Maybe Lude.Text)
-bfName = Lens.lens (name :: Bundle -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Bundle)
+bfName :: Lens.Lens' Bundle (Core.Maybe Types.String)
+bfName = Lens.field @"name"
 {-# DEPRECATED bfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A numeric value that represents the power of the bundle (e.g., @500@ ). You can use the bundle's power value in conjunction with a blueprint's minimum power value to determine whether the blueprint will run on the bundle. For example, you need a bundle with a power value of 500 or more to create an instance that uses a blueprint with a minimum power value of 500.
 --
 -- /Note:/ Consider using 'power' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bfPower :: Lens.Lens' Bundle (Lude.Maybe Lude.Int)
-bfPower = Lens.lens (power :: Bundle -> Lude.Maybe Lude.Int) (\s a -> s {power = a} :: Bundle)
+bfPower :: Lens.Lens' Bundle (Core.Maybe Core.Int)
+bfPower = Lens.field @"power"
 {-# DEPRECATED bfPower "Use generic-lens or generic-optics with 'power' instead." #-}
-
--- | The size of the SSD (e.g., @30@ ).
---
--- /Note:/ Consider using 'diskSizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bfDiskSizeInGb :: Lens.Lens' Bundle (Lude.Maybe Lude.Int)
-bfDiskSizeInGb = Lens.lens (diskSizeInGb :: Bundle -> Lude.Maybe Lude.Int) (\s a -> s {diskSizeInGb = a} :: Bundle)
-{-# DEPRECATED bfDiskSizeInGb "Use generic-lens or generic-optics with 'diskSizeInGb' instead." #-}
-
--- | The operating system platform (Linux/Unix-based or Windows Server-based) that the bundle supports. You can only launch a @WINDOWS@ bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@ blueprints require a @LINUX_UNIX@ bundle.
---
--- /Note:/ Consider using 'supportedPlatforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bfSupportedPlatforms :: Lens.Lens' Bundle (Lude.Maybe [InstancePlatform])
-bfSupportedPlatforms = Lens.lens (supportedPlatforms :: Bundle -> Lude.Maybe [InstancePlatform]) (\s a -> s {supportedPlatforms = a} :: Bundle)
-{-# DEPRECATED bfSupportedPlatforms "Use generic-lens or generic-optics with 'supportedPlatforms' instead." #-}
 
 -- | The price in US dollars (e.g., @5.0@ ) of the bundle.
 --
 -- /Note:/ Consider using 'price' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bfPrice :: Lens.Lens' Bundle (Lude.Maybe Lude.Double)
-bfPrice = Lens.lens (price :: Bundle -> Lude.Maybe Lude.Double) (\s a -> s {price = a} :: Bundle)
+bfPrice :: Lens.Lens' Bundle (Core.Maybe Core.Double)
+bfPrice = Lens.field @"price"
 {-# DEPRECATED bfPrice "Use generic-lens or generic-optics with 'price' instead." #-}
-
--- | A Boolean value indicating whether the bundle is active.
---
--- /Note:/ Consider using 'isActive' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bfIsActive :: Lens.Lens' Bundle (Lude.Maybe Lude.Bool)
-bfIsActive = Lens.lens (isActive :: Bundle -> Lude.Maybe Lude.Bool) (\s a -> s {isActive = a} :: Bundle)
-{-# DEPRECATED bfIsActive "Use generic-lens or generic-optics with 'isActive' instead." #-}
 
 -- | The amount of RAM in GB (e.g., @2.0@ ).
 --
 -- /Note:/ Consider using 'ramSizeInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bfRamSizeInGb :: Lens.Lens' Bundle (Lude.Maybe Lude.Double)
-bfRamSizeInGb = Lens.lens (ramSizeInGb :: Bundle -> Lude.Maybe Lude.Double) (\s a -> s {ramSizeInGb = a} :: Bundle)
+bfRamSizeInGb :: Lens.Lens' Bundle (Core.Maybe Core.Double)
+bfRamSizeInGb = Lens.field @"ramSizeInGb"
 {-# DEPRECATED bfRamSizeInGb "Use generic-lens or generic-optics with 'ramSizeInGb' instead." #-}
 
-instance Lude.FromJSON Bundle where
+-- | The operating system platform (Linux/Unix-based or Windows Server-based) that the bundle supports. You can only launch a @WINDOWS@ bundle on a blueprint that supports the @WINDOWS@ platform. @LINUX_UNIX@ blueprints require a @LINUX_UNIX@ bundle.
+--
+-- /Note:/ Consider using 'supportedPlatforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bfSupportedPlatforms :: Lens.Lens' Bundle (Core.Maybe [Types.InstancePlatform])
+bfSupportedPlatforms = Lens.field @"supportedPlatforms"
+{-# DEPRECATED bfSupportedPlatforms "Use generic-lens or generic-optics with 'supportedPlatforms' instead." #-}
+
+-- | The data transfer rate per month in GB (e.g., @2000@ ).
+--
+-- /Note:/ Consider using 'transferPerMonthInGb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bfTransferPerMonthInGb :: Lens.Lens' Bundle (Core.Maybe Core.Int)
+bfTransferPerMonthInGb = Lens.field @"transferPerMonthInGb"
+{-# DEPRECATED bfTransferPerMonthInGb "Use generic-lens or generic-optics with 'transferPerMonthInGb' instead." #-}
+
+instance Core.FromJSON Bundle where
   parseJSON =
-    Lude.withObject
-      "Bundle"
-      ( \x ->
-          Bundle'
-            Lude.<$> (x Lude..:? "cpuCount")
-            Lude.<*> (x Lude..:? "transferPerMonthInGb")
-            Lude.<*> (x Lude..:? "bundleId")
-            Lude.<*> (x Lude..:? "instanceType")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "power")
-            Lude.<*> (x Lude..:? "diskSizeInGb")
-            Lude.<*> (x Lude..:? "supportedPlatforms" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "price")
-            Lude.<*> (x Lude..:? "isActive")
-            Lude.<*> (x Lude..:? "ramSizeInGb")
-      )
+    Core.withObject "Bundle" Core.$
+      \x ->
+        Bundle'
+          Core.<$> (x Core..:? "bundleId")
+          Core.<*> (x Core..:? "cpuCount")
+          Core.<*> (x Core..:? "diskSizeInGb")
+          Core.<*> (x Core..:? "instanceType")
+          Core.<*> (x Core..:? "isActive")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "power")
+          Core.<*> (x Core..:? "price")
+          Core.<*> (x Core..:? "ramSizeInGb")
+          Core.<*> (x Core..:? "supportedPlatforms")
+          Core.<*> (x Core..:? "transferPerMonthInGb")

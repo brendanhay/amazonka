@@ -20,7 +20,7 @@ module Network.AWS.ElasticSearch.AssociatePackage
     mkAssociatePackage,
 
     -- ** Request lenses
-    apPackageId,
+    apPackageID,
     apDomainName,
 
     -- * Destructuring the response
@@ -28,124 +28,113 @@ module Network.AWS.ElasticSearch.AssociatePackage
     mkAssociatePackageResponse,
 
     -- ** Response lenses
-    aprsDomainPackageDetails,
-    aprsResponseStatus,
+    aprrsDomainPackageDetails,
+    aprrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for request parameters to @'AssociatePackage' @ operation.
 --
 -- /See:/ 'mkAssociatePackage' smart constructor.
 data AssociatePackage = AssociatePackage'
   { -- | Internal ID of the package that you want to associate with a domain. Use @DescribePackages@ to find this value.
-    packageId :: Lude.Text,
+    packageID :: Types.PackageID,
     -- | Name of the domain that you want to associate the package with.
-    domainName :: Lude.Text
+    domainName :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociatePackage' with the minimum fields required to make a request.
---
--- * 'packageId' - Internal ID of the package that you want to associate with a domain. Use @DescribePackages@ to find this value.
--- * 'domainName' - Name of the domain that you want to associate the package with.
+-- | Creates a 'AssociatePackage' value with any optional fields omitted.
 mkAssociatePackage ::
-  -- | 'packageId'
-  Lude.Text ->
+  -- | 'packageID'
+  Types.PackageID ->
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   AssociatePackage
-mkAssociatePackage pPackageId_ pDomainName_ =
-  AssociatePackage'
-    { packageId = pPackageId_,
-      domainName = pDomainName_
-    }
+mkAssociatePackage packageID domainName =
+  AssociatePackage' {packageID, domainName}
 
 -- | Internal ID of the package that you want to associate with a domain. Use @DescribePackages@ to find this value.
 --
--- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apPackageId :: Lens.Lens' AssociatePackage Lude.Text
-apPackageId = Lens.lens (packageId :: AssociatePackage -> Lude.Text) (\s a -> s {packageId = a} :: AssociatePackage)
-{-# DEPRECATED apPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
+-- /Note:/ Consider using 'packageID' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+apPackageID :: Lens.Lens' AssociatePackage Types.PackageID
+apPackageID = Lens.field @"packageID"
+{-# DEPRECATED apPackageID "Use generic-lens or generic-optics with 'packageID' instead." #-}
 
 -- | Name of the domain that you want to associate the package with.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apDomainName :: Lens.Lens' AssociatePackage Lude.Text
-apDomainName = Lens.lens (domainName :: AssociatePackage -> Lude.Text) (\s a -> s {domainName = a} :: AssociatePackage)
+apDomainName :: Lens.Lens' AssociatePackage Types.DomainName
+apDomainName = Lens.field @"domainName"
 {-# DEPRECATED apDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest AssociatePackage where
+instance Core.FromJSON AssociatePackage where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest AssociatePackage where
   type Rs AssociatePackage = AssociatePackageResponse
-  request = Req.postJSON elasticSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-01-01/packages/associate/" Core.<> (Core.toText packageID)
+                Core.<> ("/")
+                Core.<> (Core.toText domainName)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AssociatePackageResponse'
-            Lude.<$> (x Lude..?> "DomainPackageDetails")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DomainPackageDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociatePackage where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON AssociatePackage where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath AssociatePackage where
-  toPath AssociatePackage' {..} =
-    Lude.mconcat
-      [ "/2015-01-01/packages/associate/",
-        Lude.toBS packageId,
-        "/",
-        Lude.toBS domainName
-      ]
-
-instance Lude.ToQuery AssociatePackage where
-  toQuery = Lude.const Lude.mempty
 
 -- | Container for response returned by @'AssociatePackage' @ operation.
 --
 -- /See:/ 'mkAssociatePackageResponse' smart constructor.
 data AssociatePackageResponse = AssociatePackageResponse'
   { -- | @DomainPackageDetails@
-    domainPackageDetails :: Lude.Maybe DomainPackageDetails,
+    domainPackageDetails :: Core.Maybe Types.DomainPackageDetails,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AssociatePackageResponse' with the minimum fields required to make a request.
---
--- * 'domainPackageDetails' - @DomainPackageDetails@
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociatePackageResponse' value with any optional fields omitted.
 mkAssociatePackageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociatePackageResponse
-mkAssociatePackageResponse pResponseStatus_ =
+mkAssociatePackageResponse responseStatus =
   AssociatePackageResponse'
-    { domainPackageDetails = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { domainPackageDetails = Core.Nothing,
+      responseStatus
     }
 
 -- | @DomainPackageDetails@
 --
 -- /Note:/ Consider using 'domainPackageDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aprsDomainPackageDetails :: Lens.Lens' AssociatePackageResponse (Lude.Maybe DomainPackageDetails)
-aprsDomainPackageDetails = Lens.lens (domainPackageDetails :: AssociatePackageResponse -> Lude.Maybe DomainPackageDetails) (\s a -> s {domainPackageDetails = a} :: AssociatePackageResponse)
-{-# DEPRECATED aprsDomainPackageDetails "Use generic-lens or generic-optics with 'domainPackageDetails' instead." #-}
+aprrsDomainPackageDetails :: Lens.Lens' AssociatePackageResponse (Core.Maybe Types.DomainPackageDetails)
+aprrsDomainPackageDetails = Lens.field @"domainPackageDetails"
+{-# DEPRECATED aprrsDomainPackageDetails "Use generic-lens or generic-optics with 'domainPackageDetails' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aprsResponseStatus :: Lens.Lens' AssociatePackageResponse Lude.Int
-aprsResponseStatus = Lens.lens (responseStatus :: AssociatePackageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociatePackageResponse)
-{-# DEPRECATED aprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aprrsResponseStatus :: Lens.Lens' AssociatePackageResponse Core.Int
+aprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

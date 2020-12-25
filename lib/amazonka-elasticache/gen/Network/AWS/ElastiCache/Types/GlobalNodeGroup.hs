@@ -17,53 +17,52 @@ module Network.AWS.ElastiCache.Types.GlobalNodeGroup
     mkGlobalNodeGroup,
 
     -- * Lenses
-    gngSlots,
     gngGlobalNodeGroupId,
+    gngSlots,
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.GlobalNodeGroupId as Types
+import qualified Network.AWS.ElastiCache.Types.Slots as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates the slot configuration and global identifier for a slice group.
 --
 -- /See:/ 'mkGlobalNodeGroup' smart constructor.
 data GlobalNodeGroup = GlobalNodeGroup'
-  { -- | The keyspace for this node group
-    slots :: Lude.Maybe Lude.Text,
-    -- | The name of the global node group
-    globalNodeGroupId :: Lude.Maybe Lude.Text
+  { -- | The name of the global node group
+    globalNodeGroupId :: Core.Maybe Types.GlobalNodeGroupId,
+    -- | The keyspace for this node group
+    slots :: Core.Maybe Types.Slots
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GlobalNodeGroup' with the minimum fields required to make a request.
---
--- * 'slots' - The keyspace for this node group
--- * 'globalNodeGroupId' - The name of the global node group
+-- | Creates a 'GlobalNodeGroup' value with any optional fields omitted.
 mkGlobalNodeGroup ::
   GlobalNodeGroup
 mkGlobalNodeGroup =
   GlobalNodeGroup'
-    { slots = Lude.Nothing,
-      globalNodeGroupId = Lude.Nothing
+    { globalNodeGroupId = Core.Nothing,
+      slots = Core.Nothing
     }
-
--- | The keyspace for this node group
---
--- /Note:/ Consider using 'slots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gngSlots :: Lens.Lens' GlobalNodeGroup (Lude.Maybe Lude.Text)
-gngSlots = Lens.lens (slots :: GlobalNodeGroup -> Lude.Maybe Lude.Text) (\s a -> s {slots = a} :: GlobalNodeGroup)
-{-# DEPRECATED gngSlots "Use generic-lens or generic-optics with 'slots' instead." #-}
 
 -- | The name of the global node group
 --
 -- /Note:/ Consider using 'globalNodeGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gngGlobalNodeGroupId :: Lens.Lens' GlobalNodeGroup (Lude.Maybe Lude.Text)
-gngGlobalNodeGroupId = Lens.lens (globalNodeGroupId :: GlobalNodeGroup -> Lude.Maybe Lude.Text) (\s a -> s {globalNodeGroupId = a} :: GlobalNodeGroup)
+gngGlobalNodeGroupId :: Lens.Lens' GlobalNodeGroup (Core.Maybe Types.GlobalNodeGroupId)
+gngGlobalNodeGroupId = Lens.field @"globalNodeGroupId"
 {-# DEPRECATED gngGlobalNodeGroupId "Use generic-lens or generic-optics with 'globalNodeGroupId' instead." #-}
 
-instance Lude.FromXML GlobalNodeGroup where
+-- | The keyspace for this node group
+--
+-- /Note:/ Consider using 'slots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gngSlots :: Lens.Lens' GlobalNodeGroup (Core.Maybe Types.Slots)
+gngSlots = Lens.field @"slots"
+{-# DEPRECATED gngSlots "Use generic-lens or generic-optics with 'slots' instead." #-}
+
+instance Core.FromXML GlobalNodeGroup where
   parseXML x =
     GlobalNodeGroup'
-      Lude.<$> (x Lude..@? "Slots") Lude.<*> (x Lude..@? "GlobalNodeGroupId")
+      Core.<$> (x Core..@? "GlobalNodeGroupId") Core.<*> (x Core..@? "Slots")

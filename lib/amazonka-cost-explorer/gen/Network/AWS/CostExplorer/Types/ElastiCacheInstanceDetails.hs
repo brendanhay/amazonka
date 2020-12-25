@@ -17,110 +17,105 @@ module Network.AWS.CostExplorer.Types.ElastiCacheInstanceDetails
     mkElastiCacheInstanceDetails,
 
     -- * Lenses
-    ecidCurrentGeneration,
-    ecidProductDescription,
-    ecidFamily,
-    ecidSizeFlexEligible,
-    ecidRegion,
-    ecidNodeType,
+    eCurrentGeneration,
+    eFamily,
+    eNodeType,
+    eProductDescription,
+    eRegion,
+    eSizeFlexEligible,
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.Family as Types
+import qualified Network.AWS.CostExplorer.Types.NodeType as Types
+import qualified Network.AWS.CostExplorer.Types.ProductDescription as Types
+import qualified Network.AWS.CostExplorer.Types.Region as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the Amazon ElastiCache instances that AWS recommends that you purchase.
 --
 -- /See:/ 'mkElastiCacheInstanceDetails' smart constructor.
 data ElastiCacheInstanceDetails = ElastiCacheInstanceDetails'
   { -- | Whether the recommendation is for a current generation instance.
-    currentGeneration :: Lude.Maybe Lude.Bool,
-    -- | The description of the recommended reservation.
-    productDescription :: Lude.Maybe Lude.Text,
+    currentGeneration :: Core.Maybe Core.Bool,
     -- | The instance family of the recommended reservation.
-    family :: Lude.Maybe Lude.Text,
-    -- | Whether the recommended reservation is size flexible.
-    sizeFlexEligible :: Lude.Maybe Lude.Bool,
-    -- | The AWS Region of the recommended reservation.
-    region :: Lude.Maybe Lude.Text,
+    family :: Core.Maybe Types.Family,
     -- | The type of node that AWS recommends.
-    nodeType :: Lude.Maybe Lude.Text
+    nodeType :: Core.Maybe Types.NodeType,
+    -- | The description of the recommended reservation.
+    productDescription :: Core.Maybe Types.ProductDescription,
+    -- | The AWS Region of the recommended reservation.
+    region :: Core.Maybe Types.Region,
+    -- | Whether the recommended reservation is size flexible.
+    sizeFlexEligible :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElastiCacheInstanceDetails' with the minimum fields required to make a request.
---
--- * 'currentGeneration' - Whether the recommendation is for a current generation instance.
--- * 'productDescription' - The description of the recommended reservation.
--- * 'family' - The instance family of the recommended reservation.
--- * 'sizeFlexEligible' - Whether the recommended reservation is size flexible.
--- * 'region' - The AWS Region of the recommended reservation.
--- * 'nodeType' - The type of node that AWS recommends.
+-- | Creates a 'ElastiCacheInstanceDetails' value with any optional fields omitted.
 mkElastiCacheInstanceDetails ::
   ElastiCacheInstanceDetails
 mkElastiCacheInstanceDetails =
   ElastiCacheInstanceDetails'
-    { currentGeneration = Lude.Nothing,
-      productDescription = Lude.Nothing,
-      family = Lude.Nothing,
-      sizeFlexEligible = Lude.Nothing,
-      region = Lude.Nothing,
-      nodeType = Lude.Nothing
+    { currentGeneration = Core.Nothing,
+      family = Core.Nothing,
+      nodeType = Core.Nothing,
+      productDescription = Core.Nothing,
+      region = Core.Nothing,
+      sizeFlexEligible = Core.Nothing
     }
 
 -- | Whether the recommendation is for a current generation instance.
 --
 -- /Note:/ Consider using 'currentGeneration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecidCurrentGeneration :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Bool)
-ecidCurrentGeneration = Lens.lens (currentGeneration :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {currentGeneration = a} :: ElastiCacheInstanceDetails)
-{-# DEPRECATED ecidCurrentGeneration "Use generic-lens or generic-optics with 'currentGeneration' instead." #-}
-
--- | The description of the recommended reservation.
---
--- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecidProductDescription :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Text)
-ecidProductDescription = Lens.lens (productDescription :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {productDescription = a} :: ElastiCacheInstanceDetails)
-{-# DEPRECATED ecidProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
+eCurrentGeneration :: Lens.Lens' ElastiCacheInstanceDetails (Core.Maybe Core.Bool)
+eCurrentGeneration = Lens.field @"currentGeneration"
+{-# DEPRECATED eCurrentGeneration "Use generic-lens or generic-optics with 'currentGeneration' instead." #-}
 
 -- | The instance family of the recommended reservation.
 --
 -- /Note:/ Consider using 'family' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecidFamily :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Text)
-ecidFamily = Lens.lens (family :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {family = a} :: ElastiCacheInstanceDetails)
-{-# DEPRECATED ecidFamily "Use generic-lens or generic-optics with 'family' instead." #-}
-
--- | Whether the recommended reservation is size flexible.
---
--- /Note:/ Consider using 'sizeFlexEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecidSizeFlexEligible :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Bool)
-ecidSizeFlexEligible = Lens.lens (sizeFlexEligible :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Bool) (\s a -> s {sizeFlexEligible = a} :: ElastiCacheInstanceDetails)
-{-# DEPRECATED ecidSizeFlexEligible "Use generic-lens or generic-optics with 'sizeFlexEligible' instead." #-}
-
--- | The AWS Region of the recommended reservation.
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecidRegion :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Text)
-ecidRegion = Lens.lens (region :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: ElastiCacheInstanceDetails)
-{-# DEPRECATED ecidRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+eFamily :: Lens.Lens' ElastiCacheInstanceDetails (Core.Maybe Types.Family)
+eFamily = Lens.field @"family"
+{-# DEPRECATED eFamily "Use generic-lens or generic-optics with 'family' instead." #-}
 
 -- | The type of node that AWS recommends.
 --
 -- /Note:/ Consider using 'nodeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecidNodeType :: Lens.Lens' ElastiCacheInstanceDetails (Lude.Maybe Lude.Text)
-ecidNodeType = Lens.lens (nodeType :: ElastiCacheInstanceDetails -> Lude.Maybe Lude.Text) (\s a -> s {nodeType = a} :: ElastiCacheInstanceDetails)
-{-# DEPRECATED ecidNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
+eNodeType :: Lens.Lens' ElastiCacheInstanceDetails (Core.Maybe Types.NodeType)
+eNodeType = Lens.field @"nodeType"
+{-# DEPRECATED eNodeType "Use generic-lens or generic-optics with 'nodeType' instead." #-}
 
-instance Lude.FromJSON ElastiCacheInstanceDetails where
+-- | The description of the recommended reservation.
+--
+-- /Note:/ Consider using 'productDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eProductDescription :: Lens.Lens' ElastiCacheInstanceDetails (Core.Maybe Types.ProductDescription)
+eProductDescription = Lens.field @"productDescription"
+{-# DEPRECATED eProductDescription "Use generic-lens or generic-optics with 'productDescription' instead." #-}
+
+-- | The AWS Region of the recommended reservation.
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eRegion :: Lens.Lens' ElastiCacheInstanceDetails (Core.Maybe Types.Region)
+eRegion = Lens.field @"region"
+{-# DEPRECATED eRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+
+-- | Whether the recommended reservation is size flexible.
+--
+-- /Note:/ Consider using 'sizeFlexEligible' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eSizeFlexEligible :: Lens.Lens' ElastiCacheInstanceDetails (Core.Maybe Core.Bool)
+eSizeFlexEligible = Lens.field @"sizeFlexEligible"
+{-# DEPRECATED eSizeFlexEligible "Use generic-lens or generic-optics with 'sizeFlexEligible' instead." #-}
+
+instance Core.FromJSON ElastiCacheInstanceDetails where
   parseJSON =
-    Lude.withObject
-      "ElastiCacheInstanceDetails"
-      ( \x ->
-          ElastiCacheInstanceDetails'
-            Lude.<$> (x Lude..:? "CurrentGeneration")
-            Lude.<*> (x Lude..:? "ProductDescription")
-            Lude.<*> (x Lude..:? "Family")
-            Lude.<*> (x Lude..:? "SizeFlexEligible")
-            Lude.<*> (x Lude..:? "Region")
-            Lude.<*> (x Lude..:? "NodeType")
-      )
+    Core.withObject "ElastiCacheInstanceDetails" Core.$
+      \x ->
+        ElastiCacheInstanceDetails'
+          Core.<$> (x Core..:? "CurrentGeneration")
+          Core.<*> (x Core..:? "Family")
+          Core.<*> (x Core..:? "NodeType")
+          Core.<*> (x Core..:? "ProductDescription")
+          Core.<*> (x Core..:? "Region")
+          Core.<*> (x Core..:? "SizeFlexEligible")

@@ -22,39 +22,35 @@ module Network.AWS.MediaLive.Types.MultiplexOutputDestination
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.MultiplexMediaConnectOutputDestinationSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.MultiplexMediaConnectOutputDestinationSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Multiplex output destination settings
 --
 -- /See:/ 'mkMultiplexOutputDestination' smart constructor.
 newtype MultiplexOutputDestination = MultiplexOutputDestination'
   { -- | Multiplex MediaConnect output destination settings.
-    mediaConnectSettings :: Lude.Maybe MultiplexMediaConnectOutputDestinationSettings
+    mediaConnectSettings :: Core.Maybe Types.MultiplexMediaConnectOutputDestinationSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MultiplexOutputDestination' with the minimum fields required to make a request.
---
--- * 'mediaConnectSettings' - Multiplex MediaConnect output destination settings.
+-- | Creates a 'MultiplexOutputDestination' value with any optional fields omitted.
 mkMultiplexOutputDestination ::
   MultiplexOutputDestination
 mkMultiplexOutputDestination =
-  MultiplexOutputDestination' {mediaConnectSettings = Lude.Nothing}
+  MultiplexOutputDestination' {mediaConnectSettings = Core.Nothing}
 
 -- | Multiplex MediaConnect output destination settings.
 --
 -- /Note:/ Consider using 'mediaConnectSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-modMediaConnectSettings :: Lens.Lens' MultiplexOutputDestination (Lude.Maybe MultiplexMediaConnectOutputDestinationSettings)
-modMediaConnectSettings = Lens.lens (mediaConnectSettings :: MultiplexOutputDestination -> Lude.Maybe MultiplexMediaConnectOutputDestinationSettings) (\s a -> s {mediaConnectSettings = a} :: MultiplexOutputDestination)
+modMediaConnectSettings :: Lens.Lens' MultiplexOutputDestination (Core.Maybe Types.MultiplexMediaConnectOutputDestinationSettings)
+modMediaConnectSettings = Lens.field @"mediaConnectSettings"
 {-# DEPRECATED modMediaConnectSettings "Use generic-lens or generic-optics with 'mediaConnectSettings' instead." #-}
 
-instance Lude.FromJSON MultiplexOutputDestination where
+instance Core.FromJSON MultiplexOutputDestination where
   parseJSON =
-    Lude.withObject
-      "MultiplexOutputDestination"
-      ( \x ->
-          MultiplexOutputDestination'
-            Lude.<$> (x Lude..:? "mediaConnectSettings")
-      )
+    Core.withObject "MultiplexOutputDestination" Core.$
+      \x ->
+        MultiplexOutputDestination'
+          Core.<$> (x Core..:? "mediaConnectSettings")

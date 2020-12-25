@@ -22,53 +22,51 @@ module Network.AWS.Glue.Types.PartitionIndex
   )
 where
 
+import qualified Network.AWS.Glue.Types.IndexName as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure for a partition index.
 --
 -- /See:/ 'mkPartitionIndex' smart constructor.
 data PartitionIndex = PartitionIndex'
   { -- | The keys for the partition index.
-    keys :: Lude.NonEmpty Lude.Text,
+    keys :: Core.NonEmpty Types.NameString,
     -- | The name of the partition index.
-    indexName :: Lude.Text
+    indexName :: Types.IndexName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PartitionIndex' with the minimum fields required to make a request.
---
--- * 'keys' - The keys for the partition index.
--- * 'indexName' - The name of the partition index.
+-- | Creates a 'PartitionIndex' value with any optional fields omitted.
 mkPartitionIndex ::
   -- | 'keys'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.NameString ->
   -- | 'indexName'
-  Lude.Text ->
+  Types.IndexName ->
   PartitionIndex
-mkPartitionIndex pKeys_ pIndexName_ =
-  PartitionIndex' {keys = pKeys_, indexName = pIndexName_}
+mkPartitionIndex keys indexName = PartitionIndex' {keys, indexName}
 
 -- | The keys for the partition index.
 --
 -- /Note:/ Consider using 'keys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piKeys :: Lens.Lens' PartitionIndex (Lude.NonEmpty Lude.Text)
-piKeys = Lens.lens (keys :: PartitionIndex -> Lude.NonEmpty Lude.Text) (\s a -> s {keys = a} :: PartitionIndex)
+piKeys :: Lens.Lens' PartitionIndex (Core.NonEmpty Types.NameString)
+piKeys = Lens.field @"keys"
 {-# DEPRECATED piKeys "Use generic-lens or generic-optics with 'keys' instead." #-}
 
 -- | The name of the partition index.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piIndexName :: Lens.Lens' PartitionIndex Lude.Text
-piIndexName = Lens.lens (indexName :: PartitionIndex -> Lude.Text) (\s a -> s {indexName = a} :: PartitionIndex)
+piIndexName :: Lens.Lens' PartitionIndex Types.IndexName
+piIndexName = Lens.field @"indexName"
 {-# DEPRECATED piIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance Lude.ToJSON PartitionIndex where
-  toJSON PartitionIndex' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Keys" Lude..= keys),
-            Lude.Just ("IndexName" Lude..= indexName)
+instance Core.FromJSON PartitionIndex where
+  toJSON PartitionIndex {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Keys" Core..= keys),
+            Core.Just ("IndexName" Core..= indexName)
           ]
       )

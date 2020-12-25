@@ -20,8 +20,8 @@ module Network.AWS.MediaLive.BatchUpdateSchedule
     mkBatchUpdateSchedule,
 
     -- ** Request lenses
-    busCreates,
     busChannelId,
+    busCreates,
     busDeletes,
 
     -- * Destructuring the response
@@ -29,154 +29,142 @@ module Network.AWS.MediaLive.BatchUpdateSchedule
     mkBatchUpdateScheduleResponse,
 
     -- ** Response lenses
-    busrsCreates,
-    busrsDeletes,
-    busrsResponseStatus,
+    busrrsCreates,
+    busrrsDeletes,
+    busrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | List of actions to create and list of actions to delete.
 --
 -- /See:/ 'mkBatchUpdateSchedule' smart constructor.
 data BatchUpdateSchedule = BatchUpdateSchedule'
-  { -- | Schedule actions to create in the schedule.
-    creates :: Lude.Maybe BatchScheduleActionCreateRequest,
-    -- | Id of the channel whose schedule is being updated.
-    channelId :: Lude.Text,
+  { -- | Id of the channel whose schedule is being updated.
+    channelId :: Core.Text,
+    -- | Schedule actions to create in the schedule.
+    creates :: Core.Maybe Types.BatchScheduleActionCreateRequest,
     -- | Schedule actions to delete from the schedule.
-    deletes :: Lude.Maybe BatchScheduleActionDeleteRequest
+    deletes :: Core.Maybe Types.BatchScheduleActionDeleteRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchUpdateSchedule' with the minimum fields required to make a request.
---
--- * 'creates' - Schedule actions to create in the schedule.
--- * 'channelId' - Id of the channel whose schedule is being updated.
--- * 'deletes' - Schedule actions to delete from the schedule.
+-- | Creates a 'BatchUpdateSchedule' value with any optional fields omitted.
 mkBatchUpdateSchedule ::
   -- | 'channelId'
-  Lude.Text ->
+  Core.Text ->
   BatchUpdateSchedule
-mkBatchUpdateSchedule pChannelId_ =
+mkBatchUpdateSchedule channelId =
   BatchUpdateSchedule'
-    { creates = Lude.Nothing,
-      channelId = pChannelId_,
-      deletes = Lude.Nothing
+    { channelId,
+      creates = Core.Nothing,
+      deletes = Core.Nothing
     }
-
--- | Schedule actions to create in the schedule.
---
--- /Note:/ Consider using 'creates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-busCreates :: Lens.Lens' BatchUpdateSchedule (Lude.Maybe BatchScheduleActionCreateRequest)
-busCreates = Lens.lens (creates :: BatchUpdateSchedule -> Lude.Maybe BatchScheduleActionCreateRequest) (\s a -> s {creates = a} :: BatchUpdateSchedule)
-{-# DEPRECATED busCreates "Use generic-lens or generic-optics with 'creates' instead." #-}
 
 -- | Id of the channel whose schedule is being updated.
 --
 -- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-busChannelId :: Lens.Lens' BatchUpdateSchedule Lude.Text
-busChannelId = Lens.lens (channelId :: BatchUpdateSchedule -> Lude.Text) (\s a -> s {channelId = a} :: BatchUpdateSchedule)
+busChannelId :: Lens.Lens' BatchUpdateSchedule Core.Text
+busChannelId = Lens.field @"channelId"
 {-# DEPRECATED busChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
+
+-- | Schedule actions to create in the schedule.
+--
+-- /Note:/ Consider using 'creates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+busCreates :: Lens.Lens' BatchUpdateSchedule (Core.Maybe Types.BatchScheduleActionCreateRequest)
+busCreates = Lens.field @"creates"
+{-# DEPRECATED busCreates "Use generic-lens or generic-optics with 'creates' instead." #-}
 
 -- | Schedule actions to delete from the schedule.
 --
 -- /Note:/ Consider using 'deletes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-busDeletes :: Lens.Lens' BatchUpdateSchedule (Lude.Maybe BatchScheduleActionDeleteRequest)
-busDeletes = Lens.lens (deletes :: BatchUpdateSchedule -> Lude.Maybe BatchScheduleActionDeleteRequest) (\s a -> s {deletes = a} :: BatchUpdateSchedule)
+busDeletes :: Lens.Lens' BatchUpdateSchedule (Core.Maybe Types.BatchScheduleActionDeleteRequest)
+busDeletes = Lens.field @"deletes"
 {-# DEPRECATED busDeletes "Use generic-lens or generic-optics with 'deletes' instead." #-}
 
-instance Lude.AWSRequest BatchUpdateSchedule where
+instance Core.FromJSON BatchUpdateSchedule where
+  toJSON BatchUpdateSchedule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("creates" Core..=) Core.<$> creates,
+            ("deletes" Core..=) Core.<$> deletes
+          ]
+      )
+
+instance Core.AWSRequest BatchUpdateSchedule where
   type Rs BatchUpdateSchedule = BatchUpdateScheduleResponse
-  request = Req.putJSON mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/prod/channels/" Core.<> (Core.toText channelId)
+                Core.<> ("/schedule")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchUpdateScheduleResponse'
-            Lude.<$> (x Lude..?> "creates")
-            Lude.<*> (x Lude..?> "deletes")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "creates")
+            Core.<*> (x Core..:? "deletes")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchUpdateSchedule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchUpdateSchedule where
-  toJSON BatchUpdateSchedule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("creates" Lude..=) Lude.<$> creates,
-            ("deletes" Lude..=) Lude.<$> deletes
-          ]
-      )
-
-instance Lude.ToPath BatchUpdateSchedule where
-  toPath BatchUpdateSchedule' {..} =
-    Lude.mconcat
-      ["/prod/channels/", Lude.toBS channelId, "/schedule"]
-
-instance Lude.ToQuery BatchUpdateSchedule where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for BatchUpdateScheduleResponse
 --
 -- /See:/ 'mkBatchUpdateScheduleResponse' smart constructor.
 data BatchUpdateScheduleResponse = BatchUpdateScheduleResponse'
   { -- | Schedule actions created in the schedule.
-    creates :: Lude.Maybe BatchScheduleActionCreateResult,
+    creates :: Core.Maybe Types.BatchScheduleActionCreateResult,
     -- | Schedule actions deleted from the schedule.
-    deletes :: Lude.Maybe BatchScheduleActionDeleteResult,
+    deletes :: Core.Maybe Types.BatchScheduleActionDeleteResult,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchUpdateScheduleResponse' with the minimum fields required to make a request.
---
--- * 'creates' - Schedule actions created in the schedule.
--- * 'deletes' - Schedule actions deleted from the schedule.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchUpdateScheduleResponse' value with any optional fields omitted.
 mkBatchUpdateScheduleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchUpdateScheduleResponse
-mkBatchUpdateScheduleResponse pResponseStatus_ =
+mkBatchUpdateScheduleResponse responseStatus =
   BatchUpdateScheduleResponse'
-    { creates = Lude.Nothing,
-      deletes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { creates = Core.Nothing,
+      deletes = Core.Nothing,
+      responseStatus
     }
 
 -- | Schedule actions created in the schedule.
 --
 -- /Note:/ Consider using 'creates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-busrsCreates :: Lens.Lens' BatchUpdateScheduleResponse (Lude.Maybe BatchScheduleActionCreateResult)
-busrsCreates = Lens.lens (creates :: BatchUpdateScheduleResponse -> Lude.Maybe BatchScheduleActionCreateResult) (\s a -> s {creates = a} :: BatchUpdateScheduleResponse)
-{-# DEPRECATED busrsCreates "Use generic-lens or generic-optics with 'creates' instead." #-}
+busrrsCreates :: Lens.Lens' BatchUpdateScheduleResponse (Core.Maybe Types.BatchScheduleActionCreateResult)
+busrrsCreates = Lens.field @"creates"
+{-# DEPRECATED busrrsCreates "Use generic-lens or generic-optics with 'creates' instead." #-}
 
 -- | Schedule actions deleted from the schedule.
 --
 -- /Note:/ Consider using 'deletes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-busrsDeletes :: Lens.Lens' BatchUpdateScheduleResponse (Lude.Maybe BatchScheduleActionDeleteResult)
-busrsDeletes = Lens.lens (deletes :: BatchUpdateScheduleResponse -> Lude.Maybe BatchScheduleActionDeleteResult) (\s a -> s {deletes = a} :: BatchUpdateScheduleResponse)
-{-# DEPRECATED busrsDeletes "Use generic-lens or generic-optics with 'deletes' instead." #-}
+busrrsDeletes :: Lens.Lens' BatchUpdateScheduleResponse (Core.Maybe Types.BatchScheduleActionDeleteResult)
+busrrsDeletes = Lens.field @"deletes"
+{-# DEPRECATED busrrsDeletes "Use generic-lens or generic-optics with 'deletes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-busrsResponseStatus :: Lens.Lens' BatchUpdateScheduleResponse Lude.Int
-busrsResponseStatus = Lens.lens (responseStatus :: BatchUpdateScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchUpdateScheduleResponse)
-{-# DEPRECATED busrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+busrrsResponseStatus :: Lens.Lens' BatchUpdateScheduleResponse Core.Int
+busrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED busrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

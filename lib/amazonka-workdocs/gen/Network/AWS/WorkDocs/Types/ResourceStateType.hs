@@ -13,56 +13,61 @@
 module Network.AWS.WorkDocs.Types.ResourceStateType
   ( ResourceStateType
       ( ResourceStateType',
-        RSTActive,
-        RSTRestoring,
-        RSTRecycling,
-        RSTRecycled
+        ResourceStateTypeActive,
+        ResourceStateTypeRestoring,
+        ResourceStateTypeRecycling,
+        ResourceStateTypeRecycled,
+        fromResourceStateType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceStateType = ResourceStateType' Lude.Text
+newtype ResourceStateType = ResourceStateType'
+  { fromResourceStateType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RSTActive :: ResourceStateType
-pattern RSTActive = ResourceStateType' "ACTIVE"
+pattern ResourceStateTypeActive :: ResourceStateType
+pattern ResourceStateTypeActive = ResourceStateType' "ACTIVE"
 
-pattern RSTRestoring :: ResourceStateType
-pattern RSTRestoring = ResourceStateType' "RESTORING"
+pattern ResourceStateTypeRestoring :: ResourceStateType
+pattern ResourceStateTypeRestoring = ResourceStateType' "RESTORING"
 
-pattern RSTRecycling :: ResourceStateType
-pattern RSTRecycling = ResourceStateType' "RECYCLING"
+pattern ResourceStateTypeRecycling :: ResourceStateType
+pattern ResourceStateTypeRecycling = ResourceStateType' "RECYCLING"
 
-pattern RSTRecycled :: ResourceStateType
-pattern RSTRecycled = ResourceStateType' "RECYCLED"
+pattern ResourceStateTypeRecycled :: ResourceStateType
+pattern ResourceStateTypeRecycled = ResourceStateType' "RECYCLED"
 
 {-# COMPLETE
-  RSTActive,
-  RSTRestoring,
-  RSTRecycling,
-  RSTRecycled,
+  ResourceStateTypeActive,
+  ResourceStateTypeRestoring,
+  ResourceStateTypeRecycling,
+  ResourceStateTypeRecycled,
   ResourceStateType'
   #-}

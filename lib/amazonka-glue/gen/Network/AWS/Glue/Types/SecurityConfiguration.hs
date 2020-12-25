@@ -17,72 +17,67 @@ module Network.AWS.Glue.Types.SecurityConfiguration
     mkSecurityConfiguration,
 
     -- * Lenses
-    scfName,
-    scfEncryptionConfiguration,
-    scfCreatedTimeStamp,
+    sCreatedTimeStamp,
+    sEncryptionConfiguration,
+    sName,
   )
 where
 
-import Network.AWS.Glue.Types.EncryptionConfiguration
+import qualified Network.AWS.Glue.Types.EncryptionConfiguration as Types
+import qualified Network.AWS.Glue.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a security configuration.
 --
 -- /See:/ 'mkSecurityConfiguration' smart constructor.
 data SecurityConfiguration = SecurityConfiguration'
-  { -- | The name of the security configuration.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The time at which this security configuration was created.
+    createdTimeStamp :: Core.Maybe Core.NominalDiffTime,
     -- | The encryption configuration associated with this security configuration.
-    encryptionConfiguration :: Lude.Maybe EncryptionConfiguration,
-    -- | The time at which this security configuration was created.
-    createdTimeStamp :: Lude.Maybe Lude.Timestamp
+    encryptionConfiguration :: Core.Maybe Types.EncryptionConfiguration,
+    -- | The name of the security configuration.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SecurityConfiguration' with the minimum fields required to make a request.
---
--- * 'name' - The name of the security configuration.
--- * 'encryptionConfiguration' - The encryption configuration associated with this security configuration.
--- * 'createdTimeStamp' - The time at which this security configuration was created.
+-- | Creates a 'SecurityConfiguration' value with any optional fields omitted.
 mkSecurityConfiguration ::
   SecurityConfiguration
 mkSecurityConfiguration =
   SecurityConfiguration'
-    { name = Lude.Nothing,
-      encryptionConfiguration = Lude.Nothing,
-      createdTimeStamp = Lude.Nothing
+    { createdTimeStamp = Core.Nothing,
+      encryptionConfiguration = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The name of the security configuration.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scfName :: Lens.Lens' SecurityConfiguration (Lude.Maybe Lude.Text)
-scfName = Lens.lens (name :: SecurityConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SecurityConfiguration)
-{-# DEPRECATED scfName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The encryption configuration associated with this security configuration.
---
--- /Note:/ Consider using 'encryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scfEncryptionConfiguration :: Lens.Lens' SecurityConfiguration (Lude.Maybe EncryptionConfiguration)
-scfEncryptionConfiguration = Lens.lens (encryptionConfiguration :: SecurityConfiguration -> Lude.Maybe EncryptionConfiguration) (\s a -> s {encryptionConfiguration = a} :: SecurityConfiguration)
-{-# DEPRECATED scfEncryptionConfiguration "Use generic-lens or generic-optics with 'encryptionConfiguration' instead." #-}
 
 -- | The time at which this security configuration was created.
 --
 -- /Note:/ Consider using 'createdTimeStamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scfCreatedTimeStamp :: Lens.Lens' SecurityConfiguration (Lude.Maybe Lude.Timestamp)
-scfCreatedTimeStamp = Lens.lens (createdTimeStamp :: SecurityConfiguration -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTimeStamp = a} :: SecurityConfiguration)
-{-# DEPRECATED scfCreatedTimeStamp "Use generic-lens or generic-optics with 'createdTimeStamp' instead." #-}
+sCreatedTimeStamp :: Lens.Lens' SecurityConfiguration (Core.Maybe Core.NominalDiffTime)
+sCreatedTimeStamp = Lens.field @"createdTimeStamp"
+{-# DEPRECATED sCreatedTimeStamp "Use generic-lens or generic-optics with 'createdTimeStamp' instead." #-}
 
-instance Lude.FromJSON SecurityConfiguration where
+-- | The encryption configuration associated with this security configuration.
+--
+-- /Note:/ Consider using 'encryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sEncryptionConfiguration :: Lens.Lens' SecurityConfiguration (Core.Maybe Types.EncryptionConfiguration)
+sEncryptionConfiguration = Lens.field @"encryptionConfiguration"
+{-# DEPRECATED sEncryptionConfiguration "Use generic-lens or generic-optics with 'encryptionConfiguration' instead." #-}
+
+-- | The name of the security configuration.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sName :: Lens.Lens' SecurityConfiguration (Core.Maybe Types.Name)
+sName = Lens.field @"name"
+{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON SecurityConfiguration where
   parseJSON =
-    Lude.withObject
-      "SecurityConfiguration"
-      ( \x ->
-          SecurityConfiguration'
-            Lude.<$> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "EncryptionConfiguration")
-            Lude.<*> (x Lude..:? "CreatedTimeStamp")
-      )
+    Core.withObject "SecurityConfiguration" Core.$
+      \x ->
+        SecurityConfiguration'
+          Core.<$> (x Core..:? "CreatedTimeStamp")
+          Core.<*> (x Core..:? "EncryptionConfiguration")
+          Core.<*> (x Core..:? "Name")

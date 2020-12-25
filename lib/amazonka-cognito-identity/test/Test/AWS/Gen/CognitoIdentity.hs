@@ -294,7 +294,7 @@ responseGetOpenIdToken =
   res
     "GetOpenIdTokenResponse"
     "fixture/GetOpenIdTokenResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy GetOpenIdToken)
 
 responseGetOpenIdTokenForDeveloperIdentity :: GetOpenIdTokenForDeveloperIdentityResponse -> TestTree
@@ -302,7 +302,7 @@ responseGetOpenIdTokenForDeveloperIdentity =
   res
     "GetOpenIdTokenForDeveloperIdentityResponse"
     "fixture/GetOpenIdTokenForDeveloperIdentityResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy GetOpenIdTokenForDeveloperIdentity)
 
 responseDescribeIdentityPool :: IdentityPool -> TestTree
@@ -310,7 +310,7 @@ responseDescribeIdentityPool =
   res
     "DescribeIdentityPoolResponse"
     "fixture/DescribeIdentityPoolResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy DescribeIdentityPool)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -318,7 +318,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetId :: GetIdResponse -> TestTree
@@ -326,7 +326,7 @@ responseGetId =
   res
     "GetIdResponse"
     "fixture/GetIdResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy GetId)
 
 responseDeleteIdentityPool :: DeleteIdentityPoolResponse -> TestTree
@@ -334,7 +334,7 @@ responseDeleteIdentityPool =
   res
     "DeleteIdentityPoolResponse"
     "fixture/DeleteIdentityPoolResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy DeleteIdentityPool)
 
 responseUpdateIdentityPool :: IdentityPool -> TestTree
@@ -342,7 +342,7 @@ responseUpdateIdentityPool =
   res
     "UpdateIdentityPoolResponse"
     "fixture/UpdateIdentityPoolResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy UpdateIdentityPool)
 
 responseUnlinkDeveloperIdentity :: UnlinkDeveloperIdentityResponse -> TestTree
@@ -350,7 +350,7 @@ responseUnlinkDeveloperIdentity =
   res
     "UnlinkDeveloperIdentityResponse"
     "fixture/UnlinkDeveloperIdentityResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy UnlinkDeveloperIdentity)
 
 responseGetIdentityPoolRoles :: GetIdentityPoolRolesResponse -> TestTree
@@ -358,7 +358,7 @@ responseGetIdentityPoolRoles =
   res
     "GetIdentityPoolRolesResponse"
     "fixture/GetIdentityPoolRolesResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy GetIdentityPoolRoles)
 
 responseListIdentityPools :: ListIdentityPoolsResponse -> TestTree
@@ -366,7 +366,7 @@ responseListIdentityPools =
   res
     "ListIdentityPoolsResponse"
     "fixture/ListIdentityPoolsResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy ListIdentityPools)
 
 responseGetCredentialsForIdentity :: GetCredentialsForIdentityResponse -> TestTree
@@ -374,7 +374,7 @@ responseGetCredentialsForIdentity =
   res
     "GetCredentialsForIdentityResponse"
     "fixture/GetCredentialsForIdentityResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy GetCredentialsForIdentity)
 
 responseDeleteIdentities :: DeleteIdentitiesResponse -> TestTree
@@ -382,7 +382,7 @@ responseDeleteIdentities =
   res
     "DeleteIdentitiesResponse"
     "fixture/DeleteIdentitiesResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy DeleteIdentities)
 
 responseSetIdentityPoolRoles :: SetIdentityPoolRolesResponse -> TestTree
@@ -390,7 +390,7 @@ responseSetIdentityPoolRoles =
   res
     "SetIdentityPoolRolesResponse"
     "fixture/SetIdentityPoolRolesResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy SetIdentityPoolRoles)
 
 responseListIdentities :: ListIdentitiesResponse -> TestTree
@@ -398,7 +398,7 @@ responseListIdentities =
   res
     "ListIdentitiesResponse"
     "fixture/ListIdentitiesResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy ListIdentities)
 
 responseLookupDeveloperIdentity :: LookupDeveloperIdentityResponse -> TestTree
@@ -406,7 +406,7 @@ responseLookupDeveloperIdentity =
   res
     "LookupDeveloperIdentityResponse"
     "fixture/LookupDeveloperIdentityResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy LookupDeveloperIdentity)
 
 responseUnlinkIdentity :: UnlinkIdentityResponse -> TestTree
@@ -414,7 +414,7 @@ responseUnlinkIdentity =
   res
     "UnlinkIdentityResponse"
     "fixture/UnlinkIdentityResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy UnlinkIdentity)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -422,7 +422,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseDescribeIdentity :: IdentityDescription -> TestTree
@@ -430,7 +430,7 @@ responseDescribeIdentity =
   res
     "DescribeIdentityResponse"
     "fixture/DescribeIdentityResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy DescribeIdentity)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -438,7 +438,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseCreateIdentityPool :: IdentityPool -> TestTree
@@ -446,7 +446,7 @@ responseCreateIdentityPool =
   res
     "CreateIdentityPoolResponse"
     "fixture/CreateIdentityPoolResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy CreateIdentityPool)
 
 responseMergeDeveloperIdentities :: MergeDeveloperIdentitiesResponse -> TestTree
@@ -454,5 +454,5 @@ responseMergeDeveloperIdentities =
   res
     "MergeDeveloperIdentitiesResponse"
     "fixture/MergeDeveloperIdentitiesResponse.proto"
-    cognitoIdentityService
+    mkServiceConfig
     (Proxy :: Proxy MergeDeveloperIdentities)

@@ -22,50 +22,45 @@ module Network.AWS.CloudFront.Types.KeyPairIds
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of CloudFront key pair identifiers.
 --
 -- /See:/ 'mkKeyPairIds' smart constructor.
 data KeyPairIds = KeyPairIds'
   { -- | The number of key pair identifiers in the list.
-    quantity :: Lude.Int,
+    quantity :: Core.Int,
     -- | A list of CloudFront key pair identifiers.
-    items :: Lude.Maybe [Lude.Text]
+    items :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeyPairIds' with the minimum fields required to make a request.
---
--- * 'quantity' - The number of key pair identifiers in the list.
--- * 'items' - A list of CloudFront key pair identifiers.
+-- | Creates a 'KeyPairIds' value with any optional fields omitted.
 mkKeyPairIds ::
   -- | 'quantity'
-  Lude.Int ->
+  Core.Int ->
   KeyPairIds
-mkKeyPairIds pQuantity_ =
-  KeyPairIds' {quantity = pQuantity_, items = Lude.Nothing}
+mkKeyPairIds quantity = KeyPairIds' {quantity, items = Core.Nothing}
 
 -- | The number of key pair identifiers in the list.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpiQuantity :: Lens.Lens' KeyPairIds Lude.Int
-kpiQuantity = Lens.lens (quantity :: KeyPairIds -> Lude.Int) (\s a -> s {quantity = a} :: KeyPairIds)
+kpiQuantity :: Lens.Lens' KeyPairIds Core.Int
+kpiQuantity = Lens.field @"quantity"
 {-# DEPRECATED kpiQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A list of CloudFront key pair identifiers.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kpiItems :: Lens.Lens' KeyPairIds (Lude.Maybe [Lude.Text])
-kpiItems = Lens.lens (items :: KeyPairIds -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: KeyPairIds)
+kpiItems :: Lens.Lens' KeyPairIds (Core.Maybe [Types.String])
+kpiItems = Lens.field @"items"
 {-# DEPRECATED kpiItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.FromXML KeyPairIds where
+instance Core.FromXML KeyPairIds where
   parseXML x =
     KeyPairIds'
-      Lude.<$> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "KeyPairId")
-               )
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> (x Core..@? "Items" Core..<@> Core.parseXMLList "KeyPairId")

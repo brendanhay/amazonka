@@ -19,86 +19,79 @@ module Network.AWS.MediaLive.Types.InputSwitchScheduleActionSettings
     -- * Lenses
     issasInputAttachmentNameReference,
     issasInputClippingSettings,
-    issasURLPath,
+    issasUrlPath,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.InputClippingSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.InputClippingSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for the "switch input" action: to switch from ingesting one input to ingesting another input.
 --
 -- /See:/ 'mkInputSwitchScheduleActionSettings' smart constructor.
 data InputSwitchScheduleActionSettings = InputSwitchScheduleActionSettings'
   { -- | The name of the input attachment (not the name of the input!) to switch to. The name is specified in the channel configuration.
-    inputAttachmentNameReference :: Lude.Text,
+    inputAttachmentNameReference :: Core.Text,
     -- | Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
-    inputClippingSettings :: Lude.Maybe InputClippingSettings,
+    inputClippingSettings :: Core.Maybe Types.InputClippingSettings,
     -- | The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
-    urlPath :: Lude.Maybe [Lude.Text]
+    urlPath :: Core.Maybe [Core.Text]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputSwitchScheduleActionSettings' with the minimum fields required to make a request.
---
--- * 'inputAttachmentNameReference' - The name of the input attachment (not the name of the input!) to switch to. The name is specified in the channel configuration.
--- * 'inputClippingSettings' - Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
--- * 'urlPath' - The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
+-- | Creates a 'InputSwitchScheduleActionSettings' value with any optional fields omitted.
 mkInputSwitchScheduleActionSettings ::
   -- | 'inputAttachmentNameReference'
-  Lude.Text ->
+  Core.Text ->
   InputSwitchScheduleActionSettings
-mkInputSwitchScheduleActionSettings pInputAttachmentNameReference_ =
+mkInputSwitchScheduleActionSettings inputAttachmentNameReference =
   InputSwitchScheduleActionSettings'
-    { inputAttachmentNameReference =
-        pInputAttachmentNameReference_,
-      inputClippingSettings = Lude.Nothing,
-      urlPath = Lude.Nothing
+    { inputAttachmentNameReference,
+      inputClippingSettings = Core.Nothing,
+      urlPath = Core.Nothing
     }
 
 -- | The name of the input attachment (not the name of the input!) to switch to. The name is specified in the channel configuration.
 --
 -- /Note:/ Consider using 'inputAttachmentNameReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-issasInputAttachmentNameReference :: Lens.Lens' InputSwitchScheduleActionSettings Lude.Text
-issasInputAttachmentNameReference = Lens.lens (inputAttachmentNameReference :: InputSwitchScheduleActionSettings -> Lude.Text) (\s a -> s {inputAttachmentNameReference = a} :: InputSwitchScheduleActionSettings)
+issasInputAttachmentNameReference :: Lens.Lens' InputSwitchScheduleActionSettings Core.Text
+issasInputAttachmentNameReference = Lens.field @"inputAttachmentNameReference"
 {-# DEPRECATED issasInputAttachmentNameReference "Use generic-lens or generic-optics with 'inputAttachmentNameReference' instead." #-}
 
 -- | Settings to let you create a clip of the file input, in order to set up the input to ingest only a portion of the file.
 --
 -- /Note:/ Consider using 'inputClippingSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-issasInputClippingSettings :: Lens.Lens' InputSwitchScheduleActionSettings (Lude.Maybe InputClippingSettings)
-issasInputClippingSettings = Lens.lens (inputClippingSettings :: InputSwitchScheduleActionSettings -> Lude.Maybe InputClippingSettings) (\s a -> s {inputClippingSettings = a} :: InputSwitchScheduleActionSettings)
+issasInputClippingSettings :: Lens.Lens' InputSwitchScheduleActionSettings (Core.Maybe Types.InputClippingSettings)
+issasInputClippingSettings = Lens.field @"inputClippingSettings"
 {-# DEPRECATED issasInputClippingSettings "Use generic-lens or generic-optics with 'inputClippingSettings' instead." #-}
 
 -- | The value for the variable portion of the URL for the dynamic input, for this instance of the input. Each time you use the same dynamic input in an input switch action, you can provide a different value, in order to connect the input to a different content source.
 --
 -- /Note:/ Consider using 'urlPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-issasURLPath :: Lens.Lens' InputSwitchScheduleActionSettings (Lude.Maybe [Lude.Text])
-issasURLPath = Lens.lens (urlPath :: InputSwitchScheduleActionSettings -> Lude.Maybe [Lude.Text]) (\s a -> s {urlPath = a} :: InputSwitchScheduleActionSettings)
-{-# DEPRECATED issasURLPath "Use generic-lens or generic-optics with 'urlPath' instead." #-}
+issasUrlPath :: Lens.Lens' InputSwitchScheduleActionSettings (Core.Maybe [Core.Text])
+issasUrlPath = Lens.field @"urlPath"
+{-# DEPRECATED issasUrlPath "Use generic-lens or generic-optics with 'urlPath' instead." #-}
 
-instance Lude.FromJSON InputSwitchScheduleActionSettings where
-  parseJSON =
-    Lude.withObject
-      "InputSwitchScheduleActionSettings"
-      ( \x ->
-          InputSwitchScheduleActionSettings'
-            Lude.<$> (x Lude..: "inputAttachmentNameReference")
-            Lude.<*> (x Lude..:? "inputClippingSettings")
-            Lude.<*> (x Lude..:? "urlPath" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON InputSwitchScheduleActionSettings where
-  toJSON InputSwitchScheduleActionSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON InputSwitchScheduleActionSettings where
+  toJSON InputSwitchScheduleActionSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "inputAttachmentNameReference"
-                  Lude..= inputAttachmentNameReference
+                  Core..= inputAttachmentNameReference
               ),
-            ("inputClippingSettings" Lude..=) Lude.<$> inputClippingSettings,
-            ("urlPath" Lude..=) Lude.<$> urlPath
+            ("inputClippingSettings" Core..=) Core.<$> inputClippingSettings,
+            ("urlPath" Core..=) Core.<$> urlPath
           ]
       )
+
+instance Core.FromJSON InputSwitchScheduleActionSettings where
+  parseJSON =
+    Core.withObject "InputSwitchScheduleActionSettings" Core.$
+      \x ->
+        InputSwitchScheduleActionSettings'
+          Core.<$> (x Core..: "inputAttachmentNameReference")
+          Core.<*> (x Core..:? "inputClippingSettings")
+          Core.<*> (x Core..:? "urlPath")

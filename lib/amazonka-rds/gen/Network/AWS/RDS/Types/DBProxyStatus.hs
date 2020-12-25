@@ -13,81 +13,86 @@
 module Network.AWS.RDS.Types.DBProxyStatus
   ( DBProxyStatus
       ( DBProxyStatus',
-        Available,
-        Modifying,
-        IncompatibleNetwork,
-        InsufficientResourceLimits,
-        Creating,
-        Deleting,
-        Suspended,
-        Suspending,
-        Reactivating
+        DBProxyStatusAvailable,
+        DBProxyStatusModifying,
+        DBProxyStatusIncompatibleNetwork,
+        DBProxyStatusInsufficientResourceLimits,
+        DBProxyStatusCreating,
+        DBProxyStatusDeleting,
+        DBProxyStatusSuspended,
+        DBProxyStatusSuspending,
+        DBProxyStatusReactivating,
+        fromDBProxyStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DBProxyStatus = DBProxyStatus' Lude.Text
+newtype DBProxyStatus = DBProxyStatus'
+  { fromDBProxyStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Available :: DBProxyStatus
-pattern Available = DBProxyStatus' "available"
+pattern DBProxyStatusAvailable :: DBProxyStatus
+pattern DBProxyStatusAvailable = DBProxyStatus' "available"
 
-pattern Modifying :: DBProxyStatus
-pattern Modifying = DBProxyStatus' "modifying"
+pattern DBProxyStatusModifying :: DBProxyStatus
+pattern DBProxyStatusModifying = DBProxyStatus' "modifying"
 
-pattern IncompatibleNetwork :: DBProxyStatus
-pattern IncompatibleNetwork = DBProxyStatus' "incompatible-network"
+pattern DBProxyStatusIncompatibleNetwork :: DBProxyStatus
+pattern DBProxyStatusIncompatibleNetwork = DBProxyStatus' "incompatible-network"
 
-pattern InsufficientResourceLimits :: DBProxyStatus
-pattern InsufficientResourceLimits = DBProxyStatus' "insufficient-resource-limits"
+pattern DBProxyStatusInsufficientResourceLimits :: DBProxyStatus
+pattern DBProxyStatusInsufficientResourceLimits = DBProxyStatus' "insufficient-resource-limits"
 
-pattern Creating :: DBProxyStatus
-pattern Creating = DBProxyStatus' "creating"
+pattern DBProxyStatusCreating :: DBProxyStatus
+pattern DBProxyStatusCreating = DBProxyStatus' "creating"
 
-pattern Deleting :: DBProxyStatus
-pattern Deleting = DBProxyStatus' "deleting"
+pattern DBProxyStatusDeleting :: DBProxyStatus
+pattern DBProxyStatusDeleting = DBProxyStatus' "deleting"
 
-pattern Suspended :: DBProxyStatus
-pattern Suspended = DBProxyStatus' "suspended"
+pattern DBProxyStatusSuspended :: DBProxyStatus
+pattern DBProxyStatusSuspended = DBProxyStatus' "suspended"
 
-pattern Suspending :: DBProxyStatus
-pattern Suspending = DBProxyStatus' "suspending"
+pattern DBProxyStatusSuspending :: DBProxyStatus
+pattern DBProxyStatusSuspending = DBProxyStatus' "suspending"
 
-pattern Reactivating :: DBProxyStatus
-pattern Reactivating = DBProxyStatus' "reactivating"
+pattern DBProxyStatusReactivating :: DBProxyStatus
+pattern DBProxyStatusReactivating = DBProxyStatus' "reactivating"
 
 {-# COMPLETE
-  Available,
-  Modifying,
-  IncompatibleNetwork,
-  InsufficientResourceLimits,
-  Creating,
-  Deleting,
-  Suspended,
-  Suspending,
-  Reactivating,
+  DBProxyStatusAvailable,
+  DBProxyStatusModifying,
+  DBProxyStatusIncompatibleNetwork,
+  DBProxyStatusInsufficientResourceLimits,
+  DBProxyStatusCreating,
+  DBProxyStatusDeleting,
+  DBProxyStatusSuspended,
+  DBProxyStatusSuspending,
+  DBProxyStatusReactivating,
   DBProxyStatus'
   #-}

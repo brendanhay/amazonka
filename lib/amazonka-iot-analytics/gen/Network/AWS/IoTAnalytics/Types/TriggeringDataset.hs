@@ -21,41 +21,39 @@ module Network.AWS.IoTAnalytics.Types.TriggeringDataset
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the dataset whose content generation triggers the new dataset content generation.
 --
 -- /See:/ 'mkTriggeringDataset' smart constructor.
 newtype TriggeringDataset = TriggeringDataset'
   { -- | The name of the dataset whose content generation triggers the new dataset content generation.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TriggeringDataset' with the minimum fields required to make a request.
---
--- * 'name' - The name of the dataset whose content generation triggers the new dataset content generation.
+-- | Creates a 'TriggeringDataset' value with any optional fields omitted.
 mkTriggeringDataset ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   TriggeringDataset
-mkTriggeringDataset pName_ = TriggeringDataset' {name = pName_}
+mkTriggeringDataset name = TriggeringDataset' {name}
 
 -- | The name of the dataset whose content generation triggers the new dataset content generation.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdName :: Lens.Lens' TriggeringDataset Lude.Text
-tdName = Lens.lens (name :: TriggeringDataset -> Lude.Text) (\s a -> s {name = a} :: TriggeringDataset)
+tdName :: Lens.Lens' TriggeringDataset Types.Name
+tdName = Lens.field @"name"
 {-# DEPRECATED tdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON TriggeringDataset where
-  parseJSON =
-    Lude.withObject
-      "TriggeringDataset"
-      (\x -> TriggeringDataset' Lude.<$> (x Lude..: "name"))
+instance Core.FromJSON TriggeringDataset where
+  toJSON TriggeringDataset {..} =
+    Core.object (Core.catMaybes [Core.Just ("name" Core..= name)])
 
-instance Lude.ToJSON TriggeringDataset where
-  toJSON TriggeringDataset' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])
+instance Core.FromJSON TriggeringDataset where
+  parseJSON =
+    Core.withObject "TriggeringDataset" Core.$
+      \x -> TriggeringDataset' Core.<$> (x Core..: "name")

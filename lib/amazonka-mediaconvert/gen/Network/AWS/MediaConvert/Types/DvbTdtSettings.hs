@@ -22,39 +22,36 @@ module Network.AWS.MediaConvert.Types.DvbTdtSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
 --
 -- /See:/ 'mkDvbTdtSettings' smart constructor.
 newtype DvbTdtSettings = DvbTdtSettings'
   { -- | The number of milliseconds between instances of this table in the output transport stream.
-    tdtInterval :: Lude.Maybe Lude.Natural
+    tdtInterval :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DvbTdtSettings' with the minimum fields required to make a request.
---
--- * 'tdtInterval' - The number of milliseconds between instances of this table in the output transport stream.
+-- | Creates a 'DvbTdtSettings' value with any optional fields omitted.
 mkDvbTdtSettings ::
   DvbTdtSettings
-mkDvbTdtSettings = DvbTdtSettings' {tdtInterval = Lude.Nothing}
+mkDvbTdtSettings = DvbTdtSettings' {tdtInterval = Core.Nothing}
 
 -- | The number of milliseconds between instances of this table in the output transport stream.
 --
 -- /Note:/ Consider using 'tdtInterval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtsTdtInterval :: Lens.Lens' DvbTdtSettings (Lude.Maybe Lude.Natural)
-dtsTdtInterval = Lens.lens (tdtInterval :: DvbTdtSettings -> Lude.Maybe Lude.Natural) (\s a -> s {tdtInterval = a} :: DvbTdtSettings)
+dtsTdtInterval :: Lens.Lens' DvbTdtSettings (Core.Maybe Core.Natural)
+dtsTdtInterval = Lens.field @"tdtInterval"
 {-# DEPRECATED dtsTdtInterval "Use generic-lens or generic-optics with 'tdtInterval' instead." #-}
 
-instance Lude.FromJSON DvbTdtSettings where
-  parseJSON =
-    Lude.withObject
-      "DvbTdtSettings"
-      (\x -> DvbTdtSettings' Lude.<$> (x Lude..:? "tdtInterval"))
+instance Core.FromJSON DvbTdtSettings where
+  toJSON DvbTdtSettings {..} =
+    Core.object
+      (Core.catMaybes [("tdtInterval" Core..=) Core.<$> tdtInterval])
 
-instance Lude.ToJSON DvbTdtSettings where
-  toJSON DvbTdtSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("tdtInterval" Lude..=) Lude.<$> tdtInterval])
+instance Core.FromJSON DvbTdtSettings where
+  parseJSON =
+    Core.withObject "DvbTdtSettings" Core.$
+      \x -> DvbTdtSettings' Core.<$> (x Core..:? "tdtInterval")

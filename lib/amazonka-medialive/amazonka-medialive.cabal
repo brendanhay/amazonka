@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.MediaLive
     Network.AWS.MediaLive.AcceptInputDeviceTransfer
@@ -305,7 +311,7 @@ library
     Network.AWS.MediaLive.Types.H265TimecodeInsertionBehavior
     Network.AWS.MediaLive.Types.Hdr10Settings
     Network.AWS.MediaLive.Types.HlsAdMarkers
-    Network.AWS.MediaLive.Types.HlsAkamaiHTTPTransferMode
+    Network.AWS.MediaLive.Types.HlsAkamaiHttpTransferMode
     Network.AWS.MediaLive.Types.HlsAkamaiSettings
     Network.AWS.MediaLive.Types.HlsBasicPutSettings
     Network.AWS.MediaLive.Types.HlsCaptionLanguageSetting
@@ -338,7 +344,7 @@ library
     Network.AWS.MediaLive.Types.HlsTimedMetadataId3Frame
     Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings
     Network.AWS.MediaLive.Types.HlsTsFileMode
-    Network.AWS.MediaLive.Types.HlsWebdavHTTPTransferMode
+    Network.AWS.MediaLive.Types.HlsWebdavHttpTransferMode
     Network.AWS.MediaLive.Types.HlsWebdavSettings
     Network.AWS.MediaLive.Types.IFrameOnlyPlaylistType
     Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings
@@ -352,13 +358,13 @@ library
     Network.AWS.MediaLive.Types.InputDenoiseFilter
     Network.AWS.MediaLive.Types.InputDestination
     Network.AWS.MediaLive.Types.InputDestinationRequest
-    Network.AWS.MediaLive.Types.InputDestinationVPC
+    Network.AWS.MediaLive.Types.InputDestinationVpc
     Network.AWS.MediaLive.Types.InputDeviceActiveInput
     Network.AWS.MediaLive.Types.InputDeviceConfigurableSettings
     Network.AWS.MediaLive.Types.InputDeviceConfiguredInput
     Network.AWS.MediaLive.Types.InputDeviceConnectionState
     Network.AWS.MediaLive.Types.InputDeviceHdSettings
-    Network.AWS.MediaLive.Types.InputDeviceIPScheme
+    Network.AWS.MediaLive.Types.InputDeviceIpScheme
     Network.AWS.MediaLive.Types.InputDeviceNetworkSettings
     Network.AWS.MediaLive.Types.InputDeviceRequest
     Network.AWS.MediaLive.Types.InputDeviceScanType
@@ -392,7 +398,7 @@ library
     Network.AWS.MediaLive.Types.InputSwitchScheduleActionSettings
     Network.AWS.MediaLive.Types.InputTimecodeSource
     Network.AWS.MediaLive.Types.InputType
-    Network.AWS.MediaLive.Types.InputVPCRequest
+    Network.AWS.MediaLive.Types.InputVpcRequest
     Network.AWS.MediaLive.Types.InputWhitelistRule
     Network.AWS.MediaLive.Types.InputWhitelistRuleCidr
     Network.AWS.MediaLive.Types.KeyProviderSettings
@@ -405,7 +411,7 @@ library
     Network.AWS.MediaLive.Types.M2tsAudioInterval
     Network.AWS.MediaLive.Types.M2tsAudioStreamType
     Network.AWS.MediaLive.Types.M2tsBufferModel
-    Network.AWS.MediaLive.Types.M2tsCCDescriptor
+    Network.AWS.MediaLive.Types.M2tsCcDescriptor
     Network.AWS.MediaLive.Types.M2tsEbifControl
     Network.AWS.MediaLive.Types.M2tsEbpPlacement
     Network.AWS.MediaLive.Types.M2tsEsRateInPes

@@ -13,101 +13,106 @@
 module Network.AWS.EC2.Types.TransitGatewayAttachmentState
   ( TransitGatewayAttachmentState
       ( TransitGatewayAttachmentState',
-        TGASInitiating,
-        TGASInitiatingRequest,
-        TGASPendingAcceptance,
-        TGASRollingBack,
-        TGASPending,
-        TGASAvailable,
-        TGASModifying,
-        TGASDeleting,
-        TGASDeleted,
-        TGASFailed,
-        TGASRejected,
-        TGASRejecting,
-        TGASFailing
+        TransitGatewayAttachmentStateInitiating,
+        TransitGatewayAttachmentStateInitiatingRequest,
+        TransitGatewayAttachmentStatePendingAcceptance,
+        TransitGatewayAttachmentStateRollingBack,
+        TransitGatewayAttachmentStatePending,
+        TransitGatewayAttachmentStateAvailable,
+        TransitGatewayAttachmentStateModifying,
+        TransitGatewayAttachmentStateDeleting,
+        TransitGatewayAttachmentStateDeleted,
+        TransitGatewayAttachmentStateFailed,
+        TransitGatewayAttachmentStateRejected,
+        TransitGatewayAttachmentStateRejecting,
+        TransitGatewayAttachmentStateFailing,
+        fromTransitGatewayAttachmentState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TransitGatewayAttachmentState = TransitGatewayAttachmentState' Lude.Text
+newtype TransitGatewayAttachmentState = TransitGatewayAttachmentState'
+  { fromTransitGatewayAttachmentState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TGASInitiating :: TransitGatewayAttachmentState
-pattern TGASInitiating = TransitGatewayAttachmentState' "initiating"
+pattern TransitGatewayAttachmentStateInitiating :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStateInitiating = TransitGatewayAttachmentState' "initiating"
 
-pattern TGASInitiatingRequest :: TransitGatewayAttachmentState
-pattern TGASInitiatingRequest = TransitGatewayAttachmentState' "initiatingRequest"
+pattern TransitGatewayAttachmentStateInitiatingRequest :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStateInitiatingRequest = TransitGatewayAttachmentState' "initiatingRequest"
 
-pattern TGASPendingAcceptance :: TransitGatewayAttachmentState
-pattern TGASPendingAcceptance = TransitGatewayAttachmentState' "pendingAcceptance"
+pattern TransitGatewayAttachmentStatePendingAcceptance :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStatePendingAcceptance = TransitGatewayAttachmentState' "pendingAcceptance"
 
-pattern TGASRollingBack :: TransitGatewayAttachmentState
-pattern TGASRollingBack = TransitGatewayAttachmentState' "rollingBack"
+pattern TransitGatewayAttachmentStateRollingBack :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStateRollingBack = TransitGatewayAttachmentState' "rollingBack"
 
-pattern TGASPending :: TransitGatewayAttachmentState
-pattern TGASPending = TransitGatewayAttachmentState' "pending"
+pattern TransitGatewayAttachmentStatePending :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStatePending = TransitGatewayAttachmentState' "pending"
 
-pattern TGASAvailable :: TransitGatewayAttachmentState
-pattern TGASAvailable = TransitGatewayAttachmentState' "available"
+pattern TransitGatewayAttachmentStateAvailable :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStateAvailable = TransitGatewayAttachmentState' "available"
 
-pattern TGASModifying :: TransitGatewayAttachmentState
-pattern TGASModifying = TransitGatewayAttachmentState' "modifying"
+pattern TransitGatewayAttachmentStateModifying :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStateModifying = TransitGatewayAttachmentState' "modifying"
 
-pattern TGASDeleting :: TransitGatewayAttachmentState
-pattern TGASDeleting = TransitGatewayAttachmentState' "deleting"
+pattern TransitGatewayAttachmentStateDeleting :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStateDeleting = TransitGatewayAttachmentState' "deleting"
 
-pattern TGASDeleted :: TransitGatewayAttachmentState
-pattern TGASDeleted = TransitGatewayAttachmentState' "deleted"
+pattern TransitGatewayAttachmentStateDeleted :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStateDeleted = TransitGatewayAttachmentState' "deleted"
 
-pattern TGASFailed :: TransitGatewayAttachmentState
-pattern TGASFailed = TransitGatewayAttachmentState' "failed"
+pattern TransitGatewayAttachmentStateFailed :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStateFailed = TransitGatewayAttachmentState' "failed"
 
-pattern TGASRejected :: TransitGatewayAttachmentState
-pattern TGASRejected = TransitGatewayAttachmentState' "rejected"
+pattern TransitGatewayAttachmentStateRejected :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStateRejected = TransitGatewayAttachmentState' "rejected"
 
-pattern TGASRejecting :: TransitGatewayAttachmentState
-pattern TGASRejecting = TransitGatewayAttachmentState' "rejecting"
+pattern TransitGatewayAttachmentStateRejecting :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStateRejecting = TransitGatewayAttachmentState' "rejecting"
 
-pattern TGASFailing :: TransitGatewayAttachmentState
-pattern TGASFailing = TransitGatewayAttachmentState' "failing"
+pattern TransitGatewayAttachmentStateFailing :: TransitGatewayAttachmentState
+pattern TransitGatewayAttachmentStateFailing = TransitGatewayAttachmentState' "failing"
 
 {-# COMPLETE
-  TGASInitiating,
-  TGASInitiatingRequest,
-  TGASPendingAcceptance,
-  TGASRollingBack,
-  TGASPending,
-  TGASAvailable,
-  TGASModifying,
-  TGASDeleting,
-  TGASDeleted,
-  TGASFailed,
-  TGASRejected,
-  TGASRejecting,
-  TGASFailing,
+  TransitGatewayAttachmentStateInitiating,
+  TransitGatewayAttachmentStateInitiatingRequest,
+  TransitGatewayAttachmentStatePendingAcceptance,
+  TransitGatewayAttachmentStateRollingBack,
+  TransitGatewayAttachmentStatePending,
+  TransitGatewayAttachmentStateAvailable,
+  TransitGatewayAttachmentStateModifying,
+  TransitGatewayAttachmentStateDeleting,
+  TransitGatewayAttachmentStateDeleted,
+  TransitGatewayAttachmentStateFailed,
+  TransitGatewayAttachmentStateRejected,
+  TransitGatewayAttachmentStateRejecting,
+  TransitGatewayAttachmentStateFailing,
   TransitGatewayAttachmentState'
   #-}

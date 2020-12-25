@@ -23,65 +23,61 @@ module Network.AWS.Glue.Types.Location
   )
 where
 
-import Network.AWS.Glue.Types.CodeGenNodeArg
+import qualified Network.AWS.Glue.Types.CodeGenNodeArg as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The location of resources.
 --
 -- /See:/ 'mkLocation' smart constructor.
 data Location = Location'
   { -- | An Amazon DynamoDB table location.
-    dynamoDB :: Lude.Maybe [CodeGenNodeArg],
+    dynamoDB :: Core.Maybe [Types.CodeGenNodeArg],
     -- | A JDBC location.
-    jdbc :: Lude.Maybe [CodeGenNodeArg],
+    jdbc :: Core.Maybe [Types.CodeGenNodeArg],
     -- | An Amazon Simple Storage Service (Amazon S3) location.
-    s3 :: Lude.Maybe [CodeGenNodeArg]
+    s3 :: Core.Maybe [Types.CodeGenNodeArg]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Location' with the minimum fields required to make a request.
---
--- * 'dynamoDB' - An Amazon DynamoDB table location.
--- * 'jdbc' - A JDBC location.
--- * 's3' - An Amazon Simple Storage Service (Amazon S3) location.
+-- | Creates a 'Location' value with any optional fields omitted.
 mkLocation ::
   Location
 mkLocation =
   Location'
-    { dynamoDB = Lude.Nothing,
-      jdbc = Lude.Nothing,
-      s3 = Lude.Nothing
+    { dynamoDB = Core.Nothing,
+      jdbc = Core.Nothing,
+      s3 = Core.Nothing
     }
 
 -- | An Amazon DynamoDB table location.
 --
 -- /Note:/ Consider using 'dynamoDB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lDynamoDB :: Lens.Lens' Location (Lude.Maybe [CodeGenNodeArg])
-lDynamoDB = Lens.lens (dynamoDB :: Location -> Lude.Maybe [CodeGenNodeArg]) (\s a -> s {dynamoDB = a} :: Location)
+lDynamoDB :: Lens.Lens' Location (Core.Maybe [Types.CodeGenNodeArg])
+lDynamoDB = Lens.field @"dynamoDB"
 {-# DEPRECATED lDynamoDB "Use generic-lens or generic-optics with 'dynamoDB' instead." #-}
 
 -- | A JDBC location.
 --
 -- /Note:/ Consider using 'jdbc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lJdbc :: Lens.Lens' Location (Lude.Maybe [CodeGenNodeArg])
-lJdbc = Lens.lens (jdbc :: Location -> Lude.Maybe [CodeGenNodeArg]) (\s a -> s {jdbc = a} :: Location)
+lJdbc :: Lens.Lens' Location (Core.Maybe [Types.CodeGenNodeArg])
+lJdbc = Lens.field @"jdbc"
 {-# DEPRECATED lJdbc "Use generic-lens or generic-optics with 'jdbc' instead." #-}
 
 -- | An Amazon Simple Storage Service (Amazon S3) location.
 --
 -- /Note:/ Consider using 's3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lS3 :: Lens.Lens' Location (Lude.Maybe [CodeGenNodeArg])
-lS3 = Lens.lens (s3 :: Location -> Lude.Maybe [CodeGenNodeArg]) (\s a -> s {s3 = a} :: Location)
+lS3 :: Lens.Lens' Location (Core.Maybe [Types.CodeGenNodeArg])
+lS3 = Lens.field @"s3"
 {-# DEPRECATED lS3 "Use generic-lens or generic-optics with 's3' instead." #-}
 
-instance Lude.ToJSON Location where
-  toJSON Location' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DynamoDB" Lude..=) Lude.<$> dynamoDB,
-            ("Jdbc" Lude..=) Lude.<$> jdbc,
-            ("S3" Lude..=) Lude.<$> s3
+instance Core.FromJSON Location where
+  toJSON Location {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DynamoDB" Core..=) Core.<$> dynamoDB,
+            ("Jdbc" Core..=) Core.<$> jdbc,
+            ("S3" Core..=) Core.<$> s3
           ]
       )

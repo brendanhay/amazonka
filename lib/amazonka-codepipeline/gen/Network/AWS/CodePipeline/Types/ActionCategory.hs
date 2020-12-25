@@ -13,66 +13,71 @@
 module Network.AWS.CodePipeline.Types.ActionCategory
   ( ActionCategory
       ( ActionCategory',
-        Source,
-        Build,
-        Deploy,
-        Test,
-        Invoke,
-        Approval
+        ActionCategorySource,
+        ActionCategoryBuild,
+        ActionCategoryDeploy,
+        ActionCategoryTest,
+        ActionCategoryInvoke,
+        ActionCategoryApproval,
+        fromActionCategory
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActionCategory = ActionCategory' Lude.Text
+newtype ActionCategory = ActionCategory'
+  { fromActionCategory ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Source :: ActionCategory
-pattern Source = ActionCategory' "Source"
+pattern ActionCategorySource :: ActionCategory
+pattern ActionCategorySource = ActionCategory' "Source"
 
-pattern Build :: ActionCategory
-pattern Build = ActionCategory' "Build"
+pattern ActionCategoryBuild :: ActionCategory
+pattern ActionCategoryBuild = ActionCategory' "Build"
 
-pattern Deploy :: ActionCategory
-pattern Deploy = ActionCategory' "Deploy"
+pattern ActionCategoryDeploy :: ActionCategory
+pattern ActionCategoryDeploy = ActionCategory' "Deploy"
 
-pattern Test :: ActionCategory
-pattern Test = ActionCategory' "Test"
+pattern ActionCategoryTest :: ActionCategory
+pattern ActionCategoryTest = ActionCategory' "Test"
 
-pattern Invoke :: ActionCategory
-pattern Invoke = ActionCategory' "Invoke"
+pattern ActionCategoryInvoke :: ActionCategory
+pattern ActionCategoryInvoke = ActionCategory' "Invoke"
 
-pattern Approval :: ActionCategory
-pattern Approval = ActionCategory' "Approval"
+pattern ActionCategoryApproval :: ActionCategory
+pattern ActionCategoryApproval = ActionCategory' "Approval"
 
 {-# COMPLETE
-  Source,
-  Build,
-  Deploy,
-  Test,
-  Invoke,
-  Approval,
+  ActionCategorySource,
+  ActionCategoryBuild,
+  ActionCategoryDeploy,
+  ActionCategoryTest,
+  ActionCategoryInvoke,
+  ActionCategoryApproval,
   ActionCategory'
   #-}

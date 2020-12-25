@@ -43,89 +43,82 @@ module Network.AWS.S3.DeleteBucketAnalyticsConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkDeleteBucketAnalyticsConfiguration' smart constructor.
 data DeleteBucketAnalyticsConfiguration = DeleteBucketAnalyticsConfiguration'
   { -- | The name of the bucket from which an analytics configuration is deleted.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The ID that identifies the analytics configuration.
-    id :: Lude.Text,
+    id :: Types.Id,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketAnalyticsConfiguration' with the minimum fields required to make a request.
---
--- * 'bucket' - The name of the bucket from which an analytics configuration is deleted.
--- * 'id' - The ID that identifies the analytics configuration.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'DeleteBucketAnalyticsConfiguration' value with any optional fields omitted.
 mkDeleteBucketAnalyticsConfiguration ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DeleteBucketAnalyticsConfiguration
-mkDeleteBucketAnalyticsConfiguration pBucket_ pId_ =
+mkDeleteBucketAnalyticsConfiguration bucket id =
   DeleteBucketAnalyticsConfiguration'
-    { bucket = pBucket_,
-      id = pId_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      id,
+      expectedBucketOwner = Core.Nothing
     }
 
 -- | The name of the bucket from which an analytics configuration is deleted.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbacBucket :: Lens.Lens' DeleteBucketAnalyticsConfiguration BucketName
-dbacBucket = Lens.lens (bucket :: DeleteBucketAnalyticsConfiguration -> BucketName) (\s a -> s {bucket = a} :: DeleteBucketAnalyticsConfiguration)
+dbacBucket :: Lens.Lens' DeleteBucketAnalyticsConfiguration Types.BucketName
+dbacBucket = Lens.field @"bucket"
 {-# DEPRECATED dbacBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The ID that identifies the analytics configuration.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbacId :: Lens.Lens' DeleteBucketAnalyticsConfiguration Lude.Text
-dbacId = Lens.lens (id :: DeleteBucketAnalyticsConfiguration -> Lude.Text) (\s a -> s {id = a} :: DeleteBucketAnalyticsConfiguration)
+dbacId :: Lens.Lens' DeleteBucketAnalyticsConfiguration Types.Id
+dbacId = Lens.field @"id"
 {-# DEPRECATED dbacId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbacExpectedBucketOwner :: Lens.Lens' DeleteBucketAnalyticsConfiguration (Lude.Maybe Lude.Text)
-dbacExpectedBucketOwner = Lens.lens (expectedBucketOwner :: DeleteBucketAnalyticsConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: DeleteBucketAnalyticsConfiguration)
+dbacExpectedBucketOwner :: Lens.Lens' DeleteBucketAnalyticsConfiguration (Core.Maybe Types.ExpectedBucketOwner)
+dbacExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED dbacExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest DeleteBucketAnalyticsConfiguration where
+instance Core.AWSRequest DeleteBucketAnalyticsConfiguration where
   type
     Rs DeleteBucketAnalyticsConfiguration =
       DeleteBucketAnalyticsConfigurationResponse
-  request = Req.delete s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery =
+          Core.toQueryValue "id" id Core.<> (Core.pure ("analytics", "")),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveNull DeleteBucketAnalyticsConfigurationResponse'
-
-instance Lude.ToHeaders DeleteBucketAnalyticsConfiguration where
-  toHeaders DeleteBucketAnalyticsConfiguration' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath DeleteBucketAnalyticsConfiguration where
-  toPath DeleteBucketAnalyticsConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery DeleteBucketAnalyticsConfiguration where
-  toQuery DeleteBucketAnalyticsConfiguration' {..} =
-    Lude.mconcat ["id" Lude.=: id, "analytics"]
+    Response.receiveNull DeleteBucketAnalyticsConfigurationResponse'
 
 -- | /See:/ 'mkDeleteBucketAnalyticsConfigurationResponse' smart constructor.
 data DeleteBucketAnalyticsConfigurationResponse = DeleteBucketAnalyticsConfigurationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBucketAnalyticsConfigurationResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteBucketAnalyticsConfigurationResponse' value with any optional fields omitted.
 mkDeleteBucketAnalyticsConfigurationResponse ::
   DeleteBucketAnalyticsConfigurationResponse
 mkDeleteBucketAnalyticsConfigurationResponse =

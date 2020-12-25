@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,31 @@
 -- Amazon Lex is an AWS service for building conversational voice and text interfaces. Use these actions to create, update, and delete conversational bots for new and existing client applications.
 module Network.AWS.LexModels
   ( -- * Service configuration
-    lexModelsService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** PreconditionFailedException
+    _PreconditionFailedException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** NotFoundException
+    _NotFoundException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** BadRequestException
+    _BadRequestException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -146,129 +166,59 @@ module Network.AWS.LexModels
 
     -- * Types
 
-    -- ** ChannelStatus
-    ChannelStatus (..),
-
-    -- ** ChannelType
-    ChannelType (..),
-
-    -- ** ContentType
-    ContentType (..),
-
-    -- ** Destination
-    Destination (..),
-
-    -- ** ExportStatus
-    ExportStatus (..),
-
-    -- ** ExportType
-    ExportType (..),
-
-    -- ** FulfillmentActivityType
-    FulfillmentActivityType (..),
-
-    -- ** ImportStatus
-    ImportStatus (..),
+    -- ** SlotDefaultValue
+    SlotDefaultValue (..),
+    mkSlotDefaultValue,
+    sdvDefaultValue,
 
     -- ** LexStatus
     LexStatus (..),
 
-    -- ** Locale
-    Locale (..),
+    -- ** IamRoleArn
+    IamRoleArn (..),
 
-    -- ** LogType
-    LogType (..),
+    -- ** ContentString
+    ContentString (..),
 
-    -- ** MergeStrategy
-    MergeStrategy (..),
+    -- ** CustomOrBuiltinSlotTypeName
+    CustomOrBuiltinSlotTypeName (..),
 
-    -- ** ObfuscationSetting
-    ObfuscationSetting (..),
+    -- ** Prompt
+    Prompt (..),
+    mkPrompt,
+    pMessages,
+    pMaxAttempts,
+    pResponseCard,
 
-    -- ** ProcessBehavior
-    ProcessBehavior (..),
+    -- ** Destination
+    Destination (..),
 
-    -- ** ResourceType
-    ResourceType (..),
+    -- ** FulfillmentActivity
+    FulfillmentActivity (..),
+    mkFulfillmentActivity,
+    faType,
+    faCodeHook,
 
-    -- ** SlotConstraint
-    SlotConstraint (..),
+    -- ** QueryFilterString
+    QueryFilterString (..),
 
-    -- ** SlotValueSelectionStrategy
-    SlotValueSelectionStrategy (..),
+    -- ** ResponseCard
+    ResponseCard (..),
 
-    -- ** StatusType
-    StatusType (..),
+    -- ** KmsKeyArn
+    KmsKeyArn (..),
 
-    -- ** BotAliasMetadata
-    BotAliasMetadata (..),
-    mkBotAliasMetadata,
-    bamChecksum,
-    bamBotVersion,
-    bamBotName,
-    bamCreatedDate,
-    bamName,
-    bamConversationLogs,
-    bamLastUpdatedDate,
-    bamDescription,
+    -- ** ChannelStatus
+    ChannelStatus (..),
 
-    -- ** BotChannelAssociation
-    BotChannelAssociation (..),
-    mkBotChannelAssociation,
-    bcaFailureReason,
-    bcaStatus,
-    bcaBotAlias,
-    bcaBotName,
-    bcaBotConfiguration,
-    bcaCreatedDate,
-    bcaName,
-    bcaType,
-    bcaDescription,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** BotMetadata
-    BotMetadata (..),
-    mkBotMetadata,
-    bmStatus,
-    bmCreatedDate,
-    bmName,
-    bmVersion,
-    bmLastUpdatedDate,
-    bmDescription,
-
-    -- ** BuiltinIntentMetadata
-    BuiltinIntentMetadata (..),
-    mkBuiltinIntentMetadata,
-    bimSignature,
-    bimSupportedLocales,
-
-    -- ** BuiltinIntentSlot
-    BuiltinIntentSlot (..),
-    mkBuiltinIntentSlot,
-    bisName,
-
-    -- ** BuiltinSlotTypeMetadata
-    BuiltinSlotTypeMetadata (..),
-    mkBuiltinSlotTypeMetadata,
-    bstmSignature,
-    bstmSupportedLocales,
-
-    -- ** CodeHook
-    CodeHook (..),
-    mkCodeHook,
-    chUri,
-    chMessageVersion,
-
-    -- ** ConversationLogsRequest
-    ConversationLogsRequest (..),
-    mkConversationLogsRequest,
-    clrIamRoleARN,
-    clrLogSettings,
-
-    -- ** ConversationLogsResponse
-    ConversationLogsResponse (..),
-    mkConversationLogsResponse,
-    clIamRoleARN,
-    clLogSettings,
+    -- ** LambdaARN
+    LambdaARN (..),
 
     -- ** EnumerationValue
     EnumerationValue (..),
@@ -276,22 +226,178 @@ module Network.AWS.LexModels
     evValue,
     evSynonyms,
 
-    -- ** FollowUpPrompt
-    FollowUpPrompt (..),
-    mkFollowUpPrompt,
-    fupPrompt,
-    fupRejectionStatement,
+    -- ** ResourceType
+    ResourceType (..),
 
-    -- ** FulfillmentActivity
-    FulfillmentActivity (..),
-    mkFulfillmentActivity,
-    faCodeHook,
-    faType,
+    -- ** LogSettingsResponse
+    LogSettingsResponse (..),
+    mkLogSettingsResponse,
+    lsrDestination,
+    lsrKmsKeyArn,
+    lsrLogType,
+    lsrResourceArn,
+    lsrResourcePrefix,
 
-    -- ** InputContext
-    InputContext (..),
-    mkInputContext,
-    icName,
+    -- ** ObfuscationSetting
+    ObfuscationSetting (..),
+
+    -- ** String
+    String (..),
+
+    -- ** Statement
+    Statement (..),
+    mkStatement,
+    sMessages,
+    sResponseCard,
+
+    -- ** BotChannelName
+    BotChannelName (..),
+
+    -- ** ExportStatus
+    ExportStatus (..),
+
+    -- ** Locale
+    Locale (..),
+
+    -- ** OutputContext
+    OutputContext (..),
+    mkOutputContext,
+    ocName,
+    ocTimeToLiveInSeconds,
+    ocTurnsToLive,
+
+    -- ** LogSettingsRequest
+    LogSettingsRequest (..),
+    mkLogSettingsRequest,
+    lLogType,
+    lDestination,
+    lResourceArn,
+    lKmsKeyArn,
+
+    -- ** BuiltinIntentMetadata
+    BuiltinIntentMetadata (..),
+    mkBuiltinIntentMetadata,
+    bimSignature,
+    bimSupportedLocales,
+
+    -- ** BotChannelAssociation
+    BotChannelAssociation (..),
+    mkBotChannelAssociation,
+    bcaBotAlias,
+    bcaBotConfiguration,
+    bcaBotName,
+    bcaCreatedDate,
+    bcaDescription,
+    bcaFailureReason,
+    bcaName,
+    bcaStatus,
+    bcaType,
+
+    -- ** SlotName
+    SlotName (..),
+
+    -- ** IntentName
+    IntentName (..),
+
+    -- ** ConversationLogsRequest
+    ConversationLogsRequest (..),
+    mkConversationLogsRequest,
+    cLogSettings,
+    cIamRoleArn,
+
+    -- ** Value
+    Value (..),
+
+    -- ** CodeHook
+    CodeHook (..),
+    mkCodeHook,
+    chUri,
+    chMessageVersion,
+
+    -- ** UtteranceString
+    UtteranceString (..),
+
+    -- ** BotName
+    BotName (..),
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** SlotConstraint
+    SlotConstraint (..),
+
+    -- ** BuiltinIntentSlot
+    BuiltinIntentSlot (..),
+    mkBuiltinIntentSlot,
+    bisName,
+
+    -- ** AliasName
+    AliasName (..),
+
+    -- ** SlotTypeRegexConfiguration
+    SlotTypeRegexConfiguration (..),
+    mkSlotTypeRegexConfiguration,
+    strcPattern,
+
+    -- ** IntentMetadata
+    IntentMetadata (..),
+    mkIntentMetadata,
+    imCreatedDate,
+    imDescription,
+    imLastUpdatedDate,
+    imName,
+    imVersion,
+
+    -- ** BuiltinIntentSignature
+    BuiltinIntentSignature (..),
+
+    -- ** LogType
+    LogType (..),
+
+    -- ** SlotValueSelectionStrategy
+    SlotValueSelectionStrategy (..),
+
+    -- ** UserId
+    UserId (..),
+
+    -- ** ExportType
+    ExportType (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** NumericalVersion
+    NumericalVersion (..),
+
+    -- ** SlotTypeConfiguration
+    SlotTypeConfiguration (..),
+    mkSlotTypeConfiguration,
+    stcRegexConfiguration,
+
+    -- ** BotMetadata
+    BotMetadata (..),
+    mkBotMetadata,
+    bmCreatedDate,
+    bmDescription,
+    bmLastUpdatedDate,
+    bmName,
+    bmStatus,
+    bmVersion,
+
+    -- ** Slot
+    Slot (..),
+    mkSlot,
+    sfName,
+    sfSlotConstraint,
+    sfDefaultValueSpec,
+    sfDescription,
+    sfObfuscationSetting,
+    sfPriority,
+    sfResponseCard,
+    sfSampleUtterances,
+    sfSlotType,
+    sfSlotTypeVersion,
+    sfValueElicitationPrompt,
 
     -- ** Intent
     Intent (..),
@@ -299,124 +405,123 @@ module Network.AWS.LexModels
     iIntentName,
     iIntentVersion,
 
-    -- ** IntentMetadata
-    IntentMetadata (..),
-    mkIntentMetadata,
-    imCreatedDate,
-    imName,
-    imVersion,
-    imLastUpdatedDate,
-    imDescription,
+    -- ** KendraIndexArn
+    KendraIndexArn (..),
+
+    -- ** StatusType
+    StatusType (..),
+
+    -- ** ProcessBehavior
+    ProcessBehavior (..),
+
+    -- ** FulfillmentActivityType
+    FulfillmentActivityType (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
 
     -- ** KendraConfiguration
     KendraConfiguration (..),
     mkKendraConfiguration,
-    kcQueryFilterString,
     kcKendraIndex,
     kcRole,
+    kcQueryFilterString,
 
-    -- ** LogSettingsRequest
-    LogSettingsRequest (..),
-    mkLogSettingsRequest,
-    lsrDestination,
-    lsrKmsKeyARN,
-    lsrLogType,
-    lsrResourceARN,
+    -- ** Name
+    Name (..),
 
-    -- ** LogSettingsResponse
-    LogSettingsResponse (..),
-    mkLogSettingsResponse,
-    lsDestination,
-    lsKmsKeyARN,
-    lsLogType,
-    lsResourceARN,
-    lsResourcePrefix,
+    -- ** OutputContextName
+    OutputContextName (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** BotAliasMetadata
+    BotAliasMetadata (..),
+    mkBotAliasMetadata,
+    bamBotName,
+    bamBotVersion,
+    bamChecksum,
+    bamConversationLogs,
+    bamCreatedDate,
+    bamDescription,
+    bamLastUpdatedDate,
+    bamName,
+
+    -- ** ResourcePrefix
+    ResourcePrefix (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** BuiltinSlotTypeMetadata
+    BuiltinSlotTypeMetadata (..),
+    mkBuiltinSlotTypeMetadata,
+    bstmSignature,
+    bstmSupportedLocales,
+
+    -- ** FollowUpPrompt
+    FollowUpPrompt (..),
+    mkFollowUpPrompt,
+    fupPrompt,
+    fupRejectionStatement,
+
+    -- ** UtteranceData
+    UtteranceData (..),
+    mkUtteranceData,
+    udCount,
+    udDistinctUsers,
+    udFirstUtteredDate,
+    udLastUtteredDate,
+    udUtteranceString,
+
+    -- ** MergeStrategy
+    MergeStrategy (..),
 
     -- ** Message
     Message (..),
     mkMessage,
+    mContentType,
     mContent,
     mGroupNumber,
-    mContentType,
 
-    -- ** OutputContext
-    OutputContext (..),
-    mkOutputContext,
-    ocTurnsToLive,
-    ocTimeToLiveInSeconds,
-    ocName,
+    -- ** AmazonResourceName
+    AmazonResourceName (..),
 
-    -- ** Prompt
-    Prompt (..),
-    mkPrompt,
-    pResponseCard,
-    pMaxAttempts,
-    pMessages,
+    -- ** SlotTypeName
+    SlotTypeName (..),
 
-    -- ** Slot
-    Slot (..),
-    mkSlot,
-    sSlotType,
-    sValueElicitationPrompt,
-    sResponseCard,
-    sPriority,
-    sObfuscationSetting,
-    sDefaultValueSpec,
-    sSlotTypeVersion,
-    sSampleUtterances,
-    sSlotConstraint,
-    sName,
-    sDescription,
+    -- ** Utterance
+    Utterance (..),
 
-    -- ** SlotDefaultValue
-    SlotDefaultValue (..),
-    mkSlotDefaultValue,
-    sdvDefaultValue,
+    -- ** ChannelType
+    ChannelType (..),
 
-    -- ** SlotDefaultValueSpec
-    SlotDefaultValueSpec (..),
-    mkSlotDefaultValueSpec,
-    sdvsDefaultValueList,
+    -- ** Description
+    Description (..),
 
-    -- ** SlotTypeConfiguration
-    SlotTypeConfiguration (..),
-    mkSlotTypeConfiguration,
-    stcRegexConfiguration,
+    -- ** InputContextName
+    InputContextName (..),
+
+    -- ** MessageVersion
+    MessageVersion (..),
 
     -- ** SlotTypeMetadata
     SlotTypeMetadata (..),
     mkSlotTypeMetadata,
     stmCreatedDate,
+    stmDescription,
+    stmLastUpdatedDate,
     stmName,
     stmVersion,
-    stmLastUpdatedDate,
-    stmDescription,
 
-    -- ** SlotTypeRegexConfiguration
-    SlotTypeRegexConfiguration (..),
-    mkSlotTypeRegexConfiguration,
-    strcPattern,
+    -- ** ContentType
+    ContentType (..),
 
-    -- ** Statement
-    Statement (..),
-    mkStatement,
-    sfResponseCard,
-    sfMessages,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- ** UtteranceData
-    UtteranceData (..),
-    mkUtteranceData,
-    udFirstUtteredDate,
-    udCount,
-    udUtteranceString,
-    udLastUtteredDate,
-    udDistinctUsers,
+    -- ** InputContext
+    InputContext (..),
+    mkInputContext,
+    icName,
 
     -- ** UtteranceList
     UtteranceList (..),
@@ -424,15 +529,66 @@ module Network.AWS.LexModels
     ulBotVersion,
     ulUtterances,
 
+    -- ** ImportStatus
+    ImportStatus (..),
+
+    -- ** SlotDefaultValueSpec
+    SlotDefaultValueSpec (..),
+    mkSlotDefaultValueSpec,
+    sdvsDefaultValueList,
+
+    -- ** ConversationLogsResponse
+    ConversationLogsResponse (..),
+    mkConversationLogsResponse,
+    clrIamRoleArn,
+    clrLogSettings,
+
+    -- ** DefaultValue
+    DefaultValue (..),
+
+    -- ** Checksum
+    Checksum (..),
+
+    -- ** ParentIntentSignature
+    ParentIntentSignature (..),
+
+    -- ** BotAlias
+    BotAlias (..),
+
+    -- ** NameContains
+    NameContains (..),
+
+    -- ** BotVersion
+    BotVersion (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Signature
+    Signature (..),
+
+    -- ** ImportId
+    ImportId (..),
+
+    -- ** Pattern
+    Pattern (..),
+
+    -- ** SlotTypeVersion
+    SlotTypeVersion (..),
+
+    -- ** IntentVersion
+    IntentVersion (..),
+
+    -- ** Role
+    Role (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -13,51 +13,53 @@
 module Network.AWS.CostExplorer.Types.Context
   ( Context
       ( Context',
-        CostAndUsage,
-        Reservations,
-        SavingsPlans
+        ContextCostAndUsage,
+        ContextReservations,
+        ContextSavingsPlans,
+        fromContext
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Context = Context' Lude.Text
+newtype Context = Context' {fromContext :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CostAndUsage :: Context
-pattern CostAndUsage = Context' "COST_AND_USAGE"
+pattern ContextCostAndUsage :: Context
+pattern ContextCostAndUsage = Context' "COST_AND_USAGE"
 
-pattern Reservations :: Context
-pattern Reservations = Context' "RESERVATIONS"
+pattern ContextReservations :: Context
+pattern ContextReservations = Context' "RESERVATIONS"
 
-pattern SavingsPlans :: Context
-pattern SavingsPlans = Context' "SAVINGS_PLANS"
+pattern ContextSavingsPlans :: Context
+pattern ContextSavingsPlans = Context' "SAVINGS_PLANS"
 
 {-# COMPLETE
-  CostAndUsage,
-  Reservations,
-  SavingsPlans,
+  ContextCostAndUsage,
+  ContextReservations,
+  ContextSavingsPlans,
   Context'
   #-}

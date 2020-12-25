@@ -13,61 +13,63 @@
 module Network.AWS.SSM.Types.SignalType
   ( SignalType
       ( SignalType',
-        Approve,
-        Reject,
-        StartStep,
-        StopStep,
-        Resume
+        SignalTypeApprove,
+        SignalTypeReject,
+        SignalTypeStartStep,
+        SignalTypeStopStep,
+        SignalTypeResume,
+        fromSignalType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SignalType = SignalType' Lude.Text
+newtype SignalType = SignalType' {fromSignalType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Approve :: SignalType
-pattern Approve = SignalType' "Approve"
+pattern SignalTypeApprove :: SignalType
+pattern SignalTypeApprove = SignalType' "Approve"
 
-pattern Reject :: SignalType
-pattern Reject = SignalType' "Reject"
+pattern SignalTypeReject :: SignalType
+pattern SignalTypeReject = SignalType' "Reject"
 
-pattern StartStep :: SignalType
-pattern StartStep = SignalType' "StartStep"
+pattern SignalTypeStartStep :: SignalType
+pattern SignalTypeStartStep = SignalType' "StartStep"
 
-pattern StopStep :: SignalType
-pattern StopStep = SignalType' "StopStep"
+pattern SignalTypeStopStep :: SignalType
+pattern SignalTypeStopStep = SignalType' "StopStep"
 
-pattern Resume :: SignalType
-pattern Resume = SignalType' "Resume"
+pattern SignalTypeResume :: SignalType
+pattern SignalTypeResume = SignalType' "Resume"
 
 {-# COMPLETE
-  Approve,
-  Reject,
-  StartStep,
-  StopStep,
-  Resume,
+  SignalTypeApprove,
+  SignalTypeReject,
+  SignalTypeStartStep,
+  SignalTypeStopStep,
+  SignalTypeResume,
   SignalType'
   #-}

@@ -24,12 +24,12 @@ module Network.AWS.ELB.CreateLoadBalancer
     mkCreateLoadBalancer,
 
     -- ** Request lenses
-    clbSecurityGroups,
     clbLoadBalancerName,
-    clbSubnets,
+    clbListeners,
     clbAvailabilityZones,
     clbScheme,
-    clbListeners,
+    clbSecurityGroups,
+    clbSubnets,
     clbTags,
 
     -- * Destructuring the response
@@ -37,109 +37,84 @@ module Network.AWS.ELB.CreateLoadBalancer
     mkCreateLoadBalancerResponse,
 
     -- ** Response lenses
-    clbrsDNSName,
-    clbrsResponseStatus,
+    clbrrsDNSName,
+    clbrrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CreateLoadBalancer.
 --
 -- /See:/ 'mkCreateLoadBalancer' smart constructor.
 data CreateLoadBalancer = CreateLoadBalancer'
-  { -- | The IDs of the security groups to assign to the load balancer.
-    securityGroups :: Lude.Maybe [Lude.Text],
-    -- | The name of the load balancer.
+  { -- | The name of the load balancer.
     --
     -- This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.
-    loadBalancerName :: Lude.Text,
-    -- | The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet per Availability Zone specified in @AvailabilityZones@ .
-    subnets :: Lude.Maybe [Lude.Text],
+    loadBalancerName :: Types.AccessPointName,
+    -- | The listeners.
+    --
+    -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
+    listeners :: [Types.Listener],
     -- | One or more Availability Zones from the same region as the load balancer.
     --
     -- You must specify at least one Availability Zone.
     -- You can add more Availability Zones after you create the load balancer using 'EnableAvailabilityZonesForLoadBalancer' .
-    availabilityZones :: Lude.Maybe [Lude.Text],
+    availabilityZones :: Core.Maybe [Types.AvailabilityZone],
     -- | The type of a load balancer. Valid only for load balancers in a VPC.
     --
     -- By default, Elastic Load Balancing creates an Internet-facing load balancer with a DNS name that resolves to public IP addresses. For more information about Internet-facing and Internal load balancers, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme> in the /Elastic Load Balancing User Guide/ .
     -- Specify @internal@ to create a load balancer with a DNS name that resolves to private IP addresses.
-    scheme :: Lude.Maybe Lude.Text,
-    -- | The listeners.
-    --
-    -- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
-    listeners :: [Listener],
+    scheme :: Core.Maybe Types.LoadBalancerScheme,
+    -- | The IDs of the security groups to assign to the load balancer.
+    securityGroups :: Core.Maybe [Types.SecurityGroupId],
+    -- | The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet per Availability Zone specified in @AvailabilityZones@ .
+    subnets :: Core.Maybe [Types.SubnetId],
     -- | A list of tags to assign to the load balancer.
     --
     -- For more information about tagging your load balancer, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLoadBalancer' with the minimum fields required to make a request.
---
--- * 'securityGroups' - The IDs of the security groups to assign to the load balancer.
--- * 'loadBalancerName' - The name of the load balancer.
---
--- This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.
--- * 'subnets' - The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet per Availability Zone specified in @AvailabilityZones@ .
--- * 'availabilityZones' - One or more Availability Zones from the same region as the load balancer.
---
--- You must specify at least one Availability Zone.
--- You can add more Availability Zones after you create the load balancer using 'EnableAvailabilityZonesForLoadBalancer' .
--- * 'scheme' - The type of a load balancer. Valid only for load balancers in a VPC.
---
--- By default, Elastic Load Balancing creates an Internet-facing load balancer with a DNS name that resolves to public IP addresses. For more information about Internet-facing and Internal load balancers, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-elastic-load-balancing-works.html#load-balancer-scheme Load Balancer Scheme> in the /Elastic Load Balancing User Guide/ .
--- Specify @internal@ to create a load balancer with a DNS name that resolves to private IP addresses.
--- * 'listeners' - The listeners.
---
--- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
--- * 'tags' - A list of tags to assign to the load balancer.
---
--- For more information about tagging your load balancer, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
+-- | Creates a 'CreateLoadBalancer' value with any optional fields omitted.
 mkCreateLoadBalancer ::
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.AccessPointName ->
   CreateLoadBalancer
-mkCreateLoadBalancer pLoadBalancerName_ =
+mkCreateLoadBalancer loadBalancerName =
   CreateLoadBalancer'
-    { securityGroups = Lude.Nothing,
-      loadBalancerName = pLoadBalancerName_,
-      subnets = Lude.Nothing,
-      availabilityZones = Lude.Nothing,
-      scheme = Lude.Nothing,
-      listeners = Lude.mempty,
-      tags = Lude.Nothing
+    { loadBalancerName,
+      listeners = Core.mempty,
+      availabilityZones = Core.Nothing,
+      scheme = Core.Nothing,
+      securityGroups = Core.Nothing,
+      subnets = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The IDs of the security groups to assign to the load balancer.
---
--- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbSecurityGroups :: Lens.Lens' CreateLoadBalancer (Lude.Maybe [Lude.Text])
-clbSecurityGroups = Lens.lens (securityGroups :: CreateLoadBalancer -> Lude.Maybe [Lude.Text]) (\s a -> s {securityGroups = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
 
 -- | The name of the load balancer.
 --
 -- This name must be unique within your set of load balancers for the region, must have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, and cannot begin or end with a hyphen.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbLoadBalancerName :: Lens.Lens' CreateLoadBalancer Lude.Text
-clbLoadBalancerName = Lens.lens (loadBalancerName :: CreateLoadBalancer -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateLoadBalancer)
+clbLoadBalancerName :: Lens.Lens' CreateLoadBalancer Types.AccessPointName
+clbLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED clbLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
--- | The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet per Availability Zone specified in @AvailabilityZones@ .
+-- | The listeners.
 --
--- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbSubnets :: Lens.Lens' CreateLoadBalancer (Lude.Maybe [Lude.Text])
-clbSubnets = Lens.lens (subnets :: CreateLoadBalancer -> Lude.Maybe [Lude.Text]) (\s a -> s {subnets = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
+-- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
+--
+-- /Note:/ Consider using 'listeners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbListeners :: Lens.Lens' CreateLoadBalancer [Types.Listener]
+clbListeners = Lens.field @"listeners"
+{-# DEPRECATED clbListeners "Use generic-lens or generic-optics with 'listeners' instead." #-}
 
 -- | One or more Availability Zones from the same region as the load balancer.
 --
@@ -147,8 +122,8 @@ clbSubnets = Lens.lens (subnets :: CreateLoadBalancer -> Lude.Maybe [Lude.Text])
 -- You can add more Availability Zones after you create the load balancer using 'EnableAvailabilityZonesForLoadBalancer' .
 --
 -- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbAvailabilityZones :: Lens.Lens' CreateLoadBalancer (Lude.Maybe [Lude.Text])
-clbAvailabilityZones = Lens.lens (availabilityZones :: CreateLoadBalancer -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: CreateLoadBalancer)
+clbAvailabilityZones :: Lens.Lens' CreateLoadBalancer (Core.Maybe [Types.AvailabilityZone])
+clbAvailabilityZones = Lens.field @"availabilityZones"
 {-# DEPRECATED clbAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | The type of a load balancer. Valid only for load balancers in a VPC.
@@ -157,100 +132,115 @@ clbAvailabilityZones = Lens.lens (availabilityZones :: CreateLoadBalancer -> Lud
 -- Specify @internal@ to create a load balancer with a DNS name that resolves to private IP addresses.
 --
 -- /Note:/ Consider using 'scheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbScheme :: Lens.Lens' CreateLoadBalancer (Lude.Maybe Lude.Text)
-clbScheme = Lens.lens (scheme :: CreateLoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {scheme = a} :: CreateLoadBalancer)
+clbScheme :: Lens.Lens' CreateLoadBalancer (Core.Maybe Types.LoadBalancerScheme)
+clbScheme = Lens.field @"scheme"
 {-# DEPRECATED clbScheme "Use generic-lens or generic-optics with 'scheme' instead." #-}
 
--- | The listeners.
+-- | The IDs of the security groups to assign to the load balancer.
 --
--- For more information, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html Listeners for Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbSecurityGroups :: Lens.Lens' CreateLoadBalancer (Core.Maybe [Types.SecurityGroupId])
+clbSecurityGroups = Lens.field @"securityGroups"
+{-# DEPRECATED clbSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+
+-- | The IDs of the subnets in your VPC to attach to the load balancer. Specify one subnet per Availability Zone specified in @AvailabilityZones@ .
 --
--- /Note:/ Consider using 'listeners' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbListeners :: Lens.Lens' CreateLoadBalancer [Listener]
-clbListeners = Lens.lens (listeners :: CreateLoadBalancer -> [Listener]) (\s a -> s {listeners = a} :: CreateLoadBalancer)
-{-# DEPRECATED clbListeners "Use generic-lens or generic-optics with 'listeners' instead." #-}
+-- /Note:/ Consider using 'subnets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbSubnets :: Lens.Lens' CreateLoadBalancer (Core.Maybe [Types.SubnetId])
+clbSubnets = Lens.field @"subnets"
+{-# DEPRECATED clbSubnets "Use generic-lens or generic-optics with 'subnets' instead." #-}
 
 -- | A list of tags to assign to the load balancer.
 --
 -- For more information about tagging your load balancer, see <https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html Tag Your Classic Load Balancer> in the /Classic Load Balancers Guide/ .
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbTags :: Lens.Lens' CreateLoadBalancer (Lude.Maybe (Lude.NonEmpty Tag))
-clbTags = Lens.lens (tags :: CreateLoadBalancer -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: CreateLoadBalancer)
+clbTags :: Lens.Lens' CreateLoadBalancer (Core.Maybe (Core.NonEmpty Types.Tag))
+clbTags = Lens.field @"tags"
 {-# DEPRECATED clbTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateLoadBalancer where
+instance Core.AWSRequest CreateLoadBalancer where
   type Rs CreateLoadBalancer = CreateLoadBalancerResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateLoadBalancer")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
+                Core.<> ( Core.toQueryValue
+                            "Listeners"
+                            (Core.toQueryList "member" listeners)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "AvailabilityZones"
+                            (Core.toQueryList "member" Core.<$> availabilityZones)
+                        )
+                Core.<> (Core.toQueryValue "Scheme" Core.<$> scheme)
+                Core.<> ( Core.toQueryValue
+                            "SecurityGroups"
+                            (Core.toQueryList "member" Core.<$> securityGroups)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Subnets"
+                            (Core.toQueryList "member" Core.<$> subnets)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Tags"
+                            (Core.toQueryList "member" Core.<$> tags)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateLoadBalancerResult"
       ( \s h x ->
           CreateLoadBalancerResponse'
-            Lude.<$> (x Lude..@? "DNSName") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DNSName") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateLoadBalancer where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateLoadBalancer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateLoadBalancer where
-  toQuery CreateLoadBalancer' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateLoadBalancer" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "SecurityGroups"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> securityGroups),
-        "LoadBalancerName" Lude.=: loadBalancerName,
-        "Subnets"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> subnets),
-        "AvailabilityZones"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> availabilityZones),
-        "Scheme" Lude.=: scheme,
-        "Listeners" Lude.=: Lude.toQueryList "member" listeners,
-        "Tags"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> tags)
-      ]
 
 -- | Contains the output for CreateLoadBalancer.
 --
 -- /See:/ 'mkCreateLoadBalancerResponse' smart constructor.
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
   { -- | The DNS name of the load balancer.
-    dnsName :: Lude.Maybe Lude.Text,
+    dNSName :: Core.Maybe Types.DNSName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLoadBalancerResponse' with the minimum fields required to make a request.
---
--- * 'dnsName' - The DNS name of the load balancer.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateLoadBalancerResponse' value with any optional fields omitted.
 mkCreateLoadBalancerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateLoadBalancerResponse
-mkCreateLoadBalancerResponse pResponseStatus_ =
+mkCreateLoadBalancerResponse responseStatus =
   CreateLoadBalancerResponse'
-    { dnsName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dNSName = Core.Nothing,
+      responseStatus
     }
 
 -- | The DNS name of the load balancer.
 --
--- /Note:/ Consider using 'dnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbrsDNSName :: Lens.Lens' CreateLoadBalancerResponse (Lude.Maybe Lude.Text)
-clbrsDNSName = Lens.lens (dnsName :: CreateLoadBalancerResponse -> Lude.Maybe Lude.Text) (\s a -> s {dnsName = a} :: CreateLoadBalancerResponse)
-{-# DEPRECATED clbrsDNSName "Use generic-lens or generic-optics with 'dnsName' instead." #-}
+-- /Note:/ Consider using 'dNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+clbrrsDNSName :: Lens.Lens' CreateLoadBalancerResponse (Core.Maybe Types.DNSName)
+clbrrsDNSName = Lens.field @"dNSName"
+{-# DEPRECATED clbrrsDNSName "Use generic-lens or generic-optics with 'dNSName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clbrsResponseStatus :: Lens.Lens' CreateLoadBalancerResponse Lude.Int
-clbrsResponseStatus = Lens.lens (responseStatus :: CreateLoadBalancerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLoadBalancerResponse)
-{-# DEPRECATED clbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+clbrrsResponseStatus :: Lens.Lens' CreateLoadBalancerResponse Core.Int
+clbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED clbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

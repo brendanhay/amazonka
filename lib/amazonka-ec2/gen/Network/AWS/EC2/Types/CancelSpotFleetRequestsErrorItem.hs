@@ -22,49 +22,47 @@ module Network.AWS.EC2.Types.CancelSpotFleetRequestsErrorItem
   )
 where
 
-import Network.AWS.EC2.Types.CancelSpotFleetRequestsError
+import qualified Network.AWS.EC2.Types.CancelSpotFleetRequestsError as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a Spot Fleet request that was not successfully canceled.
 --
 -- /See:/ 'mkCancelSpotFleetRequestsErrorItem' smart constructor.
 data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
   { -- | The error.
-    error :: Lude.Maybe CancelSpotFleetRequestsError,
+    error :: Core.Maybe Types.CancelSpotFleetRequestsError,
     -- | The ID of the Spot Fleet request.
-    spotFleetRequestId :: Lude.Maybe Lude.Text
+    spotFleetRequestId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelSpotFleetRequestsErrorItem' with the minimum fields required to make a request.
---
--- * 'error' - The error.
--- * 'spotFleetRequestId' - The ID of the Spot Fleet request.
+-- | Creates a 'CancelSpotFleetRequestsErrorItem' value with any optional fields omitted.
 mkCancelSpotFleetRequestsErrorItem ::
   CancelSpotFleetRequestsErrorItem
 mkCancelSpotFleetRequestsErrorItem =
   CancelSpotFleetRequestsErrorItem'
-    { error = Lude.Nothing,
-      spotFleetRequestId = Lude.Nothing
+    { error = Core.Nothing,
+      spotFleetRequestId = Core.Nothing
     }
 
 -- | The error.
 --
 -- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfreiError :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Lude.Maybe CancelSpotFleetRequestsError)
-csfreiError = Lens.lens (error :: CancelSpotFleetRequestsErrorItem -> Lude.Maybe CancelSpotFleetRequestsError) (\s a -> s {error = a} :: CancelSpotFleetRequestsErrorItem)
+csfreiError :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Core.Maybe Types.CancelSpotFleetRequestsError)
+csfreiError = Lens.field @"error"
 {-# DEPRECATED csfreiError "Use generic-lens or generic-optics with 'error' instead." #-}
 
 -- | The ID of the Spot Fleet request.
 --
 -- /Note:/ Consider using 'spotFleetRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfreiSpotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Lude.Maybe Lude.Text)
-csfreiSpotFleetRequestId = Lens.lens (spotFleetRequestId :: CancelSpotFleetRequestsErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {spotFleetRequestId = a} :: CancelSpotFleetRequestsErrorItem)
+csfreiSpotFleetRequestId :: Lens.Lens' CancelSpotFleetRequestsErrorItem (Core.Maybe Types.String)
+csfreiSpotFleetRequestId = Lens.field @"spotFleetRequestId"
 {-# DEPRECATED csfreiSpotFleetRequestId "Use generic-lens or generic-optics with 'spotFleetRequestId' instead." #-}
 
-instance Lude.FromXML CancelSpotFleetRequestsErrorItem where
+instance Core.FromXML CancelSpotFleetRequestsErrorItem where
   parseXML x =
     CancelSpotFleetRequestsErrorItem'
-      Lude.<$> (x Lude..@? "error") Lude.<*> (x Lude..@? "spotFleetRequestId")
+      Core.<$> (x Core..@? "error") Core.<*> (x Core..@? "spotFleetRequestId")

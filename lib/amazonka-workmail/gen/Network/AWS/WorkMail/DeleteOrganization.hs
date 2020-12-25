@@ -20,162 +20,147 @@ module Network.AWS.WorkMail.DeleteOrganization
     mkDeleteOrganization,
 
     -- ** Request lenses
-    dofClientToken,
-    dofDeleteDirectory,
-    dofOrganizationId,
+    doOrganizationId,
+    doDeleteDirectory,
+    doClientToken,
 
     -- * Destructuring the response
     DeleteOrganizationResponse (..),
     mkDeleteOrganizationResponse,
 
     -- ** Response lenses
-    dofrsState,
-    dofrsOrganizationId,
-    dofrsResponseStatus,
+    dorfrsOrganizationId,
+    dorfrsState,
+    dorfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkDeleteOrganization' smart constructor.
 data DeleteOrganization = DeleteOrganization'
-  { -- | The idempotency token associated with the request.
-    clientToken :: Lude.Maybe Lude.Text,
+  { -- | The organization ID.
+    organizationId :: Types.OrganizationId,
     -- | If true, deletes the AWS Directory Service directory associated with the organization.
-    deleteDirectory :: Lude.Bool,
-    -- | The organization ID.
-    organizationId :: Lude.Text
+    deleteDirectory :: Core.Bool,
+    -- | The idempotency token associated with the request.
+    clientToken :: Core.Maybe Types.IdempotencyClientToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteOrganization' with the minimum fields required to make a request.
---
--- * 'clientToken' - The idempotency token associated with the request.
--- * 'deleteDirectory' - If true, deletes the AWS Directory Service directory associated with the organization.
--- * 'organizationId' - The organization ID.
+-- | Creates a 'DeleteOrganization' value with any optional fields omitted.
 mkDeleteOrganization ::
-  -- | 'deleteDirectory'
-  Lude.Bool ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'deleteDirectory'
+  Core.Bool ->
   DeleteOrganization
-mkDeleteOrganization pDeleteDirectory_ pOrganizationId_ =
+mkDeleteOrganization organizationId deleteDirectory =
   DeleteOrganization'
-    { clientToken = Lude.Nothing,
-      deleteDirectory = pDeleteDirectory_,
-      organizationId = pOrganizationId_
+    { organizationId,
+      deleteDirectory,
+      clientToken = Core.Nothing
     }
 
--- | The idempotency token associated with the request.
+-- | The organization ID.
 --
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dofClientToken :: Lens.Lens' DeleteOrganization (Lude.Maybe Lude.Text)
-dofClientToken = Lens.lens (clientToken :: DeleteOrganization -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: DeleteOrganization)
-{-# DEPRECATED dofClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+-- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doOrganizationId :: Lens.Lens' DeleteOrganization Types.OrganizationId
+doOrganizationId = Lens.field @"organizationId"
+{-# DEPRECATED doOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | If true, deletes the AWS Directory Service directory associated with the organization.
 --
 -- /Note:/ Consider using 'deleteDirectory' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dofDeleteDirectory :: Lens.Lens' DeleteOrganization Lude.Bool
-dofDeleteDirectory = Lens.lens (deleteDirectory :: DeleteOrganization -> Lude.Bool) (\s a -> s {deleteDirectory = a} :: DeleteOrganization)
-{-# DEPRECATED dofDeleteDirectory "Use generic-lens or generic-optics with 'deleteDirectory' instead." #-}
+doDeleteDirectory :: Lens.Lens' DeleteOrganization Core.Bool
+doDeleteDirectory = Lens.field @"deleteDirectory"
+{-# DEPRECATED doDeleteDirectory "Use generic-lens or generic-optics with 'deleteDirectory' instead." #-}
+
+-- | The idempotency token associated with the request.
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+doClientToken :: Lens.Lens' DeleteOrganization (Core.Maybe Types.IdempotencyClientToken)
+doClientToken = Lens.field @"clientToken"
+{-# DEPRECATED doClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+instance Core.FromJSON DeleteOrganization where
+  toJSON DeleteOrganization {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("DeleteDirectory" Core..= deleteDirectory),
+            ("ClientToken" Core..=) Core.<$> clientToken
+          ]
+      )
+
+instance Core.AWSRequest DeleteOrganization where
+  type Rs DeleteOrganization = DeleteOrganizationResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.DeleteOrganization")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DeleteOrganizationResponse'
+            Core.<$> (x Core..:? "OrganizationId")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+-- | /See:/ 'mkDeleteOrganizationResponse' smart constructor.
+data DeleteOrganizationResponse = DeleteOrganizationResponse'
+  { -- | The organization ID.
+    organizationId :: Core.Maybe Types.OrganizationId,
+    -- | The state of the organization.
+    state :: Core.Maybe Types.String,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'DeleteOrganizationResponse' value with any optional fields omitted.
+mkDeleteOrganizationResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  DeleteOrganizationResponse
+mkDeleteOrganizationResponse responseStatus =
+  DeleteOrganizationResponse'
+    { organizationId = Core.Nothing,
+      state = Core.Nothing,
+      responseStatus
+    }
 
 -- | The organization ID.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dofOrganizationId :: Lens.Lens' DeleteOrganization Lude.Text
-dofOrganizationId = Lens.lens (organizationId :: DeleteOrganization -> Lude.Text) (\s a -> s {organizationId = a} :: DeleteOrganization)
-{-# DEPRECATED dofOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
-
-instance Lude.AWSRequest DeleteOrganization where
-  type Rs DeleteOrganization = DeleteOrganizationResponse
-  request = Req.postJSON workMailService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DeleteOrganizationResponse'
-            Lude.<$> (x Lude..?> "State")
-            Lude.<*> (x Lude..?> "OrganizationId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DeleteOrganization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.DeleteOrganization" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteOrganization where
-  toJSON DeleteOrganization' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ClientToken" Lude..=) Lude.<$> clientToken,
-            Lude.Just ("DeleteDirectory" Lude..= deleteDirectory),
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath DeleteOrganization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteOrganization where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkDeleteOrganizationResponse' smart constructor.
-data DeleteOrganizationResponse = DeleteOrganizationResponse'
-  { -- | The state of the organization.
-    state :: Lude.Maybe Lude.Text,
-    -- | The organization ID.
-    organizationId :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'DeleteOrganizationResponse' with the minimum fields required to make a request.
---
--- * 'state' - The state of the organization.
--- * 'organizationId' - The organization ID.
--- * 'responseStatus' - The response status code.
-mkDeleteOrganizationResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  DeleteOrganizationResponse
-mkDeleteOrganizationResponse pResponseStatus_ =
-  DeleteOrganizationResponse'
-    { state = Lude.Nothing,
-      organizationId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+dorfrsOrganizationId :: Lens.Lens' DeleteOrganizationResponse (Core.Maybe Types.OrganizationId)
+dorfrsOrganizationId = Lens.field @"organizationId"
+{-# DEPRECATED dorfrsOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
 -- | The state of the organization.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dofrsState :: Lens.Lens' DeleteOrganizationResponse (Lude.Maybe Lude.Text)
-dofrsState = Lens.lens (state :: DeleteOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: DeleteOrganizationResponse)
-{-# DEPRECATED dofrsState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The organization ID.
---
--- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dofrsOrganizationId :: Lens.Lens' DeleteOrganizationResponse (Lude.Maybe Lude.Text)
-dofrsOrganizationId = Lens.lens (organizationId :: DeleteOrganizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {organizationId = a} :: DeleteOrganizationResponse)
-{-# DEPRECATED dofrsOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
+dorfrsState :: Lens.Lens' DeleteOrganizationResponse (Core.Maybe Types.String)
+dorfrsState = Lens.field @"state"
+{-# DEPRECATED dorfrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dofrsResponseStatus :: Lens.Lens' DeleteOrganizationResponse Lude.Int
-dofrsResponseStatus = Lens.lens (responseStatus :: DeleteOrganizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteOrganizationResponse)
-{-# DEPRECATED dofrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dorfrsResponseStatus :: Lens.Lens' DeleteOrganizationResponse Core.Int
+dorfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dorfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

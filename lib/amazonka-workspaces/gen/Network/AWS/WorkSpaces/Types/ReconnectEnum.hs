@@ -13,46 +13,51 @@
 module Network.AWS.WorkSpaces.Types.ReconnectEnum
   ( ReconnectEnum
       ( ReconnectEnum',
-        Enabled,
-        Disabled
+        ReconnectEnumEnabled,
+        ReconnectEnumDisabled,
+        fromReconnectEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReconnectEnum = ReconnectEnum' Lude.Text
+newtype ReconnectEnum = ReconnectEnum'
+  { fromReconnectEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Enabled :: ReconnectEnum
-pattern Enabled = ReconnectEnum' "ENABLED"
+pattern ReconnectEnumEnabled :: ReconnectEnum
+pattern ReconnectEnumEnabled = ReconnectEnum' "ENABLED"
 
-pattern Disabled :: ReconnectEnum
-pattern Disabled = ReconnectEnum' "DISABLED"
+pattern ReconnectEnumDisabled :: ReconnectEnum
+pattern ReconnectEnumDisabled = ReconnectEnum' "DISABLED"
 
 {-# COMPLETE
-  Enabled,
-  Disabled,
+  ReconnectEnumEnabled,
+  ReconnectEnumDisabled,
   ReconnectEnum'
   #-}

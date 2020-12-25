@@ -27,91 +27,81 @@ module Network.AWS.Route53AutoNaming.DeleteService
     mkDeleteServiceResponse,
 
     -- ** Response lenses
-    dsrsResponseStatus,
+    dsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53AutoNaming.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53AutoNaming.Types as Types
 
 -- | /See:/ 'mkDeleteService' smart constructor.
 newtype DeleteService = DeleteService'
   { -- | The ID of the service that you want to delete.
-    id :: Lude.Text
+    id :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteService' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the service that you want to delete.
+-- | Creates a 'DeleteService' value with any optional fields omitted.
 mkDeleteService ::
   -- | 'id'
-  Lude.Text ->
+  Types.ResourceId ->
   DeleteService
-mkDeleteService pId_ = DeleteService' {id = pId_}
+mkDeleteService id = DeleteService' {id}
 
 -- | The ID of the service that you want to delete.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsId :: Lens.Lens' DeleteService Lude.Text
-dsId = Lens.lens (id :: DeleteService -> Lude.Text) (\s a -> s {id = a} :: DeleteService)
+dsId :: Lens.Lens' DeleteService Types.ResourceId
+dsId = Lens.field @"id"
 {-# DEPRECATED dsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DeleteService where
+instance Core.FromJSON DeleteService where
+  toJSON DeleteService {..} =
+    Core.object (Core.catMaybes [Core.Just ("Id" Core..= id)])
+
+instance Core.AWSRequest DeleteService where
   type Rs DeleteService = DeleteServiceResponse
-  request = Req.postJSON route53AutoNamingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53AutoNaming_v20170314.DeleteService")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteServiceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteServiceResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteService where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Route53AutoNaming_v20170314.DeleteService" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteService where
-  toJSON DeleteService' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Id" Lude..= id)])
-
-instance Lude.ToPath DeleteService where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteService where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteServiceResponse' smart constructor.
 newtype DeleteServiceResponse = DeleteServiceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteServiceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteServiceResponse' value with any optional fields omitted.
 mkDeleteServiceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteServiceResponse
-mkDeleteServiceResponse pResponseStatus_ =
-  DeleteServiceResponse' {responseStatus = pResponseStatus_}
+mkDeleteServiceResponse responseStatus =
+  DeleteServiceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DeleteServiceResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DeleteServiceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteServiceResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DeleteServiceResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,26 +21,25 @@ module Network.AWS.MediaLive.Types.ImmediateModeScheduleActionStartSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings to configure an action so that it occurs as soon as possible.
 --
 -- /See:/ 'mkImmediateModeScheduleActionStartSettings' smart constructor.
 data ImmediateModeScheduleActionStartSettings = ImmediateModeScheduleActionStartSettings'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImmediateModeScheduleActionStartSettings' with the minimum fields required to make a request.
+-- | Creates a 'ImmediateModeScheduleActionStartSettings' value with any optional fields omitted.
 mkImmediateModeScheduleActionStartSettings ::
   ImmediateModeScheduleActionStartSettings
 mkImmediateModeScheduleActionStartSettings =
   ImmediateModeScheduleActionStartSettings'
 
-instance Lude.FromJSON ImmediateModeScheduleActionStartSettings where
-  parseJSON =
-    Lude.withObject
-      "ImmediateModeScheduleActionStartSettings"
-      (\x -> Lude.pure ImmediateModeScheduleActionStartSettings')
+instance Core.FromJSON ImmediateModeScheduleActionStartSettings where
+  toJSON _ = Core.Object Core.mempty
 
-instance Lude.ToJSON ImmediateModeScheduleActionStartSettings where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
+instance Core.FromJSON ImmediateModeScheduleActionStartSettings where
+  parseJSON =
+    Core.withObject "ImmediateModeScheduleActionStartSettings" Core.$
+      \x -> Core.pure ImmediateModeScheduleActionStartSettings'

@@ -20,108 +20,93 @@ module Network.AWS.AlexaBusiness.DeleteBusinessReportSchedule
     mkDeleteBusinessReportSchedule,
 
     -- ** Request lenses
-    dbrsScheduleARN,
+    dbrsScheduleArn,
 
     -- * Destructuring the response
     DeleteBusinessReportScheduleResponse (..),
     mkDeleteBusinessReportScheduleResponse,
 
     -- ** Response lenses
-    dbrsrsResponseStatus,
+    dbrsrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteBusinessReportSchedule' smart constructor.
 newtype DeleteBusinessReportSchedule = DeleteBusinessReportSchedule'
   { -- | The ARN of the business report schedule.
-    scheduleARN :: Lude.Text
+    scheduleArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBusinessReportSchedule' with the minimum fields required to make a request.
---
--- * 'scheduleARN' - The ARN of the business report schedule.
+-- | Creates a 'DeleteBusinessReportSchedule' value with any optional fields omitted.
 mkDeleteBusinessReportSchedule ::
-  -- | 'scheduleARN'
-  Lude.Text ->
+  -- | 'scheduleArn'
+  Types.Arn ->
   DeleteBusinessReportSchedule
-mkDeleteBusinessReportSchedule pScheduleARN_ =
-  DeleteBusinessReportSchedule' {scheduleARN = pScheduleARN_}
+mkDeleteBusinessReportSchedule scheduleArn =
+  DeleteBusinessReportSchedule' {scheduleArn}
 
 -- | The ARN of the business report schedule.
 --
--- /Note:/ Consider using 'scheduleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrsScheduleARN :: Lens.Lens' DeleteBusinessReportSchedule Lude.Text
-dbrsScheduleARN = Lens.lens (scheduleARN :: DeleteBusinessReportSchedule -> Lude.Text) (\s a -> s {scheduleARN = a} :: DeleteBusinessReportSchedule)
-{-# DEPRECATED dbrsScheduleARN "Use generic-lens or generic-optics with 'scheduleARN' instead." #-}
+-- /Note:/ Consider using 'scheduleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbrsScheduleArn :: Lens.Lens' DeleteBusinessReportSchedule Types.Arn
+dbrsScheduleArn = Lens.field @"scheduleArn"
+{-# DEPRECATED dbrsScheduleArn "Use generic-lens or generic-optics with 'scheduleArn' instead." #-}
 
-instance Lude.AWSRequest DeleteBusinessReportSchedule where
+instance Core.FromJSON DeleteBusinessReportSchedule where
+  toJSON DeleteBusinessReportSchedule {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ScheduleArn" Core..= scheduleArn)])
+
+instance Core.AWSRequest DeleteBusinessReportSchedule where
   type
     Rs DeleteBusinessReportSchedule =
       DeleteBusinessReportScheduleResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.DeleteBusinessReportSchedule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteBusinessReportScheduleResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteBusinessReportSchedule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AlexaForBusiness.DeleteBusinessReportSchedule" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteBusinessReportSchedule where
-  toJSON DeleteBusinessReportSchedule' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ScheduleArn" Lude..= scheduleARN)])
-
-instance Lude.ToPath DeleteBusinessReportSchedule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteBusinessReportSchedule where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteBusinessReportScheduleResponse' smart constructor.
 newtype DeleteBusinessReportScheduleResponse = DeleteBusinessReportScheduleResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBusinessReportScheduleResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteBusinessReportScheduleResponse' value with any optional fields omitted.
 mkDeleteBusinessReportScheduleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteBusinessReportScheduleResponse
-mkDeleteBusinessReportScheduleResponse pResponseStatus_ =
-  DeleteBusinessReportScheduleResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteBusinessReportScheduleResponse responseStatus =
+  DeleteBusinessReportScheduleResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbrsrsResponseStatus :: Lens.Lens' DeleteBusinessReportScheduleResponse Lude.Int
-dbrsrsResponseStatus = Lens.lens (responseStatus :: DeleteBusinessReportScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBusinessReportScheduleResponse)
-{-# DEPRECATED dbrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbrsrrsResponseStatus :: Lens.Lens' DeleteBusinessReportScheduleResponse Core.Int
+dbrsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbrsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

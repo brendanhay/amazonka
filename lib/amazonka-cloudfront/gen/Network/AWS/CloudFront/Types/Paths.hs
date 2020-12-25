@@ -22,57 +22,50 @@ module Network.AWS.CloudFront.Types.Paths
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that contains information about the objects that you want to invalidate. For more information, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Invalidation.html#invalidation-specifying-objects Specifying the Objects to Invalidate> in the /Amazon CloudFront Developer Guide/ .
 --
 -- /See:/ 'mkPaths' smart constructor.
 data Paths = Paths'
   { -- | The number of invalidation paths specified for the objects that you want to invalidate.
-    quantity :: Lude.Int,
+    quantity :: Core.Int,
     -- | A complex type that contains a list of the paths that you want to invalidate.
-    items :: Lude.Maybe [Lude.Text]
+    items :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Paths' with the minimum fields required to make a request.
---
--- * 'quantity' - The number of invalidation paths specified for the objects that you want to invalidate.
--- * 'items' - A complex type that contains a list of the paths that you want to invalidate.
+-- | Creates a 'Paths' value with any optional fields omitted.
 mkPaths ::
   -- | 'quantity'
-  Lude.Int ->
+  Core.Int ->
   Paths
-mkPaths pQuantity_ =
-  Paths' {quantity = pQuantity_, items = Lude.Nothing}
+mkPaths quantity = Paths' {quantity, items = Core.Nothing}
 
 -- | The number of invalidation paths specified for the objects that you want to invalidate.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pQuantity :: Lens.Lens' Paths Lude.Int
-pQuantity = Lens.lens (quantity :: Paths -> Lude.Int) (\s a -> s {quantity = a} :: Paths)
+pQuantity :: Lens.Lens' Paths Core.Int
+pQuantity = Lens.field @"quantity"
 {-# DEPRECATED pQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | A complex type that contains a list of the paths that you want to invalidate.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pItems :: Lens.Lens' Paths (Lude.Maybe [Lude.Text])
-pItems = Lens.lens (items :: Paths -> Lude.Maybe [Lude.Text]) (\s a -> s {items = a} :: Paths)
+pItems :: Lens.Lens' Paths (Core.Maybe [Types.String])
+pItems = Lens.field @"items"
 {-# DEPRECATED pItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.FromXML Paths where
+instance Core.ToXML Paths where
+  toXML Paths {..} =
+    Core.toXMLNode "Quantity" quantity
+      Core.<> Core.toXMLNode "Items" (Core.toXMLList "Path" Core.<$> items)
+
+instance Core.FromXML Paths where
   parseXML x =
     Paths'
-      Lude.<$> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Path")
-               )
-
-instance Lude.ToXML Paths where
-  toXML Paths' {..} =
-    Lude.mconcat
-      [ "Quantity" Lude.@= quantity,
-        "Items" Lude.@= Lude.toXML (Lude.toXMLList "Path" Lude.<$> items)
-      ]
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> (x Core..@? "Items" Core..<@> Core.parseXMLList "Path")

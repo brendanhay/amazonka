@@ -22,36 +22,35 @@ module Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SQS.Types.String as Types
 
 -- | Encloses the @Id@ of an entry in @'ChangeMessageVisibilityBatch' .@
 --
 -- /See:/ 'mkChangeMessageVisibilityBatchResultEntry' smart constructor.
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry'
   { -- | Represents a message whose visibility timeout has been changed successfully.
-    id :: Lude.Text
+    id :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChangeMessageVisibilityBatchResultEntry' with the minimum fields required to make a request.
---
--- * 'id' - Represents a message whose visibility timeout has been changed successfully.
+-- | Creates a 'ChangeMessageVisibilityBatchResultEntry' value with any optional fields omitted.
 mkChangeMessageVisibilityBatchResultEntry ::
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   ChangeMessageVisibilityBatchResultEntry
-mkChangeMessageVisibilityBatchResultEntry pId_ =
-  ChangeMessageVisibilityBatchResultEntry' {id = pId_}
+mkChangeMessageVisibilityBatchResultEntry id =
+  ChangeMessageVisibilityBatchResultEntry' {id}
 
 -- | Represents a message whose visibility timeout has been changed successfully.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmvbreId :: Lens.Lens' ChangeMessageVisibilityBatchResultEntry Lude.Text
-cmvbreId = Lens.lens (id :: ChangeMessageVisibilityBatchResultEntry -> Lude.Text) (\s a -> s {id = a} :: ChangeMessageVisibilityBatchResultEntry)
+cmvbreId :: Lens.Lens' ChangeMessageVisibilityBatchResultEntry Types.String
+cmvbreId = Lens.field @"id"
 {-# DEPRECATED cmvbreId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromXML ChangeMessageVisibilityBatchResultEntry where
+instance Core.FromXML ChangeMessageVisibilityBatchResultEntry where
   parseXML x =
     ChangeMessageVisibilityBatchResultEntry'
-      Lude.<$> (x Lude..@ "Id")
+      Core.<$> (x Core..@ "Id")

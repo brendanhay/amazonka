@@ -22,7 +22,7 @@ module Network.AWS.OpsWorks.StartStack
     mkStartStack,
 
     -- ** Request lenses
-    ssfStackId,
+    ssgStackId,
 
     -- * Destructuring the response
     StartStackResponse (..),
@@ -31,68 +31,59 @@ module Network.AWS.OpsWorks.StartStack
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartStack' smart constructor.
 newtype StartStack = StartStack'
   { -- | The stack ID.
-    stackId :: Lude.Text
+    stackId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartStack' with the minimum fields required to make a request.
---
--- * 'stackId' - The stack ID.
+-- | Creates a 'StartStack' value with any optional fields omitted.
 mkStartStack ::
   -- | 'stackId'
-  Lude.Text ->
+  Types.String ->
   StartStack
-mkStartStack pStackId_ = StartStack' {stackId = pStackId_}
+mkStartStack stackId = StartStack' {stackId}
 
 -- | The stack ID.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssfStackId :: Lens.Lens' StartStack Lude.Text
-ssfStackId = Lens.lens (stackId :: StartStack -> Lude.Text) (\s a -> s {stackId = a} :: StartStack)
-{-# DEPRECATED ssfStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+ssgStackId :: Lens.Lens' StartStack Types.String
+ssgStackId = Lens.field @"stackId"
+{-# DEPRECATED ssgStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
-instance Lude.AWSRequest StartStack where
+instance Core.FromJSON StartStack where
+  toJSON StartStack {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("StackId" Core..= stackId)])
+
+instance Core.AWSRequest StartStack where
   type Rs StartStack = StartStackResponse
-  request = Req.postJSON opsWorksService
-  response = Res.receiveNull StartStackResponse'
-
-instance Lude.ToHeaders StartStack where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.StartStack" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartStack where
-  toJSON StartStack' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("StackId" Lude..= stackId)])
-
-instance Lude.ToPath StartStack where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartStack where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.StartStack")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull StartStackResponse'
 
 -- | /See:/ 'mkStartStackResponse' smart constructor.
 data StartStackResponse = StartStackResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartStackResponse' with the minimum fields required to make a request.
+-- | Creates a 'StartStackResponse' value with any optional fields omitted.
 mkStartStackResponse ::
   StartStackResponse
 mkStartStackResponse = StartStackResponse'

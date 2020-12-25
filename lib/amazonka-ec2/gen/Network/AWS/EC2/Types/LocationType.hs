@@ -13,51 +13,53 @@
 module Network.AWS.EC2.Types.LocationType
   ( LocationType
       ( LocationType',
-        LTRegion,
-        LTAvailabilityZone,
-        LTAvailabilityZoneId
+        LocationTypeRegion,
+        LocationTypeAvailabilityZone,
+        LocationTypeAvailabilityZoneId,
+        fromLocationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LocationType = LocationType' Lude.Text
+newtype LocationType = LocationType' {fromLocationType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LTRegion :: LocationType
-pattern LTRegion = LocationType' "region"
+pattern LocationTypeRegion :: LocationType
+pattern LocationTypeRegion = LocationType' "region"
 
-pattern LTAvailabilityZone :: LocationType
-pattern LTAvailabilityZone = LocationType' "availability-zone"
+pattern LocationTypeAvailabilityZone :: LocationType
+pattern LocationTypeAvailabilityZone = LocationType' "availability-zone"
 
-pattern LTAvailabilityZoneId :: LocationType
-pattern LTAvailabilityZoneId = LocationType' "availability-zone-id"
+pattern LocationTypeAvailabilityZoneId :: LocationType
+pattern LocationTypeAvailabilityZoneId = LocationType' "availability-zone-id"
 
 {-# COMPLETE
-  LTRegion,
-  LTAvailabilityZone,
-  LTAvailabilityZoneId,
+  LocationTypeRegion,
+  LocationTypeAvailabilityZone,
+  LocationTypeAvailabilityZoneId,
   LocationType'
   #-}

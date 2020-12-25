@@ -252,8 +252,8 @@ import Test.Tasty
 --         , requestListTestGridSessions $
 --             mkListTestGridSessions
 --
---         , requestCreateTestGridURL $
---             mkCreateTestGridURL
+--         , requestCreateTestGridUrl $
+--             mkCreateTestGridUrl
 --
 --         , requestListOfferings $
 --             mkListOfferings
@@ -486,8 +486,8 @@ import Test.Tasty
 --         , responseListTestGridSessions $
 --             mkListTestGridSessionsResponse
 --
---         , responseCreateTestGridURL $
---             mkCreateTestGridURLResponse
+--         , responseCreateTestGridUrl $
+--             mkCreateTestGridUrlResponse
 --
 --         , responseListOfferings $
 --             mkListOfferingsResponse
@@ -947,11 +947,11 @@ requestListTestGridSessions =
     "ListTestGridSessions"
     "fixture/ListTestGridSessions.yaml"
 
-requestCreateTestGridURL :: CreateTestGridURL -> TestTree
-requestCreateTestGridURL =
+requestCreateTestGridUrl :: CreateTestGridUrl -> TestTree
+requestCreateTestGridUrl =
   req
-    "CreateTestGridURL"
-    "fixture/CreateTestGridURL.yaml"
+    "CreateTestGridUrl"
+    "fixture/CreateTestGridUrl.yaml"
 
 requestListOfferings :: ListOfferings -> TestTree
 requestListOfferings =
@@ -966,7 +966,7 @@ responseListProjects =
   res
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
@@ -974,7 +974,7 @@ responseDeleteProject =
   res
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
@@ -982,7 +982,7 @@ responseUpdateProject =
   res
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy UpdateProject)
 
 responseUpdateNetworkProfile :: UpdateNetworkProfileResponse -> TestTree
@@ -990,7 +990,7 @@ responseUpdateNetworkProfile =
   res
     "UpdateNetworkProfileResponse"
     "fixture/UpdateNetworkProfileResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy UpdateNetworkProfile)
 
 responseDeleteNetworkProfile :: DeleteNetworkProfileResponse -> TestTree
@@ -998,7 +998,7 @@ responseDeleteNetworkProfile =
   res
     "DeleteNetworkProfileResponse"
     "fixture/DeleteNetworkProfileResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy DeleteNetworkProfile)
 
 responseGetDevicePoolCompatibility :: GetDevicePoolCompatibilityResponse -> TestTree
@@ -1006,7 +1006,7 @@ responseGetDevicePoolCompatibility =
   res
     "GetDevicePoolCompatibilityResponse"
     "fixture/GetDevicePoolCompatibilityResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetDevicePoolCompatibility)
 
 responseInstallToRemoteAccessSession :: InstallToRemoteAccessSessionResponse -> TestTree
@@ -1014,7 +1014,7 @@ responseInstallToRemoteAccessSession =
   res
     "InstallToRemoteAccessSessionResponse"
     "fixture/InstallToRemoteAccessSessionResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy InstallToRemoteAccessSession)
 
 responseListTests :: ListTestsResponse -> TestTree
@@ -1022,7 +1022,7 @@ responseListTests =
   res
     "ListTestsResponse"
     "fixture/ListTestsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListTests)
 
 responseListArtifacts :: ListArtifactsResponse -> TestTree
@@ -1030,7 +1030,7 @@ responseListArtifacts =
   res
     "ListArtifactsResponse"
     "fixture/ListArtifactsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListArtifacts)
 
 responseListTestGridSessionActions :: ListTestGridSessionActionsResponse -> TestTree
@@ -1038,7 +1038,7 @@ responseListTestGridSessionActions =
   res
     "ListTestGridSessionActionsResponse"
     "fixture/ListTestGridSessionActionsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListTestGridSessionActions)
 
 responseCreateUpload :: CreateUploadResponse -> TestTree
@@ -1046,7 +1046,7 @@ responseCreateUpload =
   res
     "CreateUploadResponse"
     "fixture/CreateUploadResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy CreateUpload)
 
 responseGetDeviceInstance :: GetDeviceInstanceResponse -> TestTree
@@ -1054,7 +1054,7 @@ responseGetDeviceInstance =
   res
     "GetDeviceInstanceResponse"
     "fixture/GetDeviceInstanceResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetDeviceInstance)
 
 responseStopJob :: StopJobResponse -> TestTree
@@ -1062,7 +1062,7 @@ responseStopJob =
   res
     "StopJobResponse"
     "fixture/StopJobResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy StopJob)
 
 responseDeleteRemoteAccessSession :: DeleteRemoteAccessSessionResponse -> TestTree
@@ -1070,7 +1070,7 @@ responseDeleteRemoteAccessSession =
   res
     "DeleteRemoteAccessSessionResponse"
     "fixture/DeleteRemoteAccessSessionResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRemoteAccessSession)
 
 responseListTestGridSessionArtifacts :: ListTestGridSessionArtifactsResponse -> TestTree
@@ -1078,7 +1078,7 @@ responseListTestGridSessionArtifacts =
   res
     "ListTestGridSessionArtifactsResponse"
     "fixture/ListTestGridSessionArtifactsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListTestGridSessionArtifacts)
 
 responseListTestGridProjects :: ListTestGridProjectsResponse -> TestTree
@@ -1086,7 +1086,7 @@ responseListTestGridProjects =
   res
     "ListTestGridProjectsResponse"
     "fixture/ListTestGridProjectsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListTestGridProjects)
 
 responseDeleteUpload :: DeleteUploadResponse -> TestTree
@@ -1094,7 +1094,7 @@ responseDeleteUpload =
   res
     "DeleteUploadResponse"
     "fixture/DeleteUploadResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUpload)
 
 responseUpdateUpload :: UpdateUploadResponse -> TestTree
@@ -1102,7 +1102,7 @@ responseUpdateUpload =
   res
     "UpdateUploadResponse"
     "fixture/UpdateUploadResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy UpdateUpload)
 
 responseDeleteTestGridProject :: DeleteTestGridProjectResponse -> TestTree
@@ -1110,7 +1110,7 @@ responseDeleteTestGridProject =
   res
     "DeleteTestGridProjectResponse"
     "fixture/DeleteTestGridProjectResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTestGridProject)
 
 responseUpdateTestGridProject :: UpdateTestGridProjectResponse -> TestTree
@@ -1118,7 +1118,7 @@ responseUpdateTestGridProject =
   res
     "UpdateTestGridProjectResponse"
     "fixture/UpdateTestGridProjectResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTestGridProject)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -1126,7 +1126,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseGetDevicePool :: GetDevicePoolResponse -> TestTree
@@ -1134,7 +1134,7 @@ responseGetDevicePool =
   res
     "GetDevicePoolResponse"
     "fixture/GetDevicePoolResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetDevicePool)
 
 responseListDevicePools :: ListDevicePoolsResponse -> TestTree
@@ -1142,7 +1142,7 @@ responseListDevicePools =
   res
     "ListDevicePoolsResponse"
     "fixture/ListDevicePoolsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListDevicePools)
 
 responseUpdateDevicePool :: UpdateDevicePoolResponse -> TestTree
@@ -1150,7 +1150,7 @@ responseUpdateDevicePool =
   res
     "UpdateDevicePoolResponse"
     "fixture/UpdateDevicePoolResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDevicePool)
 
 responseDeleteDevicePool :: DeleteDevicePoolResponse -> TestTree
@@ -1158,7 +1158,7 @@ responseDeleteDevicePool =
   res
     "DeleteDevicePoolResponse"
     "fixture/DeleteDevicePoolResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDevicePool)
 
 responseGetUpload :: GetUploadResponse -> TestTree
@@ -1166,7 +1166,7 @@ responseGetUpload =
   res
     "GetUploadResponse"
     "fixture/GetUploadResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetUpload)
 
 responseListOfferingTransactions :: ListOfferingTransactionsResponse -> TestTree
@@ -1174,7 +1174,7 @@ responseListOfferingTransactions =
   res
     "ListOfferingTransactionsResponse"
     "fixture/ListOfferingTransactionsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListOfferingTransactions)
 
 responseCreateDevicePool :: CreateDevicePoolResponse -> TestTree
@@ -1182,7 +1182,7 @@ responseCreateDevicePool =
   res
     "CreateDevicePoolResponse"
     "fixture/CreateDevicePoolResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy CreateDevicePool)
 
 responseDeleteRun :: DeleteRunResponse -> TestTree
@@ -1190,7 +1190,7 @@ responseDeleteRun =
   res
     "DeleteRunResponse"
     "fixture/DeleteRunResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy DeleteRun)
 
 responseListRuns :: ListRunsResponse -> TestTree
@@ -1198,7 +1198,7 @@ responseListRuns =
   res
     "ListRunsResponse"
     "fixture/ListRunsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListRuns)
 
 responseGetTest :: GetTestResponse -> TestTree
@@ -1206,7 +1206,7 @@ responseGetTest =
   res
     "GetTestResponse"
     "fixture/GetTestResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetTest)
 
 responseUpdateDeviceInstance :: UpdateDeviceInstanceResponse -> TestTree
@@ -1214,7 +1214,7 @@ responseUpdateDeviceInstance =
   res
     "UpdateDeviceInstanceResponse"
     "fixture/UpdateDeviceInstanceResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDeviceInstance)
 
 responseGetNetworkProfile :: GetNetworkProfileResponse -> TestTree
@@ -1222,7 +1222,7 @@ responseGetNetworkProfile =
   res
     "GetNetworkProfileResponse"
     "fixture/GetNetworkProfileResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetNetworkProfile)
 
 responseRenewOffering :: RenewOfferingResponse -> TestTree
@@ -1230,7 +1230,7 @@ responseRenewOffering =
   res
     "RenewOfferingResponse"
     "fixture/RenewOfferingResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy RenewOffering)
 
 responseDeleteInstanceProfile :: DeleteInstanceProfileResponse -> TestTree
@@ -1238,7 +1238,7 @@ responseDeleteInstanceProfile =
   res
     "DeleteInstanceProfileResponse"
     "fixture/DeleteInstanceProfileResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy DeleteInstanceProfile)
 
 responseUpdateInstanceProfile :: UpdateInstanceProfileResponse -> TestTree
@@ -1246,7 +1246,7 @@ responseUpdateInstanceProfile =
   res
     "UpdateInstanceProfileResponse"
     "fixture/UpdateInstanceProfileResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy UpdateInstanceProfile)
 
 responseCreateInstanceProfile :: CreateInstanceProfileResponse -> TestTree
@@ -1254,7 +1254,7 @@ responseCreateInstanceProfile =
   res
     "CreateInstanceProfileResponse"
     "fixture/CreateInstanceProfileResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy CreateInstanceProfile)
 
 responseGetDevice :: GetDeviceResponse -> TestTree
@@ -1262,7 +1262,7 @@ responseGetDevice =
   res
     "GetDeviceResponse"
     "fixture/GetDeviceResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetDevice)
 
 responseListJobs :: ListJobsResponse -> TestTree
@@ -1270,7 +1270,7 @@ responseListJobs =
   res
     "ListJobsResponse"
     "fixture/ListJobsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListJobs)
 
 responseGetTestGridSession :: GetTestGridSessionResponse -> TestTree
@@ -1278,7 +1278,7 @@ responseGetTestGridSession =
   res
     "GetTestGridSessionResponse"
     "fixture/GetTestGridSessionResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetTestGridSession)
 
 responseGetVPCEConfiguration :: GetVPCEConfigurationResponse -> TestTree
@@ -1286,7 +1286,7 @@ responseGetVPCEConfiguration =
   res
     "GetVPCEConfigurationResponse"
     "fixture/GetVPCEConfigurationResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetVPCEConfiguration)
 
 responseStopRemoteAccessSession :: StopRemoteAccessSessionResponse -> TestTree
@@ -1294,7 +1294,7 @@ responseStopRemoteAccessSession =
   res
     "StopRemoteAccessSessionResponse"
     "fixture/StopRemoteAccessSessionResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy StopRemoteAccessSession)
 
 responseCreateNetworkProfile :: CreateNetworkProfileResponse -> TestTree
@@ -1302,7 +1302,7 @@ responseCreateNetworkProfile =
   res
     "CreateNetworkProfileResponse"
     "fixture/CreateNetworkProfileResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy CreateNetworkProfile)
 
 responseDeleteVPCEConfiguration :: DeleteVPCEConfigurationResponse -> TestTree
@@ -1310,7 +1310,7 @@ responseDeleteVPCEConfiguration =
   res
     "DeleteVPCEConfigurationResponse"
     "fixture/DeleteVPCEConfigurationResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy DeleteVPCEConfiguration)
 
 responseUpdateVPCEConfiguration :: UpdateVPCEConfigurationResponse -> TestTree
@@ -1318,7 +1318,7 @@ responseUpdateVPCEConfiguration =
   res
     "UpdateVPCEConfigurationResponse"
     "fixture/UpdateVPCEConfigurationResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy UpdateVPCEConfiguration)
 
 responseGetJob :: GetJobResponse -> TestTree
@@ -1326,7 +1326,7 @@ responseGetJob =
   res
     "GetJobResponse"
     "fixture/GetJobResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetJob)
 
 responseGetInstanceProfile :: GetInstanceProfileResponse -> TestTree
@@ -1334,7 +1334,7 @@ responseGetInstanceProfile =
   res
     "GetInstanceProfileResponse"
     "fixture/GetInstanceProfileResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetInstanceProfile)
 
 responseListNetworkProfiles :: ListNetworkProfilesResponse -> TestTree
@@ -1342,7 +1342,7 @@ responseListNetworkProfiles =
   res
     "ListNetworkProfilesResponse"
     "fixture/ListNetworkProfilesResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListNetworkProfiles)
 
 responseCreateVPCEConfiguration :: CreateVPCEConfigurationResponse -> TestTree
@@ -1350,7 +1350,7 @@ responseCreateVPCEConfiguration =
   res
     "CreateVPCEConfigurationResponse"
     "fixture/CreateVPCEConfigurationResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy CreateVPCEConfiguration)
 
 responseScheduleRun :: ScheduleRunResponse -> TestTree
@@ -1358,7 +1358,7 @@ responseScheduleRun =
   res
     "ScheduleRunResponse"
     "fixture/ScheduleRunResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ScheduleRun)
 
 responseCreateTestGridProject :: CreateTestGridProjectResponse -> TestTree
@@ -1366,7 +1366,7 @@ responseCreateTestGridProject =
   res
     "CreateTestGridProjectResponse"
     "fixture/CreateTestGridProjectResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy CreateTestGridProject)
 
 responseGetRun :: GetRunResponse -> TestTree
@@ -1374,7 +1374,7 @@ responseGetRun =
   res
     "GetRunResponse"
     "fixture/GetRunResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetRun)
 
 responseListSamples :: ListSamplesResponse -> TestTree
@@ -1382,7 +1382,7 @@ responseListSamples =
   res
     "ListSamplesResponse"
     "fixture/ListSamplesResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListSamples)
 
 responseListSuites :: ListSuitesResponse -> TestTree
@@ -1390,7 +1390,7 @@ responseListSuites =
   res
     "ListSuitesResponse"
     "fixture/ListSuitesResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListSuites)
 
 responseListRemoteAccessSessions :: ListRemoteAccessSessionsResponse -> TestTree
@@ -1398,7 +1398,7 @@ responseListRemoteAccessSessions =
   res
     "ListRemoteAccessSessionsResponse"
     "fixture/ListRemoteAccessSessionsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListRemoteAccessSessions)
 
 responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
@@ -1406,7 +1406,7 @@ responseGetAccountSettings =
   res
     "GetAccountSettingsResponse"
     "fixture/GetAccountSettingsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetAccountSettings)
 
 responseCreateRemoteAccessSession :: CreateRemoteAccessSessionResponse -> TestTree
@@ -1414,7 +1414,7 @@ responseCreateRemoteAccessSession =
   res
     "CreateRemoteAccessSessionResponse"
     "fixture/CreateRemoteAccessSessionResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy CreateRemoteAccessSession)
 
 responseListOfferingPromotions :: ListOfferingPromotionsResponse -> TestTree
@@ -1422,7 +1422,7 @@ responseListOfferingPromotions =
   res
     "ListOfferingPromotionsResponse"
     "fixture/ListOfferingPromotionsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListOfferingPromotions)
 
 responseGetOfferingStatus :: GetOfferingStatusResponse -> TestTree
@@ -1430,7 +1430,7 @@ responseGetOfferingStatus =
   res
     "GetOfferingStatusResponse"
     "fixture/GetOfferingStatusResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetOfferingStatus)
 
 responseListUploads :: ListUploadsResponse -> TestTree
@@ -1438,7 +1438,7 @@ responseListUploads =
   res
     "ListUploadsResponse"
     "fixture/ListUploadsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListUploads)
 
 responseGetTestGridProject :: GetTestGridProjectResponse -> TestTree
@@ -1446,7 +1446,7 @@ responseGetTestGridProject =
   res
     "GetTestGridProjectResponse"
     "fixture/GetTestGridProjectResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetTestGridProject)
 
 responseGetSuite :: GetSuiteResponse -> TestTree
@@ -1454,7 +1454,7 @@ responseGetSuite =
   res
     "GetSuiteResponse"
     "fixture/GetSuiteResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetSuite)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1462,7 +1462,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responseGetRemoteAccessSession :: GetRemoteAccessSessionResponse -> TestTree
@@ -1470,7 +1470,7 @@ responseGetRemoteAccessSession =
   res
     "GetRemoteAccessSessionResponse"
     "fixture/GetRemoteAccessSessionResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetRemoteAccessSession)
 
 responseListDeviceInstances :: ListDeviceInstancesResponse -> TestTree
@@ -1478,7 +1478,7 @@ responseListDeviceInstances =
   res
     "ListDeviceInstancesResponse"
     "fixture/ListDeviceInstancesResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListDeviceInstances)
 
 responsePurchaseOffering :: PurchaseOfferingResponse -> TestTree
@@ -1486,7 +1486,7 @@ responsePurchaseOffering =
   res
     "PurchaseOfferingResponse"
     "fixture/PurchaseOfferingResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy PurchaseOffering)
 
 responseListInstanceProfiles :: ListInstanceProfilesResponse -> TestTree
@@ -1494,7 +1494,7 @@ responseListInstanceProfiles =
   res
     "ListInstanceProfilesResponse"
     "fixture/ListInstanceProfilesResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListInstanceProfiles)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1502,7 +1502,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseGetProject :: GetProjectResponse -> TestTree
@@ -1510,7 +1510,7 @@ responseGetProject =
   res
     "GetProjectResponse"
     "fixture/GetProjectResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy GetProject)
 
 responseListUniqueProblems :: ListUniqueProblemsResponse -> TestTree
@@ -1518,7 +1518,7 @@ responseListUniqueProblems =
   res
     "ListUniqueProblemsResponse"
     "fixture/ListUniqueProblemsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListUniqueProblems)
 
 responseListVPCEConfigurations :: ListVPCEConfigurationsResponse -> TestTree
@@ -1526,7 +1526,7 @@ responseListVPCEConfigurations =
   res
     "ListVPCEConfigurationsResponse"
     "fixture/ListVPCEConfigurationsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListVPCEConfigurations)
 
 responseStopRun :: StopRunResponse -> TestTree
@@ -1534,7 +1534,7 @@ responseStopRun =
   res
     "StopRunResponse"
     "fixture/StopRunResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy StopRun)
 
 responseListDevices :: ListDevicesResponse -> TestTree
@@ -1542,7 +1542,7 @@ responseListDevices =
   res
     "ListDevicesResponse"
     "fixture/ListDevicesResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListDevices)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
@@ -1550,7 +1550,7 @@ responseCreateProject =
   res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy CreateProject)
 
 responseListTestGridSessions :: ListTestGridSessionsResponse -> TestTree
@@ -1558,21 +1558,21 @@ responseListTestGridSessions =
   res
     "ListTestGridSessionsResponse"
     "fixture/ListTestGridSessionsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListTestGridSessions)
 
-responseCreateTestGridURL :: CreateTestGridURLResponse -> TestTree
-responseCreateTestGridURL =
+responseCreateTestGridUrl :: CreateTestGridUrlResponse -> TestTree
+responseCreateTestGridUrl =
   res
-    "CreateTestGridURLResponse"
-    "fixture/CreateTestGridURLResponse.proto"
-    deviceFarmService
-    (Proxy :: Proxy CreateTestGridURL)
+    "CreateTestGridUrlResponse"
+    "fixture/CreateTestGridUrlResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy CreateTestGridUrl)
 
 responseListOfferings :: ListOfferingsResponse -> TestTree
 responseListOfferings =
   res
     "ListOfferingsResponse"
     "fixture/ListOfferingsResponse.proto"
-    deviceFarmService
+    mkServiceConfig
     (Proxy :: Proxy ListOfferings)

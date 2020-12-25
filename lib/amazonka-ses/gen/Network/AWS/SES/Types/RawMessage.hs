@@ -22,7 +22,7 @@ module Network.AWS.SES.Types.RawMessage
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the raw data of the message.
 --
@@ -34,24 +34,17 @@ newtype RawMessage = RawMessage'
     -- If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .
     -- /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.
     -- For more information, go to the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> .
-    data' :: Lude.Base64
+    data' :: Core.Base64
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RawMessage' with the minimum fields required to make a request.
---
--- * 'data'' - The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding.
---
--- The To:, CC:, and BCC: headers in the raw message can contain a group list.
--- If you are using @SendRawEmail@ with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for @SendRawEmail@ .
--- /Important:/ Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.
--- For more information, go to the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide> .
+-- | Creates a 'RawMessage' value with any optional fields omitted.
 mkRawMessage ::
-  -- | 'data''
-  Lude.Base64 ->
+  -- | 'data\''
+  Core.Base64 ->
   RawMessage
-mkRawMessage pData_ = RawMessage' {data' = pData_}
+mkRawMessage data' = RawMessage' {data'}
 
 -- | The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding.
 --
@@ -65,9 +58,6 @@ mkRawMessage pData_ = RawMessage' {data' = pData_}
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rmData :: Lens.Lens' RawMessage Lude.Base64
-rmData = Lens.lens (data' :: RawMessage -> Lude.Base64) (\s a -> s {data' = a} :: RawMessage)
+rmData :: Lens.Lens' RawMessage Core.Base64
+rmData = Lens.field @"data'"
 {-# DEPRECATED rmData "Use generic-lens or generic-optics with 'data'' instead." #-}
-
-instance Lude.ToQuery RawMessage where
-  toQuery RawMessage' {..} = Lude.mconcat ["Data" Lude.=: data']

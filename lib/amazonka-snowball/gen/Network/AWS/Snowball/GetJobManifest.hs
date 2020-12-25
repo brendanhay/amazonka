@@ -31,108 +31,97 @@ module Network.AWS.Snowball.GetJobManifest
     mkGetJobManifestResponse,
 
     -- ** Response lenses
-    gjmrsManifestURI,
-    gjmrsResponseStatus,
+    gjmrrsManifestURI,
+    gjmrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Snowball.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkGetJobManifest' smart constructor.
 newtype GetJobManifest = GetJobManifest'
   { -- | The ID for a job that you want to get the manifest file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetJobManifest' with the minimum fields required to make a request.
---
--- * 'jobId' - The ID for a job that you want to get the manifest file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+-- | Creates a 'GetJobManifest' value with any optional fields omitted.
 mkGetJobManifest ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   GetJobManifest
-mkGetJobManifest pJobId_ = GetJobManifest' {jobId = pJobId_}
+mkGetJobManifest jobId = GetJobManifest' {jobId}
 
 -- | The ID for a job that you want to get the manifest file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjmJobId :: Lens.Lens' GetJobManifest Lude.Text
-gjmJobId = Lens.lens (jobId :: GetJobManifest -> Lude.Text) (\s a -> s {jobId = a} :: GetJobManifest)
+gjmJobId :: Lens.Lens' GetJobManifest Types.JobId
+gjmJobId = Lens.field @"jobId"
 {-# DEPRECATED gjmJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest GetJobManifest where
+instance Core.FromJSON GetJobManifest where
+  toJSON GetJobManifest {..} =
+    Core.object (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.AWSRequest GetJobManifest where
   type Rs GetJobManifest = GetJobManifestResponse
-  request = Req.postJSON snowballService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSIESnowballJobManagementService.GetJobManifest"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetJobManifestResponse'
-            Lude.<$> (x Lude..?> "ManifestURI") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ManifestURI") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetJobManifest where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSIESnowballJobManagementService.GetJobManifest" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetJobManifest where
-  toJSON GetJobManifest' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
-
-instance Lude.ToPath GetJobManifest where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetJobManifest where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetJobManifestResponse' smart constructor.
 data GetJobManifestResponse = GetJobManifestResponse'
   { -- | The Amazon S3 presigned URL for the manifest file associated with the specified @JobId@ value.
-    manifestURI :: Lude.Maybe Lude.Text,
+    manifestURI :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetJobManifestResponse' with the minimum fields required to make a request.
---
--- * 'manifestURI' - The Amazon S3 presigned URL for the manifest file associated with the specified @JobId@ value.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetJobManifestResponse' value with any optional fields omitted.
 mkGetJobManifestResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetJobManifestResponse
-mkGetJobManifestResponse pResponseStatus_ =
+mkGetJobManifestResponse responseStatus =
   GetJobManifestResponse'
-    { manifestURI = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { manifestURI = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon S3 presigned URL for the manifest file associated with the specified @JobId@ value.
 --
 -- /Note:/ Consider using 'manifestURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjmrsManifestURI :: Lens.Lens' GetJobManifestResponse (Lude.Maybe Lude.Text)
-gjmrsManifestURI = Lens.lens (manifestURI :: GetJobManifestResponse -> Lude.Maybe Lude.Text) (\s a -> s {manifestURI = a} :: GetJobManifestResponse)
-{-# DEPRECATED gjmrsManifestURI "Use generic-lens or generic-optics with 'manifestURI' instead." #-}
+gjmrrsManifestURI :: Lens.Lens' GetJobManifestResponse (Core.Maybe Types.String)
+gjmrrsManifestURI = Lens.field @"manifestURI"
+{-# DEPRECATED gjmrrsManifestURI "Use generic-lens or generic-optics with 'manifestURI' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjmrsResponseStatus :: Lens.Lens' GetJobManifestResponse Lude.Int
-gjmrsResponseStatus = Lens.lens (responseStatus :: GetJobManifestResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJobManifestResponse)
-{-# DEPRECATED gjmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gjmrrsResponseStatus :: Lens.Lens' GetJobManifestResponse Core.Int
+gjmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gjmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

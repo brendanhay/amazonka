@@ -486,7 +486,7 @@ responseGetTelemetryMetadata =
   res
     "GetTelemetryMetadataResponse"
     "fixture/GetTelemetryMetadataResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy GetTelemetryMetadata)
 
 responseListFindings :: ListFindingsResponse -> TestTree
@@ -494,7 +494,7 @@ responseListFindings =
   res
     "ListFindingsResponse"
     "fixture/ListFindingsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy ListFindings)
 
 responseListAssessmentTemplates :: ListAssessmentTemplatesResponse -> TestTree
@@ -502,7 +502,7 @@ responseListAssessmentTemplates =
   res
     "ListAssessmentTemplatesResponse"
     "fixture/ListAssessmentTemplatesResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy ListAssessmentTemplates)
 
 responseSubscribeToEvent :: SubscribeToEventResponse -> TestTree
@@ -510,7 +510,7 @@ responseSubscribeToEvent =
   res
     "SubscribeToEventResponse"
     "fixture/SubscribeToEventResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy SubscribeToEvent)
 
 responseListAssessmentRunAgents :: ListAssessmentRunAgentsResponse -> TestTree
@@ -518,7 +518,7 @@ responseListAssessmentRunAgents =
   res
     "ListAssessmentRunAgentsResponse"
     "fixture/ListAssessmentRunAgentsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy ListAssessmentRunAgents)
 
 responseStartAssessmentRun :: StartAssessmentRunResponse -> TestTree
@@ -526,7 +526,7 @@ responseStartAssessmentRun =
   res
     "StartAssessmentRunResponse"
     "fixture/StartAssessmentRunResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy StartAssessmentRun)
 
 responseDeleteAssessmentTemplate :: DeleteAssessmentTemplateResponse -> TestTree
@@ -534,7 +534,7 @@ responseDeleteAssessmentTemplate =
   res
     "DeleteAssessmentTemplateResponse"
     "fixture/DeleteAssessmentTemplateResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAssessmentTemplate)
 
 responseCreateAssessmentTemplate :: CreateAssessmentTemplateResponse -> TestTree
@@ -542,7 +542,7 @@ responseCreateAssessmentTemplate =
   res
     "CreateAssessmentTemplateResponse"
     "fixture/CreateAssessmentTemplateResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy CreateAssessmentTemplate)
 
 responseDescribeExclusions :: DescribeExclusionsResponse -> TestTree
@@ -550,7 +550,7 @@ responseDescribeExclusions =
   res
     "DescribeExclusionsResponse"
     "fixture/DescribeExclusionsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy DescribeExclusions)
 
 responseListTagsForResource :: ListTagsForResourceResponse -> TestTree
@@ -558,7 +558,7 @@ responseListTagsForResource =
   res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForResource)
 
 responseSetTagsForResource :: SetTagsForResourceResponse -> TestTree
@@ -566,7 +566,7 @@ responseSetTagsForResource =
   res
     "SetTagsForResourceResponse"
     "fixture/SetTagsForResourceResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy SetTagsForResource)
 
 responseDescribeCrossAccountAccessRole :: DescribeCrossAccountAccessRoleResponse -> TestTree
@@ -574,7 +574,7 @@ responseDescribeCrossAccountAccessRole =
   res
     "DescribeCrossAccountAccessRoleResponse"
     "fixture/DescribeCrossAccountAccessRoleResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy DescribeCrossAccountAccessRole)
 
 responseDescribeAssessmentTemplates :: DescribeAssessmentTemplatesResponse -> TestTree
@@ -582,7 +582,7 @@ responseDescribeAssessmentTemplates =
   res
     "DescribeAssessmentTemplatesResponse"
     "fixture/DescribeAssessmentTemplatesResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAssessmentTemplates)
 
 responseDescribeResourceGroups :: DescribeResourceGroupsResponse -> TestTree
@@ -590,7 +590,7 @@ responseDescribeResourceGroups =
   res
     "DescribeResourceGroupsResponse"
     "fixture/DescribeResourceGroupsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy DescribeResourceGroups)
 
 responseCreateAssessmentTarget :: CreateAssessmentTargetResponse -> TestTree
@@ -598,7 +598,7 @@ responseCreateAssessmentTarget =
   res
     "CreateAssessmentTargetResponse"
     "fixture/CreateAssessmentTargetResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy CreateAssessmentTarget)
 
 responseGetExclusionsPreview :: GetExclusionsPreviewResponse -> TestTree
@@ -606,7 +606,7 @@ responseGetExclusionsPreview =
   res
     "GetExclusionsPreviewResponse"
     "fixture/GetExclusionsPreviewResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy GetExclusionsPreview)
 
 responseListEventSubscriptions :: ListEventSubscriptionsResponse -> TestTree
@@ -614,7 +614,7 @@ responseListEventSubscriptions =
   res
     "ListEventSubscriptionsResponse"
     "fixture/ListEventSubscriptionsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy ListEventSubscriptions)
 
 responseRegisterCrossAccountAccessRole :: RegisterCrossAccountAccessRoleResponse -> TestTree
@@ -622,7 +622,7 @@ responseRegisterCrossAccountAccessRole =
   res
     "RegisterCrossAccountAccessRoleResponse"
     "fixture/RegisterCrossAccountAccessRoleResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy RegisterCrossAccountAccessRole)
 
 responseListAssessmentTargets :: ListAssessmentTargetsResponse -> TestTree
@@ -630,7 +630,7 @@ responseListAssessmentTargets =
   res
     "ListAssessmentTargetsResponse"
     "fixture/ListAssessmentTargetsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy ListAssessmentTargets)
 
 responseCreateExclusionsPreview :: CreateExclusionsPreviewResponse -> TestTree
@@ -638,7 +638,7 @@ responseCreateExclusionsPreview =
   res
     "CreateExclusionsPreviewResponse"
     "fixture/CreateExclusionsPreviewResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy CreateExclusionsPreview)
 
 responseCreateResourceGroup :: CreateResourceGroupResponse -> TestTree
@@ -646,7 +646,7 @@ responseCreateResourceGroup =
   res
     "CreateResourceGroupResponse"
     "fixture/CreateResourceGroupResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy CreateResourceGroup)
 
 responseDescribeRulesPackages :: DescribeRulesPackagesResponse -> TestTree
@@ -654,7 +654,7 @@ responseDescribeRulesPackages =
   res
     "DescribeRulesPackagesResponse"
     "fixture/DescribeRulesPackagesResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy DescribeRulesPackages)
 
 responseStopAssessmentRun :: StopAssessmentRunResponse -> TestTree
@@ -662,7 +662,7 @@ responseStopAssessmentRun =
   res
     "StopAssessmentRunResponse"
     "fixture/StopAssessmentRunResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy StopAssessmentRun)
 
 responseListExclusions :: ListExclusionsResponse -> TestTree
@@ -670,7 +670,7 @@ responseListExclusions =
   res
     "ListExclusionsResponse"
     "fixture/ListExclusionsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy ListExclusions)
 
 responsePreviewAgents :: PreviewAgentsResponse -> TestTree
@@ -678,7 +678,7 @@ responsePreviewAgents =
   res
     "PreviewAgentsResponse"
     "fixture/PreviewAgentsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy PreviewAgents)
 
 responseDescribeFindings :: DescribeFindingsResponse -> TestTree
@@ -686,7 +686,7 @@ responseDescribeFindings =
   res
     "DescribeFindingsResponse"
     "fixture/DescribeFindingsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy DescribeFindings)
 
 responseAddAttributesToFindings :: AddAttributesToFindingsResponse -> TestTree
@@ -694,7 +694,7 @@ responseAddAttributesToFindings =
   res
     "AddAttributesToFindingsResponse"
     "fixture/AddAttributesToFindingsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy AddAttributesToFindings)
 
 responseUpdateAssessmentTarget :: UpdateAssessmentTargetResponse -> TestTree
@@ -702,7 +702,7 @@ responseUpdateAssessmentTarget =
   res
     "UpdateAssessmentTargetResponse"
     "fixture/UpdateAssessmentTargetResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy UpdateAssessmentTarget)
 
 responseDeleteAssessmentTarget :: DeleteAssessmentTargetResponse -> TestTree
@@ -710,7 +710,7 @@ responseDeleteAssessmentTarget =
   res
     "DeleteAssessmentTargetResponse"
     "fixture/DeleteAssessmentTargetResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAssessmentTarget)
 
 responseDeleteAssessmentRun :: DeleteAssessmentRunResponse -> TestTree
@@ -718,7 +718,7 @@ responseDeleteAssessmentRun =
   res
     "DeleteAssessmentRunResponse"
     "fixture/DeleteAssessmentRunResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAssessmentRun)
 
 responseListAssessmentRuns :: ListAssessmentRunsResponse -> TestTree
@@ -726,7 +726,7 @@ responseListAssessmentRuns =
   res
     "ListAssessmentRunsResponse"
     "fixture/ListAssessmentRunsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy ListAssessmentRuns)
 
 responseGetAssessmentReport :: GetAssessmentReportResponse -> TestTree
@@ -734,7 +734,7 @@ responseGetAssessmentReport =
   res
     "GetAssessmentReportResponse"
     "fixture/GetAssessmentReportResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy GetAssessmentReport)
 
 responseListRulesPackages :: ListRulesPackagesResponse -> TestTree
@@ -742,7 +742,7 @@ responseListRulesPackages =
   res
     "ListRulesPackagesResponse"
     "fixture/ListRulesPackagesResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy ListRulesPackages)
 
 responseDescribeAssessmentRuns :: DescribeAssessmentRunsResponse -> TestTree
@@ -750,7 +750,7 @@ responseDescribeAssessmentRuns =
   res
     "DescribeAssessmentRunsResponse"
     "fixture/DescribeAssessmentRunsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAssessmentRuns)
 
 responseUnsubscribeFromEvent :: UnsubscribeFromEventResponse -> TestTree
@@ -758,7 +758,7 @@ responseUnsubscribeFromEvent =
   res
     "UnsubscribeFromEventResponse"
     "fixture/UnsubscribeFromEventResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy UnsubscribeFromEvent)
 
 responseRemoveAttributesFromFindings :: RemoveAttributesFromFindingsResponse -> TestTree
@@ -766,7 +766,7 @@ responseRemoveAttributesFromFindings =
   res
     "RemoveAttributesFromFindingsResponse"
     "fixture/RemoveAttributesFromFindingsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy RemoveAttributesFromFindings)
 
 responseDescribeAssessmentTargets :: DescribeAssessmentTargetsResponse -> TestTree
@@ -774,5 +774,5 @@ responseDescribeAssessmentTargets =
   res
     "DescribeAssessmentTargetsResponse"
     "fixture/DescribeAssessmentTargetsResponse.proto"
-    inspectorService
+    mkServiceConfig
     (Proxy :: Proxy DescribeAssessmentTargets)

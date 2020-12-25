@@ -17,28 +17,37 @@ module Network.AWS.CodePipeline.Types.PipelineExecutionSummary
     mkPipelineExecutionSummary,
 
     -- * Lenses
-    pesStatus,
-    pesStartTime,
-    pesStopTrigger,
+    pesLastUpdateTime,
     pesPipelineExecutionId,
     pesSourceRevisions,
+    pesStartTime,
+    pesStatus,
+    pesStopTrigger,
     pesTrigger,
-    pesLastUpdateTime,
   )
 where
 
-import Network.AWS.CodePipeline.Types.ExecutionTrigger
-import Network.AWS.CodePipeline.Types.PipelineExecutionStatus
-import Network.AWS.CodePipeline.Types.SourceRevision
-import Network.AWS.CodePipeline.Types.StopExecutionTrigger
+import qualified Network.AWS.CodePipeline.Types.ExecutionTrigger as Types
+import qualified Network.AWS.CodePipeline.Types.PipelineExecutionId as Types
+import qualified Network.AWS.CodePipeline.Types.PipelineExecutionStatus as Types
+import qualified Network.AWS.CodePipeline.Types.SourceRevision as Types
+import qualified Network.AWS.CodePipeline.Types.StopExecutionTrigger as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Summary information about a pipeline execution.
 --
 -- /See:/ 'mkPipelineExecutionSummary' smart constructor.
 data PipelineExecutionSummary = PipelineExecutionSummary'
-  { -- | The status of the pipeline execution.
+  { -- | The date and time of the last change to the pipeline execution, in timestamp format.
+    lastUpdateTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID of the pipeline execution.
+    pipelineExecutionId :: Core.Maybe Types.PipelineExecutionId,
+    -- | A list of the source artifact revisions that initiated a pipeline execution.
+    sourceRevisions :: Core.Maybe [Types.SourceRevision],
+    -- | The date and time when the pipeline execution began, in timestamp format.
+    startTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the pipeline execution.
     --
     --
     --     * InProgress: The pipeline execution is currently running.
@@ -57,64 +66,56 @@ data PipelineExecutionSummary = PipelineExecutionSummary'
     --
     --
     --     * Failed: The pipeline execution was not completed successfully.
-    status :: Lude.Maybe PipelineExecutionStatus,
-    -- | The date and time when the pipeline execution began, in timestamp format.
-    startTime :: Lude.Maybe Lude.Timestamp,
+    status :: Core.Maybe Types.PipelineExecutionStatus,
     -- | The interaction that stopped a pipeline execution.
-    stopTrigger :: Lude.Maybe StopExecutionTrigger,
-    -- | The ID of the pipeline execution.
-    pipelineExecutionId :: Lude.Maybe Lude.Text,
-    -- | A list of the source artifact revisions that initiated a pipeline execution.
-    sourceRevisions :: Lude.Maybe [SourceRevision],
+    stopTrigger :: Core.Maybe Types.StopExecutionTrigger,
     -- | The interaction or event that started a pipeline execution, such as automated change detection or a @StartPipelineExecution@ API call.
-    trigger :: Lude.Maybe ExecutionTrigger,
-    -- | The date and time of the last change to the pipeline execution, in timestamp format.
-    lastUpdateTime :: Lude.Maybe Lude.Timestamp
+    trigger :: Core.Maybe Types.ExecutionTrigger
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PipelineExecutionSummary' with the minimum fields required to make a request.
---
--- * 'status' - The status of the pipeline execution.
---
---
---     * InProgress: The pipeline execution is currently running.
---
---
---     * Stopped: The pipeline execution was manually stopped. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions> .
---
---
---     * Stopping: The pipeline execution received a request to be manually stopped. Depending on the selected stop mode, the execution is either completing or abandoning in-progress actions. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-executions-stopped Stopped Executions> .
---
---
---     * Succeeded: The pipeline execution was completed successfully.
---
---
---     * Superseded: While this pipeline execution was waiting for the next stage to be completed, a newer pipeline execution advanced and continued through the pipeline instead. For more information, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts.html#concepts-superseded Superseded Executions> .
---
---
---     * Failed: The pipeline execution was not completed successfully.
---
---
--- * 'startTime' - The date and time when the pipeline execution began, in timestamp format.
--- * 'stopTrigger' - The interaction that stopped a pipeline execution.
--- * 'pipelineExecutionId' - The ID of the pipeline execution.
--- * 'sourceRevisions' - A list of the source artifact revisions that initiated a pipeline execution.
--- * 'trigger' - The interaction or event that started a pipeline execution, such as automated change detection or a @StartPipelineExecution@ API call.
--- * 'lastUpdateTime' - The date and time of the last change to the pipeline execution, in timestamp format.
+-- | Creates a 'PipelineExecutionSummary' value with any optional fields omitted.
 mkPipelineExecutionSummary ::
   PipelineExecutionSummary
 mkPipelineExecutionSummary =
   PipelineExecutionSummary'
-    { status = Lude.Nothing,
-      startTime = Lude.Nothing,
-      stopTrigger = Lude.Nothing,
-      pipelineExecutionId = Lude.Nothing,
-      sourceRevisions = Lude.Nothing,
-      trigger = Lude.Nothing,
-      lastUpdateTime = Lude.Nothing
+    { lastUpdateTime = Core.Nothing,
+      pipelineExecutionId = Core.Nothing,
+      sourceRevisions = Core.Nothing,
+      startTime = Core.Nothing,
+      status = Core.Nothing,
+      stopTrigger = Core.Nothing,
+      trigger = Core.Nothing
     }
+
+-- | The date and time of the last change to the pipeline execution, in timestamp format.
+--
+-- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesLastUpdateTime :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Core.NominalDiffTime)
+pesLastUpdateTime = Lens.field @"lastUpdateTime"
+{-# DEPRECATED pesLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
+
+-- | The ID of the pipeline execution.
+--
+-- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesPipelineExecutionId :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Types.PipelineExecutionId)
+pesPipelineExecutionId = Lens.field @"pipelineExecutionId"
+{-# DEPRECATED pesPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
+
+-- | A list of the source artifact revisions that initiated a pipeline execution.
+--
+-- /Note:/ Consider using 'sourceRevisions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesSourceRevisions :: Lens.Lens' PipelineExecutionSummary (Core.Maybe [Types.SourceRevision])
+pesSourceRevisions = Lens.field @"sourceRevisions"
+{-# DEPRECATED pesSourceRevisions "Use generic-lens or generic-optics with 'sourceRevisions' instead." #-}
+
+-- | The date and time when the pipeline execution began, in timestamp format.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pesStartTime :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Core.NominalDiffTime)
+pesStartTime = Lens.field @"startTime"
+{-# DEPRECATED pesStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The status of the pipeline execution.
 --
@@ -139,63 +140,33 @@ mkPipelineExecutionSummary =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesStatus :: Lens.Lens' PipelineExecutionSummary (Lude.Maybe PipelineExecutionStatus)
-pesStatus = Lens.lens (status :: PipelineExecutionSummary -> Lude.Maybe PipelineExecutionStatus) (\s a -> s {status = a} :: PipelineExecutionSummary)
+pesStatus :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Types.PipelineExecutionStatus)
+pesStatus = Lens.field @"status"
 {-# DEPRECATED pesStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The date and time when the pipeline execution began, in timestamp format.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesStartTime :: Lens.Lens' PipelineExecutionSummary (Lude.Maybe Lude.Timestamp)
-pesStartTime = Lens.lens (startTime :: PipelineExecutionSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: PipelineExecutionSummary)
-{-# DEPRECATED pesStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The interaction that stopped a pipeline execution.
 --
 -- /Note:/ Consider using 'stopTrigger' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesStopTrigger :: Lens.Lens' PipelineExecutionSummary (Lude.Maybe StopExecutionTrigger)
-pesStopTrigger = Lens.lens (stopTrigger :: PipelineExecutionSummary -> Lude.Maybe StopExecutionTrigger) (\s a -> s {stopTrigger = a} :: PipelineExecutionSummary)
+pesStopTrigger :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Types.StopExecutionTrigger)
+pesStopTrigger = Lens.field @"stopTrigger"
 {-# DEPRECATED pesStopTrigger "Use generic-lens or generic-optics with 'stopTrigger' instead." #-}
-
--- | The ID of the pipeline execution.
---
--- /Note:/ Consider using 'pipelineExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesPipelineExecutionId :: Lens.Lens' PipelineExecutionSummary (Lude.Maybe Lude.Text)
-pesPipelineExecutionId = Lens.lens (pipelineExecutionId :: PipelineExecutionSummary -> Lude.Maybe Lude.Text) (\s a -> s {pipelineExecutionId = a} :: PipelineExecutionSummary)
-{-# DEPRECATED pesPipelineExecutionId "Use generic-lens or generic-optics with 'pipelineExecutionId' instead." #-}
-
--- | A list of the source artifact revisions that initiated a pipeline execution.
---
--- /Note:/ Consider using 'sourceRevisions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesSourceRevisions :: Lens.Lens' PipelineExecutionSummary (Lude.Maybe [SourceRevision])
-pesSourceRevisions = Lens.lens (sourceRevisions :: PipelineExecutionSummary -> Lude.Maybe [SourceRevision]) (\s a -> s {sourceRevisions = a} :: PipelineExecutionSummary)
-{-# DEPRECATED pesSourceRevisions "Use generic-lens or generic-optics with 'sourceRevisions' instead." #-}
 
 -- | The interaction or event that started a pipeline execution, such as automated change detection or a @StartPipelineExecution@ API call.
 --
 -- /Note:/ Consider using 'trigger' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesTrigger :: Lens.Lens' PipelineExecutionSummary (Lude.Maybe ExecutionTrigger)
-pesTrigger = Lens.lens (trigger :: PipelineExecutionSummary -> Lude.Maybe ExecutionTrigger) (\s a -> s {trigger = a} :: PipelineExecutionSummary)
+pesTrigger :: Lens.Lens' PipelineExecutionSummary (Core.Maybe Types.ExecutionTrigger)
+pesTrigger = Lens.field @"trigger"
 {-# DEPRECATED pesTrigger "Use generic-lens or generic-optics with 'trigger' instead." #-}
 
--- | The date and time of the last change to the pipeline execution, in timestamp format.
---
--- /Note:/ Consider using 'lastUpdateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pesLastUpdateTime :: Lens.Lens' PipelineExecutionSummary (Lude.Maybe Lude.Timestamp)
-pesLastUpdateTime = Lens.lens (lastUpdateTime :: PipelineExecutionSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdateTime = a} :: PipelineExecutionSummary)
-{-# DEPRECATED pesLastUpdateTime "Use generic-lens or generic-optics with 'lastUpdateTime' instead." #-}
-
-instance Lude.FromJSON PipelineExecutionSummary where
+instance Core.FromJSON PipelineExecutionSummary where
   parseJSON =
-    Lude.withObject
-      "PipelineExecutionSummary"
-      ( \x ->
-          PipelineExecutionSummary'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "startTime")
-            Lude.<*> (x Lude..:? "stopTrigger")
-            Lude.<*> (x Lude..:? "pipelineExecutionId")
-            Lude.<*> (x Lude..:? "sourceRevisions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "trigger")
-            Lude.<*> (x Lude..:? "lastUpdateTime")
-      )
+    Core.withObject "PipelineExecutionSummary" Core.$
+      \x ->
+        PipelineExecutionSummary'
+          Core.<$> (x Core..:? "lastUpdateTime")
+          Core.<*> (x Core..:? "pipelineExecutionId")
+          Core.<*> (x Core..:? "sourceRevisions")
+          Core.<*> (x Core..:? "startTime")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "stopTrigger")
+          Core.<*> (x Core..:? "trigger")

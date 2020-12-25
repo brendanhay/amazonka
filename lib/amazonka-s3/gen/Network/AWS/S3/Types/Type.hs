@@ -13,52 +13,54 @@
 module Network.AWS.S3.Types.Type
   ( Type
       ( Type',
-        CanonicalUser,
-        AmazonCustomerByEmail,
-        Group
+        TypeCanonicalUser,
+        TypeAmazonCustomerByEmail,
+        TypeGroup,
+        fromType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype Type = Type' Lude.Text
+newtype Type = Type' {fromType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CanonicalUser :: Type
-pattern CanonicalUser = Type' "CanonicalUser"
+pattern TypeCanonicalUser :: Type
+pattern TypeCanonicalUser = Type' "CanonicalUser"
 
-pattern AmazonCustomerByEmail :: Type
-pattern AmazonCustomerByEmail = Type' "AmazonCustomerByEmail"
+pattern TypeAmazonCustomerByEmail :: Type
+pattern TypeAmazonCustomerByEmail = Type' "AmazonCustomerByEmail"
 
-pattern Group :: Type
-pattern Group = Type' "Group"
+pattern TypeGroup :: Type
+pattern TypeGroup = Type' "Group"
 
 {-# COMPLETE
-  CanonicalUser,
-  AmazonCustomerByEmail,
-  Group,
+  TypeCanonicalUser,
+  TypeAmazonCustomerByEmail,
+  TypeGroup,
   Type'
   #-}

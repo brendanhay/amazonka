@@ -22,63 +22,57 @@ module Network.AWS.Greengrass.Types.LocalDeviceResourceData
   )
 where
 
-import Network.AWS.Greengrass.Types.GroupOwnerSetting
+import qualified Network.AWS.Greengrass.Types.GroupOwnerSetting as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Attributes that define a local device resource.
 --
 -- /See:/ 'mkLocalDeviceResourceData' smart constructor.
 data LocalDeviceResourceData = LocalDeviceResourceData'
   { -- | Group/owner related settings for local resources.
-    groupOwnerSetting :: Lude.Maybe GroupOwnerSetting,
+    groupOwnerSetting :: Core.Maybe Types.GroupOwnerSetting,
     -- | The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''.
-    sourcePath :: Lude.Maybe Lude.Text
+    sourcePath :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LocalDeviceResourceData' with the minimum fields required to make a request.
---
--- * 'groupOwnerSetting' - Group/owner related settings for local resources.
--- * 'sourcePath' - The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''.
+-- | Creates a 'LocalDeviceResourceData' value with any optional fields omitted.
 mkLocalDeviceResourceData ::
   LocalDeviceResourceData
 mkLocalDeviceResourceData =
   LocalDeviceResourceData'
-    { groupOwnerSetting = Lude.Nothing,
-      sourcePath = Lude.Nothing
+    { groupOwnerSetting = Core.Nothing,
+      sourcePath = Core.Nothing
     }
 
 -- | Group/owner related settings for local resources.
 --
 -- /Note:/ Consider using 'groupOwnerSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrdGroupOwnerSetting :: Lens.Lens' LocalDeviceResourceData (Lude.Maybe GroupOwnerSetting)
-ldrdGroupOwnerSetting = Lens.lens (groupOwnerSetting :: LocalDeviceResourceData -> Lude.Maybe GroupOwnerSetting) (\s a -> s {groupOwnerSetting = a} :: LocalDeviceResourceData)
+ldrdGroupOwnerSetting :: Lens.Lens' LocalDeviceResourceData (Core.Maybe Types.GroupOwnerSetting)
+ldrdGroupOwnerSetting = Lens.field @"groupOwnerSetting"
 {-# DEPRECATED ldrdGroupOwnerSetting "Use generic-lens or generic-optics with 'groupOwnerSetting' instead." #-}
 
 -- | The local absolute path of the device resource. The source path for a device resource can refer only to a character device or block device under ''/dev''.
 --
 -- /Note:/ Consider using 'sourcePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrdSourcePath :: Lens.Lens' LocalDeviceResourceData (Lude.Maybe Lude.Text)
-ldrdSourcePath = Lens.lens (sourcePath :: LocalDeviceResourceData -> Lude.Maybe Lude.Text) (\s a -> s {sourcePath = a} :: LocalDeviceResourceData)
+ldrdSourcePath :: Lens.Lens' LocalDeviceResourceData (Core.Maybe Core.Text)
+ldrdSourcePath = Lens.field @"sourcePath"
 {-# DEPRECATED ldrdSourcePath "Use generic-lens or generic-optics with 'sourcePath' instead." #-}
 
-instance Lude.FromJSON LocalDeviceResourceData where
-  parseJSON =
-    Lude.withObject
-      "LocalDeviceResourceData"
-      ( \x ->
-          LocalDeviceResourceData'
-            Lude.<$> (x Lude..:? "GroupOwnerSetting")
-            Lude.<*> (x Lude..:? "SourcePath")
-      )
-
-instance Lude.ToJSON LocalDeviceResourceData where
-  toJSON LocalDeviceResourceData' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("GroupOwnerSetting" Lude..=) Lude.<$> groupOwnerSetting,
-            ("SourcePath" Lude..=) Lude.<$> sourcePath
+instance Core.FromJSON LocalDeviceResourceData where
+  toJSON LocalDeviceResourceData {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("GroupOwnerSetting" Core..=) Core.<$> groupOwnerSetting,
+            ("SourcePath" Core..=) Core.<$> sourcePath
           ]
       )
+
+instance Core.FromJSON LocalDeviceResourceData where
+  parseJSON =
+    Core.withObject "LocalDeviceResourceData" Core.$
+      \x ->
+        LocalDeviceResourceData'
+          Core.<$> (x Core..:? "GroupOwnerSetting") Core.<*> (x Core..:? "SourcePath")

@@ -17,60 +17,56 @@ module Network.AWS.ServiceCatalog.Types.ServiceActionDetail
     mkServiceActionDetail,
 
     -- * Lenses
-    sadServiceActionSummary,
     sadDefinition,
+    sadServiceActionSummary,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionKey
-import Network.AWS.ServiceCatalog.Types.ServiceActionSummary
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionKey as Types
+import qualified Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionValue as Types
+import qualified Network.AWS.ServiceCatalog.Types.ServiceActionSummary as Types
 
 -- | An object containing detailed information about the self-service action.
 --
 -- /See:/ 'mkServiceActionDetail' smart constructor.
 data ServiceActionDetail = ServiceActionDetail'
-  { -- | Summary information about the self-service action.
-    serviceActionSummary :: Lude.Maybe ServiceActionSummary,
-    -- | A map that defines the self-service action.
-    definition :: Lude.Maybe (Lude.HashMap ServiceActionDefinitionKey (Lude.Text))
+  { -- | A map that defines the self-service action.
+    definition :: Core.Maybe (Core.HashMap Types.ServiceActionDefinitionKey Types.ServiceActionDefinitionValue),
+    -- | Summary information about the self-service action.
+    serviceActionSummary :: Core.Maybe Types.ServiceActionSummary
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServiceActionDetail' with the minimum fields required to make a request.
---
--- * 'serviceActionSummary' - Summary information about the self-service action.
--- * 'definition' - A map that defines the self-service action.
+-- | Creates a 'ServiceActionDetail' value with any optional fields omitted.
 mkServiceActionDetail ::
   ServiceActionDetail
 mkServiceActionDetail =
   ServiceActionDetail'
-    { serviceActionSummary = Lude.Nothing,
-      definition = Lude.Nothing
+    { definition = Core.Nothing,
+      serviceActionSummary = Core.Nothing
     }
-
--- | Summary information about the self-service action.
---
--- /Note:/ Consider using 'serviceActionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sadServiceActionSummary :: Lens.Lens' ServiceActionDetail (Lude.Maybe ServiceActionSummary)
-sadServiceActionSummary = Lens.lens (serviceActionSummary :: ServiceActionDetail -> Lude.Maybe ServiceActionSummary) (\s a -> s {serviceActionSummary = a} :: ServiceActionDetail)
-{-# DEPRECATED sadServiceActionSummary "Use generic-lens or generic-optics with 'serviceActionSummary' instead." #-}
 
 -- | A map that defines the self-service action.
 --
 -- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sadDefinition :: Lens.Lens' ServiceActionDetail (Lude.Maybe (Lude.HashMap ServiceActionDefinitionKey (Lude.Text)))
-sadDefinition = Lens.lens (definition :: ServiceActionDetail -> Lude.Maybe (Lude.HashMap ServiceActionDefinitionKey (Lude.Text))) (\s a -> s {definition = a} :: ServiceActionDetail)
+sadDefinition :: Lens.Lens' ServiceActionDetail (Core.Maybe (Core.HashMap Types.ServiceActionDefinitionKey Types.ServiceActionDefinitionValue))
+sadDefinition = Lens.field @"definition"
 {-# DEPRECATED sadDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
 
-instance Lude.FromJSON ServiceActionDetail where
+-- | Summary information about the self-service action.
+--
+-- /Note:/ Consider using 'serviceActionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sadServiceActionSummary :: Lens.Lens' ServiceActionDetail (Core.Maybe Types.ServiceActionSummary)
+sadServiceActionSummary = Lens.field @"serviceActionSummary"
+{-# DEPRECATED sadServiceActionSummary "Use generic-lens or generic-optics with 'serviceActionSummary' instead." #-}
+
+instance Core.FromJSON ServiceActionDetail where
   parseJSON =
-    Lude.withObject
-      "ServiceActionDetail"
-      ( \x ->
-          ServiceActionDetail'
-            Lude.<$> (x Lude..:? "ServiceActionSummary")
-            Lude.<*> (x Lude..:? "Definition" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ServiceActionDetail" Core.$
+      \x ->
+        ServiceActionDetail'
+          Core.<$> (x Core..:? "Definition")
+          Core.<*> (x Core..:? "ServiceActionSummary")

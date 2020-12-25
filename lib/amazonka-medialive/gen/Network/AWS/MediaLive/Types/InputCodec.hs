@@ -13,52 +13,54 @@
 module Network.AWS.MediaLive.Types.InputCodec
   ( InputCodec
       ( InputCodec',
-        MPEG2,
-        Avc,
-        Hevc
+        InputCodecMPEG2,
+        InputCodecAvc,
+        InputCodecHevc,
+        fromInputCodec
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | codec in increasing order of complexity
-newtype InputCodec = InputCodec' Lude.Text
+newtype InputCodec = InputCodec' {fromInputCodec :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MPEG2 :: InputCodec
-pattern MPEG2 = InputCodec' "MPEG2"
+pattern InputCodecMPEG2 :: InputCodec
+pattern InputCodecMPEG2 = InputCodec' "MPEG2"
 
-pattern Avc :: InputCodec
-pattern Avc = InputCodec' "AVC"
+pattern InputCodecAvc :: InputCodec
+pattern InputCodecAvc = InputCodec' "AVC"
 
-pattern Hevc :: InputCodec
-pattern Hevc = InputCodec' "HEVC"
+pattern InputCodecHevc :: InputCodec
+pattern InputCodecHevc = InputCodec' "HEVC"
 
 {-# COMPLETE
-  MPEG2,
-  Avc,
-  Hevc,
+  InputCodecMPEG2,
+  InputCodecAvc,
+  InputCodecHevc,
   InputCodec'
   #-}

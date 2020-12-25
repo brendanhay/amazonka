@@ -20,7 +20,7 @@ module Network.AWS.RDS.DeleteOptionGroup
     mkDeleteOptionGroup,
 
     -- ** Request lenses
-    dogOptionGroupName,
+    dOptionGroupName,
 
     -- * Destructuring the response
     DeleteOptionGroupResponse (..),
@@ -29,63 +29,64 @@ module Network.AWS.RDS.DeleteOptionGroup
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDeleteOptionGroup' smart constructor.
 newtype DeleteOptionGroup = DeleteOptionGroup'
   { -- | The name of the option group to be deleted.
-    optionGroupName :: Lude.Text
+    optionGroupName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteOptionGroup' with the minimum fields required to make a request.
---
--- * 'optionGroupName' - The name of the option group to be deleted.
+-- | Creates a 'DeleteOptionGroup' value with any optional fields omitted.
 mkDeleteOptionGroup ::
   -- | 'optionGroupName'
-  Lude.Text ->
+  Types.String ->
   DeleteOptionGroup
-mkDeleteOptionGroup pOptionGroupName_ =
-  DeleteOptionGroup' {optionGroupName = pOptionGroupName_}
+mkDeleteOptionGroup optionGroupName =
+  DeleteOptionGroup' {optionGroupName}
 
 -- | The name of the option group to be deleted.
 --
 -- /Note:/ Consider using 'optionGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dogOptionGroupName :: Lens.Lens' DeleteOptionGroup Lude.Text
-dogOptionGroupName = Lens.lens (optionGroupName :: DeleteOptionGroup -> Lude.Text) (\s a -> s {optionGroupName = a} :: DeleteOptionGroup)
-{-# DEPRECATED dogOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
+dOptionGroupName :: Lens.Lens' DeleteOptionGroup Types.String
+dOptionGroupName = Lens.field @"optionGroupName"
+{-# DEPRECATED dOptionGroupName "Use generic-lens or generic-optics with 'optionGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteOptionGroup where
+instance Core.AWSRequest DeleteOptionGroup where
   type Rs DeleteOptionGroup = DeleteOptionGroupResponse
-  request = Req.postQuery rdsService
-  response = Res.receiveNull DeleteOptionGroupResponse'
-
-instance Lude.ToHeaders DeleteOptionGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteOptionGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteOptionGroup where
-  toQuery DeleteOptionGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteOptionGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "OptionGroupName" Lude.=: optionGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteOptionGroup")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "OptionGroupName" optionGroupName)
+            )
+      }
+  response = Response.receiveNull DeleteOptionGroupResponse'
 
 -- | /See:/ 'mkDeleteOptionGroupResponse' smart constructor.
 data DeleteOptionGroupResponse = DeleteOptionGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteOptionGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteOptionGroupResponse' value with any optional fields omitted.
 mkDeleteOptionGroupResponse ::
   DeleteOptionGroupResponse
 mkDeleteOptionGroupResponse = DeleteOptionGroupResponse'

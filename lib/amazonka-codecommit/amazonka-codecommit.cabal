@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CodeCommit
     Network.AWS.CodeCommit.AssociateApprovalRuleTemplateWithRepository
@@ -148,54 +154,110 @@ library
     Network.AWS.CodeCommit.Waiters
 
   other-modules:
+    Network.AWS.CodeCommit.Types.AbsolutePath
+    Network.AWS.CodeCommit.Types.AccountId
+    Network.AWS.CodeCommit.Types.AdditionalData
+    Network.AWS.CodeCommit.Types.AfterBlobId
+    Network.AWS.CodeCommit.Types.AfterCommitSpecifier
     Network.AWS.CodeCommit.Types.Approval
     Network.AWS.CodeCommit.Types.ApprovalRule
+    Network.AWS.CodeCommit.Types.ApprovalRuleContent
     Network.AWS.CodeCommit.Types.ApprovalRuleEventMetadata
+    Network.AWS.CodeCommit.Types.ApprovalRuleId
+    Network.AWS.CodeCommit.Types.ApprovalRuleName
     Network.AWS.CodeCommit.Types.ApprovalRuleOverriddenEventMetadata
     Network.AWS.CodeCommit.Types.ApprovalRuleTemplate
+    Network.AWS.CodeCommit.Types.ApprovalRuleTemplateContent
+    Network.AWS.CodeCommit.Types.ApprovalRuleTemplateDescription
+    Network.AWS.CodeCommit.Types.ApprovalRuleTemplateId
+    Network.AWS.CodeCommit.Types.ApprovalRuleTemplateName
     Network.AWS.CodeCommit.Types.ApprovalState
     Network.AWS.CodeCommit.Types.ApprovalStateChangedEventMetadata
+    Network.AWS.CodeCommit.Types.Arn
+    Network.AWS.CodeCommit.Types.AuthorName
+    Network.AWS.CodeCommit.Types.BaseCommitId
     Network.AWS.CodeCommit.Types.BatchAssociateApprovalRuleTemplateWithRepositoriesError
     Network.AWS.CodeCommit.Types.BatchDescribeMergeConflictsError
     Network.AWS.CodeCommit.Types.BatchDisassociateApprovalRuleTemplateFromRepositoriesError
     Network.AWS.CodeCommit.Types.BatchGetCommitsError
+    Network.AWS.CodeCommit.Types.BeforeBlobId
+    Network.AWS.CodeCommit.Types.BeforeCommitSpecifier
+    Network.AWS.CodeCommit.Types.BlobId
     Network.AWS.CodeCommit.Types.BlobMetadata
     Network.AWS.CodeCommit.Types.BranchInfo
+    Network.AWS.CodeCommit.Types.BranchName
     Network.AWS.CodeCommit.Types.ChangeTypeEnum
+    Network.AWS.CodeCommit.Types.ClientRequestToken
+    Network.AWS.CodeCommit.Types.CloneUrlHttp
+    Network.AWS.CodeCommit.Types.CloneUrlSsh
     Network.AWS.CodeCommit.Types.Comment
+    Network.AWS.CodeCommit.Types.CommentId
     Network.AWS.CodeCommit.Types.CommentsForComparedCommit
     Network.AWS.CodeCommit.Types.CommentsForPullRequest
     Network.AWS.CodeCommit.Types.Commit
+    Network.AWS.CodeCommit.Types.CommitId
+    Network.AWS.CodeCommit.Types.CommitMessage
+    Network.AWS.CodeCommit.Types.CommitName
+    Network.AWS.CodeCommit.Types.CommitSpecifier
+    Network.AWS.CodeCommit.Types.ConfigurationId
     Network.AWS.CodeCommit.Types.Conflict
     Network.AWS.CodeCommit.Types.ConflictDetailLevelTypeEnum
     Network.AWS.CodeCommit.Types.ConflictMetadata
     Network.AWS.CodeCommit.Types.ConflictResolution
     Network.AWS.CodeCommit.Types.ConflictResolutionStrategyTypeEnum
+    Network.AWS.CodeCommit.Types.Content
+    Network.AWS.CodeCommit.Types.CustomData
+    Network.AWS.CodeCommit.Types.Date
+    Network.AWS.CodeCommit.Types.DefaultBranchName
     Network.AWS.CodeCommit.Types.DeleteFileEntry
+    Network.AWS.CodeCommit.Types.Description
+    Network.AWS.CodeCommit.Types.DestinationCommitId
+    Network.AWS.CodeCommit.Types.DestinationCommitSpecifier
+    Network.AWS.CodeCommit.Types.DestinationReference
     Network.AWS.CodeCommit.Types.Difference
+    Network.AWS.CodeCommit.Types.Email
+    Network.AWS.CodeCommit.Types.Emoji
+    Network.AWS.CodeCommit.Types.ErrorCode
+    Network.AWS.CodeCommit.Types.ErrorMessage
     Network.AWS.CodeCommit.Types.Evaluation
+    Network.AWS.CodeCommit.Types.ExceptionName
     Network.AWS.CodeCommit.Types.File
     Network.AWS.CodeCommit.Types.FileMetadata
     Network.AWS.CodeCommit.Types.FileModes
     Network.AWS.CodeCommit.Types.FileModeTypeEnum
+    Network.AWS.CodeCommit.Types.FilePath
     Network.AWS.CodeCommit.Types.FileSizes
     Network.AWS.CodeCommit.Types.Folder
+    Network.AWS.CodeCommit.Types.HunkContent
+    Network.AWS.CodeCommit.Types.InReplyTo
     Network.AWS.CodeCommit.Types.IsBinaryFile
     Network.AWS.CodeCommit.Types.Location
+    Network.AWS.CodeCommit.Types.MergedBy
+    Network.AWS.CodeCommit.Types.MergedCommitId
     Network.AWS.CodeCommit.Types.MergeHunk
     Network.AWS.CodeCommit.Types.MergeHunkDetail
     Network.AWS.CodeCommit.Types.MergeMetadata
     Network.AWS.CodeCommit.Types.MergeOperations
     Network.AWS.CodeCommit.Types.MergeOptionTypeEnum
+    Network.AWS.CodeCommit.Types.Message
+    Network.AWS.CodeCommit.Types.Mode
+    Network.AWS.CodeCommit.Types.Name
+    Network.AWS.CodeCommit.Types.NewName
+    Network.AWS.CodeCommit.Types.NewRuleContent
+    Network.AWS.CodeCommit.Types.NextToken
+    Network.AWS.CodeCommit.Types.ObjectId
     Network.AWS.CodeCommit.Types.ObjectTypeEnum
     Network.AWS.CodeCommit.Types.ObjectTypes
+    Network.AWS.CodeCommit.Types.OldName
     Network.AWS.CodeCommit.Types.OrderEnum
     Network.AWS.CodeCommit.Types.OriginApprovalRuleTemplate
     Network.AWS.CodeCommit.Types.OverrideStatus
+    Network.AWS.CodeCommit.Types.Path
     Network.AWS.CodeCommit.Types.PullRequest
     Network.AWS.CodeCommit.Types.PullRequestCreatedEventMetadata
     Network.AWS.CodeCommit.Types.PullRequestEvent
     Network.AWS.CodeCommit.Types.PullRequestEventType
+    Network.AWS.CodeCommit.Types.PullRequestId
     Network.AWS.CodeCommit.Types.PullRequestMergedStateChangedEventMetadata
     Network.AWS.CodeCommit.Types.PullRequestSourceReferenceUpdatedEventMetadata
     Network.AWS.CodeCommit.Types.PullRequestStatusChangedEventMetadata
@@ -203,21 +265,42 @@ library
     Network.AWS.CodeCommit.Types.PullRequestTarget
     Network.AWS.CodeCommit.Types.PutFileEntry
     Network.AWS.CodeCommit.Types.ReactionForComment
+    Network.AWS.CodeCommit.Types.ReactionValue
     Network.AWS.CodeCommit.Types.ReactionValueFormats
+    Network.AWS.CodeCommit.Types.ReferenceName
     Network.AWS.CodeCommit.Types.RelativeFileVersionEnum
+    Network.AWS.CodeCommit.Types.RelativePath
     Network.AWS.CodeCommit.Types.ReplaceContentEntry
     Network.AWS.CodeCommit.Types.ReplacementTypeEnum
+    Network.AWS.CodeCommit.Types.RepositoryDescription
+    Network.AWS.CodeCommit.Types.RepositoryId
     Network.AWS.CodeCommit.Types.RepositoryMetadata
+    Network.AWS.CodeCommit.Types.RepositoryName
     Network.AWS.CodeCommit.Types.RepositoryNameIdPair
     Network.AWS.CodeCommit.Types.RepositoryTrigger
     Network.AWS.CodeCommit.Types.RepositoryTriggerEventEnum
     Network.AWS.CodeCommit.Types.RepositoryTriggerExecutionFailure
+    Network.AWS.CodeCommit.Types.RepositoryTriggerExecutionFailureMessage
+    Network.AWS.CodeCommit.Types.RepositoryTriggerName
+    Network.AWS.CodeCommit.Types.ResourceArn
+    Network.AWS.CodeCommit.Types.RevisionId
+    Network.AWS.CodeCommit.Types.RuleContentSha256
     Network.AWS.CodeCommit.Types.SetFileModeEntry
+    Network.AWS.CodeCommit.Types.ShortCode
     Network.AWS.CodeCommit.Types.SortByEnum
+    Network.AWS.CodeCommit.Types.SourceCommitId
+    Network.AWS.CodeCommit.Types.SourceCommitSpecifier
     Network.AWS.CodeCommit.Types.SourceFileSpecifier
+    Network.AWS.CodeCommit.Types.SourceReference
     Network.AWS.CodeCommit.Types.SubModule
     Network.AWS.CodeCommit.Types.SymbolicLink
+    Network.AWS.CodeCommit.Types.TagKey
+    Network.AWS.CodeCommit.Types.TagValue
     Network.AWS.CodeCommit.Types.Target
+    Network.AWS.CodeCommit.Types.TargetBranch
+    Network.AWS.CodeCommit.Types.Title
+    Network.AWS.CodeCommit.Types.TreeId
+    Network.AWS.CodeCommit.Types.Unicode
     Network.AWS.CodeCommit.Types.UserInfo
 
   build-depends:   amazonka-core ==2.0.0.0.*

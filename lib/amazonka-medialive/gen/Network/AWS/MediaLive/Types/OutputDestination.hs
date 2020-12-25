@@ -17,98 +17,91 @@ module Network.AWS.MediaLive.Types.OutputDestination
     mkOutputDestination,
 
     -- * Lenses
-    odSettings,
-    odMediaPackageSettings,
     odId,
+    odMediaPackageSettings,
     odMultiplexSettings,
+    odSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.MediaPackageOutputDestinationSettings
-import Network.AWS.MediaLive.Types.MultiplexProgramChannelDestinationSettings
-import Network.AWS.MediaLive.Types.OutputDestinationSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.MediaPackageOutputDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.MultiplexProgramChannelDestinationSettings as Types
+import qualified Network.AWS.MediaLive.Types.OutputDestinationSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Placeholder documentation for OutputDestination
 --
 -- /See:/ 'mkOutputDestination' smart constructor.
 data OutputDestination = OutputDestination'
-  { -- | Destination settings for a standard output; one destination for each redundant encoder.
-    settings :: Lude.Maybe [OutputDestinationSettings],
+  { -- | User-specified id. This is used in an output group or an output.
+    id :: Core.Maybe Core.Text,
     -- | Destination settings for a MediaPackage output; one destination for both encoders.
-    mediaPackageSettings :: Lude.Maybe [MediaPackageOutputDestinationSettings],
-    -- | User-specified id. This is used in an output group or an output.
-    id :: Lude.Maybe Lude.Text,
+    mediaPackageSettings :: Core.Maybe [Types.MediaPackageOutputDestinationSettings],
     -- | Destination settings for a Multiplex output; one destination for both encoders.
-    multiplexSettings :: Lude.Maybe MultiplexProgramChannelDestinationSettings
+    multiplexSettings :: Core.Maybe Types.MultiplexProgramChannelDestinationSettings,
+    -- | Destination settings for a standard output; one destination for each redundant encoder.
+    settings :: Core.Maybe [Types.OutputDestinationSettings]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OutputDestination' with the minimum fields required to make a request.
---
--- * 'settings' - Destination settings for a standard output; one destination for each redundant encoder.
--- * 'mediaPackageSettings' - Destination settings for a MediaPackage output; one destination for both encoders.
--- * 'id' - User-specified id. This is used in an output group or an output.
--- * 'multiplexSettings' - Destination settings for a Multiplex output; one destination for both encoders.
+-- | Creates a 'OutputDestination' value with any optional fields omitted.
 mkOutputDestination ::
   OutputDestination
 mkOutputDestination =
   OutputDestination'
-    { settings = Lude.Nothing,
-      mediaPackageSettings = Lude.Nothing,
-      id = Lude.Nothing,
-      multiplexSettings = Lude.Nothing
+    { id = Core.Nothing,
+      mediaPackageSettings = Core.Nothing,
+      multiplexSettings = Core.Nothing,
+      settings = Core.Nothing
     }
-
--- | Destination settings for a standard output; one destination for each redundant encoder.
---
--- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odSettings :: Lens.Lens' OutputDestination (Lude.Maybe [OutputDestinationSettings])
-odSettings = Lens.lens (settings :: OutputDestination -> Lude.Maybe [OutputDestinationSettings]) (\s a -> s {settings = a} :: OutputDestination)
-{-# DEPRECATED odSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
-
--- | Destination settings for a MediaPackage output; one destination for both encoders.
---
--- /Note:/ Consider using 'mediaPackageSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odMediaPackageSettings :: Lens.Lens' OutputDestination (Lude.Maybe [MediaPackageOutputDestinationSettings])
-odMediaPackageSettings = Lens.lens (mediaPackageSettings :: OutputDestination -> Lude.Maybe [MediaPackageOutputDestinationSettings]) (\s a -> s {mediaPackageSettings = a} :: OutputDestination)
-{-# DEPRECATED odMediaPackageSettings "Use generic-lens or generic-optics with 'mediaPackageSettings' instead." #-}
 
 -- | User-specified id. This is used in an output group or an output.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odId :: Lens.Lens' OutputDestination (Lude.Maybe Lude.Text)
-odId = Lens.lens (id :: OutputDestination -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: OutputDestination)
+odId :: Lens.Lens' OutputDestination (Core.Maybe Core.Text)
+odId = Lens.field @"id"
 {-# DEPRECATED odId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Destination settings for a MediaPackage output; one destination for both encoders.
+--
+-- /Note:/ Consider using 'mediaPackageSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+odMediaPackageSettings :: Lens.Lens' OutputDestination (Core.Maybe [Types.MediaPackageOutputDestinationSettings])
+odMediaPackageSettings = Lens.field @"mediaPackageSettings"
+{-# DEPRECATED odMediaPackageSettings "Use generic-lens or generic-optics with 'mediaPackageSettings' instead." #-}
 
 -- | Destination settings for a Multiplex output; one destination for both encoders.
 --
 -- /Note:/ Consider using 'multiplexSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-odMultiplexSettings :: Lens.Lens' OutputDestination (Lude.Maybe MultiplexProgramChannelDestinationSettings)
-odMultiplexSettings = Lens.lens (multiplexSettings :: OutputDestination -> Lude.Maybe MultiplexProgramChannelDestinationSettings) (\s a -> s {multiplexSettings = a} :: OutputDestination)
+odMultiplexSettings :: Lens.Lens' OutputDestination (Core.Maybe Types.MultiplexProgramChannelDestinationSettings)
+odMultiplexSettings = Lens.field @"multiplexSettings"
 {-# DEPRECATED odMultiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead." #-}
 
-instance Lude.FromJSON OutputDestination where
-  parseJSON =
-    Lude.withObject
-      "OutputDestination"
-      ( \x ->
-          OutputDestination'
-            Lude.<$> (x Lude..:? "settings" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "mediaPackageSettings" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "id")
-            Lude.<*> (x Lude..:? "multiplexSettings")
-      )
+-- | Destination settings for a standard output; one destination for each redundant encoder.
+--
+-- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+odSettings :: Lens.Lens' OutputDestination (Core.Maybe [Types.OutputDestinationSettings])
+odSettings = Lens.field @"settings"
+{-# DEPRECATED odSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
-instance Lude.ToJSON OutputDestination where
-  toJSON OutputDestination' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("settings" Lude..=) Lude.<$> settings,
-            ("mediaPackageSettings" Lude..=) Lude.<$> mediaPackageSettings,
-            ("id" Lude..=) Lude.<$> id,
-            ("multiplexSettings" Lude..=) Lude.<$> multiplexSettings
+instance Core.FromJSON OutputDestination where
+  toJSON OutputDestination {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("id" Core..=) Core.<$> id,
+            ("mediaPackageSettings" Core..=) Core.<$> mediaPackageSettings,
+            ("multiplexSettings" Core..=) Core.<$> multiplexSettings,
+            ("settings" Core..=) Core.<$> settings
           ]
       )
+
+instance Core.FromJSON OutputDestination where
+  parseJSON =
+    Core.withObject "OutputDestination" Core.$
+      \x ->
+        OutputDestination'
+          Core.<$> (x Core..:? "id")
+          Core.<*> (x Core..:? "mediaPackageSettings")
+          Core.<*> (x Core..:? "multiplexSettings")
+          Core.<*> (x Core..:? "settings")

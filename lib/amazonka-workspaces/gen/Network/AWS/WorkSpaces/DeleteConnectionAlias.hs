@@ -22,101 +22,90 @@ module Network.AWS.WorkSpaces.DeleteConnectionAlias
     mkDeleteConnectionAlias,
 
     -- ** Request lenses
-    dcaAliasId,
+    dAliasId,
 
     -- * Destructuring the response
     DeleteConnectionAliasResponse (..),
     mkDeleteConnectionAliasResponse,
 
     -- ** Response lenses
-    dcarsResponseStatus,
+    dcarfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkDeleteConnectionAlias' smart constructor.
 newtype DeleteConnectionAlias = DeleteConnectionAlias'
   { -- | The identifier of the connection alias to delete.
-    aliasId :: Lude.Text
+    aliasId :: Types.AliasId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConnectionAlias' with the minimum fields required to make a request.
---
--- * 'aliasId' - The identifier of the connection alias to delete.
+-- | Creates a 'DeleteConnectionAlias' value with any optional fields omitted.
 mkDeleteConnectionAlias ::
   -- | 'aliasId'
-  Lude.Text ->
+  Types.AliasId ->
   DeleteConnectionAlias
-mkDeleteConnectionAlias pAliasId_ =
-  DeleteConnectionAlias' {aliasId = pAliasId_}
+mkDeleteConnectionAlias aliasId = DeleteConnectionAlias' {aliasId}
 
 -- | The identifier of the connection alias to delete.
 --
 -- /Note:/ Consider using 'aliasId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaAliasId :: Lens.Lens' DeleteConnectionAlias Lude.Text
-dcaAliasId = Lens.lens (aliasId :: DeleteConnectionAlias -> Lude.Text) (\s a -> s {aliasId = a} :: DeleteConnectionAlias)
-{-# DEPRECATED dcaAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
+dAliasId :: Lens.Lens' DeleteConnectionAlias Types.AliasId
+dAliasId = Lens.field @"aliasId"
+{-# DEPRECATED dAliasId "Use generic-lens or generic-optics with 'aliasId' instead." #-}
 
-instance Lude.AWSRequest DeleteConnectionAlias where
+instance Core.FromJSON DeleteConnectionAlias where
+  toJSON DeleteConnectionAlias {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("AliasId" Core..= aliasId)])
+
+instance Core.AWSRequest DeleteConnectionAlias where
   type Rs DeleteConnectionAlias = DeleteConnectionAliasResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "WorkspacesService.DeleteConnectionAlias")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteConnectionAliasResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteConnectionAlias where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.DeleteConnectionAlias" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteConnectionAlias where
-  toJSON DeleteConnectionAlias' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("AliasId" Lude..= aliasId)])
-
-instance Lude.ToPath DeleteConnectionAlias where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteConnectionAlias where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteConnectionAliasResponse' smart constructor.
 newtype DeleteConnectionAliasResponse = DeleteConnectionAliasResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConnectionAliasResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteConnectionAliasResponse' value with any optional fields omitted.
 mkDeleteConnectionAliasResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteConnectionAliasResponse
-mkDeleteConnectionAliasResponse pResponseStatus_ =
-  DeleteConnectionAliasResponse' {responseStatus = pResponseStatus_}
+mkDeleteConnectionAliasResponse responseStatus =
+  DeleteConnectionAliasResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcarsResponseStatus :: Lens.Lens' DeleteConnectionAliasResponse Lude.Int
-dcarsResponseStatus = Lens.lens (responseStatus :: DeleteConnectionAliasResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConnectionAliasResponse)
-{-# DEPRECATED dcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcarfrsResponseStatus :: Lens.Lens' DeleteConnectionAliasResponse Core.Int
+dcarfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcarfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,51 +13,53 @@
 module Network.AWS.OpsWorks.Types.VolumeType
   ( VolumeType
       ( VolumeType',
-        GP2,
-        IO1,
-        Standard
+        VolumeTypeGP2,
+        VolumeTypeIO1,
+        VolumeTypeStandard,
+        fromVolumeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype VolumeType = VolumeType' Lude.Text
+newtype VolumeType = VolumeType' {fromVolumeType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern GP2 :: VolumeType
-pattern GP2 = VolumeType' "gp2"
+pattern VolumeTypeGP2 :: VolumeType
+pattern VolumeTypeGP2 = VolumeType' "gp2"
 
-pattern IO1 :: VolumeType
-pattern IO1 = VolumeType' "io1"
+pattern VolumeTypeIO1 :: VolumeType
+pattern VolumeTypeIO1 = VolumeType' "io1"
 
-pattern Standard :: VolumeType
-pattern Standard = VolumeType' "standard"
+pattern VolumeTypeStandard :: VolumeType
+pattern VolumeTypeStandard = VolumeType' "standard"
 
 {-# COMPLETE
-  GP2,
-  IO1,
-  Standard,
+  VolumeTypeGP2,
+  VolumeTypeIO1,
+  VolumeTypeStandard,
   VolumeType'
   #-}

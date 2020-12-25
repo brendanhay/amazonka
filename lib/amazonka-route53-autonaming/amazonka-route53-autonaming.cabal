@@ -46,30 +46,36 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Route53AutoNaming
-    Network.AWS.Route53AutoNaming.CreateHTTPNamespace
-    Network.AWS.Route53AutoNaming.CreatePrivateDNSNamespace
-    Network.AWS.Route53AutoNaming.CreatePublicDNSNamespace
+    Network.AWS.Route53AutoNaming.CreateHttpNamespace
+    Network.AWS.Route53AutoNaming.CreatePrivateDnsNamespace
+    Network.AWS.Route53AutoNaming.CreatePublicDnsNamespace
     Network.AWS.Route53AutoNaming.CreateService
     Network.AWS.Route53AutoNaming.DeleteNamespace
     Network.AWS.Route53AutoNaming.DeleteService
@@ -94,42 +100,64 @@ library
     Network.AWS.Route53AutoNaming.Waiters
 
   other-modules:
+    Network.AWS.Route53AutoNaming.Types.AmazonResourceName
+    Network.AWS.Route53AutoNaming.Types.Arn
+    Network.AWS.Route53AutoNaming.Types.AttrKey
+    Network.AWS.Route53AutoNaming.Types.AttrValue
     Network.AWS.Route53AutoNaming.Types.CustomHealthStatus
-    Network.AWS.Route53AutoNaming.Types.DNSConfig
-    Network.AWS.Route53AutoNaming.Types.DNSConfigChange
-    Network.AWS.Route53AutoNaming.Types.DNSProperties
-    Network.AWS.Route53AutoNaming.Types.DNSRecord
+    Network.AWS.Route53AutoNaming.Types.Description
+    Network.AWS.Route53AutoNaming.Types.DnsConfig
+    Network.AWS.Route53AutoNaming.Types.DnsConfigChange
+    Network.AWS.Route53AutoNaming.Types.DnsProperties
+    Network.AWS.Route53AutoNaming.Types.DnsRecord
+    Network.AWS.Route53AutoNaming.Types.ErrorCode
+    Network.AWS.Route53AutoNaming.Types.ErrorMessage
     Network.AWS.Route53AutoNaming.Types.FilterCondition
+    Network.AWS.Route53AutoNaming.Types.FilterValue
     Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
     Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
     Network.AWS.Route53AutoNaming.Types.HealthCheckType
     Network.AWS.Route53AutoNaming.Types.HealthStatus
     Network.AWS.Route53AutoNaming.Types.HealthStatusFilter
-    Network.AWS.Route53AutoNaming.Types.HTTPInstanceSummary
-    Network.AWS.Route53AutoNaming.Types.HTTPProperties
+    Network.AWS.Route53AutoNaming.Types.HttpInstanceSummary
+    Network.AWS.Route53AutoNaming.Types.HttpName
+    Network.AWS.Route53AutoNaming.Types.HttpProperties
+    Network.AWS.Route53AutoNaming.Types.Id
     Network.AWS.Route53AutoNaming.Types.Instance
     Network.AWS.Route53AutoNaming.Types.InstanceSummary
+    Network.AWS.Route53AutoNaming.Types.Key
+    Network.AWS.Route53AutoNaming.Types.Name
     Network.AWS.Route53AutoNaming.Types.Namespace
     Network.AWS.Route53AutoNaming.Types.NamespaceFilter
     Network.AWS.Route53AutoNaming.Types.NamespaceFilterName
+    Network.AWS.Route53AutoNaming.Types.NamespaceName
     Network.AWS.Route53AutoNaming.Types.NamespaceProperties
     Network.AWS.Route53AutoNaming.Types.NamespaceSummary
     Network.AWS.Route53AutoNaming.Types.NamespaceType
+    Network.AWS.Route53AutoNaming.Types.NextToken
     Network.AWS.Route53AutoNaming.Types.Operation
     Network.AWS.Route53AutoNaming.Types.OperationFilter
     Network.AWS.Route53AutoNaming.Types.OperationFilterName
+    Network.AWS.Route53AutoNaming.Types.OperationId
     Network.AWS.Route53AutoNaming.Types.OperationStatus
     Network.AWS.Route53AutoNaming.Types.OperationSummary
     Network.AWS.Route53AutoNaming.Types.OperationTargetType
     Network.AWS.Route53AutoNaming.Types.OperationType
     Network.AWS.Route53AutoNaming.Types.RecordType
+    Network.AWS.Route53AutoNaming.Types.ResourceARN
+    Network.AWS.Route53AutoNaming.Types.ResourceDescription
+    Network.AWS.Route53AutoNaming.Types.ResourceId
+    Network.AWS.Route53AutoNaming.Types.ResourcePath
     Network.AWS.Route53AutoNaming.Types.RoutingPolicy
     Network.AWS.Route53AutoNaming.Types.ServiceChange
     Network.AWS.Route53AutoNaming.Types.ServiceFilter
     Network.AWS.Route53AutoNaming.Types.ServiceFilterName
     Network.AWS.Route53AutoNaming.Types.ServiceInfo
+    Network.AWS.Route53AutoNaming.Types.ServiceName
     Network.AWS.Route53AutoNaming.Types.ServiceSummary
     Network.AWS.Route53AutoNaming.Types.Tag
+    Network.AWS.Route53AutoNaming.Types.TagKey
+    Network.AWS.Route53AutoNaming.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

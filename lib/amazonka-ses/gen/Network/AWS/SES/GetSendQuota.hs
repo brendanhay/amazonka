@@ -26,116 +26,112 @@ module Network.AWS.SES.GetSendQuota
     mkGetSendQuotaResponse,
 
     -- ** Response lenses
-    gsqrsMaxSendRate,
-    gsqrsSentLast24Hours,
-    gsqrsMax24HourSend,
-    gsqrsResponseStatus,
+    gsqrrsMax24HourSend,
+    gsqrrsMaxSendRate,
+    gsqrrsSentLast24Hours,
+    gsqrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | /See:/ 'mkGetSendQuota' smart constructor.
 data GetSendQuota = GetSendQuota'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSendQuota' with the minimum fields required to make a request.
+-- | Creates a 'GetSendQuota' value with any optional fields omitted.
 mkGetSendQuota ::
   GetSendQuota
 mkGetSendQuota = GetSendQuota'
 
-instance Lude.AWSRequest GetSendQuota where
+instance Core.AWSRequest GetSendQuota where
   type Rs GetSendQuota = GetSendQuotaResponse
-  request = Req.postQuery sesService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetSendQuota")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetSendQuotaResult"
       ( \s h x ->
           GetSendQuotaResponse'
-            Lude.<$> (x Lude..@? "MaxSendRate")
-            Lude.<*> (x Lude..@? "SentLast24Hours")
-            Lude.<*> (x Lude..@? "Max24HourSend")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders GetSendQuota where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetSendQuota where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetSendQuota where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action" Lude.=: ("GetSendQuota" :: Lude.ByteString),
-            "Version" Lude.=: ("2010-12-01" :: Lude.ByteString)
-          ]
+            Core.<$> (x Core..@? "Max24HourSend")
+            Core.<*> (x Core..@? "MaxSendRate")
+            Core.<*> (x Core..@? "SentLast24Hours")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | Represents your Amazon SES daily sending quota, maximum send rate, and the number of emails you have sent in the last 24 hours.
 --
 -- /See:/ 'mkGetSendQuotaResponse' smart constructor.
 data GetSendQuotaResponse = GetSendQuotaResponse'
-  { -- | The maximum number of emails that Amazon SES can accept from the user's account per second.
-    maxSendRate :: Lude.Maybe Lude.Double,
+  { -- | The maximum number of emails the user is allowed to send in a 24-hour interval. A value of -1 signifies an unlimited quota.
+    max24HourSend :: Core.Maybe Core.Double,
+    -- | The maximum number of emails that Amazon SES can accept from the user's account per second.
+    maxSendRate :: Core.Maybe Core.Double,
     -- | The number of emails sent during the previous 24 hours.
-    sentLast24Hours :: Lude.Maybe Lude.Double,
-    -- | The maximum number of emails the user is allowed to send in a 24-hour interval. A value of -1 signifies an unlimited quota.
-    max24HourSend :: Lude.Maybe Lude.Double,
+    sentLast24Hours :: Core.Maybe Core.Double,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSendQuotaResponse' with the minimum fields required to make a request.
---
--- * 'maxSendRate' - The maximum number of emails that Amazon SES can accept from the user's account per second.
--- * 'sentLast24Hours' - The number of emails sent during the previous 24 hours.
--- * 'max24HourSend' - The maximum number of emails the user is allowed to send in a 24-hour interval. A value of -1 signifies an unlimited quota.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSendQuotaResponse' value with any optional fields omitted.
 mkGetSendQuotaResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSendQuotaResponse
-mkGetSendQuotaResponse pResponseStatus_ =
+mkGetSendQuotaResponse responseStatus =
   GetSendQuotaResponse'
-    { maxSendRate = Lude.Nothing,
-      sentLast24Hours = Lude.Nothing,
-      max24HourSend = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { max24HourSend = Core.Nothing,
+      maxSendRate = Core.Nothing,
+      sentLast24Hours = Core.Nothing,
+      responseStatus
     }
-
--- | The maximum number of emails that Amazon SES can accept from the user's account per second.
---
--- /Note:/ Consider using 'maxSendRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsqrsMaxSendRate :: Lens.Lens' GetSendQuotaResponse (Lude.Maybe Lude.Double)
-gsqrsMaxSendRate = Lens.lens (maxSendRate :: GetSendQuotaResponse -> Lude.Maybe Lude.Double) (\s a -> s {maxSendRate = a} :: GetSendQuotaResponse)
-{-# DEPRECATED gsqrsMaxSendRate "Use generic-lens or generic-optics with 'maxSendRate' instead." #-}
-
--- | The number of emails sent during the previous 24 hours.
---
--- /Note:/ Consider using 'sentLast24Hours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsqrsSentLast24Hours :: Lens.Lens' GetSendQuotaResponse (Lude.Maybe Lude.Double)
-gsqrsSentLast24Hours = Lens.lens (sentLast24Hours :: GetSendQuotaResponse -> Lude.Maybe Lude.Double) (\s a -> s {sentLast24Hours = a} :: GetSendQuotaResponse)
-{-# DEPRECATED gsqrsSentLast24Hours "Use generic-lens or generic-optics with 'sentLast24Hours' instead." #-}
 
 -- | The maximum number of emails the user is allowed to send in a 24-hour interval. A value of -1 signifies an unlimited quota.
 --
 -- /Note:/ Consider using 'max24HourSend' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsqrsMax24HourSend :: Lens.Lens' GetSendQuotaResponse (Lude.Maybe Lude.Double)
-gsqrsMax24HourSend = Lens.lens (max24HourSend :: GetSendQuotaResponse -> Lude.Maybe Lude.Double) (\s a -> s {max24HourSend = a} :: GetSendQuotaResponse)
-{-# DEPRECATED gsqrsMax24HourSend "Use generic-lens or generic-optics with 'max24HourSend' instead." #-}
+gsqrrsMax24HourSend :: Lens.Lens' GetSendQuotaResponse (Core.Maybe Core.Double)
+gsqrrsMax24HourSend = Lens.field @"max24HourSend"
+{-# DEPRECATED gsqrrsMax24HourSend "Use generic-lens or generic-optics with 'max24HourSend' instead." #-}
+
+-- | The maximum number of emails that Amazon SES can accept from the user's account per second.
+--
+-- /Note:/ Consider using 'maxSendRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsqrrsMaxSendRate :: Lens.Lens' GetSendQuotaResponse (Core.Maybe Core.Double)
+gsqrrsMaxSendRate = Lens.field @"maxSendRate"
+{-# DEPRECATED gsqrrsMaxSendRate "Use generic-lens or generic-optics with 'maxSendRate' instead." #-}
+
+-- | The number of emails sent during the previous 24 hours.
+--
+-- /Note:/ Consider using 'sentLast24Hours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsqrrsSentLast24Hours :: Lens.Lens' GetSendQuotaResponse (Core.Maybe Core.Double)
+gsqrrsSentLast24Hours = Lens.field @"sentLast24Hours"
+{-# DEPRECATED gsqrrsSentLast24Hours "Use generic-lens or generic-optics with 'sentLast24Hours' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsqrsResponseStatus :: Lens.Lens' GetSendQuotaResponse Lude.Int
-gsqrsResponseStatus = Lens.lens (responseStatus :: GetSendQuotaResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSendQuotaResponse)
-{-# DEPRECATED gsqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsqrrsResponseStatus :: Lens.Lens' GetSendQuotaResponse Core.Int
+gsqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

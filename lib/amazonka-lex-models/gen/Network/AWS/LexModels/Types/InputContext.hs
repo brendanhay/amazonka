@@ -22,40 +22,38 @@ module Network.AWS.LexModels.Types.InputContext
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.InputContextName as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The name of a context that must be active for an intent to be selected by Amazon Lex.
 --
 -- /See:/ 'mkInputContext' smart constructor.
 newtype InputContext = InputContext'
   { -- | The name of the context.
-    name :: Lude.Text
+    name :: Types.InputContextName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputContext' with the minimum fields required to make a request.
---
--- * 'name' - The name of the context.
+-- | Creates a 'InputContext' value with any optional fields omitted.
 mkInputContext ::
   -- | 'name'
-  Lude.Text ->
+  Types.InputContextName ->
   InputContext
-mkInputContext pName_ = InputContext' {name = pName_}
+mkInputContext name = InputContext' {name}
 
 -- | The name of the context.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-icName :: Lens.Lens' InputContext Lude.Text
-icName = Lens.lens (name :: InputContext -> Lude.Text) (\s a -> s {name = a} :: InputContext)
+icName :: Lens.Lens' InputContext Types.InputContextName
+icName = Lens.field @"name"
 {-# DEPRECATED icName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON InputContext where
-  parseJSON =
-    Lude.withObject
-      "InputContext"
-      (\x -> InputContext' Lude.<$> (x Lude..: "name"))
+instance Core.FromJSON InputContext where
+  toJSON InputContext {..} =
+    Core.object (Core.catMaybes [Core.Just ("name" Core..= name)])
 
-instance Lude.ToJSON InputContext where
-  toJSON InputContext' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])
+instance Core.FromJSON InputContext where
+  parseJSON =
+    Core.withObject "InputContext" Core.$
+      \x -> InputContext' Core.<$> (x Core..: "name")

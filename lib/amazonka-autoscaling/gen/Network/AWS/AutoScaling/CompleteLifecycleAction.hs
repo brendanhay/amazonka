@@ -39,158 +39,152 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     mkCompleteLifecycleAction,
 
     -- ** Request lenses
-    claInstanceId,
     claLifecycleHookName,
-    claLifecycleActionToken,
-    claLifecycleActionResult,
     claAutoScalingGroupName,
+    claLifecycleActionResult,
+    claInstanceId,
+    claLifecycleActionToken,
 
     -- * Destructuring the response
     CompleteLifecycleActionResponse (..),
     mkCompleteLifecycleActionResponse,
 
     -- ** Response lenses
-    clarsResponseStatus,
+    clarrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCompleteLifecycleAction' smart constructor.
 data CompleteLifecycleAction = CompleteLifecycleAction'
-  { -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The name of the lifecycle hook.
-    lifecycleHookName :: Lude.Text,
-    -- | A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.
-    lifecycleActionToken :: Lude.Maybe Lude.Text,
-    -- | The action for the group to take. This parameter can be either @CONTINUE@ or @ABANDON@ .
-    lifecycleActionResult :: Lude.Text,
+  { -- | The name of the lifecycle hook.
+    lifecycleHookName :: Types.AsciiStringMaxLen255,
     -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text
+    autoScalingGroupName :: Types.ResourceName,
+    -- | The action for the group to take. This parameter can be either @CONTINUE@ or @ABANDON@ .
+    lifecycleActionResult :: Types.LifecycleActionResult,
+    -- | The ID of the instance.
+    instanceId :: Core.Maybe Types.XmlStringMaxLen19,
+    -- | A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.
+    lifecycleActionToken :: Core.Maybe Types.LifecycleActionToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CompleteLifecycleAction' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'lifecycleHookName' - The name of the lifecycle hook.
--- * 'lifecycleActionToken' - A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.
--- * 'lifecycleActionResult' - The action for the group to take. This parameter can be either @CONTINUE@ or @ABANDON@ .
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
+-- | Creates a 'CompleteLifecycleAction' value with any optional fields omitted.
 mkCompleteLifecycleAction ::
   -- | 'lifecycleHookName'
-  Lude.Text ->
-  -- | 'lifecycleActionResult'
-  Lude.Text ->
+  Types.AsciiStringMaxLen255 ->
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.ResourceName ->
+  -- | 'lifecycleActionResult'
+  Types.LifecycleActionResult ->
   CompleteLifecycleAction
 mkCompleteLifecycleAction
-  pLifecycleHookName_
-  pLifecycleActionResult_
-  pAutoScalingGroupName_ =
+  lifecycleHookName
+  autoScalingGroupName
+  lifecycleActionResult =
     CompleteLifecycleAction'
-      { instanceId = Lude.Nothing,
-        lifecycleHookName = pLifecycleHookName_,
-        lifecycleActionToken = Lude.Nothing,
-        lifecycleActionResult = pLifecycleActionResult_,
-        autoScalingGroupName = pAutoScalingGroupName_
+      { lifecycleHookName,
+        autoScalingGroupName,
+        lifecycleActionResult,
+        instanceId = Core.Nothing,
+        lifecycleActionToken = Core.Nothing
       }
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-claInstanceId :: Lens.Lens' CompleteLifecycleAction (Lude.Maybe Lude.Text)
-claInstanceId = Lens.lens (instanceId :: CompleteLifecycleAction -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: CompleteLifecycleAction)
-{-# DEPRECATED claInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The name of the lifecycle hook.
 --
 -- /Note:/ Consider using 'lifecycleHookName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-claLifecycleHookName :: Lens.Lens' CompleteLifecycleAction Lude.Text
-claLifecycleHookName = Lens.lens (lifecycleHookName :: CompleteLifecycleAction -> Lude.Text) (\s a -> s {lifecycleHookName = a} :: CompleteLifecycleAction)
+claLifecycleHookName :: Lens.Lens' CompleteLifecycleAction Types.AsciiStringMaxLen255
+claLifecycleHookName = Lens.field @"lifecycleHookName"
 {-# DEPRECATED claLifecycleHookName "Use generic-lens or generic-optics with 'lifecycleHookName' instead." #-}
-
--- | A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.
---
--- /Note:/ Consider using 'lifecycleActionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-claLifecycleActionToken :: Lens.Lens' CompleteLifecycleAction (Lude.Maybe Lude.Text)
-claLifecycleActionToken = Lens.lens (lifecycleActionToken :: CompleteLifecycleAction -> Lude.Maybe Lude.Text) (\s a -> s {lifecycleActionToken = a} :: CompleteLifecycleAction)
-{-# DEPRECATED claLifecycleActionToken "Use generic-lens or generic-optics with 'lifecycleActionToken' instead." #-}
-
--- | The action for the group to take. This parameter can be either @CONTINUE@ or @ABANDON@ .
---
--- /Note:/ Consider using 'lifecycleActionResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-claLifecycleActionResult :: Lens.Lens' CompleteLifecycleAction Lude.Text
-claLifecycleActionResult = Lens.lens (lifecycleActionResult :: CompleteLifecycleAction -> Lude.Text) (\s a -> s {lifecycleActionResult = a} :: CompleteLifecycleAction)
-{-# DEPRECATED claLifecycleActionResult "Use generic-lens or generic-optics with 'lifecycleActionResult' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-claAutoScalingGroupName :: Lens.Lens' CompleteLifecycleAction Lude.Text
-claAutoScalingGroupName = Lens.lens (autoScalingGroupName :: CompleteLifecycleAction -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: CompleteLifecycleAction)
+claAutoScalingGroupName :: Lens.Lens' CompleteLifecycleAction Types.ResourceName
+claAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED claAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
-instance Lude.AWSRequest CompleteLifecycleAction where
+-- | The action for the group to take. This parameter can be either @CONTINUE@ or @ABANDON@ .
+--
+-- /Note:/ Consider using 'lifecycleActionResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+claLifecycleActionResult :: Lens.Lens' CompleteLifecycleAction Types.LifecycleActionResult
+claLifecycleActionResult = Lens.field @"lifecycleActionResult"
+{-# DEPRECATED claLifecycleActionResult "Use generic-lens or generic-optics with 'lifecycleActionResult' instead." #-}
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+claInstanceId :: Lens.Lens' CompleteLifecycleAction (Core.Maybe Types.XmlStringMaxLen19)
+claInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED claInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | A universally unique identifier (UUID) that identifies a specific lifecycle action associated with an instance. Amazon EC2 Auto Scaling sends this token to the notification target you specified when you created the lifecycle hook.
+--
+-- /Note:/ Consider using 'lifecycleActionToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+claLifecycleActionToken :: Lens.Lens' CompleteLifecycleAction (Core.Maybe Types.LifecycleActionToken)
+claLifecycleActionToken = Lens.field @"lifecycleActionToken"
+{-# DEPRECATED claLifecycleActionToken "Use generic-lens or generic-optics with 'lifecycleActionToken' instead." #-}
+
+instance Core.AWSRequest CompleteLifecycleAction where
   type Rs CompleteLifecycleAction = CompleteLifecycleActionResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CompleteLifecycleAction")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "LifecycleHookName" lifecycleHookName)
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> (Core.toQueryValue "LifecycleActionResult" lifecycleActionResult)
+                Core.<> (Core.toQueryValue "InstanceId" Core.<$> instanceId)
+                Core.<> ( Core.toQueryValue "LifecycleActionToken"
+                            Core.<$> lifecycleActionToken
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CompleteLifecycleActionResult"
       ( \s h x ->
           CompleteLifecycleActionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CompleteLifecycleAction where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CompleteLifecycleAction where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CompleteLifecycleAction where
-  toQuery CompleteLifecycleAction' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CompleteLifecycleAction" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "LifecycleHookName" Lude.=: lifecycleHookName,
-        "LifecycleActionToken" Lude.=: lifecycleActionToken,
-        "LifecycleActionResult" Lude.=: lifecycleActionResult,
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName
-      ]
 
 -- | /See:/ 'mkCompleteLifecycleActionResponse' smart constructor.
 newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CompleteLifecycleActionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CompleteLifecycleActionResponse' value with any optional fields omitted.
 mkCompleteLifecycleActionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CompleteLifecycleActionResponse
-mkCompleteLifecycleActionResponse pResponseStatus_ =
-  CompleteLifecycleActionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkCompleteLifecycleActionResponse responseStatus =
+  CompleteLifecycleActionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clarsResponseStatus :: Lens.Lens' CompleteLifecycleActionResponse Lude.Int
-clarsResponseStatus = Lens.lens (responseStatus :: CompleteLifecycleActionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CompleteLifecycleActionResponse)
-{-# DEPRECATED clarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+clarrsResponseStatus :: Lens.Lens' CompleteLifecycleActionResponse Core.Int
+clarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED clarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

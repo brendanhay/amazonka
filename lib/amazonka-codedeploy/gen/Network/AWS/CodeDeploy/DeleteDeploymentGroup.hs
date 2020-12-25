@@ -28,132 +28,117 @@ module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     mkDeleteDeploymentGroupResponse,
 
     -- ** Response lenses
-    ddgrsHooksNotCleanedUp,
-    ddgrsResponseStatus,
+    ddgrrsHooksNotCleanedUp,
+    ddgrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DeleteDeploymentGroup@ operation.
 --
 -- /See:/ 'mkDeleteDeploymentGroup' smart constructor.
 data DeleteDeploymentGroup = DeleteDeploymentGroup'
   { -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
-    applicationName :: Lude.Text,
+    applicationName :: Types.ApplicationName,
     -- | The name of a deployment group for the specified application.
-    deploymentGroupName :: Lude.Text
+    deploymentGroupName :: Types.DeploymentGroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDeploymentGroup' with the minimum fields required to make a request.
---
--- * 'applicationName' - The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
--- * 'deploymentGroupName' - The name of a deployment group for the specified application.
+-- | Creates a 'DeleteDeploymentGroup' value with any optional fields omitted.
 mkDeleteDeploymentGroup ::
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
   -- | 'deploymentGroupName'
-  Lude.Text ->
+  Types.DeploymentGroupName ->
   DeleteDeploymentGroup
-mkDeleteDeploymentGroup pApplicationName_ pDeploymentGroupName_ =
-  DeleteDeploymentGroup'
-    { applicationName = pApplicationName_,
-      deploymentGroupName = pDeploymentGroupName_
-    }
+mkDeleteDeploymentGroup applicationName deploymentGroupName =
+  DeleteDeploymentGroup' {applicationName, deploymentGroupName}
 
 -- | The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddgApplicationName :: Lens.Lens' DeleteDeploymentGroup Lude.Text
-ddgApplicationName = Lens.lens (applicationName :: DeleteDeploymentGroup -> Lude.Text) (\s a -> s {applicationName = a} :: DeleteDeploymentGroup)
+ddgApplicationName :: Lens.Lens' DeleteDeploymentGroup Types.ApplicationName
+ddgApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED ddgApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
 -- | The name of a deployment group for the specified application.
 --
 -- /Note:/ Consider using 'deploymentGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddgDeploymentGroupName :: Lens.Lens' DeleteDeploymentGroup Lude.Text
-ddgDeploymentGroupName = Lens.lens (deploymentGroupName :: DeleteDeploymentGroup -> Lude.Text) (\s a -> s {deploymentGroupName = a} :: DeleteDeploymentGroup)
+ddgDeploymentGroupName :: Lens.Lens' DeleteDeploymentGroup Types.DeploymentGroupName
+ddgDeploymentGroupName = Lens.field @"deploymentGroupName"
 {-# DEPRECATED ddgDeploymentGroupName "Use generic-lens or generic-optics with 'deploymentGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteDeploymentGroup where
+instance Core.FromJSON DeleteDeploymentGroup where
+  toJSON DeleteDeploymentGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("applicationName" Core..= applicationName),
+            Core.Just ("deploymentGroupName" Core..= deploymentGroupName)
+          ]
+      )
+
+instance Core.AWSRequest DeleteDeploymentGroup where
   type Rs DeleteDeploymentGroup = DeleteDeploymentGroupResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeDeploy_20141006.DeleteDeploymentGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteDeploymentGroupResponse'
-            Lude.<$> (x Lude..?> "hooksNotCleanedUp" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "hooksNotCleanedUp")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDeploymentGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeDeploy_20141006.DeleteDeploymentGroup" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteDeploymentGroup where
-  toJSON DeleteDeploymentGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("applicationName" Lude..= applicationName),
-            Lude.Just ("deploymentGroupName" Lude..= deploymentGroupName)
-          ]
-      )
-
-instance Lude.ToPath DeleteDeploymentGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDeploymentGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @DeleteDeploymentGroup@ operation.
 --
 -- /See:/ 'mkDeleteDeploymentGroupResponse' smart constructor.
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
   { -- | If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group.
-    hooksNotCleanedUp :: Lude.Maybe [AutoScalingGroup],
+    hooksNotCleanedUp :: Core.Maybe [Types.AutoScalingGroup],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDeploymentGroupResponse' with the minimum fields required to make a request.
---
--- * 'hooksNotCleanedUp' - If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDeploymentGroupResponse' value with any optional fields omitted.
 mkDeleteDeploymentGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDeploymentGroupResponse
-mkDeleteDeploymentGroupResponse pResponseStatus_ =
+mkDeleteDeploymentGroupResponse responseStatus =
   DeleteDeploymentGroupResponse'
-    { hooksNotCleanedUp = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { hooksNotCleanedUp = Core.Nothing,
+      responseStatus
     }
 
 -- | If the output contains no data, and the corresponding deployment group contained at least one Auto Scaling group, AWS CodeDeploy successfully removed all corresponding Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group. If the output contains data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the Amazon EC2 instances in the Auto Scaling group.
 --
 -- /Note:/ Consider using 'hooksNotCleanedUp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddgrsHooksNotCleanedUp :: Lens.Lens' DeleteDeploymentGroupResponse (Lude.Maybe [AutoScalingGroup])
-ddgrsHooksNotCleanedUp = Lens.lens (hooksNotCleanedUp :: DeleteDeploymentGroupResponse -> Lude.Maybe [AutoScalingGroup]) (\s a -> s {hooksNotCleanedUp = a} :: DeleteDeploymentGroupResponse)
-{-# DEPRECATED ddgrsHooksNotCleanedUp "Use generic-lens or generic-optics with 'hooksNotCleanedUp' instead." #-}
+ddgrrsHooksNotCleanedUp :: Lens.Lens' DeleteDeploymentGroupResponse (Core.Maybe [Types.AutoScalingGroup])
+ddgrrsHooksNotCleanedUp = Lens.field @"hooksNotCleanedUp"
+{-# DEPRECATED ddgrrsHooksNotCleanedUp "Use generic-lens or generic-optics with 'hooksNotCleanedUp' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddgrsResponseStatus :: Lens.Lens' DeleteDeploymentGroupResponse Lude.Int
-ddgrsResponseStatus = Lens.lens (responseStatus :: DeleteDeploymentGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDeploymentGroupResponse)
-{-# DEPRECATED ddgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddgrrsResponseStatus :: Lens.Lens' DeleteDeploymentGroupResponse Core.Int
+ddgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

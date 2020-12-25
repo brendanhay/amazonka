@@ -17,121 +17,113 @@ module Network.AWS.IoTAnalytics.Types.DeviceRegistryEnrichActivity
     mkDeviceRegistryEnrichActivity,
 
     -- * Lenses
-    dreaAttribute,
-    dreaNext,
     dreaName,
+    dreaAttribute,
     dreaThingName,
-    dreaRoleARN,
+    dreaRoleArn,
+    dreaNext,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.ActivityName as Types
+import qualified Network.AWS.IoTAnalytics.Types.Attribute as Types
+import qualified Network.AWS.IoTAnalytics.Types.RoleArn as Types
+import qualified Network.AWS.IoTAnalytics.Types.ThingName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An activity that adds data from the AWS IoT device registry to your message.
 --
 -- /See:/ 'mkDeviceRegistryEnrichActivity' smart constructor.
 data DeviceRegistryEnrichActivity = DeviceRegistryEnrichActivity'
-  { -- | The name of the attribute that is added to the message.
-    attribute :: Lude.Text,
-    -- | The next activity in the pipeline.
-    next :: Lude.Maybe Lude.Text,
-    -- | The name of the @deviceRegistryEnrich@ activity.
-    name :: Lude.Text,
+  { -- | The name of the @deviceRegistryEnrich@ activity.
+    name :: Types.ActivityName,
+    -- | The name of the attribute that is added to the message.
+    attribute :: Types.Attribute,
     -- | The name of the IoT device whose registry information is added to the message.
-    thingName :: Lude.Text,
+    thingName :: Types.ThingName,
     -- | The ARN of the role that allows access to the device's registry information.
-    roleARN :: Lude.Text
+    roleArn :: Types.RoleArn,
+    -- | The next activity in the pipeline.
+    next :: Core.Maybe Types.ActivityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeviceRegistryEnrichActivity' with the minimum fields required to make a request.
---
--- * 'attribute' - The name of the attribute that is added to the message.
--- * 'next' - The next activity in the pipeline.
--- * 'name' - The name of the @deviceRegistryEnrich@ activity.
--- * 'thingName' - The name of the IoT device whose registry information is added to the message.
--- * 'roleARN' - The ARN of the role that allows access to the device's registry information.
+-- | Creates a 'DeviceRegistryEnrichActivity' value with any optional fields omitted.
 mkDeviceRegistryEnrichActivity ::
-  -- | 'attribute'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.ActivityName ->
+  -- | 'attribute'
+  Types.Attribute ->
   -- | 'thingName'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.ThingName ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   DeviceRegistryEnrichActivity
-mkDeviceRegistryEnrichActivity
-  pAttribute_
-  pName_
-  pThingName_
-  pRoleARN_ =
-    DeviceRegistryEnrichActivity'
-      { attribute = pAttribute_,
-        next = Lude.Nothing,
-        name = pName_,
-        thingName = pThingName_,
-        roleARN = pRoleARN_
-      }
-
--- | The name of the attribute that is added to the message.
---
--- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dreaAttribute :: Lens.Lens' DeviceRegistryEnrichActivity Lude.Text
-dreaAttribute = Lens.lens (attribute :: DeviceRegistryEnrichActivity -> Lude.Text) (\s a -> s {attribute = a} :: DeviceRegistryEnrichActivity)
-{-# DEPRECATED dreaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
-
--- | The next activity in the pipeline.
---
--- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dreaNext :: Lens.Lens' DeviceRegistryEnrichActivity (Lude.Maybe Lude.Text)
-dreaNext = Lens.lens (next :: DeviceRegistryEnrichActivity -> Lude.Maybe Lude.Text) (\s a -> s {next = a} :: DeviceRegistryEnrichActivity)
-{-# DEPRECATED dreaNext "Use generic-lens or generic-optics with 'next' instead." #-}
+mkDeviceRegistryEnrichActivity name attribute thingName roleArn =
+  DeviceRegistryEnrichActivity'
+    { name,
+      attribute,
+      thingName,
+      roleArn,
+      next = Core.Nothing
+    }
 
 -- | The name of the @deviceRegistryEnrich@ activity.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dreaName :: Lens.Lens' DeviceRegistryEnrichActivity Lude.Text
-dreaName = Lens.lens (name :: DeviceRegistryEnrichActivity -> Lude.Text) (\s a -> s {name = a} :: DeviceRegistryEnrichActivity)
+dreaName :: Lens.Lens' DeviceRegistryEnrichActivity Types.ActivityName
+dreaName = Lens.field @"name"
 {-# DEPRECATED dreaName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The name of the attribute that is added to the message.
+--
+-- /Note:/ Consider using 'attribute' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dreaAttribute :: Lens.Lens' DeviceRegistryEnrichActivity Types.Attribute
+dreaAttribute = Lens.field @"attribute"
+{-# DEPRECATED dreaAttribute "Use generic-lens or generic-optics with 'attribute' instead." #-}
 
 -- | The name of the IoT device whose registry information is added to the message.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dreaThingName :: Lens.Lens' DeviceRegistryEnrichActivity Lude.Text
-dreaThingName = Lens.lens (thingName :: DeviceRegistryEnrichActivity -> Lude.Text) (\s a -> s {thingName = a} :: DeviceRegistryEnrichActivity)
+dreaThingName :: Lens.Lens' DeviceRegistryEnrichActivity Types.ThingName
+dreaThingName = Lens.field @"thingName"
 {-# DEPRECATED dreaThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | The ARN of the role that allows access to the device's registry information.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dreaRoleARN :: Lens.Lens' DeviceRegistryEnrichActivity Lude.Text
-dreaRoleARN = Lens.lens (roleARN :: DeviceRegistryEnrichActivity -> Lude.Text) (\s a -> s {roleARN = a} :: DeviceRegistryEnrichActivity)
-{-# DEPRECATED dreaRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dreaRoleArn :: Lens.Lens' DeviceRegistryEnrichActivity Types.RoleArn
+dreaRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED dreaRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON DeviceRegistryEnrichActivity where
-  parseJSON =
-    Lude.withObject
-      "DeviceRegistryEnrichActivity"
-      ( \x ->
-          DeviceRegistryEnrichActivity'
-            Lude.<$> (x Lude..: "attribute")
-            Lude.<*> (x Lude..:? "next")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "thingName")
-            Lude.<*> (x Lude..: "roleArn")
-      )
+-- | The next activity in the pipeline.
+--
+-- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dreaNext :: Lens.Lens' DeviceRegistryEnrichActivity (Core.Maybe Types.ActivityName)
+dreaNext = Lens.field @"next"
+{-# DEPRECATED dreaNext "Use generic-lens or generic-optics with 'next' instead." #-}
 
-instance Lude.ToJSON DeviceRegistryEnrichActivity where
-  toJSON DeviceRegistryEnrichActivity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("attribute" Lude..= attribute),
-            ("next" Lude..=) Lude.<$> next,
-            Lude.Just ("name" Lude..= name),
-            Lude.Just ("thingName" Lude..= thingName),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON DeviceRegistryEnrichActivity where
+  toJSON DeviceRegistryEnrichActivity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("attribute" Core..= attribute),
+            Core.Just ("thingName" Core..= thingName),
+            Core.Just ("roleArn" Core..= roleArn),
+            ("next" Core..=) Core.<$> next
           ]
       )
+
+instance Core.FromJSON DeviceRegistryEnrichActivity where
+  parseJSON =
+    Core.withObject "DeviceRegistryEnrichActivity" Core.$
+      \x ->
+        DeviceRegistryEnrichActivity'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..: "attribute")
+          Core.<*> (x Core..: "thingName")
+          Core.<*> (x Core..: "roleArn")
+          Core.<*> (x Core..:? "next")

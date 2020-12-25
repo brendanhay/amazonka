@@ -13,47 +13,49 @@
 module Network.AWS.MediaLive.Types.H265Profile
   ( H265Profile
       ( H265Profile',
-        Main,
-        Main10BIT
+        H265ProfileMain,
+        H265ProfileMain10BIT,
+        fromH265Profile
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H265 Profile
-newtype H265Profile = H265Profile' Lude.Text
+newtype H265Profile = H265Profile' {fromH265Profile :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Main :: H265Profile
-pattern Main = H265Profile' "MAIN"
+pattern H265ProfileMain :: H265Profile
+pattern H265ProfileMain = H265Profile' "MAIN"
 
-pattern Main10BIT :: H265Profile
-pattern Main10BIT = H265Profile' "MAIN_10BIT"
+pattern H265ProfileMain10BIT :: H265Profile
+pattern H265ProfileMain10BIT = H265Profile' "MAIN_10BIT"
 
 {-# COMPLETE
-  Main,
-  Main10BIT,
+  H265ProfileMain,
+  H265ProfileMain10BIT,
   H265Profile'
   #-}

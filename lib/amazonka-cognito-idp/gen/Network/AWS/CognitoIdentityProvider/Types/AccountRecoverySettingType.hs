@@ -21,47 +21,43 @@ module Network.AWS.CognitoIdentityProvider.Types.AccountRecoverySettingType
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionType
+import qualified Network.AWS.CognitoIdentityProvider.Types.RecoveryOptionType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The data type for @AccountRecoverySetting@ .
 --
 -- /See:/ 'mkAccountRecoverySettingType' smart constructor.
 newtype AccountRecoverySettingType = AccountRecoverySettingType'
   { -- | The list of @RecoveryOptionTypes@ .
-    recoveryMechanisms :: Lude.Maybe (Lude.NonEmpty RecoveryOptionType)
+    recoveryMechanisms :: Core.Maybe (Core.NonEmpty Types.RecoveryOptionType)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountRecoverySettingType' with the minimum fields required to make a request.
---
--- * 'recoveryMechanisms' - The list of @RecoveryOptionTypes@ .
+-- | Creates a 'AccountRecoverySettingType' value with any optional fields omitted.
 mkAccountRecoverySettingType ::
   AccountRecoverySettingType
 mkAccountRecoverySettingType =
-  AccountRecoverySettingType' {recoveryMechanisms = Lude.Nothing}
+  AccountRecoverySettingType' {recoveryMechanisms = Core.Nothing}
 
 -- | The list of @RecoveryOptionTypes@ .
 --
 -- /Note:/ Consider using 'recoveryMechanisms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arstRecoveryMechanisms :: Lens.Lens' AccountRecoverySettingType (Lude.Maybe (Lude.NonEmpty RecoveryOptionType))
-arstRecoveryMechanisms = Lens.lens (recoveryMechanisms :: AccountRecoverySettingType -> Lude.Maybe (Lude.NonEmpty RecoveryOptionType)) (\s a -> s {recoveryMechanisms = a} :: AccountRecoverySettingType)
+arstRecoveryMechanisms :: Lens.Lens' AccountRecoverySettingType (Core.Maybe (Core.NonEmpty Types.RecoveryOptionType))
+arstRecoveryMechanisms = Lens.field @"recoveryMechanisms"
 {-# DEPRECATED arstRecoveryMechanisms "Use generic-lens or generic-optics with 'recoveryMechanisms' instead." #-}
 
-instance Lude.FromJSON AccountRecoverySettingType where
-  parseJSON =
-    Lude.withObject
-      "AccountRecoverySettingType"
-      ( \x ->
-          AccountRecoverySettingType'
-            Lude.<$> (x Lude..:? "RecoveryMechanisms")
+instance Core.FromJSON AccountRecoverySettingType where
+  toJSON AccountRecoverySettingType {..} =
+    Core.object
+      ( Core.catMaybes
+          [("RecoveryMechanisms" Core..=) Core.<$> recoveryMechanisms]
       )
 
-instance Lude.ToJSON AccountRecoverySettingType where
-  toJSON AccountRecoverySettingType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("RecoveryMechanisms" Lude..=) Lude.<$> recoveryMechanisms]
-      )
+instance Core.FromJSON AccountRecoverySettingType where
+  parseJSON =
+    Core.withObject "AccountRecoverySettingType" Core.$
+      \x ->
+        AccountRecoverySettingType'
+          Core.<$> (x Core..:? "RecoveryMechanisms")

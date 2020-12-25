@@ -21,34 +21,33 @@ module Network.AWS.EC2.Types.Phase1IntegrityAlgorithmsListValue
   )
 where
 
+import qualified Network.AWS.EC2.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The integrity algorithm for phase 1 IKE negotiations.
 --
 -- /See:/ 'mkPhase1IntegrityAlgorithmsListValue' smart constructor.
 newtype Phase1IntegrityAlgorithmsListValue = Phase1IntegrityAlgorithmsListValue'
   { -- | The value for the integrity algorithm.
-    value :: Lude.Maybe Lude.Text
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Phase1IntegrityAlgorithmsListValue' with the minimum fields required to make a request.
---
--- * 'value' - The value for the integrity algorithm.
+-- | Creates a 'Phase1IntegrityAlgorithmsListValue' value with any optional fields omitted.
 mkPhase1IntegrityAlgorithmsListValue ::
   Phase1IntegrityAlgorithmsListValue
 mkPhase1IntegrityAlgorithmsListValue =
-  Phase1IntegrityAlgorithmsListValue' {value = Lude.Nothing}
+  Phase1IntegrityAlgorithmsListValue' {value = Core.Nothing}
 
 -- | The value for the integrity algorithm.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pialvValue :: Lens.Lens' Phase1IntegrityAlgorithmsListValue (Lude.Maybe Lude.Text)
-pialvValue = Lens.lens (value :: Phase1IntegrityAlgorithmsListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase1IntegrityAlgorithmsListValue)
+pialvValue :: Lens.Lens' Phase1IntegrityAlgorithmsListValue (Core.Maybe Types.Value)
+pialvValue = Lens.field @"value"
 {-# DEPRECATED pialvValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromXML Phase1IntegrityAlgorithmsListValue where
+instance Core.FromXML Phase1IntegrityAlgorithmsListValue where
   parseXML x =
-    Phase1IntegrityAlgorithmsListValue' Lude.<$> (x Lude..@? "value")
+    Phase1IntegrityAlgorithmsListValue' Core.<$> (x Core..@? "value")

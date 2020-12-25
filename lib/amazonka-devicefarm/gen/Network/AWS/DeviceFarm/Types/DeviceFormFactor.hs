@@ -13,46 +13,51 @@
 module Network.AWS.DeviceFarm.Types.DeviceFormFactor
   ( DeviceFormFactor
       ( DeviceFormFactor',
-        Phone,
-        Tablet
+        DeviceFormFactorPhone,
+        DeviceFormFactorTablet,
+        fromDeviceFormFactor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeviceFormFactor = DeviceFormFactor' Lude.Text
+newtype DeviceFormFactor = DeviceFormFactor'
+  { fromDeviceFormFactor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Phone :: DeviceFormFactor
-pattern Phone = DeviceFormFactor' "PHONE"
+pattern DeviceFormFactorPhone :: DeviceFormFactor
+pattern DeviceFormFactorPhone = DeviceFormFactor' "PHONE"
 
-pattern Tablet :: DeviceFormFactor
-pattern Tablet = DeviceFormFactor' "TABLET"
+pattern DeviceFormFactorTablet :: DeviceFormFactor
+pattern DeviceFormFactorTablet = DeviceFormFactor' "TABLET"
 
 {-# COMPLETE
-  Phone,
-  Tablet,
+  DeviceFormFactorPhone,
+  DeviceFormFactorTablet,
   DeviceFormFactor'
   #-}

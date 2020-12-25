@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +18,19 @@
 -- If your AWS account is part of AWS Organizations, you can use the AWS Health organizational view feature. This feature provides a centralized view of AWS Health events across all accounts in your organization. You can aggregate AWS Health events in real time to identify accounts in your organization that are affected by an operational event or get notified of security vulnerabilities. Use the organizational view API operations to enable this feature and return event information. For more information, see <https://docs.aws.amazon.com/health/latest/ug/aggregate-events.html Aggregating AWS Health events> in the /AWS Health User Guide/ .
 module Network.AWS.AWSHealth
   ( -- * Service configuration
-    awsHealthService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidPaginationToken
+    _InvalidPaginationToken,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** UnsupportedLocale
+    _UnsupportedLocale,
 
     -- * Waiters
     -- $waiters
@@ -71,86 +79,115 @@ module Network.AWS.AWSHealth
 
     -- * Types
 
-    -- ** EntityStatusCode
-    EntityStatusCode (..),
+    -- ** EventTypeFilter
+    EventTypeFilter (..),
+    mkEventTypeFilter,
+    etfEventTypeCategories,
+    etfEventTypeCodes,
+    etfServices,
 
-    -- ** EventAggregateField
-    EventAggregateField (..),
+    -- ** Event
+    Event (..),
+    mkEvent,
+    eArn,
+    eAvailabilityZone,
+    eEndTime,
+    eEventScopeCode,
+    eEventTypeCategory,
+    eEventTypeCode,
+    eLastUpdatedTime,
+    eRegion,
+    eService,
+    eStartTime,
+    eStatusCode,
 
-    -- ** EventScopeCode
-    EventScopeCode (..),
+    -- ** OrganizationEvent
+    OrganizationEvent (..),
+    mkOrganizationEvent,
+    oeArn,
+    oeEndTime,
+    oeEventScopeCode,
+    oeEventTypeCategory,
+    oeEventTypeCode,
+    oeLastUpdatedTime,
+    oeRegion,
+    oeService,
+    oeStartTime,
+    oeStatusCode,
 
-    -- ** EventStatusCode
-    EventStatusCode (..),
-
-    -- ** EventTypeCategory
-    EventTypeCategory (..),
-
-    -- ** AffectedEntity
-    AffectedEntity (..),
-    mkAffectedEntity,
-    aeLastUpdatedTime,
-    aeEntityValue,
-    aeEntityURL,
-    aeAwsAccountId,
-    aeEventARN,
-    aeEntityARN,
-    aeTags,
-    aeStatusCode,
-
-    -- ** DateTimeRange
-    DateTimeRange (..),
-    mkDateTimeRange,
-    dtrTo,
-    dtrFrom,
+    -- ** EventDescription
+    EventDescription (..),
 
     -- ** EntityAggregate
     EntityAggregate (..),
     mkEntityAggregate,
     eCount,
-    eEventARN,
+    eEventArn,
 
-    -- ** EntityFilter
-    EntityFilter (..),
-    mkEntityFilter,
-    eEventARNs,
-    eStatusCodes,
-    eEntityARNs,
-    eEntityValues,
-    eTags,
-    eLastUpdatedTimes,
-
-    -- ** Event
-    Event (..),
-    mkEvent,
-    eLastUpdatedTime,
-    eArn,
-    eService,
-    eStartTime,
-    eEventScopeCode,
-    eEventTypeCode,
-    eEventTypeCategory,
-    eAvailabilityZone,
-    eEndTime,
-    eRegion,
-    eStatusCode,
-
-    -- ** EventAccountFilter
-    EventAccountFilter (..),
-    mkEventAccountFilter,
-    eafAwsAccountId,
-    eafEventARN,
-
-    -- ** EventAggregate
-    EventAggregate (..),
-    mkEventAggregate,
-    eaCount,
-    eaAggregateValue,
+    -- ** EntityStatusCode
+    EntityStatusCode (..),
 
     -- ** EventDescription
     EventDescription (..),
     mkEventDescription,
     edLatestDescription,
+
+    -- ** Service
+    Service (..),
+
+    -- ** OrganizationEventDetails
+    OrganizationEventDetails (..),
+    mkOrganizationEventDetails,
+    oedAwsAccountId,
+    oedEvent,
+    oedEventDescription,
+    oedEventMetadata,
+
+    -- ** String
+    String (..),
+
+    -- ** EventAggregate
+    EventAggregate (..),
+    mkEventAggregate,
+    eaAggregateValue,
+    eaCount,
+
+    -- ** OrganizationEventDetailsErrorItem
+    OrganizationEventDetailsErrorItem (..),
+    mkOrganizationEventDetailsErrorItem,
+    oedeiAwsAccountId,
+    oedeiErrorMessage,
+    oedeiErrorName,
+    oedeiEventArn,
+
+    -- ** EntityValue
+    EntityValue (..),
+
+    -- ** Locale
+    Locale (..),
+
+    -- ** EntityUrl
+    EntityUrl (..),
+
+    -- ** EntityFilter
+    EntityFilter (..),
+    mkEntityFilter,
+    efEventArns,
+    efEntityArns,
+    efEntityValues,
+    efLastUpdatedTimes,
+    efStatusCodes,
+    efTags,
+
+    -- ** EventDetailsErrorItem
+    EventDetailsErrorItem (..),
+    mkEventDetailsErrorItem,
+    edeiErrorMessage,
+    edeiErrorName,
+    edeiEventArn,
+
+    -- ** EventScopeCode
+    EventScopeCode (..),
 
     -- ** EventDetails
     EventDetails (..),
@@ -159,106 +196,162 @@ module Network.AWS.AWSHealth
     edEventDescription,
     edEventMetadata,
 
-    -- ** EventDetailsErrorItem
-    EventDetailsErrorItem (..),
-    mkEventDetailsErrorItem,
-    edeiEventARN,
-    edeiErrorName,
-    edeiErrorMessage,
+    -- ** DateTimeRange
+    DateTimeRange (..),
+    mkDateTimeRange,
+    dtrFrom,
+    dtrTo,
 
-    -- ** EventFilter
-    EventFilter (..),
-    mkEventFilter,
-    efEventARNs,
-    efEventTypeCategories,
-    efEventTypeCodes,
-    efRegions,
-    efEventStatusCodes,
-    efEndTimes,
-    efAvailabilityZones,
-    efEntityARNs,
-    efEntityValues,
-    efStartTimes,
-    efServices,
-    efTags,
-    efLastUpdatedTimes,
+    -- ** HealthServiceAccessStatusForOrganization
+    HealthServiceAccessStatusForOrganization (..),
 
-    -- ** EventType
-    EventType (..),
-    mkEventType,
-    etService,
-    etCategory,
-    etCode,
-
-    -- ** EventTypeFilter
-    EventTypeFilter (..),
-    mkEventTypeFilter,
-    etfEventTypeCategories,
-    etfEventTypeCodes,
-    etfServices,
+    -- ** EventArn
+    EventArn (..),
 
     -- ** OrganizationAffectedEntitiesErrorItem
     OrganizationAffectedEntitiesErrorItem (..),
     mkOrganizationAffectedEntitiesErrorItem,
     oaeeiAwsAccountId,
-    oaeeiEventARN,
-    oaeeiErrorName,
     oaeeiErrorMessage,
+    oaeeiErrorName,
+    oaeeiEventArn,
 
-    -- ** OrganizationEvent
-    OrganizationEvent (..),
-    mkOrganizationEvent,
-    oeLastUpdatedTime,
-    oeArn,
-    oeService,
-    oeStartTime,
-    oeEventScopeCode,
-    oeEventTypeCode,
-    oeEventTypeCategory,
-    oeEndTime,
-    oeRegion,
-    oeStatusCode,
+    -- ** TagValue
+    TagValue (..),
 
-    -- ** OrganizationEventDetails
-    OrganizationEventDetails (..),
-    mkOrganizationEventDetails,
-    oedEvent,
-    oedEventDescription,
-    oedAwsAccountId,
-    oedEventMetadata,
+    -- ** EventTypeCode
+    EventTypeCode (..),
 
-    -- ** OrganizationEventDetailsErrorItem
-    OrganizationEventDetailsErrorItem (..),
-    mkOrganizationEventDetailsErrorItem,
-    oedeiAwsAccountId,
-    oedeiEventARN,
-    oedeiErrorName,
-    oedeiErrorMessage,
+    -- ** EventTypeCategory
+    EventTypeCategory (..),
+
+    -- ** EventFilter
+    EventFilter (..),
+    mkEventFilter,
+    eAvailabilityZones,
+    eEndTimes,
+    eEntityArns,
+    eEntityValues,
+    eEventArns,
+    eEventStatusCodes,
+    eEventTypeCategories,
+    eEventTypeCodes,
+    eLastUpdatedTimes,
+    eRegions,
+    eServices,
+    eStartTimes,
+    eTags,
+
+    -- ** EventType
+    EventType (..),
+
+    -- ** EventType
+    EventType (..),
+    mkEventType,
+    etCategory,
+    etCode,
+    etService,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** AccountId
+    AccountId (..),
 
     -- ** OrganizationEventFilter
     OrganizationEventFilter (..),
     mkOrganizationEventFilter,
-    oefLastUpdatedTime,
     oefAwsAccountIds,
+    oefEndTime,
+    oefEntityArns,
+    oefEntityValues,
+    oefEventStatusCodes,
     oefEventTypeCategories,
     oefEventTypeCodes,
-    oefStartTime,
+    oefLastUpdatedTime,
     oefRegions,
-    oefEventStatusCodes,
-    oefEndTime,
-    oefEntityARNs,
-    oefEntityValues,
     oefServices,
+    oefStartTime,
+
+    -- ** EventAggregateField
+    EventAggregateField (..),
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+
+    -- ** MetadataKey
+    MetadataKey (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** EventStatusCode
+    EventStatusCode (..),
+
+    -- ** EventAccountFilter
+    EventAccountFilter (..),
+    mkEventAccountFilter,
+    eafEventArn,
+    eafAwsAccountId,
+
+    -- ** Region
+    Region (..),
+
+    -- ** MetadataValue
+    MetadataValue (..),
+
+    -- ** EntityArn
+    EntityArn (..),
+
+    -- ** AffectedEntity
+    AffectedEntity (..),
+    mkAffectedEntity,
+    aeAwsAccountId,
+    aeEntityArn,
+    aeEntityUrl,
+    aeEntityValue,
+    aeEventArn,
+    aeLastUpdatedTime,
+    aeStatusCode,
+    aeTags,
+
+    -- ** EventArn
+    EventArn (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+
+    -- ** EventTypeCode
+    EventTypeCode (..),
+
+    -- ** Region
+    Region (..),
+
+    -- ** Service
+    Service (..),
+
+    -- ** Locale
+    Locale (..),
+
+    -- ** AwsAccountId
+    AwsAccountId (..),
+
+    -- ** AggregateValue
+    AggregateValue (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -20,108 +20,105 @@ module Network.AWS.CloudFormation.DescribeStackSet
     mkDescribeStackSet,
 
     -- ** Request lenses
-    dssStackSetName,
+    dssfStackSetName,
 
     -- * Destructuring the response
     DescribeStackSetResponse (..),
     mkDescribeStackSetResponse,
 
     -- ** Response lenses
-    dssfrsStackSet,
-    dssfrsResponseStatus,
+    dssrfrsStackSet,
+    dssrfrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeStackSet' smart constructor.
 newtype DescribeStackSet = DescribeStackSet'
   { -- | The name or unique ID of the stack set whose description you want.
-    stackSetName :: Lude.Text
+    stackSetName :: Types.StackSetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeStackSet' with the minimum fields required to make a request.
---
--- * 'stackSetName' - The name or unique ID of the stack set whose description you want.
+-- | Creates a 'DescribeStackSet' value with any optional fields omitted.
 mkDescribeStackSet ::
   -- | 'stackSetName'
-  Lude.Text ->
+  Types.StackSetName ->
   DescribeStackSet
-mkDescribeStackSet pStackSetName_ =
-  DescribeStackSet' {stackSetName = pStackSetName_}
+mkDescribeStackSet stackSetName = DescribeStackSet' {stackSetName}
 
 -- | The name or unique ID of the stack set whose description you want.
 --
 -- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssStackSetName :: Lens.Lens' DescribeStackSet Lude.Text
-dssStackSetName = Lens.lens (stackSetName :: DescribeStackSet -> Lude.Text) (\s a -> s {stackSetName = a} :: DescribeStackSet)
-{-# DEPRECATED dssStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
+dssfStackSetName :: Lens.Lens' DescribeStackSet Types.StackSetName
+dssfStackSetName = Lens.field @"stackSetName"
+{-# DEPRECATED dssfStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
 
-instance Lude.AWSRequest DescribeStackSet where
+instance Core.AWSRequest DescribeStackSet where
   type Rs DescribeStackSet = DescribeStackSetResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeStackSet")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "StackSetName" stackSetName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeStackSetResult"
       ( \s h x ->
           DescribeStackSetResponse'
-            Lude.<$> (x Lude..@? "StackSet") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "StackSet") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeStackSet where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeStackSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeStackSet where
-  toQuery DescribeStackSet' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeStackSet" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "StackSetName" Lude.=: stackSetName
-      ]
 
 -- | /See:/ 'mkDescribeStackSetResponse' smart constructor.
 data DescribeStackSetResponse = DescribeStackSetResponse'
   { -- | The specified stack set.
-    stackSet :: Lude.Maybe StackSet,
+    stackSet :: Core.Maybe Types.StackSet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeStackSetResponse' with the minimum fields required to make a request.
---
--- * 'stackSet' - The specified stack set.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeStackSetResponse' value with any optional fields omitted.
 mkDescribeStackSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeStackSetResponse
-mkDescribeStackSetResponse pResponseStatus_ =
+mkDescribeStackSetResponse responseStatus =
   DescribeStackSetResponse'
-    { stackSet = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { stackSet = Core.Nothing,
+      responseStatus
     }
 
 -- | The specified stack set.
 --
 -- /Note:/ Consider using 'stackSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssfrsStackSet :: Lens.Lens' DescribeStackSetResponse (Lude.Maybe StackSet)
-dssfrsStackSet = Lens.lens (stackSet :: DescribeStackSetResponse -> Lude.Maybe StackSet) (\s a -> s {stackSet = a} :: DescribeStackSetResponse)
-{-# DEPRECATED dssfrsStackSet "Use generic-lens or generic-optics with 'stackSet' instead." #-}
+dssrfrsStackSet :: Lens.Lens' DescribeStackSetResponse (Core.Maybe Types.StackSet)
+dssrfrsStackSet = Lens.field @"stackSet"
+{-# DEPRECATED dssrfrsStackSet "Use generic-lens or generic-optics with 'stackSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dssfrsResponseStatus :: Lens.Lens' DescribeStackSetResponse Lude.Int
-dssfrsResponseStatus = Lens.lens (responseStatus :: DescribeStackSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStackSetResponse)
-{-# DEPRECATED dssfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dssrfrsResponseStatus :: Lens.Lens' DescribeStackSetResponse Core.Int
+dssrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dssrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

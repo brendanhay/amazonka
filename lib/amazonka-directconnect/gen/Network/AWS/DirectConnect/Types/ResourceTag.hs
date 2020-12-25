@@ -17,55 +17,51 @@ module Network.AWS.DirectConnect.Types.ResourceTag
     mkResourceTag,
 
     -- * Lenses
-    rtResourceARN,
+    rtResourceArn,
     rtTags,
   )
 where
 
-import Network.AWS.DirectConnect.Types.Tag
+import qualified Network.AWS.DirectConnect.Types.ResourceArn as Types
+import qualified Network.AWS.DirectConnect.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a tag associated with an AWS Direct Connect resource.
 --
 -- /See:/ 'mkResourceTag' smart constructor.
 data ResourceTag = ResourceTag'
   { -- | The Amazon Resource Name (ARN) of the resource.
-    resourceARN :: Lude.Maybe Lude.Text,
+    resourceArn :: Core.Maybe Types.ResourceArn,
     -- | The tags.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceTag' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource.
--- * 'tags' - The tags.
+-- | Creates a 'ResourceTag' value with any optional fields omitted.
 mkResourceTag ::
   ResourceTag
 mkResourceTag =
-  ResourceTag' {resourceARN = Lude.Nothing, tags = Lude.Nothing}
+  ResourceTag' {resourceArn = Core.Nothing, tags = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) of the resource.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtResourceARN :: Lens.Lens' ResourceTag (Lude.Maybe Lude.Text)
-rtResourceARN = Lens.lens (resourceARN :: ResourceTag -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: ResourceTag)
-{-# DEPRECATED rtResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtResourceArn :: Lens.Lens' ResourceTag (Core.Maybe Types.ResourceArn)
+rtResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED rtResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | The tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtTags :: Lens.Lens' ResourceTag (Lude.Maybe (Lude.NonEmpty Tag))
-rtTags = Lens.lens (tags :: ResourceTag -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: ResourceTag)
+rtTags :: Lens.Lens' ResourceTag (Core.Maybe (Core.NonEmpty Types.Tag))
+rtTags = Lens.field @"tags"
 {-# DEPRECATED rtTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON ResourceTag where
+instance Core.FromJSON ResourceTag where
   parseJSON =
-    Lude.withObject
-      "ResourceTag"
-      ( \x ->
-          ResourceTag'
-            Lude.<$> (x Lude..:? "resourceArn") Lude.<*> (x Lude..:? "tags")
-      )
+    Core.withObject "ResourceTag" Core.$
+      \x ->
+        ResourceTag'
+          Core.<$> (x Core..:? "resourceArn") Core.<*> (x Core..:? "tags")

@@ -32,74 +32,74 @@ module Network.AWS.EC2.RebootInstances
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRebootInstances' smart constructor.
 data RebootInstances = RebootInstances'
   { -- | The instance IDs.
-    instanceIds :: [Lude.Text],
+    instanceIds :: [Types.InstanceId],
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebootInstances' with the minimum fields required to make a request.
---
--- * 'instanceIds' - The instance IDs.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'RebootInstances' value with any optional fields omitted.
 mkRebootInstances ::
   RebootInstances
 mkRebootInstances =
   RebootInstances'
-    { instanceIds = Lude.mempty,
-      dryRun = Lude.Nothing
+    { instanceIds = Core.mempty,
+      dryRun = Core.Nothing
     }
 
 -- | The instance IDs.
 --
 -- /Note:/ Consider using 'instanceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rInstanceIds :: Lens.Lens' RebootInstances [Lude.Text]
-rInstanceIds = Lens.lens (instanceIds :: RebootInstances -> [Lude.Text]) (\s a -> s {instanceIds = a} :: RebootInstances)
+rInstanceIds :: Lens.Lens' RebootInstances [Types.InstanceId]
+rInstanceIds = Lens.field @"instanceIds"
 {-# DEPRECATED rInstanceIds "Use generic-lens or generic-optics with 'instanceIds' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rDryRun :: Lens.Lens' RebootInstances (Lude.Maybe Lude.Bool)
-rDryRun = Lens.lens (dryRun :: RebootInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RebootInstances)
+rDryRun :: Lens.Lens' RebootInstances (Core.Maybe Core.Bool)
+rDryRun = Lens.field @"dryRun"
 {-# DEPRECATED rDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest RebootInstances where
+instance Core.AWSRequest RebootInstances where
   type Rs RebootInstances = RebootInstancesResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull RebootInstancesResponse'
-
-instance Lude.ToHeaders RebootInstances where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RebootInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RebootInstances where
-  toQuery RebootInstances' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RebootInstances" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQueryList "InstanceId" instanceIds,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RebootInstances")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "InstanceId" instanceIds)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull RebootInstancesResponse'
 
 -- | /See:/ 'mkRebootInstancesResponse' smart constructor.
 data RebootInstancesResponse = RebootInstancesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebootInstancesResponse' with the minimum fields required to make a request.
+-- | Creates a 'RebootInstancesResponse' value with any optional fields omitted.
 mkRebootInstancesResponse ::
   RebootInstancesResponse
 mkRebootInstancesResponse = RebootInstancesResponse'

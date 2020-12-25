@@ -13,56 +13,58 @@
 module Network.AWS.CloudSearchDomains.Types.QueryParser
   ( QueryParser
       ( QueryParser',
-        Simple,
-        Structured,
-        Lucene,
-        Dismax
+        QueryParserSimple,
+        QueryParserStructured,
+        QueryParserLucene,
+        QueryParserDismax,
+        fromQueryParser
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype QueryParser = QueryParser' Lude.Text
+newtype QueryParser = QueryParser' {fromQueryParser :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Simple :: QueryParser
-pattern Simple = QueryParser' "simple"
+pattern QueryParserSimple :: QueryParser
+pattern QueryParserSimple = QueryParser' "simple"
 
-pattern Structured :: QueryParser
-pattern Structured = QueryParser' "structured"
+pattern QueryParserStructured :: QueryParser
+pattern QueryParserStructured = QueryParser' "structured"
 
-pattern Lucene :: QueryParser
-pattern Lucene = QueryParser' "lucene"
+pattern QueryParserLucene :: QueryParser
+pattern QueryParserLucene = QueryParser' "lucene"
 
-pattern Dismax :: QueryParser
-pattern Dismax = QueryParser' "dismax"
+pattern QueryParserDismax :: QueryParser
+pattern QueryParserDismax = QueryParser' "dismax"
 
 {-# COMPLETE
-  Simple,
-  Structured,
-  Lucene,
-  Dismax,
+  QueryParserSimple,
+  QueryParserStructured,
+  QueryParserLucene,
+  QueryParserDismax,
   QueryParser'
   #-}

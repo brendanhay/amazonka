@@ -38,90 +38,76 @@ module Network.AWS.SWF.CountPendingActivityTasks
     cpatTaskList,
 
     -- * Destructuring the response
-    PendingTaskCount (..),
-    mkPendingTaskCount,
+    Types.PendingTaskCount (..),
+    Types.mkPendingTaskCount,
 
     -- ** Response lenses
-    ptcTruncated,
-    ptcCount,
+    Types.ptcCount,
+    Types.ptcTruncated,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkCountPendingActivityTasks' smart constructor.
 data CountPendingActivityTasks = CountPendingActivityTasks'
   { -- | The name of the domain that contains the task list.
-    domain :: Lude.Text,
+    domain :: Types.Domain,
     -- | The name of the task list.
-    taskList :: TaskList
+    taskList :: Types.TaskList
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CountPendingActivityTasks' with the minimum fields required to make a request.
---
--- * 'domain' - The name of the domain that contains the task list.
--- * 'taskList' - The name of the task list.
+-- | Creates a 'CountPendingActivityTasks' value with any optional fields omitted.
 mkCountPendingActivityTasks ::
   -- | 'domain'
-  Lude.Text ->
+  Types.Domain ->
   -- | 'taskList'
-  TaskList ->
+  Types.TaskList ->
   CountPendingActivityTasks
-mkCountPendingActivityTasks pDomain_ pTaskList_ =
-  CountPendingActivityTasks'
-    { domain = pDomain_,
-      taskList = pTaskList_
-    }
+mkCountPendingActivityTasks domain taskList =
+  CountPendingActivityTasks' {domain, taskList}
 
 -- | The name of the domain that contains the task list.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpatDomain :: Lens.Lens' CountPendingActivityTasks Lude.Text
-cpatDomain = Lens.lens (domain :: CountPendingActivityTasks -> Lude.Text) (\s a -> s {domain = a} :: CountPendingActivityTasks)
+cpatDomain :: Lens.Lens' CountPendingActivityTasks Types.Domain
+cpatDomain = Lens.field @"domain"
 {-# DEPRECATED cpatDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
 
 -- | The name of the task list.
 --
 -- /Note:/ Consider using 'taskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpatTaskList :: Lens.Lens' CountPendingActivityTasks TaskList
-cpatTaskList = Lens.lens (taskList :: CountPendingActivityTasks -> TaskList) (\s a -> s {taskList = a} :: CountPendingActivityTasks)
+cpatTaskList :: Lens.Lens' CountPendingActivityTasks Types.TaskList
+cpatTaskList = Lens.field @"taskList"
 {-# DEPRECATED cpatTaskList "Use generic-lens or generic-optics with 'taskList' instead." #-}
 
-instance Lude.AWSRequest CountPendingActivityTasks where
-  type Rs CountPendingActivityTasks = PendingTaskCount
-  request = Req.postJSON swfService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders CountPendingActivityTasks where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "SimpleWorkflowService.CountPendingActivityTasks" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
+instance Core.FromJSON CountPendingActivityTasks where
+  toJSON CountPendingActivityTasks {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("taskList" Core..= taskList)
           ]
       )
 
-instance Lude.ToJSON CountPendingActivityTasks where
-  toJSON CountPendingActivityTasks' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("domain" Lude..= domain),
-            Lude.Just ("taskList" Lude..= taskList)
-          ]
-      )
-
-instance Lude.ToPath CountPendingActivityTasks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CountPendingActivityTasks where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CountPendingActivityTasks where
+  type Rs CountPendingActivityTasks = Types.PendingTaskCount
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "SimpleWorkflowService.CountPendingActivityTasks")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

@@ -34,74 +34,57 @@ module Network.AWS.STS.GetSessionToken
     mkGetSessionToken,
 
     -- ** Request lenses
-    gstTokenCode,
     gstDurationSeconds,
     gstSerialNumber,
+    gstTokenCode,
 
     -- * Destructuring the response
     GetSessionTokenResponse (..),
     mkGetSessionTokenResponse,
 
     -- ** Response lenses
-    gstrsCredentials,
-    gstrsResponseStatus,
+    gstrrsCredentials,
+    gstrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.STS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.STS.Types as Types
 
 -- | /See:/ 'mkGetSessionToken' smart constructor.
 data GetSessionToken = GetSessionToken'
-  { -- | The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, the user must provide a code when requesting a set of temporary security credentials. A user who fails to provide the code receives an "access denied" response when requesting resources that require MFA authentication.
-    --
-    -- The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
-    tokenCode :: Lude.Maybe Lude.Text,
-    -- | The duration, in seconds, that the credentials should remain valid. Acceptable durations for IAM user sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the default. Sessions for AWS account owners are restricted to a maximum of 3,600 seconds (one hour). If the duration is longer than one hour, the session for AWS account owners defaults to one hour.
-    durationSeconds :: Lude.Maybe Lude.Natural,
+  { -- | The duration, in seconds, that the credentials should remain valid. Acceptable durations for IAM user sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the default. Sessions for AWS account owners are restricted to a maximum of 3,600 seconds (one hour). If the duration is longer than one hour, the session for AWS account owners defaults to one hour.
+    durationSeconds :: Core.Maybe Core.Natural,
     -- | The identification number of the MFA device that is associated with the IAM user who is making the @GetSessionToken@ call. Specify this value if the IAM user has a policy that requires MFA authentication. The value is either the serial number for a hardware device (such as @GAHT12345678@ ) or an Amazon Resource Name (ARN) for a virtual device (such as @arn:aws:iam::123456789012:mfa/user@ ). You can find the device for an IAM user by going to the AWS Management Console and viewing the user's security credentials.
     --
     -- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-
-    serialNumber :: Lude.Maybe Lude.Text
+    serialNumber :: Core.Maybe Types.SerialNumberType,
+    -- | The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, the user must provide a code when requesting a set of temporary security credentials. A user who fails to provide the code receives an "access denied" response when requesting resources that require MFA authentication.
+    --
+    -- The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
+    tokenCode :: Core.Maybe Types.TokenCode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSessionToken' with the minimum fields required to make a request.
---
--- * 'tokenCode' - The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, the user must provide a code when requesting a set of temporary security credentials. A user who fails to provide the code receives an "access denied" response when requesting resources that require MFA authentication.
---
--- The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
--- * 'durationSeconds' - The duration, in seconds, that the credentials should remain valid. Acceptable durations for IAM user sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the default. Sessions for AWS account owners are restricted to a maximum of 3,600 seconds (one hour). If the duration is longer than one hour, the session for AWS account owners defaults to one hour.
--- * 'serialNumber' - The identification number of the MFA device that is associated with the IAM user who is making the @GetSessionToken@ call. Specify this value if the IAM user has a policy that requires MFA authentication. The value is either the serial number for a hardware device (such as @GAHT12345678@ ) or an Amazon Resource Name (ARN) for a virtual device (such as @arn:aws:iam::123456789012:mfa/user@ ). You can find the device for an IAM user by going to the AWS Management Console and viewing the user's security credentials.
---
--- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-
+-- | Creates a 'GetSessionToken' value with any optional fields omitted.
 mkGetSessionToken ::
   GetSessionToken
 mkGetSessionToken =
   GetSessionToken'
-    { tokenCode = Lude.Nothing,
-      durationSeconds = Lude.Nothing,
-      serialNumber = Lude.Nothing
+    { durationSeconds = Core.Nothing,
+      serialNumber = Core.Nothing,
+      tokenCode = Core.Nothing
     }
-
--- | The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, the user must provide a code when requesting a set of temporary security credentials. A user who fails to provide the code receives an "access denied" response when requesting resources that require MFA authentication.
---
--- The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
---
--- /Note:/ Consider using 'tokenCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstTokenCode :: Lens.Lens' GetSessionToken (Lude.Maybe Lude.Text)
-gstTokenCode = Lens.lens (tokenCode :: GetSessionToken -> Lude.Maybe Lude.Text) (\s a -> s {tokenCode = a} :: GetSessionToken)
-{-# DEPRECATED gstTokenCode "Use generic-lens or generic-optics with 'tokenCode' instead." #-}
 
 -- | The duration, in seconds, that the credentials should remain valid. Acceptable durations for IAM user sessions range from 900 seconds (15 minutes) to 129,600 seconds (36 hours), with 43,200 seconds (12 hours) as the default. Sessions for AWS account owners are restricted to a maximum of 3,600 seconds (one hour). If the duration is longer than one hour, the session for AWS account owners defaults to one hour.
 --
 -- /Note:/ Consider using 'durationSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstDurationSeconds :: Lens.Lens' GetSessionToken (Lude.Maybe Lude.Natural)
-gstDurationSeconds = Lens.lens (durationSeconds :: GetSessionToken -> Lude.Maybe Lude.Natural) (\s a -> s {durationSeconds = a} :: GetSessionToken)
+gstDurationSeconds :: Lens.Lens' GetSessionToken (Core.Maybe Core.Natural)
+gstDurationSeconds = Lens.field @"durationSeconds"
 {-# DEPRECATED gstDurationSeconds "Use generic-lens or generic-optics with 'durationSeconds' instead." #-}
 
 -- | The identification number of the MFA device that is associated with the IAM user who is making the @GetSessionToken@ call. Specify this value if the IAM user has a policy that requires MFA authentication. The value is either the serial number for a hardware device (such as @GAHT12345678@ ) or an Amazon Resource Name (ARN) for a virtual device (such as @arn:aws:iam::123456789012:mfa/user@ ). You can find the device for an IAM user by going to the AWS Management Console and viewing the user's security credentials.
@@ -109,73 +92,82 @@ gstDurationSeconds = Lens.lens (durationSeconds :: GetSessionToken -> Lude.Maybe
 -- The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-
 --
 -- /Note:/ Consider using 'serialNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstSerialNumber :: Lens.Lens' GetSessionToken (Lude.Maybe Lude.Text)
-gstSerialNumber = Lens.lens (serialNumber :: GetSessionToken -> Lude.Maybe Lude.Text) (\s a -> s {serialNumber = a} :: GetSessionToken)
+gstSerialNumber :: Lens.Lens' GetSessionToken (Core.Maybe Types.SerialNumberType)
+gstSerialNumber = Lens.field @"serialNumber"
 {-# DEPRECATED gstSerialNumber "Use generic-lens or generic-optics with 'serialNumber' instead." #-}
 
-instance Lude.AWSRequest GetSessionToken where
+-- | The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, the user must provide a code when requesting a set of temporary security credentials. A user who fails to provide the code receives an "access denied" response when requesting resources that require MFA authentication.
+--
+-- The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.
+--
+-- /Note:/ Consider using 'tokenCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gstTokenCode :: Lens.Lens' GetSessionToken (Core.Maybe Types.TokenCode)
+gstTokenCode = Lens.field @"tokenCode"
+{-# DEPRECATED gstTokenCode "Use generic-lens or generic-optics with 'tokenCode' instead." #-}
+
+instance Core.AWSRequest GetSessionToken where
   type Rs GetSessionToken = GetSessionTokenResponse
-  request = Req.postQuery stsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetSessionToken")
+                Core.<> (Core.pure ("Version", "2011-06-15"))
+                Core.<> (Core.toQueryValue "DurationSeconds" Core.<$> durationSeconds)
+                Core.<> (Core.toQueryValue "SerialNumber" Core.<$> serialNumber)
+                Core.<> (Core.toQueryValue "TokenCode" Core.<$> tokenCode)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetSessionTokenResult"
       ( \s h x ->
           GetSessionTokenResponse'
-            Lude.<$> (x Lude..@? "Credentials") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Credentials") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSessionToken where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetSessionToken where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetSessionToken where
-  toQuery GetSessionToken' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetSessionToken" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-06-15" :: Lude.ByteString),
-        "TokenCode" Lude.=: tokenCode,
-        "DurationSeconds" Lude.=: durationSeconds,
-        "SerialNumber" Lude.=: serialNumber
-      ]
 
 -- | Contains the response to a successful 'GetSessionToken' request, including temporary AWS credentials that can be used to make AWS requests.
 --
 -- /See:/ 'mkGetSessionTokenResponse' smart constructor.
 data GetSessionTokenResponse = GetSessionTokenResponse'
   { -- | The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.
-    credentials :: Lude.Maybe AuthEnv,
+    credentials :: Core.Maybe Types.AuthEnv,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSessionTokenResponse' with the minimum fields required to make a request.
---
--- * 'credentials' - The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSessionTokenResponse' value with any optional fields omitted.
 mkGetSessionTokenResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSessionTokenResponse
-mkGetSessionTokenResponse pResponseStatus_ =
+mkGetSessionTokenResponse responseStatus =
   GetSessionTokenResponse'
-    { credentials = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { credentials = Core.Nothing,
+      responseStatus
     }
 
 -- | The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.
 --
 -- /Note:/ Consider using 'credentials' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstrsCredentials :: Lens.Lens' GetSessionTokenResponse (Lude.Maybe AuthEnv)
-gstrsCredentials = Lens.lens (credentials :: GetSessionTokenResponse -> Lude.Maybe AuthEnv) (\s a -> s {credentials = a} :: GetSessionTokenResponse)
-{-# DEPRECATED gstrsCredentials "Use generic-lens or generic-optics with 'credentials' instead." #-}
+gstrrsCredentials :: Lens.Lens' GetSessionTokenResponse (Core.Maybe Types.AuthEnv)
+gstrrsCredentials = Lens.field @"credentials"
+{-# DEPRECATED gstrrsCredentials "Use generic-lens or generic-optics with 'credentials' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gstrsResponseStatus :: Lens.Lens' GetSessionTokenResponse Lude.Int
-gstrsResponseStatus = Lens.lens (responseStatus :: GetSessionTokenResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSessionTokenResponse)
-{-# DEPRECATED gstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gstrrsResponseStatus :: Lens.Lens' GetSessionTokenResponse Core.Int
+gstrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gstrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

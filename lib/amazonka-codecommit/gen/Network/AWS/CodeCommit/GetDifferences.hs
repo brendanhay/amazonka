@@ -22,224 +22,208 @@ module Network.AWS.CodeCommit.GetDifferences
     mkGetDifferences,
 
     -- ** Request lenses
-    gdAfterPath,
+    gdRepositoryName,
+    gdAfterCommitSpecifier,
+    gdMaxResults,
     gdNextToken,
+    gdAfterPath,
     gdBeforeCommitSpecifier,
     gdBeforePath,
-    gdRepositoryName,
-    gdMaxResults,
-    gdAfterCommitSpecifier,
 
     -- * Destructuring the response
     GetDifferencesResponse (..),
     mkGetDifferencesResponse,
 
     -- ** Response lenses
-    gdrsNextToken,
-    gdrsDifferences,
-    gdrsResponseStatus,
+    gdrrsNextToken,
+    gdrrsDifferences,
+    gdrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetDifferences' smart constructor.
 data GetDifferences = GetDifferences'
-  { -- | The file path in which to check differences. Limits the results to this path. Can also be used to specify the changed name of a directory or folder, if it has changed. If not specified, differences are shown for all paths.
-    afterPath :: Lude.Maybe Lude.Text,
-    -- | An enumeration token that, when provided in a request, returns the next batch of the results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, the full commit ID). Optional. If not specified, all changes before the @afterCommitSpecifier@ value are shown. If you do not use @beforeCommitSpecifier@ in your request, consider limiting the results with @maxResults@ .
-    beforeCommitSpecifier :: Lude.Maybe Lude.Text,
-    -- | The file path in which to check for differences. Limits the results to this path. Can also be used to specify the previous name of a directory or folder. If @beforePath@ and @afterPath@ are not specified, differences are shown for all paths.
-    beforePath :: Lude.Maybe Lude.Text,
-    -- | The name of the repository where you want to get differences.
-    repositoryName :: Lude.Text,
-    -- | A non-zero, non-negative integer used to limit the number of returned results.
-    maxResults :: Lude.Maybe Lude.Int,
+  { -- | The name of the repository where you want to get differences.
+    repositoryName :: Types.RepositoryName,
     -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
-    afterCommitSpecifier :: Lude.Text
+    afterCommitSpecifier :: Types.AfterCommitSpecifier,
+    -- | A non-zero, non-negative integer used to limit the number of returned results.
+    maxResults :: Core.Maybe Core.Int,
+    -- | An enumeration token that, when provided in a request, returns the next batch of the results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The file path in which to check differences. Limits the results to this path. Can also be used to specify the changed name of a directory or folder, if it has changed. If not specified, differences are shown for all paths.
+    afterPath :: Core.Maybe Types.Path,
+    -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, the full commit ID). Optional. If not specified, all changes before the @afterCommitSpecifier@ value are shown. If you do not use @beforeCommitSpecifier@ in your request, consider limiting the results with @maxResults@ .
+    beforeCommitSpecifier :: Core.Maybe Types.BeforeCommitSpecifier,
+    -- | The file path in which to check for differences. Limits the results to this path. Can also be used to specify the previous name of a directory or folder. If @beforePath@ and @afterPath@ are not specified, differences are shown for all paths.
+    beforePath :: Core.Maybe Types.Path
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDifferences' with the minimum fields required to make a request.
---
--- * 'afterPath' - The file path in which to check differences. Limits the results to this path. Can also be used to specify the changed name of a directory or folder, if it has changed. If not specified, differences are shown for all paths.
--- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
--- * 'beforeCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, the full commit ID). Optional. If not specified, all changes before the @afterCommitSpecifier@ value are shown. If you do not use @beforeCommitSpecifier@ in your request, consider limiting the results with @maxResults@ .
--- * 'beforePath' - The file path in which to check for differences. Limits the results to this path. Can also be used to specify the previous name of a directory or folder. If @beforePath@ and @afterPath@ are not specified, differences are shown for all paths.
--- * 'repositoryName' - The name of the repository where you want to get differences.
--- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results.
--- * 'afterCommitSpecifier' - The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
+-- | Creates a 'GetDifferences' value with any optional fields omitted.
 mkGetDifferences ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   -- | 'afterCommitSpecifier'
-  Lude.Text ->
+  Types.AfterCommitSpecifier ->
   GetDifferences
-mkGetDifferences pRepositoryName_ pAfterCommitSpecifier_ =
+mkGetDifferences repositoryName afterCommitSpecifier =
   GetDifferences'
-    { afterPath = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      beforeCommitSpecifier = Lude.Nothing,
-      beforePath = Lude.Nothing,
-      repositoryName = pRepositoryName_,
-      maxResults = Lude.Nothing,
-      afterCommitSpecifier = pAfterCommitSpecifier_
+    { repositoryName,
+      afterCommitSpecifier,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      afterPath = Core.Nothing,
+      beforeCommitSpecifier = Core.Nothing,
+      beforePath = Core.Nothing
     }
 
--- | The file path in which to check differences. Limits the results to this path. Can also be used to specify the changed name of a directory or folder, if it has changed. If not specified, differences are shown for all paths.
+-- | The name of the repository where you want to get differences.
 --
--- /Note:/ Consider using 'afterPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdAfterPath :: Lens.Lens' GetDifferences (Lude.Maybe Lude.Text)
-gdAfterPath = Lens.lens (afterPath :: GetDifferences -> Lude.Maybe Lude.Text) (\s a -> s {afterPath = a} :: GetDifferences)
-{-# DEPRECATED gdAfterPath "Use generic-lens or generic-optics with 'afterPath' instead." #-}
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdRepositoryName :: Lens.Lens' GetDifferences Types.RepositoryName
+gdRepositoryName = Lens.field @"repositoryName"
+{-# DEPRECATED gdRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
+--
+-- /Note:/ Consider using 'afterCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdAfterCommitSpecifier :: Lens.Lens' GetDifferences Types.AfterCommitSpecifier
+gdAfterCommitSpecifier = Lens.field @"afterCommitSpecifier"
+{-# DEPRECATED gdAfterCommitSpecifier "Use generic-lens or generic-optics with 'afterCommitSpecifier' instead." #-}
+
+-- | A non-zero, non-negative integer used to limit the number of returned results.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdMaxResults :: Lens.Lens' GetDifferences (Core.Maybe Core.Int)
+gdMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED gdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | An enumeration token that, when provided in a request, returns the next batch of the results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdNextToken :: Lens.Lens' GetDifferences (Lude.Maybe Lude.Text)
-gdNextToken = Lens.lens (nextToken :: GetDifferences -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetDifferences)
+gdNextToken :: Lens.Lens' GetDifferences (Core.Maybe Types.NextToken)
+gdNextToken = Lens.field @"nextToken"
 {-# DEPRECATED gdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The file path in which to check differences. Limits the results to this path. Can also be used to specify the changed name of a directory or folder, if it has changed. If not specified, differences are shown for all paths.
+--
+-- /Note:/ Consider using 'afterPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdAfterPath :: Lens.Lens' GetDifferences (Core.Maybe Types.Path)
+gdAfterPath = Lens.field @"afterPath"
+{-# DEPRECATED gdAfterPath "Use generic-lens or generic-optics with 'afterPath' instead." #-}
 
 -- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit (for example, the full commit ID). Optional. If not specified, all changes before the @afterCommitSpecifier@ value are shown. If you do not use @beforeCommitSpecifier@ in your request, consider limiting the results with @maxResults@ .
 --
 -- /Note:/ Consider using 'beforeCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdBeforeCommitSpecifier :: Lens.Lens' GetDifferences (Lude.Maybe Lude.Text)
-gdBeforeCommitSpecifier = Lens.lens (beforeCommitSpecifier :: GetDifferences -> Lude.Maybe Lude.Text) (\s a -> s {beforeCommitSpecifier = a} :: GetDifferences)
+gdBeforeCommitSpecifier :: Lens.Lens' GetDifferences (Core.Maybe Types.BeforeCommitSpecifier)
+gdBeforeCommitSpecifier = Lens.field @"beforeCommitSpecifier"
 {-# DEPRECATED gdBeforeCommitSpecifier "Use generic-lens or generic-optics with 'beforeCommitSpecifier' instead." #-}
 
 -- | The file path in which to check for differences. Limits the results to this path. Can also be used to specify the previous name of a directory or folder. If @beforePath@ and @afterPath@ are not specified, differences are shown for all paths.
 --
 -- /Note:/ Consider using 'beforePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdBeforePath :: Lens.Lens' GetDifferences (Lude.Maybe Lude.Text)
-gdBeforePath = Lens.lens (beforePath :: GetDifferences -> Lude.Maybe Lude.Text) (\s a -> s {beforePath = a} :: GetDifferences)
+gdBeforePath :: Lens.Lens' GetDifferences (Core.Maybe Types.Path)
+gdBeforePath = Lens.field @"beforePath"
 {-# DEPRECATED gdBeforePath "Use generic-lens or generic-optics with 'beforePath' instead." #-}
 
--- | The name of the repository where you want to get differences.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdRepositoryName :: Lens.Lens' GetDifferences Lude.Text
-gdRepositoryName = Lens.lens (repositoryName :: GetDifferences -> Lude.Text) (\s a -> s {repositoryName = a} :: GetDifferences)
-{-# DEPRECATED gdRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+instance Core.FromJSON GetDifferences where
+  toJSON GetDifferences {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("afterCommitSpecifier" Core..= afterCommitSpecifier),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("afterPath" Core..=) Core.<$> afterPath,
+            ("beforeCommitSpecifier" Core..=) Core.<$> beforeCommitSpecifier,
+            ("beforePath" Core..=) Core.<$> beforePath
+          ]
+      )
 
--- | A non-zero, non-negative integer used to limit the number of returned results.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdMaxResults :: Lens.Lens' GetDifferences (Lude.Maybe Lude.Int)
-gdMaxResults = Lens.lens (maxResults :: GetDifferences -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetDifferences)
-{-# DEPRECATED gdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
--- | The branch, tag, HEAD, or other fully qualified reference used to identify a commit.
---
--- /Note:/ Consider using 'afterCommitSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdAfterCommitSpecifier :: Lens.Lens' GetDifferences Lude.Text
-gdAfterCommitSpecifier = Lens.lens (afterCommitSpecifier :: GetDifferences -> Lude.Text) (\s a -> s {afterCommitSpecifier = a} :: GetDifferences)
-{-# DEPRECATED gdAfterCommitSpecifier "Use generic-lens or generic-optics with 'afterCommitSpecifier' instead." #-}
-
-instance Page.AWSPager GetDifferences where
-  page rq rs
-    | Page.stop (rs Lens.^. gdrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gdrsDifferences) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gdNextToken Lens..~ rs Lens.^. gdrsNextToken
-
-instance Lude.AWSRequest GetDifferences where
+instance Core.AWSRequest GetDifferences where
   type Rs GetDifferences = GetDifferencesResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeCommit_20150413.GetDifferences")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDifferencesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "differences" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "differences")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetDifferences where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.GetDifferences" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDifferences where
-  toJSON GetDifferences' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("afterPath" Lude..=) Lude.<$> afterPath,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("beforeCommitSpecifier" Lude..=) Lude.<$> beforeCommitSpecifier,
-            ("beforePath" Lude..=) Lude.<$> beforePath,
-            Lude.Just ("repositoryName" Lude..= repositoryName),
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("afterCommitSpecifier" Lude..= afterCommitSpecifier)
-          ]
-      )
-
-instance Lude.ToPath GetDifferences where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDifferences where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetDifferences where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"differences" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetDifferencesResponse' smart constructor.
 data GetDifferencesResponse = GetDifferencesResponse'
   { -- | An enumeration token that can be used in a request to return the next batch of the results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A data type object that contains information about the differences, including whether the difference is added, modified, or deleted (A, D, M).
-    differences :: Lude.Maybe [Difference],
+    differences :: Core.Maybe [Types.Difference],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDifferencesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - An enumeration token that can be used in a request to return the next batch of the results.
--- * 'differences' - A data type object that contains information about the differences, including whether the difference is added, modified, or deleted (A, D, M).
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDifferencesResponse' value with any optional fields omitted.
 mkGetDifferencesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDifferencesResponse
-mkGetDifferencesResponse pResponseStatus_ =
+mkGetDifferencesResponse responseStatus =
   GetDifferencesResponse'
-    { nextToken = Lude.Nothing,
-      differences = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      differences = Core.Nothing,
+      responseStatus
     }
 
 -- | An enumeration token that can be used in a request to return the next batch of the results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsNextToken :: Lens.Lens' GetDifferencesResponse (Lude.Maybe Lude.Text)
-gdrsNextToken = Lens.lens (nextToken :: GetDifferencesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetDifferencesResponse)
-{-# DEPRECATED gdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gdrrsNextToken :: Lens.Lens' GetDifferencesResponse (Core.Maybe Types.NextToken)
+gdrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gdrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A data type object that contains information about the differences, including whether the difference is added, modified, or deleted (A, D, M).
 --
 -- /Note:/ Consider using 'differences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsDifferences :: Lens.Lens' GetDifferencesResponse (Lude.Maybe [Difference])
-gdrsDifferences = Lens.lens (differences :: GetDifferencesResponse -> Lude.Maybe [Difference]) (\s a -> s {differences = a} :: GetDifferencesResponse)
-{-# DEPRECATED gdrsDifferences "Use generic-lens or generic-optics with 'differences' instead." #-}
+gdrrsDifferences :: Lens.Lens' GetDifferencesResponse (Core.Maybe [Types.Difference])
+gdrrsDifferences = Lens.field @"differences"
+{-# DEPRECATED gdrrsDifferences "Use generic-lens or generic-optics with 'differences' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsResponseStatus :: Lens.Lens' GetDifferencesResponse Lude.Int
-gdrsResponseStatus = Lens.lens (responseStatus :: GetDifferencesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDifferencesResponse)
-{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdrrsResponseStatus :: Lens.Lens' GetDifferencesResponse Core.Int
+gdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

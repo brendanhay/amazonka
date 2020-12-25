@@ -17,62 +17,56 @@ module Network.AWS.Lightsail.Types.AddOnRequest
     mkAddOnRequest,
 
     -- * Lenses
-    aorAutoSnapshotAddOnRequest,
     aorAddOnType,
+    aorAutoSnapshotAddOnRequest,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.AddOnType
-import Network.AWS.Lightsail.Types.AutoSnapshotAddOnRequest
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.AddOnType as Types
+import qualified Network.AWS.Lightsail.Types.AutoSnapshotAddOnRequest as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a request to enable, modify, or disable an add-on for an Amazon Lightsail resource.
 --
 -- /See:/ 'mkAddOnRequest' smart constructor.
 data AddOnRequest = AddOnRequest'
-  { -- | An object that represents additional parameters when enabling or modifying the automatic snapshot add-on.
-    autoSnapshotAddOnRequest :: Lude.Maybe AutoSnapshotAddOnRequest,
-    -- | The add-on type.
-    addOnType :: AddOnType
+  { -- | The add-on type.
+    addOnType :: Types.AddOnType,
+    -- | An object that represents additional parameters when enabling or modifying the automatic snapshot add-on.
+    autoSnapshotAddOnRequest :: Core.Maybe Types.AutoSnapshotAddOnRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddOnRequest' with the minimum fields required to make a request.
---
--- * 'autoSnapshotAddOnRequest' - An object that represents additional parameters when enabling or modifying the automatic snapshot add-on.
--- * 'addOnType' - The add-on type.
+-- | Creates a 'AddOnRequest' value with any optional fields omitted.
 mkAddOnRequest ::
   -- | 'addOnType'
-  AddOnType ->
+  Types.AddOnType ->
   AddOnRequest
-mkAddOnRequest pAddOnType_ =
-  AddOnRequest'
-    { autoSnapshotAddOnRequest = Lude.Nothing,
-      addOnType = pAddOnType_
-    }
-
--- | An object that represents additional parameters when enabling or modifying the automatic snapshot add-on.
---
--- /Note:/ Consider using 'autoSnapshotAddOnRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aorAutoSnapshotAddOnRequest :: Lens.Lens' AddOnRequest (Lude.Maybe AutoSnapshotAddOnRequest)
-aorAutoSnapshotAddOnRequest = Lens.lens (autoSnapshotAddOnRequest :: AddOnRequest -> Lude.Maybe AutoSnapshotAddOnRequest) (\s a -> s {autoSnapshotAddOnRequest = a} :: AddOnRequest)
-{-# DEPRECATED aorAutoSnapshotAddOnRequest "Use generic-lens or generic-optics with 'autoSnapshotAddOnRequest' instead." #-}
+mkAddOnRequest addOnType =
+  AddOnRequest' {addOnType, autoSnapshotAddOnRequest = Core.Nothing}
 
 -- | The add-on type.
 --
 -- /Note:/ Consider using 'addOnType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aorAddOnType :: Lens.Lens' AddOnRequest AddOnType
-aorAddOnType = Lens.lens (addOnType :: AddOnRequest -> AddOnType) (\s a -> s {addOnType = a} :: AddOnRequest)
+aorAddOnType :: Lens.Lens' AddOnRequest Types.AddOnType
+aorAddOnType = Lens.field @"addOnType"
 {-# DEPRECATED aorAddOnType "Use generic-lens or generic-optics with 'addOnType' instead." #-}
 
-instance Lude.ToJSON AddOnRequest where
-  toJSON AddOnRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("autoSnapshotAddOnRequest" Lude..=)
-              Lude.<$> autoSnapshotAddOnRequest,
-            Lude.Just ("addOnType" Lude..= addOnType)
+-- | An object that represents additional parameters when enabling or modifying the automatic snapshot add-on.
+--
+-- /Note:/ Consider using 'autoSnapshotAddOnRequest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aorAutoSnapshotAddOnRequest :: Lens.Lens' AddOnRequest (Core.Maybe Types.AutoSnapshotAddOnRequest)
+aorAutoSnapshotAddOnRequest = Lens.field @"autoSnapshotAddOnRequest"
+{-# DEPRECATED aorAutoSnapshotAddOnRequest "Use generic-lens or generic-optics with 'autoSnapshotAddOnRequest' instead." #-}
+
+instance Core.FromJSON AddOnRequest where
+  toJSON AddOnRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("addOnType" Core..= addOnType),
+            ("autoSnapshotAddOnRequest" Core..=)
+              Core.<$> autoSnapshotAddOnRequest
           ]
       )

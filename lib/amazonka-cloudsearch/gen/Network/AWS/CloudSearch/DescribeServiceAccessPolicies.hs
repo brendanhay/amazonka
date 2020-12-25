@@ -20,136 +20,131 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     mkDescribeServiceAccessPolicies,
 
     -- ** Request lenses
-    dsapDeployed,
     dsapDomainName,
+    dsapDeployed,
 
     -- * Destructuring the response
     DescribeServiceAccessPoliciesResponse (..),
     mkDescribeServiceAccessPoliciesResponse,
 
     -- ** Response lenses
-    dsaprsAccessPolicies,
-    dsaprsResponseStatus,
+    dsaprrsAccessPolicies,
+    dsaprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DescribeServiceAccessPolicies' @ operation. Specifies the name of the domain you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
 --
 -- /See:/ 'mkDescribeServiceAccessPolicies' smart constructor.
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
-  { -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
-    deployed :: Lude.Maybe Lude.Bool,
-    -- | The name of the domain you want to describe.
-    domainName :: Lude.Text
+  { -- | The name of the domain you want to describe.
+    domainName :: Types.DomainName,
+    -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+    deployed :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeServiceAccessPolicies' with the minimum fields required to make a request.
---
--- * 'deployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
--- * 'domainName' - The name of the domain you want to describe.
+-- | Creates a 'DescribeServiceAccessPolicies' value with any optional fields omitted.
 mkDescribeServiceAccessPolicies ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   DescribeServiceAccessPolicies
-mkDescribeServiceAccessPolicies pDomainName_ =
+mkDescribeServiceAccessPolicies domainName =
   DescribeServiceAccessPolicies'
-    { deployed = Lude.Nothing,
-      domainName = pDomainName_
+    { domainName,
+      deployed = Core.Nothing
     }
-
--- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
---
--- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsapDeployed :: Lens.Lens' DescribeServiceAccessPolicies (Lude.Maybe Lude.Bool)
-dsapDeployed = Lens.lens (deployed :: DescribeServiceAccessPolicies -> Lude.Maybe Lude.Bool) (\s a -> s {deployed = a} :: DescribeServiceAccessPolicies)
-{-# DEPRECATED dsapDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
 
 -- | The name of the domain you want to describe.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsapDomainName :: Lens.Lens' DescribeServiceAccessPolicies Lude.Text
-dsapDomainName = Lens.lens (domainName :: DescribeServiceAccessPolicies -> Lude.Text) (\s a -> s {domainName = a} :: DescribeServiceAccessPolicies)
+dsapDomainName :: Lens.Lens' DescribeServiceAccessPolicies Types.DomainName
+dsapDomainName = Lens.field @"domainName"
 {-# DEPRECATED dsapDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest DescribeServiceAccessPolicies where
+-- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+--
+-- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsapDeployed :: Lens.Lens' DescribeServiceAccessPolicies (Core.Maybe Core.Bool)
+dsapDeployed = Lens.field @"deployed"
+{-# DEPRECATED dsapDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
+
+instance Core.AWSRequest DescribeServiceAccessPolicies where
   type
     Rs DescribeServiceAccessPolicies =
       DescribeServiceAccessPoliciesResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeServiceAccessPolicies")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryValue "Deployed" Core.<$> deployed)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeServiceAccessPoliciesResult"
       ( \s h x ->
           DescribeServiceAccessPoliciesResponse'
-            Lude.<$> (x Lude..@ "AccessPolicies")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "AccessPolicies")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeServiceAccessPolicies where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeServiceAccessPolicies where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeServiceAccessPolicies where
-  toQuery DescribeServiceAccessPolicies' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeServiceAccessPolicies" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "Deployed" Lude.=: deployed,
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | The result of a @DescribeServiceAccessPolicies@ request.
 --
 -- /See:/ 'mkDescribeServiceAccessPoliciesResponse' smart constructor.
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
   { -- | The access rules configured for the domain specified in the request.
-    accessPolicies :: AccessPoliciesStatus,
+    accessPolicies :: Types.AccessPoliciesStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeServiceAccessPoliciesResponse' with the minimum fields required to make a request.
---
--- * 'accessPolicies' - The access rules configured for the domain specified in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeServiceAccessPoliciesResponse' value with any optional fields omitted.
 mkDescribeServiceAccessPoliciesResponse ::
   -- | 'accessPolicies'
-  AccessPoliciesStatus ->
+  Types.AccessPoliciesStatus ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeServiceAccessPoliciesResponse
 mkDescribeServiceAccessPoliciesResponse
-  pAccessPolicies_
-  pResponseStatus_ =
+  accessPolicies
+  responseStatus =
     DescribeServiceAccessPoliciesResponse'
-      { accessPolicies =
-          pAccessPolicies_,
-        responseStatus = pResponseStatus_
+      { accessPolicies,
+        responseStatus
       }
 
 -- | The access rules configured for the domain specified in the request.
 --
 -- /Note:/ Consider using 'accessPolicies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaprsAccessPolicies :: Lens.Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
-dsaprsAccessPolicies = Lens.lens (accessPolicies :: DescribeServiceAccessPoliciesResponse -> AccessPoliciesStatus) (\s a -> s {accessPolicies = a} :: DescribeServiceAccessPoliciesResponse)
-{-# DEPRECATED dsaprsAccessPolicies "Use generic-lens or generic-optics with 'accessPolicies' instead." #-}
+dsaprrsAccessPolicies :: Lens.Lens' DescribeServiceAccessPoliciesResponse Types.AccessPoliciesStatus
+dsaprrsAccessPolicies = Lens.field @"accessPolicies"
+{-# DEPRECATED dsaprrsAccessPolicies "Use generic-lens or generic-optics with 'accessPolicies' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsaprsResponseStatus :: Lens.Lens' DescribeServiceAccessPoliciesResponse Lude.Int
-dsaprsResponseStatus = Lens.lens (responseStatus :: DescribeServiceAccessPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeServiceAccessPoliciesResponse)
-{-# DEPRECATED dsaprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsaprrsResponseStatus :: Lens.Lens' DescribeServiceAccessPoliciesResponse Core.Int
+dsaprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsaprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

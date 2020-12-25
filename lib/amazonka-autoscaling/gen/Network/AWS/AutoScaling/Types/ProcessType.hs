@@ -21,8 +21,9 @@ module Network.AWS.AutoScaling.Types.ProcessType
   )
 where
 
+import qualified Network.AWS.AutoScaling.Types.XmlStringMaxLen255 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a process type.
 --
@@ -58,47 +59,17 @@ newtype ProcessType = ProcessType'
     --
     --
     --     * @ScheduledActions@
-    processName :: Lude.Text
+    processName :: Types.XmlStringMaxLen255
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProcessType' with the minimum fields required to make a request.
---
--- * 'processName' - One of the following processes:
---
---
---     * @Launch@
---
---
---     * @Terminate@
---
---
---     * @AddToLoadBalancer@
---
---
---     * @AlarmNotification@
---
---
---     * @AZRebalance@
---
---
---     * @HealthCheck@
---
---
---     * @InstanceRefresh@
---
---
---     * @ReplaceUnhealthy@
---
---
---     * @ScheduledActions@
+-- | Creates a 'ProcessType' value with any optional fields omitted.
 mkProcessType ::
   -- | 'processName'
-  Lude.Text ->
+  Types.XmlStringMaxLen255 ->
   ProcessType
-mkProcessType pProcessName_ =
-  ProcessType' {processName = pProcessName_}
+mkProcessType processName = ProcessType' {processName}
 
 -- | One of the following processes:
 --
@@ -132,9 +103,9 @@ mkProcessType pProcessName_ =
 --
 --
 -- /Note:/ Consider using 'processName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptProcessName :: Lens.Lens' ProcessType Lude.Text
-ptProcessName = Lens.lens (processName :: ProcessType -> Lude.Text) (\s a -> s {processName = a} :: ProcessType)
+ptProcessName :: Lens.Lens' ProcessType Types.XmlStringMaxLen255
+ptProcessName = Lens.field @"processName"
 {-# DEPRECATED ptProcessName "Use generic-lens or generic-optics with 'processName' instead." #-}
 
-instance Lude.FromXML ProcessType where
-  parseXML x = ProcessType' Lude.<$> (x Lude..@ "ProcessName")
+instance Core.FromXML ProcessType where
+  parseXML x = ProcessType' Core.<$> (x Core..@ "ProcessName")

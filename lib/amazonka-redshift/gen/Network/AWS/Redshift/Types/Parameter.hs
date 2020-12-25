@@ -17,161 +17,138 @@ module Network.AWS.Redshift.Types.Parameter
     mkParameter,
 
     -- * Lenses
-    pApplyType,
-    pParameterValue,
-    pMinimumEngineVersion,
-    pSource,
-    pIsModifiable,
-    pDataType,
     pAllowedValues,
-    pParameterName,
+    pApplyType,
+    pDataType,
     pDescription,
+    pIsModifiable,
+    pMinimumEngineVersion,
+    pParameterName,
+    pParameterValue,
+    pSource,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
-import Network.AWS.Redshift.Types.ParameterApplyType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.ParameterApplyType as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes a parameter in a cluster parameter group.
 --
 -- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { -- | Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
-    applyType :: Lude.Maybe ParameterApplyType,
-    -- | The value of the parameter.
-    parameterValue :: Lude.Maybe Lude.Text,
-    -- | The earliest engine version to which the parameter can apply.
-    minimumEngineVersion :: Lude.Maybe Lude.Text,
-    -- | The source of the parameter value, such as "engine-default" or "user".
-    source :: Lude.Maybe Lude.Text,
-    -- | If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
-    isModifiable :: Lude.Maybe Lude.Bool,
+  { -- | The valid range of values for the parameter.
+    allowedValues :: Core.Maybe Types.String,
+    -- | Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
+    applyType :: Core.Maybe Types.ParameterApplyType,
     -- | The data type of the parameter.
-    dataType :: Lude.Maybe Lude.Text,
-    -- | The valid range of values for the parameter.
-    allowedValues :: Lude.Maybe Lude.Text,
-    -- | The name of the parameter.
-    parameterName :: Lude.Maybe Lude.Text,
+    dataType :: Core.Maybe Types.String,
     -- | A description of the parameter.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.String,
+    -- | If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+    isModifiable :: Core.Maybe Core.Bool,
+    -- | The earliest engine version to which the parameter can apply.
+    minimumEngineVersion :: Core.Maybe Types.String,
+    -- | The name of the parameter.
+    parameterName :: Core.Maybe Types.String,
+    -- | The value of the parameter.
+    parameterValue :: Core.Maybe Types.String,
+    -- | The source of the parameter value, such as "engine-default" or "user".
+    source :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Parameter' with the minimum fields required to make a request.
---
--- * 'applyType' - Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
--- * 'parameterValue' - The value of the parameter.
--- * 'minimumEngineVersion' - The earliest engine version to which the parameter can apply.
--- * 'source' - The source of the parameter value, such as "engine-default" or "user".
--- * 'isModifiable' - If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
--- * 'dataType' - The data type of the parameter.
--- * 'allowedValues' - The valid range of values for the parameter.
--- * 'parameterName' - The name of the parameter.
--- * 'description' - A description of the parameter.
+-- | Creates a 'Parameter' value with any optional fields omitted.
 mkParameter ::
   Parameter
 mkParameter =
   Parameter'
-    { applyType = Lude.Nothing,
-      parameterValue = Lude.Nothing,
-      minimumEngineVersion = Lude.Nothing,
-      source = Lude.Nothing,
-      isModifiable = Lude.Nothing,
-      dataType = Lude.Nothing,
-      allowedValues = Lude.Nothing,
-      parameterName = Lude.Nothing,
-      description = Lude.Nothing
+    { allowedValues = Core.Nothing,
+      applyType = Core.Nothing,
+      dataType = Core.Nothing,
+      description = Core.Nothing,
+      isModifiable = Core.Nothing,
+      minimumEngineVersion = Core.Nothing,
+      parameterName = Core.Nothing,
+      parameterValue = Core.Nothing,
+      source = Core.Nothing
     }
-
--- | Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
---
--- /Note:/ Consider using 'applyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pApplyType :: Lens.Lens' Parameter (Lude.Maybe ParameterApplyType)
-pApplyType = Lens.lens (applyType :: Parameter -> Lude.Maybe ParameterApplyType) (\s a -> s {applyType = a} :: Parameter)
-{-# DEPRECATED pApplyType "Use generic-lens or generic-optics with 'applyType' instead." #-}
-
--- | The value of the parameter.
---
--- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pParameterValue :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pParameterValue = Lens.lens (parameterValue :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterValue = a} :: Parameter)
-{-# DEPRECATED pParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
-
--- | The earliest engine version to which the parameter can apply.
---
--- /Note:/ Consider using 'minimumEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pMinimumEngineVersion :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pMinimumEngineVersion = Lens.lens (minimumEngineVersion :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {minimumEngineVersion = a} :: Parameter)
-{-# DEPRECATED pMinimumEngineVersion "Use generic-lens or generic-optics with 'minimumEngineVersion' instead." #-}
-
--- | The source of the parameter value, such as "engine-default" or "user".
---
--- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pSource :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pSource = Lens.lens (source :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {source = a} :: Parameter)
-{-# DEPRECATED pSource "Use generic-lens or generic-optics with 'source' instead." #-}
-
--- | If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
---
--- /Note:/ Consider using 'isModifiable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pIsModifiable :: Lens.Lens' Parameter (Lude.Maybe Lude.Bool)
-pIsModifiable = Lens.lens (isModifiable :: Parameter -> Lude.Maybe Lude.Bool) (\s a -> s {isModifiable = a} :: Parameter)
-{-# DEPRECATED pIsModifiable "Use generic-lens or generic-optics with 'isModifiable' instead." #-}
-
--- | The data type of the parameter.
---
--- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDataType :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pDataType = Lens.lens (dataType :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: Parameter)
-{-# DEPRECATED pDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | The valid range of values for the parameter.
 --
 -- /Note:/ Consider using 'allowedValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pAllowedValues :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pAllowedValues = Lens.lens (allowedValues :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {allowedValues = a} :: Parameter)
+pAllowedValues :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pAllowedValues = Lens.field @"allowedValues"
 {-# DEPRECATED pAllowedValues "Use generic-lens or generic-optics with 'allowedValues' instead." #-}
 
--- | The name of the parameter.
+-- | Specifies how to apply the WLM configuration parameter. Some properties can be applied dynamically, while other properties require that any associated clusters be rebooted for the configuration changes to be applied. For more information about parameters and parameter groups, go to <https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /Amazon Redshift Cluster Management Guide/ .
 --
--- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pParameterName :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pParameterName = Lens.lens (parameterName :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {parameterName = a} :: Parameter)
-{-# DEPRECATED pParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
+-- /Note:/ Consider using 'applyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pApplyType :: Lens.Lens' Parameter (Core.Maybe Types.ParameterApplyType)
+pApplyType = Lens.field @"applyType"
+{-# DEPRECATED pApplyType "Use generic-lens or generic-optics with 'applyType' instead." #-}
+
+-- | The data type of the parameter.
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pDataType :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pDataType = Lens.field @"dataType"
+{-# DEPRECATED pDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | A description of the parameter.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDescription :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pDescription = Lens.lens (description :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Parameter)
+pDescription :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pDescription = Lens.field @"description"
 {-# DEPRECATED pDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML Parameter where
+-- | If @true@ , the parameter can be modified. Some parameters have security or operational implications that prevent them from being changed.
+--
+-- /Note:/ Consider using 'isModifiable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pIsModifiable :: Lens.Lens' Parameter (Core.Maybe Core.Bool)
+pIsModifiable = Lens.field @"isModifiable"
+{-# DEPRECATED pIsModifiable "Use generic-lens or generic-optics with 'isModifiable' instead." #-}
+
+-- | The earliest engine version to which the parameter can apply.
+--
+-- /Note:/ Consider using 'minimumEngineVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pMinimumEngineVersion :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pMinimumEngineVersion = Lens.field @"minimumEngineVersion"
+{-# DEPRECATED pMinimumEngineVersion "Use generic-lens or generic-optics with 'minimumEngineVersion' instead." #-}
+
+-- | The name of the parameter.
+--
+-- /Note:/ Consider using 'parameterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterName :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pParameterName = Lens.field @"parameterName"
+{-# DEPRECATED pParameterName "Use generic-lens or generic-optics with 'parameterName' instead." #-}
+
+-- | The value of the parameter.
+--
+-- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameterValue :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pParameterValue = Lens.field @"parameterValue"
+{-# DEPRECATED pParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
+
+-- | The source of the parameter value, such as "engine-default" or "user".
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pSource :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pSource = Lens.field @"source"
+{-# DEPRECATED pSource "Use generic-lens or generic-optics with 'source' instead." #-}
+
+instance Core.FromXML Parameter where
   parseXML x =
     Parameter'
-      Lude.<$> (x Lude..@? "ApplyType")
-      Lude.<*> (x Lude..@? "ParameterValue")
-      Lude.<*> (x Lude..@? "MinimumEngineVersion")
-      Lude.<*> (x Lude..@? "Source")
-      Lude.<*> (x Lude..@? "IsModifiable")
-      Lude.<*> (x Lude..@? "DataType")
-      Lude.<*> (x Lude..@? "AllowedValues")
-      Lude.<*> (x Lude..@? "ParameterName")
-      Lude.<*> (x Lude..@? "Description")
-
-instance Lude.ToQuery Parameter where
-  toQuery Parameter' {..} =
-    Lude.mconcat
-      [ "ApplyType" Lude.=: applyType,
-        "ParameterValue" Lude.=: parameterValue,
-        "MinimumEngineVersion" Lude.=: minimumEngineVersion,
-        "Source" Lude.=: source,
-        "IsModifiable" Lude.=: isModifiable,
-        "DataType" Lude.=: dataType,
-        "AllowedValues" Lude.=: allowedValues,
-        "ParameterName" Lude.=: parameterName,
-        "Description" Lude.=: description
-      ]
+      Core.<$> (x Core..@? "AllowedValues")
+      Core.<*> (x Core..@? "ApplyType")
+      Core.<*> (x Core..@? "DataType")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "IsModifiable")
+      Core.<*> (x Core..@? "MinimumEngineVersion")
+      Core.<*> (x Core..@? "ParameterName")
+      Core.<*> (x Core..@? "ParameterValue")
+      Core.<*> (x Core..@? "Source")

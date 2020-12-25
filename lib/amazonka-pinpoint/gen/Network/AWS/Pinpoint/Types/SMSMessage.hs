@@ -17,123 +17,115 @@ module Network.AWS.Pinpoint.Types.SMSMessage
     mkSMSMessage,
 
     -- * Lenses
-    smsmSubstitutions,
-    smsmOriginationNumber,
     smsmBody,
-    smsmMessageType,
-    smsmSenderId,
-    smsmMediaURL,
     smsmKeyword,
+    smsmMediaUrl,
+    smsmMessageType,
+    smsmOriginationNumber,
+    smsmSenderId,
+    smsmSubstitutions,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.MessageType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.MessageType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the default settings for a one-time SMS message that's sent directly to an endpoint.
 --
 -- /See:/ 'mkSMSMessage' smart constructor.
 data SMSMessage = SMSMessage'
-  { -- | The message variables to use in the SMS message. You can override the default variables with individual address variables.
-    substitutions :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])),
-    -- | The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.
-    originationNumber :: Lude.Maybe Lude.Text,
-    -- | The body of the SMS message.
-    body :: Lude.Maybe Lude.Text,
-    -- | The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).
-    messageType :: Lude.Maybe MessageType,
-    -- | The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.
-    senderId :: Lude.Maybe Lude.Text,
-    -- | This field is reserved for future use.
-    mediaURL :: Lude.Maybe Lude.Text,
+  { -- | The body of the SMS message.
+    body :: Core.Maybe Core.Text,
     -- | The SMS program name that you provided to AWS Support when you requested your dedicated number.
-    keyword :: Lude.Maybe Lude.Text
+    keyword :: Core.Maybe Core.Text,
+    -- | This field is reserved for future use.
+    mediaUrl :: Core.Maybe Core.Text,
+    -- | The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).
+    messageType :: Core.Maybe Types.MessageType,
+    -- | The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.
+    originationNumber :: Core.Maybe Core.Text,
+    -- | The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.
+    senderId :: Core.Maybe Core.Text,
+    -- | The message variables to use in the SMS message. You can override the default variables with individual address variables.
+    substitutions :: Core.Maybe (Core.HashMap Core.Text [Core.Text])
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SMSMessage' with the minimum fields required to make a request.
---
--- * 'substitutions' - The message variables to use in the SMS message. You can override the default variables with individual address variables.
--- * 'originationNumber' - The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.
--- * 'body' - The body of the SMS message.
--- * 'messageType' - The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).
--- * 'senderId' - The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.
--- * 'mediaURL' - This field is reserved for future use.
--- * 'keyword' - The SMS program name that you provided to AWS Support when you requested your dedicated number.
+-- | Creates a 'SMSMessage' value with any optional fields omitted.
 mkSMSMessage ::
   SMSMessage
 mkSMSMessage =
   SMSMessage'
-    { substitutions = Lude.Nothing,
-      originationNumber = Lude.Nothing,
-      body = Lude.Nothing,
-      messageType = Lude.Nothing,
-      senderId = Lude.Nothing,
-      mediaURL = Lude.Nothing,
-      keyword = Lude.Nothing
+    { body = Core.Nothing,
+      keyword = Core.Nothing,
+      mediaUrl = Core.Nothing,
+      messageType = Core.Nothing,
+      originationNumber = Core.Nothing,
+      senderId = Core.Nothing,
+      substitutions = Core.Nothing
     }
-
--- | The message variables to use in the SMS message. You can override the default variables with individual address variables.
---
--- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smsmSubstitutions :: Lens.Lens' SMSMessage (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-smsmSubstitutions = Lens.lens (substitutions :: SMSMessage -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {substitutions = a} :: SMSMessage)
-{-# DEPRECATED smsmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
-
--- | The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.
---
--- /Note:/ Consider using 'originationNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smsmOriginationNumber :: Lens.Lens' SMSMessage (Lude.Maybe Lude.Text)
-smsmOriginationNumber = Lens.lens (originationNumber :: SMSMessage -> Lude.Maybe Lude.Text) (\s a -> s {originationNumber = a} :: SMSMessage)
-{-# DEPRECATED smsmOriginationNumber "Use generic-lens or generic-optics with 'originationNumber' instead." #-}
 
 -- | The body of the SMS message.
 --
 -- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smsmBody :: Lens.Lens' SMSMessage (Lude.Maybe Lude.Text)
-smsmBody = Lens.lens (body :: SMSMessage -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: SMSMessage)
+smsmBody :: Lens.Lens' SMSMessage (Core.Maybe Core.Text)
+smsmBody = Lens.field @"body"
 {-# DEPRECATED smsmBody "Use generic-lens or generic-optics with 'body' instead." #-}
-
--- | The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).
---
--- /Note:/ Consider using 'messageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smsmMessageType :: Lens.Lens' SMSMessage (Lude.Maybe MessageType)
-smsmMessageType = Lens.lens (messageType :: SMSMessage -> Lude.Maybe MessageType) (\s a -> s {messageType = a} :: SMSMessage)
-{-# DEPRECATED smsmMessageType "Use generic-lens or generic-optics with 'messageType' instead." #-}
-
--- | The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.
---
--- /Note:/ Consider using 'senderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smsmSenderId :: Lens.Lens' SMSMessage (Lude.Maybe Lude.Text)
-smsmSenderId = Lens.lens (senderId :: SMSMessage -> Lude.Maybe Lude.Text) (\s a -> s {senderId = a} :: SMSMessage)
-{-# DEPRECATED smsmSenderId "Use generic-lens or generic-optics with 'senderId' instead." #-}
-
--- | This field is reserved for future use.
---
--- /Note:/ Consider using 'mediaURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smsmMediaURL :: Lens.Lens' SMSMessage (Lude.Maybe Lude.Text)
-smsmMediaURL = Lens.lens (mediaURL :: SMSMessage -> Lude.Maybe Lude.Text) (\s a -> s {mediaURL = a} :: SMSMessage)
-{-# DEPRECATED smsmMediaURL "Use generic-lens or generic-optics with 'mediaURL' instead." #-}
 
 -- | The SMS program name that you provided to AWS Support when you requested your dedicated number.
 --
 -- /Note:/ Consider using 'keyword' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smsmKeyword :: Lens.Lens' SMSMessage (Lude.Maybe Lude.Text)
-smsmKeyword = Lens.lens (keyword :: SMSMessage -> Lude.Maybe Lude.Text) (\s a -> s {keyword = a} :: SMSMessage)
+smsmKeyword :: Lens.Lens' SMSMessage (Core.Maybe Core.Text)
+smsmKeyword = Lens.field @"keyword"
 {-# DEPRECATED smsmKeyword "Use generic-lens or generic-optics with 'keyword' instead." #-}
 
-instance Lude.ToJSON SMSMessage where
-  toJSON SMSMessage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Substitutions" Lude..=) Lude.<$> substitutions,
-            ("OriginationNumber" Lude..=) Lude.<$> originationNumber,
-            ("Body" Lude..=) Lude.<$> body,
-            ("MessageType" Lude..=) Lude.<$> messageType,
-            ("SenderId" Lude..=) Lude.<$> senderId,
-            ("MediaUrl" Lude..=) Lude.<$> mediaURL,
-            ("Keyword" Lude..=) Lude.<$> keyword
+-- | This field is reserved for future use.
+--
+-- /Note:/ Consider using 'mediaUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsmMediaUrl :: Lens.Lens' SMSMessage (Core.Maybe Core.Text)
+smsmMediaUrl = Lens.field @"mediaUrl"
+{-# DEPRECATED smsmMediaUrl "Use generic-lens or generic-optics with 'mediaUrl' instead." #-}
+
+-- | The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).
+--
+-- /Note:/ Consider using 'messageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsmMessageType :: Lens.Lens' SMSMessage (Core.Maybe Types.MessageType)
+smsmMessageType = Lens.field @"messageType"
+{-# DEPRECATED smsmMessageType "Use generic-lens or generic-optics with 'messageType' instead." #-}
+
+-- | The number to send the SMS message from. This value should be one of the dedicated long or short codes that's assigned to your AWS account. If you don't specify a long or short code, Amazon Pinpoint assigns a random long code to the SMS message and sends the message from that code.
+--
+-- /Note:/ Consider using 'originationNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsmOriginationNumber :: Lens.Lens' SMSMessage (Core.Maybe Core.Text)
+smsmOriginationNumber = Lens.field @"originationNumber"
+{-# DEPRECATED smsmOriginationNumber "Use generic-lens or generic-optics with 'originationNumber' instead." #-}
+
+-- | The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region.
+--
+-- /Note:/ Consider using 'senderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsmSenderId :: Lens.Lens' SMSMessage (Core.Maybe Core.Text)
+smsmSenderId = Lens.field @"senderId"
+{-# DEPRECATED smsmSenderId "Use generic-lens or generic-optics with 'senderId' instead." #-}
+
+-- | The message variables to use in the SMS message. You can override the default variables with individual address variables.
+--
+-- /Note:/ Consider using 'substitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smsmSubstitutions :: Lens.Lens' SMSMessage (Core.Maybe (Core.HashMap Core.Text [Core.Text]))
+smsmSubstitutions = Lens.field @"substitutions"
+{-# DEPRECATED smsmSubstitutions "Use generic-lens or generic-optics with 'substitutions' instead." #-}
+
+instance Core.FromJSON SMSMessage where
+  toJSON SMSMessage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Body" Core..=) Core.<$> body,
+            ("Keyword" Core..=) Core.<$> keyword,
+            ("MediaUrl" Core..=) Core.<$> mediaUrl,
+            ("MessageType" Core..=) Core.<$> messageType,
+            ("OriginationNumber" Core..=) Core.<$> originationNumber,
+            ("SenderId" Core..=) Core.<$> senderId,
+            ("Substitutions" Core..=) Core.<$> substitutions
           ]
       )

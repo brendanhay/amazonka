@@ -13,51 +13,56 @@
 module Network.AWS.Glue.Types.PrincipalType
   ( PrincipalType
       ( PrincipalType',
-        User,
-        Role,
-        Group
+        PrincipalTypeUser,
+        PrincipalTypeRole,
+        PrincipalTypeGroup,
+        fromPrincipalType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PrincipalType = PrincipalType' Lude.Text
+newtype PrincipalType = PrincipalType'
+  { fromPrincipalType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern User :: PrincipalType
-pattern User = PrincipalType' "USER"
+pattern PrincipalTypeUser :: PrincipalType
+pattern PrincipalTypeUser = PrincipalType' "USER"
 
-pattern Role :: PrincipalType
-pattern Role = PrincipalType' "ROLE"
+pattern PrincipalTypeRole :: PrincipalType
+pattern PrincipalTypeRole = PrincipalType' "ROLE"
 
-pattern Group :: PrincipalType
-pattern Group = PrincipalType' "GROUP"
+pattern PrincipalTypeGroup :: PrincipalType
+pattern PrincipalTypeGroup = PrincipalType' "GROUP"
 
 {-# COMPLETE
-  User,
-  Role,
-  Group,
+  PrincipalTypeUser,
+  PrincipalTypeRole,
+  PrincipalTypeGroup,
   PrincipalType'
   #-}

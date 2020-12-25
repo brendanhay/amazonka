@@ -28,76 +28,69 @@ module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @DeregisterOnPremisesInstance@ operation.
 --
 -- /See:/ 'mkDeregisterOnPremisesInstance' smart constructor.
 newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
   { -- | The name of the on-premises instance to deregister.
-    instanceName :: Lude.Text
+    instanceName :: Types.InstanceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterOnPremisesInstance' with the minimum fields required to make a request.
---
--- * 'instanceName' - The name of the on-premises instance to deregister.
+-- | Creates a 'DeregisterOnPremisesInstance' value with any optional fields omitted.
 mkDeregisterOnPremisesInstance ::
   -- | 'instanceName'
-  Lude.Text ->
+  Types.InstanceName ->
   DeregisterOnPremisesInstance
-mkDeregisterOnPremisesInstance pInstanceName_ =
-  DeregisterOnPremisesInstance' {instanceName = pInstanceName_}
+mkDeregisterOnPremisesInstance instanceName =
+  DeregisterOnPremisesInstance' {instanceName}
 
 -- | The name of the on-premises instance to deregister.
 --
 -- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dopiInstanceName :: Lens.Lens' DeregisterOnPremisesInstance Lude.Text
-dopiInstanceName = Lens.lens (instanceName :: DeregisterOnPremisesInstance -> Lude.Text) (\s a -> s {instanceName = a} :: DeregisterOnPremisesInstance)
+dopiInstanceName :: Lens.Lens' DeregisterOnPremisesInstance Types.InstanceName
+dopiInstanceName = Lens.field @"instanceName"
 {-# DEPRECATED dopiInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
 
-instance Lude.AWSRequest DeregisterOnPremisesInstance where
+instance Core.FromJSON DeregisterOnPremisesInstance where
+  toJSON DeregisterOnPremisesInstance {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("instanceName" Core..= instanceName)])
+
+instance Core.AWSRequest DeregisterOnPremisesInstance where
   type
     Rs DeregisterOnPremisesInstance =
       DeregisterOnPremisesInstanceResponse
-  request = Req.postJSON codeDeployService
-  response = Res.receiveNull DeregisterOnPremisesInstanceResponse'
-
-instance Lude.ToHeaders DeregisterOnPremisesInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeDeploy_20141006.DeregisterOnPremisesInstance" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeregisterOnPremisesInstance where
-  toJSON DeregisterOnPremisesInstance' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("instanceName" Lude..= instanceName)])
-
-instance Lude.ToPath DeregisterOnPremisesInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeregisterOnPremisesInstance where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "CodeDeploy_20141006.DeregisterOnPremisesInstance"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveNull DeregisterOnPremisesInstanceResponse'
 
 -- | /See:/ 'mkDeregisterOnPremisesInstanceResponse' smart constructor.
 data DeregisterOnPremisesInstanceResponse = DeregisterOnPremisesInstanceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterOnPremisesInstanceResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeregisterOnPremisesInstanceResponse' value with any optional fields omitted.
 mkDeregisterOnPremisesInstanceResponse ::
   DeregisterOnPremisesInstanceResponse
 mkDeregisterOnPremisesInstanceResponse =

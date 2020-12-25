@@ -45,108 +45,105 @@ module Network.AWS.STS.DecodeAuthorizationMessage
     mkDecodeAuthorizationMessageResponse,
 
     -- ** Response lenses
-    damrsDecodedMessage,
-    damrsResponseStatus,
+    damrrsDecodedMessage,
+    damrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.STS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.STS.Types as Types
 
 -- | /See:/ 'mkDecodeAuthorizationMessage' smart constructor.
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage'
   { -- | The encoded message that was returned with the response.
-    encodedMessage :: Lude.Text
+    encodedMessage :: Types.EncodedMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DecodeAuthorizationMessage' with the minimum fields required to make a request.
---
--- * 'encodedMessage' - The encoded message that was returned with the response.
+-- | Creates a 'DecodeAuthorizationMessage' value with any optional fields omitted.
 mkDecodeAuthorizationMessage ::
   -- | 'encodedMessage'
-  Lude.Text ->
+  Types.EncodedMessage ->
   DecodeAuthorizationMessage
-mkDecodeAuthorizationMessage pEncodedMessage_ =
-  DecodeAuthorizationMessage' {encodedMessage = pEncodedMessage_}
+mkDecodeAuthorizationMessage encodedMessage =
+  DecodeAuthorizationMessage' {encodedMessage}
 
 -- | The encoded message that was returned with the response.
 --
 -- /Note:/ Consider using 'encodedMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-damEncodedMessage :: Lens.Lens' DecodeAuthorizationMessage Lude.Text
-damEncodedMessage = Lens.lens (encodedMessage :: DecodeAuthorizationMessage -> Lude.Text) (\s a -> s {encodedMessage = a} :: DecodeAuthorizationMessage)
+damEncodedMessage :: Lens.Lens' DecodeAuthorizationMessage Types.EncodedMessage
+damEncodedMessage = Lens.field @"encodedMessage"
 {-# DEPRECATED damEncodedMessage "Use generic-lens or generic-optics with 'encodedMessage' instead." #-}
 
-instance Lude.AWSRequest DecodeAuthorizationMessage where
+instance Core.AWSRequest DecodeAuthorizationMessage where
   type
     Rs DecodeAuthorizationMessage =
       DecodeAuthorizationMessageResponse
-  request = Req.postQuery stsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DecodeAuthorizationMessage")
+                Core.<> (Core.pure ("Version", "2011-06-15"))
+                Core.<> (Core.toQueryValue "EncodedMessage" encodedMessage)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DecodeAuthorizationMessageResult"
       ( \s h x ->
           DecodeAuthorizationMessageResponse'
-            Lude.<$> (x Lude..@? "DecodedMessage")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DecodedMessage")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DecodeAuthorizationMessage where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DecodeAuthorizationMessage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DecodeAuthorizationMessage where
-  toQuery DecodeAuthorizationMessage' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DecodeAuthorizationMessage" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-06-15" :: Lude.ByteString),
-        "EncodedMessage" Lude.=: encodedMessage
-      ]
 
 -- | A document that contains additional information about the authorization status of a request from an encoded message that is returned in response to an AWS request.
 --
 -- /See:/ 'mkDecodeAuthorizationMessageResponse' smart constructor.
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
   { -- | An XML document that contains the decoded message.
-    decodedMessage :: Lude.Maybe Lude.Text,
+    decodedMessage :: Core.Maybe Types.DecodedMessageType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DecodeAuthorizationMessageResponse' with the minimum fields required to make a request.
---
--- * 'decodedMessage' - An XML document that contains the decoded message.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DecodeAuthorizationMessageResponse' value with any optional fields omitted.
 mkDecodeAuthorizationMessageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DecodeAuthorizationMessageResponse
-mkDecodeAuthorizationMessageResponse pResponseStatus_ =
+mkDecodeAuthorizationMessageResponse responseStatus =
   DecodeAuthorizationMessageResponse'
     { decodedMessage =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An XML document that contains the decoded message.
 --
 -- /Note:/ Consider using 'decodedMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-damrsDecodedMessage :: Lens.Lens' DecodeAuthorizationMessageResponse (Lude.Maybe Lude.Text)
-damrsDecodedMessage = Lens.lens (decodedMessage :: DecodeAuthorizationMessageResponse -> Lude.Maybe Lude.Text) (\s a -> s {decodedMessage = a} :: DecodeAuthorizationMessageResponse)
-{-# DEPRECATED damrsDecodedMessage "Use generic-lens or generic-optics with 'decodedMessage' instead." #-}
+damrrsDecodedMessage :: Lens.Lens' DecodeAuthorizationMessageResponse (Core.Maybe Types.DecodedMessageType)
+damrrsDecodedMessage = Lens.field @"decodedMessage"
+{-# DEPRECATED damrrsDecodedMessage "Use generic-lens or generic-optics with 'decodedMessage' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-damrsResponseStatus :: Lens.Lens' DecodeAuthorizationMessageResponse Lude.Int
-damrsResponseStatus = Lens.lens (responseStatus :: DecodeAuthorizationMessageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DecodeAuthorizationMessageResponse)
-{-# DEPRECATED damrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+damrrsResponseStatus :: Lens.Lens' DecodeAuthorizationMessageResponse Core.Int
+damrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED damrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

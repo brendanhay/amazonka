@@ -27,115 +27,107 @@ module Network.AWS.IoT.ValidateSecurityProfileBehaviors
     mkValidateSecurityProfileBehaviorsResponse,
 
     -- ** Response lenses
-    vspbrsValidationErrors,
-    vspbrsValid,
-    vspbrsResponseStatus,
+    vspbrrsValid,
+    vspbrrsValidationErrors,
+    vspbrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkValidateSecurityProfileBehaviors' smart constructor.
 newtype ValidateSecurityProfileBehaviors = ValidateSecurityProfileBehaviors'
   { -- | Specifies the behaviors that, when violated by a device (thing), cause an alert.
-    behaviors :: [Behavior]
+    behaviors :: [Types.Behavior]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidateSecurityProfileBehaviors' with the minimum fields required to make a request.
---
--- * 'behaviors' - Specifies the behaviors that, when violated by a device (thing), cause an alert.
+-- | Creates a 'ValidateSecurityProfileBehaviors' value with any optional fields omitted.
 mkValidateSecurityProfileBehaviors ::
   ValidateSecurityProfileBehaviors
 mkValidateSecurityProfileBehaviors =
-  ValidateSecurityProfileBehaviors' {behaviors = Lude.mempty}
+  ValidateSecurityProfileBehaviors' {behaviors = Core.mempty}
 
 -- | Specifies the behaviors that, when violated by a device (thing), cause an alert.
 --
 -- /Note:/ Consider using 'behaviors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vspbBehaviors :: Lens.Lens' ValidateSecurityProfileBehaviors [Behavior]
-vspbBehaviors = Lens.lens (behaviors :: ValidateSecurityProfileBehaviors -> [Behavior]) (\s a -> s {behaviors = a} :: ValidateSecurityProfileBehaviors)
+vspbBehaviors :: Lens.Lens' ValidateSecurityProfileBehaviors [Types.Behavior]
+vspbBehaviors = Lens.field @"behaviors"
 {-# DEPRECATED vspbBehaviors "Use generic-lens or generic-optics with 'behaviors' instead." #-}
 
-instance Lude.AWSRequest ValidateSecurityProfileBehaviors where
+instance Core.FromJSON ValidateSecurityProfileBehaviors where
+  toJSON ValidateSecurityProfileBehaviors {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("behaviors" Core..= behaviors)])
+
+instance Core.AWSRequest ValidateSecurityProfileBehaviors where
   type
     Rs ValidateSecurityProfileBehaviors =
       ValidateSecurityProfileBehaviorsResponse
-  request = Req.postJSON ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/security-profile-behaviors/validate",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ValidateSecurityProfileBehaviorsResponse'
-            Lude.<$> (x Lude..?> "validationErrors" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "valid")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "valid")
+            Core.<*> (x Core..:? "validationErrors")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ValidateSecurityProfileBehaviors where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON ValidateSecurityProfileBehaviors where
-  toJSON ValidateSecurityProfileBehaviors' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("behaviors" Lude..= behaviors)])
-
-instance Lude.ToPath ValidateSecurityProfileBehaviors where
-  toPath = Lude.const "/security-profile-behaviors/validate"
-
-instance Lude.ToQuery ValidateSecurityProfileBehaviors where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkValidateSecurityProfileBehaviorsResponse' smart constructor.
 data ValidateSecurityProfileBehaviorsResponse = ValidateSecurityProfileBehaviorsResponse'
-  { -- | The list of any errors found in the behaviors.
-    validationErrors :: Lude.Maybe [ValidationError],
-    -- | True if the behaviors were valid.
-    valid :: Lude.Maybe Lude.Bool,
+  { -- | True if the behaviors were valid.
+    valid :: Core.Maybe Core.Bool,
+    -- | The list of any errors found in the behaviors.
+    validationErrors :: Core.Maybe [Types.ValidationError],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidateSecurityProfileBehaviorsResponse' with the minimum fields required to make a request.
---
--- * 'validationErrors' - The list of any errors found in the behaviors.
--- * 'valid' - True if the behaviors were valid.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ValidateSecurityProfileBehaviorsResponse' value with any optional fields omitted.
 mkValidateSecurityProfileBehaviorsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ValidateSecurityProfileBehaviorsResponse
-mkValidateSecurityProfileBehaviorsResponse pResponseStatus_ =
+mkValidateSecurityProfileBehaviorsResponse responseStatus =
   ValidateSecurityProfileBehaviorsResponse'
-    { validationErrors =
-        Lude.Nothing,
-      valid = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { valid = Core.Nothing,
+      validationErrors = Core.Nothing,
+      responseStatus
     }
-
--- | The list of any errors found in the behaviors.
---
--- /Note:/ Consider using 'validationErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vspbrsValidationErrors :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Lude.Maybe [ValidationError])
-vspbrsValidationErrors = Lens.lens (validationErrors :: ValidateSecurityProfileBehaviorsResponse -> Lude.Maybe [ValidationError]) (\s a -> s {validationErrors = a} :: ValidateSecurityProfileBehaviorsResponse)
-{-# DEPRECATED vspbrsValidationErrors "Use generic-lens or generic-optics with 'validationErrors' instead." #-}
 
 -- | True if the behaviors were valid.
 --
 -- /Note:/ Consider using 'valid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vspbrsValid :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Lude.Maybe Lude.Bool)
-vspbrsValid = Lens.lens (valid :: ValidateSecurityProfileBehaviorsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {valid = a} :: ValidateSecurityProfileBehaviorsResponse)
-{-# DEPRECATED vspbrsValid "Use generic-lens or generic-optics with 'valid' instead." #-}
+vspbrrsValid :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Core.Maybe Core.Bool)
+vspbrrsValid = Lens.field @"valid"
+{-# DEPRECATED vspbrrsValid "Use generic-lens or generic-optics with 'valid' instead." #-}
+
+-- | The list of any errors found in the behaviors.
+--
+-- /Note:/ Consider using 'validationErrors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vspbrrsValidationErrors :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse (Core.Maybe [Types.ValidationError])
+vspbrrsValidationErrors = Lens.field @"validationErrors"
+{-# DEPRECATED vspbrrsValidationErrors "Use generic-lens or generic-optics with 'validationErrors' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vspbrsResponseStatus :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse Lude.Int
-vspbrsResponseStatus = Lens.lens (responseStatus :: ValidateSecurityProfileBehaviorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ValidateSecurityProfileBehaviorsResponse)
-{-# DEPRECATED vspbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+vspbrrsResponseStatus :: Lens.Lens' ValidateSecurityProfileBehaviorsResponse Core.Int
+vspbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED vspbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

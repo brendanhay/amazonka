@@ -20,7 +20,7 @@ module Network.AWS.IoTAnalytics.TagResource
     mkTagResource,
 
     -- ** Request lenses
-    trResourceARN,
+    trResourceArn,
     trTags,
 
     -- * Destructuring the response
@@ -28,97 +28,89 @@ module Network.AWS.IoTAnalytics.TagResource
     mkTagResourceResponse,
 
     -- ** Response lenses
-    trrsResponseStatus,
+    trrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
   { -- | The ARN of the resource whose tags you want to modify.
-    resourceARN :: Lude.Text,
+    resourceArn :: Types.ResourceArn,
     -- | The new or modified tags for the resource.
-    tags :: Lude.NonEmpty Tag
+    tags :: Core.NonEmpty Types.Tag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResource' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The ARN of the resource whose tags you want to modify.
--- * 'tags' - The new or modified tags for the resource.
+-- | Creates a 'TagResource' value with any optional fields omitted.
 mkTagResource ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   -- | 'tags'
-  Lude.NonEmpty Tag ->
+  Core.NonEmpty Types.Tag ->
   TagResource
-mkTagResource pResourceARN_ pTags_ =
-  TagResource' {resourceARN = pResourceARN_, tags = pTags_}
+mkTagResource resourceArn tags = TagResource' {resourceArn, tags}
 
 -- | The ARN of the resource whose tags you want to modify.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trResourceARN :: Lens.Lens' TagResource Lude.Text
-trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
-{-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceArn :: Lens.Lens' TagResource Types.ResourceArn
+trResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED trResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | The new or modified tags for the resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trTags :: Lens.Lens' TagResource (Lude.NonEmpty Tag)
-trTags = Lens.lens (tags :: TagResource -> Lude.NonEmpty Tag) (\s a -> s {tags = a} :: TagResource)
+trTags :: Lens.Lens' TagResource (Core.NonEmpty Types.Tag)
+trTags = Lens.field @"tags"
 {-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagResource where
+instance Core.FromJSON TagResource where
+  toJSON TagResource {..} =
+    Core.object (Core.catMaybes [Core.Just ("tags" Core..= tags)])
+
+instance Core.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = Req.postJSON ioTAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/tags",
+        Core._rqQuery = Core.toQueryValue "resourceArn" resourceArn,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          TagResourceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          TagResourceResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TagResource where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON TagResource where
-  toJSON TagResource' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("tags" Lude..= tags)])
-
-instance Lude.ToPath TagResource where
-  toPath = Lude.const "/tags"
-
-instance Lude.ToQuery TagResource where
-  toQuery TagResource' {..} =
-    Lude.mconcat ["resourceArn" Lude.=: resourceARN]
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 newtype TagResourceResponse = TagResourceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TagResourceResponse' value with any optional fields omitted.
 mkTagResourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TagResourceResponse
-mkTagResourceResponse pResponseStatus_ =
-  TagResourceResponse' {responseStatus = pResponseStatus_}
+mkTagResourceResponse responseStatus =
+  TagResourceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trrsResponseStatus :: Lens.Lens' TagResourceResponse Lude.Int
-trrsResponseStatus = Lens.lens (responseStatus :: TagResourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagResourceResponse)
-{-# DEPRECATED trrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+trrrsResponseStatus :: Lens.Lens' TagResourceResponse Core.Int
+trrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED trrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

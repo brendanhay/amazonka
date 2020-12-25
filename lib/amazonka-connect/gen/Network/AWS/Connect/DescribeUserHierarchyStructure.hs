@@ -27,106 +27,96 @@ module Network.AWS.Connect.DescribeUserHierarchyStructure
     mkDescribeUserHierarchyStructureResponse,
 
     -- ** Response lenses
-    duhsrsHierarchyStructure,
-    duhsrsResponseStatus,
+    duhsrrsHierarchyStructure,
+    duhsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeUserHierarchyStructure' smart constructor.
 newtype DescribeUserHierarchyStructure = DescribeUserHierarchyStructure'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text
+    instanceId :: Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUserHierarchyStructure' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- | Creates a 'DescribeUserHierarchyStructure' value with any optional fields omitted.
 mkDescribeUserHierarchyStructure ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   DescribeUserHierarchyStructure
-mkDescribeUserHierarchyStructure pInstanceId_ =
-  DescribeUserHierarchyStructure' {instanceId = pInstanceId_}
+mkDescribeUserHierarchyStructure instanceId =
+  DescribeUserHierarchyStructure' {instanceId}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duhsInstanceId :: Lens.Lens' DescribeUserHierarchyStructure Lude.Text
-duhsInstanceId = Lens.lens (instanceId :: DescribeUserHierarchyStructure -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeUserHierarchyStructure)
+duhsInstanceId :: Lens.Lens' DescribeUserHierarchyStructure Types.InstanceId
+duhsInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED duhsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance Lude.AWSRequest DescribeUserHierarchyStructure where
+instance Core.AWSRequest DescribeUserHierarchyStructure where
   type
     Rs DescribeUserHierarchyStructure =
       DescribeUserHierarchyStructureResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/user-hierarchy-structure/" Core.<> (Core.toText instanceId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeUserHierarchyStructureResponse'
-            Lude.<$> (x Lude..?> "HierarchyStructure")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "HierarchyStructure")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeUserHierarchyStructure where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeUserHierarchyStructure where
-  toPath DescribeUserHierarchyStructure' {..} =
-    Lude.mconcat ["/user-hierarchy-structure/", Lude.toBS instanceId]
-
-instance Lude.ToQuery DescribeUserHierarchyStructure where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeUserHierarchyStructureResponse' smart constructor.
 data DescribeUserHierarchyStructureResponse = DescribeUserHierarchyStructureResponse'
   { -- | Information about the hierarchy structure.
-    hierarchyStructure :: Lude.Maybe HierarchyStructure,
+    hierarchyStructure :: Core.Maybe Types.HierarchyStructure,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUserHierarchyStructureResponse' with the minimum fields required to make a request.
---
--- * 'hierarchyStructure' - Information about the hierarchy structure.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeUserHierarchyStructureResponse' value with any optional fields omitted.
 mkDescribeUserHierarchyStructureResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeUserHierarchyStructureResponse
-mkDescribeUserHierarchyStructureResponse pResponseStatus_ =
+mkDescribeUserHierarchyStructureResponse responseStatus =
   DescribeUserHierarchyStructureResponse'
     { hierarchyStructure =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the hierarchy structure.
 --
 -- /Note:/ Consider using 'hierarchyStructure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duhsrsHierarchyStructure :: Lens.Lens' DescribeUserHierarchyStructureResponse (Lude.Maybe HierarchyStructure)
-duhsrsHierarchyStructure = Lens.lens (hierarchyStructure :: DescribeUserHierarchyStructureResponse -> Lude.Maybe HierarchyStructure) (\s a -> s {hierarchyStructure = a} :: DescribeUserHierarchyStructureResponse)
-{-# DEPRECATED duhsrsHierarchyStructure "Use generic-lens or generic-optics with 'hierarchyStructure' instead." #-}
+duhsrrsHierarchyStructure :: Lens.Lens' DescribeUserHierarchyStructureResponse (Core.Maybe Types.HierarchyStructure)
+duhsrrsHierarchyStructure = Lens.field @"hierarchyStructure"
+{-# DEPRECATED duhsrrsHierarchyStructure "Use generic-lens or generic-optics with 'hierarchyStructure' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-duhsrsResponseStatus :: Lens.Lens' DescribeUserHierarchyStructureResponse Lude.Int
-duhsrsResponseStatus = Lens.lens (responseStatus :: DescribeUserHierarchyStructureResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUserHierarchyStructureResponse)
-{-# DEPRECATED duhsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+duhsrrsResponseStatus :: Lens.Lens' DescribeUserHierarchyStructureResponse Core.Int
+duhsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED duhsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

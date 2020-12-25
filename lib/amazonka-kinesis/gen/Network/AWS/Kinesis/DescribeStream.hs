@@ -27,173 +27,163 @@ module Network.AWS.Kinesis.DescribeStream
     mkDescribeStream,
 
     -- ** Request lenses
-    dsExclusiveStartShardId,
-    dsLimit,
-    dsStreamName,
+    dStreamName,
+    dExclusiveStartShardId,
+    dLimit,
 
     -- * Destructuring the response
     DescribeStreamResponse (..),
     mkDescribeStreamResponse,
 
     -- ** Response lenses
-    dsrsStreamDescription,
-    dsrsResponseStatus,
+    dsrrsStreamDescription,
+    dsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for @DescribeStream@ .
 --
 -- /See:/ 'mkDescribeStream' smart constructor.
 data DescribeStream = DescribeStream'
-  { -- | The shard ID of the shard to start with.
-    exclusiveStartShardId :: Lude.Maybe Lude.Text,
+  { -- | The name of the stream to describe.
+    streamName :: Types.StreamName,
+    -- | The shard ID of the shard to start with.
+    exclusiveStartShardId :: Core.Maybe Types.ExclusiveStartShardId,
     -- | The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | The name of the stream to describe.
-    streamName :: Lude.Text
+    limit :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeStream' with the minimum fields required to make a request.
---
--- * 'exclusiveStartShardId' - The shard ID of the shard to start with.
--- * 'limit' - The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned.
--- * 'streamName' - The name of the stream to describe.
+-- | Creates a 'DescribeStream' value with any optional fields omitted.
 mkDescribeStream ::
   -- | 'streamName'
-  Lude.Text ->
+  Types.StreamName ->
   DescribeStream
-mkDescribeStream pStreamName_ =
+mkDescribeStream streamName =
   DescribeStream'
-    { exclusiveStartShardId = Lude.Nothing,
-      limit = Lude.Nothing,
-      streamName = pStreamName_
+    { streamName,
+      exclusiveStartShardId = Core.Nothing,
+      limit = Core.Nothing
     }
-
--- | The shard ID of the shard to start with.
---
--- /Note:/ Consider using 'exclusiveStartShardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsExclusiveStartShardId :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Text)
-dsExclusiveStartShardId = Lens.lens (exclusiveStartShardId :: DescribeStream -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartShardId = a} :: DescribeStream)
-{-# DEPRECATED dsExclusiveStartShardId "Use generic-lens or generic-optics with 'exclusiveStartShardId' instead." #-}
-
--- | The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsLimit :: Lens.Lens' DescribeStream (Lude.Maybe Lude.Natural)
-dsLimit = Lens.lens (limit :: DescribeStream -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeStream)
-{-# DEPRECATED dsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of the stream to describe.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsStreamName :: Lens.Lens' DescribeStream Lude.Text
-dsStreamName = Lens.lens (streamName :: DescribeStream -> Lude.Text) (\s a -> s {streamName = a} :: DescribeStream)
-{-# DEPRECATED dsStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
+dStreamName :: Lens.Lens' DescribeStream Types.StreamName
+dStreamName = Lens.field @"streamName"
+{-# DEPRECATED dStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Page.AWSPager DescribeStream where
-  page rq rs
-    | Page.stop
-        (rs Lens.^. dsrsStreamDescription Lude.. sdHasMoreShards) =
-      Lude.Nothing
-    | Lude.isNothing
-        ( rs
-            Lens.^? dsrsStreamDescription Lude.. sdShards Lude.. Lens._last
-              Lude.. sShardId
-        ) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dsExclusiveStartShardId
-          Lens..~ rs
-          Lens.^? dsrsStreamDescription Lude.. sdShards Lude.. Lens._last
-            Lude.. sShardId
+-- | The shard ID of the shard to start with.
+--
+-- /Note:/ Consider using 'exclusiveStartShardId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dExclusiveStartShardId :: Lens.Lens' DescribeStream (Core.Maybe Types.ExclusiveStartShardId)
+dExclusiveStartShardId = Lens.field @"exclusiveStartShardId"
+{-# DEPRECATED dExclusiveStartShardId "Use generic-lens or generic-optics with 'exclusiveStartShardId' instead." #-}
 
-instance Lude.AWSRequest DescribeStream where
+-- | The maximum number of shards to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 shards are returned.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dLimit :: Lens.Lens' DescribeStream (Core.Maybe Core.Natural)
+dLimit = Lens.field @"limit"
+{-# DEPRECATED dLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+instance Core.FromJSON DescribeStream where
+  toJSON DescribeStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StreamName" Core..= streamName),
+            ("ExclusiveStartShardId" Core..=) Core.<$> exclusiveStartShardId,
+            ("Limit" Core..=) Core.<$> limit
+          ]
+      )
+
+instance Core.AWSRequest DescribeStream where
   type Rs DescribeStream = DescribeStreamResponse
-  request = Req.postJSON kinesisService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Kinesis_20131202.DescribeStream")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeStreamResponse'
-            Lude.<$> (x Lude..:> "StreamDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "StreamDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeStream where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Kinesis_20131202.DescribeStream" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeStream where
-  toJSON DescribeStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ExclusiveStartShardId" Lude..=) Lude.<$> exclusiveStartShardId,
-            ("Limit" Lude..=) Lude.<$> limit,
-            Lude.Just ("StreamName" Lude..= streamName)
-          ]
-      )
-
-instance Lude.ToPath DescribeStream where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeStream where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeStream where
+  page rq rs
+    | Pager.stop
+        ( rs
+            Lens.^. Lens.field @"streamDescription" Core.. Lens.field @"hasMoreShards"
+        ) =
+      Core.Nothing
+    | Core.isNothing
+        ( rs
+            Lens.^? Lens.field @"streamDescription"
+              Core.. Lens.field @"shards"
+              Core.. Lens._last
+              Core.. Lens.field @"shardId"
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"exclusiveStartShardId"
+            Lens..~ rs
+            Lens.^? Lens.field @"streamDescription"
+              Core.. Lens.field @"shards"
+              Core.. Lens._last
+              Core.. Lens.field @"shardId"
+        )
 
 -- | Represents the output for @DescribeStream@ .
 --
 -- /See:/ 'mkDescribeStreamResponse' smart constructor.
 data DescribeStreamResponse = DescribeStreamResponse'
   { -- | The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.
-    streamDescription :: StreamDescription,
+    streamDescription :: Types.StreamDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeStreamResponse' with the minimum fields required to make a request.
---
--- * 'streamDescription' - The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeStreamResponse' value with any optional fields omitted.
 mkDescribeStreamResponse ::
   -- | 'streamDescription'
-  StreamDescription ->
+  Types.StreamDescription ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeStreamResponse
-mkDescribeStreamResponse pStreamDescription_ pResponseStatus_ =
-  DescribeStreamResponse'
-    { streamDescription = pStreamDescription_,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeStreamResponse streamDescription responseStatus =
+  DescribeStreamResponse' {streamDescription, responseStatus}
 
 -- | The current status of the stream, the stream Amazon Resource Name (ARN), an array of shard objects that comprise the stream, and whether there are more shards available.
 --
 -- /Note:/ Consider using 'streamDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsStreamDescription :: Lens.Lens' DescribeStreamResponse StreamDescription
-dsrsStreamDescription = Lens.lens (streamDescription :: DescribeStreamResponse -> StreamDescription) (\s a -> s {streamDescription = a} :: DescribeStreamResponse)
-{-# DEPRECATED dsrsStreamDescription "Use generic-lens or generic-optics with 'streamDescription' instead." #-}
+dsrrsStreamDescription :: Lens.Lens' DescribeStreamResponse Types.StreamDescription
+dsrrsStreamDescription = Lens.field @"streamDescription"
+{-# DEPRECATED dsrrsStreamDescription "Use generic-lens or generic-optics with 'streamDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DescribeStreamResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DescribeStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeStreamResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DescribeStreamResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

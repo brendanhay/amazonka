@@ -39,111 +39,99 @@ module Network.AWS.S3.GetBucketReplication
     mkGetBucketReplicationResponse,
 
     -- ** Response lenses
-    gbrrsReplicationConfiguration,
-    gbrrsResponseStatus,
+    gbrrrsReplicationConfiguration,
+    gbrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketReplication' smart constructor.
 data GetBucketReplication = GetBucketReplication'
   { -- | The bucket name for which to get the replication information.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketReplication' with the minimum fields required to make a request.
---
--- * 'bucket' - The bucket name for which to get the replication information.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetBucketReplication' value with any optional fields omitted.
 mkGetBucketReplication ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   GetBucketReplication
-mkGetBucketReplication pBucket_ =
-  GetBucketReplication'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
-    }
+mkGetBucketReplication bucket =
+  GetBucketReplication' {bucket, expectedBucketOwner = Core.Nothing}
 
 -- | The bucket name for which to get the replication information.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbrBucket :: Lens.Lens' GetBucketReplication BucketName
-gbrBucket = Lens.lens (bucket :: GetBucketReplication -> BucketName) (\s a -> s {bucket = a} :: GetBucketReplication)
+gbrBucket :: Lens.Lens' GetBucketReplication Types.BucketName
+gbrBucket = Lens.field @"bucket"
 {-# DEPRECATED gbrBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbrExpectedBucketOwner :: Lens.Lens' GetBucketReplication (Lude.Maybe Lude.Text)
-gbrExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketReplication -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketReplication)
+gbrExpectedBucketOwner :: Lens.Lens' GetBucketReplication (Core.Maybe Types.ExpectedBucketOwner)
+gbrExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED gbrExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetBucketReplication where
+instance Core.AWSRequest GetBucketReplication where
   type Rs GetBucketReplication = GetBucketReplicationResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("replication", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetBucketReplicationResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBucketReplication where
-  toHeaders GetBucketReplication' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetBucketReplication where
-  toPath GetBucketReplication' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketReplication where
-  toQuery = Lude.const (Lude.mconcat ["replication"])
 
 -- | /See:/ 'mkGetBucketReplicationResponse' smart constructor.
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
-  { replicationConfiguration :: Lude.Maybe ReplicationConfiguration,
+  { replicationConfiguration :: Core.Maybe Types.ReplicationConfiguration,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketReplicationResponse' with the minimum fields required to make a request.
---
--- * 'replicationConfiguration' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBucketReplicationResponse' value with any optional fields omitted.
 mkGetBucketReplicationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBucketReplicationResponse
-mkGetBucketReplicationResponse pResponseStatus_ =
+mkGetBucketReplicationResponse responseStatus =
   GetBucketReplicationResponse'
     { replicationConfiguration =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'replicationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbrrsReplicationConfiguration :: Lens.Lens' GetBucketReplicationResponse (Lude.Maybe ReplicationConfiguration)
-gbrrsReplicationConfiguration = Lens.lens (replicationConfiguration :: GetBucketReplicationResponse -> Lude.Maybe ReplicationConfiguration) (\s a -> s {replicationConfiguration = a} :: GetBucketReplicationResponse)
-{-# DEPRECATED gbrrsReplicationConfiguration "Use generic-lens or generic-optics with 'replicationConfiguration' instead." #-}
+gbrrrsReplicationConfiguration :: Lens.Lens' GetBucketReplicationResponse (Core.Maybe Types.ReplicationConfiguration)
+gbrrrsReplicationConfiguration = Lens.field @"replicationConfiguration"
+{-# DEPRECATED gbrrrsReplicationConfiguration "Use generic-lens or generic-optics with 'replicationConfiguration' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbrrsResponseStatus :: Lens.Lens' GetBucketReplicationResponse Lude.Int
-gbrrsResponseStatus = Lens.lens (responseStatus :: GetBucketReplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketReplicationResponse)
-{-# DEPRECATED gbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbrrrsResponseStatus :: Lens.Lens' GetBucketReplicationResponse Core.Int
+gbrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,152 +22,140 @@ module Network.AWS.SageMaker.ListDomains
     mkListDomains,
 
     -- ** Request lenses
-    ldNextToken,
     ldMaxResults,
+    ldNextToken,
 
     -- * Destructuring the response
     ListDomainsResponse (..),
     mkListDomainsResponse,
 
     -- ** Response lenses
-    ldrsNextToken,
-    ldrsDomains,
-    ldrsResponseStatus,
+    ldrrsDomains,
+    ldrrsNextToken,
+    ldrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListDomains' smart constructor.
 data ListDomains = ListDomains'
-  { -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Returns a list up to a specified limit.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | Returns a list up to a specified limit.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDomains' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
--- * 'maxResults' - Returns a list up to a specified limit.
+-- | Creates a 'ListDomains' value with any optional fields omitted.
 mkListDomains ::
   ListDomains
 mkListDomains =
-  ListDomains' {nextToken = Lude.Nothing, maxResults = Lude.Nothing}
-
--- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldNextToken :: Lens.Lens' ListDomains (Lude.Maybe Lude.Text)
-ldNextToken = Lens.lens (nextToken :: ListDomains -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDomains)
-{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  ListDomains' {maxResults = Core.Nothing, nextToken = Core.Nothing}
 
 -- | Returns a list up to a specified limit.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldMaxResults :: Lens.Lens' ListDomains (Lude.Maybe Lude.Natural)
-ldMaxResults = Lens.lens (maxResults :: ListDomains -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListDomains)
+ldMaxResults :: Lens.Lens' ListDomains (Core.Maybe Core.Natural)
+ldMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ldMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListDomains where
-  page rq rs
-    | Page.stop (rs Lens.^. ldrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ldrsDomains) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ldNextToken Lens..~ rs Lens.^. ldrsNextToken
-
-instance Lude.AWSRequest ListDomains where
-  type Rs ListDomains = ListDomainsResponse
-  request = Req.postJSON sageMakerService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          ListDomainsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Domains" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders ListDomains where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.ListDomains" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListDomains where
-  toJSON ListDomains' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListDomains where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListDomains where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkListDomainsResponse' smart constructor.
-data ListDomainsResponse = ListDomainsResponse'
-  { -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The list of domains.
-    domains :: Lude.Maybe [DomainDetails],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'ListDomainsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
--- * 'domains' - The list of domains.
--- * 'responseStatus' - The response status code.
-mkListDomainsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  ListDomainsResponse
-mkListDomainsResponse pResponseStatus_ =
-  ListDomainsResponse'
-    { nextToken = Lude.Nothing,
-      domains = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
 
 -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsNextToken :: Lens.Lens' ListDomainsResponse (Lude.Maybe Lude.Text)
-ldrsNextToken = Lens.lens (nextToken :: ListDomainsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDomainsResponse)
-{-# DEPRECATED ldrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ldNextToken :: Lens.Lens' ListDomains (Core.Maybe Types.NextToken)
+ldNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListDomains where
+  toJSON ListDomains {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListDomains where
+  type Rs ListDomains = ListDomainsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListDomains")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          ListDomainsResponse'
+            Core.<$> (x Core..:? "Domains")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager ListDomains where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"domains" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkListDomainsResponse' smart constructor.
+data ListDomainsResponse = ListDomainsResponse'
+  { -- | The list of domains.
+    domains :: Core.Maybe [Types.DomainDetails],
+    -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'ListDomainsResponse' value with any optional fields omitted.
+mkListDomainsResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  ListDomainsResponse
+mkListDomainsResponse responseStatus =
+  ListDomainsResponse'
+    { domains = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | The list of domains.
 --
 -- /Note:/ Consider using 'domains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsDomains :: Lens.Lens' ListDomainsResponse (Lude.Maybe [DomainDetails])
-ldrsDomains = Lens.lens (domains :: ListDomainsResponse -> Lude.Maybe [DomainDetails]) (\s a -> s {domains = a} :: ListDomainsResponse)
-{-# DEPRECATED ldrsDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
+ldrrsDomains :: Lens.Lens' ListDomainsResponse (Core.Maybe [Types.DomainDetails])
+ldrrsDomains = Lens.field @"domains"
+{-# DEPRECATED ldrrsDomains "Use generic-lens or generic-optics with 'domains' instead." #-}
+
+-- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrrsNextToken :: Lens.Lens' ListDomainsResponse (Core.Maybe Types.NextToken)
+ldrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrsResponseStatus :: Lens.Lens' ListDomainsResponse Lude.Int
-ldrsResponseStatus = Lens.lens (responseStatus :: ListDomainsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDomainsResponse)
-{-# DEPRECATED ldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldrrsResponseStatus :: Lens.Lens' ListDomainsResponse Core.Int
+ldrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

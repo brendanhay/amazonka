@@ -17,71 +17,68 @@ module Network.AWS.CodeCommit.Types.UserInfo
     mkUserInfo,
 
     -- * Lenses
-    uiEmail,
     uiDate,
+    uiEmail,
     uiName,
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.Date as Types
+import qualified Network.AWS.CodeCommit.Types.Email as Types
+import qualified Network.AWS.CodeCommit.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the user who made a specified commit.
 --
 -- /See:/ 'mkUserInfo' smart constructor.
 data UserInfo = UserInfo'
-  { -- | The email address associated with the user who made the commit, if any.
-    email :: Lude.Maybe Lude.Text,
-    -- | The date when the specified commit was commited, in timestamp format with GMT offset.
-    date :: Lude.Maybe Lude.Text,
+  { -- | The date when the specified commit was commited, in timestamp format with GMT offset.
+    date :: Core.Maybe Types.Date,
+    -- | The email address associated with the user who made the commit, if any.
+    email :: Core.Maybe Types.Email,
     -- | The name of the user who made the specified commit.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserInfo' with the minimum fields required to make a request.
---
--- * 'email' - The email address associated with the user who made the commit, if any.
--- * 'date' - The date when the specified commit was commited, in timestamp format with GMT offset.
--- * 'name' - The name of the user who made the specified commit.
+-- | Creates a 'UserInfo' value with any optional fields omitted.
 mkUserInfo ::
   UserInfo
 mkUserInfo =
   UserInfo'
-    { email = Lude.Nothing,
-      date = Lude.Nothing,
-      name = Lude.Nothing
+    { date = Core.Nothing,
+      email = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The email address associated with the user who made the commit, if any.
---
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiEmail :: Lens.Lens' UserInfo (Lude.Maybe Lude.Text)
-uiEmail = Lens.lens (email :: UserInfo -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: UserInfo)
-{-# DEPRECATED uiEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The date when the specified commit was commited, in timestamp format with GMT offset.
 --
 -- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiDate :: Lens.Lens' UserInfo (Lude.Maybe Lude.Text)
-uiDate = Lens.lens (date :: UserInfo -> Lude.Maybe Lude.Text) (\s a -> s {date = a} :: UserInfo)
+uiDate :: Lens.Lens' UserInfo (Core.Maybe Types.Date)
+uiDate = Lens.field @"date"
 {-# DEPRECATED uiDate "Use generic-lens or generic-optics with 'date' instead." #-}
+
+-- | The email address associated with the user who made the commit, if any.
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uiEmail :: Lens.Lens' UserInfo (Core.Maybe Types.Email)
+uiEmail = Lens.field @"email"
+{-# DEPRECATED uiEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The name of the user who made the specified commit.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiName :: Lens.Lens' UserInfo (Lude.Maybe Lude.Text)
-uiName = Lens.lens (name :: UserInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UserInfo)
+uiName :: Lens.Lens' UserInfo (Core.Maybe Types.Name)
+uiName = Lens.field @"name"
 {-# DEPRECATED uiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON UserInfo where
+instance Core.FromJSON UserInfo where
   parseJSON =
-    Lude.withObject
-      "UserInfo"
-      ( \x ->
-          UserInfo'
-            Lude.<$> (x Lude..:? "email")
-            Lude.<*> (x Lude..:? "date")
-            Lude.<*> (x Lude..:? "name")
-      )
+    Core.withObject "UserInfo" Core.$
+      \x ->
+        UserInfo'
+          Core.<$> (x Core..:? "date")
+          Core.<*> (x Core..:? "email")
+          Core.<*> (x Core..:? "name")

@@ -13,56 +13,61 @@
 module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverEventActionType
   ( AccountTakeoverEventActionType
       ( AccountTakeoverEventActionType',
-        ATEATBlock,
-        ATEATMFAIfConfigured,
-        ATEATMFARequired,
-        ATEATNoAction
+        AccountTakeoverEventActionTypeBlock,
+        AccountTakeoverEventActionTypeMfaIfConfigured,
+        AccountTakeoverEventActionTypeMfaRequired,
+        AccountTakeoverEventActionTypeNoAction,
+        fromAccountTakeoverEventActionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AccountTakeoverEventActionType = AccountTakeoverEventActionType' Lude.Text
+newtype AccountTakeoverEventActionType = AccountTakeoverEventActionType'
+  { fromAccountTakeoverEventActionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ATEATBlock :: AccountTakeoverEventActionType
-pattern ATEATBlock = AccountTakeoverEventActionType' "BLOCK"
+pattern AccountTakeoverEventActionTypeBlock :: AccountTakeoverEventActionType
+pattern AccountTakeoverEventActionTypeBlock = AccountTakeoverEventActionType' "BLOCK"
 
-pattern ATEATMFAIfConfigured :: AccountTakeoverEventActionType
-pattern ATEATMFAIfConfigured = AccountTakeoverEventActionType' "MFA_IF_CONFIGURED"
+pattern AccountTakeoverEventActionTypeMfaIfConfigured :: AccountTakeoverEventActionType
+pattern AccountTakeoverEventActionTypeMfaIfConfigured = AccountTakeoverEventActionType' "MFA_IF_CONFIGURED"
 
-pattern ATEATMFARequired :: AccountTakeoverEventActionType
-pattern ATEATMFARequired = AccountTakeoverEventActionType' "MFA_REQUIRED"
+pattern AccountTakeoverEventActionTypeMfaRequired :: AccountTakeoverEventActionType
+pattern AccountTakeoverEventActionTypeMfaRequired = AccountTakeoverEventActionType' "MFA_REQUIRED"
 
-pattern ATEATNoAction :: AccountTakeoverEventActionType
-pattern ATEATNoAction = AccountTakeoverEventActionType' "NO_ACTION"
+pattern AccountTakeoverEventActionTypeNoAction :: AccountTakeoverEventActionType
+pattern AccountTakeoverEventActionTypeNoAction = AccountTakeoverEventActionType' "NO_ACTION"
 
 {-# COMPLETE
-  ATEATBlock,
-  ATEATMFAIfConfigured,
-  ATEATMFARequired,
-  ATEATNoAction,
+  AccountTakeoverEventActionTypeBlock,
+  AccountTakeoverEventActionTypeMfaIfConfigured,
+  AccountTakeoverEventActionTypeMfaRequired,
+  AccountTakeoverEventActionTypeNoAction,
   AccountTakeoverEventActionType'
   #-}

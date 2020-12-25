@@ -17,63 +17,59 @@ module Network.AWS.LexModels.Types.Tag
     mkTag,
 
     -- * Lenses
-    tValue,
     tKey,
+    tValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.Key as Types
+import qualified Network.AWS.LexModels.Types.TagValue as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of key/value pairs that identify a bot, bot alias, or bot channel. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
 --
 -- /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { -- | The value associated with a key. The value may be an empty string but it can't be null.
-    value :: Lude.Text,
-    -- | The key for the tag. Keys are not case-sensitive and must be unique.
-    key :: Lude.Text
+  { -- | The key for the tag. Keys are not case-sensitive and must be unique.
+    key :: Types.Key,
+    -- | The value associated with a key. The value may be an empty string but it can't be null.
+    value :: Types.TagValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- * 'value' - The value associated with a key. The value may be an empty string but it can't be null.
--- * 'key' - The key for the tag. Keys are not case-sensitive and must be unique.
+-- | Creates a 'Tag' value with any optional fields omitted.
 mkTag ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'key'
-  Lude.Text ->
+  Types.Key ->
+  -- | 'value'
+  Types.TagValue ->
   Tag
-mkTag pValue_ pKey_ = Tag' {value = pValue_, key = pKey_}
-
--- | The value associated with a key. The value may be an empty string but it can't be null.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tValue :: Lens.Lens' Tag Lude.Text
-tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
-{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkTag key value = Tag' {key, value}
 
 -- | The key for the tag. Keys are not case-sensitive and must be unique.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag Lude.Text
-tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+tKey :: Lens.Lens' Tag Types.Key
+tKey = Lens.field @"key"
 {-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON Tag where
-  parseJSON =
-    Lude.withObject
-      "Tag"
-      ( \x ->
-          Tag' Lude.<$> (x Lude..: "value") Lude.<*> (x Lude..: "key")
+-- | The value associated with a key. The value may be an empty string but it can't be null.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tValue :: Lens.Lens' Tag Types.TagValue
+tValue = Lens.field @"value"
+{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Tag where
+  toJSON Tag {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("key" Core..= key), Core.Just ("value" Core..= value)]
       )
 
-instance Lude.ToJSON Tag where
-  toJSON Tag' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("value" Lude..= value), Lude.Just ("key" Lude..= key)]
-      )
+instance Core.FromJSON Tag where
+  parseJSON =
+    Core.withObject "Tag" Core.$
+      \x -> Tag' Core.<$> (x Core..: "key") Core.<*> (x Core..: "value")

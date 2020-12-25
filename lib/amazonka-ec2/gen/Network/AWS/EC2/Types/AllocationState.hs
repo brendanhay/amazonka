@@ -13,66 +13,71 @@
 module Network.AWS.EC2.Types.AllocationState
   ( AllocationState
       ( AllocationState',
-        ASAvailable,
-        ASUnderAssessment,
-        ASPermanentFailure,
-        ASReleased,
-        ASReleasedPermanentFailure,
-        ASPending
+        AllocationStateAvailable,
+        AllocationStateUnderAssessment,
+        AllocationStatePermanentFailure,
+        AllocationStateReleased,
+        AllocationStateReleasedPermanentFailure,
+        AllocationStatePending,
+        fromAllocationState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AllocationState = AllocationState' Lude.Text
+newtype AllocationState = AllocationState'
+  { fromAllocationState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ASAvailable :: AllocationState
-pattern ASAvailable = AllocationState' "available"
+pattern AllocationStateAvailable :: AllocationState
+pattern AllocationStateAvailable = AllocationState' "available"
 
-pattern ASUnderAssessment :: AllocationState
-pattern ASUnderAssessment = AllocationState' "under-assessment"
+pattern AllocationStateUnderAssessment :: AllocationState
+pattern AllocationStateUnderAssessment = AllocationState' "under-assessment"
 
-pattern ASPermanentFailure :: AllocationState
-pattern ASPermanentFailure = AllocationState' "permanent-failure"
+pattern AllocationStatePermanentFailure :: AllocationState
+pattern AllocationStatePermanentFailure = AllocationState' "permanent-failure"
 
-pattern ASReleased :: AllocationState
-pattern ASReleased = AllocationState' "released"
+pattern AllocationStateReleased :: AllocationState
+pattern AllocationStateReleased = AllocationState' "released"
 
-pattern ASReleasedPermanentFailure :: AllocationState
-pattern ASReleasedPermanentFailure = AllocationState' "released-permanent-failure"
+pattern AllocationStateReleasedPermanentFailure :: AllocationState
+pattern AllocationStateReleasedPermanentFailure = AllocationState' "released-permanent-failure"
 
-pattern ASPending :: AllocationState
-pattern ASPending = AllocationState' "pending"
+pattern AllocationStatePending :: AllocationState
+pattern AllocationStatePending = AllocationState' "pending"
 
 {-# COMPLETE
-  ASAvailable,
-  ASUnderAssessment,
-  ASPermanentFailure,
-  ASReleased,
-  ASReleasedPermanentFailure,
-  ASPending,
+  AllocationStateAvailable,
+  AllocationStateUnderAssessment,
+  AllocationStatePermanentFailure,
+  AllocationStateReleased,
+  AllocationStateReleasedPermanentFailure,
+  AllocationStatePending,
   AllocationState'
   #-}

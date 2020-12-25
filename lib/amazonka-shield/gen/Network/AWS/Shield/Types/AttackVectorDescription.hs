@@ -22,7 +22,8 @@ module Network.AWS.Shield.Types.AttackVectorDescription
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Shield.Types.String as Types
 
 -- | Describes the attack.
 --
@@ -83,74 +84,18 @@ newtype AttackVectorDescription = AttackVectorDescription'
     --
     --
     --     * MEMCACHED_REFLECTION
-    vectorType :: Lude.Text
+    vectorType :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttackVectorDescription' with the minimum fields required to make a request.
---
--- * 'vectorType' - The attack type. Valid values:
---
---
---     * UDP_TRAFFIC
---
---
---     * UDP_FRAGMENT
---
---
---     * GENERIC_UDP_REFLECTION
---
---
---     * DNS_REFLECTION
---
---
---     * NTP_REFLECTION
---
---
---     * CHARGEN_REFLECTION
---
---
---     * SSDP_REFLECTION
---
---
---     * PORT_MAPPER
---
---
---     * RIP_REFLECTION
---
---
---     * SNMP_REFLECTION
---
---
---     * MSSQL_REFLECTION
---
---
---     * NET_BIOS_REFLECTION
---
---
---     * SYN_FLOOD
---
---
---     * ACK_FLOOD
---
---
---     * REQUEST_FLOOD
---
---
---     * HTTP_REFLECTION
---
---
---     * UDS_REFLECTION
---
---
---     * MEMCACHED_REFLECTION
+-- | Creates a 'AttackVectorDescription' value with any optional fields omitted.
 mkAttackVectorDescription ::
   -- | 'vectorType'
-  Lude.Text ->
+  Types.String ->
   AttackVectorDescription
-mkAttackVectorDescription pVectorType_ =
-  AttackVectorDescription' {vectorType = pVectorType_}
+mkAttackVectorDescription vectorType =
+  AttackVectorDescription' {vectorType}
 
 -- | The attack type. Valid values:
 --
@@ -211,12 +156,11 @@ mkAttackVectorDescription pVectorType_ =
 --
 --
 -- /Note:/ Consider using 'vectorType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdVectorType :: Lens.Lens' AttackVectorDescription Lude.Text
-avdVectorType = Lens.lens (vectorType :: AttackVectorDescription -> Lude.Text) (\s a -> s {vectorType = a} :: AttackVectorDescription)
+avdVectorType :: Lens.Lens' AttackVectorDescription Types.String
+avdVectorType = Lens.field @"vectorType"
 {-# DEPRECATED avdVectorType "Use generic-lens or generic-optics with 'vectorType' instead." #-}
 
-instance Lude.FromJSON AttackVectorDescription where
+instance Core.FromJSON AttackVectorDescription where
   parseJSON =
-    Lude.withObject
-      "AttackVectorDescription"
-      (\x -> AttackVectorDescription' Lude.<$> (x Lude..: "VectorType"))
+    Core.withObject "AttackVectorDescription" Core.$
+      \x -> AttackVectorDescription' Core.<$> (x Core..: "VectorType")

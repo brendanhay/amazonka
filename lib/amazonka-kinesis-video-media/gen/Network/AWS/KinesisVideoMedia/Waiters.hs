@@ -15,7 +15,7 @@ module Network.AWS.KinesisVideoMedia.Waiters
   )
 where
 
-import Network.AWS.KinesisVideoMedia.Types
+import qualified Network.AWS.KinesisVideoMedia.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter

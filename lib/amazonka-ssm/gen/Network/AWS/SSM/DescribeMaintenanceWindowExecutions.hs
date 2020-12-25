@@ -22,68 +22,66 @@ module Network.AWS.SSM.DescribeMaintenanceWindowExecutions
     mkDescribeMaintenanceWindowExecutions,
 
     -- ** Request lenses
-    dmweFilters,
-    dmweNextToken,
-    dmweMaxResults,
     dmweWindowId,
+    dmweFilters,
+    dmweMaxResults,
+    dmweNextToken,
 
     -- * Destructuring the response
     DescribeMaintenanceWindowExecutionsResponse (..),
     mkDescribeMaintenanceWindowExecutionsResponse,
 
     -- ** Response lenses
-    dmwersWindowExecutions,
-    dmwersNextToken,
-    dmwersResponseStatus,
+    dmwerrsNextToken,
+    dmwerrsWindowExecutions,
+    dmwerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDescribeMaintenanceWindowExecutions' smart constructor.
 data DescribeMaintenanceWindowExecutions = DescribeMaintenanceWindowExecutions'
-  { -- | Each entry in the array is a structure containing:
+  { -- | The ID of the maintenance window whose executions should be retrieved.
+    windowId :: Types.WindowId,
+    -- | Each entry in the array is a structure containing:
     --
     -- Key (string, between 1 and 128 characters)
     -- Values (array of strings, each string is between 1 and 256 characters)
     -- The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time string such as 2016-11-04T05:00:00Z.
-    filters :: Lude.Maybe [MaintenanceWindowFilter],
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.MaintenanceWindowFilter],
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural,
-    -- | The ID of the maintenance window whose executions should be retrieved.
-    windowId :: Lude.Text
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMaintenanceWindowExecutions' with the minimum fields required to make a request.
---
--- * 'filters' - Each entry in the array is a structure containing:
---
--- Key (string, between 1 and 128 characters)
--- Values (array of strings, each string is between 1 and 256 characters)
--- The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time string such as 2016-11-04T05:00:00Z.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
--- * 'windowId' - The ID of the maintenance window whose executions should be retrieved.
+-- | Creates a 'DescribeMaintenanceWindowExecutions' value with any optional fields omitted.
 mkDescribeMaintenanceWindowExecutions ::
   -- | 'windowId'
-  Lude.Text ->
+  Types.WindowId ->
   DescribeMaintenanceWindowExecutions
-mkDescribeMaintenanceWindowExecutions pWindowId_ =
+mkDescribeMaintenanceWindowExecutions windowId =
   DescribeMaintenanceWindowExecutions'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      windowId = pWindowId_
+    { windowId,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | The ID of the maintenance window whose executions should be retrieved.
+--
+-- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmweWindowId :: Lens.Lens' DescribeMaintenanceWindowExecutions Types.WindowId
+dmweWindowId = Lens.field @"windowId"
+{-# DEPRECATED dmweWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
 -- | Each entry in the array is a structure containing:
 --
@@ -92,130 +90,114 @@ mkDescribeMaintenanceWindowExecutions pWindowId_ =
 -- The supported Keys are ExecutedBefore and ExecutedAfter with the value being a date/time string such as 2016-11-04T05:00:00Z.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmweFilters :: Lens.Lens' DescribeMaintenanceWindowExecutions (Lude.Maybe [MaintenanceWindowFilter])
-dmweFilters = Lens.lens (filters :: DescribeMaintenanceWindowExecutions -> Lude.Maybe [MaintenanceWindowFilter]) (\s a -> s {filters = a} :: DescribeMaintenanceWindowExecutions)
+dmweFilters :: Lens.Lens' DescribeMaintenanceWindowExecutions (Core.Maybe [Types.MaintenanceWindowFilter])
+dmweFilters = Lens.field @"filters"
 {-# DEPRECATED dmweFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmweNextToken :: Lens.Lens' DescribeMaintenanceWindowExecutions (Lude.Maybe Lude.Text)
-dmweNextToken = Lens.lens (nextToken :: DescribeMaintenanceWindowExecutions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMaintenanceWindowExecutions)
-{-# DEPRECATED dmweNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmweMaxResults :: Lens.Lens' DescribeMaintenanceWindowExecutions (Lude.Maybe Lude.Natural)
-dmweMaxResults = Lens.lens (maxResults :: DescribeMaintenanceWindowExecutions -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeMaintenanceWindowExecutions)
+dmweMaxResults :: Lens.Lens' DescribeMaintenanceWindowExecutions (Core.Maybe Core.Natural)
+dmweMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dmweMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
--- | The ID of the maintenance window whose executions should be retrieved.
+-- | The token for the next set of items to return. (You received this token from a previous call.)
 --
--- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmweWindowId :: Lens.Lens' DescribeMaintenanceWindowExecutions Lude.Text
-dmweWindowId = Lens.lens (windowId :: DescribeMaintenanceWindowExecutions -> Lude.Text) (\s a -> s {windowId = a} :: DescribeMaintenanceWindowExecutions)
-{-# DEPRECATED dmweWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmweNextToken :: Lens.Lens' DescribeMaintenanceWindowExecutions (Core.Maybe Types.NextToken)
+dmweNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dmweNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager DescribeMaintenanceWindowExecutions where
-  page rq rs
-    | Page.stop (rs Lens.^. dmwersNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dmwersWindowExecutions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dmweNextToken Lens..~ rs Lens.^. dmwersNextToken
+instance Core.FromJSON DescribeMaintenanceWindowExecutions where
+  toJSON DescribeMaintenanceWindowExecutions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("WindowId" Core..= windowId),
+            ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Lude.AWSRequest DescribeMaintenanceWindowExecutions where
+instance Core.AWSRequest DescribeMaintenanceWindowExecutions where
   type
     Rs DescribeMaintenanceWindowExecutions =
       DescribeMaintenanceWindowExecutionsResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonSSM.DescribeMaintenanceWindowExecutions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeMaintenanceWindowExecutionsResponse'
-            Lude.<$> (x Lude..?> "WindowExecutions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "WindowExecutions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeMaintenanceWindowExecutions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonSSM.DescribeMaintenanceWindowExecutions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeMaintenanceWindowExecutions where
-  toJSON DescribeMaintenanceWindowExecutions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            Lude.Just ("WindowId" Lude..= windowId)
-          ]
-      )
-
-instance Lude.ToPath DescribeMaintenanceWindowExecutions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeMaintenanceWindowExecutions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeMaintenanceWindowExecutions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"windowExecutions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeMaintenanceWindowExecutionsResponse' smart constructor.
 data DescribeMaintenanceWindowExecutionsResponse = DescribeMaintenanceWindowExecutionsResponse'
-  { -- | Information about the maintenance window executions.
-    windowExecutions :: Lude.Maybe [MaintenanceWindowExecution],
-    -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Information about the maintenance window executions.
+    windowExecutions :: Core.Maybe [Types.MaintenanceWindowExecution],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeMaintenanceWindowExecutionsResponse' with the minimum fields required to make a request.
---
--- * 'windowExecutions' - Information about the maintenance window executions.
--- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeMaintenanceWindowExecutionsResponse' value with any optional fields omitted.
 mkDescribeMaintenanceWindowExecutionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeMaintenanceWindowExecutionsResponse
-mkDescribeMaintenanceWindowExecutionsResponse pResponseStatus_ =
+mkDescribeMaintenanceWindowExecutionsResponse responseStatus =
   DescribeMaintenanceWindowExecutionsResponse'
-    { windowExecutions =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken =
+        Core.Nothing,
+      windowExecutions = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the maintenance window executions.
---
--- /Note:/ Consider using 'windowExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwersWindowExecutions :: Lens.Lens' DescribeMaintenanceWindowExecutionsResponse (Lude.Maybe [MaintenanceWindowExecution])
-dmwersWindowExecutions = Lens.lens (windowExecutions :: DescribeMaintenanceWindowExecutionsResponse -> Lude.Maybe [MaintenanceWindowExecution]) (\s a -> s {windowExecutions = a} :: DescribeMaintenanceWindowExecutionsResponse)
-{-# DEPRECATED dmwersWindowExecutions "Use generic-lens or generic-optics with 'windowExecutions' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwersNextToken :: Lens.Lens' DescribeMaintenanceWindowExecutionsResponse (Lude.Maybe Lude.Text)
-dmwersNextToken = Lens.lens (nextToken :: DescribeMaintenanceWindowExecutionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeMaintenanceWindowExecutionsResponse)
-{-# DEPRECATED dmwersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dmwerrsNextToken :: Lens.Lens' DescribeMaintenanceWindowExecutionsResponse (Core.Maybe Types.NextToken)
+dmwerrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dmwerrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Information about the maintenance window executions.
+--
+-- /Note:/ Consider using 'windowExecutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmwerrsWindowExecutions :: Lens.Lens' DescribeMaintenanceWindowExecutionsResponse (Core.Maybe [Types.MaintenanceWindowExecution])
+dmwerrsWindowExecutions = Lens.field @"windowExecutions"
+{-# DEPRECATED dmwerrsWindowExecutions "Use generic-lens or generic-optics with 'windowExecutions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmwersResponseStatus :: Lens.Lens' DescribeMaintenanceWindowExecutionsResponse Lude.Int
-dmwersResponseStatus = Lens.lens (responseStatus :: DescribeMaintenanceWindowExecutionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMaintenanceWindowExecutionsResponse)
-{-# DEPRECATED dmwersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmwerrsResponseStatus :: Lens.Lens' DescribeMaintenanceWindowExecutionsResponse Core.Int
+dmwerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmwerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

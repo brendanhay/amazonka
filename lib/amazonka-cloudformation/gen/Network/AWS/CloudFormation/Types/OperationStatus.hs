@@ -13,56 +13,61 @@
 module Network.AWS.CloudFormation.Types.OperationStatus
   ( OperationStatus
       ( OperationStatus',
-        OSPending,
-        OSInProgress,
-        OSSuccess,
-        OSFailed
+        OperationStatusPending,
+        OperationStatusInProgress,
+        OperationStatusSuccess,
+        OperationStatusFailed,
+        fromOperationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OperationStatus = OperationStatus' Lude.Text
+newtype OperationStatus = OperationStatus'
+  { fromOperationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OSPending :: OperationStatus
-pattern OSPending = OperationStatus' "PENDING"
+pattern OperationStatusPending :: OperationStatus
+pattern OperationStatusPending = OperationStatus' "PENDING"
 
-pattern OSInProgress :: OperationStatus
-pattern OSInProgress = OperationStatus' "IN_PROGRESS"
+pattern OperationStatusInProgress :: OperationStatus
+pattern OperationStatusInProgress = OperationStatus' "IN_PROGRESS"
 
-pattern OSSuccess :: OperationStatus
-pattern OSSuccess = OperationStatus' "SUCCESS"
+pattern OperationStatusSuccess :: OperationStatus
+pattern OperationStatusSuccess = OperationStatus' "SUCCESS"
 
-pattern OSFailed :: OperationStatus
-pattern OSFailed = OperationStatus' "FAILED"
+pattern OperationStatusFailed :: OperationStatus
+pattern OperationStatusFailed = OperationStatus' "FAILED"
 
 {-# COMPLETE
-  OSPending,
-  OSInProgress,
-  OSSuccess,
-  OSFailed,
+  OperationStatusPending,
+  OperationStatusInProgress,
+  OperationStatusSuccess,
+  OperationStatusFailed,
   OperationStatus'
   #-}

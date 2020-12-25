@@ -13,61 +13,66 @@
 module Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
   ( ServiceActionAssociationErrorCode
       ( ServiceActionAssociationErrorCode',
-        DuplicateResource,
-        InternalFailure,
-        LimitExceeded,
-        ResourceNotFound,
-        Throttling
+        ServiceActionAssociationErrorCodeDuplicateResource,
+        ServiceActionAssociationErrorCodeInternalFailure,
+        ServiceActionAssociationErrorCodeLimitExceeded,
+        ServiceActionAssociationErrorCodeResourceNotFound,
+        ServiceActionAssociationErrorCodeThrottling,
+        fromServiceActionAssociationErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ServiceActionAssociationErrorCode = ServiceActionAssociationErrorCode' Lude.Text
+newtype ServiceActionAssociationErrorCode = ServiceActionAssociationErrorCode'
+  { fromServiceActionAssociationErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DuplicateResource :: ServiceActionAssociationErrorCode
-pattern DuplicateResource = ServiceActionAssociationErrorCode' "DUPLICATE_RESOURCE"
+pattern ServiceActionAssociationErrorCodeDuplicateResource :: ServiceActionAssociationErrorCode
+pattern ServiceActionAssociationErrorCodeDuplicateResource = ServiceActionAssociationErrorCode' "DUPLICATE_RESOURCE"
 
-pattern InternalFailure :: ServiceActionAssociationErrorCode
-pattern InternalFailure = ServiceActionAssociationErrorCode' "INTERNAL_FAILURE"
+pattern ServiceActionAssociationErrorCodeInternalFailure :: ServiceActionAssociationErrorCode
+pattern ServiceActionAssociationErrorCodeInternalFailure = ServiceActionAssociationErrorCode' "INTERNAL_FAILURE"
 
-pattern LimitExceeded :: ServiceActionAssociationErrorCode
-pattern LimitExceeded = ServiceActionAssociationErrorCode' "LIMIT_EXCEEDED"
+pattern ServiceActionAssociationErrorCodeLimitExceeded :: ServiceActionAssociationErrorCode
+pattern ServiceActionAssociationErrorCodeLimitExceeded = ServiceActionAssociationErrorCode' "LIMIT_EXCEEDED"
 
-pattern ResourceNotFound :: ServiceActionAssociationErrorCode
-pattern ResourceNotFound = ServiceActionAssociationErrorCode' "RESOURCE_NOT_FOUND"
+pattern ServiceActionAssociationErrorCodeResourceNotFound :: ServiceActionAssociationErrorCode
+pattern ServiceActionAssociationErrorCodeResourceNotFound = ServiceActionAssociationErrorCode' "RESOURCE_NOT_FOUND"
 
-pattern Throttling :: ServiceActionAssociationErrorCode
-pattern Throttling = ServiceActionAssociationErrorCode' "THROTTLING"
+pattern ServiceActionAssociationErrorCodeThrottling :: ServiceActionAssociationErrorCode
+pattern ServiceActionAssociationErrorCodeThrottling = ServiceActionAssociationErrorCode' "THROTTLING"
 
 {-# COMPLETE
-  DuplicateResource,
-  InternalFailure,
-  LimitExceeded,
-  ResourceNotFound,
-  Throttling,
+  ServiceActionAssociationErrorCodeDuplicateResource,
+  ServiceActionAssociationErrorCodeInternalFailure,
+  ServiceActionAssociationErrorCodeLimitExceeded,
+  ServiceActionAssociationErrorCodeResourceNotFound,
+  ServiceActionAssociationErrorCodeThrottling,
   ServiceActionAssociationErrorCode'
   #-}

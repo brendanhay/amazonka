@@ -46,33 +46,39 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CloudHSMv2
     Network.AWS.CloudHSMv2.CopyBackupToRegion
     Network.AWS.CloudHSMv2.CreateCluster
-    Network.AWS.CloudHSMv2.CreateHSM
+    Network.AWS.CloudHSMv2.CreateHsm
     Network.AWS.CloudHSMv2.DeleteBackup
     Network.AWS.CloudHSMv2.DeleteCluster
-    Network.AWS.CloudHSMv2.DeleteHSM
+    Network.AWS.CloudHSMv2.DeleteHsm
     Network.AWS.CloudHSMv2.DescribeBackups
     Network.AWS.CloudHSMv2.DescribeClusters
     Network.AWS.CloudHSMv2.InitializeCluster
@@ -86,18 +92,48 @@ library
     Network.AWS.CloudHSMv2.Waiters
 
   other-modules:
+    Network.AWS.CloudHSMv2.Types.AvailabilityZone
+    Network.AWS.CloudHSMv2.Types.AwsHardwareCertificate
     Network.AWS.CloudHSMv2.Types.Backup
+    Network.AWS.CloudHSMv2.Types.BackupId
     Network.AWS.CloudHSMv2.Types.BackupPolicy
     Network.AWS.CloudHSMv2.Types.BackupRetentionPolicy
     Network.AWS.CloudHSMv2.Types.BackupRetentionType
     Network.AWS.CloudHSMv2.Types.BackupState
+    Network.AWS.CloudHSMv2.Types.Cert
     Network.AWS.CloudHSMv2.Types.Certificates
     Network.AWS.CloudHSMv2.Types.Cluster
+    Network.AWS.CloudHSMv2.Types.ClusterCertificate
+    Network.AWS.CloudHSMv2.Types.ClusterCsr
+    Network.AWS.CloudHSMv2.Types.ClusterId
     Network.AWS.CloudHSMv2.Types.ClusterState
     Network.AWS.CloudHSMv2.Types.DestinationBackup
-    Network.AWS.CloudHSMv2.Types.HSM
-    Network.AWS.CloudHSMv2.Types.HSMState
+    Network.AWS.CloudHSMv2.Types.EniId
+    Network.AWS.CloudHSMv2.Types.ExternalAz
+    Network.AWS.CloudHSMv2.Types.Field
+    Network.AWS.CloudHSMv2.Types.Hsm
+    Network.AWS.CloudHSMv2.Types.HsmCertificate
+    Network.AWS.CloudHSMv2.Types.HsmId
+    Network.AWS.CloudHSMv2.Types.HsmState
+    Network.AWS.CloudHSMv2.Types.HsmType
+    Network.AWS.CloudHSMv2.Types.IpAddress
+    Network.AWS.CloudHSMv2.Types.Key
+    Network.AWS.CloudHSMv2.Types.ManufacturerHardwareCertificate
+    Network.AWS.CloudHSMv2.Types.NextToken
+    Network.AWS.CloudHSMv2.Types.PreCoPassword
+    Network.AWS.CloudHSMv2.Types.Region
+    Network.AWS.CloudHSMv2.Types.ResourceId
+    Network.AWS.CloudHSMv2.Types.SecurityGroup
+    Network.AWS.CloudHSMv2.Types.SourceBackupId
+    Network.AWS.CloudHSMv2.Types.SourceCluster
+    Network.AWS.CloudHSMv2.Types.SourceRegion
+    Network.AWS.CloudHSMv2.Types.StateMessage
+    Network.AWS.CloudHSMv2.Types.String
+    Network.AWS.CloudHSMv2.Types.SubnetId
     Network.AWS.CloudHSMv2.Types.Tag
+    Network.AWS.CloudHSMv2.Types.TagKey
+    Network.AWS.CloudHSMv2.Types.Value
+    Network.AWS.CloudHSMv2.Types.VpcId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

@@ -17,71 +17,65 @@ module Network.AWS.Rekognition.Types.Pose
     mkPose,
 
     -- * Lenses
-    pYaw,
-    pRoll,
     pPitch,
+    pRoll,
+    pYaw,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates the pose of the face as determined by its pitch, roll, and yaw.
 --
 -- /See:/ 'mkPose' smart constructor.
 data Pose = Pose'
-  { -- | Value representing the face rotation on the yaw axis.
-    yaw :: Lude.Maybe Lude.Double,
+  { -- | Value representing the face rotation on the pitch axis.
+    pitch :: Core.Maybe Core.Double,
     -- | Value representing the face rotation on the roll axis.
-    roll :: Lude.Maybe Lude.Double,
-    -- | Value representing the face rotation on the pitch axis.
-    pitch :: Lude.Maybe Lude.Double
+    roll :: Core.Maybe Core.Double,
+    -- | Value representing the face rotation on the yaw axis.
+    yaw :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Pose' with the minimum fields required to make a request.
---
--- * 'yaw' - Value representing the face rotation on the yaw axis.
--- * 'roll' - Value representing the face rotation on the roll axis.
--- * 'pitch' - Value representing the face rotation on the pitch axis.
+-- | Creates a 'Pose' value with any optional fields omitted.
 mkPose ::
   Pose
 mkPose =
   Pose'
-    { yaw = Lude.Nothing,
-      roll = Lude.Nothing,
-      pitch = Lude.Nothing
+    { pitch = Core.Nothing,
+      roll = Core.Nothing,
+      yaw = Core.Nothing
     }
-
--- | Value representing the face rotation on the yaw axis.
---
--- /Note:/ Consider using 'yaw' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pYaw :: Lens.Lens' Pose (Lude.Maybe Lude.Double)
-pYaw = Lens.lens (yaw :: Pose -> Lude.Maybe Lude.Double) (\s a -> s {yaw = a} :: Pose)
-{-# DEPRECATED pYaw "Use generic-lens or generic-optics with 'yaw' instead." #-}
-
--- | Value representing the face rotation on the roll axis.
---
--- /Note:/ Consider using 'roll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pRoll :: Lens.Lens' Pose (Lude.Maybe Lude.Double)
-pRoll = Lens.lens (roll :: Pose -> Lude.Maybe Lude.Double) (\s a -> s {roll = a} :: Pose)
-{-# DEPRECATED pRoll "Use generic-lens or generic-optics with 'roll' instead." #-}
 
 -- | Value representing the face rotation on the pitch axis.
 --
 -- /Note:/ Consider using 'pitch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pPitch :: Lens.Lens' Pose (Lude.Maybe Lude.Double)
-pPitch = Lens.lens (pitch :: Pose -> Lude.Maybe Lude.Double) (\s a -> s {pitch = a} :: Pose)
+pPitch :: Lens.Lens' Pose (Core.Maybe Core.Double)
+pPitch = Lens.field @"pitch"
 {-# DEPRECATED pPitch "Use generic-lens or generic-optics with 'pitch' instead." #-}
 
-instance Lude.FromJSON Pose where
+-- | Value representing the face rotation on the roll axis.
+--
+-- /Note:/ Consider using 'roll' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pRoll :: Lens.Lens' Pose (Core.Maybe Core.Double)
+pRoll = Lens.field @"roll"
+{-# DEPRECATED pRoll "Use generic-lens or generic-optics with 'roll' instead." #-}
+
+-- | Value representing the face rotation on the yaw axis.
+--
+-- /Note:/ Consider using 'yaw' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pYaw :: Lens.Lens' Pose (Core.Maybe Core.Double)
+pYaw = Lens.field @"yaw"
+{-# DEPRECATED pYaw "Use generic-lens or generic-optics with 'yaw' instead." #-}
+
+instance Core.FromJSON Pose where
   parseJSON =
-    Lude.withObject
-      "Pose"
-      ( \x ->
-          Pose'
-            Lude.<$> (x Lude..:? "Yaw")
-            Lude.<*> (x Lude..:? "Roll")
-            Lude.<*> (x Lude..:? "Pitch")
-      )
+    Core.withObject "Pose" Core.$
+      \x ->
+        Pose'
+          Core.<$> (x Core..:? "Pitch")
+          Core.<*> (x Core..:? "Roll")
+          Core.<*> (x Core..:? "Yaw")

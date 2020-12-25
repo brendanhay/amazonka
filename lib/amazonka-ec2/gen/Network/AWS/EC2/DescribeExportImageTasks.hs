@@ -22,187 +22,182 @@ module Network.AWS.EC2.DescribeExportImageTasks
     mkDescribeExportImageTasks,
 
     -- ** Request lenses
+    deitDryRun,
     deitExportImageTaskIds,
     deitFilters,
-    deitNextToken,
-    deitDryRun,
     deitMaxResults,
+    deitNextToken,
 
     -- * Destructuring the response
     DescribeExportImageTasksResponse (..),
     mkDescribeExportImageTasksResponse,
 
     -- ** Response lenses
-    deitrsExportImageTasks,
-    deitrsNextToken,
-    deitrsResponseStatus,
+    deitrrsExportImageTasks,
+    deitrrsNextToken,
+    deitrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeExportImageTasks' smart constructor.
 data DescribeExportImageTasks = DescribeExportImageTasks'
-  { -- | The IDs of the export image tasks.
-    exportImageTaskIds :: Lude.Maybe [Lude.Text],
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The IDs of the export image tasks.
+    exportImageTaskIds :: Core.Maybe [Types.ExportImageTaskId],
     -- | Filter tasks using the @task-state@ filter and one of the following values: @active@ , @completed@ , @deleting@ , or @deleted@ .
-    filters :: Lude.Maybe [Filter],
-    -- | A token that indicates the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to return in a single call.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A token that indicates the next page of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeExportImageTasks' with the minimum fields required to make a request.
---
--- * 'exportImageTaskIds' - The IDs of the export image tasks.
--- * 'filters' - Filter tasks using the @task-state@ filter and one of the following values: @active@ , @completed@ , @deleting@ , or @deleted@ .
--- * 'nextToken' - A token that indicates the next page of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return in a single call.
+-- | Creates a 'DescribeExportImageTasks' value with any optional fields omitted.
 mkDescribeExportImageTasks ::
   DescribeExportImageTasks
 mkDescribeExportImageTasks =
   DescribeExportImageTasks'
-    { exportImageTaskIds = Lude.Nothing,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      exportImageTaskIds = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deitDryRun :: Lens.Lens' DescribeExportImageTasks (Core.Maybe Core.Bool)
+deitDryRun = Lens.field @"dryRun"
+{-# DEPRECATED deitDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The IDs of the export image tasks.
 --
 -- /Note:/ Consider using 'exportImageTaskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitExportImageTaskIds :: Lens.Lens' DescribeExportImageTasks (Lude.Maybe [Lude.Text])
-deitExportImageTaskIds = Lens.lens (exportImageTaskIds :: DescribeExportImageTasks -> Lude.Maybe [Lude.Text]) (\s a -> s {exportImageTaskIds = a} :: DescribeExportImageTasks)
+deitExportImageTaskIds :: Lens.Lens' DescribeExportImageTasks (Core.Maybe [Types.ExportImageTaskId])
+deitExportImageTaskIds = Lens.field @"exportImageTaskIds"
 {-# DEPRECATED deitExportImageTaskIds "Use generic-lens or generic-optics with 'exportImageTaskIds' instead." #-}
 
 -- | Filter tasks using the @task-state@ filter and one of the following values: @active@ , @completed@ , @deleting@ , or @deleted@ .
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitFilters :: Lens.Lens' DescribeExportImageTasks (Lude.Maybe [Filter])
-deitFilters = Lens.lens (filters :: DescribeExportImageTasks -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeExportImageTasks)
+deitFilters :: Lens.Lens' DescribeExportImageTasks (Core.Maybe [Types.Filter])
+deitFilters = Lens.field @"filters"
 {-# DEPRECATED deitFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | A token that indicates the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitNextToken :: Lens.Lens' DescribeExportImageTasks (Lude.Maybe Lude.Text)
-deitNextToken = Lens.lens (nextToken :: DescribeExportImageTasks -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeExportImageTasks)
-{-# DEPRECATED deitNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitDryRun :: Lens.Lens' DescribeExportImageTasks (Lude.Maybe Lude.Bool)
-deitDryRun = Lens.lens (dryRun :: DescribeExportImageTasks -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeExportImageTasks)
-{-# DEPRECATED deitDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return in a single call.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitMaxResults :: Lens.Lens' DescribeExportImageTasks (Lude.Maybe Lude.Natural)
-deitMaxResults = Lens.lens (maxResults :: DescribeExportImageTasks -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeExportImageTasks)
+deitMaxResults :: Lens.Lens' DescribeExportImageTasks (Core.Maybe Core.Natural)
+deitMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED deitMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeExportImageTasks where
-  page rq rs
-    | Page.stop (rs Lens.^. deitrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. deitrsExportImageTasks) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& deitNextToken Lens..~ rs Lens.^. deitrsNextToken
+-- | A token that indicates the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deitNextToken :: Lens.Lens' DescribeExportImageTasks (Core.Maybe Types.NextToken)
+deitNextToken = Lens.field @"nextToken"
+{-# DEPRECATED deitNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeExportImageTasks where
+instance Core.AWSRequest DescribeExportImageTasks where
   type Rs DescribeExportImageTasks = DescribeExportImageTasksResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeExportImageTasks")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "ExportImageTaskId" Core.<$> exportImageTaskIds)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeExportImageTasksResponse'
-            Lude.<$> ( x Lude..@? "exportImageTaskSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "exportImageTaskSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (x Lude..@? "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeExportImageTasks where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeExportImageTasks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeExportImageTasks where
-  toQuery DescribeExportImageTasks' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeExportImageTasks" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          (Lude.toQueryList "ExportImageTaskId" Lude.<$> exportImageTaskIds),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribeExportImageTasks where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"exportImageTasks" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeExportImageTasksResponse' smart constructor.
 data DescribeExportImageTasksResponse = DescribeExportImageTasksResponse'
   { -- | Information about the export image tasks.
-    exportImageTasks :: Lude.Maybe [ExportImageTask],
+    exportImageTasks :: Core.Maybe [Types.ExportImageTask],
     -- | The token to use to get the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeExportImageTasksResponse' with the minimum fields required to make a request.
---
--- * 'exportImageTasks' - Information about the export image tasks.
--- * 'nextToken' - The token to use to get the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeExportImageTasksResponse' value with any optional fields omitted.
 mkDescribeExportImageTasksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeExportImageTasksResponse
-mkDescribeExportImageTasksResponse pResponseStatus_ =
+mkDescribeExportImageTasksResponse responseStatus =
   DescribeExportImageTasksResponse'
     { exportImageTasks =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the export image tasks.
 --
 -- /Note:/ Consider using 'exportImageTasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitrsExportImageTasks :: Lens.Lens' DescribeExportImageTasksResponse (Lude.Maybe [ExportImageTask])
-deitrsExportImageTasks = Lens.lens (exportImageTasks :: DescribeExportImageTasksResponse -> Lude.Maybe [ExportImageTask]) (\s a -> s {exportImageTasks = a} :: DescribeExportImageTasksResponse)
-{-# DEPRECATED deitrsExportImageTasks "Use generic-lens or generic-optics with 'exportImageTasks' instead." #-}
+deitrrsExportImageTasks :: Lens.Lens' DescribeExportImageTasksResponse (Core.Maybe [Types.ExportImageTask])
+deitrrsExportImageTasks = Lens.field @"exportImageTasks"
+{-# DEPRECATED deitrrsExportImageTasks "Use generic-lens or generic-optics with 'exportImageTasks' instead." #-}
 
 -- | The token to use to get the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitrsNextToken :: Lens.Lens' DescribeExportImageTasksResponse (Lude.Maybe Lude.Text)
-deitrsNextToken = Lens.lens (nextToken :: DescribeExportImageTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeExportImageTasksResponse)
-{-# DEPRECATED deitrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+deitrrsNextToken :: Lens.Lens' DescribeExportImageTasksResponse (Core.Maybe Types.NextToken)
+deitrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED deitrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deitrsResponseStatus :: Lens.Lens' DescribeExportImageTasksResponse Lude.Int
-deitrsResponseStatus = Lens.lens (responseStatus :: DescribeExportImageTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExportImageTasksResponse)
-{-# DEPRECATED deitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+deitrrsResponseStatus :: Lens.Lens' DescribeExportImageTasksResponse Core.Int
+deitrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED deitrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

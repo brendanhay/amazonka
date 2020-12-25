@@ -17,55 +17,55 @@ module Network.AWS.DynamoDB.Types.TableDescription
     mkTableDescription,
 
     -- * Lenses
-    tdRestoreSummary,
-    tdGlobalTableVersion,
-    tdTableSizeBytes,
-    tdAttributeDefinitions,
-    tdLatestStreamARN,
-    tdProvisionedThroughput,
-    tdTableStatus,
-    tdTableARN,
-    tdKeySchema,
-    tdGlobalSecondaryIndexes,
-    tdLatestStreamLabel,
-    tdBillingModeSummary,
-    tdLocalSecondaryIndexes,
-    tdCreationDateTime,
-    tdSSEDescription,
-    tdTableId,
-    tdReplicas,
-    tdItemCount,
     tdArchivalSummary,
-    tdTableName,
+    tdAttributeDefinitions,
+    tdBillingModeSummary,
+    tdCreationDateTime,
+    tdGlobalSecondaryIndexes,
+    tdGlobalTableVersion,
+    tdItemCount,
+    tdKeySchema,
+    tdLatestStreamArn,
+    tdLatestStreamLabel,
+    tdLocalSecondaryIndexes,
+    tdProvisionedThroughput,
+    tdReplicas,
+    tdRestoreSummary,
+    tdSSEDescription,
     tdStreamSpecification,
+    tdTableArn,
+    tdTableId,
+    tdTableName,
+    tdTableSizeBytes,
+    tdTableStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types.ArchivalSummary
-import Network.AWS.DynamoDB.Types.AttributeDefinition
-import Network.AWS.DynamoDB.Types.BillingModeSummary
-import Network.AWS.DynamoDB.Types.GlobalSecondaryIndexDescription
-import Network.AWS.DynamoDB.Types.KeySchemaElement
-import Network.AWS.DynamoDB.Types.LocalSecondaryIndexDescription
-import Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription
-import Network.AWS.DynamoDB.Types.ReplicaDescription
-import Network.AWS.DynamoDB.Types.RestoreSummary
-import Network.AWS.DynamoDB.Types.SSEDescription
-import Network.AWS.DynamoDB.Types.StreamSpecification
-import Network.AWS.DynamoDB.Types.TableStatus
+import qualified Network.AWS.DynamoDB.Types.ArchivalSummary as Types
+import qualified Network.AWS.DynamoDB.Types.AttributeDefinition as Types
+import qualified Network.AWS.DynamoDB.Types.BillingModeSummary as Types
+import qualified Network.AWS.DynamoDB.Types.GlobalSecondaryIndexDescription as Types
+import qualified Network.AWS.DynamoDB.Types.KeySchemaElement as Types
+import qualified Network.AWS.DynamoDB.Types.LatestStreamArn as Types
+import qualified Network.AWS.DynamoDB.Types.LocalSecondaryIndexDescription as Types
+import qualified Network.AWS.DynamoDB.Types.ProvisionedThroughputDescription as Types
+import qualified Network.AWS.DynamoDB.Types.ReplicaDescription as Types
+import qualified Network.AWS.DynamoDB.Types.RestoreSummary as Types
+import qualified Network.AWS.DynamoDB.Types.SSEDescription as Types
+import qualified Network.AWS.DynamoDB.Types.StreamSpecification as Types
+import qualified Network.AWS.DynamoDB.Types.String as Types
+import qualified Network.AWS.DynamoDB.Types.TableId as Types
+import qualified Network.AWS.DynamoDB.Types.TableName as Types
+import qualified Network.AWS.DynamoDB.Types.TableStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the properties of a table.
 --
 -- /See:/ 'mkTableDescription' smart constructor.
 data TableDescription = TableDescription'
-  { -- | Contains details for the restore.
-    restoreSummary :: Lude.Maybe RestoreSummary,
-    -- | Represents the version of <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables> in use, if the table is replicated across AWS Regions.
-    globalTableVersion :: Lude.Maybe Lude.Text,
-    -- | The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
-    tableSizeBytes :: Lude.Maybe Lude.Integer,
+  { -- | Contains information about the table archive.
+    archivalSummary :: Core.Maybe Types.ArchivalSummary,
     -- | An array of @AttributeDefinition@ objects. Each of these objects describes one attribute in the table and index key schema.
     --
     -- Each @AttributeDefinition@ object in this array is composed of:
@@ -74,54 +74,11 @@ data TableDescription = TableDescription'
     --
     --
     --     * @AttributeType@ - The data type for the attribute.
-    attributeDefinitions :: Lude.Maybe [AttributeDefinition],
-    -- | The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.
-    latestStreamARN :: Lude.Maybe Lude.Text,
-    -- | The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.
-    provisionedThroughput :: Lude.Maybe ProvisionedThroughputDescription,
-    -- | The current state of the table:
-    --
-    --
-    --     * @CREATING@ - The table is being created.
-    --
-    --
-    --     * @UPDATING@ - The table is being updated.
-    --
-    --
-    --     * @DELETING@ - The table is being deleted.
-    --
-    --
-    --     * @ACTIVE@ - The table is ready for use.
-    --
-    --
-    --     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days.
-    --
-    --
-    --     * @ARCHIVING@ - The table is being archived. Operations are not allowed until archival is complete.
-    --
-    --
-    --     * @ARCHIVED@ - The table has been archived. See the ArchivalReason for more information.
-    tableStatus :: Lude.Maybe TableStatus,
-    -- | The Amazon Resource Name (ARN) that uniquely identifies the table.
-    tableARN :: Lude.Maybe Lude.Text,
-    -- | The primary key structure for the table. Each @KeySchemaElement@ consists of:
-    --
-    --
-    --     * @AttributeName@ - The name of the attribute.
-    --
-    --
-    --     * @KeyType@ - The role of the attribute:
-    --
-    --     * @HASH@ - partition key
-    --
-    --
-    --     * @RANGE@ - sort key
-    --
-    --
-    --
-    --
-    -- For more information about primary keys, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key> in the /Amazon DynamoDB Developer Guide/ .
-    keySchema :: Lude.Maybe (Lude.NonEmpty KeySchemaElement),
+    attributeDefinitions :: Core.Maybe [Types.AttributeDefinition],
+    -- | Contains the details for the read/write capacity mode.
+    billingModeSummary :: Core.Maybe Types.BillingModeSummary,
+    -- | The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
+    creationDateTime :: Core.Maybe Core.NominalDiffTime,
     -- | The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:
     --
     --
@@ -181,7 +138,31 @@ data TableDescription = TableDescription'
     --
     --
     -- If the table is in the @DELETING@ state, no information about indexes will be returned.
-    globalSecondaryIndexes :: Lude.Maybe [GlobalSecondaryIndexDescription],
+    globalSecondaryIndexes :: Core.Maybe [Types.GlobalSecondaryIndexDescription],
+    -- | Represents the version of <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables> in use, if the table is replicated across AWS Regions.
+    globalTableVersion :: Core.Maybe Types.String,
+    -- | The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+    itemCount :: Core.Maybe Core.Integer,
+    -- | The primary key structure for the table. Each @KeySchemaElement@ consists of:
+    --
+    --
+    --     * @AttributeName@ - The name of the attribute.
+    --
+    --
+    --     * @KeyType@ - The role of the attribute:
+    --
+    --     * @HASH@ - partition key
+    --
+    --
+    --     * @RANGE@ - sort key
+    --
+    --
+    --
+    --
+    -- For more information about primary keys, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key> in the /Amazon DynamoDB Developer Guide/ .
+    keySchema :: Core.Maybe (Core.NonEmpty Types.KeySchemaElement),
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.
+    latestStreamArn :: Core.Maybe Types.LatestStreamArn,
     -- | A timestamp, in ISO 8601 format, for this stream.
     --
     -- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
@@ -193,9 +174,7 @@ data TableDescription = TableDescription'
     --
     --
     --     * @StreamLabel@
-    latestStreamLabel :: Lude.Maybe Lude.Text,
-    -- | Contains the details for the read/write capacity mode.
-    billingModeSummary :: Lude.Maybe BillingModeSummary,
+    latestStreamLabel :: Core.Maybe Types.String,
     -- | Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:
     --
     --
@@ -232,250 +211,86 @@ data TableDescription = TableDescription'
     --
     --
     -- If the table is in the @DELETING@ state, no information about indexes will be returned.
-    localSecondaryIndexes :: Lude.Maybe [LocalSecondaryIndexDescription],
-    -- | The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
-    creationDateTime :: Lude.Maybe Lude.Timestamp,
-    -- | The description of the server-side encryption status on the specified table.
-    sSEDescription :: Lude.Maybe SSEDescription,
-    -- | Unique identifier for the table for which the backup was created.
-    tableId :: Lude.Maybe Lude.Text,
+    localSecondaryIndexes :: Core.Maybe [Types.LocalSecondaryIndexDescription],
+    -- | The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.
+    provisionedThroughput :: Core.Maybe Types.ProvisionedThroughputDescription,
     -- | Represents replicas of the table.
-    replicas :: Lude.Maybe [ReplicaDescription],
-    -- | The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
-    itemCount :: Lude.Maybe Lude.Integer,
-    -- | Contains information about the table archive.
-    archivalSummary :: Lude.Maybe ArchivalSummary,
-    -- | The name of the table.
-    tableName :: Lude.Maybe Lude.Text,
+    replicas :: Core.Maybe [Types.ReplicaDescription],
+    -- | Contains details for the restore.
+    restoreSummary :: Core.Maybe Types.RestoreSummary,
+    -- | The description of the server-side encryption status on the specified table.
+    sSEDescription :: Core.Maybe Types.SSEDescription,
     -- | The current DynamoDB Streams configuration for the table.
-    streamSpecification :: Lude.Maybe StreamSpecification
+    streamSpecification :: Core.Maybe Types.StreamSpecification,
+    -- | The Amazon Resource Name (ARN) that uniquely identifies the table.
+    tableArn :: Core.Maybe Types.String,
+    -- | Unique identifier for the table for which the backup was created.
+    tableId :: Core.Maybe Types.TableId,
+    -- | The name of the table.
+    tableName :: Core.Maybe Types.TableName,
+    -- | The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+    tableSizeBytes :: Core.Maybe Core.Integer,
+    -- | The current state of the table:
+    --
+    --
+    --     * @CREATING@ - The table is being created.
+    --
+    --
+    --     * @UPDATING@ - The table is being updated.
+    --
+    --
+    --     * @DELETING@ - The table is being deleted.
+    --
+    --
+    --     * @ACTIVE@ - The table is ready for use.
+    --
+    --
+    --     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days.
+    --
+    --
+    --     * @ARCHIVING@ - The table is being archived. Operations are not allowed until archival is complete.
+    --
+    --
+    --     * @ARCHIVED@ - The table has been archived. See the ArchivalReason for more information.
+    tableStatus :: Core.Maybe Types.TableStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TableDescription' with the minimum fields required to make a request.
---
--- * 'restoreSummary' - Contains details for the restore.
--- * 'globalTableVersion' - Represents the version of <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables> in use, if the table is replicated across AWS Regions.
--- * 'tableSizeBytes' - The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
--- * 'attributeDefinitions' - An array of @AttributeDefinition@ objects. Each of these objects describes one attribute in the table and index key schema.
---
--- Each @AttributeDefinition@ object in this array is composed of:
---
---     * @AttributeName@ - The name of the attribute.
---
---
---     * @AttributeType@ - The data type for the attribute.
---
---
--- * 'latestStreamARN' - The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.
--- * 'provisionedThroughput' - The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.
--- * 'tableStatus' - The current state of the table:
---
---
---     * @CREATING@ - The table is being created.
---
---
---     * @UPDATING@ - The table is being updated.
---
---
---     * @DELETING@ - The table is being deleted.
---
---
---     * @ACTIVE@ - The table is ready for use.
---
---
---     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days.
---
---
---     * @ARCHIVING@ - The table is being archived. Operations are not allowed until archival is complete.
---
---
---     * @ARCHIVED@ - The table has been archived. See the ArchivalReason for more information.
---
---
--- * 'tableARN' - The Amazon Resource Name (ARN) that uniquely identifies the table.
--- * 'keySchema' - The primary key structure for the table. Each @KeySchemaElement@ consists of:
---
---
---     * @AttributeName@ - The name of the attribute.
---
---
---     * @KeyType@ - The role of the attribute:
---
---     * @HASH@ - partition key
---
---
---     * @RANGE@ - sort key
---
---
---
---
--- For more information about primary keys, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key> in the /Amazon DynamoDB Developer Guide/ .
--- * 'globalSecondaryIndexes' - The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:
---
---
---     * @Backfilling@ - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a @CreateTable@ operation.)
--- You can delete an index that is being created during the @Backfilling@ phase when @IndexStatus@ is set to CREATING and @Backfilling@ is true. You can't delete the index that is being created when @IndexStatus@ is set to CREATING and @Backfilling@ is false. (This attribute does not appear for indexes that were created during a @CreateTable@ operation.)
---
---
---     * @IndexName@ - The name of the global secondary index.
---
---
---     * @IndexSizeBytes@ - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
---
---
---     * @IndexStatus@ - The current status of the global secondary index:
---
---     * @CREATING@ - The index is being created.
---
---
---     * @UPDATING@ - The index is being updated.
---
---
---     * @DELETING@ - The index is being deleted.
---
---
---     * @ACTIVE@ - The index is ready for use.
---
---
---
---
---     * @ItemCount@ - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
---
---
---     * @KeySchema@ - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.
---
---
---     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:
---
---     * @ProjectionType@ - One of the following:
---
---     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.
---
---
---     * @INCLUDE@ - In addition to the attributes described in @KEYS_ONLY@ , the secondary index will include other non-key attributes that you specify.
---
---
---     * @ALL@ - All of the table attributes are projected into the index.
---
---
---
---
---     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
---
---
---
---
---     * @ProvisionedThroughput@ - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases.
---
---
--- If the table is in the @DELETING@ state, no information about indexes will be returned.
--- * 'latestStreamLabel' - A timestamp, in ISO 8601 format, for this stream.
---
--- Note that @LatestStreamLabel@ is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:
---
---     * AWS customer ID
---
---
---     * Table name
---
---
---     * @StreamLabel@
---
---
--- * 'billingModeSummary' - Contains the details for the read/write capacity mode.
--- * 'localSecondaryIndexes' - Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:
---
---
---     * @IndexName@ - The name of the local secondary index.
---
---
---     * @KeySchema@ - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.
---
---
---     * @Projection@ - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:
---
---     * @ProjectionType@ - One of the following:
---
---     * @KEYS_ONLY@ - Only the index and primary keys are projected into the index.
---
---
---     * @INCLUDE@ - Only the specified table attributes are projected into the index. The list of projected attributes is in @NonKeyAttributes@ .
---
---
---     * @ALL@ - All of the table attributes are projected into the index.
---
---
---
---
---     * @NonKeyAttributes@ - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in @NonKeyAttributes@ , summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.
---
---
---
---
---     * @IndexSizeBytes@ - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
---
---
---     * @ItemCount@ - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
---
---
--- If the table is in the @DELETING@ state, no information about indexes will be returned.
--- * 'creationDateTime' - The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
--- * 'sSEDescription' - The description of the server-side encryption status on the specified table.
--- * 'tableId' - Unique identifier for the table for which the backup was created.
--- * 'replicas' - Represents replicas of the table.
--- * 'itemCount' - The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
--- * 'archivalSummary' - Contains information about the table archive.
--- * 'tableName' - The name of the table.
--- * 'streamSpecification' - The current DynamoDB Streams configuration for the table.
+-- | Creates a 'TableDescription' value with any optional fields omitted.
 mkTableDescription ::
   TableDescription
 mkTableDescription =
   TableDescription'
-    { restoreSummary = Lude.Nothing,
-      globalTableVersion = Lude.Nothing,
-      tableSizeBytes = Lude.Nothing,
-      attributeDefinitions = Lude.Nothing,
-      latestStreamARN = Lude.Nothing,
-      provisionedThroughput = Lude.Nothing,
-      tableStatus = Lude.Nothing,
-      tableARN = Lude.Nothing,
-      keySchema = Lude.Nothing,
-      globalSecondaryIndexes = Lude.Nothing,
-      latestStreamLabel = Lude.Nothing,
-      billingModeSummary = Lude.Nothing,
-      localSecondaryIndexes = Lude.Nothing,
-      creationDateTime = Lude.Nothing,
-      sSEDescription = Lude.Nothing,
-      tableId = Lude.Nothing,
-      replicas = Lude.Nothing,
-      itemCount = Lude.Nothing,
-      archivalSummary = Lude.Nothing,
-      tableName = Lude.Nothing,
-      streamSpecification = Lude.Nothing
+    { archivalSummary = Core.Nothing,
+      attributeDefinitions = Core.Nothing,
+      billingModeSummary = Core.Nothing,
+      creationDateTime = Core.Nothing,
+      globalSecondaryIndexes = Core.Nothing,
+      globalTableVersion = Core.Nothing,
+      itemCount = Core.Nothing,
+      keySchema = Core.Nothing,
+      latestStreamArn = Core.Nothing,
+      latestStreamLabel = Core.Nothing,
+      localSecondaryIndexes = Core.Nothing,
+      provisionedThroughput = Core.Nothing,
+      replicas = Core.Nothing,
+      restoreSummary = Core.Nothing,
+      sSEDescription = Core.Nothing,
+      streamSpecification = Core.Nothing,
+      tableArn = Core.Nothing,
+      tableId = Core.Nothing,
+      tableName = Core.Nothing,
+      tableSizeBytes = Core.Nothing,
+      tableStatus = Core.Nothing
     }
 
--- | Contains details for the restore.
+-- | Contains information about the table archive.
 --
--- /Note:/ Consider using 'restoreSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdRestoreSummary :: Lens.Lens' TableDescription (Lude.Maybe RestoreSummary)
-tdRestoreSummary = Lens.lens (restoreSummary :: TableDescription -> Lude.Maybe RestoreSummary) (\s a -> s {restoreSummary = a} :: TableDescription)
-{-# DEPRECATED tdRestoreSummary "Use generic-lens or generic-optics with 'restoreSummary' instead." #-}
-
--- | Represents the version of <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables> in use, if the table is replicated across AWS Regions.
---
--- /Note:/ Consider using 'globalTableVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdGlobalTableVersion :: Lens.Lens' TableDescription (Lude.Maybe Lude.Text)
-tdGlobalTableVersion = Lens.lens (globalTableVersion :: TableDescription -> Lude.Maybe Lude.Text) (\s a -> s {globalTableVersion = a} :: TableDescription)
-{-# DEPRECATED tdGlobalTableVersion "Use generic-lens or generic-optics with 'globalTableVersion' instead." #-}
-
--- | The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
---
--- /Note:/ Consider using 'tableSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdTableSizeBytes :: Lens.Lens' TableDescription (Lude.Maybe Lude.Integer)
-tdTableSizeBytes = Lens.lens (tableSizeBytes :: TableDescription -> Lude.Maybe Lude.Integer) (\s a -> s {tableSizeBytes = a} :: TableDescription)
-{-# DEPRECATED tdTableSizeBytes "Use generic-lens or generic-optics with 'tableSizeBytes' instead." #-}
+-- /Note:/ Consider using 'archivalSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdArchivalSummary :: Lens.Lens' TableDescription (Core.Maybe Types.ArchivalSummary)
+tdArchivalSummary = Lens.field @"archivalSummary"
+{-# DEPRECATED tdArchivalSummary "Use generic-lens or generic-optics with 'archivalSummary' instead." #-}
 
 -- | An array of @AttributeDefinition@ objects. Each of these objects describes one attribute in the table and index key schema.
 --
@@ -489,83 +304,23 @@ tdTableSizeBytes = Lens.lens (tableSizeBytes :: TableDescription -> Lude.Maybe L
 --
 --
 -- /Note:/ Consider using 'attributeDefinitions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdAttributeDefinitions :: Lens.Lens' TableDescription (Lude.Maybe [AttributeDefinition])
-tdAttributeDefinitions = Lens.lens (attributeDefinitions :: TableDescription -> Lude.Maybe [AttributeDefinition]) (\s a -> s {attributeDefinitions = a} :: TableDescription)
+tdAttributeDefinitions :: Lens.Lens' TableDescription (Core.Maybe [Types.AttributeDefinition])
+tdAttributeDefinitions = Lens.field @"attributeDefinitions"
 {-# DEPRECATED tdAttributeDefinitions "Use generic-lens or generic-optics with 'attributeDefinitions' instead." #-}
 
--- | The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.
+-- | Contains the details for the read/write capacity mode.
 --
--- /Note:/ Consider using 'latestStreamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdLatestStreamARN :: Lens.Lens' TableDescription (Lude.Maybe Lude.Text)
-tdLatestStreamARN = Lens.lens (latestStreamARN :: TableDescription -> Lude.Maybe Lude.Text) (\s a -> s {latestStreamARN = a} :: TableDescription)
-{-# DEPRECATED tdLatestStreamARN "Use generic-lens or generic-optics with 'latestStreamARN' instead." #-}
+-- /Note:/ Consider using 'billingModeSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdBillingModeSummary :: Lens.Lens' TableDescription (Core.Maybe Types.BillingModeSummary)
+tdBillingModeSummary = Lens.field @"billingModeSummary"
+{-# DEPRECATED tdBillingModeSummary "Use generic-lens or generic-optics with 'billingModeSummary' instead." #-}
 
--- | The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.
+-- | The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
 --
--- /Note:/ Consider using 'provisionedThroughput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdProvisionedThroughput :: Lens.Lens' TableDescription (Lude.Maybe ProvisionedThroughputDescription)
-tdProvisionedThroughput = Lens.lens (provisionedThroughput :: TableDescription -> Lude.Maybe ProvisionedThroughputDescription) (\s a -> s {provisionedThroughput = a} :: TableDescription)
-{-# DEPRECATED tdProvisionedThroughput "Use generic-lens or generic-optics with 'provisionedThroughput' instead." #-}
-
--- | The current state of the table:
---
---
---     * @CREATING@ - The table is being created.
---
---
---     * @UPDATING@ - The table is being updated.
---
---
---     * @DELETING@ - The table is being deleted.
---
---
---     * @ACTIVE@ - The table is ready for use.
---
---
---     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days.
---
---
---     * @ARCHIVING@ - The table is being archived. Operations are not allowed until archival is complete.
---
---
---     * @ARCHIVED@ - The table has been archived. See the ArchivalReason for more information.
---
---
---
--- /Note:/ Consider using 'tableStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdTableStatus :: Lens.Lens' TableDescription (Lude.Maybe TableStatus)
-tdTableStatus = Lens.lens (tableStatus :: TableDescription -> Lude.Maybe TableStatus) (\s a -> s {tableStatus = a} :: TableDescription)
-{-# DEPRECATED tdTableStatus "Use generic-lens or generic-optics with 'tableStatus' instead." #-}
-
--- | The Amazon Resource Name (ARN) that uniquely identifies the table.
---
--- /Note:/ Consider using 'tableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdTableARN :: Lens.Lens' TableDescription (Lude.Maybe Lude.Text)
-tdTableARN = Lens.lens (tableARN :: TableDescription -> Lude.Maybe Lude.Text) (\s a -> s {tableARN = a} :: TableDescription)
-{-# DEPRECATED tdTableARN "Use generic-lens or generic-optics with 'tableARN' instead." #-}
-
--- | The primary key structure for the table. Each @KeySchemaElement@ consists of:
---
---
---     * @AttributeName@ - The name of the attribute.
---
---
---     * @KeyType@ - The role of the attribute:
---
---     * @HASH@ - partition key
---
---
---     * @RANGE@ - sort key
---
---
---
---
--- For more information about primary keys, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key> in the /Amazon DynamoDB Developer Guide/ .
---
--- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdKeySchema :: Lens.Lens' TableDescription (Lude.Maybe (Lude.NonEmpty KeySchemaElement))
-tdKeySchema = Lens.lens (keySchema :: TableDescription -> Lude.Maybe (Lude.NonEmpty KeySchemaElement)) (\s a -> s {keySchema = a} :: TableDescription)
-{-# DEPRECATED tdKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
+-- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdCreationDateTime :: Lens.Lens' TableDescription (Core.Maybe Core.NominalDiffTime)
+tdCreationDateTime = Lens.field @"creationDateTime"
+{-# DEPRECATED tdCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:
 --
@@ -628,9 +383,53 @@ tdKeySchema = Lens.lens (keySchema :: TableDescription -> Lude.Maybe (Lude.NonEm
 -- If the table is in the @DELETING@ state, no information about indexes will be returned.
 --
 -- /Note:/ Consider using 'globalSecondaryIndexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdGlobalSecondaryIndexes :: Lens.Lens' TableDescription (Lude.Maybe [GlobalSecondaryIndexDescription])
-tdGlobalSecondaryIndexes = Lens.lens (globalSecondaryIndexes :: TableDescription -> Lude.Maybe [GlobalSecondaryIndexDescription]) (\s a -> s {globalSecondaryIndexes = a} :: TableDescription)
+tdGlobalSecondaryIndexes :: Lens.Lens' TableDescription (Core.Maybe [Types.GlobalSecondaryIndexDescription])
+tdGlobalSecondaryIndexes = Lens.field @"globalSecondaryIndexes"
 {-# DEPRECATED tdGlobalSecondaryIndexes "Use generic-lens or generic-optics with 'globalSecondaryIndexes' instead." #-}
+
+-- | Represents the version of <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html global tables> in use, if the table is replicated across AWS Regions.
+--
+-- /Note:/ Consider using 'globalTableVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdGlobalTableVersion :: Lens.Lens' TableDescription (Core.Maybe Types.String)
+tdGlobalTableVersion = Lens.field @"globalTableVersion"
+{-# DEPRECATED tdGlobalTableVersion "Use generic-lens or generic-optics with 'globalTableVersion' instead." #-}
+
+-- | The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+--
+-- /Note:/ Consider using 'itemCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdItemCount :: Lens.Lens' TableDescription (Core.Maybe Core.Integer)
+tdItemCount = Lens.field @"itemCount"
+{-# DEPRECATED tdItemCount "Use generic-lens or generic-optics with 'itemCount' instead." #-}
+
+-- | The primary key structure for the table. Each @KeySchemaElement@ consists of:
+--
+--
+--     * @AttributeName@ - The name of the attribute.
+--
+--
+--     * @KeyType@ - The role of the attribute:
+--
+--     * @HASH@ - partition key
+--
+--
+--     * @RANGE@ - sort key
+--
+--
+--
+--
+-- For more information about primary keys, see <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key> in the /Amazon DynamoDB Developer Guide/ .
+--
+-- /Note:/ Consider using 'keySchema' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdKeySchema :: Lens.Lens' TableDescription (Core.Maybe (Core.NonEmpty Types.KeySchemaElement))
+tdKeySchema = Lens.field @"keySchema"
+{-# DEPRECATED tdKeySchema "Use generic-lens or generic-optics with 'keySchema' instead." #-}
+
+-- | The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this table.
+--
+-- /Note:/ Consider using 'latestStreamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdLatestStreamArn :: Lens.Lens' TableDescription (Core.Maybe Types.LatestStreamArn)
+tdLatestStreamArn = Lens.field @"latestStreamArn"
+{-# DEPRECATED tdLatestStreamArn "Use generic-lens or generic-optics with 'latestStreamArn' instead." #-}
 
 -- | A timestamp, in ISO 8601 format, for this stream.
 --
@@ -647,16 +446,9 @@ tdGlobalSecondaryIndexes = Lens.lens (globalSecondaryIndexes :: TableDescription
 --
 --
 -- /Note:/ Consider using 'latestStreamLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdLatestStreamLabel :: Lens.Lens' TableDescription (Lude.Maybe Lude.Text)
-tdLatestStreamLabel = Lens.lens (latestStreamLabel :: TableDescription -> Lude.Maybe Lude.Text) (\s a -> s {latestStreamLabel = a} :: TableDescription)
+tdLatestStreamLabel :: Lens.Lens' TableDescription (Core.Maybe Types.String)
+tdLatestStreamLabel = Lens.field @"latestStreamLabel"
 {-# DEPRECATED tdLatestStreamLabel "Use generic-lens or generic-optics with 'latestStreamLabel' instead." #-}
-
--- | Contains the details for the read/write capacity mode.
---
--- /Note:/ Consider using 'billingModeSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdBillingModeSummary :: Lens.Lens' TableDescription (Lude.Maybe BillingModeSummary)
-tdBillingModeSummary = Lens.lens (billingModeSummary :: TableDescription -> Lude.Maybe BillingModeSummary) (\s a -> s {billingModeSummary = a} :: TableDescription)
-{-# DEPRECATED tdBillingModeSummary "Use generic-lens or generic-optics with 'billingModeSummary' instead." #-}
 
 -- | Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:
 --
@@ -696,91 +488,126 @@ tdBillingModeSummary = Lens.lens (billingModeSummary :: TableDescription -> Lude
 -- If the table is in the @DELETING@ state, no information about indexes will be returned.
 --
 -- /Note:/ Consider using 'localSecondaryIndexes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdLocalSecondaryIndexes :: Lens.Lens' TableDescription (Lude.Maybe [LocalSecondaryIndexDescription])
-tdLocalSecondaryIndexes = Lens.lens (localSecondaryIndexes :: TableDescription -> Lude.Maybe [LocalSecondaryIndexDescription]) (\s a -> s {localSecondaryIndexes = a} :: TableDescription)
+tdLocalSecondaryIndexes :: Lens.Lens' TableDescription (Core.Maybe [Types.LocalSecondaryIndexDescription])
+tdLocalSecondaryIndexes = Lens.field @"localSecondaryIndexes"
 {-# DEPRECATED tdLocalSecondaryIndexes "Use generic-lens or generic-optics with 'localSecondaryIndexes' instead." #-}
 
--- | The date and time when the table was created, in <http://www.epochconverter.com/ UNIX epoch time> format.
+-- | The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.
 --
--- /Note:/ Consider using 'creationDateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdCreationDateTime :: Lens.Lens' TableDescription (Lude.Maybe Lude.Timestamp)
-tdCreationDateTime = Lens.lens (creationDateTime :: TableDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDateTime = a} :: TableDescription)
-{-# DEPRECATED tdCreationDateTime "Use generic-lens or generic-optics with 'creationDateTime' instead." #-}
-
--- | The description of the server-side encryption status on the specified table.
---
--- /Note:/ Consider using 'sSEDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdSSEDescription :: Lens.Lens' TableDescription (Lude.Maybe SSEDescription)
-tdSSEDescription = Lens.lens (sSEDescription :: TableDescription -> Lude.Maybe SSEDescription) (\s a -> s {sSEDescription = a} :: TableDescription)
-{-# DEPRECATED tdSSEDescription "Use generic-lens or generic-optics with 'sSEDescription' instead." #-}
-
--- | Unique identifier for the table for which the backup was created.
---
--- /Note:/ Consider using 'tableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdTableId :: Lens.Lens' TableDescription (Lude.Maybe Lude.Text)
-tdTableId = Lens.lens (tableId :: TableDescription -> Lude.Maybe Lude.Text) (\s a -> s {tableId = a} :: TableDescription)
-{-# DEPRECATED tdTableId "Use generic-lens or generic-optics with 'tableId' instead." #-}
+-- /Note:/ Consider using 'provisionedThroughput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdProvisionedThroughput :: Lens.Lens' TableDescription (Core.Maybe Types.ProvisionedThroughputDescription)
+tdProvisionedThroughput = Lens.field @"provisionedThroughput"
+{-# DEPRECATED tdProvisionedThroughput "Use generic-lens or generic-optics with 'provisionedThroughput' instead." #-}
 
 -- | Represents replicas of the table.
 --
 -- /Note:/ Consider using 'replicas' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdReplicas :: Lens.Lens' TableDescription (Lude.Maybe [ReplicaDescription])
-tdReplicas = Lens.lens (replicas :: TableDescription -> Lude.Maybe [ReplicaDescription]) (\s a -> s {replicas = a} :: TableDescription)
+tdReplicas :: Lens.Lens' TableDescription (Core.Maybe [Types.ReplicaDescription])
+tdReplicas = Lens.field @"replicas"
 {-# DEPRECATED tdReplicas "Use generic-lens or generic-optics with 'replicas' instead." #-}
 
--- | The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+-- | Contains details for the restore.
 --
--- /Note:/ Consider using 'itemCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdItemCount :: Lens.Lens' TableDescription (Lude.Maybe Lude.Integer)
-tdItemCount = Lens.lens (itemCount :: TableDescription -> Lude.Maybe Lude.Integer) (\s a -> s {itemCount = a} :: TableDescription)
-{-# DEPRECATED tdItemCount "Use generic-lens or generic-optics with 'itemCount' instead." #-}
+-- /Note:/ Consider using 'restoreSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdRestoreSummary :: Lens.Lens' TableDescription (Core.Maybe Types.RestoreSummary)
+tdRestoreSummary = Lens.field @"restoreSummary"
+{-# DEPRECATED tdRestoreSummary "Use generic-lens or generic-optics with 'restoreSummary' instead." #-}
 
--- | Contains information about the table archive.
+-- | The description of the server-side encryption status on the specified table.
 --
--- /Note:/ Consider using 'archivalSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdArchivalSummary :: Lens.Lens' TableDescription (Lude.Maybe ArchivalSummary)
-tdArchivalSummary = Lens.lens (archivalSummary :: TableDescription -> Lude.Maybe ArchivalSummary) (\s a -> s {archivalSummary = a} :: TableDescription)
-{-# DEPRECATED tdArchivalSummary "Use generic-lens or generic-optics with 'archivalSummary' instead." #-}
-
--- | The name of the table.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdTableName :: Lens.Lens' TableDescription (Lude.Maybe Lude.Text)
-tdTableName = Lens.lens (tableName :: TableDescription -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: TableDescription)
-{-# DEPRECATED tdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+-- /Note:/ Consider using 'sSEDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdSSEDescription :: Lens.Lens' TableDescription (Core.Maybe Types.SSEDescription)
+tdSSEDescription = Lens.field @"sSEDescription"
+{-# DEPRECATED tdSSEDescription "Use generic-lens or generic-optics with 'sSEDescription' instead." #-}
 
 -- | The current DynamoDB Streams configuration for the table.
 --
 -- /Note:/ Consider using 'streamSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdStreamSpecification :: Lens.Lens' TableDescription (Lude.Maybe StreamSpecification)
-tdStreamSpecification = Lens.lens (streamSpecification :: TableDescription -> Lude.Maybe StreamSpecification) (\s a -> s {streamSpecification = a} :: TableDescription)
+tdStreamSpecification :: Lens.Lens' TableDescription (Core.Maybe Types.StreamSpecification)
+tdStreamSpecification = Lens.field @"streamSpecification"
 {-# DEPRECATED tdStreamSpecification "Use generic-lens or generic-optics with 'streamSpecification' instead." #-}
 
-instance Lude.FromJSON TableDescription where
+-- | The Amazon Resource Name (ARN) that uniquely identifies the table.
+--
+-- /Note:/ Consider using 'tableArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdTableArn :: Lens.Lens' TableDescription (Core.Maybe Types.String)
+tdTableArn = Lens.field @"tableArn"
+{-# DEPRECATED tdTableArn "Use generic-lens or generic-optics with 'tableArn' instead." #-}
+
+-- | Unique identifier for the table for which the backup was created.
+--
+-- /Note:/ Consider using 'tableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdTableId :: Lens.Lens' TableDescription (Core.Maybe Types.TableId)
+tdTableId = Lens.field @"tableId"
+{-# DEPRECATED tdTableId "Use generic-lens or generic-optics with 'tableId' instead." #-}
+
+-- | The name of the table.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdTableName :: Lens.Lens' TableDescription (Core.Maybe Types.TableName)
+tdTableName = Lens.field @"tableName"
+{-# DEPRECATED tdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+
+-- | The total size of the specified table, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.
+--
+-- /Note:/ Consider using 'tableSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdTableSizeBytes :: Lens.Lens' TableDescription (Core.Maybe Core.Integer)
+tdTableSizeBytes = Lens.field @"tableSizeBytes"
+{-# DEPRECATED tdTableSizeBytes "Use generic-lens or generic-optics with 'tableSizeBytes' instead." #-}
+
+-- | The current state of the table:
+--
+--
+--     * @CREATING@ - The table is being created.
+--
+--
+--     * @UPDATING@ - The table is being updated.
+--
+--
+--     * @DELETING@ - The table is being deleted.
+--
+--
+--     * @ACTIVE@ - The table is ready for use.
+--
+--
+--     * @INACCESSIBLE_ENCRYPTION_CREDENTIALS@ - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days.
+--
+--
+--     * @ARCHIVING@ - The table is being archived. Operations are not allowed until archival is complete.
+--
+--
+--     * @ARCHIVED@ - The table has been archived. See the ArchivalReason for more information.
+--
+--
+--
+-- /Note:/ Consider using 'tableStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tdTableStatus :: Lens.Lens' TableDescription (Core.Maybe Types.TableStatus)
+tdTableStatus = Lens.field @"tableStatus"
+{-# DEPRECATED tdTableStatus "Use generic-lens or generic-optics with 'tableStatus' instead." #-}
+
+instance Core.FromJSON TableDescription where
   parseJSON =
-    Lude.withObject
-      "TableDescription"
-      ( \x ->
-          TableDescription'
-            Lude.<$> (x Lude..:? "RestoreSummary")
-            Lude.<*> (x Lude..:? "GlobalTableVersion")
-            Lude.<*> (x Lude..:? "TableSizeBytes")
-            Lude.<*> (x Lude..:? "AttributeDefinitions" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "LatestStreamArn")
-            Lude.<*> (x Lude..:? "ProvisionedThroughput")
-            Lude.<*> (x Lude..:? "TableStatus")
-            Lude.<*> (x Lude..:? "TableArn")
-            Lude.<*> (x Lude..:? "KeySchema")
-            Lude.<*> (x Lude..:? "GlobalSecondaryIndexes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "LatestStreamLabel")
-            Lude.<*> (x Lude..:? "BillingModeSummary")
-            Lude.<*> (x Lude..:? "LocalSecondaryIndexes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "CreationDateTime")
-            Lude.<*> (x Lude..:? "SSEDescription")
-            Lude.<*> (x Lude..:? "TableId")
-            Lude.<*> (x Lude..:? "Replicas" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ItemCount")
-            Lude.<*> (x Lude..:? "ArchivalSummary")
-            Lude.<*> (x Lude..:? "TableName")
-            Lude.<*> (x Lude..:? "StreamSpecification")
-      )
+    Core.withObject "TableDescription" Core.$
+      \x ->
+        TableDescription'
+          Core.<$> (x Core..:? "ArchivalSummary")
+          Core.<*> (x Core..:? "AttributeDefinitions")
+          Core.<*> (x Core..:? "BillingModeSummary")
+          Core.<*> (x Core..:? "CreationDateTime")
+          Core.<*> (x Core..:? "GlobalSecondaryIndexes")
+          Core.<*> (x Core..:? "GlobalTableVersion")
+          Core.<*> (x Core..:? "ItemCount")
+          Core.<*> (x Core..:? "KeySchema")
+          Core.<*> (x Core..:? "LatestStreamArn")
+          Core.<*> (x Core..:? "LatestStreamLabel")
+          Core.<*> (x Core..:? "LocalSecondaryIndexes")
+          Core.<*> (x Core..:? "ProvisionedThroughput")
+          Core.<*> (x Core..:? "Replicas")
+          Core.<*> (x Core..:? "RestoreSummary")
+          Core.<*> (x Core..:? "SSEDescription")
+          Core.<*> (x Core..:? "StreamSpecification")
+          Core.<*> (x Core..:? "TableArn")
+          Core.<*> (x Core..:? "TableId")
+          Core.<*> (x Core..:? "TableName")
+          Core.<*> (x Core..:? "TableSizeBytes")
+          Core.<*> (x Core..:? "TableStatus")

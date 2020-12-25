@@ -17,110 +17,106 @@ module Network.AWS.CloudWatchLogs.Types.Destination
     mkDestination,
 
     -- * Lenses
-    dTargetARN,
-    dCreationTime,
-    dArn,
     dAccessPolicy,
+    dArn,
+    dCreationTime,
     dDestinationName,
-    dRoleARN,
+    dRoleArn,
+    dTargetArn,
   )
 where
 
+import qualified Network.AWS.CloudWatchLogs.Types.AccessPolicy as Types
+import qualified Network.AWS.CloudWatchLogs.Types.Arn as Types
+import qualified Network.AWS.CloudWatchLogs.Types.DestinationName as Types
+import qualified Network.AWS.CloudWatchLogs.Types.RoleArn as Types
+import qualified Network.AWS.CloudWatchLogs.Types.TargetArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a cross-account destination that receives subscription log events.
 --
 -- /See:/ 'mkDestination' smart constructor.
 data Destination = Destination'
-  { -- | The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
-    targetARN :: Lude.Maybe Lude.Text,
-    -- | The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-    creationTime :: Lude.Maybe Lude.Natural,
+  { -- | An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
+    accessPolicy :: Core.Maybe Types.AccessPolicy,
     -- | The ARN of this destination.
-    arn :: Lude.Maybe Lude.Text,
-    -- | An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
-    accessPolicy :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
+    -- | The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+    creationTime :: Core.Maybe Core.Natural,
     -- | The name of the destination.
-    destinationName :: Lude.Maybe Lude.Text,
+    destinationName :: Core.Maybe Types.DestinationName,
     -- | A role for impersonation, used when delivering log events to the target.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn,
+    -- | The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
+    targetArn :: Core.Maybe Types.TargetArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Destination' with the minimum fields required to make a request.
---
--- * 'targetARN' - The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
--- * 'creationTime' - The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
--- * 'arn' - The ARN of this destination.
--- * 'accessPolicy' - An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
--- * 'destinationName' - The name of the destination.
--- * 'roleARN' - A role for impersonation, used when delivering log events to the target.
+-- | Creates a 'Destination' value with any optional fields omitted.
 mkDestination ::
   Destination
 mkDestination =
   Destination'
-    { targetARN = Lude.Nothing,
-      creationTime = Lude.Nothing,
-      arn = Lude.Nothing,
-      accessPolicy = Lude.Nothing,
-      destinationName = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { accessPolicy = Core.Nothing,
+      arn = Core.Nothing,
+      creationTime = Core.Nothing,
+      destinationName = Core.Nothing,
+      roleArn = Core.Nothing,
+      targetArn = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
---
--- /Note:/ Consider using 'targetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dTargetARN :: Lens.Lens' Destination (Lude.Maybe Lude.Text)
-dTargetARN = Lens.lens (targetARN :: Destination -> Lude.Maybe Lude.Text) (\s a -> s {targetARN = a} :: Destination)
-{-# DEPRECATED dTargetARN "Use generic-lens or generic-optics with 'targetARN' instead." #-}
-
--- | The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCreationTime :: Lens.Lens' Destination (Lude.Maybe Lude.Natural)
-dCreationTime = Lens.lens (creationTime :: Destination -> Lude.Maybe Lude.Natural) (\s a -> s {creationTime = a} :: Destination)
-{-# DEPRECATED dCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The ARN of this destination.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dArn :: Lens.Lens' Destination (Lude.Maybe Lude.Text)
-dArn = Lens.lens (arn :: Destination -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Destination)
-{-# DEPRECATED dArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
 --
 -- /Note:/ Consider using 'accessPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAccessPolicy :: Lens.Lens' Destination (Lude.Maybe Lude.Text)
-dAccessPolicy = Lens.lens (accessPolicy :: Destination -> Lude.Maybe Lude.Text) (\s a -> s {accessPolicy = a} :: Destination)
+dAccessPolicy :: Lens.Lens' Destination (Core.Maybe Types.AccessPolicy)
+dAccessPolicy = Lens.field @"accessPolicy"
 {-# DEPRECATED dAccessPolicy "Use generic-lens or generic-optics with 'accessPolicy' instead." #-}
+
+-- | The ARN of this destination.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dArn :: Lens.Lens' Destination (Core.Maybe Types.Arn)
+dArn = Lens.field @"arn"
+{-# DEPRECATED dArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCreationTime :: Lens.Lens' Destination (Core.Maybe Core.Natural)
+dCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED dCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The name of the destination.
 --
 -- /Note:/ Consider using 'destinationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDestinationName :: Lens.Lens' Destination (Lude.Maybe Lude.Text)
-dDestinationName = Lens.lens (destinationName :: Destination -> Lude.Maybe Lude.Text) (\s a -> s {destinationName = a} :: Destination)
+dDestinationName :: Lens.Lens' Destination (Core.Maybe Types.DestinationName)
+dDestinationName = Lens.field @"destinationName"
 {-# DEPRECATED dDestinationName "Use generic-lens or generic-optics with 'destinationName' instead." #-}
 
 -- | A role for impersonation, used when delivering log events to the target.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dRoleARN :: Lens.Lens' Destination (Lude.Maybe Lude.Text)
-dRoleARN = Lens.lens (roleARN :: Destination -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: Destination)
-{-# DEPRECATED dRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dRoleArn :: Lens.Lens' Destination (Core.Maybe Types.RoleArn)
+dRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED dRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON Destination where
+-- | The Amazon Resource Name (ARN) of the physical target where the log events are delivered (for example, a Kinesis stream).
+--
+-- /Note:/ Consider using 'targetArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dTargetArn :: Lens.Lens' Destination (Core.Maybe Types.TargetArn)
+dTargetArn = Lens.field @"targetArn"
+{-# DEPRECATED dTargetArn "Use generic-lens or generic-optics with 'targetArn' instead." #-}
+
+instance Core.FromJSON Destination where
   parseJSON =
-    Lude.withObject
-      "Destination"
-      ( \x ->
-          Destination'
-            Lude.<$> (x Lude..:? "targetArn")
-            Lude.<*> (x Lude..:? "creationTime")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "accessPolicy")
-            Lude.<*> (x Lude..:? "destinationName")
-            Lude.<*> (x Lude..:? "roleArn")
-      )
+    Core.withObject "Destination" Core.$
+      \x ->
+        Destination'
+          Core.<$> (x Core..:? "accessPolicy")
+          Core.<*> (x Core..:? "arn")
+          Core.<*> (x Core..:? "creationTime")
+          Core.<*> (x Core..:? "destinationName")
+          Core.<*> (x Core..:? "roleArn")
+          Core.<*> (x Core..:? "targetArn")

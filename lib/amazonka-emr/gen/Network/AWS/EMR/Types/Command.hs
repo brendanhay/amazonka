@@ -18,70 +18,67 @@ module Network.AWS.EMR.Types.Command
 
     -- * Lenses
     cArgs,
-    cScriptPath,
     cName,
+    cScriptPath,
   )
 where
 
+import qualified Network.AWS.EMR.Types.Name as Types
+import qualified Network.AWS.EMR.Types.ScriptPath as Types
+import qualified Network.AWS.EMR.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An entity describing an executable that runs on a cluster.
 --
 -- /See:/ 'mkCommand' smart constructor.
 data Command = Command'
   { -- | Arguments for Amazon EMR to pass to the command for execution.
-    args :: Lude.Maybe [Lude.Text],
-    -- | The Amazon S3 location of the command script.
-    scriptPath :: Lude.Maybe Lude.Text,
+    args :: Core.Maybe [Types.String],
     -- | The name of the command.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name,
+    -- | The Amazon S3 location of the command script.
+    scriptPath :: Core.Maybe Types.ScriptPath
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Command' with the minimum fields required to make a request.
---
--- * 'args' - Arguments for Amazon EMR to pass to the command for execution.
--- * 'scriptPath' - The Amazon S3 location of the command script.
--- * 'name' - The name of the command.
+-- | Creates a 'Command' value with any optional fields omitted.
 mkCommand ::
   Command
 mkCommand =
   Command'
-    { args = Lude.Nothing,
-      scriptPath = Lude.Nothing,
-      name = Lude.Nothing
+    { args = Core.Nothing,
+      name = Core.Nothing,
+      scriptPath = Core.Nothing
     }
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
 --
 -- /Note:/ Consider using 'args' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cArgs :: Lens.Lens' Command (Lude.Maybe [Lude.Text])
-cArgs = Lens.lens (args :: Command -> Lude.Maybe [Lude.Text]) (\s a -> s {args = a} :: Command)
+cArgs :: Lens.Lens' Command (Core.Maybe [Types.String])
+cArgs = Lens.field @"args"
 {-# DEPRECATED cArgs "Use generic-lens or generic-optics with 'args' instead." #-}
-
--- | The Amazon S3 location of the command script.
---
--- /Note:/ Consider using 'scriptPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cScriptPath :: Lens.Lens' Command (Lude.Maybe Lude.Text)
-cScriptPath = Lens.lens (scriptPath :: Command -> Lude.Maybe Lude.Text) (\s a -> s {scriptPath = a} :: Command)
-{-# DEPRECATED cScriptPath "Use generic-lens or generic-optics with 'scriptPath' instead." #-}
 
 -- | The name of the command.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cName :: Lens.Lens' Command (Lude.Maybe Lude.Text)
-cName = Lens.lens (name :: Command -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Command)
+cName :: Lens.Lens' Command (Core.Maybe Types.Name)
+cName = Lens.field @"name"
 {-# DEPRECATED cName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON Command where
+-- | The Amazon S3 location of the command script.
+--
+-- /Note:/ Consider using 'scriptPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cScriptPath :: Lens.Lens' Command (Core.Maybe Types.ScriptPath)
+cScriptPath = Lens.field @"scriptPath"
+{-# DEPRECATED cScriptPath "Use generic-lens or generic-optics with 'scriptPath' instead." #-}
+
+instance Core.FromJSON Command where
   parseJSON =
-    Lude.withObject
-      "Command"
-      ( \x ->
-          Command'
-            Lude.<$> (x Lude..:? "Args" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ScriptPath")
-            Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "Command" Core.$
+      \x ->
+        Command'
+          Core.<$> (x Core..:? "Args")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "ScriptPath")

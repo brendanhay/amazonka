@@ -20,7 +20,7 @@ module Network.AWS.Inspector.DeleteAssessmentTarget
     mkDeleteAssessmentTarget,
 
     -- ** Request lenses
-    datAssessmentTargetARN,
+    datAssessmentTargetArn,
 
     -- * Destructuring the response
     DeleteAssessmentTargetResponse (..),
@@ -28,75 +28,64 @@ module Network.AWS.Inspector.DeleteAssessmentTarget
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAssessmentTarget' smart constructor.
 newtype DeleteAssessmentTarget = DeleteAssessmentTarget'
   { -- | The ARN that specifies the assessment target that you want to delete.
-    assessmentTargetARN :: Lude.Text
+    assessmentTargetArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAssessmentTarget' with the minimum fields required to make a request.
---
--- * 'assessmentTargetARN' - The ARN that specifies the assessment target that you want to delete.
+-- | Creates a 'DeleteAssessmentTarget' value with any optional fields omitted.
 mkDeleteAssessmentTarget ::
-  -- | 'assessmentTargetARN'
-  Lude.Text ->
+  -- | 'assessmentTargetArn'
+  Types.Arn ->
   DeleteAssessmentTarget
-mkDeleteAssessmentTarget pAssessmentTargetARN_ =
-  DeleteAssessmentTarget'
-    { assessmentTargetARN =
-        pAssessmentTargetARN_
-    }
+mkDeleteAssessmentTarget assessmentTargetArn =
+  DeleteAssessmentTarget' {assessmentTargetArn}
 
 -- | The ARN that specifies the assessment target that you want to delete.
 --
--- /Note:/ Consider using 'assessmentTargetARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-datAssessmentTargetARN :: Lens.Lens' DeleteAssessmentTarget Lude.Text
-datAssessmentTargetARN = Lens.lens (assessmentTargetARN :: DeleteAssessmentTarget -> Lude.Text) (\s a -> s {assessmentTargetARN = a} :: DeleteAssessmentTarget)
-{-# DEPRECATED datAssessmentTargetARN "Use generic-lens or generic-optics with 'assessmentTargetARN' instead." #-}
+-- /Note:/ Consider using 'assessmentTargetArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+datAssessmentTargetArn :: Lens.Lens' DeleteAssessmentTarget Types.Arn
+datAssessmentTargetArn = Lens.field @"assessmentTargetArn"
+{-# DEPRECATED datAssessmentTargetArn "Use generic-lens or generic-optics with 'assessmentTargetArn' instead." #-}
 
-instance Lude.AWSRequest DeleteAssessmentTarget where
+instance Core.FromJSON DeleteAssessmentTarget where
+  toJSON DeleteAssessmentTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("assessmentTargetArn" Core..= assessmentTargetArn)]
+      )
+
+instance Core.AWSRequest DeleteAssessmentTarget where
   type Rs DeleteAssessmentTarget = DeleteAssessmentTargetResponse
-  request = Req.postJSON inspectorService
-  response = Res.receiveNull DeleteAssessmentTargetResponse'
-
-instance Lude.ToHeaders DeleteAssessmentTarget where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.DeleteAssessmentTarget" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAssessmentTarget where
-  toJSON DeleteAssessmentTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("assessmentTargetArn" Lude..= assessmentTargetARN)]
-      )
-
-instance Lude.ToPath DeleteAssessmentTarget where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAssessmentTarget where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.DeleteAssessmentTarget")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteAssessmentTargetResponse'
 
 -- | /See:/ 'mkDeleteAssessmentTargetResponse' smart constructor.
 data DeleteAssessmentTargetResponse = DeleteAssessmentTargetResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAssessmentTargetResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteAssessmentTargetResponse' value with any optional fields omitted.
 mkDeleteAssessmentTargetResponse ::
   DeleteAssessmentTargetResponse
 mkDeleteAssessmentTargetResponse = DeleteAssessmentTargetResponse'

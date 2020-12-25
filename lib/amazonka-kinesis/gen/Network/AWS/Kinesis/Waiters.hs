@@ -20,35 +20,38 @@ module Network.AWS.Kinesis.Waiters
 where
 
 import Network.AWS.Kinesis.DescribeStream
-import Network.AWS.Kinesis.Types
+import qualified Network.AWS.Kinesis.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a successful state is reached. An error is returned after 18 failed checks.
-mkStreamExists :: Wait.Wait DescribeStream
+mkStreamExists :: Waiter.Wait DescribeStream
 mkStreamExists =
-  Wait.Wait
-    { Wait._waitName = "StreamExists",
-      Wait._waitAttempts = 18,
-      Wait._waitDelay = 10,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "StreamExists",
+      Waiter._waitAttempts = 18,
+      Waiter._waitDelay = 10,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "ACTIVE"
-            Wait.AcceptSuccess
-            ( dsrsStreamDescription Lude.. sdStreamStatus
-                Lude.. Lens.to Lude.toText
+            Waiter.AcceptSuccess
+            ( Lens.field @"streamDescription"
+                Core.. Lens.field @"streamStatus"
             )
         ]
     }
 
 -- | Polls 'Network.AWS.Kinesis.DescribeStream' every 10 seconds until a successful state is reached. An error is returned after 18 failed checks.
-mkStreamNotExists :: Wait.Wait DescribeStream
+mkStreamNotExists :: Waiter.Wait DescribeStream
 mkStreamNotExists =
-  Wait.Wait
-    { Wait._waitName = "StreamNotExists",
-      Wait._waitAttempts = 18,
-      Wait._waitDelay = 10,
-      Wait._waitAcceptors =
-        [Wait.matchError "ResourceNotFoundException" Wait.AcceptSuccess]
+  Waiter.Wait
+    { Waiter._waitName = "StreamNotExists",
+      Waiter._waitAttempts = 18,
+      Waiter._waitDelay = 10,
+      Waiter._waitAcceptors =
+        [ Waiter.matchError
+            "ResourceNotFoundException"
+            Waiter.AcceptSuccess
+        ]
     }

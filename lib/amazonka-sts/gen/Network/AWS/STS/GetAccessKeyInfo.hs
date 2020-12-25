@@ -31,107 +31,99 @@ module Network.AWS.STS.GetAccessKeyInfo
     mkGetAccessKeyInfoResponse,
 
     -- ** Response lenses
-    gakirsAccount,
-    gakirsResponseStatus,
+    gakirrsAccount,
+    gakirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.STS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.STS.Types as Types
 
 -- | /See:/ 'mkGetAccessKeyInfo' smart constructor.
 newtype GetAccessKeyInfo = GetAccessKeyInfo'
   { -- | The identifier of an access key.
     --
     -- This parameter allows (through its regex pattern) a string of characters that can consist of any upper- or lowercase letter or digit.
-    accessKeyId :: AccessKey
+    accessKeyId :: Types.AccessKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAccessKeyInfo' with the minimum fields required to make a request.
---
--- * 'accessKeyId' - The identifier of an access key.
---
--- This parameter allows (through its regex pattern) a string of characters that can consist of any upper- or lowercase letter or digit.
+-- | Creates a 'GetAccessKeyInfo' value with any optional fields omitted.
 mkGetAccessKeyInfo ::
   -- | 'accessKeyId'
-  AccessKey ->
+  Types.AccessKeyId ->
   GetAccessKeyInfo
-mkGetAccessKeyInfo pAccessKeyId_ =
-  GetAccessKeyInfo' {accessKeyId = pAccessKeyId_}
+mkGetAccessKeyInfo accessKeyId = GetAccessKeyInfo' {accessKeyId}
 
 -- | The identifier of an access key.
 --
 -- This parameter allows (through its regex pattern) a string of characters that can consist of any upper- or lowercase letter or digit.
 --
 -- /Note:/ Consider using 'accessKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gakiAccessKeyId :: Lens.Lens' GetAccessKeyInfo AccessKey
-gakiAccessKeyId = Lens.lens (accessKeyId :: GetAccessKeyInfo -> AccessKey) (\s a -> s {accessKeyId = a} :: GetAccessKeyInfo)
+gakiAccessKeyId :: Lens.Lens' GetAccessKeyInfo Types.AccessKeyId
+gakiAccessKeyId = Lens.field @"accessKeyId"
 {-# DEPRECATED gakiAccessKeyId "Use generic-lens or generic-optics with 'accessKeyId' instead." #-}
 
-instance Lude.AWSRequest GetAccessKeyInfo where
+instance Core.AWSRequest GetAccessKeyInfo where
   type Rs GetAccessKeyInfo = GetAccessKeyInfoResponse
-  request = Req.postQuery stsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetAccessKeyInfo")
+                Core.<> (Core.pure ("Version", "2011-06-15"))
+                Core.<> (Core.toQueryValue "AccessKeyId" accessKeyId)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetAccessKeyInfoResult"
       ( \s h x ->
           GetAccessKeyInfoResponse'
-            Lude.<$> (x Lude..@? "Account") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Account") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetAccessKeyInfo where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetAccessKeyInfo where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetAccessKeyInfo where
-  toQuery GetAccessKeyInfo' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetAccessKeyInfo" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-06-15" :: Lude.ByteString),
-        "AccessKeyId" Lude.=: accessKeyId
-      ]
 
 -- | /See:/ 'mkGetAccessKeyInfoResponse' smart constructor.
 data GetAccessKeyInfoResponse = GetAccessKeyInfoResponse'
   { -- | The number used to identify the AWS account.
-    account :: Lude.Maybe Lude.Text,
+    account :: Core.Maybe Types.Account,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAccessKeyInfoResponse' with the minimum fields required to make a request.
---
--- * 'account' - The number used to identify the AWS account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAccessKeyInfoResponse' value with any optional fields omitted.
 mkGetAccessKeyInfoResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAccessKeyInfoResponse
-mkGetAccessKeyInfoResponse pResponseStatus_ =
-  GetAccessKeyInfoResponse'
-    { account = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetAccessKeyInfoResponse responseStatus =
+  GetAccessKeyInfoResponse' {account = Core.Nothing, responseStatus}
 
 -- | The number used to identify the AWS account.
 --
 -- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gakirsAccount :: Lens.Lens' GetAccessKeyInfoResponse (Lude.Maybe Lude.Text)
-gakirsAccount = Lens.lens (account :: GetAccessKeyInfoResponse -> Lude.Maybe Lude.Text) (\s a -> s {account = a} :: GetAccessKeyInfoResponse)
-{-# DEPRECATED gakirsAccount "Use generic-lens or generic-optics with 'account' instead." #-}
+gakirrsAccount :: Lens.Lens' GetAccessKeyInfoResponse (Core.Maybe Types.Account)
+gakirrsAccount = Lens.field @"account"
+{-# DEPRECATED gakirrsAccount "Use generic-lens or generic-optics with 'account' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gakirsResponseStatus :: Lens.Lens' GetAccessKeyInfoResponse Lude.Int
-gakirsResponseStatus = Lens.lens (responseStatus :: GetAccessKeyInfoResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAccessKeyInfoResponse)
-{-# DEPRECATED gakirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gakirrsResponseStatus :: Lens.Lens' GetAccessKeyInfoResponse Core.Int
+gakirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gakirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

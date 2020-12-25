@@ -20,151 +20,139 @@ module Network.AWS.CodeDeploy.PutLifecycleEventHookExecutionStatus
     mkPutLifecycleEventHookExecutionStatus,
 
     -- ** Request lenses
-    plehesStatus,
     plehesDeploymentId,
     plehesLifecycleEventHookExecutionId,
+    plehesStatus,
 
     -- * Destructuring the response
     PutLifecycleEventHookExecutionStatusResponse (..),
     mkPutLifecycleEventHookExecutionStatusResponse,
 
     -- ** Response lenses
-    plehesrsLifecycleEventHookExecutionId,
-    plehesrsResponseStatus,
+    plehesrrsLifecycleEventHookExecutionId,
+    plehesrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeDeploy.Types
+import qualified Network.AWS.CodeDeploy.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutLifecycleEventHookExecutionStatus' smart constructor.
 data PutLifecycleEventHookExecutionStatus = PutLifecycleEventHookExecutionStatus'
-  { -- | The result of a Lambda function that validates a deployment lifecycle event (@Succeeded@ or @Failed@ ).
-    status :: Lude.Maybe LifecycleEventStatus,
-    -- | The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
-    deploymentId :: Lude.Maybe Lude.Text,
+  { -- | The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
+    deploymentId :: Core.Maybe Types.DeploymentId,
     -- | The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is specified in the @hooks@ section of the AppSpec file.
-    lifecycleEventHookExecutionId :: Lude.Maybe Lude.Text
+    lifecycleEventHookExecutionId :: Core.Maybe Types.LifecycleEventHookExecutionId,
+    -- | The result of a Lambda function that validates a deployment lifecycle event (@Succeeded@ or @Failed@ ).
+    status :: Core.Maybe Types.LifecycleEventStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLifecycleEventHookExecutionStatus' with the minimum fields required to make a request.
---
--- * 'status' - The result of a Lambda function that validates a deployment lifecycle event (@Succeeded@ or @Failed@ ).
--- * 'deploymentId' - The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
--- * 'lifecycleEventHookExecutionId' - The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is specified in the @hooks@ section of the AppSpec file.
+-- | Creates a 'PutLifecycleEventHookExecutionStatus' value with any optional fields omitted.
 mkPutLifecycleEventHookExecutionStatus ::
   PutLifecycleEventHookExecutionStatus
 mkPutLifecycleEventHookExecutionStatus =
   PutLifecycleEventHookExecutionStatus'
-    { status = Lude.Nothing,
-      deploymentId = Lude.Nothing,
-      lifecycleEventHookExecutionId = Lude.Nothing
+    { deploymentId =
+        Core.Nothing,
+      lifecycleEventHookExecutionId = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The result of a Lambda function that validates a deployment lifecycle event (@Succeeded@ or @Failed@ ).
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plehesStatus :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Lude.Maybe LifecycleEventStatus)
-plehesStatus = Lens.lens (status :: PutLifecycleEventHookExecutionStatus -> Lude.Maybe LifecycleEventStatus) (\s a -> s {status = a} :: PutLifecycleEventHookExecutionStatus)
-{-# DEPRECATED plehesStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The unique ID of a deployment. Pass this ID to a Lambda function that validates a deployment lifecycle event.
 --
 -- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plehesDeploymentId :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Lude.Maybe Lude.Text)
-plehesDeploymentId = Lens.lens (deploymentId :: PutLifecycleEventHookExecutionStatus -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: PutLifecycleEventHookExecutionStatus)
+plehesDeploymentId :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Core.Maybe Types.DeploymentId)
+plehesDeploymentId = Lens.field @"deploymentId"
 {-# DEPRECATED plehesDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is specified in the @hooks@ section of the AppSpec file.
 --
 -- /Note:/ Consider using 'lifecycleEventHookExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plehesLifecycleEventHookExecutionId :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Lude.Maybe Lude.Text)
-plehesLifecycleEventHookExecutionId = Lens.lens (lifecycleEventHookExecutionId :: PutLifecycleEventHookExecutionStatus -> Lude.Maybe Lude.Text) (\s a -> s {lifecycleEventHookExecutionId = a} :: PutLifecycleEventHookExecutionStatus)
+plehesLifecycleEventHookExecutionId :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Core.Maybe Types.LifecycleEventHookExecutionId)
+plehesLifecycleEventHookExecutionId = Lens.field @"lifecycleEventHookExecutionId"
 {-# DEPRECATED plehesLifecycleEventHookExecutionId "Use generic-lens or generic-optics with 'lifecycleEventHookExecutionId' instead." #-}
 
-instance Lude.AWSRequest PutLifecycleEventHookExecutionStatus where
+-- | The result of a Lambda function that validates a deployment lifecycle event (@Succeeded@ or @Failed@ ).
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+plehesStatus :: Lens.Lens' PutLifecycleEventHookExecutionStatus (Core.Maybe Types.LifecycleEventStatus)
+plehesStatus = Lens.field @"status"
+{-# DEPRECATED plehesStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON PutLifecycleEventHookExecutionStatus where
+  toJSON PutLifecycleEventHookExecutionStatus {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("deploymentId" Core..=) Core.<$> deploymentId,
+            ("lifecycleEventHookExecutionId" Core..=)
+              Core.<$> lifecycleEventHookExecutionId,
+            ("status" Core..=) Core.<$> status
+          ]
+      )
+
+instance Core.AWSRequest PutLifecycleEventHookExecutionStatus where
   type
     Rs PutLifecycleEventHookExecutionStatus =
       PutLifecycleEventHookExecutionStatusResponse
-  request = Req.postJSON codeDeployService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutLifecycleEventHookExecutionStatusResponse'
-            Lude.<$> (x Lude..?> "lifecycleEventHookExecutionId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "lifecycleEventHookExecutionId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutLifecycleEventHookExecutionStatus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeDeploy_20141006.PutLifecycleEventHookExecutionStatus" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutLifecycleEventHookExecutionStatus where
-  toJSON PutLifecycleEventHookExecutionStatus' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("status" Lude..=) Lude.<$> status,
-            ("deploymentId" Lude..=) Lude.<$> deploymentId,
-            ("lifecycleEventHookExecutionId" Lude..=)
-              Lude.<$> lifecycleEventHookExecutionId
-          ]
-      )
-
-instance Lude.ToPath PutLifecycleEventHookExecutionStatus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutLifecycleEventHookExecutionStatus where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutLifecycleEventHookExecutionStatusResponse' smart constructor.
 data PutLifecycleEventHookExecutionStatusResponse = PutLifecycleEventHookExecutionStatusResponse'
   { -- | The execution ID of the lifecycle event hook. A hook is specified in the @hooks@ section of the deployment's AppSpec file.
-    lifecycleEventHookExecutionId :: Lude.Maybe Lude.Text,
+    lifecycleEventHookExecutionId :: Core.Maybe Types.LifecycleEventHookExecutionId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutLifecycleEventHookExecutionStatusResponse' with the minimum fields required to make a request.
---
--- * 'lifecycleEventHookExecutionId' - The execution ID of the lifecycle event hook. A hook is specified in the @hooks@ section of the deployment's AppSpec file.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutLifecycleEventHookExecutionStatusResponse' value with any optional fields omitted.
 mkPutLifecycleEventHookExecutionStatusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutLifecycleEventHookExecutionStatusResponse
-mkPutLifecycleEventHookExecutionStatusResponse pResponseStatus_ =
+mkPutLifecycleEventHookExecutionStatusResponse responseStatus =
   PutLifecycleEventHookExecutionStatusResponse'
     { lifecycleEventHookExecutionId =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The execution ID of the lifecycle event hook. A hook is specified in the @hooks@ section of the deployment's AppSpec file.
 --
 -- /Note:/ Consider using 'lifecycleEventHookExecutionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plehesrsLifecycleEventHookExecutionId :: Lens.Lens' PutLifecycleEventHookExecutionStatusResponse (Lude.Maybe Lude.Text)
-plehesrsLifecycleEventHookExecutionId = Lens.lens (lifecycleEventHookExecutionId :: PutLifecycleEventHookExecutionStatusResponse -> Lude.Maybe Lude.Text) (\s a -> s {lifecycleEventHookExecutionId = a} :: PutLifecycleEventHookExecutionStatusResponse)
-{-# DEPRECATED plehesrsLifecycleEventHookExecutionId "Use generic-lens or generic-optics with 'lifecycleEventHookExecutionId' instead." #-}
+plehesrrsLifecycleEventHookExecutionId :: Lens.Lens' PutLifecycleEventHookExecutionStatusResponse (Core.Maybe Types.LifecycleEventHookExecutionId)
+plehesrrsLifecycleEventHookExecutionId = Lens.field @"lifecycleEventHookExecutionId"
+{-# DEPRECATED plehesrrsLifecycleEventHookExecutionId "Use generic-lens or generic-optics with 'lifecycleEventHookExecutionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-plehesrsResponseStatus :: Lens.Lens' PutLifecycleEventHookExecutionStatusResponse Lude.Int
-plehesrsResponseStatus = Lens.lens (responseStatus :: PutLifecycleEventHookExecutionStatusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutLifecycleEventHookExecutionStatusResponse)
-{-# DEPRECATED plehesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+plehesrrsResponseStatus :: Lens.Lens' PutLifecycleEventHookExecutionStatusResponse Core.Int
+plehesrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED plehesrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

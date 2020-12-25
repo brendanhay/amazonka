@@ -20,176 +20,166 @@ module Network.AWS.CloudDirectory.AttachTypedLink
     mkAttachTypedLink,
 
     -- ** Request lenses
-    atlDirectoryARN,
-    atlTargetObjectReference,
+    atlDirectoryArn,
     atlSourceObjectReference,
-    atlAttributes,
+    atlTargetObjectReference,
     atlTypedLinkFacet,
+    atlAttributes,
 
     -- * Destructuring the response
     AttachTypedLinkResponse (..),
     mkAttachTypedLinkResponse,
 
     -- ** Response lenses
-    atlrsTypedLinkSpecifier,
-    atlrsResponseStatus,
+    atlrrsTypedLinkSpecifier,
+    atlrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAttachTypedLink' smart constructor.
 data AttachTypedLink = AttachTypedLink'
   { -- | The Amazon Resource Name (ARN) of the directory where you want to attach the typed link.
-    directoryARN :: Lude.Text,
-    -- | Identifies the target object that the typed link will attach to.
-    targetObjectReference :: ObjectReference,
+    directoryArn :: Types.Arn,
     -- | Identifies the source object that the typed link will attach to.
-    sourceObjectReference :: ObjectReference,
-    -- | A set of attributes that are associated with the typed link.
-    attributes :: [AttributeNameAndValue],
+    sourceObjectReference :: Types.ObjectReference,
+    -- | Identifies the target object that the typed link will attach to.
+    targetObjectReference :: Types.ObjectReference,
     -- | Identifies the typed link facet that is associated with the typed link.
-    typedLinkFacet :: TypedLinkSchemaAndFacetName
+    typedLinkFacet :: Types.TypedLinkSchemaAndFacetName,
+    -- | A set of attributes that are associated with the typed link.
+    attributes :: [Types.AttributeNameAndValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AttachTypedLink' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The Amazon Resource Name (ARN) of the directory where you want to attach the typed link.
--- * 'targetObjectReference' - Identifies the target object that the typed link will attach to.
--- * 'sourceObjectReference' - Identifies the source object that the typed link will attach to.
--- * 'attributes' - A set of attributes that are associated with the typed link.
--- * 'typedLinkFacet' - Identifies the typed link facet that is associated with the typed link.
+-- | Creates a 'AttachTypedLink' value with any optional fields omitted.
 mkAttachTypedLink ::
-  -- | 'directoryARN'
-  Lude.Text ->
-  -- | 'targetObjectReference'
-  ObjectReference ->
+  -- | 'directoryArn'
+  Types.Arn ->
   -- | 'sourceObjectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
+  -- | 'targetObjectReference'
+  Types.ObjectReference ->
   -- | 'typedLinkFacet'
-  TypedLinkSchemaAndFacetName ->
+  Types.TypedLinkSchemaAndFacetName ->
   AttachTypedLink
 mkAttachTypedLink
-  pDirectoryARN_
-  pTargetObjectReference_
-  pSourceObjectReference_
-  pTypedLinkFacet_ =
+  directoryArn
+  sourceObjectReference
+  targetObjectReference
+  typedLinkFacet =
     AttachTypedLink'
-      { directoryARN = pDirectoryARN_,
-        targetObjectReference = pTargetObjectReference_,
-        sourceObjectReference = pSourceObjectReference_,
-        attributes = Lude.mempty,
-        typedLinkFacet = pTypedLinkFacet_
+      { directoryArn,
+        sourceObjectReference,
+        targetObjectReference,
+        typedLinkFacet,
+        attributes = Core.mempty
       }
 
 -- | The Amazon Resource Name (ARN) of the directory where you want to attach the typed link.
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atlDirectoryARN :: Lens.Lens' AttachTypedLink Lude.Text
-atlDirectoryARN = Lens.lens (directoryARN :: AttachTypedLink -> Lude.Text) (\s a -> s {directoryARN = a} :: AttachTypedLink)
-{-# DEPRECATED atlDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
--- | Identifies the target object that the typed link will attach to.
---
--- /Note:/ Consider using 'targetObjectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atlTargetObjectReference :: Lens.Lens' AttachTypedLink ObjectReference
-atlTargetObjectReference = Lens.lens (targetObjectReference :: AttachTypedLink -> ObjectReference) (\s a -> s {targetObjectReference = a} :: AttachTypedLink)
-{-# DEPRECATED atlTargetObjectReference "Use generic-lens or generic-optics with 'targetObjectReference' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atlDirectoryArn :: Lens.Lens' AttachTypedLink Types.Arn
+atlDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED atlDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | Identifies the source object that the typed link will attach to.
 --
 -- /Note:/ Consider using 'sourceObjectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atlSourceObjectReference :: Lens.Lens' AttachTypedLink ObjectReference
-atlSourceObjectReference = Lens.lens (sourceObjectReference :: AttachTypedLink -> ObjectReference) (\s a -> s {sourceObjectReference = a} :: AttachTypedLink)
+atlSourceObjectReference :: Lens.Lens' AttachTypedLink Types.ObjectReference
+atlSourceObjectReference = Lens.field @"sourceObjectReference"
 {-# DEPRECATED atlSourceObjectReference "Use generic-lens or generic-optics with 'sourceObjectReference' instead." #-}
 
--- | A set of attributes that are associated with the typed link.
+-- | Identifies the target object that the typed link will attach to.
 --
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atlAttributes :: Lens.Lens' AttachTypedLink [AttributeNameAndValue]
-atlAttributes = Lens.lens (attributes :: AttachTypedLink -> [AttributeNameAndValue]) (\s a -> s {attributes = a} :: AttachTypedLink)
-{-# DEPRECATED atlAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+-- /Note:/ Consider using 'targetObjectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atlTargetObjectReference :: Lens.Lens' AttachTypedLink Types.ObjectReference
+atlTargetObjectReference = Lens.field @"targetObjectReference"
+{-# DEPRECATED atlTargetObjectReference "Use generic-lens or generic-optics with 'targetObjectReference' instead." #-}
 
 -- | Identifies the typed link facet that is associated with the typed link.
 --
 -- /Note:/ Consider using 'typedLinkFacet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atlTypedLinkFacet :: Lens.Lens' AttachTypedLink TypedLinkSchemaAndFacetName
-atlTypedLinkFacet = Lens.lens (typedLinkFacet :: AttachTypedLink -> TypedLinkSchemaAndFacetName) (\s a -> s {typedLinkFacet = a} :: AttachTypedLink)
+atlTypedLinkFacet :: Lens.Lens' AttachTypedLink Types.TypedLinkSchemaAndFacetName
+atlTypedLinkFacet = Lens.field @"typedLinkFacet"
 {-# DEPRECATED atlTypedLinkFacet "Use generic-lens or generic-optics with 'typedLinkFacet' instead." #-}
 
-instance Lude.AWSRequest AttachTypedLink where
-  type Rs AttachTypedLink = AttachTypedLinkResponse
-  request = Req.putJSON cloudDirectoryService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          AttachTypedLinkResponse'
-            Lude.<$> (x Lude..?> "TypedLinkSpecifier")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | A set of attributes that are associated with the typed link.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atlAttributes :: Lens.Lens' AttachTypedLink [Types.AttributeNameAndValue]
+atlAttributes = Lens.field @"attributes"
+{-# DEPRECATED atlAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance Lude.ToHeaders AttachTypedLink where
-  toHeaders AttachTypedLink' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
-
-instance Lude.ToJSON AttachTypedLink where
-  toJSON AttachTypedLink' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TargetObjectReference" Lude..= targetObjectReference),
-            Lude.Just ("SourceObjectReference" Lude..= sourceObjectReference),
-            Lude.Just ("Attributes" Lude..= attributes),
-            Lude.Just ("TypedLinkFacet" Lude..= typedLinkFacet)
+instance Core.FromJSON AttachTypedLink where
+  toJSON AttachTypedLink {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SourceObjectReference" Core..= sourceObjectReference),
+            Core.Just ("TargetObjectReference" Core..= targetObjectReference),
+            Core.Just ("TypedLinkFacet" Core..= typedLinkFacet),
+            Core.Just ("Attributes" Core..= attributes)
           ]
       )
 
-instance Lude.ToPath AttachTypedLink where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/typedlink/attach"
-
-instance Lude.ToQuery AttachTypedLink where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest AttachTypedLink where
+  type Rs AttachTypedLink = AttachTypedLinkResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/typedlink/attach",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          AttachTypedLinkResponse'
+            Core.<$> (x Core..:? "TypedLinkSpecifier")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkAttachTypedLinkResponse' smart constructor.
 data AttachTypedLinkResponse = AttachTypedLinkResponse'
   { -- | Returns a typed link specifier as output.
-    typedLinkSpecifier :: Lude.Maybe TypedLinkSpecifier,
+    typedLinkSpecifier :: Core.Maybe Types.TypedLinkSpecifier,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AttachTypedLinkResponse' with the minimum fields required to make a request.
---
--- * 'typedLinkSpecifier' - Returns a typed link specifier as output.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AttachTypedLinkResponse' value with any optional fields omitted.
 mkAttachTypedLinkResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AttachTypedLinkResponse
-mkAttachTypedLinkResponse pResponseStatus_ =
+mkAttachTypedLinkResponse responseStatus =
   AttachTypedLinkResponse'
-    { typedLinkSpecifier = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { typedLinkSpecifier = Core.Nothing,
+      responseStatus
     }
 
 -- | Returns a typed link specifier as output.
 --
 -- /Note:/ Consider using 'typedLinkSpecifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atlrsTypedLinkSpecifier :: Lens.Lens' AttachTypedLinkResponse (Lude.Maybe TypedLinkSpecifier)
-atlrsTypedLinkSpecifier = Lens.lens (typedLinkSpecifier :: AttachTypedLinkResponse -> Lude.Maybe TypedLinkSpecifier) (\s a -> s {typedLinkSpecifier = a} :: AttachTypedLinkResponse)
-{-# DEPRECATED atlrsTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
+atlrrsTypedLinkSpecifier :: Lens.Lens' AttachTypedLinkResponse (Core.Maybe Types.TypedLinkSpecifier)
+atlrrsTypedLinkSpecifier = Lens.field @"typedLinkSpecifier"
+{-# DEPRECATED atlrrsTypedLinkSpecifier "Use generic-lens or generic-optics with 'typedLinkSpecifier' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atlrsResponseStatus :: Lens.Lens' AttachTypedLinkResponse Lude.Int
-atlrsResponseStatus = Lens.lens (responseStatus :: AttachTypedLinkResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AttachTypedLinkResponse)
-{-# DEPRECATED atlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+atlrrsResponseStatus :: Lens.Lens' AttachTypedLinkResponse Core.Int
+atlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED atlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

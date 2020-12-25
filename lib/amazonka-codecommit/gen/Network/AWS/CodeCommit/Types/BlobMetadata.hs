@@ -17,21 +17,24 @@ module Network.AWS.CodeCommit.Types.BlobMetadata
     mkBlobMetadata,
 
     -- * Lenses
-    bmPath,
-    bmMode,
     bmBlobId,
+    bmMode,
+    bmPath,
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.Mode as Types
+import qualified Network.AWS.CodeCommit.Types.ObjectId as Types
+import qualified Network.AWS.CodeCommit.Types.Path as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about a specific Git blob object.
 --
 -- /See:/ 'mkBlobMetadata' smart constructor.
 data BlobMetadata = BlobMetadata'
-  { -- | The path to the blob and associated file name, if any.
-    path :: Lude.Maybe Lude.Text,
+  { -- | The full ID of the blob.
+    blobId :: Core.Maybe Types.ObjectId,
     -- | The file mode permissions of the blob. File mode permission codes include:
     --
     --
@@ -45,47 +48,29 @@ data BlobMetadata = BlobMetadata'
     --
     --
     --     * @120000@ indicates a symlink
-    mode :: Lude.Maybe Lude.Text,
-    -- | The full ID of the blob.
-    blobId :: Lude.Maybe Lude.Text
+    mode :: Core.Maybe Types.Mode,
+    -- | The path to the blob and associated file name, if any.
+    path :: Core.Maybe Types.Path
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BlobMetadata' with the minimum fields required to make a request.
---
--- * 'path' - The path to the blob and associated file name, if any.
--- * 'mode' - The file mode permissions of the blob. File mode permission codes include:
---
---
---     * @100644@ indicates read/write
---
---
---     * @100755@ indicates read/write/execute
---
---
---     * @160000@ indicates a submodule
---
---
---     * @120000@ indicates a symlink
---
---
--- * 'blobId' - The full ID of the blob.
+-- | Creates a 'BlobMetadata' value with any optional fields omitted.
 mkBlobMetadata ::
   BlobMetadata
 mkBlobMetadata =
   BlobMetadata'
-    { path = Lude.Nothing,
-      mode = Lude.Nothing,
-      blobId = Lude.Nothing
+    { blobId = Core.Nothing,
+      mode = Core.Nothing,
+      path = Core.Nothing
     }
 
--- | The path to the blob and associated file name, if any.
+-- | The full ID of the blob.
 --
--- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmPath :: Lens.Lens' BlobMetadata (Lude.Maybe Lude.Text)
-bmPath = Lens.lens (path :: BlobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: BlobMetadata)
-{-# DEPRECATED bmPath "Use generic-lens or generic-optics with 'path' instead." #-}
+-- /Note:/ Consider using 'blobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmBlobId :: Lens.Lens' BlobMetadata (Core.Maybe Types.ObjectId)
+bmBlobId = Lens.field @"blobId"
+{-# DEPRECATED bmBlobId "Use generic-lens or generic-optics with 'blobId' instead." #-}
 
 -- | The file mode permissions of the blob. File mode permission codes include:
 --
@@ -104,24 +89,22 @@ bmPath = Lens.lens (path :: BlobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {pa
 --
 --
 -- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmMode :: Lens.Lens' BlobMetadata (Lude.Maybe Lude.Text)
-bmMode = Lens.lens (mode :: BlobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {mode = a} :: BlobMetadata)
+bmMode :: Lens.Lens' BlobMetadata (Core.Maybe Types.Mode)
+bmMode = Lens.field @"mode"
 {-# DEPRECATED bmMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
--- | The full ID of the blob.
+-- | The path to the blob and associated file name, if any.
 --
--- /Note:/ Consider using 'blobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmBlobId :: Lens.Lens' BlobMetadata (Lude.Maybe Lude.Text)
-bmBlobId = Lens.lens (blobId :: BlobMetadata -> Lude.Maybe Lude.Text) (\s a -> s {blobId = a} :: BlobMetadata)
-{-# DEPRECATED bmBlobId "Use generic-lens or generic-optics with 'blobId' instead." #-}
+-- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bmPath :: Lens.Lens' BlobMetadata (Core.Maybe Types.Path)
+bmPath = Lens.field @"path"
+{-# DEPRECATED bmPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
-instance Lude.FromJSON BlobMetadata where
+instance Core.FromJSON BlobMetadata where
   parseJSON =
-    Lude.withObject
-      "BlobMetadata"
-      ( \x ->
-          BlobMetadata'
-            Lude.<$> (x Lude..:? "path")
-            Lude.<*> (x Lude..:? "mode")
-            Lude.<*> (x Lude..:? "blobId")
-      )
+    Core.withObject "BlobMetadata" Core.$
+      \x ->
+        BlobMetadata'
+          Core.<$> (x Core..:? "blobId")
+          Core.<*> (x Core..:? "mode")
+          Core.<*> (x Core..:? "path")

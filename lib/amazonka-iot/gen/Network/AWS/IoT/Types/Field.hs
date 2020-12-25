@@ -22,55 +22,51 @@ module Network.AWS.IoT.Types.Field
   )
 where
 
-import Network.AWS.IoT.Types.FieldType
+import qualified Network.AWS.IoT.Types.FieldType as Types
+import qualified Network.AWS.IoT.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the name and data type at a field.
 --
 -- /See:/ 'mkField' smart constructor.
 data Field = Field'
   { -- | The name of the field.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
     -- | The datatype of the field.
-    type' :: Lude.Maybe FieldType
+    type' :: Core.Maybe Types.FieldType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Field' with the minimum fields required to make a request.
---
--- * 'name' - The name of the field.
--- * 'type'' - The datatype of the field.
+-- | Creates a 'Field' value with any optional fields omitted.
 mkField ::
   Field
-mkField = Field' {name = Lude.Nothing, type' = Lude.Nothing}
+mkField = Field' {name = Core.Nothing, type' = Core.Nothing}
 
 -- | The name of the field.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fName :: Lens.Lens' Field (Lude.Maybe Lude.Text)
-fName = Lens.lens (name :: Field -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Field)
+fName :: Lens.Lens' Field (Core.Maybe Types.Name)
+fName = Lens.field @"name"
 {-# DEPRECATED fName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The datatype of the field.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fType :: Lens.Lens' Field (Lude.Maybe FieldType)
-fType = Lens.lens (type' :: Field -> Lude.Maybe FieldType) (\s a -> s {type' = a} :: Field)
+fType :: Lens.Lens' Field (Core.Maybe Types.FieldType)
+fType = Lens.field @"type'"
 {-# DEPRECATED fType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Field where
-  parseJSON =
-    Lude.withObject
-      "Field"
-      ( \x ->
-          Field' Lude.<$> (x Lude..:? "name") Lude.<*> (x Lude..:? "type")
+instance Core.FromJSON Field where
+  toJSON Field {..} =
+    Core.object
+      ( Core.catMaybes
+          [("name" Core..=) Core.<$> name, ("type" Core..=) Core.<$> type']
       )
 
-instance Lude.ToJSON Field where
-  toJSON Field' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("name" Lude..=) Lude.<$> name, ("type" Lude..=) Lude.<$> type']
-      )
+instance Core.FromJSON Field where
+  parseJSON =
+    Core.withObject "Field" Core.$
+      \x ->
+        Field' Core.<$> (x Core..:? "name") Core.<*> (x Core..:? "type")

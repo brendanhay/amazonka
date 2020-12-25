@@ -13,66 +13,71 @@
 module Network.AWS.CodeDeploy.Types.LifecycleEventStatus
   ( LifecycleEventStatus
       ( LifecycleEventStatus',
-        LESPending,
-        LESInProgress,
-        LESSucceeded,
-        LESFailed,
-        LESSkipped,
-        LESUnknown
+        LifecycleEventStatusPending,
+        LifecycleEventStatusInProgress,
+        LifecycleEventStatusSucceeded,
+        LifecycleEventStatusFailed,
+        LifecycleEventStatusSkipped,
+        LifecycleEventStatusUnknown,
+        fromLifecycleEventStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LifecycleEventStatus = LifecycleEventStatus' Lude.Text
+newtype LifecycleEventStatus = LifecycleEventStatus'
+  { fromLifecycleEventStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LESPending :: LifecycleEventStatus
-pattern LESPending = LifecycleEventStatus' "Pending"
+pattern LifecycleEventStatusPending :: LifecycleEventStatus
+pattern LifecycleEventStatusPending = LifecycleEventStatus' "Pending"
 
-pattern LESInProgress :: LifecycleEventStatus
-pattern LESInProgress = LifecycleEventStatus' "InProgress"
+pattern LifecycleEventStatusInProgress :: LifecycleEventStatus
+pattern LifecycleEventStatusInProgress = LifecycleEventStatus' "InProgress"
 
-pattern LESSucceeded :: LifecycleEventStatus
-pattern LESSucceeded = LifecycleEventStatus' "Succeeded"
+pattern LifecycleEventStatusSucceeded :: LifecycleEventStatus
+pattern LifecycleEventStatusSucceeded = LifecycleEventStatus' "Succeeded"
 
-pattern LESFailed :: LifecycleEventStatus
-pattern LESFailed = LifecycleEventStatus' "Failed"
+pattern LifecycleEventStatusFailed :: LifecycleEventStatus
+pattern LifecycleEventStatusFailed = LifecycleEventStatus' "Failed"
 
-pattern LESSkipped :: LifecycleEventStatus
-pattern LESSkipped = LifecycleEventStatus' "Skipped"
+pattern LifecycleEventStatusSkipped :: LifecycleEventStatus
+pattern LifecycleEventStatusSkipped = LifecycleEventStatus' "Skipped"
 
-pattern LESUnknown :: LifecycleEventStatus
-pattern LESUnknown = LifecycleEventStatus' "Unknown"
+pattern LifecycleEventStatusUnknown :: LifecycleEventStatus
+pattern LifecycleEventStatusUnknown = LifecycleEventStatus' "Unknown"
 
 {-# COMPLETE
-  LESPending,
-  LESInProgress,
-  LESSucceeded,
-  LESFailed,
-  LESSkipped,
-  LESUnknown,
+  LifecycleEventStatusPending,
+  LifecycleEventStatusInProgress,
+  LifecycleEventStatusSucceeded,
+  LifecycleEventStatusFailed,
+  LifecycleEventStatusSkipped,
+  LifecycleEventStatusUnknown,
   LifecycleEventStatus'
   #-}

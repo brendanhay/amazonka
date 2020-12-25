@@ -20,9 +20,9 @@ module Network.AWS.Glacier.RemoveTagsFromVault
     mkRemoveTagsFromVault,
 
     -- ** Request lenses
+    rtfvAccountId,
     rtfvVaultName,
     rtfvTagKeys,
-    rtfvAccountId,
 
     -- * Destructuring the response
     RemoveTagsFromVaultResponse (..),
@@ -30,97 +30,90 @@ module Network.AWS.Glacier.RemoveTagsFromVault
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input value for @RemoveTagsFromVaultInput@ .
 --
 -- /See:/ 'mkRemoveTagsFromVault' smart constructor.
 data RemoveTagsFromVault = RemoveTagsFromVault'
-  { -- | The name of the vault.
-    vaultName :: Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
+    -- | The name of the vault.
+    vaultName :: Types.String,
     -- | A list of tag keys. Each corresponding tag is removed from the vault.
-    tagKeys :: Lude.Maybe [Lude.Text],
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text
+    tagKeys :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsFromVault' with the minimum fields required to make a request.
---
--- * 'vaultName' - The name of the vault.
--- * 'tagKeys' - A list of tag keys. Each corresponding tag is removed from the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- | Creates a 'RemoveTagsFromVault' value with any optional fields omitted.
 mkRemoveTagsFromVault ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
   RemoveTagsFromVault
-mkRemoveTagsFromVault pVaultName_ pAccountId_ =
+mkRemoveTagsFromVault accountId vaultName =
   RemoveTagsFromVault'
-    { vaultName = pVaultName_,
-      tagKeys = Lude.Nothing,
-      accountId = pAccountId_
+    { accountId,
+      vaultName,
+      tagKeys = Core.Nothing
     }
+
+-- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtfvAccountId :: Lens.Lens' RemoveTagsFromVault Types.String
+rtfvAccountId = Lens.field @"accountId"
+{-# DEPRECATED rtfvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The name of the vault.
 --
 -- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfvVaultName :: Lens.Lens' RemoveTagsFromVault Lude.Text
-rtfvVaultName = Lens.lens (vaultName :: RemoveTagsFromVault -> Lude.Text) (\s a -> s {vaultName = a} :: RemoveTagsFromVault)
+rtfvVaultName :: Lens.Lens' RemoveTagsFromVault Types.String
+rtfvVaultName = Lens.field @"vaultName"
 {-# DEPRECATED rtfvVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | A list of tag keys. Each corresponding tag is removed from the vault.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfvTagKeys :: Lens.Lens' RemoveTagsFromVault (Lude.Maybe [Lude.Text])
-rtfvTagKeys = Lens.lens (tagKeys :: RemoveTagsFromVault -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: RemoveTagsFromVault)
+rtfvTagKeys :: Lens.Lens' RemoveTagsFromVault (Core.Maybe [Types.String])
+rtfvTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED rtfvTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
--- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtfvAccountId :: Lens.Lens' RemoveTagsFromVault Lude.Text
-rtfvAccountId = Lens.lens (accountId :: RemoveTagsFromVault -> Lude.Text) (\s a -> s {accountId = a} :: RemoveTagsFromVault)
-{-# DEPRECATED rtfvAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+instance Core.FromJSON RemoveTagsFromVault where
+  toJSON RemoveTagsFromVault {..} =
+    Core.object
+      (Core.catMaybes [("TagKeys" Core..=) Core.<$> tagKeys])
 
-instance Lude.AWSRequest RemoveTagsFromVault where
+instance Core.AWSRequest RemoveTagsFromVault where
   type Rs RemoveTagsFromVault = RemoveTagsFromVaultResponse
-  request = Req.postJSON glacierService
-  response = Res.receiveNull RemoveTagsFromVaultResponse'
-
-instance Lude.ToHeaders RemoveTagsFromVault where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON RemoveTagsFromVault where
-  toJSON RemoveTagsFromVault' {..} =
-    Lude.object
-      (Lude.catMaybes [("TagKeys" Lude..=) Lude.<$> tagKeys])
-
-instance Lude.ToPath RemoveTagsFromVault where
-  toPath RemoveTagsFromVault' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/tags"
-      ]
-
-instance Lude.ToQuery RemoveTagsFromVault where
-  toQuery = Lude.const (Lude.mconcat ["operation=remove"])
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/tags")
+            ),
+        Core._rqQuery = Core.pure ("operation=remove", ""),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull RemoveTagsFromVaultResponse'
 
 -- | /See:/ 'mkRemoveTagsFromVaultResponse' smart constructor.
 data RemoveTagsFromVaultResponse = RemoveTagsFromVaultResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveTagsFromVaultResponse' with the minimum fields required to make a request.
+-- | Creates a 'RemoveTagsFromVaultResponse' value with any optional fields omitted.
 mkRemoveTagsFromVaultResponse ::
   RemoveTagsFromVaultResponse
 mkRemoveTagsFromVaultResponse = RemoveTagsFromVaultResponse'

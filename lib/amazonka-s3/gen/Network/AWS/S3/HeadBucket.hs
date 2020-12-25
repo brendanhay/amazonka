@@ -32,10 +32,10 @@ module Network.AWS.S3.HeadBucket
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkHeadBucket' smart constructor.
 data HeadBucket = HeadBucket'
@@ -43,29 +43,20 @@ data HeadBucket = HeadBucket'
     --
     -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HeadBucket' with the minimum fields required to make a request.
---
--- * 'bucket' - The bucket name.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'HeadBucket' value with any optional fields omitted.
 mkHeadBucket ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   HeadBucket
-mkHeadBucket pBucket_ =
-  HeadBucket'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
-    }
+mkHeadBucket bucket =
+  HeadBucket' {bucket, expectedBucketOwner = Core.Nothing}
 
 -- | The bucket name.
 --
@@ -73,39 +64,37 @@ mkHeadBucket pBucket_ =
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hbBucket :: Lens.Lens' HeadBucket BucketName
-hbBucket = Lens.lens (bucket :: HeadBucket -> BucketName) (\s a -> s {bucket = a} :: HeadBucket)
+hbBucket :: Lens.Lens' HeadBucket Types.BucketName
+hbBucket = Lens.field @"bucket"
 {-# DEPRECATED hbBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hbExpectedBucketOwner :: Lens.Lens' HeadBucket (Lude.Maybe Lude.Text)
-hbExpectedBucketOwner = Lens.lens (expectedBucketOwner :: HeadBucket -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: HeadBucket)
+hbExpectedBucketOwner :: Lens.Lens' HeadBucket (Core.Maybe Types.ExpectedBucketOwner)
+hbExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED hbExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest HeadBucket where
+instance Core.AWSRequest HeadBucket where
   type Rs HeadBucket = HeadBucketResponse
-  request = Req.head' s3Service
-  response = Res.receiveNull HeadBucketResponse'
-
-instance Lude.ToHeaders HeadBucket where
-  toHeaders HeadBucket' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath HeadBucket where
-  toPath HeadBucket' {..} = Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery HeadBucket where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.HEAD,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull HeadBucketResponse'
 
 -- | /See:/ 'mkHeadBucketResponse' smart constructor.
 data HeadBucketResponse = HeadBucketResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HeadBucketResponse' with the minimum fields required to make a request.
+-- | Creates a 'HeadBucketResponse' value with any optional fields omitted.
 mkHeadBucketResponse ::
   HeadBucketResponse
 mkHeadBucketResponse = HeadBucketResponse'

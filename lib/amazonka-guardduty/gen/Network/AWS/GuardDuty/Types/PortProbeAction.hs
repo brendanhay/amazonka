@@ -17,59 +17,53 @@ module Network.AWS.GuardDuty.Types.PortProbeAction
     mkPortProbeAction,
 
     -- * Lenses
-    ppaPortProbeDetails,
     ppaBlocked,
+    ppaPortProbeDetails,
   )
 where
 
-import Network.AWS.GuardDuty.Types.PortProbeDetail
+import qualified Network.AWS.GuardDuty.Types.PortProbeDetail as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the PORT_PROBE action described in the finding.
 --
 -- /See:/ 'mkPortProbeAction' smart constructor.
 data PortProbeAction = PortProbeAction'
-  { -- | A list of objects related to port probe details.
-    portProbeDetails :: Lude.Maybe [PortProbeDetail],
-    -- | Indicates whether EC2 blocked the port probe to the instance, such as with an ACL.
-    blocked :: Lude.Maybe Lude.Bool
+  { -- | Indicates whether EC2 blocked the port probe to the instance, such as with an ACL.
+    blocked :: Core.Maybe Core.Bool,
+    -- | A list of objects related to port probe details.
+    portProbeDetails :: Core.Maybe [Types.PortProbeDetail]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PortProbeAction' with the minimum fields required to make a request.
---
--- * 'portProbeDetails' - A list of objects related to port probe details.
--- * 'blocked' - Indicates whether EC2 blocked the port probe to the instance, such as with an ACL.
+-- | Creates a 'PortProbeAction' value with any optional fields omitted.
 mkPortProbeAction ::
   PortProbeAction
 mkPortProbeAction =
   PortProbeAction'
-    { portProbeDetails = Lude.Nothing,
-      blocked = Lude.Nothing
+    { blocked = Core.Nothing,
+      portProbeDetails = Core.Nothing
     }
-
--- | A list of objects related to port probe details.
---
--- /Note:/ Consider using 'portProbeDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaPortProbeDetails :: Lens.Lens' PortProbeAction (Lude.Maybe [PortProbeDetail])
-ppaPortProbeDetails = Lens.lens (portProbeDetails :: PortProbeAction -> Lude.Maybe [PortProbeDetail]) (\s a -> s {portProbeDetails = a} :: PortProbeAction)
-{-# DEPRECATED ppaPortProbeDetails "Use generic-lens or generic-optics with 'portProbeDetails' instead." #-}
 
 -- | Indicates whether EC2 blocked the port probe to the instance, such as with an ACL.
 --
 -- /Note:/ Consider using 'blocked' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppaBlocked :: Lens.Lens' PortProbeAction (Lude.Maybe Lude.Bool)
-ppaBlocked = Lens.lens (blocked :: PortProbeAction -> Lude.Maybe Lude.Bool) (\s a -> s {blocked = a} :: PortProbeAction)
+ppaBlocked :: Lens.Lens' PortProbeAction (Core.Maybe Core.Bool)
+ppaBlocked = Lens.field @"blocked"
 {-# DEPRECATED ppaBlocked "Use generic-lens or generic-optics with 'blocked' instead." #-}
 
-instance Lude.FromJSON PortProbeAction where
+-- | A list of objects related to port probe details.
+--
+-- /Note:/ Consider using 'portProbeDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppaPortProbeDetails :: Lens.Lens' PortProbeAction (Core.Maybe [Types.PortProbeDetail])
+ppaPortProbeDetails = Lens.field @"portProbeDetails"
+{-# DEPRECATED ppaPortProbeDetails "Use generic-lens or generic-optics with 'portProbeDetails' instead." #-}
+
+instance Core.FromJSON PortProbeAction where
   parseJSON =
-    Lude.withObject
-      "PortProbeAction"
-      ( \x ->
-          PortProbeAction'
-            Lude.<$> (x Lude..:? "portProbeDetails" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "blocked")
-      )
+    Core.withObject "PortProbeAction" Core.$
+      \x ->
+        PortProbeAction'
+          Core.<$> (x Core..:? "blocked") Core.<*> (x Core..:? "portProbeDetails")

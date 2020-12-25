@@ -22,77 +22,91 @@ module Network.AWS.CodeBuild.ListBuildBatchesForProject
     mkListBuildBatchesForProject,
 
     -- ** Request lenses
-    lbbfpSortOrder,
-    lbbfpNextToken,
-    lbbfpProjectName,
     lbbfpFilter,
     lbbfpMaxResults,
+    lbbfpNextToken,
+    lbbfpProjectName,
+    lbbfpSortOrder,
 
     -- * Destructuring the response
     ListBuildBatchesForProjectResponse (..),
     mkListBuildBatchesForProjectResponse,
 
     -- ** Response lenses
-    lbbfprsIds,
-    lbbfprsNextToken,
-    lbbfprsResponseStatus,
+    lbbfprrsIds,
+    lbbfprrsNextToken,
+    lbbfprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListBuildBatchesForProject' smart constructor.
 data ListBuildBatchesForProject = ListBuildBatchesForProject'
-  { -- | Specifies the sort order of the returned items. Valid values include:
+  { -- | A @BuildBatchFilter@ object that specifies the filters for the search.
+    filter :: Core.Maybe Types.BuildBatchFilter,
+    -- | The maximum number of results to return.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The @nextToken@ value returned from a previous call to @ListBuildBatchesForProject@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
+    nextToken :: Core.Maybe Types.String,
+    -- | The name of the project.
+    projectName :: Core.Maybe Types.NonEmptyString,
+    -- | Specifies the sort order of the returned items. Valid values include:
     --
     --
     --     * @ASCENDING@ : List the batch build identifiers in ascending order by identifier.
     --
     --
     --     * @DESCENDING@ : List the batch build identifiers in descending order by identifier.
-    sortOrder :: Lude.Maybe SortOrderType,
-    -- | The @nextToken@ value returned from a previous call to @ListBuildBatchesForProject@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The name of the project.
-    projectName :: Lude.Maybe Lude.Text,
-    -- | A @BuildBatchFilter@ object that specifies the filters for the search.
-    filter :: Lude.Maybe BuildBatchFilter,
-    -- | The maximum number of results to return.
-    maxResults :: Lude.Maybe Lude.Natural
+    sortOrder :: Core.Maybe Types.SortOrderType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBuildBatchesForProject' with the minimum fields required to make a request.
---
--- * 'sortOrder' - Specifies the sort order of the returned items. Valid values include:
---
---
---     * @ASCENDING@ : List the batch build identifiers in ascending order by identifier.
---
---
---     * @DESCENDING@ : List the batch build identifiers in descending order by identifier.
---
---
--- * 'nextToken' - The @nextToken@ value returned from a previous call to @ListBuildBatchesForProject@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
--- * 'projectName' - The name of the project.
--- * 'filter' - A @BuildBatchFilter@ object that specifies the filters for the search.
--- * 'maxResults' - The maximum number of results to return.
+-- | Creates a 'ListBuildBatchesForProject' value with any optional fields omitted.
 mkListBuildBatchesForProject ::
   ListBuildBatchesForProject
 mkListBuildBatchesForProject =
   ListBuildBatchesForProject'
-    { sortOrder = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      projectName = Lude.Nothing,
-      filter = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filter = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      projectName = Core.Nothing,
+      sortOrder = Core.Nothing
     }
+
+-- | A @BuildBatchFilter@ object that specifies the filters for the search.
+--
+-- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbbfpFilter :: Lens.Lens' ListBuildBatchesForProject (Core.Maybe Types.BuildBatchFilter)
+lbbfpFilter = Lens.field @"filter"
+{-# DEPRECATED lbbfpFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
+
+-- | The maximum number of results to return.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbbfpMaxResults :: Lens.Lens' ListBuildBatchesForProject (Core.Maybe Core.Natural)
+lbbfpMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lbbfpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | The @nextToken@ value returned from a previous call to @ListBuildBatchesForProject@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbbfpNextToken :: Lens.Lens' ListBuildBatchesForProject (Core.Maybe Types.String)
+lbbfpNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lbbfpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The name of the project.
+--
+-- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lbbfpProjectName :: Lens.Lens' ListBuildBatchesForProject (Core.Maybe Types.NonEmptyString)
+lbbfpProjectName = Lens.field @"projectName"
+{-# DEPRECATED lbbfpProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
 
 -- | Specifies the sort order of the returned items. Valid values include:
 --
@@ -105,137 +119,99 @@ mkListBuildBatchesForProject =
 --
 --
 -- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbbfpSortOrder :: Lens.Lens' ListBuildBatchesForProject (Lude.Maybe SortOrderType)
-lbbfpSortOrder = Lens.lens (sortOrder :: ListBuildBatchesForProject -> Lude.Maybe SortOrderType) (\s a -> s {sortOrder = a} :: ListBuildBatchesForProject)
+lbbfpSortOrder :: Lens.Lens' ListBuildBatchesForProject (Core.Maybe Types.SortOrderType)
+lbbfpSortOrder = Lens.field @"sortOrder"
 {-# DEPRECATED lbbfpSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
--- | The @nextToken@ value returned from a previous call to @ListBuildBatchesForProject@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbbfpNextToken :: Lens.Lens' ListBuildBatchesForProject (Lude.Maybe Lude.Text)
-lbbfpNextToken = Lens.lens (nextToken :: ListBuildBatchesForProject -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBuildBatchesForProject)
-{-# DEPRECATED lbbfpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+instance Core.FromJSON ListBuildBatchesForProject where
+  toJSON ListBuildBatchesForProject {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("filter" Core..=) Core.<$> filter,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("projectName" Core..=) Core.<$> projectName,
+            ("sortOrder" Core..=) Core.<$> sortOrder
+          ]
+      )
 
--- | The name of the project.
---
--- /Note:/ Consider using 'projectName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbbfpProjectName :: Lens.Lens' ListBuildBatchesForProject (Lude.Maybe Lude.Text)
-lbbfpProjectName = Lens.lens (projectName :: ListBuildBatchesForProject -> Lude.Maybe Lude.Text) (\s a -> s {projectName = a} :: ListBuildBatchesForProject)
-{-# DEPRECATED lbbfpProjectName "Use generic-lens or generic-optics with 'projectName' instead." #-}
-
--- | A @BuildBatchFilter@ object that specifies the filters for the search.
---
--- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbbfpFilter :: Lens.Lens' ListBuildBatchesForProject (Lude.Maybe BuildBatchFilter)
-lbbfpFilter = Lens.lens (filter :: ListBuildBatchesForProject -> Lude.Maybe BuildBatchFilter) (\s a -> s {filter = a} :: ListBuildBatchesForProject)
-{-# DEPRECATED lbbfpFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
-
--- | The maximum number of results to return.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbbfpMaxResults :: Lens.Lens' ListBuildBatchesForProject (Lude.Maybe Lude.Natural)
-lbbfpMaxResults = Lens.lens (maxResults :: ListBuildBatchesForProject -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListBuildBatchesForProject)
-{-# DEPRECATED lbbfpMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListBuildBatchesForProject where
-  page rq rs
-    | Page.stop (rs Lens.^. lbbfprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lbbfprsIds) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lbbfpNextToken Lens..~ rs Lens.^. lbbfprsNextToken
-
-instance Lude.AWSRequest ListBuildBatchesForProject where
+instance Core.AWSRequest ListBuildBatchesForProject where
   type
     Rs ListBuildBatchesForProject =
       ListBuildBatchesForProjectResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeBuild_20161006.ListBuildBatchesForProject")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListBuildBatchesForProjectResponse'
-            Lude.<$> (x Lude..?> "ids" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ids")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListBuildBatchesForProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeBuild_20161006.ListBuildBatchesForProject" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListBuildBatchesForProject where
-  toJSON ListBuildBatchesForProject' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("sortOrder" Lude..=) Lude.<$> sortOrder,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("projectName" Lude..=) Lude.<$> projectName,
-            ("filter" Lude..=) Lude.<$> filter,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListBuildBatchesForProject where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListBuildBatchesForProject where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListBuildBatchesForProject where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"ids" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListBuildBatchesForProjectResponse' smart constructor.
 data ListBuildBatchesForProjectResponse = ListBuildBatchesForProjectResponse'
   { -- | An array of strings that contains the batch build identifiers.
-    ids :: Lude.Maybe [Lude.Text],
+    ids :: Core.Maybe [Types.NonEmptyString],
     -- | If there are more items to return, this contains a token that is passed to a subsequent call to @ListBuildBatchesForProject@ to retrieve the next set of items.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListBuildBatchesForProjectResponse' with the minimum fields required to make a request.
---
--- * 'ids' - An array of strings that contains the batch build identifiers.
--- * 'nextToken' - If there are more items to return, this contains a token that is passed to a subsequent call to @ListBuildBatchesForProject@ to retrieve the next set of items.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListBuildBatchesForProjectResponse' value with any optional fields omitted.
 mkListBuildBatchesForProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListBuildBatchesForProjectResponse
-mkListBuildBatchesForProjectResponse pResponseStatus_ =
+mkListBuildBatchesForProjectResponse responseStatus =
   ListBuildBatchesForProjectResponse'
-    { ids = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { ids = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of strings that contains the batch build identifiers.
 --
 -- /Note:/ Consider using 'ids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbbfprsIds :: Lens.Lens' ListBuildBatchesForProjectResponse (Lude.Maybe [Lude.Text])
-lbbfprsIds = Lens.lens (ids :: ListBuildBatchesForProjectResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {ids = a} :: ListBuildBatchesForProjectResponse)
-{-# DEPRECATED lbbfprsIds "Use generic-lens or generic-optics with 'ids' instead." #-}
+lbbfprrsIds :: Lens.Lens' ListBuildBatchesForProjectResponse (Core.Maybe [Types.NonEmptyString])
+lbbfprrsIds = Lens.field @"ids"
+{-# DEPRECATED lbbfprrsIds "Use generic-lens or generic-optics with 'ids' instead." #-}
 
 -- | If there are more items to return, this contains a token that is passed to a subsequent call to @ListBuildBatchesForProject@ to retrieve the next set of items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbbfprsNextToken :: Lens.Lens' ListBuildBatchesForProjectResponse (Lude.Maybe Lude.Text)
-lbbfprsNextToken = Lens.lens (nextToken :: ListBuildBatchesForProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListBuildBatchesForProjectResponse)
-{-# DEPRECATED lbbfprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lbbfprrsNextToken :: Lens.Lens' ListBuildBatchesForProjectResponse (Core.Maybe Types.String)
+lbbfprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lbbfprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbbfprsResponseStatus :: Lens.Lens' ListBuildBatchesForProjectResponse Lude.Int
-lbbfprsResponseStatus = Lens.lens (responseStatus :: ListBuildBatchesForProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListBuildBatchesForProjectResponse)
-{-# DEPRECATED lbbfprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lbbfprrsResponseStatus :: Lens.Lens' ListBuildBatchesForProjectResponse Core.Int
+lbbfprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lbbfprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

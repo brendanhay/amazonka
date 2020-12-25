@@ -24,178 +24,161 @@ module Network.AWS.Rekognition.StartLabelDetection
     mkStartLabelDetection,
 
     -- ** Request lenses
-    sldJobTag,
-    sldNotificationChannel,
     sldVideo,
     sldClientRequestToken,
+    sldJobTag,
     sldMinConfidence,
+    sldNotificationChannel,
 
     -- * Destructuring the response
     StartLabelDetectionResponse (..),
     mkStartLabelDetectionResponse,
 
     -- ** Response lenses
-    sldrsJobId,
-    sldrsResponseStatus,
+    sldrrsJobId,
+    sldrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartLabelDetection' smart constructor.
 data StartLabelDetection = StartLabelDetection'
-  { -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
-    jobTag :: Lude.Maybe Lude.Text,
-    -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to.
-    notificationChannel :: Lude.Maybe NotificationChannel,
-    -- | The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.
-    video :: Video,
+  { -- | The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.
+    video :: Types.Video,
     -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartLabelDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
-    clientRequestToken :: Lude.Maybe Lude.Text,
+    clientRequestToken :: Core.Maybe Types.ClientRequestToken,
+    -- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+    jobTag :: Core.Maybe Types.JobTag,
     -- | Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.
     --
     -- If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
-    minConfidence :: Lude.Maybe Lude.Double
+    minConfidence :: Core.Maybe Core.Double,
+    -- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to.
+    notificationChannel :: Core.Maybe Types.NotificationChannel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartLabelDetection' with the minimum fields required to make a request.
---
--- * 'jobTag' - An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
--- * 'notificationChannel' - The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to.
--- * 'video' - The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.
--- * 'clientRequestToken' - Idempotent token used to identify the start request. If you use the same token with multiple @StartLabelDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
--- * 'minConfidence' - Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.
---
--- If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
+-- | Creates a 'StartLabelDetection' value with any optional fields omitted.
 mkStartLabelDetection ::
   -- | 'video'
-  Video ->
+  Types.Video ->
   StartLabelDetection
-mkStartLabelDetection pVideo_ =
+mkStartLabelDetection video =
   StartLabelDetection'
-    { jobTag = Lude.Nothing,
-      notificationChannel = Lude.Nothing,
-      video = pVideo_,
-      clientRequestToken = Lude.Nothing,
-      minConfidence = Lude.Nothing
+    { video,
+      clientRequestToken = Core.Nothing,
+      jobTag = Core.Nothing,
+      minConfidence = Core.Nothing,
+      notificationChannel = Core.Nothing
     }
-
--- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
---
--- /Note:/ Consider using 'jobTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sldJobTag :: Lens.Lens' StartLabelDetection (Lude.Maybe Lude.Text)
-sldJobTag = Lens.lens (jobTag :: StartLabelDetection -> Lude.Maybe Lude.Text) (\s a -> s {jobTag = a} :: StartLabelDetection)
-{-# DEPRECATED sldJobTag "Use generic-lens or generic-optics with 'jobTag' instead." #-}
-
--- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to.
---
--- /Note:/ Consider using 'notificationChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sldNotificationChannel :: Lens.Lens' StartLabelDetection (Lude.Maybe NotificationChannel)
-sldNotificationChannel = Lens.lens (notificationChannel :: StartLabelDetection -> Lude.Maybe NotificationChannel) (\s a -> s {notificationChannel = a} :: StartLabelDetection)
-{-# DEPRECATED sldNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
 
 -- | The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.
 --
 -- /Note:/ Consider using 'video' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sldVideo :: Lens.Lens' StartLabelDetection Video
-sldVideo = Lens.lens (video :: StartLabelDetection -> Video) (\s a -> s {video = a} :: StartLabelDetection)
+sldVideo :: Lens.Lens' StartLabelDetection Types.Video
+sldVideo = Lens.field @"video"
 {-# DEPRECATED sldVideo "Use generic-lens or generic-optics with 'video' instead." #-}
 
 -- | Idempotent token used to identify the start request. If you use the same token with multiple @StartLabelDetection@ requests, the same @JobId@ is returned. Use @ClientRequestToken@ to prevent the same job from being accidently started more than once.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sldClientRequestToken :: Lens.Lens' StartLabelDetection (Lude.Maybe Lude.Text)
-sldClientRequestToken = Lens.lens (clientRequestToken :: StartLabelDetection -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: StartLabelDetection)
+sldClientRequestToken :: Lens.Lens' StartLabelDetection (Core.Maybe Types.ClientRequestToken)
+sldClientRequestToken = Lens.field @"clientRequestToken"
 {-# DEPRECATED sldClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
+
+-- | An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use @JobTag@ to group related jobs and identify them in the completion notification.
+--
+-- /Note:/ Consider using 'jobTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sldJobTag :: Lens.Lens' StartLabelDetection (Core.Maybe Types.JobTag)
+sldJobTag = Lens.field @"jobTag"
+{-# DEPRECATED sldJobTag "Use generic-lens or generic-optics with 'jobTag' instead." #-}
 
 -- | Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.
 --
 -- If you don't specify @MinConfidence@ , the operation returns labels with confidence values greater than or equal to 50 percent.
 --
 -- /Note:/ Consider using 'minConfidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sldMinConfidence :: Lens.Lens' StartLabelDetection (Lude.Maybe Lude.Double)
-sldMinConfidence = Lens.lens (minConfidence :: StartLabelDetection -> Lude.Maybe Lude.Double) (\s a -> s {minConfidence = a} :: StartLabelDetection)
+sldMinConfidence :: Lens.Lens' StartLabelDetection (Core.Maybe Core.Double)
+sldMinConfidence = Lens.field @"minConfidence"
 {-# DEPRECATED sldMinConfidence "Use generic-lens or generic-optics with 'minConfidence' instead." #-}
 
-instance Lude.AWSRequest StartLabelDetection where
+-- | The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to.
+--
+-- /Note:/ Consider using 'notificationChannel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sldNotificationChannel :: Lens.Lens' StartLabelDetection (Core.Maybe Types.NotificationChannel)
+sldNotificationChannel = Lens.field @"notificationChannel"
+{-# DEPRECATED sldNotificationChannel "Use generic-lens or generic-optics with 'notificationChannel' instead." #-}
+
+instance Core.FromJSON StartLabelDetection where
+  toJSON StartLabelDetection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Video" Core..= video),
+            ("ClientRequestToken" Core..=) Core.<$> clientRequestToken,
+            ("JobTag" Core..=) Core.<$> jobTag,
+            ("MinConfidence" Core..=) Core.<$> minConfidence,
+            ("NotificationChannel" Core..=) Core.<$> notificationChannel
+          ]
+      )
+
+instance Core.AWSRequest StartLabelDetection where
   type Rs StartLabelDetection = StartLabelDetectionResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "RekognitionService.StartLabelDetection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartLabelDetectionResponse'
-            Lude.<$> (x Lude..?> "JobId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartLabelDetection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.StartLabelDetection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartLabelDetection where
-  toJSON StartLabelDetection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("JobTag" Lude..=) Lude.<$> jobTag,
-            ("NotificationChannel" Lude..=) Lude.<$> notificationChannel,
-            Lude.Just ("Video" Lude..= video),
-            ("ClientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            ("MinConfidence" Lude..=) Lude.<$> minConfidence
-          ]
-      )
-
-instance Lude.ToPath StartLabelDetection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartLabelDetection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartLabelDetectionResponse' smart constructor.
 data StartLabelDetectionResponse = StartLabelDetectionResponse'
   { -- | The identifier for the label detection job. Use @JobId@ to identify the job in a subsequent call to @GetLabelDetection@ .
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartLabelDetectionResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier for the label detection job. Use @JobId@ to identify the job in a subsequent call to @GetLabelDetection@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartLabelDetectionResponse' value with any optional fields omitted.
 mkStartLabelDetectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartLabelDetectionResponse
-mkStartLabelDetectionResponse pResponseStatus_ =
+mkStartLabelDetectionResponse responseStatus =
   StartLabelDetectionResponse'
-    { jobId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier for the label detection job. Use @JobId@ to identify the job in a subsequent call to @GetLabelDetection@ .
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sldrsJobId :: Lens.Lens' StartLabelDetectionResponse (Lude.Maybe Lude.Text)
-sldrsJobId = Lens.lens (jobId :: StartLabelDetectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StartLabelDetectionResponse)
-{-# DEPRECATED sldrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+sldrrsJobId :: Lens.Lens' StartLabelDetectionResponse (Core.Maybe Types.JobId)
+sldrrsJobId = Lens.field @"jobId"
+{-# DEPRECATED sldrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sldrsResponseStatus :: Lens.Lens' StartLabelDetectionResponse Lude.Int
-sldrsResponseStatus = Lens.lens (responseStatus :: StartLabelDetectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartLabelDetectionResponse)
-{-# DEPRECATED sldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+sldrrsResponseStatus :: Lens.Lens' StartLabelDetectionResponse Core.Int
+sldrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED sldrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

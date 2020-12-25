@@ -18,52 +18,50 @@ module Network.AWS.EC2.Types.VolumeStatusAttachmentStatus
 
     -- * Lenses
     vsasInstanceId,
-    vsasIOPerformance,
+    vsasIoPerformance,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the instances to which the volume is attached.
 --
 -- /See:/ 'mkVolumeStatusAttachmentStatus' smart constructor.
 data VolumeStatusAttachmentStatus = VolumeStatusAttachmentStatus'
   { -- | The ID of the attached instance.
-    instanceId :: Lude.Maybe Lude.Text,
+    instanceId :: Core.Maybe Types.String,
     -- | The maximum IOPS supported by the attached instance.
-    iOPerformance :: Lude.Maybe Lude.Text
+    ioPerformance :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VolumeStatusAttachmentStatus' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the attached instance.
--- * 'iOPerformance' - The maximum IOPS supported by the attached instance.
+-- | Creates a 'VolumeStatusAttachmentStatus' value with any optional fields omitted.
 mkVolumeStatusAttachmentStatus ::
   VolumeStatusAttachmentStatus
 mkVolumeStatusAttachmentStatus =
   VolumeStatusAttachmentStatus'
-    { instanceId = Lude.Nothing,
-      iOPerformance = Lude.Nothing
+    { instanceId = Core.Nothing,
+      ioPerformance = Core.Nothing
     }
 
 -- | The ID of the attached instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsasInstanceId :: Lens.Lens' VolumeStatusAttachmentStatus (Lude.Maybe Lude.Text)
-vsasInstanceId = Lens.lens (instanceId :: VolumeStatusAttachmentStatus -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: VolumeStatusAttachmentStatus)
+vsasInstanceId :: Lens.Lens' VolumeStatusAttachmentStatus (Core.Maybe Types.String)
+vsasInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED vsasInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The maximum IOPS supported by the attached instance.
 --
--- /Note:/ Consider using 'iOPerformance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vsasIOPerformance :: Lens.Lens' VolumeStatusAttachmentStatus (Lude.Maybe Lude.Text)
-vsasIOPerformance = Lens.lens (iOPerformance :: VolumeStatusAttachmentStatus -> Lude.Maybe Lude.Text) (\s a -> s {iOPerformance = a} :: VolumeStatusAttachmentStatus)
-{-# DEPRECATED vsasIOPerformance "Use generic-lens or generic-optics with 'iOPerformance' instead." #-}
+-- /Note:/ Consider using 'ioPerformance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vsasIoPerformance :: Lens.Lens' VolumeStatusAttachmentStatus (Core.Maybe Types.String)
+vsasIoPerformance = Lens.field @"ioPerformance"
+{-# DEPRECATED vsasIoPerformance "Use generic-lens or generic-optics with 'ioPerformance' instead." #-}
 
-instance Lude.FromXML VolumeStatusAttachmentStatus where
+instance Core.FromXML VolumeStatusAttachmentStatus where
   parseXML x =
     VolumeStatusAttachmentStatus'
-      Lude.<$> (x Lude..@? "instanceId") Lude.<*> (x Lude..@? "ioPerformance")
+      Core.<$> (x Core..@? "instanceId") Core.<*> (x Core..@? "ioPerformance")

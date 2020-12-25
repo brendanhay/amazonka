@@ -17,23 +17,24 @@ module Network.AWS.AutoScaling.Types.NotificationConfiguration
     mkNotificationConfiguration,
 
     -- * Lenses
-    ncTopicARN,
     ncAutoScalingGroupName,
     ncNotificationType,
+    ncTopicARN,
   )
 where
 
+import qualified Network.AWS.AutoScaling.Types.AutoScalingGroupName as Types
+import qualified Network.AWS.AutoScaling.Types.NotificationType as Types
+import qualified Network.AWS.AutoScaling.Types.TopicARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a notification.
 --
 -- /See:/ 'mkNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
-    topicARN :: Lude.Maybe Lude.Text,
-    -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Maybe Lude.Text,
+  { -- | The name of the Auto Scaling group.
+    autoScalingGroupName :: Core.Maybe Types.AutoScalingGroupName,
     -- | One of the following event notification types:
     --
     --
@@ -50,52 +51,28 @@ data NotificationConfiguration = NotificationConfiguration'
     --
     --
     --     * @autoscaling:TEST_NOTIFICATION@
-    notificationType :: Lude.Maybe Lude.Text
+    notificationType :: Core.Maybe Types.NotificationType,
+    -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
+    topicARN :: Core.Maybe Types.TopicARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
---
--- * 'topicARN' - The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'notificationType' - One of the following event notification types:
---
---
---     * @autoscaling:EC2_INSTANCE_LAUNCH@
---
---
---     * @autoscaling:EC2_INSTANCE_LAUNCH_ERROR@
---
---
---     * @autoscaling:EC2_INSTANCE_TERMINATE@
---
---
---     * @autoscaling:EC2_INSTANCE_TERMINATE_ERROR@
---
---
---     * @autoscaling:TEST_NOTIFICATION@
+-- | Creates a 'NotificationConfiguration' value with any optional fields omitted.
 mkNotificationConfiguration ::
   NotificationConfiguration
 mkNotificationConfiguration =
   NotificationConfiguration'
-    { topicARN = Lude.Nothing,
-      autoScalingGroupName = Lude.Nothing,
-      notificationType = Lude.Nothing
+    { autoScalingGroupName = Core.Nothing,
+      notificationType = Core.Nothing,
+      topicARN = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
---
--- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncTopicARN :: Lens.Lens' NotificationConfiguration (Lude.Maybe Lude.Text)
-ncTopicARN = Lens.lens (topicARN :: NotificationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {topicARN = a} :: NotificationConfiguration)
-{-# DEPRECATED ncTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncAutoScalingGroupName :: Lens.Lens' NotificationConfiguration (Lude.Maybe Lude.Text)
-ncAutoScalingGroupName = Lens.lens (autoScalingGroupName :: NotificationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {autoScalingGroupName = a} :: NotificationConfiguration)
+ncAutoScalingGroupName :: Lens.Lens' NotificationConfiguration (Core.Maybe Types.AutoScalingGroupName)
+ncAutoScalingGroupName = Lens.field @"autoScalingGroupName"
 {-# DEPRECATED ncAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | One of the following event notification types:
@@ -118,13 +95,20 @@ ncAutoScalingGroupName = Lens.lens (autoScalingGroupName :: NotificationConfigur
 --
 --
 -- /Note:/ Consider using 'notificationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncNotificationType :: Lens.Lens' NotificationConfiguration (Lude.Maybe Lude.Text)
-ncNotificationType = Lens.lens (notificationType :: NotificationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {notificationType = a} :: NotificationConfiguration)
+ncNotificationType :: Lens.Lens' NotificationConfiguration (Core.Maybe Types.NotificationType)
+ncNotificationType = Lens.field @"notificationType"
 {-# DEPRECATED ncNotificationType "Use generic-lens or generic-optics with 'notificationType' instead." #-}
 
-instance Lude.FromXML NotificationConfiguration where
+-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.
+--
+-- /Note:/ Consider using 'topicARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncTopicARN :: Lens.Lens' NotificationConfiguration (Core.Maybe Types.TopicARN)
+ncTopicARN = Lens.field @"topicARN"
+{-# DEPRECATED ncTopicARN "Use generic-lens or generic-optics with 'topicARN' instead." #-}
+
+instance Core.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
-      Lude.<$> (x Lude..@? "TopicARN")
-      Lude.<*> (x Lude..@? "AutoScalingGroupName")
-      Lude.<*> (x Lude..@? "NotificationType")
+      Core.<$> (x Core..@? "AutoScalingGroupName")
+      Core.<*> (x Core..@? "NotificationType")
+      Core.<*> (x Core..@? "TopicARN")

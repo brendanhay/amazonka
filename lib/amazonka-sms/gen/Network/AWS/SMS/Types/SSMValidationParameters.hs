@@ -17,126 +17,120 @@ module Network.AWS.SMS.Types.SSMValidationParameters
     mkSSMValidationParameters,
 
     -- * Lenses
-    ssmvpInstanceId,
     ssmvpCommand,
     ssmvpExecutionTimeoutSeconds,
+    ssmvpInstanceId,
+    ssmvpOutputS3BucketName,
     ssmvpScriptType,
     ssmvpSource,
-    ssmvpOutputS3BucketName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.ScriptType
-import Network.AWS.SMS.Types.Source
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.BucketName as Types
+import qualified Network.AWS.SMS.Types.Command as Types
+import qualified Network.AWS.SMS.Types.InstanceId as Types
+import qualified Network.AWS.SMS.Types.ScriptType as Types
+import qualified Network.AWS.SMS.Types.Source as Types
 
 -- | Contains validation parameters.
 --
 -- /See:/ 'mkSSMValidationParameters' smart constructor.
 data SSMValidationParameters = SSMValidationParameters'
-  { -- | The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The command to run the validation script
-    command :: Lude.Maybe Lude.Text,
+  { -- | The command to run the validation script
+    command :: Core.Maybe Types.Command,
     -- | The timeout interval, in seconds.
-    executionTimeoutSeconds :: Lude.Maybe Lude.Natural,
-    -- | The type of validation script.
-    scriptType :: Lude.Maybe ScriptType,
-    -- | The location of the validation script.
-    source :: Lude.Maybe Source,
+    executionTimeoutSeconds :: Core.Maybe Core.Natural,
+    -- | The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.
+    instanceId :: Core.Maybe Types.InstanceId,
     -- | The name of the S3 bucket for output.
-    outputS3BucketName :: Lude.Maybe Lude.Text
+    outputS3BucketName :: Core.Maybe Types.BucketName,
+    -- | The type of validation script.
+    scriptType :: Core.Maybe Types.ScriptType,
+    -- | The location of the validation script.
+    source :: Core.Maybe Types.Source
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SSMValidationParameters' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.
--- * 'command' - The command to run the validation script
--- * 'executionTimeoutSeconds' - The timeout interval, in seconds.
--- * 'scriptType' - The type of validation script.
--- * 'source' - The location of the validation script.
--- * 'outputS3BucketName' - The name of the S3 bucket for output.
+-- | Creates a 'SSMValidationParameters' value with any optional fields omitted.
 mkSSMValidationParameters ::
   SSMValidationParameters
 mkSSMValidationParameters =
   SSMValidationParameters'
-    { instanceId = Lude.Nothing,
-      command = Lude.Nothing,
-      executionTimeoutSeconds = Lude.Nothing,
-      scriptType = Lude.Nothing,
-      source = Lude.Nothing,
-      outputS3BucketName = Lude.Nothing
+    { command = Core.Nothing,
+      executionTimeoutSeconds = Core.Nothing,
+      instanceId = Core.Nothing,
+      outputS3BucketName = Core.Nothing,
+      scriptType = Core.Nothing,
+      source = Core.Nothing
     }
-
--- | The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssmvpInstanceId :: Lens.Lens' SSMValidationParameters (Lude.Maybe Lude.Text)
-ssmvpInstanceId = Lens.lens (instanceId :: SSMValidationParameters -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: SSMValidationParameters)
-{-# DEPRECATED ssmvpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The command to run the validation script
 --
 -- /Note:/ Consider using 'command' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssmvpCommand :: Lens.Lens' SSMValidationParameters (Lude.Maybe Lude.Text)
-ssmvpCommand = Lens.lens (command :: SSMValidationParameters -> Lude.Maybe Lude.Text) (\s a -> s {command = a} :: SSMValidationParameters)
+ssmvpCommand :: Lens.Lens' SSMValidationParameters (Core.Maybe Types.Command)
+ssmvpCommand = Lens.field @"command"
 {-# DEPRECATED ssmvpCommand "Use generic-lens or generic-optics with 'command' instead." #-}
 
 -- | The timeout interval, in seconds.
 --
 -- /Note:/ Consider using 'executionTimeoutSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssmvpExecutionTimeoutSeconds :: Lens.Lens' SSMValidationParameters (Lude.Maybe Lude.Natural)
-ssmvpExecutionTimeoutSeconds = Lens.lens (executionTimeoutSeconds :: SSMValidationParameters -> Lude.Maybe Lude.Natural) (\s a -> s {executionTimeoutSeconds = a} :: SSMValidationParameters)
+ssmvpExecutionTimeoutSeconds :: Lens.Lens' SSMValidationParameters (Core.Maybe Core.Natural)
+ssmvpExecutionTimeoutSeconds = Lens.field @"executionTimeoutSeconds"
 {-# DEPRECATED ssmvpExecutionTimeoutSeconds "Use generic-lens or generic-optics with 'executionTimeoutSeconds' instead." #-}
+
+-- | The ID of the instance. The instance must have the following tag: UserForSMSApplicationValidation=true.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssmvpInstanceId :: Lens.Lens' SSMValidationParameters (Core.Maybe Types.InstanceId)
+ssmvpInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED ssmvpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The name of the S3 bucket for output.
+--
+-- /Note:/ Consider using 'outputS3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssmvpOutputS3BucketName :: Lens.Lens' SSMValidationParameters (Core.Maybe Types.BucketName)
+ssmvpOutputS3BucketName = Lens.field @"outputS3BucketName"
+{-# DEPRECATED ssmvpOutputS3BucketName "Use generic-lens or generic-optics with 'outputS3BucketName' instead." #-}
 
 -- | The type of validation script.
 --
 -- /Note:/ Consider using 'scriptType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssmvpScriptType :: Lens.Lens' SSMValidationParameters (Lude.Maybe ScriptType)
-ssmvpScriptType = Lens.lens (scriptType :: SSMValidationParameters -> Lude.Maybe ScriptType) (\s a -> s {scriptType = a} :: SSMValidationParameters)
+ssmvpScriptType :: Lens.Lens' SSMValidationParameters (Core.Maybe Types.ScriptType)
+ssmvpScriptType = Lens.field @"scriptType"
 {-# DEPRECATED ssmvpScriptType "Use generic-lens or generic-optics with 'scriptType' instead." #-}
 
 -- | The location of the validation script.
 --
 -- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssmvpSource :: Lens.Lens' SSMValidationParameters (Lude.Maybe Source)
-ssmvpSource = Lens.lens (source :: SSMValidationParameters -> Lude.Maybe Source) (\s a -> s {source = a} :: SSMValidationParameters)
+ssmvpSource :: Lens.Lens' SSMValidationParameters (Core.Maybe Types.Source)
+ssmvpSource = Lens.field @"source"
 {-# DEPRECATED ssmvpSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
--- | The name of the S3 bucket for output.
---
--- /Note:/ Consider using 'outputS3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssmvpOutputS3BucketName :: Lens.Lens' SSMValidationParameters (Lude.Maybe Lude.Text)
-ssmvpOutputS3BucketName = Lens.lens (outputS3BucketName :: SSMValidationParameters -> Lude.Maybe Lude.Text) (\s a -> s {outputS3BucketName = a} :: SSMValidationParameters)
-{-# DEPRECATED ssmvpOutputS3BucketName "Use generic-lens or generic-optics with 'outputS3BucketName' instead." #-}
-
-instance Lude.FromJSON SSMValidationParameters where
-  parseJSON =
-    Lude.withObject
-      "SSMValidationParameters"
-      ( \x ->
-          SSMValidationParameters'
-            Lude.<$> (x Lude..:? "instanceId")
-            Lude.<*> (x Lude..:? "command")
-            Lude.<*> (x Lude..:? "executionTimeoutSeconds")
-            Lude.<*> (x Lude..:? "scriptType")
-            Lude.<*> (x Lude..:? "source")
-            Lude.<*> (x Lude..:? "outputS3BucketName")
-      )
-
-instance Lude.ToJSON SSMValidationParameters where
-  toJSON SSMValidationParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("instanceId" Lude..=) Lude.<$> instanceId,
-            ("command" Lude..=) Lude.<$> command,
-            ("executionTimeoutSeconds" Lude..=)
-              Lude.<$> executionTimeoutSeconds,
-            ("scriptType" Lude..=) Lude.<$> scriptType,
-            ("source" Lude..=) Lude.<$> source,
-            ("outputS3BucketName" Lude..=) Lude.<$> outputS3BucketName
+instance Core.FromJSON SSMValidationParameters where
+  toJSON SSMValidationParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("command" Core..=) Core.<$> command,
+            ("executionTimeoutSeconds" Core..=)
+              Core.<$> executionTimeoutSeconds,
+            ("instanceId" Core..=) Core.<$> instanceId,
+            ("outputS3BucketName" Core..=) Core.<$> outputS3BucketName,
+            ("scriptType" Core..=) Core.<$> scriptType,
+            ("source" Core..=) Core.<$> source
           ]
       )
+
+instance Core.FromJSON SSMValidationParameters where
+  parseJSON =
+    Core.withObject "SSMValidationParameters" Core.$
+      \x ->
+        SSMValidationParameters'
+          Core.<$> (x Core..:? "command")
+          Core.<*> (x Core..:? "executionTimeoutSeconds")
+          Core.<*> (x Core..:? "instanceId")
+          Core.<*> (x Core..:? "outputS3BucketName")
+          Core.<*> (x Core..:? "scriptType")
+          Core.<*> (x Core..:? "source")

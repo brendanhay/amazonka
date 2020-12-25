@@ -17,80 +17,76 @@ module Network.AWS.EC2.Types.ElasticGpuAssociation
     mkElasticGpuAssociation,
 
     -- * Lenses
-    egaElasticGpuId,
     egaElasticGpuAssociationId,
-    egaElasticGpuAssociationTime,
     egaElasticGpuAssociationState,
+    egaElasticGpuAssociationTime,
+    egaElasticGpuId,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the association between an instance and an Elastic Graphics accelerator.
 --
 -- /See:/ 'mkElasticGpuAssociation' smart constructor.
 data ElasticGpuAssociation = ElasticGpuAssociation'
-  { -- | The ID of the Elastic Graphics accelerator.
-    elasticGpuId :: Lude.Maybe Lude.Text,
-    -- | The ID of the association.
-    elasticGpuAssociationId :: Lude.Maybe Lude.Text,
-    -- | The time the Elastic Graphics accelerator was associated with the instance.
-    elasticGpuAssociationTime :: Lude.Maybe Lude.Text,
+  { -- | The ID of the association.
+    elasticGpuAssociationId :: Core.Maybe Types.String,
     -- | The state of the association between the instance and the Elastic Graphics accelerator.
-    elasticGpuAssociationState :: Lude.Maybe Lude.Text
+    elasticGpuAssociationState :: Core.Maybe Types.String,
+    -- | The time the Elastic Graphics accelerator was associated with the instance.
+    elasticGpuAssociationTime :: Core.Maybe Types.String,
+    -- | The ID of the Elastic Graphics accelerator.
+    elasticGpuId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElasticGpuAssociation' with the minimum fields required to make a request.
---
--- * 'elasticGpuId' - The ID of the Elastic Graphics accelerator.
--- * 'elasticGpuAssociationId' - The ID of the association.
--- * 'elasticGpuAssociationTime' - The time the Elastic Graphics accelerator was associated with the instance.
--- * 'elasticGpuAssociationState' - The state of the association between the instance and the Elastic Graphics accelerator.
+-- | Creates a 'ElasticGpuAssociation' value with any optional fields omitted.
 mkElasticGpuAssociation ::
   ElasticGpuAssociation
 mkElasticGpuAssociation =
   ElasticGpuAssociation'
-    { elasticGpuId = Lude.Nothing,
-      elasticGpuAssociationId = Lude.Nothing,
-      elasticGpuAssociationTime = Lude.Nothing,
-      elasticGpuAssociationState = Lude.Nothing
+    { elasticGpuAssociationId = Core.Nothing,
+      elasticGpuAssociationState = Core.Nothing,
+      elasticGpuAssociationTime = Core.Nothing,
+      elasticGpuId = Core.Nothing
     }
-
--- | The ID of the Elastic Graphics accelerator.
---
--- /Note:/ Consider using 'elasticGpuId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egaElasticGpuId :: Lens.Lens' ElasticGpuAssociation (Lude.Maybe Lude.Text)
-egaElasticGpuId = Lens.lens (elasticGpuId :: ElasticGpuAssociation -> Lude.Maybe Lude.Text) (\s a -> s {elasticGpuId = a} :: ElasticGpuAssociation)
-{-# DEPRECATED egaElasticGpuId "Use generic-lens or generic-optics with 'elasticGpuId' instead." #-}
 
 -- | The ID of the association.
 --
 -- /Note:/ Consider using 'elasticGpuAssociationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egaElasticGpuAssociationId :: Lens.Lens' ElasticGpuAssociation (Lude.Maybe Lude.Text)
-egaElasticGpuAssociationId = Lens.lens (elasticGpuAssociationId :: ElasticGpuAssociation -> Lude.Maybe Lude.Text) (\s a -> s {elasticGpuAssociationId = a} :: ElasticGpuAssociation)
+egaElasticGpuAssociationId :: Lens.Lens' ElasticGpuAssociation (Core.Maybe Types.String)
+egaElasticGpuAssociationId = Lens.field @"elasticGpuAssociationId"
 {-# DEPRECATED egaElasticGpuAssociationId "Use generic-lens or generic-optics with 'elasticGpuAssociationId' instead." #-}
-
--- | The time the Elastic Graphics accelerator was associated with the instance.
---
--- /Note:/ Consider using 'elasticGpuAssociationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egaElasticGpuAssociationTime :: Lens.Lens' ElasticGpuAssociation (Lude.Maybe Lude.Text)
-egaElasticGpuAssociationTime = Lens.lens (elasticGpuAssociationTime :: ElasticGpuAssociation -> Lude.Maybe Lude.Text) (\s a -> s {elasticGpuAssociationTime = a} :: ElasticGpuAssociation)
-{-# DEPRECATED egaElasticGpuAssociationTime "Use generic-lens or generic-optics with 'elasticGpuAssociationTime' instead." #-}
 
 -- | The state of the association between the instance and the Elastic Graphics accelerator.
 --
 -- /Note:/ Consider using 'elasticGpuAssociationState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-egaElasticGpuAssociationState :: Lens.Lens' ElasticGpuAssociation (Lude.Maybe Lude.Text)
-egaElasticGpuAssociationState = Lens.lens (elasticGpuAssociationState :: ElasticGpuAssociation -> Lude.Maybe Lude.Text) (\s a -> s {elasticGpuAssociationState = a} :: ElasticGpuAssociation)
+egaElasticGpuAssociationState :: Lens.Lens' ElasticGpuAssociation (Core.Maybe Types.String)
+egaElasticGpuAssociationState = Lens.field @"elasticGpuAssociationState"
 {-# DEPRECATED egaElasticGpuAssociationState "Use generic-lens or generic-optics with 'elasticGpuAssociationState' instead." #-}
 
-instance Lude.FromXML ElasticGpuAssociation where
+-- | The time the Elastic Graphics accelerator was associated with the instance.
+--
+-- /Note:/ Consider using 'elasticGpuAssociationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+egaElasticGpuAssociationTime :: Lens.Lens' ElasticGpuAssociation (Core.Maybe Types.String)
+egaElasticGpuAssociationTime = Lens.field @"elasticGpuAssociationTime"
+{-# DEPRECATED egaElasticGpuAssociationTime "Use generic-lens or generic-optics with 'elasticGpuAssociationTime' instead." #-}
+
+-- | The ID of the Elastic Graphics accelerator.
+--
+-- /Note:/ Consider using 'elasticGpuId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+egaElasticGpuId :: Lens.Lens' ElasticGpuAssociation (Core.Maybe Types.String)
+egaElasticGpuId = Lens.field @"elasticGpuId"
+{-# DEPRECATED egaElasticGpuId "Use generic-lens or generic-optics with 'elasticGpuId' instead." #-}
+
+instance Core.FromXML ElasticGpuAssociation where
   parseXML x =
     ElasticGpuAssociation'
-      Lude.<$> (x Lude..@? "elasticGpuId")
-      Lude.<*> (x Lude..@? "elasticGpuAssociationId")
-      Lude.<*> (x Lude..@? "elasticGpuAssociationTime")
-      Lude.<*> (x Lude..@? "elasticGpuAssociationState")
+      Core.<$> (x Core..@? "elasticGpuAssociationId")
+      Core.<*> (x Core..@? "elasticGpuAssociationState")
+      Core.<*> (x Core..@? "elasticGpuAssociationTime")
+      Core.<*> (x Core..@? "elasticGpuId")

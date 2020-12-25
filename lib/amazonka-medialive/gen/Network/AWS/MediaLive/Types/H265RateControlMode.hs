@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.H265RateControlMode
   ( H265RateControlMode
       ( H265RateControlMode',
-        Cbr,
-        Multiplex,
-        Qvbr
+        H265RateControlModeCbr,
+        H265RateControlModeMultiplex,
+        H265RateControlModeQvbr,
+        fromH265RateControlMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | H265 Rate Control Mode
-newtype H265RateControlMode = H265RateControlMode' Lude.Text
+newtype H265RateControlMode = H265RateControlMode'
+  { fromH265RateControlMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Cbr :: H265RateControlMode
-pattern Cbr = H265RateControlMode' "CBR"
+pattern H265RateControlModeCbr :: H265RateControlMode
+pattern H265RateControlModeCbr = H265RateControlMode' "CBR"
 
-pattern Multiplex :: H265RateControlMode
-pattern Multiplex = H265RateControlMode' "MULTIPLEX"
+pattern H265RateControlModeMultiplex :: H265RateControlMode
+pattern H265RateControlModeMultiplex = H265RateControlMode' "MULTIPLEX"
 
-pattern Qvbr :: H265RateControlMode
-pattern Qvbr = H265RateControlMode' "QVBR"
+pattern H265RateControlModeQvbr :: H265RateControlMode
+pattern H265RateControlModeQvbr = H265RateControlMode' "QVBR"
 
 {-# COMPLETE
-  Cbr,
-  Multiplex,
-  Qvbr,
+  H265RateControlModeCbr,
+  H265RateControlModeMultiplex,
+  H265RateControlModeQvbr,
   H265RateControlMode'
   #-}

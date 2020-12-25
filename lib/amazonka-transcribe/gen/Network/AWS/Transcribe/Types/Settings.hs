@@ -17,92 +17,66 @@ module Network.AWS.Transcribe.Types.Settings
     mkSettings,
 
     -- * Lenses
-    sVocabularyName,
-    sMaxAlternatives,
     sChannelIdentification,
-    sShowAlternatives,
+    sMaxAlternatives,
     sMaxSpeakerLabels,
-    sVocabularyFilterName,
+    sShowAlternatives,
     sShowSpeakerLabels,
     sVocabularyFilterMethod,
+    sVocabularyFilterName,
+    sVocabularyName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Transcribe.Types.VocabularyFilterMethod
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Transcribe.Types.VocabularyFilterMethod as Types
+import qualified Network.AWS.Transcribe.Types.VocabularyFilterName as Types
+import qualified Network.AWS.Transcribe.Types.VocabularyName as Types
 
 -- | Provides optional settings for the @StartTranscriptionJob@ operation.
 --
 -- /See:/ 'mkSettings' smart constructor.
 data Settings = Settings'
-  { -- | The name of a vocabulary to use when processing the transcription job.
-    vocabularyName :: Lude.Maybe Lude.Text,
-    -- | The number of alternative transcriptions that the service should return. If you specify the @MaxAlternatives@ field, you must set the @ShowAlternatives@ field to true.
-    maxAlternatives :: Lude.Maybe Lude.Natural,
-    -- | Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.
+  { -- | Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.
     --
     -- Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.
     -- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
-    channelIdentification :: Lude.Maybe Lude.Bool,
-    -- | Determines whether the transcription contains alternative transcriptions. If you set the @ShowAlternatives@ field to true, you must also set the maximum number of alternatives to return in the @MaxAlternatives@ field.
-    showAlternatives :: Lude.Maybe Lude.Bool,
+    channelIdentification :: Core.Maybe Core.Bool,
+    -- | The number of alternative transcriptions that the service should return. If you specify the @MaxAlternatives@ field, you must set the @ShowAlternatives@ field to true.
+    maxAlternatives :: Core.Maybe Core.Natural,
     -- | The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers are identified as a single speaker. If you specify the @MaxSpeakerLabels@ field, you must set the @ShowSpeakerLabels@ field to true.
-    maxSpeakerLabels :: Lude.Maybe Lude.Natural,
-    -- | The name of the vocabulary filter to use when transcribing the audio. The filter that you specify must have the same language code as the transcription job.
-    vocabularyFilterName :: Lude.Maybe Lude.Text,
+    maxSpeakerLabels :: Core.Maybe Core.Natural,
+    -- | Determines whether the transcription contains alternative transcriptions. If you set the @ShowAlternatives@ field to true, you must also set the maximum number of alternatives to return in the @MaxAlternatives@ field.
+    showAlternatives :: Core.Maybe Core.Bool,
     -- | Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels @MaxSpeakerLabels@ field.
     --
     -- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
-    showSpeakerLabels :: Lude.Maybe Lude.Bool,
+    showSpeakerLabels :: Core.Maybe Core.Bool,
     -- | Set to @mask@ to remove filtered text from the transcript and replace it with three asterisks ("***") as placeholder text. Set to @remove@ to remove filtered text from the transcript without using placeholder text.
-    vocabularyFilterMethod :: Lude.Maybe VocabularyFilterMethod
+    vocabularyFilterMethod :: Core.Maybe Types.VocabularyFilterMethod,
+    -- | The name of the vocabulary filter to use when transcribing the audio. The filter that you specify must have the same language code as the transcription job.
+    vocabularyFilterName :: Core.Maybe Types.VocabularyFilterName,
+    -- | The name of a vocabulary to use when processing the transcription job.
+    vocabularyName :: Core.Maybe Types.VocabularyName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Settings' with the minimum fields required to make a request.
---
--- * 'vocabularyName' - The name of a vocabulary to use when processing the transcription job.
--- * 'maxAlternatives' - The number of alternative transcriptions that the service should return. If you specify the @MaxAlternatives@ field, you must set the @ShowAlternatives@ field to true.
--- * 'channelIdentification' - Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.
---
--- Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.
--- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
--- * 'showAlternatives' - Determines whether the transcription contains alternative transcriptions. If you set the @ShowAlternatives@ field to true, you must also set the maximum number of alternatives to return in the @MaxAlternatives@ field.
--- * 'maxSpeakerLabels' - The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers are identified as a single speaker. If you specify the @MaxSpeakerLabels@ field, you must set the @ShowSpeakerLabels@ field to true.
--- * 'vocabularyFilterName' - The name of the vocabulary filter to use when transcribing the audio. The filter that you specify must have the same language code as the transcription job.
--- * 'showSpeakerLabels' - Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels @MaxSpeakerLabels@ field.
---
--- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
--- * 'vocabularyFilterMethod' - Set to @mask@ to remove filtered text from the transcript and replace it with three asterisks ("***") as placeholder text. Set to @remove@ to remove filtered text from the transcript without using placeholder text.
+-- | Creates a 'Settings' value with any optional fields omitted.
 mkSettings ::
   Settings
 mkSettings =
   Settings'
-    { vocabularyName = Lude.Nothing,
-      maxAlternatives = Lude.Nothing,
-      channelIdentification = Lude.Nothing,
-      showAlternatives = Lude.Nothing,
-      maxSpeakerLabels = Lude.Nothing,
-      vocabularyFilterName = Lude.Nothing,
-      showSpeakerLabels = Lude.Nothing,
-      vocabularyFilterMethod = Lude.Nothing
+    { channelIdentification = Core.Nothing,
+      maxAlternatives = Core.Nothing,
+      maxSpeakerLabels = Core.Nothing,
+      showAlternatives = Core.Nothing,
+      showSpeakerLabels = Core.Nothing,
+      vocabularyFilterMethod = Core.Nothing,
+      vocabularyFilterName = Core.Nothing,
+      vocabularyName = Core.Nothing
     }
-
--- | The name of a vocabulary to use when processing the transcription job.
---
--- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sVocabularyName :: Lens.Lens' Settings (Lude.Maybe Lude.Text)
-sVocabularyName = Lens.lens (vocabularyName :: Settings -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyName = a} :: Settings)
-{-# DEPRECATED sVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
-
--- | The number of alternative transcriptions that the service should return. If you specify the @MaxAlternatives@ field, you must set the @ShowAlternatives@ field to true.
---
--- /Note:/ Consider using 'maxAlternatives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sMaxAlternatives :: Lens.Lens' Settings (Lude.Maybe Lude.Natural)
-sMaxAlternatives = Lens.lens (maxAlternatives :: Settings -> Lude.Maybe Lude.Natural) (\s a -> s {maxAlternatives = a} :: Settings)
-{-# DEPRECATED sMaxAlternatives "Use generic-lens or generic-optics with 'maxAlternatives' instead." #-}
 
 -- | Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.
 --
@@ -110,75 +84,86 @@ sMaxAlternatives = Lens.lens (maxAlternatives :: Settings -> Lude.Maybe Lude.Nat
 -- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
 --
 -- /Note:/ Consider using 'channelIdentification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sChannelIdentification :: Lens.Lens' Settings (Lude.Maybe Lude.Bool)
-sChannelIdentification = Lens.lens (channelIdentification :: Settings -> Lude.Maybe Lude.Bool) (\s a -> s {channelIdentification = a} :: Settings)
+sChannelIdentification :: Lens.Lens' Settings (Core.Maybe Core.Bool)
+sChannelIdentification = Lens.field @"channelIdentification"
 {-# DEPRECATED sChannelIdentification "Use generic-lens or generic-optics with 'channelIdentification' instead." #-}
 
--- | Determines whether the transcription contains alternative transcriptions. If you set the @ShowAlternatives@ field to true, you must also set the maximum number of alternatives to return in the @MaxAlternatives@ field.
+-- | The number of alternative transcriptions that the service should return. If you specify the @MaxAlternatives@ field, you must set the @ShowAlternatives@ field to true.
 --
--- /Note:/ Consider using 'showAlternatives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sShowAlternatives :: Lens.Lens' Settings (Lude.Maybe Lude.Bool)
-sShowAlternatives = Lens.lens (showAlternatives :: Settings -> Lude.Maybe Lude.Bool) (\s a -> s {showAlternatives = a} :: Settings)
-{-# DEPRECATED sShowAlternatives "Use generic-lens or generic-optics with 'showAlternatives' instead." #-}
+-- /Note:/ Consider using 'maxAlternatives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sMaxAlternatives :: Lens.Lens' Settings (Core.Maybe Core.Natural)
+sMaxAlternatives = Lens.field @"maxAlternatives"
+{-# DEPRECATED sMaxAlternatives "Use generic-lens or generic-optics with 'maxAlternatives' instead." #-}
 
 -- | The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers are identified as a single speaker. If you specify the @MaxSpeakerLabels@ field, you must set the @ShowSpeakerLabels@ field to true.
 --
 -- /Note:/ Consider using 'maxSpeakerLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sMaxSpeakerLabels :: Lens.Lens' Settings (Lude.Maybe Lude.Natural)
-sMaxSpeakerLabels = Lens.lens (maxSpeakerLabels :: Settings -> Lude.Maybe Lude.Natural) (\s a -> s {maxSpeakerLabels = a} :: Settings)
+sMaxSpeakerLabels :: Lens.Lens' Settings (Core.Maybe Core.Natural)
+sMaxSpeakerLabels = Lens.field @"maxSpeakerLabels"
 {-# DEPRECATED sMaxSpeakerLabels "Use generic-lens or generic-optics with 'maxSpeakerLabels' instead." #-}
 
--- | The name of the vocabulary filter to use when transcribing the audio. The filter that you specify must have the same language code as the transcription job.
+-- | Determines whether the transcription contains alternative transcriptions. If you set the @ShowAlternatives@ field to true, you must also set the maximum number of alternatives to return in the @MaxAlternatives@ field.
 --
--- /Note:/ Consider using 'vocabularyFilterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sVocabularyFilterName :: Lens.Lens' Settings (Lude.Maybe Lude.Text)
-sVocabularyFilterName = Lens.lens (vocabularyFilterName :: Settings -> Lude.Maybe Lude.Text) (\s a -> s {vocabularyFilterName = a} :: Settings)
-{-# DEPRECATED sVocabularyFilterName "Use generic-lens or generic-optics with 'vocabularyFilterName' instead." #-}
+-- /Note:/ Consider using 'showAlternatives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sShowAlternatives :: Lens.Lens' Settings (Core.Maybe Core.Bool)
+sShowAlternatives = Lens.field @"showAlternatives"
+{-# DEPRECATED sShowAlternatives "Use generic-lens or generic-optics with 'showAlternatives' instead." #-}
 
 -- | Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the @ShowSpeakerLabels@ field to true, you must also set the maximum number of speaker labels @MaxSpeakerLabels@ field.
 --
 -- You can't set both @ShowSpeakerLabels@ and @ChannelIdentification@ in the same request. If you set both, your request returns a @BadRequestException@ .
 --
 -- /Note:/ Consider using 'showSpeakerLabels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sShowSpeakerLabels :: Lens.Lens' Settings (Lude.Maybe Lude.Bool)
-sShowSpeakerLabels = Lens.lens (showSpeakerLabels :: Settings -> Lude.Maybe Lude.Bool) (\s a -> s {showSpeakerLabels = a} :: Settings)
+sShowSpeakerLabels :: Lens.Lens' Settings (Core.Maybe Core.Bool)
+sShowSpeakerLabels = Lens.field @"showSpeakerLabels"
 {-# DEPRECATED sShowSpeakerLabels "Use generic-lens or generic-optics with 'showSpeakerLabels' instead." #-}
 
 -- | Set to @mask@ to remove filtered text from the transcript and replace it with three asterisks ("***") as placeholder text. Set to @remove@ to remove filtered text from the transcript without using placeholder text.
 --
 -- /Note:/ Consider using 'vocabularyFilterMethod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sVocabularyFilterMethod :: Lens.Lens' Settings (Lude.Maybe VocabularyFilterMethod)
-sVocabularyFilterMethod = Lens.lens (vocabularyFilterMethod :: Settings -> Lude.Maybe VocabularyFilterMethod) (\s a -> s {vocabularyFilterMethod = a} :: Settings)
+sVocabularyFilterMethod :: Lens.Lens' Settings (Core.Maybe Types.VocabularyFilterMethod)
+sVocabularyFilterMethod = Lens.field @"vocabularyFilterMethod"
 {-# DEPRECATED sVocabularyFilterMethod "Use generic-lens or generic-optics with 'vocabularyFilterMethod' instead." #-}
 
-instance Lude.FromJSON Settings where
-  parseJSON =
-    Lude.withObject
-      "Settings"
-      ( \x ->
-          Settings'
-            Lude.<$> (x Lude..:? "VocabularyName")
-            Lude.<*> (x Lude..:? "MaxAlternatives")
-            Lude.<*> (x Lude..:? "ChannelIdentification")
-            Lude.<*> (x Lude..:? "ShowAlternatives")
-            Lude.<*> (x Lude..:? "MaxSpeakerLabels")
-            Lude.<*> (x Lude..:? "VocabularyFilterName")
-            Lude.<*> (x Lude..:? "ShowSpeakerLabels")
-            Lude.<*> (x Lude..:? "VocabularyFilterMethod")
-      )
+-- | The name of the vocabulary filter to use when transcribing the audio. The filter that you specify must have the same language code as the transcription job.
+--
+-- /Note:/ Consider using 'vocabularyFilterName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sVocabularyFilterName :: Lens.Lens' Settings (Core.Maybe Types.VocabularyFilterName)
+sVocabularyFilterName = Lens.field @"vocabularyFilterName"
+{-# DEPRECATED sVocabularyFilterName "Use generic-lens or generic-optics with 'vocabularyFilterName' instead." #-}
 
-instance Lude.ToJSON Settings where
-  toJSON Settings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("VocabularyName" Lude..=) Lude.<$> vocabularyName,
-            ("MaxAlternatives" Lude..=) Lude.<$> maxAlternatives,
-            ("ChannelIdentification" Lude..=) Lude.<$> channelIdentification,
-            ("ShowAlternatives" Lude..=) Lude.<$> showAlternatives,
-            ("MaxSpeakerLabels" Lude..=) Lude.<$> maxSpeakerLabels,
-            ("VocabularyFilterName" Lude..=) Lude.<$> vocabularyFilterName,
-            ("ShowSpeakerLabels" Lude..=) Lude.<$> showSpeakerLabels,
-            ("VocabularyFilterMethod" Lude..=)
-              Lude.<$> vocabularyFilterMethod
+-- | The name of a vocabulary to use when processing the transcription job.
+--
+-- /Note:/ Consider using 'vocabularyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sVocabularyName :: Lens.Lens' Settings (Core.Maybe Types.VocabularyName)
+sVocabularyName = Lens.field @"vocabularyName"
+{-# DEPRECATED sVocabularyName "Use generic-lens or generic-optics with 'vocabularyName' instead." #-}
+
+instance Core.FromJSON Settings where
+  toJSON Settings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ChannelIdentification" Core..=) Core.<$> channelIdentification,
+            ("MaxAlternatives" Core..=) Core.<$> maxAlternatives,
+            ("MaxSpeakerLabels" Core..=) Core.<$> maxSpeakerLabels,
+            ("ShowAlternatives" Core..=) Core.<$> showAlternatives,
+            ("ShowSpeakerLabels" Core..=) Core.<$> showSpeakerLabels,
+            ("VocabularyFilterMethod" Core..=) Core.<$> vocabularyFilterMethod,
+            ("VocabularyFilterName" Core..=) Core.<$> vocabularyFilterName,
+            ("VocabularyName" Core..=) Core.<$> vocabularyName
           ]
       )
+
+instance Core.FromJSON Settings where
+  parseJSON =
+    Core.withObject "Settings" Core.$
+      \x ->
+        Settings'
+          Core.<$> (x Core..:? "ChannelIdentification")
+          Core.<*> (x Core..:? "MaxAlternatives")
+          Core.<*> (x Core..:? "MaxSpeakerLabels")
+          Core.<*> (x Core..:? "ShowAlternatives")
+          Core.<*> (x Core..:? "ShowSpeakerLabels")
+          Core.<*> (x Core..:? "VocabularyFilterMethod")
+          Core.<*> (x Core..:? "VocabularyFilterName")
+          Core.<*> (x Core..:? "VocabularyName")

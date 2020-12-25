@@ -13,66 +13,71 @@
 module Network.AWS.SageMaker.Types.CompilationJobStatus
   ( CompilationJobStatus
       ( CompilationJobStatus',
-        CJSInprogress,
-        CJSCompleted,
-        CJSFailed,
-        CJSStarting,
-        CJSStopping,
-        CJSStopped
+        CompilationJobStatusInprogress,
+        CompilationJobStatusCompleted,
+        CompilationJobStatusFailed,
+        CompilationJobStatusStarting,
+        CompilationJobStatusStopping,
+        CompilationJobStatusStopped,
+        fromCompilationJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CompilationJobStatus = CompilationJobStatus' Lude.Text
+newtype CompilationJobStatus = CompilationJobStatus'
+  { fromCompilationJobStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CJSInprogress :: CompilationJobStatus
-pattern CJSInprogress = CompilationJobStatus' "INPROGRESS"
+pattern CompilationJobStatusInprogress :: CompilationJobStatus
+pattern CompilationJobStatusInprogress = CompilationJobStatus' "INPROGRESS"
 
-pattern CJSCompleted :: CompilationJobStatus
-pattern CJSCompleted = CompilationJobStatus' "COMPLETED"
+pattern CompilationJobStatusCompleted :: CompilationJobStatus
+pattern CompilationJobStatusCompleted = CompilationJobStatus' "COMPLETED"
 
-pattern CJSFailed :: CompilationJobStatus
-pattern CJSFailed = CompilationJobStatus' "FAILED"
+pattern CompilationJobStatusFailed :: CompilationJobStatus
+pattern CompilationJobStatusFailed = CompilationJobStatus' "FAILED"
 
-pattern CJSStarting :: CompilationJobStatus
-pattern CJSStarting = CompilationJobStatus' "STARTING"
+pattern CompilationJobStatusStarting :: CompilationJobStatus
+pattern CompilationJobStatusStarting = CompilationJobStatus' "STARTING"
 
-pattern CJSStopping :: CompilationJobStatus
-pattern CJSStopping = CompilationJobStatus' "STOPPING"
+pattern CompilationJobStatusStopping :: CompilationJobStatus
+pattern CompilationJobStatusStopping = CompilationJobStatus' "STOPPING"
 
-pattern CJSStopped :: CompilationJobStatus
-pattern CJSStopped = CompilationJobStatus' "STOPPED"
+pattern CompilationJobStatusStopped :: CompilationJobStatus
+pattern CompilationJobStatusStopped = CompilationJobStatus' "STOPPED"
 
 {-# COMPLETE
-  CJSInprogress,
-  CJSCompleted,
-  CJSFailed,
-  CJSStarting,
-  CJSStopping,
-  CJSStopped,
+  CompilationJobStatusInprogress,
+  CompilationJobStatusCompleted,
+  CompilationJobStatusFailed,
+  CompilationJobStatusStarting,
+  CompilationJobStatusStopping,
+  CompilationJobStatusStopped,
   CompilationJobStatus'
   #-}

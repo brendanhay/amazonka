@@ -13,91 +13,96 @@
 module Network.AWS.ElasticBeanstalk.Types.InstancesHealthAttribute
   ( InstancesHealthAttribute
       ( InstancesHealthAttribute',
-        HealthStatus,
-        Color,
-        Causes,
-        ApplicationMetrics,
-        RefreshedAt,
-        LaunchedAt,
-        System,
-        Deployment,
-        AvailabilityZone,
-        InstanceType,
-        All
+        InstancesHealthAttributeHealthStatus,
+        InstancesHealthAttributeColor,
+        InstancesHealthAttributeCauses,
+        InstancesHealthAttributeApplicationMetrics,
+        InstancesHealthAttributeRefreshedAt,
+        InstancesHealthAttributeLaunchedAt,
+        InstancesHealthAttributeSystem,
+        InstancesHealthAttributeDeployment,
+        InstancesHealthAttributeAvailabilityZone,
+        InstancesHealthAttributeInstanceType,
+        InstancesHealthAttributeAll,
+        fromInstancesHealthAttribute
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstancesHealthAttribute = InstancesHealthAttribute' Lude.Text
+newtype InstancesHealthAttribute = InstancesHealthAttribute'
+  { fromInstancesHealthAttribute ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HealthStatus :: InstancesHealthAttribute
-pattern HealthStatus = InstancesHealthAttribute' "HealthStatus"
+pattern InstancesHealthAttributeHealthStatus :: InstancesHealthAttribute
+pattern InstancesHealthAttributeHealthStatus = InstancesHealthAttribute' "HealthStatus"
 
-pattern Color :: InstancesHealthAttribute
-pattern Color = InstancesHealthAttribute' "Color"
+pattern InstancesHealthAttributeColor :: InstancesHealthAttribute
+pattern InstancesHealthAttributeColor = InstancesHealthAttribute' "Color"
 
-pattern Causes :: InstancesHealthAttribute
-pattern Causes = InstancesHealthAttribute' "Causes"
+pattern InstancesHealthAttributeCauses :: InstancesHealthAttribute
+pattern InstancesHealthAttributeCauses = InstancesHealthAttribute' "Causes"
 
-pattern ApplicationMetrics :: InstancesHealthAttribute
-pattern ApplicationMetrics = InstancesHealthAttribute' "ApplicationMetrics"
+pattern InstancesHealthAttributeApplicationMetrics :: InstancesHealthAttribute
+pattern InstancesHealthAttributeApplicationMetrics = InstancesHealthAttribute' "ApplicationMetrics"
 
-pattern RefreshedAt :: InstancesHealthAttribute
-pattern RefreshedAt = InstancesHealthAttribute' "RefreshedAt"
+pattern InstancesHealthAttributeRefreshedAt :: InstancesHealthAttribute
+pattern InstancesHealthAttributeRefreshedAt = InstancesHealthAttribute' "RefreshedAt"
 
-pattern LaunchedAt :: InstancesHealthAttribute
-pattern LaunchedAt = InstancesHealthAttribute' "LaunchedAt"
+pattern InstancesHealthAttributeLaunchedAt :: InstancesHealthAttribute
+pattern InstancesHealthAttributeLaunchedAt = InstancesHealthAttribute' "LaunchedAt"
 
-pattern System :: InstancesHealthAttribute
-pattern System = InstancesHealthAttribute' "System"
+pattern InstancesHealthAttributeSystem :: InstancesHealthAttribute
+pattern InstancesHealthAttributeSystem = InstancesHealthAttribute' "System"
 
-pattern Deployment :: InstancesHealthAttribute
-pattern Deployment = InstancesHealthAttribute' "Deployment"
+pattern InstancesHealthAttributeDeployment :: InstancesHealthAttribute
+pattern InstancesHealthAttributeDeployment = InstancesHealthAttribute' "Deployment"
 
-pattern AvailabilityZone :: InstancesHealthAttribute
-pattern AvailabilityZone = InstancesHealthAttribute' "AvailabilityZone"
+pattern InstancesHealthAttributeAvailabilityZone :: InstancesHealthAttribute
+pattern InstancesHealthAttributeAvailabilityZone = InstancesHealthAttribute' "AvailabilityZone"
 
-pattern InstanceType :: InstancesHealthAttribute
-pattern InstanceType = InstancesHealthAttribute' "InstanceType"
+pattern InstancesHealthAttributeInstanceType :: InstancesHealthAttribute
+pattern InstancesHealthAttributeInstanceType = InstancesHealthAttribute' "InstanceType"
 
-pattern All :: InstancesHealthAttribute
-pattern All = InstancesHealthAttribute' "All"
+pattern InstancesHealthAttributeAll :: InstancesHealthAttribute
+pattern InstancesHealthAttributeAll = InstancesHealthAttribute' "All"
 
 {-# COMPLETE
-  HealthStatus,
-  Color,
-  Causes,
-  ApplicationMetrics,
-  RefreshedAt,
-  LaunchedAt,
-  System,
-  Deployment,
-  AvailabilityZone,
-  InstanceType,
-  All,
+  InstancesHealthAttributeHealthStatus,
+  InstancesHealthAttributeColor,
+  InstancesHealthAttributeCauses,
+  InstancesHealthAttributeApplicationMetrics,
+  InstancesHealthAttributeRefreshedAt,
+  InstancesHealthAttributeLaunchedAt,
+  InstancesHealthAttributeSystem,
+  InstancesHealthAttributeDeployment,
+  InstancesHealthAttributeAvailabilityZone,
+  InstancesHealthAttributeInstanceType,
+  InstancesHealthAttributeAll,
   InstancesHealthAttribute'
   #-}

@@ -17,27 +17,25 @@ module Network.AWS.SWF.Types.WorkflowExecutionTerminatedEventAttributes
     mkWorkflowExecutionTerminatedEventAttributes,
 
     -- * Lenses
-    weteaCause,
-    weteaReason,
     weteaChildPolicy,
+    weteaCause,
     weteaDetails,
+    weteaReason,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SWF.Types.ChildPolicy
-import Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.ChildPolicy as Types
+import qualified Network.AWS.SWF.Types.Data as Types
+import qualified Network.AWS.SWF.Types.TerminateReason as Types
+import qualified Network.AWS.SWF.Types.WorkflowExecutionTerminatedCause as Types
 
 -- | Provides the details of the @WorkflowExecutionTerminated@ event.
 --
 -- /See:/ 'mkWorkflowExecutionTerminatedEventAttributes' smart constructor.
 data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEventAttributes'
-  { -- | If set, indicates that the workflow execution was automatically terminated, and specifies the cause. This happens if the parent workflow execution times out or is terminated and the child policy is set to terminate child executions.
-    cause :: Lude.Maybe WorkflowExecutionTerminatedCause,
-    -- | The reason provided for the termination.
-    reason :: Lude.Maybe Lude.Text,
-    -- | The policy used for the child workflow executions of this workflow execution.
+  { -- | The policy used for the child workflow executions of this workflow execution.
     --
     -- The supported child policies are:
     --
@@ -48,56 +46,29 @@ data WorkflowExecutionTerminatedEventAttributes = WorkflowExecutionTerminatedEve
     --
     --
     --     * @ABANDON@ – No action is taken. The child executions continue to run.
-    childPolicy :: ChildPolicy,
+    childPolicy :: Types.ChildPolicy,
+    -- | If set, indicates that the workflow execution was automatically terminated, and specifies the cause. This happens if the parent workflow execution times out or is terminated and the child policy is set to terminate child executions.
+    cause :: Core.Maybe Types.WorkflowExecutionTerminatedCause,
     -- | The details provided for the termination.
-    details :: Lude.Maybe Lude.Text
+    details :: Core.Maybe Types.Data,
+    -- | The reason provided for the termination.
+    reason :: Core.Maybe Types.TerminateReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WorkflowExecutionTerminatedEventAttributes' with the minimum fields required to make a request.
---
--- * 'cause' - If set, indicates that the workflow execution was automatically terminated, and specifies the cause. This happens if the parent workflow execution times out or is terminated and the child policy is set to terminate child executions.
--- * 'reason' - The reason provided for the termination.
--- * 'childPolicy' - The policy used for the child workflow executions of this workflow execution.
---
--- The supported child policies are:
---
---     * @TERMINATE@ – The child executions are terminated.
---
---
---     * @REQUEST_CANCEL@ – A request to cancel is attempted for each child execution by recording a @WorkflowExecutionCancelRequested@ event in its history. It is up to the decider to take appropriate actions when it receives an execution history with this event.
---
---
---     * @ABANDON@ – No action is taken. The child executions continue to run.
---
---
--- * 'details' - The details provided for the termination.
+-- | Creates a 'WorkflowExecutionTerminatedEventAttributes' value with any optional fields omitted.
 mkWorkflowExecutionTerminatedEventAttributes ::
   -- | 'childPolicy'
-  ChildPolicy ->
+  Types.ChildPolicy ->
   WorkflowExecutionTerminatedEventAttributes
-mkWorkflowExecutionTerminatedEventAttributes pChildPolicy_ =
+mkWorkflowExecutionTerminatedEventAttributes childPolicy =
   WorkflowExecutionTerminatedEventAttributes'
-    { cause = Lude.Nothing,
-      reason = Lude.Nothing,
-      childPolicy = pChildPolicy_,
-      details = Lude.Nothing
+    { childPolicy,
+      cause = Core.Nothing,
+      details = Core.Nothing,
+      reason = Core.Nothing
     }
-
--- | If set, indicates that the workflow execution was automatically terminated, and specifies the cause. This happens if the parent workflow execution times out or is terminated and the child policy is set to terminate child executions.
---
--- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-weteaCause :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Lude.Maybe WorkflowExecutionTerminatedCause)
-weteaCause = Lens.lens (cause :: WorkflowExecutionTerminatedEventAttributes -> Lude.Maybe WorkflowExecutionTerminatedCause) (\s a -> s {cause = a} :: WorkflowExecutionTerminatedEventAttributes)
-{-# DEPRECATED weteaCause "Use generic-lens or generic-optics with 'cause' instead." #-}
-
--- | The reason provided for the termination.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-weteaReason :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Lude.Maybe Lude.Text)
-weteaReason = Lens.lens (reason :: WorkflowExecutionTerminatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: WorkflowExecutionTerminatedEventAttributes)
-{-# DEPRECATED weteaReason "Use generic-lens or generic-optics with 'reason' instead." #-}
 
 -- | The policy used for the child workflow executions of this workflow execution.
 --
@@ -114,25 +85,37 @@ weteaReason = Lens.lens (reason :: WorkflowExecutionTerminatedEventAttributes ->
 --
 --
 -- /Note:/ Consider using 'childPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-weteaChildPolicy :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes ChildPolicy
-weteaChildPolicy = Lens.lens (childPolicy :: WorkflowExecutionTerminatedEventAttributes -> ChildPolicy) (\s a -> s {childPolicy = a} :: WorkflowExecutionTerminatedEventAttributes)
+weteaChildPolicy :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes Types.ChildPolicy
+weteaChildPolicy = Lens.field @"childPolicy"
 {-# DEPRECATED weteaChildPolicy "Use generic-lens or generic-optics with 'childPolicy' instead." #-}
+
+-- | If set, indicates that the workflow execution was automatically terminated, and specifies the cause. This happens if the parent workflow execution times out or is terminated and the child policy is set to terminate child executions.
+--
+-- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+weteaCause :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Core.Maybe Types.WorkflowExecutionTerminatedCause)
+weteaCause = Lens.field @"cause"
+{-# DEPRECATED weteaCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
 -- | The details provided for the termination.
 --
 -- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-weteaDetails :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Lude.Maybe Lude.Text)
-weteaDetails = Lens.lens (details :: WorkflowExecutionTerminatedEventAttributes -> Lude.Maybe Lude.Text) (\s a -> s {details = a} :: WorkflowExecutionTerminatedEventAttributes)
+weteaDetails :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Core.Maybe Types.Data)
+weteaDetails = Lens.field @"details"
 {-# DEPRECATED weteaDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
-instance Lude.FromJSON WorkflowExecutionTerminatedEventAttributes where
+-- | The reason provided for the termination.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+weteaReason :: Lens.Lens' WorkflowExecutionTerminatedEventAttributes (Core.Maybe Types.TerminateReason)
+weteaReason = Lens.field @"reason"
+{-# DEPRECATED weteaReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+instance Core.FromJSON WorkflowExecutionTerminatedEventAttributes where
   parseJSON =
-    Lude.withObject
-      "WorkflowExecutionTerminatedEventAttributes"
-      ( \x ->
-          WorkflowExecutionTerminatedEventAttributes'
-            Lude.<$> (x Lude..:? "cause")
-            Lude.<*> (x Lude..:? "reason")
-            Lude.<*> (x Lude..: "childPolicy")
-            Lude.<*> (x Lude..:? "details")
-      )
+    Core.withObject "WorkflowExecutionTerminatedEventAttributes" Core.$
+      \x ->
+        WorkflowExecutionTerminatedEventAttributes'
+          Core.<$> (x Core..: "childPolicy")
+          Core.<*> (x Core..:? "cause")
+          Core.<*> (x Core..:? "details")
+          Core.<*> (x Core..:? "reason")

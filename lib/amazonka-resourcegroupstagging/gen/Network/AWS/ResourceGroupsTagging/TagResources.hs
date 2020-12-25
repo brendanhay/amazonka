@@ -43,128 +43,111 @@ module Network.AWS.ResourceGroupsTagging.TagResources
     mkTagResourcesResponse,
 
     -- ** Response lenses
-    trrsFailedResourcesMap,
-    trrsResponseStatus,
+    trrrsFailedResourcesMap,
+    trrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import Network.AWS.ResourceGroupsTagging.Types
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.ResourceGroupsTagging.Types as Types
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagResources' smart constructor.
 data TagResources = TagResources'
   { -- | A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-    resourceARNList :: Lude.NonEmpty Lude.Text,
+    resourceARNList :: Core.NonEmpty Types.ResourceARN,
     -- | The tags that you want to add to the specified resources. A tag consists of a key and a value that you define.
-    tags :: Lude.HashMap Lude.Text (Lude.Text)
+    tags :: Core.HashMap Types.TagKey Types.TagValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResources' with the minimum fields required to make a request.
---
--- * 'resourceARNList' - A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
--- * 'tags' - The tags that you want to add to the specified resources. A tag consists of a key and a value that you define.
+-- | Creates a 'TagResources' value with any optional fields omitted.
 mkTagResources ::
   -- | 'resourceARNList'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.ResourceARN ->
   TagResources
-mkTagResources pResourceARNList_ =
-  TagResources'
-    { resourceARNList = pResourceARNList_,
-      tags = Lude.mempty
-    }
+mkTagResources resourceARNList =
+  TagResources' {resourceARNList, tags = Core.mempty}
 
 -- | A list of ARNs. An ARN (Amazon Resource Name) uniquely identifies a resource. For more information, see <http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
 -- /Note:/ Consider using 'resourceARNList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trResourceARNList :: Lens.Lens' TagResources (Lude.NonEmpty Lude.Text)
-trResourceARNList = Lens.lens (resourceARNList :: TagResources -> Lude.NonEmpty Lude.Text) (\s a -> s {resourceARNList = a} :: TagResources)
+trResourceARNList :: Lens.Lens' TagResources (Core.NonEmpty Types.ResourceARN)
+trResourceARNList = Lens.field @"resourceARNList"
 {-# DEPRECATED trResourceARNList "Use generic-lens or generic-optics with 'resourceARNList' instead." #-}
 
 -- | The tags that you want to add to the specified resources. A tag consists of a key and a value that you define.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trTags :: Lens.Lens' TagResources (Lude.HashMap Lude.Text (Lude.Text))
-trTags = Lens.lens (tags :: TagResources -> Lude.HashMap Lude.Text (Lude.Text)) (\s a -> s {tags = a} :: TagResources)
+trTags :: Lens.Lens' TagResources (Core.HashMap Types.TagKey Types.TagValue)
+trTags = Lens.field @"tags"
 {-# DEPRECATED trTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest TagResources where
+instance Core.FromJSON TagResources where
+  toJSON TagResources {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceARNList" Core..= resourceARNList),
+            Core.Just ("Tags" Core..= tags)
+          ]
+      )
+
+instance Core.AWSRequest TagResources where
   type Rs TagResources = TagResourcesResponse
-  request = Req.postJSON resourceGroupsTaggingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ResourceGroupsTaggingAPI_20170126.TagResources")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           TagResourcesResponse'
-            Lude.<$> (x Lude..?> "FailedResourcesMap" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FailedResourcesMap")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TagResources where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "ResourceGroupsTaggingAPI_20170126.TagResources" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TagResources where
-  toJSON TagResources' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceARNList" Lude..= resourceARNList),
-            Lude.Just ("Tags" Lude..= tags)
-          ]
-      )
-
-instance Lude.ToPath TagResources where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TagResources where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTagResourcesResponse' smart constructor.
 data TagResourcesResponse = TagResourcesResponse'
   { -- | A map containing a key-value pair for each failed item that couldn't be tagged. The key is the ARN of the failed resource. The value is a @FailureInfo@ object that contains an error code, a status code, and an error message. If there are no errors, the @FailedResourcesMap@ is empty.
-    failedResourcesMap :: Lude.Maybe (Lude.HashMap Lude.Text (FailureInfo)),
+    failedResourcesMap :: Core.Maybe (Core.HashMap Types.ResourceARN Types.FailureInfo),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResourcesResponse' with the minimum fields required to make a request.
---
--- * 'failedResourcesMap' - A map containing a key-value pair for each failed item that couldn't be tagged. The key is the ARN of the failed resource. The value is a @FailureInfo@ object that contains an error code, a status code, and an error message. If there are no errors, the @FailedResourcesMap@ is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TagResourcesResponse' value with any optional fields omitted.
 mkTagResourcesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TagResourcesResponse
-mkTagResourcesResponse pResponseStatus_ =
+mkTagResourcesResponse responseStatus =
   TagResourcesResponse'
-    { failedResourcesMap = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failedResourcesMap = Core.Nothing,
+      responseStatus
     }
 
 -- | A map containing a key-value pair for each failed item that couldn't be tagged. The key is the ARN of the failed resource. The value is a @FailureInfo@ object that contains an error code, a status code, and an error message. If there are no errors, the @FailedResourcesMap@ is empty.
 --
 -- /Note:/ Consider using 'failedResourcesMap' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trrsFailedResourcesMap :: Lens.Lens' TagResourcesResponse (Lude.Maybe (Lude.HashMap Lude.Text (FailureInfo)))
-trrsFailedResourcesMap = Lens.lens (failedResourcesMap :: TagResourcesResponse -> Lude.Maybe (Lude.HashMap Lude.Text (FailureInfo))) (\s a -> s {failedResourcesMap = a} :: TagResourcesResponse)
-{-# DEPRECATED trrsFailedResourcesMap "Use generic-lens or generic-optics with 'failedResourcesMap' instead." #-}
+trrrsFailedResourcesMap :: Lens.Lens' TagResourcesResponse (Core.Maybe (Core.HashMap Types.ResourceARN Types.FailureInfo))
+trrrsFailedResourcesMap = Lens.field @"failedResourcesMap"
+{-# DEPRECATED trrrsFailedResourcesMap "Use generic-lens or generic-optics with 'failedResourcesMap' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trrsResponseStatus :: Lens.Lens' TagResourcesResponse Lude.Int
-trrsResponseStatus = Lens.lens (responseStatus :: TagResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TagResourcesResponse)
-{-# DEPRECATED trrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+trrrsResponseStatus :: Lens.Lens' TagResourcesResponse Core.Int
+trrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED trrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

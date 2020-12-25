@@ -22,42 +22,38 @@ module Network.AWS.MediaConvert.Types.AccelerationSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AccelerationMode
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.AccelerationMode as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Accelerated transcoding can significantly speed up jobs with long, visually complex content.
 --
 -- /See:/ 'mkAccelerationSettings' smart constructor.
 newtype AccelerationSettings = AccelerationSettings'
   { -- | Specify the conditions when the service will run your job with accelerated transcoding.
-    mode :: AccelerationMode
+    mode :: Types.AccelerationMode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccelerationSettings' with the minimum fields required to make a request.
---
--- * 'mode' - Specify the conditions when the service will run your job with accelerated transcoding.
+-- | Creates a 'AccelerationSettings' value with any optional fields omitted.
 mkAccelerationSettings ::
   -- | 'mode'
-  AccelerationMode ->
+  Types.AccelerationMode ->
   AccelerationSettings
-mkAccelerationSettings pMode_ =
-  AccelerationSettings' {mode = pMode_}
+mkAccelerationSettings mode = AccelerationSettings' {mode}
 
 -- | Specify the conditions when the service will run your job with accelerated transcoding.
 --
 -- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asMode :: Lens.Lens' AccelerationSettings AccelerationMode
-asMode = Lens.lens (mode :: AccelerationSettings -> AccelerationMode) (\s a -> s {mode = a} :: AccelerationSettings)
+asMode :: Lens.Lens' AccelerationSettings Types.AccelerationMode
+asMode = Lens.field @"mode"
 {-# DEPRECATED asMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
-instance Lude.FromJSON AccelerationSettings where
-  parseJSON =
-    Lude.withObject
-      "AccelerationSettings"
-      (\x -> AccelerationSettings' Lude.<$> (x Lude..: "mode"))
+instance Core.FromJSON AccelerationSettings where
+  toJSON AccelerationSettings {..} =
+    Core.object (Core.catMaybes [Core.Just ("mode" Core..= mode)])
 
-instance Lude.ToJSON AccelerationSettings where
-  toJSON AccelerationSettings' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("mode" Lude..= mode)])
+instance Core.FromJSON AccelerationSettings where
+  parseJSON =
+    Core.withObject "AccelerationSettings" Core.$
+      \x -> AccelerationSettings' Core.<$> (x Core..: "mode")

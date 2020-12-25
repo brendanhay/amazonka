@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ResourceGroups
     Network.AWS.ResourceGroups.CreateGroup
@@ -86,23 +92,43 @@ library
     Network.AWS.ResourceGroups.Waiters
 
   other-modules:
+    Network.AWS.ResourceGroups.Types.Arn
+    Network.AWS.ResourceGroups.Types.Description
+    Network.AWS.ResourceGroups.Types.ErrorCode
+    Network.AWS.ResourceGroups.Types.ErrorMessage
     Network.AWS.ResourceGroups.Types.FailedResource
+    Network.AWS.ResourceGroups.Types.FailureReason
     Network.AWS.ResourceGroups.Types.Group
+    Network.AWS.ResourceGroups.Types.GroupArn
     Network.AWS.ResourceGroups.Types.GroupConfiguration
     Network.AWS.ResourceGroups.Types.GroupConfigurationItem
     Network.AWS.ResourceGroups.Types.GroupConfigurationParameter
+    Network.AWS.ResourceGroups.Types.GroupConfigurationParameterValue
     Network.AWS.ResourceGroups.Types.GroupConfigurationStatus
+    Network.AWS.ResourceGroups.Types.GroupConfigurationType
     Network.AWS.ResourceGroups.Types.GroupFilter
     Network.AWS.ResourceGroups.Types.GroupFilterName
+    Network.AWS.ResourceGroups.Types.GroupFilterValue
     Network.AWS.ResourceGroups.Types.GroupIdentifier
+    Network.AWS.ResourceGroups.Types.GroupName
     Network.AWS.ResourceGroups.Types.GroupQuery
+    Network.AWS.ResourceGroups.Types.GroupString
+    Network.AWS.ResourceGroups.Types.Name
+    Network.AWS.ResourceGroups.Types.NextToken
+    Network.AWS.ResourceGroups.Types.Query
     Network.AWS.ResourceGroups.Types.QueryError
     Network.AWS.ResourceGroups.Types.QueryErrorCode
+    Network.AWS.ResourceGroups.Types.QueryErrorMessage
     Network.AWS.ResourceGroups.Types.QueryType
+    Network.AWS.ResourceGroups.Types.ResourceArn
     Network.AWS.ResourceGroups.Types.ResourceFilter
     Network.AWS.ResourceGroups.Types.ResourceFilterName
+    Network.AWS.ResourceGroups.Types.ResourceFilterValue
     Network.AWS.ResourceGroups.Types.ResourceIdentifier
     Network.AWS.ResourceGroups.Types.ResourceQuery
+    Network.AWS.ResourceGroups.Types.ResourceType
+    Network.AWS.ResourceGroups.Types.TagKey
+    Network.AWS.ResourceGroups.Types.TagValue
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

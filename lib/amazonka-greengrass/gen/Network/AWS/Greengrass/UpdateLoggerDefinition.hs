@@ -28,110 +28,94 @@ module Network.AWS.Greengrass.UpdateLoggerDefinition
     mkUpdateLoggerDefinitionResponse,
 
     -- ** Response lenses
-    uldrsResponseStatus,
+    uldrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateLoggerDefinition' smart constructor.
 data UpdateLoggerDefinition = UpdateLoggerDefinition'
   { -- | The ID of the logger definition.
-    loggerDefinitionId :: Lude.Text,
+    loggerDefinitionId :: Core.Text,
     -- | The name of the definition.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateLoggerDefinition' with the minimum fields required to make a request.
---
--- * 'loggerDefinitionId' - The ID of the logger definition.
--- * 'name' - The name of the definition.
+-- | Creates a 'UpdateLoggerDefinition' value with any optional fields omitted.
 mkUpdateLoggerDefinition ::
   -- | 'loggerDefinitionId'
-  Lude.Text ->
+  Core.Text ->
   UpdateLoggerDefinition
-mkUpdateLoggerDefinition pLoggerDefinitionId_ =
-  UpdateLoggerDefinition'
-    { loggerDefinitionId =
-        pLoggerDefinitionId_,
-      name = Lude.Nothing
-    }
+mkUpdateLoggerDefinition loggerDefinitionId =
+  UpdateLoggerDefinition' {loggerDefinitionId, name = Core.Nothing}
 
 -- | The ID of the logger definition.
 --
 -- /Note:/ Consider using 'loggerDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uldLoggerDefinitionId :: Lens.Lens' UpdateLoggerDefinition Lude.Text
-uldLoggerDefinitionId = Lens.lens (loggerDefinitionId :: UpdateLoggerDefinition -> Lude.Text) (\s a -> s {loggerDefinitionId = a} :: UpdateLoggerDefinition)
+uldLoggerDefinitionId :: Lens.Lens' UpdateLoggerDefinition Core.Text
+uldLoggerDefinitionId = Lens.field @"loggerDefinitionId"
 {-# DEPRECATED uldLoggerDefinitionId "Use generic-lens or generic-optics with 'loggerDefinitionId' instead." #-}
 
 -- | The name of the definition.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uldName :: Lens.Lens' UpdateLoggerDefinition (Lude.Maybe Lude.Text)
-uldName = Lens.lens (name :: UpdateLoggerDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateLoggerDefinition)
+uldName :: Lens.Lens' UpdateLoggerDefinition (Core.Maybe Core.Text)
+uldName = Lens.field @"name"
 {-# DEPRECATED uldName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest UpdateLoggerDefinition where
+instance Core.FromJSON UpdateLoggerDefinition where
+  toJSON UpdateLoggerDefinition {..} =
+    Core.object (Core.catMaybes [("Name" Core..=) Core.<$> name])
+
+instance Core.AWSRequest UpdateLoggerDefinition where
   type Rs UpdateLoggerDefinition = UpdateLoggerDefinitionResponse
-  request = Req.putJSON greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/definition/loggers/"
+                Core.<> (Core.toText loggerDefinitionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateLoggerDefinitionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateLoggerDefinition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateLoggerDefinition where
-  toJSON UpdateLoggerDefinition' {..} =
-    Lude.object (Lude.catMaybes [("Name" Lude..=) Lude.<$> name])
-
-instance Lude.ToPath UpdateLoggerDefinition where
-  toPath UpdateLoggerDefinition' {..} =
-    Lude.mconcat
-      ["/greengrass/definition/loggers/", Lude.toBS loggerDefinitionId]
-
-instance Lude.ToQuery UpdateLoggerDefinition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateLoggerDefinitionResponse' smart constructor.
 newtype UpdateLoggerDefinitionResponse = UpdateLoggerDefinitionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateLoggerDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateLoggerDefinitionResponse' value with any optional fields omitted.
 mkUpdateLoggerDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateLoggerDefinitionResponse
-mkUpdateLoggerDefinitionResponse pResponseStatus_ =
-  UpdateLoggerDefinitionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateLoggerDefinitionResponse responseStatus =
+  UpdateLoggerDefinitionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uldrsResponseStatus :: Lens.Lens' UpdateLoggerDefinitionResponse Lude.Int
-uldrsResponseStatus = Lens.lens (responseStatus :: UpdateLoggerDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateLoggerDefinitionResponse)
-{-# DEPRECATED uldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uldrrsResponseStatus :: Lens.Lens' UpdateLoggerDefinitionResponse Core.Int
+uldrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uldrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

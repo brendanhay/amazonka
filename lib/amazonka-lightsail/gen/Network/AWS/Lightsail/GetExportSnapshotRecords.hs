@@ -31,124 +31,120 @@ module Network.AWS.Lightsail.GetExportSnapshotRecords
     mkGetExportSnapshotRecordsResponse,
 
     -- ** Response lenses
-    gesrrsNextPageToken,
-    gesrrsExportSnapshotRecords,
-    gesrrsResponseStatus,
+    gesrrrsExportSnapshotRecords,
+    gesrrrsNextPageToken,
+    gesrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetExportSnapshotRecords' smart constructor.
 newtype GetExportSnapshotRecords = GetExportSnapshotRecords'
   { -- | The token to advance to the next page of results from your request.
     --
     -- To get a page token, perform an initial @GetExportSnapshotRecords@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
-    pageToken :: Lude.Maybe Lude.Text
+    pageToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetExportSnapshotRecords' with the minimum fields required to make a request.
---
--- * 'pageToken' - The token to advance to the next page of results from your request.
---
--- To get a page token, perform an initial @GetExportSnapshotRecords@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
+-- | Creates a 'GetExportSnapshotRecords' value with any optional fields omitted.
 mkGetExportSnapshotRecords ::
   GetExportSnapshotRecords
 mkGetExportSnapshotRecords =
-  GetExportSnapshotRecords' {pageToken = Lude.Nothing}
+  GetExportSnapshotRecords' {pageToken = Core.Nothing}
 
 -- | The token to advance to the next page of results from your request.
 --
 -- To get a page token, perform an initial @GetExportSnapshotRecords@ request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.
 --
 -- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gesrPageToken :: Lens.Lens' GetExportSnapshotRecords (Lude.Maybe Lude.Text)
-gesrPageToken = Lens.lens (pageToken :: GetExportSnapshotRecords -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: GetExportSnapshotRecords)
+gesrPageToken :: Lens.Lens' GetExportSnapshotRecords (Core.Maybe Types.String)
+gesrPageToken = Lens.field @"pageToken"
 {-# DEPRECATED gesrPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Page.AWSPager GetExportSnapshotRecords where
-  page rq rs
-    | Page.stop (rs Lens.^. gesrrsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gesrrsExportSnapshotRecords) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gesrPageToken Lens..~ rs Lens.^. gesrrsNextPageToken
+instance Core.FromJSON GetExportSnapshotRecords where
+  toJSON GetExportSnapshotRecords {..} =
+    Core.object
+      (Core.catMaybes [("pageToken" Core..=) Core.<$> pageToken])
 
-instance Lude.AWSRequest GetExportSnapshotRecords where
+instance Core.AWSRequest GetExportSnapshotRecords where
   type Rs GetExportSnapshotRecords = GetExportSnapshotRecordsResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Lightsail_20161128.GetExportSnapshotRecords")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetExportSnapshotRecordsResponse'
-            Lude.<$> (x Lude..?> "nextPageToken")
-            Lude.<*> (x Lude..?> "exportSnapshotRecords" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "exportSnapshotRecords")
+            Core.<*> (x Core..:? "nextPageToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetExportSnapshotRecords where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.GetExportSnapshotRecords" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetExportSnapshotRecords where
-  toJSON GetExportSnapshotRecords' {..} =
-    Lude.object
-      (Lude.catMaybes [("pageToken" Lude..=) Lude.<$> pageToken])
-
-instance Lude.ToPath GetExportSnapshotRecords where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetExportSnapshotRecords where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetExportSnapshotRecords where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"exportSnapshotRecords" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkGetExportSnapshotRecordsResponse' smart constructor.
 data GetExportSnapshotRecordsResponse = GetExportSnapshotRecordsResponse'
-  { -- | The token to advance to the next page of results from your request.
+  { -- | A list of objects describing the export snapshot records.
+    exportSnapshotRecords :: Core.Maybe [Types.ExportSnapshotRecord],
+    -- | The token to advance to the next page of results from your request.
     --
     -- A next page token is not returned if there are no more results to display.
     -- To get the next page of results, perform another @GetExportSnapshotRecords@ request and specify the next page token using the @pageToken@ parameter.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | A list of objects describing the export snapshot records.
-    exportSnapshotRecords :: Lude.Maybe [ExportSnapshotRecord],
+    nextPageToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetExportSnapshotRecordsResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The token to advance to the next page of results from your request.
---
--- A next page token is not returned if there are no more results to display.
--- To get the next page of results, perform another @GetExportSnapshotRecords@ request and specify the next page token using the @pageToken@ parameter.
--- * 'exportSnapshotRecords' - A list of objects describing the export snapshot records.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetExportSnapshotRecordsResponse' value with any optional fields omitted.
 mkGetExportSnapshotRecordsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetExportSnapshotRecordsResponse
-mkGetExportSnapshotRecordsResponse pResponseStatus_ =
+mkGetExportSnapshotRecordsResponse responseStatus =
   GetExportSnapshotRecordsResponse'
-    { nextPageToken = Lude.Nothing,
-      exportSnapshotRecords = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { exportSnapshotRecords =
+        Core.Nothing,
+      nextPageToken = Core.Nothing,
+      responseStatus
     }
+
+-- | A list of objects describing the export snapshot records.
+--
+-- /Note:/ Consider using 'exportSnapshotRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gesrrrsExportSnapshotRecords :: Lens.Lens' GetExportSnapshotRecordsResponse (Core.Maybe [Types.ExportSnapshotRecord])
+gesrrrsExportSnapshotRecords = Lens.field @"exportSnapshotRecords"
+{-# DEPRECATED gesrrrsExportSnapshotRecords "Use generic-lens or generic-optics with 'exportSnapshotRecords' instead." #-}
 
 -- | The token to advance to the next page of results from your request.
 --
@@ -156,20 +152,13 @@ mkGetExportSnapshotRecordsResponse pResponseStatus_ =
 -- To get the next page of results, perform another @GetExportSnapshotRecords@ request and specify the next page token using the @pageToken@ parameter.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gesrrsNextPageToken :: Lens.Lens' GetExportSnapshotRecordsResponse (Lude.Maybe Lude.Text)
-gesrrsNextPageToken = Lens.lens (nextPageToken :: GetExportSnapshotRecordsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetExportSnapshotRecordsResponse)
-{-# DEPRECATED gesrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
-
--- | A list of objects describing the export snapshot records.
---
--- /Note:/ Consider using 'exportSnapshotRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gesrrsExportSnapshotRecords :: Lens.Lens' GetExportSnapshotRecordsResponse (Lude.Maybe [ExportSnapshotRecord])
-gesrrsExportSnapshotRecords = Lens.lens (exportSnapshotRecords :: GetExportSnapshotRecordsResponse -> Lude.Maybe [ExportSnapshotRecord]) (\s a -> s {exportSnapshotRecords = a} :: GetExportSnapshotRecordsResponse)
-{-# DEPRECATED gesrrsExportSnapshotRecords "Use generic-lens or generic-optics with 'exportSnapshotRecords' instead." #-}
+gesrrrsNextPageToken :: Lens.Lens' GetExportSnapshotRecordsResponse (Core.Maybe Types.String)
+gesrrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED gesrrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gesrrsResponseStatus :: Lens.Lens' GetExportSnapshotRecordsResponse Lude.Int
-gesrrsResponseStatus = Lens.lens (responseStatus :: GetExportSnapshotRecordsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetExportSnapshotRecordsResponse)
-{-# DEPRECATED gesrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gesrrrsResponseStatus :: Lens.Lens' GetExportSnapshotRecordsResponse Core.Int
+gesrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gesrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

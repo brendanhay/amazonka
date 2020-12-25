@@ -17,57 +17,53 @@ module Network.AWS.AWSHealth.Types.EventAggregate
     mkEventAggregate,
 
     -- * Lenses
-    eaCount,
     eaAggregateValue,
+    eaCount,
   )
 where
 
+import qualified Network.AWS.AWSHealth.Types.AggregateValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The number of events of each issue type. Returned by the <https://docs.aws.amazon.com/health/latest/APIReference/API_DescribeEventAggregates.html DescribeEventAggregates> operation.
 --
 -- /See:/ 'mkEventAggregate' smart constructor.
 data EventAggregate = EventAggregate'
-  { -- | The number of events of the associated issue type.
-    count :: Lude.Maybe Lude.Int,
-    -- | The issue type for the associated count.
-    aggregateValue :: Lude.Maybe Lude.Text
+  { -- | The issue type for the associated count.
+    aggregateValue :: Core.Maybe Types.AggregateValue,
+    -- | The number of events of the associated issue type.
+    count :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventAggregate' with the minimum fields required to make a request.
---
--- * 'count' - The number of events of the associated issue type.
--- * 'aggregateValue' - The issue type for the associated count.
+-- | Creates a 'EventAggregate' value with any optional fields omitted.
 mkEventAggregate ::
   EventAggregate
 mkEventAggregate =
   EventAggregate'
-    { count = Lude.Nothing,
-      aggregateValue = Lude.Nothing
+    { aggregateValue = Core.Nothing,
+      count = Core.Nothing
     }
-
--- | The number of events of the associated issue type.
---
--- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaCount :: Lens.Lens' EventAggregate (Lude.Maybe Lude.Int)
-eaCount = Lens.lens (count :: EventAggregate -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: EventAggregate)
-{-# DEPRECATED eaCount "Use generic-lens or generic-optics with 'count' instead." #-}
 
 -- | The issue type for the associated count.
 --
 -- /Note:/ Consider using 'aggregateValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eaAggregateValue :: Lens.Lens' EventAggregate (Lude.Maybe Lude.Text)
-eaAggregateValue = Lens.lens (aggregateValue :: EventAggregate -> Lude.Maybe Lude.Text) (\s a -> s {aggregateValue = a} :: EventAggregate)
+eaAggregateValue :: Lens.Lens' EventAggregate (Core.Maybe Types.AggregateValue)
+eaAggregateValue = Lens.field @"aggregateValue"
 {-# DEPRECATED eaAggregateValue "Use generic-lens or generic-optics with 'aggregateValue' instead." #-}
 
-instance Lude.FromJSON EventAggregate where
+-- | The number of events of the associated issue type.
+--
+-- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eaCount :: Lens.Lens' EventAggregate (Core.Maybe Core.Int)
+eaCount = Lens.field @"count"
+{-# DEPRECATED eaCount "Use generic-lens or generic-optics with 'count' instead." #-}
+
+instance Core.FromJSON EventAggregate where
   parseJSON =
-    Lude.withObject
-      "EventAggregate"
-      ( \x ->
-          EventAggregate'
-            Lude.<$> (x Lude..:? "count") Lude.<*> (x Lude..:? "aggregateValue")
-      )
+    Core.withObject "EventAggregate" Core.$
+      \x ->
+        EventAggregate'
+          Core.<$> (x Core..:? "aggregateValue") Core.<*> (x Core..:? "count")

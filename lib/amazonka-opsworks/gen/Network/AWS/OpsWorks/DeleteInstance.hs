@@ -23,9 +23,9 @@ module Network.AWS.OpsWorks.DeleteInstance
     mkDeleteInstance,
 
     -- ** Request lenses
-    dInstanceId,
-    dDeleteVolumes,
-    dDeleteElasticIP,
+    diInstanceId,
+    diDeleteElasticIp,
+    diDeleteVolumes,
 
     -- * Destructuring the response
     DeleteInstanceResponse (..),
@@ -34,98 +34,87 @@ module Network.AWS.OpsWorks.DeleteInstance
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteInstance' smart constructor.
 data DeleteInstance = DeleteInstance'
   { -- | The instance ID.
-    instanceId :: Lude.Text,
-    -- | Whether to delete the instance's Amazon EBS volumes.
-    deleteVolumes :: Lude.Maybe Lude.Bool,
+    instanceId :: Types.String,
     -- | Whether to delete the instance Elastic IP address.
-    deleteElasticIP :: Lude.Maybe Lude.Bool
+    deleteElasticIp :: Core.Maybe Core.Bool,
+    -- | Whether to delete the instance's Amazon EBS volumes.
+    deleteVolumes :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance ID.
--- * 'deleteVolumes' - Whether to delete the instance's Amazon EBS volumes.
--- * 'deleteElasticIP' - Whether to delete the instance Elastic IP address.
+-- | Creates a 'DeleteInstance' value with any optional fields omitted.
 mkDeleteInstance ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.String ->
   DeleteInstance
-mkDeleteInstance pInstanceId_ =
+mkDeleteInstance instanceId =
   DeleteInstance'
-    { instanceId = pInstanceId_,
-      deleteVolumes = Lude.Nothing,
-      deleteElasticIP = Lude.Nothing
+    { instanceId,
+      deleteElasticIp = Core.Nothing,
+      deleteVolumes = Core.Nothing
     }
 
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInstanceId :: Lens.Lens' DeleteInstance Lude.Text
-dInstanceId = Lens.lens (instanceId :: DeleteInstance -> Lude.Text) (\s a -> s {instanceId = a} :: DeleteInstance)
-{-# DEPRECATED dInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+diInstanceId :: Lens.Lens' DeleteInstance Types.String
+diInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED diInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | Whether to delete the instance Elastic IP address.
+--
+-- /Note:/ Consider using 'deleteElasticIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diDeleteElasticIp :: Lens.Lens' DeleteInstance (Core.Maybe Core.Bool)
+diDeleteElasticIp = Lens.field @"deleteElasticIp"
+{-# DEPRECATED diDeleteElasticIp "Use generic-lens or generic-optics with 'deleteElasticIp' instead." #-}
 
 -- | Whether to delete the instance's Amazon EBS volumes.
 --
 -- /Note:/ Consider using 'deleteVolumes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDeleteVolumes :: Lens.Lens' DeleteInstance (Lude.Maybe Lude.Bool)
-dDeleteVolumes = Lens.lens (deleteVolumes :: DeleteInstance -> Lude.Maybe Lude.Bool) (\s a -> s {deleteVolumes = a} :: DeleteInstance)
-{-# DEPRECATED dDeleteVolumes "Use generic-lens or generic-optics with 'deleteVolumes' instead." #-}
+diDeleteVolumes :: Lens.Lens' DeleteInstance (Core.Maybe Core.Bool)
+diDeleteVolumes = Lens.field @"deleteVolumes"
+{-# DEPRECATED diDeleteVolumes "Use generic-lens or generic-optics with 'deleteVolumes' instead." #-}
 
--- | Whether to delete the instance Elastic IP address.
---
--- /Note:/ Consider using 'deleteElasticIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDeleteElasticIP :: Lens.Lens' DeleteInstance (Lude.Maybe Lude.Bool)
-dDeleteElasticIP = Lens.lens (deleteElasticIP :: DeleteInstance -> Lude.Maybe Lude.Bool) (\s a -> s {deleteElasticIP = a} :: DeleteInstance)
-{-# DEPRECATED dDeleteElasticIP "Use generic-lens or generic-optics with 'deleteElasticIP' instead." #-}
+instance Core.FromJSON DeleteInstance where
+  toJSON DeleteInstance {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            ("DeleteElasticIp" Core..=) Core.<$> deleteElasticIp,
+            ("DeleteVolumes" Core..=) Core.<$> deleteVolumes
+          ]
+      )
 
-instance Lude.AWSRequest DeleteInstance where
+instance Core.AWSRequest DeleteInstance where
   type Rs DeleteInstance = DeleteInstanceResponse
-  request = Req.postJSON opsWorksService
-  response = Res.receiveNull DeleteInstanceResponse'
-
-instance Lude.ToHeaders DeleteInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.DeleteInstance" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteInstance where
-  toJSON DeleteInstance' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            ("DeleteVolumes" Lude..=) Lude.<$> deleteVolumes,
-            ("DeleteElasticIp" Lude..=) Lude.<$> deleteElasticIP
-          ]
-      )
-
-instance Lude.ToPath DeleteInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteInstance where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.DeleteInstance")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteInstanceResponse'
 
 -- | /See:/ 'mkDeleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse = DeleteInstanceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInstanceResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteInstanceResponse' value with any optional fields omitted.
 mkDeleteInstanceResponse ::
   DeleteInstanceResponse
 mkDeleteInstanceResponse = DeleteInstanceResponse'

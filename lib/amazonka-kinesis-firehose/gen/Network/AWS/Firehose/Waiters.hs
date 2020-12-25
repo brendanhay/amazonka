@@ -15,7 +15,7 @@ module Network.AWS.Firehose.Waiters
   )
 where
 
-import Network.AWS.Firehose.Types
+import qualified Network.AWS.Firehose.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Waiter as Waiter

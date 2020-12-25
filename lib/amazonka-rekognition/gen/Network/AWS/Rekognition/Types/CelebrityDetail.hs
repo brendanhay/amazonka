@@ -18,111 +18,105 @@ module Network.AWS.Rekognition.Types.CelebrityDetail
 
     -- * Lenses
     cdBoundingBox,
-    cdURLs,
     cdConfidence,
-    cdName,
-    cdId,
     cdFace,
+    cdId,
+    cdName,
+    cdUrls,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.BoundingBox
-import Network.AWS.Rekognition.Types.FaceDetail
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.BoundingBox as Types
+import qualified Network.AWS.Rekognition.Types.FaceDetail as Types
+import qualified Network.AWS.Rekognition.Types.Id as Types
+import qualified Network.AWS.Rekognition.Types.String as Types
+import qualified Network.AWS.Rekognition.Types.Url as Types
 
 -- | Information about a recognized celebrity.
 --
 -- /See:/ 'mkCelebrityDetail' smart constructor.
 data CelebrityDetail = CelebrityDetail'
   { -- | Bounding box around the body of a celebrity.
-    boundingBox :: Lude.Maybe BoundingBox,
-    -- | An array of URLs pointing to additional celebrity information.
-    urls :: Lude.Maybe [Lude.Text],
+    boundingBox :: Core.Maybe Types.BoundingBox,
     -- | The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
-    confidence :: Lude.Maybe Lude.Double,
-    -- | The name of the celebrity.
-    name :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the celebrity.
-    id :: Lude.Maybe Lude.Text,
+    confidence :: Core.Maybe Core.Double,
     -- | Face details for the recognized celebrity.
-    face :: Lude.Maybe FaceDetail
+    face :: Core.Maybe Types.FaceDetail,
+    -- | The unique identifier for the celebrity.
+    id :: Core.Maybe Types.Id,
+    -- | The name of the celebrity.
+    name :: Core.Maybe Types.String,
+    -- | An array of URLs pointing to additional celebrity information.
+    urls :: Core.Maybe [Types.Url]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CelebrityDetail' with the minimum fields required to make a request.
---
--- * 'boundingBox' - Bounding box around the body of a celebrity.
--- * 'urls' - An array of URLs pointing to additional celebrity information.
--- * 'confidence' - The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
--- * 'name' - The name of the celebrity.
--- * 'id' - The unique identifier for the celebrity.
--- * 'face' - Face details for the recognized celebrity.
+-- | Creates a 'CelebrityDetail' value with any optional fields omitted.
 mkCelebrityDetail ::
   CelebrityDetail
 mkCelebrityDetail =
   CelebrityDetail'
-    { boundingBox = Lude.Nothing,
-      urls = Lude.Nothing,
-      confidence = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      face = Lude.Nothing
+    { boundingBox = Core.Nothing,
+      confidence = Core.Nothing,
+      face = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      urls = Core.Nothing
     }
 
 -- | Bounding box around the body of a celebrity.
 --
 -- /Note:/ Consider using 'boundingBox' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdBoundingBox :: Lens.Lens' CelebrityDetail (Lude.Maybe BoundingBox)
-cdBoundingBox = Lens.lens (boundingBox :: CelebrityDetail -> Lude.Maybe BoundingBox) (\s a -> s {boundingBox = a} :: CelebrityDetail)
+cdBoundingBox :: Lens.Lens' CelebrityDetail (Core.Maybe Types.BoundingBox)
+cdBoundingBox = Lens.field @"boundingBox"
 {-# DEPRECATED cdBoundingBox "Use generic-lens or generic-optics with 'boundingBox' instead." #-}
-
--- | An array of URLs pointing to additional celebrity information.
---
--- /Note:/ Consider using 'urls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdURLs :: Lens.Lens' CelebrityDetail (Lude.Maybe [Lude.Text])
-cdURLs = Lens.lens (urls :: CelebrityDetail -> Lude.Maybe [Lude.Text]) (\s a -> s {urls = a} :: CelebrityDetail)
-{-# DEPRECATED cdURLs "Use generic-lens or generic-optics with 'urls' instead." #-}
 
 -- | The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdConfidence :: Lens.Lens' CelebrityDetail (Lude.Maybe Lude.Double)
-cdConfidence = Lens.lens (confidence :: CelebrityDetail -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: CelebrityDetail)
+cdConfidence :: Lens.Lens' CelebrityDetail (Core.Maybe Core.Double)
+cdConfidence = Lens.field @"confidence"
 {-# DEPRECATED cdConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
-
--- | The name of the celebrity.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdName :: Lens.Lens' CelebrityDetail (Lude.Maybe Lude.Text)
-cdName = Lens.lens (name :: CelebrityDetail -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CelebrityDetail)
-{-# DEPRECATED cdName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The unique identifier for the celebrity.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdId :: Lens.Lens' CelebrityDetail (Lude.Maybe Lude.Text)
-cdId = Lens.lens (id :: CelebrityDetail -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CelebrityDetail)
-{-# DEPRECATED cdId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Face details for the recognized celebrity.
 --
 -- /Note:/ Consider using 'face' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdFace :: Lens.Lens' CelebrityDetail (Lude.Maybe FaceDetail)
-cdFace = Lens.lens (face :: CelebrityDetail -> Lude.Maybe FaceDetail) (\s a -> s {face = a} :: CelebrityDetail)
+cdFace :: Lens.Lens' CelebrityDetail (Core.Maybe Types.FaceDetail)
+cdFace = Lens.field @"face"
 {-# DEPRECATED cdFace "Use generic-lens or generic-optics with 'face' instead." #-}
 
-instance Lude.FromJSON CelebrityDetail where
+-- | The unique identifier for the celebrity.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdId :: Lens.Lens' CelebrityDetail (Core.Maybe Types.Id)
+cdId = Lens.field @"id"
+{-# DEPRECATED cdId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The name of the celebrity.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdName :: Lens.Lens' CelebrityDetail (Core.Maybe Types.String)
+cdName = Lens.field @"name"
+{-# DEPRECATED cdName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | An array of URLs pointing to additional celebrity information.
+--
+-- /Note:/ Consider using 'urls' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdUrls :: Lens.Lens' CelebrityDetail (Core.Maybe [Types.Url])
+cdUrls = Lens.field @"urls"
+{-# DEPRECATED cdUrls "Use generic-lens or generic-optics with 'urls' instead." #-}
+
+instance Core.FromJSON CelebrityDetail where
   parseJSON =
-    Lude.withObject
-      "CelebrityDetail"
-      ( \x ->
-          CelebrityDetail'
-            Lude.<$> (x Lude..:? "BoundingBox")
-            Lude.<*> (x Lude..:? "Urls" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Confidence")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Face")
-      )
+    Core.withObject "CelebrityDetail" Core.$
+      \x ->
+        CelebrityDetail'
+          Core.<$> (x Core..:? "BoundingBox")
+          Core.<*> (x Core..:? "Confidence")
+          Core.<*> (x Core..:? "Face")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Urls")

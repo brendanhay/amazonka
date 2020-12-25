@@ -17,71 +17,68 @@ module Network.AWS.Connect.Types.RoutingProfileSummary
     mkRoutingProfileSummary,
 
     -- * Lenses
-    rpsARN,
-    rpsName,
+    rpsArn,
     rpsId,
+    rpsName,
   )
 where
 
+import qualified Network.AWS.Connect.Types.ARN as Types
+import qualified Network.AWS.Connect.Types.RoutingProfileId as Types
+import qualified Network.AWS.Connect.Types.RoutingProfileName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains summary information about a routing profile.
 --
 -- /See:/ 'mkRoutingProfileSummary' smart constructor.
 data RoutingProfileSummary = RoutingProfileSummary'
   { -- | The Amazon Resource Name (ARN) of the routing profile.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the routing profile.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.ARN,
     -- | The identifier of the routing profile.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.RoutingProfileId,
+    -- | The name of the routing profile.
+    name :: Core.Maybe Types.RoutingProfileName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RoutingProfileSummary' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the routing profile.
--- * 'name' - The name of the routing profile.
--- * 'id' - The identifier of the routing profile.
+-- | Creates a 'RoutingProfileSummary' value with any optional fields omitted.
 mkRoutingProfileSummary ::
   RoutingProfileSummary
 mkRoutingProfileSummary =
   RoutingProfileSummary'
-    { arn = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the routing profile.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpsARN :: Lens.Lens' RoutingProfileSummary (Lude.Maybe Lude.Text)
-rpsARN = Lens.lens (arn :: RoutingProfileSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: RoutingProfileSummary)
-{-# DEPRECATED rpsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the routing profile.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpsName :: Lens.Lens' RoutingProfileSummary (Lude.Maybe Lude.Text)
-rpsName = Lens.lens (name :: RoutingProfileSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: RoutingProfileSummary)
-{-# DEPRECATED rpsName "Use generic-lens or generic-optics with 'name' instead." #-}
+rpsArn :: Lens.Lens' RoutingProfileSummary (Core.Maybe Types.ARN)
+rpsArn = Lens.field @"arn"
+{-# DEPRECATED rpsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The identifier of the routing profile.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rpsId :: Lens.Lens' RoutingProfileSummary (Lude.Maybe Lude.Text)
-rpsId = Lens.lens (id :: RoutingProfileSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: RoutingProfileSummary)
+rpsId :: Lens.Lens' RoutingProfileSummary (Core.Maybe Types.RoutingProfileId)
+rpsId = Lens.field @"id"
 {-# DEPRECATED rpsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON RoutingProfileSummary where
+-- | The name of the routing profile.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rpsName :: Lens.Lens' RoutingProfileSummary (Core.Maybe Types.RoutingProfileName)
+rpsName = Lens.field @"name"
+{-# DEPRECATED rpsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON RoutingProfileSummary where
   parseJSON =
-    Lude.withObject
-      "RoutingProfileSummary"
-      ( \x ->
-          RoutingProfileSummary'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "RoutingProfileSummary" Core.$
+      \x ->
+        RoutingProfileSummary'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")

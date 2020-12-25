@@ -17,163 +17,153 @@ module Network.AWS.ElasticBeanstalk.Types.SingleInstanceHealth
     mkSingleInstanceHealth,
 
     -- * Lenses
-    sihInstanceId,
-    sihCauses,
-    sihSystem,
     sihApplicationMetrics,
-    sihColor,
-    sihInstanceType,
     sihAvailabilityZone,
-    sihHealthStatus,
+    sihCauses,
+    sihColor,
     sihDeployment,
+    sihHealthStatus,
+    sihInstanceId,
+    sihInstanceType,
     sihLaunchedAt,
+    sihSystem,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.ApplicationMetrics
-import Network.AWS.ElasticBeanstalk.Types.Deployment
-import Network.AWS.ElasticBeanstalk.Types.SystemStatus
+import qualified Network.AWS.ElasticBeanstalk.Types.ApplicationMetrics as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.Cause as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.Deployment as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.InstanceId as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.String as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.SystemStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Detailed health information about an Amazon EC2 instance in your Elastic Beanstalk environment.
 --
 -- /See:/ 'mkSingleInstanceHealth' smart constructor.
 data SingleInstanceHealth = SingleInstanceHealth'
-  { -- | The ID of the Amazon EC2 instance.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | Represents the causes, which provide more information about the current health status.
-    causes :: Lude.Maybe [Lude.Text],
-    -- | Operating system metrics from the instance.
-    system :: Lude.Maybe SystemStatus,
-    -- | Request metrics from your application.
-    applicationMetrics :: Lude.Maybe ApplicationMetrics,
-    -- | Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
-    color :: Lude.Maybe Lude.Text,
-    -- | The instance's type.
-    instanceType :: Lude.Maybe Lude.Text,
+  { -- | Request metrics from your application.
+    applicationMetrics :: Core.Maybe Types.ApplicationMetrics,
     -- | The availability zone in which the instance runs.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | Returns the health status of the specified instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
-    healthStatus :: Lude.Maybe Lude.Text,
+    availabilityZone :: Core.Maybe Types.String,
+    -- | Represents the causes, which provide more information about the current health status.
+    causes :: Core.Maybe [Types.Cause],
+    -- | Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+    color :: Core.Maybe Types.String,
     -- | Information about the most recent deployment to an instance.
-    deployment :: Lude.Maybe Deployment,
+    deployment :: Core.Maybe Types.Deployment,
+    -- | Returns the health status of the specified instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+    healthStatus :: Core.Maybe Types.String,
+    -- | The ID of the Amazon EC2 instance.
+    instanceId :: Core.Maybe Types.InstanceId,
+    -- | The instance's type.
+    instanceType :: Core.Maybe Types.String,
     -- | The time at which the EC2 instance was launched.
-    launchedAt :: Lude.Maybe Lude.DateTime
+    launchedAt :: Core.Maybe Core.UTCTime,
+    -- | Operating system metrics from the instance.
+    system :: Core.Maybe Types.SystemStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SingleInstanceHealth' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the Amazon EC2 instance.
--- * 'causes' - Represents the causes, which provide more information about the current health status.
--- * 'system' - Operating system metrics from the instance.
--- * 'applicationMetrics' - Request metrics from your application.
--- * 'color' - Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
--- * 'instanceType' - The instance's type.
--- * 'availabilityZone' - The availability zone in which the instance runs.
--- * 'healthStatus' - Returns the health status of the specified instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
--- * 'deployment' - Information about the most recent deployment to an instance.
--- * 'launchedAt' - The time at which the EC2 instance was launched.
+-- | Creates a 'SingleInstanceHealth' value with any optional fields omitted.
 mkSingleInstanceHealth ::
   SingleInstanceHealth
 mkSingleInstanceHealth =
   SingleInstanceHealth'
-    { instanceId = Lude.Nothing,
-      causes = Lude.Nothing,
-      system = Lude.Nothing,
-      applicationMetrics = Lude.Nothing,
-      color = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      healthStatus = Lude.Nothing,
-      deployment = Lude.Nothing,
-      launchedAt = Lude.Nothing
+    { applicationMetrics = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      causes = Core.Nothing,
+      color = Core.Nothing,
+      deployment = Core.Nothing,
+      healthStatus = Core.Nothing,
+      instanceId = Core.Nothing,
+      instanceType = Core.Nothing,
+      launchedAt = Core.Nothing,
+      system = Core.Nothing
     }
-
--- | The ID of the Amazon EC2 instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihInstanceId :: Lens.Lens' SingleInstanceHealth (Lude.Maybe Lude.Text)
-sihInstanceId = Lens.lens (instanceId :: SingleInstanceHealth -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: SingleInstanceHealth)
-{-# DEPRECATED sihInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | Represents the causes, which provide more information about the current health status.
---
--- /Note:/ Consider using 'causes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihCauses :: Lens.Lens' SingleInstanceHealth (Lude.Maybe [Lude.Text])
-sihCauses = Lens.lens (causes :: SingleInstanceHealth -> Lude.Maybe [Lude.Text]) (\s a -> s {causes = a} :: SingleInstanceHealth)
-{-# DEPRECATED sihCauses "Use generic-lens or generic-optics with 'causes' instead." #-}
-
--- | Operating system metrics from the instance.
---
--- /Note:/ Consider using 'system' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihSystem :: Lens.Lens' SingleInstanceHealth (Lude.Maybe SystemStatus)
-sihSystem = Lens.lens (system :: SingleInstanceHealth -> Lude.Maybe SystemStatus) (\s a -> s {system = a} :: SingleInstanceHealth)
-{-# DEPRECATED sihSystem "Use generic-lens or generic-optics with 'system' instead." #-}
 
 -- | Request metrics from your application.
 --
 -- /Note:/ Consider using 'applicationMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihApplicationMetrics :: Lens.Lens' SingleInstanceHealth (Lude.Maybe ApplicationMetrics)
-sihApplicationMetrics = Lens.lens (applicationMetrics :: SingleInstanceHealth -> Lude.Maybe ApplicationMetrics) (\s a -> s {applicationMetrics = a} :: SingleInstanceHealth)
+sihApplicationMetrics :: Lens.Lens' SingleInstanceHealth (Core.Maybe Types.ApplicationMetrics)
+sihApplicationMetrics = Lens.field @"applicationMetrics"
 {-# DEPRECATED sihApplicationMetrics "Use generic-lens or generic-optics with 'applicationMetrics' instead." #-}
-
--- | Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
---
--- /Note:/ Consider using 'color' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihColor :: Lens.Lens' SingleInstanceHealth (Lude.Maybe Lude.Text)
-sihColor = Lens.lens (color :: SingleInstanceHealth -> Lude.Maybe Lude.Text) (\s a -> s {color = a} :: SingleInstanceHealth)
-{-# DEPRECATED sihColor "Use generic-lens or generic-optics with 'color' instead." #-}
-
--- | The instance's type.
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihInstanceType :: Lens.Lens' SingleInstanceHealth (Lude.Maybe Lude.Text)
-sihInstanceType = Lens.lens (instanceType :: SingleInstanceHealth -> Lude.Maybe Lude.Text) (\s a -> s {instanceType = a} :: SingleInstanceHealth)
-{-# DEPRECATED sihInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The availability zone in which the instance runs.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihAvailabilityZone :: Lens.Lens' SingleInstanceHealth (Lude.Maybe Lude.Text)
-sihAvailabilityZone = Lens.lens (availabilityZone :: SingleInstanceHealth -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: SingleInstanceHealth)
+sihAvailabilityZone :: Lens.Lens' SingleInstanceHealth (Core.Maybe Types.String)
+sihAvailabilityZone = Lens.field @"availabilityZone"
 {-# DEPRECATED sihAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | Returns the health status of the specified instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+-- | Represents the causes, which provide more information about the current health status.
 --
--- /Note:/ Consider using 'healthStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihHealthStatus :: Lens.Lens' SingleInstanceHealth (Lude.Maybe Lude.Text)
-sihHealthStatus = Lens.lens (healthStatus :: SingleInstanceHealth -> Lude.Maybe Lude.Text) (\s a -> s {healthStatus = a} :: SingleInstanceHealth)
-{-# DEPRECATED sihHealthStatus "Use generic-lens or generic-optics with 'healthStatus' instead." #-}
+-- /Note:/ Consider using 'causes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sihCauses :: Lens.Lens' SingleInstanceHealth (Core.Maybe [Types.Cause])
+sihCauses = Lens.field @"causes"
+{-# DEPRECATED sihCauses "Use generic-lens or generic-optics with 'causes' instead." #-}
+
+-- | Represents the color indicator that gives you information about the health of the EC2 instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+--
+-- /Note:/ Consider using 'color' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sihColor :: Lens.Lens' SingleInstanceHealth (Core.Maybe Types.String)
+sihColor = Lens.field @"color"
+{-# DEPRECATED sihColor "Use generic-lens or generic-optics with 'color' instead." #-}
 
 -- | Information about the most recent deployment to an instance.
 --
 -- /Note:/ Consider using 'deployment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihDeployment :: Lens.Lens' SingleInstanceHealth (Lude.Maybe Deployment)
-sihDeployment = Lens.lens (deployment :: SingleInstanceHealth -> Lude.Maybe Deployment) (\s a -> s {deployment = a} :: SingleInstanceHealth)
+sihDeployment :: Lens.Lens' SingleInstanceHealth (Core.Maybe Types.Deployment)
+sihDeployment = Lens.field @"deployment"
 {-# DEPRECATED sihDeployment "Use generic-lens or generic-optics with 'deployment' instead." #-}
+
+-- | Returns the health status of the specified instance. For more information, see <https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html Health Colors and Statuses> .
+--
+-- /Note:/ Consider using 'healthStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sihHealthStatus :: Lens.Lens' SingleInstanceHealth (Core.Maybe Types.String)
+sihHealthStatus = Lens.field @"healthStatus"
+{-# DEPRECATED sihHealthStatus "Use generic-lens or generic-optics with 'healthStatus' instead." #-}
+
+-- | The ID of the Amazon EC2 instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sihInstanceId :: Lens.Lens' SingleInstanceHealth (Core.Maybe Types.InstanceId)
+sihInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED sihInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | The instance's type.
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sihInstanceType :: Lens.Lens' SingleInstanceHealth (Core.Maybe Types.String)
+sihInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED sihInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
 -- | The time at which the EC2 instance was launched.
 --
 -- /Note:/ Consider using 'launchedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sihLaunchedAt :: Lens.Lens' SingleInstanceHealth (Lude.Maybe Lude.DateTime)
-sihLaunchedAt = Lens.lens (launchedAt :: SingleInstanceHealth -> Lude.Maybe Lude.DateTime) (\s a -> s {launchedAt = a} :: SingleInstanceHealth)
+sihLaunchedAt :: Lens.Lens' SingleInstanceHealth (Core.Maybe Core.UTCTime)
+sihLaunchedAt = Lens.field @"launchedAt"
 {-# DEPRECATED sihLaunchedAt "Use generic-lens or generic-optics with 'launchedAt' instead." #-}
 
-instance Lude.FromXML SingleInstanceHealth where
+-- | Operating system metrics from the instance.
+--
+-- /Note:/ Consider using 'system' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sihSystem :: Lens.Lens' SingleInstanceHealth (Core.Maybe Types.SystemStatus)
+sihSystem = Lens.field @"system"
+{-# DEPRECATED sihSystem "Use generic-lens or generic-optics with 'system' instead." #-}
+
+instance Core.FromXML SingleInstanceHealth where
   parseXML x =
     SingleInstanceHealth'
-      Lude.<$> (x Lude..@? "InstanceId")
-      Lude.<*> ( x Lude..@? "Causes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "System")
-      Lude.<*> (x Lude..@? "ApplicationMetrics")
-      Lude.<*> (x Lude..@? "Color")
-      Lude.<*> (x Lude..@? "InstanceType")
-      Lude.<*> (x Lude..@? "AvailabilityZone")
-      Lude.<*> (x Lude..@? "HealthStatus")
-      Lude.<*> (x Lude..@? "Deployment")
-      Lude.<*> (x Lude..@? "LaunchedAt")
+      Core.<$> (x Core..@? "ApplicationMetrics")
+      Core.<*> (x Core..@? "AvailabilityZone")
+      Core.<*> (x Core..@? "Causes" Core..<@> Core.parseXMLList "member")
+      Core.<*> (x Core..@? "Color")
+      Core.<*> (x Core..@? "Deployment")
+      Core.<*> (x Core..@? "HealthStatus")
+      Core.<*> (x Core..@? "InstanceId")
+      Core.<*> (x Core..@? "InstanceType")
+      Core.<*> (x Core..@? "LaunchedAt")
+      Core.<*> (x Core..@? "System")

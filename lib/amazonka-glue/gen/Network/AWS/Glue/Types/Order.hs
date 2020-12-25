@@ -17,67 +17,62 @@ module Network.AWS.Glue.Types.Order
     mkOrder,
 
     -- * Lenses
-    oSortOrder,
     oColumn,
+    oSortOrder,
   )
 where
 
+import qualified Network.AWS.Glue.Types.NameString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the sort order of a sorted column.
 --
 -- /See:/ 'mkOrder' smart constructor.
 data Order = Order'
-  { -- | Indicates that the column is sorted in ascending order (@== 1@ ), or in descending order (@==0@ ).
-    sortOrder :: Lude.Natural,
-    -- | The name of the column.
-    column :: Lude.Text
+  { -- | The name of the column.
+    column :: Types.NameString,
+    -- | Indicates that the column is sorted in ascending order (@== 1@ ), or in descending order (@==0@ ).
+    sortOrder :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Order' with the minimum fields required to make a request.
---
--- * 'sortOrder' - Indicates that the column is sorted in ascending order (@== 1@ ), or in descending order (@==0@ ).
--- * 'column' - The name of the column.
+-- | Creates a 'Order' value with any optional fields omitted.
 mkOrder ::
-  -- | 'sortOrder'
-  Lude.Natural ->
   -- | 'column'
-  Lude.Text ->
+  Types.NameString ->
+  -- | 'sortOrder'
+  Core.Natural ->
   Order
-mkOrder pSortOrder_ pColumn_ =
-  Order' {sortOrder = pSortOrder_, column = pColumn_}
-
--- | Indicates that the column is sorted in ascending order (@== 1@ ), or in descending order (@==0@ ).
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oSortOrder :: Lens.Lens' Order Lude.Natural
-oSortOrder = Lens.lens (sortOrder :: Order -> Lude.Natural) (\s a -> s {sortOrder = a} :: Order)
-{-# DEPRECATED oSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
+mkOrder column sortOrder = Order' {column, sortOrder}
 
 -- | The name of the column.
 --
 -- /Note:/ Consider using 'column' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oColumn :: Lens.Lens' Order Lude.Text
-oColumn = Lens.lens (column :: Order -> Lude.Text) (\s a -> s {column = a} :: Order)
+oColumn :: Lens.Lens' Order Types.NameString
+oColumn = Lens.field @"column"
 {-# DEPRECATED oColumn "Use generic-lens or generic-optics with 'column' instead." #-}
 
-instance Lude.FromJSON Order where
-  parseJSON =
-    Lude.withObject
-      "Order"
-      ( \x ->
-          Order'
-            Lude.<$> (x Lude..: "SortOrder") Lude.<*> (x Lude..: "Column")
-      )
+-- | Indicates that the column is sorted in ascending order (@== 1@ ), or in descending order (@==0@ ).
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+oSortOrder :: Lens.Lens' Order Core.Natural
+oSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED oSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.ToJSON Order where
-  toJSON Order' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SortOrder" Lude..= sortOrder),
-            Lude.Just ("Column" Lude..= column)
+instance Core.FromJSON Order where
+  toJSON Order {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Column" Core..= column),
+            Core.Just ("SortOrder" Core..= sortOrder)
           ]
       )
+
+instance Core.FromJSON Order where
+  parseJSON =
+    Core.withObject "Order" Core.$
+      \x ->
+        Order'
+          Core.<$> (x Core..: "Column") Core.<*> (x Core..: "SortOrder")

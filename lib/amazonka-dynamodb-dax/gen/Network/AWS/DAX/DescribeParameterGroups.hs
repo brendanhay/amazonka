@@ -22,174 +22,160 @@ module Network.AWS.DAX.DescribeParameterGroups
     mkDescribeParameterGroups,
 
     -- ** Request lenses
+    dpgMaxResults,
     dpgNextToken,
     dpgParameterGroupNames,
-    dpgMaxResults,
 
     -- * Destructuring the response
     DescribeParameterGroupsResponse (..),
     mkDescribeParameterGroupsResponse,
 
     -- ** Response lenses
-    dpgsrsNextToken,
-    dpgsrsParameterGroups,
-    dpgsrsResponseStatus,
+    dpgrfrsNextToken,
+    dpgrfrsParameterGroups,
+    dpgrfrsResponseStatus,
   )
 where
 
-import Network.AWS.DAX.Types
+import qualified Network.AWS.DAX.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeParameterGroups' smart constructor.
 data DescribeParameterGroups = DescribeParameterGroups'
-  { -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The names of the parameter groups.
-    parameterGroupNames :: Lude.Maybe [Lude.Text],
-    -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
+  { -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
     --
     -- The value for @MaxResults@ must be between 20 and 100.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+    nextToken :: Core.Maybe Types.String,
+    -- | The names of the parameter groups.
+    parameterGroupNames :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeParameterGroups' with the minimum fields required to make a request.
---
--- * 'nextToken' - An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
--- * 'parameterGroupNames' - The names of the parameter groups.
--- * 'maxResults' - The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
---
--- The value for @MaxResults@ must be between 20 and 100.
+-- | Creates a 'DescribeParameterGroups' value with any optional fields omitted.
 mkDescribeParameterGroups ::
   DescribeParameterGroups
 mkDescribeParameterGroups =
   DescribeParameterGroups'
-    { nextToken = Lude.Nothing,
-      parameterGroupNames = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      parameterGroupNames = Core.Nothing
     }
-
--- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgNextToken :: Lens.Lens' DescribeParameterGroups (Lude.Maybe Lude.Text)
-dpgNextToken = Lens.lens (nextToken :: DescribeParameterGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeParameterGroups)
-{-# DEPRECATED dpgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The names of the parameter groups.
---
--- /Note:/ Consider using 'parameterGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgParameterGroupNames :: Lens.Lens' DescribeParameterGroups (Lude.Maybe [Lude.Text])
-dpgParameterGroupNames = Lens.lens (parameterGroupNames :: DescribeParameterGroups -> Lude.Maybe [Lude.Text]) (\s a -> s {parameterGroupNames = a} :: DescribeParameterGroups)
-{-# DEPRECATED dpgParameterGroupNames "Use generic-lens or generic-optics with 'parameterGroupNames' instead." #-}
 
 -- | The maximum number of results to include in the response. If more results exist than the specified @MaxResults@ value, a token is included in the response so that the remaining results can be retrieved.
 --
 -- The value for @MaxResults@ must be between 20 and 100.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgMaxResults :: Lens.Lens' DescribeParameterGroups (Lude.Maybe Lude.Int)
-dpgMaxResults = Lens.lens (maxResults :: DescribeParameterGroups -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeParameterGroups)
+dpgMaxResults :: Lens.Lens' DescribeParameterGroups (Core.Maybe Core.Int)
+dpgMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dpgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeParameterGroups where
-  page rq rs
-    | Page.stop (rs Lens.^. dpgsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dpgsrsParameterGroups) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dpgNextToken Lens..~ rs Lens.^. dpgsrsNextToken
+-- | An optional token returned from a prior request. Use this token for pagination of results from this action. If this parameter is specified, the response includes only results beyond the token, up to the value specified by @MaxResults@ .
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgNextToken :: Lens.Lens' DescribeParameterGroups (Core.Maybe Types.String)
+dpgNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dpgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeParameterGroups where
+-- | The names of the parameter groups.
+--
+-- /Note:/ Consider using 'parameterGroupNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpgParameterGroupNames :: Lens.Lens' DescribeParameterGroups (Core.Maybe [Types.String])
+dpgParameterGroupNames = Lens.field @"parameterGroupNames"
+{-# DEPRECATED dpgParameterGroupNames "Use generic-lens or generic-optics with 'parameterGroupNames' instead." #-}
+
+instance Core.FromJSON DescribeParameterGroups where
+  toJSON DescribeParameterGroups {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("ParameterGroupNames" Core..=) Core.<$> parameterGroupNames
+          ]
+      )
+
+instance Core.AWSRequest DescribeParameterGroups where
   type Rs DescribeParameterGroups = DescribeParameterGroupsResponse
-  request = Req.postJSON daxService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonDAXV3.DescribeParameterGroups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeParameterGroupsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "ParameterGroups" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "ParameterGroups")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeParameterGroups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDAXV3.DescribeParameterGroups" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeParameterGroups where
-  toJSON DescribeParameterGroups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("ParameterGroupNames" Lude..=) Lude.<$> parameterGroupNames,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeParameterGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeParameterGroups where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeParameterGroups where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"parameterGroups" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeParameterGroupsResponse' smart constructor.
 data DescribeParameterGroupsResponse = DescribeParameterGroupsResponse'
   { -- | Provides an identifier to allow retrieval of paginated results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | An array of parameter groups. Each element in the array represents one parameter group.
-    parameterGroups :: Lude.Maybe [ParameterGroup],
+    parameterGroups :: Core.Maybe [Types.ParameterGroup],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeParameterGroupsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Provides an identifier to allow retrieval of paginated results.
--- * 'parameterGroups' - An array of parameter groups. Each element in the array represents one parameter group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeParameterGroupsResponse' value with any optional fields omitted.
 mkDescribeParameterGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeParameterGroupsResponse
-mkDescribeParameterGroupsResponse pResponseStatus_ =
+mkDescribeParameterGroupsResponse responseStatus =
   DescribeParameterGroupsResponse'
-    { nextToken = Lude.Nothing,
-      parameterGroups = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      parameterGroups = Core.Nothing,
+      responseStatus
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgsrsNextToken :: Lens.Lens' DescribeParameterGroupsResponse (Lude.Maybe Lude.Text)
-dpgsrsNextToken = Lens.lens (nextToken :: DescribeParameterGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeParameterGroupsResponse)
-{-# DEPRECATED dpgsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dpgrfrsNextToken :: Lens.Lens' DescribeParameterGroupsResponse (Core.Maybe Types.String)
+dpgrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dpgrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of parameter groups. Each element in the array represents one parameter group.
 --
 -- /Note:/ Consider using 'parameterGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgsrsParameterGroups :: Lens.Lens' DescribeParameterGroupsResponse (Lude.Maybe [ParameterGroup])
-dpgsrsParameterGroups = Lens.lens (parameterGroups :: DescribeParameterGroupsResponse -> Lude.Maybe [ParameterGroup]) (\s a -> s {parameterGroups = a} :: DescribeParameterGroupsResponse)
-{-# DEPRECATED dpgsrsParameterGroups "Use generic-lens or generic-optics with 'parameterGroups' instead." #-}
+dpgrfrsParameterGroups :: Lens.Lens' DescribeParameterGroupsResponse (Core.Maybe [Types.ParameterGroup])
+dpgrfrsParameterGroups = Lens.field @"parameterGroups"
+{-# DEPRECATED dpgrfrsParameterGroups "Use generic-lens or generic-optics with 'parameterGroups' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgsrsResponseStatus :: Lens.Lens' DescribeParameterGroupsResponse Lude.Int
-dpgsrsResponseStatus = Lens.lens (responseStatus :: DescribeParameterGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeParameterGroupsResponse)
-{-# DEPRECATED dpgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dpgrfrsResponseStatus :: Lens.Lens' DescribeParameterGroupsResponse Core.Int
+dpgrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dpgrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

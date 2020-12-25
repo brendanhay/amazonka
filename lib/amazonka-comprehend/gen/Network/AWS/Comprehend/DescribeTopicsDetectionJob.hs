@@ -27,113 +27,100 @@ module Network.AWS.Comprehend.DescribeTopicsDetectionJob
     mkDescribeTopicsDetectionJobResponse,
 
     -- ** Response lenses
-    dtdjrsTopicsDetectionJobProperties,
-    dtdjrsResponseStatus,
+    dtdjrrsTopicsDetectionJobProperties,
+    dtdjrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTopicsDetectionJob' smart constructor.
 newtype DescribeTopicsDetectionJob = DescribeTopicsDetectionJob'
   { -- | The identifier assigned by the user to the detection job.
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTopicsDetectionJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier assigned by the user to the detection job.
+-- | Creates a 'DescribeTopicsDetectionJob' value with any optional fields omitted.
 mkDescribeTopicsDetectionJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   DescribeTopicsDetectionJob
-mkDescribeTopicsDetectionJob pJobId_ =
-  DescribeTopicsDetectionJob' {jobId = pJobId_}
+mkDescribeTopicsDetectionJob jobId =
+  DescribeTopicsDetectionJob' {jobId}
 
 -- | The identifier assigned by the user to the detection job.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtdjJobId :: Lens.Lens' DescribeTopicsDetectionJob Lude.Text
-dtdjJobId = Lens.lens (jobId :: DescribeTopicsDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeTopicsDetectionJob)
+dtdjJobId :: Lens.Lens' DescribeTopicsDetectionJob Types.JobId
+dtdjJobId = Lens.field @"jobId"
 {-# DEPRECATED dtdjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest DescribeTopicsDetectionJob where
+instance Core.FromJSON DescribeTopicsDetectionJob where
+  toJSON DescribeTopicsDetectionJob {..} =
+    Core.object (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.AWSRequest DescribeTopicsDetectionJob where
   type
     Rs DescribeTopicsDetectionJob =
       DescribeTopicsDetectionJobResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Comprehend_20171127.DescribeTopicsDetectionJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeTopicsDetectionJobResponse'
-            Lude.<$> (x Lude..?> "TopicsDetectionJobProperties")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TopicsDetectionJobProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTopicsDetectionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.DescribeTopicsDetectionJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeTopicsDetectionJob where
-  toJSON DescribeTopicsDetectionJob' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
-
-instance Lude.ToPath DescribeTopicsDetectionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTopicsDetectionJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeTopicsDetectionJobResponse' smart constructor.
 data DescribeTopicsDetectionJobResponse = DescribeTopicsDetectionJobResponse'
   { -- | The list of properties for the requested job.
-    topicsDetectionJobProperties :: Lude.Maybe TopicsDetectionJobProperties,
+    topicsDetectionJobProperties :: Core.Maybe Types.TopicsDetectionJobProperties,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeTopicsDetectionJobResponse' with the minimum fields required to make a request.
---
--- * 'topicsDetectionJobProperties' - The list of properties for the requested job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTopicsDetectionJobResponse' value with any optional fields omitted.
 mkDescribeTopicsDetectionJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTopicsDetectionJobResponse
-mkDescribeTopicsDetectionJobResponse pResponseStatus_ =
+mkDescribeTopicsDetectionJobResponse responseStatus =
   DescribeTopicsDetectionJobResponse'
     { topicsDetectionJobProperties =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The list of properties for the requested job.
 --
 -- /Note:/ Consider using 'topicsDetectionJobProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtdjrsTopicsDetectionJobProperties :: Lens.Lens' DescribeTopicsDetectionJobResponse (Lude.Maybe TopicsDetectionJobProperties)
-dtdjrsTopicsDetectionJobProperties = Lens.lens (topicsDetectionJobProperties :: DescribeTopicsDetectionJobResponse -> Lude.Maybe TopicsDetectionJobProperties) (\s a -> s {topicsDetectionJobProperties = a} :: DescribeTopicsDetectionJobResponse)
-{-# DEPRECATED dtdjrsTopicsDetectionJobProperties "Use generic-lens or generic-optics with 'topicsDetectionJobProperties' instead." #-}
+dtdjrrsTopicsDetectionJobProperties :: Lens.Lens' DescribeTopicsDetectionJobResponse (Core.Maybe Types.TopicsDetectionJobProperties)
+dtdjrrsTopicsDetectionJobProperties = Lens.field @"topicsDetectionJobProperties"
+{-# DEPRECATED dtdjrrsTopicsDetectionJobProperties "Use generic-lens or generic-optics with 'topicsDetectionJobProperties' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtdjrsResponseStatus :: Lens.Lens' DescribeTopicsDetectionJobResponse Lude.Int
-dtdjrsResponseStatus = Lens.lens (responseStatus :: DescribeTopicsDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTopicsDetectionJobResponse)
-{-# DEPRECATED dtdjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtdjrrsResponseStatus :: Lens.Lens' DescribeTopicsDetectionJobResponse Core.Int
+dtdjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtdjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

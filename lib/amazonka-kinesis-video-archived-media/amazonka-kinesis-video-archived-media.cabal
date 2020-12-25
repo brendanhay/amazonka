@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.KinesisVideoArchivedMedia
     Network.AWS.KinesisVideoArchivedMedia.GetClip
@@ -80,13 +86,17 @@ library
     Network.AWS.KinesisVideoArchivedMedia.Types.ClipFragmentSelectorType
     Network.AWS.KinesisVideoArchivedMedia.Types.ClipTimestampRange
     Network.AWS.KinesisVideoArchivedMedia.Types.ContainerFormat
+    Network.AWS.KinesisVideoArchivedMedia.Types.ContentType
     Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentNumber
     Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp
     Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelector
     Network.AWS.KinesisVideoArchivedMedia.Types.DASHFragmentSelectorType
     Network.AWS.KinesisVideoArchivedMedia.Types.DASHPlaybackMode
+    Network.AWS.KinesisVideoArchivedMedia.Types.DASHStreamingSessionURL
     Network.AWS.KinesisVideoArchivedMedia.Types.DASHTimestampRange
     Network.AWS.KinesisVideoArchivedMedia.Types.Fragment
+    Network.AWS.KinesisVideoArchivedMedia.Types.FragmentNumber
+    Network.AWS.KinesisVideoArchivedMedia.Types.FragmentNumberString
     Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelector
     Network.AWS.KinesisVideoArchivedMedia.Types.FragmentSelectorType
     Network.AWS.KinesisVideoArchivedMedia.Types.HLSDiscontinuityMode
@@ -94,7 +104,12 @@ library
     Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelector
     Network.AWS.KinesisVideoArchivedMedia.Types.HLSFragmentSelectorType
     Network.AWS.KinesisVideoArchivedMedia.Types.HLSPlaybackMode
+    Network.AWS.KinesisVideoArchivedMedia.Types.HLSStreamingSessionURL
     Network.AWS.KinesisVideoArchivedMedia.Types.HLSTimestampRange
+    Network.AWS.KinesisVideoArchivedMedia.Types.NextToken
+    Network.AWS.KinesisVideoArchivedMedia.Types.ResourceARN
+    Network.AWS.KinesisVideoArchivedMedia.Types.StreamARN
+    Network.AWS.KinesisVideoArchivedMedia.Types.StreamName
     Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
 
   build-depends:   amazonka-core ==2.0.0.0.*

@@ -13,101 +13,106 @@
 module Network.AWS.DeviceFarm.Types.DeviceAttribute
   ( DeviceAttribute
       ( DeviceAttribute',
-        ARN,
-        Platform,
-        FormFactor,
-        Manufacturer,
-        RemoteAccessEnabled,
-        RemoteDebugEnabled,
-        AppiumVersion,
-        InstanceARN,
-        InstanceLabels,
-        FleetType,
-        OSVersion,
-        Model,
-        Availability
+        DeviceAttributeArn,
+        DeviceAttributePlatform,
+        DeviceAttributeFormFactor,
+        DeviceAttributeManufacturer,
+        DeviceAttributeRemoteAccessEnabled,
+        DeviceAttributeRemoteDebugEnabled,
+        DeviceAttributeAppiumVersion,
+        DeviceAttributeInstanceArn,
+        DeviceAttributeInstanceLabels,
+        DeviceAttributeFleetType,
+        DeviceAttributeOsVersion,
+        DeviceAttributeModel,
+        DeviceAttributeAvailability,
+        fromDeviceAttribute
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeviceAttribute = DeviceAttribute' Lude.Text
+newtype DeviceAttribute = DeviceAttribute'
+  { fromDeviceAttribute ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ARN :: DeviceAttribute
-pattern ARN = DeviceAttribute' "ARN"
+pattern DeviceAttributeArn :: DeviceAttribute
+pattern DeviceAttributeArn = DeviceAttribute' "ARN"
 
-pattern Platform :: DeviceAttribute
-pattern Platform = DeviceAttribute' "PLATFORM"
+pattern DeviceAttributePlatform :: DeviceAttribute
+pattern DeviceAttributePlatform = DeviceAttribute' "PLATFORM"
 
-pattern FormFactor :: DeviceAttribute
-pattern FormFactor = DeviceAttribute' "FORM_FACTOR"
+pattern DeviceAttributeFormFactor :: DeviceAttribute
+pattern DeviceAttributeFormFactor = DeviceAttribute' "FORM_FACTOR"
 
-pattern Manufacturer :: DeviceAttribute
-pattern Manufacturer = DeviceAttribute' "MANUFACTURER"
+pattern DeviceAttributeManufacturer :: DeviceAttribute
+pattern DeviceAttributeManufacturer = DeviceAttribute' "MANUFACTURER"
 
-pattern RemoteAccessEnabled :: DeviceAttribute
-pattern RemoteAccessEnabled = DeviceAttribute' "REMOTE_ACCESS_ENABLED"
+pattern DeviceAttributeRemoteAccessEnabled :: DeviceAttribute
+pattern DeviceAttributeRemoteAccessEnabled = DeviceAttribute' "REMOTE_ACCESS_ENABLED"
 
-pattern RemoteDebugEnabled :: DeviceAttribute
-pattern RemoteDebugEnabled = DeviceAttribute' "REMOTE_DEBUG_ENABLED"
+pattern DeviceAttributeRemoteDebugEnabled :: DeviceAttribute
+pattern DeviceAttributeRemoteDebugEnabled = DeviceAttribute' "REMOTE_DEBUG_ENABLED"
 
-pattern AppiumVersion :: DeviceAttribute
-pattern AppiumVersion = DeviceAttribute' "APPIUM_VERSION"
+pattern DeviceAttributeAppiumVersion :: DeviceAttribute
+pattern DeviceAttributeAppiumVersion = DeviceAttribute' "APPIUM_VERSION"
 
-pattern InstanceARN :: DeviceAttribute
-pattern InstanceARN = DeviceAttribute' "INSTANCE_ARN"
+pattern DeviceAttributeInstanceArn :: DeviceAttribute
+pattern DeviceAttributeInstanceArn = DeviceAttribute' "INSTANCE_ARN"
 
-pattern InstanceLabels :: DeviceAttribute
-pattern InstanceLabels = DeviceAttribute' "INSTANCE_LABELS"
+pattern DeviceAttributeInstanceLabels :: DeviceAttribute
+pattern DeviceAttributeInstanceLabels = DeviceAttribute' "INSTANCE_LABELS"
 
-pattern FleetType :: DeviceAttribute
-pattern FleetType = DeviceAttribute' "FLEET_TYPE"
+pattern DeviceAttributeFleetType :: DeviceAttribute
+pattern DeviceAttributeFleetType = DeviceAttribute' "FLEET_TYPE"
 
-pattern OSVersion :: DeviceAttribute
-pattern OSVersion = DeviceAttribute' "OS_VERSION"
+pattern DeviceAttributeOsVersion :: DeviceAttribute
+pattern DeviceAttributeOsVersion = DeviceAttribute' "OS_VERSION"
 
-pattern Model :: DeviceAttribute
-pattern Model = DeviceAttribute' "MODEL"
+pattern DeviceAttributeModel :: DeviceAttribute
+pattern DeviceAttributeModel = DeviceAttribute' "MODEL"
 
-pattern Availability :: DeviceAttribute
-pattern Availability = DeviceAttribute' "AVAILABILITY"
+pattern DeviceAttributeAvailability :: DeviceAttribute
+pattern DeviceAttributeAvailability = DeviceAttribute' "AVAILABILITY"
 
 {-# COMPLETE
-  ARN,
-  Platform,
-  FormFactor,
-  Manufacturer,
-  RemoteAccessEnabled,
-  RemoteDebugEnabled,
-  AppiumVersion,
-  InstanceARN,
-  InstanceLabels,
-  FleetType,
-  OSVersion,
-  Model,
-  Availability,
+  DeviceAttributeArn,
+  DeviceAttributePlatform,
+  DeviceAttributeFormFactor,
+  DeviceAttributeManufacturer,
+  DeviceAttributeRemoteAccessEnabled,
+  DeviceAttributeRemoteDebugEnabled,
+  DeviceAttributeAppiumVersion,
+  DeviceAttributeInstanceArn,
+  DeviceAttributeInstanceLabels,
+  DeviceAttributeFleetType,
+  DeviceAttributeOsVersion,
+  DeviceAttributeModel,
+  DeviceAttributeAvailability,
   DeviceAttribute'
   #-}

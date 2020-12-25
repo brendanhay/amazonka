@@ -13,62 +13,67 @@
 module Network.AWS.MediaConvert.Types.WatermarkingStrength
   ( WatermarkingStrength
       ( WatermarkingStrength',
-        WSLightest,
-        WSLighter,
-        WSDefault,
-        WSStronger,
-        WSStrongest
+        WatermarkingStrengthLightest,
+        WatermarkingStrengthLighter,
+        WatermarkingStrengthDefault,
+        WatermarkingStrengthStronger,
+        WatermarkingStrengthStrongest,
+        fromWatermarkingStrength
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. Ignore this setting unless Nagra support directs you to specify a value. When you don't specify a value here, the Nagra NexGuard library uses its default value.
-newtype WatermarkingStrength = WatermarkingStrength' Lude.Text
+newtype WatermarkingStrength = WatermarkingStrength'
+  { fromWatermarkingStrength ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern WSLightest :: WatermarkingStrength
-pattern WSLightest = WatermarkingStrength' "LIGHTEST"
+pattern WatermarkingStrengthLightest :: WatermarkingStrength
+pattern WatermarkingStrengthLightest = WatermarkingStrength' "LIGHTEST"
 
-pattern WSLighter :: WatermarkingStrength
-pattern WSLighter = WatermarkingStrength' "LIGHTER"
+pattern WatermarkingStrengthLighter :: WatermarkingStrength
+pattern WatermarkingStrengthLighter = WatermarkingStrength' "LIGHTER"
 
-pattern WSDefault :: WatermarkingStrength
-pattern WSDefault = WatermarkingStrength' "DEFAULT"
+pattern WatermarkingStrengthDefault :: WatermarkingStrength
+pattern WatermarkingStrengthDefault = WatermarkingStrength' "DEFAULT"
 
-pattern WSStronger :: WatermarkingStrength
-pattern WSStronger = WatermarkingStrength' "STRONGER"
+pattern WatermarkingStrengthStronger :: WatermarkingStrength
+pattern WatermarkingStrengthStronger = WatermarkingStrength' "STRONGER"
 
-pattern WSStrongest :: WatermarkingStrength
-pattern WSStrongest = WatermarkingStrength' "STRONGEST"
+pattern WatermarkingStrengthStrongest :: WatermarkingStrength
+pattern WatermarkingStrengthStrongest = WatermarkingStrength' "STRONGEST"
 
 {-# COMPLETE
-  WSLightest,
-  WSLighter,
-  WSDefault,
-  WSStronger,
-  WSStrongest,
+  WatermarkingStrengthLightest,
+  WatermarkingStrengthLighter,
+  WatermarkingStrengthDefault,
+  WatermarkingStrengthStronger,
+  WatermarkingStrengthStrongest,
   WatermarkingStrength'
   #-}

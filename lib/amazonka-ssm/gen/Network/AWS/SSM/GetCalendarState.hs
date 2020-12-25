@@ -23,158 +23,143 @@ module Network.AWS.SSM.GetCalendarState
     mkGetCalendarState,
 
     -- ** Request lenses
-    gcsAtTime,
     gcsCalendarNames,
+    gcsAtTime,
 
     -- * Destructuring the response
     GetCalendarStateResponse (..),
     mkGetCalendarStateResponse,
 
     -- ** Response lenses
-    grsState,
-    grsNextTransitionTime,
     grsAtTime,
+    grsNextTransitionTime,
+    grsState,
     grsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkGetCalendarState' smart constructor.
 data GetCalendarState = GetCalendarState'
-  { -- | (Optional) The specific time for which you want to get calendar state information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> format. If you do not add @AtTime@ , the current time is assumed.
-    atTime :: Lude.Maybe Lude.Text,
-    -- | The names or Amazon Resource Names (ARNs) of the Systems Manager documents that represent the calendar entries for which you want to get the state.
-    calendarNames :: [Lude.Text]
+  { -- | The names or Amazon Resource Names (ARNs) of the Systems Manager documents that represent the calendar entries for which you want to get the state.
+    calendarNames :: [Types.CalendarNameOrARN],
+    -- | (Optional) The specific time for which you want to get calendar state information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> format. If you do not add @AtTime@ , the current time is assumed.
+    atTime :: Core.Maybe Types.AtTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCalendarState' with the minimum fields required to make a request.
---
--- * 'atTime' - (Optional) The specific time for which you want to get calendar state information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> format. If you do not add @AtTime@ , the current time is assumed.
--- * 'calendarNames' - The names or Amazon Resource Names (ARNs) of the Systems Manager documents that represent the calendar entries for which you want to get the state.
+-- | Creates a 'GetCalendarState' value with any optional fields omitted.
 mkGetCalendarState ::
   GetCalendarState
 mkGetCalendarState =
   GetCalendarState'
-    { atTime = Lude.Nothing,
-      calendarNames = Lude.mempty
+    { calendarNames = Core.mempty,
+      atTime = Core.Nothing
     }
-
--- | (Optional) The specific time for which you want to get calendar state information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> format. If you do not add @AtTime@ , the current time is assumed.
---
--- /Note:/ Consider using 'atTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsAtTime :: Lens.Lens' GetCalendarState (Lude.Maybe Lude.Text)
-gcsAtTime = Lens.lens (atTime :: GetCalendarState -> Lude.Maybe Lude.Text) (\s a -> s {atTime = a} :: GetCalendarState)
-{-# DEPRECATED gcsAtTime "Use generic-lens or generic-optics with 'atTime' instead." #-}
 
 -- | The names or Amazon Resource Names (ARNs) of the Systems Manager documents that represent the calendar entries for which you want to get the state.
 --
 -- /Note:/ Consider using 'calendarNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsCalendarNames :: Lens.Lens' GetCalendarState [Lude.Text]
-gcsCalendarNames = Lens.lens (calendarNames :: GetCalendarState -> [Lude.Text]) (\s a -> s {calendarNames = a} :: GetCalendarState)
+gcsCalendarNames :: Lens.Lens' GetCalendarState [Types.CalendarNameOrARN]
+gcsCalendarNames = Lens.field @"calendarNames"
 {-# DEPRECATED gcsCalendarNames "Use generic-lens or generic-optics with 'calendarNames' instead." #-}
 
-instance Lude.AWSRequest GetCalendarState where
+-- | (Optional) The specific time for which you want to get calendar state information, in <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> format. If you do not add @AtTime@ , the current time is assumed.
+--
+-- /Note:/ Consider using 'atTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcsAtTime :: Lens.Lens' GetCalendarState (Core.Maybe Types.AtTime)
+gcsAtTime = Lens.field @"atTime"
+{-# DEPRECATED gcsAtTime "Use generic-lens or generic-optics with 'atTime' instead." #-}
+
+instance Core.FromJSON GetCalendarState where
+  toJSON GetCalendarState {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CalendarNames" Core..= calendarNames),
+            ("AtTime" Core..=) Core.<$> atTime
+          ]
+      )
+
+instance Core.AWSRequest GetCalendarState where
   type Rs GetCalendarState = GetCalendarStateResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.GetCalendarState")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCalendarStateResponse'
-            Lude.<$> (x Lude..?> "State")
-            Lude.<*> (x Lude..?> "NextTransitionTime")
-            Lude.<*> (x Lude..?> "AtTime")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AtTime")
+            Core.<*> (x Core..:? "NextTransitionTime")
+            Core.<*> (x Core..:? "State")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCalendarState where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.GetCalendarState" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetCalendarState where
-  toJSON GetCalendarState' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AtTime" Lude..=) Lude.<$> atTime,
-            Lude.Just ("CalendarNames" Lude..= calendarNames)
-          ]
-      )
-
-instance Lude.ToPath GetCalendarState where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetCalendarState where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetCalendarStateResponse' smart constructor.
 data GetCalendarStateResponse = GetCalendarStateResponse'
-  { -- | The state of the calendar. An @OPEN@ calendar indicates that actions are allowed to proceed, and a @CLOSED@ calendar indicates that actions are not allowed to proceed.
-    state :: Lude.Maybe CalendarState,
+  { -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that you specified in your command. If you did not specify a time, @GetCalendarState@ uses the current time.
+    atTime :: Core.Maybe Types.AtTime,
     -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that the calendar state will change. If the current calendar state is @OPEN@ , @NextTransitionTime@ indicates when the calendar state changes to @CLOSED@ , and vice-versa.
-    nextTransitionTime :: Lude.Maybe Lude.Text,
-    -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that you specified in your command. If you did not specify a time, @GetCalendarState@ uses the current time.
-    atTime :: Lude.Maybe Lude.Text,
+    nextTransitionTime :: Core.Maybe Types.NextTransitionTime,
+    -- | The state of the calendar. An @OPEN@ calendar indicates that actions are allowed to proceed, and a @CLOSED@ calendar indicates that actions are not allowed to proceed.
+    state :: Core.Maybe Types.CalendarState,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCalendarStateResponse' with the minimum fields required to make a request.
---
--- * 'state' - The state of the calendar. An @OPEN@ calendar indicates that actions are allowed to proceed, and a @CLOSED@ calendar indicates that actions are not allowed to proceed.
--- * 'nextTransitionTime' - The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that the calendar state will change. If the current calendar state is @OPEN@ , @NextTransitionTime@ indicates when the calendar state changes to @CLOSED@ , and vice-versa.
--- * 'atTime' - The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that you specified in your command. If you did not specify a time, @GetCalendarState@ uses the current time.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCalendarStateResponse' value with any optional fields omitted.
 mkGetCalendarStateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCalendarStateResponse
-mkGetCalendarStateResponse pResponseStatus_ =
+mkGetCalendarStateResponse responseStatus =
   GetCalendarStateResponse'
-    { state = Lude.Nothing,
-      nextTransitionTime = Lude.Nothing,
-      atTime = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { atTime = Core.Nothing,
+      nextTransitionTime = Core.Nothing,
+      state = Core.Nothing,
+      responseStatus
     }
-
--- | The state of the calendar. An @OPEN@ calendar indicates that actions are allowed to proceed, and a @CLOSED@ calendar indicates that actions are not allowed to proceed.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsState :: Lens.Lens' GetCalendarStateResponse (Lude.Maybe CalendarState)
-grsState = Lens.lens (state :: GetCalendarStateResponse -> Lude.Maybe CalendarState) (\s a -> s {state = a} :: GetCalendarStateResponse)
-{-# DEPRECATED grsState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that the calendar state will change. If the current calendar state is @OPEN@ , @NextTransitionTime@ indicates when the calendar state changes to @CLOSED@ , and vice-versa.
---
--- /Note:/ Consider using 'nextTransitionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsNextTransitionTime :: Lens.Lens' GetCalendarStateResponse (Lude.Maybe Lude.Text)
-grsNextTransitionTime = Lens.lens (nextTransitionTime :: GetCalendarStateResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextTransitionTime = a} :: GetCalendarStateResponse)
-{-# DEPRECATED grsNextTransitionTime "Use generic-lens or generic-optics with 'nextTransitionTime' instead." #-}
 
 -- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that you specified in your command. If you did not specify a time, @GetCalendarState@ uses the current time.
 --
 -- /Note:/ Consider using 'atTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsAtTime :: Lens.Lens' GetCalendarStateResponse (Lude.Maybe Lude.Text)
-grsAtTime = Lens.lens (atTime :: GetCalendarStateResponse -> Lude.Maybe Lude.Text) (\s a -> s {atTime = a} :: GetCalendarStateResponse)
+grsAtTime :: Lens.Lens' GetCalendarStateResponse (Core.Maybe Types.AtTime)
+grsAtTime = Lens.field @"atTime"
 {-# DEPRECATED grsAtTime "Use generic-lens or generic-optics with 'atTime' instead." #-}
+
+-- | The time, as an <https://en.wikipedia.org/wiki/ISO_8601 ISO 8601> string, that the calendar state will change. If the current calendar state is @OPEN@ , @NextTransitionTime@ indicates when the calendar state changes to @CLOSED@ , and vice-versa.
+--
+-- /Note:/ Consider using 'nextTransitionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsNextTransitionTime :: Lens.Lens' GetCalendarStateResponse (Core.Maybe Types.NextTransitionTime)
+grsNextTransitionTime = Lens.field @"nextTransitionTime"
+{-# DEPRECATED grsNextTransitionTime "Use generic-lens or generic-optics with 'nextTransitionTime' instead." #-}
+
+-- | The state of the calendar. An @OPEN@ calendar indicates that actions are allowed to proceed, and a @CLOSED@ calendar indicates that actions are not allowed to proceed.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grsState :: Lens.Lens' GetCalendarStateResponse (Core.Maybe Types.CalendarState)
+grsState = Lens.field @"state"
+{-# DEPRECATED grsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsResponseStatus :: Lens.Lens' GetCalendarStateResponse Lude.Int
-grsResponseStatus = Lens.lens (responseStatus :: GetCalendarStateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCalendarStateResponse)
+grsResponseStatus :: Lens.Lens' GetCalendarStateResponse Core.Int
+grsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

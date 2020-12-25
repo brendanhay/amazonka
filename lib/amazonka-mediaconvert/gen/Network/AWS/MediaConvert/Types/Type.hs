@@ -13,46 +13,48 @@
 module Network.AWS.MediaConvert.Types.Type
   ( Type
       ( Type',
-        System,
-        Custom
+        TypeSystem,
+        TypeCustom,
+        fromType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Type = Type' Lude.Text
+newtype Type = Type' {fromType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern System :: Type
-pattern System = Type' "SYSTEM"
+pattern TypeSystem :: Type
+pattern TypeSystem = Type' "SYSTEM"
 
-pattern Custom :: Type
-pattern Custom = Type' "CUSTOM"
+pattern TypeCustom :: Type
+pattern TypeCustom = Type' "CUSTOM"
 
 {-# COMPLETE
-  System,
-  Custom,
+  TypeSystem,
+  TypeCustom,
   Type'
   #-}

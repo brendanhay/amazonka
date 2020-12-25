@@ -29,75 +29,72 @@ module Network.AWS.IoT.DetachPolicy
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetachPolicy' smart constructor.
 data DetachPolicy = DetachPolicy'
   { -- | The policy to detach.
-    policyName :: Lude.Text,
+    policyName :: Types.PolicyName,
     -- | The target from which the policy will be detached.
-    target :: Lude.Text
+    target :: Types.Target
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachPolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The policy to detach.
--- * 'target' - The target from which the policy will be detached.
+-- | Creates a 'DetachPolicy' value with any optional fields omitted.
 mkDetachPolicy ::
   -- | 'policyName'
-  Lude.Text ->
+  Types.PolicyName ->
   -- | 'target'
-  Lude.Text ->
+  Types.Target ->
   DetachPolicy
-mkDetachPolicy pPolicyName_ pTarget_ =
-  DetachPolicy' {policyName = pPolicyName_, target = pTarget_}
+mkDetachPolicy policyName target =
+  DetachPolicy' {policyName, target}
 
 -- | The policy to detach.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPolicyName :: Lens.Lens' DetachPolicy Lude.Text
-dPolicyName = Lens.lens (policyName :: DetachPolicy -> Lude.Text) (\s a -> s {policyName = a} :: DetachPolicy)
+dPolicyName :: Lens.Lens' DetachPolicy Types.PolicyName
+dPolicyName = Lens.field @"policyName"
 {-# DEPRECATED dPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The target from which the policy will be detached.
 --
 -- /Note:/ Consider using 'target' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dTarget :: Lens.Lens' DetachPolicy Lude.Text
-dTarget = Lens.lens (target :: DetachPolicy -> Lude.Text) (\s a -> s {target = a} :: DetachPolicy)
+dTarget :: Lens.Lens' DetachPolicy Types.Target
+dTarget = Lens.field @"target"
 {-# DEPRECATED dTarget "Use generic-lens or generic-optics with 'target' instead." #-}
 
-instance Lude.AWSRequest DetachPolicy where
+instance Core.FromJSON DetachPolicy where
+  toJSON DetachPolicy {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("target" Core..= target)])
+
+instance Core.AWSRequest DetachPolicy where
   type Rs DetachPolicy = DetachPolicyResponse
-  request = Req.postJSON ioTService
-  response = Res.receiveNull DetachPolicyResponse'
-
-instance Lude.ToHeaders DetachPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON DetachPolicy where
-  toJSON DetachPolicy' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("target" Lude..= target)])
-
-instance Lude.ToPath DetachPolicy where
-  toPath DetachPolicy' {..} =
-    Lude.mconcat ["/target-policies/", Lude.toBS policyName]
-
-instance Lude.ToQuery DetachPolicy where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ("/target-policies/" Core.<> (Core.toText policyName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DetachPolicyResponse'
 
 -- | /See:/ 'mkDetachPolicyResponse' smart constructor.
 data DetachPolicyResponse = DetachPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DetachPolicyResponse' value with any optional fields omitted.
 mkDetachPolicyResponse ::
   DetachPolicyResponse
 mkDetachPolicyResponse = DetachPolicyResponse'

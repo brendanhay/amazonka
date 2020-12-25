@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Pricing
     Network.AWS.Pricing.DescribeServices
@@ -77,7 +83,12 @@ library
     Network.AWS.Pricing.Types.AttributeValue
     Network.AWS.Pricing.Types.Filter
     Network.AWS.Pricing.Types.FilterType
+    Network.AWS.Pricing.Types.FormatVersion
+    Network.AWS.Pricing.Types.NextToken
+    Network.AWS.Pricing.Types.PriceListItemJSON
     Network.AWS.Pricing.Types.PricingService
+    Network.AWS.Pricing.Types.String
+    Network.AWS.Pricing.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

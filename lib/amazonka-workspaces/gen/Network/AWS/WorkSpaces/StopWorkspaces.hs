@@ -29,113 +29,101 @@ module Network.AWS.WorkSpaces.StopWorkspaces
     mkStopWorkspacesResponse,
 
     -- ** Response lenses
-    srsFailedRequests,
-    srsResponseStatus,
+    swrrsFailedRequests,
+    swrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkStopWorkspaces' smart constructor.
 newtype StopWorkspaces = StopWorkspaces'
   { -- | The WorkSpaces to stop. You can specify up to 25 WorkSpaces.
-    stopWorkspaceRequests :: Lude.NonEmpty StopRequest
+    stopWorkspaceRequests :: Core.NonEmpty Types.StopRequest
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopWorkspaces' with the minimum fields required to make a request.
---
--- * 'stopWorkspaceRequests' - The WorkSpaces to stop. You can specify up to 25 WorkSpaces.
+-- | Creates a 'StopWorkspaces' value with any optional fields omitted.
 mkStopWorkspaces ::
   -- | 'stopWorkspaceRequests'
-  Lude.NonEmpty StopRequest ->
+  Core.NonEmpty Types.StopRequest ->
   StopWorkspaces
-mkStopWorkspaces pStopWorkspaceRequests_ =
-  StopWorkspaces' {stopWorkspaceRequests = pStopWorkspaceRequests_}
+mkStopWorkspaces stopWorkspaceRequests =
+  StopWorkspaces' {stopWorkspaceRequests}
 
 -- | The WorkSpaces to stop. You can specify up to 25 WorkSpaces.
 --
 -- /Note:/ Consider using 'stopWorkspaceRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-swStopWorkspaceRequests :: Lens.Lens' StopWorkspaces (Lude.NonEmpty StopRequest)
-swStopWorkspaceRequests = Lens.lens (stopWorkspaceRequests :: StopWorkspaces -> Lude.NonEmpty StopRequest) (\s a -> s {stopWorkspaceRequests = a} :: StopWorkspaces)
+swStopWorkspaceRequests :: Lens.Lens' StopWorkspaces (Core.NonEmpty Types.StopRequest)
+swStopWorkspaceRequests = Lens.field @"stopWorkspaceRequests"
 {-# DEPRECATED swStopWorkspaceRequests "Use generic-lens or generic-optics with 'stopWorkspaceRequests' instead." #-}
 
-instance Lude.AWSRequest StopWorkspaces where
+instance Core.FromJSON StopWorkspaces where
+  toJSON StopWorkspaces {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("StopWorkspaceRequests" Core..= stopWorkspaceRequests)
+          ]
+      )
+
+instance Core.AWSRequest StopWorkspaces where
   type Rs StopWorkspaces = StopWorkspacesResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkspacesService.StopWorkspaces")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopWorkspacesResponse'
-            Lude.<$> (x Lude..?> "FailedRequests" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FailedRequests")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopWorkspaces where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkspacesService.StopWorkspaces" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopWorkspaces where
-  toJSON StopWorkspaces' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("StopWorkspaceRequests" Lude..= stopWorkspaceRequests)
-          ]
-      )
-
-instance Lude.ToPath StopWorkspaces where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopWorkspaces where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopWorkspacesResponse' smart constructor.
 data StopWorkspacesResponse = StopWorkspacesResponse'
   { -- | Information about the WorkSpaces that could not be stopped.
-    failedRequests :: Lude.Maybe [FailedWorkspaceChangeRequest],
+    failedRequests :: Core.Maybe [Types.FailedWorkspaceChangeRequest],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopWorkspacesResponse' with the minimum fields required to make a request.
---
--- * 'failedRequests' - Information about the WorkSpaces that could not be stopped.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopWorkspacesResponse' value with any optional fields omitted.
 mkStopWorkspacesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopWorkspacesResponse
-mkStopWorkspacesResponse pResponseStatus_ =
+mkStopWorkspacesResponse responseStatus =
   StopWorkspacesResponse'
-    { failedRequests = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failedRequests = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the WorkSpaces that could not be stopped.
 --
 -- /Note:/ Consider using 'failedRequests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsFailedRequests :: Lens.Lens' StopWorkspacesResponse (Lude.Maybe [FailedWorkspaceChangeRequest])
-srsFailedRequests = Lens.lens (failedRequests :: StopWorkspacesResponse -> Lude.Maybe [FailedWorkspaceChangeRequest]) (\s a -> s {failedRequests = a} :: StopWorkspacesResponse)
-{-# DEPRECATED srsFailedRequests "Use generic-lens or generic-optics with 'failedRequests' instead." #-}
+swrrsFailedRequests :: Lens.Lens' StopWorkspacesResponse (Core.Maybe [Types.FailedWorkspaceChangeRequest])
+swrrsFailedRequests = Lens.field @"failedRequests"
+{-# DEPRECATED swrrsFailedRequests "Use generic-lens or generic-optics with 'failedRequests' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StopWorkspacesResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StopWorkspacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopWorkspacesResponse)
-{-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+swrrsResponseStatus :: Lens.Lens' StopWorkspacesResponse Core.Int
+swrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED swrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -27,133 +27,120 @@ module Network.AWS.CloudWatchEvents.CreatePartnerEventSource
     mkCreatePartnerEventSource,
 
     -- ** Request lenses
-    cpesAccount,
     cpesName,
+    cpesAccount,
 
     -- * Destructuring the response
     CreatePartnerEventSourceResponse (..),
     mkCreatePartnerEventSourceResponse,
 
     -- ** Response lenses
-    cpesrsEventSourceARN,
-    cpesrsResponseStatus,
+    cpesrrsEventSourceArn,
+    cpesrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreatePartnerEventSource' smart constructor.
 data CreatePartnerEventSource = CreatePartnerEventSource'
-  { -- | The AWS account ID that is permitted to create a matching partner event bus for this partner event source.
-    account :: Lude.Text,
-    -- | The name of the partner event source. This name must be unique and must be in the format @/partner_name/ //event_namespace/ //event_name/ @ . The AWS account that wants to use this partner event source must create a partner event bus with a name that matches the name of the partner event source.
-    name :: Lude.Text
+  { -- | The name of the partner event source. This name must be unique and must be in the format @/partner_name/ //event_namespace/ //event_name/ @ . The AWS account that wants to use this partner event source must create a partner event bus with a name that matches the name of the partner event source.
+    name :: Types.Name,
+    -- | The AWS account ID that is permitted to create a matching partner event bus for this partner event source.
+    account :: Types.AccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePartnerEventSource' with the minimum fields required to make a request.
---
--- * 'account' - The AWS account ID that is permitted to create a matching partner event bus for this partner event source.
--- * 'name' - The name of the partner event source. This name must be unique and must be in the format @/partner_name/ //event_namespace/ //event_name/ @ . The AWS account that wants to use this partner event source must create a partner event bus with a name that matches the name of the partner event source.
+-- | Creates a 'CreatePartnerEventSource' value with any optional fields omitted.
 mkCreatePartnerEventSource ::
-  -- | 'account'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'account'
+  Types.AccountId ->
   CreatePartnerEventSource
-mkCreatePartnerEventSource pAccount_ pName_ =
-  CreatePartnerEventSource' {account = pAccount_, name = pName_}
-
--- | The AWS account ID that is permitted to create a matching partner event bus for this partner event source.
---
--- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpesAccount :: Lens.Lens' CreatePartnerEventSource Lude.Text
-cpesAccount = Lens.lens (account :: CreatePartnerEventSource -> Lude.Text) (\s a -> s {account = a} :: CreatePartnerEventSource)
-{-# DEPRECATED cpesAccount "Use generic-lens or generic-optics with 'account' instead." #-}
+mkCreatePartnerEventSource name account =
+  CreatePartnerEventSource' {name, account}
 
 -- | The name of the partner event source. This name must be unique and must be in the format @/partner_name/ //event_namespace/ //event_name/ @ . The AWS account that wants to use this partner event source must create a partner event bus with a name that matches the name of the partner event source.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpesName :: Lens.Lens' CreatePartnerEventSource Lude.Text
-cpesName = Lens.lens (name :: CreatePartnerEventSource -> Lude.Text) (\s a -> s {name = a} :: CreatePartnerEventSource)
+cpesName :: Lens.Lens' CreatePartnerEventSource Types.Name
+cpesName = Lens.field @"name"
 {-# DEPRECATED cpesName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest CreatePartnerEventSource where
+-- | The AWS account ID that is permitted to create a matching partner event bus for this partner event source.
+--
+-- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpesAccount :: Lens.Lens' CreatePartnerEventSource Types.AccountId
+cpesAccount = Lens.field @"account"
+{-# DEPRECATED cpesAccount "Use generic-lens or generic-optics with 'account' instead." #-}
+
+instance Core.FromJSON CreatePartnerEventSource where
+  toJSON CreatePartnerEventSource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Account" Core..= account)
+          ]
+      )
+
+instance Core.AWSRequest CreatePartnerEventSource where
   type Rs CreatePartnerEventSource = CreatePartnerEventSourceResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.CreatePartnerEventSource")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreatePartnerEventSourceResponse'
-            Lude.<$> (x Lude..?> "EventSourceArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "EventSourceArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreatePartnerEventSource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.CreatePartnerEventSource" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreatePartnerEventSource where
-  toJSON CreatePartnerEventSource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Account" Lude..= account),
-            Lude.Just ("Name" Lude..= name)
-          ]
-      )
-
-instance Lude.ToPath CreatePartnerEventSource where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreatePartnerEventSource where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreatePartnerEventSourceResponse' smart constructor.
 data CreatePartnerEventSourceResponse = CreatePartnerEventSourceResponse'
   { -- | The ARN of the partner event source.
-    eventSourceARN :: Lude.Maybe Lude.Text,
+    eventSourceArn :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePartnerEventSourceResponse' with the minimum fields required to make a request.
---
--- * 'eventSourceARN' - The ARN of the partner event source.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreatePartnerEventSourceResponse' value with any optional fields omitted.
 mkCreatePartnerEventSourceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreatePartnerEventSourceResponse
-mkCreatePartnerEventSourceResponse pResponseStatus_ =
+mkCreatePartnerEventSourceResponse responseStatus =
   CreatePartnerEventSourceResponse'
-    { eventSourceARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { eventSourceArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the partner event source.
 --
--- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpesrsEventSourceARN :: Lens.Lens' CreatePartnerEventSourceResponse (Lude.Maybe Lude.Text)
-cpesrsEventSourceARN = Lens.lens (eventSourceARN :: CreatePartnerEventSourceResponse -> Lude.Maybe Lude.Text) (\s a -> s {eventSourceARN = a} :: CreatePartnerEventSourceResponse)
-{-# DEPRECATED cpesrsEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
+-- /Note:/ Consider using 'eventSourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpesrrsEventSourceArn :: Lens.Lens' CreatePartnerEventSourceResponse (Core.Maybe Types.String)
+cpesrrsEventSourceArn = Lens.field @"eventSourceArn"
+{-# DEPRECATED cpesrrsEventSourceArn "Use generic-lens or generic-optics with 'eventSourceArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpesrsResponseStatus :: Lens.Lens' CreatePartnerEventSourceResponse Lude.Int
-cpesrsResponseStatus = Lens.lens (responseStatus :: CreatePartnerEventSourceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePartnerEventSourceResponse)
-{-# DEPRECATED cpesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cpesrrsResponseStatus :: Lens.Lens' CreatePartnerEventSourceResponse Core.Int
+cpesrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cpesrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

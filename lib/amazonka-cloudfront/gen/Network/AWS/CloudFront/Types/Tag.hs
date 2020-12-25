@@ -17,66 +17,62 @@ module Network.AWS.CloudFront.Types.Tag
     mkTag,
 
     -- * Lenses
-    tValue,
     tKey,
+    tValue,
   )
 where
 
+import qualified Network.AWS.CloudFront.Types.Key as Types
+import qualified Network.AWS.CloudFront.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex type that contains @Tag@ key and @Tag@ value.
 --
 -- /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { -- | A string that contains an optional @Tag@ value.
-    --
-    -- The string length should be between 0 and 256 characters. Valid characters include @a-z@ , @A-Z@ , @0-9@ , space, and the special characters @_ - . : / = + @@ .
-    value :: Lude.Maybe Lude.Text,
-    -- | A string that contains @Tag@ key.
+  { -- | A string that contains @Tag@ key.
     --
     -- The string length should be between 1 and 128 characters. Valid characters include @a-z@ , @A-Z@ , @0-9@ , space, and the special characters @_ - . : / = + @@ .
-    key :: Lude.Text
+    key :: Types.Key,
+    -- | A string that contains an optional @Tag@ value.
+    --
+    -- The string length should be between 0 and 256 characters. Valid characters include @a-z@ , @A-Z@ , @0-9@ , space, and the special characters @_ - . : / = + @@ .
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- * 'value' - A string that contains an optional @Tag@ value.
---
--- The string length should be between 0 and 256 characters. Valid characters include @a-z@ , @A-Z@ , @0-9@ , space, and the special characters @_ - . : / = + @@ .
--- * 'key' - A string that contains @Tag@ key.
---
--- The string length should be between 1 and 128 characters. Valid characters include @a-z@ , @A-Z@ , @0-9@ , space, and the special characters @_ - . : / = + @@ .
+-- | Creates a 'Tag' value with any optional fields omitted.
 mkTag ::
   -- | 'key'
-  Lude.Text ->
+  Types.Key ->
   Tag
-mkTag pKey_ = Tag' {value = Lude.Nothing, key = pKey_}
-
--- | A string that contains an optional @Tag@ value.
---
--- The string length should be between 0 and 256 characters. Valid characters include @a-z@ , @A-Z@ , @0-9@ , space, and the special characters @_ - . : / = + @@ .
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tValue :: Lens.Lens' Tag (Lude.Maybe Lude.Text)
-tValue = Lens.lens (value :: Tag -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Tag)
-{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkTag key = Tag' {key, value = Core.Nothing}
 
 -- | A string that contains @Tag@ key.
 --
 -- The string length should be between 1 and 128 characters. Valid characters include @a-z@ , @A-Z@ , @0-9@ , space, and the special characters @_ - . : / = + @@ .
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag Lude.Text
-tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+tKey :: Lens.Lens' Tag Types.Key
+tKey = Lens.field @"key"
 {-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromXML Tag where
-  parseXML x =
-    Tag' Lude.<$> (x Lude..@? "Value") Lude.<*> (x Lude..@ "Key")
+-- | A string that contains an optional @Tag@ value.
+--
+-- The string length should be between 0 and 256 characters. Valid characters include @a-z@ , @A-Z@ , @0-9@ , space, and the special characters @_ - . : / = + @@ .
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tValue :: Lens.Lens' Tag (Core.Maybe Types.Value)
+tValue = Lens.field @"value"
+{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToXML Tag where
-  toXML Tag' {..} =
-    Lude.mconcat ["Value" Lude.@= value, "Key" Lude.@= key]
+instance Core.ToXML Tag where
+  toXML Tag {..} =
+    Core.toXMLNode "Key" key
+      Core.<> Core.toXMLNode "Value" Core.<$> value
+
+instance Core.FromXML Tag where
+  parseXML x =
+    Tag' Core.<$> (x Core..@ "Key") Core.<*> (x Core..@? "Value")

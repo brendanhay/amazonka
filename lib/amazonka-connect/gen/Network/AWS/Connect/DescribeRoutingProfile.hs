@@ -28,123 +28,107 @@ module Network.AWS.Connect.DescribeRoutingProfile
     mkDescribeRoutingProfileResponse,
 
     -- ** Response lenses
-    drprsRoutingProfile,
-    drprsResponseStatus,
+    drprrsRoutingProfile,
+    drprrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeRoutingProfile' smart constructor.
 data DescribeRoutingProfile = DescribeRoutingProfile'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The identifier of the routing profile.
-    routingProfileId :: Lude.Text
+    routingProfileId :: Types.RoutingProfileId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeRoutingProfile' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'routingProfileId' - The identifier of the routing profile.
+-- | Creates a 'DescribeRoutingProfile' value with any optional fields omitted.
 mkDescribeRoutingProfile ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'routingProfileId'
-  Lude.Text ->
+  Types.RoutingProfileId ->
   DescribeRoutingProfile
-mkDescribeRoutingProfile pInstanceId_ pRoutingProfileId_ =
-  DescribeRoutingProfile'
-    { instanceId = pInstanceId_,
-      routingProfileId = pRoutingProfileId_
-    }
+mkDescribeRoutingProfile instanceId routingProfileId =
+  DescribeRoutingProfile' {instanceId, routingProfileId}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpInstanceId :: Lens.Lens' DescribeRoutingProfile Lude.Text
-drpInstanceId = Lens.lens (instanceId :: DescribeRoutingProfile -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeRoutingProfile)
+drpInstanceId :: Lens.Lens' DescribeRoutingProfile Types.InstanceId
+drpInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED drpInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the routing profile.
 --
 -- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drpRoutingProfileId :: Lens.Lens' DescribeRoutingProfile Lude.Text
-drpRoutingProfileId = Lens.lens (routingProfileId :: DescribeRoutingProfile -> Lude.Text) (\s a -> s {routingProfileId = a} :: DescribeRoutingProfile)
+drpRoutingProfileId :: Lens.Lens' DescribeRoutingProfile Types.RoutingProfileId
+drpRoutingProfileId = Lens.field @"routingProfileId"
 {-# DEPRECATED drpRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
 
-instance Lude.AWSRequest DescribeRoutingProfile where
+instance Core.AWSRequest DescribeRoutingProfile where
   type Rs DescribeRoutingProfile = DescribeRoutingProfileResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/routing-profiles/" Core.<> (Core.toText instanceId)
+                Core.<> ("/")
+                Core.<> (Core.toText routingProfileId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeRoutingProfileResponse'
-            Lude.<$> (x Lude..?> "RoutingProfile")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RoutingProfile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeRoutingProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeRoutingProfile where
-  toPath DescribeRoutingProfile' {..} =
-    Lude.mconcat
-      [ "/routing-profiles/",
-        Lude.toBS instanceId,
-        "/",
-        Lude.toBS routingProfileId
-      ]
-
-instance Lude.ToQuery DescribeRoutingProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeRoutingProfileResponse' smart constructor.
 data DescribeRoutingProfileResponse = DescribeRoutingProfileResponse'
   { -- | The routing profile.
-    routingProfile :: Lude.Maybe RoutingProfile,
+    routingProfile :: Core.Maybe Types.RoutingProfile,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeRoutingProfileResponse' with the minimum fields required to make a request.
---
--- * 'routingProfile' - The routing profile.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeRoutingProfileResponse' value with any optional fields omitted.
 mkDescribeRoutingProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeRoutingProfileResponse
-mkDescribeRoutingProfileResponse pResponseStatus_ =
+mkDescribeRoutingProfileResponse responseStatus =
   DescribeRoutingProfileResponse'
-    { routingProfile = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { routingProfile = Core.Nothing,
+      responseStatus
     }
 
 -- | The routing profile.
 --
 -- /Note:/ Consider using 'routingProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drprsRoutingProfile :: Lens.Lens' DescribeRoutingProfileResponse (Lude.Maybe RoutingProfile)
-drprsRoutingProfile = Lens.lens (routingProfile :: DescribeRoutingProfileResponse -> Lude.Maybe RoutingProfile) (\s a -> s {routingProfile = a} :: DescribeRoutingProfileResponse)
-{-# DEPRECATED drprsRoutingProfile "Use generic-lens or generic-optics with 'routingProfile' instead." #-}
+drprrsRoutingProfile :: Lens.Lens' DescribeRoutingProfileResponse (Core.Maybe Types.RoutingProfile)
+drprrsRoutingProfile = Lens.field @"routingProfile"
+{-# DEPRECATED drprrsRoutingProfile "Use generic-lens or generic-optics with 'routingProfile' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drprsResponseStatus :: Lens.Lens' DescribeRoutingProfileResponse Lude.Int
-drprsResponseStatus = Lens.lens (responseStatus :: DescribeRoutingProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRoutingProfileResponse)
-{-# DEPRECATED drprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drprrsResponseStatus :: Lens.Lens' DescribeRoutingProfileResponse Core.Int
+drprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

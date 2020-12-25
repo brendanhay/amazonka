@@ -17,72 +17,68 @@ module Network.AWS.StepFunctions.Types.ExecutionStartedEventDetails
     mkExecutionStartedEventDetails,
 
     -- * Lenses
-    esedInputDetails,
     esedInput,
-    esedRoleARN,
+    esedInputDetails,
+    esedRoleArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.Arn as Types
+import qualified Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveData as Types
 
 -- | Contains details about the start of the execution.
 --
 -- /See:/ 'mkExecutionStartedEventDetails' smart constructor.
 data ExecutionStartedEventDetails = ExecutionStartedEventDetails'
-  { -- | Contains details about the input for an execution history event.
-    inputDetails :: Lude.Maybe HistoryEventExecutionDataDetails,
-    -- | The JSON data input to the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-    input :: Lude.Maybe (Lude.Sensitive Lude.Text),
+  { -- | The JSON data input to the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+    input :: Core.Maybe Types.SensitiveData,
+    -- | Contains details about the input for an execution history event.
+    inputDetails :: Core.Maybe Types.HistoryEventExecutionDataDetails,
     -- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExecutionStartedEventDetails' with the minimum fields required to make a request.
---
--- * 'inputDetails' - Contains details about the input for an execution history event.
--- * 'input' - The JSON data input to the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.
+-- | Creates a 'ExecutionStartedEventDetails' value with any optional fields omitted.
 mkExecutionStartedEventDetails ::
   ExecutionStartedEventDetails
 mkExecutionStartedEventDetails =
   ExecutionStartedEventDetails'
-    { inputDetails = Lude.Nothing,
-      input = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { input = Core.Nothing,
+      inputDetails = Core.Nothing,
+      roleArn = Core.Nothing
     }
-
--- | Contains details about the input for an execution history event.
---
--- /Note:/ Consider using 'inputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esedInputDetails :: Lens.Lens' ExecutionStartedEventDetails (Lude.Maybe HistoryEventExecutionDataDetails)
-esedInputDetails = Lens.lens (inputDetails :: ExecutionStartedEventDetails -> Lude.Maybe HistoryEventExecutionDataDetails) (\s a -> s {inputDetails = a} :: ExecutionStartedEventDetails)
-{-# DEPRECATED esedInputDetails "Use generic-lens or generic-optics with 'inputDetails' instead." #-}
 
 -- | The JSON data input to the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
 --
 -- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esedInput :: Lens.Lens' ExecutionStartedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-esedInput = Lens.lens (input :: ExecutionStartedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {input = a} :: ExecutionStartedEventDetails)
+esedInput :: Lens.Lens' ExecutionStartedEventDetails (Core.Maybe Types.SensitiveData)
+esedInput = Lens.field @"input"
 {-# DEPRECATED esedInput "Use generic-lens or generic-optics with 'input' instead." #-}
+
+-- | Contains details about the input for an execution history event.
+--
+-- /Note:/ Consider using 'inputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esedInputDetails :: Lens.Lens' ExecutionStartedEventDetails (Core.Maybe Types.HistoryEventExecutionDataDetails)
+esedInputDetails = Lens.field @"inputDetails"
+{-# DEPRECATED esedInputDetails "Use generic-lens or generic-optics with 'inputDetails' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esedRoleARN :: Lens.Lens' ExecutionStartedEventDetails (Lude.Maybe Lude.Text)
-esedRoleARN = Lens.lens (roleARN :: ExecutionStartedEventDetails -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: ExecutionStartedEventDetails)
-{-# DEPRECATED esedRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esedRoleArn :: Lens.Lens' ExecutionStartedEventDetails (Core.Maybe Types.Arn)
+esedRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED esedRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON ExecutionStartedEventDetails where
+instance Core.FromJSON ExecutionStartedEventDetails where
   parseJSON =
-    Lude.withObject
-      "ExecutionStartedEventDetails"
-      ( \x ->
-          ExecutionStartedEventDetails'
-            Lude.<$> (x Lude..:? "inputDetails")
-            Lude.<*> (x Lude..:? "input")
-            Lude.<*> (x Lude..:? "roleArn")
-      )
+    Core.withObject "ExecutionStartedEventDetails" Core.$
+      \x ->
+        ExecutionStartedEventDetails'
+          Core.<$> (x Core..:? "input")
+          Core.<*> (x Core..:? "inputDetails")
+          Core.<*> (x Core..:? "roleArn")

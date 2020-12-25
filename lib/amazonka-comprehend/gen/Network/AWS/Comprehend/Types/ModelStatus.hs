@@ -13,71 +13,73 @@
 module Network.AWS.Comprehend.Types.ModelStatus
   ( ModelStatus
       ( ModelStatus',
-        MSSubmitted,
-        MSTraining,
-        MSDeleting,
-        MSStopRequested,
-        MSStopped,
-        MSInError,
-        MSTrained
+        ModelStatusSubmitted,
+        ModelStatusTraining,
+        ModelStatusDeleting,
+        ModelStatusStopRequested,
+        ModelStatusStopped,
+        ModelStatusInError,
+        ModelStatusTrained,
+        fromModelStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ModelStatus = ModelStatus' Lude.Text
+newtype ModelStatus = ModelStatus' {fromModelStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MSSubmitted :: ModelStatus
-pattern MSSubmitted = ModelStatus' "SUBMITTED"
+pattern ModelStatusSubmitted :: ModelStatus
+pattern ModelStatusSubmitted = ModelStatus' "SUBMITTED"
 
-pattern MSTraining :: ModelStatus
-pattern MSTraining = ModelStatus' "TRAINING"
+pattern ModelStatusTraining :: ModelStatus
+pattern ModelStatusTraining = ModelStatus' "TRAINING"
 
-pattern MSDeleting :: ModelStatus
-pattern MSDeleting = ModelStatus' "DELETING"
+pattern ModelStatusDeleting :: ModelStatus
+pattern ModelStatusDeleting = ModelStatus' "DELETING"
 
-pattern MSStopRequested :: ModelStatus
-pattern MSStopRequested = ModelStatus' "STOP_REQUESTED"
+pattern ModelStatusStopRequested :: ModelStatus
+pattern ModelStatusStopRequested = ModelStatus' "STOP_REQUESTED"
 
-pattern MSStopped :: ModelStatus
-pattern MSStopped = ModelStatus' "STOPPED"
+pattern ModelStatusStopped :: ModelStatus
+pattern ModelStatusStopped = ModelStatus' "STOPPED"
 
-pattern MSInError :: ModelStatus
-pattern MSInError = ModelStatus' "IN_ERROR"
+pattern ModelStatusInError :: ModelStatus
+pattern ModelStatusInError = ModelStatus' "IN_ERROR"
 
-pattern MSTrained :: ModelStatus
-pattern MSTrained = ModelStatus' "TRAINED"
+pattern ModelStatusTrained :: ModelStatus
+pattern ModelStatusTrained = ModelStatus' "TRAINED"
 
 {-# COMPLETE
-  MSSubmitted,
-  MSTraining,
-  MSDeleting,
-  MSStopRequested,
-  MSStopped,
-  MSInError,
-  MSTrained,
+  ModelStatusSubmitted,
+  ModelStatusTraining,
+  ModelStatusDeleting,
+  ModelStatusStopRequested,
+  ModelStatusStopped,
+  ModelStatusInError,
+  ModelStatusTrained,
   ModelStatus'
   #-}

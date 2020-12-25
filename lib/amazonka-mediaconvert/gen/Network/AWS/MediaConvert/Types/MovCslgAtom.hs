@@ -13,47 +13,49 @@
 module Network.AWS.MediaConvert.Types.MovCslgAtom
   ( MovCslgAtom
       ( MovCslgAtom',
-        MCAInclude,
-        MCAExclude
+        MovCslgAtomInclude,
+        MovCslgAtomExclude,
+        fromMovCslgAtom
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
-newtype MovCslgAtom = MovCslgAtom' Lude.Text
+newtype MovCslgAtom = MovCslgAtom' {fromMovCslgAtom :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MCAInclude :: MovCslgAtom
-pattern MCAInclude = MovCslgAtom' "INCLUDE"
+pattern MovCslgAtomInclude :: MovCslgAtom
+pattern MovCslgAtomInclude = MovCslgAtom' "INCLUDE"
 
-pattern MCAExclude :: MovCslgAtom
-pattern MCAExclude = MovCslgAtom' "EXCLUDE"
+pattern MovCslgAtomExclude :: MovCslgAtom
+pattern MovCslgAtomExclude = MovCslgAtom' "EXCLUDE"
 
 {-# COMPLETE
-  MCAInclude,
-  MCAExclude,
+  MovCslgAtomInclude,
+  MovCslgAtomExclude,
   MovCslgAtom'
   #-}

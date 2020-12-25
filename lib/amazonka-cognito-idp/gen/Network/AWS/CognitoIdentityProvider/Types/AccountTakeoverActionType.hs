@@ -17,20 +17,22 @@ module Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverActionType
     mkAccountTakeoverActionType,
 
     -- * Lenses
-    atatEventAction,
     atatNotify,
+    atatEventAction,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverEventActionType
+import qualified Network.AWS.CognitoIdentityProvider.Types.AccountTakeoverEventActionType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Account takeover action type.
 --
 -- /See:/ 'mkAccountTakeoverActionType' smart constructor.
 data AccountTakeoverActionType = AccountTakeoverActionType'
-  { -- | The event action.
+  { -- | Flag specifying whether to send a notification.
+    notify :: Core.Bool,
+    -- | The event action.
     --
     --
     --     * @BLOCK@ Choosing this action will block the request.
@@ -43,42 +45,27 @@ data AccountTakeoverActionType = AccountTakeoverActionType'
     --
     --
     --     * @NO_ACTION@ Allow the user sign-in.
-    eventAction :: AccountTakeoverEventActionType,
-    -- | Flag specifying whether to send a notification.
-    notify :: Lude.Bool
+    eventAction :: Types.AccountTakeoverEventActionType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountTakeoverActionType' with the minimum fields required to make a request.
---
--- * 'eventAction' - The event action.
---
---
---     * @BLOCK@ Choosing this action will block the request.
---
---
---     * @MFA_IF_CONFIGURED@ Throw MFA challenge if user has configured it, else allow the request.
---
---
---     * @MFA_REQUIRED@ Throw MFA challenge if user has configured it, else block the request.
---
---
---     * @NO_ACTION@ Allow the user sign-in.
---
---
--- * 'notify' - Flag specifying whether to send a notification.
+-- | Creates a 'AccountTakeoverActionType' value with any optional fields omitted.
 mkAccountTakeoverActionType ::
-  -- | 'eventAction'
-  AccountTakeoverEventActionType ->
   -- | 'notify'
-  Lude.Bool ->
+  Core.Bool ->
+  -- | 'eventAction'
+  Types.AccountTakeoverEventActionType ->
   AccountTakeoverActionType
-mkAccountTakeoverActionType pEventAction_ pNotify_ =
-  AccountTakeoverActionType'
-    { eventAction = pEventAction_,
-      notify = pNotify_
-    }
+mkAccountTakeoverActionType notify eventAction =
+  AccountTakeoverActionType' {notify, eventAction}
+
+-- | Flag specifying whether to send a notification.
+--
+-- /Note:/ Consider using 'notify' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atatNotify :: Lens.Lens' AccountTakeoverActionType Core.Bool
+atatNotify = Lens.field @"notify"
+{-# DEPRECATED atatNotify "Use generic-lens or generic-optics with 'notify' instead." #-}
 
 -- | The event action.
 --
@@ -97,31 +84,22 @@ mkAccountTakeoverActionType pEventAction_ pNotify_ =
 --
 --
 -- /Note:/ Consider using 'eventAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atatEventAction :: Lens.Lens' AccountTakeoverActionType AccountTakeoverEventActionType
-atatEventAction = Lens.lens (eventAction :: AccountTakeoverActionType -> AccountTakeoverEventActionType) (\s a -> s {eventAction = a} :: AccountTakeoverActionType)
+atatEventAction :: Lens.Lens' AccountTakeoverActionType Types.AccountTakeoverEventActionType
+atatEventAction = Lens.field @"eventAction"
 {-# DEPRECATED atatEventAction "Use generic-lens or generic-optics with 'eventAction' instead." #-}
 
--- | Flag specifying whether to send a notification.
---
--- /Note:/ Consider using 'notify' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atatNotify :: Lens.Lens' AccountTakeoverActionType Lude.Bool
-atatNotify = Lens.lens (notify :: AccountTakeoverActionType -> Lude.Bool) (\s a -> s {notify = a} :: AccountTakeoverActionType)
-{-# DEPRECATED atatNotify "Use generic-lens or generic-optics with 'notify' instead." #-}
-
-instance Lude.FromJSON AccountTakeoverActionType where
-  parseJSON =
-    Lude.withObject
-      "AccountTakeoverActionType"
-      ( \x ->
-          AccountTakeoverActionType'
-            Lude.<$> (x Lude..: "EventAction") Lude.<*> (x Lude..: "Notify")
-      )
-
-instance Lude.ToJSON AccountTakeoverActionType where
-  toJSON AccountTakeoverActionType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("EventAction" Lude..= eventAction),
-            Lude.Just ("Notify" Lude..= notify)
+instance Core.FromJSON AccountTakeoverActionType where
+  toJSON AccountTakeoverActionType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Notify" Core..= notify),
+            Core.Just ("EventAction" Core..= eventAction)
           ]
       )
+
+instance Core.FromJSON AccountTakeoverActionType where
+  parseJSON =
+    Core.withObject "AccountTakeoverActionType" Core.$
+      \x ->
+        AccountTakeoverActionType'
+          Core.<$> (x Core..: "Notify") Core.<*> (x Core..: "EventAction")

@@ -22,33 +22,32 @@ module Network.AWS.WorkSpaces.Types.StopRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.WorkspaceId as Types
 
 -- | Describes the information used to stop a WorkSpace.
 --
 -- /See:/ 'mkStopRequest' smart constructor.
 newtype StopRequest = StopRequest'
   { -- | The identifier of the WorkSpace.
-    workspaceId :: Lude.Maybe Lude.Text
+    workspaceId :: Core.Maybe Types.WorkspaceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopRequest' with the minimum fields required to make a request.
---
--- * 'workspaceId' - The identifier of the WorkSpace.
+-- | Creates a 'StopRequest' value with any optional fields omitted.
 mkStopRequest ::
   StopRequest
-mkStopRequest = StopRequest' {workspaceId = Lude.Nothing}
+mkStopRequest = StopRequest' {workspaceId = Core.Nothing}
 
 -- | The identifier of the WorkSpace.
 --
 -- /Note:/ Consider using 'workspaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srWorkspaceId :: Lens.Lens' StopRequest (Lude.Maybe Lude.Text)
-srWorkspaceId = Lens.lens (workspaceId :: StopRequest -> Lude.Maybe Lude.Text) (\s a -> s {workspaceId = a} :: StopRequest)
+srWorkspaceId :: Lens.Lens' StopRequest (Core.Maybe Types.WorkspaceId)
+srWorkspaceId = Lens.field @"workspaceId"
 {-# DEPRECATED srWorkspaceId "Use generic-lens or generic-optics with 'workspaceId' instead." #-}
 
-instance Lude.ToJSON StopRequest where
-  toJSON StopRequest' {..} =
-    Lude.object
-      (Lude.catMaybes [("WorkspaceId" Lude..=) Lude.<$> workspaceId])
+instance Core.FromJSON StopRequest where
+  toJSON StopRequest {..} =
+    Core.object
+      (Core.catMaybes [("WorkspaceId" Core..=) Core.<$> workspaceId])

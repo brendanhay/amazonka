@@ -13,42 +13,47 @@
 module Network.AWS.Route53.Types.ReusableDelegationSetLimitType
   ( ReusableDelegationSetLimitType
       ( ReusableDelegationSetLimitType',
-        MaxZonesByReusableDelegationSet
+        ReusableDelegationSetLimitTypeMaxZonesByReusableDelegationSet,
+        fromReusableDelegationSetLimitType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53.Internal as Types
 
-newtype ReusableDelegationSetLimitType = ReusableDelegationSetLimitType' Lude.Text
+newtype ReusableDelegationSetLimitType = ReusableDelegationSetLimitType'
+  { fromReusableDelegationSetLimitType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MaxZonesByReusableDelegationSet :: ReusableDelegationSetLimitType
-pattern MaxZonesByReusableDelegationSet = ReusableDelegationSetLimitType' "MAX_ZONES_BY_REUSABLE_DELEGATION_SET"
+pattern ReusableDelegationSetLimitTypeMaxZonesByReusableDelegationSet :: ReusableDelegationSetLimitType
+pattern ReusableDelegationSetLimitTypeMaxZonesByReusableDelegationSet = ReusableDelegationSetLimitType' "MAX_ZONES_BY_REUSABLE_DELEGATION_SET"
 
 {-# COMPLETE
-  MaxZonesByReusableDelegationSet,
+  ReusableDelegationSetLimitTypeMaxZonesByReusableDelegationSet,
   ReusableDelegationSetLimitType'
   #-}

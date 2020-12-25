@@ -22,8 +22,8 @@ module Network.AWS.Rekognition.Types.ValidationData
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.Asset
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.Asset as Types
 
 -- | Contains the Amazon S3 bucket location of the validation data for a model training job.
 --
@@ -34,30 +34,24 @@ import Network.AWS.Rekognition.Types.Asset
 -- /See:/ 'mkValidationData' smart constructor.
 newtype ValidationData = ValidationData'
   { -- | The assets that comprise the validation data.
-    assets :: Lude.Maybe [Asset]
+    assets :: Core.Maybe [Types.Asset]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidationData' with the minimum fields required to make a request.
---
--- * 'assets' - The assets that comprise the validation data.
+-- | Creates a 'ValidationData' value with any optional fields omitted.
 mkValidationData ::
   ValidationData
-mkValidationData = ValidationData' {assets = Lude.Nothing}
+mkValidationData = ValidationData' {assets = Core.Nothing}
 
 -- | The assets that comprise the validation data.
 --
 -- /Note:/ Consider using 'assets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdAssets :: Lens.Lens' ValidationData (Lude.Maybe [Asset])
-vdAssets = Lens.lens (assets :: ValidationData -> Lude.Maybe [Asset]) (\s a -> s {assets = a} :: ValidationData)
+vdAssets :: Lens.Lens' ValidationData (Core.Maybe [Types.Asset])
+vdAssets = Lens.field @"assets"
 {-# DEPRECATED vdAssets "Use generic-lens or generic-optics with 'assets' instead." #-}
 
-instance Lude.FromJSON ValidationData where
+instance Core.FromJSON ValidationData where
   parseJSON =
-    Lude.withObject
-      "ValidationData"
-      ( \x ->
-          ValidationData'
-            Lude.<$> (x Lude..:? "Assets" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ValidationData" Core.$
+      \x -> ValidationData' Core.<$> (x Core..:? "Assets")

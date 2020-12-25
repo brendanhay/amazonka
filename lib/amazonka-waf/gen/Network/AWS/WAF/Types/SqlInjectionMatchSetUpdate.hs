@@ -17,65 +17,58 @@ module Network.AWS.WAF.Types.SqlInjectionMatchSetUpdate
     mkSqlInjectionMatchSetUpdate,
 
     -- * Lenses
-    simsuSqlInjectionMatchTuple,
     simsuAction,
+    simsuSqlInjectionMatchTuple,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WAF.Types.ChangeAction
-import Network.AWS.WAF.Types.SqlInjectionMatchTuple
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAF.Types.ChangeAction as Types
+import qualified Network.AWS.WAF.Types.SqlInjectionMatchTuple as Types
 
 -- | Specifies the part of a web request that you want to inspect for snippets of malicious SQL code and indicates whether you want to add the specification to a 'SqlInjectionMatchSet' or delete it from a @SqlInjectionMatchSet@ .
 --
 -- /See:/ 'mkSqlInjectionMatchSetUpdate' smart constructor.
 data SqlInjectionMatchSetUpdate = SqlInjectionMatchSetUpdate'
-  { -- | Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
-    sqlInjectionMatchTuple :: SqlInjectionMatchTuple,
-    -- | Specify @INSERT@ to add a 'SqlInjectionMatchSetUpdate' to a 'SqlInjectionMatchSet' . Use @DELETE@ to remove a @SqlInjectionMatchSetUpdate@ from a @SqlInjectionMatchSet@ .
-    action :: ChangeAction
+  { -- | Specify @INSERT@ to add a 'SqlInjectionMatchSetUpdate' to a 'SqlInjectionMatchSet' . Use @DELETE@ to remove a @SqlInjectionMatchSetUpdate@ from a @SqlInjectionMatchSet@ .
+    action :: Types.ChangeAction,
+    -- | Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+    sqlInjectionMatchTuple :: Types.SqlInjectionMatchTuple
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SqlInjectionMatchSetUpdate' with the minimum fields required to make a request.
---
--- * 'sqlInjectionMatchTuple' - Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
--- * 'action' - Specify @INSERT@ to add a 'SqlInjectionMatchSetUpdate' to a 'SqlInjectionMatchSet' . Use @DELETE@ to remove a @SqlInjectionMatchSetUpdate@ from a @SqlInjectionMatchSet@ .
+-- | Creates a 'SqlInjectionMatchSetUpdate' value with any optional fields omitted.
 mkSqlInjectionMatchSetUpdate ::
-  -- | 'sqlInjectionMatchTuple'
-  SqlInjectionMatchTuple ->
   -- | 'action'
-  ChangeAction ->
+  Types.ChangeAction ->
+  -- | 'sqlInjectionMatchTuple'
+  Types.SqlInjectionMatchTuple ->
   SqlInjectionMatchSetUpdate
-mkSqlInjectionMatchSetUpdate pSqlInjectionMatchTuple_ pAction_ =
-  SqlInjectionMatchSetUpdate'
-    { sqlInjectionMatchTuple =
-        pSqlInjectionMatchTuple_,
-      action = pAction_
-    }
-
--- | Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
---
--- /Note:/ Consider using 'sqlInjectionMatchTuple' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-simsuSqlInjectionMatchTuple :: Lens.Lens' SqlInjectionMatchSetUpdate SqlInjectionMatchTuple
-simsuSqlInjectionMatchTuple = Lens.lens (sqlInjectionMatchTuple :: SqlInjectionMatchSetUpdate -> SqlInjectionMatchTuple) (\s a -> s {sqlInjectionMatchTuple = a} :: SqlInjectionMatchSetUpdate)
-{-# DEPRECATED simsuSqlInjectionMatchTuple "Use generic-lens or generic-optics with 'sqlInjectionMatchTuple' instead." #-}
+mkSqlInjectionMatchSetUpdate action sqlInjectionMatchTuple =
+  SqlInjectionMatchSetUpdate' {action, sqlInjectionMatchTuple}
 
 -- | Specify @INSERT@ to add a 'SqlInjectionMatchSetUpdate' to a 'SqlInjectionMatchSet' . Use @DELETE@ to remove a @SqlInjectionMatchSetUpdate@ from a @SqlInjectionMatchSet@ .
 --
 -- /Note:/ Consider using 'action' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-simsuAction :: Lens.Lens' SqlInjectionMatchSetUpdate ChangeAction
-simsuAction = Lens.lens (action :: SqlInjectionMatchSetUpdate -> ChangeAction) (\s a -> s {action = a} :: SqlInjectionMatchSetUpdate)
+simsuAction :: Lens.Lens' SqlInjectionMatchSetUpdate Types.ChangeAction
+simsuAction = Lens.field @"action"
 {-# DEPRECATED simsuAction "Use generic-lens or generic-optics with 'action' instead." #-}
 
-instance Lude.ToJSON SqlInjectionMatchSetUpdate where
-  toJSON SqlInjectionMatchSetUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("SqlInjectionMatchTuple" Lude..= sqlInjectionMatchTuple),
-            Lude.Just ("Action" Lude..= action)
+-- | Specifies the part of a web request that you want AWS WAF to inspect for snippets of malicious SQL code and, if you want AWS WAF to inspect a header, the name of the header.
+--
+-- /Note:/ Consider using 'sqlInjectionMatchTuple' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+simsuSqlInjectionMatchTuple :: Lens.Lens' SqlInjectionMatchSetUpdate Types.SqlInjectionMatchTuple
+simsuSqlInjectionMatchTuple = Lens.field @"sqlInjectionMatchTuple"
+{-# DEPRECATED simsuSqlInjectionMatchTuple "Use generic-lens or generic-optics with 'sqlInjectionMatchTuple' instead." #-}
+
+instance Core.FromJSON SqlInjectionMatchSetUpdate where
+  toJSON SqlInjectionMatchSetUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Action" Core..= action),
+            Core.Just
+              ("SqlInjectionMatchTuple" Core..= sqlInjectionMatchTuple)
           ]
       )

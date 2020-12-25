@@ -222,7 +222,7 @@ responseSearchResources =
   res
     "SearchResourcesResponse"
     "fixture/SearchResourcesResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy SearchResources)
 
 responseGetTags :: GetTagsResponse -> TestTree
@@ -230,7 +230,7 @@ responseGetTags =
   res
     "GetTagsResponse"
     "fixture/GetTagsResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy GetTags)
 
 responseTag :: TagResponse -> TestTree
@@ -238,7 +238,7 @@ responseTag =
   res
     "TagResponse"
     "fixture/TagResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy Tag)
 
 responseUngroupResources :: UngroupResourcesResponse -> TestTree
@@ -246,7 +246,7 @@ responseUngroupResources =
   res
     "UngroupResourcesResponse"
     "fixture/UngroupResourcesResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy UngroupResources)
 
 responseGroupResources :: GroupResourcesResponse -> TestTree
@@ -254,7 +254,7 @@ responseGroupResources =
   res
     "GroupResourcesResponse"
     "fixture/GroupResourcesResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy GroupResources)
 
 responseUntag :: UntagResponse -> TestTree
@@ -262,7 +262,7 @@ responseUntag =
   res
     "UntagResponse"
     "fixture/UntagResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy Untag)
 
 responseUpdateGroupQuery :: UpdateGroupQueryResponse -> TestTree
@@ -270,7 +270,7 @@ responseUpdateGroupQuery =
   res
     "UpdateGroupQueryResponse"
     "fixture/UpdateGroupQueryResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateGroupQuery)
 
 responseListGroupResources :: ListGroupResourcesResponse -> TestTree
@@ -278,7 +278,7 @@ responseListGroupResources =
   res
     "ListGroupResourcesResponse"
     "fixture/ListGroupResourcesResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy ListGroupResources)
 
 responseGetGroupQuery :: GetGroupQueryResponse -> TestTree
@@ -286,7 +286,7 @@ responseGetGroupQuery =
   res
     "GetGroupQueryResponse"
     "fixture/GetGroupQueryResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy GetGroupQuery)
 
 responseCreateGroup :: CreateGroupResponse -> TestTree
@@ -294,7 +294,7 @@ responseCreateGroup =
   res
     "CreateGroupResponse"
     "fixture/CreateGroupResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy CreateGroup)
 
 responseDeleteGroup :: DeleteGroupResponse -> TestTree
@@ -302,7 +302,7 @@ responseDeleteGroup =
   res
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteGroup)
 
 responseUpdateGroup :: UpdateGroupResponse -> TestTree
@@ -310,7 +310,7 @@ responseUpdateGroup =
   res
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateGroup)
 
 responseListGroups :: ListGroupsResponse -> TestTree
@@ -318,7 +318,7 @@ responseListGroups =
   res
     "ListGroupsResponse"
     "fixture/ListGroupsResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy ListGroups)
 
 responseGetGroup :: GetGroupResponse -> TestTree
@@ -326,7 +326,7 @@ responseGetGroup =
   res
     "GetGroupResponse"
     "fixture/GetGroupResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy GetGroup)
 
 responseGetGroupConfiguration :: GetGroupConfigurationResponse -> TestTree
@@ -334,5 +334,5 @@ responseGetGroupConfiguration =
   res
     "GetGroupConfigurationResponse"
     "fixture/GetGroupConfigurationResponse.proto"
-    resourceGroupsService
+    mkServiceConfig
     (Proxy :: Proxy GetGroupConfiguration)

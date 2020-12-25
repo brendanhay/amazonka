@@ -20,159 +20,143 @@ module Network.AWS.AlexaBusiness.ResolveRoom
     mkResolveRoom,
 
     -- ** Request lenses
-    rrSkillId,
     rrUserId,
+    rrSkillId,
 
     -- * Destructuring the response
     ResolveRoomResponse (..),
     mkResolveRoomResponse,
 
     -- ** Response lenses
-    rrrsRoomSkillParameters,
-    rrrsRoomARN,
-    rrrsRoomName,
-    rrrsResponseStatus,
+    rrrrsRoomArn,
+    rrrrsRoomName,
+    rrrrsRoomSkillParameters,
+    rrrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkResolveRoom' smart constructor.
 data ResolveRoom = ResolveRoom'
-  { -- | The ARN of the skill that was requested. Required.
-    skillId :: Lude.Text,
-    -- | The ARN of the user. Required.
-    userId :: Lude.Text
+  { -- | The ARN of the user. Required.
+    userId :: Types.UserId,
+    -- | The ARN of the skill that was requested. Required.
+    skillId :: Types.SkillId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResolveRoom' with the minimum fields required to make a request.
---
--- * 'skillId' - The ARN of the skill that was requested. Required.
--- * 'userId' - The ARN of the user. Required.
+-- | Creates a 'ResolveRoom' value with any optional fields omitted.
 mkResolveRoom ::
-  -- | 'skillId'
-  Lude.Text ->
   -- | 'userId'
-  Lude.Text ->
+  Types.UserId ->
+  -- | 'skillId'
+  Types.SkillId ->
   ResolveRoom
-mkResolveRoom pSkillId_ pUserId_ =
-  ResolveRoom' {skillId = pSkillId_, userId = pUserId_}
-
--- | The ARN of the skill that was requested. Required.
---
--- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrSkillId :: Lens.Lens' ResolveRoom Lude.Text
-rrSkillId = Lens.lens (skillId :: ResolveRoom -> Lude.Text) (\s a -> s {skillId = a} :: ResolveRoom)
-{-# DEPRECATED rrSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
+mkResolveRoom userId skillId = ResolveRoom' {userId, skillId}
 
 -- | The ARN of the user. Required.
 --
 -- /Note:/ Consider using 'userId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrUserId :: Lens.Lens' ResolveRoom Lude.Text
-rrUserId = Lens.lens (userId :: ResolveRoom -> Lude.Text) (\s a -> s {userId = a} :: ResolveRoom)
+rrUserId :: Lens.Lens' ResolveRoom Types.UserId
+rrUserId = Lens.field @"userId"
 {-# DEPRECATED rrUserId "Use generic-lens or generic-optics with 'userId' instead." #-}
 
-instance Lude.AWSRequest ResolveRoom where
+-- | The ARN of the skill that was requested. Required.
+--
+-- /Note:/ Consider using 'skillId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrSkillId :: Lens.Lens' ResolveRoom Types.SkillId
+rrSkillId = Lens.field @"skillId"
+{-# DEPRECATED rrSkillId "Use generic-lens or generic-optics with 'skillId' instead." #-}
+
+instance Core.FromJSON ResolveRoom where
+  toJSON ResolveRoom {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserId" Core..= userId),
+            Core.Just ("SkillId" Core..= skillId)
+          ]
+      )
+
+instance Core.AWSRequest ResolveRoom where
   type Rs ResolveRoom = ResolveRoomResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.ResolveRoom")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ResolveRoomResponse'
-            Lude.<$> (x Lude..?> "RoomSkillParameters" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "RoomArn")
-            Lude.<*> (x Lude..?> "RoomName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "RoomArn")
+            Core.<*> (x Core..:? "RoomName")
+            Core.<*> (x Core..:? "RoomSkillParameters")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ResolveRoom where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.ResolveRoom" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ResolveRoom where
-  toJSON ResolveRoom' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SkillId" Lude..= skillId),
-            Lude.Just ("UserId" Lude..= userId)
-          ]
-      )
-
-instance Lude.ToPath ResolveRoom where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ResolveRoom where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkResolveRoomResponse' smart constructor.
 data ResolveRoomResponse = ResolveRoomResponse'
-  { -- | Response to get the room profile request. Required.
-    roomSkillParameters :: Lude.Maybe [RoomSkillParameter],
-    -- | The ARN of the room from which the skill request was invoked.
-    roomARN :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the room from which the skill request was invoked.
+    roomArn :: Core.Maybe Types.Arn,
     -- | The name of the room from which the skill request was invoked.
-    roomName :: Lude.Maybe Lude.Text,
+    roomName :: Core.Maybe Types.RoomName,
+    -- | Response to get the room profile request. Required.
+    roomSkillParameters :: Core.Maybe [Types.RoomSkillParameter],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResolveRoomResponse' with the minimum fields required to make a request.
---
--- * 'roomSkillParameters' - Response to get the room profile request. Required.
--- * 'roomARN' - The ARN of the room from which the skill request was invoked.
--- * 'roomName' - The name of the room from which the skill request was invoked.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ResolveRoomResponse' value with any optional fields omitted.
 mkResolveRoomResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ResolveRoomResponse
-mkResolveRoomResponse pResponseStatus_ =
+mkResolveRoomResponse responseStatus =
   ResolveRoomResponse'
-    { roomSkillParameters = Lude.Nothing,
-      roomARN = Lude.Nothing,
-      roomName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { roomArn = Core.Nothing,
+      roomName = Core.Nothing,
+      roomSkillParameters = Core.Nothing,
+      responseStatus
     }
-
--- | Response to get the room profile request. Required.
---
--- /Note:/ Consider using 'roomSkillParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrrsRoomSkillParameters :: Lens.Lens' ResolveRoomResponse (Lude.Maybe [RoomSkillParameter])
-rrrsRoomSkillParameters = Lens.lens (roomSkillParameters :: ResolveRoomResponse -> Lude.Maybe [RoomSkillParameter]) (\s a -> s {roomSkillParameters = a} :: ResolveRoomResponse)
-{-# DEPRECATED rrrsRoomSkillParameters "Use generic-lens or generic-optics with 'roomSkillParameters' instead." #-}
 
 -- | The ARN of the room from which the skill request was invoked.
 --
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrrsRoomARN :: Lens.Lens' ResolveRoomResponse (Lude.Maybe Lude.Text)
-rrrsRoomARN = Lens.lens (roomARN :: ResolveRoomResponse -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: ResolveRoomResponse)
-{-# DEPRECATED rrrsRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
+-- /Note:/ Consider using 'roomArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrrrsRoomArn :: Lens.Lens' ResolveRoomResponse (Core.Maybe Types.Arn)
+rrrrsRoomArn = Lens.field @"roomArn"
+{-# DEPRECATED rrrrsRoomArn "Use generic-lens or generic-optics with 'roomArn' instead." #-}
 
 -- | The name of the room from which the skill request was invoked.
 --
 -- /Note:/ Consider using 'roomName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrrsRoomName :: Lens.Lens' ResolveRoomResponse (Lude.Maybe Lude.Text)
-rrrsRoomName = Lens.lens (roomName :: ResolveRoomResponse -> Lude.Maybe Lude.Text) (\s a -> s {roomName = a} :: ResolveRoomResponse)
-{-# DEPRECATED rrrsRoomName "Use generic-lens or generic-optics with 'roomName' instead." #-}
+rrrrsRoomName :: Lens.Lens' ResolveRoomResponse (Core.Maybe Types.RoomName)
+rrrrsRoomName = Lens.field @"roomName"
+{-# DEPRECATED rrrrsRoomName "Use generic-lens or generic-optics with 'roomName' instead." #-}
+
+-- | Response to get the room profile request. Required.
+--
+-- /Note:/ Consider using 'roomSkillParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrrrsRoomSkillParameters :: Lens.Lens' ResolveRoomResponse (Core.Maybe [Types.RoomSkillParameter])
+rrrrsRoomSkillParameters = Lens.field @"roomSkillParameters"
+{-# DEPRECATED rrrrsRoomSkillParameters "Use generic-lens or generic-optics with 'roomSkillParameters' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrrsResponseStatus :: Lens.Lens' ResolveRoomResponse Lude.Int
-rrrsResponseStatus = Lens.lens (responseStatus :: ResolveRoomResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ResolveRoomResponse)
-{-# DEPRECATED rrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rrrrsResponseStatus :: Lens.Lens' ResolveRoomResponse Core.Int
+rrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

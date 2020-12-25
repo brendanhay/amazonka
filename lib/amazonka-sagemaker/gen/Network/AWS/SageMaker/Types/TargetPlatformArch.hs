@@ -13,61 +13,66 @@
 module Network.AWS.SageMaker.Types.TargetPlatformArch
   ( TargetPlatformArch
       ( TargetPlatformArch',
-        X86_64,
-        X86,
-        ARM64,
-        ArmEabi,
-        ArmEabihf
+        TargetPlatformArchX8664,
+        TargetPlatformArchX86,
+        TargetPlatformArchARM64,
+        TargetPlatformArchArmEabi,
+        TargetPlatformArchArmEabihf,
+        fromTargetPlatformArch
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TargetPlatformArch = TargetPlatformArch' Lude.Text
+newtype TargetPlatformArch = TargetPlatformArch'
+  { fromTargetPlatformArch ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern X86_64 :: TargetPlatformArch
-pattern X86_64 = TargetPlatformArch' "X86_64"
+pattern TargetPlatformArchX8664 :: TargetPlatformArch
+pattern TargetPlatformArchX8664 = TargetPlatformArch' "X86_64"
 
-pattern X86 :: TargetPlatformArch
-pattern X86 = TargetPlatformArch' "X86"
+pattern TargetPlatformArchX86 :: TargetPlatformArch
+pattern TargetPlatformArchX86 = TargetPlatformArch' "X86"
 
-pattern ARM64 :: TargetPlatformArch
-pattern ARM64 = TargetPlatformArch' "ARM64"
+pattern TargetPlatformArchARM64 :: TargetPlatformArch
+pattern TargetPlatformArchARM64 = TargetPlatformArch' "ARM64"
 
-pattern ArmEabi :: TargetPlatformArch
-pattern ArmEabi = TargetPlatformArch' "ARM_EABI"
+pattern TargetPlatformArchArmEabi :: TargetPlatformArch
+pattern TargetPlatformArchArmEabi = TargetPlatformArch' "ARM_EABI"
 
-pattern ArmEabihf :: TargetPlatformArch
-pattern ArmEabihf = TargetPlatformArch' "ARM_EABIHF"
+pattern TargetPlatformArchArmEabihf :: TargetPlatformArch
+pattern TargetPlatformArchArmEabihf = TargetPlatformArch' "ARM_EABIHF"
 
 {-# COMPLETE
-  X86_64,
-  X86,
-  ARM64,
-  ArmEabi,
-  ArmEabihf,
+  TargetPlatformArchX8664,
+  TargetPlatformArchX86,
+  TargetPlatformArchARM64,
+  TargetPlatformArchArmEabi,
+  TargetPlatformArchArmEabihf,
   TargetPlatformArch'
   #-}

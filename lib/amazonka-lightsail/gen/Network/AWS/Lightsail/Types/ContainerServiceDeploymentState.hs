@@ -13,56 +13,61 @@
 module Network.AWS.Lightsail.Types.ContainerServiceDeploymentState
   ( ContainerServiceDeploymentState
       ( ContainerServiceDeploymentState',
-        CSDSActivating,
-        CSDSActive,
-        CSDSInactive,
-        CSDSFailed
+        ContainerServiceDeploymentStateActivating,
+        ContainerServiceDeploymentStateActive,
+        ContainerServiceDeploymentStateInactive,
+        ContainerServiceDeploymentStateFailed,
+        fromContainerServiceDeploymentState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ContainerServiceDeploymentState = ContainerServiceDeploymentState' Lude.Text
+newtype ContainerServiceDeploymentState = ContainerServiceDeploymentState'
+  { fromContainerServiceDeploymentState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSDSActivating :: ContainerServiceDeploymentState
-pattern CSDSActivating = ContainerServiceDeploymentState' "ACTIVATING"
+pattern ContainerServiceDeploymentStateActivating :: ContainerServiceDeploymentState
+pattern ContainerServiceDeploymentStateActivating = ContainerServiceDeploymentState' "ACTIVATING"
 
-pattern CSDSActive :: ContainerServiceDeploymentState
-pattern CSDSActive = ContainerServiceDeploymentState' "ACTIVE"
+pattern ContainerServiceDeploymentStateActive :: ContainerServiceDeploymentState
+pattern ContainerServiceDeploymentStateActive = ContainerServiceDeploymentState' "ACTIVE"
 
-pattern CSDSInactive :: ContainerServiceDeploymentState
-pattern CSDSInactive = ContainerServiceDeploymentState' "INACTIVE"
+pattern ContainerServiceDeploymentStateInactive :: ContainerServiceDeploymentState
+pattern ContainerServiceDeploymentStateInactive = ContainerServiceDeploymentState' "INACTIVE"
 
-pattern CSDSFailed :: ContainerServiceDeploymentState
-pattern CSDSFailed = ContainerServiceDeploymentState' "FAILED"
+pattern ContainerServiceDeploymentStateFailed :: ContainerServiceDeploymentState
+pattern ContainerServiceDeploymentStateFailed = ContainerServiceDeploymentState' "FAILED"
 
 {-# COMPLETE
-  CSDSActivating,
-  CSDSActive,
-  CSDSInactive,
-  CSDSFailed,
+  ContainerServiceDeploymentStateActivating,
+  ContainerServiceDeploymentStateActive,
+  ContainerServiceDeploymentStateInactive,
+  ContainerServiceDeploymentStateFailed,
   ContainerServiceDeploymentState'
   #-}

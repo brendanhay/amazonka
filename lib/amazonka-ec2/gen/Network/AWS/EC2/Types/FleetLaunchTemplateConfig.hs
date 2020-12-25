@@ -17,58 +17,54 @@ module Network.AWS.EC2.Types.FleetLaunchTemplateConfig
     mkFleetLaunchTemplateConfig,
 
     -- * Lenses
-    fltcOverrides,
     fltcLaunchTemplateSpecification,
+    fltcOverrides,
   )
 where
 
-import Network.AWS.EC2.Types.FleetLaunchTemplateOverrides
-import Network.AWS.EC2.Types.FleetLaunchTemplateSpecification
+import qualified Network.AWS.EC2.Types.FleetLaunchTemplateOverrides as Types
+import qualified Network.AWS.EC2.Types.FleetLaunchTemplateSpecification as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a launch template and overrides.
 --
 -- /See:/ 'mkFleetLaunchTemplateConfig' smart constructor.
 data FleetLaunchTemplateConfig = FleetLaunchTemplateConfig'
-  { -- | Any parameters that you specify override the same parameters in the launch template.
-    overrides :: Lude.Maybe [FleetLaunchTemplateOverrides],
-    -- | The launch template.
-    launchTemplateSpecification :: Lude.Maybe FleetLaunchTemplateSpecification
+  { -- | The launch template.
+    launchTemplateSpecification :: Core.Maybe Types.FleetLaunchTemplateSpecification,
+    -- | Any parameters that you specify override the same parameters in the launch template.
+    overrides :: Core.Maybe [Types.FleetLaunchTemplateOverrides]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FleetLaunchTemplateConfig' with the minimum fields required to make a request.
---
--- * 'overrides' - Any parameters that you specify override the same parameters in the launch template.
--- * 'launchTemplateSpecification' - The launch template.
+-- | Creates a 'FleetLaunchTemplateConfig' value with any optional fields omitted.
 mkFleetLaunchTemplateConfig ::
   FleetLaunchTemplateConfig
 mkFleetLaunchTemplateConfig =
   FleetLaunchTemplateConfig'
-    { overrides = Lude.Nothing,
-      launchTemplateSpecification = Lude.Nothing
+    { launchTemplateSpecification =
+        Core.Nothing,
+      overrides = Core.Nothing
     }
-
--- | Any parameters that you specify override the same parameters in the launch template.
---
--- /Note:/ Consider using 'overrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fltcOverrides :: Lens.Lens' FleetLaunchTemplateConfig (Lude.Maybe [FleetLaunchTemplateOverrides])
-fltcOverrides = Lens.lens (overrides :: FleetLaunchTemplateConfig -> Lude.Maybe [FleetLaunchTemplateOverrides]) (\s a -> s {overrides = a} :: FleetLaunchTemplateConfig)
-{-# DEPRECATED fltcOverrides "Use generic-lens or generic-optics with 'overrides' instead." #-}
 
 -- | The launch template.
 --
 -- /Note:/ Consider using 'launchTemplateSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fltcLaunchTemplateSpecification :: Lens.Lens' FleetLaunchTemplateConfig (Lude.Maybe FleetLaunchTemplateSpecification)
-fltcLaunchTemplateSpecification = Lens.lens (launchTemplateSpecification :: FleetLaunchTemplateConfig -> Lude.Maybe FleetLaunchTemplateSpecification) (\s a -> s {launchTemplateSpecification = a} :: FleetLaunchTemplateConfig)
+fltcLaunchTemplateSpecification :: Lens.Lens' FleetLaunchTemplateConfig (Core.Maybe Types.FleetLaunchTemplateSpecification)
+fltcLaunchTemplateSpecification = Lens.field @"launchTemplateSpecification"
 {-# DEPRECATED fltcLaunchTemplateSpecification "Use generic-lens or generic-optics with 'launchTemplateSpecification' instead." #-}
 
-instance Lude.FromXML FleetLaunchTemplateConfig where
+-- | Any parameters that you specify override the same parameters in the launch template.
+--
+-- /Note:/ Consider using 'overrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fltcOverrides :: Lens.Lens' FleetLaunchTemplateConfig (Core.Maybe [Types.FleetLaunchTemplateOverrides])
+fltcOverrides = Lens.field @"overrides"
+{-# DEPRECATED fltcOverrides "Use generic-lens or generic-optics with 'overrides' instead." #-}
+
+instance Core.FromXML FleetLaunchTemplateConfig where
   parseXML x =
     FleetLaunchTemplateConfig'
-      Lude.<$> ( x Lude..@? "overrides" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "launchTemplateSpecification")
+      Core.<$> (x Core..@? "launchTemplateSpecification")
+      Core.<*> (x Core..@? "overrides" Core..<@> Core.parseXMLList "item")

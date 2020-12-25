@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -47,10 +46,37 @@
 -- See <https://docs.aws.amazon.com/awssupport/latest/user/Welcome.html About the AWS Support API> in the /AWS Support User Guide/ for information about how to use this service to create and manage your support cases, and how to call Trusted Advisor for results of checks on your resources.
 module Network.AWS.Support
   ( -- * Service configuration
-    supportService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** AttachmentSetExpired
+    _AttachmentSetExpired,
+
+    -- ** AttachmentLimitExceeded
+    _AttachmentLimitExceeded,
+
+    -- ** DescribeAttachmentLimitExceeded
+    _DescribeAttachmentLimitExceeded,
+
+    -- ** CaseIdNotFound
+    _CaseIdNotFound,
+
+    -- ** AttachmentSetIdNotFound
+    _AttachmentSetIdNotFound,
+
+    -- ** AttachmentSetSizeLimitExceeded
+    _AttachmentSetSizeLimitExceeded,
+
+    -- ** AttachmentIdNotFound
+    _AttachmentIdNotFound,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** CaseCreationLimitExceeded
+    _CaseCreationLimitExceeded,
 
     -- * Waiters
     -- $waiters
@@ -102,11 +128,74 @@ module Network.AWS.Support
 
     -- * Types
 
-    -- ** Attachment
-    Attachment (..),
-    mkAttachment,
-    aData,
-    aFileName,
+    -- ** Subject
+    Subject (..),
+
+    -- ** TrustedAdvisorResourcesSummary
+    TrustedAdvisorResourcesSummary (..),
+    mkTrustedAdvisorResourcesSummary,
+    tarsResourcesProcessed,
+    tarsResourcesFlagged,
+    tarsResourcesIgnored,
+    tarsResourcesSuppressed,
+
+    -- ** Status
+    Status (..),
+
+    -- ** SeverityLevelName
+    SeverityLevelName (..),
+
+    -- ** CcEmailAddress
+    CcEmailAddress (..),
+
+    -- ** ExpiryTime
+    ExpiryTime (..),
+
+    -- ** String
+    String (..),
+
+    -- ** SupportService
+    SupportService (..),
+    mkSupportService,
+    ssCategories,
+    ssCode,
+    ssName,
+
+    -- ** TrustedAdvisorCategorySpecificSummary
+    TrustedAdvisorCategorySpecificSummary (..),
+    mkTrustedAdvisorCategorySpecificSummary,
+    tacssCostOptimizing,
+
+    -- ** Communication
+    Communication (..),
+    mkCommunication,
+    cAttachmentSet,
+    cBody,
+    cCaseId,
+    cSubmittedBy,
+    cTimeCreated,
+
+    -- ** CommunicationBody
+    CommunicationBody (..),
+
+    -- ** Category
+    Category (..),
+    mkCategory,
+    cCode,
+    cName,
+
+    -- ** SeverityLevelCode
+    SeverityLevelCode (..),
+
+    -- ** TrustedAdvisorCheckSummary
+    TrustedAdvisorCheckSummary (..),
+    mkTrustedAdvisorCheckSummary,
+    tacsCheckId,
+    tacsTimestamp,
+    tacsStatus,
+    tacsResourcesSummary,
+    tacsCategorySpecificSummary,
+    tacsHasFlaggedResources,
 
     -- ** AttachmentDetails
     AttachmentDetails (..),
@@ -114,96 +203,72 @@ module Network.AWS.Support
     adAttachmentId,
     adFileName,
 
-    -- ** CaseDetails
-    CaseDetails (..),
-    mkCaseDetails,
-    cdSubject,
-    cdStatus,
-    cdRecentCommunications,
-    cdSeverityCode,
-    cdCaseId,
-    cdCcEmailAddresses,
-    cdDisplayId,
-    cdSubmittedBy,
-    cdLanguage,
-    cdTimeCreated,
-    cdCategoryCode,
-    cdServiceCode,
+    -- ** TrustedAdvisorCheckResult
+    TrustedAdvisorCheckResult (..),
+    mkTrustedAdvisorCheckResult,
+    tacrCheckId,
+    tacrTimestamp,
+    tacrStatus,
+    tacrResourcesSummary,
+    tacrCategorySpecificSummary,
+    tacrFlaggedResources,
 
-    -- ** Category
-    Category (..),
-    mkCategory,
-    cName,
-    cCode,
+    -- ** SeverityCode
+    SeverityCode (..),
 
-    -- ** Communication
-    Communication (..),
-    mkCommunication,
-    cBody,
-    cCaseId,
-    cSubmittedBy,
-    cTimeCreated,
-    cAttachmentSet,
-
-    -- ** RecentCaseCommunications
-    RecentCaseCommunications (..),
-    mkRecentCaseCommunications,
-    rccNextToken,
-    rccCommunications,
-
-    -- ** SeverityLevel
-    SeverityLevel (..),
-    mkSeverityLevel,
-    slName,
-    slCode,
-
-    -- ** SupportService
-    SupportService (..),
-    mkSupportService,
-    ssCategories,
-    ssName,
-    ssCode,
-
-    -- ** TrustedAdvisorCategorySpecificSummary
-    TrustedAdvisorCategorySpecificSummary (..),
-    mkTrustedAdvisorCategorySpecificSummary,
-    tacssCostOptimizing,
+    -- ** CaseId
+    CaseId (..),
 
     -- ** TrustedAdvisorCheckDescription
     TrustedAdvisorCheckDescription (..),
     mkTrustedAdvisorCheckDescription,
-    tacdCategory,
-    tacdName,
-    tacdMetadata,
     tacdId,
+    tacdName,
     tacdDescription,
+    tacdCategory,
+    tacdMetadata,
 
-    -- ** TrustedAdvisorCheckRefreshStatus
-    TrustedAdvisorCheckRefreshStatus (..),
-    mkTrustedAdvisorCheckRefreshStatus,
-    tacrsMillisUntilNextRefreshable,
-    tacrsStatus,
-    tacrsCheckId,
+    -- ** IssueType
+    IssueType (..),
 
-    -- ** TrustedAdvisorCheckResult
-    TrustedAdvisorCheckResult (..),
-    mkTrustedAdvisorCheckResult,
-    tacrCategorySpecificSummary,
-    tacrStatus,
-    tacrCheckId,
-    tacrFlaggedResources,
-    tacrResourcesSummary,
-    tacrTimestamp,
+    -- ** AfterTime
+    AfterTime (..),
 
-    -- ** TrustedAdvisorCheckSummary
-    TrustedAdvisorCheckSummary (..),
-    mkTrustedAdvisorCheckSummary,
-    tacsCategorySpecificSummary,
-    tacsStatus,
-    tacsCheckId,
-    tacsResourcesSummary,
-    tacsTimestamp,
-    tacsHasFlaggedResources,
+    -- ** Attachment
+    Attachment (..),
+    mkAttachment,
+    aData,
+    aFileName,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** RecentCaseCommunications
+    RecentCaseCommunications (..),
+    mkRecentCaseCommunications,
+    rccCommunications,
+    rccNextToken,
+
+    -- ** AttachmentId
+    AttachmentId (..),
+
+    -- ** BeforeTime
+    BeforeTime (..),
+
+    -- ** DisplayId
+    DisplayId (..),
+
+    -- ** Language
+    Language (..),
+
+    -- ** TrustedAdvisorResourceDetail
+    TrustedAdvisorResourceDetail (..),
+    mkTrustedAdvisorResourceDetail,
+    tardStatus,
+    tardResourceId,
+    tardMetadata,
+    tardIsSuppressed,
+    tardRegion,
 
     -- ** TrustedAdvisorCostOptimizingSummary
     TrustedAdvisorCostOptimizingSummary (..),
@@ -211,32 +276,75 @@ module Network.AWS.Support
     tacosEstimatedMonthlySavings,
     tacosEstimatedPercentMonthlySavings,
 
-    -- ** TrustedAdvisorResourceDetail
-    TrustedAdvisorResourceDetail (..),
-    mkTrustedAdvisorResourceDetail,
-    tardStatus,
-    tardResourceId,
-    tardIsSuppressed,
-    tardMetadata,
-    tardRegion,
+    -- ** SubmittedBy
+    SubmittedBy (..),
 
-    -- ** TrustedAdvisorResourcesSummary
-    TrustedAdvisorResourcesSummary (..),
-    mkTrustedAdvisorResourcesSummary,
-    tarsResourcesIgnored,
-    tarsResourcesProcessed,
-    tarsResourcesFlagged,
-    tarsResourcesSuppressed,
+    -- ** CategoryCode
+    CategoryCode (..),
+
+    -- ** TimeCreated
+    TimeCreated (..),
+
+    -- ** SeverityLevel
+    SeverityLevel (..),
+    mkSeverityLevel,
+    slCode,
+    slName,
+
+    -- ** ServiceCode
+    ServiceCode (..),
+
+    -- ** CaseDetails
+    CaseDetails (..),
+    mkCaseDetails,
+    cdCaseId,
+    cdCategoryCode,
+    cdCcEmailAddresses,
+    cdDisplayId,
+    cdLanguage,
+    cdRecentCommunications,
+    cdServiceCode,
+    cdSeverityCode,
+    cdStatus,
+    cdSubject,
+    cdSubmittedBy,
+    cdTimeCreated,
+
+    -- ** AttachmentSetId
+    AttachmentSetId (..),
+
+    -- ** TrustedAdvisorCheckRefreshStatus
+    TrustedAdvisorCheckRefreshStatus (..),
+    mkTrustedAdvisorCheckRefreshStatus,
+    tacrsCheckId,
+    tacrsStatus,
+    tacrsMillisUntilNextRefreshable,
+
+    -- ** FileName
+    FileName (..),
+
+    -- ** Code
+    Code (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Body
+    Body (..),
+
+    -- ** FinalCaseStatus
+    FinalCaseStatus (..),
+
+    -- ** InitialCaseStatus
+    InitialCaseStatus (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

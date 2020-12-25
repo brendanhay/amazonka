@@ -31,161 +31,147 @@ module Network.AWS.LexModels.GetBots
     mkGetBots,
 
     -- ** Request lenses
+    gbMaxResults,
     gbNameContains,
     gbNextToken,
-    gbMaxResults,
 
     -- * Destructuring the response
     GetBotsResponse (..),
     mkGetBotsResponse,
 
     -- ** Response lenses
-    gbsrsBots,
-    gbsrsNextToken,
-    gbsrsResponseStatus,
+    gbrfrsBots,
+    gbrfrsNextToken,
+    gbrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.LexModels.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetBots' smart constructor.
 data GetBots = GetBots'
-  { -- | Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
-    nameContains :: Lude.Maybe Lude.Text,
+  { -- | The maximum number of bots to return in the response that the request will return. The default is 10.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
+    nameContains :: Core.Maybe Types.NameContains,
     -- | A pagination token that fetches the next page of bots. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of bots, specify the pagination token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of bots to return in the response that the request will return. The default is 10.
-    maxResults :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBots' with the minimum fields required to make a request.
---
--- * 'nameContains' - Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
--- * 'nextToken' - A pagination token that fetches the next page of bots. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of bots, specify the pagination token in the next request.
--- * 'maxResults' - The maximum number of bots to return in the response that the request will return. The default is 10.
+-- | Creates a 'GetBots' value with any optional fields omitted.
 mkGetBots ::
   GetBots
 mkGetBots =
   GetBots'
-    { nameContains = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nameContains = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | The maximum number of bots to return in the response that the request will return. The default is 10.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gbMaxResults :: Lens.Lens' GetBots (Core.Maybe Core.Natural)
+gbMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED gbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Substring to match in bot names. A bot will be returned if any part of its name matches the substring. For example, "xyz" matches both "xyzabc" and "abcxyz."
 --
 -- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbNameContains :: Lens.Lens' GetBots (Lude.Maybe Lude.Text)
-gbNameContains = Lens.lens (nameContains :: GetBots -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: GetBots)
+gbNameContains :: Lens.Lens' GetBots (Core.Maybe Types.NameContains)
+gbNameContains = Lens.field @"nameContains"
 {-# DEPRECATED gbNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A pagination token that fetches the next page of bots. If the response to this call is truncated, Amazon Lex returns a pagination token in the response. To fetch the next page of bots, specify the pagination token in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbNextToken :: Lens.Lens' GetBots (Lude.Maybe Lude.Text)
-gbNextToken = Lens.lens (nextToken :: GetBots -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBots)
+gbNextToken :: Lens.Lens' GetBots (Core.Maybe Types.NextToken)
+gbNextToken = Lens.field @"nextToken"
 {-# DEPRECATED gbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of bots to return in the response that the request will return. The default is 10.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbMaxResults :: Lens.Lens' GetBots (Lude.Maybe Lude.Natural)
-gbMaxResults = Lens.lens (maxResults :: GetBots -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetBots)
-{-# DEPRECATED gbMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager GetBots where
-  page rq rs
-    | Page.stop (rs Lens.^. gbsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gbsrsBots) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gbNextToken Lens..~ rs Lens.^. gbsrsNextToken
-
-instance Lude.AWSRequest GetBots where
+instance Core.AWSRequest GetBots where
   type Rs GetBots = GetBotsResponse
-  request = Req.get lexModelsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/bots/",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nameContains" Core.<$> nameContains)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetBotsResponse'
-            Lude.<$> (x Lude..?> "bots" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "bots")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetBots where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetBots where
-  toPath = Lude.const "/bots/"
-
-instance Lude.ToQuery GetBots where
-  toQuery GetBots' {..} =
-    Lude.mconcat
-      [ "nameContains" Lude.=: nameContains,
-        "nextToken" Lude.=: nextToken,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager GetBots where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"bots" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetBotsResponse' smart constructor.
 data GetBotsResponse = GetBotsResponse'
   { -- | An array of @botMetadata@ objects, with one entry for each bot.
-    bots :: Lude.Maybe [BotMetadata],
+    bots :: Core.Maybe [Types.BotMetadata],
     -- | If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of bots.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetBotsResponse' with the minimum fields required to make a request.
---
--- * 'bots' - An array of @botMetadata@ objects, with one entry for each bot.
--- * 'nextToken' - If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of bots.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBotsResponse' value with any optional fields omitted.
 mkGetBotsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBotsResponse
-mkGetBotsResponse pResponseStatus_ =
+mkGetBotsResponse responseStatus =
   GetBotsResponse'
-    { bots = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { bots = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of @botMetadata@ objects, with one entry for each bot.
 --
 -- /Note:/ Consider using 'bots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbsrsBots :: Lens.Lens' GetBotsResponse (Lude.Maybe [BotMetadata])
-gbsrsBots = Lens.lens (bots :: GetBotsResponse -> Lude.Maybe [BotMetadata]) (\s a -> s {bots = a} :: GetBotsResponse)
-{-# DEPRECATED gbsrsBots "Use generic-lens or generic-optics with 'bots' instead." #-}
+gbrfrsBots :: Lens.Lens' GetBotsResponse (Core.Maybe [Types.BotMetadata])
+gbrfrsBots = Lens.field @"bots"
+{-# DEPRECATED gbrfrsBots "Use generic-lens or generic-optics with 'bots' instead." #-}
 
 -- | If the response is truncated, it includes a pagination token that you can specify in your next request to fetch the next page of bots.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbsrsNextToken :: Lens.Lens' GetBotsResponse (Lude.Maybe Lude.Text)
-gbsrsNextToken = Lens.lens (nextToken :: GetBotsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetBotsResponse)
-{-# DEPRECATED gbsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gbrfrsNextToken :: Lens.Lens' GetBotsResponse (Core.Maybe Types.NextToken)
+gbrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gbrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gbsrsResponseStatus :: Lens.Lens' GetBotsResponse Lude.Int
-gbsrsResponseStatus = Lens.lens (responseStatus :: GetBotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBotsResponse)
-{-# DEPRECATED gbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gbrfrsResponseStatus :: Lens.Lens' GetBotsResponse Core.Int
+gbrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gbrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

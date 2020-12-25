@@ -54,5 +54,5 @@ responseGetEntitlements =
   res
     "GetEntitlementsResponse"
     "fixture/GetEntitlementsResponse.proto"
-    marketplaceEntitlementService
+    mkServiceConfig
     (Proxy :: Proxy GetEntitlements)

@@ -17,82 +17,81 @@ module Network.AWS.IoT.Types.AuditMitigationActionsTaskTarget
     mkAuditMitigationActionsTaskTarget,
 
     -- * Lenses
+    amattAuditCheckToReasonCodeFilter,
     amattAuditTaskId,
     amattFindingIds,
-    amattAuditCheckToReasonCodeFilter,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AuditCheckName as Types
+import qualified Network.AWS.IoT.Types.AuditTaskId as Types
+import qualified Network.AWS.IoT.Types.FindingId as Types
+import qualified Network.AWS.IoT.Types.ReasonForNonComplianceCode as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Used in MitigationActionParams, this information identifies the target findings to which the mitigation actions are applied. Only one entry appears.
 --
 -- /See:/ 'mkAuditMitigationActionsTaskTarget' smart constructor.
 data AuditMitigationActionsTaskTarget = AuditMitigationActionsTaskTarget'
-  { -- | If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.
-    auditTaskId :: Lude.Maybe Lude.Text,
+  { -- | Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.
+    auditCheckToReasonCodeFilter :: Core.Maybe (Core.HashMap Types.AuditCheckName (Core.NonEmpty Types.ReasonForNonComplianceCode)),
+    -- | If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.
+    auditTaskId :: Core.Maybe Types.AuditTaskId,
     -- | If the task will apply a mitigation action to one or more listed findings, this value uniquely identifies those findings.
-    findingIds :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    -- | Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.
-    auditCheckToReasonCodeFilter :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text))
+    findingIds :: Core.Maybe (Core.NonEmpty Types.FindingId)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AuditMitigationActionsTaskTarget' with the minimum fields required to make a request.
---
--- * 'auditTaskId' - If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.
--- * 'findingIds' - If the task will apply a mitigation action to one or more listed findings, this value uniquely identifies those findings.
--- * 'auditCheckToReasonCodeFilter' - Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.
+-- | Creates a 'AuditMitigationActionsTaskTarget' value with any optional fields omitted.
 mkAuditMitigationActionsTaskTarget ::
   AuditMitigationActionsTaskTarget
 mkAuditMitigationActionsTaskTarget =
   AuditMitigationActionsTaskTarget'
-    { auditTaskId = Lude.Nothing,
-      findingIds = Lude.Nothing,
-      auditCheckToReasonCodeFilter = Lude.Nothing
+    { auditCheckToReasonCodeFilter =
+        Core.Nothing,
+      auditTaskId = Core.Nothing,
+      findingIds = Core.Nothing
     }
+
+-- | Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.
+--
+-- /Note:/ Consider using 'auditCheckToReasonCodeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amattAuditCheckToReasonCodeFilter :: Lens.Lens' AuditMitigationActionsTaskTarget (Core.Maybe (Core.HashMap Types.AuditCheckName (Core.NonEmpty Types.ReasonForNonComplianceCode)))
+amattAuditCheckToReasonCodeFilter = Lens.field @"auditCheckToReasonCodeFilter"
+{-# DEPRECATED amattAuditCheckToReasonCodeFilter "Use generic-lens or generic-optics with 'auditCheckToReasonCodeFilter' instead." #-}
 
 -- | If the task will apply a mitigation action to findings from a specific audit, this value uniquely identifies the audit.
 --
 -- /Note:/ Consider using 'auditTaskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amattAuditTaskId :: Lens.Lens' AuditMitigationActionsTaskTarget (Lude.Maybe Lude.Text)
-amattAuditTaskId = Lens.lens (auditTaskId :: AuditMitigationActionsTaskTarget -> Lude.Maybe Lude.Text) (\s a -> s {auditTaskId = a} :: AuditMitigationActionsTaskTarget)
+amattAuditTaskId :: Lens.Lens' AuditMitigationActionsTaskTarget (Core.Maybe Types.AuditTaskId)
+amattAuditTaskId = Lens.field @"auditTaskId"
 {-# DEPRECATED amattAuditTaskId "Use generic-lens or generic-optics with 'auditTaskId' instead." #-}
 
 -- | If the task will apply a mitigation action to one or more listed findings, this value uniquely identifies those findings.
 --
 -- /Note:/ Consider using 'findingIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amattFindingIds :: Lens.Lens' AuditMitigationActionsTaskTarget (Lude.Maybe (Lude.NonEmpty Lude.Text))
-amattFindingIds = Lens.lens (findingIds :: AuditMitigationActionsTaskTarget -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {findingIds = a} :: AuditMitigationActionsTaskTarget)
+amattFindingIds :: Lens.Lens' AuditMitigationActionsTaskTarget (Core.Maybe (Core.NonEmpty Types.FindingId))
+amattFindingIds = Lens.field @"findingIds"
 {-# DEPRECATED amattFindingIds "Use generic-lens or generic-optics with 'findingIds' instead." #-}
 
--- | Specifies a filter in the form of an audit check and set of reason codes that identify the findings from the audit to which the audit mitigation actions task apply.
---
--- /Note:/ Consider using 'auditCheckToReasonCodeFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amattAuditCheckToReasonCodeFilter :: Lens.Lens' AuditMitigationActionsTaskTarget (Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text)))
-amattAuditCheckToReasonCodeFilter = Lens.lens (auditCheckToReasonCodeFilter :: AuditMitigationActionsTaskTarget -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.NonEmpty Lude.Text))) (\s a -> s {auditCheckToReasonCodeFilter = a} :: AuditMitigationActionsTaskTarget)
-{-# DEPRECATED amattAuditCheckToReasonCodeFilter "Use generic-lens or generic-optics with 'auditCheckToReasonCodeFilter' instead." #-}
-
-instance Lude.FromJSON AuditMitigationActionsTaskTarget where
-  parseJSON =
-    Lude.withObject
-      "AuditMitigationActionsTaskTarget"
-      ( \x ->
-          AuditMitigationActionsTaskTarget'
-            Lude.<$> (x Lude..:? "auditTaskId")
-            Lude.<*> (x Lude..:? "findingIds")
-            Lude.<*> (x Lude..:? "auditCheckToReasonCodeFilter" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON AuditMitigationActionsTaskTarget where
-  toJSON AuditMitigationActionsTaskTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("auditTaskId" Lude..=) Lude.<$> auditTaskId,
-            ("findingIds" Lude..=) Lude.<$> findingIds,
-            ("auditCheckToReasonCodeFilter" Lude..=)
-              Lude.<$> auditCheckToReasonCodeFilter
+instance Core.FromJSON AuditMitigationActionsTaskTarget where
+  toJSON AuditMitigationActionsTaskTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("auditCheckToReasonCodeFilter" Core..=)
+              Core.<$> auditCheckToReasonCodeFilter,
+            ("auditTaskId" Core..=) Core.<$> auditTaskId,
+            ("findingIds" Core..=) Core.<$> findingIds
           ]
       )
+
+instance Core.FromJSON AuditMitigationActionsTaskTarget where
+  parseJSON =
+    Core.withObject "AuditMitigationActionsTaskTarget" Core.$
+      \x ->
+        AuditMitigationActionsTaskTarget'
+          Core.<$> (x Core..:? "auditCheckToReasonCodeFilter")
+          Core.<*> (x Core..:? "auditTaskId")
+          Core.<*> (x Core..:? "findingIds")

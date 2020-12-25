@@ -22,7 +22,7 @@ module Network.AWS.MediaLive.Types.Scte27SourceSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Scte27 Source Settings
 --
@@ -34,22 +34,15 @@ newtype Scte27SourceSettings = Scte27SourceSettings'
     --   - Specify PID and omit Language: Extracts the specified PID.
     --   - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be.
     --   - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
-    pid :: Lude.Maybe Lude.Natural
+    pid :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Scte27SourceSettings' with the minimum fields required to make a request.
---
--- * 'pid' - The pid field is used in conjunction with the caption selector languageCode field as follows:
---
---   - Specify PID and Language: Extracts captions from that PID; the language is "informational".
---   - Specify PID and omit Language: Extracts the specified PID.
---   - Omit PID and specify Language: Extracts the specified language, whichever PID that happens to be.
---   - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
+-- | Creates a 'Scte27SourceSettings' value with any optional fields omitted.
 mkScte27SourceSettings ::
   Scte27SourceSettings
-mkScte27SourceSettings = Scte27SourceSettings' {pid = Lude.Nothing}
+mkScte27SourceSettings = Scte27SourceSettings' {pid = Core.Nothing}
 
 -- | The pid field is used in conjunction with the caption selector languageCode field as follows:
 --
@@ -59,16 +52,15 @@ mkScte27SourceSettings = Scte27SourceSettings' {pid = Lude.Nothing}
 --   - Omit PID and omit Language: Valid only if source is DVB-Sub that is being passed through; all languages will be passed through.
 --
 -- /Note:/ Consider using 'pid' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sssPid :: Lens.Lens' Scte27SourceSettings (Lude.Maybe Lude.Natural)
-sssPid = Lens.lens (pid :: Scte27SourceSettings -> Lude.Maybe Lude.Natural) (\s a -> s {pid = a} :: Scte27SourceSettings)
+sssPid :: Lens.Lens' Scte27SourceSettings (Core.Maybe Core.Natural)
+sssPid = Lens.field @"pid"
 {-# DEPRECATED sssPid "Use generic-lens or generic-optics with 'pid' instead." #-}
 
-instance Lude.FromJSON Scte27SourceSettings where
-  parseJSON =
-    Lude.withObject
-      "Scte27SourceSettings"
-      (\x -> Scte27SourceSettings' Lude.<$> (x Lude..:? "pid"))
+instance Core.FromJSON Scte27SourceSettings where
+  toJSON Scte27SourceSettings {..} =
+    Core.object (Core.catMaybes [("pid" Core..=) Core.<$> pid])
 
-instance Lude.ToJSON Scte27SourceSettings where
-  toJSON Scte27SourceSettings' {..} =
-    Lude.object (Lude.catMaybes [("pid" Lude..=) Lude.<$> pid])
+instance Core.FromJSON Scte27SourceSettings where
+  parseJSON =
+    Core.withObject "Scte27SourceSettings" Core.$
+      \x -> Scte27SourceSettings' Core.<$> (x Core..:? "pid")

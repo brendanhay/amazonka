@@ -13,81 +13,86 @@
 module Network.AWS.SSM.Types.OperatingSystem
   ( OperatingSystem
       ( OperatingSystem',
-        OSWindows,
-        OSAmazonLinux,
-        OSAmazonLinux2,
-        OSUbuntu,
-        OSRedhatEnterpriseLinux,
-        OSSuse,
-        OSCentos,
-        OSOracleLinux,
-        OSDebian
+        OperatingSystemWindows,
+        OperatingSystemAmazonLinux,
+        OperatingSystemAmazonLinux2,
+        OperatingSystemUbuntu,
+        OperatingSystemRedhatEnterpriseLinux,
+        OperatingSystemSuse,
+        OperatingSystemCentos,
+        OperatingSystemOracleLinux,
+        OperatingSystemDebian,
+        fromOperatingSystem
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OperatingSystem = OperatingSystem' Lude.Text
+newtype OperatingSystem = OperatingSystem'
+  { fromOperatingSystem ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OSWindows :: OperatingSystem
-pattern OSWindows = OperatingSystem' "WINDOWS"
+pattern OperatingSystemWindows :: OperatingSystem
+pattern OperatingSystemWindows = OperatingSystem' "WINDOWS"
 
-pattern OSAmazonLinux :: OperatingSystem
-pattern OSAmazonLinux = OperatingSystem' "AMAZON_LINUX"
+pattern OperatingSystemAmazonLinux :: OperatingSystem
+pattern OperatingSystemAmazonLinux = OperatingSystem' "AMAZON_LINUX"
 
-pattern OSAmazonLinux2 :: OperatingSystem
-pattern OSAmazonLinux2 = OperatingSystem' "AMAZON_LINUX_2"
+pattern OperatingSystemAmazonLinux2 :: OperatingSystem
+pattern OperatingSystemAmazonLinux2 = OperatingSystem' "AMAZON_LINUX_2"
 
-pattern OSUbuntu :: OperatingSystem
-pattern OSUbuntu = OperatingSystem' "UBUNTU"
+pattern OperatingSystemUbuntu :: OperatingSystem
+pattern OperatingSystemUbuntu = OperatingSystem' "UBUNTU"
 
-pattern OSRedhatEnterpriseLinux :: OperatingSystem
-pattern OSRedhatEnterpriseLinux = OperatingSystem' "REDHAT_ENTERPRISE_LINUX"
+pattern OperatingSystemRedhatEnterpriseLinux :: OperatingSystem
+pattern OperatingSystemRedhatEnterpriseLinux = OperatingSystem' "REDHAT_ENTERPRISE_LINUX"
 
-pattern OSSuse :: OperatingSystem
-pattern OSSuse = OperatingSystem' "SUSE"
+pattern OperatingSystemSuse :: OperatingSystem
+pattern OperatingSystemSuse = OperatingSystem' "SUSE"
 
-pattern OSCentos :: OperatingSystem
-pattern OSCentos = OperatingSystem' "CENTOS"
+pattern OperatingSystemCentos :: OperatingSystem
+pattern OperatingSystemCentos = OperatingSystem' "CENTOS"
 
-pattern OSOracleLinux :: OperatingSystem
-pattern OSOracleLinux = OperatingSystem' "ORACLE_LINUX"
+pattern OperatingSystemOracleLinux :: OperatingSystem
+pattern OperatingSystemOracleLinux = OperatingSystem' "ORACLE_LINUX"
 
-pattern OSDebian :: OperatingSystem
-pattern OSDebian = OperatingSystem' "DEBIAN"
+pattern OperatingSystemDebian :: OperatingSystem
+pattern OperatingSystemDebian = OperatingSystem' "DEBIAN"
 
 {-# COMPLETE
-  OSWindows,
-  OSAmazonLinux,
-  OSAmazonLinux2,
-  OSUbuntu,
-  OSRedhatEnterpriseLinux,
-  OSSuse,
-  OSCentos,
-  OSOracleLinux,
-  OSDebian,
+  OperatingSystemWindows,
+  OperatingSystemAmazonLinux,
+  OperatingSystemAmazonLinux2,
+  OperatingSystemUbuntu,
+  OperatingSystemRedhatEnterpriseLinux,
+  OperatingSystemSuse,
+  OperatingSystemCentos,
+  OperatingSystemOracleLinux,
+  OperatingSystemDebian,
   OperatingSystem'
   #-}

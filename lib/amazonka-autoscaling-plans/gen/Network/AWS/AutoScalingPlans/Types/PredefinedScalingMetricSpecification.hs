@@ -17,20 +17,23 @@ module Network.AWS.AutoScalingPlans.Types.PredefinedScalingMetricSpecification
     mkPredefinedScalingMetricSpecification,
 
     -- * Lenses
-    psmsResourceLabel,
     psmsPredefinedScalingMetricType,
+    psmsResourceLabel,
   )
 where
 
-import Network.AWS.AutoScalingPlans.Types.ScalingMetricType
+import qualified Network.AWS.AutoScalingPlans.Types.ResourceLabel as Types
+import qualified Network.AWS.AutoScalingPlans.Types.ScalingMetricType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a predefined metric that can be used for dynamic scaling as part of a target tracking scaling policy.
 --
 -- /See:/ 'mkPredefinedScalingMetricSpecification' smart constructor.
 data PredefinedScalingMetricSpecification = PredefinedScalingMetricSpecification'
-  { -- | Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
+  { -- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
+    predefinedScalingMetricType :: Types.ScalingMetricType,
+    -- | Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
     --
     -- The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
     --
@@ -38,38 +41,28 @@ data PredefinedScalingMetricSpecification = PredefinedScalingMetricSpecification
     --
     --
     --     * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
-    resourceLabel :: Lude.Maybe Lude.Text,
-    -- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
-    predefinedScalingMetricType :: ScalingMetricType
+    resourceLabel :: Core.Maybe Types.ResourceLabel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PredefinedScalingMetricSpecification' with the minimum fields required to make a request.
---
--- * 'resourceLabel' - Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
---
--- The format is app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>, where:
---
---     * app/<load-balancer-name>/<load-balancer-id> is the final portion of the load balancer ARN.
---
---
---     * targetgroup/<target-group-name>/<target-group-id> is the final portion of the target group ARN.
---
---
--- * 'predefinedScalingMetricType' - The metric type. The @ALBRequestCountPerTarget@ metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
+-- | Creates a 'PredefinedScalingMetricSpecification' value with any optional fields omitted.
 mkPredefinedScalingMetricSpecification ::
   -- | 'predefinedScalingMetricType'
-  ScalingMetricType ->
+  Types.ScalingMetricType ->
   PredefinedScalingMetricSpecification
-mkPredefinedScalingMetricSpecification
-  pPredefinedScalingMetricType_ =
-    PredefinedScalingMetricSpecification'
-      { resourceLabel =
-          Lude.Nothing,
-        predefinedScalingMetricType =
-          pPredefinedScalingMetricType_
-      }
+mkPredefinedScalingMetricSpecification predefinedScalingMetricType =
+  PredefinedScalingMetricSpecification'
+    { predefinedScalingMetricType,
+      resourceLabel = Core.Nothing
+    }
+
+-- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
+--
+-- /Note:/ Consider using 'predefinedScalingMetricType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psmsPredefinedScalingMetricType :: Lens.Lens' PredefinedScalingMetricSpecification Types.ScalingMetricType
+psmsPredefinedScalingMetricType = Lens.field @"predefinedScalingMetricType"
+{-# DEPRECATED psmsPredefinedScalingMetricType "Use generic-lens or generic-optics with 'predefinedScalingMetricType' instead." #-}
 
 -- | Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is @ALBRequestCountPerTarget@ and there is a target group for an Application Load Balancer attached to the Auto Scaling group, Spot Fleet request, or ECS service.
 --
@@ -83,35 +76,26 @@ mkPredefinedScalingMetricSpecification
 --
 --
 -- /Note:/ Consider using 'resourceLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psmsResourceLabel :: Lens.Lens' PredefinedScalingMetricSpecification (Lude.Maybe Lude.Text)
-psmsResourceLabel = Lens.lens (resourceLabel :: PredefinedScalingMetricSpecification -> Lude.Maybe Lude.Text) (\s a -> s {resourceLabel = a} :: PredefinedScalingMetricSpecification)
+psmsResourceLabel :: Lens.Lens' PredefinedScalingMetricSpecification (Core.Maybe Types.ResourceLabel)
+psmsResourceLabel = Lens.field @"resourceLabel"
 {-# DEPRECATED psmsResourceLabel "Use generic-lens or generic-optics with 'resourceLabel' instead." #-}
 
--- | The metric type. The @ALBRequestCountPerTarget@ metric type applies only to Auto Scaling groups, Spot Fleet requests, and ECS services.
---
--- /Note:/ Consider using 'predefinedScalingMetricType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psmsPredefinedScalingMetricType :: Lens.Lens' PredefinedScalingMetricSpecification ScalingMetricType
-psmsPredefinedScalingMetricType = Lens.lens (predefinedScalingMetricType :: PredefinedScalingMetricSpecification -> ScalingMetricType) (\s a -> s {predefinedScalingMetricType = a} :: PredefinedScalingMetricSpecification)
-{-# DEPRECATED psmsPredefinedScalingMetricType "Use generic-lens or generic-optics with 'predefinedScalingMetricType' instead." #-}
-
-instance Lude.FromJSON PredefinedScalingMetricSpecification where
-  parseJSON =
-    Lude.withObject
-      "PredefinedScalingMetricSpecification"
-      ( \x ->
-          PredefinedScalingMetricSpecification'
-            Lude.<$> (x Lude..:? "ResourceLabel")
-            Lude.<*> (x Lude..: "PredefinedScalingMetricType")
-      )
-
-instance Lude.ToJSON PredefinedScalingMetricSpecification where
-  toJSON PredefinedScalingMetricSpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ResourceLabel" Lude..=) Lude.<$> resourceLabel,
-            Lude.Just
+instance Core.FromJSON PredefinedScalingMetricSpecification where
+  toJSON PredefinedScalingMetricSpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "PredefinedScalingMetricType"
-                  Lude..= predefinedScalingMetricType
-              )
+                  Core..= predefinedScalingMetricType
+              ),
+            ("ResourceLabel" Core..=) Core.<$> resourceLabel
           ]
       )
+
+instance Core.FromJSON PredefinedScalingMetricSpecification where
+  parseJSON =
+    Core.withObject "PredefinedScalingMetricSpecification" Core.$
+      \x ->
+        PredefinedScalingMetricSpecification'
+          Core.<$> (x Core..: "PredefinedScalingMetricType")
+          Core.<*> (x Core..:? "ResourceLabel")

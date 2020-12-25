@@ -22,50 +22,43 @@ module Network.AWS.SageMaker.Types.MonitoringStoppingCondition
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A time limit for how long the monitoring job is allowed to run before stopping.
 --
 -- /See:/ 'mkMonitoringStoppingCondition' smart constructor.
 newtype MonitoringStoppingCondition = MonitoringStoppingCondition'
   { -- | The maximum runtime allowed in seconds.
-    maxRuntimeInSeconds :: Lude.Natural
+    maxRuntimeInSeconds :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MonitoringStoppingCondition' with the minimum fields required to make a request.
---
--- * 'maxRuntimeInSeconds' - The maximum runtime allowed in seconds.
+-- | Creates a 'MonitoringStoppingCondition' value with any optional fields omitted.
 mkMonitoringStoppingCondition ::
   -- | 'maxRuntimeInSeconds'
-  Lude.Natural ->
+  Core.Natural ->
   MonitoringStoppingCondition
-mkMonitoringStoppingCondition pMaxRuntimeInSeconds_ =
-  MonitoringStoppingCondition'
-    { maxRuntimeInSeconds =
-        pMaxRuntimeInSeconds_
-    }
+mkMonitoringStoppingCondition maxRuntimeInSeconds =
+  MonitoringStoppingCondition' {maxRuntimeInSeconds}
 
 -- | The maximum runtime allowed in seconds.
 --
 -- /Note:/ Consider using 'maxRuntimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mscMaxRuntimeInSeconds :: Lens.Lens' MonitoringStoppingCondition Lude.Natural
-mscMaxRuntimeInSeconds = Lens.lens (maxRuntimeInSeconds :: MonitoringStoppingCondition -> Lude.Natural) (\s a -> s {maxRuntimeInSeconds = a} :: MonitoringStoppingCondition)
+mscMaxRuntimeInSeconds :: Lens.Lens' MonitoringStoppingCondition Core.Natural
+mscMaxRuntimeInSeconds = Lens.field @"maxRuntimeInSeconds"
 {-# DEPRECATED mscMaxRuntimeInSeconds "Use generic-lens or generic-optics with 'maxRuntimeInSeconds' instead." #-}
 
-instance Lude.FromJSON MonitoringStoppingCondition where
-  parseJSON =
-    Lude.withObject
-      "MonitoringStoppingCondition"
-      ( \x ->
-          MonitoringStoppingCondition'
-            Lude.<$> (x Lude..: "MaxRuntimeInSeconds")
+instance Core.FromJSON MonitoringStoppingCondition where
+  toJSON MonitoringStoppingCondition {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("MaxRuntimeInSeconds" Core..= maxRuntimeInSeconds)]
       )
 
-instance Lude.ToJSON MonitoringStoppingCondition where
-  toJSON MonitoringStoppingCondition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("MaxRuntimeInSeconds" Lude..= maxRuntimeInSeconds)]
-      )
+instance Core.FromJSON MonitoringStoppingCondition where
+  parseJSON =
+    Core.withObject "MonitoringStoppingCondition" Core.$
+      \x ->
+        MonitoringStoppingCondition'
+          Core.<$> (x Core..: "MaxRuntimeInSeconds")

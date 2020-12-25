@@ -23,64 +23,58 @@ module Network.AWS.LexModels.Types.Intent
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.IntentName as Types
+import qualified Network.AWS.LexModels.Types.IntentVersion as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies the specific version of an intent.
 --
 -- /See:/ 'mkIntent' smart constructor.
 data Intent = Intent'
   { -- | The name of the intent.
-    intentName :: Lude.Text,
+    intentName :: Types.IntentName,
     -- | The version of the intent.
-    intentVersion :: Lude.Text
+    intentVersion :: Types.IntentVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Intent' with the minimum fields required to make a request.
---
--- * 'intentName' - The name of the intent.
--- * 'intentVersion' - The version of the intent.
+-- | Creates a 'Intent' value with any optional fields omitted.
 mkIntent ::
   -- | 'intentName'
-  Lude.Text ->
+  Types.IntentName ->
   -- | 'intentVersion'
-  Lude.Text ->
+  Types.IntentVersion ->
   Intent
-mkIntent pIntentName_ pIntentVersion_ =
-  Intent'
-    { intentName = pIntentName_,
-      intentVersion = pIntentVersion_
-    }
+mkIntent intentName intentVersion =
+  Intent' {intentName, intentVersion}
 
 -- | The name of the intent.
 --
 -- /Note:/ Consider using 'intentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iIntentName :: Lens.Lens' Intent Lude.Text
-iIntentName = Lens.lens (intentName :: Intent -> Lude.Text) (\s a -> s {intentName = a} :: Intent)
+iIntentName :: Lens.Lens' Intent Types.IntentName
+iIntentName = Lens.field @"intentName"
 {-# DEPRECATED iIntentName "Use generic-lens or generic-optics with 'intentName' instead." #-}
 
 -- | The version of the intent.
 --
 -- /Note:/ Consider using 'intentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iIntentVersion :: Lens.Lens' Intent Lude.Text
-iIntentVersion = Lens.lens (intentVersion :: Intent -> Lude.Text) (\s a -> s {intentVersion = a} :: Intent)
+iIntentVersion :: Lens.Lens' Intent Types.IntentVersion
+iIntentVersion = Lens.field @"intentVersion"
 {-# DEPRECATED iIntentVersion "Use generic-lens or generic-optics with 'intentVersion' instead." #-}
 
-instance Lude.FromJSON Intent where
-  parseJSON =
-    Lude.withObject
-      "Intent"
-      ( \x ->
-          Intent'
-            Lude.<$> (x Lude..: "intentName") Lude.<*> (x Lude..: "intentVersion")
-      )
-
-instance Lude.ToJSON Intent where
-  toJSON Intent' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("intentName" Lude..= intentName),
-            Lude.Just ("intentVersion" Lude..= intentVersion)
+instance Core.FromJSON Intent where
+  toJSON Intent {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("intentName" Core..= intentName),
+            Core.Just ("intentVersion" Core..= intentVersion)
           ]
       )
+
+instance Core.FromJSON Intent where
+  parseJSON =
+    Core.withObject "Intent" Core.$
+      \x ->
+        Intent'
+          Core.<$> (x Core..: "intentName") Core.<*> (x Core..: "intentVersion")

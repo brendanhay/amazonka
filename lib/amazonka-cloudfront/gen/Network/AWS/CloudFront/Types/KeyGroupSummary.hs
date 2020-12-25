@@ -21,36 +21,33 @@ module Network.AWS.CloudFront.Types.KeyGroupSummary
   )
 where
 
-import Network.AWS.CloudFront.Types.KeyGroup
+import qualified Network.AWS.CloudFront.Types.KeyGroup as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a key group.
 --
 -- /See:/ 'mkKeyGroupSummary' smart constructor.
 newtype KeyGroupSummary = KeyGroupSummary'
   { -- | A key group.
-    keyGroup :: KeyGroup
+    keyGroup :: Types.KeyGroup
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'KeyGroupSummary' with the minimum fields required to make a request.
---
--- * 'keyGroup' - A key group.
+-- | Creates a 'KeyGroupSummary' value with any optional fields omitted.
 mkKeyGroupSummary ::
   -- | 'keyGroup'
-  KeyGroup ->
+  Types.KeyGroup ->
   KeyGroupSummary
-mkKeyGroupSummary pKeyGroup_ =
-  KeyGroupSummary' {keyGroup = pKeyGroup_}
+mkKeyGroupSummary keyGroup = KeyGroupSummary' {keyGroup}
 
 -- | A key group.
 --
 -- /Note:/ Consider using 'keyGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kgsKeyGroup :: Lens.Lens' KeyGroupSummary KeyGroup
-kgsKeyGroup = Lens.lens (keyGroup :: KeyGroupSummary -> KeyGroup) (\s a -> s {keyGroup = a} :: KeyGroupSummary)
+kgsKeyGroup :: Lens.Lens' KeyGroupSummary Types.KeyGroup
+kgsKeyGroup = Lens.field @"keyGroup"
 {-# DEPRECATED kgsKeyGroup "Use generic-lens or generic-optics with 'keyGroup' instead." #-}
 
-instance Lude.FromXML KeyGroupSummary where
-  parseXML x = KeyGroupSummary' Lude.<$> (x Lude..@ "KeyGroup")
+instance Core.FromXML KeyGroupSummary where
+  parseXML x = KeyGroupSummary' Core.<$> (x Core..@ "KeyGroup")

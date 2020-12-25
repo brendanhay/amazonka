@@ -23,61 +23,56 @@ module Network.AWS.Pinpoint.Types.EventCondition
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.EventDimensions
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.EventDimensions as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the conditions to evaluate for an event that applies to an activity in a journey.
 --
 -- /See:/ 'mkEventCondition' smart constructor.
 data EventCondition = EventCondition'
   { -- | The dimensions for the event filter to use for the activity.
-    dimensions :: Lude.Maybe EventDimensions,
+    dimensions :: Core.Maybe Types.EventDimensions,
     -- | The message identifier (message_id) for the message to use when determining whether message events meet the condition.
-    messageActivity :: Lude.Maybe Lude.Text
+    messageActivity :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventCondition' with the minimum fields required to make a request.
---
--- * 'dimensions' - The dimensions for the event filter to use for the activity.
--- * 'messageActivity' - The message identifier (message_id) for the message to use when determining whether message events meet the condition.
+-- | Creates a 'EventCondition' value with any optional fields omitted.
 mkEventCondition ::
   EventCondition
 mkEventCondition =
   EventCondition'
-    { dimensions = Lude.Nothing,
-      messageActivity = Lude.Nothing
+    { dimensions = Core.Nothing,
+      messageActivity = Core.Nothing
     }
 
 -- | The dimensions for the event filter to use for the activity.
 --
 -- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecDimensions :: Lens.Lens' EventCondition (Lude.Maybe EventDimensions)
-ecDimensions = Lens.lens (dimensions :: EventCondition -> Lude.Maybe EventDimensions) (\s a -> s {dimensions = a} :: EventCondition)
+ecDimensions :: Lens.Lens' EventCondition (Core.Maybe Types.EventDimensions)
+ecDimensions = Lens.field @"dimensions"
 {-# DEPRECATED ecDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
 -- | The message identifier (message_id) for the message to use when determining whether message events meet the condition.
 --
 -- /Note:/ Consider using 'messageActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecMessageActivity :: Lens.Lens' EventCondition (Lude.Maybe Lude.Text)
-ecMessageActivity = Lens.lens (messageActivity :: EventCondition -> Lude.Maybe Lude.Text) (\s a -> s {messageActivity = a} :: EventCondition)
+ecMessageActivity :: Lens.Lens' EventCondition (Core.Maybe Core.Text)
+ecMessageActivity = Lens.field @"messageActivity"
 {-# DEPRECATED ecMessageActivity "Use generic-lens or generic-optics with 'messageActivity' instead." #-}
 
-instance Lude.FromJSON EventCondition where
-  parseJSON =
-    Lude.withObject
-      "EventCondition"
-      ( \x ->
-          EventCondition'
-            Lude.<$> (x Lude..:? "Dimensions") Lude.<*> (x Lude..:? "MessageActivity")
-      )
-
-instance Lude.ToJSON EventCondition where
-  toJSON EventCondition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Dimensions" Lude..=) Lude.<$> dimensions,
-            ("MessageActivity" Lude..=) Lude.<$> messageActivity
+instance Core.FromJSON EventCondition where
+  toJSON EventCondition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Dimensions" Core..=) Core.<$> dimensions,
+            ("MessageActivity" Core..=) Core.<$> messageActivity
           ]
       )
+
+instance Core.FromJSON EventCondition where
+  parseJSON =
+    Core.withObject "EventCondition" Core.$
+      \x ->
+        EventCondition'
+          Core.<$> (x Core..:? "Dimensions") Core.<*> (x Core..:? "MessageActivity")

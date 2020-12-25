@@ -17,71 +17,63 @@ module Network.AWS.Batch.Types.ComputeEnvironmentOrder
     mkComputeEnvironmentOrder,
 
     -- * Lenses
-    ceoComputeEnvironment,
     ceoOrder,
+    ceoComputeEnvironment,
   )
 where
 
+import qualified Network.AWS.Batch.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The order in which compute environments are tried for job placement within a queue. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
 --
 -- /See:/ 'mkComputeEnvironmentOrder' smart constructor.
 data ComputeEnvironmentOrder = ComputeEnvironmentOrder'
-  { -- | The Amazon Resource Name (ARN) of the compute environment.
-    computeEnvironment :: Lude.Text,
-    -- | The order of the compute environment.
-    order :: Lude.Int
+  { -- | The order of the compute environment.
+    order :: Core.Int,
+    -- | The Amazon Resource Name (ARN) of the compute environment.
+    computeEnvironment :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ComputeEnvironmentOrder' with the minimum fields required to make a request.
---
--- * 'computeEnvironment' - The Amazon Resource Name (ARN) of the compute environment.
--- * 'order' - The order of the compute environment.
+-- | Creates a 'ComputeEnvironmentOrder' value with any optional fields omitted.
 mkComputeEnvironmentOrder ::
-  -- | 'computeEnvironment'
-  Lude.Text ->
   -- | 'order'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'computeEnvironment'
+  Types.String ->
   ComputeEnvironmentOrder
-mkComputeEnvironmentOrder pComputeEnvironment_ pOrder_ =
-  ComputeEnvironmentOrder'
-    { computeEnvironment =
-        pComputeEnvironment_,
-      order = pOrder_
-    }
-
--- | The Amazon Resource Name (ARN) of the compute environment.
---
--- /Note:/ Consider using 'computeEnvironment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceoComputeEnvironment :: Lens.Lens' ComputeEnvironmentOrder Lude.Text
-ceoComputeEnvironment = Lens.lens (computeEnvironment :: ComputeEnvironmentOrder -> Lude.Text) (\s a -> s {computeEnvironment = a} :: ComputeEnvironmentOrder)
-{-# DEPRECATED ceoComputeEnvironment "Use generic-lens or generic-optics with 'computeEnvironment' instead." #-}
+mkComputeEnvironmentOrder order computeEnvironment =
+  ComputeEnvironmentOrder' {order, computeEnvironment}
 
 -- | The order of the compute environment.
 --
 -- /Note:/ Consider using 'order' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceoOrder :: Lens.Lens' ComputeEnvironmentOrder Lude.Int
-ceoOrder = Lens.lens (order :: ComputeEnvironmentOrder -> Lude.Int) (\s a -> s {order = a} :: ComputeEnvironmentOrder)
+ceoOrder :: Lens.Lens' ComputeEnvironmentOrder Core.Int
+ceoOrder = Lens.field @"order"
 {-# DEPRECATED ceoOrder "Use generic-lens or generic-optics with 'order' instead." #-}
 
-instance Lude.FromJSON ComputeEnvironmentOrder where
-  parseJSON =
-    Lude.withObject
-      "ComputeEnvironmentOrder"
-      ( \x ->
-          ComputeEnvironmentOrder'
-            Lude.<$> (x Lude..: "computeEnvironment") Lude.<*> (x Lude..: "order")
-      )
+-- | The Amazon Resource Name (ARN) of the compute environment.
+--
+-- /Note:/ Consider using 'computeEnvironment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceoComputeEnvironment :: Lens.Lens' ComputeEnvironmentOrder Types.String
+ceoComputeEnvironment = Lens.field @"computeEnvironment"
+{-# DEPRECATED ceoComputeEnvironment "Use generic-lens or generic-optics with 'computeEnvironment' instead." #-}
 
-instance Lude.ToJSON ComputeEnvironmentOrder where
-  toJSON ComputeEnvironmentOrder' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("computeEnvironment" Lude..= computeEnvironment),
-            Lude.Just ("order" Lude..= order)
+instance Core.FromJSON ComputeEnvironmentOrder where
+  toJSON ComputeEnvironmentOrder {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("order" Core..= order),
+            Core.Just ("computeEnvironment" Core..= computeEnvironment)
           ]
       )
+
+instance Core.FromJSON ComputeEnvironmentOrder where
+  parseJSON =
+    Core.withObject "ComputeEnvironmentOrder" Core.$
+      \x ->
+        ComputeEnvironmentOrder'
+          Core.<$> (x Core..: "order") Core.<*> (x Core..: "computeEnvironment")

@@ -13,76 +13,81 @@
 module Network.AWS.ElasticBeanstalk.Types.EnvironmentStatus
   ( EnvironmentStatus
       ( EnvironmentStatus',
-        Aborting,
-        Launching,
-        Updating,
-        LinkingFrom,
-        LinkingTo,
-        Ready,
-        Terminating,
-        Terminated
+        EnvironmentStatusAborting,
+        EnvironmentStatusLaunching,
+        EnvironmentStatusUpdating,
+        EnvironmentStatusLinkingFrom,
+        EnvironmentStatusLinkingTo,
+        EnvironmentStatusReady,
+        EnvironmentStatusTerminating,
+        EnvironmentStatusTerminated,
+        fromEnvironmentStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EnvironmentStatus = EnvironmentStatus' Lude.Text
+newtype EnvironmentStatus = EnvironmentStatus'
+  { fromEnvironmentStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Aborting :: EnvironmentStatus
-pattern Aborting = EnvironmentStatus' "Aborting"
+pattern EnvironmentStatusAborting :: EnvironmentStatus
+pattern EnvironmentStatusAborting = EnvironmentStatus' "Aborting"
 
-pattern Launching :: EnvironmentStatus
-pattern Launching = EnvironmentStatus' "Launching"
+pattern EnvironmentStatusLaunching :: EnvironmentStatus
+pattern EnvironmentStatusLaunching = EnvironmentStatus' "Launching"
 
-pattern Updating :: EnvironmentStatus
-pattern Updating = EnvironmentStatus' "Updating"
+pattern EnvironmentStatusUpdating :: EnvironmentStatus
+pattern EnvironmentStatusUpdating = EnvironmentStatus' "Updating"
 
-pattern LinkingFrom :: EnvironmentStatus
-pattern LinkingFrom = EnvironmentStatus' "LinkingFrom"
+pattern EnvironmentStatusLinkingFrom :: EnvironmentStatus
+pattern EnvironmentStatusLinkingFrom = EnvironmentStatus' "LinkingFrom"
 
-pattern LinkingTo :: EnvironmentStatus
-pattern LinkingTo = EnvironmentStatus' "LinkingTo"
+pattern EnvironmentStatusLinkingTo :: EnvironmentStatus
+pattern EnvironmentStatusLinkingTo = EnvironmentStatus' "LinkingTo"
 
-pattern Ready :: EnvironmentStatus
-pattern Ready = EnvironmentStatus' "Ready"
+pattern EnvironmentStatusReady :: EnvironmentStatus
+pattern EnvironmentStatusReady = EnvironmentStatus' "Ready"
 
-pattern Terminating :: EnvironmentStatus
-pattern Terminating = EnvironmentStatus' "Terminating"
+pattern EnvironmentStatusTerminating :: EnvironmentStatus
+pattern EnvironmentStatusTerminating = EnvironmentStatus' "Terminating"
 
-pattern Terminated :: EnvironmentStatus
-pattern Terminated = EnvironmentStatus' "Terminated"
+pattern EnvironmentStatusTerminated :: EnvironmentStatus
+pattern EnvironmentStatusTerminated = EnvironmentStatus' "Terminated"
 
 {-# COMPLETE
-  Aborting,
-  Launching,
-  Updating,
-  LinkingFrom,
-  LinkingTo,
-  Ready,
-  Terminating,
-  Terminated,
+  EnvironmentStatusAborting,
+  EnvironmentStatusLaunching,
+  EnvironmentStatusUpdating,
+  EnvironmentStatusLinkingFrom,
+  EnvironmentStatusLinkingTo,
+  EnvironmentStatusReady,
+  EnvironmentStatusTerminating,
+  EnvironmentStatusTerminated,
   EnvironmentStatus'
   #-}

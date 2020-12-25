@@ -21,159 +21,145 @@ module Network.AWS.DirectoryService.DescribeRegions
 
     -- ** Request lenses
     drsDirectoryId,
-    drsRegionName,
     drsNextToken,
+    drsRegionName,
 
     -- * Destructuring the response
     DescribeRegionsResponse (..),
     mkDescribeRegionsResponse,
 
     -- ** Response lenses
-    drrsNextToken,
-    drrsRegionsDescription,
-    drrsResponseStatus,
+    drrfrsNextToken,
+    drrfrsRegionsDescription,
+    drrfrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeRegions' smart constructor.
 data DescribeRegions = DescribeRegions'
   { -- | The identifier of the directory.
-    directoryId :: Lude.Text,
-    -- | The name of the Region. For example, @us-east-1@ .
-    regionName :: Lude.Maybe Lude.Text,
+    directoryId :: Types.DirectoryId,
     -- | The /DescribeRegionsResult.NextToken/ value from a previous call to 'DescribeRegions' . Pass null if this is the first call.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The name of the Region. For example, @us-east-1@ .
+    regionName :: Core.Maybe Types.RegionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeRegions' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory.
--- * 'regionName' - The name of the Region. For example, @us-east-1@ .
--- * 'nextToken' - The /DescribeRegionsResult.NextToken/ value from a previous call to 'DescribeRegions' . Pass null if this is the first call.
+-- | Creates a 'DescribeRegions' value with any optional fields omitted.
 mkDescribeRegions ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   DescribeRegions
-mkDescribeRegions pDirectoryId_ =
+mkDescribeRegions directoryId =
   DescribeRegions'
-    { directoryId = pDirectoryId_,
-      regionName = Lude.Nothing,
-      nextToken = Lude.Nothing
+    { directoryId,
+      nextToken = Core.Nothing,
+      regionName = Core.Nothing
     }
 
 -- | The identifier of the directory.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsDirectoryId :: Lens.Lens' DescribeRegions Lude.Text
-drsDirectoryId = Lens.lens (directoryId :: DescribeRegions -> Lude.Text) (\s a -> s {directoryId = a} :: DescribeRegions)
+drsDirectoryId :: Lens.Lens' DescribeRegions Types.DirectoryId
+drsDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED drsDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
-
--- | The name of the Region. For example, @us-east-1@ .
---
--- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsRegionName :: Lens.Lens' DescribeRegions (Lude.Maybe Lude.Text)
-drsRegionName = Lens.lens (regionName :: DescribeRegions -> Lude.Maybe Lude.Text) (\s a -> s {regionName = a} :: DescribeRegions)
-{-# DEPRECATED drsRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
 
 -- | The /DescribeRegionsResult.NextToken/ value from a previous call to 'DescribeRegions' . Pass null if this is the first call.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsNextToken :: Lens.Lens' DescribeRegions (Lude.Maybe Lude.Text)
-drsNextToken = Lens.lens (nextToken :: DescribeRegions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeRegions)
+drsNextToken :: Lens.Lens' DescribeRegions (Core.Maybe Types.NextToken)
+drsNextToken = Lens.field @"nextToken"
 {-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeRegions where
+-- | The name of the Region. For example, @us-east-1@ .
+--
+-- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsRegionName :: Lens.Lens' DescribeRegions (Core.Maybe Types.RegionName)
+drsRegionName = Lens.field @"regionName"
+{-# DEPRECATED drsRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
+
+instance Core.FromJSON DescribeRegions where
+  toJSON DescribeRegions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DirectoryId" Core..= directoryId),
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("RegionName" Core..=) Core.<$> regionName
+          ]
+      )
+
+instance Core.AWSRequest DescribeRegions where
   type Rs DescribeRegions = DescribeRegionsResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.DescribeRegions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeRegionsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "RegionsDescription" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "RegionsDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeRegions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DirectoryService_20150416.DescribeRegions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeRegions where
-  toJSON DescribeRegions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DirectoryId" Lude..= directoryId),
-            ("RegionName" Lude..=) Lude.<$> regionName,
-            ("NextToken" Lude..=) Lude.<$> nextToken
-          ]
-      )
-
-instance Lude.ToPath DescribeRegions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeRegions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeRegionsResponse' smart constructor.
 data DescribeRegionsResponse = DescribeRegionsResponse'
   { -- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'DescribeRegions' to retrieve the next set of items.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | List of regional information related to the directory per replicated Region.
-    regionsDescription :: Lude.Maybe [RegionDescription],
+    regionsDescription :: Core.Maybe [Types.RegionDescription],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeRegionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'DescribeRegions' to retrieve the next set of items.
--- * 'regionsDescription' - List of regional information related to the directory per replicated Region.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeRegionsResponse' value with any optional fields omitted.
 mkDescribeRegionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeRegionsResponse
-mkDescribeRegionsResponse pResponseStatus_ =
+mkDescribeRegionsResponse responseStatus =
   DescribeRegionsResponse'
-    { nextToken = Lude.Nothing,
-      regionsDescription = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      regionsDescription = Core.Nothing,
+      responseStatus
     }
 
 -- | If not null, more results are available. Pass this value for the /NextToken/ parameter in a subsequent call to 'DescribeRegions' to retrieve the next set of items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsNextToken :: Lens.Lens' DescribeRegionsResponse (Lude.Maybe Lude.Text)
-drrsNextToken = Lens.lens (nextToken :: DescribeRegionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeRegionsResponse)
-{-# DEPRECATED drrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+drrfrsNextToken :: Lens.Lens' DescribeRegionsResponse (Core.Maybe Types.NextToken)
+drrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED drrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of regional information related to the directory per replicated Region.
 --
 -- /Note:/ Consider using 'regionsDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsRegionsDescription :: Lens.Lens' DescribeRegionsResponse (Lude.Maybe [RegionDescription])
-drrsRegionsDescription = Lens.lens (regionsDescription :: DescribeRegionsResponse -> Lude.Maybe [RegionDescription]) (\s a -> s {regionsDescription = a} :: DescribeRegionsResponse)
-{-# DEPRECATED drrsRegionsDescription "Use generic-lens or generic-optics with 'regionsDescription' instead." #-}
+drrfrsRegionsDescription :: Lens.Lens' DescribeRegionsResponse (Core.Maybe [Types.RegionDescription])
+drrfrsRegionsDescription = Lens.field @"regionsDescription"
+{-# DEPRECATED drrfrsRegionsDescription "Use generic-lens or generic-optics with 'regionsDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsResponseStatus :: Lens.Lens' DescribeRegionsResponse Lude.Int
-drrsResponseStatus = Lens.lens (responseStatus :: DescribeRegionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeRegionsResponse)
-{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drrfrsResponseStatus :: Lens.Lens' DescribeRegionsResponse Core.Int
+drrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

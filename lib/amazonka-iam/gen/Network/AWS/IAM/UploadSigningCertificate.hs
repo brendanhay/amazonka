@@ -22,32 +22,28 @@ module Network.AWS.IAM.UploadSigningCertificate
     mkUploadSigningCertificate,
 
     -- ** Request lenses
-    uscfUserName,
     uscfCertificateBody,
+    uscfUserName,
 
     -- * Destructuring the response
     UploadSigningCertificateResponse (..),
     mkUploadSigningCertificateResponse,
 
     -- ** Response lenses
-    uscrsCertificate,
-    uscrsResponseStatus,
+    uscrrsCertificate,
+    uscrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUploadSigningCertificate' smart constructor.
 data UploadSigningCertificate = UploadSigningCertificate'
-  { -- | The name of the user the signing certificate is for.
-    --
-    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Maybe Lude.Text,
-    -- | The contents of the signing certificate.
+  { -- | The contents of the signing certificate.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
     --
@@ -58,45 +54,25 @@ data UploadSigningCertificate = UploadSigningCertificate'
     --
     --
     --     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
-    certificateBody :: Lude.Text
+    certificateBody :: Types.CertificateBodyType,
+    -- | The name of the user the signing certificate is for.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    userName :: Core.Maybe Types.UserName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UploadSigningCertificate' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the user the signing certificate is for.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'certificateBody' - The contents of the signing certificate.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
---
---     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
---
---
---     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
---
---
---     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
+-- | Creates a 'UploadSigningCertificate' value with any optional fields omitted.
 mkUploadSigningCertificate ::
   -- | 'certificateBody'
-  Lude.Text ->
+  Types.CertificateBodyType ->
   UploadSigningCertificate
-mkUploadSigningCertificate pCertificateBody_ =
+mkUploadSigningCertificate certificateBody =
   UploadSigningCertificate'
-    { userName = Lude.Nothing,
-      certificateBody = pCertificateBody_
+    { certificateBody,
+      userName = Core.Nothing
     }
-
--- | The name of the user the signing certificate is for.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscfUserName :: Lens.Lens' UploadSigningCertificate (Lude.Maybe Lude.Text)
-uscfUserName = Lens.lens (userName :: UploadSigningCertificate -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: UploadSigningCertificate)
-{-# DEPRECATED uscfUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The contents of the signing certificate.
 --
@@ -113,74 +89,80 @@ uscfUserName = Lens.lens (userName :: UploadSigningCertificate -> Lude.Maybe Lud
 --
 --
 -- /Note:/ Consider using 'certificateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscfCertificateBody :: Lens.Lens' UploadSigningCertificate Lude.Text
-uscfCertificateBody = Lens.lens (certificateBody :: UploadSigningCertificate -> Lude.Text) (\s a -> s {certificateBody = a} :: UploadSigningCertificate)
+uscfCertificateBody :: Lens.Lens' UploadSigningCertificate Types.CertificateBodyType
+uscfCertificateBody = Lens.field @"certificateBody"
 {-# DEPRECATED uscfCertificateBody "Use generic-lens or generic-optics with 'certificateBody' instead." #-}
 
-instance Lude.AWSRequest UploadSigningCertificate where
+-- | The name of the user the signing certificate is for.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscfUserName :: Lens.Lens' UploadSigningCertificate (Core.Maybe Types.UserName)
+uscfUserName = Lens.field @"userName"
+{-# DEPRECATED uscfUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+instance Core.AWSRequest UploadSigningCertificate where
   type Rs UploadSigningCertificate = UploadSigningCertificateResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UploadSigningCertificate")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "CertificateBody" certificateBody)
+                Core.<> (Core.toQueryValue "UserName" Core.<$> userName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UploadSigningCertificateResult"
       ( \s h x ->
           UploadSigningCertificateResponse'
-            Lude.<$> (x Lude..@ "Certificate") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "Certificate") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UploadSigningCertificate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UploadSigningCertificate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UploadSigningCertificate where
-  toQuery UploadSigningCertificate' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UploadSigningCertificate" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "CertificateBody" Lude.=: certificateBody
-      ]
 
 -- | Contains the response to a successful 'UploadSigningCertificate' request.
 --
 -- /See:/ 'mkUploadSigningCertificateResponse' smart constructor.
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
   { -- | Information about the certificate.
-    certificate :: SigningCertificate,
+    certificate :: Types.SigningCertificate,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UploadSigningCertificateResponse' with the minimum fields required to make a request.
---
--- * 'certificate' - Information about the certificate.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UploadSigningCertificateResponse' value with any optional fields omitted.
 mkUploadSigningCertificateResponse ::
   -- | 'certificate'
-  SigningCertificate ->
+  Types.SigningCertificate ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UploadSigningCertificateResponse
-mkUploadSigningCertificateResponse pCertificate_ pResponseStatus_ =
-  UploadSigningCertificateResponse'
-    { certificate = pCertificate_,
-      responseStatus = pResponseStatus_
-    }
+mkUploadSigningCertificateResponse certificate responseStatus =
+  UploadSigningCertificateResponse' {certificate, responseStatus}
 
 -- | Information about the certificate.
 --
 -- /Note:/ Consider using 'certificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscrsCertificate :: Lens.Lens' UploadSigningCertificateResponse SigningCertificate
-uscrsCertificate = Lens.lens (certificate :: UploadSigningCertificateResponse -> SigningCertificate) (\s a -> s {certificate = a} :: UploadSigningCertificateResponse)
-{-# DEPRECATED uscrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
+uscrrsCertificate :: Lens.Lens' UploadSigningCertificateResponse Types.SigningCertificate
+uscrrsCertificate = Lens.field @"certificate"
+{-# DEPRECATED uscrrsCertificate "Use generic-lens or generic-optics with 'certificate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscrsResponseStatus :: Lens.Lens' UploadSigningCertificateResponse Lude.Int
-uscrsResponseStatus = Lens.lens (responseStatus :: UploadSigningCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UploadSigningCertificateResponse)
-{-# DEPRECATED uscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uscrrsResponseStatus :: Lens.Lens' UploadSigningCertificateResponse Core.Int
+uscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

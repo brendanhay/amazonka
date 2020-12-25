@@ -17,28 +17,38 @@ module Network.AWS.ServiceCatalog.Types.ConstraintDetail
     mkConstraintDetail,
 
     -- * Lenses
-    cdPortfolioId,
     cdConstraintId,
-    cdOwner,
-    cdType,
     cdDescription,
+    cdOwner,
+    cdPortfolioId,
     cdProductId,
+    cdType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.ConstraintId as Types
+import qualified Network.AWS.ServiceCatalog.Types.Description as Types
+import qualified Network.AWS.ServiceCatalog.Types.Owner as Types
+import qualified Network.AWS.ServiceCatalog.Types.PortfolioId as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProductId as Types
+import qualified Network.AWS.ServiceCatalog.Types.Type as Types
 
 -- | Information about a constraint.
 --
 -- /See:/ 'mkConstraintDetail' smart constructor.
 data ConstraintDetail = ConstraintDetail'
-  { -- | The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
-    portfolioId :: Lude.Maybe Lude.Text,
-    -- | The identifier of the constraint.
-    constraintId :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the constraint.
+    constraintId :: Core.Maybe Types.ConstraintId,
+    -- | The description of the constraint.
+    description :: Core.Maybe Types.Description,
     -- | The owner of the constraint.
-    owner :: Lude.Maybe Lude.Text,
+    owner :: Core.Maybe Types.Owner,
+    -- | The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
+    portfolioId :: Core.Maybe Types.PortfolioId,
+    -- | The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
+    productId :: Core.Maybe Types.ProductId,
     -- | The type of constraint.
     --
     --
@@ -52,69 +62,58 @@ data ConstraintDetail = ConstraintDetail'
     --
     --
     --     * @TEMPLATE@
-    type' :: Lude.Maybe Lude.Text,
-    -- | The description of the constraint.
-    description :: Lude.Maybe Lude.Text,
-    -- | The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
-    productId :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.Type
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConstraintDetail' with the minimum fields required to make a request.
---
--- * 'portfolioId' - The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
--- * 'constraintId' - The identifier of the constraint.
--- * 'owner' - The owner of the constraint.
--- * 'type'' - The type of constraint.
---
---
---     * @LAUNCH@
---
---
---     * @NOTIFICATION@
---
---
---     * STACKSET
---
---
---     * @TEMPLATE@
---
---
--- * 'description' - The description of the constraint.
--- * 'productId' - The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
+-- | Creates a 'ConstraintDetail' value with any optional fields omitted.
 mkConstraintDetail ::
   ConstraintDetail
 mkConstraintDetail =
   ConstraintDetail'
-    { portfolioId = Lude.Nothing,
-      constraintId = Lude.Nothing,
-      owner = Lude.Nothing,
-      type' = Lude.Nothing,
-      description = Lude.Nothing,
-      productId = Lude.Nothing
+    { constraintId = Core.Nothing,
+      description = Core.Nothing,
+      owner = Core.Nothing,
+      portfolioId = Core.Nothing,
+      productId = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
---
--- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdPortfolioId :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
-cdPortfolioId = Lens.lens (portfolioId :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {portfolioId = a} :: ConstraintDetail)
-{-# DEPRECATED cdPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
 
 -- | The identifier of the constraint.
 --
 -- /Note:/ Consider using 'constraintId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdConstraintId :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
-cdConstraintId = Lens.lens (constraintId :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {constraintId = a} :: ConstraintDetail)
+cdConstraintId :: Lens.Lens' ConstraintDetail (Core.Maybe Types.ConstraintId)
+cdConstraintId = Lens.field @"constraintId"
 {-# DEPRECATED cdConstraintId "Use generic-lens or generic-optics with 'constraintId' instead." #-}
+
+-- | The description of the constraint.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdDescription :: Lens.Lens' ConstraintDetail (Core.Maybe Types.Description)
+cdDescription = Lens.field @"description"
+{-# DEPRECATED cdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The owner of the constraint.
 --
 -- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdOwner :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
-cdOwner = Lens.lens (owner :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {owner = a} :: ConstraintDetail)
+cdOwner :: Lens.Lens' ConstraintDetail (Core.Maybe Types.Owner)
+cdOwner = Lens.field @"owner"
 {-# DEPRECATED cdOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
+
+-- | The identifier of the portfolio the product resides in. The constraint applies only to the instance of the product that lives within this portfolio.
+--
+-- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdPortfolioId :: Lens.Lens' ConstraintDetail (Core.Maybe Types.PortfolioId)
+cdPortfolioId = Lens.field @"portfolioId"
+{-# DEPRECATED cdPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
+
+-- | The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
+--
+-- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cdProductId :: Lens.Lens' ConstraintDetail (Core.Maybe Types.ProductId)
+cdProductId = Lens.field @"productId"
+{-# DEPRECATED cdProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
 -- | The type of constraint.
 --
@@ -133,34 +132,18 @@ cdOwner = Lens.lens (owner :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a ->
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdType :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
-cdType = Lens.lens (type' :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {type' = a} :: ConstraintDetail)
+cdType :: Lens.Lens' ConstraintDetail (Core.Maybe Types.Type)
+cdType = Lens.field @"type'"
 {-# DEPRECATED cdType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The description of the constraint.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdDescription :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
-cdDescription = Lens.lens (description :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ConstraintDetail)
-{-# DEPRECATED cdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The identifier of the product the constraint applies to. Note that a constraint applies to a specific instance of a product within a certain portfolio.
---
--- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cdProductId :: Lens.Lens' ConstraintDetail (Lude.Maybe Lude.Text)
-cdProductId = Lens.lens (productId :: ConstraintDetail -> Lude.Maybe Lude.Text) (\s a -> s {productId = a} :: ConstraintDetail)
-{-# DEPRECATED cdProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
-
-instance Lude.FromJSON ConstraintDetail where
+instance Core.FromJSON ConstraintDetail where
   parseJSON =
-    Lude.withObject
-      "ConstraintDetail"
-      ( \x ->
-          ConstraintDetail'
-            Lude.<$> (x Lude..:? "PortfolioId")
-            Lude.<*> (x Lude..:? "ConstraintId")
-            Lude.<*> (x Lude..:? "Owner")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "ProductId")
-      )
+    Core.withObject "ConstraintDetail" Core.$
+      \x ->
+        ConstraintDetail'
+          Core.<$> (x Core..:? "ConstraintId")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Owner")
+          Core.<*> (x Core..:? "PortfolioId")
+          Core.<*> (x Core..:? "ProductId")
+          Core.<*> (x Core..:? "Type")

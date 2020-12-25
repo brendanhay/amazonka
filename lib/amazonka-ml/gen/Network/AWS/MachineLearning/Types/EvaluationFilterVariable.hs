@@ -13,19 +13,20 @@
 module Network.AWS.MachineLearning.Types.EvaluationFilterVariable
   ( EvaluationFilterVariable
       ( EvaluationFilterVariable',
-        EvalCreatedAt,
-        EvalLastUpdatedAt,
-        EvalStatus,
-        EvalName,
-        EvalIAMUser,
-        EvalMLModelId,
-        EvalDataSourceId,
-        EvalDataURI
+        EvaluationFilterVariableEvalCreatedAt,
+        EvaluationFilterVariableEvalLastUpdatedAt,
+        EvaluationFilterVariableEvalStatus,
+        EvaluationFilterVariableEvalName,
+        EvaluationFilterVariableEvalIAMUser,
+        EvaluationFilterVariableEvalMLModelId,
+        EvaluationFilterVariableEvalDataSourceId,
+        EvaluationFilterVariableEvalDataURI,
+        fromEvaluationFilterVariable
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list of the variables to use in searching or filtering @Evaluation@ .
 --
@@ -43,62 +44,66 @@ import qualified Network.AWS.Prelude as Lude
 --     * @DataSourceId@ - Sets the search criteria to the @DataSource@ used in evaluation.
 --
 --     * @DataUri@ - Sets the search criteria to the data file(s) used in evaluation. The URL can identify either a file or an Amazon Simple Storage Service (Amazon S3) bucket or directory.
-newtype EvaluationFilterVariable = EvaluationFilterVariable' Lude.Text
+newtype EvaluationFilterVariable = EvaluationFilterVariable'
+  { fromEvaluationFilterVariable ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EvalCreatedAt :: EvaluationFilterVariable
-pattern EvalCreatedAt = EvaluationFilterVariable' "CreatedAt"
+pattern EvaluationFilterVariableEvalCreatedAt :: EvaluationFilterVariable
+pattern EvaluationFilterVariableEvalCreatedAt = EvaluationFilterVariable' "CreatedAt"
 
-pattern EvalLastUpdatedAt :: EvaluationFilterVariable
-pattern EvalLastUpdatedAt = EvaluationFilterVariable' "LastUpdatedAt"
+pattern EvaluationFilterVariableEvalLastUpdatedAt :: EvaluationFilterVariable
+pattern EvaluationFilterVariableEvalLastUpdatedAt = EvaluationFilterVariable' "LastUpdatedAt"
 
-pattern EvalStatus :: EvaluationFilterVariable
-pattern EvalStatus = EvaluationFilterVariable' "Status"
+pattern EvaluationFilterVariableEvalStatus :: EvaluationFilterVariable
+pattern EvaluationFilterVariableEvalStatus = EvaluationFilterVariable' "Status"
 
-pattern EvalName :: EvaluationFilterVariable
-pattern EvalName = EvaluationFilterVariable' "Name"
+pattern EvaluationFilterVariableEvalName :: EvaluationFilterVariable
+pattern EvaluationFilterVariableEvalName = EvaluationFilterVariable' "Name"
 
-pattern EvalIAMUser :: EvaluationFilterVariable
-pattern EvalIAMUser = EvaluationFilterVariable' "IAMUser"
+pattern EvaluationFilterVariableEvalIAMUser :: EvaluationFilterVariable
+pattern EvaluationFilterVariableEvalIAMUser = EvaluationFilterVariable' "IAMUser"
 
-pattern EvalMLModelId :: EvaluationFilterVariable
-pattern EvalMLModelId = EvaluationFilterVariable' "MLModelId"
+pattern EvaluationFilterVariableEvalMLModelId :: EvaluationFilterVariable
+pattern EvaluationFilterVariableEvalMLModelId = EvaluationFilterVariable' "MLModelId"
 
-pattern EvalDataSourceId :: EvaluationFilterVariable
-pattern EvalDataSourceId = EvaluationFilterVariable' "DataSourceId"
+pattern EvaluationFilterVariableEvalDataSourceId :: EvaluationFilterVariable
+pattern EvaluationFilterVariableEvalDataSourceId = EvaluationFilterVariable' "DataSourceId"
 
-pattern EvalDataURI :: EvaluationFilterVariable
-pattern EvalDataURI = EvaluationFilterVariable' "DataURI"
+pattern EvaluationFilterVariableEvalDataURI :: EvaluationFilterVariable
+pattern EvaluationFilterVariableEvalDataURI = EvaluationFilterVariable' "DataURI"
 
 {-# COMPLETE
-  EvalCreatedAt,
-  EvalLastUpdatedAt,
-  EvalStatus,
-  EvalName,
-  EvalIAMUser,
-  EvalMLModelId,
-  EvalDataSourceId,
-  EvalDataURI,
+  EvaluationFilterVariableEvalCreatedAt,
+  EvaluationFilterVariableEvalLastUpdatedAt,
+  EvaluationFilterVariableEvalStatus,
+  EvaluationFilterVariableEvalName,
+  EvaluationFilterVariableEvalIAMUser,
+  EvaluationFilterVariableEvalMLModelId,
+  EvaluationFilterVariableEvalDataSourceId,
+  EvaluationFilterVariableEvalDataURI,
   EvaluationFilterVariable'
   #-}

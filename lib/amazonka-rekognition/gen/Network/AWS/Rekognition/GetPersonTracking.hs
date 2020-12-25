@@ -27,8 +27,8 @@ module Network.AWS.Rekognition.GetPersonTracking
 
     -- ** Request lenses
     gptJobId,
-    gptNextToken,
     gptMaxResults,
+    gptNextToken,
     gptSortBy,
 
     -- * Destructuring the response
@@ -36,202 +36,183 @@ module Network.AWS.Rekognition.GetPersonTracking
     mkGetPersonTrackingResponse,
 
     -- ** Response lenses
-    gptrsNextToken,
-    gptrsVideoMetadata,
-    gptrsStatusMessage,
-    gptrsJobStatus,
-    gptrsPersons,
-    gptrsResponseStatus,
+    gptrrsJobStatus,
+    gptrrsNextToken,
+    gptrrsPersons,
+    gptrrsStatusMessage,
+    gptrrsVideoMetadata,
+    gptrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPersonTracking' smart constructor.
 data GetPersonTracking = GetPersonTracking'
   { -- | The identifier for a job that tracks persons in a video. You get the @JobId@ from a call to @StartPersonTracking@ .
-    jobId :: Lude.Text,
-    -- | If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons.
-    nextToken :: Lude.Maybe Lude.Text,
+    jobId :: Types.JobId,
     -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons.
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | Sort to use for elements in the @Persons@ array. Use @TIMESTAMP@ to sort array elements by the time persons are detected. Use @INDEX@ to sort by the tracked persons. If you sort by @INDEX@ , the array elements for each person are sorted by detection confidence. The default sort is by @TIMESTAMP@ .
-    sortBy :: Lude.Maybe PersonTrackingSortBy
+    sortBy :: Core.Maybe Types.PersonTrackingSortBy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPersonTracking' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier for a job that tracks persons in a video. You get the @JobId@ from a call to @StartPersonTracking@ .
--- * 'nextToken' - If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons.
--- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
--- * 'sortBy' - Sort to use for elements in the @Persons@ array. Use @TIMESTAMP@ to sort array elements by the time persons are detected. Use @INDEX@ to sort by the tracked persons. If you sort by @INDEX@ , the array elements for each person are sorted by detection confidence. The default sort is by @TIMESTAMP@ .
+-- | Creates a 'GetPersonTracking' value with any optional fields omitted.
 mkGetPersonTracking ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   GetPersonTracking
-mkGetPersonTracking pJobId_ =
+mkGetPersonTracking jobId =
   GetPersonTracking'
-    { jobId = pJobId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { jobId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortBy = Core.Nothing
     }
 
 -- | The identifier for a job that tracks persons in a video. You get the @JobId@ from a call to @StartPersonTracking@ .
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptJobId :: Lens.Lens' GetPersonTracking Lude.Text
-gptJobId = Lens.lens (jobId :: GetPersonTracking -> Lude.Text) (\s a -> s {jobId = a} :: GetPersonTracking)
+gptJobId :: Lens.Lens' GetPersonTracking Types.JobId
+gptJobId = Lens.field @"jobId"
 {-# DEPRECATED gptJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
-
--- | If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptNextToken :: Lens.Lens' GetPersonTracking (Lude.Maybe Lude.Text)
-gptNextToken = Lens.lens (nextToken :: GetPersonTracking -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetPersonTracking)
-{-# DEPRECATED gptNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptMaxResults :: Lens.Lens' GetPersonTracking (Lude.Maybe Lude.Natural)
-gptMaxResults = Lens.lens (maxResults :: GetPersonTracking -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetPersonTracking)
+gptMaxResults :: Lens.Lens' GetPersonTracking (Core.Maybe Core.Natural)
+gptMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED gptMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gptNextToken :: Lens.Lens' GetPersonTracking (Core.Maybe Types.PaginationToken)
+gptNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gptNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Sort to use for elements in the @Persons@ array. Use @TIMESTAMP@ to sort array elements by the time persons are detected. Use @INDEX@ to sort by the tracked persons. If you sort by @INDEX@ , the array elements for each person are sorted by detection confidence. The default sort is by @TIMESTAMP@ .
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptSortBy :: Lens.Lens' GetPersonTracking (Lude.Maybe PersonTrackingSortBy)
-gptSortBy = Lens.lens (sortBy :: GetPersonTracking -> Lude.Maybe PersonTrackingSortBy) (\s a -> s {sortBy = a} :: GetPersonTracking)
+gptSortBy :: Lens.Lens' GetPersonTracking (Core.Maybe Types.PersonTrackingSortBy)
+gptSortBy = Lens.field @"sortBy"
 {-# DEPRECATED gptSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Lude.AWSRequest GetPersonTracking where
+instance Core.FromJSON GetPersonTracking where
+  toJSON GetPersonTracking {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobId" Core..= jobId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortBy" Core..=) Core.<$> sortBy
+          ]
+      )
+
+instance Core.AWSRequest GetPersonTracking where
   type Rs GetPersonTracking = GetPersonTrackingResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.GetPersonTracking")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPersonTrackingResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "VideoMetadata")
-            Lude.<*> (x Lude..?> "StatusMessage")
-            Lude.<*> (x Lude..?> "JobStatus")
-            Lude.<*> (x Lude..?> "Persons" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobStatus")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Persons")
+            Core.<*> (x Core..:? "StatusMessage")
+            Core.<*> (x Core..:? "VideoMetadata")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPersonTracking where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.GetPersonTracking" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPersonTracking where
-  toJSON GetPersonTracking' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("JobId" Lude..= jobId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath GetPersonTracking where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPersonTracking where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetPersonTrackingResponse' smart constructor.
 data GetPersonTrackingResponse = GetPersonTrackingResponse'
-  { -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
-    videoMetadata :: Lude.Maybe VideoMetadata,
-    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Lude.Maybe Lude.Text,
-    -- | The current status of the person tracking job.
-    jobStatus :: Lude.Maybe VideoJobStatus,
+  { -- | The current status of the person tracking job.
+    jobStatus :: Core.Maybe Types.VideoJobStatus,
+    -- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons.
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An array element will exist for each time a person's path is tracked.
-    persons :: Lude.Maybe [PersonDetection],
+    persons :: Core.Maybe [Types.PersonDetection],
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Core.Maybe Types.StatusMessage,
+    -- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
+    videoMetadata :: Core.Maybe Types.VideoMetadata,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPersonTrackingResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons.
--- * 'videoMetadata' - Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
--- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
--- * 'jobStatus' - The current status of the person tracking job.
--- * 'persons' - An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An array element will exist for each time a person's path is tracked.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPersonTrackingResponse' value with any optional fields omitted.
 mkGetPersonTrackingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPersonTrackingResponse
-mkGetPersonTrackingResponse pResponseStatus_ =
+mkGetPersonTrackingResponse responseStatus =
   GetPersonTrackingResponse'
-    { nextToken = Lude.Nothing,
-      videoMetadata = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      jobStatus = Lude.Nothing,
-      persons = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobStatus = Core.Nothing,
+      nextToken = Core.Nothing,
+      persons = Core.Nothing,
+      statusMessage = Core.Nothing,
+      videoMetadata = Core.Nothing,
+      responseStatus
     }
-
--- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptrsNextToken :: Lens.Lens' GetPersonTrackingResponse (Lude.Maybe Lude.Text)
-gptrsNextToken = Lens.lens (nextToken :: GetPersonTrackingResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetPersonTrackingResponse)
-{-# DEPRECATED gptrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
---
--- /Note:/ Consider using 'videoMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptrsVideoMetadata :: Lens.Lens' GetPersonTrackingResponse (Lude.Maybe VideoMetadata)
-gptrsVideoMetadata = Lens.lens (videoMetadata :: GetPersonTrackingResponse -> Lude.Maybe VideoMetadata) (\s a -> s {videoMetadata = a} :: GetPersonTrackingResponse)
-{-# DEPRECATED gptrsVideoMetadata "Use generic-lens or generic-optics with 'videoMetadata' instead." #-}
-
--- | If the job fails, @StatusMessage@ provides a descriptive error message.
---
--- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptrsStatusMessage :: Lens.Lens' GetPersonTrackingResponse (Lude.Maybe Lude.Text)
-gptrsStatusMessage = Lens.lens (statusMessage :: GetPersonTrackingResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: GetPersonTrackingResponse)
-{-# DEPRECATED gptrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | The current status of the person tracking job.
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptrsJobStatus :: Lens.Lens' GetPersonTrackingResponse (Lude.Maybe VideoJobStatus)
-gptrsJobStatus = Lens.lens (jobStatus :: GetPersonTrackingResponse -> Lude.Maybe VideoJobStatus) (\s a -> s {jobStatus = a} :: GetPersonTrackingResponse)
-{-# DEPRECATED gptrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+gptrrsJobStatus :: Lens.Lens' GetPersonTrackingResponse (Core.Maybe Types.VideoJobStatus)
+gptrrsJobStatus = Lens.field @"jobStatus"
+{-# DEPRECATED gptrrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+
+-- | If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gptrrsNextToken :: Lens.Lens' GetPersonTrackingResponse (Core.Maybe Types.PaginationToken)
+gptrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gptrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An array element will exist for each time a person's path is tracked.
 --
 -- /Note:/ Consider using 'persons' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptrsPersons :: Lens.Lens' GetPersonTrackingResponse (Lude.Maybe [PersonDetection])
-gptrsPersons = Lens.lens (persons :: GetPersonTrackingResponse -> Lude.Maybe [PersonDetection]) (\s a -> s {persons = a} :: GetPersonTrackingResponse)
-{-# DEPRECATED gptrsPersons "Use generic-lens or generic-optics with 'persons' instead." #-}
+gptrrsPersons :: Lens.Lens' GetPersonTrackingResponse (Core.Maybe [Types.PersonDetection])
+gptrrsPersons = Lens.field @"persons"
+{-# DEPRECATED gptrrsPersons "Use generic-lens or generic-optics with 'persons' instead." #-}
+
+-- | If the job fails, @StatusMessage@ provides a descriptive error message.
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gptrrsStatusMessage :: Lens.Lens' GetPersonTrackingResponse (Core.Maybe Types.StatusMessage)
+gptrrsStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED gptrrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+
+-- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition Video operation.
+--
+-- /Note:/ Consider using 'videoMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gptrrsVideoMetadata :: Lens.Lens' GetPersonTrackingResponse (Core.Maybe Types.VideoMetadata)
+gptrrsVideoMetadata = Lens.field @"videoMetadata"
+{-# DEPRECATED gptrrsVideoMetadata "Use generic-lens or generic-optics with 'videoMetadata' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gptrsResponseStatus :: Lens.Lens' GetPersonTrackingResponse Lude.Int
-gptrsResponseStatus = Lens.lens (responseStatus :: GetPersonTrackingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPersonTrackingResponse)
-{-# DEPRECATED gptrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gptrrsResponseStatus :: Lens.Lens' GetPersonTrackingResponse Core.Int
+gptrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gptrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

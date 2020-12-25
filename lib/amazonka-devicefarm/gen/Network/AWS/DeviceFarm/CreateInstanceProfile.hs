@@ -20,180 +20,163 @@ module Network.AWS.DeviceFarm.CreateInstanceProfile
     mkCreateInstanceProfile,
 
     -- ** Request lenses
-    cipRebootAfterUse,
     cipName,
-    cipPackageCleanup,
-    cipExcludeAppPackagesFromCleanup,
     cipDescription,
+    cipExcludeAppPackagesFromCleanup,
+    cipPackageCleanup,
+    cipRebootAfterUse,
 
     -- * Destructuring the response
     CreateInstanceProfileResponse (..),
     mkCreateInstanceProfileResponse,
 
     -- ** Response lenses
-    ciprsInstanceProfile,
-    ciprsResponseStatus,
+    ciprrsInstanceProfile,
+    ciprrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateInstanceProfile' smart constructor.
 data CreateInstanceProfile = CreateInstanceProfile'
-  { -- | When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
-    rebootAfterUse :: Lude.Maybe Lude.Bool,
-    -- | The name of your instance profile.
-    name :: Lude.Text,
-    -- | When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
-    packageCleanup :: Lude.Maybe Lude.Bool,
+  { -- | The name of your instance profile.
+    name :: Types.Name,
+    -- | The description of your instance profile.
+    description :: Core.Maybe Types.Description,
     -- | An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
     --
     -- The list of packages is considered only if you set @packageCleanup@ to @true@ .
-    excludeAppPackagesFromCleanup :: Lude.Maybe [Lude.Text],
-    -- | The description of your instance profile.
-    description :: Lude.Maybe Lude.Text
+    excludeAppPackagesFromCleanup :: Core.Maybe [Types.String],
+    -- | When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
+    packageCleanup :: Core.Maybe Core.Bool,
+    -- | When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
+    rebootAfterUse :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateInstanceProfile' with the minimum fields required to make a request.
---
--- * 'rebootAfterUse' - When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
--- * 'name' - The name of your instance profile.
--- * 'packageCleanup' - When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
--- * 'excludeAppPackagesFromCleanup' - An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
---
--- The list of packages is considered only if you set @packageCleanup@ to @true@ .
--- * 'description' - The description of your instance profile.
+-- | Creates a 'CreateInstanceProfile' value with any optional fields omitted.
 mkCreateInstanceProfile ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   CreateInstanceProfile
-mkCreateInstanceProfile pName_ =
+mkCreateInstanceProfile name =
   CreateInstanceProfile'
-    { rebootAfterUse = Lude.Nothing,
-      name = pName_,
-      packageCleanup = Lude.Nothing,
-      excludeAppPackagesFromCleanup = Lude.Nothing,
-      description = Lude.Nothing
+    { name,
+      description = Core.Nothing,
+      excludeAppPackagesFromCleanup = Core.Nothing,
+      packageCleanup = Core.Nothing,
+      rebootAfterUse = Core.Nothing
     }
-
--- | When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
---
--- /Note:/ Consider using 'rebootAfterUse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cipRebootAfterUse :: Lens.Lens' CreateInstanceProfile (Lude.Maybe Lude.Bool)
-cipRebootAfterUse = Lens.lens (rebootAfterUse :: CreateInstanceProfile -> Lude.Maybe Lude.Bool) (\s a -> s {rebootAfterUse = a} :: CreateInstanceProfile)
-{-# DEPRECATED cipRebootAfterUse "Use generic-lens or generic-optics with 'rebootAfterUse' instead." #-}
 
 -- | The name of your instance profile.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cipName :: Lens.Lens' CreateInstanceProfile Lude.Text
-cipName = Lens.lens (name :: CreateInstanceProfile -> Lude.Text) (\s a -> s {name = a} :: CreateInstanceProfile)
+cipName :: Lens.Lens' CreateInstanceProfile Types.Name
+cipName = Lens.field @"name"
 {-# DEPRECATED cipName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
+-- | The description of your instance profile.
 --
--- /Note:/ Consider using 'packageCleanup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cipPackageCleanup :: Lens.Lens' CreateInstanceProfile (Lude.Maybe Lude.Bool)
-cipPackageCleanup = Lens.lens (packageCleanup :: CreateInstanceProfile -> Lude.Maybe Lude.Bool) (\s a -> s {packageCleanup = a} :: CreateInstanceProfile)
-{-# DEPRECATED cipPackageCleanup "Use generic-lens or generic-optics with 'packageCleanup' instead." #-}
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipDescription :: Lens.Lens' CreateInstanceProfile (Core.Maybe Types.Description)
+cipDescription = Lens.field @"description"
+{-# DEPRECATED cipDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
 --
 -- The list of packages is considered only if you set @packageCleanup@ to @true@ .
 --
 -- /Note:/ Consider using 'excludeAppPackagesFromCleanup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cipExcludeAppPackagesFromCleanup :: Lens.Lens' CreateInstanceProfile (Lude.Maybe [Lude.Text])
-cipExcludeAppPackagesFromCleanup = Lens.lens (excludeAppPackagesFromCleanup :: CreateInstanceProfile -> Lude.Maybe [Lude.Text]) (\s a -> s {excludeAppPackagesFromCleanup = a} :: CreateInstanceProfile)
+cipExcludeAppPackagesFromCleanup :: Lens.Lens' CreateInstanceProfile (Core.Maybe [Types.String])
+cipExcludeAppPackagesFromCleanup = Lens.field @"excludeAppPackagesFromCleanup"
 {-# DEPRECATED cipExcludeAppPackagesFromCleanup "Use generic-lens or generic-optics with 'excludeAppPackagesFromCleanup' instead." #-}
 
--- | The description of your instance profile.
+-- | When set to @true@ , Device Farm removes app packages after a test run. The default value is @false@ for private devices.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cipDescription :: Lens.Lens' CreateInstanceProfile (Lude.Maybe Lude.Text)
-cipDescription = Lens.lens (description :: CreateInstanceProfile -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateInstanceProfile)
-{-# DEPRECATED cipDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'packageCleanup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipPackageCleanup :: Lens.Lens' CreateInstanceProfile (Core.Maybe Core.Bool)
+cipPackageCleanup = Lens.field @"packageCleanup"
+{-# DEPRECATED cipPackageCleanup "Use generic-lens or generic-optics with 'packageCleanup' instead." #-}
 
-instance Lude.AWSRequest CreateInstanceProfile where
+-- | When set to @true@ , Device Farm reboots the instance after a test run. The default value is @true@ .
+--
+-- /Note:/ Consider using 'rebootAfterUse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipRebootAfterUse :: Lens.Lens' CreateInstanceProfile (Core.Maybe Core.Bool)
+cipRebootAfterUse = Lens.field @"rebootAfterUse"
+{-# DEPRECATED cipRebootAfterUse "Use generic-lens or generic-optics with 'rebootAfterUse' instead." #-}
+
+instance Core.FromJSON CreateInstanceProfile where
+  toJSON CreateInstanceProfile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            ("description" Core..=) Core.<$> description,
+            ("excludeAppPackagesFromCleanup" Core..=)
+              Core.<$> excludeAppPackagesFromCleanup,
+            ("packageCleanup" Core..=) Core.<$> packageCleanup,
+            ("rebootAfterUse" Core..=) Core.<$> rebootAfterUse
+          ]
+      )
+
+instance Core.AWSRequest CreateInstanceProfile where
   type Rs CreateInstanceProfile = CreateInstanceProfileResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DeviceFarm_20150623.CreateInstanceProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateInstanceProfileResponse'
-            Lude.<$> (x Lude..?> "instanceProfile")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "instanceProfile")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateInstanceProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.CreateInstanceProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateInstanceProfile where
-  toJSON CreateInstanceProfile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("rebootAfterUse" Lude..=) Lude.<$> rebootAfterUse,
-            Lude.Just ("name" Lude..= name),
-            ("packageCleanup" Lude..=) Lude.<$> packageCleanup,
-            ("excludeAppPackagesFromCleanup" Lude..=)
-              Lude.<$> excludeAppPackagesFromCleanup,
-            ("description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath CreateInstanceProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateInstanceProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateInstanceProfileResponse' smart constructor.
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
   { -- | An object that contains information about your instance profile.
-    instanceProfile :: Lude.Maybe InstanceProfile,
+    instanceProfile :: Core.Maybe Types.InstanceProfile,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateInstanceProfileResponse' with the minimum fields required to make a request.
---
--- * 'instanceProfile' - An object that contains information about your instance profile.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateInstanceProfileResponse' value with any optional fields omitted.
 mkCreateInstanceProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateInstanceProfileResponse
-mkCreateInstanceProfileResponse pResponseStatus_ =
+mkCreateInstanceProfileResponse responseStatus =
   CreateInstanceProfileResponse'
-    { instanceProfile = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceProfile = Core.Nothing,
+      responseStatus
     }
 
 -- | An object that contains information about your instance profile.
 --
 -- /Note:/ Consider using 'instanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciprsInstanceProfile :: Lens.Lens' CreateInstanceProfileResponse (Lude.Maybe InstanceProfile)
-ciprsInstanceProfile = Lens.lens (instanceProfile :: CreateInstanceProfileResponse -> Lude.Maybe InstanceProfile) (\s a -> s {instanceProfile = a} :: CreateInstanceProfileResponse)
-{-# DEPRECATED ciprsInstanceProfile "Use generic-lens or generic-optics with 'instanceProfile' instead." #-}
+ciprrsInstanceProfile :: Lens.Lens' CreateInstanceProfileResponse (Core.Maybe Types.InstanceProfile)
+ciprrsInstanceProfile = Lens.field @"instanceProfile"
+{-# DEPRECATED ciprrsInstanceProfile "Use generic-lens or generic-optics with 'instanceProfile' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciprsResponseStatus :: Lens.Lens' CreateInstanceProfileResponse Lude.Int
-ciprsResponseStatus = Lens.lens (responseStatus :: CreateInstanceProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateInstanceProfileResponse)
-{-# DEPRECATED ciprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ciprrsResponseStatus :: Lens.Lens' CreateInstanceProfileResponse Core.Int
+ciprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ciprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

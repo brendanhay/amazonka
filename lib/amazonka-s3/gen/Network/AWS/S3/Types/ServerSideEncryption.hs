@@ -13,47 +13,52 @@
 module Network.AWS.S3.Types.ServerSideEncryption
   ( ServerSideEncryption
       ( ServerSideEncryption',
-        AES256,
-        AWSKMS
+        ServerSideEncryptionAES256,
+        ServerSideEncryptionAwsKms,
+        fromServerSideEncryption
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype ServerSideEncryption = ServerSideEncryption' Lude.Text
+newtype ServerSideEncryption = ServerSideEncryption'
+  { fromServerSideEncryption ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AES256 :: ServerSideEncryption
-pattern AES256 = ServerSideEncryption' "AES256"
+pattern ServerSideEncryptionAES256 :: ServerSideEncryption
+pattern ServerSideEncryptionAES256 = ServerSideEncryption' "AES256"
 
-pattern AWSKMS :: ServerSideEncryption
-pattern AWSKMS = ServerSideEncryption' "aws:kms"
+pattern ServerSideEncryptionAwsKms :: ServerSideEncryption
+pattern ServerSideEncryptionAwsKms = ServerSideEncryption' "aws:kms"
 
 {-# COMPLETE
-  AES256,
-  AWSKMS,
+  ServerSideEncryptionAES256,
+  ServerSideEncryptionAwsKms,
   ServerSideEncryption'
   #-}

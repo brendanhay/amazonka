@@ -13,46 +13,48 @@
 module Network.AWS.ECS.Types.PidMode
   ( PidMode
       ( PidMode',
-        PMHost,
-        PMTask
+        PidModeHost,
+        PidModeTask,
+        fromPidMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PidMode = PidMode' Lude.Text
+newtype PidMode = PidMode' {fromPidMode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PMHost :: PidMode
-pattern PMHost = PidMode' "host"
+pattern PidModeHost :: PidMode
+pattern PidModeHost = PidMode' "host"
 
-pattern PMTask :: PidMode
-pattern PMTask = PidMode' "task"
+pattern PidModeTask :: PidMode
+pattern PidModeTask = PidMode' "task"
 
 {-# COMPLETE
-  PMHost,
-  PMTask,
+  PidModeHost,
+  PidModeTask,
   PidMode'
   #-}

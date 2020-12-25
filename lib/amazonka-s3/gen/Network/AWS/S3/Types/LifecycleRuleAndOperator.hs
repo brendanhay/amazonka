@@ -23,59 +23,53 @@ module Network.AWS.S3.Types.LifecycleRuleAndOperator
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Prefix as Types
+import qualified Network.AWS.S3.Types.Tag as Types
 
 -- | This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.
 --
 -- /See:/ 'mkLifecycleRuleAndOperator' smart constructor.
 data LifecycleRuleAndOperator = LifecycleRuleAndOperator'
   { -- | Prefix identifying one or more objects to which the rule applies.
-    prefix :: Lude.Maybe Lude.Text,
+    prefix :: Core.Maybe Types.Prefix,
     -- | All of these tags must exist in the object's tag set in order for the rule to apply.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LifecycleRuleAndOperator' with the minimum fields required to make a request.
---
--- * 'prefix' - Prefix identifying one or more objects to which the rule applies.
--- * 'tags' - All of these tags must exist in the object's tag set in order for the rule to apply.
+-- | Creates a 'LifecycleRuleAndOperator' value with any optional fields omitted.
 mkLifecycleRuleAndOperator ::
   LifecycleRuleAndOperator
 mkLifecycleRuleAndOperator =
   LifecycleRuleAndOperator'
-    { prefix = Lude.Nothing,
-      tags = Lude.Nothing
+    { prefix = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | Prefix identifying one or more objects to which the rule applies.
 --
 -- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lraoPrefix :: Lens.Lens' LifecycleRuleAndOperator (Lude.Maybe Lude.Text)
-lraoPrefix = Lens.lens (prefix :: LifecycleRuleAndOperator -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: LifecycleRuleAndOperator)
+lraoPrefix :: Lens.Lens' LifecycleRuleAndOperator (Core.Maybe Types.Prefix)
+lraoPrefix = Lens.field @"prefix"
 {-# DEPRECATED lraoPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | All of these tags must exist in the object's tag set in order for the rule to apply.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lraoTags :: Lens.Lens' LifecycleRuleAndOperator (Lude.Maybe [Tag])
-lraoTags = Lens.lens (tags :: LifecycleRuleAndOperator -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LifecycleRuleAndOperator)
+lraoTags :: Lens.Lens' LifecycleRuleAndOperator (Core.Maybe [Types.Tag])
+lraoTags = Lens.field @"tags"
 {-# DEPRECATED lraoTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML LifecycleRuleAndOperator where
+instance Core.ToXML LifecycleRuleAndOperator where
+  toXML LifecycleRuleAndOperator {..} =
+    Core.toXMLNode "Prefix" Core.<$> prefix
+      Core.<> Core.toXMLNode "Tag" (Core.toXMLList "Tag" Core.<$> tags)
+
+instance Core.FromXML LifecycleRuleAndOperator where
   parseXML x =
     LifecycleRuleAndOperator'
-      Lude.<$> (x Lude..@? "Prefix")
-      Lude.<*> ( x Lude..@? "Tag" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
-               )
-
-instance Lude.ToXML LifecycleRuleAndOperator where
-  toXML LifecycleRuleAndOperator' {..} =
-    Lude.mconcat
-      [ "Prefix" Lude.@= prefix,
-        "Tag" Lude.@= Lude.toXML (Lude.toXMLList "Tag" Lude.<$> tags)
-      ]
+      Core.<$> (x Core..@? "Prefix")
+      Core.<*> (x Core..@? "Tag" Core..<@> Core.parseXMLList "Tag")

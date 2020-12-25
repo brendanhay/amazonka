@@ -22,148 +22,132 @@ module Network.AWS.ECS.DeleteService
     mkDeleteService,
 
     -- ** Request lenses
-    dCluster,
-    dService,
-    dForce,
+    dsService,
+    dsCluster,
+    dsForce,
 
     -- * Destructuring the response
     DeleteServiceResponse (..),
     mkDeleteServiceResponse,
 
     -- ** Response lenses
-    dsrsService,
-    dsrsResponseStatus,
+    dsrrsService,
+    dsrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteService' smart constructor.
 data DeleteService = DeleteService'
-  { -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete. If you do not specify a cluster, the default cluster is assumed.
-    cluster :: Lude.Maybe Lude.Text,
-    -- | The name of the service to delete.
-    service :: Lude.Text,
+  { -- | The name of the service to delete.
+    service :: Types.String,
+    -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete. If you do not specify a cluster, the default cluster is assumed.
+    cluster :: Core.Maybe Types.String,
     -- | If @true@ , allows you to delete a service even if it has not been scaled down to zero tasks. It is only necessary to use this if the service is using the @REPLICA@ scheduling strategy.
-    force :: Lude.Maybe Lude.Bool
+    force :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteService' with the minimum fields required to make a request.
---
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete. If you do not specify a cluster, the default cluster is assumed.
--- * 'service' - The name of the service to delete.
--- * 'force' - If @true@ , allows you to delete a service even if it has not been scaled down to zero tasks. It is only necessary to use this if the service is using the @REPLICA@ scheduling strategy.
+-- | Creates a 'DeleteService' value with any optional fields omitted.
 mkDeleteService ::
   -- | 'service'
-  Lude.Text ->
+  Types.String ->
   DeleteService
-mkDeleteService pService_ =
+mkDeleteService service =
   DeleteService'
-    { cluster = Lude.Nothing,
-      service = pService_,
-      force = Lude.Nothing
+    { service,
+      cluster = Core.Nothing,
+      force = Core.Nothing
     }
-
--- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete. If you do not specify a cluster, the default cluster is assumed.
---
--- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCluster :: Lens.Lens' DeleteService (Lude.Maybe Lude.Text)
-dCluster = Lens.lens (cluster :: DeleteService -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: DeleteService)
-{-# DEPRECATED dCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The name of the service to delete.
 --
 -- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dService :: Lens.Lens' DeleteService Lude.Text
-dService = Lens.lens (service :: DeleteService -> Lude.Text) (\s a -> s {service = a} :: DeleteService)
-{-# DEPRECATED dService "Use generic-lens or generic-optics with 'service' instead." #-}
+dsService :: Lens.Lens' DeleteService Types.String
+dsService = Lens.field @"service"
+{-# DEPRECATED dsService "Use generic-lens or generic-optics with 'service' instead." #-}
+
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service to delete. If you do not specify a cluster, the default cluster is assumed.
+--
+-- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsCluster :: Lens.Lens' DeleteService (Core.Maybe Types.String)
+dsCluster = Lens.field @"cluster"
+{-# DEPRECATED dsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | If @true@ , allows you to delete a service even if it has not been scaled down to zero tasks. It is only necessary to use this if the service is using the @REPLICA@ scheduling strategy.
 --
 -- /Note:/ Consider using 'force' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dForce :: Lens.Lens' DeleteService (Lude.Maybe Lude.Bool)
-dForce = Lens.lens (force :: DeleteService -> Lude.Maybe Lude.Bool) (\s a -> s {force = a} :: DeleteService)
-{-# DEPRECATED dForce "Use generic-lens or generic-optics with 'force' instead." #-}
+dsForce :: Lens.Lens' DeleteService (Core.Maybe Core.Bool)
+dsForce = Lens.field @"force"
+{-# DEPRECATED dsForce "Use generic-lens or generic-optics with 'force' instead." #-}
 
-instance Lude.AWSRequest DeleteService where
+instance Core.FromJSON DeleteService where
+  toJSON DeleteService {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("service" Core..= service),
+            ("cluster" Core..=) Core.<$> cluster,
+            ("force" Core..=) Core.<$> force
+          ]
+      )
+
+instance Core.AWSRequest DeleteService where
   type Rs DeleteService = DeleteServiceResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.DeleteService"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteServiceResponse'
-            Lude.<$> (x Lude..?> "service") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "service") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteService where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DeleteService" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteService where
-  toJSON DeleteService' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("cluster" Lude..=) Lude.<$> cluster,
-            Lude.Just ("service" Lude..= service),
-            ("force" Lude..=) Lude.<$> force
-          ]
-      )
-
-instance Lude.ToPath DeleteService where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteService where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteServiceResponse' smart constructor.
 data DeleteServiceResponse = DeleteServiceResponse'
   { -- | The full description of the deleted service.
-    service :: Lude.Maybe ContainerService,
+    service :: Core.Maybe Types.ContainerService,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteServiceResponse' with the minimum fields required to make a request.
---
--- * 'service' - The full description of the deleted service.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteServiceResponse' value with any optional fields omitted.
 mkDeleteServiceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteServiceResponse
-mkDeleteServiceResponse pResponseStatus_ =
-  DeleteServiceResponse'
-    { service = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteServiceResponse responseStatus =
+  DeleteServiceResponse' {service = Core.Nothing, responseStatus}
 
 -- | The full description of the deleted service.
 --
 -- /Note:/ Consider using 'service' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsService :: Lens.Lens' DeleteServiceResponse (Lude.Maybe ContainerService)
-dsrsService = Lens.lens (service :: DeleteServiceResponse -> Lude.Maybe ContainerService) (\s a -> s {service = a} :: DeleteServiceResponse)
-{-# DEPRECATED dsrsService "Use generic-lens or generic-optics with 'service' instead." #-}
+dsrrsService :: Lens.Lens' DeleteServiceResponse (Core.Maybe Types.ContainerService)
+dsrrsService = Lens.field @"service"
+{-# DEPRECATED dsrrsService "Use generic-lens or generic-optics with 'service' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DeleteServiceResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DeleteServiceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteServiceResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DeleteServiceResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,87 +17,83 @@ module Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileList
     mkFieldLevelEncryptionProfileList,
 
     -- * Lenses
+    fleplMaxItems,
     fleplQuantity,
     fleplItems,
-    fleplMaxItems,
     fleplNextMarker,
   )
 where
 
-import Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileSummary
+import qualified Network.AWS.CloudFront.Types.FieldLevelEncryptionProfileSummary as Types
+import qualified Network.AWS.CloudFront.Types.NextMarker as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | List of field-level encryption profiles.
 --
 -- /See:/ 'mkFieldLevelEncryptionProfileList' smart constructor.
 data FieldLevelEncryptionProfileList = FieldLevelEncryptionProfileList'
-  { -- | The number of field-level encryption profiles.
-    quantity :: Lude.Int,
+  { -- | The maximum number of field-level encryption profiles you want in the response body.
+    maxItems :: Core.Int,
+    -- | The number of field-level encryption profiles.
+    quantity :: Core.Int,
     -- | The field-level encryption profile items.
-    items :: Lude.Maybe [FieldLevelEncryptionProfileSummary],
-    -- | The maximum number of field-level encryption profiles you want in the response body.
-    maxItems :: Lude.Int,
+    items :: Core.Maybe [Types.FieldLevelEncryptionProfileSummary],
     -- | If there are more elements to be listed, this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your profiles where you left off.
-    nextMarker :: Lude.Maybe Lude.Text
+    nextMarker :: Core.Maybe Types.NextMarker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'FieldLevelEncryptionProfileList' with the minimum fields required to make a request.
---
--- * 'quantity' - The number of field-level encryption profiles.
--- * 'items' - The field-level encryption profile items.
--- * 'maxItems' - The maximum number of field-level encryption profiles you want in the response body.
--- * 'nextMarker' - If there are more elements to be listed, this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your profiles where you left off.
+-- | Creates a 'FieldLevelEncryptionProfileList' value with any optional fields omitted.
 mkFieldLevelEncryptionProfileList ::
-  -- | 'quantity'
-  Lude.Int ->
   -- | 'maxItems'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'quantity'
+  Core.Int ->
   FieldLevelEncryptionProfileList
-mkFieldLevelEncryptionProfileList pQuantity_ pMaxItems_ =
+mkFieldLevelEncryptionProfileList maxItems quantity =
   FieldLevelEncryptionProfileList'
-    { quantity = pQuantity_,
-      items = Lude.Nothing,
-      maxItems = pMaxItems_,
-      nextMarker = Lude.Nothing
+    { maxItems,
+      quantity,
+      items = Core.Nothing,
+      nextMarker = Core.Nothing
     }
+
+-- | The maximum number of field-level encryption profiles you want in the response body.
+--
+-- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+fleplMaxItems :: Lens.Lens' FieldLevelEncryptionProfileList Core.Int
+fleplMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED fleplMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | The number of field-level encryption profiles.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fleplQuantity :: Lens.Lens' FieldLevelEncryptionProfileList Lude.Int
-fleplQuantity = Lens.lens (quantity :: FieldLevelEncryptionProfileList -> Lude.Int) (\s a -> s {quantity = a} :: FieldLevelEncryptionProfileList)
+fleplQuantity :: Lens.Lens' FieldLevelEncryptionProfileList Core.Int
+fleplQuantity = Lens.field @"quantity"
 {-# DEPRECATED fleplQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | The field-level encryption profile items.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fleplItems :: Lens.Lens' FieldLevelEncryptionProfileList (Lude.Maybe [FieldLevelEncryptionProfileSummary])
-fleplItems = Lens.lens (items :: FieldLevelEncryptionProfileList -> Lude.Maybe [FieldLevelEncryptionProfileSummary]) (\s a -> s {items = a} :: FieldLevelEncryptionProfileList)
+fleplItems :: Lens.Lens' FieldLevelEncryptionProfileList (Core.Maybe [Types.FieldLevelEncryptionProfileSummary])
+fleplItems = Lens.field @"items"
 {-# DEPRECATED fleplItems "Use generic-lens or generic-optics with 'items' instead." #-}
-
--- | The maximum number of field-level encryption profiles you want in the response body.
---
--- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fleplMaxItems :: Lens.Lens' FieldLevelEncryptionProfileList Lude.Int
-fleplMaxItems = Lens.lens (maxItems :: FieldLevelEncryptionProfileList -> Lude.Int) (\s a -> s {maxItems = a} :: FieldLevelEncryptionProfileList)
-{-# DEPRECATED fleplMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
 -- | If there are more elements to be listed, this element is present and contains the value that you can use for the @Marker@ request parameter to continue listing your profiles where you left off.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fleplNextMarker :: Lens.Lens' FieldLevelEncryptionProfileList (Lude.Maybe Lude.Text)
-fleplNextMarker = Lens.lens (nextMarker :: FieldLevelEncryptionProfileList -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: FieldLevelEncryptionProfileList)
+fleplNextMarker :: Lens.Lens' FieldLevelEncryptionProfileList (Core.Maybe Types.NextMarker)
+fleplNextMarker = Lens.field @"nextMarker"
 {-# DEPRECATED fleplNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
-instance Lude.FromXML FieldLevelEncryptionProfileList where
+instance Core.FromXML FieldLevelEncryptionProfileList where
   parseXML x =
     FieldLevelEncryptionProfileList'
-      Lude.<$> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "FieldLevelEncryptionProfileSummary")
+      Core.<$> (x Core..@ "MaxItems")
+      Core.<*> (x Core..@ "Quantity")
+      Core.<*> ( x Core..@? "Items"
+                   Core..<@> Core.parseXMLList "FieldLevelEncryptionProfileSummary"
                )
-      Lude.<*> (x Lude..@ "MaxItems")
-      Lude.<*> (x Lude..@? "NextMarker")
+      Core.<*> (x Core..@? "NextMarker")

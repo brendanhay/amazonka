@@ -13,57 +13,62 @@
 module Network.AWS.MediaLive.Types.AudioOnlyHlsTrackType
   ( AudioOnlyHlsTrackType
       ( AudioOnlyHlsTrackType',
-        AlternateAudioAutoSelect,
-        AlternateAudioAutoSelectDefault,
-        AlternateAudioNotAutoSelect,
-        AudioOnlyVariantStream
+        AudioOnlyHlsTrackTypeAlternateAudioAutoSelect,
+        AudioOnlyHlsTrackTypeAlternateAudioAutoSelectDefault,
+        AudioOnlyHlsTrackTypeAlternateAudioNotAutoSelect,
+        AudioOnlyHlsTrackTypeAudioOnlyVariantStream,
+        fromAudioOnlyHlsTrackType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Audio Only Hls Track Type
-newtype AudioOnlyHlsTrackType = AudioOnlyHlsTrackType' Lude.Text
+newtype AudioOnlyHlsTrackType = AudioOnlyHlsTrackType'
+  { fromAudioOnlyHlsTrackType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AlternateAudioAutoSelect :: AudioOnlyHlsTrackType
-pattern AlternateAudioAutoSelect = AudioOnlyHlsTrackType' "ALTERNATE_AUDIO_AUTO_SELECT"
+pattern AudioOnlyHlsTrackTypeAlternateAudioAutoSelect :: AudioOnlyHlsTrackType
+pattern AudioOnlyHlsTrackTypeAlternateAudioAutoSelect = AudioOnlyHlsTrackType' "ALTERNATE_AUDIO_AUTO_SELECT"
 
-pattern AlternateAudioAutoSelectDefault :: AudioOnlyHlsTrackType
-pattern AlternateAudioAutoSelectDefault = AudioOnlyHlsTrackType' "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"
+pattern AudioOnlyHlsTrackTypeAlternateAudioAutoSelectDefault :: AudioOnlyHlsTrackType
+pattern AudioOnlyHlsTrackTypeAlternateAudioAutoSelectDefault = AudioOnlyHlsTrackType' "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT"
 
-pattern AlternateAudioNotAutoSelect :: AudioOnlyHlsTrackType
-pattern AlternateAudioNotAutoSelect = AudioOnlyHlsTrackType' "ALTERNATE_AUDIO_NOT_AUTO_SELECT"
+pattern AudioOnlyHlsTrackTypeAlternateAudioNotAutoSelect :: AudioOnlyHlsTrackType
+pattern AudioOnlyHlsTrackTypeAlternateAudioNotAutoSelect = AudioOnlyHlsTrackType' "ALTERNATE_AUDIO_NOT_AUTO_SELECT"
 
-pattern AudioOnlyVariantStream :: AudioOnlyHlsTrackType
-pattern AudioOnlyVariantStream = AudioOnlyHlsTrackType' "AUDIO_ONLY_VARIANT_STREAM"
+pattern AudioOnlyHlsTrackTypeAudioOnlyVariantStream :: AudioOnlyHlsTrackType
+pattern AudioOnlyHlsTrackTypeAudioOnlyVariantStream = AudioOnlyHlsTrackType' "AUDIO_ONLY_VARIANT_STREAM"
 
 {-# COMPLETE
-  AlternateAudioAutoSelect,
-  AlternateAudioAutoSelectDefault,
-  AlternateAudioNotAutoSelect,
-  AudioOnlyVariantStream,
+  AudioOnlyHlsTrackTypeAlternateAudioAutoSelect,
+  AudioOnlyHlsTrackTypeAlternateAudioAutoSelectDefault,
+  AudioOnlyHlsTrackTypeAlternateAudioNotAutoSelect,
+  AudioOnlyHlsTrackTypeAudioOnlyVariantStream,
   AudioOnlyHlsTrackType'
   #-}

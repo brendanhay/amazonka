@@ -24,7 +24,7 @@ module Network.AWS.SQS.DeleteQueue
     mkDeleteQueue,
 
     -- ** Request lenses
-    dqQueueURL,
+    dqQueueUrl,
 
     -- * Destructuring the response
     DeleteQueueResponse (..),
@@ -33,10 +33,10 @@ module Network.AWS.SQS.DeleteQueue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SQS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SQS.Types as Types
 
 -- |
 --
@@ -45,56 +45,55 @@ newtype DeleteQueue = DeleteQueue'
   { -- | The URL of the Amazon SQS queue to delete.
     --
     -- Queue URLs and names are case-sensitive.
-    queueURL :: Lude.Text
+    queueUrl :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteQueue' with the minimum fields required to make a request.
---
--- * 'queueURL' - The URL of the Amazon SQS queue to delete.
---
--- Queue URLs and names are case-sensitive.
+-- | Creates a 'DeleteQueue' value with any optional fields omitted.
 mkDeleteQueue ::
-  -- | 'queueURL'
-  Lude.Text ->
+  -- | 'queueUrl'
+  Types.String ->
   DeleteQueue
-mkDeleteQueue pQueueURL_ = DeleteQueue' {queueURL = pQueueURL_}
+mkDeleteQueue queueUrl = DeleteQueue' {queueUrl}
 
 -- | The URL of the Amazon SQS queue to delete.
 --
 -- Queue URLs and names are case-sensitive.
 --
--- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dqQueueURL :: Lens.Lens' DeleteQueue Lude.Text
-dqQueueURL = Lens.lens (queueURL :: DeleteQueue -> Lude.Text) (\s a -> s {queueURL = a} :: DeleteQueue)
-{-# DEPRECATED dqQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
+-- /Note:/ Consider using 'queueUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dqQueueUrl :: Lens.Lens' DeleteQueue Types.String
+dqQueueUrl = Lens.field @"queueUrl"
+{-# DEPRECATED dqQueueUrl "Use generic-lens or generic-optics with 'queueUrl' instead." #-}
 
-instance Lude.AWSRequest DeleteQueue where
+instance Core.AWSRequest DeleteQueue where
   type Rs DeleteQueue = DeleteQueueResponse
-  request = Req.postQuery sqsService
-  response = Res.receiveNull DeleteQueueResponse'
-
-instance Lude.ToHeaders DeleteQueue where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteQueue where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteQueue where
-  toQuery DeleteQueue' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteQueue" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
-        "QueueUrl" Lude.=: queueURL
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteQueue")
+                Core.<> (Core.pure ("Version", "2012-11-05"))
+                Core.<> (Core.toQueryValue "QueueUrl" queueUrl)
+            )
+      }
+  response = Response.receiveNull DeleteQueueResponse'
 
 -- | /See:/ 'mkDeleteQueueResponse' smart constructor.
 data DeleteQueueResponse = DeleteQueueResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteQueueResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteQueueResponse' value with any optional fields omitted.
 mkDeleteQueueResponse ::
   DeleteQueueResponse
 mkDeleteQueueResponse = DeleteQueueResponse'

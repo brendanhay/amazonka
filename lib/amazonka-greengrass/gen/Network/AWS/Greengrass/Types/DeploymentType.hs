@@ -13,57 +13,62 @@
 module Network.AWS.Greengrass.Types.DeploymentType
   ( DeploymentType
       ( DeploymentType',
-        NewDeployment,
-        Redeployment,
-        ResetDeployment,
-        ForceResetDeployment
+        DeploymentTypeNewDeployment,
+        DeploymentTypeRedeployment,
+        DeploymentTypeResetDeployment,
+        DeploymentTypeForceResetDeployment,
+        fromDeploymentType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.
-newtype DeploymentType = DeploymentType' Lude.Text
+newtype DeploymentType = DeploymentType'
+  { fromDeploymentType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NewDeployment :: DeploymentType
-pattern NewDeployment = DeploymentType' "NewDeployment"
+pattern DeploymentTypeNewDeployment :: DeploymentType
+pattern DeploymentTypeNewDeployment = DeploymentType' "NewDeployment"
 
-pattern Redeployment :: DeploymentType
-pattern Redeployment = DeploymentType' "Redeployment"
+pattern DeploymentTypeRedeployment :: DeploymentType
+pattern DeploymentTypeRedeployment = DeploymentType' "Redeployment"
 
-pattern ResetDeployment :: DeploymentType
-pattern ResetDeployment = DeploymentType' "ResetDeployment"
+pattern DeploymentTypeResetDeployment :: DeploymentType
+pattern DeploymentTypeResetDeployment = DeploymentType' "ResetDeployment"
 
-pattern ForceResetDeployment :: DeploymentType
-pattern ForceResetDeployment = DeploymentType' "ForceResetDeployment"
+pattern DeploymentTypeForceResetDeployment :: DeploymentType
+pattern DeploymentTypeForceResetDeployment = DeploymentType' "ForceResetDeployment"
 
 {-# COMPLETE
-  NewDeployment,
-  Redeployment,
-  ResetDeployment,
-  ForceResetDeployment,
+  DeploymentTypeNewDeployment,
+  DeploymentTypeRedeployment,
+  DeploymentTypeResetDeployment,
+  DeploymentTypeForceResetDeployment,
   DeploymentType'
   #-}

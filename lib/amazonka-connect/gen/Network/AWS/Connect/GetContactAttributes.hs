@@ -28,123 +28,106 @@ module Network.AWS.Connect.GetContactAttributes
     mkGetContactAttributesResponse,
 
     -- ** Response lenses
-    gcarsAttributes,
-    gcarsResponseStatus,
+    gcarrsAttributes,
+    gcarrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetContactAttributes' smart constructor.
 data GetContactAttributes = GetContactAttributes'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The identifier of the initial contact.
-    initialContactId :: Lude.Text
+    initialContactId :: Types.InitialContactId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetContactAttributes' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'initialContactId' - The identifier of the initial contact.
+-- | Creates a 'GetContactAttributes' value with any optional fields omitted.
 mkGetContactAttributes ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'initialContactId'
-  Lude.Text ->
+  Types.InitialContactId ->
   GetContactAttributes
-mkGetContactAttributes pInstanceId_ pInitialContactId_ =
-  GetContactAttributes'
-    { instanceId = pInstanceId_,
-      initialContactId = pInitialContactId_
-    }
+mkGetContactAttributes instanceId initialContactId =
+  GetContactAttributes' {instanceId, initialContactId}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcaInstanceId :: Lens.Lens' GetContactAttributes Lude.Text
-gcaInstanceId = Lens.lens (instanceId :: GetContactAttributes -> Lude.Text) (\s a -> s {instanceId = a} :: GetContactAttributes)
+gcaInstanceId :: Lens.Lens' GetContactAttributes Types.InstanceId
+gcaInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED gcaInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the initial contact.
 --
 -- /Note:/ Consider using 'initialContactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcaInitialContactId :: Lens.Lens' GetContactAttributes Lude.Text
-gcaInitialContactId = Lens.lens (initialContactId :: GetContactAttributes -> Lude.Text) (\s a -> s {initialContactId = a} :: GetContactAttributes)
+gcaInitialContactId :: Lens.Lens' GetContactAttributes Types.InitialContactId
+gcaInitialContactId = Lens.field @"initialContactId"
 {-# DEPRECATED gcaInitialContactId "Use generic-lens or generic-optics with 'initialContactId' instead." #-}
 
-instance Lude.AWSRequest GetContactAttributes where
+instance Core.AWSRequest GetContactAttributes where
   type Rs GetContactAttributes = GetContactAttributesResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/contact/attributes/" Core.<> (Core.toText instanceId)
+                Core.<> ("/")
+                Core.<> (Core.toText initialContactId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetContactAttributesResponse'
-            Lude.<$> (x Lude..?> "Attributes" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Attributes") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetContactAttributes where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetContactAttributes where
-  toPath GetContactAttributes' {..} =
-    Lude.mconcat
-      [ "/contact/attributes/",
-        Lude.toBS instanceId,
-        "/",
-        Lude.toBS initialContactId
-      ]
-
-instance Lude.ToQuery GetContactAttributes where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetContactAttributesResponse' smart constructor.
 data GetContactAttributesResponse = GetContactAttributesResponse'
   { -- | Information about the attributes.
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    attributes :: Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetContactAttributesResponse' with the minimum fields required to make a request.
---
--- * 'attributes' - Information about the attributes.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetContactAttributesResponse' value with any optional fields omitted.
 mkGetContactAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetContactAttributesResponse
-mkGetContactAttributesResponse pResponseStatus_ =
+mkGetContactAttributesResponse responseStatus =
   GetContactAttributesResponse'
-    { attributes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { attributes = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the attributes.
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcarsAttributes :: Lens.Lens' GetContactAttributesResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-gcarsAttributes = Lens.lens (attributes :: GetContactAttributesResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: GetContactAttributesResponse)
-{-# DEPRECATED gcarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+gcarrsAttributes :: Lens.Lens' GetContactAttributesResponse (Core.Maybe (Core.HashMap Types.AttributeName Types.AttributeValue))
+gcarrsAttributes = Lens.field @"attributes"
+{-# DEPRECATED gcarrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcarsResponseStatus :: Lens.Lens' GetContactAttributesResponse Lude.Int
-gcarsResponseStatus = Lens.lens (responseStatus :: GetContactAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetContactAttributesResponse)
-{-# DEPRECATED gcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcarrsResponseStatus :: Lens.Lens' GetContactAttributesResponse Core.Int
+gcarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

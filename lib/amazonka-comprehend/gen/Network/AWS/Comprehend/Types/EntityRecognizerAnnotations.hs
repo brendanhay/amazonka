@@ -17,46 +17,44 @@ module Network.AWS.Comprehend.Types.EntityRecognizerAnnotations
     mkEntityRecognizerAnnotations,
 
     -- * Lenses
-    eraS3URI,
+    eraS3Uri,
   )
 where
 
+import qualified Network.AWS.Comprehend.Types.S3Uri as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the annotations associated with a entity recognizer.
 --
 -- /See:/ 'mkEntityRecognizerAnnotations' smart constructor.
 newtype EntityRecognizerAnnotations = EntityRecognizerAnnotations'
   { -- | Specifies the Amazon S3 location where the annotations for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.
-    s3URI :: Lude.Text
+    s3Uri :: Types.S3Uri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EntityRecognizerAnnotations' with the minimum fields required to make a request.
---
--- * 's3URI' - Specifies the Amazon S3 location where the annotations for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.
+-- | Creates a 'EntityRecognizerAnnotations' value with any optional fields omitted.
 mkEntityRecognizerAnnotations ::
-  -- | 's3URI'
-  Lude.Text ->
+  -- | 's3Uri'
+  Types.S3Uri ->
   EntityRecognizerAnnotations
-mkEntityRecognizerAnnotations pS3URI_ =
-  EntityRecognizerAnnotations' {s3URI = pS3URI_}
+mkEntityRecognizerAnnotations s3Uri =
+  EntityRecognizerAnnotations' {s3Uri}
 
 -- | Specifies the Amazon S3 location where the annotations for an entity recognizer are located. The URI must be in the same region as the API endpoint that you are calling.
 --
--- /Note:/ Consider using 's3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eraS3URI :: Lens.Lens' EntityRecognizerAnnotations Lude.Text
-eraS3URI = Lens.lens (s3URI :: EntityRecognizerAnnotations -> Lude.Text) (\s a -> s {s3URI = a} :: EntityRecognizerAnnotations)
-{-# DEPRECATED eraS3URI "Use generic-lens or generic-optics with 's3URI' instead." #-}
+-- /Note:/ Consider using 's3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eraS3Uri :: Lens.Lens' EntityRecognizerAnnotations Types.S3Uri
+eraS3Uri = Lens.field @"s3Uri"
+{-# DEPRECATED eraS3Uri "Use generic-lens or generic-optics with 's3Uri' instead." #-}
 
-instance Lude.FromJSON EntityRecognizerAnnotations where
+instance Core.FromJSON EntityRecognizerAnnotations where
+  toJSON EntityRecognizerAnnotations {..} =
+    Core.object (Core.catMaybes [Core.Just ("S3Uri" Core..= s3Uri)])
+
+instance Core.FromJSON EntityRecognizerAnnotations where
   parseJSON =
-    Lude.withObject
-      "EntityRecognizerAnnotations"
-      (\x -> EntityRecognizerAnnotations' Lude.<$> (x Lude..: "S3Uri"))
-
-instance Lude.ToJSON EntityRecognizerAnnotations where
-  toJSON EntityRecognizerAnnotations' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("S3Uri" Lude..= s3URI)])
+    Core.withObject "EntityRecognizerAnnotations" Core.$
+      \x -> EntityRecognizerAnnotations' Core.<$> (x Core..: "S3Uri")

@@ -13,76 +13,81 @@
 module Network.AWS.SSM.Types.InstanceInformationFilterKey
   ( InstanceInformationFilterKey
       ( InstanceInformationFilterKey',
-        InstanceIds,
-        AgentVersion,
-        PingStatus,
-        PlatformTypes,
-        ActivationIds,
-        IAMRole,
-        ResourceType,
-        AssociationStatus
+        InstanceInformationFilterKeyInstanceIds,
+        InstanceInformationFilterKeyAgentVersion,
+        InstanceInformationFilterKeyPingStatus,
+        InstanceInformationFilterKeyPlatformTypes,
+        InstanceInformationFilterKeyActivationIds,
+        InstanceInformationFilterKeyIamRole,
+        InstanceInformationFilterKeyResourceType,
+        InstanceInformationFilterKeyAssociationStatus,
+        fromInstanceInformationFilterKey
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceInformationFilterKey = InstanceInformationFilterKey' Lude.Text
+newtype InstanceInformationFilterKey = InstanceInformationFilterKey'
+  { fromInstanceInformationFilterKey ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InstanceIds :: InstanceInformationFilterKey
-pattern InstanceIds = InstanceInformationFilterKey' "InstanceIds"
+pattern InstanceInformationFilterKeyInstanceIds :: InstanceInformationFilterKey
+pattern InstanceInformationFilterKeyInstanceIds = InstanceInformationFilterKey' "InstanceIds"
 
-pattern AgentVersion :: InstanceInformationFilterKey
-pattern AgentVersion = InstanceInformationFilterKey' "AgentVersion"
+pattern InstanceInformationFilterKeyAgentVersion :: InstanceInformationFilterKey
+pattern InstanceInformationFilterKeyAgentVersion = InstanceInformationFilterKey' "AgentVersion"
 
-pattern PingStatus :: InstanceInformationFilterKey
-pattern PingStatus = InstanceInformationFilterKey' "PingStatus"
+pattern InstanceInformationFilterKeyPingStatus :: InstanceInformationFilterKey
+pattern InstanceInformationFilterKeyPingStatus = InstanceInformationFilterKey' "PingStatus"
 
-pattern PlatformTypes :: InstanceInformationFilterKey
-pattern PlatformTypes = InstanceInformationFilterKey' "PlatformTypes"
+pattern InstanceInformationFilterKeyPlatformTypes :: InstanceInformationFilterKey
+pattern InstanceInformationFilterKeyPlatformTypes = InstanceInformationFilterKey' "PlatformTypes"
 
-pattern ActivationIds :: InstanceInformationFilterKey
-pattern ActivationIds = InstanceInformationFilterKey' "ActivationIds"
+pattern InstanceInformationFilterKeyActivationIds :: InstanceInformationFilterKey
+pattern InstanceInformationFilterKeyActivationIds = InstanceInformationFilterKey' "ActivationIds"
 
-pattern IAMRole :: InstanceInformationFilterKey
-pattern IAMRole = InstanceInformationFilterKey' "IamRole"
+pattern InstanceInformationFilterKeyIamRole :: InstanceInformationFilterKey
+pattern InstanceInformationFilterKeyIamRole = InstanceInformationFilterKey' "IamRole"
 
-pattern ResourceType :: InstanceInformationFilterKey
-pattern ResourceType = InstanceInformationFilterKey' "ResourceType"
+pattern InstanceInformationFilterKeyResourceType :: InstanceInformationFilterKey
+pattern InstanceInformationFilterKeyResourceType = InstanceInformationFilterKey' "ResourceType"
 
-pattern AssociationStatus :: InstanceInformationFilterKey
-pattern AssociationStatus = InstanceInformationFilterKey' "AssociationStatus"
+pattern InstanceInformationFilterKeyAssociationStatus :: InstanceInformationFilterKey
+pattern InstanceInformationFilterKeyAssociationStatus = InstanceInformationFilterKey' "AssociationStatus"
 
 {-# COMPLETE
-  InstanceIds,
-  AgentVersion,
-  PingStatus,
-  PlatformTypes,
-  ActivationIds,
-  IAMRole,
-  ResourceType,
-  AssociationStatus,
+  InstanceInformationFilterKeyInstanceIds,
+  InstanceInformationFilterKeyAgentVersion,
+  InstanceInformationFilterKeyPingStatus,
+  InstanceInformationFilterKeyPlatformTypes,
+  InstanceInformationFilterKeyActivationIds,
+  InstanceInformationFilterKeyIamRole,
+  InstanceInformationFilterKeyResourceType,
+  InstanceInformationFilterKeyAssociationStatus,
   InstanceInformationFilterKey'
   #-}

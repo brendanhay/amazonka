@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.DirectConnect
     Network.AWS.DirectConnect.AcceptDirectConnectGatewayAssociationProposal
@@ -112,8 +118,8 @@ library
     Network.AWS.DirectConnect.DescribeVirtualInterfaces
     Network.AWS.DirectConnect.DisassociateConnectionFromLag
     Network.AWS.DirectConnect.ListVirtualInterfaceTestHistory
-    Network.AWS.DirectConnect.StartBGPFailoverTest
-    Network.AWS.DirectConnect.StopBGPFailoverTest
+    Network.AWS.DirectConnect.StartBgpFailoverTest
+    Network.AWS.DirectConnect.StopBgpFailoverTest
     Network.AWS.DirectConnect.TagResource
     Network.AWS.DirectConnect.Types
     Network.AWS.DirectConnect.UntagResource
@@ -124,30 +130,62 @@ library
 
   other-modules:
     Network.AWS.DirectConnect.Types.AddressFamily
+    Network.AWS.DirectConnect.Types.AmazonAddress
     Network.AWS.DirectConnect.Types.AssociatedGateway
+    Network.AWS.DirectConnect.Types.AssociatedGatewayId
+    Network.AWS.DirectConnect.Types.AssociatedGatewayOwnerAccount
+    Network.AWS.DirectConnect.Types.AssociationId
+    Network.AWS.DirectConnect.Types.AuthKey
+    Network.AWS.DirectConnect.Types.AwsDevice
+    Network.AWS.DirectConnect.Types.AwsDeviceV2
+    Network.AWS.DirectConnect.Types.Bandwidth
+    Network.AWS.DirectConnect.Types.BGPAuthKey
     Network.AWS.DirectConnect.Types.BGPPeer
+    Network.AWS.DirectConnect.Types.BGPPeerId
+    Network.AWS.DirectConnect.Types.BgpPeerId
     Network.AWS.DirectConnect.Types.BGPPeerState
     Network.AWS.DirectConnect.Types.BGPStatus
+    Network.AWS.DirectConnect.Types.CIDR
     Network.AWS.DirectConnect.Types.Connection
+    Network.AWS.DirectConnect.Types.ConnectionId
+    Network.AWS.DirectConnect.Types.ConnectionName
     Network.AWS.DirectConnect.Types.Connections
     Network.AWS.DirectConnect.Types.ConnectionState
+    Network.AWS.DirectConnect.Types.CustomerAddress
+    Network.AWS.DirectConnect.Types.CustomerRouterConfig
     Network.AWS.DirectConnect.Types.DirectConnectGateway
     Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociation
+    Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationId
     Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposal
+    Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposalId
     Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
     Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationState
     Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachment
     Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentState
     Network.AWS.DirectConnect.Types.DirectConnectGatewayAttachmentType
+    Network.AWS.DirectConnect.Types.DirectConnectGatewayId
+    Network.AWS.DirectConnect.Types.DirectConnectGatewayName
+    Network.AWS.DirectConnect.Types.DirectConnectGatewayOwnerAccount
     Network.AWS.DirectConnect.Types.DirectConnectGatewayState
+    Network.AWS.DirectConnect.Types.FailureTestHistoryStatus
+    Network.AWS.DirectConnect.Types.GatewayId
+    Network.AWS.DirectConnect.Types.GatewayIdentifier
+    Network.AWS.DirectConnect.Types.GatewayIdToAssociate
     Network.AWS.DirectConnect.Types.GatewayType
     Network.AWS.DirectConnect.Types.HasLogicalRedundancy
     Network.AWS.DirectConnect.Types.Interconnect
+    Network.AWS.DirectConnect.Types.InterconnectId
+    Network.AWS.DirectConnect.Types.InterconnectName
     Network.AWS.DirectConnect.Types.InterconnectState
+    Network.AWS.DirectConnect.Types.Key
     Network.AWS.DirectConnect.Types.Lag
+    Network.AWS.DirectConnect.Types.LagId
+    Network.AWS.DirectConnect.Types.LagName
     Network.AWS.DirectConnect.Types.LagState
     Network.AWS.DirectConnect.Types.LoaContentType
     Network.AWS.DirectConnect.Types.Location
+    Network.AWS.DirectConnect.Types.LocationCode
+    Network.AWS.DirectConnect.Types.LocationName
     Network.AWS.DirectConnect.Types.NewBGPPeer
     Network.AWS.DirectConnect.Types.NewPrivateVirtualInterface
     Network.AWS.DirectConnect.Types.NewPrivateVirtualInterfaceAllocation
@@ -155,13 +193,35 @@ library
     Network.AWS.DirectConnect.Types.NewPublicVirtualInterfaceAllocation
     Network.AWS.DirectConnect.Types.NewTransitVirtualInterface
     Network.AWS.DirectConnect.Types.NewTransitVirtualInterfaceAllocation
+    Network.AWS.DirectConnect.Types.NextToken
+    Network.AWS.DirectConnect.Types.OwnerAccount
+    Network.AWS.DirectConnect.Types.PaginationToken
+    Network.AWS.DirectConnect.Types.PartnerName
+    Network.AWS.DirectConnect.Types.PortSpeed
+    Network.AWS.DirectConnect.Types.ProposalId
+    Network.AWS.DirectConnect.Types.ProviderName
+    Network.AWS.DirectConnect.Types.Region
+    Network.AWS.DirectConnect.Types.ResourceArn
     Network.AWS.DirectConnect.Types.ResourceTag
     Network.AWS.DirectConnect.Types.RouteFilterPrefix
+    Network.AWS.DirectConnect.Types.StateChangeError
     Network.AWS.DirectConnect.Types.Tag
+    Network.AWS.DirectConnect.Types.TagKey
+    Network.AWS.DirectConnect.Types.TestId
+    Network.AWS.DirectConnect.Types.Value
     Network.AWS.DirectConnect.Types.VirtualGateway
+    Network.AWS.DirectConnect.Types.VirtualGatewayId
+    Network.AWS.DirectConnect.Types.VirtualGatewayOwnerAccount
+    Network.AWS.DirectConnect.Types.VirtualGatewayRegion
+    Network.AWS.DirectConnect.Types.VirtualGatewayState
     Network.AWS.DirectConnect.Types.VirtualInterface
+    Network.AWS.DirectConnect.Types.VirtualInterfaceId
+    Network.AWS.DirectConnect.Types.VirtualInterfaceName
+    Network.AWS.DirectConnect.Types.VirtualInterfaceOwnerAccount
+    Network.AWS.DirectConnect.Types.VirtualInterfaceRegion
     Network.AWS.DirectConnect.Types.VirtualInterfaceState
     Network.AWS.DirectConnect.Types.VirtualInterfaceTestHistory
+    Network.AWS.DirectConnect.Types.VirtualInterfaceType
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

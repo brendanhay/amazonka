@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +19,97 @@
 -- For information about how to use the credentials provider for AWS IoT, see <https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html Authorizing Direct Calls to AWS Services> .
 module Network.AWS.IoT
   ( -- * Service configuration
-    ioTService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** TaskAlreadyExistsException
+    _TaskAlreadyExistsException,
+
+    -- ** CertificateConflictException
+    _CertificateConflictException,
+
+    -- ** SqlParseException
+    _SqlParseException,
+
+    -- ** IndexNotReadyException
+    _IndexNotReadyException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** TransferConflictException
+    _TransferConflictException,
+
+    -- ** CertificateStateException
+    _CertificateStateException,
+
+    -- ** InvalidResponseException
+    _InvalidResponseException,
+
+    -- ** RegistrationCodeValidationException
+    _RegistrationCodeValidationException,
+
+    -- ** MalformedPolicyException
+    _MalformedPolicyException,
+
+    -- ** DeleteConflictException
+    _DeleteConflictException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** NotConfiguredException
+    _NotConfiguredException,
+
+    -- ** CertificateValidationException
+    _CertificateValidationException,
+
+    -- ** ResourceRegistrationFailureException
+    _ResourceRegistrationFailureException,
+
+    -- ** InvalidQueryException
+    _InvalidQueryException,
+
+    -- ** TransferAlreadyCompletedException
+    _TransferAlreadyCompletedException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InvalidAggregationException
+    _InvalidAggregationException,
+
+    -- ** ConflictingResourceUpdateException
+    _ConflictingResourceUpdateException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** VersionsLimitExceededException
+    _VersionsLimitExceededException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** InternalException
+    _InternalException,
+
+    -- ** VersionConflictException
+    _VersionConflictException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** InvalidStateTransitionException
+    _InvalidStateTransitionException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -160,8 +246,8 @@ module Network.AWS.IoT
     -- ** ListThingGroupsForThing (Paginated)
     module Network.AWS.IoT.ListThingGroupsForThing,
 
-    -- ** CreateCertificateFromCSR
-    module Network.AWS.IoT.CreateCertificateFromCSR,
+    -- ** CreateCertificateFromCsr
+    module Network.AWS.IoT.CreateCertificateFromCsr,
 
     -- ** DeleteThing
     module Network.AWS.IoT.DeleteThing,
@@ -657,257 +743,224 @@ module Network.AWS.IoT
 
     -- * Types
 
-    -- ** AWSJobAbortCriteriaAbortAction
-    AWSJobAbortCriteriaAbortAction (..),
+    -- ** AlarmName
+    AlarmName (..),
 
-    -- ** AWSJobAbortCriteriaFailureType
-    AWSJobAbortCriteriaFailureType (..),
+    -- ** PayloadVersion
+    PayloadVersion (..),
 
-    -- ** AbortAction
-    AbortAction (..),
+    -- ** TimestreamTimestampValue
+    TimestreamTimestampValue (..),
 
-    -- ** ActionType
-    ActionType (..),
-
-    -- ** AlertTargetType
-    AlertTargetType (..),
-
-    -- ** AuditCheckRunStatus
-    AuditCheckRunStatus (..),
-
-    -- ** AuditFindingSeverity
-    AuditFindingSeverity (..),
-
-    -- ** AuditFrequency
-    AuditFrequency (..),
-
-    -- ** AuditMitigationActionsExecutionStatus
-    AuditMitigationActionsExecutionStatus (..),
-
-    -- ** AuditMitigationActionsTaskStatus
-    AuditMitigationActionsTaskStatus (..),
-
-    -- ** AuditNotificationType
-    AuditNotificationType (..),
-
-    -- ** AuditTaskStatus
-    AuditTaskStatus (..),
-
-    -- ** AuditTaskType
-    AuditTaskType (..),
-
-    -- ** AuthDecision
-    AuthDecision (..),
-
-    -- ** AuthorizerStatus
-    AuthorizerStatus (..),
-
-    -- ** AutoRegistrationStatus
-    AutoRegistrationStatus (..),
-
-    -- ** CACertificateStatus
-    CACertificateStatus (..),
-
-    -- ** CACertificateUpdateAction
-    CACertificateUpdateAction (..),
-
-    -- ** CannedAccessControlList
-    CannedAccessControlList (..),
-
-    -- ** CertificateMode
-    CertificateMode (..),
-
-    -- ** CertificateStatus
-    CertificateStatus (..),
-
-    -- ** ComparisonOperator
-    ComparisonOperator (..),
-
-    -- ** DayOfWeek
-    DayOfWeek (..),
-
-    -- ** DeviceCertificateUpdateAction
-    DeviceCertificateUpdateAction (..),
-
-    -- ** DimensionType
-    DimensionType (..),
-
-    -- ** DimensionValueOperator
-    DimensionValueOperator (..),
-
-    -- ** DomainConfigurationStatus
-    DomainConfigurationStatus (..),
-
-    -- ** DomainType
-    DomainType (..),
-
-    -- ** DynamicGroupStatus
-    DynamicGroupStatus (..),
-
-    -- ** DynamoKeyType
-    DynamoKeyType (..),
-
-    -- ** EventType
-    EventType (..),
-
-    -- ** FieldType
-    FieldType (..),
-
-    -- ** IndexStatus
-    IndexStatus (..),
-
-    -- ** JobExecutionFailureType
-    JobExecutionFailureType (..),
-
-    -- ** JobExecutionStatus
-    JobExecutionStatus (..),
-
-    -- ** JobStatus
-    JobStatus (..),
-
-    -- ** LogLevel
-    LogLevel (..),
-
-    -- ** LogTargetType
-    LogTargetType (..),
-
-    -- ** MessageFormat
-    MessageFormat (..),
-
-    -- ** MitigationActionType
-    MitigationActionType (..),
-
-    -- ** OTAUpdateStatus
-    OTAUpdateStatus (..),
-
-    -- ** PolicyTemplateName
-    PolicyTemplateName (..),
-
-    -- ** Protocol
-    Protocol (..),
-
-    -- ** ReportType
-    ReportType (..),
-
-    -- ** ResourceType
-    ResourceType (..),
-
-    -- ** ServerCertificateStatus
-    ServerCertificateStatus (..),
-
-    -- ** ServiceType
-    ServiceType (..),
-
-    -- ** TargetSelection
-    TargetSelection (..),
+    -- ** RegistrationCode
+    RegistrationCode (..),
 
     -- ** TaskStatus
     TaskStatus (..),
 
-    -- ** ThingConnectivityIndexingMode
-    ThingConnectivityIndexingMode (..),
-
-    -- ** ThingGroupIndexingMode
-    ThingGroupIndexingMode (..),
-
-    -- ** ThingIndexingMode
-    ThingIndexingMode (..),
-
-    -- ** TopicRuleDestinationStatus
-    TopicRuleDestinationStatus (..),
-
-    -- ** ViolationEventType
-    ViolationEventType (..),
-
-    -- ** AWSJobAbortConfig
-    AWSJobAbortConfig (..),
-    mkAWSJobAbortConfig,
-    ajacAbortCriteriaList,
-
-    -- ** AWSJobAbortCriteria
-    AWSJobAbortCriteria (..),
-    mkAWSJobAbortCriteria,
-    ajacThresholdPercentage,
-    ajacFailureType,
-    ajacAction,
-    ajacMinNumberOfExecutedThings,
-
-    -- ** AWSJobExecutionsRolloutConfig
-    AWSJobExecutionsRolloutConfig (..),
-    mkAWSJobExecutionsRolloutConfig,
-    ajercExponentialRate,
-    ajercMaximumPerMinute,
-
-    -- ** AWSJobExponentialRolloutRate
-    AWSJobExponentialRolloutRate (..),
-    mkAWSJobExponentialRolloutRate,
+    -- ** AwsJobExponentialRolloutRate
+    AwsJobExponentialRolloutRate (..),
+    mkAwsJobExponentialRolloutRate,
     ajerrBaseRatePerMinute,
     ajerrIncrementFactor,
     ajerrRateIncreaseCriteria,
 
-    -- ** AWSJobPresignedURLConfig
-    AWSJobPresignedURLConfig (..),
-    mkAWSJobPresignedURLConfig,
-    ajpucExpiresInSec,
+    -- ** ConfirmationToken
+    ConfirmationToken (..),
 
-    -- ** AWSJobRateIncreaseCriteria
-    AWSJobRateIncreaseCriteria (..),
-    mkAWSJobRateIncreaseCriteria,
-    ajricNumberOfNotifiedThings,
-    ajricNumberOfSucceededThings,
+    -- ** RegistryS3BucketName
+    RegistryS3BucketName (..),
 
-    -- ** AWSJobTimeoutConfig
-    AWSJobTimeoutConfig (..),
-    mkAWSJobTimeoutConfig,
-    ajtcInProgressTimeoutInMinutes,
+    -- ** AuditSuppression
+    AuditSuppression (..),
+    mkAuditSuppression,
+    asCheckName,
+    asResourceIdentifier,
+    asDescription,
+    asExpirationDate,
+    asSuppressIndefinitely,
 
-    -- ** AbortConfig
-    AbortConfig (..),
-    mkAbortConfig,
-    acCriteriaList,
+    -- ** RoleAliasDescription
+    RoleAliasDescription (..),
+    mkRoleAliasDescription,
+    radCreationDate,
+    radCredentialDurationSeconds,
+    radLastModifiedDate,
+    radOwner,
+    radRoleAlias,
+    radRoleAliasArn,
+    radRoleArn,
 
-    -- ** AbortCriteria
-    AbortCriteria (..),
-    mkAbortCriteria,
-    acThresholdPercentage,
-    acFailureType,
-    acAction,
-    acMinNumberOfExecutedThings,
+    -- ** DeviceDefenderThingName
+    DeviceDefenderThingName (..),
 
-    -- ** Action
-    Action (..),
-    mkAction,
-    aCloudwatchMetric,
-    aCloudwatchLogs,
-    aDynamoDBv2,
-    aStepFunctions,
-    aCloudwatchAlarm,
-    aSns,
-    aDynamoDB,
-    aFirehose,
-    aTimestream,
-    aIotSiteWise,
-    aIotAnalytics,
-    aLambda,
-    aIotEvents,
-    aSalesforce,
-    aKinesis,
-    aS3,
-    aHttp,
-    aElasticsearch,
-    aRepublish,
-    aSqs,
+    -- ** TargetArn
+    TargetArn (..),
 
-    -- ** ActiveViolation
-    ActiveViolation (..),
-    mkActiveViolation,
-    avLastViolationValue,
-    avLastViolationTime,
-    avViolationStartTime,
-    avViolationId,
-    avBehavior,
-    avSecurityProfileName,
-    avThingName,
+    -- ** Stream
+    Stream (..),
+    mkStream,
+    sFileId,
+    sStreamId,
+
+    -- ** EnableIoTLoggingParams
+    EnableIoTLoggingParams (..),
+    mkEnableIoTLoggingParams,
+    eitlpRoleArnForLogging,
+    eitlpLogLevel,
+
+    -- ** Destination
+    Destination (..),
+    mkDestination,
+    dS3Destination,
+
+    -- ** KeyValue
+    KeyValue (..),
+
+    -- ** ClientId
+    ClientId (..),
+
+    -- ** ResourceLogicalId
+    ResourceLogicalId (..),
+
+    -- ** HeaderValue
+    HeaderValue (..),
+
+    -- ** HttpUrlDestinationConfiguration
+    HttpUrlDestinationConfiguration (..),
+    mkHttpUrlDestinationConfiguration,
+    hudcConfirmationUrl,
+
+    -- ** AuditMitigationActionsTaskTarget
+    AuditMitigationActionsTaskTarget (..),
+    mkAuditMitigationActionsTaskTarget,
+    amattAuditCheckToReasonCodeFilter,
+    amattAuditTaskId,
+    amattFindingIds,
+
+    -- ** OTAUpdateSummary
+    OTAUpdateSummary (..),
+    mkOTAUpdateSummary,
+    otausCreationDate,
+    otausOtaUpdateArn,
+    otausOtaUpdateId,
+
+    -- ** HttpQueryString
+    HttpQueryString (..),
+
+    -- ** TopicRuleDestinationStatus
+    TopicRuleDestinationStatus (..),
+
+    -- ** AcmCertificateArn
+    AcmCertificateArn (..),
+
+    -- ** PolicyDocument
+    PolicyDocument (..),
+
+    -- ** CertificateValidity
+    CertificateValidity (..),
+    mkCertificateValidity,
+    cvNotAfter,
+    cvNotBefore,
+
+    -- ** TemplateName
+    TemplateName (..),
+
+    -- ** DomainConfigurationName
+    DomainConfigurationName (..),
+
+    -- ** AlertTarget
+    AlertTarget (..),
+    mkAlertTarget,
+    atAlertTargetArn,
+    atRoleArn,
+
+    -- ** BehaviorCriteria
+    BehaviorCriteria (..),
+    mkBehaviorCriteria,
+    bcComparisonOperator,
+    bcConsecutiveDatapointsToAlarm,
+    bcConsecutiveDatapointsToClear,
+    bcDurationSeconds,
+    bcStatisticalThreshold,
+    bcValue,
+
+    -- ** Platform
+    Platform (..),
+
+    -- ** SigningProfileName
+    SigningProfileName (..),
+
+    -- ** IndexSchema
+    IndexSchema (..),
+
+    -- ** ProvisioningTemplateVersionSummary
+    ProvisioningTemplateVersionSummary (..),
+    mkProvisioningTemplateVersionSummary,
+    ptvsCreationDate,
+    ptvsIsDefaultVersion,
+    ptvsVersionId,
+
+    -- ** HashKeyField
+    HashKeyField (..),
+
+    -- ** RoleAliasArn
+    RoleAliasArn (..),
+
+    -- ** PrincipalId
+    PrincipalId (..),
+
+    -- ** AttributeValue
+    AttributeValue (..),
+
+    -- ** PolicyName
+    PolicyName (..),
+
+    -- ** SqsAction
+    SqsAction (..),
+    mkSqsAction,
+    saRoleArn,
+    saQueueUrl,
+    saUseBase64,
+
+    -- ** S3Key
+    S3Key (..),
+
+    -- ** JobExecutionsRolloutConfig
+    JobExecutionsRolloutConfig (..),
+    mkJobExecutionsRolloutConfig,
+    jercExponentialRate,
+    jercMaximumPerMinute,
+
+    -- ** FunctionArn
+    FunctionArn (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** PrivateKey
+    PrivateKey (..),
+
+    -- ** AwsJobExecutionsRolloutConfig
+    AwsJobExecutionsRolloutConfig (..),
+    mkAwsJobExecutionsRolloutConfig,
+    ajercExponentialRate,
+    ajercMaximumPerMinute,
+
+    -- ** Field
+    Field (..),
+    mkField,
+    fName,
+    fType,
+
+    -- ** AssetPropertyIntegerValue
+    AssetPropertyIntegerValue (..),
+
+    -- ** StreamDescription
+    StreamDescription (..),
 
     -- ** AddThingsToThingGroupParams
     AddThingsToThingGroupParams (..),
@@ -915,87 +968,401 @@ module Network.AWS.IoT
     atttgpThingGroupNames,
     atttgpOverrideDynamicGroups,
 
-    -- ** AlertTarget
-    AlertTarget (..),
-    mkAlertTarget,
-    atAlertTargetARN,
-    atRoleARN,
+    -- ** TimestreamDimensionValue
+    TimestreamDimensionValue (..),
 
-    -- ** Allowed
-    Allowed (..),
-    mkAllowed,
-    aPolicies,
+    -- ** AwsJobAbortConfig
+    AwsJobAbortConfig (..),
+    mkAwsJobAbortConfig,
+    ajacAbortCriteriaList,
 
-    -- ** AssetPropertyTimestamp
-    AssetPropertyTimestamp (..),
-    mkAssetPropertyTimestamp,
-    aptTimeInSeconds,
-    aptOffsetInNanos,
+    -- ** CertificateName
+    CertificateName (..),
 
-    -- ** AssetPropertyValue
-    AssetPropertyValue (..),
-    mkAssetPropertyValue,
-    apvValue,
-    apvQuality,
-    apvTimestamp,
+    -- ** SnsTopicArn
+    SnsTopicArn (..),
 
-    -- ** AssetPropertyVariant
-    AssetPropertyVariant (..),
-    mkAssetPropertyVariant,
-    apvIntegerValue,
-    apvDoubleValue,
-    apvStringValue,
-    apvBooleanValue,
+    -- ** S3Version
+    S3Version (..),
 
-    -- ** AttributePayload
-    AttributePayload (..),
-    mkAttributePayload,
-    apAttributes,
-    apMerge,
+    -- ** PolicyVersion
+    PolicyVersion (..),
+    mkPolicyVersion,
+    pvCreateDate,
+    pvIsDefaultVersion,
+    pvVersionId,
+
+    -- ** StreamInfo
+    StreamInfo (..),
+    mkStreamInfo,
+    siCreatedAt,
+    siDescription,
+    siFiles,
+    siLastUpdatedAt,
+    siRoleArn,
+    siStreamArn,
+    siStreamId,
+    siStreamVersion,
+
+    -- ** MqttUsername
+    MqttUsername (..),
+
+    -- ** ServerName
+    ServerName (..),
+
+    -- ** IndexStatus
+    IndexStatus (..),
+
+    -- ** CannedAccessControlList
+    CannedAccessControlList (..),
+
+    -- ** IotAnalyticsAction
+    IotAnalyticsAction (..),
+    mkIotAnalyticsAction,
+    iaaBatchMode,
+    iaaChannelArn,
+    iaaChannelName,
+    iaaRoleArn,
+
+    -- ** LogLevel
+    LogLevel (..),
+
+    -- ** LogTargetName
+    LogTargetName (..),
+
+    -- ** ResourceType
+    ResourceType (..),
+
+    -- ** StreamFile
+    StreamFile (..),
+    mkStreamFile,
+    sfFileId,
+    sfS3Location,
+
+    -- ** CodeSigningSignature
+    CodeSigningSignature (..),
+    mkCodeSigningSignature,
+    cssInlineDocument,
+
+    -- ** MitigationActionName
+    MitigationActionName (..),
+
+    -- ** JobId
+    JobId (..),
+
+    -- ** UpdateCACertificateParams
+    UpdateCACertificateParams (..),
+    mkUpdateCACertificateParams,
+    ucacpAction,
+
+    -- ** JobArn
+    JobArn (..),
+
+    -- ** ProvisioningHook
+    ProvisioningHook (..),
+    mkProvisioningHook,
+    phTargetArn,
+    phPayloadVersion,
+
+    -- ** RoleAlias
+    RoleAlias (..),
+
+    -- ** AssetPropertyQuality
+    AssetPropertyQuality (..),
+
+    -- ** BillingGroupDescription
+    BillingGroupDescription (..),
+
+    -- ** EffectivePolicy
+    EffectivePolicy (..),
+    mkEffectivePolicy,
+    epPolicyArn,
+    epPolicyDocument,
+    epPolicyName,
+
+    -- ** StateMachineName
+    StateMachineName (..),
+
+    -- ** OTAUpdateDescription
+    OTAUpdateDescription (..),
+
+    -- ** LogTargetType
+    LogTargetType (..),
+
+    -- ** AuthorizerStatus
+    AuthorizerStatus (..),
+
+    -- ** DetailsKey
+    DetailsKey (..),
+
+    -- ** PartitionKey
+    PartitionKey (..),
+
+    -- ** AuditTaskId
+    AuditTaskId (..),
+
+    -- ** ProvisioningTemplateSummary
+    ProvisioningTemplateSummary (..),
+    mkProvisioningTemplateSummary,
+    ptsCreationDate,
+    ptsDescription,
+    ptsEnabled,
+    ptsLastModifiedDate,
+    ptsTemplateArn,
+    ptsTemplateName,
+
+    -- ** ThingTypeProperties
+    ThingTypeProperties (..),
+    mkThingTypeProperties,
+    ttpSearchableAttributes,
+    ttpThingTypeDescription,
+
+    -- ** ThingGroupIndexingConfiguration
+    ThingGroupIndexingConfiguration (..),
+    mkThingGroupIndexingConfiguration,
+    tgicThingGroupIndexingMode,
+    tgicCustomFields,
+    tgicManagedFields,
+
+    -- ** AwsIotJobId
+    AwsIotJobId (..),
+
+    -- ** ElasticsearchAction
+    ElasticsearchAction (..),
+    mkElasticsearchAction,
+    eaRoleArn,
+    eaEndpoint,
+    eaIndex,
+    eaType,
+    eaId,
+
+    -- ** JobExecutionFailureType
+    JobExecutionFailureType (..),
+
+    -- ** String
+    String (..),
+
+    -- ** KeyPair
+    KeyPair (..),
+    mkKeyPair,
+    kpPrivateKey,
+    kpPublicKey,
+
+    -- ** CertificatePem
+    CertificatePem (..),
+
+    -- ** ServerCertificateStatusDetail
+    ServerCertificateStatusDetail (..),
+
+    -- ** MitigationActionType
+    MitigationActionType (..),
+
+    -- ** DimensionArn
+    DimensionArn (..),
+
+    -- ** AuditTaskMetadata
+    AuditTaskMetadata (..),
+    mkAuditTaskMetadata,
+    atmTaskId,
+    atmTaskStatus,
+    atmTaskType,
+
+    -- ** ViolationEventType
+    ViolationEventType (..),
+
+    -- ** ExecutionNamePrefix
+    ExecutionNamePrefix (..),
+
+    -- ** AuditMitigationActionsExecutionStatus
+    AuditMitigationActionsExecutionStatus (..),
+
+    -- ** CertificateId
+    CertificateId (..),
+
+    -- ** CertificateArn
+    CertificateArn (..),
+
+    -- ** SnsAction
+    SnsAction (..),
+    mkSnsAction,
+    safTargetArn,
+    safRoleArn,
+    safMessageFormat,
+
+    -- ** TaskStatistics
+    TaskStatistics (..),
+    mkTaskStatistics,
+    tsCanceledChecks,
+    tsCompliantChecks,
+    tsFailedChecks,
+    tsInProgressChecks,
+    tsNonCompliantChecks,
+    tsTotalChecks,
+    tsWaitingForDataCollectionChecks,
+
+    -- ** MissingContextValue
+    MissingContextValue (..),
+
+    -- ** SecurityProfileTargetMapping
+    SecurityProfileTargetMapping (..),
+    mkSecurityProfileTargetMapping,
+    sptmSecurityProfileIdentifier,
+    sptmTarget,
+
+    -- ** TopicRuleListItem
+    TopicRuleListItem (..),
+    mkTopicRuleListItem,
+    trliCreatedAt,
+    trliRuleArn,
+    trliRuleDisabled,
+    trliRuleName,
+    trliTopicPattern,
+
+    -- ** AssetPropertyOffsetInNanos
+    AssetPropertyOffsetInNanos (..),
+
+    -- ** AuditTaskType
+    AuditTaskType (..),
+
+    -- ** QueryVersion
+    QueryVersion (..),
+
+    -- ** JobDocument
+    JobDocument (..),
+
+    -- ** ThingAttribute
+    ThingAttribute (..),
+    mkThingAttribute,
+    taAttributes,
+    taThingArn,
+    taThingName,
+    taThingTypeName,
+    taVersion,
+
+    -- ** UpdateDeviceCertificateParams
+    UpdateDeviceCertificateParams (..),
+    mkUpdateDeviceCertificateParams,
+    udcpAction,
+
+    -- ** TaskId
+    TaskId (..),
+
+    -- ** KeyName
+    KeyName (..),
+
+    -- ** DynamoDBAction
+    DynamoDBAction (..),
+    mkDynamoDBAction,
+    ddbaTableName,
+    ddbaRoleArn,
+    ddbaHashKeyField,
+    ddbaHashKeyValue,
+    ddbaHashKeyType,
+    ddbaOperation,
+    ddbaPayloadField,
+    ddbaRangeKeyField,
+    ddbaRangeKeyType,
+    ddbaRangeKeyValue,
+
+    -- ** EvaluationStatistic
+    EvaluationStatistic (..),
+
+    -- ** MitigationActionId
+    MitigationActionId (..),
+
+    -- ** MitigationActionArn
+    MitigationActionArn (..),
+
+    -- ** OTAUpdateErrorMessage
+    OTAUpdateErrorMessage (..),
+
+    -- ** Prefix
+    Prefix (..),
+
+    -- ** TimestreamTableName
+    TimestreamTableName (..),
+
+    -- ** ReasonForNonComplianceCode
+    ReasonForNonComplianceCode (..),
+
+    -- ** BehaviorMetric
+    BehaviorMetric (..),
+
+    -- ** AbortConfig
+    AbortConfig (..),
+    mkAbortConfig,
+    acCriteriaList,
+
+    -- ** StreamSummary
+    StreamSummary (..),
+    mkStreamSummary,
+    ssDescription,
+    ssStreamArn,
+    ssStreamId,
+    ssStreamVersion,
+
+    -- ** Token
+    Token (..),
+
+    -- ** TopicRuleDestinationConfiguration
+    TopicRuleDestinationConfiguration (..),
+    mkTopicRuleDestinationConfiguration,
+    trdcHttpUrlConfiguration,
+
+    -- ** ThingTypeName
+    ThingTypeName (..),
+
+    -- ** AuditMitigationActionsTaskId
+    AuditMitigationActionsTaskId (..),
+
+    -- ** SalesforceAction
+    SalesforceAction (..),
+    mkSalesforceAction,
+    saToken,
+    saUrl,
+
+    -- ** AuthorizerConfig
+    AuthorizerConfig (..),
+    mkAuthorizerConfig,
+    acAllowAuthorizerOverride,
+    acDefaultAuthorizerName,
+
+    -- ** IotEventsAction
+    IotEventsAction (..),
+    mkIotEventsAction,
+    ieaInputName,
+    ieaRoleArn,
+    ieaBatchMode,
+    ieaMessageId,
 
     -- ** AuditCheckConfiguration
     AuditCheckConfiguration (..),
     mkAuditCheckConfiguration,
     accEnabled,
 
-    -- ** AuditCheckDetails
-    AuditCheckDetails (..),
-    mkAuditCheckDetails,
-    acdSuppressedNonCompliantResourcesCount,
-    acdTotalResourcesCount,
-    acdCheckCompliant,
-    acdNonCompliantResourcesCount,
-    acdErrorCode,
-    acdMessage,
-    acdCheckRunStatus,
+    -- ** JobSummary
+    JobSummary (..),
+    mkJobSummary,
+    jsCompletedAt,
+    jsCreatedAt,
+    jsJobArn,
+    jsJobId,
+    jsLastUpdatedAt,
+    jsStatus,
+    jsTargetSelection,
+    jsThingGroupId,
 
-    -- ** AuditFinding
-    AuditFinding (..),
-    mkAuditFinding,
-    afIsSuppressed,
-    afTaskId,
-    afFindingTime,
-    afTaskStartTime,
-    afReasonForNonComplianceCode,
-    afSeverity,
-    afRelatedResources,
-    afCheckName,
-    afNonCompliantResource,
-    afReasonForNonCompliance,
-    afFindingId,
+    -- ** BehaviorName
+    BehaviorName (..),
 
-    -- ** AuditMitigationActionExecutionMetadata
-    AuditMitigationActionExecutionMetadata (..),
-    mkAuditMitigationActionExecutionMetadata,
-    amaemStatus,
-    amaemStartTime,
-    amaemTaskId,
-    amaemActionId,
-    amaemActionName,
-    amaemEndTime,
-    amaemErrorCode,
-    amaemFindingId,
-    amaemMessage,
+    -- ** ScheduledAuditName
+    ScheduledAuditName (..),
+
+    -- ** AwsIotSqlVersion
+    AwsIotSqlVersion (..),
+
+    -- ** Url
+    Url (..),
 
     -- ** AuditMitigationActionsTaskMetadata
     AuditMitigationActionsTaskMetadata (..),
@@ -1004,190 +1371,90 @@ module Network.AWS.IoT
     amatmTaskId,
     amatmTaskStatus,
 
-    -- ** AuditMitigationActionsTaskTarget
-    AuditMitigationActionsTaskTarget (..),
-    mkAuditMitigationActionsTaskTarget,
-    amattAuditTaskId,
-    amattFindingIds,
-    amattAuditCheckToReasonCodeFilter,
-
-    -- ** AuditNotificationTarget
-    AuditNotificationTarget (..),
-    mkAuditNotificationTarget,
-    antTargetARN,
-    antEnabled,
-    antRoleARN,
-
-    -- ** AuditSuppression
-    AuditSuppression (..),
-    mkAuditSuppression,
-    asCheckName,
-    asExpirationDate,
-    asSuppressIndefinitely,
-    asDescription,
-    asResourceIdentifier,
-
-    -- ** AuditTaskMetadata
-    AuditTaskMetadata (..),
-    mkAuditTaskMetadata,
-    atmTaskType,
-    atmTaskId,
-    atmTaskStatus,
-
-    -- ** AuthInfo
-    AuthInfo (..),
-    mkAuthInfo,
-    aiResources,
-    aiActionType,
-
-    -- ** AuthResult
-    AuthResult (..),
-    mkAuthResult,
-    arDenied,
-    arAuthDecision,
-    arAllowed,
-    arMissingContextValues,
-    arAuthInfo,
-
-    -- ** AuthorizerConfig
-    AuthorizerConfig (..),
-    mkAuthorizerConfig,
-    acAllowAuthorizerOverride,
-    acDefaultAuthorizerName,
-
-    -- ** AuthorizerDescription
-    AuthorizerDescription (..),
-    mkAuthorizerDescription,
-    adStatus,
-    adLastModifiedDate,
-    adSigningDisabled,
-    adAuthorizerName,
-    adAuthorizerFunctionARN,
-    adAuthorizerARN,
-    adCreationDate,
-    adTokenSigningPublicKeys,
-    adTokenKeyName,
-
-    -- ** AuthorizerSummary
-    AuthorizerSummary (..),
-    mkAuthorizerSummary,
-    asAuthorizerName,
-    asAuthorizerARN,
-
-    -- ** Behavior
-    Behavior (..),
-    mkBehavior,
-    bMetricDimension,
-    bMetric,
-    bName,
-    bCriteria,
-
-    -- ** BehaviorCriteria
-    BehaviorCriteria (..),
-    mkBehaviorCriteria,
-    bcValue,
-    bcConsecutiveDatapointsToAlarm,
-    bcComparisonOperator,
-    bcStatisticalThreshold,
-    bcDurationSeconds,
-    bcConsecutiveDatapointsToClear,
-
-    -- ** BillingGroupMetadata
-    BillingGroupMetadata (..),
-    mkBillingGroupMetadata,
-    bgmCreationDate,
-
-    -- ** BillingGroupProperties
-    BillingGroupProperties (..),
-    mkBillingGroupProperties,
-    bgpBillingGroupDescription,
-
-    -- ** CACertificate
-    CACertificate (..),
-    mkCACertificate,
-    cacStatus,
-    cacCertificateARN,
-    cacCertificateId,
-    cacCreationDate,
-
-    -- ** CACertificateDescription
-    CACertificateDescription (..),
-    mkCACertificateDescription,
-    cacdStatus,
-    cacdOwnedBy,
-    cacdLastModifiedDate,
-    cacdCertificatePem,
-    cacdCertificateARN,
-    cacdCertificateId,
-    cacdValidity,
-    cacdAutoRegistrationStatus,
-    cacdCreationDate,
-    cacdGenerationId,
-    cacdCustomerVersion,
-
-    -- ** Certificate
-    Certificate (..),
-    mkCertificate,
-    cStatus,
-    cCertificateARN,
-    cCertificateId,
-    cCertificateMode,
-    cCreationDate,
+    -- ** TopicRuleDestination
+    TopicRuleDestination (..),
+    mkTopicRuleDestination,
+    trdArn,
+    trdHttpUrlProperties,
+    trdStatus,
+    trdStatusReason,
 
     -- ** CertificateDescription
     CertificateDescription (..),
     mkCertificateDescription,
-    cdStatus,
-    cdOwnedBy,
-    cdLastModifiedDate,
     cdCaCertificateId,
-    cdPreviousOwnedBy,
-    cdCertificatePem,
-    cdCertificateARN,
+    cdCertificateArn,
     cdCertificateId,
     cdCertificateMode,
-    cdValidity,
+    cdCertificatePem,
     cdCreationDate,
-    cdGenerationId,
-    cdTransferData,
     cdCustomerVersion,
+    cdGenerationId,
+    cdLastModifiedDate,
+    cdOwnedBy,
+    cdPreviousOwnedBy,
+    cdStatus,
+    cdTransferData,
+    cdValidity,
 
-    -- ** CertificateValidity
-    CertificateValidity (..),
-    mkCertificateValidity,
-    cvNotBefore,
-    cvNotAfter,
+    -- ** Value
+    Value (..),
 
-    -- ** CloudwatchAlarmAction
-    CloudwatchAlarmAction (..),
-    mkCloudwatchAlarmAction,
-    caaAlarmName,
-    caaStateValue,
-    caaStateReason,
-    caaRoleARN,
+    -- ** ValidationError
+    ValidationError (..),
+    mkValidationError,
+    veErrorMessage,
 
-    -- ** CloudwatchLogsAction
-    CloudwatchLogsAction (..),
-    mkCloudwatchLogsAction,
-    claLogGroupName,
-    claRoleARN,
+    -- ** FileLocation
+    FileLocation (..),
+    mkFileLocation,
+    flS3Location,
+    flStream,
 
-    -- ** CloudwatchMetricAction
-    CloudwatchMetricAction (..),
-    mkCloudwatchMetricAction,
-    cmaMetricName,
-    cmaMetricNamespace,
-    cmaMetricValue,
-    cmaMetricTimestamp,
-    cmaMetricUnit,
-    cmaRoleARN,
+    -- ** AwsJobAbortCriteriaFailureType
+    AwsJobAbortCriteriaFailureType (..),
 
-    -- ** CodeSigning
-    CodeSigning (..),
-    mkCodeSigning,
-    csCustomCodeSigning,
-    csStartSigningJobParameter,
-    csAwsSignerJobId,
+    -- ** EndpointType
+    EndpointType (..),
+
+    -- ** DimensionValueOperator
+    DimensionValueOperator (..),
+
+    -- ** AuthorizerFunctionArn
+    AuthorizerFunctionArn (..),
+
+    -- ** NamespaceId
+    NamespaceId (..),
+
+    -- ** CertificateMode
+    CertificateMode (..),
+
+    -- ** Action
+    Action (..),
+    mkAction,
+    aCloudwatchAlarm,
+    aCloudwatchLogs,
+    aCloudwatchMetric,
+    aDynamoDB,
+    aDynamoDBv2,
+    aElasticsearch,
+    aFirehose,
+    aHttp,
+    aIotAnalytics,
+    aIotEvents,
+    aIotSiteWise,
+    aKinesis,
+    aLambda,
+    aRepublish,
+    aS3,
+    aSalesforce,
+    aSns,
+    aSqs,
+    aStepFunctions,
+    aTimestream,
+
+    -- ** InlineDocument
+    InlineDocument (..),
 
     -- ** CodeSigningCertificateChain
     CodeSigningCertificateChain (..),
@@ -1195,336 +1462,498 @@ module Network.AWS.IoT
     csccCertificateName,
     csccInlineDocument,
 
-    -- ** CodeSigningSignature
-    CodeSigningSignature (..),
-    mkCodeSigningSignature,
-    cssInlineDocument,
+    -- ** PublicKey
+    PublicKey (..),
 
-    -- ** Configuration
-    Configuration (..),
-    mkConfiguration,
-    cEnabled,
+    -- ** AssetPropertyTimeInSeconds
+    AssetPropertyTimeInSeconds (..),
 
-    -- ** CustomCodeSigning
-    CustomCodeSigning (..),
-    mkCustomCodeSigning,
-    ccsSignature,
-    ccsHashAlgorithm,
-    ccsCertificateChain,
-    ccsSignatureAlgorithm,
+    -- ** Protocol
+    Protocol (..),
 
-    -- ** Denied
-    Denied (..),
-    mkDenied,
-    dImplicitDeny,
-    dExplicitDeny,
+    -- ** HttpUrlDestinationProperties
+    HttpUrlDestinationProperties (..),
+    mkHttpUrlDestinationProperties,
+    hudpConfirmationUrl,
 
-    -- ** Destination
-    Destination (..),
-    mkDestination,
-    dS3Destination,
+    -- ** JobProcessDetails
+    JobProcessDetails (..),
+    mkJobProcessDetails,
+    jpdNumberOfCanceledThings,
+    jpdNumberOfFailedThings,
+    jpdNumberOfInProgressThings,
+    jpdNumberOfQueuedThings,
+    jpdNumberOfRejectedThings,
+    jpdNumberOfRemovedThings,
+    jpdNumberOfSucceededThings,
+    jpdNumberOfTimedOutThings,
+    jpdProcessingTargets,
 
-    -- ** DomainConfigurationSummary
-    DomainConfigurationSummary (..),
-    mkDomainConfigurationSummary,
-    dcsDomainConfigurationName,
-    dcsDomainConfigurationARN,
-    dcsServiceType,
+    -- ** ThingGroupMetadata
+    ThingGroupMetadata (..),
+    mkThingGroupMetadata,
+    tgmCreationDate,
+    tgmParentGroupName,
+    tgmRootToParentThingGroups,
 
-    -- ** DynamoDBAction
-    DynamoDBAction (..),
-    mkDynamoDBAction,
-    ddbaHashKeyField,
-    ddbaHashKeyType,
-    ddbaOperation,
-    ddbaRangeKeyType,
-    ddbaPayloadField,
-    ddbaRangeKeyField,
-    ddbaRangeKeyValue,
-    ddbaHashKeyValue,
-    ddbaTableName,
-    ddbaRoleARN,
+    -- ** ThingGroupArn
+    ThingGroupArn (..),
 
-    -- ** DynamoDBv2Action
-    DynamoDBv2Action (..),
-    mkDynamoDBv2Action,
-    ddaPutItem,
-    ddaRoleARN,
+    -- ** AwsJobPresignedUrlConfig
+    AwsJobPresignedUrlConfig (..),
+    mkAwsJobPresignedUrlConfig,
+    ajpucExpiresInSec,
 
-    -- ** EffectivePolicy
-    EffectivePolicy (..),
-    mkEffectivePolicy,
-    epPolicyName,
-    epPolicyDocument,
-    epPolicyARN,
+    -- ** AssetPropertyEntryId
+    AssetPropertyEntryId (..),
 
-    -- ** ElasticsearchAction
-    ElasticsearchAction (..),
-    mkElasticsearchAction,
-    eaId,
-    eaType,
-    eaEndpoint,
-    eaIndex,
-    eaRoleARN,
+    -- ** DynamicGroupStatus
+    DynamicGroupStatus (..),
 
-    -- ** EnableIOTLoggingParams
-    EnableIOTLoggingParams (..),
-    mkEnableIOTLoggingParams,
-    eiotlpLogLevel,
-    eiotlpRoleARNForLogging,
+    -- ** TemplateDescription
+    TemplateDescription (..),
 
-    -- ** ErrorInfo
-    ErrorInfo (..),
-    mkErrorInfo,
-    eiCode,
-    eiMessage,
+    -- ** DimensionStringValue
+    DimensionStringValue (..),
 
-    -- ** ExplicitDeny
-    ExplicitDeny (..),
-    mkExplicitDeny,
-    edPolicies,
+    -- ** AuditCheckRunStatus
+    AuditCheckRunStatus (..),
 
-    -- ** ExponentialRolloutRate
-    ExponentialRolloutRate (..),
-    mkExponentialRolloutRate,
-    errBaseRatePerMinute,
-    errIncrementFactor,
-    errRateIncreaseCriteria,
+    -- ** ThingGroupId
+    ThingGroupId (..),
 
-    -- ** Field
-    Field (..),
-    mkField,
-    fName,
-    fType,
+    -- ** MitigationActionIdentifier
+    MitigationActionIdentifier (..),
+    mkMitigationActionIdentifier,
+    maiActionArn,
+    maiActionName,
+    maiCreationDate,
 
-    -- ** FileLocation
-    FileLocation (..),
-    mkFileLocation,
-    flStream,
-    flS3Location,
+    -- ** AuthorizerName
+    AuthorizerName (..),
 
-    -- ** FirehoseAction
-    FirehoseAction (..),
-    mkFirehoseAction,
-    faBatchMode,
-    faSeparator,
-    faDeliveryStreamName,
-    faRoleARN,
+    -- ** AggregationField
+    AggregationField (..),
 
-    -- ** GroupNameAndARN
-    GroupNameAndARN (..),
-    mkGroupNameAndARN,
-    gnaaGroupARN,
-    gnaaGroupName,
+    -- ** LambdaAction
+    LambdaAction (..),
+    mkLambdaAction,
+    laFunctionArn,
 
-    -- ** HTTPAction
-    HTTPAction (..),
-    mkHTTPAction,
-    httpaConfirmationURL,
-    httpaAuth,
-    httpaUrl,
-    httpaHeaders,
-
-    -- ** HTTPActionHeader
-    HTTPActionHeader (..),
-    mkHTTPActionHeader,
-    httpahValue,
-    httpahKey,
-
-    -- ** HTTPAuthorization
-    HTTPAuthorization (..),
-    mkHTTPAuthorization,
-    httpaSigv4,
-
-    -- ** HTTPContext
-    HTTPContext (..),
-    mkHTTPContext,
-    httpcHeaders,
-    httpcQueryString,
-
-    -- ** HTTPURLDestinationConfiguration
-    HTTPURLDestinationConfiguration (..),
-    mkHTTPURLDestinationConfiguration,
-    httpudcConfirmationURL,
-
-    -- ** HTTPURLDestinationProperties
-    HTTPURLDestinationProperties (..),
-    mkHTTPURLDestinationProperties,
-    httpudpConfirmationURL,
-
-    -- ** HTTPURLDestinationSummary
-    HTTPURLDestinationSummary (..),
-    mkHTTPURLDestinationSummary,
-    httpudsConfirmationURL,
+    -- ** CACertificateDescription
+    CACertificateDescription (..),
+    mkCACertificateDescription,
+    cacdAutoRegistrationStatus,
+    cacdCertificateArn,
+    cacdCertificateId,
+    cacdCertificatePem,
+    cacdCreationDate,
+    cacdCustomerVersion,
+    cacdGenerationId,
+    cacdLastModifiedDate,
+    cacdOwnedBy,
+    cacdStatus,
+    cacdValidity,
 
     -- ** ImplicitDeny
     ImplicitDeny (..),
     mkImplicitDeny,
     idPolicies,
 
-    -- ** IotAnalyticsAction
-    IotAnalyticsAction (..),
-    mkIotAnalyticsAction,
-    iaaBatchMode,
-    iaaChannelARN,
-    iaaChannelName,
-    iaaRoleARN,
+    -- ** AssetPropertyAlias
+    AssetPropertyAlias (..),
 
-    -- ** IotEventsAction
-    IotEventsAction (..),
-    mkIotEventsAction,
-    ieaBatchMode,
-    ieaInputName,
-    ieaMessageId,
-    ieaRoleARN,
+    -- ** ThingArn
+    ThingArn (..),
 
-    -- ** IotSiteWiseAction
-    IotSiteWiseAction (..),
-    mkIotSiteWiseAction,
-    iswaPutAssetPropertyValueEntries,
-    iswaRoleARN,
+    -- ** AwsAccountId
+    AwsAccountId (..),
 
-    -- ** Job
-    Job (..),
-    mkJob,
-    jStatus,
-    jJobExecutionsRolloutConfig,
-    jJobId,
-    jLastUpdatedAt,
-    jJobARN,
-    jCreatedAt,
-    jAbortConfig,
-    jJobProcessDetails,
-    jNamespaceId,
-    jReasonCode,
-    jPresignedURLConfig,
-    jForceCanceled,
-    jTargets,
-    jCompletedAt,
-    jComment,
-    jDescription,
-    jTargetSelection,
-    jTimeoutConfig,
+    -- ** StreamArn
+    StreamArn (..),
 
-    -- ** JobExecution
-    JobExecution (..),
-    mkJobExecution,
-    jeStatus,
-    jeJobId,
-    jeLastUpdatedAt,
-    jeApproximateSecondsBeforeTimedOut,
-    jeQueuedAt,
-    jeStatusDetails,
-    jeThingARN,
-    jeExecutionNumber,
-    jeVersionNumber,
-    jeStartedAt,
-    jeForceCanceled,
+    -- ** AssetPropertyStringValue
+    AssetPropertyStringValue (..),
 
-    -- ** JobExecutionStatusDetails
-    JobExecutionStatusDetails (..),
-    mkJobExecutionStatusDetails,
-    jesdDetailsMap,
+    -- ** ComparisonOperator
+    ComparisonOperator (..),
+
+    -- ** RuleName
+    RuleName (..),
+
+    -- ** AssetPropertyDoubleValue
+    AssetPropertyDoubleValue (..),
+
+    -- ** CertificatePathOnDevice
+    CertificatePathOnDevice (..),
+
+    -- ** ThingTypeId
+    ThingTypeId (..),
+
+    -- ** JobDescription
+    JobDescription (..),
+
+    -- ** PutAssetPropertyValueEntry
+    PutAssetPropertyValueEntry (..),
+    mkPutAssetPropertyValueEntry,
+    papvePropertyValues,
+    papveAssetId,
+    papveEntryId,
+    papvePropertyAlias,
+    papvePropertyId,
 
     -- ** JobExecutionSummary
     JobExecutionSummary (..),
     mkJobExecutionSummary,
-    jesStatus,
+    jesExecutionNumber,
     jesLastUpdatedAt,
     jesQueuedAt,
-    jesExecutionNumber,
     jesStartedAt,
+    jesStatus,
 
-    -- ** JobExecutionSummaryForJob
-    JobExecutionSummaryForJob (..),
-    mkJobExecutionSummaryForJob,
-    jesfjJobExecutionSummary,
-    jesfjThingARN,
+    -- ** ThingTypeMetadata
+    ThingTypeMetadata (..),
+    mkThingTypeMetadata,
+    ttmCreationDate,
+    ttmDeprecated,
+    ttmDeprecationDate,
 
-    -- ** JobExecutionSummaryForThing
-    JobExecutionSummaryForThing (..),
-    mkJobExecutionSummaryForThing,
-    jesftJobId,
-    jesftJobExecutionSummary,
+    -- ** ThingIndexingMode
+    ThingIndexingMode (..),
 
-    -- ** JobExecutionsRolloutConfig
-    JobExecutionsRolloutConfig (..),
-    mkJobExecutionsRolloutConfig,
-    jercExponentialRate,
-    jercMaximumPerMinute,
+    -- ** BillingGroupArn
+    BillingGroupArn (..),
 
-    -- ** JobProcessDetails
-    JobProcessDetails (..),
-    mkJobProcessDetails,
-    jpdNumberOfRemovedThings,
-    jpdNumberOfQueuedThings,
-    jpdNumberOfFailedThings,
-    jpdNumberOfSucceededThings,
-    jpdNumberOfInProgressThings,
-    jpdNumberOfCanceledThings,
-    jpdNumberOfTimedOutThings,
-    jpdNumberOfRejectedThings,
-    jpdProcessingTargets,
+    -- ** InputName
+    InputName (..),
 
-    -- ** JobSummary
-    JobSummary (..),
-    mkJobSummary,
-    jsStatus,
-    jsJobId,
-    jsLastUpdatedAt,
-    jsJobARN,
-    jsCreatedAt,
-    jsThingGroupId,
-    jsCompletedAt,
-    jsTargetSelection,
+    -- ** ReplaceDefaultPolicyVersionParams
+    ReplaceDefaultPolicyVersionParams (..),
+    mkReplaceDefaultPolicyVersionParams,
+    rdpvpTemplateName,
 
-    -- ** KeyPair
-    KeyPair (..),
-    mkKeyPair,
-    kpPrivateKey,
-    kpPublicKey,
+    -- ** MitigationActionParams
+    MitigationActionParams (..),
+    mkMitigationActionParams,
+    mapAddThingsToThingGroupParams,
+    mapEnableIoTLoggingParams,
+    mapPublishFindingToSnsParams,
+    mapReplaceDefaultPolicyVersionParams,
+    mapUpdateCACertificateParams,
+    mapUpdateDeviceCertificateParams,
 
-    -- ** KinesisAction
-    KinesisAction (..),
-    mkKinesisAction,
-    kaPartitionKey,
-    kaStreamName,
-    kaRoleARN,
+    -- ** ReasonCode
+    ReasonCode (..),
 
-    -- ** LambdaAction
-    LambdaAction (..),
-    mkLambdaAction,
-    laFunctionARN,
+    -- ** SigningProfileParameter
+    SigningProfileParameter (..),
+    mkSigningProfileParameter,
+    sppCertificateArn,
+    sppCertificatePathOnDevice,
+    sppPlatform,
 
-    -- ** LogTarget
-    LogTarget (..),
-    mkLogTarget,
-    ltTargetType,
-    ltTargetName,
+    -- ** AuditCheckDetails
+    AuditCheckDetails (..),
+    mkAuditCheckDetails,
+    acdCheckCompliant,
+    acdCheckRunStatus,
+    acdErrorCode,
+    acdMessage,
+    acdNonCompliantResourcesCount,
+    acdSuppressedNonCompliantResourcesCount,
+    acdTotalResourcesCount,
 
-    -- ** LogTargetConfiguration
-    LogTargetConfiguration (..),
-    mkLogTargetConfiguration,
-    ltcLogLevel,
-    ltcLogTarget,
+    -- ** PolicyVersionIdentifier
+    PolicyVersionIdentifier (..),
+    mkPolicyVersionIdentifier,
+    pviPolicyName,
+    pviPolicyVersionId,
 
-    -- ** LoggingOptionsPayload
-    LoggingOptionsPayload (..),
-    mkLoggingOptionsPayload,
-    lopLogLevel,
-    lopRoleARN,
+    -- ** Topic
+    Topic (..),
+
+    -- ** AuthResult
+    AuthResult (..),
+    mkAuthResult,
+    arAllowed,
+    arAuthDecision,
+    arAuthInfo,
+    arDenied,
+    arMissingContextValues,
+
+    -- ** BucketName
+    BucketName (..),
+
+    -- ** ScheduledAuditMetadata
+    ScheduledAuditMetadata (..),
+    mkScheduledAuditMetadata,
+    samDayOfMonth,
+    samDayOfWeek,
+    samFrequency,
+    samScheduledAuditArn,
+    samScheduledAuditName,
+
+    -- ** PolicyTarget
+    PolicyTarget (..),
+
+    -- ** LogGroupName
+    LogGroupName (..),
+
+    -- ** ThingConnectivityIndexingMode
+    ThingConnectivityIndexingMode (..),
+
+    -- ** HttpHeaderValue
+    HttpHeaderValue (..),
 
     -- ** MetricDimension
     MetricDimension (..),
     mkMetricDimension,
-    mdOperator,
     mdDimensionName,
+    mdOperator,
 
-    -- ** MetricToRetain
-    MetricToRetain (..),
-    mkMetricToRetain,
-    mtrMetricDimension,
-    mtrMetric,
+    -- ** PresignedUrlConfig
+    PresignedUrlConfig (..),
+    mkPresignedUrlConfig,
+    pucExpiresInSec,
+    pucRoleArn,
+
+    -- ** AuditCheckName
+    AuditCheckName (..),
+
+    -- ** Behavior
+    Behavior (..),
+    mkBehavior,
+    bName,
+    bCriteria,
+    bMetric,
+    bMetricDimension,
+
+    -- ** AuthorizerArn
+    AuthorizerArn (..),
+
+    -- ** AbortAction
+    AbortAction (..),
+
+    -- ** ServerCertificateStatus
+    ServerCertificateStatus (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ViolationId
+    ViolationId (..),
+
+    -- ** ChannelName
+    ChannelName (..),
+
+    -- ** Cidr
+    Cidr (..),
+
+    -- ** S3Destination
+    S3Destination (..),
+    mkS3Destination,
+    sdBucket,
+    sdPrefix,
+
+    -- ** DynamoDBv2Action
+    DynamoDBv2Action (..),
+    mkDynamoDBv2Action,
+    dRoleArn,
+    dPutItem,
+
+    -- ** AuditTaskStatus
+    AuditTaskStatus (..),
+
+    -- ** StatisticalThreshold
+    StatisticalThreshold (..),
+    mkStatisticalThreshold,
+    stStatistic,
+
+    -- ** ThingGroupDocument
+    ThingGroupDocument (..),
+    mkThingGroupDocument,
+    tgdAttributes,
+    tgdParentGroupNames,
+    tgdThingGroupDescription,
+    tgdThingGroupId,
+    tgdThingGroupName,
+
+    -- ** ThingGroupName
+    ThingGroupName (..),
+
+    -- ** ServerCertificateSummary
+    ServerCertificateSummary (..),
+    mkServerCertificateSummary,
+    scsServerCertificateArn,
+    scsServerCertificateStatus,
+    scsServerCertificateStatusDetail,
+
+    -- ** FirehoseSeparator
+    FirehoseSeparator (..),
+
+    -- ** EventType
+    EventType (..),
+
+    -- ** SigV4Authorization
+    SigV4Authorization (..),
+    mkSigV4Authorization,
+    svaSigningRegion,
+    svaServiceName,
+    svaRoleArn,
+
+    -- ** PayloadField
+    PayloadField (..),
+
+    -- ** DomainConfigurationStatus
+    DomainConfigurationStatus (..),
+
+    -- ** SecurityProfileTarget
+    SecurityProfileTarget (..),
+    mkSecurityProfileTarget,
+    sptArn,
+
+    -- ** AssetPropertyValue
+    AssetPropertyValue (..),
+    mkAssetPropertyValue,
+    apvValue,
+    apvTimestamp,
+    apvQuality,
+
+    -- ** TlsContext
+    TlsContext (..),
+    mkTlsContext,
+    tcServerName,
+
+    -- ** StateValue
+    StateValue (..),
+
+    -- ** DomainConfigurationSummary
+    DomainConfigurationSummary (..),
+    mkDomainConfigurationSummary,
+    dcsDomainConfigurationArn,
+    dcsDomainConfigurationName,
+    dcsServiceType,
+
+    -- ** FirehoseAction
+    FirehoseAction (..),
+    mkFirehoseAction,
+    faRoleArn,
+    faDeliveryStreamName,
+    faBatchMode,
+    faSeparator,
+
+    -- ** TimestreamTimestamp
+    TimestreamTimestamp (..),
+    mkTimestreamTimestamp,
+    ttValue,
+    ttUnit,
+
+    -- ** JsonDocument
+    JsonDocument (..),
+
+    -- ** OTAUpdateStatus
+    OTAUpdateStatus (..),
+
+    -- ** Job
+    Job (..),
+    mkJob,
+    jAbortConfig,
+    jComment,
+    jCompletedAt,
+    jCreatedAt,
+    jDescription,
+    jForceCanceled,
+    jJobArn,
+    jJobExecutionsRolloutConfig,
+    jJobId,
+    jJobProcessDetails,
+    jLastUpdatedAt,
+    jNamespaceId,
+    jPresignedUrlConfig,
+    jReasonCode,
+    jStatus,
+    jTargetSelection,
+    jTargets,
+    jTimeoutConfig,
+
+    -- ** PrincipalArn
+    PrincipalArn (..),
+
+    -- ** TopicRule
+    TopicRule (..),
+    mkTopicRule,
+    trActions,
+    trAwsIotSqlVersion,
+    trCreatedAt,
+    trDescription,
+    trErrorAction,
+    trRuleDisabled,
+    trRuleName,
+    trSql,
+
+    -- ** Denied
+    Denied (..),
+    mkDenied,
+    dExplicitDeny,
+    dImplicitDeny,
+
+    -- ** OTAUpdateFileVersion
+    OTAUpdateFileVersion (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** DimensionName
+    DimensionName (..),
+
+    -- ** DynamoKeyType
+    DynamoKeyType (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** PolicyVersionId
+    PolicyVersionId (..),
+
+    -- ** DomainName
+    DomainName (..),
+
+    -- ** AuthorizerDescription
+    AuthorizerDescription (..),
+    mkAuthorizerDescription,
+    adAuthorizerArn,
+    adAuthorizerFunctionArn,
+    adAuthorizerName,
+    adCreationDate,
+    adLastModifiedDate,
+    adSigningDisabled,
+    adStatus,
+    adTokenKeyName,
+    adTokenSigningPublicKeys,
+
+    -- ** AwsJobAbortCriteriaAbortAction
+    AwsJobAbortCriteriaAbortAction (..),
+
+    -- ** AuditMitigationActionExecutionMetadata
+    AuditMitigationActionExecutionMetadata (..),
+    mkAuditMitigationActionExecutionMetadata,
+    amaemActionId,
+    amaemActionName,
+    amaemEndTime,
+    amaemErrorCode,
+    amaemFindingId,
+    amaemMessage,
+    amaemStartTime,
+    amaemStatus,
+    amaemTaskId,
+
+    -- ** TopicRuleDestinationSummary
+    TopicRuleDestinationSummary (..),
+    mkTopicRuleDestinationSummary,
+    trdsArn,
+    trdsHttpUrlSummary,
+    trdsStatus,
+    trdsStatusReason,
 
     -- ** MetricValue
     MetricValue (..),
@@ -1533,164 +1962,192 @@ module Network.AWS.IoT
     mvCount,
     mvPorts,
 
-    -- ** MitigationAction
-    MitigationAction (..),
-    mkMitigationAction,
-    maActionParams,
-    maName,
-    maId,
-    maRoleARN,
+    -- ** AwsJobRateIncreaseCriteria
+    AwsJobRateIncreaseCriteria (..),
+    mkAwsJobRateIncreaseCriteria,
+    ajricNumberOfNotifiedThings,
+    ajricNumberOfSucceededThings,
 
-    -- ** MitigationActionIdentifier
-    MitigationActionIdentifier (..),
-    mkMitigationActionIdentifier,
-    maiActionName,
-    maiCreationDate,
-    maiActionARN,
+    -- ** CertificateSigningRequest
+    CertificateSigningRequest (..),
 
-    -- ** MitigationActionParams
-    MitigationActionParams (..),
-    mkMitigationActionParams,
-    mapEnableIOTLoggingParams,
-    mapAddThingsToThingGroupParams,
-    mapUpdateCACertificateParams,
-    mapUpdateDeviceCertificateParams,
-    mapReplaceDefaultPolicyVersionParams,
-    mapPublishFindingToSNSParams,
+    -- ** PolicyTemplateName
+    PolicyTemplateName (..),
 
-    -- ** MqttContext
-    MqttContext (..),
-    mkMqttContext,
-    mcClientId,
-    mcUsername,
-    mcPassword,
+    -- ** HttpContext
+    HttpContext (..),
+    mkHttpContext,
+    hcHeaders,
+    hcQueryString,
+
+    -- ** TimestreamAction
+    TimestreamAction (..),
+    mkTimestreamAction,
+    taRoleArn,
+    taDatabaseName,
+    taTableName,
+    taDimensions,
+    taTimestamp,
+
+    -- ** QueryString
+    QueryString (..),
+
+    -- ** CACertificate
+    CACertificate (..),
+    mkCACertificate,
+    cacCertificateArn,
+    cacCertificateId,
+    cacCreationDate,
+    cacStatus,
+
+    -- ** AlertTargetType
+    AlertTargetType (..),
+
+    -- ** IotSiteWiseAction
+    IotSiteWiseAction (..),
+    mkIotSiteWiseAction,
+    iswaPutAssetPropertyValueEntries,
+    iswaRoleArn,
+
+    -- ** DeliveryStreamName
+    DeliveryStreamName (..),
+
+    -- ** TokenSignature
+    TokenSignature (..),
+
+    -- ** Principal
+    Principal (..),
+
+    -- ** DeviceCertificateUpdateAction
+    DeviceCertificateUpdateAction (..),
+
+    -- ** AttributePayload
+    AttributePayload (..),
+    mkAttributePayload,
+    apAttributes,
+    apMerge,
+
+    -- ** CloudwatchMetricAction
+    CloudwatchMetricAction (..),
+    mkCloudwatchMetricAction,
+    cmaRoleArn,
+    cmaMetricNamespace,
+    cmaMetricName,
+    cmaMetricValue,
+    cmaMetricUnit,
+    cmaMetricTimestamp,
+
+    -- ** RangeKeyField
+    RangeKeyField (..),
+
+    -- ** ThingTypeDescription
+    ThingTypeDescription (..),
+
+    -- ** FieldType
+    FieldType (..),
+
+    -- ** AlertTargetArn
+    AlertTargetArn (..),
+
+    -- ** ThingGroupProperties
+    ThingGroupProperties (..),
+    mkThingGroupProperties,
+    tgpAttributePayload,
+    tgpThingGroupDescription,
 
     -- ** NonCompliantResource
     NonCompliantResource (..),
     mkNonCompliantResource,
     ncrAdditionalInfo,
-    ncrResourceType,
     ncrResourceIdentifier,
+    ncrResourceType,
 
-    -- ** OTAUpdateFile
-    OTAUpdateFile (..),
-    mkOTAUpdateFile,
-    otaufFileLocation,
-    otaufFileType,
-    otaufFileVersion,
-    otaufAttributes,
-    otaufCodeSigning,
-    otaufFileName,
+    -- ** AuditMitigationActionsTaskStatus
+    AuditMitigationActionsTaskStatus (..),
 
-    -- ** OTAUpdateInfo
-    OTAUpdateInfo (..),
-    mkOTAUpdateInfo,
-    otauiLastModifiedDate,
-    otauiAwsJobExecutionsRolloutConfig,
-    otauiAwsIotJobId,
-    otauiProtocols,
-    otauiAwsJobPresignedURLConfig,
-    otauiOtaUpdateFiles,
-    otauiOtaUpdateStatus,
-    otauiTargets,
-    otauiAwsIotJobARN,
-    otauiCreationDate,
-    otauiAdditionalParameters,
-    otauiOtaUpdateId,
-    otauiErrorInfo,
-    otauiOtaUpdateARN,
-    otauiDescription,
-    otauiTargetSelection,
+    -- ** AutoRegistrationStatus
+    AutoRegistrationStatus (..),
 
-    -- ** OTAUpdateSummary
-    OTAUpdateSummary (..),
-    mkOTAUpdateSummary,
-    otausCreationDate,
-    otausOtaUpdateId,
-    otausOtaUpdateARN,
+    -- ** Marker
+    Marker (..),
 
-    -- ** OutgoingCertificate
-    OutgoingCertificate (..),
-    mkOutgoingCertificate,
-    ocTransferDate,
-    ocCertificateARN,
-    ocCertificateId,
-    ocTransferredTo,
-    ocCreationDate,
-    ocTransferMessage,
+    -- ** ServiceName
+    ServiceName (..),
 
-    -- ** PercentPair
-    PercentPair (..),
-    mkPercentPair,
-    ppValue,
-    ppPercent,
+    -- ** ThingIndexingConfiguration
+    ThingIndexingConfiguration (..),
+    mkThingIndexingConfiguration,
+    ticThingIndexingMode,
+    ticCustomFields,
+    ticManagedFields,
+    ticThingConnectivityIndexingMode,
 
-    -- ** Policy
-    Policy (..),
-    mkPolicy,
-    pPolicyName,
-    pPolicyARN,
+    -- ** MetricToRetain
+    MetricToRetain (..),
+    mkMetricToRetain,
+    mtrMetric,
+    mtrMetricDimension,
 
-    -- ** PolicyVersion
-    PolicyVersion (..),
-    mkPolicyVersion,
-    pvVersionId,
-    pvCreateDate,
-    pvIsDefaultVersion,
+    -- ** SecurityProfileName
+    SecurityProfileName (..),
 
-    -- ** PolicyVersionIdentifier
-    PolicyVersionIdentifier (..),
-    mkPolicyVersionIdentifier,
-    pviPolicyName,
-    pviPolicyVersionId,
-
-    -- ** PresignedURLConfig
-    PresignedURLConfig (..),
-    mkPresignedURLConfig,
-    pucExpiresInSec,
-    pucRoleARN,
-
-    -- ** ProvisioningHook
-    ProvisioningHook (..),
-    mkProvisioningHook,
-    phTargetARN,
-    phPayloadVersion,
-
-    -- ** ProvisioningTemplateSummary
-    ProvisioningTemplateSummary (..),
-    mkProvisioningTemplateSummary,
-    ptsLastModifiedDate,
-    ptsTemplateName,
-    ptsEnabled,
-    ptsCreationDate,
-    ptsTemplateARN,
-    ptsDescription,
-
-    -- ** ProvisioningTemplateVersionSummary
-    ProvisioningTemplateVersionSummary (..),
-    mkProvisioningTemplateVersionSummary,
-    ptvsVersionId,
-    ptvsCreationDate,
-    ptvsIsDefaultVersion,
-
-    -- ** PublishFindingToSNSParams
-    PublishFindingToSNSParams (..),
-    mkPublishFindingToSNSParams,
-    pftspTopicARN,
-
-    -- ** PutAssetPropertyValueEntry
-    PutAssetPropertyValueEntry (..),
-    mkPutAssetPropertyValueEntry,
-    papvePropertyValues,
-    papveEntryId,
-    papvePropertyAlias,
-    papvePropertyId,
-    papveAssetId,
+    -- ** Resource
+    Resource (..),
 
     -- ** PutItemInput
     PutItemInput (..),
     mkPutItemInput,
     piiTableName,
+
+    -- ** QueueUrl
+    QueueUrl (..),
+
+    -- ** AwsIotJobArn
+    AwsIotJobArn (..),
+
+    -- ** LoggingOptionsPayload
+    LoggingOptionsPayload (..),
+    mkLoggingOptionsPayload,
+    lopRoleArn,
+    lopLogLevel,
+
+    -- ** DayOfMonth
+    DayOfMonth (..),
+
+    -- ** ErrorCode
+    ErrorCode (..),
+
+    -- ** ServiceType
+    ServiceType (..),
+
+    -- ** Certificate
+    Certificate (..),
+    mkCertificate,
+    cCertificateArn,
+    cCertificateId,
+    cCertificateMode,
+    cCreationDate,
+    cStatus,
+
+    -- ** BillingGroupProperties
+    BillingGroupProperties (..),
+    mkBillingGroupProperties,
+    bgpBillingGroupDescription,
+
+    -- ** LogTargetConfiguration
+    LogTargetConfiguration (..),
+    mkLogTargetConfiguration,
+    ltcLogLevel,
+    ltcLogTarget,
+
+    -- ** EndpointAddress
+    EndpointAddress (..),
+
+    -- ** JobExecutionSummaryForJob
+    JobExecutionSummaryForJob (..),
+    mkJobExecutionSummaryForJob,
+    jesfjJobExecutionSummary,
+    jesfjThingArn,
 
     -- ** RateIncreaseCriteria
     RateIncreaseCriteria (..),
@@ -1698,141 +2155,120 @@ module Network.AWS.IoT
     ricNumberOfNotifiedThings,
     ricNumberOfSucceededThings,
 
-    -- ** RegistrationConfig
-    RegistrationConfig (..),
-    mkRegistrationConfig,
-    rcTemplateBody,
-    rcRoleARN,
+    -- ** LogTarget
+    LogTarget (..),
+    mkLogTarget,
+    ltTargetType,
+    ltTargetName,
+
+    -- ** ThingGroupDescription
+    ThingGroupDescription (..),
+
+    -- ** OTAUpdateFile
+    OTAUpdateFile (..),
+    mkOTAUpdateFile,
+    otaufAttributes,
+    otaufCodeSigning,
+    otaufFileLocation,
+    otaufFileName,
+    otaufFileType,
+    otaufFileVersion,
+
+    -- ** JobDocumentSource
+    JobDocumentSource (..),
+
+    -- ** MitigationAction
+    MitigationAction (..),
+    mkMitigationAction,
+    maActionParams,
+    maId,
+    maName,
+    maRoleArn,
+
+    -- ** PublishFindingToSnsParams
+    PublishFindingToSnsParams (..),
+    mkPublishFindingToSnsParams,
+    pftspTopicArn,
+
+    -- ** StepFunctionsAction
+    StepFunctionsAction (..),
+    mkStepFunctionsAction,
+    sfaStateMachineName,
+    sfaRoleArn,
+    sfaExecutionNamePrefix,
+
+    -- ** RegistryS3KeyName
+    RegistryS3KeyName (..),
 
     -- ** RelatedResource
     RelatedResource (..),
     mkRelatedResource,
     rrAdditionalInfo,
-    rrResourceType,
     rrResourceIdentifier,
+    rrResourceType,
 
-    -- ** ReplaceDefaultPolicyVersionParams
-    ReplaceDefaultPolicyVersionParams (..),
-    mkReplaceDefaultPolicyVersionParams,
-    rdpvpTemplateName,
+    -- ** S3FileUrl
+    S3FileUrl (..),
 
-    -- ** RepublishAction
-    RepublishAction (..),
-    mkRepublishAction,
-    raTopic,
-    raQos,
-    raRoleARN,
+    -- ** TemplateArn
+    TemplateArn (..),
 
-    -- ** ResourceIdentifier
-    ResourceIdentifier (..),
-    mkResourceIdentifier,
-    riIamRoleARN,
-    riClientId,
-    riRoleAliasARN,
-    riCaCertificateId,
-    riDeviceCertificateId,
-    riAccount,
-    riPolicyVersionIdentifier,
-    riCognitoIdentityPoolId,
+    -- ** CustomCodeSigning
+    CustomCodeSigning (..),
+    mkCustomCodeSigning,
+    ccsCertificateChain,
+    ccsHashAlgorithm,
+    ccsSignature,
+    ccsSignatureAlgorithm,
 
-    -- ** RoleAliasDescription
-    RoleAliasDescription (..),
-    mkRoleAliasDescription,
-    radRoleAliasARN,
-    radLastModifiedDate,
-    radRoleAlias,
-    radOwner,
-    radCreationDate,
-    radCredentialDurationSeconds,
-    radRoleARN,
+    -- ** AssetId
+    AssetId (..),
 
-    -- ** S3Action
-    S3Action (..),
-    mkS3Action,
-    sCannedACL,
-    sBucketName,
-    sKey,
-    sRoleARN,
+    -- ** Statistics
+    Statistics (..),
+    mkStatistics,
+    sAverage,
+    sCount,
+    sMaximum,
+    sMinimum,
+    sStdDeviation,
+    sSum,
+    sSumOfSquares,
+    sVariance,
 
-    -- ** S3Destination
-    S3Destination (..),
-    mkS3Destination,
-    sdPrefix,
-    sdBucket,
+    -- ** ActiveViolation
+    ActiveViolation (..),
+    mkActiveViolation,
+    avBehavior,
+    avLastViolationTime,
+    avLastViolationValue,
+    avSecurityProfileName,
+    avThingName,
+    avViolationId,
+    avViolationStartTime,
 
-    -- ** S3Location
-    S3Location (..),
-    mkS3Location,
-    slBucket,
-    slKey,
-    slVersion,
+    -- ** ProcessingTargetName
+    ProcessingTargetName (..),
 
-    -- ** SNSAction
-    SNSAction (..),
-    mkSNSAction,
-    snsaTargetARN,
-    snsaMessageFormat,
-    snsaRoleARN,
-
-    -- ** SalesforceAction
-    SalesforceAction (..),
-    mkSalesforceAction,
-    saUrl,
-    saToken,
-
-    -- ** ScheduledAuditMetadata
-    ScheduledAuditMetadata (..),
-    mkScheduledAuditMetadata,
-    samFrequency,
-    samScheduledAuditName,
-    samDayOfMonth,
-    samDayOfWeek,
-    samScheduledAuditARN,
-
-    -- ** SecurityProfileIdentifier
-    SecurityProfileIdentifier (..),
-    mkSecurityProfileIdentifier,
-    spiArn,
-    spiName,
-
-    -- ** SecurityProfileTarget
-    SecurityProfileTarget (..),
-    mkSecurityProfileTarget,
-    sptArn,
-
-    -- ** SecurityProfileTargetMapping
-    SecurityProfileTargetMapping (..),
-    mkSecurityProfileTargetMapping,
-    sptmSecurityProfileIdentifier,
-    sptmTarget,
-
-    -- ** ServerCertificateSummary
-    ServerCertificateSummary (..),
-    mkServerCertificateSummary,
-    scsServerCertificateStatusDetail,
-    scsServerCertificateStatus,
-    scsServerCertificateARN,
-
-    -- ** SigV4Authorization
-    SigV4Authorization (..),
-    mkSigV4Authorization,
-    svaServiceName,
-    svaSigningRegion,
-    svaRoleARN,
-
-    -- ** SigningProfileParameter
-    SigningProfileParameter (..),
-    mkSigningProfileParameter,
-    sppPlatform,
-    sppCertificateARN,
-    sppCertificatePathOnDevice,
-
-    -- ** SqsAction
-    SqsAction (..),
-    mkSqsAction,
-    saUseBase64,
-    saQueueURL,
-    saRoleARN,
+    -- ** OTAUpdateInfo
+    OTAUpdateInfo (..),
+    mkOTAUpdateInfo,
+    otauiAdditionalParameters,
+    otauiAwsIotJobArn,
+    otauiAwsIotJobId,
+    otauiAwsJobExecutionsRolloutConfig,
+    otauiAwsJobPresignedUrlConfig,
+    otauiCreationDate,
+    otauiDescription,
+    otauiErrorInfo,
+    otauiLastModifiedDate,
+    otauiOtaUpdateArn,
+    otauiOtaUpdateFiles,
+    otauiOtaUpdateId,
+    otauiOtaUpdateStatus,
+    otauiProtocols,
+    otauiTargetSelection,
+    otauiTargets,
 
     -- ** StartSigningJobParameter
     StartSigningJobParameter (..),
@@ -1841,101 +2277,466 @@ module Network.AWS.IoT
     ssjpSigningProfileName,
     ssjpSigningProfileParameter,
 
-    -- ** StatisticalThreshold
-    StatisticalThreshold (..),
-    mkStatisticalThreshold,
-    stStatistic,
+    -- ** CloudwatchAlarmAction
+    CloudwatchAlarmAction (..),
+    mkCloudwatchAlarmAction,
+    caaRoleArn,
+    caaAlarmName,
+    caaStateReason,
+    caaStateValue,
 
-    -- ** Statistics
-    Statistics (..),
-    mkStatistics,
-    sStdDeviation,
-    sMaximum,
-    sAverage,
-    sCount,
-    sMinimum,
-    sVariance,
-    sSumOfSquares,
-    sSum,
+    -- ** PolicyArn
+    PolicyArn (..),
 
-    -- ** StepFunctionsAction
-    StepFunctionsAction (..),
-    mkStepFunctionsAction,
-    sfaExecutionNamePrefix,
-    sfaStateMachineName,
-    sfaRoleARN,
+    -- ** ViolationEvent
+    ViolationEvent (..),
+    mkViolationEvent,
+    veBehavior,
+    veMetricValue,
+    veSecurityProfileName,
+    veThingName,
+    veViolationEventTime,
+    veViolationEventType,
+    veViolationId,
 
-    -- ** Stream
-    Stream (..),
-    mkStream,
-    sFileId,
-    sStreamId,
+    -- ** ReasonForNonCompliance
+    ReasonForNonCompliance (..),
 
-    -- ** StreamFile
-    StreamFile (..),
-    mkStreamFile,
-    sfS3Location,
-    sfFileId,
+    -- ** JobExecution
+    JobExecution (..),
+    mkJobExecution,
+    jeApproximateSecondsBeforeTimedOut,
+    jeExecutionNumber,
+    jeForceCanceled,
+    jeJobId,
+    jeLastUpdatedAt,
+    jeQueuedAt,
+    jeStartedAt,
+    jeStatus,
+    jeStatusDetails,
+    jeThingArn,
+    jeVersionNumber,
 
-    -- ** StreamInfo
-    StreamInfo (..),
-    mkStreamInfo,
-    siLastUpdatedAt,
-    siCreatedAt,
-    siStreamVersion,
-    siStreamARN,
-    siFiles,
-    siDescription,
-    siStreamId,
-    siRoleARN,
+    -- ** Code
+    Code (..),
 
-    -- ** StreamSummary
-    StreamSummary (..),
-    mkStreamSummary,
-    ssStreamVersion,
-    ssStreamARN,
-    ssDescription,
-    ssStreamId,
+    -- ** AuthorizerSummary
+    AuthorizerSummary (..),
+    mkAuthorizerSummary,
+    asAuthorizerArn,
+    asAuthorizerName,
 
-    -- ** TLSContext
-    TLSContext (..),
-    mkTLSContext,
-    tcServerName,
+    -- ** TagKey
+    TagKey (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** S3Location
+    S3Location (..),
+    mkS3Location,
+    slBucket,
+    slKey,
+    slVersion,
 
-    -- ** TaskStatistics
-    TaskStatistics (..),
-    mkTaskStatistics,
-    tsNonCompliantChecks,
-    tsWaitingForDataCollectionChecks,
-    tsFailedChecks,
-    tsTotalChecks,
-    tsInProgressChecks,
-    tsCompliantChecks,
-    tsCanceledChecks,
+    -- ** DomainConfigurationArn
+    DomainConfigurationArn (..),
+
+    -- ** HashAlgorithm
+    HashAlgorithm (..),
+
+    -- ** DomainType
+    DomainType (..),
+
+    -- ** MqttClientId
+    MqttClientId (..),
+
+    -- ** MessageFormat
+    MessageFormat (..),
+
+    -- ** AwsArn
+    AwsArn (..),
+
+    -- ** HeaderKey
+    HeaderKey (..),
+
+    -- ** FindingId
+    FindingId (..),
+
+    -- ** Configuration
+    Configuration (..),
+    mkConfiguration,
+    cEnabled,
 
     -- ** TaskStatisticsForAuditCheck
     TaskStatisticsForAuditCheck (..),
     mkTaskStatisticsForAuditCheck,
     tsfacCanceledFindingsCount,
-    tsfacSkippedFindingsCount,
-    tsfacTotalFindingsCount,
     tsfacFailedFindingsCount,
+    tsfacSkippedFindingsCount,
     tsfacSucceededFindingsCount,
+    tsfacTotalFindingsCount,
 
-    -- ** ThingAttribute
-    ThingAttribute (..),
-    mkThingAttribute,
-    taThingTypeName,
-    taThingARN,
-    taAttributes,
-    taVersion,
-    taThingName,
+    -- ** Policy
+    Policy (..),
+    mkPolicy,
+    pPolicyArn,
+    pPolicyName,
+
+    -- ** AssetPropertyVariant
+    AssetPropertyVariant (..),
+    mkAssetPropertyVariant,
+    apvBooleanValue,
+    apvDoubleValue,
+    apvIntegerValue,
+    apvStringValue,
+
+    -- ** AuditFinding
+    AuditFinding (..),
+    mkAuditFinding,
+    afCheckName,
+    afFindingId,
+    afFindingTime,
+    afIsSuppressed,
+    afNonCompliantResource,
+    afReasonForNonCompliance,
+    afReasonForNonComplianceCode,
+    afRelatedResources,
+    afSeverity,
+    afTaskId,
+    afTaskStartTime,
+
+    -- ** TemplateBody
+    TemplateBody (..),
+
+    -- ** ExplicitDeny
+    ExplicitDeny (..),
+    mkExplicitDeny,
+    edPolicies,
+
+    -- ** HttpHeaderName
+    HttpHeaderName (..),
+
+    -- ** RepublishAction
+    RepublishAction (..),
+    mkRepublishAction,
+    raRoleArn,
+    raTopic,
+    raQos,
+
+    -- ** AuditNotificationType
+    AuditNotificationType (..),
+
+    -- ** CognitoIdentityPoolId
+    CognitoIdentityPoolId (..),
+
+    -- ** CACertificateUpdateAction
+    CACertificateUpdateAction (..),
+
+    -- ** AuthDecision
+    AuthDecision (..),
+
+    -- ** DimensionType
+    DimensionType (..),
+
+    -- ** Allowed
+    Allowed (..),
+    mkAllowed,
+    aPolicies,
+
+    -- ** SecurityProfileArn
+    SecurityProfileArn (..),
+
+    -- ** JobStatus
+    JobStatus (..),
+
+    -- ** AuditFindingSeverity
+    AuditFindingSeverity (..),
+
+    -- ** BillingGroupName
+    BillingGroupName (..),
+
+    -- ** RegistrationConfig
+    RegistrationConfig (..),
+    mkRegistrationConfig,
+    rcRoleArn,
+    rcTemplateBody,
+
+    -- ** GenerationId
+    GenerationId (..),
+
+    -- ** JobExecutionStatusDetails
+    JobExecutionStatusDetails (..),
+    mkJobExecutionStatusDetails,
+    jesdDetailsMap,
+
+    -- ** AttributeKey
+    AttributeKey (..),
+
+    -- ** HttpAuthorization
+    HttpAuthorization (..),
+    mkHttpAuthorization,
+    haSigv4,
+
+    -- ** SigningRegion
+    SigningRegion (..),
+
+    -- ** RangeKeyValue
+    RangeKeyValue (..),
+
+    -- ** ThingDocument
+    ThingDocument (..),
+    mkThingDocument,
+    tdAttributes,
+    tdConnectivity,
+    tdShadow,
+    tdThingGroupNames,
+    tdThingId,
+    tdThingName,
+    tdThingTypeName,
+
+    -- ** TransferData
+    TransferData (..),
+    mkTransferData,
+    tdAcceptDate,
+    tdRejectDate,
+    tdRejectReason,
+    tdTransferDate,
+    tdTransferMessage,
+
+    -- ** TokenKeyName
+    TokenKeyName (..),
+
+    -- ** ThingName
+    ThingName (..),
+
+    -- ** ErrorMessage
+    ErrorMessage (..),
+
+    -- ** CACertificateStatus
+    CACertificateStatus (..),
+
+    -- ** StateReason
+    StateReason (..),
+
+    -- ** HttpUrlDestinationSummary
+    HttpUrlDestinationSummary (..),
+    mkHttpUrlDestinationSummary,
+    hudsConfirmationUrl,
+
+    -- ** Message
+    Message (..),
+
+    -- ** SignatureAlgorithm
+    SignatureAlgorithm (..),
+
+    -- ** OutgoingCertificate
+    OutgoingCertificate (..),
+    mkOutgoingCertificate,
+    ocCertificateArn,
+    ocCertificateId,
+    ocCreationDate,
+    ocTransferDate,
+    ocTransferMessage,
+    ocTransferredTo,
+
+    -- ** SecurityProfileDescription
+    SecurityProfileDescription (..),
+
+    -- ** RuleArn
+    RuleArn (..),
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** MqttContext
+    MqttContext (..),
+    mkMqttContext,
+    mcClientId,
+    mcPassword,
+    mcUsername,
+
+    -- ** AwsJobAbortCriteria
+    AwsJobAbortCriteria (..),
+    mkAwsJobAbortCriteria,
+    ajacFailureType,
+    ajacAction,
+    ajacThresholdPercentage,
+    ajacMinNumberOfExecutedThings,
+
+    -- ** StreamName
+    StreamName (..),
+
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
+    -- ** AwsJobTimeoutConfig
+    AwsJobTimeoutConfig (..),
+    mkAwsJobTimeoutConfig,
+    ajtcInProgressTimeoutInMinutes,
+
+    -- ** Comment
+    Comment (..),
+
+    -- ** HttpAction
+    HttpAction (..),
+    mkHttpAction,
+    haUrl,
+    haAuth,
+    haConfirmationUrl,
+    haHeaders,
+
+    -- ** ThingGroupIndexingMode
+    ThingGroupIndexingMode (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** SalesforceEndpoint
+    SalesforceEndpoint (..),
+
+    -- ** JobExecutionSummaryForThing
+    JobExecutionSummaryForThing (..),
+    mkJobExecutionSummaryForThing,
+    jesftJobExecutionSummary,
+    jesftJobId,
+
+    -- ** AuthInfo
+    AuthInfo (..),
+    mkAuthInfo,
+    aiResources,
+    aiActionType,
+
+    -- ** ErrorInfo
+    ErrorInfo (..),
+    mkErrorInfo,
+    eiCode,
+    eiMessage,
+
+    -- ** ReportType
+    ReportType (..),
+
+    -- ** CodeSigning
+    CodeSigning (..),
+    mkCodeSigning,
+    csAwsSignerJobId,
+    csCustomCodeSigning,
+    csStartSigningJobParameter,
+
+    -- ** ExponentialRolloutRate
+    ExponentialRolloutRate (..),
+    mkExponentialRolloutRate,
+    errBaseRatePerMinute,
+    errIncrementFactor,
+    errRateIncreaseCriteria,
+
+    -- ** GroupNameAndArn
+    GroupNameAndArn (..),
+    mkGroupNameAndArn,
+    gnaaGroupArn,
+    gnaaGroupName,
+
+    -- ** ActionType
+    ActionType (..),
+
+    -- ** SQL
+    SQL (..),
+
+    -- ** S3Action
+    S3Action (..),
+    mkS3Action,
+    sRoleArn,
+    sBucketName,
+    sKey,
+    sCannedAcl,
+
+    -- ** SecurityProfileIdentifier
+    SecurityProfileIdentifier (..),
+    mkSecurityProfileIdentifier,
+    spiName,
+    spiArn,
+
+    -- ** KinesisAction
+    KinesisAction (..),
+    mkKinesisAction,
+    kaRoleArn,
+    kaStreamName,
+    kaPartitionKey,
+
+    -- ** MessageId
+    MessageId (..),
+
+    -- ** TimestreamDimensionName
+    TimestreamDimensionName (..),
+
+    -- ** HashKeyValue
+    HashKeyValue (..),
+
+    -- ** ResourceIdentifier
+    ResourceIdentifier (..),
+    mkResourceIdentifier,
+    riAccount,
+    riCaCertificateId,
+    riClientId,
+    riCognitoIdentityPoolId,
+    riDeviceCertificateId,
+    riIamRoleArn,
+    riPolicyVersionIdentifier,
+    riRoleAliasArn,
+
+    -- ** AbortCriteria
+    AbortCriteria (..),
+    mkAbortCriteria,
+    acFailureType,
+    acAction,
+    acThresholdPercentage,
+    acMinNumberOfExecutedThings,
+
+    -- ** CertificateStatus
+    CertificateStatus (..),
+
+    -- ** CloudwatchLogsAction
+    CloudwatchLogsAction (..),
+    mkCloudwatchLogsAction,
+    claRoleArn,
+    claLogGroupName,
+
+    -- ** PercentPair
+    PercentPair (..),
+    mkPercentPair,
+    ppPercent,
+    ppValue,
+
+    -- ** TableName
+    TableName (..),
+
+    -- ** DetailsValue
+    DetailsValue (..),
+
+    -- ** AssetPropertyTimestamp
+    AssetPropertyTimestamp (..),
+    mkAssetPropertyTimestamp,
+    aptTimeInSeconds,
+    aptOffsetInNanos,
+
+    -- ** Parameter
+    Parameter (..),
+
+    -- ** AuditNotificationTarget
+    AuditNotificationTarget (..),
+    mkAuditNotificationTarget,
+    antEnabled,
+    antRoleArn,
+    antTargetArn,
+
+    -- ** AuditFrequency
+    AuditFrequency (..),
+
+    -- ** TimestreamDimension
+    TimestreamDimension (..),
+    mkTimestreamDimension,
+    tdName,
+    tdValue,
+
+    -- ** StreamId
+    StreamId (..),
 
     -- ** ThingConnectivity
     ThingConnectivity (..),
@@ -1943,197 +2744,203 @@ module Network.AWS.IoT
     tcConnected,
     tcTimestamp,
 
-    -- ** ThingDocument
-    ThingDocument (..),
-    mkThingDocument,
-    tdThingGroupNames,
-    tdThingTypeName,
-    tdShadow,
-    tdAttributes,
-    tdConnectivity,
-    tdThingName,
-    tdThingId,
+    -- ** FileName
+    FileName (..),
 
-    -- ** ThingGroupDocument
-    ThingGroupDocument (..),
-    mkThingGroupDocument,
-    tgdParentGroupNames,
-    tgdThingGroupId,
-    tgdThingGroupName,
-    tgdAttributes,
-    tgdThingGroupDescription,
+    -- ** SecurityProfileTargetArn
+    SecurityProfileTargetArn (..),
 
-    -- ** ThingGroupIndexingConfiguration
-    ThingGroupIndexingConfiguration (..),
-    mkThingGroupIndexingConfiguration,
-    tgicManagedFields,
-    tgicCustomFields,
-    tgicThingGroupIndexingMode,
+    -- ** ThingTypeArn
+    ThingTypeArn (..),
 
-    -- ** ThingGroupMetadata
-    ThingGroupMetadata (..),
-    mkThingGroupMetadata,
-    tgmRootToParentThingGroups,
-    tgmParentGroupName,
-    tgmCreationDate,
+    -- ** BillingGroupId
+    BillingGroupId (..),
 
-    -- ** ThingGroupProperties
-    ThingGroupProperties (..),
-    mkThingGroupProperties,
-    tgpAttributePayload,
-    tgpThingGroupDescription,
-
-    -- ** ThingIndexingConfiguration
-    ThingIndexingConfiguration (..),
-    mkThingIndexingConfiguration,
-    ticThingIndexingMode,
-    ticManagedFields,
-    ticThingConnectivityIndexingMode,
-    ticCustomFields,
+    -- ** DayOfWeek
+    DayOfWeek (..),
 
     -- ** ThingTypeDefinition
     ThingTypeDefinition (..),
     mkThingTypeDefinition,
-    ttdThingTypeProperties,
-    ttdThingTypeName,
+    ttdThingTypeArn,
     ttdThingTypeMetadata,
-    ttdThingTypeARN,
+    ttdThingTypeName,
+    ttdThingTypeProperties,
 
-    -- ** ThingTypeMetadata
-    ThingTypeMetadata (..),
-    mkThingTypeMetadata,
-    ttmDeprecationDate,
-    ttmCreationDate,
-    ttmDeprecated,
+    -- ** JobExecutionStatus
+    JobExecutionStatus (..),
 
-    -- ** ThingTypeProperties
-    ThingTypeProperties (..),
-    mkThingTypeProperties,
-    ttpSearchableAttributes,
-    ttpThingTypeDescription,
+    -- ** TargetSelection
+    TargetSelection (..),
+
+    -- ** ThingId
+    ThingId (..),
+
+    -- ** BillingGroupMetadata
+    BillingGroupMetadata (..),
+    mkBillingGroupMetadata,
+    bgmCreationDate,
+
+    -- ** Target
+    Target (..),
 
     -- ** TimeoutConfig
     TimeoutConfig (..),
     mkTimeoutConfig,
     tcInProgressTimeoutInMinutes,
 
-    -- ** TimestreamAction
-    TimestreamAction (..),
-    mkTimestreamAction,
-    taDatabaseName,
-    taDimensions,
-    taTimestamp,
-    taTableName,
-    taRoleARN,
+    -- ** HttpActionHeader
+    HttpActionHeader (..),
+    mkHttpActionHeader,
+    hahKey,
+    hahValue,
 
-    -- ** TimestreamDimension
-    TimestreamDimension (..),
-    mkTimestreamDimension,
-    tdValue,
-    tdName,
-
-    -- ** TimestreamTimestamp
-    TimestreamTimestamp (..),
-    mkTimestreamTimestamp,
-    ttValue,
-    ttUnit,
-
-    -- ** TopicRule
-    TopicRule (..),
-    mkTopicRule,
-    trCreatedAt,
-    trActions,
-    trAwsIotSqlVersion,
-    trErrorAction,
-    trRuleDisabled,
-    trRuleName,
-    trSql,
-    trDescription,
-
-    -- ** TopicRuleDestination
-    TopicRuleDestination (..),
-    mkTopicRuleDestination,
-    trdStatus,
-    trdHttpURLProperties,
-    trdArn,
-    trdStatusReason,
-
-    -- ** TopicRuleDestinationConfiguration
-    TopicRuleDestinationConfiguration (..),
-    mkTopicRuleDestinationConfiguration,
-    trdcHttpURLConfiguration,
-
-    -- ** TopicRuleDestinationSummary
-    TopicRuleDestinationSummary (..),
-    mkTopicRuleDestinationSummary,
-    trdsStatus,
-    trdsHttpURLSummary,
-    trdsArn,
-    trdsStatusReason,
-
-    -- ** TopicRuleListItem
-    TopicRuleListItem (..),
-    mkTopicRuleListItem,
-    trliCreatedAt,
-    trliRuleDisabled,
-    trliRuleName,
-    trliRuleARN,
-    trliTopicPattern,
+    -- ** TopicPattern
+    TopicPattern (..),
 
     -- ** TopicRulePayload
     TopicRulePayload (..),
     mkTopicRulePayload,
+    trpSql,
     trpActions,
     trpAwsIotSqlVersion,
+    trpDescription,
     trpErrorAction,
     trpRuleDisabled,
-    trpSql,
-    trpDescription,
 
-    -- ** TransferData
-    TransferData (..),
-    mkTransferData,
-    tdTransferDate,
-    tdAcceptDate,
-    tdTransferMessage,
-    tdRejectDate,
-    tdRejectReason,
+    -- ** RoleArn
+    RoleArn (..),
 
-    -- ** UpdateCACertificateParams
-    UpdateCACertificateParams (..),
-    mkUpdateCACertificateParams,
-    ucacpAction,
+    -- ** IndexName
+    IndexName (..),
 
-    -- ** UpdateDeviceCertificateParams
-    UpdateDeviceCertificateParams (..),
-    mkUpdateDeviceCertificateParams,
-    udcpAction,
+    -- ** ScheduledAuditArn
+    ScheduledAuditArn (..),
 
-    -- ** ValidationError
-    ValidationError (..),
-    mkValidationError,
-    veErrorMessage,
+    -- ** OtaUpdateId
+    OtaUpdateId (..),
 
-    -- ** ViolationEvent
-    ViolationEvent (..),
-    mkViolationEvent,
-    veViolationEventType,
-    veViolationId,
-    veBehavior,
-    veMetricValue,
-    veSecurityProfileName,
-    veViolationEventTime,
-    veThingName,
+    -- ** Name
+    Name (..),
+
+    -- ** CheckName
+    CheckName (..),
+
+    -- ** Owner
+    Owner (..),
+
+    -- ** ProvisioningRoleArn
+    ProvisioningRoleArn (..),
+
+    -- ** RoleArnForLogging
+    RoleArnForLogging (..),
+
+    -- ** OtaUpdateArn
+    OtaUpdateArn (..),
+
+    -- ** ConfirmationUrl
+    ConfirmationUrl (..),
+
+    -- ** ActionArn
+    ActionArn (..),
+
+    -- ** ActionId
+    ActionId (..),
+
+    -- ** NextMarker
+    NextMarker (..),
+
+    -- ** TargetAwsAccount
+    TargetAwsAccount (..),
+
+    -- ** TransferMessage
+    TransferMessage (..),
+
+    -- ** VersionId
+    VersionId (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** ChannelArn
+    ChannelArn (..),
+
+    -- ** Document
+    Document (..),
+
+    -- ** DocumentSource
+    DocumentSource (..),
+
+    -- ** Tags
+    Tags (..),
+
+    -- ** Endpoint
+    Endpoint (..),
+
+    -- ** Index
+    Index (..),
+
+    -- ** Type
+    Type (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** DefaultVersionId
+    DefaultVersionId (..),
+
+    -- ** Operation
+    Operation (..),
+
+    -- ** DefaultAuthorizerName
+    DefaultAuthorizerName (..),
+
+    -- ** OwnedBy
+    OwnedBy (..),
+
+    -- ** PreviousOwnedBy
+    PreviousOwnedBy (..),
+
+    -- ** ParentGroupName
+    ParentGroupName (..),
+
+    -- ** PropertyId
+    PropertyId (..),
+
+    -- ** NamePrefixFilter
+    NamePrefixFilter (..),
+
+    -- ** Bucket
+    Bucket (..),
+
+    -- ** Unit
+    Unit (..),
+
+    -- ** Sql
+    Sql (..),
+
+    -- ** DatabaseName
+    DatabaseName (..),
+
+    -- ** BooleanValue
+    BooleanValue (..),
+
+    -- ** RejectReason
+    RejectReason (..),
+
+    -- ** AwsSignerJobId
+    AwsSignerJobId (..),
+
+    -- ** IamRoleArn
+    IamRoleArn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -2154,7 +2961,7 @@ import Network.AWS.IoT.ConfirmTopicRuleDestination
 import Network.AWS.IoT.CreateAuditSuppression
 import Network.AWS.IoT.CreateAuthorizer
 import Network.AWS.IoT.CreateBillingGroup
-import Network.AWS.IoT.CreateCertificateFromCSR
+import Network.AWS.IoT.CreateCertificateFromCsr
 import Network.AWS.IoT.CreateDimension
 import Network.AWS.IoT.CreateDomainConfiguration
 import Network.AWS.IoT.CreateDynamicThingGroup

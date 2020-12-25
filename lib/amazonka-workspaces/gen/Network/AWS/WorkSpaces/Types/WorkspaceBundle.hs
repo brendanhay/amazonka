@@ -17,152 +17,145 @@ module Network.AWS.WorkSpaces.Types.WorkspaceBundle
     mkWorkspaceBundle,
 
     -- * Lenses
-    wbLastUpdatedTime,
     wbBundleId,
+    wbComputeType,
+    wbDescription,
+    wbImageId,
+    wbLastUpdatedTime,
+    wbName,
     wbOwner,
     wbRootStorage,
-    wbName,
-    wbImageId,
-    wbComputeType,
     wbUserStorage,
-    wbDescription,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkSpaces.Types.ComputeType
-import Network.AWS.WorkSpaces.Types.RootStorage
-import Network.AWS.WorkSpaces.Types.UserStorage
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkSpaces.Types.BundleId as Types
+import qualified Network.AWS.WorkSpaces.Types.BundleOwner as Types
+import qualified Network.AWS.WorkSpaces.Types.ComputeType as Types
+import qualified Network.AWS.WorkSpaces.Types.Description as Types
+import qualified Network.AWS.WorkSpaces.Types.NonEmptyString as Types
+import qualified Network.AWS.WorkSpaces.Types.RootStorage as Types
+import qualified Network.AWS.WorkSpaces.Types.UserStorage as Types
+import qualified Network.AWS.WorkSpaces.Types.WorkspaceImageId as Types
 
 -- | Describes a WorkSpace bundle.
 --
 -- /See:/ 'mkWorkspaceBundle' smart constructor.
 data WorkspaceBundle = WorkspaceBundle'
-  { -- | The last time that the bundle was updated.
-    lastUpdatedTime :: Lude.Maybe Lude.Timestamp,
-    -- | The bundle identifier.
-    bundleId :: Lude.Maybe Lude.Text,
-    -- | The owner of the bundle. This is the account identifier of the owner, or @AMAZON@ if the bundle is provided by AWS.
-    owner :: Lude.Maybe Lude.Text,
-    -- | The size of the root volume.
-    rootStorage :: Lude.Maybe RootStorage,
-    -- | The name of the bundle.
-    name :: Lude.Maybe Lude.Text,
-    -- | The image identifier of the bundle.
-    imageId :: Lude.Maybe Lude.Text,
+  { -- | The bundle identifier.
+    bundleId :: Core.Maybe Types.BundleId,
     -- | The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
-    computeType :: Lude.Maybe ComputeType,
-    -- | The size of the user storage.
-    userStorage :: Lude.Maybe UserStorage,
+    computeType :: Core.Maybe Types.ComputeType,
     -- | A description.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | The image identifier of the bundle.
+    imageId :: Core.Maybe Types.WorkspaceImageId,
+    -- | The last time that the bundle was updated.
+    lastUpdatedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the bundle.
+    name :: Core.Maybe Types.NonEmptyString,
+    -- | The owner of the bundle. This is the account identifier of the owner, or @AMAZON@ if the bundle is provided by AWS.
+    owner :: Core.Maybe Types.BundleOwner,
+    -- | The size of the root volume.
+    rootStorage :: Core.Maybe Types.RootStorage,
+    -- | The size of the user storage.
+    userStorage :: Core.Maybe Types.UserStorage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'WorkspaceBundle' with the minimum fields required to make a request.
---
--- * 'lastUpdatedTime' - The last time that the bundle was updated.
--- * 'bundleId' - The bundle identifier.
--- * 'owner' - The owner of the bundle. This is the account identifier of the owner, or @AMAZON@ if the bundle is provided by AWS.
--- * 'rootStorage' - The size of the root volume.
--- * 'name' - The name of the bundle.
--- * 'imageId' - The image identifier of the bundle.
--- * 'computeType' - The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
--- * 'userStorage' - The size of the user storage.
--- * 'description' - A description.
+-- | Creates a 'WorkspaceBundle' value with any optional fields omitted.
 mkWorkspaceBundle ::
   WorkspaceBundle
 mkWorkspaceBundle =
   WorkspaceBundle'
-    { lastUpdatedTime = Lude.Nothing,
-      bundleId = Lude.Nothing,
-      owner = Lude.Nothing,
-      rootStorage = Lude.Nothing,
-      name = Lude.Nothing,
-      imageId = Lude.Nothing,
-      computeType = Lude.Nothing,
-      userStorage = Lude.Nothing,
-      description = Lude.Nothing
+    { bundleId = Core.Nothing,
+      computeType = Core.Nothing,
+      description = Core.Nothing,
+      imageId = Core.Nothing,
+      lastUpdatedTime = Core.Nothing,
+      name = Core.Nothing,
+      owner = Core.Nothing,
+      rootStorage = Core.Nothing,
+      userStorage = Core.Nothing
     }
-
--- | The last time that the bundle was updated.
---
--- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbLastUpdatedTime :: Lens.Lens' WorkspaceBundle (Lude.Maybe Lude.Timestamp)
-wbLastUpdatedTime = Lens.lens (lastUpdatedTime :: WorkspaceBundle -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedTime = a} :: WorkspaceBundle)
-{-# DEPRECATED wbLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
 
 -- | The bundle identifier.
 --
 -- /Note:/ Consider using 'bundleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbBundleId :: Lens.Lens' WorkspaceBundle (Lude.Maybe Lude.Text)
-wbBundleId = Lens.lens (bundleId :: WorkspaceBundle -> Lude.Maybe Lude.Text) (\s a -> s {bundleId = a} :: WorkspaceBundle)
+wbBundleId :: Lens.Lens' WorkspaceBundle (Core.Maybe Types.BundleId)
+wbBundleId = Lens.field @"bundleId"
 {-# DEPRECATED wbBundleId "Use generic-lens or generic-optics with 'bundleId' instead." #-}
+
+-- | The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
+--
+-- /Note:/ Consider using 'computeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wbComputeType :: Lens.Lens' WorkspaceBundle (Core.Maybe Types.ComputeType)
+wbComputeType = Lens.field @"computeType"
+{-# DEPRECATED wbComputeType "Use generic-lens or generic-optics with 'computeType' instead." #-}
+
+-- | A description.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wbDescription :: Lens.Lens' WorkspaceBundle (Core.Maybe Types.Description)
+wbDescription = Lens.field @"description"
+{-# DEPRECATED wbDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The image identifier of the bundle.
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wbImageId :: Lens.Lens' WorkspaceBundle (Core.Maybe Types.WorkspaceImageId)
+wbImageId = Lens.field @"imageId"
+{-# DEPRECATED wbImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
+-- | The last time that the bundle was updated.
+--
+-- /Note:/ Consider using 'lastUpdatedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wbLastUpdatedTime :: Lens.Lens' WorkspaceBundle (Core.Maybe Core.NominalDiffTime)
+wbLastUpdatedTime = Lens.field @"lastUpdatedTime"
+{-# DEPRECATED wbLastUpdatedTime "Use generic-lens or generic-optics with 'lastUpdatedTime' instead." #-}
+
+-- | The name of the bundle.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wbName :: Lens.Lens' WorkspaceBundle (Core.Maybe Types.NonEmptyString)
+wbName = Lens.field @"name"
+{-# DEPRECATED wbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The owner of the bundle. This is the account identifier of the owner, or @AMAZON@ if the bundle is provided by AWS.
 --
 -- /Note:/ Consider using 'owner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbOwner :: Lens.Lens' WorkspaceBundle (Lude.Maybe Lude.Text)
-wbOwner = Lens.lens (owner :: WorkspaceBundle -> Lude.Maybe Lude.Text) (\s a -> s {owner = a} :: WorkspaceBundle)
+wbOwner :: Lens.Lens' WorkspaceBundle (Core.Maybe Types.BundleOwner)
+wbOwner = Lens.field @"owner"
 {-# DEPRECATED wbOwner "Use generic-lens or generic-optics with 'owner' instead." #-}
 
 -- | The size of the root volume.
 --
 -- /Note:/ Consider using 'rootStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbRootStorage :: Lens.Lens' WorkspaceBundle (Lude.Maybe RootStorage)
-wbRootStorage = Lens.lens (rootStorage :: WorkspaceBundle -> Lude.Maybe RootStorage) (\s a -> s {rootStorage = a} :: WorkspaceBundle)
+wbRootStorage :: Lens.Lens' WorkspaceBundle (Core.Maybe Types.RootStorage)
+wbRootStorage = Lens.field @"rootStorage"
 {-# DEPRECATED wbRootStorage "Use generic-lens or generic-optics with 'rootStorage' instead." #-}
-
--- | The name of the bundle.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbName :: Lens.Lens' WorkspaceBundle (Lude.Maybe Lude.Text)
-wbName = Lens.lens (name :: WorkspaceBundle -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: WorkspaceBundle)
-{-# DEPRECATED wbName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The image identifier of the bundle.
---
--- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbImageId :: Lens.Lens' WorkspaceBundle (Lude.Maybe Lude.Text)
-wbImageId = Lens.lens (imageId :: WorkspaceBundle -> Lude.Maybe Lude.Text) (\s a -> s {imageId = a} :: WorkspaceBundle)
-{-# DEPRECATED wbImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
-
--- | The compute type. For more information, see <http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles Amazon WorkSpaces Bundles> .
---
--- /Note:/ Consider using 'computeType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbComputeType :: Lens.Lens' WorkspaceBundle (Lude.Maybe ComputeType)
-wbComputeType = Lens.lens (computeType :: WorkspaceBundle -> Lude.Maybe ComputeType) (\s a -> s {computeType = a} :: WorkspaceBundle)
-{-# DEPRECATED wbComputeType "Use generic-lens or generic-optics with 'computeType' instead." #-}
 
 -- | The size of the user storage.
 --
 -- /Note:/ Consider using 'userStorage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbUserStorage :: Lens.Lens' WorkspaceBundle (Lude.Maybe UserStorage)
-wbUserStorage = Lens.lens (userStorage :: WorkspaceBundle -> Lude.Maybe UserStorage) (\s a -> s {userStorage = a} :: WorkspaceBundle)
+wbUserStorage :: Lens.Lens' WorkspaceBundle (Core.Maybe Types.UserStorage)
+wbUserStorage = Lens.field @"userStorage"
 {-# DEPRECATED wbUserStorage "Use generic-lens or generic-optics with 'userStorage' instead." #-}
 
--- | A description.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wbDescription :: Lens.Lens' WorkspaceBundle (Lude.Maybe Lude.Text)
-wbDescription = Lens.lens (description :: WorkspaceBundle -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: WorkspaceBundle)
-{-# DEPRECATED wbDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.FromJSON WorkspaceBundle where
+instance Core.FromJSON WorkspaceBundle where
   parseJSON =
-    Lude.withObject
-      "WorkspaceBundle"
-      ( \x ->
-          WorkspaceBundle'
-            Lude.<$> (x Lude..:? "LastUpdatedTime")
-            Lude.<*> (x Lude..:? "BundleId")
-            Lude.<*> (x Lude..:? "Owner")
-            Lude.<*> (x Lude..:? "RootStorage")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "ImageId")
-            Lude.<*> (x Lude..:? "ComputeType")
-            Lude.<*> (x Lude..:? "UserStorage")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "WorkspaceBundle" Core.$
+      \x ->
+        WorkspaceBundle'
+          Core.<$> (x Core..:? "BundleId")
+          Core.<*> (x Core..:? "ComputeType")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "ImageId")
+          Core.<*> (x Core..:? "LastUpdatedTime")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Owner")
+          Core.<*> (x Core..:? "RootStorage")
+          Core.<*> (x Core..:? "UserStorage")

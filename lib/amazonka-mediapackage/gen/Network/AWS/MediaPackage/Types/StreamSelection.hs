@@ -17,82 +17,76 @@ module Network.AWS.MediaPackage.Types.StreamSelection
     mkStreamSelection,
 
     -- * Lenses
-    ssStreamOrder,
-    ssMinVideoBitsPerSecond,
     ssMaxVideoBitsPerSecond,
+    ssMinVideoBitsPerSecond,
+    ssStreamOrder,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.StreamOrder
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaPackage.Types.StreamOrder as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | A StreamSelection configuration.
 --
 -- /See:/ 'mkStreamSelection' smart constructor.
 data StreamSelection = StreamSelection'
-  { -- | A directive that determines the order of streams in the output.
-    streamOrder :: Lude.Maybe StreamOrder,
+  { -- | The maximum video bitrate (bps) to include in output.
+    maxVideoBitsPerSecond :: Core.Maybe Core.Int,
     -- | The minimum video bitrate (bps) to include in output.
-    minVideoBitsPerSecond :: Lude.Maybe Lude.Int,
-    -- | The maximum video bitrate (bps) to include in output.
-    maxVideoBitsPerSecond :: Lude.Maybe Lude.Int
+    minVideoBitsPerSecond :: Core.Maybe Core.Int,
+    -- | A directive that determines the order of streams in the output.
+    streamOrder :: Core.Maybe Types.StreamOrder
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StreamSelection' with the minimum fields required to make a request.
---
--- * 'streamOrder' - A directive that determines the order of streams in the output.
--- * 'minVideoBitsPerSecond' - The minimum video bitrate (bps) to include in output.
--- * 'maxVideoBitsPerSecond' - The maximum video bitrate (bps) to include in output.
+-- | Creates a 'StreamSelection' value with any optional fields omitted.
 mkStreamSelection ::
   StreamSelection
 mkStreamSelection =
   StreamSelection'
-    { streamOrder = Lude.Nothing,
-      minVideoBitsPerSecond = Lude.Nothing,
-      maxVideoBitsPerSecond = Lude.Nothing
+    { maxVideoBitsPerSecond = Core.Nothing,
+      minVideoBitsPerSecond = Core.Nothing,
+      streamOrder = Core.Nothing
     }
-
--- | A directive that determines the order of streams in the output.
---
--- /Note:/ Consider using 'streamOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssStreamOrder :: Lens.Lens' StreamSelection (Lude.Maybe StreamOrder)
-ssStreamOrder = Lens.lens (streamOrder :: StreamSelection -> Lude.Maybe StreamOrder) (\s a -> s {streamOrder = a} :: StreamSelection)
-{-# DEPRECATED ssStreamOrder "Use generic-lens or generic-optics with 'streamOrder' instead." #-}
-
--- | The minimum video bitrate (bps) to include in output.
---
--- /Note:/ Consider using 'minVideoBitsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssMinVideoBitsPerSecond :: Lens.Lens' StreamSelection (Lude.Maybe Lude.Int)
-ssMinVideoBitsPerSecond = Lens.lens (minVideoBitsPerSecond :: StreamSelection -> Lude.Maybe Lude.Int) (\s a -> s {minVideoBitsPerSecond = a} :: StreamSelection)
-{-# DEPRECATED ssMinVideoBitsPerSecond "Use generic-lens or generic-optics with 'minVideoBitsPerSecond' instead." #-}
 
 -- | The maximum video bitrate (bps) to include in output.
 --
 -- /Note:/ Consider using 'maxVideoBitsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssMaxVideoBitsPerSecond :: Lens.Lens' StreamSelection (Lude.Maybe Lude.Int)
-ssMaxVideoBitsPerSecond = Lens.lens (maxVideoBitsPerSecond :: StreamSelection -> Lude.Maybe Lude.Int) (\s a -> s {maxVideoBitsPerSecond = a} :: StreamSelection)
+ssMaxVideoBitsPerSecond :: Lens.Lens' StreamSelection (Core.Maybe Core.Int)
+ssMaxVideoBitsPerSecond = Lens.field @"maxVideoBitsPerSecond"
 {-# DEPRECATED ssMaxVideoBitsPerSecond "Use generic-lens or generic-optics with 'maxVideoBitsPerSecond' instead." #-}
 
-instance Lude.FromJSON StreamSelection where
-  parseJSON =
-    Lude.withObject
-      "StreamSelection"
-      ( \x ->
-          StreamSelection'
-            Lude.<$> (x Lude..:? "streamOrder")
-            Lude.<*> (x Lude..:? "minVideoBitsPerSecond")
-            Lude.<*> (x Lude..:? "maxVideoBitsPerSecond")
-      )
+-- | The minimum video bitrate (bps) to include in output.
+--
+-- /Note:/ Consider using 'minVideoBitsPerSecond' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssMinVideoBitsPerSecond :: Lens.Lens' StreamSelection (Core.Maybe Core.Int)
+ssMinVideoBitsPerSecond = Lens.field @"minVideoBitsPerSecond"
+{-# DEPRECATED ssMinVideoBitsPerSecond "Use generic-lens or generic-optics with 'minVideoBitsPerSecond' instead." #-}
 
-instance Lude.ToJSON StreamSelection where
-  toJSON StreamSelection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("streamOrder" Lude..=) Lude.<$> streamOrder,
-            ("minVideoBitsPerSecond" Lude..=) Lude.<$> minVideoBitsPerSecond,
-            ("maxVideoBitsPerSecond" Lude..=) Lude.<$> maxVideoBitsPerSecond
+-- | A directive that determines the order of streams in the output.
+--
+-- /Note:/ Consider using 'streamOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssStreamOrder :: Lens.Lens' StreamSelection (Core.Maybe Types.StreamOrder)
+ssStreamOrder = Lens.field @"streamOrder"
+{-# DEPRECATED ssStreamOrder "Use generic-lens or generic-optics with 'streamOrder' instead." #-}
+
+instance Core.FromJSON StreamSelection where
+  toJSON StreamSelection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("maxVideoBitsPerSecond" Core..=) Core.<$> maxVideoBitsPerSecond,
+            ("minVideoBitsPerSecond" Core..=) Core.<$> minVideoBitsPerSecond,
+            ("streamOrder" Core..=) Core.<$> streamOrder
           ]
       )
+
+instance Core.FromJSON StreamSelection where
+  parseJSON =
+    Core.withObject "StreamSelection" Core.$
+      \x ->
+        StreamSelection'
+          Core.<$> (x Core..:? "maxVideoBitsPerSecond")
+          Core.<*> (x Core..:? "minVideoBitsPerSecond")
+          Core.<*> (x Core..:? "streamOrder")

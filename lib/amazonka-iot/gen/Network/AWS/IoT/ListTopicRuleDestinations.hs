@@ -22,143 +22,138 @@ module Network.AWS.IoT.ListTopicRuleDestinations
     mkListTopicRuleDestinations,
 
     -- ** Request lenses
-    ltrdNextToken,
     ltrdMaxResults,
+    ltrdNextToken,
 
     -- * Destructuring the response
     ListTopicRuleDestinationsResponse (..),
     mkListTopicRuleDestinationsResponse,
 
     -- ** Response lenses
-    ltrdrsDestinationSummaries,
-    ltrdrsNextToken,
-    ltrdrsResponseStatus,
+    ltrdrrsDestinationSummaries,
+    ltrdrrsNextToken,
+    ltrdrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTopicRuleDestinations' smart constructor.
 data ListTopicRuleDestinations = ListTopicRuleDestinations'
-  { -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of results to return at one time.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTopicRuleDestinations' with the minimum fields required to make a request.
---
--- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
--- * 'maxResults' - The maximum number of results to return at one time.
+-- | Creates a 'ListTopicRuleDestinations' value with any optional fields omitted.
 mkListTopicRuleDestinations ::
   ListTopicRuleDestinations
 mkListTopicRuleDestinations =
   ListTopicRuleDestinations'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrdNextToken :: Lens.Lens' ListTopicRuleDestinations (Lude.Maybe Lude.Text)
-ltrdNextToken = Lens.lens (nextToken :: ListTopicRuleDestinations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTopicRuleDestinations)
-{-# DEPRECATED ltrdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of results to return at one time.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrdMaxResults :: Lens.Lens' ListTopicRuleDestinations (Lude.Maybe Lude.Natural)
-ltrdMaxResults = Lens.lens (maxResults :: ListTopicRuleDestinations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListTopicRuleDestinations)
+ltrdMaxResults :: Lens.Lens' ListTopicRuleDestinations (Core.Maybe Core.Natural)
+ltrdMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ltrdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListTopicRuleDestinations where
-  page rq rs
-    | Page.stop (rs Lens.^. ltrdrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ltrdrsDestinationSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ltrdNextToken Lens..~ rs Lens.^. ltrdrsNextToken
+-- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrdNextToken :: Lens.Lens' ListTopicRuleDestinations (Core.Maybe Types.NextToken)
+ltrdNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltrdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListTopicRuleDestinations where
+instance Core.AWSRequest ListTopicRuleDestinations where
   type
     Rs ListTopicRuleDestinations =
       ListTopicRuleDestinationsResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/destinations",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTopicRuleDestinationsResponse'
-            Lude.<$> (x Lude..?> "destinationSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "destinationSummaries")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListTopicRuleDestinations where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListTopicRuleDestinations where
-  toPath = Lude.const "/destinations"
-
-instance Lude.ToQuery ListTopicRuleDestinations where
-  toQuery ListTopicRuleDestinations' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListTopicRuleDestinations where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"destinationSummaries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListTopicRuleDestinationsResponse' smart constructor.
 data ListTopicRuleDestinationsResponse = ListTopicRuleDestinationsResponse'
   { -- | Information about a topic rule destination.
-    destinationSummaries :: Lude.Maybe [TopicRuleDestinationSummary],
+    destinationSummaries :: Core.Maybe [Types.TopicRuleDestinationSummary],
     -- | The token to use to get the next set of results, or __null__ if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTopicRuleDestinationsResponse' with the minimum fields required to make a request.
---
--- * 'destinationSummaries' - Information about a topic rule destination.
--- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTopicRuleDestinationsResponse' value with any optional fields omitted.
 mkListTopicRuleDestinationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTopicRuleDestinationsResponse
-mkListTopicRuleDestinationsResponse pResponseStatus_ =
+mkListTopicRuleDestinationsResponse responseStatus =
   ListTopicRuleDestinationsResponse'
     { destinationSummaries =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about a topic rule destination.
 --
 -- /Note:/ Consider using 'destinationSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrdrsDestinationSummaries :: Lens.Lens' ListTopicRuleDestinationsResponse (Lude.Maybe [TopicRuleDestinationSummary])
-ltrdrsDestinationSummaries = Lens.lens (destinationSummaries :: ListTopicRuleDestinationsResponse -> Lude.Maybe [TopicRuleDestinationSummary]) (\s a -> s {destinationSummaries = a} :: ListTopicRuleDestinationsResponse)
-{-# DEPRECATED ltrdrsDestinationSummaries "Use generic-lens or generic-optics with 'destinationSummaries' instead." #-}
+ltrdrrsDestinationSummaries :: Lens.Lens' ListTopicRuleDestinationsResponse (Core.Maybe [Types.TopicRuleDestinationSummary])
+ltrdrrsDestinationSummaries = Lens.field @"destinationSummaries"
+{-# DEPRECATED ltrdrrsDestinationSummaries "Use generic-lens or generic-optics with 'destinationSummaries' instead." #-}
 
 -- | The token to use to get the next set of results, or __null__ if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrdrsNextToken :: Lens.Lens' ListTopicRuleDestinationsResponse (Lude.Maybe Lude.Text)
-ltrdrsNextToken = Lens.lens (nextToken :: ListTopicRuleDestinationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListTopicRuleDestinationsResponse)
-{-# DEPRECATED ltrdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltrdrrsNextToken :: Lens.Lens' ListTopicRuleDestinationsResponse (Core.Maybe Types.NextToken)
+ltrdrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltrdrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrdrsResponseStatus :: Lens.Lens' ListTopicRuleDestinationsResponse Lude.Int
-ltrdrsResponseStatus = Lens.lens (responseStatus :: ListTopicRuleDestinationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTopicRuleDestinationsResponse)
-{-# DEPRECATED ltrdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltrdrrsResponseStatus :: Lens.Lens' ListTopicRuleDestinationsResponse Core.Int
+ltrdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltrdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

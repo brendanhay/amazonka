@@ -27,242 +27,227 @@ module Network.AWS.IoT.DescribeThingRegistrationTask
     mkDescribeThingRegistrationTaskResponse,
 
     -- ** Response lenses
-    dtrtrsStatus,
-    dtrtrsLastModifiedDate,
-    dtrtrsInputFileKey,
-    dtrtrsTaskId,
-    dtrtrsCreationDate,
-    dtrtrsPercentageProgress,
-    dtrtrsTemplateBody,
-    dtrtrsSuccessCount,
-    dtrtrsMessage,
-    dtrtrsFailureCount,
-    dtrtrsInputFileBucket,
-    dtrtrsRoleARN,
-    dtrtrsResponseStatus,
+    dtrtrrsCreationDate,
+    dtrtrrsFailureCount,
+    dtrtrrsInputFileBucket,
+    dtrtrrsInputFileKey,
+    dtrtrrsLastModifiedDate,
+    dtrtrrsMessage,
+    dtrtrrsPercentageProgress,
+    dtrtrrsRoleArn,
+    dtrtrrsStatus,
+    dtrtrrsSuccessCount,
+    dtrtrrsTaskId,
+    dtrtrrsTemplateBody,
+    dtrtrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeThingRegistrationTask' smart constructor.
 newtype DescribeThingRegistrationTask = DescribeThingRegistrationTask'
   { -- | The task ID.
-    taskId :: Lude.Text
+    taskId :: Types.TaskId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeThingRegistrationTask' with the minimum fields required to make a request.
---
--- * 'taskId' - The task ID.
+-- | Creates a 'DescribeThingRegistrationTask' value with any optional fields omitted.
 mkDescribeThingRegistrationTask ::
   -- | 'taskId'
-  Lude.Text ->
+  Types.TaskId ->
   DescribeThingRegistrationTask
-mkDescribeThingRegistrationTask pTaskId_ =
-  DescribeThingRegistrationTask' {taskId = pTaskId_}
+mkDescribeThingRegistrationTask taskId =
+  DescribeThingRegistrationTask' {taskId}
 
 -- | The task ID.
 --
 -- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtTaskId :: Lens.Lens' DescribeThingRegistrationTask Lude.Text
-dtrtTaskId = Lens.lens (taskId :: DescribeThingRegistrationTask -> Lude.Text) (\s a -> s {taskId = a} :: DescribeThingRegistrationTask)
+dtrtTaskId :: Lens.Lens' DescribeThingRegistrationTask Types.TaskId
+dtrtTaskId = Lens.field @"taskId"
 {-# DEPRECATED dtrtTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
-instance Lude.AWSRequest DescribeThingRegistrationTask where
+instance Core.AWSRequest DescribeThingRegistrationTask where
   type
     Rs DescribeThingRegistrationTask =
       DescribeThingRegistrationTaskResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/thing-registration-tasks/" Core.<> (Core.toText taskId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeThingRegistrationTaskResponse'
-            Lude.<$> (x Lude..?> "status")
-            Lude.<*> (x Lude..?> "lastModifiedDate")
-            Lude.<*> (x Lude..?> "inputFileKey")
-            Lude.<*> (x Lude..?> "taskId")
-            Lude.<*> (x Lude..?> "creationDate")
-            Lude.<*> (x Lude..?> "percentageProgress")
-            Lude.<*> (x Lude..?> "templateBody")
-            Lude.<*> (x Lude..?> "successCount")
-            Lude.<*> (x Lude..?> "message")
-            Lude.<*> (x Lude..?> "failureCount")
-            Lude.<*> (x Lude..?> "inputFileBucket")
-            Lude.<*> (x Lude..?> "roleArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "creationDate")
+            Core.<*> (x Core..:? "failureCount")
+            Core.<*> (x Core..:? "inputFileBucket")
+            Core.<*> (x Core..:? "inputFileKey")
+            Core.<*> (x Core..:? "lastModifiedDate")
+            Core.<*> (x Core..:? "message")
+            Core.<*> (x Core..:? "percentageProgress")
+            Core.<*> (x Core..:? "roleArn")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (x Core..:? "successCount")
+            Core.<*> (x Core..:? "taskId")
+            Core.<*> (x Core..:? "templateBody")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeThingRegistrationTask where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeThingRegistrationTask where
-  toPath DescribeThingRegistrationTask' {..} =
-    Lude.mconcat ["/thing-registration-tasks/", Lude.toBS taskId]
-
-instance Lude.ToQuery DescribeThingRegistrationTask where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeThingRegistrationTaskResponse' smart constructor.
 data DescribeThingRegistrationTaskResponse = DescribeThingRegistrationTaskResponse'
-  { -- | The status of the bulk thing provisioning task.
-    status :: Lude.Maybe TaskStatus,
-    -- | The date when the task was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | The input file key.
-    inputFileKey :: Lude.Maybe Lude.Text,
-    -- | The task ID.
-    taskId :: Lude.Maybe Lude.Text,
-    -- | The task creation date.
-    creationDate :: Lude.Maybe Lude.Timestamp,
-    -- | The progress of the bulk provisioning task expressed as a percentage.
-    percentageProgress :: Lude.Maybe Lude.Natural,
-    -- | The task's template.
-    templateBody :: Lude.Maybe Lude.Text,
-    -- | The number of things successfully provisioned.
-    successCount :: Lude.Maybe Lude.Int,
-    -- | The message.
-    message :: Lude.Maybe Lude.Text,
+  { -- | The task creation date.
+    creationDate :: Core.Maybe Core.NominalDiffTime,
     -- | The number of things that failed to be provisioned.
-    failureCount :: Lude.Maybe Lude.Int,
+    failureCount :: Core.Maybe Core.Int,
     -- | The S3 bucket that contains the input file.
-    inputFileBucket :: Lude.Maybe Lude.Text,
+    inputFileBucket :: Core.Maybe Types.RegistryS3BucketName,
+    -- | The input file key.
+    inputFileKey :: Core.Maybe Types.RegistryS3KeyName,
+    -- | The date when the task was last modified.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The message.
+    message :: Core.Maybe Types.ErrorMessage,
+    -- | The progress of the bulk provisioning task expressed as a percentage.
+    percentageProgress :: Core.Maybe Core.Natural,
     -- | The role ARN that grants access to the input file bucket.
-    roleARN :: Lude.Maybe Lude.Text,
+    roleArn :: Core.Maybe Types.RoleArn,
+    -- | The status of the bulk thing provisioning task.
+    status :: Core.Maybe Types.TaskStatus,
+    -- | The number of things successfully provisioned.
+    successCount :: Core.Maybe Core.Int,
+    -- | The task ID.
+    taskId :: Core.Maybe Types.TaskId,
+    -- | The task's template.
+    templateBody :: Core.Maybe Types.TemplateBody,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeThingRegistrationTaskResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the bulk thing provisioning task.
--- * 'lastModifiedDate' - The date when the task was last modified.
--- * 'inputFileKey' - The input file key.
--- * 'taskId' - The task ID.
--- * 'creationDate' - The task creation date.
--- * 'percentageProgress' - The progress of the bulk provisioning task expressed as a percentage.
--- * 'templateBody' - The task's template.
--- * 'successCount' - The number of things successfully provisioned.
--- * 'message' - The message.
--- * 'failureCount' - The number of things that failed to be provisioned.
--- * 'inputFileBucket' - The S3 bucket that contains the input file.
--- * 'roleARN' - The role ARN that grants access to the input file bucket.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeThingRegistrationTaskResponse' value with any optional fields omitted.
 mkDescribeThingRegistrationTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeThingRegistrationTaskResponse
-mkDescribeThingRegistrationTaskResponse pResponseStatus_ =
+mkDescribeThingRegistrationTaskResponse responseStatus =
   DescribeThingRegistrationTaskResponse'
-    { status = Lude.Nothing,
-      lastModifiedDate = Lude.Nothing,
-      inputFileKey = Lude.Nothing,
-      taskId = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      percentageProgress = Lude.Nothing,
-      templateBody = Lude.Nothing,
-      successCount = Lude.Nothing,
-      message = Lude.Nothing,
-      failureCount = Lude.Nothing,
-      inputFileBucket = Lude.Nothing,
-      roleARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { creationDate =
+        Core.Nothing,
+      failureCount = Core.Nothing,
+      inputFileBucket = Core.Nothing,
+      inputFileKey = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      message = Core.Nothing,
+      percentageProgress = Core.Nothing,
+      roleArn = Core.Nothing,
+      status = Core.Nothing,
+      successCount = Core.Nothing,
+      taskId = Core.Nothing,
+      templateBody = Core.Nothing,
+      responseStatus
     }
-
--- | The status of the bulk thing provisioning task.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsStatus :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe TaskStatus)
-dtrtrsStatus = Lens.lens (status :: DescribeThingRegistrationTaskResponse -> Lude.Maybe TaskStatus) (\s a -> s {status = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The date when the task was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsLastModifiedDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe Lude.Timestamp)
-dtrtrsLastModifiedDate = Lens.lens (lastModifiedDate :: DescribeThingRegistrationTaskResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The input file key.
---
--- /Note:/ Consider using 'inputFileKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsInputFileKey :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe Lude.Text)
-dtrtrsInputFileKey = Lens.lens (inputFileKey :: DescribeThingRegistrationTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {inputFileKey = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsInputFileKey "Use generic-lens or generic-optics with 'inputFileKey' instead." #-}
-
--- | The task ID.
---
--- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsTaskId :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe Lude.Text)
-dtrtrsTaskId = Lens.lens (taskId :: DescribeThingRegistrationTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {taskId = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
 
 -- | The task creation date.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsCreationDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe Lude.Timestamp)
-dtrtrsCreationDate = Lens.lens (creationDate :: DescribeThingRegistrationTaskResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
-
--- | The progress of the bulk provisioning task expressed as a percentage.
---
--- /Note:/ Consider using 'percentageProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsPercentageProgress :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe Lude.Natural)
-dtrtrsPercentageProgress = Lens.lens (percentageProgress :: DescribeThingRegistrationTaskResponse -> Lude.Maybe Lude.Natural) (\s a -> s {percentageProgress = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsPercentageProgress "Use generic-lens or generic-optics with 'percentageProgress' instead." #-}
-
--- | The task's template.
---
--- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsTemplateBody :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe Lude.Text)
-dtrtrsTemplateBody = Lens.lens (templateBody :: DescribeThingRegistrationTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
-
--- | The number of things successfully provisioned.
---
--- /Note:/ Consider using 'successCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsSuccessCount :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe Lude.Int)
-dtrtrsSuccessCount = Lens.lens (successCount :: DescribeThingRegistrationTaskResponse -> Lude.Maybe Lude.Int) (\s a -> s {successCount = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsSuccessCount "Use generic-lens or generic-optics with 'successCount' instead." #-}
-
--- | The message.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsMessage :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe Lude.Text)
-dtrtrsMessage = Lens.lens (message :: DescribeThingRegistrationTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+dtrtrrsCreationDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Core.NominalDiffTime)
+dtrtrrsCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED dtrtrrsCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
 
 -- | The number of things that failed to be provisioned.
 --
 -- /Note:/ Consider using 'failureCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsFailureCount :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe Lude.Int)
-dtrtrsFailureCount = Lens.lens (failureCount :: DescribeThingRegistrationTaskResponse -> Lude.Maybe Lude.Int) (\s a -> s {failureCount = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsFailureCount "Use generic-lens or generic-optics with 'failureCount' instead." #-}
+dtrtrrsFailureCount :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Core.Int)
+dtrtrrsFailureCount = Lens.field @"failureCount"
+{-# DEPRECATED dtrtrrsFailureCount "Use generic-lens or generic-optics with 'failureCount' instead." #-}
 
 -- | The S3 bucket that contains the input file.
 --
 -- /Note:/ Consider using 'inputFileBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsInputFileBucket :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe Lude.Text)
-dtrtrsInputFileBucket = Lens.lens (inputFileBucket :: DescribeThingRegistrationTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {inputFileBucket = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsInputFileBucket "Use generic-lens or generic-optics with 'inputFileBucket' instead." #-}
+dtrtrrsInputFileBucket :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Types.RegistryS3BucketName)
+dtrtrrsInputFileBucket = Lens.field @"inputFileBucket"
+{-# DEPRECATED dtrtrrsInputFileBucket "Use generic-lens or generic-optics with 'inputFileBucket' instead." #-}
+
+-- | The input file key.
+--
+-- /Note:/ Consider using 'inputFileKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrtrrsInputFileKey :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Types.RegistryS3KeyName)
+dtrtrrsInputFileKey = Lens.field @"inputFileKey"
+{-# DEPRECATED dtrtrrsInputFileKey "Use generic-lens or generic-optics with 'inputFileKey' instead." #-}
+
+-- | The date when the task was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrtrrsLastModifiedDate :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Core.NominalDiffTime)
+dtrtrrsLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED dtrtrrsLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The message.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrtrrsMessage :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Types.ErrorMessage)
+dtrtrrsMessage = Lens.field @"message"
+{-# DEPRECATED dtrtrrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | The progress of the bulk provisioning task expressed as a percentage.
+--
+-- /Note:/ Consider using 'percentageProgress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrtrrsPercentageProgress :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Core.Natural)
+dtrtrrsPercentageProgress = Lens.field @"percentageProgress"
+{-# DEPRECATED dtrtrrsPercentageProgress "Use generic-lens or generic-optics with 'percentageProgress' instead." #-}
 
 -- | The role ARN that grants access to the input file bucket.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsRoleARN :: Lens.Lens' DescribeThingRegistrationTaskResponse (Lude.Maybe Lude.Text)
-dtrtrsRoleARN = Lens.lens (roleARN :: DescribeThingRegistrationTaskResponse -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrtrrsRoleArn :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Types.RoleArn)
+dtrtrrsRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED dtrtrrsRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+
+-- | The status of the bulk thing provisioning task.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrtrrsStatus :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Types.TaskStatus)
+dtrtrrsStatus = Lens.field @"status"
+{-# DEPRECATED dtrtrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The number of things successfully provisioned.
+--
+-- /Note:/ Consider using 'successCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrtrrsSuccessCount :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Core.Int)
+dtrtrrsSuccessCount = Lens.field @"successCount"
+{-# DEPRECATED dtrtrrsSuccessCount "Use generic-lens or generic-optics with 'successCount' instead." #-}
+
+-- | The task ID.
+--
+-- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrtrrsTaskId :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Types.TaskId)
+dtrtrrsTaskId = Lens.field @"taskId"
+{-# DEPRECATED dtrtrrsTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
+
+-- | The task's template.
+--
+-- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtrtrrsTemplateBody :: Lens.Lens' DescribeThingRegistrationTaskResponse (Core.Maybe Types.TemplateBody)
+dtrtrrsTemplateBody = Lens.field @"templateBody"
+{-# DEPRECATED dtrtrrsTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtrtrsResponseStatus :: Lens.Lens' DescribeThingRegistrationTaskResponse Lude.Int
-dtrtrsResponseStatus = Lens.lens (responseStatus :: DescribeThingRegistrationTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeThingRegistrationTaskResponse)
-{-# DEPRECATED dtrtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtrtrrsResponseStatus :: Lens.Lens' DescribeThingRegistrationTaskResponse Core.Int
+dtrtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtrtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

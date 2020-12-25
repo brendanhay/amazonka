@@ -17,121 +17,118 @@ module Network.AWS.EC2.Types.LocalGatewayRoute
     mkLocalGatewayRoute,
 
     -- * Lenses
-    lgrState,
-    lgrLocalGatewayRouteTableARN,
-    lgrOwnerId,
-    lgrLocalGatewayRouteTableId,
-    lgrType,
-    lgrLocalGatewayVirtualInterfaceGroupId,
     lgrDestinationCidrBlock,
+    lgrLocalGatewayRouteTableArn,
+    lgrLocalGatewayRouteTableId,
+    lgrLocalGatewayVirtualInterfaceGroupId,
+    lgrOwnerId,
+    lgrState,
+    lgrType,
   )
 where
 
-import Network.AWS.EC2.Types.LocalGatewayRouteState
-import Network.AWS.EC2.Types.LocalGatewayRouteType
+import qualified Network.AWS.EC2.Types.DestinationCidrBlock as Types
+import qualified Network.AWS.EC2.Types.LocalGatewayRouteState as Types
+import qualified Network.AWS.EC2.Types.LocalGatewayRouteTableArn as Types
+import qualified Network.AWS.EC2.Types.LocalGatewayRouteTableId as Types
+import qualified Network.AWS.EC2.Types.LocalGatewayRouteType as Types
+import qualified Network.AWS.EC2.Types.LocalGatewayVirtualInterfaceGroupId as Types
+import qualified Network.AWS.EC2.Types.OwnerId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a route for a local gateway route table.
 --
 -- /See:/ 'mkLocalGatewayRoute' smart constructor.
 data LocalGatewayRoute = LocalGatewayRoute'
-  { -- | The state of the route.
-    state :: Lude.Maybe LocalGatewayRouteState,
+  { -- | The CIDR block used for destination matches.
+    destinationCidrBlock :: Core.Maybe Types.DestinationCidrBlock,
     -- | The Amazon Resource Name (ARN) of the local gateway route table.
-    localGatewayRouteTableARN :: Lude.Maybe Lude.Text,
-    -- | The AWS account ID that owns the local gateway route.
-    ownerId :: Lude.Maybe Lude.Text,
+    localGatewayRouteTableArn :: Core.Maybe Types.LocalGatewayRouteTableArn,
     -- | The ID of the local gateway route table.
-    localGatewayRouteTableId :: Lude.Maybe Lude.Text,
-    -- | The route type.
-    type' :: Lude.Maybe LocalGatewayRouteType,
+    localGatewayRouteTableId :: Core.Maybe Types.LocalGatewayRouteTableId,
     -- | The ID of the virtual interface group.
-    localGatewayVirtualInterfaceGroupId :: Lude.Maybe Lude.Text,
-    -- | The CIDR block used for destination matches.
-    destinationCidrBlock :: Lude.Maybe Lude.Text
+    localGatewayVirtualInterfaceGroupId :: Core.Maybe Types.LocalGatewayVirtualInterfaceGroupId,
+    -- | The AWS account ID that owns the local gateway route.
+    ownerId :: Core.Maybe Types.OwnerId,
+    -- | The state of the route.
+    state :: Core.Maybe Types.LocalGatewayRouteState,
+    -- | The route type.
+    type' :: Core.Maybe Types.LocalGatewayRouteType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LocalGatewayRoute' with the minimum fields required to make a request.
---
--- * 'state' - The state of the route.
--- * 'localGatewayRouteTableARN' - The Amazon Resource Name (ARN) of the local gateway route table.
--- * 'ownerId' - The AWS account ID that owns the local gateway route.
--- * 'localGatewayRouteTableId' - The ID of the local gateway route table.
--- * 'type'' - The route type.
--- * 'localGatewayVirtualInterfaceGroupId' - The ID of the virtual interface group.
--- * 'destinationCidrBlock' - The CIDR block used for destination matches.
+-- | Creates a 'LocalGatewayRoute' value with any optional fields omitted.
 mkLocalGatewayRoute ::
   LocalGatewayRoute
 mkLocalGatewayRoute =
   LocalGatewayRoute'
-    { state = Lude.Nothing,
-      localGatewayRouteTableARN = Lude.Nothing,
-      ownerId = Lude.Nothing,
-      localGatewayRouteTableId = Lude.Nothing,
-      type' = Lude.Nothing,
-      localGatewayVirtualInterfaceGroupId = Lude.Nothing,
-      destinationCidrBlock = Lude.Nothing
+    { destinationCidrBlock = Core.Nothing,
+      localGatewayRouteTableArn = Core.Nothing,
+      localGatewayRouteTableId = Core.Nothing,
+      localGatewayVirtualInterfaceGroupId = Core.Nothing,
+      ownerId = Core.Nothing,
+      state = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The state of the route.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrState :: Lens.Lens' LocalGatewayRoute (Lude.Maybe LocalGatewayRouteState)
-lgrState = Lens.lens (state :: LocalGatewayRoute -> Lude.Maybe LocalGatewayRouteState) (\s a -> s {state = a} :: LocalGatewayRoute)
-{-# DEPRECATED lgrState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the local gateway route table.
---
--- /Note:/ Consider using 'localGatewayRouteTableARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrLocalGatewayRouteTableARN :: Lens.Lens' LocalGatewayRoute (Lude.Maybe Lude.Text)
-lgrLocalGatewayRouteTableARN = Lens.lens (localGatewayRouteTableARN :: LocalGatewayRoute -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayRouteTableARN = a} :: LocalGatewayRoute)
-{-# DEPRECATED lgrLocalGatewayRouteTableARN "Use generic-lens or generic-optics with 'localGatewayRouteTableARN' instead." #-}
-
--- | The AWS account ID that owns the local gateway route.
---
--- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrOwnerId :: Lens.Lens' LocalGatewayRoute (Lude.Maybe Lude.Text)
-lgrOwnerId = Lens.lens (ownerId :: LocalGatewayRoute -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: LocalGatewayRoute)
-{-# DEPRECATED lgrOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
-
--- | The ID of the local gateway route table.
---
--- /Note:/ Consider using 'localGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrLocalGatewayRouteTableId :: Lens.Lens' LocalGatewayRoute (Lude.Maybe Lude.Text)
-lgrLocalGatewayRouteTableId = Lens.lens (localGatewayRouteTableId :: LocalGatewayRoute -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayRouteTableId = a} :: LocalGatewayRoute)
-{-# DEPRECATED lgrLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
-
--- | The route type.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrType :: Lens.Lens' LocalGatewayRoute (Lude.Maybe LocalGatewayRouteType)
-lgrType = Lens.lens (type' :: LocalGatewayRoute -> Lude.Maybe LocalGatewayRouteType) (\s a -> s {type' = a} :: LocalGatewayRoute)
-{-# DEPRECATED lgrType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The ID of the virtual interface group.
---
--- /Note:/ Consider using 'localGatewayVirtualInterfaceGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrLocalGatewayVirtualInterfaceGroupId :: Lens.Lens' LocalGatewayRoute (Lude.Maybe Lude.Text)
-lgrLocalGatewayVirtualInterfaceGroupId = Lens.lens (localGatewayVirtualInterfaceGroupId :: LocalGatewayRoute -> Lude.Maybe Lude.Text) (\s a -> s {localGatewayVirtualInterfaceGroupId = a} :: LocalGatewayRoute)
-{-# DEPRECATED lgrLocalGatewayVirtualInterfaceGroupId "Use generic-lens or generic-optics with 'localGatewayVirtualInterfaceGroupId' instead." #-}
 
 -- | The CIDR block used for destination matches.
 --
 -- /Note:/ Consider using 'destinationCidrBlock' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lgrDestinationCidrBlock :: Lens.Lens' LocalGatewayRoute (Lude.Maybe Lude.Text)
-lgrDestinationCidrBlock = Lens.lens (destinationCidrBlock :: LocalGatewayRoute -> Lude.Maybe Lude.Text) (\s a -> s {destinationCidrBlock = a} :: LocalGatewayRoute)
+lgrDestinationCidrBlock :: Lens.Lens' LocalGatewayRoute (Core.Maybe Types.DestinationCidrBlock)
+lgrDestinationCidrBlock = Lens.field @"destinationCidrBlock"
 {-# DEPRECATED lgrDestinationCidrBlock "Use generic-lens or generic-optics with 'destinationCidrBlock' instead." #-}
 
-instance Lude.FromXML LocalGatewayRoute where
+-- | The Amazon Resource Name (ARN) of the local gateway route table.
+--
+-- /Note:/ Consider using 'localGatewayRouteTableArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrLocalGatewayRouteTableArn :: Lens.Lens' LocalGatewayRoute (Core.Maybe Types.LocalGatewayRouteTableArn)
+lgrLocalGatewayRouteTableArn = Lens.field @"localGatewayRouteTableArn"
+{-# DEPRECATED lgrLocalGatewayRouteTableArn "Use generic-lens or generic-optics with 'localGatewayRouteTableArn' instead." #-}
+
+-- | The ID of the local gateway route table.
+--
+-- /Note:/ Consider using 'localGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrLocalGatewayRouteTableId :: Lens.Lens' LocalGatewayRoute (Core.Maybe Types.LocalGatewayRouteTableId)
+lgrLocalGatewayRouteTableId = Lens.field @"localGatewayRouteTableId"
+{-# DEPRECATED lgrLocalGatewayRouteTableId "Use generic-lens or generic-optics with 'localGatewayRouteTableId' instead." #-}
+
+-- | The ID of the virtual interface group.
+--
+-- /Note:/ Consider using 'localGatewayVirtualInterfaceGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrLocalGatewayVirtualInterfaceGroupId :: Lens.Lens' LocalGatewayRoute (Core.Maybe Types.LocalGatewayVirtualInterfaceGroupId)
+lgrLocalGatewayVirtualInterfaceGroupId = Lens.field @"localGatewayVirtualInterfaceGroupId"
+{-# DEPRECATED lgrLocalGatewayVirtualInterfaceGroupId "Use generic-lens or generic-optics with 'localGatewayVirtualInterfaceGroupId' instead." #-}
+
+-- | The AWS account ID that owns the local gateway route.
+--
+-- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrOwnerId :: Lens.Lens' LocalGatewayRoute (Core.Maybe Types.OwnerId)
+lgrOwnerId = Lens.field @"ownerId"
+{-# DEPRECATED lgrOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+
+-- | The state of the route.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrState :: Lens.Lens' LocalGatewayRoute (Core.Maybe Types.LocalGatewayRouteState)
+lgrState = Lens.field @"state"
+{-# DEPRECATED lgrState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The route type.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lgrType :: Lens.Lens' LocalGatewayRoute (Core.Maybe Types.LocalGatewayRouteType)
+lgrType = Lens.field @"type'"
+{-# DEPRECATED lgrType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.FromXML LocalGatewayRoute where
   parseXML x =
     LocalGatewayRoute'
-      Lude.<$> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "localGatewayRouteTableArn")
-      Lude.<*> (x Lude..@? "ownerId")
-      Lude.<*> (x Lude..@? "localGatewayRouteTableId")
-      Lude.<*> (x Lude..@? "type")
-      Lude.<*> (x Lude..@? "localGatewayVirtualInterfaceGroupId")
-      Lude.<*> (x Lude..@? "destinationCidrBlock")
+      Core.<$> (x Core..@? "destinationCidrBlock")
+      Core.<*> (x Core..@? "localGatewayRouteTableArn")
+      Core.<*> (x Core..@? "localGatewayRouteTableId")
+      Core.<*> (x Core..@? "localGatewayVirtualInterfaceGroupId")
+      Core.<*> (x Core..@? "ownerId")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "type")

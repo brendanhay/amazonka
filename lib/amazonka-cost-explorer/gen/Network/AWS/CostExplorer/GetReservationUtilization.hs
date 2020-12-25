@@ -20,42 +20,34 @@ module Network.AWS.CostExplorer.GetReservationUtilization
     mkGetReservationUtilization,
 
     -- ** Request lenses
+    gruTimePeriod,
+    gruFilter,
+    gruGranularity,
     gruGroupBy,
     gruNextPageToken,
-    gruTimePeriod,
-    gruGranularity,
-    gruFilter,
 
     -- * Destructuring the response
     GetReservationUtilizationResponse (..),
     mkGetReservationUtilizationResponse,
 
     -- ** Response lenses
-    grursNextPageToken,
-    grursUtilizationsByTime,
-    grursTotal,
-    grursResponseStatus,
+    grurrsUtilizationsByTime,
+    grurrsNextPageToken,
+    grurrsTotal,
+    grurrsResponseStatus,
   )
 where
 
-import Network.AWS.CostExplorer.Types
+import qualified Network.AWS.CostExplorer.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetReservationUtilization' smart constructor.
 data GetReservationUtilization = GetReservationUtilization'
-  { -- | Groups only by @SUBSCRIPTION_ID@ . Metadata is included.
-    groupBy :: Lude.Maybe [GroupDefinition],
-    -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | Sets the start and end dates for retrieving RI utilization. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
-    timePeriod :: DateInterval,
-    -- | If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ . If both @GroupBy@ and @Granularity@ aren't set, @GetReservationUtilization@ defaults to @DAILY@ .
-    --
-    -- The @GetReservationUtilization@ operation supports only @DAILY@ and @MONTHLY@ granularities.
-    granularity :: Lude.Maybe Granularity,
+  { -- | Sets the start and end dates for retrieving RI utilization. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
+    timePeriod :: Types.DateInterval,
     -- | Filters utilization data by dimensions. You can filter by the following dimensions:
     --
     --
@@ -93,98 +85,39 @@ data GetReservationUtilization = GetReservationUtilization'
     --
     --
     -- @GetReservationUtilization@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension, and nesting is supported up to only one level deep. If there are multiple values for a dimension, they are OR'd together.
-    filter :: Lude.Maybe Expression
+    filter :: Core.Maybe Types.Expression,
+    -- | If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ . If both @GroupBy@ and @Granularity@ aren't set, @GetReservationUtilization@ defaults to @DAILY@ .
+    --
+    -- The @GetReservationUtilization@ operation supports only @DAILY@ and @MONTHLY@ granularities.
+    granularity :: Core.Maybe Types.Granularity,
+    -- | Groups only by @SUBSCRIPTION_ID@ . Metadata is included.
+    groupBy :: Core.Maybe [Types.GroupDefinition],
+    -- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+    nextPageToken :: Core.Maybe Types.NextPageToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetReservationUtilization' with the minimum fields required to make a request.
---
--- * 'groupBy' - Groups only by @SUBSCRIPTION_ID@ . Metadata is included.
--- * 'nextPageToken' - The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
--- * 'timePeriod' - Sets the start and end dates for retrieving RI utilization. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
--- * 'granularity' - If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ . If both @GroupBy@ and @Granularity@ aren't set, @GetReservationUtilization@ defaults to @DAILY@ .
---
--- The @GetReservationUtilization@ operation supports only @DAILY@ and @MONTHLY@ granularities.
--- * 'filter' - Filters utilization data by dimensions. You can filter by the following dimensions:
---
---
---     * AZ
---
---
---     * CACHE_ENGINE
---
---
---     * DEPLOYMENT_OPTION
---
---
---     * INSTANCE_TYPE
---
---
---     * LINKED_ACCOUNT
---
---
---     * OPERATING_SYSTEM
---
---
---     * PLATFORM
---
---
---     * REGION
---
---
---     * SERVICE
---
---
---     * SCOPE
---
---
---     * TENANCY
---
---
--- @GetReservationUtilization@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension, and nesting is supported up to only one level deep. If there are multiple values for a dimension, they are OR'd together.
+-- | Creates a 'GetReservationUtilization' value with any optional fields omitted.
 mkGetReservationUtilization ::
   -- | 'timePeriod'
-  DateInterval ->
+  Types.DateInterval ->
   GetReservationUtilization
-mkGetReservationUtilization pTimePeriod_ =
+mkGetReservationUtilization timePeriod =
   GetReservationUtilization'
-    { groupBy = Lude.Nothing,
-      nextPageToken = Lude.Nothing,
-      timePeriod = pTimePeriod_,
-      granularity = Lude.Nothing,
-      filter = Lude.Nothing
+    { timePeriod,
+      filter = Core.Nothing,
+      granularity = Core.Nothing,
+      groupBy = Core.Nothing,
+      nextPageToken = Core.Nothing
     }
-
--- | Groups only by @SUBSCRIPTION_ID@ . Metadata is included.
---
--- /Note:/ Consider using 'groupBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gruGroupBy :: Lens.Lens' GetReservationUtilization (Lude.Maybe [GroupDefinition])
-gruGroupBy = Lens.lens (groupBy :: GetReservationUtilization -> Lude.Maybe [GroupDefinition]) (\s a -> s {groupBy = a} :: GetReservationUtilization)
-{-# DEPRECATED gruGroupBy "Use generic-lens or generic-optics with 'groupBy' instead." #-}
-
--- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gruNextPageToken :: Lens.Lens' GetReservationUtilization (Lude.Maybe Lude.Text)
-gruNextPageToken = Lens.lens (nextPageToken :: GetReservationUtilization -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetReservationUtilization)
-{-# DEPRECATED gruNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Sets the start and end dates for retrieving RI utilization. The start date is inclusive, but the end date is exclusive. For example, if @start@ is @2017-01-01@ and @end@ is @2017-05-01@ , then the cost and usage data is retrieved from @2017-01-01@ up to and including @2017-04-30@ but not including @2017-05-01@ .
 --
 -- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gruTimePeriod :: Lens.Lens' GetReservationUtilization DateInterval
-gruTimePeriod = Lens.lens (timePeriod :: GetReservationUtilization -> DateInterval) (\s a -> s {timePeriod = a} :: GetReservationUtilization)
+gruTimePeriod :: Lens.Lens' GetReservationUtilization Types.DateInterval
+gruTimePeriod = Lens.field @"timePeriod"
 {-# DEPRECATED gruTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
-
--- | If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ . If both @GroupBy@ and @Granularity@ aren't set, @GetReservationUtilization@ defaults to @DAILY@ .
---
--- The @GetReservationUtilization@ operation supports only @DAILY@ and @MONTHLY@ granularities.
---
--- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gruGranularity :: Lens.Lens' GetReservationUtilization (Lude.Maybe Granularity)
-gruGranularity = Lens.lens (granularity :: GetReservationUtilization -> Lude.Maybe Granularity) (\s a -> s {granularity = a} :: GetReservationUtilization)
-{-# DEPRECATED gruGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
 
 -- | Filters utilization data by dimensions. You can filter by the following dimensions:
 --
@@ -225,112 +158,125 @@ gruGranularity = Lens.lens (granularity :: GetReservationUtilization -> Lude.May
 -- @GetReservationUtilization@ uses the same <https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html Expression> object as the other operations, but only @AND@ is supported among each dimension, and nesting is supported up to only one level deep. If there are multiple values for a dimension, they are OR'd together.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gruFilter :: Lens.Lens' GetReservationUtilization (Lude.Maybe Expression)
-gruFilter = Lens.lens (filter :: GetReservationUtilization -> Lude.Maybe Expression) (\s a -> s {filter = a} :: GetReservationUtilization)
+gruFilter :: Lens.Lens' GetReservationUtilization (Core.Maybe Types.Expression)
+gruFilter = Lens.field @"filter"
 {-# DEPRECATED gruFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
-instance Lude.AWSRequest GetReservationUtilization where
+-- | If @GroupBy@ is set, @Granularity@ can't be set. If @Granularity@ isn't set, the response object doesn't include @Granularity@ , either @MONTHLY@ or @DAILY@ . If both @GroupBy@ and @Granularity@ aren't set, @GetReservationUtilization@ defaults to @DAILY@ .
+--
+-- The @GetReservationUtilization@ operation supports only @DAILY@ and @MONTHLY@ granularities.
+--
+-- /Note:/ Consider using 'granularity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gruGranularity :: Lens.Lens' GetReservationUtilization (Core.Maybe Types.Granularity)
+gruGranularity = Lens.field @"granularity"
+{-# DEPRECATED gruGranularity "Use generic-lens or generic-optics with 'granularity' instead." #-}
+
+-- | Groups only by @SUBSCRIPTION_ID@ . Metadata is included.
+--
+-- /Note:/ Consider using 'groupBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gruGroupBy :: Lens.Lens' GetReservationUtilization (Core.Maybe [Types.GroupDefinition])
+gruGroupBy = Lens.field @"groupBy"
+{-# DEPRECATED gruGroupBy "Use generic-lens or generic-optics with 'groupBy' instead." #-}
+
+-- | The token to retrieve the next set of results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gruNextPageToken :: Lens.Lens' GetReservationUtilization (Core.Maybe Types.NextPageToken)
+gruNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED gruNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+
+instance Core.FromJSON GetReservationUtilization where
+  toJSON GetReservationUtilization {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TimePeriod" Core..= timePeriod),
+            ("Filter" Core..=) Core.<$> filter,
+            ("Granularity" Core..=) Core.<$> granularity,
+            ("GroupBy" Core..=) Core.<$> groupBy,
+            ("NextPageToken" Core..=) Core.<$> nextPageToken
+          ]
+      )
+
+instance Core.AWSRequest GetReservationUtilization where
   type
     Rs GetReservationUtilization =
       GetReservationUtilizationResponse
-  request = Req.postJSON costExplorerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSInsightsIndexService.GetReservationUtilization"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetReservationUtilizationResponse'
-            Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "UtilizationsByTime" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Total")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "UtilizationsByTime" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextPageToken")
+            Core.<*> (x Core..:? "Total")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetReservationUtilization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSInsightsIndexService.GetReservationUtilization" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetReservationUtilization where
-  toJSON GetReservationUtilization' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("GroupBy" Lude..=) Lude.<$> groupBy,
-            ("NextPageToken" Lude..=) Lude.<$> nextPageToken,
-            Lude.Just ("TimePeriod" Lude..= timePeriod),
-            ("Granularity" Lude..=) Lude.<$> granularity,
-            ("Filter" Lude..=) Lude.<$> filter
-          ]
-      )
-
-instance Lude.ToPath GetReservationUtilization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetReservationUtilization where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetReservationUtilizationResponse' smart constructor.
 data GetReservationUtilizationResponse = GetReservationUtilizationResponse'
-  { -- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
-    nextPageToken :: Lude.Maybe Lude.Text,
-    -- | The amount of time that you used your RIs.
-    utilizationsByTime :: [UtilizationByTime],
+  { -- | The amount of time that you used your RIs.
+    utilizationsByTime :: [Types.UtilizationByTime],
+    -- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | The total amount of time that you used your RIs.
-    total :: Lude.Maybe ReservationAggregates,
+    total :: Core.Maybe Types.ReservationAggregates,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetReservationUtilizationResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
--- * 'utilizationsByTime' - The amount of time that you used your RIs.
--- * 'total' - The total amount of time that you used your RIs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetReservationUtilizationResponse' value with any optional fields omitted.
 mkGetReservationUtilizationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetReservationUtilizationResponse
-mkGetReservationUtilizationResponse pResponseStatus_ =
+mkGetReservationUtilizationResponse responseStatus =
   GetReservationUtilizationResponse'
-    { nextPageToken = Lude.Nothing,
-      utilizationsByTime = Lude.mempty,
-      total = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { utilizationsByTime =
+        Core.mempty,
+      nextPageToken = Core.Nothing,
+      total = Core.Nothing,
+      responseStatus
     }
-
--- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
---
--- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grursNextPageToken :: Lens.Lens' GetReservationUtilizationResponse (Lude.Maybe Lude.Text)
-grursNextPageToken = Lens.lens (nextPageToken :: GetReservationUtilizationResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: GetReservationUtilizationResponse)
-{-# DEPRECATED grursNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The amount of time that you used your RIs.
 --
 -- /Note:/ Consider using 'utilizationsByTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grursUtilizationsByTime :: Lens.Lens' GetReservationUtilizationResponse [UtilizationByTime]
-grursUtilizationsByTime = Lens.lens (utilizationsByTime :: GetReservationUtilizationResponse -> [UtilizationByTime]) (\s a -> s {utilizationsByTime = a} :: GetReservationUtilizationResponse)
-{-# DEPRECATED grursUtilizationsByTime "Use generic-lens or generic-optics with 'utilizationsByTime' instead." #-}
+grurrsUtilizationsByTime :: Lens.Lens' GetReservationUtilizationResponse [Types.UtilizationByTime]
+grurrsUtilizationsByTime = Lens.field @"utilizationsByTime"
+{-# DEPRECATED grurrsUtilizationsByTime "Use generic-lens or generic-optics with 'utilizationsByTime' instead." #-}
+
+-- | The token for the next set of retrievable results. AWS provides the token when the response from a previous call has more results than the maximum page size.
+--
+-- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+grurrsNextPageToken :: Lens.Lens' GetReservationUtilizationResponse (Core.Maybe Types.NextPageToken)
+grurrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED grurrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The total amount of time that you used your RIs.
 --
 -- /Note:/ Consider using 'total' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grursTotal :: Lens.Lens' GetReservationUtilizationResponse (Lude.Maybe ReservationAggregates)
-grursTotal = Lens.lens (total :: GetReservationUtilizationResponse -> Lude.Maybe ReservationAggregates) (\s a -> s {total = a} :: GetReservationUtilizationResponse)
-{-# DEPRECATED grursTotal "Use generic-lens or generic-optics with 'total' instead." #-}
+grurrsTotal :: Lens.Lens' GetReservationUtilizationResponse (Core.Maybe Types.ReservationAggregates)
+grurrsTotal = Lens.field @"total"
+{-# DEPRECATED grurrsTotal "Use generic-lens or generic-optics with 'total' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grursResponseStatus :: Lens.Lens' GetReservationUtilizationResponse Lude.Int
-grursResponseStatus = Lens.lens (responseStatus :: GetReservationUtilizationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetReservationUtilizationResponse)
-{-# DEPRECATED grursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grurrsResponseStatus :: Lens.Lens' GetReservationUtilizationResponse Core.Int
+grurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

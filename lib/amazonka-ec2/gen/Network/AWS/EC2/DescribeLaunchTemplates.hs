@@ -22,34 +22,36 @@ module Network.AWS.EC2.DescribeLaunchTemplates
     mkDescribeLaunchTemplates,
 
     -- ** Request lenses
-    dltFilters,
-    dltNextToken,
-    dltLaunchTemplateIds,
-    dltDryRun,
-    dltMaxResults,
-    dltLaunchTemplateNames,
+    dltsDryRun,
+    dltsFilters,
+    dltsLaunchTemplateIds,
+    dltsLaunchTemplateNames,
+    dltsMaxResults,
+    dltsNextToken,
 
     -- * Destructuring the response
     DescribeLaunchTemplatesResponse (..),
     mkDescribeLaunchTemplatesResponse,
 
     -- ** Response lenses
-    dltsrsLaunchTemplates,
-    dltsrsNextToken,
-    dltsrsResponseStatus,
+    dltrfrsLaunchTemplates,
+    dltrfrsNextToken,
+    dltrfrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLaunchTemplates' smart constructor.
 data DescribeLaunchTemplates = DescribeLaunchTemplates'
-  { -- | One or more filters.
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | One or more filters.
     --
     --
     --     * @create-time@ - The time the launch template was created.
@@ -62,54 +64,38 @@ data DescribeLaunchTemplates = DescribeLaunchTemplates'
     --
     --
     --     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
-    filters :: Lude.Maybe [Filter],
-    -- | The token to request the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe [Types.Filter],
     -- | One or more launch template IDs.
-    launchTemplateIds :: Lude.Maybe [Lude.Text],
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
-    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
-    maxResults :: Lude.Maybe Lude.Natural,
+    launchTemplateIds :: Core.Maybe [Types.LaunchTemplateId],
     -- | One or more launch template names.
-    launchTemplateNames :: Lude.Maybe [Lude.Text]
+    launchTemplateNames :: Core.Maybe [Types.LaunchTemplateName],
+    -- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token to request the next page of results.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLaunchTemplates' with the minimum fields required to make a request.
---
--- * 'filters' - One or more filters.
---
---
---     * @create-time@ - The time the launch template was created.
---
---
---     * @launch-template-name@ - The name of the launch template.
---
---
---     * @tag@ :<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key @Owner@ and the value @TeamA@ , specify @tag:Owner@ for the filter name and @TeamA@ for the filter value.
---
---
---     * @tag-key@ - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.
---
---
--- * 'nextToken' - The token to request the next page of results.
--- * 'launchTemplateIds' - One or more launch template IDs.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
--- * 'launchTemplateNames' - One or more launch template names.
+-- | Creates a 'DescribeLaunchTemplates' value with any optional fields omitted.
 mkDescribeLaunchTemplates ::
   DescribeLaunchTemplates
 mkDescribeLaunchTemplates =
   DescribeLaunchTemplates'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      launchTemplateIds = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      launchTemplateNames = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      launchTemplateIds = Core.Nothing,
+      launchTemplateNames = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltsDryRun :: Lens.Lens' DescribeLaunchTemplates (Core.Maybe Core.Bool)
+dltsDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dltsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters.
 --
@@ -128,136 +114,127 @@ mkDescribeLaunchTemplates =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltFilters :: Lens.Lens' DescribeLaunchTemplates (Lude.Maybe [Filter])
-dltFilters = Lens.lens (filters :: DescribeLaunchTemplates -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeLaunchTemplates)
-{-# DEPRECATED dltFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token to request the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltNextToken :: Lens.Lens' DescribeLaunchTemplates (Lude.Maybe Lude.Text)
-dltNextToken = Lens.lens (nextToken :: DescribeLaunchTemplates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLaunchTemplates)
-{-# DEPRECATED dltNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dltsFilters :: Lens.Lens' DescribeLaunchTemplates (Core.Maybe [Types.Filter])
+dltsFilters = Lens.field @"filters"
+{-# DEPRECATED dltsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | One or more launch template IDs.
 --
 -- /Note:/ Consider using 'launchTemplateIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltLaunchTemplateIds :: Lens.Lens' DescribeLaunchTemplates (Lude.Maybe [Lude.Text])
-dltLaunchTemplateIds = Lens.lens (launchTemplateIds :: DescribeLaunchTemplates -> Lude.Maybe [Lude.Text]) (\s a -> s {launchTemplateIds = a} :: DescribeLaunchTemplates)
-{-# DEPRECATED dltLaunchTemplateIds "Use generic-lens or generic-optics with 'launchTemplateIds' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltDryRun :: Lens.Lens' DescribeLaunchTemplates (Lude.Maybe Lude.Bool)
-dltDryRun = Lens.lens (dryRun :: DescribeLaunchTemplates -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeLaunchTemplates)
-{-# DEPRECATED dltDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
--- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltMaxResults :: Lens.Lens' DescribeLaunchTemplates (Lude.Maybe Lude.Natural)
-dltMaxResults = Lens.lens (maxResults :: DescribeLaunchTemplates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeLaunchTemplates)
-{-# DEPRECATED dltMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+dltsLaunchTemplateIds :: Lens.Lens' DescribeLaunchTemplates (Core.Maybe [Types.LaunchTemplateId])
+dltsLaunchTemplateIds = Lens.field @"launchTemplateIds"
+{-# DEPRECATED dltsLaunchTemplateIds "Use generic-lens or generic-optics with 'launchTemplateIds' instead." #-}
 
 -- | One or more launch template names.
 --
 -- /Note:/ Consider using 'launchTemplateNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltLaunchTemplateNames :: Lens.Lens' DescribeLaunchTemplates (Lude.Maybe [Lude.Text])
-dltLaunchTemplateNames = Lens.lens (launchTemplateNames :: DescribeLaunchTemplates -> Lude.Maybe [Lude.Text]) (\s a -> s {launchTemplateNames = a} :: DescribeLaunchTemplates)
-{-# DEPRECATED dltLaunchTemplateNames "Use generic-lens or generic-optics with 'launchTemplateNames' instead." #-}
+dltsLaunchTemplateNames :: Lens.Lens' DescribeLaunchTemplates (Core.Maybe [Types.LaunchTemplateName])
+dltsLaunchTemplateNames = Lens.field @"launchTemplateNames"
+{-# DEPRECATED dltsLaunchTemplateNames "Use generic-lens or generic-optics with 'launchTemplateNames' instead." #-}
 
-instance Page.AWSPager DescribeLaunchTemplates where
-  page rq rs
-    | Page.stop (rs Lens.^. dltsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dltsrsLaunchTemplates) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dltNextToken Lens..~ rs Lens.^. dltsrsNextToken
+-- | The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned @NextToken@ value. This value can be between 1 and 200.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltsMaxResults :: Lens.Lens' DescribeLaunchTemplates (Core.Maybe Core.Natural)
+dltsMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED dltsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest DescribeLaunchTemplates where
+-- | The token to request the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltsNextToken :: Lens.Lens' DescribeLaunchTemplates (Core.Maybe Types.String)
+dltsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dltsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.AWSRequest DescribeLaunchTemplates where
   type Rs DescribeLaunchTemplates = DescribeLaunchTemplatesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeLaunchTemplates")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryList "LaunchTemplateId" Core.<$> launchTemplateIds)
+                Core.<> ( Core.toQueryList "LaunchTemplateName"
+                            Core.<$> launchTemplateNames
+                        )
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeLaunchTemplatesResponse'
-            Lude.<$> ( x Lude..@? "launchTemplates" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (x Lude..@? "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "launchTemplates" Core..<@> Core.parseXMLList "item")
+            Core.<*> (x Core..@? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeLaunchTemplates where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeLaunchTemplates where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLaunchTemplates where
-  toQuery DescribeLaunchTemplates' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeLaunchTemplates" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        Lude.toQuery
-          (Lude.toQueryList "LaunchTemplateId" Lude.<$> launchTemplateIds),
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults,
-        Lude.toQuery
-          ( Lude.toQueryList "LaunchTemplateName"
-              Lude.<$> launchTemplateNames
-          )
-      ]
+instance Pager.AWSPager DescribeLaunchTemplates where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"launchTemplates" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeLaunchTemplatesResponse' smart constructor.
 data DescribeLaunchTemplatesResponse = DescribeLaunchTemplatesResponse'
   { -- | Information about the launch templates.
-    launchTemplates :: Lude.Maybe [LaunchTemplate],
+    launchTemplates :: Core.Maybe [Types.LaunchTemplate],
     -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeLaunchTemplatesResponse' with the minimum fields required to make a request.
---
--- * 'launchTemplates' - Information about the launch templates.
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLaunchTemplatesResponse' value with any optional fields omitted.
 mkDescribeLaunchTemplatesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLaunchTemplatesResponse
-mkDescribeLaunchTemplatesResponse pResponseStatus_ =
+mkDescribeLaunchTemplatesResponse responseStatus =
   DescribeLaunchTemplatesResponse'
-    { launchTemplates = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { launchTemplates = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the launch templates.
 --
 -- /Note:/ Consider using 'launchTemplates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltsrsLaunchTemplates :: Lens.Lens' DescribeLaunchTemplatesResponse (Lude.Maybe [LaunchTemplate])
-dltsrsLaunchTemplates = Lens.lens (launchTemplates :: DescribeLaunchTemplatesResponse -> Lude.Maybe [LaunchTemplate]) (\s a -> s {launchTemplates = a} :: DescribeLaunchTemplatesResponse)
-{-# DEPRECATED dltsrsLaunchTemplates "Use generic-lens or generic-optics with 'launchTemplates' instead." #-}
+dltrfrsLaunchTemplates :: Lens.Lens' DescribeLaunchTemplatesResponse (Core.Maybe [Types.LaunchTemplate])
+dltrfrsLaunchTemplates = Lens.field @"launchTemplates"
+{-# DEPRECATED dltrfrsLaunchTemplates "Use generic-lens or generic-optics with 'launchTemplates' instead." #-}
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltsrsNextToken :: Lens.Lens' DescribeLaunchTemplatesResponse (Lude.Maybe Lude.Text)
-dltsrsNextToken = Lens.lens (nextToken :: DescribeLaunchTemplatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLaunchTemplatesResponse)
-{-# DEPRECATED dltsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dltrfrsNextToken :: Lens.Lens' DescribeLaunchTemplatesResponse (Core.Maybe Types.String)
+dltrfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dltrfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltsrsResponseStatus :: Lens.Lens' DescribeLaunchTemplatesResponse Lude.Int
-dltsrsResponseStatus = Lens.lens (responseStatus :: DescribeLaunchTemplatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLaunchTemplatesResponse)
-{-# DEPRECATED dltsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dltrfrsResponseStatus :: Lens.Lens' DescribeLaunchTemplatesResponse Core.Int
+dltrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dltrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

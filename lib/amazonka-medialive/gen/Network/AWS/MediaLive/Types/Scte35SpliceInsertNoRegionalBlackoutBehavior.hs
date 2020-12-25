@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Scte35SpliceInsertNoRegionalBlackoutBehavior
   ( Scte35SpliceInsertNoRegionalBlackoutBehavior
       ( Scte35SpliceInsertNoRegionalBlackoutBehavior',
-        SSINRBBFollow,
-        SSINRBBIgnore
+        Scte35SpliceInsertNoRegionalBlackoutBehaviorFollow,
+        Scte35SpliceInsertNoRegionalBlackoutBehaviorIgnore,
+        fromScte35SpliceInsertNoRegionalBlackoutBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Scte35 Splice Insert No Regional Blackout Behavior
-newtype Scte35SpliceInsertNoRegionalBlackoutBehavior = Scte35SpliceInsertNoRegionalBlackoutBehavior' Lude.Text
+newtype Scte35SpliceInsertNoRegionalBlackoutBehavior = Scte35SpliceInsertNoRegionalBlackoutBehavior'
+  { fromScte35SpliceInsertNoRegionalBlackoutBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSINRBBFollow :: Scte35SpliceInsertNoRegionalBlackoutBehavior
-pattern SSINRBBFollow = Scte35SpliceInsertNoRegionalBlackoutBehavior' "FOLLOW"
+pattern Scte35SpliceInsertNoRegionalBlackoutBehaviorFollow :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+pattern Scte35SpliceInsertNoRegionalBlackoutBehaviorFollow = Scte35SpliceInsertNoRegionalBlackoutBehavior' "FOLLOW"
 
-pattern SSINRBBIgnore :: Scte35SpliceInsertNoRegionalBlackoutBehavior
-pattern SSINRBBIgnore = Scte35SpliceInsertNoRegionalBlackoutBehavior' "IGNORE"
+pattern Scte35SpliceInsertNoRegionalBlackoutBehaviorIgnore :: Scte35SpliceInsertNoRegionalBlackoutBehavior
+pattern Scte35SpliceInsertNoRegionalBlackoutBehaviorIgnore = Scte35SpliceInsertNoRegionalBlackoutBehavior' "IGNORE"
 
 {-# COMPLETE
-  SSINRBBFollow,
-  SSINRBBIgnore,
+  Scte35SpliceInsertNoRegionalBlackoutBehaviorFollow,
+  Scte35SpliceInsertNoRegionalBlackoutBehaviorIgnore,
   Scte35SpliceInsertNoRegionalBlackoutBehavior'
   #-}

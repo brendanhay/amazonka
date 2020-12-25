@@ -27,108 +27,95 @@ module Network.AWS.SSM.TerminateSession
     mkTerminateSessionResponse,
 
     -- ** Response lenses
-    tsrsSessionId,
-    tsrsResponseStatus,
+    tsrrsSessionId,
+    tsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkTerminateSession' smart constructor.
 newtype TerminateSession = TerminateSession'
   { -- | The ID of the session to terminate.
-    sessionId :: Lude.Text
+    sessionId :: Types.SessionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateSession' with the minimum fields required to make a request.
---
--- * 'sessionId' - The ID of the session to terminate.
+-- | Creates a 'TerminateSession' value with any optional fields omitted.
 mkTerminateSession ::
   -- | 'sessionId'
-  Lude.Text ->
+  Types.SessionId ->
   TerminateSession
-mkTerminateSession pSessionId_ =
-  TerminateSession' {sessionId = pSessionId_}
+mkTerminateSession sessionId = TerminateSession' {sessionId}
 
 -- | The ID of the session to terminate.
 --
 -- /Note:/ Consider using 'sessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsSessionId :: Lens.Lens' TerminateSession Lude.Text
-tsSessionId = Lens.lens (sessionId :: TerminateSession -> Lude.Text) (\s a -> s {sessionId = a} :: TerminateSession)
+tsSessionId :: Lens.Lens' TerminateSession Types.SessionId
+tsSessionId = Lens.field @"sessionId"
 {-# DEPRECATED tsSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
 
-instance Lude.AWSRequest TerminateSession where
+instance Core.FromJSON TerminateSession where
+  toJSON TerminateSession {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("SessionId" Core..= sessionId)])
+
+instance Core.AWSRequest TerminateSession where
   type Rs TerminateSession = TerminateSessionResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.TerminateSession")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           TerminateSessionResponse'
-            Lude.<$> (x Lude..?> "SessionId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "SessionId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TerminateSession where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.TerminateSession" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TerminateSession where
-  toJSON TerminateSession' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("SessionId" Lude..= sessionId)])
-
-instance Lude.ToPath TerminateSession where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TerminateSession where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTerminateSessionResponse' smart constructor.
 data TerminateSessionResponse = TerminateSessionResponse'
   { -- | The ID of the session that has been terminated.
-    sessionId :: Lude.Maybe Lude.Text,
+    sessionId :: Core.Maybe Types.SessionId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TerminateSessionResponse' with the minimum fields required to make a request.
---
--- * 'sessionId' - The ID of the session that has been terminated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TerminateSessionResponse' value with any optional fields omitted.
 mkTerminateSessionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TerminateSessionResponse
-mkTerminateSessionResponse pResponseStatus_ =
+mkTerminateSessionResponse responseStatus =
   TerminateSessionResponse'
-    { sessionId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { sessionId = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the session that has been terminated.
 --
 -- /Note:/ Consider using 'sessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsrsSessionId :: Lens.Lens' TerminateSessionResponse (Lude.Maybe Lude.Text)
-tsrsSessionId = Lens.lens (sessionId :: TerminateSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {sessionId = a} :: TerminateSessionResponse)
-{-# DEPRECATED tsrsSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
+tsrrsSessionId :: Lens.Lens' TerminateSessionResponse (Core.Maybe Types.SessionId)
+tsrrsSessionId = Lens.field @"sessionId"
+{-# DEPRECATED tsrrsSessionId "Use generic-lens or generic-optics with 'sessionId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsrsResponseStatus :: Lens.Lens' TerminateSessionResponse Lude.Int
-tsrsResponseStatus = Lens.lens (responseStatus :: TerminateSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TerminateSessionResponse)
-{-# DEPRECATED tsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+tsrrsResponseStatus :: Lens.Lens' TerminateSessionResponse Core.Int
+tsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED tsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

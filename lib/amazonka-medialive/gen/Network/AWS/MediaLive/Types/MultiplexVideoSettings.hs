@@ -17,80 +17,71 @@ module Network.AWS.MediaLive.Types.MultiplexVideoSettings
     mkMultiplexVideoSettings,
 
     -- * Lenses
-    mvsStatmuxSettings,
     mvsConstantBitrate,
+    mvsStatmuxSettings,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.MultiplexStatmuxVideoSettings as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The video configuration for each program in a multiplex.
 --
 -- /See:/ 'mkMultiplexVideoSettings' smart constructor.
 data MultiplexVideoSettings = MultiplexVideoSettings'
-  { -- | Statmux rate control settings.
-    --
-    -- When this field is defined, ConstantBitrate must be undefined.
-    statmuxSettings :: Lude.Maybe MultiplexStatmuxVideoSettings,
-    -- | The constant bitrate configuration for the video encode.
+  { -- | The constant bitrate configuration for the video encode.
     --
     -- When this field is defined, StatmuxSettings must be undefined.
-    constantBitrate :: Lude.Maybe Lude.Natural
+    constantBitrate :: Core.Maybe Core.Natural,
+    -- | Statmux rate control settings.
+    --
+    -- When this field is defined, ConstantBitrate must be undefined.
+    statmuxSettings :: Core.Maybe Types.MultiplexStatmuxVideoSettings
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MultiplexVideoSettings' with the minimum fields required to make a request.
---
--- * 'statmuxSettings' - Statmux rate control settings.
---
--- When this field is defined, ConstantBitrate must be undefined.
--- * 'constantBitrate' - The constant bitrate configuration for the video encode.
---
--- When this field is defined, StatmuxSettings must be undefined.
+-- | Creates a 'MultiplexVideoSettings' value with any optional fields omitted.
 mkMultiplexVideoSettings ::
   MultiplexVideoSettings
 mkMultiplexVideoSettings =
   MultiplexVideoSettings'
-    { statmuxSettings = Lude.Nothing,
-      constantBitrate = Lude.Nothing
+    { constantBitrate = Core.Nothing,
+      statmuxSettings = Core.Nothing
     }
-
--- | Statmux rate control settings.
---
--- When this field is defined, ConstantBitrate must be undefined.
---
--- /Note:/ Consider using 'statmuxSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvsStatmuxSettings :: Lens.Lens' MultiplexVideoSettings (Lude.Maybe MultiplexStatmuxVideoSettings)
-mvsStatmuxSettings = Lens.lens (statmuxSettings :: MultiplexVideoSettings -> Lude.Maybe MultiplexStatmuxVideoSettings) (\s a -> s {statmuxSettings = a} :: MultiplexVideoSettings)
-{-# DEPRECATED mvsStatmuxSettings "Use generic-lens or generic-optics with 'statmuxSettings' instead." #-}
 
 -- | The constant bitrate configuration for the video encode.
 --
 -- When this field is defined, StatmuxSettings must be undefined.
 --
 -- /Note:/ Consider using 'constantBitrate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mvsConstantBitrate :: Lens.Lens' MultiplexVideoSettings (Lude.Maybe Lude.Natural)
-mvsConstantBitrate = Lens.lens (constantBitrate :: MultiplexVideoSettings -> Lude.Maybe Lude.Natural) (\s a -> s {constantBitrate = a} :: MultiplexVideoSettings)
+mvsConstantBitrate :: Lens.Lens' MultiplexVideoSettings (Core.Maybe Core.Natural)
+mvsConstantBitrate = Lens.field @"constantBitrate"
 {-# DEPRECATED mvsConstantBitrate "Use generic-lens or generic-optics with 'constantBitrate' instead." #-}
 
-instance Lude.FromJSON MultiplexVideoSettings where
-  parseJSON =
-    Lude.withObject
-      "MultiplexVideoSettings"
-      ( \x ->
-          MultiplexVideoSettings'
-            Lude.<$> (x Lude..:? "statmuxSettings")
-            Lude.<*> (x Lude..:? "constantBitrate")
-      )
+-- | Statmux rate control settings.
+--
+-- When this field is defined, ConstantBitrate must be undefined.
+--
+-- /Note:/ Consider using 'statmuxSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mvsStatmuxSettings :: Lens.Lens' MultiplexVideoSettings (Core.Maybe Types.MultiplexStatmuxVideoSettings)
+mvsStatmuxSettings = Lens.field @"statmuxSettings"
+{-# DEPRECATED mvsStatmuxSettings "Use generic-lens or generic-optics with 'statmuxSettings' instead." #-}
 
-instance Lude.ToJSON MultiplexVideoSettings where
-  toJSON MultiplexVideoSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("statmuxSettings" Lude..=) Lude.<$> statmuxSettings,
-            ("constantBitrate" Lude..=) Lude.<$> constantBitrate
+instance Core.FromJSON MultiplexVideoSettings where
+  toJSON MultiplexVideoSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("constantBitrate" Core..=) Core.<$> constantBitrate,
+            ("statmuxSettings" Core..=) Core.<$> statmuxSettings
           ]
       )
+
+instance Core.FromJSON MultiplexVideoSettings where
+  parseJSON =
+    Core.withObject "MultiplexVideoSettings" Core.$
+      \x ->
+        MultiplexVideoSettings'
+          Core.<$> (x Core..:? "constantBitrate")
+          Core.<*> (x Core..:? "statmuxSettings")

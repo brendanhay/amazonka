@@ -18,54 +18,45 @@ module Network.AWS.EC2.Types.ClientConnectOptions
 
     -- * Lenses
     ccoEnabled,
-    ccoLambdaFunctionARN,
+    ccoLambdaFunctionArn,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The options for managing connection authorization for new client connections.
 --
 -- /See:/ 'mkClientConnectOptions' smart constructor.
 data ClientConnectOptions = ClientConnectOptions'
   { -- | Indicates whether client connect options are enabled. The default is @false@ (not enabled).
-    enabled :: Lude.Maybe Lude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
-    lambdaFunctionARN :: Lude.Maybe Lude.Text
+    lambdaFunctionArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClientConnectOptions' with the minimum fields required to make a request.
---
--- * 'enabled' - Indicates whether client connect options are enabled. The default is @false@ (not enabled).
--- * 'lambdaFunctionARN' - The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
+-- | Creates a 'ClientConnectOptions' value with any optional fields omitted.
 mkClientConnectOptions ::
   ClientConnectOptions
 mkClientConnectOptions =
   ClientConnectOptions'
-    { enabled = Lude.Nothing,
-      lambdaFunctionARN = Lude.Nothing
+    { enabled = Core.Nothing,
+      lambdaFunctionArn = Core.Nothing
     }
 
 -- | Indicates whether client connect options are enabled. The default is @false@ (not enabled).
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccoEnabled :: Lens.Lens' ClientConnectOptions (Lude.Maybe Lude.Bool)
-ccoEnabled = Lens.lens (enabled :: ClientConnectOptions -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ClientConnectOptions)
+ccoEnabled :: Lens.Lens' ClientConnectOptions (Core.Maybe Core.Bool)
+ccoEnabled = Lens.field @"enabled"
 {-# DEPRECATED ccoEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.
 --
--- /Note:/ Consider using 'lambdaFunctionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccoLambdaFunctionARN :: Lens.Lens' ClientConnectOptions (Lude.Maybe Lude.Text)
-ccoLambdaFunctionARN = Lens.lens (lambdaFunctionARN :: ClientConnectOptions -> Lude.Maybe Lude.Text) (\s a -> s {lambdaFunctionARN = a} :: ClientConnectOptions)
-{-# DEPRECATED ccoLambdaFunctionARN "Use generic-lens or generic-optics with 'lambdaFunctionARN' instead." #-}
-
-instance Lude.ToQuery ClientConnectOptions where
-  toQuery ClientConnectOptions' {..} =
-    Lude.mconcat
-      [ "Enabled" Lude.=: enabled,
-        "LambdaFunctionArn" Lude.=: lambdaFunctionARN
-      ]
+-- /Note:/ Consider using 'lambdaFunctionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccoLambdaFunctionArn :: Lens.Lens' ClientConnectOptions (Core.Maybe Types.String)
+ccoLambdaFunctionArn = Lens.field @"lambdaFunctionArn"
+{-# DEPRECATED ccoLambdaFunctionArn "Use generic-lens or generic-optics with 'lambdaFunctionArn' instead." #-}

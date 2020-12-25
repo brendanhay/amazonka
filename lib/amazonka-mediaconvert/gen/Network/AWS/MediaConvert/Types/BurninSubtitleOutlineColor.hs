@@ -13,67 +13,72 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleOutlineColor
   ( BurninSubtitleOutlineColor
       ( BurninSubtitleOutlineColor',
-        BSOCBlack,
-        BSOCWhite,
-        BSOCYellow,
-        BSOCRed,
-        BSOCGreen,
-        BSOCBlue
+        BurninSubtitleOutlineColorBlack,
+        BurninSubtitleOutlineColorWhite,
+        BurninSubtitleOutlineColorYellow,
+        BurninSubtitleOutlineColorRed,
+        BurninSubtitleOutlineColorGreen,
+        BurninSubtitleOutlineColorBlue,
+        fromBurninSubtitleOutlineColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-newtype BurninSubtitleOutlineColor = BurninSubtitleOutlineColor' Lude.Text
+newtype BurninSubtitleOutlineColor = BurninSubtitleOutlineColor'
+  { fromBurninSubtitleOutlineColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BSOCBlack :: BurninSubtitleOutlineColor
-pattern BSOCBlack = BurninSubtitleOutlineColor' "BLACK"
+pattern BurninSubtitleOutlineColorBlack :: BurninSubtitleOutlineColor
+pattern BurninSubtitleOutlineColorBlack = BurninSubtitleOutlineColor' "BLACK"
 
-pattern BSOCWhite :: BurninSubtitleOutlineColor
-pattern BSOCWhite = BurninSubtitleOutlineColor' "WHITE"
+pattern BurninSubtitleOutlineColorWhite :: BurninSubtitleOutlineColor
+pattern BurninSubtitleOutlineColorWhite = BurninSubtitleOutlineColor' "WHITE"
 
-pattern BSOCYellow :: BurninSubtitleOutlineColor
-pattern BSOCYellow = BurninSubtitleOutlineColor' "YELLOW"
+pattern BurninSubtitleOutlineColorYellow :: BurninSubtitleOutlineColor
+pattern BurninSubtitleOutlineColorYellow = BurninSubtitleOutlineColor' "YELLOW"
 
-pattern BSOCRed :: BurninSubtitleOutlineColor
-pattern BSOCRed = BurninSubtitleOutlineColor' "RED"
+pattern BurninSubtitleOutlineColorRed :: BurninSubtitleOutlineColor
+pattern BurninSubtitleOutlineColorRed = BurninSubtitleOutlineColor' "RED"
 
-pattern BSOCGreen :: BurninSubtitleOutlineColor
-pattern BSOCGreen = BurninSubtitleOutlineColor' "GREEN"
+pattern BurninSubtitleOutlineColorGreen :: BurninSubtitleOutlineColor
+pattern BurninSubtitleOutlineColorGreen = BurninSubtitleOutlineColor' "GREEN"
 
-pattern BSOCBlue :: BurninSubtitleOutlineColor
-pattern BSOCBlue = BurninSubtitleOutlineColor' "BLUE"
+pattern BurninSubtitleOutlineColorBlue :: BurninSubtitleOutlineColor
+pattern BurninSubtitleOutlineColorBlue = BurninSubtitleOutlineColor' "BLUE"
 
 {-# COMPLETE
-  BSOCBlack,
-  BSOCWhite,
-  BSOCYellow,
-  BSOCRed,
-  BSOCGreen,
-  BSOCBlue,
+  BurninSubtitleOutlineColorBlack,
+  BurninSubtitleOutlineColorWhite,
+  BurninSubtitleOutlineColorYellow,
+  BurninSubtitleOutlineColorRed,
+  BurninSubtitleOutlineColorGreen,
+  BurninSubtitleOutlineColorBlue,
   BurninSubtitleOutlineColor'
   #-}

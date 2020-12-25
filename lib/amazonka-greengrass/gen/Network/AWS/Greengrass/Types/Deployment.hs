@@ -17,98 +17,90 @@ module Network.AWS.Greengrass.Types.Deployment
     mkDeployment,
 
     -- * Lenses
-    dDeploymentId,
-    dDeploymentARN,
     dCreatedAt,
+    dDeploymentArn,
+    dDeploymentId,
     dDeploymentType,
-    dGroupARN,
+    dGroupArn,
   )
 where
 
-import Network.AWS.Greengrass.Types.DeploymentType
+import qualified Network.AWS.Greengrass.Types.DeploymentType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a deployment.
 --
 -- /See:/ 'mkDeployment' smart constructor.
 data Deployment = Deployment'
-  { -- | The ID of the deployment.
-    deploymentId :: Lude.Maybe Lude.Text,
+  { -- | The time, in milliseconds since the epoch, when the deployment was created.
+    createdAt :: Core.Maybe Core.Text,
     -- | The ARN of the deployment.
-    deploymentARN :: Lude.Maybe Lude.Text,
-    -- | The time, in milliseconds since the epoch, when the deployment was created.
-    createdAt :: Lude.Maybe Lude.Text,
+    deploymentArn :: Core.Maybe Core.Text,
+    -- | The ID of the deployment.
+    deploymentId :: Core.Maybe Core.Text,
     -- | The type of the deployment.
-    deploymentType :: Lude.Maybe DeploymentType,
+    deploymentType :: Core.Maybe Types.DeploymentType,
     -- | The ARN of the group for this deployment.
-    groupARN :: Lude.Maybe Lude.Text
+    groupArn :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Deployment' with the minimum fields required to make a request.
---
--- * 'deploymentId' - The ID of the deployment.
--- * 'deploymentARN' - The ARN of the deployment.
--- * 'createdAt' - The time, in milliseconds since the epoch, when the deployment was created.
--- * 'deploymentType' - The type of the deployment.
--- * 'groupARN' - The ARN of the group for this deployment.
+-- | Creates a 'Deployment' value with any optional fields omitted.
 mkDeployment ::
   Deployment
 mkDeployment =
   Deployment'
-    { deploymentId = Lude.Nothing,
-      deploymentARN = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      deploymentType = Lude.Nothing,
-      groupARN = Lude.Nothing
+    { createdAt = Core.Nothing,
+      deploymentArn = Core.Nothing,
+      deploymentId = Core.Nothing,
+      deploymentType = Core.Nothing,
+      groupArn = Core.Nothing
     }
-
--- | The ID of the deployment.
---
--- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDeploymentId :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dDeploymentId = Lens.lens (deploymentId :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: Deployment)
-{-# DEPRECATED dDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
-
--- | The ARN of the deployment.
---
--- /Note:/ Consider using 'deploymentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDeploymentARN :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dDeploymentARN = Lens.lens (deploymentARN :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {deploymentARN = a} :: Deployment)
-{-# DEPRECATED dDeploymentARN "Use generic-lens or generic-optics with 'deploymentARN' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the deployment was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCreatedAt :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dCreatedAt = Lens.lens (createdAt :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {createdAt = a} :: Deployment)
+dCreatedAt :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+dCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED dCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The ARN of the deployment.
+--
+-- /Note:/ Consider using 'deploymentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDeploymentArn :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+dDeploymentArn = Lens.field @"deploymentArn"
+{-# DEPRECATED dDeploymentArn "Use generic-lens or generic-optics with 'deploymentArn' instead." #-}
+
+-- | The ID of the deployment.
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDeploymentId :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+dDeploymentId = Lens.field @"deploymentId"
+{-# DEPRECATED dDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
 
 -- | The type of the deployment.
 --
 -- /Note:/ Consider using 'deploymentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDeploymentType :: Lens.Lens' Deployment (Lude.Maybe DeploymentType)
-dDeploymentType = Lens.lens (deploymentType :: Deployment -> Lude.Maybe DeploymentType) (\s a -> s {deploymentType = a} :: Deployment)
+dDeploymentType :: Lens.Lens' Deployment (Core.Maybe Types.DeploymentType)
+dDeploymentType = Lens.field @"deploymentType"
 {-# DEPRECATED dDeploymentType "Use generic-lens or generic-optics with 'deploymentType' instead." #-}
 
 -- | The ARN of the group for this deployment.
 --
--- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dGroupARN :: Lens.Lens' Deployment (Lude.Maybe Lude.Text)
-dGroupARN = Lens.lens (groupARN :: Deployment -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: Deployment)
-{-# DEPRECATED dGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
+-- /Note:/ Consider using 'groupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dGroupArn :: Lens.Lens' Deployment (Core.Maybe Core.Text)
+dGroupArn = Lens.field @"groupArn"
+{-# DEPRECATED dGroupArn "Use generic-lens or generic-optics with 'groupArn' instead." #-}
 
-instance Lude.FromJSON Deployment where
+instance Core.FromJSON Deployment where
   parseJSON =
-    Lude.withObject
-      "Deployment"
-      ( \x ->
-          Deployment'
-            Lude.<$> (x Lude..:? "DeploymentId")
-            Lude.<*> (x Lude..:? "DeploymentArn")
-            Lude.<*> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "DeploymentType")
-            Lude.<*> (x Lude..:? "GroupArn")
-      )
+    Core.withObject "Deployment" Core.$
+      \x ->
+        Deployment'
+          Core.<$> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "DeploymentArn")
+          Core.<*> (x Core..:? "DeploymentId")
+          Core.<*> (x Core..:? "DeploymentType")
+          Core.<*> (x Core..:? "GroupArn")

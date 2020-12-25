@@ -49,7 +49,7 @@ module Network.AWS.WAFRegional.PutPermissionPolicy
     mkPutPermissionPolicy,
 
     -- ** Request lenses
-    pppResourceARN,
+    pppResourceArn,
     pppPolicy,
 
     -- * Destructuring the response
@@ -57,115 +57,99 @@ module Network.AWS.WAFRegional.PutPermissionPolicy
     mkPutPermissionPolicyResponse,
 
     -- ** Response lenses
-    ppprsResponseStatus,
+    ppprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkPutPermissionPolicy' smart constructor.
 data PutPermissionPolicy = PutPermissionPolicy'
   { -- | The Amazon Resource Name (ARN) of the RuleGroup to which you want to attach the policy.
-    resourceARN :: Lude.Text,
+    resourceArn :: Types.ResourceArn,
     -- | The policy to attach to the specified RuleGroup.
-    policy :: Lude.Text
+    policy :: Types.Policy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutPermissionPolicy' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the RuleGroup to which you want to attach the policy.
--- * 'policy' - The policy to attach to the specified RuleGroup.
+-- | Creates a 'PutPermissionPolicy' value with any optional fields omitted.
 mkPutPermissionPolicy ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   -- | 'policy'
-  Lude.Text ->
+  Types.Policy ->
   PutPermissionPolicy
-mkPutPermissionPolicy pResourceARN_ pPolicy_ =
-  PutPermissionPolicy'
-    { resourceARN = pResourceARN_,
-      policy = pPolicy_
-    }
+mkPutPermissionPolicy resourceArn policy =
+  PutPermissionPolicy' {resourceArn, policy}
 
 -- | The Amazon Resource Name (ARN) of the RuleGroup to which you want to attach the policy.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppResourceARN :: Lens.Lens' PutPermissionPolicy Lude.Text
-pppResourceARN = Lens.lens (resourceARN :: PutPermissionPolicy -> Lude.Text) (\s a -> s {resourceARN = a} :: PutPermissionPolicy)
-{-# DEPRECATED pppResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pppResourceArn :: Lens.Lens' PutPermissionPolicy Types.ResourceArn
+pppResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED pppResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | The policy to attach to the specified RuleGroup.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pppPolicy :: Lens.Lens' PutPermissionPolicy Lude.Text
-pppPolicy = Lens.lens (policy :: PutPermissionPolicy -> Lude.Text) (\s a -> s {policy = a} :: PutPermissionPolicy)
+pppPolicy :: Lens.Lens' PutPermissionPolicy Types.Policy
+pppPolicy = Lens.field @"policy"
 {-# DEPRECATED pppPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
-instance Lude.AWSRequest PutPermissionPolicy where
+instance Core.FromJSON PutPermissionPolicy where
+  toJSON PutPermissionPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceArn" Core..= resourceArn),
+            Core.Just ("Policy" Core..= policy)
+          ]
+      )
+
+instance Core.AWSRequest PutPermissionPolicy where
   type Rs PutPermissionPolicy = PutPermissionPolicyResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_Regional_20161128.PutPermissionPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           PutPermissionPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutPermissionPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSWAF_Regional_20161128.PutPermissionPolicy" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutPermissionPolicy where
-  toJSON PutPermissionPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceArn" Lude..= resourceARN),
-            Lude.Just ("Policy" Lude..= policy)
-          ]
-      )
-
-instance Lude.ToPath PutPermissionPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutPermissionPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutPermissionPolicyResponse' smart constructor.
 newtype PutPermissionPolicyResponse = PutPermissionPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutPermissionPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutPermissionPolicyResponse' value with any optional fields omitted.
 mkPutPermissionPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutPermissionPolicyResponse
-mkPutPermissionPolicyResponse pResponseStatus_ =
-  PutPermissionPolicyResponse' {responseStatus = pResponseStatus_}
+mkPutPermissionPolicyResponse responseStatus =
+  PutPermissionPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppprsResponseStatus :: Lens.Lens' PutPermissionPolicyResponse Lude.Int
-ppprsResponseStatus = Lens.lens (responseStatus :: PutPermissionPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutPermissionPolicyResponse)
-{-# DEPRECATED ppprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ppprrsResponseStatus :: Lens.Lens' PutPermissionPolicyResponse Core.Int
+ppprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ppprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

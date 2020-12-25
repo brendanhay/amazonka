@@ -13,41 +13,43 @@
 module Network.AWS.DirectoryService.Types.LDAPSType
   ( LDAPSType
       ( LDAPSType',
-        Client
+        LDAPSTypeClient,
+        fromLDAPSType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LDAPSType = LDAPSType' Lude.Text
+newtype LDAPSType = LDAPSType' {fromLDAPSType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Client :: LDAPSType
-pattern Client = LDAPSType' "Client"
+pattern LDAPSTypeClient :: LDAPSType
+pattern LDAPSTypeClient = LDAPSType' "Client"
 
 {-# COMPLETE
-  Client,
+  LDAPSTypeClient,
   LDAPSType'
   #-}

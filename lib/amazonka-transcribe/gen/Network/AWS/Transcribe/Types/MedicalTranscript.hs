@@ -17,12 +17,13 @@ module Network.AWS.Transcribe.Types.MedicalTranscript
     mkMedicalTranscript,
 
     -- * Lenses
-    mtTranscriptFileURI,
+    mtTranscriptFileUri,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Transcribe.Types.Uri as Types
 
 -- | Identifies the location of a medical transcript.
 --
@@ -31,34 +32,27 @@ newtype MedicalTranscript = MedicalTranscript'
   { -- | The S3 object location of the medical transcript.
     --
     -- Use this URI to access the medical transcript. This URI points to the S3 bucket you created to store the medical transcript.
-    transcriptFileURI :: Lude.Maybe Lude.Text
+    transcriptFileUri :: Core.Maybe Types.Uri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MedicalTranscript' with the minimum fields required to make a request.
---
--- * 'transcriptFileURI' - The S3 object location of the medical transcript.
---
--- Use this URI to access the medical transcript. This URI points to the S3 bucket you created to store the medical transcript.
+-- | Creates a 'MedicalTranscript' value with any optional fields omitted.
 mkMedicalTranscript ::
   MedicalTranscript
 mkMedicalTranscript =
-  MedicalTranscript' {transcriptFileURI = Lude.Nothing}
+  MedicalTranscript' {transcriptFileUri = Core.Nothing}
 
 -- | The S3 object location of the medical transcript.
 --
 -- Use this URI to access the medical transcript. This URI points to the S3 bucket you created to store the medical transcript.
 --
--- /Note:/ Consider using 'transcriptFileURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mtTranscriptFileURI :: Lens.Lens' MedicalTranscript (Lude.Maybe Lude.Text)
-mtTranscriptFileURI = Lens.lens (transcriptFileURI :: MedicalTranscript -> Lude.Maybe Lude.Text) (\s a -> s {transcriptFileURI = a} :: MedicalTranscript)
-{-# DEPRECATED mtTranscriptFileURI "Use generic-lens or generic-optics with 'transcriptFileURI' instead." #-}
+-- /Note:/ Consider using 'transcriptFileUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mtTranscriptFileUri :: Lens.Lens' MedicalTranscript (Core.Maybe Types.Uri)
+mtTranscriptFileUri = Lens.field @"transcriptFileUri"
+{-# DEPRECATED mtTranscriptFileUri "Use generic-lens or generic-optics with 'transcriptFileUri' instead." #-}
 
-instance Lude.FromJSON MedicalTranscript where
+instance Core.FromJSON MedicalTranscript where
   parseJSON =
-    Lude.withObject
-      "MedicalTranscript"
-      ( \x ->
-          MedicalTranscript' Lude.<$> (x Lude..:? "TranscriptFileUri")
-      )
+    Core.withObject "MedicalTranscript" Core.$
+      \x -> MedicalTranscript' Core.<$> (x Core..:? "TranscriptFileUri")

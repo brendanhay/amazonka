@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.DeviceFarm
     Network.AWS.DeviceFarm.CreateDevicePool
@@ -73,7 +79,7 @@ library
     Network.AWS.DeviceFarm.CreateProject
     Network.AWS.DeviceFarm.CreateRemoteAccessSession
     Network.AWS.DeviceFarm.CreateTestGridProject
-    Network.AWS.DeviceFarm.CreateTestGridURL
+    Network.AWS.DeviceFarm.CreateTestGridUrl
     Network.AWS.DeviceFarm.CreateUpload
     Network.AWS.DeviceFarm.CreateVPCEConfiguration
     Network.AWS.DeviceFarm.DeleteDevicePool
@@ -149,18 +155,28 @@ library
 
   other-modules:
     Network.AWS.DeviceFarm.Types.AccountSettings
+    Network.AWS.DeviceFarm.Types.AmazonResourceName
+    Network.AWS.DeviceFarm.Types.AppArn
+    Network.AWS.DeviceFarm.Types.AppUpload
+    Network.AWS.DeviceFarm.Types.Arn
     Network.AWS.DeviceFarm.Types.Artifact
     Network.AWS.DeviceFarm.Types.ArtifactCategory
     Network.AWS.DeviceFarm.Types.ArtifactType
+    Network.AWS.DeviceFarm.Types.AwsAccountNumber
     Network.AWS.DeviceFarm.Types.BillingMethod
+    Network.AWS.DeviceFarm.Types.ClientId
+    Network.AWS.DeviceFarm.Types.ContentType
     Network.AWS.DeviceFarm.Types.Counters
     Network.AWS.DeviceFarm.Types.CPU
     Network.AWS.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration
     Network.AWS.DeviceFarm.Types.CurrencyCode
     Network.AWS.DeviceFarm.Types.CustomerArtifactPaths
+    Network.AWS.DeviceFarm.Types.Description
     Network.AWS.DeviceFarm.Types.Device
+    Network.AWS.DeviceFarm.Types.DeviceArn
     Network.AWS.DeviceFarm.Types.DeviceAttribute
     Network.AWS.DeviceFarm.Types.DeviceAvailability
+    Network.AWS.DeviceFarm.Types.DeviceFarmArn
     Network.AWS.DeviceFarm.Types.DeviceFilter
     Network.AWS.DeviceFarm.Types.DeviceFilterAttribute
     Network.AWS.DeviceFarm.Types.DeviceFormFactor
@@ -168,6 +184,7 @@ library
     Network.AWS.DeviceFarm.Types.DeviceMinutes
     Network.AWS.DeviceFarm.Types.DevicePlatform
     Network.AWS.DeviceFarm.Types.DevicePool
+    Network.AWS.DeviceFarm.Types.DevicePoolArn
     Network.AWS.DeviceFarm.Types.DevicePoolCompatibilityResult
     Network.AWS.DeviceFarm.Types.DevicePoolType
     Network.AWS.DeviceFarm.Types.DeviceSelectionConfiguration
@@ -176,29 +193,52 @@ library
     Network.AWS.DeviceFarm.Types.ExecutionResult
     Network.AWS.DeviceFarm.Types.ExecutionResultCode
     Network.AWS.DeviceFarm.Types.ExecutionStatus
+    Network.AWS.DeviceFarm.Types.ExtraDataPackageArn
+    Network.AWS.DeviceFarm.Types.Filter
+    Network.AWS.DeviceFarm.Types.HostAddress
+    Network.AWS.DeviceFarm.Types.Id
     Network.AWS.DeviceFarm.Types.IncompatibilityMessage
+    Network.AWS.DeviceFarm.Types.InstanceArn
     Network.AWS.DeviceFarm.Types.InstanceProfile
     Network.AWS.DeviceFarm.Types.InstanceStatus
     Network.AWS.DeviceFarm.Types.InteractionMode
     Network.AWS.DeviceFarm.Types.Job
+    Network.AWS.DeviceFarm.Types.Key
+    Network.AWS.DeviceFarm.Types.Locale
     Network.AWS.DeviceFarm.Types.Location
+    Network.AWS.DeviceFarm.Types.Message
+    Network.AWS.DeviceFarm.Types.Metadata
     Network.AWS.DeviceFarm.Types.MonetaryAmount
+    Network.AWS.DeviceFarm.Types.Name
     Network.AWS.DeviceFarm.Types.NetworkProfile
+    Network.AWS.DeviceFarm.Types.NetworkProfileArn
     Network.AWS.DeviceFarm.Types.NetworkProfileType
+    Network.AWS.DeviceFarm.Types.NextToken
     Network.AWS.DeviceFarm.Types.Offering
+    Network.AWS.DeviceFarm.Types.OfferingId
+    Network.AWS.DeviceFarm.Types.OfferingIdentifier
     Network.AWS.DeviceFarm.Types.OfferingPromotion
+    Network.AWS.DeviceFarm.Types.OfferingPromotionId
+    Network.AWS.DeviceFarm.Types.OfferingPromotionIdentifier
     Network.AWS.DeviceFarm.Types.OfferingStatus
     Network.AWS.DeviceFarm.Types.OfferingTransaction
     Network.AWS.DeviceFarm.Types.OfferingTransactionType
     Network.AWS.DeviceFarm.Types.OfferingType
+    Network.AWS.DeviceFarm.Types.PaginationToken
     Network.AWS.DeviceFarm.Types.Problem
     Network.AWS.DeviceFarm.Types.ProblemDetail
     Network.AWS.DeviceFarm.Types.Project
+    Network.AWS.DeviceFarm.Types.ProjectArn
     Network.AWS.DeviceFarm.Types.Radios
     Network.AWS.DeviceFarm.Types.RecurringCharge
     Network.AWS.DeviceFarm.Types.RecurringChargeFrequency
     Network.AWS.DeviceFarm.Types.RemoteAccessSession
+    Network.AWS.DeviceFarm.Types.RemoteAccessSessionArn
+    Network.AWS.DeviceFarm.Types.RemoteRecordAppArn
     Network.AWS.DeviceFarm.Types.Resolution
+    Network.AWS.DeviceFarm.Types.ResourceARN
+    Network.AWS.DeviceFarm.Types.ResourceDescription
+    Network.AWS.DeviceFarm.Types.ResourceName
     Network.AWS.DeviceFarm.Types.Rule
     Network.AWS.DeviceFarm.Types.RuleOperator
     Network.AWS.DeviceFarm.Types.Run
@@ -206,8 +246,14 @@ library
     Network.AWS.DeviceFarm.Types.SampleType
     Network.AWS.DeviceFarm.Types.ScheduleRunConfiguration
     Network.AWS.DeviceFarm.Types.ScheduleRunTest
+    Network.AWS.DeviceFarm.Types.ServiceDnsName
+    Network.AWS.DeviceFarm.Types.SessionArn
+    Network.AWS.DeviceFarm.Types.SessionId
+    Network.AWS.DeviceFarm.Types.SshPublicKey
+    Network.AWS.DeviceFarm.Types.String
     Network.AWS.DeviceFarm.Types.Suite
     Network.AWS.DeviceFarm.Types.Tag
+    Network.AWS.DeviceFarm.Types.TagKey
     Network.AWS.DeviceFarm.Types.Test
     Network.AWS.DeviceFarm.Types.TestGridProject
     Network.AWS.DeviceFarm.Types.TestGridSession
@@ -216,14 +262,22 @@ library
     Network.AWS.DeviceFarm.Types.TestGridSessionArtifactCategory
     Network.AWS.DeviceFarm.Types.TestGridSessionArtifactType
     Network.AWS.DeviceFarm.Types.TestGridSessionStatus
+    Network.AWS.DeviceFarm.Types.TestPackageArn
+    Network.AWS.DeviceFarm.Types.TestSpecArn
     Network.AWS.DeviceFarm.Types.TestType
+    Network.AWS.DeviceFarm.Types.TransactionId
     Network.AWS.DeviceFarm.Types.TrialMinutes
     Network.AWS.DeviceFarm.Types.UniqueProblem
     Network.AWS.DeviceFarm.Types.Upload
     Network.AWS.DeviceFarm.Types.UploadCategory
     Network.AWS.DeviceFarm.Types.UploadStatus
     Network.AWS.DeviceFarm.Types.UploadType
+    Network.AWS.DeviceFarm.Types.URL
+    Network.AWS.DeviceFarm.Types.Value
     Network.AWS.DeviceFarm.Types.VPCEConfiguration
+    Network.AWS.DeviceFarm.Types.VpceConfigurationDescription
+    Network.AWS.DeviceFarm.Types.VpceConfigurationName
+    Network.AWS.DeviceFarm.Types.VPCEServiceName
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

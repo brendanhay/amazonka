@@ -20,174 +20,155 @@ module Network.AWS.StepFunctions.UpdateStateMachine
     mkUpdateStateMachine,
 
     -- ** Request lenses
+    usmStateMachineArn,
     usmDefinition,
-    usmTracingConfiguration,
-    usmStateMachineARN,
     usmLoggingConfiguration,
-    usmRoleARN,
+    usmRoleArn,
+    usmTracingConfiguration,
 
     -- * Destructuring the response
     UpdateStateMachineResponse (..),
     mkUpdateStateMachineResponse,
 
     -- ** Response lenses
-    usmrsUpdateDate,
-    usmrsResponseStatus,
+    usmrrsUpdateDate,
+    usmrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StepFunctions.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StepFunctions.Types as Types
 
 -- | /See:/ 'mkUpdateStateMachine' smart constructor.
 data UpdateStateMachine = UpdateStateMachine'
-  { -- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
-    definition :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | Selects whether AWS X-Ray tracing is enabled.
-    tracingConfiguration :: Lude.Maybe TracingConfiguration,
-    -- | The Amazon Resource Name (ARN) of the state machine.
-    stateMachineARN :: Lude.Text,
+  { -- | The Amazon Resource Name (ARN) of the state machine.
+    stateMachineArn :: Types.Arn,
+    -- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
+    definition :: Core.Maybe Types.Definition,
     -- | The @LoggingConfiguration@ data type is used to set CloudWatch Logs options.
-    loggingConfiguration :: Lude.Maybe LoggingConfiguration,
+    loggingConfiguration :: Core.Maybe Types.LoggingConfiguration,
     -- | The Amazon Resource Name (ARN) of the IAM role of the state machine.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.Arn,
+    -- | Selects whether AWS X-Ray tracing is enabled.
+    tracingConfiguration :: Core.Maybe Types.TracingConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateStateMachine' with the minimum fields required to make a request.
---
--- * 'definition' - The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
--- * 'tracingConfiguration' - Selects whether AWS X-Ray tracing is enabled.
--- * 'stateMachineARN' - The Amazon Resource Name (ARN) of the state machine.
--- * 'loggingConfiguration' - The @LoggingConfiguration@ data type is used to set CloudWatch Logs options.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role of the state machine.
+-- | Creates a 'UpdateStateMachine' value with any optional fields omitted.
 mkUpdateStateMachine ::
-  -- | 'stateMachineARN'
-  Lude.Text ->
+  -- | 'stateMachineArn'
+  Types.Arn ->
   UpdateStateMachine
-mkUpdateStateMachine pStateMachineARN_ =
+mkUpdateStateMachine stateMachineArn =
   UpdateStateMachine'
-    { definition = Lude.Nothing,
-      tracingConfiguration = Lude.Nothing,
-      stateMachineARN = pStateMachineARN_,
-      loggingConfiguration = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { stateMachineArn,
+      definition = Core.Nothing,
+      loggingConfiguration = Core.Nothing,
+      roleArn = Core.Nothing,
+      tracingConfiguration = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the state machine.
+--
+-- /Note:/ Consider using 'stateMachineArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmStateMachineArn :: Lens.Lens' UpdateStateMachine Types.Arn
+usmStateMachineArn = Lens.field @"stateMachineArn"
+{-# DEPRECATED usmStateMachineArn "Use generic-lens or generic-optics with 'stateMachineArn' instead." #-}
 
 -- | The Amazon States Language definition of the state machine. See <https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html Amazon States Language> .
 --
 -- /Note:/ Consider using 'definition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmDefinition :: Lens.Lens' UpdateStateMachine (Lude.Maybe (Lude.Sensitive Lude.Text))
-usmDefinition = Lens.lens (definition :: UpdateStateMachine -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {definition = a} :: UpdateStateMachine)
+usmDefinition :: Lens.Lens' UpdateStateMachine (Core.Maybe Types.Definition)
+usmDefinition = Lens.field @"definition"
 {-# DEPRECATED usmDefinition "Use generic-lens or generic-optics with 'definition' instead." #-}
-
--- | Selects whether AWS X-Ray tracing is enabled.
---
--- /Note:/ Consider using 'tracingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmTracingConfiguration :: Lens.Lens' UpdateStateMachine (Lude.Maybe TracingConfiguration)
-usmTracingConfiguration = Lens.lens (tracingConfiguration :: UpdateStateMachine -> Lude.Maybe TracingConfiguration) (\s a -> s {tracingConfiguration = a} :: UpdateStateMachine)
-{-# DEPRECATED usmTracingConfiguration "Use generic-lens or generic-optics with 'tracingConfiguration' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the state machine.
---
--- /Note:/ Consider using 'stateMachineARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmStateMachineARN :: Lens.Lens' UpdateStateMachine Lude.Text
-usmStateMachineARN = Lens.lens (stateMachineARN :: UpdateStateMachine -> Lude.Text) (\s a -> s {stateMachineARN = a} :: UpdateStateMachine)
-{-# DEPRECATED usmStateMachineARN "Use generic-lens or generic-optics with 'stateMachineARN' instead." #-}
 
 -- | The @LoggingConfiguration@ data type is used to set CloudWatch Logs options.
 --
 -- /Note:/ Consider using 'loggingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmLoggingConfiguration :: Lens.Lens' UpdateStateMachine (Lude.Maybe LoggingConfiguration)
-usmLoggingConfiguration = Lens.lens (loggingConfiguration :: UpdateStateMachine -> Lude.Maybe LoggingConfiguration) (\s a -> s {loggingConfiguration = a} :: UpdateStateMachine)
+usmLoggingConfiguration :: Lens.Lens' UpdateStateMachine (Core.Maybe Types.LoggingConfiguration)
+usmLoggingConfiguration = Lens.field @"loggingConfiguration"
 {-# DEPRECATED usmLoggingConfiguration "Use generic-lens or generic-optics with 'loggingConfiguration' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the IAM role of the state machine.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmRoleARN :: Lens.Lens' UpdateStateMachine (Lude.Maybe Lude.Text)
-usmRoleARN = Lens.lens (roleARN :: UpdateStateMachine -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: UpdateStateMachine)
-{-# DEPRECATED usmRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmRoleArn :: Lens.Lens' UpdateStateMachine (Core.Maybe Types.Arn)
+usmRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED usmRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.AWSRequest UpdateStateMachine where
+-- | Selects whether AWS X-Ray tracing is enabled.
+--
+-- /Note:/ Consider using 'tracingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usmTracingConfiguration :: Lens.Lens' UpdateStateMachine (Core.Maybe Types.TracingConfiguration)
+usmTracingConfiguration = Lens.field @"tracingConfiguration"
+{-# DEPRECATED usmTracingConfiguration "Use generic-lens or generic-optics with 'tracingConfiguration' instead." #-}
+
+instance Core.FromJSON UpdateStateMachine where
+  toJSON UpdateStateMachine {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("stateMachineArn" Core..= stateMachineArn),
+            ("definition" Core..=) Core.<$> definition,
+            ("loggingConfiguration" Core..=) Core.<$> loggingConfiguration,
+            ("roleArn" Core..=) Core.<$> roleArn,
+            ("tracingConfiguration" Core..=) Core.<$> tracingConfiguration
+          ]
+      )
+
+instance Core.AWSRequest UpdateStateMachine where
   type Rs UpdateStateMachine = UpdateStateMachineResponse
-  request = Req.postJSON stepFunctionsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSStepFunctions.UpdateStateMachine")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateStateMachineResponse'
-            Lude.<$> (x Lude..:> "updateDate") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "updateDate") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateStateMachine where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSStepFunctions.UpdateStateMachine" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateStateMachine where
-  toJSON UpdateStateMachine' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("definition" Lude..=) Lude.<$> definition,
-            ("tracingConfiguration" Lude..=) Lude.<$> tracingConfiguration,
-            Lude.Just ("stateMachineArn" Lude..= stateMachineARN),
-            ("loggingConfiguration" Lude..=) Lude.<$> loggingConfiguration,
-            ("roleArn" Lude..=) Lude.<$> roleARN
-          ]
-      )
-
-instance Lude.ToPath UpdateStateMachine where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateStateMachine where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateStateMachineResponse' smart constructor.
 data UpdateStateMachineResponse = UpdateStateMachineResponse'
   { -- | The date and time the state machine was updated.
-    updateDate :: Lude.Timestamp,
+    updateDate :: Core.NominalDiffTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateStateMachineResponse' with the minimum fields required to make a request.
---
--- * 'updateDate' - The date and time the state machine was updated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateStateMachineResponse' value with any optional fields omitted.
 mkUpdateStateMachineResponse ::
   -- | 'updateDate'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateStateMachineResponse
-mkUpdateStateMachineResponse pUpdateDate_ pResponseStatus_ =
-  UpdateStateMachineResponse'
-    { updateDate = pUpdateDate_,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateStateMachineResponse updateDate responseStatus =
+  UpdateStateMachineResponse' {updateDate, responseStatus}
 
 -- | The date and time the state machine was updated.
 --
 -- /Note:/ Consider using 'updateDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmrsUpdateDate :: Lens.Lens' UpdateStateMachineResponse Lude.Timestamp
-usmrsUpdateDate = Lens.lens (updateDate :: UpdateStateMachineResponse -> Lude.Timestamp) (\s a -> s {updateDate = a} :: UpdateStateMachineResponse)
-{-# DEPRECATED usmrsUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
+usmrrsUpdateDate :: Lens.Lens' UpdateStateMachineResponse Core.NominalDiffTime
+usmrrsUpdateDate = Lens.field @"updateDate"
+{-# DEPRECATED usmrrsUpdateDate "Use generic-lens or generic-optics with 'updateDate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usmrsResponseStatus :: Lens.Lens' UpdateStateMachineResponse Lude.Int
-usmrsResponseStatus = Lens.lens (responseStatus :: UpdateStateMachineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateStateMachineResponse)
-{-# DEPRECATED usmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usmrrsResponseStatus :: Lens.Lens' UpdateStateMachineResponse Core.Int
+usmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,9 +21,9 @@ module Network.AWS.Config.Types.ConfigSnapshotDeliveryProperties
   )
 where
 
-import Network.AWS.Config.Types.MaximumExecutionFrequency
+import qualified Network.AWS.Config.Types.MaximumExecutionFrequency as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket in your delivery channel.
 --
@@ -55,41 +55,37 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkConfigSnapshotDeliveryProperties' smart constructor.
 newtype ConfigSnapshotDeliveryProperties = ConfigSnapshotDeliveryProperties'
   { -- | The frequency with which AWS Config delivers configuration snapshots.
-    deliveryFrequency :: Lude.Maybe MaximumExecutionFrequency
+    deliveryFrequency :: Core.Maybe Types.MaximumExecutionFrequency
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfigSnapshotDeliveryProperties' with the minimum fields required to make a request.
---
--- * 'deliveryFrequency' - The frequency with which AWS Config delivers configuration snapshots.
+-- | Creates a 'ConfigSnapshotDeliveryProperties' value with any optional fields omitted.
 mkConfigSnapshotDeliveryProperties ::
   ConfigSnapshotDeliveryProperties
 mkConfigSnapshotDeliveryProperties =
   ConfigSnapshotDeliveryProperties'
     { deliveryFrequency =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The frequency with which AWS Config delivers configuration snapshots.
 --
 -- /Note:/ Consider using 'deliveryFrequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csdpDeliveryFrequency :: Lens.Lens' ConfigSnapshotDeliveryProperties (Lude.Maybe MaximumExecutionFrequency)
-csdpDeliveryFrequency = Lens.lens (deliveryFrequency :: ConfigSnapshotDeliveryProperties -> Lude.Maybe MaximumExecutionFrequency) (\s a -> s {deliveryFrequency = a} :: ConfigSnapshotDeliveryProperties)
+csdpDeliveryFrequency :: Lens.Lens' ConfigSnapshotDeliveryProperties (Core.Maybe Types.MaximumExecutionFrequency)
+csdpDeliveryFrequency = Lens.field @"deliveryFrequency"
 {-# DEPRECATED csdpDeliveryFrequency "Use generic-lens or generic-optics with 'deliveryFrequency' instead." #-}
 
-instance Lude.FromJSON ConfigSnapshotDeliveryProperties where
-  parseJSON =
-    Lude.withObject
-      "ConfigSnapshotDeliveryProperties"
-      ( \x ->
-          ConfigSnapshotDeliveryProperties'
-            Lude.<$> (x Lude..:? "deliveryFrequency")
+instance Core.FromJSON ConfigSnapshotDeliveryProperties where
+  toJSON ConfigSnapshotDeliveryProperties {..} =
+    Core.object
+      ( Core.catMaybes
+          [("deliveryFrequency" Core..=) Core.<$> deliveryFrequency]
       )
 
-instance Lude.ToJSON ConfigSnapshotDeliveryProperties where
-  toJSON ConfigSnapshotDeliveryProperties' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("deliveryFrequency" Lude..=) Lude.<$> deliveryFrequency]
-      )
+instance Core.FromJSON ConfigSnapshotDeliveryProperties where
+  parseJSON =
+    Core.withObject "ConfigSnapshotDeliveryProperties" Core.$
+      \x ->
+        ConfigSnapshotDeliveryProperties'
+          Core.<$> (x Core..:? "deliveryFrequency")

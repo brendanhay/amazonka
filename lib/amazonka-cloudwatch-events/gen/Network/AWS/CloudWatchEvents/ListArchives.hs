@@ -20,184 +20,167 @@ module Network.AWS.CloudWatchEvents.ListArchives
     mkListArchives,
 
     -- ** Request lenses
-    laEventSourceARN,
-    laState,
-    laNextToken,
-    laNamePrefix,
+    laEventSourceArn,
     laLimit,
+    laNamePrefix,
+    laNextToken,
+    laState,
 
     -- * Destructuring the response
     ListArchivesResponse (..),
     mkListArchivesResponse,
 
     -- ** Response lenses
-    larsArchives,
-    larsNextToken,
-    larsResponseStatus,
+    larrsArchives,
+    larrsNextToken,
+    larrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListArchives' smart constructor.
 data ListArchives = ListArchives'
   { -- | The ARN of the event source associated with the archive.
-    eventSourceARN :: Lude.Maybe Lude.Text,
-    -- | The state of the archive.
-    state :: Lude.Maybe ArchiveState,
-    -- | The token returned by a previous call to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | A name prefix to filter the archives returned. Only archives with name that match the prefix are returned.
-    namePrefix :: Lude.Maybe Lude.Text,
+    eventSourceArn :: Core.Maybe Types.EventSourceArn,
     -- | The maximum number of results to return.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | A name prefix to filter the archives returned. Only archives with name that match the prefix are returned.
+    namePrefix :: Core.Maybe Types.NamePrefix,
+    -- | The token returned by a previous call to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The state of the archive.
+    state :: Core.Maybe Types.ArchiveState
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListArchives' with the minimum fields required to make a request.
---
--- * 'eventSourceARN' - The ARN of the event source associated with the archive.
--- * 'state' - The state of the archive.
--- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
--- * 'namePrefix' - A name prefix to filter the archives returned. Only archives with name that match the prefix are returned.
--- * 'limit' - The maximum number of results to return.
+-- | Creates a 'ListArchives' value with any optional fields omitted.
 mkListArchives ::
   ListArchives
 mkListArchives =
   ListArchives'
-    { eventSourceARN = Lude.Nothing,
-      state = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      namePrefix = Lude.Nothing,
-      limit = Lude.Nothing
+    { eventSourceArn = Core.Nothing,
+      limit = Core.Nothing,
+      namePrefix = Core.Nothing,
+      nextToken = Core.Nothing,
+      state = Core.Nothing
     }
 
 -- | The ARN of the event source associated with the archive.
 --
--- /Note:/ Consider using 'eventSourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laEventSourceARN :: Lens.Lens' ListArchives (Lude.Maybe Lude.Text)
-laEventSourceARN = Lens.lens (eventSourceARN :: ListArchives -> Lude.Maybe Lude.Text) (\s a -> s {eventSourceARN = a} :: ListArchives)
-{-# DEPRECATED laEventSourceARN "Use generic-lens or generic-optics with 'eventSourceARN' instead." #-}
-
--- | The state of the archive.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laState :: Lens.Lens' ListArchives (Lude.Maybe ArchiveState)
-laState = Lens.lens (state :: ListArchives -> Lude.Maybe ArchiveState) (\s a -> s {state = a} :: ListArchives)
-{-# DEPRECATED laState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The token returned by a previous call to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laNextToken :: Lens.Lens' ListArchives (Lude.Maybe Lude.Text)
-laNextToken = Lens.lens (nextToken :: ListArchives -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListArchives)
-{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | A name prefix to filter the archives returned. Only archives with name that match the prefix are returned.
---
--- /Note:/ Consider using 'namePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laNamePrefix :: Lens.Lens' ListArchives (Lude.Maybe Lude.Text)
-laNamePrefix = Lens.lens (namePrefix :: ListArchives -> Lude.Maybe Lude.Text) (\s a -> s {namePrefix = a} :: ListArchives)
-{-# DEPRECATED laNamePrefix "Use generic-lens or generic-optics with 'namePrefix' instead." #-}
+-- /Note:/ Consider using 'eventSourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laEventSourceArn :: Lens.Lens' ListArchives (Core.Maybe Types.EventSourceArn)
+laEventSourceArn = Lens.field @"eventSourceArn"
+{-# DEPRECATED laEventSourceArn "Use generic-lens or generic-optics with 'eventSourceArn' instead." #-}
 
 -- | The maximum number of results to return.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laLimit :: Lens.Lens' ListArchives (Lude.Maybe Lude.Natural)
-laLimit = Lens.lens (limit :: ListArchives -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListArchives)
+laLimit :: Lens.Lens' ListArchives (Core.Maybe Core.Natural)
+laLimit = Lens.field @"limit"
 {-# DEPRECATED laLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest ListArchives where
+-- | A name prefix to filter the archives returned. Only archives with name that match the prefix are returned.
+--
+-- /Note:/ Consider using 'namePrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNamePrefix :: Lens.Lens' ListArchives (Core.Maybe Types.NamePrefix)
+laNamePrefix = Lens.field @"namePrefix"
+{-# DEPRECATED laNamePrefix "Use generic-lens or generic-optics with 'namePrefix' instead." #-}
+
+-- | The token returned by a previous call to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNextToken :: Lens.Lens' ListArchives (Core.Maybe Types.NextToken)
+laNextToken = Lens.field @"nextToken"
+{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The state of the archive.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laState :: Lens.Lens' ListArchives (Core.Maybe Types.ArchiveState)
+laState = Lens.field @"state"
+{-# DEPRECATED laState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON ListArchives where
+  toJSON ListArchives {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EventSourceArn" Core..=) Core.<$> eventSourceArn,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NamePrefix" Core..=) Core.<$> namePrefix,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("State" Core..=) Core.<$> state
+          ]
+      )
+
+instance Core.AWSRequest ListArchives where
   type Rs ListArchives = ListArchivesResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.ListArchives")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListArchivesResponse'
-            Lude.<$> (x Lude..?> "Archives" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Archives")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListArchives where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.ListArchives" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListArchives where
-  toJSON ListArchives' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EventSourceArn" Lude..=) Lude.<$> eventSourceARN,
-            ("State" Lude..=) Lude.<$> state,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("NamePrefix" Lude..=) Lude.<$> namePrefix,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListArchives where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListArchives where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListArchivesResponse' smart constructor.
 data ListArchivesResponse = ListArchivesResponse'
   { -- | An array of @Archive@ objects that include details about an archive.
-    archives :: Lude.Maybe [Archive],
+    archives :: Core.Maybe [Types.Archive],
     -- | The token returned by a previous call to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListArchivesResponse' with the minimum fields required to make a request.
---
--- * 'archives' - An array of @Archive@ objects that include details about an archive.
--- * 'nextToken' - The token returned by a previous call to retrieve the next set of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListArchivesResponse' value with any optional fields omitted.
 mkListArchivesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListArchivesResponse
-mkListArchivesResponse pResponseStatus_ =
+mkListArchivesResponse responseStatus =
   ListArchivesResponse'
-    { archives = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { archives = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of @Archive@ objects that include details about an archive.
 --
 -- /Note:/ Consider using 'archives' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsArchives :: Lens.Lens' ListArchivesResponse (Lude.Maybe [Archive])
-larsArchives = Lens.lens (archives :: ListArchivesResponse -> Lude.Maybe [Archive]) (\s a -> s {archives = a} :: ListArchivesResponse)
-{-# DEPRECATED larsArchives "Use generic-lens or generic-optics with 'archives' instead." #-}
+larrsArchives :: Lens.Lens' ListArchivesResponse (Core.Maybe [Types.Archive])
+larrsArchives = Lens.field @"archives"
+{-# DEPRECATED larrsArchives "Use generic-lens or generic-optics with 'archives' instead." #-}
 
 -- | The token returned by a previous call to retrieve the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsNextToken :: Lens.Lens' ListArchivesResponse (Lude.Maybe Lude.Text)
-larsNextToken = Lens.lens (nextToken :: ListArchivesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListArchivesResponse)
-{-# DEPRECATED larsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+larrsNextToken :: Lens.Lens' ListArchivesResponse (Core.Maybe Types.NextToken)
+larrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED larrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsResponseStatus :: Lens.Lens' ListArchivesResponse Lude.Int
-larsResponseStatus = Lens.lens (responseStatus :: ListArchivesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListArchivesResponse)
-{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+larrsResponseStatus :: Lens.Lens' ListArchivesResponse Core.Int
+larrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED larrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

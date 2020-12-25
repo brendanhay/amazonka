@@ -21,39 +21,36 @@ module Network.AWS.GuardDuty.Types.FlowLogsConfigurationResult
   )
 where
 
-import Network.AWS.GuardDuty.Types.DataSourceStatus
+import qualified Network.AWS.GuardDuty.Types.DataSourceStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information on the status of VPC flow logs as a data source.
 --
 -- /See:/ 'mkFlowLogsConfigurationResult' smart constructor.
 newtype FlowLogsConfigurationResult = FlowLogsConfigurationResult'
   { -- | Denotes whether VPC flow logs is enabled as a data source.
-    status :: DataSourceStatus
+    status :: Types.DataSourceStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FlowLogsConfigurationResult' with the minimum fields required to make a request.
---
--- * 'status' - Denotes whether VPC flow logs is enabled as a data source.
+-- | Creates a 'FlowLogsConfigurationResult' value with any optional fields omitted.
 mkFlowLogsConfigurationResult ::
   -- | 'status'
-  DataSourceStatus ->
+  Types.DataSourceStatus ->
   FlowLogsConfigurationResult
-mkFlowLogsConfigurationResult pStatus_ =
-  FlowLogsConfigurationResult' {status = pStatus_}
+mkFlowLogsConfigurationResult status =
+  FlowLogsConfigurationResult' {status}
 
 -- | Denotes whether VPC flow logs is enabled as a data source.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flcrStatus :: Lens.Lens' FlowLogsConfigurationResult DataSourceStatus
-flcrStatus = Lens.lens (status :: FlowLogsConfigurationResult -> DataSourceStatus) (\s a -> s {status = a} :: FlowLogsConfigurationResult)
+flcrStatus :: Lens.Lens' FlowLogsConfigurationResult Types.DataSourceStatus
+flcrStatus = Lens.field @"status"
 {-# DEPRECATED flcrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.FromJSON FlowLogsConfigurationResult where
+instance Core.FromJSON FlowLogsConfigurationResult where
   parseJSON =
-    Lude.withObject
-      "FlowLogsConfigurationResult"
-      (\x -> FlowLogsConfigurationResult' Lude.<$> (x Lude..: "status"))
+    Core.withObject "FlowLogsConfigurationResult" Core.$
+      \x -> FlowLogsConfigurationResult' Core.<$> (x Core..: "status")

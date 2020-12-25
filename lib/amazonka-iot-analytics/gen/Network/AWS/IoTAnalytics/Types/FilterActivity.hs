@@ -17,85 +17,77 @@ module Network.AWS.IoTAnalytics.Types.FilterActivity
     mkFilterActivity,
 
     -- * Lenses
-    faNext,
     faName,
     faFilter,
+    faNext,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.ActivityName as Types
+import qualified Network.AWS.IoTAnalytics.Types.FilterExpression as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An activity that filters a message based on its attributes.
 --
 -- /See:/ 'mkFilterActivity' smart constructor.
 data FilterActivity = FilterActivity'
-  { -- | The next activity in the pipeline.
-    next :: Lude.Maybe Lude.Text,
-    -- | The name of the filter activity.
-    name :: Lude.Text,
+  { -- | The name of the filter activity.
+    name :: Types.ActivityName,
     -- | An expression that looks like a SQL WHERE clause that must return a Boolean value. Messages that satisfy the condition are passed to the next activity.
-    filter :: Lude.Text
+    filter :: Types.FilterExpression,
+    -- | The next activity in the pipeline.
+    next :: Core.Maybe Types.ActivityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FilterActivity' with the minimum fields required to make a request.
---
--- * 'next' - The next activity in the pipeline.
--- * 'name' - The name of the filter activity.
--- * 'filter' - An expression that looks like a SQL WHERE clause that must return a Boolean value. Messages that satisfy the condition are passed to the next activity.
+-- | Creates a 'FilterActivity' value with any optional fields omitted.
 mkFilterActivity ::
   -- | 'name'
-  Lude.Text ->
+  Types.ActivityName ->
   -- | 'filter'
-  Lude.Text ->
+  Types.FilterExpression ->
   FilterActivity
-mkFilterActivity pName_ pFilter_ =
-  FilterActivity'
-    { next = Lude.Nothing,
-      name = pName_,
-      filter = pFilter_
-    }
-
--- | The next activity in the pipeline.
---
--- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faNext :: Lens.Lens' FilterActivity (Lude.Maybe Lude.Text)
-faNext = Lens.lens (next :: FilterActivity -> Lude.Maybe Lude.Text) (\s a -> s {next = a} :: FilterActivity)
-{-# DEPRECATED faNext "Use generic-lens or generic-optics with 'next' instead." #-}
+mkFilterActivity name filter =
+  FilterActivity' {name, filter, next = Core.Nothing}
 
 -- | The name of the filter activity.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faName :: Lens.Lens' FilterActivity Lude.Text
-faName = Lens.lens (name :: FilterActivity -> Lude.Text) (\s a -> s {name = a} :: FilterActivity)
+faName :: Lens.Lens' FilterActivity Types.ActivityName
+faName = Lens.field @"name"
 {-# DEPRECATED faName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | An expression that looks like a SQL WHERE clause that must return a Boolean value. Messages that satisfy the condition are passed to the next activity.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faFilter :: Lens.Lens' FilterActivity Lude.Text
-faFilter = Lens.lens (filter :: FilterActivity -> Lude.Text) (\s a -> s {filter = a} :: FilterActivity)
+faFilter :: Lens.Lens' FilterActivity Types.FilterExpression
+faFilter = Lens.field @"filter"
 {-# DEPRECATED faFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
-instance Lude.FromJSON FilterActivity where
-  parseJSON =
-    Lude.withObject
-      "FilterActivity"
-      ( \x ->
-          FilterActivity'
-            Lude.<$> (x Lude..:? "next")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "filter")
-      )
+-- | The next activity in the pipeline.
+--
+-- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faNext :: Lens.Lens' FilterActivity (Core.Maybe Types.ActivityName)
+faNext = Lens.field @"next"
+{-# DEPRECATED faNext "Use generic-lens or generic-optics with 'next' instead." #-}
 
-instance Lude.ToJSON FilterActivity where
-  toJSON FilterActivity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("next" Lude..=) Lude.<$> next,
-            Lude.Just ("name" Lude..= name),
-            Lude.Just ("filter" Lude..= filter)
+instance Core.FromJSON FilterActivity where
+  toJSON FilterActivity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("filter" Core..= filter),
+            ("next" Core..=) Core.<$> next
           ]
       )
+
+instance Core.FromJSON FilterActivity where
+  parseJSON =
+    Core.withObject "FilterActivity" Core.$
+      \x ->
+        FilterActivity'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..: "filter")
+          Core.<*> (x Core..:? "next")

@@ -20,146 +20,138 @@ module Network.AWS.IoTAnalytics.SampleChannelData
     mkSampleChannelData,
 
     -- ** Request lenses
-    scdStartTime,
     scdChannelName,
-    scdMaxMessages,
     scdEndTime,
+    scdMaxMessages,
+    scdStartTime,
 
     -- * Destructuring the response
     SampleChannelDataResponse (..),
     mkSampleChannelDataResponse,
 
     -- ** Response lenses
-    scdrsPayloads,
-    scdrsResponseStatus,
+    scdrrsPayloads,
+    scdrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSampleChannelData' smart constructor.
 data SampleChannelData = SampleChannelData'
-  { -- | The start of the time window from which sample messages are retrieved.
-    startTime :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the channel whose message samples are retrieved.
-    channelName :: Lude.Text,
-    -- | The number of sample messages to be retrieved. The limit is 10. The default is also 10.
-    maxMessages :: Lude.Maybe Lude.Natural,
+  { -- | The name of the channel whose message samples are retrieved.
+    channelName :: Types.ChannelName,
     -- | The end of the time window from which sample messages are retrieved.
-    endTime :: Lude.Maybe Lude.Timestamp
+    endTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The number of sample messages to be retrieved. The limit is 10. The default is also 10.
+    maxMessages :: Core.Maybe Core.Natural,
+    -- | The start of the time window from which sample messages are retrieved.
+    startTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SampleChannelData' with the minimum fields required to make a request.
---
--- * 'startTime' - The start of the time window from which sample messages are retrieved.
--- * 'channelName' - The name of the channel whose message samples are retrieved.
--- * 'maxMessages' - The number of sample messages to be retrieved. The limit is 10. The default is also 10.
--- * 'endTime' - The end of the time window from which sample messages are retrieved.
+-- | Creates a 'SampleChannelData' value with any optional fields omitted.
 mkSampleChannelData ::
   -- | 'channelName'
-  Lude.Text ->
+  Types.ChannelName ->
   SampleChannelData
-mkSampleChannelData pChannelName_ =
+mkSampleChannelData channelName =
   SampleChannelData'
-    { startTime = Lude.Nothing,
-      channelName = pChannelName_,
-      maxMessages = Lude.Nothing,
-      endTime = Lude.Nothing
+    { channelName,
+      endTime = Core.Nothing,
+      maxMessages = Core.Nothing,
+      startTime = Core.Nothing
     }
-
--- | The start of the time window from which sample messages are retrieved.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scdStartTime :: Lens.Lens' SampleChannelData (Lude.Maybe Lude.Timestamp)
-scdStartTime = Lens.lens (startTime :: SampleChannelData -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: SampleChannelData)
-{-# DEPRECATED scdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The name of the channel whose message samples are retrieved.
 --
 -- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scdChannelName :: Lens.Lens' SampleChannelData Lude.Text
-scdChannelName = Lens.lens (channelName :: SampleChannelData -> Lude.Text) (\s a -> s {channelName = a} :: SampleChannelData)
+scdChannelName :: Lens.Lens' SampleChannelData Types.ChannelName
+scdChannelName = Lens.field @"channelName"
 {-# DEPRECATED scdChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
-
--- | The number of sample messages to be retrieved. The limit is 10. The default is also 10.
---
--- /Note:/ Consider using 'maxMessages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scdMaxMessages :: Lens.Lens' SampleChannelData (Lude.Maybe Lude.Natural)
-scdMaxMessages = Lens.lens (maxMessages :: SampleChannelData -> Lude.Maybe Lude.Natural) (\s a -> s {maxMessages = a} :: SampleChannelData)
-{-# DEPRECATED scdMaxMessages "Use generic-lens or generic-optics with 'maxMessages' instead." #-}
 
 -- | The end of the time window from which sample messages are retrieved.
 --
 -- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scdEndTime :: Lens.Lens' SampleChannelData (Lude.Maybe Lude.Timestamp)
-scdEndTime = Lens.lens (endTime :: SampleChannelData -> Lude.Maybe Lude.Timestamp) (\s a -> s {endTime = a} :: SampleChannelData)
+scdEndTime :: Lens.Lens' SampleChannelData (Core.Maybe Core.NominalDiffTime)
+scdEndTime = Lens.field @"endTime"
 {-# DEPRECATED scdEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
 
-instance Lude.AWSRequest SampleChannelData where
+-- | The number of sample messages to be retrieved. The limit is 10. The default is also 10.
+--
+-- /Note:/ Consider using 'maxMessages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scdMaxMessages :: Lens.Lens' SampleChannelData (Core.Maybe Core.Natural)
+scdMaxMessages = Lens.field @"maxMessages"
+{-# DEPRECATED scdMaxMessages "Use generic-lens or generic-optics with 'maxMessages' instead." #-}
+
+-- | The start of the time window from which sample messages are retrieved.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scdStartTime :: Lens.Lens' SampleChannelData (Core.Maybe Core.NominalDiffTime)
+scdStartTime = Lens.field @"startTime"
+{-# DEPRECATED scdStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
+
+instance Core.AWSRequest SampleChannelData where
   type Rs SampleChannelData = SampleChannelDataResponse
-  request = Req.get ioTAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/channels/" Core.<> (Core.toText channelName)
+                Core.<> ("/sample")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "endTime" Core.<$> endTime
+            Core.<> (Core.toQueryValue "maxMessages" Core.<$> maxMessages)
+            Core.<> (Core.toQueryValue "startTime" Core.<$> startTime),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           SampleChannelDataResponse'
-            Lude.<$> (x Lude..?> "payloads") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "payloads") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SampleChannelData where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SampleChannelData where
-  toPath SampleChannelData' {..} =
-    Lude.mconcat ["/channels/", Lude.toBS channelName, "/sample"]
-
-instance Lude.ToQuery SampleChannelData where
-  toQuery SampleChannelData' {..} =
-    Lude.mconcat
-      [ "startTime" Lude.=: startTime,
-        "maxMessages" Lude.=: maxMessages,
-        "endTime" Lude.=: endTime
-      ]
 
 -- | /See:/ 'mkSampleChannelDataResponse' smart constructor.
 data SampleChannelDataResponse = SampleChannelDataResponse'
   { -- | The list of message samples. Each sample message is returned as a base64-encoded string.
-    payloads :: Lude.Maybe (Lude.NonEmpty Lude.Base64),
+    payloads :: Core.Maybe (Core.NonEmpty Core.Base64),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SampleChannelDataResponse' with the minimum fields required to make a request.
---
--- * 'payloads' - The list of message samples. Each sample message is returned as a base64-encoded string.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SampleChannelDataResponse' value with any optional fields omitted.
 mkSampleChannelDataResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SampleChannelDataResponse
-mkSampleChannelDataResponse pResponseStatus_ =
+mkSampleChannelDataResponse responseStatus =
   SampleChannelDataResponse'
-    { payloads = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { payloads = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of message samples. Each sample message is returned as a base64-encoded string.
 --
 -- /Note:/ Consider using 'payloads' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scdrsPayloads :: Lens.Lens' SampleChannelDataResponse (Lude.Maybe (Lude.NonEmpty Lude.Base64))
-scdrsPayloads = Lens.lens (payloads :: SampleChannelDataResponse -> Lude.Maybe (Lude.NonEmpty Lude.Base64)) (\s a -> s {payloads = a} :: SampleChannelDataResponse)
-{-# DEPRECATED scdrsPayloads "Use generic-lens or generic-optics with 'payloads' instead." #-}
+scdrrsPayloads :: Lens.Lens' SampleChannelDataResponse (Core.Maybe (Core.NonEmpty Core.Base64))
+scdrrsPayloads = Lens.field @"payloads"
+{-# DEPRECATED scdrrsPayloads "Use generic-lens or generic-optics with 'payloads' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scdrsResponseStatus :: Lens.Lens' SampleChannelDataResponse Lude.Int
-scdrsResponseStatus = Lens.lens (responseStatus :: SampleChannelDataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SampleChannelDataResponse)
-{-# DEPRECATED scdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+scdrrsResponseStatus :: Lens.Lens' SampleChannelDataResponse Core.Int
+scdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED scdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

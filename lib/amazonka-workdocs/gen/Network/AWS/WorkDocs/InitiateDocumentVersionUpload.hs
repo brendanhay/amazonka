@@ -23,226 +23,208 @@ module Network.AWS.WorkDocs.InitiateDocumentVersionUpload
     mkInitiateDocumentVersionUpload,
 
     -- ** Request lenses
-    idvuDocumentSizeInBytes,
     idvuParentFolderId,
-    idvuContentCreatedTimestamp,
     idvuAuthenticationToken,
-    idvuName,
-    idvuId,
+    idvuContentCreatedTimestamp,
     idvuContentModifiedTimestamp,
     idvuContentType,
+    idvuDocumentSizeInBytes,
+    idvuId,
+    idvuName,
 
     -- * Destructuring the response
     InitiateDocumentVersionUploadResponse (..),
     mkInitiateDocumentVersionUploadResponse,
 
     -- ** Response lenses
-    idvursMetadata,
-    idvursUploadMetadata,
-    idvursResponseStatus,
+    idvurrsMetadata,
+    idvurrsUploadMetadata,
+    idvurrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkInitiateDocumentVersionUpload' smart constructor.
 data InitiateDocumentVersionUpload = InitiateDocumentVersionUpload'
-  { -- | The size of the document, in bytes.
-    documentSizeInBytes :: Lude.Maybe Lude.Integer,
-    -- | The ID of the parent folder.
-    parentFolderId :: Lude.Text,
-    -- | The timestamp when the content of the document was originally created.
-    contentCreatedTimestamp :: Lude.Maybe Lude.Timestamp,
+  { -- | The ID of the parent folder.
+    parentFolderId :: Types.ParentFolderId,
     -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The name of the document.
-    name :: Lude.Maybe Lude.Text,
-    -- | The ID of the document.
-    id :: Lude.Maybe Lude.Text,
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType,
+    -- | The timestamp when the content of the document was originally created.
+    contentCreatedTimestamp :: Core.Maybe Core.NominalDiffTime,
     -- | The timestamp when the content of the document was modified.
-    contentModifiedTimestamp :: Lude.Maybe Lude.Timestamp,
+    contentModifiedTimestamp :: Core.Maybe Core.NominalDiffTime,
     -- | The content type of the document.
-    contentType :: Lude.Maybe Lude.Text
+    contentType :: Core.Maybe Types.DocumentContentType,
+    -- | The size of the document, in bytes.
+    documentSizeInBytes :: Core.Maybe Core.Integer,
+    -- | The ID of the document.
+    id :: Core.Maybe Types.Id,
+    -- | The name of the document.
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InitiateDocumentVersionUpload' with the minimum fields required to make a request.
---
--- * 'documentSizeInBytes' - The size of the document, in bytes.
--- * 'parentFolderId' - The ID of the parent folder.
--- * 'contentCreatedTimestamp' - The timestamp when the content of the document was originally created.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'name' - The name of the document.
--- * 'id' - The ID of the document.
--- * 'contentModifiedTimestamp' - The timestamp when the content of the document was modified.
--- * 'contentType' - The content type of the document.
+-- | Creates a 'InitiateDocumentVersionUpload' value with any optional fields omitted.
 mkInitiateDocumentVersionUpload ::
   -- | 'parentFolderId'
-  Lude.Text ->
+  Types.ParentFolderId ->
   InitiateDocumentVersionUpload
-mkInitiateDocumentVersionUpload pParentFolderId_ =
+mkInitiateDocumentVersionUpload parentFolderId =
   InitiateDocumentVersionUpload'
-    { documentSizeInBytes =
-        Lude.Nothing,
-      parentFolderId = pParentFolderId_,
-      contentCreatedTimestamp = Lude.Nothing,
-      authenticationToken = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      contentModifiedTimestamp = Lude.Nothing,
-      contentType = Lude.Nothing
+    { parentFolderId,
+      authenticationToken = Core.Nothing,
+      contentCreatedTimestamp = Core.Nothing,
+      contentModifiedTimestamp = Core.Nothing,
+      contentType = Core.Nothing,
+      documentSizeInBytes = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The size of the document, in bytes.
---
--- /Note:/ Consider using 'documentSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvuDocumentSizeInBytes :: Lens.Lens' InitiateDocumentVersionUpload (Lude.Maybe Lude.Integer)
-idvuDocumentSizeInBytes = Lens.lens (documentSizeInBytes :: InitiateDocumentVersionUpload -> Lude.Maybe Lude.Integer) (\s a -> s {documentSizeInBytes = a} :: InitiateDocumentVersionUpload)
-{-# DEPRECATED idvuDocumentSizeInBytes "Use generic-lens or generic-optics with 'documentSizeInBytes' instead." #-}
 
 -- | The ID of the parent folder.
 --
 -- /Note:/ Consider using 'parentFolderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvuParentFolderId :: Lens.Lens' InitiateDocumentVersionUpload Lude.Text
-idvuParentFolderId = Lens.lens (parentFolderId :: InitiateDocumentVersionUpload -> Lude.Text) (\s a -> s {parentFolderId = a} :: InitiateDocumentVersionUpload)
+idvuParentFolderId :: Lens.Lens' InitiateDocumentVersionUpload Types.ParentFolderId
+idvuParentFolderId = Lens.field @"parentFolderId"
 {-# DEPRECATED idvuParentFolderId "Use generic-lens or generic-optics with 'parentFolderId' instead." #-}
-
--- | The timestamp when the content of the document was originally created.
---
--- /Note:/ Consider using 'contentCreatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvuContentCreatedTimestamp :: Lens.Lens' InitiateDocumentVersionUpload (Lude.Maybe Lude.Timestamp)
-idvuContentCreatedTimestamp = Lens.lens (contentCreatedTimestamp :: InitiateDocumentVersionUpload -> Lude.Maybe Lude.Timestamp) (\s a -> s {contentCreatedTimestamp = a} :: InitiateDocumentVersionUpload)
-{-# DEPRECATED idvuContentCreatedTimestamp "Use generic-lens or generic-optics with 'contentCreatedTimestamp' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvuAuthenticationToken :: Lens.Lens' InitiateDocumentVersionUpload (Lude.Maybe (Lude.Sensitive Lude.Text))
-idvuAuthenticationToken = Lens.lens (authenticationToken :: InitiateDocumentVersionUpload -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: InitiateDocumentVersionUpload)
+idvuAuthenticationToken :: Lens.Lens' InitiateDocumentVersionUpload (Core.Maybe Types.AuthenticationHeaderType)
+idvuAuthenticationToken = Lens.field @"authenticationToken"
 {-# DEPRECATED idvuAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
 
--- | The name of the document.
+-- | The timestamp when the content of the document was originally created.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvuName :: Lens.Lens' InitiateDocumentVersionUpload (Lude.Maybe Lude.Text)
-idvuName = Lens.lens (name :: InitiateDocumentVersionUpload -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: InitiateDocumentVersionUpload)
-{-# DEPRECATED idvuName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The ID of the document.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvuId :: Lens.Lens' InitiateDocumentVersionUpload (Lude.Maybe Lude.Text)
-idvuId = Lens.lens (id :: InitiateDocumentVersionUpload -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: InitiateDocumentVersionUpload)
-{-# DEPRECATED idvuId "Use generic-lens or generic-optics with 'id' instead." #-}
+-- /Note:/ Consider using 'contentCreatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idvuContentCreatedTimestamp :: Lens.Lens' InitiateDocumentVersionUpload (Core.Maybe Core.NominalDiffTime)
+idvuContentCreatedTimestamp = Lens.field @"contentCreatedTimestamp"
+{-# DEPRECATED idvuContentCreatedTimestamp "Use generic-lens or generic-optics with 'contentCreatedTimestamp' instead." #-}
 
 -- | The timestamp when the content of the document was modified.
 --
 -- /Note:/ Consider using 'contentModifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvuContentModifiedTimestamp :: Lens.Lens' InitiateDocumentVersionUpload (Lude.Maybe Lude.Timestamp)
-idvuContentModifiedTimestamp = Lens.lens (contentModifiedTimestamp :: InitiateDocumentVersionUpload -> Lude.Maybe Lude.Timestamp) (\s a -> s {contentModifiedTimestamp = a} :: InitiateDocumentVersionUpload)
+idvuContentModifiedTimestamp :: Lens.Lens' InitiateDocumentVersionUpload (Core.Maybe Core.NominalDiffTime)
+idvuContentModifiedTimestamp = Lens.field @"contentModifiedTimestamp"
 {-# DEPRECATED idvuContentModifiedTimestamp "Use generic-lens or generic-optics with 'contentModifiedTimestamp' instead." #-}
 
 -- | The content type of the document.
 --
 -- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvuContentType :: Lens.Lens' InitiateDocumentVersionUpload (Lude.Maybe Lude.Text)
-idvuContentType = Lens.lens (contentType :: InitiateDocumentVersionUpload -> Lude.Maybe Lude.Text) (\s a -> s {contentType = a} :: InitiateDocumentVersionUpload)
+idvuContentType :: Lens.Lens' InitiateDocumentVersionUpload (Core.Maybe Types.DocumentContentType)
+idvuContentType = Lens.field @"contentType"
 {-# DEPRECATED idvuContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
-instance Lude.AWSRequest InitiateDocumentVersionUpload where
-  type
-    Rs InitiateDocumentVersionUpload =
-      InitiateDocumentVersionUploadResponse
-  request = Req.postJSON workDocsService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          InitiateDocumentVersionUploadResponse'
-            Lude.<$> (x Lude..?> "Metadata")
-            Lude.<*> (x Lude..?> "UploadMetadata")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | The size of the document, in bytes.
+--
+-- /Note:/ Consider using 'documentSizeInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idvuDocumentSizeInBytes :: Lens.Lens' InitiateDocumentVersionUpload (Core.Maybe Core.Integer)
+idvuDocumentSizeInBytes = Lens.field @"documentSizeInBytes"
+{-# DEPRECATED idvuDocumentSizeInBytes "Use generic-lens or generic-optics with 'documentSizeInBytes' instead." #-}
 
-instance Lude.ToHeaders InitiateDocumentVersionUpload where
-  toHeaders InitiateDocumentVersionUpload' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
+-- | The ID of the document.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idvuId :: Lens.Lens' InitiateDocumentVersionUpload (Core.Maybe Types.Id)
+idvuId = Lens.field @"id"
+{-# DEPRECATED idvuId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.ToJSON InitiateDocumentVersionUpload where
-  toJSON InitiateDocumentVersionUpload' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DocumentSizeInBytes" Lude..=) Lude.<$> documentSizeInBytes,
-            Lude.Just ("ParentFolderId" Lude..= parentFolderId),
-            ("ContentCreatedTimestamp" Lude..=)
-              Lude.<$> contentCreatedTimestamp,
-            ("Name" Lude..=) Lude.<$> name,
-            ("Id" Lude..=) Lude.<$> id,
-            ("ContentModifiedTimestamp" Lude..=)
-              Lude.<$> contentModifiedTimestamp,
-            ("ContentType" Lude..=) Lude.<$> contentType
+-- | The name of the document.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idvuName :: Lens.Lens' InitiateDocumentVersionUpload (Core.Maybe Types.Name)
+idvuName = Lens.field @"name"
+{-# DEPRECATED idvuName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON InitiateDocumentVersionUpload where
+  toJSON InitiateDocumentVersionUpload {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ParentFolderId" Core..= parentFolderId),
+            ("ContentCreatedTimestamp" Core..=)
+              Core.<$> contentCreatedTimestamp,
+            ("ContentModifiedTimestamp" Core..=)
+              Core.<$> contentModifiedTimestamp,
+            ("ContentType" Core..=) Core.<$> contentType,
+            ("DocumentSizeInBytes" Core..=) Core.<$> documentSizeInBytes,
+            ("Id" Core..=) Core.<$> id,
+            ("Name" Core..=) Core.<$> name
           ]
       )
 
-instance Lude.ToPath InitiateDocumentVersionUpload where
-  toPath = Lude.const "/api/v1/documents"
-
-instance Lude.ToQuery InitiateDocumentVersionUpload where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest InitiateDocumentVersionUpload where
+  type
+    Rs InitiateDocumentVersionUpload =
+      InitiateDocumentVersionUploadResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/api/v1/documents",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          InitiateDocumentVersionUploadResponse'
+            Core.<$> (x Core..:? "Metadata")
+            Core.<*> (x Core..:? "UploadMetadata")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkInitiateDocumentVersionUploadResponse' smart constructor.
 data InitiateDocumentVersionUploadResponse = InitiateDocumentVersionUploadResponse'
   { -- | The document metadata.
-    metadata :: Lude.Maybe DocumentMetadata,
+    metadata :: Core.Maybe Types.DocumentMetadata,
     -- | The upload metadata.
-    uploadMetadata :: Lude.Maybe UploadMetadata,
+    uploadMetadata :: Core.Maybe Types.UploadMetadata,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InitiateDocumentVersionUploadResponse' with the minimum fields required to make a request.
---
--- * 'metadata' - The document metadata.
--- * 'uploadMetadata' - The upload metadata.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'InitiateDocumentVersionUploadResponse' value with any optional fields omitted.
 mkInitiateDocumentVersionUploadResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   InitiateDocumentVersionUploadResponse
-mkInitiateDocumentVersionUploadResponse pResponseStatus_ =
+mkInitiateDocumentVersionUploadResponse responseStatus =
   InitiateDocumentVersionUploadResponse'
-    { metadata = Lude.Nothing,
-      uploadMetadata = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { metadata = Core.Nothing,
+      uploadMetadata = Core.Nothing,
+      responseStatus
     }
 
 -- | The document metadata.
 --
 -- /Note:/ Consider using 'metadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvursMetadata :: Lens.Lens' InitiateDocumentVersionUploadResponse (Lude.Maybe DocumentMetadata)
-idvursMetadata = Lens.lens (metadata :: InitiateDocumentVersionUploadResponse -> Lude.Maybe DocumentMetadata) (\s a -> s {metadata = a} :: InitiateDocumentVersionUploadResponse)
-{-# DEPRECATED idvursMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
+idvurrsMetadata :: Lens.Lens' InitiateDocumentVersionUploadResponse (Core.Maybe Types.DocumentMetadata)
+idvurrsMetadata = Lens.field @"metadata"
+{-# DEPRECATED idvurrsMetadata "Use generic-lens or generic-optics with 'metadata' instead." #-}
 
 -- | The upload metadata.
 --
 -- /Note:/ Consider using 'uploadMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvursUploadMetadata :: Lens.Lens' InitiateDocumentVersionUploadResponse (Lude.Maybe UploadMetadata)
-idvursUploadMetadata = Lens.lens (uploadMetadata :: InitiateDocumentVersionUploadResponse -> Lude.Maybe UploadMetadata) (\s a -> s {uploadMetadata = a} :: InitiateDocumentVersionUploadResponse)
-{-# DEPRECATED idvursUploadMetadata "Use generic-lens or generic-optics with 'uploadMetadata' instead." #-}
+idvurrsUploadMetadata :: Lens.Lens' InitiateDocumentVersionUploadResponse (Core.Maybe Types.UploadMetadata)
+idvurrsUploadMetadata = Lens.field @"uploadMetadata"
+{-# DEPRECATED idvurrsUploadMetadata "Use generic-lens or generic-optics with 'uploadMetadata' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idvursResponseStatus :: Lens.Lens' InitiateDocumentVersionUploadResponse Lude.Int
-idvursResponseStatus = Lens.lens (responseStatus :: InitiateDocumentVersionUploadResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: InitiateDocumentVersionUploadResponse)
-{-# DEPRECATED idvursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+idvurrsResponseStatus :: Lens.Lens' InitiateDocumentVersionUploadResponse Core.Int
+idvurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED idvurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

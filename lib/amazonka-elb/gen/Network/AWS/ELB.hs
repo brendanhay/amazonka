@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -20,10 +19,76 @@
 -- All Elastic Load Balancing operations are /idempotent/ , which means that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK response code.
 module Network.AWS.ELB
   ( -- * Service configuration
-    elbService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** PolicyNotFoundException
+    _PolicyNotFoundException,
+
+    -- ** AccessPointNotFoundException
+    _AccessPointNotFoundException,
+
+    -- ** DuplicatePolicyNameException
+    _DuplicatePolicyNameException,
+
+    -- ** InvalidConfigurationRequestException
+    _InvalidConfigurationRequestException,
+
+    -- ** SubnetNotFoundException
+    _SubnetNotFoundException,
+
+    -- ** LoadBalancerAttributeNotFoundException
+    _LoadBalancerAttributeNotFoundException,
+
+    -- ** InvalidSubnetException
+    _InvalidSubnetException,
+
+    -- ** DuplicateTagKeysException
+    _DuplicateTagKeysException,
+
+    -- ** DuplicateListenerException
+    _DuplicateListenerException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** PolicyTypeNotFoundException
+    _PolicyTypeNotFoundException,
+
+    -- ** UnsupportedProtocolException
+    _UnsupportedProtocolException,
+
+    -- ** DuplicateAccessPointNameException
+    _DuplicateAccessPointNameException,
+
+    -- ** InvalidSecurityGroupException
+    _InvalidSecurityGroupException,
+
+    -- ** ListenerNotFoundException
+    _ListenerNotFoundException,
+
+    -- ** InvalidEndPointException
+    _InvalidEndPointException,
+
+    -- ** OperationNotPermittedException
+    _OperationNotPermittedException,
+
+    -- ** DependencyThrottleException
+    _DependencyThrottleException,
+
+    -- ** InvalidSchemeException
+    _InvalidSchemeException,
+
+    -- ** TooManyAccessPointsException
+    _TooManyAccessPointsException,
+
+    -- ** TooManyPoliciesException
+    _TooManyPoliciesException,
+
+    -- ** CertificateNotFoundException
+    _CertificateNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -132,179 +197,14 @@ module Network.AWS.ELB
     -- ** Common
     module Network.AWS.ELB.Internal,
 
-    -- ** AccessLog
-    AccessLog (..),
-    mkAccessLog,
-    alEmitInterval,
-    alEnabled,
-    alS3BucketPrefix,
-    alS3BucketName,
-
-    -- ** AdditionalAttribute
-    AdditionalAttribute (..),
-    mkAdditionalAttribute,
-    aaValue,
-    aaKey,
-
-    -- ** AppCookieStickinessPolicy
-    AppCookieStickinessPolicy (..),
-    mkAppCookieStickinessPolicy,
-    acspPolicyName,
-    acspCookieName,
-
-    -- ** BackendServerDescription
-    BackendServerDescription (..),
-    mkBackendServerDescription,
-    bsdPolicyNames,
-    bsdInstancePort,
-
-    -- ** ConnectionDraining
-    ConnectionDraining (..),
-    mkConnectionDraining,
-    cdEnabled,
-    cdTimeout,
-
-    -- ** ConnectionSettings
-    ConnectionSettings (..),
-    mkConnectionSettings,
-    csIdleTimeout,
-
-    -- ** CrossZoneLoadBalancing
-    CrossZoneLoadBalancing (..),
-    mkCrossZoneLoadBalancing,
-    czlbEnabled,
-
-    -- ** HealthCheck
-    HealthCheck (..),
-    mkHealthCheck,
-    hcHealthyThreshold,
-    hcInterval,
-    hcTimeout,
-    hcUnhealthyThreshold,
-    hcTarget,
-
-    -- ** Instance
-    Instance (..),
-    mkInstance,
-    iInstanceId,
-
-    -- ** InstanceState
-    InstanceState (..),
-    mkInstanceState,
-    isInstanceId,
-    isState,
-    isReasonCode,
-    isDescription,
-
-    -- ** LBCookieStickinessPolicy
-    LBCookieStickinessPolicy (..),
-    mkLBCookieStickinessPolicy,
-    lbcspPolicyName,
-    lbcspCookieExpirationPeriod,
-
-    -- ** Limit
-    Limit (..),
-    mkLimit,
-    lMax,
-    lName,
-
-    -- ** Listener
-    Listener (..),
-    mkListener,
-    lInstanceProtocol,
-    lInstancePort,
-    lLoadBalancerPort,
-    lProtocol,
-    lSSLCertificateId,
-
-    -- ** ListenerDescription
-    ListenerDescription (..),
-    mkListenerDescription,
-    ldPolicyNames,
-    ldListener,
-
-    -- ** LoadBalancerAttributes
-    LoadBalancerAttributes (..),
-    mkLoadBalancerAttributes,
-    lbaCrossZoneLoadBalancing,
-    lbaAccessLog,
-    lbaAdditionalAttributes,
-    lbaConnectionSettings,
-    lbaConnectionDraining,
-
-    -- ** LoadBalancerDescription
-    LoadBalancerDescription (..),
-    mkLoadBalancerDescription,
-    lbdSourceSecurityGroup,
-    lbdCanonicalHostedZoneName,
-    lbdSecurityGroups,
-    lbdHealthCheck,
-    lbdLoadBalancerName,
-    lbdCreatedTime,
-    lbdVPCId,
-    lbdSubnets,
-    lbdAvailabilityZones,
-    lbdBackendServerDescriptions,
-    lbdCanonicalHostedZoneNameId,
-    lbdInstances,
-    lbdScheme,
-    lbdListenerDescriptions,
-    lbdDNSName,
-    lbdPolicies,
-
-    -- ** Policies
-    Policies (..),
-    mkPolicies,
-    pOtherPolicies,
-    pLBCookieStickinessPolicies,
-    pAppCookieStickinessPolicies,
-
-    -- ** PolicyAttribute
-    PolicyAttribute (..),
-    mkPolicyAttribute,
-    paAttributeValue,
-    paAttributeName,
-
-    -- ** PolicyAttributeDescription
-    PolicyAttributeDescription (..),
-    mkPolicyAttributeDescription,
-    padAttributeValue,
-    padAttributeName,
-
-    -- ** PolicyAttributeTypeDescription
-    PolicyAttributeTypeDescription (..),
-    mkPolicyAttributeTypeDescription,
-    patdAttributeType,
-    patdCardinality,
-    patdDefaultValue,
-    patdAttributeName,
-    patdDescription,
-
-    -- ** PolicyDescription
-    PolicyDescription (..),
-    mkPolicyDescription,
-    pdPolicyName,
-    pdPolicyAttributeDescriptions,
-    pdPolicyTypeName,
-
-    -- ** PolicyTypeDescription
-    PolicyTypeDescription (..),
-    mkPolicyTypeDescription,
-    ptdPolicyTypeName,
-    ptdDescription,
-    ptdPolicyAttributeTypeDescriptions,
+    -- ** InstanceId
+    InstanceId (..),
 
     -- ** SourceSecurityGroup
     SourceSecurityGroup (..),
     mkSourceSecurityGroup,
-    ssgOwnerAlias,
     ssgGroupName,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    ssgOwnerAlias,
 
     -- ** TagDescription
     TagDescription (..),
@@ -312,20 +212,294 @@ module Network.AWS.ELB
     tdLoadBalancerName,
     tdTags,
 
+    -- ** Max
+    Max (..),
+
+    -- ** State
+    State (..),
+
+    -- ** AccessPointName
+    AccessPointName (..),
+
+    -- ** LoadBalancerScheme
+    LoadBalancerScheme (..),
+
+    -- ** AttributeValue
+    AttributeValue (..),
+
+    -- ** PolicyName
+    PolicyName (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** PolicyAttributeTypeDescription
+    PolicyAttributeTypeDescription (..),
+    mkPolicyAttributeTypeDescription,
+    patdAttributeName,
+    patdAttributeType,
+    patdCardinality,
+    patdDefaultValue,
+    patdDescription,
+
+    -- ** HealthCheck
+    HealthCheck (..),
+    mkHealthCheck,
+    hcTarget,
+    hcInterval,
+    hcTimeout,
+    hcUnhealthyThreshold,
+    hcHealthyThreshold,
+
+    -- ** CrossZoneLoadBalancing
+    CrossZoneLoadBalancing (..),
+    mkCrossZoneLoadBalancing,
+    czlbEnabled,
+
+    -- ** LoadBalancerAttributes
+    LoadBalancerAttributes (..),
+    mkLoadBalancerAttributes,
+    lbaAccessLog,
+    lbaAdditionalAttributes,
+    lbaConnectionDraining,
+    lbaConnectionSettings,
+    lbaCrossZoneLoadBalancing,
+
+    -- ** AccessLog
+    AccessLog (..),
+    mkAccessLog,
+    alEnabled,
+    alEmitInterval,
+    alS3BucketName,
+    alS3BucketPrefix,
+
+    -- ** ListenerDescription
+    ListenerDescription (..),
+    mkListenerDescription,
+    ldListener,
+    ldPolicyNames,
+
+    -- ** VPCId
+    VPCId (..),
+
+    -- ** Protocol
+    Protocol (..),
+
+    -- ** LBCookieStickinessPolicy
+    LBCookieStickinessPolicy (..),
+    mkLBCookieStickinessPolicy,
+    lbcspCookieExpirationPeriod,
+    lbcspPolicyName,
+
+    -- ** PolicyDescription
+    PolicyDescription (..),
+    mkPolicyDescription,
+    pdPolicyAttributeDescriptions,
+    pdPolicyName,
+    pdPolicyTypeName,
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** ReasonCode
+    ReasonCode (..),
+
+    -- ** AppCookieStickinessPolicy
+    AppCookieStickinessPolicy (..),
+    mkAppCookieStickinessPolicy,
+    acspCookieName,
+    acspPolicyName,
+
+    -- ** SecurityGroupId
+    SecurityGroupId (..),
+
+    -- ** PolicyAttribute
+    PolicyAttribute (..),
+    mkPolicyAttribute,
+    paAttributeName,
+    paAttributeValue,
+
+    -- ** LoadBalancerDescription
+    LoadBalancerDescription (..),
+    mkLoadBalancerDescription,
+    lbdAvailabilityZones,
+    lbdBackendServerDescriptions,
+    lbdCanonicalHostedZoneName,
+    lbdCanonicalHostedZoneNameID,
+    lbdCreatedTime,
+    lbdDNSName,
+    lbdHealthCheck,
+    lbdInstances,
+    lbdListenerDescriptions,
+    lbdLoadBalancerName,
+    lbdPolicies,
+    lbdScheme,
+    lbdSecurityGroups,
+    lbdSourceSecurityGroup,
+    lbdSubnets,
+    lbdVPCId,
+
+    -- ** SSLCertificateId
+    SSLCertificateId (..),
+
+    -- ** AttributeType
+    AttributeType (..),
+
+    -- ** BackendServerDescription
+    BackendServerDescription (..),
+    mkBackendServerDescription,
+    bsdInstancePort,
+    bsdPolicyNames,
+
+    -- ** PolicyTypeName
+    PolicyTypeName (..),
+
+    -- ** AvailabilityZone
+    AvailabilityZone (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** AdditionalAttributeKey
+    AdditionalAttributeKey (..),
+
+    -- ** PolicyAttributeDescription
+    PolicyAttributeDescription (..),
+    mkPolicyAttributeDescription,
+    padAttributeName,
+    padAttributeValue,
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** Cardinality
+    Cardinality (..),
+
+    -- ** Limit
+    Limit (..),
+    mkLimit,
+    lMax,
+    lName,
+
+    -- ** AdditionalAttribute
+    AdditionalAttribute (..),
+    mkAdditionalAttribute,
+    aaKey,
+    aaValue,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** DefaultValue
+    DefaultValue (..),
+
+    -- ** CookieName
+    CookieName (..),
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** ConnectionSettings
+    ConnectionSettings (..),
+    mkConnectionSettings,
+    csIdleTimeout,
+
+    -- ** PolicyTypeDescription
+    PolicyTypeDescription (..),
+    mkPolicyTypeDescription,
+    ptdDescription,
+    ptdPolicyAttributeTypeDescriptions,
+    ptdPolicyTypeName,
+
+    -- ** Description
+    Description (..),
+
+    -- ** DNSName
+    DNSName (..),
+
+    -- ** Policies
+    Policies (..),
+    mkPolicies,
+    pAppCookieStickinessPolicies,
+    pLBCookieStickinessPolicies,
+    pOtherPolicies,
+
+    -- ** Listener
+    Listener (..),
+    mkListener,
+    lProtocol,
+    lLoadBalancerPort,
+    lInstancePort,
+    lInstanceProtocol,
+    lSSLCertificateId,
+
+    -- ** ConnectionDraining
+    ConnectionDraining (..),
+    mkConnectionDraining,
+    cdEnabled,
+    cdTimeout,
+
+    -- ** InstanceState
+    InstanceState (..),
+    mkInstanceState,
+    isDescription,
+    isInstanceId,
+    isReasonCode,
+    isState,
+
+    -- ** S3BucketName
+    S3BucketName (..),
+
     -- ** TagKeyOnly
     TagKeyOnly (..),
     mkTagKeyOnly,
     tkoKey,
+
+    -- ** Instance
+    Instance (..),
+    mkInstance,
+    iInstanceId,
+
+    -- ** LoadBalancerName
+    LoadBalancerName (..),
+
+    -- ** GroupName
+    GroupName (..),
+
+    -- ** OwnerAlias
+    OwnerAlias (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Target
+    Target (..),
+
+    -- ** NextMarker
+    NextMarker (..),
+
+    -- ** S3BucketPrefix
+    S3BucketPrefix (..),
+
+    -- ** CanonicalHostedZoneName
+    CanonicalHostedZoneName (..),
+
+    -- ** CanonicalHostedZoneNameID
+    CanonicalHostedZoneNameID (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -13,42 +13,47 @@
 module Network.AWS.MediaConvert.Types.DolbyVisionProfile
   ( DolbyVisionProfile
       ( DolbyVisionProfile',
-        Profile5
+        DolbyVisionProfileProfile5,
+        fromDolbyVisionProfile
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | In the current MediaConvert implementation, the Dolby Vision profile is always 5 (PROFILE_5). Therefore, all of your inputs must contain Dolby Vision frame interleaved data.
-newtype DolbyVisionProfile = DolbyVisionProfile' Lude.Text
+newtype DolbyVisionProfile = DolbyVisionProfile'
+  { fromDolbyVisionProfile ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Profile5 :: DolbyVisionProfile
-pattern Profile5 = DolbyVisionProfile' "PROFILE_5"
+pattern DolbyVisionProfileProfile5 :: DolbyVisionProfile
+pattern DolbyVisionProfileProfile5 = DolbyVisionProfile' "PROFILE_5"
 
 {-# COMPLETE
-  Profile5,
+  DolbyVisionProfileProfile5,
   DolbyVisionProfile'
   #-}

@@ -31,125 +31,111 @@ module Network.AWS.Comprehend.StopKeyPhrasesDetectionJob
     mkStopKeyPhrasesDetectionJobResponse,
 
     -- ** Response lenses
-    skpdjrsJobId,
-    skpdjrsJobStatus,
-    skpdjrsResponseStatus,
+    skpdjrrsJobId,
+    skpdjrrsJobStatus,
+    skpdjrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopKeyPhrasesDetectionJob' smart constructor.
 newtype StopKeyPhrasesDetectionJob = StopKeyPhrasesDetectionJob'
   { -- | The identifier of the key phrases detection job to stop.
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopKeyPhrasesDetectionJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier of the key phrases detection job to stop.
+-- | Creates a 'StopKeyPhrasesDetectionJob' value with any optional fields omitted.
 mkStopKeyPhrasesDetectionJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   StopKeyPhrasesDetectionJob
-mkStopKeyPhrasesDetectionJob pJobId_ =
-  StopKeyPhrasesDetectionJob' {jobId = pJobId_}
+mkStopKeyPhrasesDetectionJob jobId =
+  StopKeyPhrasesDetectionJob' {jobId}
 
 -- | The identifier of the key phrases detection job to stop.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpdjJobId :: Lens.Lens' StopKeyPhrasesDetectionJob Lude.Text
-skpdjJobId = Lens.lens (jobId :: StopKeyPhrasesDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: StopKeyPhrasesDetectionJob)
+skpdjJobId :: Lens.Lens' StopKeyPhrasesDetectionJob Types.JobId
+skpdjJobId = Lens.field @"jobId"
 {-# DEPRECATED skpdjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest StopKeyPhrasesDetectionJob where
+instance Core.FromJSON StopKeyPhrasesDetectionJob where
+  toJSON StopKeyPhrasesDetectionJob {..} =
+    Core.object (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.AWSRequest StopKeyPhrasesDetectionJob where
   type
     Rs StopKeyPhrasesDetectionJob =
       StopKeyPhrasesDetectionJobResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Comprehend_20171127.StopKeyPhrasesDetectionJob")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopKeyPhrasesDetectionJobResponse'
-            Lude.<$> (x Lude..?> "JobId")
-            Lude.<*> (x Lude..?> "JobStatus")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "JobId")
+            Core.<*> (x Core..:? "JobStatus")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopKeyPhrasesDetectionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.StopKeyPhrasesDetectionJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopKeyPhrasesDetectionJob where
-  toJSON StopKeyPhrasesDetectionJob' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
-
-instance Lude.ToPath StopKeyPhrasesDetectionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopKeyPhrasesDetectionJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopKeyPhrasesDetectionJobResponse' smart constructor.
 data StopKeyPhrasesDetectionJobResponse = StopKeyPhrasesDetectionJobResponse'
   { -- | The identifier of the key phrases detection job to stop.
-    jobId :: Lude.Maybe Lude.Text,
+    jobId :: Core.Maybe Types.JobId,
     -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopKeyPhrasesDetectionJob@ operation.
-    jobStatus :: Lude.Maybe JobStatus,
+    jobStatus :: Core.Maybe Types.JobStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopKeyPhrasesDetectionJobResponse' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier of the key phrases detection job to stop.
--- * 'jobStatus' - Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopKeyPhrasesDetectionJob@ operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopKeyPhrasesDetectionJobResponse' value with any optional fields omitted.
 mkStopKeyPhrasesDetectionJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopKeyPhrasesDetectionJobResponse
-mkStopKeyPhrasesDetectionJobResponse pResponseStatus_ =
+mkStopKeyPhrasesDetectionJobResponse responseStatus =
   StopKeyPhrasesDetectionJobResponse'
-    { jobId = Lude.Nothing,
-      jobStatus = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobId = Core.Nothing,
+      jobStatus = Core.Nothing,
+      responseStatus
     }
 
 -- | The identifier of the key phrases detection job to stop.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpdjrsJobId :: Lens.Lens' StopKeyPhrasesDetectionJobResponse (Lude.Maybe Lude.Text)
-skpdjrsJobId = Lens.lens (jobId :: StopKeyPhrasesDetectionJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: StopKeyPhrasesDetectionJobResponse)
-{-# DEPRECATED skpdjrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+skpdjrrsJobId :: Lens.Lens' StopKeyPhrasesDetectionJobResponse (Core.Maybe Types.JobId)
+skpdjrrsJobId = Lens.field @"jobId"
+{-# DEPRECATED skpdjrrsJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | Either @STOP_REQUESTED@ if the job is currently running, or @STOPPED@ if the job was previously stopped with the @StopKeyPhrasesDetectionJob@ operation.
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpdjrsJobStatus :: Lens.Lens' StopKeyPhrasesDetectionJobResponse (Lude.Maybe JobStatus)
-skpdjrsJobStatus = Lens.lens (jobStatus :: StopKeyPhrasesDetectionJobResponse -> Lude.Maybe JobStatus) (\s a -> s {jobStatus = a} :: StopKeyPhrasesDetectionJobResponse)
-{-# DEPRECATED skpdjrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+skpdjrrsJobStatus :: Lens.Lens' StopKeyPhrasesDetectionJobResponse (Core.Maybe Types.JobStatus)
+skpdjrrsJobStatus = Lens.field @"jobStatus"
+{-# DEPRECATED skpdjrrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skpdjrsResponseStatus :: Lens.Lens' StopKeyPhrasesDetectionJobResponse Lude.Int
-skpdjrsResponseStatus = Lens.lens (responseStatus :: StopKeyPhrasesDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopKeyPhrasesDetectionJobResponse)
-{-# DEPRECATED skpdjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+skpdjrrsResponseStatus :: Lens.Lens' StopKeyPhrasesDetectionJobResponse Core.Int
+skpdjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED skpdjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

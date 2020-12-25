@@ -20,28 +20,28 @@ module Network.AWS.WAFRegional.AssociateWebACL
     mkAssociateWebACL,
 
     -- ** Request lenses
-    awaWebACLId,
-    awaResourceARN,
+    awaclWebACLId,
+    awaclResourceArn,
 
     -- * Destructuring the response
     AssociateWebACLResponse (..),
     mkAssociateWebACLResponse,
 
     -- ** Response lenses
-    awarsResponseStatus,
+    awaclrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkAssociateWebACL' smart constructor.
 data AssociateWebACL = AssociateWebACL'
   { -- | A unique identifier (ID) for the web ACL.
-    webACLId :: Lude.Text,
+    webACLId :: Types.ResourceId,
     -- | The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage.
     --
     -- The ARN should be in one of the following formats:
@@ -50,40 +50,27 @@ data AssociateWebACL = AssociateWebACL'
     --
     --
     --     * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
-    resourceARN :: Lude.Text
+    resourceArn :: Types.ResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateWebACL' with the minimum fields required to make a request.
---
--- * 'webACLId' - A unique identifier (ID) for the web ACL.
--- * 'resourceARN' - The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage.
---
--- The ARN should be in one of the following formats:
---
---     * For an Application Load Balancer: @arn:aws:elasticloadbalancing:/region/ :/account-id/ :loadbalancer/app//load-balancer-name/ //load-balancer-id/ @
---
---
---     * For an Amazon API Gateway stage: @arn:aws:apigateway:/region/ ::/restapis//api-id/ /stages//stage-name/ @
+-- | Creates a 'AssociateWebACL' value with any optional fields omitted.
 mkAssociateWebACL ::
   -- | 'webACLId'
-  Lude.Text ->
-  -- | 'resourceARN'
-  Lude.Text ->
+  Types.ResourceId ->
+  -- | 'resourceArn'
+  Types.ResourceArn ->
   AssociateWebACL
-mkAssociateWebACL pWebACLId_ pResourceARN_ =
-  AssociateWebACL'
-    { webACLId = pWebACLId_,
-      resourceARN = pResourceARN_
-    }
+mkAssociateWebACL webACLId resourceArn =
+  AssociateWebACL' {webACLId, resourceArn}
 
 -- | A unique identifier (ID) for the web ACL.
 --
 -- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-awaWebACLId :: Lens.Lens' AssociateWebACL Lude.Text
-awaWebACLId = Lens.lens (webACLId :: AssociateWebACL -> Lude.Text) (\s a -> s {webACLId = a} :: AssociateWebACL)
-{-# DEPRECATED awaWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
+awaclWebACLId :: Lens.Lens' AssociateWebACL Types.ResourceId
+awaclWebACLId = Lens.field @"webACLId"
+{-# DEPRECATED awaclWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
 -- | The ARN (Amazon Resource Name) of the resource to be protected, either an application load balancer or Amazon API Gateway stage.
 --
@@ -96,67 +83,59 @@ awaWebACLId = Lens.lens (webACLId :: AssociateWebACL -> Lude.Text) (\s a -> s {w
 --
 --
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-awaResourceARN :: Lens.Lens' AssociateWebACL Lude.Text
-awaResourceARN = Lens.lens (resourceARN :: AssociateWebACL -> Lude.Text) (\s a -> s {resourceARN = a} :: AssociateWebACL)
-{-# DEPRECATED awaResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+awaclResourceArn :: Lens.Lens' AssociateWebACL Types.ResourceArn
+awaclResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED awaclResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
-instance Lude.AWSRequest AssociateWebACL where
+instance Core.FromJSON AssociateWebACL where
+  toJSON AssociateWebACL {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("WebACLId" Core..= webACLId),
+            Core.Just ("ResourceArn" Core..= resourceArn)
+          ]
+      )
+
+instance Core.AWSRequest AssociateWebACL where
   type Rs AssociateWebACL = AssociateWebACLResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_Regional_20161128.AssociateWebACL")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          AssociateWebACLResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          AssociateWebACLResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateWebACL where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.AssociateWebACL" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateWebACL where
-  toJSON AssociateWebACL' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("WebACLId" Lude..= webACLId),
-            Lude.Just ("ResourceArn" Lude..= resourceARN)
-          ]
-      )
-
-instance Lude.ToPath AssociateWebACL where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateWebACL where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateWebACLResponse' smart constructor.
 newtype AssociateWebACLResponse = AssociateWebACLResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateWebACLResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateWebACLResponse' value with any optional fields omitted.
 mkAssociateWebACLResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateWebACLResponse
-mkAssociateWebACLResponse pResponseStatus_ =
-  AssociateWebACLResponse' {responseStatus = pResponseStatus_}
+mkAssociateWebACLResponse responseStatus =
+  AssociateWebACLResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-awarsResponseStatus :: Lens.Lens' AssociateWebACLResponse Lude.Int
-awarsResponseStatus = Lens.lens (responseStatus :: AssociateWebACLResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateWebACLResponse)
-{-# DEPRECATED awarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+awaclrrsResponseStatus :: Lens.Lens' AssociateWebACLResponse Core.Int
+awaclrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED awaclrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

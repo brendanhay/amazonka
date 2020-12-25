@@ -24,87 +24,78 @@ module Network.AWS.GuardDuty.GetInvitationsCount
     mkGetInvitationsCountResponse,
 
     -- ** Response lenses
-    gicrsInvitationsCount,
-    gicrsResponseStatus,
+    gicrrsInvitationsCount,
+    gicrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetInvitationsCount' smart constructor.
 data GetInvitationsCount = GetInvitationsCount'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInvitationsCount' with the minimum fields required to make a request.
+-- | Creates a 'GetInvitationsCount' value with any optional fields omitted.
 mkGetInvitationsCount ::
   GetInvitationsCount
 mkGetInvitationsCount = GetInvitationsCount'
 
-instance Lude.AWSRequest GetInvitationsCount where
+instance Core.AWSRequest GetInvitationsCount where
   type Rs GetInvitationsCount = GetInvitationsCountResponse
-  request = Req.get guardDutyService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/invitation/count",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetInvitationsCountResponse'
-            Lude.<$> (x Lude..?> "invitationsCount")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "invitationsCount")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetInvitationsCount where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetInvitationsCount where
-  toPath = Lude.const "/invitation/count"
-
-instance Lude.ToQuery GetInvitationsCount where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetInvitationsCountResponse' smart constructor.
 data GetInvitationsCountResponse = GetInvitationsCountResponse'
   { -- | The number of received invitations.
-    invitationsCount :: Lude.Maybe Lude.Int,
+    invitationsCount :: Core.Maybe Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetInvitationsCountResponse' with the minimum fields required to make a request.
---
--- * 'invitationsCount' - The number of received invitations.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetInvitationsCountResponse' value with any optional fields omitted.
 mkGetInvitationsCountResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetInvitationsCountResponse
-mkGetInvitationsCountResponse pResponseStatus_ =
+mkGetInvitationsCountResponse responseStatus =
   GetInvitationsCountResponse'
-    { invitationsCount = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { invitationsCount = Core.Nothing,
+      responseStatus
     }
 
 -- | The number of received invitations.
 --
 -- /Note:/ Consider using 'invitationsCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gicrsInvitationsCount :: Lens.Lens' GetInvitationsCountResponse (Lude.Maybe Lude.Int)
-gicrsInvitationsCount = Lens.lens (invitationsCount :: GetInvitationsCountResponse -> Lude.Maybe Lude.Int) (\s a -> s {invitationsCount = a} :: GetInvitationsCountResponse)
-{-# DEPRECATED gicrsInvitationsCount "Use generic-lens or generic-optics with 'invitationsCount' instead." #-}
+gicrrsInvitationsCount :: Lens.Lens' GetInvitationsCountResponse (Core.Maybe Core.Int)
+gicrrsInvitationsCount = Lens.field @"invitationsCount"
+{-# DEPRECATED gicrrsInvitationsCount "Use generic-lens or generic-optics with 'invitationsCount' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gicrsResponseStatus :: Lens.Lens' GetInvitationsCountResponse Lude.Int
-gicrsResponseStatus = Lens.lens (responseStatus :: GetInvitationsCountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetInvitationsCountResponse)
-{-# DEPRECATED gicrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gicrrsResponseStatus :: Lens.Lens' GetInvitationsCountResponse Core.Int
+gicrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gicrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

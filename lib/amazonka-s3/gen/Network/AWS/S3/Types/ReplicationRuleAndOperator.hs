@@ -23,9 +23,10 @@ module Network.AWS.S3.Types.ReplicationRuleAndOperator
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Prefix as Types
+import qualified Network.AWS.S3.Types.Tag as Types
 
 -- | A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter.
 --
@@ -41,50 +42,43 @@ import Network.AWS.S3.Types.Tag
 -- /See:/ 'mkReplicationRuleAndOperator' smart constructor.
 data ReplicationRuleAndOperator = ReplicationRuleAndOperator'
   { -- | An object key name prefix that identifies the subset of objects to which the rule applies.
-    prefix :: Lude.Maybe Lude.Text,
+    prefix :: Core.Maybe Types.Prefix,
     -- | An array of tags containing key and value pairs.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicationRuleAndOperator' with the minimum fields required to make a request.
---
--- * 'prefix' - An object key name prefix that identifies the subset of objects to which the rule applies.
--- * 'tags' - An array of tags containing key and value pairs.
+-- | Creates a 'ReplicationRuleAndOperator' value with any optional fields omitted.
 mkReplicationRuleAndOperator ::
   ReplicationRuleAndOperator
 mkReplicationRuleAndOperator =
   ReplicationRuleAndOperator'
-    { prefix = Lude.Nothing,
-      tags = Lude.Nothing
+    { prefix = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | An object key name prefix that identifies the subset of objects to which the rule applies.
 --
 -- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rraoPrefix :: Lens.Lens' ReplicationRuleAndOperator (Lude.Maybe Lude.Text)
-rraoPrefix = Lens.lens (prefix :: ReplicationRuleAndOperator -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: ReplicationRuleAndOperator)
+rraoPrefix :: Lens.Lens' ReplicationRuleAndOperator (Core.Maybe Types.Prefix)
+rraoPrefix = Lens.field @"prefix"
 {-# DEPRECATED rraoPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | An array of tags containing key and value pairs.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rraoTags :: Lens.Lens' ReplicationRuleAndOperator (Lude.Maybe [Tag])
-rraoTags = Lens.lens (tags :: ReplicationRuleAndOperator -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: ReplicationRuleAndOperator)
+rraoTags :: Lens.Lens' ReplicationRuleAndOperator (Core.Maybe [Types.Tag])
+rraoTags = Lens.field @"tags"
 {-# DEPRECATED rraoTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML ReplicationRuleAndOperator where
+instance Core.ToXML ReplicationRuleAndOperator where
+  toXML ReplicationRuleAndOperator {..} =
+    Core.toXMLNode "Prefix" Core.<$> prefix
+      Core.<> Core.toXMLNode "Tag" (Core.toXMLList "Tag" Core.<$> tags)
+
+instance Core.FromXML ReplicationRuleAndOperator where
   parseXML x =
     ReplicationRuleAndOperator'
-      Lude.<$> (x Lude..@? "Prefix")
-      Lude.<*> ( x Lude..@? "Tag" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "Tag")
-               )
-
-instance Lude.ToXML ReplicationRuleAndOperator where
-  toXML ReplicationRuleAndOperator' {..} =
-    Lude.mconcat
-      [ "Prefix" Lude.@= prefix,
-        "Tag" Lude.@= Lude.toXML (Lude.toXMLList "Tag" Lude.<$> tags)
-      ]
+      Core.<$> (x Core..@? "Prefix")
+      Core.<*> (x Core..@? "Tag" Core..<@> Core.parseXMLList "Tag")

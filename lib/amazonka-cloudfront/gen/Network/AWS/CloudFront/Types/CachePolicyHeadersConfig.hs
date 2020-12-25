@@ -22,10 +22,10 @@ module Network.AWS.CloudFront.Types.CachePolicyHeadersConfig
   )
 where
 
-import Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior
-import Network.AWS.CloudFront.Types.Headers
+import qualified Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior as Types
+import qualified Network.AWS.CloudFront.Types.Headers as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin.
 --
@@ -38,33 +38,19 @@ data CachePolicyHeadersConfig = CachePolicyHeadersConfig'
     --
     --
     --     * @whitelist@ – The HTTP headers that are listed in the @Headers@ type are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
-    headerBehavior :: CachePolicyHeaderBehavior,
-    headers :: Lude.Maybe Headers
+    headerBehavior :: Types.CachePolicyHeaderBehavior,
+    headers :: Core.Maybe Types.Headers
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CachePolicyHeadersConfig' with the minimum fields required to make a request.
---
--- * 'headerBehavior' - Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
---
---
---     * @none@ – HTTP headers are not included in the cache key and are not automatically included in requests that CloudFront sends to the origin. Even when this field is set to @none@ , any headers that are listed in an @OriginRequestPolicy@ /are/ included in origin requests.
---
---
---     * @whitelist@ – The HTTP headers that are listed in the @Headers@ type are included in the cache key and are automatically included in requests that CloudFront sends to the origin.
---
---
--- * 'headers' -
+-- | Creates a 'CachePolicyHeadersConfig' value with any optional fields omitted.
 mkCachePolicyHeadersConfig ::
   -- | 'headerBehavior'
-  CachePolicyHeaderBehavior ->
+  Types.CachePolicyHeaderBehavior ->
   CachePolicyHeadersConfig
-mkCachePolicyHeadersConfig pHeaderBehavior_ =
-  CachePolicyHeadersConfig'
-    { headerBehavior = pHeaderBehavior_,
-      headers = Lude.Nothing
-    }
+mkCachePolicyHeadersConfig headerBehavior =
+  CachePolicyHeadersConfig' {headerBehavior, headers = Core.Nothing}
 
 -- | Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are:
 --
@@ -77,25 +63,23 @@ mkCachePolicyHeadersConfig pHeaderBehavior_ =
 --
 --
 -- /Note:/ Consider using 'headerBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cphcHeaderBehavior :: Lens.Lens' CachePolicyHeadersConfig CachePolicyHeaderBehavior
-cphcHeaderBehavior = Lens.lens (headerBehavior :: CachePolicyHeadersConfig -> CachePolicyHeaderBehavior) (\s a -> s {headerBehavior = a} :: CachePolicyHeadersConfig)
+cphcHeaderBehavior :: Lens.Lens' CachePolicyHeadersConfig Types.CachePolicyHeaderBehavior
+cphcHeaderBehavior = Lens.field @"headerBehavior"
 {-# DEPRECATED cphcHeaderBehavior "Use generic-lens or generic-optics with 'headerBehavior' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'headers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cphcHeaders :: Lens.Lens' CachePolicyHeadersConfig (Lude.Maybe Headers)
-cphcHeaders = Lens.lens (headers :: CachePolicyHeadersConfig -> Lude.Maybe Headers) (\s a -> s {headers = a} :: CachePolicyHeadersConfig)
+cphcHeaders :: Lens.Lens' CachePolicyHeadersConfig (Core.Maybe Types.Headers)
+cphcHeaders = Lens.field @"headers"
 {-# DEPRECATED cphcHeaders "Use generic-lens or generic-optics with 'headers' instead." #-}
 
-instance Lude.FromXML CachePolicyHeadersConfig where
+instance Core.ToXML CachePolicyHeadersConfig where
+  toXML CachePolicyHeadersConfig {..} =
+    Core.toXMLNode "HeaderBehavior" headerBehavior
+      Core.<> Core.toXMLNode "Headers" Core.<$> headers
+
+instance Core.FromXML CachePolicyHeadersConfig where
   parseXML x =
     CachePolicyHeadersConfig'
-      Lude.<$> (x Lude..@ "HeaderBehavior") Lude.<*> (x Lude..@? "Headers")
-
-instance Lude.ToXML CachePolicyHeadersConfig where
-  toXML CachePolicyHeadersConfig' {..} =
-    Lude.mconcat
-      [ "HeaderBehavior" Lude.@= headerBehavior,
-        "Headers" Lude.@= headers
-      ]
+      Core.<$> (x Core..@ "HeaderBehavior") Core.<*> (x Core..@? "Headers")

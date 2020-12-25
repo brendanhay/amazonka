@@ -31,147 +31,136 @@ module Network.AWS.Connect.AssociateInstanceStorageConfig
     mkAssociateInstanceStorageConfigResponse,
 
     -- ** Response lenses
-    aiscrsAssociationId,
-    aiscrsResponseStatus,
+    aiscrrsAssociationId,
+    aiscrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateInstanceStorageConfig' smart constructor.
 data AssociateInstanceStorageConfig = AssociateInstanceStorageConfig'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | A valid resource type.
-    resourceType :: InstanceStorageResourceType,
+    resourceType :: Types.InstanceStorageResourceType,
     -- | A valid storage type.
-    storageConfig :: InstanceStorageConfig
+    storageConfig :: Types.InstanceStorageConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateInstanceStorageConfig' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'resourceType' - A valid resource type.
--- * 'storageConfig' - A valid storage type.
+-- | Creates a 'AssociateInstanceStorageConfig' value with any optional fields omitted.
 mkAssociateInstanceStorageConfig ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'resourceType'
-  InstanceStorageResourceType ->
+  Types.InstanceStorageResourceType ->
   -- | 'storageConfig'
-  InstanceStorageConfig ->
+  Types.InstanceStorageConfig ->
   AssociateInstanceStorageConfig
 mkAssociateInstanceStorageConfig
-  pInstanceId_
-  pResourceType_
-  pStorageConfig_ =
+  instanceId
+  resourceType
+  storageConfig =
     AssociateInstanceStorageConfig'
-      { instanceId = pInstanceId_,
-        resourceType = pResourceType_,
-        storageConfig = pStorageConfig_
+      { instanceId,
+        resourceType,
+        storageConfig
       }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiscInstanceId :: Lens.Lens' AssociateInstanceStorageConfig Lude.Text
-aiscInstanceId = Lens.lens (instanceId :: AssociateInstanceStorageConfig -> Lude.Text) (\s a -> s {instanceId = a} :: AssociateInstanceStorageConfig)
+aiscInstanceId :: Lens.Lens' AssociateInstanceStorageConfig Types.InstanceId
+aiscInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED aiscInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | A valid resource type.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiscResourceType :: Lens.Lens' AssociateInstanceStorageConfig InstanceStorageResourceType
-aiscResourceType = Lens.lens (resourceType :: AssociateInstanceStorageConfig -> InstanceStorageResourceType) (\s a -> s {resourceType = a} :: AssociateInstanceStorageConfig)
+aiscResourceType :: Lens.Lens' AssociateInstanceStorageConfig Types.InstanceStorageResourceType
+aiscResourceType = Lens.field @"resourceType"
 {-# DEPRECATED aiscResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | A valid storage type.
 --
 -- /Note:/ Consider using 'storageConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiscStorageConfig :: Lens.Lens' AssociateInstanceStorageConfig InstanceStorageConfig
-aiscStorageConfig = Lens.lens (storageConfig :: AssociateInstanceStorageConfig -> InstanceStorageConfig) (\s a -> s {storageConfig = a} :: AssociateInstanceStorageConfig)
+aiscStorageConfig :: Lens.Lens' AssociateInstanceStorageConfig Types.InstanceStorageConfig
+aiscStorageConfig = Lens.field @"storageConfig"
 {-# DEPRECATED aiscStorageConfig "Use generic-lens or generic-optics with 'storageConfig' instead." #-}
 
-instance Lude.AWSRequest AssociateInstanceStorageConfig where
+instance Core.FromJSON AssociateInstanceStorageConfig where
+  toJSON AssociateInstanceStorageConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceType" Core..= resourceType),
+            Core.Just ("StorageConfig" Core..= storageConfig)
+          ]
+      )
+
+instance Core.AWSRequest AssociateInstanceStorageConfig where
   type
     Rs AssociateInstanceStorageConfig =
       AssociateInstanceStorageConfigResponse
-  request = Req.putJSON connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/instance/" Core.<> (Core.toText instanceId)
+                Core.<> ("/storage-config")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AssociateInstanceStorageConfigResponse'
-            Lude.<$> (x Lude..?> "AssociationId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AssociationId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateInstanceStorageConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateInstanceStorageConfig where
-  toJSON AssociateInstanceStorageConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceType" Lude..= resourceType),
-            Lude.Just ("StorageConfig" Lude..= storageConfig)
-          ]
-      )
-
-instance Lude.ToPath AssociateInstanceStorageConfig where
-  toPath AssociateInstanceStorageConfig' {..} =
-    Lude.mconcat
-      ["/instance/", Lude.toBS instanceId, "/storage-config"]
-
-instance Lude.ToQuery AssociateInstanceStorageConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateInstanceStorageConfigResponse' smart constructor.
 data AssociateInstanceStorageConfigResponse = AssociateInstanceStorageConfigResponse'
   { -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
-    associationId :: Lude.Maybe Lude.Text,
+    associationId :: Core.Maybe Types.AssociationId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateInstanceStorageConfigResponse' with the minimum fields required to make a request.
---
--- * 'associationId' - The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateInstanceStorageConfigResponse' value with any optional fields omitted.
 mkAssociateInstanceStorageConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateInstanceStorageConfigResponse
-mkAssociateInstanceStorageConfigResponse pResponseStatus_ =
+mkAssociateInstanceStorageConfigResponse responseStatus =
   AssociateInstanceStorageConfigResponse'
     { associationId =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
 --
 -- /Note:/ Consider using 'associationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiscrsAssociationId :: Lens.Lens' AssociateInstanceStorageConfigResponse (Lude.Maybe Lude.Text)
-aiscrsAssociationId = Lens.lens (associationId :: AssociateInstanceStorageConfigResponse -> Lude.Maybe Lude.Text) (\s a -> s {associationId = a} :: AssociateInstanceStorageConfigResponse)
-{-# DEPRECATED aiscrsAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
+aiscrrsAssociationId :: Lens.Lens' AssociateInstanceStorageConfigResponse (Core.Maybe Types.AssociationId)
+aiscrrsAssociationId = Lens.field @"associationId"
+{-# DEPRECATED aiscrrsAssociationId "Use generic-lens or generic-optics with 'associationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiscrsResponseStatus :: Lens.Lens' AssociateInstanceStorageConfigResponse Lude.Int
-aiscrsResponseStatus = Lens.lens (responseStatus :: AssociateInstanceStorageConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateInstanceStorageConfigResponse)
-{-# DEPRECATED aiscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aiscrrsResponseStatus :: Lens.Lens' AssociateInstanceStorageConfigResponse Core.Int
+aiscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aiscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

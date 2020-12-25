@@ -23,61 +23,57 @@ module Network.AWS.LexModels.Types.CodeHook
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.LambdaARN as Types
+import qualified Network.AWS.LexModels.Types.MessageVersion as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a Lambda function that verifies requests to a bot or fulfills the user's request to a bot..
 --
 -- /See:/ 'mkCodeHook' smart constructor.
 data CodeHook = CodeHook'
   { -- | The Amazon Resource Name (ARN) of the Lambda function.
-    uri :: Lude.Text,
+    uri :: Types.LambdaARN,
     -- | The version of the request-response that you want Amazon Lex to use to invoke your Lambda function. For more information, see 'using-lambda' .
-    messageVersion :: Lude.Text
+    messageVersion :: Types.MessageVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CodeHook' with the minimum fields required to make a request.
---
--- * 'uri' - The Amazon Resource Name (ARN) of the Lambda function.
--- * 'messageVersion' - The version of the request-response that you want Amazon Lex to use to invoke your Lambda function. For more information, see 'using-lambda' .
+-- | Creates a 'CodeHook' value with any optional fields omitted.
 mkCodeHook ::
   -- | 'uri'
-  Lude.Text ->
+  Types.LambdaARN ->
   -- | 'messageVersion'
-  Lude.Text ->
+  Types.MessageVersion ->
   CodeHook
-mkCodeHook pUri_ pMessageVersion_ =
-  CodeHook' {uri = pUri_, messageVersion = pMessageVersion_}
+mkCodeHook uri messageVersion = CodeHook' {uri, messageVersion}
 
 -- | The Amazon Resource Name (ARN) of the Lambda function.
 --
 -- /Note:/ Consider using 'uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chUri :: Lens.Lens' CodeHook Lude.Text
-chUri = Lens.lens (uri :: CodeHook -> Lude.Text) (\s a -> s {uri = a} :: CodeHook)
+chUri :: Lens.Lens' CodeHook Types.LambdaARN
+chUri = Lens.field @"uri"
 {-# DEPRECATED chUri "Use generic-lens or generic-optics with 'uri' instead." #-}
 
 -- | The version of the request-response that you want Amazon Lex to use to invoke your Lambda function. For more information, see 'using-lambda' .
 --
 -- /Note:/ Consider using 'messageVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chMessageVersion :: Lens.Lens' CodeHook Lude.Text
-chMessageVersion = Lens.lens (messageVersion :: CodeHook -> Lude.Text) (\s a -> s {messageVersion = a} :: CodeHook)
+chMessageVersion :: Lens.Lens' CodeHook Types.MessageVersion
+chMessageVersion = Lens.field @"messageVersion"
 {-# DEPRECATED chMessageVersion "Use generic-lens or generic-optics with 'messageVersion' instead." #-}
 
-instance Lude.FromJSON CodeHook where
-  parseJSON =
-    Lude.withObject
-      "CodeHook"
-      ( \x ->
-          CodeHook'
-            Lude.<$> (x Lude..: "uri") Lude.<*> (x Lude..: "messageVersion")
-      )
-
-instance Lude.ToJSON CodeHook where
-  toJSON CodeHook' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("uri" Lude..= uri),
-            Lude.Just ("messageVersion" Lude..= messageVersion)
+instance Core.FromJSON CodeHook where
+  toJSON CodeHook {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("uri" Core..= uri),
+            Core.Just ("messageVersion" Core..= messageVersion)
           ]
       )
+
+instance Core.FromJSON CodeHook where
+  parseJSON =
+    Core.withObject "CodeHook" Core.$
+      \x ->
+        CodeHook'
+          Core.<$> (x Core..: "uri") Core.<*> (x Core..: "messageVersion")

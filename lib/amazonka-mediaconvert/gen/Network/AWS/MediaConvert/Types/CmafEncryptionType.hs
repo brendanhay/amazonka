@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.CmafEncryptionType
   ( CmafEncryptionType
       ( CmafEncryptionType',
-        SampleAES,
-        AESCtr
+        CmafEncryptionTypeSampleAes,
+        CmafEncryptionTypeAesCtr,
+        fromCmafEncryptionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify the encryption scheme that you want the service to use when encrypting your CMAF segments. Choose AES-CBC subsample (SAMPLE-AES) or AES_CTR (AES-CTR).
-newtype CmafEncryptionType = CmafEncryptionType' Lude.Text
+newtype CmafEncryptionType = CmafEncryptionType'
+  { fromCmafEncryptionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SampleAES :: CmafEncryptionType
-pattern SampleAES = CmafEncryptionType' "SAMPLE_AES"
+pattern CmafEncryptionTypeSampleAes :: CmafEncryptionType
+pattern CmafEncryptionTypeSampleAes = CmafEncryptionType' "SAMPLE_AES"
 
-pattern AESCtr :: CmafEncryptionType
-pattern AESCtr = CmafEncryptionType' "AES_CTR"
+pattern CmafEncryptionTypeAesCtr :: CmafEncryptionType
+pattern CmafEncryptionTypeAesCtr = CmafEncryptionType' "AES_CTR"
 
 {-# COMPLETE
-  SampleAES,
-  AESCtr,
+  CmafEncryptionTypeSampleAes,
+  CmafEncryptionTypeAesCtr,
   CmafEncryptionType'
   #-}

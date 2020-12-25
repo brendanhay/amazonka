@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.RtmpOutputCertificateMode
   ( RtmpOutputCertificateMode
       ( RtmpOutputCertificateMode',
-        SelfSigned,
-        VerifyAuthenticity
+        RtmpOutputCertificateModeSelfSigned,
+        RtmpOutputCertificateModeVerifyAuthenticity,
+        fromRtmpOutputCertificateMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Rtmp Output Certificate Mode
-newtype RtmpOutputCertificateMode = RtmpOutputCertificateMode' Lude.Text
+newtype RtmpOutputCertificateMode = RtmpOutputCertificateMode'
+  { fromRtmpOutputCertificateMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SelfSigned :: RtmpOutputCertificateMode
-pattern SelfSigned = RtmpOutputCertificateMode' "SELF_SIGNED"
+pattern RtmpOutputCertificateModeSelfSigned :: RtmpOutputCertificateMode
+pattern RtmpOutputCertificateModeSelfSigned = RtmpOutputCertificateMode' "SELF_SIGNED"
 
-pattern VerifyAuthenticity :: RtmpOutputCertificateMode
-pattern VerifyAuthenticity = RtmpOutputCertificateMode' "VERIFY_AUTHENTICITY"
+pattern RtmpOutputCertificateModeVerifyAuthenticity :: RtmpOutputCertificateMode
+pattern RtmpOutputCertificateModeVerifyAuthenticity = RtmpOutputCertificateMode' "VERIFY_AUTHENTICITY"
 
 {-# COMPLETE
-  SelfSigned,
-  VerifyAuthenticity,
+  RtmpOutputCertificateModeSelfSigned,
+  RtmpOutputCertificateModeVerifyAuthenticity,
   RtmpOutputCertificateMode'
   #-}

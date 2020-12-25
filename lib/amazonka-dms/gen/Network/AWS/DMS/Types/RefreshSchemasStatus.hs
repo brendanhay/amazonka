@@ -17,98 +17,91 @@ module Network.AWS.DMS.Types.RefreshSchemasStatus
     mkRefreshSchemasStatus,
 
     -- * Lenses
-    rssStatus,
-    rssLastRefreshDate,
-    rssReplicationInstanceARN,
-    rssEndpointARN,
+    rssEndpointArn,
     rssLastFailureMessage,
+    rssLastRefreshDate,
+    rssReplicationInstanceArn,
+    rssStatus,
   )
 where
 
-import Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue
+import qualified Network.AWS.DMS.Types.RefreshSchemasStatusTypeValue as Types
+import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information that describes status of a schema at an endpoint specified by the @DescribeRefreshSchemaStatus@ operation.
 --
 -- /See:/ 'mkRefreshSchemasStatus' smart constructor.
 data RefreshSchemasStatus = RefreshSchemasStatus'
-  { -- | The status of the schema.
-    status :: Lude.Maybe RefreshSchemasStatusTypeValue,
-    -- | The date the schema was last refreshed.
-    lastRefreshDate :: Lude.Maybe Lude.Timestamp,
-    -- | The Amazon Resource Name (ARN) of the replication instance.
-    replicationInstanceARN :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
-    endpointARN :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
+    endpointArn :: Core.Maybe Types.String,
     -- | The last failure message for the schema.
-    lastFailureMessage :: Lude.Maybe Lude.Text
+    lastFailureMessage :: Core.Maybe Types.String,
+    -- | The date the schema was last refreshed.
+    lastRefreshDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The Amazon Resource Name (ARN) of the replication instance.
+    replicationInstanceArn :: Core.Maybe Types.String,
+    -- | The status of the schema.
+    status :: Core.Maybe Types.RefreshSchemasStatusTypeValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RefreshSchemasStatus' with the minimum fields required to make a request.
---
--- * 'status' - The status of the schema.
--- * 'lastRefreshDate' - The date the schema was last refreshed.
--- * 'replicationInstanceARN' - The Amazon Resource Name (ARN) of the replication instance.
--- * 'endpointARN' - The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
--- * 'lastFailureMessage' - The last failure message for the schema.
+-- | Creates a 'RefreshSchemasStatus' value with any optional fields omitted.
 mkRefreshSchemasStatus ::
   RefreshSchemasStatus
 mkRefreshSchemasStatus =
   RefreshSchemasStatus'
-    { status = Lude.Nothing,
-      lastRefreshDate = Lude.Nothing,
-      replicationInstanceARN = Lude.Nothing,
-      endpointARN = Lude.Nothing,
-      lastFailureMessage = Lude.Nothing
+    { endpointArn = Core.Nothing,
+      lastFailureMessage = Core.Nothing,
+      lastRefreshDate = Core.Nothing,
+      replicationInstanceArn = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the schema.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rssStatus :: Lens.Lens' RefreshSchemasStatus (Lude.Maybe RefreshSchemasStatusTypeValue)
-rssStatus = Lens.lens (status :: RefreshSchemasStatus -> Lude.Maybe RefreshSchemasStatusTypeValue) (\s a -> s {status = a} :: RefreshSchemasStatus)
-{-# DEPRECATED rssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The date the schema was last refreshed.
---
--- /Note:/ Consider using 'lastRefreshDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rssLastRefreshDate :: Lens.Lens' RefreshSchemasStatus (Lude.Maybe Lude.Timestamp)
-rssLastRefreshDate = Lens.lens (lastRefreshDate :: RefreshSchemasStatus -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastRefreshDate = a} :: RefreshSchemasStatus)
-{-# DEPRECATED rssLastRefreshDate "Use generic-lens or generic-optics with 'lastRefreshDate' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the replication instance.
---
--- /Note:/ Consider using 'replicationInstanceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rssReplicationInstanceARN :: Lens.Lens' RefreshSchemasStatus (Lude.Maybe Lude.Text)
-rssReplicationInstanceARN = Lens.lens (replicationInstanceARN :: RefreshSchemasStatus -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstanceARN = a} :: RefreshSchemasStatus)
-{-# DEPRECATED rssReplicationInstanceARN "Use generic-lens or generic-optics with 'replicationInstanceARN' instead." #-}
 
 -- | The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.
 --
--- /Note:/ Consider using 'endpointARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rssEndpointARN :: Lens.Lens' RefreshSchemasStatus (Lude.Maybe Lude.Text)
-rssEndpointARN = Lens.lens (endpointARN :: RefreshSchemasStatus -> Lude.Maybe Lude.Text) (\s a -> s {endpointARN = a} :: RefreshSchemasStatus)
-{-# DEPRECATED rssEndpointARN "Use generic-lens or generic-optics with 'endpointARN' instead." #-}
+-- /Note:/ Consider using 'endpointArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rssEndpointArn :: Lens.Lens' RefreshSchemasStatus (Core.Maybe Types.String)
+rssEndpointArn = Lens.field @"endpointArn"
+{-# DEPRECATED rssEndpointArn "Use generic-lens or generic-optics with 'endpointArn' instead." #-}
 
 -- | The last failure message for the schema.
 --
 -- /Note:/ Consider using 'lastFailureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rssLastFailureMessage :: Lens.Lens' RefreshSchemasStatus (Lude.Maybe Lude.Text)
-rssLastFailureMessage = Lens.lens (lastFailureMessage :: RefreshSchemasStatus -> Lude.Maybe Lude.Text) (\s a -> s {lastFailureMessage = a} :: RefreshSchemasStatus)
+rssLastFailureMessage :: Lens.Lens' RefreshSchemasStatus (Core.Maybe Types.String)
+rssLastFailureMessage = Lens.field @"lastFailureMessage"
 {-# DEPRECATED rssLastFailureMessage "Use generic-lens or generic-optics with 'lastFailureMessage' instead." #-}
 
-instance Lude.FromJSON RefreshSchemasStatus where
+-- | The date the schema was last refreshed.
+--
+-- /Note:/ Consider using 'lastRefreshDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rssLastRefreshDate :: Lens.Lens' RefreshSchemasStatus (Core.Maybe Core.NominalDiffTime)
+rssLastRefreshDate = Lens.field @"lastRefreshDate"
+{-# DEPRECATED rssLastRefreshDate "Use generic-lens or generic-optics with 'lastRefreshDate' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the replication instance.
+--
+-- /Note:/ Consider using 'replicationInstanceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rssReplicationInstanceArn :: Lens.Lens' RefreshSchemasStatus (Core.Maybe Types.String)
+rssReplicationInstanceArn = Lens.field @"replicationInstanceArn"
+{-# DEPRECATED rssReplicationInstanceArn "Use generic-lens or generic-optics with 'replicationInstanceArn' instead." #-}
+
+-- | The status of the schema.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rssStatus :: Lens.Lens' RefreshSchemasStatus (Core.Maybe Types.RefreshSchemasStatusTypeValue)
+rssStatus = Lens.field @"status"
+{-# DEPRECATED rssStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON RefreshSchemasStatus where
   parseJSON =
-    Lude.withObject
-      "RefreshSchemasStatus"
-      ( \x ->
-          RefreshSchemasStatus'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "LastRefreshDate")
-            Lude.<*> (x Lude..:? "ReplicationInstanceArn")
-            Lude.<*> (x Lude..:? "EndpointArn")
-            Lude.<*> (x Lude..:? "LastFailureMessage")
-      )
+    Core.withObject "RefreshSchemasStatus" Core.$
+      \x ->
+        RefreshSchemasStatus'
+          Core.<$> (x Core..:? "EndpointArn")
+          Core.<*> (x Core..:? "LastFailureMessage")
+          Core.<*> (x Core..:? "LastRefreshDate")
+          Core.<*> (x Core..:? "ReplicationInstanceArn")
+          Core.<*> (x Core..:? "Status")

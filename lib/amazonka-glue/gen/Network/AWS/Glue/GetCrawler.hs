@@ -20,112 +20,98 @@ module Network.AWS.Glue.GetCrawler
     mkGetCrawler,
 
     -- ** Request lenses
-    gcfName,
+    gcgName,
 
     -- * Destructuring the response
     GetCrawlerResponse (..),
     mkGetCrawlerResponse,
 
     -- ** Response lenses
-    gchrsCrawler,
-    gchrsResponseStatus,
+    gcrlrsCrawler,
+    gcrlrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetCrawler' smart constructor.
 newtype GetCrawler = GetCrawler'
   { -- | The name of the crawler to retrieve metadata for.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCrawler' with the minimum fields required to make a request.
---
--- * 'name' - The name of the crawler to retrieve metadata for.
+-- | Creates a 'GetCrawler' value with any optional fields omitted.
 mkGetCrawler ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   GetCrawler
-mkGetCrawler pName_ = GetCrawler' {name = pName_}
+mkGetCrawler name = GetCrawler' {name}
 
 -- | The name of the crawler to retrieve metadata for.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcfName :: Lens.Lens' GetCrawler Lude.Text
-gcfName = Lens.lens (name :: GetCrawler -> Lude.Text) (\s a -> s {name = a} :: GetCrawler)
-{-# DEPRECATED gcfName "Use generic-lens or generic-optics with 'name' instead." #-}
+gcgName :: Lens.Lens' GetCrawler Types.Name
+gcgName = Lens.field @"name"
+{-# DEPRECATED gcgName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest GetCrawler where
+instance Core.FromJSON GetCrawler where
+  toJSON GetCrawler {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest GetCrawler where
   type Rs GetCrawler = GetCrawlerResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetCrawler")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCrawlerResponse'
-            Lude.<$> (x Lude..?> "Crawler") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Crawler") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCrawler where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("AWSGlue.GetCrawler" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetCrawler where
-  toJSON GetCrawler' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath GetCrawler where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetCrawler where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetCrawlerResponse' smart constructor.
 data GetCrawlerResponse = GetCrawlerResponse'
   { -- | The metadata for the specified crawler.
-    crawler :: Lude.Maybe Crawler,
+    crawler :: Core.Maybe Types.Crawler,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetCrawlerResponse' with the minimum fields required to make a request.
---
--- * 'crawler' - The metadata for the specified crawler.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCrawlerResponse' value with any optional fields omitted.
 mkGetCrawlerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCrawlerResponse
-mkGetCrawlerResponse pResponseStatus_ =
-  GetCrawlerResponse'
-    { crawler = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetCrawlerResponse responseStatus =
+  GetCrawlerResponse' {crawler = Core.Nothing, responseStatus}
 
 -- | The metadata for the specified crawler.
 --
 -- /Note:/ Consider using 'crawler' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gchrsCrawler :: Lens.Lens' GetCrawlerResponse (Lude.Maybe Crawler)
-gchrsCrawler = Lens.lens (crawler :: GetCrawlerResponse -> Lude.Maybe Crawler) (\s a -> s {crawler = a} :: GetCrawlerResponse)
-{-# DEPRECATED gchrsCrawler "Use generic-lens or generic-optics with 'crawler' instead." #-}
+gcrlrsCrawler :: Lens.Lens' GetCrawlerResponse (Core.Maybe Types.Crawler)
+gcrlrsCrawler = Lens.field @"crawler"
+{-# DEPRECATED gcrlrsCrawler "Use generic-lens or generic-optics with 'crawler' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gchrsResponseStatus :: Lens.Lens' GetCrawlerResponse Lude.Int
-gchrsResponseStatus = Lens.lens (responseStatus :: GetCrawlerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCrawlerResponse)
-{-# DEPRECATED gchrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcrlrsResponseStatus :: Lens.Lens' GetCrawlerResponse Core.Int
+gcrlrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcrlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

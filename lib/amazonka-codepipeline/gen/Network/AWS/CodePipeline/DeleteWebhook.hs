@@ -27,91 +27,80 @@ module Network.AWS.CodePipeline.DeleteWebhook
     mkDeleteWebhookResponse,
 
     -- ** Response lenses
-    dwrsResponseStatus,
+    dwrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteWebhook' smart constructor.
 newtype DeleteWebhook = DeleteWebhook'
   { -- | The name of the webhook you want to delete.
-    name :: Lude.Text
+    name :: Types.WebhookName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteWebhook' with the minimum fields required to make a request.
---
--- * 'name' - The name of the webhook you want to delete.
+-- | Creates a 'DeleteWebhook' value with any optional fields omitted.
 mkDeleteWebhook ::
   -- | 'name'
-  Lude.Text ->
+  Types.WebhookName ->
   DeleteWebhook
-mkDeleteWebhook pName_ = DeleteWebhook' {name = pName_}
+mkDeleteWebhook name = DeleteWebhook' {name}
 
 -- | The name of the webhook you want to delete.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwName :: Lens.Lens' DeleteWebhook Lude.Text
-dwName = Lens.lens (name :: DeleteWebhook -> Lude.Text) (\s a -> s {name = a} :: DeleteWebhook)
+dwName :: Lens.Lens' DeleteWebhook Types.WebhookName
+dwName = Lens.field @"name"
 {-# DEPRECATED dwName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteWebhook where
+instance Core.FromJSON DeleteWebhook where
+  toJSON DeleteWebhook {..} =
+    Core.object (Core.catMaybes [Core.Just ("name" Core..= name)])
+
+instance Core.AWSRequest DeleteWebhook where
   type Rs DeleteWebhook = DeleteWebhookResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodePipeline_20150709.DeleteWebhook")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteWebhookResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteWebhookResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteWebhook where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodePipeline_20150709.DeleteWebhook" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteWebhook where
-  toJSON DeleteWebhook' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])
-
-instance Lude.ToPath DeleteWebhook where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteWebhook where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteWebhookResponse' smart constructor.
 newtype DeleteWebhookResponse = DeleteWebhookResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteWebhookResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteWebhookResponse' value with any optional fields omitted.
 mkDeleteWebhookResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteWebhookResponse
-mkDeleteWebhookResponse pResponseStatus_ =
-  DeleteWebhookResponse' {responseStatus = pResponseStatus_}
+mkDeleteWebhookResponse responseStatus =
+  DeleteWebhookResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwrsResponseStatus :: Lens.Lens' DeleteWebhookResponse Lude.Int
-dwrsResponseStatus = Lens.lens (responseStatus :: DeleteWebhookResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteWebhookResponse)
-{-# DEPRECATED dwrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwrrsResponseStatus :: Lens.Lens' DeleteWebhookResponse Core.Int
+dwrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

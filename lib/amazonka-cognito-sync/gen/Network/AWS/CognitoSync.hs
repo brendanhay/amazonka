@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -18,10 +17,49 @@
 -- If you want to use Cognito Sync in an Android or iOS application, you will probably want to make API calls via the AWS Mobile SDK. To learn more, see the <http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-sync.html Developer Guide for Android> and the <http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-sync.html Developer Guide for iOS> .
 module Network.AWS.CognitoSync
   ( -- * Service configuration
-    cognitoSyncService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** InvalidConfigurationException
+    _InvalidConfigurationException,
+
+    -- ** DuplicateRequestException
+    _DuplicateRequestException,
+
+    -- ** LambdaThrottledException
+    _LambdaThrottledException,
+
+    -- ** AlreadyStreamedException
+    _AlreadyStreamedException,
+
+    -- ** InvalidLambdaFunctionOutputException
+    _InvalidLambdaFunctionOutputException,
+
+    -- ** TooManyRequestsException
+    _TooManyRequestsException,
+
+    -- ** ConcurrentModificationException
+    _ConcurrentModificationException,
+
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -82,87 +120,136 @@ module Network.AWS.CognitoSync
 
     -- * Types
 
-    -- ** BulkPublishStatus
-    BulkPublishStatus (..),
-
-    -- ** Operation
-    Operation (..),
+    -- ** IdentityPoolUsage
+    IdentityPoolUsage (..),
+    mkIdentityPoolUsage,
+    ipuDataStorage,
+    ipuIdentityPoolId,
+    ipuLastModifiedDate,
+    ipuSyncSessionsCount,
 
     -- ** Platform
     Platform (..),
 
-    -- ** StreamingStatus
-    StreamingStatus (..),
+    -- ** ApplicationArn
+    ApplicationArn (..),
 
-    -- ** CognitoStreams
-    CognitoStreams (..),
-    mkCognitoStreams,
-    csStreamingStatus,
-    csStreamName,
-    csRoleARN,
+    -- ** IdentityPoolId
+    IdentityPoolId (..),
 
     -- ** Dataset
     Dataset (..),
     mkDataset,
-    dLastModifiedDate,
-    dNumRecords,
+    dCreationDate,
     dDataStorage,
     dDatasetName,
-    dCreationDate,
-    dLastModifiedBy,
     dIdentityId,
+    dLastModifiedBy,
+    dLastModifiedDate,
+    dNumRecords,
 
-    -- ** IdentityPoolUsage
-    IdentityPoolUsage (..),
-    mkIdentityPoolUsage,
-    ipuLastModifiedDate,
-    ipuIdentityPoolId,
-    ipuDataStorage,
-    ipuSyncSessionsCount,
+    -- ** PushToken
+    PushToken (..),
 
-    -- ** IdentityUsage
-    IdentityUsage (..),
-    mkIdentityUsage,
-    iuLastModifiedDate,
-    iuIdentityPoolId,
-    iuDatasetCount,
-    iuDataStorage,
-    iuIdentityId,
+    -- ** String
+    String (..),
 
-    -- ** PushSync
-    PushSync (..),
-    mkPushSync,
-    psApplicationARNs,
-    psRoleARN,
+    -- ** Operation
+    Operation (..),
+
+    -- ** AssumeRoleArn
+    AssumeRoleArn (..),
+
+    -- ** LambdaFunctionArn
+    LambdaFunctionArn (..),
+
+    -- ** StreamingStatus
+    StreamingStatus (..),
+
+    -- ** RecordKey
+    RecordKey (..),
+
+    -- ** SyncSessionToken
+    SyncSessionToken (..),
+
+    -- ** BulkPublishStatus
+    BulkPublishStatus (..),
+
+    -- ** DatasetName
+    DatasetName (..),
+
+    -- ** DeviceId
+    DeviceId (..),
 
     -- ** Record
     Record (..),
     mkRecord,
-    rSyncCount,
     rDeviceLastModifiedDate,
-    rLastModifiedDate,
-    rValue,
     rKey,
     rLastModifiedBy,
+    rLastModifiedDate,
+    rSyncCount,
+    rValue,
+
+    -- ** CognitoStreams
+    CognitoStreams (..),
+    mkCognitoStreams,
+    csRoleArn,
+    csStreamName,
+    csStreamingStatus,
+
+    -- ** IdentityId
+    IdentityId (..),
+
+    -- ** IdentityUsage
+    IdentityUsage (..),
+    mkIdentityUsage,
+    iuDataStorage,
+    iuDatasetCount,
+    iuIdentityId,
+    iuIdentityPoolId,
+    iuLastModifiedDate,
 
     -- ** RecordPatch
     RecordPatch (..),
     mkRecordPatch,
+    rpOp,
+    rpKey,
     rpSyncCount,
     rpDeviceLastModifiedDate,
-    rpOp,
     rpValue,
-    rpKey,
+
+    -- ** CognitoEventType
+    CognitoEventType (..),
+
+    -- ** StreamName
+    StreamName (..),
+
+    -- ** ClientContext
+    ClientContext (..),
+
+    -- ** PushSync
+    PushSync (..),
+    mkPushSync,
+    psApplicationArns,
+    psRoleArn,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** LastModifiedBy
+    LastModifiedBy (..),
+
+    -- ** Value
+    Value (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

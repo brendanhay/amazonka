@@ -17,81 +17,77 @@ module Network.AWS.Redshift.Types.SnapshotErrorMessage
     mkSnapshotErrorMessage,
 
     -- * Lenses
-    semFailureReason,
-    semSnapshotIdentifier,
-    semSnapshotClusterIdentifier,
     semFailureCode,
+    semFailureReason,
+    semSnapshotClusterIdentifier,
+    semSnapshotIdentifier,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes the errors returned by a snapshot.
 --
 -- /See:/ 'mkSnapshotErrorMessage' smart constructor.
 data SnapshotErrorMessage = SnapshotErrorMessage'
-  { -- | The text message describing the error.
-    failureReason :: Lude.Maybe Lude.Text,
-    -- | A unique identifier for the snapshot returning the error.
-    snapshotIdentifier :: Lude.Maybe Lude.Text,
+  { -- | The failure code for the error.
+    failureCode :: Core.Maybe Types.String,
+    -- | The text message describing the error.
+    failureReason :: Core.Maybe Types.String,
     -- | A unique identifier for the cluster.
-    snapshotClusterIdentifier :: Lude.Maybe Lude.Text,
-    -- | The failure code for the error.
-    failureCode :: Lude.Maybe Lude.Text
+    snapshotClusterIdentifier :: Core.Maybe Types.String,
+    -- | A unique identifier for the snapshot returning the error.
+    snapshotIdentifier :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SnapshotErrorMessage' with the minimum fields required to make a request.
---
--- * 'failureReason' - The text message describing the error.
--- * 'snapshotIdentifier' - A unique identifier for the snapshot returning the error.
--- * 'snapshotClusterIdentifier' - A unique identifier for the cluster.
--- * 'failureCode' - The failure code for the error.
+-- | Creates a 'SnapshotErrorMessage' value with any optional fields omitted.
 mkSnapshotErrorMessage ::
   SnapshotErrorMessage
 mkSnapshotErrorMessage =
   SnapshotErrorMessage'
-    { failureReason = Lude.Nothing,
-      snapshotIdentifier = Lude.Nothing,
-      snapshotClusterIdentifier = Lude.Nothing,
-      failureCode = Lude.Nothing
+    { failureCode = Core.Nothing,
+      failureReason = Core.Nothing,
+      snapshotClusterIdentifier = Core.Nothing,
+      snapshotIdentifier = Core.Nothing
     }
-
--- | The text message describing the error.
---
--- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-semFailureReason :: Lens.Lens' SnapshotErrorMessage (Lude.Maybe Lude.Text)
-semFailureReason = Lens.lens (failureReason :: SnapshotErrorMessage -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: SnapshotErrorMessage)
-{-# DEPRECATED semFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
-
--- | A unique identifier for the snapshot returning the error.
---
--- /Note:/ Consider using 'snapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-semSnapshotIdentifier :: Lens.Lens' SnapshotErrorMessage (Lude.Maybe Lude.Text)
-semSnapshotIdentifier = Lens.lens (snapshotIdentifier :: SnapshotErrorMessage -> Lude.Maybe Lude.Text) (\s a -> s {snapshotIdentifier = a} :: SnapshotErrorMessage)
-{-# DEPRECATED semSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
-
--- | A unique identifier for the cluster.
---
--- /Note:/ Consider using 'snapshotClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-semSnapshotClusterIdentifier :: Lens.Lens' SnapshotErrorMessage (Lude.Maybe Lude.Text)
-semSnapshotClusterIdentifier = Lens.lens (snapshotClusterIdentifier :: SnapshotErrorMessage -> Lude.Maybe Lude.Text) (\s a -> s {snapshotClusterIdentifier = a} :: SnapshotErrorMessage)
-{-# DEPRECATED semSnapshotClusterIdentifier "Use generic-lens or generic-optics with 'snapshotClusterIdentifier' instead." #-}
 
 -- | The failure code for the error.
 --
 -- /Note:/ Consider using 'failureCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-semFailureCode :: Lens.Lens' SnapshotErrorMessage (Lude.Maybe Lude.Text)
-semFailureCode = Lens.lens (failureCode :: SnapshotErrorMessage -> Lude.Maybe Lude.Text) (\s a -> s {failureCode = a} :: SnapshotErrorMessage)
+semFailureCode :: Lens.Lens' SnapshotErrorMessage (Core.Maybe Types.String)
+semFailureCode = Lens.field @"failureCode"
 {-# DEPRECATED semFailureCode "Use generic-lens or generic-optics with 'failureCode' instead." #-}
 
-instance Lude.FromXML SnapshotErrorMessage where
+-- | The text message describing the error.
+--
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+semFailureReason :: Lens.Lens' SnapshotErrorMessage (Core.Maybe Types.String)
+semFailureReason = Lens.field @"failureReason"
+{-# DEPRECATED semFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
+
+-- | A unique identifier for the cluster.
+--
+-- /Note:/ Consider using 'snapshotClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+semSnapshotClusterIdentifier :: Lens.Lens' SnapshotErrorMessage (Core.Maybe Types.String)
+semSnapshotClusterIdentifier = Lens.field @"snapshotClusterIdentifier"
+{-# DEPRECATED semSnapshotClusterIdentifier "Use generic-lens or generic-optics with 'snapshotClusterIdentifier' instead." #-}
+
+-- | A unique identifier for the snapshot returning the error.
+--
+-- /Note:/ Consider using 'snapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+semSnapshotIdentifier :: Lens.Lens' SnapshotErrorMessage (Core.Maybe Types.String)
+semSnapshotIdentifier = Lens.field @"snapshotIdentifier"
+{-# DEPRECATED semSnapshotIdentifier "Use generic-lens or generic-optics with 'snapshotIdentifier' instead." #-}
+
+instance Core.FromXML SnapshotErrorMessage where
   parseXML x =
     SnapshotErrorMessage'
-      Lude.<$> (x Lude..@? "FailureReason")
-      Lude.<*> (x Lude..@? "SnapshotIdentifier")
-      Lude.<*> (x Lude..@? "SnapshotClusterIdentifier")
-      Lude.<*> (x Lude..@? "FailureCode")
+      Core.<$> (x Core..@? "FailureCode")
+      Core.<*> (x Core..@? "FailureReason")
+      Core.<*> (x Core..@? "SnapshotClusterIdentifier")
+      Core.<*> (x Core..@? "SnapshotIdentifier")

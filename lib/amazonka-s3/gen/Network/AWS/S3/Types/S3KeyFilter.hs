@@ -22,39 +22,34 @@ module Network.AWS.S3.Types.S3KeyFilter
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.FilterRule
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.FilterRule as Types
 
 -- | A container for object key name prefix and suffix filtering rules.
 --
 -- /See:/ 'mkS3KeyFilter' smart constructor.
 newtype S3KeyFilter = S3KeyFilter'
-  { filterRules :: Lude.Maybe [FilterRule]
+  { filterRules :: Core.Maybe [Types.FilterRule]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'S3KeyFilter' with the minimum fields required to make a request.
---
--- * 'filterRules' -
+-- | Creates a 'S3KeyFilter' value with any optional fields omitted.
 mkS3KeyFilter ::
   S3KeyFilter
-mkS3KeyFilter = S3KeyFilter' {filterRules = Lude.Nothing}
+mkS3KeyFilter = S3KeyFilter' {filterRules = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'filterRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-skfFilterRules :: Lens.Lens' S3KeyFilter (Lude.Maybe [FilterRule])
-skfFilterRules = Lens.lens (filterRules :: S3KeyFilter -> Lude.Maybe [FilterRule]) (\s a -> s {filterRules = a} :: S3KeyFilter)
+skfFilterRules :: Lens.Lens' S3KeyFilter (Core.Maybe [Types.FilterRule])
+skfFilterRules = Lens.field @"filterRules"
 {-# DEPRECATED skfFilterRules "Use generic-lens or generic-optics with 'filterRules' instead." #-}
 
-instance Lude.FromXML S3KeyFilter where
-  parseXML x =
-    S3KeyFilter'
-      Lude.<$> (Lude.may (Lude.parseXMLList "FilterRule") x)
+instance Core.ToXML S3KeyFilter where
+  toXML S3KeyFilter {..} =
+    Core.toXMLList "FilterRule" Core.<$> filterRules
 
-instance Lude.ToXML S3KeyFilter where
-  toXML S3KeyFilter' {..} =
-    Lude.mconcat
-      [Lude.toXML (Lude.toXMLList "FilterRule" Lude.<$> filterRules)]
+instance Core.FromXML S3KeyFilter where
+  parseXML x = S3KeyFilter' Core.<$> (x Core..@? "FilterRule")

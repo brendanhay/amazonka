@@ -13,66 +13,71 @@
 module Network.AWS.Inspector.Types.AgentHealthCode
   ( AgentHealthCode
       ( AgentHealthCode',
-        Idle,
-        Running,
-        Shutdown,
-        Unhealthy,
-        Throttled,
-        Unknown
+        AgentHealthCodeIdle,
+        AgentHealthCodeRunning,
+        AgentHealthCodeShutdown,
+        AgentHealthCodeUnhealthy,
+        AgentHealthCodeThrottled,
+        AgentHealthCodeUnknown,
+        fromAgentHealthCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AgentHealthCode = AgentHealthCode' Lude.Text
+newtype AgentHealthCode = AgentHealthCode'
+  { fromAgentHealthCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Idle :: AgentHealthCode
-pattern Idle = AgentHealthCode' "IDLE"
+pattern AgentHealthCodeIdle :: AgentHealthCode
+pattern AgentHealthCodeIdle = AgentHealthCode' "IDLE"
 
-pattern Running :: AgentHealthCode
-pattern Running = AgentHealthCode' "RUNNING"
+pattern AgentHealthCodeRunning :: AgentHealthCode
+pattern AgentHealthCodeRunning = AgentHealthCode' "RUNNING"
 
-pattern Shutdown :: AgentHealthCode
-pattern Shutdown = AgentHealthCode' "SHUTDOWN"
+pattern AgentHealthCodeShutdown :: AgentHealthCode
+pattern AgentHealthCodeShutdown = AgentHealthCode' "SHUTDOWN"
 
-pattern Unhealthy :: AgentHealthCode
-pattern Unhealthy = AgentHealthCode' "UNHEALTHY"
+pattern AgentHealthCodeUnhealthy :: AgentHealthCode
+pattern AgentHealthCodeUnhealthy = AgentHealthCode' "UNHEALTHY"
 
-pattern Throttled :: AgentHealthCode
-pattern Throttled = AgentHealthCode' "THROTTLED"
+pattern AgentHealthCodeThrottled :: AgentHealthCode
+pattern AgentHealthCodeThrottled = AgentHealthCode' "THROTTLED"
 
-pattern Unknown :: AgentHealthCode
-pattern Unknown = AgentHealthCode' "UNKNOWN"
+pattern AgentHealthCodeUnknown :: AgentHealthCode
+pattern AgentHealthCodeUnknown = AgentHealthCode' "UNKNOWN"
 
 {-# COMPLETE
-  Idle,
-  Running,
-  Shutdown,
-  Unhealthy,
-  Throttled,
-  Unknown,
+  AgentHealthCodeIdle,
+  AgentHealthCodeRunning,
+  AgentHealthCodeShutdown,
+  AgentHealthCodeUnhealthy,
+  AgentHealthCodeThrottled,
+  AgentHealthCodeUnknown,
   AgentHealthCode'
   #-}

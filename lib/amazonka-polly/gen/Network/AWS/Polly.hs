@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,73 @@
 -- The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.
 module Network.AWS.Polly
   ( -- * Service configuration
-    pollyService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidSnsTopicArnException
+    _InvalidSnsTopicArnException,
+
+    -- ** UnsupportedPlsLanguageException
+    _UnsupportedPlsLanguageException,
+
+    -- ** InvalidSsmlException
+    _InvalidSsmlException,
+
+    -- ** InvalidSampleRateException
+    _InvalidSampleRateException,
+
+    -- ** EngineNotSupportedException
+    _EngineNotSupportedException,
+
+    -- ** MaxLexiconsNumberExceededException
+    _MaxLexiconsNumberExceededException,
+
+    -- ** TextLengthExceededException
+    _TextLengthExceededException,
+
+    -- ** MaxLexemeLengthExceededException
+    _MaxLexemeLengthExceededException,
+
+    -- ** InvalidTaskIdException
+    _InvalidTaskIdException,
+
+    -- ** InvalidLexiconException
+    _InvalidLexiconException,
+
+    -- ** ServiceFailureException
+    _ServiceFailureException,
+
+    -- ** UnsupportedPlsAlphabetException
+    _UnsupportedPlsAlphabetException,
+
+    -- ** InvalidNextTokenException
+    _InvalidNextTokenException,
+
+    -- ** MarksNotSupportedForFormatException
+    _MarksNotSupportedForFormatException,
+
+    -- ** SynthesisTaskNotFoundException
+    _SynthesisTaskNotFoundException,
+
+    -- ** SsmlMarksNotSupportedForTextTypeException
+    _SsmlMarksNotSupportedForTextTypeException,
+
+    -- ** InvalidS3BucketException
+    _InvalidS3BucketException,
+
+    -- ** LexiconSizeExceededException
+    _LexiconSizeExceededException,
+
+    -- ** LanguageNotSupportedException
+    _LanguageNotSupportedException,
+
+    -- ** LexiconNotFoundException
+    _LexiconNotFoundException,
+
+    -- ** InvalidS3KeyException
+    _InvalidS3KeyException,
 
     -- * Waiters
     -- $waiters
@@ -56,45 +118,45 @@ module Network.AWS.Polly
 
     -- * Types
 
-    -- ** Engine
-    Engine (..),
-
-    -- ** Gender
-    Gender (..),
-
     -- ** LanguageCode
     LanguageCode (..),
 
-    -- ** OutputFormat
-    OutputFormat (..),
+    -- ** SnsTopicArn
+    SnsTopicArn (..),
 
-    -- ** SpeechMarkType
-    SpeechMarkType (..),
-
-    -- ** TaskStatus
-    TaskStatus (..),
-
-    -- ** TextType
-    TextType (..),
-
-    -- ** VoiceId
-    VoiceId (..),
-
-    -- ** Lexicon
-    Lexicon (..),
-    mkLexicon,
-    lContent,
-    lName,
+    -- ** LexiconName
+    LexiconName (..),
 
     -- ** LexiconAttributes
     LexiconAttributes (..),
     mkLexiconAttributes,
-    laLanguageCode,
-    laSize,
-    laLexemesCount,
-    laLexiconARN,
     laAlphabet,
+    laLanguageCode,
     laLastModified,
+    laLexemesCount,
+    laLexiconArn,
+    laSize,
+
+    -- ** LanguageName
+    LanguageName (..),
+
+    -- ** Text
+    Text (..),
+
+    -- ** TaskStatusReason
+    TaskStatusReason (..),
+
+    -- ** OutputS3KeyPrefix
+    OutputS3KeyPrefix (..),
+
+    -- ** TaskId
+    TaskId (..),
+
+    -- ** Engine
+    Engine (..),
+
+    -- ** NextToken
+    NextToken (..),
 
     -- ** LexiconDescription
     LexiconDescription (..),
@@ -102,45 +164,91 @@ module Network.AWS.Polly
     ldAttributes,
     ldName,
 
-    -- ** SynthesisTask
-    SynthesisTask (..),
-    mkSynthesisTask,
-    stCreationTime,
-    stLanguageCode,
-    stSNSTopicARN,
-    stTaskStatusReason,
-    stTaskId,
-    stRequestCharacters,
-    stEngine,
-    stSpeechMarkTypes,
-    stSampleRate,
-    stOutputFormat,
-    stTextType,
-    stVoiceId,
-    stLexiconNames,
-    stTaskStatus,
-    stOutputURI,
+    -- ** SampleRate
+    SampleRate (..),
+
+    -- ** OutputFormat
+    OutputFormat (..),
+
+    -- ** LexiconArn
+    LexiconArn (..),
+
+    -- ** Alphabet
+    Alphabet (..),
+
+    -- ** Gender
+    Gender (..),
+
+    -- ** Lexicon
+    Lexicon (..),
+    mkLexicon,
+    lContent,
+    lName,
+
+    -- ** TextType
+    TextType (..),
+
+    -- ** SpeechMarkType
+    SpeechMarkType (..),
+
+    -- ** VoiceId
+    VoiceId (..),
 
     -- ** Voice
     Voice (..),
     mkVoice,
+    vAdditionalLanguageCodes,
+    vGender,
+    vId,
     vLanguageCode,
     vLanguageName,
-    vGender,
     vName,
-    vId,
-    vAdditionalLanguageCodes,
     vSupportedEngines,
+
+    -- ** OutputS3BucketName
+    OutputS3BucketName (..),
+
+    -- ** TaskStatus
+    TaskStatus (..),
+
+    -- ** SynthesisTask
+    SynthesisTask (..),
+    mkSynthesisTask,
+    stCreationTime,
+    stEngine,
+    stLanguageCode,
+    stLexiconNames,
+    stOutputFormat,
+    stOutputUri,
+    stRequestCharacters,
+    stSampleRate,
+    stSnsTopicArn,
+    stSpeechMarkTypes,
+    stTaskId,
+    stTaskStatus,
+    stTaskStatusReason,
+    stTextType,
+    stVoiceId,
+
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** OutputUri
+    OutputUri (..),
+
+    -- ** Content
+    Content (..),
+
+    -- ** Name
+    Name (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

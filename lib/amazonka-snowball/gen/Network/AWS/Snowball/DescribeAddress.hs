@@ -33,104 +33,89 @@ module Network.AWS.Snowball.DescribeAddress
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Snowball.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkDescribeAddress' smart constructor.
 newtype DescribeAddress = DescribeAddress'
   { -- | The automatically generated ID for a specific address.
-    addressId :: Lude.Text
+    addressId :: Types.AddressId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAddress' with the minimum fields required to make a request.
---
--- * 'addressId' - The automatically generated ID for a specific address.
+-- | Creates a 'DescribeAddress' value with any optional fields omitted.
 mkDescribeAddress ::
   -- | 'addressId'
-  Lude.Text ->
+  Types.AddressId ->
   DescribeAddress
-mkDescribeAddress pAddressId_ =
-  DescribeAddress' {addressId = pAddressId_}
+mkDescribeAddress addressId = DescribeAddress' {addressId}
 
 -- | The automatically generated ID for a specific address.
 --
 -- /Note:/ Consider using 'addressId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAddressId :: Lens.Lens' DescribeAddress Lude.Text
-daAddressId = Lens.lens (addressId :: DescribeAddress -> Lude.Text) (\s a -> s {addressId = a} :: DescribeAddress)
+daAddressId :: Lens.Lens' DescribeAddress Types.AddressId
+daAddressId = Lens.field @"addressId"
 {-# DEPRECATED daAddressId "Use generic-lens or generic-optics with 'addressId' instead." #-}
 
-instance Lude.AWSRequest DescribeAddress where
+instance Core.FromJSON DescribeAddress where
+  toJSON DescribeAddress {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("AddressId" Core..= addressId)])
+
+instance Core.AWSRequest DescribeAddress where
   type Rs DescribeAddress = DescribeAddressResponse
-  request = Req.postJSON snowballService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSIESnowballJobManagementService.DescribeAddress"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAddressResponse'
-            Lude.<$> (x Lude..?> "Address") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Address") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAddress where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSIESnowballJobManagementService.DescribeAddress" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeAddress where
-  toJSON DescribeAddress' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("AddressId" Lude..= addressId)])
-
-instance Lude.ToPath DescribeAddress where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAddress where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeAddressResponse' smart constructor.
 data DescribeAddressResponse = DescribeAddressResponse'
   { -- | The address that you want the Snow device(s) associated with a specific job to be shipped to.
-    address :: Lude.Maybe Address,
+    address :: Core.Maybe Types.Address,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAddressResponse' with the minimum fields required to make a request.
---
--- * 'address' - The address that you want the Snow device(s) associated with a specific job to be shipped to.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAddressResponse' value with any optional fields omitted.
 mkDescribeAddressResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAddressResponse
-mkDescribeAddressResponse pResponseStatus_ =
-  DescribeAddressResponse'
-    { address = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDescribeAddressResponse responseStatus =
+  DescribeAddressResponse' {address = Core.Nothing, responseStatus}
 
 -- | The address that you want the Snow device(s) associated with a specific job to be shipped to.
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsAddress :: Lens.Lens' DescribeAddressResponse (Lude.Maybe Address)
-drsAddress = Lens.lens (address :: DescribeAddressResponse -> Lude.Maybe Address) (\s a -> s {address = a} :: DescribeAddressResponse)
+drsAddress :: Lens.Lens' DescribeAddressResponse (Core.Maybe Types.Address)
+drsAddress = Lens.field @"address"
 {-# DEPRECATED drsAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeAddressResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeAddressResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAddressResponse)
+drsResponseStatus :: Lens.Lens' DescribeAddressResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

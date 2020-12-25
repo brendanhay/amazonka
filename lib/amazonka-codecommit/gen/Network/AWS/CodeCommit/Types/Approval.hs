@@ -18,54 +18,50 @@ module Network.AWS.CodeCommit.Types.Approval
 
     -- * Lenses
     aApprovalState,
-    aUserARN,
+    aUserArn,
   )
 where
 
-import Network.AWS.CodeCommit.Types.ApprovalState
+import qualified Network.AWS.CodeCommit.Types.ApprovalState as Types
+import qualified Network.AWS.CodeCommit.Types.Arn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about a specific approval on a pull request.
 --
 -- /See:/ 'mkApproval' smart constructor.
 data Approval = Approval'
   { -- | The state of the approval, APPROVE or REVOKE. REVOKE states are not stored.
-    approvalState :: Lude.Maybe ApprovalState,
+    approvalState :: Core.Maybe Types.ApprovalState,
     -- | The Amazon Resource Name (ARN) of the user.
-    userARN :: Lude.Maybe Lude.Text
+    userArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Approval' with the minimum fields required to make a request.
---
--- * 'approvalState' - The state of the approval, APPROVE or REVOKE. REVOKE states are not stored.
--- * 'userARN' - The Amazon Resource Name (ARN) of the user.
+-- | Creates a 'Approval' value with any optional fields omitted.
 mkApproval ::
   Approval
 mkApproval =
-  Approval' {approvalState = Lude.Nothing, userARN = Lude.Nothing}
+  Approval' {approvalState = Core.Nothing, userArn = Core.Nothing}
 
 -- | The state of the approval, APPROVE or REVOKE. REVOKE states are not stored.
 --
 -- /Note:/ Consider using 'approvalState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aApprovalState :: Lens.Lens' Approval (Lude.Maybe ApprovalState)
-aApprovalState = Lens.lens (approvalState :: Approval -> Lude.Maybe ApprovalState) (\s a -> s {approvalState = a} :: Approval)
+aApprovalState :: Lens.Lens' Approval (Core.Maybe Types.ApprovalState)
+aApprovalState = Lens.field @"approvalState"
 {-# DEPRECATED aApprovalState "Use generic-lens or generic-optics with 'approvalState' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the user.
 --
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aUserARN :: Lens.Lens' Approval (Lude.Maybe Lude.Text)
-aUserARN = Lens.lens (userARN :: Approval -> Lude.Maybe Lude.Text) (\s a -> s {userARN = a} :: Approval)
-{-# DEPRECATED aUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aUserArn :: Lens.Lens' Approval (Core.Maybe Types.Arn)
+aUserArn = Lens.field @"userArn"
+{-# DEPRECATED aUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
 
-instance Lude.FromJSON Approval where
+instance Core.FromJSON Approval where
   parseJSON =
-    Lude.withObject
-      "Approval"
-      ( \x ->
-          Approval'
-            Lude.<$> (x Lude..:? "approvalState") Lude.<*> (x Lude..:? "userArn")
-      )
+    Core.withObject "Approval" Core.$
+      \x ->
+        Approval'
+          Core.<$> (x Core..:? "approvalState") Core.<*> (x Core..:? "userArn")

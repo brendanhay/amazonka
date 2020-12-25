@@ -17,84 +17,79 @@ module Network.AWS.CodePipeline.Types.TransitionState
     mkTransitionState,
 
     -- * Lenses
-    tsEnabled,
     tsDisabledReason,
+    tsEnabled,
     tsLastChangedAt,
     tsLastChangedBy,
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.DisabledReason as Types
+import qualified Network.AWS.CodePipeline.Types.LastChangedBy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents information about the state of transitions between one stage and another stage.
 --
 -- /See:/ 'mkTransitionState' smart constructor.
 data TransitionState = TransitionState'
-  { -- | Whether the transition between stages is enabled (true) or disabled (false).
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | The user-specified reason why the transition between two stages of a pipeline was disabled.
-    disabledReason :: Lude.Maybe Lude.Text,
+  { -- | The user-specified reason why the transition between two stages of a pipeline was disabled.
+    disabledReason :: Core.Maybe Types.DisabledReason,
+    -- | Whether the transition between stages is enabled (true) or disabled (false).
+    enabled :: Core.Maybe Core.Bool,
     -- | The timestamp when the transition state was last changed.
-    lastChangedAt :: Lude.Maybe Lude.Timestamp,
+    lastChangedAt :: Core.Maybe Core.NominalDiffTime,
     -- | The ID of the user who last changed the transition state.
-    lastChangedBy :: Lude.Maybe Lude.Text
+    lastChangedBy :: Core.Maybe Types.LastChangedBy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TransitionState' with the minimum fields required to make a request.
---
--- * 'enabled' - Whether the transition between stages is enabled (true) or disabled (false).
--- * 'disabledReason' - The user-specified reason why the transition between two stages of a pipeline was disabled.
--- * 'lastChangedAt' - The timestamp when the transition state was last changed.
--- * 'lastChangedBy' - The ID of the user who last changed the transition state.
+-- | Creates a 'TransitionState' value with any optional fields omitted.
 mkTransitionState ::
   TransitionState
 mkTransitionState =
   TransitionState'
-    { enabled = Lude.Nothing,
-      disabledReason = Lude.Nothing,
-      lastChangedAt = Lude.Nothing,
-      lastChangedBy = Lude.Nothing
+    { disabledReason = Core.Nothing,
+      enabled = Core.Nothing,
+      lastChangedAt = Core.Nothing,
+      lastChangedBy = Core.Nothing
     }
-
--- | Whether the transition between stages is enabled (true) or disabled (false).
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsEnabled :: Lens.Lens' TransitionState (Lude.Maybe Lude.Bool)
-tsEnabled = Lens.lens (enabled :: TransitionState -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: TransitionState)
-{-# DEPRECATED tsEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The user-specified reason why the transition between two stages of a pipeline was disabled.
 --
 -- /Note:/ Consider using 'disabledReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsDisabledReason :: Lens.Lens' TransitionState (Lude.Maybe Lude.Text)
-tsDisabledReason = Lens.lens (disabledReason :: TransitionState -> Lude.Maybe Lude.Text) (\s a -> s {disabledReason = a} :: TransitionState)
+tsDisabledReason :: Lens.Lens' TransitionState (Core.Maybe Types.DisabledReason)
+tsDisabledReason = Lens.field @"disabledReason"
 {-# DEPRECATED tsDisabledReason "Use generic-lens or generic-optics with 'disabledReason' instead." #-}
+
+-- | Whether the transition between stages is enabled (true) or disabled (false).
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsEnabled :: Lens.Lens' TransitionState (Core.Maybe Core.Bool)
+tsEnabled = Lens.field @"enabled"
+{-# DEPRECATED tsEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The timestamp when the transition state was last changed.
 --
 -- /Note:/ Consider using 'lastChangedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsLastChangedAt :: Lens.Lens' TransitionState (Lude.Maybe Lude.Timestamp)
-tsLastChangedAt = Lens.lens (lastChangedAt :: TransitionState -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastChangedAt = a} :: TransitionState)
+tsLastChangedAt :: Lens.Lens' TransitionState (Core.Maybe Core.NominalDiffTime)
+tsLastChangedAt = Lens.field @"lastChangedAt"
 {-# DEPRECATED tsLastChangedAt "Use generic-lens or generic-optics with 'lastChangedAt' instead." #-}
 
 -- | The ID of the user who last changed the transition state.
 --
 -- /Note:/ Consider using 'lastChangedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsLastChangedBy :: Lens.Lens' TransitionState (Lude.Maybe Lude.Text)
-tsLastChangedBy = Lens.lens (lastChangedBy :: TransitionState -> Lude.Maybe Lude.Text) (\s a -> s {lastChangedBy = a} :: TransitionState)
+tsLastChangedBy :: Lens.Lens' TransitionState (Core.Maybe Types.LastChangedBy)
+tsLastChangedBy = Lens.field @"lastChangedBy"
 {-# DEPRECATED tsLastChangedBy "Use generic-lens or generic-optics with 'lastChangedBy' instead." #-}
 
-instance Lude.FromJSON TransitionState where
+instance Core.FromJSON TransitionState where
   parseJSON =
-    Lude.withObject
-      "TransitionState"
-      ( \x ->
-          TransitionState'
-            Lude.<$> (x Lude..:? "enabled")
-            Lude.<*> (x Lude..:? "disabledReason")
-            Lude.<*> (x Lude..:? "lastChangedAt")
-            Lude.<*> (x Lude..:? "lastChangedBy")
-      )
+    Core.withObject "TransitionState" Core.$
+      \x ->
+        TransitionState'
+          Core.<$> (x Core..:? "disabledReason")
+          Core.<*> (x Core..:? "enabled")
+          Core.<*> (x Core..:? "lastChangedAt")
+          Core.<*> (x Core..:? "lastChangedBy")

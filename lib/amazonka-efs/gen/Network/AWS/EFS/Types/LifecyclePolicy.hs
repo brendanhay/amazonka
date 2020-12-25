@@ -21,43 +21,40 @@ module Network.AWS.EFS.Types.LifecyclePolicy
   )
 where
 
-import Network.AWS.EFS.Types.TransitionToIARules
+import qualified Network.AWS.EFS.Types.TransitionToIARules as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a policy used by EFS lifecycle management to transition files to the Infrequent Access (IA) storage class.
 --
 -- /See:/ 'mkLifecyclePolicy' smart constructor.
 newtype LifecyclePolicy = LifecyclePolicy'
   { -- | A value that describes the period of time that a file is not accessed, after which it transitions to the IA storage class. Metadata operations such as listing the contents of a directory don't count as file access events.
-    transitionToIA :: Lude.Maybe TransitionToIARules
+    transitionToIA :: Core.Maybe Types.TransitionToIARules
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LifecyclePolicy' with the minimum fields required to make a request.
---
--- * 'transitionToIA' - A value that describes the period of time that a file is not accessed, after which it transitions to the IA storage class. Metadata operations such as listing the contents of a directory don't count as file access events.
+-- | Creates a 'LifecyclePolicy' value with any optional fields omitted.
 mkLifecyclePolicy ::
   LifecyclePolicy
-mkLifecyclePolicy = LifecyclePolicy' {transitionToIA = Lude.Nothing}
+mkLifecyclePolicy = LifecyclePolicy' {transitionToIA = Core.Nothing}
 
 -- | A value that describes the period of time that a file is not accessed, after which it transitions to the IA storage class. Metadata operations such as listing the contents of a directory don't count as file access events.
 --
 -- /Note:/ Consider using 'transitionToIA' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpTransitionToIA :: Lens.Lens' LifecyclePolicy (Lude.Maybe TransitionToIARules)
-lpTransitionToIA = Lens.lens (transitionToIA :: LifecyclePolicy -> Lude.Maybe TransitionToIARules) (\s a -> s {transitionToIA = a} :: LifecyclePolicy)
+lpTransitionToIA :: Lens.Lens' LifecyclePolicy (Core.Maybe Types.TransitionToIARules)
+lpTransitionToIA = Lens.field @"transitionToIA"
 {-# DEPRECATED lpTransitionToIA "Use generic-lens or generic-optics with 'transitionToIA' instead." #-}
 
-instance Lude.FromJSON LifecyclePolicy where
-  parseJSON =
-    Lude.withObject
-      "LifecyclePolicy"
-      (\x -> LifecyclePolicy' Lude.<$> (x Lude..:? "TransitionToIA"))
-
-instance Lude.ToJSON LifecyclePolicy where
-  toJSON LifecyclePolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("TransitionToIA" Lude..=) Lude.<$> transitionToIA]
+instance Core.FromJSON LifecyclePolicy where
+  toJSON LifecyclePolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [("TransitionToIA" Core..=) Core.<$> transitionToIA]
       )
+
+instance Core.FromJSON LifecyclePolicy where
+  parseJSON =
+    Core.withObject "LifecyclePolicy" Core.$
+      \x -> LifecyclePolicy' Core.<$> (x Core..:? "TransitionToIA")

@@ -13,14 +13,15 @@
 module Network.AWS.ElasticSearch.Types.OptionState
   ( OptionState
       ( OptionState',
-        RequiresIndexDocuments,
-        Processing,
-        Active
+        OptionStateRequiresIndexDocuments,
+        OptionStateProcessing,
+        OptionStateActive,
+        fromOptionState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The state of a requested change. One of the following:
 --
@@ -28,42 +29,43 @@ import qualified Network.AWS.Prelude as Lude
 --     * Processing: The request change is still in-process.
 --
 --     * Active: The request change is processed and deployed to the Elasticsearch domain.
-newtype OptionState = OptionState' Lude.Text
+newtype OptionState = OptionState' {fromOptionState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RequiresIndexDocuments :: OptionState
-pattern RequiresIndexDocuments = OptionState' "RequiresIndexDocuments"
+pattern OptionStateRequiresIndexDocuments :: OptionState
+pattern OptionStateRequiresIndexDocuments = OptionState' "RequiresIndexDocuments"
 
-pattern Processing :: OptionState
-pattern Processing = OptionState' "Processing"
+pattern OptionStateProcessing :: OptionState
+pattern OptionStateProcessing = OptionState' "Processing"
 
-pattern Active :: OptionState
-pattern Active = OptionState' "Active"
+pattern OptionStateActive :: OptionState
+pattern OptionStateActive = OptionState' "Active"
 
 {-# COMPLETE
-  RequiresIndexDocuments,
-  Processing,
-  Active,
+  OptionStateRequiresIndexDocuments,
+  OptionStateProcessing,
+  OptionStateActive,
   OptionState'
   #-}

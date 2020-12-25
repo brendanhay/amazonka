@@ -17,29 +17,46 @@ module Network.AWS.LexModels.Types.BotChannelAssociation
     mkBotChannelAssociation,
 
     -- * Lenses
-    bcaFailureReason,
-    bcaStatus,
     bcaBotAlias,
-    bcaBotName,
     bcaBotConfiguration,
+    bcaBotName,
     bcaCreatedDate,
-    bcaName,
-    bcaType,
     bcaDescription,
+    bcaFailureReason,
+    bcaName,
+    bcaStatus,
+    bcaType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.ChannelStatus
-import Network.AWS.LexModels.Types.ChannelType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.BotAlias as Types
+import qualified Network.AWS.LexModels.Types.BotChannelName as Types
+import qualified Network.AWS.LexModels.Types.BotName as Types
+import qualified Network.AWS.LexModels.Types.ChannelStatus as Types
+import qualified Network.AWS.LexModels.Types.ChannelType as Types
+import qualified Network.AWS.LexModels.Types.Description as Types
+import qualified Network.AWS.LexModels.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an association between an Amazon Lex bot and an external messaging platform.
 --
 -- /See:/ 'mkBotChannelAssociation' smart constructor.
 data BotChannelAssociation = BotChannelAssociation'
-  { -- | If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to create the association.
-    failureReason :: Lude.Maybe Lude.Text,
+  { -- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
+    botAlias :: Core.Maybe Types.BotAlias,
+    -- | Provides information necessary to communicate with the messaging platform.
+    botConfiguration :: Core.Maybe (Core.HashMap Types.String Types.String),
+    -- | The name of the Amazon Lex bot to which this association is being made.
+    botName :: Core.Maybe Types.BotName,
+    -- | The date that the association between the Amazon Lex bot and the channel was created.
+    createdDate :: Core.Maybe Core.NominalDiffTime,
+    -- | A text description of the association you are creating.
+    description :: Core.Maybe Types.Description,
+    -- | If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to create the association.
+    failureReason :: Core.Maybe Types.String,
+    -- | The name of the association between the bot and the channel.
+    name :: Core.Maybe Types.BotChannelName,
     -- | The status of the bot channel.
     --
     --
@@ -50,68 +67,77 @@ data BotChannelAssociation = BotChannelAssociation'
     --
     --
     --     * @FAILED@ - There was an error creating the channel. For information about the reason for the failure, see the @failureReason@ field.
-    status :: Lude.Maybe ChannelStatus,
-    -- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
-    botAlias :: Lude.Maybe Lude.Text,
-    -- | The name of the Amazon Lex bot to which this association is being made.
-    botName :: Lude.Maybe Lude.Text,
-    -- | Provides information necessary to communicate with the messaging platform.
-    botConfiguration :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The date that the association between the Amazon Lex bot and the channel was created.
-    createdDate :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the association between the bot and the channel.
-    name :: Lude.Maybe Lude.Text,
+    status :: Core.Maybe Types.ChannelStatus,
     -- | Specifies the type of association by indicating the type of channel being established between the Amazon Lex bot and the external messaging platform.
-    type' :: Lude.Maybe ChannelType,
-    -- | A text description of the association you are creating.
-    description :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.ChannelType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BotChannelAssociation' with the minimum fields required to make a request.
---
--- * 'failureReason' - If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to create the association.
--- * 'status' - The status of the bot channel.
---
---
---     * @CREATED@ - The channel has been created and is ready for use.
---
---
---     * @IN_PROGRESS@ - Channel creation is in progress.
---
---
---     * @FAILED@ - There was an error creating the channel. For information about the reason for the failure, see the @failureReason@ field.
---
---
--- * 'botAlias' - An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
--- * 'botName' - The name of the Amazon Lex bot to which this association is being made.
--- * 'botConfiguration' - Provides information necessary to communicate with the messaging platform.
--- * 'createdDate' - The date that the association between the Amazon Lex bot and the channel was created.
--- * 'name' - The name of the association between the bot and the channel.
--- * 'type'' - Specifies the type of association by indicating the type of channel being established between the Amazon Lex bot and the external messaging platform.
--- * 'description' - A text description of the association you are creating.
+-- | Creates a 'BotChannelAssociation' value with any optional fields omitted.
 mkBotChannelAssociation ::
   BotChannelAssociation
 mkBotChannelAssociation =
   BotChannelAssociation'
-    { failureReason = Lude.Nothing,
-      status = Lude.Nothing,
-      botAlias = Lude.Nothing,
-      botName = Lude.Nothing,
-      botConfiguration = Lude.Nothing,
-      createdDate = Lude.Nothing,
-      name = Lude.Nothing,
-      type' = Lude.Nothing,
-      description = Lude.Nothing
+    { botAlias = Core.Nothing,
+      botConfiguration = Core.Nothing,
+      botName = Core.Nothing,
+      createdDate = Core.Nothing,
+      description = Core.Nothing,
+      failureReason = Core.Nothing,
+      name = Core.Nothing,
+      status = Core.Nothing,
+      type' = Core.Nothing
     }
+
+-- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
+--
+-- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcaBotAlias :: Lens.Lens' BotChannelAssociation (Core.Maybe Types.BotAlias)
+bcaBotAlias = Lens.field @"botAlias"
+{-# DEPRECATED bcaBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
+
+-- | Provides information necessary to communicate with the messaging platform.
+--
+-- /Note:/ Consider using 'botConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcaBotConfiguration :: Lens.Lens' BotChannelAssociation (Core.Maybe (Core.HashMap Types.String Types.String))
+bcaBotConfiguration = Lens.field @"botConfiguration"
+{-# DEPRECATED bcaBotConfiguration "Use generic-lens or generic-optics with 'botConfiguration' instead." #-}
+
+-- | The name of the Amazon Lex bot to which this association is being made.
+--
+-- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcaBotName :: Lens.Lens' BotChannelAssociation (Core.Maybe Types.BotName)
+bcaBotName = Lens.field @"botName"
+{-# DEPRECATED bcaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
+
+-- | The date that the association between the Amazon Lex bot and the channel was created.
+--
+-- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcaCreatedDate :: Lens.Lens' BotChannelAssociation (Core.Maybe Core.NominalDiffTime)
+bcaCreatedDate = Lens.field @"createdDate"
+{-# DEPRECATED bcaCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
+
+-- | A text description of the association you are creating.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcaDescription :: Lens.Lens' BotChannelAssociation (Core.Maybe Types.Description)
+bcaDescription = Lens.field @"description"
+{-# DEPRECATED bcaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | If @status@ is @FAILED@ , Amazon Lex provides the reason that it failed to create the association.
 --
 -- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcaFailureReason :: Lens.Lens' BotChannelAssociation (Lude.Maybe Lude.Text)
-bcaFailureReason = Lens.lens (failureReason :: BotChannelAssociation -> Lude.Maybe Lude.Text) (\s a -> s {failureReason = a} :: BotChannelAssociation)
+bcaFailureReason :: Lens.Lens' BotChannelAssociation (Core.Maybe Types.String)
+bcaFailureReason = Lens.field @"failureReason"
 {-# DEPRECATED bcaFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
+
+-- | The name of the association between the bot and the channel.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bcaName :: Lens.Lens' BotChannelAssociation (Core.Maybe Types.BotChannelName)
+bcaName = Lens.field @"name"
+{-# DEPRECATED bcaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The status of the bot channel.
 --
@@ -127,72 +153,28 @@ bcaFailureReason = Lens.lens (failureReason :: BotChannelAssociation -> Lude.May
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcaStatus :: Lens.Lens' BotChannelAssociation (Lude.Maybe ChannelStatus)
-bcaStatus = Lens.lens (status :: BotChannelAssociation -> Lude.Maybe ChannelStatus) (\s a -> s {status = a} :: BotChannelAssociation)
+bcaStatus :: Lens.Lens' BotChannelAssociation (Core.Maybe Types.ChannelStatus)
+bcaStatus = Lens.field @"status"
 {-# DEPRECATED bcaStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | An alias pointing to the specific version of the Amazon Lex bot to which this association is being made.
---
--- /Note:/ Consider using 'botAlias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcaBotAlias :: Lens.Lens' BotChannelAssociation (Lude.Maybe Lude.Text)
-bcaBotAlias = Lens.lens (botAlias :: BotChannelAssociation -> Lude.Maybe Lude.Text) (\s a -> s {botAlias = a} :: BotChannelAssociation)
-{-# DEPRECATED bcaBotAlias "Use generic-lens or generic-optics with 'botAlias' instead." #-}
-
--- | The name of the Amazon Lex bot to which this association is being made.
---
--- /Note:/ Consider using 'botName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcaBotName :: Lens.Lens' BotChannelAssociation (Lude.Maybe Lude.Text)
-bcaBotName = Lens.lens (botName :: BotChannelAssociation -> Lude.Maybe Lude.Text) (\s a -> s {botName = a} :: BotChannelAssociation)
-{-# DEPRECATED bcaBotName "Use generic-lens or generic-optics with 'botName' instead." #-}
-
--- | Provides information necessary to communicate with the messaging platform.
---
--- /Note:/ Consider using 'botConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcaBotConfiguration :: Lens.Lens' BotChannelAssociation (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-bcaBotConfiguration = Lens.lens (botConfiguration :: BotChannelAssociation -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {botConfiguration = a} :: BotChannelAssociation)
-{-# DEPRECATED bcaBotConfiguration "Use generic-lens or generic-optics with 'botConfiguration' instead." #-}
-
--- | The date that the association between the Amazon Lex bot and the channel was created.
---
--- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcaCreatedDate :: Lens.Lens' BotChannelAssociation (Lude.Maybe Lude.Timestamp)
-bcaCreatedDate = Lens.lens (createdDate :: BotChannelAssociation -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdDate = a} :: BotChannelAssociation)
-{-# DEPRECATED bcaCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
-
--- | The name of the association between the bot and the channel.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcaName :: Lens.Lens' BotChannelAssociation (Lude.Maybe Lude.Text)
-bcaName = Lens.lens (name :: BotChannelAssociation -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: BotChannelAssociation)
-{-# DEPRECATED bcaName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Specifies the type of association by indicating the type of channel being established between the Amazon Lex bot and the external messaging platform.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcaType :: Lens.Lens' BotChannelAssociation (Lude.Maybe ChannelType)
-bcaType = Lens.lens (type' :: BotChannelAssociation -> Lude.Maybe ChannelType) (\s a -> s {type' = a} :: BotChannelAssociation)
+bcaType :: Lens.Lens' BotChannelAssociation (Core.Maybe Types.ChannelType)
+bcaType = Lens.field @"type'"
 {-# DEPRECATED bcaType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | A text description of the association you are creating.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bcaDescription :: Lens.Lens' BotChannelAssociation (Lude.Maybe Lude.Text)
-bcaDescription = Lens.lens (description :: BotChannelAssociation -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: BotChannelAssociation)
-{-# DEPRECATED bcaDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.FromJSON BotChannelAssociation where
+instance Core.FromJSON BotChannelAssociation where
   parseJSON =
-    Lude.withObject
-      "BotChannelAssociation"
-      ( \x ->
-          BotChannelAssociation'
-            Lude.<$> (x Lude..:? "failureReason")
-            Lude.<*> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "botAlias")
-            Lude.<*> (x Lude..:? "botName")
-            Lude.<*> (x Lude..:? "botConfiguration" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "createdDate")
-            Lude.<*> (x Lude..:? "name")
-            Lude.<*> (x Lude..:? "type")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "BotChannelAssociation" Core.$
+      \x ->
+        BotChannelAssociation'
+          Core.<$> (x Core..:? "botAlias")
+          Core.<*> (x Core..:? "botConfiguration")
+          Core.<*> (x Core..:? "botName")
+          Core.<*> (x Core..:? "createdDate")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "failureReason")
+          Core.<*> (x Core..:? "name")
+          Core.<*> (x Core..:? "status")
+          Core.<*> (x Core..:? "type")

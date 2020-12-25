@@ -28,139 +28,126 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     mkDiscoverPollEndpointResponse,
 
     -- ** Response lenses
-    dpersTelemetryEndpoint,
-    dpersEndpoint,
-    dpersResponseStatus,
+    dperrsEndpoint,
+    dperrsTelemetryEndpoint,
+    dperrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDiscoverPollEndpoint' smart constructor.
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
   { -- | The short name or full Amazon Resource Name (ARN) of the cluster to which the container instance belongs.
-    cluster :: Lude.Maybe Lude.Text,
+    cluster :: Core.Maybe Types.String,
     -- | The container instance ID or full ARN of the container instance. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID@ .
-    containerInstance :: Lude.Maybe Lude.Text
+    containerInstance :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DiscoverPollEndpoint' with the minimum fields required to make a request.
---
--- * 'cluster' - The short name or full Amazon Resource Name (ARN) of the cluster to which the container instance belongs.
--- * 'containerInstance' - The container instance ID or full ARN of the container instance. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID@ .
+-- | Creates a 'DiscoverPollEndpoint' value with any optional fields omitted.
 mkDiscoverPollEndpoint ::
   DiscoverPollEndpoint
 mkDiscoverPollEndpoint =
   DiscoverPollEndpoint'
-    { cluster = Lude.Nothing,
-      containerInstance = Lude.Nothing
+    { cluster = Core.Nothing,
+      containerInstance = Core.Nothing
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster to which the container instance belongs.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpeCluster :: Lens.Lens' DiscoverPollEndpoint (Lude.Maybe Lude.Text)
-dpeCluster = Lens.lens (cluster :: DiscoverPollEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {cluster = a} :: DiscoverPollEndpoint)
+dpeCluster :: Lens.Lens' DiscoverPollEndpoint (Core.Maybe Types.String)
+dpeCluster = Lens.field @"cluster"
 {-# DEPRECATED dpeCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The container instance ID or full ARN of the container instance. The ARN contains the @arn:aws:ecs@ namespace, followed by the Region of the container instance, the AWS account ID of the container instance owner, the @container-instance@ namespace, and then the container instance ID. For example, @arn:aws:ecs:region:aws_account_id:container-instance/container_instance_ID@ .
 --
 -- /Note:/ Consider using 'containerInstance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpeContainerInstance :: Lens.Lens' DiscoverPollEndpoint (Lude.Maybe Lude.Text)
-dpeContainerInstance = Lens.lens (containerInstance :: DiscoverPollEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {containerInstance = a} :: DiscoverPollEndpoint)
+dpeContainerInstance :: Lens.Lens' DiscoverPollEndpoint (Core.Maybe Types.String)
+dpeContainerInstance = Lens.field @"containerInstance"
 {-# DEPRECATED dpeContainerInstance "Use generic-lens or generic-optics with 'containerInstance' instead." #-}
 
-instance Lude.AWSRequest DiscoverPollEndpoint where
+instance Core.FromJSON DiscoverPollEndpoint where
+  toJSON DiscoverPollEndpoint {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("cluster" Core..=) Core.<$> cluster,
+            ("containerInstance" Core..=) Core.<$> containerInstance
+          ]
+      )
+
+instance Core.AWSRequest DiscoverPollEndpoint where
   type Rs DiscoverPollEndpoint = DiscoverPollEndpointResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DiscoverPollEndpointResponse'
-            Lude.<$> (x Lude..?> "telemetryEndpoint")
-            Lude.<*> (x Lude..?> "endpoint")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "endpoint")
+            Core.<*> (x Core..:? "telemetryEndpoint")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DiscoverPollEndpoint where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.DiscoverPollEndpoint" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DiscoverPollEndpoint where
-  toJSON DiscoverPollEndpoint' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("cluster" Lude..=) Lude.<$> cluster,
-            ("containerInstance" Lude..=) Lude.<$> containerInstance
-          ]
-      )
-
-instance Lude.ToPath DiscoverPollEndpoint where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DiscoverPollEndpoint where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDiscoverPollEndpointResponse' smart constructor.
 data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
-  { -- | The telemetry endpoint for the Amazon ECS agent.
-    telemetryEndpoint :: Lude.Maybe Lude.Text,
-    -- | The endpoint for the Amazon ECS agent to poll.
-    endpoint :: Lude.Maybe Lude.Text,
+  { -- | The endpoint for the Amazon ECS agent to poll.
+    endpoint :: Core.Maybe Types.Endpoint,
+    -- | The telemetry endpoint for the Amazon ECS agent.
+    telemetryEndpoint :: Core.Maybe Types.TelemetryEndpoint,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DiscoverPollEndpointResponse' with the minimum fields required to make a request.
---
--- * 'telemetryEndpoint' - The telemetry endpoint for the Amazon ECS agent.
--- * 'endpoint' - The endpoint for the Amazon ECS agent to poll.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DiscoverPollEndpointResponse' value with any optional fields omitted.
 mkDiscoverPollEndpointResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DiscoverPollEndpointResponse
-mkDiscoverPollEndpointResponse pResponseStatus_ =
+mkDiscoverPollEndpointResponse responseStatus =
   DiscoverPollEndpointResponse'
-    { telemetryEndpoint = Lude.Nothing,
-      endpoint = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { endpoint = Core.Nothing,
+      telemetryEndpoint = Core.Nothing,
+      responseStatus
     }
-
--- | The telemetry endpoint for the Amazon ECS agent.
---
--- /Note:/ Consider using 'telemetryEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpersTelemetryEndpoint :: Lens.Lens' DiscoverPollEndpointResponse (Lude.Maybe Lude.Text)
-dpersTelemetryEndpoint = Lens.lens (telemetryEndpoint :: DiscoverPollEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {telemetryEndpoint = a} :: DiscoverPollEndpointResponse)
-{-# DEPRECATED dpersTelemetryEndpoint "Use generic-lens or generic-optics with 'telemetryEndpoint' instead." #-}
 
 -- | The endpoint for the Amazon ECS agent to poll.
 --
 -- /Note:/ Consider using 'endpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpersEndpoint :: Lens.Lens' DiscoverPollEndpointResponse (Lude.Maybe Lude.Text)
-dpersEndpoint = Lens.lens (endpoint :: DiscoverPollEndpointResponse -> Lude.Maybe Lude.Text) (\s a -> s {endpoint = a} :: DiscoverPollEndpointResponse)
-{-# DEPRECATED dpersEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
+dperrsEndpoint :: Lens.Lens' DiscoverPollEndpointResponse (Core.Maybe Types.Endpoint)
+dperrsEndpoint = Lens.field @"endpoint"
+{-# DEPRECATED dperrsEndpoint "Use generic-lens or generic-optics with 'endpoint' instead." #-}
+
+-- | The telemetry endpoint for the Amazon ECS agent.
+--
+-- /Note:/ Consider using 'telemetryEndpoint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dperrsTelemetryEndpoint :: Lens.Lens' DiscoverPollEndpointResponse (Core.Maybe Types.TelemetryEndpoint)
+dperrsTelemetryEndpoint = Lens.field @"telemetryEndpoint"
+{-# DEPRECATED dperrsTelemetryEndpoint "Use generic-lens or generic-optics with 'telemetryEndpoint' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpersResponseStatus :: Lens.Lens' DiscoverPollEndpointResponse Lude.Int
-dpersResponseStatus = Lens.lens (responseStatus :: DiscoverPollEndpointResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DiscoverPollEndpointResponse)
-{-# DEPRECATED dpersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dperrsResponseStatus :: Lens.Lens' DiscoverPollEndpointResponse Core.Int
+dperrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dperrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

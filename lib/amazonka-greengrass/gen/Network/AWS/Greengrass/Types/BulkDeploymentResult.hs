@@ -17,138 +17,127 @@ module Network.AWS.Greengrass.Types.BulkDeploymentResult
     mkBulkDeploymentResult,
 
     -- * Lenses
-    bdrDeploymentId,
-    bdrDeploymentARN,
     bdrCreatedAt,
+    bdrDeploymentArn,
+    bdrDeploymentId,
+    bdrDeploymentStatus,
     bdrDeploymentType,
     bdrErrorDetails,
-    bdrGroupARN,
-    bdrDeploymentStatus,
     bdrErrorMessage,
+    bdrGroupArn,
   )
 where
 
-import Network.AWS.Greengrass.Types.DeploymentType
-import Network.AWS.Greengrass.Types.ErrorDetail
+import qualified Network.AWS.Greengrass.Types.DeploymentType as Types
+import qualified Network.AWS.Greengrass.Types.ErrorDetail as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about an individual group deployment in a bulk deployment operation.
 --
 -- /See:/ 'mkBulkDeploymentResult' smart constructor.
 data BulkDeploymentResult = BulkDeploymentResult'
-  { -- | The ID of the group deployment.
-    deploymentId :: Lude.Maybe Lude.Text,
+  { -- | The time, in ISO format, when the deployment was created.
+    createdAt :: Core.Maybe Core.Text,
     -- | The ARN of the group deployment.
-    deploymentARN :: Lude.Maybe Lude.Text,
-    -- | The time, in ISO format, when the deployment was created.
-    createdAt :: Lude.Maybe Lude.Text,
-    -- | The type of the deployment.
-    deploymentType :: Lude.Maybe DeploymentType,
-    -- | Details about the error.
-    errorDetails :: Lude.Maybe [ErrorDetail],
-    -- | The ARN of the Greengrass group.
-    groupARN :: Lude.Maybe Lude.Text,
+    deploymentArn :: Core.Maybe Core.Text,
+    -- | The ID of the group deployment.
+    deploymentId :: Core.Maybe Core.Text,
     -- | The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
-    deploymentStatus :: Lude.Maybe Lude.Text,
+    deploymentStatus :: Core.Maybe Core.Text,
+    -- | The type of the deployment.
+    deploymentType :: Core.Maybe Types.DeploymentType,
+    -- | Details about the error.
+    errorDetails :: Core.Maybe [Types.ErrorDetail],
     -- | The error message for a failed deployment
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Core.Text,
+    -- | The ARN of the Greengrass group.
+    groupArn :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BulkDeploymentResult' with the minimum fields required to make a request.
---
--- * 'deploymentId' - The ID of the group deployment.
--- * 'deploymentARN' - The ARN of the group deployment.
--- * 'createdAt' - The time, in ISO format, when the deployment was created.
--- * 'deploymentType' - The type of the deployment.
--- * 'errorDetails' - Details about the error.
--- * 'groupARN' - The ARN of the Greengrass group.
--- * 'deploymentStatus' - The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
--- * 'errorMessage' - The error message for a failed deployment
+-- | Creates a 'BulkDeploymentResult' value with any optional fields omitted.
 mkBulkDeploymentResult ::
   BulkDeploymentResult
 mkBulkDeploymentResult =
   BulkDeploymentResult'
-    { deploymentId = Lude.Nothing,
-      deploymentARN = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      deploymentType = Lude.Nothing,
-      errorDetails = Lude.Nothing,
-      groupARN = Lude.Nothing,
-      deploymentStatus = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { createdAt = Core.Nothing,
+      deploymentArn = Core.Nothing,
+      deploymentId = Core.Nothing,
+      deploymentStatus = Core.Nothing,
+      deploymentType = Core.Nothing,
+      errorDetails = Core.Nothing,
+      errorMessage = Core.Nothing,
+      groupArn = Core.Nothing
     }
-
--- | The ID of the group deployment.
---
--- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdrDeploymentId :: Lens.Lens' BulkDeploymentResult (Lude.Maybe Lude.Text)
-bdrDeploymentId = Lens.lens (deploymentId :: BulkDeploymentResult -> Lude.Maybe Lude.Text) (\s a -> s {deploymentId = a} :: BulkDeploymentResult)
-{-# DEPRECATED bdrDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
-
--- | The ARN of the group deployment.
---
--- /Note:/ Consider using 'deploymentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdrDeploymentARN :: Lens.Lens' BulkDeploymentResult (Lude.Maybe Lude.Text)
-bdrDeploymentARN = Lens.lens (deploymentARN :: BulkDeploymentResult -> Lude.Maybe Lude.Text) (\s a -> s {deploymentARN = a} :: BulkDeploymentResult)
-{-# DEPRECATED bdrDeploymentARN "Use generic-lens or generic-optics with 'deploymentARN' instead." #-}
 
 -- | The time, in ISO format, when the deployment was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdrCreatedAt :: Lens.Lens' BulkDeploymentResult (Lude.Maybe Lude.Text)
-bdrCreatedAt = Lens.lens (createdAt :: BulkDeploymentResult -> Lude.Maybe Lude.Text) (\s a -> s {createdAt = a} :: BulkDeploymentResult)
+bdrCreatedAt :: Lens.Lens' BulkDeploymentResult (Core.Maybe Core.Text)
+bdrCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED bdrCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The ARN of the group deployment.
+--
+-- /Note:/ Consider using 'deploymentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdrDeploymentArn :: Lens.Lens' BulkDeploymentResult (Core.Maybe Core.Text)
+bdrDeploymentArn = Lens.field @"deploymentArn"
+{-# DEPRECATED bdrDeploymentArn "Use generic-lens or generic-optics with 'deploymentArn' instead." #-}
+
+-- | The ID of the group deployment.
+--
+-- /Note:/ Consider using 'deploymentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdrDeploymentId :: Lens.Lens' BulkDeploymentResult (Core.Maybe Core.Text)
+bdrDeploymentId = Lens.field @"deploymentId"
+{-# DEPRECATED bdrDeploymentId "Use generic-lens or generic-optics with 'deploymentId' instead." #-}
+
+-- | The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
+--
+-- /Note:/ Consider using 'deploymentStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdrDeploymentStatus :: Lens.Lens' BulkDeploymentResult (Core.Maybe Core.Text)
+bdrDeploymentStatus = Lens.field @"deploymentStatus"
+{-# DEPRECATED bdrDeploymentStatus "Use generic-lens or generic-optics with 'deploymentStatus' instead." #-}
 
 -- | The type of the deployment.
 --
 -- /Note:/ Consider using 'deploymentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdrDeploymentType :: Lens.Lens' BulkDeploymentResult (Lude.Maybe DeploymentType)
-bdrDeploymentType = Lens.lens (deploymentType :: BulkDeploymentResult -> Lude.Maybe DeploymentType) (\s a -> s {deploymentType = a} :: BulkDeploymentResult)
+bdrDeploymentType :: Lens.Lens' BulkDeploymentResult (Core.Maybe Types.DeploymentType)
+bdrDeploymentType = Lens.field @"deploymentType"
 {-# DEPRECATED bdrDeploymentType "Use generic-lens or generic-optics with 'deploymentType' instead." #-}
 
 -- | Details about the error.
 --
 -- /Note:/ Consider using 'errorDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdrErrorDetails :: Lens.Lens' BulkDeploymentResult (Lude.Maybe [ErrorDetail])
-bdrErrorDetails = Lens.lens (errorDetails :: BulkDeploymentResult -> Lude.Maybe [ErrorDetail]) (\s a -> s {errorDetails = a} :: BulkDeploymentResult)
+bdrErrorDetails :: Lens.Lens' BulkDeploymentResult (Core.Maybe [Types.ErrorDetail])
+bdrErrorDetails = Lens.field @"errorDetails"
 {-# DEPRECATED bdrErrorDetails "Use generic-lens or generic-optics with 'errorDetails' instead." #-}
-
--- | The ARN of the Greengrass group.
---
--- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdrGroupARN :: Lens.Lens' BulkDeploymentResult (Lude.Maybe Lude.Text)
-bdrGroupARN = Lens.lens (groupARN :: BulkDeploymentResult -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: BulkDeploymentResult)
-{-# DEPRECATED bdrGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
-
--- | The current status of the group deployment: ''InProgress'', ''Building'', ''Success'', or ''Failure''.
---
--- /Note:/ Consider using 'deploymentStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdrDeploymentStatus :: Lens.Lens' BulkDeploymentResult (Lude.Maybe Lude.Text)
-bdrDeploymentStatus = Lens.lens (deploymentStatus :: BulkDeploymentResult -> Lude.Maybe Lude.Text) (\s a -> s {deploymentStatus = a} :: BulkDeploymentResult)
-{-# DEPRECATED bdrDeploymentStatus "Use generic-lens or generic-optics with 'deploymentStatus' instead." #-}
 
 -- | The error message for a failed deployment
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdrErrorMessage :: Lens.Lens' BulkDeploymentResult (Lude.Maybe Lude.Text)
-bdrErrorMessage = Lens.lens (errorMessage :: BulkDeploymentResult -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: BulkDeploymentResult)
+bdrErrorMessage :: Lens.Lens' BulkDeploymentResult (Core.Maybe Core.Text)
+bdrErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED bdrErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON BulkDeploymentResult where
+-- | The ARN of the Greengrass group.
+--
+-- /Note:/ Consider using 'groupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdrGroupArn :: Lens.Lens' BulkDeploymentResult (Core.Maybe Core.Text)
+bdrGroupArn = Lens.field @"groupArn"
+{-# DEPRECATED bdrGroupArn "Use generic-lens or generic-optics with 'groupArn' instead." #-}
+
+instance Core.FromJSON BulkDeploymentResult where
   parseJSON =
-    Lude.withObject
-      "BulkDeploymentResult"
-      ( \x ->
-          BulkDeploymentResult'
-            Lude.<$> (x Lude..:? "DeploymentId")
-            Lude.<*> (x Lude..:? "DeploymentArn")
-            Lude.<*> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "DeploymentType")
-            Lude.<*> (x Lude..:? "ErrorDetails" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "GroupArn")
-            Lude.<*> (x Lude..:? "DeploymentStatus")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-      )
+    Core.withObject "BulkDeploymentResult" Core.$
+      \x ->
+        BulkDeploymentResult'
+          Core.<$> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "DeploymentArn")
+          Core.<*> (x Core..:? "DeploymentId")
+          Core.<*> (x Core..:? "DeploymentStatus")
+          Core.<*> (x Core..:? "DeploymentType")
+          Core.<*> (x Core..:? "ErrorDetails")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "GroupArn")

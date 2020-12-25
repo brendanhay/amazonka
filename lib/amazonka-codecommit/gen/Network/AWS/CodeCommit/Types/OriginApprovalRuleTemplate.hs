@@ -22,54 +22,51 @@ module Network.AWS.CodeCommit.Types.OriginApprovalRuleTemplate
   )
 where
 
+import qualified Network.AWS.CodeCommit.Types.ApprovalRuleTemplateId as Types
+import qualified Network.AWS.CodeCommit.Types.ApprovalRuleTemplateName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns information about the template that created the approval rule for a pull request.
 --
 -- /See:/ 'mkOriginApprovalRuleTemplate' smart constructor.
 data OriginApprovalRuleTemplate = OriginApprovalRuleTemplate'
   { -- | The ID of the template that created the approval rule.
-    approvalRuleTemplateId :: Lude.Maybe Lude.Text,
+    approvalRuleTemplateId :: Core.Maybe Types.ApprovalRuleTemplateId,
     -- | The name of the template that created the approval rule.
-    approvalRuleTemplateName :: Lude.Maybe Lude.Text
+    approvalRuleTemplateName :: Core.Maybe Types.ApprovalRuleTemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OriginApprovalRuleTemplate' with the minimum fields required to make a request.
---
--- * 'approvalRuleTemplateId' - The ID of the template that created the approval rule.
--- * 'approvalRuleTemplateName' - The name of the template that created the approval rule.
+-- | Creates a 'OriginApprovalRuleTemplate' value with any optional fields omitted.
 mkOriginApprovalRuleTemplate ::
   OriginApprovalRuleTemplate
 mkOriginApprovalRuleTemplate =
   OriginApprovalRuleTemplate'
     { approvalRuleTemplateId =
-        Lude.Nothing,
-      approvalRuleTemplateName = Lude.Nothing
+        Core.Nothing,
+      approvalRuleTemplateName = Core.Nothing
     }
 
 -- | The ID of the template that created the approval rule.
 --
 -- /Note:/ Consider using 'approvalRuleTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oartApprovalRuleTemplateId :: Lens.Lens' OriginApprovalRuleTemplate (Lude.Maybe Lude.Text)
-oartApprovalRuleTemplateId = Lens.lens (approvalRuleTemplateId :: OriginApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleTemplateId = a} :: OriginApprovalRuleTemplate)
+oartApprovalRuleTemplateId :: Lens.Lens' OriginApprovalRuleTemplate (Core.Maybe Types.ApprovalRuleTemplateId)
+oartApprovalRuleTemplateId = Lens.field @"approvalRuleTemplateId"
 {-# DEPRECATED oartApprovalRuleTemplateId "Use generic-lens or generic-optics with 'approvalRuleTemplateId' instead." #-}
 
 -- | The name of the template that created the approval rule.
 --
 -- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-oartApprovalRuleTemplateName :: Lens.Lens' OriginApprovalRuleTemplate (Lude.Maybe Lude.Text)
-oartApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: OriginApprovalRuleTemplate -> Lude.Maybe Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: OriginApprovalRuleTemplate)
+oartApprovalRuleTemplateName :: Lens.Lens' OriginApprovalRuleTemplate (Core.Maybe Types.ApprovalRuleTemplateName)
+oartApprovalRuleTemplateName = Lens.field @"approvalRuleTemplateName"
 {-# DEPRECATED oartApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
-instance Lude.FromJSON OriginApprovalRuleTemplate where
+instance Core.FromJSON OriginApprovalRuleTemplate where
   parseJSON =
-    Lude.withObject
-      "OriginApprovalRuleTemplate"
-      ( \x ->
-          OriginApprovalRuleTemplate'
-            Lude.<$> (x Lude..:? "approvalRuleTemplateId")
-            Lude.<*> (x Lude..:? "approvalRuleTemplateName")
-      )
+    Core.withObject "OriginApprovalRuleTemplate" Core.$
+      \x ->
+        OriginApprovalRuleTemplate'
+          Core.<$> (x Core..:? "approvalRuleTemplateId")
+          Core.<*> (x Core..:? "approvalRuleTemplateName")

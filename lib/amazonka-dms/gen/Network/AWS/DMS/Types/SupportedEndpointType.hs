@@ -17,98 +17,91 @@ module Network.AWS.DMS.Types.SupportedEndpointType
     mkSupportedEndpointType,
 
     -- * Lenses
-    setEngineDisplayName,
     setEndpointType,
+    setEngineDisplayName,
     setEngineName,
     setReplicationInstanceEngineMinimumVersion,
     setSupportsCDC,
   )
 where
 
-import Network.AWS.DMS.Types.ReplicationEndpointTypeValue
+import qualified Network.AWS.DMS.Types.ReplicationEndpointTypeValue as Types
+import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about types of supported endpoints in response to a request by the @DescribeEndpointTypes@ operation. This information includes the type of endpoint, the database engine name, and whether change data capture (CDC) is supported.
 --
 -- /See:/ 'mkSupportedEndpointType' smart constructor.
 data SupportedEndpointType = SupportedEndpointType'
-  { -- | The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
-    engineDisplayName :: Lude.Maybe Lude.Text,
-    -- | The type of endpoint. Valid values are @source@ and @target@ .
-    endpointType :: Lude.Maybe ReplicationEndpointTypeValue,
+  { -- | The type of endpoint. Valid values are @source@ and @target@ .
+    endpointType :: Core.Maybe Types.ReplicationEndpointTypeValue,
+    -- | The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
+    engineDisplayName :: Core.Maybe Types.String,
     -- | The database engine name. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
-    engineName :: Lude.Maybe Lude.Text,
+    engineName :: Core.Maybe Types.String,
     -- | The earliest AWS DMS engine version that supports this endpoint engine. Note that endpoint engines released with AWS DMS versions earlier than 3.1.1 do not return a value for this parameter.
-    replicationInstanceEngineMinimumVersion :: Lude.Maybe Lude.Text,
+    replicationInstanceEngineMinimumVersion :: Core.Maybe Types.String,
     -- | Indicates if Change Data Capture (CDC) is supported.
-    supportsCDC :: Lude.Maybe Lude.Bool
+    supportsCDC :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SupportedEndpointType' with the minimum fields required to make a request.
---
--- * 'engineDisplayName' - The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
--- * 'endpointType' - The type of endpoint. Valid values are @source@ and @target@ .
--- * 'engineName' - The database engine name. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
--- * 'replicationInstanceEngineMinimumVersion' - The earliest AWS DMS engine version that supports this endpoint engine. Note that endpoint engines released with AWS DMS versions earlier than 3.1.1 do not return a value for this parameter.
--- * 'supportsCDC' - Indicates if Change Data Capture (CDC) is supported.
+-- | Creates a 'SupportedEndpointType' value with any optional fields omitted.
 mkSupportedEndpointType ::
   SupportedEndpointType
 mkSupportedEndpointType =
   SupportedEndpointType'
-    { engineDisplayName = Lude.Nothing,
-      endpointType = Lude.Nothing,
-      engineName = Lude.Nothing,
-      replicationInstanceEngineMinimumVersion = Lude.Nothing,
-      supportsCDC = Lude.Nothing
+    { endpointType = Core.Nothing,
+      engineDisplayName = Core.Nothing,
+      engineName = Core.Nothing,
+      replicationInstanceEngineMinimumVersion = Core.Nothing,
+      supportsCDC = Core.Nothing
     }
-
--- | The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
---
--- /Note:/ Consider using 'engineDisplayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setEngineDisplayName :: Lens.Lens' SupportedEndpointType (Lude.Maybe Lude.Text)
-setEngineDisplayName = Lens.lens (engineDisplayName :: SupportedEndpointType -> Lude.Maybe Lude.Text) (\s a -> s {engineDisplayName = a} :: SupportedEndpointType)
-{-# DEPRECATED setEngineDisplayName "Use generic-lens or generic-optics with 'engineDisplayName' instead." #-}
 
 -- | The type of endpoint. Valid values are @source@ and @target@ .
 --
 -- /Note:/ Consider using 'endpointType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setEndpointType :: Lens.Lens' SupportedEndpointType (Lude.Maybe ReplicationEndpointTypeValue)
-setEndpointType = Lens.lens (endpointType :: SupportedEndpointType -> Lude.Maybe ReplicationEndpointTypeValue) (\s a -> s {endpointType = a} :: SupportedEndpointType)
+setEndpointType :: Lens.Lens' SupportedEndpointType (Core.Maybe Types.ReplicationEndpointTypeValue)
+setEndpointType = Lens.field @"endpointType"
 {-# DEPRECATED setEndpointType "Use generic-lens or generic-optics with 'endpointType' instead." #-}
+
+-- | The expanded name for the engine name. For example, if the @EngineName@ parameter is "aurora," this value would be "Amazon Aurora MySQL."
+--
+-- /Note:/ Consider using 'engineDisplayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+setEngineDisplayName :: Lens.Lens' SupportedEndpointType (Core.Maybe Types.String)
+setEngineDisplayName = Lens.field @"engineDisplayName"
+{-# DEPRECATED setEngineDisplayName "Use generic-lens or generic-optics with 'engineDisplayName' instead." #-}
 
 -- | The database engine name. Valid values, depending on the EndpointType, include @"mysql"@ , @"oracle"@ , @"postgres"@ , @"mariadb"@ , @"aurora"@ , @"aurora-postgresql"@ , @"redshift"@ , @"s3"@ , @"db2"@ , @"azuredb"@ , @"sybase"@ , @"dynamodb"@ , @"mongodb"@ , @"kinesis"@ , @"kafka"@ , @"elasticsearch"@ , @"documentdb"@ , @"sqlserver"@ , and @"neptune"@ .
 --
 -- /Note:/ Consider using 'engineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setEngineName :: Lens.Lens' SupportedEndpointType (Lude.Maybe Lude.Text)
-setEngineName = Lens.lens (engineName :: SupportedEndpointType -> Lude.Maybe Lude.Text) (\s a -> s {engineName = a} :: SupportedEndpointType)
+setEngineName :: Lens.Lens' SupportedEndpointType (Core.Maybe Types.String)
+setEngineName = Lens.field @"engineName"
 {-# DEPRECATED setEngineName "Use generic-lens or generic-optics with 'engineName' instead." #-}
 
 -- | The earliest AWS DMS engine version that supports this endpoint engine. Note that endpoint engines released with AWS DMS versions earlier than 3.1.1 do not return a value for this parameter.
 --
 -- /Note:/ Consider using 'replicationInstanceEngineMinimumVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setReplicationInstanceEngineMinimumVersion :: Lens.Lens' SupportedEndpointType (Lude.Maybe Lude.Text)
-setReplicationInstanceEngineMinimumVersion = Lens.lens (replicationInstanceEngineMinimumVersion :: SupportedEndpointType -> Lude.Maybe Lude.Text) (\s a -> s {replicationInstanceEngineMinimumVersion = a} :: SupportedEndpointType)
+setReplicationInstanceEngineMinimumVersion :: Lens.Lens' SupportedEndpointType (Core.Maybe Types.String)
+setReplicationInstanceEngineMinimumVersion = Lens.field @"replicationInstanceEngineMinimumVersion"
 {-# DEPRECATED setReplicationInstanceEngineMinimumVersion "Use generic-lens or generic-optics with 'replicationInstanceEngineMinimumVersion' instead." #-}
 
 -- | Indicates if Change Data Capture (CDC) is supported.
 --
 -- /Note:/ Consider using 'supportsCDC' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-setSupportsCDC :: Lens.Lens' SupportedEndpointType (Lude.Maybe Lude.Bool)
-setSupportsCDC = Lens.lens (supportsCDC :: SupportedEndpointType -> Lude.Maybe Lude.Bool) (\s a -> s {supportsCDC = a} :: SupportedEndpointType)
+setSupportsCDC :: Lens.Lens' SupportedEndpointType (Core.Maybe Core.Bool)
+setSupportsCDC = Lens.field @"supportsCDC"
 {-# DEPRECATED setSupportsCDC "Use generic-lens or generic-optics with 'supportsCDC' instead." #-}
 
-instance Lude.FromJSON SupportedEndpointType where
+instance Core.FromJSON SupportedEndpointType where
   parseJSON =
-    Lude.withObject
-      "SupportedEndpointType"
-      ( \x ->
-          SupportedEndpointType'
-            Lude.<$> (x Lude..:? "EngineDisplayName")
-            Lude.<*> (x Lude..:? "EndpointType")
-            Lude.<*> (x Lude..:? "EngineName")
-            Lude.<*> (x Lude..:? "ReplicationInstanceEngineMinimumVersion")
-            Lude.<*> (x Lude..:? "SupportsCDC")
-      )
+    Core.withObject "SupportedEndpointType" Core.$
+      \x ->
+        SupportedEndpointType'
+          Core.<$> (x Core..:? "EndpointType")
+          Core.<*> (x Core..:? "EngineDisplayName")
+          Core.<*> (x Core..:? "EngineName")
+          Core.<*> (x Core..:? "ReplicationInstanceEngineMinimumVersion")
+          Core.<*> (x Core..:? "SupportsCDC")

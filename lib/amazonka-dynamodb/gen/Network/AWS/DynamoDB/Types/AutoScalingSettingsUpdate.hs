@@ -18,96 +18,91 @@ module Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
 
     -- * Lenses
     assuAutoScalingDisabled,
+    assuAutoScalingRoleArn,
+    assuMaximumUnits,
     assuMinimumUnits,
     assuScalingPolicyUpdate,
-    assuMaximumUnits,
-    assuAutoScalingRoleARN,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AutoScalingPolicyUpdate
+import qualified Network.AWS.DynamoDB.Types.AutoScalingPolicyUpdate as Types
+import qualified Network.AWS.DynamoDB.Types.AutoScalingRoleArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the auto scaling settings to be modified for a global table or global secondary index.
 --
 -- /See:/ 'mkAutoScalingSettingsUpdate' smart constructor.
 data AutoScalingSettingsUpdate = AutoScalingSettingsUpdate'
   { -- | Disabled auto scaling for this global table or global secondary index.
-    autoScalingDisabled :: Lude.Maybe Lude.Bool,
-    -- | The minimum capacity units that a global table or global secondary index should be scaled down to.
-    minimumUnits :: Lude.Maybe Lude.Natural,
-    -- | The scaling policy to apply for scaling target global table or global secondary index capacity units.
-    scalingPolicyUpdate :: Lude.Maybe AutoScalingPolicyUpdate,
-    -- | The maximum capacity units that a global table or global secondary index should be scaled up to.
-    maximumUnits :: Lude.Maybe Lude.Natural,
+    autoScalingDisabled :: Core.Maybe Core.Bool,
     -- | Role ARN used for configuring auto scaling policy.
-    autoScalingRoleARN :: Lude.Maybe Lude.Text
+    autoScalingRoleArn :: Core.Maybe Types.AutoScalingRoleArn,
+    -- | The maximum capacity units that a global table or global secondary index should be scaled up to.
+    maximumUnits :: Core.Maybe Core.Natural,
+    -- | The minimum capacity units that a global table or global secondary index should be scaled down to.
+    minimumUnits :: Core.Maybe Core.Natural,
+    -- | The scaling policy to apply for scaling target global table or global secondary index capacity units.
+    scalingPolicyUpdate :: Core.Maybe Types.AutoScalingPolicyUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AutoScalingSettingsUpdate' with the minimum fields required to make a request.
---
--- * 'autoScalingDisabled' - Disabled auto scaling for this global table or global secondary index.
--- * 'minimumUnits' - The minimum capacity units that a global table or global secondary index should be scaled down to.
--- * 'scalingPolicyUpdate' - The scaling policy to apply for scaling target global table or global secondary index capacity units.
--- * 'maximumUnits' - The maximum capacity units that a global table or global secondary index should be scaled up to.
--- * 'autoScalingRoleARN' - Role ARN used for configuring auto scaling policy.
+-- | Creates a 'AutoScalingSettingsUpdate' value with any optional fields omitted.
 mkAutoScalingSettingsUpdate ::
   AutoScalingSettingsUpdate
 mkAutoScalingSettingsUpdate =
   AutoScalingSettingsUpdate'
-    { autoScalingDisabled = Lude.Nothing,
-      minimumUnits = Lude.Nothing,
-      scalingPolicyUpdate = Lude.Nothing,
-      maximumUnits = Lude.Nothing,
-      autoScalingRoleARN = Lude.Nothing
+    { autoScalingDisabled = Core.Nothing,
+      autoScalingRoleArn = Core.Nothing,
+      maximumUnits = Core.Nothing,
+      minimumUnits = Core.Nothing,
+      scalingPolicyUpdate = Core.Nothing
     }
 
 -- | Disabled auto scaling for this global table or global secondary index.
 --
 -- /Note:/ Consider using 'autoScalingDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assuAutoScalingDisabled :: Lens.Lens' AutoScalingSettingsUpdate (Lude.Maybe Lude.Bool)
-assuAutoScalingDisabled = Lens.lens (autoScalingDisabled :: AutoScalingSettingsUpdate -> Lude.Maybe Lude.Bool) (\s a -> s {autoScalingDisabled = a} :: AutoScalingSettingsUpdate)
+assuAutoScalingDisabled :: Lens.Lens' AutoScalingSettingsUpdate (Core.Maybe Core.Bool)
+assuAutoScalingDisabled = Lens.field @"autoScalingDisabled"
 {-# DEPRECATED assuAutoScalingDisabled "Use generic-lens or generic-optics with 'autoScalingDisabled' instead." #-}
+
+-- | Role ARN used for configuring auto scaling policy.
+--
+-- /Note:/ Consider using 'autoScalingRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assuAutoScalingRoleArn :: Lens.Lens' AutoScalingSettingsUpdate (Core.Maybe Types.AutoScalingRoleArn)
+assuAutoScalingRoleArn = Lens.field @"autoScalingRoleArn"
+{-# DEPRECATED assuAutoScalingRoleArn "Use generic-lens or generic-optics with 'autoScalingRoleArn' instead." #-}
+
+-- | The maximum capacity units that a global table or global secondary index should be scaled up to.
+--
+-- /Note:/ Consider using 'maximumUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+assuMaximumUnits :: Lens.Lens' AutoScalingSettingsUpdate (Core.Maybe Core.Natural)
+assuMaximumUnits = Lens.field @"maximumUnits"
+{-# DEPRECATED assuMaximumUnits "Use generic-lens or generic-optics with 'maximumUnits' instead." #-}
 
 -- | The minimum capacity units that a global table or global secondary index should be scaled down to.
 --
 -- /Note:/ Consider using 'minimumUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assuMinimumUnits :: Lens.Lens' AutoScalingSettingsUpdate (Lude.Maybe Lude.Natural)
-assuMinimumUnits = Lens.lens (minimumUnits :: AutoScalingSettingsUpdate -> Lude.Maybe Lude.Natural) (\s a -> s {minimumUnits = a} :: AutoScalingSettingsUpdate)
+assuMinimumUnits :: Lens.Lens' AutoScalingSettingsUpdate (Core.Maybe Core.Natural)
+assuMinimumUnits = Lens.field @"minimumUnits"
 {-# DEPRECATED assuMinimumUnits "Use generic-lens or generic-optics with 'minimumUnits' instead." #-}
 
 -- | The scaling policy to apply for scaling target global table or global secondary index capacity units.
 --
 -- /Note:/ Consider using 'scalingPolicyUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assuScalingPolicyUpdate :: Lens.Lens' AutoScalingSettingsUpdate (Lude.Maybe AutoScalingPolicyUpdate)
-assuScalingPolicyUpdate = Lens.lens (scalingPolicyUpdate :: AutoScalingSettingsUpdate -> Lude.Maybe AutoScalingPolicyUpdate) (\s a -> s {scalingPolicyUpdate = a} :: AutoScalingSettingsUpdate)
+assuScalingPolicyUpdate :: Lens.Lens' AutoScalingSettingsUpdate (Core.Maybe Types.AutoScalingPolicyUpdate)
+assuScalingPolicyUpdate = Lens.field @"scalingPolicyUpdate"
 {-# DEPRECATED assuScalingPolicyUpdate "Use generic-lens or generic-optics with 'scalingPolicyUpdate' instead." #-}
 
--- | The maximum capacity units that a global table or global secondary index should be scaled up to.
---
--- /Note:/ Consider using 'maximumUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assuMaximumUnits :: Lens.Lens' AutoScalingSettingsUpdate (Lude.Maybe Lude.Natural)
-assuMaximumUnits = Lens.lens (maximumUnits :: AutoScalingSettingsUpdate -> Lude.Maybe Lude.Natural) (\s a -> s {maximumUnits = a} :: AutoScalingSettingsUpdate)
-{-# DEPRECATED assuMaximumUnits "Use generic-lens or generic-optics with 'maximumUnits' instead." #-}
-
--- | Role ARN used for configuring auto scaling policy.
---
--- /Note:/ Consider using 'autoScalingRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-assuAutoScalingRoleARN :: Lens.Lens' AutoScalingSettingsUpdate (Lude.Maybe Lude.Text)
-assuAutoScalingRoleARN = Lens.lens (autoScalingRoleARN :: AutoScalingSettingsUpdate -> Lude.Maybe Lude.Text) (\s a -> s {autoScalingRoleARN = a} :: AutoScalingSettingsUpdate)
-{-# DEPRECATED assuAutoScalingRoleARN "Use generic-lens or generic-optics with 'autoScalingRoleARN' instead." #-}
-
-instance Lude.ToJSON AutoScalingSettingsUpdate where
-  toJSON AutoScalingSettingsUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AutoScalingDisabled" Lude..=) Lude.<$> autoScalingDisabled,
-            ("MinimumUnits" Lude..=) Lude.<$> minimumUnits,
-            ("ScalingPolicyUpdate" Lude..=) Lude.<$> scalingPolicyUpdate,
-            ("MaximumUnits" Lude..=) Lude.<$> maximumUnits,
-            ("AutoScalingRoleArn" Lude..=) Lude.<$> autoScalingRoleARN
+instance Core.FromJSON AutoScalingSettingsUpdate where
+  toJSON AutoScalingSettingsUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AutoScalingDisabled" Core..=) Core.<$> autoScalingDisabled,
+            ("AutoScalingRoleArn" Core..=) Core.<$> autoScalingRoleArn,
+            ("MaximumUnits" Core..=) Core.<$> maximumUnits,
+            ("MinimumUnits" Core..=) Core.<$> minimumUnits,
+            ("ScalingPolicyUpdate" Core..=) Core.<$> scalingPolicyUpdate
           ]
       )

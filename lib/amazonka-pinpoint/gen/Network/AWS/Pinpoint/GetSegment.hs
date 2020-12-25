@@ -20,131 +20,112 @@ module Network.AWS.Pinpoint.GetSegment
     mkGetSegment,
 
     -- ** Request lenses
-    gsApplicationId,
     gsSegmentId,
+    gsApplicationId,
 
     -- * Destructuring the response
     GetSegmentResponse (..),
     mkGetSegmentResponse,
 
     -- ** Response lenses
-    gsfrsSegmentResponse,
-    gsfrsResponseStatus,
+    gsrfrsSegmentResponse,
+    gsrfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetSegment' smart constructor.
 data GetSegment = GetSegment'
-  { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text,
-    -- | The unique identifier for the segment.
-    segmentId :: Lude.Text
+  { -- | The unique identifier for the segment.
+    segmentId :: Core.Text,
+    -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+    applicationId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSegment' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
--- * 'segmentId' - The unique identifier for the segment.
+-- | Creates a 'GetSegment' value with any optional fields omitted.
 mkGetSegment ::
-  -- | 'applicationId'
-  Lude.Text ->
   -- | 'segmentId'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'applicationId'
+  Core.Text ->
   GetSegment
-mkGetSegment pApplicationId_ pSegmentId_ =
-  GetSegment'
-    { applicationId = pApplicationId_,
-      segmentId = pSegmentId_
-    }
-
--- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsApplicationId :: Lens.Lens' GetSegment Lude.Text
-gsApplicationId = Lens.lens (applicationId :: GetSegment -> Lude.Text) (\s a -> s {applicationId = a} :: GetSegment)
-{-# DEPRECATED gsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+mkGetSegment segmentId applicationId =
+  GetSegment' {segmentId, applicationId}
 
 -- | The unique identifier for the segment.
 --
 -- /Note:/ Consider using 'segmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsSegmentId :: Lens.Lens' GetSegment Lude.Text
-gsSegmentId = Lens.lens (segmentId :: GetSegment -> Lude.Text) (\s a -> s {segmentId = a} :: GetSegment)
+gsSegmentId :: Lens.Lens' GetSegment Core.Text
+gsSegmentId = Lens.field @"segmentId"
 {-# DEPRECATED gsSegmentId "Use generic-lens or generic-optics with 'segmentId' instead." #-}
 
-instance Lude.AWSRequest GetSegment where
+-- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsApplicationId :: Lens.Lens' GetSegment Core.Text
+gsApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED gsApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+instance Core.AWSRequest GetSegment where
   type Rs GetSegment = GetSegmentResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/segments/")
+                Core.<> (Core.toText segmentId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSegmentResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSegment where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetSegment where
-  toPath GetSegment' {..} =
-    Lude.mconcat
-      [ "/v1/apps/",
-        Lude.toBS applicationId,
-        "/segments/",
-        Lude.toBS segmentId
-      ]
-
-instance Lude.ToQuery GetSegment where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetSegmentResponse' smart constructor.
 data GetSegmentResponse = GetSegmentResponse'
-  { segmentResponse :: SegmentResponse,
+  { segmentResponse :: Types.SegmentResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSegmentResponse' with the minimum fields required to make a request.
---
--- * 'segmentResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSegmentResponse' value with any optional fields omitted.
 mkGetSegmentResponse ::
   -- | 'segmentResponse'
-  SegmentResponse ->
+  Types.SegmentResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSegmentResponse
-mkGetSegmentResponse pSegmentResponse_ pResponseStatus_ =
-  GetSegmentResponse'
-    { segmentResponse = pSegmentResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkGetSegmentResponse segmentResponse responseStatus =
+  GetSegmentResponse' {segmentResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'segmentResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsfrsSegmentResponse :: Lens.Lens' GetSegmentResponse SegmentResponse
-gsfrsSegmentResponse = Lens.lens (segmentResponse :: GetSegmentResponse -> SegmentResponse) (\s a -> s {segmentResponse = a} :: GetSegmentResponse)
-{-# DEPRECATED gsfrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}
+gsrfrsSegmentResponse :: Lens.Lens' GetSegmentResponse Types.SegmentResponse
+gsrfrsSegmentResponse = Lens.field @"segmentResponse"
+{-# DEPRECATED gsrfrsSegmentResponse "Use generic-lens or generic-optics with 'segmentResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsfrsResponseStatus :: Lens.Lens' GetSegmentResponse Lude.Int
-gsfrsResponseStatus = Lens.lens (responseStatus :: GetSegmentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSegmentResponse)
-{-# DEPRECATED gsfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsrfrsResponseStatus :: Lens.Lens' GetSegmentResponse Core.Int
+gsrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

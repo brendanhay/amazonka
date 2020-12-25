@@ -27,105 +27,91 @@ module Network.AWS.Pinpoint.GetVoiceChannel
     mkGetVoiceChannelResponse,
 
     -- ** Response lenses
-    gvcrsVoiceChannelResponse,
-    gvcrsResponseStatus,
+    gvcrrsVoiceChannelResponse,
+    gvcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetVoiceChannel' smart constructor.
 newtype GetVoiceChannel = GetVoiceChannel'
   { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text
+    applicationId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetVoiceChannel' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- | Creates a 'GetVoiceChannel' value with any optional fields omitted.
 mkGetVoiceChannel ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   GetVoiceChannel
-mkGetVoiceChannel pApplicationId_ =
-  GetVoiceChannel' {applicationId = pApplicationId_}
+mkGetVoiceChannel applicationId = GetVoiceChannel' {applicationId}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvcApplicationId :: Lens.Lens' GetVoiceChannel Lude.Text
-gvcApplicationId = Lens.lens (applicationId :: GetVoiceChannel -> Lude.Text) (\s a -> s {applicationId = a} :: GetVoiceChannel)
+gvcApplicationId :: Lens.Lens' GetVoiceChannel Core.Text
+gvcApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED gvcApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance Lude.AWSRequest GetVoiceChannel where
+instance Core.AWSRequest GetVoiceChannel where
   type Rs GetVoiceChannel = GetVoiceChannelResponse
-  request = Req.get pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/channels/voice")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetVoiceChannelResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetVoiceChannel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetVoiceChannel where
-  toPath GetVoiceChannel' {..} =
-    Lude.mconcat
-      ["/v1/apps/", Lude.toBS applicationId, "/channels/voice"]
-
-instance Lude.ToQuery GetVoiceChannel where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetVoiceChannelResponse' smart constructor.
 data GetVoiceChannelResponse = GetVoiceChannelResponse'
-  { voiceChannelResponse :: VoiceChannelResponse,
+  { voiceChannelResponse :: Types.VoiceChannelResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetVoiceChannelResponse' with the minimum fields required to make a request.
---
--- * 'voiceChannelResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetVoiceChannelResponse' value with any optional fields omitted.
 mkGetVoiceChannelResponse ::
   -- | 'voiceChannelResponse'
-  VoiceChannelResponse ->
+  Types.VoiceChannelResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetVoiceChannelResponse
-mkGetVoiceChannelResponse pVoiceChannelResponse_ pResponseStatus_ =
-  GetVoiceChannelResponse'
-    { voiceChannelResponse =
-        pVoiceChannelResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkGetVoiceChannelResponse voiceChannelResponse responseStatus =
+  GetVoiceChannelResponse' {voiceChannelResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'voiceChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvcrsVoiceChannelResponse :: Lens.Lens' GetVoiceChannelResponse VoiceChannelResponse
-gvcrsVoiceChannelResponse = Lens.lens (voiceChannelResponse :: GetVoiceChannelResponse -> VoiceChannelResponse) (\s a -> s {voiceChannelResponse = a} :: GetVoiceChannelResponse)
-{-# DEPRECATED gvcrsVoiceChannelResponse "Use generic-lens or generic-optics with 'voiceChannelResponse' instead." #-}
+gvcrrsVoiceChannelResponse :: Lens.Lens' GetVoiceChannelResponse Types.VoiceChannelResponse
+gvcrrsVoiceChannelResponse = Lens.field @"voiceChannelResponse"
+{-# DEPRECATED gvcrrsVoiceChannelResponse "Use generic-lens or generic-optics with 'voiceChannelResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gvcrsResponseStatus :: Lens.Lens' GetVoiceChannelResponse Lude.Int
-gvcrsResponseStatus = Lens.lens (responseStatus :: GetVoiceChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetVoiceChannelResponse)
-{-# DEPRECATED gvcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gvcrrsResponseStatus :: Lens.Lens' GetVoiceChannelResponse Core.Int
+gvcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gvcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

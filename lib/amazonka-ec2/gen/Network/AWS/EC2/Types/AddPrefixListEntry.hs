@@ -22,41 +22,38 @@ module Network.AWS.EC2.Types.AddPrefixListEntry
   )
 where
 
+import qualified Network.AWS.EC2.Types.Cidr as Types
+import qualified Network.AWS.EC2.Types.Description as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An entry for a prefix list.
 --
 -- /See:/ 'mkAddPrefixListEntry' smart constructor.
 data AddPrefixListEntry = AddPrefixListEntry'
   { -- | The CIDR block.
-    cidr :: Lude.Text,
+    cidr :: Types.Cidr,
     -- | A description for the entry.
     --
     -- Constraints: Up to 255 characters in length.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AddPrefixListEntry' with the minimum fields required to make a request.
---
--- * 'cidr' - The CIDR block.
--- * 'description' - A description for the entry.
---
--- Constraints: Up to 255 characters in length.
+-- | Creates a 'AddPrefixListEntry' value with any optional fields omitted.
 mkAddPrefixListEntry ::
   -- | 'cidr'
-  Lude.Text ->
+  Types.Cidr ->
   AddPrefixListEntry
-mkAddPrefixListEntry pCidr_ =
-  AddPrefixListEntry' {cidr = pCidr_, description = Lude.Nothing}
+mkAddPrefixListEntry cidr =
+  AddPrefixListEntry' {cidr, description = Core.Nothing}
 
 -- | The CIDR block.
 --
 -- /Note:/ Consider using 'cidr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apleCidr :: Lens.Lens' AddPrefixListEntry Lude.Text
-apleCidr = Lens.lens (cidr :: AddPrefixListEntry -> Lude.Text) (\s a -> s {cidr = a} :: AddPrefixListEntry)
+apleCidr :: Lens.Lens' AddPrefixListEntry Types.Cidr
+apleCidr = Lens.field @"cidr"
 {-# DEPRECATED apleCidr "Use generic-lens or generic-optics with 'cidr' instead." #-}
 
 -- | A description for the entry.
@@ -64,11 +61,6 @@ apleCidr = Lens.lens (cidr :: AddPrefixListEntry -> Lude.Text) (\s a -> s {cidr 
 -- Constraints: Up to 255 characters in length.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-apleDescription :: Lens.Lens' AddPrefixListEntry (Lude.Maybe Lude.Text)
-apleDescription = Lens.lens (description :: AddPrefixListEntry -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AddPrefixListEntry)
+apleDescription :: Lens.Lens' AddPrefixListEntry (Core.Maybe Types.Description)
+apleDescription = Lens.field @"description"
 {-# DEPRECATED apleDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.ToQuery AddPrefixListEntry where
-  toQuery AddPrefixListEntry' {..} =
-    Lude.mconcat
-      ["Cidr" Lude.=: cidr, "Description" Lude.=: description]

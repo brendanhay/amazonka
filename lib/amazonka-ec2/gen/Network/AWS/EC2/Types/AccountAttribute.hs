@@ -17,57 +17,53 @@ module Network.AWS.EC2.Types.AccountAttribute
     mkAccountAttribute,
 
     -- * Lenses
-    aaAttributeValues,
     aaAttributeName,
+    aaAttributeValues,
   )
 where
 
-import Network.AWS.EC2.Types.AccountAttributeValue
+import qualified Network.AWS.EC2.Types.AccountAttributeValue as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an account attribute.
 --
 -- /See:/ 'mkAccountAttribute' smart constructor.
 data AccountAttribute = AccountAttribute'
-  { -- | The values for the account attribute.
-    attributeValues :: Lude.Maybe [AccountAttributeValue],
-    -- | The name of the account attribute.
-    attributeName :: Lude.Maybe Lude.Text
+  { -- | The name of the account attribute.
+    attributeName :: Core.Maybe Types.String,
+    -- | The values for the account attribute.
+    attributeValues :: Core.Maybe [Types.AccountAttributeValue]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountAttribute' with the minimum fields required to make a request.
---
--- * 'attributeValues' - The values for the account attribute.
--- * 'attributeName' - The name of the account attribute.
+-- | Creates a 'AccountAttribute' value with any optional fields omitted.
 mkAccountAttribute ::
   AccountAttribute
 mkAccountAttribute =
   AccountAttribute'
-    { attributeValues = Lude.Nothing,
-      attributeName = Lude.Nothing
+    { attributeName = Core.Nothing,
+      attributeValues = Core.Nothing
     }
-
--- | The values for the account attribute.
---
--- /Note:/ Consider using 'attributeValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaAttributeValues :: Lens.Lens' AccountAttribute (Lude.Maybe [AccountAttributeValue])
-aaAttributeValues = Lens.lens (attributeValues :: AccountAttribute -> Lude.Maybe [AccountAttributeValue]) (\s a -> s {attributeValues = a} :: AccountAttribute)
-{-# DEPRECATED aaAttributeValues "Use generic-lens or generic-optics with 'attributeValues' instead." #-}
 
 -- | The name of the account attribute.
 --
 -- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aaAttributeName :: Lens.Lens' AccountAttribute (Lude.Maybe Lude.Text)
-aaAttributeName = Lens.lens (attributeName :: AccountAttribute -> Lude.Maybe Lude.Text) (\s a -> s {attributeName = a} :: AccountAttribute)
+aaAttributeName :: Lens.Lens' AccountAttribute (Core.Maybe Types.String)
+aaAttributeName = Lens.field @"attributeName"
 {-# DEPRECATED aaAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
-instance Lude.FromXML AccountAttribute where
+-- | The values for the account attribute.
+--
+-- /Note:/ Consider using 'attributeValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aaAttributeValues :: Lens.Lens' AccountAttribute (Core.Maybe [Types.AccountAttributeValue])
+aaAttributeValues = Lens.field @"attributeValues"
+{-# DEPRECATED aaAttributeValues "Use generic-lens or generic-optics with 'attributeValues' instead." #-}
+
+instance Core.FromXML AccountAttribute where
   parseXML x =
     AccountAttribute'
-      Lude.<$> ( x Lude..@? "attributeValueSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "attributeName")
+      Core.<$> (x Core..@? "attributeName")
+      Core.<*> (x Core..@? "attributeValueSet" Core..<@> Core.parseXMLList "item")

@@ -13,56 +13,61 @@
 module Network.AWS.IoT.Types.AuditTaskStatus
   ( AuditTaskStatus
       ( AuditTaskStatus',
-        ATSInProgress,
-        ATSCompleted,
-        ATSFailed,
-        ATSCanceled
+        AuditTaskStatusInProgress,
+        AuditTaskStatusCompleted,
+        AuditTaskStatusFailed,
+        AuditTaskStatusCanceled,
+        fromAuditTaskStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuditTaskStatus = AuditTaskStatus' Lude.Text
+newtype AuditTaskStatus = AuditTaskStatus'
+  { fromAuditTaskStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ATSInProgress :: AuditTaskStatus
-pattern ATSInProgress = AuditTaskStatus' "IN_PROGRESS"
+pattern AuditTaskStatusInProgress :: AuditTaskStatus
+pattern AuditTaskStatusInProgress = AuditTaskStatus' "IN_PROGRESS"
 
-pattern ATSCompleted :: AuditTaskStatus
-pattern ATSCompleted = AuditTaskStatus' "COMPLETED"
+pattern AuditTaskStatusCompleted :: AuditTaskStatus
+pattern AuditTaskStatusCompleted = AuditTaskStatus' "COMPLETED"
 
-pattern ATSFailed :: AuditTaskStatus
-pattern ATSFailed = AuditTaskStatus' "FAILED"
+pattern AuditTaskStatusFailed :: AuditTaskStatus
+pattern AuditTaskStatusFailed = AuditTaskStatus' "FAILED"
 
-pattern ATSCanceled :: AuditTaskStatus
-pattern ATSCanceled = AuditTaskStatus' "CANCELED"
+pattern AuditTaskStatusCanceled :: AuditTaskStatus
+pattern AuditTaskStatusCanceled = AuditTaskStatus' "CANCELED"
 
 {-# COMPLETE
-  ATSInProgress,
-  ATSCompleted,
-  ATSFailed,
-  ATSCanceled,
+  AuditTaskStatusInProgress,
+  AuditTaskStatusCompleted,
+  AuditTaskStatusFailed,
+  AuditTaskStatusCanceled,
   AuditTaskStatus'
   #-}

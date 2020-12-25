@@ -13,46 +13,48 @@
 module Network.AWS.OpsWorks.Types.Architecture
   ( Architecture
       ( Architecture',
-        X86_64,
-        I386
+        ArchitectureX8664,
+        ArchitectureI386,
+        fromArchitecture
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Architecture = Architecture' Lude.Text
+newtype Architecture = Architecture' {fromArchitecture :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern X86_64 :: Architecture
-pattern X86_64 = Architecture' "x86_64"
+pattern ArchitectureX8664 :: Architecture
+pattern ArchitectureX8664 = Architecture' "x86_64"
 
-pattern I386 :: Architecture
-pattern I386 = Architecture' "i386"
+pattern ArchitectureI386 :: Architecture
+pattern ArchitectureI386 = Architecture' "i386"
 
 {-# COMPLETE
-  X86_64,
-  I386,
+  ArchitectureX8664,
+  ArchitectureI386,
   Architecture'
   #-}

@@ -17,20 +17,24 @@ module Network.AWS.RDS.Types.DBProxyTargetGroup
     mkDBProxyTargetGroup,
 
     -- * Lenses
-    dptgStatus,
-    dptgConnectionPoolConfig,
-    dptgTargetGroupARN,
-    dptgUpdatedDate,
-    dptgCreatedDate,
-    dptgDBProxyName,
-    dptgTargetGroupName,
-    dptgIsDefault,
+    dbptgConnectionPoolConfig,
+    dbptgCreatedDate,
+    dbptgDBProxyName,
+    dbptgIsDefault,
+    dbptgStatus,
+    dbptgTargetGroupArn,
+    dbptgTargetGroupName,
+    dbptgUpdatedDate,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo as Types
+import qualified Network.AWS.RDS.Types.DBProxyName as Types
+import qualified Network.AWS.RDS.Types.Status as Types
+import qualified Network.AWS.RDS.Types.TargetGroupArn as Types
+import qualified Network.AWS.RDS.Types.TargetGroupName as Types
 
 -- | Represents a set of RDS DB instances, Aurora DB clusters, or both that a proxy can connect to. Currently, each target group is associated with exactly one RDS DB instance or Aurora DB cluster.
 --
@@ -38,114 +42,105 @@ import Network.AWS.RDS.Types.ConnectionPoolConfigurationInfo
 --
 -- /See:/ 'mkDBProxyTargetGroup' smart constructor.
 data DBProxyTargetGroup = DBProxyTargetGroup'
-  { -- | The current status of this target group. A status of @available@ means the target group is correctly associated with a database. Other values indicate that you must wait for the target group to be ready, or take some action to resolve an issue.
-    status :: Lude.Maybe Lude.Text,
-    -- | The settings that determine the size and behavior of the connection pool for the target group.
-    connectionPoolConfig :: Lude.Maybe ConnectionPoolConfigurationInfo,
-    -- | The Amazon Resource Name (ARN) representing the target group.
-    targetGroupARN :: Lude.Maybe Lude.Text,
-    -- | The date and time when the target group was last updated.
-    updatedDate :: Lude.Maybe Lude.DateTime,
+  { -- | The settings that determine the size and behavior of the connection pool for the target group.
+    connectionPoolConfig :: Core.Maybe Types.ConnectionPoolConfigurationInfo,
     -- | The date and time when the target group was first created.
-    createdDate :: Lude.Maybe Lude.DateTime,
+    createdDate :: Core.Maybe Core.UTCTime,
     -- | The identifier for the RDS proxy associated with this target group.
-    dbProxyName :: Lude.Maybe Lude.Text,
-    -- | The identifier for the target group. This name must be unique for all target groups owned by your AWS account in the specified AWS Region.
-    targetGroupName :: Lude.Maybe Lude.Text,
+    dBProxyName :: Core.Maybe Types.DBProxyName,
     -- | Whether this target group is the first one used for connection requests by the associated proxy. Because each proxy is currently associated with a single target group, currently this setting is always @true@ .
-    isDefault :: Lude.Maybe Lude.Bool
+    isDefault :: Core.Maybe Core.Bool,
+    -- | The current status of this target group. A status of @available@ means the target group is correctly associated with a database. Other values indicate that you must wait for the target group to be ready, or take some action to resolve an issue.
+    status :: Core.Maybe Types.Status,
+    -- | The Amazon Resource Name (ARN) representing the target group.
+    targetGroupArn :: Core.Maybe Types.TargetGroupArn,
+    -- | The identifier for the target group. This name must be unique for all target groups owned by your AWS account in the specified AWS Region.
+    targetGroupName :: Core.Maybe Types.TargetGroupName,
+    -- | The date and time when the target group was last updated.
+    updatedDate :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DBProxyTargetGroup' with the minimum fields required to make a request.
---
--- * 'status' - The current status of this target group. A status of @available@ means the target group is correctly associated with a database. Other values indicate that you must wait for the target group to be ready, or take some action to resolve an issue.
--- * 'connectionPoolConfig' - The settings that determine the size and behavior of the connection pool for the target group.
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) representing the target group.
--- * 'updatedDate' - The date and time when the target group was last updated.
--- * 'createdDate' - The date and time when the target group was first created.
--- * 'dbProxyName' - The identifier for the RDS proxy associated with this target group.
--- * 'targetGroupName' - The identifier for the target group. This name must be unique for all target groups owned by your AWS account in the specified AWS Region.
--- * 'isDefault' - Whether this target group is the first one used for connection requests by the associated proxy. Because each proxy is currently associated with a single target group, currently this setting is always @true@ .
+-- | Creates a 'DBProxyTargetGroup' value with any optional fields omitted.
 mkDBProxyTargetGroup ::
   DBProxyTargetGroup
 mkDBProxyTargetGroup =
   DBProxyTargetGroup'
-    { status = Lude.Nothing,
-      connectionPoolConfig = Lude.Nothing,
-      targetGroupARN = Lude.Nothing,
-      updatedDate = Lude.Nothing,
-      createdDate = Lude.Nothing,
-      dbProxyName = Lude.Nothing,
-      targetGroupName = Lude.Nothing,
-      isDefault = Lude.Nothing
+    { connectionPoolConfig = Core.Nothing,
+      createdDate = Core.Nothing,
+      dBProxyName = Core.Nothing,
+      isDefault = Core.Nothing,
+      status = Core.Nothing,
+      targetGroupArn = Core.Nothing,
+      targetGroupName = Core.Nothing,
+      updatedDate = Core.Nothing
     }
-
--- | The current status of this target group. A status of @available@ means the target group is correctly associated with a database. Other values indicate that you must wait for the target group to be ready, or take some action to resolve an issue.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptgStatus :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe Lude.Text)
-dptgStatus = Lens.lens (status :: DBProxyTargetGroup -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: DBProxyTargetGroup)
-{-# DEPRECATED dptgStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The settings that determine the size and behavior of the connection pool for the target group.
 --
 -- /Note:/ Consider using 'connectionPoolConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptgConnectionPoolConfig :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe ConnectionPoolConfigurationInfo)
-dptgConnectionPoolConfig = Lens.lens (connectionPoolConfig :: DBProxyTargetGroup -> Lude.Maybe ConnectionPoolConfigurationInfo) (\s a -> s {connectionPoolConfig = a} :: DBProxyTargetGroup)
-{-# DEPRECATED dptgConnectionPoolConfig "Use generic-lens or generic-optics with 'connectionPoolConfig' instead." #-}
-
--- | The Amazon Resource Name (ARN) representing the target group.
---
--- /Note:/ Consider using 'targetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptgTargetGroupARN :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe Lude.Text)
-dptgTargetGroupARN = Lens.lens (targetGroupARN :: DBProxyTargetGroup -> Lude.Maybe Lude.Text) (\s a -> s {targetGroupARN = a} :: DBProxyTargetGroup)
-{-# DEPRECATED dptgTargetGroupARN "Use generic-lens or generic-optics with 'targetGroupARN' instead." #-}
-
--- | The date and time when the target group was last updated.
---
--- /Note:/ Consider using 'updatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptgUpdatedDate :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe Lude.DateTime)
-dptgUpdatedDate = Lens.lens (updatedDate :: DBProxyTargetGroup -> Lude.Maybe Lude.DateTime) (\s a -> s {updatedDate = a} :: DBProxyTargetGroup)
-{-# DEPRECATED dptgUpdatedDate "Use generic-lens or generic-optics with 'updatedDate' instead." #-}
+dbptgConnectionPoolConfig :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Types.ConnectionPoolConfigurationInfo)
+dbptgConnectionPoolConfig = Lens.field @"connectionPoolConfig"
+{-# DEPRECATED dbptgConnectionPoolConfig "Use generic-lens or generic-optics with 'connectionPoolConfig' instead." #-}
 
 -- | The date and time when the target group was first created.
 --
 -- /Note:/ Consider using 'createdDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptgCreatedDate :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe Lude.DateTime)
-dptgCreatedDate = Lens.lens (createdDate :: DBProxyTargetGroup -> Lude.Maybe Lude.DateTime) (\s a -> s {createdDate = a} :: DBProxyTargetGroup)
-{-# DEPRECATED dptgCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
+dbptgCreatedDate :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Core.UTCTime)
+dbptgCreatedDate = Lens.field @"createdDate"
+{-# DEPRECATED dbptgCreatedDate "Use generic-lens or generic-optics with 'createdDate' instead." #-}
 
 -- | The identifier for the RDS proxy associated with this target group.
 --
--- /Note:/ Consider using 'dbProxyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptgDBProxyName :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe Lude.Text)
-dptgDBProxyName = Lens.lens (dbProxyName :: DBProxyTargetGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbProxyName = a} :: DBProxyTargetGroup)
-{-# DEPRECATED dptgDBProxyName "Use generic-lens or generic-optics with 'dbProxyName' instead." #-}
-
--- | The identifier for the target group. This name must be unique for all target groups owned by your AWS account in the specified AWS Region.
---
--- /Note:/ Consider using 'targetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptgTargetGroupName :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe Lude.Text)
-dptgTargetGroupName = Lens.lens (targetGroupName :: DBProxyTargetGroup -> Lude.Maybe Lude.Text) (\s a -> s {targetGroupName = a} :: DBProxyTargetGroup)
-{-# DEPRECATED dptgTargetGroupName "Use generic-lens or generic-optics with 'targetGroupName' instead." #-}
+-- /Note:/ Consider using 'dBProxyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbptgDBProxyName :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Types.DBProxyName)
+dbptgDBProxyName = Lens.field @"dBProxyName"
+{-# DEPRECATED dbptgDBProxyName "Use generic-lens or generic-optics with 'dBProxyName' instead." #-}
 
 -- | Whether this target group is the first one used for connection requests by the associated proxy. Because each proxy is currently associated with a single target group, currently this setting is always @true@ .
 --
 -- /Note:/ Consider using 'isDefault' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dptgIsDefault :: Lens.Lens' DBProxyTargetGroup (Lude.Maybe Lude.Bool)
-dptgIsDefault = Lens.lens (isDefault :: DBProxyTargetGroup -> Lude.Maybe Lude.Bool) (\s a -> s {isDefault = a} :: DBProxyTargetGroup)
-{-# DEPRECATED dptgIsDefault "Use generic-lens or generic-optics with 'isDefault' instead." #-}
+dbptgIsDefault :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Core.Bool)
+dbptgIsDefault = Lens.field @"isDefault"
+{-# DEPRECATED dbptgIsDefault "Use generic-lens or generic-optics with 'isDefault' instead." #-}
 
-instance Lude.FromXML DBProxyTargetGroup where
+-- | The current status of this target group. A status of @available@ means the target group is correctly associated with a database. Other values indicate that you must wait for the target group to be ready, or take some action to resolve an issue.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbptgStatus :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Types.Status)
+dbptgStatus = Lens.field @"status"
+{-# DEPRECATED dbptgStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The Amazon Resource Name (ARN) representing the target group.
+--
+-- /Note:/ Consider using 'targetGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbptgTargetGroupArn :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Types.TargetGroupArn)
+dbptgTargetGroupArn = Lens.field @"targetGroupArn"
+{-# DEPRECATED dbptgTargetGroupArn "Use generic-lens or generic-optics with 'targetGroupArn' instead." #-}
+
+-- | The identifier for the target group. This name must be unique for all target groups owned by your AWS account in the specified AWS Region.
+--
+-- /Note:/ Consider using 'targetGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbptgTargetGroupName :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Types.TargetGroupName)
+dbptgTargetGroupName = Lens.field @"targetGroupName"
+{-# DEPRECATED dbptgTargetGroupName "Use generic-lens or generic-optics with 'targetGroupName' instead." #-}
+
+-- | The date and time when the target group was last updated.
+--
+-- /Note:/ Consider using 'updatedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbptgUpdatedDate :: Lens.Lens' DBProxyTargetGroup (Core.Maybe Core.UTCTime)
+dbptgUpdatedDate = Lens.field @"updatedDate"
+{-# DEPRECATED dbptgUpdatedDate "Use generic-lens or generic-optics with 'updatedDate' instead." #-}
+
+instance Core.FromXML DBProxyTargetGroup where
   parseXML x =
     DBProxyTargetGroup'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "ConnectionPoolConfig")
-      Lude.<*> (x Lude..@? "TargetGroupArn")
-      Lude.<*> (x Lude..@? "UpdatedDate")
-      Lude.<*> (x Lude..@? "CreatedDate")
-      Lude.<*> (x Lude..@? "DBProxyName")
-      Lude.<*> (x Lude..@? "TargetGroupName")
-      Lude.<*> (x Lude..@? "IsDefault")
+      Core.<$> (x Core..@? "ConnectionPoolConfig")
+      Core.<*> (x Core..@? "CreatedDate")
+      Core.<*> (x Core..@? "DBProxyName")
+      Core.<*> (x Core..@? "IsDefault")
+      Core.<*> (x Core..@? "Status")
+      Core.<*> (x Core..@? "TargetGroupArn")
+      Core.<*> (x Core..@? "TargetGroupName")
+      Core.<*> (x Core..@? "UpdatedDate")

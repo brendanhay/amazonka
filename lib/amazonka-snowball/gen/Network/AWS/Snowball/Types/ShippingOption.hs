@@ -13,56 +13,61 @@
 module Network.AWS.Snowball.Types.ShippingOption
   ( ShippingOption
       ( ShippingOption',
-        SOSecondDay,
-        SONextDay,
-        SOExpress,
-        SOStandard
+        ShippingOptionSecondDay,
+        ShippingOptionNextDay,
+        ShippingOptionExpress,
+        ShippingOptionStandard,
+        fromShippingOption
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ShippingOption = ShippingOption' Lude.Text
+newtype ShippingOption = ShippingOption'
+  { fromShippingOption ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SOSecondDay :: ShippingOption
-pattern SOSecondDay = ShippingOption' "SECOND_DAY"
+pattern ShippingOptionSecondDay :: ShippingOption
+pattern ShippingOptionSecondDay = ShippingOption' "SECOND_DAY"
 
-pattern SONextDay :: ShippingOption
-pattern SONextDay = ShippingOption' "NEXT_DAY"
+pattern ShippingOptionNextDay :: ShippingOption
+pattern ShippingOptionNextDay = ShippingOption' "NEXT_DAY"
 
-pattern SOExpress :: ShippingOption
-pattern SOExpress = ShippingOption' "EXPRESS"
+pattern ShippingOptionExpress :: ShippingOption
+pattern ShippingOptionExpress = ShippingOption' "EXPRESS"
 
-pattern SOStandard :: ShippingOption
-pattern SOStandard = ShippingOption' "STANDARD"
+pattern ShippingOptionStandard :: ShippingOption
+pattern ShippingOptionStandard = ShippingOption' "STANDARD"
 
 {-# COMPLETE
-  SOSecondDay,
-  SONextDay,
-  SOExpress,
-  SOStandard,
+  ShippingOptionSecondDay,
+  ShippingOptionNextDay,
+  ShippingOptionExpress,
+  ShippingOptionStandard,
   ShippingOption'
   #-}

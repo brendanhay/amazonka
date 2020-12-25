@@ -17,68 +17,61 @@ module Network.AWS.Firehose.Types.Processor
     mkProcessor,
 
     -- * Lenses
-    pParameters,
     pType,
+    pParameters,
   )
 where
 
-import Network.AWS.Firehose.Types.ProcessorParameter
-import Network.AWS.Firehose.Types.ProcessorType
+import qualified Network.AWS.Firehose.Types.ProcessorParameter as Types
+import qualified Network.AWS.Firehose.Types.ProcessorType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a data processor.
 --
 -- /See:/ 'mkProcessor' smart constructor.
 data Processor = Processor'
-  { -- | The processor parameters.
-    parameters :: Lude.Maybe [ProcessorParameter],
-    -- | The type of processor.
-    type' :: ProcessorType
+  { -- | The type of processor.
+    type' :: Types.ProcessorType,
+    -- | The processor parameters.
+    parameters :: Core.Maybe [Types.ProcessorParameter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Processor' with the minimum fields required to make a request.
---
--- * 'parameters' - The processor parameters.
--- * 'type'' - The type of processor.
+-- | Creates a 'Processor' value with any optional fields omitted.
 mkProcessor ::
-  -- | 'type''
-  ProcessorType ->
+  -- | 'type\''
+  Types.ProcessorType ->
   Processor
-mkProcessor pType_ =
-  Processor' {parameters = Lude.Nothing, type' = pType_}
-
--- | The processor parameters.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pParameters :: Lens.Lens' Processor (Lude.Maybe [ProcessorParameter])
-pParameters = Lens.lens (parameters :: Processor -> Lude.Maybe [ProcessorParameter]) (\s a -> s {parameters = a} :: Processor)
-{-# DEPRECATED pParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+mkProcessor type' = Processor' {type', parameters = Core.Nothing}
 
 -- | The type of processor.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pType :: Lens.Lens' Processor ProcessorType
-pType = Lens.lens (type' :: Processor -> ProcessorType) (\s a -> s {type' = a} :: Processor)
+pType :: Lens.Lens' Processor Types.ProcessorType
+pType = Lens.field @"type'"
 {-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON Processor where
-  parseJSON =
-    Lude.withObject
-      "Processor"
-      ( \x ->
-          Processor'
-            Lude.<$> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "Type")
-      )
+-- | The processor parameters.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pParameters :: Lens.Lens' Processor (Core.Maybe [Types.ProcessorParameter])
+pParameters = Lens.field @"parameters"
+{-# DEPRECATED pParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
-instance Lude.ToJSON Processor where
-  toJSON Processor' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Parameters" Lude..=) Lude.<$> parameters,
-            Lude.Just ("Type" Lude..= type')
+instance Core.FromJSON Processor where
+  toJSON Processor {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            ("Parameters" Core..=) Core.<$> parameters
           ]
       )
+
+instance Core.FromJSON Processor where
+  parseJSON =
+    Core.withObject "Processor" Core.$
+      \x ->
+        Processor'
+          Core.<$> (x Core..: "Type") Core.<*> (x Core..:? "Parameters")

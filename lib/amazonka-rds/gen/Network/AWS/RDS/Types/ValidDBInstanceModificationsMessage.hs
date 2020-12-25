@@ -17,61 +17,57 @@ module Network.AWS.RDS.Types.ValidDBInstanceModificationsMessage
     mkValidDBInstanceModificationsMessage,
 
     -- * Lenses
-    vdimmValidProcessorFeatures,
-    vdimmStorage,
+    vdbimmStorage,
+    vdbimmValidProcessorFeatures,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types.AvailableProcessorFeature
-import Network.AWS.RDS.Types.ValidStorageOptions
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.AvailableProcessorFeature as Types
+import qualified Network.AWS.RDS.Types.ValidStorageOptions as Types
 
 -- | Information about valid modifications that you can make to your DB instance. Contains the result of a successful call to the @DescribeValidDBInstanceModifications@ action. You can use this information when you call @ModifyDBInstance@ .
 --
 -- /See:/ 'mkValidDBInstanceModificationsMessage' smart constructor.
 data ValidDBInstanceModificationsMessage = ValidDBInstanceModificationsMessage'
-  { -- | Valid processor features for your DB instance.
-    validProcessorFeatures :: Lude.Maybe [AvailableProcessorFeature],
-    -- | Valid storage options for your DB instance.
-    storage :: Lude.Maybe [ValidStorageOptions]
+  { -- | Valid storage options for your DB instance.
+    storage :: Core.Maybe [Types.ValidStorageOptions],
+    -- | Valid processor features for your DB instance.
+    validProcessorFeatures :: Core.Maybe [Types.AvailableProcessorFeature]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidDBInstanceModificationsMessage' with the minimum fields required to make a request.
---
--- * 'validProcessorFeatures' - Valid processor features for your DB instance.
--- * 'storage' - Valid storage options for your DB instance.
+-- | Creates a 'ValidDBInstanceModificationsMessage' value with any optional fields omitted.
 mkValidDBInstanceModificationsMessage ::
   ValidDBInstanceModificationsMessage
 mkValidDBInstanceModificationsMessage =
   ValidDBInstanceModificationsMessage'
-    { validProcessorFeatures =
-        Lude.Nothing,
-      storage = Lude.Nothing
+    { storage = Core.Nothing,
+      validProcessorFeatures = Core.Nothing
     }
-
--- | Valid processor features for your DB instance.
---
--- /Note:/ Consider using 'validProcessorFeatures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdimmValidProcessorFeatures :: Lens.Lens' ValidDBInstanceModificationsMessage (Lude.Maybe [AvailableProcessorFeature])
-vdimmValidProcessorFeatures = Lens.lens (validProcessorFeatures :: ValidDBInstanceModificationsMessage -> Lude.Maybe [AvailableProcessorFeature]) (\s a -> s {validProcessorFeatures = a} :: ValidDBInstanceModificationsMessage)
-{-# DEPRECATED vdimmValidProcessorFeatures "Use generic-lens or generic-optics with 'validProcessorFeatures' instead." #-}
 
 -- | Valid storage options for your DB instance.
 --
 -- /Note:/ Consider using 'storage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdimmStorage :: Lens.Lens' ValidDBInstanceModificationsMessage (Lude.Maybe [ValidStorageOptions])
-vdimmStorage = Lens.lens (storage :: ValidDBInstanceModificationsMessage -> Lude.Maybe [ValidStorageOptions]) (\s a -> s {storage = a} :: ValidDBInstanceModificationsMessage)
-{-# DEPRECATED vdimmStorage "Use generic-lens or generic-optics with 'storage' instead." #-}
+vdbimmStorage :: Lens.Lens' ValidDBInstanceModificationsMessage (Core.Maybe [Types.ValidStorageOptions])
+vdbimmStorage = Lens.field @"storage"
+{-# DEPRECATED vdbimmStorage "Use generic-lens or generic-optics with 'storage' instead." #-}
 
-instance Lude.FromXML ValidDBInstanceModificationsMessage where
+-- | Valid processor features for your DB instance.
+--
+-- /Note:/ Consider using 'validProcessorFeatures' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdbimmValidProcessorFeatures :: Lens.Lens' ValidDBInstanceModificationsMessage (Core.Maybe [Types.AvailableProcessorFeature])
+vdbimmValidProcessorFeatures = Lens.field @"validProcessorFeatures"
+{-# DEPRECATED vdbimmValidProcessorFeatures "Use generic-lens or generic-optics with 'validProcessorFeatures' instead." #-}
+
+instance Core.FromXML ValidDBInstanceModificationsMessage where
   parseXML x =
     ValidDBInstanceModificationsMessage'
-      Lude.<$> ( x Lude..@? "ValidProcessorFeatures" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "AvailableProcessorFeature")
+      Core.<$> ( x Core..@? "Storage"
+                   Core..<@> Core.parseXMLList "ValidStorageOptions"
                )
-      Lude.<*> ( x Lude..@? "Storage" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "ValidStorageOptions")
+      Core.<*> ( x Core..@? "ValidProcessorFeatures"
+                   Core..<@> Core.parseXMLList "AvailableProcessorFeature"
                )

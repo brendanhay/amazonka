@@ -17,176 +17,166 @@ module Network.AWS.SageMaker.Types.Trial
     mkTrial,
 
     -- * Lenses
-    tCreationTime,
-    tTrialComponentSummaries,
-    tTrialARN,
     tCreatedBy,
-    tLastModifiedTime,
-    tExperimentName,
-    tSource,
+    tCreationTime,
     tDisplayName,
-    tTrialName,
+    tExperimentName,
     tLastModifiedBy,
+    tLastModifiedTime,
+    tSource,
     tTags,
+    tTrialArn,
+    tTrialComponentSummaries,
+    tTrialName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.Tag
-import Network.AWS.SageMaker.Types.TrialComponentSimpleSummary
-import Network.AWS.SageMaker.Types.TrialSource
-import Network.AWS.SageMaker.Types.UserContext
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.DisplayName as Types
+import qualified Network.AWS.SageMaker.Types.ExperimentName as Types
+import qualified Network.AWS.SageMaker.Types.Tag as Types
+import qualified Network.AWS.SageMaker.Types.TrialArn as Types
+import qualified Network.AWS.SageMaker.Types.TrialComponentSimpleSummary as Types
+import qualified Network.AWS.SageMaker.Types.TrialName as Types
+import qualified Network.AWS.SageMaker.Types.TrialSource as Types
+import qualified Network.AWS.SageMaker.Types.UserContext as Types
 
 -- | The properties of a trial as returned by the 'Search' API.
 --
 -- /See:/ 'mkTrial' smart constructor.
 data Trial = Trial'
-  { -- | When the trial was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | A list of the components associated with the trial. For each component, a summary of the component's properties is included.
-    trialComponentSummaries :: Lude.Maybe [TrialComponentSimpleSummary],
-    -- | The Amazon Resource Name (ARN) of the trial.
-    trialARN :: Lude.Maybe Lude.Text,
-    createdBy :: Lude.Maybe UserContext,
-    -- | Who last modified the trial.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
-    -- | The name of the experiment the trial is part of.
-    experimentName :: Lude.Maybe Lude.Text,
-    source :: Lude.Maybe TrialSource,
+  { createdBy :: Core.Maybe Types.UserContext,
+    -- | When the trial was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
-    displayName :: Lude.Maybe Lude.Text,
-    -- | The name of the trial.
-    trialName :: Lude.Maybe Lude.Text,
-    lastModifiedBy :: Lude.Maybe UserContext,
+    displayName :: Core.Maybe Types.DisplayName,
+    -- | The name of the experiment the trial is part of.
+    experimentName :: Core.Maybe Types.ExperimentName,
+    lastModifiedBy :: Core.Maybe Types.UserContext,
+    -- | Who last modified the trial.
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
+    source :: Core.Maybe Types.TrialSource,
     -- | The list of tags that are associated with the trial. You can use 'Search' API to search on the tags.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The Amazon Resource Name (ARN) of the trial.
+    trialArn :: Core.Maybe Types.TrialArn,
+    -- | A list of the components associated with the trial. For each component, a summary of the component's properties is included.
+    trialComponentSummaries :: Core.Maybe [Types.TrialComponentSimpleSummary],
+    -- | The name of the trial.
+    trialName :: Core.Maybe Types.TrialName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Trial' with the minimum fields required to make a request.
---
--- * 'creationTime' - When the trial was created.
--- * 'trialComponentSummaries' - A list of the components associated with the trial. For each component, a summary of the component's properties is included.
--- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
--- * 'createdBy' -
--- * 'lastModifiedTime' - Who last modified the trial.
--- * 'experimentName' - The name of the experiment the trial is part of.
--- * 'source' -
--- * 'displayName' - The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
--- * 'trialName' - The name of the trial.
--- * 'lastModifiedBy' -
--- * 'tags' - The list of tags that are associated with the trial. You can use 'Search' API to search on the tags.
+-- | Creates a 'Trial' value with any optional fields omitted.
 mkTrial ::
   Trial
 mkTrial =
   Trial'
-    { creationTime = Lude.Nothing,
-      trialComponentSummaries = Lude.Nothing,
-      trialARN = Lude.Nothing,
-      createdBy = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      experimentName = Lude.Nothing,
-      source = Lude.Nothing,
-      displayName = Lude.Nothing,
-      trialName = Lude.Nothing,
-      lastModifiedBy = Lude.Nothing,
-      tags = Lude.Nothing
+    { createdBy = Core.Nothing,
+      creationTime = Core.Nothing,
+      displayName = Core.Nothing,
+      experimentName = Core.Nothing,
+      lastModifiedBy = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      source = Core.Nothing,
+      tags = Core.Nothing,
+      trialArn = Core.Nothing,
+      trialComponentSummaries = Core.Nothing,
+      trialName = Core.Nothing
     }
-
--- | When the trial was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tCreationTime :: Lens.Lens' Trial (Lude.Maybe Lude.Timestamp)
-tCreationTime = Lens.lens (creationTime :: Trial -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: Trial)
-{-# DEPRECATED tCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | A list of the components associated with the trial. For each component, a summary of the component's properties is included.
---
--- /Note:/ Consider using 'trialComponentSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTrialComponentSummaries :: Lens.Lens' Trial (Lude.Maybe [TrialComponentSimpleSummary])
-tTrialComponentSummaries = Lens.lens (trialComponentSummaries :: Trial -> Lude.Maybe [TrialComponentSimpleSummary]) (\s a -> s {trialComponentSummaries = a} :: Trial)
-{-# DEPRECATED tTrialComponentSummaries "Use generic-lens or generic-optics with 'trialComponentSummaries' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the trial.
---
--- /Note:/ Consider using 'trialARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTrialARN :: Lens.Lens' Trial (Lude.Maybe Lude.Text)
-tTrialARN = Lens.lens (trialARN :: Trial -> Lude.Maybe Lude.Text) (\s a -> s {trialARN = a} :: Trial)
-{-# DEPRECATED tTrialARN "Use generic-lens or generic-optics with 'trialARN' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'createdBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tCreatedBy :: Lens.Lens' Trial (Lude.Maybe UserContext)
-tCreatedBy = Lens.lens (createdBy :: Trial -> Lude.Maybe UserContext) (\s a -> s {createdBy = a} :: Trial)
+tCreatedBy :: Lens.Lens' Trial (Core.Maybe Types.UserContext)
+tCreatedBy = Lens.field @"createdBy"
 {-# DEPRECATED tCreatedBy "Use generic-lens or generic-optics with 'createdBy' instead." #-}
 
--- | Who last modified the trial.
+-- | When the trial was created.
 --
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tLastModifiedTime :: Lens.Lens' Trial (Lude.Maybe Lude.Timestamp)
-tLastModifiedTime = Lens.lens (lastModifiedTime :: Trial -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: Trial)
-{-# DEPRECATED tLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
-
--- | The name of the experiment the trial is part of.
---
--- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tExperimentName :: Lens.Lens' Trial (Lude.Maybe Lude.Text)
-tExperimentName = Lens.lens (experimentName :: Trial -> Lude.Maybe Lude.Text) (\s a -> s {experimentName = a} :: Trial)
-{-# DEPRECATED tExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tSource :: Lens.Lens' Trial (Lude.Maybe TrialSource)
-tSource = Lens.lens (source :: Trial -> Lude.Maybe TrialSource) (\s a -> s {source = a} :: Trial)
-{-# DEPRECATED tSource "Use generic-lens or generic-optics with 'source' instead." #-}
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tCreationTime :: Lens.Lens' Trial (Core.Maybe Core.NominalDiffTime)
+tCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED tCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
 
 -- | The name of the trial as displayed. If @DisplayName@ isn't specified, @TrialName@ is displayed.
 --
 -- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tDisplayName :: Lens.Lens' Trial (Lude.Maybe Lude.Text)
-tDisplayName = Lens.lens (displayName :: Trial -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: Trial)
+tDisplayName :: Lens.Lens' Trial (Core.Maybe Types.DisplayName)
+tDisplayName = Lens.field @"displayName"
 {-# DEPRECATED tDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
--- | The name of the trial.
+-- | The name of the experiment the trial is part of.
 --
--- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTrialName :: Lens.Lens' Trial (Lude.Maybe Lude.Text)
-tTrialName = Lens.lens (trialName :: Trial -> Lude.Maybe Lude.Text) (\s a -> s {trialName = a} :: Trial)
-{-# DEPRECATED tTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
+-- /Note:/ Consider using 'experimentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tExperimentName :: Lens.Lens' Trial (Core.Maybe Types.ExperimentName)
+tExperimentName = Lens.field @"experimentName"
+{-# DEPRECATED tExperimentName "Use generic-lens or generic-optics with 'experimentName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'lastModifiedBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tLastModifiedBy :: Lens.Lens' Trial (Lude.Maybe UserContext)
-tLastModifiedBy = Lens.lens (lastModifiedBy :: Trial -> Lude.Maybe UserContext) (\s a -> s {lastModifiedBy = a} :: Trial)
+tLastModifiedBy :: Lens.Lens' Trial (Core.Maybe Types.UserContext)
+tLastModifiedBy = Lens.field @"lastModifiedBy"
 {-# DEPRECATED tLastModifiedBy "Use generic-lens or generic-optics with 'lastModifiedBy' instead." #-}
+
+-- | Who last modified the trial.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tLastModifiedTime :: Lens.Lens' Trial (Core.Maybe Core.NominalDiffTime)
+tLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED tLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'source' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tSource :: Lens.Lens' Trial (Core.Maybe Types.TrialSource)
+tSource = Lens.field @"source"
+{-# DEPRECATED tSource "Use generic-lens or generic-optics with 'source' instead." #-}
 
 -- | The list of tags that are associated with the trial. You can use 'Search' API to search on the tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tTags :: Lens.Lens' Trial (Lude.Maybe [Tag])
-tTags = Lens.lens (tags :: Trial -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Trial)
+tTags :: Lens.Lens' Trial (Core.Maybe [Types.Tag])
+tTags = Lens.field @"tags"
 {-# DEPRECATED tTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON Trial where
+-- | The Amazon Resource Name (ARN) of the trial.
+--
+-- /Note:/ Consider using 'trialArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTrialArn :: Lens.Lens' Trial (Core.Maybe Types.TrialArn)
+tTrialArn = Lens.field @"trialArn"
+{-# DEPRECATED tTrialArn "Use generic-lens or generic-optics with 'trialArn' instead." #-}
+
+-- | A list of the components associated with the trial. For each component, a summary of the component's properties is included.
+--
+-- /Note:/ Consider using 'trialComponentSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTrialComponentSummaries :: Lens.Lens' Trial (Core.Maybe [Types.TrialComponentSimpleSummary])
+tTrialComponentSummaries = Lens.field @"trialComponentSummaries"
+{-# DEPRECATED tTrialComponentSummaries "Use generic-lens or generic-optics with 'trialComponentSummaries' instead." #-}
+
+-- | The name of the trial.
+--
+-- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tTrialName :: Lens.Lens' Trial (Core.Maybe Types.TrialName)
+tTrialName = Lens.field @"trialName"
+{-# DEPRECATED tTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
+
+instance Core.FromJSON Trial where
   parseJSON =
-    Lude.withObject
-      "Trial"
-      ( \x ->
-          Trial'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "TrialComponentSummaries" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "TrialArn")
-            Lude.<*> (x Lude..:? "CreatedBy")
-            Lude.<*> (x Lude..:? "LastModifiedTime")
-            Lude.<*> (x Lude..:? "ExperimentName")
-            Lude.<*> (x Lude..:? "Source")
-            Lude.<*> (x Lude..:? "DisplayName")
-            Lude.<*> (x Lude..:? "TrialName")
-            Lude.<*> (x Lude..:? "LastModifiedBy")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Trial" Core.$
+      \x ->
+        Trial'
+          Core.<$> (x Core..:? "CreatedBy")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "DisplayName")
+          Core.<*> (x Core..:? "ExperimentName")
+          Core.<*> (x Core..:? "LastModifiedBy")
+          Core.<*> (x Core..:? "LastModifiedTime")
+          Core.<*> (x Core..:? "Source")
+          Core.<*> (x Core..:? "Tags")
+          Core.<*> (x Core..:? "TrialArn")
+          Core.<*> (x Core..:? "TrialComponentSummaries")
+          Core.<*> (x Core..:? "TrialName")

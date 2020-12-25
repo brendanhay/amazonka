@@ -34,91 +34,69 @@ module Network.AWS.CloudFront.UpdateRealtimeLogConfig
 
     -- ** Request lenses
     urlcARN,
-    urlcSamplingRate,
-    urlcName,
     urlcEndPoints,
     urlcFields,
+    urlcName,
+    urlcSamplingRate,
 
     -- * Destructuring the response
     UpdateRealtimeLogConfigResponse (..),
     mkUpdateRealtimeLogConfigResponse,
 
     -- ** Response lenses
-    urlcrsRealtimeLogConfig,
-    urlcrsResponseStatus,
+    urlcrrsRealtimeLogConfig,
+    urlcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateRealtimeLogConfig' smart constructor.
 data UpdateRealtimeLogConfig = UpdateRealtimeLogConfig'
   { -- | The Amazon Resource Name (ARN) for this real-time log configuration.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
-    samplingRate :: Lude.Maybe Lude.Integer,
-    -- | The name for this real-time log configuration.
-    name :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.String,
     -- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
-    endPoints :: Lude.Maybe [EndPoint],
+    endPoints :: Core.Maybe [Types.EndPoint],
     -- | A list of fields to include in each real-time log record.
     --
     -- For more information about fields, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields> in the /Amazon CloudFront Developer Guide/ .
-    fields :: Lude.Maybe [Lude.Text]
+    fields :: Core.Maybe [Types.String],
+    -- | The name for this real-time log configuration.
+    name :: Core.Maybe Types.String,
+    -- | The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
+    samplingRate :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRealtimeLogConfig' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) for this real-time log configuration.
--- * 'samplingRate' - The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
--- * 'name' - The name for this real-time log configuration.
--- * 'endPoints' - Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
--- * 'fields' - A list of fields to include in each real-time log record.
---
--- For more information about fields, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields> in the /Amazon CloudFront Developer Guide/ .
+-- | Creates a 'UpdateRealtimeLogConfig' value with any optional fields omitted.
 mkUpdateRealtimeLogConfig ::
   UpdateRealtimeLogConfig
 mkUpdateRealtimeLogConfig =
   UpdateRealtimeLogConfig'
-    { arn = Lude.Nothing,
-      samplingRate = Lude.Nothing,
-      name = Lude.Nothing,
-      endPoints = Lude.Nothing,
-      fields = Lude.Nothing
+    { arn = Core.Nothing,
+      endPoints = Core.Nothing,
+      fields = Core.Nothing,
+      name = Core.Nothing,
+      samplingRate = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for this real-time log configuration.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urlcARN :: Lens.Lens' UpdateRealtimeLogConfig (Lude.Maybe Lude.Text)
-urlcARN = Lens.lens (arn :: UpdateRealtimeLogConfig -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: UpdateRealtimeLogConfig)
+urlcARN :: Lens.Lens' UpdateRealtimeLogConfig (Core.Maybe Types.String)
+urlcARN = Lens.field @"arn"
 {-# DEPRECATED urlcARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
---
--- /Note:/ Consider using 'samplingRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urlcSamplingRate :: Lens.Lens' UpdateRealtimeLogConfig (Lude.Maybe Lude.Integer)
-urlcSamplingRate = Lens.lens (samplingRate :: UpdateRealtimeLogConfig -> Lude.Maybe Lude.Integer) (\s a -> s {samplingRate = a} :: UpdateRealtimeLogConfig)
-{-# DEPRECATED urlcSamplingRate "Use generic-lens or generic-optics with 'samplingRate' instead." #-}
-
--- | The name for this real-time log configuration.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urlcName :: Lens.Lens' UpdateRealtimeLogConfig (Lude.Maybe Lude.Text)
-urlcName = Lens.lens (name :: UpdateRealtimeLogConfig -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: UpdateRealtimeLogConfig)
-{-# DEPRECATED urlcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Contains information about the Amazon Kinesis data stream where you are sending real-time log data.
 --
 -- /Note:/ Consider using 'endPoints' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urlcEndPoints :: Lens.Lens' UpdateRealtimeLogConfig (Lude.Maybe [EndPoint])
-urlcEndPoints = Lens.lens (endPoints :: UpdateRealtimeLogConfig -> Lude.Maybe [EndPoint]) (\s a -> s {endPoints = a} :: UpdateRealtimeLogConfig)
+urlcEndPoints :: Lens.Lens' UpdateRealtimeLogConfig (Core.Maybe [Types.EndPoint])
+urlcEndPoints = Lens.field @"endPoints"
 {-# DEPRECATED urlcEndPoints "Use generic-lens or generic-optics with 'endPoints' instead." #-}
 
 -- | A list of fields to include in each real-time log record.
@@ -126,82 +104,88 @@ urlcEndPoints = Lens.lens (endPoints :: UpdateRealtimeLogConfig -> Lude.Maybe [E
 -- For more information about fields, see <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields Real-time log configuration fields> in the /Amazon CloudFront Developer Guide/ .
 --
 -- /Note:/ Consider using 'fields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urlcFields :: Lens.Lens' UpdateRealtimeLogConfig (Lude.Maybe [Lude.Text])
-urlcFields = Lens.lens (fields :: UpdateRealtimeLogConfig -> Lude.Maybe [Lude.Text]) (\s a -> s {fields = a} :: UpdateRealtimeLogConfig)
+urlcFields :: Lens.Lens' UpdateRealtimeLogConfig (Core.Maybe [Types.String])
+urlcFields = Lens.field @"fields"
 {-# DEPRECATED urlcFields "Use generic-lens or generic-optics with 'fields' instead." #-}
 
-instance Lude.AWSRequest UpdateRealtimeLogConfig where
-  type Rs UpdateRealtimeLogConfig = UpdateRealtimeLogConfigResponse
-  request = Req.putXML cloudFrontService
-  response =
-    Res.receiveXML
-      ( \s h x ->
-          UpdateRealtimeLogConfigResponse'
-            Lude.<$> (x Lude..@? "RealtimeLogConfig")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | The name for this real-time log configuration.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urlcName :: Lens.Lens' UpdateRealtimeLogConfig (Core.Maybe Types.String)
+urlcName = Lens.field @"name"
+{-# DEPRECATED urlcName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToElement UpdateRealtimeLogConfig where
-  toElement =
-    Lude.mkElement
+-- | The sampling rate for this real-time log configuration. The sampling rate determines the percentage of viewer requests that are represented in the real-time log data. You must provide an integer between 1 and 100, inclusive.
+--
+-- /Note:/ Consider using 'samplingRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+urlcSamplingRate :: Lens.Lens' UpdateRealtimeLogConfig (Core.Maybe Core.Integer)
+urlcSamplingRate = Lens.field @"samplingRate"
+{-# DEPRECATED urlcSamplingRate "Use generic-lens or generic-optics with 'samplingRate' instead." #-}
+
+instance Core.ToXML UpdateRealtimeLogConfig where
+  toXML UpdateRealtimeLogConfig {..} =
+    Core.toXMLNode "ARN" Core.<$> arn
+      Core.<> Core.toXMLNode
+        "EndPoints"
+        (Core.toXMLList "member" Core.<$> endPoints)
+      Core.<> Core.toXMLNode "Fields" (Core.toXMLList "Field" Core.<$> fields)
+      Core.<> Core.toXMLNode "Name" Core.<$> name
+      Core.<> Core.toXMLNode "SamplingRate" Core.<$> samplingRate
+  toXMLDocument =
+    Core.mkXMLElement
       "{http://cloudfront.amazonaws.com/doc/2020-05-31/}UpdateRealtimeLogConfigRequest"
 
-instance Lude.ToHeaders UpdateRealtimeLogConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateRealtimeLogConfig where
-  toPath = Lude.const "/2020-05-31/realtime-log-config/"
-
-instance Lude.ToQuery UpdateRealtimeLogConfig where
-  toQuery = Lude.const Lude.mempty
-
-instance Lude.ToXML UpdateRealtimeLogConfig where
-  toXML UpdateRealtimeLogConfig' {..} =
-    Lude.mconcat
-      [ "ARN" Lude.@= arn,
-        "SamplingRate" Lude.@= samplingRate,
-        "Name" Lude.@= name,
-        "EndPoints"
-          Lude.@= Lude.toXML (Lude.toXMLList "member" Lude.<$> endPoints),
-        "Fields"
-          Lude.@= Lude.toXML (Lude.toXMLList "Field" Lude.<$> fields)
-      ]
+instance Core.AWSRequest UpdateRealtimeLogConfig where
+  type Rs UpdateRealtimeLogConfig = UpdateRealtimeLogConfigResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath "/2020-05-31/realtime-log-config/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          UpdateRealtimeLogConfigResponse'
+            Core.<$> (x Core..@? "RealtimeLogConfig")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateRealtimeLogConfigResponse' smart constructor.
 data UpdateRealtimeLogConfigResponse = UpdateRealtimeLogConfigResponse'
   { -- | A real-time log configuration.
-    realtimeLogConfig :: Lude.Maybe RealtimeLogConfig,
+    realtimeLogConfig :: Core.Maybe Types.RealtimeLogConfig,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateRealtimeLogConfigResponse' with the minimum fields required to make a request.
---
--- * 'realtimeLogConfig' - A real-time log configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateRealtimeLogConfigResponse' value with any optional fields omitted.
 mkUpdateRealtimeLogConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateRealtimeLogConfigResponse
-mkUpdateRealtimeLogConfigResponse pResponseStatus_ =
+mkUpdateRealtimeLogConfigResponse responseStatus =
   UpdateRealtimeLogConfigResponse'
     { realtimeLogConfig =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A real-time log configuration.
 --
 -- /Note:/ Consider using 'realtimeLogConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urlcrsRealtimeLogConfig :: Lens.Lens' UpdateRealtimeLogConfigResponse (Lude.Maybe RealtimeLogConfig)
-urlcrsRealtimeLogConfig = Lens.lens (realtimeLogConfig :: UpdateRealtimeLogConfigResponse -> Lude.Maybe RealtimeLogConfig) (\s a -> s {realtimeLogConfig = a} :: UpdateRealtimeLogConfigResponse)
-{-# DEPRECATED urlcrsRealtimeLogConfig "Use generic-lens or generic-optics with 'realtimeLogConfig' instead." #-}
+urlcrrsRealtimeLogConfig :: Lens.Lens' UpdateRealtimeLogConfigResponse (Core.Maybe Types.RealtimeLogConfig)
+urlcrrsRealtimeLogConfig = Lens.field @"realtimeLogConfig"
+{-# DEPRECATED urlcrrsRealtimeLogConfig "Use generic-lens or generic-optics with 'realtimeLogConfig' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-urlcrsResponseStatus :: Lens.Lens' UpdateRealtimeLogConfigResponse Lude.Int
-urlcrsResponseStatus = Lens.lens (responseStatus :: UpdateRealtimeLogConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateRealtimeLogConfigResponse)
-{-# DEPRECATED urlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+urlcrrsResponseStatus :: Lens.Lens' UpdateRealtimeLogConfigResponse Core.Int
+urlcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED urlcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

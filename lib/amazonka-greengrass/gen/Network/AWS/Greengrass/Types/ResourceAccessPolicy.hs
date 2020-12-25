@@ -22,64 +22,56 @@ module Network.AWS.Greengrass.Types.ResourceAccessPolicy
   )
 where
 
-import Network.AWS.Greengrass.Types.Permission
+import qualified Network.AWS.Greengrass.Types.Permission as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A policy used by the function to access a resource.
 --
 -- /See:/ 'mkResourceAccessPolicy' smart constructor.
 data ResourceAccessPolicy = ResourceAccessPolicy'
   { -- | The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)
-    resourceId :: Lude.Text,
+    resourceId :: Core.Text,
     -- | The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
-    permission :: Lude.Maybe Permission
+    permission :: Core.Maybe Types.Permission
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceAccessPolicy' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)
--- * 'permission' - The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
+-- | Creates a 'ResourceAccessPolicy' value with any optional fields omitted.
 mkResourceAccessPolicy ::
   -- | 'resourceId'
-  Lude.Text ->
+  Core.Text ->
   ResourceAccessPolicy
-mkResourceAccessPolicy pResourceId_ =
-  ResourceAccessPolicy'
-    { resourceId = pResourceId_,
-      permission = Lude.Nothing
-    }
+mkResourceAccessPolicy resourceId =
+  ResourceAccessPolicy' {resourceId, permission = Core.Nothing}
 
 -- | The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rapResourceId :: Lens.Lens' ResourceAccessPolicy Lude.Text
-rapResourceId = Lens.lens (resourceId :: ResourceAccessPolicy -> Lude.Text) (\s a -> s {resourceId = a} :: ResourceAccessPolicy)
+rapResourceId :: Lens.Lens' ResourceAccessPolicy Core.Text
+rapResourceId = Lens.field @"resourceId"
 {-# DEPRECATED rapResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).
 --
 -- /Note:/ Consider using 'permission' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rapPermission :: Lens.Lens' ResourceAccessPolicy (Lude.Maybe Permission)
-rapPermission = Lens.lens (permission :: ResourceAccessPolicy -> Lude.Maybe Permission) (\s a -> s {permission = a} :: ResourceAccessPolicy)
+rapPermission :: Lens.Lens' ResourceAccessPolicy (Core.Maybe Types.Permission)
+rapPermission = Lens.field @"permission"
 {-# DEPRECATED rapPermission "Use generic-lens or generic-optics with 'permission' instead." #-}
 
-instance Lude.FromJSON ResourceAccessPolicy where
-  parseJSON =
-    Lude.withObject
-      "ResourceAccessPolicy"
-      ( \x ->
-          ResourceAccessPolicy'
-            Lude.<$> (x Lude..: "ResourceId") Lude.<*> (x Lude..:? "Permission")
-      )
-
-instance Lude.ToJSON ResourceAccessPolicy where
-  toJSON ResourceAccessPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            ("Permission" Lude..=) Lude.<$> permission
+instance Core.FromJSON ResourceAccessPolicy where
+  toJSON ResourceAccessPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            ("Permission" Core..=) Core.<$> permission
           ]
       )
+
+instance Core.FromJSON ResourceAccessPolicy where
+  parseJSON =
+    Core.withObject "ResourceAccessPolicy" Core.$
+      \x ->
+        ResourceAccessPolicy'
+          Core.<$> (x Core..: "ResourceId") Core.<*> (x Core..:? "Permission")

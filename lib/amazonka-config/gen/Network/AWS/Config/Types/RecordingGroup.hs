@@ -23,9 +23,9 @@ module Network.AWS.Config.Types.RecordingGroup
   )
 where
 
-import Network.AWS.Config.Types.ResourceType
+import qualified Network.AWS.Config.Types.ResourceType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the types of AWS resource for which AWS Config records configuration changes.
 --
@@ -43,46 +43,31 @@ data RecordingGroup = RecordingGroup'
     --
     -- If you set this option to @true@ , when AWS Config adds support for a new type of regional resource, it starts recording resources of that type automatically.
     -- If you set this option to @true@ , you cannot enumerate a list of @resourceTypes@ .
-    allSupported :: Lude.Maybe Lude.Bool,
+    allSupported :: Core.Maybe Core.Bool,
     -- | Specifies whether AWS Config includes all supported types of global resources (for example, IAM resources) with the resources that it records.
     --
     -- Before you can set this option to @true@ , you must set the @allSupported@ option to @true@ .
     -- If you set this option to @true@ , when AWS Config adds support for a new type of global resource, it starts recording resources of that type automatically.
     -- The configuration details for any global resource are the same in all regions. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources.
-    includeGlobalResourceTypes :: Lude.Maybe Lude.Bool,
+    includeGlobalResourceTypes :: Core.Maybe Core.Bool,
     -- | A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@ ).
     --
     -- Before you can set this option to @true@ , you must set the @allSupported@ option to @false@ .
     -- If you set this option to @true@ , when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group.
     -- For a list of valid @resourceTypes@ values, see the __resourceType Value__ column in <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types> .
-    resourceTypes :: Lude.Maybe [ResourceType]
+    resourceTypes :: Core.Maybe [Types.ResourceType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RecordingGroup' with the minimum fields required to make a request.
---
--- * 'allSupported' - Specifies whether AWS Config records configuration changes for every supported type of regional resource.
---
--- If you set this option to @true@ , when AWS Config adds support for a new type of regional resource, it starts recording resources of that type automatically.
--- If you set this option to @true@ , you cannot enumerate a list of @resourceTypes@ .
--- * 'includeGlobalResourceTypes' - Specifies whether AWS Config includes all supported types of global resources (for example, IAM resources) with the resources that it records.
---
--- Before you can set this option to @true@ , you must set the @allSupported@ option to @true@ .
--- If you set this option to @true@ , when AWS Config adds support for a new type of global resource, it starts recording resources of that type automatically.
--- The configuration details for any global resource are the same in all regions. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources.
--- * 'resourceTypes' - A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@ ).
---
--- Before you can set this option to @true@ , you must set the @allSupported@ option to @false@ .
--- If you set this option to @true@ , when AWS Config adds support for a new type of resource, it will not record resources of that type unless you manually add that type to your recording group.
--- For a list of valid @resourceTypes@ values, see the __resourceType Value__ column in <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types> .
+-- | Creates a 'RecordingGroup' value with any optional fields omitted.
 mkRecordingGroup ::
   RecordingGroup
 mkRecordingGroup =
   RecordingGroup'
-    { allSupported = Lude.Nothing,
-      includeGlobalResourceTypes = Lude.Nothing,
-      resourceTypes = Lude.Nothing
+    { allSupported = Core.Nothing,
+      includeGlobalResourceTypes = Core.Nothing,
+      resourceTypes = Core.Nothing
     }
 
 -- | Specifies whether AWS Config records configuration changes for every supported type of regional resource.
@@ -91,8 +76,8 @@ mkRecordingGroup =
 -- If you set this option to @true@ , you cannot enumerate a list of @resourceTypes@ .
 --
 -- /Note:/ Consider using 'allSupported' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgAllSupported :: Lens.Lens' RecordingGroup (Lude.Maybe Lude.Bool)
-rgAllSupported = Lens.lens (allSupported :: RecordingGroup -> Lude.Maybe Lude.Bool) (\s a -> s {allSupported = a} :: RecordingGroup)
+rgAllSupported :: Lens.Lens' RecordingGroup (Core.Maybe Core.Bool)
+rgAllSupported = Lens.field @"allSupported"
 {-# DEPRECATED rgAllSupported "Use generic-lens or generic-optics with 'allSupported' instead." #-}
 
 -- | Specifies whether AWS Config includes all supported types of global resources (for example, IAM resources) with the resources that it records.
@@ -102,8 +87,8 @@ rgAllSupported = Lens.lens (allSupported :: RecordingGroup -> Lude.Maybe Lude.Bo
 -- The configuration details for any global resource are the same in all regions. To prevent duplicate configuration items, you should consider customizing AWS Config in only one region to record global resources.
 --
 -- /Note:/ Consider using 'includeGlobalResourceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgIncludeGlobalResourceTypes :: Lens.Lens' RecordingGroup (Lude.Maybe Lude.Bool)
-rgIncludeGlobalResourceTypes = Lens.lens (includeGlobalResourceTypes :: RecordingGroup -> Lude.Maybe Lude.Bool) (\s a -> s {includeGlobalResourceTypes = a} :: RecordingGroup)
+rgIncludeGlobalResourceTypes :: Lens.Lens' RecordingGroup (Core.Maybe Core.Bool)
+rgIncludeGlobalResourceTypes = Lens.field @"includeGlobalResourceTypes"
 {-# DEPRECATED rgIncludeGlobalResourceTypes "Use generic-lens or generic-optics with 'includeGlobalResourceTypes' instead." #-}
 
 -- | A comma-separated list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, @AWS::EC2::Instance@ or @AWS::CloudTrail::Trail@ ).
@@ -113,28 +98,26 @@ rgIncludeGlobalResourceTypes = Lens.lens (includeGlobalResourceTypes :: Recordin
 -- For a list of valid @resourceTypes@ values, see the __resourceType Value__ column in <https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources Supported AWS Resource Types> .
 --
 -- /Note:/ Consider using 'resourceTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgResourceTypes :: Lens.Lens' RecordingGroup (Lude.Maybe [ResourceType])
-rgResourceTypes = Lens.lens (resourceTypes :: RecordingGroup -> Lude.Maybe [ResourceType]) (\s a -> s {resourceTypes = a} :: RecordingGroup)
+rgResourceTypes :: Lens.Lens' RecordingGroup (Core.Maybe [Types.ResourceType])
+rgResourceTypes = Lens.field @"resourceTypes"
 {-# DEPRECATED rgResourceTypes "Use generic-lens or generic-optics with 'resourceTypes' instead." #-}
 
-instance Lude.FromJSON RecordingGroup where
-  parseJSON =
-    Lude.withObject
-      "RecordingGroup"
-      ( \x ->
-          RecordingGroup'
-            Lude.<$> (x Lude..:? "allSupported")
-            Lude.<*> (x Lude..:? "includeGlobalResourceTypes")
-            Lude.<*> (x Lude..:? "resourceTypes" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON RecordingGroup where
-  toJSON RecordingGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("allSupported" Lude..=) Lude.<$> allSupported,
-            ("includeGlobalResourceTypes" Lude..=)
-              Lude.<$> includeGlobalResourceTypes,
-            ("resourceTypes" Lude..=) Lude.<$> resourceTypes
+instance Core.FromJSON RecordingGroup where
+  toJSON RecordingGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("allSupported" Core..=) Core.<$> allSupported,
+            ("includeGlobalResourceTypes" Core..=)
+              Core.<$> includeGlobalResourceTypes,
+            ("resourceTypes" Core..=) Core.<$> resourceTypes
           ]
       )
+
+instance Core.FromJSON RecordingGroup where
+  parseJSON =
+    Core.withObject "RecordingGroup" Core.$
+      \x ->
+        RecordingGroup'
+          Core.<$> (x Core..:? "allSupported")
+          Core.<*> (x Core..:? "includeGlobalResourceTypes")
+          Core.<*> (x Core..:? "resourceTypes")

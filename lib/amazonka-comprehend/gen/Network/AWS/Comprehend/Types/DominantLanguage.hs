@@ -22,52 +22,48 @@ module Network.AWS.Comprehend.Types.DominantLanguage
   )
 where
 
+import qualified Network.AWS.Comprehend.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns the code for the dominant language in the input text and the level of confidence that Amazon Comprehend has in the accuracy of the detection.
 --
 -- /See:/ 'mkDominantLanguage' smart constructor.
 data DominantLanguage = DominantLanguage'
   { -- | The RFC 5646 language code for the dominant language. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
-    languageCode :: Lude.Maybe Lude.Text,
+    languageCode :: Core.Maybe Types.String,
     -- | The level of confidence that Amazon Comprehend has in the accuracy of the detection.
-    score :: Lude.Maybe Lude.Double
+    score :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DominantLanguage' with the minimum fields required to make a request.
---
--- * 'languageCode' - The RFC 5646 language code for the dominant language. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
--- * 'score' - The level of confidence that Amazon Comprehend has in the accuracy of the detection.
+-- | Creates a 'DominantLanguage' value with any optional fields omitted.
 mkDominantLanguage ::
   DominantLanguage
 mkDominantLanguage =
   DominantLanguage'
-    { languageCode = Lude.Nothing,
-      score = Lude.Nothing
+    { languageCode = Core.Nothing,
+      score = Core.Nothing
     }
 
 -- | The RFC 5646 language code for the dominant language. For more information about RFC 5646, see <https://tools.ietf.org/html/rfc5646 Tags for Identifying Languages> on the /IETF Tools/ web site.
 --
 -- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlLanguageCode :: Lens.Lens' DominantLanguage (Lude.Maybe Lude.Text)
-dlLanguageCode = Lens.lens (languageCode :: DominantLanguage -> Lude.Maybe Lude.Text) (\s a -> s {languageCode = a} :: DominantLanguage)
+dlLanguageCode :: Lens.Lens' DominantLanguage (Core.Maybe Types.String)
+dlLanguageCode = Lens.field @"languageCode"
 {-# DEPRECATED dlLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
 
 -- | The level of confidence that Amazon Comprehend has in the accuracy of the detection.
 --
 -- /Note:/ Consider using 'score' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlScore :: Lens.Lens' DominantLanguage (Lude.Maybe Lude.Double)
-dlScore = Lens.lens (score :: DominantLanguage -> Lude.Maybe Lude.Double) (\s a -> s {score = a} :: DominantLanguage)
+dlScore :: Lens.Lens' DominantLanguage (Core.Maybe Core.Double)
+dlScore = Lens.field @"score"
 {-# DEPRECATED dlScore "Use generic-lens or generic-optics with 'score' instead." #-}
 
-instance Lude.FromJSON DominantLanguage where
+instance Core.FromJSON DominantLanguage where
   parseJSON =
-    Lude.withObject
-      "DominantLanguage"
-      ( \x ->
-          DominantLanguage'
-            Lude.<$> (x Lude..:? "LanguageCode") Lude.<*> (x Lude..:? "Score")
-      )
+    Core.withObject "DominantLanguage" Core.$
+      \x ->
+        DominantLanguage'
+          Core.<$> (x Core..:? "LanguageCode") Core.<*> (x Core..:? "Score")

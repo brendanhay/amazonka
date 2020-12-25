@@ -27,196 +27,183 @@ module Network.AWS.MechanicalTurk.ListAssignmentsForHIT
     mkListAssignmentsForHIT,
 
     -- ** Request lenses
-    lafhitAssignmentStatuses,
-    lafhitNextToken,
     lafhitHITId,
+    lafhitAssignmentStatuses,
     lafhitMaxResults,
+    lafhitNextToken,
 
     -- * Destructuring the response
     ListAssignmentsForHITResponse (..),
     mkListAssignmentsForHITResponse,
 
     -- ** Response lenses
-    lafhitrsNextToken,
-    lafhitrsNumResults,
-    lafhitrsAssignments,
-    lafhitrsResponseStatus,
+    lafhitrrsAssignments,
+    lafhitrrsNextToken,
+    lafhitrrsNumResults,
+    lafhitrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListAssignmentsForHIT' smart constructor.
 data ListAssignmentsForHIT = ListAssignmentsForHIT'
-  { -- | The status of the assignments to return: Submitted | Approved | Rejected
-    assignmentStatuses :: Lude.Maybe [AssignmentStatus],
+  { -- | The ID of the HIT.
+    hITId :: Types.HITId,
+    -- | The status of the assignments to return: Submitted | Approved | Rejected
+    assignmentStatuses :: Core.Maybe [Types.AssignmentStatus],
+    maxResults :: Core.Maybe Core.Natural,
     -- | Pagination token
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The ID of the HIT.
-    hITId :: Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAssignmentsForHIT' with the minimum fields required to make a request.
---
--- * 'assignmentStatuses' - The status of the assignments to return: Submitted | Approved | Rejected
--- * 'nextToken' - Pagination token
--- * 'hITId' - The ID of the HIT.
--- * 'maxResults' -
+-- | Creates a 'ListAssignmentsForHIT' value with any optional fields omitted.
 mkListAssignmentsForHIT ::
   -- | 'hITId'
-  Lude.Text ->
+  Types.HITId ->
   ListAssignmentsForHIT
-mkListAssignmentsForHIT pHITId_ =
+mkListAssignmentsForHIT hITId =
   ListAssignmentsForHIT'
-    { assignmentStatuses = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      hITId = pHITId_,
-      maxResults = Lude.Nothing
+    { hITId,
+      assignmentStatuses = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The status of the assignments to return: Submitted | Approved | Rejected
---
--- /Note:/ Consider using 'assignmentStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafhitAssignmentStatuses :: Lens.Lens' ListAssignmentsForHIT (Lude.Maybe [AssignmentStatus])
-lafhitAssignmentStatuses = Lens.lens (assignmentStatuses :: ListAssignmentsForHIT -> Lude.Maybe [AssignmentStatus]) (\s a -> s {assignmentStatuses = a} :: ListAssignmentsForHIT)
-{-# DEPRECATED lafhitAssignmentStatuses "Use generic-lens or generic-optics with 'assignmentStatuses' instead." #-}
-
--- | Pagination token
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafhitNextToken :: Lens.Lens' ListAssignmentsForHIT (Lude.Maybe Lude.Text)
-lafhitNextToken = Lens.lens (nextToken :: ListAssignmentsForHIT -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssignmentsForHIT)
-{-# DEPRECATED lafhitNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The ID of the HIT.
 --
 -- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafhitHITId :: Lens.Lens' ListAssignmentsForHIT Lude.Text
-lafhitHITId = Lens.lens (hITId :: ListAssignmentsForHIT -> Lude.Text) (\s a -> s {hITId = a} :: ListAssignmentsForHIT)
+lafhitHITId :: Lens.Lens' ListAssignmentsForHIT Types.HITId
+lafhitHITId = Lens.field @"hITId"
 {-# DEPRECATED lafhitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
+
+-- | The status of the assignments to return: Submitted | Approved | Rejected
+--
+-- /Note:/ Consider using 'assignmentStatuses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafhitAssignmentStatuses :: Lens.Lens' ListAssignmentsForHIT (Core.Maybe [Types.AssignmentStatus])
+lafhitAssignmentStatuses = Lens.field @"assignmentStatuses"
+{-# DEPRECATED lafhitAssignmentStatuses "Use generic-lens or generic-optics with 'assignmentStatuses' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafhitMaxResults :: Lens.Lens' ListAssignmentsForHIT (Lude.Maybe Lude.Natural)
-lafhitMaxResults = Lens.lens (maxResults :: ListAssignmentsForHIT -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAssignmentsForHIT)
+lafhitMaxResults :: Lens.Lens' ListAssignmentsForHIT (Core.Maybe Core.Natural)
+lafhitMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lafhitMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListAssignmentsForHIT where
-  page rq rs
-    | Page.stop (rs Lens.^. lafhitrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lafhitrsAssignments) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lafhitNextToken Lens..~ rs Lens.^. lafhitrsNextToken
+-- | Pagination token
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafhitNextToken :: Lens.Lens' ListAssignmentsForHIT (Core.Maybe Types.PaginationToken)
+lafhitNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lafhitNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListAssignmentsForHIT where
+instance Core.FromJSON ListAssignmentsForHIT where
+  toJSON ListAssignmentsForHIT {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("HITId" Core..= hITId),
+            ("AssignmentStatuses" Core..=) Core.<$> assignmentStatuses,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListAssignmentsForHIT where
   type Rs ListAssignmentsForHIT = ListAssignmentsForHITResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.ListAssignmentsForHIT"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAssignmentsForHITResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "NumResults")
-            Lude.<*> (x Lude..?> "Assignments" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Assignments")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "NumResults")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAssignmentsForHIT where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.ListAssignmentsForHIT" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAssignmentsForHIT where
-  toJSON ListAssignmentsForHIT' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AssignmentStatuses" Lude..=) Lude.<$> assignmentStatuses,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("HITId" Lude..= hITId),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListAssignmentsForHIT where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAssignmentsForHIT where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAssignmentsForHIT where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"assignments" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListAssignmentsForHITResponse' smart constructor.
 data ListAssignmentsForHITResponse = ListAssignmentsForHITResponse'
-  { nextToken :: Lude.Maybe Lude.Text,
+  { -- | The collection of Assignment data structures returned by this call.
+    assignments :: Core.Maybe [Types.Assignment],
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
-    numResults :: Lude.Maybe Lude.Int,
-    -- | The collection of Assignment data structures returned by this call.
-    assignments :: Lude.Maybe [Assignment],
+    numResults :: Core.Maybe Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListAssignmentsForHITResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' -
--- * 'numResults' - The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
--- * 'assignments' - The collection of Assignment data structures returned by this call.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAssignmentsForHITResponse' value with any optional fields omitted.
 mkListAssignmentsForHITResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAssignmentsForHITResponse
-mkListAssignmentsForHITResponse pResponseStatus_ =
+mkListAssignmentsForHITResponse responseStatus =
   ListAssignmentsForHITResponse'
-    { nextToken = Lude.Nothing,
-      numResults = Lude.Nothing,
-      assignments = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { assignments = Core.Nothing,
+      nextToken = Core.Nothing,
+      numResults = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafhitrsNextToken :: Lens.Lens' ListAssignmentsForHITResponse (Lude.Maybe Lude.Text)
-lafhitrsNextToken = Lens.lens (nextToken :: ListAssignmentsForHITResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAssignmentsForHITResponse)
-{-# DEPRECATED lafhitrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
---
--- /Note:/ Consider using 'numResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafhitrsNumResults :: Lens.Lens' ListAssignmentsForHITResponse (Lude.Maybe Lude.Int)
-lafhitrsNumResults = Lens.lens (numResults :: ListAssignmentsForHITResponse -> Lude.Maybe Lude.Int) (\s a -> s {numResults = a} :: ListAssignmentsForHITResponse)
-{-# DEPRECATED lafhitrsNumResults "Use generic-lens or generic-optics with 'numResults' instead." #-}
 
 -- | The collection of Assignment data structures returned by this call.
 --
 -- /Note:/ Consider using 'assignments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafhitrsAssignments :: Lens.Lens' ListAssignmentsForHITResponse (Lude.Maybe [Assignment])
-lafhitrsAssignments = Lens.lens (assignments :: ListAssignmentsForHITResponse -> Lude.Maybe [Assignment]) (\s a -> s {assignments = a} :: ListAssignmentsForHITResponse)
-{-# DEPRECATED lafhitrsAssignments "Use generic-lens or generic-optics with 'assignments' instead." #-}
+lafhitrrsAssignments :: Lens.Lens' ListAssignmentsForHITResponse (Core.Maybe [Types.Assignment])
+lafhitrrsAssignments = Lens.field @"assignments"
+{-# DEPRECATED lafhitrrsAssignments "Use generic-lens or generic-optics with 'assignments' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafhitrrsNextToken :: Lens.Lens' ListAssignmentsForHITResponse (Core.Maybe Types.PaginationToken)
+lafhitrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lafhitrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The number of assignments on the page in the filtered results list, equivalent to the number of assignments returned by this call.
+--
+-- /Note:/ Consider using 'numResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lafhitrrsNumResults :: Lens.Lens' ListAssignmentsForHITResponse (Core.Maybe Core.Int)
+lafhitrrsNumResults = Lens.field @"numResults"
+{-# DEPRECATED lafhitrrsNumResults "Use generic-lens or generic-optics with 'numResults' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lafhitrsResponseStatus :: Lens.Lens' ListAssignmentsForHITResponse Lude.Int
-lafhitrsResponseStatus = Lens.lens (responseStatus :: ListAssignmentsForHITResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAssignmentsForHITResponse)
-{-# DEPRECATED lafhitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lafhitrrsResponseStatus :: Lens.Lens' ListAssignmentsForHITResponse Core.Int
+lafhitrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lafhitrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

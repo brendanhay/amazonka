@@ -20,103 +20,98 @@ module Network.AWS.IoT.DeleteBillingGroup
     mkDeleteBillingGroup,
 
     -- ** Request lenses
-    dbgExpectedVersion,
     dbgBillingGroupName,
+    dbgExpectedVersion,
 
     -- * Destructuring the response
     DeleteBillingGroupResponse (..),
     mkDeleteBillingGroupResponse,
 
     -- ** Response lenses
-    dbgrsResponseStatus,
+    dbgrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteBillingGroup' smart constructor.
 data DeleteBillingGroup = DeleteBillingGroup'
-  { -- | The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the @DeleteBillingGroup@ request is rejected with a @VersionConflictException@ .
-    expectedVersion :: Lude.Maybe Lude.Integer,
-    -- | The name of the billing group.
-    billingGroupName :: Lude.Text
+  { -- | The name of the billing group.
+    billingGroupName :: Types.BillingGroupName,
+    -- | The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the @DeleteBillingGroup@ request is rejected with a @VersionConflictException@ .
+    expectedVersion :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBillingGroup' with the minimum fields required to make a request.
---
--- * 'expectedVersion' - The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the @DeleteBillingGroup@ request is rejected with a @VersionConflictException@ .
--- * 'billingGroupName' - The name of the billing group.
+-- | Creates a 'DeleteBillingGroup' value with any optional fields omitted.
 mkDeleteBillingGroup ::
   -- | 'billingGroupName'
-  Lude.Text ->
+  Types.BillingGroupName ->
   DeleteBillingGroup
-mkDeleteBillingGroup pBillingGroupName_ =
+mkDeleteBillingGroup billingGroupName =
   DeleteBillingGroup'
-    { expectedVersion = Lude.Nothing,
-      billingGroupName = pBillingGroupName_
+    { billingGroupName,
+      expectedVersion = Core.Nothing
     }
-
--- | The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the @DeleteBillingGroup@ request is rejected with a @VersionConflictException@ .
---
--- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbgExpectedVersion :: Lens.Lens' DeleteBillingGroup (Lude.Maybe Lude.Integer)
-dbgExpectedVersion = Lens.lens (expectedVersion :: DeleteBillingGroup -> Lude.Maybe Lude.Integer) (\s a -> s {expectedVersion = a} :: DeleteBillingGroup)
-{-# DEPRECATED dbgExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
 
 -- | The name of the billing group.
 --
 -- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbgBillingGroupName :: Lens.Lens' DeleteBillingGroup Lude.Text
-dbgBillingGroupName = Lens.lens (billingGroupName :: DeleteBillingGroup -> Lude.Text) (\s a -> s {billingGroupName = a} :: DeleteBillingGroup)
+dbgBillingGroupName :: Lens.Lens' DeleteBillingGroup Types.BillingGroupName
+dbgBillingGroupName = Lens.field @"billingGroupName"
 {-# DEPRECATED dbgBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteBillingGroup where
+-- | The expected version of the billing group. If the version of the billing group does not match the expected version specified in the request, the @DeleteBillingGroup@ request is rejected with a @VersionConflictException@ .
+--
+-- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbgExpectedVersion :: Lens.Lens' DeleteBillingGroup (Core.Maybe Core.Integer)
+dbgExpectedVersion = Lens.field @"expectedVersion"
+{-# DEPRECATED dbgExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
+
+instance Core.AWSRequest DeleteBillingGroup where
   type Rs DeleteBillingGroup = DeleteBillingGroupResponse
-  request = Req.delete ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/billing-groups/" Core.<> (Core.toText billingGroupName)),
+        Core._rqQuery =
+          Core.toQueryValue "expectedVersion" Core.<$> expectedVersion,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteBillingGroupResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteBillingGroupResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteBillingGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteBillingGroup where
-  toPath DeleteBillingGroup' {..} =
-    Lude.mconcat ["/billing-groups/", Lude.toBS billingGroupName]
-
-instance Lude.ToQuery DeleteBillingGroup where
-  toQuery DeleteBillingGroup' {..} =
-    Lude.mconcat ["expectedVersion" Lude.=: expectedVersion]
 
 -- | /See:/ 'mkDeleteBillingGroupResponse' smart constructor.
 newtype DeleteBillingGroupResponse = DeleteBillingGroupResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteBillingGroupResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteBillingGroupResponse' value with any optional fields omitted.
 mkDeleteBillingGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteBillingGroupResponse
-mkDeleteBillingGroupResponse pResponseStatus_ =
-  DeleteBillingGroupResponse' {responseStatus = pResponseStatus_}
+mkDeleteBillingGroupResponse responseStatus =
+  DeleteBillingGroupResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbgrsResponseStatus :: Lens.Lens' DeleteBillingGroupResponse Lude.Int
-dbgrsResponseStatus = Lens.lens (responseStatus :: DeleteBillingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteBillingGroupResponse)
-{-# DEPRECATED dbgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbgrrsResponseStatus :: Lens.Lens' DeleteBillingGroupResponse Core.Int
+dbgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

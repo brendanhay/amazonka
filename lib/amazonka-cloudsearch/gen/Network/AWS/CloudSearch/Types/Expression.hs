@@ -22,57 +22,46 @@ module Network.AWS.CloudSearch.Types.Expression
   )
 where
 
+import qualified Network.AWS.CloudSearch.Types.ExpressionValue as Types
+import qualified Network.AWS.CloudSearch.Types.StandardName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A named expression that can be evaluated at search time. Can be used to sort the search results, define other expressions, or return computed information in the search results.
 --
 -- /See:/ 'mkExpression' smart constructor.
 data Expression = Expression'
-  { expressionName :: Lude.Text,
-    expressionValue :: Lude.Text
+  { expressionName :: Types.StandardName,
+    expressionValue :: Types.ExpressionValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Expression' with the minimum fields required to make a request.
---
--- * 'expressionName' -
--- * 'expressionValue' -
+-- | Creates a 'Expression' value with any optional fields omitted.
 mkExpression ::
   -- | 'expressionName'
-  Lude.Text ->
+  Types.StandardName ->
   -- | 'expressionValue'
-  Lude.Text ->
+  Types.ExpressionValue ->
   Expression
-mkExpression pExpressionName_ pExpressionValue_ =
-  Expression'
-    { expressionName = pExpressionName_,
-      expressionValue = pExpressionValue_
-    }
+mkExpression expressionName expressionValue =
+  Expression' {expressionName, expressionValue}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'expressionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eExpressionName :: Lens.Lens' Expression Lude.Text
-eExpressionName = Lens.lens (expressionName :: Expression -> Lude.Text) (\s a -> s {expressionName = a} :: Expression)
+eExpressionName :: Lens.Lens' Expression Types.StandardName
+eExpressionName = Lens.field @"expressionName"
 {-# DEPRECATED eExpressionName "Use generic-lens or generic-optics with 'expressionName' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'expressionValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eExpressionValue :: Lens.Lens' Expression Lude.Text
-eExpressionValue = Lens.lens (expressionValue :: Expression -> Lude.Text) (\s a -> s {expressionValue = a} :: Expression)
+eExpressionValue :: Lens.Lens' Expression Types.ExpressionValue
+eExpressionValue = Lens.field @"expressionValue"
 {-# DEPRECATED eExpressionValue "Use generic-lens or generic-optics with 'expressionValue' instead." #-}
 
-instance Lude.FromXML Expression where
+instance Core.FromXML Expression where
   parseXML x =
     Expression'
-      Lude.<$> (x Lude..@ "ExpressionName") Lude.<*> (x Lude..@ "ExpressionValue")
-
-instance Lude.ToQuery Expression where
-  toQuery Expression' {..} =
-    Lude.mconcat
-      [ "ExpressionName" Lude.=: expressionName,
-        "ExpressionValue" Lude.=: expressionValue
-      ]
+      Core.<$> (x Core..@ "ExpressionName") Core.<*> (x Core..@ "ExpressionValue")

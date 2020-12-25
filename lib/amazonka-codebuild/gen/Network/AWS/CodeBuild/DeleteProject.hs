@@ -27,91 +27,80 @@ module Network.AWS.CodeBuild.DeleteProject
     mkDeleteProjectResponse,
 
     -- ** Response lenses
-    dprsResponseStatus,
+    dprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteProject' smart constructor.
 newtype DeleteProject = DeleteProject'
   { -- | The name of the build project.
-    name :: Lude.Text
+    name :: Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProject' with the minimum fields required to make a request.
---
--- * 'name' - The name of the build project.
+-- | Creates a 'DeleteProject' value with any optional fields omitted.
 mkDeleteProject ::
   -- | 'name'
-  Lude.Text ->
+  Types.NonEmptyString ->
   DeleteProject
-mkDeleteProject pName_ = DeleteProject' {name = pName_}
+mkDeleteProject name = DeleteProject' {name}
 
 -- | The name of the build project.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpName :: Lens.Lens' DeleteProject Lude.Text
-dpName = Lens.lens (name :: DeleteProject -> Lude.Text) (\s a -> s {name = a} :: DeleteProject)
+dpName :: Lens.Lens' DeleteProject Types.NonEmptyString
+dpName = Lens.field @"name"
 {-# DEPRECATED dpName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteProject where
+instance Core.FromJSON DeleteProject where
+  toJSON DeleteProject {..} =
+    Core.object (Core.catMaybes [Core.Just ("name" Core..= name)])
+
+instance Core.AWSRequest DeleteProject where
   type Rs DeleteProject = DeleteProjectResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.DeleteProject")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteProjectResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteProjectResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.DeleteProject" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteProject where
-  toJSON DeleteProject' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])
-
-instance Lude.ToPath DeleteProject where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteProject where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteProjectResponse' smart constructor.
 newtype DeleteProjectResponse = DeleteProjectResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteProjectResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteProjectResponse' value with any optional fields omitted.
 mkDeleteProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteProjectResponse
-mkDeleteProjectResponse pResponseStatus_ =
-  DeleteProjectResponse' {responseStatus = pResponseStatus_}
+mkDeleteProjectResponse responseStatus =
+  DeleteProjectResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DeleteProjectResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DeleteProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteProjectResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprrsResponseStatus :: Lens.Lens' DeleteProjectResponse Core.Int
+dprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,103 +17,84 @@ module Network.AWS.MediaLive.Types.VideoDescription
     mkVideoDescription,
 
     -- * Lenses
-    vdHeight,
-    vdSharpness,
-    vdWidth,
-    vdScalingBehavior,
-    vdRespondToAfd,
     vdName,
     vdCodecSettings,
+    vdHeight,
+    vdRespondToAfd,
+    vdScalingBehavior,
+    vdSharpness,
+    vdWidth,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.VideoCodecSettings
-import Network.AWS.MediaLive.Types.VideoDescriptionRespondToAfd
-import Network.AWS.MediaLive.Types.VideoDescriptionScalingBehavior
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.VideoCodecSettings as Types
+import qualified Network.AWS.MediaLive.Types.VideoDescriptionRespondToAfd as Types
+import qualified Network.AWS.MediaLive.Types.VideoDescriptionScalingBehavior as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Video settings for this stream.
 --
 -- /See:/ 'mkVideoDescription' smart constructor.
 data VideoDescription = VideoDescription'
-  { -- | Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
-    height :: Lude.Maybe Lude.Int,
-    -- | Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
-    sharpness :: Lude.Maybe Lude.Natural,
-    -- | Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
-    width :: Lude.Maybe Lude.Int,
-    -- | STRETCH_TO_OUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
-    scalingBehavior :: Lude.Maybe VideoDescriptionScalingBehavior,
+  { -- | The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.
+    name :: Core.Text,
+    -- | Video codec settings.
+    codecSettings :: Core.Maybe Types.VideoCodecSettings,
+    -- | Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+    height :: Core.Maybe Core.Int,
     -- | Indicates how MediaLive will respond to the AFD values that might be in the input video. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose PASSTHROUGH.
     --
     -- RESPOND: MediaLive clips the input video using a formula that uses the AFD values (configured in afdSignaling ), the input display aspect ratio, and the output display aspect ratio. MediaLive also includes the AFD values in the output, unless the codec for this encode is FRAME_CAPTURE.
     -- PASSTHROUGH: MediaLive ignores the AFD values and does not clip the video. But MediaLive does include the values in the output.
     -- NONE: MediaLive does not clip the input video and does not include the AFD values in the output
-    respondToAfd :: Lude.Maybe VideoDescriptionRespondToAfd,
-    -- | The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.
-    name :: Lude.Text,
-    -- | Video codec settings.
-    codecSettings :: Lude.Maybe VideoCodecSettings
+    respondToAfd :: Core.Maybe Types.VideoDescriptionRespondToAfd,
+    -- | STRETCH_TO_OUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
+    scalingBehavior :: Core.Maybe Types.VideoDescriptionScalingBehavior,
+    -- | Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
+    sharpness :: Core.Maybe Core.Natural,
+    -- | Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+    width :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VideoDescription' with the minimum fields required to make a request.
---
--- * 'height' - Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
--- * 'sharpness' - Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
--- * 'width' - Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
--- * 'scalingBehavior' - STRETCH_TO_OUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
--- * 'respondToAfd' - Indicates how MediaLive will respond to the AFD values that might be in the input video. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose PASSTHROUGH.
---
--- RESPOND: MediaLive clips the input video using a formula that uses the AFD values (configured in afdSignaling ), the input display aspect ratio, and the output display aspect ratio. MediaLive also includes the AFD values in the output, unless the codec for this encode is FRAME_CAPTURE.
--- PASSTHROUGH: MediaLive ignores the AFD values and does not clip the video. But MediaLive does include the values in the output.
--- NONE: MediaLive does not clip the input video and does not include the AFD values in the output
--- * 'name' - The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.
--- * 'codecSettings' - Video codec settings.
+-- | Creates a 'VideoDescription' value with any optional fields omitted.
 mkVideoDescription ::
   -- | 'name'
-  Lude.Text ->
+  Core.Text ->
   VideoDescription
-mkVideoDescription pName_ =
+mkVideoDescription name =
   VideoDescription'
-    { height = Lude.Nothing,
-      sharpness = Lude.Nothing,
-      width = Lude.Nothing,
-      scalingBehavior = Lude.Nothing,
-      respondToAfd = Lude.Nothing,
-      name = pName_,
-      codecSettings = Lude.Nothing
+    { name,
+      codecSettings = Core.Nothing,
+      height = Core.Nothing,
+      respondToAfd = Core.Nothing,
+      scalingBehavior = Core.Nothing,
+      sharpness = Core.Nothing,
+      width = Core.Nothing
     }
+
+-- | The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdName :: Lens.Lens' VideoDescription Core.Text
+vdName = Lens.field @"name"
+{-# DEPRECATED vdName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Video codec settings.
+--
+-- /Note:/ Consider using 'codecSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdCodecSettings :: Lens.Lens' VideoDescription (Core.Maybe Types.VideoCodecSettings)
+vdCodecSettings = Lens.field @"codecSettings"
+{-# DEPRECATED vdCodecSettings "Use generic-lens or generic-optics with 'codecSettings' instead." #-}
 
 -- | Output video height, in pixels. Must be an even number. For most codecs, you can leave this field and width blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
 --
 -- /Note:/ Consider using 'height' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdHeight :: Lens.Lens' VideoDescription (Lude.Maybe Lude.Int)
-vdHeight = Lens.lens (height :: VideoDescription -> Lude.Maybe Lude.Int) (\s a -> s {height = a} :: VideoDescription)
+vdHeight :: Lens.Lens' VideoDescription (Core.Maybe Core.Int)
+vdHeight = Lens.field @"height"
 {-# DEPRECATED vdHeight "Use generic-lens or generic-optics with 'height' instead." #-}
-
--- | Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
---
--- /Note:/ Consider using 'sharpness' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdSharpness :: Lens.Lens' VideoDescription (Lude.Maybe Lude.Natural)
-vdSharpness = Lens.lens (sharpness :: VideoDescription -> Lude.Maybe Lude.Natural) (\s a -> s {sharpness = a} :: VideoDescription)
-{-# DEPRECATED vdSharpness "Use generic-lens or generic-optics with 'sharpness' instead." #-}
-
--- | Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
---
--- /Note:/ Consider using 'width' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdWidth :: Lens.Lens' VideoDescription (Lude.Maybe Lude.Int)
-vdWidth = Lens.lens (width :: VideoDescription -> Lude.Maybe Lude.Int) (\s a -> s {width = a} :: VideoDescription)
-{-# DEPRECATED vdWidth "Use generic-lens or generic-optics with 'width' instead." #-}
-
--- | STRETCH_TO_OUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
---
--- /Note:/ Consider using 'scalingBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdScalingBehavior :: Lens.Lens' VideoDescription (Lude.Maybe VideoDescriptionScalingBehavior)
-vdScalingBehavior = Lens.lens (scalingBehavior :: VideoDescription -> Lude.Maybe VideoDescriptionScalingBehavior) (\s a -> s {scalingBehavior = a} :: VideoDescription)
-{-# DEPRECATED vdScalingBehavior "Use generic-lens or generic-optics with 'scalingBehavior' instead." #-}
 
 -- | Indicates how MediaLive will respond to the AFD values that might be in the input video. If you do not know what AFD signaling is, or if your downstream system has not given you guidance, choose PASSTHROUGH.
 --
@@ -122,49 +103,54 @@ vdScalingBehavior = Lens.lens (scalingBehavior :: VideoDescription -> Lude.Maybe
 -- NONE: MediaLive does not clip the input video and does not include the AFD values in the output
 --
 -- /Note:/ Consider using 'respondToAfd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdRespondToAfd :: Lens.Lens' VideoDescription (Lude.Maybe VideoDescriptionRespondToAfd)
-vdRespondToAfd = Lens.lens (respondToAfd :: VideoDescription -> Lude.Maybe VideoDescriptionRespondToAfd) (\s a -> s {respondToAfd = a} :: VideoDescription)
+vdRespondToAfd :: Lens.Lens' VideoDescription (Core.Maybe Types.VideoDescriptionRespondToAfd)
+vdRespondToAfd = Lens.field @"respondToAfd"
 {-# DEPRECATED vdRespondToAfd "Use generic-lens or generic-optics with 'respondToAfd' instead." #-}
 
--- | The name of this VideoDescription. Outputs will use this name to uniquely identify this Description.  Description names should be unique within this Live Event.
+-- | STRETCH_TO_OUTPUT configures the output position to stretch the video to the specified output resolution (height and width). This option will override any position value. DEFAULT may insert black boxes (pillar boxes or letter boxes) around the video to provide the specified output resolution.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdName :: Lens.Lens' VideoDescription Lude.Text
-vdName = Lens.lens (name :: VideoDescription -> Lude.Text) (\s a -> s {name = a} :: VideoDescription)
-{-# DEPRECATED vdName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'scalingBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdScalingBehavior :: Lens.Lens' VideoDescription (Core.Maybe Types.VideoDescriptionScalingBehavior)
+vdScalingBehavior = Lens.field @"scalingBehavior"
+{-# DEPRECATED vdScalingBehavior "Use generic-lens or generic-optics with 'scalingBehavior' instead." #-}
 
--- | Video codec settings.
+-- | Changes the strength of the anti-alias filter used for scaling. 0 is the softest setting, 100 is the sharpest. A setting of 50 is recommended for most content.
 --
--- /Note:/ Consider using 'codecSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdCodecSettings :: Lens.Lens' VideoDescription (Lude.Maybe VideoCodecSettings)
-vdCodecSettings = Lens.lens (codecSettings :: VideoDescription -> Lude.Maybe VideoCodecSettings) (\s a -> s {codecSettings = a} :: VideoDescription)
-{-# DEPRECATED vdCodecSettings "Use generic-lens or generic-optics with 'codecSettings' instead." #-}
+-- /Note:/ Consider using 'sharpness' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdSharpness :: Lens.Lens' VideoDescription (Core.Maybe Core.Natural)
+vdSharpness = Lens.field @"sharpness"
+{-# DEPRECATED vdSharpness "Use generic-lens or generic-optics with 'sharpness' instead." #-}
 
-instance Lude.FromJSON VideoDescription where
-  parseJSON =
-    Lude.withObject
-      "VideoDescription"
-      ( \x ->
-          VideoDescription'
-            Lude.<$> (x Lude..:? "height")
-            Lude.<*> (x Lude..:? "sharpness")
-            Lude.<*> (x Lude..:? "width")
-            Lude.<*> (x Lude..:? "scalingBehavior")
-            Lude.<*> (x Lude..:? "respondToAfd")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..:? "codecSettings")
-      )
+-- | Output video width, in pixels. Must be an even number. For most codecs, you can leave this field and height blank in order to use the height and width (resolution) from the source. Note, however, that leaving blank is not recommended. For the Frame Capture codec, height and width are required.
+--
+-- /Note:/ Consider using 'width' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vdWidth :: Lens.Lens' VideoDescription (Core.Maybe Core.Int)
+vdWidth = Lens.field @"width"
+{-# DEPRECATED vdWidth "Use generic-lens or generic-optics with 'width' instead." #-}
 
-instance Lude.ToJSON VideoDescription where
-  toJSON VideoDescription' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("height" Lude..=) Lude.<$> height,
-            ("sharpness" Lude..=) Lude.<$> sharpness,
-            ("width" Lude..=) Lude.<$> width,
-            ("scalingBehavior" Lude..=) Lude.<$> scalingBehavior,
-            ("respondToAfd" Lude..=) Lude.<$> respondToAfd,
-            Lude.Just ("name" Lude..= name),
-            ("codecSettings" Lude..=) Lude.<$> codecSettings
+instance Core.FromJSON VideoDescription where
+  toJSON VideoDescription {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            ("codecSettings" Core..=) Core.<$> codecSettings,
+            ("height" Core..=) Core.<$> height,
+            ("respondToAfd" Core..=) Core.<$> respondToAfd,
+            ("scalingBehavior" Core..=) Core.<$> scalingBehavior,
+            ("sharpness" Core..=) Core.<$> sharpness,
+            ("width" Core..=) Core.<$> width
           ]
       )
+
+instance Core.FromJSON VideoDescription where
+  parseJSON =
+    Core.withObject "VideoDescription" Core.$
+      \x ->
+        VideoDescription'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..:? "codecSettings")
+          Core.<*> (x Core..:? "height")
+          Core.<*> (x Core..:? "respondToAfd")
+          Core.<*> (x Core..:? "scalingBehavior")
+          Core.<*> (x Core..:? "sharpness")
+          Core.<*> (x Core..:? "width")

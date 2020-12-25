@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.Vp9FramerateConversionAlgorithm
   ( Vp9FramerateConversionAlgorithm
       ( Vp9FramerateConversionAlgorithm',
-        VFCADuplicateDrop,
-        VFCAInterpolate,
-        VFCAFrameformer
+        Vp9FramerateConversionAlgorithmDuplicateDrop,
+        Vp9FramerateConversionAlgorithmInterpolate,
+        Vp9FramerateConversionAlgorithmFrameformer,
+        fromVp9FramerateConversionAlgorithm
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
-newtype Vp9FramerateConversionAlgorithm = Vp9FramerateConversionAlgorithm' Lude.Text
+newtype Vp9FramerateConversionAlgorithm = Vp9FramerateConversionAlgorithm'
+  { fromVp9FramerateConversionAlgorithm ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VFCADuplicateDrop :: Vp9FramerateConversionAlgorithm
-pattern VFCADuplicateDrop = Vp9FramerateConversionAlgorithm' "DUPLICATE_DROP"
+pattern Vp9FramerateConversionAlgorithmDuplicateDrop :: Vp9FramerateConversionAlgorithm
+pattern Vp9FramerateConversionAlgorithmDuplicateDrop = Vp9FramerateConversionAlgorithm' "DUPLICATE_DROP"
 
-pattern VFCAInterpolate :: Vp9FramerateConversionAlgorithm
-pattern VFCAInterpolate = Vp9FramerateConversionAlgorithm' "INTERPOLATE"
+pattern Vp9FramerateConversionAlgorithmInterpolate :: Vp9FramerateConversionAlgorithm
+pattern Vp9FramerateConversionAlgorithmInterpolate = Vp9FramerateConversionAlgorithm' "INTERPOLATE"
 
-pattern VFCAFrameformer :: Vp9FramerateConversionAlgorithm
-pattern VFCAFrameformer = Vp9FramerateConversionAlgorithm' "FRAMEFORMER"
+pattern Vp9FramerateConversionAlgorithmFrameformer :: Vp9FramerateConversionAlgorithm
+pattern Vp9FramerateConversionAlgorithmFrameformer = Vp9FramerateConversionAlgorithm' "FRAMEFORMER"
 
 {-# COMPLETE
-  VFCADuplicateDrop,
-  VFCAInterpolate,
-  VFCAFrameformer,
+  Vp9FramerateConversionAlgorithmDuplicateDrop,
+  Vp9FramerateConversionAlgorithmInterpolate,
+  Vp9FramerateConversionAlgorithmFrameformer,
   Vp9FramerateConversionAlgorithm'
   #-}

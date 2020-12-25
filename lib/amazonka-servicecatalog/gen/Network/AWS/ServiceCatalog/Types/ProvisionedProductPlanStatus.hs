@@ -13,66 +13,71 @@
 module Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanStatus
   ( ProvisionedProductPlanStatus
       ( ProvisionedProductPlanStatus',
-        CreateInProgress,
-        CreateSuccess,
-        CreateFailed,
-        ExecuteInProgress,
-        ExecuteSuccess,
-        ExecuteFailed
+        ProvisionedProductPlanStatusCreateInProgress,
+        ProvisionedProductPlanStatusCreateSuccess,
+        ProvisionedProductPlanStatusCreateFailed,
+        ProvisionedProductPlanStatusExecuteInProgress,
+        ProvisionedProductPlanStatusExecuteSuccess,
+        ProvisionedProductPlanStatusExecuteFailed,
+        fromProvisionedProductPlanStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProvisionedProductPlanStatus = ProvisionedProductPlanStatus' Lude.Text
+newtype ProvisionedProductPlanStatus = ProvisionedProductPlanStatus'
+  { fromProvisionedProductPlanStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CreateInProgress :: ProvisionedProductPlanStatus
-pattern CreateInProgress = ProvisionedProductPlanStatus' "CREATE_IN_PROGRESS"
+pattern ProvisionedProductPlanStatusCreateInProgress :: ProvisionedProductPlanStatus
+pattern ProvisionedProductPlanStatusCreateInProgress = ProvisionedProductPlanStatus' "CREATE_IN_PROGRESS"
 
-pattern CreateSuccess :: ProvisionedProductPlanStatus
-pattern CreateSuccess = ProvisionedProductPlanStatus' "CREATE_SUCCESS"
+pattern ProvisionedProductPlanStatusCreateSuccess :: ProvisionedProductPlanStatus
+pattern ProvisionedProductPlanStatusCreateSuccess = ProvisionedProductPlanStatus' "CREATE_SUCCESS"
 
-pattern CreateFailed :: ProvisionedProductPlanStatus
-pattern CreateFailed = ProvisionedProductPlanStatus' "CREATE_FAILED"
+pattern ProvisionedProductPlanStatusCreateFailed :: ProvisionedProductPlanStatus
+pattern ProvisionedProductPlanStatusCreateFailed = ProvisionedProductPlanStatus' "CREATE_FAILED"
 
-pattern ExecuteInProgress :: ProvisionedProductPlanStatus
-pattern ExecuteInProgress = ProvisionedProductPlanStatus' "EXECUTE_IN_PROGRESS"
+pattern ProvisionedProductPlanStatusExecuteInProgress :: ProvisionedProductPlanStatus
+pattern ProvisionedProductPlanStatusExecuteInProgress = ProvisionedProductPlanStatus' "EXECUTE_IN_PROGRESS"
 
-pattern ExecuteSuccess :: ProvisionedProductPlanStatus
-pattern ExecuteSuccess = ProvisionedProductPlanStatus' "EXECUTE_SUCCESS"
+pattern ProvisionedProductPlanStatusExecuteSuccess :: ProvisionedProductPlanStatus
+pattern ProvisionedProductPlanStatusExecuteSuccess = ProvisionedProductPlanStatus' "EXECUTE_SUCCESS"
 
-pattern ExecuteFailed :: ProvisionedProductPlanStatus
-pattern ExecuteFailed = ProvisionedProductPlanStatus' "EXECUTE_FAILED"
+pattern ProvisionedProductPlanStatusExecuteFailed :: ProvisionedProductPlanStatus
+pattern ProvisionedProductPlanStatusExecuteFailed = ProvisionedProductPlanStatus' "EXECUTE_FAILED"
 
 {-# COMPLETE
-  CreateInProgress,
-  CreateSuccess,
-  CreateFailed,
-  ExecuteInProgress,
-  ExecuteSuccess,
-  ExecuteFailed,
+  ProvisionedProductPlanStatusCreateInProgress,
+  ProvisionedProductPlanStatusCreateSuccess,
+  ProvisionedProductPlanStatusCreateFailed,
+  ProvisionedProductPlanStatusExecuteInProgress,
+  ProvisionedProductPlanStatusExecuteSuccess,
+  ProvisionedProductPlanStatusExecuteFailed,
   ProvisionedProductPlanStatus'
   #-}

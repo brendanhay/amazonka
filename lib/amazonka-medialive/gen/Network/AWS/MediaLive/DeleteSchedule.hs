@@ -27,92 +27,83 @@ module Network.AWS.MediaLive.DeleteSchedule
     mkDeleteScheduleResponse,
 
     -- ** Response lenses
-    dsrsResponseStatus,
+    dsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for DeleteScheduleRequest
 --
 -- /See:/ 'mkDeleteSchedule' smart constructor.
 newtype DeleteSchedule = DeleteSchedule'
   { -- | Id of the channel whose schedule is being deleted.
-    channelId :: Lude.Text
+    channelId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSchedule' with the minimum fields required to make a request.
---
--- * 'channelId' - Id of the channel whose schedule is being deleted.
+-- | Creates a 'DeleteSchedule' value with any optional fields omitted.
 mkDeleteSchedule ::
   -- | 'channelId'
-  Lude.Text ->
+  Core.Text ->
   DeleteSchedule
-mkDeleteSchedule pChannelId_ =
-  DeleteSchedule' {channelId = pChannelId_}
+mkDeleteSchedule channelId = DeleteSchedule' {channelId}
 
 -- | Id of the channel whose schedule is being deleted.
 --
 -- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsChannelId :: Lens.Lens' DeleteSchedule Lude.Text
-dsChannelId = Lens.lens (channelId :: DeleteSchedule -> Lude.Text) (\s a -> s {channelId = a} :: DeleteSchedule)
+dsChannelId :: Lens.Lens' DeleteSchedule Core.Text
+dsChannelId = Lens.field @"channelId"
 {-# DEPRECATED dsChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
 
-instance Lude.AWSRequest DeleteSchedule where
+instance Core.AWSRequest DeleteSchedule where
   type Rs DeleteSchedule = DeleteScheduleResponse
-  request = Req.delete mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/prod/channels/" Core.<> (Core.toText channelId)
+                Core.<> ("/schedule")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteScheduleResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteScheduleResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSchedule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteSchedule where
-  toPath DeleteSchedule' {..} =
-    Lude.mconcat
-      ["/prod/channels/", Lude.toBS channelId, "/schedule"]
-
-instance Lude.ToQuery DeleteSchedule where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DeleteScheduleResponse
 --
 -- /See:/ 'mkDeleteScheduleResponse' smart constructor.
 newtype DeleteScheduleResponse = DeleteScheduleResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteScheduleResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteScheduleResponse' value with any optional fields omitted.
 mkDeleteScheduleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteScheduleResponse
-mkDeleteScheduleResponse pResponseStatus_ =
-  DeleteScheduleResponse' {responseStatus = pResponseStatus_}
+mkDeleteScheduleResponse responseStatus =
+  DeleteScheduleResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrsResponseStatus :: Lens.Lens' DeleteScheduleResponse Lude.Int
-dsrsResponseStatus = Lens.lens (responseStatus :: DeleteScheduleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteScheduleResponse)
-{-# DEPRECATED dsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrrsResponseStatus :: Lens.Lens' DeleteScheduleResponse Core.Int
+dsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

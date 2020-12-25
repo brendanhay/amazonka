@@ -36,146 +36,131 @@ module Network.AWS.WAFRegional.CreateIPSet
     mkCreateIPSet,
 
     -- ** Request lenses
-    cisName,
-    cisChangeToken,
+    cipsName,
+    cipsChangeToken,
 
     -- * Destructuring the response
     CreateIPSetResponse (..),
     mkCreateIPSetResponse,
 
     -- ** Response lenses
-    cisrsChangeToken,
-    cisrsIPSet,
-    cisrsResponseStatus,
+    cipsrrsChangeToken,
+    cipsrrsIPSet,
+    cipsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkCreateIPSet' smart constructor.
 data CreateIPSet = CreateIPSet'
   { -- | A friendly name or description of the 'IPSet' . You can't change @Name@ after you create the @IPSet@ .
-    name :: Lude.Text,
+    name :: Types.ResourceName,
     -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    changeToken :: Types.ChangeToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateIPSet' with the minimum fields required to make a request.
---
--- * 'name' - A friendly name or description of the 'IPSet' . You can't change @Name@ after you create the @IPSet@ .
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'CreateIPSet' value with any optional fields omitted.
 mkCreateIPSet ::
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
   CreateIPSet
-mkCreateIPSet pName_ pChangeToken_ =
-  CreateIPSet' {name = pName_, changeToken = pChangeToken_}
+mkCreateIPSet name changeToken = CreateIPSet' {name, changeToken}
 
 -- | A friendly name or description of the 'IPSet' . You can't change @Name@ after you create the @IPSet@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisName :: Lens.Lens' CreateIPSet Lude.Text
-cisName = Lens.lens (name :: CreateIPSet -> Lude.Text) (\s a -> s {name = a} :: CreateIPSet)
-{-# DEPRECATED cisName "Use generic-lens or generic-optics with 'name' instead." #-}
+cipsName :: Lens.Lens' CreateIPSet Types.ResourceName
+cipsName = Lens.field @"name"
+{-# DEPRECATED cipsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The value returned by the most recent call to 'GetChangeToken' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisChangeToken :: Lens.Lens' CreateIPSet Lude.Text
-cisChangeToken = Lens.lens (changeToken :: CreateIPSet -> Lude.Text) (\s a -> s {changeToken = a} :: CreateIPSet)
-{-# DEPRECATED cisChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+cipsChangeToken :: Lens.Lens' CreateIPSet Types.ChangeToken
+cipsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED cipsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
-instance Lude.AWSRequest CreateIPSet where
+instance Core.FromJSON CreateIPSet where
+  toJSON CreateIPSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("ChangeToken" Core..= changeToken)
+          ]
+      )
+
+instance Core.AWSRequest CreateIPSet where
   type Rs CreateIPSet = CreateIPSetResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_Regional_20161128.CreateIPSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateIPSetResponse'
-            Lude.<$> (x Lude..?> "ChangeToken")
-            Lude.<*> (x Lude..?> "IPSet")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken")
+            Core.<*> (x Core..:? "IPSet")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateIPSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.CreateIPSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateIPSet where
-  toJSON CreateIPSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Name" Lude..= name),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath CreateIPSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateIPSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateIPSetResponse' smart constructor.
 data CreateIPSetResponse = CreateIPSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The 'IPSet' returned in the @CreateIPSet@ response.
-    ipSet :: Lude.Maybe IPSet,
+    iPSet :: Core.Maybe Types.IPSet,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateIPSetResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'ipSet' - The 'IPSet' returned in the @CreateIPSet@ response.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateIPSetResponse' value with any optional fields omitted.
 mkCreateIPSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateIPSetResponse
-mkCreateIPSetResponse pResponseStatus_ =
+mkCreateIPSetResponse responseStatus =
   CreateIPSetResponse'
-    { changeToken = Lude.Nothing,
-      ipSet = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      iPSet = Core.Nothing,
+      responseStatus
     }
 
 -- | The @ChangeToken@ that you used to submit the @CreateIPSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisrsChangeToken :: Lens.Lens' CreateIPSetResponse (Lude.Maybe Lude.Text)
-cisrsChangeToken = Lens.lens (changeToken :: CreateIPSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: CreateIPSetResponse)
-{-# DEPRECATED cisrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+cipsrrsChangeToken :: Lens.Lens' CreateIPSetResponse (Core.Maybe Types.ChangeToken)
+cipsrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED cipsrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The 'IPSet' returned in the @CreateIPSet@ response.
 --
--- /Note:/ Consider using 'ipSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisrsIPSet :: Lens.Lens' CreateIPSetResponse (Lude.Maybe IPSet)
-cisrsIPSet = Lens.lens (ipSet :: CreateIPSetResponse -> Lude.Maybe IPSet) (\s a -> s {ipSet = a} :: CreateIPSetResponse)
-{-# DEPRECATED cisrsIPSet "Use generic-lens or generic-optics with 'ipSet' instead." #-}
+-- /Note:/ Consider using 'iPSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cipsrrsIPSet :: Lens.Lens' CreateIPSetResponse (Core.Maybe Types.IPSet)
+cipsrrsIPSet = Lens.field @"iPSet"
+{-# DEPRECATED cipsrrsIPSet "Use generic-lens or generic-optics with 'iPSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cisrsResponseStatus :: Lens.Lens' CreateIPSetResponse Lude.Int
-cisrsResponseStatus = Lens.lens (responseStatus :: CreateIPSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateIPSetResponse)
-{-# DEPRECATED cisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cipsrrsResponseStatus :: Lens.Lens' CreateIPSetResponse Core.Int
+cipsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cipsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

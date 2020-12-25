@@ -9,97 +9,82 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.AppSync.Types
   ( -- * Service configuration
-    appSyncService,
+    mkServiceConfig,
 
     -- * Errors
+    _ApiKeyValidityOutOfBoundsException,
+    _AccessDeniedException,
+    _ApiKeyLimitExceededException,
+    _ApiLimitExceededException,
+    _NotFoundException,
+    _GraphQLSchemaException,
+    _ConcurrentModificationException,
+    _InternalFailureException,
+    _UnauthorizedException,
+    _BadRequestException,
+    _LimitExceededException,
 
-    -- * APICacheStatus
-    APICacheStatus (..),
+    -- * MappingTemplate
+    MappingTemplate (..),
 
-    -- * APICacheType
-    APICacheType (..),
+    -- * ElasticsearchDataSourceConfig
+    ElasticsearchDataSourceConfig (..),
+    mkElasticsearchDataSourceConfig,
+    edscEndpoint,
+    edscAwsRegion,
 
-    -- * APICachingBehavior
-    APICachingBehavior (..),
+    -- * ApiCache
+    ApiCache (..),
+    mkApiCache,
+    acApiCachingBehavior,
+    acAtRestEncryptionEnabled,
+    acStatus,
+    acTransitEncryptionEnabled,
+    acTtl,
+    acType,
 
-    -- * AuthenticationType
-    AuthenticationType (..),
+    -- * PaginationToken
+    PaginationToken (..),
 
-    -- * AuthorizationType
-    AuthorizationType (..),
-
-    -- * ConflictDetectionType
-    ConflictDetectionType (..),
-
-    -- * ConflictHandlerType
-    ConflictHandlerType (..),
-
-    -- * DataSourceType
-    DataSourceType (..),
-
-    -- * DefaultAction
-    DefaultAction (..),
-
-    -- * FieldLogLevel
-    FieldLogLevel (..),
+    -- * ApiKey
+    ApiKey (..),
+    mkApiKey,
+    akDeletes,
+    akDescription,
+    akExpires,
+    akId,
 
     -- * OutputType
     OutputType (..),
 
-    -- * RelationalDatabaseSourceType
-    RelationalDatabaseSourceType (..),
+    -- * HttpDataSourceConfig
+    HttpDataSourceConfig (..),
+    mkHttpDataSourceConfig,
+    hdscAuthorizationConfig,
+    hdscEndpoint,
 
-    -- * ResolverKind
-    ResolverKind (..),
+    -- * DataSourceType
+    DataSourceType (..),
+
+    -- * ApiCachingBehavior
+    ApiCachingBehavior (..),
+
+    -- * ResourceName
+    ResourceName (..),
+
+    -- * String
+    String (..),
 
     -- * SchemaStatus
     SchemaStatus (..),
 
-    -- * TypeDefinitionFormat
-    TypeDefinitionFormat (..),
-
-    -- * APICache
-    APICache (..),
-    mkAPICache,
-    acTtl,
-    acStatus,
-    acAtRestEncryptionEnabled,
-    acTransitEncryptionEnabled,
-    acApiCachingBehavior,
-    acType,
-
-    -- * APIKey
-    APIKey (..),
-    mkAPIKey,
-    akExpires,
-    akDeletes,
-    akId,
-    akDescription,
-
-    -- * AWSIAMConfig
-    AWSIAMConfig (..),
-    mkAWSIAMConfig,
-    aicSigningServiceName,
-    aicSigningRegion,
-
-    -- * AdditionalAuthenticationProvider
-    AdditionalAuthenticationProvider (..),
-    mkAdditionalAuthenticationProvider,
-    aapOpenIdConnectConfig,
-    aapUserPoolConfig,
-    aapAuthenticationType,
-
-    -- * AuthorizationConfig
-    AuthorizationConfig (..),
-    mkAuthorizationConfig,
-    acAwsIAMConfig,
-    acAuthorizationType,
-
-    -- * CachingConfig
-    CachingConfig (..),
-    mkCachingConfig,
-    ccTtl,
-    ccCachingKeys,
+    -- * OpenIDConnectConfig
+    OpenIDConnectConfig (..),
+    mkOpenIDConnectConfig,
+    oidccIssuer,
+    oidccAuthTTL,
+    oidccClientId,
+    oidccIatTTL,
 
     -- * CognitoUserPoolConfig
     CognitoUserPoolConfig (..),
@@ -108,19 +93,111 @@ module Network.AWS.AppSync.Types
     cupcAwsRegion,
     cupcAppIdClientRegex,
 
+    -- * LambdaDataSourceConfig
+    LambdaDataSourceConfig (..),
+    mkLambdaDataSourceConfig,
+    ldscLambdaFunctionArn,
+
+    -- * FieldLogLevel
+    FieldLogLevel (..),
+
+    -- * ApiCacheStatus
+    ApiCacheStatus (..),
+
+    -- * CachingConfig
+    CachingConfig (..),
+    mkCachingConfig,
+    ccCachingKeys,
+    ccTtl,
+
+    -- * RelationalDatabaseSourceType
+    RelationalDatabaseSourceType (..),
+
+    -- * TypeDefinitionFormat
+    TypeDefinitionFormat (..),
+
+    -- * DynamodbDataSourceConfig
+    DynamodbDataSourceConfig (..),
+    mkDynamodbDataSourceConfig,
+    ddscTableName,
+    ddscAwsRegion,
+    ddscDeltaSyncConfig,
+    ddscUseCallerCredentials,
+    ddscVersioned,
+
+    -- * AuthorizationConfig
+    AuthorizationConfig (..),
+    mkAuthorizationConfig,
+    acAuthorizationType,
+    acAwsIamConfig,
+
+    -- * TagValue
+    TagValue (..),
+
+    -- * ApiCacheType
+    ApiCacheType (..),
+
+    -- * RdsHttpEndpointConfig
+    RdsHttpEndpointConfig (..),
+    mkRdsHttpEndpointConfig,
+    rhecAwsRegion,
+    rhecAwsSecretStoreArn,
+    rhecDatabaseName,
+    rhecDbClusterIdentifier,
+    rhecSchema,
+
+    -- * UserPoolConfig
+    UserPoolConfig (..),
+    mkUserPoolConfig,
+    upcUserPoolId,
+    upcAwsRegion,
+    upcDefaultAction,
+    upcAppIdClientRegex,
+
+    -- * ResourceArn
+    ResourceArn (..),
+
+    -- * AwsIamConfig
+    AwsIamConfig (..),
+    mkAwsIamConfig,
+    aicSigningRegion,
+    aicSigningServiceName,
+
+    -- * FunctionConfiguration
+    FunctionConfiguration (..),
+    mkFunctionConfiguration,
+    fcDataSourceName,
+    fcDescription,
+    fcFunctionArn,
+    fcFunctionId,
+    fcFunctionVersion,
+    fcName,
+    fcRequestMappingTemplate,
+    fcResponseMappingTemplate,
+
+    -- * DefaultAction
+    DefaultAction (..),
+
     -- * DataSource
     DataSource (..),
     mkDataSource,
-    dsServiceRoleARN,
-    dsRelationalDatabaseConfig,
-    dsDataSourceARN,
+    dsDataSourceArn,
+    dsDescription,
     dsDynamodbConfig,
-    dsName,
+    dsElasticsearchConfig,
     dsHttpConfig,
     dsLambdaConfig,
+    dsName,
+    dsRelationalDatabaseConfig,
+    dsServiceRoleArn,
     dsType,
-    dsDescription,
-    dsElasticsearchConfig,
+
+    -- * SyncConfig
+    SyncConfig (..),
+    mkSyncConfig,
+    scConflictDetection,
+    scConflictHandler,
+    scLambdaConflictHandlerConfig,
 
     -- * DeltaSyncConfig
     DeltaSyncConfig (..),
@@ -129,234 +206,319 @@ module Network.AWS.AppSync.Types
     dscDeltaSyncTableName,
     dscDeltaSyncTableTTL,
 
-    -- * DynamodbDataSourceConfig
-    DynamodbDataSourceConfig (..),
-    mkDynamodbDataSourceConfig,
-    ddscVersioned,
-    ddscUseCallerCredentials,
-    ddscDeltaSyncConfig,
-    ddscAwsRegion,
-    ddscTableName,
+    -- * TagKey
+    TagKey (..),
 
-    -- * ElasticsearchDataSourceConfig
-    ElasticsearchDataSourceConfig (..),
-    mkElasticsearchDataSourceConfig,
-    edscAwsRegion,
-    edscEndpoint,
-
-    -- * FunctionConfiguration
-    FunctionConfiguration (..),
-    mkFunctionConfiguration,
-    fcFunctionARN,
-    fcDataSourceName,
-    fcRequestMappingTemplate,
-    fcName,
-    fcFunctionId,
-    fcResponseMappingTemplate,
-    fcFunctionVersion,
-    fcDescription,
-
-    -- * GraphqlAPI
-    GraphqlAPI (..),
-    mkGraphqlAPI,
-    gaXrayEnabled,
-    gaArn,
-    gaApiId,
-    gaUris,
-    gaOpenIdConnectConfig,
-    gaWafWebACLARN,
-    gaAdditionalAuthenticationProviders,
-    gaName,
-    gaUserPoolConfig,
-    gaAuthenticationType,
-    gaLogConfig,
-    gaTags,
-
-    -- * HTTPDataSourceConfig
-    HTTPDataSourceConfig (..),
-    mkHTTPDataSourceConfig,
-    httpdscAuthorizationConfig,
-    httpdscEndpoint,
-
-    -- * LambdaConflictHandlerConfig
-    LambdaConflictHandlerConfig (..),
-    mkLambdaConflictHandlerConfig,
-    lchcLambdaConflictHandlerARN,
-
-    -- * LambdaDataSourceConfig
-    LambdaDataSourceConfig (..),
-    mkLambdaDataSourceConfig,
-    ldscLambdaFunctionARN,
-
-    -- * LogConfig
-    LogConfig (..),
-    mkLogConfig,
-    lcExcludeVerboseContent,
-    lcFieldLogLevel,
-    lcCloudWatchLogsRoleARN,
-
-    -- * OpenIdConnectConfig
-    OpenIdConnectConfig (..),
-    mkOpenIdConnectConfig,
-    oiccAuthTTL,
-    oiccClientId,
-    oiccIatTTL,
-    oiccIssuer,
-
-    -- * PipelineConfig
-    PipelineConfig (..),
-    mkPipelineConfig,
-    pcFunctions,
-
-    -- * RDSHTTPEndpointConfig
-    RDSHTTPEndpointConfig (..),
-    mkRDSHTTPEndpointConfig,
-    rhttpecDbClusterIdentifier,
-    rhttpecSchema,
-    rhttpecDatabaseName,
-    rhttpecAwsRegion,
-    rhttpecAwsSecretStoreARN,
-
-    -- * RelationalDatabaseDataSourceConfig
-    RelationalDatabaseDataSourceConfig (..),
-    mkRelationalDatabaseDataSourceConfig,
-    rddscRelationalDatabaseSourceType,
-    rddscRdsHTTPEndpointConfig,
-
-    -- * Resolver
-    Resolver (..),
-    mkResolver,
-    rTypeName,
-    rDataSourceName,
-    rRequestMappingTemplate,
-    rKind,
-    rResolverARN,
-    rCachingConfig,
-    rResponseMappingTemplate,
-    rFieldName,
-    rSyncConfig,
-    rPipelineConfig,
-
-    -- * SyncConfig
-    SyncConfig (..),
-    mkSyncConfig,
-    scConflictHandler,
-    scConflictDetection,
-    scLambdaConflictHandlerConfig,
+    -- * AuthenticationType
+    AuthenticationType (..),
 
     -- * Type
     Type (..),
     mkType,
     tArn,
     tDefinition,
+    tDescription,
     tFormat,
     tName,
-    tDescription,
 
-    -- * UserPoolConfig
-    UserPoolConfig (..),
-    mkUserPoolConfig,
-    upcUserPoolId,
-    upcDefaultAction,
-    upcAwsRegion,
-    upcAppIdClientRegex,
+    -- * PipelineConfig
+    PipelineConfig (..),
+    mkPipelineConfig,
+    pcFunctions,
+
+    -- * AdditionalAuthenticationProvider
+    AdditionalAuthenticationProvider (..),
+    mkAdditionalAuthenticationProvider,
+    aapAuthenticationType,
+    aapOpenIDConnectConfig,
+    aapUserPoolConfig,
+
+    -- * AuthorizationType
+    AuthorizationType (..),
+
+    -- * LambdaConflictHandlerConfig
+    LambdaConflictHandlerConfig (..),
+    mkLambdaConflictHandlerConfig,
+    lchcLambdaConflictHandlerArn,
+
+    -- * Resolver
+    Resolver (..),
+    mkResolver,
+    rCachingConfig,
+    rDataSourceName,
+    rFieldName,
+    rKind,
+    rPipelineConfig,
+    rRequestMappingTemplate,
+    rResolverArn,
+    rResponseMappingTemplate,
+    rSyncConfig,
+    rTypeName,
+
+    -- * ResolverKind
+    ResolverKind (..),
+
+    -- * ConflictHandlerType
+    ConflictHandlerType (..),
+
+    -- * LogConfig
+    LogConfig (..),
+    mkLogConfig,
+    lcFieldLogLevel,
+    lcCloudWatchLogsRoleArn,
+    lcExcludeVerboseContent,
+
+    -- * RelationalDatabaseDataSourceConfig
+    RelationalDatabaseDataSourceConfig (..),
+    mkRelationalDatabaseDataSourceConfig,
+    rddscRdsHttpEndpointConfig,
+    rddscRelationalDatabaseSourceType,
+
+    -- * ConflictDetectionType
+    ConflictDetectionType (..),
+
+    -- * GraphqlApi
+    GraphqlApi (..),
+    mkGraphqlApi,
+    gaAdditionalAuthenticationProviders,
+    gaApiId,
+    gaArn,
+    gaAuthenticationType,
+    gaLogConfig,
+    gaName,
+    gaOpenIDConnectConfig,
+    gaTags,
+    gaUris,
+    gaUserPoolConfig,
+    gaWafWebAclArn,
+    gaXrayEnabled,
+
+    -- * Name
+    Name (..),
+
+    -- * Endpoint
+    Endpoint (..),
+
+    -- * AwsRegion
+    AwsRegion (..),
+
+    -- * ApiId
+    ApiId (..),
+
+    -- * Id
+    Id (..),
+
+    -- * Description
+    Description (..),
+
+    -- * DataSourceName
+    DataSourceName (..),
+
+    -- * FunctionVersion
+    FunctionVersion (..),
+
+    -- * FunctionId
+    FunctionId (..),
   )
 where
 
-import Network.AWS.AppSync.Types.APICache
-import Network.AWS.AppSync.Types.APICacheStatus
-import Network.AWS.AppSync.Types.APICacheType
-import Network.AWS.AppSync.Types.APICachingBehavior
-import Network.AWS.AppSync.Types.APIKey
-import Network.AWS.AppSync.Types.AWSIAMConfig
 import Network.AWS.AppSync.Types.AdditionalAuthenticationProvider
+import Network.AWS.AppSync.Types.ApiCache
+import Network.AWS.AppSync.Types.ApiCacheStatus
+import Network.AWS.AppSync.Types.ApiCacheType
+import Network.AWS.AppSync.Types.ApiCachingBehavior
+import Network.AWS.AppSync.Types.ApiId
+import Network.AWS.AppSync.Types.ApiKey
 import Network.AWS.AppSync.Types.AuthenticationType
 import Network.AWS.AppSync.Types.AuthorizationConfig
 import Network.AWS.AppSync.Types.AuthorizationType
+import Network.AWS.AppSync.Types.AwsIamConfig
+import Network.AWS.AppSync.Types.AwsRegion
 import Network.AWS.AppSync.Types.CachingConfig
 import Network.AWS.AppSync.Types.CognitoUserPoolConfig
 import Network.AWS.AppSync.Types.ConflictDetectionType
 import Network.AWS.AppSync.Types.ConflictHandlerType
 import Network.AWS.AppSync.Types.DataSource
+import Network.AWS.AppSync.Types.DataSourceName
 import Network.AWS.AppSync.Types.DataSourceType
 import Network.AWS.AppSync.Types.DefaultAction
 import Network.AWS.AppSync.Types.DeltaSyncConfig
+import Network.AWS.AppSync.Types.Description
 import Network.AWS.AppSync.Types.DynamodbDataSourceConfig
 import Network.AWS.AppSync.Types.ElasticsearchDataSourceConfig
+import Network.AWS.AppSync.Types.Endpoint
 import Network.AWS.AppSync.Types.FieldLogLevel
 import Network.AWS.AppSync.Types.FunctionConfiguration
-import Network.AWS.AppSync.Types.GraphqlAPI
-import Network.AWS.AppSync.Types.HTTPDataSourceConfig
+import Network.AWS.AppSync.Types.FunctionId
+import Network.AWS.AppSync.Types.FunctionVersion
+import Network.AWS.AppSync.Types.GraphqlApi
+import Network.AWS.AppSync.Types.HttpDataSourceConfig
+import Network.AWS.AppSync.Types.Id
 import Network.AWS.AppSync.Types.LambdaConflictHandlerConfig
 import Network.AWS.AppSync.Types.LambdaDataSourceConfig
 import Network.AWS.AppSync.Types.LogConfig
-import Network.AWS.AppSync.Types.OpenIdConnectConfig
+import Network.AWS.AppSync.Types.MappingTemplate
+import Network.AWS.AppSync.Types.Name
+import Network.AWS.AppSync.Types.OpenIDConnectConfig
 import Network.AWS.AppSync.Types.OutputType
+import Network.AWS.AppSync.Types.PaginationToken
 import Network.AWS.AppSync.Types.PipelineConfig
-import Network.AWS.AppSync.Types.RDSHTTPEndpointConfig
+import Network.AWS.AppSync.Types.RdsHttpEndpointConfig
 import Network.AWS.AppSync.Types.RelationalDatabaseDataSourceConfig
 import Network.AWS.AppSync.Types.RelationalDatabaseSourceType
 import Network.AWS.AppSync.Types.Resolver
 import Network.AWS.AppSync.Types.ResolverKind
+import Network.AWS.AppSync.Types.ResourceArn
+import Network.AWS.AppSync.Types.ResourceName
 import Network.AWS.AppSync.Types.SchemaStatus
+import Network.AWS.AppSync.Types.String
 import Network.AWS.AppSync.Types.SyncConfig
+import Network.AWS.AppSync.Types.TagKey
+import Network.AWS.AppSync.Types.TagValue
 import Network.AWS.AppSync.Types.Type
 import Network.AWS.AppSync.Types.TypeDefinitionFormat
 import Network.AWS.AppSync.Types.UserPoolConfig
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-07-25@ of the Amazon AppSync SDK configuration.
-appSyncService :: Lude.Service
-appSyncService =
-  Lude.Service
-    { Lude._svcAbbrev = "AppSync",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "appsync",
-      Lude._svcVersion = "2017-07-25",
-      Lude._svcEndpoint = Lude.defaultEndpoint appSyncService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "AppSync",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "AppSync",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "appsync",
+      Core._svcVersion = "2017-07-25",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "AppSync",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | The API key expiration must be set to a value between 1 and 365 days from creation (for @CreateApiKey@ ) or from update (for @UpdateApiKey@ ).
+_ApiKeyValidityOutOfBoundsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ApiKeyValidityOutOfBoundsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ApiKeyValidityOutOfBoundsException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ApiKeyValidityOutOfBoundsException "Use generic-lens or generic-optics instead." #-}
+
+-- | You do not have access to perform this operation on this resource.
+_AccessDeniedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_AccessDeniedException =
+  Core._MatchServiceError mkServiceConfig "AccessDeniedException"
+    Core.. Core.hasStatues 403
+{-# DEPRECATED _AccessDeniedException "Use generic-lens or generic-optics instead." #-}
+
+-- | The API key exceeded a limit. Try your request again.
+_ApiKeyLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ApiKeyLimitExceededException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ApiKeyLimitExceededException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ApiKeyLimitExceededException "Use generic-lens or generic-optics instead." #-}
+
+-- | The GraphQL API exceeded a limit. Try your request again.
+_ApiLimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ApiLimitExceededException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ApiLimitExceededException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _ApiLimitExceededException "Use generic-lens or generic-optics instead." #-}
+
+-- | The resource specified in the request was not found. Check the resource, and then try again.
+_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError mkServiceConfig "NotFoundException"
+    Core.. Core.hasStatues 404
+{-# DEPRECATED _NotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The GraphQL schema is not valid.
+_GraphQLSchemaException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_GraphQLSchemaException =
+  Core._MatchServiceError mkServiceConfig "GraphQLSchemaException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _GraphQLSchemaException "Use generic-lens or generic-optics instead." #-}
+
+-- | Another modification is in progress at this time and it must complete before you can make your change.
+_ConcurrentModificationException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConcurrentModificationException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ConcurrentModificationException"
+    Core.. Core.hasStatues 409
+{-# DEPRECATED _ConcurrentModificationException "Use generic-lens or generic-optics instead." #-}
+
+-- | An internal AWS AppSync error occurred. Try your request again.
+_InternalFailureException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalFailureException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InternalFailureException"
+    Core.. Core.hasStatues 500
+{-# DEPRECATED _InternalFailureException "Use generic-lens or generic-optics instead." #-}
+
+-- | You are not authorized to perform this operation.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
+  Core._MatchServiceError mkServiceConfig "UnauthorizedException"
+    Core.. Core.hasStatues 401
+{-# DEPRECATED _UnauthorizedException "Use generic-lens or generic-optics instead." #-}
+
+-- | The request is not well formed. For example, a value is invalid or a required field is missing. Check the field values, and then try again.
+_BadRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError mkServiceConfig "BadRequestException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _BadRequestException "Use generic-lens or generic-optics instead." #-}
+
+-- | The request exceeded a limit. Try your request again.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError mkServiceConfig "LimitExceededException"
+    Core.. Core.hasStatues 429
+{-# DEPRECATED _LimitExceededException "Use generic-lens or generic-optics instead." #-}

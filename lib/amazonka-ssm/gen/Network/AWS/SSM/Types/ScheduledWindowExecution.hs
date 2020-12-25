@@ -24,64 +24,61 @@ module Network.AWS.SSM.Types.ScheduledWindowExecution
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.ExecutionTime as Types
+import qualified Network.AWS.SSM.Types.Name as Types
+import qualified Network.AWS.SSM.Types.WindowId as Types
 
 -- | Information about a scheduled execution for a maintenance window.
 --
 -- /See:/ 'mkScheduledWindowExecution' smart constructor.
 data ScheduledWindowExecution = ScheduledWindowExecution'
   { -- | The time, in ISO-8601 Extended format, that the maintenance window is scheduled to be run.
-    executionTime :: Lude.Maybe Lude.Text,
+    executionTime :: Core.Maybe Types.ExecutionTime,
     -- | The name of the maintenance window to be run.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
     -- | The ID of the maintenance window to be run.
-    windowId :: Lude.Maybe Lude.Text
+    windowId :: Core.Maybe Types.WindowId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduledWindowExecution' with the minimum fields required to make a request.
---
--- * 'executionTime' - The time, in ISO-8601 Extended format, that the maintenance window is scheduled to be run.
--- * 'name' - The name of the maintenance window to be run.
--- * 'windowId' - The ID of the maintenance window to be run.
+-- | Creates a 'ScheduledWindowExecution' value with any optional fields omitted.
 mkScheduledWindowExecution ::
   ScheduledWindowExecution
 mkScheduledWindowExecution =
   ScheduledWindowExecution'
-    { executionTime = Lude.Nothing,
-      name = Lude.Nothing,
-      windowId = Lude.Nothing
+    { executionTime = Core.Nothing,
+      name = Core.Nothing,
+      windowId = Core.Nothing
     }
 
 -- | The time, in ISO-8601 Extended format, that the maintenance window is scheduled to be run.
 --
 -- /Note:/ Consider using 'executionTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sweExecutionTime :: Lens.Lens' ScheduledWindowExecution (Lude.Maybe Lude.Text)
-sweExecutionTime = Lens.lens (executionTime :: ScheduledWindowExecution -> Lude.Maybe Lude.Text) (\s a -> s {executionTime = a} :: ScheduledWindowExecution)
+sweExecutionTime :: Lens.Lens' ScheduledWindowExecution (Core.Maybe Types.ExecutionTime)
+sweExecutionTime = Lens.field @"executionTime"
 {-# DEPRECATED sweExecutionTime "Use generic-lens or generic-optics with 'executionTime' instead." #-}
 
 -- | The name of the maintenance window to be run.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sweName :: Lens.Lens' ScheduledWindowExecution (Lude.Maybe Lude.Text)
-sweName = Lens.lens (name :: ScheduledWindowExecution -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ScheduledWindowExecution)
+sweName :: Lens.Lens' ScheduledWindowExecution (Core.Maybe Types.Name)
+sweName = Lens.field @"name"
 {-# DEPRECATED sweName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the maintenance window to be run.
 --
 -- /Note:/ Consider using 'windowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sweWindowId :: Lens.Lens' ScheduledWindowExecution (Lude.Maybe Lude.Text)
-sweWindowId = Lens.lens (windowId :: ScheduledWindowExecution -> Lude.Maybe Lude.Text) (\s a -> s {windowId = a} :: ScheduledWindowExecution)
+sweWindowId :: Lens.Lens' ScheduledWindowExecution (Core.Maybe Types.WindowId)
+sweWindowId = Lens.field @"windowId"
 {-# DEPRECATED sweWindowId "Use generic-lens or generic-optics with 'windowId' instead." #-}
 
-instance Lude.FromJSON ScheduledWindowExecution where
+instance Core.FromJSON ScheduledWindowExecution where
   parseJSON =
-    Lude.withObject
-      "ScheduledWindowExecution"
-      ( \x ->
-          ScheduledWindowExecution'
-            Lude.<$> (x Lude..:? "ExecutionTime")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "WindowId")
-      )
+    Core.withObject "ScheduledWindowExecution" Core.$
+      \x ->
+        ScheduledWindowExecution'
+          Core.<$> (x Core..:? "ExecutionTime")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "WindowId")

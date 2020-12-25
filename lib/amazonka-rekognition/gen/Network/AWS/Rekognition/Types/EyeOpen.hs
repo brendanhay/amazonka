@@ -17,54 +17,49 @@ module Network.AWS.Rekognition.Types.EyeOpen
     mkEyeOpen,
 
     -- * Lenses
-    eoValue,
     eoConfidence,
+    eoValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether or not the eyes on the face are open, and the confidence level in the determination.
 --
 -- /See:/ 'mkEyeOpen' smart constructor.
 data EyeOpen = EyeOpen'
-  { -- | Boolean value that indicates whether the eyes on the face are open.
-    value :: Lude.Maybe Lude.Bool,
-    -- | Level of confidence in the determination.
-    confidence :: Lude.Maybe Lude.Double
+  { -- | Level of confidence in the determination.
+    confidence :: Core.Maybe Core.Double,
+    -- | Boolean value that indicates whether the eyes on the face are open.
+    value :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EyeOpen' with the minimum fields required to make a request.
---
--- * 'value' - Boolean value that indicates whether the eyes on the face are open.
--- * 'confidence' - Level of confidence in the determination.
+-- | Creates a 'EyeOpen' value with any optional fields omitted.
 mkEyeOpen ::
   EyeOpen
 mkEyeOpen =
-  EyeOpen' {value = Lude.Nothing, confidence = Lude.Nothing}
-
--- | Boolean value that indicates whether the eyes on the face are open.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eoValue :: Lens.Lens' EyeOpen (Lude.Maybe Lude.Bool)
-eoValue = Lens.lens (value :: EyeOpen -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: EyeOpen)
-{-# DEPRECATED eoValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  EyeOpen' {confidence = Core.Nothing, value = Core.Nothing}
 
 -- | Level of confidence in the determination.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eoConfidence :: Lens.Lens' EyeOpen (Lude.Maybe Lude.Double)
-eoConfidence = Lens.lens (confidence :: EyeOpen -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: EyeOpen)
+eoConfidence :: Lens.Lens' EyeOpen (Core.Maybe Core.Double)
+eoConfidence = Lens.field @"confidence"
 {-# DEPRECATED eoConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance Lude.FromJSON EyeOpen where
+-- | Boolean value that indicates whether the eyes on the face are open.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eoValue :: Lens.Lens' EyeOpen (Core.Maybe Core.Bool)
+eoValue = Lens.field @"value"
+{-# DEPRECATED eoValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON EyeOpen where
   parseJSON =
-    Lude.withObject
-      "EyeOpen"
-      ( \x ->
-          EyeOpen'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
-      )
+    Core.withObject "EyeOpen" Core.$
+      \x ->
+        EyeOpen'
+          Core.<$> (x Core..:? "Confidence") Core.<*> (x Core..:? "Value")

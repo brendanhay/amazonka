@@ -22,49 +22,47 @@ module Network.AWS.EC2.Types.CancelSpotFleetRequestsError
   )
 where
 
-import Network.AWS.EC2.Types.CancelBatchErrorCode
+import qualified Network.AWS.EC2.Types.CancelBatchErrorCode as Types
+import qualified Network.AWS.EC2.Types.Message as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a Spot Fleet error.
 --
 -- /See:/ 'mkCancelSpotFleetRequestsError' smart constructor.
 data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'
   { -- | The error code.
-    code :: Lude.Maybe CancelBatchErrorCode,
+    code :: Core.Maybe Types.CancelBatchErrorCode,
     -- | The description for the error code.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.Message
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CancelSpotFleetRequestsError' with the minimum fields required to make a request.
---
--- * 'code' - The error code.
--- * 'message' - The description for the error code.
+-- | Creates a 'CancelSpotFleetRequestsError' value with any optional fields omitted.
 mkCancelSpotFleetRequestsError ::
   CancelSpotFleetRequestsError
 mkCancelSpotFleetRequestsError =
   CancelSpotFleetRequestsError'
-    { code = Lude.Nothing,
-      message = Lude.Nothing
+    { code = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The error code.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfreCode :: Lens.Lens' CancelSpotFleetRequestsError (Lude.Maybe CancelBatchErrorCode)
-csfreCode = Lens.lens (code :: CancelSpotFleetRequestsError -> Lude.Maybe CancelBatchErrorCode) (\s a -> s {code = a} :: CancelSpotFleetRequestsError)
+csfreCode :: Lens.Lens' CancelSpotFleetRequestsError (Core.Maybe Types.CancelBatchErrorCode)
+csfreCode = Lens.field @"code"
 {-# DEPRECATED csfreCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The description for the error code.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csfreMessage :: Lens.Lens' CancelSpotFleetRequestsError (Lude.Maybe Lude.Text)
-csfreMessage = Lens.lens (message :: CancelSpotFleetRequestsError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: CancelSpotFleetRequestsError)
+csfreMessage :: Lens.Lens' CancelSpotFleetRequestsError (Core.Maybe Types.Message)
+csfreMessage = Lens.field @"message"
 {-# DEPRECATED csfreMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML CancelSpotFleetRequestsError where
+instance Core.FromXML CancelSpotFleetRequestsError where
   parseXML x =
     CancelSpotFleetRequestsError'
-      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")
+      Core.<$> (x Core..@? "code") Core.<*> (x Core..@? "message")

@@ -20,8 +20,8 @@ module Network.AWS.IoT.CreateBillingGroup
     mkCreateBillingGroup,
 
     -- ** Request lenses
-    cbgBillingGroupProperties,
     cbgBillingGroupName,
+    cbgBillingGroupProperties,
     cbgTags,
 
     -- * Destructuring the response
@@ -29,157 +29,148 @@ module Network.AWS.IoT.CreateBillingGroup
     mkCreateBillingGroupResponse,
 
     -- ** Response lenses
-    cbgrsBillingGroupARN,
-    cbgrsBillingGroupName,
-    cbgrsBillingGroupId,
-    cbgrsResponseStatus,
+    cbgrrsBillingGroupArn,
+    cbgrrsBillingGroupId,
+    cbgrrsBillingGroupName,
+    cbgrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateBillingGroup' smart constructor.
 data CreateBillingGroup = CreateBillingGroup'
-  { -- | The properties of the billing group.
-    billingGroupProperties :: Lude.Maybe BillingGroupProperties,
-    -- | The name you wish to give to the billing group.
-    billingGroupName :: Lude.Text,
+  { -- | The name you wish to give to the billing group.
+    billingGroupName :: Types.BillingGroupName,
+    -- | The properties of the billing group.
+    billingGroupProperties :: Core.Maybe Types.BillingGroupProperties,
     -- | Metadata which can be used to manage the billing group.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateBillingGroup' with the minimum fields required to make a request.
---
--- * 'billingGroupProperties' - The properties of the billing group.
--- * 'billingGroupName' - The name you wish to give to the billing group.
--- * 'tags' - Metadata which can be used to manage the billing group.
+-- | Creates a 'CreateBillingGroup' value with any optional fields omitted.
 mkCreateBillingGroup ::
   -- | 'billingGroupName'
-  Lude.Text ->
+  Types.BillingGroupName ->
   CreateBillingGroup
-mkCreateBillingGroup pBillingGroupName_ =
+mkCreateBillingGroup billingGroupName =
   CreateBillingGroup'
-    { billingGroupProperties = Lude.Nothing,
-      billingGroupName = pBillingGroupName_,
-      tags = Lude.Nothing
+    { billingGroupName,
+      billingGroupProperties = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The properties of the billing group.
---
--- /Note:/ Consider using 'billingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbgBillingGroupProperties :: Lens.Lens' CreateBillingGroup (Lude.Maybe BillingGroupProperties)
-cbgBillingGroupProperties = Lens.lens (billingGroupProperties :: CreateBillingGroup -> Lude.Maybe BillingGroupProperties) (\s a -> s {billingGroupProperties = a} :: CreateBillingGroup)
-{-# DEPRECATED cbgBillingGroupProperties "Use generic-lens or generic-optics with 'billingGroupProperties' instead." #-}
 
 -- | The name you wish to give to the billing group.
 --
 -- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbgBillingGroupName :: Lens.Lens' CreateBillingGroup Lude.Text
-cbgBillingGroupName = Lens.lens (billingGroupName :: CreateBillingGroup -> Lude.Text) (\s a -> s {billingGroupName = a} :: CreateBillingGroup)
+cbgBillingGroupName :: Lens.Lens' CreateBillingGroup Types.BillingGroupName
+cbgBillingGroupName = Lens.field @"billingGroupName"
 {-# DEPRECATED cbgBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
+
+-- | The properties of the billing group.
+--
+-- /Note:/ Consider using 'billingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbgBillingGroupProperties :: Lens.Lens' CreateBillingGroup (Core.Maybe Types.BillingGroupProperties)
+cbgBillingGroupProperties = Lens.field @"billingGroupProperties"
+{-# DEPRECATED cbgBillingGroupProperties "Use generic-lens or generic-optics with 'billingGroupProperties' instead." #-}
 
 -- | Metadata which can be used to manage the billing group.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbgTags :: Lens.Lens' CreateBillingGroup (Lude.Maybe [Tag])
-cbgTags = Lens.lens (tags :: CreateBillingGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateBillingGroup)
+cbgTags :: Lens.Lens' CreateBillingGroup (Core.Maybe [Types.Tag])
+cbgTags = Lens.field @"tags"
 {-# DEPRECATED cbgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateBillingGroup where
-  type Rs CreateBillingGroup = CreateBillingGroupResponse
-  request = Req.postJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateBillingGroupResponse'
-            Lude.<$> (x Lude..?> "billingGroupArn")
-            Lude.<*> (x Lude..?> "billingGroupName")
-            Lude.<*> (x Lude..?> "billingGroupId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateBillingGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateBillingGroup where
-  toJSON CreateBillingGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("billingGroupProperties" Lude..=)
-              Lude.<$> billingGroupProperties,
-            ("tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreateBillingGroup where
+  toJSON CreateBillingGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("billingGroupProperties" Core..=)
+              Core.<$> billingGroupProperties,
+            ("tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToPath CreateBillingGroup where
-  toPath CreateBillingGroup' {..} =
-    Lude.mconcat ["/billing-groups/", Lude.toBS billingGroupName]
-
-instance Lude.ToQuery CreateBillingGroup where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateBillingGroup where
+  type Rs CreateBillingGroup = CreateBillingGroupResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ("/billing-groups/" Core.<> (Core.toText billingGroupName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateBillingGroupResponse'
+            Core.<$> (x Core..:? "billingGroupArn")
+            Core.<*> (x Core..:? "billingGroupId")
+            Core.<*> (x Core..:? "billingGroupName")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateBillingGroupResponse' smart constructor.
 data CreateBillingGroupResponse = CreateBillingGroupResponse'
   { -- | The ARN of the billing group.
-    billingGroupARN :: Lude.Maybe Lude.Text,
-    -- | The name you gave to the billing group.
-    billingGroupName :: Lude.Maybe Lude.Text,
+    billingGroupArn :: Core.Maybe Types.BillingGroupArn,
     -- | The ID of the billing group.
-    billingGroupId :: Lude.Maybe Lude.Text,
+    billingGroupId :: Core.Maybe Types.BillingGroupId,
+    -- | The name you gave to the billing group.
+    billingGroupName :: Core.Maybe Types.BillingGroupName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateBillingGroupResponse' with the minimum fields required to make a request.
---
--- * 'billingGroupARN' - The ARN of the billing group.
--- * 'billingGroupName' - The name you gave to the billing group.
--- * 'billingGroupId' - The ID of the billing group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateBillingGroupResponse' value with any optional fields omitted.
 mkCreateBillingGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateBillingGroupResponse
-mkCreateBillingGroupResponse pResponseStatus_ =
+mkCreateBillingGroupResponse responseStatus =
   CreateBillingGroupResponse'
-    { billingGroupARN = Lude.Nothing,
-      billingGroupName = Lude.Nothing,
-      billingGroupId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { billingGroupArn = Core.Nothing,
+      billingGroupId = Core.Nothing,
+      billingGroupName = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the billing group.
 --
--- /Note:/ Consider using 'billingGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbgrsBillingGroupARN :: Lens.Lens' CreateBillingGroupResponse (Lude.Maybe Lude.Text)
-cbgrsBillingGroupARN = Lens.lens (billingGroupARN :: CreateBillingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupARN = a} :: CreateBillingGroupResponse)
-{-# DEPRECATED cbgrsBillingGroupARN "Use generic-lens or generic-optics with 'billingGroupARN' instead." #-}
-
--- | The name you gave to the billing group.
---
--- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbgrsBillingGroupName :: Lens.Lens' CreateBillingGroupResponse (Lude.Maybe Lude.Text)
-cbgrsBillingGroupName = Lens.lens (billingGroupName :: CreateBillingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupName = a} :: CreateBillingGroupResponse)
-{-# DEPRECATED cbgrsBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
+-- /Note:/ Consider using 'billingGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbgrrsBillingGroupArn :: Lens.Lens' CreateBillingGroupResponse (Core.Maybe Types.BillingGroupArn)
+cbgrrsBillingGroupArn = Lens.field @"billingGroupArn"
+{-# DEPRECATED cbgrrsBillingGroupArn "Use generic-lens or generic-optics with 'billingGroupArn' instead." #-}
 
 -- | The ID of the billing group.
 --
 -- /Note:/ Consider using 'billingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbgrsBillingGroupId :: Lens.Lens' CreateBillingGroupResponse (Lude.Maybe Lude.Text)
-cbgrsBillingGroupId = Lens.lens (billingGroupId :: CreateBillingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {billingGroupId = a} :: CreateBillingGroupResponse)
-{-# DEPRECATED cbgrsBillingGroupId "Use generic-lens or generic-optics with 'billingGroupId' instead." #-}
+cbgrrsBillingGroupId :: Lens.Lens' CreateBillingGroupResponse (Core.Maybe Types.BillingGroupId)
+cbgrrsBillingGroupId = Lens.field @"billingGroupId"
+{-# DEPRECATED cbgrrsBillingGroupId "Use generic-lens or generic-optics with 'billingGroupId' instead." #-}
+
+-- | The name you gave to the billing group.
+--
+-- /Note:/ Consider using 'billingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbgrrsBillingGroupName :: Lens.Lens' CreateBillingGroupResponse (Core.Maybe Types.BillingGroupName)
+cbgrrsBillingGroupName = Lens.field @"billingGroupName"
+{-# DEPRECATED cbgrrsBillingGroupName "Use generic-lens or generic-optics with 'billingGroupName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbgrsResponseStatus :: Lens.Lens' CreateBillingGroupResponse Lude.Int
-cbgrsResponseStatus = Lens.lens (responseStatus :: CreateBillingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBillingGroupResponse)
-{-# DEPRECATED cbgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cbgrrsResponseStatus :: Lens.Lens' CreateBillingGroupResponse Core.Int
+cbgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cbgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

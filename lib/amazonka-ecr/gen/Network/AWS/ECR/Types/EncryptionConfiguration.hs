@@ -22,9 +22,10 @@ module Network.AWS.ECR.Types.EncryptionConfiguration
   )
 where
 
-import Network.AWS.ECR.Types.EncryptionType
+import qualified Network.AWS.ECR.Types.EncryptionType as Types
+import qualified Network.AWS.ECR.Types.KmsKey as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The encryption configuration for the repository. This determines how the contents of your repository are encrypted at rest.
 --
@@ -37,29 +38,20 @@ data EncryptionConfiguration = EncryptionConfiguration'
     --
     -- If you use the @KMS@ encryption type, the contents of the repository will be encrypted using server-side encryption with customer master keys (CMKs) stored in AWS KMS. When you use AWS KMS to encrypt your data, you can either use the default AWS managed CMK for Amazon ECR, or specify your own CMK, which you already created. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html Protecting Data Using Server-Side Encryption with CMKs Stored in AWS Key Management Service (SSE-KMS)> in the /Amazon Simple Storage Service Console Developer Guide./ .
     -- If you use the @AES256@ encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html Protecting Data Using Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3)> in the /Amazon Simple Storage Service Console Developer Guide./ .
-    encryptionType :: EncryptionType,
+    encryptionType :: Types.EncryptionType,
     -- | If you use the @KMS@ encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.
-    kmsKey :: Lude.Maybe Lude.Text
+    kmsKey :: Core.Maybe Types.KmsKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EncryptionConfiguration' with the minimum fields required to make a request.
---
--- * 'encryptionType' - The encryption type to use.
---
--- If you use the @KMS@ encryption type, the contents of the repository will be encrypted using server-side encryption with customer master keys (CMKs) stored in AWS KMS. When you use AWS KMS to encrypt your data, you can either use the default AWS managed CMK for Amazon ECR, or specify your own CMK, which you already created. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html Protecting Data Using Server-Side Encryption with CMKs Stored in AWS Key Management Service (SSE-KMS)> in the /Amazon Simple Storage Service Console Developer Guide./ .
--- If you use the @AES256@ encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html Protecting Data Using Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3)> in the /Amazon Simple Storage Service Console Developer Guide./ .
--- * 'kmsKey' - If you use the @KMS@ encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.
+-- | Creates a 'EncryptionConfiguration' value with any optional fields omitted.
 mkEncryptionConfiguration ::
   -- | 'encryptionType'
-  EncryptionType ->
+  Types.EncryptionType ->
   EncryptionConfiguration
-mkEncryptionConfiguration pEncryptionType_ =
-  EncryptionConfiguration'
-    { encryptionType = pEncryptionType_,
-      kmsKey = Lude.Nothing
-    }
+mkEncryptionConfiguration encryptionType =
+  EncryptionConfiguration' {encryptionType, kmsKey = Core.Nothing}
 
 -- | The encryption type to use.
 --
@@ -67,31 +59,29 @@ mkEncryptionConfiguration pEncryptionType_ =
 -- If you use the @AES256@ encryption type, Amazon ECR uses server-side encryption with Amazon S3-managed encryption keys which encrypts the images in the repository using an AES-256 encryption algorithm. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html Protecting Data Using Server-Side Encryption with Amazon S3-Managed Encryption Keys (SSE-S3)> in the /Amazon Simple Storage Service Console Developer Guide./ .
 --
 -- /Note:/ Consider using 'encryptionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecEncryptionType :: Lens.Lens' EncryptionConfiguration EncryptionType
-ecEncryptionType = Lens.lens (encryptionType :: EncryptionConfiguration -> EncryptionType) (\s a -> s {encryptionType = a} :: EncryptionConfiguration)
+ecEncryptionType :: Lens.Lens' EncryptionConfiguration Types.EncryptionType
+ecEncryptionType = Lens.field @"encryptionType"
 {-# DEPRECATED ecEncryptionType "Use generic-lens or generic-optics with 'encryptionType' instead." #-}
 
 -- | If you use the @KMS@ encryption type, specify the CMK to use for encryption. The alias, key ID, or full ARN of the CMK can be specified. The key must exist in the same Region as the repository. If no key is specified, the default AWS managed CMK for Amazon ECR will be used.
 --
 -- /Note:/ Consider using 'kmsKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecKmsKey :: Lens.Lens' EncryptionConfiguration (Lude.Maybe Lude.Text)
-ecKmsKey = Lens.lens (kmsKey :: EncryptionConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {kmsKey = a} :: EncryptionConfiguration)
+ecKmsKey :: Lens.Lens' EncryptionConfiguration (Core.Maybe Types.KmsKey)
+ecKmsKey = Lens.field @"kmsKey"
 {-# DEPRECATED ecKmsKey "Use generic-lens or generic-optics with 'kmsKey' instead." #-}
 
-instance Lude.FromJSON EncryptionConfiguration where
-  parseJSON =
-    Lude.withObject
-      "EncryptionConfiguration"
-      ( \x ->
-          EncryptionConfiguration'
-            Lude.<$> (x Lude..: "encryptionType") Lude.<*> (x Lude..:? "kmsKey")
-      )
-
-instance Lude.ToJSON EncryptionConfiguration where
-  toJSON EncryptionConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("encryptionType" Lude..= encryptionType),
-            ("kmsKey" Lude..=) Lude.<$> kmsKey
+instance Core.FromJSON EncryptionConfiguration where
+  toJSON EncryptionConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("encryptionType" Core..= encryptionType),
+            ("kmsKey" Core..=) Core.<$> kmsKey
           ]
       )
+
+instance Core.FromJSON EncryptionConfiguration where
+  parseJSON =
+    Core.withObject "EncryptionConfiguration" Core.$
+      \x ->
+        EncryptionConfiguration'
+          Core.<$> (x Core..: "encryptionType") Core.<*> (x Core..:? "kmsKey")

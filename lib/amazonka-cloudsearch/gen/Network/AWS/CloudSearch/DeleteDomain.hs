@@ -27,104 +27,101 @@ module Network.AWS.CloudSearch.DeleteDomain
     mkDeleteDomainResponse,
 
     -- ** Response lenses
-    ddrsDomainStatus,
-    ddrsResponseStatus,
+    ddrrsDomainStatus,
+    ddrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DeleteDomain' @ operation. Specifies the name of the domain you want to delete.
 --
 -- /See:/ 'mkDeleteDomain' smart constructor.
 newtype DeleteDomain = DeleteDomain'
   { -- | The name of the domain you want to permanently delete.
-    domainName :: Lude.Text
+    domainName :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDomain' with the minimum fields required to make a request.
---
--- * 'domainName' - The name of the domain you want to permanently delete.
+-- | Creates a 'DeleteDomain' value with any optional fields omitted.
 mkDeleteDomain ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   DeleteDomain
-mkDeleteDomain pDomainName_ =
-  DeleteDomain' {domainName = pDomainName_}
+mkDeleteDomain domainName = DeleteDomain' {domainName}
 
 -- | The name of the domain you want to permanently delete.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDomainName :: Lens.Lens' DeleteDomain Lude.Text
-ddDomainName = Lens.lens (domainName :: DeleteDomain -> Lude.Text) (\s a -> s {domainName = a} :: DeleteDomain)
+ddDomainName :: Lens.Lens' DeleteDomain Types.DomainName
+ddDomainName = Lens.field @"domainName"
 {-# DEPRECATED ddDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest DeleteDomain where
+instance Core.AWSRequest DeleteDomain where
   type Rs DeleteDomain = DeleteDomainResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteDomain")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteDomainResult"
       ( \s h x ->
           DeleteDomainResponse'
-            Lude.<$> (x Lude..@? "DomainStatus") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DomainStatus") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDomain where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteDomain where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDomain where
-  toQuery DeleteDomain' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteDomain" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | The result of a @DeleteDomain@ request. Contains the status of a newly deleted domain, or no status if the domain has already been completely deleted.
 --
 -- /See:/ 'mkDeleteDomainResponse' smart constructor.
 data DeleteDomainResponse = DeleteDomainResponse'
-  { domainStatus :: Lude.Maybe DomainStatus,
+  { domainStatus :: Core.Maybe Types.DomainStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDomainResponse' with the minimum fields required to make a request.
---
--- * 'domainStatus' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDomainResponse' value with any optional fields omitted.
 mkDeleteDomainResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDomainResponse
-mkDeleteDomainResponse pResponseStatus_ =
+mkDeleteDomainResponse responseStatus =
   DeleteDomainResponse'
-    { domainStatus = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { domainStatus = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsDomainStatus :: Lens.Lens' DeleteDomainResponse (Lude.Maybe DomainStatus)
-ddrsDomainStatus = Lens.lens (domainStatus :: DeleteDomainResponse -> Lude.Maybe DomainStatus) (\s a -> s {domainStatus = a} :: DeleteDomainResponse)
-{-# DEPRECATED ddrsDomainStatus "Use generic-lens or generic-optics with 'domainStatus' instead." #-}
+ddrrsDomainStatus :: Lens.Lens' DeleteDomainResponse (Core.Maybe Types.DomainStatus)
+ddrrsDomainStatus = Lens.field @"domainStatus"
+{-# DEPRECATED ddrrsDomainStatus "Use generic-lens or generic-optics with 'domainStatus' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsResponseStatus :: Lens.Lens' DeleteDomainResponse Lude.Int
-ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDomainResponse)
-{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrrsResponseStatus :: Lens.Lens' DeleteDomainResponse Core.Int
+ddrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

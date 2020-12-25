@@ -17,22 +17,24 @@ module Network.AWS.EC2.Types.HistoryRecord
     mkHistoryRecord,
 
     -- * Lenses
-    hrEventType,
     hrEventInformation,
+    hrEventType,
     hrTimestamp,
   )
 where
 
-import Network.AWS.EC2.Types.EventInformation
-import Network.AWS.EC2.Types.EventType
+import qualified Network.AWS.EC2.Types.EventInformation as Types
+import qualified Network.AWS.EC2.Types.EventType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an event in the history of the Spot Fleet request.
 --
 -- /See:/ 'mkHistoryRecord' smart constructor.
 data HistoryRecord = HistoryRecord'
-  { -- | The event type.
+  { -- | Information about the event.
+    eventInformation :: Core.Maybe Types.EventInformation,
+    -- | The event type.
     --
     --
     --     * @error@ - An error with the Spot Fleet request.
@@ -45,42 +47,29 @@ data HistoryRecord = HistoryRecord'
     --
     --
     --     * @Information@ - An informational event.
-    eventType :: Lude.Maybe EventType,
-    -- | Information about the event.
-    eventInformation :: Lude.Maybe EventInformation,
+    eventType :: Core.Maybe Types.EventType,
     -- | The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-    timestamp :: Lude.Maybe Lude.DateTime
+    timestamp :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'HistoryRecord' with the minimum fields required to make a request.
---
--- * 'eventType' - The event type.
---
---
---     * @error@ - An error with the Spot Fleet request.
---
---
---     * @fleetRequestChange@ - A change in the status or configuration of the Spot Fleet request.
---
---
---     * @instanceChange@ - An instance was launched or terminated.
---
---
---     * @Information@ - An informational event.
---
---
--- * 'eventInformation' - Information about the event.
--- * 'timestamp' - The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+-- | Creates a 'HistoryRecord' value with any optional fields omitted.
 mkHistoryRecord ::
   HistoryRecord
 mkHistoryRecord =
   HistoryRecord'
-    { eventType = Lude.Nothing,
-      eventInformation = Lude.Nothing,
-      timestamp = Lude.Nothing
+    { eventInformation = Core.Nothing,
+      eventType = Core.Nothing,
+      timestamp = Core.Nothing
     }
+
+-- | Information about the event.
+--
+-- /Note:/ Consider using 'eventInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hrEventInformation :: Lens.Lens' HistoryRecord (Core.Maybe Types.EventInformation)
+hrEventInformation = Lens.field @"eventInformation"
+{-# DEPRECATED hrEventInformation "Use generic-lens or generic-optics with 'eventInformation' instead." #-}
 
 -- | The event type.
 --
@@ -99,27 +88,20 @@ mkHistoryRecord =
 --
 --
 -- /Note:/ Consider using 'eventType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hrEventType :: Lens.Lens' HistoryRecord (Lude.Maybe EventType)
-hrEventType = Lens.lens (eventType :: HistoryRecord -> Lude.Maybe EventType) (\s a -> s {eventType = a} :: HistoryRecord)
+hrEventType :: Lens.Lens' HistoryRecord (Core.Maybe Types.EventType)
+hrEventType = Lens.field @"eventType"
 {-# DEPRECATED hrEventType "Use generic-lens or generic-optics with 'eventType' instead." #-}
-
--- | Information about the event.
---
--- /Note:/ Consider using 'eventInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hrEventInformation :: Lens.Lens' HistoryRecord (Lude.Maybe EventInformation)
-hrEventInformation = Lens.lens (eventInformation :: HistoryRecord -> Lude.Maybe EventInformation) (\s a -> s {eventInformation = a} :: HistoryRecord)
-{-# DEPRECATED hrEventInformation "Use generic-lens or generic-optics with 'eventInformation' instead." #-}
 
 -- | The date and time of the event, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hrTimestamp :: Lens.Lens' HistoryRecord (Lude.Maybe Lude.DateTime)
-hrTimestamp = Lens.lens (timestamp :: HistoryRecord -> Lude.Maybe Lude.DateTime) (\s a -> s {timestamp = a} :: HistoryRecord)
+hrTimestamp :: Lens.Lens' HistoryRecord (Core.Maybe Core.UTCTime)
+hrTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED hrTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromXML HistoryRecord where
+instance Core.FromXML HistoryRecord where
   parseXML x =
     HistoryRecord'
-      Lude.<$> (x Lude..@? "eventType")
-      Lude.<*> (x Lude..@? "eventInformation")
-      Lude.<*> (x Lude..@? "timestamp")
+      Core.<$> (x Core..@? "eventInformation")
+      Core.<*> (x Core..@? "eventType")
+      Core.<*> (x Core..@? "timestamp")

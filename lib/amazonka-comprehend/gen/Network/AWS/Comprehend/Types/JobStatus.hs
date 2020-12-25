@@ -13,66 +13,68 @@
 module Network.AWS.Comprehend.Types.JobStatus
   ( JobStatus
       ( JobStatus',
-        Submitted,
-        InProgress,
-        Completed,
-        Failed,
-        StopRequested,
-        Stopped
+        JobStatusSubmitted,
+        JobStatusInProgress,
+        JobStatusCompleted,
+        JobStatusFailed,
+        JobStatusStopRequested,
+        JobStatusStopped,
+        fromJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype JobStatus = JobStatus' Lude.Text
+newtype JobStatus = JobStatus' {fromJobStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Submitted :: JobStatus
-pattern Submitted = JobStatus' "SUBMITTED"
+pattern JobStatusSubmitted :: JobStatus
+pattern JobStatusSubmitted = JobStatus' "SUBMITTED"
 
-pattern InProgress :: JobStatus
-pattern InProgress = JobStatus' "IN_PROGRESS"
+pattern JobStatusInProgress :: JobStatus
+pattern JobStatusInProgress = JobStatus' "IN_PROGRESS"
 
-pattern Completed :: JobStatus
-pattern Completed = JobStatus' "COMPLETED"
+pattern JobStatusCompleted :: JobStatus
+pattern JobStatusCompleted = JobStatus' "COMPLETED"
 
-pattern Failed :: JobStatus
-pattern Failed = JobStatus' "FAILED"
+pattern JobStatusFailed :: JobStatus
+pattern JobStatusFailed = JobStatus' "FAILED"
 
-pattern StopRequested :: JobStatus
-pattern StopRequested = JobStatus' "STOP_REQUESTED"
+pattern JobStatusStopRequested :: JobStatus
+pattern JobStatusStopRequested = JobStatus' "STOP_REQUESTED"
 
-pattern Stopped :: JobStatus
-pattern Stopped = JobStatus' "STOPPED"
+pattern JobStatusStopped :: JobStatus
+pattern JobStatusStopped = JobStatus' "STOPPED"
 
 {-# COMPLETE
-  Submitted,
-  InProgress,
-  Completed,
-  Failed,
-  StopRequested,
-  Stopped,
+  JobStatusSubmitted,
+  JobStatusInProgress,
+  JobStatusCompleted,
+  JobStatusFailed,
+  JobStatusStopRequested,
+  JobStatusStopped,
   JobStatus'
   #-}

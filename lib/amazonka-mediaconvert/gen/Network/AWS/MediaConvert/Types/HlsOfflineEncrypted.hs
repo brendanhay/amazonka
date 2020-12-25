@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.HlsOfflineEncrypted
   ( HlsOfflineEncrypted
       ( HlsOfflineEncrypted',
-        HOEEnabled,
-        HOEDisabled
+        HlsOfflineEncryptedEnabled,
+        HlsOfflineEncryptedDisabled,
+        fromHlsOfflineEncrypted
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Enable this setting to insert the EXT-X-SESSION-KEY element into the master playlist. This allows for offline Apple HLS FairPlay content protection.
-newtype HlsOfflineEncrypted = HlsOfflineEncrypted' Lude.Text
+newtype HlsOfflineEncrypted = HlsOfflineEncrypted'
+  { fromHlsOfflineEncrypted ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HOEEnabled :: HlsOfflineEncrypted
-pattern HOEEnabled = HlsOfflineEncrypted' "ENABLED"
+pattern HlsOfflineEncryptedEnabled :: HlsOfflineEncrypted
+pattern HlsOfflineEncryptedEnabled = HlsOfflineEncrypted' "ENABLED"
 
-pattern HOEDisabled :: HlsOfflineEncrypted
-pattern HOEDisabled = HlsOfflineEncrypted' "DISABLED"
+pattern HlsOfflineEncryptedDisabled :: HlsOfflineEncrypted
+pattern HlsOfflineEncryptedDisabled = HlsOfflineEncrypted' "DISABLED"
 
 {-# COMPLETE
-  HOEEnabled,
-  HOEDisabled,
+  HlsOfflineEncryptedEnabled,
+  HlsOfflineEncryptedDisabled,
   HlsOfflineEncrypted'
   #-}

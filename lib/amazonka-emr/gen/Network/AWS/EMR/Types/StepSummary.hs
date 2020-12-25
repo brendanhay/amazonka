@@ -17,100 +17,94 @@ module Network.AWS.EMR.Types.StepSummary
     mkStepSummary,
 
     -- * Lenses
-    sStatus,
     sActionOnFailure,
     sConfig,
-    sName,
     sId,
+    sName,
+    sStatus,
   )
 where
 
-import Network.AWS.EMR.Types.ActionOnFailure
-import Network.AWS.EMR.Types.HadoopStepConfig
-import Network.AWS.EMR.Types.StepStatus
+import qualified Network.AWS.EMR.Types.ActionOnFailure as Types
+import qualified Network.AWS.EMR.Types.HadoopStepConfig as Types
+import qualified Network.AWS.EMR.Types.StepId as Types
+import qualified Network.AWS.EMR.Types.StepStatus as Types
+import qualified Network.AWS.EMR.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The summary of the cluster step.
 --
 -- /See:/ 'mkStepSummary' smart constructor.
 data StepSummary = StepSummary'
-  { -- | The current execution status details of the cluster step.
-    status :: Lude.Maybe StepStatus,
-    -- | The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
-    actionOnFailure :: Lude.Maybe ActionOnFailure,
+  { -- | The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
+    actionOnFailure :: Core.Maybe Types.ActionOnFailure,
     -- | The Hadoop job configuration of the cluster step.
-    config :: Lude.Maybe HadoopStepConfig,
-    -- | The name of the cluster step.
-    name :: Lude.Maybe Lude.Text,
+    config :: Core.Maybe Types.HadoopStepConfig,
     -- | The identifier of the cluster step.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.StepId,
+    -- | The name of the cluster step.
+    name :: Core.Maybe Types.String,
+    -- | The current execution status details of the cluster step.
+    status :: Core.Maybe Types.StepStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StepSummary' with the minimum fields required to make a request.
---
--- * 'status' - The current execution status details of the cluster step.
--- * 'actionOnFailure' - The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
--- * 'config' - The Hadoop job configuration of the cluster step.
--- * 'name' - The name of the cluster step.
--- * 'id' - The identifier of the cluster step.
+-- | Creates a 'StepSummary' value with any optional fields omitted.
 mkStepSummary ::
   StepSummary
 mkStepSummary =
   StepSummary'
-    { status = Lude.Nothing,
-      actionOnFailure = Lude.Nothing,
-      config = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing
+    { actionOnFailure = Core.Nothing,
+      config = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The current execution status details of the cluster step.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStatus :: Lens.Lens' StepSummary (Lude.Maybe StepStatus)
-sStatus = Lens.lens (status :: StepSummary -> Lude.Maybe StepStatus) (\s a -> s {status = a} :: StepSummary)
-{-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The action to take when the cluster step fails. Possible values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE. TERMINATE_JOB_FLOW is available for backward compatibility. We recommend using TERMINATE_CLUSTER instead.
 --
 -- /Note:/ Consider using 'actionOnFailure' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sActionOnFailure :: Lens.Lens' StepSummary (Lude.Maybe ActionOnFailure)
-sActionOnFailure = Lens.lens (actionOnFailure :: StepSummary -> Lude.Maybe ActionOnFailure) (\s a -> s {actionOnFailure = a} :: StepSummary)
+sActionOnFailure :: Lens.Lens' StepSummary (Core.Maybe Types.ActionOnFailure)
+sActionOnFailure = Lens.field @"actionOnFailure"
 {-# DEPRECATED sActionOnFailure "Use generic-lens or generic-optics with 'actionOnFailure' instead." #-}
 
 -- | The Hadoop job configuration of the cluster step.
 --
 -- /Note:/ Consider using 'config' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sConfig :: Lens.Lens' StepSummary (Lude.Maybe HadoopStepConfig)
-sConfig = Lens.lens (config :: StepSummary -> Lude.Maybe HadoopStepConfig) (\s a -> s {config = a} :: StepSummary)
+sConfig :: Lens.Lens' StepSummary (Core.Maybe Types.HadoopStepConfig)
+sConfig = Lens.field @"config"
 {-# DEPRECATED sConfig "Use generic-lens or generic-optics with 'config' instead." #-}
-
--- | The name of the cluster step.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' StepSummary (Lude.Maybe Lude.Text)
-sName = Lens.lens (name :: StepSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: StepSummary)
-{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the cluster step.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sId :: Lens.Lens' StepSummary (Lude.Maybe Lude.Text)
-sId = Lens.lens (id :: StepSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: StepSummary)
+sId :: Lens.Lens' StepSummary (Core.Maybe Types.StepId)
+sId = Lens.field @"id"
 {-# DEPRECATED sId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON StepSummary where
+-- | The name of the cluster step.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sName :: Lens.Lens' StepSummary (Core.Maybe Types.String)
+sName = Lens.field @"name"
+{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The current execution status details of the cluster step.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStatus :: Lens.Lens' StepSummary (Core.Maybe Types.StepStatus)
+sStatus = Lens.field @"status"
+{-# DEPRECATED sStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON StepSummary where
   parseJSON =
-    Lude.withObject
-      "StepSummary"
-      ( \x ->
-          StepSummary'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "ActionOnFailure")
-            Lude.<*> (x Lude..:? "Config")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "StepSummary" Core.$
+      \x ->
+        StepSummary'
+          Core.<$> (x Core..:? "ActionOnFailure")
+          Core.<*> (x Core..:? "Config")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Status")

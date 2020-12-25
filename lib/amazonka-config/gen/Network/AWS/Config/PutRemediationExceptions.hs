@@ -21,163 +21,147 @@ module Network.AWS.Config.PutRemediationExceptions
 
     -- ** Request lenses
     preConfigRuleName,
-    preMessage,
-    preExpirationTime,
     preResourceKeys,
+    preExpirationTime,
+    preMessage,
 
     -- * Destructuring the response
     PutRemediationExceptionsResponse (..),
     mkPutRemediationExceptionsResponse,
 
     -- ** Response lenses
-    prersFailedBatches,
-    prersResponseStatus,
+    prerrsFailedBatches,
+    prerrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutRemediationExceptions' smart constructor.
 data PutRemediationExceptions = PutRemediationExceptions'
   { -- | The name of the AWS Config rule for which you want to create remediation exception.
-    configRuleName :: Lude.Text,
-    -- | The message contains an explanation of the exception.
-    message :: Lude.Maybe Lude.Text,
-    -- | The exception is automatically deleted after the expiration date.
-    expirationTime :: Lude.Maybe Lude.Timestamp,
+    configRuleName :: Types.ConfigRuleName,
     -- | An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
-    resourceKeys :: Lude.NonEmpty RemediationExceptionResourceKey
+    resourceKeys :: Core.NonEmpty Types.RemediationExceptionResourceKey,
+    -- | The exception is automatically deleted after the expiration date.
+    expirationTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The message contains an explanation of the exception.
+    message :: Core.Maybe Types.StringWithCharLimit1024
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PutRemediationExceptions' with the minimum fields required to make a request.
---
--- * 'configRuleName' - The name of the AWS Config rule for which you want to create remediation exception.
--- * 'message' - The message contains an explanation of the exception.
--- * 'expirationTime' - The exception is automatically deleted after the expiration date.
--- * 'resourceKeys' - An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
+-- | Creates a 'PutRemediationExceptions' value with any optional fields omitted.
 mkPutRemediationExceptions ::
   -- | 'configRuleName'
-  Lude.Text ->
+  Types.ConfigRuleName ->
   -- | 'resourceKeys'
-  Lude.NonEmpty RemediationExceptionResourceKey ->
+  Core.NonEmpty Types.RemediationExceptionResourceKey ->
   PutRemediationExceptions
-mkPutRemediationExceptions pConfigRuleName_ pResourceKeys_ =
+mkPutRemediationExceptions configRuleName resourceKeys =
   PutRemediationExceptions'
-    { configRuleName = pConfigRuleName_,
-      message = Lude.Nothing,
-      expirationTime = Lude.Nothing,
-      resourceKeys = pResourceKeys_
+    { configRuleName,
+      resourceKeys,
+      expirationTime = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The name of the AWS Config rule for which you want to create remediation exception.
 --
 -- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-preConfigRuleName :: Lens.Lens' PutRemediationExceptions Lude.Text
-preConfigRuleName = Lens.lens (configRuleName :: PutRemediationExceptions -> Lude.Text) (\s a -> s {configRuleName = a} :: PutRemediationExceptions)
+preConfigRuleName :: Lens.Lens' PutRemediationExceptions Types.ConfigRuleName
+preConfigRuleName = Lens.field @"configRuleName"
 {-# DEPRECATED preConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
-
--- | The message contains an explanation of the exception.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-preMessage :: Lens.Lens' PutRemediationExceptions (Lude.Maybe Lude.Text)
-preMessage = Lens.lens (message :: PutRemediationExceptions -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: PutRemediationExceptions)
-{-# DEPRECATED preMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
--- | The exception is automatically deleted after the expiration date.
---
--- /Note:/ Consider using 'expirationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-preExpirationTime :: Lens.Lens' PutRemediationExceptions (Lude.Maybe Lude.Timestamp)
-preExpirationTime = Lens.lens (expirationTime :: PutRemediationExceptions -> Lude.Maybe Lude.Timestamp) (\s a -> s {expirationTime = a} :: PutRemediationExceptions)
-{-# DEPRECATED preExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
 
 -- | An exception list of resource exception keys to be processed with the current request. AWS Config adds exception for each resource key. For example, AWS Config adds 3 exceptions for 3 resource keys.
 --
 -- /Note:/ Consider using 'resourceKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-preResourceKeys :: Lens.Lens' PutRemediationExceptions (Lude.NonEmpty RemediationExceptionResourceKey)
-preResourceKeys = Lens.lens (resourceKeys :: PutRemediationExceptions -> Lude.NonEmpty RemediationExceptionResourceKey) (\s a -> s {resourceKeys = a} :: PutRemediationExceptions)
+preResourceKeys :: Lens.Lens' PutRemediationExceptions (Core.NonEmpty Types.RemediationExceptionResourceKey)
+preResourceKeys = Lens.field @"resourceKeys"
 {-# DEPRECATED preResourceKeys "Use generic-lens or generic-optics with 'resourceKeys' instead." #-}
 
-instance Lude.AWSRequest PutRemediationExceptions where
+-- | The exception is automatically deleted after the expiration date.
+--
+-- /Note:/ Consider using 'expirationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preExpirationTime :: Lens.Lens' PutRemediationExceptions (Core.Maybe Core.NominalDiffTime)
+preExpirationTime = Lens.field @"expirationTime"
+{-# DEPRECATED preExpirationTime "Use generic-lens or generic-optics with 'expirationTime' instead." #-}
+
+-- | The message contains an explanation of the exception.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+preMessage :: Lens.Lens' PutRemediationExceptions (Core.Maybe Types.StringWithCharLimit1024)
+preMessage = Lens.field @"message"
+{-# DEPRECATED preMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+instance Core.FromJSON PutRemediationExceptions where
+  toJSON PutRemediationExceptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ConfigRuleName" Core..= configRuleName),
+            Core.Just ("ResourceKeys" Core..= resourceKeys),
+            ("ExpirationTime" Core..=) Core.<$> expirationTime,
+            ("Message" Core..=) Core.<$> message
+          ]
+      )
+
+instance Core.AWSRequest PutRemediationExceptions where
   type Rs PutRemediationExceptions = PutRemediationExceptionsResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StarlingDoveService.PutRemediationExceptions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutRemediationExceptionsResponse'
-            Lude.<$> (x Lude..?> "FailedBatches" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FailedBatches")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutRemediationExceptions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.PutRemediationExceptions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutRemediationExceptions where
-  toJSON PutRemediationExceptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ConfigRuleName" Lude..= configRuleName),
-            ("Message" Lude..=) Lude.<$> message,
-            ("ExpirationTime" Lude..=) Lude.<$> expirationTime,
-            Lude.Just ("ResourceKeys" Lude..= resourceKeys)
-          ]
-      )
-
-instance Lude.ToPath PutRemediationExceptions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutRemediationExceptions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutRemediationExceptionsResponse' smart constructor.
 data PutRemediationExceptionsResponse = PutRemediationExceptionsResponse'
   { -- | Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.
-    failedBatches :: Lude.Maybe [FailedRemediationExceptionBatch],
+    failedBatches :: Core.Maybe [Types.FailedRemediationExceptionBatch],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PutRemediationExceptionsResponse' with the minimum fields required to make a request.
---
--- * 'failedBatches' - Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutRemediationExceptionsResponse' value with any optional fields omitted.
 mkPutRemediationExceptionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutRemediationExceptionsResponse
-mkPutRemediationExceptionsResponse pResponseStatus_ =
+mkPutRemediationExceptionsResponse responseStatus =
   PutRemediationExceptionsResponse'
-    { failedBatches = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { failedBatches = Core.Nothing,
+      responseStatus
     }
 
 -- | Returns a list of failed remediation exceptions batch objects. Each object in the batch consists of a list of failed items and failure messages.
 --
 -- /Note:/ Consider using 'failedBatches' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prersFailedBatches :: Lens.Lens' PutRemediationExceptionsResponse (Lude.Maybe [FailedRemediationExceptionBatch])
-prersFailedBatches = Lens.lens (failedBatches :: PutRemediationExceptionsResponse -> Lude.Maybe [FailedRemediationExceptionBatch]) (\s a -> s {failedBatches = a} :: PutRemediationExceptionsResponse)
-{-# DEPRECATED prersFailedBatches "Use generic-lens or generic-optics with 'failedBatches' instead." #-}
+prerrsFailedBatches :: Lens.Lens' PutRemediationExceptionsResponse (Core.Maybe [Types.FailedRemediationExceptionBatch])
+prerrsFailedBatches = Lens.field @"failedBatches"
+{-# DEPRECATED prerrsFailedBatches "Use generic-lens or generic-optics with 'failedBatches' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prersResponseStatus :: Lens.Lens' PutRemediationExceptionsResponse Lude.Int
-prersResponseStatus = Lens.lens (responseStatus :: PutRemediationExceptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutRemediationExceptionsResponse)
-{-# DEPRECATED prersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+prerrsResponseStatus :: Lens.Lens' PutRemediationExceptionsResponse Core.Int
+prerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED prerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -31,111 +31,98 @@ module Network.AWS.Lightsail.ExportSnapshot
     mkExportSnapshotResponse,
 
     -- ** Response lenses
-    esrsOperations,
-    esrsResponseStatus,
+    esrrsOperations,
+    esrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkExportSnapshot' smart constructor.
 newtype ExportSnapshot = ExportSnapshot'
   { -- | The name of the instance or disk snapshot to be exported to Amazon EC2.
-    sourceSnapshotName :: Lude.Text
+    sourceSnapshotName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportSnapshot' with the minimum fields required to make a request.
---
--- * 'sourceSnapshotName' - The name of the instance or disk snapshot to be exported to Amazon EC2.
+-- | Creates a 'ExportSnapshot' value with any optional fields omitted.
 mkExportSnapshot ::
   -- | 'sourceSnapshotName'
-  Lude.Text ->
+  Types.ResourceName ->
   ExportSnapshot
-mkExportSnapshot pSourceSnapshotName_ =
-  ExportSnapshot' {sourceSnapshotName = pSourceSnapshotName_}
+mkExportSnapshot sourceSnapshotName =
+  ExportSnapshot' {sourceSnapshotName}
 
 -- | The name of the instance or disk snapshot to be exported to Amazon EC2.
 --
 -- /Note:/ Consider using 'sourceSnapshotName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esSourceSnapshotName :: Lens.Lens' ExportSnapshot Lude.Text
-esSourceSnapshotName = Lens.lens (sourceSnapshotName :: ExportSnapshot -> Lude.Text) (\s a -> s {sourceSnapshotName = a} :: ExportSnapshot)
+esSourceSnapshotName :: Lens.Lens' ExportSnapshot Types.ResourceName
+esSourceSnapshotName = Lens.field @"sourceSnapshotName"
 {-# DEPRECATED esSourceSnapshotName "Use generic-lens or generic-optics with 'sourceSnapshotName' instead." #-}
 
-instance Lude.AWSRequest ExportSnapshot where
+instance Core.FromJSON ExportSnapshot where
+  toJSON ExportSnapshot {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("sourceSnapshotName" Core..= sourceSnapshotName)]
+      )
+
+instance Core.AWSRequest ExportSnapshot where
   type Rs ExportSnapshot = ExportSnapshotResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.ExportSnapshot")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ExportSnapshotResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ExportSnapshot where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.ExportSnapshot" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ExportSnapshot where
-  toJSON ExportSnapshot' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("sourceSnapshotName" Lude..= sourceSnapshotName)]
-      )
-
-instance Lude.ToPath ExportSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ExportSnapshot where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkExportSnapshotResponse' smart constructor.
 data ExportSnapshotResponse = ExportSnapshotResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ExportSnapshotResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ExportSnapshotResponse' value with any optional fields omitted.
 mkExportSnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ExportSnapshotResponse
-mkExportSnapshotResponse pResponseStatus_ =
+mkExportSnapshotResponse responseStatus =
   ExportSnapshotResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operations = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrsOperations :: Lens.Lens' ExportSnapshotResponse (Lude.Maybe [Operation])
-esrsOperations = Lens.lens (operations :: ExportSnapshotResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: ExportSnapshotResponse)
-{-# DEPRECATED esrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+esrrsOperations :: Lens.Lens' ExportSnapshotResponse (Core.Maybe [Types.Operation])
+esrrsOperations = Lens.field @"operations"
+{-# DEPRECATED esrrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esrsResponseStatus :: Lens.Lens' ExportSnapshotResponse Lude.Int
-esrsResponseStatus = Lens.lens (responseStatus :: ExportSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ExportSnapshotResponse)
-{-# DEPRECATED esrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+esrrsResponseStatus :: Lens.Lens' ExportSnapshotResponse Core.Int
+esrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED esrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

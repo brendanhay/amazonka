@@ -22,42 +22,38 @@ module Network.AWS.MediaLive.Types.FrameCaptureOutputSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Frame Capture Output Settings
 --
 -- /See:/ 'mkFrameCaptureOutputSettings' smart constructor.
 newtype FrameCaptureOutputSettings = FrameCaptureOutputSettings'
   { -- | Required if the output group contains more than one output. This modifier forms part of the output file name.
-    nameModifier :: Lude.Maybe Lude.Text
+    nameModifier :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FrameCaptureOutputSettings' with the minimum fields required to make a request.
---
--- * 'nameModifier' - Required if the output group contains more than one output. This modifier forms part of the output file name.
+-- | Creates a 'FrameCaptureOutputSettings' value with any optional fields omitted.
 mkFrameCaptureOutputSettings ::
   FrameCaptureOutputSettings
 mkFrameCaptureOutputSettings =
-  FrameCaptureOutputSettings' {nameModifier = Lude.Nothing}
+  FrameCaptureOutputSettings' {nameModifier = Core.Nothing}
 
 -- | Required if the output group contains more than one output. This modifier forms part of the output file name.
 --
 -- /Note:/ Consider using 'nameModifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fcosNameModifier :: Lens.Lens' FrameCaptureOutputSettings (Lude.Maybe Lude.Text)
-fcosNameModifier = Lens.lens (nameModifier :: FrameCaptureOutputSettings -> Lude.Maybe Lude.Text) (\s a -> s {nameModifier = a} :: FrameCaptureOutputSettings)
+fcosNameModifier :: Lens.Lens' FrameCaptureOutputSettings (Core.Maybe Core.Text)
+fcosNameModifier = Lens.field @"nameModifier"
 {-# DEPRECATED fcosNameModifier "Use generic-lens or generic-optics with 'nameModifier' instead." #-}
 
-instance Lude.FromJSON FrameCaptureOutputSettings where
-  parseJSON =
-    Lude.withObject
-      "FrameCaptureOutputSettings"
-      ( \x ->
-          FrameCaptureOutputSettings' Lude.<$> (x Lude..:? "nameModifier")
-      )
+instance Core.FromJSON FrameCaptureOutputSettings where
+  toJSON FrameCaptureOutputSettings {..} =
+    Core.object
+      (Core.catMaybes [("nameModifier" Core..=) Core.<$> nameModifier])
 
-instance Lude.ToJSON FrameCaptureOutputSettings where
-  toJSON FrameCaptureOutputSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [("nameModifier" Lude..=) Lude.<$> nameModifier])
+instance Core.FromJSON FrameCaptureOutputSettings where
+  parseJSON =
+    Core.withObject "FrameCaptureOutputSettings" Core.$
+      \x ->
+        FrameCaptureOutputSettings' Core.<$> (x Core..:? "nameModifier")

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,163 @@
 -- Amazon Route 53 is a scalable Domain Name System (DNS) web service. It provides secure and reliable routing to your infrastructure that uses Amazon Web Services (AWS) products, such as Amazon Elastic Compute Cloud (Amazon EC2), Elastic Load Balancing, or Amazon Simple Storage Service (Amazon S3). You can also use Amazon Route 53 to route users to your infrastructure outside of AWS.
 module Network.AWS.Route53
   ( -- * Service configuration
-    route53Service,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** HealthCheckVersionMismatch
+    _HealthCheckVersionMismatch,
+
+    -- ** NoSuchQueryLoggingConfig
+    _NoSuchQueryLoggingConfig,
+
+    -- ** HostedZoneNotPrivate
+    _HostedZoneNotPrivate,
+
+    -- ** InvalidInput
+    _InvalidInput,
+
+    -- ** HostedZoneNotEmpty
+    _HostedZoneNotEmpty,
+
+    -- ** InvalidArgument
+    _InvalidArgument,
+
+    -- ** TrafficPolicyInstanceAlreadyExists
+    _TrafficPolicyInstanceAlreadyExists,
+
+    -- ** ConflictingTypes
+    _ConflictingTypes,
+
+    -- ** QueryLoggingConfigAlreadyExists
+    _QueryLoggingConfigAlreadyExists,
+
+    -- ** ConcurrentModification
+    _ConcurrentModification,
+
+    -- ** DelegationSetAlreadyReusable
+    _DelegationSetAlreadyReusable,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** InsufficientCloudWatchLogsResourcePolicy
+    _InsufficientCloudWatchLogsResourcePolicy,
+
+    -- ** NoSuchCloudWatchLogsLogGroup
+    _NoSuchCloudWatchLogsLogGroup,
+
+    -- ** PriorRequestNotComplete
+    _PriorRequestNotComplete,
+
+    -- ** InvalidChangeBatch
+    _InvalidChangeBatch,
+
+    -- ** TooManyVPCAssociationAuthorizations
+    _TooManyVPCAssociationAuthorizations,
+
+    -- ** TrafficPolicyAlreadyExists
+    _TrafficPolicyAlreadyExists,
+
+    -- ** InvalidTrafficPolicyDocument
+    _InvalidTrafficPolicyDocument,
+
+    -- ** InvalidPaginationToken
+    _InvalidPaginationToken,
+
+    -- ** DelegationSetNotReusable
+    _DelegationSetNotReusable,
+
+    -- ** InvalidDomainName
+    _InvalidDomainName,
+
+    -- ** NoSuchTrafficPolicy
+    _NoSuchTrafficPolicy,
+
+    -- ** HostedZoneNotFound
+    _HostedZoneNotFound,
+
+    -- ** DelegationSetInUse
+    _DelegationSetInUse,
+
+    -- ** NoSuchDelegationSet
+    _NoSuchDelegationSet,
+
+    -- ** HealthCheckAlreadyExists
+    _HealthCheckAlreadyExists,
+
+    -- ** TooManyTrafficPolicies
+    _TooManyTrafficPolicies,
+
+    -- ** VPCAssociationAuthorizationNotFound
+    _VPCAssociationAuthorizationNotFound,
+
+    -- ** NoSuchGeoLocation
+    _NoSuchGeoLocation,
+
+    -- ** DelegationSetNotAvailable
+    _DelegationSetNotAvailable,
+
+    -- ** VPCAssociationNotFound
+    _VPCAssociationNotFound,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** NoSuchChange
+    _NoSuchChange,
+
+    -- ** LimitsExceeded
+    _LimitsExceeded,
+
+    -- ** TooManyTrafficPolicyInstances
+    _TooManyTrafficPolicyInstances,
+
+    -- ** NoSuchTrafficPolicyInstance
+    _NoSuchTrafficPolicyInstance,
+
+    -- ** IncompatibleVersion
+    _IncompatibleVersion,
+
+    -- ** PublicZoneVPCAssociation
+    _PublicZoneVPCAssociation,
+
+    -- ** NoSuchHostedZone
+    _NoSuchHostedZone,
+
+    -- ** TooManyHostedZones
+    _TooManyHostedZones,
+
+    -- ** HealthCheckInUse
+    _HealthCheckInUse,
+
+    -- ** DelegationSetAlreadyCreated
+    _DelegationSetAlreadyCreated,
+
+    -- ** ConflictingDomainExists
+    _ConflictingDomainExists,
+
+    -- ** LastVPCAssociation
+    _LastVPCAssociation,
+
+    -- ** TooManyHealthChecks
+    _TooManyHealthChecks,
+
+    -- ** NoSuchHealthCheck
+    _NoSuchHealthCheck,
+
+    -- ** TrafficPolicyInUse
+    _TrafficPolicyInUse,
+
+    -- ** InvalidVPCId
+    _InvalidVPCId,
+
+    -- ** HostedZoneAlreadyExists
+    _HostedZoneAlreadyExists,
+
+    -- ** TooManyTrafficPolicyVersionsForCurrentPolicy
+    _TooManyTrafficPolicyVersionsForCurrentPolicy,
 
     -- * Waiters
     -- $waiters
@@ -37,8 +189,8 @@ module Network.AWS.Route53
     -- ** DeleteTrafficPolicy
     module Network.AWS.Route53.DeleteTrafficPolicy,
 
-    -- ** GetCheckerIPRanges
-    module Network.AWS.Route53.GetCheckerIPRanges,
+    -- ** GetCheckerIpRanges
+    module Network.AWS.Route53.GetCheckerIpRanges,
 
     -- ** GetTrafficPolicyInstance
     module Network.AWS.Route53.GetTrafficPolicyInstance,
@@ -204,72 +356,196 @@ module Network.AWS.Route53
     -- ** Common
     module Network.AWS.Route53.Internal,
 
-    -- ** AccountLimitType
-    AccountLimitType (..),
-
-    -- ** ChangeAction
-    ChangeAction (..),
-
-    -- ** ChangeStatus
-    ChangeStatus (..),
-
-    -- ** CloudWatchRegion
-    CloudWatchRegion (..),
-
-    -- ** ComparisonOperator
-    ComparisonOperator (..),
-
-    -- ** Failover
-    Failover (..),
-
-    -- ** HealthCheckRegion
-    HealthCheckRegion (..),
-
-    -- ** HealthCheckType
-    HealthCheckType (..),
-
-    -- ** HostedZoneLimitType
-    HostedZoneLimitType (..),
-
-    -- ** InsufficientDataHealthStatus
-    InsufficientDataHealthStatus (..),
-
-    -- ** RecordType
-    RecordType (..),
-
-    -- ** ResettableElementName
-    ResettableElementName (..),
-
-    -- ** ReusableDelegationSetLimitType
-    ReusableDelegationSetLimitType (..),
-
-    -- ** Statistic
-    Statistic (..),
-
-    -- ** TagResourceType
-    TagResourceType (..),
-
-    -- ** VPCRegion
-    VPCRegion (..),
+    -- ** AlarmName
+    AlarmName (..),
 
     -- ** AccountLimit
     AccountLimit (..),
     mkAccountLimit,
-    alValue,
     alType,
+    alValue,
 
-    -- ** AlarmIdentifier
-    AlarmIdentifier (..),
-    mkAlarmIdentifier,
-    aiName,
-    aiRegion,
+    -- ** ResourceURI
+    ResourceURI (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** LinkedService
+    LinkedService (..),
+    mkLinkedService,
+    lsDescription,
+    lsServicePrincipal,
+
+    -- ** PaginationToken
+    PaginationToken (..),
+
+    -- ** ServicePrincipal
+    ServicePrincipal (..),
 
     -- ** AliasTarget
     AliasTarget (..),
     mkAliasTarget,
     atHostedZoneId,
-    atEvaluateTargetHealth,
     atDNSName,
+    atEvaluateTargetHealth,
+
+    -- ** IPAddress
+    IPAddress (..),
+
+    -- ** GeoLocationCountryName
+    GeoLocationCountryName (..),
+
+    -- ** ResourceRecord
+    ResourceRecord (..),
+    mkResourceRecord,
+    rrValue,
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** GeoLocationDetails
+    GeoLocationDetails (..),
+    mkGeoLocationDetails,
+    gldContinentCode,
+    gldContinentName,
+    gldCountryCode,
+    gldCountryName,
+    gldSubdivisionCode,
+    gldSubdivisionName,
+
+    -- ** ResettableElementName
+    ResettableElementName (..),
+
+    -- ** DimensionField
+    DimensionField (..),
+
+    -- ** HostedZoneLimitType
+    HostedZoneLimitType (..),
+
+    -- ** HealthCheck
+    HealthCheck (..),
+    mkHealthCheck,
+    hcId,
+    hcCallerReference,
+    hcHealthCheckConfig,
+    hcHealthCheckVersion,
+    hcCloudWatchAlarmConfiguration,
+    hcLinkedService,
+
+    -- ** Nameserver
+    Nameserver (..),
+
+    -- ** TagResourceId
+    TagResourceId (..),
+
+    -- ** TrafficPolicy
+    TrafficPolicy (..),
+    mkTrafficPolicy,
+    tpId,
+    tpVersion,
+    tpName,
+    tpType,
+    tpDocument,
+    tpComment,
+
+    -- ** VPCRegion
+    VPCRegion (..),
+
+    -- ** TransportProtocol
+    TransportProtocol (..),
+
+    -- ** GeoLocationCountryCode
+    GeoLocationCountryCode (..),
+
+    -- ** ChangeAction
+    ChangeAction (..),
+
+    -- ** TagResourceType
+    TagResourceType (..),
+
+    -- ** HealthCheckConfig
+    HealthCheckConfig (..),
+    mkHealthCheckConfig,
+    hccType,
+    hccAlarmIdentifier,
+    hccChildHealthChecks,
+    hccDisabled,
+    hccEnableSNI,
+    hccFailureThreshold,
+    hccFullyQualifiedDomainName,
+    hccHealthThreshold,
+    hccIPAddress,
+    hccInsufficientDataHealthStatus,
+    hccInverted,
+    hccMeasureLatency,
+    hccPort,
+    hccRegions,
+    hccRequestInterval,
+    hccResourcePath,
+    hccSearchString,
+
+    -- ** CloudWatchRegion
+    CloudWatchRegion (..),
+
+    -- ** Dimension
+    Dimension (..),
+    mkDimension,
+    dName,
+    dValue,
+
+    -- ** VPCId
+    VPCId (..),
+
+    -- ** MetricName
+    MetricName (..),
+
+    -- ** Namespace
+    Namespace (..),
+
+    -- ** SearchString
+    SearchString (..),
+
+    -- ** CloudWatchAlarmConfiguration
+    CloudWatchAlarmConfiguration (..),
+    mkCloudWatchAlarmConfiguration,
+    cwacEvaluationPeriods,
+    cwacThreshold,
+    cwacComparisonOperator,
+    cwacPeriod,
+    cwacMetricName,
+    cwacNamespace,
+    cwacStatistic,
+    cwacDimensions,
+
+    -- ** HostedZoneSummary
+    HostedZoneSummary (..),
+    mkHostedZoneSummary,
+    hzsHostedZoneId,
+    hzsName,
+    hzsOwner,
+
+    -- ** QueryLoggingConfig
+    QueryLoggingConfig (..),
+    mkQueryLoggingConfig,
+    qlcId,
+    qlcHostedZoneId,
+    qlcCloudWatchLogsLogGroupArn,
+
+    -- ** GeoLocationContinentCode
+    GeoLocationContinentCode (..),
+
+    -- ** ResourceRecordSetIdentifier
+    ResourceRecordSetIdentifier (..),
+
+    -- ** QueryLoggingConfigId
+    QueryLoggingConfigId (..),
+
+    -- ** ReusableDelegationSetLimitType
+    ReusableDelegationSetLimitType (..),
 
     -- ** Change
     Change (..),
@@ -277,169 +553,61 @@ module Network.AWS.Route53
     cAction,
     cResourceRecordSet,
 
-    -- ** ChangeBatch
-    ChangeBatch (..),
-    mkChangeBatch,
-    cbChanges,
-    cbComment,
+    -- ** CloudWatchLogsLogGroupArn
+    CloudWatchLogsLogGroupArn (..),
 
-    -- ** ChangeInfo
-    ChangeInfo (..),
-    mkChangeInfo,
-    ciStatus,
-    ciSubmittedAt,
-    ciId,
-    ciComment,
+    -- ** ComparisonOperator
+    ComparisonOperator (..),
 
-    -- ** CloudWatchAlarmConfiguration
-    CloudWatchAlarmConfiguration (..),
-    mkCloudWatchAlarmConfiguration,
-    cwacPeriod,
-    cwacEvaluationPeriods,
-    cwacMetricName,
-    cwacNamespace,
-    cwacComparisonOperator,
-    cwacThreshold,
-    cwacDimensions,
-    cwacStatistic,
+    -- ** TrafficPolicyInstanceId
+    TrafficPolicyInstanceId (..),
 
-    -- ** DelegationSet
-    DelegationSet (..),
-    mkDelegationSet,
-    dsId,
-    dsCallerReference,
-    dsNameServers,
+    -- ** Failover
+    Failover (..),
 
-    -- ** Dimension
-    Dimension (..),
-    mkDimension,
-    dValue,
-    dName,
+    -- ** AWSAccountID
+    AWSAccountID (..),
 
-    -- ** GeoLocation
-    GeoLocation (..),
-    mkGeoLocation,
-    glSubdivisionCode,
-    glCountryCode,
-    glContinentCode,
+    -- ** AccountLimitType
+    AccountLimitType (..),
 
-    -- ** GeoLocationDetails
-    GeoLocationDetails (..),
-    mkGeoLocationDetails,
-    gldSubdivisionName,
-    gldSubdivisionCode,
-    gldCountryName,
-    gldCountryCode,
-    gldContinentCode,
-    gldContinentName,
+    -- ** TrafficPolicyInstance
+    TrafficPolicyInstance (..),
+    mkTrafficPolicyInstance,
+    tpiId,
+    tpiHostedZoneId,
+    tpiName,
+    tpiTTL,
+    tpiState,
+    tpiMessage,
+    tpiTrafficPolicyId,
+    tpiTrafficPolicyVersion,
+    tpiTrafficPolicyType,
 
-    -- ** HealthCheck
-    HealthCheck (..),
-    mkHealthCheck,
-    hcLinkedService,
-    hcHealthCheckConfig,
-    hcCloudWatchAlarmConfiguration,
-    hcId,
-    hcHealthCheckVersion,
-    hcCallerReference,
+    -- ** ResourceDescription
+    ResourceDescription (..),
 
-    -- ** HealthCheckConfig
-    HealthCheckConfig (..),
-    mkHealthCheckConfig,
-    hccFailureThreshold,
-    hccIPAddress,
-    hccEnableSNI,
-    hccDisabled,
-    hccSearchString,
-    hccHealthThreshold,
-    hccRegions,
-    hccResourcePath,
-    hccInsufficientDataHealthStatus,
-    hccType,
-    hccAlarmIdentifier,
-    hccMeasureLatency,
-    hccInverted,
-    hccFullyQualifiedDomainName,
-    hccChildHealthChecks,
-    hccRequestInterval,
-    hccPort,
+    -- ** HostedZoneOwningService
+    HostedZoneOwningService (..),
 
-    -- ** HealthCheckObservation
-    HealthCheckObservation (..),
-    mkHealthCheckObservation,
-    hcoIPAddress,
-    hcoStatusReport,
-    hcoRegion,
+    -- ** SubnetMask
+    SubnetMask (..),
 
     -- ** HostedZone
     HostedZone (..),
     mkHostedZone,
-    hzLinkedService,
-    hzConfig,
-    hzName,
     hzId,
-    hzResourceRecordSetCount,
+    hzName,
     hzCallerReference,
+    hzConfig,
+    hzLinkedService,
+    hzResourceRecordSetCount,
 
-    -- ** HostedZoneConfig
-    HostedZoneConfig (..),
-    mkHostedZoneConfig,
-    hzcPrivateZone,
-    hzcComment,
+    -- ** ResourcePath
+    ResourcePath (..),
 
-    -- ** HostedZoneLimit
-    HostedZoneLimit (..),
-    mkHostedZoneLimit,
-    hzlValue,
-    hzlType,
-
-    -- ** HostedZoneOwner
-    HostedZoneOwner (..),
-    mkHostedZoneOwner,
-    hzoOwningAccount,
-    hzoOwningService,
-
-    -- ** HostedZoneSummary
-    HostedZoneSummary (..),
-    mkHostedZoneSummary,
-    hzsHostedZoneId,
-    hzsOwner,
-    hzsName,
-
-    -- ** LinkedService
-    LinkedService (..),
-    mkLinkedService,
-    lsServicePrincipal,
-    lsDescription,
-
-    -- ** QueryLoggingConfig
-    QueryLoggingConfig (..),
-    mkQueryLoggingConfig,
-    qlcHostedZoneId,
-    qlcCloudWatchLogsLogGroupARN,
-    qlcId,
-
-    -- ** ResourceRecord
-    ResourceRecord (..),
-    mkResourceRecord,
-    rrValue,
-
-    -- ** ResourceRecordSet
-    ResourceRecordSet (..),
-    mkResourceRecordSet,
-    rrsTTL,
-    rrsResourceRecords,
-    rrsAliasTarget,
-    rrsWeight,
-    rrsTrafficPolicyInstanceId,
-    rrsSetIdentifier,
-    rrsFailover,
-    rrsName,
-    rrsHealthCheckId,
-    rrsRegion,
-    rrsType,
-    rrsGeoLocation,
-    rrsMultiValueAnswer,
+    -- ** HealthCheckId
+    HealthCheckId (..),
 
     -- ** ResourceTagSet
     ResourceTagSet (..),
@@ -448,71 +616,272 @@ module Network.AWS.Route53
     rtsResourceType,
     rtsTags,
 
-    -- ** ReusableDelegationSetLimit
-    ReusableDelegationSetLimit (..),
-    mkReusableDelegationSetLimit,
-    rdslValue,
-    rdslType,
+    -- ** ChangeStatus
+    ChangeStatus (..),
+
+    -- ** HealthCheckRegion
+    HealthCheckRegion (..),
+
+    -- ** TrafficPolicyDocument
+    TrafficPolicyDocument (..),
+
+    -- ** AssociateVPCComment
+    AssociateVPCComment (..),
+
+    -- ** ChangeBatch
+    ChangeBatch (..),
+    mkChangeBatch,
+    cbChanges,
+    cbComment,
+
+    -- ** HostedZoneLimit
+    HostedZoneLimit (..),
+    mkHostedZoneLimit,
+    hzlType,
+    hzlValue,
+
+    -- ** TrafficPolicyName
+    TrafficPolicyName (..),
 
     -- ** StatusReport
     StatusReport (..),
     mkStatusReport,
-    srStatus,
     srCheckedTime,
+    srStatus,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- ** TrafficPolicy
-    TrafficPolicy (..),
-    mkTrafficPolicy,
-    tpDocument,
-    tpName,
-    tpVersion,
-    tpId,
-    tpType,
-    tpComment,
-
-    -- ** TrafficPolicyInstance
-    TrafficPolicyInstance (..),
-    mkTrafficPolicyInstance,
-    tpiTTL,
-    tpiState,
-    tpiTrafficPolicyVersion,
-    tpiHostedZoneId,
-    tpiName,
-    tpiId,
-    tpiTrafficPolicyType,
-    tpiTrafficPolicyId,
-    tpiMessage,
-
-    -- ** TrafficPolicySummary
-    TrafficPolicySummary (..),
-    mkTrafficPolicySummary,
-    tpsTrafficPolicyCount,
-    tpsName,
-    tpsId,
-    tpsType,
-    tpsLatestVersion,
+    -- ** HealthCheckType
+    HealthCheckType (..),
 
     -- ** VPC
     VPC (..),
     mkVPC,
-    vpcVPCRegion,
     vpcVPCId,
+    vpcVPCRegion,
+
+    -- ** HostedZoneConfig
+    HostedZoneConfig (..),
+    mkHostedZoneConfig,
+    hzcComment,
+    hzcPrivateZone,
+
+    -- ** InsufficientDataHealthStatus
+    InsufficientDataHealthStatus (..),
+
+    -- ** TrafficPolicyVersionMarker
+    TrafficPolicyVersionMarker (..),
+
+    -- ** ResourceRecordSet
+    ResourceRecordSet (..),
+    mkResourceRecordSet,
+    rrsName,
+    rrsType,
+    rrsAliasTarget,
+    rrsFailover,
+    rrsGeoLocation,
+    rrsHealthCheckId,
+    rrsMultiValueAnswer,
+    rrsRegion,
+    rrsResourceRecords,
+    rrsSetIdentifier,
+    rrsTTL,
+    rrsTrafficPolicyInstanceId,
+    rrsWeight,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** DelegationSet
+    DelegationSet (..),
+    mkDelegationSet,
+    dsNameServers,
+    dsCallerReference,
+    dsId,
+
+    -- ** ChangeInfo
+    ChangeInfo (..),
+    mkChangeInfo,
+    ciId,
+    ciStatus,
+    ciSubmittedAt,
+    ciComment,
+
+    -- ** GeoLocationSubdivisionCode
+    GeoLocationSubdivisionCode (..),
+
+    -- ** RecordType
+    RecordType (..),
+
+    -- ** AlarmIdentifier
+    AlarmIdentifier (..),
+    mkAlarmIdentifier,
+    aiRegion,
+    aiName,
+
+    -- ** GeoLocation
+    GeoLocation (..),
+    mkGeoLocation,
+    glContinentCode,
+    glCountryCode,
+    glSubdivisionCode,
+
+    -- ** TrafficPolicyId
+    TrafficPolicyId (..),
+
+    -- ** HealthCheckObservation
+    HealthCheckObservation (..),
+    mkHealthCheckObservation,
+    hcoIPAddress,
+    hcoRegion,
+    hcoStatusReport,
+
+    -- ** Message
+    Message (..),
+
+    -- ** FullyQualifiedDomainName
+    FullyQualifiedDomainName (..),
+
+    -- ** IPAddressCidr
+    IPAddressCidr (..),
+
+    -- ** ReusableDelegationSetLimit
+    ReusableDelegationSetLimit (..),
+    mkReusableDelegationSetLimit,
+    rdslType,
+    rdslValue,
+
+    -- ** DNSName
+    DNSName (..),
+
+    -- ** HostedZoneOwner
+    HostedZoneOwner (..),
+    mkHostedZoneOwner,
+    hzoOwningAccount,
+    hzoOwningService,
+
+    -- ** MaxResults
+    MaxResults (..),
+
+    -- ** Statistic
+    Statistic (..),
+
+    -- ** RecordDataEntry
+    RecordDataEntry (..),
+
+    -- ** TrafficPolicySummary
+    TrafficPolicySummary (..),
+    mkTrafficPolicySummary,
+    tpsId,
+    tpsName,
+    tpsType,
+    tpsLatestVersion,
+    tpsTrafficPolicyCount,
+
+    -- ** HostedZoneIdMarker
+    HostedZoneIdMarker (..),
+
+    -- ** MaxItems
+    MaxItems (..),
+
+    -- ** TrafficPolicyInstanceNameMarker
+    TrafficPolicyInstanceNameMarker (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** DelegationSetId
+    DelegationSetId (..),
+
+    -- ** Marker
+    Marker (..),
+
+    -- ** CallerReference
+    CallerReference (..),
+
+    -- ** HostedZoneId
+    HostedZoneId (..),
+
+    -- ** Comment
+    Comment (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** NextContinentCode
+    NextContinentCode (..),
+
+    -- ** NextCountryCode
+    NextCountryCode (..),
+
+    -- ** NextSubdivisionCode
+    NextSubdivisionCode (..),
+
+    -- ** ContinentCode
+    ContinentCode (..),
+
+    -- ** ContinentName
+    ContinentName (..),
+
+    -- ** CountryCode
+    CountryCode (..),
+
+    -- ** SubdivisionCode
+    SubdivisionCode (..),
+
+    -- ** SubdivisionName
+    SubdivisionName (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** Document
+    Document (..),
+
+    -- ** StartRecordIdentifier
+    StartRecordIdentifier (..),
+
+    -- ** StartRecordName
+    StartRecordName (..),
+
+    -- ** StartContinentCode
+    StartContinentCode (..),
+
+    -- ** StartSubdivisionCode
+    StartSubdivisionCode (..),
+
+    -- ** NextMarker
+    NextMarker (..),
+
+    -- ** NextDNSName
+    NextDNSName (..),
+
+    -- ** State
+    State (..),
+
+    -- ** NextRecordName
+    NextRecordName (..),
+
+    -- ** RecordName
+    RecordName (..),
+
+    -- ** TrafficPolicyIdMarker
+    TrafficPolicyIdMarker (..),
+
+    -- ** ResponseCode
+    ResponseCode (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 
@@ -538,7 +907,7 @@ import Network.AWS.Route53.DeleteVPCAssociationAuthorization
 import Network.AWS.Route53.DisassociateVPCFromHostedZone
 import Network.AWS.Route53.GetAccountLimit
 import Network.AWS.Route53.GetChange
-import Network.AWS.Route53.GetCheckerIPRanges
+import Network.AWS.Route53.GetCheckerIpRanges
 import Network.AWS.Route53.GetGeoLocation
 import Network.AWS.Route53.GetHealthCheck
 import Network.AWS.Route53.GetHealthCheckCount

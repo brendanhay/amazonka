@@ -23,7 +23,9 @@ module Network.AWS.WAFRegional.Types.ByteMatchSetSummary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAFRegional.Types.ResourceId as Types
+import qualified Network.AWS.WAFRegional.Types.ResourceName as Types
 
 -- | Returned by 'ListByteMatchSets' . Each @ByteMatchSetSummary@ object includes the @Name@ and @ByteMatchSetId@ for one 'ByteMatchSet' .
 --
@@ -32,52 +34,42 @@ data ByteMatchSetSummary = ByteMatchSetSummary'
   { -- | The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ , update a @ByteMatchSet@ , remove a @ByteMatchSet@ from a @Rule@ , and delete a @ByteMatchSet@ from AWS WAF.
     --
     -- @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
-    byteMatchSetId :: Lude.Text,
+    byteMatchSetId :: Types.ResourceId,
     -- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
-    name :: Lude.Text
+    name :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ByteMatchSetSummary' with the minimum fields required to make a request.
---
--- * 'byteMatchSetId' - The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ , update a @ByteMatchSet@ , remove a @ByteMatchSet@ from a @Rule@ , and delete a @ByteMatchSet@ from AWS WAF.
---
--- @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
--- * 'name' - A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
+-- | Creates a 'ByteMatchSetSummary' value with any optional fields omitted.
 mkByteMatchSetSummary ::
   -- | 'byteMatchSetId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
   ByteMatchSetSummary
-mkByteMatchSetSummary pByteMatchSetId_ pName_ =
-  ByteMatchSetSummary'
-    { byteMatchSetId = pByteMatchSetId_,
-      name = pName_
-    }
+mkByteMatchSetSummary byteMatchSetId name =
+  ByteMatchSetSummary' {byteMatchSetId, name}
 
 -- | The @ByteMatchSetId@ for a @ByteMatchSet@ . You use @ByteMatchSetId@ to get information about a @ByteMatchSet@ , update a @ByteMatchSet@ , remove a @ByteMatchSet@ from a @Rule@ , and delete a @ByteMatchSet@ from AWS WAF.
 --
 -- @ByteMatchSetId@ is returned by 'CreateByteMatchSet' and by 'ListByteMatchSets' .
 --
 -- /Note:/ Consider using 'byteMatchSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmssByteMatchSetId :: Lens.Lens' ByteMatchSetSummary Lude.Text
-bmssByteMatchSetId = Lens.lens (byteMatchSetId :: ByteMatchSetSummary -> Lude.Text) (\s a -> s {byteMatchSetId = a} :: ByteMatchSetSummary)
+bmssByteMatchSetId :: Lens.Lens' ByteMatchSetSummary Types.ResourceId
+bmssByteMatchSetId = Lens.field @"byteMatchSetId"
 {-# DEPRECATED bmssByteMatchSetId "Use generic-lens or generic-optics with 'byteMatchSetId' instead." #-}
 
 -- | A friendly name or description of the 'ByteMatchSet' . You can't change @Name@ after you create a @ByteMatchSet@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bmssName :: Lens.Lens' ByteMatchSetSummary Lude.Text
-bmssName = Lens.lens (name :: ByteMatchSetSummary -> Lude.Text) (\s a -> s {name = a} :: ByteMatchSetSummary)
+bmssName :: Lens.Lens' ByteMatchSetSummary Types.ResourceName
+bmssName = Lens.field @"name"
 {-# DEPRECATED bmssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON ByteMatchSetSummary where
+instance Core.FromJSON ByteMatchSetSummary where
   parseJSON =
-    Lude.withObject
-      "ByteMatchSetSummary"
-      ( \x ->
-          ByteMatchSetSummary'
-            Lude.<$> (x Lude..: "ByteMatchSetId") Lude.<*> (x Lude..: "Name")
-      )
+    Core.withObject "ByteMatchSetSummary" Core.$
+      \x ->
+        ByteMatchSetSummary'
+          Core.<$> (x Core..: "ByteMatchSetId") Core.<*> (x Core..: "Name")

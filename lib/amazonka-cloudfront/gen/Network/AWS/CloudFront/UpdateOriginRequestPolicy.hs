@@ -30,154 +30,139 @@ module Network.AWS.CloudFront.UpdateOriginRequestPolicy
     mkUpdateOriginRequestPolicy,
 
     -- ** Request lenses
-    uorpIfMatch,
     uorpOriginRequestPolicyConfig,
     uorpId,
+    uorpIfMatch,
 
     -- * Destructuring the response
     UpdateOriginRequestPolicyResponse (..),
     mkUpdateOriginRequestPolicyResponse,
 
     -- ** Response lenses
-    uorprsETag,
-    uorprsOriginRequestPolicy,
-    uorprsResponseStatus,
+    uorprrsETag,
+    uorprrsOriginRequestPolicy,
+    uorprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateOriginRequestPolicy' smart constructor.
 data UpdateOriginRequestPolicy = UpdateOriginRequestPolicy'
-  { -- | The version of the origin request policy that you are updating. The version is returned in the origin request policy’s @ETag@ field in the response to @GetOriginRequestPolicyConfig@ .
-    ifMatch :: Lude.Maybe Lude.Text,
-    -- | An origin request policy configuration.
-    originRequestPolicyConfig :: OriginRequestPolicyConfig,
+  { -- | An origin request policy configuration.
+    originRequestPolicyConfig :: Types.OriginRequestPolicyConfig,
     -- | The unique identifier for the origin request policy that you are updating. The identifier is returned in a cache behavior’s @OriginRequestPolicyId@ field in the response to @GetDistributionConfig@ .
-    id :: Lude.Text
+    id :: Types.String,
+    -- | The version of the origin request policy that you are updating. The version is returned in the origin request policy’s @ETag@ field in the response to @GetOriginRequestPolicyConfig@ .
+    ifMatch :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateOriginRequestPolicy' with the minimum fields required to make a request.
---
--- * 'ifMatch' - The version of the origin request policy that you are updating. The version is returned in the origin request policy’s @ETag@ field in the response to @GetOriginRequestPolicyConfig@ .
--- * 'originRequestPolicyConfig' - An origin request policy configuration.
--- * 'id' - The unique identifier for the origin request policy that you are updating. The identifier is returned in a cache behavior’s @OriginRequestPolicyId@ field in the response to @GetDistributionConfig@ .
+-- | Creates a 'UpdateOriginRequestPolicy' value with any optional fields omitted.
 mkUpdateOriginRequestPolicy ::
   -- | 'originRequestPolicyConfig'
-  OriginRequestPolicyConfig ->
+  Types.OriginRequestPolicyConfig ->
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   UpdateOriginRequestPolicy
-mkUpdateOriginRequestPolicy pOriginRequestPolicyConfig_ pId_ =
+mkUpdateOriginRequestPolicy originRequestPolicyConfig id =
   UpdateOriginRequestPolicy'
-    { ifMatch = Lude.Nothing,
-      originRequestPolicyConfig = pOriginRequestPolicyConfig_,
-      id = pId_
+    { originRequestPolicyConfig,
+      id,
+      ifMatch = Core.Nothing
     }
-
--- | The version of the origin request policy that you are updating. The version is returned in the origin request policy’s @ETag@ field in the response to @GetOriginRequestPolicyConfig@ .
---
--- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uorpIfMatch :: Lens.Lens' UpdateOriginRequestPolicy (Lude.Maybe Lude.Text)
-uorpIfMatch = Lens.lens (ifMatch :: UpdateOriginRequestPolicy -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: UpdateOriginRequestPolicy)
-{-# DEPRECATED uorpIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
 
 -- | An origin request policy configuration.
 --
 -- /Note:/ Consider using 'originRequestPolicyConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uorpOriginRequestPolicyConfig :: Lens.Lens' UpdateOriginRequestPolicy OriginRequestPolicyConfig
-uorpOriginRequestPolicyConfig = Lens.lens (originRequestPolicyConfig :: UpdateOriginRequestPolicy -> OriginRequestPolicyConfig) (\s a -> s {originRequestPolicyConfig = a} :: UpdateOriginRequestPolicy)
+uorpOriginRequestPolicyConfig :: Lens.Lens' UpdateOriginRequestPolicy Types.OriginRequestPolicyConfig
+uorpOriginRequestPolicyConfig = Lens.field @"originRequestPolicyConfig"
 {-# DEPRECATED uorpOriginRequestPolicyConfig "Use generic-lens or generic-optics with 'originRequestPolicyConfig' instead." #-}
 
 -- | The unique identifier for the origin request policy that you are updating. The identifier is returned in a cache behavior’s @OriginRequestPolicyId@ field in the response to @GetDistributionConfig@ .
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uorpId :: Lens.Lens' UpdateOriginRequestPolicy Lude.Text
-uorpId = Lens.lens (id :: UpdateOriginRequestPolicy -> Lude.Text) (\s a -> s {id = a} :: UpdateOriginRequestPolicy)
+uorpId :: Lens.Lens' UpdateOriginRequestPolicy Types.String
+uorpId = Lens.field @"id"
 {-# DEPRECATED uorpId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest UpdateOriginRequestPolicy where
+-- | The version of the origin request policy that you are updating. The version is returned in the origin request policy’s @ETag@ field in the response to @GetOriginRequestPolicyConfig@ .
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uorpIfMatch :: Lens.Lens' UpdateOriginRequestPolicy (Core.Maybe Types.String)
+uorpIfMatch = Lens.field @"ifMatch"
+{-# DEPRECATED uorpIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+
+instance Core.AWSRequest UpdateOriginRequestPolicy where
   type
     Rs UpdateOriginRequestPolicy =
       UpdateOriginRequestPolicyResponse
-  request = Req.putXML cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ("/2020-05-31/origin-request-policy/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "If-Match" ifMatch,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           UpdateOriginRequestPolicyResponse'
-            Lude.<$> (h Lude..#? "ETag")
-            Lude.<*> (Lude.parseXML x)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseXML x)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement UpdateOriginRequestPolicy where
-  toElement =
-    Lude.mkElement
-      "{http://cloudfront.amazonaws.com/doc/2020-05-31/}OriginRequestPolicyConfig"
-      Lude.. originRequestPolicyConfig
-
-instance Lude.ToHeaders UpdateOriginRequestPolicy where
-  toHeaders UpdateOriginRequestPolicy' {..} =
-    Lude.mconcat ["If-Match" Lude.=# ifMatch]
-
-instance Lude.ToPath UpdateOriginRequestPolicy where
-  toPath UpdateOriginRequestPolicy' {..} =
-    Lude.mconcat ["/2020-05-31/origin-request-policy/", Lude.toBS id]
-
-instance Lude.ToQuery UpdateOriginRequestPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateOriginRequestPolicyResponse' smart constructor.
 data UpdateOriginRequestPolicyResponse = UpdateOriginRequestPolicyResponse'
   { -- | The current version of the origin request policy.
-    eTag :: Lude.Maybe Lude.Text,
+    eTag :: Core.Maybe Types.String,
     -- | An origin request policy.
-    originRequestPolicy :: Lude.Maybe OriginRequestPolicy,
+    originRequestPolicy :: Core.Maybe Types.OriginRequestPolicy,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateOriginRequestPolicyResponse' with the minimum fields required to make a request.
---
--- * 'eTag' - The current version of the origin request policy.
--- * 'originRequestPolicy' - An origin request policy.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateOriginRequestPolicyResponse' value with any optional fields omitted.
 mkUpdateOriginRequestPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateOriginRequestPolicyResponse
-mkUpdateOriginRequestPolicyResponse pResponseStatus_ =
+mkUpdateOriginRequestPolicyResponse responseStatus =
   UpdateOriginRequestPolicyResponse'
-    { eTag = Lude.Nothing,
-      originRequestPolicy = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { eTag = Core.Nothing,
+      originRequestPolicy = Core.Nothing,
+      responseStatus
     }
 
 -- | The current version of the origin request policy.
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uorprsETag :: Lens.Lens' UpdateOriginRequestPolicyResponse (Lude.Maybe Lude.Text)
-uorprsETag = Lens.lens (eTag :: UpdateOriginRequestPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {eTag = a} :: UpdateOriginRequestPolicyResponse)
-{-# DEPRECATED uorprsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+uorprrsETag :: Lens.Lens' UpdateOriginRequestPolicyResponse (Core.Maybe Types.String)
+uorprrsETag = Lens.field @"eTag"
+{-# DEPRECATED uorprrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | An origin request policy.
 --
 -- /Note:/ Consider using 'originRequestPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uorprsOriginRequestPolicy :: Lens.Lens' UpdateOriginRequestPolicyResponse (Lude.Maybe OriginRequestPolicy)
-uorprsOriginRequestPolicy = Lens.lens (originRequestPolicy :: UpdateOriginRequestPolicyResponse -> Lude.Maybe OriginRequestPolicy) (\s a -> s {originRequestPolicy = a} :: UpdateOriginRequestPolicyResponse)
-{-# DEPRECATED uorprsOriginRequestPolicy "Use generic-lens or generic-optics with 'originRequestPolicy' instead." #-}
+uorprrsOriginRequestPolicy :: Lens.Lens' UpdateOriginRequestPolicyResponse (Core.Maybe Types.OriginRequestPolicy)
+uorprrsOriginRequestPolicy = Lens.field @"originRequestPolicy"
+{-# DEPRECATED uorprrsOriginRequestPolicy "Use generic-lens or generic-optics with 'originRequestPolicy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uorprsResponseStatus :: Lens.Lens' UpdateOriginRequestPolicyResponse Lude.Int
-uorprsResponseStatus = Lens.lens (responseStatus :: UpdateOriginRequestPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateOriginRequestPolicyResponse)
-{-# DEPRECATED uorprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uorprrsResponseStatus :: Lens.Lens' UpdateOriginRequestPolicyResponse Core.Int
+uorprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uorprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

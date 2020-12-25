@@ -20,154 +20,138 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     mkReportTaskRunnerHeartbeat,
 
     -- ** Request lenses
+    rtrhTaskrunnerId,
     rtrhHostname,
     rtrhWorkerGroup,
-    rtrhTaskrunnerId,
 
     -- * Destructuring the response
     ReportTaskRunnerHeartbeatResponse (..),
     mkReportTaskRunnerHeartbeatResponse,
 
     -- ** Response lenses
-    rtrhrsTerminate,
-    rtrhrsResponseStatus,
+    rtrhrrsTerminate,
+    rtrhrrsResponseStatus,
   )
 where
 
-import Network.AWS.DataPipeline.Types
+import qualified Network.AWS.DataPipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for ReportTaskRunnerHeartbeat.
 --
 -- /See:/ 'mkReportTaskRunnerHeartbeat' smart constructor.
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
-  { -- | The public DNS name of the task runner.
-    hostname :: Lude.Maybe Lude.Text,
+  { -- | The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.
+    taskrunnerId :: Types.Id,
+    -- | The public DNS name of the task runner.
+    hostname :: Core.Maybe Types.Id,
     -- | The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
-    workerGroup :: Lude.Maybe Lude.Text,
-    -- | The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.
-    taskrunnerId :: Lude.Text
+    workerGroup :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReportTaskRunnerHeartbeat' with the minimum fields required to make a request.
---
--- * 'hostname' - The public DNS name of the task runner.
--- * 'workerGroup' - The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
--- * 'taskrunnerId' - The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.
+-- | Creates a 'ReportTaskRunnerHeartbeat' value with any optional fields omitted.
 mkReportTaskRunnerHeartbeat ::
   -- | 'taskrunnerId'
-  Lude.Text ->
+  Types.Id ->
   ReportTaskRunnerHeartbeat
-mkReportTaskRunnerHeartbeat pTaskrunnerId_ =
+mkReportTaskRunnerHeartbeat taskrunnerId =
   ReportTaskRunnerHeartbeat'
-    { hostname = Lude.Nothing,
-      workerGroup = Lude.Nothing,
-      taskrunnerId = pTaskrunnerId_
+    { taskrunnerId,
+      hostname = Core.Nothing,
+      workerGroup = Core.Nothing
     }
+
+-- | The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.
+--
+-- /Note:/ Consider using 'taskrunnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtrhTaskrunnerId :: Lens.Lens' ReportTaskRunnerHeartbeat Types.Id
+rtrhTaskrunnerId = Lens.field @"taskrunnerId"
+{-# DEPRECATED rtrhTaskrunnerId "Use generic-lens or generic-optics with 'taskrunnerId' instead." #-}
 
 -- | The public DNS name of the task runner.
 --
 -- /Note:/ Consider using 'hostname' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrhHostname :: Lens.Lens' ReportTaskRunnerHeartbeat (Lude.Maybe Lude.Text)
-rtrhHostname = Lens.lens (hostname :: ReportTaskRunnerHeartbeat -> Lude.Maybe Lude.Text) (\s a -> s {hostname = a} :: ReportTaskRunnerHeartbeat)
+rtrhHostname :: Lens.Lens' ReportTaskRunnerHeartbeat (Core.Maybe Types.Id)
+rtrhHostname = Lens.field @"hostname"
 {-# DEPRECATED rtrhHostname "Use generic-lens or generic-optics with 'hostname' instead." #-}
 
 -- | The type of task the task runner is configured to accept and process. The worker group is set as a field on objects in the pipeline when they are created. You can only specify a single value for @workerGroup@ . There are no wildcard values permitted in @workerGroup@ ; the string must be an exact, case-sensitive, match.
 --
 -- /Note:/ Consider using 'workerGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrhWorkerGroup :: Lens.Lens' ReportTaskRunnerHeartbeat (Lude.Maybe Lude.Text)
-rtrhWorkerGroup = Lens.lens (workerGroup :: ReportTaskRunnerHeartbeat -> Lude.Maybe Lude.Text) (\s a -> s {workerGroup = a} :: ReportTaskRunnerHeartbeat)
+rtrhWorkerGroup :: Lens.Lens' ReportTaskRunnerHeartbeat (Core.Maybe Types.String)
+rtrhWorkerGroup = Lens.field @"workerGroup"
 {-# DEPRECATED rtrhWorkerGroup "Use generic-lens or generic-optics with 'workerGroup' instead." #-}
 
--- | The ID of the task runner. This value should be unique across your AWS account. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service provides a unique identifier when it launches the application. If you have written a custom task runner, you should assign a unique identifier for the task runner.
---
--- /Note:/ Consider using 'taskrunnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrhTaskrunnerId :: Lens.Lens' ReportTaskRunnerHeartbeat Lude.Text
-rtrhTaskrunnerId = Lens.lens (taskrunnerId :: ReportTaskRunnerHeartbeat -> Lude.Text) (\s a -> s {taskrunnerId = a} :: ReportTaskRunnerHeartbeat)
-{-# DEPRECATED rtrhTaskrunnerId "Use generic-lens or generic-optics with 'taskrunnerId' instead." #-}
+instance Core.FromJSON ReportTaskRunnerHeartbeat where
+  toJSON ReportTaskRunnerHeartbeat {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("taskrunnerId" Core..= taskrunnerId),
+            ("hostname" Core..=) Core.<$> hostname,
+            ("workerGroup" Core..=) Core.<$> workerGroup
+          ]
+      )
 
-instance Lude.AWSRequest ReportTaskRunnerHeartbeat where
+instance Core.AWSRequest ReportTaskRunnerHeartbeat where
   type
     Rs ReportTaskRunnerHeartbeat =
       ReportTaskRunnerHeartbeatResponse
-  request = Req.postJSON dataPipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DataPipeline.ReportTaskRunnerHeartbeat")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ReportTaskRunnerHeartbeatResponse'
-            Lude.<$> (x Lude..:> "terminate") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "terminate") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ReportTaskRunnerHeartbeat where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DataPipeline.ReportTaskRunnerHeartbeat" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ReportTaskRunnerHeartbeat where
-  toJSON ReportTaskRunnerHeartbeat' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("hostname" Lude..=) Lude.<$> hostname,
-            ("workerGroup" Lude..=) Lude.<$> workerGroup,
-            Lude.Just ("taskrunnerId" Lude..= taskrunnerId)
-          ]
-      )
-
-instance Lude.ToPath ReportTaskRunnerHeartbeat where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ReportTaskRunnerHeartbeat where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the output of ReportTaskRunnerHeartbeat.
 --
 -- /See:/ 'mkReportTaskRunnerHeartbeatResponse' smart constructor.
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
   { -- | Indicates whether the calling task runner should terminate.
-    terminate :: Lude.Bool,
+    terminate :: Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReportTaskRunnerHeartbeatResponse' with the minimum fields required to make a request.
---
--- * 'terminate' - Indicates whether the calling task runner should terminate.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ReportTaskRunnerHeartbeatResponse' value with any optional fields omitted.
 mkReportTaskRunnerHeartbeatResponse ::
   -- | 'terminate'
-  Lude.Bool ->
+  Core.Bool ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ReportTaskRunnerHeartbeatResponse
-mkReportTaskRunnerHeartbeatResponse pTerminate_ pResponseStatus_ =
-  ReportTaskRunnerHeartbeatResponse'
-    { terminate = pTerminate_,
-      responseStatus = pResponseStatus_
-    }
+mkReportTaskRunnerHeartbeatResponse terminate responseStatus =
+  ReportTaskRunnerHeartbeatResponse' {terminate, responseStatus}
 
 -- | Indicates whether the calling task runner should terminate.
 --
 -- /Note:/ Consider using 'terminate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrhrsTerminate :: Lens.Lens' ReportTaskRunnerHeartbeatResponse Lude.Bool
-rtrhrsTerminate = Lens.lens (terminate :: ReportTaskRunnerHeartbeatResponse -> Lude.Bool) (\s a -> s {terminate = a} :: ReportTaskRunnerHeartbeatResponse)
-{-# DEPRECATED rtrhrsTerminate "Use generic-lens or generic-optics with 'terminate' instead." #-}
+rtrhrrsTerminate :: Lens.Lens' ReportTaskRunnerHeartbeatResponse Core.Bool
+rtrhrrsTerminate = Lens.field @"terminate"
+{-# DEPRECATED rtrhrrsTerminate "Use generic-lens or generic-optics with 'terminate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrhrsResponseStatus :: Lens.Lens' ReportTaskRunnerHeartbeatResponse Lude.Int
-rtrhrsResponseStatus = Lens.lens (responseStatus :: ReportTaskRunnerHeartbeatResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ReportTaskRunnerHeartbeatResponse)
-{-# DEPRECATED rtrhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtrhrrsResponseStatus :: Lens.Lens' ReportTaskRunnerHeartbeatResponse Core.Int
+rtrhrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtrhrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

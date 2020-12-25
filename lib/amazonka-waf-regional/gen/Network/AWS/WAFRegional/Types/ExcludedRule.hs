@@ -22,41 +22,39 @@ module Network.AWS.WAFRegional.Types.ExcludedRule
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAFRegional.Types.RuleId as Types
 
 -- | The rule to exclude from a rule group. This is applicable only when the @ActivatedRule@ refers to a @RuleGroup@ . The rule must belong to the @RuleGroup@ that is specified by the @ActivatedRule@ .
 --
 -- /See:/ 'mkExcludedRule' smart constructor.
 newtype ExcludedRule = ExcludedRule'
   { -- | The unique identifier for the rule to exclude from the rule group.
-    ruleId :: Lude.Text
+    ruleId :: Types.RuleId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExcludedRule' with the minimum fields required to make a request.
---
--- * 'ruleId' - The unique identifier for the rule to exclude from the rule group.
+-- | Creates a 'ExcludedRule' value with any optional fields omitted.
 mkExcludedRule ::
   -- | 'ruleId'
-  Lude.Text ->
+  Types.RuleId ->
   ExcludedRule
-mkExcludedRule pRuleId_ = ExcludedRule' {ruleId = pRuleId_}
+mkExcludedRule ruleId = ExcludedRule' {ruleId}
 
 -- | The unique identifier for the rule to exclude from the rule group.
 --
 -- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-erRuleId :: Lens.Lens' ExcludedRule Lude.Text
-erRuleId = Lens.lens (ruleId :: ExcludedRule -> Lude.Text) (\s a -> s {ruleId = a} :: ExcludedRule)
+erRuleId :: Lens.Lens' ExcludedRule Types.RuleId
+erRuleId = Lens.field @"ruleId"
 {-# DEPRECATED erRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
 
-instance Lude.FromJSON ExcludedRule where
-  parseJSON =
-    Lude.withObject
-      "ExcludedRule"
-      (\x -> ExcludedRule' Lude.<$> (x Lude..: "RuleId"))
+instance Core.FromJSON ExcludedRule where
+  toJSON ExcludedRule {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("RuleId" Core..= ruleId)])
 
-instance Lude.ToJSON ExcludedRule where
-  toJSON ExcludedRule' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("RuleId" Lude..= ruleId)])
+instance Core.FromJSON ExcludedRule where
+  parseJSON =
+    Core.withObject "ExcludedRule" Core.$
+      \x -> ExcludedRule' Core.<$> (x Core..: "RuleId")

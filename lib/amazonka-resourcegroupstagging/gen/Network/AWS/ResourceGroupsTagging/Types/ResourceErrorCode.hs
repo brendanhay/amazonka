@@ -13,46 +13,51 @@
 module Network.AWS.ResourceGroupsTagging.Types.ResourceErrorCode
   ( ResourceErrorCode
       ( ResourceErrorCode',
-        InternalServiceException,
-        InvalidParameterException
+        ResourceErrorCodeInternalServiceException,
+        ResourceErrorCodeInvalidParameterException,
+        fromResourceErrorCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ResourceErrorCode = ResourceErrorCode' Lude.Text
+newtype ResourceErrorCode = ResourceErrorCode'
+  { fromResourceErrorCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InternalServiceException :: ResourceErrorCode
-pattern InternalServiceException = ResourceErrorCode' "InternalServiceException"
+pattern ResourceErrorCodeInternalServiceException :: ResourceErrorCode
+pattern ResourceErrorCodeInternalServiceException = ResourceErrorCode' "InternalServiceException"
 
-pattern InvalidParameterException :: ResourceErrorCode
-pattern InvalidParameterException = ResourceErrorCode' "InvalidParameterException"
+pattern ResourceErrorCodeInvalidParameterException :: ResourceErrorCode
+pattern ResourceErrorCodeInvalidParameterException = ResourceErrorCode' "InvalidParameterException"
 
 {-# COMPLETE
-  InternalServiceException,
-  InvalidParameterException,
+  ResourceErrorCodeInternalServiceException,
+  ResourceErrorCodeInvalidParameterException,
   ResourceErrorCode'
   #-}

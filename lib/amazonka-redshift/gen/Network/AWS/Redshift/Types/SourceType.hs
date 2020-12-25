@@ -13,62 +13,64 @@
 module Network.AWS.Redshift.Types.SourceType
   ( SourceType
       ( SourceType',
-        Cluster,
-        ClusterParameterGroup,
-        ClusterSecurityGroup,
-        ClusterSnapshot,
-        ScheduledAction
+        SourceTypeCluster,
+        SourceTypeClusterParameterGroup,
+        SourceTypeClusterSecurityGroup,
+        SourceTypeClusterSnapshot,
+        SourceTypeScheduledAction,
+        fromSourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
 
-newtype SourceType = SourceType' Lude.Text
+newtype SourceType = SourceType' {fromSourceType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Cluster :: SourceType
-pattern Cluster = SourceType' "cluster"
+pattern SourceTypeCluster :: SourceType
+pattern SourceTypeCluster = SourceType' "cluster"
 
-pattern ClusterParameterGroup :: SourceType
-pattern ClusterParameterGroup = SourceType' "cluster-parameter-group"
+pattern SourceTypeClusterParameterGroup :: SourceType
+pattern SourceTypeClusterParameterGroup = SourceType' "cluster-parameter-group"
 
-pattern ClusterSecurityGroup :: SourceType
-pattern ClusterSecurityGroup = SourceType' "cluster-security-group"
+pattern SourceTypeClusterSecurityGroup :: SourceType
+pattern SourceTypeClusterSecurityGroup = SourceType' "cluster-security-group"
 
-pattern ClusterSnapshot :: SourceType
-pattern ClusterSnapshot = SourceType' "cluster-snapshot"
+pattern SourceTypeClusterSnapshot :: SourceType
+pattern SourceTypeClusterSnapshot = SourceType' "cluster-snapshot"
 
-pattern ScheduledAction :: SourceType
-pattern ScheduledAction = SourceType' "scheduled-action"
+pattern SourceTypeScheduledAction :: SourceType
+pattern SourceTypeScheduledAction = SourceType' "scheduled-action"
 
 {-# COMPLETE
-  Cluster,
-  ClusterParameterGroup,
-  ClusterSecurityGroup,
-  ClusterSnapshot,
-  ScheduledAction,
+  SourceTypeCluster,
+  SourceTypeClusterParameterGroup,
+  SourceTypeClusterSecurityGroup,
+  SourceTypeClusterSnapshot,
+  SourceTypeScheduledAction,
   SourceType'
   #-}

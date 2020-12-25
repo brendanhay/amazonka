@@ -20,142 +20,134 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     mkDescribeEnvironmentResources,
 
     -- ** Request lenses
-    derEnvironmentName,
     derEnvironmentId,
+    derEnvironmentName,
 
     -- * Destructuring the response
     DescribeEnvironmentResourcesResponse (..),
     mkDescribeEnvironmentResourcesResponse,
 
     -- ** Response lenses
-    derrsEnvironmentResources,
-    derrsResponseStatus,
+    derrrsEnvironmentResources,
+    derrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to describe the resources in an environment.
 --
 -- /See:/ 'mkDescribeEnvironmentResources' smart constructor.
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
-  { -- | The name of the environment to retrieve AWS resource usage data.
-    --
-    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentName :: Lude.Maybe Lude.Text,
-    -- | The ID of the environment to retrieve AWS resource usage data.
+  { -- | The ID of the environment to retrieve AWS resource usage data.
     --
     -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentId :: Lude.Maybe Lude.Text
+    environmentId :: Core.Maybe Types.EnvironmentId,
+    -- | The name of the environment to retrieve AWS resource usage data.
+    --
+    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentName :: Core.Maybe Types.EnvironmentName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEnvironmentResources' with the minimum fields required to make a request.
---
--- * 'environmentName' - The name of the environment to retrieve AWS resource usage data.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
--- * 'environmentId' - The ID of the environment to retrieve AWS resource usage data.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- | Creates a 'DescribeEnvironmentResources' value with any optional fields omitted.
 mkDescribeEnvironmentResources ::
   DescribeEnvironmentResources
 mkDescribeEnvironmentResources =
   DescribeEnvironmentResources'
-    { environmentName = Lude.Nothing,
-      environmentId = Lude.Nothing
+    { environmentId = Core.Nothing,
+      environmentName = Core.Nothing
     }
-
--- | The name of the environment to retrieve AWS resource usage data.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
---
--- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derEnvironmentName :: Lens.Lens' DescribeEnvironmentResources (Lude.Maybe Lude.Text)
-derEnvironmentName = Lens.lens (environmentName :: DescribeEnvironmentResources -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: DescribeEnvironmentResources)
-{-# DEPRECATED derEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The ID of the environment to retrieve AWS resource usage data.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derEnvironmentId :: Lens.Lens' DescribeEnvironmentResources (Lude.Maybe Lude.Text)
-derEnvironmentId = Lens.lens (environmentId :: DescribeEnvironmentResources -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: DescribeEnvironmentResources)
+derEnvironmentId :: Lens.Lens' DescribeEnvironmentResources (Core.Maybe Types.EnvironmentId)
+derEnvironmentId = Lens.field @"environmentId"
 {-# DEPRECATED derEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
-instance Lude.AWSRequest DescribeEnvironmentResources where
+-- | The name of the environment to retrieve AWS resource usage data.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+derEnvironmentName :: Lens.Lens' DescribeEnvironmentResources (Core.Maybe Types.EnvironmentName)
+derEnvironmentName = Lens.field @"environmentName"
+{-# DEPRECATED derEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
+
+instance Core.AWSRequest DescribeEnvironmentResources where
   type
     Rs DescribeEnvironmentResources =
       DescribeEnvironmentResourcesResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeEnvironmentResources")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "EnvironmentId" Core.<$> environmentId)
+                Core.<> (Core.toQueryValue "EnvironmentName" Core.<$> environmentName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeEnvironmentResourcesResult"
       ( \s h x ->
           DescribeEnvironmentResourcesResponse'
-            Lude.<$> (x Lude..@? "EnvironmentResources")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "EnvironmentResources")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeEnvironmentResources where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeEnvironmentResources where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEnvironmentResources where
-  toQuery DescribeEnvironmentResources' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeEnvironmentResources" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "EnvironmentName" Lude.=: environmentName,
-        "EnvironmentId" Lude.=: environmentId
-      ]
 
 -- | Result message containing a list of environment resource descriptions.
 --
 -- /See:/ 'mkDescribeEnvironmentResourcesResponse' smart constructor.
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
   { -- | A list of 'EnvironmentResourceDescription' .
-    environmentResources :: Lude.Maybe EnvironmentResourceDescription,
+    environmentResources :: Core.Maybe Types.EnvironmentResourceDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEnvironmentResourcesResponse' with the minimum fields required to make a request.
---
--- * 'environmentResources' - A list of 'EnvironmentResourceDescription' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEnvironmentResourcesResponse' value with any optional fields omitted.
 mkDescribeEnvironmentResourcesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEnvironmentResourcesResponse
-mkDescribeEnvironmentResourcesResponse pResponseStatus_ =
+mkDescribeEnvironmentResourcesResponse responseStatus =
   DescribeEnvironmentResourcesResponse'
     { environmentResources =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A list of 'EnvironmentResourceDescription' .
 --
 -- /Note:/ Consider using 'environmentResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derrsEnvironmentResources :: Lens.Lens' DescribeEnvironmentResourcesResponse (Lude.Maybe EnvironmentResourceDescription)
-derrsEnvironmentResources = Lens.lens (environmentResources :: DescribeEnvironmentResourcesResponse -> Lude.Maybe EnvironmentResourceDescription) (\s a -> s {environmentResources = a} :: DescribeEnvironmentResourcesResponse)
-{-# DEPRECATED derrsEnvironmentResources "Use generic-lens or generic-optics with 'environmentResources' instead." #-}
+derrrsEnvironmentResources :: Lens.Lens' DescribeEnvironmentResourcesResponse (Core.Maybe Types.EnvironmentResourceDescription)
+derrrsEnvironmentResources = Lens.field @"environmentResources"
+{-# DEPRECATED derrrsEnvironmentResources "Use generic-lens or generic-optics with 'environmentResources' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derrsResponseStatus :: Lens.Lens' DescribeEnvironmentResourcesResponse Lude.Int
-derrsResponseStatus = Lens.lens (responseStatus :: DescribeEnvironmentResourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEnvironmentResourcesResponse)
-{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+derrrsResponseStatus :: Lens.Lens' DescribeEnvironmentResourcesResponse Core.Int
+derrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED derrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

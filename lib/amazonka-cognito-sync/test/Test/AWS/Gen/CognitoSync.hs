@@ -246,7 +246,7 @@ responseDescribeDataset =
   res
     "DescribeDatasetResponse"
     "fixture/DescribeDatasetResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDataset)
 
 responseSetCognitoEvents :: SetCognitoEventsResponse -> TestTree
@@ -254,7 +254,7 @@ responseSetCognitoEvents =
   res
     "SetCognitoEventsResponse"
     "fixture/SetCognitoEventsResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy SetCognitoEvents)
 
 responseDescribeIdentityPoolUsage :: DescribeIdentityPoolUsageResponse -> TestTree
@@ -262,7 +262,7 @@ responseDescribeIdentityPoolUsage =
   res
     "DescribeIdentityPoolUsageResponse"
     "fixture/DescribeIdentityPoolUsageResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy DescribeIdentityPoolUsage)
 
 responseGetBulkPublishDetails :: GetBulkPublishDetailsResponse -> TestTree
@@ -270,7 +270,7 @@ responseGetBulkPublishDetails =
   res
     "GetBulkPublishDetailsResponse"
     "fixture/GetBulkPublishDetailsResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy GetBulkPublishDetails)
 
 responseListIdentityPoolUsage :: ListIdentityPoolUsageResponse -> TestTree
@@ -278,7 +278,7 @@ responseListIdentityPoolUsage =
   res
     "ListIdentityPoolUsageResponse"
     "fixture/ListIdentityPoolUsageResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy ListIdentityPoolUsage)
 
 responseSetIdentityPoolConfiguration :: SetIdentityPoolConfigurationResponse -> TestTree
@@ -286,7 +286,7 @@ responseSetIdentityPoolConfiguration =
   res
     "SetIdentityPoolConfigurationResponse"
     "fixture/SetIdentityPoolConfigurationResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy SetIdentityPoolConfiguration)
 
 responseDeleteDataset :: DeleteDatasetResponse -> TestTree
@@ -294,7 +294,7 @@ responseDeleteDataset =
   res
     "DeleteDatasetResponse"
     "fixture/DeleteDatasetResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDataset)
 
 responseGetCognitoEvents :: GetCognitoEventsResponse -> TestTree
@@ -302,7 +302,7 @@ responseGetCognitoEvents =
   res
     "GetCognitoEventsResponse"
     "fixture/GetCognitoEventsResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy GetCognitoEvents)
 
 responseDescribeIdentityUsage :: DescribeIdentityUsageResponse -> TestTree
@@ -310,7 +310,7 @@ responseDescribeIdentityUsage =
   res
     "DescribeIdentityUsageResponse"
     "fixture/DescribeIdentityUsageResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy DescribeIdentityUsage)
 
 responseRegisterDevice :: RegisterDeviceResponse -> TestTree
@@ -318,7 +318,7 @@ responseRegisterDevice =
   res
     "RegisterDeviceResponse"
     "fixture/RegisterDeviceResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy RegisterDevice)
 
 responseSubscribeToDataset :: SubscribeToDatasetResponse -> TestTree
@@ -326,7 +326,7 @@ responseSubscribeToDataset =
   res
     "SubscribeToDatasetResponse"
     "fixture/SubscribeToDatasetResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy SubscribeToDataset)
 
 responseGetIdentityPoolConfiguration :: GetIdentityPoolConfigurationResponse -> TestTree
@@ -334,7 +334,7 @@ responseGetIdentityPoolConfiguration =
   res
     "GetIdentityPoolConfigurationResponse"
     "fixture/GetIdentityPoolConfigurationResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy GetIdentityPoolConfiguration)
 
 responseListRecords :: ListRecordsResponse -> TestTree
@@ -342,7 +342,7 @@ responseListRecords =
   res
     "ListRecordsResponse"
     "fixture/ListRecordsResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy ListRecords)
 
 responseUnsubscribeFromDataset :: UnsubscribeFromDatasetResponse -> TestTree
@@ -350,7 +350,7 @@ responseUnsubscribeFromDataset =
   res
     "UnsubscribeFromDatasetResponse"
     "fixture/UnsubscribeFromDatasetResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy UnsubscribeFromDataset)
 
 responseUpdateRecords :: UpdateRecordsResponse -> TestTree
@@ -358,7 +358,7 @@ responseUpdateRecords =
   res
     "UpdateRecordsResponse"
     "fixture/UpdateRecordsResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy UpdateRecords)
 
 responseListDatasets :: ListDatasetsResponse -> TestTree
@@ -366,7 +366,7 @@ responseListDatasets =
   res
     "ListDatasetsResponse"
     "fixture/ListDatasetsResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy ListDatasets)
 
 responseBulkPublish :: BulkPublishResponse -> TestTree
@@ -374,5 +374,5 @@ responseBulkPublish =
   res
     "BulkPublishResponse"
     "fixture/BulkPublishResponse.proto"
-    cognitoSyncService
+    mkServiceConfig
     (Proxy :: Proxy BulkPublish)

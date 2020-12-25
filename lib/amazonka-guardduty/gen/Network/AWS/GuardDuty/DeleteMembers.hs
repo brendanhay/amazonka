@@ -20,8 +20,8 @@ module Network.AWS.GuardDuty.DeleteMembers
     mkDeleteMembers,
 
     -- ** Request lenses
-    dmsAccountIds,
-    dmsDetectorId,
+    dmDetectorId,
+    dmAccountIds,
 
     -- * Destructuring the response
     DeleteMembersResponse (..),
@@ -33,119 +33,106 @@ module Network.AWS.GuardDuty.DeleteMembers
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteMembers' smart constructor.
 data DeleteMembers = DeleteMembers'
-  { -- | A list of account IDs of the GuardDuty member accounts that you want to delete.
-    accountIds :: Lude.NonEmpty Lude.Text,
-    -- | The unique ID of the detector of the GuardDuty account whose members you want to delete.
-    detectorId :: Lude.Text
+  { -- | The unique ID of the detector of the GuardDuty account whose members you want to delete.
+    detectorId :: Types.DetectorId,
+    -- | A list of account IDs of the GuardDuty member accounts that you want to delete.
+    accountIds :: Core.NonEmpty Types.AccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMembers' with the minimum fields required to make a request.
---
--- * 'accountIds' - A list of account IDs of the GuardDuty member accounts that you want to delete.
--- * 'detectorId' - The unique ID of the detector of the GuardDuty account whose members you want to delete.
+-- | Creates a 'DeleteMembers' value with any optional fields omitted.
 mkDeleteMembers ::
-  -- | 'accountIds'
-  Lude.NonEmpty Lude.Text ->
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
+  -- | 'accountIds'
+  Core.NonEmpty Types.AccountId ->
   DeleteMembers
-mkDeleteMembers pAccountIds_ pDetectorId_ =
-  DeleteMembers'
-    { accountIds = pAccountIds_,
-      detectorId = pDetectorId_
-    }
-
--- | A list of account IDs of the GuardDuty member accounts that you want to delete.
---
--- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmsAccountIds :: Lens.Lens' DeleteMembers (Lude.NonEmpty Lude.Text)
-dmsAccountIds = Lens.lens (accountIds :: DeleteMembers -> Lude.NonEmpty Lude.Text) (\s a -> s {accountIds = a} :: DeleteMembers)
-{-# DEPRECATED dmsAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+mkDeleteMembers detectorId accountIds =
+  DeleteMembers' {detectorId, accountIds}
 
 -- | The unique ID of the detector of the GuardDuty account whose members you want to delete.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmsDetectorId :: Lens.Lens' DeleteMembers Lude.Text
-dmsDetectorId = Lens.lens (detectorId :: DeleteMembers -> Lude.Text) (\s a -> s {detectorId = a} :: DeleteMembers)
-{-# DEPRECATED dmsDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
+dmDetectorId :: Lens.Lens' DeleteMembers Types.DetectorId
+dmDetectorId = Lens.field @"detectorId"
+{-# DEPRECATED dmDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
-instance Lude.AWSRequest DeleteMembers where
+-- | A list of account IDs of the GuardDuty member accounts that you want to delete.
+--
+-- /Note:/ Consider using 'accountIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmAccountIds :: Lens.Lens' DeleteMembers (Core.NonEmpty Types.AccountId)
+dmAccountIds = Lens.field @"accountIds"
+{-# DEPRECATED dmAccountIds "Use generic-lens or generic-optics with 'accountIds' instead." #-}
+
+instance Core.FromJSON DeleteMembers where
+  toJSON DeleteMembers {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("accountIds" Core..= accountIds)])
+
+instance Core.AWSRequest DeleteMembers where
   type Rs DeleteMembers = DeleteMembersResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/member/delete")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteMembersResponse'
-            Lude.<$> (x Lude..?> "unprocessedAccounts" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "unprocessedAccounts" Core..!= Core.mempty)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteMembers where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteMembers where
-  toJSON DeleteMembers' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("accountIds" Lude..= accountIds)])
-
-instance Lude.ToPath DeleteMembers where
-  toPath DeleteMembers' {..} =
-    Lude.mconcat
-      ["/detector/", Lude.toBS detectorId, "/member/delete"]
-
-instance Lude.ToQuery DeleteMembers where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteMembersResponse' smart constructor.
 data DeleteMembersResponse = DeleteMembersResponse'
   { -- | The accounts that could not be processed.
-    unprocessedAccounts :: [UnprocessedAccount],
+    unprocessedAccounts :: [Types.UnprocessedAccount],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMembersResponse' with the minimum fields required to make a request.
---
--- * 'unprocessedAccounts' - The accounts that could not be processed.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteMembersResponse' value with any optional fields omitted.
 mkDeleteMembersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteMembersResponse
-mkDeleteMembersResponse pResponseStatus_ =
+mkDeleteMembersResponse responseStatus =
   DeleteMembersResponse'
-    { unprocessedAccounts = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { unprocessedAccounts = Core.mempty,
+      responseStatus
     }
 
 -- | The accounts that could not be processed.
 --
 -- /Note:/ Consider using 'unprocessedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsUnprocessedAccounts :: Lens.Lens' DeleteMembersResponse [UnprocessedAccount]
-drsUnprocessedAccounts = Lens.lens (unprocessedAccounts :: DeleteMembersResponse -> [UnprocessedAccount]) (\s a -> s {unprocessedAccounts = a} :: DeleteMembersResponse)
+drsUnprocessedAccounts :: Lens.Lens' DeleteMembersResponse [Types.UnprocessedAccount]
+drsUnprocessedAccounts = Lens.field @"unprocessedAccounts"
 {-# DEPRECATED drsUnprocessedAccounts "Use generic-lens or generic-optics with 'unprocessedAccounts' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteMembersResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteMembersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteMembersResponse)
+drsResponseStatus :: Lens.Lens' DeleteMembersResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

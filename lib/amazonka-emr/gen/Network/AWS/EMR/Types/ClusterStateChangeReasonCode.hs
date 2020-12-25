@@ -13,76 +13,81 @@
 module Network.AWS.EMR.Types.ClusterStateChangeReasonCode
   ( ClusterStateChangeReasonCode
       ( ClusterStateChangeReasonCode',
-        CSCRCInternalError,
-        CSCRCValidationError,
-        CSCRCInstanceFailure,
-        CSCRCInstanceFleetTimeout,
-        CSCRCBootstrapFailure,
-        CSCRCUserRequest,
-        CSCRCStepFailure,
-        CSCRCAllStepsCompleted
+        ClusterStateChangeReasonCodeInternalError,
+        ClusterStateChangeReasonCodeValidationError,
+        ClusterStateChangeReasonCodeInstanceFailure,
+        ClusterStateChangeReasonCodeInstanceFleetTimeout,
+        ClusterStateChangeReasonCodeBootstrapFailure,
+        ClusterStateChangeReasonCodeUserRequest,
+        ClusterStateChangeReasonCodeStepFailure,
+        ClusterStateChangeReasonCodeAllStepsCompleted,
+        fromClusterStateChangeReasonCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ClusterStateChangeReasonCode = ClusterStateChangeReasonCode' Lude.Text
+newtype ClusterStateChangeReasonCode = ClusterStateChangeReasonCode'
+  { fromClusterStateChangeReasonCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSCRCInternalError :: ClusterStateChangeReasonCode
-pattern CSCRCInternalError = ClusterStateChangeReasonCode' "INTERNAL_ERROR"
+pattern ClusterStateChangeReasonCodeInternalError :: ClusterStateChangeReasonCode
+pattern ClusterStateChangeReasonCodeInternalError = ClusterStateChangeReasonCode' "INTERNAL_ERROR"
 
-pattern CSCRCValidationError :: ClusterStateChangeReasonCode
-pattern CSCRCValidationError = ClusterStateChangeReasonCode' "VALIDATION_ERROR"
+pattern ClusterStateChangeReasonCodeValidationError :: ClusterStateChangeReasonCode
+pattern ClusterStateChangeReasonCodeValidationError = ClusterStateChangeReasonCode' "VALIDATION_ERROR"
 
-pattern CSCRCInstanceFailure :: ClusterStateChangeReasonCode
-pattern CSCRCInstanceFailure = ClusterStateChangeReasonCode' "INSTANCE_FAILURE"
+pattern ClusterStateChangeReasonCodeInstanceFailure :: ClusterStateChangeReasonCode
+pattern ClusterStateChangeReasonCodeInstanceFailure = ClusterStateChangeReasonCode' "INSTANCE_FAILURE"
 
-pattern CSCRCInstanceFleetTimeout :: ClusterStateChangeReasonCode
-pattern CSCRCInstanceFleetTimeout = ClusterStateChangeReasonCode' "INSTANCE_FLEET_TIMEOUT"
+pattern ClusterStateChangeReasonCodeInstanceFleetTimeout :: ClusterStateChangeReasonCode
+pattern ClusterStateChangeReasonCodeInstanceFleetTimeout = ClusterStateChangeReasonCode' "INSTANCE_FLEET_TIMEOUT"
 
-pattern CSCRCBootstrapFailure :: ClusterStateChangeReasonCode
-pattern CSCRCBootstrapFailure = ClusterStateChangeReasonCode' "BOOTSTRAP_FAILURE"
+pattern ClusterStateChangeReasonCodeBootstrapFailure :: ClusterStateChangeReasonCode
+pattern ClusterStateChangeReasonCodeBootstrapFailure = ClusterStateChangeReasonCode' "BOOTSTRAP_FAILURE"
 
-pattern CSCRCUserRequest :: ClusterStateChangeReasonCode
-pattern CSCRCUserRequest = ClusterStateChangeReasonCode' "USER_REQUEST"
+pattern ClusterStateChangeReasonCodeUserRequest :: ClusterStateChangeReasonCode
+pattern ClusterStateChangeReasonCodeUserRequest = ClusterStateChangeReasonCode' "USER_REQUEST"
 
-pattern CSCRCStepFailure :: ClusterStateChangeReasonCode
-pattern CSCRCStepFailure = ClusterStateChangeReasonCode' "STEP_FAILURE"
+pattern ClusterStateChangeReasonCodeStepFailure :: ClusterStateChangeReasonCode
+pattern ClusterStateChangeReasonCodeStepFailure = ClusterStateChangeReasonCode' "STEP_FAILURE"
 
-pattern CSCRCAllStepsCompleted :: ClusterStateChangeReasonCode
-pattern CSCRCAllStepsCompleted = ClusterStateChangeReasonCode' "ALL_STEPS_COMPLETED"
+pattern ClusterStateChangeReasonCodeAllStepsCompleted :: ClusterStateChangeReasonCode
+pattern ClusterStateChangeReasonCodeAllStepsCompleted = ClusterStateChangeReasonCode' "ALL_STEPS_COMPLETED"
 
 {-# COMPLETE
-  CSCRCInternalError,
-  CSCRCValidationError,
-  CSCRCInstanceFailure,
-  CSCRCInstanceFleetTimeout,
-  CSCRCBootstrapFailure,
-  CSCRCUserRequest,
-  CSCRCStepFailure,
-  CSCRCAllStepsCompleted,
+  ClusterStateChangeReasonCodeInternalError,
+  ClusterStateChangeReasonCodeValidationError,
+  ClusterStateChangeReasonCodeInstanceFailure,
+  ClusterStateChangeReasonCodeInstanceFleetTimeout,
+  ClusterStateChangeReasonCodeBootstrapFailure,
+  ClusterStateChangeReasonCodeUserRequest,
+  ClusterStateChangeReasonCodeStepFailure,
+  ClusterStateChangeReasonCodeAllStepsCompleted,
   ClusterStateChangeReasonCode'
   #-}

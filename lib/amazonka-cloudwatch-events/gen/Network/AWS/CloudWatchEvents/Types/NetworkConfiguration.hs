@@ -21,46 +21,42 @@ module Network.AWS.CloudWatchEvents.Types.NetworkConfiguration
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types.AWSVPCConfiguration
+import qualified Network.AWS.CloudWatchEvents.Types.AwsVpcConfiguration as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This structure specifies the network configuration for an ECS task.
 --
 -- /See:/ 'mkNetworkConfiguration' smart constructor.
 newtype NetworkConfiguration = NetworkConfiguration'
   { -- | Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the @awsvpc@ network mode.
-    awsvpcConfiguration :: Lude.Maybe AWSVPCConfiguration
+    awsvpcConfiguration :: Core.Maybe Types.AwsVpcConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NetworkConfiguration' with the minimum fields required to make a request.
---
--- * 'awsvpcConfiguration' - Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the @awsvpc@ network mode.
+-- | Creates a 'NetworkConfiguration' value with any optional fields omitted.
 mkNetworkConfiguration ::
   NetworkConfiguration
 mkNetworkConfiguration =
-  NetworkConfiguration' {awsvpcConfiguration = Lude.Nothing}
+  NetworkConfiguration' {awsvpcConfiguration = Core.Nothing}
 
 -- | Use this structure to specify the VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the @awsvpc@ network mode.
 --
 -- /Note:/ Consider using 'awsvpcConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncAwsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Lude.Maybe AWSVPCConfiguration)
-ncAwsvpcConfiguration = Lens.lens (awsvpcConfiguration :: NetworkConfiguration -> Lude.Maybe AWSVPCConfiguration) (\s a -> s {awsvpcConfiguration = a} :: NetworkConfiguration)
+ncAwsvpcConfiguration :: Lens.Lens' NetworkConfiguration (Core.Maybe Types.AwsVpcConfiguration)
+ncAwsvpcConfiguration = Lens.field @"awsvpcConfiguration"
 {-# DEPRECATED ncAwsvpcConfiguration "Use generic-lens or generic-optics with 'awsvpcConfiguration' instead." #-}
 
-instance Lude.FromJSON NetworkConfiguration where
-  parseJSON =
-    Lude.withObject
-      "NetworkConfiguration"
-      ( \x ->
-          NetworkConfiguration' Lude.<$> (x Lude..:? "awsvpcConfiguration")
+instance Core.FromJSON NetworkConfiguration where
+  toJSON NetworkConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [("awsvpcConfiguration" Core..=) Core.<$> awsvpcConfiguration]
       )
 
-instance Lude.ToJSON NetworkConfiguration where
-  toJSON NetworkConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("awsvpcConfiguration" Lude..=) Lude.<$> awsvpcConfiguration]
-      )
+instance Core.FromJSON NetworkConfiguration where
+  parseJSON =
+    Core.withObject "NetworkConfiguration" Core.$
+      \x ->
+        NetworkConfiguration' Core.<$> (x Core..:? "awsvpcConfiguration")

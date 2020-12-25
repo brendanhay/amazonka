@@ -17,82 +17,76 @@ module Network.AWS.Greengrass.Types.LocalVolumeResourceData
     mkLocalVolumeResourceData,
 
     -- * Lenses
-    lvrdGroupOwnerSetting,
     lvrdDestinationPath,
+    lvrdGroupOwnerSetting,
     lvrdSourcePath,
   )
 where
 
-import Network.AWS.Greengrass.Types.GroupOwnerSetting
+import qualified Network.AWS.Greengrass.Types.GroupOwnerSetting as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Attributes that define a local volume resource.
 --
 -- /See:/ 'mkLocalVolumeResourceData' smart constructor.
 data LocalVolumeResourceData = LocalVolumeResourceData'
-  { -- | Allows you to configure additional group privileges for the Lambda process. This field is optional.
-    groupOwnerSetting :: Lude.Maybe GroupOwnerSetting,
-    -- | The absolute local path of the resource inside the Lambda environment.
-    destinationPath :: Lude.Maybe Lude.Text,
+  { -- | The absolute local path of the resource inside the Lambda environment.
+    destinationPath :: Core.Maybe Core.Text,
+    -- | Allows you to configure additional group privileges for the Lambda process. This field is optional.
+    groupOwnerSetting :: Core.Maybe Types.GroupOwnerSetting,
     -- | The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with ''/sys''.
-    sourcePath :: Lude.Maybe Lude.Text
+    sourcePath :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LocalVolumeResourceData' with the minimum fields required to make a request.
---
--- * 'groupOwnerSetting' - Allows you to configure additional group privileges for the Lambda process. This field is optional.
--- * 'destinationPath' - The absolute local path of the resource inside the Lambda environment.
--- * 'sourcePath' - The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with ''/sys''.
+-- | Creates a 'LocalVolumeResourceData' value with any optional fields omitted.
 mkLocalVolumeResourceData ::
   LocalVolumeResourceData
 mkLocalVolumeResourceData =
   LocalVolumeResourceData'
-    { groupOwnerSetting = Lude.Nothing,
-      destinationPath = Lude.Nothing,
-      sourcePath = Lude.Nothing
+    { destinationPath = Core.Nothing,
+      groupOwnerSetting = Core.Nothing,
+      sourcePath = Core.Nothing
     }
-
--- | Allows you to configure additional group privileges for the Lambda process. This field is optional.
---
--- /Note:/ Consider using 'groupOwnerSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvrdGroupOwnerSetting :: Lens.Lens' LocalVolumeResourceData (Lude.Maybe GroupOwnerSetting)
-lvrdGroupOwnerSetting = Lens.lens (groupOwnerSetting :: LocalVolumeResourceData -> Lude.Maybe GroupOwnerSetting) (\s a -> s {groupOwnerSetting = a} :: LocalVolumeResourceData)
-{-# DEPRECATED lvrdGroupOwnerSetting "Use generic-lens or generic-optics with 'groupOwnerSetting' instead." #-}
 
 -- | The absolute local path of the resource inside the Lambda environment.
 --
 -- /Note:/ Consider using 'destinationPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvrdDestinationPath :: Lens.Lens' LocalVolumeResourceData (Lude.Maybe Lude.Text)
-lvrdDestinationPath = Lens.lens (destinationPath :: LocalVolumeResourceData -> Lude.Maybe Lude.Text) (\s a -> s {destinationPath = a} :: LocalVolumeResourceData)
+lvrdDestinationPath :: Lens.Lens' LocalVolumeResourceData (Core.Maybe Core.Text)
+lvrdDestinationPath = Lens.field @"destinationPath"
 {-# DEPRECATED lvrdDestinationPath "Use generic-lens or generic-optics with 'destinationPath' instead." #-}
+
+-- | Allows you to configure additional group privileges for the Lambda process. This field is optional.
+--
+-- /Note:/ Consider using 'groupOwnerSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lvrdGroupOwnerSetting :: Lens.Lens' LocalVolumeResourceData (Core.Maybe Types.GroupOwnerSetting)
+lvrdGroupOwnerSetting = Lens.field @"groupOwnerSetting"
+{-# DEPRECATED lvrdGroupOwnerSetting "Use generic-lens or generic-optics with 'groupOwnerSetting' instead." #-}
 
 -- | The local absolute path of the volume resource on the host. The source path for a volume resource type cannot start with ''/sys''.
 --
 -- /Note:/ Consider using 'sourcePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lvrdSourcePath :: Lens.Lens' LocalVolumeResourceData (Lude.Maybe Lude.Text)
-lvrdSourcePath = Lens.lens (sourcePath :: LocalVolumeResourceData -> Lude.Maybe Lude.Text) (\s a -> s {sourcePath = a} :: LocalVolumeResourceData)
+lvrdSourcePath :: Lens.Lens' LocalVolumeResourceData (Core.Maybe Core.Text)
+lvrdSourcePath = Lens.field @"sourcePath"
 {-# DEPRECATED lvrdSourcePath "Use generic-lens or generic-optics with 'sourcePath' instead." #-}
 
-instance Lude.FromJSON LocalVolumeResourceData where
-  parseJSON =
-    Lude.withObject
-      "LocalVolumeResourceData"
-      ( \x ->
-          LocalVolumeResourceData'
-            Lude.<$> (x Lude..:? "GroupOwnerSetting")
-            Lude.<*> (x Lude..:? "DestinationPath")
-            Lude.<*> (x Lude..:? "SourcePath")
-      )
-
-instance Lude.ToJSON LocalVolumeResourceData where
-  toJSON LocalVolumeResourceData' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("GroupOwnerSetting" Lude..=) Lude.<$> groupOwnerSetting,
-            ("DestinationPath" Lude..=) Lude.<$> destinationPath,
-            ("SourcePath" Lude..=) Lude.<$> sourcePath
+instance Core.FromJSON LocalVolumeResourceData where
+  toJSON LocalVolumeResourceData {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DestinationPath" Core..=) Core.<$> destinationPath,
+            ("GroupOwnerSetting" Core..=) Core.<$> groupOwnerSetting,
+            ("SourcePath" Core..=) Core.<$> sourcePath
           ]
       )
+
+instance Core.FromJSON LocalVolumeResourceData where
+  parseJSON =
+    Core.withObject "LocalVolumeResourceData" Core.$
+      \x ->
+        LocalVolumeResourceData'
+          Core.<$> (x Core..:? "DestinationPath")
+          Core.<*> (x Core..:? "GroupOwnerSetting")
+          Core.<*> (x Core..:? "SourcePath")

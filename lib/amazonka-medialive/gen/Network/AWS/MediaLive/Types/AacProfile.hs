@@ -13,52 +13,54 @@
 module Network.AWS.MediaLive.Types.AacProfile
   ( AacProfile
       ( AacProfile',
-        APHEV1,
-        APHEV2,
-        APLC
+        AacProfileHEV1,
+        AacProfileHEV2,
+        AacProfileLC,
+        fromAacProfile
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Aac Profile
-newtype AacProfile = AacProfile' Lude.Text
+newtype AacProfile = AacProfile' {fromAacProfile :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern APHEV1 :: AacProfile
-pattern APHEV1 = AacProfile' "HEV1"
+pattern AacProfileHEV1 :: AacProfile
+pattern AacProfileHEV1 = AacProfile' "HEV1"
 
-pattern APHEV2 :: AacProfile
-pattern APHEV2 = AacProfile' "HEV2"
+pattern AacProfileHEV2 :: AacProfile
+pattern AacProfileHEV2 = AacProfile' "HEV2"
 
-pattern APLC :: AacProfile
-pattern APLC = AacProfile' "LC"
+pattern AacProfileLC :: AacProfile
+pattern AacProfileLC = AacProfile' "LC"
 
 {-# COMPLETE
-  APHEV1,
-  APHEV2,
-  APLC,
+  AacProfileHEV1,
+  AacProfileHEV2,
+  AacProfileLC,
   AacProfile'
   #-}

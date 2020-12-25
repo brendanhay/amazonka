@@ -20,173 +20,158 @@ module Network.AWS.CodeCommit.GetCommentReactions
     mkGetCommentReactions,
 
     -- ** Request lenses
-    gcrNextToken,
-    gcrReactionUserARN,
     gcrCommentId,
     gcrMaxResults,
+    gcrNextToken,
+    gcrReactionUserArn,
 
     -- * Destructuring the response
     GetCommentReactionsResponse (..),
     mkGetCommentReactionsResponse,
 
     -- ** Response lenses
-    gcrrsReactionsForComment,
-    gcrrsNextToken,
-    gcrrsResponseStatus,
+    gcrrrsReactionsForComment,
+    gcrrrsNextToken,
+    gcrrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetCommentReactions' smart constructor.
 data GetCommentReactions = GetCommentReactions'
-  { -- | An enumeration token that, when provided in a request, returns the next batch of the results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Optional. The Amazon Resource Name (ARN) of the user or identity for which you want to get reaction information.
-    reactionUserARN :: Lude.Maybe Lude.Text,
-    -- | The ID of the comment for which you want to get reactions information.
-    commentId :: Lude.Text,
+  { -- | The ID of the comment for which you want to get reactions information.
+    commentId :: Types.CommentId,
     -- | A non-zero, non-negative integer used to limit the number of returned results. The default is the same as the allowed maximum, 1,000.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | An enumeration token that, when provided in a request, returns the next batch of the results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Optional. The Amazon Resource Name (ARN) of the user or identity for which you want to get reaction information.
+    reactionUserArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCommentReactions' with the minimum fields required to make a request.
---
--- * 'nextToken' - An enumeration token that, when provided in a request, returns the next batch of the results.
--- * 'reactionUserARN' - Optional. The Amazon Resource Name (ARN) of the user or identity for which you want to get reaction information.
--- * 'commentId' - The ID of the comment for which you want to get reactions information.
--- * 'maxResults' - A non-zero, non-negative integer used to limit the number of returned results. The default is the same as the allowed maximum, 1,000.
+-- | Creates a 'GetCommentReactions' value with any optional fields omitted.
 mkGetCommentReactions ::
   -- | 'commentId'
-  Lude.Text ->
+  Types.CommentId ->
   GetCommentReactions
-mkGetCommentReactions pCommentId_ =
+mkGetCommentReactions commentId =
   GetCommentReactions'
-    { nextToken = Lude.Nothing,
-      reactionUserARN = Lude.Nothing,
-      commentId = pCommentId_,
-      maxResults = Lude.Nothing
+    { commentId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      reactionUserArn = Core.Nothing
     }
-
--- | An enumeration token that, when provided in a request, returns the next batch of the results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrNextToken :: Lens.Lens' GetCommentReactions (Lude.Maybe Lude.Text)
-gcrNextToken = Lens.lens (nextToken :: GetCommentReactions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCommentReactions)
-{-# DEPRECATED gcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Optional. The Amazon Resource Name (ARN) of the user or identity for which you want to get reaction information.
---
--- /Note:/ Consider using 'reactionUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrReactionUserARN :: Lens.Lens' GetCommentReactions (Lude.Maybe Lude.Text)
-gcrReactionUserARN = Lens.lens (reactionUserARN :: GetCommentReactions -> Lude.Maybe Lude.Text) (\s a -> s {reactionUserARN = a} :: GetCommentReactions)
-{-# DEPRECATED gcrReactionUserARN "Use generic-lens or generic-optics with 'reactionUserARN' instead." #-}
 
 -- | The ID of the comment for which you want to get reactions information.
 --
 -- /Note:/ Consider using 'commentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrCommentId :: Lens.Lens' GetCommentReactions Lude.Text
-gcrCommentId = Lens.lens (commentId :: GetCommentReactions -> Lude.Text) (\s a -> s {commentId = a} :: GetCommentReactions)
+gcrCommentId :: Lens.Lens' GetCommentReactions Types.CommentId
+gcrCommentId = Lens.field @"commentId"
 {-# DEPRECATED gcrCommentId "Use generic-lens or generic-optics with 'commentId' instead." #-}
 
 -- | A non-zero, non-negative integer used to limit the number of returned results. The default is the same as the allowed maximum, 1,000.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrMaxResults :: Lens.Lens' GetCommentReactions (Lude.Maybe Lude.Int)
-gcrMaxResults = Lens.lens (maxResults :: GetCommentReactions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: GetCommentReactions)
+gcrMaxResults :: Lens.Lens' GetCommentReactions (Core.Maybe Core.Int)
+gcrMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED gcrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest GetCommentReactions where
+-- | An enumeration token that, when provided in a request, returns the next batch of the results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrNextToken :: Lens.Lens' GetCommentReactions (Core.Maybe Types.NextToken)
+gcrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Optional. The Amazon Resource Name (ARN) of the user or identity for which you want to get reaction information.
+--
+-- /Note:/ Consider using 'reactionUserArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcrReactionUserArn :: Lens.Lens' GetCommentReactions (Core.Maybe Types.Arn)
+gcrReactionUserArn = Lens.field @"reactionUserArn"
+{-# DEPRECATED gcrReactionUserArn "Use generic-lens or generic-optics with 'reactionUserArn' instead." #-}
+
+instance Core.FromJSON GetCommentReactions where
+  toJSON GetCommentReactions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("commentId" Core..= commentId),
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("reactionUserArn" Core..=) Core.<$> reactionUserArn
+          ]
+      )
+
+instance Core.AWSRequest GetCommentReactions where
   type Rs GetCommentReactions = GetCommentReactionsResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeCommit_20150413.GetCommentReactions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCommentReactionsResponse'
-            Lude.<$> (x Lude..?> "reactionsForComment" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "reactionsForComment" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCommentReactions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.GetCommentReactions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetCommentReactions where
-  toJSON GetCommentReactions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("reactionUserArn" Lude..=) Lude.<$> reactionUserARN,
-            Lude.Just ("commentId" Lude..= commentId),
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath GetCommentReactions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetCommentReactions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetCommentReactionsResponse' smart constructor.
 data GetCommentReactionsResponse = GetCommentReactionsResponse'
   { -- | An array of reactions to the specified comment.
-    reactionsForComment :: [ReactionForComment],
+    reactionsForComment :: [Types.ReactionForComment],
     -- | An enumeration token that can be used in a request to return the next batch of the results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCommentReactionsResponse' with the minimum fields required to make a request.
---
--- * 'reactionsForComment' - An array of reactions to the specified comment.
--- * 'nextToken' - An enumeration token that can be used in a request to return the next batch of the results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCommentReactionsResponse' value with any optional fields omitted.
 mkGetCommentReactionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCommentReactionsResponse
-mkGetCommentReactionsResponse pResponseStatus_ =
+mkGetCommentReactionsResponse responseStatus =
   GetCommentReactionsResponse'
-    { reactionsForComment = Lude.mempty,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { reactionsForComment = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of reactions to the specified comment.
 --
 -- /Note:/ Consider using 'reactionsForComment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrrsReactionsForComment :: Lens.Lens' GetCommentReactionsResponse [ReactionForComment]
-gcrrsReactionsForComment = Lens.lens (reactionsForComment :: GetCommentReactionsResponse -> [ReactionForComment]) (\s a -> s {reactionsForComment = a} :: GetCommentReactionsResponse)
-{-# DEPRECATED gcrrsReactionsForComment "Use generic-lens or generic-optics with 'reactionsForComment' instead." #-}
+gcrrrsReactionsForComment :: Lens.Lens' GetCommentReactionsResponse [Types.ReactionForComment]
+gcrrrsReactionsForComment = Lens.field @"reactionsForComment"
+{-# DEPRECATED gcrrrsReactionsForComment "Use generic-lens or generic-optics with 'reactionsForComment' instead." #-}
 
 -- | An enumeration token that can be used in a request to return the next batch of the results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrrsNextToken :: Lens.Lens' GetCommentReactionsResponse (Lude.Maybe Lude.Text)
-gcrrsNextToken = Lens.lens (nextToken :: GetCommentReactionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetCommentReactionsResponse)
-{-# DEPRECATED gcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gcrrrsNextToken :: Lens.Lens' GetCommentReactionsResponse (Core.Maybe Types.NextToken)
+gcrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gcrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcrrsResponseStatus :: Lens.Lens' GetCommentReactionsResponse Lude.Int
-gcrrsResponseStatus = Lens.lens (responseStatus :: GetCommentReactionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCommentReactionsResponse)
-{-# DEPRECATED gcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcrrrsResponseStatus :: Lens.Lens' GetCommentReactionsResponse Core.Int
+gcrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

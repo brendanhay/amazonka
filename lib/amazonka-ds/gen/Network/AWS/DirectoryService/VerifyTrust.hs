@@ -29,111 +29,96 @@ module Network.AWS.DirectoryService.VerifyTrust
     mkVerifyTrustResponse,
 
     -- ** Response lenses
-    vtrsTrustId,
-    vtrsResponseStatus,
+    vtrrsTrustId,
+    vtrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Initiates the verification of an existing trust relationship between an AWS Managed Microsoft AD directory and an external domain.
 --
 -- /See:/ 'mkVerifyTrust' smart constructor.
 newtype VerifyTrust = VerifyTrust'
   { -- | The unique Trust ID of the trust relationship to verify.
-    trustId :: Lude.Text
+    trustId :: Types.TrustId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VerifyTrust' with the minimum fields required to make a request.
---
--- * 'trustId' - The unique Trust ID of the trust relationship to verify.
+-- | Creates a 'VerifyTrust' value with any optional fields omitted.
 mkVerifyTrust ::
   -- | 'trustId'
-  Lude.Text ->
+  Types.TrustId ->
   VerifyTrust
-mkVerifyTrust pTrustId_ = VerifyTrust' {trustId = pTrustId_}
+mkVerifyTrust trustId = VerifyTrust' {trustId}
 
 -- | The unique Trust ID of the trust relationship to verify.
 --
 -- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtTrustId :: Lens.Lens' VerifyTrust Lude.Text
-vtTrustId = Lens.lens (trustId :: VerifyTrust -> Lude.Text) (\s a -> s {trustId = a} :: VerifyTrust)
+vtTrustId :: Lens.Lens' VerifyTrust Types.TrustId
+vtTrustId = Lens.field @"trustId"
 {-# DEPRECATED vtTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
 
-instance Lude.AWSRequest VerifyTrust where
+instance Core.FromJSON VerifyTrust where
+  toJSON VerifyTrust {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TrustId" Core..= trustId)])
+
+instance Core.AWSRequest VerifyTrust where
   type Rs VerifyTrust = VerifyTrustResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DirectoryService_20150416.VerifyTrust")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           VerifyTrustResponse'
-            Lude.<$> (x Lude..?> "TrustId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TrustId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders VerifyTrust where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DirectoryService_20150416.VerifyTrust" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON VerifyTrust where
-  toJSON VerifyTrust' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TrustId" Lude..= trustId)])
-
-instance Lude.ToPath VerifyTrust where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery VerifyTrust where
-  toQuery = Lude.const Lude.mempty
 
 -- | Result of a VerifyTrust request.
 --
 -- /See:/ 'mkVerifyTrustResponse' smart constructor.
 data VerifyTrustResponse = VerifyTrustResponse'
   { -- | The unique Trust ID of the trust relationship that was verified.
-    trustId :: Lude.Maybe Lude.Text,
+    trustId :: Core.Maybe Types.TrustId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VerifyTrustResponse' with the minimum fields required to make a request.
---
--- * 'trustId' - The unique Trust ID of the trust relationship that was verified.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'VerifyTrustResponse' value with any optional fields omitted.
 mkVerifyTrustResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   VerifyTrustResponse
-mkVerifyTrustResponse pResponseStatus_ =
-  VerifyTrustResponse'
-    { trustId = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkVerifyTrustResponse responseStatus =
+  VerifyTrustResponse' {trustId = Core.Nothing, responseStatus}
 
 -- | The unique Trust ID of the trust relationship that was verified.
 --
 -- /Note:/ Consider using 'trustId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrsTrustId :: Lens.Lens' VerifyTrustResponse (Lude.Maybe Lude.Text)
-vtrsTrustId = Lens.lens (trustId :: VerifyTrustResponse -> Lude.Maybe Lude.Text) (\s a -> s {trustId = a} :: VerifyTrustResponse)
-{-# DEPRECATED vtrsTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
+vtrrsTrustId :: Lens.Lens' VerifyTrustResponse (Core.Maybe Types.TrustId)
+vtrrsTrustId = Lens.field @"trustId"
+{-# DEPRECATED vtrrsTrustId "Use generic-lens or generic-optics with 'trustId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtrsResponseStatus :: Lens.Lens' VerifyTrustResponse Lude.Int
-vtrsResponseStatus = Lens.lens (responseStatus :: VerifyTrustResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: VerifyTrustResponse)
-{-# DEPRECATED vtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+vtrrsResponseStatus :: Lens.Lens' VerifyTrustResponse Core.Int
+vtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED vtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

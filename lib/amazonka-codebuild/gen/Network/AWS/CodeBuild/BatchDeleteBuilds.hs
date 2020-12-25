@@ -27,120 +27,107 @@ module Network.AWS.CodeBuild.BatchDeleteBuilds
     mkBatchDeleteBuildsResponse,
 
     -- ** Response lenses
-    bdbrsBuildsNotDeleted,
-    bdbrsBuildsDeleted,
-    bdbrsResponseStatus,
+    bdbrrsBuildsDeleted,
+    bdbrrsBuildsNotDeleted,
+    bdbrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchDeleteBuilds' smart constructor.
 newtype BatchDeleteBuilds = BatchDeleteBuilds'
   { -- | The IDs of the builds to delete.
-    ids :: Lude.NonEmpty Lude.Text
+    ids :: Core.NonEmpty Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteBuilds' with the minimum fields required to make a request.
---
--- * 'ids' - The IDs of the builds to delete.
+-- | Creates a 'BatchDeleteBuilds' value with any optional fields omitted.
 mkBatchDeleteBuilds ::
   -- | 'ids'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.NonEmptyString ->
   BatchDeleteBuilds
-mkBatchDeleteBuilds pIds_ = BatchDeleteBuilds' {ids = pIds_}
+mkBatchDeleteBuilds ids = BatchDeleteBuilds' {ids}
 
 -- | The IDs of the builds to delete.
 --
 -- /Note:/ Consider using 'ids' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdbIds :: Lens.Lens' BatchDeleteBuilds (Lude.NonEmpty Lude.Text)
-bdbIds = Lens.lens (ids :: BatchDeleteBuilds -> Lude.NonEmpty Lude.Text) (\s a -> s {ids = a} :: BatchDeleteBuilds)
+bdbIds :: Lens.Lens' BatchDeleteBuilds (Core.NonEmpty Types.NonEmptyString)
+bdbIds = Lens.field @"ids"
 {-# DEPRECATED bdbIds "Use generic-lens or generic-optics with 'ids' instead." #-}
 
-instance Lude.AWSRequest BatchDeleteBuilds where
+instance Core.FromJSON BatchDeleteBuilds where
+  toJSON BatchDeleteBuilds {..} =
+    Core.object (Core.catMaybes [Core.Just ("ids" Core..= ids)])
+
+instance Core.AWSRequest BatchDeleteBuilds where
   type Rs BatchDeleteBuilds = BatchDeleteBuildsResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeBuild_20161006.BatchDeleteBuilds")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchDeleteBuildsResponse'
-            Lude.<$> (x Lude..?> "buildsNotDeleted" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "buildsDeleted")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "buildsDeleted")
+            Core.<*> (x Core..:? "buildsNotDeleted")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchDeleteBuilds where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.BatchDeleteBuilds" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchDeleteBuilds where
-  toJSON BatchDeleteBuilds' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("ids" Lude..= ids)])
-
-instance Lude.ToPath BatchDeleteBuilds where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchDeleteBuilds where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchDeleteBuildsResponse' smart constructor.
 data BatchDeleteBuildsResponse = BatchDeleteBuildsResponse'
-  { -- | Information about any builds that could not be successfully deleted.
-    buildsNotDeleted :: Lude.Maybe [BuildNotDeleted],
-    -- | The IDs of the builds that were successfully deleted.
-    buildsDeleted :: Lude.Maybe (Lude.NonEmpty Lude.Text),
+  { -- | The IDs of the builds that were successfully deleted.
+    buildsDeleted :: Core.Maybe (Core.NonEmpty Types.NonEmptyString),
+    -- | Information about any builds that could not be successfully deleted.
+    buildsNotDeleted :: Core.Maybe [Types.BuildNotDeleted],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDeleteBuildsResponse' with the minimum fields required to make a request.
---
--- * 'buildsNotDeleted' - Information about any builds that could not be successfully deleted.
--- * 'buildsDeleted' - The IDs of the builds that were successfully deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchDeleteBuildsResponse' value with any optional fields omitted.
 mkBatchDeleteBuildsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchDeleteBuildsResponse
-mkBatchDeleteBuildsResponse pResponseStatus_ =
+mkBatchDeleteBuildsResponse responseStatus =
   BatchDeleteBuildsResponse'
-    { buildsNotDeleted = Lude.Nothing,
-      buildsDeleted = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { buildsDeleted = Core.Nothing,
+      buildsNotDeleted = Core.Nothing,
+      responseStatus
     }
-
--- | Information about any builds that could not be successfully deleted.
---
--- /Note:/ Consider using 'buildsNotDeleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdbrsBuildsNotDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Lude.Maybe [BuildNotDeleted])
-bdbrsBuildsNotDeleted = Lens.lens (buildsNotDeleted :: BatchDeleteBuildsResponse -> Lude.Maybe [BuildNotDeleted]) (\s a -> s {buildsNotDeleted = a} :: BatchDeleteBuildsResponse)
-{-# DEPRECATED bdbrsBuildsNotDeleted "Use generic-lens or generic-optics with 'buildsNotDeleted' instead." #-}
 
 -- | The IDs of the builds that were successfully deleted.
 --
 -- /Note:/ Consider using 'buildsDeleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdbrsBuildsDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Lude.Maybe (Lude.NonEmpty Lude.Text))
-bdbrsBuildsDeleted = Lens.lens (buildsDeleted :: BatchDeleteBuildsResponse -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {buildsDeleted = a} :: BatchDeleteBuildsResponse)
-{-# DEPRECATED bdbrsBuildsDeleted "Use generic-lens or generic-optics with 'buildsDeleted' instead." #-}
+bdbrrsBuildsDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Core.Maybe (Core.NonEmpty Types.NonEmptyString))
+bdbrrsBuildsDeleted = Lens.field @"buildsDeleted"
+{-# DEPRECATED bdbrrsBuildsDeleted "Use generic-lens or generic-optics with 'buildsDeleted' instead." #-}
+
+-- | Information about any builds that could not be successfully deleted.
+--
+-- /Note:/ Consider using 'buildsNotDeleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdbrrsBuildsNotDeleted :: Lens.Lens' BatchDeleteBuildsResponse (Core.Maybe [Types.BuildNotDeleted])
+bdbrrsBuildsNotDeleted = Lens.field @"buildsNotDeleted"
+{-# DEPRECATED bdbrrsBuildsNotDeleted "Use generic-lens or generic-optics with 'buildsNotDeleted' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdbrsResponseStatus :: Lens.Lens' BatchDeleteBuildsResponse Lude.Int
-bdbrsResponseStatus = Lens.lens (responseStatus :: BatchDeleteBuildsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDeleteBuildsResponse)
-{-# DEPRECATED bdbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bdbrrsResponseStatus :: Lens.Lens' BatchDeleteBuildsResponse Core.Int
+bdbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bdbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,46 +13,51 @@
 module Network.AWS.Pinpoint.Types.AttributeType
   ( AttributeType
       ( AttributeType',
-        Inclusive,
-        Exclusive
+        AttributeTypeInclusive,
+        AttributeTypeExclusive,
+        fromAttributeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AttributeType = AttributeType' Lude.Text
+newtype AttributeType = AttributeType'
+  { fromAttributeType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Inclusive :: AttributeType
-pattern Inclusive = AttributeType' "INCLUSIVE"
+pattern AttributeTypeInclusive :: AttributeType
+pattern AttributeTypeInclusive = AttributeType' "INCLUSIVE"
 
-pattern Exclusive :: AttributeType
-pattern Exclusive = AttributeType' "EXCLUSIVE"
+pattern AttributeTypeExclusive :: AttributeType
+pattern AttributeTypeExclusive = AttributeType' "EXCLUSIVE"
 
 {-# COMPLETE
-  Inclusive,
-  Exclusive,
+  AttributeTypeInclusive,
+  AttributeTypeExclusive,
   AttributeType'
   #-}

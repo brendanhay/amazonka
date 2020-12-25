@@ -18,85 +18,80 @@ module Network.AWS.ServiceCatalog.Types.LaunchPathSummary
 
     -- * Lenses
     lpsConstraintSummaries,
-    lpsName,
     lpsId,
+    lpsName,
     lpsTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.ConstraintSummary
-import Network.AWS.ServiceCatalog.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.ConstraintSummary as Types
+import qualified Network.AWS.ServiceCatalog.Types.Id as Types
+import qualified Network.AWS.ServiceCatalog.Types.Name as Types
+import qualified Network.AWS.ServiceCatalog.Types.Tag as Types
 
 -- | Summary information about a product path for a user.
 --
 -- /See:/ 'mkLaunchPathSummary' smart constructor.
 data LaunchPathSummary = LaunchPathSummary'
   { -- | The constraints on the portfolio-product relationship.
-    constraintSummaries :: Lude.Maybe [ConstraintSummary],
-    -- | The name of the portfolio to which the user was assigned.
-    name :: Lude.Maybe Lude.Text,
+    constraintSummaries :: Core.Maybe [Types.ConstraintSummary],
     -- | The identifier of the product path.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.Id,
+    -- | The name of the portfolio to which the user was assigned.
+    name :: Core.Maybe Types.Name,
     -- | The tags associated with this product path.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchPathSummary' with the minimum fields required to make a request.
---
--- * 'constraintSummaries' - The constraints on the portfolio-product relationship.
--- * 'name' - The name of the portfolio to which the user was assigned.
--- * 'id' - The identifier of the product path.
--- * 'tags' - The tags associated with this product path.
+-- | Creates a 'LaunchPathSummary' value with any optional fields omitted.
 mkLaunchPathSummary ::
   LaunchPathSummary
 mkLaunchPathSummary =
   LaunchPathSummary'
-    { constraintSummaries = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      tags = Lude.Nothing
+    { constraintSummaries = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The constraints on the portfolio-product relationship.
 --
 -- /Note:/ Consider using 'constraintSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpsConstraintSummaries :: Lens.Lens' LaunchPathSummary (Lude.Maybe [ConstraintSummary])
-lpsConstraintSummaries = Lens.lens (constraintSummaries :: LaunchPathSummary -> Lude.Maybe [ConstraintSummary]) (\s a -> s {constraintSummaries = a} :: LaunchPathSummary)
+lpsConstraintSummaries :: Lens.Lens' LaunchPathSummary (Core.Maybe [Types.ConstraintSummary])
+lpsConstraintSummaries = Lens.field @"constraintSummaries"
 {-# DEPRECATED lpsConstraintSummaries "Use generic-lens or generic-optics with 'constraintSummaries' instead." #-}
-
--- | The name of the portfolio to which the user was assigned.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpsName :: Lens.Lens' LaunchPathSummary (Lude.Maybe Lude.Text)
-lpsName = Lens.lens (name :: LaunchPathSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LaunchPathSummary)
-{-# DEPRECATED lpsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The identifier of the product path.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpsId :: Lens.Lens' LaunchPathSummary (Lude.Maybe Lude.Text)
-lpsId = Lens.lens (id :: LaunchPathSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: LaunchPathSummary)
+lpsId :: Lens.Lens' LaunchPathSummary (Core.Maybe Types.Id)
+lpsId = Lens.field @"id"
 {-# DEPRECATED lpsId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The name of the portfolio to which the user was assigned.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpsName :: Lens.Lens' LaunchPathSummary (Core.Maybe Types.Name)
+lpsName = Lens.field @"name"
+{-# DEPRECATED lpsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The tags associated with this product path.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpsTags :: Lens.Lens' LaunchPathSummary (Lude.Maybe [Tag])
-lpsTags = Lens.lens (tags :: LaunchPathSummary -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LaunchPathSummary)
+lpsTags :: Lens.Lens' LaunchPathSummary (Core.Maybe [Types.Tag])
+lpsTags = Lens.field @"tags"
 {-# DEPRECATED lpsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON LaunchPathSummary where
+instance Core.FromJSON LaunchPathSummary where
   parseJSON =
-    Lude.withObject
-      "LaunchPathSummary"
-      ( \x ->
-          LaunchPathSummary'
-            Lude.<$> (x Lude..:? "ConstraintSummaries" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "LaunchPathSummary" Core.$
+      \x ->
+        LaunchPathSummary'
+          Core.<$> (x Core..:? "ConstraintSummaries")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Tags")

@@ -22,44 +22,39 @@ module Network.AWS.MediaConvert.Types.TimedMetadataInsertion
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.Id3Insertion
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.Id3Insertion as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Enable Timed metadata insertion (TimedMetadataInsertion) to include ID3 tags in any HLS outputs. To include timed metadata, you must enable it here, enable it in each output container, and specify tags and timecodes in ID3 insertion (Id3Insertion) objects.
 --
 -- /See:/ 'mkTimedMetadataInsertion' smart constructor.
 newtype TimedMetadataInsertion = TimedMetadataInsertion'
   { -- | Id3Insertions contains the array of Id3Insertion instances.
-    id3Insertions :: Lude.Maybe [Id3Insertion]
+    id3Insertions :: Core.Maybe [Types.Id3Insertion]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TimedMetadataInsertion' with the minimum fields required to make a request.
---
--- * 'id3Insertions' - Id3Insertions contains the array of Id3Insertion instances.
+-- | Creates a 'TimedMetadataInsertion' value with any optional fields omitted.
 mkTimedMetadataInsertion ::
   TimedMetadataInsertion
 mkTimedMetadataInsertion =
-  TimedMetadataInsertion' {id3Insertions = Lude.Nothing}
+  TimedMetadataInsertion' {id3Insertions = Core.Nothing}
 
 -- | Id3Insertions contains the array of Id3Insertion instances.
 --
 -- /Note:/ Consider using 'id3Insertions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tmiId3Insertions :: Lens.Lens' TimedMetadataInsertion (Lude.Maybe [Id3Insertion])
-tmiId3Insertions = Lens.lens (id3Insertions :: TimedMetadataInsertion -> Lude.Maybe [Id3Insertion]) (\s a -> s {id3Insertions = a} :: TimedMetadataInsertion)
+tmiId3Insertions :: Lens.Lens' TimedMetadataInsertion (Core.Maybe [Types.Id3Insertion])
+tmiId3Insertions = Lens.field @"id3Insertions"
 {-# DEPRECATED tmiId3Insertions "Use generic-lens or generic-optics with 'id3Insertions' instead." #-}
 
-instance Lude.FromJSON TimedMetadataInsertion where
-  parseJSON =
-    Lude.withObject
-      "TimedMetadataInsertion"
-      ( \x ->
-          TimedMetadataInsertion'
-            Lude.<$> (x Lude..:? "id3Insertions" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON TimedMetadataInsertion where
+  toJSON TimedMetadataInsertion {..} =
+    Core.object
+      (Core.catMaybes [("id3Insertions" Core..=) Core.<$> id3Insertions])
 
-instance Lude.ToJSON TimedMetadataInsertion where
-  toJSON TimedMetadataInsertion' {..} =
-    Lude.object
-      (Lude.catMaybes [("id3Insertions" Lude..=) Lude.<$> id3Insertions])
+instance Core.FromJSON TimedMetadataInsertion where
+  parseJSON =
+    Core.withObject "TimedMetadataInsertion" Core.$
+      \x ->
+        TimedMetadataInsertion' Core.<$> (x Core..:? "id3Insertions")

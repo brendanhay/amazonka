@@ -17,86 +17,80 @@ module Network.AWS.Lightsail.Types.AutoSnapshotDetails
     mkAutoSnapshotDetails,
 
     -- * Lenses
-    asdStatus,
-    asdFromAttachedDisks,
     asdCreatedAt,
     asdDate,
+    asdFromAttachedDisks,
+    asdStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.AttachedDisk
-import Network.AWS.Lightsail.Types.AutoSnapshotStatus
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.AttachedDisk as Types
+import qualified Network.AWS.Lightsail.Types.AutoSnapshotStatus as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an automatic snapshot.
 --
 -- /See:/ 'mkAutoSnapshotDetails' smart constructor.
 data AutoSnapshotDetails = AutoSnapshotDetails'
-  { -- | The status of the automatic snapshot.
-    status :: Lude.Maybe AutoSnapshotStatus,
-    -- | An array of objects that describe the block storage disks attached to the instance when the automatic snapshot was created.
-    fromAttachedDisks :: Lude.Maybe [AttachedDisk],
-    -- | The timestamp when the automatic snapshot was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
+  { -- | The timestamp when the automatic snapshot was created.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | The date of the automatic snapshot in @YYYY-MM-DD@ format.
-    date :: Lude.Maybe Lude.Text
+    date :: Core.Maybe Types.String,
+    -- | An array of objects that describe the block storage disks attached to the instance when the automatic snapshot was created.
+    fromAttachedDisks :: Core.Maybe [Types.AttachedDisk],
+    -- | The status of the automatic snapshot.
+    status :: Core.Maybe Types.AutoSnapshotStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AutoSnapshotDetails' with the minimum fields required to make a request.
---
--- * 'status' - The status of the automatic snapshot.
--- * 'fromAttachedDisks' - An array of objects that describe the block storage disks attached to the instance when the automatic snapshot was created.
--- * 'createdAt' - The timestamp when the automatic snapshot was created.
--- * 'date' - The date of the automatic snapshot in @YYYY-MM-DD@ format.
+-- | Creates a 'AutoSnapshotDetails' value with any optional fields omitted.
 mkAutoSnapshotDetails ::
   AutoSnapshotDetails
 mkAutoSnapshotDetails =
   AutoSnapshotDetails'
-    { status = Lude.Nothing,
-      fromAttachedDisks = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      date = Lude.Nothing
+    { createdAt = Core.Nothing,
+      date = Core.Nothing,
+      fromAttachedDisks = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The status of the automatic snapshot.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asdStatus :: Lens.Lens' AutoSnapshotDetails (Lude.Maybe AutoSnapshotStatus)
-asdStatus = Lens.lens (status :: AutoSnapshotDetails -> Lude.Maybe AutoSnapshotStatus) (\s a -> s {status = a} :: AutoSnapshotDetails)
-{-# DEPRECATED asdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | An array of objects that describe the block storage disks attached to the instance when the automatic snapshot was created.
---
--- /Note:/ Consider using 'fromAttachedDisks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asdFromAttachedDisks :: Lens.Lens' AutoSnapshotDetails (Lude.Maybe [AttachedDisk])
-asdFromAttachedDisks = Lens.lens (fromAttachedDisks :: AutoSnapshotDetails -> Lude.Maybe [AttachedDisk]) (\s a -> s {fromAttachedDisks = a} :: AutoSnapshotDetails)
-{-# DEPRECATED asdFromAttachedDisks "Use generic-lens or generic-optics with 'fromAttachedDisks' instead." #-}
 
 -- | The timestamp when the automatic snapshot was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asdCreatedAt :: Lens.Lens' AutoSnapshotDetails (Lude.Maybe Lude.Timestamp)
-asdCreatedAt = Lens.lens (createdAt :: AutoSnapshotDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: AutoSnapshotDetails)
+asdCreatedAt :: Lens.Lens' AutoSnapshotDetails (Core.Maybe Core.NominalDiffTime)
+asdCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED asdCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The date of the automatic snapshot in @YYYY-MM-DD@ format.
 --
 -- /Note:/ Consider using 'date' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asdDate :: Lens.Lens' AutoSnapshotDetails (Lude.Maybe Lude.Text)
-asdDate = Lens.lens (date :: AutoSnapshotDetails -> Lude.Maybe Lude.Text) (\s a -> s {date = a} :: AutoSnapshotDetails)
+asdDate :: Lens.Lens' AutoSnapshotDetails (Core.Maybe Types.String)
+asdDate = Lens.field @"date"
 {-# DEPRECATED asdDate "Use generic-lens or generic-optics with 'date' instead." #-}
 
-instance Lude.FromJSON AutoSnapshotDetails where
+-- | An array of objects that describe the block storage disks attached to the instance when the automatic snapshot was created.
+--
+-- /Note:/ Consider using 'fromAttachedDisks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asdFromAttachedDisks :: Lens.Lens' AutoSnapshotDetails (Core.Maybe [Types.AttachedDisk])
+asdFromAttachedDisks = Lens.field @"fromAttachedDisks"
+{-# DEPRECATED asdFromAttachedDisks "Use generic-lens or generic-optics with 'fromAttachedDisks' instead." #-}
+
+-- | The status of the automatic snapshot.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asdStatus :: Lens.Lens' AutoSnapshotDetails (Core.Maybe Types.AutoSnapshotStatus)
+asdStatus = Lens.field @"status"
+{-# DEPRECATED asdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON AutoSnapshotDetails where
   parseJSON =
-    Lude.withObject
-      "AutoSnapshotDetails"
-      ( \x ->
-          AutoSnapshotDetails'
-            Lude.<$> (x Lude..:? "status")
-            Lude.<*> (x Lude..:? "fromAttachedDisks" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "date")
-      )
+    Core.withObject "AutoSnapshotDetails" Core.$
+      \x ->
+        AutoSnapshotDetails'
+          Core.<$> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "date")
+          Core.<*> (x Core..:? "fromAttachedDisks")
+          Core.<*> (x Core..:? "status")

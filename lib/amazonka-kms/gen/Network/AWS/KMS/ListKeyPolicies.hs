@@ -23,27 +23,27 @@ module Network.AWS.KMS.ListKeyPolicies
 
     -- ** Request lenses
     lkpKeyId,
-    lkpMarker,
     lkpLimit,
+    lkpMarker,
 
     -- * Destructuring the response
     ListKeyPoliciesResponse (..),
     mkListKeyPoliciesResponse,
 
     -- ** Response lenses
-    lkprsPolicyNames,
-    lkprsTruncated,
-    lkprsNextMarker,
-    lkprsResponseStatus,
+    lkprrsNextMarker,
+    lkprrsPolicyNames,
+    lkprrsTruncated,
+    lkprrsResponseStatus,
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListKeyPolicies' smart constructor.
 data ListKeyPolicies = ListKeyPolicies'
@@ -59,46 +59,28 @@ data ListKeyPolicies = ListKeyPolicies'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-    keyId :: Lude.Text,
-    -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
-    marker :: Lude.Maybe Lude.Text,
+    keyId :: Types.KeyIdType,
     -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
     --
     -- This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
     -- Only one policy can be attached to a key.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural,
+    -- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+    marker :: Core.Maybe Types.MarkerType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListKeyPolicies' with the minimum fields required to make a request.
---
--- * 'keyId' - A unique identifier for the customer master key (CMK).
---
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
--- * 'marker' - Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
--- * 'limit' - Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
---
--- This value is optional. If you include a value, it must be between 1 and 1000, inclusive. If you do not include a value, it defaults to 100.
--- Only one policy can be attached to a key.
+-- | Creates a 'ListKeyPolicies' value with any optional fields omitted.
 mkListKeyPolicies ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyIdType ->
   ListKeyPolicies
-mkListKeyPolicies pKeyId_ =
+mkListKeyPolicies keyId =
   ListKeyPolicies'
-    { keyId = pKeyId_,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing
+    { keyId,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
 
 -- | A unique identifier for the customer master key (CMK).
@@ -115,16 +97,9 @@ mkListKeyPolicies pKeyId_ =
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkpKeyId :: Lens.Lens' ListKeyPolicies Lude.Text
-lkpKeyId = Lens.lens (keyId :: ListKeyPolicies -> Lude.Text) (\s a -> s {keyId = a} :: ListKeyPolicies)
+lkpKeyId :: Lens.Lens' ListKeyPolicies Types.KeyIdType
+lkpKeyId = Lens.field @"keyId"
 {-# DEPRECATED lkpKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
-
--- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkpMarker :: Lens.Lens' ListKeyPolicies (Lude.Maybe Lude.Text)
-lkpMarker = Lens.lens (marker :: ListKeyPolicies -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListKeyPolicies)
-{-# DEPRECATED lkpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.
 --
@@ -132,115 +107,112 @@ lkpMarker = Lens.lens (marker :: ListKeyPolicies -> Lude.Maybe Lude.Text) (\s a 
 -- Only one policy can be attached to a key.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkpLimit :: Lens.Lens' ListKeyPolicies (Lude.Maybe Lude.Natural)
-lkpLimit = Lens.lens (limit :: ListKeyPolicies -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListKeyPolicies)
+lkpLimit :: Lens.Lens' ListKeyPolicies (Core.Maybe Core.Natural)
+lkpLimit = Lens.field @"limit"
 {-# DEPRECATED lkpLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager ListKeyPolicies where
-  page rq rs
-    | Page.stop (rs Lens.^. lkprsTruncated) = Lude.Nothing
-    | Lude.isNothing (rs Lens.^. lkprsNextMarker) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lkpMarker Lens..~ rs Lens.^. lkprsNextMarker
+-- | Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of @NextMarker@ from the truncated response you just received.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkpMarker :: Lens.Lens' ListKeyPolicies (Core.Maybe Types.MarkerType)
+lkpMarker = Lens.field @"marker"
+{-# DEPRECATED lkpMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Lude.AWSRequest ListKeyPolicies where
+instance Core.FromJSON ListKeyPolicies where
+  toJSON ListKeyPolicies {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("KeyId" Core..= keyId),
+            ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker
+          ]
+      )
+
+instance Core.AWSRequest ListKeyPolicies where
   type Rs ListKeyPolicies = ListKeyPoliciesResponse
-  request = Req.postJSON kmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.ListKeyPolicies")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListKeyPoliciesResponse'
-            Lude.<$> (x Lude..?> "PolicyNames" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Truncated")
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextMarker")
+            Core.<*> (x Core..:? "PolicyNames")
+            Core.<*> (x Core..:? "Truncated")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListKeyPolicies where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.ListKeyPolicies" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListKeyPolicies where
-  toJSON ListKeyPolicies' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("KeyId" Lude..= keyId),
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListKeyPolicies where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListKeyPolicies where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListKeyPolicies where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"truncated") = Core.Nothing
+    | Core.isNothing (rs Lens.^. Lens.field @"nextMarker") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkListKeyPoliciesResponse' smart constructor.
 data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
-  { -- | A list of key policy names. The only valid value is @default@ .
-    policyNames :: Lude.Maybe [Lude.Text],
+  { -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
+    nextMarker :: Core.Maybe Types.MarkerType,
+    -- | A list of key policy names. The only valid value is @default@ .
+    policyNames :: Core.Maybe [Types.PolicyNameType],
     -- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
-    truncated :: Lude.Maybe Lude.Bool,
-    -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
-    nextMarker :: Lude.Maybe Lude.Text,
+    truncated :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListKeyPoliciesResponse' with the minimum fields required to make a request.
---
--- * 'policyNames' - A list of key policy names. The only valid value is @default@ .
--- * 'truncated' - A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
--- * 'nextMarker' - When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListKeyPoliciesResponse' value with any optional fields omitted.
 mkListKeyPoliciesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListKeyPoliciesResponse
-mkListKeyPoliciesResponse pResponseStatus_ =
+mkListKeyPoliciesResponse responseStatus =
   ListKeyPoliciesResponse'
-    { policyNames = Lude.Nothing,
-      truncated = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextMarker = Core.Nothing,
+      policyNames = Core.Nothing,
+      truncated = Core.Nothing,
+      responseStatus
     }
-
--- | A list of key policy names. The only valid value is @default@ .
---
--- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkprsPolicyNames :: Lens.Lens' ListKeyPoliciesResponse (Lude.Maybe [Lude.Text])
-lkprsPolicyNames = Lens.lens (policyNames :: ListKeyPoliciesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {policyNames = a} :: ListKeyPoliciesResponse)
-{-# DEPRECATED lkprsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
-
--- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
---
--- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkprsTruncated :: Lens.Lens' ListKeyPoliciesResponse (Lude.Maybe Lude.Bool)
-lkprsTruncated = Lens.lens (truncated :: ListKeyPoliciesResponse -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: ListKeyPoliciesResponse)
-{-# DEPRECATED lkprsTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | When @Truncated@ is true, this element is present and contains the value to use for the @Marker@ parameter in a subsequent request.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkprsNextMarker :: Lens.Lens' ListKeyPoliciesResponse (Lude.Maybe Lude.Text)
-lkprsNextMarker = Lens.lens (nextMarker :: ListKeyPoliciesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListKeyPoliciesResponse)
-{-# DEPRECATED lkprsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+lkprrsNextMarker :: Lens.Lens' ListKeyPoliciesResponse (Core.Maybe Types.MarkerType)
+lkprrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lkprrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+-- | A list of key policy names. The only valid value is @default@ .
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkprrsPolicyNames :: Lens.Lens' ListKeyPoliciesResponse (Core.Maybe [Types.PolicyNameType])
+lkprrsPolicyNames = Lens.field @"policyNames"
+{-# DEPRECATED lkprrsPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
+
+-- | A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the @NextMarker@ element in thisresponse to the @Marker@ parameter in a subsequent request.
+--
+-- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lkprrsTruncated :: Lens.Lens' ListKeyPoliciesResponse (Core.Maybe Core.Bool)
+lkprrsTruncated = Lens.field @"truncated"
+{-# DEPRECATED lkprrsTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lkprsResponseStatus :: Lens.Lens' ListKeyPoliciesResponse Lude.Int
-lkprsResponseStatus = Lens.lens (responseStatus :: ListKeyPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListKeyPoliciesResponse)
-{-# DEPRECATED lkprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lkprrsResponseStatus :: Lens.Lens' ListKeyPoliciesResponse Core.Int
+lkprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lkprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -27,106 +27,91 @@ module Network.AWS.MechanicalTurk.GetHIT
     mkGetHITResponse,
 
     -- ** Response lenses
-    ghitrsHIT,
-    ghitrsResponseStatus,
+    ghitrrsHIT,
+    ghitrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetHIT' smart constructor.
 newtype GetHIT = GetHIT'
   { -- | The ID of the HIT to be retrieved.
-    hITId :: Lude.Text
+    hITId :: Types.HITId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetHIT' with the minimum fields required to make a request.
---
--- * 'hITId' - The ID of the HIT to be retrieved.
+-- | Creates a 'GetHIT' value with any optional fields omitted.
 mkGetHIT ::
   -- | 'hITId'
-  Lude.Text ->
+  Types.HITId ->
   GetHIT
-mkGetHIT pHITId_ = GetHIT' {hITId = pHITId_}
+mkGetHIT hITId = GetHIT' {hITId}
 
 -- | The ID of the HIT to be retrieved.
 --
 -- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghitHITId :: Lens.Lens' GetHIT Lude.Text
-ghitHITId = Lens.lens (hITId :: GetHIT -> Lude.Text) (\s a -> s {hITId = a} :: GetHIT)
+ghitHITId :: Lens.Lens' GetHIT Types.HITId
+ghitHITId = Lens.field @"hITId"
 {-# DEPRECATED ghitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
 
-instance Lude.AWSRequest GetHIT where
+instance Core.FromJSON GetHIT where
+  toJSON GetHIT {..} =
+    Core.object (Core.catMaybes [Core.Just ("HITId" Core..= hITId)])
+
+instance Core.AWSRequest GetHIT where
   type Rs GetHIT = GetHITResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "MTurkRequesterServiceV20170117.GetHIT")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetHITResponse'
-            Lude.<$> (x Lude..?> "HIT") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "HIT") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetHIT where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("MTurkRequesterServiceV20170117.GetHIT" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetHIT where
-  toJSON GetHIT' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("HITId" Lude..= hITId)])
-
-instance Lude.ToPath GetHIT where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetHIT where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetHITResponse' smart constructor.
 data GetHITResponse = GetHITResponse'
   { -- | Contains the requested HIT data.
-    hIT :: Lude.Maybe HIT,
+    hit :: Core.Maybe Types.HIT,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetHITResponse' with the minimum fields required to make a request.
---
--- * 'hIT' - Contains the requested HIT data.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetHITResponse' value with any optional fields omitted.
 mkGetHITResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetHITResponse
-mkGetHITResponse pResponseStatus_ =
-  GetHITResponse'
-    { hIT = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetHITResponse responseStatus =
+  GetHITResponse' {hit = Core.Nothing, responseStatus}
 
 -- | Contains the requested HIT data.
 --
--- /Note:/ Consider using 'hIT' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghitrsHIT :: Lens.Lens' GetHITResponse (Lude.Maybe HIT)
-ghitrsHIT = Lens.lens (hIT :: GetHITResponse -> Lude.Maybe HIT) (\s a -> s {hIT = a} :: GetHITResponse)
-{-# DEPRECATED ghitrsHIT "Use generic-lens or generic-optics with 'hIT' instead." #-}
+-- /Note:/ Consider using 'hit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ghitrrsHIT :: Lens.Lens' GetHITResponse (Core.Maybe Types.HIT)
+ghitrrsHIT = Lens.field @"hit"
+{-# DEPRECATED ghitrrsHIT "Use generic-lens or generic-optics with 'hit' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ghitrsResponseStatus :: Lens.Lens' GetHITResponse Lude.Int
-ghitrsResponseStatus = Lens.lens (responseStatus :: GetHITResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetHITResponse)
-{-# DEPRECATED ghitrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ghitrrsResponseStatus :: Lens.Lens' GetHITResponse Core.Int
+ghitrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ghitrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

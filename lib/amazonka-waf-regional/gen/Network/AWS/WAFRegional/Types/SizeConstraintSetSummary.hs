@@ -23,7 +23,9 @@ module Network.AWS.WAFRegional.Types.SizeConstraintSetSummary
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WAFRegional.Types.ResourceId as Types
+import qualified Network.AWS.WAFRegional.Types.ResourceName as Types
 
 -- | The @Id@ and @Name@ of a @SizeConstraintSet@ .
 --
@@ -32,53 +34,42 @@ data SizeConstraintSetSummary = SizeConstraintSetSummary'
   { -- | A unique identifier for a @SizeConstraintSet@ . You use @SizeConstraintSetId@ to get information about a @SizeConstraintSet@ (see 'GetSizeConstraintSet' ), update a @SizeConstraintSet@ (see 'UpdateSizeConstraintSet' ), insert a @SizeConstraintSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SizeConstraintSet@ from AWS WAF (see 'DeleteSizeConstraintSet' ).
     --
     -- @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
-    sizeConstraintSetId :: Lude.Text,
+    sizeConstraintSetId :: Types.ResourceId,
     -- | The name of the @SizeConstraintSet@ , if any.
-    name :: Lude.Text
+    name :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SizeConstraintSetSummary' with the minimum fields required to make a request.
---
--- * 'sizeConstraintSetId' - A unique identifier for a @SizeConstraintSet@ . You use @SizeConstraintSetId@ to get information about a @SizeConstraintSet@ (see 'GetSizeConstraintSet' ), update a @SizeConstraintSet@ (see 'UpdateSizeConstraintSet' ), insert a @SizeConstraintSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SizeConstraintSet@ from AWS WAF (see 'DeleteSizeConstraintSet' ).
---
--- @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
--- * 'name' - The name of the @SizeConstraintSet@ , if any.
+-- | Creates a 'SizeConstraintSetSummary' value with any optional fields omitted.
 mkSizeConstraintSetSummary ::
   -- | 'sizeConstraintSetId'
-  Lude.Text ->
+  Types.ResourceId ->
   -- | 'name'
-  Lude.Text ->
+  Types.ResourceName ->
   SizeConstraintSetSummary
-mkSizeConstraintSetSummary pSizeConstraintSetId_ pName_ =
-  SizeConstraintSetSummary'
-    { sizeConstraintSetId =
-        pSizeConstraintSetId_,
-      name = pName_
-    }
+mkSizeConstraintSetSummary sizeConstraintSetId name =
+  SizeConstraintSetSummary' {sizeConstraintSetId, name}
 
 -- | A unique identifier for a @SizeConstraintSet@ . You use @SizeConstraintSetId@ to get information about a @SizeConstraintSet@ (see 'GetSizeConstraintSet' ), update a @SizeConstraintSet@ (see 'UpdateSizeConstraintSet' ), insert a @SizeConstraintSet@ into a @Rule@ or delete one from a @Rule@ (see 'UpdateRule' ), and delete a @SizeConstraintSet@ from AWS WAF (see 'DeleteSizeConstraintSet' ).
 --
 -- @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 --
 -- /Note:/ Consider using 'sizeConstraintSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scssSizeConstraintSetId :: Lens.Lens' SizeConstraintSetSummary Lude.Text
-scssSizeConstraintSetId = Lens.lens (sizeConstraintSetId :: SizeConstraintSetSummary -> Lude.Text) (\s a -> s {sizeConstraintSetId = a} :: SizeConstraintSetSummary)
+scssSizeConstraintSetId :: Lens.Lens' SizeConstraintSetSummary Types.ResourceId
+scssSizeConstraintSetId = Lens.field @"sizeConstraintSetId"
 {-# DEPRECATED scssSizeConstraintSetId "Use generic-lens or generic-optics with 'sizeConstraintSetId' instead." #-}
 
 -- | The name of the @SizeConstraintSet@ , if any.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scssName :: Lens.Lens' SizeConstraintSetSummary Lude.Text
-scssName = Lens.lens (name :: SizeConstraintSetSummary -> Lude.Text) (\s a -> s {name = a} :: SizeConstraintSetSummary)
+scssName :: Lens.Lens' SizeConstraintSetSummary Types.ResourceName
+scssName = Lens.field @"name"
 {-# DEPRECATED scssName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON SizeConstraintSetSummary where
+instance Core.FromJSON SizeConstraintSetSummary where
   parseJSON =
-    Lude.withObject
-      "SizeConstraintSetSummary"
-      ( \x ->
-          SizeConstraintSetSummary'
-            Lude.<$> (x Lude..: "SizeConstraintSetId") Lude.<*> (x Lude..: "Name")
-      )
+    Core.withObject "SizeConstraintSetSummary" Core.$
+      \x ->
+        SizeConstraintSetSummary'
+          Core.<$> (x Core..: "SizeConstraintSetId") Core.<*> (x Core..: "Name")

@@ -26,77 +26,69 @@ module Network.AWS.Shield.DisassociateDRTRole
     mkDisassociateDRTRoleResponse,
 
     -- ** Response lenses
-    ddrtrrsResponseStatus,
+    ddrtrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkDisassociateDRTRole' smart constructor.
 data DisassociateDRTRole = DisassociateDRTRole'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateDRTRole' with the minimum fields required to make a request.
+-- | Creates a 'DisassociateDRTRole' value with any optional fields omitted.
 mkDisassociateDRTRole ::
   DisassociateDRTRole
 mkDisassociateDRTRole = DisassociateDRTRole'
 
-instance Lude.AWSRequest DisassociateDRTRole where
+instance Core.FromJSON DisassociateDRTRole where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest DisassociateDRTRole where
   type Rs DisassociateDRTRole = DisassociateDRTRoleResponse
-  request = Req.postJSON shieldService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSShield_20160616.DisassociateDRTRole")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateDRTRoleResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateDRTRole where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSShield_20160616.DisassociateDRTRole" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateDRTRole where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath DisassociateDRTRole where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateDRTRole where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateDRTRoleResponse' smart constructor.
 newtype DisassociateDRTRoleResponse = DisassociateDRTRoleResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateDRTRoleResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateDRTRoleResponse' value with any optional fields omitted.
 mkDisassociateDRTRoleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateDRTRoleResponse
-mkDisassociateDRTRoleResponse pResponseStatus_ =
-  DisassociateDRTRoleResponse' {responseStatus = pResponseStatus_}
+mkDisassociateDRTRoleResponse responseStatus =
+  DisassociateDRTRoleResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrtrrsResponseStatus :: Lens.Lens' DisassociateDRTRoleResponse Lude.Int
-ddrtrrsResponseStatus = Lens.lens (responseStatus :: DisassociateDRTRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateDRTRoleResponse)
-{-# DEPRECATED ddrtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrtrrrsResponseStatus :: Lens.Lens' DisassociateDRTRoleResponse Core.Int
+ddrtrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrtrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

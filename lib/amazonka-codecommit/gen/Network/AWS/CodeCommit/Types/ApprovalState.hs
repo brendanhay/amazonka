@@ -13,46 +13,51 @@
 module Network.AWS.CodeCommit.Types.ApprovalState
   ( ApprovalState
       ( ApprovalState',
-        Approve,
-        Revoke
+        ApprovalStateApprove,
+        ApprovalStateRevoke,
+        fromApprovalState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ApprovalState = ApprovalState' Lude.Text
+newtype ApprovalState = ApprovalState'
+  { fromApprovalState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Approve :: ApprovalState
-pattern Approve = ApprovalState' "APPROVE"
+pattern ApprovalStateApprove :: ApprovalState
+pattern ApprovalStateApprove = ApprovalState' "APPROVE"
 
-pattern Revoke :: ApprovalState
-pattern Revoke = ApprovalState' "REVOKE"
+pattern ApprovalStateRevoke :: ApprovalState
+pattern ApprovalStateRevoke = ApprovalState' "REVOKE"
 
 {-# COMPLETE
-  Approve,
-  Revoke,
+  ApprovalStateApprove,
+  ApprovalStateRevoke,
   ApprovalState'
   #-}

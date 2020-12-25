@@ -13,51 +13,56 @@
 module Network.AWS.Athena.Types.StatementType
   ( StatementType
       ( StatementType',
-        Ddl,
-        Dml,
-        Utility
+        StatementTypeDdl,
+        StatementTypeDml,
+        StatementTypeUtility,
+        fromStatementType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StatementType = StatementType' Lude.Text
+newtype StatementType = StatementType'
+  { fromStatementType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Ddl :: StatementType
-pattern Ddl = StatementType' "DDL"
+pattern StatementTypeDdl :: StatementType
+pattern StatementTypeDdl = StatementType' "DDL"
 
-pattern Dml :: StatementType
-pattern Dml = StatementType' "DML"
+pattern StatementTypeDml :: StatementType
+pattern StatementTypeDml = StatementType' "DML"
 
-pattern Utility :: StatementType
-pattern Utility = StatementType' "UTILITY"
+pattern StatementTypeUtility :: StatementType
+pattern StatementTypeUtility = StatementType' "UTILITY"
 
 {-# COMPLETE
-  Ddl,
-  Dml,
-  Utility,
+  StatementTypeDdl,
+  StatementTypeDml,
+  StatementTypeUtility,
   StatementType'
   #-}

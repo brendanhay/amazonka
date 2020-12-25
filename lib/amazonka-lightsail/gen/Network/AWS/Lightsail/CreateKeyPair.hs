@@ -30,50 +30,45 @@ module Network.AWS.Lightsail.CreateKeyPair
     mkCreateKeyPairResponse,
 
     -- ** Response lenses
-    ckprsKeyPair,
-    ckprsOperation,
-    ckprsPublicKeyBase64,
-    ckprsPrivateKeyBase64,
-    ckprsResponseStatus,
+    ckprrsKeyPair,
+    ckprrsOperation,
+    ckprrsPrivateKeyBase64,
+    ckprrsPublicKeyBase64,
+    ckprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateKeyPair' smart constructor.
 data CreateKeyPair = CreateKeyPair'
   { -- | The name for your new key pair.
-    keyPairName :: Lude.Text,
+    keyPairName :: Types.ResourceName,
     -- | The tag keys and optional values to add to the resource during create.
     --
     -- Use the @TagResource@ action to tag a resource after it's created.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateKeyPair' with the minimum fields required to make a request.
---
--- * 'keyPairName' - The name for your new key pair.
--- * 'tags' - The tag keys and optional values to add to the resource during create.
---
--- Use the @TagResource@ action to tag a resource after it's created.
+-- | Creates a 'CreateKeyPair' value with any optional fields omitted.
 mkCreateKeyPair ::
   -- | 'keyPairName'
-  Lude.Text ->
+  Types.ResourceName ->
   CreateKeyPair
-mkCreateKeyPair pKeyPairName_ =
-  CreateKeyPair' {keyPairName = pKeyPairName_, tags = Lude.Nothing}
+mkCreateKeyPair keyPairName =
+  CreateKeyPair' {keyPairName, tags = Core.Nothing}
 
 -- | The name for your new key pair.
 --
 -- /Note:/ Consider using 'keyPairName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckpKeyPairName :: Lens.Lens' CreateKeyPair Lude.Text
-ckpKeyPairName = Lens.lens (keyPairName :: CreateKeyPair -> Lude.Text) (\s a -> s {keyPairName = a} :: CreateKeyPair)
+ckpKeyPairName :: Lens.Lens' CreateKeyPair Types.ResourceName
+ckpKeyPairName = Lens.field @"keyPairName"
 {-# DEPRECATED ckpKeyPairName "Use generic-lens or generic-optics with 'keyPairName' instead." #-}
 
 -- | The tag keys and optional values to add to the resource during create.
@@ -81,117 +76,104 @@ ckpKeyPairName = Lens.lens (keyPairName :: CreateKeyPair -> Lude.Text) (\s a -> 
 -- Use the @TagResource@ action to tag a resource after it's created.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckpTags :: Lens.Lens' CreateKeyPair (Lude.Maybe [Tag])
-ckpTags = Lens.lens (tags :: CreateKeyPair -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateKeyPair)
+ckpTags :: Lens.Lens' CreateKeyPair (Core.Maybe [Types.Tag])
+ckpTags = Lens.field @"tags"
 {-# DEPRECATED ckpTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateKeyPair where
+instance Core.FromJSON CreateKeyPair where
+  toJSON CreateKeyPair {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("keyPairName" Core..= keyPairName),
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateKeyPair where
   type Rs CreateKeyPair = CreateKeyPairResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.CreateKeyPair")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateKeyPairResponse'
-            Lude.<$> (x Lude..?> "keyPair")
-            Lude.<*> (x Lude..?> "operation")
-            Lude.<*> (x Lude..?> "publicKeyBase64")
-            Lude.<*> (x Lude..?> "privateKeyBase64")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "keyPair")
+            Core.<*> (x Core..:? "operation")
+            Core.<*> (x Core..:? "privateKeyBase64")
+            Core.<*> (x Core..:? "publicKeyBase64")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateKeyPair where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.CreateKeyPair" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateKeyPair where
-  toJSON CreateKeyPair' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("keyPairName" Lude..= keyPairName),
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateKeyPair where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateKeyPair where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateKeyPairResponse' smart constructor.
 data CreateKeyPairResponse = CreateKeyPairResponse'
   { -- | An array of key-value pairs containing information about the new key pair you just created.
-    keyPair :: Lude.Maybe KeyPair,
+    keyPair :: Core.Maybe Types.KeyPair,
     -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operation :: Lude.Maybe Operation,
-    -- | A base64-encoded public key of the @ssh-rsa@ type.
-    publicKeyBase64 :: Lude.Maybe Lude.Text,
+    operation :: Core.Maybe Types.Operation,
     -- | A base64-encoded RSA private key.
-    privateKeyBase64 :: Lude.Maybe Lude.Text,
+    privateKeyBase64 :: Core.Maybe Types.Base64,
+    -- | A base64-encoded public key of the @ssh-rsa@ type.
+    publicKeyBase64 :: Core.Maybe Types.Base64,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateKeyPairResponse' with the minimum fields required to make a request.
---
--- * 'keyPair' - An array of key-value pairs containing information about the new key pair you just created.
--- * 'operation' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'publicKeyBase64' - A base64-encoded public key of the @ssh-rsa@ type.
--- * 'privateKeyBase64' - A base64-encoded RSA private key.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateKeyPairResponse' value with any optional fields omitted.
 mkCreateKeyPairResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateKeyPairResponse
-mkCreateKeyPairResponse pResponseStatus_ =
+mkCreateKeyPairResponse responseStatus =
   CreateKeyPairResponse'
-    { keyPair = Lude.Nothing,
-      operation = Lude.Nothing,
-      publicKeyBase64 = Lude.Nothing,
-      privateKeyBase64 = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { keyPair = Core.Nothing,
+      operation = Core.Nothing,
+      privateKeyBase64 = Core.Nothing,
+      publicKeyBase64 = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of key-value pairs containing information about the new key pair you just created.
 --
 -- /Note:/ Consider using 'keyPair' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsKeyPair :: Lens.Lens' CreateKeyPairResponse (Lude.Maybe KeyPair)
-ckprsKeyPair = Lens.lens (keyPair :: CreateKeyPairResponse -> Lude.Maybe KeyPair) (\s a -> s {keyPair = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsKeyPair "Use generic-lens or generic-optics with 'keyPair' instead." #-}
+ckprrsKeyPair :: Lens.Lens' CreateKeyPairResponse (Core.Maybe Types.KeyPair)
+ckprrsKeyPair = Lens.field @"keyPair"
+{-# DEPRECATED ckprrsKeyPair "Use generic-lens or generic-optics with 'keyPair' instead." #-}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsOperation :: Lens.Lens' CreateKeyPairResponse (Lude.Maybe Operation)
-ckprsOperation = Lens.lens (operation :: CreateKeyPairResponse -> Lude.Maybe Operation) (\s a -> s {operation = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
-
--- | A base64-encoded public key of the @ssh-rsa@ type.
---
--- /Note:/ Consider using 'publicKeyBase64' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsPublicKeyBase64 :: Lens.Lens' CreateKeyPairResponse (Lude.Maybe Lude.Text)
-ckprsPublicKeyBase64 = Lens.lens (publicKeyBase64 :: CreateKeyPairResponse -> Lude.Maybe Lude.Text) (\s a -> s {publicKeyBase64 = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsPublicKeyBase64 "Use generic-lens or generic-optics with 'publicKeyBase64' instead." #-}
+ckprrsOperation :: Lens.Lens' CreateKeyPairResponse (Core.Maybe Types.Operation)
+ckprrsOperation = Lens.field @"operation"
+{-# DEPRECATED ckprrsOperation "Use generic-lens or generic-optics with 'operation' instead." #-}
 
 -- | A base64-encoded RSA private key.
 --
 -- /Note:/ Consider using 'privateKeyBase64' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsPrivateKeyBase64 :: Lens.Lens' CreateKeyPairResponse (Lude.Maybe Lude.Text)
-ckprsPrivateKeyBase64 = Lens.lens (privateKeyBase64 :: CreateKeyPairResponse -> Lude.Maybe Lude.Text) (\s a -> s {privateKeyBase64 = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsPrivateKeyBase64 "Use generic-lens or generic-optics with 'privateKeyBase64' instead." #-}
+ckprrsPrivateKeyBase64 :: Lens.Lens' CreateKeyPairResponse (Core.Maybe Types.Base64)
+ckprrsPrivateKeyBase64 = Lens.field @"privateKeyBase64"
+{-# DEPRECATED ckprrsPrivateKeyBase64 "Use generic-lens or generic-optics with 'privateKeyBase64' instead." #-}
+
+-- | A base64-encoded public key of the @ssh-rsa@ type.
+--
+-- /Note:/ Consider using 'publicKeyBase64' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ckprrsPublicKeyBase64 :: Lens.Lens' CreateKeyPairResponse (Core.Maybe Types.Base64)
+ckprrsPublicKeyBase64 = Lens.field @"publicKeyBase64"
+{-# DEPRECATED ckprrsPublicKeyBase64 "Use generic-lens or generic-optics with 'publicKeyBase64' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ckprsResponseStatus :: Lens.Lens' CreateKeyPairResponse Lude.Int
-ckprsResponseStatus = Lens.lens (responseStatus :: CreateKeyPairResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateKeyPairResponse)
-{-# DEPRECATED ckprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ckprrsResponseStatus :: Lens.Lens' CreateKeyPairResponse Core.Int
+ckprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ckprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,54 +17,53 @@ module Network.AWS.ElastiCache.Types.CacheSecurityGroupMembership
     mkCacheSecurityGroupMembership,
 
     -- * Lenses
-    csgmStatus,
     csgmCacheSecurityGroupName,
+    csgmStatus,
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a cluster's status within a particular cache security group.
 --
 -- /See:/ 'mkCacheSecurityGroupMembership' smart constructor.
 data CacheSecurityGroupMembership = CacheSecurityGroupMembership'
-  { -- | The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
-    status :: Lude.Maybe Lude.Text,
-    -- | The name of the cache security group.
-    cacheSecurityGroupName :: Lude.Maybe Lude.Text
+  { -- | The name of the cache security group.
+    cacheSecurityGroupName :: Core.Maybe Types.String,
+    -- | The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
+    status :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CacheSecurityGroupMembership' with the minimum fields required to make a request.
---
--- * 'status' - The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
--- * 'cacheSecurityGroupName' - The name of the cache security group.
+-- | Creates a 'CacheSecurityGroupMembership' value with any optional fields omitted.
 mkCacheSecurityGroupMembership ::
   CacheSecurityGroupMembership
 mkCacheSecurityGroupMembership =
   CacheSecurityGroupMembership'
-    { status = Lude.Nothing,
-      cacheSecurityGroupName = Lude.Nothing
+    { cacheSecurityGroupName =
+        Core.Nothing,
+      status = Core.Nothing
     }
-
--- | The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgmStatus :: Lens.Lens' CacheSecurityGroupMembership (Lude.Maybe Lude.Text)
-csgmStatus = Lens.lens (status :: CacheSecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {status = a} :: CacheSecurityGroupMembership)
-{-# DEPRECATED csgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the cache security group.
 --
 -- /Note:/ Consider using 'cacheSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csgmCacheSecurityGroupName :: Lens.Lens' CacheSecurityGroupMembership (Lude.Maybe Lude.Text)
-csgmCacheSecurityGroupName = Lens.lens (cacheSecurityGroupName :: CacheSecurityGroupMembership -> Lude.Maybe Lude.Text) (\s a -> s {cacheSecurityGroupName = a} :: CacheSecurityGroupMembership)
+csgmCacheSecurityGroupName :: Lens.Lens' CacheSecurityGroupMembership (Core.Maybe Types.String)
+csgmCacheSecurityGroupName = Lens.field @"cacheSecurityGroupName"
 {-# DEPRECATED csgmCacheSecurityGroupName "Use generic-lens or generic-optics with 'cacheSecurityGroupName' instead." #-}
 
-instance Lude.FromXML CacheSecurityGroupMembership where
+-- | The membership status in the cache security group. The status changes when a cache security group is modified, or when the cache security groups assigned to a cluster are modified.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csgmStatus :: Lens.Lens' CacheSecurityGroupMembership (Core.Maybe Types.String)
+csgmStatus = Lens.field @"status"
+{-# DEPRECATED csgmStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML CacheSecurityGroupMembership where
   parseXML x =
     CacheSecurityGroupMembership'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "CacheSecurityGroupName")
+      Core.<$> (x Core..@? "CacheSecurityGroupName")
+      Core.<*> (x Core..@? "Status")

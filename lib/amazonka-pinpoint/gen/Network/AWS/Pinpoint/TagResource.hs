@@ -20,8 +20,8 @@ module Network.AWS.Pinpoint.TagResource
     mkTagResource,
 
     -- ** Request lenses
+    trResourceArn,
     trTagsModel,
-    trResourceARN,
 
     -- * Destructuring the response
     TagResourceResponse (..),
@@ -30,82 +30,70 @@ module Network.AWS.Pinpoint.TagResource
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTagResource' smart constructor.
 data TagResource = TagResource'
-  { tagsModel :: TagsModel,
-    -- | The Amazon Resource Name (ARN) of the resource.
-    resourceARN :: Lude.Text
+  { -- | The Amazon Resource Name (ARN) of the resource.
+    resourceArn :: Core.Text,
+    tagsModel :: Types.TagsModel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResource' with the minimum fields required to make a request.
---
--- * 'tagsModel' -
--- * 'resourceARN' - The Amazon Resource Name (ARN) of the resource.
+-- | Creates a 'TagResource' value with any optional fields omitted.
 mkTagResource ::
+  -- | 'resourceArn'
+  Core.Text ->
   -- | 'tagsModel'
-  TagsModel ->
-  -- | 'resourceARN'
-  Lude.Text ->
+  Types.TagsModel ->
   TagResource
-mkTagResource pTagsModel_ pResourceARN_ =
-  TagResource'
-    { tagsModel = pTagsModel_,
-      resourceARN = pResourceARN_
-    }
+mkTagResource resourceArn tagsModel =
+  TagResource' {resourceArn, tagsModel}
+
+-- | The Amazon Resource Name (ARN) of the resource.
+--
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trResourceArn :: Lens.Lens' TagResource Core.Text
+trResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED trResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'tagsModel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trTagsModel :: Lens.Lens' TagResource TagsModel
-trTagsModel = Lens.lens (tagsModel :: TagResource -> TagsModel) (\s a -> s {tagsModel = a} :: TagResource)
+trTagsModel :: Lens.Lens' TagResource Types.TagsModel
+trTagsModel = Lens.field @"tagsModel"
 {-# DEPRECATED trTagsModel "Use generic-lens or generic-optics with 'tagsModel' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the resource.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trResourceARN :: Lens.Lens' TagResource Lude.Text
-trResourceARN = Lens.lens (resourceARN :: TagResource -> Lude.Text) (\s a -> s {resourceARN = a} :: TagResource)
-{-# DEPRECATED trResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+instance Core.FromJSON TagResource where
+  toJSON TagResource {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TagsModel" Core..= tagsModel)])
 
-instance Lude.AWSRequest TagResource where
+instance Core.AWSRequest TagResource where
   type Rs TagResource = TagResourceResponse
-  request = Req.postJSON pinpointService
-  response = Res.receiveNull TagResourceResponse'
-
-instance Lude.ToHeaders TagResource where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TagResource where
-  toJSON TagResource' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TagsModel" Lude..= tagsModel)])
-
-instance Lude.ToPath TagResource where
-  toPath TagResource' {..} =
-    Lude.mconcat ["/v1/tags/", Lude.toBS resourceARN]
-
-instance Lude.ToQuery TagResource where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath ("/v1/tags/" Core.<> (Core.toText resourceArn)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull TagResourceResponse'
 
 -- | /See:/ 'mkTagResourceResponse' smart constructor.
 data TagResourceResponse = TagResourceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagResourceResponse' with the minimum fields required to make a request.
+-- | Creates a 'TagResourceResponse' value with any optional fields omitted.
 mkTagResourceResponse ::
   TagResourceResponse
 mkTagResourceResponse = TagResourceResponse'

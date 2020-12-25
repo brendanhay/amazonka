@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.CmafInitializationVectorInManifest
   ( CmafInitializationVectorInManifest
       ( CmafInitializationVectorInManifest',
-        Include,
-        Exclude
+        CmafInitializationVectorInManifestInclude,
+        CmafInitializationVectorInManifestExclude,
+        fromCmafInitializationVectorInManifest
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When you use DRM with CMAF outputs, choose whether the service writes the 128-bit encryption initialization vector in the HLS and DASH manifests.
-newtype CmafInitializationVectorInManifest = CmafInitializationVectorInManifest' Lude.Text
+newtype CmafInitializationVectorInManifest = CmafInitializationVectorInManifest'
+  { fromCmafInitializationVectorInManifest ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Include :: CmafInitializationVectorInManifest
-pattern Include = CmafInitializationVectorInManifest' "INCLUDE"
+pattern CmafInitializationVectorInManifestInclude :: CmafInitializationVectorInManifest
+pattern CmafInitializationVectorInManifestInclude = CmafInitializationVectorInManifest' "INCLUDE"
 
-pattern Exclude :: CmafInitializationVectorInManifest
-pattern Exclude = CmafInitializationVectorInManifest' "EXCLUDE"
+pattern CmafInitializationVectorInManifestExclude :: CmafInitializationVectorInManifest
+pattern CmafInitializationVectorInManifestExclude = CmafInitializationVectorInManifest' "EXCLUDE"
 
 {-# COMPLETE
-  Include,
-  Exclude,
+  CmafInitializationVectorInManifestInclude,
+  CmafInitializationVectorInManifestExclude,
   CmafInitializationVectorInManifest'
   #-}

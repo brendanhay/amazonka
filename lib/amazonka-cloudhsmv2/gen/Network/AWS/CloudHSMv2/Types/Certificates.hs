@@ -17,97 +17,94 @@ module Network.AWS.CloudHSMv2.Types.Certificates
     mkCertificates,
 
     -- * Lenses
-    cManufacturerHardwareCertificate,
-    cClusterCSR,
-    cHSMCertificate,
+    cAwsHardwareCertificate,
     cClusterCertificate,
-    cAWSHardwareCertificate,
+    cClusterCsr,
+    cHsmCertificate,
+    cManufacturerHardwareCertificate,
   )
 where
 
+import qualified Network.AWS.CloudHSMv2.Types.AwsHardwareCertificate as Types
+import qualified Network.AWS.CloudHSMv2.Types.ClusterCertificate as Types
+import qualified Network.AWS.CloudHSMv2.Types.ClusterCsr as Types
+import qualified Network.AWS.CloudHSMv2.Types.HsmCertificate as Types
+import qualified Network.AWS.CloudHSMv2.Types.ManufacturerHardwareCertificate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains one or more certificates or a certificate signing request (CSR).
 --
 -- /See:/ 'mkCertificates' smart constructor.
 data Certificates = Certificates'
-  { -- | The HSM hardware certificate issued (signed) by the hardware manufacturer.
-    manufacturerHardwareCertificate :: Lude.Maybe Lude.Text,
-    -- | The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is @UNINITIALIZED@ .
-    clusterCSR :: Lude.Maybe Lude.Text,
-    -- | The HSM certificate issued (signed) by the HSM hardware.
-    hsmCertificate :: Lude.Maybe Lude.Text,
+  { -- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
+    awsHardwareCertificate :: Core.Maybe Types.AwsHardwareCertificate,
     -- | The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
-    clusterCertificate :: Lude.Maybe Lude.Text,
-    -- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
-    awsHardwareCertificate :: Lude.Maybe Lude.Text
+    clusterCertificate :: Core.Maybe Types.ClusterCertificate,
+    -- | The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is @UNINITIALIZED@ .
+    clusterCsr :: Core.Maybe Types.ClusterCsr,
+    -- | The HSM certificate issued (signed) by the HSM hardware.
+    hsmCertificate :: Core.Maybe Types.HsmCertificate,
+    -- | The HSM hardware certificate issued (signed) by the hardware manufacturer.
+    manufacturerHardwareCertificate :: Core.Maybe Types.ManufacturerHardwareCertificate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Certificates' with the minimum fields required to make a request.
---
--- * 'manufacturerHardwareCertificate' - The HSM hardware certificate issued (signed) by the hardware manufacturer.
--- * 'clusterCSR' - The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is @UNINITIALIZED@ .
--- * 'hsmCertificate' - The HSM certificate issued (signed) by the HSM hardware.
--- * 'clusterCertificate' - The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
--- * 'awsHardwareCertificate' - The HSM hardware certificate issued (signed) by AWS CloudHSM.
+-- | Creates a 'Certificates' value with any optional fields omitted.
 mkCertificates ::
   Certificates
 mkCertificates =
   Certificates'
-    { manufacturerHardwareCertificate = Lude.Nothing,
-      clusterCSR = Lude.Nothing,
-      hsmCertificate = Lude.Nothing,
-      clusterCertificate = Lude.Nothing,
-      awsHardwareCertificate = Lude.Nothing
+    { awsHardwareCertificate = Core.Nothing,
+      clusterCertificate = Core.Nothing,
+      clusterCsr = Core.Nothing,
+      hsmCertificate = Core.Nothing,
+      manufacturerHardwareCertificate = Core.Nothing
     }
-
--- | The HSM hardware certificate issued (signed) by the hardware manufacturer.
---
--- /Note:/ Consider using 'manufacturerHardwareCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cManufacturerHardwareCertificate :: Lens.Lens' Certificates (Lude.Maybe Lude.Text)
-cManufacturerHardwareCertificate = Lens.lens (manufacturerHardwareCertificate :: Certificates -> Lude.Maybe Lude.Text) (\s a -> s {manufacturerHardwareCertificate = a} :: Certificates)
-{-# DEPRECATED cManufacturerHardwareCertificate "Use generic-lens or generic-optics with 'manufacturerHardwareCertificate' instead." #-}
-
--- | The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is @UNINITIALIZED@ .
---
--- /Note:/ Consider using 'clusterCSR' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cClusterCSR :: Lens.Lens' Certificates (Lude.Maybe Lude.Text)
-cClusterCSR = Lens.lens (clusterCSR :: Certificates -> Lude.Maybe Lude.Text) (\s a -> s {clusterCSR = a} :: Certificates)
-{-# DEPRECATED cClusterCSR "Use generic-lens or generic-optics with 'clusterCSR' instead." #-}
-
--- | The HSM certificate issued (signed) by the HSM hardware.
---
--- /Note:/ Consider using 'hsmCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cHSMCertificate :: Lens.Lens' Certificates (Lude.Maybe Lude.Text)
-cHSMCertificate = Lens.lens (hsmCertificate :: Certificates -> Lude.Maybe Lude.Text) (\s a -> s {hsmCertificate = a} :: Certificates)
-{-# DEPRECATED cHSMCertificate "Use generic-lens or generic-optics with 'hsmCertificate' instead." #-}
-
--- | The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
---
--- /Note:/ Consider using 'clusterCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cClusterCertificate :: Lens.Lens' Certificates (Lude.Maybe Lude.Text)
-cClusterCertificate = Lens.lens (clusterCertificate :: Certificates -> Lude.Maybe Lude.Text) (\s a -> s {clusterCertificate = a} :: Certificates)
-{-# DEPRECATED cClusterCertificate "Use generic-lens or generic-optics with 'clusterCertificate' instead." #-}
 
 -- | The HSM hardware certificate issued (signed) by AWS CloudHSM.
 --
 -- /Note:/ Consider using 'awsHardwareCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cAWSHardwareCertificate :: Lens.Lens' Certificates (Lude.Maybe Lude.Text)
-cAWSHardwareCertificate = Lens.lens (awsHardwareCertificate :: Certificates -> Lude.Maybe Lude.Text) (\s a -> s {awsHardwareCertificate = a} :: Certificates)
-{-# DEPRECATED cAWSHardwareCertificate "Use generic-lens or generic-optics with 'awsHardwareCertificate' instead." #-}
+cAwsHardwareCertificate :: Lens.Lens' Certificates (Core.Maybe Types.AwsHardwareCertificate)
+cAwsHardwareCertificate = Lens.field @"awsHardwareCertificate"
+{-# DEPRECATED cAwsHardwareCertificate "Use generic-lens or generic-optics with 'awsHardwareCertificate' instead." #-}
 
-instance Lude.FromJSON Certificates where
+-- | The cluster certificate issued (signed) by the issuing certificate authority (CA) of the cluster's owner.
+--
+-- /Note:/ Consider using 'clusterCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cClusterCertificate :: Lens.Lens' Certificates (Core.Maybe Types.ClusterCertificate)
+cClusterCertificate = Lens.field @"clusterCertificate"
+{-# DEPRECATED cClusterCertificate "Use generic-lens or generic-optics with 'clusterCertificate' instead." #-}
+
+-- | The cluster's certificate signing request (CSR). The CSR exists only when the cluster's state is @UNINITIALIZED@ .
+--
+-- /Note:/ Consider using 'clusterCsr' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cClusterCsr :: Lens.Lens' Certificates (Core.Maybe Types.ClusterCsr)
+cClusterCsr = Lens.field @"clusterCsr"
+{-# DEPRECATED cClusterCsr "Use generic-lens or generic-optics with 'clusterCsr' instead." #-}
+
+-- | The HSM certificate issued (signed) by the HSM hardware.
+--
+-- /Note:/ Consider using 'hsmCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cHsmCertificate :: Lens.Lens' Certificates (Core.Maybe Types.HsmCertificate)
+cHsmCertificate = Lens.field @"hsmCertificate"
+{-# DEPRECATED cHsmCertificate "Use generic-lens or generic-optics with 'hsmCertificate' instead." #-}
+
+-- | The HSM hardware certificate issued (signed) by the hardware manufacturer.
+--
+-- /Note:/ Consider using 'manufacturerHardwareCertificate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cManufacturerHardwareCertificate :: Lens.Lens' Certificates (Core.Maybe Types.ManufacturerHardwareCertificate)
+cManufacturerHardwareCertificate = Lens.field @"manufacturerHardwareCertificate"
+{-# DEPRECATED cManufacturerHardwareCertificate "Use generic-lens or generic-optics with 'manufacturerHardwareCertificate' instead." #-}
+
+instance Core.FromJSON Certificates where
   parseJSON =
-    Lude.withObject
-      "Certificates"
-      ( \x ->
-          Certificates'
-            Lude.<$> (x Lude..:? "ManufacturerHardwareCertificate")
-            Lude.<*> (x Lude..:? "ClusterCsr")
-            Lude.<*> (x Lude..:? "HsmCertificate")
-            Lude.<*> (x Lude..:? "ClusterCertificate")
-            Lude.<*> (x Lude..:? "AwsHardwareCertificate")
-      )
+    Core.withObject "Certificates" Core.$
+      \x ->
+        Certificates'
+          Core.<$> (x Core..:? "AwsHardwareCertificate")
+          Core.<*> (x Core..:? "ClusterCertificate")
+          Core.<*> (x Core..:? "ClusterCsr")
+          Core.<*> (x Core..:? "HsmCertificate")
+          Core.<*> (x Core..:? "ManufacturerHardwareCertificate")

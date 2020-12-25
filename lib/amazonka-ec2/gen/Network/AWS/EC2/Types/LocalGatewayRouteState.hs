@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.LocalGatewayRouteState
   ( LocalGatewayRouteState
       ( LocalGatewayRouteState',
-        LGRSPending,
-        LGRSActive,
-        LGRSBlackhole,
-        LGRSDeleting,
-        LGRSDeleted
+        LocalGatewayRouteStatePending,
+        LocalGatewayRouteStateActive,
+        LocalGatewayRouteStateBlackhole,
+        LocalGatewayRouteStateDeleting,
+        LocalGatewayRouteStateDeleted,
+        fromLocalGatewayRouteState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LocalGatewayRouteState = LocalGatewayRouteState' Lude.Text
+newtype LocalGatewayRouteState = LocalGatewayRouteState'
+  { fromLocalGatewayRouteState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LGRSPending :: LocalGatewayRouteState
-pattern LGRSPending = LocalGatewayRouteState' "pending"
+pattern LocalGatewayRouteStatePending :: LocalGatewayRouteState
+pattern LocalGatewayRouteStatePending = LocalGatewayRouteState' "pending"
 
-pattern LGRSActive :: LocalGatewayRouteState
-pattern LGRSActive = LocalGatewayRouteState' "active"
+pattern LocalGatewayRouteStateActive :: LocalGatewayRouteState
+pattern LocalGatewayRouteStateActive = LocalGatewayRouteState' "active"
 
-pattern LGRSBlackhole :: LocalGatewayRouteState
-pattern LGRSBlackhole = LocalGatewayRouteState' "blackhole"
+pattern LocalGatewayRouteStateBlackhole :: LocalGatewayRouteState
+pattern LocalGatewayRouteStateBlackhole = LocalGatewayRouteState' "blackhole"
 
-pattern LGRSDeleting :: LocalGatewayRouteState
-pattern LGRSDeleting = LocalGatewayRouteState' "deleting"
+pattern LocalGatewayRouteStateDeleting :: LocalGatewayRouteState
+pattern LocalGatewayRouteStateDeleting = LocalGatewayRouteState' "deleting"
 
-pattern LGRSDeleted :: LocalGatewayRouteState
-pattern LGRSDeleted = LocalGatewayRouteState' "deleted"
+pattern LocalGatewayRouteStateDeleted :: LocalGatewayRouteState
+pattern LocalGatewayRouteStateDeleted = LocalGatewayRouteState' "deleted"
 
 {-# COMPLETE
-  LGRSPending,
-  LGRSActive,
-  LGRSBlackhole,
-  LGRSDeleting,
-  LGRSDeleted,
+  LocalGatewayRouteStatePending,
+  LocalGatewayRouteStateActive,
+  LocalGatewayRouteStateBlackhole,
+  LocalGatewayRouteStateDeleting,
+  LocalGatewayRouteStateDeleted,
   LocalGatewayRouteState'
   #-}

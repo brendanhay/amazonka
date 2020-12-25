@@ -13,46 +13,51 @@
 module Network.AWS.CloudDirectory.Types.RequiredAttributeBehavior
   ( RequiredAttributeBehavior
       ( RequiredAttributeBehavior',
-        RequiredAlways,
-        NotRequired
+        RequiredAttributeBehaviorRequiredAlways,
+        RequiredAttributeBehaviorNotRequired,
+        fromRequiredAttributeBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RequiredAttributeBehavior = RequiredAttributeBehavior' Lude.Text
+newtype RequiredAttributeBehavior = RequiredAttributeBehavior'
+  { fromRequiredAttributeBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RequiredAlways :: RequiredAttributeBehavior
-pattern RequiredAlways = RequiredAttributeBehavior' "REQUIRED_ALWAYS"
+pattern RequiredAttributeBehaviorRequiredAlways :: RequiredAttributeBehavior
+pattern RequiredAttributeBehaviorRequiredAlways = RequiredAttributeBehavior' "REQUIRED_ALWAYS"
 
-pattern NotRequired :: RequiredAttributeBehavior
-pattern NotRequired = RequiredAttributeBehavior' "NOT_REQUIRED"
+pattern RequiredAttributeBehaviorNotRequired :: RequiredAttributeBehavior
+pattern RequiredAttributeBehaviorNotRequired = RequiredAttributeBehavior' "NOT_REQUIRED"
 
 {-# COMPLETE
-  RequiredAlways,
-  NotRequired,
+  RequiredAttributeBehaviorRequiredAlways,
+  RequiredAttributeBehaviorNotRequired,
   RequiredAttributeBehavior'
   #-}

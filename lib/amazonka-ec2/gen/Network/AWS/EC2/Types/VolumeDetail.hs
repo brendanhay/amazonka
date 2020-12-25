@@ -22,33 +22,28 @@ module Network.AWS.EC2.Types.VolumeDetail
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an EBS volume.
 --
 -- /See:/ 'mkVolumeDetail' smart constructor.
 newtype VolumeDetail = VolumeDetail'
   { -- | The size of the volume, in GiB.
-    size :: Lude.Integer
+    size :: Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VolumeDetail' with the minimum fields required to make a request.
---
--- * 'size' - The size of the volume, in GiB.
+-- | Creates a 'VolumeDetail' value with any optional fields omitted.
 mkVolumeDetail ::
   -- | 'size'
-  Lude.Integer ->
+  Core.Integer ->
   VolumeDetail
-mkVolumeDetail pSize_ = VolumeDetail' {size = pSize_}
+mkVolumeDetail size = VolumeDetail' {size}
 
 -- | The size of the volume, in GiB.
 --
 -- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vdSize :: Lens.Lens' VolumeDetail Lude.Integer
-vdSize = Lens.lens (size :: VolumeDetail -> Lude.Integer) (\s a -> s {size = a} :: VolumeDetail)
+vdSize :: Lens.Lens' VolumeDetail Core.Integer
+vdSize = Lens.field @"size"
 {-# DEPRECATED vdSize "Use generic-lens or generic-optics with 'size' instead." #-}
-
-instance Lude.ToQuery VolumeDetail where
-  toQuery VolumeDetail' {..} = Lude.mconcat ["Size" Lude.=: size]

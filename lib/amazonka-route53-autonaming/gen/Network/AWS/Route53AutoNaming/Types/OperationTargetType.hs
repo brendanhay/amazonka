@@ -13,51 +13,56 @@
 module Network.AWS.Route53AutoNaming.Types.OperationTargetType
   ( OperationTargetType
       ( OperationTargetType',
-        OTTNamespace,
-        OTTService,
-        OTTInstance
+        OperationTargetTypeOTTNamespace,
+        OperationTargetTypeOTTService,
+        OperationTargetTypeOTTInstance,
+        fromOperationTargetType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OperationTargetType = OperationTargetType' Lude.Text
+newtype OperationTargetType = OperationTargetType'
+  { fromOperationTargetType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OTTNamespace :: OperationTargetType
-pattern OTTNamespace = OperationTargetType' "NAMESPACE"
+pattern OperationTargetTypeOTTNamespace :: OperationTargetType
+pattern OperationTargetTypeOTTNamespace = OperationTargetType' "NAMESPACE"
 
-pattern OTTService :: OperationTargetType
-pattern OTTService = OperationTargetType' "SERVICE"
+pattern OperationTargetTypeOTTService :: OperationTargetType
+pattern OperationTargetTypeOTTService = OperationTargetType' "SERVICE"
 
-pattern OTTInstance :: OperationTargetType
-pattern OTTInstance = OperationTargetType' "INSTANCE"
+pattern OperationTargetTypeOTTInstance :: OperationTargetType
+pattern OperationTargetTypeOTTInstance = OperationTargetType' "INSTANCE"
 
 {-# COMPLETE
-  OTTNamespace,
-  OTTService,
-  OTTInstance,
+  OperationTargetTypeOTTNamespace,
+  OperationTargetTypeOTTService,
+  OperationTargetTypeOTTInstance,
   OperationTargetType'
   #-}

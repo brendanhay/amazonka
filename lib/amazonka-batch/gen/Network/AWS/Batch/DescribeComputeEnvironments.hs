@@ -25,8 +25,8 @@ module Network.AWS.Batch.DescribeComputeEnvironments
 
     -- ** Request lenses
     dceComputeEnvironments,
-    dceNextToken,
     dceMaxResults,
+    dceNextToken,
 
     -- * Destructuring the response
     DescribeComputeEnvironmentsResponse (..),
@@ -39,154 +39,143 @@ module Network.AWS.Batch.DescribeComputeEnvironments
   )
 where
 
-import Network.AWS.Batch.Types
+import qualified Network.AWS.Batch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeComputeEnvironments' smart constructor.
 data DescribeComputeEnvironments = DescribeComputeEnvironments'
   { -- | A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.
-    computeEnvironments :: Lude.Maybe [Lude.Text],
-    -- | The @nextToken@ value returned from a previous paginated @DescribeComputeEnvironments@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    computeEnvironments :: Core.Maybe [Types.String],
     -- | The maximum number of cluster results returned by @DescribeComputeEnvironments@ in paginated output. When this parameter is used, @DescribeComputeEnvironments@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeComputeEnvironments@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeComputeEnvironments@ returns up to 100 results and a @nextToken@ value if applicable.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | The @nextToken@ value returned from a previous paginated @DescribeComputeEnvironments@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeComputeEnvironments' with the minimum fields required to make a request.
---
--- * 'computeEnvironments' - A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.
--- * 'nextToken' - The @nextToken@ value returned from a previous paginated @DescribeComputeEnvironments@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
--- * 'maxResults' - The maximum number of cluster results returned by @DescribeComputeEnvironments@ in paginated output. When this parameter is used, @DescribeComputeEnvironments@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeComputeEnvironments@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeComputeEnvironments@ returns up to 100 results and a @nextToken@ value if applicable.
+-- | Creates a 'DescribeComputeEnvironments' value with any optional fields omitted.
 mkDescribeComputeEnvironments ::
   DescribeComputeEnvironments
 mkDescribeComputeEnvironments =
   DescribeComputeEnvironments'
-    { computeEnvironments = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { computeEnvironments = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | A list of up to 100 compute environment names or full Amazon Resource Name (ARN) entries.
 --
 -- /Note:/ Consider using 'computeEnvironments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dceComputeEnvironments :: Lens.Lens' DescribeComputeEnvironments (Lude.Maybe [Lude.Text])
-dceComputeEnvironments = Lens.lens (computeEnvironments :: DescribeComputeEnvironments -> Lude.Maybe [Lude.Text]) (\s a -> s {computeEnvironments = a} :: DescribeComputeEnvironments)
+dceComputeEnvironments :: Lens.Lens' DescribeComputeEnvironments (Core.Maybe [Types.String])
+dceComputeEnvironments = Lens.field @"computeEnvironments"
 {-# DEPRECATED dceComputeEnvironments "Use generic-lens or generic-optics with 'computeEnvironments' instead." #-}
-
--- | The @nextToken@ value returned from a previous paginated @DescribeComputeEnvironments@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dceNextToken :: Lens.Lens' DescribeComputeEnvironments (Lude.Maybe Lude.Text)
-dceNextToken = Lens.lens (nextToken :: DescribeComputeEnvironments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeComputeEnvironments)
-{-# DEPRECATED dceNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of cluster results returned by @DescribeComputeEnvironments@ in paginated output. When this parameter is used, @DescribeComputeEnvironments@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @DescribeComputeEnvironments@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @DescribeComputeEnvironments@ returns up to 100 results and a @nextToken@ value if applicable.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dceMaxResults :: Lens.Lens' DescribeComputeEnvironments (Lude.Maybe Lude.Int)
-dceMaxResults = Lens.lens (maxResults :: DescribeComputeEnvironments -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribeComputeEnvironments)
+dceMaxResults :: Lens.Lens' DescribeComputeEnvironments (Core.Maybe Core.Int)
+dceMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dceMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribeComputeEnvironments where
-  page rq rs
-    | Page.stop (rs Lens.^. drsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. drsComputeEnvironments) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dceNextToken Lens..~ rs Lens.^. drsNextToken
+-- | The @nextToken@ value returned from a previous paginated @DescribeComputeEnvironments@ request where @maxResults@ was used and the results exceeded the value of that parameter. Pagination continues from the end of the previous results that returned the @nextToken@ value. This value is @null@ when there are no more results to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dceNextToken :: Lens.Lens' DescribeComputeEnvironments (Core.Maybe Types.String)
+dceNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dceNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeComputeEnvironments where
+instance Core.FromJSON DescribeComputeEnvironments where
+  toJSON DescribeComputeEnvironments {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("computeEnvironments" Core..=) Core.<$> computeEnvironments,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeComputeEnvironments where
   type
     Rs DescribeComputeEnvironments =
       DescribeComputeEnvironmentsResponse
-  request = Req.postJSON batchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/v1/describecomputeenvironments",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeComputeEnvironmentsResponse'
-            Lude.<$> (x Lude..?> "computeEnvironments" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "computeEnvironments")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeComputeEnvironments where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeComputeEnvironments where
-  toJSON DescribeComputeEnvironments' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("computeEnvironments" Lude..=) Lude.<$> computeEnvironments,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeComputeEnvironments where
-  toPath = Lude.const "/v1/describecomputeenvironments"
-
-instance Lude.ToQuery DescribeComputeEnvironments where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeComputeEnvironments where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"computeEnvironments" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeComputeEnvironmentsResponse' smart constructor.
 data DescribeComputeEnvironmentsResponse = DescribeComputeEnvironmentsResponse'
   { -- | The list of compute environments.
-    computeEnvironments :: Lude.Maybe [ComputeEnvironmentDetail],
+    computeEnvironments :: Core.Maybe [Types.ComputeEnvironmentDetail],
     -- | The @nextToken@ value to include in a future @DescribeComputeEnvironments@ request. When the results of a @DescribeJobDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeComputeEnvironmentsResponse' with the minimum fields required to make a request.
---
--- * 'computeEnvironments' - The list of compute environments.
--- * 'nextToken' - The @nextToken@ value to include in a future @DescribeComputeEnvironments@ request. When the results of a @DescribeJobDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeComputeEnvironmentsResponse' value with any optional fields omitted.
 mkDescribeComputeEnvironmentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeComputeEnvironmentsResponse
-mkDescribeComputeEnvironmentsResponse pResponseStatus_ =
+mkDescribeComputeEnvironmentsResponse responseStatus =
   DescribeComputeEnvironmentsResponse'
     { computeEnvironments =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of compute environments.
 --
 -- /Note:/ Consider using 'computeEnvironments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsComputeEnvironments :: Lens.Lens' DescribeComputeEnvironmentsResponse (Lude.Maybe [ComputeEnvironmentDetail])
-drsComputeEnvironments = Lens.lens (computeEnvironments :: DescribeComputeEnvironmentsResponse -> Lude.Maybe [ComputeEnvironmentDetail]) (\s a -> s {computeEnvironments = a} :: DescribeComputeEnvironmentsResponse)
+drsComputeEnvironments :: Lens.Lens' DescribeComputeEnvironmentsResponse (Core.Maybe [Types.ComputeEnvironmentDetail])
+drsComputeEnvironments = Lens.field @"computeEnvironments"
 {-# DEPRECATED drsComputeEnvironments "Use generic-lens or generic-optics with 'computeEnvironments' instead." #-}
 
 -- | The @nextToken@ value to include in a future @DescribeComputeEnvironments@ request. When the results of a @DescribeJobDefinitions@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsNextToken :: Lens.Lens' DescribeComputeEnvironmentsResponse (Lude.Maybe Lude.Text)
-drsNextToken = Lens.lens (nextToken :: DescribeComputeEnvironmentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeComputeEnvironmentsResponse)
+drsNextToken :: Lens.Lens' DescribeComputeEnvironmentsResponse (Core.Maybe Types.String)
+drsNextToken = Lens.field @"nextToken"
 {-# DEPRECATED drsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeComputeEnvironmentsResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeComputeEnvironmentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeComputeEnvironmentsResponse)
+drsResponseStatus :: Lens.Lens' DescribeComputeEnvironmentsResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.HlsTimedMetadataId3Frame
   ( HlsTimedMetadataId3Frame
       ( HlsTimedMetadataId3Frame',
-        HTMIFNone,
-        HTMIFPriv,
-        HTMIFTdrl
+        HlsTimedMetadataId3FrameNone,
+        HlsTimedMetadataId3FramePriv,
+        HlsTimedMetadataId3FrameTdrl,
+        fromHlsTimedMetadataId3Frame
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Hls Timed Metadata Id3 Frame
-newtype HlsTimedMetadataId3Frame = HlsTimedMetadataId3Frame' Lude.Text
+newtype HlsTimedMetadataId3Frame = HlsTimedMetadataId3Frame'
+  { fromHlsTimedMetadataId3Frame ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HTMIFNone :: HlsTimedMetadataId3Frame
-pattern HTMIFNone = HlsTimedMetadataId3Frame' "NONE"
+pattern HlsTimedMetadataId3FrameNone :: HlsTimedMetadataId3Frame
+pattern HlsTimedMetadataId3FrameNone = HlsTimedMetadataId3Frame' "NONE"
 
-pattern HTMIFPriv :: HlsTimedMetadataId3Frame
-pattern HTMIFPriv = HlsTimedMetadataId3Frame' "PRIV"
+pattern HlsTimedMetadataId3FramePriv :: HlsTimedMetadataId3Frame
+pattern HlsTimedMetadataId3FramePriv = HlsTimedMetadataId3Frame' "PRIV"
 
-pattern HTMIFTdrl :: HlsTimedMetadataId3Frame
-pattern HTMIFTdrl = HlsTimedMetadataId3Frame' "TDRL"
+pattern HlsTimedMetadataId3FrameTdrl :: HlsTimedMetadataId3Frame
+pattern HlsTimedMetadataId3FrameTdrl = HlsTimedMetadataId3Frame' "TDRL"
 
 {-# COMPLETE
-  HTMIFNone,
-  HTMIFPriv,
-  HTMIFTdrl,
+  HlsTimedMetadataId3FrameNone,
+  HlsTimedMetadataId3FramePriv,
+  HlsTimedMetadataId3FrameTdrl,
   HlsTimedMetadataId3Frame'
   #-}

@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -14,10 +13,64 @@
 -- This is the Amazon Rekognition API reference.
 module Network.AWS.Rekognition
   ( -- * Service configuration
-    rekognitionService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** VideoTooLargeException
+    _VideoTooLargeException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidImageFormatException
+    _InvalidImageFormatException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** InvalidS3ObjectException
+    _InvalidS3ObjectException,
+
+    -- ** ProvisionedThroughputExceededException
+    _ProvisionedThroughputExceededException,
+
+    -- ** ImageTooLargeException
+    _ImageTooLargeException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InternalServerError
+    _InternalServerError,
+
+    -- ** IdempotentParameterMismatchException
+    _IdempotentParameterMismatchException,
+
+    -- ** ResourceNotReadyException
+    _ResourceNotReadyException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** HumanLoopQuotaExceededException
+    _HumanLoopQuotaExceededException,
+
+    -- ** InvalidPaginationTokenException
+    _InvalidPaginationTokenException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -177,560 +230,56 @@ module Network.AWS.Rekognition
 
     -- * Types
 
-    -- ** Attribute
-    Attribute (..),
-
-    -- ** BodyPart
-    BodyPart (..),
-
-    -- ** CelebrityRecognitionSortBy
-    CelebrityRecognitionSortBy (..),
-
-    -- ** ContentClassifier
-    ContentClassifier (..),
-
-    -- ** ContentModerationSortBy
-    ContentModerationSortBy (..),
-
-    -- ** EmotionName
-    EmotionName (..),
-
-    -- ** FaceAttributes
-    FaceAttributes (..),
-
-    -- ** FaceSearchSortBy
-    FaceSearchSortBy (..),
-
-    -- ** GenderType
-    GenderType (..),
-
-    -- ** LabelDetectionSortBy
-    LabelDetectionSortBy (..),
-
-    -- ** LandmarkType
-    LandmarkType (..),
-
-    -- ** OrientationCorrection
-    OrientationCorrection (..),
-
-    -- ** PersonTrackingSortBy
-    PersonTrackingSortBy (..),
-
-    -- ** ProjectStatus
-    ProjectStatus (..),
-
-    -- ** ProjectVersionStatus
-    ProjectVersionStatus (..),
-
-    -- ** ProtectiveEquipmentType
-    ProtectiveEquipmentType (..),
-
-    -- ** QualityFilter
-    QualityFilter (..),
-
-    -- ** Reason
-    Reason (..),
-
-    -- ** SegmentType
-    SegmentType (..),
-
-    -- ** StreamProcessorStatus
-    StreamProcessorStatus (..),
-
-    -- ** TechnicalCueType
-    TechnicalCueType (..),
-
-    -- ** TextTypes
-    TextTypes (..),
-
-    -- ** VideoJobStatus
-    VideoJobStatus (..),
-
-    -- ** AgeRange
-    AgeRange (..),
-    mkAgeRange,
-    arLow,
-    arHigh,
-
-    -- ** Asset
-    Asset (..),
-    mkAsset,
-    aGroundTruthManifest,
-
-    -- ** AudioMetadata
-    AudioMetadata (..),
-    mkAudioMetadata,
-    amCodec,
-    amSampleRate,
-    amNumberOfChannels,
-    amDurationMillis,
-
-    -- ** Beard
-    Beard (..),
-    mkBeard,
-    bValue,
-    bConfidence,
-
-    -- ** BoundingBox
-    BoundingBox (..),
-    mkBoundingBox,
-    bbHeight,
-    bbLeft,
-    bbWidth,
-    bbTop,
-
-    -- ** Celebrity
-    Celebrity (..),
-    mkCelebrity,
-    cMatchConfidence,
-    cURLs,
-    cName,
-    cId,
-    cFace,
-
-    -- ** CelebrityDetail
-    CelebrityDetail (..),
-    mkCelebrityDetail,
-    cdBoundingBox,
-    cdURLs,
-    cdConfidence,
-    cdName,
-    cdId,
-    cdFace,
-
-    -- ** CelebrityRecognition
-    CelebrityRecognition (..),
-    mkCelebrityRecognition,
-    crCelebrity,
-    crTimestamp,
-
-    -- ** CompareFacesMatch
-    CompareFacesMatch (..),
-    mkCompareFacesMatch,
-    cfmSimilarity,
-    cfmFace,
-
-    -- ** ComparedFace
-    ComparedFace (..),
-    mkComparedFace,
-    cfBoundingBox,
-    cfPose,
-    cfConfidence,
-    cfQuality,
-    cfLandmarks,
-
-    -- ** ComparedSourceImageFace
-    ComparedSourceImageFace (..),
-    mkComparedSourceImageFace,
-    csifBoundingBox,
-    csifConfidence,
-
-    -- ** ContentModerationDetection
-    ContentModerationDetection (..),
-    mkContentModerationDetection,
-    cmdModerationLabel,
-    cmdTimestamp,
-
-    -- ** CoversBodyPart
-    CoversBodyPart (..),
-    mkCoversBodyPart,
-    cbpValue,
-    cbpConfidence,
-
-    -- ** CustomLabel
-    CustomLabel (..),
-    mkCustomLabel,
-    clConfidence,
-    clName,
-    clGeometry,
-
-    -- ** DetectTextFilters
-    DetectTextFilters (..),
-    mkDetectTextFilters,
-    dtfRegionsOfInterest,
-    dtfWordFilter,
-
-    -- ** DetectionFilter
-    DetectionFilter (..),
-    mkDetectionFilter,
-    dfMinBoundingBoxHeight,
-    dfMinBoundingBoxWidth,
-    dfMinConfidence,
-
-    -- ** Emotion
-    Emotion (..),
-    mkEmotion,
-    eConfidence,
-    eType,
-
-    -- ** EquipmentDetection
-    EquipmentDetection (..),
-    mkEquipmentDetection,
-    edBoundingBox,
-    edCoversBodyPart,
-    edConfidence,
-    edType,
-
-    -- ** EvaluationResult
-    EvaluationResult (..),
-    mkEvaluationResult,
-    erSummary,
-    erF1Score,
-
-    -- ** EyeOpen
-    EyeOpen (..),
-    mkEyeOpen,
-    eoValue,
-    eoConfidence,
-
-    -- ** Eyeglasses
-    Eyeglasses (..),
-    mkEyeglasses,
-    efValue,
-    efConfidence,
-
-    -- ** Face
-    Face (..),
-    mkFace,
-    fFaceId,
-    fBoundingBox,
-    fExternalImageId,
-    fConfidence,
-    fImageId,
-
-    -- ** FaceDetail
-    FaceDetail (..),
-    mkFaceDetail,
-    fdAgeRange,
-    fdSunglasses,
-    fdMouthOpen,
-    fdBoundingBox,
-    fdEmotions,
-    fdEyesOpen,
-    fdPose,
-    fdConfidence,
-    fdGender,
-    fdQuality,
-    fdEyeglasses,
-    fdBeard,
-    fdMustache,
-    fdSmile,
-    fdLandmarks,
-
-    -- ** FaceDetection
-    FaceDetection (..),
-    mkFaceDetection,
-    fdTimestamp,
-    fdFace,
-
-    -- ** FaceMatch
-    FaceMatch (..),
-    mkFaceMatch,
-    fmSimilarity,
-    fmFace,
-
-    -- ** FaceRecord
-    FaceRecord (..),
-    mkFaceRecord,
-    frFaceDetail,
-    frFace,
-
-    -- ** FaceSearchSettings
-    FaceSearchSettings (..),
-    mkFaceSearchSettings,
-    fssFaceMatchThreshold,
-    fssCollectionId,
-
-    -- ** Gender
-    Gender (..),
-    mkGender,
-    gValue,
-    gConfidence,
-
-    -- ** Geometry
-    Geometry (..),
-    mkGeometry,
-    gBoundingBox,
-    gPolygon,
-
-    -- ** GroundTruthManifest
-    GroundTruthManifest (..),
-    mkGroundTruthManifest,
-    gtmS3Object,
-
-    -- ** HumanLoopActivationOutput
-    HumanLoopActivationOutput (..),
-    mkHumanLoopActivationOutput,
-    hlaoHumanLoopActivationReasons,
-    hlaoHumanLoopARN,
-    hlaoHumanLoopActivationConditionsEvaluationResults,
-
-    -- ** HumanLoopConfig
-    HumanLoopConfig (..),
-    mkHumanLoopConfig,
-    hlcHumanLoopName,
-    hlcDataAttributes,
-    hlcFlowDefinitionARN,
-
-    -- ** HumanLoopDataAttributes
-    HumanLoopDataAttributes (..),
-    mkHumanLoopDataAttributes,
-    hldaContentClassifiers,
-
-    -- ** Image
-    Image (..),
-    mkImage,
-    iS3Object,
-    iBytes,
-
-    -- ** ImageQuality
-    ImageQuality (..),
-    mkImageQuality,
-    iqSharpness,
-    iqBrightness,
-
-    -- ** Instance
-    Instance (..),
-    mkInstance,
-    iBoundingBox,
-    iConfidence,
-
-    -- ** KinesisDataStream
-    KinesisDataStream (..),
-    mkKinesisDataStream,
-    kdsARN,
-
-    -- ** KinesisVideoStream
-    KinesisVideoStream (..),
-    mkKinesisVideoStream,
-    kvsARN,
-
-    -- ** Label
-    Label (..),
-    mkLabel,
-    lConfidence,
-    lParents,
-    lName,
-    lInstances,
-
-    -- ** LabelDetection
-    LabelDetection (..),
-    mkLabelDetection,
-    ldLabel,
-    ldTimestamp,
-
-    -- ** Landmark
-    Landmark (..),
-    mkLandmark,
-    lType,
-    lX,
-    lY,
-
-    -- ** ModerationLabel
-    ModerationLabel (..),
-    mkModerationLabel,
-    mlConfidence,
-    mlName,
-    mlParentName,
-
-    -- ** MouthOpen
-    MouthOpen (..),
-    mkMouthOpen,
-    moValue,
-    moConfidence,
-
-    -- ** Mustache
-    Mustache (..),
-    mkMustache,
-    mValue,
-    mConfidence,
-
-    -- ** NotificationChannel
-    NotificationChannel (..),
-    mkNotificationChannel,
-    ncSNSTopicARN,
-    ncRoleARN,
-
-    -- ** OutputConfig
-    OutputConfig (..),
-    mkOutputConfig,
-    ocS3KeyPrefix,
-    ocS3Bucket,
+    -- ** ProtectiveEquipmentBodyPart
+    ProtectiveEquipmentBodyPart (..),
+    mkProtectiveEquipmentBodyPart,
+    pebpConfidence,
+    pebpEquipmentDetections,
+    pebpName,
 
     -- ** Parent
     Parent (..),
     mkParent,
     pName,
 
-    -- ** PersonDetail
-    PersonDetail (..),
-    mkPersonDetail,
-    pdBoundingBox,
-    pdIndex,
-    pdFace,
-
-    -- ** PersonDetection
-    PersonDetection (..),
-    mkPersonDetection,
-    pdPerson,
-    pdTimestamp,
-
-    -- ** PersonMatch
-    PersonMatch (..),
-    mkPersonMatch,
-    pmFaceMatches,
-    pmPerson,
-    pmTimestamp,
-
-    -- ** Point
-    Point (..),
-    mkPoint,
-    pX,
-    pY,
-
-    -- ** Pose
-    Pose (..),
-    mkPose,
-    pYaw,
-    pRoll,
-    pPitch,
-
-    -- ** ProjectDescription
-    ProjectDescription (..),
-    mkProjectDescription,
-    pdStatus,
-    pdCreationTimestamp,
-    pdProjectARN,
-
-    -- ** ProjectVersionDescription
-    ProjectVersionDescription (..),
-    mkProjectVersionDescription,
-    pvdMinInferenceUnits,
-    pvdStatus,
-    pvdEvaluationResult,
-    pvdManifestSummary,
-    pvdTestingDataResult,
-    pvdStatusMessage,
-    pvdCreationTimestamp,
-    pvdProjectVersionARN,
-    pvdOutputConfig,
-    pvdBillableTrainingTimeInSeconds,
-    pvdTrainingEndTimestamp,
-    pvdTrainingDataResult,
-
-    -- ** ProtectiveEquipmentBodyPart
-    ProtectiveEquipmentBodyPart (..),
-    mkProtectiveEquipmentBodyPart,
-    pebpEquipmentDetections,
-    pebpConfidence,
-    pebpName,
-
-    -- ** ProtectiveEquipmentPerson
-    ProtectiveEquipmentPerson (..),
-    mkProtectiveEquipmentPerson,
-    pepBodyParts,
-    pepBoundingBox,
-    pepConfidence,
-    pepId,
-
-    -- ** ProtectiveEquipmentSummarizationAttributes
-    ProtectiveEquipmentSummarizationAttributes (..),
-    mkProtectiveEquipmentSummarizationAttributes,
-    pesaRequiredEquipmentTypes,
-    pesaMinConfidence,
-
-    -- ** ProtectiveEquipmentSummary
-    ProtectiveEquipmentSummary (..),
-    mkProtectiveEquipmentSummary,
-    pesPersonsWithRequiredEquipment,
-    pesPersonsWithoutRequiredEquipment,
-    pesPersonsIndeterminate,
-
-    -- ** RegionOfInterest
-    RegionOfInterest (..),
-    mkRegionOfInterest,
-    roiBoundingBox,
-
-    -- ** S3Object
-    S3Object (..),
-    mkS3Object,
-    soBucket,
-    soName,
-    soVersion,
+    -- ** FaceId
+    FaceId (..),
 
     -- ** SegmentDetection
     SegmentDetection (..),
     mkSegmentDetection,
-    sdTechnicalCueSegment,
-    sdDurationSMPTE,
-    sdEndTimestampMillis,
-    sdStartTimecodeSMPTE,
-    sdEndTimecodeSMPTE,
     sdDurationMillis,
-    sdStartTimestampMillis,
-    sdType,
+    sdDurationSMPTE,
+    sdEndTimecodeSMPTE,
+    sdEndTimestampMillis,
     sdShotSegment,
-
-    -- ** SegmentTypeInfo
-    SegmentTypeInfo (..),
-    mkSegmentTypeInfo,
-    stiModelVersion,
-    stiType,
-
-    -- ** ShotSegment
-    ShotSegment (..),
-    mkShotSegment,
-    ssConfidence,
-    ssIndex,
-
-    -- ** Smile
-    Smile (..),
-    mkSmile,
-    sfValue,
-    sfConfidence,
-
-    -- ** StartSegmentDetectionFilters
-    StartSegmentDetectionFilters (..),
-    mkStartSegmentDetectionFilters,
-    ssdfTechnicalCueFilter,
-    ssdfShotFilter,
-
-    -- ** StartShotDetectionFilter
-    StartShotDetectionFilter (..),
-    mkStartShotDetectionFilter,
-    ssdfMinSegmentConfidence,
-
-    -- ** StartTechnicalCueDetectionFilter
-    StartTechnicalCueDetectionFilter (..),
-    mkStartTechnicalCueDetectionFilter,
-    stcdfMinSegmentConfidence,
-
-    -- ** StartTextDetectionFilters
-    StartTextDetectionFilters (..),
-    mkStartTextDetectionFilters,
-    stdfRegionsOfInterest,
-    stdfWordFilter,
-
-    -- ** StreamProcessor
-    StreamProcessor (..),
-    mkStreamProcessor,
-    spStatus,
-    spName,
+    sdStartTimecodeSMPTE,
+    sdStartTimestampMillis,
+    sdTechnicalCueSegment,
+    sdType,
 
     -- ** StreamProcessorInput
     StreamProcessorInput (..),
     mkStreamProcessorInput,
     spiKinesisVideoStream,
 
-    -- ** StreamProcessorOutput
-    StreamProcessorOutput (..),
-    mkStreamProcessorOutput,
-    spoKinesisDataStream,
+    -- ** KinesisVideoArn
+    KinesisVideoArn (..),
 
-    -- ** StreamProcessorSettings
-    StreamProcessorSettings (..),
-    mkStreamProcessorSettings,
-    spsFaceSearch,
+    -- ** FaceRecord
+    FaceRecord (..),
+    mkFaceRecord,
+    frFace,
+    frFaceDetail,
+
+    -- ** AgeRange
+    AgeRange (..),
+    mkAgeRange,
+    arHigh,
+    arLow,
+
+    -- ** Attribute
+    Attribute (..),
 
     -- ** Summary
     Summary (..),
@@ -740,8 +289,191 @@ module Network.AWS.Rekognition
     -- ** Sunglasses
     Sunglasses (..),
     mkSunglasses,
-    sValue,
-    sConfidence,
+    sfConfidence,
+    sfValue,
+
+    -- ** CelebrityRecognition
+    CelebrityRecognition (..),
+    mkCelebrityRecognition,
+    crCelebrity,
+    crTimestamp,
+
+    -- ** GenderType
+    GenderType (..),
+
+    -- ** PaginationToken
+    PaginationToken (..),
+
+    -- ** MouthOpen
+    MouthOpen (..),
+    mkMouthOpen,
+    moConfidence,
+    moValue,
+
+    -- ** StartSegmentDetectionFilters
+    StartSegmentDetectionFilters (..),
+    mkStartSegmentDetectionFilters,
+    ssdfShotFilter,
+    ssdfTechnicalCueFilter,
+
+    -- ** S3ObjectVersion
+    S3ObjectVersion (..),
+
+    -- ** BoundingBox
+    BoundingBox (..),
+    mkBoundingBox,
+    bbHeight,
+    bbLeft,
+    bbTop,
+    bbWidth,
+
+    -- ** ExternalImageId
+    ExternalImageId (..),
+
+    -- ** EvaluationResult
+    EvaluationResult (..),
+    mkEvaluationResult,
+    erF1Score,
+    erSummary,
+
+    -- ** StartTechnicalCueDetectionFilter
+    StartTechnicalCueDetectionFilter (..),
+    mkStartTechnicalCueDetectionFilter,
+    stcdfMinSegmentConfidence,
+
+    -- ** BodyPart
+    BodyPart (..),
+
+    -- ** Image
+    Image (..),
+    mkImage,
+    iBytes,
+    iS3Object,
+
+    -- ** S3KeyPrefix
+    S3KeyPrefix (..),
+
+    -- ** SNSTopicArn
+    SNSTopicArn (..),
+
+    -- ** ModerationLabel
+    ModerationLabel (..),
+    mkModerationLabel,
+    mlConfidence,
+    mlName,
+    mlParentName,
+
+    -- ** ComparedFace
+    ComparedFace (..),
+    mkComparedFace,
+    cfBoundingBox,
+    cfConfidence,
+    cfLandmarks,
+    cfPose,
+    cfQuality,
+
+    -- ** Landmark
+    Landmark (..),
+    mkLandmark,
+    lType,
+    lX,
+    lY,
+
+    -- ** ImageQuality
+    ImageQuality (..),
+    mkImageQuality,
+    iqBrightness,
+    iqSharpness,
+
+    -- ** JobId
+    JobId (..),
+
+    -- ** VideoJobStatus
+    VideoJobStatus (..),
+
+    -- ** QualityFilter
+    QualityFilter (..),
+
+    -- ** VersionName
+    VersionName (..),
+
+    -- ** S3Object
+    S3Object (..),
+    mkS3Object,
+    soBucket,
+    soName,
+    soVersion,
+
+    -- ** String
+    String (..),
+
+    -- ** SegmentTypeInfo
+    SegmentTypeInfo (..),
+    mkSegmentTypeInfo,
+    stiModelVersion,
+    stiType,
+
+    -- ** JobTag
+    JobTag (..),
+
+    -- ** StreamProcessorName
+    StreamProcessorName (..),
+
+    -- ** GroundTruthManifest
+    GroundTruthManifest (..),
+    mkGroundTruthManifest,
+    gtmS3Object,
+
+    -- ** StreamProcessorOutput
+    StreamProcessorOutput (..),
+    mkStreamProcessorOutput,
+    spoKinesisDataStream,
+
+    -- ** UnindexedFace
+    UnindexedFace (..),
+    mkUnindexedFace,
+    ufFaceDetail,
+    ufReasons,
+
+    -- ** Asset
+    Asset (..),
+    mkAsset,
+    aGroundTruthManifest,
+
+    -- ** FaceDetail
+    FaceDetail (..),
+    mkFaceDetail,
+    fdAgeRange,
+    fdBeard,
+    fdBoundingBox,
+    fdConfidence,
+    fdEmotions,
+    fdEyeglasses,
+    fdEyesOpen,
+    fdGender,
+    fdLandmarks,
+    fdMouthOpen,
+    fdMustache,
+    fdPose,
+    fdQuality,
+    fdSmile,
+    fdSunglasses,
+
+    -- ** HumanLoopActivationOutput
+    HumanLoopActivationOutput (..),
+    mkHumanLoopActivationOutput,
+    hlaoHumanLoopActivationConditionsEvaluationResults,
+    hlaoHumanLoopActivationReasons,
+    hlaoHumanLoopArn,
+
+    -- ** TechnicalCueType
+    TechnicalCueType (..),
+
+    -- ** CollectionId
+    CollectionId (..),
+
+    -- ** PersonTrackingSortBy
+    PersonTrackingSortBy (..),
 
     -- ** TechnicalCueSegment
     TechnicalCueSegment (..),
@@ -749,11 +481,158 @@ module Network.AWS.Rekognition
     tcsConfidence,
     tcsType,
 
+    -- ** ProjectVersionStatus
+    ProjectVersionStatus (..),
+
+    -- ** SegmentType
+    SegmentType (..),
+
+    -- ** HumanLoopActivationReason
+    HumanLoopActivationReason (..),
+
+    -- ** Url
+    Url (..),
+
+    -- ** Emotion
+    Emotion (..),
+    mkEmotion,
+    eConfidence,
+    eType,
+
+    -- ** Celebrity
+    Celebrity (..),
+    mkCelebrity,
+    cFace,
+    cId,
+    cMatchConfidence,
+    cName,
+    cUrls,
+
+    -- ** NotificationChannel
+    NotificationChannel (..),
+    mkNotificationChannel,
+    ncSNSTopicArn,
+    ncRoleArn,
+
+    -- ** CompareFacesMatch
+    CompareFacesMatch (..),
+    mkCompareFacesMatch,
+    cfmFace,
+    cfmSimilarity,
+
+    -- ** StreamProcessorStatus
+    StreamProcessorStatus (..),
+
+    -- ** HumanLoopArn
+    HumanLoopArn (..),
+
     -- ** TestingData
     TestingData (..),
     mkTestingData,
     tdAssets,
     tdAutoCreate,
+
+    -- ** ContentClassifier
+    ContentClassifier (..),
+
+    -- ** TextTypes
+    TextTypes (..),
+
+    -- ** HumanLoopConfig
+    HumanLoopConfig (..),
+    mkHumanLoopConfig,
+    hlcHumanLoopName,
+    hlcFlowDefinitionArn,
+    hlcDataAttributes,
+
+    -- ** ProjectStatus
+    ProjectStatus (..),
+
+    -- ** CoversBodyPart
+    CoversBodyPart (..),
+    mkCoversBodyPart,
+    cbpConfidence,
+    cbpValue,
+
+    -- ** LabelDetection
+    LabelDetection (..),
+    mkLabelDetection,
+    ldLabel,
+    ldTimestamp,
+
+    -- ** Pose
+    Pose (..),
+    mkPose,
+    pPitch,
+    pRoll,
+    pYaw,
+
+    -- ** Video
+    Video (..),
+    mkVideo,
+    vS3Object,
+
+    -- ** KinesisDataStream
+    KinesisDataStream (..),
+    mkKinesisDataStream,
+    kdsArn,
+
+    -- ** Reason
+    Reason (..),
+
+    -- ** VideoMetadata
+    VideoMetadata (..),
+    mkVideoMetadata,
+    vmCodec,
+    vmDurationMillis,
+    vmFormat,
+    vmFrameHeight,
+    vmFrameRate,
+    vmFrameWidth,
+
+    -- ** ContentModerationSortBy
+    ContentModerationSortBy (..),
+
+    -- ** EmotionName
+    EmotionName (..),
+
+    -- ** Point
+    Point (..),
+    mkPoint,
+    pX,
+    pY,
+
+    -- ** HumanLoopName
+    HumanLoopName (..),
+
+    -- ** PersonDetail
+    PersonDetail (..),
+    mkPersonDetail,
+    pdBoundingBox,
+    pdFace,
+    pdIndex,
+
+    -- ** HumanLoopDataAttributes
+    HumanLoopDataAttributes (..),
+    mkHumanLoopDataAttributes,
+    hldaContentClassifiers,
+
+    -- ** StreamProcessorSettings
+    StreamProcessorSettings (..),
+    mkStreamProcessorSettings,
+    spsFaceSearch,
+
+    -- ** ProtectiveEquipmentSummary
+    ProtectiveEquipmentSummary (..),
+    mkProtectiveEquipmentSummary,
+    pesPersonsIndeterminate,
+    pesPersonsWithRequiredEquipment,
+    pesPersonsWithoutRequiredEquipment,
+
+    -- ** StartShotDetectionFilter
+    StartShotDetectionFilter (..),
+    mkStartShotDetectionFilter,
+    ssdfMinSegmentConfidence,
 
     -- ** TestingDataResult
     TestingDataResult (..),
@@ -762,15 +641,204 @@ module Network.AWS.Rekognition
     tdrOutput,
     tdrValidation,
 
+    -- ** ProtectiveEquipmentSummarizationAttributes
+    ProtectiveEquipmentSummarizationAttributes (..),
+    mkProtectiveEquipmentSummarizationAttributes,
+    pesaMinConfidence,
+    pesaRequiredEquipmentTypes,
+
+    -- ** StreamProcessorArn
+    StreamProcessorArn (..),
+
+    -- ** StatusMessage
+    StatusMessage (..),
+
+    -- ** Gender
+    Gender (..),
+    mkGender,
+    gConfidence,
+    gValue,
+
+    -- ** RegionOfInterest
+    RegionOfInterest (..),
+    mkRegionOfInterest,
+    roiBoundingBox,
+
+    -- ** DetectionFilter
+    DetectionFilter (..),
+    mkDetectionFilter,
+    dfMinBoundingBoxHeight,
+    dfMinBoundingBoxWidth,
+    dfMinConfidence,
+
+    -- ** FaceSearchSettings
+    FaceSearchSettings (..),
+    mkFaceSearchSettings,
+    fssCollectionId,
+    fssFaceMatchThreshold,
+
+    -- ** CelebrityDetail
+    CelebrityDetail (..),
+    mkCelebrityDetail,
+    cdBoundingBox,
+    cdConfidence,
+    cdFace,
+    cdId,
+    cdName,
+    cdUrls,
+
+    -- ** LandmarkType
+    LandmarkType (..),
+
+    -- ** FlowDefinitionArn
+    FlowDefinitionArn (..),
+
+    -- ** ContentModerationDetection
+    ContentModerationDetection (..),
+    mkContentModerationDetection,
+    cmdModerationLabel,
+    cmdTimestamp,
+
+    -- ** ImageId
+    ImageId (..),
+
+    -- ** PersonDetection
+    PersonDetection (..),
+    mkPersonDetection,
+    pdPerson,
+    pdTimestamp,
+
+    -- ** FaceMatch
+    FaceMatch (..),
+    mkFaceMatch,
+    fmFace,
+    fmSimilarity,
+
     -- ** TextDetection
     TextDetection (..),
     mkTextDetection,
-    tdDetectedText,
     tdConfidence,
+    tdDetectedText,
     tdGeometry,
     tdId,
-    tdType,
     tdParentId,
+    tdType,
+
+    -- ** ProjectName
+    ProjectName (..),
+
+    -- ** Geometry
+    Geometry (..),
+    mkGeometry,
+    gBoundingBox,
+    gPolygon,
+
+    -- ** ProjectVersionArn
+    ProjectVersionArn (..),
+
+    -- ** StreamProcessor
+    StreamProcessor (..),
+    mkStreamProcessor,
+    spName,
+    spStatus,
+
+    -- ** OutputConfig
+    OutputConfig (..),
+    mkOutputConfig,
+    ocS3Bucket,
+    ocS3KeyPrefix,
+
+    -- ** EyeOpen
+    EyeOpen (..),
+    mkEyeOpen,
+    eoConfidence,
+    eoValue,
+
+    -- ** EquipmentDetection
+    EquipmentDetection (..),
+    mkEquipmentDetection,
+    edBoundingBox,
+    edConfidence,
+    edCoversBodyPart,
+    edType,
+
+    -- ** KinesisVideoStream
+    KinesisVideoStream (..),
+    mkKinesisVideoStream,
+    kvsArn,
+
+    -- ** CustomLabel
+    CustomLabel (..),
+    mkCustomLabel,
+    clConfidence,
+    clGeometry,
+    clName,
+
+    -- ** Eyeglasses
+    Eyeglasses (..),
+    mkEyeglasses,
+    efConfidence,
+    efValue,
+
+    -- ** CelebrityRecognitionSortBy
+    CelebrityRecognitionSortBy (..),
+
+    -- ** Beard
+    Beard (..),
+    mkBeard,
+    bConfidence,
+    bValue,
+
+    -- ** Mustache
+    Mustache (..),
+    mkMustache,
+    mConfidence,
+    mValue,
+
+    -- ** ExtendedPaginationToken
+    ExtendedPaginationToken (..),
+
+    -- ** TrainingData
+    TrainingData (..),
+    mkTrainingData,
+    tAssets,
+
+    -- ** ComparedSourceImageFace
+    ComparedSourceImageFace (..),
+    mkComparedSourceImageFace,
+    csifBoundingBox,
+    csifConfidence,
+
+    -- ** ProjectArn
+    ProjectArn (..),
+
+    -- ** LabelDetectionSortBy
+    LabelDetectionSortBy (..),
+
+    -- ** OrientationCorrection
+    OrientationCorrection (..),
+
+    -- ** HumanLoopActivationConditionsEvaluationResults
+    HumanLoopActivationConditionsEvaluationResults (..),
+
+    -- ** ShotSegment
+    ShotSegment (..),
+    mkShotSegment,
+    ssConfidence,
+    ssIndex,
+
+    -- ** AudioMetadata
+    AudioMetadata (..),
+    mkAudioMetadata,
+    amCodec,
+    amDurationMillis,
+    amNumberOfChannels,
+    amSampleRate,
+
+    -- ** ValidationData
+    ValidationData (..),
+    mkValidationData,
+    vdAssets,
 
     -- ** TextDetectionResult
     TextDetectionResult (..),
@@ -778,10 +846,90 @@ module Network.AWS.Rekognition
     tdrTextDetection,
     tdrTimestamp,
 
-    -- ** TrainingData
-    TrainingData (..),
-    mkTrainingData,
-    tAssets,
+    -- ** ProjectDescription
+    ProjectDescription (..),
+    mkProjectDescription,
+    pdCreationTimestamp,
+    pdProjectArn,
+    pdStatus,
+
+    -- ** ClientRequestToken
+    ClientRequestToken (..),
+
+    -- ** ProtectiveEquipmentType
+    ProtectiveEquipmentType (..),
+
+    -- ** FaceSearchSortBy
+    FaceSearchSortBy (..),
+
+    -- ** Smile
+    Smile (..),
+    mkSmile,
+    sConfidence,
+    sValue,
+
+    -- ** PersonMatch
+    PersonMatch (..),
+    mkPersonMatch,
+    pmFaceMatches,
+    pmPerson,
+    pmTimestamp,
+
+    -- ** Label
+    Label (..),
+    mkLabel,
+    lConfidence,
+    lInstances,
+    lName,
+    lParents,
+
+    -- ** FaceDetection
+    FaceDetection (..),
+    mkFaceDetection,
+    fdFace,
+    fdTimestamp,
+
+    -- ** S3Bucket
+    S3Bucket (..),
+
+    -- ** FaceAttributes
+    FaceAttributes (..),
+
+    -- ** ProtectiveEquipmentPerson
+    ProtectiveEquipmentPerson (..),
+    mkProtectiveEquipmentPerson,
+    pepBodyParts,
+    pepBoundingBox,
+    pepConfidence,
+    pepId,
+
+    -- ** DetectTextFilters
+    DetectTextFilters (..),
+    mkDetectTextFilters,
+    dtfRegionsOfInterest,
+    dtfWordFilter,
+
+    -- ** ProjectVersionDescription
+    ProjectVersionDescription (..),
+    mkProjectVersionDescription,
+    pvdBillableTrainingTimeInSeconds,
+    pvdCreationTimestamp,
+    pvdEvaluationResult,
+    pvdManifestSummary,
+    pvdMinInferenceUnits,
+    pvdOutputConfig,
+    pvdProjectVersionArn,
+    pvdStatus,
+    pvdStatusMessage,
+    pvdTestingDataResult,
+    pvdTrainingDataResult,
+    pvdTrainingEndTimestamp,
+
+    -- ** Instance
+    Instance (..),
+    mkInstance,
+    iBoundingBox,
+    iConfidence,
 
     -- ** TrainingDataResult
     TrainingDataResult (..),
@@ -790,41 +938,67 @@ module Network.AWS.Rekognition
     tOutput,
     tValidation,
 
-    -- ** UnindexedFace
-    UnindexedFace (..),
-    mkUnindexedFace,
-    ufReasons,
-    ufFaceDetail,
+    -- ** Face
+    Face (..),
+    mkFace,
+    fBoundingBox,
+    fConfidence,
+    fExternalImageId,
+    fFaceId,
+    fImageId,
 
-    -- ** ValidationData
-    ValidationData (..),
-    mkValidationData,
-    vdAssets,
+    -- ** StartTextDetectionFilters
+    StartTextDetectionFilters (..),
+    mkStartTextDetectionFilters,
+    stdfRegionsOfInterest,
+    stdfWordFilter,
 
-    -- ** Video
-    Video (..),
-    mkVideo,
-    vS3Object,
+    -- ** RoleArn
+    RoleArn (..),
 
-    -- ** VideoMetadata
-    VideoMetadata (..),
-    mkVideoMetadata,
-    vmFrameRate,
-    vmFormat,
-    vmCodec,
-    vmFrameHeight,
-    vmDurationMillis,
-    vmFrameWidth,
+    -- ** Name
+    Name (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** DurationSMPTE
+    DurationSMPTE (..),
+
+    -- ** EndTimecodeSMPTE
+    EndTimecodeSMPTE (..),
+
+    -- ** StartTimecodeSMPTE
+    StartTimecodeSMPTE (..),
+
+    -- ** ProtectiveEquipmentModelVersion
+    ProtectiveEquipmentModelVersion (..),
+
+    -- ** TextModelVersion
+    TextModelVersion (..),
+
+    -- ** ParentName
+    ParentName (..),
+
+    -- ** ModerationModelVersion
+    ModerationModelVersion (..),
+
+    -- ** Bucket
+    Bucket (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** Arn
+    Arn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

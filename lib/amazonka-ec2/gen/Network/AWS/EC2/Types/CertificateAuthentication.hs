@@ -21,38 +21,37 @@ module Network.AWS.EC2.Types.CertificateAuthentication
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the client certificate used for authentication.
 --
 -- /See:/ 'mkCertificateAuthentication' smart constructor.
 newtype CertificateAuthentication = CertificateAuthentication'
   { -- | The ARN of the client certificate.
-    clientRootCertificateChain :: Lude.Maybe Lude.Text
+    clientRootCertificateChain :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CertificateAuthentication' with the minimum fields required to make a request.
---
--- * 'clientRootCertificateChain' - The ARN of the client certificate.
+-- | Creates a 'CertificateAuthentication' value with any optional fields omitted.
 mkCertificateAuthentication ::
   CertificateAuthentication
 mkCertificateAuthentication =
   CertificateAuthentication'
     { clientRootCertificateChain =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The ARN of the client certificate.
 --
 -- /Note:/ Consider using 'clientRootCertificateChain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caClientRootCertificateChain :: Lens.Lens' CertificateAuthentication (Lude.Maybe Lude.Text)
-caClientRootCertificateChain = Lens.lens (clientRootCertificateChain :: CertificateAuthentication -> Lude.Maybe Lude.Text) (\s a -> s {clientRootCertificateChain = a} :: CertificateAuthentication)
+caClientRootCertificateChain :: Lens.Lens' CertificateAuthentication (Core.Maybe Types.String)
+caClientRootCertificateChain = Lens.field @"clientRootCertificateChain"
 {-# DEPRECATED caClientRootCertificateChain "Use generic-lens or generic-optics with 'clientRootCertificateChain' instead." #-}
 
-instance Lude.FromXML CertificateAuthentication where
+instance Core.FromXML CertificateAuthentication where
   parseXML x =
     CertificateAuthentication'
-      Lude.<$> (x Lude..@? "clientRootCertificateChain")
+      Core.<$> (x Core..@? "clientRootCertificateChain")

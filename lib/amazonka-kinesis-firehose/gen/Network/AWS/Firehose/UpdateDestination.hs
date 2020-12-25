@@ -26,224 +26,205 @@ module Network.AWS.Firehose.UpdateDestination
     mkUpdateDestination,
 
     -- ** Request lenses
-    udSplunkDestinationUpdate,
-    udS3DestinationUpdate,
-    udRedshiftDestinationUpdate,
-    udElasticsearchDestinationUpdate,
-    udCurrentDeliveryStreamVersionId,
     udDeliveryStreamName,
-    udExtendedS3DestinationUpdate,
-    udHTTPEndpointDestinationUpdate,
+    udCurrentDeliveryStreamVersionId,
     udDestinationId,
+    udElasticsearchDestinationUpdate,
+    udExtendedS3DestinationUpdate,
+    udHttpEndpointDestinationUpdate,
+    udRedshiftDestinationUpdate,
+    udS3DestinationUpdate,
+    udSplunkDestinationUpdate,
 
     -- * Destructuring the response
     UpdateDestinationResponse (..),
     mkUpdateDestinationResponse,
 
     -- ** Response lenses
-    udrsResponseStatus,
+    udrrsResponseStatus,
   )
 where
 
-import Network.AWS.Firehose.Types
+import qualified Network.AWS.Firehose.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateDestination' smart constructor.
 data UpdateDestination = UpdateDestination'
-  { -- | Describes an update for a destination in Splunk.
-    splunkDestinationUpdate :: Lude.Maybe SplunkDestinationUpdate,
-    -- | [Deprecated] Describes an update for a destination in Amazon S3.
-    s3DestinationUpdate :: Lude.Maybe S3DestinationUpdate,
-    -- | Describes an update for a destination in Amazon Redshift.
-    redshiftDestinationUpdate :: Lude.Maybe RedshiftDestinationUpdate,
-    -- | Describes an update for a destination in Amazon ES.
-    elasticsearchDestinationUpdate :: Lude.Maybe ElasticsearchDestinationUpdate,
+  { -- | The name of the delivery stream.
+    deliveryStreamName :: Types.DeliveryStreamName,
     -- | Obtain this value from the @VersionId@ result of 'DeliveryStreamDescription' . This value is required, and helps the service perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the @VersionId@ value is updated. The service then performs a merge of the old configuration with the new configuration.
-    currentDeliveryStreamVersionId :: Lude.Text,
-    -- | The name of the delivery stream.
-    deliveryStreamName :: Lude.Text,
-    -- | Describes an update for a destination in Amazon S3.
-    extendedS3DestinationUpdate :: Lude.Maybe ExtendedS3DestinationUpdate,
-    -- | Describes an update to the specified HTTP endpoint destination.
-    hTTPEndpointDestinationUpdate :: Lude.Maybe HTTPEndpointDestinationUpdate,
+    currentDeliveryStreamVersionId :: Types.DeliveryStreamVersionId,
     -- | The ID of the destination.
-    destinationId :: Lude.Text
+    destinationId :: Types.DestinationId,
+    -- | Describes an update for a destination in Amazon ES.
+    elasticsearchDestinationUpdate :: Core.Maybe Types.ElasticsearchDestinationUpdate,
+    -- | Describes an update for a destination in Amazon S3.
+    extendedS3DestinationUpdate :: Core.Maybe Types.ExtendedS3DestinationUpdate,
+    -- | Describes an update to the specified HTTP endpoint destination.
+    httpEndpointDestinationUpdate :: Core.Maybe Types.HttpEndpointDestinationUpdate,
+    -- | Describes an update for a destination in Amazon Redshift.
+    redshiftDestinationUpdate :: Core.Maybe Types.RedshiftDestinationUpdate,
+    -- | [Deprecated] Describes an update for a destination in Amazon S3.
+    s3DestinationUpdate :: Core.Maybe Types.S3DestinationUpdate,
+    -- | Describes an update for a destination in Splunk.
+    splunkDestinationUpdate :: Core.Maybe Types.SplunkDestinationUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDestination' with the minimum fields required to make a request.
---
--- * 'splunkDestinationUpdate' - Describes an update for a destination in Splunk.
--- * 's3DestinationUpdate' - [Deprecated] Describes an update for a destination in Amazon S3.
--- * 'redshiftDestinationUpdate' - Describes an update for a destination in Amazon Redshift.
--- * 'elasticsearchDestinationUpdate' - Describes an update for a destination in Amazon ES.
--- * 'currentDeliveryStreamVersionId' - Obtain this value from the @VersionId@ result of 'DeliveryStreamDescription' . This value is required, and helps the service perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the @VersionId@ value is updated. The service then performs a merge of the old configuration with the new configuration.
--- * 'deliveryStreamName' - The name of the delivery stream.
--- * 'extendedS3DestinationUpdate' - Describes an update for a destination in Amazon S3.
--- * 'hTTPEndpointDestinationUpdate' - Describes an update to the specified HTTP endpoint destination.
--- * 'destinationId' - The ID of the destination.
+-- | Creates a 'UpdateDestination' value with any optional fields omitted.
 mkUpdateDestination ::
-  -- | 'currentDeliveryStreamVersionId'
-  Lude.Text ->
   -- | 'deliveryStreamName'
-  Lude.Text ->
+  Types.DeliveryStreamName ->
+  -- | 'currentDeliveryStreamVersionId'
+  Types.DeliveryStreamVersionId ->
   -- | 'destinationId'
-  Lude.Text ->
+  Types.DestinationId ->
   UpdateDestination
 mkUpdateDestination
-  pCurrentDeliveryStreamVersionId_
-  pDeliveryStreamName_
-  pDestinationId_ =
+  deliveryStreamName
+  currentDeliveryStreamVersionId
+  destinationId =
     UpdateDestination'
-      { splunkDestinationUpdate = Lude.Nothing,
-        s3DestinationUpdate = Lude.Nothing,
-        redshiftDestinationUpdate = Lude.Nothing,
-        elasticsearchDestinationUpdate = Lude.Nothing,
-        currentDeliveryStreamVersionId = pCurrentDeliveryStreamVersionId_,
-        deliveryStreamName = pDeliveryStreamName_,
-        extendedS3DestinationUpdate = Lude.Nothing,
-        hTTPEndpointDestinationUpdate = Lude.Nothing,
-        destinationId = pDestinationId_
+      { deliveryStreamName,
+        currentDeliveryStreamVersionId,
+        destinationId,
+        elasticsearchDestinationUpdate = Core.Nothing,
+        extendedS3DestinationUpdate = Core.Nothing,
+        httpEndpointDestinationUpdate = Core.Nothing,
+        redshiftDestinationUpdate = Core.Nothing,
+        s3DestinationUpdate = Core.Nothing,
+        splunkDestinationUpdate = Core.Nothing
       }
-
--- | Describes an update for a destination in Splunk.
---
--- /Note:/ Consider using 'splunkDestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udSplunkDestinationUpdate :: Lens.Lens' UpdateDestination (Lude.Maybe SplunkDestinationUpdate)
-udSplunkDestinationUpdate = Lens.lens (splunkDestinationUpdate :: UpdateDestination -> Lude.Maybe SplunkDestinationUpdate) (\s a -> s {splunkDestinationUpdate = a} :: UpdateDestination)
-{-# DEPRECATED udSplunkDestinationUpdate "Use generic-lens or generic-optics with 'splunkDestinationUpdate' instead." #-}
-
--- | [Deprecated] Describes an update for a destination in Amazon S3.
---
--- /Note:/ Consider using 's3DestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udS3DestinationUpdate :: Lens.Lens' UpdateDestination (Lude.Maybe S3DestinationUpdate)
-udS3DestinationUpdate = Lens.lens (s3DestinationUpdate :: UpdateDestination -> Lude.Maybe S3DestinationUpdate) (\s a -> s {s3DestinationUpdate = a} :: UpdateDestination)
-{-# DEPRECATED udS3DestinationUpdate "Use generic-lens or generic-optics with 's3DestinationUpdate' instead." #-}
-
--- | Describes an update for a destination in Amazon Redshift.
---
--- /Note:/ Consider using 'redshiftDestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udRedshiftDestinationUpdate :: Lens.Lens' UpdateDestination (Lude.Maybe RedshiftDestinationUpdate)
-udRedshiftDestinationUpdate = Lens.lens (redshiftDestinationUpdate :: UpdateDestination -> Lude.Maybe RedshiftDestinationUpdate) (\s a -> s {redshiftDestinationUpdate = a} :: UpdateDestination)
-{-# DEPRECATED udRedshiftDestinationUpdate "Use generic-lens or generic-optics with 'redshiftDestinationUpdate' instead." #-}
-
--- | Describes an update for a destination in Amazon ES.
---
--- /Note:/ Consider using 'elasticsearchDestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udElasticsearchDestinationUpdate :: Lens.Lens' UpdateDestination (Lude.Maybe ElasticsearchDestinationUpdate)
-udElasticsearchDestinationUpdate = Lens.lens (elasticsearchDestinationUpdate :: UpdateDestination -> Lude.Maybe ElasticsearchDestinationUpdate) (\s a -> s {elasticsearchDestinationUpdate = a} :: UpdateDestination)
-{-# DEPRECATED udElasticsearchDestinationUpdate "Use generic-lens or generic-optics with 'elasticsearchDestinationUpdate' instead." #-}
-
--- | Obtain this value from the @VersionId@ result of 'DeliveryStreamDescription' . This value is required, and helps the service perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the @VersionId@ value is updated. The service then performs a merge of the old configuration with the new configuration.
---
--- /Note:/ Consider using 'currentDeliveryStreamVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udCurrentDeliveryStreamVersionId :: Lens.Lens' UpdateDestination Lude.Text
-udCurrentDeliveryStreamVersionId = Lens.lens (currentDeliveryStreamVersionId :: UpdateDestination -> Lude.Text) (\s a -> s {currentDeliveryStreamVersionId = a} :: UpdateDestination)
-{-# DEPRECATED udCurrentDeliveryStreamVersionId "Use generic-lens or generic-optics with 'currentDeliveryStreamVersionId' instead." #-}
 
 -- | The name of the delivery stream.
 --
 -- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udDeliveryStreamName :: Lens.Lens' UpdateDestination Lude.Text
-udDeliveryStreamName = Lens.lens (deliveryStreamName :: UpdateDestination -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: UpdateDestination)
+udDeliveryStreamName :: Lens.Lens' UpdateDestination Types.DeliveryStreamName
+udDeliveryStreamName = Lens.field @"deliveryStreamName"
 {-# DEPRECATED udDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
--- | Describes an update for a destination in Amazon S3.
+-- | Obtain this value from the @VersionId@ result of 'DeliveryStreamDescription' . This value is required, and helps the service perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the @VersionId@ value is updated. The service then performs a merge of the old configuration with the new configuration.
 --
--- /Note:/ Consider using 'extendedS3DestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udExtendedS3DestinationUpdate :: Lens.Lens' UpdateDestination (Lude.Maybe ExtendedS3DestinationUpdate)
-udExtendedS3DestinationUpdate = Lens.lens (extendedS3DestinationUpdate :: UpdateDestination -> Lude.Maybe ExtendedS3DestinationUpdate) (\s a -> s {extendedS3DestinationUpdate = a} :: UpdateDestination)
-{-# DEPRECATED udExtendedS3DestinationUpdate "Use generic-lens or generic-optics with 'extendedS3DestinationUpdate' instead." #-}
-
--- | Describes an update to the specified HTTP endpoint destination.
---
--- /Note:/ Consider using 'hTTPEndpointDestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udHTTPEndpointDestinationUpdate :: Lens.Lens' UpdateDestination (Lude.Maybe HTTPEndpointDestinationUpdate)
-udHTTPEndpointDestinationUpdate = Lens.lens (hTTPEndpointDestinationUpdate :: UpdateDestination -> Lude.Maybe HTTPEndpointDestinationUpdate) (\s a -> s {hTTPEndpointDestinationUpdate = a} :: UpdateDestination)
-{-# DEPRECATED udHTTPEndpointDestinationUpdate "Use generic-lens or generic-optics with 'hTTPEndpointDestinationUpdate' instead." #-}
+-- /Note:/ Consider using 'currentDeliveryStreamVersionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udCurrentDeliveryStreamVersionId :: Lens.Lens' UpdateDestination Types.DeliveryStreamVersionId
+udCurrentDeliveryStreamVersionId = Lens.field @"currentDeliveryStreamVersionId"
+{-# DEPRECATED udCurrentDeliveryStreamVersionId "Use generic-lens or generic-optics with 'currentDeliveryStreamVersionId' instead." #-}
 
 -- | The ID of the destination.
 --
 -- /Note:/ Consider using 'destinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udDestinationId :: Lens.Lens' UpdateDestination Lude.Text
-udDestinationId = Lens.lens (destinationId :: UpdateDestination -> Lude.Text) (\s a -> s {destinationId = a} :: UpdateDestination)
+udDestinationId :: Lens.Lens' UpdateDestination Types.DestinationId
+udDestinationId = Lens.field @"destinationId"
 {-# DEPRECATED udDestinationId "Use generic-lens or generic-optics with 'destinationId' instead." #-}
 
-instance Lude.AWSRequest UpdateDestination where
-  type Rs UpdateDestination = UpdateDestinationResponse
-  request = Req.postJSON firehoseService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          UpdateDestinationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
+-- | Describes an update for a destination in Amazon ES.
+--
+-- /Note:/ Consider using 'elasticsearchDestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udElasticsearchDestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe Types.ElasticsearchDestinationUpdate)
+udElasticsearchDestinationUpdate = Lens.field @"elasticsearchDestinationUpdate"
+{-# DEPRECATED udElasticsearchDestinationUpdate "Use generic-lens or generic-optics with 'elasticsearchDestinationUpdate' instead." #-}
 
-instance Lude.ToHeaders UpdateDestination where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Firehose_20150804.UpdateDestination" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
+-- | Describes an update for a destination in Amazon S3.
+--
+-- /Note:/ Consider using 'extendedS3DestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udExtendedS3DestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe Types.ExtendedS3DestinationUpdate)
+udExtendedS3DestinationUpdate = Lens.field @"extendedS3DestinationUpdate"
+{-# DEPRECATED udExtendedS3DestinationUpdate "Use generic-lens or generic-optics with 'extendedS3DestinationUpdate' instead." #-}
 
-instance Lude.ToJSON UpdateDestination where
-  toJSON UpdateDestination' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SplunkDestinationUpdate" Lude..=)
-              Lude.<$> splunkDestinationUpdate,
-            ("S3DestinationUpdate" Lude..=) Lude.<$> s3DestinationUpdate,
-            ("RedshiftDestinationUpdate" Lude..=)
-              Lude.<$> redshiftDestinationUpdate,
-            ("ElasticsearchDestinationUpdate" Lude..=)
-              Lude.<$> elasticsearchDestinationUpdate,
-            Lude.Just
+-- | Describes an update to the specified HTTP endpoint destination.
+--
+-- /Note:/ Consider using 'httpEndpointDestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udHttpEndpointDestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe Types.HttpEndpointDestinationUpdate)
+udHttpEndpointDestinationUpdate = Lens.field @"httpEndpointDestinationUpdate"
+{-# DEPRECATED udHttpEndpointDestinationUpdate "Use generic-lens or generic-optics with 'httpEndpointDestinationUpdate' instead." #-}
+
+-- | Describes an update for a destination in Amazon Redshift.
+--
+-- /Note:/ Consider using 'redshiftDestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udRedshiftDestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe Types.RedshiftDestinationUpdate)
+udRedshiftDestinationUpdate = Lens.field @"redshiftDestinationUpdate"
+{-# DEPRECATED udRedshiftDestinationUpdate "Use generic-lens or generic-optics with 'redshiftDestinationUpdate' instead." #-}
+
+-- | [Deprecated] Describes an update for a destination in Amazon S3.
+--
+-- /Note:/ Consider using 's3DestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udS3DestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe Types.S3DestinationUpdate)
+udS3DestinationUpdate = Lens.field @"s3DestinationUpdate"
+{-# DEPRECATED udS3DestinationUpdate "Use generic-lens or generic-optics with 's3DestinationUpdate' instead." #-}
+
+-- | Describes an update for a destination in Splunk.
+--
+-- /Note:/ Consider using 'splunkDestinationUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+udSplunkDestinationUpdate :: Lens.Lens' UpdateDestination (Core.Maybe Types.SplunkDestinationUpdate)
+udSplunkDestinationUpdate = Lens.field @"splunkDestinationUpdate"
+{-# DEPRECATED udSplunkDestinationUpdate "Use generic-lens or generic-optics with 'splunkDestinationUpdate' instead." #-}
+
+instance Core.FromJSON UpdateDestination where
+  toJSON UpdateDestination {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DeliveryStreamName" Core..= deliveryStreamName),
+            Core.Just
               ( "CurrentDeliveryStreamVersionId"
-                  Lude..= currentDeliveryStreamVersionId
+                  Core..= currentDeliveryStreamVersionId
               ),
-            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName),
-            ("ExtendedS3DestinationUpdate" Lude..=)
-              Lude.<$> extendedS3DestinationUpdate,
-            ("HttpEndpointDestinationUpdate" Lude..=)
-              Lude.<$> hTTPEndpointDestinationUpdate,
-            Lude.Just ("DestinationId" Lude..= destinationId)
+            Core.Just ("DestinationId" Core..= destinationId),
+            ("ElasticsearchDestinationUpdate" Core..=)
+              Core.<$> elasticsearchDestinationUpdate,
+            ("ExtendedS3DestinationUpdate" Core..=)
+              Core.<$> extendedS3DestinationUpdate,
+            ("HttpEndpointDestinationUpdate" Core..=)
+              Core.<$> httpEndpointDestinationUpdate,
+            ("RedshiftDestinationUpdate" Core..=)
+              Core.<$> redshiftDestinationUpdate,
+            ("S3DestinationUpdate" Core..=) Core.<$> s3DestinationUpdate,
+            ("SplunkDestinationUpdate" Core..=)
+              Core.<$> splunkDestinationUpdate
           ]
       )
 
-instance Lude.ToPath UpdateDestination where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateDestination where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateDestination where
+  type Rs UpdateDestination = UpdateDestinationResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Firehose_20150804.UpdateDestination")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateDestinationResponse' Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUpdateDestinationResponse' smart constructor.
 newtype UpdateDestinationResponse = UpdateDestinationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateDestinationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateDestinationResponse' value with any optional fields omitted.
 mkUpdateDestinationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateDestinationResponse
-mkUpdateDestinationResponse pResponseStatus_ =
-  UpdateDestinationResponse' {responseStatus = pResponseStatus_}
+mkUpdateDestinationResponse responseStatus =
+  UpdateDestinationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-udrsResponseStatus :: Lens.Lens' UpdateDestinationResponse Lude.Int
-udrsResponseStatus = Lens.lens (responseStatus :: UpdateDestinationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateDestinationResponse)
-{-# DEPRECATED udrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+udrrsResponseStatus :: Lens.Lens' UpdateDestinationResponse Core.Int
+udrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED udrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

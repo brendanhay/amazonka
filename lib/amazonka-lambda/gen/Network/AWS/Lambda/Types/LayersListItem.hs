@@ -17,72 +17,68 @@ module Network.AWS.Lambda.Types.LayersListItem
     mkLayersListItem,
 
     -- * Lenses
-    lliLayerName,
     lliLatestMatchingVersion,
-    lliLayerARN,
+    lliLayerArn,
+    lliLayerName,
   )
 where
 
-import Network.AWS.Lambda.Types.LayerVersionsListItem
+import qualified Network.AWS.Lambda.Types.LayerArn as Types
+import qualified Network.AWS.Lambda.Types.LayerName as Types
+import qualified Network.AWS.Lambda.Types.LayerVersionsListItem as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about an <https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html AWS Lambda layer> .
 --
 -- /See:/ 'mkLayersListItem' smart constructor.
 data LayersListItem = LayersListItem'
-  { -- | The name of the layer.
-    layerName :: Lude.Maybe Lude.Text,
-    -- | The newest version of the layer.
-    latestMatchingVersion :: Lude.Maybe LayerVersionsListItem,
+  { -- | The newest version of the layer.
+    latestMatchingVersion :: Core.Maybe Types.LayerVersionsListItem,
     -- | The Amazon Resource Name (ARN) of the function layer.
-    layerARN :: Lude.Maybe Lude.Text
+    layerArn :: Core.Maybe Types.LayerArn,
+    -- | The name of the layer.
+    layerName :: Core.Maybe Types.LayerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LayersListItem' with the minimum fields required to make a request.
---
--- * 'layerName' - The name of the layer.
--- * 'latestMatchingVersion' - The newest version of the layer.
--- * 'layerARN' - The Amazon Resource Name (ARN) of the function layer.
+-- | Creates a 'LayersListItem' value with any optional fields omitted.
 mkLayersListItem ::
   LayersListItem
 mkLayersListItem =
   LayersListItem'
-    { layerName = Lude.Nothing,
-      latestMatchingVersion = Lude.Nothing,
-      layerARN = Lude.Nothing
+    { latestMatchingVersion = Core.Nothing,
+      layerArn = Core.Nothing,
+      layerName = Core.Nothing
     }
-
--- | The name of the layer.
---
--- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lliLayerName :: Lens.Lens' LayersListItem (Lude.Maybe Lude.Text)
-lliLayerName = Lens.lens (layerName :: LayersListItem -> Lude.Maybe Lude.Text) (\s a -> s {layerName = a} :: LayersListItem)
-{-# DEPRECATED lliLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
 
 -- | The newest version of the layer.
 --
 -- /Note:/ Consider using 'latestMatchingVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lliLatestMatchingVersion :: Lens.Lens' LayersListItem (Lude.Maybe LayerVersionsListItem)
-lliLatestMatchingVersion = Lens.lens (latestMatchingVersion :: LayersListItem -> Lude.Maybe LayerVersionsListItem) (\s a -> s {latestMatchingVersion = a} :: LayersListItem)
+lliLatestMatchingVersion :: Lens.Lens' LayersListItem (Core.Maybe Types.LayerVersionsListItem)
+lliLatestMatchingVersion = Lens.field @"latestMatchingVersion"
 {-# DEPRECATED lliLatestMatchingVersion "Use generic-lens or generic-optics with 'latestMatchingVersion' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the function layer.
 --
--- /Note:/ Consider using 'layerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lliLayerARN :: Lens.Lens' LayersListItem (Lude.Maybe Lude.Text)
-lliLayerARN = Lens.lens (layerARN :: LayersListItem -> Lude.Maybe Lude.Text) (\s a -> s {layerARN = a} :: LayersListItem)
-{-# DEPRECATED lliLayerARN "Use generic-lens or generic-optics with 'layerARN' instead." #-}
+-- /Note:/ Consider using 'layerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lliLayerArn :: Lens.Lens' LayersListItem (Core.Maybe Types.LayerArn)
+lliLayerArn = Lens.field @"layerArn"
+{-# DEPRECATED lliLayerArn "Use generic-lens or generic-optics with 'layerArn' instead." #-}
 
-instance Lude.FromJSON LayersListItem where
+-- | The name of the layer.
+--
+-- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lliLayerName :: Lens.Lens' LayersListItem (Core.Maybe Types.LayerName)
+lliLayerName = Lens.field @"layerName"
+{-# DEPRECATED lliLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
+
+instance Core.FromJSON LayersListItem where
   parseJSON =
-    Lude.withObject
-      "LayersListItem"
-      ( \x ->
-          LayersListItem'
-            Lude.<$> (x Lude..:? "LayerName")
-            Lude.<*> (x Lude..:? "LatestMatchingVersion")
-            Lude.<*> (x Lude..:? "LayerArn")
-      )
+    Core.withObject "LayersListItem" Core.$
+      \x ->
+        LayersListItem'
+          Core.<$> (x Core..:? "LatestMatchingVersion")
+          Core.<*> (x Core..:? "LayerArn")
+          Core.<*> (x Core..:? "LayerName")

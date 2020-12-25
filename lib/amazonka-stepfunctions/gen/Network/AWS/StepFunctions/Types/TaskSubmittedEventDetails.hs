@@ -17,89 +17,85 @@ module Network.AWS.StepFunctions.Types.TaskSubmittedEventDetails
     mkTaskSubmittedEventDetails,
 
     -- * Lenses
-    tResourceType,
-    tOutput,
-    tResource,
-    tOutputDetails,
+    tsedfResourceType,
+    tsedfResource,
+    tsedfOutput,
+    tsedfOutputDetails,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails as Types
+import qualified Network.AWS.StepFunctions.Types.Resource as Types
+import qualified Network.AWS.StepFunctions.Types.ResourceType as Types
+import qualified Network.AWS.StepFunctions.Types.SensitiveData as Types
 
 -- | Contains details about a task submitted to a resource .
 --
 -- /See:/ 'mkTaskSubmittedEventDetails' smart constructor.
 data TaskSubmittedEventDetails = TaskSubmittedEventDetails'
   { -- | The action of the resource called by a task state.
-    resourceType :: Lude.Text,
-    -- | The response from a resource when a task has started. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
-    output :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    resourceType :: Types.ResourceType,
     -- | The service name of the resource in a task state.
-    resource :: Lude.Text,
+    resource :: Types.Resource,
+    -- | The response from a resource when a task has started. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+    output :: Core.Maybe Types.SensitiveData,
     -- | Contains details about the output of an execution history event.
-    outputDetails :: Lude.Maybe HistoryEventExecutionDataDetails
+    outputDetails :: Core.Maybe Types.HistoryEventExecutionDataDetails
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TaskSubmittedEventDetails' with the minimum fields required to make a request.
---
--- * 'resourceType' - The action of the resource called by a task state.
--- * 'output' - The response from a resource when a task has started. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
--- * 'resource' - The service name of the resource in a task state.
--- * 'outputDetails' - Contains details about the output of an execution history event.
+-- | Creates a 'TaskSubmittedEventDetails' value with any optional fields omitted.
 mkTaskSubmittedEventDetails ::
   -- | 'resourceType'
-  Lude.Text ->
+  Types.ResourceType ->
   -- | 'resource'
-  Lude.Text ->
+  Types.Resource ->
   TaskSubmittedEventDetails
-mkTaskSubmittedEventDetails pResourceType_ pResource_ =
+mkTaskSubmittedEventDetails resourceType resource =
   TaskSubmittedEventDetails'
-    { resourceType = pResourceType_,
-      output = Lude.Nothing,
-      resource = pResource_,
-      outputDetails = Lude.Nothing
+    { resourceType,
+      resource,
+      output = Core.Nothing,
+      outputDetails = Core.Nothing
     }
 
 -- | The action of the resource called by a task state.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tResourceType :: Lens.Lens' TaskSubmittedEventDetails Lude.Text
-tResourceType = Lens.lens (resourceType :: TaskSubmittedEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskSubmittedEventDetails)
-{-# DEPRECATED tResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The response from a resource when a task has started. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
---
--- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tOutput :: Lens.Lens' TaskSubmittedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-tOutput = Lens.lens (output :: TaskSubmittedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {output = a} :: TaskSubmittedEventDetails)
-{-# DEPRECATED tOutput "Use generic-lens or generic-optics with 'output' instead." #-}
+tsedfResourceType :: Lens.Lens' TaskSubmittedEventDetails Types.ResourceType
+tsedfResourceType = Lens.field @"resourceType"
+{-# DEPRECATED tsedfResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The service name of the resource in a task state.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tResource :: Lens.Lens' TaskSubmittedEventDetails Lude.Text
-tResource = Lens.lens (resource :: TaskSubmittedEventDetails -> Lude.Text) (\s a -> s {resource = a} :: TaskSubmittedEventDetails)
-{-# DEPRECATED tResource "Use generic-lens or generic-optics with 'resource' instead." #-}
+tsedfResource :: Lens.Lens' TaskSubmittedEventDetails Types.Resource
+tsedfResource = Lens.field @"resource"
+{-# DEPRECATED tsedfResource "Use generic-lens or generic-optics with 'resource' instead." #-}
+
+-- | The response from a resource when a task has started. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.
+--
+-- /Note:/ Consider using 'output' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsedfOutput :: Lens.Lens' TaskSubmittedEventDetails (Core.Maybe Types.SensitiveData)
+tsedfOutput = Lens.field @"output"
+{-# DEPRECATED tsedfOutput "Use generic-lens or generic-optics with 'output' instead." #-}
 
 -- | Contains details about the output of an execution history event.
 --
 -- /Note:/ Consider using 'outputDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tOutputDetails :: Lens.Lens' TaskSubmittedEventDetails (Lude.Maybe HistoryEventExecutionDataDetails)
-tOutputDetails = Lens.lens (outputDetails :: TaskSubmittedEventDetails -> Lude.Maybe HistoryEventExecutionDataDetails) (\s a -> s {outputDetails = a} :: TaskSubmittedEventDetails)
-{-# DEPRECATED tOutputDetails "Use generic-lens or generic-optics with 'outputDetails' instead." #-}
+tsedfOutputDetails :: Lens.Lens' TaskSubmittedEventDetails (Core.Maybe Types.HistoryEventExecutionDataDetails)
+tsedfOutputDetails = Lens.field @"outputDetails"
+{-# DEPRECATED tsedfOutputDetails "Use generic-lens or generic-optics with 'outputDetails' instead." #-}
 
-instance Lude.FromJSON TaskSubmittedEventDetails where
+instance Core.FromJSON TaskSubmittedEventDetails where
   parseJSON =
-    Lude.withObject
-      "TaskSubmittedEventDetails"
-      ( \x ->
-          TaskSubmittedEventDetails'
-            Lude.<$> (x Lude..: "resourceType")
-            Lude.<*> (x Lude..:? "output")
-            Lude.<*> (x Lude..: "resource")
-            Lude.<*> (x Lude..:? "outputDetails")
-      )
+    Core.withObject "TaskSubmittedEventDetails" Core.$
+      \x ->
+        TaskSubmittedEventDetails'
+          Core.<$> (x Core..: "resourceType")
+          Core.<*> (x Core..: "resource")
+          Core.<*> (x Core..:? "output")
+          Core.<*> (x Core..:? "outputDetails")

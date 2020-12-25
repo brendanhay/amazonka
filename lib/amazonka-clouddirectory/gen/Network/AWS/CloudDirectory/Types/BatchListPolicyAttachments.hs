@@ -17,73 +17,70 @@ module Network.AWS.CloudDirectory.Types.BatchListPolicyAttachments
     mkBatchListPolicyAttachments,
 
     -- * Lenses
-    blpasNextToken,
-    blpasPolicyReference,
-    blpasMaxResults,
+    blpaPolicyReference,
+    blpaMaxResults,
+    blpaNextToken,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.ObjectReference
+import qualified Network.AWS.CloudDirectory.Types.NextToken as Types
+import qualified Network.AWS.CloudDirectory.Types.ObjectReference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns all of the @ObjectIdentifiers@ to which a given policy is attached inside a 'BatchRead' operation. For more information, see 'ListPolicyAttachments' and 'BatchReadRequest$Operations' .
 --
 -- /See:/ 'mkBatchListPolicyAttachments' smart constructor.
 data BatchListPolicyAttachments = BatchListPolicyAttachments'
-  { -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The reference that identifies the policy object.
-    policyReference :: ObjectReference,
+  { -- | The reference that identifies the policy object.
+    policyReference :: Types.ObjectReference,
     -- | The maximum number of results to retrieve.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The pagination token.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchListPolicyAttachments' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token.
--- * 'policyReference' - The reference that identifies the policy object.
--- * 'maxResults' - The maximum number of results to retrieve.
+-- | Creates a 'BatchListPolicyAttachments' value with any optional fields omitted.
 mkBatchListPolicyAttachments ::
   -- | 'policyReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   BatchListPolicyAttachments
-mkBatchListPolicyAttachments pPolicyReference_ =
+mkBatchListPolicyAttachments policyReference =
   BatchListPolicyAttachments'
-    { nextToken = Lude.Nothing,
-      policyReference = pPolicyReference_,
-      maxResults = Lude.Nothing
+    { policyReference,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blpasNextToken :: Lens.Lens' BatchListPolicyAttachments (Lude.Maybe Lude.Text)
-blpasNextToken = Lens.lens (nextToken :: BatchListPolicyAttachments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListPolicyAttachments)
-{-# DEPRECATED blpasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The reference that identifies the policy object.
 --
 -- /Note:/ Consider using 'policyReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blpasPolicyReference :: Lens.Lens' BatchListPolicyAttachments ObjectReference
-blpasPolicyReference = Lens.lens (policyReference :: BatchListPolicyAttachments -> ObjectReference) (\s a -> s {policyReference = a} :: BatchListPolicyAttachments)
-{-# DEPRECATED blpasPolicyReference "Use generic-lens or generic-optics with 'policyReference' instead." #-}
+blpaPolicyReference :: Lens.Lens' BatchListPolicyAttachments Types.ObjectReference
+blpaPolicyReference = Lens.field @"policyReference"
+{-# DEPRECATED blpaPolicyReference "Use generic-lens or generic-optics with 'policyReference' instead." #-}
 
 -- | The maximum number of results to retrieve.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blpasMaxResults :: Lens.Lens' BatchListPolicyAttachments (Lude.Maybe Lude.Natural)
-blpasMaxResults = Lens.lens (maxResults :: BatchListPolicyAttachments -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: BatchListPolicyAttachments)
-{-# DEPRECATED blpasMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+blpaMaxResults :: Lens.Lens' BatchListPolicyAttachments (Core.Maybe Core.Natural)
+blpaMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED blpaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.ToJSON BatchListPolicyAttachments where
-  toJSON BatchListPolicyAttachments' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("PolicyReference" Lude..= policyReference),
-            ("MaxResults" Lude..=) Lude.<$> maxResults
+-- | The pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blpaNextToken :: Lens.Lens' BatchListPolicyAttachments (Core.Maybe Types.NextToken)
+blpaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED blpaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON BatchListPolicyAttachments where
+  toJSON BatchListPolicyAttachments {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyReference" Core..= policyReference),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
           ]
       )

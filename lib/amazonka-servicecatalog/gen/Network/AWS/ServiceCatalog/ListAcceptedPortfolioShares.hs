@@ -22,43 +22,32 @@ module Network.AWS.ServiceCatalog.ListAcceptedPortfolioShares
     mkListAcceptedPortfolioShares,
 
     -- ** Request lenses
-    lapsPortfolioShareType,
     lapsAcceptLanguage,
-    lapsPageToken,
     lapsPageSize,
+    lapsPageToken,
+    lapsPortfolioShareType,
 
     -- * Destructuring the response
     ListAcceptedPortfolioSharesResponse (..),
     mkListAcceptedPortfolioSharesResponse,
 
     -- ** Response lenses
-    lapsrsNextPageToken,
-    lapsrsPortfolioDetails,
-    lapsrsResponseStatus,
+    lapsrrsNextPageToken,
+    lapsrrsPortfolioDetails,
+    lapsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkListAcceptedPortfolioShares' smart constructor.
 data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
-  { -- | The type of shared portfolios to list. The default is to list imported portfolios.
-    --
-    --
-    --     * @AWS_ORGANIZATIONS@ - List portfolios shared by the management account of your organization
-    --
-    --
-    --     * @AWS_SERVICECATALOG@ - List default portfolios
-    --
-    --
-    --     * @IMPORTED@ - List imported portfolios
-    portfolioShareType :: Lude.Maybe PortfolioShareType,
-    -- | The language code.
+  { -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -68,70 +57,36 @@ data ListAcceptedPortfolioShares = ListAcceptedPortfolioShares'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The page token for the next set of results. To retrieve the first set of results, use null.
-    pageToken :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
     -- | The maximum number of items to return with this call.
-    pageSize :: Lude.Maybe Lude.Natural
+    pageSize :: Core.Maybe Core.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
+    pageToken :: Core.Maybe Types.PageToken,
+    -- | The type of shared portfolios to list. The default is to list imported portfolios.
+    --
+    --
+    --     * @AWS_ORGANIZATIONS@ - List portfolios shared by the management account of your organization
+    --
+    --
+    --     * @AWS_SERVICECATALOG@ - List default portfolios
+    --
+    --
+    --     * @IMPORTED@ - List imported portfolios
+    portfolioShareType :: Core.Maybe Types.PortfolioShareType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAcceptedPortfolioShares' with the minimum fields required to make a request.
---
--- * 'portfolioShareType' - The type of shared portfolios to list. The default is to list imported portfolios.
---
---
---     * @AWS_ORGANIZATIONS@ - List portfolios shared by the management account of your organization
---
---
---     * @AWS_SERVICECATALOG@ - List default portfolios
---
---
---     * @IMPORTED@ - List imported portfolios
---
---
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'pageSize' - The maximum number of items to return with this call.
+-- | Creates a 'ListAcceptedPortfolioShares' value with any optional fields omitted.
 mkListAcceptedPortfolioShares ::
   ListAcceptedPortfolioShares
 mkListAcceptedPortfolioShares =
   ListAcceptedPortfolioShares'
-    { portfolioShareType = Lude.Nothing,
-      acceptLanguage = Lude.Nothing,
-      pageToken = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { acceptLanguage = Core.Nothing,
+      pageSize = Core.Nothing,
+      pageToken = Core.Nothing,
+      portfolioShareType = Core.Nothing
     }
-
--- | The type of shared portfolios to list. The default is to list imported portfolios.
---
---
---     * @AWS_ORGANIZATIONS@ - List portfolios shared by the management account of your organization
---
---
---     * @AWS_SERVICECATALOG@ - List default portfolios
---
---
---     * @IMPORTED@ - List imported portfolios
---
---
---
--- /Note:/ Consider using 'portfolioShareType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lapsPortfolioShareType :: Lens.Lens' ListAcceptedPortfolioShares (Lude.Maybe PortfolioShareType)
-lapsPortfolioShareType = Lens.lens (portfolioShareType :: ListAcceptedPortfolioShares -> Lude.Maybe PortfolioShareType) (\s a -> s {portfolioShareType = a} :: ListAcceptedPortfolioShares)
-{-# DEPRECATED lapsPortfolioShareType "Use generic-lens or generic-optics with 'portfolioShareType' instead." #-}
 
 -- | The language code.
 --
@@ -147,123 +102,136 @@ lapsPortfolioShareType = Lens.lens (portfolioShareType :: ListAcceptedPortfolioS
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lapsAcceptLanguage :: Lens.Lens' ListAcceptedPortfolioShares (Lude.Maybe Lude.Text)
-lapsAcceptLanguage = Lens.lens (acceptLanguage :: ListAcceptedPortfolioShares -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListAcceptedPortfolioShares)
+lapsAcceptLanguage :: Lens.Lens' ListAcceptedPortfolioShares (Core.Maybe Types.AcceptLanguage)
+lapsAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED lapsAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
-
--- | The page token for the next set of results. To retrieve the first set of results, use null.
---
--- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lapsPageToken :: Lens.Lens' ListAcceptedPortfolioShares (Lude.Maybe Lude.Text)
-lapsPageToken = Lens.lens (pageToken :: ListAcceptedPortfolioShares -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListAcceptedPortfolioShares)
-{-# DEPRECATED lapsPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lapsPageSize :: Lens.Lens' ListAcceptedPortfolioShares (Lude.Maybe Lude.Natural)
-lapsPageSize = Lens.lens (pageSize :: ListAcceptedPortfolioShares -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListAcceptedPortfolioShares)
+lapsPageSize :: Lens.Lens' ListAcceptedPortfolioShares (Core.Maybe Core.Natural)
+lapsPageSize = Lens.field @"pageSize"
 {-# DEPRECATED lapsPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Page.AWSPager ListAcceptedPortfolioShares where
-  page rq rs
-    | Page.stop (rs Lens.^. lapsrsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lapsrsPortfolioDetails) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lapsPageToken Lens..~ rs Lens.^. lapsrsNextPageToken
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lapsPageToken :: Lens.Lens' ListAcceptedPortfolioShares (Core.Maybe Types.PageToken)
+lapsPageToken = Lens.field @"pageToken"
+{-# DEPRECATED lapsPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Lude.AWSRequest ListAcceptedPortfolioShares where
+-- | The type of shared portfolios to list. The default is to list imported portfolios.
+--
+--
+--     * @AWS_ORGANIZATIONS@ - List portfolios shared by the management account of your organization
+--
+--
+--     * @AWS_SERVICECATALOG@ - List default portfolios
+--
+--
+--     * @IMPORTED@ - List imported portfolios
+--
+--
+--
+-- /Note:/ Consider using 'portfolioShareType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lapsPortfolioShareType :: Lens.Lens' ListAcceptedPortfolioShares (Core.Maybe Types.PortfolioShareType)
+lapsPortfolioShareType = Lens.field @"portfolioShareType"
+{-# DEPRECATED lapsPortfolioShareType "Use generic-lens or generic-optics with 'portfolioShareType' instead." #-}
+
+instance Core.FromJSON ListAcceptedPortfolioShares where
+  toJSON ListAcceptedPortfolioShares {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken,
+            ("PortfolioShareType" Core..=) Core.<$> portfolioShareType
+          ]
+      )
+
+instance Core.AWSRequest ListAcceptedPortfolioShares where
   type
     Rs ListAcceptedPortfolioShares =
       ListAcceptedPortfolioSharesResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.ListAcceptedPortfolioShares"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAcceptedPortfolioSharesResponse'
-            Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "PortfolioDetails" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextPageToken")
+            Core.<*> (x Core..:? "PortfolioDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAcceptedPortfolioShares where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.ListAcceptedPortfolioShares" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAcceptedPortfolioShares where
-  toJSON ListAcceptedPortfolioShares' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("PortfolioShareType" Lude..=) Lude.<$> portfolioShareType,
-            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("PageToken" Lude..=) Lude.<$> pageToken,
-            ("PageSize" Lude..=) Lude.<$> pageSize
-          ]
-      )
-
-instance Lude.ToPath ListAcceptedPortfolioShares where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAcceptedPortfolioShares where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAcceptedPortfolioShares where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"portfolioDetails" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkListAcceptedPortfolioSharesResponse' smart constructor.
 data ListAcceptedPortfolioSharesResponse = ListAcceptedPortfolioSharesResponse'
   { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | Information about the portfolios.
-    portfolioDetails :: Lude.Maybe [PortfolioDetail],
+    portfolioDetails :: Core.Maybe [Types.PortfolioDetail],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListAcceptedPortfolioSharesResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
--- * 'portfolioDetails' - Information about the portfolios.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAcceptedPortfolioSharesResponse' value with any optional fields omitted.
 mkListAcceptedPortfolioSharesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAcceptedPortfolioSharesResponse
-mkListAcceptedPortfolioSharesResponse pResponseStatus_ =
+mkListAcceptedPortfolioSharesResponse responseStatus =
   ListAcceptedPortfolioSharesResponse'
     { nextPageToken =
-        Lude.Nothing,
-      portfolioDetails = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      portfolioDetails = Core.Nothing,
+      responseStatus
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lapsrsNextPageToken :: Lens.Lens' ListAcceptedPortfolioSharesResponse (Lude.Maybe Lude.Text)
-lapsrsNextPageToken = Lens.lens (nextPageToken :: ListAcceptedPortfolioSharesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListAcceptedPortfolioSharesResponse)
-{-# DEPRECATED lapsrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+lapsrrsNextPageToken :: Lens.Lens' ListAcceptedPortfolioSharesResponse (Core.Maybe Types.NextPageToken)
+lapsrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED lapsrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | Information about the portfolios.
 --
 -- /Note:/ Consider using 'portfolioDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lapsrsPortfolioDetails :: Lens.Lens' ListAcceptedPortfolioSharesResponse (Lude.Maybe [PortfolioDetail])
-lapsrsPortfolioDetails = Lens.lens (portfolioDetails :: ListAcceptedPortfolioSharesResponse -> Lude.Maybe [PortfolioDetail]) (\s a -> s {portfolioDetails = a} :: ListAcceptedPortfolioSharesResponse)
-{-# DEPRECATED lapsrsPortfolioDetails "Use generic-lens or generic-optics with 'portfolioDetails' instead." #-}
+lapsrrsPortfolioDetails :: Lens.Lens' ListAcceptedPortfolioSharesResponse (Core.Maybe [Types.PortfolioDetail])
+lapsrrsPortfolioDetails = Lens.field @"portfolioDetails"
+{-# DEPRECATED lapsrrsPortfolioDetails "Use generic-lens or generic-optics with 'portfolioDetails' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lapsrsResponseStatus :: Lens.Lens' ListAcceptedPortfolioSharesResponse Lude.Int
-lapsrsResponseStatus = Lens.lens (responseStatus :: ListAcceptedPortfolioSharesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAcceptedPortfolioSharesResponse)
-{-# DEPRECATED lapsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lapsrrsResponseStatus :: Lens.Lens' ListAcceptedPortfolioSharesResponse Core.Int
+lapsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lapsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

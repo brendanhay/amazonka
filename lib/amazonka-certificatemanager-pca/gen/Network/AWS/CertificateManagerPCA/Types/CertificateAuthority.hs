@@ -17,206 +17,193 @@ module Network.AWS.CertificateManagerPCA.Types.CertificateAuthority
     mkCertificateAuthority,
 
     -- * Lenses
-    caStatus,
-    caFailureReason,
+    caArn,
     caCertificateAuthorityConfiguration,
-    caARN,
     caCreatedAt,
-    caSerial,
-    caNotBefore,
-    caRestorableUntil,
-    caType,
-    caOwnerAccount,
-    caRevocationConfiguration,
+    caFailureReason,
     caLastStateChangeAt,
     caNotAfter,
+    caNotBefore,
+    caOwnerAccount,
+    caRestorableUntil,
+    caRevocationConfiguration,
+    caSerial,
+    caStatus,
+    caType,
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus
-import Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType
-import Network.AWS.CertificateManagerPCA.Types.FailureReason
-import Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration
+import qualified Network.AWS.CertificateManagerPCA.Types.AccountId as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.Arn as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityConfiguration as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityStatus as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.CertificateAuthorityType as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.FailureReason as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.RevocationConfiguration as Types
+import qualified Network.AWS.CertificateManagerPCA.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about your private certificate authority (CA). Your private CA can issue and revoke X.509 digital certificates. Digital certificates verify that the entity named in the certificate __Subject__ field owns or controls the public key contained in the __Subject Public Key Info__ field. Call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_CreateCertificateAuthority.html CreateCertificateAuthority> action to create your private CA. You must then call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_GetCertificateAuthorityCertificate.html GetCertificateAuthorityCertificate> action to retrieve a private CA certificate signing request (CSR). Sign the CSR with your ACM Private CA-hosted or on-premises root or subordinate CA certificate. Call the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_ImportCertificateAuthorityCertificate.html ImportCertificateAuthorityCertificate> action to import the signed certificate into AWS Certificate Manager (ACM).
 --
 -- /See:/ 'mkCertificateAuthority' smart constructor.
 data CertificateAuthority = CertificateAuthority'
-  { -- | Status of your private CA.
-    status :: Lude.Maybe CertificateAuthorityStatus,
-    -- | Reason the request to create your private CA failed.
-    failureReason :: Lude.Maybe FailureReason,
+  { -- | Amazon Resource Name (ARN) for your private certificate authority (CA). The format is @/12345678-1234-1234-1234-123456789012/ @ .
+    arn :: Core.Maybe Types.Arn,
     -- | Your private CA configuration.
-    certificateAuthorityConfiguration :: Lude.Maybe CertificateAuthorityConfiguration,
-    -- | Amazon Resource Name (ARN) for your private certificate authority (CA). The format is @/12345678-1234-1234-1234-123456789012/ @ .
-    arn :: Lude.Maybe Lude.Text,
+    certificateAuthorityConfiguration :: Core.Maybe Types.CertificateAuthorityConfiguration,
     -- | Date and time at which your private CA was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | Serial number of your private CA.
-    serial :: Lude.Maybe Lude.Text,
-    -- | Date and time before which your private CA certificate is not valid.
-    notBefore :: Lude.Maybe Lude.Timestamp,
-    -- | The period during which a deleted CA can be restored. For more information, see the @PermanentDeletionTimeInDays@ parameter of the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest> action.
-    restorableUntil :: Lude.Maybe Lude.Timestamp,
-    -- | Type of your private CA.
-    type' :: Lude.Maybe CertificateAuthorityType,
-    -- | The AWS account ID that owns the certificate authority.
-    ownerAccount :: Lude.Maybe Lude.Text,
-    -- | Information about the certificate revocation list (CRL) created and maintained by your private CA.
-    revocationConfiguration :: Lude.Maybe RevocationConfiguration,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
+    -- | Reason the request to create your private CA failed.
+    failureReason :: Core.Maybe Types.FailureReason,
     -- | Date and time at which your private CA was last updated.
-    lastStateChangeAt :: Lude.Maybe Lude.Timestamp,
+    lastStateChangeAt :: Core.Maybe Core.NominalDiffTime,
     -- | Date and time after which your private CA certificate is not valid.
-    notAfter :: Lude.Maybe Lude.Timestamp
+    notAfter :: Core.Maybe Core.NominalDiffTime,
+    -- | Date and time before which your private CA certificate is not valid.
+    notBefore :: Core.Maybe Core.NominalDiffTime,
+    -- | The AWS account ID that owns the certificate authority.
+    ownerAccount :: Core.Maybe Types.AccountId,
+    -- | The period during which a deleted CA can be restored. For more information, see the @PermanentDeletionTimeInDays@ parameter of the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest> action.
+    restorableUntil :: Core.Maybe Core.NominalDiffTime,
+    -- | Information about the certificate revocation list (CRL) created and maintained by your private CA.
+    revocationConfiguration :: Core.Maybe Types.RevocationConfiguration,
+    -- | Serial number of your private CA.
+    serial :: Core.Maybe Types.String,
+    -- | Status of your private CA.
+    status :: Core.Maybe Types.CertificateAuthorityStatus,
+    -- | Type of your private CA.
+    type' :: Core.Maybe Types.CertificateAuthorityType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CertificateAuthority' with the minimum fields required to make a request.
---
--- * 'status' - Status of your private CA.
--- * 'failureReason' - Reason the request to create your private CA failed.
--- * 'certificateAuthorityConfiguration' - Your private CA configuration.
--- * 'arn' - Amazon Resource Name (ARN) for your private certificate authority (CA). The format is @/12345678-1234-1234-1234-123456789012/ @ .
--- * 'createdAt' - Date and time at which your private CA was created.
--- * 'serial' - Serial number of your private CA.
--- * 'notBefore' - Date and time before which your private CA certificate is not valid.
--- * 'restorableUntil' - The period during which a deleted CA can be restored. For more information, see the @PermanentDeletionTimeInDays@ parameter of the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest> action.
--- * 'type'' - Type of your private CA.
--- * 'ownerAccount' - The AWS account ID that owns the certificate authority.
--- * 'revocationConfiguration' - Information about the certificate revocation list (CRL) created and maintained by your private CA.
--- * 'lastStateChangeAt' - Date and time at which your private CA was last updated.
--- * 'notAfter' - Date and time after which your private CA certificate is not valid.
+-- | Creates a 'CertificateAuthority' value with any optional fields omitted.
 mkCertificateAuthority ::
   CertificateAuthority
 mkCertificateAuthority =
   CertificateAuthority'
-    { status = Lude.Nothing,
-      failureReason = Lude.Nothing,
-      certificateAuthorityConfiguration = Lude.Nothing,
-      arn = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      serial = Lude.Nothing,
-      notBefore = Lude.Nothing,
-      restorableUntil = Lude.Nothing,
-      type' = Lude.Nothing,
-      ownerAccount = Lude.Nothing,
-      revocationConfiguration = Lude.Nothing,
-      lastStateChangeAt = Lude.Nothing,
-      notAfter = Lude.Nothing
+    { arn = Core.Nothing,
+      certificateAuthorityConfiguration = Core.Nothing,
+      createdAt = Core.Nothing,
+      failureReason = Core.Nothing,
+      lastStateChangeAt = Core.Nothing,
+      notAfter = Core.Nothing,
+      notBefore = Core.Nothing,
+      ownerAccount = Core.Nothing,
+      restorableUntil = Core.Nothing,
+      revocationConfiguration = Core.Nothing,
+      serial = Core.Nothing,
+      status = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | Status of your private CA.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caStatus :: Lens.Lens' CertificateAuthority (Lude.Maybe CertificateAuthorityStatus)
-caStatus = Lens.lens (status :: CertificateAuthority -> Lude.Maybe CertificateAuthorityStatus) (\s a -> s {status = a} :: CertificateAuthority)
-{-# DEPRECATED caStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Reason the request to create your private CA failed.
---
--- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caFailureReason :: Lens.Lens' CertificateAuthority (Lude.Maybe FailureReason)
-caFailureReason = Lens.lens (failureReason :: CertificateAuthority -> Lude.Maybe FailureReason) (\s a -> s {failureReason = a} :: CertificateAuthority)
-{-# DEPRECATED caFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
-
--- | Your private CA configuration.
---
--- /Note:/ Consider using 'certificateAuthorityConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caCertificateAuthorityConfiguration :: Lens.Lens' CertificateAuthority (Lude.Maybe CertificateAuthorityConfiguration)
-caCertificateAuthorityConfiguration = Lens.lens (certificateAuthorityConfiguration :: CertificateAuthority -> Lude.Maybe CertificateAuthorityConfiguration) (\s a -> s {certificateAuthorityConfiguration = a} :: CertificateAuthority)
-{-# DEPRECATED caCertificateAuthorityConfiguration "Use generic-lens or generic-optics with 'certificateAuthorityConfiguration' instead." #-}
 
 -- | Amazon Resource Name (ARN) for your private certificate authority (CA). The format is @/12345678-1234-1234-1234-123456789012/ @ .
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caARN :: Lens.Lens' CertificateAuthority (Lude.Maybe Lude.Text)
-caARN = Lens.lens (arn :: CertificateAuthority -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CertificateAuthority)
-{-# DEPRECATED caARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+caArn :: Lens.Lens' CertificateAuthority (Core.Maybe Types.Arn)
+caArn = Lens.field @"arn"
+{-# DEPRECATED caArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | Your private CA configuration.
+--
+-- /Note:/ Consider using 'certificateAuthorityConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caCertificateAuthorityConfiguration :: Lens.Lens' CertificateAuthority (Core.Maybe Types.CertificateAuthorityConfiguration)
+caCertificateAuthorityConfiguration = Lens.field @"certificateAuthorityConfiguration"
+{-# DEPRECATED caCertificateAuthorityConfiguration "Use generic-lens or generic-optics with 'certificateAuthorityConfiguration' instead." #-}
 
 -- | Date and time at which your private CA was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caCreatedAt :: Lens.Lens' CertificateAuthority (Lude.Maybe Lude.Timestamp)
-caCreatedAt = Lens.lens (createdAt :: CertificateAuthority -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: CertificateAuthority)
+caCreatedAt :: Lens.Lens' CertificateAuthority (Core.Maybe Core.NominalDiffTime)
+caCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED caCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
--- | Serial number of your private CA.
+-- | Reason the request to create your private CA failed.
 --
--- /Note:/ Consider using 'serial' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caSerial :: Lens.Lens' CertificateAuthority (Lude.Maybe Lude.Text)
-caSerial = Lens.lens (serial :: CertificateAuthority -> Lude.Maybe Lude.Text) (\s a -> s {serial = a} :: CertificateAuthority)
-{-# DEPRECATED caSerial "Use generic-lens or generic-optics with 'serial' instead." #-}
-
--- | Date and time before which your private CA certificate is not valid.
---
--- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caNotBefore :: Lens.Lens' CertificateAuthority (Lude.Maybe Lude.Timestamp)
-caNotBefore = Lens.lens (notBefore :: CertificateAuthority -> Lude.Maybe Lude.Timestamp) (\s a -> s {notBefore = a} :: CertificateAuthority)
-{-# DEPRECATED caNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
-
--- | The period during which a deleted CA can be restored. For more information, see the @PermanentDeletionTimeInDays@ parameter of the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest> action.
---
--- /Note:/ Consider using 'restorableUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caRestorableUntil :: Lens.Lens' CertificateAuthority (Lude.Maybe Lude.Timestamp)
-caRestorableUntil = Lens.lens (restorableUntil :: CertificateAuthority -> Lude.Maybe Lude.Timestamp) (\s a -> s {restorableUntil = a} :: CertificateAuthority)
-{-# DEPRECATED caRestorableUntil "Use generic-lens or generic-optics with 'restorableUntil' instead." #-}
-
--- | Type of your private CA.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caType :: Lens.Lens' CertificateAuthority (Lude.Maybe CertificateAuthorityType)
-caType = Lens.lens (type' :: CertificateAuthority -> Lude.Maybe CertificateAuthorityType) (\s a -> s {type' = a} :: CertificateAuthority)
-{-# DEPRECATED caType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
--- | The AWS account ID that owns the certificate authority.
---
--- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caOwnerAccount :: Lens.Lens' CertificateAuthority (Lude.Maybe Lude.Text)
-caOwnerAccount = Lens.lens (ownerAccount :: CertificateAuthority -> Lude.Maybe Lude.Text) (\s a -> s {ownerAccount = a} :: CertificateAuthority)
-{-# DEPRECATED caOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
-
--- | Information about the certificate revocation list (CRL) created and maintained by your private CA.
---
--- /Note:/ Consider using 'revocationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caRevocationConfiguration :: Lens.Lens' CertificateAuthority (Lude.Maybe RevocationConfiguration)
-caRevocationConfiguration = Lens.lens (revocationConfiguration :: CertificateAuthority -> Lude.Maybe RevocationConfiguration) (\s a -> s {revocationConfiguration = a} :: CertificateAuthority)
-{-# DEPRECATED caRevocationConfiguration "Use generic-lens or generic-optics with 'revocationConfiguration' instead." #-}
+-- /Note:/ Consider using 'failureReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caFailureReason :: Lens.Lens' CertificateAuthority (Core.Maybe Types.FailureReason)
+caFailureReason = Lens.field @"failureReason"
+{-# DEPRECATED caFailureReason "Use generic-lens or generic-optics with 'failureReason' instead." #-}
 
 -- | Date and time at which your private CA was last updated.
 --
 -- /Note:/ Consider using 'lastStateChangeAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caLastStateChangeAt :: Lens.Lens' CertificateAuthority (Lude.Maybe Lude.Timestamp)
-caLastStateChangeAt = Lens.lens (lastStateChangeAt :: CertificateAuthority -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastStateChangeAt = a} :: CertificateAuthority)
+caLastStateChangeAt :: Lens.Lens' CertificateAuthority (Core.Maybe Core.NominalDiffTime)
+caLastStateChangeAt = Lens.field @"lastStateChangeAt"
 {-# DEPRECATED caLastStateChangeAt "Use generic-lens or generic-optics with 'lastStateChangeAt' instead." #-}
 
 -- | Date and time after which your private CA certificate is not valid.
 --
 -- /Note:/ Consider using 'notAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caNotAfter :: Lens.Lens' CertificateAuthority (Lude.Maybe Lude.Timestamp)
-caNotAfter = Lens.lens (notAfter :: CertificateAuthority -> Lude.Maybe Lude.Timestamp) (\s a -> s {notAfter = a} :: CertificateAuthority)
+caNotAfter :: Lens.Lens' CertificateAuthority (Core.Maybe Core.NominalDiffTime)
+caNotAfter = Lens.field @"notAfter"
 {-# DEPRECATED caNotAfter "Use generic-lens or generic-optics with 'notAfter' instead." #-}
 
-instance Lude.FromJSON CertificateAuthority where
+-- | Date and time before which your private CA certificate is not valid.
+--
+-- /Note:/ Consider using 'notBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caNotBefore :: Lens.Lens' CertificateAuthority (Core.Maybe Core.NominalDiffTime)
+caNotBefore = Lens.field @"notBefore"
+{-# DEPRECATED caNotBefore "Use generic-lens or generic-optics with 'notBefore' instead." #-}
+
+-- | The AWS account ID that owns the certificate authority.
+--
+-- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caOwnerAccount :: Lens.Lens' CertificateAuthority (Core.Maybe Types.AccountId)
+caOwnerAccount = Lens.field @"ownerAccount"
+{-# DEPRECATED caOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
+
+-- | The period during which a deleted CA can be restored. For more information, see the @PermanentDeletionTimeInDays@ parameter of the <https://docs.aws.amazon.com/acm-pca/latest/APIReference/API_DeleteCertificateAuthorityRequest.html DeleteCertificateAuthorityRequest> action.
+--
+-- /Note:/ Consider using 'restorableUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caRestorableUntil :: Lens.Lens' CertificateAuthority (Core.Maybe Core.NominalDiffTime)
+caRestorableUntil = Lens.field @"restorableUntil"
+{-# DEPRECATED caRestorableUntil "Use generic-lens or generic-optics with 'restorableUntil' instead." #-}
+
+-- | Information about the certificate revocation list (CRL) created and maintained by your private CA.
+--
+-- /Note:/ Consider using 'revocationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caRevocationConfiguration :: Lens.Lens' CertificateAuthority (Core.Maybe Types.RevocationConfiguration)
+caRevocationConfiguration = Lens.field @"revocationConfiguration"
+{-# DEPRECATED caRevocationConfiguration "Use generic-lens or generic-optics with 'revocationConfiguration' instead." #-}
+
+-- | Serial number of your private CA.
+--
+-- /Note:/ Consider using 'serial' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caSerial :: Lens.Lens' CertificateAuthority (Core.Maybe Types.String)
+caSerial = Lens.field @"serial"
+{-# DEPRECATED caSerial "Use generic-lens or generic-optics with 'serial' instead." #-}
+
+-- | Status of your private CA.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caStatus :: Lens.Lens' CertificateAuthority (Core.Maybe Types.CertificateAuthorityStatus)
+caStatus = Lens.field @"status"
+{-# DEPRECATED caStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | Type of your private CA.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caType :: Lens.Lens' CertificateAuthority (Core.Maybe Types.CertificateAuthorityType)
+caType = Lens.field @"type'"
+{-# DEPRECATED caType "Use generic-lens or generic-optics with 'type'' instead." #-}
+
+instance Core.FromJSON CertificateAuthority where
   parseJSON =
-    Lude.withObject
-      "CertificateAuthority"
-      ( \x ->
-          CertificateAuthority'
-            Lude.<$> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "FailureReason")
-            Lude.<*> (x Lude..:? "CertificateAuthorityConfiguration")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "Serial")
-            Lude.<*> (x Lude..:? "NotBefore")
-            Lude.<*> (x Lude..:? "RestorableUntil")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "OwnerAccount")
-            Lude.<*> (x Lude..:? "RevocationConfiguration")
-            Lude.<*> (x Lude..:? "LastStateChangeAt")
-            Lude.<*> (x Lude..:? "NotAfter")
-      )
+    Core.withObject "CertificateAuthority" Core.$
+      \x ->
+        CertificateAuthority'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "CertificateAuthorityConfiguration")
+          Core.<*> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "FailureReason")
+          Core.<*> (x Core..:? "LastStateChangeAt")
+          Core.<*> (x Core..:? "NotAfter")
+          Core.<*> (x Core..:? "NotBefore")
+          Core.<*> (x Core..:? "OwnerAccount")
+          Core.<*> (x Core..:? "RestorableUntil")
+          Core.<*> (x Core..:? "RevocationConfiguration")
+          Core.<*> (x Core..:? "Serial")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "Type")

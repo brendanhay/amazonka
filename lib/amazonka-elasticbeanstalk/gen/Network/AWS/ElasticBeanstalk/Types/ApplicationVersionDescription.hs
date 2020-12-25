@@ -17,30 +17,51 @@ module Network.AWS.ElasticBeanstalk.Types.ApplicationVersionDescription
     mkApplicationVersionDescription,
 
     -- * Lenses
-    avdStatus,
-    avdSourceBundle,
-    avdDateUpdated,
-    avdDateCreated,
-    avdVersionLabel,
-    avdSourceBuildInformation,
     avdApplicationName,
-    avdApplicationVersionARN,
-    avdBuildARN,
+    avdApplicationVersionArn,
+    avdBuildArn,
+    avdDateCreated,
+    avdDateUpdated,
     avdDescription,
+    avdSourceBuildInformation,
+    avdSourceBundle,
+    avdStatus,
+    avdVersionLabel,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus
-import Network.AWS.ElasticBeanstalk.Types.S3Location
-import Network.AWS.ElasticBeanstalk.Types.SourceBuildInformation
+import qualified Network.AWS.ElasticBeanstalk.Types.ApplicationName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ApplicationVersionArn as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.Description as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.S3Location as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.SourceBuildInformation as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.String as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.VersionLabel as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the properties of an application version.
 --
 -- /See:/ 'mkApplicationVersionDescription' smart constructor.
 data ApplicationVersionDescription = ApplicationVersionDescription'
-  { -- | The processing status of the application version. Reflects the state of the application version during its creation. Many of the values are only applicable if you specified @True@ for the @Process@ parameter of the @CreateApplicationVersion@ action. The following list describes the possible values.
+  { -- | The name of the application to which the application version belongs.
+    applicationName :: Core.Maybe Types.ApplicationName,
+    -- | The Amazon Resource Name (ARN) of the application version.
+    applicationVersionArn :: Core.Maybe Types.ApplicationVersionArn,
+    -- | Reference to the artifact from the AWS CodeBuild build.
+    buildArn :: Core.Maybe Types.String,
+    -- | The creation date of the application version.
+    dateCreated :: Core.Maybe Core.UTCTime,
+    -- | The last modified date of the application version.
+    dateUpdated :: Core.Maybe Core.UTCTime,
+    -- | The description of the application version.
+    description :: Core.Maybe Types.Description,
+    -- | If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
+    sourceBuildInformation :: Core.Maybe Types.SourceBuildInformation,
+    -- | The storage location of the application version's source bundle in Amazon S3.
+    sourceBundle :: Core.Maybe Types.S3Location,
+    -- | The processing status of the application version. Reflects the state of the application version during its creation. Many of the values are only applicable if you specified @True@ for the @Process@ parameter of the @CreateApplicationVersion@ action. The following list describes the possible values.
     --
     --
     --     * @Unprocessed@ – Application version wasn't pre-processed or validated. Elastic Beanstalk will validate configuration files during deployment of the application version to an environment.
@@ -56,73 +77,85 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
     --
     --
     --     * @Failed@ – Either the AWS CodeBuild build failed or configuration files didn't pass validation. This application version isn't usable.
-    status :: Lude.Maybe ApplicationVersionStatus,
-    -- | The storage location of the application version's source bundle in Amazon S3.
-    sourceBundle :: Lude.Maybe S3Location,
-    -- | The last modified date of the application version.
-    dateUpdated :: Lude.Maybe Lude.DateTime,
-    -- | The creation date of the application version.
-    dateCreated :: Lude.Maybe Lude.DateTime,
+    status :: Core.Maybe Types.ApplicationVersionStatus,
     -- | A unique identifier for the application version.
-    versionLabel :: Lude.Maybe Lude.Text,
-    -- | If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
-    sourceBuildInformation :: Lude.Maybe SourceBuildInformation,
-    -- | The name of the application to which the application version belongs.
-    applicationName :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the application version.
-    applicationVersionARN :: Lude.Maybe Lude.Text,
-    -- | Reference to the artifact from the AWS CodeBuild build.
-    buildARN :: Lude.Maybe Lude.Text,
-    -- | The description of the application version.
-    description :: Lude.Maybe Lude.Text
+    versionLabel :: Core.Maybe Types.VersionLabel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ApplicationVersionDescription' with the minimum fields required to make a request.
---
--- * 'status' - The processing status of the application version. Reflects the state of the application version during its creation. Many of the values are only applicable if you specified @True@ for the @Process@ parameter of the @CreateApplicationVersion@ action. The following list describes the possible values.
---
---
---     * @Unprocessed@ – Application version wasn't pre-processed or validated. Elastic Beanstalk will validate configuration files during deployment of the application version to an environment.
---
---
---     * @Processing@ – Elastic Beanstalk is currently processing the application version.
---
---
---     * @Building@ – Application version is currently undergoing an AWS CodeBuild build.
---
---
---     * @Processed@ – Elastic Beanstalk was successfully pre-processed and validated.
---
---
---     * @Failed@ – Either the AWS CodeBuild build failed or configuration files didn't pass validation. This application version isn't usable.
---
---
--- * 'sourceBundle' - The storage location of the application version's source bundle in Amazon S3.
--- * 'dateUpdated' - The last modified date of the application version.
--- * 'dateCreated' - The creation date of the application version.
--- * 'versionLabel' - A unique identifier for the application version.
--- * 'sourceBuildInformation' - If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
--- * 'applicationName' - The name of the application to which the application version belongs.
--- * 'applicationVersionARN' - The Amazon Resource Name (ARN) of the application version.
--- * 'buildARN' - Reference to the artifact from the AWS CodeBuild build.
--- * 'description' - The description of the application version.
+-- | Creates a 'ApplicationVersionDescription' value with any optional fields omitted.
 mkApplicationVersionDescription ::
   ApplicationVersionDescription
 mkApplicationVersionDescription =
   ApplicationVersionDescription'
-    { status = Lude.Nothing,
-      sourceBundle = Lude.Nothing,
-      dateUpdated = Lude.Nothing,
-      dateCreated = Lude.Nothing,
-      versionLabel = Lude.Nothing,
-      sourceBuildInformation = Lude.Nothing,
-      applicationName = Lude.Nothing,
-      applicationVersionARN = Lude.Nothing,
-      buildARN = Lude.Nothing,
-      description = Lude.Nothing
+    { applicationName = Core.Nothing,
+      applicationVersionArn = Core.Nothing,
+      buildArn = Core.Nothing,
+      dateCreated = Core.Nothing,
+      dateUpdated = Core.Nothing,
+      description = Core.Nothing,
+      sourceBuildInformation = Core.Nothing,
+      sourceBundle = Core.Nothing,
+      status = Core.Nothing,
+      versionLabel = Core.Nothing
     }
+
+-- | The name of the application to which the application version belongs.
+--
+-- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avdApplicationName :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Types.ApplicationName)
+avdApplicationName = Lens.field @"applicationName"
+{-# DEPRECATED avdApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the application version.
+--
+-- /Note:/ Consider using 'applicationVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avdApplicationVersionArn :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Types.ApplicationVersionArn)
+avdApplicationVersionArn = Lens.field @"applicationVersionArn"
+{-# DEPRECATED avdApplicationVersionArn "Use generic-lens or generic-optics with 'applicationVersionArn' instead." #-}
+
+-- | Reference to the artifact from the AWS CodeBuild build.
+--
+-- /Note:/ Consider using 'buildArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avdBuildArn :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Types.String)
+avdBuildArn = Lens.field @"buildArn"
+{-# DEPRECATED avdBuildArn "Use generic-lens or generic-optics with 'buildArn' instead." #-}
+
+-- | The creation date of the application version.
+--
+-- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avdDateCreated :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Core.UTCTime)
+avdDateCreated = Lens.field @"dateCreated"
+{-# DEPRECATED avdDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
+
+-- | The last modified date of the application version.
+--
+-- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avdDateUpdated :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Core.UTCTime)
+avdDateUpdated = Lens.field @"dateUpdated"
+{-# DEPRECATED avdDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
+
+-- | The description of the application version.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avdDescription :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Types.Description)
+avdDescription = Lens.field @"description"
+{-# DEPRECATED avdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
+--
+-- /Note:/ Consider using 'sourceBuildInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avdSourceBuildInformation :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Types.SourceBuildInformation)
+avdSourceBuildInformation = Lens.field @"sourceBuildInformation"
+{-# DEPRECATED avdSourceBuildInformation "Use generic-lens or generic-optics with 'sourceBuildInformation' instead." #-}
+
+-- | The storage location of the application version's source bundle in Amazon S3.
+--
+-- /Note:/ Consider using 'sourceBundle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+avdSourceBundle :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Types.S3Location)
+avdSourceBundle = Lens.field @"sourceBundle"
+{-# DEPRECATED avdSourceBundle "Use generic-lens or generic-optics with 'sourceBundle' instead." #-}
 
 -- | The processing status of the application version. Reflects the state of the application version during its creation. Many of the values are only applicable if you specified @True@ for the @Process@ parameter of the @CreateApplicationVersion@ action. The following list describes the possible values.
 --
@@ -144,83 +177,27 @@ mkApplicationVersionDescription =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdStatus :: Lens.Lens' ApplicationVersionDescription (Lude.Maybe ApplicationVersionStatus)
-avdStatus = Lens.lens (status :: ApplicationVersionDescription -> Lude.Maybe ApplicationVersionStatus) (\s a -> s {status = a} :: ApplicationVersionDescription)
+avdStatus :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Types.ApplicationVersionStatus)
+avdStatus = Lens.field @"status"
 {-# DEPRECATED avdStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The storage location of the application version's source bundle in Amazon S3.
---
--- /Note:/ Consider using 'sourceBundle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdSourceBundle :: Lens.Lens' ApplicationVersionDescription (Lude.Maybe S3Location)
-avdSourceBundle = Lens.lens (sourceBundle :: ApplicationVersionDescription -> Lude.Maybe S3Location) (\s a -> s {sourceBundle = a} :: ApplicationVersionDescription)
-{-# DEPRECATED avdSourceBundle "Use generic-lens or generic-optics with 'sourceBundle' instead." #-}
-
--- | The last modified date of the application version.
---
--- /Note:/ Consider using 'dateUpdated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdDateUpdated :: Lens.Lens' ApplicationVersionDescription (Lude.Maybe Lude.DateTime)
-avdDateUpdated = Lens.lens (dateUpdated :: ApplicationVersionDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateUpdated = a} :: ApplicationVersionDescription)
-{-# DEPRECATED avdDateUpdated "Use generic-lens or generic-optics with 'dateUpdated' instead." #-}
-
--- | The creation date of the application version.
---
--- /Note:/ Consider using 'dateCreated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdDateCreated :: Lens.Lens' ApplicationVersionDescription (Lude.Maybe Lude.DateTime)
-avdDateCreated = Lens.lens (dateCreated :: ApplicationVersionDescription -> Lude.Maybe Lude.DateTime) (\s a -> s {dateCreated = a} :: ApplicationVersionDescription)
-{-# DEPRECATED avdDateCreated "Use generic-lens or generic-optics with 'dateCreated' instead." #-}
 
 -- | A unique identifier for the application version.
 --
 -- /Note:/ Consider using 'versionLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdVersionLabel :: Lens.Lens' ApplicationVersionDescription (Lude.Maybe Lude.Text)
-avdVersionLabel = Lens.lens (versionLabel :: ApplicationVersionDescription -> Lude.Maybe Lude.Text) (\s a -> s {versionLabel = a} :: ApplicationVersionDescription)
+avdVersionLabel :: Lens.Lens' ApplicationVersionDescription (Core.Maybe Types.VersionLabel)
+avdVersionLabel = Lens.field @"versionLabel"
 {-# DEPRECATED avdVersionLabel "Use generic-lens or generic-optics with 'versionLabel' instead." #-}
 
--- | If the version's source code was retrieved from AWS CodeCommit, the location of the source code for the application version.
---
--- /Note:/ Consider using 'sourceBuildInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdSourceBuildInformation :: Lens.Lens' ApplicationVersionDescription (Lude.Maybe SourceBuildInformation)
-avdSourceBuildInformation = Lens.lens (sourceBuildInformation :: ApplicationVersionDescription -> Lude.Maybe SourceBuildInformation) (\s a -> s {sourceBuildInformation = a} :: ApplicationVersionDescription)
-{-# DEPRECATED avdSourceBuildInformation "Use generic-lens or generic-optics with 'sourceBuildInformation' instead." #-}
-
--- | The name of the application to which the application version belongs.
---
--- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdApplicationName :: Lens.Lens' ApplicationVersionDescription (Lude.Maybe Lude.Text)
-avdApplicationName = Lens.lens (applicationName :: ApplicationVersionDescription -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: ApplicationVersionDescription)
-{-# DEPRECATED avdApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the application version.
---
--- /Note:/ Consider using 'applicationVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdApplicationVersionARN :: Lens.Lens' ApplicationVersionDescription (Lude.Maybe Lude.Text)
-avdApplicationVersionARN = Lens.lens (applicationVersionARN :: ApplicationVersionDescription -> Lude.Maybe Lude.Text) (\s a -> s {applicationVersionARN = a} :: ApplicationVersionDescription)
-{-# DEPRECATED avdApplicationVersionARN "Use generic-lens or generic-optics with 'applicationVersionARN' instead." #-}
-
--- | Reference to the artifact from the AWS CodeBuild build.
---
--- /Note:/ Consider using 'buildARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdBuildARN :: Lens.Lens' ApplicationVersionDescription (Lude.Maybe Lude.Text)
-avdBuildARN = Lens.lens (buildARN :: ApplicationVersionDescription -> Lude.Maybe Lude.Text) (\s a -> s {buildARN = a} :: ApplicationVersionDescription)
-{-# DEPRECATED avdBuildARN "Use generic-lens or generic-optics with 'buildARN' instead." #-}
-
--- | The description of the application version.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avdDescription :: Lens.Lens' ApplicationVersionDescription (Lude.Maybe Lude.Text)
-avdDescription = Lens.lens (description :: ApplicationVersionDescription -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ApplicationVersionDescription)
-{-# DEPRECATED avdDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.FromXML ApplicationVersionDescription where
+instance Core.FromXML ApplicationVersionDescription where
   parseXML x =
     ApplicationVersionDescription'
-      Lude.<$> (x Lude..@? "Status")
-      Lude.<*> (x Lude..@? "SourceBundle")
-      Lude.<*> (x Lude..@? "DateUpdated")
-      Lude.<*> (x Lude..@? "DateCreated")
-      Lude.<*> (x Lude..@? "VersionLabel")
-      Lude.<*> (x Lude..@? "SourceBuildInformation")
-      Lude.<*> (x Lude..@? "ApplicationName")
-      Lude.<*> (x Lude..@? "ApplicationVersionArn")
-      Lude.<*> (x Lude..@? "BuildArn")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<$> (x Core..@? "ApplicationName")
+      Core.<*> (x Core..@? "ApplicationVersionArn")
+      Core.<*> (x Core..@? "BuildArn")
+      Core.<*> (x Core..@? "DateCreated")
+      Core.<*> (x Core..@? "DateUpdated")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "SourceBuildInformation")
+      Core.<*> (x Core..@? "SourceBundle")
+      Core.<*> (x Core..@? "Status")
+      Core.<*> (x Core..@? "VersionLabel")

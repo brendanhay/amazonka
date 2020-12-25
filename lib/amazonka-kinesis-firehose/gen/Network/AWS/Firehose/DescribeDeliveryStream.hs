@@ -22,154 +22,139 @@ module Network.AWS.Firehose.DescribeDeliveryStream
     mkDescribeDeliveryStream,
 
     -- ** Request lenses
-    dExclusiveStartDestinationId,
-    dDeliveryStreamName,
-    dLimit,
+    ddsDeliveryStreamName,
+    ddsExclusiveStartDestinationId,
+    ddsLimit,
 
     -- * Destructuring the response
     DescribeDeliveryStreamResponse (..),
     mkDescribeDeliveryStreamResponse,
 
     -- ** Response lenses
-    ddsrsDeliveryStreamDescription,
-    ddsrsResponseStatus,
+    ddsrrsDeliveryStreamDescription,
+    ddsrrsResponseStatus,
   )
 where
 
-import Network.AWS.Firehose.Types
+import qualified Network.AWS.Firehose.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeDeliveryStream' smart constructor.
 data DescribeDeliveryStream = DescribeDeliveryStream'
-  { -- | The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream.
-    exclusiveStartDestinationId :: Lude.Maybe Lude.Text,
-    -- | The name of the delivery stream.
-    deliveryStreamName :: Lude.Text,
+  { -- | The name of the delivery stream.
+    deliveryStreamName :: Types.DeliveryStreamName,
+    -- | The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream.
+    exclusiveStartDestinationId :: Core.Maybe Types.ExclusiveStartDestinationId,
     -- | The limit on the number of destinations to return. You can have one destination per delivery stream.
-    limit :: Lude.Maybe Lude.Natural
+    limit :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDeliveryStream' with the minimum fields required to make a request.
---
--- * 'exclusiveStartDestinationId' - The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream.
--- * 'deliveryStreamName' - The name of the delivery stream.
--- * 'limit' - The limit on the number of destinations to return. You can have one destination per delivery stream.
+-- | Creates a 'DescribeDeliveryStream' value with any optional fields omitted.
 mkDescribeDeliveryStream ::
   -- | 'deliveryStreamName'
-  Lude.Text ->
+  Types.DeliveryStreamName ->
   DescribeDeliveryStream
-mkDescribeDeliveryStream pDeliveryStreamName_ =
+mkDescribeDeliveryStream deliveryStreamName =
   DescribeDeliveryStream'
-    { exclusiveStartDestinationId =
-        Lude.Nothing,
-      deliveryStreamName = pDeliveryStreamName_,
-      limit = Lude.Nothing
+    { deliveryStreamName,
+      exclusiveStartDestinationId = Core.Nothing,
+      limit = Core.Nothing
     }
-
--- | The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream.
---
--- /Note:/ Consider using 'exclusiveStartDestinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dExclusiveStartDestinationId :: Lens.Lens' DescribeDeliveryStream (Lude.Maybe Lude.Text)
-dExclusiveStartDestinationId = Lens.lens (exclusiveStartDestinationId :: DescribeDeliveryStream -> Lude.Maybe Lude.Text) (\s a -> s {exclusiveStartDestinationId = a} :: DescribeDeliveryStream)
-{-# DEPRECATED dExclusiveStartDestinationId "Use generic-lens or generic-optics with 'exclusiveStartDestinationId' instead." #-}
 
 -- | The name of the delivery stream.
 --
 -- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDeliveryStreamName :: Lens.Lens' DescribeDeliveryStream Lude.Text
-dDeliveryStreamName = Lens.lens (deliveryStreamName :: DescribeDeliveryStream -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: DescribeDeliveryStream)
-{-# DEPRECATED dDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
+ddsDeliveryStreamName :: Lens.Lens' DescribeDeliveryStream Types.DeliveryStreamName
+ddsDeliveryStreamName = Lens.field @"deliveryStreamName"
+{-# DEPRECATED ddsDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
+
+-- | The ID of the destination to start returning the destination information. Kinesis Data Firehose supports one destination per delivery stream.
+--
+-- /Note:/ Consider using 'exclusiveStartDestinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddsExclusiveStartDestinationId :: Lens.Lens' DescribeDeliveryStream (Core.Maybe Types.ExclusiveStartDestinationId)
+ddsExclusiveStartDestinationId = Lens.field @"exclusiveStartDestinationId"
+{-# DEPRECATED ddsExclusiveStartDestinationId "Use generic-lens or generic-optics with 'exclusiveStartDestinationId' instead." #-}
 
 -- | The limit on the number of destinations to return. You can have one destination per delivery stream.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dLimit :: Lens.Lens' DescribeDeliveryStream (Lude.Maybe Lude.Natural)
-dLimit = Lens.lens (limit :: DescribeDeliveryStream -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeDeliveryStream)
-{-# DEPRECATED dLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+ddsLimit :: Lens.Lens' DescribeDeliveryStream (Core.Maybe Core.Natural)
+ddsLimit = Lens.field @"limit"
+{-# DEPRECATED ddsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest DescribeDeliveryStream where
+instance Core.FromJSON DescribeDeliveryStream where
+  toJSON DescribeDeliveryStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DeliveryStreamName" Core..= deliveryStreamName),
+            ("ExclusiveStartDestinationId" Core..=)
+              Core.<$> exclusiveStartDestinationId,
+            ("Limit" Core..=) Core.<$> limit
+          ]
+      )
+
+instance Core.AWSRequest DescribeDeliveryStream where
   type Rs DescribeDeliveryStream = DescribeDeliveryStreamResponse
-  request = Req.postJSON firehoseService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Firehose_20150804.DescribeDeliveryStream")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeDeliveryStreamResponse'
-            Lude.<$> (x Lude..:> "DeliveryStreamDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "DeliveryStreamDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeDeliveryStream where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Firehose_20150804.DescribeDeliveryStream" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeDeliveryStream where
-  toJSON DescribeDeliveryStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ExclusiveStartDestinationId" Lude..=)
-              Lude.<$> exclusiveStartDestinationId,
-            Lude.Just ("DeliveryStreamName" Lude..= deliveryStreamName),
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath DescribeDeliveryStream where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDeliveryStream where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeDeliveryStreamResponse' smart constructor.
 data DescribeDeliveryStreamResponse = DescribeDeliveryStreamResponse'
   { -- | Information about the delivery stream.
-    deliveryStreamDescription :: DeliveryStreamDescription,
+    deliveryStreamDescription :: Types.DeliveryStreamDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeDeliveryStreamResponse' with the minimum fields required to make a request.
---
--- * 'deliveryStreamDescription' - Information about the delivery stream.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDeliveryStreamResponse' value with any optional fields omitted.
 mkDescribeDeliveryStreamResponse ::
   -- | 'deliveryStreamDescription'
-  DeliveryStreamDescription ->
+  Types.DeliveryStreamDescription ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDeliveryStreamResponse
 mkDescribeDeliveryStreamResponse
-  pDeliveryStreamDescription_
-  pResponseStatus_ =
+  deliveryStreamDescription
+  responseStatus =
     DescribeDeliveryStreamResponse'
-      { deliveryStreamDescription =
-          pDeliveryStreamDescription_,
-        responseStatus = pResponseStatus_
+      { deliveryStreamDescription,
+        responseStatus
       }
 
 -- | Information about the delivery stream.
 --
 -- /Note:/ Consider using 'deliveryStreamDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsrsDeliveryStreamDescription :: Lens.Lens' DescribeDeliveryStreamResponse DeliveryStreamDescription
-ddsrsDeliveryStreamDescription = Lens.lens (deliveryStreamDescription :: DescribeDeliveryStreamResponse -> DeliveryStreamDescription) (\s a -> s {deliveryStreamDescription = a} :: DescribeDeliveryStreamResponse)
-{-# DEPRECATED ddsrsDeliveryStreamDescription "Use generic-lens or generic-optics with 'deliveryStreamDescription' instead." #-}
+ddsrrsDeliveryStreamDescription :: Lens.Lens' DescribeDeliveryStreamResponse Types.DeliveryStreamDescription
+ddsrrsDeliveryStreamDescription = Lens.field @"deliveryStreamDescription"
+{-# DEPRECATED ddsrrsDeliveryStreamDescription "Use generic-lens or generic-optics with 'deliveryStreamDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsrsResponseStatus :: Lens.Lens' DescribeDeliveryStreamResponse Lude.Int
-ddsrsResponseStatus = Lens.lens (responseStatus :: DescribeDeliveryStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDeliveryStreamResponse)
-{-# DEPRECATED ddsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddsrrsResponseStatus :: Lens.Lens' DescribeDeliveryStreamResponse Core.Int
+ddsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

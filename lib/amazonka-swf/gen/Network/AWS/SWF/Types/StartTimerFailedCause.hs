@@ -13,56 +13,61 @@
 module Network.AWS.SWF.Types.StartTimerFailedCause
   ( StartTimerFailedCause
       ( StartTimerFailedCause',
-        STFCTimerIdAlreadyInUse,
-        STFCOpenTimersLimitExceeded,
-        STFCTimerCreationRateExceeded,
-        STFCOperationNotPermitted
+        StartTimerFailedCauseTimerIdAlreadyInUse,
+        StartTimerFailedCauseOpenTimersLimitExceeded,
+        StartTimerFailedCauseTimerCreationRateExceeded,
+        StartTimerFailedCauseOperationNotPermitted,
+        fromStartTimerFailedCause
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StartTimerFailedCause = StartTimerFailedCause' Lude.Text
+newtype StartTimerFailedCause = StartTimerFailedCause'
+  { fromStartTimerFailedCause ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern STFCTimerIdAlreadyInUse :: StartTimerFailedCause
-pattern STFCTimerIdAlreadyInUse = StartTimerFailedCause' "TIMER_ID_ALREADY_IN_USE"
+pattern StartTimerFailedCauseTimerIdAlreadyInUse :: StartTimerFailedCause
+pattern StartTimerFailedCauseTimerIdAlreadyInUse = StartTimerFailedCause' "TIMER_ID_ALREADY_IN_USE"
 
-pattern STFCOpenTimersLimitExceeded :: StartTimerFailedCause
-pattern STFCOpenTimersLimitExceeded = StartTimerFailedCause' "OPEN_TIMERS_LIMIT_EXCEEDED"
+pattern StartTimerFailedCauseOpenTimersLimitExceeded :: StartTimerFailedCause
+pattern StartTimerFailedCauseOpenTimersLimitExceeded = StartTimerFailedCause' "OPEN_TIMERS_LIMIT_EXCEEDED"
 
-pattern STFCTimerCreationRateExceeded :: StartTimerFailedCause
-pattern STFCTimerCreationRateExceeded = StartTimerFailedCause' "TIMER_CREATION_RATE_EXCEEDED"
+pattern StartTimerFailedCauseTimerCreationRateExceeded :: StartTimerFailedCause
+pattern StartTimerFailedCauseTimerCreationRateExceeded = StartTimerFailedCause' "TIMER_CREATION_RATE_EXCEEDED"
 
-pattern STFCOperationNotPermitted :: StartTimerFailedCause
-pattern STFCOperationNotPermitted = StartTimerFailedCause' "OPERATION_NOT_PERMITTED"
+pattern StartTimerFailedCauseOperationNotPermitted :: StartTimerFailedCause
+pattern StartTimerFailedCauseOperationNotPermitted = StartTimerFailedCause' "OPERATION_NOT_PERMITTED"
 
 {-# COMPLETE
-  STFCTimerIdAlreadyInUse,
-  STFCOpenTimersLimitExceeded,
-  STFCTimerCreationRateExceeded,
-  STFCOperationNotPermitted,
+  StartTimerFailedCauseTimerIdAlreadyInUse,
+  StartTimerFailedCauseOpenTimersLimitExceeded,
+  StartTimerFailedCauseTimerCreationRateExceeded,
+  StartTimerFailedCauseOperationNotPermitted,
   StartTimerFailedCause'
   #-}

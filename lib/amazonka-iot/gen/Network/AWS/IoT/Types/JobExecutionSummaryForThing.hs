@@ -17,58 +17,54 @@ module Network.AWS.IoT.Types.JobExecutionSummaryForThing
     mkJobExecutionSummaryForThing,
 
     -- * Lenses
-    jesftJobId,
     jesftJobExecutionSummary,
+    jesftJobId,
   )
 where
 
-import Network.AWS.IoT.Types.JobExecutionSummary
+import qualified Network.AWS.IoT.Types.JobExecutionSummary as Types
+import qualified Network.AWS.IoT.Types.JobId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The job execution summary for a thing.
 --
 -- /See:/ 'mkJobExecutionSummaryForThing' smart constructor.
 data JobExecutionSummaryForThing = JobExecutionSummaryForThing'
-  { -- | The unique identifier you assigned to this job when it was created.
-    jobId :: Lude.Maybe Lude.Text,
-    -- | Contains a subset of information about a job execution.
-    jobExecutionSummary :: Lude.Maybe JobExecutionSummary
+  { -- | Contains a subset of information about a job execution.
+    jobExecutionSummary :: Core.Maybe Types.JobExecutionSummary,
+    -- | The unique identifier you assigned to this job when it was created.
+    jobId :: Core.Maybe Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'JobExecutionSummaryForThing' with the minimum fields required to make a request.
---
--- * 'jobId' - The unique identifier you assigned to this job when it was created.
--- * 'jobExecutionSummary' - Contains a subset of information about a job execution.
+-- | Creates a 'JobExecutionSummaryForThing' value with any optional fields omitted.
 mkJobExecutionSummaryForThing ::
   JobExecutionSummaryForThing
 mkJobExecutionSummaryForThing =
   JobExecutionSummaryForThing'
-    { jobId = Lude.Nothing,
-      jobExecutionSummary = Lude.Nothing
+    { jobExecutionSummary = Core.Nothing,
+      jobId = Core.Nothing
     }
-
--- | The unique identifier you assigned to this job when it was created.
---
--- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jesftJobId :: Lens.Lens' JobExecutionSummaryForThing (Lude.Maybe Lude.Text)
-jesftJobId = Lens.lens (jobId :: JobExecutionSummaryForThing -> Lude.Maybe Lude.Text) (\s a -> s {jobId = a} :: JobExecutionSummaryForThing)
-{-# DEPRECATED jesftJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
 -- | Contains a subset of information about a job execution.
 --
 -- /Note:/ Consider using 'jobExecutionSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jesftJobExecutionSummary :: Lens.Lens' JobExecutionSummaryForThing (Lude.Maybe JobExecutionSummary)
-jesftJobExecutionSummary = Lens.lens (jobExecutionSummary :: JobExecutionSummaryForThing -> Lude.Maybe JobExecutionSummary) (\s a -> s {jobExecutionSummary = a} :: JobExecutionSummaryForThing)
+jesftJobExecutionSummary :: Lens.Lens' JobExecutionSummaryForThing (Core.Maybe Types.JobExecutionSummary)
+jesftJobExecutionSummary = Lens.field @"jobExecutionSummary"
 {-# DEPRECATED jesftJobExecutionSummary "Use generic-lens or generic-optics with 'jobExecutionSummary' instead." #-}
 
-instance Lude.FromJSON JobExecutionSummaryForThing where
+-- | The unique identifier you assigned to this job when it was created.
+--
+-- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jesftJobId :: Lens.Lens' JobExecutionSummaryForThing (Core.Maybe Types.JobId)
+jesftJobId = Lens.field @"jobId"
+{-# DEPRECATED jesftJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
+
+instance Core.FromJSON JobExecutionSummaryForThing where
   parseJSON =
-    Lude.withObject
-      "JobExecutionSummaryForThing"
-      ( \x ->
-          JobExecutionSummaryForThing'
-            Lude.<$> (x Lude..:? "jobId") Lude.<*> (x Lude..:? "jobExecutionSummary")
-      )
+    Core.withObject "JobExecutionSummaryForThing" Core.$
+      \x ->
+        JobExecutionSummaryForThing'
+          Core.<$> (x Core..:? "jobExecutionSummary") Core.<*> (x Core..:? "jobId")

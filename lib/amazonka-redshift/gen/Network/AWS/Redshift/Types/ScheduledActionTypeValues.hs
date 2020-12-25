@@ -13,52 +13,57 @@
 module Network.AWS.Redshift.Types.ScheduledActionTypeValues
   ( ScheduledActionTypeValues
       ( ScheduledActionTypeValues',
-        ResizeCluster,
-        PauseCluster,
-        ResumeCluster
+        ScheduledActionTypeValuesResizeCluster,
+        ScheduledActionTypeValuesPauseCluster,
+        ScheduledActionTypeValuesResumeCluster,
+        fromScheduledActionTypeValues
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
 
-newtype ScheduledActionTypeValues = ScheduledActionTypeValues' Lude.Text
+newtype ScheduledActionTypeValues = ScheduledActionTypeValues'
+  { fromScheduledActionTypeValues ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ResizeCluster :: ScheduledActionTypeValues
-pattern ResizeCluster = ScheduledActionTypeValues' "ResizeCluster"
+pattern ScheduledActionTypeValuesResizeCluster :: ScheduledActionTypeValues
+pattern ScheduledActionTypeValuesResizeCluster = ScheduledActionTypeValues' "ResizeCluster"
 
-pattern PauseCluster :: ScheduledActionTypeValues
-pattern PauseCluster = ScheduledActionTypeValues' "PauseCluster"
+pattern ScheduledActionTypeValuesPauseCluster :: ScheduledActionTypeValues
+pattern ScheduledActionTypeValuesPauseCluster = ScheduledActionTypeValues' "PauseCluster"
 
-pattern ResumeCluster :: ScheduledActionTypeValues
-pattern ResumeCluster = ScheduledActionTypeValues' "ResumeCluster"
+pattern ScheduledActionTypeValuesResumeCluster :: ScheduledActionTypeValues
+pattern ScheduledActionTypeValuesResumeCluster = ScheduledActionTypeValues' "ResumeCluster"
 
 {-# COMPLETE
-  ResizeCluster,
-  PauseCluster,
-  ResumeCluster,
+  ScheduledActionTypeValuesResizeCluster,
+  ScheduledActionTypeValuesPauseCluster,
+  ScheduledActionTypeValuesResumeCluster,
   ScheduledActionTypeValues'
   #-}

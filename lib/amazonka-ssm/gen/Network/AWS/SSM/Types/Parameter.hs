@@ -17,86 +17,99 @@ module Network.AWS.SSM.Types.Parameter
     mkParameter,
 
     -- * Lenses
-    pLastModifiedDate,
-    pSelector,
-    pARN,
-    pValue,
-    pSourceResult,
-    pName,
-    pVersion,
-    pType,
-    pDataType,
+    pfARN,
+    pfDataType,
+    pfLastModifiedDate,
+    pfName,
+    pfSelector,
+    pfSourceResult,
+    pfType,
+    pfValue,
+    pfVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.ParameterType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.PSParameterName as Types
+import qualified Network.AWS.SSM.Types.PSParameterSelector as Types
+import qualified Network.AWS.SSM.Types.PSParameterValue as Types
+import qualified Network.AWS.SSM.Types.ParameterDataType as Types
+import qualified Network.AWS.SSM.Types.ParameterType as Types
+import qualified Network.AWS.SSM.Types.String as Types
 
 -- | An Systems Manager parameter in Parameter Store.
 --
 -- /See:/ 'mkParameter' smart constructor.
 data Parameter = Parameter'
-  { -- | Date the parameter was last changed or updated and the parameter version was created.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
+  { -- | The Amazon Resource Name (ARN) of the parameter.
+    arn :: Core.Maybe Types.String,
+    -- | The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
+    dataType :: Core.Maybe Types.ParameterDataType,
+    -- | Date the parameter was last changed or updated and the parameter version was created.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The name of the parameter.
+    name :: Core.Maybe Types.PSParameterName,
     -- | Either the version number or the label used to retrieve the parameter value. Specify selectors by using one of the following formats:
     --
     -- parameter_name:version
     -- parameter_name:label
-    selector :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the parameter.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The parameter value.
-    value :: Lude.Maybe Lude.Text,
+    selector :: Core.Maybe Types.PSParameterSelector,
     -- | Applies to parameters that reference information in other AWS services. SourceResult is the raw result or response from the source.
-    sourceResult :: Lude.Maybe Lude.Text,
-    -- | The name of the parameter.
-    name :: Lude.Maybe Lude.Text,
-    -- | The parameter version.
-    version :: Lude.Maybe Lude.Integer,
+    sourceResult :: Core.Maybe Types.String,
     -- | The type of parameter. Valid values include the following: @String@ , @StringList@ , and @SecureString@ .
-    type' :: Lude.Maybe ParameterType,
-    -- | The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
-    dataType :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.ParameterType,
+    -- | The parameter value.
+    value :: Core.Maybe Types.PSParameterValue,
+    -- | The parameter version.
+    version :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Parameter' with the minimum fields required to make a request.
---
--- * 'lastModifiedDate' - Date the parameter was last changed or updated and the parameter version was created.
--- * 'selector' - Either the version number or the label used to retrieve the parameter value. Specify selectors by using one of the following formats:
---
--- parameter_name:version
--- parameter_name:label
--- * 'arn' - The Amazon Resource Name (ARN) of the parameter.
--- * 'value' - The parameter value.
--- * 'sourceResult' - Applies to parameters that reference information in other AWS services. SourceResult is the raw result or response from the source.
--- * 'name' - The name of the parameter.
--- * 'version' - The parameter version.
--- * 'type'' - The type of parameter. Valid values include the following: @String@ , @StringList@ , and @SecureString@ .
--- * 'dataType' - The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
+-- | Creates a 'Parameter' value with any optional fields omitted.
 mkParameter ::
   Parameter
 mkParameter =
   Parameter'
-    { lastModifiedDate = Lude.Nothing,
-      selector = Lude.Nothing,
-      arn = Lude.Nothing,
-      value = Lude.Nothing,
-      sourceResult = Lude.Nothing,
-      name = Lude.Nothing,
-      version = Lude.Nothing,
-      type' = Lude.Nothing,
-      dataType = Lude.Nothing
+    { arn = Core.Nothing,
+      dataType = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      name = Core.Nothing,
+      selector = Core.Nothing,
+      sourceResult = Core.Nothing,
+      type' = Core.Nothing,
+      value = Core.Nothing,
+      version = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) of the parameter.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfARN :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pfARN = Lens.field @"arn"
+{-# DEPRECATED pfARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
+--
+-- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfDataType :: Lens.Lens' Parameter (Core.Maybe Types.ParameterDataType)
+pfDataType = Lens.field @"dataType"
+{-# DEPRECATED pfDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
 
 -- | Date the parameter was last changed or updated and the parameter version was created.
 --
 -- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pLastModifiedDate :: Lens.Lens' Parameter (Lude.Maybe Lude.Timestamp)
-pLastModifiedDate = Lens.lens (lastModifiedDate :: Parameter -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: Parameter)
-{-# DEPRECATED pLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+pfLastModifiedDate :: Lens.Lens' Parameter (Core.Maybe Core.NominalDiffTime)
+pfLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED pfLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The name of the parameter.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfName :: Lens.Lens' Parameter (Core.Maybe Types.PSParameterName)
+pfName = Lens.field @"name"
+{-# DEPRECATED pfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Either the version number or the label used to retrieve the parameter value. Specify selectors by using one of the following formats:
 --
@@ -104,72 +117,49 @@ pLastModifiedDate = Lens.lens (lastModifiedDate :: Parameter -> Lude.Maybe Lude.
 -- parameter_name:label
 --
 -- /Note:/ Consider using 'selector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pSelector :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pSelector = Lens.lens (selector :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {selector = a} :: Parameter)
-{-# DEPRECATED pSelector "Use generic-lens or generic-optics with 'selector' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the parameter.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pARN :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pARN = Lens.lens (arn :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Parameter)
-{-# DEPRECATED pARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The parameter value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pValue :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pValue = Lens.lens (value :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Parameter)
-{-# DEPRECATED pValue "Use generic-lens or generic-optics with 'value' instead." #-}
+pfSelector :: Lens.Lens' Parameter (Core.Maybe Types.PSParameterSelector)
+pfSelector = Lens.field @"selector"
+{-# DEPRECATED pfSelector "Use generic-lens or generic-optics with 'selector' instead." #-}
 
 -- | Applies to parameters that reference information in other AWS services. SourceResult is the raw result or response from the source.
 --
 -- /Note:/ Consider using 'sourceResult' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pSourceResult :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pSourceResult = Lens.lens (sourceResult :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {sourceResult = a} :: Parameter)
-{-# DEPRECATED pSourceResult "Use generic-lens or generic-optics with 'sourceResult' instead." #-}
-
--- | The name of the parameter.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pName :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pName = Lens.lens (name :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Parameter)
-{-# DEPRECATED pName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The parameter version.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pVersion :: Lens.Lens' Parameter (Lude.Maybe Lude.Integer)
-pVersion = Lens.lens (version :: Parameter -> Lude.Maybe Lude.Integer) (\s a -> s {version = a} :: Parameter)
-{-# DEPRECATED pVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+pfSourceResult :: Lens.Lens' Parameter (Core.Maybe Types.String)
+pfSourceResult = Lens.field @"sourceResult"
+{-# DEPRECATED pfSourceResult "Use generic-lens or generic-optics with 'sourceResult' instead." #-}
 
 -- | The type of parameter. Valid values include the following: @String@ , @StringList@ , and @SecureString@ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pType :: Lens.Lens' Parameter (Lude.Maybe ParameterType)
-pType = Lens.lens (type' :: Parameter -> Lude.Maybe ParameterType) (\s a -> s {type' = a} :: Parameter)
-{-# DEPRECATED pType "Use generic-lens or generic-optics with 'type'' instead." #-}
+pfType :: Lens.Lens' Parameter (Core.Maybe Types.ParameterType)
+pfType = Lens.field @"type'"
+{-# DEPRECATED pfType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | The data type of the parameter, such as @text@ or @aws:ec2:image@ . The default is @text@ .
+-- | The parameter value.
 --
--- /Note:/ Consider using 'dataType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pDataType :: Lens.Lens' Parameter (Lude.Maybe Lude.Text)
-pDataType = Lens.lens (dataType :: Parameter -> Lude.Maybe Lude.Text) (\s a -> s {dataType = a} :: Parameter)
-{-# DEPRECATED pDataType "Use generic-lens or generic-optics with 'dataType' instead." #-}
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfValue :: Lens.Lens' Parameter (Core.Maybe Types.PSParameterValue)
+pfValue = Lens.field @"value"
+{-# DEPRECATED pfValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.FromJSON Parameter where
+-- | The parameter version.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfVersion :: Lens.Lens' Parameter (Core.Maybe Core.Integer)
+pfVersion = Lens.field @"version"
+{-# DEPRECATED pfVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+instance Core.FromJSON Parameter where
   parseJSON =
-    Lude.withObject
-      "Parameter"
-      ( \x ->
-          Parameter'
-            Lude.<$> (x Lude..:? "LastModifiedDate")
-            Lude.<*> (x Lude..:? "Selector")
-            Lude.<*> (x Lude..:? "ARN")
-            Lude.<*> (x Lude..:? "Value")
-            Lude.<*> (x Lude..:? "SourceResult")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Version")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "DataType")
-      )
+    Core.withObject "Parameter" Core.$
+      \x ->
+        Parameter'
+          Core.<$> (x Core..:? "ARN")
+          Core.<*> (x Core..:? "DataType")
+          Core.<*> (x Core..:? "LastModifiedDate")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Selector")
+          Core.<*> (x Core..:? "SourceResult")
+          Core.<*> (x Core..:? "Type")
+          Core.<*> (x Core..:? "Value")
+          Core.<*> (x Core..:? "Version")

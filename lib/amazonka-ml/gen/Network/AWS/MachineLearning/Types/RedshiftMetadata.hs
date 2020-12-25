@@ -17,70 +17,66 @@ module Network.AWS.MachineLearning.Types.RedshiftMetadata
     mkRedshiftMetadata,
 
     -- * Lenses
-    rSelectSqlQuery,
-    rRedshiftDatabase,
-    rDatabaseUserName,
+    rmDatabaseUserName,
+    rmRedshiftDatabase,
+    rmSelectSqlQuery,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types.RedshiftDatabase
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MachineLearning.Types.RedshiftDatabase as Types
+import qualified Network.AWS.MachineLearning.Types.RedshiftDatabaseUsername as Types
+import qualified Network.AWS.MachineLearning.Types.RedshiftSelectSqlQuery as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the @DataSource@ details specific to Amazon Redshift.
 --
 -- /See:/ 'mkRedshiftMetadata' smart constructor.
 data RedshiftMetadata = RedshiftMetadata'
-  { -- | The SQL query that is specified during 'CreateDataSourceFromRedshift' . Returns only if @Verbose@ is true in GetDataSourceInput.
-    selectSqlQuery :: Lude.Maybe Lude.Text,
-    redshiftDatabase :: Lude.Maybe RedshiftDatabase,
-    databaseUserName :: Lude.Maybe Lude.Text
+  { databaseUserName :: Core.Maybe Types.RedshiftDatabaseUsername,
+    redshiftDatabase :: Core.Maybe Types.RedshiftDatabase,
+    -- | The SQL query that is specified during 'CreateDataSourceFromRedshift' . Returns only if @Verbose@ is true in GetDataSourceInput.
+    selectSqlQuery :: Core.Maybe Types.RedshiftSelectSqlQuery
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RedshiftMetadata' with the minimum fields required to make a request.
---
--- * 'selectSqlQuery' - The SQL query that is specified during 'CreateDataSourceFromRedshift' . Returns only if @Verbose@ is true in GetDataSourceInput.
--- * 'redshiftDatabase' -
--- * 'databaseUserName' -
+-- | Creates a 'RedshiftMetadata' value with any optional fields omitted.
 mkRedshiftMetadata ::
   RedshiftMetadata
 mkRedshiftMetadata =
   RedshiftMetadata'
-    { selectSqlQuery = Lude.Nothing,
-      redshiftDatabase = Lude.Nothing,
-      databaseUserName = Lude.Nothing
+    { databaseUserName = Core.Nothing,
+      redshiftDatabase = Core.Nothing,
+      selectSqlQuery = Core.Nothing
     }
-
--- | The SQL query that is specified during 'CreateDataSourceFromRedshift' . Returns only if @Verbose@ is true in GetDataSourceInput.
---
--- /Note:/ Consider using 'selectSqlQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rSelectSqlQuery :: Lens.Lens' RedshiftMetadata (Lude.Maybe Lude.Text)
-rSelectSqlQuery = Lens.lens (selectSqlQuery :: RedshiftMetadata -> Lude.Maybe Lude.Text) (\s a -> s {selectSqlQuery = a} :: RedshiftMetadata)
-{-# DEPRECATED rSelectSqlQuery "Use generic-lens or generic-optics with 'selectSqlQuery' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'redshiftDatabase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rRedshiftDatabase :: Lens.Lens' RedshiftMetadata (Lude.Maybe RedshiftDatabase)
-rRedshiftDatabase = Lens.lens (redshiftDatabase :: RedshiftMetadata -> Lude.Maybe RedshiftDatabase) (\s a -> s {redshiftDatabase = a} :: RedshiftMetadata)
-{-# DEPRECATED rRedshiftDatabase "Use generic-lens or generic-optics with 'redshiftDatabase' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'databaseUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rDatabaseUserName :: Lens.Lens' RedshiftMetadata (Lude.Maybe Lude.Text)
-rDatabaseUserName = Lens.lens (databaseUserName :: RedshiftMetadata -> Lude.Maybe Lude.Text) (\s a -> s {databaseUserName = a} :: RedshiftMetadata)
-{-# DEPRECATED rDatabaseUserName "Use generic-lens or generic-optics with 'databaseUserName' instead." #-}
+rmDatabaseUserName :: Lens.Lens' RedshiftMetadata (Core.Maybe Types.RedshiftDatabaseUsername)
+rmDatabaseUserName = Lens.field @"databaseUserName"
+{-# DEPRECATED rmDatabaseUserName "Use generic-lens or generic-optics with 'databaseUserName' instead." #-}
 
-instance Lude.FromJSON RedshiftMetadata where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'redshiftDatabase' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmRedshiftDatabase :: Lens.Lens' RedshiftMetadata (Core.Maybe Types.RedshiftDatabase)
+rmRedshiftDatabase = Lens.field @"redshiftDatabase"
+{-# DEPRECATED rmRedshiftDatabase "Use generic-lens or generic-optics with 'redshiftDatabase' instead." #-}
+
+-- | The SQL query that is specified during 'CreateDataSourceFromRedshift' . Returns only if @Verbose@ is true in GetDataSourceInput.
+--
+-- /Note:/ Consider using 'selectSqlQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rmSelectSqlQuery :: Lens.Lens' RedshiftMetadata (Core.Maybe Types.RedshiftSelectSqlQuery)
+rmSelectSqlQuery = Lens.field @"selectSqlQuery"
+{-# DEPRECATED rmSelectSqlQuery "Use generic-lens or generic-optics with 'selectSqlQuery' instead." #-}
+
+instance Core.FromJSON RedshiftMetadata where
   parseJSON =
-    Lude.withObject
-      "RedshiftMetadata"
-      ( \x ->
-          RedshiftMetadata'
-            Lude.<$> (x Lude..:? "SelectSqlQuery")
-            Lude.<*> (x Lude..:? "RedshiftDatabase")
-            Lude.<*> (x Lude..:? "DatabaseUserName")
-      )
+    Core.withObject "RedshiftMetadata" Core.$
+      \x ->
+        RedshiftMetadata'
+          Core.<$> (x Core..:? "DatabaseUserName")
+          Core.<*> (x Core..:? "RedshiftDatabase")
+          Core.<*> (x Core..:? "SelectSqlQuery")

@@ -22,38 +22,33 @@ module Network.AWS.StepFunctions.Types.HistoryEventExecutionDataDetails
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides details about input or output in an execution history event.
 --
 -- /See:/ 'mkHistoryEventExecutionDataDetails' smart constructor.
 newtype HistoryEventExecutionDataDetails = HistoryEventExecutionDataDetails'
   { -- | Indicates whether input or output was truncated in the response. Always @false@ for API calls.
-    truncated :: Lude.Maybe Lude.Bool
+    truncated :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HistoryEventExecutionDataDetails' with the minimum fields required to make a request.
---
--- * 'truncated' - Indicates whether input or output was truncated in the response. Always @false@ for API calls.
+-- | Creates a 'HistoryEventExecutionDataDetails' value with any optional fields omitted.
 mkHistoryEventExecutionDataDetails ::
   HistoryEventExecutionDataDetails
 mkHistoryEventExecutionDataDetails =
-  HistoryEventExecutionDataDetails' {truncated = Lude.Nothing}
+  HistoryEventExecutionDataDetails' {truncated = Core.Nothing}
 
 -- | Indicates whether input or output was truncated in the response. Always @false@ for API calls.
 --
 -- /Note:/ Consider using 'truncated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-heeddTruncated :: Lens.Lens' HistoryEventExecutionDataDetails (Lude.Maybe Lude.Bool)
-heeddTruncated = Lens.lens (truncated :: HistoryEventExecutionDataDetails -> Lude.Maybe Lude.Bool) (\s a -> s {truncated = a} :: HistoryEventExecutionDataDetails)
+heeddTruncated :: Lens.Lens' HistoryEventExecutionDataDetails (Core.Maybe Core.Bool)
+heeddTruncated = Lens.field @"truncated"
 {-# DEPRECATED heeddTruncated "Use generic-lens or generic-optics with 'truncated' instead." #-}
 
-instance Lude.FromJSON HistoryEventExecutionDataDetails where
+instance Core.FromJSON HistoryEventExecutionDataDetails where
   parseJSON =
-    Lude.withObject
-      "HistoryEventExecutionDataDetails"
-      ( \x ->
-          HistoryEventExecutionDataDetails'
-            Lude.<$> (x Lude..:? "truncated")
-      )
+    Core.withObject "HistoryEventExecutionDataDetails" Core.$
+      \x ->
+        HistoryEventExecutionDataDetails' Core.<$> (x Core..:? "truncated")

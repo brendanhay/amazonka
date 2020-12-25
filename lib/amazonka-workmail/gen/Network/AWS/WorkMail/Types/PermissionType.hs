@@ -13,51 +13,56 @@
 module Network.AWS.WorkMail.Types.PermissionType
   ( PermissionType
       ( PermissionType',
-        FullAccess,
-        SendAs,
-        SendOnBehalf
+        PermissionTypeFullAccess,
+        PermissionTypeSendAs,
+        PermissionTypeSendOnBehalf,
+        fromPermissionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PermissionType = PermissionType' Lude.Text
+newtype PermissionType = PermissionType'
+  { fromPermissionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FullAccess :: PermissionType
-pattern FullAccess = PermissionType' "FULL_ACCESS"
+pattern PermissionTypeFullAccess :: PermissionType
+pattern PermissionTypeFullAccess = PermissionType' "FULL_ACCESS"
 
-pattern SendAs :: PermissionType
-pattern SendAs = PermissionType' "SEND_AS"
+pattern PermissionTypeSendAs :: PermissionType
+pattern PermissionTypeSendAs = PermissionType' "SEND_AS"
 
-pattern SendOnBehalf :: PermissionType
-pattern SendOnBehalf = PermissionType' "SEND_ON_BEHALF"
+pattern PermissionTypeSendOnBehalf :: PermissionType
+pattern PermissionTypeSendOnBehalf = PermissionType' "SEND_ON_BEHALF"
 
 {-# COMPLETE
-  FullAccess,
-  SendAs,
-  SendOnBehalf,
+  PermissionTypeFullAccess,
+  PermissionTypeSendAs,
+  PermissionTypeSendOnBehalf,
   PermissionType'
   #-}

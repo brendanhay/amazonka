@@ -22,7 +22,8 @@ module Network.AWS.SageMaker.Types.ModelArtifacts
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.S3ModelArtifacts as Types
 
 -- | Provides information about the location that is configured for storing model artifacts.
 --
@@ -31,30 +32,27 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkModelArtifacts' smart constructor.
 newtype ModelArtifacts = ModelArtifacts'
   { -- | The path of the S3 object that contains the model artifacts. For example, @s3://bucket-name/keynameprefix/model.tar.gz@ .
-    s3ModelArtifacts :: Lude.Text
+    s3ModelArtifacts :: Types.S3ModelArtifacts
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModelArtifacts' with the minimum fields required to make a request.
---
--- * 's3ModelArtifacts' - The path of the S3 object that contains the model artifacts. For example, @s3://bucket-name/keynameprefix/model.tar.gz@ .
+-- | Creates a 'ModelArtifacts' value with any optional fields omitted.
 mkModelArtifacts ::
   -- | 's3ModelArtifacts'
-  Lude.Text ->
+  Types.S3ModelArtifacts ->
   ModelArtifacts
-mkModelArtifacts pS3ModelArtifacts_ =
-  ModelArtifacts' {s3ModelArtifacts = pS3ModelArtifacts_}
+mkModelArtifacts s3ModelArtifacts =
+  ModelArtifacts' {s3ModelArtifacts}
 
 -- | The path of the S3 object that contains the model artifacts. For example, @s3://bucket-name/keynameprefix/model.tar.gz@ .
 --
 -- /Note:/ Consider using 's3ModelArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-maS3ModelArtifacts :: Lens.Lens' ModelArtifacts Lude.Text
-maS3ModelArtifacts = Lens.lens (s3ModelArtifacts :: ModelArtifacts -> Lude.Text) (\s a -> s {s3ModelArtifacts = a} :: ModelArtifacts)
+maS3ModelArtifacts :: Lens.Lens' ModelArtifacts Types.S3ModelArtifacts
+maS3ModelArtifacts = Lens.field @"s3ModelArtifacts"
 {-# DEPRECATED maS3ModelArtifacts "Use generic-lens or generic-optics with 's3ModelArtifacts' instead." #-}
 
-instance Lude.FromJSON ModelArtifacts where
+instance Core.FromJSON ModelArtifacts where
   parseJSON =
-    Lude.withObject
-      "ModelArtifacts"
-      (\x -> ModelArtifacts' Lude.<$> (x Lude..: "S3ModelArtifacts"))
+    Core.withObject "ModelArtifacts" Core.$
+      \x -> ModelArtifacts' Core.<$> (x Core..: "S3ModelArtifacts")

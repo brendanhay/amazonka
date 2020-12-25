@@ -42,79 +42,80 @@ module Network.AWS.CloudWatch.PutMetricData
   )
 where
 
-import Network.AWS.CloudWatch.Types
+import qualified Network.AWS.CloudWatch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutMetricData' smart constructor.
 data PutMetricData = PutMetricData'
   { -- | The namespace for the metric data.
     --
     -- To avoid conflicts with AWS service namespaces, you should not specify a namespace that begins with @AWS/@
-    namespace :: Lude.Text,
+    namespace :: Types.Namespace,
     -- | The data for the metric. The array can include no more than 20 metrics per call.
-    metricData :: [MetricDatum]
+    metricData :: [Types.MetricDatum]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PutMetricData' with the minimum fields required to make a request.
---
--- * 'namespace' - The namespace for the metric data.
---
--- To avoid conflicts with AWS service namespaces, you should not specify a namespace that begins with @AWS/@
--- * 'metricData' - The data for the metric. The array can include no more than 20 metrics per call.
+-- | Creates a 'PutMetricData' value with any optional fields omitted.
 mkPutMetricData ::
   -- | 'namespace'
-  Lude.Text ->
+  Types.Namespace ->
   PutMetricData
-mkPutMetricData pNamespace_ =
-  PutMetricData' {namespace = pNamespace_, metricData = Lude.mempty}
+mkPutMetricData namespace =
+  PutMetricData' {namespace, metricData = Core.mempty}
 
 -- | The namespace for the metric data.
 --
 -- To avoid conflicts with AWS service namespaces, you should not specify a namespace that begins with @AWS/@
 --
 -- /Note:/ Consider using 'namespace' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmdNamespace :: Lens.Lens' PutMetricData Lude.Text
-pmdNamespace = Lens.lens (namespace :: PutMetricData -> Lude.Text) (\s a -> s {namespace = a} :: PutMetricData)
+pmdNamespace :: Lens.Lens' PutMetricData Types.Namespace
+pmdNamespace = Lens.field @"namespace"
 {-# DEPRECATED pmdNamespace "Use generic-lens or generic-optics with 'namespace' instead." #-}
 
 -- | The data for the metric. The array can include no more than 20 metrics per call.
 --
 -- /Note:/ Consider using 'metricData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pmdMetricData :: Lens.Lens' PutMetricData [MetricDatum]
-pmdMetricData = Lens.lens (metricData :: PutMetricData -> [MetricDatum]) (\s a -> s {metricData = a} :: PutMetricData)
+pmdMetricData :: Lens.Lens' PutMetricData [Types.MetricDatum]
+pmdMetricData = Lens.field @"metricData"
 {-# DEPRECATED pmdMetricData "Use generic-lens or generic-optics with 'metricData' instead." #-}
 
-instance Lude.AWSRequest PutMetricData where
+instance Core.AWSRequest PutMetricData where
   type Rs PutMetricData = PutMetricDataResponse
-  request = Req.postQuery cloudWatchService
-  response = Res.receiveNull PutMetricDataResponse'
-
-instance Lude.ToHeaders PutMetricData where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PutMetricData where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutMetricData where
-  toQuery PutMetricData' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("PutMetricData" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-08-01" :: Lude.ByteString),
-        "Namespace" Lude.=: namespace,
-        "MetricData" Lude.=: Lude.toQueryList "member" metricData
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PutMetricData")
+                Core.<> (Core.pure ("Version", "2010-08-01"))
+                Core.<> (Core.toQueryValue "Namespace" namespace)
+                Core.<> ( Core.toQueryValue
+                            "MetricData"
+                            (Core.toQueryList "member" metricData)
+                        )
+            )
+      }
+  response = Response.receiveNull PutMetricDataResponse'
 
 -- | /See:/ 'mkPutMetricDataResponse' smart constructor.
 data PutMetricDataResponse = PutMetricDataResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutMetricDataResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutMetricDataResponse' value with any optional fields omitted.
 mkPutMetricDataResponse ::
   PutMetricDataResponse
 mkPutMetricDataResponse = PutMetricDataResponse'

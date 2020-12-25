@@ -17,96 +17,79 @@ module Network.AWS.AutoScaling.Types.TargetTrackingConfiguration
     mkTargetTrackingConfiguration,
 
     -- * Lenses
-    ttcPredefinedMetricSpecification,
     ttcTargetValue,
     ttcCustomizedMetricSpecification,
     ttcDisableScaleIn,
+    ttcPredefinedMetricSpecification,
   )
 where
 
-import Network.AWS.AutoScaling.Types.CustomizedMetricSpecification
-import Network.AWS.AutoScaling.Types.PredefinedMetricSpecification
+import qualified Network.AWS.AutoScaling.Types.CustomizedMetricSpecification as Types
+import qualified Network.AWS.AutoScaling.Types.PredefinedMetricSpecification as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a target tracking scaling policy configuration to use with Amazon EC2 Auto Scaling.
 --
 -- /See:/ 'mkTargetTrackingConfiguration' smart constructor.
 data TargetTrackingConfiguration = TargetTrackingConfiguration'
-  { -- | A predefined metric. You must specify either a predefined metric or a customized metric.
-    predefinedMetricSpecification :: Lude.Maybe PredefinedMetricSpecification,
-    -- | The target value for the metric.
-    targetValue :: Lude.Double,
+  { -- | The target value for the metric.
+    targetValue :: Core.Double,
     -- | A customized metric. You must specify either a predefined metric or a customized metric.
-    customizedMetricSpecification :: Lude.Maybe CustomizedMetricSpecification,
+    customizedMetricSpecification :: Core.Maybe Types.CustomizedMetricSpecification,
     -- | Indicates whether scaling in by the target tracking scaling policy is disabled. If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is @false@ .
-    disableScaleIn :: Lude.Maybe Lude.Bool
+    disableScaleIn :: Core.Maybe Core.Bool,
+    -- | A predefined metric. You must specify either a predefined metric or a customized metric.
+    predefinedMetricSpecification :: Core.Maybe Types.PredefinedMetricSpecification
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetTrackingConfiguration' with the minimum fields required to make a request.
---
--- * 'predefinedMetricSpecification' - A predefined metric. You must specify either a predefined metric or a customized metric.
--- * 'targetValue' - The target value for the metric.
--- * 'customizedMetricSpecification' - A customized metric. You must specify either a predefined metric or a customized metric.
--- * 'disableScaleIn' - Indicates whether scaling in by the target tracking scaling policy is disabled. If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is @false@ .
+-- | Creates a 'TargetTrackingConfiguration' value with any optional fields omitted.
 mkTargetTrackingConfiguration ::
   -- | 'targetValue'
-  Lude.Double ->
+  Core.Double ->
   TargetTrackingConfiguration
-mkTargetTrackingConfiguration pTargetValue_ =
+mkTargetTrackingConfiguration targetValue =
   TargetTrackingConfiguration'
-    { predefinedMetricSpecification =
-        Lude.Nothing,
-      targetValue = pTargetValue_,
-      customizedMetricSpecification = Lude.Nothing,
-      disableScaleIn = Lude.Nothing
+    { targetValue,
+      customizedMetricSpecification = Core.Nothing,
+      disableScaleIn = Core.Nothing,
+      predefinedMetricSpecification = Core.Nothing
     }
-
--- | A predefined metric. You must specify either a predefined metric or a customized metric.
---
--- /Note:/ Consider using 'predefinedMetricSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttcPredefinedMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Lude.Maybe PredefinedMetricSpecification)
-ttcPredefinedMetricSpecification = Lens.lens (predefinedMetricSpecification :: TargetTrackingConfiguration -> Lude.Maybe PredefinedMetricSpecification) (\s a -> s {predefinedMetricSpecification = a} :: TargetTrackingConfiguration)
-{-# DEPRECATED ttcPredefinedMetricSpecification "Use generic-lens or generic-optics with 'predefinedMetricSpecification' instead." #-}
 
 -- | The target value for the metric.
 --
 -- /Note:/ Consider using 'targetValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttcTargetValue :: Lens.Lens' TargetTrackingConfiguration Lude.Double
-ttcTargetValue = Lens.lens (targetValue :: TargetTrackingConfiguration -> Lude.Double) (\s a -> s {targetValue = a} :: TargetTrackingConfiguration)
+ttcTargetValue :: Lens.Lens' TargetTrackingConfiguration Core.Double
+ttcTargetValue = Lens.field @"targetValue"
 {-# DEPRECATED ttcTargetValue "Use generic-lens or generic-optics with 'targetValue' instead." #-}
 
 -- | A customized metric. You must specify either a predefined metric or a customized metric.
 --
 -- /Note:/ Consider using 'customizedMetricSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttcCustomizedMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Lude.Maybe CustomizedMetricSpecification)
-ttcCustomizedMetricSpecification = Lens.lens (customizedMetricSpecification :: TargetTrackingConfiguration -> Lude.Maybe CustomizedMetricSpecification) (\s a -> s {customizedMetricSpecification = a} :: TargetTrackingConfiguration)
+ttcCustomizedMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Core.Maybe Types.CustomizedMetricSpecification)
+ttcCustomizedMetricSpecification = Lens.field @"customizedMetricSpecification"
 {-# DEPRECATED ttcCustomizedMetricSpecification "Use generic-lens or generic-optics with 'customizedMetricSpecification' instead." #-}
 
 -- | Indicates whether scaling in by the target tracking scaling policy is disabled. If scaling in is disabled, the target tracking scaling policy doesn't remove instances from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove instances from the Auto Scaling group. The default is @false@ .
 --
 -- /Note:/ Consider using 'disableScaleIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttcDisableScaleIn :: Lens.Lens' TargetTrackingConfiguration (Lude.Maybe Lude.Bool)
-ttcDisableScaleIn = Lens.lens (disableScaleIn :: TargetTrackingConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {disableScaleIn = a} :: TargetTrackingConfiguration)
+ttcDisableScaleIn :: Lens.Lens' TargetTrackingConfiguration (Core.Maybe Core.Bool)
+ttcDisableScaleIn = Lens.field @"disableScaleIn"
 {-# DEPRECATED ttcDisableScaleIn "Use generic-lens or generic-optics with 'disableScaleIn' instead." #-}
 
-instance Lude.FromXML TargetTrackingConfiguration where
+-- | A predefined metric. You must specify either a predefined metric or a customized metric.
+--
+-- /Note:/ Consider using 'predefinedMetricSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ttcPredefinedMetricSpecification :: Lens.Lens' TargetTrackingConfiguration (Core.Maybe Types.PredefinedMetricSpecification)
+ttcPredefinedMetricSpecification = Lens.field @"predefinedMetricSpecification"
+{-# DEPRECATED ttcPredefinedMetricSpecification "Use generic-lens or generic-optics with 'predefinedMetricSpecification' instead." #-}
+
+instance Core.FromXML TargetTrackingConfiguration where
   parseXML x =
     TargetTrackingConfiguration'
-      Lude.<$> (x Lude..@? "PredefinedMetricSpecification")
-      Lude.<*> (x Lude..@ "TargetValue")
-      Lude.<*> (x Lude..@? "CustomizedMetricSpecification")
-      Lude.<*> (x Lude..@? "DisableScaleIn")
-
-instance Lude.ToQuery TargetTrackingConfiguration where
-  toQuery TargetTrackingConfiguration' {..} =
-    Lude.mconcat
-      [ "PredefinedMetricSpecification"
-          Lude.=: predefinedMetricSpecification,
-        "TargetValue" Lude.=: targetValue,
-        "CustomizedMetricSpecification"
-          Lude.=: customizedMetricSpecification,
-        "DisableScaleIn" Lude.=: disableScaleIn
-      ]
+      Core.<$> (x Core..@ "TargetValue")
+      Core.<*> (x Core..@? "CustomizedMetricSpecification")
+      Core.<*> (x Core..@? "DisableScaleIn")
+      Core.<*> (x Core..@? "PredefinedMetricSpecification")

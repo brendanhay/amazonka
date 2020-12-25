@@ -17,49 +17,68 @@ module Network.AWS.Config.Types.ConfigurationItem
     mkConfigurationItem,
 
     -- * Lenses
-    ciResourceId,
-    ciResourceType,
-    ciConfigurationStateId,
-    ciArn,
-    ciResourceName,
-    ciResourceCreationTime,
-    ciConfigurationItemStatus,
-    ciConfigurationItemCaptureTime,
     ciAccountId,
-    ciSupplementaryConfiguration,
+    ciArn,
     ciAvailabilityZone,
-    ciRelationships,
-    ciVersion,
     ciAwsRegion,
-    ciRelatedEvents,
     ciConfiguration,
+    ciConfigurationItemCaptureTime,
     ciConfigurationItemMD5Hash,
+    ciConfigurationItemStatus,
+    ciConfigurationStateId,
+    ciRelatedEvents,
+    ciRelationships,
+    ciResourceCreationTime,
+    ciResourceId,
+    ciResourceName,
+    ciResourceType,
+    ciSupplementaryConfiguration,
     ciTags,
+    ciVersion,
   )
 where
 
-import Network.AWS.Config.Types.ConfigurationItemStatus
-import Network.AWS.Config.Types.Relationship
-import Network.AWS.Config.Types.ResourceType
+import qualified Network.AWS.Config.Types.ARN as Types
+import qualified Network.AWS.Config.Types.AccountId as Types
+import qualified Network.AWS.Config.Types.AvailabilityZone as Types
+import qualified Network.AWS.Config.Types.AwsRegion as Types
+import qualified Network.AWS.Config.Types.Configuration as Types
+import qualified Network.AWS.Config.Types.ConfigurationItemMD5Hash as Types
+import qualified Network.AWS.Config.Types.ConfigurationItemStatus as Types
+import qualified Network.AWS.Config.Types.ConfigurationStateId as Types
+import qualified Network.AWS.Config.Types.Name as Types
+import qualified Network.AWS.Config.Types.RelatedEvent as Types
+import qualified Network.AWS.Config.Types.Relationship as Types
+import qualified Network.AWS.Config.Types.ResourceId as Types
+import qualified Network.AWS.Config.Types.ResourceName as Types
+import qualified Network.AWS.Config.Types.ResourceType as Types
+import qualified Network.AWS.Config.Types.SupplementaryConfigurationName as Types
+import qualified Network.AWS.Config.Types.SupplementaryConfigurationValue as Types
+import qualified Network.AWS.Config.Types.Value as Types
+import qualified Network.AWS.Config.Types.Version as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A list that contains detailed configurations of a specified resource.
 --
 -- /See:/ 'mkConfigurationItem' smart constructor.
 data ConfigurationItem = ConfigurationItem'
-  { -- | The ID of the resource (for example, @sg-xxxxxx@ ).
-    resourceId :: Lude.Maybe Lude.Text,
-    -- | The type of AWS resource.
-    resourceType :: Lude.Maybe ResourceType,
-    -- | An identifier that indicates the ordering of the configuration items of a resource.
-    configurationStateId :: Lude.Maybe Lude.Text,
+  { -- | The 12-digit AWS account ID associated with the resource.
+    accountId :: Core.Maybe Types.AccountId,
     -- | accoun
-    arn :: Lude.Maybe Lude.Text,
-    -- | The custom name of the resource, if available.
-    resourceName :: Lude.Maybe Lude.Text,
-    -- | The time stamp when the resource was created.
-    resourceCreationTime :: Lude.Maybe Lude.Timestamp,
+    arn :: Core.Maybe Types.ARN,
+    -- | The Availability Zone associated with the resource.
+    availabilityZone :: Core.Maybe Types.AvailabilityZone,
+    -- | The region where the resource resides.
+    awsRegion :: Core.Maybe Types.AwsRegion,
+    -- | The description of the resource configuration.
+    configuration :: Core.Maybe Types.Configuration,
+    -- | The time when the configuration recording was initiated.
+    configurationItemCaptureTime :: Core.Maybe Core.NominalDiffTime,
+    -- | Unique MD5 hash that represents the configuration item's state.
+    --
+    -- You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
+    configurationItemMD5Hash :: Core.Maybe Types.ConfigurationItemMD5Hash,
     -- | The configuration item status. The valid values are:
     --
     --
@@ -76,145 +95,109 @@ data ConfigurationItem = ConfigurationItem'
     --
     --
     --     * ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type
-    configurationItemStatus :: Lude.Maybe ConfigurationItemStatus,
-    -- | The time when the configuration recording was initiated.
-    configurationItemCaptureTime :: Lude.Maybe Lude.Timestamp,
-    -- | The 12-digit AWS account ID associated with the resource.
-    accountId :: Lude.Maybe Lude.Text,
-    -- | Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the @configuration@ parameter.
-    supplementaryConfiguration :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The Availability Zone associated with the resource.
-    availabilityZone :: Lude.Maybe Lude.Text,
-    -- | A list of related AWS resources.
-    relationships :: Lude.Maybe [Relationship],
-    -- | The version number of the resource configuration.
-    version :: Lude.Maybe Lude.Text,
-    -- | The region where the resource resides.
-    awsRegion :: Lude.Maybe Lude.Text,
+    configurationItemStatus :: Core.Maybe Types.ConfigurationItemStatus,
+    -- | An identifier that indicates the ordering of the configuration items of a resource.
+    configurationStateId :: Core.Maybe Types.ConfigurationStateId,
     -- | A list of CloudTrail event IDs.
     --
     -- A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What Is AWS CloudTrail> .
     -- An empty field indicates that the current configuration was not initiated by any event. As of Version 1.3, the relatedEvents field is empty. You can access the <https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html LookupEvents API> in the /AWS CloudTrail API Reference/ to retrieve the events for the resource.
-    relatedEvents :: Lude.Maybe [Lude.Text],
-    -- | The description of the resource configuration.
-    configuration :: Lude.Maybe Lude.Text,
-    -- | Unique MD5 hash that represents the configuration item's state.
-    --
-    -- You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
-    configurationItemMD5Hash :: Lude.Maybe Lude.Text,
+    relatedEvents :: Core.Maybe [Types.RelatedEvent],
+    -- | A list of related AWS resources.
+    relationships :: Core.Maybe [Types.Relationship],
+    -- | The time stamp when the resource was created.
+    resourceCreationTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID of the resource (for example, @sg-xxxxxx@ ).
+    resourceId :: Core.Maybe Types.ResourceId,
+    -- | The custom name of the resource, if available.
+    resourceName :: Core.Maybe Types.ResourceName,
+    -- | The type of AWS resource.
+    resourceType :: Core.Maybe Types.ResourceType,
+    -- | Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the @configuration@ parameter.
+    supplementaryConfiguration :: Core.Maybe (Core.HashMap Types.SupplementaryConfigurationName Types.SupplementaryConfigurationValue),
     -- | A mapping of key value tags associated with the resource.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Types.Name Types.Value),
+    -- | The version number of the resource configuration.
+    version :: Core.Maybe Types.Version
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ConfigurationItem' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource (for example, @sg-xxxxxx@ ).
--- * 'resourceType' - The type of AWS resource.
--- * 'configurationStateId' - An identifier that indicates the ordering of the configuration items of a resource.
--- * 'arn' - accoun
--- * 'resourceName' - The custom name of the resource, if available.
--- * 'resourceCreationTime' - The time stamp when the resource was created.
--- * 'configurationItemStatus' - The configuration item status. The valid values are:
---
---
---     * OK – The resource configuration has been updated
---
---
---     * ResourceDiscovered – The resource was newly discovered
---
---
---     * ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type
---
---
---     * ResourceDeleted – The resource was deleted
---
---
---     * ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type
---
---
--- * 'configurationItemCaptureTime' - The time when the configuration recording was initiated.
--- * 'accountId' - The 12-digit AWS account ID associated with the resource.
--- * 'supplementaryConfiguration' - Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the @configuration@ parameter.
--- * 'availabilityZone' - The Availability Zone associated with the resource.
--- * 'relationships' - A list of related AWS resources.
--- * 'version' - The version number of the resource configuration.
--- * 'awsRegion' - The region where the resource resides.
--- * 'relatedEvents' - A list of CloudTrail event IDs.
---
--- A populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see <https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What Is AWS CloudTrail> .
--- An empty field indicates that the current configuration was not initiated by any event. As of Version 1.3, the relatedEvents field is empty. You can access the <https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html LookupEvents API> in the /AWS CloudTrail API Reference/ to retrieve the events for the resource.
--- * 'configuration' - The description of the resource configuration.
--- * 'configurationItemMD5Hash' - Unique MD5 hash that represents the configuration item's state.
---
--- You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
--- * 'tags' - A mapping of key value tags associated with the resource.
+-- | Creates a 'ConfigurationItem' value with any optional fields omitted.
 mkConfigurationItem ::
   ConfigurationItem
 mkConfigurationItem =
   ConfigurationItem'
-    { resourceId = Lude.Nothing,
-      resourceType = Lude.Nothing,
-      configurationStateId = Lude.Nothing,
-      arn = Lude.Nothing,
-      resourceName = Lude.Nothing,
-      resourceCreationTime = Lude.Nothing,
-      configurationItemStatus = Lude.Nothing,
-      configurationItemCaptureTime = Lude.Nothing,
-      accountId = Lude.Nothing,
-      supplementaryConfiguration = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      relationships = Lude.Nothing,
-      version = Lude.Nothing,
-      awsRegion = Lude.Nothing,
-      relatedEvents = Lude.Nothing,
-      configuration = Lude.Nothing,
-      configurationItemMD5Hash = Lude.Nothing,
-      tags = Lude.Nothing
+    { accountId = Core.Nothing,
+      arn = Core.Nothing,
+      availabilityZone = Core.Nothing,
+      awsRegion = Core.Nothing,
+      configuration = Core.Nothing,
+      configurationItemCaptureTime = Core.Nothing,
+      configurationItemMD5Hash = Core.Nothing,
+      configurationItemStatus = Core.Nothing,
+      configurationStateId = Core.Nothing,
+      relatedEvents = Core.Nothing,
+      relationships = Core.Nothing,
+      resourceCreationTime = Core.Nothing,
+      resourceId = Core.Nothing,
+      resourceName = Core.Nothing,
+      resourceType = Core.Nothing,
+      supplementaryConfiguration = Core.Nothing,
+      tags = Core.Nothing,
+      version = Core.Nothing
     }
 
--- | The ID of the resource (for example, @sg-xxxxxx@ ).
+-- | The 12-digit AWS account ID associated with the resource.
 --
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciResourceId :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Text)
-ciResourceId = Lens.lens (resourceId :: ConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: ConfigurationItem)
-{-# DEPRECATED ciResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
-
--- | The type of AWS resource.
---
--- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciResourceType :: Lens.Lens' ConfigurationItem (Lude.Maybe ResourceType)
-ciResourceType = Lens.lens (resourceType :: ConfigurationItem -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: ConfigurationItem)
-{-# DEPRECATED ciResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | An identifier that indicates the ordering of the configuration items of a resource.
---
--- /Note:/ Consider using 'configurationStateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciConfigurationStateId :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Text)
-ciConfigurationStateId = Lens.lens (configurationStateId :: ConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {configurationStateId = a} :: ConfigurationItem)
-{-# DEPRECATED ciConfigurationStateId "Use generic-lens or generic-optics with 'configurationStateId' instead." #-}
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciAccountId :: Lens.Lens' ConfigurationItem (Core.Maybe Types.AccountId)
+ciAccountId = Lens.field @"accountId"
+{-# DEPRECATED ciAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | accoun
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciArn :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Text)
-ciArn = Lens.lens (arn :: ConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ConfigurationItem)
+ciArn :: Lens.Lens' ConfigurationItem (Core.Maybe Types.ARN)
+ciArn = Lens.field @"arn"
 {-# DEPRECATED ciArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
--- | The custom name of the resource, if available.
+-- | The Availability Zone associated with the resource.
 --
--- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciResourceName :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Text)
-ciResourceName = Lens.lens (resourceName :: ConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {resourceName = a} :: ConfigurationItem)
-{-# DEPRECATED ciResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciAvailabilityZone :: Lens.Lens' ConfigurationItem (Core.Maybe Types.AvailabilityZone)
+ciAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED ciAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
--- | The time stamp when the resource was created.
+-- | The region where the resource resides.
 --
--- /Note:/ Consider using 'resourceCreationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciResourceCreationTime :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Timestamp)
-ciResourceCreationTime = Lens.lens (resourceCreationTime :: ConfigurationItem -> Lude.Maybe Lude.Timestamp) (\s a -> s {resourceCreationTime = a} :: ConfigurationItem)
-{-# DEPRECATED ciResourceCreationTime "Use generic-lens or generic-optics with 'resourceCreationTime' instead." #-}
+-- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciAwsRegion :: Lens.Lens' ConfigurationItem (Core.Maybe Types.AwsRegion)
+ciAwsRegion = Lens.field @"awsRegion"
+{-# DEPRECATED ciAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
+
+-- | The description of the resource configuration.
+--
+-- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciConfiguration :: Lens.Lens' ConfigurationItem (Core.Maybe Types.Configuration)
+ciConfiguration = Lens.field @"configuration"
+{-# DEPRECATED ciConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
+
+-- | The time when the configuration recording was initiated.
+--
+-- /Note:/ Consider using 'configurationItemCaptureTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciConfigurationItemCaptureTime :: Lens.Lens' ConfigurationItem (Core.Maybe Core.NominalDiffTime)
+ciConfigurationItemCaptureTime = Lens.field @"configurationItemCaptureTime"
+{-# DEPRECATED ciConfigurationItemCaptureTime "Use generic-lens or generic-optics with 'configurationItemCaptureTime' instead." #-}
+
+-- | Unique MD5 hash that represents the configuration item's state.
+--
+-- You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
+--
+-- /Note:/ Consider using 'configurationItemMD5Hash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciConfigurationItemMD5Hash :: Lens.Lens' ConfigurationItem (Core.Maybe Types.ConfigurationItemMD5Hash)
+ciConfigurationItemMD5Hash = Lens.field @"configurationItemMD5Hash"
+{-# DEPRECATED ciConfigurationItemMD5Hash "Use generic-lens or generic-optics with 'configurationItemMD5Hash' instead." #-}
 
 -- | The configuration item status. The valid values are:
 --
@@ -236,58 +219,16 @@ ciResourceCreationTime = Lens.lens (resourceCreationTime :: ConfigurationItem ->
 --
 --
 -- /Note:/ Consider using 'configurationItemStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciConfigurationItemStatus :: Lens.Lens' ConfigurationItem (Lude.Maybe ConfigurationItemStatus)
-ciConfigurationItemStatus = Lens.lens (configurationItemStatus :: ConfigurationItem -> Lude.Maybe ConfigurationItemStatus) (\s a -> s {configurationItemStatus = a} :: ConfigurationItem)
+ciConfigurationItemStatus :: Lens.Lens' ConfigurationItem (Core.Maybe Types.ConfigurationItemStatus)
+ciConfigurationItemStatus = Lens.field @"configurationItemStatus"
 {-# DEPRECATED ciConfigurationItemStatus "Use generic-lens or generic-optics with 'configurationItemStatus' instead." #-}
 
--- | The time when the configuration recording was initiated.
+-- | An identifier that indicates the ordering of the configuration items of a resource.
 --
--- /Note:/ Consider using 'configurationItemCaptureTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciConfigurationItemCaptureTime :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Timestamp)
-ciConfigurationItemCaptureTime = Lens.lens (configurationItemCaptureTime :: ConfigurationItem -> Lude.Maybe Lude.Timestamp) (\s a -> s {configurationItemCaptureTime = a} :: ConfigurationItem)
-{-# DEPRECATED ciConfigurationItemCaptureTime "Use generic-lens or generic-optics with 'configurationItemCaptureTime' instead." #-}
-
--- | The 12-digit AWS account ID associated with the resource.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciAccountId :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Text)
-ciAccountId = Lens.lens (accountId :: ConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: ConfigurationItem)
-{-# DEPRECATED ciAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
--- | Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the @configuration@ parameter.
---
--- /Note:/ Consider using 'supplementaryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciSupplementaryConfiguration :: Lens.Lens' ConfigurationItem (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ciSupplementaryConfiguration = Lens.lens (supplementaryConfiguration :: ConfigurationItem -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {supplementaryConfiguration = a} :: ConfigurationItem)
-{-# DEPRECATED ciSupplementaryConfiguration "Use generic-lens or generic-optics with 'supplementaryConfiguration' instead." #-}
-
--- | The Availability Zone associated with the resource.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciAvailabilityZone :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Text)
-ciAvailabilityZone = Lens.lens (availabilityZone :: ConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: ConfigurationItem)
-{-# DEPRECATED ciAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
-
--- | A list of related AWS resources.
---
--- /Note:/ Consider using 'relationships' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciRelationships :: Lens.Lens' ConfigurationItem (Lude.Maybe [Relationship])
-ciRelationships = Lens.lens (relationships :: ConfigurationItem -> Lude.Maybe [Relationship]) (\s a -> s {relationships = a} :: ConfigurationItem)
-{-# DEPRECATED ciRelationships "Use generic-lens or generic-optics with 'relationships' instead." #-}
-
--- | The version number of the resource configuration.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciVersion :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Text)
-ciVersion = Lens.lens (version :: ConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: ConfigurationItem)
-{-# DEPRECATED ciVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | The region where the resource resides.
---
--- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciAwsRegion :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Text)
-ciAwsRegion = Lens.lens (awsRegion :: ConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {awsRegion = a} :: ConfigurationItem)
-{-# DEPRECATED ciAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
+-- /Note:/ Consider using 'configurationStateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciConfigurationStateId :: Lens.Lens' ConfigurationItem (Core.Maybe Types.ConfigurationStateId)
+ciConfigurationStateId = Lens.field @"configurationStateId"
+{-# DEPRECATED ciConfigurationStateId "Use generic-lens or generic-optics with 'configurationStateId' instead." #-}
 
 -- | A list of CloudTrail event IDs.
 --
@@ -295,55 +236,86 @@ ciAwsRegion = Lens.lens (awsRegion :: ConfigurationItem -> Lude.Maybe Lude.Text)
 -- An empty field indicates that the current configuration was not initiated by any event. As of Version 1.3, the relatedEvents field is empty. You can access the <https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_LookupEvents.html LookupEvents API> in the /AWS CloudTrail API Reference/ to retrieve the events for the resource.
 --
 -- /Note:/ Consider using 'relatedEvents' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciRelatedEvents :: Lens.Lens' ConfigurationItem (Lude.Maybe [Lude.Text])
-ciRelatedEvents = Lens.lens (relatedEvents :: ConfigurationItem -> Lude.Maybe [Lude.Text]) (\s a -> s {relatedEvents = a} :: ConfigurationItem)
+ciRelatedEvents :: Lens.Lens' ConfigurationItem (Core.Maybe [Types.RelatedEvent])
+ciRelatedEvents = Lens.field @"relatedEvents"
 {-# DEPRECATED ciRelatedEvents "Use generic-lens or generic-optics with 'relatedEvents' instead." #-}
 
--- | The description of the resource configuration.
+-- | A list of related AWS resources.
 --
--- /Note:/ Consider using 'configuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciConfiguration :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Text)
-ciConfiguration = Lens.lens (configuration :: ConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {configuration = a} :: ConfigurationItem)
-{-# DEPRECATED ciConfiguration "Use generic-lens or generic-optics with 'configuration' instead." #-}
+-- /Note:/ Consider using 'relationships' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciRelationships :: Lens.Lens' ConfigurationItem (Core.Maybe [Types.Relationship])
+ciRelationships = Lens.field @"relationships"
+{-# DEPRECATED ciRelationships "Use generic-lens or generic-optics with 'relationships' instead." #-}
 
--- | Unique MD5 hash that represents the configuration item's state.
+-- | The time stamp when the resource was created.
 --
--- You can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.
+-- /Note:/ Consider using 'resourceCreationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciResourceCreationTime :: Lens.Lens' ConfigurationItem (Core.Maybe Core.NominalDiffTime)
+ciResourceCreationTime = Lens.field @"resourceCreationTime"
+{-# DEPRECATED ciResourceCreationTime "Use generic-lens or generic-optics with 'resourceCreationTime' instead." #-}
+
+-- | The ID of the resource (for example, @sg-xxxxxx@ ).
 --
--- /Note:/ Consider using 'configurationItemMD5Hash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciConfigurationItemMD5Hash :: Lens.Lens' ConfigurationItem (Lude.Maybe Lude.Text)
-ciConfigurationItemMD5Hash = Lens.lens (configurationItemMD5Hash :: ConfigurationItem -> Lude.Maybe Lude.Text) (\s a -> s {configurationItemMD5Hash = a} :: ConfigurationItem)
-{-# DEPRECATED ciConfigurationItemMD5Hash "Use generic-lens or generic-optics with 'configurationItemMD5Hash' instead." #-}
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciResourceId :: Lens.Lens' ConfigurationItem (Core.Maybe Types.ResourceId)
+ciResourceId = Lens.field @"resourceId"
+{-# DEPRECATED ciResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | The custom name of the resource, if available.
+--
+-- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciResourceName :: Lens.Lens' ConfigurationItem (Core.Maybe Types.ResourceName)
+ciResourceName = Lens.field @"resourceName"
+{-# DEPRECATED ciResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
+
+-- | The type of AWS resource.
+--
+-- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciResourceType :: Lens.Lens' ConfigurationItem (Core.Maybe Types.ResourceType)
+ciResourceType = Lens.field @"resourceType"
+{-# DEPRECATED ciResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
+
+-- | Configuration attributes that AWS Config returns for certain resource types to supplement the information returned for the @configuration@ parameter.
+--
+-- /Note:/ Consider using 'supplementaryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciSupplementaryConfiguration :: Lens.Lens' ConfigurationItem (Core.Maybe (Core.HashMap Types.SupplementaryConfigurationName Types.SupplementaryConfigurationValue))
+ciSupplementaryConfiguration = Lens.field @"supplementaryConfiguration"
+{-# DEPRECATED ciSupplementaryConfiguration "Use generic-lens or generic-optics with 'supplementaryConfiguration' instead." #-}
 
 -- | A mapping of key value tags associated with the resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciTags :: Lens.Lens' ConfigurationItem (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-ciTags = Lens.lens (tags :: ConfigurationItem -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: ConfigurationItem)
+ciTags :: Lens.Lens' ConfigurationItem (Core.Maybe (Core.HashMap Types.Name Types.Value))
+ciTags = Lens.field @"tags"
 {-# DEPRECATED ciTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON ConfigurationItem where
+-- | The version number of the resource configuration.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciVersion :: Lens.Lens' ConfigurationItem (Core.Maybe Types.Version)
+ciVersion = Lens.field @"version"
+{-# DEPRECATED ciVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+instance Core.FromJSON ConfigurationItem where
   parseJSON =
-    Lude.withObject
-      "ConfigurationItem"
-      ( \x ->
-          ConfigurationItem'
-            Lude.<$> (x Lude..:? "resourceId")
-            Lude.<*> (x Lude..:? "resourceType")
-            Lude.<*> (x Lude..:? "configurationStateId")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "resourceName")
-            Lude.<*> (x Lude..:? "resourceCreationTime")
-            Lude.<*> (x Lude..:? "configurationItemStatus")
-            Lude.<*> (x Lude..:? "configurationItemCaptureTime")
-            Lude.<*> (x Lude..:? "accountId")
-            Lude.<*> (x Lude..:? "supplementaryConfiguration" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "availabilityZone")
-            Lude.<*> (x Lude..:? "relationships" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "version")
-            Lude.<*> (x Lude..:? "awsRegion")
-            Lude.<*> (x Lude..:? "relatedEvents" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "configuration")
-            Lude.<*> (x Lude..:? "configurationItemMD5Hash")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ConfigurationItem" Core.$
+      \x ->
+        ConfigurationItem'
+          Core.<$> (x Core..:? "accountId")
+          Core.<*> (x Core..:? "arn")
+          Core.<*> (x Core..:? "availabilityZone")
+          Core.<*> (x Core..:? "awsRegion")
+          Core.<*> (x Core..:? "configuration")
+          Core.<*> (x Core..:? "configurationItemCaptureTime")
+          Core.<*> (x Core..:? "configurationItemMD5Hash")
+          Core.<*> (x Core..:? "configurationItemStatus")
+          Core.<*> (x Core..:? "configurationStateId")
+          Core.<*> (x Core..:? "relatedEvents")
+          Core.<*> (x Core..:? "relationships")
+          Core.<*> (x Core..:? "resourceCreationTime")
+          Core.<*> (x Core..:? "resourceId")
+          Core.<*> (x Core..:? "resourceName")
+          Core.<*> (x Core..:? "resourceType")
+          Core.<*> (x Core..:? "supplementaryConfiguration")
+          Core.<*> (x Core..:? "tags")
+          Core.<*> (x Core..:? "version")

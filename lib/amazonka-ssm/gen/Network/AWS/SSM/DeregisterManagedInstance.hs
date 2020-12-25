@@ -27,99 +27,85 @@ module Network.AWS.SSM.DeregisterManagedInstance
     mkDeregisterManagedInstanceResponse,
 
     -- ** Response lenses
-    dmirsResponseStatus,
+    dmirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkDeregisterManagedInstance' smart constructor.
 newtype DeregisterManagedInstance = DeregisterManagedInstance'
   { -- | The ID assigned to the managed instance when you registered it using the activation process.
-    instanceId :: Lude.Text
+    instanceId :: Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterManagedInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID assigned to the managed instance when you registered it using the activation process.
+-- | Creates a 'DeregisterManagedInstance' value with any optional fields omitted.
 mkDeregisterManagedInstance ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   DeregisterManagedInstance
-mkDeregisterManagedInstance pInstanceId_ =
-  DeregisterManagedInstance' {instanceId = pInstanceId_}
+mkDeregisterManagedInstance instanceId =
+  DeregisterManagedInstance' {instanceId}
 
 -- | The ID assigned to the managed instance when you registered it using the activation process.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmiInstanceId :: Lens.Lens' DeregisterManagedInstance Lude.Text
-dmiInstanceId = Lens.lens (instanceId :: DeregisterManagedInstance -> Lude.Text) (\s a -> s {instanceId = a} :: DeregisterManagedInstance)
+dmiInstanceId :: Lens.Lens' DeregisterManagedInstance Types.InstanceId
+dmiInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED dmiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance Lude.AWSRequest DeregisterManagedInstance where
+instance Core.FromJSON DeregisterManagedInstance where
+  toJSON DeregisterManagedInstance {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("InstanceId" Core..= instanceId)])
+
+instance Core.AWSRequest DeregisterManagedInstance where
   type
     Rs DeregisterManagedInstance =
       DeregisterManagedInstanceResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.DeregisterManagedInstance")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeregisterManagedInstanceResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeregisterManagedInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.DeregisterManagedInstance" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeregisterManagedInstance where
-  toJSON DeregisterManagedInstance' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("InstanceId" Lude..= instanceId)])
-
-instance Lude.ToPath DeregisterManagedInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeregisterManagedInstance where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeregisterManagedInstanceResponse' smart constructor.
 newtype DeregisterManagedInstanceResponse = DeregisterManagedInstanceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeregisterManagedInstanceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeregisterManagedInstanceResponse' value with any optional fields omitted.
 mkDeregisterManagedInstanceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeregisterManagedInstanceResponse
-mkDeregisterManagedInstanceResponse pResponseStatus_ =
-  DeregisterManagedInstanceResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeregisterManagedInstanceResponse responseStatus =
+  DeregisterManagedInstanceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmirsResponseStatus :: Lens.Lens' DeregisterManagedInstanceResponse Lude.Int
-dmirsResponseStatus = Lens.lens (responseStatus :: DeregisterManagedInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeregisterManagedInstanceResponse)
-{-# DEPRECATED dmirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmirrsResponseStatus :: Lens.Lens' DeregisterManagedInstanceResponse Core.Int
+dmirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,33 +17,39 @@ module Network.AWS.ServiceCatalog.Types.ProvisioningArtifactDetail
     mkProvisioningArtifactDetail,
 
     -- * Lenses
-    padCreatedTime,
     padActive,
-    padName,
-    padId,
-    padType,
-    padGuidance,
+    padCreatedTime,
     padDescription,
+    padGuidance,
+    padId,
+    padName,
+    padType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactGuidance
-import Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.Id as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisioningArtifactGuidance as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisioningArtifactName as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType as Types
 
 -- | Information about a provisioning artifact (also known as a version) for a product.
 --
 -- /See:/ 'mkProvisioningArtifactDetail' smart constructor.
 data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
-  { -- | The UTC time stamp of the creation time.
-    createdTime :: Lude.Maybe Lude.Timestamp,
-    -- | Indicates whether the product version is active.
-    active :: Lude.Maybe Lude.Bool,
-    -- | The name of the provisioning artifact.
-    name :: Lude.Maybe Lude.Text,
+  { -- | Indicates whether the product version is active.
+    active :: Core.Maybe Core.Bool,
+    -- | The UTC time stamp of the creation time.
+    createdTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The description of the provisioning artifact.
+    description :: Core.Maybe Types.ProvisioningArtifactName,
+    -- | Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+    guidance :: Core.Maybe Types.ProvisioningArtifactGuidance,
     -- | The identifier of the provisioning artifact.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.Id,
+    -- | The name of the provisioning artifact.
+    name :: Core.Maybe Types.ProvisioningArtifactName,
     -- | The type of provisioning artifact.
     --
     --
@@ -54,75 +60,66 @@ data ProvisioningArtifactDetail = ProvisioningArtifactDetail'
     --
     --
     --     * @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
-    type' :: Lude.Maybe ProvisioningArtifactType,
-    -- | Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
-    guidance :: Lude.Maybe ProvisioningArtifactGuidance,
-    -- | The description of the provisioning artifact.
-    description :: Lude.Maybe Lude.Text
+    type' :: Core.Maybe Types.ProvisioningArtifactType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ProvisioningArtifactDetail' with the minimum fields required to make a request.
---
--- * 'createdTime' - The UTC time stamp of the creation time.
--- * 'active' - Indicates whether the product version is active.
--- * 'name' - The name of the provisioning artifact.
--- * 'id' - The identifier of the provisioning artifact.
--- * 'type'' - The type of provisioning artifact.
---
---
---     * @CLOUD_FORMATION_TEMPLATE@ - AWS CloudFormation template
---
---
---     * @MARKETPLACE_AMI@ - AWS Marketplace AMI
---
---
---     * @MARKETPLACE_CAR@ - AWS Marketplace Clusters and AWS Resources
---
---
--- * 'guidance' - Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
--- * 'description' - The description of the provisioning artifact.
+-- | Creates a 'ProvisioningArtifactDetail' value with any optional fields omitted.
 mkProvisioningArtifactDetail ::
   ProvisioningArtifactDetail
 mkProvisioningArtifactDetail =
   ProvisioningArtifactDetail'
-    { createdTime = Lude.Nothing,
-      active = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      type' = Lude.Nothing,
-      guidance = Lude.Nothing,
-      description = Lude.Nothing
+    { active = Core.Nothing,
+      createdTime = Core.Nothing,
+      description = Core.Nothing,
+      guidance = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      type' = Core.Nothing
     }
-
--- | The UTC time stamp of the creation time.
---
--- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-padCreatedTime :: Lens.Lens' ProvisioningArtifactDetail (Lude.Maybe Lude.Timestamp)
-padCreatedTime = Lens.lens (createdTime :: ProvisioningArtifactDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTime = a} :: ProvisioningArtifactDetail)
-{-# DEPRECATED padCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | Indicates whether the product version is active.
 --
 -- /Note:/ Consider using 'active' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-padActive :: Lens.Lens' ProvisioningArtifactDetail (Lude.Maybe Lude.Bool)
-padActive = Lens.lens (active :: ProvisioningArtifactDetail -> Lude.Maybe Lude.Bool) (\s a -> s {active = a} :: ProvisioningArtifactDetail)
+padActive :: Lens.Lens' ProvisioningArtifactDetail (Core.Maybe Core.Bool)
+padActive = Lens.field @"active"
 {-# DEPRECATED padActive "Use generic-lens or generic-optics with 'active' instead." #-}
 
--- | The name of the provisioning artifact.
+-- | The UTC time stamp of the creation time.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-padName :: Lens.Lens' ProvisioningArtifactDetail (Lude.Maybe Lude.Text)
-padName = Lens.lens (name :: ProvisioningArtifactDetail -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ProvisioningArtifactDetail)
-{-# DEPRECATED padName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padCreatedTime :: Lens.Lens' ProvisioningArtifactDetail (Core.Maybe Core.NominalDiffTime)
+padCreatedTime = Lens.field @"createdTime"
+{-# DEPRECATED padCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
+
+-- | The description of the provisioning artifact.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padDescription :: Lens.Lens' ProvisioningArtifactDetail (Core.Maybe Types.ProvisioningArtifactName)
+padDescription = Lens.field @"description"
+{-# DEPRECATED padDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
+--
+-- /Note:/ Consider using 'guidance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padGuidance :: Lens.Lens' ProvisioningArtifactDetail (Core.Maybe Types.ProvisioningArtifactGuidance)
+padGuidance = Lens.field @"guidance"
+{-# DEPRECATED padGuidance "Use generic-lens or generic-optics with 'guidance' instead." #-}
 
 -- | The identifier of the provisioning artifact.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-padId :: Lens.Lens' ProvisioningArtifactDetail (Lude.Maybe Lude.Text)
-padId = Lens.lens (id :: ProvisioningArtifactDetail -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ProvisioningArtifactDetail)
+padId :: Lens.Lens' ProvisioningArtifactDetail (Core.Maybe Types.Id)
+padId = Lens.field @"id"
 {-# DEPRECATED padId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The name of the provisioning artifact.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+padName :: Lens.Lens' ProvisioningArtifactDetail (Core.Maybe Types.ProvisioningArtifactName)
+padName = Lens.field @"name"
+{-# DEPRECATED padName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The type of provisioning artifact.
 --
@@ -138,35 +135,19 @@ padId = Lens.lens (id :: ProvisioningArtifactDetail -> Lude.Maybe Lude.Text) (\s
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-padType :: Lens.Lens' ProvisioningArtifactDetail (Lude.Maybe ProvisioningArtifactType)
-padType = Lens.lens (type' :: ProvisioningArtifactDetail -> Lude.Maybe ProvisioningArtifactType) (\s a -> s {type' = a} :: ProvisioningArtifactDetail)
+padType :: Lens.Lens' ProvisioningArtifactDetail (Core.Maybe Types.ProvisioningArtifactType)
+padType = Lens.field @"type'"
 {-# DEPRECATED padType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
--- | Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.
---
--- /Note:/ Consider using 'guidance' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-padGuidance :: Lens.Lens' ProvisioningArtifactDetail (Lude.Maybe ProvisioningArtifactGuidance)
-padGuidance = Lens.lens (guidance :: ProvisioningArtifactDetail -> Lude.Maybe ProvisioningArtifactGuidance) (\s a -> s {guidance = a} :: ProvisioningArtifactDetail)
-{-# DEPRECATED padGuidance "Use generic-lens or generic-optics with 'guidance' instead." #-}
-
--- | The description of the provisioning artifact.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-padDescription :: Lens.Lens' ProvisioningArtifactDetail (Lude.Maybe Lude.Text)
-padDescription = Lens.lens (description :: ProvisioningArtifactDetail -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ProvisioningArtifactDetail)
-{-# DEPRECATED padDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
-instance Lude.FromJSON ProvisioningArtifactDetail where
+instance Core.FromJSON ProvisioningArtifactDetail where
   parseJSON =
-    Lude.withObject
-      "ProvisioningArtifactDetail"
-      ( \x ->
-          ProvisioningArtifactDetail'
-            Lude.<$> (x Lude..:? "CreatedTime")
-            Lude.<*> (x Lude..:? "Active")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Type")
-            Lude.<*> (x Lude..:? "Guidance")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "ProvisioningArtifactDetail" Core.$
+      \x ->
+        ProvisioningArtifactDetail'
+          Core.<$> (x Core..:? "Active")
+          Core.<*> (x Core..:? "CreatedTime")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Guidance")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Type")

@@ -22,175 +22,166 @@ module Network.AWS.Config.DescribeConfigurationAggregators
     mkDescribeConfigurationAggregators,
 
     -- ** Request lenses
-    dcaNextToken,
-    dcaLimit,
     dcaConfigurationAggregatorNames,
+    dcaLimit,
+    dcaNextToken,
 
     -- * Destructuring the response
     DescribeConfigurationAggregatorsResponse (..),
     mkDescribeConfigurationAggregatorsResponse,
 
     -- ** Response lenses
-    dcarsNextToken,
-    dcarsConfigurationAggregators,
-    dcarsResponseStatus,
+    dcarrsConfigurationAggregators,
+    dcarrsNextToken,
+    dcarrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeConfigurationAggregators' smart constructor.
 data DescribeConfigurationAggregators = DescribeConfigurationAggregators'
-  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The name of the configuration aggregators.
+    configurationAggregatorNames :: Core.Maybe [Types.ConfigurationAggregatorName],
     -- | The maximum number of configuration aggregators returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
-    limit :: Lude.Maybe Lude.Natural,
-    -- | The name of the configuration aggregators.
-    configurationAggregatorNames :: Lude.Maybe [Lude.Text]
+    limit :: Core.Maybe Core.Natural,
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConfigurationAggregators' with the minimum fields required to make a request.
---
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'limit' - The maximum number of configuration aggregators returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
--- * 'configurationAggregatorNames' - The name of the configuration aggregators.
+-- | Creates a 'DescribeConfigurationAggregators' value with any optional fields omitted.
 mkDescribeConfigurationAggregators ::
   DescribeConfigurationAggregators
 mkDescribeConfigurationAggregators =
   DescribeConfigurationAggregators'
-    { nextToken = Lude.Nothing,
-      limit = Lude.Nothing,
-      configurationAggregatorNames = Lude.Nothing
+    { configurationAggregatorNames =
+        Core.Nothing,
+      limit = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaNextToken :: Lens.Lens' DescribeConfigurationAggregators (Lude.Maybe Lude.Text)
-dcaNextToken = Lens.lens (nextToken :: DescribeConfigurationAggregators -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConfigurationAggregators)
-{-# DEPRECATED dcaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The maximum number of configuration aggregators returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaLimit :: Lens.Lens' DescribeConfigurationAggregators (Lude.Maybe Lude.Natural)
-dcaLimit = Lens.lens (limit :: DescribeConfigurationAggregators -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeConfigurationAggregators)
-{-# DEPRECATED dcaLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The name of the configuration aggregators.
 --
 -- /Note:/ Consider using 'configurationAggregatorNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaConfigurationAggregatorNames :: Lens.Lens' DescribeConfigurationAggregators (Lude.Maybe [Lude.Text])
-dcaConfigurationAggregatorNames = Lens.lens (configurationAggregatorNames :: DescribeConfigurationAggregators -> Lude.Maybe [Lude.Text]) (\s a -> s {configurationAggregatorNames = a} :: DescribeConfigurationAggregators)
+dcaConfigurationAggregatorNames :: Lens.Lens' DescribeConfigurationAggregators (Core.Maybe [Types.ConfigurationAggregatorName])
+dcaConfigurationAggregatorNames = Lens.field @"configurationAggregatorNames"
 {-# DEPRECATED dcaConfigurationAggregatorNames "Use generic-lens or generic-optics with 'configurationAggregatorNames' instead." #-}
 
-instance Page.AWSPager DescribeConfigurationAggregators where
-  page rq rs
-    | Page.stop (rs Lens.^. dcarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcarsConfigurationAggregators) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dcaNextToken Lens..~ rs Lens.^. dcarsNextToken
-
-instance Lude.AWSRequest DescribeConfigurationAggregators where
-  type
-    Rs DescribeConfigurationAggregators =
-      DescribeConfigurationAggregatorsResponse
-  request = Req.postJSON configService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          DescribeConfigurationAggregatorsResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "ConfigurationAggregators" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeConfigurationAggregators where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.DescribeConfigurationAggregators" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeConfigurationAggregators where
-  toJSON DescribeConfigurationAggregators' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit,
-            ("ConfigurationAggregatorNames" Lude..=)
-              Lude.<$> configurationAggregatorNames
-          ]
-      )
-
-instance Lude.ToPath DescribeConfigurationAggregators where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeConfigurationAggregators where
-  toQuery = Lude.const Lude.mempty
-
--- | /See:/ 'mkDescribeConfigurationAggregatorsResponse' smart constructor.
-data DescribeConfigurationAggregatorsResponse = DescribeConfigurationAggregatorsResponse'
-  { -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Returns a ConfigurationAggregators object.
-    configurationAggregators :: Lude.Maybe [ConfigurationAggregator],
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'DescribeConfigurationAggregatorsResponse' with the minimum fields required to make a request.
+-- | The maximum number of configuration aggregators returned on each page. The default is maximum. If you specify 0, AWS Config uses the default.
 --
--- * 'nextToken' - The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
--- * 'configurationAggregators' - Returns a ConfigurationAggregators object.
--- * 'responseStatus' - The response status code.
-mkDescribeConfigurationAggregatorsResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  DescribeConfigurationAggregatorsResponse
-mkDescribeConfigurationAggregatorsResponse pResponseStatus_ =
-  DescribeConfigurationAggregatorsResponse'
-    { nextToken =
-        Lude.Nothing,
-      configurationAggregators = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcaLimit :: Lens.Lens' DescribeConfigurationAggregators (Core.Maybe Core.Natural)
+dcaLimit = Lens.field @"limit"
+{-# DEPRECATED dcaLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcarsNextToken :: Lens.Lens' DescribeConfigurationAggregatorsResponse (Lude.Maybe Lude.Text)
-dcarsNextToken = Lens.lens (nextToken :: DescribeConfigurationAggregatorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeConfigurationAggregatorsResponse)
-{-# DEPRECATED dcarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dcaNextToken :: Lens.Lens' DescribeConfigurationAggregators (Core.Maybe Types.String)
+dcaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dcaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON DescribeConfigurationAggregators where
+  toJSON DescribeConfigurationAggregators {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ConfigurationAggregatorNames" Core..=)
+              Core.<$> configurationAggregatorNames,
+            ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest DescribeConfigurationAggregators where
+  type
+    Rs DescribeConfigurationAggregators =
+      DescribeConfigurationAggregatorsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.DescribeConfigurationAggregators"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          DescribeConfigurationAggregatorsResponse'
+            Core.<$> (x Core..:? "ConfigurationAggregators")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+instance Pager.AWSPager DescribeConfigurationAggregators where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"configurationAggregators" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
+
+-- | /See:/ 'mkDescribeConfigurationAggregatorsResponse' smart constructor.
+data DescribeConfigurationAggregatorsResponse = DescribeConfigurationAggregatorsResponse'
+  { -- | Returns a ConfigurationAggregators object.
+    configurationAggregators :: Core.Maybe [Types.ConfigurationAggregator],
+    -- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
+
+-- | Creates a 'DescribeConfigurationAggregatorsResponse' value with any optional fields omitted.
+mkDescribeConfigurationAggregatorsResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  DescribeConfigurationAggregatorsResponse
+mkDescribeConfigurationAggregatorsResponse responseStatus =
+  DescribeConfigurationAggregatorsResponse'
+    { configurationAggregators =
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
+    }
 
 -- | Returns a ConfigurationAggregators object.
 --
 -- /Note:/ Consider using 'configurationAggregators' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcarsConfigurationAggregators :: Lens.Lens' DescribeConfigurationAggregatorsResponse (Lude.Maybe [ConfigurationAggregator])
-dcarsConfigurationAggregators = Lens.lens (configurationAggregators :: DescribeConfigurationAggregatorsResponse -> Lude.Maybe [ConfigurationAggregator]) (\s a -> s {configurationAggregators = a} :: DescribeConfigurationAggregatorsResponse)
-{-# DEPRECATED dcarsConfigurationAggregators "Use generic-lens or generic-optics with 'configurationAggregators' instead." #-}
+dcarrsConfigurationAggregators :: Lens.Lens' DescribeConfigurationAggregatorsResponse (Core.Maybe [Types.ConfigurationAggregator])
+dcarrsConfigurationAggregators = Lens.field @"configurationAggregators"
+{-# DEPRECATED dcarrsConfigurationAggregators "Use generic-lens or generic-optics with 'configurationAggregators' instead." #-}
+
+-- | The @nextToken@ string returned on a previous page that you use to get the next page of results in a paginated response.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcarrsNextToken :: Lens.Lens' DescribeConfigurationAggregatorsResponse (Core.Maybe Types.NextToken)
+dcarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dcarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcarsResponseStatus :: Lens.Lens' DescribeConfigurationAggregatorsResponse Lude.Int
-dcarsResponseStatus = Lens.lens (responseStatus :: DescribeConfigurationAggregatorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigurationAggregatorsResponse)
-{-# DEPRECATED dcarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcarrsResponseStatus :: Lens.Lens' DescribeConfigurationAggregatorsResponse Core.Int
+dcarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

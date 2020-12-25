@@ -18,74 +18,71 @@ module Network.AWS.DynamoDB.Types.ReplicaAutoScalingUpdate
 
     -- * Lenses
     rasuRegionName,
-    rasuReplicaProvisionedReadCapacityAutoScalingUpdate,
     rasuReplicaGlobalSecondaryIndexUpdates,
+    rasuReplicaProvisionedReadCapacityAutoScalingUpdate,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
-import Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingUpdate
+import qualified Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate as Types
+import qualified Network.AWS.DynamoDB.Types.RegionName as Types
+import qualified Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexAutoScalingUpdate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the auto scaling settings of a replica that will be modified.
 --
 -- /See:/ 'mkReplicaAutoScalingUpdate' smart constructor.
 data ReplicaAutoScalingUpdate = ReplicaAutoScalingUpdate'
   { -- | The Region where the replica exists.
-    regionName :: Lude.Text,
-    replicaProvisionedReadCapacityAutoScalingUpdate :: Lude.Maybe AutoScalingSettingsUpdate,
+    regionName :: Types.RegionName,
     -- | Represents the auto scaling settings of global secondary indexes that will be modified.
-    replicaGlobalSecondaryIndexUpdates :: Lude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate]
+    replicaGlobalSecondaryIndexUpdates :: Core.Maybe [Types.ReplicaGlobalSecondaryIndexAutoScalingUpdate],
+    replicaProvisionedReadCapacityAutoScalingUpdate :: Core.Maybe Types.AutoScalingSettingsUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicaAutoScalingUpdate' with the minimum fields required to make a request.
---
--- * 'regionName' - The Region where the replica exists.
--- * 'replicaProvisionedReadCapacityAutoScalingUpdate' -
--- * 'replicaGlobalSecondaryIndexUpdates' - Represents the auto scaling settings of global secondary indexes that will be modified.
+-- | Creates a 'ReplicaAutoScalingUpdate' value with any optional fields omitted.
 mkReplicaAutoScalingUpdate ::
   -- | 'regionName'
-  Lude.Text ->
+  Types.RegionName ->
   ReplicaAutoScalingUpdate
-mkReplicaAutoScalingUpdate pRegionName_ =
+mkReplicaAutoScalingUpdate regionName =
   ReplicaAutoScalingUpdate'
-    { regionName = pRegionName_,
-      replicaProvisionedReadCapacityAutoScalingUpdate = Lude.Nothing,
-      replicaGlobalSecondaryIndexUpdates = Lude.Nothing
+    { regionName,
+      replicaGlobalSecondaryIndexUpdates = Core.Nothing,
+      replicaProvisionedReadCapacityAutoScalingUpdate = Core.Nothing
     }
 
 -- | The Region where the replica exists.
 --
 -- /Note:/ Consider using 'regionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasuRegionName :: Lens.Lens' ReplicaAutoScalingUpdate Lude.Text
-rasuRegionName = Lens.lens (regionName :: ReplicaAutoScalingUpdate -> Lude.Text) (\s a -> s {regionName = a} :: ReplicaAutoScalingUpdate)
+rasuRegionName :: Lens.Lens' ReplicaAutoScalingUpdate Types.RegionName
+rasuRegionName = Lens.field @"regionName"
 {-# DEPRECATED rasuRegionName "Use generic-lens or generic-optics with 'regionName' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'replicaProvisionedReadCapacityAutoScalingUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasuReplicaProvisionedReadCapacityAutoScalingUpdate :: Lens.Lens' ReplicaAutoScalingUpdate (Lude.Maybe AutoScalingSettingsUpdate)
-rasuReplicaProvisionedReadCapacityAutoScalingUpdate = Lens.lens (replicaProvisionedReadCapacityAutoScalingUpdate :: ReplicaAutoScalingUpdate -> Lude.Maybe AutoScalingSettingsUpdate) (\s a -> s {replicaProvisionedReadCapacityAutoScalingUpdate = a} :: ReplicaAutoScalingUpdate)
-{-# DEPRECATED rasuReplicaProvisionedReadCapacityAutoScalingUpdate "Use generic-lens or generic-optics with 'replicaProvisionedReadCapacityAutoScalingUpdate' instead." #-}
 
 -- | Represents the auto scaling settings of global secondary indexes that will be modified.
 --
 -- /Note:/ Consider using 'replicaGlobalSecondaryIndexUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasuReplicaGlobalSecondaryIndexUpdates :: Lens.Lens' ReplicaAutoScalingUpdate (Lude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate])
-rasuReplicaGlobalSecondaryIndexUpdates = Lens.lens (replicaGlobalSecondaryIndexUpdates :: ReplicaAutoScalingUpdate -> Lude.Maybe [ReplicaGlobalSecondaryIndexAutoScalingUpdate]) (\s a -> s {replicaGlobalSecondaryIndexUpdates = a} :: ReplicaAutoScalingUpdate)
+rasuReplicaGlobalSecondaryIndexUpdates :: Lens.Lens' ReplicaAutoScalingUpdate (Core.Maybe [Types.ReplicaGlobalSecondaryIndexAutoScalingUpdate])
+rasuReplicaGlobalSecondaryIndexUpdates = Lens.field @"replicaGlobalSecondaryIndexUpdates"
 {-# DEPRECATED rasuReplicaGlobalSecondaryIndexUpdates "Use generic-lens or generic-optics with 'replicaGlobalSecondaryIndexUpdates' instead." #-}
 
-instance Lude.ToJSON ReplicaAutoScalingUpdate where
-  toJSON ReplicaAutoScalingUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("RegionName" Lude..= regionName),
-            ("ReplicaProvisionedReadCapacityAutoScalingUpdate" Lude..=)
-              Lude.<$> replicaProvisionedReadCapacityAutoScalingUpdate,
-            ("ReplicaGlobalSecondaryIndexUpdates" Lude..=)
-              Lude.<$> replicaGlobalSecondaryIndexUpdates
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'replicaProvisionedReadCapacityAutoScalingUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasuReplicaProvisionedReadCapacityAutoScalingUpdate :: Lens.Lens' ReplicaAutoScalingUpdate (Core.Maybe Types.AutoScalingSettingsUpdate)
+rasuReplicaProvisionedReadCapacityAutoScalingUpdate = Lens.field @"replicaProvisionedReadCapacityAutoScalingUpdate"
+{-# DEPRECATED rasuReplicaProvisionedReadCapacityAutoScalingUpdate "Use generic-lens or generic-optics with 'replicaProvisionedReadCapacityAutoScalingUpdate' instead." #-}
+
+instance Core.FromJSON ReplicaAutoScalingUpdate where
+  toJSON ReplicaAutoScalingUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("RegionName" Core..= regionName),
+            ("ReplicaGlobalSecondaryIndexUpdates" Core..=)
+              Core.<$> replicaGlobalSecondaryIndexUpdates,
+            ("ReplicaProvisionedReadCapacityAutoScalingUpdate" Core..=)
+              Core.<$> replicaProvisionedReadCapacityAutoScalingUpdate
           ]
       )

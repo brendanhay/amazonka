@@ -22,40 +22,38 @@ module Network.AWS.S3.Types.ServerSideEncryptionConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.ServerSideEncryptionRule
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.ServerSideEncryptionRule as Types
 
 -- | Specifies the default server-side-encryption configuration.
 --
 -- /See:/ 'mkServerSideEncryptionConfiguration' smart constructor.
 newtype ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration'
   { -- | Container for information about a particular server-side encryption configuration rule.
-    rules :: [ServerSideEncryptionRule]
+    rules :: [Types.ServerSideEncryptionRule]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServerSideEncryptionConfiguration' with the minimum fields required to make a request.
---
--- * 'rules' - Container for information about a particular server-side encryption configuration rule.
+-- | Creates a 'ServerSideEncryptionConfiguration' value with any optional fields omitted.
 mkServerSideEncryptionConfiguration ::
   ServerSideEncryptionConfiguration
 mkServerSideEncryptionConfiguration =
-  ServerSideEncryptionConfiguration' {rules = Lude.mempty}
+  ServerSideEncryptionConfiguration' {rules = Core.mempty}
 
 -- | Container for information about a particular server-side encryption configuration rule.
 --
 -- /Note:/ Consider using 'rules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssecRules :: Lens.Lens' ServerSideEncryptionConfiguration [ServerSideEncryptionRule]
-ssecRules = Lens.lens (rules :: ServerSideEncryptionConfiguration -> [ServerSideEncryptionRule]) (\s a -> s {rules = a} :: ServerSideEncryptionConfiguration)
+ssecRules :: Lens.Lens' ServerSideEncryptionConfiguration [Types.ServerSideEncryptionRule]
+ssecRules = Lens.field @"rules"
 {-# DEPRECATED ssecRules "Use generic-lens or generic-optics with 'rules' instead." #-}
 
-instance Lude.FromXML ServerSideEncryptionConfiguration where
+instance Core.ToXML ServerSideEncryptionConfiguration where
+  toXML ServerSideEncryptionConfiguration {..} =
+    Core.toXMLList "Rule" rules
+
+instance Core.FromXML ServerSideEncryptionConfiguration where
   parseXML x =
     ServerSideEncryptionConfiguration'
-      Lude.<$> (Lude.parseXMLList "Rule" x)
-
-instance Lude.ToXML ServerSideEncryptionConfiguration where
-  toXML ServerSideEncryptionConfiguration' {..} =
-    Lude.mconcat [Lude.toXMLList "Rule" rules]
+      Core.<$> (x Core..@? "Rule" Core..@! Core.mempty)

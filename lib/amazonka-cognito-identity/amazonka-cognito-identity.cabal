@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CognitoIdentity
     Network.AWS.CognitoIdentity.CreateIdentityPool
@@ -92,19 +98,44 @@ library
     Network.AWS.CognitoIdentity.Waiters
 
   other-modules:
+    Network.AWS.CognitoIdentity.Types.AccessKeyId
+    Network.AWS.CognitoIdentity.Types.AccountId
     Network.AWS.CognitoIdentity.Types.AmbiguousRoleResolutionType
+    Network.AWS.CognitoIdentity.Types.ARNString
+    Network.AWS.CognitoIdentity.Types.Claim
     Network.AWS.CognitoIdentity.Types.CognitoErrorCode
     Network.AWS.CognitoIdentity.Types.CognitoIdentityProvider
+    Network.AWS.CognitoIdentity.Types.CognitoIdentityProviderClientId
     Network.AWS.CognitoIdentity.Types.Credentials
+    Network.AWS.CognitoIdentity.Types.CustomRoleArn
+    Network.AWS.CognitoIdentity.Types.DeveloperProviderName
+    Network.AWS.CognitoIdentity.Types.DeveloperUserIdentifier
     Network.AWS.CognitoIdentity.Types.IdentityDescription
+    Network.AWS.CognitoIdentity.Types.IdentityId
     Network.AWS.CognitoIdentity.Types.IdentityPool
+    Network.AWS.CognitoIdentity.Types.IdentityPoolId
+    Network.AWS.CognitoIdentity.Types.IdentityPoolName
     Network.AWS.CognitoIdentity.Types.IdentityPoolShortDescription
+    Network.AWS.CognitoIdentity.Types.IdentityProviderId
+    Network.AWS.CognitoIdentity.Types.IdentityProviderName
+    Network.AWS.CognitoIdentity.Types.IdentityProviderToken
     Network.AWS.CognitoIdentity.Types.MappingRule
     Network.AWS.CognitoIdentity.Types.MappingRuleMatchType
+    Network.AWS.CognitoIdentity.Types.NextToken
+    Network.AWS.CognitoIdentity.Types.PaginationKey
+    Network.AWS.CognitoIdentity.Types.ProviderName
+    Network.AWS.CognitoIdentity.Types.RoleARN
     Network.AWS.CognitoIdentity.Types.RoleMapping
     Network.AWS.CognitoIdentity.Types.RoleMappingType
+    Network.AWS.CognitoIdentity.Types.RoleType
     Network.AWS.CognitoIdentity.Types.RulesConfigurationType
+    Network.AWS.CognitoIdentity.Types.SecretKeyString
+    Network.AWS.CognitoIdentity.Types.SessionToken
+    Network.AWS.CognitoIdentity.Types.TagKeysType
+    Network.AWS.CognitoIdentity.Types.TagValueType
+    Network.AWS.CognitoIdentity.Types.Token
     Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId
+    Network.AWS.CognitoIdentity.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

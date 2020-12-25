@@ -17,54 +17,51 @@ module Network.AWS.Inspector.Types.TimestampRange
     mkTimestampRange,
 
     -- * Lenses
-    trEndDate,
     trBeginDate,
+    trEndDate,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This data type is used in the 'AssessmentRunFilter' data type.
 --
 -- /See:/ 'mkTimestampRange' smart constructor.
 data TimestampRange = TimestampRange'
-  { -- | The maximum value of the timestamp range.
-    endDate :: Lude.Maybe Lude.Timestamp,
-    -- | The minimum value of the timestamp range.
-    beginDate :: Lude.Maybe Lude.Timestamp
+  { -- | The minimum value of the timestamp range.
+    beginDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The maximum value of the timestamp range.
+    endDate :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TimestampRange' with the minimum fields required to make a request.
---
--- * 'endDate' - The maximum value of the timestamp range.
--- * 'beginDate' - The minimum value of the timestamp range.
+-- | Creates a 'TimestampRange' value with any optional fields omitted.
 mkTimestampRange ::
   TimestampRange
 mkTimestampRange =
-  TimestampRange' {endDate = Lude.Nothing, beginDate = Lude.Nothing}
-
--- | The maximum value of the timestamp range.
---
--- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trEndDate :: Lens.Lens' TimestampRange (Lude.Maybe Lude.Timestamp)
-trEndDate = Lens.lens (endDate :: TimestampRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {endDate = a} :: TimestampRange)
-{-# DEPRECATED trEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
+  TimestampRange' {beginDate = Core.Nothing, endDate = Core.Nothing}
 
 -- | The minimum value of the timestamp range.
 --
 -- /Note:/ Consider using 'beginDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trBeginDate :: Lens.Lens' TimestampRange (Lude.Maybe Lude.Timestamp)
-trBeginDate = Lens.lens (beginDate :: TimestampRange -> Lude.Maybe Lude.Timestamp) (\s a -> s {beginDate = a} :: TimestampRange)
+trBeginDate :: Lens.Lens' TimestampRange (Core.Maybe Core.NominalDiffTime)
+trBeginDate = Lens.field @"beginDate"
 {-# DEPRECATED trBeginDate "Use generic-lens or generic-optics with 'beginDate' instead." #-}
 
-instance Lude.ToJSON TimestampRange where
-  toJSON TimestampRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("endDate" Lude..=) Lude.<$> endDate,
-            ("beginDate" Lude..=) Lude.<$> beginDate
+-- | The maximum value of the timestamp range.
+--
+-- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trEndDate :: Lens.Lens' TimestampRange (Core.Maybe Core.NominalDiffTime)
+trEndDate = Lens.field @"endDate"
+{-# DEPRECATED trEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
+
+instance Core.FromJSON TimestampRange where
+  toJSON TimestampRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("beginDate" Core..=) Core.<$> beginDate,
+            ("endDate" Core..=) Core.<$> endDate
           ]
       )

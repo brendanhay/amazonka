@@ -13,56 +13,61 @@
 module Network.AWS.IAM.Types.DeletionTaskStatusType
   ( DeletionTaskStatusType
       ( DeletionTaskStatusType',
-        DTSTSucceeded,
-        DTSTInProgress,
-        DTSTFailed,
-        DTSTNotStarted
+        DeletionTaskStatusTypeSucceeded,
+        DeletionTaskStatusTypeInProgress,
+        DeletionTaskStatusTypeFailed,
+        DeletionTaskStatusTypeNotStarted,
+        fromDeletionTaskStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DeletionTaskStatusType = DeletionTaskStatusType' Lude.Text
+newtype DeletionTaskStatusType = DeletionTaskStatusType'
+  { fromDeletionTaskStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DTSTSucceeded :: DeletionTaskStatusType
-pattern DTSTSucceeded = DeletionTaskStatusType' "SUCCEEDED"
+pattern DeletionTaskStatusTypeSucceeded :: DeletionTaskStatusType
+pattern DeletionTaskStatusTypeSucceeded = DeletionTaskStatusType' "SUCCEEDED"
 
-pattern DTSTInProgress :: DeletionTaskStatusType
-pattern DTSTInProgress = DeletionTaskStatusType' "IN_PROGRESS"
+pattern DeletionTaskStatusTypeInProgress :: DeletionTaskStatusType
+pattern DeletionTaskStatusTypeInProgress = DeletionTaskStatusType' "IN_PROGRESS"
 
-pattern DTSTFailed :: DeletionTaskStatusType
-pattern DTSTFailed = DeletionTaskStatusType' "FAILED"
+pattern DeletionTaskStatusTypeFailed :: DeletionTaskStatusType
+pattern DeletionTaskStatusTypeFailed = DeletionTaskStatusType' "FAILED"
 
-pattern DTSTNotStarted :: DeletionTaskStatusType
-pattern DTSTNotStarted = DeletionTaskStatusType' "NOT_STARTED"
+pattern DeletionTaskStatusTypeNotStarted :: DeletionTaskStatusType
+pattern DeletionTaskStatusTypeNotStarted = DeletionTaskStatusType' "NOT_STARTED"
 
 {-# COMPLETE
-  DTSTSucceeded,
-  DTSTInProgress,
-  DTSTFailed,
-  DTSTNotStarted,
+  DeletionTaskStatusTypeSucceeded,
+  DeletionTaskStatusTypeInProgress,
+  DeletionTaskStatusTypeFailed,
+  DeletionTaskStatusTypeNotStarted,
   DeletionTaskStatusType'
   #-}

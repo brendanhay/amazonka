@@ -20,174 +20,155 @@ module Network.AWS.SageMaker.CreateImage
     mkCreateImage,
 
     -- ** Request lenses
-    cifDisplayName,
     cifImageName,
+    cifRoleArn,
     cifDescription,
+    cifDisplayName,
     cifTags,
-    cifRoleARN,
 
     -- * Destructuring the response
     CreateImageResponse (..),
     mkCreateImageResponse,
 
     -- ** Response lenses
-    cirsImageARN,
-    cirsResponseStatus,
+    cirrsImageArn,
+    cirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateImage' smart constructor.
 data CreateImage = CreateImage'
-  { -- | The display name of the image. If not provided, @ImageName@ is displayed.
-    displayName :: Lude.Maybe Lude.Text,
-    -- | The name of the image. Must be unique to your account.
-    imageName :: Lude.Text,
-    -- | The description of the image.
-    description :: Lude.Maybe Lude.Text,
-    -- | A list of tags to apply to the image.
-    tags :: Lude.Maybe [Tag],
+  { -- | The name of the image. Must be unique to your account.
+    imageName :: Types.ImageName,
     -- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
-    roleARN :: Lude.Text
+    roleArn :: Types.RoleArn,
+    -- | The description of the image.
+    description :: Core.Maybe Types.Description,
+    -- | The display name of the image. If not provided, @ImageName@ is displayed.
+    displayName :: Core.Maybe Types.ImageDisplayName,
+    -- | A list of tags to apply to the image.
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateImage' with the minimum fields required to make a request.
---
--- * 'displayName' - The display name of the image. If not provided, @ImageName@ is displayed.
--- * 'imageName' - The name of the image. Must be unique to your account.
--- * 'description' - The description of the image.
--- * 'tags' - A list of tags to apply to the image.
--- * 'roleARN' - The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+-- | Creates a 'CreateImage' value with any optional fields omitted.
 mkCreateImage ::
   -- | 'imageName'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.ImageName ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   CreateImage
-mkCreateImage pImageName_ pRoleARN_ =
+mkCreateImage imageName roleArn =
   CreateImage'
-    { displayName = Lude.Nothing,
-      imageName = pImageName_,
-      description = Lude.Nothing,
-      tags = Lude.Nothing,
-      roleARN = pRoleARN_
+    { imageName,
+      roleArn,
+      description = Core.Nothing,
+      displayName = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The display name of the image. If not provided, @ImageName@ is displayed.
---
--- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifDisplayName :: Lens.Lens' CreateImage (Lude.Maybe Lude.Text)
-cifDisplayName = Lens.lens (displayName :: CreateImage -> Lude.Maybe Lude.Text) (\s a -> s {displayName = a} :: CreateImage)
-{-# DEPRECATED cifDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | The name of the image. Must be unique to your account.
 --
 -- /Note:/ Consider using 'imageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifImageName :: Lens.Lens' CreateImage Lude.Text
-cifImageName = Lens.lens (imageName :: CreateImage -> Lude.Text) (\s a -> s {imageName = a} :: CreateImage)
+cifImageName :: Lens.Lens' CreateImage Types.ImageName
+cifImageName = Lens.field @"imageName"
 {-# DEPRECATED cifImageName "Use generic-lens or generic-optics with 'imageName' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifRoleArn :: Lens.Lens' CreateImage Types.RoleArn
+cifRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED cifRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The description of the image.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifDescription :: Lens.Lens' CreateImage (Lude.Maybe Lude.Text)
-cifDescription = Lens.lens (description :: CreateImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateImage)
+cifDescription :: Lens.Lens' CreateImage (Core.Maybe Types.Description)
+cifDescription = Lens.field @"description"
 {-# DEPRECATED cifDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The display name of the image. If not provided, @ImageName@ is displayed.
+--
+-- /Note:/ Consider using 'displayName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cifDisplayName :: Lens.Lens' CreateImage (Core.Maybe Types.ImageDisplayName)
+cifDisplayName = Lens.field @"displayName"
+{-# DEPRECATED cifDisplayName "Use generic-lens or generic-optics with 'displayName' instead." #-}
 
 -- | A list of tags to apply to the image.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifTags :: Lens.Lens' CreateImage (Lude.Maybe [Tag])
-cifTags = Lens.lens (tags :: CreateImage -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateImage)
+cifTags :: Lens.Lens' CreateImage (Core.Maybe [Types.Tag])
+cifTags = Lens.field @"tags"
 {-# DEPRECATED cifTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
--- | The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cifRoleARN :: Lens.Lens' CreateImage Lude.Text
-cifRoleARN = Lens.lens (roleARN :: CreateImage -> Lude.Text) (\s a -> s {roleARN = a} :: CreateImage)
-{-# DEPRECATED cifRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+instance Core.FromJSON CreateImage where
+  toJSON CreateImage {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ImageName" Core..= imageName),
+            Core.Just ("RoleArn" Core..= roleArn),
+            ("Description" Core..=) Core.<$> description,
+            ("DisplayName" Core..=) Core.<$> displayName,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
 
-instance Lude.AWSRequest CreateImage where
+instance Core.AWSRequest CreateImage where
   type Rs CreateImage = CreateImageResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.CreateImage")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateImageResponse'
-            Lude.<$> (x Lude..?> "ImageArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ImageArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateImage where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.CreateImage" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateImage where
-  toJSON CreateImage' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DisplayName" Lude..=) Lude.<$> displayName,
-            Lude.Just ("ImageName" Lude..= imageName),
-            ("Description" Lude..=) Lude.<$> description,
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("RoleArn" Lude..= roleARN)
-          ]
-      )
-
-instance Lude.ToPath CreateImage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateImage where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateImageResponse' smart constructor.
 data CreateImageResponse = CreateImageResponse'
   { -- | The Amazon Resource Name (ARN) of the image.
-    imageARN :: Lude.Maybe Lude.Text,
+    imageArn :: Core.Maybe Types.ImageArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateImageResponse' with the minimum fields required to make a request.
---
--- * 'imageARN' - The Amazon Resource Name (ARN) of the image.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateImageResponse' value with any optional fields omitted.
 mkCreateImageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateImageResponse
-mkCreateImageResponse pResponseStatus_ =
-  CreateImageResponse'
-    { imageARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateImageResponse responseStatus =
+  CreateImageResponse' {imageArn = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the image.
 --
--- /Note:/ Consider using 'imageARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cirsImageARN :: Lens.Lens' CreateImageResponse (Lude.Maybe Lude.Text)
-cirsImageARN = Lens.lens (imageARN :: CreateImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {imageARN = a} :: CreateImageResponse)
-{-# DEPRECATED cirsImageARN "Use generic-lens or generic-optics with 'imageARN' instead." #-}
+-- /Note:/ Consider using 'imageArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cirrsImageArn :: Lens.Lens' CreateImageResponse (Core.Maybe Types.ImageArn)
+cirrsImageArn = Lens.field @"imageArn"
+{-# DEPRECATED cirrsImageArn "Use generic-lens or generic-optics with 'imageArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cirsResponseStatus :: Lens.Lens' CreateImageResponse Lude.Int
-cirsResponseStatus = Lens.lens (responseStatus :: CreateImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateImageResponse)
-{-# DEPRECATED cirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cirrsResponseStatus :: Lens.Lens' CreateImageResponse Core.Int
+cirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

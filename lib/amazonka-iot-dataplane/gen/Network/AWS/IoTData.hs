@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +18,40 @@
 -- The service name used by <https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html AWS Signature Version 4> to sign requests is: /iotdevicegateway/ .
 module Network.AWS.IoTData
   ( -- * Service configuration
-    ioTDataService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** ConflictException
+    _ConflictException,
+
+    -- ** RequestEntityTooLargeException
+    _RequestEntityTooLargeException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** MethodNotAllowedException
+    _MethodNotAllowedException,
+
+    -- ** InternalFailureException
+    _InternalFailureException,
+
+    -- ** ServiceUnavailableException
+    _ServiceUnavailableException,
+
+    -- ** UnauthorizedException
+    _UnauthorizedException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** UnsupportedDocumentEncodingException
+    _UnsupportedDocumentEncodingException,
 
     -- * Waiters
     -- $waiters
@@ -47,15 +76,25 @@ module Network.AWS.IoTData
 
     -- * Types
 
+    -- ** ShadowName
+    ShadowName (..),
+
+    -- ** Topic
+    Topic (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ThingName
+    ThingName (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

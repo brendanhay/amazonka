@@ -13,47 +13,52 @@
 module Network.AWS.MachineLearning.Types.DetailsAttributes
   ( DetailsAttributes
       ( DetailsAttributes',
-        PredictiveModelType,
-        Algorithm
+        DetailsAttributesPredictiveModelType,
+        DetailsAttributesAlgorithm,
+        fromDetailsAttributes
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the key values of @DetailsMap@ : @PredictiveModelType@ - Indicates the type of the @MLModel@ . @Algorithm@ - Indicates the algorithm that was used for the @MLModel@ .
-newtype DetailsAttributes = DetailsAttributes' Lude.Text
+newtype DetailsAttributes = DetailsAttributes'
+  { fromDetailsAttributes ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PredictiveModelType :: DetailsAttributes
-pattern PredictiveModelType = DetailsAttributes' "PredictiveModelType"
+pattern DetailsAttributesPredictiveModelType :: DetailsAttributes
+pattern DetailsAttributesPredictiveModelType = DetailsAttributes' "PredictiveModelType"
 
-pattern Algorithm :: DetailsAttributes
-pattern Algorithm = DetailsAttributes' "Algorithm"
+pattern DetailsAttributesAlgorithm :: DetailsAttributes
+pattern DetailsAttributesAlgorithm = DetailsAttributes' "Algorithm"
 
 {-# COMPLETE
-  PredictiveModelType,
-  Algorithm,
+  DetailsAttributesPredictiveModelType,
+  DetailsAttributesAlgorithm,
   DetailsAttributes'
   #-}

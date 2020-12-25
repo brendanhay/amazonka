@@ -13,101 +13,106 @@
 module Network.AWS.AutoScaling.Types.LifecycleState
   ( LifecycleState
       ( LifecycleState',
-        LSPending,
-        LSPendingWait,
-        LSPendingProceed,
-        LSQuarantined,
-        LSInService,
-        LSTerminating,
-        LSTerminatingWait,
-        LSTerminatingProceed,
-        LSTerminated,
-        LSDetaching,
-        LSDetached,
-        LSEnteringStandby,
-        LSStandby
+        LifecycleStatePending,
+        LifecycleStatePendingWait,
+        LifecycleStatePendingProceed,
+        LifecycleStateQuarantined,
+        LifecycleStateInService,
+        LifecycleStateTerminating,
+        LifecycleStateTerminatingWait,
+        LifecycleStateTerminatingProceed,
+        LifecycleStateTerminated,
+        LifecycleStateDetaching,
+        LifecycleStateDetached,
+        LifecycleStateEnteringStandby,
+        LifecycleStateStandby,
+        fromLifecycleState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LifecycleState = LifecycleState' Lude.Text
+newtype LifecycleState = LifecycleState'
+  { fromLifecycleState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LSPending :: LifecycleState
-pattern LSPending = LifecycleState' "Pending"
+pattern LifecycleStatePending :: LifecycleState
+pattern LifecycleStatePending = LifecycleState' "Pending"
 
-pattern LSPendingWait :: LifecycleState
-pattern LSPendingWait = LifecycleState' "Pending:Wait"
+pattern LifecycleStatePendingWait :: LifecycleState
+pattern LifecycleStatePendingWait = LifecycleState' "Pending:Wait"
 
-pattern LSPendingProceed :: LifecycleState
-pattern LSPendingProceed = LifecycleState' "Pending:Proceed"
+pattern LifecycleStatePendingProceed :: LifecycleState
+pattern LifecycleStatePendingProceed = LifecycleState' "Pending:Proceed"
 
-pattern LSQuarantined :: LifecycleState
-pattern LSQuarantined = LifecycleState' "Quarantined"
+pattern LifecycleStateQuarantined :: LifecycleState
+pattern LifecycleStateQuarantined = LifecycleState' "Quarantined"
 
-pattern LSInService :: LifecycleState
-pattern LSInService = LifecycleState' "InService"
+pattern LifecycleStateInService :: LifecycleState
+pattern LifecycleStateInService = LifecycleState' "InService"
 
-pattern LSTerminating :: LifecycleState
-pattern LSTerminating = LifecycleState' "Terminating"
+pattern LifecycleStateTerminating :: LifecycleState
+pattern LifecycleStateTerminating = LifecycleState' "Terminating"
 
-pattern LSTerminatingWait :: LifecycleState
-pattern LSTerminatingWait = LifecycleState' "Terminating:Wait"
+pattern LifecycleStateTerminatingWait :: LifecycleState
+pattern LifecycleStateTerminatingWait = LifecycleState' "Terminating:Wait"
 
-pattern LSTerminatingProceed :: LifecycleState
-pattern LSTerminatingProceed = LifecycleState' "Terminating:Proceed"
+pattern LifecycleStateTerminatingProceed :: LifecycleState
+pattern LifecycleStateTerminatingProceed = LifecycleState' "Terminating:Proceed"
 
-pattern LSTerminated :: LifecycleState
-pattern LSTerminated = LifecycleState' "Terminated"
+pattern LifecycleStateTerminated :: LifecycleState
+pattern LifecycleStateTerminated = LifecycleState' "Terminated"
 
-pattern LSDetaching :: LifecycleState
-pattern LSDetaching = LifecycleState' "Detaching"
+pattern LifecycleStateDetaching :: LifecycleState
+pattern LifecycleStateDetaching = LifecycleState' "Detaching"
 
-pattern LSDetached :: LifecycleState
-pattern LSDetached = LifecycleState' "Detached"
+pattern LifecycleStateDetached :: LifecycleState
+pattern LifecycleStateDetached = LifecycleState' "Detached"
 
-pattern LSEnteringStandby :: LifecycleState
-pattern LSEnteringStandby = LifecycleState' "EnteringStandby"
+pattern LifecycleStateEnteringStandby :: LifecycleState
+pattern LifecycleStateEnteringStandby = LifecycleState' "EnteringStandby"
 
-pattern LSStandby :: LifecycleState
-pattern LSStandby = LifecycleState' "Standby"
+pattern LifecycleStateStandby :: LifecycleState
+pattern LifecycleStateStandby = LifecycleState' "Standby"
 
 {-# COMPLETE
-  LSPending,
-  LSPendingWait,
-  LSPendingProceed,
-  LSQuarantined,
-  LSInService,
-  LSTerminating,
-  LSTerminatingWait,
-  LSTerminatingProceed,
-  LSTerminated,
-  LSDetaching,
-  LSDetached,
-  LSEnteringStandby,
-  LSStandby,
+  LifecycleStatePending,
+  LifecycleStatePendingWait,
+  LifecycleStatePendingProceed,
+  LifecycleStateQuarantined,
+  LifecycleStateInService,
+  LifecycleStateTerminating,
+  LifecycleStateTerminatingWait,
+  LifecycleStateTerminatingProceed,
+  LifecycleStateTerminated,
+  LifecycleStateDetaching,
+  LifecycleStateDetached,
+  LifecycleStateEnteringStandby,
+  LifecycleStateStandby,
   LifecycleState'
   #-}

@@ -17,61 +17,59 @@ module Network.AWS.Glue.Types.BatchUpdatePartitionRequestEntry
     mkBatchUpdatePartitionRequestEntry,
 
     -- * Lenses
-    buprePartitionInput,
     buprePartitionValueList,
+    buprePartitionInput,
   )
 where
 
-import Network.AWS.Glue.Types.PartitionInput
+import qualified Network.AWS.Glue.Types.PartitionInput as Types
+import qualified Network.AWS.Glue.Types.ValueString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure that contains the values and structure used to update a partition.
 --
 -- /See:/ 'mkBatchUpdatePartitionRequestEntry' smart constructor.
 data BatchUpdatePartitionRequestEntry = BatchUpdatePartitionRequestEntry'
-  { -- | The structure used to update a partition.
-    partitionInput :: PartitionInput,
-    -- | A list of values defining the partitions.
-    partitionValueList :: [Lude.Text]
+  { -- | A list of values defining the partitions.
+    partitionValueList :: [Types.ValueString],
+    -- | The structure used to update a partition.
+    partitionInput :: Types.PartitionInput
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchUpdatePartitionRequestEntry' with the minimum fields required to make a request.
---
--- * 'partitionInput' - The structure used to update a partition.
--- * 'partitionValueList' - A list of values defining the partitions.
+-- | Creates a 'BatchUpdatePartitionRequestEntry' value with any optional fields omitted.
 mkBatchUpdatePartitionRequestEntry ::
   -- | 'partitionInput'
-  PartitionInput ->
+  Types.PartitionInput ->
   BatchUpdatePartitionRequestEntry
-mkBatchUpdatePartitionRequestEntry pPartitionInput_ =
+mkBatchUpdatePartitionRequestEntry partitionInput =
   BatchUpdatePartitionRequestEntry'
-    { partitionInput =
-        pPartitionInput_,
-      partitionValueList = Lude.mempty
+    { partitionValueList =
+        Core.mempty,
+      partitionInput
     }
-
--- | The structure used to update a partition.
---
--- /Note:/ Consider using 'partitionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-buprePartitionInput :: Lens.Lens' BatchUpdatePartitionRequestEntry PartitionInput
-buprePartitionInput = Lens.lens (partitionInput :: BatchUpdatePartitionRequestEntry -> PartitionInput) (\s a -> s {partitionInput = a} :: BatchUpdatePartitionRequestEntry)
-{-# DEPRECATED buprePartitionInput "Use generic-lens or generic-optics with 'partitionInput' instead." #-}
 
 -- | A list of values defining the partitions.
 --
 -- /Note:/ Consider using 'partitionValueList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-buprePartitionValueList :: Lens.Lens' BatchUpdatePartitionRequestEntry [Lude.Text]
-buprePartitionValueList = Lens.lens (partitionValueList :: BatchUpdatePartitionRequestEntry -> [Lude.Text]) (\s a -> s {partitionValueList = a} :: BatchUpdatePartitionRequestEntry)
+buprePartitionValueList :: Lens.Lens' BatchUpdatePartitionRequestEntry [Types.ValueString]
+buprePartitionValueList = Lens.field @"partitionValueList"
 {-# DEPRECATED buprePartitionValueList "Use generic-lens or generic-optics with 'partitionValueList' instead." #-}
 
-instance Lude.ToJSON BatchUpdatePartitionRequestEntry where
-  toJSON BatchUpdatePartitionRequestEntry' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PartitionInput" Lude..= partitionInput),
-            Lude.Just ("PartitionValueList" Lude..= partitionValueList)
+-- | The structure used to update a partition.
+--
+-- /Note:/ Consider using 'partitionInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+buprePartitionInput :: Lens.Lens' BatchUpdatePartitionRequestEntry Types.PartitionInput
+buprePartitionInput = Lens.field @"partitionInput"
+{-# DEPRECATED buprePartitionInput "Use generic-lens or generic-optics with 'partitionInput' instead." #-}
+
+instance Core.FromJSON BatchUpdatePartitionRequestEntry where
+  toJSON BatchUpdatePartitionRequestEntry {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PartitionValueList" Core..= partitionValueList),
+            Core.Just ("PartitionInput" Core..= partitionInput)
           ]
       )

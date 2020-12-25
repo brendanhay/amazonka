@@ -29,93 +29,81 @@ module Network.AWS.Athena.DeleteNamedQuery
     mkDeleteNamedQueryResponse,
 
     -- ** Response lenses
-    dnqrsResponseStatus,
+    dnqrrsResponseStatus,
   )
 where
 
-import Network.AWS.Athena.Types
+import qualified Network.AWS.Athena.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteNamedQuery' smart constructor.
 newtype DeleteNamedQuery = DeleteNamedQuery'
   { -- | The unique ID of the query to delete.
-    namedQueryId :: Lude.Text
+    namedQueryId :: Types.NamedQueryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteNamedQuery' with the minimum fields required to make a request.
---
--- * 'namedQueryId' - The unique ID of the query to delete.
+-- | Creates a 'DeleteNamedQuery' value with any optional fields omitted.
 mkDeleteNamedQuery ::
   -- | 'namedQueryId'
-  Lude.Text ->
+  Types.NamedQueryId ->
   DeleteNamedQuery
-mkDeleteNamedQuery pNamedQueryId_ =
-  DeleteNamedQuery' {namedQueryId = pNamedQueryId_}
+mkDeleteNamedQuery namedQueryId = DeleteNamedQuery' {namedQueryId}
 
 -- | The unique ID of the query to delete.
 --
 -- /Note:/ Consider using 'namedQueryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnqNamedQueryId :: Lens.Lens' DeleteNamedQuery Lude.Text
-dnqNamedQueryId = Lens.lens (namedQueryId :: DeleteNamedQuery -> Lude.Text) (\s a -> s {namedQueryId = a} :: DeleteNamedQuery)
+dnqNamedQueryId :: Lens.Lens' DeleteNamedQuery Types.NamedQueryId
+dnqNamedQueryId = Lens.field @"namedQueryId"
 {-# DEPRECATED dnqNamedQueryId "Use generic-lens or generic-optics with 'namedQueryId' instead." #-}
 
-instance Lude.AWSRequest DeleteNamedQuery where
+instance Core.FromJSON DeleteNamedQuery where
+  toJSON DeleteNamedQuery {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("NamedQueryId" Core..= namedQueryId)])
+
+instance Core.AWSRequest DeleteNamedQuery where
   type Rs DeleteNamedQuery = DeleteNamedQueryResponse
-  request = Req.postJSON athenaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonAthena.DeleteNamedQuery")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteNamedQueryResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteNamedQueryResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteNamedQuery where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonAthena.DeleteNamedQuery" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteNamedQuery where
-  toJSON DeleteNamedQuery' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("NamedQueryId" Lude..= namedQueryId)])
-
-instance Lude.ToPath DeleteNamedQuery where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteNamedQuery where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteNamedQueryResponse' smart constructor.
 newtype DeleteNamedQueryResponse = DeleteNamedQueryResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteNamedQueryResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteNamedQueryResponse' value with any optional fields omitted.
 mkDeleteNamedQueryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteNamedQueryResponse
-mkDeleteNamedQueryResponse pResponseStatus_ =
-  DeleteNamedQueryResponse' {responseStatus = pResponseStatus_}
+mkDeleteNamedQueryResponse responseStatus =
+  DeleteNamedQueryResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnqrsResponseStatus :: Lens.Lens' DeleteNamedQueryResponse Lude.Int
-dnqrsResponseStatus = Lens.lens (responseStatus :: DeleteNamedQueryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteNamedQueryResponse)
-{-# DEPRECATED dnqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dnqrrsResponseStatus :: Lens.Lens' DeleteNamedQueryResponse Core.Int
+dnqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dnqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

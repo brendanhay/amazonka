@@ -18,56 +18,55 @@ module Network.AWS.Config.Types.ConfigRuleComplianceSummaryFilters
 
     -- * Lenses
     crcsfAccountId,
-    crcsfAWSRegion,
+    crcsfAwsRegion,
   )
 where
 
+import qualified Network.AWS.Config.Types.AccountId as Types
+import qualified Network.AWS.Config.Types.AwsRegion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Filters the results based on the account IDs and regions.
 --
 -- /See:/ 'mkConfigRuleComplianceSummaryFilters' smart constructor.
 data ConfigRuleComplianceSummaryFilters = ConfigRuleComplianceSummaryFilters'
   { -- | The 12-digit account ID of the source account.
-    accountId :: Lude.Maybe Lude.Text,
+    accountId :: Core.Maybe Types.AccountId,
     -- | The source region where the data is aggregated.
-    awsRegion :: Lude.Maybe Lude.Text
+    awsRegion :: Core.Maybe Types.AwsRegion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfigRuleComplianceSummaryFilters' with the minimum fields required to make a request.
---
--- * 'accountId' - The 12-digit account ID of the source account.
--- * 'awsRegion' - The source region where the data is aggregated.
+-- | Creates a 'ConfigRuleComplianceSummaryFilters' value with any optional fields omitted.
 mkConfigRuleComplianceSummaryFilters ::
   ConfigRuleComplianceSummaryFilters
 mkConfigRuleComplianceSummaryFilters =
   ConfigRuleComplianceSummaryFilters'
-    { accountId = Lude.Nothing,
-      awsRegion = Lude.Nothing
+    { accountId = Core.Nothing,
+      awsRegion = Core.Nothing
     }
 
 -- | The 12-digit account ID of the source account.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crcsfAccountId :: Lens.Lens' ConfigRuleComplianceSummaryFilters (Lude.Maybe Lude.Text)
-crcsfAccountId = Lens.lens (accountId :: ConfigRuleComplianceSummaryFilters -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: ConfigRuleComplianceSummaryFilters)
+crcsfAccountId :: Lens.Lens' ConfigRuleComplianceSummaryFilters (Core.Maybe Types.AccountId)
+crcsfAccountId = Lens.field @"accountId"
 {-# DEPRECATED crcsfAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The source region where the data is aggregated.
 --
 -- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crcsfAWSRegion :: Lens.Lens' ConfigRuleComplianceSummaryFilters (Lude.Maybe Lude.Text)
-crcsfAWSRegion = Lens.lens (awsRegion :: ConfigRuleComplianceSummaryFilters -> Lude.Maybe Lude.Text) (\s a -> s {awsRegion = a} :: ConfigRuleComplianceSummaryFilters)
-{-# DEPRECATED crcsfAWSRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
+crcsfAwsRegion :: Lens.Lens' ConfigRuleComplianceSummaryFilters (Core.Maybe Types.AwsRegion)
+crcsfAwsRegion = Lens.field @"awsRegion"
+{-# DEPRECATED crcsfAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
 
-instance Lude.ToJSON ConfigRuleComplianceSummaryFilters where
-  toJSON ConfigRuleComplianceSummaryFilters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AccountId" Lude..=) Lude.<$> accountId,
-            ("AwsRegion" Lude..=) Lude.<$> awsRegion
+instance Core.FromJSON ConfigRuleComplianceSummaryFilters where
+  toJSON ConfigRuleComplianceSummaryFilters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AccountId" Core..=) Core.<$> accountId,
+            ("AwsRegion" Core..=) Core.<$> awsRegion
           ]
       )

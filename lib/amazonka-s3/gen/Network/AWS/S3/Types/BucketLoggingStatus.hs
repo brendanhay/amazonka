@@ -22,34 +22,32 @@ module Network.AWS.S3.Types.BucketLoggingStatus
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.LoggingEnabled
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.LoggingEnabled as Types
 
 -- | Container for logging status information.
 --
 -- /See:/ 'mkBucketLoggingStatus' smart constructor.
 newtype BucketLoggingStatus = BucketLoggingStatus'
-  { loggingEnabled :: Lude.Maybe LoggingEnabled
+  { loggingEnabled :: Core.Maybe Types.LoggingEnabled
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BucketLoggingStatus' with the minimum fields required to make a request.
---
--- * 'loggingEnabled' -
+-- | Creates a 'BucketLoggingStatus' value with any optional fields omitted.
 mkBucketLoggingStatus ::
   BucketLoggingStatus
 mkBucketLoggingStatus =
-  BucketLoggingStatus' {loggingEnabled = Lude.Nothing}
+  BucketLoggingStatus' {loggingEnabled = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'loggingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blsLoggingEnabled :: Lens.Lens' BucketLoggingStatus (Lude.Maybe LoggingEnabled)
-blsLoggingEnabled = Lens.lens (loggingEnabled :: BucketLoggingStatus -> Lude.Maybe LoggingEnabled) (\s a -> s {loggingEnabled = a} :: BucketLoggingStatus)
+blsLoggingEnabled :: Lens.Lens' BucketLoggingStatus (Core.Maybe Types.LoggingEnabled)
+blsLoggingEnabled = Lens.field @"loggingEnabled"
 {-# DEPRECATED blsLoggingEnabled "Use generic-lens or generic-optics with 'loggingEnabled' instead." #-}
 
-instance Lude.ToXML BucketLoggingStatus where
-  toXML BucketLoggingStatus' {..} =
-    Lude.mconcat ["LoggingEnabled" Lude.@= loggingEnabled]
+instance Core.ToXML BucketLoggingStatus where
+  toXML BucketLoggingStatus {..} =
+    Core.toXMLNode "LoggingEnabled" Core.<$> loggingEnabled

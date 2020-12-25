@@ -22,8 +22,8 @@ module Network.AWS.SageMaker.Types.PublicWorkforceTaskPrice
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.USD
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.USD as Types
 
 -- | Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed.
 --
@@ -319,35 +319,31 @@ import Network.AWS.SageMaker.Types.USD
 -- /See:/ 'mkPublicWorkforceTaskPrice' smart constructor.
 newtype PublicWorkforceTaskPrice = PublicWorkforceTaskPrice'
   { -- | Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars.
-    amountInUsd :: Lude.Maybe USD
+    amountInUsd :: Core.Maybe Types.USD
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PublicWorkforceTaskPrice' with the minimum fields required to make a request.
---
--- * 'amountInUsd' - Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars.
+-- | Creates a 'PublicWorkforceTaskPrice' value with any optional fields omitted.
 mkPublicWorkforceTaskPrice ::
   PublicWorkforceTaskPrice
 mkPublicWorkforceTaskPrice =
-  PublicWorkforceTaskPrice' {amountInUsd = Lude.Nothing}
+  PublicWorkforceTaskPrice' {amountInUsd = Core.Nothing}
 
 -- | Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars.
 --
 -- /Note:/ Consider using 'amountInUsd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pwtpAmountInUsd :: Lens.Lens' PublicWorkforceTaskPrice (Lude.Maybe USD)
-pwtpAmountInUsd = Lens.lens (amountInUsd :: PublicWorkforceTaskPrice -> Lude.Maybe USD) (\s a -> s {amountInUsd = a} :: PublicWorkforceTaskPrice)
+pwtpAmountInUsd :: Lens.Lens' PublicWorkforceTaskPrice (Core.Maybe Types.USD)
+pwtpAmountInUsd = Lens.field @"amountInUsd"
 {-# DEPRECATED pwtpAmountInUsd "Use generic-lens or generic-optics with 'amountInUsd' instead." #-}
 
-instance Lude.FromJSON PublicWorkforceTaskPrice where
-  parseJSON =
-    Lude.withObject
-      "PublicWorkforceTaskPrice"
-      ( \x ->
-          PublicWorkforceTaskPrice' Lude.<$> (x Lude..:? "AmountInUsd")
-      )
+instance Core.FromJSON PublicWorkforceTaskPrice where
+  toJSON PublicWorkforceTaskPrice {..} =
+    Core.object
+      (Core.catMaybes [("AmountInUsd" Core..=) Core.<$> amountInUsd])
 
-instance Lude.ToJSON PublicWorkforceTaskPrice where
-  toJSON PublicWorkforceTaskPrice' {..} =
-    Lude.object
-      (Lude.catMaybes [("AmountInUsd" Lude..=) Lude.<$> amountInUsd])
+instance Core.FromJSON PublicWorkforceTaskPrice where
+  parseJSON =
+    Core.withObject "PublicWorkforceTaskPrice" Core.$
+      \x ->
+        PublicWorkforceTaskPrice' Core.<$> (x Core..:? "AmountInUsd")

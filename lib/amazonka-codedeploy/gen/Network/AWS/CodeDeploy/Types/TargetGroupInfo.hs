@@ -21,39 +21,37 @@ module Network.AWS.CodeDeploy.Types.TargetGroupInfo
   )
 where
 
+import qualified Network.AWS.CodeDeploy.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a target group in Elastic Load Balancing to use in a deployment. Instances are registered as targets in a target group, and traffic is routed to the target group.
 --
 -- /See:/ 'mkTargetGroupInfo' smart constructor.
 newtype TargetGroupInfo = TargetGroupInfo'
   { -- | For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment are registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TargetGroupInfo' with the minimum fields required to make a request.
---
--- * 'name' - For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment are registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
+-- | Creates a 'TargetGroupInfo' value with any optional fields omitted.
 mkTargetGroupInfo ::
   TargetGroupInfo
-mkTargetGroupInfo = TargetGroupInfo' {name = Lude.Nothing}
+mkTargetGroupInfo = TargetGroupInfo' {name = Core.Nothing}
 
 -- | For blue/green deployments, the name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment are registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment is complete.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgiName :: Lens.Lens' TargetGroupInfo (Lude.Maybe Lude.Text)
-tgiName = Lens.lens (name :: TargetGroupInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: TargetGroupInfo)
+tgiName :: Lens.Lens' TargetGroupInfo (Core.Maybe Types.Name)
+tgiName = Lens.field @"name"
 {-# DEPRECATED tgiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON TargetGroupInfo where
-  parseJSON =
-    Lude.withObject
-      "TargetGroupInfo"
-      (\x -> TargetGroupInfo' Lude.<$> (x Lude..:? "name"))
+instance Core.FromJSON TargetGroupInfo where
+  toJSON TargetGroupInfo {..} =
+    Core.object (Core.catMaybes [("name" Core..=) Core.<$> name])
 
-instance Lude.ToJSON TargetGroupInfo where
-  toJSON TargetGroupInfo' {..} =
-    Lude.object (Lude.catMaybes [("name" Lude..=) Lude.<$> name])
+instance Core.FromJSON TargetGroupInfo where
+  parseJSON =
+    Core.withObject "TargetGroupInfo" Core.$
+      \x -> TargetGroupInfo' Core.<$> (x Core..:? "name")

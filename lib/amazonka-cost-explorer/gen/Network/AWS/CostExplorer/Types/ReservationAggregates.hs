@@ -17,214 +17,211 @@ module Network.AWS.CostExplorer.Types.ReservationAggregates
     mkReservationAggregates,
 
     -- * Lenses
-    raPurchasedHours,
-    raTotalActualHours,
-    raUtilizationPercentage,
-    raTotalAmortizedFee,
-    raUnusedUnits,
-    raUnusedHours,
-    raPurchasedUnits,
-    raAmortizedUpfrontFee,
     raAmortizedRecurringFee,
-    raUtilizationPercentageInUnits,
+    raAmortizedUpfrontFee,
     raNetRISavings,
     raOnDemandCostOfRIHoursUsed,
-    raTotalPotentialRISavings,
+    raPurchasedHours,
+    raPurchasedUnits,
+    raTotalActualHours,
     raTotalActualUnits,
+    raTotalAmortizedFee,
+    raTotalPotentialRISavings,
+    raUnusedHours,
+    raUnusedUnits,
+    raUtilizationPercentage,
+    raUtilizationPercentageInUnits,
   )
 where
 
+import qualified Network.AWS.CostExplorer.Types.AmortizedRecurringFee as Types
+import qualified Network.AWS.CostExplorer.Types.AmortizedUpfrontFee as Types
+import qualified Network.AWS.CostExplorer.Types.NetRISavings as Types
+import qualified Network.AWS.CostExplorer.Types.OnDemandCostOfRIHoursUsed as Types
+import qualified Network.AWS.CostExplorer.Types.PurchasedHours as Types
+import qualified Network.AWS.CostExplorer.Types.PurchasedUnits as Types
+import qualified Network.AWS.CostExplorer.Types.TotalActualHours as Types
+import qualified Network.AWS.CostExplorer.Types.TotalActualUnits as Types
+import qualified Network.AWS.CostExplorer.Types.TotalAmortizedFee as Types
+import qualified Network.AWS.CostExplorer.Types.TotalPotentialRISavings as Types
+import qualified Network.AWS.CostExplorer.Types.UnusedHours as Types
+import qualified Network.AWS.CostExplorer.Types.UnusedUnits as Types
+import qualified Network.AWS.CostExplorer.Types.UtilizationPercentage as Types
+import qualified Network.AWS.CostExplorer.Types.UtilizationPercentageInUnits as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The aggregated numbers for your reservation usage.
 --
 -- /See:/ 'mkReservationAggregates' smart constructor.
 data ReservationAggregates = ReservationAggregates'
-  { -- | How many reservation hours that you purchased.
-    purchasedHours :: Lude.Maybe Lude.Text,
-    -- | The total number of reservation hours that you used.
-    totalActualHours :: Lude.Maybe Lude.Text,
-    -- | The percentage of reservation time that you used.
-    utilizationPercentage :: Lude.Maybe Lude.Text,
-    -- | The total cost of your reservation, amortized over the reservation period.
-    totalAmortizedFee :: Lude.Maybe Lude.Text,
-    -- | The number of Amazon EC2 reservation hours that you didn't use, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
-    unusedUnits :: Lude.Maybe Lude.Text,
-    -- | The number of reservation hours that you didn't use.
-    unusedHours :: Lude.Maybe Lude.Text,
-    -- | How many Amazon EC2 reservation hours that you purchased, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
-    purchasedUnits :: Lude.Maybe Lude.Text,
+  { -- | The monthly cost of your reservation, amortized over the reservation period.
+    amortizedRecurringFee :: Core.Maybe Types.AmortizedRecurringFee,
     -- | The upfront cost of your reservation, amortized over the reservation period.
-    amortizedUpfrontFee :: Lude.Maybe Lude.Text,
-    -- | The monthly cost of your reservation, amortized over the reservation period.
-    amortizedRecurringFee :: Lude.Maybe Lude.Text,
-    -- | The percentage of Amazon EC2 reservation time that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
-    utilizationPercentageInUnits :: Lude.Maybe Lude.Text,
+    amortizedUpfrontFee :: Core.Maybe Types.AmortizedUpfrontFee,
     -- | How much you saved due to purchasing and utilizing reservation. AWS calculates this by subtracting @TotalAmortizedFee@ from @OnDemandCostOfRIHoursUsed@ .
-    netRISavings :: Lude.Maybe Lude.Text,
+    netRISavings :: Core.Maybe Types.NetRISavings,
     -- | How much your reservation would cost if charged On-Demand rates.
-    onDemandCostOfRIHoursUsed :: Lude.Maybe Lude.Text,
-    -- | How much you could save if you use your entire reservation.
-    totalPotentialRISavings :: Lude.Maybe Lude.Text,
+    onDemandCostOfRIHoursUsed :: Core.Maybe Types.OnDemandCostOfRIHoursUsed,
+    -- | How many reservation hours that you purchased.
+    purchasedHours :: Core.Maybe Types.PurchasedHours,
+    -- | How many Amazon EC2 reservation hours that you purchased, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
+    purchasedUnits :: Core.Maybe Types.PurchasedUnits,
+    -- | The total number of reservation hours that you used.
+    totalActualHours :: Core.Maybe Types.TotalActualHours,
     -- | The total number of Amazon EC2 reservation hours that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
-    totalActualUnits :: Lude.Maybe Lude.Text
+    totalActualUnits :: Core.Maybe Types.TotalActualUnits,
+    -- | The total cost of your reservation, amortized over the reservation period.
+    totalAmortizedFee :: Core.Maybe Types.TotalAmortizedFee,
+    -- | How much you could save if you use your entire reservation.
+    totalPotentialRISavings :: Core.Maybe Types.TotalPotentialRISavings,
+    -- | The number of reservation hours that you didn't use.
+    unusedHours :: Core.Maybe Types.UnusedHours,
+    -- | The number of Amazon EC2 reservation hours that you didn't use, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
+    unusedUnits :: Core.Maybe Types.UnusedUnits,
+    -- | The percentage of reservation time that you used.
+    utilizationPercentage :: Core.Maybe Types.UtilizationPercentage,
+    -- | The percentage of Amazon EC2 reservation time that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
+    utilizationPercentageInUnits :: Core.Maybe Types.UtilizationPercentageInUnits
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReservationAggregates' with the minimum fields required to make a request.
---
--- * 'purchasedHours' - How many reservation hours that you purchased.
--- * 'totalActualHours' - The total number of reservation hours that you used.
--- * 'utilizationPercentage' - The percentage of reservation time that you used.
--- * 'totalAmortizedFee' - The total cost of your reservation, amortized over the reservation period.
--- * 'unusedUnits' - The number of Amazon EC2 reservation hours that you didn't use, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
--- * 'unusedHours' - The number of reservation hours that you didn't use.
--- * 'purchasedUnits' - How many Amazon EC2 reservation hours that you purchased, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
--- * 'amortizedUpfrontFee' - The upfront cost of your reservation, amortized over the reservation period.
--- * 'amortizedRecurringFee' - The monthly cost of your reservation, amortized over the reservation period.
--- * 'utilizationPercentageInUnits' - The percentage of Amazon EC2 reservation time that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
--- * 'netRISavings' - How much you saved due to purchasing and utilizing reservation. AWS calculates this by subtracting @TotalAmortizedFee@ from @OnDemandCostOfRIHoursUsed@ .
--- * 'onDemandCostOfRIHoursUsed' - How much your reservation would cost if charged On-Demand rates.
--- * 'totalPotentialRISavings' - How much you could save if you use your entire reservation.
--- * 'totalActualUnits' - The total number of Amazon EC2 reservation hours that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
+-- | Creates a 'ReservationAggregates' value with any optional fields omitted.
 mkReservationAggregates ::
   ReservationAggregates
 mkReservationAggregates =
   ReservationAggregates'
-    { purchasedHours = Lude.Nothing,
-      totalActualHours = Lude.Nothing,
-      utilizationPercentage = Lude.Nothing,
-      totalAmortizedFee = Lude.Nothing,
-      unusedUnits = Lude.Nothing,
-      unusedHours = Lude.Nothing,
-      purchasedUnits = Lude.Nothing,
-      amortizedUpfrontFee = Lude.Nothing,
-      amortizedRecurringFee = Lude.Nothing,
-      utilizationPercentageInUnits = Lude.Nothing,
-      netRISavings = Lude.Nothing,
-      onDemandCostOfRIHoursUsed = Lude.Nothing,
-      totalPotentialRISavings = Lude.Nothing,
-      totalActualUnits = Lude.Nothing
+    { amortizedRecurringFee = Core.Nothing,
+      amortizedUpfrontFee = Core.Nothing,
+      netRISavings = Core.Nothing,
+      onDemandCostOfRIHoursUsed = Core.Nothing,
+      purchasedHours = Core.Nothing,
+      purchasedUnits = Core.Nothing,
+      totalActualHours = Core.Nothing,
+      totalActualUnits = Core.Nothing,
+      totalAmortizedFee = Core.Nothing,
+      totalPotentialRISavings = Core.Nothing,
+      unusedHours = Core.Nothing,
+      unusedUnits = Core.Nothing,
+      utilizationPercentage = Core.Nothing,
+      utilizationPercentageInUnits = Core.Nothing
     }
-
--- | How many reservation hours that you purchased.
---
--- /Note:/ Consider using 'purchasedHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raPurchasedHours :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raPurchasedHours = Lens.lens (purchasedHours :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {purchasedHours = a} :: ReservationAggregates)
-{-# DEPRECATED raPurchasedHours "Use generic-lens or generic-optics with 'purchasedHours' instead." #-}
-
--- | The total number of reservation hours that you used.
---
--- /Note:/ Consider using 'totalActualHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raTotalActualHours :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raTotalActualHours = Lens.lens (totalActualHours :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {totalActualHours = a} :: ReservationAggregates)
-{-# DEPRECATED raTotalActualHours "Use generic-lens or generic-optics with 'totalActualHours' instead." #-}
-
--- | The percentage of reservation time that you used.
---
--- /Note:/ Consider using 'utilizationPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raUtilizationPercentage :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raUtilizationPercentage = Lens.lens (utilizationPercentage :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {utilizationPercentage = a} :: ReservationAggregates)
-{-# DEPRECATED raUtilizationPercentage "Use generic-lens or generic-optics with 'utilizationPercentage' instead." #-}
-
--- | The total cost of your reservation, amortized over the reservation period.
---
--- /Note:/ Consider using 'totalAmortizedFee' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raTotalAmortizedFee :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raTotalAmortizedFee = Lens.lens (totalAmortizedFee :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {totalAmortizedFee = a} :: ReservationAggregates)
-{-# DEPRECATED raTotalAmortizedFee "Use generic-lens or generic-optics with 'totalAmortizedFee' instead." #-}
-
--- | The number of Amazon EC2 reservation hours that you didn't use, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
---
--- /Note:/ Consider using 'unusedUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raUnusedUnits :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raUnusedUnits = Lens.lens (unusedUnits :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {unusedUnits = a} :: ReservationAggregates)
-{-# DEPRECATED raUnusedUnits "Use generic-lens or generic-optics with 'unusedUnits' instead." #-}
-
--- | The number of reservation hours that you didn't use.
---
--- /Note:/ Consider using 'unusedHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raUnusedHours :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raUnusedHours = Lens.lens (unusedHours :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {unusedHours = a} :: ReservationAggregates)
-{-# DEPRECATED raUnusedHours "Use generic-lens or generic-optics with 'unusedHours' instead." #-}
-
--- | How many Amazon EC2 reservation hours that you purchased, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
---
--- /Note:/ Consider using 'purchasedUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raPurchasedUnits :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raPurchasedUnits = Lens.lens (purchasedUnits :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {purchasedUnits = a} :: ReservationAggregates)
-{-# DEPRECATED raPurchasedUnits "Use generic-lens or generic-optics with 'purchasedUnits' instead." #-}
-
--- | The upfront cost of your reservation, amortized over the reservation period.
---
--- /Note:/ Consider using 'amortizedUpfrontFee' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raAmortizedUpfrontFee :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raAmortizedUpfrontFee = Lens.lens (amortizedUpfrontFee :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {amortizedUpfrontFee = a} :: ReservationAggregates)
-{-# DEPRECATED raAmortizedUpfrontFee "Use generic-lens or generic-optics with 'amortizedUpfrontFee' instead." #-}
 
 -- | The monthly cost of your reservation, amortized over the reservation period.
 --
 -- /Note:/ Consider using 'amortizedRecurringFee' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raAmortizedRecurringFee :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raAmortizedRecurringFee = Lens.lens (amortizedRecurringFee :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {amortizedRecurringFee = a} :: ReservationAggregates)
+raAmortizedRecurringFee :: Lens.Lens' ReservationAggregates (Core.Maybe Types.AmortizedRecurringFee)
+raAmortizedRecurringFee = Lens.field @"amortizedRecurringFee"
 {-# DEPRECATED raAmortizedRecurringFee "Use generic-lens or generic-optics with 'amortizedRecurringFee' instead." #-}
 
--- | The percentage of Amazon EC2 reservation time that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
+-- | The upfront cost of your reservation, amortized over the reservation period.
 --
--- /Note:/ Consider using 'utilizationPercentageInUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raUtilizationPercentageInUnits :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raUtilizationPercentageInUnits = Lens.lens (utilizationPercentageInUnits :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {utilizationPercentageInUnits = a} :: ReservationAggregates)
-{-# DEPRECATED raUtilizationPercentageInUnits "Use generic-lens or generic-optics with 'utilizationPercentageInUnits' instead." #-}
+-- /Note:/ Consider using 'amortizedUpfrontFee' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raAmortizedUpfrontFee :: Lens.Lens' ReservationAggregates (Core.Maybe Types.AmortizedUpfrontFee)
+raAmortizedUpfrontFee = Lens.field @"amortizedUpfrontFee"
+{-# DEPRECATED raAmortizedUpfrontFee "Use generic-lens or generic-optics with 'amortizedUpfrontFee' instead." #-}
 
 -- | How much you saved due to purchasing and utilizing reservation. AWS calculates this by subtracting @TotalAmortizedFee@ from @OnDemandCostOfRIHoursUsed@ .
 --
 -- /Note:/ Consider using 'netRISavings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raNetRISavings :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raNetRISavings = Lens.lens (netRISavings :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {netRISavings = a} :: ReservationAggregates)
+raNetRISavings :: Lens.Lens' ReservationAggregates (Core.Maybe Types.NetRISavings)
+raNetRISavings = Lens.field @"netRISavings"
 {-# DEPRECATED raNetRISavings "Use generic-lens or generic-optics with 'netRISavings' instead." #-}
 
 -- | How much your reservation would cost if charged On-Demand rates.
 --
 -- /Note:/ Consider using 'onDemandCostOfRIHoursUsed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raOnDemandCostOfRIHoursUsed :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raOnDemandCostOfRIHoursUsed = Lens.lens (onDemandCostOfRIHoursUsed :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {onDemandCostOfRIHoursUsed = a} :: ReservationAggregates)
+raOnDemandCostOfRIHoursUsed :: Lens.Lens' ReservationAggregates (Core.Maybe Types.OnDemandCostOfRIHoursUsed)
+raOnDemandCostOfRIHoursUsed = Lens.field @"onDemandCostOfRIHoursUsed"
 {-# DEPRECATED raOnDemandCostOfRIHoursUsed "Use generic-lens or generic-optics with 'onDemandCostOfRIHoursUsed' instead." #-}
 
--- | How much you could save if you use your entire reservation.
+-- | How many reservation hours that you purchased.
 --
--- /Note:/ Consider using 'totalPotentialRISavings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raTotalPotentialRISavings :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raTotalPotentialRISavings = Lens.lens (totalPotentialRISavings :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {totalPotentialRISavings = a} :: ReservationAggregates)
-{-# DEPRECATED raTotalPotentialRISavings "Use generic-lens or generic-optics with 'totalPotentialRISavings' instead." #-}
+-- /Note:/ Consider using 'purchasedHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raPurchasedHours :: Lens.Lens' ReservationAggregates (Core.Maybe Types.PurchasedHours)
+raPurchasedHours = Lens.field @"purchasedHours"
+{-# DEPRECATED raPurchasedHours "Use generic-lens or generic-optics with 'purchasedHours' instead." #-}
+
+-- | How many Amazon EC2 reservation hours that you purchased, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
+--
+-- /Note:/ Consider using 'purchasedUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raPurchasedUnits :: Lens.Lens' ReservationAggregates (Core.Maybe Types.PurchasedUnits)
+raPurchasedUnits = Lens.field @"purchasedUnits"
+{-# DEPRECATED raPurchasedUnits "Use generic-lens or generic-optics with 'purchasedUnits' instead." #-}
+
+-- | The total number of reservation hours that you used.
+--
+-- /Note:/ Consider using 'totalActualHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raTotalActualHours :: Lens.Lens' ReservationAggregates (Core.Maybe Types.TotalActualHours)
+raTotalActualHours = Lens.field @"totalActualHours"
+{-# DEPRECATED raTotalActualHours "Use generic-lens or generic-optics with 'totalActualHours' instead." #-}
 
 -- | The total number of Amazon EC2 reservation hours that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
 --
 -- /Note:/ Consider using 'totalActualUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raTotalActualUnits :: Lens.Lens' ReservationAggregates (Lude.Maybe Lude.Text)
-raTotalActualUnits = Lens.lens (totalActualUnits :: ReservationAggregates -> Lude.Maybe Lude.Text) (\s a -> s {totalActualUnits = a} :: ReservationAggregates)
+raTotalActualUnits :: Lens.Lens' ReservationAggregates (Core.Maybe Types.TotalActualUnits)
+raTotalActualUnits = Lens.field @"totalActualUnits"
 {-# DEPRECATED raTotalActualUnits "Use generic-lens or generic-optics with 'totalActualUnits' instead." #-}
 
-instance Lude.FromJSON ReservationAggregates where
+-- | The total cost of your reservation, amortized over the reservation period.
+--
+-- /Note:/ Consider using 'totalAmortizedFee' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raTotalAmortizedFee :: Lens.Lens' ReservationAggregates (Core.Maybe Types.TotalAmortizedFee)
+raTotalAmortizedFee = Lens.field @"totalAmortizedFee"
+{-# DEPRECATED raTotalAmortizedFee "Use generic-lens or generic-optics with 'totalAmortizedFee' instead." #-}
+
+-- | How much you could save if you use your entire reservation.
+--
+-- /Note:/ Consider using 'totalPotentialRISavings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raTotalPotentialRISavings :: Lens.Lens' ReservationAggregates (Core.Maybe Types.TotalPotentialRISavings)
+raTotalPotentialRISavings = Lens.field @"totalPotentialRISavings"
+{-# DEPRECATED raTotalPotentialRISavings "Use generic-lens or generic-optics with 'totalPotentialRISavings' instead." #-}
+
+-- | The number of reservation hours that you didn't use.
+--
+-- /Note:/ Consider using 'unusedHours' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raUnusedHours :: Lens.Lens' ReservationAggregates (Core.Maybe Types.UnusedHours)
+raUnusedHours = Lens.field @"unusedHours"
+{-# DEPRECATED raUnusedHours "Use generic-lens or generic-optics with 'unusedHours' instead." #-}
+
+-- | The number of Amazon EC2 reservation hours that you didn't use, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
+--
+-- /Note:/ Consider using 'unusedUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raUnusedUnits :: Lens.Lens' ReservationAggregates (Core.Maybe Types.UnusedUnits)
+raUnusedUnits = Lens.field @"unusedUnits"
+{-# DEPRECATED raUnusedUnits "Use generic-lens or generic-optics with 'unusedUnits' instead." #-}
+
+-- | The percentage of reservation time that you used.
+--
+-- /Note:/ Consider using 'utilizationPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raUtilizationPercentage :: Lens.Lens' ReservationAggregates (Core.Maybe Types.UtilizationPercentage)
+raUtilizationPercentage = Lens.field @"utilizationPercentage"
+{-# DEPRECATED raUtilizationPercentage "Use generic-lens or generic-optics with 'utilizationPercentage' instead." #-}
+
+-- | The percentage of Amazon EC2 reservation time that you used, converted to normalized units. Normalized units are available only for Amazon EC2 usage after November 11, 2017.
+--
+-- /Note:/ Consider using 'utilizationPercentageInUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raUtilizationPercentageInUnits :: Lens.Lens' ReservationAggregates (Core.Maybe Types.UtilizationPercentageInUnits)
+raUtilizationPercentageInUnits = Lens.field @"utilizationPercentageInUnits"
+{-# DEPRECATED raUtilizationPercentageInUnits "Use generic-lens or generic-optics with 'utilizationPercentageInUnits' instead." #-}
+
+instance Core.FromJSON ReservationAggregates where
   parseJSON =
-    Lude.withObject
-      "ReservationAggregates"
-      ( \x ->
-          ReservationAggregates'
-            Lude.<$> (x Lude..:? "PurchasedHours")
-            Lude.<*> (x Lude..:? "TotalActualHours")
-            Lude.<*> (x Lude..:? "UtilizationPercentage")
-            Lude.<*> (x Lude..:? "TotalAmortizedFee")
-            Lude.<*> (x Lude..:? "UnusedUnits")
-            Lude.<*> (x Lude..:? "UnusedHours")
-            Lude.<*> (x Lude..:? "PurchasedUnits")
-            Lude.<*> (x Lude..:? "AmortizedUpfrontFee")
-            Lude.<*> (x Lude..:? "AmortizedRecurringFee")
-            Lude.<*> (x Lude..:? "UtilizationPercentageInUnits")
-            Lude.<*> (x Lude..:? "NetRISavings")
-            Lude.<*> (x Lude..:? "OnDemandCostOfRIHoursUsed")
-            Lude.<*> (x Lude..:? "TotalPotentialRISavings")
-            Lude.<*> (x Lude..:? "TotalActualUnits")
-      )
+    Core.withObject "ReservationAggregates" Core.$
+      \x ->
+        ReservationAggregates'
+          Core.<$> (x Core..:? "AmortizedRecurringFee")
+          Core.<*> (x Core..:? "AmortizedUpfrontFee")
+          Core.<*> (x Core..:? "NetRISavings")
+          Core.<*> (x Core..:? "OnDemandCostOfRIHoursUsed")
+          Core.<*> (x Core..:? "PurchasedHours")
+          Core.<*> (x Core..:? "PurchasedUnits")
+          Core.<*> (x Core..:? "TotalActualHours")
+          Core.<*> (x Core..:? "TotalActualUnits")
+          Core.<*> (x Core..:? "TotalAmortizedFee")
+          Core.<*> (x Core..:? "TotalPotentialRISavings")
+          Core.<*> (x Core..:? "UnusedHours")
+          Core.<*> (x Core..:? "UnusedUnits")
+          Core.<*> (x Core..:? "UtilizationPercentage")
+          Core.<*> (x Core..:? "UtilizationPercentageInUnits")

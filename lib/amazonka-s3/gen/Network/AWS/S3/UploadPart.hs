@@ -73,129 +73,99 @@ module Network.AWS.S3.UploadPart
     mkUploadPart,
 
     -- ** Request lenses
-    upContentLength,
-    upBody,
     upBucket,
+    upKey,
+    upPartNumber,
+    upUploadId,
+    upBody,
+    upContentLength,
+    upContentMD5,
+    upExpectedBucketOwner,
+    upRequestPayer,
     upSSECustomerAlgorithm,
     upSSECustomerKey,
-    upRequestPayer,
-    upPartNumber,
-    upKey,
     upSSECustomerKeyMD5,
-    upContentMD5,
-    upUploadId,
-    upExpectedBucketOwner,
 
     -- * Destructuring the response
     UploadPartResponse (..),
     mkUploadPartResponse,
 
     -- ** Response lenses
-    uprsRequestCharged,
-    uprsETag,
-    uprsSSECustomerAlgorithm,
-    uprsSSECustomerKeyMD5,
-    uprsSSEKMSKeyId,
-    uprsServerSideEncryption,
-    uprsResponseStatus,
+    uprrsETag,
+    uprrsRequestCharged,
+    uprrsSSECustomerAlgorithm,
+    uprrsSSECustomerKeyMD5,
+    uprrsSSEKMSKeyId,
+    uprrsServerSideEncryption,
+    uprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkUploadPart' smart constructor.
 data UploadPart = UploadPart'
-  { -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
-    contentLength :: Lude.Maybe Lude.Integer,
-    -- | Object data.
-    body :: Lude.RqBody,
-    -- | The name of the bucket to which the multipart upload was initiated.
+  { -- | The name of the bucket to which the multipart upload was initiated.
     --
     -- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
     -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
-    bucket :: BucketName,
-    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
-    sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
-    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm header@ . This must be the same encryption key specified in the initiate multipart upload request.
-    sSECustomerKey :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    requestPayer :: Lude.Maybe RequestPayer,
-    -- | Part number of part being uploaded. This is a positive integer between 1 and 10,000.
-    partNumber :: Lude.Int,
+    bucket :: Types.BucketName,
     -- | Object key for which the multipart upload was initiated.
-    key :: ObjectKey,
-    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
-    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
-    -- | The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when using the command from the CLI. This parameter is required if object lock parameters are specified.
-    contentMD5 :: Lude.Maybe Lude.Text,
+    key :: Types.Key,
+    -- | Part number of part being uploaded. This is a positive integer between 1 and 10,000.
+    partNumber :: Core.Int,
     -- | Upload ID identifying the multipart upload whose part is being uploaded.
-    uploadId :: Lude.Text,
+    uploadId :: Types.UploadId,
+    -- | Object data.
+    body :: Core.RqBody,
+    -- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
+    contentLength :: Core.Maybe Core.Integer,
+    -- | The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when using the command from the CLI. This parameter is required if object lock parameters are specified.
+    contentMD5 :: Core.Maybe Types.ContentMD5,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner,
+    requestPayer :: Core.Maybe Types.RequestPayer,
+    -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
+    sSECustomerAlgorithm :: Core.Maybe Types.SSECustomerAlgorithm,
+    -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm header@ . This must be the same encryption key specified in the initiate multipart upload request.
+    sSECustomerKey :: Core.Maybe Types.SSECustomerKey,
+    -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
+    sSECustomerKeyMD5 :: Core.Maybe Types.SSECustomerKeyMD5
   }
-  deriving stock (Lude.Show, Lude.Generic)
+  deriving stock (Core.Show, Core.Generic)
 
--- | Creates a value of 'UploadPart' with the minimum fields required to make a request.
---
--- * 'contentLength' - Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
--- * 'body' - Object data.
--- * 'bucket' - The name of the bucket to which the multipart upload was initiated.
---
--- When using this API with an access point, you must direct requests to the access point hostname. The access point hostname takes the form /AccessPointName/ -/AccountId/ .s3-accesspoint./Region/ .amazonaws.com. When using this operation with an access point through the AWS SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html Using Access Points> in the /Amazon Simple Storage Service Developer Guide/ .
--- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'sSECustomerAlgorithm' - Specifies the algorithm to use to when encrypting the object (for example, AES256).
--- * 'sSECustomerKey' - Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm header@ . This must be the same encryption key specified in the initiate multipart upload request.
--- * 'requestPayer' -
--- * 'partNumber' - Part number of part being uploaded. This is a positive integer between 1 and 10,000.
--- * 'key' - Object key for which the multipart upload was initiated.
--- * 'sSECustomerKeyMD5' - Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
--- * 'contentMD5' - The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when using the command from the CLI. This parameter is required if object lock parameters are specified.
--- * 'uploadId' - Upload ID identifying the multipart upload whose part is being uploaded.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'UploadPart' value with any optional fields omitted.
 mkUploadPart ::
-  -- | 'body'
-  Lude.RqBody ->
   -- | 'bucket'
-  BucketName ->
-  -- | 'partNumber'
-  Lude.Int ->
+  Types.BucketName ->
   -- | 'key'
-  ObjectKey ->
+  Types.Key ->
+  -- | 'partNumber'
+  Core.Int ->
   -- | 'uploadId'
-  Lude.Text ->
+  Types.UploadId ->
+  -- | 'body'
+  Core.RqBody ->
   UploadPart
-mkUploadPart pBody_ pBucket_ pPartNumber_ pKey_ pUploadId_ =
+mkUploadPart bucket key partNumber uploadId body =
   UploadPart'
-    { contentLength = Lude.Nothing,
-      body = pBody_,
-      bucket = pBucket_,
-      sSECustomerAlgorithm = Lude.Nothing,
-      sSECustomerKey = Lude.Nothing,
-      requestPayer = Lude.Nothing,
-      partNumber = pPartNumber_,
-      key = pKey_,
-      sSECustomerKeyMD5 = Lude.Nothing,
-      contentMD5 = Lude.Nothing,
-      uploadId = pUploadId_,
-      expectedBucketOwner = Lude.Nothing
+    { bucket,
+      key,
+      partNumber,
+      uploadId,
+      body,
+      contentLength = Core.Nothing,
+      contentMD5 = Core.Nothing,
+      expectedBucketOwner = Core.Nothing,
+      requestPayer = Core.Nothing,
+      sSECustomerAlgorithm = Core.Nothing,
+      sSECustomerKey = Core.Nothing,
+      sSECustomerKeyMD5 = Core.Nothing
     }
-
--- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
---
--- /Note:/ Consider using 'contentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upContentLength :: Lens.Lens' UploadPart (Lude.Maybe Lude.Integer)
-upContentLength = Lens.lens (contentLength :: UploadPart -> Lude.Maybe Lude.Integer) (\s a -> s {contentLength = a} :: UploadPart)
-{-# DEPRECATED upContentLength "Use generic-lens or generic-optics with 'contentLength' instead." #-}
-
--- | Object data.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upBody :: Lens.Lens' UploadPart Lude.RqBody
-upBody = Lens.lens (body :: UploadPart -> Lude.RqBody) (\s a -> s {body = a} :: UploadPart)
-{-# DEPRECATED upBody "Use generic-lens or generic-optics with 'body' instead." #-}
 
 -- | The name of the bucket to which the multipart upload was initiated.
 --
@@ -203,203 +173,222 @@ upBody = Lens.lens (body :: UploadPart -> Lude.RqBody) (\s a -> s {body = a} :: 
 -- When using this API with Amazon S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form /AccessPointName/ -/AccountId/ ./outpostID/ .s3-outposts./Region/ .amazonaws.com. When using this operation using S3 on Outposts through the AWS SDKs, you provide the Outposts bucket ARN in place of the bucket name. For more information about S3 on Outposts ARNs, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html Using S3 on Outposts> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upBucket :: Lens.Lens' UploadPart BucketName
-upBucket = Lens.lens (bucket :: UploadPart -> BucketName) (\s a -> s {bucket = a} :: UploadPart)
+upBucket :: Lens.Lens' UploadPart Types.BucketName
+upBucket = Lens.field @"bucket"
 {-# DEPRECATED upBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | Object key for which the multipart upload was initiated.
+--
+-- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upKey :: Lens.Lens' UploadPart Types.Key
+upKey = Lens.field @"key"
+{-# DEPRECATED upKey "Use generic-lens or generic-optics with 'key' instead." #-}
+
+-- | Part number of part being uploaded. This is a positive integer between 1 and 10,000.
+--
+-- /Note:/ Consider using 'partNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upPartNumber :: Lens.Lens' UploadPart Core.Int
+upPartNumber = Lens.field @"partNumber"
+{-# DEPRECATED upPartNumber "Use generic-lens or generic-optics with 'partNumber' instead." #-}
+
+-- | Upload ID identifying the multipart upload whose part is being uploaded.
+--
+-- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upUploadId :: Lens.Lens' UploadPart Types.UploadId
+upUploadId = Lens.field @"uploadId"
+{-# DEPRECATED upUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
+
+-- | Object data.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upBody :: Lens.Lens' UploadPart Core.RqBody
+upBody = Lens.field @"body"
+{-# DEPRECATED upBody "Use generic-lens or generic-optics with 'body' instead." #-}
+
+-- | Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.
+--
+-- /Note:/ Consider using 'contentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upContentLength :: Lens.Lens' UploadPart (Core.Maybe Core.Integer)
+upContentLength = Lens.field @"contentLength"
+{-# DEPRECATED upContentLength "Use generic-lens or generic-optics with 'contentLength' instead." #-}
+
+-- | The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when using the command from the CLI. This parameter is required if object lock parameters are specified.
+--
+-- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upContentMD5 :: Lens.Lens' UploadPart (Core.Maybe Types.ContentMD5)
+upContentMD5 = Lens.field @"contentMD5"
+{-# DEPRECATED upContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
+
+-- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+--
+-- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upExpectedBucketOwner :: Lens.Lens' UploadPart (Core.Maybe Types.ExpectedBucketOwner)
+upExpectedBucketOwner = Lens.field @"expectedBucketOwner"
+{-# DEPRECATED upExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+upRequestPayer :: Lens.Lens' UploadPart (Core.Maybe Types.RequestPayer)
+upRequestPayer = Lens.field @"requestPayer"
+{-# DEPRECATED upRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
 
 -- | Specifies the algorithm to use to when encrypting the object (for example, AES256).
 --
 -- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upSSECustomerAlgorithm :: Lens.Lens' UploadPart (Lude.Maybe Lude.Text)
-upSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: UploadPart -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerAlgorithm = a} :: UploadPart)
+upSSECustomerAlgorithm :: Lens.Lens' UploadPart (Core.Maybe Types.SSECustomerAlgorithm)
+upSSECustomerAlgorithm = Lens.field @"sSECustomerAlgorithm"
 {-# DEPRECATED upSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the @x-amz-server-side-encryption-customer-algorithm header@ . This must be the same encryption key specified in the initiate multipart upload request.
 --
 -- /Note:/ Consider using 'sSECustomerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upSSECustomerKey :: Lens.Lens' UploadPart (Lude.Maybe (Lude.Sensitive Lude.Text))
-upSSECustomerKey = Lens.lens (sSECustomerKey :: UploadPart -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSECustomerKey = a} :: UploadPart)
+upSSECustomerKey :: Lens.Lens' UploadPart (Core.Maybe Types.SSECustomerKey)
+upSSECustomerKey = Lens.field @"sSECustomerKey"
 {-# DEPRECATED upSSECustomerKey "Use generic-lens or generic-optics with 'sSECustomerKey' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestPayer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upRequestPayer :: Lens.Lens' UploadPart (Lude.Maybe RequestPayer)
-upRequestPayer = Lens.lens (requestPayer :: UploadPart -> Lude.Maybe RequestPayer) (\s a -> s {requestPayer = a} :: UploadPart)
-{-# DEPRECATED upRequestPayer "Use generic-lens or generic-optics with 'requestPayer' instead." #-}
-
--- | Part number of part being uploaded. This is a positive integer between 1 and 10,000.
---
--- /Note:/ Consider using 'partNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upPartNumber :: Lens.Lens' UploadPart Lude.Int
-upPartNumber = Lens.lens (partNumber :: UploadPart -> Lude.Int) (\s a -> s {partNumber = a} :: UploadPart)
-{-# DEPRECATED upPartNumber "Use generic-lens or generic-optics with 'partNumber' instead." #-}
-
--- | Object key for which the multipart upload was initiated.
---
--- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upKey :: Lens.Lens' UploadPart ObjectKey
-upKey = Lens.lens (key :: UploadPart -> ObjectKey) (\s a -> s {key = a} :: UploadPart)
-{-# DEPRECATED upKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 --
 -- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upSSECustomerKeyMD5 :: Lens.Lens' UploadPart (Lude.Maybe Lude.Text)
-upSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: UploadPart -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: UploadPart)
+upSSECustomerKeyMD5 :: Lens.Lens' UploadPart (Core.Maybe Types.SSECustomerKeyMD5)
+upSSECustomerKeyMD5 = Lens.field @"sSECustomerKeyMD5"
 {-# DEPRECATED upSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
 
--- | The base64-encoded 128-bit MD5 digest of the part data. This parameter is auto-populated when using the command from the CLI. This parameter is required if object lock parameters are specified.
---
--- /Note:/ Consider using 'contentMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upContentMD5 :: Lens.Lens' UploadPart (Lude.Maybe Lude.Text)
-upContentMD5 = Lens.lens (contentMD5 :: UploadPart -> Lude.Maybe Lude.Text) (\s a -> s {contentMD5 = a} :: UploadPart)
-{-# DEPRECATED upContentMD5 "Use generic-lens or generic-optics with 'contentMD5' instead." #-}
-
--- | Upload ID identifying the multipart upload whose part is being uploaded.
---
--- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upUploadId :: Lens.Lens' UploadPart Lude.Text
-upUploadId = Lens.lens (uploadId :: UploadPart -> Lude.Text) (\s a -> s {uploadId = a} :: UploadPart)
-{-# DEPRECATED upUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
-
--- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
---
--- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-upExpectedBucketOwner :: Lens.Lens' UploadPart (Lude.Maybe Lude.Text)
-upExpectedBucketOwner = Lens.lens (expectedBucketOwner :: UploadPart -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: UploadPart)
-{-# DEPRECATED upExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
-
-instance Lude.AWSRequest UploadPart where
+instance Core.AWSRequest UploadPart where
   type Rs UploadPart = UploadPartResponse
-  request = Req.putBody s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText bucket) Core.<> ("/")
+                Core.<> (Core.toText key)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "partNumber" partNumber
+            Core.<> (Core.toQueryValue "uploadId" uploadId),
+        Core._rqHeaders =
+          Core.toHeaders "Content-Length" contentLength
+            Core.<> (Core.toHeaders "Content-MD5" contentMD5)
+            Core.<> (Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner)
+            Core.<> (Core.toHeaders "x-amz-request-payer" requestPayer)
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-algorithm"
+                        sSECustomerAlgorithm
+                    )
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-key"
+                        sSECustomerKey
+                    )
+            Core.<> ( Core.toHeaders
+                        "x-amz-server-side-encryption-customer-key-MD5"
+                        sSECustomerKeyMD5
+                    ),
+        Core._rqBody = Core.toBody body
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UploadPartResponse'
-            Lude.<$> (h Lude..#? "x-amz-request-charged")
-            Lude.<*> (h Lude..#? "ETag")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-customer-algorithm")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-customer-key-MD5")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption-aws-kms-key-id")
-            Lude.<*> (h Lude..#? "x-amz-server-side-encryption")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "ETag" h)
+            Core.<*> (Core.parseHeaderMaybe "x-amz-request-charged" h)
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-customer-algorithm"
+                         h
+                     )
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-customer-key-MD5"
+                         h
+                     )
+            Core.<*> ( Core.parseHeaderMaybe
+                         "x-amz-server-side-encryption-aws-kms-key-id"
+                         h
+                     )
+            Core.<*> (Core.parseHeaderMaybe "x-amz-server-side-encryption" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToBody UploadPart where
-  toBody = Lude.toBody Lude.. body
-
-instance Lude.ToHeaders UploadPart where
-  toHeaders UploadPart' {..} =
-    Lude.mconcat
-      [ "Content-Length" Lude.=# contentLength,
-        "x-amz-server-side-encryption-customer-algorithm"
-          Lude.=# sSECustomerAlgorithm,
-        "x-amz-server-side-encryption-customer-key" Lude.=# sSECustomerKey,
-        "x-amz-request-payer" Lude.=# requestPayer,
-        "x-amz-server-side-encryption-customer-key-MD5"
-          Lude.=# sSECustomerKeyMD5,
-        "Content-MD5" Lude.=# contentMD5,
-        "x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner
-      ]
-
-instance Lude.ToPath UploadPart where
-  toPath UploadPart' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket, "/", Lude.toBS key]
-
-instance Lude.ToQuery UploadPart where
-  toQuery UploadPart' {..} =
-    Lude.mconcat
-      ["partNumber" Lude.=: partNumber, "uploadId" Lude.=: uploadId]
 
 -- | /See:/ 'mkUploadPartResponse' smart constructor.
 data UploadPartResponse = UploadPartResponse'
-  { requestCharged :: Lude.Maybe RequestCharged,
-    -- | Entity tag for the uploaded object.
-    eTag :: Lude.Maybe ETag,
+  { -- | Entity tag for the uploaded object.
+    eTag :: Core.Maybe Types.ETag,
+    requestCharged :: Core.Maybe Types.RequestCharged,
     -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
-    sSECustomerAlgorithm :: Lude.Maybe Lude.Text,
+    sSECustomerAlgorithm :: Core.Maybe Types.SSECustomerAlgorithm,
     -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
-    sSECustomerKeyMD5 :: Lude.Maybe Lude.Text,
+    sSECustomerKeyMD5 :: Core.Maybe Types.SSECustomerKeyMD5,
     -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) was used for the object.
-    sSEKMSKeyId :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    sSEKMSKeyId :: Core.Maybe Types.SSEKMSKeyId,
     -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
-    serverSideEncryption :: Lude.Maybe ServerSideEncryption,
+    serverSideEncryption :: Core.Maybe Types.ServerSideEncryption,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UploadPartResponse' with the minimum fields required to make a request.
---
--- * 'requestCharged' -
--- * 'eTag' - Entity tag for the uploaded object.
--- * 'sSECustomerAlgorithm' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
--- * 'sSECustomerKeyMD5' - If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
--- * 'sSEKMSKeyId' - If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) was used for the object.
--- * 'serverSideEncryption' - The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UploadPartResponse' value with any optional fields omitted.
 mkUploadPartResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UploadPartResponse
-mkUploadPartResponse pResponseStatus_ =
+mkUploadPartResponse responseStatus =
   UploadPartResponse'
-    { requestCharged = Lude.Nothing,
-      eTag = Lude.Nothing,
-      sSECustomerAlgorithm = Lude.Nothing,
-      sSECustomerKeyMD5 = Lude.Nothing,
-      sSEKMSKeyId = Lude.Nothing,
-      serverSideEncryption = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { eTag = Core.Nothing,
+      requestCharged = Core.Nothing,
+      sSECustomerAlgorithm = Core.Nothing,
+      sSECustomerKeyMD5 = Core.Nothing,
+      sSEKMSKeyId = Core.Nothing,
+      serverSideEncryption = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsRequestCharged :: Lens.Lens' UploadPartResponse (Lude.Maybe RequestCharged)
-uprsRequestCharged = Lens.lens (requestCharged :: UploadPartResponse -> Lude.Maybe RequestCharged) (\s a -> s {requestCharged = a} :: UploadPartResponse)
-{-# DEPRECATED uprsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
 
 -- | Entity tag for the uploaded object.
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsETag :: Lens.Lens' UploadPartResponse (Lude.Maybe ETag)
-uprsETag = Lens.lens (eTag :: UploadPartResponse -> Lude.Maybe ETag) (\s a -> s {eTag = a} :: UploadPartResponse)
-{-# DEPRECATED uprsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+uprrsETag :: Lens.Lens' UploadPartResponse (Core.Maybe Types.ETag)
+uprrsETag = Lens.field @"eTag"
+{-# DEPRECATED uprrsETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'requestCharged' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uprrsRequestCharged :: Lens.Lens' UploadPartResponse (Core.Maybe Types.RequestCharged)
+uprrsRequestCharged = Lens.field @"requestCharged"
+{-# DEPRECATED uprrsRequestCharged "Use generic-lens or generic-optics with 'requestCharged' instead." #-}
 
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.
 --
 -- /Note:/ Consider using 'sSECustomerAlgorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsSSECustomerAlgorithm :: Lens.Lens' UploadPartResponse (Lude.Maybe Lude.Text)
-uprsSSECustomerAlgorithm = Lens.lens (sSECustomerAlgorithm :: UploadPartResponse -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerAlgorithm = a} :: UploadPartResponse)
-{-# DEPRECATED uprsSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
+uprrsSSECustomerAlgorithm :: Lens.Lens' UploadPartResponse (Core.Maybe Types.SSECustomerAlgorithm)
+uprrsSSECustomerAlgorithm = Lens.field @"sSECustomerAlgorithm"
+{-# DEPRECATED uprrsSSECustomerAlgorithm "Use generic-lens or generic-optics with 'sSECustomerAlgorithm' instead." #-}
 
 -- | If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round-trip message integrity verification of the customer-provided encryption key.
 --
 -- /Note:/ Consider using 'sSECustomerKeyMD5' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsSSECustomerKeyMD5 :: Lens.Lens' UploadPartResponse (Lude.Maybe Lude.Text)
-uprsSSECustomerKeyMD5 = Lens.lens (sSECustomerKeyMD5 :: UploadPartResponse -> Lude.Maybe Lude.Text) (\s a -> s {sSECustomerKeyMD5 = a} :: UploadPartResponse)
-{-# DEPRECATED uprsSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
+uprrsSSECustomerKeyMD5 :: Lens.Lens' UploadPartResponse (Core.Maybe Types.SSECustomerKeyMD5)
+uprrsSSECustomerKeyMD5 = Lens.field @"sSECustomerKeyMD5"
+{-# DEPRECATED uprrsSSECustomerKeyMD5 "Use generic-lens or generic-optics with 'sSECustomerKeyMD5' instead." #-}
 
 -- | If present, specifies the ID of the AWS Key Management Service (AWS KMS) symmetric customer managed customer master key (CMK) was used for the object.
 --
 -- /Note:/ Consider using 'sSEKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsSSEKMSKeyId :: Lens.Lens' UploadPartResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-uprsSSEKMSKeyId = Lens.lens (sSEKMSKeyId :: UploadPartResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {sSEKMSKeyId = a} :: UploadPartResponse)
-{-# DEPRECATED uprsSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
+uprrsSSEKMSKeyId :: Lens.Lens' UploadPartResponse (Core.Maybe Types.SSEKMSKeyId)
+uprrsSSEKMSKeyId = Lens.field @"sSEKMSKeyId"
+{-# DEPRECATED uprrsSSEKMSKeyId "Use generic-lens or generic-optics with 'sSEKMSKeyId' instead." #-}
 
 -- | The server-side encryption algorithm used when storing this object in Amazon S3 (for example, AES256, aws:kms).
 --
 -- /Note:/ Consider using 'serverSideEncryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsServerSideEncryption :: Lens.Lens' UploadPartResponse (Lude.Maybe ServerSideEncryption)
-uprsServerSideEncryption = Lens.lens (serverSideEncryption :: UploadPartResponse -> Lude.Maybe ServerSideEncryption) (\s a -> s {serverSideEncryption = a} :: UploadPartResponse)
-{-# DEPRECATED uprsServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
+uprrsServerSideEncryption :: Lens.Lens' UploadPartResponse (Core.Maybe Types.ServerSideEncryption)
+uprrsServerSideEncryption = Lens.field @"serverSideEncryption"
+{-# DEPRECATED uprrsServerSideEncryption "Use generic-lens or generic-optics with 'serverSideEncryption' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uprsResponseStatus :: Lens.Lens' UploadPartResponse Lude.Int
-uprsResponseStatus = Lens.lens (responseStatus :: UploadPartResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UploadPartResponse)
-{-# DEPRECATED uprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uprrsResponseStatus :: Lens.Lens' UploadPartResponse Core.Int
+uprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

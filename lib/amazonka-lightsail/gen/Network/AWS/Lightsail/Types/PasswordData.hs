@@ -17,63 +17,58 @@ module Network.AWS.Lightsail.Types.PasswordData
     mkPasswordData,
 
     -- * Lenses
-    pdKeyPairName,
     pdCiphertext,
+    pdKeyPairName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.ResourceName as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The password data for the Windows Server-based instance, including the ciphertext and the key pair name.
 --
 -- /See:/ 'mkPasswordData' smart constructor.
 data PasswordData = PasswordData'
-  { -- | The name of the key pair that you used when creating your instance. If no key pair name was specified when creating the instance, Lightsail uses the default key pair (@LightsailDefaultKeyPair@ ).
+  { -- | The encrypted password. Ciphertext will be an empty string if access to your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
+    ciphertext :: Core.Maybe Types.String,
+    -- | The name of the key pair that you used when creating your instance. If no key pair name was specified when creating the instance, Lightsail uses the default key pair (@LightsailDefaultKeyPair@ ).
     --
     -- If you are using a custom key pair, you need to use your own means of decrypting your password using the @ciphertext@ . Lightsail creates the ciphertext by encrypting your password with the public key part of this key pair.
-    keyPairName :: Lude.Maybe Lude.Text,
-    -- | The encrypted password. Ciphertext will be an empty string if access to your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
-    ciphertext :: Lude.Maybe Lude.Text
+    keyPairName :: Core.Maybe Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PasswordData' with the minimum fields required to make a request.
---
--- * 'keyPairName' - The name of the key pair that you used when creating your instance. If no key pair name was specified when creating the instance, Lightsail uses the default key pair (@LightsailDefaultKeyPair@ ).
---
--- If you are using a custom key pair, you need to use your own means of decrypting your password using the @ciphertext@ . Lightsail creates the ciphertext by encrypting your password with the public key part of this key pair.
--- * 'ciphertext' - The encrypted password. Ciphertext will be an empty string if access to your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
+-- | Creates a 'PasswordData' value with any optional fields omitted.
 mkPasswordData ::
   PasswordData
 mkPasswordData =
   PasswordData'
-    { keyPairName = Lude.Nothing,
-      ciphertext = Lude.Nothing
+    { ciphertext = Core.Nothing,
+      keyPairName = Core.Nothing
     }
+
+-- | The encrypted password. Ciphertext will be an empty string if access to your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
+--
+-- /Note:/ Consider using 'ciphertext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdCiphertext :: Lens.Lens' PasswordData (Core.Maybe Types.String)
+pdCiphertext = Lens.field @"ciphertext"
+{-# DEPRECATED pdCiphertext "Use generic-lens or generic-optics with 'ciphertext' instead." #-}
 
 -- | The name of the key pair that you used when creating your instance. If no key pair name was specified when creating the instance, Lightsail uses the default key pair (@LightsailDefaultKeyPair@ ).
 --
 -- If you are using a custom key pair, you need to use your own means of decrypting your password using the @ciphertext@ . Lightsail creates the ciphertext by encrypting your password with the public key part of this key pair.
 --
 -- /Note:/ Consider using 'keyPairName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdKeyPairName :: Lens.Lens' PasswordData (Lude.Maybe Lude.Text)
-pdKeyPairName = Lens.lens (keyPairName :: PasswordData -> Lude.Maybe Lude.Text) (\s a -> s {keyPairName = a} :: PasswordData)
+pdKeyPairName :: Lens.Lens' PasswordData (Core.Maybe Types.ResourceName)
+pdKeyPairName = Lens.field @"keyPairName"
 {-# DEPRECATED pdKeyPairName "Use generic-lens or generic-optics with 'keyPairName' instead." #-}
 
--- | The encrypted password. Ciphertext will be an empty string if access to your new instance is not ready yet. When you create an instance, it can take up to 15 minutes for the instance to be ready.
---
--- /Note:/ Consider using 'ciphertext' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdCiphertext :: Lens.Lens' PasswordData (Lude.Maybe Lude.Text)
-pdCiphertext = Lens.lens (ciphertext :: PasswordData -> Lude.Maybe Lude.Text) (\s a -> s {ciphertext = a} :: PasswordData)
-{-# DEPRECATED pdCiphertext "Use generic-lens or generic-optics with 'ciphertext' instead." #-}
-
-instance Lude.FromJSON PasswordData where
+instance Core.FromJSON PasswordData where
   parseJSON =
-    Lude.withObject
-      "PasswordData"
-      ( \x ->
-          PasswordData'
-            Lude.<$> (x Lude..:? "keyPairName") Lude.<*> (x Lude..:? "ciphertext")
-      )
+    Core.withObject "PasswordData" Core.$
+      \x ->
+        PasswordData'
+          Core.<$> (x Core..:? "ciphertext") Core.<*> (x Core..:? "keyPairName")

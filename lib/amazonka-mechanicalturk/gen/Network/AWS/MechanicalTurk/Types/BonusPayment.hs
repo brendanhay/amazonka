@@ -17,96 +17,92 @@ module Network.AWS.MechanicalTurk.Types.BonusPayment
     mkBonusPayment,
 
     -- * Lenses
-    bpReason,
-    bpGrantTime,
-    bpWorkerId,
     bpAssignmentId,
     bpBonusAmount,
+    bpGrantTime,
+    bpReason,
+    bpWorkerId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MechanicalTurk.Types.AssignmentId as Types
+import qualified Network.AWS.MechanicalTurk.Types.BonusAmount as Types
+import qualified Network.AWS.MechanicalTurk.Types.Reason as Types
+import qualified Network.AWS.MechanicalTurk.Types.WorkerId as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing a Bonus payment paid to a Worker.
 --
 -- /See:/ 'mkBonusPayment' smart constructor.
 data BonusPayment = BonusPayment'
-  { -- | The Reason text given when the bonus was granted, if any.
-    reason :: Lude.Maybe Lude.Text,
+  { -- | The ID of the assignment associated with this bonus payment.
+    assignmentId :: Core.Maybe Types.AssignmentId,
+    bonusAmount :: Core.Maybe Types.BonusAmount,
     -- | The date and time of when the bonus was granted.
-    grantTime :: Lude.Maybe Lude.Timestamp,
+    grantTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The Reason text given when the bonus was granted, if any.
+    reason :: Core.Maybe Types.Reason,
     -- | The ID of the Worker to whom the bonus was paid.
-    workerId :: Lude.Maybe Lude.Text,
-    -- | The ID of the assignment associated with this bonus payment.
-    assignmentId :: Lude.Maybe Lude.Text,
-    bonusAmount :: Lude.Maybe Lude.Text
+    workerId :: Core.Maybe Types.WorkerId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BonusPayment' with the minimum fields required to make a request.
---
--- * 'reason' - The Reason text given when the bonus was granted, if any.
--- * 'grantTime' - The date and time of when the bonus was granted.
--- * 'workerId' - The ID of the Worker to whom the bonus was paid.
--- * 'assignmentId' - The ID of the assignment associated with this bonus payment.
--- * 'bonusAmount' -
+-- | Creates a 'BonusPayment' value with any optional fields omitted.
 mkBonusPayment ::
   BonusPayment
 mkBonusPayment =
   BonusPayment'
-    { reason = Lude.Nothing,
-      grantTime = Lude.Nothing,
-      workerId = Lude.Nothing,
-      assignmentId = Lude.Nothing,
-      bonusAmount = Lude.Nothing
+    { assignmentId = Core.Nothing,
+      bonusAmount = Core.Nothing,
+      grantTime = Core.Nothing,
+      reason = Core.Nothing,
+      workerId = Core.Nothing
     }
-
--- | The Reason text given when the bonus was granted, if any.
---
--- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpReason :: Lens.Lens' BonusPayment (Lude.Maybe Lude.Text)
-bpReason = Lens.lens (reason :: BonusPayment -> Lude.Maybe Lude.Text) (\s a -> s {reason = a} :: BonusPayment)
-{-# DEPRECATED bpReason "Use generic-lens or generic-optics with 'reason' instead." #-}
-
--- | The date and time of when the bonus was granted.
---
--- /Note:/ Consider using 'grantTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpGrantTime :: Lens.Lens' BonusPayment (Lude.Maybe Lude.Timestamp)
-bpGrantTime = Lens.lens (grantTime :: BonusPayment -> Lude.Maybe Lude.Timestamp) (\s a -> s {grantTime = a} :: BonusPayment)
-{-# DEPRECATED bpGrantTime "Use generic-lens or generic-optics with 'grantTime' instead." #-}
-
--- | The ID of the Worker to whom the bonus was paid.
---
--- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpWorkerId :: Lens.Lens' BonusPayment (Lude.Maybe Lude.Text)
-bpWorkerId = Lens.lens (workerId :: BonusPayment -> Lude.Maybe Lude.Text) (\s a -> s {workerId = a} :: BonusPayment)
-{-# DEPRECATED bpWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
 
 -- | The ID of the assignment associated with this bonus payment.
 --
 -- /Note:/ Consider using 'assignmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpAssignmentId :: Lens.Lens' BonusPayment (Lude.Maybe Lude.Text)
-bpAssignmentId = Lens.lens (assignmentId :: BonusPayment -> Lude.Maybe Lude.Text) (\s a -> s {assignmentId = a} :: BonusPayment)
+bpAssignmentId :: Lens.Lens' BonusPayment (Core.Maybe Types.AssignmentId)
+bpAssignmentId = Lens.field @"assignmentId"
 {-# DEPRECATED bpAssignmentId "Use generic-lens or generic-optics with 'assignmentId' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'bonusAmount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpBonusAmount :: Lens.Lens' BonusPayment (Lude.Maybe Lude.Text)
-bpBonusAmount = Lens.lens (bonusAmount :: BonusPayment -> Lude.Maybe Lude.Text) (\s a -> s {bonusAmount = a} :: BonusPayment)
+bpBonusAmount :: Lens.Lens' BonusPayment (Core.Maybe Types.BonusAmount)
+bpBonusAmount = Lens.field @"bonusAmount"
 {-# DEPRECATED bpBonusAmount "Use generic-lens or generic-optics with 'bonusAmount' instead." #-}
 
-instance Lude.FromJSON BonusPayment where
+-- | The date and time of when the bonus was granted.
+--
+-- /Note:/ Consider using 'grantTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpGrantTime :: Lens.Lens' BonusPayment (Core.Maybe Core.NominalDiffTime)
+bpGrantTime = Lens.field @"grantTime"
+{-# DEPRECATED bpGrantTime "Use generic-lens or generic-optics with 'grantTime' instead." #-}
+
+-- | The Reason text given when the bonus was granted, if any.
+--
+-- /Note:/ Consider using 'reason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpReason :: Lens.Lens' BonusPayment (Core.Maybe Types.Reason)
+bpReason = Lens.field @"reason"
+{-# DEPRECATED bpReason "Use generic-lens or generic-optics with 'reason' instead." #-}
+
+-- | The ID of the Worker to whom the bonus was paid.
+--
+-- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpWorkerId :: Lens.Lens' BonusPayment (Core.Maybe Types.WorkerId)
+bpWorkerId = Lens.field @"workerId"
+{-# DEPRECATED bpWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
+
+instance Core.FromJSON BonusPayment where
   parseJSON =
-    Lude.withObject
-      "BonusPayment"
-      ( \x ->
-          BonusPayment'
-            Lude.<$> (x Lude..:? "Reason")
-            Lude.<*> (x Lude..:? "GrantTime")
-            Lude.<*> (x Lude..:? "WorkerId")
-            Lude.<*> (x Lude..:? "AssignmentId")
-            Lude.<*> (x Lude..:? "BonusAmount")
-      )
+    Core.withObject "BonusPayment" Core.$
+      \x ->
+        BonusPayment'
+          Core.<$> (x Core..:? "AssignmentId")
+          Core.<*> (x Core..:? "BonusAmount")
+          Core.<*> (x Core..:? "GrantTime")
+          Core.<*> (x Core..:? "Reason")
+          Core.<*> (x Core..:? "WorkerId")

@@ -27,224 +27,204 @@ module Network.AWS.MediaLive.DescribeMultiplex
     mkDescribeMultiplexResponse,
 
     -- ** Response lenses
-    dmrsState,
-    dmrsARN,
-    dmrsPipelinesRunningCount,
-    dmrsAvailabilityZones,
-    dmrsProgramCount,
-    dmrsDestinations,
-    dmrsName,
-    dmrsId,
-    dmrsMultiplexSettings,
-    dmrsTags,
-    dmrsResponseStatus,
+    dmrrsArn,
+    dmrrsAvailabilityZones,
+    dmrrsDestinations,
+    dmrrsId,
+    dmrrsMultiplexSettings,
+    dmrrsName,
+    dmrrsPipelinesRunningCount,
+    dmrrsProgramCount,
+    dmrrsState,
+    dmrrsTags,
+    dmrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaLive.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Placeholder documentation for DescribeMultiplexRequest
 --
 -- /See:/ 'mkDescribeMultiplex' smart constructor.
 newtype DescribeMultiplex = DescribeMultiplex'
   { -- | The ID of the multiplex.
-    multiplexId :: Lude.Text
+    multiplexId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMultiplex' with the minimum fields required to make a request.
---
--- * 'multiplexId' - The ID of the multiplex.
+-- | Creates a 'DescribeMultiplex' value with any optional fields omitted.
 mkDescribeMultiplex ::
   -- | 'multiplexId'
-  Lude.Text ->
+  Core.Text ->
   DescribeMultiplex
-mkDescribeMultiplex pMultiplexId_ =
-  DescribeMultiplex' {multiplexId = pMultiplexId_}
+mkDescribeMultiplex multiplexId = DescribeMultiplex' {multiplexId}
 
 -- | The ID of the multiplex.
 --
 -- /Note:/ Consider using 'multiplexId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmMultiplexId :: Lens.Lens' DescribeMultiplex Lude.Text
-dmMultiplexId = Lens.lens (multiplexId :: DescribeMultiplex -> Lude.Text) (\s a -> s {multiplexId = a} :: DescribeMultiplex)
+dmMultiplexId :: Lens.Lens' DescribeMultiplex Core.Text
+dmMultiplexId = Lens.field @"multiplexId"
 {-# DEPRECATED dmMultiplexId "Use generic-lens or generic-optics with 'multiplexId' instead." #-}
 
-instance Lude.AWSRequest DescribeMultiplex where
+instance Core.AWSRequest DescribeMultiplex where
   type Rs DescribeMultiplex = DescribeMultiplexResponse
-  request = Req.get mediaLiveService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/prod/multiplexes/" Core.<> (Core.toText multiplexId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeMultiplexResponse'
-            Lude.<$> (x Lude..?> "state")
-            Lude.<*> (x Lude..?> "arn")
-            Lude.<*> (x Lude..?> "pipelinesRunningCount")
-            Lude.<*> (x Lude..?> "availabilityZones" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "programCount")
-            Lude.<*> (x Lude..?> "destinations" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "name")
-            Lude.<*> (x Lude..?> "id")
-            Lude.<*> (x Lude..?> "multiplexSettings")
-            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "availabilityZones")
+            Core.<*> (x Core..:? "destinations")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "multiplexSettings")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "pipelinesRunningCount")
+            Core.<*> (x Core..:? "programCount")
+            Core.<*> (x Core..:? "state")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeMultiplex where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeMultiplex where
-  toPath DescribeMultiplex' {..} =
-    Lude.mconcat ["/prod/multiplexes/", Lude.toBS multiplexId]
-
-instance Lude.ToQuery DescribeMultiplex where
-  toQuery = Lude.const Lude.mempty
 
 -- | Placeholder documentation for DescribeMultiplexResponse
 --
 -- /See:/ 'mkDescribeMultiplexResponse' smart constructor.
 data DescribeMultiplexResponse = DescribeMultiplexResponse'
-  { -- | The current state of the multiplex.
-    state :: Lude.Maybe MultiplexState,
-    -- | The unique arn of the multiplex.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The number of currently healthy pipelines.
-    pipelinesRunningCount :: Lude.Maybe Lude.Int,
+  { -- | The unique arn of the multiplex.
+    arn :: Core.Maybe Core.Text,
     -- | A list of availability zones for the multiplex.
-    availabilityZones :: Lude.Maybe [Lude.Text],
-    -- | The number of programs in the multiplex.
-    programCount :: Lude.Maybe Lude.Int,
+    availabilityZones :: Core.Maybe [Core.Text],
     -- | A list of the multiplex output destinations.
-    destinations :: Lude.Maybe [MultiplexOutputDestination],
-    -- | The name of the multiplex.
-    name :: Lude.Maybe Lude.Text,
+    destinations :: Core.Maybe [Types.MultiplexOutputDestination],
     -- | The unique id of the multiplex.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
     -- | Configuration for a multiplex event.
-    multiplexSettings :: Lude.Maybe MultiplexSettings,
+    multiplexSettings :: Core.Maybe Types.MultiplexSettings,
+    -- | The name of the multiplex.
+    name :: Core.Maybe Core.Text,
+    -- | The number of currently healthy pipelines.
+    pipelinesRunningCount :: Core.Maybe Core.Int,
+    -- | The number of programs in the multiplex.
+    programCount :: Core.Maybe Core.Int,
+    -- | The current state of the multiplex.
+    state :: Core.Maybe Types.MultiplexState,
     -- | A collection of key-value pairs.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeMultiplexResponse' with the minimum fields required to make a request.
---
--- * 'state' - The current state of the multiplex.
--- * 'arn' - The unique arn of the multiplex.
--- * 'pipelinesRunningCount' - The number of currently healthy pipelines.
--- * 'availabilityZones' - A list of availability zones for the multiplex.
--- * 'programCount' - The number of programs in the multiplex.
--- * 'destinations' - A list of the multiplex output destinations.
--- * 'name' - The name of the multiplex.
--- * 'id' - The unique id of the multiplex.
--- * 'multiplexSettings' - Configuration for a multiplex event.
--- * 'tags' - A collection of key-value pairs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeMultiplexResponse' value with any optional fields omitted.
 mkDescribeMultiplexResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeMultiplexResponse
-mkDescribeMultiplexResponse pResponseStatus_ =
+mkDescribeMultiplexResponse responseStatus =
   DescribeMultiplexResponse'
-    { state = Lude.Nothing,
-      arn = Lude.Nothing,
-      pipelinesRunningCount = Lude.Nothing,
-      availabilityZones = Lude.Nothing,
-      programCount = Lude.Nothing,
-      destinations = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      multiplexSettings = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      availabilityZones = Core.Nothing,
+      destinations = Core.Nothing,
+      id = Core.Nothing,
+      multiplexSettings = Core.Nothing,
+      name = Core.Nothing,
+      pipelinesRunningCount = Core.Nothing,
+      programCount = Core.Nothing,
+      state = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
-
--- | The current state of the multiplex.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsState :: Lens.Lens' DescribeMultiplexResponse (Lude.Maybe MultiplexState)
-dmrsState = Lens.lens (state :: DescribeMultiplexResponse -> Lude.Maybe MultiplexState) (\s a -> s {state = a} :: DescribeMultiplexResponse)
-{-# DEPRECATED dmrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The unique arn of the multiplex.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsARN :: Lens.Lens' DescribeMultiplexResponse (Lude.Maybe Lude.Text)
-dmrsARN = Lens.lens (arn :: DescribeMultiplexResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeMultiplexResponse)
-{-# DEPRECATED dmrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The number of currently healthy pipelines.
---
--- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsPipelinesRunningCount :: Lens.Lens' DescribeMultiplexResponse (Lude.Maybe Lude.Int)
-dmrsPipelinesRunningCount = Lens.lens (pipelinesRunningCount :: DescribeMultiplexResponse -> Lude.Maybe Lude.Int) (\s a -> s {pipelinesRunningCount = a} :: DescribeMultiplexResponse)
-{-# DEPRECATED dmrsPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
+dmrrsArn :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Core.Text)
+dmrrsArn = Lens.field @"arn"
+{-# DEPRECATED dmrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | A list of availability zones for the multiplex.
 --
 -- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsAvailabilityZones :: Lens.Lens' DescribeMultiplexResponse (Lude.Maybe [Lude.Text])
-dmrsAvailabilityZones = Lens.lens (availabilityZones :: DescribeMultiplexResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: DescribeMultiplexResponse)
-{-# DEPRECATED dmrsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
-
--- | The number of programs in the multiplex.
---
--- /Note:/ Consider using 'programCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsProgramCount :: Lens.Lens' DescribeMultiplexResponse (Lude.Maybe Lude.Int)
-dmrsProgramCount = Lens.lens (programCount :: DescribeMultiplexResponse -> Lude.Maybe Lude.Int) (\s a -> s {programCount = a} :: DescribeMultiplexResponse)
-{-# DEPRECATED dmrsProgramCount "Use generic-lens or generic-optics with 'programCount' instead." #-}
+dmrrsAvailabilityZones :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe [Core.Text])
+dmrrsAvailabilityZones = Lens.field @"availabilityZones"
+{-# DEPRECATED dmrrsAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | A list of the multiplex output destinations.
 --
 -- /Note:/ Consider using 'destinations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsDestinations :: Lens.Lens' DescribeMultiplexResponse (Lude.Maybe [MultiplexOutputDestination])
-dmrsDestinations = Lens.lens (destinations :: DescribeMultiplexResponse -> Lude.Maybe [MultiplexOutputDestination]) (\s a -> s {destinations = a} :: DescribeMultiplexResponse)
-{-# DEPRECATED dmrsDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
-
--- | The name of the multiplex.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsName :: Lens.Lens' DescribeMultiplexResponse (Lude.Maybe Lude.Text)
-dmrsName = Lens.lens (name :: DescribeMultiplexResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: DescribeMultiplexResponse)
-{-# DEPRECATED dmrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+dmrrsDestinations :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe [Types.MultiplexOutputDestination])
+dmrrsDestinations = Lens.field @"destinations"
+{-# DEPRECATED dmrrsDestinations "Use generic-lens or generic-optics with 'destinations' instead." #-}
 
 -- | The unique id of the multiplex.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsId :: Lens.Lens' DescribeMultiplexResponse (Lude.Maybe Lude.Text)
-dmrsId = Lens.lens (id :: DescribeMultiplexResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeMultiplexResponse)
-{-# DEPRECATED dmrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+dmrrsId :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Core.Text)
+dmrrsId = Lens.field @"id"
+{-# DEPRECATED dmrrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Configuration for a multiplex event.
 --
 -- /Note:/ Consider using 'multiplexSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsMultiplexSettings :: Lens.Lens' DescribeMultiplexResponse (Lude.Maybe MultiplexSettings)
-dmrsMultiplexSettings = Lens.lens (multiplexSettings :: DescribeMultiplexResponse -> Lude.Maybe MultiplexSettings) (\s a -> s {multiplexSettings = a} :: DescribeMultiplexResponse)
-{-# DEPRECATED dmrsMultiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead." #-}
+dmrrsMultiplexSettings :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Types.MultiplexSettings)
+dmrrsMultiplexSettings = Lens.field @"multiplexSettings"
+{-# DEPRECATED dmrrsMultiplexSettings "Use generic-lens or generic-optics with 'multiplexSettings' instead." #-}
+
+-- | The name of the multiplex.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrrsName :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Core.Text)
+dmrrsName = Lens.field @"name"
+{-# DEPRECATED dmrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The number of currently healthy pipelines.
+--
+-- /Note:/ Consider using 'pipelinesRunningCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrrsPipelinesRunningCount :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Core.Int)
+dmrrsPipelinesRunningCount = Lens.field @"pipelinesRunningCount"
+{-# DEPRECATED dmrrsPipelinesRunningCount "Use generic-lens or generic-optics with 'pipelinesRunningCount' instead." #-}
+
+-- | The number of programs in the multiplex.
+--
+-- /Note:/ Consider using 'programCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrrsProgramCount :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Core.Int)
+dmrrsProgramCount = Lens.field @"programCount"
+{-# DEPRECATED dmrrsProgramCount "Use generic-lens or generic-optics with 'programCount' instead." #-}
+
+-- | The current state of the multiplex.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrrsState :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe Types.MultiplexState)
+dmrrsState = Lens.field @"state"
+{-# DEPRECATED dmrrsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | A collection of key-value pairs.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsTags :: Lens.Lens' DescribeMultiplexResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-dmrsTags = Lens.lens (tags :: DescribeMultiplexResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: DescribeMultiplexResponse)
-{-# DEPRECATED dmrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+dmrrsTags :: Lens.Lens' DescribeMultiplexResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+dmrrsTags = Lens.field @"tags"
+{-# DEPRECATED dmrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsResponseStatus :: Lens.Lens' DescribeMultiplexResponse Lude.Int
-dmrsResponseStatus = Lens.lens (responseStatus :: DescribeMultiplexResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeMultiplexResponse)
-{-# DEPRECATED dmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmrrsResponseStatus :: Lens.Lens' DescribeMultiplexResponse Core.Int
+dmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,59 +17,56 @@ module Network.AWS.ResourceGroups.Types.ResourceFilter
     mkResourceFilter,
 
     -- * Lenses
-    rfValues,
     rfName,
+    rfValues,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ResourceGroups.Types.ResourceFilterName
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroups.Types.ResourceFilterName as Types
+import qualified Network.AWS.ResourceGroups.Types.ResourceFilterValue as Types
 
 -- | A filter name and value pair that is used to obtain more specific results from a list of resources.
 --
 -- /See:/ 'mkResourceFilter' smart constructor.
 data ResourceFilter = ResourceFilter'
-  { -- | One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.
-    values :: Lude.NonEmpty Lude.Text,
-    -- | The name of the filter. Filter names are case-sensitive.
-    name :: ResourceFilterName
+  { -- | The name of the filter. Filter names are case-sensitive.
+    name :: Types.ResourceFilterName,
+    -- | One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.
+    values :: Core.NonEmpty Types.ResourceFilterValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceFilter' with the minimum fields required to make a request.
---
--- * 'values' - One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.
--- * 'name' - The name of the filter. Filter names are case-sensitive.
+-- | Creates a 'ResourceFilter' value with any optional fields omitted.
 mkResourceFilter ::
-  -- | 'values'
-  Lude.NonEmpty Lude.Text ->
   -- | 'name'
-  ResourceFilterName ->
+  Types.ResourceFilterName ->
+  -- | 'values'
+  Core.NonEmpty Types.ResourceFilterValue ->
   ResourceFilter
-mkResourceFilter pValues_ pName_ =
-  ResourceFilter' {values = pValues_, name = pName_}
-
--- | One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfValues :: Lens.Lens' ResourceFilter (Lude.NonEmpty Lude.Text)
-rfValues = Lens.lens (values :: ResourceFilter -> Lude.NonEmpty Lude.Text) (\s a -> s {values = a} :: ResourceFilter)
-{-# DEPRECATED rfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+mkResourceFilter name values = ResourceFilter' {name, values}
 
 -- | The name of the filter. Filter names are case-sensitive.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rfName :: Lens.Lens' ResourceFilter ResourceFilterName
-rfName = Lens.lens (name :: ResourceFilter -> ResourceFilterName) (\s a -> s {name = a} :: ResourceFilter)
+rfName :: Lens.Lens' ResourceFilter Types.ResourceFilterName
+rfName = Lens.field @"name"
 {-# DEPRECATED rfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON ResourceFilter where
-  toJSON ResourceFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Values" Lude..= values),
-            Lude.Just ("Name" Lude..= name)
+-- | One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive.
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rfValues :: Lens.Lens' ResourceFilter (Core.NonEmpty Types.ResourceFilterValue)
+rfValues = Lens.field @"values"
+{-# DEPRECATED rfValues "Use generic-lens or generic-optics with 'values' instead." #-}
+
+instance Core.FromJSON ResourceFilter where
+  toJSON ResourceFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Values" Core..= values)
           ]
       )

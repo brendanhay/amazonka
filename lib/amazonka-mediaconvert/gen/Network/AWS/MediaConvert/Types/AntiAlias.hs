@@ -13,47 +13,49 @@
 module Network.AWS.MediaConvert.Types.AntiAlias
   ( AntiAlias
       ( AntiAlias',
-        AADisabled,
-        AAEnabled
+        AntiAliasDisabled,
+        AntiAliasEnabled,
+        fromAntiAlias
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The anti-alias filter is automatically applied to all outputs. The service no longer accepts the value DISABLED for AntiAlias. If you specify that in your job, the service will ignore the setting.
-newtype AntiAlias = AntiAlias' Lude.Text
+newtype AntiAlias = AntiAlias' {fromAntiAlias :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AADisabled :: AntiAlias
-pattern AADisabled = AntiAlias' "DISABLED"
+pattern AntiAliasDisabled :: AntiAlias
+pattern AntiAliasDisabled = AntiAlias' "DISABLED"
 
-pattern AAEnabled :: AntiAlias
-pattern AAEnabled = AntiAlias' "ENABLED"
+pattern AntiAliasEnabled :: AntiAlias
+pattern AntiAliasEnabled = AntiAlias' "ENABLED"
 
 {-# COMPLETE
-  AADisabled,
-  AAEnabled,
+  AntiAliasDisabled,
+  AntiAliasEnabled,
   AntiAlias'
   #-}

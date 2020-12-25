@@ -22,35 +22,33 @@ module Network.AWS.ServiceCatalog.ListRecordHistory
     mkListRecordHistory,
 
     -- ** Request lenses
-    lrhSearchFilter,
     lrhAcceptLanguage,
     lrhAccessLevelFilter,
-    lrhPageToken,
     lrhPageSize,
+    lrhPageToken,
+    lrhSearchFilter,
 
     -- * Destructuring the response
     ListRecordHistoryResponse (..),
     mkListRecordHistoryResponse,
 
     -- ** Response lenses
-    lrhrsNextPageToken,
-    lrhrsRecordDetails,
-    lrhrsResponseStatus,
+    lrhrrsNextPageToken,
+    lrhrrsRecordDetails,
+    lrhrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkListRecordHistory' smart constructor.
 data ListRecordHistory = ListRecordHistory'
-  { -- | The search filter to scope the results.
-    searchFilter :: Lude.Maybe ListRecordHistorySearchFilter,
-    -- | The language code.
+  { -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -60,52 +58,30 @@ data ListRecordHistory = ListRecordHistory'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
     -- | The access level to use to obtain results. The default is @User@ .
-    accessLevelFilter :: Lude.Maybe AccessLevelFilter,
-    -- | The page token for the next set of results. To retrieve the first set of results, use null.
-    pageToken :: Lude.Maybe Lude.Text,
+    accessLevelFilter :: Core.Maybe Types.AccessLevelFilter,
     -- | The maximum number of items to return with this call.
-    pageSize :: Lude.Maybe Lude.Natural
+    pageSize :: Core.Maybe Core.Natural,
+    -- | The page token for the next set of results. To retrieve the first set of results, use null.
+    pageToken :: Core.Maybe Types.PageToken,
+    -- | The search filter to scope the results.
+    searchFilter :: Core.Maybe Types.ListRecordHistorySearchFilter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRecordHistory' with the minimum fields required to make a request.
---
--- * 'searchFilter' - The search filter to scope the results.
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'accessLevelFilter' - The access level to use to obtain results. The default is @User@ .
--- * 'pageToken' - The page token for the next set of results. To retrieve the first set of results, use null.
--- * 'pageSize' - The maximum number of items to return with this call.
+-- | Creates a 'ListRecordHistory' value with any optional fields omitted.
 mkListRecordHistory ::
   ListRecordHistory
 mkListRecordHistory =
   ListRecordHistory'
-    { searchFilter = Lude.Nothing,
-      acceptLanguage = Lude.Nothing,
-      accessLevelFilter = Lude.Nothing,
-      pageToken = Lude.Nothing,
-      pageSize = Lude.Nothing
+    { acceptLanguage = Core.Nothing,
+      accessLevelFilter = Core.Nothing,
+      pageSize = Core.Nothing,
+      pageToken = Core.Nothing,
+      searchFilter = Core.Nothing
     }
-
--- | The search filter to scope the results.
---
--- /Note:/ Consider using 'searchFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrhSearchFilter :: Lens.Lens' ListRecordHistory (Lude.Maybe ListRecordHistorySearchFilter)
-lrhSearchFilter = Lens.lens (searchFilter :: ListRecordHistory -> Lude.Maybe ListRecordHistorySearchFilter) (\s a -> s {searchFilter = a} :: ListRecordHistory)
-{-# DEPRECATED lrhSearchFilter "Use generic-lens or generic-optics with 'searchFilter' instead." #-}
 
 -- | The language code.
 --
@@ -121,128 +97,128 @@ lrhSearchFilter = Lens.lens (searchFilter :: ListRecordHistory -> Lude.Maybe Lis
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrhAcceptLanguage :: Lens.Lens' ListRecordHistory (Lude.Maybe Lude.Text)
-lrhAcceptLanguage = Lens.lens (acceptLanguage :: ListRecordHistory -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: ListRecordHistory)
+lrhAcceptLanguage :: Lens.Lens' ListRecordHistory (Core.Maybe Types.AcceptLanguage)
+lrhAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED lrhAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
 -- | The access level to use to obtain results. The default is @User@ .
 --
 -- /Note:/ Consider using 'accessLevelFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrhAccessLevelFilter :: Lens.Lens' ListRecordHistory (Lude.Maybe AccessLevelFilter)
-lrhAccessLevelFilter = Lens.lens (accessLevelFilter :: ListRecordHistory -> Lude.Maybe AccessLevelFilter) (\s a -> s {accessLevelFilter = a} :: ListRecordHistory)
+lrhAccessLevelFilter :: Lens.Lens' ListRecordHistory (Core.Maybe Types.AccessLevelFilter)
+lrhAccessLevelFilter = Lens.field @"accessLevelFilter"
 {-# DEPRECATED lrhAccessLevelFilter "Use generic-lens or generic-optics with 'accessLevelFilter' instead." #-}
-
--- | The page token for the next set of results. To retrieve the first set of results, use null.
---
--- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrhPageToken :: Lens.Lens' ListRecordHistory (Lude.Maybe Lude.Text)
-lrhPageToken = Lens.lens (pageToken :: ListRecordHistory -> Lude.Maybe Lude.Text) (\s a -> s {pageToken = a} :: ListRecordHistory)
-{-# DEPRECATED lrhPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
 -- | The maximum number of items to return with this call.
 --
 -- /Note:/ Consider using 'pageSize' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrhPageSize :: Lens.Lens' ListRecordHistory (Lude.Maybe Lude.Natural)
-lrhPageSize = Lens.lens (pageSize :: ListRecordHistory -> Lude.Maybe Lude.Natural) (\s a -> s {pageSize = a} :: ListRecordHistory)
+lrhPageSize :: Lens.Lens' ListRecordHistory (Core.Maybe Core.Natural)
+lrhPageSize = Lens.field @"pageSize"
 {-# DEPRECATED lrhPageSize "Use generic-lens or generic-optics with 'pageSize' instead." #-}
 
-instance Page.AWSPager ListRecordHistory where
-  page rq rs
-    | Page.stop (rs Lens.^. lrhrsNextPageToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lrhrsRecordDetails) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lrhPageToken Lens..~ rs Lens.^. lrhrsNextPageToken
+-- | The page token for the next set of results. To retrieve the first set of results, use null.
+--
+-- /Note:/ Consider using 'pageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhPageToken :: Lens.Lens' ListRecordHistory (Core.Maybe Types.PageToken)
+lrhPageToken = Lens.field @"pageToken"
+{-# DEPRECATED lrhPageToken "Use generic-lens or generic-optics with 'pageToken' instead." #-}
 
-instance Lude.AWSRequest ListRecordHistory where
+-- | The search filter to scope the results.
+--
+-- /Note:/ Consider using 'searchFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrhSearchFilter :: Lens.Lens' ListRecordHistory (Core.Maybe Types.ListRecordHistorySearchFilter)
+lrhSearchFilter = Lens.field @"searchFilter"
+{-# DEPRECATED lrhSearchFilter "Use generic-lens or generic-optics with 'searchFilter' instead." #-}
+
+instance Core.FromJSON ListRecordHistory where
+  toJSON ListRecordHistory {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("AccessLevelFilter" Core..=) Core.<$> accessLevelFilter,
+            ("PageSize" Core..=) Core.<$> pageSize,
+            ("PageToken" Core..=) Core.<$> pageToken,
+            ("SearchFilter" Core..=) Core.<$> searchFilter
+          ]
+      )
+
+instance Core.AWSRequest ListRecordHistory where
   type Rs ListRecordHistory = ListRecordHistoryResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.ListRecordHistory")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListRecordHistoryResponse'
-            Lude.<$> (x Lude..?> "NextPageToken")
-            Lude.<*> (x Lude..?> "RecordDetails" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextPageToken")
+            Core.<*> (x Core..:? "RecordDetails")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListRecordHistory where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.ListRecordHistory" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListRecordHistory where
-  toJSON ListRecordHistory' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SearchFilter" Lude..=) Lude.<$> searchFilter,
-            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("AccessLevelFilter" Lude..=) Lude.<$> accessLevelFilter,
-            ("PageToken" Lude..=) Lude.<$> pageToken,
-            ("PageSize" Lude..=) Lude.<$> pageSize
-          ]
-      )
-
-instance Lude.ToPath ListRecordHistory where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListRecordHistory where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListRecordHistory where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextPageToken") =
+      Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"recordDetails" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"pageToken"
+            Lens..~ rs Lens.^. Lens.field @"nextPageToken"
+        )
 
 -- | /See:/ 'mkListRecordHistoryResponse' smart constructor.
 data ListRecordHistoryResponse = ListRecordHistoryResponse'
   { -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
-    nextPageToken :: Lude.Maybe Lude.Text,
+    nextPageToken :: Core.Maybe Types.NextPageToken,
     -- | The records, in reverse chronological order.
-    recordDetails :: Lude.Maybe [RecordDetail],
+    recordDetails :: Core.Maybe [Types.RecordDetail],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListRecordHistoryResponse' with the minimum fields required to make a request.
---
--- * 'nextPageToken' - The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
--- * 'recordDetails' - The records, in reverse chronological order.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListRecordHistoryResponse' value with any optional fields omitted.
 mkListRecordHistoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListRecordHistoryResponse
-mkListRecordHistoryResponse pResponseStatus_ =
+mkListRecordHistoryResponse responseStatus =
   ListRecordHistoryResponse'
-    { nextPageToken = Lude.Nothing,
-      recordDetails = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextPageToken = Core.Nothing,
+      recordDetails = Core.Nothing,
+      responseStatus
     }
 
 -- | The page token to use to retrieve the next set of results. If there are no additional results, this value is null.
 --
 -- /Note:/ Consider using 'nextPageToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrhrsNextPageToken :: Lens.Lens' ListRecordHistoryResponse (Lude.Maybe Lude.Text)
-lrhrsNextPageToken = Lens.lens (nextPageToken :: ListRecordHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextPageToken = a} :: ListRecordHistoryResponse)
-{-# DEPRECATED lrhrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
+lrhrrsNextPageToken :: Lens.Lens' ListRecordHistoryResponse (Core.Maybe Types.NextPageToken)
+lrhrrsNextPageToken = Lens.field @"nextPageToken"
+{-# DEPRECATED lrhrrsNextPageToken "Use generic-lens or generic-optics with 'nextPageToken' instead." #-}
 
 -- | The records, in reverse chronological order.
 --
 -- /Note:/ Consider using 'recordDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrhrsRecordDetails :: Lens.Lens' ListRecordHistoryResponse (Lude.Maybe [RecordDetail])
-lrhrsRecordDetails = Lens.lens (recordDetails :: ListRecordHistoryResponse -> Lude.Maybe [RecordDetail]) (\s a -> s {recordDetails = a} :: ListRecordHistoryResponse)
-{-# DEPRECATED lrhrsRecordDetails "Use generic-lens or generic-optics with 'recordDetails' instead." #-}
+lrhrrsRecordDetails :: Lens.Lens' ListRecordHistoryResponse (Core.Maybe [Types.RecordDetail])
+lrhrrsRecordDetails = Lens.field @"recordDetails"
+{-# DEPRECATED lrhrrsRecordDetails "Use generic-lens or generic-optics with 'recordDetails' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrhrsResponseStatus :: Lens.Lens' ListRecordHistoryResponse Lude.Int
-lrhrsResponseStatus = Lens.lens (responseStatus :: ListRecordHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRecordHistoryResponse)
-{-# DEPRECATED lrhrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrhrrsResponseStatus :: Lens.Lens' ListRecordHistoryResponse Core.Int
+lrhrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrhrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

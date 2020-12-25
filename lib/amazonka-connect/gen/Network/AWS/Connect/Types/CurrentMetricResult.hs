@@ -22,55 +22,49 @@ module Network.AWS.Connect.Types.CurrentMetricResult
   )
 where
 
-import Network.AWS.Connect.Types.CurrentMetricData
-import Network.AWS.Connect.Types.Dimensions
+import qualified Network.AWS.Connect.Types.CurrentMetricData as Types
+import qualified Network.AWS.Connect.Types.Dimensions as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a set of real-time metrics.
 --
 -- /See:/ 'mkCurrentMetricResult' smart constructor.
 data CurrentMetricResult = CurrentMetricResult'
   { -- | The set of metrics.
-    collections :: Lude.Maybe [CurrentMetricData],
+    collections :: Core.Maybe [Types.CurrentMetricData],
     -- | The dimensions for the metrics.
-    dimensions :: Lude.Maybe Dimensions
+    dimensions :: Core.Maybe Types.Dimensions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CurrentMetricResult' with the minimum fields required to make a request.
---
--- * 'collections' - The set of metrics.
--- * 'dimensions' - The dimensions for the metrics.
+-- | Creates a 'CurrentMetricResult' value with any optional fields omitted.
 mkCurrentMetricResult ::
   CurrentMetricResult
 mkCurrentMetricResult =
   CurrentMetricResult'
-    { collections = Lude.Nothing,
-      dimensions = Lude.Nothing
+    { collections = Core.Nothing,
+      dimensions = Core.Nothing
     }
 
 -- | The set of metrics.
 --
 -- /Note:/ Consider using 'collections' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrCollections :: Lens.Lens' CurrentMetricResult (Lude.Maybe [CurrentMetricData])
-cmrCollections = Lens.lens (collections :: CurrentMetricResult -> Lude.Maybe [CurrentMetricData]) (\s a -> s {collections = a} :: CurrentMetricResult)
+cmrCollections :: Lens.Lens' CurrentMetricResult (Core.Maybe [Types.CurrentMetricData])
+cmrCollections = Lens.field @"collections"
 {-# DEPRECATED cmrCollections "Use generic-lens or generic-optics with 'collections' instead." #-}
 
 -- | The dimensions for the metrics.
 --
 -- /Note:/ Consider using 'dimensions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmrDimensions :: Lens.Lens' CurrentMetricResult (Lude.Maybe Dimensions)
-cmrDimensions = Lens.lens (dimensions :: CurrentMetricResult -> Lude.Maybe Dimensions) (\s a -> s {dimensions = a} :: CurrentMetricResult)
+cmrDimensions :: Lens.Lens' CurrentMetricResult (Core.Maybe Types.Dimensions)
+cmrDimensions = Lens.field @"dimensions"
 {-# DEPRECATED cmrDimensions "Use generic-lens or generic-optics with 'dimensions' instead." #-}
 
-instance Lude.FromJSON CurrentMetricResult where
+instance Core.FromJSON CurrentMetricResult where
   parseJSON =
-    Lude.withObject
-      "CurrentMetricResult"
-      ( \x ->
-          CurrentMetricResult'
-            Lude.<$> (x Lude..:? "Collections" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Dimensions")
-      )
+    Core.withObject "CurrentMetricResult" Core.$
+      \x ->
+        CurrentMetricResult'
+          Core.<$> (x Core..:? "Collections") Core.<*> (x Core..:? "Dimensions")

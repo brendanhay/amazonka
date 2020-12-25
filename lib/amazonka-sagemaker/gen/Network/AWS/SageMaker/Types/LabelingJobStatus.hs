@@ -13,66 +13,71 @@
 module Network.AWS.SageMaker.Types.LabelingJobStatus
   ( LabelingJobStatus
       ( LabelingJobStatus',
-        LJSInitializing,
-        LJSInProgress,
-        LJSCompleted,
-        LJSFailed,
-        LJSStopping,
-        LJSStopped
+        LabelingJobStatusInitializing,
+        LabelingJobStatusInProgress,
+        LabelingJobStatusCompleted,
+        LabelingJobStatusFailed,
+        LabelingJobStatusStopping,
+        LabelingJobStatusStopped,
+        fromLabelingJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LabelingJobStatus = LabelingJobStatus' Lude.Text
+newtype LabelingJobStatus = LabelingJobStatus'
+  { fromLabelingJobStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern LJSInitializing :: LabelingJobStatus
-pattern LJSInitializing = LabelingJobStatus' "Initializing"
+pattern LabelingJobStatusInitializing :: LabelingJobStatus
+pattern LabelingJobStatusInitializing = LabelingJobStatus' "Initializing"
 
-pattern LJSInProgress :: LabelingJobStatus
-pattern LJSInProgress = LabelingJobStatus' "InProgress"
+pattern LabelingJobStatusInProgress :: LabelingJobStatus
+pattern LabelingJobStatusInProgress = LabelingJobStatus' "InProgress"
 
-pattern LJSCompleted :: LabelingJobStatus
-pattern LJSCompleted = LabelingJobStatus' "Completed"
+pattern LabelingJobStatusCompleted :: LabelingJobStatus
+pattern LabelingJobStatusCompleted = LabelingJobStatus' "Completed"
 
-pattern LJSFailed :: LabelingJobStatus
-pattern LJSFailed = LabelingJobStatus' "Failed"
+pattern LabelingJobStatusFailed :: LabelingJobStatus
+pattern LabelingJobStatusFailed = LabelingJobStatus' "Failed"
 
-pattern LJSStopping :: LabelingJobStatus
-pattern LJSStopping = LabelingJobStatus' "Stopping"
+pattern LabelingJobStatusStopping :: LabelingJobStatus
+pattern LabelingJobStatusStopping = LabelingJobStatus' "Stopping"
 
-pattern LJSStopped :: LabelingJobStatus
-pattern LJSStopped = LabelingJobStatus' "Stopped"
+pattern LabelingJobStatusStopped :: LabelingJobStatus
+pattern LabelingJobStatusStopped = LabelingJobStatus' "Stopped"
 
 {-# COMPLETE
-  LJSInitializing,
-  LJSInProgress,
-  LJSCompleted,
-  LJSFailed,
-  LJSStopping,
-  LJSStopped,
+  LabelingJobStatusInitializing,
+  LabelingJobStatusInProgress,
+  LabelingJobStatusCompleted,
+  LabelingJobStatusFailed,
+  LabelingJobStatusStopping,
+  LabelingJobStatusStopped,
   LabelingJobStatus'
   #-}

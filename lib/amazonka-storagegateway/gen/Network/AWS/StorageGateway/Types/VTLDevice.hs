@@ -18,97 +18,93 @@ module Network.AWS.StorageGateway.Types.VTLDevice
 
     -- * Lenses
     vtldDeviceiSCSIAttributes,
-    vtldVTLDeviceVendor,
     vtldVTLDeviceARN,
-    vtldVTLDeviceType,
     vtldVTLDeviceProductIdentifier,
+    vtldVTLDeviceType,
+    vtldVTLDeviceVendor,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StorageGateway.Types.DeviceiSCSIAttributes as Types
+import qualified Network.AWS.StorageGateway.Types.VTLDeviceARN as Types
+import qualified Network.AWS.StorageGateway.Types.VTLDeviceProductIdentifier as Types
+import qualified Network.AWS.StorageGateway.Types.VTLDeviceType as Types
+import qualified Network.AWS.StorageGateway.Types.VTLDeviceVendor as Types
 
 -- | Represents a device object associated with a tape gateway.
 --
 -- /See:/ 'mkVTLDevice' smart constructor.
 data VTLDevice = VTLDevice'
   { -- | A list of iSCSI information about a VTL device.
-    deviceiSCSIAttributes :: Lude.Maybe DeviceiSCSIAttributes,
-    -- | Specifies the vendor of the device that the VTL device object emulates.
-    vTLDeviceVendor :: Lude.Maybe Lude.Text,
+    deviceiSCSIAttributes :: Core.Maybe Types.DeviceiSCSIAttributes,
     -- | Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer).
-    vTLDeviceARN :: Lude.Maybe Lude.Text,
-    -- | Specifies the type of device that the VTL device emulates.
-    vTLDeviceType :: Lude.Maybe Lude.Text,
+    vTLDeviceARN :: Core.Maybe Types.VTLDeviceARN,
     -- | Specifies the model number of device that the VTL device emulates.
-    vTLDeviceProductIdentifier :: Lude.Maybe Lude.Text
+    vTLDeviceProductIdentifier :: Core.Maybe Types.VTLDeviceProductIdentifier,
+    -- | Specifies the type of device that the VTL device emulates.
+    vTLDeviceType :: Core.Maybe Types.VTLDeviceType,
+    -- | Specifies the vendor of the device that the VTL device object emulates.
+    vTLDeviceVendor :: Core.Maybe Types.VTLDeviceVendor
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VTLDevice' with the minimum fields required to make a request.
---
--- * 'deviceiSCSIAttributes' - A list of iSCSI information about a VTL device.
--- * 'vTLDeviceVendor' - Specifies the vendor of the device that the VTL device object emulates.
--- * 'vTLDeviceARN' - Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer).
--- * 'vTLDeviceType' - Specifies the type of device that the VTL device emulates.
--- * 'vTLDeviceProductIdentifier' - Specifies the model number of device that the VTL device emulates.
+-- | Creates a 'VTLDevice' value with any optional fields omitted.
 mkVTLDevice ::
   VTLDevice
 mkVTLDevice =
   VTLDevice'
-    { deviceiSCSIAttributes = Lude.Nothing,
-      vTLDeviceVendor = Lude.Nothing,
-      vTLDeviceARN = Lude.Nothing,
-      vTLDeviceType = Lude.Nothing,
-      vTLDeviceProductIdentifier = Lude.Nothing
+    { deviceiSCSIAttributes = Core.Nothing,
+      vTLDeviceARN = Core.Nothing,
+      vTLDeviceProductIdentifier = Core.Nothing,
+      vTLDeviceType = Core.Nothing,
+      vTLDeviceVendor = Core.Nothing
     }
 
 -- | A list of iSCSI information about a VTL device.
 --
 -- /Note:/ Consider using 'deviceiSCSIAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtldDeviceiSCSIAttributes :: Lens.Lens' VTLDevice (Lude.Maybe DeviceiSCSIAttributes)
-vtldDeviceiSCSIAttributes = Lens.lens (deviceiSCSIAttributes :: VTLDevice -> Lude.Maybe DeviceiSCSIAttributes) (\s a -> s {deviceiSCSIAttributes = a} :: VTLDevice)
+vtldDeviceiSCSIAttributes :: Lens.Lens' VTLDevice (Core.Maybe Types.DeviceiSCSIAttributes)
+vtldDeviceiSCSIAttributes = Lens.field @"deviceiSCSIAttributes"
 {-# DEPRECATED vtldDeviceiSCSIAttributes "Use generic-lens or generic-optics with 'deviceiSCSIAttributes' instead." #-}
-
--- | Specifies the vendor of the device that the VTL device object emulates.
---
--- /Note:/ Consider using 'vTLDeviceVendor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtldVTLDeviceVendor :: Lens.Lens' VTLDevice (Lude.Maybe Lude.Text)
-vtldVTLDeviceVendor = Lens.lens (vTLDeviceVendor :: VTLDevice -> Lude.Maybe Lude.Text) (\s a -> s {vTLDeviceVendor = a} :: VTLDevice)
-{-# DEPRECATED vtldVTLDeviceVendor "Use generic-lens or generic-optics with 'vTLDeviceVendor' instead." #-}
 
 -- | Specifies the unique Amazon Resource Name (ARN) of the device (tape drive or media changer).
 --
 -- /Note:/ Consider using 'vTLDeviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtldVTLDeviceARN :: Lens.Lens' VTLDevice (Lude.Maybe Lude.Text)
-vtldVTLDeviceARN = Lens.lens (vTLDeviceARN :: VTLDevice -> Lude.Maybe Lude.Text) (\s a -> s {vTLDeviceARN = a} :: VTLDevice)
+vtldVTLDeviceARN :: Lens.Lens' VTLDevice (Core.Maybe Types.VTLDeviceARN)
+vtldVTLDeviceARN = Lens.field @"vTLDeviceARN"
 {-# DEPRECATED vtldVTLDeviceARN "Use generic-lens or generic-optics with 'vTLDeviceARN' instead." #-}
-
--- | Specifies the type of device that the VTL device emulates.
---
--- /Note:/ Consider using 'vTLDeviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtldVTLDeviceType :: Lens.Lens' VTLDevice (Lude.Maybe Lude.Text)
-vtldVTLDeviceType = Lens.lens (vTLDeviceType :: VTLDevice -> Lude.Maybe Lude.Text) (\s a -> s {vTLDeviceType = a} :: VTLDevice)
-{-# DEPRECATED vtldVTLDeviceType "Use generic-lens or generic-optics with 'vTLDeviceType' instead." #-}
 
 -- | Specifies the model number of device that the VTL device emulates.
 --
 -- /Note:/ Consider using 'vTLDeviceProductIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtldVTLDeviceProductIdentifier :: Lens.Lens' VTLDevice (Lude.Maybe Lude.Text)
-vtldVTLDeviceProductIdentifier = Lens.lens (vTLDeviceProductIdentifier :: VTLDevice -> Lude.Maybe Lude.Text) (\s a -> s {vTLDeviceProductIdentifier = a} :: VTLDevice)
+vtldVTLDeviceProductIdentifier :: Lens.Lens' VTLDevice (Core.Maybe Types.VTLDeviceProductIdentifier)
+vtldVTLDeviceProductIdentifier = Lens.field @"vTLDeviceProductIdentifier"
 {-# DEPRECATED vtldVTLDeviceProductIdentifier "Use generic-lens or generic-optics with 'vTLDeviceProductIdentifier' instead." #-}
 
-instance Lude.FromJSON VTLDevice where
+-- | Specifies the type of device that the VTL device emulates.
+--
+-- /Note:/ Consider using 'vTLDeviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtldVTLDeviceType :: Lens.Lens' VTLDevice (Core.Maybe Types.VTLDeviceType)
+vtldVTLDeviceType = Lens.field @"vTLDeviceType"
+{-# DEPRECATED vtldVTLDeviceType "Use generic-lens or generic-optics with 'vTLDeviceType' instead." #-}
+
+-- | Specifies the vendor of the device that the VTL device object emulates.
+--
+-- /Note:/ Consider using 'vTLDeviceVendor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vtldVTLDeviceVendor :: Lens.Lens' VTLDevice (Core.Maybe Types.VTLDeviceVendor)
+vtldVTLDeviceVendor = Lens.field @"vTLDeviceVendor"
+{-# DEPRECATED vtldVTLDeviceVendor "Use generic-lens or generic-optics with 'vTLDeviceVendor' instead." #-}
+
+instance Core.FromJSON VTLDevice where
   parseJSON =
-    Lude.withObject
-      "VTLDevice"
-      ( \x ->
-          VTLDevice'
-            Lude.<$> (x Lude..:? "DeviceiSCSIAttributes")
-            Lude.<*> (x Lude..:? "VTLDeviceVendor")
-            Lude.<*> (x Lude..:? "VTLDeviceARN")
-            Lude.<*> (x Lude..:? "VTLDeviceType")
-            Lude.<*> (x Lude..:? "VTLDeviceProductIdentifier")
-      )
+    Core.withObject "VTLDevice" Core.$
+      \x ->
+        VTLDevice'
+          Core.<$> (x Core..:? "DeviceiSCSIAttributes")
+          Core.<*> (x Core..:? "VTLDeviceARN")
+          Core.<*> (x Core..:? "VTLDeviceProductIdentifier")
+          Core.<*> (x Core..:? "VTLDeviceType")
+          Core.<*> (x Core..:? "VTLDeviceVendor")

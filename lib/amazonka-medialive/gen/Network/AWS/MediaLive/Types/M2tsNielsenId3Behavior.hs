@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.M2tsNielsenId3Behavior
   ( M2tsNielsenId3Behavior
       ( M2tsNielsenId3Behavior',
-        MNIBNoPassthrough,
-        MNIBPassthrough
+        M2tsNielsenId3BehaviorNoPassthrough,
+        M2tsNielsenId3BehaviorPassthrough,
+        fromM2tsNielsenId3Behavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Nielsen Id3 Behavior
-newtype M2tsNielsenId3Behavior = M2tsNielsenId3Behavior' Lude.Text
+newtype M2tsNielsenId3Behavior = M2tsNielsenId3Behavior'
+  { fromM2tsNielsenId3Behavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MNIBNoPassthrough :: M2tsNielsenId3Behavior
-pattern MNIBNoPassthrough = M2tsNielsenId3Behavior' "NO_PASSTHROUGH"
+pattern M2tsNielsenId3BehaviorNoPassthrough :: M2tsNielsenId3Behavior
+pattern M2tsNielsenId3BehaviorNoPassthrough = M2tsNielsenId3Behavior' "NO_PASSTHROUGH"
 
-pattern MNIBPassthrough :: M2tsNielsenId3Behavior
-pattern MNIBPassthrough = M2tsNielsenId3Behavior' "PASSTHROUGH"
+pattern M2tsNielsenId3BehaviorPassthrough :: M2tsNielsenId3Behavior
+pattern M2tsNielsenId3BehaviorPassthrough = M2tsNielsenId3Behavior' "PASSTHROUGH"
 
 {-# COMPLETE
-  MNIBNoPassthrough,
-  MNIBPassthrough,
+  M2tsNielsenId3BehaviorNoPassthrough,
+  M2tsNielsenId3BehaviorPassthrough,
   M2tsNielsenId3Behavior'
   #-}

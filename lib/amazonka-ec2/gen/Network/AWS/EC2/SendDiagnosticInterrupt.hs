@@ -33,76 +33,73 @@ module Network.AWS.EC2.SendDiagnosticInterrupt
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkSendDiagnosticInterrupt' smart constructor.
 data SendDiagnosticInterrupt = SendDiagnosticInterrupt'
   { -- | The ID of the instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendDiagnosticInterrupt' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'SendDiagnosticInterrupt' value with any optional fields omitted.
 mkSendDiagnosticInterrupt ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   SendDiagnosticInterrupt
-mkSendDiagnosticInterrupt pInstanceId_ =
-  SendDiagnosticInterrupt'
-    { instanceId = pInstanceId_,
-      dryRun = Lude.Nothing
-    }
+mkSendDiagnosticInterrupt instanceId =
+  SendDiagnosticInterrupt' {instanceId, dryRun = Core.Nothing}
 
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdiInstanceId :: Lens.Lens' SendDiagnosticInterrupt Lude.Text
-sdiInstanceId = Lens.lens (instanceId :: SendDiagnosticInterrupt -> Lude.Text) (\s a -> s {instanceId = a} :: SendDiagnosticInterrupt)
+sdiInstanceId :: Lens.Lens' SendDiagnosticInterrupt Types.InstanceId
+sdiInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED sdiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdiDryRun :: Lens.Lens' SendDiagnosticInterrupt (Lude.Maybe Lude.Bool)
-sdiDryRun = Lens.lens (dryRun :: SendDiagnosticInterrupt -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: SendDiagnosticInterrupt)
+sdiDryRun :: Lens.Lens' SendDiagnosticInterrupt (Core.Maybe Core.Bool)
+sdiDryRun = Lens.field @"dryRun"
 {-# DEPRECATED sdiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest SendDiagnosticInterrupt where
+instance Core.AWSRequest SendDiagnosticInterrupt where
   type Rs SendDiagnosticInterrupt = SendDiagnosticInterruptResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull SendDiagnosticInterruptResponse'
-
-instance Lude.ToHeaders SendDiagnosticInterrupt where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SendDiagnosticInterrupt where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SendDiagnosticInterrupt where
-  toQuery SendDiagnosticInterrupt' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("SendDiagnosticInterrupt" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SendDiagnosticInterrupt")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull SendDiagnosticInterruptResponse'
 
 -- | /See:/ 'mkSendDiagnosticInterruptResponse' smart constructor.
 data SendDiagnosticInterruptResponse = SendDiagnosticInterruptResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendDiagnosticInterruptResponse' with the minimum fields required to make a request.
+-- | Creates a 'SendDiagnosticInterruptResponse' value with any optional fields omitted.
 mkSendDiagnosticInterruptResponse ::
   SendDiagnosticInterruptResponse
 mkSendDiagnosticInterruptResponse =

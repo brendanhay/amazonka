@@ -18,87 +18,84 @@ module Network.AWS.StepFunctions.Types.TaskSubmitFailedEventDetails
 
     -- * Lenses
     tsfedResourceType,
-    tsfedError,
-    tsfedCause,
     tsfedResource,
+    tsfedCause,
+    tsfedError,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.StepFunctions.Types.Cause as Types
+import qualified Network.AWS.StepFunctions.Types.Error as Types
+import qualified Network.AWS.StepFunctions.Types.Resource as Types
+import qualified Network.AWS.StepFunctions.Types.ResourceType as Types
 
 -- | Contains details about a task that failed to submit during an execution.
 --
 -- /See:/ 'mkTaskSubmitFailedEventDetails' smart constructor.
 data TaskSubmitFailedEventDetails = TaskSubmitFailedEventDetails'
   { -- | The action of the resource called by a task state.
-    resourceType :: Lude.Text,
-    -- | The error code of the failure.
-    error :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | A more detailed explanation of the cause of the failure.
-    cause :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    resourceType :: Types.ResourceType,
     -- | The service name of the resource in a task state.
-    resource :: Lude.Text
+    resource :: Types.Resource,
+    -- | A more detailed explanation of the cause of the failure.
+    cause :: Core.Maybe Types.Cause,
+    -- | The error code of the failure.
+    error :: Core.Maybe Types.Error
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TaskSubmitFailedEventDetails' with the minimum fields required to make a request.
---
--- * 'resourceType' - The action of the resource called by a task state.
--- * 'error' - The error code of the failure.
--- * 'cause' - A more detailed explanation of the cause of the failure.
--- * 'resource' - The service name of the resource in a task state.
+-- | Creates a 'TaskSubmitFailedEventDetails' value with any optional fields omitted.
 mkTaskSubmitFailedEventDetails ::
   -- | 'resourceType'
-  Lude.Text ->
+  Types.ResourceType ->
   -- | 'resource'
-  Lude.Text ->
+  Types.Resource ->
   TaskSubmitFailedEventDetails
-mkTaskSubmitFailedEventDetails pResourceType_ pResource_ =
+mkTaskSubmitFailedEventDetails resourceType resource =
   TaskSubmitFailedEventDetails'
-    { resourceType = pResourceType_,
-      error = Lude.Nothing,
-      cause = Lude.Nothing,
-      resource = pResource_
+    { resourceType,
+      resource,
+      cause = Core.Nothing,
+      error = Core.Nothing
     }
 
 -- | The action of the resource called by a task state.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsfedResourceType :: Lens.Lens' TaskSubmitFailedEventDetails Lude.Text
-tsfedResourceType = Lens.lens (resourceType :: TaskSubmitFailedEventDetails -> Lude.Text) (\s a -> s {resourceType = a} :: TaskSubmitFailedEventDetails)
+tsfedResourceType :: Lens.Lens' TaskSubmitFailedEventDetails Types.ResourceType
+tsfedResourceType = Lens.field @"resourceType"
 {-# DEPRECATED tsfedResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
-
--- | The error code of the failure.
---
--- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsfedError :: Lens.Lens' TaskSubmitFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-tsfedError = Lens.lens (error :: TaskSubmitFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {error = a} :: TaskSubmitFailedEventDetails)
-{-# DEPRECATED tsfedError "Use generic-lens or generic-optics with 'error' instead." #-}
-
--- | A more detailed explanation of the cause of the failure.
---
--- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsfedCause :: Lens.Lens' TaskSubmitFailedEventDetails (Lude.Maybe (Lude.Sensitive Lude.Text))
-tsfedCause = Lens.lens (cause :: TaskSubmitFailedEventDetails -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {cause = a} :: TaskSubmitFailedEventDetails)
-{-# DEPRECATED tsfedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
 
 -- | The service name of the resource in a task state.
 --
 -- /Note:/ Consider using 'resource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tsfedResource :: Lens.Lens' TaskSubmitFailedEventDetails Lude.Text
-tsfedResource = Lens.lens (resource :: TaskSubmitFailedEventDetails -> Lude.Text) (\s a -> s {resource = a} :: TaskSubmitFailedEventDetails)
+tsfedResource :: Lens.Lens' TaskSubmitFailedEventDetails Types.Resource
+tsfedResource = Lens.field @"resource"
 {-# DEPRECATED tsfedResource "Use generic-lens or generic-optics with 'resource' instead." #-}
 
-instance Lude.FromJSON TaskSubmitFailedEventDetails where
+-- | A more detailed explanation of the cause of the failure.
+--
+-- /Note:/ Consider using 'cause' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsfedCause :: Lens.Lens' TaskSubmitFailedEventDetails (Core.Maybe Types.Cause)
+tsfedCause = Lens.field @"cause"
+{-# DEPRECATED tsfedCause "Use generic-lens or generic-optics with 'cause' instead." #-}
+
+-- | The error code of the failure.
+--
+-- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tsfedError :: Lens.Lens' TaskSubmitFailedEventDetails (Core.Maybe Types.Error)
+tsfedError = Lens.field @"error"
+{-# DEPRECATED tsfedError "Use generic-lens or generic-optics with 'error' instead." #-}
+
+instance Core.FromJSON TaskSubmitFailedEventDetails where
   parseJSON =
-    Lude.withObject
-      "TaskSubmitFailedEventDetails"
-      ( \x ->
-          TaskSubmitFailedEventDetails'
-            Lude.<$> (x Lude..: "resourceType")
-            Lude.<*> (x Lude..:? "error")
-            Lude.<*> (x Lude..:? "cause")
-            Lude.<*> (x Lude..: "resource")
-      )
+    Core.withObject "TaskSubmitFailedEventDetails" Core.$
+      \x ->
+        TaskSubmitFailedEventDetails'
+          Core.<$> (x Core..: "resourceType")
+          Core.<*> (x Core..: "resource")
+          Core.<*> (x Core..:? "cause")
+          Core.<*> (x Core..:? "error")

@@ -21,9 +21,9 @@ module Network.AWS.DAX.Types.SSEDescription
   )
 where
 
-import Network.AWS.DAX.Types.SSEStatus
+import qualified Network.AWS.DAX.Types.SSEStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The description of the server-side encryption status on the specified DAX cluster.
 --
@@ -42,29 +42,15 @@ newtype SSEDescription = SSEDescription'
     --
     --
     --     * @DISABLED@ - Server-side encryption is disabled.
-    status :: Lude.Maybe SSEStatus
+    status :: Core.Maybe Types.SSEStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SSEDescription' with the minimum fields required to make a request.
---
--- * 'status' - The current state of server-side encryption:
---
---
---     * @ENABLING@ - Server-side encryption is being enabled.
---
---
---     * @ENABLED@ - Server-side encryption is enabled.
---
---
---     * @DISABLING@ - Server-side encryption is being disabled.
---
---
---     * @DISABLED@ - Server-side encryption is disabled.
+-- | Creates a 'SSEDescription' value with any optional fields omitted.
 mkSSEDescription ::
   SSEDescription
-mkSSEDescription = SSEDescription' {status = Lude.Nothing}
+mkSSEDescription = SSEDescription' {status = Core.Nothing}
 
 -- | The current state of server-side encryption:
 --
@@ -83,12 +69,11 @@ mkSSEDescription = SSEDescription' {status = Lude.Nothing}
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssedStatus :: Lens.Lens' SSEDescription (Lude.Maybe SSEStatus)
-ssedStatus = Lens.lens (status :: SSEDescription -> Lude.Maybe SSEStatus) (\s a -> s {status = a} :: SSEDescription)
+ssedStatus :: Lens.Lens' SSEDescription (Core.Maybe Types.SSEStatus)
+ssedStatus = Lens.field @"status"
 {-# DEPRECATED ssedStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.FromJSON SSEDescription where
+instance Core.FromJSON SSEDescription where
   parseJSON =
-    Lude.withObject
-      "SSEDescription"
-      (\x -> SSEDescription' Lude.<$> (x Lude..:? "Status"))
+    Core.withObject "SSEDescription" Core.$
+      \x -> SSEDescription' Core.<$> (x Core..:? "Status")

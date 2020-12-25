@@ -17,56 +17,54 @@ module Network.AWS.Redshift.Types.ClusterParameterGroupNameMessage
     mkClusterParameterGroupNameMessage,
 
     -- * Lenses
-    cpgnmParameterGroupStatus,
     cpgnmParameterGroupName,
+    cpgnmParameterGroupStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- |
 --
 -- /See:/ 'mkClusterParameterGroupNameMessage' smart constructor.
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
-  { -- | The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
-    parameterGroupStatus :: Lude.Maybe Lude.Text,
-    -- | The name of the cluster parameter group.
-    parameterGroupName :: Lude.Maybe Lude.Text
+  { -- | The name of the cluster parameter group.
+    parameterGroupName :: Core.Maybe Types.String,
+    -- | The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
+    parameterGroupStatus :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ClusterParameterGroupNameMessage' with the minimum fields required to make a request.
---
--- * 'parameterGroupStatus' - The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
--- * 'parameterGroupName' - The name of the cluster parameter group.
+-- | Creates a 'ClusterParameterGroupNameMessage' value with any optional fields omitted.
 mkClusterParameterGroupNameMessage ::
   ClusterParameterGroupNameMessage
 mkClusterParameterGroupNameMessage =
   ClusterParameterGroupNameMessage'
-    { parameterGroupStatus =
-        Lude.Nothing,
-      parameterGroupName = Lude.Nothing
+    { parameterGroupName =
+        Core.Nothing,
+      parameterGroupStatus = Core.Nothing
     }
-
--- | The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
---
--- /Note:/ Consider using 'parameterGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgnmParameterGroupStatus :: Lens.Lens' ClusterParameterGroupNameMessage (Lude.Maybe Lude.Text)
-cpgnmParameterGroupStatus = Lens.lens (parameterGroupStatus :: ClusterParameterGroupNameMessage -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupStatus = a} :: ClusterParameterGroupNameMessage)
-{-# DEPRECATED cpgnmParameterGroupStatus "Use generic-lens or generic-optics with 'parameterGroupStatus' instead." #-}
 
 -- | The name of the cluster parameter group.
 --
 -- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpgnmParameterGroupName :: Lens.Lens' ClusterParameterGroupNameMessage (Lude.Maybe Lude.Text)
-cpgnmParameterGroupName = Lens.lens (parameterGroupName :: ClusterParameterGroupNameMessage -> Lude.Maybe Lude.Text) (\s a -> s {parameterGroupName = a} :: ClusterParameterGroupNameMessage)
+cpgnmParameterGroupName :: Lens.Lens' ClusterParameterGroupNameMessage (Core.Maybe Types.String)
+cpgnmParameterGroupName = Lens.field @"parameterGroupName"
 {-# DEPRECATED cpgnmParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance Lude.FromXML ClusterParameterGroupNameMessage where
+-- | The status of the parameter group. For example, if you made a change to a parameter group name-value pair, then the change could be pending a reboot of an associated cluster.
+--
+-- /Note:/ Consider using 'parameterGroupStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpgnmParameterGroupStatus :: Lens.Lens' ClusterParameterGroupNameMessage (Core.Maybe Types.String)
+cpgnmParameterGroupStatus = Lens.field @"parameterGroupStatus"
+{-# DEPRECATED cpgnmParameterGroupStatus "Use generic-lens or generic-optics with 'parameterGroupStatus' instead." #-}
+
+instance Core.FromXML ClusterParameterGroupNameMessage where
   parseXML x =
     ClusterParameterGroupNameMessage'
-      Lude.<$> (x Lude..@? "ParameterGroupStatus")
-      Lude.<*> (x Lude..@? "ParameterGroupName")
+      Core.<$> (x Core..@? "ParameterGroupName")
+      Core.<*> (x Core..@? "ParameterGroupStatus")

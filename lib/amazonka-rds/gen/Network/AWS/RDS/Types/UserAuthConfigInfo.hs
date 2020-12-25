@@ -17,95 +17,90 @@ module Network.AWS.RDS.Types.UserAuthConfigInfo
     mkUserAuthConfigInfo,
 
     -- * Lenses
-    uaciIAMAuth,
-    uaciUserName,
     uaciAuthScheme,
-    uaciSecretARN,
     uaciDescription,
+    uaciIAMAuth,
+    uaciSecretArn,
+    uaciUserName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types.AuthScheme
-import Network.AWS.RDS.Types.IAMAuthMode
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.AuthScheme as Types
+import qualified Network.AWS.RDS.Types.IAMAuthMode as Types
+import qualified Network.AWS.RDS.Types.String as Types
 
 -- | Returns the details of authentication used by a proxy to log in as a specific database user.
 --
 -- /See:/ 'mkUserAuthConfigInfo' smart constructor.
 data UserAuthConfigInfo = UserAuthConfigInfo'
-  { -- | Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
-    iamAuth :: Lude.Maybe IAMAuthMode,
-    -- | The name of the database user to which the proxy connects.
-    userName :: Lude.Maybe Lude.Text,
-    -- | The type of authentication that the proxy uses for connections from the proxy to the underlying database.
-    authScheme :: Lude.Maybe AuthScheme,
-    -- | The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
-    secretARN :: Lude.Maybe Lude.Text,
+  { -- | The type of authentication that the proxy uses for connections from the proxy to the underlying database.
+    authScheme :: Core.Maybe Types.AuthScheme,
     -- | A user-specified description about the authentication used by a proxy to log in as a specific database user.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.String,
+    -- | Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+    iAMAuth :: Core.Maybe Types.IAMAuthMode,
+    -- | The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+    secretArn :: Core.Maybe Types.String,
+    -- | The name of the database user to which the proxy connects.
+    userName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserAuthConfigInfo' with the minimum fields required to make a request.
---
--- * 'iamAuth' - Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
--- * 'userName' - The name of the database user to which the proxy connects.
--- * 'authScheme' - The type of authentication that the proxy uses for connections from the proxy to the underlying database.
--- * 'secretARN' - The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
--- * 'description' - A user-specified description about the authentication used by a proxy to log in as a specific database user.
+-- | Creates a 'UserAuthConfigInfo' value with any optional fields omitted.
 mkUserAuthConfigInfo ::
   UserAuthConfigInfo
 mkUserAuthConfigInfo =
   UserAuthConfigInfo'
-    { iamAuth = Lude.Nothing,
-      userName = Lude.Nothing,
-      authScheme = Lude.Nothing,
-      secretARN = Lude.Nothing,
-      description = Lude.Nothing
+    { authScheme = Core.Nothing,
+      description = Core.Nothing,
+      iAMAuth = Core.Nothing,
+      secretArn = Core.Nothing,
+      userName = Core.Nothing
     }
-
--- | Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
---
--- /Note:/ Consider using 'iamAuth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaciIAMAuth :: Lens.Lens' UserAuthConfigInfo (Lude.Maybe IAMAuthMode)
-uaciIAMAuth = Lens.lens (iamAuth :: UserAuthConfigInfo -> Lude.Maybe IAMAuthMode) (\s a -> s {iamAuth = a} :: UserAuthConfigInfo)
-{-# DEPRECATED uaciIAMAuth "Use generic-lens or generic-optics with 'iamAuth' instead." #-}
-
--- | The name of the database user to which the proxy connects.
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaciUserName :: Lens.Lens' UserAuthConfigInfo (Lude.Maybe Lude.Text)
-uaciUserName = Lens.lens (userName :: UserAuthConfigInfo -> Lude.Maybe Lude.Text) (\s a -> s {userName = a} :: UserAuthConfigInfo)
-{-# DEPRECATED uaciUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The type of authentication that the proxy uses for connections from the proxy to the underlying database.
 --
 -- /Note:/ Consider using 'authScheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaciAuthScheme :: Lens.Lens' UserAuthConfigInfo (Lude.Maybe AuthScheme)
-uaciAuthScheme = Lens.lens (authScheme :: UserAuthConfigInfo -> Lude.Maybe AuthScheme) (\s a -> s {authScheme = a} :: UserAuthConfigInfo)
+uaciAuthScheme :: Lens.Lens' UserAuthConfigInfo (Core.Maybe Types.AuthScheme)
+uaciAuthScheme = Lens.field @"authScheme"
 {-# DEPRECATED uaciAuthScheme "Use generic-lens or generic-optics with 'authScheme' instead." #-}
-
--- | The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
---
--- /Note:/ Consider using 'secretARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaciSecretARN :: Lens.Lens' UserAuthConfigInfo (Lude.Maybe Lude.Text)
-uaciSecretARN = Lens.lens (secretARN :: UserAuthConfigInfo -> Lude.Maybe Lude.Text) (\s a -> s {secretARN = a} :: UserAuthConfigInfo)
-{-# DEPRECATED uaciSecretARN "Use generic-lens or generic-optics with 'secretARN' instead." #-}
 
 -- | A user-specified description about the authentication used by a proxy to log in as a specific database user.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaciDescription :: Lens.Lens' UserAuthConfigInfo (Lude.Maybe Lude.Text)
-uaciDescription = Lens.lens (description :: UserAuthConfigInfo -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UserAuthConfigInfo)
+uaciDescription :: Lens.Lens' UserAuthConfigInfo (Core.Maybe Types.String)
+uaciDescription = Lens.field @"description"
 {-# DEPRECATED uaciDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML UserAuthConfigInfo where
+-- | Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+--
+-- /Note:/ Consider using 'iAMAuth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaciIAMAuth :: Lens.Lens' UserAuthConfigInfo (Core.Maybe Types.IAMAuthMode)
+uaciIAMAuth = Lens.field @"iAMAuth"
+{-# DEPRECATED uaciIAMAuth "Use generic-lens or generic-optics with 'iAMAuth' instead." #-}
+
+-- | The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+--
+-- /Note:/ Consider using 'secretArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaciSecretArn :: Lens.Lens' UserAuthConfigInfo (Core.Maybe Types.String)
+uaciSecretArn = Lens.field @"secretArn"
+{-# DEPRECATED uaciSecretArn "Use generic-lens or generic-optics with 'secretArn' instead." #-}
+
+-- | The name of the database user to which the proxy connects.
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaciUserName :: Lens.Lens' UserAuthConfigInfo (Core.Maybe Types.String)
+uaciUserName = Lens.field @"userName"
+{-# DEPRECATED uaciUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
+
+instance Core.FromXML UserAuthConfigInfo where
   parseXML x =
     UserAuthConfigInfo'
-      Lude.<$> (x Lude..@? "IAMAuth")
-      Lude.<*> (x Lude..@? "UserName")
-      Lude.<*> (x Lude..@? "AuthScheme")
-      Lude.<*> (x Lude..@? "SecretArn")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<$> (x Core..@? "AuthScheme")
+      Core.<*> (x Core..@? "Description")
+      Core.<*> (x Core..@? "IAMAuth")
+      Core.<*> (x Core..@? "SecretArn")
+      Core.<*> (x Core..@? "UserName")

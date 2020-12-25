@@ -13,51 +13,56 @@
 module Network.AWS.IoTAnalytics.Types.ChannelStatus
   ( ChannelStatus
       ( ChannelStatus',
-        CSCreating,
-        CSActive,
-        CSDeleting
+        ChannelStatusCreating,
+        ChannelStatusActive,
+        ChannelStatusDeleting,
+        fromChannelStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ChannelStatus = ChannelStatus' Lude.Text
+newtype ChannelStatus = ChannelStatus'
+  { fromChannelStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSCreating :: ChannelStatus
-pattern CSCreating = ChannelStatus' "CREATING"
+pattern ChannelStatusCreating :: ChannelStatus
+pattern ChannelStatusCreating = ChannelStatus' "CREATING"
 
-pattern CSActive :: ChannelStatus
-pattern CSActive = ChannelStatus' "ACTIVE"
+pattern ChannelStatusActive :: ChannelStatus
+pattern ChannelStatusActive = ChannelStatus' "ACTIVE"
 
-pattern CSDeleting :: ChannelStatus
-pattern CSDeleting = ChannelStatus' "DELETING"
+pattern ChannelStatusDeleting :: ChannelStatus
+pattern ChannelStatusDeleting = ChannelStatus' "DELETING"
 
 {-# COMPLETE
-  CSCreating,
-  CSActive,
-  CSDeleting,
+  ChannelStatusCreating,
+  ChannelStatusActive,
+  ChannelStatusDeleting,
   ChannelStatus'
   #-}

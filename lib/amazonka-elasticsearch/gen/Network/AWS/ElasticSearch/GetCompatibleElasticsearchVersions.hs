@@ -27,101 +27,94 @@ module Network.AWS.ElasticSearch.GetCompatibleElasticsearchVersions
     mkGetCompatibleElasticsearchVersionsResponse,
 
     -- ** Response lenses
-    gcevrsCompatibleElasticsearchVersions,
-    gcevrsResponseStatus,
+    gcevrrsCompatibleElasticsearchVersions,
+    gcevrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for request parameters to @'GetCompatibleElasticsearchVersions' @ operation.
 --
 -- /See:/ 'mkGetCompatibleElasticsearchVersions' smart constructor.
 newtype GetCompatibleElasticsearchVersions = GetCompatibleElasticsearchVersions'
-  { domainName :: Lude.Maybe Lude.Text
+  { domainName :: Core.Maybe Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCompatibleElasticsearchVersions' with the minimum fields required to make a request.
---
--- * 'domainName' -
+-- | Creates a 'GetCompatibleElasticsearchVersions' value with any optional fields omitted.
 mkGetCompatibleElasticsearchVersions ::
   GetCompatibleElasticsearchVersions
 mkGetCompatibleElasticsearchVersions =
-  GetCompatibleElasticsearchVersions' {domainName = Lude.Nothing}
+  GetCompatibleElasticsearchVersions' {domainName = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcevDomainName :: Lens.Lens' GetCompatibleElasticsearchVersions (Lude.Maybe Lude.Text)
-gcevDomainName = Lens.lens (domainName :: GetCompatibleElasticsearchVersions -> Lude.Maybe Lude.Text) (\s a -> s {domainName = a} :: GetCompatibleElasticsearchVersions)
+gcevDomainName :: Lens.Lens' GetCompatibleElasticsearchVersions (Core.Maybe Types.DomainName)
+gcevDomainName = Lens.field @"domainName"
 {-# DEPRECATED gcevDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest GetCompatibleElasticsearchVersions where
+instance Core.AWSRequest GetCompatibleElasticsearchVersions where
   type
     Rs GetCompatibleElasticsearchVersions =
       GetCompatibleElasticsearchVersionsResponse
-  request = Req.get elasticSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2015-01-01/es/compatibleVersions",
+        Core._rqQuery = Core.toQueryValue "domainName" Core.<$> domainName,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetCompatibleElasticsearchVersionsResponse'
-            Lude.<$> (x Lude..?> "CompatibleElasticsearchVersions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CompatibleElasticsearchVersions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetCompatibleElasticsearchVersions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetCompatibleElasticsearchVersions where
-  toPath = Lude.const "/2015-01-01/es/compatibleVersions"
-
-instance Lude.ToQuery GetCompatibleElasticsearchVersions where
-  toQuery GetCompatibleElasticsearchVersions' {..} =
-    Lude.mconcat ["domainName" Lude.=: domainName]
 
 -- | Container for response returned by @'GetCompatibleElasticsearchVersions' @ operation.
 --
 -- /See:/ 'mkGetCompatibleElasticsearchVersionsResponse' smart constructor.
 data GetCompatibleElasticsearchVersionsResponse = GetCompatibleElasticsearchVersionsResponse'
   { -- | A map of compatible Elasticsearch versions returned as part of the @'GetCompatibleElasticsearchVersions' @ operation.
-    compatibleElasticsearchVersions :: Lude.Maybe [CompatibleVersionsMap],
+    compatibleElasticsearchVersions :: Core.Maybe [Types.CompatibleVersionsMap],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetCompatibleElasticsearchVersionsResponse' with the minimum fields required to make a request.
---
--- * 'compatibleElasticsearchVersions' - A map of compatible Elasticsearch versions returned as part of the @'GetCompatibleElasticsearchVersions' @ operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetCompatibleElasticsearchVersionsResponse' value with any optional fields omitted.
 mkGetCompatibleElasticsearchVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetCompatibleElasticsearchVersionsResponse
-mkGetCompatibleElasticsearchVersionsResponse pResponseStatus_ =
+mkGetCompatibleElasticsearchVersionsResponse responseStatus =
   GetCompatibleElasticsearchVersionsResponse'
     { compatibleElasticsearchVersions =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | A map of compatible Elasticsearch versions returned as part of the @'GetCompatibleElasticsearchVersions' @ operation.
 --
 -- /Note:/ Consider using 'compatibleElasticsearchVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcevrsCompatibleElasticsearchVersions :: Lens.Lens' GetCompatibleElasticsearchVersionsResponse (Lude.Maybe [CompatibleVersionsMap])
-gcevrsCompatibleElasticsearchVersions = Lens.lens (compatibleElasticsearchVersions :: GetCompatibleElasticsearchVersionsResponse -> Lude.Maybe [CompatibleVersionsMap]) (\s a -> s {compatibleElasticsearchVersions = a} :: GetCompatibleElasticsearchVersionsResponse)
-{-# DEPRECATED gcevrsCompatibleElasticsearchVersions "Use generic-lens or generic-optics with 'compatibleElasticsearchVersions' instead." #-}
+gcevrrsCompatibleElasticsearchVersions :: Lens.Lens' GetCompatibleElasticsearchVersionsResponse (Core.Maybe [Types.CompatibleVersionsMap])
+gcevrrsCompatibleElasticsearchVersions = Lens.field @"compatibleElasticsearchVersions"
+{-# DEPRECATED gcevrrsCompatibleElasticsearchVersions "Use generic-lens or generic-optics with 'compatibleElasticsearchVersions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcevrsResponseStatus :: Lens.Lens' GetCompatibleElasticsearchVersionsResponse Lude.Int
-gcevrsResponseStatus = Lens.lens (responseStatus :: GetCompatibleElasticsearchVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetCompatibleElasticsearchVersionsResponse)
-{-# DEPRECATED gcevrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcevrrsResponseStatus :: Lens.Lens' GetCompatibleElasticsearchVersionsResponse Core.Int
+gcevrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcevrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

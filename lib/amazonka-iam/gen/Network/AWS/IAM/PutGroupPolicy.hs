@@ -23,9 +23,9 @@ module Network.AWS.IAM.PutGroupPolicy
     mkPutGroupPolicy,
 
     -- ** Request lenses
-    pgpPolicyDocument,
-    pgpPolicyName,
     pgpGroupName,
+    pgpPolicyName,
+    pgpPolicyDocument,
 
     -- * Destructuring the response
     PutGroupPolicyResponse (..),
@@ -33,15 +33,23 @@ module Network.AWS.IAM.PutGroupPolicy
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutGroupPolicy' smart constructor.
 data PutGroupPolicy = PutGroupPolicy'
-  { -- | The policy document.
+  { -- | The name of the group to associate the policy with.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
+    groupName :: Types.GroupName,
+    -- | The name of the policy document.
+    --
+    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+    policyName :: Types.PolicyName,
+    -- | The policy document.
     --
     -- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
@@ -53,55 +61,40 @@ data PutGroupPolicy = PutGroupPolicy'
     --
     --
     --     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
-    policyDocument :: Lude.Text,
-    -- | The name of the policy document.
-    --
-    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    policyName :: Lude.Text,
-    -- | The name of the group to associate the policy with.
-    --
-    -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
-    groupName :: Lude.Text
+    policyDocument :: Types.PolicyDocument
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutGroupPolicy' with the minimum fields required to make a request.
---
--- * 'policyDocument' - The policy document.
---
--- You must provide policies in JSON format in IAM. However, for AWS CloudFormation templates formatted in YAML, you can provide the policy in JSON or YAML format. AWS CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
---
---     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
---
---
---     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
---
---
---     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
---
---
--- * 'policyName' - The name of the policy document.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'groupName' - The name of the group to associate the policy with.
+-- | Creates a 'PutGroupPolicy' value with any optional fields omitted.
+mkPutGroupPolicy ::
+  -- | 'groupName'
+  Types.GroupName ->
+  -- | 'policyName'
+  Types.PolicyName ->
+  -- | 'policyDocument'
+  Types.PolicyDocument ->
+  PutGroupPolicy
+mkPutGroupPolicy groupName policyName policyDocument =
+  PutGroupPolicy' {groupName, policyName, policyDocument}
+
+-- | The name of the group to associate the policy with.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
-mkPutGroupPolicy ::
-  -- | 'policyDocument'
-  Lude.Text ->
-  -- | 'policyName'
-  Lude.Text ->
-  -- | 'groupName'
-  Lude.Text ->
-  PutGroupPolicy
-mkPutGroupPolicy pPolicyDocument_ pPolicyName_ pGroupName_ =
-  PutGroupPolicy'
-    { policyDocument = pPolicyDocument_,
-      policyName = pPolicyName_,
-      groupName = pGroupName_
-    }
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgpGroupName :: Lens.Lens' PutGroupPolicy Types.GroupName
+pgpGroupName = Lens.field @"groupName"
+{-# DEPRECATED pgpGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+
+-- | The name of the policy document.
+--
+-- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pgpPolicyName :: Lens.Lens' PutGroupPolicy Types.PolicyName
+pgpPolicyName = Lens.field @"policyName"
+{-# DEPRECATED pgpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The policy document.
 --
@@ -119,55 +112,40 @@ mkPutGroupPolicy pPolicyDocument_ pPolicyName_ pGroupName_ =
 --
 --
 -- /Note:/ Consider using 'policyDocument' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgpPolicyDocument :: Lens.Lens' PutGroupPolicy Lude.Text
-pgpPolicyDocument = Lens.lens (policyDocument :: PutGroupPolicy -> Lude.Text) (\s a -> s {policyDocument = a} :: PutGroupPolicy)
+pgpPolicyDocument :: Lens.Lens' PutGroupPolicy Types.PolicyDocument
+pgpPolicyDocument = Lens.field @"policyDocument"
 {-# DEPRECATED pgpPolicyDocument "Use generic-lens or generic-optics with 'policyDocument' instead." #-}
 
--- | The name of the policy document.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgpPolicyName :: Lens.Lens' PutGroupPolicy Lude.Text
-pgpPolicyName = Lens.lens (policyName :: PutGroupPolicy -> Lude.Text) (\s a -> s {policyName = a} :: PutGroupPolicy)
-{-# DEPRECATED pgpPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
-
--- | The name of the group to associate the policy with.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-.
---
--- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pgpGroupName :: Lens.Lens' PutGroupPolicy Lude.Text
-pgpGroupName = Lens.lens (groupName :: PutGroupPolicy -> Lude.Text) (\s a -> s {groupName = a} :: PutGroupPolicy)
-{-# DEPRECATED pgpGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
-
-instance Lude.AWSRequest PutGroupPolicy where
+instance Core.AWSRequest PutGroupPolicy where
   type Rs PutGroupPolicy = PutGroupPolicyResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull PutGroupPolicyResponse'
-
-instance Lude.ToHeaders PutGroupPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PutGroupPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutGroupPolicy where
-  toQuery PutGroupPolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("PutGroupPolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyDocument" Lude.=: policyDocument,
-        "PolicyName" Lude.=: policyName,
-        "GroupName" Lude.=: groupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PutGroupPolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "GroupName" groupName)
+                Core.<> (Core.toQueryValue "PolicyName" policyName)
+                Core.<> (Core.toQueryValue "PolicyDocument" policyDocument)
+            )
+      }
+  response = Response.receiveNull PutGroupPolicyResponse'
 
 -- | /See:/ 'mkPutGroupPolicyResponse' smart constructor.
 data PutGroupPolicyResponse = PutGroupPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutGroupPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutGroupPolicyResponse' value with any optional fields omitted.
 mkPutGroupPolicyResponse ::
   PutGroupPolicyResponse
 mkPutGroupPolicyResponse = PutGroupPolicyResponse'

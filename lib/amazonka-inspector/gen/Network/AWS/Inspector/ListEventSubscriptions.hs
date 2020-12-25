@@ -22,168 +22,156 @@ module Network.AWS.Inspector.ListEventSubscriptions
     mkListEventSubscriptions,
 
     -- ** Request lenses
-    lesNextToken,
-    lesResourceARN,
     lesMaxResults,
+    lesNextToken,
+    lesResourceArn,
 
     -- * Destructuring the response
     ListEventSubscriptionsResponse (..),
     mkListEventSubscriptionsResponse,
 
     -- ** Response lenses
-    lesrsNextToken,
-    lesrsSubscriptions,
-    lesrsResponseStatus,
+    lesrrsSubscriptions,
+    lesrrsNextToken,
+    lesrrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListEventSubscriptions' smart constructor.
 data ListEventSubscriptions = ListEventSubscriptions'
-  { -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListEventSubscriptions__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
+    maxResults :: Core.Maybe Core.Int,
+    -- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListEventSubscriptions__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The ARN of the assessment template for which you want to list the existing event subscriptions.
-    resourceARN :: Lude.Maybe Lude.Text,
-    -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
-    maxResults :: Lude.Maybe Lude.Int
+    resourceArn :: Core.Maybe Types.ResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListEventSubscriptions' with the minimum fields required to make a request.
---
--- * 'nextToken' - You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListEventSubscriptions__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
--- * 'resourceARN' - The ARN of the assessment template for which you want to list the existing event subscriptions.
--- * 'maxResults' - You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
+-- | Creates a 'ListEventSubscriptions' value with any optional fields omitted.
 mkListEventSubscriptions ::
   ListEventSubscriptions
 mkListEventSubscriptions =
   ListEventSubscriptions'
-    { nextToken = Lude.Nothing,
-      resourceARN = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      resourceArn = Core.Nothing
     }
-
--- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListEventSubscriptions__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesNextToken :: Lens.Lens' ListEventSubscriptions (Lude.Maybe Lude.Text)
-lesNextToken = Lens.lens (nextToken :: ListEventSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEventSubscriptions)
-{-# DEPRECATED lesNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The ARN of the assessment template for which you want to list the existing event subscriptions.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesResourceARN :: Lens.Lens' ListEventSubscriptions (Lude.Maybe Lude.Text)
-lesResourceARN = Lens.lens (resourceARN :: ListEventSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: ListEventSubscriptions)
-{-# DEPRECATED lesResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | You can use this parameter to indicate the maximum number of items you want in the response. The default value is 10. The maximum value is 500.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesMaxResults :: Lens.Lens' ListEventSubscriptions (Lude.Maybe Lude.Int)
-lesMaxResults = Lens.lens (maxResults :: ListEventSubscriptions -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListEventSubscriptions)
+lesMaxResults :: Lens.Lens' ListEventSubscriptions (Core.Maybe Core.Int)
+lesMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lesMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListEventSubscriptions where
-  page rq rs
-    | Page.stop (rs Lens.^. lesrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lesrsSubscriptions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lesNextToken Lens..~ rs Lens.^. lesrsNextToken
+-- | You can use this parameter when paginating results. Set the value of this parameter to null on your first call to the __ListEventSubscriptions__ action. Subsequent calls to the action fill __nextToken__ in the request with the value of __NextToken__ from the previous response to continue listing data.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesNextToken :: Lens.Lens' ListEventSubscriptions (Core.Maybe Types.PaginationToken)
+lesNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lesNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListEventSubscriptions where
+-- | The ARN of the assessment template for which you want to list the existing event subscriptions.
+--
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesResourceArn :: Lens.Lens' ListEventSubscriptions (Core.Maybe Types.ResourceArn)
+lesResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED lesResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
+
+instance Core.FromJSON ListEventSubscriptions where
+  toJSON ListEventSubscriptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("resourceArn" Core..=) Core.<$> resourceArn
+          ]
+      )
+
+instance Core.AWSRequest ListEventSubscriptions where
   type Rs ListEventSubscriptions = ListEventSubscriptionsResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "InspectorService.ListEventSubscriptions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListEventSubscriptionsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "subscriptions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "subscriptions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListEventSubscriptions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.ListEventSubscriptions" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListEventSubscriptions where
-  toJSON ListEventSubscriptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("resourceArn" Lude..=) Lude.<$> resourceARN,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListEventSubscriptions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListEventSubscriptions where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListEventSubscriptions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"subscriptions") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListEventSubscriptionsResponse' smart constructor.
 data ListEventSubscriptionsResponse = ListEventSubscriptionsResponse'
-  { -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Details of the returned event subscriptions.
-    subscriptions :: [Subscription],
+  { -- | Details of the returned event subscriptions.
+    subscriptions :: [Types.Subscription],
+    -- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+    nextToken :: Core.Maybe Types.PaginationToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListEventSubscriptionsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
--- * 'subscriptions' - Details of the returned event subscriptions.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListEventSubscriptionsResponse' value with any optional fields omitted.
 mkListEventSubscriptionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListEventSubscriptionsResponse
-mkListEventSubscriptionsResponse pResponseStatus_ =
+mkListEventSubscriptionsResponse responseStatus =
   ListEventSubscriptionsResponse'
-    { nextToken = Lude.Nothing,
-      subscriptions = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { subscriptions = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesrsNextToken :: Lens.Lens' ListEventSubscriptionsResponse (Lude.Maybe Lude.Text)
-lesrsNextToken = Lens.lens (nextToken :: ListEventSubscriptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListEventSubscriptionsResponse)
-{-# DEPRECATED lesrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Details of the returned event subscriptions.
 --
 -- /Note:/ Consider using 'subscriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesrsSubscriptions :: Lens.Lens' ListEventSubscriptionsResponse [Subscription]
-lesrsSubscriptions = Lens.lens (subscriptions :: ListEventSubscriptionsResponse -> [Subscription]) (\s a -> s {subscriptions = a} :: ListEventSubscriptionsResponse)
-{-# DEPRECATED lesrsSubscriptions "Use generic-lens or generic-optics with 'subscriptions' instead." #-}
+lesrrsSubscriptions :: Lens.Lens' ListEventSubscriptionsResponse [Types.Subscription]
+lesrrsSubscriptions = Lens.field @"subscriptions"
+{-# DEPRECATED lesrrsSubscriptions "Use generic-lens or generic-optics with 'subscriptions' instead." #-}
+
+-- | When a response is generated, if there is more data to be listed, this parameter is present in the response and contains the value to use for the __nextToken__ parameter in a subsequent pagination request. If there is no more data to be listed, this parameter is set to null.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lesrrsNextToken :: Lens.Lens' ListEventSubscriptionsResponse (Core.Maybe Types.PaginationToken)
+lesrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lesrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesrsResponseStatus :: Lens.Lens' ListEventSubscriptionsResponse Lude.Int
-lesrsResponseStatus = Lens.lens (responseStatus :: ListEventSubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListEventSubscriptionsResponse)
-{-# DEPRECATED lesrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lesrrsResponseStatus :: Lens.Lens' ListEventSubscriptionsResponse Core.Int
+lesrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lesrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

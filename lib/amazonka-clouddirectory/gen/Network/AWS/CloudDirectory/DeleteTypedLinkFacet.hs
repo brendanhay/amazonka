@@ -20,7 +20,7 @@ module Network.AWS.CloudDirectory.DeleteTypedLinkFacet
     mkDeleteTypedLinkFacet,
 
     -- ** Request lenses
-    dtlfSchemaARN,
+    dtlfSchemaArn,
     dtlfName,
 
     -- * Destructuring the response
@@ -28,100 +28,93 @@ module Network.AWS.CloudDirectory.DeleteTypedLinkFacet
     mkDeleteTypedLinkFacetResponse,
 
     -- ** Response lenses
-    dtlfrsResponseStatus,
+    dtlfrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteTypedLinkFacet' smart constructor.
 data DeleteTypedLinkFacet = DeleteTypedLinkFacet'
   { -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
-    schemaARN :: Lude.Text,
+    schemaArn :: Types.Arn,
     -- | The unique name of the typed link facet.
-    name :: Lude.Text
+    name :: Types.TypedLinkName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTypedLinkFacet' with the minimum fields required to make a request.
---
--- * 'schemaARN' - The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
--- * 'name' - The unique name of the typed link facet.
+-- | Creates a 'DeleteTypedLinkFacet' value with any optional fields omitted.
 mkDeleteTypedLinkFacet ::
-  -- | 'schemaARN'
-  Lude.Text ->
+  -- | 'schemaArn'
+  Types.Arn ->
   -- | 'name'
-  Lude.Text ->
+  Types.TypedLinkName ->
   DeleteTypedLinkFacet
-mkDeleteTypedLinkFacet pSchemaARN_ pName_ =
-  DeleteTypedLinkFacet' {schemaARN = pSchemaARN_, name = pName_}
+mkDeleteTypedLinkFacet schemaArn name =
+  DeleteTypedLinkFacet' {schemaArn, name}
 
 -- | The Amazon Resource Name (ARN) that is associated with the schema. For more information, see 'arns' .
 --
--- /Note:/ Consider using 'schemaARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtlfSchemaARN :: Lens.Lens' DeleteTypedLinkFacet Lude.Text
-dtlfSchemaARN = Lens.lens (schemaARN :: DeleteTypedLinkFacet -> Lude.Text) (\s a -> s {schemaARN = a} :: DeleteTypedLinkFacet)
-{-# DEPRECATED dtlfSchemaARN "Use generic-lens or generic-optics with 'schemaARN' instead." #-}
+-- /Note:/ Consider using 'schemaArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtlfSchemaArn :: Lens.Lens' DeleteTypedLinkFacet Types.Arn
+dtlfSchemaArn = Lens.field @"schemaArn"
+{-# DEPRECATED dtlfSchemaArn "Use generic-lens or generic-optics with 'schemaArn' instead." #-}
 
 -- | The unique name of the typed link facet.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtlfName :: Lens.Lens' DeleteTypedLinkFacet Lude.Text
-dtlfName = Lens.lens (name :: DeleteTypedLinkFacet -> Lude.Text) (\s a -> s {name = a} :: DeleteTypedLinkFacet)
+dtlfName :: Lens.Lens' DeleteTypedLinkFacet Types.TypedLinkName
+dtlfName = Lens.field @"name"
 {-# DEPRECATED dtlfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteTypedLinkFacet where
+instance Core.FromJSON DeleteTypedLinkFacet where
+  toJSON DeleteTypedLinkFacet {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteTypedLinkFacet where
   type Rs DeleteTypedLinkFacet = DeleteTypedLinkFacetResponse
-  request = Req.putJSON cloudDirectoryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            "/amazonclouddirectory/2017-01-11/typedlink/facet/delete",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "x-amz-data-partition" schemaArn,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteTypedLinkFacetResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteTypedLinkFacet where
-  toHeaders DeleteTypedLinkFacet' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# schemaARN]
-
-instance Lude.ToJSON DeleteTypedLinkFacet where
-  toJSON DeleteTypedLinkFacet' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteTypedLinkFacet where
-  toPath =
-    Lude.const
-      "/amazonclouddirectory/2017-01-11/typedlink/facet/delete"
-
-instance Lude.ToQuery DeleteTypedLinkFacet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteTypedLinkFacetResponse' smart constructor.
 newtype DeleteTypedLinkFacetResponse = DeleteTypedLinkFacetResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTypedLinkFacetResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteTypedLinkFacetResponse' value with any optional fields omitted.
 mkDeleteTypedLinkFacetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteTypedLinkFacetResponse
-mkDeleteTypedLinkFacetResponse pResponseStatus_ =
-  DeleteTypedLinkFacetResponse' {responseStatus = pResponseStatus_}
+mkDeleteTypedLinkFacetResponse responseStatus =
+  DeleteTypedLinkFacetResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtlfrsResponseStatus :: Lens.Lens' DeleteTypedLinkFacetResponse Lude.Int
-dtlfrsResponseStatus = Lens.lens (responseStatus :: DeleteTypedLinkFacetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTypedLinkFacetResponse)
-{-# DEPRECATED dtlfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtlfrrsResponseStatus :: Lens.Lens' DeleteTypedLinkFacetResponse Core.Int
+dtlfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtlfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

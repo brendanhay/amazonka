@@ -21,38 +21,37 @@ module Network.AWS.EC2.Types.SuccessfulInstanceCreditSpecificationItem
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the burstable performance instance whose credit option for CPU usage was successfully modified.
 --
 -- /See:/ 'mkSuccessfulInstanceCreditSpecificationItem' smart constructor.
 newtype SuccessfulInstanceCreditSpecificationItem = SuccessfulInstanceCreditSpecificationItem'
   { -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text
+    instanceId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SuccessfulInstanceCreditSpecificationItem' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
+-- | Creates a 'SuccessfulInstanceCreditSpecificationItem' value with any optional fields omitted.
 mkSuccessfulInstanceCreditSpecificationItem ::
   SuccessfulInstanceCreditSpecificationItem
 mkSuccessfulInstanceCreditSpecificationItem =
   SuccessfulInstanceCreditSpecificationItem'
     { instanceId =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sicsiInstanceId :: Lens.Lens' SuccessfulInstanceCreditSpecificationItem (Lude.Maybe Lude.Text)
-sicsiInstanceId = Lens.lens (instanceId :: SuccessfulInstanceCreditSpecificationItem -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: SuccessfulInstanceCreditSpecificationItem)
+sicsiInstanceId :: Lens.Lens' SuccessfulInstanceCreditSpecificationItem (Core.Maybe Types.String)
+sicsiInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED sicsiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance Lude.FromXML SuccessfulInstanceCreditSpecificationItem where
+instance Core.FromXML SuccessfulInstanceCreditSpecificationItem where
   parseXML x =
     SuccessfulInstanceCreditSpecificationItem'
-      Lude.<$> (x Lude..@? "instanceId")
+      Core.<$> (x Core..@? "instanceId")

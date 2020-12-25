@@ -29,80 +29,75 @@ module Network.AWS.Polly.DeleteLexicon
     mkDeleteLexiconResponse,
 
     -- ** Response lenses
-    dlrsResponseStatus,
+    dlrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Polly.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Polly.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteLexicon' smart constructor.
 newtype DeleteLexicon = DeleteLexicon'
   { -- | The name of the lexicon to delete. Must be an existing lexicon in the region.
-    name :: Lude.Text
+    name :: Types.LexiconName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLexicon' with the minimum fields required to make a request.
---
--- * 'name' - The name of the lexicon to delete. Must be an existing lexicon in the region.
+-- | Creates a 'DeleteLexicon' value with any optional fields omitted.
 mkDeleteLexicon ::
   -- | 'name'
-  Lude.Text ->
+  Types.LexiconName ->
   DeleteLexicon
-mkDeleteLexicon pName_ = DeleteLexicon' {name = pName_}
+mkDeleteLexicon name = DeleteLexicon' {name}
 
 -- | The name of the lexicon to delete. Must be an existing lexicon in the region.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlName :: Lens.Lens' DeleteLexicon Lude.Text
-dlName = Lens.lens (name :: DeleteLexicon -> Lude.Text) (\s a -> s {name = a} :: DeleteLexicon)
+dlName :: Lens.Lens' DeleteLexicon Types.LexiconName
+dlName = Lens.field @"name"
 {-# DEPRECATED dlName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteLexicon where
+instance Core.AWSRequest DeleteLexicon where
   type Rs DeleteLexicon = DeleteLexiconResponse
-  request = Req.delete pollyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath ("/v1/lexicons/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteLexiconResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteLexiconResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteLexicon where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteLexicon where
-  toPath DeleteLexicon' {..} =
-    Lude.mconcat ["/v1/lexicons/", Lude.toBS name]
-
-instance Lude.ToQuery DeleteLexicon where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteLexiconResponse' smart constructor.
 newtype DeleteLexiconResponse = DeleteLexiconResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLexiconResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteLexiconResponse' value with any optional fields omitted.
 mkDeleteLexiconResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteLexiconResponse
-mkDeleteLexiconResponse pResponseStatus_ =
-  DeleteLexiconResponse' {responseStatus = pResponseStatus_}
+mkDeleteLexiconResponse responseStatus =
+  DeleteLexiconResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlrsResponseStatus :: Lens.Lens' DeleteLexiconResponse Lude.Int
-dlrsResponseStatus = Lens.lens (responseStatus :: DeleteLexiconResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteLexiconResponse)
-{-# DEPRECATED dlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlrrsResponseStatus :: Lens.Lens' DeleteLexiconResponse Core.Int
+dlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,12 +17,13 @@ module Network.AWS.GameLift.Types.GameSessionQueueDestination
     mkGameSessionQueueDestination,
 
     -- * Lenses
-    gsqdDestinationARN,
+    gsqdDestinationArn,
   )
 where
 
+import qualified Network.AWS.GameLift.Types.DestinationArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Fleet designated in a game session queue. Requests for new game sessions in the queue are fulfilled by starting a new game session on any destination that is configured for a queue.
 --
@@ -43,38 +44,33 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkGameSessionQueueDestination' smart constructor.
 newtype GameSessionQueueDestination = GameSessionQueueDestination'
   { -- | The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
-    destinationARN :: Lude.Maybe Lude.Text
+    destinationArn :: Core.Maybe Types.DestinationArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GameSessionQueueDestination' with the minimum fields required to make a request.
---
--- * 'destinationARN' - The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
+-- | Creates a 'GameSessionQueueDestination' value with any optional fields omitted.
 mkGameSessionQueueDestination ::
   GameSessionQueueDestination
 mkGameSessionQueueDestination =
-  GameSessionQueueDestination' {destinationARN = Lude.Nothing}
+  GameSessionQueueDestination' {destinationArn = Core.Nothing}
 
 -- | The Amazon Resource Name (ARN) that is assigned to fleet or fleet alias. ARNs, which include a fleet ID or alias ID and a Region name, provide a unique identifier across all Regions.
 --
--- /Note:/ Consider using 'destinationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsqdDestinationARN :: Lens.Lens' GameSessionQueueDestination (Lude.Maybe Lude.Text)
-gsqdDestinationARN = Lens.lens (destinationARN :: GameSessionQueueDestination -> Lude.Maybe Lude.Text) (\s a -> s {destinationARN = a} :: GameSessionQueueDestination)
-{-# DEPRECATED gsqdDestinationARN "Use generic-lens or generic-optics with 'destinationARN' instead." #-}
+-- /Note:/ Consider using 'destinationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsqdDestinationArn :: Lens.Lens' GameSessionQueueDestination (Core.Maybe Types.DestinationArn)
+gsqdDestinationArn = Lens.field @"destinationArn"
+{-# DEPRECATED gsqdDestinationArn "Use generic-lens or generic-optics with 'destinationArn' instead." #-}
 
-instance Lude.FromJSON GameSessionQueueDestination where
+instance Core.FromJSON GameSessionQueueDestination where
+  toJSON GameSessionQueueDestination {..} =
+    Core.object
+      ( Core.catMaybes
+          [("DestinationArn" Core..=) Core.<$> destinationArn]
+      )
+
+instance Core.FromJSON GameSessionQueueDestination where
   parseJSON =
-    Lude.withObject
-      "GameSessionQueueDestination"
-      ( \x ->
-          GameSessionQueueDestination'
-            Lude.<$> (x Lude..:? "DestinationArn")
-      )
-
-instance Lude.ToJSON GameSessionQueueDestination where
-  toJSON GameSessionQueueDestination' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("DestinationArn" Lude..=) Lude.<$> destinationARN]
-      )
+    Core.withObject "GameSessionQueueDestination" Core.$
+      \x ->
+        GameSessionQueueDestination' Core.<$> (x Core..:? "DestinationArn")

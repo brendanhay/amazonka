@@ -33,117 +33,116 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     mkRebootCacheClusterResponse,
 
     -- ** Response lenses
-    rccrsCacheCluster,
-    rccrsResponseStatus,
+    rccrrsCacheCluster,
+    rccrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @RebootCacheCluster@ operation.
 --
 -- /See:/ 'mkRebootCacheCluster' smart constructor.
 data RebootCacheCluster = RebootCacheCluster'
   { -- | The cluster identifier. This parameter is stored as a lowercase string.
-    cacheClusterId :: Lude.Text,
+    cacheClusterId :: Types.CacheClusterId,
     -- | A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cluster, specify all of the cache node IDs.
-    cacheNodeIdsToReboot :: [Lude.Text]
+    cacheNodeIdsToReboot :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RebootCacheCluster' with the minimum fields required to make a request.
---
--- * 'cacheClusterId' - The cluster identifier. This parameter is stored as a lowercase string.
--- * 'cacheNodeIdsToReboot' - A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cluster, specify all of the cache node IDs.
+-- | Creates a 'RebootCacheCluster' value with any optional fields omitted.
 mkRebootCacheCluster ::
   -- | 'cacheClusterId'
-  Lude.Text ->
+  Types.CacheClusterId ->
   RebootCacheCluster
-mkRebootCacheCluster pCacheClusterId_ =
+mkRebootCacheCluster cacheClusterId =
   RebootCacheCluster'
-    { cacheClusterId = pCacheClusterId_,
-      cacheNodeIdsToReboot = Lude.mempty
+    { cacheClusterId,
+      cacheNodeIdsToReboot = Core.mempty
     }
 
 -- | The cluster identifier. This parameter is stored as a lowercase string.
 --
 -- /Note:/ Consider using 'cacheClusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rccCacheClusterId :: Lens.Lens' RebootCacheCluster Lude.Text
-rccCacheClusterId = Lens.lens (cacheClusterId :: RebootCacheCluster -> Lude.Text) (\s a -> s {cacheClusterId = a} :: RebootCacheCluster)
+rccCacheClusterId :: Lens.Lens' RebootCacheCluster Types.CacheClusterId
+rccCacheClusterId = Lens.field @"cacheClusterId"
 {-# DEPRECATED rccCacheClusterId "Use generic-lens or generic-optics with 'cacheClusterId' instead." #-}
 
 -- | A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002, etc.). To reboot an entire cluster, specify all of the cache node IDs.
 --
 -- /Note:/ Consider using 'cacheNodeIdsToReboot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rccCacheNodeIdsToReboot :: Lens.Lens' RebootCacheCluster [Lude.Text]
-rccCacheNodeIdsToReboot = Lens.lens (cacheNodeIdsToReboot :: RebootCacheCluster -> [Lude.Text]) (\s a -> s {cacheNodeIdsToReboot = a} :: RebootCacheCluster)
+rccCacheNodeIdsToReboot :: Lens.Lens' RebootCacheCluster [Types.String]
+rccCacheNodeIdsToReboot = Lens.field @"cacheNodeIdsToReboot"
 {-# DEPRECATED rccCacheNodeIdsToReboot "Use generic-lens or generic-optics with 'cacheNodeIdsToReboot' instead." #-}
 
-instance Lude.AWSRequest RebootCacheCluster where
+instance Core.AWSRequest RebootCacheCluster where
   type Rs RebootCacheCluster = RebootCacheClusterResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RebootCacheCluster")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "CacheClusterId" cacheClusterId)
+                Core.<> ( Core.toQueryValue
+                            "CacheNodeIdsToReboot"
+                            (Core.toQueryList "CacheNodeId" cacheNodeIdsToReboot)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "RebootCacheClusterResult"
       ( \s h x ->
           RebootCacheClusterResponse'
-            Lude.<$> (x Lude..@? "CacheCluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "CacheCluster") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RebootCacheCluster where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RebootCacheCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RebootCacheCluster where
-  toQuery RebootCacheCluster' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RebootCacheCluster" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheClusterId" Lude.=: cacheClusterId,
-        "CacheNodeIdsToReboot"
-          Lude.=: Lude.toQueryList "CacheNodeId" cacheNodeIdsToReboot
-      ]
 
 -- | /See:/ 'mkRebootCacheClusterResponse' smart constructor.
 data RebootCacheClusterResponse = RebootCacheClusterResponse'
-  { cacheCluster :: Lude.Maybe CacheCluster,
+  { cacheCluster :: Core.Maybe Types.CacheCluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'RebootCacheClusterResponse' with the minimum fields required to make a request.
---
--- * 'cacheCluster' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RebootCacheClusterResponse' value with any optional fields omitted.
 mkRebootCacheClusterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RebootCacheClusterResponse
-mkRebootCacheClusterResponse pResponseStatus_ =
+mkRebootCacheClusterResponse responseStatus =
   RebootCacheClusterResponse'
-    { cacheCluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { cacheCluster = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cacheCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rccrsCacheCluster :: Lens.Lens' RebootCacheClusterResponse (Lude.Maybe CacheCluster)
-rccrsCacheCluster = Lens.lens (cacheCluster :: RebootCacheClusterResponse -> Lude.Maybe CacheCluster) (\s a -> s {cacheCluster = a} :: RebootCacheClusterResponse)
-{-# DEPRECATED rccrsCacheCluster "Use generic-lens or generic-optics with 'cacheCluster' instead." #-}
+rccrrsCacheCluster :: Lens.Lens' RebootCacheClusterResponse (Core.Maybe Types.CacheCluster)
+rccrrsCacheCluster = Lens.field @"cacheCluster"
+{-# DEPRECATED rccrrsCacheCluster "Use generic-lens or generic-optics with 'cacheCluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rccrsResponseStatus :: Lens.Lens' RebootCacheClusterResponse Lude.Int
-rccrsResponseStatus = Lens.lens (responseStatus :: RebootCacheClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RebootCacheClusterResponse)
-{-# DEPRECATED rccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rccrrsResponseStatus :: Lens.Lens' RebootCacheClusterResponse Core.Int
+rccrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

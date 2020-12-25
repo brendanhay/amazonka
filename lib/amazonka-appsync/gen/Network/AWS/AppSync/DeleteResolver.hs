@@ -20,8 +20,8 @@ module Network.AWS.AppSync.DeleteResolver
     mkDeleteResolver,
 
     -- ** Request lenses
-    drTypeName,
     drApiId,
+    drTypeName,
     drFieldName,
 
     -- * Destructuring the response
@@ -29,122 +29,104 @@ module Network.AWS.AppSync.DeleteResolver
     mkDeleteResolverResponse,
 
     -- ** Response lenses
-    drrsResponseStatus,
+    drrrsResponseStatus,
   )
 where
 
-import Network.AWS.AppSync.Types
+import qualified Network.AWS.AppSync.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteResolver' smart constructor.
 data DeleteResolver = DeleteResolver'
-  { -- | The name of the resolver type.
-    typeName :: Lude.Text,
-    -- | The API ID.
-    apiId :: Lude.Text,
+  { -- | The API ID.
+    apiId :: Types.String,
+    -- | The name of the resolver type.
+    typeName :: Types.ResourceName,
     -- | The resolver field name.
-    fieldName :: Lude.Text
+    fieldName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteResolver' with the minimum fields required to make a request.
---
--- * 'typeName' - The name of the resolver type.
--- * 'apiId' - The API ID.
--- * 'fieldName' - The resolver field name.
+-- | Creates a 'DeleteResolver' value with any optional fields omitted.
 mkDeleteResolver ::
-  -- | 'typeName'
-  Lude.Text ->
   -- | 'apiId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'typeName'
+  Types.ResourceName ->
   -- | 'fieldName'
-  Lude.Text ->
+  Types.ResourceName ->
   DeleteResolver
-mkDeleteResolver pTypeName_ pApiId_ pFieldName_ =
-  DeleteResolver'
-    { typeName = pTypeName_,
-      apiId = pApiId_,
-      fieldName = pFieldName_
-    }
-
--- | The name of the resolver type.
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drTypeName :: Lens.Lens' DeleteResolver Lude.Text
-drTypeName = Lens.lens (typeName :: DeleteResolver -> Lude.Text) (\s a -> s {typeName = a} :: DeleteResolver)
-{-# DEPRECATED drTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
+mkDeleteResolver apiId typeName fieldName =
+  DeleteResolver' {apiId, typeName, fieldName}
 
 -- | The API ID.
 --
 -- /Note:/ Consider using 'apiId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drApiId :: Lens.Lens' DeleteResolver Lude.Text
-drApiId = Lens.lens (apiId :: DeleteResolver -> Lude.Text) (\s a -> s {apiId = a} :: DeleteResolver)
+drApiId :: Lens.Lens' DeleteResolver Types.String
+drApiId = Lens.field @"apiId"
 {-# DEPRECATED drApiId "Use generic-lens or generic-optics with 'apiId' instead." #-}
+
+-- | The name of the resolver type.
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drTypeName :: Lens.Lens' DeleteResolver Types.ResourceName
+drTypeName = Lens.field @"typeName"
+{-# DEPRECATED drTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The resolver field name.
 --
 -- /Note:/ Consider using 'fieldName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drFieldName :: Lens.Lens' DeleteResolver Lude.Text
-drFieldName = Lens.lens (fieldName :: DeleteResolver -> Lude.Text) (\s a -> s {fieldName = a} :: DeleteResolver)
+drFieldName :: Lens.Lens' DeleteResolver Types.ResourceName
+drFieldName = Lens.field @"fieldName"
 {-# DEPRECATED drFieldName "Use generic-lens or generic-optics with 'fieldName' instead." #-}
 
-instance Lude.AWSRequest DeleteResolver where
+instance Core.AWSRequest DeleteResolver where
   type Rs DeleteResolver = DeleteResolverResponse
-  request = Req.delete appSyncService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apis/" Core.<> (Core.toText apiId) Core.<> ("/types/")
+                Core.<> (Core.toText typeName)
+                Core.<> ("/resolvers/")
+                Core.<> (Core.toText fieldName)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteResolverResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteResolverResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteResolver where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteResolver where
-  toPath DeleteResolver' {..} =
-    Lude.mconcat
-      [ "/v1/apis/",
-        Lude.toBS apiId,
-        "/types/",
-        Lude.toBS typeName,
-        "/resolvers/",
-        Lude.toBS fieldName
-      ]
-
-instance Lude.ToQuery DeleteResolver where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteResolverResponse' smart constructor.
 newtype DeleteResolverResponse = DeleteResolverResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteResolverResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteResolverResponse' value with any optional fields omitted.
 mkDeleteResolverResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteResolverResponse
-mkDeleteResolverResponse pResponseStatus_ =
-  DeleteResolverResponse' {responseStatus = pResponseStatus_}
+mkDeleteResolverResponse responseStatus =
+  DeleteResolverResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsResponseStatus :: Lens.Lens' DeleteResolverResponse Lude.Int
-drrsResponseStatus = Lens.lens (responseStatus :: DeleteResolverResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteResolverResponse)
-{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drrrsResponseStatus :: Lens.Lens' DeleteResolverResponse Core.Int
+drrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

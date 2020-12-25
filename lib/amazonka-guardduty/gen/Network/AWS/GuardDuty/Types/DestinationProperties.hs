@@ -17,66 +17,62 @@ module Network.AWS.GuardDuty.Types.DestinationProperties
     mkDestinationProperties,
 
     -- * Lenses
-    dpKMSKeyARN,
-    dpDestinationARN,
+    dpDestinationArn,
+    dpKmsKeyArn,
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the Amazon Resource Name (ARN) of the resource to publish to, such as an S3 bucket, and the ARN of the KMS key to use to encrypt published findings.
 --
 -- /See:/ 'mkDestinationProperties' smart constructor.
 data DestinationProperties = DestinationProperties'
-  { -- | The ARN of the KMS key to use for encryption.
-    kmsKeyARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the resource to publish to.
-    destinationARN :: Lude.Maybe Lude.Text
+  { -- | The ARN of the resource to publish to.
+    destinationArn :: Core.Maybe Types.String,
+    -- | The ARN of the KMS key to use for encryption.
+    kmsKeyArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DestinationProperties' with the minimum fields required to make a request.
---
--- * 'kmsKeyARN' - The ARN of the KMS key to use for encryption.
--- * 'destinationARN' - The ARN of the resource to publish to.
+-- | Creates a 'DestinationProperties' value with any optional fields omitted.
 mkDestinationProperties ::
   DestinationProperties
 mkDestinationProperties =
   DestinationProperties'
-    { kmsKeyARN = Lude.Nothing,
-      destinationARN = Lude.Nothing
+    { destinationArn = Core.Nothing,
+      kmsKeyArn = Core.Nothing
     }
-
--- | The ARN of the KMS key to use for encryption.
---
--- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpKMSKeyARN :: Lens.Lens' DestinationProperties (Lude.Maybe Lude.Text)
-dpKMSKeyARN = Lens.lens (kmsKeyARN :: DestinationProperties -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: DestinationProperties)
-{-# DEPRECATED dpKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
 
 -- | The ARN of the resource to publish to.
 --
--- /Note:/ Consider using 'destinationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpDestinationARN :: Lens.Lens' DestinationProperties (Lude.Maybe Lude.Text)
-dpDestinationARN = Lens.lens (destinationARN :: DestinationProperties -> Lude.Maybe Lude.Text) (\s a -> s {destinationARN = a} :: DestinationProperties)
-{-# DEPRECATED dpDestinationARN "Use generic-lens or generic-optics with 'destinationARN' instead." #-}
+-- /Note:/ Consider using 'destinationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpDestinationArn :: Lens.Lens' DestinationProperties (Core.Maybe Types.String)
+dpDestinationArn = Lens.field @"destinationArn"
+{-# DEPRECATED dpDestinationArn "Use generic-lens or generic-optics with 'destinationArn' instead." #-}
 
-instance Lude.FromJSON DestinationProperties where
-  parseJSON =
-    Lude.withObject
-      "DestinationProperties"
-      ( \x ->
-          DestinationProperties'
-            Lude.<$> (x Lude..:? "kmsKeyArn") Lude.<*> (x Lude..:? "destinationArn")
-      )
+-- | The ARN of the KMS key to use for encryption.
+--
+-- /Note:/ Consider using 'kmsKeyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpKmsKeyArn :: Lens.Lens' DestinationProperties (Core.Maybe Types.String)
+dpKmsKeyArn = Lens.field @"kmsKeyArn"
+{-# DEPRECATED dpKmsKeyArn "Use generic-lens or generic-optics with 'kmsKeyArn' instead." #-}
 
-instance Lude.ToJSON DestinationProperties where
-  toJSON DestinationProperties' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("kmsKeyArn" Lude..=) Lude.<$> kmsKeyARN,
-            ("destinationArn" Lude..=) Lude.<$> destinationARN
+instance Core.FromJSON DestinationProperties where
+  toJSON DestinationProperties {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("destinationArn" Core..=) Core.<$> destinationArn,
+            ("kmsKeyArn" Core..=) Core.<$> kmsKeyArn
           ]
       )
+
+instance Core.FromJSON DestinationProperties where
+  parseJSON =
+    Core.withObject "DestinationProperties" Core.$
+      \x ->
+        DestinationProperties'
+          Core.<$> (x Core..:? "destinationArn") Core.<*> (x Core..:? "kmsKeyArn")

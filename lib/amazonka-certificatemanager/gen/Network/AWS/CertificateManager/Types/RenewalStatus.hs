@@ -13,56 +13,61 @@
 module Network.AWS.CertificateManager.Types.RenewalStatus
   ( RenewalStatus
       ( RenewalStatus',
-        RSPendingAutoRenewal,
-        RSPendingValidation,
-        RSSuccess,
-        RSFailed
+        RenewalStatusPendingAutoRenewal,
+        RenewalStatusPendingValidation,
+        RenewalStatusSuccess,
+        RenewalStatusFailed,
+        fromRenewalStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RenewalStatus = RenewalStatus' Lude.Text
+newtype RenewalStatus = RenewalStatus'
+  { fromRenewalStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RSPendingAutoRenewal :: RenewalStatus
-pattern RSPendingAutoRenewal = RenewalStatus' "PENDING_AUTO_RENEWAL"
+pattern RenewalStatusPendingAutoRenewal :: RenewalStatus
+pattern RenewalStatusPendingAutoRenewal = RenewalStatus' "PENDING_AUTO_RENEWAL"
 
-pattern RSPendingValidation :: RenewalStatus
-pattern RSPendingValidation = RenewalStatus' "PENDING_VALIDATION"
+pattern RenewalStatusPendingValidation :: RenewalStatus
+pattern RenewalStatusPendingValidation = RenewalStatus' "PENDING_VALIDATION"
 
-pattern RSSuccess :: RenewalStatus
-pattern RSSuccess = RenewalStatus' "SUCCESS"
+pattern RenewalStatusSuccess :: RenewalStatus
+pattern RenewalStatusSuccess = RenewalStatus' "SUCCESS"
 
-pattern RSFailed :: RenewalStatus
-pattern RSFailed = RenewalStatus' "FAILED"
+pattern RenewalStatusFailed :: RenewalStatus
+pattern RenewalStatusFailed = RenewalStatus' "FAILED"
 
 {-# COMPLETE
-  RSPendingAutoRenewal,
-  RSPendingValidation,
-  RSSuccess,
-  RSFailed,
+  RenewalStatusPendingAutoRenewal,
+  RenewalStatusPendingValidation,
+  RenewalStatusSuccess,
+  RenewalStatusFailed,
   RenewalStatus'
   #-}

@@ -29,126 +29,122 @@ module Network.AWS.XRay.GetSamplingStatisticSummaries
     mkGetSamplingStatisticSummariesResponse,
 
     -- ** Response lenses
-    gsssrsSamplingStatisticSummaries,
-    gsssrsNextToken,
-    gsssrsResponseStatus,
+    gsssrrsNextToken,
+    gsssrrsSamplingStatisticSummaries,
+    gsssrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.XRay.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.XRay.Types as Types
 
 -- | /See:/ 'mkGetSamplingStatisticSummaries' smart constructor.
 newtype GetSamplingStatisticSummaries = GetSamplingStatisticSummaries'
   { -- | Pagination token.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSamplingStatisticSummaries' with the minimum fields required to make a request.
---
--- * 'nextToken' - Pagination token.
+-- | Creates a 'GetSamplingStatisticSummaries' value with any optional fields omitted.
 mkGetSamplingStatisticSummaries ::
   GetSamplingStatisticSummaries
 mkGetSamplingStatisticSummaries =
-  GetSamplingStatisticSummaries' {nextToken = Lude.Nothing}
+  GetSamplingStatisticSummaries' {nextToken = Core.Nothing}
 
 -- | Pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsssNextToken :: Lens.Lens' GetSamplingStatisticSummaries (Lude.Maybe Lude.Text)
-gsssNextToken = Lens.lens (nextToken :: GetSamplingStatisticSummaries -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSamplingStatisticSummaries)
+gsssNextToken :: Lens.Lens' GetSamplingStatisticSummaries (Core.Maybe Types.String)
+gsssNextToken = Lens.field @"nextToken"
 {-# DEPRECATED gsssNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager GetSamplingStatisticSummaries where
-  page rq rs
-    | Page.stop (rs Lens.^. gsssrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. gsssrsSamplingStatisticSummaries) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& gsssNextToken Lens..~ rs Lens.^. gsssrsNextToken
+instance Core.FromJSON GetSamplingStatisticSummaries where
+  toJSON GetSamplingStatisticSummaries {..} =
+    Core.object
+      (Core.catMaybes [("NextToken" Core..=) Core.<$> nextToken])
 
-instance Lude.AWSRequest GetSamplingStatisticSummaries where
+instance Core.AWSRequest GetSamplingStatisticSummaries where
   type
     Rs GetSamplingStatisticSummaries =
       GetSamplingStatisticSummariesResponse
-  request = Req.postJSON xRayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/SamplingStatisticSummaries",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSamplingStatisticSummariesResponse'
-            Lude.<$> (x Lude..?> "SamplingStatisticSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "SamplingStatisticSummaries")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders GetSamplingStatisticSummaries where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetSamplingStatisticSummaries where
-  toJSON GetSamplingStatisticSummaries' {..} =
-    Lude.object
-      (Lude.catMaybes [("NextToken" Lude..=) Lude.<$> nextToken])
-
-instance Lude.ToPath GetSamplingStatisticSummaries where
-  toPath = Lude.const "/SamplingStatisticSummaries"
-
-instance Lude.ToQuery GetSamplingStatisticSummaries where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager GetSamplingStatisticSummaries where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"samplingStatisticSummaries" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkGetSamplingStatisticSummariesResponse' smart constructor.
 data GetSamplingStatisticSummariesResponse = GetSamplingStatisticSummariesResponse'
-  { -- | Information about the number of requests instrumented for each sampling rule.
-    samplingStatisticSummaries :: Lude.Maybe [SamplingStatisticSummary],
-    -- | Pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | Pagination token.
+    nextToken :: Core.Maybe Types.String,
+    -- | Information about the number of requests instrumented for each sampling rule.
+    samplingStatisticSummaries :: Core.Maybe [Types.SamplingStatisticSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetSamplingStatisticSummariesResponse' with the minimum fields required to make a request.
---
--- * 'samplingStatisticSummaries' - Information about the number of requests instrumented for each sampling rule.
--- * 'nextToken' - Pagination token.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSamplingStatisticSummariesResponse' value with any optional fields omitted.
 mkGetSamplingStatisticSummariesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSamplingStatisticSummariesResponse
-mkGetSamplingStatisticSummariesResponse pResponseStatus_ =
+mkGetSamplingStatisticSummariesResponse responseStatus =
   GetSamplingStatisticSummariesResponse'
-    { samplingStatisticSummaries =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      samplingStatisticSummaries = Core.Nothing,
+      responseStatus
     }
+
+-- | Pagination token.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsssrrsNextToken :: Lens.Lens' GetSamplingStatisticSummariesResponse (Core.Maybe Types.String)
+gsssrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gsssrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Information about the number of requests instrumented for each sampling rule.
 --
 -- /Note:/ Consider using 'samplingStatisticSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsssrsSamplingStatisticSummaries :: Lens.Lens' GetSamplingStatisticSummariesResponse (Lude.Maybe [SamplingStatisticSummary])
-gsssrsSamplingStatisticSummaries = Lens.lens (samplingStatisticSummaries :: GetSamplingStatisticSummariesResponse -> Lude.Maybe [SamplingStatisticSummary]) (\s a -> s {samplingStatisticSummaries = a} :: GetSamplingStatisticSummariesResponse)
-{-# DEPRECATED gsssrsSamplingStatisticSummaries "Use generic-lens or generic-optics with 'samplingStatisticSummaries' instead." #-}
-
--- | Pagination token.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsssrsNextToken :: Lens.Lens' GetSamplingStatisticSummariesResponse (Lude.Maybe Lude.Text)
-gsssrsNextToken = Lens.lens (nextToken :: GetSamplingStatisticSummariesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetSamplingStatisticSummariesResponse)
-{-# DEPRECATED gsssrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gsssrrsSamplingStatisticSummaries :: Lens.Lens' GetSamplingStatisticSummariesResponse (Core.Maybe [Types.SamplingStatisticSummary])
+gsssrrsSamplingStatisticSummaries = Lens.field @"samplingStatisticSummaries"
+{-# DEPRECATED gsssrrsSamplingStatisticSummaries "Use generic-lens or generic-optics with 'samplingStatisticSummaries' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsssrsResponseStatus :: Lens.Lens' GetSamplingStatisticSummariesResponse Lude.Int
-gsssrsResponseStatus = Lens.lens (responseStatus :: GetSamplingStatisticSummariesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSamplingStatisticSummariesResponse)
-{-# DEPRECATED gsssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gsssrrsResponseStatus :: Lens.Lens' GetSamplingStatisticSummariesResponse Core.Int
+gsssrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gsssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

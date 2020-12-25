@@ -13,51 +13,56 @@
 module Network.AWS.ElasticBeanstalk.Types.ActionHistoryStatus
   ( ActionHistoryStatus
       ( ActionHistoryStatus',
-        Completed,
-        Failed,
-        Unknown
+        ActionHistoryStatusCompleted,
+        ActionHistoryStatusFailed,
+        ActionHistoryStatusUnknown,
+        fromActionHistoryStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActionHistoryStatus = ActionHistoryStatus' Lude.Text
+newtype ActionHistoryStatus = ActionHistoryStatus'
+  { fromActionHistoryStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Completed :: ActionHistoryStatus
-pattern Completed = ActionHistoryStatus' "Completed"
+pattern ActionHistoryStatusCompleted :: ActionHistoryStatus
+pattern ActionHistoryStatusCompleted = ActionHistoryStatus' "Completed"
 
-pattern Failed :: ActionHistoryStatus
-pattern Failed = ActionHistoryStatus' "Failed"
+pattern ActionHistoryStatusFailed :: ActionHistoryStatus
+pattern ActionHistoryStatusFailed = ActionHistoryStatus' "Failed"
 
-pattern Unknown :: ActionHistoryStatus
-pattern Unknown = ActionHistoryStatus' "Unknown"
+pattern ActionHistoryStatusUnknown :: ActionHistoryStatus
+pattern ActionHistoryStatusUnknown = ActionHistoryStatus' "Unknown"
 
 {-# COMPLETE
-  Completed,
-  Failed,
-  Unknown,
+  ActionHistoryStatusCompleted,
+  ActionHistoryStatusFailed,
+  ActionHistoryStatusUnknown,
   ActionHistoryStatus'
   #-}

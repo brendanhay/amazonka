@@ -17,138 +17,131 @@ module Network.AWS.WorkDocs.Types.DocumentMetadata
     mkDocumentMetadata,
 
     -- * Lenses
-    dmLatestVersionMetadata,
-    dmParentFolderId,
-    dmModifiedTimestamp,
-    dmId,
-    dmLabels,
-    dmResourceState,
     dmCreatedTimestamp,
     dmCreatorId,
+    dmId,
+    dmLabels,
+    dmLatestVersionMetadata,
+    dmModifiedTimestamp,
+    dmParentFolderId,
+    dmResourceState,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.WorkDocs.Types.DocumentVersionMetadata
-import Network.AWS.WorkDocs.Types.ResourceStateType
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkDocs.Types.CreatorId as Types
+import qualified Network.AWS.WorkDocs.Types.DocumentVersionMetadata as Types
+import qualified Network.AWS.WorkDocs.Types.Id as Types
+import qualified Network.AWS.WorkDocs.Types.ParentFolderId as Types
+import qualified Network.AWS.WorkDocs.Types.ResourceStateType as Types
+import qualified Network.AWS.WorkDocs.Types.SharedLabel as Types
 
 -- | Describes the document.
 --
 -- /See:/ 'mkDocumentMetadata' smart constructor.
 data DocumentMetadata = DocumentMetadata'
-  { -- | The latest version of the document.
-    latestVersionMetadata :: Lude.Maybe DocumentVersionMetadata,
-    -- | The ID of the parent folder.
-    parentFolderId :: Lude.Maybe Lude.Text,
-    -- | The time when the document was updated.
-    modifiedTimestamp :: Lude.Maybe Lude.Timestamp,
-    -- | The ID of the document.
-    id :: Lude.Maybe Lude.Text,
-    -- | List of labels on the document.
-    labels :: Lude.Maybe [Lude.Text],
-    -- | The resource state.
-    resourceState :: Lude.Maybe ResourceStateType,
-    -- | The time when the document was created.
-    createdTimestamp :: Lude.Maybe Lude.Timestamp,
+  { -- | The time when the document was created.
+    createdTimestamp :: Core.Maybe Core.NominalDiffTime,
     -- | The ID of the creator.
-    creatorId :: Lude.Maybe Lude.Text
+    creatorId :: Core.Maybe Types.CreatorId,
+    -- | The ID of the document.
+    id :: Core.Maybe Types.Id,
+    -- | List of labels on the document.
+    labels :: Core.Maybe [Types.SharedLabel],
+    -- | The latest version of the document.
+    latestVersionMetadata :: Core.Maybe Types.DocumentVersionMetadata,
+    -- | The time when the document was updated.
+    modifiedTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID of the parent folder.
+    parentFolderId :: Core.Maybe Types.ParentFolderId,
+    -- | The resource state.
+    resourceState :: Core.Maybe Types.ResourceStateType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DocumentMetadata' with the minimum fields required to make a request.
---
--- * 'latestVersionMetadata' - The latest version of the document.
--- * 'parentFolderId' - The ID of the parent folder.
--- * 'modifiedTimestamp' - The time when the document was updated.
--- * 'id' - The ID of the document.
--- * 'labels' - List of labels on the document.
--- * 'resourceState' - The resource state.
--- * 'createdTimestamp' - The time when the document was created.
--- * 'creatorId' - The ID of the creator.
+-- | Creates a 'DocumentMetadata' value with any optional fields omitted.
 mkDocumentMetadata ::
   DocumentMetadata
 mkDocumentMetadata =
   DocumentMetadata'
-    { latestVersionMetadata = Lude.Nothing,
-      parentFolderId = Lude.Nothing,
-      modifiedTimestamp = Lude.Nothing,
-      id = Lude.Nothing,
-      labels = Lude.Nothing,
-      resourceState = Lude.Nothing,
-      createdTimestamp = Lude.Nothing,
-      creatorId = Lude.Nothing
+    { createdTimestamp = Core.Nothing,
+      creatorId = Core.Nothing,
+      id = Core.Nothing,
+      labels = Core.Nothing,
+      latestVersionMetadata = Core.Nothing,
+      modifiedTimestamp = Core.Nothing,
+      parentFolderId = Core.Nothing,
+      resourceState = Core.Nothing
     }
-
--- | The latest version of the document.
---
--- /Note:/ Consider using 'latestVersionMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmLatestVersionMetadata :: Lens.Lens' DocumentMetadata (Lude.Maybe DocumentVersionMetadata)
-dmLatestVersionMetadata = Lens.lens (latestVersionMetadata :: DocumentMetadata -> Lude.Maybe DocumentVersionMetadata) (\s a -> s {latestVersionMetadata = a} :: DocumentMetadata)
-{-# DEPRECATED dmLatestVersionMetadata "Use generic-lens or generic-optics with 'latestVersionMetadata' instead." #-}
-
--- | The ID of the parent folder.
---
--- /Note:/ Consider using 'parentFolderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmParentFolderId :: Lens.Lens' DocumentMetadata (Lude.Maybe Lude.Text)
-dmParentFolderId = Lens.lens (parentFolderId :: DocumentMetadata -> Lude.Maybe Lude.Text) (\s a -> s {parentFolderId = a} :: DocumentMetadata)
-{-# DEPRECATED dmParentFolderId "Use generic-lens or generic-optics with 'parentFolderId' instead." #-}
-
--- | The time when the document was updated.
---
--- /Note:/ Consider using 'modifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmModifiedTimestamp :: Lens.Lens' DocumentMetadata (Lude.Maybe Lude.Timestamp)
-dmModifiedTimestamp = Lens.lens (modifiedTimestamp :: DocumentMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {modifiedTimestamp = a} :: DocumentMetadata)
-{-# DEPRECATED dmModifiedTimestamp "Use generic-lens or generic-optics with 'modifiedTimestamp' instead." #-}
-
--- | The ID of the document.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmId :: Lens.Lens' DocumentMetadata (Lude.Maybe Lude.Text)
-dmId = Lens.lens (id :: DocumentMetadata -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DocumentMetadata)
-{-# DEPRECATED dmId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | List of labels on the document.
---
--- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmLabels :: Lens.Lens' DocumentMetadata (Lude.Maybe [Lude.Text])
-dmLabels = Lens.lens (labels :: DocumentMetadata -> Lude.Maybe [Lude.Text]) (\s a -> s {labels = a} :: DocumentMetadata)
-{-# DEPRECATED dmLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
-
--- | The resource state.
---
--- /Note:/ Consider using 'resourceState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmResourceState :: Lens.Lens' DocumentMetadata (Lude.Maybe ResourceStateType)
-dmResourceState = Lens.lens (resourceState :: DocumentMetadata -> Lude.Maybe ResourceStateType) (\s a -> s {resourceState = a} :: DocumentMetadata)
-{-# DEPRECATED dmResourceState "Use generic-lens or generic-optics with 'resourceState' instead." #-}
 
 -- | The time when the document was created.
 --
 -- /Note:/ Consider using 'createdTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmCreatedTimestamp :: Lens.Lens' DocumentMetadata (Lude.Maybe Lude.Timestamp)
-dmCreatedTimestamp = Lens.lens (createdTimestamp :: DocumentMetadata -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTimestamp = a} :: DocumentMetadata)
+dmCreatedTimestamp :: Lens.Lens' DocumentMetadata (Core.Maybe Core.NominalDiffTime)
+dmCreatedTimestamp = Lens.field @"createdTimestamp"
 {-# DEPRECATED dmCreatedTimestamp "Use generic-lens or generic-optics with 'createdTimestamp' instead." #-}
 
 -- | The ID of the creator.
 --
 -- /Note:/ Consider using 'creatorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmCreatorId :: Lens.Lens' DocumentMetadata (Lude.Maybe Lude.Text)
-dmCreatorId = Lens.lens (creatorId :: DocumentMetadata -> Lude.Maybe Lude.Text) (\s a -> s {creatorId = a} :: DocumentMetadata)
+dmCreatorId :: Lens.Lens' DocumentMetadata (Core.Maybe Types.CreatorId)
+dmCreatorId = Lens.field @"creatorId"
 {-# DEPRECATED dmCreatorId "Use generic-lens or generic-optics with 'creatorId' instead." #-}
 
-instance Lude.FromJSON DocumentMetadata where
+-- | The ID of the document.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmId :: Lens.Lens' DocumentMetadata (Core.Maybe Types.Id)
+dmId = Lens.field @"id"
+{-# DEPRECATED dmId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | List of labels on the document.
+--
+-- /Note:/ Consider using 'labels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmLabels :: Lens.Lens' DocumentMetadata (Core.Maybe [Types.SharedLabel])
+dmLabels = Lens.field @"labels"
+{-# DEPRECATED dmLabels "Use generic-lens or generic-optics with 'labels' instead." #-}
+
+-- | The latest version of the document.
+--
+-- /Note:/ Consider using 'latestVersionMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmLatestVersionMetadata :: Lens.Lens' DocumentMetadata (Core.Maybe Types.DocumentVersionMetadata)
+dmLatestVersionMetadata = Lens.field @"latestVersionMetadata"
+{-# DEPRECATED dmLatestVersionMetadata "Use generic-lens or generic-optics with 'latestVersionMetadata' instead." #-}
+
+-- | The time when the document was updated.
+--
+-- /Note:/ Consider using 'modifiedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmModifiedTimestamp :: Lens.Lens' DocumentMetadata (Core.Maybe Core.NominalDiffTime)
+dmModifiedTimestamp = Lens.field @"modifiedTimestamp"
+{-# DEPRECATED dmModifiedTimestamp "Use generic-lens or generic-optics with 'modifiedTimestamp' instead." #-}
+
+-- | The ID of the parent folder.
+--
+-- /Note:/ Consider using 'parentFolderId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmParentFolderId :: Lens.Lens' DocumentMetadata (Core.Maybe Types.ParentFolderId)
+dmParentFolderId = Lens.field @"parentFolderId"
+{-# DEPRECATED dmParentFolderId "Use generic-lens or generic-optics with 'parentFolderId' instead." #-}
+
+-- | The resource state.
+--
+-- /Note:/ Consider using 'resourceState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmResourceState :: Lens.Lens' DocumentMetadata (Core.Maybe Types.ResourceStateType)
+dmResourceState = Lens.field @"resourceState"
+{-# DEPRECATED dmResourceState "Use generic-lens or generic-optics with 'resourceState' instead." #-}
+
+instance Core.FromJSON DocumentMetadata where
   parseJSON =
-    Lude.withObject
-      "DocumentMetadata"
-      ( \x ->
-          DocumentMetadata'
-            Lude.<$> (x Lude..:? "LatestVersionMetadata")
-            Lude.<*> (x Lude..:? "ParentFolderId")
-            Lude.<*> (x Lude..:? "ModifiedTimestamp")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Labels" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ResourceState")
-            Lude.<*> (x Lude..:? "CreatedTimestamp")
-            Lude.<*> (x Lude..:? "CreatorId")
-      )
+    Core.withObject "DocumentMetadata" Core.$
+      \x ->
+        DocumentMetadata'
+          Core.<$> (x Core..:? "CreatedTimestamp")
+          Core.<*> (x Core..:? "CreatorId")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Labels")
+          Core.<*> (x Core..:? "LatestVersionMetadata")
+          Core.<*> (x Core..:? "ModifiedTimestamp")
+          Core.<*> (x Core..:? "ParentFolderId")
+          Core.<*> (x Core..:? "ResourceState")

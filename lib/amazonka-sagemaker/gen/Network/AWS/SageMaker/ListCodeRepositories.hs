@@ -22,201 +22,185 @@ module Network.AWS.SageMaker.ListCodeRepositories
     mkListCodeRepositories,
 
     -- ** Request lenses
-    lcrNameContains,
-    lcrLastModifiedTimeBefore,
     lcrCreationTimeAfter,
-    lcrNextToken,
-    lcrSortOrder,
-    lcrLastModifiedTimeAfter,
     lcrCreationTimeBefore,
+    lcrLastModifiedTimeAfter,
+    lcrLastModifiedTimeBefore,
     lcrMaxResults,
+    lcrNameContains,
+    lcrNextToken,
     lcrSortBy,
+    lcrSortOrder,
 
     -- * Destructuring the response
     ListCodeRepositoriesResponse (..),
     mkListCodeRepositoriesResponse,
 
     -- ** Response lenses
-    lcrrsCodeRepositorySummaryList,
-    lcrrsNextToken,
-    lcrrsResponseStatus,
+    lcrrrsCodeRepositorySummaryList,
+    lcrrrsNextToken,
+    lcrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListCodeRepositories' smart constructor.
 data ListCodeRepositories = ListCodeRepositories'
-  { -- | A string in the Git repositories name. This filter returns only repositories whose name contains the specified string.
-    nameContains :: Lude.Maybe Lude.Text,
-    -- | A filter that returns only Git repositories that were last modified before the specified time.
-    lastModifiedTimeBefore :: Lude.Maybe Lude.Timestamp,
-    -- | A filter that returns only Git repositories that were created after the specified time.
-    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
-    -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sort order for results. The default is @Ascending@ .
-    sortOrder :: Lude.Maybe CodeRepositorySortOrder,
-    -- | A filter that returns only Git repositories that were last modified after the specified time.
-    lastModifiedTimeAfter :: Lude.Maybe Lude.Timestamp,
+  { -- | A filter that returns only Git repositories that were created after the specified time.
+    creationTimeAfter :: Core.Maybe Core.NominalDiffTime,
     -- | A filter that returns only Git repositories that were created before the specified time.
-    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    creationTimeBefore :: Core.Maybe Core.NominalDiffTime,
+    -- | A filter that returns only Git repositories that were last modified after the specified time.
+    lastModifiedTimeAfter :: Core.Maybe Core.NominalDiffTime,
+    -- | A filter that returns only Git repositories that were last modified before the specified time.
+    lastModifiedTimeBefore :: Core.Maybe Core.NominalDiffTime,
     -- | The maximum number of Git repositories to return in the response.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A string in the Git repositories name. This filter returns only repositories whose name contains the specified string.
+    nameContains :: Core.Maybe Types.NameContains,
+    -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The field to sort results by. The default is @Name@ .
-    sortBy :: Lude.Maybe CodeRepositorySortBy
+    sortBy :: Core.Maybe Types.CodeRepositorySortBy,
+    -- | The sort order for results. The default is @Ascending@ .
+    sortOrder :: Core.Maybe Types.CodeRepositorySortOrder
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListCodeRepositories' with the minimum fields required to make a request.
---
--- * 'nameContains' - A string in the Git repositories name. This filter returns only repositories whose name contains the specified string.
--- * 'lastModifiedTimeBefore' - A filter that returns only Git repositories that were last modified before the specified time.
--- * 'creationTimeAfter' - A filter that returns only Git repositories that were created after the specified time.
--- * 'nextToken' - If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
--- * 'sortOrder' - The sort order for results. The default is @Ascending@ .
--- * 'lastModifiedTimeAfter' - A filter that returns only Git repositories that were last modified after the specified time.
--- * 'creationTimeBefore' - A filter that returns only Git repositories that were created before the specified time.
--- * 'maxResults' - The maximum number of Git repositories to return in the response.
--- * 'sortBy' - The field to sort results by. The default is @Name@ .
+-- | Creates a 'ListCodeRepositories' value with any optional fields omitted.
 mkListCodeRepositories ::
   ListCodeRepositories
 mkListCodeRepositories =
   ListCodeRepositories'
-    { nameContains = Lude.Nothing,
-      lastModifiedTimeBefore = Lude.Nothing,
-      creationTimeAfter = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      lastModifiedTimeAfter = Lude.Nothing,
-      creationTimeBefore = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { creationTimeAfter = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      lastModifiedTimeAfter = Core.Nothing,
+      lastModifiedTimeBefore = Core.Nothing,
+      maxResults = Core.Nothing,
+      nameContains = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing
     }
-
--- | A string in the Git repositories name. This filter returns only repositories whose name contains the specified string.
---
--- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrNameContains :: Lens.Lens' ListCodeRepositories (Lude.Maybe Lude.Text)
-lcrNameContains = Lens.lens (nameContains :: ListCodeRepositories -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListCodeRepositories)
-{-# DEPRECATED lcrNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
-
--- | A filter that returns only Git repositories that were last modified before the specified time.
---
--- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrLastModifiedTimeBefore :: Lens.Lens' ListCodeRepositories (Lude.Maybe Lude.Timestamp)
-lcrLastModifiedTimeBefore = Lens.lens (lastModifiedTimeBefore :: ListCodeRepositories -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeBefore = a} :: ListCodeRepositories)
-{-# DEPRECATED lcrLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | A filter that returns only Git repositories that were created after the specified time.
 --
 -- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrCreationTimeAfter :: Lens.Lens' ListCodeRepositories (Lude.Maybe Lude.Timestamp)
-lcrCreationTimeAfter = Lens.lens (creationTimeAfter :: ListCodeRepositories -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListCodeRepositories)
+lcrCreationTimeAfter :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.NominalDiffTime)
+lcrCreationTimeAfter = Lens.field @"creationTimeAfter"
 {-# DEPRECATED lcrCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
-
--- | If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrNextToken :: Lens.Lens' ListCodeRepositories (Lude.Maybe Lude.Text)
-lcrNextToken = Lens.lens (nextToken :: ListCodeRepositories -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCodeRepositories)
-{-# DEPRECATED lcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sort order for results. The default is @Ascending@ .
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrSortOrder :: Lens.Lens' ListCodeRepositories (Lude.Maybe CodeRepositorySortOrder)
-lcrSortOrder = Lens.lens (sortOrder :: ListCodeRepositories -> Lude.Maybe CodeRepositorySortOrder) (\s a -> s {sortOrder = a} :: ListCodeRepositories)
-{-# DEPRECATED lcrSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
-
--- | A filter that returns only Git repositories that were last modified after the specified time.
---
--- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrLastModifiedTimeAfter :: Lens.Lens' ListCodeRepositories (Lude.Maybe Lude.Timestamp)
-lcrLastModifiedTimeAfter = Lens.lens (lastModifiedTimeAfter :: ListCodeRepositories -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTimeAfter = a} :: ListCodeRepositories)
-{-# DEPRECATED lcrLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
 
 -- | A filter that returns only Git repositories that were created before the specified time.
 --
 -- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrCreationTimeBefore :: Lens.Lens' ListCodeRepositories (Lude.Maybe Lude.Timestamp)
-lcrCreationTimeBefore = Lens.lens (creationTimeBefore :: ListCodeRepositories -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListCodeRepositories)
+lcrCreationTimeBefore :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.NominalDiffTime)
+lcrCreationTimeBefore = Lens.field @"creationTimeBefore"
 {-# DEPRECATED lcrCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
+
+-- | A filter that returns only Git repositories that were last modified after the specified time.
+--
+-- /Note:/ Consider using 'lastModifiedTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrLastModifiedTimeAfter :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.NominalDiffTime)
+lcrLastModifiedTimeAfter = Lens.field @"lastModifiedTimeAfter"
+{-# DEPRECATED lcrLastModifiedTimeAfter "Use generic-lens or generic-optics with 'lastModifiedTimeAfter' instead." #-}
+
+-- | A filter that returns only Git repositories that were last modified before the specified time.
+--
+-- /Note:/ Consider using 'lastModifiedTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrLastModifiedTimeBefore :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.NominalDiffTime)
+lcrLastModifiedTimeBefore = Lens.field @"lastModifiedTimeBefore"
+{-# DEPRECATED lcrLastModifiedTimeBefore "Use generic-lens or generic-optics with 'lastModifiedTimeBefore' instead." #-}
 
 -- | The maximum number of Git repositories to return in the response.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrMaxResults :: Lens.Lens' ListCodeRepositories (Lude.Maybe Lude.Natural)
-lcrMaxResults = Lens.lens (maxResults :: ListCodeRepositories -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListCodeRepositories)
+lcrMaxResults :: Lens.Lens' ListCodeRepositories (Core.Maybe Core.Natural)
+lcrMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lcrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A string in the Git repositories name. This filter returns only repositories whose name contains the specified string.
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrNameContains :: Lens.Lens' ListCodeRepositories (Core.Maybe Types.NameContains)
+lcrNameContains = Lens.field @"nameContains"
+{-# DEPRECATED lcrNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
+
+-- | If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrNextToken :: Lens.Lens' ListCodeRepositories (Core.Maybe Types.NextToken)
+lcrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The field to sort results by. The default is @Name@ .
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrSortBy :: Lens.Lens' ListCodeRepositories (Lude.Maybe CodeRepositorySortBy)
-lcrSortBy = Lens.lens (sortBy :: ListCodeRepositories -> Lude.Maybe CodeRepositorySortBy) (\s a -> s {sortBy = a} :: ListCodeRepositories)
+lcrSortBy :: Lens.Lens' ListCodeRepositories (Core.Maybe Types.CodeRepositorySortBy)
+lcrSortBy = Lens.field @"sortBy"
 {-# DEPRECATED lcrSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager ListCodeRepositories where
-  page rq rs
-    | Page.stop (rs Lens.^. lcrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lcrrsCodeRepositorySummaryList) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lcrNextToken Lens..~ rs Lens.^. lcrrsNextToken
+-- | The sort order for results. The default is @Ascending@ .
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrSortOrder :: Lens.Lens' ListCodeRepositories (Core.Maybe Types.CodeRepositorySortOrder)
+lcrSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED lcrSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest ListCodeRepositories where
+instance Core.FromJSON ListCodeRepositories where
+  toJSON ListCodeRepositories {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CreationTimeAfter" Core..=) Core.<$> creationTimeAfter,
+            ("CreationTimeBefore" Core..=) Core.<$> creationTimeBefore,
+            ("LastModifiedTimeAfter" Core..=) Core.<$> lastModifiedTimeAfter,
+            ("LastModifiedTimeBefore" Core..=) Core.<$> lastModifiedTimeBefore,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("SortOrder" Core..=) Core.<$> sortOrder
+          ]
+      )
+
+instance Core.AWSRequest ListCodeRepositories where
   type Rs ListCodeRepositories = ListCodeRepositoriesResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListCodeRepositories")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListCodeRepositoriesResponse'
-            Lude.<$> (x Lude..?> "CodeRepositorySummaryList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CodeRepositorySummaryList" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListCodeRepositories where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.ListCodeRepositories" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListCodeRepositories where
-  toJSON ListCodeRepositories' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NameContains" Lude..=) Lude.<$> nameContains,
-            ("LastModifiedTimeBefore" Lude..=) Lude.<$> lastModifiedTimeBefore,
-            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("LastModifiedTimeAfter" Lude..=) Lude.<$> lastModifiedTimeAfter,
-            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListCodeRepositories where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListCodeRepositories where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListCodeRepositories where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"codeRepositorySummaryList") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListCodeRepositoriesResponse' smart constructor.
 data ListCodeRepositoriesResponse = ListCodeRepositoriesResponse'
@@ -236,47 +220,26 @@ data ListCodeRepositoriesResponse = ListCodeRepositoriesResponse'
     --
     --
     --     * Configuration information, including the URL location of the repository and the ARN of the AWS Secrets Manager secret that contains the credentials used to access the repository.
-    codeRepositorySummaryList :: [CodeRepositorySummary],
+    codeRepositorySummaryList :: [Types.CodeRepositorySummary],
     -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListCodeRepositoriesResponse' with the minimum fields required to make a request.
---
--- * 'codeRepositorySummaryList' - Gets a list of summaries of the Git repositories. Each summary specifies the following values for the repository:
---
---
---     * Name
---
---
---     * Amazon Resource Name (ARN)
---
---
---     * Creation time
---
---
---     * Last modified time
---
---
---     * Configuration information, including the URL location of the repository and the ARN of the AWS Secrets Manager secret that contains the credentials used to access the repository.
---
---
--- * 'nextToken' - If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListCodeRepositoriesResponse' value with any optional fields omitted.
 mkListCodeRepositoriesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListCodeRepositoriesResponse
-mkListCodeRepositoriesResponse pResponseStatus_ =
+mkListCodeRepositoriesResponse responseStatus =
   ListCodeRepositoriesResponse'
     { codeRepositorySummaryList =
-        Lude.mempty,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Gets a list of summaries of the Git repositories. Each summary specifies the following values for the repository:
@@ -299,20 +262,20 @@ mkListCodeRepositoriesResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'codeRepositorySummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrrsCodeRepositorySummaryList :: Lens.Lens' ListCodeRepositoriesResponse [CodeRepositorySummary]
-lcrrsCodeRepositorySummaryList = Lens.lens (codeRepositorySummaryList :: ListCodeRepositoriesResponse -> [CodeRepositorySummary]) (\s a -> s {codeRepositorySummaryList = a} :: ListCodeRepositoriesResponse)
-{-# DEPRECATED lcrrsCodeRepositorySummaryList "Use generic-lens or generic-optics with 'codeRepositorySummaryList' instead." #-}
+lcrrrsCodeRepositorySummaryList :: Lens.Lens' ListCodeRepositoriesResponse [Types.CodeRepositorySummary]
+lcrrrsCodeRepositorySummaryList = Lens.field @"codeRepositorySummaryList"
+{-# DEPRECATED lcrrrsCodeRepositorySummaryList "Use generic-lens or generic-optics with 'codeRepositorySummaryList' instead." #-}
 
 -- | If the result of a @ListCodeRepositoriesOutput@ request was truncated, the response includes a @NextToken@ . To get the next set of Git repositories, use the token in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrrsNextToken :: Lens.Lens' ListCodeRepositoriesResponse (Lude.Maybe Lude.Text)
-lcrrsNextToken = Lens.lens (nextToken :: ListCodeRepositoriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListCodeRepositoriesResponse)
-{-# DEPRECATED lcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lcrrrsNextToken :: Lens.Lens' ListCodeRepositoriesResponse (Core.Maybe Types.NextToken)
+lcrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrrsResponseStatus :: Lens.Lens' ListCodeRepositoriesResponse Lude.Int
-lcrrsResponseStatus = Lens.lens (responseStatus :: ListCodeRepositoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListCodeRepositoriesResponse)
-{-# DEPRECATED lcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lcrrrsResponseStatus :: Lens.Lens' ListCodeRepositoriesResponse Core.Int
+lcrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lcrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

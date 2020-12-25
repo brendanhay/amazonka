@@ -27,72 +27,63 @@ module Network.AWS.WAF.GetRule
     mkGetRuleResponse,
 
     -- ** Response lenses
-    grrsRule,
-    grrsResponseStatus,
+    grrrsRule,
+    grrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkGetRule' smart constructor.
 newtype GetRule = GetRule'
   { -- | The @RuleId@ of the 'Rule' that you want to get. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
-    ruleId :: Lude.Text
+    ruleId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRule' with the minimum fields required to make a request.
---
--- * 'ruleId' - The @RuleId@ of the 'Rule' that you want to get. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
+-- | Creates a 'GetRule' value with any optional fields omitted.
 mkGetRule ::
   -- | 'ruleId'
-  Lude.Text ->
+  Types.ResourceId ->
   GetRule
-mkGetRule pRuleId_ = GetRule' {ruleId = pRuleId_}
+mkGetRule ruleId = GetRule' {ruleId}
 
 -- | The @RuleId@ of the 'Rule' that you want to get. @RuleId@ is returned by 'CreateRule' and by 'ListRules' .
 --
 -- /Note:/ Consider using 'ruleId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grRuleId :: Lens.Lens' GetRule Lude.Text
-grRuleId = Lens.lens (ruleId :: GetRule -> Lude.Text) (\s a -> s {ruleId = a} :: GetRule)
+grRuleId :: Lens.Lens' GetRule Types.ResourceId
+grRuleId = Lens.field @"ruleId"
 {-# DEPRECATED grRuleId "Use generic-lens or generic-optics with 'ruleId' instead." #-}
 
-instance Lude.AWSRequest GetRule where
+instance Core.FromJSON GetRule where
+  toJSON GetRule {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("RuleId" Core..= ruleId)])
+
+instance Core.AWSRequest GetRule where
   type Rs GetRule = GetRuleResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_20150824.GetRule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetRuleResponse'
-            Lude.<$> (x Lude..?> "Rule") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Rule") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetRule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.GetRule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetRule where
-  toJSON GetRule' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("RuleId" Lude..= ruleId)])
-
-instance Lude.ToPath GetRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetRule where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetRuleResponse' smart constructor.
 data GetRuleResponse = GetRuleResponse'
@@ -103,34 +94,20 @@ data GetRuleResponse = GetRuleResponse'
     --
     --
     --     * 'Predicate' : Each @Predicate@ object contains @DataId@ , @Negated@ , and @Type@
-    rule :: Lude.Maybe Rule,
+    rule :: Core.Maybe Types.Rule,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRuleResponse' with the minimum fields required to make a request.
---
--- * 'rule' - Information about the 'Rule' that you specified in the @GetRule@ request. For more information, see the following topics:
---
---
---     * 'Rule' : Contains @MetricName@ , @Name@ , an array of @Predicate@ objects, and @RuleId@
---
---
---     * 'Predicate' : Each @Predicate@ object contains @DataId@ , @Negated@ , and @Type@
---
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetRuleResponse' value with any optional fields omitted.
 mkGetRuleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetRuleResponse
-mkGetRuleResponse pResponseStatus_ =
-  GetRuleResponse'
-    { rule = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetRuleResponse responseStatus =
+  GetRuleResponse' {rule = Core.Nothing, responseStatus}
 
 -- | Information about the 'Rule' that you specified in the @GetRule@ request. For more information, see the following topics:
 --
@@ -143,13 +120,13 @@ mkGetRuleResponse pResponseStatus_ =
 --
 --
 -- /Note:/ Consider using 'rule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrsRule :: Lens.Lens' GetRuleResponse (Lude.Maybe Rule)
-grrsRule = Lens.lens (rule :: GetRuleResponse -> Lude.Maybe Rule) (\s a -> s {rule = a} :: GetRuleResponse)
-{-# DEPRECATED grrsRule "Use generic-lens or generic-optics with 'rule' instead." #-}
+grrrsRule :: Lens.Lens' GetRuleResponse (Core.Maybe Types.Rule)
+grrrsRule = Lens.field @"rule"
+{-# DEPRECATED grrrsRule "Use generic-lens or generic-optics with 'rule' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrsResponseStatus :: Lens.Lens' GetRuleResponse Lude.Int
-grrsResponseStatus = Lens.lens (responseStatus :: GetRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRuleResponse)
-{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grrrsResponseStatus :: Lens.Lens' GetRuleResponse Core.Int
+grrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -9,15 +9,15 @@
 -- Portability : non-portable (GHC extensions)
 module Main (main) where
 
-import Test.AWS.APIGatewayManagementAPI
-import Test.AWS.APIGatewayManagementAPI.Internal
+import Test.AWS.ApiGatewayManagement
+import Test.AWS.ApiGatewayManagement.Internal
 import Test.Tasty
 
 main :: IO ()
 main =
   defaultMain $
     testGroup
-      "APIGatewayManagementAPI"
+      "ApiGatewayManagement"
       [ testGroup "tests" tests,
         testGroup "fixtures" fixtures
       ]

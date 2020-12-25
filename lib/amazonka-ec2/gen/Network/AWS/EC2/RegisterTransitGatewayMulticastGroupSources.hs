@@ -23,160 +23,155 @@ module Network.AWS.EC2.RegisterTransitGatewayMulticastGroupSources
     mkRegisterTransitGatewayMulticastGroupSources,
 
     -- ** Request lenses
+    rtgmgsDryRun,
+    rtgmgsGroupIpAddress,
     rtgmgsNetworkInterfaceIds,
     rtgmgsTransitGatewayMulticastDomainId,
-    rtgmgsGroupIPAddress,
-    rtgmgsDryRun,
 
     -- * Destructuring the response
     RegisterTransitGatewayMulticastGroupSourcesResponse (..),
     mkRegisterTransitGatewayMulticastGroupSourcesResponse,
 
     -- ** Response lenses
-    rtgmgsrsRegisteredMulticastGroupSources,
-    rtgmgsrsResponseStatus,
+    rtgmgsrrsRegisteredMulticastGroupSources,
+    rtgmgsrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRegisterTransitGatewayMulticastGroupSources' smart constructor.
 data RegisterTransitGatewayMulticastGroupSources = RegisterTransitGatewayMulticastGroupSources'
-  { -- | The group sources' network interface IDs to register with the transit gateway multicast group.
-    networkInterfaceIds :: Lude.Maybe [Lude.Text],
-    -- | The ID of the transit gateway multicast domain.
-    transitGatewayMulticastDomainId :: Lude.Maybe Lude.Text,
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | The IP address assigned to the transit gateway multicast group.
-    groupIPAddress :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    groupIpAddress :: Core.Maybe Types.String,
+    -- | The group sources' network interface IDs to register with the transit gateway multicast group.
+    networkInterfaceIds :: Core.Maybe [Types.NetworkInterfaceId],
+    -- | The ID of the transit gateway multicast domain.
+    transitGatewayMulticastDomainId :: Core.Maybe Types.TransitGatewayMulticastDomainId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterTransitGatewayMulticastGroupSources' with the minimum fields required to make a request.
---
--- * 'networkInterfaceIds' - The group sources' network interface IDs to register with the transit gateway multicast group.
--- * 'transitGatewayMulticastDomainId' - The ID of the transit gateway multicast domain.
--- * 'groupIPAddress' - The IP address assigned to the transit gateway multicast group.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'RegisterTransitGatewayMulticastGroupSources' value with any optional fields omitted.
 mkRegisterTransitGatewayMulticastGroupSources ::
   RegisterTransitGatewayMulticastGroupSources
 mkRegisterTransitGatewayMulticastGroupSources =
   RegisterTransitGatewayMulticastGroupSources'
-    { networkInterfaceIds =
-        Lude.Nothing,
-      transitGatewayMulticastDomainId = Lude.Nothing,
-      groupIPAddress = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { dryRun =
+        Core.Nothing,
+      groupIpAddress = Core.Nothing,
+      networkInterfaceIds = Core.Nothing,
+      transitGatewayMulticastDomainId = Core.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtgmgsDryRun :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Core.Maybe Core.Bool)
+rtgmgsDryRun = Lens.field @"dryRun"
+{-# DEPRECATED rtgmgsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+
+-- | The IP address assigned to the transit gateway multicast group.
+--
+-- /Note:/ Consider using 'groupIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtgmgsGroupIpAddress :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Core.Maybe Types.String)
+rtgmgsGroupIpAddress = Lens.field @"groupIpAddress"
+{-# DEPRECATED rtgmgsGroupIpAddress "Use generic-lens or generic-optics with 'groupIpAddress' instead." #-}
 
 -- | The group sources' network interface IDs to register with the transit gateway multicast group.
 --
 -- /Note:/ Consider using 'networkInterfaceIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtgmgsNetworkInterfaceIds :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Lude.Maybe [Lude.Text])
-rtgmgsNetworkInterfaceIds = Lens.lens (networkInterfaceIds :: RegisterTransitGatewayMulticastGroupSources -> Lude.Maybe [Lude.Text]) (\s a -> s {networkInterfaceIds = a} :: RegisterTransitGatewayMulticastGroupSources)
+rtgmgsNetworkInterfaceIds :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Core.Maybe [Types.NetworkInterfaceId])
+rtgmgsNetworkInterfaceIds = Lens.field @"networkInterfaceIds"
 {-# DEPRECATED rtgmgsNetworkInterfaceIds "Use generic-lens or generic-optics with 'networkInterfaceIds' instead." #-}
 
 -- | The ID of the transit gateway multicast domain.
 --
 -- /Note:/ Consider using 'transitGatewayMulticastDomainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtgmgsTransitGatewayMulticastDomainId :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Lude.Maybe Lude.Text)
-rtgmgsTransitGatewayMulticastDomainId = Lens.lens (transitGatewayMulticastDomainId :: RegisterTransitGatewayMulticastGroupSources -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayMulticastDomainId = a} :: RegisterTransitGatewayMulticastGroupSources)
+rtgmgsTransitGatewayMulticastDomainId :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Core.Maybe Types.TransitGatewayMulticastDomainId)
+rtgmgsTransitGatewayMulticastDomainId = Lens.field @"transitGatewayMulticastDomainId"
 {-# DEPRECATED rtgmgsTransitGatewayMulticastDomainId "Use generic-lens or generic-optics with 'transitGatewayMulticastDomainId' instead." #-}
 
--- | The IP address assigned to the transit gateway multicast group.
---
--- /Note:/ Consider using 'groupIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtgmgsGroupIPAddress :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Lude.Maybe Lude.Text)
-rtgmgsGroupIPAddress = Lens.lens (groupIPAddress :: RegisterTransitGatewayMulticastGroupSources -> Lude.Maybe Lude.Text) (\s a -> s {groupIPAddress = a} :: RegisterTransitGatewayMulticastGroupSources)
-{-# DEPRECATED rtgmgsGroupIPAddress "Use generic-lens or generic-optics with 'groupIPAddress' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtgmgsDryRun :: Lens.Lens' RegisterTransitGatewayMulticastGroupSources (Lude.Maybe Lude.Bool)
-rtgmgsDryRun = Lens.lens (dryRun :: RegisterTransitGatewayMulticastGroupSources -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RegisterTransitGatewayMulticastGroupSources)
-{-# DEPRECATED rtgmgsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
 instance
-  Lude.AWSRequest
+  Core.AWSRequest
     RegisterTransitGatewayMulticastGroupSources
   where
   type
     Rs RegisterTransitGatewayMulticastGroupSources =
       RegisterTransitGatewayMulticastGroupSourcesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure
+                ("Action", "RegisterTransitGatewayMulticastGroupSources")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "GroupIpAddress" Core.<$> groupIpAddress)
+                Core.<> ( Core.toQueryList "NetworkInterfaceIds"
+                            Core.<$> networkInterfaceIds
+                        )
+                Core.<> ( Core.toQueryValue "TransitGatewayMulticastDomainId"
+                            Core.<$> transitGatewayMulticastDomainId
+                        )
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           RegisterTransitGatewayMulticastGroupSourcesResponse'
-            Lude.<$> (x Lude..@? "registeredMulticastGroupSources")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "registeredMulticastGroupSources")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RegisterTransitGatewayMulticastGroupSources where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RegisterTransitGatewayMulticastGroupSources where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterTransitGatewayMulticastGroupSources where
-  toQuery RegisterTransitGatewayMulticastGroupSources' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("RegisterTransitGatewayMulticastGroupSources" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          ( Lude.toQueryList "NetworkInterfaceIds"
-              Lude.<$> networkInterfaceIds
-          ),
-        "TransitGatewayMulticastDomainId"
-          Lude.=: transitGatewayMulticastDomainId,
-        "GroupIpAddress" Lude.=: groupIPAddress,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkRegisterTransitGatewayMulticastGroupSourcesResponse' smart constructor.
 data RegisterTransitGatewayMulticastGroupSourcesResponse = RegisterTransitGatewayMulticastGroupSourcesResponse'
   { -- | Information about the transit gateway multicast group sources.
-    registeredMulticastGroupSources :: Lude.Maybe TransitGatewayMulticastRegisteredGroupSources,
+    registeredMulticastGroupSources :: Core.Maybe Types.TransitGatewayMulticastRegisteredGroupSources,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterTransitGatewayMulticastGroupSourcesResponse' with the minimum fields required to make a request.
---
--- * 'registeredMulticastGroupSources' - Information about the transit gateway multicast group sources.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RegisterTransitGatewayMulticastGroupSourcesResponse' value with any optional fields omitted.
 mkRegisterTransitGatewayMulticastGroupSourcesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RegisterTransitGatewayMulticastGroupSourcesResponse
 mkRegisterTransitGatewayMulticastGroupSourcesResponse
-  pResponseStatus_ =
+  responseStatus =
     RegisterTransitGatewayMulticastGroupSourcesResponse'
       { registeredMulticastGroupSources =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_
+          Core.Nothing,
+        responseStatus
       }
 
 -- | Information about the transit gateway multicast group sources.
 --
 -- /Note:/ Consider using 'registeredMulticastGroupSources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtgmgsrsRegisteredMulticastGroupSources :: Lens.Lens' RegisterTransitGatewayMulticastGroupSourcesResponse (Lude.Maybe TransitGatewayMulticastRegisteredGroupSources)
-rtgmgsrsRegisteredMulticastGroupSources = Lens.lens (registeredMulticastGroupSources :: RegisterTransitGatewayMulticastGroupSourcesResponse -> Lude.Maybe TransitGatewayMulticastRegisteredGroupSources) (\s a -> s {registeredMulticastGroupSources = a} :: RegisterTransitGatewayMulticastGroupSourcesResponse)
-{-# DEPRECATED rtgmgsrsRegisteredMulticastGroupSources "Use generic-lens or generic-optics with 'registeredMulticastGroupSources' instead." #-}
+rtgmgsrrsRegisteredMulticastGroupSources :: Lens.Lens' RegisterTransitGatewayMulticastGroupSourcesResponse (Core.Maybe Types.TransitGatewayMulticastRegisteredGroupSources)
+rtgmgsrrsRegisteredMulticastGroupSources = Lens.field @"registeredMulticastGroupSources"
+{-# DEPRECATED rtgmgsrrsRegisteredMulticastGroupSources "Use generic-lens or generic-optics with 'registeredMulticastGroupSources' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtgmgsrsResponseStatus :: Lens.Lens' RegisterTransitGatewayMulticastGroupSourcesResponse Lude.Int
-rtgmgsrsResponseStatus = Lens.lens (responseStatus :: RegisterTransitGatewayMulticastGroupSourcesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterTransitGatewayMulticastGroupSourcesResponse)
-{-# DEPRECATED rtgmgsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtgmgsrrsResponseStatus :: Lens.Lens' RegisterTransitGatewayMulticastGroupSourcesResponse Core.Int
+rtgmgsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtgmgsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

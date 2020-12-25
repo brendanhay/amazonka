@@ -27,105 +27,91 @@ module Network.AWS.Pinpoint.DeleteSmsChannel
     mkDeleteSmsChannelResponse,
 
     -- ** Response lenses
-    dscrsSMSChannelResponse,
-    dscrsResponseStatus,
+    dscrrsSMSChannelResponse,
+    dscrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pinpoint.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSmsChannel' smart constructor.
 newtype DeleteSmsChannel = DeleteSmsChannel'
   { -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
-    applicationId :: Lude.Text
+    applicationId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSmsChannel' with the minimum fields required to make a request.
---
--- * 'applicationId' - The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
+-- | Creates a 'DeleteSmsChannel' value with any optional fields omitted.
 mkDeleteSmsChannel ::
   -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   DeleteSmsChannel
-mkDeleteSmsChannel pApplicationId_ =
-  DeleteSmsChannel' {applicationId = pApplicationId_}
+mkDeleteSmsChannel applicationId = DeleteSmsChannel' {applicationId}
 
 -- | The unique identifier for the application. This identifier is displayed as the __Project ID__ on the Amazon Pinpoint console.
 --
 -- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscApplicationId :: Lens.Lens' DeleteSmsChannel Lude.Text
-dscApplicationId = Lens.lens (applicationId :: DeleteSmsChannel -> Lude.Text) (\s a -> s {applicationId = a} :: DeleteSmsChannel)
+dscApplicationId :: Lens.Lens' DeleteSmsChannel Core.Text
+dscApplicationId = Lens.field @"applicationId"
 {-# DEPRECATED dscApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
-instance Lude.AWSRequest DeleteSmsChannel where
+instance Core.AWSRequest DeleteSmsChannel where
   type Rs DeleteSmsChannel = DeleteSmsChannelResponse
-  request = Req.delete pinpointService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/v1/apps/" Core.<> (Core.toText applicationId)
+                Core.<> ("/channels/sms")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteSmsChannelResponse'
-            Lude.<$> (Lude.eitherParseJSON x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.eitherParseJSON x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSmsChannel where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteSmsChannel where
-  toPath DeleteSmsChannel' {..} =
-    Lude.mconcat
-      ["/v1/apps/", Lude.toBS applicationId, "/channels/sms"]
-
-instance Lude.ToQuery DeleteSmsChannel where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteSmsChannelResponse' smart constructor.
 data DeleteSmsChannelResponse = DeleteSmsChannelResponse'
-  { sMSChannelResponse :: SMSChannelResponse,
+  { sMSChannelResponse :: Types.SMSChannelResponse,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSmsChannelResponse' with the minimum fields required to make a request.
---
--- * 'sMSChannelResponse' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSmsChannelResponse' value with any optional fields omitted.
 mkDeleteSmsChannelResponse ::
   -- | 'sMSChannelResponse'
-  SMSChannelResponse ->
+  Types.SMSChannelResponse ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSmsChannelResponse
-mkDeleteSmsChannelResponse pSMSChannelResponse_ pResponseStatus_ =
-  DeleteSmsChannelResponse'
-    { sMSChannelResponse =
-        pSMSChannelResponse_,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteSmsChannelResponse sMSChannelResponse responseStatus =
+  DeleteSmsChannelResponse' {sMSChannelResponse, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'sMSChannelResponse' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsSMSChannelResponse :: Lens.Lens' DeleteSmsChannelResponse SMSChannelResponse
-dscrsSMSChannelResponse = Lens.lens (sMSChannelResponse :: DeleteSmsChannelResponse -> SMSChannelResponse) (\s a -> s {sMSChannelResponse = a} :: DeleteSmsChannelResponse)
-{-# DEPRECATED dscrsSMSChannelResponse "Use generic-lens or generic-optics with 'sMSChannelResponse' instead." #-}
+dscrrsSMSChannelResponse :: Lens.Lens' DeleteSmsChannelResponse Types.SMSChannelResponse
+dscrrsSMSChannelResponse = Lens.field @"sMSChannelResponse"
+{-# DEPRECATED dscrrsSMSChannelResponse "Use generic-lens or generic-optics with 'sMSChannelResponse' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dscrsResponseStatus :: Lens.Lens' DeleteSmsChannelResponse Lude.Int
-dscrsResponseStatus = Lens.lens (responseStatus :: DeleteSmsChannelResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSmsChannelResponse)
-{-# DEPRECATED dscrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dscrrsResponseStatus :: Lens.Lens' DeleteSmsChannelResponse Core.Int
+dscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

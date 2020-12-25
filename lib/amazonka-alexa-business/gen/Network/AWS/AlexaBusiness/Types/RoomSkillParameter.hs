@@ -17,70 +17,64 @@ module Network.AWS.AlexaBusiness.Types.RoomSkillParameter
     mkRoomSkillParameter,
 
     -- * Lenses
-    rspParameterValue,
     rspParameterKey,
+    rspParameterValue,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.ParameterKey as Types
+import qualified Network.AWS.AlexaBusiness.Types.RoomSkillParameterValue as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A skill parameter associated with a room.
 --
 -- /See:/ 'mkRoomSkillParameter' smart constructor.
 data RoomSkillParameter = RoomSkillParameter'
-  { -- | The parameter value of a room skill parameter.
-    parameterValue :: Lude.Text,
-    -- | The parameter key of a room skill parameter. ParameterKey is an enumerated type that only takes “DEFAULT” or “SCOPE” as valid values.
-    parameterKey :: Lude.Text
+  { -- | The parameter key of a room skill parameter. ParameterKey is an enumerated type that only takes “DEFAULT” or “SCOPE” as valid values.
+    parameterKey :: Types.ParameterKey,
+    -- | The parameter value of a room skill parameter.
+    parameterValue :: Types.RoomSkillParameterValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RoomSkillParameter' with the minimum fields required to make a request.
---
--- * 'parameterValue' - The parameter value of a room skill parameter.
--- * 'parameterKey' - The parameter key of a room skill parameter. ParameterKey is an enumerated type that only takes “DEFAULT” or “SCOPE” as valid values.
+-- | Creates a 'RoomSkillParameter' value with any optional fields omitted.
 mkRoomSkillParameter ::
-  -- | 'parameterValue'
-  Lude.Text ->
   -- | 'parameterKey'
-  Lude.Text ->
+  Types.ParameterKey ->
+  -- | 'parameterValue'
+  Types.RoomSkillParameterValue ->
   RoomSkillParameter
-mkRoomSkillParameter pParameterValue_ pParameterKey_ =
-  RoomSkillParameter'
-    { parameterValue = pParameterValue_,
-      parameterKey = pParameterKey_
-    }
-
--- | The parameter value of a room skill parameter.
---
--- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rspParameterValue :: Lens.Lens' RoomSkillParameter Lude.Text
-rspParameterValue = Lens.lens (parameterValue :: RoomSkillParameter -> Lude.Text) (\s a -> s {parameterValue = a} :: RoomSkillParameter)
-{-# DEPRECATED rspParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
+mkRoomSkillParameter parameterKey parameterValue =
+  RoomSkillParameter' {parameterKey, parameterValue}
 
 -- | The parameter key of a room skill parameter. ParameterKey is an enumerated type that only takes “DEFAULT” or “SCOPE” as valid values.
 --
 -- /Note:/ Consider using 'parameterKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rspParameterKey :: Lens.Lens' RoomSkillParameter Lude.Text
-rspParameterKey = Lens.lens (parameterKey :: RoomSkillParameter -> Lude.Text) (\s a -> s {parameterKey = a} :: RoomSkillParameter)
+rspParameterKey :: Lens.Lens' RoomSkillParameter Types.ParameterKey
+rspParameterKey = Lens.field @"parameterKey"
 {-# DEPRECATED rspParameterKey "Use generic-lens or generic-optics with 'parameterKey' instead." #-}
 
-instance Lude.FromJSON RoomSkillParameter where
-  parseJSON =
-    Lude.withObject
-      "RoomSkillParameter"
-      ( \x ->
-          RoomSkillParameter'
-            Lude.<$> (x Lude..: "ParameterValue") Lude.<*> (x Lude..: "ParameterKey")
-      )
+-- | The parameter value of a room skill parameter.
+--
+-- /Note:/ Consider using 'parameterValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rspParameterValue :: Lens.Lens' RoomSkillParameter Types.RoomSkillParameterValue
+rspParameterValue = Lens.field @"parameterValue"
+{-# DEPRECATED rspParameterValue "Use generic-lens or generic-optics with 'parameterValue' instead." #-}
 
-instance Lude.ToJSON RoomSkillParameter where
-  toJSON RoomSkillParameter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ParameterValue" Lude..= parameterValue),
-            Lude.Just ("ParameterKey" Lude..= parameterKey)
+instance Core.FromJSON RoomSkillParameter where
+  toJSON RoomSkillParameter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ParameterKey" Core..= parameterKey),
+            Core.Just ("ParameterValue" Core..= parameterValue)
           ]
       )
+
+instance Core.FromJSON RoomSkillParameter where
+  parseJSON =
+    Core.withObject "RoomSkillParameter" Core.$
+      \x ->
+        RoomSkillParameter'
+          Core.<$> (x Core..: "ParameterKey") Core.<*> (x Core..: "ParameterValue")

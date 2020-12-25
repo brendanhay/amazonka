@@ -17,59 +17,54 @@ module Network.AWS.CloudDirectory.Types.BatchListPolicyAttachmentsResponse
     mkBatchListPolicyAttachmentsResponse,
 
     -- * Lenses
-    blpaObjectIdentifiers,
-    blpaNextToken,
+    blparNextToken,
+    blparObjectIdentifiers,
   )
 where
 
+import qualified Network.AWS.CloudDirectory.Types.NextToken as Types
+import qualified Network.AWS.CloudDirectory.Types.ObjectIdentifier as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'ListPolicyAttachments' response operation.
 --
 -- /See:/ 'mkBatchListPolicyAttachmentsResponse' smart constructor.
 data BatchListPolicyAttachmentsResponse = BatchListPolicyAttachmentsResponse'
-  { -- | A list of @ObjectIdentifiers@ to which the policy is attached.
-    objectIdentifiers :: Lude.Maybe [Lude.Text],
-    -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text
+  { -- | The pagination token.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | A list of @ObjectIdentifiers@ to which the policy is attached.
+    objectIdentifiers :: Core.Maybe [Types.ObjectIdentifier]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchListPolicyAttachmentsResponse' with the minimum fields required to make a request.
---
--- * 'objectIdentifiers' - A list of @ObjectIdentifiers@ to which the policy is attached.
--- * 'nextToken' - The pagination token.
+-- | Creates a 'BatchListPolicyAttachmentsResponse' value with any optional fields omitted.
 mkBatchListPolicyAttachmentsResponse ::
   BatchListPolicyAttachmentsResponse
 mkBatchListPolicyAttachmentsResponse =
   BatchListPolicyAttachmentsResponse'
-    { objectIdentifiers =
-        Lude.Nothing,
-      nextToken = Lude.Nothing
+    { nextToken = Core.Nothing,
+      objectIdentifiers = Core.Nothing
     }
-
--- | A list of @ObjectIdentifiers@ to which the policy is attached.
---
--- /Note:/ Consider using 'objectIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blpaObjectIdentifiers :: Lens.Lens' BatchListPolicyAttachmentsResponse (Lude.Maybe [Lude.Text])
-blpaObjectIdentifiers = Lens.lens (objectIdentifiers :: BatchListPolicyAttachmentsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {objectIdentifiers = a} :: BatchListPolicyAttachmentsResponse)
-{-# DEPRECATED blpaObjectIdentifiers "Use generic-lens or generic-optics with 'objectIdentifiers' instead." #-}
 
 -- | The pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blpaNextToken :: Lens.Lens' BatchListPolicyAttachmentsResponse (Lude.Maybe Lude.Text)
-blpaNextToken = Lens.lens (nextToken :: BatchListPolicyAttachmentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListPolicyAttachmentsResponse)
-{-# DEPRECATED blpaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+blparNextToken :: Lens.Lens' BatchListPolicyAttachmentsResponse (Core.Maybe Types.NextToken)
+blparNextToken = Lens.field @"nextToken"
+{-# DEPRECATED blparNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.FromJSON BatchListPolicyAttachmentsResponse where
+-- | A list of @ObjectIdentifiers@ to which the policy is attached.
+--
+-- /Note:/ Consider using 'objectIdentifiers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+blparObjectIdentifiers :: Lens.Lens' BatchListPolicyAttachmentsResponse (Core.Maybe [Types.ObjectIdentifier])
+blparObjectIdentifiers = Lens.field @"objectIdentifiers"
+{-# DEPRECATED blparObjectIdentifiers "Use generic-lens or generic-optics with 'objectIdentifiers' instead." #-}
+
+instance Core.FromJSON BatchListPolicyAttachmentsResponse where
   parseJSON =
-    Lude.withObject
-      "BatchListPolicyAttachmentsResponse"
-      ( \x ->
-          BatchListPolicyAttachmentsResponse'
-            Lude.<$> (x Lude..:? "ObjectIdentifiers" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "NextToken")
-      )
+    Core.withObject "BatchListPolicyAttachmentsResponse" Core.$
+      \x ->
+        BatchListPolicyAttachmentsResponse'
+          Core.<$> (x Core..:? "NextToken") Core.<*> (x Core..:? "ObjectIdentifiers")

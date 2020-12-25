@@ -17,71 +17,65 @@ module Network.AWS.Greengrass.Types.BulkDeploymentMetrics
     mkBulkDeploymentMetrics,
 
     -- * Lenses
+    bdmInvalidInputRecords,
     bdmRecordsProcessed,
     bdmRetryAttempts,
-    bdmInvalidInputRecords,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Relevant metrics on input records processed during bulk deployment.
 --
 -- /See:/ 'mkBulkDeploymentMetrics' smart constructor.
 data BulkDeploymentMetrics = BulkDeploymentMetrics'
-  { -- | The total number of group records from the input file that have been processed so far, or attempted.
-    recordsProcessed :: Lude.Maybe Lude.Int,
+  { -- | The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version.
+    invalidInputRecords :: Core.Maybe Core.Int,
+    -- | The total number of group records from the input file that have been processed so far, or attempted.
+    recordsProcessed :: Core.Maybe Core.Int,
     -- | The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. ''StartBulkDeployment'' retries a group deployment up to five times.
-    retryAttempts :: Lude.Maybe Lude.Int,
-    -- | The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version.
-    invalidInputRecords :: Lude.Maybe Lude.Int
+    retryAttempts :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BulkDeploymentMetrics' with the minimum fields required to make a request.
---
--- * 'recordsProcessed' - The total number of group records from the input file that have been processed so far, or attempted.
--- * 'retryAttempts' - The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. ''StartBulkDeployment'' retries a group deployment up to five times.
--- * 'invalidInputRecords' - The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version.
+-- | Creates a 'BulkDeploymentMetrics' value with any optional fields omitted.
 mkBulkDeploymentMetrics ::
   BulkDeploymentMetrics
 mkBulkDeploymentMetrics =
   BulkDeploymentMetrics'
-    { recordsProcessed = Lude.Nothing,
-      retryAttempts = Lude.Nothing,
-      invalidInputRecords = Lude.Nothing
+    { invalidInputRecords = Core.Nothing,
+      recordsProcessed = Core.Nothing,
+      retryAttempts = Core.Nothing
     }
+
+-- | The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version.
+--
+-- /Note:/ Consider using 'invalidInputRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdmInvalidInputRecords :: Lens.Lens' BulkDeploymentMetrics (Core.Maybe Core.Int)
+bdmInvalidInputRecords = Lens.field @"invalidInputRecords"
+{-# DEPRECATED bdmInvalidInputRecords "Use generic-lens or generic-optics with 'invalidInputRecords' instead." #-}
 
 -- | The total number of group records from the input file that have been processed so far, or attempted.
 --
 -- /Note:/ Consider using 'recordsProcessed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdmRecordsProcessed :: Lens.Lens' BulkDeploymentMetrics (Lude.Maybe Lude.Int)
-bdmRecordsProcessed = Lens.lens (recordsProcessed :: BulkDeploymentMetrics -> Lude.Maybe Lude.Int) (\s a -> s {recordsProcessed = a} :: BulkDeploymentMetrics)
+bdmRecordsProcessed :: Lens.Lens' BulkDeploymentMetrics (Core.Maybe Core.Int)
+bdmRecordsProcessed = Lens.field @"recordsProcessed"
 {-# DEPRECATED bdmRecordsProcessed "Use generic-lens or generic-optics with 'recordsProcessed' instead." #-}
 
 -- | The total number of deployment attempts that returned a retryable error. For example, a retry is triggered if the attempt to deploy a group returns a throttling error. ''StartBulkDeployment'' retries a group deployment up to five times.
 --
 -- /Note:/ Consider using 'retryAttempts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdmRetryAttempts :: Lens.Lens' BulkDeploymentMetrics (Lude.Maybe Lude.Int)
-bdmRetryAttempts = Lens.lens (retryAttempts :: BulkDeploymentMetrics -> Lude.Maybe Lude.Int) (\s a -> s {retryAttempts = a} :: BulkDeploymentMetrics)
+bdmRetryAttempts :: Lens.Lens' BulkDeploymentMetrics (Core.Maybe Core.Int)
+bdmRetryAttempts = Lens.field @"retryAttempts"
 {-# DEPRECATED bdmRetryAttempts "Use generic-lens or generic-optics with 'retryAttempts' instead." #-}
 
--- | The total number of records that returned a non-retryable error. For example, this can occur if a group record from the input file uses an invalid format or specifies a nonexistent group version, or if the execution role doesn't grant permission to deploy a group or group version.
---
--- /Note:/ Consider using 'invalidInputRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdmInvalidInputRecords :: Lens.Lens' BulkDeploymentMetrics (Lude.Maybe Lude.Int)
-bdmInvalidInputRecords = Lens.lens (invalidInputRecords :: BulkDeploymentMetrics -> Lude.Maybe Lude.Int) (\s a -> s {invalidInputRecords = a} :: BulkDeploymentMetrics)
-{-# DEPRECATED bdmInvalidInputRecords "Use generic-lens or generic-optics with 'invalidInputRecords' instead." #-}
-
-instance Lude.FromJSON BulkDeploymentMetrics where
+instance Core.FromJSON BulkDeploymentMetrics where
   parseJSON =
-    Lude.withObject
-      "BulkDeploymentMetrics"
-      ( \x ->
-          BulkDeploymentMetrics'
-            Lude.<$> (x Lude..:? "RecordsProcessed")
-            Lude.<*> (x Lude..:? "RetryAttempts")
-            Lude.<*> (x Lude..:? "InvalidInputRecords")
-      )
+    Core.withObject "BulkDeploymentMetrics" Core.$
+      \x ->
+        BulkDeploymentMetrics'
+          Core.<$> (x Core..:? "InvalidInputRecords")
+          Core.<*> (x Core..:? "RecordsProcessed")
+          Core.<*> (x Core..:? "RetryAttempts")

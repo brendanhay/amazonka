@@ -22,65 +22,59 @@ module Network.AWS.Budgets.Types.ScpActionDefinition
   )
 where
 
+import qualified Network.AWS.Budgets.Types.PolicyId as Types
+import qualified Network.AWS.Budgets.Types.TargetId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The service control policies (SCP) action definition details.
 --
 -- /See:/ 'mkScpActionDefinition' smart constructor.
 data ScpActionDefinition = ScpActionDefinition'
   { -- | The policy ID attached.
-    policyId :: Lude.Text,
+    policyId :: Types.PolicyId,
     -- | A list of target IDs.
-    targetIds :: Lude.NonEmpty Lude.Text
+    targetIds :: Core.NonEmpty Types.TargetId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScpActionDefinition' with the minimum fields required to make a request.
---
--- * 'policyId' - The policy ID attached.
--- * 'targetIds' - A list of target IDs.
+-- | Creates a 'ScpActionDefinition' value with any optional fields omitted.
 mkScpActionDefinition ::
   -- | 'policyId'
-  Lude.Text ->
+  Types.PolicyId ->
   -- | 'targetIds'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.TargetId ->
   ScpActionDefinition
-mkScpActionDefinition pPolicyId_ pTargetIds_ =
-  ScpActionDefinition'
-    { policyId = pPolicyId_,
-      targetIds = pTargetIds_
-    }
+mkScpActionDefinition policyId targetIds =
+  ScpActionDefinition' {policyId, targetIds}
 
 -- | The policy ID attached.
 --
 -- /Note:/ Consider using 'policyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sadPolicyId :: Lens.Lens' ScpActionDefinition Lude.Text
-sadPolicyId = Lens.lens (policyId :: ScpActionDefinition -> Lude.Text) (\s a -> s {policyId = a} :: ScpActionDefinition)
+sadPolicyId :: Lens.Lens' ScpActionDefinition Types.PolicyId
+sadPolicyId = Lens.field @"policyId"
 {-# DEPRECATED sadPolicyId "Use generic-lens or generic-optics with 'policyId' instead." #-}
 
 -- | A list of target IDs.
 --
 -- /Note:/ Consider using 'targetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sadTargetIds :: Lens.Lens' ScpActionDefinition (Lude.NonEmpty Lude.Text)
-sadTargetIds = Lens.lens (targetIds :: ScpActionDefinition -> Lude.NonEmpty Lude.Text) (\s a -> s {targetIds = a} :: ScpActionDefinition)
+sadTargetIds :: Lens.Lens' ScpActionDefinition (Core.NonEmpty Types.TargetId)
+sadTargetIds = Lens.field @"targetIds"
 {-# DEPRECATED sadTargetIds "Use generic-lens or generic-optics with 'targetIds' instead." #-}
 
-instance Lude.FromJSON ScpActionDefinition where
-  parseJSON =
-    Lude.withObject
-      "ScpActionDefinition"
-      ( \x ->
-          ScpActionDefinition'
-            Lude.<$> (x Lude..: "PolicyId") Lude.<*> (x Lude..: "TargetIds")
-      )
-
-instance Lude.ToJSON ScpActionDefinition where
-  toJSON ScpActionDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PolicyId" Lude..= policyId),
-            Lude.Just ("TargetIds" Lude..= targetIds)
+instance Core.FromJSON ScpActionDefinition where
+  toJSON ScpActionDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyId" Core..= policyId),
+            Core.Just ("TargetIds" Core..= targetIds)
           ]
       )
+
+instance Core.FromJSON ScpActionDefinition where
+  parseJSON =
+    Core.withObject "ScpActionDefinition" Core.$
+      \x ->
+        ScpActionDefinition'
+          Core.<$> (x Core..: "PolicyId") Core.<*> (x Core..: "TargetIds")

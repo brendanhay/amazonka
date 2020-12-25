@@ -22,220 +22,203 @@ module Network.AWS.SageMaker.ListAlgorithms
     mkListAlgorithms,
 
     -- ** Request lenses
-    laNameContains,
-    laCreationTimeAfter,
-    laNextToken,
-    laSortOrder,
-    laCreationTimeBefore,
-    laMaxResults,
-    laSortBy,
+    lCreationTimeAfter,
+    lCreationTimeBefore,
+    lMaxResults,
+    lNameContains,
+    lNextToken,
+    lSortBy,
+    lSortOrder,
 
     -- * Destructuring the response
     ListAlgorithmsResponse (..),
     mkListAlgorithmsResponse,
 
     -- ** Response lenses
-    lasrsAlgorithmSummaryList,
-    lasrsNextToken,
-    lasrsResponseStatus,
+    larfrsAlgorithmSummaryList,
+    larfrsNextToken,
+    larfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListAlgorithms' smart constructor.
 data ListAlgorithms = ListAlgorithms'
-  { -- | A string in the algorithm name. This filter returns only algorithms whose name contains the specified string.
-    nameContains :: Lude.Maybe Lude.Text,
-    -- | A filter that returns only algorithms created after the specified time (timestamp).
-    creationTimeAfter :: Lude.Maybe Lude.Timestamp,
-    -- | If the response to a previous @ListAlgorithms@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of algorithms, use the token in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sort order for the results. The default is @Ascending@ .
-    sortOrder :: Lude.Maybe SortOrder,
+  { -- | A filter that returns only algorithms created after the specified time (timestamp).
+    creationTimeAfter :: Core.Maybe Core.NominalDiffTime,
     -- | A filter that returns only algorithms created before the specified time (timestamp).
-    creationTimeBefore :: Lude.Maybe Lude.Timestamp,
+    creationTimeBefore :: Core.Maybe Core.NominalDiffTime,
     -- | The maximum number of algorithms to return in the response.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A string in the algorithm name. This filter returns only algorithms whose name contains the specified string.
+    nameContains :: Core.Maybe Types.NameContains,
+    -- | If the response to a previous @ListAlgorithms@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of algorithms, use the token in the next request.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The parameter by which to sort the results. The default is @CreationTime@ .
-    sortBy :: Lude.Maybe AlgorithmSortBy
+    sortBy :: Core.Maybe Types.AlgorithmSortBy,
+    -- | The sort order for the results. The default is @Ascending@ .
+    sortOrder :: Core.Maybe Types.SortOrder
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListAlgorithms' with the minimum fields required to make a request.
---
--- * 'nameContains' - A string in the algorithm name. This filter returns only algorithms whose name contains the specified string.
--- * 'creationTimeAfter' - A filter that returns only algorithms created after the specified time (timestamp).
--- * 'nextToken' - If the response to a previous @ListAlgorithms@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of algorithms, use the token in the next request.
--- * 'sortOrder' - The sort order for the results. The default is @Ascending@ .
--- * 'creationTimeBefore' - A filter that returns only algorithms created before the specified time (timestamp).
--- * 'maxResults' - The maximum number of algorithms to return in the response.
--- * 'sortBy' - The parameter by which to sort the results. The default is @CreationTime@ .
+-- | Creates a 'ListAlgorithms' value with any optional fields omitted.
 mkListAlgorithms ::
   ListAlgorithms
 mkListAlgorithms =
   ListAlgorithms'
-    { nameContains = Lude.Nothing,
-      creationTimeAfter = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      creationTimeBefore = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { creationTimeAfter = Core.Nothing,
+      creationTimeBefore = Core.Nothing,
+      maxResults = Core.Nothing,
+      nameContains = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing
     }
-
--- | A string in the algorithm name. This filter returns only algorithms whose name contains the specified string.
---
--- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laNameContains :: Lens.Lens' ListAlgorithms (Lude.Maybe Lude.Text)
-laNameContains = Lens.lens (nameContains :: ListAlgorithms -> Lude.Maybe Lude.Text) (\s a -> s {nameContains = a} :: ListAlgorithms)
-{-# DEPRECATED laNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
 
 -- | A filter that returns only algorithms created after the specified time (timestamp).
 --
 -- /Note:/ Consider using 'creationTimeAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laCreationTimeAfter :: Lens.Lens' ListAlgorithms (Lude.Maybe Lude.Timestamp)
-laCreationTimeAfter = Lens.lens (creationTimeAfter :: ListAlgorithms -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeAfter = a} :: ListAlgorithms)
-{-# DEPRECATED laCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
-
--- | If the response to a previous @ListAlgorithms@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of algorithms, use the token in the next request.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laNextToken :: Lens.Lens' ListAlgorithms (Lude.Maybe Lude.Text)
-laNextToken = Lens.lens (nextToken :: ListAlgorithms -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAlgorithms)
-{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sort order for the results. The default is @Ascending@ .
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laSortOrder :: Lens.Lens' ListAlgorithms (Lude.Maybe SortOrder)
-laSortOrder = Lens.lens (sortOrder :: ListAlgorithms -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListAlgorithms)
-{-# DEPRECATED laSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
+lCreationTimeAfter :: Lens.Lens' ListAlgorithms (Core.Maybe Core.NominalDiffTime)
+lCreationTimeAfter = Lens.field @"creationTimeAfter"
+{-# DEPRECATED lCreationTimeAfter "Use generic-lens or generic-optics with 'creationTimeAfter' instead." #-}
 
 -- | A filter that returns only algorithms created before the specified time (timestamp).
 --
 -- /Note:/ Consider using 'creationTimeBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laCreationTimeBefore :: Lens.Lens' ListAlgorithms (Lude.Maybe Lude.Timestamp)
-laCreationTimeBefore = Lens.lens (creationTimeBefore :: ListAlgorithms -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTimeBefore = a} :: ListAlgorithms)
-{-# DEPRECATED laCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
+lCreationTimeBefore :: Lens.Lens' ListAlgorithms (Core.Maybe Core.NominalDiffTime)
+lCreationTimeBefore = Lens.field @"creationTimeBefore"
+{-# DEPRECATED lCreationTimeBefore "Use generic-lens or generic-optics with 'creationTimeBefore' instead." #-}
 
 -- | The maximum number of algorithms to return in the response.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laMaxResults :: Lens.Lens' ListAlgorithms (Lude.Maybe Lude.Natural)
-laMaxResults = Lens.lens (maxResults :: ListAlgorithms -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListAlgorithms)
-{-# DEPRECATED laMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+lMaxResults :: Lens.Lens' ListAlgorithms (Core.Maybe Core.Natural)
+lMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | A string in the algorithm name. This filter returns only algorithms whose name contains the specified string.
+--
+-- /Note:/ Consider using 'nameContains' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNameContains :: Lens.Lens' ListAlgorithms (Core.Maybe Types.NameContains)
+lNameContains = Lens.field @"nameContains"
+{-# DEPRECATED lNameContains "Use generic-lens or generic-optics with 'nameContains' instead." #-}
+
+-- | If the response to a previous @ListAlgorithms@ request was truncated, the response includes a @NextToken@ . To retrieve the next set of algorithms, use the token in the next request.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lNextToken :: Lens.Lens' ListAlgorithms (Core.Maybe Types.NextToken)
+lNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The parameter by which to sort the results. The default is @CreationTime@ .
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-laSortBy :: Lens.Lens' ListAlgorithms (Lude.Maybe AlgorithmSortBy)
-laSortBy = Lens.lens (sortBy :: ListAlgorithms -> Lude.Maybe AlgorithmSortBy) (\s a -> s {sortBy = a} :: ListAlgorithms)
-{-# DEPRECATED laSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
+lSortBy :: Lens.Lens' ListAlgorithms (Core.Maybe Types.AlgorithmSortBy)
+lSortBy = Lens.field @"sortBy"
+{-# DEPRECATED lSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager ListAlgorithms where
-  page rq rs
-    | Page.stop (rs Lens.^. lasrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lasrsAlgorithmSummaryList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& laNextToken Lens..~ rs Lens.^. lasrsNextToken
+-- | The sort order for the results. The default is @Ascending@ .
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lSortOrder :: Lens.Lens' ListAlgorithms (Core.Maybe Types.SortOrder)
+lSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED lSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest ListAlgorithms where
+instance Core.FromJSON ListAlgorithms where
+  toJSON ListAlgorithms {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CreationTimeAfter" Core..=) Core.<$> creationTimeAfter,
+            ("CreationTimeBefore" Core..=) Core.<$> creationTimeBefore,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NameContains" Core..=) Core.<$> nameContains,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("SortOrder" Core..=) Core.<$> sortOrder
+          ]
+      )
+
+instance Core.AWSRequest ListAlgorithms where
   type Rs ListAlgorithms = ListAlgorithmsResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListAlgorithms")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAlgorithmsResponse'
-            Lude.<$> (x Lude..?> "AlgorithmSummaryList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AlgorithmSummaryList" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListAlgorithms where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.ListAlgorithms" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAlgorithms where
-  toJSON ListAlgorithms' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NameContains" Lude..=) Lude.<$> nameContains,
-            ("CreationTimeAfter" Lude..=) Lude.<$> creationTimeAfter,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("CreationTimeBefore" Lude..=) Lude.<$> creationTimeBefore,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListAlgorithms where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAlgorithms where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListAlgorithms where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"algorithmSummaryList") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListAlgorithmsResponse' smart constructor.
 data ListAlgorithmsResponse = ListAlgorithmsResponse'
   { -- | >An array of @AlgorithmSummary@ objects, each of which lists an algorithm.
-    algorithmSummaryList :: [AlgorithmSummary],
+    algorithmSummaryList :: [Types.AlgorithmSummary],
     -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of algorithms, use it in the subsequent request.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListAlgorithmsResponse' with the minimum fields required to make a request.
---
--- * 'algorithmSummaryList' - >An array of @AlgorithmSummary@ objects, each of which lists an algorithm.
--- * 'nextToken' - If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of algorithms, use it in the subsequent request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAlgorithmsResponse' value with any optional fields omitted.
 mkListAlgorithmsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAlgorithmsResponse
-mkListAlgorithmsResponse pResponseStatus_ =
+mkListAlgorithmsResponse responseStatus =
   ListAlgorithmsResponse'
-    { algorithmSummaryList = Lude.mempty,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { algorithmSummaryList = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | >An array of @AlgorithmSummary@ objects, each of which lists an algorithm.
 --
 -- /Note:/ Consider using 'algorithmSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasrsAlgorithmSummaryList :: Lens.Lens' ListAlgorithmsResponse [AlgorithmSummary]
-lasrsAlgorithmSummaryList = Lens.lens (algorithmSummaryList :: ListAlgorithmsResponse -> [AlgorithmSummary]) (\s a -> s {algorithmSummaryList = a} :: ListAlgorithmsResponse)
-{-# DEPRECATED lasrsAlgorithmSummaryList "Use generic-lens or generic-optics with 'algorithmSummaryList' instead." #-}
+larfrsAlgorithmSummaryList :: Lens.Lens' ListAlgorithmsResponse [Types.AlgorithmSummary]
+larfrsAlgorithmSummaryList = Lens.field @"algorithmSummaryList"
+{-# DEPRECATED larfrsAlgorithmSummaryList "Use generic-lens or generic-optics with 'algorithmSummaryList' instead." #-}
 
 -- | If the response is truncated, Amazon SageMaker returns this token. To retrieve the next set of algorithms, use it in the subsequent request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasrsNextToken :: Lens.Lens' ListAlgorithmsResponse (Lude.Maybe Lude.Text)
-lasrsNextToken = Lens.lens (nextToken :: ListAlgorithmsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAlgorithmsResponse)
-{-# DEPRECATED lasrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+larfrsNextToken :: Lens.Lens' ListAlgorithmsResponse (Core.Maybe Types.NextToken)
+larfrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED larfrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasrsResponseStatus :: Lens.Lens' ListAlgorithmsResponse Lude.Int
-lasrsResponseStatus = Lens.lens (responseStatus :: ListAlgorithmsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAlgorithmsResponse)
-{-# DEPRECATED lasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+larfrsResponseStatus :: Lens.Lens' ListAlgorithmsResponse Core.Int
+larfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED larfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

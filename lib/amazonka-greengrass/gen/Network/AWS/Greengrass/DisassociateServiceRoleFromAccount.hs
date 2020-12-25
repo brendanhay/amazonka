@@ -24,91 +24,82 @@ module Network.AWS.Greengrass.DisassociateServiceRoleFromAccount
     mkDisassociateServiceRoleFromAccountResponse,
 
     -- ** Response lenses
-    dsrfarsDisassociatedAt,
-    dsrfarsResponseStatus,
+    dsrfarrsDisassociatedAt,
+    dsrfarrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateServiceRoleFromAccount' smart constructor.
 data DisassociateServiceRoleFromAccount = DisassociateServiceRoleFromAccount'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateServiceRoleFromAccount' with the minimum fields required to make a request.
+-- | Creates a 'DisassociateServiceRoleFromAccount' value with any optional fields omitted.
 mkDisassociateServiceRoleFromAccount ::
   DisassociateServiceRoleFromAccount
 mkDisassociateServiceRoleFromAccount =
   DisassociateServiceRoleFromAccount'
 
-instance Lude.AWSRequest DisassociateServiceRoleFromAccount where
+instance Core.AWSRequest DisassociateServiceRoleFromAccount where
   type
     Rs DisassociateServiceRoleFromAccount =
       DisassociateServiceRoleFromAccountResponse
-  request = Req.delete greengrassService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath "/greengrass/servicerole",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DisassociateServiceRoleFromAccountResponse'
-            Lude.<$> (x Lude..?> "DisassociatedAt")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DisassociatedAt")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateServiceRoleFromAccount where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DisassociateServiceRoleFromAccount where
-  toPath = Lude.const "/greengrass/servicerole"
-
-instance Lude.ToQuery DisassociateServiceRoleFromAccount where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateServiceRoleFromAccountResponse' smart constructor.
 data DisassociateServiceRoleFromAccountResponse = DisassociateServiceRoleFromAccountResponse'
   { -- | The time when the service role was disassociated from the account.
-    disassociatedAt :: Lude.Maybe Lude.Text,
+    disassociatedAt :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateServiceRoleFromAccountResponse' with the minimum fields required to make a request.
---
--- * 'disassociatedAt' - The time when the service role was disassociated from the account.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateServiceRoleFromAccountResponse' value with any optional fields omitted.
 mkDisassociateServiceRoleFromAccountResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateServiceRoleFromAccountResponse
-mkDisassociateServiceRoleFromAccountResponse pResponseStatus_ =
+mkDisassociateServiceRoleFromAccountResponse responseStatus =
   DisassociateServiceRoleFromAccountResponse'
     { disassociatedAt =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The time when the service role was disassociated from the account.
 --
 -- /Note:/ Consider using 'disassociatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrfarsDisassociatedAt :: Lens.Lens' DisassociateServiceRoleFromAccountResponse (Lude.Maybe Lude.Text)
-dsrfarsDisassociatedAt = Lens.lens (disassociatedAt :: DisassociateServiceRoleFromAccountResponse -> Lude.Maybe Lude.Text) (\s a -> s {disassociatedAt = a} :: DisassociateServiceRoleFromAccountResponse)
-{-# DEPRECATED dsrfarsDisassociatedAt "Use generic-lens or generic-optics with 'disassociatedAt' instead." #-}
+dsrfarrsDisassociatedAt :: Lens.Lens' DisassociateServiceRoleFromAccountResponse (Core.Maybe Core.Text)
+dsrfarrsDisassociatedAt = Lens.field @"disassociatedAt"
+{-# DEPRECATED dsrfarrsDisassociatedAt "Use generic-lens or generic-optics with 'disassociatedAt' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsrfarsResponseStatus :: Lens.Lens' DisassociateServiceRoleFromAccountResponse Lude.Int
-dsrfarsResponseStatus = Lens.lens (responseStatus :: DisassociateServiceRoleFromAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateServiceRoleFromAccountResponse)
-{-# DEPRECATED dsrfarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsrfarrsResponseStatus :: Lens.Lens' DisassociateServiceRoleFromAccountResponse Core.Int
+dsrfarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsrfarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -27,116 +27,100 @@ module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     mkRetrieveDomainAuthCodeResponse,
 
     -- ** Response lenses
-    rdacrsAuthCode,
-    rdacrsResponseStatus,
+    rdacrrsAuthCode,
+    rdacrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53Domains.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53Domains.Types as Types
 
 -- | A request for the authorization code for the specified domain. To transfer a domain to another registrar, you provide this value to the new registrar.
 --
 -- /See:/ 'mkRetrieveDomainAuthCode' smart constructor.
 newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
   { -- | The name of the domain that you want to get an authorization code for.
-    domainName :: Lude.Text
+    domainName :: Types.DomainName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RetrieveDomainAuthCode' with the minimum fields required to make a request.
---
--- * 'domainName' - The name of the domain that you want to get an authorization code for.
+-- | Creates a 'RetrieveDomainAuthCode' value with any optional fields omitted.
 mkRetrieveDomainAuthCode ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   RetrieveDomainAuthCode
-mkRetrieveDomainAuthCode pDomainName_ =
-  RetrieveDomainAuthCode' {domainName = pDomainName_}
+mkRetrieveDomainAuthCode domainName =
+  RetrieveDomainAuthCode' {domainName}
 
 -- | The name of the domain that you want to get an authorization code for.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdacDomainName :: Lens.Lens' RetrieveDomainAuthCode Lude.Text
-rdacDomainName = Lens.lens (domainName :: RetrieveDomainAuthCode -> Lude.Text) (\s a -> s {domainName = a} :: RetrieveDomainAuthCode)
+rdacDomainName :: Lens.Lens' RetrieveDomainAuthCode Types.DomainName
+rdacDomainName = Lens.field @"domainName"
 {-# DEPRECATED rdacDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest RetrieveDomainAuthCode where
+instance Core.FromJSON RetrieveDomainAuthCode where
+  toJSON RetrieveDomainAuthCode {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DomainName" Core..= domainName)])
+
+instance Core.AWSRequest RetrieveDomainAuthCode where
   type Rs RetrieveDomainAuthCode = RetrieveDomainAuthCodeResponse
-  request = Req.postJSON route53DomainsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53Domains_v20140515.RetrieveDomainAuthCode")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           RetrieveDomainAuthCodeResponse'
-            Lude.<$> (x Lude..:> "AuthCode") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "AuthCode") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RetrieveDomainAuthCode where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Route53Domains_v20140515.RetrieveDomainAuthCode" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RetrieveDomainAuthCode where
-  toJSON RetrieveDomainAuthCode' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DomainName" Lude..= domainName)])
-
-instance Lude.ToPath RetrieveDomainAuthCode where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RetrieveDomainAuthCode where
-  toQuery = Lude.const Lude.mempty
 
 -- | The RetrieveDomainAuthCode response includes the following element.
 --
 -- /See:/ 'mkRetrieveDomainAuthCodeResponse' smart constructor.
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
   { -- | The authorization code for the domain.
-    authCode :: Lude.Sensitive Lude.Text,
+    authCode :: Types.DomainAuthCode,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RetrieveDomainAuthCodeResponse' with the minimum fields required to make a request.
---
--- * 'authCode' - The authorization code for the domain.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RetrieveDomainAuthCodeResponse' value with any optional fields omitted.
 mkRetrieveDomainAuthCodeResponse ::
   -- | 'authCode'
-  Lude.Sensitive Lude.Text ->
+  Types.DomainAuthCode ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RetrieveDomainAuthCodeResponse
-mkRetrieveDomainAuthCodeResponse pAuthCode_ pResponseStatus_ =
-  RetrieveDomainAuthCodeResponse'
-    { authCode = pAuthCode_,
-      responseStatus = pResponseStatus_
-    }
+mkRetrieveDomainAuthCodeResponse authCode responseStatus =
+  RetrieveDomainAuthCodeResponse' {authCode, responseStatus}
 
 -- | The authorization code for the domain.
 --
 -- /Note:/ Consider using 'authCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdacrsAuthCode :: Lens.Lens' RetrieveDomainAuthCodeResponse (Lude.Sensitive Lude.Text)
-rdacrsAuthCode = Lens.lens (authCode :: RetrieveDomainAuthCodeResponse -> Lude.Sensitive Lude.Text) (\s a -> s {authCode = a} :: RetrieveDomainAuthCodeResponse)
-{-# DEPRECATED rdacrsAuthCode "Use generic-lens or generic-optics with 'authCode' instead." #-}
+rdacrrsAuthCode :: Lens.Lens' RetrieveDomainAuthCodeResponse Types.DomainAuthCode
+rdacrrsAuthCode = Lens.field @"authCode"
+{-# DEPRECATED rdacrrsAuthCode "Use generic-lens or generic-optics with 'authCode' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdacrsResponseStatus :: Lens.Lens' RetrieveDomainAuthCodeResponse Lude.Int
-rdacrsResponseStatus = Lens.lens (responseStatus :: RetrieveDomainAuthCodeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RetrieveDomainAuthCodeResponse)
-{-# DEPRECATED rdacrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rdacrrsResponseStatus :: Lens.Lens' RetrieveDomainAuthCodeResponse Core.Int
+rdacrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rdacrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

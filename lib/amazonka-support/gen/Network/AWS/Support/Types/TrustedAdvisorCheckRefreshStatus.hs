@@ -17,21 +17,22 @@ module Network.AWS.Support.Types.TrustedAdvisorCheckRefreshStatus
     mkTrustedAdvisorCheckRefreshStatus,
 
     -- * Lenses
-    tacrsMillisUntilNextRefreshable,
-    tacrsStatus,
     tacrsCheckId,
+    tacrsStatus,
+    tacrsMillisUntilNextRefreshable,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Support.Types.String as Types
 
 -- | The refresh status of a Trusted Advisor check.
 --
 -- /See:/ 'mkTrustedAdvisorCheckRefreshStatus' smart constructor.
 data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
-  { -- | The amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.
-    millisUntilNextRefreshable :: Lude.Integer,
+  { -- | The unique identifier for the Trusted Advisor check.
+    checkId :: Types.String,
     -- | The status of the Trusted Advisor check for which a refresh has been requested:
     --
     --
@@ -48,60 +49,38 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
     --
     --
     --     * @abandoned:@ The check refresh has failed
-    status :: Lude.Text,
-    -- | The unique identifier for the Trusted Advisor check.
-    checkId :: Lude.Text
+    status :: Types.String,
+    -- | The amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.
+    millisUntilNextRefreshable :: Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrustedAdvisorCheckRefreshStatus' with the minimum fields required to make a request.
---
--- * 'millisUntilNextRefreshable' - The amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.
--- * 'status' - The status of the Trusted Advisor check for which a refresh has been requested:
---
---
---     * @none:@ The check is not refreshed or the non-success status exceeds the timeout
---
---
---     * @enqueued:@ The check refresh requests has entered the refresh queue
---
---
---     * @processing:@ The check refresh request is picked up by the rule processing engine
---
---
---     * @success:@ The check is successfully refreshed
---
---
---     * @abandoned:@ The check refresh has failed
---
---
--- * 'checkId' - The unique identifier for the Trusted Advisor check.
+-- | Creates a 'TrustedAdvisorCheckRefreshStatus' value with any optional fields omitted.
 mkTrustedAdvisorCheckRefreshStatus ::
-  -- | 'millisUntilNextRefreshable'
-  Lude.Integer ->
-  -- | 'status'
-  Lude.Text ->
   -- | 'checkId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'status'
+  Types.String ->
+  -- | 'millisUntilNextRefreshable'
+  Core.Integer ->
   TrustedAdvisorCheckRefreshStatus
 mkTrustedAdvisorCheckRefreshStatus
-  pMillisUntilNextRefreshable_
-  pStatus_
-  pCheckId_ =
+  checkId
+  status
+  millisUntilNextRefreshable =
     TrustedAdvisorCheckRefreshStatus'
-      { millisUntilNextRefreshable =
-          pMillisUntilNextRefreshable_,
-        status = pStatus_,
-        checkId = pCheckId_
+      { checkId,
+        status,
+        millisUntilNextRefreshable
       }
 
--- | The amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.
+-- | The unique identifier for the Trusted Advisor check.
 --
--- /Note:/ Consider using 'millisUntilNextRefreshable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacrsMillisUntilNextRefreshable :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Lude.Integer
-tacrsMillisUntilNextRefreshable = Lens.lens (millisUntilNextRefreshable :: TrustedAdvisorCheckRefreshStatus -> Lude.Integer) (\s a -> s {millisUntilNextRefreshable = a} :: TrustedAdvisorCheckRefreshStatus)
-{-# DEPRECATED tacrsMillisUntilNextRefreshable "Use generic-lens or generic-optics with 'millisUntilNextRefreshable' instead." #-}
+-- /Note:/ Consider using 'checkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacrsCheckId :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Types.String
+tacrsCheckId = Lens.field @"checkId"
+{-# DEPRECATED tacrsCheckId "Use generic-lens or generic-optics with 'checkId' instead." #-}
 
 -- | The status of the Trusted Advisor check for which a refresh has been requested:
 --
@@ -123,24 +102,22 @@ tacrsMillisUntilNextRefreshable = Lens.lens (millisUntilNextRefreshable :: Trust
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacrsStatus :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Lude.Text
-tacrsStatus = Lens.lens (status :: TrustedAdvisorCheckRefreshStatus -> Lude.Text) (\s a -> s {status = a} :: TrustedAdvisorCheckRefreshStatus)
+tacrsStatus :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Types.String
+tacrsStatus = Lens.field @"status"
 {-# DEPRECATED tacrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
--- | The unique identifier for the Trusted Advisor check.
+-- | The amount of time, in milliseconds, until the Trusted Advisor check is eligible for refresh.
 --
--- /Note:/ Consider using 'checkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tacrsCheckId :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Lude.Text
-tacrsCheckId = Lens.lens (checkId :: TrustedAdvisorCheckRefreshStatus -> Lude.Text) (\s a -> s {checkId = a} :: TrustedAdvisorCheckRefreshStatus)
-{-# DEPRECATED tacrsCheckId "Use generic-lens or generic-optics with 'checkId' instead." #-}
+-- /Note:/ Consider using 'millisUntilNextRefreshable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tacrsMillisUntilNextRefreshable :: Lens.Lens' TrustedAdvisorCheckRefreshStatus Core.Integer
+tacrsMillisUntilNextRefreshable = Lens.field @"millisUntilNextRefreshable"
+{-# DEPRECATED tacrsMillisUntilNextRefreshable "Use generic-lens or generic-optics with 'millisUntilNextRefreshable' instead." #-}
 
-instance Lude.FromJSON TrustedAdvisorCheckRefreshStatus where
+instance Core.FromJSON TrustedAdvisorCheckRefreshStatus where
   parseJSON =
-    Lude.withObject
-      "TrustedAdvisorCheckRefreshStatus"
-      ( \x ->
-          TrustedAdvisorCheckRefreshStatus'
-            Lude.<$> (x Lude..: "millisUntilNextRefreshable")
-            Lude.<*> (x Lude..: "status")
-            Lude.<*> (x Lude..: "checkId")
-      )
+    Core.withObject "TrustedAdvisorCheckRefreshStatus" Core.$
+      \x ->
+        TrustedAdvisorCheckRefreshStatus'
+          Core.<$> (x Core..: "checkId")
+          Core.<*> (x Core..: "status")
+          Core.<*> (x Core..: "millisUntilNextRefreshable")

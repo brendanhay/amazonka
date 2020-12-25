@@ -17,68 +17,62 @@ module Network.AWS.CodePipeline.Types.WebhookFilterRule
     mkWebhookFilterRule,
 
     -- * Lenses
-    wfrMatchEquals,
     wfrJsonPath,
+    wfrMatchEquals,
   )
 where
 
+import qualified Network.AWS.CodePipeline.Types.JsonPath as Types
+import qualified Network.AWS.CodePipeline.Types.MatchEquals as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The event criteria that specify when a webhook notification is sent to your URL.
 --
 -- /See:/ 'mkWebhookFilterRule' smart constructor.
 data WebhookFilterRule = WebhookFilterRule'
-  { -- | The value selected by the @JsonPath@ expression must match what is supplied in the @MatchEquals@ field. Otherwise, the request is ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly brackets. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the @MatchEquals@ value is evaluated as "refs/heads/master". For a list of action configuration properties for built-in action types, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements> .
-    matchEquals :: Lude.Maybe Lude.Text,
-    -- | A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the @MatchEquals@ field. Otherwise, the request is ignored. For more information, see <https://github.com/json-path/JsonPath Java JsonPath implementation> in GitHub.
-    jsonPath :: Lude.Text
+  { -- | A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the @MatchEquals@ field. Otherwise, the request is ignored. For more information, see <https://github.com/json-path/JsonPath Java JsonPath implementation> in GitHub.
+    jsonPath :: Types.JsonPath,
+    -- | The value selected by the @JsonPath@ expression must match what is supplied in the @MatchEquals@ field. Otherwise, the request is ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly brackets. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the @MatchEquals@ value is evaluated as "refs/heads/master". For a list of action configuration properties for built-in action types, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements> .
+    matchEquals :: Core.Maybe Types.MatchEquals
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WebhookFilterRule' with the minimum fields required to make a request.
---
--- * 'matchEquals' - The value selected by the @JsonPath@ expression must match what is supplied in the @MatchEquals@ field. Otherwise, the request is ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly brackets. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the @MatchEquals@ value is evaluated as "refs/heads/master". For a list of action configuration properties for built-in action types, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements> .
--- * 'jsonPath' - A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the @MatchEquals@ field. Otherwise, the request is ignored. For more information, see <https://github.com/json-path/JsonPath Java JsonPath implementation> in GitHub.
+-- | Creates a 'WebhookFilterRule' value with any optional fields omitted.
 mkWebhookFilterRule ::
   -- | 'jsonPath'
-  Lude.Text ->
+  Types.JsonPath ->
   WebhookFilterRule
-mkWebhookFilterRule pJsonPath_ =
-  WebhookFilterRule'
-    { matchEquals = Lude.Nothing,
-      jsonPath = pJsonPath_
-    }
-
--- | The value selected by the @JsonPath@ expression must match what is supplied in the @MatchEquals@ field. Otherwise, the request is ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly brackets. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the @MatchEquals@ value is evaluated as "refs/heads/master". For a list of action configuration properties for built-in action types, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements> .
---
--- /Note:/ Consider using 'matchEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wfrMatchEquals :: Lens.Lens' WebhookFilterRule (Lude.Maybe Lude.Text)
-wfrMatchEquals = Lens.lens (matchEquals :: WebhookFilterRule -> Lude.Maybe Lude.Text) (\s a -> s {matchEquals = a} :: WebhookFilterRule)
-{-# DEPRECATED wfrMatchEquals "Use generic-lens or generic-optics with 'matchEquals' instead." #-}
+mkWebhookFilterRule jsonPath =
+  WebhookFilterRule' {jsonPath, matchEquals = Core.Nothing}
 
 -- | A JsonPath expression that is applied to the body/payload of the webhook. The value selected by the JsonPath expression must match the value specified in the @MatchEquals@ field. Otherwise, the request is ignored. For more information, see <https://github.com/json-path/JsonPath Java JsonPath implementation> in GitHub.
 --
 -- /Note:/ Consider using 'jsonPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wfrJsonPath :: Lens.Lens' WebhookFilterRule Lude.Text
-wfrJsonPath = Lens.lens (jsonPath :: WebhookFilterRule -> Lude.Text) (\s a -> s {jsonPath = a} :: WebhookFilterRule)
+wfrJsonPath :: Lens.Lens' WebhookFilterRule Types.JsonPath
+wfrJsonPath = Lens.field @"jsonPath"
 {-# DEPRECATED wfrJsonPath "Use generic-lens or generic-optics with 'jsonPath' instead." #-}
 
-instance Lude.FromJSON WebhookFilterRule where
-  parseJSON =
-    Lude.withObject
-      "WebhookFilterRule"
-      ( \x ->
-          WebhookFilterRule'
-            Lude.<$> (x Lude..:? "matchEquals") Lude.<*> (x Lude..: "jsonPath")
-      )
+-- | The value selected by the @JsonPath@ expression must match what is supplied in the @MatchEquals@ field. Otherwise, the request is ignored. Properties from the target action configuration can be included as placeholders in this value by surrounding the action configuration key with curly brackets. For example, if the value supplied here is "refs/heads/{Branch}" and the target action has an action configuration property called "Branch" with a value of "master", the @MatchEquals@ value is evaluated as "refs/heads/master". For a list of action configuration properties for built-in action types, see <https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#action-requirements Pipeline Structure Reference Action Requirements> .
+--
+-- /Note:/ Consider using 'matchEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wfrMatchEquals :: Lens.Lens' WebhookFilterRule (Core.Maybe Types.MatchEquals)
+wfrMatchEquals = Lens.field @"matchEquals"
+{-# DEPRECATED wfrMatchEquals "Use generic-lens or generic-optics with 'matchEquals' instead." #-}
 
-instance Lude.ToJSON WebhookFilterRule where
-  toJSON WebhookFilterRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("matchEquals" Lude..=) Lude.<$> matchEquals,
-            Lude.Just ("jsonPath" Lude..= jsonPath)
+instance Core.FromJSON WebhookFilterRule where
+  toJSON WebhookFilterRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("jsonPath" Core..= jsonPath),
+            ("matchEquals" Core..=) Core.<$> matchEquals
           ]
       )
+
+instance Core.FromJSON WebhookFilterRule where
+  parseJSON =
+    Core.withObject "WebhookFilterRule" Core.$
+      \x ->
+        WebhookFilterRule'
+          Core.<$> (x Core..: "jsonPath") Core.<*> (x Core..:? "matchEquals")

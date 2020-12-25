@@ -17,40 +17,37 @@ module Network.AWS.MediaLive.Types.ChannelEgressEndpoint
     mkChannelEgressEndpoint,
 
     -- * Lenses
-    ceeSourceIP,
+    ceeSourceIp,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Placeholder documentation for ChannelEgressEndpoint
 --
 -- /See:/ 'mkChannelEgressEndpoint' smart constructor.
 newtype ChannelEgressEndpoint = ChannelEgressEndpoint'
   { -- | Public IP of where a channel's output comes from
-    sourceIP :: Lude.Maybe Lude.Text
+    sourceIp :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChannelEgressEndpoint' with the minimum fields required to make a request.
---
--- * 'sourceIP' - Public IP of where a channel's output comes from
+-- | Creates a 'ChannelEgressEndpoint' value with any optional fields omitted.
 mkChannelEgressEndpoint ::
   ChannelEgressEndpoint
 mkChannelEgressEndpoint =
-  ChannelEgressEndpoint' {sourceIP = Lude.Nothing}
+  ChannelEgressEndpoint' {sourceIp = Core.Nothing}
 
 -- | Public IP of where a channel's output comes from
 --
--- /Note:/ Consider using 'sourceIP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceeSourceIP :: Lens.Lens' ChannelEgressEndpoint (Lude.Maybe Lude.Text)
-ceeSourceIP = Lens.lens (sourceIP :: ChannelEgressEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {sourceIP = a} :: ChannelEgressEndpoint)
-{-# DEPRECATED ceeSourceIP "Use generic-lens or generic-optics with 'sourceIP' instead." #-}
+-- /Note:/ Consider using 'sourceIp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceeSourceIp :: Lens.Lens' ChannelEgressEndpoint (Core.Maybe Core.Text)
+ceeSourceIp = Lens.field @"sourceIp"
+{-# DEPRECATED ceeSourceIp "Use generic-lens or generic-optics with 'sourceIp' instead." #-}
 
-instance Lude.FromJSON ChannelEgressEndpoint where
+instance Core.FromJSON ChannelEgressEndpoint where
   parseJSON =
-    Lude.withObject
-      "ChannelEgressEndpoint"
-      (\x -> ChannelEgressEndpoint' Lude.<$> (x Lude..:? "sourceIp"))
+    Core.withObject "ChannelEgressEndpoint" Core.$
+      \x -> ChannelEgressEndpoint' Core.<$> (x Core..:? "sourceIp")

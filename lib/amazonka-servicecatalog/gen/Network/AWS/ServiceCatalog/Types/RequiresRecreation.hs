@@ -13,51 +13,56 @@
 module Network.AWS.ServiceCatalog.Types.RequiresRecreation
   ( RequiresRecreation
       ( RequiresRecreation',
-        Never,
-        Conditionally,
-        Always
+        RequiresRecreationNever,
+        RequiresRecreationConditionally,
+        RequiresRecreationAlways,
+        fromRequiresRecreation
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RequiresRecreation = RequiresRecreation' Lude.Text
+newtype RequiresRecreation = RequiresRecreation'
+  { fromRequiresRecreation ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Never :: RequiresRecreation
-pattern Never = RequiresRecreation' "NEVER"
+pattern RequiresRecreationNever :: RequiresRecreation
+pattern RequiresRecreationNever = RequiresRecreation' "NEVER"
 
-pattern Conditionally :: RequiresRecreation
-pattern Conditionally = RequiresRecreation' "CONDITIONALLY"
+pattern RequiresRecreationConditionally :: RequiresRecreation
+pattern RequiresRecreationConditionally = RequiresRecreation' "CONDITIONALLY"
 
-pattern Always :: RequiresRecreation
-pattern Always = RequiresRecreation' "ALWAYS"
+pattern RequiresRecreationAlways :: RequiresRecreation
+pattern RequiresRecreationAlways = RequiresRecreation' "ALWAYS"
 
 {-# COMPLETE
-  Never,
-  Conditionally,
-  Always,
+  RequiresRecreationNever,
+  RequiresRecreationConditionally,
+  RequiresRecreationAlways,
   RequiresRecreation'
   #-}

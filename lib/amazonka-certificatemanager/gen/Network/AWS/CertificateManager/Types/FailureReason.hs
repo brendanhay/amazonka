@@ -13,121 +13,126 @@
 module Network.AWS.CertificateManager.Types.FailureReason
   ( FailureReason
       ( FailureReason',
-        NoAvailableContacts,
-        AdditionalVerificationRequired,
-        DomainNotAllowed,
-        InvalidPublicDomain,
-        DomainValidationDenied,
-        CaaError,
-        PcaLimitExceeded,
-        PcaInvalidARN,
-        PcaInvalidState,
-        PcaRequestFailed,
-        PcaNameConstraintsValidation,
-        PcaResourceNotFound,
-        PcaInvalidArgs,
-        PcaInvalidDuration,
-        PcaAccessDenied,
-        SlrNotFound,
-        Other
+        FailureReasonNoAvailableContacts,
+        FailureReasonAdditionalVerificationRequired,
+        FailureReasonDomainNotAllowed,
+        FailureReasonInvalidPublicDomain,
+        FailureReasonDomainValidationDenied,
+        FailureReasonCaaError,
+        FailureReasonPcaLimitExceeded,
+        FailureReasonPcaInvalidArn,
+        FailureReasonPcaInvalidState,
+        FailureReasonPcaRequestFailed,
+        FailureReasonPcaNameConstraintsValidation,
+        FailureReasonPcaResourceNotFound,
+        FailureReasonPcaInvalidArgs,
+        FailureReasonPcaInvalidDuration,
+        FailureReasonPcaAccessDenied,
+        FailureReasonSlrNotFound,
+        FailureReasonOther,
+        fromFailureReason
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FailureReason = FailureReason' Lude.Text
+newtype FailureReason = FailureReason'
+  { fromFailureReason ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NoAvailableContacts :: FailureReason
-pattern NoAvailableContacts = FailureReason' "NO_AVAILABLE_CONTACTS"
+pattern FailureReasonNoAvailableContacts :: FailureReason
+pattern FailureReasonNoAvailableContacts = FailureReason' "NO_AVAILABLE_CONTACTS"
 
-pattern AdditionalVerificationRequired :: FailureReason
-pattern AdditionalVerificationRequired = FailureReason' "ADDITIONAL_VERIFICATION_REQUIRED"
+pattern FailureReasonAdditionalVerificationRequired :: FailureReason
+pattern FailureReasonAdditionalVerificationRequired = FailureReason' "ADDITIONAL_VERIFICATION_REQUIRED"
 
-pattern DomainNotAllowed :: FailureReason
-pattern DomainNotAllowed = FailureReason' "DOMAIN_NOT_ALLOWED"
+pattern FailureReasonDomainNotAllowed :: FailureReason
+pattern FailureReasonDomainNotAllowed = FailureReason' "DOMAIN_NOT_ALLOWED"
 
-pattern InvalidPublicDomain :: FailureReason
-pattern InvalidPublicDomain = FailureReason' "INVALID_PUBLIC_DOMAIN"
+pattern FailureReasonInvalidPublicDomain :: FailureReason
+pattern FailureReasonInvalidPublicDomain = FailureReason' "INVALID_PUBLIC_DOMAIN"
 
-pattern DomainValidationDenied :: FailureReason
-pattern DomainValidationDenied = FailureReason' "DOMAIN_VALIDATION_DENIED"
+pattern FailureReasonDomainValidationDenied :: FailureReason
+pattern FailureReasonDomainValidationDenied = FailureReason' "DOMAIN_VALIDATION_DENIED"
 
-pattern CaaError :: FailureReason
-pattern CaaError = FailureReason' "CAA_ERROR"
+pattern FailureReasonCaaError :: FailureReason
+pattern FailureReasonCaaError = FailureReason' "CAA_ERROR"
 
-pattern PcaLimitExceeded :: FailureReason
-pattern PcaLimitExceeded = FailureReason' "PCA_LIMIT_EXCEEDED"
+pattern FailureReasonPcaLimitExceeded :: FailureReason
+pattern FailureReasonPcaLimitExceeded = FailureReason' "PCA_LIMIT_EXCEEDED"
 
-pattern PcaInvalidARN :: FailureReason
-pattern PcaInvalidARN = FailureReason' "PCA_INVALID_ARN"
+pattern FailureReasonPcaInvalidArn :: FailureReason
+pattern FailureReasonPcaInvalidArn = FailureReason' "PCA_INVALID_ARN"
 
-pattern PcaInvalidState :: FailureReason
-pattern PcaInvalidState = FailureReason' "PCA_INVALID_STATE"
+pattern FailureReasonPcaInvalidState :: FailureReason
+pattern FailureReasonPcaInvalidState = FailureReason' "PCA_INVALID_STATE"
 
-pattern PcaRequestFailed :: FailureReason
-pattern PcaRequestFailed = FailureReason' "PCA_REQUEST_FAILED"
+pattern FailureReasonPcaRequestFailed :: FailureReason
+pattern FailureReasonPcaRequestFailed = FailureReason' "PCA_REQUEST_FAILED"
 
-pattern PcaNameConstraintsValidation :: FailureReason
-pattern PcaNameConstraintsValidation = FailureReason' "PCA_NAME_CONSTRAINTS_VALIDATION"
+pattern FailureReasonPcaNameConstraintsValidation :: FailureReason
+pattern FailureReasonPcaNameConstraintsValidation = FailureReason' "PCA_NAME_CONSTRAINTS_VALIDATION"
 
-pattern PcaResourceNotFound :: FailureReason
-pattern PcaResourceNotFound = FailureReason' "PCA_RESOURCE_NOT_FOUND"
+pattern FailureReasonPcaResourceNotFound :: FailureReason
+pattern FailureReasonPcaResourceNotFound = FailureReason' "PCA_RESOURCE_NOT_FOUND"
 
-pattern PcaInvalidArgs :: FailureReason
-pattern PcaInvalidArgs = FailureReason' "PCA_INVALID_ARGS"
+pattern FailureReasonPcaInvalidArgs :: FailureReason
+pattern FailureReasonPcaInvalidArgs = FailureReason' "PCA_INVALID_ARGS"
 
-pattern PcaInvalidDuration :: FailureReason
-pattern PcaInvalidDuration = FailureReason' "PCA_INVALID_DURATION"
+pattern FailureReasonPcaInvalidDuration :: FailureReason
+pattern FailureReasonPcaInvalidDuration = FailureReason' "PCA_INVALID_DURATION"
 
-pattern PcaAccessDenied :: FailureReason
-pattern PcaAccessDenied = FailureReason' "PCA_ACCESS_DENIED"
+pattern FailureReasonPcaAccessDenied :: FailureReason
+pattern FailureReasonPcaAccessDenied = FailureReason' "PCA_ACCESS_DENIED"
 
-pattern SlrNotFound :: FailureReason
-pattern SlrNotFound = FailureReason' "SLR_NOT_FOUND"
+pattern FailureReasonSlrNotFound :: FailureReason
+pattern FailureReasonSlrNotFound = FailureReason' "SLR_NOT_FOUND"
 
-pattern Other :: FailureReason
-pattern Other = FailureReason' "OTHER"
+pattern FailureReasonOther :: FailureReason
+pattern FailureReasonOther = FailureReason' "OTHER"
 
 {-# COMPLETE
-  NoAvailableContacts,
-  AdditionalVerificationRequired,
-  DomainNotAllowed,
-  InvalidPublicDomain,
-  DomainValidationDenied,
-  CaaError,
-  PcaLimitExceeded,
-  PcaInvalidARN,
-  PcaInvalidState,
-  PcaRequestFailed,
-  PcaNameConstraintsValidation,
-  PcaResourceNotFound,
-  PcaInvalidArgs,
-  PcaInvalidDuration,
-  PcaAccessDenied,
-  SlrNotFound,
-  Other,
+  FailureReasonNoAvailableContacts,
+  FailureReasonAdditionalVerificationRequired,
+  FailureReasonDomainNotAllowed,
+  FailureReasonInvalidPublicDomain,
+  FailureReasonDomainValidationDenied,
+  FailureReasonCaaError,
+  FailureReasonPcaLimitExceeded,
+  FailureReasonPcaInvalidArn,
+  FailureReasonPcaInvalidState,
+  FailureReasonPcaRequestFailed,
+  FailureReasonPcaNameConstraintsValidation,
+  FailureReasonPcaResourceNotFound,
+  FailureReasonPcaInvalidArgs,
+  FailureReasonPcaInvalidDuration,
+  FailureReasonPcaAccessDenied,
+  FailureReasonSlrNotFound,
+  FailureReasonOther,
   FailureReason'
   #-}

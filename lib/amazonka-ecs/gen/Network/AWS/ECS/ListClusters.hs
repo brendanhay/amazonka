@@ -22,157 +22,145 @@ module Network.AWS.ECS.ListClusters
     mkListClusters,
 
     -- ** Request lenses
-    lcNextToken,
     lcMaxResults,
+    lcNextToken,
 
     -- * Destructuring the response
     ListClustersResponse (..),
     mkListClustersResponse,
 
     -- ** Response lenses
-    lcrsClusterARNs,
-    lcrsNextToken,
-    lcrsResponseStatus,
+    lcrrsClusterArns,
+    lcrrsNextToken,
+    lcrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListClusters' smart constructor.
 data ListClusters = ListClusters'
-  { -- | The @nextToken@ value returned from a @ListClusters@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of cluster results returned by @ListClusters@ in paginated output. When this parameter is used, @ListClusters@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListClusters@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListClusters@ returns up to 100 results and a @nextToken@ value if applicable.
-    maxResults :: Lude.Maybe Lude.Int
+  { -- | The maximum number of cluster results returned by @ListClusters@ in paginated output. When this parameter is used, @ListClusters@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListClusters@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListClusters@ returns up to 100 results and a @nextToken@ value if applicable.
+    maxResults :: Core.Maybe Core.Int,
+    -- | The @nextToken@ value returned from a @ListClusters@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListClusters' with the minimum fields required to make a request.
---
--- * 'nextToken' - The @nextToken@ value returned from a @ListClusters@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
--- * 'maxResults' - The maximum number of cluster results returned by @ListClusters@ in paginated output. When this parameter is used, @ListClusters@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListClusters@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListClusters@ returns up to 100 results and a @nextToken@ value if applicable.
+-- | Creates a 'ListClusters' value with any optional fields omitted.
 mkListClusters ::
   ListClusters
 mkListClusters =
   ListClusters'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The @nextToken@ value returned from a @ListClusters@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcNextToken :: Lens.Lens' ListClusters (Lude.Maybe Lude.Text)
-lcNextToken = Lens.lens (nextToken :: ListClusters -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListClusters)
-{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of cluster results returned by @ListClusters@ in paginated output. When this parameter is used, @ListClusters@ only returns @maxResults@ results in a single page along with a @nextToken@ response element. The remaining results of the initial request can be seen by sending another @ListClusters@ request with the returned @nextToken@ value. This value can be between 1 and 100. If this parameter is not used, then @ListClusters@ returns up to 100 results and a @nextToken@ value if applicable.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcMaxResults :: Lens.Lens' ListClusters (Lude.Maybe Lude.Int)
-lcMaxResults = Lens.lens (maxResults :: ListClusters -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: ListClusters)
+lcMaxResults :: Lens.Lens' ListClusters (Core.Maybe Core.Int)
+lcMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListClusters where
-  page rq rs
-    | Page.stop (rs Lens.^. lcrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lcrsClusterARNs) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lcNextToken Lens..~ rs Lens.^. lcrsNextToken
+-- | The @nextToken@ value returned from a @ListClusters@ request indicating that more results are available to fulfill the request and further calls will be needed. If @maxResults@ was provided, it is possible the number of results to be fewer than @maxResults@ .
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcNextToken :: Lens.Lens' ListClusters (Core.Maybe Types.String)
+lcNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListClusters where
+instance Core.FromJSON ListClusters where
+  toJSON ListClusters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListClusters where
   type Rs ListClusters = ListClustersResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonEC2ContainerServiceV20141113.ListClusters")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListClustersResponse'
-            Lude.<$> (x Lude..?> "clusterArns" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "clusterArns")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListClusters where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.ListClusters" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListClusters where
-  toJSON ListClusters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListClusters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListClusters where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListClusters where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"clusterArns" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
   { -- | The list of full Amazon Resource Name (ARN) entries for each cluster associated with your account.
-    clusterARNs :: Lude.Maybe [Lude.Text],
+    clusterArns :: Core.Maybe [Types.String],
     -- | The @nextToken@ value to include in a future @ListClusters@ request. When the results of a @ListClusters@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListClustersResponse' with the minimum fields required to make a request.
---
--- * 'clusterARNs' - The list of full Amazon Resource Name (ARN) entries for each cluster associated with your account.
--- * 'nextToken' - The @nextToken@ value to include in a future @ListClusters@ request. When the results of a @ListClusters@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListClustersResponse' value with any optional fields omitted.
 mkListClustersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListClustersResponse
-mkListClustersResponse pResponseStatus_ =
+mkListClustersResponse responseStatus =
   ListClustersResponse'
-    { clusterARNs = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clusterArns = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of full Amazon Resource Name (ARN) entries for each cluster associated with your account.
 --
--- /Note:/ Consider using 'clusterARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsClusterARNs :: Lens.Lens' ListClustersResponse (Lude.Maybe [Lude.Text])
-lcrsClusterARNs = Lens.lens (clusterARNs :: ListClustersResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {clusterARNs = a} :: ListClustersResponse)
-{-# DEPRECATED lcrsClusterARNs "Use generic-lens or generic-optics with 'clusterARNs' instead." #-}
+-- /Note:/ Consider using 'clusterArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcrrsClusterArns :: Lens.Lens' ListClustersResponse (Core.Maybe [Types.String])
+lcrrsClusterArns = Lens.field @"clusterArns"
+{-# DEPRECATED lcrrsClusterArns "Use generic-lens or generic-optics with 'clusterArns' instead." #-}
 
 -- | The @nextToken@ value to include in a future @ListClusters@ request. When the results of a @ListClusters@ request exceed @maxResults@ , this value can be used to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsNextToken :: Lens.Lens' ListClustersResponse (Lude.Maybe Lude.Text)
-lcrsNextToken = Lens.lens (nextToken :: ListClustersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListClustersResponse)
-{-# DEPRECATED lcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lcrrsNextToken :: Lens.Lens' ListClustersResponse (Core.Maybe Types.String)
+lcrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsResponseStatus :: Lens.Lens' ListClustersResponse Lude.Int
-lcrsResponseStatus = Lens.lens (responseStatus :: ListClustersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListClustersResponse)
-{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lcrrsResponseStatus :: Lens.Lens' ListClustersResponse Core.Int
+lcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

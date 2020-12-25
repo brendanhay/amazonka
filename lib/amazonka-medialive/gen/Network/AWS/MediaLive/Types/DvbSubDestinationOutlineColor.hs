@@ -13,67 +13,72 @@
 module Network.AWS.MediaLive.Types.DvbSubDestinationOutlineColor
   ( DvbSubDestinationOutlineColor
       ( DvbSubDestinationOutlineColor',
-        Black,
-        Blue,
-        Green,
-        Red,
-        White,
-        Yellow
+        DvbSubDestinationOutlineColorBlack,
+        DvbSubDestinationOutlineColorBlue,
+        DvbSubDestinationOutlineColorGreen,
+        DvbSubDestinationOutlineColorRed,
+        DvbSubDestinationOutlineColorWhite,
+        DvbSubDestinationOutlineColorYellow,
+        fromDvbSubDestinationOutlineColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Dvb Sub Destination Outline Color
-newtype DvbSubDestinationOutlineColor = DvbSubDestinationOutlineColor' Lude.Text
+newtype DvbSubDestinationOutlineColor = DvbSubDestinationOutlineColor'
+  { fromDvbSubDestinationOutlineColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Black :: DvbSubDestinationOutlineColor
-pattern Black = DvbSubDestinationOutlineColor' "BLACK"
+pattern DvbSubDestinationOutlineColorBlack :: DvbSubDestinationOutlineColor
+pattern DvbSubDestinationOutlineColorBlack = DvbSubDestinationOutlineColor' "BLACK"
 
-pattern Blue :: DvbSubDestinationOutlineColor
-pattern Blue = DvbSubDestinationOutlineColor' "BLUE"
+pattern DvbSubDestinationOutlineColorBlue :: DvbSubDestinationOutlineColor
+pattern DvbSubDestinationOutlineColorBlue = DvbSubDestinationOutlineColor' "BLUE"
 
-pattern Green :: DvbSubDestinationOutlineColor
-pattern Green = DvbSubDestinationOutlineColor' "GREEN"
+pattern DvbSubDestinationOutlineColorGreen :: DvbSubDestinationOutlineColor
+pattern DvbSubDestinationOutlineColorGreen = DvbSubDestinationOutlineColor' "GREEN"
 
-pattern Red :: DvbSubDestinationOutlineColor
-pattern Red = DvbSubDestinationOutlineColor' "RED"
+pattern DvbSubDestinationOutlineColorRed :: DvbSubDestinationOutlineColor
+pattern DvbSubDestinationOutlineColorRed = DvbSubDestinationOutlineColor' "RED"
 
-pattern White :: DvbSubDestinationOutlineColor
-pattern White = DvbSubDestinationOutlineColor' "WHITE"
+pattern DvbSubDestinationOutlineColorWhite :: DvbSubDestinationOutlineColor
+pattern DvbSubDestinationOutlineColorWhite = DvbSubDestinationOutlineColor' "WHITE"
 
-pattern Yellow :: DvbSubDestinationOutlineColor
-pattern Yellow = DvbSubDestinationOutlineColor' "YELLOW"
+pattern DvbSubDestinationOutlineColorYellow :: DvbSubDestinationOutlineColor
+pattern DvbSubDestinationOutlineColorYellow = DvbSubDestinationOutlineColor' "YELLOW"
 
 {-# COMPLETE
-  Black,
-  Blue,
-  Green,
-  Red,
-  White,
-  Yellow,
+  DvbSubDestinationOutlineColorBlack,
+  DvbSubDestinationOutlineColorBlue,
+  DvbSubDestinationOutlineColorGreen,
+  DvbSubDestinationOutlineColorRed,
+  DvbSubDestinationOutlineColorWhite,
+  DvbSubDestinationOutlineColorYellow,
   DvbSubDestinationOutlineColor'
   #-}

@@ -17,70 +17,62 @@ module Network.AWS.EMR.Types.ScalingConstraints
     mkScalingConstraints,
 
     -- * Lenses
-    scMaxCapacity,
     scMinCapacity,
+    scMaxCapacity,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The upper and lower EC2 instance limits for an automatic scaling policy. Automatic scaling activities triggered by automatic scaling rules will not cause an instance group to grow above or below these limits.
 --
 -- /See:/ 'mkScalingConstraints' smart constructor.
 data ScalingConstraints = ScalingConstraints'
-  { -- | The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
-    maxCapacity :: Lude.Int,
-    -- | The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
-    minCapacity :: Lude.Int
+  { -- | The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+    minCapacity :: Core.Int,
+    -- | The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+    maxCapacity :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScalingConstraints' with the minimum fields required to make a request.
---
--- * 'maxCapacity' - The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
--- * 'minCapacity' - The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
+-- | Creates a 'ScalingConstraints' value with any optional fields omitted.
 mkScalingConstraints ::
-  -- | 'maxCapacity'
-  Lude.Int ->
   -- | 'minCapacity'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'maxCapacity'
+  Core.Int ->
   ScalingConstraints
-mkScalingConstraints pMaxCapacity_ pMinCapacity_ =
-  ScalingConstraints'
-    { maxCapacity = pMaxCapacity_,
-      minCapacity = pMinCapacity_
-    }
-
--- | The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
---
--- /Note:/ Consider using 'maxCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scMaxCapacity :: Lens.Lens' ScalingConstraints Lude.Int
-scMaxCapacity = Lens.lens (maxCapacity :: ScalingConstraints -> Lude.Int) (\s a -> s {maxCapacity = a} :: ScalingConstraints)
-{-# DEPRECATED scMaxCapacity "Use generic-lens or generic-optics with 'maxCapacity' instead." #-}
+mkScalingConstraints minCapacity maxCapacity =
+  ScalingConstraints' {minCapacity, maxCapacity}
 
 -- | The lower boundary of EC2 instances in an instance group below which scaling activities are not allowed to shrink. Scale-in activities will not terminate instances below this boundary.
 --
 -- /Note:/ Consider using 'minCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scMinCapacity :: Lens.Lens' ScalingConstraints Lude.Int
-scMinCapacity = Lens.lens (minCapacity :: ScalingConstraints -> Lude.Int) (\s a -> s {minCapacity = a} :: ScalingConstraints)
+scMinCapacity :: Lens.Lens' ScalingConstraints Core.Int
+scMinCapacity = Lens.field @"minCapacity"
 {-# DEPRECATED scMinCapacity "Use generic-lens or generic-optics with 'minCapacity' instead." #-}
 
-instance Lude.FromJSON ScalingConstraints where
-  parseJSON =
-    Lude.withObject
-      "ScalingConstraints"
-      ( \x ->
-          ScalingConstraints'
-            Lude.<$> (x Lude..: "MaxCapacity") Lude.<*> (x Lude..: "MinCapacity")
-      )
+-- | The upper boundary of EC2 instances in an instance group beyond which scaling activities are not allowed to grow. Scale-out activities will not add instances beyond this boundary.
+--
+-- /Note:/ Consider using 'maxCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scMaxCapacity :: Lens.Lens' ScalingConstraints Core.Int
+scMaxCapacity = Lens.field @"maxCapacity"
+{-# DEPRECATED scMaxCapacity "Use generic-lens or generic-optics with 'maxCapacity' instead." #-}
 
-instance Lude.ToJSON ScalingConstraints where
-  toJSON ScalingConstraints' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("MaxCapacity" Lude..= maxCapacity),
-            Lude.Just ("MinCapacity" Lude..= minCapacity)
+instance Core.FromJSON ScalingConstraints where
+  toJSON ScalingConstraints {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MinCapacity" Core..= minCapacity),
+            Core.Just ("MaxCapacity" Core..= maxCapacity)
           ]
       )
+
+instance Core.FromJSON ScalingConstraints where
+  parseJSON =
+    Core.withObject "ScalingConstraints" Core.$
+      \x ->
+        ScalingConstraints'
+          Core.<$> (x Core..: "MinCapacity") Core.<*> (x Core..: "MaxCapacity")

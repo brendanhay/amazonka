@@ -22,35 +22,29 @@ module Network.AWS.AutoScaling.Types.InstanceMonitoring
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes whether detailed monitoring is enabled for the Auto Scaling instances.
 --
 -- /See:/ 'mkInstanceMonitoring' smart constructor.
 newtype InstanceMonitoring = InstanceMonitoring'
   { -- | If @true@ , detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
-    enabled :: Lude.Maybe Lude.Bool
+    enabled :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceMonitoring' with the minimum fields required to make a request.
---
--- * 'enabled' - If @true@ , detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
+-- | Creates a 'InstanceMonitoring' value with any optional fields omitted.
 mkInstanceMonitoring ::
   InstanceMonitoring
-mkInstanceMonitoring = InstanceMonitoring' {enabled = Lude.Nothing}
+mkInstanceMonitoring = InstanceMonitoring' {enabled = Core.Nothing}
 
 -- | If @true@ , detailed monitoring is enabled. Otherwise, basic monitoring is enabled.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-imEnabled :: Lens.Lens' InstanceMonitoring (Lude.Maybe Lude.Bool)
-imEnabled = Lens.lens (enabled :: InstanceMonitoring -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: InstanceMonitoring)
+imEnabled :: Lens.Lens' InstanceMonitoring (Core.Maybe Core.Bool)
+imEnabled = Lens.field @"enabled"
 {-# DEPRECATED imEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.FromXML InstanceMonitoring where
-  parseXML x = InstanceMonitoring' Lude.<$> (x Lude..@? "Enabled")
-
-instance Lude.ToQuery InstanceMonitoring where
-  toQuery InstanceMonitoring' {..} =
-    Lude.mconcat ["Enabled" Lude.=: enabled]
+instance Core.FromXML InstanceMonitoring where
+  parseXML x = InstanceMonitoring' Core.<$> (x Core..@? "Enabled")

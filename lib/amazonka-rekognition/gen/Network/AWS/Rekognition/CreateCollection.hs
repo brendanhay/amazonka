@@ -31,135 +31,120 @@ module Network.AWS.Rekognition.CreateCollection
     mkCreateCollectionResponse,
 
     -- ** Response lenses
-    ccrsFaceModelVersion,
-    ccrsCollectionARN,
-    ccrsStatusCode,
-    ccrsResponseStatus,
+    ccrrsCollectionArn,
+    ccrrsFaceModelVersion,
+    ccrrsStatusCode,
+    ccrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateCollection' smart constructor.
 newtype CreateCollection = CreateCollection'
   { -- | ID for the collection that you are creating.
-    collectionId :: Lude.Text
+    collectionId :: Types.CollectionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCollection' with the minimum fields required to make a request.
---
--- * 'collectionId' - ID for the collection that you are creating.
+-- | Creates a 'CreateCollection' value with any optional fields omitted.
 mkCreateCollection ::
   -- | 'collectionId'
-  Lude.Text ->
+  Types.CollectionId ->
   CreateCollection
-mkCreateCollection pCollectionId_ =
-  CreateCollection' {collectionId = pCollectionId_}
+mkCreateCollection collectionId = CreateCollection' {collectionId}
 
 -- | ID for the collection that you are creating.
 --
 -- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccCollectionId :: Lens.Lens' CreateCollection Lude.Text
-ccCollectionId = Lens.lens (collectionId :: CreateCollection -> Lude.Text) (\s a -> s {collectionId = a} :: CreateCollection)
+ccCollectionId :: Lens.Lens' CreateCollection Types.CollectionId
+ccCollectionId = Lens.field @"collectionId"
 {-# DEPRECATED ccCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
-instance Lude.AWSRequest CreateCollection where
+instance Core.FromJSON CreateCollection where
+  toJSON CreateCollection {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("CollectionId" Core..= collectionId)])
+
+instance Core.AWSRequest CreateCollection where
   type Rs CreateCollection = CreateCollectionResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.CreateCollection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateCollectionResponse'
-            Lude.<$> (x Lude..?> "FaceModelVersion")
-            Lude.<*> (x Lude..?> "CollectionArn")
-            Lude.<*> (x Lude..?> "StatusCode")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CollectionArn")
+            Core.<*> (x Core..:? "FaceModelVersion")
+            Core.<*> (x Core..:? "StatusCode")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateCollection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.CreateCollection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateCollection where
-  toJSON CreateCollection' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("CollectionId" Lude..= collectionId)])
-
-instance Lude.ToPath CreateCollection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateCollection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateCollectionResponse' smart constructor.
 data CreateCollectionResponse = CreateCollectionResponse'
-  { -- | Version number of the face detection model associated with the collection you are creating.
-    faceModelVersion :: Lude.Maybe Lude.Text,
-    -- | Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
-    collectionARN :: Lude.Maybe Lude.Text,
+  { -- | Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
+    collectionArn :: Core.Maybe Types.String,
+    -- | Version number of the face detection model associated with the collection you are creating.
+    faceModelVersion :: Core.Maybe Types.String,
     -- | HTTP status code indicating the result of the operation.
-    statusCode :: Lude.Maybe Lude.Natural,
+    statusCode :: Core.Maybe Core.Natural,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCollectionResponse' with the minimum fields required to make a request.
---
--- * 'faceModelVersion' - Version number of the face detection model associated with the collection you are creating.
--- * 'collectionARN' - Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
--- * 'statusCode' - HTTP status code indicating the result of the operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateCollectionResponse' value with any optional fields omitted.
 mkCreateCollectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateCollectionResponse
-mkCreateCollectionResponse pResponseStatus_ =
+mkCreateCollectionResponse responseStatus =
   CreateCollectionResponse'
-    { faceModelVersion = Lude.Nothing,
-      collectionARN = Lude.Nothing,
-      statusCode = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { collectionArn = Core.Nothing,
+      faceModelVersion = Core.Nothing,
+      statusCode = Core.Nothing,
+      responseStatus
     }
+
+-- | Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
+--
+-- /Note:/ Consider using 'collectionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ccrrsCollectionArn :: Lens.Lens' CreateCollectionResponse (Core.Maybe Types.String)
+ccrrsCollectionArn = Lens.field @"collectionArn"
+{-# DEPRECATED ccrrsCollectionArn "Use generic-lens or generic-optics with 'collectionArn' instead." #-}
 
 -- | Version number of the face detection model associated with the collection you are creating.
 --
 -- /Note:/ Consider using 'faceModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsFaceModelVersion :: Lens.Lens' CreateCollectionResponse (Lude.Maybe Lude.Text)
-ccrsFaceModelVersion = Lens.lens (faceModelVersion :: CreateCollectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {faceModelVersion = a} :: CreateCollectionResponse)
-{-# DEPRECATED ccrsFaceModelVersion "Use generic-lens or generic-optics with 'faceModelVersion' instead." #-}
-
--- | Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on your resources.
---
--- /Note:/ Consider using 'collectionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsCollectionARN :: Lens.Lens' CreateCollectionResponse (Lude.Maybe Lude.Text)
-ccrsCollectionARN = Lens.lens (collectionARN :: CreateCollectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {collectionARN = a} :: CreateCollectionResponse)
-{-# DEPRECATED ccrsCollectionARN "Use generic-lens or generic-optics with 'collectionARN' instead." #-}
+ccrrsFaceModelVersion :: Lens.Lens' CreateCollectionResponse (Core.Maybe Types.String)
+ccrrsFaceModelVersion = Lens.field @"faceModelVersion"
+{-# DEPRECATED ccrrsFaceModelVersion "Use generic-lens or generic-optics with 'faceModelVersion' instead." #-}
 
 -- | HTTP status code indicating the result of the operation.
 --
 -- /Note:/ Consider using 'statusCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsStatusCode :: Lens.Lens' CreateCollectionResponse (Lude.Maybe Lude.Natural)
-ccrsStatusCode = Lens.lens (statusCode :: CreateCollectionResponse -> Lude.Maybe Lude.Natural) (\s a -> s {statusCode = a} :: CreateCollectionResponse)
-{-# DEPRECATED ccrsStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
+ccrrsStatusCode :: Lens.Lens' CreateCollectionResponse (Core.Maybe Core.Natural)
+ccrrsStatusCode = Lens.field @"statusCode"
+{-# DEPRECATED ccrrsStatusCode "Use generic-lens or generic-optics with 'statusCode' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccrsResponseStatus :: Lens.Lens' CreateCollectionResponse Lude.Int
-ccrsResponseStatus = Lens.lens (responseStatus :: CreateCollectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCollectionResponse)
-{-# DEPRECATED ccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccrrsResponseStatus :: Lens.Lens' CreateCollectionResponse Core.Int
+ccrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,38 +21,36 @@ module Network.AWS.Greengrass.Types.TelemetryConfigurationUpdate
   )
 where
 
-import Network.AWS.Greengrass.Types.Telemetry
+import qualified Network.AWS.Greengrass.Types.Telemetry as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration settings for running telemetry.
 --
 -- /See:/ 'mkTelemetryConfigurationUpdate' smart constructor.
 newtype TelemetryConfigurationUpdate = TelemetryConfigurationUpdate'
   { -- | Configure telemetry to be on or off.
-    telemetry :: Telemetry
+    telemetry :: Types.Telemetry
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TelemetryConfigurationUpdate' with the minimum fields required to make a request.
---
--- * 'telemetry' - Configure telemetry to be on or off.
+-- | Creates a 'TelemetryConfigurationUpdate' value with any optional fields omitted.
 mkTelemetryConfigurationUpdate ::
   -- | 'telemetry'
-  Telemetry ->
+  Types.Telemetry ->
   TelemetryConfigurationUpdate
-mkTelemetryConfigurationUpdate pTelemetry_ =
-  TelemetryConfigurationUpdate' {telemetry = pTelemetry_}
+mkTelemetryConfigurationUpdate telemetry =
+  TelemetryConfigurationUpdate' {telemetry}
 
 -- | Configure telemetry to be on or off.
 --
 -- /Note:/ Consider using 'telemetry' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcuTelemetry :: Lens.Lens' TelemetryConfigurationUpdate Telemetry
-tcuTelemetry = Lens.lens (telemetry :: TelemetryConfigurationUpdate -> Telemetry) (\s a -> s {telemetry = a} :: TelemetryConfigurationUpdate)
+tcuTelemetry :: Lens.Lens' TelemetryConfigurationUpdate Types.Telemetry
+tcuTelemetry = Lens.field @"telemetry"
 {-# DEPRECATED tcuTelemetry "Use generic-lens or generic-optics with 'telemetry' instead." #-}
 
-instance Lude.ToJSON TelemetryConfigurationUpdate where
-  toJSON TelemetryConfigurationUpdate' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Telemetry" Lude..= telemetry)])
+instance Core.FromJSON TelemetryConfigurationUpdate where
+  toJSON TelemetryConfigurationUpdate {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Telemetry" Core..= telemetry)])

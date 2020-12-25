@@ -34,114 +34,99 @@ module Network.AWS.CertificateManagerPCA.GetPolicy
     mkGetPolicy,
 
     -- ** Request lenses
-    gpResourceARN,
+    gpResourceArn,
 
     -- * Destructuring the response
     GetPolicyResponse (..),
     mkGetPolicyResponse,
 
     -- ** Response lenses
-    gprsPolicy,
-    gprsResponseStatus,
+    gprrsPolicy,
+    gprrsResponseStatus,
   )
 where
 
-import Network.AWS.CertificateManagerPCA.Types
+import qualified Network.AWS.CertificateManagerPCA.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetPolicy' smart constructor.
 newtype GetPolicy = GetPolicy'
   { -- | The Amazon Resource Number (ARN) of the private CA that will have its policy retrieved. You can find the CA's ARN by calling the ListCertificateAuthorities action.
-    resourceARN :: Lude.Text
+    resourceArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPolicy' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The Amazon Resource Number (ARN) of the private CA that will have its policy retrieved. You can find the CA's ARN by calling the ListCertificateAuthorities action.
+-- | Creates a 'GetPolicy' value with any optional fields omitted.
 mkGetPolicy ::
-  -- | 'resourceARN'
-  Lude.Text ->
+  -- | 'resourceArn'
+  Types.Arn ->
   GetPolicy
-mkGetPolicy pResourceARN_ = GetPolicy' {resourceARN = pResourceARN_}
+mkGetPolicy resourceArn = GetPolicy' {resourceArn}
 
 -- | The Amazon Resource Number (ARN) of the private CA that will have its policy retrieved. You can find the CA's ARN by calling the ListCertificateAuthorities action.
 --
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpResourceARN :: Lens.Lens' GetPolicy Lude.Text
-gpResourceARN = Lens.lens (resourceARN :: GetPolicy -> Lude.Text) (\s a -> s {resourceARN = a} :: GetPolicy)
-{-# DEPRECATED gpResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpResourceArn :: Lens.Lens' GetPolicy Types.Arn
+gpResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED gpResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
 
-instance Lude.AWSRequest GetPolicy where
+instance Core.FromJSON GetPolicy where
+  toJSON GetPolicy {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("ResourceArn" Core..= resourceArn)])
+
+instance Core.AWSRequest GetPolicy where
   type Rs GetPolicy = GetPolicyResponse
-  request = Req.postJSON certificateManagerPCAService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ACMPrivateCA.GetPolicy")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetPolicyResponse'
-            Lude.<$> (x Lude..?> "Policy") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Policy") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetPolicy where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ACMPrivateCA.GetPolicy" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetPolicy where
-  toJSON GetPolicy' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("ResourceArn" Lude..= resourceARN)])
-
-instance Lude.ToPath GetPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetPolicy where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetPolicyResponse' smart constructor.
 data GetPolicyResponse = GetPolicyResponse'
   { -- | The policy attached to the private CA as a JSON document.
-    policy :: Lude.Maybe Lude.Text,
+    policy :: Core.Maybe Types.Policy,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetPolicyResponse' with the minimum fields required to make a request.
---
--- * 'policy' - The policy attached to the private CA as a JSON document.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetPolicyResponse' value with any optional fields omitted.
 mkGetPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetPolicyResponse
-mkGetPolicyResponse pResponseStatus_ =
-  GetPolicyResponse'
-    { policy = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetPolicyResponse responseStatus =
+  GetPolicyResponse' {policy = Core.Nothing, responseStatus}
 
 -- | The policy attached to the private CA as a JSON document.
 --
 -- /Note:/ Consider using 'policy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsPolicy :: Lens.Lens' GetPolicyResponse (Lude.Maybe Lude.Text)
-gprsPolicy = Lens.lens (policy :: GetPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {policy = a} :: GetPolicyResponse)
-{-# DEPRECATED gprsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
+gprrsPolicy :: Lens.Lens' GetPolicyResponse (Core.Maybe Types.Policy)
+gprrsPolicy = Lens.field @"policy"
+{-# DEPRECATED gprrsPolicy "Use generic-lens or generic-optics with 'policy' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gprsResponseStatus :: Lens.Lens' GetPolicyResponse Lude.Int
-gprsResponseStatus = Lens.lens (responseStatus :: GetPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetPolicyResponse)
-{-# DEPRECATED gprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gprrsResponseStatus :: Lens.Lens' GetPolicyResponse Core.Int
+gprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,46 +13,51 @@
 module Network.AWS.SWF.Types.CancelTimerFailedCause
   ( CancelTimerFailedCause
       ( CancelTimerFailedCause',
-        CTFCTimerIdUnknown,
-        CTFCOperationNotPermitted
+        CancelTimerFailedCauseTimerIdUnknown,
+        CancelTimerFailedCauseOperationNotPermitted,
+        fromCancelTimerFailedCause
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CancelTimerFailedCause = CancelTimerFailedCause' Lude.Text
+newtype CancelTimerFailedCause = CancelTimerFailedCause'
+  { fromCancelTimerFailedCause ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CTFCTimerIdUnknown :: CancelTimerFailedCause
-pattern CTFCTimerIdUnknown = CancelTimerFailedCause' "TIMER_ID_UNKNOWN"
+pattern CancelTimerFailedCauseTimerIdUnknown :: CancelTimerFailedCause
+pattern CancelTimerFailedCauseTimerIdUnknown = CancelTimerFailedCause' "TIMER_ID_UNKNOWN"
 
-pattern CTFCOperationNotPermitted :: CancelTimerFailedCause
-pattern CTFCOperationNotPermitted = CancelTimerFailedCause' "OPERATION_NOT_PERMITTED"
+pattern CancelTimerFailedCauseOperationNotPermitted :: CancelTimerFailedCause
+pattern CancelTimerFailedCauseOperationNotPermitted = CancelTimerFailedCause' "OPERATION_NOT_PERMITTED"
 
 {-# COMPLETE
-  CTFCTimerIdUnknown,
-  CTFCOperationNotPermitted,
+  CancelTimerFailedCauseTimerIdUnknown,
+  CancelTimerFailedCauseOperationNotPermitted,
   CancelTimerFailedCause'
   #-}

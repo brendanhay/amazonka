@@ -17,67 +17,64 @@ module Network.AWS.IAM.Types.SAMLProviderListEntry
     mkSAMLProviderListEntry,
 
     -- * Lenses
-    samlpleARN,
+    samlpleArn,
     samlpleCreateDate,
     samlpleValidUntil,
   )
 where
 
+import qualified Network.AWS.IAM.Types.Arn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains the list of SAML providers for this account.
 --
 -- /See:/ 'mkSAMLProviderListEntry' smart constructor.
 data SAMLProviderListEntry = SAMLProviderListEntry'
   { -- | The Amazon Resource Name (ARN) of the SAML provider.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | The date and time when the SAML provider was created.
-    createDate :: Lude.Maybe Lude.DateTime,
+    createDate :: Core.Maybe Core.UTCTime,
     -- | The expiration date and time for the SAML provider.
-    validUntil :: Lude.Maybe Lude.DateTime
+    validUntil :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SAMLProviderListEntry' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the SAML provider.
--- * 'createDate' - The date and time when the SAML provider was created.
--- * 'validUntil' - The expiration date and time for the SAML provider.
+-- | Creates a 'SAMLProviderListEntry' value with any optional fields omitted.
 mkSAMLProviderListEntry ::
   SAMLProviderListEntry
 mkSAMLProviderListEntry =
   SAMLProviderListEntry'
-    { arn = Lude.Nothing,
-      createDate = Lude.Nothing,
-      validUntil = Lude.Nothing
+    { arn = Core.Nothing,
+      createDate = Core.Nothing,
+      validUntil = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samlpleARN :: Lens.Lens' SAMLProviderListEntry (Lude.Maybe Lude.Text)
-samlpleARN = Lens.lens (arn :: SAMLProviderListEntry -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: SAMLProviderListEntry)
-{-# DEPRECATED samlpleARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+samlpleArn :: Lens.Lens' SAMLProviderListEntry (Core.Maybe Types.Arn)
+samlpleArn = Lens.field @"arn"
+{-# DEPRECATED samlpleArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date and time when the SAML provider was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samlpleCreateDate :: Lens.Lens' SAMLProviderListEntry (Lude.Maybe Lude.DateTime)
-samlpleCreateDate = Lens.lens (createDate :: SAMLProviderListEntry -> Lude.Maybe Lude.DateTime) (\s a -> s {createDate = a} :: SAMLProviderListEntry)
+samlpleCreateDate :: Lens.Lens' SAMLProviderListEntry (Core.Maybe Core.UTCTime)
+samlpleCreateDate = Lens.field @"createDate"
 {-# DEPRECATED samlpleCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
 
 -- | The expiration date and time for the SAML provider.
 --
 -- /Note:/ Consider using 'validUntil' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-samlpleValidUntil :: Lens.Lens' SAMLProviderListEntry (Lude.Maybe Lude.DateTime)
-samlpleValidUntil = Lens.lens (validUntil :: SAMLProviderListEntry -> Lude.Maybe Lude.DateTime) (\s a -> s {validUntil = a} :: SAMLProviderListEntry)
+samlpleValidUntil :: Lens.Lens' SAMLProviderListEntry (Core.Maybe Core.UTCTime)
+samlpleValidUntil = Lens.field @"validUntil"
 {-# DEPRECATED samlpleValidUntil "Use generic-lens or generic-optics with 'validUntil' instead." #-}
 
-instance Lude.FromXML SAMLProviderListEntry where
+instance Core.FromXML SAMLProviderListEntry where
   parseXML x =
     SAMLProviderListEntry'
-      Lude.<$> (x Lude..@? "Arn")
-      Lude.<*> (x Lude..@? "CreateDate")
-      Lude.<*> (x Lude..@? "ValidUntil")
+      Core.<$> (x Core..@? "Arn")
+      Core.<*> (x Core..@? "CreateDate")
+      Core.<*> (x Core..@? "ValidUntil")

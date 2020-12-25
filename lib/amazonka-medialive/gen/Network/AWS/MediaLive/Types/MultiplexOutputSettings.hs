@@ -22,45 +22,40 @@ module Network.AWS.MediaLive.Types.MultiplexOutputSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.OutputLocationRef
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.OutputLocationRef as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Multiplex Output Settings
 --
 -- /See:/ 'mkMultiplexOutputSettings' smart constructor.
 newtype MultiplexOutputSettings = MultiplexOutputSettings'
   { -- | Destination is a Multiplex.
-    destination :: OutputLocationRef
+    destination :: Types.OutputLocationRef
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MultiplexOutputSettings' with the minimum fields required to make a request.
---
--- * 'destination' - Destination is a Multiplex.
+-- | Creates a 'MultiplexOutputSettings' value with any optional fields omitted.
 mkMultiplexOutputSettings ::
   -- | 'destination'
-  OutputLocationRef ->
+  Types.OutputLocationRef ->
   MultiplexOutputSettings
-mkMultiplexOutputSettings pDestination_ =
-  MultiplexOutputSettings' {destination = pDestination_}
+mkMultiplexOutputSettings destination =
+  MultiplexOutputSettings' {destination}
 
 -- | Destination is a Multiplex.
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mosDestination :: Lens.Lens' MultiplexOutputSettings OutputLocationRef
-mosDestination = Lens.lens (destination :: MultiplexOutputSettings -> OutputLocationRef) (\s a -> s {destination = a} :: MultiplexOutputSettings)
+mosDestination :: Lens.Lens' MultiplexOutputSettings Types.OutputLocationRef
+mosDestination = Lens.field @"destination"
 {-# DEPRECATED mosDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
-instance Lude.FromJSON MultiplexOutputSettings where
-  parseJSON =
-    Lude.withObject
-      "MultiplexOutputSettings"
-      ( \x ->
-          MultiplexOutputSettings' Lude.<$> (x Lude..: "destination")
-      )
+instance Core.FromJSON MultiplexOutputSettings where
+  toJSON MultiplexOutputSettings {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("destination" Core..= destination)])
 
-instance Lude.ToJSON MultiplexOutputSettings where
-  toJSON MultiplexOutputSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("destination" Lude..= destination)])
+instance Core.FromJSON MultiplexOutputSettings where
+  parseJSON =
+    Core.withObject "MultiplexOutputSettings" Core.$
+      \x -> MultiplexOutputSettings' Core.<$> (x Core..: "destination")

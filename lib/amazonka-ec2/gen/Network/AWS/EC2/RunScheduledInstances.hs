@@ -23,176 +23,166 @@ module Network.AWS.EC2.RunScheduledInstances
     mkRunScheduledInstances,
 
     -- ** Request lenses
-    rsisClientToken,
-    rsisInstanceCount,
-    rsisScheduledInstanceId,
-    rsisLaunchSpecification,
-    rsisDryRun,
+    rsiLaunchSpecification,
+    rsiScheduledInstanceId,
+    rsiClientToken,
+    rsiDryRun,
+    rsiInstanceCount,
 
     -- * Destructuring the response
     RunScheduledInstancesResponse (..),
     mkRunScheduledInstancesResponse,
 
     -- ** Response lenses
-    rrsInstanceIdSet,
-    rrsResponseStatus,
+    rsirrsInstanceIdSet,
+    rsirrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for RunScheduledInstances.
 --
 -- /See:/ 'mkRunScheduledInstances' smart constructor.
 data RunScheduledInstances = RunScheduledInstances'
-  { -- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
-    clientToken :: Lude.Maybe Lude.Text,
+  { -- | The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.
+    launchSpecification :: Types.ScheduledInstancesLaunchSpecification,
+    -- | The Scheduled Instance ID.
+    scheduledInstanceId :: Types.ScheduledInstanceId,
+    -- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    clientToken :: Core.Maybe Types.String,
+    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
     -- | The number of instances.
     --
     -- Default: 1
-    instanceCount :: Lude.Maybe Lude.Int,
-    -- | The Scheduled Instance ID.
-    scheduledInstanceId :: Lude.Text,
-    -- | The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.
-    launchSpecification :: ScheduledInstancesLaunchSpecification,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    instanceCount :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RunScheduledInstances' with the minimum fields required to make a request.
---
--- * 'clientToken' - Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
--- * 'instanceCount' - The number of instances.
---
--- Default: 1
--- * 'scheduledInstanceId' - The Scheduled Instance ID.
--- * 'launchSpecification' - The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'RunScheduledInstances' value with any optional fields omitted.
 mkRunScheduledInstances ::
-  -- | 'scheduledInstanceId'
-  Lude.Text ->
   -- | 'launchSpecification'
-  ScheduledInstancesLaunchSpecification ->
+  Types.ScheduledInstancesLaunchSpecification ->
+  -- | 'scheduledInstanceId'
+  Types.ScheduledInstanceId ->
   RunScheduledInstances
-mkRunScheduledInstances pScheduledInstanceId_ pLaunchSpecification_ =
+mkRunScheduledInstances launchSpecification scheduledInstanceId =
   RunScheduledInstances'
-    { clientToken = Lude.Nothing,
-      instanceCount = Lude.Nothing,
-      scheduledInstanceId = pScheduledInstanceId_,
-      launchSpecification = pLaunchSpecification_,
-      dryRun = Lude.Nothing
+    { launchSpecification,
+      scheduledInstanceId,
+      clientToken = Core.Nothing,
+      dryRun = Core.Nothing,
+      instanceCount = Core.Nothing
     }
+
+-- | The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.
+--
+-- /Note:/ Consider using 'launchSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsiLaunchSpecification :: Lens.Lens' RunScheduledInstances Types.ScheduledInstancesLaunchSpecification
+rsiLaunchSpecification = Lens.field @"launchSpecification"
+{-# DEPRECATED rsiLaunchSpecification "Use generic-lens or generic-optics with 'launchSpecification' instead." #-}
+
+-- | The Scheduled Instance ID.
+--
+-- /Note:/ Consider using 'scheduledInstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsiScheduledInstanceId :: Lens.Lens' RunScheduledInstances Types.ScheduledInstanceId
+rsiScheduledInstanceId = Lens.field @"scheduledInstanceId"
+{-# DEPRECATED rsiScheduledInstanceId "Use generic-lens or generic-optics with 'scheduledInstanceId' instead." #-}
 
 -- | Unique, case-sensitive identifier that ensures the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisClientToken :: Lens.Lens' RunScheduledInstances (Lude.Maybe Lude.Text)
-rsisClientToken = Lens.lens (clientToken :: RunScheduledInstances -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: RunScheduledInstances)
-{-# DEPRECATED rsisClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+rsiClientToken :: Lens.Lens' RunScheduledInstances (Core.Maybe Types.String)
+rsiClientToken = Lens.field @"clientToken"
+{-# DEPRECATED rsiClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rsiDryRun :: Lens.Lens' RunScheduledInstances (Core.Maybe Core.Bool)
+rsiDryRun = Lens.field @"dryRun"
+{-# DEPRECATED rsiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The number of instances.
 --
 -- Default: 1
 --
 -- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisInstanceCount :: Lens.Lens' RunScheduledInstances (Lude.Maybe Lude.Int)
-rsisInstanceCount = Lens.lens (instanceCount :: RunScheduledInstances -> Lude.Maybe Lude.Int) (\s a -> s {instanceCount = a} :: RunScheduledInstances)
-{-# DEPRECATED rsisInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
+rsiInstanceCount :: Lens.Lens' RunScheduledInstances (Core.Maybe Core.Int)
+rsiInstanceCount = Lens.field @"instanceCount"
+{-# DEPRECATED rsiInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
--- | The Scheduled Instance ID.
---
--- /Note:/ Consider using 'scheduledInstanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisScheduledInstanceId :: Lens.Lens' RunScheduledInstances Lude.Text
-rsisScheduledInstanceId = Lens.lens (scheduledInstanceId :: RunScheduledInstances -> Lude.Text) (\s a -> s {scheduledInstanceId = a} :: RunScheduledInstances)
-{-# DEPRECATED rsisScheduledInstanceId "Use generic-lens or generic-optics with 'scheduledInstanceId' instead." #-}
-
--- | The launch specification. You must match the instance type, Availability Zone, network, and platform of the schedule that you purchased.
---
--- /Note:/ Consider using 'launchSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisLaunchSpecification :: Lens.Lens' RunScheduledInstances ScheduledInstancesLaunchSpecification
-rsisLaunchSpecification = Lens.lens (launchSpecification :: RunScheduledInstances -> ScheduledInstancesLaunchSpecification) (\s a -> s {launchSpecification = a} :: RunScheduledInstances)
-{-# DEPRECATED rsisLaunchSpecification "Use generic-lens or generic-optics with 'launchSpecification' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rsisDryRun :: Lens.Lens' RunScheduledInstances (Lude.Maybe Lude.Bool)
-rsisDryRun = Lens.lens (dryRun :: RunScheduledInstances -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: RunScheduledInstances)
-{-# DEPRECATED rsisDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
-
-instance Lude.AWSRequest RunScheduledInstances where
+instance Core.AWSRequest RunScheduledInstances where
   type Rs RunScheduledInstances = RunScheduledInstancesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RunScheduledInstances")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "LaunchSpecification" launchSpecification)
+                Core.<> (Core.toQueryValue "ScheduledInstanceId" scheduledInstanceId)
+                Core.<> (Core.toQueryValue "ClientToken" Core.<$> clientToken)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "InstanceCount" Core.<$> instanceCount)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           RunScheduledInstancesResponse'
-            Lude.<$> ( x Lude..@? "instanceIdSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "instanceIdSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RunScheduledInstances where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RunScheduledInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RunScheduledInstances where
-  toQuery RunScheduledInstances' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RunScheduledInstances" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "ClientToken" Lude.=: clientToken,
-        "InstanceCount" Lude.=: instanceCount,
-        "ScheduledInstanceId" Lude.=: scheduledInstanceId,
-        "LaunchSpecification" Lude.=: launchSpecification,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | Contains the output of RunScheduledInstances.
 --
 -- /See:/ 'mkRunScheduledInstancesResponse' smart constructor.
 data RunScheduledInstancesResponse = RunScheduledInstancesResponse'
   { -- | The IDs of the newly launched instances.
-    instanceIdSet :: Lude.Maybe [Lude.Text],
+    instanceIdSet :: Core.Maybe [Types.InstanceId],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RunScheduledInstancesResponse' with the minimum fields required to make a request.
---
--- * 'instanceIdSet' - The IDs of the newly launched instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RunScheduledInstancesResponse' value with any optional fields omitted.
 mkRunScheduledInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RunScheduledInstancesResponse
-mkRunScheduledInstancesResponse pResponseStatus_ =
+mkRunScheduledInstancesResponse responseStatus =
   RunScheduledInstancesResponse'
-    { instanceIdSet = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceIdSet = Core.Nothing,
+      responseStatus
     }
 
 -- | The IDs of the newly launched instances.
 --
 -- /Note:/ Consider using 'instanceIdSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsInstanceIdSet :: Lens.Lens' RunScheduledInstancesResponse (Lude.Maybe [Lude.Text])
-rrsInstanceIdSet = Lens.lens (instanceIdSet :: RunScheduledInstancesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {instanceIdSet = a} :: RunScheduledInstancesResponse)
-{-# DEPRECATED rrsInstanceIdSet "Use generic-lens or generic-optics with 'instanceIdSet' instead." #-}
+rsirrsInstanceIdSet :: Lens.Lens' RunScheduledInstancesResponse (Core.Maybe [Types.InstanceId])
+rsirrsInstanceIdSet = Lens.field @"instanceIdSet"
+{-# DEPRECATED rsirrsInstanceIdSet "Use generic-lens or generic-optics with 'instanceIdSet' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrsResponseStatus :: Lens.Lens' RunScheduledInstancesResponse Lude.Int
-rrsResponseStatus = Lens.lens (responseStatus :: RunScheduledInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RunScheduledInstancesResponse)
-{-# DEPRECATED rrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rsirrsResponseStatus :: Lens.Lens' RunScheduledInstancesResponse Core.Int
+rsirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rsirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

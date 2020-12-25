@@ -17,85 +17,82 @@ module Network.AWS.FMS.Types.NetworkFirewallMissingFirewallViolation
     mkNetworkFirewallMissingFirewallViolation,
 
     -- * Lenses
-    nfmfvTargetViolationReason,
     nfmfvAvailabilityZone,
+    nfmfvTargetViolationReason,
     nfmfvVPC,
     nfmfvViolationTarget,
   )
 where
 
+import qualified Network.AWS.FMS.Types.AvailabilityZone as Types
+import qualified Network.AWS.FMS.Types.ResourceId as Types
+import qualified Network.AWS.FMS.Types.TargetViolationReason as Types
+import qualified Network.AWS.FMS.Types.ViolationTarget as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Violation details for AWS Network Firewall for a subnet that doesn't have a Firewall Manager managed firewall in its VPC.
 --
 -- /See:/ 'mkNetworkFirewallMissingFirewallViolation' smart constructor.
 data NetworkFirewallMissingFirewallViolation = NetworkFirewallMissingFirewallViolation'
-  { -- | The reason the resource has this violation, if one is available.
-    targetViolationReason :: Lude.Maybe Lude.Text,
-    -- | The Availability Zone of a violating subnet.
-    availabilityZone :: Lude.Maybe Lude.Text,
+  { -- | The Availability Zone of a violating subnet.
+    availabilityZone :: Core.Maybe Types.AvailabilityZone,
+    -- | The reason the resource has this violation, if one is available.
+    targetViolationReason :: Core.Maybe Types.TargetViolationReason,
     -- | The resource ID of the VPC associated with a violating subnet.
-    vpc :: Lude.Maybe Lude.Text,
+    vpc :: Core.Maybe Types.ResourceId,
     -- | The ID of the AWS Network Firewall or VPC resource that's in violation.
-    violationTarget :: Lude.Maybe Lude.Text
+    violationTarget :: Core.Maybe Types.ViolationTarget
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NetworkFirewallMissingFirewallViolation' with the minimum fields required to make a request.
---
--- * 'targetViolationReason' - The reason the resource has this violation, if one is available.
--- * 'availabilityZone' - The Availability Zone of a violating subnet.
--- * 'vpc' - The resource ID of the VPC associated with a violating subnet.
--- * 'violationTarget' - The ID of the AWS Network Firewall or VPC resource that's in violation.
+-- | Creates a 'NetworkFirewallMissingFirewallViolation' value with any optional fields omitted.
 mkNetworkFirewallMissingFirewallViolation ::
   NetworkFirewallMissingFirewallViolation
 mkNetworkFirewallMissingFirewallViolation =
   NetworkFirewallMissingFirewallViolation'
-    { targetViolationReason =
-        Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      vpc = Lude.Nothing,
-      violationTarget = Lude.Nothing
+    { availabilityZone =
+        Core.Nothing,
+      targetViolationReason = Core.Nothing,
+      vpc = Core.Nothing,
+      violationTarget = Core.Nothing
     }
-
--- | The reason the resource has this violation, if one is available.
---
--- /Note:/ Consider using 'targetViolationReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nfmfvTargetViolationReason :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Lude.Maybe Lude.Text)
-nfmfvTargetViolationReason = Lens.lens (targetViolationReason :: NetworkFirewallMissingFirewallViolation -> Lude.Maybe Lude.Text) (\s a -> s {targetViolationReason = a} :: NetworkFirewallMissingFirewallViolation)
-{-# DEPRECATED nfmfvTargetViolationReason "Use generic-lens or generic-optics with 'targetViolationReason' instead." #-}
 
 -- | The Availability Zone of a violating subnet.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nfmfvAvailabilityZone :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Lude.Maybe Lude.Text)
-nfmfvAvailabilityZone = Lens.lens (availabilityZone :: NetworkFirewallMissingFirewallViolation -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: NetworkFirewallMissingFirewallViolation)
+nfmfvAvailabilityZone :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Core.Maybe Types.AvailabilityZone)
+nfmfvAvailabilityZone = Lens.field @"availabilityZone"
 {-# DEPRECATED nfmfvAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+
+-- | The reason the resource has this violation, if one is available.
+--
+-- /Note:/ Consider using 'targetViolationReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nfmfvTargetViolationReason :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Core.Maybe Types.TargetViolationReason)
+nfmfvTargetViolationReason = Lens.field @"targetViolationReason"
+{-# DEPRECATED nfmfvTargetViolationReason "Use generic-lens or generic-optics with 'targetViolationReason' instead." #-}
 
 -- | The resource ID of the VPC associated with a violating subnet.
 --
 -- /Note:/ Consider using 'vpc' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nfmfvVPC :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Lude.Maybe Lude.Text)
-nfmfvVPC = Lens.lens (vpc :: NetworkFirewallMissingFirewallViolation -> Lude.Maybe Lude.Text) (\s a -> s {vpc = a} :: NetworkFirewallMissingFirewallViolation)
+nfmfvVPC :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Core.Maybe Types.ResourceId)
+nfmfvVPC = Lens.field @"vpc"
 {-# DEPRECATED nfmfvVPC "Use generic-lens or generic-optics with 'vpc' instead." #-}
 
 -- | The ID of the AWS Network Firewall or VPC resource that's in violation.
 --
 -- /Note:/ Consider using 'violationTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nfmfvViolationTarget :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Lude.Maybe Lude.Text)
-nfmfvViolationTarget = Lens.lens (violationTarget :: NetworkFirewallMissingFirewallViolation -> Lude.Maybe Lude.Text) (\s a -> s {violationTarget = a} :: NetworkFirewallMissingFirewallViolation)
+nfmfvViolationTarget :: Lens.Lens' NetworkFirewallMissingFirewallViolation (Core.Maybe Types.ViolationTarget)
+nfmfvViolationTarget = Lens.field @"violationTarget"
 {-# DEPRECATED nfmfvViolationTarget "Use generic-lens or generic-optics with 'violationTarget' instead." #-}
 
-instance Lude.FromJSON NetworkFirewallMissingFirewallViolation where
+instance Core.FromJSON NetworkFirewallMissingFirewallViolation where
   parseJSON =
-    Lude.withObject
-      "NetworkFirewallMissingFirewallViolation"
-      ( \x ->
-          NetworkFirewallMissingFirewallViolation'
-            Lude.<$> (x Lude..:? "TargetViolationReason")
-            Lude.<*> (x Lude..:? "AvailabilityZone")
-            Lude.<*> (x Lude..:? "VPC")
-            Lude.<*> (x Lude..:? "ViolationTarget")
-      )
+    Core.withObject "NetworkFirewallMissingFirewallViolation" Core.$
+      \x ->
+        NetworkFirewallMissingFirewallViolation'
+          Core.<$> (x Core..:? "AvailabilityZone")
+          Core.<*> (x Core..:? "TargetViolationReason")
+          Core.<*> (x Core..:? "VPC")
+          Core.<*> (x Core..:? "ViolationTarget")

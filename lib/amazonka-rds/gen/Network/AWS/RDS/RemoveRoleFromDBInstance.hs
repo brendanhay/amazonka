@@ -20,9 +20,9 @@ module Network.AWS.RDS.RemoveRoleFromDBInstance
     mkRemoveRoleFromDBInstance,
 
     -- ** Request lenses
-    rrfdiDBInstanceIdentifier,
-    rrfdiFeatureName,
-    rrfdiRoleARN,
+    rrfdbiDBInstanceIdentifier,
+    rrfdbiRoleArn,
+    rrfdbiFeatureName,
 
     -- * Destructuring the response
     RemoveRoleFromDBInstanceResponse (..),
@@ -31,95 +31,90 @@ module Network.AWS.RDS.RemoveRoleFromDBInstance
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveRoleFromDBInstance' smart constructor.
 data RemoveRoleFromDBInstance = RemoveRoleFromDBInstance'
   { -- | The name of the DB instance to disassociate the IAM role from.
-    dbInstanceIdentifier :: Lude.Text,
-    -- | The name of the feature for the DB instance that the IAM role is to be disassociated from. For the list of supported feature names, see @DBEngineVersion@ .
-    featureName :: Lude.Text,
+    dBInstanceIdentifier :: Types.String,
     -- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance, for example @arn:aws:iam::123456789012:role/AccessRole@ .
-    roleARN :: Lude.Text
+    roleArn :: Types.String,
+    -- | The name of the feature for the DB instance that the IAM role is to be disassociated from. For the list of supported feature names, see @DBEngineVersion@ .
+    featureName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveRoleFromDBInstance' with the minimum fields required to make a request.
---
--- * 'dbInstanceIdentifier' - The name of the DB instance to disassociate the IAM role from.
--- * 'featureName' - The name of the feature for the DB instance that the IAM role is to be disassociated from. For the list of supported feature names, see @DBEngineVersion@ .
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance, for example @arn:aws:iam::123456789012:role/AccessRole@ .
+-- | Creates a 'RemoveRoleFromDBInstance' value with any optional fields omitted.
 mkRemoveRoleFromDBInstance ::
-  -- | 'dbInstanceIdentifier'
-  Lude.Text ->
+  -- | 'dBInstanceIdentifier'
+  Types.String ->
+  -- | 'roleArn'
+  Types.String ->
   -- | 'featureName'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.String ->
   RemoveRoleFromDBInstance
-mkRemoveRoleFromDBInstance
-  pDBInstanceIdentifier_
-  pFeatureName_
-  pRoleARN_ =
-    RemoveRoleFromDBInstance'
-      { dbInstanceIdentifier =
-          pDBInstanceIdentifier_,
-        featureName = pFeatureName_,
-        roleARN = pRoleARN_
-      }
+mkRemoveRoleFromDBInstance dBInstanceIdentifier roleArn featureName =
+  RemoveRoleFromDBInstance'
+    { dBInstanceIdentifier,
+      roleArn,
+      featureName
+    }
 
 -- | The name of the DB instance to disassociate the IAM role from.
 --
--- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrfdiDBInstanceIdentifier :: Lens.Lens' RemoveRoleFromDBInstance Lude.Text
-rrfdiDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: RemoveRoleFromDBInstance -> Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: RemoveRoleFromDBInstance)
-{-# DEPRECATED rrfdiDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrfdbiDBInstanceIdentifier :: Lens.Lens' RemoveRoleFromDBInstance Types.String
+rrfdbiDBInstanceIdentifier = Lens.field @"dBInstanceIdentifier"
+{-# DEPRECATED rrfdbiDBInstanceIdentifier "Use generic-lens or generic-optics with 'dBInstanceIdentifier' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance, for example @arn:aws:iam::123456789012:role/AccessRole@ .
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrfdbiRoleArn :: Lens.Lens' RemoveRoleFromDBInstance Types.String
+rrfdbiRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED rrfdbiRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The name of the feature for the DB instance that the IAM role is to be disassociated from. For the list of supported feature names, see @DBEngineVersion@ .
 --
 -- /Note:/ Consider using 'featureName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrfdiFeatureName :: Lens.Lens' RemoveRoleFromDBInstance Lude.Text
-rrfdiFeatureName = Lens.lens (featureName :: RemoveRoleFromDBInstance -> Lude.Text) (\s a -> s {featureName = a} :: RemoveRoleFromDBInstance)
-{-# DEPRECATED rrfdiFeatureName "Use generic-lens or generic-optics with 'featureName' instead." #-}
+rrfdbiFeatureName :: Lens.Lens' RemoveRoleFromDBInstance Types.String
+rrfdbiFeatureName = Lens.field @"featureName"
+{-# DEPRECATED rrfdbiFeatureName "Use generic-lens or generic-optics with 'featureName' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB instance, for example @arn:aws:iam::123456789012:role/AccessRole@ .
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrfdiRoleARN :: Lens.Lens' RemoveRoleFromDBInstance Lude.Text
-rrfdiRoleARN = Lens.lens (roleARN :: RemoveRoleFromDBInstance -> Lude.Text) (\s a -> s {roleARN = a} :: RemoveRoleFromDBInstance)
-{-# DEPRECATED rrfdiRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.AWSRequest RemoveRoleFromDBInstance where
+instance Core.AWSRequest RemoveRoleFromDBInstance where
   type Rs RemoveRoleFromDBInstance = RemoveRoleFromDBInstanceResponse
-  request = Req.postQuery rdsService
-  response = Res.receiveNull RemoveRoleFromDBInstanceResponse'
-
-instance Lude.ToHeaders RemoveRoleFromDBInstance where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RemoveRoleFromDBInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveRoleFromDBInstance where
-  toQuery RemoveRoleFromDBInstance' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RemoveRoleFromDBInstance" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier,
-        "FeatureName" Lude.=: featureName,
-        "RoleArn" Lude.=: roleARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RemoveRoleFromDBInstance")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBInstanceIdentifier" dBInstanceIdentifier)
+                Core.<> (Core.toQueryValue "RoleArn" roleArn)
+                Core.<> (Core.toQueryValue "FeatureName" featureName)
+            )
+      }
+  response = Response.receiveNull RemoveRoleFromDBInstanceResponse'
 
 -- | /See:/ 'mkRemoveRoleFromDBInstanceResponse' smart constructor.
 data RemoveRoleFromDBInstanceResponse = RemoveRoleFromDBInstanceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveRoleFromDBInstanceResponse' with the minimum fields required to make a request.
+-- | Creates a 'RemoveRoleFromDBInstanceResponse' value with any optional fields omitted.
 mkRemoveRoleFromDBInstanceResponse ::
   RemoveRoleFromDBInstanceResponse
 mkRemoveRoleFromDBInstanceResponse =

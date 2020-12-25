@@ -17,58 +17,56 @@ module Network.AWS.CloudWatchLogs.Types.InputLogEvent
     mkInputLogEvent,
 
     -- * Lenses
-    ileMessage,
     ileTimestamp,
+    ileMessage,
   )
 where
 
+import qualified Network.AWS.CloudWatchLogs.Types.Message as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a log event, which is a record of activity that was recorded by the application or resource being monitored.
 --
 -- /See:/ 'mkInputLogEvent' smart constructor.
 data InputLogEvent = InputLogEvent'
-  { -- | The raw event message.
-    message :: Lude.Text,
-    -- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
-    timestamp :: Lude.Natural
+  { -- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+    timestamp :: Core.Natural,
+    -- | The raw event message.
+    message :: Types.Message
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InputLogEvent' with the minimum fields required to make a request.
---
--- * 'message' - The raw event message.
--- * 'timestamp' - The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+-- | Creates a 'InputLogEvent' value with any optional fields omitted.
 mkInputLogEvent ::
-  -- | 'message'
-  Lude.Text ->
   -- | 'timestamp'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'message'
+  Types.Message ->
   InputLogEvent
-mkInputLogEvent pMessage_ pTimestamp_ =
-  InputLogEvent' {message = pMessage_, timestamp = pTimestamp_}
-
--- | The raw event message.
---
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ileMessage :: Lens.Lens' InputLogEvent Lude.Text
-ileMessage = Lens.lens (message :: InputLogEvent -> Lude.Text) (\s a -> s {message = a} :: InputLogEvent)
-{-# DEPRECATED ileMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+mkInputLogEvent timestamp message =
+  InputLogEvent' {timestamp, message}
 
 -- | The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ileTimestamp :: Lens.Lens' InputLogEvent Lude.Natural
-ileTimestamp = Lens.lens (timestamp :: InputLogEvent -> Lude.Natural) (\s a -> s {timestamp = a} :: InputLogEvent)
+ileTimestamp :: Lens.Lens' InputLogEvent Core.Natural
+ileTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED ileTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.ToJSON InputLogEvent where
-  toJSON InputLogEvent' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("message" Lude..= message),
-            Lude.Just ("timestamp" Lude..= timestamp)
+-- | The raw event message.
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ileMessage :: Lens.Lens' InputLogEvent Types.Message
+ileMessage = Lens.field @"message"
+{-# DEPRECATED ileMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+instance Core.FromJSON InputLogEvent where
+  toJSON InputLogEvent {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("timestamp" Core..= timestamp),
+            Core.Just ("message" Core..= message)
           ]
       )

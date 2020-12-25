@@ -17,150 +17,142 @@ module Network.AWS.ElasticSearch.Types.PackageDetails
     mkPackageDetails,
 
     -- * Lenses
-    pdPackageId,
-    pdPackageType,
-    pdLastUpdatedAt,
+    pdAvailablePackageVersion,
     pdCreatedAt,
+    pdErrorDetails,
+    pdLastUpdatedAt,
+    pdPackageDescription,
+    pdPackageID,
     pdPackageName,
     pdPackageStatus,
-    pdPackageDescription,
-    pdErrorDetails,
-    pdAvailablePackageVersion,
+    pdPackageType,
   )
 where
 
-import Network.AWS.ElasticSearch.Types.ErrorDetails
-import Network.AWS.ElasticSearch.Types.PackageStatus
-import Network.AWS.ElasticSearch.Types.PackageType
+import qualified Network.AWS.ElasticSearch.Types.ErrorDetails as Types
+import qualified Network.AWS.ElasticSearch.Types.PackageDescription as Types
+import qualified Network.AWS.ElasticSearch.Types.PackageID as Types
+import qualified Network.AWS.ElasticSearch.Types.PackageName as Types
+import qualified Network.AWS.ElasticSearch.Types.PackageStatus as Types
+import qualified Network.AWS.ElasticSearch.Types.PackageType as Types
+import qualified Network.AWS.ElasticSearch.Types.PackageVersion as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Basic information about a package.
 --
 -- /See:/ 'mkPackageDetails' smart constructor.
 data PackageDetails = PackageDetails'
-  { -- | Internal ID of the package.
-    packageId :: Lude.Maybe Lude.Text,
-    -- | Currently supports only TXT-DICTIONARY.
-    packageType :: Lude.Maybe PackageType,
-    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
+  { availablePackageVersion :: Core.Maybe Types.PackageVersion,
     -- | Timestamp which tells creation date of the package.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | User specified name of the package.
-    packageName :: Lude.Maybe Lude.Text,
-    -- | Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED
-    packageStatus :: Lude.Maybe PackageStatus,
-    -- | User-specified description of the package.
-    packageDescription :: Lude.Maybe Lude.Text,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | Additional information if the package is in an error state. Null otherwise.
-    errorDetails :: Lude.Maybe ErrorDetails,
-    availablePackageVersion :: Lude.Maybe Lude.Text
+    errorDetails :: Core.Maybe Types.ErrorDetails,
+    lastUpdatedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | User-specified description of the package.
+    packageDescription :: Core.Maybe Types.PackageDescription,
+    -- | Internal ID of the package.
+    packageID :: Core.Maybe Types.PackageID,
+    -- | User specified name of the package.
+    packageName :: Core.Maybe Types.PackageName,
+    -- | Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED
+    packageStatus :: Core.Maybe Types.PackageStatus,
+    -- | Currently supports only TXT-DICTIONARY.
+    packageType :: Core.Maybe Types.PackageType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PackageDetails' with the minimum fields required to make a request.
---
--- * 'packageId' - Internal ID of the package.
--- * 'packageType' - Currently supports only TXT-DICTIONARY.
--- * 'lastUpdatedAt' -
--- * 'createdAt' - Timestamp which tells creation date of the package.
--- * 'packageName' - User specified name of the package.
--- * 'packageStatus' - Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED
--- * 'packageDescription' - User-specified description of the package.
--- * 'errorDetails' - Additional information if the package is in an error state. Null otherwise.
--- * 'availablePackageVersion' -
+-- | Creates a 'PackageDetails' value with any optional fields omitted.
 mkPackageDetails ::
   PackageDetails
 mkPackageDetails =
   PackageDetails'
-    { packageId = Lude.Nothing,
-      packageType = Lude.Nothing,
-      lastUpdatedAt = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      packageName = Lude.Nothing,
-      packageStatus = Lude.Nothing,
-      packageDescription = Lude.Nothing,
-      errorDetails = Lude.Nothing,
-      availablePackageVersion = Lude.Nothing
+    { availablePackageVersion = Core.Nothing,
+      createdAt = Core.Nothing,
+      errorDetails = Core.Nothing,
+      lastUpdatedAt = Core.Nothing,
+      packageDescription = Core.Nothing,
+      packageID = Core.Nothing,
+      packageName = Core.Nothing,
+      packageStatus = Core.Nothing,
+      packageType = Core.Nothing
     }
-
--- | Internal ID of the package.
---
--- /Note:/ Consider using 'packageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPackageId :: Lens.Lens' PackageDetails (Lude.Maybe Lude.Text)
-pdPackageId = Lens.lens (packageId :: PackageDetails -> Lude.Maybe Lude.Text) (\s a -> s {packageId = a} :: PackageDetails)
-{-# DEPRECATED pdPackageId "Use generic-lens or generic-optics with 'packageId' instead." #-}
-
--- | Currently supports only TXT-DICTIONARY.
---
--- /Note:/ Consider using 'packageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPackageType :: Lens.Lens' PackageDetails (Lude.Maybe PackageType)
-pdPackageType = Lens.lens (packageType :: PackageDetails -> Lude.Maybe PackageType) (\s a -> s {packageType = a} :: PackageDetails)
-{-# DEPRECATED pdPackageType "Use generic-lens or generic-optics with 'packageType' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdLastUpdatedAt :: Lens.Lens' PackageDetails (Lude.Maybe Lude.Timestamp)
-pdLastUpdatedAt = Lens.lens (lastUpdatedAt :: PackageDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: PackageDetails)
-{-# DEPRECATED pdLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
+-- /Note:/ Consider using 'availablePackageVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdAvailablePackageVersion :: Lens.Lens' PackageDetails (Core.Maybe Types.PackageVersion)
+pdAvailablePackageVersion = Lens.field @"availablePackageVersion"
+{-# DEPRECATED pdAvailablePackageVersion "Use generic-lens or generic-optics with 'availablePackageVersion' instead." #-}
 
 -- | Timestamp which tells creation date of the package.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdCreatedAt :: Lens.Lens' PackageDetails (Lude.Maybe Lude.Timestamp)
-pdCreatedAt = Lens.lens (createdAt :: PackageDetails -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: PackageDetails)
+pdCreatedAt :: Lens.Lens' PackageDetails (Core.Maybe Core.NominalDiffTime)
+pdCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED pdCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | Additional information if the package is in an error state. Null otherwise.
+--
+-- /Note:/ Consider using 'errorDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdErrorDetails :: Lens.Lens' PackageDetails (Core.Maybe Types.ErrorDetails)
+pdErrorDetails = Lens.field @"errorDetails"
+{-# DEPRECATED pdErrorDetails "Use generic-lens or generic-optics with 'errorDetails' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdLastUpdatedAt :: Lens.Lens' PackageDetails (Core.Maybe Core.NominalDiffTime)
+pdLastUpdatedAt = Lens.field @"lastUpdatedAt"
+{-# DEPRECATED pdLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
+
+-- | User-specified description of the package.
+--
+-- /Note:/ Consider using 'packageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdPackageDescription :: Lens.Lens' PackageDetails (Core.Maybe Types.PackageDescription)
+pdPackageDescription = Lens.field @"packageDescription"
+{-# DEPRECATED pdPackageDescription "Use generic-lens or generic-optics with 'packageDescription' instead." #-}
+
+-- | Internal ID of the package.
+--
+-- /Note:/ Consider using 'packageID' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdPackageID :: Lens.Lens' PackageDetails (Core.Maybe Types.PackageID)
+pdPackageID = Lens.field @"packageID"
+{-# DEPRECATED pdPackageID "Use generic-lens or generic-optics with 'packageID' instead." #-}
 
 -- | User specified name of the package.
 --
 -- /Note:/ Consider using 'packageName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPackageName :: Lens.Lens' PackageDetails (Lude.Maybe Lude.Text)
-pdPackageName = Lens.lens (packageName :: PackageDetails -> Lude.Maybe Lude.Text) (\s a -> s {packageName = a} :: PackageDetails)
+pdPackageName :: Lens.Lens' PackageDetails (Core.Maybe Types.PackageName)
+pdPackageName = Lens.field @"packageName"
 {-# DEPRECATED pdPackageName "Use generic-lens or generic-optics with 'packageName' instead." #-}
 
 -- | Current state of the package. Values are COPYING/COPY_FAILED/AVAILABLE/DELETING/DELETE_FAILED
 --
 -- /Note:/ Consider using 'packageStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPackageStatus :: Lens.Lens' PackageDetails (Lude.Maybe PackageStatus)
-pdPackageStatus = Lens.lens (packageStatus :: PackageDetails -> Lude.Maybe PackageStatus) (\s a -> s {packageStatus = a} :: PackageDetails)
+pdPackageStatus :: Lens.Lens' PackageDetails (Core.Maybe Types.PackageStatus)
+pdPackageStatus = Lens.field @"packageStatus"
 {-# DEPRECATED pdPackageStatus "Use generic-lens or generic-optics with 'packageStatus' instead." #-}
 
--- | User-specified description of the package.
+-- | Currently supports only TXT-DICTIONARY.
 --
--- /Note:/ Consider using 'packageDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdPackageDescription :: Lens.Lens' PackageDetails (Lude.Maybe Lude.Text)
-pdPackageDescription = Lens.lens (packageDescription :: PackageDetails -> Lude.Maybe Lude.Text) (\s a -> s {packageDescription = a} :: PackageDetails)
-{-# DEPRECATED pdPackageDescription "Use generic-lens or generic-optics with 'packageDescription' instead." #-}
+-- /Note:/ Consider using 'packageType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pdPackageType :: Lens.Lens' PackageDetails (Core.Maybe Types.PackageType)
+pdPackageType = Lens.field @"packageType"
+{-# DEPRECATED pdPackageType "Use generic-lens or generic-optics with 'packageType' instead." #-}
 
--- | Additional information if the package is in an error state. Null otherwise.
---
--- /Note:/ Consider using 'errorDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdErrorDetails :: Lens.Lens' PackageDetails (Lude.Maybe ErrorDetails)
-pdErrorDetails = Lens.lens (errorDetails :: PackageDetails -> Lude.Maybe ErrorDetails) (\s a -> s {errorDetails = a} :: PackageDetails)
-{-# DEPRECATED pdErrorDetails "Use generic-lens or generic-optics with 'errorDetails' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'availablePackageVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdAvailablePackageVersion :: Lens.Lens' PackageDetails (Lude.Maybe Lude.Text)
-pdAvailablePackageVersion = Lens.lens (availablePackageVersion :: PackageDetails -> Lude.Maybe Lude.Text) (\s a -> s {availablePackageVersion = a} :: PackageDetails)
-{-# DEPRECATED pdAvailablePackageVersion "Use generic-lens or generic-optics with 'availablePackageVersion' instead." #-}
-
-instance Lude.FromJSON PackageDetails where
+instance Core.FromJSON PackageDetails where
   parseJSON =
-    Lude.withObject
-      "PackageDetails"
-      ( \x ->
-          PackageDetails'
-            Lude.<$> (x Lude..:? "PackageID")
-            Lude.<*> (x Lude..:? "PackageType")
-            Lude.<*> (x Lude..:? "LastUpdatedAt")
-            Lude.<*> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "PackageName")
-            Lude.<*> (x Lude..:? "PackageStatus")
-            Lude.<*> (x Lude..:? "PackageDescription")
-            Lude.<*> (x Lude..:? "ErrorDetails")
-            Lude.<*> (x Lude..:? "AvailablePackageVersion")
-      )
+    Core.withObject "PackageDetails" Core.$
+      \x ->
+        PackageDetails'
+          Core.<$> (x Core..:? "AvailablePackageVersion")
+          Core.<*> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "ErrorDetails")
+          Core.<*> (x Core..:? "LastUpdatedAt")
+          Core.<*> (x Core..:? "PackageDescription")
+          Core.<*> (x Core..:? "PackageID")
+          Core.<*> (x Core..:? "PackageName")
+          Core.<*> (x Core..:? "PackageStatus")
+          Core.<*> (x Core..:? "PackageType")

@@ -17,70 +17,65 @@ module Network.AWS.MediaPackage.Types.DashEncryption
     mkDashEncryption,
 
     -- * Lenses
-    deKeyRotationIntervalSeconds,
     deSpekeKeyProvider,
+    deKeyRotationIntervalSeconds,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types.SpekeKeyProvider
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaPackage.Types.SpekeKeyProvider as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | A Dynamic Adaptive Streaming over HTTP (DASH) encryption configuration.
 --
 -- /See:/ 'mkDashEncryption' smart constructor.
 data DashEncryption = DashEncryption'
-  { -- | Time (in seconds) between each encryption key rotation.
-    keyRotationIntervalSeconds :: Lude.Maybe Lude.Int,
-    spekeKeyProvider :: SpekeKeyProvider
+  { spekeKeyProvider :: Types.SpekeKeyProvider,
+    -- | Time (in seconds) between each encryption key rotation.
+    keyRotationIntervalSeconds :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DashEncryption' with the minimum fields required to make a request.
---
--- * 'keyRotationIntervalSeconds' - Time (in seconds) between each encryption key rotation.
--- * 'spekeKeyProvider' -
+-- | Creates a 'DashEncryption' value with any optional fields omitted.
 mkDashEncryption ::
   -- | 'spekeKeyProvider'
-  SpekeKeyProvider ->
+  Types.SpekeKeyProvider ->
   DashEncryption
-mkDashEncryption pSpekeKeyProvider_ =
+mkDashEncryption spekeKeyProvider =
   DashEncryption'
-    { keyRotationIntervalSeconds = Lude.Nothing,
-      spekeKeyProvider = pSpekeKeyProvider_
+    { spekeKeyProvider,
+      keyRotationIntervalSeconds = Core.Nothing
     }
-
--- | Time (in seconds) between each encryption key rotation.
---
--- /Note:/ Consider using 'keyRotationIntervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deKeyRotationIntervalSeconds :: Lens.Lens' DashEncryption (Lude.Maybe Lude.Int)
-deKeyRotationIntervalSeconds = Lens.lens (keyRotationIntervalSeconds :: DashEncryption -> Lude.Maybe Lude.Int) (\s a -> s {keyRotationIntervalSeconds = a} :: DashEncryption)
-{-# DEPRECATED deKeyRotationIntervalSeconds "Use generic-lens or generic-optics with 'keyRotationIntervalSeconds' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'spekeKeyProvider' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deSpekeKeyProvider :: Lens.Lens' DashEncryption SpekeKeyProvider
-deSpekeKeyProvider = Lens.lens (spekeKeyProvider :: DashEncryption -> SpekeKeyProvider) (\s a -> s {spekeKeyProvider = a} :: DashEncryption)
+deSpekeKeyProvider :: Lens.Lens' DashEncryption Types.SpekeKeyProvider
+deSpekeKeyProvider = Lens.field @"spekeKeyProvider"
 {-# DEPRECATED deSpekeKeyProvider "Use generic-lens or generic-optics with 'spekeKeyProvider' instead." #-}
 
-instance Lude.FromJSON DashEncryption where
-  parseJSON =
-    Lude.withObject
-      "DashEncryption"
-      ( \x ->
-          DashEncryption'
-            Lude.<$> (x Lude..:? "keyRotationIntervalSeconds")
-            Lude.<*> (x Lude..: "spekeKeyProvider")
-      )
+-- | Time (in seconds) between each encryption key rotation.
+--
+-- /Note:/ Consider using 'keyRotationIntervalSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+deKeyRotationIntervalSeconds :: Lens.Lens' DashEncryption (Core.Maybe Core.Int)
+deKeyRotationIntervalSeconds = Lens.field @"keyRotationIntervalSeconds"
+{-# DEPRECATED deKeyRotationIntervalSeconds "Use generic-lens or generic-optics with 'keyRotationIntervalSeconds' instead." #-}
 
-instance Lude.ToJSON DashEncryption where
-  toJSON DashEncryption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("keyRotationIntervalSeconds" Lude..=)
-              Lude.<$> keyRotationIntervalSeconds,
-            Lude.Just ("spekeKeyProvider" Lude..= spekeKeyProvider)
+instance Core.FromJSON DashEncryption where
+  toJSON DashEncryption {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("spekeKeyProvider" Core..= spekeKeyProvider),
+            ("keyRotationIntervalSeconds" Core..=)
+              Core.<$> keyRotationIntervalSeconds
           ]
       )
+
+instance Core.FromJSON DashEncryption where
+  parseJSON =
+    Core.withObject "DashEncryption" Core.$
+      \x ->
+        DashEncryption'
+          Core.<$> (x Core..: "spekeKeyProvider")
+          Core.<*> (x Core..:? "keyRotationIntervalSeconds")

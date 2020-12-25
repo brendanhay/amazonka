@@ -90,7 +90,7 @@ responseUpdateJobExecution =
   res
     "UpdateJobExecutionResponse"
     "fixture/UpdateJobExecutionResponse.proto"
-    ioTJobsDataService
+    mkServiceConfig
     (Proxy :: Proxy UpdateJobExecution)
 
 responseStartNextPendingJobExecution :: StartNextPendingJobExecutionResponse -> TestTree
@@ -98,7 +98,7 @@ responseStartNextPendingJobExecution =
   res
     "StartNextPendingJobExecutionResponse"
     "fixture/StartNextPendingJobExecutionResponse.proto"
-    ioTJobsDataService
+    mkServiceConfig
     (Proxy :: Proxy StartNextPendingJobExecution)
 
 responseDescribeJobExecution :: DescribeJobExecutionResponse -> TestTree
@@ -106,7 +106,7 @@ responseDescribeJobExecution =
   res
     "DescribeJobExecutionResponse"
     "fixture/DescribeJobExecutionResponse.proto"
-    ioTJobsDataService
+    mkServiceConfig
     (Proxy :: Proxy DescribeJobExecution)
 
 responseGetPendingJobExecutions :: GetPendingJobExecutionsResponse -> TestTree
@@ -114,5 +114,5 @@ responseGetPendingJobExecutions =
   res
     "GetPendingJobExecutionsResponse"
     "fixture/GetPendingJobExecutionsResponse.proto"
-    ioTJobsDataService
+    mkServiceConfig
     (Proxy :: Proxy GetPendingJobExecutions)

@@ -17,100 +17,95 @@ module Network.AWS.CloudFront.Types.FieldLevelEncryptionSummary
     mkFieldLevelEncryptionSummary,
 
     -- * Lenses
-    flesQueryArgProfileConfig,
-    flesContentTypeProfileConfig,
-    flesLastModifiedTime,
     flesId,
+    flesLastModifiedTime,
     flesComment,
+    flesContentTypeProfileConfig,
+    flesQueryArgProfileConfig,
   )
 where
 
-import Network.AWS.CloudFront.Types.ContentTypeProfileConfig
-import Network.AWS.CloudFront.Types.QueryArgProfileConfig
+import qualified Network.AWS.CloudFront.Types.Comment as Types
+import qualified Network.AWS.CloudFront.Types.ContentTypeProfileConfig as Types
+import qualified Network.AWS.CloudFront.Types.Id as Types
+import qualified Network.AWS.CloudFront.Types.QueryArgProfileConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A summary of a field-level encryption item.
 --
 -- /See:/ 'mkFieldLevelEncryptionSummary' smart constructor.
 data FieldLevelEncryptionSummary = FieldLevelEncryptionSummary'
-  { -- | A summary of a query argument-profile mapping.
-    queryArgProfileConfig :: Lude.Maybe QueryArgProfileConfig,
-    -- | A summary of a content type-profile mapping.
-    contentTypeProfileConfig :: Lude.Maybe ContentTypeProfileConfig,
+  { -- | The unique ID of a field-level encryption item.
+    id :: Types.Id,
     -- | The last time that the summary of field-level encryption items was modified.
-    lastModifiedTime :: Lude.DateTime,
-    -- | The unique ID of a field-level encryption item.
-    id :: Lude.Text,
+    lastModifiedTime :: Core.UTCTime,
     -- | An optional comment about the field-level encryption item.
-    comment :: Lude.Maybe Lude.Text
+    comment :: Core.Maybe Types.Comment,
+    -- | A summary of a content type-profile mapping.
+    contentTypeProfileConfig :: Core.Maybe Types.ContentTypeProfileConfig,
+    -- | A summary of a query argument-profile mapping.
+    queryArgProfileConfig :: Core.Maybe Types.QueryArgProfileConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'FieldLevelEncryptionSummary' with the minimum fields required to make a request.
---
--- * 'queryArgProfileConfig' - A summary of a query argument-profile mapping.
--- * 'contentTypeProfileConfig' - A summary of a content type-profile mapping.
--- * 'lastModifiedTime' - The last time that the summary of field-level encryption items was modified.
--- * 'id' - The unique ID of a field-level encryption item.
--- * 'comment' - An optional comment about the field-level encryption item.
+-- | Creates a 'FieldLevelEncryptionSummary' value with any optional fields omitted.
 mkFieldLevelEncryptionSummary ::
-  -- | 'lastModifiedTime'
-  Lude.DateTime ->
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
+  -- | 'lastModifiedTime'
+  Core.UTCTime ->
   FieldLevelEncryptionSummary
-mkFieldLevelEncryptionSummary pLastModifiedTime_ pId_ =
+mkFieldLevelEncryptionSummary id lastModifiedTime =
   FieldLevelEncryptionSummary'
-    { queryArgProfileConfig =
-        Lude.Nothing,
-      contentTypeProfileConfig = Lude.Nothing,
-      lastModifiedTime = pLastModifiedTime_,
-      id = pId_,
-      comment = Lude.Nothing
+    { id,
+      lastModifiedTime,
+      comment = Core.Nothing,
+      contentTypeProfileConfig = Core.Nothing,
+      queryArgProfileConfig = Core.Nothing
     }
-
--- | A summary of a query argument-profile mapping.
---
--- /Note:/ Consider using 'queryArgProfileConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flesQueryArgProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Lude.Maybe QueryArgProfileConfig)
-flesQueryArgProfileConfig = Lens.lens (queryArgProfileConfig :: FieldLevelEncryptionSummary -> Lude.Maybe QueryArgProfileConfig) (\s a -> s {queryArgProfileConfig = a} :: FieldLevelEncryptionSummary)
-{-# DEPRECATED flesQueryArgProfileConfig "Use generic-lens or generic-optics with 'queryArgProfileConfig' instead." #-}
-
--- | A summary of a content type-profile mapping.
---
--- /Note:/ Consider using 'contentTypeProfileConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flesContentTypeProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Lude.Maybe ContentTypeProfileConfig)
-flesContentTypeProfileConfig = Lens.lens (contentTypeProfileConfig :: FieldLevelEncryptionSummary -> Lude.Maybe ContentTypeProfileConfig) (\s a -> s {contentTypeProfileConfig = a} :: FieldLevelEncryptionSummary)
-{-# DEPRECATED flesContentTypeProfileConfig "Use generic-lens or generic-optics with 'contentTypeProfileConfig' instead." #-}
-
--- | The last time that the summary of field-level encryption items was modified.
---
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flesLastModifiedTime :: Lens.Lens' FieldLevelEncryptionSummary Lude.DateTime
-flesLastModifiedTime = Lens.lens (lastModifiedTime :: FieldLevelEncryptionSummary -> Lude.DateTime) (\s a -> s {lastModifiedTime = a} :: FieldLevelEncryptionSummary)
-{-# DEPRECATED flesLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | The unique ID of a field-level encryption item.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flesId :: Lens.Lens' FieldLevelEncryptionSummary Lude.Text
-flesId = Lens.lens (id :: FieldLevelEncryptionSummary -> Lude.Text) (\s a -> s {id = a} :: FieldLevelEncryptionSummary)
+flesId :: Lens.Lens' FieldLevelEncryptionSummary Types.Id
+flesId = Lens.field @"id"
 {-# DEPRECATED flesId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The last time that the summary of field-level encryption items was modified.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flesLastModifiedTime :: Lens.Lens' FieldLevelEncryptionSummary Core.UTCTime
+flesLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED flesLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
 
 -- | An optional comment about the field-level encryption item.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flesComment :: Lens.Lens' FieldLevelEncryptionSummary (Lude.Maybe Lude.Text)
-flesComment = Lens.lens (comment :: FieldLevelEncryptionSummary -> Lude.Maybe Lude.Text) (\s a -> s {comment = a} :: FieldLevelEncryptionSummary)
+flesComment :: Lens.Lens' FieldLevelEncryptionSummary (Core.Maybe Types.Comment)
+flesComment = Lens.field @"comment"
 {-# DEPRECATED flesComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
-instance Lude.FromXML FieldLevelEncryptionSummary where
+-- | A summary of a content type-profile mapping.
+--
+-- /Note:/ Consider using 'contentTypeProfileConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flesContentTypeProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Core.Maybe Types.ContentTypeProfileConfig)
+flesContentTypeProfileConfig = Lens.field @"contentTypeProfileConfig"
+{-# DEPRECATED flesContentTypeProfileConfig "Use generic-lens or generic-optics with 'contentTypeProfileConfig' instead." #-}
+
+-- | A summary of a query argument-profile mapping.
+--
+-- /Note:/ Consider using 'queryArgProfileConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flesQueryArgProfileConfig :: Lens.Lens' FieldLevelEncryptionSummary (Core.Maybe Types.QueryArgProfileConfig)
+flesQueryArgProfileConfig = Lens.field @"queryArgProfileConfig"
+{-# DEPRECATED flesQueryArgProfileConfig "Use generic-lens or generic-optics with 'queryArgProfileConfig' instead." #-}
+
+instance Core.FromXML FieldLevelEncryptionSummary where
   parseXML x =
     FieldLevelEncryptionSummary'
-      Lude.<$> (x Lude..@? "QueryArgProfileConfig")
-      Lude.<*> (x Lude..@? "ContentTypeProfileConfig")
-      Lude.<*> (x Lude..@ "LastModifiedTime")
-      Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@? "Comment")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "LastModifiedTime")
+      Core.<*> (x Core..@? "Comment")
+      Core.<*> (x Core..@? "ContentTypeProfileConfig")
+      Core.<*> (x Core..@? "QueryArgProfileConfig")

@@ -27,152 +27,186 @@ module Network.AWS.MediaPackage.DescribeHarvestJob
     mkDescribeHarvestJobResponse,
 
     -- ** Response lenses
-    dhjrsStatus,
-    dhjrsOriginEndpointId,
-    dhjrsStartTime,
-    dhjrsARN,
-    dhjrsCreatedAt,
-    dhjrsChannelId,
-    dhjrsS3Destination,
-    dhjrsEndTime,
-    dhjrsId,
-    dhjrsResponseStatus,
+    dhjrrsArn,
+    dhjrrsChannelId,
+    dhjrrsCreatedAt,
+    dhjrrsEndTime,
+    dhjrrsId,
+    dhjrrsOriginEndpointId,
+    dhjrrsS3Destination,
+    dhjrrsStartTime,
+    dhjrrsStatus,
+    dhjrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaPackage.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaPackage.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeHarvestJob' smart constructor.
 newtype DescribeHarvestJob = DescribeHarvestJob'
   { -- | The ID of the HarvestJob.
-    id :: Lude.Text
+    id :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeHarvestJob' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the HarvestJob.
+-- | Creates a 'DescribeHarvestJob' value with any optional fields omitted.
 mkDescribeHarvestJob ::
   -- | 'id'
-  Lude.Text ->
+  Core.Text ->
   DescribeHarvestJob
-mkDescribeHarvestJob pId_ = DescribeHarvestJob' {id = pId_}
+mkDescribeHarvestJob id = DescribeHarvestJob' {id}
 
 -- | The ID of the HarvestJob.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhjId :: Lens.Lens' DescribeHarvestJob Lude.Text
-dhjId = Lens.lens (id :: DescribeHarvestJob -> Lude.Text) (\s a -> s {id = a} :: DescribeHarvestJob)
+dhjId :: Lens.Lens' DescribeHarvestJob Core.Text
+dhjId = Lens.field @"id"
 {-# DEPRECATED dhjId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DescribeHarvestJob where
+instance Core.AWSRequest DescribeHarvestJob where
   type Rs DescribeHarvestJob = DescribeHarvestJobResponse
-  request = Req.get mediaPackageService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/harvest_jobs/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeHarvestJobResponse'
-            Lude.<$> (x Lude..?> "status")
-            Lude.<*> (x Lude..?> "originEndpointId")
-            Lude.<*> (x Lude..?> "startTime")
-            Lude.<*> (x Lude..?> "arn")
-            Lude.<*> (x Lude..?> "createdAt")
-            Lude.<*> (x Lude..?> "channelId")
-            Lude.<*> (x Lude..?> "s3Destination")
-            Lude.<*> (x Lude..?> "endTime")
-            Lude.<*> (x Lude..?> "id")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "channelId")
+            Core.<*> (x Core..:? "createdAt")
+            Core.<*> (x Core..:? "endTime")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "originEndpointId")
+            Core.<*> (x Core..:? "s3Destination")
+            Core.<*> (x Core..:? "startTime")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeHarvestJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeHarvestJob where
-  toPath DescribeHarvestJob' {..} =
-    Lude.mconcat ["/harvest_jobs/", Lude.toBS id]
-
-instance Lude.ToQuery DescribeHarvestJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeHarvestJobResponse' smart constructor.
 data DescribeHarvestJobResponse = DescribeHarvestJobResponse'
-  { -- | The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
-    --
-    -- HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
-    -- include an explanation of why the HarvestJob failed.
-    status :: Lude.Maybe Status,
-    -- | The ID of the OriginEndpoint that the HarvestJob will harvest from.
-    --
-    -- This cannot be changed after the HarvestJob is submitted.
-    originEndpointId :: Lude.Maybe Lude.Text,
-    -- | The start of the time-window which will be harvested.
-    startTime :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) assigned to the HarvestJob.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The time the HarvestJob was submitted
-    createdAt :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) assigned to the HarvestJob.
+    arn :: Core.Maybe Core.Text,
     -- | The ID of the Channel that the HarvestJob will harvest from.
-    channelId :: Lude.Maybe Lude.Text,
-    s3Destination :: Lude.Maybe S3Destination,
+    channelId :: Core.Maybe Core.Text,
+    -- | The time the HarvestJob was submitted
+    createdAt :: Core.Maybe Core.Text,
     -- | The end of the time-window which will be harvested.
-    endTime :: Lude.Maybe Lude.Text,
+    endTime :: Core.Maybe Core.Text,
     -- | The ID of the HarvestJob. The ID must be unique within the region
     --
     -- and it cannot be changed after the HarvestJob is submitted.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
+    -- | The ID of the OriginEndpoint that the HarvestJob will harvest from.
+    --
+    -- This cannot be changed after the HarvestJob is submitted.
+    originEndpointId :: Core.Maybe Core.Text,
+    s3Destination :: Core.Maybe Types.S3Destination,
+    -- | The start of the time-window which will be harvested.
+    startTime :: Core.Maybe Core.Text,
+    -- | The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
+    --
+    -- HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
+    -- include an explanation of why the HarvestJob failed.
+    status :: Core.Maybe Types.Status,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeHarvestJobResponse' with the minimum fields required to make a request.
---
--- * 'status' - The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
---
--- HarvestJobs as they succeed or fail. In the event of failure, the CloudWatch Event will
--- include an explanation of why the HarvestJob failed.
--- * 'originEndpointId' - The ID of the OriginEndpoint that the HarvestJob will harvest from.
---
--- This cannot be changed after the HarvestJob is submitted.
--- * 'startTime' - The start of the time-window which will be harvested.
--- * 'arn' - The Amazon Resource Name (ARN) assigned to the HarvestJob.
--- * 'createdAt' - The time the HarvestJob was submitted
--- * 'channelId' - The ID of the Channel that the HarvestJob will harvest from.
--- * 's3Destination' -
--- * 'endTime' - The end of the time-window which will be harvested.
--- * 'id' - The ID of the HarvestJob. The ID must be unique within the region
---
--- and it cannot be changed after the HarvestJob is submitted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeHarvestJobResponse' value with any optional fields omitted.
 mkDescribeHarvestJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeHarvestJobResponse
-mkDescribeHarvestJobResponse pResponseStatus_ =
+mkDescribeHarvestJobResponse responseStatus =
   DescribeHarvestJobResponse'
-    { status = Lude.Nothing,
-      originEndpointId = Lude.Nothing,
-      startTime = Lude.Nothing,
-      arn = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      channelId = Lude.Nothing,
-      s3Destination = Lude.Nothing,
-      endTime = Lude.Nothing,
-      id = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      channelId = Core.Nothing,
+      createdAt = Core.Nothing,
+      endTime = Core.Nothing,
+      id = Core.Nothing,
+      originEndpointId = Core.Nothing,
+      s3Destination = Core.Nothing,
+      startTime = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
+
+-- | The Amazon Resource Name (ARN) assigned to the HarvestJob.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhjrrsArn :: Lens.Lens' DescribeHarvestJobResponse (Core.Maybe Core.Text)
+dhjrrsArn = Lens.field @"arn"
+{-# DEPRECATED dhjrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The ID of the Channel that the HarvestJob will harvest from.
+--
+-- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhjrrsChannelId :: Lens.Lens' DescribeHarvestJobResponse (Core.Maybe Core.Text)
+dhjrrsChannelId = Lens.field @"channelId"
+{-# DEPRECATED dhjrrsChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
+
+-- | The time the HarvestJob was submitted
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhjrrsCreatedAt :: Lens.Lens' DescribeHarvestJobResponse (Core.Maybe Core.Text)
+dhjrrsCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED dhjrrsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The end of the time-window which will be harvested.
+--
+-- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhjrrsEndTime :: Lens.Lens' DescribeHarvestJobResponse (Core.Maybe Core.Text)
+dhjrrsEndTime = Lens.field @"endTime"
+{-# DEPRECATED dhjrrsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
+
+-- | The ID of the HarvestJob. The ID must be unique within the region
+--
+-- and it cannot be changed after the HarvestJob is submitted.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhjrrsId :: Lens.Lens' DescribeHarvestJobResponse (Core.Maybe Core.Text)
+dhjrrsId = Lens.field @"id"
+{-# DEPRECATED dhjrrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The ID of the OriginEndpoint that the HarvestJob will harvest from.
+--
+-- This cannot be changed after the HarvestJob is submitted.
+--
+-- /Note:/ Consider using 'originEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhjrrsOriginEndpointId :: Lens.Lens' DescribeHarvestJobResponse (Core.Maybe Core.Text)
+dhjrrsOriginEndpointId = Lens.field @"originEndpointId"
+{-# DEPRECATED dhjrrsOriginEndpointId "Use generic-lens or generic-optics with 'originEndpointId' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 's3Destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhjrrsS3Destination :: Lens.Lens' DescribeHarvestJobResponse (Core.Maybe Types.S3Destination)
+dhjrrsS3Destination = Lens.field @"s3Destination"
+{-# DEPRECATED dhjrrsS3Destination "Use generic-lens or generic-optics with 's3Destination' instead." #-}
+
+-- | The start of the time-window which will be harvested.
+--
+-- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dhjrrsStartTime :: Lens.Lens' DescribeHarvestJobResponse (Core.Maybe Core.Text)
+dhjrrsStartTime = Lens.field @"startTime"
+{-# DEPRECATED dhjrrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | The current status of the HarvestJob. Consider setting up a CloudWatch Event to listen for
 --
@@ -180,73 +214,13 @@ mkDescribeHarvestJobResponse pResponseStatus_ =
 -- include an explanation of why the HarvestJob failed.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhjrsStatus :: Lens.Lens' DescribeHarvestJobResponse (Lude.Maybe Status)
-dhjrsStatus = Lens.lens (status :: DescribeHarvestJobResponse -> Lude.Maybe Status) (\s a -> s {status = a} :: DescribeHarvestJobResponse)
-{-# DEPRECATED dhjrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The ID of the OriginEndpoint that the HarvestJob will harvest from.
---
--- This cannot be changed after the HarvestJob is submitted.
---
--- /Note:/ Consider using 'originEndpointId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhjrsOriginEndpointId :: Lens.Lens' DescribeHarvestJobResponse (Lude.Maybe Lude.Text)
-dhjrsOriginEndpointId = Lens.lens (originEndpointId :: DescribeHarvestJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {originEndpointId = a} :: DescribeHarvestJobResponse)
-{-# DEPRECATED dhjrsOriginEndpointId "Use generic-lens or generic-optics with 'originEndpointId' instead." #-}
-
--- | The start of the time-window which will be harvested.
---
--- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhjrsStartTime :: Lens.Lens' DescribeHarvestJobResponse (Lude.Maybe Lude.Text)
-dhjrsStartTime = Lens.lens (startTime :: DescribeHarvestJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {startTime = a} :: DescribeHarvestJobResponse)
-{-# DEPRECATED dhjrsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
-
--- | The Amazon Resource Name (ARN) assigned to the HarvestJob.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhjrsARN :: Lens.Lens' DescribeHarvestJobResponse (Lude.Maybe Lude.Text)
-dhjrsARN = Lens.lens (arn :: DescribeHarvestJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeHarvestJobResponse)
-{-# DEPRECATED dhjrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The time the HarvestJob was submitted
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhjrsCreatedAt :: Lens.Lens' DescribeHarvestJobResponse (Lude.Maybe Lude.Text)
-dhjrsCreatedAt = Lens.lens (createdAt :: DescribeHarvestJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {createdAt = a} :: DescribeHarvestJobResponse)
-{-# DEPRECATED dhjrsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The ID of the Channel that the HarvestJob will harvest from.
---
--- /Note:/ Consider using 'channelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhjrsChannelId :: Lens.Lens' DescribeHarvestJobResponse (Lude.Maybe Lude.Text)
-dhjrsChannelId = Lens.lens (channelId :: DescribeHarvestJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {channelId = a} :: DescribeHarvestJobResponse)
-{-# DEPRECATED dhjrsChannelId "Use generic-lens or generic-optics with 'channelId' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 's3Destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhjrsS3Destination :: Lens.Lens' DescribeHarvestJobResponse (Lude.Maybe S3Destination)
-dhjrsS3Destination = Lens.lens (s3Destination :: DescribeHarvestJobResponse -> Lude.Maybe S3Destination) (\s a -> s {s3Destination = a} :: DescribeHarvestJobResponse)
-{-# DEPRECATED dhjrsS3Destination "Use generic-lens or generic-optics with 's3Destination' instead." #-}
-
--- | The end of the time-window which will be harvested.
---
--- /Note:/ Consider using 'endTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhjrsEndTime :: Lens.Lens' DescribeHarvestJobResponse (Lude.Maybe Lude.Text)
-dhjrsEndTime = Lens.lens (endTime :: DescribeHarvestJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {endTime = a} :: DescribeHarvestJobResponse)
-{-# DEPRECATED dhjrsEndTime "Use generic-lens or generic-optics with 'endTime' instead." #-}
-
--- | The ID of the HarvestJob. The ID must be unique within the region
---
--- and it cannot be changed after the HarvestJob is submitted.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhjrsId :: Lens.Lens' DescribeHarvestJobResponse (Lude.Maybe Lude.Text)
-dhjrsId = Lens.lens (id :: DescribeHarvestJobResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeHarvestJobResponse)
-{-# DEPRECATED dhjrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+dhjrrsStatus :: Lens.Lens' DescribeHarvestJobResponse (Core.Maybe Types.Status)
+dhjrrsStatus = Lens.field @"status"
+{-# DEPRECATED dhjrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhjrsResponseStatus :: Lens.Lens' DescribeHarvestJobResponse Lude.Int
-dhjrsResponseStatus = Lens.lens (responseStatus :: DescribeHarvestJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeHarvestJobResponse)
-{-# DEPRECATED dhjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dhjrrsResponseStatus :: Lens.Lens' DescribeHarvestJobResponse Core.Int
+dhjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dhjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

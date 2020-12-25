@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.AudioTypeControl
   ( AudioTypeControl
       ( AudioTypeControl',
-        ATCFollowInput,
-        ATCUseConfigured
+        AudioTypeControlFollowInput,
+        AudioTypeControlUseConfigured,
+        fromAudioTypeControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When set to FOLLOW_INPUT, if the input contains an ISO 639 audio_type, then that value is passed through to the output. If the input contains no ISO 639 audio_type, the value in Audio Type is included in the output. Otherwise the value in Audio Type is included in the output. Note that this field and audioType are both ignored if audioDescriptionBroadcasterMix is set to BROADCASTER_MIXED_AD.
-newtype AudioTypeControl = AudioTypeControl' Lude.Text
+newtype AudioTypeControl = AudioTypeControl'
+  { fromAudioTypeControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ATCFollowInput :: AudioTypeControl
-pattern ATCFollowInput = AudioTypeControl' "FOLLOW_INPUT"
+pattern AudioTypeControlFollowInput :: AudioTypeControl
+pattern AudioTypeControlFollowInput = AudioTypeControl' "FOLLOW_INPUT"
 
-pattern ATCUseConfigured :: AudioTypeControl
-pattern ATCUseConfigured = AudioTypeControl' "USE_CONFIGURED"
+pattern AudioTypeControlUseConfigured :: AudioTypeControl
+pattern AudioTypeControlUseConfigured = AudioTypeControl' "USE_CONFIGURED"
 
 {-# COMPLETE
-  ATCFollowInput,
-  ATCUseConfigured,
+  AudioTypeControlFollowInput,
+  AudioTypeControlUseConfigured,
   AudioTypeControl'
   #-}

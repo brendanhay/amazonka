@@ -20,138 +20,125 @@ module Network.AWS.CloudDirectory.BatchRead
     mkBatchRead,
 
     -- ** Request lenses
-    brDirectoryARN,
-    brConsistencyLevel,
+    brDirectoryArn,
     brOperations,
+    brConsistencyLevel,
 
     -- * Destructuring the response
     BatchReadResponse (..),
     mkBatchReadResponse,
 
     -- ** Response lenses
-    brrsResponses,
-    brrsResponseStatus,
+    brrrsResponses,
+    brrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchRead' smart constructor.
 data BatchRead = BatchRead'
   { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
-    directoryARN :: Lude.Text,
-    -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
-    consistencyLevel :: Lude.Maybe ConsistencyLevel,
+    directoryArn :: Types.Arn,
     -- | A list of operations that are part of the batch.
-    operations :: [BatchReadOperation]
+    operations :: [Types.BatchReadOperation],
+    -- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+    consistencyLevel :: Core.Maybe Types.ConsistencyLevel
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchRead' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
--- * 'consistencyLevel' - Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
--- * 'operations' - A list of operations that are part of the batch.
+-- | Creates a 'BatchRead' value with any optional fields omitted.
 mkBatchRead ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   BatchRead
-mkBatchRead pDirectoryARN_ =
+mkBatchRead directoryArn =
   BatchRead'
-    { directoryARN = pDirectoryARN_,
-      consistencyLevel = Lude.Nothing,
-      operations = Lude.mempty
+    { directoryArn,
+      operations = Core.mempty,
+      consistencyLevel = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' . For more information, see 'arns' .
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brDirectoryARN :: Lens.Lens' BatchRead Lude.Text
-brDirectoryARN = Lens.lens (directoryARN :: BatchRead -> Lude.Text) (\s a -> s {directoryARN = a} :: BatchRead)
-{-# DEPRECATED brDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
-
--- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
---
--- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brConsistencyLevel :: Lens.Lens' BatchRead (Lude.Maybe ConsistencyLevel)
-brConsistencyLevel = Lens.lens (consistencyLevel :: BatchRead -> Lude.Maybe ConsistencyLevel) (\s a -> s {consistencyLevel = a} :: BatchRead)
-{-# DEPRECATED brConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brDirectoryArn :: Lens.Lens' BatchRead Types.Arn
+brDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED brDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | A list of operations that are part of the batch.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brOperations :: Lens.Lens' BatchRead [BatchReadOperation]
-brOperations = Lens.lens (operations :: BatchRead -> [BatchReadOperation]) (\s a -> s {operations = a} :: BatchRead)
+brOperations :: Lens.Lens' BatchRead [Types.BatchReadOperation]
+brOperations = Lens.field @"operations"
 {-# DEPRECATED brOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
-instance Lude.AWSRequest BatchRead where
+-- | Represents the manner and timing in which the successful write or update of an object is reflected in a subsequent read operation of that same object.
+--
+-- /Note:/ Consider using 'consistencyLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+brConsistencyLevel :: Lens.Lens' BatchRead (Core.Maybe Types.ConsistencyLevel)
+brConsistencyLevel = Lens.field @"consistencyLevel"
+{-# DEPRECATED brConsistencyLevel "Use generic-lens or generic-optics with 'consistencyLevel' instead." #-}
+
+instance Core.FromJSON BatchRead where
+  toJSON BatchRead {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("Operations" Core..= operations)])
+
+instance Core.AWSRequest BatchRead where
   type Rs BatchRead = BatchReadResponse
-  request = Req.postJSON cloudDirectoryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/batchread",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn
+            Core.<> (Core.toHeaders "x-amz-consistency-level" consistencyLevel),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchReadResponse'
-            Lude.<$> (x Lude..?> "Responses" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Responses") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchRead where
-  toHeaders BatchRead' {..} =
-    Lude.mconcat
-      [ "x-amz-data-partition" Lude.=# directoryARN,
-        "x-amz-consistency-level" Lude.=# consistencyLevel
-      ]
-
-instance Lude.ToJSON BatchRead where
-  toJSON BatchRead' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("Operations" Lude..= operations)])
-
-instance Lude.ToPath BatchRead where
-  toPath = Lude.const "/amazonclouddirectory/2017-01-11/batchread"
-
-instance Lude.ToQuery BatchRead where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchReadResponse' smart constructor.
 data BatchReadResponse = BatchReadResponse'
   { -- | A list of all the responses for each batch read.
-    responses :: Lude.Maybe [BatchReadOperationResponse],
+    responses :: Core.Maybe [Types.BatchReadOperationResponse],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchReadResponse' with the minimum fields required to make a request.
---
--- * 'responses' - A list of all the responses for each batch read.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchReadResponse' value with any optional fields omitted.
 mkBatchReadResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchReadResponse
-mkBatchReadResponse pResponseStatus_ =
-  BatchReadResponse'
-    { responses = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkBatchReadResponse responseStatus =
+  BatchReadResponse' {responses = Core.Nothing, responseStatus}
 
 -- | A list of all the responses for each batch read.
 --
 -- /Note:/ Consider using 'responses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brrsResponses :: Lens.Lens' BatchReadResponse (Lude.Maybe [BatchReadOperationResponse])
-brrsResponses = Lens.lens (responses :: BatchReadResponse -> Lude.Maybe [BatchReadOperationResponse]) (\s a -> s {responses = a} :: BatchReadResponse)
-{-# DEPRECATED brrsResponses "Use generic-lens or generic-optics with 'responses' instead." #-}
+brrrsResponses :: Lens.Lens' BatchReadResponse (Core.Maybe [Types.BatchReadOperationResponse])
+brrrsResponses = Lens.field @"responses"
+{-# DEPRECATED brrrsResponses "Use generic-lens or generic-optics with 'responses' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-brrsResponseStatus :: Lens.Lens' BatchReadResponse Lude.Int
-brrsResponseStatus = Lens.lens (responseStatus :: BatchReadResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchReadResponse)
-{-# DEPRECATED brrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+brrrsResponseStatus :: Lens.Lens' BatchReadResponse Core.Int
+brrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED brrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

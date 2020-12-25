@@ -28,4 +28,4 @@ where
 
 import Network.AWS.Data.ByteString
 import Network.AWS.Data.Log
-import Network.AWS.Data.Text
+import Network.AWS.Data.Text as AWS.Text

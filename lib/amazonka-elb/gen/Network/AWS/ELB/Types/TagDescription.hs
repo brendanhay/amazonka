@@ -22,53 +22,49 @@ module Network.AWS.ELB.Types.TagDescription
   )
 where
 
-import Network.AWS.ELB.Internal
-import Network.AWS.ELB.Types.Tag
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.LoadBalancerName as Types
+import qualified Network.AWS.ELB.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The tags associated with a load balancer.
 --
 -- /See:/ 'mkTagDescription' smart constructor.
 data TagDescription = TagDescription'
   { -- | The name of the load balancer.
-    loadBalancerName :: Lude.Maybe Lude.Text,
+    loadBalancerName :: Core.Maybe Types.LoadBalancerName,
     -- | The tags.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag)
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TagDescription' with the minimum fields required to make a request.
---
--- * 'loadBalancerName' - The name of the load balancer.
--- * 'tags' - The tags.
+-- | Creates a 'TagDescription' value with any optional fields omitted.
 mkTagDescription ::
   TagDescription
 mkTagDescription =
   TagDescription'
-    { loadBalancerName = Lude.Nothing,
-      tags = Lude.Nothing
+    { loadBalancerName = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdLoadBalancerName :: Lens.Lens' TagDescription (Lude.Maybe Lude.Text)
-tdLoadBalancerName = Lens.lens (loadBalancerName :: TagDescription -> Lude.Maybe Lude.Text) (\s a -> s {loadBalancerName = a} :: TagDescription)
+tdLoadBalancerName :: Lens.Lens' TagDescription (Core.Maybe Types.LoadBalancerName)
+tdLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED tdLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
 -- | The tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdTags :: Lens.Lens' TagDescription (Lude.Maybe (Lude.NonEmpty Tag))
-tdTags = Lens.lens (tags :: TagDescription -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: TagDescription)
+tdTags :: Lens.Lens' TagDescription (Core.Maybe (Core.NonEmpty Types.Tag))
+tdTags = Lens.field @"tags"
 {-# DEPRECATED tdTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML TagDescription where
+instance Core.FromXML TagDescription where
   parseXML x =
     TagDescription'
-      Lude.<$> (x Lude..@? "LoadBalancerName")
-      Lude.<*> ( x Lude..@? "Tags" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLNonEmpty "member")
-               )
+      Core.<$> (x Core..@? "LoadBalancerName")
+      Core.<*> (x Core..@? "Tags" Core..<@> Core.parseXMLNonEmpty "member")

@@ -21,22 +21,21 @@ module Network.AWS.CloudDirectory.Types.BatchDetachPolicyResponse
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'DetachPolicy' response operation.
 --
 -- /See:/ 'mkBatchDetachPolicyResponse' smart constructor.
 data BatchDetachPolicyResponse = BatchDetachPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDetachPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'BatchDetachPolicyResponse' value with any optional fields omitted.
 mkBatchDetachPolicyResponse ::
   BatchDetachPolicyResponse
 mkBatchDetachPolicyResponse = BatchDetachPolicyResponse'
 
-instance Lude.FromJSON BatchDetachPolicyResponse where
+instance Core.FromJSON BatchDetachPolicyResponse where
   parseJSON =
-    Lude.withObject
-      "BatchDetachPolicyResponse"
-      (\x -> Lude.pure BatchDetachPolicyResponse')
+    Core.withObject "BatchDetachPolicyResponse" Core.$
+      \x -> Core.pure BatchDetachPolicyResponse'

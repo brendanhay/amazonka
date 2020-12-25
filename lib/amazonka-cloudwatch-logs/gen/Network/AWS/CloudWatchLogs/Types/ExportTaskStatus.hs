@@ -22,50 +22,46 @@ module Network.AWS.CloudWatchLogs.Types.ExportTaskStatus
   )
 where
 
-import Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode
+import qualified Network.AWS.CloudWatchLogs.Types.ExportTaskStatusCode as Types
+import qualified Network.AWS.CloudWatchLogs.Types.ExportTaskStatusMessage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the status of an export task.
 --
 -- /See:/ 'mkExportTaskStatus' smart constructor.
 data ExportTaskStatus = ExportTaskStatus'
   { -- | The status code of the export task.
-    code :: Lude.Maybe ExportTaskStatusCode,
+    code :: Core.Maybe Types.ExportTaskStatusCode,
     -- | The status message related to the status code.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.ExportTaskStatusMessage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ExportTaskStatus' with the minimum fields required to make a request.
---
--- * 'code' - The status code of the export task.
--- * 'message' - The status message related to the status code.
+-- | Creates a 'ExportTaskStatus' value with any optional fields omitted.
 mkExportTaskStatus ::
   ExportTaskStatus
 mkExportTaskStatus =
-  ExportTaskStatus' {code = Lude.Nothing, message = Lude.Nothing}
+  ExportTaskStatus' {code = Core.Nothing, message = Core.Nothing}
 
 -- | The status code of the export task.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etsCode :: Lens.Lens' ExportTaskStatus (Lude.Maybe ExportTaskStatusCode)
-etsCode = Lens.lens (code :: ExportTaskStatus -> Lude.Maybe ExportTaskStatusCode) (\s a -> s {code = a} :: ExportTaskStatus)
+etsCode :: Lens.Lens' ExportTaskStatus (Core.Maybe Types.ExportTaskStatusCode)
+etsCode = Lens.field @"code"
 {-# DEPRECATED etsCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The status message related to the status code.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-etsMessage :: Lens.Lens' ExportTaskStatus (Lude.Maybe Lude.Text)
-etsMessage = Lens.lens (message :: ExportTaskStatus -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: ExportTaskStatus)
+etsMessage :: Lens.Lens' ExportTaskStatus (Core.Maybe Types.ExportTaskStatusMessage)
+etsMessage = Lens.field @"message"
 {-# DEPRECATED etsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON ExportTaskStatus where
+instance Core.FromJSON ExportTaskStatus where
   parseJSON =
-    Lude.withObject
-      "ExportTaskStatus"
-      ( \x ->
-          ExportTaskStatus'
-            Lude.<$> (x Lude..:? "code") Lude.<*> (x Lude..:? "message")
-      )
+    Core.withObject "ExportTaskStatus" Core.$
+      \x ->
+        ExportTaskStatus'
+          Core.<$> (x Core..:? "code") Core.<*> (x Core..:? "message")

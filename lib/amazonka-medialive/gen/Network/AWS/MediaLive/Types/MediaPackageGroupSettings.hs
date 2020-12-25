@@ -22,45 +22,41 @@ module Network.AWS.MediaLive.Types.MediaPackageGroupSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.OutputLocationRef
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.OutputLocationRef as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Media Package Group Settings
 --
 -- /See:/ 'mkMediaPackageGroupSettings' smart constructor.
 newtype MediaPackageGroupSettings = MediaPackageGroupSettings'
   { -- | MediaPackage channel destination.
-    destination :: OutputLocationRef
+    destination :: Types.OutputLocationRef
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MediaPackageGroupSettings' with the minimum fields required to make a request.
---
--- * 'destination' - MediaPackage channel destination.
+-- | Creates a 'MediaPackageGroupSettings' value with any optional fields omitted.
 mkMediaPackageGroupSettings ::
   -- | 'destination'
-  OutputLocationRef ->
+  Types.OutputLocationRef ->
   MediaPackageGroupSettings
-mkMediaPackageGroupSettings pDestination_ =
-  MediaPackageGroupSettings' {destination = pDestination_}
+mkMediaPackageGroupSettings destination =
+  MediaPackageGroupSettings' {destination}
 
 -- | MediaPackage channel destination.
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mpgsDestination :: Lens.Lens' MediaPackageGroupSettings OutputLocationRef
-mpgsDestination = Lens.lens (destination :: MediaPackageGroupSettings -> OutputLocationRef) (\s a -> s {destination = a} :: MediaPackageGroupSettings)
+mpgsDestination :: Lens.Lens' MediaPackageGroupSettings Types.OutputLocationRef
+mpgsDestination = Lens.field @"destination"
 {-# DEPRECATED mpgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
-instance Lude.FromJSON MediaPackageGroupSettings where
-  parseJSON =
-    Lude.withObject
-      "MediaPackageGroupSettings"
-      ( \x ->
-          MediaPackageGroupSettings' Lude.<$> (x Lude..: "destination")
-      )
+instance Core.FromJSON MediaPackageGroupSettings where
+  toJSON MediaPackageGroupSettings {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("destination" Core..= destination)])
 
-instance Lude.ToJSON MediaPackageGroupSettings where
-  toJSON MediaPackageGroupSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("destination" Lude..= destination)])
+instance Core.FromJSON MediaPackageGroupSettings where
+  parseJSON =
+    Core.withObject "MediaPackageGroupSettings" Core.$
+      \x ->
+        MediaPackageGroupSettings' Core.<$> (x Core..: "destination")

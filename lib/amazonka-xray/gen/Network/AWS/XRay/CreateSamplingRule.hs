@@ -28,21 +28,21 @@ module Network.AWS.XRay.CreateSamplingRule
     mkCreateSamplingRuleResponse,
 
     -- ** Response lenses
-    csrrsSamplingRuleRecord,
-    csrrsResponseStatus,
+    csrrrsSamplingRuleRecord,
+    csrrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.XRay.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.XRay.Types as Types
 
 -- | /See:/ 'mkCreateSamplingRule' smart constructor.
 data CreateSamplingRule = CreateSamplingRule'
   { -- | The rule definition.
-    samplingRule :: SamplingRule,
+    samplingRule :: Types.SamplingRule,
     -- | A map that contains one or more tag keys and tag values to attach to an X-Ray sampling rule. For more information about ways to use tags, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources> in the /AWS General Reference/ .
     --
     -- The following restrictions apply to tags:
@@ -63,49 +63,24 @@ data CreateSamplingRule = CreateSamplingRule'
     --
     --
     --     * Don't use @aws:@ as a prefix for keys; it's reserved for AWS use.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSamplingRule' with the minimum fields required to make a request.
---
--- * 'samplingRule' - The rule definition.
--- * 'tags' - A map that contains one or more tag keys and tag values to attach to an X-Ray sampling rule. For more information about ways to use tags, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources> in the /AWS General Reference/ .
---
--- The following restrictions apply to tags:
---
---     * Maximum number of user-applied tags per resource: 50
---
---
---     * Maximum tag key length: 128 Unicode characters
---
---
---     * Maximum tag value length: 256 Unicode characters
---
---
---     * Valid values for key and value: a-z, A-Z, 0-9, space, and the following characters: _ . : / = + - and @
---
---
---     * Tag keys and values are case sensitive.
---
---
---     * Don't use @aws:@ as a prefix for keys; it's reserved for AWS use.
+-- | Creates a 'CreateSamplingRule' value with any optional fields omitted.
 mkCreateSamplingRule ::
   -- | 'samplingRule'
-  SamplingRule ->
+  Types.SamplingRule ->
   CreateSamplingRule
-mkCreateSamplingRule pSamplingRule_ =
-  CreateSamplingRule'
-    { samplingRule = pSamplingRule_,
-      tags = Lude.Nothing
-    }
+mkCreateSamplingRule samplingRule =
+  CreateSamplingRule' {samplingRule, tags = Core.Nothing}
 
 -- | The rule definition.
 --
 -- /Note:/ Consider using 'samplingRule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrSamplingRule :: Lens.Lens' CreateSamplingRule SamplingRule
-csrSamplingRule = Lens.lens (samplingRule :: CreateSamplingRule -> SamplingRule) (\s a -> s {samplingRule = a} :: CreateSamplingRule)
+csrSamplingRule :: Lens.Lens' CreateSamplingRule Types.SamplingRule
+csrSamplingRule = Lens.field @"samplingRule"
 {-# DEPRECATED csrSamplingRule "Use generic-lens or generic-optics with 'samplingRule' instead." #-}
 
 -- | A map that contains one or more tag keys and tag values to attach to an X-Ray sampling rule. For more information about ways to use tags, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS resources> in the /AWS General Reference/ .
@@ -132,73 +107,69 @@ csrSamplingRule = Lens.lens (samplingRule :: CreateSamplingRule -> SamplingRule)
 --
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrTags :: Lens.Lens' CreateSamplingRule (Lude.Maybe [Tag])
-csrTags = Lens.lens (tags :: CreateSamplingRule -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateSamplingRule)
+csrTags :: Lens.Lens' CreateSamplingRule (Core.Maybe [Types.Tag])
+csrTags = Lens.field @"tags"
 {-# DEPRECATED csrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateSamplingRule where
-  type Rs CreateSamplingRule = CreateSamplingRuleResponse
-  request = Req.postJSON xRayService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateSamplingRuleResponse'
-            Lude.<$> (x Lude..?> "SamplingRuleRecord")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateSamplingRule where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateSamplingRule where
-  toJSON CreateSamplingRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SamplingRule" Lude..= samplingRule),
-            ("Tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreateSamplingRule where
+  toJSON CreateSamplingRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SamplingRule" Core..= samplingRule),
+            ("Tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToPath CreateSamplingRule where
-  toPath = Lude.const "/CreateSamplingRule"
-
-instance Lude.ToQuery CreateSamplingRule where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateSamplingRule where
+  type Rs CreateSamplingRule = CreateSamplingRuleResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/CreateSamplingRule",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateSamplingRuleResponse'
+            Core.<$> (x Core..:? "SamplingRuleRecord")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateSamplingRuleResponse' smart constructor.
 data CreateSamplingRuleResponse = CreateSamplingRuleResponse'
   { -- | The saved rule definition and metadata.
-    samplingRuleRecord :: Lude.Maybe SamplingRuleRecord,
+    samplingRuleRecord :: Core.Maybe Types.SamplingRuleRecord,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateSamplingRuleResponse' with the minimum fields required to make a request.
---
--- * 'samplingRuleRecord' - The saved rule definition and metadata.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateSamplingRuleResponse' value with any optional fields omitted.
 mkCreateSamplingRuleResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateSamplingRuleResponse
-mkCreateSamplingRuleResponse pResponseStatus_ =
+mkCreateSamplingRuleResponse responseStatus =
   CreateSamplingRuleResponse'
-    { samplingRuleRecord = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { samplingRuleRecord = Core.Nothing,
+      responseStatus
     }
 
 -- | The saved rule definition and metadata.
 --
 -- /Note:/ Consider using 'samplingRuleRecord' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrrsSamplingRuleRecord :: Lens.Lens' CreateSamplingRuleResponse (Lude.Maybe SamplingRuleRecord)
-csrrsSamplingRuleRecord = Lens.lens (samplingRuleRecord :: CreateSamplingRuleResponse -> Lude.Maybe SamplingRuleRecord) (\s a -> s {samplingRuleRecord = a} :: CreateSamplingRuleResponse)
-{-# DEPRECATED csrrsSamplingRuleRecord "Use generic-lens or generic-optics with 'samplingRuleRecord' instead." #-}
+csrrrsSamplingRuleRecord :: Lens.Lens' CreateSamplingRuleResponse (Core.Maybe Types.SamplingRuleRecord)
+csrrrsSamplingRuleRecord = Lens.field @"samplingRuleRecord"
+{-# DEPRECATED csrrrsSamplingRuleRecord "Use generic-lens or generic-optics with 'samplingRuleRecord' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrrsResponseStatus :: Lens.Lens' CreateSamplingRuleResponse Lude.Int
-csrrsResponseStatus = Lens.lens (responseStatus :: CreateSamplingRuleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateSamplingRuleResponse)
-{-# DEPRECATED csrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csrrrsResponseStatus :: Lens.Lens' CreateSamplingRuleResponse Core.Int
+csrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

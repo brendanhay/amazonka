@@ -13,46 +13,48 @@
 module Network.AWS.IoTAnalytics.Types.ComputeType
   ( ComputeType
       ( ComputeType',
-        Acu1,
-        Acu2
+        ComputeTypeAcu1,
+        ComputeTypeAcu2,
+        fromComputeType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ComputeType = ComputeType' Lude.Text
+newtype ComputeType = ComputeType' {fromComputeType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Acu1 :: ComputeType
-pattern Acu1 = ComputeType' "ACU_1"
+pattern ComputeTypeAcu1 :: ComputeType
+pattern ComputeTypeAcu1 = ComputeType' "ACU_1"
 
-pattern Acu2 :: ComputeType
-pattern Acu2 = ComputeType' "ACU_2"
+pattern ComputeTypeAcu2 :: ComputeType
+pattern ComputeTypeAcu2 = ComputeType' "ACU_2"
 
 {-# COMPLETE
-  Acu1,
-  Acu2,
+  ComputeTypeAcu1,
+  ComputeTypeAcu2,
   ComputeType'
   #-}

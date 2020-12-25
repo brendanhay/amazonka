@@ -27,94 +27,84 @@ module Network.AWS.CloudHSM.ListAvailableZones
     mkListAvailableZonesResponse,
 
     -- ** Response lenses
-    lazrsAZList,
-    lazrsResponseStatus,
+    lazrrsAZList,
+    lazrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudHSM.Types
+import qualified Network.AWS.CloudHSM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the inputs for the 'ListAvailableZones' action.
 --
 -- /See:/ 'mkListAvailableZones' smart constructor.
 data ListAvailableZones = ListAvailableZones'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAvailableZones' with the minimum fields required to make a request.
+-- | Creates a 'ListAvailableZones' value with any optional fields omitted.
 mkListAvailableZones ::
   ListAvailableZones
 mkListAvailableZones = ListAvailableZones'
 
-instance Lude.AWSRequest ListAvailableZones where
+instance Core.FromJSON ListAvailableZones where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest ListAvailableZones where
   type Rs ListAvailableZones = ListAvailableZonesResponse
-  request = Req.postJSON cloudHSMService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CloudHsmFrontendService.ListAvailableZones")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAvailableZonesResponse'
-            Lude.<$> (x Lude..?> "AZList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AZList") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListAvailableZones where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CloudHsmFrontendService.ListAvailableZones" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListAvailableZones where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath ListAvailableZones where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListAvailableZones where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListAvailableZonesResponse' smart constructor.
 data ListAvailableZonesResponse = ListAvailableZonesResponse'
   { -- | The list of Availability Zones that have available AWS CloudHSM capacity.
-    aZList :: Lude.Maybe [Lude.Text],
+    aZList :: Core.Maybe [Types.AZ],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListAvailableZonesResponse' with the minimum fields required to make a request.
---
--- * 'aZList' - The list of Availability Zones that have available AWS CloudHSM capacity.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAvailableZonesResponse' value with any optional fields omitted.
 mkListAvailableZonesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAvailableZonesResponse
-mkListAvailableZonesResponse pResponseStatus_ =
+mkListAvailableZonesResponse responseStatus =
   ListAvailableZonesResponse'
-    { aZList = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { aZList = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of Availability Zones that have available AWS CloudHSM capacity.
 --
 -- /Note:/ Consider using 'aZList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lazrsAZList :: Lens.Lens' ListAvailableZonesResponse (Lude.Maybe [Lude.Text])
-lazrsAZList = Lens.lens (aZList :: ListAvailableZonesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {aZList = a} :: ListAvailableZonesResponse)
-{-# DEPRECATED lazrsAZList "Use generic-lens or generic-optics with 'aZList' instead." #-}
+lazrrsAZList :: Lens.Lens' ListAvailableZonesResponse (Core.Maybe [Types.AZ])
+lazrrsAZList = Lens.field @"aZList"
+{-# DEPRECATED lazrrsAZList "Use generic-lens or generic-optics with 'aZList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lazrsResponseStatus :: Lens.Lens' ListAvailableZonesResponse Lude.Int
-lazrsResponseStatus = Lens.lens (responseStatus :: ListAvailableZonesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAvailableZonesResponse)
-{-# DEPRECATED lazrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lazrrsResponseStatus :: Lens.Lens' ListAvailableZonesResponse Core.Int
+lazrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lazrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

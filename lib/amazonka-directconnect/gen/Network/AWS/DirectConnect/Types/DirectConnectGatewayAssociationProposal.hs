@@ -17,34 +17,39 @@ module Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposal
     mkDirectConnectGatewayAssociationProposal,
 
     -- * Lenses
-    dcgapExistingAllowedPrefixesToDirectConnectGateway,
-    dcgapDirectConnectGatewayId,
-    dcgapProposalId,
     dcgapAssociatedGateway,
-    dcgapProposalState,
+    dcgapDirectConnectGatewayId,
     dcgapDirectConnectGatewayOwnerAccount,
+    dcgapExistingAllowedPrefixesToDirectConnectGateway,
+    dcgapProposalId,
+    dcgapProposalState,
     dcgapRequestedAllowedPrefixesToDirectConnectGateway,
   )
 where
 
-import Network.AWS.DirectConnect.Types.AssociatedGateway
-import Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposalState
-import Network.AWS.DirectConnect.Types.RouteFilterPrefix
+import qualified Network.AWS.DirectConnect.Types.AssociatedGateway as Types
+import qualified Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposalId as Types
+import qualified Network.AWS.DirectConnect.Types.DirectConnectGatewayAssociationProposalState as Types
+import qualified Network.AWS.DirectConnect.Types.DirectConnectGatewayId as Types
+import qualified Network.AWS.DirectConnect.Types.DirectConnectGatewayOwnerAccount as Types
+import qualified Network.AWS.DirectConnect.Types.RouteFilterPrefix as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the proposal request to attach a virtual private gateway to a Direct Connect gateway.
 --
 -- /See:/ 'mkDirectConnectGatewayAssociationProposal' smart constructor.
 data DirectConnectGatewayAssociationProposal = DirectConnectGatewayAssociationProposal'
-  { -- | The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
-    existingAllowedPrefixesToDirectConnectGateway :: Lude.Maybe [RouteFilterPrefix],
+  { -- | Information about the associated gateway.
+    associatedGateway :: Core.Maybe Types.AssociatedGateway,
     -- | The ID of the Direct Connect gateway.
-    directConnectGatewayId :: Lude.Maybe Lude.Text,
+    directConnectGatewayId :: Core.Maybe Types.DirectConnectGatewayId,
+    -- | The ID of the AWS account that owns the Direct Connect gateway.
+    directConnectGatewayOwnerAccount :: Core.Maybe Types.DirectConnectGatewayOwnerAccount,
+    -- | The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
+    existingAllowedPrefixesToDirectConnectGateway :: Core.Maybe [Types.RouteFilterPrefix],
     -- | The ID of the association proposal.
-    proposalId :: Lude.Maybe Lude.Text,
-    -- | Information about the associated gateway.
-    associatedGateway :: Lude.Maybe AssociatedGateway,
+    proposalId :: Core.Maybe Types.DirectConnectGatewayAssociationProposalId,
     -- | The state of the proposal. The following are possible values:
     --
     --
@@ -55,77 +60,64 @@ data DirectConnectGatewayAssociationProposal = DirectConnectGatewayAssociationPr
     --
     --
     --     * @requested@ : The proposal has been requested. The Direct Connect gateway association cannot be used in this state.
-    proposalState :: Lude.Maybe DirectConnectGatewayAssociationProposalState,
-    -- | The ID of the AWS account that owns the Direct Connect gateway.
-    directConnectGatewayOwnerAccount :: Lude.Maybe Lude.Text,
+    proposalState :: Core.Maybe Types.DirectConnectGatewayAssociationProposalState,
     -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
-    requestedAllowedPrefixesToDirectConnectGateway :: Lude.Maybe [RouteFilterPrefix]
+    requestedAllowedPrefixesToDirectConnectGateway :: Core.Maybe [Types.RouteFilterPrefix]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DirectConnectGatewayAssociationProposal' with the minimum fields required to make a request.
---
--- * 'existingAllowedPrefixesToDirectConnectGateway' - The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
--- * 'directConnectGatewayId' - The ID of the Direct Connect gateway.
--- * 'proposalId' - The ID of the association proposal.
--- * 'associatedGateway' - Information about the associated gateway.
--- * 'proposalState' - The state of the proposal. The following are possible values:
---
---
---     * @accepted@ : The proposal has been accepted. The Direct Connect gateway association is available to use in this state.
---
---
---     * @deleted@ : The proposal has been deleted by the owner that made the proposal. The Direct Connect gateway association cannot be used in this state.
---
---
---     * @requested@ : The proposal has been requested. The Direct Connect gateway association cannot be used in this state.
---
---
--- * 'directConnectGatewayOwnerAccount' - The ID of the AWS account that owns the Direct Connect gateway.
--- * 'requestedAllowedPrefixesToDirectConnectGateway' - The Amazon VPC prefixes to advertise to the Direct Connect gateway.
+-- | Creates a 'DirectConnectGatewayAssociationProposal' value with any optional fields omitted.
 mkDirectConnectGatewayAssociationProposal ::
   DirectConnectGatewayAssociationProposal
 mkDirectConnectGatewayAssociationProposal =
   DirectConnectGatewayAssociationProposal'
-    { existingAllowedPrefixesToDirectConnectGateway =
-        Lude.Nothing,
-      directConnectGatewayId = Lude.Nothing,
-      proposalId = Lude.Nothing,
-      associatedGateway = Lude.Nothing,
-      proposalState = Lude.Nothing,
-      directConnectGatewayOwnerAccount = Lude.Nothing,
+    { associatedGateway =
+        Core.Nothing,
+      directConnectGatewayId = Core.Nothing,
+      directConnectGatewayOwnerAccount = Core.Nothing,
+      existingAllowedPrefixesToDirectConnectGateway =
+        Core.Nothing,
+      proposalId = Core.Nothing,
+      proposalState = Core.Nothing,
       requestedAllowedPrefixesToDirectConnectGateway =
-        Lude.Nothing
+        Core.Nothing
     }
-
--- | The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
---
--- /Note:/ Consider using 'existingAllowedPrefixesToDirectConnectGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgapExistingAllowedPrefixesToDirectConnectGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Lude.Maybe [RouteFilterPrefix])
-dcgapExistingAllowedPrefixesToDirectConnectGateway = Lens.lens (existingAllowedPrefixesToDirectConnectGateway :: DirectConnectGatewayAssociationProposal -> Lude.Maybe [RouteFilterPrefix]) (\s a -> s {existingAllowedPrefixesToDirectConnectGateway = a} :: DirectConnectGatewayAssociationProposal)
-{-# DEPRECATED dcgapExistingAllowedPrefixesToDirectConnectGateway "Use generic-lens or generic-optics with 'existingAllowedPrefixesToDirectConnectGateway' instead." #-}
-
--- | The ID of the Direct Connect gateway.
---
--- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgapDirectConnectGatewayId :: Lens.Lens' DirectConnectGatewayAssociationProposal (Lude.Maybe Lude.Text)
-dcgapDirectConnectGatewayId = Lens.lens (directConnectGatewayId :: DirectConnectGatewayAssociationProposal -> Lude.Maybe Lude.Text) (\s a -> s {directConnectGatewayId = a} :: DirectConnectGatewayAssociationProposal)
-{-# DEPRECATED dcgapDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
-
--- | The ID of the association proposal.
---
--- /Note:/ Consider using 'proposalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgapProposalId :: Lens.Lens' DirectConnectGatewayAssociationProposal (Lude.Maybe Lude.Text)
-dcgapProposalId = Lens.lens (proposalId :: DirectConnectGatewayAssociationProposal -> Lude.Maybe Lude.Text) (\s a -> s {proposalId = a} :: DirectConnectGatewayAssociationProposal)
-{-# DEPRECATED dcgapProposalId "Use generic-lens or generic-optics with 'proposalId' instead." #-}
 
 -- | Information about the associated gateway.
 --
 -- /Note:/ Consider using 'associatedGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgapAssociatedGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Lude.Maybe AssociatedGateway)
-dcgapAssociatedGateway = Lens.lens (associatedGateway :: DirectConnectGatewayAssociationProposal -> Lude.Maybe AssociatedGateway) (\s a -> s {associatedGateway = a} :: DirectConnectGatewayAssociationProposal)
+dcgapAssociatedGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe Types.AssociatedGateway)
+dcgapAssociatedGateway = Lens.field @"associatedGateway"
 {-# DEPRECATED dcgapAssociatedGateway "Use generic-lens or generic-optics with 'associatedGateway' instead." #-}
+
+-- | The ID of the Direct Connect gateway.
+--
+-- /Note:/ Consider using 'directConnectGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgapDirectConnectGatewayId :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe Types.DirectConnectGatewayId)
+dcgapDirectConnectGatewayId = Lens.field @"directConnectGatewayId"
+{-# DEPRECATED dcgapDirectConnectGatewayId "Use generic-lens or generic-optics with 'directConnectGatewayId' instead." #-}
+
+-- | The ID of the AWS account that owns the Direct Connect gateway.
+--
+-- /Note:/ Consider using 'directConnectGatewayOwnerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgapDirectConnectGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe Types.DirectConnectGatewayOwnerAccount)
+dcgapDirectConnectGatewayOwnerAccount = Lens.field @"directConnectGatewayOwnerAccount"
+{-# DEPRECATED dcgapDirectConnectGatewayOwnerAccount "Use generic-lens or generic-optics with 'directConnectGatewayOwnerAccount' instead." #-}
+
+-- | The existing Amazon VPC prefixes advertised to the Direct Connect gateway.
+--
+-- /Note:/ Consider using 'existingAllowedPrefixesToDirectConnectGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgapExistingAllowedPrefixesToDirectConnectGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe [Types.RouteFilterPrefix])
+dcgapExistingAllowedPrefixesToDirectConnectGateway = Lens.field @"existingAllowedPrefixesToDirectConnectGateway"
+{-# DEPRECATED dcgapExistingAllowedPrefixesToDirectConnectGateway "Use generic-lens or generic-optics with 'existingAllowedPrefixesToDirectConnectGateway' instead." #-}
+
+-- | The ID of the association proposal.
+--
+-- /Note:/ Consider using 'proposalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcgapProposalId :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe Types.DirectConnectGatewayAssociationProposalId)
+dcgapProposalId = Lens.field @"proposalId"
+{-# DEPRECATED dcgapProposalId "Use generic-lens or generic-optics with 'proposalId' instead." #-}
 
 -- | The state of the proposal. The following are possible values:
 --
@@ -141,39 +133,26 @@ dcgapAssociatedGateway = Lens.lens (associatedGateway :: DirectConnectGatewayAss
 --
 --
 -- /Note:/ Consider using 'proposalState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgapProposalState :: Lens.Lens' DirectConnectGatewayAssociationProposal (Lude.Maybe DirectConnectGatewayAssociationProposalState)
-dcgapProposalState = Lens.lens (proposalState :: DirectConnectGatewayAssociationProposal -> Lude.Maybe DirectConnectGatewayAssociationProposalState) (\s a -> s {proposalState = a} :: DirectConnectGatewayAssociationProposal)
+dcgapProposalState :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe Types.DirectConnectGatewayAssociationProposalState)
+dcgapProposalState = Lens.field @"proposalState"
 {-# DEPRECATED dcgapProposalState "Use generic-lens or generic-optics with 'proposalState' instead." #-}
-
--- | The ID of the AWS account that owns the Direct Connect gateway.
---
--- /Note:/ Consider using 'directConnectGatewayOwnerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgapDirectConnectGatewayOwnerAccount :: Lens.Lens' DirectConnectGatewayAssociationProposal (Lude.Maybe Lude.Text)
-dcgapDirectConnectGatewayOwnerAccount = Lens.lens (directConnectGatewayOwnerAccount :: DirectConnectGatewayAssociationProposal -> Lude.Maybe Lude.Text) (\s a -> s {directConnectGatewayOwnerAccount = a} :: DirectConnectGatewayAssociationProposal)
-{-# DEPRECATED dcgapDirectConnectGatewayOwnerAccount "Use generic-lens or generic-optics with 'directConnectGatewayOwnerAccount' instead." #-}
 
 -- | The Amazon VPC prefixes to advertise to the Direct Connect gateway.
 --
 -- /Note:/ Consider using 'requestedAllowedPrefixesToDirectConnectGateway' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcgapRequestedAllowedPrefixesToDirectConnectGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Lude.Maybe [RouteFilterPrefix])
-dcgapRequestedAllowedPrefixesToDirectConnectGateway = Lens.lens (requestedAllowedPrefixesToDirectConnectGateway :: DirectConnectGatewayAssociationProposal -> Lude.Maybe [RouteFilterPrefix]) (\s a -> s {requestedAllowedPrefixesToDirectConnectGateway = a} :: DirectConnectGatewayAssociationProposal)
+dcgapRequestedAllowedPrefixesToDirectConnectGateway :: Lens.Lens' DirectConnectGatewayAssociationProposal (Core.Maybe [Types.RouteFilterPrefix])
+dcgapRequestedAllowedPrefixesToDirectConnectGateway = Lens.field @"requestedAllowedPrefixesToDirectConnectGateway"
 {-# DEPRECATED dcgapRequestedAllowedPrefixesToDirectConnectGateway "Use generic-lens or generic-optics with 'requestedAllowedPrefixesToDirectConnectGateway' instead." #-}
 
-instance Lude.FromJSON DirectConnectGatewayAssociationProposal where
+instance Core.FromJSON DirectConnectGatewayAssociationProposal where
   parseJSON =
-    Lude.withObject
-      "DirectConnectGatewayAssociationProposal"
-      ( \x ->
-          DirectConnectGatewayAssociationProposal'
-            Lude.<$> ( x Lude..:? "existingAllowedPrefixesToDirectConnectGateway"
-                         Lude..!= Lude.mempty
-                     )
-            Lude.<*> (x Lude..:? "directConnectGatewayId")
-            Lude.<*> (x Lude..:? "proposalId")
-            Lude.<*> (x Lude..:? "associatedGateway")
-            Lude.<*> (x Lude..:? "proposalState")
-            Lude.<*> (x Lude..:? "directConnectGatewayOwnerAccount")
-            Lude.<*> ( x Lude..:? "requestedAllowedPrefixesToDirectConnectGateway"
-                         Lude..!= Lude.mempty
-                     )
-      )
+    Core.withObject "DirectConnectGatewayAssociationProposal" Core.$
+      \x ->
+        DirectConnectGatewayAssociationProposal'
+          Core.<$> (x Core..:? "associatedGateway")
+          Core.<*> (x Core..:? "directConnectGatewayId")
+          Core.<*> (x Core..:? "directConnectGatewayOwnerAccount")
+          Core.<*> (x Core..:? "existingAllowedPrefixesToDirectConnectGateway")
+          Core.<*> (x Core..:? "proposalId")
+          Core.<*> (x Core..:? "proposalState")
+          Core.<*> (x Core..:? "requestedAllowedPrefixesToDirectConnectGateway")

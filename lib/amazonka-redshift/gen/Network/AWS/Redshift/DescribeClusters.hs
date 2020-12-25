@@ -25,111 +25,84 @@ module Network.AWS.Redshift.DescribeClusters
     mkDescribeClusters,
 
     -- ** Request lenses
-    dcsTagValues,
-    dcsTagKeys,
-    dcsClusterIdentifier,
-    dcsMarker,
-    dcsMaxRecords,
+    dcClusterIdentifier,
+    dcMarker,
+    dcMaxRecords,
+    dcTagKeys,
+    dcTagValues,
 
     -- * Destructuring the response
     DescribeClustersResponse (..),
     mkDescribeClustersResponse,
 
     -- ** Response lenses
-    dcfrsMarker,
-    dcfrsClusters,
-    dcfrsResponseStatus,
+    dcrrsClusters,
+    dcrrsMarker,
+    dcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeClusters' smart constructor.
 data DescribeClusters = DescribeClusters'
-  { -- | A tag value or values for which you want to return all matching clusters that are associated with the specified tag value or values. For example, suppose that you have clusters that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag values associated with them.
-    tagValues :: Lude.Maybe [Lude.Text],
-    -- | A tag key or keys for which you want to return all matching clusters that are associated with the specified key or keys. For example, suppose that you have clusters that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag keys associated with them.
-    tagKeys :: Lude.Maybe [Lude.Text],
-    -- | The unique identifier of a cluster whose properties you are requesting. This parameter is case sensitive.
+  { -- | The unique identifier of a cluster whose properties you are requesting. This parameter is case sensitive.
     --
     -- The default is that all clusters defined for an account are returned.
-    clusterIdentifier :: Lude.Maybe Lude.Text,
+    clusterIdentifier :: Core.Maybe Types.String,
     -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
     --
     -- Constraints: You can specify either the __ClusterIdentifier__ parameter or the __Marker__ parameter, but not both.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
     --
     -- Default: @100@
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int,
+    -- | A tag key or keys for which you want to return all matching clusters that are associated with the specified key or keys. For example, suppose that you have clusters that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag keys associated with them.
+    tagKeys :: Core.Maybe [Types.String],
+    -- | A tag value or values for which you want to return all matching clusters that are associated with the specified tag value or values. For example, suppose that you have clusters that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag values associated with them.
+    tagValues :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeClusters' with the minimum fields required to make a request.
---
--- * 'tagValues' - A tag value or values for which you want to return all matching clusters that are associated with the specified tag value or values. For example, suppose that you have clusters that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag values associated with them.
--- * 'tagKeys' - A tag key or keys for which you want to return all matching clusters that are associated with the specified key or keys. For example, suppose that you have clusters that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag keys associated with them.
--- * 'clusterIdentifier' - The unique identifier of a cluster whose properties you are requesting. This parameter is case sensitive.
---
--- The default is that all clusters defined for an account are returned.
--- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
---
--- Constraints: You can specify either the __ClusterIdentifier__ parameter or the __Marker__ parameter, but not both.
--- * 'maxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
---
--- Default: @100@
--- Constraints: minimum 20, maximum 100.
+-- | Creates a 'DescribeClusters' value with any optional fields omitted.
 mkDescribeClusters ::
   DescribeClusters
 mkDescribeClusters =
   DescribeClusters'
-    { tagValues = Lude.Nothing,
-      tagKeys = Lude.Nothing,
-      clusterIdentifier = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { clusterIdentifier = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      tagKeys = Core.Nothing,
+      tagValues = Core.Nothing
     }
-
--- | A tag value or values for which you want to return all matching clusters that are associated with the specified tag value or values. For example, suppose that you have clusters that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag values associated with them.
---
--- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsTagValues :: Lens.Lens' DescribeClusters (Lude.Maybe [Lude.Text])
-dcsTagValues = Lens.lens (tagValues :: DescribeClusters -> Lude.Maybe [Lude.Text]) (\s a -> s {tagValues = a} :: DescribeClusters)
-{-# DEPRECATED dcsTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
-
--- | A tag key or keys for which you want to return all matching clusters that are associated with the specified key or keys. For example, suppose that you have clusters that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag keys associated with them.
---
--- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsTagKeys :: Lens.Lens' DescribeClusters (Lude.Maybe [Lude.Text])
-dcsTagKeys = Lens.lens (tagKeys :: DescribeClusters -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: DescribeClusters)
-{-# DEPRECATED dcsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
 -- | The unique identifier of a cluster whose properties you are requesting. This parameter is case sensitive.
 --
 -- The default is that all clusters defined for an account are returned.
 --
 -- /Note:/ Consider using 'clusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsClusterIdentifier :: Lens.Lens' DescribeClusters (Lude.Maybe Lude.Text)
-dcsClusterIdentifier = Lens.lens (clusterIdentifier :: DescribeClusters -> Lude.Maybe Lude.Text) (\s a -> s {clusterIdentifier = a} :: DescribeClusters)
-{-# DEPRECATED dcsClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
+dcClusterIdentifier :: Lens.Lens' DescribeClusters (Core.Maybe Types.String)
+dcClusterIdentifier = Lens.field @"clusterIdentifier"
+{-# DEPRECATED dcClusterIdentifier "Use generic-lens or generic-optics with 'clusterIdentifier' instead." #-}
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a 'DescribeClusters' request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- Constraints: You can specify either the __ClusterIdentifier__ parameter or the __Marker__ parameter, but not both.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsMarker :: Lens.Lens' DescribeClusters (Lude.Maybe Lude.Text)
-dcsMarker = Lens.lens (marker :: DescribeClusters -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClusters)
-{-# DEPRECATED dcsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dcMarker :: Lens.Lens' DescribeClusters (Core.Maybe Types.String)
+dcMarker = Lens.field @"marker"
+{-# DEPRECATED dcMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
@@ -137,99 +110,118 @@ dcsMarker = Lens.lens (marker :: DescribeClusters -> Lude.Maybe Lude.Text) (\s a
 -- Constraints: minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsMaxRecords :: Lens.Lens' DescribeClusters (Lude.Maybe Lude.Int)
-dcsMaxRecords = Lens.lens (maxRecords :: DescribeClusters -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeClusters)
-{-# DEPRECATED dcsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dcMaxRecords :: Lens.Lens' DescribeClusters (Core.Maybe Core.Int)
+dcMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED dcMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeClusters where
-  page rq rs
-    | Page.stop (rs Lens.^. dcfrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. dcfrsClusters) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& dcsMarker Lens..~ rs Lens.^. dcfrsMarker
+-- | A tag key or keys for which you want to return all matching clusters that are associated with the specified key or keys. For example, suppose that you have clusters that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag keys associated with them.
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcTagKeys :: Lens.Lens' DescribeClusters (Core.Maybe [Types.String])
+dcTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED dcTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance Lude.AWSRequest DescribeClusters where
+-- | A tag value or values for which you want to return all matching clusters that are associated with the specified tag value or values. For example, suppose that you have clusters that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the clusters that have either or both of these tag values associated with them.
+--
+-- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcTagValues :: Lens.Lens' DescribeClusters (Core.Maybe [Types.String])
+dcTagValues = Lens.field @"tagValues"
+{-# DEPRECATED dcTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
+
+instance Core.AWSRequest DescribeClusters where
   type Rs DescribeClusters = DescribeClustersResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeClusters")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ClusterIdentifier" Core.<$> clusterIdentifier)
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> ( Core.toQueryValue
+                            "TagKeys"
+                            (Core.toQueryList "TagKey" Core.<$> tagKeys)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "TagValues"
+                            (Core.toQueryList "TagValue" Core.<$> tagValues)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeClustersResult"
       ( \s h x ->
           DescribeClustersResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> ( x Lude..@? "Clusters" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "Cluster")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Clusters" Core..<@> Core.parseXMLList "Cluster")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeClusters where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeClusters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeClusters where
-  toQuery DescribeClusters' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeClusters" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "TagValues"
-          Lude.=: Lude.toQuery (Lude.toQueryList "TagValue" Lude.<$> tagValues),
-        "TagKeys"
-          Lude.=: Lude.toQuery (Lude.toQueryList "TagKey" Lude.<$> tagKeys),
-        "ClusterIdentifier" Lude.=: clusterIdentifier,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeClusters where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"clusters" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Contains the output from the 'DescribeClusters' action.
 --
 -- /See:/ 'mkDescribeClustersResponse' smart constructor.
 data DescribeClustersResponse = DescribeClustersResponse'
-  { -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
-    marker :: Lude.Maybe Lude.Text,
-    -- | A list of @Cluster@ objects, where each object describes one cluster.
-    clusters :: Lude.Maybe [Cluster],
+  { -- | A list of @Cluster@ objects, where each object describes one cluster.
+    clusters :: Core.Maybe [Types.Cluster],
+    -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeClustersResponse' with the minimum fields required to make a request.
---
--- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
--- * 'clusters' - A list of @Cluster@ objects, where each object describes one cluster.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeClustersResponse' value with any optional fields omitted.
 mkDescribeClustersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeClustersResponse
-mkDescribeClustersResponse pResponseStatus_ =
+mkDescribeClustersResponse responseStatus =
   DescribeClustersResponse'
-    { marker = Lude.Nothing,
-      clusters = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clusters = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
-
--- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfrsMarker :: Lens.Lens' DescribeClustersResponse (Lude.Maybe Lude.Text)
-dcfrsMarker = Lens.lens (marker :: DescribeClustersResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeClustersResponse)
-{-# DEPRECATED dcfrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | A list of @Cluster@ objects, where each object describes one cluster.
 --
 -- /Note:/ Consider using 'clusters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfrsClusters :: Lens.Lens' DescribeClustersResponse (Lude.Maybe [Cluster])
-dcfrsClusters = Lens.lens (clusters :: DescribeClustersResponse -> Lude.Maybe [Cluster]) (\s a -> s {clusters = a} :: DescribeClustersResponse)
-{-# DEPRECATED dcfrsClusters "Use generic-lens or generic-optics with 'clusters' instead." #-}
+dcrrsClusters :: Lens.Lens' DescribeClustersResponse (Core.Maybe [Types.Cluster])
+dcrrsClusters = Lens.field @"clusters"
+{-# DEPRECATED dcrrsClusters "Use generic-lens or generic-optics with 'clusters' instead." #-}
+
+-- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcrrsMarker :: Lens.Lens' DescribeClustersResponse (Core.Maybe Types.String)
+dcrrsMarker = Lens.field @"marker"
+{-# DEPRECATED dcrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfrsResponseStatus :: Lens.Lens' DescribeClustersResponse Lude.Int
-dcfrsResponseStatus = Lens.lens (responseStatus :: DescribeClustersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeClustersResponse)
-{-# DEPRECATED dcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcrrsResponseStatus :: Lens.Lens' DescribeClustersResponse Core.Int
+dcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

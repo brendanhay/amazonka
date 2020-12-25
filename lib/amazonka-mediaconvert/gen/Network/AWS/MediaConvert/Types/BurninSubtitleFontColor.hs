@@ -13,67 +13,72 @@
 module Network.AWS.MediaConvert.Types.BurninSubtitleFontColor
   ( BurninSubtitleFontColor
       ( BurninSubtitleFontColor',
-        BSFCWhite,
-        BSFCBlack,
-        BSFCYellow,
-        BSFCRed,
-        BSFCGreen,
-        BSFCBlue
+        BurninSubtitleFontColorWhite,
+        BurninSubtitleFontColorBlack,
+        BurninSubtitleFontColorYellow,
+        BurninSubtitleFontColorRed,
+        BurninSubtitleFontColorGreen,
+        BurninSubtitleFontColorBlue,
+        fromBurninSubtitleFontColor
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-newtype BurninSubtitleFontColor = BurninSubtitleFontColor' Lude.Text
+newtype BurninSubtitleFontColor = BurninSubtitleFontColor'
+  { fromBurninSubtitleFontColor ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BSFCWhite :: BurninSubtitleFontColor
-pattern BSFCWhite = BurninSubtitleFontColor' "WHITE"
+pattern BurninSubtitleFontColorWhite :: BurninSubtitleFontColor
+pattern BurninSubtitleFontColorWhite = BurninSubtitleFontColor' "WHITE"
 
-pattern BSFCBlack :: BurninSubtitleFontColor
-pattern BSFCBlack = BurninSubtitleFontColor' "BLACK"
+pattern BurninSubtitleFontColorBlack :: BurninSubtitleFontColor
+pattern BurninSubtitleFontColorBlack = BurninSubtitleFontColor' "BLACK"
 
-pattern BSFCYellow :: BurninSubtitleFontColor
-pattern BSFCYellow = BurninSubtitleFontColor' "YELLOW"
+pattern BurninSubtitleFontColorYellow :: BurninSubtitleFontColor
+pattern BurninSubtitleFontColorYellow = BurninSubtitleFontColor' "YELLOW"
 
-pattern BSFCRed :: BurninSubtitleFontColor
-pattern BSFCRed = BurninSubtitleFontColor' "RED"
+pattern BurninSubtitleFontColorRed :: BurninSubtitleFontColor
+pattern BurninSubtitleFontColorRed = BurninSubtitleFontColor' "RED"
 
-pattern BSFCGreen :: BurninSubtitleFontColor
-pattern BSFCGreen = BurninSubtitleFontColor' "GREEN"
+pattern BurninSubtitleFontColorGreen :: BurninSubtitleFontColor
+pattern BurninSubtitleFontColorGreen = BurninSubtitleFontColor' "GREEN"
 
-pattern BSFCBlue :: BurninSubtitleFontColor
-pattern BSFCBlue = BurninSubtitleFontColor' "BLUE"
+pattern BurninSubtitleFontColorBlue :: BurninSubtitleFontColor
+pattern BurninSubtitleFontColorBlue = BurninSubtitleFontColor' "BLUE"
 
 {-# COMPLETE
-  BSFCWhite,
-  BSFCBlack,
-  BSFCYellow,
-  BSFCRed,
-  BSFCGreen,
-  BSFCBlue,
+  BurninSubtitleFontColorWhite,
+  BurninSubtitleFontColorBlack,
+  BurninSubtitleFontColorYellow,
+  BurninSubtitleFontColorRed,
+  BurninSubtitleFontColorGreen,
+  BurninSubtitleFontColorBlue,
   BurninSubtitleFontColor'
   #-}

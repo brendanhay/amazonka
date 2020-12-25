@@ -17,58 +17,54 @@ module Network.AWS.ELB.Types.ListenerDescription
     mkListenerDescription,
 
     -- * Lenses
-    ldPolicyNames,
     ldListener,
+    ldPolicyNames,
   )
 where
 
-import Network.AWS.ELB.Internal
-import Network.AWS.ELB.Types.Listener
+import qualified Network.AWS.ELB.Internal as Types
+import qualified Network.AWS.ELB.Types.Listener as Types
+import qualified Network.AWS.ELB.Types.PolicyName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The policies enabled for a listener.
 --
 -- /See:/ 'mkListenerDescription' smart constructor.
 data ListenerDescription = ListenerDescription'
-  { -- | The policies. If there are no policies enabled, the list is empty.
-    policyNames :: Lude.Maybe [Lude.Text],
-    -- | The listener.
-    listener :: Lude.Maybe Listener
+  { -- | The listener.
+    listener :: Core.Maybe Types.Listener,
+    -- | The policies. If there are no policies enabled, the list is empty.
+    policyNames :: Core.Maybe [Types.PolicyName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListenerDescription' with the minimum fields required to make a request.
---
--- * 'policyNames' - The policies. If there are no policies enabled, the list is empty.
--- * 'listener' - The listener.
+-- | Creates a 'ListenerDescription' value with any optional fields omitted.
 mkListenerDescription ::
   ListenerDescription
 mkListenerDescription =
   ListenerDescription'
-    { policyNames = Lude.Nothing,
-      listener = Lude.Nothing
+    { listener = Core.Nothing,
+      policyNames = Core.Nothing
     }
-
--- | The policies. If there are no policies enabled, the list is empty.
---
--- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldPolicyNames :: Lens.Lens' ListenerDescription (Lude.Maybe [Lude.Text])
-ldPolicyNames = Lens.lens (policyNames :: ListenerDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {policyNames = a} :: ListenerDescription)
-{-# DEPRECATED ldPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 -- | The listener.
 --
 -- /Note:/ Consider using 'listener' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldListener :: Lens.Lens' ListenerDescription (Lude.Maybe Listener)
-ldListener = Lens.lens (listener :: ListenerDescription -> Lude.Maybe Listener) (\s a -> s {listener = a} :: ListenerDescription)
+ldListener :: Lens.Lens' ListenerDescription (Core.Maybe Types.Listener)
+ldListener = Lens.field @"listener"
 {-# DEPRECATED ldListener "Use generic-lens or generic-optics with 'listener' instead." #-}
 
-instance Lude.FromXML ListenerDescription where
+-- | The policies. If there are no policies enabled, the list is empty.
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldPolicyNames :: Lens.Lens' ListenerDescription (Core.Maybe [Types.PolicyName])
+ldPolicyNames = Lens.field @"policyNames"
+{-# DEPRECATED ldPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
+
+instance Core.FromXML ListenerDescription where
   parseXML x =
     ListenerDescription'
-      Lude.<$> ( x Lude..@? "PolicyNames" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "member")
-               )
-      Lude.<*> (x Lude..@? "Listener")
+      Core.<$> (x Core..@? "Listener")
+      Core.<*> (x Core..@? "PolicyNames" Core..<@> Core.parseXMLList "member")

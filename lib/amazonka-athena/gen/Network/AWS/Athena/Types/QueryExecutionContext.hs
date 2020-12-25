@@ -17,66 +17,63 @@ module Network.AWS.Athena.Types.QueryExecutionContext
     mkQueryExecutionContext,
 
     -- * Lenses
-    qecDatabase,
     qecCatalog,
+    qecDatabase,
   )
 where
 
+import qualified Network.AWS.Athena.Types.Catalog as Types
+import qualified Network.AWS.Athena.Types.DatabaseString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The database and data catalog context in which the query execution occurs.
 --
 -- /See:/ 'mkQueryExecutionContext' smart constructor.
 data QueryExecutionContext = QueryExecutionContext'
-  { -- | The name of the database used in the query execution.
-    database :: Lude.Maybe Lude.Text,
-    -- | The name of the data catalog used in the query execution.
-    catalog :: Lude.Maybe Lude.Text
+  { -- | The name of the data catalog used in the query execution.
+    catalog :: Core.Maybe Types.Catalog,
+    -- | The name of the database used in the query execution.
+    database :: Core.Maybe Types.DatabaseString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'QueryExecutionContext' with the minimum fields required to make a request.
---
--- * 'database' - The name of the database used in the query execution.
--- * 'catalog' - The name of the data catalog used in the query execution.
+-- | Creates a 'QueryExecutionContext' value with any optional fields omitted.
 mkQueryExecutionContext ::
   QueryExecutionContext
 mkQueryExecutionContext =
   QueryExecutionContext'
-    { database = Lude.Nothing,
-      catalog = Lude.Nothing
+    { catalog = Core.Nothing,
+      database = Core.Nothing
     }
-
--- | The name of the database used in the query execution.
---
--- /Note:/ Consider using 'database' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qecDatabase :: Lens.Lens' QueryExecutionContext (Lude.Maybe Lude.Text)
-qecDatabase = Lens.lens (database :: QueryExecutionContext -> Lude.Maybe Lude.Text) (\s a -> s {database = a} :: QueryExecutionContext)
-{-# DEPRECATED qecDatabase "Use generic-lens or generic-optics with 'database' instead." #-}
 
 -- | The name of the data catalog used in the query execution.
 --
 -- /Note:/ Consider using 'catalog' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-qecCatalog :: Lens.Lens' QueryExecutionContext (Lude.Maybe Lude.Text)
-qecCatalog = Lens.lens (catalog :: QueryExecutionContext -> Lude.Maybe Lude.Text) (\s a -> s {catalog = a} :: QueryExecutionContext)
+qecCatalog :: Lens.Lens' QueryExecutionContext (Core.Maybe Types.Catalog)
+qecCatalog = Lens.field @"catalog"
 {-# DEPRECATED qecCatalog "Use generic-lens or generic-optics with 'catalog' instead." #-}
 
-instance Lude.FromJSON QueryExecutionContext where
-  parseJSON =
-    Lude.withObject
-      "QueryExecutionContext"
-      ( \x ->
-          QueryExecutionContext'
-            Lude.<$> (x Lude..:? "Database") Lude.<*> (x Lude..:? "Catalog")
-      )
+-- | The name of the database used in the query execution.
+--
+-- /Note:/ Consider using 'database' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+qecDatabase :: Lens.Lens' QueryExecutionContext (Core.Maybe Types.DatabaseString)
+qecDatabase = Lens.field @"database"
+{-# DEPRECATED qecDatabase "Use generic-lens or generic-optics with 'database' instead." #-}
 
-instance Lude.ToJSON QueryExecutionContext where
-  toJSON QueryExecutionContext' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Database" Lude..=) Lude.<$> database,
-            ("Catalog" Lude..=) Lude.<$> catalog
+instance Core.FromJSON QueryExecutionContext where
+  toJSON QueryExecutionContext {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Catalog" Core..=) Core.<$> catalog,
+            ("Database" Core..=) Core.<$> database
           ]
       )
+
+instance Core.FromJSON QueryExecutionContext where
+  parseJSON =
+    Core.withObject "QueryExecutionContext" Core.$
+      \x ->
+        QueryExecutionContext'
+          Core.<$> (x Core..:? "Catalog") Core.<*> (x Core..:? "Database")

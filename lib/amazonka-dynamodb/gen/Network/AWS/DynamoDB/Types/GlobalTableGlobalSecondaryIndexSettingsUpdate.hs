@@ -17,77 +17,76 @@ module Network.AWS.DynamoDB.Types.GlobalTableGlobalSecondaryIndexSettingsUpdate
     mkGlobalTableGlobalSecondaryIndexSettingsUpdate,
 
     -- * Lenses
-    gtgsisuProvisionedWriteCapacityUnits,
-    gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate,
     gtgsisuIndexName,
+    gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate,
+    gtgsisuProvisionedWriteCapacityUnits,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
+import qualified Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate as Types
+import qualified Network.AWS.DynamoDB.Types.IndexName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the settings of a global secondary index for a global table that will be modified.
 --
 -- /See:/ 'mkGlobalTableGlobalSecondaryIndexSettingsUpdate' smart constructor.
 data GlobalTableGlobalSecondaryIndexSettingsUpdate = GlobalTableGlobalSecondaryIndexSettingsUpdate'
-  { -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
-    provisionedWriteCapacityUnits :: Lude.Maybe Lude.Natural,
+  { -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
+    indexName :: Types.IndexName,
     -- | Auto scaling settings for managing a global secondary index's write capacity units.
-    provisionedWriteCapacityAutoScalingSettingsUpdate :: Lude.Maybe AutoScalingSettingsUpdate,
-    -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
-    indexName :: Lude.Text
+    provisionedWriteCapacityAutoScalingSettingsUpdate :: Core.Maybe Types.AutoScalingSettingsUpdate,
+    -- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
+    provisionedWriteCapacityUnits :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GlobalTableGlobalSecondaryIndexSettingsUpdate' with the minimum fields required to make a request.
---
--- * 'provisionedWriteCapacityUnits' - The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
--- * 'provisionedWriteCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global secondary index's write capacity units.
--- * 'indexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
+-- | Creates a 'GlobalTableGlobalSecondaryIndexSettingsUpdate' value with any optional fields omitted.
 mkGlobalTableGlobalSecondaryIndexSettingsUpdate ::
   -- | 'indexName'
-  Lude.Text ->
+  Types.IndexName ->
   GlobalTableGlobalSecondaryIndexSettingsUpdate
-mkGlobalTableGlobalSecondaryIndexSettingsUpdate pIndexName_ =
+mkGlobalTableGlobalSecondaryIndexSettingsUpdate indexName =
   GlobalTableGlobalSecondaryIndexSettingsUpdate'
-    { provisionedWriteCapacityUnits =
-        Lude.Nothing,
+    { indexName,
       provisionedWriteCapacityAutoScalingSettingsUpdate =
-        Lude.Nothing,
-      indexName = pIndexName_
+        Core.Nothing,
+      provisionedWriteCapacityUnits = Core.Nothing
     }
-
--- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
---
--- /Note:/ Consider using 'provisionedWriteCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgsisuProvisionedWriteCapacityUnits :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Lude.Maybe Lude.Natural)
-gtgsisuProvisionedWriteCapacityUnits = Lens.lens (provisionedWriteCapacityUnits :: GlobalTableGlobalSecondaryIndexSettingsUpdate -> Lude.Maybe Lude.Natural) (\s a -> s {provisionedWriteCapacityUnits = a} :: GlobalTableGlobalSecondaryIndexSettingsUpdate)
-{-# DEPRECATED gtgsisuProvisionedWriteCapacityUnits "Use generic-lens or generic-optics with 'provisionedWriteCapacityUnits' instead." #-}
-
--- | Auto scaling settings for managing a global secondary index's write capacity units.
---
--- /Note:/ Consider using 'provisionedWriteCapacityAutoScalingSettingsUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Lude.Maybe AutoScalingSettingsUpdate)
-gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate = Lens.lens (provisionedWriteCapacityAutoScalingSettingsUpdate :: GlobalTableGlobalSecondaryIndexSettingsUpdate -> Lude.Maybe AutoScalingSettingsUpdate) (\s a -> s {provisionedWriteCapacityAutoScalingSettingsUpdate = a} :: GlobalTableGlobalSecondaryIndexSettingsUpdate)
-{-# DEPRECATED gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate "Use generic-lens or generic-optics with 'provisionedWriteCapacityAutoScalingSettingsUpdate' instead." #-}
 
 -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtgsisuIndexName :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate Lude.Text
-gtgsisuIndexName = Lens.lens (indexName :: GlobalTableGlobalSecondaryIndexSettingsUpdate -> Lude.Text) (\s a -> s {indexName = a} :: GlobalTableGlobalSecondaryIndexSettingsUpdate)
+gtgsisuIndexName :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate Types.IndexName
+gtgsisuIndexName = Lens.field @"indexName"
 {-# DEPRECATED gtgsisuIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance Lude.ToJSON GlobalTableGlobalSecondaryIndexSettingsUpdate where
-  toJSON GlobalTableGlobalSecondaryIndexSettingsUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ProvisionedWriteCapacityUnits" Lude..=)
-              Lude.<$> provisionedWriteCapacityUnits,
-            ("ProvisionedWriteCapacityAutoScalingSettingsUpdate" Lude..=)
-              Lude.<$> provisionedWriteCapacityAutoScalingSettingsUpdate,
-            Lude.Just ("IndexName" Lude..= indexName)
+-- | Auto scaling settings for managing a global secondary index's write capacity units.
+--
+-- /Note:/ Consider using 'provisionedWriteCapacityAutoScalingSettingsUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Core.Maybe Types.AutoScalingSettingsUpdate)
+gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate = Lens.field @"provisionedWriteCapacityAutoScalingSettingsUpdate"
+{-# DEPRECATED gtgsisuProvisionedWriteCapacityAutoScalingSettingsUpdate "Use generic-lens or generic-optics with 'provisionedWriteCapacityAutoScalingSettingsUpdate' instead." #-}
+
+-- | The maximum number of writes consumed per second before DynamoDB returns a @ThrottlingException.@
+--
+-- /Note:/ Consider using 'provisionedWriteCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gtgsisuProvisionedWriteCapacityUnits :: Lens.Lens' GlobalTableGlobalSecondaryIndexSettingsUpdate (Core.Maybe Core.Natural)
+gtgsisuProvisionedWriteCapacityUnits = Lens.field @"provisionedWriteCapacityUnits"
+{-# DEPRECATED gtgsisuProvisionedWriteCapacityUnits "Use generic-lens or generic-optics with 'provisionedWriteCapacityUnits' instead." #-}
+
+instance
+  Core.FromJSON
+    GlobalTableGlobalSecondaryIndexSettingsUpdate
+  where
+  toJSON GlobalTableGlobalSecondaryIndexSettingsUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("IndexName" Core..= indexName),
+            ("ProvisionedWriteCapacityAutoScalingSettingsUpdate" Core..=)
+              Core.<$> provisionedWriteCapacityAutoScalingSettingsUpdate,
+            ("ProvisionedWriteCapacityUnits" Core..=)
+              Core.<$> provisionedWriteCapacityUnits
           ]
       )

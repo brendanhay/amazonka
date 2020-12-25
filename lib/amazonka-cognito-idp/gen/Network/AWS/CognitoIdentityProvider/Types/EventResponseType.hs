@@ -13,46 +13,51 @@
 module Network.AWS.CognitoIdentityProvider.Types.EventResponseType
   ( EventResponseType
       ( EventResponseType',
-        Success,
-        Failure
+        EventResponseTypeSuccess,
+        EventResponseTypeFailure,
+        fromEventResponseType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EventResponseType = EventResponseType' Lude.Text
+newtype EventResponseType = EventResponseType'
+  { fromEventResponseType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Success :: EventResponseType
-pattern Success = EventResponseType' "Success"
+pattern EventResponseTypeSuccess :: EventResponseType
+pattern EventResponseTypeSuccess = EventResponseType' "Success"
 
-pattern Failure :: EventResponseType
-pattern Failure = EventResponseType' "Failure"
+pattern EventResponseTypeFailure :: EventResponseType
+pattern EventResponseTypeFailure = EventResponseType' "Failure"
 
 {-# COMPLETE
-  Success,
-  Failure,
+  EventResponseTypeSuccess,
+  EventResponseTypeFailure,
   EventResponseType'
   #-}

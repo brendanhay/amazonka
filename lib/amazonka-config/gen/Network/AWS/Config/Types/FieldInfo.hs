@@ -21,35 +21,33 @@ module Network.AWS.Config.Types.FieldInfo
   )
 where
 
+import qualified Network.AWS.Config.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details about the fields such as name of the field.
 --
 -- /See:/ 'mkFieldInfo' smart constructor.
 newtype FieldInfo = FieldInfo'
   { -- | Name of the field.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FieldInfo' with the minimum fields required to make a request.
---
--- * 'name' - Name of the field.
+-- | Creates a 'FieldInfo' value with any optional fields omitted.
 mkFieldInfo ::
   FieldInfo
-mkFieldInfo = FieldInfo' {name = Lude.Nothing}
+mkFieldInfo = FieldInfo' {name = Core.Nothing}
 
 -- | Name of the field.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-fiName :: Lens.Lens' FieldInfo (Lude.Maybe Lude.Text)
-fiName = Lens.lens (name :: FieldInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: FieldInfo)
+fiName :: Lens.Lens' FieldInfo (Core.Maybe Types.Name)
+fiName = Lens.field @"name"
 {-# DEPRECATED fiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON FieldInfo where
+instance Core.FromJSON FieldInfo where
   parseJSON =
-    Lude.withObject
-      "FieldInfo"
-      (\x -> FieldInfo' Lude.<$> (x Lude..:? "Name"))
+    Core.withObject "FieldInfo" Core.$
+      \x -> FieldInfo' Core.<$> (x Core..:? "Name")

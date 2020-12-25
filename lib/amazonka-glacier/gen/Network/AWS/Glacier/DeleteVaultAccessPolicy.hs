@@ -22,8 +22,8 @@ module Network.AWS.Glacier.DeleteVaultAccessPolicy
     mkDeleteVaultAccessPolicy,
 
     -- ** Request lenses
-    dvapVaultName,
     dvapAccountId,
+    dvapVaultName,
 
     -- * Destructuring the response
     DeleteVaultAccessPolicyResponse (..),
@@ -31,81 +31,72 @@ module Network.AWS.Glacier.DeleteVaultAccessPolicy
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | DeleteVaultAccessPolicy input.
 --
 -- /See:/ 'mkDeleteVaultAccessPolicy' smart constructor.
 data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
-  { -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
+    -- | The name of the vault.
+    vaultName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVaultAccessPolicy' with the minimum fields required to make a request.
---
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+-- | Creates a 'DeleteVaultAccessPolicy' value with any optional fields omitted.
 mkDeleteVaultAccessPolicy ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
   DeleteVaultAccessPolicy
-mkDeleteVaultAccessPolicy pVaultName_ pAccountId_ =
-  DeleteVaultAccessPolicy'
-    { vaultName = pVaultName_,
-      accountId = pAccountId_
-    }
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvapVaultName :: Lens.Lens' DeleteVaultAccessPolicy Lude.Text
-dvapVaultName = Lens.lens (vaultName :: DeleteVaultAccessPolicy -> Lude.Text) (\s a -> s {vaultName = a} :: DeleteVaultAccessPolicy)
-{-# DEPRECATED dvapVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+mkDeleteVaultAccessPolicy accountId vaultName =
+  DeleteVaultAccessPolicy' {accountId, vaultName}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dvapAccountId :: Lens.Lens' DeleteVaultAccessPolicy Lude.Text
-dvapAccountId = Lens.lens (accountId :: DeleteVaultAccessPolicy -> Lude.Text) (\s a -> s {accountId = a} :: DeleteVaultAccessPolicy)
+dvapAccountId :: Lens.Lens' DeleteVaultAccessPolicy Types.String
+dvapAccountId = Lens.field @"accountId"
 {-# DEPRECATED dvapAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.AWSRequest DeleteVaultAccessPolicy where
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dvapVaultName :: Lens.Lens' DeleteVaultAccessPolicy Types.String
+dvapVaultName = Lens.field @"vaultName"
+{-# DEPRECATED dvapVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+
+instance Core.AWSRequest DeleteVaultAccessPolicy where
   type Rs DeleteVaultAccessPolicy = DeleteVaultAccessPolicyResponse
-  request = Req.delete glacierService
-  response = Res.receiveNull DeleteVaultAccessPolicyResponse'
-
-instance Lude.ToHeaders DeleteVaultAccessPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteVaultAccessPolicy where
-  toPath DeleteVaultAccessPolicy' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/access-policy"
-      ]
-
-instance Lude.ToQuery DeleteVaultAccessPolicy where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/access-policy")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteVaultAccessPolicyResponse'
 
 -- | /See:/ 'mkDeleteVaultAccessPolicyResponse' smart constructor.
 data DeleteVaultAccessPolicyResponse = DeleteVaultAccessPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteVaultAccessPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteVaultAccessPolicyResponse' value with any optional fields omitted.
 mkDeleteVaultAccessPolicyResponse ::
   DeleteVaultAccessPolicyResponse
 mkDeleteVaultAccessPolicyResponse =

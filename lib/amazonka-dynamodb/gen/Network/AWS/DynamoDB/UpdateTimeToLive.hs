@@ -26,140 +26,123 @@ module Network.AWS.DynamoDB.UpdateTimeToLive
     mkUpdateTimeToLive,
 
     -- ** Request lenses
-    uttlTimeToLiveSpecification,
     uttlTableName,
+    uttlTimeToLiveSpecification,
 
     -- * Destructuring the response
     UpdateTimeToLiveResponse (..),
     mkUpdateTimeToLiveResponse,
 
     -- ** Response lenses
-    uttlrsTimeToLiveSpecification,
-    uttlrsResponseStatus,
+    uttlrrsTimeToLiveSpecification,
+    uttlrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of an @UpdateTimeToLive@ operation.
 --
 -- /See:/ 'mkUpdateTimeToLive' smart constructor.
 data UpdateTimeToLive = UpdateTimeToLive'
-  { -- | Represents the settings used to enable or disable Time to Live for the specified table.
-    timeToLiveSpecification :: TimeToLiveSpecification,
-    -- | The name of the table to be configured.
-    tableName :: Lude.Text
+  { -- | The name of the table to be configured.
+    tableName :: Types.TableName,
+    -- | Represents the settings used to enable or disable Time to Live for the specified table.
+    timeToLiveSpecification :: Types.TimeToLiveSpecification
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTimeToLive' with the minimum fields required to make a request.
---
--- * 'timeToLiveSpecification' - Represents the settings used to enable or disable Time to Live for the specified table.
--- * 'tableName' - The name of the table to be configured.
+-- | Creates a 'UpdateTimeToLive' value with any optional fields omitted.
 mkUpdateTimeToLive ::
-  -- | 'timeToLiveSpecification'
-  TimeToLiveSpecification ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
+  -- | 'timeToLiveSpecification'
+  Types.TimeToLiveSpecification ->
   UpdateTimeToLive
-mkUpdateTimeToLive pTimeToLiveSpecification_ pTableName_ =
-  UpdateTimeToLive'
-    { timeToLiveSpecification =
-        pTimeToLiveSpecification_,
-      tableName = pTableName_
-    }
-
--- | Represents the settings used to enable or disable Time to Live for the specified table.
---
--- /Note:/ Consider using 'timeToLiveSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uttlTimeToLiveSpecification :: Lens.Lens' UpdateTimeToLive TimeToLiveSpecification
-uttlTimeToLiveSpecification = Lens.lens (timeToLiveSpecification :: UpdateTimeToLive -> TimeToLiveSpecification) (\s a -> s {timeToLiveSpecification = a} :: UpdateTimeToLive)
-{-# DEPRECATED uttlTimeToLiveSpecification "Use generic-lens or generic-optics with 'timeToLiveSpecification' instead." #-}
+mkUpdateTimeToLive tableName timeToLiveSpecification =
+  UpdateTimeToLive' {tableName, timeToLiveSpecification}
 
 -- | The name of the table to be configured.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uttlTableName :: Lens.Lens' UpdateTimeToLive Lude.Text
-uttlTableName = Lens.lens (tableName :: UpdateTimeToLive -> Lude.Text) (\s a -> s {tableName = a} :: UpdateTimeToLive)
+uttlTableName :: Lens.Lens' UpdateTimeToLive Types.TableName
+uttlTableName = Lens.field @"tableName"
 {-# DEPRECATED uttlTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest UpdateTimeToLive where
+-- | Represents the settings used to enable or disable Time to Live for the specified table.
+--
+-- /Note:/ Consider using 'timeToLiveSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uttlTimeToLiveSpecification :: Lens.Lens' UpdateTimeToLive Types.TimeToLiveSpecification
+uttlTimeToLiveSpecification = Lens.field @"timeToLiveSpecification"
+{-# DEPRECATED uttlTimeToLiveSpecification "Use generic-lens or generic-optics with 'timeToLiveSpecification' instead." #-}
+
+instance Core.FromJSON UpdateTimeToLive where
+  toJSON UpdateTimeToLive {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TableName" Core..= tableName),
+            Core.Just
+              ("TimeToLiveSpecification" Core..= timeToLiveSpecification)
+          ]
+      )
+
+instance Core.AWSRequest UpdateTimeToLive where
   type Rs UpdateTimeToLive = UpdateTimeToLiveResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DynamoDB_20120810.UpdateTimeToLive")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateTimeToLiveResponse'
-            Lude.<$> (x Lude..?> "TimeToLiveSpecification")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TimeToLiveSpecification")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateTimeToLive where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.UpdateTimeToLive" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateTimeToLive where
-  toJSON UpdateTimeToLive' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("TimeToLiveSpecification" Lude..= timeToLiveSpecification),
-            Lude.Just ("TableName" Lude..= tableName)
-          ]
-      )
-
-instance Lude.ToPath UpdateTimeToLive where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateTimeToLive where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateTimeToLiveResponse' smart constructor.
 data UpdateTimeToLiveResponse = UpdateTimeToLiveResponse'
   { -- | Represents the output of an @UpdateTimeToLive@ operation.
-    timeToLiveSpecification :: Lude.Maybe TimeToLiveSpecification,
+    timeToLiveSpecification :: Core.Maybe Types.TimeToLiveSpecification,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTimeToLiveResponse' with the minimum fields required to make a request.
---
--- * 'timeToLiveSpecification' - Represents the output of an @UpdateTimeToLive@ operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTimeToLiveResponse' value with any optional fields omitted.
 mkUpdateTimeToLiveResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTimeToLiveResponse
-mkUpdateTimeToLiveResponse pResponseStatus_ =
+mkUpdateTimeToLiveResponse responseStatus =
   UpdateTimeToLiveResponse'
-    { timeToLiveSpecification = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { timeToLiveSpecification = Core.Nothing,
+      responseStatus
     }
 
 -- | Represents the output of an @UpdateTimeToLive@ operation.
 --
 -- /Note:/ Consider using 'timeToLiveSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uttlrsTimeToLiveSpecification :: Lens.Lens' UpdateTimeToLiveResponse (Lude.Maybe TimeToLiveSpecification)
-uttlrsTimeToLiveSpecification = Lens.lens (timeToLiveSpecification :: UpdateTimeToLiveResponse -> Lude.Maybe TimeToLiveSpecification) (\s a -> s {timeToLiveSpecification = a} :: UpdateTimeToLiveResponse)
-{-# DEPRECATED uttlrsTimeToLiveSpecification "Use generic-lens or generic-optics with 'timeToLiveSpecification' instead." #-}
+uttlrrsTimeToLiveSpecification :: Lens.Lens' UpdateTimeToLiveResponse (Core.Maybe Types.TimeToLiveSpecification)
+uttlrrsTimeToLiveSpecification = Lens.field @"timeToLiveSpecification"
+{-# DEPRECATED uttlrrsTimeToLiveSpecification "Use generic-lens or generic-optics with 'timeToLiveSpecification' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uttlrsResponseStatus :: Lens.Lens' UpdateTimeToLiveResponse Lude.Int
-uttlrsResponseStatus = Lens.lens (responseStatus :: UpdateTimeToLiveResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTimeToLiveResponse)
-{-# DEPRECATED uttlrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uttlrrsResponseStatus :: Lens.Lens' UpdateTimeToLiveResponse Core.Int
+uttlrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uttlrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -32,73 +32,63 @@ module Network.AWS.MachineLearning.DeleteEvaluation
     mkDeleteEvaluationResponse,
 
     -- ** Response lenses
-    drsEvaluationId,
-    drsResponseStatus,
+    derrsEvaluationId,
+    derrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteEvaluation' smart constructor.
 newtype DeleteEvaluation = DeleteEvaluation'
   { -- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
-    evaluationId :: Lude.Text
+    evaluationId :: Types.EntityId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEvaluation' with the minimum fields required to make a request.
---
--- * 'evaluationId' - A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
+-- | Creates a 'DeleteEvaluation' value with any optional fields omitted.
 mkDeleteEvaluation ::
   -- | 'evaluationId'
-  Lude.Text ->
+  Types.EntityId ->
   DeleteEvaluation
-mkDeleteEvaluation pEvaluationId_ =
-  DeleteEvaluation' {evaluationId = pEvaluationId_}
+mkDeleteEvaluation evaluationId = DeleteEvaluation' {evaluationId}
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
 --
 -- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-deEvaluationId :: Lens.Lens' DeleteEvaluation Lude.Text
-deEvaluationId = Lens.lens (evaluationId :: DeleteEvaluation -> Lude.Text) (\s a -> s {evaluationId = a} :: DeleteEvaluation)
+deEvaluationId :: Lens.Lens' DeleteEvaluation Types.EntityId
+deEvaluationId = Lens.field @"evaluationId"
 {-# DEPRECATED deEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
 
-instance Lude.AWSRequest DeleteEvaluation where
+instance Core.FromJSON DeleteEvaluation where
+  toJSON DeleteEvaluation {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("EvaluationId" Core..= evaluationId)])
+
+instance Core.AWSRequest DeleteEvaluation where
   type Rs DeleteEvaluation = DeleteEvaluationResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonML_20141212.DeleteEvaluation")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteEvaluationResponse'
-            Lude.<$> (x Lude..?> "EvaluationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "EvaluationId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteEvaluation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.DeleteEvaluation" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteEvaluation where
-  toJSON DeleteEvaluation' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("EvaluationId" Lude..= evaluationId)])
-
-instance Lude.ToPath DeleteEvaluation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteEvaluation where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @DeleteEvaluation@ operation. The output indicates that Amazon Machine Learning (Amazon ML) received the request.
 --
@@ -107,37 +97,34 @@ instance Lude.ToQuery DeleteEvaluation where
 -- /See:/ 'mkDeleteEvaluationResponse' smart constructor.
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
   { -- | A user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
-    evaluationId :: Lude.Maybe Lude.Text,
+    evaluationId :: Core.Maybe Types.EvaluationId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEvaluationResponse' with the minimum fields required to make a request.
---
--- * 'evaluationId' - A user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteEvaluationResponse' value with any optional fields omitted.
 mkDeleteEvaluationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteEvaluationResponse
-mkDeleteEvaluationResponse pResponseStatus_ =
+mkDeleteEvaluationResponse responseStatus =
   DeleteEvaluationResponse'
-    { evaluationId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { evaluationId = Core.Nothing,
+      responseStatus
     }
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ . This value should be identical to the value of the @EvaluationId@ in the request.
 --
 -- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsEvaluationId :: Lens.Lens' DeleteEvaluationResponse (Lude.Maybe Lude.Text)
-drsEvaluationId = Lens.lens (evaluationId :: DeleteEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {evaluationId = a} :: DeleteEvaluationResponse)
-{-# DEPRECATED drsEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
+derrsEvaluationId :: Lens.Lens' DeleteEvaluationResponse (Core.Maybe Types.EvaluationId)
+derrsEvaluationId = Lens.field @"evaluationId"
+{-# DEPRECATED derrsEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteEvaluationResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteEvaluationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEvaluationResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+derrsResponseStatus :: Lens.Lens' DeleteEvaluationResponse Core.Int
+derrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

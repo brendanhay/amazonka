@@ -17,307 +17,289 @@ module Network.AWS.MechanicalTurk.Types.HIT
     mkHIT,
 
     -- * Lenses
-    hitCreationTime,
-    hitHITGroupId,
-    hitNumberOfAssignmentsPending,
-    hitHITTypeId,
-    hitExpiration,
-    hitAutoApprovalDelayInSeconds,
-    hitRequesterAnnotation,
-    hitHITStatus,
-    hitMaxAssignments,
-    hitNumberOfAssignmentsCompleted,
-    hitReward,
-    hitKeywords,
-    hitHITLayoutId,
-    hitQualificationRequirements,
-    hitTitle,
-    hitHITId,
-    hitHITReviewStatus,
-    hitNumberOfAssignmentsAvailable,
-    hitDescription,
-    hitQuestion,
     hitAssignmentDurationInSeconds,
+    hitAutoApprovalDelayInSeconds,
+    hitCreationTime,
+    hitDescription,
+    hitExpiration,
+    hitHITGroupId,
+    hitHITId,
+    hitHITLayoutId,
+    hitHITReviewStatus,
+    hitHITStatus,
+    hitHITTypeId,
+    hitKeywords,
+    hitMaxAssignments,
+    hitNumberOfAssignmentsAvailable,
+    hitNumberOfAssignmentsCompleted,
+    hitNumberOfAssignmentsPending,
+    hitQualificationRequirements,
+    hitQuestion,
+    hitRequesterAnnotation,
+    hitReward,
+    hitTitle,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types.HITReviewStatus
-import Network.AWS.MechanicalTurk.Types.HITStatus
-import Network.AWS.MechanicalTurk.Types.QualificationRequirement
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MechanicalTurk.Types.HITGroupId as Types
+import qualified Network.AWS.MechanicalTurk.Types.HITId as Types
+import qualified Network.AWS.MechanicalTurk.Types.HITLayoutId as Types
+import qualified Network.AWS.MechanicalTurk.Types.HITReviewStatus as Types
+import qualified Network.AWS.MechanicalTurk.Types.HITStatus as Types
+import qualified Network.AWS.MechanicalTurk.Types.HITTypeId as Types
+import qualified Network.AWS.MechanicalTurk.Types.QualificationRequirement as Types
+import qualified Network.AWS.MechanicalTurk.Types.Reward as Types
+import qualified Network.AWS.MechanicalTurk.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The HIT data structure represents a single HIT, including all the information necessary for a Worker to accept and complete the HIT.
 --
 -- /See:/ 'mkHIT' smart constructor.
 data HIT = HIT'
-  { -- | The date and time the HIT was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The ID of the HIT Group of this HIT.
-    hITGroupId :: Lude.Maybe Lude.Text,
-    -- | The number of assignments for this HIT that are being previewed or have been accepted by Workers, but have not yet been submitted, returned, or abandoned.
-    numberOfAssignmentsPending :: Lude.Maybe Lude.Int,
-    -- | The ID of the HIT type of this HIT
-    hITTypeId :: Lude.Maybe Lude.Text,
-    -- | The date and time the HIT expires.
-    expiration :: Lude.Maybe Lude.Timestamp,
+  { -- | The length of time, in seconds, that a Worker has to complete the HIT after accepting it.
+    assignmentDurationInSeconds :: Core.Maybe Core.Integer,
     -- | The amount of time, in seconds, after the Worker submits an assignment for the HIT that the results are automatically approved by Amazon Mechanical Turk. This is the amount of time the Requester has to reject an assignment submitted by a Worker before the assignment is auto-approved and the Worker is paid.
-    autoApprovalDelayInSeconds :: Lude.Maybe Lude.Integer,
-    -- | An arbitrary data field the Requester who created the HIT can use. This field is visible only to the creator of the HIT.
-    requesterAnnotation :: Lude.Maybe Lude.Text,
-    -- | The status of the HIT and its assignments. Valid Values are Assignable | Unassignable | Reviewable | Reviewing | Disposed.
-    hITStatus :: Lude.Maybe HITStatus,
-    -- | The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
-    maxAssignments :: Lude.Maybe Lude.Int,
-    -- | The number of assignments for this HIT that have been approved or rejected.
-    numberOfAssignmentsCompleted :: Lude.Maybe Lude.Int,
-    reward :: Lude.Maybe Lude.Text,
-    -- | One or more words or phrases that describe the HIT, separated by commas. Search terms similar to the keywords of a HIT are more likely to have the HIT in the search results.
-    keywords :: Lude.Maybe Lude.Text,
-    -- | The ID of the HIT Layout of this HIT.
-    hITLayoutId :: Lude.Maybe Lude.Text,
-    -- | Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
-    qualificationRequirements :: Lude.Maybe [QualificationRequirement],
-    -- | The title of the HIT.
-    title :: Lude.Maybe Lude.Text,
-    -- | A unique identifier for the HIT.
-    hITId :: Lude.Maybe Lude.Text,
-    -- | Indicates the review status of the HIT. Valid Values are NotReviewed | MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
-    hITReviewStatus :: Lude.Maybe HITReviewStatus,
-    -- | The number of assignments for this HIT that are available for Workers to accept.
-    numberOfAssignmentsAvailable :: Lude.Maybe Lude.Int,
+    autoApprovalDelayInSeconds :: Core.Maybe Core.Integer,
+    -- | The date and time the HIT was created.
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | A general description of the HIT.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.String,
+    -- | The date and time the HIT expires.
+    expiration :: Core.Maybe Core.NominalDiffTime,
+    -- | The ID of the HIT Group of this HIT.
+    hITGroupId :: Core.Maybe Types.HITGroupId,
+    -- | A unique identifier for the HIT.
+    hITId :: Core.Maybe Types.HITId,
+    -- | The ID of the HIT Layout of this HIT.
+    hITLayoutId :: Core.Maybe Types.HITLayoutId,
+    -- | Indicates the review status of the HIT. Valid Values are NotReviewed | MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
+    hITReviewStatus :: Core.Maybe Types.HITReviewStatus,
+    -- | The status of the HIT and its assignments. Valid Values are Assignable | Unassignable | Reviewable | Reviewing | Disposed.
+    hITStatus :: Core.Maybe Types.HITStatus,
+    -- | The ID of the HIT type of this HIT
+    hITTypeId :: Core.Maybe Types.HITTypeId,
+    -- | One or more words or phrases that describe the HIT, separated by commas. Search terms similar to the keywords of a HIT are more likely to have the HIT in the search results.
+    keywords :: Core.Maybe Types.String,
+    -- | The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
+    maxAssignments :: Core.Maybe Core.Int,
+    -- | The number of assignments for this HIT that are available for Workers to accept.
+    numberOfAssignmentsAvailable :: Core.Maybe Core.Int,
+    -- | The number of assignments for this HIT that have been approved or rejected.
+    numberOfAssignmentsCompleted :: Core.Maybe Core.Int,
+    -- | The number of assignments for this HIT that are being previewed or have been accepted by Workers, but have not yet been submitted, returned, or abandoned.
+    numberOfAssignmentsPending :: Core.Maybe Core.Int,
+    -- | Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
+    qualificationRequirements :: Core.Maybe [Types.QualificationRequirement],
     -- | The data the Worker completing the HIT uses produce the results. This is either either a QuestionForm, HTMLQuestion or an ExternalQuestion data structure.
-    question :: Lude.Maybe Lude.Text,
-    -- | The length of time, in seconds, that a Worker has to complete the HIT after accepting it.
-    assignmentDurationInSeconds :: Lude.Maybe Lude.Integer
+    question :: Core.Maybe Types.String,
+    -- | An arbitrary data field the Requester who created the HIT can use. This field is visible only to the creator of the HIT.
+    requesterAnnotation :: Core.Maybe Types.String,
+    reward :: Core.Maybe Types.Reward,
+    -- | The title of the HIT.
+    title :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'HIT' with the minimum fields required to make a request.
---
--- * 'creationTime' - The date and time the HIT was created.
--- * 'hITGroupId' - The ID of the HIT Group of this HIT.
--- * 'numberOfAssignmentsPending' - The number of assignments for this HIT that are being previewed or have been accepted by Workers, but have not yet been submitted, returned, or abandoned.
--- * 'hITTypeId' - The ID of the HIT type of this HIT
--- * 'expiration' - The date and time the HIT expires.
--- * 'autoApprovalDelayInSeconds' - The amount of time, in seconds, after the Worker submits an assignment for the HIT that the results are automatically approved by Amazon Mechanical Turk. This is the amount of time the Requester has to reject an assignment submitted by a Worker before the assignment is auto-approved and the Worker is paid.
--- * 'requesterAnnotation' - An arbitrary data field the Requester who created the HIT can use. This field is visible only to the creator of the HIT.
--- * 'hITStatus' - The status of the HIT and its assignments. Valid Values are Assignable | Unassignable | Reviewable | Reviewing | Disposed.
--- * 'maxAssignments' - The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
--- * 'numberOfAssignmentsCompleted' - The number of assignments for this HIT that have been approved or rejected.
--- * 'reward' -
--- * 'keywords' - One or more words or phrases that describe the HIT, separated by commas. Search terms similar to the keywords of a HIT are more likely to have the HIT in the search results.
--- * 'hITLayoutId' - The ID of the HIT Layout of this HIT.
--- * 'qualificationRequirements' - Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
--- * 'title' - The title of the HIT.
--- * 'hITId' - A unique identifier for the HIT.
--- * 'hITReviewStatus' - Indicates the review status of the HIT. Valid Values are NotReviewed | MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
--- * 'numberOfAssignmentsAvailable' - The number of assignments for this HIT that are available for Workers to accept.
--- * 'description' - A general description of the HIT.
--- * 'question' - The data the Worker completing the HIT uses produce the results. This is either either a QuestionForm, HTMLQuestion or an ExternalQuestion data structure.
--- * 'assignmentDurationInSeconds' - The length of time, in seconds, that a Worker has to complete the HIT after accepting it.
+-- | Creates a 'HIT' value with any optional fields omitted.
 mkHIT ::
   HIT
 mkHIT =
   HIT'
-    { creationTime = Lude.Nothing,
-      hITGroupId = Lude.Nothing,
-      numberOfAssignmentsPending = Lude.Nothing,
-      hITTypeId = Lude.Nothing,
-      expiration = Lude.Nothing,
-      autoApprovalDelayInSeconds = Lude.Nothing,
-      requesterAnnotation = Lude.Nothing,
-      hITStatus = Lude.Nothing,
-      maxAssignments = Lude.Nothing,
-      numberOfAssignmentsCompleted = Lude.Nothing,
-      reward = Lude.Nothing,
-      keywords = Lude.Nothing,
-      hITLayoutId = Lude.Nothing,
-      qualificationRequirements = Lude.Nothing,
-      title = Lude.Nothing,
-      hITId = Lude.Nothing,
-      hITReviewStatus = Lude.Nothing,
-      numberOfAssignmentsAvailable = Lude.Nothing,
-      description = Lude.Nothing,
-      question = Lude.Nothing,
-      assignmentDurationInSeconds = Lude.Nothing
+    { assignmentDurationInSeconds = Core.Nothing,
+      autoApprovalDelayInSeconds = Core.Nothing,
+      creationTime = Core.Nothing,
+      description = Core.Nothing,
+      expiration = Core.Nothing,
+      hITGroupId = Core.Nothing,
+      hITId = Core.Nothing,
+      hITLayoutId = Core.Nothing,
+      hITReviewStatus = Core.Nothing,
+      hITStatus = Core.Nothing,
+      hITTypeId = Core.Nothing,
+      keywords = Core.Nothing,
+      maxAssignments = Core.Nothing,
+      numberOfAssignmentsAvailable = Core.Nothing,
+      numberOfAssignmentsCompleted = Core.Nothing,
+      numberOfAssignmentsPending = Core.Nothing,
+      qualificationRequirements = Core.Nothing,
+      question = Core.Nothing,
+      requesterAnnotation = Core.Nothing,
+      reward = Core.Nothing,
+      title = Core.Nothing
     }
-
--- | The date and time the HIT was created.
---
--- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitCreationTime :: Lens.Lens' HIT (Lude.Maybe Lude.Timestamp)
-hitCreationTime = Lens.lens (creationTime :: HIT -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: HIT)
-{-# DEPRECATED hitCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The ID of the HIT Group of this HIT.
---
--- /Note:/ Consider using 'hITGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitHITGroupId :: Lens.Lens' HIT (Lude.Maybe Lude.Text)
-hitHITGroupId = Lens.lens (hITGroupId :: HIT -> Lude.Maybe Lude.Text) (\s a -> s {hITGroupId = a} :: HIT)
-{-# DEPRECATED hitHITGroupId "Use generic-lens or generic-optics with 'hITGroupId' instead." #-}
-
--- | The number of assignments for this HIT that are being previewed or have been accepted by Workers, but have not yet been submitted, returned, or abandoned.
---
--- /Note:/ Consider using 'numberOfAssignmentsPending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitNumberOfAssignmentsPending :: Lens.Lens' HIT (Lude.Maybe Lude.Int)
-hitNumberOfAssignmentsPending = Lens.lens (numberOfAssignmentsPending :: HIT -> Lude.Maybe Lude.Int) (\s a -> s {numberOfAssignmentsPending = a} :: HIT)
-{-# DEPRECATED hitNumberOfAssignmentsPending "Use generic-lens or generic-optics with 'numberOfAssignmentsPending' instead." #-}
-
--- | The ID of the HIT type of this HIT
---
--- /Note:/ Consider using 'hITTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitHITTypeId :: Lens.Lens' HIT (Lude.Maybe Lude.Text)
-hitHITTypeId = Lens.lens (hITTypeId :: HIT -> Lude.Maybe Lude.Text) (\s a -> s {hITTypeId = a} :: HIT)
-{-# DEPRECATED hitHITTypeId "Use generic-lens or generic-optics with 'hITTypeId' instead." #-}
-
--- | The date and time the HIT expires.
---
--- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitExpiration :: Lens.Lens' HIT (Lude.Maybe Lude.Timestamp)
-hitExpiration = Lens.lens (expiration :: HIT -> Lude.Maybe Lude.Timestamp) (\s a -> s {expiration = a} :: HIT)
-{-# DEPRECATED hitExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
-
--- | The amount of time, in seconds, after the Worker submits an assignment for the HIT that the results are automatically approved by Amazon Mechanical Turk. This is the amount of time the Requester has to reject an assignment submitted by a Worker before the assignment is auto-approved and the Worker is paid.
---
--- /Note:/ Consider using 'autoApprovalDelayInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitAutoApprovalDelayInSeconds :: Lens.Lens' HIT (Lude.Maybe Lude.Integer)
-hitAutoApprovalDelayInSeconds = Lens.lens (autoApprovalDelayInSeconds :: HIT -> Lude.Maybe Lude.Integer) (\s a -> s {autoApprovalDelayInSeconds = a} :: HIT)
-{-# DEPRECATED hitAutoApprovalDelayInSeconds "Use generic-lens or generic-optics with 'autoApprovalDelayInSeconds' instead." #-}
-
--- | An arbitrary data field the Requester who created the HIT can use. This field is visible only to the creator of the HIT.
---
--- /Note:/ Consider using 'requesterAnnotation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitRequesterAnnotation :: Lens.Lens' HIT (Lude.Maybe Lude.Text)
-hitRequesterAnnotation = Lens.lens (requesterAnnotation :: HIT -> Lude.Maybe Lude.Text) (\s a -> s {requesterAnnotation = a} :: HIT)
-{-# DEPRECATED hitRequesterAnnotation "Use generic-lens or generic-optics with 'requesterAnnotation' instead." #-}
-
--- | The status of the HIT and its assignments. Valid Values are Assignable | Unassignable | Reviewable | Reviewing | Disposed.
---
--- /Note:/ Consider using 'hITStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitHITStatus :: Lens.Lens' HIT (Lude.Maybe HITStatus)
-hitHITStatus = Lens.lens (hITStatus :: HIT -> Lude.Maybe HITStatus) (\s a -> s {hITStatus = a} :: HIT)
-{-# DEPRECATED hitHITStatus "Use generic-lens or generic-optics with 'hITStatus' instead." #-}
-
--- | The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
---
--- /Note:/ Consider using 'maxAssignments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitMaxAssignments :: Lens.Lens' HIT (Lude.Maybe Lude.Int)
-hitMaxAssignments = Lens.lens (maxAssignments :: HIT -> Lude.Maybe Lude.Int) (\s a -> s {maxAssignments = a} :: HIT)
-{-# DEPRECATED hitMaxAssignments "Use generic-lens or generic-optics with 'maxAssignments' instead." #-}
-
--- | The number of assignments for this HIT that have been approved or rejected.
---
--- /Note:/ Consider using 'numberOfAssignmentsCompleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitNumberOfAssignmentsCompleted :: Lens.Lens' HIT (Lude.Maybe Lude.Int)
-hitNumberOfAssignmentsCompleted = Lens.lens (numberOfAssignmentsCompleted :: HIT -> Lude.Maybe Lude.Int) (\s a -> s {numberOfAssignmentsCompleted = a} :: HIT)
-{-# DEPRECATED hitNumberOfAssignmentsCompleted "Use generic-lens or generic-optics with 'numberOfAssignmentsCompleted' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'reward' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitReward :: Lens.Lens' HIT (Lude.Maybe Lude.Text)
-hitReward = Lens.lens (reward :: HIT -> Lude.Maybe Lude.Text) (\s a -> s {reward = a} :: HIT)
-{-# DEPRECATED hitReward "Use generic-lens or generic-optics with 'reward' instead." #-}
-
--- | One or more words or phrases that describe the HIT, separated by commas. Search terms similar to the keywords of a HIT are more likely to have the HIT in the search results.
---
--- /Note:/ Consider using 'keywords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitKeywords :: Lens.Lens' HIT (Lude.Maybe Lude.Text)
-hitKeywords = Lens.lens (keywords :: HIT -> Lude.Maybe Lude.Text) (\s a -> s {keywords = a} :: HIT)
-{-# DEPRECATED hitKeywords "Use generic-lens or generic-optics with 'keywords' instead." #-}
-
--- | The ID of the HIT Layout of this HIT.
---
--- /Note:/ Consider using 'hITLayoutId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitHITLayoutId :: Lens.Lens' HIT (Lude.Maybe Lude.Text)
-hitHITLayoutId = Lens.lens (hITLayoutId :: HIT -> Lude.Maybe Lude.Text) (\s a -> s {hITLayoutId = a} :: HIT)
-{-# DEPRECATED hitHITLayoutId "Use generic-lens or generic-optics with 'hITLayoutId' instead." #-}
-
--- | Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
---
--- /Note:/ Consider using 'qualificationRequirements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitQualificationRequirements :: Lens.Lens' HIT (Lude.Maybe [QualificationRequirement])
-hitQualificationRequirements = Lens.lens (qualificationRequirements :: HIT -> Lude.Maybe [QualificationRequirement]) (\s a -> s {qualificationRequirements = a} :: HIT)
-{-# DEPRECATED hitQualificationRequirements "Use generic-lens or generic-optics with 'qualificationRequirements' instead." #-}
-
--- | The title of the HIT.
---
--- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitTitle :: Lens.Lens' HIT (Lude.Maybe Lude.Text)
-hitTitle = Lens.lens (title :: HIT -> Lude.Maybe Lude.Text) (\s a -> s {title = a} :: HIT)
-{-# DEPRECATED hitTitle "Use generic-lens or generic-optics with 'title' instead." #-}
-
--- | A unique identifier for the HIT.
---
--- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitHITId :: Lens.Lens' HIT (Lude.Maybe Lude.Text)
-hitHITId = Lens.lens (hITId :: HIT -> Lude.Maybe Lude.Text) (\s a -> s {hITId = a} :: HIT)
-{-# DEPRECATED hitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
-
--- | Indicates the review status of the HIT. Valid Values are NotReviewed | MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
---
--- /Note:/ Consider using 'hITReviewStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitHITReviewStatus :: Lens.Lens' HIT (Lude.Maybe HITReviewStatus)
-hitHITReviewStatus = Lens.lens (hITReviewStatus :: HIT -> Lude.Maybe HITReviewStatus) (\s a -> s {hITReviewStatus = a} :: HIT)
-{-# DEPRECATED hitHITReviewStatus "Use generic-lens or generic-optics with 'hITReviewStatus' instead." #-}
-
--- | The number of assignments for this HIT that are available for Workers to accept.
---
--- /Note:/ Consider using 'numberOfAssignmentsAvailable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitNumberOfAssignmentsAvailable :: Lens.Lens' HIT (Lude.Maybe Lude.Int)
-hitNumberOfAssignmentsAvailable = Lens.lens (numberOfAssignmentsAvailable :: HIT -> Lude.Maybe Lude.Int) (\s a -> s {numberOfAssignmentsAvailable = a} :: HIT)
-{-# DEPRECATED hitNumberOfAssignmentsAvailable "Use generic-lens or generic-optics with 'numberOfAssignmentsAvailable' instead." #-}
-
--- | A general description of the HIT.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitDescription :: Lens.Lens' HIT (Lude.Maybe Lude.Text)
-hitDescription = Lens.lens (description :: HIT -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: HIT)
-{-# DEPRECATED hitDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The data the Worker completing the HIT uses produce the results. This is either either a QuestionForm, HTMLQuestion or an ExternalQuestion data structure.
---
--- /Note:/ Consider using 'question' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitQuestion :: Lens.Lens' HIT (Lude.Maybe Lude.Text)
-hitQuestion = Lens.lens (question :: HIT -> Lude.Maybe Lude.Text) (\s a -> s {question = a} :: HIT)
-{-# DEPRECATED hitQuestion "Use generic-lens or generic-optics with 'question' instead." #-}
 
 -- | The length of time, in seconds, that a Worker has to complete the HIT after accepting it.
 --
 -- /Note:/ Consider using 'assignmentDurationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hitAssignmentDurationInSeconds :: Lens.Lens' HIT (Lude.Maybe Lude.Integer)
-hitAssignmentDurationInSeconds = Lens.lens (assignmentDurationInSeconds :: HIT -> Lude.Maybe Lude.Integer) (\s a -> s {assignmentDurationInSeconds = a} :: HIT)
+hitAssignmentDurationInSeconds :: Lens.Lens' HIT (Core.Maybe Core.Integer)
+hitAssignmentDurationInSeconds = Lens.field @"assignmentDurationInSeconds"
 {-# DEPRECATED hitAssignmentDurationInSeconds "Use generic-lens or generic-optics with 'assignmentDurationInSeconds' instead." #-}
 
-instance Lude.FromJSON HIT where
+-- | The amount of time, in seconds, after the Worker submits an assignment for the HIT that the results are automatically approved by Amazon Mechanical Turk. This is the amount of time the Requester has to reject an assignment submitted by a Worker before the assignment is auto-approved and the Worker is paid.
+--
+-- /Note:/ Consider using 'autoApprovalDelayInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitAutoApprovalDelayInSeconds :: Lens.Lens' HIT (Core.Maybe Core.Integer)
+hitAutoApprovalDelayInSeconds = Lens.field @"autoApprovalDelayInSeconds"
+{-# DEPRECATED hitAutoApprovalDelayInSeconds "Use generic-lens or generic-optics with 'autoApprovalDelayInSeconds' instead." #-}
+
+-- | The date and time the HIT was created.
+--
+-- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitCreationTime :: Lens.Lens' HIT (Core.Maybe Core.NominalDiffTime)
+hitCreationTime = Lens.field @"creationTime"
+{-# DEPRECATED hitCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
+
+-- | A general description of the HIT.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitDescription :: Lens.Lens' HIT (Core.Maybe Types.String)
+hitDescription = Lens.field @"description"
+{-# DEPRECATED hitDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The date and time the HIT expires.
+--
+-- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitExpiration :: Lens.Lens' HIT (Core.Maybe Core.NominalDiffTime)
+hitExpiration = Lens.field @"expiration"
+{-# DEPRECATED hitExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
+
+-- | The ID of the HIT Group of this HIT.
+--
+-- /Note:/ Consider using 'hITGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitHITGroupId :: Lens.Lens' HIT (Core.Maybe Types.HITGroupId)
+hitHITGroupId = Lens.field @"hITGroupId"
+{-# DEPRECATED hitHITGroupId "Use generic-lens or generic-optics with 'hITGroupId' instead." #-}
+
+-- | A unique identifier for the HIT.
+--
+-- /Note:/ Consider using 'hITId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitHITId :: Lens.Lens' HIT (Core.Maybe Types.HITId)
+hitHITId = Lens.field @"hITId"
+{-# DEPRECATED hitHITId "Use generic-lens or generic-optics with 'hITId' instead." #-}
+
+-- | The ID of the HIT Layout of this HIT.
+--
+-- /Note:/ Consider using 'hITLayoutId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitHITLayoutId :: Lens.Lens' HIT (Core.Maybe Types.HITLayoutId)
+hitHITLayoutId = Lens.field @"hITLayoutId"
+{-# DEPRECATED hitHITLayoutId "Use generic-lens or generic-optics with 'hITLayoutId' instead." #-}
+
+-- | Indicates the review status of the HIT. Valid Values are NotReviewed | MarkedForReview | ReviewedAppropriate | ReviewedInappropriate.
+--
+-- /Note:/ Consider using 'hITReviewStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitHITReviewStatus :: Lens.Lens' HIT (Core.Maybe Types.HITReviewStatus)
+hitHITReviewStatus = Lens.field @"hITReviewStatus"
+{-# DEPRECATED hitHITReviewStatus "Use generic-lens or generic-optics with 'hITReviewStatus' instead." #-}
+
+-- | The status of the HIT and its assignments. Valid Values are Assignable | Unassignable | Reviewable | Reviewing | Disposed.
+--
+-- /Note:/ Consider using 'hITStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitHITStatus :: Lens.Lens' HIT (Core.Maybe Types.HITStatus)
+hitHITStatus = Lens.field @"hITStatus"
+{-# DEPRECATED hitHITStatus "Use generic-lens or generic-optics with 'hITStatus' instead." #-}
+
+-- | The ID of the HIT type of this HIT
+--
+-- /Note:/ Consider using 'hITTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitHITTypeId :: Lens.Lens' HIT (Core.Maybe Types.HITTypeId)
+hitHITTypeId = Lens.field @"hITTypeId"
+{-# DEPRECATED hitHITTypeId "Use generic-lens or generic-optics with 'hITTypeId' instead." #-}
+
+-- | One or more words or phrases that describe the HIT, separated by commas. Search terms similar to the keywords of a HIT are more likely to have the HIT in the search results.
+--
+-- /Note:/ Consider using 'keywords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitKeywords :: Lens.Lens' HIT (Core.Maybe Types.String)
+hitKeywords = Lens.field @"keywords"
+{-# DEPRECATED hitKeywords "Use generic-lens or generic-optics with 'keywords' instead." #-}
+
+-- | The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
+--
+-- /Note:/ Consider using 'maxAssignments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitMaxAssignments :: Lens.Lens' HIT (Core.Maybe Core.Int)
+hitMaxAssignments = Lens.field @"maxAssignments"
+{-# DEPRECATED hitMaxAssignments "Use generic-lens or generic-optics with 'maxAssignments' instead." #-}
+
+-- | The number of assignments for this HIT that are available for Workers to accept.
+--
+-- /Note:/ Consider using 'numberOfAssignmentsAvailable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitNumberOfAssignmentsAvailable :: Lens.Lens' HIT (Core.Maybe Core.Int)
+hitNumberOfAssignmentsAvailable = Lens.field @"numberOfAssignmentsAvailable"
+{-# DEPRECATED hitNumberOfAssignmentsAvailable "Use generic-lens or generic-optics with 'numberOfAssignmentsAvailable' instead." #-}
+
+-- | The number of assignments for this HIT that have been approved or rejected.
+--
+-- /Note:/ Consider using 'numberOfAssignmentsCompleted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitNumberOfAssignmentsCompleted :: Lens.Lens' HIT (Core.Maybe Core.Int)
+hitNumberOfAssignmentsCompleted = Lens.field @"numberOfAssignmentsCompleted"
+{-# DEPRECATED hitNumberOfAssignmentsCompleted "Use generic-lens or generic-optics with 'numberOfAssignmentsCompleted' instead." #-}
+
+-- | The number of assignments for this HIT that are being previewed or have been accepted by Workers, but have not yet been submitted, returned, or abandoned.
+--
+-- /Note:/ Consider using 'numberOfAssignmentsPending' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitNumberOfAssignmentsPending :: Lens.Lens' HIT (Core.Maybe Core.Int)
+hitNumberOfAssignmentsPending = Lens.field @"numberOfAssignmentsPending"
+{-# DEPRECATED hitNumberOfAssignmentsPending "Use generic-lens or generic-optics with 'numberOfAssignmentsPending' instead." #-}
+
+-- | Conditions that a Worker's Qualifications must meet in order to accept the HIT. A HIT can have between zero and ten Qualification requirements. All requirements must be met in order for a Worker to accept the HIT. Additionally, other actions can be restricted using the @ActionsGuarded@ field on each @QualificationRequirement@ structure.
+--
+-- /Note:/ Consider using 'qualificationRequirements' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitQualificationRequirements :: Lens.Lens' HIT (Core.Maybe [Types.QualificationRequirement])
+hitQualificationRequirements = Lens.field @"qualificationRequirements"
+{-# DEPRECATED hitQualificationRequirements "Use generic-lens or generic-optics with 'qualificationRequirements' instead." #-}
+
+-- | The data the Worker completing the HIT uses produce the results. This is either either a QuestionForm, HTMLQuestion or an ExternalQuestion data structure.
+--
+-- /Note:/ Consider using 'question' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitQuestion :: Lens.Lens' HIT (Core.Maybe Types.String)
+hitQuestion = Lens.field @"question"
+{-# DEPRECATED hitQuestion "Use generic-lens or generic-optics with 'question' instead." #-}
+
+-- | An arbitrary data field the Requester who created the HIT can use. This field is visible only to the creator of the HIT.
+--
+-- /Note:/ Consider using 'requesterAnnotation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitRequesterAnnotation :: Lens.Lens' HIT (Core.Maybe Types.String)
+hitRequesterAnnotation = Lens.field @"requesterAnnotation"
+{-# DEPRECATED hitRequesterAnnotation "Use generic-lens or generic-optics with 'requesterAnnotation' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'reward' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitReward :: Lens.Lens' HIT (Core.Maybe Types.Reward)
+hitReward = Lens.field @"reward"
+{-# DEPRECATED hitReward "Use generic-lens or generic-optics with 'reward' instead." #-}
+
+-- | The title of the HIT.
+--
+-- /Note:/ Consider using 'title' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hitTitle :: Lens.Lens' HIT (Core.Maybe Types.String)
+hitTitle = Lens.field @"title"
+{-# DEPRECATED hitTitle "Use generic-lens or generic-optics with 'title' instead." #-}
+
+instance Core.FromJSON HIT where
   parseJSON =
-    Lude.withObject
-      "HIT"
-      ( \x ->
-          HIT'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "HITGroupId")
-            Lude.<*> (x Lude..:? "NumberOfAssignmentsPending")
-            Lude.<*> (x Lude..:? "HITTypeId")
-            Lude.<*> (x Lude..:? "Expiration")
-            Lude.<*> (x Lude..:? "AutoApprovalDelayInSeconds")
-            Lude.<*> (x Lude..:? "RequesterAnnotation")
-            Lude.<*> (x Lude..:? "HITStatus")
-            Lude.<*> (x Lude..:? "MaxAssignments")
-            Lude.<*> (x Lude..:? "NumberOfAssignmentsCompleted")
-            Lude.<*> (x Lude..:? "Reward")
-            Lude.<*> (x Lude..:? "Keywords")
-            Lude.<*> (x Lude..:? "HITLayoutId")
-            Lude.<*> (x Lude..:? "QualificationRequirements" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Title")
-            Lude.<*> (x Lude..:? "HITId")
-            Lude.<*> (x Lude..:? "HITReviewStatus")
-            Lude.<*> (x Lude..:? "NumberOfAssignmentsAvailable")
-            Lude.<*> (x Lude..:? "Description")
-            Lude.<*> (x Lude..:? "Question")
-            Lude.<*> (x Lude..:? "AssignmentDurationInSeconds")
-      )
+    Core.withObject "HIT" Core.$
+      \x ->
+        HIT'
+          Core.<$> (x Core..:? "AssignmentDurationInSeconds")
+          Core.<*> (x Core..:? "AutoApprovalDelayInSeconds")
+          Core.<*> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "Expiration")
+          Core.<*> (x Core..:? "HITGroupId")
+          Core.<*> (x Core..:? "HITId")
+          Core.<*> (x Core..:? "HITLayoutId")
+          Core.<*> (x Core..:? "HITReviewStatus")
+          Core.<*> (x Core..:? "HITStatus")
+          Core.<*> (x Core..:? "HITTypeId")
+          Core.<*> (x Core..:? "Keywords")
+          Core.<*> (x Core..:? "MaxAssignments")
+          Core.<*> (x Core..:? "NumberOfAssignmentsAvailable")
+          Core.<*> (x Core..:? "NumberOfAssignmentsCompleted")
+          Core.<*> (x Core..:? "NumberOfAssignmentsPending")
+          Core.<*> (x Core..:? "QualificationRequirements")
+          Core.<*> (x Core..:? "Question")
+          Core.<*> (x Core..:? "RequesterAnnotation")
+          Core.<*> (x Core..:? "Reward")
+          Core.<*> (x Core..:? "Title")

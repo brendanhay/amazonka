@@ -20,9 +20,9 @@ module Network.AWS.RDS.RemoveRoleFromDBCluster
     mkRemoveRoleFromDBCluster,
 
     -- ** Request lenses
-    rrfdcDBClusterIdentifier,
-    rrfdcFeatureName,
-    rrfdcRoleARN,
+    rrfdbcDBClusterIdentifier,
+    rrfdbcRoleArn,
+    rrfdbcFeatureName,
 
     -- * Destructuring the response
     RemoveRoleFromDBClusterResponse (..),
@@ -31,90 +31,88 @@ module Network.AWS.RDS.RemoveRoleFromDBCluster
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRemoveRoleFromDBCluster' smart constructor.
 data RemoveRoleFromDBCluster = RemoveRoleFromDBCluster'
   { -- | The name of the DB cluster to disassociate the IAM role from.
-    dbClusterIdentifier :: Lude.Text,
-    -- | The name of the feature for the DB cluster that the IAM role is to be disassociated from. For the list of supported feature names, see 'DBEngineVersion' .
-    featureName :: Lude.Maybe Lude.Text,
+    dBClusterIdentifier :: Types.String,
     -- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB cluster, for example @arn:aws:iam::123456789012:role/AuroraAccessRole@ .
-    roleARN :: Lude.Text
+    roleArn :: Types.String,
+    -- | The name of the feature for the DB cluster that the IAM role is to be disassociated from. For the list of supported feature names, see 'DBEngineVersion' .
+    featureName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveRoleFromDBCluster' with the minimum fields required to make a request.
---
--- * 'dbClusterIdentifier' - The name of the DB cluster to disassociate the IAM role from.
--- * 'featureName' - The name of the feature for the DB cluster that the IAM role is to be disassociated from. For the list of supported feature names, see 'DBEngineVersion' .
--- * 'roleARN' - The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB cluster, for example @arn:aws:iam::123456789012:role/AuroraAccessRole@ .
+-- | Creates a 'RemoveRoleFromDBCluster' value with any optional fields omitted.
 mkRemoveRoleFromDBCluster ::
-  -- | 'dbClusterIdentifier'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  -- | 'dBClusterIdentifier'
+  Types.String ->
+  -- | 'roleArn'
+  Types.String ->
   RemoveRoleFromDBCluster
-mkRemoveRoleFromDBCluster pDBClusterIdentifier_ pRoleARN_ =
+mkRemoveRoleFromDBCluster dBClusterIdentifier roleArn =
   RemoveRoleFromDBCluster'
-    { dbClusterIdentifier =
-        pDBClusterIdentifier_,
-      featureName = Lude.Nothing,
-      roleARN = pRoleARN_
+    { dBClusterIdentifier,
+      roleArn,
+      featureName = Core.Nothing
     }
 
 -- | The name of the DB cluster to disassociate the IAM role from.
 --
--- /Note:/ Consider using 'dbClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrfdcDBClusterIdentifier :: Lens.Lens' RemoveRoleFromDBCluster Lude.Text
-rrfdcDBClusterIdentifier = Lens.lens (dbClusterIdentifier :: RemoveRoleFromDBCluster -> Lude.Text) (\s a -> s {dbClusterIdentifier = a} :: RemoveRoleFromDBCluster)
-{-# DEPRECATED rrfdcDBClusterIdentifier "Use generic-lens or generic-optics with 'dbClusterIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBClusterIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrfdbcDBClusterIdentifier :: Lens.Lens' RemoveRoleFromDBCluster Types.String
+rrfdbcDBClusterIdentifier = Lens.field @"dBClusterIdentifier"
+{-# DEPRECATED rrfdbcDBClusterIdentifier "Use generic-lens or generic-optics with 'dBClusterIdentifier' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB cluster, for example @arn:aws:iam::123456789012:role/AuroraAccessRole@ .
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rrfdbcRoleArn :: Lens.Lens' RemoveRoleFromDBCluster Types.String
+rrfdbcRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED rrfdbcRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The name of the feature for the DB cluster that the IAM role is to be disassociated from. For the list of supported feature names, see 'DBEngineVersion' .
 --
 -- /Note:/ Consider using 'featureName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrfdcFeatureName :: Lens.Lens' RemoveRoleFromDBCluster (Lude.Maybe Lude.Text)
-rrfdcFeatureName = Lens.lens (featureName :: RemoveRoleFromDBCluster -> Lude.Maybe Lude.Text) (\s a -> s {featureName = a} :: RemoveRoleFromDBCluster)
-{-# DEPRECATED rrfdcFeatureName "Use generic-lens or generic-optics with 'featureName' instead." #-}
+rrfdbcFeatureName :: Lens.Lens' RemoveRoleFromDBCluster (Core.Maybe Types.String)
+rrfdbcFeatureName = Lens.field @"featureName"
+{-# DEPRECATED rrfdbcFeatureName "Use generic-lens or generic-optics with 'featureName' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the IAM role to disassociate from the Aurora DB cluster, for example @arn:aws:iam::123456789012:role/AuroraAccessRole@ .
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rrfdcRoleARN :: Lens.Lens' RemoveRoleFromDBCluster Lude.Text
-rrfdcRoleARN = Lens.lens (roleARN :: RemoveRoleFromDBCluster -> Lude.Text) (\s a -> s {roleARN = a} :: RemoveRoleFromDBCluster)
-{-# DEPRECATED rrfdcRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.AWSRequest RemoveRoleFromDBCluster where
+instance Core.AWSRequest RemoveRoleFromDBCluster where
   type Rs RemoveRoleFromDBCluster = RemoveRoleFromDBClusterResponse
-  request = Req.postQuery rdsService
-  response = Res.receiveNull RemoveRoleFromDBClusterResponse'
-
-instance Lude.ToHeaders RemoveRoleFromDBCluster where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RemoveRoleFromDBCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RemoveRoleFromDBCluster where
-  toQuery RemoveRoleFromDBCluster' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RemoveRoleFromDBCluster" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBClusterIdentifier" Lude.=: dbClusterIdentifier,
-        "FeatureName" Lude.=: featureName,
-        "RoleArn" Lude.=: roleARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RemoveRoleFromDBCluster")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "DBClusterIdentifier" dBClusterIdentifier)
+                Core.<> (Core.toQueryValue "RoleArn" roleArn)
+                Core.<> (Core.toQueryValue "FeatureName" Core.<$> featureName)
+            )
+      }
+  response = Response.receiveNull RemoveRoleFromDBClusterResponse'
 
 -- | /See:/ 'mkRemoveRoleFromDBClusterResponse' smart constructor.
 data RemoveRoleFromDBClusterResponse = RemoveRoleFromDBClusterResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RemoveRoleFromDBClusterResponse' with the minimum fields required to make a request.
+-- | Creates a 'RemoveRoleFromDBClusterResponse' value with any optional fields omitted.
 mkRemoveRoleFromDBClusterResponse ::
   RemoveRoleFromDBClusterResponse
 mkRemoveRoleFromDBClusterResponse =

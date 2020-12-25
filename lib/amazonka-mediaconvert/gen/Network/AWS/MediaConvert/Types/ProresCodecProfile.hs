@@ -13,57 +13,62 @@
 module Network.AWS.MediaConvert.Types.ProresCodecProfile
   ( ProresCodecProfile
       ( ProresCodecProfile',
-        AppleProres422,
-        AppleProres422Hq,
-        AppleProres422LT,
-        AppleProres422Proxy
+        ProresCodecProfileAppleProres422,
+        ProresCodecProfileAppleProres422Hq,
+        ProresCodecProfileAppleProres422Lt,
+        ProresCodecProfileAppleProres422Proxy,
+        fromProresCodecProfile
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use Profile (ProResCodecProfile) to specifiy the type of Apple ProRes codec to use for this output.
-newtype ProresCodecProfile = ProresCodecProfile' Lude.Text
+newtype ProresCodecProfile = ProresCodecProfile'
+  { fromProresCodecProfile ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AppleProres422 :: ProresCodecProfile
-pattern AppleProres422 = ProresCodecProfile' "APPLE_PRORES_422"
+pattern ProresCodecProfileAppleProres422 :: ProresCodecProfile
+pattern ProresCodecProfileAppleProres422 = ProresCodecProfile' "APPLE_PRORES_422"
 
-pattern AppleProres422Hq :: ProresCodecProfile
-pattern AppleProres422Hq = ProresCodecProfile' "APPLE_PRORES_422_HQ"
+pattern ProresCodecProfileAppleProres422Hq :: ProresCodecProfile
+pattern ProresCodecProfileAppleProres422Hq = ProresCodecProfile' "APPLE_PRORES_422_HQ"
 
-pattern AppleProres422LT :: ProresCodecProfile
-pattern AppleProres422LT = ProresCodecProfile' "APPLE_PRORES_422_LT"
+pattern ProresCodecProfileAppleProres422Lt :: ProresCodecProfile
+pattern ProresCodecProfileAppleProres422Lt = ProresCodecProfile' "APPLE_PRORES_422_LT"
 
-pattern AppleProres422Proxy :: ProresCodecProfile
-pattern AppleProres422Proxy = ProresCodecProfile' "APPLE_PRORES_422_PROXY"
+pattern ProresCodecProfileAppleProres422Proxy :: ProresCodecProfile
+pattern ProresCodecProfileAppleProres422Proxy = ProresCodecProfile' "APPLE_PRORES_422_PROXY"
 
 {-# COMPLETE
-  AppleProres422,
-  AppleProres422Hq,
-  AppleProres422LT,
-  AppleProres422Proxy,
+  ProresCodecProfileAppleProres422,
+  ProresCodecProfileAppleProres422Hq,
+  ProresCodecProfileAppleProres422Lt,
+  ProresCodecProfileAppleProres422Proxy,
   ProresCodecProfile'
   #-}

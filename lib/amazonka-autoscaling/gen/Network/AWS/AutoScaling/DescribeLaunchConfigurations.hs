@@ -23,165 +23,163 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
 
     -- ** Request lenses
     dlcLaunchConfigurationNames,
-    dlcNextToken,
     dlcMaxRecords,
+    dlcNextToken,
 
     -- * Destructuring the response
     DescribeLaunchConfigurationsResponse (..),
     mkDescribeLaunchConfigurationsResponse,
 
     -- ** Response lenses
-    dlcrsNextToken,
-    dlcrsLaunchConfigurations,
-    dlcrsResponseStatus,
+    dlcrrsLaunchConfigurations,
+    dlcrrsNextToken,
+    dlcrrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLaunchConfigurations' smart constructor.
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
   { -- | The launch configuration names. If you omit this parameter, all launch configurations are described.
-    launchConfigurationNames :: Lude.Maybe [Lude.Text],
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
+    launchConfigurationNames :: Core.Maybe [Types.ResourceName],
     -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.XmlString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLaunchConfigurations' with the minimum fields required to make a request.
---
--- * 'launchConfigurationNames' - The launch configuration names. If you omit this parameter, all launch configurations are described.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'maxRecords' - The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
+-- | Creates a 'DescribeLaunchConfigurations' value with any optional fields omitted.
 mkDescribeLaunchConfigurations ::
   DescribeLaunchConfigurations
 mkDescribeLaunchConfigurations =
   DescribeLaunchConfigurations'
     { launchConfigurationNames =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxRecords = Lude.Nothing
+        Core.Nothing,
+      maxRecords = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The launch configuration names. If you omit this parameter, all launch configurations are described.
 --
 -- /Note:/ Consider using 'launchConfigurationNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcLaunchConfigurationNames :: Lens.Lens' DescribeLaunchConfigurations (Lude.Maybe [Lude.Text])
-dlcLaunchConfigurationNames = Lens.lens (launchConfigurationNames :: DescribeLaunchConfigurations -> Lude.Maybe [Lude.Text]) (\s a -> s {launchConfigurationNames = a} :: DescribeLaunchConfigurations)
+dlcLaunchConfigurationNames :: Lens.Lens' DescribeLaunchConfigurations (Core.Maybe [Types.ResourceName])
+dlcLaunchConfigurationNames = Lens.field @"launchConfigurationNames"
 {-# DEPRECATED dlcLaunchConfigurationNames "Use generic-lens or generic-optics with 'launchConfigurationNames' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcNextToken :: Lens.Lens' DescribeLaunchConfigurations (Lude.Maybe Lude.Text)
-dlcNextToken = Lens.lens (nextToken :: DescribeLaunchConfigurations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLaunchConfigurations)
-{-# DEPRECATED dlcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return with this call. The default value is @50@ and the maximum value is @100@ .
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcMaxRecords :: Lens.Lens' DescribeLaunchConfigurations (Lude.Maybe Lude.Int)
-dlcMaxRecords = Lens.lens (maxRecords :: DescribeLaunchConfigurations -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeLaunchConfigurations)
+dlcMaxRecords :: Lens.Lens' DescribeLaunchConfigurations (Core.Maybe Core.Int)
+dlcMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED dlcMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeLaunchConfigurations where
-  page rq rs
-    | Page.stop (rs Lens.^. dlcrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dlcrsLaunchConfigurations) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dlcNextToken Lens..~ rs Lens.^. dlcrsNextToken
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcNextToken :: Lens.Lens' DescribeLaunchConfigurations (Core.Maybe Types.XmlString)
+dlcNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dlcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribeLaunchConfigurations where
+instance Core.AWSRequest DescribeLaunchConfigurations where
   type
     Rs DescribeLaunchConfigurations =
       DescribeLaunchConfigurationsResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeLaunchConfigurations")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> ( Core.toQueryValue
+                            "LaunchConfigurationNames"
+                            (Core.toQueryList "member" Core.<$> launchConfigurationNames)
+                        )
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeLaunchConfigurationsResult"
       ( \s h x ->
           DescribeLaunchConfigurationsResponse'
-            Lude.<$> (x Lude..@? "NextToken")
-            Lude.<*> ( x Lude..@? "LaunchConfigurations" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "member"
+            Core.<$> ( x Core..@? "LaunchConfigurations" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeLaunchConfigurations where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeLaunchConfigurations where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLaunchConfigurations where
-  toQuery DescribeLaunchConfigurations' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeLaunchConfigurations" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "LaunchConfigurationNames"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> launchConfigurationNames),
-        "NextToken" Lude.=: nextToken,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeLaunchConfigurations where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"launchConfigurations") =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeLaunchConfigurationsResponse' smart constructor.
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
-  { -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The launch configurations.
-    launchConfigurations :: [LaunchConfiguration],
+  { -- | The launch configurations.
+    launchConfigurations :: [Types.LaunchConfiguration],
+    -- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+    nextToken :: Core.Maybe Types.XmlString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeLaunchConfigurationsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
--- * 'launchConfigurations' - The launch configurations.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLaunchConfigurationsResponse' value with any optional fields omitted.
 mkDescribeLaunchConfigurationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLaunchConfigurationsResponse
-mkDescribeLaunchConfigurationsResponse pResponseStatus_ =
+mkDescribeLaunchConfigurationsResponse responseStatus =
   DescribeLaunchConfigurationsResponse'
-    { nextToken = Lude.Nothing,
-      launchConfigurations = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { launchConfigurations =
+        Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcrsNextToken :: Lens.Lens' DescribeLaunchConfigurationsResponse (Lude.Maybe Lude.Text)
-dlcrsNextToken = Lens.lens (nextToken :: DescribeLaunchConfigurationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeLaunchConfigurationsResponse)
-{-# DEPRECATED dlcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The launch configurations.
 --
 -- /Note:/ Consider using 'launchConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcrsLaunchConfigurations :: Lens.Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
-dlcrsLaunchConfigurations = Lens.lens (launchConfigurations :: DescribeLaunchConfigurationsResponse -> [LaunchConfiguration]) (\s a -> s {launchConfigurations = a} :: DescribeLaunchConfigurationsResponse)
-{-# DEPRECATED dlcrsLaunchConfigurations "Use generic-lens or generic-optics with 'launchConfigurations' instead." #-}
+dlcrrsLaunchConfigurations :: Lens.Lens' DescribeLaunchConfigurationsResponse [Types.LaunchConfiguration]
+dlcrrsLaunchConfigurations = Lens.field @"launchConfigurations"
+{-# DEPRECATED dlcrrsLaunchConfigurations "Use generic-lens or generic-optics with 'launchConfigurations' instead." #-}
+
+-- | A string that indicates that the response contains more items than can be returned in a single response. To receive additional items, specify this string for the @NextToken@ value when requesting the next set of items. This value is null when there are no more items to return.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlcrrsNextToken :: Lens.Lens' DescribeLaunchConfigurationsResponse (Core.Maybe Types.XmlString)
+dlcrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dlcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlcrsResponseStatus :: Lens.Lens' DescribeLaunchConfigurationsResponse Lude.Int
-dlcrsResponseStatus = Lens.lens (responseStatus :: DescribeLaunchConfigurationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLaunchConfigurationsResponse)
-{-# DEPRECATED dlcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlcrrsResponseStatus :: Lens.Lens' DescribeLaunchConfigurationsResponse Core.Int
+dlcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

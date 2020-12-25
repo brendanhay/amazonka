@@ -29,87 +29,77 @@ module Network.AWS.EMR.ModifyInstanceGroups
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Change the size of some instance groups.
 --
 -- /See:/ 'mkModifyInstanceGroups' smart constructor.
 data ModifyInstanceGroups = ModifyInstanceGroups'
   { -- | The ID of the cluster to which the instance group belongs.
-    clusterId :: Lude.Maybe Lude.Text,
+    clusterId :: Core.Maybe Types.ClusterId,
     -- | Instance groups to change.
-    instanceGroups :: Lude.Maybe [InstanceGroupModifyConfig]
+    instanceGroups :: Core.Maybe [Types.InstanceGroupModifyConfig]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyInstanceGroups' with the minimum fields required to make a request.
---
--- * 'clusterId' - The ID of the cluster to which the instance group belongs.
--- * 'instanceGroups' - Instance groups to change.
+-- | Creates a 'ModifyInstanceGroups' value with any optional fields omitted.
 mkModifyInstanceGroups ::
   ModifyInstanceGroups
 mkModifyInstanceGroups =
   ModifyInstanceGroups'
-    { clusterId = Lude.Nothing,
-      instanceGroups = Lude.Nothing
+    { clusterId = Core.Nothing,
+      instanceGroups = Core.Nothing
     }
 
 -- | The ID of the cluster to which the instance group belongs.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-migClusterId :: Lens.Lens' ModifyInstanceGroups (Lude.Maybe Lude.Text)
-migClusterId = Lens.lens (clusterId :: ModifyInstanceGroups -> Lude.Maybe Lude.Text) (\s a -> s {clusterId = a} :: ModifyInstanceGroups)
+migClusterId :: Lens.Lens' ModifyInstanceGroups (Core.Maybe Types.ClusterId)
+migClusterId = Lens.field @"clusterId"
 {-# DEPRECATED migClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | Instance groups to change.
 --
 -- /Note:/ Consider using 'instanceGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-migInstanceGroups :: Lens.Lens' ModifyInstanceGroups (Lude.Maybe [InstanceGroupModifyConfig])
-migInstanceGroups = Lens.lens (instanceGroups :: ModifyInstanceGroups -> Lude.Maybe [InstanceGroupModifyConfig]) (\s a -> s {instanceGroups = a} :: ModifyInstanceGroups)
+migInstanceGroups :: Lens.Lens' ModifyInstanceGroups (Core.Maybe [Types.InstanceGroupModifyConfig])
+migInstanceGroups = Lens.field @"instanceGroups"
 {-# DEPRECATED migInstanceGroups "Use generic-lens or generic-optics with 'instanceGroups' instead." #-}
 
-instance Lude.AWSRequest ModifyInstanceGroups where
+instance Core.FromJSON ModifyInstanceGroups where
+  toJSON ModifyInstanceGroups {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ClusterId" Core..=) Core.<$> clusterId,
+            ("InstanceGroups" Core..=) Core.<$> instanceGroups
+          ]
+      )
+
+instance Core.AWSRequest ModifyInstanceGroups where
   type Rs ModifyInstanceGroups = ModifyInstanceGroupsResponse
-  request = Req.postJSON emrService
-  response = Res.receiveNull ModifyInstanceGroupsResponse'
-
-instance Lude.ToHeaders ModifyInstanceGroups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.ModifyInstanceGroups" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ModifyInstanceGroups where
-  toJSON ModifyInstanceGroups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ClusterId" Lude..=) Lude.<$> clusterId,
-            ("InstanceGroups" Lude..=) Lude.<$> instanceGroups
-          ]
-      )
-
-instance Lude.ToPath ModifyInstanceGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyInstanceGroups where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.ModifyInstanceGroups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull ModifyInstanceGroupsResponse'
 
 -- | /See:/ 'mkModifyInstanceGroupsResponse' smart constructor.
 data ModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyInstanceGroupsResponse' with the minimum fields required to make a request.
+-- | Creates a 'ModifyInstanceGroupsResponse' value with any optional fields omitted.
 mkModifyInstanceGroupsResponse ::
   ModifyInstanceGroupsResponse
 mkModifyInstanceGroupsResponse = ModifyInstanceGroupsResponse'

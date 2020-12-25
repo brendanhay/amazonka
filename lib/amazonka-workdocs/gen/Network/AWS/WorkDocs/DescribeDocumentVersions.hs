@@ -24,200 +24,190 @@ module Network.AWS.WorkDocs.DescribeDocumentVersions
     mkDescribeDocumentVersions,
 
     -- ** Request lenses
-    ddvInclude,
     ddvDocumentId,
     ddvAuthenticationToken,
-    ddvMarker,
-    ddvLimit,
     ddvFields,
+    ddvInclude,
+    ddvLimit,
+    ddvMarker,
 
     -- * Destructuring the response
     DescribeDocumentVersionsResponse (..),
     mkDescribeDocumentVersionsResponse,
 
     -- ** Response lenses
-    ddvrsDocumentVersions,
-    ddvrsMarker,
-    ddvrsResponseStatus,
+    ddvrrsDocumentVersions,
+    ddvrrsMarker,
+    ddvrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkDocs.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkDocs.Types as Types
 
 -- | /See:/ 'mkDescribeDocumentVersions' smart constructor.
 data DescribeDocumentVersions = DescribeDocumentVersions'
-  { -- | A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
-    include :: Lude.Maybe Lude.Text,
-    -- | The ID of the document.
-    documentId :: Lude.Text,
+  { -- | The ID of the document.
+    documentId :: Types.DocumentId,
     -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
-    authenticationToken :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The marker for the next set of results. (You received this marker from a previous call.)
-    marker :: Lude.Maybe Lude.Text,
-    -- | The maximum number of versions to return with this call.
-    limit :: Lude.Maybe Lude.Natural,
+    authenticationToken :: Core.Maybe Types.AuthenticationHeaderType,
     -- | Specify "SOURCE" to include initialized versions and a URL for the source document.
-    fields :: Lude.Maybe Lude.Text
+    fields :: Core.Maybe Types.Fields,
+    -- | A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
+    include :: Core.Maybe Types.Include,
+    -- | The maximum number of versions to return with this call.
+    limit :: Core.Maybe Core.Natural,
+    -- | The marker for the next set of results. (You received this marker from a previous call.)
+    marker :: Core.Maybe Types.Marker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDocumentVersions' with the minimum fields required to make a request.
---
--- * 'include' - A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
--- * 'documentId' - The ID of the document.
--- * 'authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
--- * 'marker' - The marker for the next set of results. (You received this marker from a previous call.)
--- * 'limit' - The maximum number of versions to return with this call.
--- * 'fields' - Specify "SOURCE" to include initialized versions and a URL for the source document.
+-- | Creates a 'DescribeDocumentVersions' value with any optional fields omitted.
 mkDescribeDocumentVersions ::
   -- | 'documentId'
-  Lude.Text ->
+  Types.DocumentId ->
   DescribeDocumentVersions
-mkDescribeDocumentVersions pDocumentId_ =
+mkDescribeDocumentVersions documentId =
   DescribeDocumentVersions'
-    { include = Lude.Nothing,
-      documentId = pDocumentId_,
-      authenticationToken = Lude.Nothing,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing,
-      fields = Lude.Nothing
+    { documentId,
+      authenticationToken = Core.Nothing,
+      fields = Core.Nothing,
+      include = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing
     }
-
--- | A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
---
--- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvInclude :: Lens.Lens' DescribeDocumentVersions (Lude.Maybe Lude.Text)
-ddvInclude = Lens.lens (include :: DescribeDocumentVersions -> Lude.Maybe Lude.Text) (\s a -> s {include = a} :: DescribeDocumentVersions)
-{-# DEPRECATED ddvInclude "Use generic-lens or generic-optics with 'include' instead." #-}
 
 -- | The ID of the document.
 --
 -- /Note:/ Consider using 'documentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvDocumentId :: Lens.Lens' DescribeDocumentVersions Lude.Text
-ddvDocumentId = Lens.lens (documentId :: DescribeDocumentVersions -> Lude.Text) (\s a -> s {documentId = a} :: DescribeDocumentVersions)
+ddvDocumentId :: Lens.Lens' DescribeDocumentVersions Types.DocumentId
+ddvDocumentId = Lens.field @"documentId"
 {-# DEPRECATED ddvDocumentId "Use generic-lens or generic-optics with 'documentId' instead." #-}
 
 -- | Amazon WorkDocs authentication token. Not required when using AWS administrator credentials to access the API.
 --
 -- /Note:/ Consider using 'authenticationToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvAuthenticationToken :: Lens.Lens' DescribeDocumentVersions (Lude.Maybe (Lude.Sensitive Lude.Text))
-ddvAuthenticationToken = Lens.lens (authenticationToken :: DescribeDocumentVersions -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {authenticationToken = a} :: DescribeDocumentVersions)
+ddvAuthenticationToken :: Lens.Lens' DescribeDocumentVersions (Core.Maybe Types.AuthenticationHeaderType)
+ddvAuthenticationToken = Lens.field @"authenticationToken"
 {-# DEPRECATED ddvAuthenticationToken "Use generic-lens or generic-optics with 'authenticationToken' instead." #-}
-
--- | The marker for the next set of results. (You received this marker from a previous call.)
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvMarker :: Lens.Lens' DescribeDocumentVersions (Lude.Maybe Lude.Text)
-ddvMarker = Lens.lens (marker :: DescribeDocumentVersions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDocumentVersions)
-{-# DEPRECATED ddvMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The maximum number of versions to return with this call.
---
--- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvLimit :: Lens.Lens' DescribeDocumentVersions (Lude.Maybe Lude.Natural)
-ddvLimit = Lens.lens (limit :: DescribeDocumentVersions -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: DescribeDocumentVersions)
-{-# DEPRECATED ddvLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
 -- | Specify "SOURCE" to include initialized versions and a URL for the source document.
 --
 -- /Note:/ Consider using 'fields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvFields :: Lens.Lens' DescribeDocumentVersions (Lude.Maybe Lude.Text)
-ddvFields = Lens.lens (fields :: DescribeDocumentVersions -> Lude.Maybe Lude.Text) (\s a -> s {fields = a} :: DescribeDocumentVersions)
+ddvFields :: Lens.Lens' DescribeDocumentVersions (Core.Maybe Types.Fields)
+ddvFields = Lens.field @"fields"
 {-# DEPRECATED ddvFields "Use generic-lens or generic-optics with 'fields' instead." #-}
 
-instance Page.AWSPager DescribeDocumentVersions where
-  page rq rs
-    | Page.stop (rs Lens.^. ddvrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ddvrsDocumentVersions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& ddvMarker Lens..~ rs Lens.^. ddvrsMarker
+-- | A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.
+--
+-- /Note:/ Consider using 'include' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddvInclude :: Lens.Lens' DescribeDocumentVersions (Core.Maybe Types.Include)
+ddvInclude = Lens.field @"include"
+{-# DEPRECATED ddvInclude "Use generic-lens or generic-optics with 'include' instead." #-}
 
-instance Lude.AWSRequest DescribeDocumentVersions where
+-- | The maximum number of versions to return with this call.
+--
+-- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddvLimit :: Lens.Lens' DescribeDocumentVersions (Core.Maybe Core.Natural)
+ddvLimit = Lens.field @"limit"
+{-# DEPRECATED ddvLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+
+-- | The marker for the next set of results. (You received this marker from a previous call.)
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddvMarker :: Lens.Lens' DescribeDocumentVersions (Core.Maybe Types.Marker)
+ddvMarker = Lens.field @"marker"
+{-# DEPRECATED ddvMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+instance Core.AWSRequest DescribeDocumentVersions where
   type Rs DescribeDocumentVersions = DescribeDocumentVersionsResponse
-  request = Req.get workDocsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/api/v1/documents/" Core.<> (Core.toText documentId)
+                Core.<> ("/versions")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "fields" Core.<$> fields
+            Core.<> (Core.toQueryValue "include" Core.<$> include)
+            Core.<> (Core.toQueryValue "limit" Core.<$> limit)
+            Core.<> (Core.toQueryValue "marker" Core.<$> marker),
+        Core._rqHeaders =
+          Core.toHeaders "Authentication" authenticationToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeDocumentVersionsResponse'
-            Lude.<$> (x Lude..?> "DocumentVersions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DocumentVersions")
+            Core.<*> (x Core..:? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeDocumentVersions where
-  toHeaders DescribeDocumentVersions' {..} =
-    Lude.mconcat
-      [ "Authentication" Lude.=# authenticationToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToPath DescribeDocumentVersions where
-  toPath DescribeDocumentVersions' {..} =
-    Lude.mconcat
-      ["/api/v1/documents/", Lude.toBS documentId, "/versions"]
-
-instance Lude.ToQuery DescribeDocumentVersions where
-  toQuery DescribeDocumentVersions' {..} =
-    Lude.mconcat
-      [ "include" Lude.=: include,
-        "marker" Lude.=: marker,
-        "limit" Lude.=: limit,
-        "fields" Lude.=: fields
-      ]
+instance Pager.AWSPager DescribeDocumentVersions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"documentVersions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkDescribeDocumentVersionsResponse' smart constructor.
 data DescribeDocumentVersionsResponse = DescribeDocumentVersionsResponse'
   { -- | The document versions.
-    documentVersions :: Lude.Maybe [DocumentVersionMetadata],
+    documentVersions :: Core.Maybe [Types.DocumentVersionMetadata],
     -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeDocumentVersionsResponse' with the minimum fields required to make a request.
---
--- * 'documentVersions' - The document versions.
--- * 'marker' - The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDocumentVersionsResponse' value with any optional fields omitted.
 mkDescribeDocumentVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDocumentVersionsResponse
-mkDescribeDocumentVersionsResponse pResponseStatus_ =
+mkDescribeDocumentVersionsResponse responseStatus =
   DescribeDocumentVersionsResponse'
     { documentVersions =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
 
 -- | The document versions.
 --
 -- /Note:/ Consider using 'documentVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvrsDocumentVersions :: Lens.Lens' DescribeDocumentVersionsResponse (Lude.Maybe [DocumentVersionMetadata])
-ddvrsDocumentVersions = Lens.lens (documentVersions :: DescribeDocumentVersionsResponse -> Lude.Maybe [DocumentVersionMetadata]) (\s a -> s {documentVersions = a} :: DescribeDocumentVersionsResponse)
-{-# DEPRECATED ddvrsDocumentVersions "Use generic-lens or generic-optics with 'documentVersions' instead." #-}
+ddvrrsDocumentVersions :: Lens.Lens' DescribeDocumentVersionsResponse (Core.Maybe [Types.DocumentVersionMetadata])
+ddvrrsDocumentVersions = Lens.field @"documentVersions"
+{-# DEPRECATED ddvrrsDocumentVersions "Use generic-lens or generic-optics with 'documentVersions' instead." #-}
 
 -- | The marker to use when requesting the next set of results. If there are no additional results, the string is empty.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvrsMarker :: Lens.Lens' DescribeDocumentVersionsResponse (Lude.Maybe Lude.Text)
-ddvrsMarker = Lens.lens (marker :: DescribeDocumentVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDocumentVersionsResponse)
-{-# DEPRECATED ddvrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ddvrrsMarker :: Lens.Lens' DescribeDocumentVersionsResponse (Core.Maybe Types.Marker)
+ddvrrsMarker = Lens.field @"marker"
+{-# DEPRECATED ddvrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddvrsResponseStatus :: Lens.Lens' DescribeDocumentVersionsResponse Lude.Int
-ddvrsResponseStatus = Lens.lens (responseStatus :: DescribeDocumentVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDocumentVersionsResponse)
-{-# DEPRECATED ddvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddvrrsResponseStatus :: Lens.Lens' DescribeDocumentVersionsResponse Core.Int
+ddvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

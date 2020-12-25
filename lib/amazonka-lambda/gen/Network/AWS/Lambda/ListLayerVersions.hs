@@ -32,161 +32,154 @@ module Network.AWS.Lambda.ListLayerVersions
     mkListLayerVersionsResponse,
 
     -- ** Response lenses
-    llvrsLayerVersions,
-    llvrsNextMarker,
-    llvrsResponseStatus,
+    llvrrsLayerVersions,
+    llvrrsNextMarker,
+    llvrrsResponseStatus,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListLayerVersions' smart constructor.
 data ListLayerVersions = ListLayerVersions'
   { -- | The name or Amazon Resource Name (ARN) of the layer.
-    layerName :: Lude.Text,
+    layerName :: Types.LayerName,
     -- | A runtime identifier. For example, @go1.x@ .
-    compatibleRuntime :: Lude.Maybe Runtime,
+    compatibleRuntime :: Core.Maybe Types.Runtime,
     -- | A pagination token returned by a previous call.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of versions to return.
-    maxItems :: Lude.Maybe Lude.Natural
+    maxItems :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListLayerVersions' with the minimum fields required to make a request.
---
--- * 'layerName' - The name or Amazon Resource Name (ARN) of the layer.
--- * 'compatibleRuntime' - A runtime identifier. For example, @go1.x@ .
--- * 'marker' - A pagination token returned by a previous call.
--- * 'maxItems' - The maximum number of versions to return.
+-- | Creates a 'ListLayerVersions' value with any optional fields omitted.
 mkListLayerVersions ::
   -- | 'layerName'
-  Lude.Text ->
+  Types.LayerName ->
   ListLayerVersions
-mkListLayerVersions pLayerName_ =
+mkListLayerVersions layerName =
   ListLayerVersions'
-    { layerName = pLayerName_,
-      compatibleRuntime = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxItems = Lude.Nothing
+    { layerName,
+      compatibleRuntime = Core.Nothing,
+      marker = Core.Nothing,
+      maxItems = Core.Nothing
     }
 
 -- | The name or Amazon Resource Name (ARN) of the layer.
 --
 -- /Note:/ Consider using 'layerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llvLayerName :: Lens.Lens' ListLayerVersions Lude.Text
-llvLayerName = Lens.lens (layerName :: ListLayerVersions -> Lude.Text) (\s a -> s {layerName = a} :: ListLayerVersions)
+llvLayerName :: Lens.Lens' ListLayerVersions Types.LayerName
+llvLayerName = Lens.field @"layerName"
 {-# DEPRECATED llvLayerName "Use generic-lens or generic-optics with 'layerName' instead." #-}
 
 -- | A runtime identifier. For example, @go1.x@ .
 --
 -- /Note:/ Consider using 'compatibleRuntime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llvCompatibleRuntime :: Lens.Lens' ListLayerVersions (Lude.Maybe Runtime)
-llvCompatibleRuntime = Lens.lens (compatibleRuntime :: ListLayerVersions -> Lude.Maybe Runtime) (\s a -> s {compatibleRuntime = a} :: ListLayerVersions)
+llvCompatibleRuntime :: Lens.Lens' ListLayerVersions (Core.Maybe Types.Runtime)
+llvCompatibleRuntime = Lens.field @"compatibleRuntime"
 {-# DEPRECATED llvCompatibleRuntime "Use generic-lens or generic-optics with 'compatibleRuntime' instead." #-}
 
 -- | A pagination token returned by a previous call.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llvMarker :: Lens.Lens' ListLayerVersions (Lude.Maybe Lude.Text)
-llvMarker = Lens.lens (marker :: ListLayerVersions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListLayerVersions)
+llvMarker :: Lens.Lens' ListLayerVersions (Core.Maybe Types.String)
+llvMarker = Lens.field @"marker"
 {-# DEPRECATED llvMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of versions to return.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llvMaxItems :: Lens.Lens' ListLayerVersions (Lude.Maybe Lude.Natural)
-llvMaxItems = Lens.lens (maxItems :: ListLayerVersions -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: ListLayerVersions)
+llvMaxItems :: Lens.Lens' ListLayerVersions (Core.Maybe Core.Natural)
+llvMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED llvMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Page.AWSPager ListLayerVersions where
-  page rq rs
-    | Page.stop (rs Lens.^. llvrsNextMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. llvrsLayerVersions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& llvMarker Lens..~ rs Lens.^. llvrsNextMarker
-
-instance Lude.AWSRequest ListLayerVersions where
+instance Core.AWSRequest ListLayerVersions where
   type Rs ListLayerVersions = ListLayerVersionsResponse
-  request = Req.get lambdaService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2018-10-31/layers/" Core.<> (Core.toText layerName)
+                Core.<> ("/versions")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "CompatibleRuntime" Core.<$> compatibleRuntime
+            Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListLayerVersionsResponse'
-            Lude.<$> (x Lude..?> "LayerVersions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "LayerVersions")
+            Core.<*> (x Core..:? "NextMarker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListLayerVersions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListLayerVersions where
-  toPath ListLayerVersions' {..} =
-    Lude.mconcat
-      ["/2018-10-31/layers/", Lude.toBS layerName, "/versions"]
-
-instance Lude.ToQuery ListLayerVersions where
-  toQuery ListLayerVersions' {..} =
-    Lude.mconcat
-      [ "CompatibleRuntime" Lude.=: compatibleRuntime,
-        "Marker" Lude.=: marker,
-        "MaxItems" Lude.=: maxItems
-      ]
+instance Pager.AWSPager ListLayerVersions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextMarker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"layerVersions" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"nextMarker"
+        )
 
 -- | /See:/ 'mkListLayerVersionsResponse' smart constructor.
 data ListLayerVersionsResponse = ListLayerVersionsResponse'
   { -- | A list of versions.
-    layerVersions :: Lude.Maybe [LayerVersionsListItem],
+    layerVersions :: Core.Maybe [Types.LayerVersionsListItem],
     -- | A pagination token returned when the response doesn't contain all versions.
-    nextMarker :: Lude.Maybe Lude.Text,
+    nextMarker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListLayerVersionsResponse' with the minimum fields required to make a request.
---
--- * 'layerVersions' - A list of versions.
--- * 'nextMarker' - A pagination token returned when the response doesn't contain all versions.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListLayerVersionsResponse' value with any optional fields omitted.
 mkListLayerVersionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListLayerVersionsResponse
-mkListLayerVersionsResponse pResponseStatus_ =
+mkListLayerVersionsResponse responseStatus =
   ListLayerVersionsResponse'
-    { layerVersions = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { layerVersions = Core.Nothing,
+      nextMarker = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of versions.
 --
 -- /Note:/ Consider using 'layerVersions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llvrsLayerVersions :: Lens.Lens' ListLayerVersionsResponse (Lude.Maybe [LayerVersionsListItem])
-llvrsLayerVersions = Lens.lens (layerVersions :: ListLayerVersionsResponse -> Lude.Maybe [LayerVersionsListItem]) (\s a -> s {layerVersions = a} :: ListLayerVersionsResponse)
-{-# DEPRECATED llvrsLayerVersions "Use generic-lens or generic-optics with 'layerVersions' instead." #-}
+llvrrsLayerVersions :: Lens.Lens' ListLayerVersionsResponse (Core.Maybe [Types.LayerVersionsListItem])
+llvrrsLayerVersions = Lens.field @"layerVersions"
+{-# DEPRECATED llvrrsLayerVersions "Use generic-lens or generic-optics with 'layerVersions' instead." #-}
 
 -- | A pagination token returned when the response doesn't contain all versions.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llvrsNextMarker :: Lens.Lens' ListLayerVersionsResponse (Lude.Maybe Lude.Text)
-llvrsNextMarker = Lens.lens (nextMarker :: ListLayerVersionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListLayerVersionsResponse)
-{-# DEPRECATED llvrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+llvrrsNextMarker :: Lens.Lens' ListLayerVersionsResponse (Core.Maybe Types.String)
+llvrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED llvrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-llvrsResponseStatus :: Lens.Lens' ListLayerVersionsResponse Lude.Int
-llvrsResponseStatus = Lens.lens (responseStatus :: ListLayerVersionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListLayerVersionsResponse)
-{-# DEPRECATED llvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+llvrrsResponseStatus :: Lens.Lens' ListLayerVersionsResponse Core.Int
+llvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED llvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

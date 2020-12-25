@@ -23,61 +23,56 @@ module Network.AWS.Pinpoint.Types.WaitActivity
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.WaitTime
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.WaitTime as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the settings for a wait activity in a journey. This type of activity waits for a certain amount of time or until a specific date and time before moving participants to the next activity in a journey.
 --
 -- /See:/ 'mkWaitActivity' smart constructor.
 data WaitActivity = WaitActivity'
   { -- | The unique identifier for the next activity to perform, after performing the wait activity.
-    nextActivity :: Lude.Maybe Lude.Text,
+    nextActivity :: Core.Maybe Core.Text,
     -- | The amount of time to wait or the date and time when the activity moves participants to the next activity in the journey.
-    waitTime :: Lude.Maybe WaitTime
+    waitTime :: Core.Maybe Types.WaitTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WaitActivity' with the minimum fields required to make a request.
---
--- * 'nextActivity' - The unique identifier for the next activity to perform, after performing the wait activity.
--- * 'waitTime' - The amount of time to wait or the date and time when the activity moves participants to the next activity in the journey.
+-- | Creates a 'WaitActivity' value with any optional fields omitted.
 mkWaitActivity ::
   WaitActivity
 mkWaitActivity =
   WaitActivity'
-    { nextActivity = Lude.Nothing,
-      waitTime = Lude.Nothing
+    { nextActivity = Core.Nothing,
+      waitTime = Core.Nothing
     }
 
 -- | The unique identifier for the next activity to perform, after performing the wait activity.
 --
 -- /Note:/ Consider using 'nextActivity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-waNextActivity :: Lens.Lens' WaitActivity (Lude.Maybe Lude.Text)
-waNextActivity = Lens.lens (nextActivity :: WaitActivity -> Lude.Maybe Lude.Text) (\s a -> s {nextActivity = a} :: WaitActivity)
+waNextActivity :: Lens.Lens' WaitActivity (Core.Maybe Core.Text)
+waNextActivity = Lens.field @"nextActivity"
 {-# DEPRECATED waNextActivity "Use generic-lens or generic-optics with 'nextActivity' instead." #-}
 
 -- | The amount of time to wait or the date and time when the activity moves participants to the next activity in the journey.
 --
 -- /Note:/ Consider using 'waitTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-waWaitTime :: Lens.Lens' WaitActivity (Lude.Maybe WaitTime)
-waWaitTime = Lens.lens (waitTime :: WaitActivity -> Lude.Maybe WaitTime) (\s a -> s {waitTime = a} :: WaitActivity)
+waWaitTime :: Lens.Lens' WaitActivity (Core.Maybe Types.WaitTime)
+waWaitTime = Lens.field @"waitTime"
 {-# DEPRECATED waWaitTime "Use generic-lens or generic-optics with 'waitTime' instead." #-}
 
-instance Lude.FromJSON WaitActivity where
-  parseJSON =
-    Lude.withObject
-      "WaitActivity"
-      ( \x ->
-          WaitActivity'
-            Lude.<$> (x Lude..:? "NextActivity") Lude.<*> (x Lude..:? "WaitTime")
-      )
-
-instance Lude.ToJSON WaitActivity where
-  toJSON WaitActivity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextActivity" Lude..=) Lude.<$> nextActivity,
-            ("WaitTime" Lude..=) Lude.<$> waitTime
+instance Core.FromJSON WaitActivity where
+  toJSON WaitActivity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("NextActivity" Core..=) Core.<$> nextActivity,
+            ("WaitTime" Core..=) Core.<$> waitTime
           ]
       )
+
+instance Core.FromJSON WaitActivity where
+  parseJSON =
+    Core.withObject "WaitActivity" Core.$
+      \x ->
+        WaitActivity'
+          Core.<$> (x Core..:? "NextActivity") Core.<*> (x Core..:? "WaitTime")

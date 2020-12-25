@@ -30,124 +30,108 @@ module Network.AWS.CloudWatchEvents.TestEventPattern
     mkTestEventPatternResponse,
 
     -- ** Response lenses
-    teprsResult,
-    teprsResponseStatus,
+    teprrsResult,
+    teprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkTestEventPattern' smart constructor.
 data TestEventPattern = TestEventPattern'
   { -- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
-    eventPattern :: Lude.Text,
+    eventPattern :: Types.EventPattern,
     -- | The event, in JSON format, to test against the event pattern.
-    event :: Lude.Text
+    event :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TestEventPattern' with the minimum fields required to make a request.
---
--- * 'eventPattern' - The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
--- * 'event' - The event, in JSON format, to test against the event pattern.
+-- | Creates a 'TestEventPattern' value with any optional fields omitted.
 mkTestEventPattern ::
   -- | 'eventPattern'
-  Lude.Text ->
+  Types.EventPattern ->
   -- | 'event'
-  Lude.Text ->
+  Types.String ->
   TestEventPattern
-mkTestEventPattern pEventPattern_ pEvent_ =
-  TestEventPattern' {eventPattern = pEventPattern_, event = pEvent_}
+mkTestEventPattern eventPattern event =
+  TestEventPattern' {eventPattern, event}
 
 -- | The event pattern. For more information, see <https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns> in the /Amazon EventBridge User Guide/ .
 --
 -- /Note:/ Consider using 'eventPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tepEventPattern :: Lens.Lens' TestEventPattern Lude.Text
-tepEventPattern = Lens.lens (eventPattern :: TestEventPattern -> Lude.Text) (\s a -> s {eventPattern = a} :: TestEventPattern)
+tepEventPattern :: Lens.Lens' TestEventPattern Types.EventPattern
+tepEventPattern = Lens.field @"eventPattern"
 {-# DEPRECATED tepEventPattern "Use generic-lens or generic-optics with 'eventPattern' instead." #-}
 
 -- | The event, in JSON format, to test against the event pattern.
 --
 -- /Note:/ Consider using 'event' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tepEvent :: Lens.Lens' TestEventPattern Lude.Text
-tepEvent = Lens.lens (event :: TestEventPattern -> Lude.Text) (\s a -> s {event = a} :: TestEventPattern)
+tepEvent :: Lens.Lens' TestEventPattern Types.String
+tepEvent = Lens.field @"event"
 {-# DEPRECATED tepEvent "Use generic-lens or generic-optics with 'event' instead." #-}
 
-instance Lude.AWSRequest TestEventPattern where
+instance Core.FromJSON TestEventPattern where
+  toJSON TestEventPattern {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("EventPattern" Core..= eventPattern),
+            Core.Just ("Event" Core..= event)
+          ]
+      )
+
+instance Core.AWSRequest TestEventPattern where
   type Rs TestEventPattern = TestEventPatternResponse
-  request = Req.postJSON cloudWatchEventsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.TestEventPattern")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           TestEventPatternResponse'
-            Lude.<$> (x Lude..?> "Result") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Result") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders TestEventPattern where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.TestEventPattern" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON TestEventPattern where
-  toJSON TestEventPattern' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("EventPattern" Lude..= eventPattern),
-            Lude.Just ("Event" Lude..= event)
-          ]
-      )
-
-instance Lude.ToPath TestEventPattern where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery TestEventPattern where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkTestEventPatternResponse' smart constructor.
 data TestEventPatternResponse = TestEventPatternResponse'
   { -- | Indicates whether the event matches the event pattern.
-    result :: Lude.Maybe Lude.Bool,
+    result :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TestEventPatternResponse' with the minimum fields required to make a request.
---
--- * 'result' - Indicates whether the event matches the event pattern.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'TestEventPatternResponse' value with any optional fields omitted.
 mkTestEventPatternResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   TestEventPatternResponse
-mkTestEventPatternResponse pResponseStatus_ =
-  TestEventPatternResponse'
-    { result = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkTestEventPatternResponse responseStatus =
+  TestEventPatternResponse' {result = Core.Nothing, responseStatus}
 
 -- | Indicates whether the event matches the event pattern.
 --
 -- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-teprsResult :: Lens.Lens' TestEventPatternResponse (Lude.Maybe Lude.Bool)
-teprsResult = Lens.lens (result :: TestEventPatternResponse -> Lude.Maybe Lude.Bool) (\s a -> s {result = a} :: TestEventPatternResponse)
-{-# DEPRECATED teprsResult "Use generic-lens or generic-optics with 'result' instead." #-}
+teprrsResult :: Lens.Lens' TestEventPatternResponse (Core.Maybe Core.Bool)
+teprrsResult = Lens.field @"result"
+{-# DEPRECATED teprrsResult "Use generic-lens or generic-optics with 'result' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-teprsResponseStatus :: Lens.Lens' TestEventPatternResponse Lude.Int
-teprsResponseStatus = Lens.lens (responseStatus :: TestEventPatternResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: TestEventPatternResponse)
-{-# DEPRECATED teprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+teprrsResponseStatus :: Lens.Lens' TestEventPatternResponse Core.Int
+teprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED teprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,81 +13,86 @@
 module Network.AWS.Connect.Types.ContactFlowType
   ( ContactFlowType
       ( ContactFlowType',
-        ContactFlow,
-        CustomerQueue,
-        CustomerHold,
-        CustomerWhisper,
-        AgentHold,
-        AgentWhisper,
-        OutboundWhisper,
-        AgentTransfer,
-        QueueTransfer
+        ContactFlowTypeContactFlow,
+        ContactFlowTypeCustomerQueue,
+        ContactFlowTypeCustomerHold,
+        ContactFlowTypeCustomerWhisper,
+        ContactFlowTypeAgentHold,
+        ContactFlowTypeAgentWhisper,
+        ContactFlowTypeOutboundWhisper,
+        ContactFlowTypeAgentTransfer,
+        ContactFlowTypeQueueTransfer,
+        fromContactFlowType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ContactFlowType = ContactFlowType' Lude.Text
+newtype ContactFlowType = ContactFlowType'
+  { fromContactFlowType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ContactFlow :: ContactFlowType
-pattern ContactFlow = ContactFlowType' "CONTACT_FLOW"
+pattern ContactFlowTypeContactFlow :: ContactFlowType
+pattern ContactFlowTypeContactFlow = ContactFlowType' "CONTACT_FLOW"
 
-pattern CustomerQueue :: ContactFlowType
-pattern CustomerQueue = ContactFlowType' "CUSTOMER_QUEUE"
+pattern ContactFlowTypeCustomerQueue :: ContactFlowType
+pattern ContactFlowTypeCustomerQueue = ContactFlowType' "CUSTOMER_QUEUE"
 
-pattern CustomerHold :: ContactFlowType
-pattern CustomerHold = ContactFlowType' "CUSTOMER_HOLD"
+pattern ContactFlowTypeCustomerHold :: ContactFlowType
+pattern ContactFlowTypeCustomerHold = ContactFlowType' "CUSTOMER_HOLD"
 
-pattern CustomerWhisper :: ContactFlowType
-pattern CustomerWhisper = ContactFlowType' "CUSTOMER_WHISPER"
+pattern ContactFlowTypeCustomerWhisper :: ContactFlowType
+pattern ContactFlowTypeCustomerWhisper = ContactFlowType' "CUSTOMER_WHISPER"
 
-pattern AgentHold :: ContactFlowType
-pattern AgentHold = ContactFlowType' "AGENT_HOLD"
+pattern ContactFlowTypeAgentHold :: ContactFlowType
+pattern ContactFlowTypeAgentHold = ContactFlowType' "AGENT_HOLD"
 
-pattern AgentWhisper :: ContactFlowType
-pattern AgentWhisper = ContactFlowType' "AGENT_WHISPER"
+pattern ContactFlowTypeAgentWhisper :: ContactFlowType
+pattern ContactFlowTypeAgentWhisper = ContactFlowType' "AGENT_WHISPER"
 
-pattern OutboundWhisper :: ContactFlowType
-pattern OutboundWhisper = ContactFlowType' "OUTBOUND_WHISPER"
+pattern ContactFlowTypeOutboundWhisper :: ContactFlowType
+pattern ContactFlowTypeOutboundWhisper = ContactFlowType' "OUTBOUND_WHISPER"
 
-pattern AgentTransfer :: ContactFlowType
-pattern AgentTransfer = ContactFlowType' "AGENT_TRANSFER"
+pattern ContactFlowTypeAgentTransfer :: ContactFlowType
+pattern ContactFlowTypeAgentTransfer = ContactFlowType' "AGENT_TRANSFER"
 
-pattern QueueTransfer :: ContactFlowType
-pattern QueueTransfer = ContactFlowType' "QUEUE_TRANSFER"
+pattern ContactFlowTypeQueueTransfer :: ContactFlowType
+pattern ContactFlowTypeQueueTransfer = ContactFlowType' "QUEUE_TRANSFER"
 
 {-# COMPLETE
-  ContactFlow,
-  CustomerQueue,
-  CustomerHold,
-  CustomerWhisper,
-  AgentHold,
-  AgentWhisper,
-  OutboundWhisper,
-  AgentTransfer,
-  QueueTransfer,
+  ContactFlowTypeContactFlow,
+  ContactFlowTypeCustomerQueue,
+  ContactFlowTypeCustomerHold,
+  ContactFlowTypeCustomerWhisper,
+  ContactFlowTypeAgentHold,
+  ContactFlowTypeAgentWhisper,
+  ContactFlowTypeOutboundWhisper,
+  ContactFlowTypeAgentTransfer,
+  ContactFlowTypeQueueTransfer,
   ContactFlowType'
   #-}

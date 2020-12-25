@@ -13,66 +13,71 @@
 module Network.AWS.ECS.Types.CapacityProviderUpdateStatus
   ( CapacityProviderUpdateStatus
       ( CapacityProviderUpdateStatus',
-        DeleteInProgress,
-        DeleteComplete,
-        DeleteFailed,
-        UpdateInProgress,
-        UpdateComplete,
-        UpdateFailed
+        CapacityProviderUpdateStatusDeleteInProgress,
+        CapacityProviderUpdateStatusDeleteComplete,
+        CapacityProviderUpdateStatusDeleteFailed,
+        CapacityProviderUpdateStatusUpdateInProgress,
+        CapacityProviderUpdateStatusUpdateComplete,
+        CapacityProviderUpdateStatusUpdateFailed,
+        fromCapacityProviderUpdateStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CapacityProviderUpdateStatus = CapacityProviderUpdateStatus' Lude.Text
+newtype CapacityProviderUpdateStatus = CapacityProviderUpdateStatus'
+  { fromCapacityProviderUpdateStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DeleteInProgress :: CapacityProviderUpdateStatus
-pattern DeleteInProgress = CapacityProviderUpdateStatus' "DELETE_IN_PROGRESS"
+pattern CapacityProviderUpdateStatusDeleteInProgress :: CapacityProviderUpdateStatus
+pattern CapacityProviderUpdateStatusDeleteInProgress = CapacityProviderUpdateStatus' "DELETE_IN_PROGRESS"
 
-pattern DeleteComplete :: CapacityProviderUpdateStatus
-pattern DeleteComplete = CapacityProviderUpdateStatus' "DELETE_COMPLETE"
+pattern CapacityProviderUpdateStatusDeleteComplete :: CapacityProviderUpdateStatus
+pattern CapacityProviderUpdateStatusDeleteComplete = CapacityProviderUpdateStatus' "DELETE_COMPLETE"
 
-pattern DeleteFailed :: CapacityProviderUpdateStatus
-pattern DeleteFailed = CapacityProviderUpdateStatus' "DELETE_FAILED"
+pattern CapacityProviderUpdateStatusDeleteFailed :: CapacityProviderUpdateStatus
+pattern CapacityProviderUpdateStatusDeleteFailed = CapacityProviderUpdateStatus' "DELETE_FAILED"
 
-pattern UpdateInProgress :: CapacityProviderUpdateStatus
-pattern UpdateInProgress = CapacityProviderUpdateStatus' "UPDATE_IN_PROGRESS"
+pattern CapacityProviderUpdateStatusUpdateInProgress :: CapacityProviderUpdateStatus
+pattern CapacityProviderUpdateStatusUpdateInProgress = CapacityProviderUpdateStatus' "UPDATE_IN_PROGRESS"
 
-pattern UpdateComplete :: CapacityProviderUpdateStatus
-pattern UpdateComplete = CapacityProviderUpdateStatus' "UPDATE_COMPLETE"
+pattern CapacityProviderUpdateStatusUpdateComplete :: CapacityProviderUpdateStatus
+pattern CapacityProviderUpdateStatusUpdateComplete = CapacityProviderUpdateStatus' "UPDATE_COMPLETE"
 
-pattern UpdateFailed :: CapacityProviderUpdateStatus
-pattern UpdateFailed = CapacityProviderUpdateStatus' "UPDATE_FAILED"
+pattern CapacityProviderUpdateStatusUpdateFailed :: CapacityProviderUpdateStatus
+pattern CapacityProviderUpdateStatusUpdateFailed = CapacityProviderUpdateStatus' "UPDATE_FAILED"
 
 {-# COMPLETE
-  DeleteInProgress,
-  DeleteComplete,
-  DeleteFailed,
-  UpdateInProgress,
-  UpdateComplete,
-  UpdateFailed,
+  CapacityProviderUpdateStatusDeleteInProgress,
+  CapacityProviderUpdateStatusDeleteComplete,
+  CapacityProviderUpdateStatusDeleteFailed,
+  CapacityProviderUpdateStatusUpdateInProgress,
+  CapacityProviderUpdateStatusUpdateComplete,
+  CapacityProviderUpdateStatusUpdateFailed,
   CapacityProviderUpdateStatus'
   #-}

@@ -23,59 +23,55 @@ module Network.AWS.MechanicalTurk.Types.Locale
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MechanicalTurk.Types.Country as Types
+import qualified Network.AWS.MechanicalTurk.Types.Subdivision as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The Locale data structure represents a geographical region or location.
 --
 -- /See:/ 'mkLocale' smart constructor.
 data Locale = Locale'
   { -- | The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America.
-    country :: Lude.Text,
+    country :: Types.Country,
     -- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
-    subdivision :: Lude.Maybe Lude.Text
+    subdivision :: Core.Maybe Types.Subdivision
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Locale' with the minimum fields required to make a request.
---
--- * 'country' - The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America.
--- * 'subdivision' - The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
+-- | Creates a 'Locale' value with any optional fields omitted.
 mkLocale ::
   -- | 'country'
-  Lude.Text ->
+  Types.Country ->
   Locale
-mkLocale pCountry_ =
-  Locale' {country = pCountry_, subdivision = Lude.Nothing}
+mkLocale country = Locale' {country, subdivision = Core.Nothing}
 
 -- | The country of the locale. Must be a valid ISO 3166 country code. For example, the code US refers to the United States of America.
 --
 -- /Note:/ Consider using 'country' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lCountry :: Lens.Lens' Locale Lude.Text
-lCountry = Lens.lens (country :: Locale -> Lude.Text) (\s a -> s {country = a} :: Locale)
+lCountry :: Lens.Lens' Locale Types.Country
+lCountry = Lens.field @"country"
 {-# DEPRECATED lCountry "Use generic-lens or generic-optics with 'country' instead." #-}
 
 -- | The state or subdivision of the locale. A valid ISO 3166-2 subdivision code. For example, the code WA refers to the state of Washington.
 --
 -- /Note:/ Consider using 'subdivision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lSubdivision :: Lens.Lens' Locale (Lude.Maybe Lude.Text)
-lSubdivision = Lens.lens (subdivision :: Locale -> Lude.Maybe Lude.Text) (\s a -> s {subdivision = a} :: Locale)
+lSubdivision :: Lens.Lens' Locale (Core.Maybe Types.Subdivision)
+lSubdivision = Lens.field @"subdivision"
 {-# DEPRECATED lSubdivision "Use generic-lens or generic-optics with 'subdivision' instead." #-}
 
-instance Lude.FromJSON Locale where
-  parseJSON =
-    Lude.withObject
-      "Locale"
-      ( \x ->
-          Locale'
-            Lude.<$> (x Lude..: "Country") Lude.<*> (x Lude..:? "Subdivision")
-      )
-
-instance Lude.ToJSON Locale where
-  toJSON Locale' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Country" Lude..= country),
-            ("Subdivision" Lude..=) Lude.<$> subdivision
+instance Core.FromJSON Locale where
+  toJSON Locale {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Country" Core..= country),
+            ("Subdivision" Core..=) Core.<$> subdivision
           ]
       )
+
+instance Core.FromJSON Locale where
+  parseJSON =
+    Core.withObject "Locale" Core.$
+      \x ->
+        Locale'
+          Core.<$> (x Core..: "Country") Core.<*> (x Core..:? "Subdivision")

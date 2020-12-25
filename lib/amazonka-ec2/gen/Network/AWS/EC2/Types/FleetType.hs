@@ -13,51 +13,53 @@
 module Network.AWS.EC2.Types.FleetType
   ( FleetType
       ( FleetType',
-        FTRequest,
-        FTMaintain,
-        FTInstant
+        FleetTypeFTRequest,
+        FleetTypeFTMaintain,
+        FleetTypeFTInstant,
+        fromFleetType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FleetType = FleetType' Lude.Text
+newtype FleetType = FleetType' {fromFleetType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FTRequest :: FleetType
-pattern FTRequest = FleetType' "request"
+pattern FleetTypeFTRequest :: FleetType
+pattern FleetTypeFTRequest = FleetType' "request"
 
-pattern FTMaintain :: FleetType
-pattern FTMaintain = FleetType' "maintain"
+pattern FleetTypeFTMaintain :: FleetType
+pattern FleetTypeFTMaintain = FleetType' "maintain"
 
-pattern FTInstant :: FleetType
-pattern FTInstant = FleetType' "instant"
+pattern FleetTypeFTInstant :: FleetType
+pattern FleetTypeFTInstant = FleetType' "instant"
 
 {-# COMPLETE
-  FTRequest,
-  FTMaintain,
-  FTInstant,
+  FleetTypeFTRequest,
+  FleetTypeFTMaintain,
+  FleetTypeFTInstant,
   FleetType'
   #-}

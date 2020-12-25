@@ -13,61 +13,66 @@
 module Network.AWS.EC2.Types.NetworkInterfaceStatus
   ( NetworkInterfaceStatus
       ( NetworkInterfaceStatus',
-        NISAvailable,
-        NISAssociated,
-        NISAttaching,
-        NISInUse,
-        NISDetaching
+        NetworkInterfaceStatusAvailable,
+        NetworkInterfaceStatusAssociated,
+        NetworkInterfaceStatusAttaching,
+        NetworkInterfaceStatusInUse,
+        NetworkInterfaceStatusDetaching,
+        fromNetworkInterfaceStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype NetworkInterfaceStatus = NetworkInterfaceStatus' Lude.Text
+newtype NetworkInterfaceStatus = NetworkInterfaceStatus'
+  { fromNetworkInterfaceStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NISAvailable :: NetworkInterfaceStatus
-pattern NISAvailable = NetworkInterfaceStatus' "available"
+pattern NetworkInterfaceStatusAvailable :: NetworkInterfaceStatus
+pattern NetworkInterfaceStatusAvailable = NetworkInterfaceStatus' "available"
 
-pattern NISAssociated :: NetworkInterfaceStatus
-pattern NISAssociated = NetworkInterfaceStatus' "associated"
+pattern NetworkInterfaceStatusAssociated :: NetworkInterfaceStatus
+pattern NetworkInterfaceStatusAssociated = NetworkInterfaceStatus' "associated"
 
-pattern NISAttaching :: NetworkInterfaceStatus
-pattern NISAttaching = NetworkInterfaceStatus' "attaching"
+pattern NetworkInterfaceStatusAttaching :: NetworkInterfaceStatus
+pattern NetworkInterfaceStatusAttaching = NetworkInterfaceStatus' "attaching"
 
-pattern NISInUse :: NetworkInterfaceStatus
-pattern NISInUse = NetworkInterfaceStatus' "in-use"
+pattern NetworkInterfaceStatusInUse :: NetworkInterfaceStatus
+pattern NetworkInterfaceStatusInUse = NetworkInterfaceStatus' "in-use"
 
-pattern NISDetaching :: NetworkInterfaceStatus
-pattern NISDetaching = NetworkInterfaceStatus' "detaching"
+pattern NetworkInterfaceStatusDetaching :: NetworkInterfaceStatus
+pattern NetworkInterfaceStatusDetaching = NetworkInterfaceStatus' "detaching"
 
 {-# COMPLETE
-  NISAvailable,
-  NISAssociated,
-  NISAttaching,
-  NISInUse,
-  NISDetaching,
+  NetworkInterfaceStatusAvailable,
+  NetworkInterfaceStatusAssociated,
+  NetworkInterfaceStatusAttaching,
+  NetworkInterfaceStatusInUse,
+  NetworkInterfaceStatusDetaching,
   NetworkInterfaceStatus'
   #-}

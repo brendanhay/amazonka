@@ -20,104 +20,91 @@ module Network.AWS.AlexaBusiness.DisassociateDeviceFromRoom
     mkDisassociateDeviceFromRoom,
 
     -- ** Request lenses
-    ddfrDeviceARN,
+    ddfrDeviceArn,
 
     -- * Destructuring the response
     DisassociateDeviceFromRoomResponse (..),
     mkDisassociateDeviceFromRoomResponse,
 
     -- ** Response lenses
-    ddfrrsResponseStatus,
+    ddfrrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateDeviceFromRoom' smart constructor.
 newtype DisassociateDeviceFromRoom = DisassociateDeviceFromRoom'
   { -- | The ARN of the device to disassociate from a room. Required.
-    deviceARN :: Lude.Maybe Lude.Text
+    deviceArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateDeviceFromRoom' with the minimum fields required to make a request.
---
--- * 'deviceARN' - The ARN of the device to disassociate from a room. Required.
+-- | Creates a 'DisassociateDeviceFromRoom' value with any optional fields omitted.
 mkDisassociateDeviceFromRoom ::
   DisassociateDeviceFromRoom
 mkDisassociateDeviceFromRoom =
-  DisassociateDeviceFromRoom' {deviceARN = Lude.Nothing}
+  DisassociateDeviceFromRoom' {deviceArn = Core.Nothing}
 
 -- | The ARN of the device to disassociate from a room. Required.
 --
--- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddfrDeviceARN :: Lens.Lens' DisassociateDeviceFromRoom (Lude.Maybe Lude.Text)
-ddfrDeviceARN = Lens.lens (deviceARN :: DisassociateDeviceFromRoom -> Lude.Maybe Lude.Text) (\s a -> s {deviceARN = a} :: DisassociateDeviceFromRoom)
-{-# DEPRECATED ddfrDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
+-- /Note:/ Consider using 'deviceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddfrDeviceArn :: Lens.Lens' DisassociateDeviceFromRoom (Core.Maybe Types.Arn)
+ddfrDeviceArn = Lens.field @"deviceArn"
+{-# DEPRECATED ddfrDeviceArn "Use generic-lens or generic-optics with 'deviceArn' instead." #-}
 
-instance Lude.AWSRequest DisassociateDeviceFromRoom where
+instance Core.FromJSON DisassociateDeviceFromRoom where
+  toJSON DisassociateDeviceFromRoom {..} =
+    Core.object
+      (Core.catMaybes [("DeviceArn" Core..=) Core.<$> deviceArn])
+
+instance Core.AWSRequest DisassociateDeviceFromRoom where
   type
     Rs DisassociateDeviceFromRoom =
       DisassociateDeviceFromRoomResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.DisassociateDeviceFromRoom")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateDeviceFromRoomResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateDeviceFromRoom where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.DisassociateDeviceFromRoom" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateDeviceFromRoom where
-  toJSON DisassociateDeviceFromRoom' {..} =
-    Lude.object
-      (Lude.catMaybes [("DeviceArn" Lude..=) Lude.<$> deviceARN])
-
-instance Lude.ToPath DisassociateDeviceFromRoom where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateDeviceFromRoom where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateDeviceFromRoomResponse' smart constructor.
 newtype DisassociateDeviceFromRoomResponse = DisassociateDeviceFromRoomResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateDeviceFromRoomResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateDeviceFromRoomResponse' value with any optional fields omitted.
 mkDisassociateDeviceFromRoomResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateDeviceFromRoomResponse
-mkDisassociateDeviceFromRoomResponse pResponseStatus_ =
-  DisassociateDeviceFromRoomResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDisassociateDeviceFromRoomResponse responseStatus =
+  DisassociateDeviceFromRoomResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddfrrsResponseStatus :: Lens.Lens' DisassociateDeviceFromRoomResponse Lude.Int
-ddfrrsResponseStatus = Lens.lens (responseStatus :: DisassociateDeviceFromRoomResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateDeviceFromRoomResponse)
-{-# DEPRECATED ddfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddfrrrsResponseStatus :: Lens.Lens' DisassociateDeviceFromRoomResponse Core.Int
+ddfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

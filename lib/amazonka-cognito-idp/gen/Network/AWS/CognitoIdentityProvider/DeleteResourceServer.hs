@@ -29,91 +29,79 @@ module Network.AWS.CognitoIdentityProvider.DeleteResourceServer
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteResourceServer' smart constructor.
 data DeleteResourceServer = DeleteResourceServer'
   { -- | The user pool ID for the user pool that hosts the resource server.
-    userPoolId :: Lude.Text,
+    userPoolId :: Types.UserPoolId,
     -- | The identifier for the resource server.
-    identifier :: Lude.Text
+    identifier :: Types.Identifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteResourceServer' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID for the user pool that hosts the resource server.
--- * 'identifier' - The identifier for the resource server.
+-- | Creates a 'DeleteResourceServer' value with any optional fields omitted.
 mkDeleteResourceServer ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   -- | 'identifier'
-  Lude.Text ->
+  Types.Identifier ->
   DeleteResourceServer
-mkDeleteResourceServer pUserPoolId_ pIdentifier_ =
-  DeleteResourceServer'
-    { userPoolId = pUserPoolId_,
-      identifier = pIdentifier_
-    }
+mkDeleteResourceServer userPoolId identifier =
+  DeleteResourceServer' {userPoolId, identifier}
 
 -- | The user pool ID for the user pool that hosts the resource server.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsUserPoolId :: Lens.Lens' DeleteResourceServer Lude.Text
-drsUserPoolId = Lens.lens (userPoolId :: DeleteResourceServer -> Lude.Text) (\s a -> s {userPoolId = a} :: DeleteResourceServer)
+drsUserPoolId :: Lens.Lens' DeleteResourceServer Types.UserPoolId
+drsUserPoolId = Lens.field @"userPoolId"
 {-# DEPRECATED drsUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
 
 -- | The identifier for the resource server.
 --
 -- /Note:/ Consider using 'identifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsIdentifier :: Lens.Lens' DeleteResourceServer Lude.Text
-drsIdentifier = Lens.lens (identifier :: DeleteResourceServer -> Lude.Text) (\s a -> s {identifier = a} :: DeleteResourceServer)
+drsIdentifier :: Lens.Lens' DeleteResourceServer Types.Identifier
+drsIdentifier = Lens.field @"identifier"
 {-# DEPRECATED drsIdentifier "Use generic-lens or generic-optics with 'identifier' instead." #-}
 
-instance Lude.AWSRequest DeleteResourceServer where
+instance Core.FromJSON DeleteResourceServer where
+  toJSON DeleteResourceServer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Identifier" Core..= identifier)
+          ]
+      )
+
+instance Core.AWSRequest DeleteResourceServer where
   type Rs DeleteResourceServer = DeleteResourceServerResponse
-  request = Req.postJSON cognitoIdentityProviderService
-  response = Res.receiveNull DeleteResourceServerResponse'
-
-instance Lude.ToHeaders DeleteResourceServer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.DeleteResourceServer" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteResourceServer where
-  toJSON DeleteResourceServer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("Identifier" Lude..= identifier)
-          ]
-      )
-
-instance Lude.ToPath DeleteResourceServer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteResourceServer where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.DeleteResourceServer"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteResourceServerResponse'
 
 -- | /See:/ 'mkDeleteResourceServerResponse' smart constructor.
 data DeleteResourceServerResponse = DeleteResourceServerResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteResourceServerResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteResourceServerResponse' value with any optional fields omitted.
 mkDeleteResourceServerResponse ::
   DeleteResourceServerResponse
 mkDeleteResourceServerResponse = DeleteResourceServerResponse'

@@ -17,71 +17,68 @@ module Network.AWS.Connect.Types.UserSummary
     mkUserSummary,
 
     -- * Lenses
-    usARN,
-    usUsername,
+    usArn,
     usId,
+    usUsername,
   )
 where
 
+import qualified Network.AWS.Connect.Types.ARN as Types
+import qualified Network.AWS.Connect.Types.AgentUsername as Types
+import qualified Network.AWS.Connect.Types.UserId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains summary information about a user.
 --
 -- /See:/ 'mkUserSummary' smart constructor.
 data UserSummary = UserSummary'
   { -- | The Amazon Resource Name (ARN) of the user account.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The Amazon Connect user name of the user account.
-    username :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.ARN,
     -- | The identifier of the user account.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.UserId,
+    -- | The Amazon Connect user name of the user account.
+    username :: Core.Maybe Types.AgentUsername
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UserSummary' with the minimum fields required to make a request.
---
--- * 'arn' - The Amazon Resource Name (ARN) of the user account.
--- * 'username' - The Amazon Connect user name of the user account.
--- * 'id' - The identifier of the user account.
+-- | Creates a 'UserSummary' value with any optional fields omitted.
 mkUserSummary ::
   UserSummary
 mkUserSummary =
   UserSummary'
-    { arn = Lude.Nothing,
-      username = Lude.Nothing,
-      id = Lude.Nothing
+    { arn = Core.Nothing,
+      id = Core.Nothing,
+      username = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the user account.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usARN :: Lens.Lens' UserSummary (Lude.Maybe Lude.Text)
-usARN = Lens.lens (arn :: UserSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: UserSummary)
-{-# DEPRECATED usARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The Amazon Connect user name of the user account.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usUsername :: Lens.Lens' UserSummary (Lude.Maybe Lude.Text)
-usUsername = Lens.lens (username :: UserSummary -> Lude.Maybe Lude.Text) (\s a -> s {username = a} :: UserSummary)
-{-# DEPRECATED usUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+usArn :: Lens.Lens' UserSummary (Core.Maybe Types.ARN)
+usArn = Lens.field @"arn"
+{-# DEPRECATED usArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The identifier of the user account.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usId :: Lens.Lens' UserSummary (Lude.Maybe Lude.Text)
-usId = Lens.lens (id :: UserSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: UserSummary)
+usId :: Lens.Lens' UserSummary (Core.Maybe Types.UserId)
+usId = Lens.field @"id"
 {-# DEPRECATED usId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON UserSummary where
+-- | The Amazon Connect user name of the user account.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usUsername :: Lens.Lens' UserSummary (Core.Maybe Types.AgentUsername)
+usUsername = Lens.field @"username"
+{-# DEPRECATED usUsername "Use generic-lens or generic-optics with 'username' instead." #-}
+
+instance Core.FromJSON UserSummary where
   parseJSON =
-    Lude.withObject
-      "UserSummary"
-      ( \x ->
-          UserSummary'
-            Lude.<$> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "Username")
-            Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "UserSummary" Core.$
+      \x ->
+        UserSummary'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Username")

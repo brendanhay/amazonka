@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.CmafMpdProfile
   ( CmafMpdProfile
       ( CmafMpdProfile',
-        MainProfile,
-        OnDemandProfile
+        CmafMpdProfileMainProfile,
+        CmafMpdProfileOnDemandProfile,
+        fromCmafMpdProfile
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).
-newtype CmafMpdProfile = CmafMpdProfile' Lude.Text
+newtype CmafMpdProfile = CmafMpdProfile'
+  { fromCmafMpdProfile ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MainProfile :: CmafMpdProfile
-pattern MainProfile = CmafMpdProfile' "MAIN_PROFILE"
+pattern CmafMpdProfileMainProfile :: CmafMpdProfile
+pattern CmafMpdProfileMainProfile = CmafMpdProfile' "MAIN_PROFILE"
 
-pattern OnDemandProfile :: CmafMpdProfile
-pattern OnDemandProfile = CmafMpdProfile' "ON_DEMAND_PROFILE"
+pattern CmafMpdProfileOnDemandProfile :: CmafMpdProfile
+pattern CmafMpdProfileOnDemandProfile = CmafMpdProfile' "ON_DEMAND_PROFILE"
 
 {-# COMPLETE
-  MainProfile,
-  OnDemandProfile,
+  CmafMpdProfileMainProfile,
+  CmafMpdProfileOnDemandProfile,
   CmafMpdProfile'
   #-}

@@ -17,55 +17,52 @@ module Network.AWS.CloudSearch.Types.ExpressionStatus
     mkExpressionStatus,
 
     -- * Lenses
-    esStatus,
     esOptions,
+    esStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types.Expression
-import Network.AWS.CloudSearch.Types.OptionStatus
+import qualified Network.AWS.CloudSearch.Types.Expression as Types
+import qualified Network.AWS.CloudSearch.Types.OptionStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The value of an @Expression@ and its current status.
 --
 -- /See:/ 'mkExpressionStatus' smart constructor.
 data ExpressionStatus = ExpressionStatus'
-  { status :: OptionStatus,
-    -- | The expression that is evaluated for sorting while processing a search request.
-    options :: Expression
+  { -- | The expression that is evaluated for sorting while processing a search request.
+    options :: Types.Expression,
+    status :: Types.OptionStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ExpressionStatus' with the minimum fields required to make a request.
---
--- * 'status' -
--- * 'options' - The expression that is evaluated for sorting while processing a search request.
+-- | Creates a 'ExpressionStatus' value with any optional fields omitted.
 mkExpressionStatus ::
-  -- | 'status'
-  OptionStatus ->
   -- | 'options'
-  Expression ->
+  Types.Expression ->
+  -- | 'status'
+  Types.OptionStatus ->
   ExpressionStatus
-mkExpressionStatus pStatus_ pOptions_ =
-  ExpressionStatus' {status = pStatus_, options = pOptions_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esStatus :: Lens.Lens' ExpressionStatus OptionStatus
-esStatus = Lens.lens (status :: ExpressionStatus -> OptionStatus) (\s a -> s {status = a} :: ExpressionStatus)
-{-# DEPRECATED esStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+mkExpressionStatus options status =
+  ExpressionStatus' {options, status}
 
 -- | The expression that is evaluated for sorting while processing a search request.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esOptions :: Lens.Lens' ExpressionStatus Expression
-esOptions = Lens.lens (options :: ExpressionStatus -> Expression) (\s a -> s {options = a} :: ExpressionStatus)
+esOptions :: Lens.Lens' ExpressionStatus Types.Expression
+esOptions = Lens.field @"options"
 {-# DEPRECATED esOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.FromXML ExpressionStatus where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esStatus :: Lens.Lens' ExpressionStatus Types.OptionStatus
+esStatus = Lens.field @"status"
+{-# DEPRECATED esStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromXML ExpressionStatus where
   parseXML x =
     ExpressionStatus'
-      Lude.<$> (x Lude..@ "Status") Lude.<*> (x Lude..@ "Options")
+      Core.<$> (x Core..@ "Options") Core.<*> (x Core..@ "Status")

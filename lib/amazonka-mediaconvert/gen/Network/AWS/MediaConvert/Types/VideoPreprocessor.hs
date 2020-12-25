@@ -17,144 +17,134 @@ module Network.AWS.MediaConvert.Types.VideoPreprocessor
     mkVideoPreprocessor,
 
     -- * Lenses
-    vpTimecodeBurnin,
-    vpDolbyVision,
     vpColorCorrector,
     vpDeinterlacer,
-    vpNoiseReducer,
+    vpDolbyVision,
     vpImageInserter,
+    vpNoiseReducer,
     vpPartnerWatermarking,
+    vpTimecodeBurnin,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.ColorCorrector
-import Network.AWS.MediaConvert.Types.Deinterlacer
-import Network.AWS.MediaConvert.Types.DolbyVision
-import Network.AWS.MediaConvert.Types.ImageInserter
-import Network.AWS.MediaConvert.Types.NoiseReducer
-import Network.AWS.MediaConvert.Types.PartnerWatermarking
-import Network.AWS.MediaConvert.Types.TimecodeBurnin
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.ColorCorrector as Types
+import qualified Network.AWS.MediaConvert.Types.Deinterlacer as Types
+import qualified Network.AWS.MediaConvert.Types.DolbyVision as Types
+import qualified Network.AWS.MediaConvert.Types.ImageInserter as Types
+import qualified Network.AWS.MediaConvert.Types.NoiseReducer as Types
+import qualified Network.AWS.MediaConvert.Types.PartnerWatermarking as Types
+import qualified Network.AWS.MediaConvert.Types.TimecodeBurnin as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Find additional transcoding features under Preprocessors (VideoPreprocessors). Enable the features at each output individually. These features are disabled by default.
 --
 -- /See:/ 'mkVideoPreprocessor' smart constructor.
 data VideoPreprocessor = VideoPreprocessor'
-  { -- | Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
-    timecodeBurnin :: Lude.Maybe TimecodeBurnin,
-    -- | Enable Dolby Vision feature to produce Dolby Vision compatible video output.
-    dolbyVision :: Lude.Maybe DolbyVision,
-    -- | Enable the Color corrector (ColorCorrector) feature if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
-    colorCorrector :: Lude.Maybe ColorCorrector,
+  { -- | Enable the Color corrector (ColorCorrector) feature if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
+    colorCorrector :: Core.Maybe Types.ColorCorrector,
     -- | Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer picture.
-    deinterlacer :: Lude.Maybe Deinterlacer,
-    -- | Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
-    noiseReducer :: Lude.Maybe NoiseReducer,
+    deinterlacer :: Core.Maybe Types.Deinterlacer,
+    -- | Enable Dolby Vision feature to produce Dolby Vision compatible video output.
+    dolbyVision :: Core.Maybe Types.DolbyVision,
     -- | Enable the Image inserter (ImageInserter) feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.
-    imageInserter :: Lude.Maybe ImageInserter,
+    imageInserter :: Core.Maybe Types.ImageInserter,
+    -- | Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
+    noiseReducer :: Core.Maybe Types.NoiseReducer,
     -- | If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
-    partnerWatermarking :: Lude.Maybe PartnerWatermarking
+    partnerWatermarking :: Core.Maybe Types.PartnerWatermarking,
+    -- | Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
+    timecodeBurnin :: Core.Maybe Types.TimecodeBurnin
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VideoPreprocessor' with the minimum fields required to make a request.
---
--- * 'timecodeBurnin' - Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
--- * 'dolbyVision' - Enable Dolby Vision feature to produce Dolby Vision compatible video output.
--- * 'colorCorrector' - Enable the Color corrector (ColorCorrector) feature if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
--- * 'deinterlacer' - Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer picture.
--- * 'noiseReducer' - Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
--- * 'imageInserter' - Enable the Image inserter (ImageInserter) feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.
--- * 'partnerWatermarking' - If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
+-- | Creates a 'VideoPreprocessor' value with any optional fields omitted.
 mkVideoPreprocessor ::
   VideoPreprocessor
 mkVideoPreprocessor =
   VideoPreprocessor'
-    { timecodeBurnin = Lude.Nothing,
-      dolbyVision = Lude.Nothing,
-      colorCorrector = Lude.Nothing,
-      deinterlacer = Lude.Nothing,
-      noiseReducer = Lude.Nothing,
-      imageInserter = Lude.Nothing,
-      partnerWatermarking = Lude.Nothing
+    { colorCorrector = Core.Nothing,
+      deinterlacer = Core.Nothing,
+      dolbyVision = Core.Nothing,
+      imageInserter = Core.Nothing,
+      noiseReducer = Core.Nothing,
+      partnerWatermarking = Core.Nothing,
+      timecodeBurnin = Core.Nothing
     }
-
--- | Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
---
--- /Note:/ Consider using 'timecodeBurnin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpTimecodeBurnin :: Lens.Lens' VideoPreprocessor (Lude.Maybe TimecodeBurnin)
-vpTimecodeBurnin = Lens.lens (timecodeBurnin :: VideoPreprocessor -> Lude.Maybe TimecodeBurnin) (\s a -> s {timecodeBurnin = a} :: VideoPreprocessor)
-{-# DEPRECATED vpTimecodeBurnin "Use generic-lens or generic-optics with 'timecodeBurnin' instead." #-}
-
--- | Enable Dolby Vision feature to produce Dolby Vision compatible video output.
---
--- /Note:/ Consider using 'dolbyVision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpDolbyVision :: Lens.Lens' VideoPreprocessor (Lude.Maybe DolbyVision)
-vpDolbyVision = Lens.lens (dolbyVision :: VideoPreprocessor -> Lude.Maybe DolbyVision) (\s a -> s {dolbyVision = a} :: VideoPreprocessor)
-{-# DEPRECATED vpDolbyVision "Use generic-lens or generic-optics with 'dolbyVision' instead." #-}
 
 -- | Enable the Color corrector (ColorCorrector) feature if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
 --
 -- /Note:/ Consider using 'colorCorrector' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpColorCorrector :: Lens.Lens' VideoPreprocessor (Lude.Maybe ColorCorrector)
-vpColorCorrector = Lens.lens (colorCorrector :: VideoPreprocessor -> Lude.Maybe ColorCorrector) (\s a -> s {colorCorrector = a} :: VideoPreprocessor)
+vpColorCorrector :: Lens.Lens' VideoPreprocessor (Core.Maybe Types.ColorCorrector)
+vpColorCorrector = Lens.field @"colorCorrector"
 {-# DEPRECATED vpColorCorrector "Use generic-lens or generic-optics with 'colorCorrector' instead." #-}
 
 -- | Use Deinterlacer (Deinterlacer) to produce smoother motion and a clearer picture.
 --
 -- /Note:/ Consider using 'deinterlacer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpDeinterlacer :: Lens.Lens' VideoPreprocessor (Lude.Maybe Deinterlacer)
-vpDeinterlacer = Lens.lens (deinterlacer :: VideoPreprocessor -> Lude.Maybe Deinterlacer) (\s a -> s {deinterlacer = a} :: VideoPreprocessor)
+vpDeinterlacer :: Lens.Lens' VideoPreprocessor (Core.Maybe Types.Deinterlacer)
+vpDeinterlacer = Lens.field @"deinterlacer"
 {-# DEPRECATED vpDeinterlacer "Use generic-lens or generic-optics with 'deinterlacer' instead." #-}
 
--- | Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
+-- | Enable Dolby Vision feature to produce Dolby Vision compatible video output.
 --
--- /Note:/ Consider using 'noiseReducer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpNoiseReducer :: Lens.Lens' VideoPreprocessor (Lude.Maybe NoiseReducer)
-vpNoiseReducer = Lens.lens (noiseReducer :: VideoPreprocessor -> Lude.Maybe NoiseReducer) (\s a -> s {noiseReducer = a} :: VideoPreprocessor)
-{-# DEPRECATED vpNoiseReducer "Use generic-lens or generic-optics with 'noiseReducer' instead." #-}
+-- /Note:/ Consider using 'dolbyVision' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpDolbyVision :: Lens.Lens' VideoPreprocessor (Core.Maybe Types.DolbyVision)
+vpDolbyVision = Lens.field @"dolbyVision"
+{-# DEPRECATED vpDolbyVision "Use generic-lens or generic-optics with 'dolbyVision' instead." #-}
 
 -- | Enable the Image inserter (ImageInserter) feature to include a graphic overlay on your video. Enable or disable this feature for each output individually. This setting is disabled by default.
 --
 -- /Note:/ Consider using 'imageInserter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpImageInserter :: Lens.Lens' VideoPreprocessor (Lude.Maybe ImageInserter)
-vpImageInserter = Lens.lens (imageInserter :: VideoPreprocessor -> Lude.Maybe ImageInserter) (\s a -> s {imageInserter = a} :: VideoPreprocessor)
+vpImageInserter :: Lens.Lens' VideoPreprocessor (Core.Maybe Types.ImageInserter)
+vpImageInserter = Lens.field @"imageInserter"
 {-# DEPRECATED vpImageInserter "Use generic-lens or generic-optics with 'imageInserter' instead." #-}
+
+-- | Enable the Noise reducer (NoiseReducer) feature to remove noise from your video output if necessary. Enable or disable this feature for each output individually. This setting is disabled by default.
+--
+-- /Note:/ Consider using 'noiseReducer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpNoiseReducer :: Lens.Lens' VideoPreprocessor (Core.Maybe Types.NoiseReducer)
+vpNoiseReducer = Lens.field @"noiseReducer"
+{-# DEPRECATED vpNoiseReducer "Use generic-lens or generic-optics with 'noiseReducer' instead." #-}
 
 -- | If you work with a third party video watermarking partner, use the group of settings that correspond with your watermarking partner to include watermarks in your output.
 --
 -- /Note:/ Consider using 'partnerWatermarking' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vpPartnerWatermarking :: Lens.Lens' VideoPreprocessor (Lude.Maybe PartnerWatermarking)
-vpPartnerWatermarking = Lens.lens (partnerWatermarking :: VideoPreprocessor -> Lude.Maybe PartnerWatermarking) (\s a -> s {partnerWatermarking = a} :: VideoPreprocessor)
+vpPartnerWatermarking :: Lens.Lens' VideoPreprocessor (Core.Maybe Types.PartnerWatermarking)
+vpPartnerWatermarking = Lens.field @"partnerWatermarking"
 {-# DEPRECATED vpPartnerWatermarking "Use generic-lens or generic-optics with 'partnerWatermarking' instead." #-}
 
-instance Lude.FromJSON VideoPreprocessor where
-  parseJSON =
-    Lude.withObject
-      "VideoPreprocessor"
-      ( \x ->
-          VideoPreprocessor'
-            Lude.<$> (x Lude..:? "timecodeBurnin")
-            Lude.<*> (x Lude..:? "dolbyVision")
-            Lude.<*> (x Lude..:? "colorCorrector")
-            Lude.<*> (x Lude..:? "deinterlacer")
-            Lude.<*> (x Lude..:? "noiseReducer")
-            Lude.<*> (x Lude..:? "imageInserter")
-            Lude.<*> (x Lude..:? "partnerWatermarking")
-      )
+-- | Timecode burn-in (TimecodeBurnIn)--Burns the output timecode and specified prefix into the output.
+--
+-- /Note:/ Consider using 'timecodeBurnin' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vpTimecodeBurnin :: Lens.Lens' VideoPreprocessor (Core.Maybe Types.TimecodeBurnin)
+vpTimecodeBurnin = Lens.field @"timecodeBurnin"
+{-# DEPRECATED vpTimecodeBurnin "Use generic-lens or generic-optics with 'timecodeBurnin' instead." #-}
 
-instance Lude.ToJSON VideoPreprocessor where
-  toJSON VideoPreprocessor' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("timecodeBurnin" Lude..=) Lude.<$> timecodeBurnin,
-            ("dolbyVision" Lude..=) Lude.<$> dolbyVision,
-            ("colorCorrector" Lude..=) Lude.<$> colorCorrector,
-            ("deinterlacer" Lude..=) Lude.<$> deinterlacer,
-            ("noiseReducer" Lude..=) Lude.<$> noiseReducer,
-            ("imageInserter" Lude..=) Lude.<$> imageInserter,
-            ("partnerWatermarking" Lude..=) Lude.<$> partnerWatermarking
+instance Core.FromJSON VideoPreprocessor where
+  toJSON VideoPreprocessor {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("colorCorrector" Core..=) Core.<$> colorCorrector,
+            ("deinterlacer" Core..=) Core.<$> deinterlacer,
+            ("dolbyVision" Core..=) Core.<$> dolbyVision,
+            ("imageInserter" Core..=) Core.<$> imageInserter,
+            ("noiseReducer" Core..=) Core.<$> noiseReducer,
+            ("partnerWatermarking" Core..=) Core.<$> partnerWatermarking,
+            ("timecodeBurnin" Core..=) Core.<$> timecodeBurnin
           ]
       )
+
+instance Core.FromJSON VideoPreprocessor where
+  parseJSON =
+    Core.withObject "VideoPreprocessor" Core.$
+      \x ->
+        VideoPreprocessor'
+          Core.<$> (x Core..:? "colorCorrector")
+          Core.<*> (x Core..:? "deinterlacer")
+          Core.<*> (x Core..:? "dolbyVision")
+          Core.<*> (x Core..:? "imageInserter")
+          Core.<*> (x Core..:? "noiseReducer")
+          Core.<*> (x Core..:? "partnerWatermarking")
+          Core.<*> (x Core..:? "timecodeBurnin")

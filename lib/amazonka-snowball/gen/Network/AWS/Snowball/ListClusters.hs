@@ -22,157 +22,145 @@ module Network.AWS.Snowball.ListClusters
     mkListClusters,
 
     -- ** Request lenses
-    lcNextToken,
     lcMaxResults,
+    lcNextToken,
 
     -- * Destructuring the response
     ListClustersResponse (..),
     mkListClustersResponse,
 
     -- ** Response lenses
-    lcrsClusterListEntries,
-    lcrsNextToken,
-    lcrsResponseStatus,
+    lcrrsClusterListEntries,
+    lcrrsNextToken,
+    lcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Snowball.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkListClusters' smart constructor.
 data ListClusters = ListClusters'
-  { -- | HTTP requests are stateless. To identify what object comes "next" in the list of @ClusterListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The number of @ClusterListEntry@ objects to return.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The number of @ClusterListEntry@ objects to return.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | HTTP requests are stateless. To identify what object comes "next" in the list of @ClusterListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListClusters' with the minimum fields required to make a request.
---
--- * 'nextToken' - HTTP requests are stateless. To identify what object comes "next" in the list of @ClusterListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
--- * 'maxResults' - The number of @ClusterListEntry@ objects to return.
+-- | Creates a 'ListClusters' value with any optional fields omitted.
 mkListClusters ::
   ListClusters
 mkListClusters =
   ListClusters'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | HTTP requests are stateless. To identify what object comes "next" in the list of @ClusterListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcNextToken :: Lens.Lens' ListClusters (Lude.Maybe Lude.Text)
-lcNextToken = Lens.lens (nextToken :: ListClusters -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListClusters)
-{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The number of @ClusterListEntry@ objects to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcMaxResults :: Lens.Lens' ListClusters (Lude.Maybe Lude.Natural)
-lcMaxResults = Lens.lens (maxResults :: ListClusters -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListClusters)
+lcMaxResults :: Lens.Lens' ListClusters (Core.Maybe Core.Natural)
+lcMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lcMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListClusters where
-  page rq rs
-    | Page.stop (rs Lens.^. lcrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lcrsClusterListEntries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lcNextToken Lens..~ rs Lens.^. lcrsNextToken
+-- | HTTP requests are stateless. To identify what object comes "next" in the list of @ClusterListEntry@ objects, you have the option of specifying @NextToken@ as the starting point for your returned list.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lcNextToken :: Lens.Lens' ListClusters (Core.Maybe Types.String)
+lcNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListClusters where
+instance Core.FromJSON ListClusters where
+  toJSON ListClusters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListClusters where
   type Rs ListClusters = ListClustersResponse
-  request = Req.postJSON snowballService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSIESnowballJobManagementService.ListClusters")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListClustersResponse'
-            Lude.<$> (x Lude..?> "ClusterListEntries" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ClusterListEntries")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListClusters where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSIESnowballJobManagementService.ListClusters" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListClusters where
-  toJSON ListClusters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListClusters where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListClusters where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListClusters where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"clusterListEntries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListClustersResponse' smart constructor.
 data ListClustersResponse = ListClustersResponse'
   { -- | Each @ClusterListEntry@ object contains a cluster's state, a cluster's ID, and other important status information.
-    clusterListEntries :: Lude.Maybe [ClusterListEntry],
+    clusterListEntries :: Core.Maybe [Types.ClusterListEntry],
     -- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @ClusterListEntry@ call, your list of returned clusters will start from this point in the array.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListClustersResponse' with the minimum fields required to make a request.
---
--- * 'clusterListEntries' - Each @ClusterListEntry@ object contains a cluster's state, a cluster's ID, and other important status information.
--- * 'nextToken' - HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @ClusterListEntry@ call, your list of returned clusters will start from this point in the array.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListClustersResponse' value with any optional fields omitted.
 mkListClustersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListClustersResponse
-mkListClustersResponse pResponseStatus_ =
+mkListClustersResponse responseStatus =
   ListClustersResponse'
-    { clusterListEntries = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clusterListEntries = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Each @ClusterListEntry@ object contains a cluster's state, a cluster's ID, and other important status information.
 --
 -- /Note:/ Consider using 'clusterListEntries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsClusterListEntries :: Lens.Lens' ListClustersResponse (Lude.Maybe [ClusterListEntry])
-lcrsClusterListEntries = Lens.lens (clusterListEntries :: ListClustersResponse -> Lude.Maybe [ClusterListEntry]) (\s a -> s {clusterListEntries = a} :: ListClustersResponse)
-{-# DEPRECATED lcrsClusterListEntries "Use generic-lens or generic-optics with 'clusterListEntries' instead." #-}
+lcrrsClusterListEntries :: Lens.Lens' ListClustersResponse (Core.Maybe [Types.ClusterListEntry])
+lcrrsClusterListEntries = Lens.field @"clusterListEntries"
+{-# DEPRECATED lcrrsClusterListEntries "Use generic-lens or generic-optics with 'clusterListEntries' instead." #-}
 
 -- | HTTP requests are stateless. If you use the automatically generated @NextToken@ value in your next @ClusterListEntry@ call, your list of returned clusters will start from this point in the array.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsNextToken :: Lens.Lens' ListClustersResponse (Lude.Maybe Lude.Text)
-lcrsNextToken = Lens.lens (nextToken :: ListClustersResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListClustersResponse)
-{-# DEPRECATED lcrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lcrrsNextToken :: Lens.Lens' ListClustersResponse (Core.Maybe Types.String)
+lcrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lcrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lcrsResponseStatus :: Lens.Lens' ListClustersResponse Lude.Int
-lcrsResponseStatus = Lens.lens (responseStatus :: ListClustersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListClustersResponse)
-{-# DEPRECATED lcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lcrrsResponseStatus :: Lens.Lens' ListClustersResponse Core.Int
+lcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

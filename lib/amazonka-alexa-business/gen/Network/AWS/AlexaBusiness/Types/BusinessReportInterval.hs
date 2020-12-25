@@ -13,51 +13,56 @@
 module Network.AWS.AlexaBusiness.Types.BusinessReportInterval
   ( BusinessReportInterval
       ( BusinessReportInterval',
-        OneDay,
-        OneWeek,
-        ThirtyDays
+        BusinessReportIntervalOneDay,
+        BusinessReportIntervalOneWeek,
+        BusinessReportIntervalThirtyDays,
+        fromBusinessReportInterval
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BusinessReportInterval = BusinessReportInterval' Lude.Text
+newtype BusinessReportInterval = BusinessReportInterval'
+  { fromBusinessReportInterval ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OneDay :: BusinessReportInterval
-pattern OneDay = BusinessReportInterval' "ONE_DAY"
+pattern BusinessReportIntervalOneDay :: BusinessReportInterval
+pattern BusinessReportIntervalOneDay = BusinessReportInterval' "ONE_DAY"
 
-pattern OneWeek :: BusinessReportInterval
-pattern OneWeek = BusinessReportInterval' "ONE_WEEK"
+pattern BusinessReportIntervalOneWeek :: BusinessReportInterval
+pattern BusinessReportIntervalOneWeek = BusinessReportInterval' "ONE_WEEK"
 
-pattern ThirtyDays :: BusinessReportInterval
-pattern ThirtyDays = BusinessReportInterval' "THIRTY_DAYS"
+pattern BusinessReportIntervalThirtyDays :: BusinessReportInterval
+pattern BusinessReportIntervalThirtyDays = BusinessReportInterval' "THIRTY_DAYS"
 
 {-# COMPLETE
-  OneDay,
-  OneWeek,
-  ThirtyDays,
+  BusinessReportIntervalOneDay,
+  BusinessReportIntervalOneWeek,
+  BusinessReportIntervalThirtyDays,
   BusinessReportInterval'
   #-}

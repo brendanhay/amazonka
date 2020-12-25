@@ -17,55 +17,53 @@ module Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItem
     mkUnsuccessfulInstanceCreditSpecificationItem,
 
     -- * Lenses
-    uicsiInstanceId,
     uicsiError,
+    uicsiInstanceId,
   )
 where
 
-import Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.UnsuccessfulInstanceCreditSpecificationItemError as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the burstable performance instance whose credit option for CPU usage was not modified.
 --
 -- /See:/ 'mkUnsuccessfulInstanceCreditSpecificationItem' smart constructor.
 data UnsuccessfulInstanceCreditSpecificationItem = UnsuccessfulInstanceCreditSpecificationItem'
-  { -- | The ID of the instance.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The applicable error for the burstable performance instance whose credit option for CPU usage was not modified.
-    error :: Lude.Maybe UnsuccessfulInstanceCreditSpecificationItemError
+  { -- | The applicable error for the burstable performance instance whose credit option for CPU usage was not modified.
+    error :: Core.Maybe Types.UnsuccessfulInstanceCreditSpecificationItemError,
+    -- | The ID of the instance.
+    instanceId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnsuccessfulInstanceCreditSpecificationItem' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'error' - The applicable error for the burstable performance instance whose credit option for CPU usage was not modified.
+-- | Creates a 'UnsuccessfulInstanceCreditSpecificationItem' value with any optional fields omitted.
 mkUnsuccessfulInstanceCreditSpecificationItem ::
   UnsuccessfulInstanceCreditSpecificationItem
 mkUnsuccessfulInstanceCreditSpecificationItem =
   UnsuccessfulInstanceCreditSpecificationItem'
-    { instanceId =
-        Lude.Nothing,
-      error = Lude.Nothing
+    { error =
+        Core.Nothing,
+      instanceId = Core.Nothing
     }
-
--- | The ID of the instance.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uicsiInstanceId :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItem (Lude.Maybe Lude.Text)
-uicsiInstanceId = Lens.lens (instanceId :: UnsuccessfulInstanceCreditSpecificationItem -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: UnsuccessfulInstanceCreditSpecificationItem)
-{-# DEPRECATED uicsiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The applicable error for the burstable performance instance whose credit option for CPU usage was not modified.
 --
 -- /Note:/ Consider using 'error' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uicsiError :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItem (Lude.Maybe UnsuccessfulInstanceCreditSpecificationItemError)
-uicsiError = Lens.lens (error :: UnsuccessfulInstanceCreditSpecificationItem -> Lude.Maybe UnsuccessfulInstanceCreditSpecificationItemError) (\s a -> s {error = a} :: UnsuccessfulInstanceCreditSpecificationItem)
+uicsiError :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItem (Core.Maybe Types.UnsuccessfulInstanceCreditSpecificationItemError)
+uicsiError = Lens.field @"error"
 {-# DEPRECATED uicsiError "Use generic-lens or generic-optics with 'error' instead." #-}
 
-instance Lude.FromXML UnsuccessfulInstanceCreditSpecificationItem where
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uicsiInstanceId :: Lens.Lens' UnsuccessfulInstanceCreditSpecificationItem (Core.Maybe Types.String)
+uicsiInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED uicsiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+instance Core.FromXML UnsuccessfulInstanceCreditSpecificationItem where
   parseXML x =
     UnsuccessfulInstanceCreditSpecificationItem'
-      Lude.<$> (x Lude..@? "instanceId") Lude.<*> (x Lude..@? "error")
+      Core.<$> (x Core..@? "error") Core.<*> (x Core..@? "instanceId")

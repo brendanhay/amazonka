@@ -30,222 +30,204 @@ module Network.AWS.Greengrass.CreateLoggerDefinition
     mkCreateLoggerDefinitionResponse,
 
     -- ** Response lenses
-    cldrsLatestVersionARN,
-    cldrsARN,
-    cldrsName,
-    cldrsCreationTimestamp,
-    cldrsId,
-    cldrsLatestVersion,
-    cldrsLastUpdatedTimestamp,
-    cldrsResponseStatus,
+    cldrrsArn,
+    cldrrsCreationTimestamp,
+    cldrrsId,
+    cldrrsLastUpdatedTimestamp,
+    cldrrsLatestVersion,
+    cldrrsLatestVersionArn,
+    cldrrsName,
+    cldrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateLoggerDefinition' smart constructor.
 data CreateLoggerDefinition = CreateLoggerDefinition'
   { -- | A client token used to correlate requests and responses.
-    amznClientToken :: Lude.Maybe Lude.Text,
+    amznClientToken :: Core.Maybe Core.Text,
     -- | Information about the initial version of the logger definition.
-    initialVersion :: Lude.Maybe LoggerDefinitionVersion,
+    initialVersion :: Core.Maybe Types.LoggerDefinitionVersion,
     -- | The name of the logger definition.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Core.Text,
     -- | Tag(s) to add to the new resource.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLoggerDefinition' with the minimum fields required to make a request.
---
--- * 'amznClientToken' - A client token used to correlate requests and responses.
--- * 'initialVersion' - Information about the initial version of the logger definition.
--- * 'name' - The name of the logger definition.
--- * 'tags' - Tag(s) to add to the new resource.
+-- | Creates a 'CreateLoggerDefinition' value with any optional fields omitted.
 mkCreateLoggerDefinition ::
   CreateLoggerDefinition
 mkCreateLoggerDefinition =
   CreateLoggerDefinition'
-    { amznClientToken = Lude.Nothing,
-      initialVersion = Lude.Nothing,
-      name = Lude.Nothing,
-      tags = Lude.Nothing
+    { amznClientToken = Core.Nothing,
+      initialVersion = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | A client token used to correlate requests and responses.
 --
 -- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldAmznClientToken :: Lens.Lens' CreateLoggerDefinition (Lude.Maybe Lude.Text)
-cldAmznClientToken = Lens.lens (amznClientToken :: CreateLoggerDefinition -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateLoggerDefinition)
+cldAmznClientToken :: Lens.Lens' CreateLoggerDefinition (Core.Maybe Core.Text)
+cldAmznClientToken = Lens.field @"amznClientToken"
 {-# DEPRECATED cldAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
 -- | Information about the initial version of the logger definition.
 --
 -- /Note:/ Consider using 'initialVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldInitialVersion :: Lens.Lens' CreateLoggerDefinition (Lude.Maybe LoggerDefinitionVersion)
-cldInitialVersion = Lens.lens (initialVersion :: CreateLoggerDefinition -> Lude.Maybe LoggerDefinitionVersion) (\s a -> s {initialVersion = a} :: CreateLoggerDefinition)
+cldInitialVersion :: Lens.Lens' CreateLoggerDefinition (Core.Maybe Types.LoggerDefinitionVersion)
+cldInitialVersion = Lens.field @"initialVersion"
 {-# DEPRECATED cldInitialVersion "Use generic-lens or generic-optics with 'initialVersion' instead." #-}
 
 -- | The name of the logger definition.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldName :: Lens.Lens' CreateLoggerDefinition (Lude.Maybe Lude.Text)
-cldName = Lens.lens (name :: CreateLoggerDefinition -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateLoggerDefinition)
+cldName :: Lens.Lens' CreateLoggerDefinition (Core.Maybe Core.Text)
+cldName = Lens.field @"name"
 {-# DEPRECATED cldName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Tag(s) to add to the new resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldTags :: Lens.Lens' CreateLoggerDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cldTags = Lens.lens (tags :: CreateLoggerDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: CreateLoggerDefinition)
+cldTags :: Lens.Lens' CreateLoggerDefinition (Core.Maybe (Core.HashMap Core.Text Core.Text))
+cldTags = Lens.field @"tags"
 {-# DEPRECATED cldTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateLoggerDefinition where
-  type Rs CreateLoggerDefinition = CreateLoggerDefinitionResponse
-  request = Req.postJSON greengrassService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateLoggerDefinitionResponse'
-            Lude.<$> (x Lude..?> "LatestVersionArn")
-            Lude.<*> (x Lude..?> "Arn")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (x Lude..?> "CreationTimestamp")
-            Lude.<*> (x Lude..?> "Id")
-            Lude.<*> (x Lude..?> "LatestVersion")
-            Lude.<*> (x Lude..?> "LastUpdatedTimestamp")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders CreateLoggerDefinition where
-  toHeaders CreateLoggerDefinition' {..} =
-    Lude.mconcat
-      [ "X-Amzn-Client-Token" Lude.=# amznClientToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
-
-instance Lude.ToJSON CreateLoggerDefinition where
-  toJSON CreateLoggerDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("InitialVersion" Lude..=) Lude.<$> initialVersion,
-            ("Name" Lude..=) Lude.<$> name,
-            ("tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreateLoggerDefinition where
+  toJSON CreateLoggerDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("InitialVersion" Core..=) Core.<$> initialVersion,
+            ("Name" Core..=) Core.<$> name,
+            ("tags" Core..=) Core.<$> tags
           ]
       )
 
-instance Lude.ToPath CreateLoggerDefinition where
-  toPath = Lude.const "/greengrass/definition/loggers"
-
-instance Lude.ToQuery CreateLoggerDefinition where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateLoggerDefinition where
+  type Rs CreateLoggerDefinition = CreateLoggerDefinitionResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/greengrass/definition/loggers",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "X-Amzn-Client-Token" amznClientToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateLoggerDefinitionResponse'
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "CreationTimestamp")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "LastUpdatedTimestamp")
+            Core.<*> (x Core..:? "LatestVersion")
+            Core.<*> (x Core..:? "LatestVersionArn")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateLoggerDefinitionResponse' smart constructor.
 data CreateLoggerDefinitionResponse = CreateLoggerDefinitionResponse'
-  { -- | The ARN of the latest version associated with the definition.
-    latestVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the definition.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the definition.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the definition.
+    arn :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the definition was created.
-    creationTimestamp :: Lude.Maybe Lude.Text,
+    creationTimestamp :: Core.Maybe Core.Text,
     -- | The ID of the definition.
-    id :: Lude.Maybe Lude.Text,
-    -- | The ID of the latest version associated with the definition.
-    latestVersion :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the definition was last updated.
-    lastUpdatedTimestamp :: Lude.Maybe Lude.Text,
+    lastUpdatedTimestamp :: Core.Maybe Core.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Core.Maybe Core.Text,
+    -- | The ARN of the latest version associated with the definition.
+    latestVersionArn :: Core.Maybe Core.Text,
+    -- | The name of the definition.
+    name :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLoggerDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
--- * 'arn' - The ARN of the definition.
--- * 'name' - The name of the definition.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
--- * 'id' - The ID of the definition.
--- * 'latestVersion' - The ID of the latest version associated with the definition.
--- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateLoggerDefinitionResponse' value with any optional fields omitted.
 mkCreateLoggerDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateLoggerDefinitionResponse
-mkCreateLoggerDefinitionResponse pResponseStatus_ =
+mkCreateLoggerDefinitionResponse responseStatus =
   CreateLoggerDefinitionResponse'
-    { latestVersionARN = Lude.Nothing,
-      arn = Lude.Nothing,
-      name = Lude.Nothing,
-      creationTimestamp = Lude.Nothing,
-      id = Lude.Nothing,
-      latestVersion = Lude.Nothing,
-      lastUpdatedTimestamp = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      creationTimestamp = Core.Nothing,
+      id = Core.Nothing,
+      lastUpdatedTimestamp = Core.Nothing,
+      latestVersion = Core.Nothing,
+      latestVersionArn = Core.Nothing,
+      name = Core.Nothing,
+      responseStatus
     }
-
--- | The ARN of the latest version associated with the definition.
---
--- /Note:/ Consider using 'latestVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldrsLatestVersionARN :: Lens.Lens' CreateLoggerDefinitionResponse (Lude.Maybe Lude.Text)
-cldrsLatestVersionARN = Lens.lens (latestVersionARN :: CreateLoggerDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersionARN = a} :: CreateLoggerDefinitionResponse)
-{-# DEPRECATED cldrsLatestVersionARN "Use generic-lens or generic-optics with 'latestVersionARN' instead." #-}
 
 -- | The ARN of the definition.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldrsARN :: Lens.Lens' CreateLoggerDefinitionResponse (Lude.Maybe Lude.Text)
-cldrsARN = Lens.lens (arn :: CreateLoggerDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateLoggerDefinitionResponse)
-{-# DEPRECATED cldrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the definition.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldrsName :: Lens.Lens' CreateLoggerDefinitionResponse (Lude.Maybe Lude.Text)
-cldrsName = Lens.lens (name :: CreateLoggerDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateLoggerDefinitionResponse)
-{-# DEPRECATED cldrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+cldrrsArn :: Lens.Lens' CreateLoggerDefinitionResponse (Core.Maybe Core.Text)
+cldrrsArn = Lens.field @"arn"
+{-# DEPRECATED cldrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was created.
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldrsCreationTimestamp :: Lens.Lens' CreateLoggerDefinitionResponse (Lude.Maybe Lude.Text)
-cldrsCreationTimestamp = Lens.lens (creationTimestamp :: CreateLoggerDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: CreateLoggerDefinitionResponse)
-{-# DEPRECATED cldrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
+cldrrsCreationTimestamp :: Lens.Lens' CreateLoggerDefinitionResponse (Core.Maybe Core.Text)
+cldrrsCreationTimestamp = Lens.field @"creationTimestamp"
+{-# DEPRECATED cldrrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the definition.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldrsId :: Lens.Lens' CreateLoggerDefinitionResponse (Lude.Maybe Lude.Text)
-cldrsId = Lens.lens (id :: CreateLoggerDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateLoggerDefinitionResponse)
-{-# DEPRECATED cldrsId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The ID of the latest version associated with the definition.
---
--- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldrsLatestVersion :: Lens.Lens' CreateLoggerDefinitionResponse (Lude.Maybe Lude.Text)
-cldrsLatestVersion = Lens.lens (latestVersion :: CreateLoggerDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: CreateLoggerDefinitionResponse)
-{-# DEPRECATED cldrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
+cldrrsId :: Lens.Lens' CreateLoggerDefinitionResponse (Core.Maybe Core.Text)
+cldrrsId = Lens.field @"id"
+{-# DEPRECATED cldrrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldrsLastUpdatedTimestamp :: Lens.Lens' CreateLoggerDefinitionResponse (Lude.Maybe Lude.Text)
-cldrsLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: CreateLoggerDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedTimestamp = a} :: CreateLoggerDefinitionResponse)
-{-# DEPRECATED cldrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
+cldrrsLastUpdatedTimestamp :: Lens.Lens' CreateLoggerDefinitionResponse (Core.Maybe Core.Text)
+cldrrsLastUpdatedTimestamp = Lens.field @"lastUpdatedTimestamp"
+{-# DEPRECATED cldrrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
+
+-- | The ID of the latest version associated with the definition.
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cldrrsLatestVersion :: Lens.Lens' CreateLoggerDefinitionResponse (Core.Maybe Core.Text)
+cldrrsLatestVersion = Lens.field @"latestVersion"
+{-# DEPRECATED cldrrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
+
+-- | The ARN of the latest version associated with the definition.
+--
+-- /Note:/ Consider using 'latestVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cldrrsLatestVersionArn :: Lens.Lens' CreateLoggerDefinitionResponse (Core.Maybe Core.Text)
+cldrrsLatestVersionArn = Lens.field @"latestVersionArn"
+{-# DEPRECATED cldrrsLatestVersionArn "Use generic-lens or generic-optics with 'latestVersionArn' instead." #-}
+
+-- | The name of the definition.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cldrrsName :: Lens.Lens' CreateLoggerDefinitionResponse (Core.Maybe Core.Text)
+cldrrsName = Lens.field @"name"
+{-# DEPRECATED cldrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cldrsResponseStatus :: Lens.Lens' CreateLoggerDefinitionResponse Lude.Int
-cldrsResponseStatus = Lens.lens (responseStatus :: CreateLoggerDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLoggerDefinitionResponse)
-{-# DEPRECATED cldrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cldrrsResponseStatus :: Lens.Lens' CreateLoggerDefinitionResponse Core.Int
+cldrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cldrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

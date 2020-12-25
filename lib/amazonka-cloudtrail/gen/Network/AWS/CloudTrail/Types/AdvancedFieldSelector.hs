@@ -19,128 +19,120 @@ module Network.AWS.CloudTrail.Types.AdvancedFieldSelector
     -- * Lenses
     afsField,
     afsEndsWith,
-    afsNotStartsWith,
     afsEquals,
-    afsNotEquals,
     afsNotEndsWith,
+    afsNotEquals,
+    afsNotStartsWith,
     afsStartsWith,
   )
 where
 
+import qualified Network.AWS.CloudTrail.Types.OperatorValue as Types
+import qualified Network.AWS.CloudTrail.Types.SelectorField as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkAdvancedFieldSelector' smart constructor.
 data AdvancedFieldSelector = AdvancedFieldSelector'
-  { field :: Lude.Text,
-    endsWith :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    notStartsWith :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    equals :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    notEquals :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    notEndsWith :: Lude.Maybe (Lude.NonEmpty Lude.Text),
-    startsWith :: Lude.Maybe (Lude.NonEmpty Lude.Text)
+  { field :: Types.SelectorField,
+    endsWith :: Core.Maybe (Core.NonEmpty Types.OperatorValue),
+    equals :: Core.Maybe (Core.NonEmpty Types.OperatorValue),
+    notEndsWith :: Core.Maybe (Core.NonEmpty Types.OperatorValue),
+    notEquals :: Core.Maybe (Core.NonEmpty Types.OperatorValue),
+    notStartsWith :: Core.Maybe (Core.NonEmpty Types.OperatorValue),
+    startsWith :: Core.Maybe (Core.NonEmpty Types.OperatorValue)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdvancedFieldSelector' with the minimum fields required to make a request.
---
--- * 'field' -
--- * 'endsWith' -
--- * 'notStartsWith' -
--- * 'equals' -
--- * 'notEquals' -
--- * 'notEndsWith' -
--- * 'startsWith' -
+-- | Creates a 'AdvancedFieldSelector' value with any optional fields omitted.
 mkAdvancedFieldSelector ::
   -- | 'field'
-  Lude.Text ->
+  Types.SelectorField ->
   AdvancedFieldSelector
-mkAdvancedFieldSelector pField_ =
+mkAdvancedFieldSelector field =
   AdvancedFieldSelector'
-    { field = pField_,
-      endsWith = Lude.Nothing,
-      notStartsWith = Lude.Nothing,
-      equals = Lude.Nothing,
-      notEquals = Lude.Nothing,
-      notEndsWith = Lude.Nothing,
-      startsWith = Lude.Nothing
+    { field,
+      endsWith = Core.Nothing,
+      equals = Core.Nothing,
+      notEndsWith = Core.Nothing,
+      notEquals = Core.Nothing,
+      notStartsWith = Core.Nothing,
+      startsWith = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'field' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afsField :: Lens.Lens' AdvancedFieldSelector Lude.Text
-afsField = Lens.lens (field :: AdvancedFieldSelector -> Lude.Text) (\s a -> s {field = a} :: AdvancedFieldSelector)
+afsField :: Lens.Lens' AdvancedFieldSelector Types.SelectorField
+afsField = Lens.field @"field"
 {-# DEPRECATED afsField "Use generic-lens or generic-optics with 'field' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'endsWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afsEndsWith :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
-afsEndsWith = Lens.lens (endsWith :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {endsWith = a} :: AdvancedFieldSelector)
+afsEndsWith :: Lens.Lens' AdvancedFieldSelector (Core.Maybe (Core.NonEmpty Types.OperatorValue))
+afsEndsWith = Lens.field @"endsWith"
 {-# DEPRECATED afsEndsWith "Use generic-lens or generic-optics with 'endsWith' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'notStartsWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afsNotStartsWith :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
-afsNotStartsWith = Lens.lens (notStartsWith :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {notStartsWith = a} :: AdvancedFieldSelector)
-{-# DEPRECATED afsNotStartsWith "Use generic-lens or generic-optics with 'notStartsWith' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'equals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afsEquals :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
-afsEquals = Lens.lens (equals :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {equals = a} :: AdvancedFieldSelector)
+afsEquals :: Lens.Lens' AdvancedFieldSelector (Core.Maybe (Core.NonEmpty Types.OperatorValue))
+afsEquals = Lens.field @"equals"
 {-# DEPRECATED afsEquals "Use generic-lens or generic-optics with 'equals' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'notEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afsNotEquals :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
-afsNotEquals = Lens.lens (notEquals :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {notEquals = a} :: AdvancedFieldSelector)
-{-# DEPRECATED afsNotEquals "Use generic-lens or generic-optics with 'notEquals' instead." #-}
-
--- | Undocumented field.
---
 -- /Note:/ Consider using 'notEndsWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afsNotEndsWith :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
-afsNotEndsWith = Lens.lens (notEndsWith :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {notEndsWith = a} :: AdvancedFieldSelector)
+afsNotEndsWith :: Lens.Lens' AdvancedFieldSelector (Core.Maybe (Core.NonEmpty Types.OperatorValue))
+afsNotEndsWith = Lens.field @"notEndsWith"
 {-# DEPRECATED afsNotEndsWith "Use generic-lens or generic-optics with 'notEndsWith' instead." #-}
 
 -- | Undocumented field.
 --
+-- /Note:/ Consider using 'notEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afsNotEquals :: Lens.Lens' AdvancedFieldSelector (Core.Maybe (Core.NonEmpty Types.OperatorValue))
+afsNotEquals = Lens.field @"notEquals"
+{-# DEPRECATED afsNotEquals "Use generic-lens or generic-optics with 'notEquals' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'notStartsWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+afsNotStartsWith :: Lens.Lens' AdvancedFieldSelector (Core.Maybe (Core.NonEmpty Types.OperatorValue))
+afsNotStartsWith = Lens.field @"notStartsWith"
+{-# DEPRECATED afsNotStartsWith "Use generic-lens or generic-optics with 'notStartsWith' instead." #-}
+
+-- | Undocumented field.
+--
 -- /Note:/ Consider using 'startsWith' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-afsStartsWith :: Lens.Lens' AdvancedFieldSelector (Lude.Maybe (Lude.NonEmpty Lude.Text))
-afsStartsWith = Lens.lens (startsWith :: AdvancedFieldSelector -> Lude.Maybe (Lude.NonEmpty Lude.Text)) (\s a -> s {startsWith = a} :: AdvancedFieldSelector)
+afsStartsWith :: Lens.Lens' AdvancedFieldSelector (Core.Maybe (Core.NonEmpty Types.OperatorValue))
+afsStartsWith = Lens.field @"startsWith"
 {-# DEPRECATED afsStartsWith "Use generic-lens or generic-optics with 'startsWith' instead." #-}
 
-instance Lude.FromJSON AdvancedFieldSelector where
-  parseJSON =
-    Lude.withObject
-      "AdvancedFieldSelector"
-      ( \x ->
-          AdvancedFieldSelector'
-            Lude.<$> (x Lude..: "Field")
-            Lude.<*> (x Lude..:? "EndsWith")
-            Lude.<*> (x Lude..:? "NotStartsWith")
-            Lude.<*> (x Lude..:? "Equals")
-            Lude.<*> (x Lude..:? "NotEquals")
-            Lude.<*> (x Lude..:? "NotEndsWith")
-            Lude.<*> (x Lude..:? "StartsWith")
-      )
-
-instance Lude.ToJSON AdvancedFieldSelector where
-  toJSON AdvancedFieldSelector' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Field" Lude..= field),
-            ("EndsWith" Lude..=) Lude.<$> endsWith,
-            ("NotStartsWith" Lude..=) Lude.<$> notStartsWith,
-            ("Equals" Lude..=) Lude.<$> equals,
-            ("NotEquals" Lude..=) Lude.<$> notEquals,
-            ("NotEndsWith" Lude..=) Lude.<$> notEndsWith,
-            ("StartsWith" Lude..=) Lude.<$> startsWith
+instance Core.FromJSON AdvancedFieldSelector where
+  toJSON AdvancedFieldSelector {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Field" Core..= field),
+            ("EndsWith" Core..=) Core.<$> endsWith,
+            ("Equals" Core..=) Core.<$> equals,
+            ("NotEndsWith" Core..=) Core.<$> notEndsWith,
+            ("NotEquals" Core..=) Core.<$> notEquals,
+            ("NotStartsWith" Core..=) Core.<$> notStartsWith,
+            ("StartsWith" Core..=) Core.<$> startsWith
           ]
       )
+
+instance Core.FromJSON AdvancedFieldSelector where
+  parseJSON =
+    Core.withObject "AdvancedFieldSelector" Core.$
+      \x ->
+        AdvancedFieldSelector'
+          Core.<$> (x Core..: "Field")
+          Core.<*> (x Core..:? "EndsWith")
+          Core.<*> (x Core..:? "Equals")
+          Core.<*> (x Core..:? "NotEndsWith")
+          Core.<*> (x Core..:? "NotEquals")
+          Core.<*> (x Core..:? "NotStartsWith")
+          Core.<*> (x Core..:? "StartsWith")

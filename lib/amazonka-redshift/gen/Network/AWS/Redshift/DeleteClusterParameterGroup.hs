@@ -20,7 +20,7 @@ module Network.AWS.Redshift.DeleteClusterParameterGroup
     mkDeleteClusterParameterGroup,
 
     -- ** Request lenses
-    dcpgParameterGroupName,
+    dParameterGroupName,
 
     -- * Destructuring the response
     DeleteClusterParameterGroupResponse (..),
@@ -29,10 +29,10 @@ module Network.AWS.Redshift.DeleteClusterParameterGroup
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -46,30 +46,18 @@ newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup'
     --
     --
     --     * Cannot delete a default cluster parameter group.
-    parameterGroupName :: Lude.Text
+    parameterGroupName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteClusterParameterGroup' with the minimum fields required to make a request.
---
--- * 'parameterGroupName' - The name of the parameter group to be deleted.
---
--- Constraints:
---
---     * Must be the name of an existing cluster parameter group.
---
---
---     * Cannot delete a default cluster parameter group.
+-- | Creates a 'DeleteClusterParameterGroup' value with any optional fields omitted.
 mkDeleteClusterParameterGroup ::
   -- | 'parameterGroupName'
-  Lude.Text ->
+  Types.String ->
   DeleteClusterParameterGroup
-mkDeleteClusterParameterGroup pParameterGroupName_ =
-  DeleteClusterParameterGroup'
-    { parameterGroupName =
-        pParameterGroupName_
-    }
+mkDeleteClusterParameterGroup parameterGroupName =
+  DeleteClusterParameterGroup' {parameterGroupName}
 
 -- | The name of the parameter group to be deleted.
 --
@@ -83,38 +71,41 @@ mkDeleteClusterParameterGroup pParameterGroupName_ =
 --
 --
 -- /Note:/ Consider using 'parameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgParameterGroupName :: Lens.Lens' DeleteClusterParameterGroup Lude.Text
-dcpgParameterGroupName = Lens.lens (parameterGroupName :: DeleteClusterParameterGroup -> Lude.Text) (\s a -> s {parameterGroupName = a} :: DeleteClusterParameterGroup)
-{-# DEPRECATED dcpgParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
+dParameterGroupName :: Lens.Lens' DeleteClusterParameterGroup Types.String
+dParameterGroupName = Lens.field @"parameterGroupName"
+{-# DEPRECATED dParameterGroupName "Use generic-lens or generic-optics with 'parameterGroupName' instead." #-}
 
-instance Lude.AWSRequest DeleteClusterParameterGroup where
+instance Core.AWSRequest DeleteClusterParameterGroup where
   type
     Rs DeleteClusterParameterGroup =
       DeleteClusterParameterGroupResponse
-  request = Req.postQuery redshiftService
-  response = Res.receiveNull DeleteClusterParameterGroupResponse'
-
-instance Lude.ToHeaders DeleteClusterParameterGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteClusterParameterGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteClusterParameterGroup where
-  toQuery DeleteClusterParameterGroup' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeleteClusterParameterGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ParameterGroupName" Lude.=: parameterGroupName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteClusterParameterGroup")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ParameterGroupName" parameterGroupName)
+            )
+      }
+  response =
+    Response.receiveNull DeleteClusterParameterGroupResponse'
 
 -- | /See:/ 'mkDeleteClusterParameterGroupResponse' smart constructor.
 data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteClusterParameterGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteClusterParameterGroupResponse' value with any optional fields omitted.
 mkDeleteClusterParameterGroupResponse ::
   DeleteClusterParameterGroupResponse
 mkDeleteClusterParameterGroupResponse =

@@ -17,54 +17,50 @@ module Network.AWS.GuardDuty.Types.Country
     mkCountry,
 
     -- * Lenses
-    cCountryName,
     cCountryCode,
+    cCountryName,
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the country where the remote IP address is located.
 --
 -- /See:/ 'mkCountry' smart constructor.
 data Country = Country'
-  { -- | The country name of the remote IP address.
-    countryName :: Lude.Maybe Lude.Text,
-    -- | The country code of the remote IP address.
-    countryCode :: Lude.Maybe Lude.Text
+  { -- | The country code of the remote IP address.
+    countryCode :: Core.Maybe Types.String,
+    -- | The country name of the remote IP address.
+    countryName :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Country' with the minimum fields required to make a request.
---
--- * 'countryName' - The country name of the remote IP address.
--- * 'countryCode' - The country code of the remote IP address.
+-- | Creates a 'Country' value with any optional fields omitted.
 mkCountry ::
   Country
 mkCountry =
-  Country' {countryName = Lude.Nothing, countryCode = Lude.Nothing}
-
--- | The country name of the remote IP address.
---
--- /Note:/ Consider using 'countryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCountryName :: Lens.Lens' Country (Lude.Maybe Lude.Text)
-cCountryName = Lens.lens (countryName :: Country -> Lude.Maybe Lude.Text) (\s a -> s {countryName = a} :: Country)
-{-# DEPRECATED cCountryName "Use generic-lens or generic-optics with 'countryName' instead." #-}
+  Country' {countryCode = Core.Nothing, countryName = Core.Nothing}
 
 -- | The country code of the remote IP address.
 --
 -- /Note:/ Consider using 'countryCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCountryCode :: Lens.Lens' Country (Lude.Maybe Lude.Text)
-cCountryCode = Lens.lens (countryCode :: Country -> Lude.Maybe Lude.Text) (\s a -> s {countryCode = a} :: Country)
+cCountryCode :: Lens.Lens' Country (Core.Maybe Types.String)
+cCountryCode = Lens.field @"countryCode"
 {-# DEPRECATED cCountryCode "Use generic-lens or generic-optics with 'countryCode' instead." #-}
 
-instance Lude.FromJSON Country where
+-- | The country name of the remote IP address.
+--
+-- /Note:/ Consider using 'countryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCountryName :: Lens.Lens' Country (Core.Maybe Types.String)
+cCountryName = Lens.field @"countryName"
+{-# DEPRECATED cCountryName "Use generic-lens or generic-optics with 'countryName' instead." #-}
+
+instance Core.FromJSON Country where
   parseJSON =
-    Lude.withObject
-      "Country"
-      ( \x ->
-          Country'
-            Lude.<$> (x Lude..:? "countryName") Lude.<*> (x Lude..:? "countryCode")
-      )
+    Core.withObject "Country" Core.$
+      \x ->
+        Country'
+          Core.<$> (x Core..:? "countryCode") Core.<*> (x Core..:? "countryName")

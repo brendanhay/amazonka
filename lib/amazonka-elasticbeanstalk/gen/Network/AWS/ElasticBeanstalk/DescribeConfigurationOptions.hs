@@ -20,210 +20,200 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     mkDescribeConfigurationOptions,
 
     -- ** Request lenses
-    dcoTemplateName,
-    dcoPlatformARN,
-    dcoEnvironmentName,
     dcoApplicationName,
-    dcoSolutionStackName,
+    dcoEnvironmentName,
     dcoOptions,
+    dcoPlatformArn,
+    dcoSolutionStackName,
+    dcoTemplateName,
 
     -- * Destructuring the response
     DescribeConfigurationOptionsResponse (..),
     mkDescribeConfigurationOptionsResponse,
 
     -- ** Response lenses
-    dcorsPlatformARN,
-    dcorsSolutionStackName,
-    dcorsOptions,
-    dcorsResponseStatus,
+    dcorrsOptions,
+    dcorrsPlatformArn,
+    dcorrsSolutionStackName,
+    dcorrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Result message containing a list of application version descriptions.
 --
 -- /See:/ 'mkDescribeConfigurationOptions' smart constructor.
 data DescribeConfigurationOptions = DescribeConfigurationOptions'
-  { -- | The name of the configuration template whose configuration options you want to describe.
-    templateName :: Lude.Maybe Lude.Text,
-    -- | The ARN of the custom platform.
-    platformARN :: Lude.Maybe Lude.Text,
+  { -- | The name of the application associated with the configuration template or environment. Only needed if you want to describe the configuration options associated with either the configuration template or environment.
+    applicationName :: Core.Maybe Types.ApplicationName,
     -- | The name of the environment whose configuration options you want to describe.
-    environmentName :: Lude.Maybe Lude.Text,
-    -- | The name of the application associated with the configuration template or environment. Only needed if you want to describe the configuration options associated with either the configuration template or environment.
-    applicationName :: Lude.Maybe Lude.Text,
-    -- | The name of the solution stack whose configuration options you want to describe.
-    solutionStackName :: Lude.Maybe Lude.Text,
+    environmentName :: Core.Maybe Types.EnvironmentName,
     -- | If specified, restricts the descriptions to only the specified options.
-    options :: Lude.Maybe [OptionSpecification]
+    options :: Core.Maybe [Types.OptionSpecification],
+    -- | The ARN of the custom platform.
+    platformArn :: Core.Maybe Types.PlatformArn,
+    -- | The name of the solution stack whose configuration options you want to describe.
+    solutionStackName :: Core.Maybe Types.SolutionStackName,
+    -- | The name of the configuration template whose configuration options you want to describe.
+    templateName :: Core.Maybe Types.TemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConfigurationOptions' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the configuration template whose configuration options you want to describe.
--- * 'platformARN' - The ARN of the custom platform.
--- * 'environmentName' - The name of the environment whose configuration options you want to describe.
--- * 'applicationName' - The name of the application associated with the configuration template or environment. Only needed if you want to describe the configuration options associated with either the configuration template or environment.
--- * 'solutionStackName' - The name of the solution stack whose configuration options you want to describe.
--- * 'options' - If specified, restricts the descriptions to only the specified options.
+-- | Creates a 'DescribeConfigurationOptions' value with any optional fields omitted.
 mkDescribeConfigurationOptions ::
   DescribeConfigurationOptions
 mkDescribeConfigurationOptions =
   DescribeConfigurationOptions'
-    { templateName = Lude.Nothing,
-      platformARN = Lude.Nothing,
-      environmentName = Lude.Nothing,
-      applicationName = Lude.Nothing,
-      solutionStackName = Lude.Nothing,
-      options = Lude.Nothing
+    { applicationName = Core.Nothing,
+      environmentName = Core.Nothing,
+      options = Core.Nothing,
+      platformArn = Core.Nothing,
+      solutionStackName = Core.Nothing,
+      templateName = Core.Nothing
     }
-
--- | The name of the configuration template whose configuration options you want to describe.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcoTemplateName :: Lens.Lens' DescribeConfigurationOptions (Lude.Maybe Lude.Text)
-dcoTemplateName = Lens.lens (templateName :: DescribeConfigurationOptions -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: DescribeConfigurationOptions)
-{-# DEPRECATED dcoTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
-
--- | The ARN of the custom platform.
---
--- /Note:/ Consider using 'platformARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcoPlatformARN :: Lens.Lens' DescribeConfigurationOptions (Lude.Maybe Lude.Text)
-dcoPlatformARN = Lens.lens (platformARN :: DescribeConfigurationOptions -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: DescribeConfigurationOptions)
-{-# DEPRECATED dcoPlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
-
--- | The name of the environment whose configuration options you want to describe.
---
--- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcoEnvironmentName :: Lens.Lens' DescribeConfigurationOptions (Lude.Maybe Lude.Text)
-dcoEnvironmentName = Lens.lens (environmentName :: DescribeConfigurationOptions -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: DescribeConfigurationOptions)
-{-# DEPRECATED dcoEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The name of the application associated with the configuration template or environment. Only needed if you want to describe the configuration options associated with either the configuration template or environment.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcoApplicationName :: Lens.Lens' DescribeConfigurationOptions (Lude.Maybe Lude.Text)
-dcoApplicationName = Lens.lens (applicationName :: DescribeConfigurationOptions -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: DescribeConfigurationOptions)
+dcoApplicationName :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe Types.ApplicationName)
+dcoApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED dcoApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
--- | The name of the solution stack whose configuration options you want to describe.
+-- | The name of the environment whose configuration options you want to describe.
 --
--- /Note:/ Consider using 'solutionStackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcoSolutionStackName :: Lens.Lens' DescribeConfigurationOptions (Lude.Maybe Lude.Text)
-dcoSolutionStackName = Lens.lens (solutionStackName :: DescribeConfigurationOptions -> Lude.Maybe Lude.Text) (\s a -> s {solutionStackName = a} :: DescribeConfigurationOptions)
-{-# DEPRECATED dcoSolutionStackName "Use generic-lens or generic-optics with 'solutionStackName' instead." #-}
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcoEnvironmentName :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe Types.EnvironmentName)
+dcoEnvironmentName = Lens.field @"environmentName"
+{-# DEPRECATED dcoEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | If specified, restricts the descriptions to only the specified options.
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcoOptions :: Lens.Lens' DescribeConfigurationOptions (Lude.Maybe [OptionSpecification])
-dcoOptions = Lens.lens (options :: DescribeConfigurationOptions -> Lude.Maybe [OptionSpecification]) (\s a -> s {options = a} :: DescribeConfigurationOptions)
+dcoOptions :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe [Types.OptionSpecification])
+dcoOptions = Lens.field @"options"
 {-# DEPRECATED dcoOptions "Use generic-lens or generic-optics with 'options' instead." #-}
 
-instance Lude.AWSRequest DescribeConfigurationOptions where
+-- | The ARN of the custom platform.
+--
+-- /Note:/ Consider using 'platformArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcoPlatformArn :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe Types.PlatformArn)
+dcoPlatformArn = Lens.field @"platformArn"
+{-# DEPRECATED dcoPlatformArn "Use generic-lens or generic-optics with 'platformArn' instead." #-}
+
+-- | The name of the solution stack whose configuration options you want to describe.
+--
+-- /Note:/ Consider using 'solutionStackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcoSolutionStackName :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe Types.SolutionStackName)
+dcoSolutionStackName = Lens.field @"solutionStackName"
+{-# DEPRECATED dcoSolutionStackName "Use generic-lens or generic-optics with 'solutionStackName' instead." #-}
+
+-- | The name of the configuration template whose configuration options you want to describe.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcoTemplateName :: Lens.Lens' DescribeConfigurationOptions (Core.Maybe Types.TemplateName)
+dcoTemplateName = Lens.field @"templateName"
+{-# DEPRECATED dcoTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+
+instance Core.AWSRequest DescribeConfigurationOptions where
   type
     Rs DescribeConfigurationOptions =
       DescribeConfigurationOptionsResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeConfigurationOptions")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ApplicationName" Core.<$> applicationName)
+                Core.<> (Core.toQueryValue "EnvironmentName" Core.<$> environmentName)
+                Core.<> ( Core.toQueryValue
+                            "Options"
+                            (Core.toQueryList "member" Core.<$> options)
+                        )
+                Core.<> (Core.toQueryValue "PlatformArn" Core.<$> platformArn)
+                Core.<> (Core.toQueryValue "SolutionStackName" Core.<$> solutionStackName)
+                Core.<> (Core.toQueryValue "TemplateName" Core.<$> templateName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeConfigurationOptionsResult"
       ( \s h x ->
           DescribeConfigurationOptionsResponse'
-            Lude.<$> (x Lude..@? "PlatformArn")
-            Lude.<*> (x Lude..@? "SolutionStackName")
-            Lude.<*> ( x Lude..@? "Options" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Options" Core..<@> Core.parseXMLList "member")
+            Core.<*> (x Core..@? "PlatformArn")
+            Core.<*> (x Core..@? "SolutionStackName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeConfigurationOptions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeConfigurationOptions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeConfigurationOptions where
-  toQuery DescribeConfigurationOptions' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeConfigurationOptions" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "TemplateName" Lude.=: templateName,
-        "PlatformArn" Lude.=: platformARN,
-        "EnvironmentName" Lude.=: environmentName,
-        "ApplicationName" Lude.=: applicationName,
-        "SolutionStackName" Lude.=: solutionStackName,
-        "Options"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> options)
-      ]
 
 -- | Describes the settings for a specified configuration set.
 --
 -- /See:/ 'mkDescribeConfigurationOptionsResponse' smart constructor.
 data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'
-  { -- | The ARN of the platform version.
-    platformARN :: Lude.Maybe Lude.Text,
+  { -- | A list of 'ConfigurationOptionDescription' .
+    options :: Core.Maybe [Types.ConfigurationOptionDescription],
+    -- | The ARN of the platform version.
+    platformArn :: Core.Maybe Types.PlatformArn,
     -- | The name of the solution stack these configuration options belong to.
-    solutionStackName :: Lude.Maybe Lude.Text,
-    -- | A list of 'ConfigurationOptionDescription' .
-    options :: Lude.Maybe [ConfigurationOptionDescription],
+    solutionStackName :: Core.Maybe Types.SolutionStackName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeConfigurationOptionsResponse' with the minimum fields required to make a request.
---
--- * 'platformARN' - The ARN of the platform version.
--- * 'solutionStackName' - The name of the solution stack these configuration options belong to.
--- * 'options' - A list of 'ConfigurationOptionDescription' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeConfigurationOptionsResponse' value with any optional fields omitted.
 mkDescribeConfigurationOptionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeConfigurationOptionsResponse
-mkDescribeConfigurationOptionsResponse pResponseStatus_ =
+mkDescribeConfigurationOptionsResponse responseStatus =
   DescribeConfigurationOptionsResponse'
-    { platformARN = Lude.Nothing,
-      solutionStackName = Lude.Nothing,
-      options = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { options = Core.Nothing,
+      platformArn = Core.Nothing,
+      solutionStackName = Core.Nothing,
+      responseStatus
     }
-
--- | The ARN of the platform version.
---
--- /Note:/ Consider using 'platformARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcorsPlatformARN :: Lens.Lens' DescribeConfigurationOptionsResponse (Lude.Maybe Lude.Text)
-dcorsPlatformARN = Lens.lens (platformARN :: DescribeConfigurationOptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {platformARN = a} :: DescribeConfigurationOptionsResponse)
-{-# DEPRECATED dcorsPlatformARN "Use generic-lens or generic-optics with 'platformARN' instead." #-}
-
--- | The name of the solution stack these configuration options belong to.
---
--- /Note:/ Consider using 'solutionStackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcorsSolutionStackName :: Lens.Lens' DescribeConfigurationOptionsResponse (Lude.Maybe Lude.Text)
-dcorsSolutionStackName = Lens.lens (solutionStackName :: DescribeConfigurationOptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {solutionStackName = a} :: DescribeConfigurationOptionsResponse)
-{-# DEPRECATED dcorsSolutionStackName "Use generic-lens or generic-optics with 'solutionStackName' instead." #-}
 
 -- | A list of 'ConfigurationOptionDescription' .
 --
 -- /Note:/ Consider using 'options' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcorsOptions :: Lens.Lens' DescribeConfigurationOptionsResponse (Lude.Maybe [ConfigurationOptionDescription])
-dcorsOptions = Lens.lens (options :: DescribeConfigurationOptionsResponse -> Lude.Maybe [ConfigurationOptionDescription]) (\s a -> s {options = a} :: DescribeConfigurationOptionsResponse)
-{-# DEPRECATED dcorsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+dcorrsOptions :: Lens.Lens' DescribeConfigurationOptionsResponse (Core.Maybe [Types.ConfigurationOptionDescription])
+dcorrsOptions = Lens.field @"options"
+{-# DEPRECATED dcorrsOptions "Use generic-lens or generic-optics with 'options' instead." #-}
+
+-- | The ARN of the platform version.
+--
+-- /Note:/ Consider using 'platformArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcorrsPlatformArn :: Lens.Lens' DescribeConfigurationOptionsResponse (Core.Maybe Types.PlatformArn)
+dcorrsPlatformArn = Lens.field @"platformArn"
+{-# DEPRECATED dcorrsPlatformArn "Use generic-lens or generic-optics with 'platformArn' instead." #-}
+
+-- | The name of the solution stack these configuration options belong to.
+--
+-- /Note:/ Consider using 'solutionStackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcorrsSolutionStackName :: Lens.Lens' DescribeConfigurationOptionsResponse (Core.Maybe Types.SolutionStackName)
+dcorrsSolutionStackName = Lens.field @"solutionStackName"
+{-# DEPRECATED dcorrsSolutionStackName "Use generic-lens or generic-optics with 'solutionStackName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcorsResponseStatus :: Lens.Lens' DescribeConfigurationOptionsResponse Lude.Int
-dcorsResponseStatus = Lens.lens (responseStatus :: DescribeConfigurationOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeConfigurationOptionsResponse)
-{-# DEPRECATED dcorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcorrsResponseStatus :: Lens.Lens' DescribeConfigurationOptionsResponse Core.Int
+dcorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

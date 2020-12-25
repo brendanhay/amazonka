@@ -17,145 +17,137 @@ module Network.AWS.CostExplorer.Types.AnomalySubscription
     mkAnomalySubscription,
 
     -- * Lenses
-    asSubscriptionName,
-    asFrequency,
-    asAccountId,
-    asThreshold,
-    asMonitorARNList,
-    asSubscriptionARN,
+    asMonitorArnList,
     asSubscribers,
+    asThreshold,
+    asFrequency,
+    asSubscriptionName,
+    asAccountId,
+    asSubscriptionArn,
   )
 where
 
-import Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency
-import Network.AWS.CostExplorer.Types.Subscriber
+import qualified Network.AWS.CostExplorer.Types.AnomalySubscriptionFrequency as Types
+import qualified Network.AWS.CostExplorer.Types.GenericString as Types
+import qualified Network.AWS.CostExplorer.Types.Subscriber as Types
+import qualified Network.AWS.CostExplorer.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The association between a monitor, threshold, and list of subscribers used to deliver notifications about anomalies detected by a monitor that exceeds a threshold. The content consists of the detailed metadata and the current status of the @AnomalySubscription@ object.
 --
 -- /See:/ 'mkAnomalySubscription' smart constructor.
 data AnomalySubscription = AnomalySubscription'
-  { -- | The name for the subscription.
-    subscriptionName :: Lude.Text,
-    -- | The frequency at which anomaly reports are sent over email.
-    frequency :: AnomalySubscriptionFrequency,
-    -- | Your unique account identifier.
-    accountId :: Lude.Maybe Lude.Text,
-    -- | The dollar value that triggers a notification if the threshold is exceeded.
-    threshold :: Lude.Double,
-    -- | A list of cost anomaly monitors.
-    monitorARNList :: [Lude.Text],
-    -- | The @AnomalySubscription@ Amazon Resource Name (ARN).
-    subscriptionARN :: Lude.Maybe Lude.Text,
+  { -- | A list of cost anomaly monitors.
+    monitorArnList :: [Types.Value],
     -- | A list of subscribers to notify.
-    subscribers :: [Subscriber]
+    subscribers :: [Types.Subscriber],
+    -- | The dollar value that triggers a notification if the threshold is exceeded.
+    threshold :: Core.Double,
+    -- | The frequency at which anomaly reports are sent over email.
+    frequency :: Types.AnomalySubscriptionFrequency,
+    -- | The name for the subscription.
+    subscriptionName :: Types.GenericString,
+    -- | Your unique account identifier.
+    accountId :: Core.Maybe Types.GenericString,
+    -- | The @AnomalySubscription@ Amazon Resource Name (ARN).
+    subscriptionArn :: Core.Maybe Types.GenericString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AnomalySubscription' with the minimum fields required to make a request.
---
--- * 'subscriptionName' - The name for the subscription.
--- * 'frequency' - The frequency at which anomaly reports are sent over email.
--- * 'accountId' - Your unique account identifier.
--- * 'threshold' - The dollar value that triggers a notification if the threshold is exceeded.
--- * 'monitorARNList' - A list of cost anomaly monitors.
--- * 'subscriptionARN' - The @AnomalySubscription@ Amazon Resource Name (ARN).
--- * 'subscribers' - A list of subscribers to notify.
+-- | Creates a 'AnomalySubscription' value with any optional fields omitted.
 mkAnomalySubscription ::
-  -- | 'subscriptionName'
-  Lude.Text ->
-  -- | 'frequency'
-  AnomalySubscriptionFrequency ->
   -- | 'threshold'
-  Lude.Double ->
+  Core.Double ->
+  -- | 'frequency'
+  Types.AnomalySubscriptionFrequency ->
+  -- | 'subscriptionName'
+  Types.GenericString ->
   AnomalySubscription
-mkAnomalySubscription pSubscriptionName_ pFrequency_ pThreshold_ =
+mkAnomalySubscription threshold frequency subscriptionName =
   AnomalySubscription'
-    { subscriptionName = pSubscriptionName_,
-      frequency = pFrequency_,
-      accountId = Lude.Nothing,
-      threshold = pThreshold_,
-      monitorARNList = Lude.mempty,
-      subscriptionARN = Lude.Nothing,
-      subscribers = Lude.mempty
+    { monitorArnList = Core.mempty,
+      subscribers = Core.mempty,
+      threshold,
+      frequency,
+      subscriptionName,
+      accountId = Core.Nothing,
+      subscriptionArn = Core.Nothing
     }
-
--- | The name for the subscription.
---
--- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asSubscriptionName :: Lens.Lens' AnomalySubscription Lude.Text
-asSubscriptionName = Lens.lens (subscriptionName :: AnomalySubscription -> Lude.Text) (\s a -> s {subscriptionName = a} :: AnomalySubscription)
-{-# DEPRECATED asSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
-
--- | The frequency at which anomaly reports are sent over email.
---
--- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asFrequency :: Lens.Lens' AnomalySubscription AnomalySubscriptionFrequency
-asFrequency = Lens.lens (frequency :: AnomalySubscription -> AnomalySubscriptionFrequency) (\s a -> s {frequency = a} :: AnomalySubscription)
-{-# DEPRECATED asFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
-
--- | Your unique account identifier.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asAccountId :: Lens.Lens' AnomalySubscription (Lude.Maybe Lude.Text)
-asAccountId = Lens.lens (accountId :: AnomalySubscription -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: AnomalySubscription)
-{-# DEPRECATED asAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
--- | The dollar value that triggers a notification if the threshold is exceeded.
---
--- /Note:/ Consider using 'threshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asThreshold :: Lens.Lens' AnomalySubscription Lude.Double
-asThreshold = Lens.lens (threshold :: AnomalySubscription -> Lude.Double) (\s a -> s {threshold = a} :: AnomalySubscription)
-{-# DEPRECATED asThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
 
 -- | A list of cost anomaly monitors.
 --
--- /Note:/ Consider using 'monitorARNList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asMonitorARNList :: Lens.Lens' AnomalySubscription [Lude.Text]
-asMonitorARNList = Lens.lens (monitorARNList :: AnomalySubscription -> [Lude.Text]) (\s a -> s {monitorARNList = a} :: AnomalySubscription)
-{-# DEPRECATED asMonitorARNList "Use generic-lens or generic-optics with 'monitorARNList' instead." #-}
-
--- | The @AnomalySubscription@ Amazon Resource Name (ARN).
---
--- /Note:/ Consider using 'subscriptionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asSubscriptionARN :: Lens.Lens' AnomalySubscription (Lude.Maybe Lude.Text)
-asSubscriptionARN = Lens.lens (subscriptionARN :: AnomalySubscription -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionARN = a} :: AnomalySubscription)
-{-# DEPRECATED asSubscriptionARN "Use generic-lens or generic-optics with 'subscriptionARN' instead." #-}
+-- /Note:/ Consider using 'monitorArnList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asMonitorArnList :: Lens.Lens' AnomalySubscription [Types.Value]
+asMonitorArnList = Lens.field @"monitorArnList"
+{-# DEPRECATED asMonitorArnList "Use generic-lens or generic-optics with 'monitorArnList' instead." #-}
 
 -- | A list of subscribers to notify.
 --
 -- /Note:/ Consider using 'subscribers' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asSubscribers :: Lens.Lens' AnomalySubscription [Subscriber]
-asSubscribers = Lens.lens (subscribers :: AnomalySubscription -> [Subscriber]) (\s a -> s {subscribers = a} :: AnomalySubscription)
+asSubscribers :: Lens.Lens' AnomalySubscription [Types.Subscriber]
+asSubscribers = Lens.field @"subscribers"
 {-# DEPRECATED asSubscribers "Use generic-lens or generic-optics with 'subscribers' instead." #-}
 
-instance Lude.FromJSON AnomalySubscription where
-  parseJSON =
-    Lude.withObject
-      "AnomalySubscription"
-      ( \x ->
-          AnomalySubscription'
-            Lude.<$> (x Lude..: "SubscriptionName")
-            Lude.<*> (x Lude..: "Frequency")
-            Lude.<*> (x Lude..:? "AccountId")
-            Lude.<*> (x Lude..: "Threshold")
-            Lude.<*> (x Lude..:? "MonitorArnList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "SubscriptionArn")
-            Lude.<*> (x Lude..:? "Subscribers" Lude..!= Lude.mempty)
-      )
+-- | The dollar value that triggers a notification if the threshold is exceeded.
+--
+-- /Note:/ Consider using 'threshold' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asThreshold :: Lens.Lens' AnomalySubscription Core.Double
+asThreshold = Lens.field @"threshold"
+{-# DEPRECATED asThreshold "Use generic-lens or generic-optics with 'threshold' instead." #-}
 
-instance Lude.ToJSON AnomalySubscription where
-  toJSON AnomalySubscription' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SubscriptionName" Lude..= subscriptionName),
-            Lude.Just ("Frequency" Lude..= frequency),
-            ("AccountId" Lude..=) Lude.<$> accountId,
-            Lude.Just ("Threshold" Lude..= threshold),
-            Lude.Just ("MonitorArnList" Lude..= monitorARNList),
-            ("SubscriptionArn" Lude..=) Lude.<$> subscriptionARN,
-            Lude.Just ("Subscribers" Lude..= subscribers)
+-- | The frequency at which anomaly reports are sent over email.
+--
+-- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asFrequency :: Lens.Lens' AnomalySubscription Types.AnomalySubscriptionFrequency
+asFrequency = Lens.field @"frequency"
+{-# DEPRECATED asFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
+
+-- | The name for the subscription.
+--
+-- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asSubscriptionName :: Lens.Lens' AnomalySubscription Types.GenericString
+asSubscriptionName = Lens.field @"subscriptionName"
+{-# DEPRECATED asSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
+
+-- | Your unique account identifier.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asAccountId :: Lens.Lens' AnomalySubscription (Core.Maybe Types.GenericString)
+asAccountId = Lens.field @"accountId"
+{-# DEPRECATED asAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The @AnomalySubscription@ Amazon Resource Name (ARN).
+--
+-- /Note:/ Consider using 'subscriptionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asSubscriptionArn :: Lens.Lens' AnomalySubscription (Core.Maybe Types.GenericString)
+asSubscriptionArn = Lens.field @"subscriptionArn"
+{-# DEPRECATED asSubscriptionArn "Use generic-lens or generic-optics with 'subscriptionArn' instead." #-}
+
+instance Core.FromJSON AnomalySubscription where
+  toJSON AnomalySubscription {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("MonitorArnList" Core..= monitorArnList),
+            Core.Just ("Subscribers" Core..= subscribers),
+            Core.Just ("Threshold" Core..= threshold),
+            Core.Just ("Frequency" Core..= frequency),
+            Core.Just ("SubscriptionName" Core..= subscriptionName),
+            ("AccountId" Core..=) Core.<$> accountId,
+            ("SubscriptionArn" Core..=) Core.<$> subscriptionArn
           ]
       )
+
+instance Core.FromJSON AnomalySubscription where
+  parseJSON =
+    Core.withObject "AnomalySubscription" Core.$
+      \x ->
+        AnomalySubscription'
+          Core.<$> (x Core..:? "MonitorArnList" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "Subscribers" Core..!= Core.mempty)
+          Core.<*> (x Core..: "Threshold")
+          Core.<*> (x Core..: "Frequency")
+          Core.<*> (x Core..: "SubscriptionName")
+          Core.<*> (x Core..:? "AccountId")
+          Core.<*> (x Core..:? "SubscriptionArn")

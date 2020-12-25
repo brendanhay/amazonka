@@ -17,59 +17,54 @@ module Network.AWS.CloudDirectory.Types.BatchLookupPolicyResponse
     mkBatchLookupPolicyResponse,
 
     -- * Lenses
-    blpNextToken,
-    blpPolicyToPathList,
+    blprNextToken,
+    blprPolicyToPathList,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.PolicyToPath
+import qualified Network.AWS.CloudDirectory.Types.NextToken as Types
+import qualified Network.AWS.CloudDirectory.Types.PolicyToPath as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'LookupPolicy' response operation.
 --
 -- /See:/ 'mkBatchLookupPolicyResponse' smart constructor.
 data BatchLookupPolicyResponse = BatchLookupPolicyResponse'
   { -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
-    policyToPathList :: Lude.Maybe [PolicyToPath]
+    policyToPathList :: Core.Maybe [Types.PolicyToPath]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchLookupPolicyResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token.
--- * 'policyToPathList' - Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
+-- | Creates a 'BatchLookupPolicyResponse' value with any optional fields omitted.
 mkBatchLookupPolicyResponse ::
   BatchLookupPolicyResponse
 mkBatchLookupPolicyResponse =
   BatchLookupPolicyResponse'
-    { nextToken = Lude.Nothing,
-      policyToPathList = Lude.Nothing
+    { nextToken = Core.Nothing,
+      policyToPathList = Core.Nothing
     }
 
 -- | The pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blpNextToken :: Lens.Lens' BatchLookupPolicyResponse (Lude.Maybe Lude.Text)
-blpNextToken = Lens.lens (nextToken :: BatchLookupPolicyResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchLookupPolicyResponse)
-{-# DEPRECATED blpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+blprNextToken :: Lens.Lens' BatchLookupPolicyResponse (Core.Maybe Types.NextToken)
+blprNextToken = Lens.field @"nextToken"
+{-# DEPRECATED blprNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Provides list of path to policies. Policies contain @PolicyId@ , @ObjectIdentifier@ , and @PolicyType@ . For more information, see <https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies Policies> .
 --
 -- /Note:/ Consider using 'policyToPathList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-blpPolicyToPathList :: Lens.Lens' BatchLookupPolicyResponse (Lude.Maybe [PolicyToPath])
-blpPolicyToPathList = Lens.lens (policyToPathList :: BatchLookupPolicyResponse -> Lude.Maybe [PolicyToPath]) (\s a -> s {policyToPathList = a} :: BatchLookupPolicyResponse)
-{-# DEPRECATED blpPolicyToPathList "Use generic-lens or generic-optics with 'policyToPathList' instead." #-}
+blprPolicyToPathList :: Lens.Lens' BatchLookupPolicyResponse (Core.Maybe [Types.PolicyToPath])
+blprPolicyToPathList = Lens.field @"policyToPathList"
+{-# DEPRECATED blprPolicyToPathList "Use generic-lens or generic-optics with 'policyToPathList' instead." #-}
 
-instance Lude.FromJSON BatchLookupPolicyResponse where
+instance Core.FromJSON BatchLookupPolicyResponse where
   parseJSON =
-    Lude.withObject
-      "BatchLookupPolicyResponse"
-      ( \x ->
-          BatchLookupPolicyResponse'
-            Lude.<$> (x Lude..:? "NextToken")
-            Lude.<*> (x Lude..:? "PolicyToPathList" Lude..!= Lude.mempty)
-      )
+    Core.withObject "BatchLookupPolicyResponse" Core.$
+      \x ->
+        BatchLookupPolicyResponse'
+          Core.<$> (x Core..:? "NextToken") Core.<*> (x Core..:? "PolicyToPathList")

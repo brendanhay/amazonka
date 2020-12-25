@@ -13,51 +13,56 @@
 module Network.AWS.IAM.Types.AssignmentStatusType
   ( AssignmentStatusType
       ( AssignmentStatusType',
-        Assigned,
-        Unassigned,
-        Any
+        AssignmentStatusTypeAssigned,
+        AssignmentStatusTypeUnassigned,
+        AssignmentStatusTypeAny,
+        fromAssignmentStatusType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AssignmentStatusType = AssignmentStatusType' Lude.Text
+newtype AssignmentStatusType = AssignmentStatusType'
+  { fromAssignmentStatusType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Assigned :: AssignmentStatusType
-pattern Assigned = AssignmentStatusType' "Assigned"
+pattern AssignmentStatusTypeAssigned :: AssignmentStatusType
+pattern AssignmentStatusTypeAssigned = AssignmentStatusType' "Assigned"
 
-pattern Unassigned :: AssignmentStatusType
-pattern Unassigned = AssignmentStatusType' "Unassigned"
+pattern AssignmentStatusTypeUnassigned :: AssignmentStatusType
+pattern AssignmentStatusTypeUnassigned = AssignmentStatusType' "Unassigned"
 
-pattern Any :: AssignmentStatusType
-pattern Any = AssignmentStatusType' "Any"
+pattern AssignmentStatusTypeAny :: AssignmentStatusType
+pattern AssignmentStatusTypeAny = AssignmentStatusType' "Any"
 
 {-# COMPLETE
-  Assigned,
-  Unassigned,
-  Any,
+  AssignmentStatusTypeAssigned,
+  AssignmentStatusTypeUnassigned,
+  AssignmentStatusTypeAny,
   AssignmentStatusType'
   #-}

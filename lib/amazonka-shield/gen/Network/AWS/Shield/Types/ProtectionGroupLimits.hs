@@ -23,58 +23,49 @@ module Network.AWS.Shield.Types.ProtectionGroupLimits
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Shield.Types.ProtectionGroupPatternTypeLimits as Types
 
 -- | Limits settings on protection groups for your subscription.
 --
 -- /See:/ 'mkProtectionGroupLimits' smart constructor.
 data ProtectionGroupLimits = ProtectionGroupLimits'
   { -- | The maximum number of protection groups that you can have at one time.
-    maxProtectionGroups :: Lude.Integer,
+    maxProtectionGroups :: Core.Integer,
     -- | Limits settings by pattern type in the protection groups for your subscription.
-    patternTypeLimits :: ProtectionGroupPatternTypeLimits
+    patternTypeLimits :: Types.ProtectionGroupPatternTypeLimits
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProtectionGroupLimits' with the minimum fields required to make a request.
---
--- * 'maxProtectionGroups' - The maximum number of protection groups that you can have at one time.
--- * 'patternTypeLimits' - Limits settings by pattern type in the protection groups for your subscription.
+-- | Creates a 'ProtectionGroupLimits' value with any optional fields omitted.
 mkProtectionGroupLimits ::
   -- | 'maxProtectionGroups'
-  Lude.Integer ->
+  Core.Integer ->
   -- | 'patternTypeLimits'
-  ProtectionGroupPatternTypeLimits ->
+  Types.ProtectionGroupPatternTypeLimits ->
   ProtectionGroupLimits
-mkProtectionGroupLimits pMaxProtectionGroups_ pPatternTypeLimits_ =
-  ProtectionGroupLimits'
-    { maxProtectionGroups =
-        pMaxProtectionGroups_,
-      patternTypeLimits = pPatternTypeLimits_
-    }
+mkProtectionGroupLimits maxProtectionGroups patternTypeLimits =
+  ProtectionGroupLimits' {maxProtectionGroups, patternTypeLimits}
 
 -- | The maximum number of protection groups that you can have at one time.
 --
 -- /Note:/ Consider using 'maxProtectionGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pglMaxProtectionGroups :: Lens.Lens' ProtectionGroupLimits Lude.Integer
-pglMaxProtectionGroups = Lens.lens (maxProtectionGroups :: ProtectionGroupLimits -> Lude.Integer) (\s a -> s {maxProtectionGroups = a} :: ProtectionGroupLimits)
+pglMaxProtectionGroups :: Lens.Lens' ProtectionGroupLimits Core.Integer
+pglMaxProtectionGroups = Lens.field @"maxProtectionGroups"
 {-# DEPRECATED pglMaxProtectionGroups "Use generic-lens or generic-optics with 'maxProtectionGroups' instead." #-}
 
 -- | Limits settings by pattern type in the protection groups for your subscription.
 --
 -- /Note:/ Consider using 'patternTypeLimits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pglPatternTypeLimits :: Lens.Lens' ProtectionGroupLimits ProtectionGroupPatternTypeLimits
-pglPatternTypeLimits = Lens.lens (patternTypeLimits :: ProtectionGroupLimits -> ProtectionGroupPatternTypeLimits) (\s a -> s {patternTypeLimits = a} :: ProtectionGroupLimits)
+pglPatternTypeLimits :: Lens.Lens' ProtectionGroupLimits Types.ProtectionGroupPatternTypeLimits
+pglPatternTypeLimits = Lens.field @"patternTypeLimits"
 {-# DEPRECATED pglPatternTypeLimits "Use generic-lens or generic-optics with 'patternTypeLimits' instead." #-}
 
-instance Lude.FromJSON ProtectionGroupLimits where
+instance Core.FromJSON ProtectionGroupLimits where
   parseJSON =
-    Lude.withObject
-      "ProtectionGroupLimits"
-      ( \x ->
-          ProtectionGroupLimits'
-            Lude.<$> (x Lude..: "MaxProtectionGroups")
-            Lude.<*> (x Lude..: "PatternTypeLimits")
-      )
+    Core.withObject "ProtectionGroupLimits" Core.$
+      \x ->
+        ProtectionGroupLimits'
+          Core.<$> (x Core..: "MaxProtectionGroups")
+          Core.<*> (x Core..: "PatternTypeLimits")

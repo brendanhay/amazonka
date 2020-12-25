@@ -46,119 +46,115 @@ module Network.AWS.EC2.DescribeAccountAttributes
     mkDescribeAccountAttributesResponse,
 
     -- ** Response lenses
-    daarsAccountAttributes,
-    daarsResponseStatus,
+    daarrsAccountAttributes,
+    daarrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAccountAttributes' smart constructor.
 data DescribeAccountAttributes = DescribeAccountAttributes'
   { -- | The account attribute names.
-    attributeNames :: Lude.Maybe [AccountAttributeName],
+    attributeNames :: Core.Maybe [Types.AccountAttributeName],
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAccountAttributes' with the minimum fields required to make a request.
---
--- * 'attributeNames' - The account attribute names.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DescribeAccountAttributes' value with any optional fields omitted.
 mkDescribeAccountAttributes ::
   DescribeAccountAttributes
 mkDescribeAccountAttributes =
   DescribeAccountAttributes'
-    { attributeNames = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { attributeNames = Core.Nothing,
+      dryRun = Core.Nothing
     }
 
 -- | The account attribute names.
 --
 -- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daaAttributeNames :: Lens.Lens' DescribeAccountAttributes (Lude.Maybe [AccountAttributeName])
-daaAttributeNames = Lens.lens (attributeNames :: DescribeAccountAttributes -> Lude.Maybe [AccountAttributeName]) (\s a -> s {attributeNames = a} :: DescribeAccountAttributes)
+daaAttributeNames :: Lens.Lens' DescribeAccountAttributes (Core.Maybe [Types.AccountAttributeName])
+daaAttributeNames = Lens.field @"attributeNames"
 {-# DEPRECATED daaAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daaDryRun :: Lens.Lens' DescribeAccountAttributes (Lude.Maybe Lude.Bool)
-daaDryRun = Lens.lens (dryRun :: DescribeAccountAttributes -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribeAccountAttributes)
+daaDryRun :: Lens.Lens' DescribeAccountAttributes (Core.Maybe Core.Bool)
+daaDryRun = Lens.field @"dryRun"
 {-# DEPRECATED daaDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DescribeAccountAttributes where
+instance Core.AWSRequest DescribeAccountAttributes where
   type
     Rs DescribeAccountAttributes =
       DescribeAccountAttributesResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeAccountAttributes")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryList "AttributeName" Core.<$> attributeNames)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribeAccountAttributesResponse'
-            Lude.<$> ( x Lude..@? "accountAttributeSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
+            Core.<$> ( x Core..@? "accountAttributeSet"
+                         Core..<@> Core.parseXMLList "item"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAccountAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAccountAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeAccountAttributes where
-  toQuery DescribeAccountAttributes' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeAccountAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          (Lude.toQueryList "AttributeName" Lude.<$> attributeNames),
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkDescribeAccountAttributesResponse' smart constructor.
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
   { -- | Information about the account attributes.
-    accountAttributes :: Lude.Maybe [AccountAttribute],
+    accountAttributes :: Core.Maybe [Types.AccountAttribute],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAccountAttributesResponse' with the minimum fields required to make a request.
---
--- * 'accountAttributes' - Information about the account attributes.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAccountAttributesResponse' value with any optional fields omitted.
 mkDescribeAccountAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAccountAttributesResponse
-mkDescribeAccountAttributesResponse pResponseStatus_ =
+mkDescribeAccountAttributesResponse responseStatus =
   DescribeAccountAttributesResponse'
     { accountAttributes =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the account attributes.
 --
 -- /Note:/ Consider using 'accountAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsAccountAttributes :: Lens.Lens' DescribeAccountAttributesResponse (Lude.Maybe [AccountAttribute])
-daarsAccountAttributes = Lens.lens (accountAttributes :: DescribeAccountAttributesResponse -> Lude.Maybe [AccountAttribute]) (\s a -> s {accountAttributes = a} :: DescribeAccountAttributesResponse)
-{-# DEPRECATED daarsAccountAttributes "Use generic-lens or generic-optics with 'accountAttributes' instead." #-}
+daarrsAccountAttributes :: Lens.Lens' DescribeAccountAttributesResponse (Core.Maybe [Types.AccountAttribute])
+daarrsAccountAttributes = Lens.field @"accountAttributes"
+{-# DEPRECATED daarrsAccountAttributes "Use generic-lens or generic-optics with 'accountAttributes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daarsResponseStatus :: Lens.Lens' DescribeAccountAttributesResponse Lude.Int
-daarsResponseStatus = Lens.lens (responseStatus :: DescribeAccountAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAccountAttributesResponse)
-{-# DEPRECATED daarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+daarrsResponseStatus :: Lens.Lens' DescribeAccountAttributesResponse Core.Int
+daarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED daarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

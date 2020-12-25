@@ -13,71 +13,76 @@
 module Network.AWS.DeviceFarm.Types.ExecutionResult
   ( ExecutionResult
       ( ExecutionResult',
-        ERPending,
-        ERPassed,
-        ERWarned,
-        ERFailed,
-        ERSkipped,
-        ERErrored,
-        ERStopped
+        ExecutionResultPending,
+        ExecutionResultPassed,
+        ExecutionResultWarned,
+        ExecutionResultFailed,
+        ExecutionResultSkipped,
+        ExecutionResultErrored,
+        ExecutionResultStopped,
+        fromExecutionResult
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExecutionResult = ExecutionResult' Lude.Text
+newtype ExecutionResult = ExecutionResult'
+  { fromExecutionResult ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ERPending :: ExecutionResult
-pattern ERPending = ExecutionResult' "PENDING"
+pattern ExecutionResultPending :: ExecutionResult
+pattern ExecutionResultPending = ExecutionResult' "PENDING"
 
-pattern ERPassed :: ExecutionResult
-pattern ERPassed = ExecutionResult' "PASSED"
+pattern ExecutionResultPassed :: ExecutionResult
+pattern ExecutionResultPassed = ExecutionResult' "PASSED"
 
-pattern ERWarned :: ExecutionResult
-pattern ERWarned = ExecutionResult' "WARNED"
+pattern ExecutionResultWarned :: ExecutionResult
+pattern ExecutionResultWarned = ExecutionResult' "WARNED"
 
-pattern ERFailed :: ExecutionResult
-pattern ERFailed = ExecutionResult' "FAILED"
+pattern ExecutionResultFailed :: ExecutionResult
+pattern ExecutionResultFailed = ExecutionResult' "FAILED"
 
-pattern ERSkipped :: ExecutionResult
-pattern ERSkipped = ExecutionResult' "SKIPPED"
+pattern ExecutionResultSkipped :: ExecutionResult
+pattern ExecutionResultSkipped = ExecutionResult' "SKIPPED"
 
-pattern ERErrored :: ExecutionResult
-pattern ERErrored = ExecutionResult' "ERRORED"
+pattern ExecutionResultErrored :: ExecutionResult
+pattern ExecutionResultErrored = ExecutionResult' "ERRORED"
 
-pattern ERStopped :: ExecutionResult
-pattern ERStopped = ExecutionResult' "STOPPED"
+pattern ExecutionResultStopped :: ExecutionResult
+pattern ExecutionResultStopped = ExecutionResult' "STOPPED"
 
 {-# COMPLETE
-  ERPending,
-  ERPassed,
-  ERWarned,
-  ERFailed,
-  ERSkipped,
-  ERErrored,
-  ERStopped,
+  ExecutionResultPending,
+  ExecutionResultPassed,
+  ExecutionResultWarned,
+  ExecutionResultFailed,
+  ExecutionResultSkipped,
+  ExecutionResultErrored,
+  ExecutionResultStopped,
   ExecutionResult'
   #-}

@@ -17,127 +17,123 @@ module Network.AWS.CloudWatchEvents.Types.RedshiftDataParameters
     mkRedshiftDataParameters,
 
     -- * Lenses
-    rdpDBUser,
     rdpDatabase,
-    rdpSecretManagerARN,
-    rdpStatementName,
     rdpSql,
+    rdpDbUser,
+    rdpSecretManagerArn,
+    rdpStatementName,
     rdpWithEvent,
   )
 where
 
+import qualified Network.AWS.CloudWatchEvents.Types.Database as Types
+import qualified Network.AWS.CloudWatchEvents.Types.DbUser as Types
+import qualified Network.AWS.CloudWatchEvents.Types.SecretManagerArn as Types
+import qualified Network.AWS.CloudWatchEvents.Types.Sql as Types
+import qualified Network.AWS.CloudWatchEvents.Types.StatementName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | These are custom parameters to be used when the target is a Redshift cluster to invoke the Redshift Data API ExecuteStatement based on EventBridge events.
 --
 -- /See:/ 'mkRedshiftDataParameters' smart constructor.
 data RedshiftDataParameters = RedshiftDataParameters'
-  { -- | The database user name. Required when authenticating using temporary credentials.
-    dbUser :: Lude.Maybe Lude.Text,
-    -- | The name of the database. Required when authenticating using temporary credentials.
-    database :: Lude.Text,
-    -- | The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.
-    secretManagerARN :: Lude.Maybe Lude.Text,
-    -- | The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
-    statementName :: Lude.Maybe Lude.Text,
+  { -- | The name of the database. Required when authenticating using temporary credentials.
+    database :: Types.Database,
     -- | The SQL statement text to run.
-    sql :: Lude.Text,
+    sql :: Types.Sql,
+    -- | The database user name. Required when authenticating using temporary credentials.
+    dbUser :: Core.Maybe Types.DbUser,
+    -- | The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.
+    secretManagerArn :: Core.Maybe Types.SecretManagerArn,
+    -- | The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+    statementName :: Core.Maybe Types.StatementName,
     -- | Indicates whether to send an event back to EventBridge after the SQL statement runs.
-    withEvent :: Lude.Maybe Lude.Bool
+    withEvent :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RedshiftDataParameters' with the minimum fields required to make a request.
---
--- * 'dbUser' - The database user name. Required when authenticating using temporary credentials.
--- * 'database' - The name of the database. Required when authenticating using temporary credentials.
--- * 'secretManagerARN' - The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.
--- * 'statementName' - The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
--- * 'sql' - The SQL statement text to run.
--- * 'withEvent' - Indicates whether to send an event back to EventBridge after the SQL statement runs.
+-- | Creates a 'RedshiftDataParameters' value with any optional fields omitted.
 mkRedshiftDataParameters ::
   -- | 'database'
-  Lude.Text ->
+  Types.Database ->
   -- | 'sql'
-  Lude.Text ->
+  Types.Sql ->
   RedshiftDataParameters
-mkRedshiftDataParameters pDatabase_ pSql_ =
+mkRedshiftDataParameters database sql =
   RedshiftDataParameters'
-    { dbUser = Lude.Nothing,
-      database = pDatabase_,
-      secretManagerARN = Lude.Nothing,
-      statementName = Lude.Nothing,
-      sql = pSql_,
-      withEvent = Lude.Nothing
+    { database,
+      sql,
+      dbUser = Core.Nothing,
+      secretManagerArn = Core.Nothing,
+      statementName = Core.Nothing,
+      withEvent = Core.Nothing
     }
-
--- | The database user name. Required when authenticating using temporary credentials.
---
--- /Note:/ Consider using 'dbUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdpDBUser :: Lens.Lens' RedshiftDataParameters (Lude.Maybe Lude.Text)
-rdpDBUser = Lens.lens (dbUser :: RedshiftDataParameters -> Lude.Maybe Lude.Text) (\s a -> s {dbUser = a} :: RedshiftDataParameters)
-{-# DEPRECATED rdpDBUser "Use generic-lens or generic-optics with 'dbUser' instead." #-}
 
 -- | The name of the database. Required when authenticating using temporary credentials.
 --
 -- /Note:/ Consider using 'database' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdpDatabase :: Lens.Lens' RedshiftDataParameters Lude.Text
-rdpDatabase = Lens.lens (database :: RedshiftDataParameters -> Lude.Text) (\s a -> s {database = a} :: RedshiftDataParameters)
+rdpDatabase :: Lens.Lens' RedshiftDataParameters Types.Database
+rdpDatabase = Lens.field @"database"
 {-# DEPRECATED rdpDatabase "Use generic-lens or generic-optics with 'database' instead." #-}
-
--- | The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.
---
--- /Note:/ Consider using 'secretManagerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdpSecretManagerARN :: Lens.Lens' RedshiftDataParameters (Lude.Maybe Lude.Text)
-rdpSecretManagerARN = Lens.lens (secretManagerARN :: RedshiftDataParameters -> Lude.Maybe Lude.Text) (\s a -> s {secretManagerARN = a} :: RedshiftDataParameters)
-{-# DEPRECATED rdpSecretManagerARN "Use generic-lens or generic-optics with 'secretManagerARN' instead." #-}
-
--- | The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
---
--- /Note:/ Consider using 'statementName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdpStatementName :: Lens.Lens' RedshiftDataParameters (Lude.Maybe Lude.Text)
-rdpStatementName = Lens.lens (statementName :: RedshiftDataParameters -> Lude.Maybe Lude.Text) (\s a -> s {statementName = a} :: RedshiftDataParameters)
-{-# DEPRECATED rdpStatementName "Use generic-lens or generic-optics with 'statementName' instead." #-}
 
 -- | The SQL statement text to run.
 --
 -- /Note:/ Consider using 'sql' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdpSql :: Lens.Lens' RedshiftDataParameters Lude.Text
-rdpSql = Lens.lens (sql :: RedshiftDataParameters -> Lude.Text) (\s a -> s {sql = a} :: RedshiftDataParameters)
+rdpSql :: Lens.Lens' RedshiftDataParameters Types.Sql
+rdpSql = Lens.field @"sql"
 {-# DEPRECATED rdpSql "Use generic-lens or generic-optics with 'sql' instead." #-}
+
+-- | The database user name. Required when authenticating using temporary credentials.
+--
+-- /Note:/ Consider using 'dbUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpDbUser :: Lens.Lens' RedshiftDataParameters (Core.Maybe Types.DbUser)
+rdpDbUser = Lens.field @"dbUser"
+{-# DEPRECATED rdpDbUser "Use generic-lens or generic-optics with 'dbUser' instead." #-}
+
+-- | The name or ARN of the secret that enables access to the database. Required when authenticating using AWS Secrets Manager.
+--
+-- /Note:/ Consider using 'secretManagerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpSecretManagerArn :: Lens.Lens' RedshiftDataParameters (Core.Maybe Types.SecretManagerArn)
+rdpSecretManagerArn = Lens.field @"secretManagerArn"
+{-# DEPRECATED rdpSecretManagerArn "Use generic-lens or generic-optics with 'secretManagerArn' instead." #-}
+
+-- | The name of the SQL statement. You can name the SQL statement when you create it to identify the query.
+--
+-- /Note:/ Consider using 'statementName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdpStatementName :: Lens.Lens' RedshiftDataParameters (Core.Maybe Types.StatementName)
+rdpStatementName = Lens.field @"statementName"
+{-# DEPRECATED rdpStatementName "Use generic-lens or generic-optics with 'statementName' instead." #-}
 
 -- | Indicates whether to send an event back to EventBridge after the SQL statement runs.
 --
 -- /Note:/ Consider using 'withEvent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdpWithEvent :: Lens.Lens' RedshiftDataParameters (Lude.Maybe Lude.Bool)
-rdpWithEvent = Lens.lens (withEvent :: RedshiftDataParameters -> Lude.Maybe Lude.Bool) (\s a -> s {withEvent = a} :: RedshiftDataParameters)
+rdpWithEvent :: Lens.Lens' RedshiftDataParameters (Core.Maybe Core.Bool)
+rdpWithEvent = Lens.field @"withEvent"
 {-# DEPRECATED rdpWithEvent "Use generic-lens or generic-optics with 'withEvent' instead." #-}
 
-instance Lude.FromJSON RedshiftDataParameters where
-  parseJSON =
-    Lude.withObject
-      "RedshiftDataParameters"
-      ( \x ->
-          RedshiftDataParameters'
-            Lude.<$> (x Lude..:? "DbUser")
-            Lude.<*> (x Lude..: "Database")
-            Lude.<*> (x Lude..:? "SecretManagerArn")
-            Lude.<*> (x Lude..:? "StatementName")
-            Lude.<*> (x Lude..: "Sql")
-            Lude.<*> (x Lude..:? "WithEvent")
-      )
-
-instance Lude.ToJSON RedshiftDataParameters where
-  toJSON RedshiftDataParameters' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DbUser" Lude..=) Lude.<$> dbUser,
-            Lude.Just ("Database" Lude..= database),
-            ("SecretManagerArn" Lude..=) Lude.<$> secretManagerARN,
-            ("StatementName" Lude..=) Lude.<$> statementName,
-            Lude.Just ("Sql" Lude..= sql),
-            ("WithEvent" Lude..=) Lude.<$> withEvent
+instance Core.FromJSON RedshiftDataParameters where
+  toJSON RedshiftDataParameters {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Database" Core..= database),
+            Core.Just ("Sql" Core..= sql),
+            ("DbUser" Core..=) Core.<$> dbUser,
+            ("SecretManagerArn" Core..=) Core.<$> secretManagerArn,
+            ("StatementName" Core..=) Core.<$> statementName,
+            ("WithEvent" Core..=) Core.<$> withEvent
           ]
       )
+
+instance Core.FromJSON RedshiftDataParameters where
+  parseJSON =
+    Core.withObject "RedshiftDataParameters" Core.$
+      \x ->
+        RedshiftDataParameters'
+          Core.<$> (x Core..: "Database")
+          Core.<*> (x Core..: "Sql")
+          Core.<*> (x Core..:? "DbUser")
+          Core.<*> (x Core..:? "SecretManagerArn")
+          Core.<*> (x Core..:? "StatementName")
+          Core.<*> (x Core..:? "WithEvent")

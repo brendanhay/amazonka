@@ -13,51 +13,53 @@
 module Network.AWS.SageMaker.Types.S3DataType
   ( S3DataType
       ( S3DataType',
-        ManifestFile,
-        S3Prefix,
-        AugmentedManifestFile
+        S3DataTypeManifestFile,
+        S3DataTypeS3Prefix,
+        S3DataTypeAugmentedManifestFile,
+        fromS3DataType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype S3DataType = S3DataType' Lude.Text
+newtype S3DataType = S3DataType' {fromS3DataType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ManifestFile :: S3DataType
-pattern ManifestFile = S3DataType' "ManifestFile"
+pattern S3DataTypeManifestFile :: S3DataType
+pattern S3DataTypeManifestFile = S3DataType' "ManifestFile"
 
-pattern S3Prefix :: S3DataType
-pattern S3Prefix = S3DataType' "S3Prefix"
+pattern S3DataTypeS3Prefix :: S3DataType
+pattern S3DataTypeS3Prefix = S3DataType' "S3Prefix"
 
-pattern AugmentedManifestFile :: S3DataType
-pattern AugmentedManifestFile = S3DataType' "AugmentedManifestFile"
+pattern S3DataTypeAugmentedManifestFile :: S3DataType
+pattern S3DataTypeAugmentedManifestFile = S3DataType' "AugmentedManifestFile"
 
 {-# COMPLETE
-  ManifestFile,
-  S3Prefix,
-  AugmentedManifestFile,
+  S3DataTypeManifestFile,
+  S3DataTypeS3Prefix,
+  S3DataTypeAugmentedManifestFile,
   S3DataType'
   #-}

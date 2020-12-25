@@ -27,79 +27,74 @@ module Network.AWS.MediaStoreData.DeleteObject
     mkDeleteObjectResponse,
 
     -- ** Response lenses
-    dorsResponseStatus,
+    dorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaStoreData.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaStoreData.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteObject' smart constructor.
 newtype DeleteObject = DeleteObject'
   { -- | The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
-    path :: Lude.Text
+    path :: Types.PathNaming
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteObject' with the minimum fields required to make a request.
---
--- * 'path' - The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
+-- | Creates a 'DeleteObject' value with any optional fields omitted.
 mkDeleteObject ::
   -- | 'path'
-  Lude.Text ->
+  Types.PathNaming ->
   DeleteObject
-mkDeleteObject pPath_ = DeleteObject' {path = pPath_}
+mkDeleteObject path = DeleteObject' {path}
 
 -- | The path (including the file name) where the object is stored in the container. Format: <folder name>/<folder name>/<file name>
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-doPath :: Lens.Lens' DeleteObject Lude.Text
-doPath = Lens.lens (path :: DeleteObject -> Lude.Text) (\s a -> s {path = a} :: DeleteObject)
+doPath :: Lens.Lens' DeleteObject Types.PathNaming
+doPath = Lens.field @"path"
 {-# DEPRECATED doPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
-instance Lude.AWSRequest DeleteObject where
+instance Core.AWSRequest DeleteObject where
   type Rs DeleteObject = DeleteObjectResponse
-  request = Req.delete mediaStoreDataService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText path)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteObjectResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteObjectResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteObject where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteObject where
-  toPath DeleteObject' {..} = Lude.mconcat ["/", Lude.toBS path]
-
-instance Lude.ToQuery DeleteObject where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteObjectResponse' smart constructor.
 newtype DeleteObjectResponse = DeleteObjectResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteObjectResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteObjectResponse' value with any optional fields omitted.
 mkDeleteObjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteObjectResponse
-mkDeleteObjectResponse pResponseStatus_ =
-  DeleteObjectResponse' {responseStatus = pResponseStatus_}
+mkDeleteObjectResponse responseStatus =
+  DeleteObjectResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dorsResponseStatus :: Lens.Lens' DeleteObjectResponse Lude.Int
-dorsResponseStatus = Lens.lens (responseStatus :: DeleteObjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteObjectResponse)
-{-# DEPRECATED dorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dorrsResponseStatus :: Lens.Lens' DeleteObjectResponse Core.Int
+dorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

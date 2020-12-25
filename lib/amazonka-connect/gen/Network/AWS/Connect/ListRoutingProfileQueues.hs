@@ -24,183 +24,169 @@ module Network.AWS.Connect.ListRoutingProfileQueues
     -- ** Request lenses
     lrpqInstanceId,
     lrpqRoutingProfileId,
-    lrpqNextToken,
     lrpqMaxResults,
+    lrpqNextToken,
 
     -- * Destructuring the response
     ListRoutingProfileQueuesResponse (..),
     mkListRoutingProfileQueuesResponse,
 
     -- ** Response lenses
-    lrpqrsRoutingProfileQueueConfigSummaryList,
-    lrpqrsNextToken,
-    lrpqrsResponseStatus,
+    lrpqrrsNextToken,
+    lrpqrrsRoutingProfileQueueConfigSummaryList,
+    lrpqrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListRoutingProfileQueues' smart constructor.
 data ListRoutingProfileQueues = ListRoutingProfileQueues'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The identifier of the routing profile.
-    routingProfileId :: Lude.Text,
-    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    routingProfileId :: Types.RoutingProfileId,
     -- | The maximimum number of results to return per page.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRoutingProfileQueues' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'routingProfileId' - The identifier of the routing profile.
--- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
--- * 'maxResults' - The maximimum number of results to return per page.
+-- | Creates a 'ListRoutingProfileQueues' value with any optional fields omitted.
 mkListRoutingProfileQueues ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'routingProfileId'
-  Lude.Text ->
+  Types.RoutingProfileId ->
   ListRoutingProfileQueues
-mkListRoutingProfileQueues pInstanceId_ pRoutingProfileId_ =
+mkListRoutingProfileQueues instanceId routingProfileId =
   ListRoutingProfileQueues'
-    { instanceId = pInstanceId_,
-      routingProfileId = pRoutingProfileId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { instanceId,
+      routingProfileId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrpqInstanceId :: Lens.Lens' ListRoutingProfileQueues Lude.Text
-lrpqInstanceId = Lens.lens (instanceId :: ListRoutingProfileQueues -> Lude.Text) (\s a -> s {instanceId = a} :: ListRoutingProfileQueues)
+lrpqInstanceId :: Lens.Lens' ListRoutingProfileQueues Types.InstanceId
+lrpqInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED lrpqInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the routing profile.
 --
 -- /Note:/ Consider using 'routingProfileId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrpqRoutingProfileId :: Lens.Lens' ListRoutingProfileQueues Lude.Text
-lrpqRoutingProfileId = Lens.lens (routingProfileId :: ListRoutingProfileQueues -> Lude.Text) (\s a -> s {routingProfileId = a} :: ListRoutingProfileQueues)
+lrpqRoutingProfileId :: Lens.Lens' ListRoutingProfileQueues Types.RoutingProfileId
+lrpqRoutingProfileId = Lens.field @"routingProfileId"
 {-# DEPRECATED lrpqRoutingProfileId "Use generic-lens or generic-optics with 'routingProfileId' instead." #-}
-
--- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrpqNextToken :: Lens.Lens' ListRoutingProfileQueues (Lude.Maybe Lude.Text)
-lrpqNextToken = Lens.lens (nextToken :: ListRoutingProfileQueues -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRoutingProfileQueues)
-{-# DEPRECATED lrpqNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrpqMaxResults :: Lens.Lens' ListRoutingProfileQueues (Lude.Maybe Lude.Natural)
-lrpqMaxResults = Lens.lens (maxResults :: ListRoutingProfileQueues -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListRoutingProfileQueues)
+lrpqMaxResults :: Lens.Lens' ListRoutingProfileQueues (Core.Maybe Core.Natural)
+lrpqMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lrpqMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListRoutingProfileQueues where
-  page rq rs
-    | Page.stop (rs Lens.^. lrpqrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lrpqrsRoutingProfileQueueConfigSummaryList) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lrpqNextToken Lens..~ rs Lens.^. lrpqrsNextToken
+-- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrpqNextToken :: Lens.Lens' ListRoutingProfileQueues (Core.Maybe Types.NextToken)
+lrpqNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrpqNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListRoutingProfileQueues where
+instance Core.AWSRequest ListRoutingProfileQueues where
   type Rs ListRoutingProfileQueues = ListRoutingProfileQueuesResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/routing-profiles/" Core.<> (Core.toText instanceId)
+                Core.<> ("/")
+                Core.<> (Core.toText routingProfileId)
+                Core.<> ("/queues")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListRoutingProfileQueuesResponse'
-            Lude.<$> ( x Lude..?> "RoutingProfileQueueConfigSummaryList"
-                         Lude..!@ Lude.mempty
-                     )
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "RoutingProfileQueueConfigSummaryList")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListRoutingProfileQueues where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListRoutingProfileQueues where
-  toPath ListRoutingProfileQueues' {..} =
-    Lude.mconcat
-      [ "/routing-profiles/",
-        Lude.toBS instanceId,
-        "/",
-        Lude.toBS routingProfileId,
-        "/queues"
-      ]
-
-instance Lude.ToQuery ListRoutingProfileQueues where
-  toQuery ListRoutingProfileQueues' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListRoutingProfileQueues where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"routingProfileQueueConfigSummaryList"
+              Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListRoutingProfileQueuesResponse' smart constructor.
 data ListRoutingProfileQueuesResponse = ListRoutingProfileQueuesResponse'
-  { -- | Information about the routing profiles.
-    routingProfileQueueConfigSummaryList :: Lude.Maybe [RoutingProfileQueueConfigSummary],
-    -- | If there are additional results, this is the token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | If there are additional results, this is the token for the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | Information about the routing profiles.
+    routingProfileQueueConfigSummaryList :: Core.Maybe [Types.RoutingProfileQueueConfigSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListRoutingProfileQueuesResponse' with the minimum fields required to make a request.
---
--- * 'routingProfileQueueConfigSummaryList' - Information about the routing profiles.
--- * 'nextToken' - If there are additional results, this is the token for the next set of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListRoutingProfileQueuesResponse' value with any optional fields omitted.
 mkListRoutingProfileQueuesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListRoutingProfileQueuesResponse
-mkListRoutingProfileQueuesResponse pResponseStatus_ =
+mkListRoutingProfileQueuesResponse responseStatus =
   ListRoutingProfileQueuesResponse'
-    { routingProfileQueueConfigSummaryList =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      routingProfileQueueConfigSummaryList = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the routing profiles.
---
--- /Note:/ Consider using 'routingProfileQueueConfigSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrpqrsRoutingProfileQueueConfigSummaryList :: Lens.Lens' ListRoutingProfileQueuesResponse (Lude.Maybe [RoutingProfileQueueConfigSummary])
-lrpqrsRoutingProfileQueueConfigSummaryList = Lens.lens (routingProfileQueueConfigSummaryList :: ListRoutingProfileQueuesResponse -> Lude.Maybe [RoutingProfileQueueConfigSummary]) (\s a -> s {routingProfileQueueConfigSummaryList = a} :: ListRoutingProfileQueuesResponse)
-{-# DEPRECATED lrpqrsRoutingProfileQueueConfigSummaryList "Use generic-lens or generic-optics with 'routingProfileQueueConfigSummaryList' instead." #-}
 
 -- | If there are additional results, this is the token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrpqrsNextToken :: Lens.Lens' ListRoutingProfileQueuesResponse (Lude.Maybe Lude.Text)
-lrpqrsNextToken = Lens.lens (nextToken :: ListRoutingProfileQueuesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListRoutingProfileQueuesResponse)
-{-# DEPRECATED lrpqrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lrpqrrsNextToken :: Lens.Lens' ListRoutingProfileQueuesResponse (Core.Maybe Types.NextToken)
+lrpqrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lrpqrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Information about the routing profiles.
+--
+-- /Note:/ Consider using 'routingProfileQueueConfigSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrpqrrsRoutingProfileQueueConfigSummaryList :: Lens.Lens' ListRoutingProfileQueuesResponse (Core.Maybe [Types.RoutingProfileQueueConfigSummary])
+lrpqrrsRoutingProfileQueueConfigSummaryList = Lens.field @"routingProfileQueueConfigSummaryList"
+{-# DEPRECATED lrpqrrsRoutingProfileQueueConfigSummaryList "Use generic-lens or generic-optics with 'routingProfileQueueConfigSummaryList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrpqrsResponseStatus :: Lens.Lens' ListRoutingProfileQueuesResponse Lude.Int
-lrpqrsResponseStatus = Lens.lens (responseStatus :: ListRoutingProfileQueuesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListRoutingProfileQueuesResponse)
-{-# DEPRECATED lrpqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lrpqrrsResponseStatus :: Lens.Lens' ListRoutingProfileQueuesResponse Core.Int
+lrpqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lrpqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

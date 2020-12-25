@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.NetworkInputServerValidation
   ( NetworkInputServerValidation
       ( NetworkInputServerValidation',
-        CheckCryptographyAndValidateName,
-        CheckCryptographyOnly
+        NetworkInputServerValidationCheckCryptographyAndValidateName,
+        NetworkInputServerValidationCheckCryptographyOnly,
+        fromNetworkInputServerValidation
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Network Input Server Validation
-newtype NetworkInputServerValidation = NetworkInputServerValidation' Lude.Text
+newtype NetworkInputServerValidation = NetworkInputServerValidation'
+  { fromNetworkInputServerValidation ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CheckCryptographyAndValidateName :: NetworkInputServerValidation
-pattern CheckCryptographyAndValidateName = NetworkInputServerValidation' "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME"
+pattern NetworkInputServerValidationCheckCryptographyAndValidateName :: NetworkInputServerValidation
+pattern NetworkInputServerValidationCheckCryptographyAndValidateName = NetworkInputServerValidation' "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME"
 
-pattern CheckCryptographyOnly :: NetworkInputServerValidation
-pattern CheckCryptographyOnly = NetworkInputServerValidation' "CHECK_CRYPTOGRAPHY_ONLY"
+pattern NetworkInputServerValidationCheckCryptographyOnly :: NetworkInputServerValidation
+pattern NetworkInputServerValidationCheckCryptographyOnly = NetworkInputServerValidation' "CHECK_CRYPTOGRAPHY_ONLY"
 
 {-# COMPLETE
-  CheckCryptographyAndValidateName,
-  CheckCryptographyOnly,
+  NetworkInputServerValidationCheckCryptographyAndValidateName,
+  NetworkInputServerValidationCheckCryptographyOnly,
   NetworkInputServerValidation'
   #-}

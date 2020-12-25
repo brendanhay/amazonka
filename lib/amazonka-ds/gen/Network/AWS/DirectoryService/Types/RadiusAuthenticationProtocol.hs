@@ -13,56 +13,61 @@
 module Network.AWS.DirectoryService.Types.RadiusAuthenticationProtocol
   ( RadiusAuthenticationProtocol
       ( RadiusAuthenticationProtocol',
-        Pap,
-        Chap,
-        MsCHAPV1,
-        MsCHAPV2
+        RadiusAuthenticationProtocolPap,
+        RadiusAuthenticationProtocolChap,
+        RadiusAuthenticationProtocolMsCHAPV1,
+        RadiusAuthenticationProtocolMsCHAPV2,
+        fromRadiusAuthenticationProtocol
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RadiusAuthenticationProtocol = RadiusAuthenticationProtocol' Lude.Text
+newtype RadiusAuthenticationProtocol = RadiusAuthenticationProtocol'
+  { fromRadiusAuthenticationProtocol ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Pap :: RadiusAuthenticationProtocol
-pattern Pap = RadiusAuthenticationProtocol' "PAP"
+pattern RadiusAuthenticationProtocolPap :: RadiusAuthenticationProtocol
+pattern RadiusAuthenticationProtocolPap = RadiusAuthenticationProtocol' "PAP"
 
-pattern Chap :: RadiusAuthenticationProtocol
-pattern Chap = RadiusAuthenticationProtocol' "CHAP"
+pattern RadiusAuthenticationProtocolChap :: RadiusAuthenticationProtocol
+pattern RadiusAuthenticationProtocolChap = RadiusAuthenticationProtocol' "CHAP"
 
-pattern MsCHAPV1 :: RadiusAuthenticationProtocol
-pattern MsCHAPV1 = RadiusAuthenticationProtocol' "MS-CHAPv1"
+pattern RadiusAuthenticationProtocolMsCHAPV1 :: RadiusAuthenticationProtocol
+pattern RadiusAuthenticationProtocolMsCHAPV1 = RadiusAuthenticationProtocol' "MS-CHAPv1"
 
-pattern MsCHAPV2 :: RadiusAuthenticationProtocol
-pattern MsCHAPV2 = RadiusAuthenticationProtocol' "MS-CHAPv2"
+pattern RadiusAuthenticationProtocolMsCHAPV2 :: RadiusAuthenticationProtocol
+pattern RadiusAuthenticationProtocolMsCHAPV2 = RadiusAuthenticationProtocol' "MS-CHAPv2"
 
 {-# COMPLETE
-  Pap,
-  Chap,
-  MsCHAPV1,
-  MsCHAPV2,
+  RadiusAuthenticationProtocolPap,
+  RadiusAuthenticationProtocolChap,
+  RadiusAuthenticationProtocolMsCHAPV1,
+  RadiusAuthenticationProtocolMsCHAPV2,
   RadiusAuthenticationProtocol'
   #-}

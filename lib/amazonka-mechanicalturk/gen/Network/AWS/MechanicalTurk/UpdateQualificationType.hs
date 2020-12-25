@@ -27,114 +27,129 @@ module Network.AWS.MechanicalTurk.UpdateQualificationType
     mkUpdateQualificationType,
 
     -- ** Request lenses
-    uqtTestDurationInSeconds,
-    uqtQualificationTypeStatus,
-    uqtAnswerKey,
-    uqtTest,
     uqtQualificationTypeId,
+    uqtAnswerKey,
     uqtAutoGranted,
     uqtAutoGrantedValue,
     uqtDescription,
+    uqtQualificationTypeStatus,
     uqtRetryDelayInSeconds,
+    uqtTest,
+    uqtTestDurationInSeconds,
 
     -- * Destructuring the response
     UpdateQualificationTypeResponse (..),
     mkUpdateQualificationTypeResponse,
 
     -- ** Response lenses
-    uqtrsQualificationType,
-    uqtrsResponseStatus,
+    uqtrrsQualificationType,
+    uqtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateQualificationType' smart constructor.
 data UpdateQualificationType = UpdateQualificationType'
-  { -- | The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
-    testDurationInSeconds :: Lude.Maybe Lude.Integer,
-    -- | The new status of the Qualification type - Active | Inactive
-    qualificationTypeStatus :: Lude.Maybe QualificationTypeStatus,
+  { -- | The ID of the Qualification type to update.
+    qualificationTypeId :: Types.EntityId,
     -- | The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.
-    answerKey :: Lude.Maybe Lude.Text,
+    answerKey :: Core.Maybe Types.String,
+    -- | Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.
+    --
+    -- Constraints: If the Test parameter is specified, this parameter cannot be true.
+    autoGranted :: Core.Maybe Core.Bool,
+    -- | The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
+    autoGrantedValue :: Core.Maybe Core.Int,
+    -- | The new description of the Qualification type.
+    description :: Core.Maybe Types.String,
+    -- | The new status of the Qualification type - Active | Inactive
+    qualificationTypeStatus :: Core.Maybe Types.QualificationTypeStatus,
+    -- | The amount of time, in seconds, that Workers must wait after requesting a Qualification of the specified Qualification type before they can retry the Qualification request. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must dispose of the existing retry-enabled Qualification type using DisposeQualificationType and then create a new Qualification type with retries disabled using CreateQualificationType.
+    retryDelayInSeconds :: Core.Maybe Core.Integer,
     -- | The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, @TestDurationInSeconds@ must also be specified.
     --
     -- Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.
     -- Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.
-    test :: Lude.Maybe Lude.Text,
-    -- | The ID of the Qualification type to update.
-    qualificationTypeId :: Lude.Text,
-    -- | Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.
-    --
-    -- Constraints: If the Test parameter is specified, this parameter cannot be true.
-    autoGranted :: Lude.Maybe Lude.Bool,
-    -- | The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
-    autoGrantedValue :: Lude.Maybe Lude.Int,
-    -- | The new description of the Qualification type.
-    description :: Lude.Maybe Lude.Text,
-    -- | The amount of time, in seconds, that Workers must wait after requesting a Qualification of the specified Qualification type before they can retry the Qualification request. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must dispose of the existing retry-enabled Qualification type using DisposeQualificationType and then create a new Qualification type with retries disabled using CreateQualificationType.
-    retryDelayInSeconds :: Lude.Maybe Lude.Integer
+    test :: Core.Maybe Types.String,
+    -- | The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
+    testDurationInSeconds :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateQualificationType' with the minimum fields required to make a request.
---
--- * 'testDurationInSeconds' - The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
--- * 'qualificationTypeStatus' - The new status of the Qualification type - Active | Inactive
--- * 'answerKey' - The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.
--- * 'test' - The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, @TestDurationInSeconds@ must also be specified.
---
--- Constraints: Must not be longer than 65535 bytes. Must be a QuestionForm data structure. This parameter cannot be specified if AutoGranted is true.
--- Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.
--- * 'qualificationTypeId' - The ID of the Qualification type to update.
--- * 'autoGranted' - Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.
---
--- Constraints: If the Test parameter is specified, this parameter cannot be true.
--- * 'autoGrantedValue' - The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
--- * 'description' - The new description of the Qualification type.
--- * 'retryDelayInSeconds' - The amount of time, in seconds, that Workers must wait after requesting a Qualification of the specified Qualification type before they can retry the Qualification request. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must dispose of the existing retry-enabled Qualification type using DisposeQualificationType and then create a new Qualification type with retries disabled using CreateQualificationType.
+-- | Creates a 'UpdateQualificationType' value with any optional fields omitted.
 mkUpdateQualificationType ::
   -- | 'qualificationTypeId'
-  Lude.Text ->
+  Types.EntityId ->
   UpdateQualificationType
-mkUpdateQualificationType pQualificationTypeId_ =
+mkUpdateQualificationType qualificationTypeId =
   UpdateQualificationType'
-    { testDurationInSeconds = Lude.Nothing,
-      qualificationTypeStatus = Lude.Nothing,
-      answerKey = Lude.Nothing,
-      test = Lude.Nothing,
-      qualificationTypeId = pQualificationTypeId_,
-      autoGranted = Lude.Nothing,
-      autoGrantedValue = Lude.Nothing,
-      description = Lude.Nothing,
-      retryDelayInSeconds = Lude.Nothing
+    { qualificationTypeId,
+      answerKey = Core.Nothing,
+      autoGranted = Core.Nothing,
+      autoGrantedValue = Core.Nothing,
+      description = Core.Nothing,
+      qualificationTypeStatus = Core.Nothing,
+      retryDelayInSeconds = Core.Nothing,
+      test = Core.Nothing,
+      testDurationInSeconds = Core.Nothing
     }
 
--- | The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
+-- | The ID of the Qualification type to update.
 --
--- /Note:/ Consider using 'testDurationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqtTestDurationInSeconds :: Lens.Lens' UpdateQualificationType (Lude.Maybe Lude.Integer)
-uqtTestDurationInSeconds = Lens.lens (testDurationInSeconds :: UpdateQualificationType -> Lude.Maybe Lude.Integer) (\s a -> s {testDurationInSeconds = a} :: UpdateQualificationType)
-{-# DEPRECATED uqtTestDurationInSeconds "Use generic-lens or generic-optics with 'testDurationInSeconds' instead." #-}
-
--- | The new status of the Qualification type - Active | Inactive
---
--- /Note:/ Consider using 'qualificationTypeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqtQualificationTypeStatus :: Lens.Lens' UpdateQualificationType (Lude.Maybe QualificationTypeStatus)
-uqtQualificationTypeStatus = Lens.lens (qualificationTypeStatus :: UpdateQualificationType -> Lude.Maybe QualificationTypeStatus) (\s a -> s {qualificationTypeStatus = a} :: UpdateQualificationType)
-{-# DEPRECATED uqtQualificationTypeStatus "Use generic-lens or generic-optics with 'qualificationTypeStatus' instead." #-}
+-- /Note:/ Consider using 'qualificationTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqtQualificationTypeId :: Lens.Lens' UpdateQualificationType Types.EntityId
+uqtQualificationTypeId = Lens.field @"qualificationTypeId"
+{-# DEPRECATED uqtQualificationTypeId "Use generic-lens or generic-optics with 'qualificationTypeId' instead." #-}
 
 -- | The answers to the Qualification test specified in the Test parameter, in the form of an AnswerKey data structure.
 --
 -- /Note:/ Consider using 'answerKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqtAnswerKey :: Lens.Lens' UpdateQualificationType (Lude.Maybe Lude.Text)
-uqtAnswerKey = Lens.lens (answerKey :: UpdateQualificationType -> Lude.Maybe Lude.Text) (\s a -> s {answerKey = a} :: UpdateQualificationType)
+uqtAnswerKey :: Lens.Lens' UpdateQualificationType (Core.Maybe Types.String)
+uqtAnswerKey = Lens.field @"answerKey"
 {-# DEPRECATED uqtAnswerKey "Use generic-lens or generic-optics with 'answerKey' instead." #-}
+
+-- | Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.
+--
+-- Constraints: If the Test parameter is specified, this parameter cannot be true.
+--
+-- /Note:/ Consider using 'autoGranted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqtAutoGranted :: Lens.Lens' UpdateQualificationType (Core.Maybe Core.Bool)
+uqtAutoGranted = Lens.field @"autoGranted"
+{-# DEPRECATED uqtAutoGranted "Use generic-lens or generic-optics with 'autoGranted' instead." #-}
+
+-- | The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
+--
+-- /Note:/ Consider using 'autoGrantedValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqtAutoGrantedValue :: Lens.Lens' UpdateQualificationType (Core.Maybe Core.Int)
+uqtAutoGrantedValue = Lens.field @"autoGrantedValue"
+{-# DEPRECATED uqtAutoGrantedValue "Use generic-lens or generic-optics with 'autoGrantedValue' instead." #-}
+
+-- | The new description of the Qualification type.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqtDescription :: Lens.Lens' UpdateQualificationType (Core.Maybe Types.String)
+uqtDescription = Lens.field @"description"
+{-# DEPRECATED uqtDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The new status of the Qualification type - Active | Inactive
+--
+-- /Note:/ Consider using 'qualificationTypeStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqtQualificationTypeStatus :: Lens.Lens' UpdateQualificationType (Core.Maybe Types.QualificationTypeStatus)
+uqtQualificationTypeStatus = Lens.field @"qualificationTypeStatus"
+{-# DEPRECATED uqtQualificationTypeStatus "Use generic-lens or generic-optics with 'qualificationTypeStatus' instead." #-}
+
+-- | The amount of time, in seconds, that Workers must wait after requesting a Qualification of the specified Qualification type before they can retry the Qualification request. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must dispose of the existing retry-enabled Qualification type using DisposeQualificationType and then create a new Qualification type with retries disabled using CreateQualificationType.
+--
+-- /Note:/ Consider using 'retryDelayInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqtRetryDelayInSeconds :: Lens.Lens' UpdateQualificationType (Core.Maybe Core.Integer)
+uqtRetryDelayInSeconds = Lens.field @"retryDelayInSeconds"
+{-# DEPRECATED uqtRetryDelayInSeconds "Use generic-lens or generic-optics with 'retryDelayInSeconds' instead." #-}
 
 -- | The questions for the Qualification test a Worker must answer correctly to obtain a Qualification of this type. If this parameter is specified, @TestDurationInSeconds@ must also be specified.
 --
@@ -142,129 +157,90 @@ uqtAnswerKey = Lens.lens (answerKey :: UpdateQualificationType -> Lude.Maybe Lud
 -- Constraints: None. If not specified, the Worker may request the Qualification without answering any questions.
 --
 -- /Note:/ Consider using 'test' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqtTest :: Lens.Lens' UpdateQualificationType (Lude.Maybe Lude.Text)
-uqtTest = Lens.lens (test :: UpdateQualificationType -> Lude.Maybe Lude.Text) (\s a -> s {test = a} :: UpdateQualificationType)
+uqtTest :: Lens.Lens' UpdateQualificationType (Core.Maybe Types.String)
+uqtTest = Lens.field @"test"
 {-# DEPRECATED uqtTest "Use generic-lens or generic-optics with 'test' instead." #-}
 
--- | The ID of the Qualification type to update.
+-- | The number of seconds the Worker has to complete the Qualification test, starting from the time the Worker requests the Qualification.
 --
--- /Note:/ Consider using 'qualificationTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqtQualificationTypeId :: Lens.Lens' UpdateQualificationType Lude.Text
-uqtQualificationTypeId = Lens.lens (qualificationTypeId :: UpdateQualificationType -> Lude.Text) (\s a -> s {qualificationTypeId = a} :: UpdateQualificationType)
-{-# DEPRECATED uqtQualificationTypeId "Use generic-lens or generic-optics with 'qualificationTypeId' instead." #-}
+-- /Note:/ Consider using 'testDurationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqtTestDurationInSeconds :: Lens.Lens' UpdateQualificationType (Core.Maybe Core.Integer)
+uqtTestDurationInSeconds = Lens.field @"testDurationInSeconds"
+{-# DEPRECATED uqtTestDurationInSeconds "Use generic-lens or generic-optics with 'testDurationInSeconds' instead." #-}
 
--- | Specifies whether requests for the Qualification type are granted immediately, without prompting the Worker with a Qualification test.
---
--- Constraints: If the Test parameter is specified, this parameter cannot be true.
---
--- /Note:/ Consider using 'autoGranted' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqtAutoGranted :: Lens.Lens' UpdateQualificationType (Lude.Maybe Lude.Bool)
-uqtAutoGranted = Lens.lens (autoGranted :: UpdateQualificationType -> Lude.Maybe Lude.Bool) (\s a -> s {autoGranted = a} :: UpdateQualificationType)
-{-# DEPRECATED uqtAutoGranted "Use generic-lens or generic-optics with 'autoGranted' instead." #-}
+instance Core.FromJSON UpdateQualificationType where
+  toJSON UpdateQualificationType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("QualificationTypeId" Core..= qualificationTypeId),
+            ("AnswerKey" Core..=) Core.<$> answerKey,
+            ("AutoGranted" Core..=) Core.<$> autoGranted,
+            ("AutoGrantedValue" Core..=) Core.<$> autoGrantedValue,
+            ("Description" Core..=) Core.<$> description,
+            ("QualificationTypeStatus" Core..=)
+              Core.<$> qualificationTypeStatus,
+            ("RetryDelayInSeconds" Core..=) Core.<$> retryDelayInSeconds,
+            ("Test" Core..=) Core.<$> test,
+            ("TestDurationInSeconds" Core..=) Core.<$> testDurationInSeconds
+          ]
+      )
 
--- | The Qualification value to use for automatically granted Qualifications. This parameter is used only if the AutoGranted parameter is true.
---
--- /Note:/ Consider using 'autoGrantedValue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqtAutoGrantedValue :: Lens.Lens' UpdateQualificationType (Lude.Maybe Lude.Int)
-uqtAutoGrantedValue = Lens.lens (autoGrantedValue :: UpdateQualificationType -> Lude.Maybe Lude.Int) (\s a -> s {autoGrantedValue = a} :: UpdateQualificationType)
-{-# DEPRECATED uqtAutoGrantedValue "Use generic-lens or generic-optics with 'autoGrantedValue' instead." #-}
-
--- | The new description of the Qualification type.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqtDescription :: Lens.Lens' UpdateQualificationType (Lude.Maybe Lude.Text)
-uqtDescription = Lens.lens (description :: UpdateQualificationType -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateQualificationType)
-{-# DEPRECATED uqtDescription "Use generic-lens or generic-optics with 'description' instead." #-}
-
--- | The amount of time, in seconds, that Workers must wait after requesting a Qualification of the specified Qualification type before they can retry the Qualification request. It is not possible to disable retries for a Qualification type after it has been created with retries enabled. If you want to disable retries, you must dispose of the existing retry-enabled Qualification type using DisposeQualificationType and then create a new Qualification type with retries disabled using CreateQualificationType.
---
--- /Note:/ Consider using 'retryDelayInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqtRetryDelayInSeconds :: Lens.Lens' UpdateQualificationType (Lude.Maybe Lude.Integer)
-uqtRetryDelayInSeconds = Lens.lens (retryDelayInSeconds :: UpdateQualificationType -> Lude.Maybe Lude.Integer) (\s a -> s {retryDelayInSeconds = a} :: UpdateQualificationType)
-{-# DEPRECATED uqtRetryDelayInSeconds "Use generic-lens or generic-optics with 'retryDelayInSeconds' instead." #-}
-
-instance Lude.AWSRequest UpdateQualificationType where
+instance Core.AWSRequest UpdateQualificationType where
   type Rs UpdateQualificationType = UpdateQualificationTypeResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.UpdateQualificationType"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateQualificationTypeResponse'
-            Lude.<$> (x Lude..?> "QualificationType")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "QualificationType")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateQualificationType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.UpdateQualificationType" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateQualificationType where
-  toJSON UpdateQualificationType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TestDurationInSeconds" Lude..=) Lude.<$> testDurationInSeconds,
-            ("QualificationTypeStatus" Lude..=)
-              Lude.<$> qualificationTypeStatus,
-            ("AnswerKey" Lude..=) Lude.<$> answerKey,
-            ("Test" Lude..=) Lude.<$> test,
-            Lude.Just ("QualificationTypeId" Lude..= qualificationTypeId),
-            ("AutoGranted" Lude..=) Lude.<$> autoGranted,
-            ("AutoGrantedValue" Lude..=) Lude.<$> autoGrantedValue,
-            ("Description" Lude..=) Lude.<$> description,
-            ("RetryDelayInSeconds" Lude..=) Lude.<$> retryDelayInSeconds
-          ]
-      )
-
-instance Lude.ToPath UpdateQualificationType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateQualificationType where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateQualificationTypeResponse' smart constructor.
 data UpdateQualificationTypeResponse = UpdateQualificationTypeResponse'
   { -- | Contains a QualificationType data structure.
-    qualificationType :: Lude.Maybe QualificationType,
+    qualificationType :: Core.Maybe Types.QualificationType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateQualificationTypeResponse' with the minimum fields required to make a request.
---
--- * 'qualificationType' - Contains a QualificationType data structure.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateQualificationTypeResponse' value with any optional fields omitted.
 mkUpdateQualificationTypeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateQualificationTypeResponse
-mkUpdateQualificationTypeResponse pResponseStatus_ =
+mkUpdateQualificationTypeResponse responseStatus =
   UpdateQualificationTypeResponse'
     { qualificationType =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Contains a QualificationType data structure.
 --
 -- /Note:/ Consider using 'qualificationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqtrsQualificationType :: Lens.Lens' UpdateQualificationTypeResponse (Lude.Maybe QualificationType)
-uqtrsQualificationType = Lens.lens (qualificationType :: UpdateQualificationTypeResponse -> Lude.Maybe QualificationType) (\s a -> s {qualificationType = a} :: UpdateQualificationTypeResponse)
-{-# DEPRECATED uqtrsQualificationType "Use generic-lens or generic-optics with 'qualificationType' instead." #-}
+uqtrrsQualificationType :: Lens.Lens' UpdateQualificationTypeResponse (Core.Maybe Types.QualificationType)
+uqtrrsQualificationType = Lens.field @"qualificationType"
+{-# DEPRECATED uqtrrsQualificationType "Use generic-lens or generic-optics with 'qualificationType' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqtrsResponseStatus :: Lens.Lens' UpdateQualificationTypeResponse Lude.Int
-uqtrsResponseStatus = Lens.lens (responseStatus :: UpdateQualificationTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateQualificationTypeResponse)
-{-# DEPRECATED uqtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uqtrrsResponseStatus :: Lens.Lens' UpdateQualificationTypeResponse Core.Int
+uqtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uqtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.RtmpCacheFullBehavior
   ( RtmpCacheFullBehavior
       ( RtmpCacheFullBehavior',
-        DisconnectImmediately,
-        WaitForServer
+        RtmpCacheFullBehaviorDisconnectImmediately,
+        RtmpCacheFullBehaviorWaitForServer,
+        fromRtmpCacheFullBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Rtmp Cache Full Behavior
-newtype RtmpCacheFullBehavior = RtmpCacheFullBehavior' Lude.Text
+newtype RtmpCacheFullBehavior = RtmpCacheFullBehavior'
+  { fromRtmpCacheFullBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DisconnectImmediately :: RtmpCacheFullBehavior
-pattern DisconnectImmediately = RtmpCacheFullBehavior' "DISCONNECT_IMMEDIATELY"
+pattern RtmpCacheFullBehaviorDisconnectImmediately :: RtmpCacheFullBehavior
+pattern RtmpCacheFullBehaviorDisconnectImmediately = RtmpCacheFullBehavior' "DISCONNECT_IMMEDIATELY"
 
-pattern WaitForServer :: RtmpCacheFullBehavior
-pattern WaitForServer = RtmpCacheFullBehavior' "WAIT_FOR_SERVER"
+pattern RtmpCacheFullBehaviorWaitForServer :: RtmpCacheFullBehavior
+pattern RtmpCacheFullBehaviorWaitForServer = RtmpCacheFullBehavior' "WAIT_FOR_SERVER"
 
 {-# COMPLETE
-  DisconnectImmediately,
-  WaitForServer,
+  RtmpCacheFullBehaviorDisconnectImmediately,
+  RtmpCacheFullBehaviorWaitForServer,
   RtmpCacheFullBehavior'
   #-}

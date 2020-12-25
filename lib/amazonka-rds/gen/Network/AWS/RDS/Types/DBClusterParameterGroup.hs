@@ -17,15 +17,19 @@ module Network.AWS.RDS.Types.DBClusterParameterGroup
     mkDBClusterParameterGroup,
 
     -- * Lenses
-    dcpgDBClusterParameterGroupARN,
-    dcpgDBParameterGroupFamily,
-    dcpgDBClusterParameterGroupName,
-    dcpgDescription,
+    dbcpgDBClusterParameterGroupArn,
+    dbcpgDBClusterParameterGroupName,
+    dbcpgDBParameterGroupFamily,
+    dbcpgDescription,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types.DBClusterParameterGroupArn as Types
+import qualified Network.AWS.RDS.Types.DBClusterParameterGroupName as Types
+import qualified Network.AWS.RDS.Types.DBParameterGroupFamily as Types
+import qualified Network.AWS.RDS.Types.Description as Types
 
 -- | Contains the details of an Amazon RDS DB cluster parameter group.
 --
@@ -34,66 +38,61 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkDBClusterParameterGroup' smart constructor.
 data DBClusterParameterGroup = DBClusterParameterGroup'
   { -- | The Amazon Resource Name (ARN) for the DB cluster parameter group.
-    dbClusterParameterGroupARN :: Lude.Maybe Lude.Text,
-    -- | The name of the DB parameter group family that this DB cluster parameter group is compatible with.
-    dbParameterGroupFamily :: Lude.Maybe Lude.Text,
+    dBClusterParameterGroupArn :: Core.Maybe Types.DBClusterParameterGroupArn,
     -- | The name of the DB cluster parameter group.
-    dbClusterParameterGroupName :: Lude.Maybe Lude.Text,
+    dBClusterParameterGroupName :: Core.Maybe Types.DBClusterParameterGroupName,
+    -- | The name of the DB parameter group family that this DB cluster parameter group is compatible with.
+    dBParameterGroupFamily :: Core.Maybe Types.DBParameterGroupFamily,
     -- | Provides the customer-specified description for this DB cluster parameter group.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DBClusterParameterGroup' with the minimum fields required to make a request.
---
--- * 'dbClusterParameterGroupARN' - The Amazon Resource Name (ARN) for the DB cluster parameter group.
--- * 'dbParameterGroupFamily' - The name of the DB parameter group family that this DB cluster parameter group is compatible with.
--- * 'dbClusterParameterGroupName' - The name of the DB cluster parameter group.
--- * 'description' - Provides the customer-specified description for this DB cluster parameter group.
+-- | Creates a 'DBClusterParameterGroup' value with any optional fields omitted.
 mkDBClusterParameterGroup ::
   DBClusterParameterGroup
 mkDBClusterParameterGroup =
   DBClusterParameterGroup'
-    { dbClusterParameterGroupARN =
-        Lude.Nothing,
-      dbParameterGroupFamily = Lude.Nothing,
-      dbClusterParameterGroupName = Lude.Nothing,
-      description = Lude.Nothing
+    { dBClusterParameterGroupArn =
+        Core.Nothing,
+      dBClusterParameterGroupName = Core.Nothing,
+      dBParameterGroupFamily = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the DB cluster parameter group.
 --
--- /Note:/ Consider using 'dbClusterParameterGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgDBClusterParameterGroupARN :: Lens.Lens' DBClusterParameterGroup (Lude.Maybe Lude.Text)
-dcpgDBClusterParameterGroupARN = Lens.lens (dbClusterParameterGroupARN :: DBClusterParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterParameterGroupARN = a} :: DBClusterParameterGroup)
-{-# DEPRECATED dcpgDBClusterParameterGroupARN "Use generic-lens or generic-optics with 'dbClusterParameterGroupARN' instead." #-}
-
--- | The name of the DB parameter group family that this DB cluster parameter group is compatible with.
---
--- /Note:/ Consider using 'dbParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgDBParameterGroupFamily :: Lens.Lens' DBClusterParameterGroup (Lude.Maybe Lude.Text)
-dcpgDBParameterGroupFamily = Lens.lens (dbParameterGroupFamily :: DBClusterParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbParameterGroupFamily = a} :: DBClusterParameterGroup)
-{-# DEPRECATED dcpgDBParameterGroupFamily "Use generic-lens or generic-optics with 'dbParameterGroupFamily' instead." #-}
+-- /Note:/ Consider using 'dBClusterParameterGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcpgDBClusterParameterGroupArn :: Lens.Lens' DBClusterParameterGroup (Core.Maybe Types.DBClusterParameterGroupArn)
+dbcpgDBClusterParameterGroupArn = Lens.field @"dBClusterParameterGroupArn"
+{-# DEPRECATED dbcpgDBClusterParameterGroupArn "Use generic-lens or generic-optics with 'dBClusterParameterGroupArn' instead." #-}
 
 -- | The name of the DB cluster parameter group.
 --
--- /Note:/ Consider using 'dbClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgDBClusterParameterGroupName :: Lens.Lens' DBClusterParameterGroup (Lude.Maybe Lude.Text)
-dcpgDBClusterParameterGroupName = Lens.lens (dbClusterParameterGroupName :: DBClusterParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {dbClusterParameterGroupName = a} :: DBClusterParameterGroup)
-{-# DEPRECATED dcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dbClusterParameterGroupName' instead." #-}
+-- /Note:/ Consider using 'dBClusterParameterGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcpgDBClusterParameterGroupName :: Lens.Lens' DBClusterParameterGroup (Core.Maybe Types.DBClusterParameterGroupName)
+dbcpgDBClusterParameterGroupName = Lens.field @"dBClusterParameterGroupName"
+{-# DEPRECATED dbcpgDBClusterParameterGroupName "Use generic-lens or generic-optics with 'dBClusterParameterGroupName' instead." #-}
+
+-- | The name of the DB parameter group family that this DB cluster parameter group is compatible with.
+--
+-- /Note:/ Consider using 'dBParameterGroupFamily' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbcpgDBParameterGroupFamily :: Lens.Lens' DBClusterParameterGroup (Core.Maybe Types.DBParameterGroupFamily)
+dbcpgDBParameterGroupFamily = Lens.field @"dBParameterGroupFamily"
+{-# DEPRECATED dbcpgDBParameterGroupFamily "Use generic-lens or generic-optics with 'dBParameterGroupFamily' instead." #-}
 
 -- | Provides the customer-specified description for this DB cluster parameter group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcpgDescription :: Lens.Lens' DBClusterParameterGroup (Lude.Maybe Lude.Text)
-dcpgDescription = Lens.lens (description :: DBClusterParameterGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DBClusterParameterGroup)
-{-# DEPRECATED dcpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+dbcpgDescription :: Lens.Lens' DBClusterParameterGroup (Core.Maybe Types.Description)
+dbcpgDescription = Lens.field @"description"
+{-# DEPRECATED dbcpgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromXML DBClusterParameterGroup where
+instance Core.FromXML DBClusterParameterGroup where
   parseXML x =
     DBClusterParameterGroup'
-      Lude.<$> (x Lude..@? "DBClusterParameterGroupArn")
-      Lude.<*> (x Lude..@? "DBParameterGroupFamily")
-      Lude.<*> (x Lude..@? "DBClusterParameterGroupName")
-      Lude.<*> (x Lude..@? "Description")
+      Core.<$> (x Core..@? "DBClusterParameterGroupArn")
+      Core.<*> (x Core..@? "DBClusterParameterGroupName")
+      Core.<*> (x Core..@? "DBParameterGroupFamily")
+      Core.<*> (x Core..@? "Description")

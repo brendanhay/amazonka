@@ -29,108 +29,92 @@ module Network.AWS.Lightsail.DeleteAlarm
     mkDeleteAlarmResponse,
 
     -- ** Response lenses
-    darsOperations,
-    darsResponseStatus,
+    darrsOperations,
+    darrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Lightsail.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteAlarm' smart constructor.
 newtype DeleteAlarm = DeleteAlarm'
   { -- | The name of the alarm to delete.
-    alarmName :: Lude.Text
+    alarmName :: Types.ResourceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteAlarm' with the minimum fields required to make a request.
---
--- * 'alarmName' - The name of the alarm to delete.
+-- | Creates a 'DeleteAlarm' value with any optional fields omitted.
 mkDeleteAlarm ::
   -- | 'alarmName'
-  Lude.Text ->
+  Types.ResourceName ->
   DeleteAlarm
-mkDeleteAlarm pAlarmName_ = DeleteAlarm' {alarmName = pAlarmName_}
+mkDeleteAlarm alarmName = DeleteAlarm' {alarmName}
 
 -- | The name of the alarm to delete.
 --
 -- /Note:/ Consider using 'alarmName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAlarmName :: Lens.Lens' DeleteAlarm Lude.Text
-daAlarmName = Lens.lens (alarmName :: DeleteAlarm -> Lude.Text) (\s a -> s {alarmName = a} :: DeleteAlarm)
+daAlarmName :: Lens.Lens' DeleteAlarm Types.ResourceName
+daAlarmName = Lens.field @"alarmName"
 {-# DEPRECATED daAlarmName "Use generic-lens or generic-optics with 'alarmName' instead." #-}
 
-instance Lude.AWSRequest DeleteAlarm where
+instance Core.FromJSON DeleteAlarm where
+  toJSON DeleteAlarm {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("alarmName" Core..= alarmName)])
+
+instance Core.AWSRequest DeleteAlarm where
   type Rs DeleteAlarm = DeleteAlarmResponse
-  request = Req.postJSON lightsailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "Lightsail_20161128.DeleteAlarm")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteAlarmResponse'
-            Lude.<$> (x Lude..?> "operations" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "operations") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteAlarm where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Lightsail_20161128.DeleteAlarm" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteAlarm where
-  toJSON DeleteAlarm' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("alarmName" Lude..= alarmName)])
-
-instance Lude.ToPath DeleteAlarm where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteAlarm where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteAlarmResponse' smart constructor.
 data DeleteAlarmResponse = DeleteAlarmResponse'
   { -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
-    operations :: Lude.Maybe [Operation],
+    operations :: Core.Maybe [Types.Operation],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteAlarmResponse' with the minimum fields required to make a request.
---
--- * 'operations' - An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteAlarmResponse' value with any optional fields omitted.
 mkDeleteAlarmResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteAlarmResponse
-mkDeleteAlarmResponse pResponseStatus_ =
-  DeleteAlarmResponse'
-    { operations = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkDeleteAlarmResponse responseStatus =
+  DeleteAlarmResponse' {operations = Core.Nothing, responseStatus}
 
 -- | An array of objects that describe the result of the action, such as the status of the request, the timestamp of the request, and the resources affected by the request.
 --
 -- /Note:/ Consider using 'operations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsOperations :: Lens.Lens' DeleteAlarmResponse (Lude.Maybe [Operation])
-darsOperations = Lens.lens (operations :: DeleteAlarmResponse -> Lude.Maybe [Operation]) (\s a -> s {operations = a} :: DeleteAlarmResponse)
-{-# DEPRECATED darsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
+darrsOperations :: Lens.Lens' DeleteAlarmResponse (Core.Maybe [Types.Operation])
+darrsOperations = Lens.field @"operations"
+{-# DEPRECATED darrsOperations "Use generic-lens or generic-optics with 'operations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsResponseStatus :: Lens.Lens' DeleteAlarmResponse Lude.Int
-darsResponseStatus = Lens.lens (responseStatus :: DeleteAlarmResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteAlarmResponse)
-{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darrsResponseStatus :: Lens.Lens' DeleteAlarmResponse Core.Int
+darrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

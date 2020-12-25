@@ -17,14 +17,15 @@ module Network.AWS.Lightsail.Types.CacheBehaviorPerPath
     mkCacheBehaviorPerPath,
 
     -- * Lenses
-    cbppPath,
     cbppBehavior,
+    cbppPath,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Lightsail.Types.BehaviorEnum
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.BehaviorEnum as Types
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the per-path cache behavior of an Amazon Lightsail content delivery network (CDN) distribution.
 --
@@ -33,7 +34,16 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkCacheBehaviorPerPath' smart constructor.
 data CacheBehaviorPerPath = CacheBehaviorPerPath'
-  { -- | The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (@path/to/assets/*@ ), and file types (@*.html, *jpg, *js@ ). Directories and file paths are case-sensitive.
+  { -- | The cache behavior for the specified path.
+    --
+    -- You can specify one of the following per-path cache behaviors:
+    --
+    --     * __@cache@ __ - This behavior caches the specified path.
+    --
+    --
+    --     * __@dont-cache@ __ - This behavior doesn't cache the specified path.
+    behavior :: Core.Maybe Types.BehaviorEnum,
+    -- | The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (@path/to/assets/*@ ), and file types (@*.html, *jpg, *js@ ). Directories and file paths are case-sensitive.
     --
     -- Examples:
     --
@@ -55,47 +65,21 @@ data CacheBehaviorPerPath = CacheBehaviorPerPath'
     -- @var/www/html/images/*.gif@
     -- Specify the following to cache all files in the images sub-directory of the document root of an Apache web server.
     -- @var/www/html/images/@
-    path :: Lude.Maybe Lude.Text,
-    -- | The cache behavior for the specified path.
-    --
-    -- You can specify one of the following per-path cache behaviors:
-    --
-    --     * __@cache@ __ - This behavior caches the specified path.
-    --
-    --
-    --     * __@dont-cache@ __ - This behavior doesn't cache the specified path.
-    behavior :: Lude.Maybe BehaviorEnum
+    path :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CacheBehaviorPerPath' with the minimum fields required to make a request.
---
--- * 'path' - The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (@path/to/assets/*@ ), and file types (@*.html, *jpg, *js@ ). Directories and file paths are case-sensitive.
---
--- Examples:
---
---     * Specify the following to cache all files in the document root of an Apache web server running on a Lightsail instance.
--- @var/www/html/@
---
---
---     * Specify the following file to cache only the index page in the document root of an Apache web server.
--- @var/www/html/index.html@
---
---
---     * Specify the following to cache only the .html files in the document root of an Apache web server.
--- @var/www/html/*.html@
---
---
---     * Specify the following to cache only the .jpg, .png, and .gif files in the images sub-directory of the document root of an Apache web server.
--- @var/www/html/images/*.jpg@
--- @var/www/html/images/*.png@
--- @var/www/html/images/*.gif@
--- Specify the following to cache all files in the images sub-directory of the document root of an Apache web server.
--- @var/www/html/images/@
---
---
--- * 'behavior' - The cache behavior for the specified path.
+-- | Creates a 'CacheBehaviorPerPath' value with any optional fields omitted.
+mkCacheBehaviorPerPath ::
+  CacheBehaviorPerPath
+mkCacheBehaviorPerPath =
+  CacheBehaviorPerPath'
+    { behavior = Core.Nothing,
+      path = Core.Nothing
+    }
+
+-- | The cache behavior for the specified path.
 --
 -- You can specify one of the following per-path cache behaviors:
 --
@@ -103,13 +87,13 @@ data CacheBehaviorPerPath = CacheBehaviorPerPath'
 --
 --
 --     * __@dont-cache@ __ - This behavior doesn't cache the specified path.
-mkCacheBehaviorPerPath ::
-  CacheBehaviorPerPath
-mkCacheBehaviorPerPath =
-  CacheBehaviorPerPath'
-    { path = Lude.Nothing,
-      behavior = Lude.Nothing
-    }
+--
+--
+--
+-- /Note:/ Consider using 'behavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbppBehavior :: Lens.Lens' CacheBehaviorPerPath (Core.Maybe Types.BehaviorEnum)
+cbppBehavior = Lens.field @"behavior"
+{-# DEPRECATED cbppBehavior "Use generic-lens or generic-optics with 'behavior' instead." #-}
 
 -- | The path to a directory or file to cached, or not cache. Use an asterisk symbol to specify wildcard directories (@path/to/assets/*@ ), and file types (@*.html, *jpg, *js@ ). Directories and file paths are case-sensitive.
 --
@@ -137,40 +121,22 @@ mkCacheBehaviorPerPath =
 --
 --
 -- /Note:/ Consider using 'path' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbppPath :: Lens.Lens' CacheBehaviorPerPath (Lude.Maybe Lude.Text)
-cbppPath = Lens.lens (path :: CacheBehaviorPerPath -> Lude.Maybe Lude.Text) (\s a -> s {path = a} :: CacheBehaviorPerPath)
+cbppPath :: Lens.Lens' CacheBehaviorPerPath (Core.Maybe Types.String)
+cbppPath = Lens.field @"path"
 {-# DEPRECATED cbppPath "Use generic-lens or generic-optics with 'path' instead." #-}
 
--- | The cache behavior for the specified path.
---
--- You can specify one of the following per-path cache behaviors:
---
---     * __@cache@ __ - This behavior caches the specified path.
---
---
---     * __@dont-cache@ __ - This behavior doesn't cache the specified path.
---
---
---
--- /Note:/ Consider using 'behavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbppBehavior :: Lens.Lens' CacheBehaviorPerPath (Lude.Maybe BehaviorEnum)
-cbppBehavior = Lens.lens (behavior :: CacheBehaviorPerPath -> Lude.Maybe BehaviorEnum) (\s a -> s {behavior = a} :: CacheBehaviorPerPath)
-{-# DEPRECATED cbppBehavior "Use generic-lens or generic-optics with 'behavior' instead." #-}
-
-instance Lude.FromJSON CacheBehaviorPerPath where
-  parseJSON =
-    Lude.withObject
-      "CacheBehaviorPerPath"
-      ( \x ->
-          CacheBehaviorPerPath'
-            Lude.<$> (x Lude..:? "path") Lude.<*> (x Lude..:? "behavior")
-      )
-
-instance Lude.ToJSON CacheBehaviorPerPath where
-  toJSON CacheBehaviorPerPath' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("path" Lude..=) Lude.<$> path,
-            ("behavior" Lude..=) Lude.<$> behavior
+instance Core.FromJSON CacheBehaviorPerPath where
+  toJSON CacheBehaviorPerPath {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("behavior" Core..=) Core.<$> behavior,
+            ("path" Core..=) Core.<$> path
           ]
       )
+
+instance Core.FromJSON CacheBehaviorPerPath where
+  parseJSON =
+    Core.withObject "CacheBehaviorPerPath" Core.$
+      \x ->
+        CacheBehaviorPerPath'
+          Core.<$> (x Core..:? "behavior") Core.<*> (x Core..:? "path")

@@ -17,14 +17,15 @@ module Network.AWS.DynamoDBStreams.Types.KeySchemaElement
     mkKeySchemaElement,
 
     -- * Lenses
-    kseKeyType,
     kseAttributeName,
+    kseKeyType,
   )
 where
 
-import Network.AWS.DynamoDBStreams.Types.KeyType
+import qualified Network.AWS.DynamoDBStreams.Types.KeySchemaAttributeName as Types
+import qualified Network.AWS.DynamoDBStreams.Types.KeyType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents /a single element/ of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.
 --
@@ -33,43 +34,36 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkKeySchemaElement' smart constructor.
 data KeySchemaElement = KeySchemaElement'
-  { -- | The role that this key attribute will assume:
+  { -- | The name of a key attribute.
+    attributeName :: Types.KeySchemaAttributeName,
+    -- | The role that this key attribute will assume:
     --
     --
     --     * @HASH@ - partition key
     --
     --
     --     * @RANGE@ - sort key
-    keyType :: KeyType,
-    -- | The name of a key attribute.
-    attributeName :: Lude.Text
+    keyType :: Types.KeyType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KeySchemaElement' with the minimum fields required to make a request.
---
--- * 'keyType' - The role that this key attribute will assume:
---
---
---     * @HASH@ - partition key
---
---
---     * @RANGE@ - sort key
---
---
--- * 'attributeName' - The name of a key attribute.
+-- | Creates a 'KeySchemaElement' value with any optional fields omitted.
 mkKeySchemaElement ::
-  -- | 'keyType'
-  KeyType ->
   -- | 'attributeName'
-  Lude.Text ->
+  Types.KeySchemaAttributeName ->
+  -- | 'keyType'
+  Types.KeyType ->
   KeySchemaElement
-mkKeySchemaElement pKeyType_ pAttributeName_ =
-  KeySchemaElement'
-    { keyType = pKeyType_,
-      attributeName = pAttributeName_
-    }
+mkKeySchemaElement attributeName keyType =
+  KeySchemaElement' {attributeName, keyType}
+
+-- | The name of a key attribute.
+--
+-- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kseAttributeName :: Lens.Lens' KeySchemaElement Types.KeySchemaAttributeName
+kseAttributeName = Lens.field @"attributeName"
+{-# DEPRECATED kseAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
 
 -- | The role that this key attribute will assume:
 --
@@ -82,22 +76,13 @@ mkKeySchemaElement pKeyType_ pAttributeName_ =
 --
 --
 -- /Note:/ Consider using 'keyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kseKeyType :: Lens.Lens' KeySchemaElement KeyType
-kseKeyType = Lens.lens (keyType :: KeySchemaElement -> KeyType) (\s a -> s {keyType = a} :: KeySchemaElement)
+kseKeyType :: Lens.Lens' KeySchemaElement Types.KeyType
+kseKeyType = Lens.field @"keyType"
 {-# DEPRECATED kseKeyType "Use generic-lens or generic-optics with 'keyType' instead." #-}
 
--- | The name of a key attribute.
---
--- /Note:/ Consider using 'attributeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kseAttributeName :: Lens.Lens' KeySchemaElement Lude.Text
-kseAttributeName = Lens.lens (attributeName :: KeySchemaElement -> Lude.Text) (\s a -> s {attributeName = a} :: KeySchemaElement)
-{-# DEPRECATED kseAttributeName "Use generic-lens or generic-optics with 'attributeName' instead." #-}
-
-instance Lude.FromJSON KeySchemaElement where
+instance Core.FromJSON KeySchemaElement where
   parseJSON =
-    Lude.withObject
-      "KeySchemaElement"
-      ( \x ->
-          KeySchemaElement'
-            Lude.<$> (x Lude..: "KeyType") Lude.<*> (x Lude..: "AttributeName")
-      )
+    Core.withObject "KeySchemaElement" Core.$
+      \x ->
+        KeySchemaElement'
+          Core.<$> (x Core..: "AttributeName") Core.<*> (x Core..: "KeyType")

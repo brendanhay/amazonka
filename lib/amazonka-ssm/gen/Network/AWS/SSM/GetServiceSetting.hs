@@ -30,113 +30,100 @@ module Network.AWS.SSM.GetServiceSetting
     mkGetServiceSettingResponse,
 
     -- ** Response lenses
-    gssrsServiceSetting,
-    gssrsResponseStatus,
+    gssrrsServiceSetting,
+    gssrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | The request body of the GetServiceSetting API action.
 --
 -- /See:/ 'mkGetServiceSetting' smart constructor.
 newtype GetServiceSetting = GetServiceSetting'
   { -- | The ID of the service setting to get. The setting ID can be @/ssm/parameter-store/default-parameter-tier@ , @/ssm/parameter-store/high-throughput-enabled@ , or @/ssm/managed-instance/activation-tier@ .
-    settingId :: Lude.Text
+    settingId :: Types.ServiceSettingId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetServiceSetting' with the minimum fields required to make a request.
---
--- * 'settingId' - The ID of the service setting to get. The setting ID can be @/ssm/parameter-store/default-parameter-tier@ , @/ssm/parameter-store/high-throughput-enabled@ , or @/ssm/managed-instance/activation-tier@ .
+-- | Creates a 'GetServiceSetting' value with any optional fields omitted.
 mkGetServiceSetting ::
   -- | 'settingId'
-  Lude.Text ->
+  Types.ServiceSettingId ->
   GetServiceSetting
-mkGetServiceSetting pSettingId_ =
-  GetServiceSetting' {settingId = pSettingId_}
+mkGetServiceSetting settingId = GetServiceSetting' {settingId}
 
 -- | The ID of the service setting to get. The setting ID can be @/ssm/parameter-store/default-parameter-tier@ , @/ssm/parameter-store/high-throughput-enabled@ , or @/ssm/managed-instance/activation-tier@ .
 --
 -- /Note:/ Consider using 'settingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gssSettingId :: Lens.Lens' GetServiceSetting Lude.Text
-gssSettingId = Lens.lens (settingId :: GetServiceSetting -> Lude.Text) (\s a -> s {settingId = a} :: GetServiceSetting)
+gssSettingId :: Lens.Lens' GetServiceSetting Types.ServiceSettingId
+gssSettingId = Lens.field @"settingId"
 {-# DEPRECATED gssSettingId "Use generic-lens or generic-optics with 'settingId' instead." #-}
 
-instance Lude.AWSRequest GetServiceSetting where
+instance Core.FromJSON GetServiceSetting where
+  toJSON GetServiceSetting {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("SettingId" Core..= settingId)])
+
+instance Core.AWSRequest GetServiceSetting where
   type Rs GetServiceSetting = GetServiceSettingResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.GetServiceSetting")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetServiceSettingResponse'
-            Lude.<$> (x Lude..?> "ServiceSetting")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ServiceSetting")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetServiceSetting where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.GetServiceSetting" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetServiceSetting where
-  toJSON GetServiceSetting' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("SettingId" Lude..= settingId)])
-
-instance Lude.ToPath GetServiceSetting where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetServiceSetting where
-  toQuery = Lude.const Lude.mempty
 
 -- | The query result body of the GetServiceSetting API action.
 --
 -- /See:/ 'mkGetServiceSettingResponse' smart constructor.
 data GetServiceSettingResponse = GetServiceSettingResponse'
   { -- | The query result of the current service setting.
-    serviceSetting :: Lude.Maybe ServiceSetting,
+    serviceSetting :: Core.Maybe Types.ServiceSetting,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetServiceSettingResponse' with the minimum fields required to make a request.
---
--- * 'serviceSetting' - The query result of the current service setting.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetServiceSettingResponse' value with any optional fields omitted.
 mkGetServiceSettingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetServiceSettingResponse
-mkGetServiceSettingResponse pResponseStatus_ =
+mkGetServiceSettingResponse responseStatus =
   GetServiceSettingResponse'
-    { serviceSetting = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { serviceSetting = Core.Nothing,
+      responseStatus
     }
 
 -- | The query result of the current service setting.
 --
 -- /Note:/ Consider using 'serviceSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gssrsServiceSetting :: Lens.Lens' GetServiceSettingResponse (Lude.Maybe ServiceSetting)
-gssrsServiceSetting = Lens.lens (serviceSetting :: GetServiceSettingResponse -> Lude.Maybe ServiceSetting) (\s a -> s {serviceSetting = a} :: GetServiceSettingResponse)
-{-# DEPRECATED gssrsServiceSetting "Use generic-lens or generic-optics with 'serviceSetting' instead." #-}
+gssrrsServiceSetting :: Lens.Lens' GetServiceSettingResponse (Core.Maybe Types.ServiceSetting)
+gssrrsServiceSetting = Lens.field @"serviceSetting"
+{-# DEPRECATED gssrrsServiceSetting "Use generic-lens or generic-optics with 'serviceSetting' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gssrsResponseStatus :: Lens.Lens' GetServiceSettingResponse Lude.Int
-gssrsResponseStatus = Lens.lens (responseStatus :: GetServiceSettingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetServiceSettingResponse)
-{-# DEPRECATED gssrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gssrrsResponseStatus :: Lens.Lens' GetServiceSettingResponse Core.Int
+gssrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gssrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

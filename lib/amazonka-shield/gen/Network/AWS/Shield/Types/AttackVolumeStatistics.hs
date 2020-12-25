@@ -22,37 +22,33 @@ module Network.AWS.Shield.Types.AttackVolumeStatistics
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Statistics objects for the various data types in 'AttackVolume' .
 --
 -- /See:/ 'mkAttackVolumeStatistics' smart constructor.
 newtype AttackVolumeStatistics = AttackVolumeStatistics'
   { -- | The maximum attack volume observed for the given unit.
-    max :: Lude.Double
+    max :: Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttackVolumeStatistics' with the minimum fields required to make a request.
---
--- * 'max' - The maximum attack volume observed for the given unit.
+-- | Creates a 'AttackVolumeStatistics' value with any optional fields omitted.
 mkAttackVolumeStatistics ::
   -- | 'max'
-  Lude.Double ->
+  Core.Double ->
   AttackVolumeStatistics
-mkAttackVolumeStatistics pMax_ =
-  AttackVolumeStatistics' {max = pMax_}
+mkAttackVolumeStatistics max = AttackVolumeStatistics' {max}
 
 -- | The maximum attack volume observed for the given unit.
 --
 -- /Note:/ Consider using 'max' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-avsMax :: Lens.Lens' AttackVolumeStatistics Lude.Double
-avsMax = Lens.lens (max :: AttackVolumeStatistics -> Lude.Double) (\s a -> s {max = a} :: AttackVolumeStatistics)
+avsMax :: Lens.Lens' AttackVolumeStatistics Core.Double
+avsMax = Lens.field @"max"
 {-# DEPRECATED avsMax "Use generic-lens or generic-optics with 'max' instead." #-}
 
-instance Lude.FromJSON AttackVolumeStatistics where
+instance Core.FromJSON AttackVolumeStatistics where
   parseJSON =
-    Lude.withObject
-      "AttackVolumeStatistics"
-      (\x -> AttackVolumeStatistics' Lude.<$> (x Lude..: "Max"))
+    Core.withObject "AttackVolumeStatistics" Core.$
+      \x -> AttackVolumeStatistics' Core.<$> (x Core..: "Max")

@@ -13,46 +13,51 @@
 module Network.AWS.SageMaker.Types.ProcessingS3DataType
   ( ProcessingS3DataType
       ( ProcessingS3DataType',
-        PSDTManifestFile,
-        PSDTS3Prefix
+        ProcessingS3DataTypeManifestFile,
+        ProcessingS3DataTypeS3Prefix,
+        fromProcessingS3DataType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ProcessingS3DataType = ProcessingS3DataType' Lude.Text
+newtype ProcessingS3DataType = ProcessingS3DataType'
+  { fromProcessingS3DataType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PSDTManifestFile :: ProcessingS3DataType
-pattern PSDTManifestFile = ProcessingS3DataType' "ManifestFile"
+pattern ProcessingS3DataTypeManifestFile :: ProcessingS3DataType
+pattern ProcessingS3DataTypeManifestFile = ProcessingS3DataType' "ManifestFile"
 
-pattern PSDTS3Prefix :: ProcessingS3DataType
-pattern PSDTS3Prefix = ProcessingS3DataType' "S3Prefix"
+pattern ProcessingS3DataTypeS3Prefix :: ProcessingS3DataType
+pattern ProcessingS3DataTypeS3Prefix = ProcessingS3DataType' "S3Prefix"
 
 {-# COMPLETE
-  PSDTManifestFile,
-  PSDTS3Prefix,
+  ProcessingS3DataTypeManifestFile,
+  ProcessingS3DataTypeS3Prefix,
   ProcessingS3DataType'
   #-}

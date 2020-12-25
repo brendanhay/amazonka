@@ -20,8 +20,8 @@ module Network.AWS.CloudFront.DeleteDistribution
     mkDeleteDistribution,
 
     -- ** Request lenses
-    ddIfMatch,
     ddId,
+    ddIfMatch,
 
     -- * Destructuring the response
     DeleteDistributionResponse (..),
@@ -29,11 +29,11 @@ module Network.AWS.CloudFront.DeleteDistribution
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | This action deletes a web distribution. To delete a web distribution using the CloudFront API, perform the following steps.
 --
@@ -67,61 +67,57 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkDeleteDistribution' smart constructor.
 data DeleteDistribution = DeleteDistribution'
-  { -- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
-    ifMatch :: Lude.Maybe Lude.Text,
-    -- | The distribution ID.
-    id :: Lude.Text
+  { -- | The distribution ID.
+    id :: Types.String,
+    -- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
+    ifMatch :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDistribution' with the minimum fields required to make a request.
---
--- * 'ifMatch' - The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
--- * 'id' - The distribution ID.
+-- | Creates a 'DeleteDistribution' value with any optional fields omitted.
 mkDeleteDistribution ::
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
   DeleteDistribution
-mkDeleteDistribution pId_ =
-  DeleteDistribution' {ifMatch = Lude.Nothing, id = pId_}
-
--- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
---
--- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddIfMatch :: Lens.Lens' DeleteDistribution (Lude.Maybe Lude.Text)
-ddIfMatch = Lens.lens (ifMatch :: DeleteDistribution -> Lude.Maybe Lude.Text) (\s a -> s {ifMatch = a} :: DeleteDistribution)
-{-# DEPRECATED ddIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+mkDeleteDistribution id =
+  DeleteDistribution' {id, ifMatch = Core.Nothing}
 
 -- | The distribution ID.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddId :: Lens.Lens' DeleteDistribution Lude.Text
-ddId = Lens.lens (id :: DeleteDistribution -> Lude.Text) (\s a -> s {id = a} :: DeleteDistribution)
+ddId :: Lens.Lens' DeleteDistribution Types.String
+ddId = Lens.field @"id"
 {-# DEPRECATED ddId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DeleteDistribution where
+-- | The value of the @ETag@ header that you received when you disabled the distribution. For example: @E2QWRUHAPOMQZL@ .
+--
+-- /Note:/ Consider using 'ifMatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddIfMatch :: Lens.Lens' DeleteDistribution (Core.Maybe Types.String)
+ddIfMatch = Lens.field @"ifMatch"
+{-# DEPRECATED ddIfMatch "Use generic-lens or generic-optics with 'ifMatch' instead." #-}
+
+instance Core.AWSRequest DeleteDistribution where
   type Rs DeleteDistribution = DeleteDistributionResponse
-  request = Req.delete cloudFrontService
-  response = Res.receiveNull DeleteDistributionResponse'
-
-instance Lude.ToHeaders DeleteDistribution where
-  toHeaders DeleteDistribution' {..} =
-    Lude.mconcat ["If-Match" Lude.=# ifMatch]
-
-instance Lude.ToPath DeleteDistribution where
-  toPath DeleteDistribution' {..} =
-    Lude.mconcat ["/2020-05-31/distribution/", Lude.toBS id]
-
-instance Lude.ToQuery DeleteDistribution where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/2020-05-31/distribution/" Core.<> (Core.toText id)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.toHeaders "If-Match" ifMatch,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull DeleteDistributionResponse'
 
 -- | /See:/ 'mkDeleteDistributionResponse' smart constructor.
 data DeleteDistributionResponse = DeleteDistributionResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDistributionResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteDistributionResponse' value with any optional fields omitted.
 mkDeleteDistributionResponse ::
   DeleteDistributionResponse
 mkDeleteDistributionResponse = DeleteDistributionResponse'

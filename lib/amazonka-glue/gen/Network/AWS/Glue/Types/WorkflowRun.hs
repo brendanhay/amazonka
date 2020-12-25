@@ -18,164 +18,157 @@ module Network.AWS.Glue.Types.WorkflowRun
 
     -- * Lenses
     wrCompletedOn,
-    wrStatus,
+    wrErrorMessage,
     wrGraph,
-    wrStartedOn,
-    wrWorkflowRunId,
     wrName,
     wrPreviousRunId,
+    wrStartedOn,
     wrStatistics,
-    wrErrorMessage,
+    wrStatus,
+    wrWorkflowRunId,
     wrWorkflowRunProperties,
   )
 where
 
-import Network.AWS.Glue.Types.WorkflowGraph
-import Network.AWS.Glue.Types.WorkflowRunStatistics
-import Network.AWS.Glue.Types.WorkflowRunStatus
+import qualified Network.AWS.Glue.Types.ErrorMessage as Types
+import qualified Network.AWS.Glue.Types.GenericString as Types
+import qualified Network.AWS.Glue.Types.IdString as Types
+import qualified Network.AWS.Glue.Types.Name as Types
+import qualified Network.AWS.Glue.Types.PreviousRunId as Types
+import qualified Network.AWS.Glue.Types.WorkflowGraph as Types
+import qualified Network.AWS.Glue.Types.WorkflowRunId as Types
+import qualified Network.AWS.Glue.Types.WorkflowRunStatistics as Types
+import qualified Network.AWS.Glue.Types.WorkflowRunStatus as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A workflow run is an execution of a workflow providing all the runtime information.
 --
 -- /See:/ 'mkWorkflowRun' smart constructor.
 data WorkflowRun = WorkflowRun'
   { -- | The date and time when the workflow run completed.
-    completedOn :: Lude.Maybe Lude.Timestamp,
-    -- | The status of the workflow run.
-    status :: Lude.Maybe WorkflowRunStatus,
-    -- | The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.
-    graph :: Lude.Maybe WorkflowGraph,
-    -- | The date and time when the workflow run was started.
-    startedOn :: Lude.Maybe Lude.Timestamp,
-    -- | The ID of this workflow run.
-    workflowRunId :: Lude.Maybe Lude.Text,
-    -- | Name of the workflow that was executed.
-    name :: Lude.Maybe Lude.Text,
-    -- | The ID of the previous workflow run.
-    previousRunId :: Lude.Maybe Lude.Text,
-    -- | The statistics of the run.
-    statistics :: Lude.Maybe WorkflowRunStatistics,
+    completedOn :: Core.Maybe Core.NominalDiffTime,
     -- | This error message describes any error that may have occurred in starting the workflow run. Currently the only error message is "Concurrent runs exceeded for workflow: @foo@ ."
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.ErrorMessage,
+    -- | The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.
+    graph :: Core.Maybe Types.WorkflowGraph,
+    -- | Name of the workflow that was executed.
+    name :: Core.Maybe Types.Name,
+    -- | The ID of the previous workflow run.
+    previousRunId :: Core.Maybe Types.PreviousRunId,
+    -- | The date and time when the workflow run was started.
+    startedOn :: Core.Maybe Core.NominalDiffTime,
+    -- | The statistics of the run.
+    statistics :: Core.Maybe Types.WorkflowRunStatistics,
+    -- | The status of the workflow run.
+    status :: Core.Maybe Types.WorkflowRunStatus,
+    -- | The ID of this workflow run.
+    workflowRunId :: Core.Maybe Types.WorkflowRunId,
     -- | The workflow run properties which were set during the run.
-    workflowRunProperties :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    workflowRunProperties :: Core.Maybe (Core.HashMap Types.IdString Types.GenericString)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'WorkflowRun' with the minimum fields required to make a request.
---
--- * 'completedOn' - The date and time when the workflow run completed.
--- * 'status' - The status of the workflow run.
--- * 'graph' - The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.
--- * 'startedOn' - The date and time when the workflow run was started.
--- * 'workflowRunId' - The ID of this workflow run.
--- * 'name' - Name of the workflow that was executed.
--- * 'previousRunId' - The ID of the previous workflow run.
--- * 'statistics' - The statistics of the run.
--- * 'errorMessage' - This error message describes any error that may have occurred in starting the workflow run. Currently the only error message is "Concurrent runs exceeded for workflow: @foo@ ."
--- * 'workflowRunProperties' - The workflow run properties which were set during the run.
+-- | Creates a 'WorkflowRun' value with any optional fields omitted.
 mkWorkflowRun ::
   WorkflowRun
 mkWorkflowRun =
   WorkflowRun'
-    { completedOn = Lude.Nothing,
-      status = Lude.Nothing,
-      graph = Lude.Nothing,
-      startedOn = Lude.Nothing,
-      workflowRunId = Lude.Nothing,
-      name = Lude.Nothing,
-      previousRunId = Lude.Nothing,
-      statistics = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      workflowRunProperties = Lude.Nothing
+    { completedOn = Core.Nothing,
+      errorMessage = Core.Nothing,
+      graph = Core.Nothing,
+      name = Core.Nothing,
+      previousRunId = Core.Nothing,
+      startedOn = Core.Nothing,
+      statistics = Core.Nothing,
+      status = Core.Nothing,
+      workflowRunId = Core.Nothing,
+      workflowRunProperties = Core.Nothing
     }
 
 -- | The date and time when the workflow run completed.
 --
 -- /Note:/ Consider using 'completedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrCompletedOn :: Lens.Lens' WorkflowRun (Lude.Maybe Lude.Timestamp)
-wrCompletedOn = Lens.lens (completedOn :: WorkflowRun -> Lude.Maybe Lude.Timestamp) (\s a -> s {completedOn = a} :: WorkflowRun)
+wrCompletedOn :: Lens.Lens' WorkflowRun (Core.Maybe Core.NominalDiffTime)
+wrCompletedOn = Lens.field @"completedOn"
 {-# DEPRECATED wrCompletedOn "Use generic-lens or generic-optics with 'completedOn' instead." #-}
 
--- | The status of the workflow run.
+-- | This error message describes any error that may have occurred in starting the workflow run. Currently the only error message is "Concurrent runs exceeded for workflow: @foo@ ."
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrStatus :: Lens.Lens' WorkflowRun (Lude.Maybe WorkflowRunStatus)
-wrStatus = Lens.lens (status :: WorkflowRun -> Lude.Maybe WorkflowRunStatus) (\s a -> s {status = a} :: WorkflowRun)
-{-# DEPRECATED wrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrErrorMessage :: Lens.Lens' WorkflowRun (Core.Maybe Types.ErrorMessage)
+wrErrorMessage = Lens.field @"errorMessage"
+{-# DEPRECATED wrErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The graph representing all the AWS Glue components that belong to the workflow as nodes and directed connections between them as edges.
 --
 -- /Note:/ Consider using 'graph' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrGraph :: Lens.Lens' WorkflowRun (Lude.Maybe WorkflowGraph)
-wrGraph = Lens.lens (graph :: WorkflowRun -> Lude.Maybe WorkflowGraph) (\s a -> s {graph = a} :: WorkflowRun)
+wrGraph :: Lens.Lens' WorkflowRun (Core.Maybe Types.WorkflowGraph)
+wrGraph = Lens.field @"graph"
 {-# DEPRECATED wrGraph "Use generic-lens or generic-optics with 'graph' instead." #-}
-
--- | The date and time when the workflow run was started.
---
--- /Note:/ Consider using 'startedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrStartedOn :: Lens.Lens' WorkflowRun (Lude.Maybe Lude.Timestamp)
-wrStartedOn = Lens.lens (startedOn :: WorkflowRun -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedOn = a} :: WorkflowRun)
-{-# DEPRECATED wrStartedOn "Use generic-lens or generic-optics with 'startedOn' instead." #-}
-
--- | The ID of this workflow run.
---
--- /Note:/ Consider using 'workflowRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrWorkflowRunId :: Lens.Lens' WorkflowRun (Lude.Maybe Lude.Text)
-wrWorkflowRunId = Lens.lens (workflowRunId :: WorkflowRun -> Lude.Maybe Lude.Text) (\s a -> s {workflowRunId = a} :: WorkflowRun)
-{-# DEPRECATED wrWorkflowRunId "Use generic-lens or generic-optics with 'workflowRunId' instead." #-}
 
 -- | Name of the workflow that was executed.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrName :: Lens.Lens' WorkflowRun (Lude.Maybe Lude.Text)
-wrName = Lens.lens (name :: WorkflowRun -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: WorkflowRun)
+wrName :: Lens.Lens' WorkflowRun (Core.Maybe Types.Name)
+wrName = Lens.field @"name"
 {-# DEPRECATED wrName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The ID of the previous workflow run.
 --
 -- /Note:/ Consider using 'previousRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrPreviousRunId :: Lens.Lens' WorkflowRun (Lude.Maybe Lude.Text)
-wrPreviousRunId = Lens.lens (previousRunId :: WorkflowRun -> Lude.Maybe Lude.Text) (\s a -> s {previousRunId = a} :: WorkflowRun)
+wrPreviousRunId :: Lens.Lens' WorkflowRun (Core.Maybe Types.PreviousRunId)
+wrPreviousRunId = Lens.field @"previousRunId"
 {-# DEPRECATED wrPreviousRunId "Use generic-lens or generic-optics with 'previousRunId' instead." #-}
+
+-- | The date and time when the workflow run was started.
+--
+-- /Note:/ Consider using 'startedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrStartedOn :: Lens.Lens' WorkflowRun (Core.Maybe Core.NominalDiffTime)
+wrStartedOn = Lens.field @"startedOn"
+{-# DEPRECATED wrStartedOn "Use generic-lens or generic-optics with 'startedOn' instead." #-}
 
 -- | The statistics of the run.
 --
 -- /Note:/ Consider using 'statistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrStatistics :: Lens.Lens' WorkflowRun (Lude.Maybe WorkflowRunStatistics)
-wrStatistics = Lens.lens (statistics :: WorkflowRun -> Lude.Maybe WorkflowRunStatistics) (\s a -> s {statistics = a} :: WorkflowRun)
+wrStatistics :: Lens.Lens' WorkflowRun (Core.Maybe Types.WorkflowRunStatistics)
+wrStatistics = Lens.field @"statistics"
 {-# DEPRECATED wrStatistics "Use generic-lens or generic-optics with 'statistics' instead." #-}
 
--- | This error message describes any error that may have occurred in starting the workflow run. Currently the only error message is "Concurrent runs exceeded for workflow: @foo@ ."
+-- | The status of the workflow run.
 --
--- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrErrorMessage :: Lens.Lens' WorkflowRun (Lude.Maybe Lude.Text)
-wrErrorMessage = Lens.lens (errorMessage :: WorkflowRun -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: WorkflowRun)
-{-# DEPRECATED wrErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrStatus :: Lens.Lens' WorkflowRun (Core.Maybe Types.WorkflowRunStatus)
+wrStatus = Lens.field @"status"
+{-# DEPRECATED wrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | The ID of this workflow run.
+--
+-- /Note:/ Consider using 'workflowRunId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+wrWorkflowRunId :: Lens.Lens' WorkflowRun (Core.Maybe Types.WorkflowRunId)
+wrWorkflowRunId = Lens.field @"workflowRunId"
+{-# DEPRECATED wrWorkflowRunId "Use generic-lens or generic-optics with 'workflowRunId' instead." #-}
 
 -- | The workflow run properties which were set during the run.
 --
 -- /Note:/ Consider using 'workflowRunProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wrWorkflowRunProperties :: Lens.Lens' WorkflowRun (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-wrWorkflowRunProperties = Lens.lens (workflowRunProperties :: WorkflowRun -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {workflowRunProperties = a} :: WorkflowRun)
+wrWorkflowRunProperties :: Lens.Lens' WorkflowRun (Core.Maybe (Core.HashMap Types.IdString Types.GenericString))
+wrWorkflowRunProperties = Lens.field @"workflowRunProperties"
 {-# DEPRECATED wrWorkflowRunProperties "Use generic-lens or generic-optics with 'workflowRunProperties' instead." #-}
 
-instance Lude.FromJSON WorkflowRun where
+instance Core.FromJSON WorkflowRun where
   parseJSON =
-    Lude.withObject
-      "WorkflowRun"
-      ( \x ->
-          WorkflowRun'
-            Lude.<$> (x Lude..:? "CompletedOn")
-            Lude.<*> (x Lude..:? "Status")
-            Lude.<*> (x Lude..:? "Graph")
-            Lude.<*> (x Lude..:? "StartedOn")
-            Lude.<*> (x Lude..:? "WorkflowRunId")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "PreviousRunId")
-            Lude.<*> (x Lude..:? "Statistics")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-            Lude.<*> (x Lude..:? "WorkflowRunProperties" Lude..!= Lude.mempty)
-      )
+    Core.withObject "WorkflowRun" Core.$
+      \x ->
+        WorkflowRun'
+          Core.<$> (x Core..:? "CompletedOn")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "Graph")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "PreviousRunId")
+          Core.<*> (x Core..:? "StartedOn")
+          Core.<*> (x Core..:? "Statistics")
+          Core.<*> (x Core..:? "Status")
+          Core.<*> (x Core..:? "WorkflowRunId")
+          Core.<*> (x Core..:? "WorkflowRunProperties")

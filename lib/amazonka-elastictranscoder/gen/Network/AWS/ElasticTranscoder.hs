@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,31 @@
 -- The AWS Elastic Transcoder Service.
 module Network.AWS.ElasticTranscoder
   ( -- * Service configuration
-    elasticTranscoderService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** IncompatibleVersionException
+    _IncompatibleVersionException,
+
+    -- ** ValidationException
+    _ValidationException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -80,316 +100,333 @@ module Network.AWS.ElasticTranscoder
 
     -- * Types
 
-    -- ** Artwork
-    Artwork (..),
-    mkArtwork,
-    aSizingPolicy,
-    aAlbumArtFormat,
-    aMaxHeight,
-    aInputKey,
-    aPaddingPolicy,
-    aEncryption,
-    aMaxWidth,
+    -- ** ThumbnailPattern
+    ThumbnailPattern (..),
 
-    -- ** AudioCodecOptions
-    AudioCodecOptions (..),
-    mkAudioCodecOptions,
-    acoSigned,
-    acoBitDepth,
-    acoProfile,
-    acoBitOrder,
+    -- ** AudioBitDepth
+    AudioBitDepth (..),
 
-    -- ** AudioParameters
-    AudioParameters (..),
-    mkAudioParameters,
-    apChannels,
-    apCodec,
-    apAudioPackingMode,
-    apSampleRate,
-    apBitRate,
-    apCodecOptions,
+    -- ** Digits
+    Digits (..),
 
-    -- ** CaptionFormat
-    CaptionFormat (..),
-    mkCaptionFormat,
-    cfPattern,
-    cfFormat,
-    cfEncryption,
+    -- ** PlayReadyDrm
+    PlayReadyDrm (..),
+    mkPlayReadyDrm,
+    prdFormat,
+    prdInitializationVector,
+    prdKey,
+    prdKeyId,
+    prdKeyMd5,
+    prdLicenseAcquisitionUrl,
 
-    -- ** CaptionSource
-    CaptionSource (..),
-    mkCaptionSource,
-    csTimeOffset,
-    csEncryption,
-    csKey,
-    csLanguage,
-    csLabel,
+    -- ** VideoBitRate
+    VideoBitRate (..),
 
-    -- ** Captions
-    Captions (..),
-    mkCaptions,
-    cMergePolicy,
-    cCaptionSources,
-    cCaptionFormats,
+    -- ** AudioSigned
+    AudioSigned (..),
 
-    -- ** Clip
-    Clip (..),
-    mkClip,
-    cTimeSpan,
+    -- ** KeyframesMaxDist
+    KeyframesMaxDist (..),
 
-    -- ** CreateJobOutput
-    CreateJobOutput (..),
-    mkCreateJobOutput,
-    cjoThumbnailPattern,
-    cjoCaptions,
-    cjoPresetId,
-    cjoComposition,
-    cjoAlbumArt,
-    cjoWatermarks,
-    cjoEncryption,
-    cjoKey,
-    cjoSegmentDuration,
-    cjoThumbnailEncryption,
-    cjoRotate,
+    -- ** VideoCodec
+    VideoCodec (..),
 
-    -- ** CreateJobPlaylist
-    CreateJobPlaylist (..),
-    mkCreateJobPlaylist,
-    cjpPlayReadyDrm,
-    cjpFormat,
-    cjpOutputKeys,
-    cjpName,
-    cjpHlsContentProtection,
+    -- ** WatermarkKey
+    WatermarkKey (..),
 
-    -- ** DetectedProperties
-    DetectedProperties (..),
-    mkDetectedProperties,
-    dpHeight,
-    dpFrameRate,
-    dpFileSize,
-    dpWidth,
-    dpDurationMillis,
-
-    -- ** Encryption
-    Encryption (..),
-    mkEncryption,
-    eMode,
-    eKeyMD5,
-    eKey,
-    eInitializationVector,
-
-    -- ** HlsContentProtection
-    HlsContentProtection (..),
-    mkHlsContentProtection,
-    hcpKeyMD5,
-    hcpKeyStoragePolicy,
-    hcpKey,
-    hcpMethod,
-    hcpInitializationVector,
-    hcpLicenseAcquisitionURL,
-
-    -- ** InputCaptions
-    InputCaptions (..),
-    mkInputCaptions,
-    icMergePolicy,
-    icCaptionSources,
-
-    -- ** Job'
-    Job' (..),
-    mkJob',
-    jStatus,
-    jPipelineId,
-    jARN,
-    jInputs,
-    jInput,
-    jUserMetadata,
-    jOutputs,
-    jOutput,
-    jId,
-    jPlaylists,
-    jOutputKeyPrefix,
-    jTiming,
-
-    -- ** JobAlbumArt
-    JobAlbumArt (..),
-    mkJobAlbumArt,
-    jaaMergePolicy,
-    jaaArtwork,
-
-    -- ** JobInput
-    JobInput (..),
-    mkJobInput,
-    jiFrameRate,
-    jiResolution,
-    jiAspectRatio,
-    jiTimeSpan,
-    jiEncryption,
-    jiKey,
-    jiDetectedProperties,
-    jiContainer,
-    jiInterlaced,
-    jiInputCaptions,
-
-    -- ** JobOutput
-    JobOutput (..),
-    mkJobOutput,
-    joAppliedColorSpaceConversion,
-    joThumbnailPattern,
-    joStatus,
-    joHeight,
-    joFrameRate,
-    joCaptions,
-    joPresetId,
-    joComposition,
-    joAlbumArt,
-    joFileSize,
-    joWatermarks,
-    joWidth,
-    joEncryption,
-    joKey,
-    joStatusDetail,
-    joId,
-    joSegmentDuration,
-    joDurationMillis,
-    joThumbnailEncryption,
-    joDuration,
-    joRotate,
-
-    -- ** JobWatermark
-    JobWatermark (..),
-    mkJobWatermark,
-    jwPresetWatermarkId,
-    jwInputKey,
-    jwEncryption,
-
-    -- ** Notifications
-    Notifications (..),
-    mkNotifications,
-    nError,
-    nWarning,
-    nProgressing,
-    nCompleted,
-
-    -- ** Permission
-    Permission (..),
-    mkPermission,
-    pAccess,
-    pGranteeType,
-    pGrantee,
-
-    -- ** Pipeline
-    Pipeline (..),
-    mkPipeline,
-    pfStatus,
-    pfARN,
-    pfInputBucket,
-    pfContentConfig,
-    pfOutputBucket,
-    pfRole,
-    pfName,
-    pfAWSKMSKeyARN,
-    pfId,
-    pfNotifications,
-    pfThumbnailConfig,
+    -- ** VerticalAlign
+    VerticalAlign (..),
 
     -- ** PipelineOutputConfig
     PipelineOutputConfig (..),
     mkPipelineOutputConfig,
     pocBucket,
-    pocStorageClass,
     pocPermissions,
+    pocStorageClass,
 
-    -- ** PlayReadyDrm
-    PlayReadyDrm (..),
-    mkPlayReadyDrm,
-    prdKeyId,
-    prdFormat,
-    prdKeyMD5,
-    prdKey,
-    prdInitializationVector,
-    prdLicenseAcquisitionURL,
+    -- ** FrameRate
+    FrameRate (..),
 
-    -- ** Playlist
-    Playlist (..),
-    mkPlaylist,
-    pStatus,
-    pPlayReadyDrm,
-    pFormat,
-    pOutputKeys,
-    pName,
-    pStatusDetail,
-    pHlsContentProtection,
+    -- ** KeyArn
+    KeyArn (..),
 
-    -- ** Preset
-    Preset (..),
-    mkPreset,
-    pgARN,
-    pgVideo,
-    pgThumbnails,
-    pgName,
-    pgContainer,
-    pgId,
-    pgType,
-    pgDescription,
-    pgAudio,
+    -- ** NonEmptyBase64EncodedString
+    NonEmptyBase64EncodedString (..),
 
-    -- ** PresetWatermark
-    PresetWatermark (..),
-    mkPresetWatermark,
-    pwVerticalAlign,
-    pwSizingPolicy,
-    pwHorizontalOffset,
-    pwMaxHeight,
-    pwOpacity,
-    pwVerticalOffset,
-    pwMaxWidth,
-    pwId,
-    pwHorizontalAlign,
-    pwTarget,
+    -- ** HlsContentProtectionMethod
+    HlsContentProtectionMethod (..),
 
-    -- ** Thumbnails
-    Thumbnails (..),
-    mkThumbnails,
-    tSizingPolicy,
-    tFormat,
-    tMaxHeight,
-    tResolution,
-    tAspectRatio,
-    tPaddingPolicy,
-    tInterval,
-    tMaxWidth,
+    -- ** CodecOption
+    CodecOption (..),
+
+    -- ** CaptionFormatPattern
+    CaptionFormatPattern (..),
+
+    -- ** CreateJobPlaylist
+    CreateJobPlaylist (..),
+    mkCreateJobPlaylist,
+    cjpFormat,
+    cjpHlsContentProtection,
+    cjpName,
+    cjpOutputKeys,
+    cjpPlayReadyDrm,
+
+    -- ** String
+    String (..),
+
+    -- ** Captions
+    Captions (..),
+    mkCaptions,
+    cCaptionFormats,
+    cCaptionSources,
+    cMergePolicy,
+
+    -- ** PresetType
+    PresetType (..),
+
+    -- ** Time
+    Time (..),
+
+    -- ** PlaylistFormat
+    PlaylistFormat (..),
+
+    -- ** MergePolicy
+    MergePolicy (..),
+
+    -- ** PresetWatermarkId
+    PresetWatermarkId (..),
+
+    -- ** AudioCodecOptions
+    AudioCodecOptions (..),
+    mkAudioCodecOptions,
+    acoBitDepth,
+    acoBitOrder,
+    acoProfile,
+    acoSigned,
+
+    -- ** JobOutput
+    JobOutput (..),
+    mkJobOutput,
+    joAlbumArt,
+    joAppliedColorSpaceConversion,
+    joCaptions,
+    joComposition,
+    joDuration,
+    joDurationMillis,
+    joEncryption,
+    joFileSize,
+    joFrameRate,
+    joHeight,
+    joId,
+    joKey,
+    joPresetId,
+    joRotate,
+    joSegmentDuration,
+    joStatus,
+    joStatusDetail,
+    joThumbnailEncryption,
+    joThumbnailPattern,
+    joWatermarks,
+    joWidth,
+
+    -- ** TimeOffset
+    TimeOffset (..),
+
+    -- ** SizingPolicy
+    SizingPolicy (..),
+
+    -- ** MaxFrameRate
+    MaxFrameRate (..),
+
+    -- ** CaptionSource
+    CaptionSource (..),
+    mkCaptionSource,
+    csEncryption,
+    csKey,
+    csLabel,
+    csLanguage,
+    csTimeOffset,
+
+    -- ** AccessControl
+    AccessControl (..),
+
+    -- ** CaptionFormatFormat
+    CaptionFormatFormat (..),
+
+    -- ** GranteeType
+    GranteeType (..),
+
+    -- ** Resolution
+    Resolution (..),
+
+    -- ** Ascending
+    Ascending (..),
+
+    -- ** KeyStoragePolicy
+    KeyStoragePolicy (..),
+
+    -- ** CaptionMergePolicy
+    CaptionMergePolicy (..),
+
+    -- ** Artwork
+    Artwork (..),
+    mkArtwork,
+    aAlbumArtFormat,
+    aEncryption,
+    aInputKey,
+    aMaxHeight,
+    aMaxWidth,
+    aPaddingPolicy,
+    aSizingPolicy,
+
+    -- ** PipelineStatus
+    PipelineStatus (..),
+
+    -- ** DigitsOrAuto
+    DigitsOrAuto (..),
+
+    -- ** AspectRatio
+    AspectRatio (..),
+
+    -- ** JpgOrPng
+    JpgOrPng (..),
+
+    -- ** BucketName
+    BucketName (..),
+
+    -- ** Opacity
+    Opacity (..),
 
     -- ** TimeSpan
     TimeSpan (..),
     mkTimeSpan,
-    tsStartTime,
     tsDuration,
+    tsStartTime,
 
-    -- ** Timing
-    Timing (..),
-    mkTiming,
-    tSubmitTimeMillis,
-    tFinishTimeMillis,
-    tStartTimeMillis,
+    -- ** PaddingPolicy
+    PaddingPolicy (..),
 
-    -- ** VideoParameters
-    VideoParameters (..),
-    mkVideoParameters,
-    vpKeyframesMaxDist,
-    vpFrameRate,
-    vpSizingPolicy,
-    vpMaxFrameRate,
-    vpMaxHeight,
-    vpWatermarks,
-    vpDisplayAspectRatio,
-    vpResolution,
-    vpCodec,
-    vpAspectRatio,
-    vpPaddingPolicy,
-    vpMaxWidth,
-    vpBitRate,
-    vpFixedGOP,
-    vpCodecOptions,
+    -- ** AudioPackingMode
+    AudioPackingMode (..),
+
+    -- ** EncryptionMode
+    EncryptionMode (..),
+
+    -- ** CreateJobOutput
+    CreateJobOutput (..),
+    mkCreateJobOutput,
+    cjoAlbumArt,
+    cjoCaptions,
+    cjoComposition,
+    cjoEncryption,
+    cjoKey,
+    cjoPresetId,
+    cjoRotate,
+    cjoSegmentDuration,
+    cjoThumbnailEncryption,
+    cjoThumbnailPattern,
+    cjoWatermarks,
+
+    -- ** AudioParameters
+    AudioParameters (..),
+    mkAudioParameters,
+    apAudioPackingMode,
+    apBitRate,
+    apChannels,
+    apCodec,
+    apCodecOptions,
+    apSampleRate,
+
+    -- ** Role
+    Role (..),
+
+    -- ** Thumbnails
+    Thumbnails (..),
+    mkThumbnails,
+    tAspectRatio,
+    tFormat,
+    tInterval,
+    tMaxHeight,
+    tMaxWidth,
+    tPaddingPolicy,
+    tResolution,
+    tSizingPolicy,
+
+    -- ** Encryption
+    Encryption (..),
+    mkEncryption,
+    eInitializationVector,
+    eKey,
+    eKeyMd5,
+    eMode,
+
+    -- ** JobAlbumArt
+    JobAlbumArt (..),
+    mkJobAlbumArt,
+    jaaArtwork,
+    jaaMergePolicy,
+
+    -- ** SnsTopic
+    SnsTopic (..),
+
+    -- ** Job'
+    Job' (..),
+    mkJob',
+    jArn,
+    jId,
+    jInput,
+    jInputs,
+    jOutput,
+    jOutputKeyPrefix,
+    jOutputs,
+    jPipelineId,
+    jPlaylists,
+    jStatus,
+    jTiming,
+    jUserMetadata,
+
+    -- ** Key
+    Key (..),
+
+    -- ** DetectedProperties
+    DetectedProperties (..),
+    mkDetectedProperties,
+    dpDurationMillis,
+    dpFileSize,
+    dpFrameRate,
+    dpHeight,
+    dpWidth,
+
+    -- ** StorageClass
+    StorageClass (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** JobWatermark
+    JobWatermark (..),
+    mkJobWatermark,
+    jwEncryption,
+    jwInputKey,
+    jwPresetWatermarkId,
+
+    -- ** ZeroTo512String
+    ZeroTo512String (..),
+
+    -- ** Pipeline
+    Pipeline (..),
+    mkPipeline,
+    pfArn,
+    pfAwsKmsKeyArn,
+    pfContentConfig,
+    pfId,
+    pfInputBucket,
+    pfName,
+    pfNotifications,
+    pfOutputBucket,
+    pfRole,
+    pfStatus,
+    pfThumbnailConfig,
 
     -- ** Warning
     Warning (..),
@@ -397,15 +434,263 @@ module Network.AWS.ElasticTranscoder
     wCode,
     wMessage,
 
+    -- ** PresetContainer
+    PresetContainer (..),
+
+    -- ** PixelsOrPercent
+    PixelsOrPercent (..),
+
+    -- ** Preset
+    Preset (..),
+    mkPreset,
+    pgArn,
+    pgAudio,
+    pgContainer,
+    pgDescription,
+    pgId,
+    pgName,
+    pgThumbnails,
+    pgType,
+    pgVideo,
+
+    -- ** Id
+    Id (..),
+
+    -- ** CaptionFormat
+    CaptionFormat (..),
+    mkCaptionFormat,
+    cfEncryption,
+    cfFormat,
+    cfPattern,
+
+    -- ** HlsContentProtection
+    HlsContentProtection (..),
+    mkHlsContentProtection,
+    hcpInitializationVector,
+    hcpKey,
+    hcpKeyMd5,
+    hcpKeyStoragePolicy,
+    hcpLicenseAcquisitionUrl,
+    hcpMethod,
+
+    -- ** LongKey
+    LongKey (..),
+
+    -- ** PresetWatermark
+    PresetWatermark (..),
+    mkPresetWatermark,
+    pwHorizontalAlign,
+    pwHorizontalOffset,
+    pwId,
+    pwMaxHeight,
+    pwMaxWidth,
+    pwOpacity,
+    pwSizingPolicy,
+    pwTarget,
+    pwVerticalAlign,
+    pwVerticalOffset,
+
+    -- ** Base64EncodedString
+    Base64EncodedString (..),
+
+    -- ** Timing
+    Timing (..),
+    mkTiming,
+    tFinishTimeMillis,
+    tStartTimeMillis,
+    tSubmitTimeMillis,
+
+    -- ** JobContainer
+    JobContainer (..),
+
+    -- ** JobStatus
+    JobStatus (..),
+
+    -- ** Permission
+    Permission (..),
+    mkPermission,
+    pAccess,
+    pGrantee,
+    pGranteeType,
+
+    -- ** Interlaced
+    Interlaced (..),
+
+    -- ** HorizontalAlign
+    HorizontalAlign (..),
+
+    -- ** InputCaptions
+    InputCaptions (..),
+    mkInputCaptions,
+    icCaptionSources,
+    icMergePolicy,
+
+    -- ** VideoParameters
+    VideoParameters (..),
+    mkVideoParameters,
+    vpAspectRatio,
+    vpBitRate,
+    vpCodec,
+    vpCodecOptions,
+    vpDisplayAspectRatio,
+    vpFixedGOP,
+    vpFrameRate,
+    vpKeyframesMaxDist,
+    vpMaxFrameRate,
+    vpMaxHeight,
+    vpMaxWidth,
+    vpPaddingPolicy,
+    vpResolution,
+    vpSizingPolicy,
+    vpWatermarks,
+
+    -- ** Grantee
+    Grantee (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** Playlist
+    Playlist (..),
+    mkPlaylist,
+    pFormat,
+    pHlsContentProtection,
+    pName,
+    pOutputKeys,
+    pPlayReadyDrm,
+    pStatus,
+    pStatusDetail,
+
+    -- ** FixedGOP
+    FixedGOP (..),
+
+    -- ** Notifications
+    Notifications (..),
+    mkNotifications,
+    nCompleted,
+    nError,
+    nProgressing,
+    nWarning,
+
+    -- ** Clip
+    Clip (..),
+    mkClip,
+    cTimeSpan,
+
+    -- ** Rotate
+    Rotate (..),
+
+    -- ** JobInput
+    JobInput (..),
+    mkJobInput,
+    jiAspectRatio,
+    jiContainer,
+    jiDetectedProperties,
+    jiEncryption,
+    jiFrameRate,
+    jiInputCaptions,
+    jiInterlaced,
+    jiKey,
+    jiResolution,
+    jiTimeSpan,
+
+    -- ** Filename
+    Filename (..),
+
+    -- ** Target
+    Target (..),
+
+    -- ** Format
+    Format (..),
+
+    -- ** InitializationVector
+    InitializationVector (..),
+
+    -- ** KeyId
+    KeyId (..),
+
+    -- ** KeyMd5
+    KeyMd5 (..),
+
+    -- ** LicenseAcquisitionUrl
+    LicenseAcquisitionUrl (..),
+
+    -- ** NextPageToken
+    NextPageToken (..),
+
+    -- ** Bucket
+    Bucket (..),
+
+    -- ** AwsKmsKeyArn
+    AwsKmsKeyArn (..),
+
+    -- ** InputBucket
+    InputBucket (..),
+
+    -- ** PageToken
+    PageToken (..),
+
+    -- ** PipelineId
+    PipelineId (..),
+
+    -- ** OutputKeyPrefix
+    OutputKeyPrefix (..),
+
+    -- ** BitOrder
+    BitOrder (..),
+
+    -- ** Profile
+    Profile (..),
+
+    -- ** PresetId
+    PresetId (..),
+
+    -- ** SegmentDuration
+    SegmentDuration (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** StatusDetail
+    StatusDetail (..),
+
+    -- ** Container
+    Container (..),
+
+    -- ** Label
+    Label (..),
+
+    -- ** Language
+    Language (..),
+
+    -- ** AlbumArtFormat
+    AlbumArtFormat (..),
+
+    -- ** MaxHeight
+    MaxHeight (..),
+
+    -- ** MaxWidth
+    MaxWidth (..),
+
+    -- ** BitRate
+    BitRate (..),
+
+    -- ** Channels
+    Channels (..),
+
+    -- ** Codec
+    Codec (..),
+
+    -- ** SampleRate
+    SampleRate (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

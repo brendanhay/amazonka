@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -118,10 +117,25 @@
 --     * @UpdateWebhook@ : Changes the settings of an existing webhook.
 module Network.AWS.CodeBuild
   ( -- * Service configuration
-    codeBuildService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** OAuthProviderException
+    _OAuthProviderException,
+
+    -- ** AccountLimitExceededException
+    _AccountLimitExceededException,
+
+    -- ** InvalidInputException
+    _InvalidInputException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -263,250 +277,87 @@ module Network.AWS.CodeBuild
 
     -- * Types
 
-    -- ** ArtifactNamespace
-    ArtifactNamespace (..),
-
-    -- ** ArtifactPackaging
-    ArtifactPackaging (..),
-
-    -- ** ArtifactsType
-    ArtifactsType (..),
-
-    -- ** AuthType
-    AuthType (..),
-
-    -- ** BuildBatchPhaseType
-    BuildBatchPhaseType (..),
-
-    -- ** BuildPhaseType
-    BuildPhaseType (..),
-
-    -- ** CacheMode
-    CacheMode (..),
+    -- ** ProjectSortByType
+    ProjectSortByType (..),
 
     -- ** CacheType
     CacheType (..),
 
-    -- ** ComputeType
-    ComputeType (..),
-
-    -- ** CredentialProviderType
-    CredentialProviderType (..),
-
-    -- ** EnvironmentType
-    EnvironmentType (..),
-
-    -- ** EnvironmentVariableType
-    EnvironmentVariableType (..),
-
-    -- ** FileSystemType
-    FileSystemType (..),
-
-    -- ** ImagePullCredentialsType
-    ImagePullCredentialsType (..),
-
-    -- ** LanguageType
-    LanguageType (..),
-
-    -- ** LogsConfigStatusType
-    LogsConfigStatusType (..),
-
-    -- ** PlatformType
-    PlatformType (..),
-
-    -- ** ProjectSortByType
-    ProjectSortByType (..),
-
-    -- ** ReportCodeCoverageSortByType
-    ReportCodeCoverageSortByType (..),
-
-    -- ** ReportExportConfigType
-    ReportExportConfigType (..),
-
-    -- ** ReportGroupSortByType
-    ReportGroupSortByType (..),
-
-    -- ** ReportGroupStatusType
-    ReportGroupStatusType (..),
-
-    -- ** ReportGroupTrendFieldType
-    ReportGroupTrendFieldType (..),
-
-    -- ** ReportPackagingType
-    ReportPackagingType (..),
-
-    -- ** ReportStatusType
-    ReportStatusType (..),
-
-    -- ** ReportType
-    ReportType (..),
-
-    -- ** RetryBuildBatchType
-    RetryBuildBatchType (..),
-
-    -- ** ServerType
-    ServerType (..),
-
-    -- ** SharedResourceSortByType
-    SharedResourceSortByType (..),
+    -- ** TestReportSummary
+    TestReportSummary (..),
+    mkTestReportSummary,
+    trsTotal,
+    trsStatusCounts,
+    trsDurationInNanoSeconds,
 
     -- ** SortOrderType
     SortOrderType (..),
 
-    -- ** SourceAuthType
-    SourceAuthType (..),
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** SourceType
-    SourceType (..),
+    -- ** TestCase
+    TestCase (..),
+    mkTestCase,
+    tcDurationInNanoSeconds,
+    tcExpired,
+    tcMessage,
+    tcName,
+    tcPrefix,
+    tcReportArn,
+    tcStatus,
+    tcTestRawDataPath,
 
-    -- ** StatusType
-    StatusType (..),
+    -- ** LanguageType
+    LanguageType (..),
 
-    -- ** WebhookBuildType
-    WebhookBuildType (..),
+    -- ** ReportGroupTrendFieldType
+    ReportGroupTrendFieldType (..),
 
-    -- ** WebhookFilterType
-    WebhookFilterType (..),
+    -- ** ImagePullCredentialsType
+    ImagePullCredentialsType (..),
 
-    -- ** BatchRestrictions
-    BatchRestrictions (..),
-    mkBatchRestrictions,
-    brMaximumBuildsAllowed,
-    brComputeTypesAllowed,
+    -- ** EnvironmentPlatform
+    EnvironmentPlatform (..),
+    mkEnvironmentPlatform,
+    epLanguages,
+    epPlatform,
 
-    -- ** Build
-    Build (..),
-    mkBuild,
-    bPhases,
-    bBuildComplete,
-    bSecondaryArtifacts,
-    bArn,
-    bExportedEnvironmentVariables,
-    bBuildNumber,
-    bStartTime,
-    bArtifacts,
-    bEnvironment,
-    bInitiator,
-    bNetworkInterface,
-    bSecondarySourceVersions,
-    bCurrentPhase,
-    bQueuedTimeoutInMinutes,
-    bCache,
-    bSecondarySources,
-    bDebugSession,
-    bSourceVersion,
-    bBuildBatchARN,
-    bLogs,
-    bResolvedSourceVersion,
-    bVpcConfig,
-    bEndTime,
-    bProjectName,
-    bBuildStatus,
-    bSource,
-    bId,
-    bFileSystemLocations,
-    bReportARNs,
-    bEncryptionKey,
-    bServiceRole,
-    bTimeoutInMinutes,
+    -- ** RetryBuildBatchType
+    RetryBuildBatchType (..),
 
-    -- ** BuildArtifacts
-    BuildArtifacts (..),
-    mkBuildArtifacts,
-    baLocation,
-    baMd5sum,
-    baEncryptionDisabled,
-    baOverrideArtifactName,
-    baArtifactIdentifier,
-    baSha256sum,
-
-    -- ** BuildBatch
-    BuildBatch (..),
-    mkBuildBatch,
-    bbPhases,
-    bbSecondaryArtifacts,
-    bbBuildTimeoutInMinutes,
-    bbArn,
-    bbStartTime,
-    bbArtifacts,
-    bbEnvironment,
-    bbInitiator,
-    bbSecondarySourceVersions,
-    bbBuildBatchStatus,
-    bbCurrentPhase,
-    bbBuildBatchNumber,
-    bbQueuedTimeoutInMinutes,
-    bbCache,
-    bbSecondarySources,
-    bbSourceVersion,
-    bbResolvedSourceVersion,
-    bbVpcConfig,
-    bbEndTime,
-    bbProjectName,
-    bbBuildGroups,
-    bbSource,
-    bbId,
-    bbFileSystemLocations,
-    bbBuildBatchConfig,
-    bbEncryptionKey,
-    bbLogConfig,
-    bbServiceRole,
-    bbComplete,
+    -- ** CredentialProviderType
+    CredentialProviderType (..),
 
     -- ** BuildBatchFilter
     BuildBatchFilter (..),
     mkBuildBatchFilter,
     bbfStatus,
 
-    -- ** BuildBatchPhase
-    BuildBatchPhase (..),
-    mkBuildBatchPhase,
-    bbpContexts,
-    bbpStartTime,
-    bbpPhaseStatus,
-    bbpPhaseType,
-    bbpEndTime,
-    bbpDurationInSeconds,
+    -- ** ReportStatusType
+    ReportStatusType (..),
 
-    -- ** BuildGroup
-    BuildGroup (..),
-    mkBuildGroup,
-    bgIdentifier,
-    bgDependsOn,
-    bgIgnoreFailure,
-    bgCurrentBuildSummary,
-    bgPriorBuildSummaryList,
+    -- ** ProjectSourceVersion
+    ProjectSourceVersion (..),
+    mkProjectSourceVersion,
+    psvSourceIdentifier,
+    psvSourceVersion,
 
-    -- ** BuildNotDeleted
-    BuildNotDeleted (..),
-    mkBuildNotDeleted,
-    bndId,
-    bndStatusCode,
+    -- ** S3LogsConfig
+    S3LogsConfig (..),
+    mkS3LogsConfig,
+    slcStatus,
+    slcEncryptionDisabled,
+    slcLocation,
 
-    -- ** BuildPhase
-    BuildPhase (..),
-    mkBuildPhase,
-    bpContexts,
-    bpStartTime,
-    bpPhaseStatus,
-    bpPhaseType,
-    bpEndTime,
-    bpDurationInSeconds,
+    -- ** BuildBatchPhaseType
+    BuildBatchPhaseType (..),
 
-    -- ** BuildStatusConfig
-    BuildStatusConfig (..),
-    mkBuildStatusConfig,
-    bscContext,
-    bscTargetURL,
-
-    -- ** BuildSummary
-    BuildSummary (..),
-    mkBuildSummary,
-    bsSecondaryArtifacts,
-    bsPrimaryArtifact,
-    bsArn,
-    bsBuildStatus,
-    bsRequestedOn,
+    -- ** SourceAuthType
+    SourceAuthType (..),
 
     -- ** CloudWatchLogsConfig
     CloudWatchLogsConfig (..),
@@ -515,29 +366,231 @@ module Network.AWS.CodeBuild
     cwlcGroupName,
     cwlcStreamName,
 
+    -- ** String
+    String (..),
+
+    -- ** ReportGroupStatusType
+    ReportGroupStatusType (..),
+
+    -- ** SourceType
+    SourceType (..),
+
+    -- ** WebhookBuildType
+    WebhookBuildType (..),
+
+    -- ** Project
+    Project (..),
+    mkProject,
+    pArn,
+    pArtifacts,
+    pBadge,
+    pBuildBatchConfig,
+    pCache,
+    pCreated,
+    pDescription,
+    pEncryptionKey,
+    pEnvironment,
+    pFileSystemLocations,
+    pLastModified,
+    pLogsConfig,
+    pName,
+    pQueuedTimeoutInMinutes,
+    pSecondaryArtifacts,
+    pSecondarySourceVersions,
+    pSecondarySources,
+    pServiceRole,
+    pSource,
+    pSourceVersion,
+    pTags,
+    pTimeoutInMinutes,
+    pVpcConfig,
+    pWebhook,
+
+    -- ** ServerType
+    ServerType (..),
+
+    -- ** S3ReportExportConfig
+    S3ReportExportConfig (..),
+    mkS3ReportExportConfig,
+    srecBucket,
+    srecEncryptionDisabled,
+    srecEncryptionKey,
+    srecPackaging,
+    srecPath,
+
+    -- ** ProjectBadge
+    ProjectBadge (..),
+    mkProjectBadge,
+    pbBadgeEnabled,
+    pbBadgeRequestUrl,
+
+    -- ** ReportExportConfigType
+    ReportExportConfigType (..),
+
+    -- ** NetworkInterface
+    NetworkInterface (..),
+    mkNetworkInterface,
+    niNetworkInterfaceId,
+    niSubnetId,
+
+    -- ** WebhookFilter
+    WebhookFilter (..),
+    mkWebhookFilter,
+    wfType,
+    wfPattern,
+    wfExcludeMatchedPattern,
+
+    -- ** EnvironmentVariableType
+    EnvironmentVariableType (..),
+
+    -- ** SourceCredentialsInfo
+    SourceCredentialsInfo (..),
+    mkSourceCredentialsInfo,
+    sciArn,
+    sciAuthType,
+    sciServerType,
+
+    -- ** ProjectFileSystemLocation
+    ProjectFileSystemLocation (..),
+    mkProjectFileSystemLocation,
+    pfslIdentifier,
+    pfslLocation,
+    pfslMountOptions,
+    pfslMountPoint,
+    pfslType,
+
     -- ** CodeCoverage
     CodeCoverage (..),
     mkCodeCoverage,
-    ccExpired,
-    ccBranchesMissed,
-    ccLinesMissed,
-    ccFilePath,
-    ccBranchesCovered,
-    ccLinesCovered,
     ccBranchCoveragePercentage,
+    ccBranchesCovered,
+    ccBranchesMissed,
+    ccExpired,
+    ccFilePath,
     ccId,
     ccLineCoveragePercentage,
+    ccLinesCovered,
+    ccLinesMissed,
     ccReportARN,
+
+    -- ** ExportedEnvironmentVariable
+    ExportedEnvironmentVariable (..),
+    mkExportedEnvironmentVariable,
+    eevName,
+    eevValue,
+
+    -- ** Build
+    Build (..),
+    mkBuild,
+    bArn,
+    bArtifacts,
+    bBuildBatchArn,
+    bBuildComplete,
+    bBuildNumber,
+    bBuildStatus,
+    bCache,
+    bCurrentPhase,
+    bDebugSession,
+    bEncryptionKey,
+    bEndTime,
+    bEnvironment,
+    bExportedEnvironmentVariables,
+    bFileSystemLocations,
+    bId,
+    bInitiator,
+    bLogs,
+    bNetworkInterface,
+    bPhases,
+    bProjectName,
+    bQueuedTimeoutInMinutes,
+    bReportArns,
+    bResolvedSourceVersion,
+    bSecondaryArtifacts,
+    bSecondarySourceVersions,
+    bSecondarySources,
+    bServiceRole,
+    bSource,
+    bSourceVersion,
+    bStartTime,
+    bTimeoutInMinutes,
+    bVpcConfig,
+
+    -- ** Report
+    Report (..),
+    mkReport,
+    rArn,
+    rCodeCoverageSummary,
+    rCreated,
+    rExecutionId,
+    rExpired,
+    rExportConfig,
+    rName,
+    rReportGroupArn,
+    rStatus,
+    rTestSummary,
+    rTruncated,
+    rType,
+
+    -- ** RegistryCredential
+    RegistryCredential (..),
+    mkRegistryCredential,
+    rcCredential,
+    rcCredentialProvider,
+
+    -- ** ResolvedArtifact
+    ResolvedArtifact (..),
+    mkResolvedArtifact,
+    raIdentifier,
+    raLocation,
+    raType,
+
+    -- ** BuildNotDeleted
+    BuildNotDeleted (..),
+    mkBuildNotDeleted,
+    bndId,
+    bndStatusCode,
+
+    -- ** LogsConfigStatusType
+    LogsConfigStatusType (..),
 
     -- ** CodeCoverageReportSummary
     CodeCoverageReportSummary (..),
     mkCodeCoverageReportSummary,
-    ccrsBranchesMissed,
-    ccrsLinesMissed,
-    ccrsBranchesCovered,
-    ccrsLinesCovered,
     ccrsBranchCoveragePercentage,
+    ccrsBranchesCovered,
+    ccrsBranchesMissed,
     ccrsLineCoveragePercentage,
+    ccrsLinesCovered,
+    ccrsLinesMissed,
+
+    -- ** BuildPhaseType
+    BuildPhaseType (..),
+
+    -- ** ReportPackagingType
+    ReportPackagingType (..),
+
+    -- ** ProjectCache
+    ProjectCache (..),
+    mkProjectCache,
+    pcType,
+    pcLocation,
+    pcModes,
+
+    -- ** ReportCodeCoverageSortByType
+    ReportCodeCoverageSortByType (..),
+
+    -- ** StatusType
+    StatusType (..),
+
+    -- ** NonEmptyString
+    NonEmptyString (..),
+
+    -- ** VpcConfig
+    VpcConfig (..),
+    mkVpcConfig,
+    vcSecurityGroupIds,
+    vcSubnets,
+    vcVpcId,
 
     -- ** DebugSession
     DebugSession (..),
@@ -545,12 +598,11 @@ module Network.AWS.CodeBuild
     dsSessionEnabled,
     dsSessionTarget,
 
-    -- ** EnvironmentImage
-    EnvironmentImage (..),
-    mkEnvironmentImage,
-    eiVersions,
-    eiName,
-    eiDescription,
+    -- ** CacheMode
+    CacheMode (..),
+
+    -- ** PlatformType
+    PlatformType (..),
 
     -- ** EnvironmentLanguage
     EnvironmentLanguage (..),
@@ -558,24 +610,87 @@ module Network.AWS.CodeBuild
     elImages,
     elLanguage,
 
-    -- ** EnvironmentPlatform
-    EnvironmentPlatform (..),
-    mkEnvironmentPlatform,
-    epPlatform,
-    epLanguages,
+    -- ** EnvironmentImage
+    EnvironmentImage (..),
+    mkEnvironmentImage,
+    eiDescription,
+    eiName,
+    eiVersions,
 
-    -- ** EnvironmentVariable
-    EnvironmentVariable (..),
-    mkEnvironmentVariable,
-    evValue,
-    evName,
-    evType,
+    -- ** LogsLocation
+    LogsLocation (..),
+    mkLogsLocation,
+    llCloudWatchLogs,
+    llCloudWatchLogsArn,
+    llDeepLink,
+    llGroupName,
+    llS3DeepLink,
+    llS3Logs,
+    llS3LogsArn,
+    llStreamName,
 
-    -- ** ExportedEnvironmentVariable
-    ExportedEnvironmentVariable (..),
-    mkExportedEnvironmentVariable,
-    eevValue,
-    eevName,
+    -- ** BuildSummary
+    BuildSummary (..),
+    mkBuildSummary,
+    bsArn,
+    bsBuildStatus,
+    bsPrimaryArtifact,
+    bsRequestedOn,
+    bsSecondaryArtifacts,
+
+    -- ** BuildBatch
+    BuildBatch (..),
+    mkBuildBatch,
+    bbArn,
+    bbArtifacts,
+    bbBuildBatchConfig,
+    bbBuildBatchNumber,
+    bbBuildBatchStatus,
+    bbBuildGroups,
+    bbBuildTimeoutInMinutes,
+    bbCache,
+    bbComplete,
+    bbCurrentPhase,
+    bbEncryptionKey,
+    bbEndTime,
+    bbEnvironment,
+    bbFileSystemLocations,
+    bbId,
+    bbInitiator,
+    bbLogConfig,
+    bbPhases,
+    bbProjectName,
+    bbQueuedTimeoutInMinutes,
+    bbResolvedSourceVersion,
+    bbSecondaryArtifacts,
+    bbSecondarySourceVersions,
+    bbSecondarySources,
+    bbServiceRole,
+    bbSource,
+    bbSourceVersion,
+    bbStartTime,
+    bbVpcConfig,
+
+    -- ** TestCaseFilter
+    TestCaseFilter (..),
+    mkTestCaseFilter,
+    tcfKeyword,
+    tcfStatus,
+
+    -- ** SharedResourceSortByType
+    SharedResourceSortByType (..),
+
+    -- ** ProjectName
+    ProjectName (..),
+
+    -- ** ArtifactNamespace
+    ArtifactNamespace (..),
+
+    -- ** EnvironmentType
+    EnvironmentType (..),
+
+    -- ** ArtifactsType
+    ArtifactsType (..),
 
     -- ** GitSubmodulesConfig
     GitSubmodulesConfig (..),
@@ -585,157 +700,76 @@ module Network.AWS.CodeBuild
     -- ** LogsConfig
     LogsConfig (..),
     mkLogsConfig,
-    lcS3Logs,
     lcCloudWatchLogs,
+    lcS3Logs,
 
-    -- ** LogsLocation
-    LogsLocation (..),
-    mkLogsLocation,
-    llDeepLink,
-    llS3Logs,
-    llCloudWatchLogs,
-    llS3DeepLink,
-    llS3LogsARN,
-    llCloudWatchLogsARN,
-    llGroupName,
-    llStreamName,
-
-    -- ** NetworkInterface
-    NetworkInterface (..),
-    mkNetworkInterface,
-    niSubnetId,
-    niNetworkInterfaceId,
-
-    -- ** PhaseContext
-    PhaseContext (..),
-    mkPhaseContext,
-    pcMessage,
-    pcStatusCode,
-
-    -- ** Project
-    Project (..),
-    mkProject,
-    pSecondaryArtifacts,
-    pArn,
-    pArtifacts,
-    pEnvironment,
-    pCreated,
-    pSecondarySourceVersions,
-    pQueuedTimeoutInMinutes,
-    pCache,
-    pSecondarySources,
-    pSourceVersion,
-    pName,
-    pVpcConfig,
-    pSource,
-    pBadge,
-    pLogsConfig,
-    pFileSystemLocations,
-    pBuildBatchConfig,
-    pEncryptionKey,
-    pLastModified,
-    pWebhook,
-    pDescription,
-    pServiceRole,
-    pTags,
-    pTimeoutInMinutes,
-
-    -- ** ProjectArtifacts
-    ProjectArtifacts (..),
-    mkProjectArtifacts,
-    paPackaging,
-    paPath,
-    paLocation,
-    paName,
-    paEncryptionDisabled,
-    paOverrideArtifactName,
-    paArtifactIdentifier,
-    paType,
-    paNamespaceType,
-
-    -- ** ProjectBadge
-    ProjectBadge (..),
-    mkProjectBadge,
-    pbBadgeEnabled,
-    pbBadgeRequestURL,
+    -- ** ComputeType
+    ComputeType (..),
 
     -- ** ProjectBuildBatchConfig
     ProjectBuildBatchConfig (..),
     mkProjectBuildBatchConfig,
     pbbcCombineArtifacts,
-    pbbcTimeoutInMins,
     pbbcRestrictions,
     pbbcServiceRole,
+    pbbcTimeoutInMins,
 
-    -- ** ProjectCache
-    ProjectCache (..),
-    mkProjectCache,
-    pcLocation,
-    pcModes,
-    pcType,
+    -- ** SourceAuth
+    SourceAuth (..),
+    mkSourceAuth,
+    saType,
+    saResource,
+
+    -- ** BuildBatchPhase
+    BuildBatchPhase (..),
+    mkBuildBatchPhase,
+    bbpContexts,
+    bbpDurationInSeconds,
+    bbpEndTime,
+    bbpPhaseStatus,
+    bbpPhaseType,
+    bbpStartTime,
 
     -- ** ProjectEnvironment
     ProjectEnvironment (..),
     mkProjectEnvironment,
+    peType,
     peImage,
+    peComputeType,
+    peCertificate,
+    peEnvironmentVariables,
     peImagePullCredentialsType,
     pePrivilegedMode,
     peRegistryCredential,
-    peCertificate,
-    peComputeType,
-    peEnvironmentVariables,
-    peType,
 
-    -- ** ProjectFileSystemLocation
-    ProjectFileSystemLocation (..),
-    mkProjectFileSystemLocation,
-    pfslLocation,
-    pfslIdentifier,
-    pfslMountOptions,
-    pfslType,
-    pfslMountPoint,
+    -- ** ReportGroupSortByType
+    ReportGroupSortByType (..),
+
+    -- ** ReportWithRawData
+    ReportWithRawData (..),
+    mkReportWithRawData,
+    rwrdData,
+    rwrdReportArn,
+
+    -- ** BuildStatusConfig
+    BuildStatusConfig (..),
+    mkBuildStatusConfig,
+    bscContext,
+    bscTargetUrl,
 
     -- ** ProjectSource
     ProjectSource (..),
     mkProjectSource,
-    psReportBuildStatus,
-    psInsecureSSL,
-    psLocation,
+    psType,
     psAuth,
+    psBuildStatusConfig,
     psBuildspec,
-    psSourceIdentifier,
     psGitCloneDepth,
     psGitSubmodulesConfig,
-    psBuildStatusConfig,
-    psType,
-
-    -- ** ProjectSourceVersion
-    ProjectSourceVersion (..),
-    mkProjectSourceVersion,
-    psvSourceIdentifier,
-    psvSourceVersion,
-
-    -- ** RegistryCredential
-    RegistryCredential (..),
-    mkRegistryCredential,
-    rcCredential,
-    rcCredentialProvider,
-
-    -- ** Report
-    Report (..),
-    mkReport,
-    rReportGroupARN,
-    rStatus,
-    rExpired,
-    rExecutionId,
-    rTruncated,
-    rArn,
-    rCreated,
-    rName,
-    rCodeCoverageSummary,
-    rTestSummary,
-    rType,
-    rExportConfig,
+    psInsecureSsl,
+    psLocation,
+    psReportBuildStatus,
+    psSourceIdentifier,
 
     -- ** ReportExportConfig
     ReportExportConfig (..),
@@ -743,137 +777,244 @@ module Network.AWS.CodeBuild
     recExportConfigType,
     recS3Destination,
 
-    -- ** ReportFilter
-    ReportFilter (..),
-    mkReportFilter,
-    rfStatus,
+    -- ** PhaseContext
+    PhaseContext (..),
+    mkPhaseContext,
+    pcMessage,
+    pcStatusCode,
 
-    -- ** ReportGroup
-    ReportGroup (..),
-    mkReportGroup,
-    rgStatus,
-    rgArn,
-    rgCreated,
-    rgName,
-    rgType,
-    rgLastModified,
-    rgExportConfig,
-    rgTags,
+    -- ** AuthType
+    AuthType (..),
 
-    -- ** ReportGroupTrendStats
-    ReportGroupTrendStats (..),
-    mkReportGroupTrendStats,
-    rgtsMax,
-    rgtsAverage,
-    rgtsMin,
-
-    -- ** ReportWithRawData
-    ReportWithRawData (..),
-    mkReportWithRawData,
-    rwrdData,
-    rwrdReportARN,
-
-    -- ** ResolvedArtifact
-    ResolvedArtifact (..),
-    mkResolvedArtifact,
-    raLocation,
-    raIdentifier,
-    raType,
-
-    -- ** S3LogsConfig
-    S3LogsConfig (..),
-    mkS3LogsConfig,
-    slcStatus,
-    slcLocation,
-    slcEncryptionDisabled,
-
-    -- ** S3ReportExportConfig
-    S3ReportExportConfig (..),
-    mkS3ReportExportConfig,
-    srecPackaging,
-    srecPath,
-    srecBucket,
-    srecEncryptionDisabled,
-    srecEncryptionKey,
-
-    -- ** SourceAuth
-    SourceAuth (..),
-    mkSourceAuth,
-    saResource,
-    saType,
-
-    -- ** SourceCredentialsInfo
-    SourceCredentialsInfo (..),
-    mkSourceCredentialsInfo,
-    sciArn,
-    sciServerType,
-    sciAuthType,
-
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
-
-    -- ** TestCase
-    TestCase (..),
-    mkTestCase,
-    tcDurationInNanoSeconds,
-    tcStatus,
-    tcExpired,
-    tcPrefix,
-    tcName,
-    tcTestRawDataPath,
-    tcMessage,
-    tcReportARN,
-
-    -- ** TestCaseFilter
-    TestCaseFilter (..),
-    mkTestCaseFilter,
-    tcfStatus,
-    tcfKeyword,
-
-    -- ** TestReportSummary
-    TestReportSummary (..),
-    mkTestReportSummary,
-    trsDurationInNanoSeconds,
-    trsStatusCounts,
-    trsTotal,
-
-    -- ** VPCConfig
-    VPCConfig (..),
-    mkVPCConfig,
-    vcSecurityGroupIds,
-    vcVpcId,
-    vcSubnets,
+    -- ** ProjectArtifacts
+    ProjectArtifacts (..),
+    mkProjectArtifacts,
+    paType,
+    paArtifactIdentifier,
+    paEncryptionDisabled,
+    paLocation,
+    paName,
+    paNamespaceType,
+    paOverrideArtifactName,
+    paPackaging,
+    paPath,
 
     -- ** Webhook
     Webhook (..),
     mkWebhook,
     wBranchFilter,
-    wLastModifiedSecret,
-    wUrl,
-    wSecret,
-    wFilterGroups,
-    wPayloadURL,
     wBuildType,
+    wFilterGroups,
+    wLastModifiedSecret,
+    wPayloadUrl,
+    wSecret,
+    wUrl,
 
-    -- ** WebhookFilter
-    WebhookFilter (..),
-    mkWebhookFilter,
-    wfExcludeMatchedPattern,
-    wfPattern,
-    wfType,
+    -- ** BatchRestrictions
+    BatchRestrictions (..),
+    mkBatchRestrictions,
+    brComputeTypesAllowed,
+    brMaximumBuildsAllowed,
+
+    -- ** WebhookFilterType
+    WebhookFilterType (..),
+
+    -- ** EnvironmentVariable
+    EnvironmentVariable (..),
+    mkEnvironmentVariable,
+    evName,
+    evValue,
+    evType,
+
+    -- ** BuildArtifacts
+    BuildArtifacts (..),
+    mkBuildArtifacts,
+    baArtifactIdentifier,
+    baEncryptionDisabled,
+    baLocation,
+    baMd5sum,
+    baOverrideArtifactName,
+    baSha256sum,
+
+    -- ** FileSystemType
+    FileSystemType (..),
+
+    -- ** ReportType
+    ReportType (..),
+
+    -- ** ReportGroupName
+    ReportGroupName (..),
+
+    -- ** ReportFilter
+    ReportFilter (..),
+    mkReportFilter,
+    rfStatus,
+
+    -- ** ArtifactPackaging
+    ArtifactPackaging (..),
+
+    -- ** BuildGroup
+    BuildGroup (..),
+    mkBuildGroup,
+    bgCurrentBuildSummary,
+    bgDependsOn,
+    bgIdentifier,
+    bgIgnoreFailure,
+    bgPriorBuildSummaryList,
+
+    -- ** ReportGroupTrendStats
+    ReportGroupTrendStats (..),
+    mkReportGroupTrendStats,
+    rgtsAverage,
+    rgtsMax,
+    rgtsMin,
+
+    -- ** BuildPhase
+    BuildPhase (..),
+    mkBuildPhase,
+    bpContexts,
+    bpDurationInSeconds,
+    bpEndTime,
+    bpPhaseStatus,
+    bpPhaseType,
+    bpStartTime,
+
+    -- ** ReportGroup
+    ReportGroup (..),
+    mkReportGroup,
+    rgArn,
+    rgCreated,
+    rgExportConfig,
+    rgLastModified,
+    rgName,
+    rgStatus,
+    rgTags,
+    rgType,
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** BuildspecOverride
+    BuildspecOverride (..),
+
+    -- ** CertificateOverride
+    CertificateOverride (..),
+
+    -- ** EncryptionKeyOverride
+    EncryptionKeyOverride (..),
+
+    -- ** IdempotencyToken
+    IdempotencyToken (..),
+
+    -- ** ImageOverride
+    ImageOverride (..),
+
+    -- ** ServiceRoleOverride
+    ServiceRoleOverride (..),
+
+    -- ** SourceLocationOverride
+    SourceLocationOverride (..),
+
+    -- ** SourceVersion
+    SourceVersion (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** BranchFilter
+    BranchFilter (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Message
+    Message (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Prefix
+    Prefix (..),
+
+    -- ** ReportArn
+    ReportArn (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** TestRawDataPath
+    TestRawDataPath (..),
+
+    -- ** SourceIdentifier
+    SourceIdentifier (..),
+
+    -- ** Location
+    Location (..),
+
+    -- ** GroupName
+    GroupName (..),
+
+    -- ** StreamName
+    StreamName (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** EncryptionKey
+    EncryptionKey (..),
+
+    -- ** ServiceRole
+    ServiceRole (..),
+
+    -- ** Bucket
+    Bucket (..),
+
+    -- ** NetworkInterfaceId
+    NetworkInterfaceId (..),
+
+    -- ** SubnetId
+    SubnetId (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** Policy
+    Policy (..),
+
+    -- ** FilePath
+    FilePath (..),
+
+    -- ** ReportARN
+    ReportARN (..),
+
+    -- ** Token
+    Token (..),
+
+    -- ** Username
+    Username (..),
+
+    -- ** ResolvedSourceVersion
+    ResolvedSourceVersion (..),
+
+    -- ** ReportGroupArn
+    ReportGroupArn (..),
+
+    -- ** Credential
+    Credential (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

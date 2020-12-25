@@ -28,126 +28,107 @@ module Network.AWS.CloudHSMv2.ModifyCluster
     mkModifyClusterResponse,
 
     -- ** Response lenses
-    mcrsCluster,
-    mcrsResponseStatus,
+    mcrrsCluster,
+    mcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudHSMv2.Types
+import qualified Network.AWS.CloudHSMv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyCluster' smart constructor.
 data ModifyCluster = ModifyCluster'
   { -- | A policy that defines how the service retains backups.
-    backupRetentionPolicy :: BackupRetentionPolicy,
+    backupRetentionPolicy :: Types.BackupRetentionPolicy,
     -- | The identifier (ID) of the cluster that you want to modify. To find the cluster ID, use 'DescribeClusters' .
-    clusterId :: Lude.Text
+    clusterId :: Types.ClusterId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyCluster' with the minimum fields required to make a request.
---
--- * 'backupRetentionPolicy' - A policy that defines how the service retains backups.
--- * 'clusterId' - The identifier (ID) of the cluster that you want to modify. To find the cluster ID, use 'DescribeClusters' .
+-- | Creates a 'ModifyCluster' value with any optional fields omitted.
 mkModifyCluster ::
   -- | 'backupRetentionPolicy'
-  BackupRetentionPolicy ->
+  Types.BackupRetentionPolicy ->
   -- | 'clusterId'
-  Lude.Text ->
+  Types.ClusterId ->
   ModifyCluster
-mkModifyCluster pBackupRetentionPolicy_ pClusterId_ =
-  ModifyCluster'
-    { backupRetentionPolicy = pBackupRetentionPolicy_,
-      clusterId = pClusterId_
-    }
+mkModifyCluster backupRetentionPolicy clusterId =
+  ModifyCluster' {backupRetentionPolicy, clusterId}
 
 -- | A policy that defines how the service retains backups.
 --
 -- /Note:/ Consider using 'backupRetentionPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcBackupRetentionPolicy :: Lens.Lens' ModifyCluster BackupRetentionPolicy
-mcBackupRetentionPolicy = Lens.lens (backupRetentionPolicy :: ModifyCluster -> BackupRetentionPolicy) (\s a -> s {backupRetentionPolicy = a} :: ModifyCluster)
+mcBackupRetentionPolicy :: Lens.Lens' ModifyCluster Types.BackupRetentionPolicy
+mcBackupRetentionPolicy = Lens.field @"backupRetentionPolicy"
 {-# DEPRECATED mcBackupRetentionPolicy "Use generic-lens or generic-optics with 'backupRetentionPolicy' instead." #-}
 
 -- | The identifier (ID) of the cluster that you want to modify. To find the cluster ID, use 'DescribeClusters' .
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcClusterId :: Lens.Lens' ModifyCluster Lude.Text
-mcClusterId = Lens.lens (clusterId :: ModifyCluster -> Lude.Text) (\s a -> s {clusterId = a} :: ModifyCluster)
+mcClusterId :: Lens.Lens' ModifyCluster Types.ClusterId
+mcClusterId = Lens.field @"clusterId"
 {-# DEPRECATED mcClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance Lude.AWSRequest ModifyCluster where
+instance Core.FromJSON ModifyCluster where
+  toJSON ModifyCluster {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("BackupRetentionPolicy" Core..= backupRetentionPolicy),
+            Core.Just ("ClusterId" Core..= clusterId)
+          ]
+      )
+
+instance Core.AWSRequest ModifyCluster where
   type Rs ModifyCluster = ModifyClusterResponse
-  request = Req.postJSON cloudHSMv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "BaldrApiService.ModifyCluster")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ModifyClusterResponse'
-            Lude.<$> (x Lude..?> "Cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Cluster") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyCluster where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("BaldrApiService.ModifyCluster" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ModifyCluster where
-  toJSON ModifyCluster' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("BackupRetentionPolicy" Lude..= backupRetentionPolicy),
-            Lude.Just ("ClusterId" Lude..= clusterId)
-          ]
-      )
-
-instance Lude.ToPath ModifyCluster where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyCluster where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkModifyClusterResponse' smart constructor.
 data ModifyClusterResponse = ModifyClusterResponse'
-  { cluster :: Lude.Maybe Cluster,
+  { cluster :: Core.Maybe Types.Cluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ModifyClusterResponse' with the minimum fields required to make a request.
---
--- * 'cluster' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyClusterResponse' value with any optional fields omitted.
 mkModifyClusterResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyClusterResponse
-mkModifyClusterResponse pResponseStatus_ =
-  ModifyClusterResponse'
-    { cluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkModifyClusterResponse responseStatus =
+  ModifyClusterResponse' {cluster = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcrsCluster :: Lens.Lens' ModifyClusterResponse (Lude.Maybe Cluster)
-mcrsCluster = Lens.lens (cluster :: ModifyClusterResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: ModifyClusterResponse)
-{-# DEPRECATED mcrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+mcrrsCluster :: Lens.Lens' ModifyClusterResponse (Core.Maybe Types.Cluster)
+mcrrsCluster = Lens.field @"cluster"
+{-# DEPRECATED mcrrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mcrsResponseStatus :: Lens.Lens' ModifyClusterResponse Lude.Int
-mcrsResponseStatus = Lens.lens (responseStatus :: ModifyClusterResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyClusterResponse)
-{-# DEPRECATED mcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mcrrsResponseStatus :: Lens.Lens' ModifyClusterResponse Core.Int
+mcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

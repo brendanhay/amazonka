@@ -23,52 +23,47 @@ module Network.AWS.Pricing.Types.PricingService
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Pricing.Types.String as Types
 
 -- | The metadata for a service, such as the service code and available attribute names.
 --
 -- /See:/ 'mkPricingService' smart constructor.
 data PricingService = PricingService'
   { -- | The attributes that are available for this service.
-    attributeNames :: Lude.Maybe [Lude.Text],
+    attributeNames :: Core.Maybe [Types.String],
     -- | The code for the AWS service.
-    serviceCode :: Lude.Maybe Lude.Text
+    serviceCode :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PricingService' with the minimum fields required to make a request.
---
--- * 'attributeNames' - The attributes that are available for this service.
--- * 'serviceCode' - The code for the AWS service.
+-- | Creates a 'PricingService' value with any optional fields omitted.
 mkPricingService ::
   PricingService
 mkPricingService =
   PricingService'
-    { attributeNames = Lude.Nothing,
-      serviceCode = Lude.Nothing
+    { attributeNames = Core.Nothing,
+      serviceCode = Core.Nothing
     }
 
 -- | The attributes that are available for this service.
 --
 -- /Note:/ Consider using 'attributeNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psAttributeNames :: Lens.Lens' PricingService (Lude.Maybe [Lude.Text])
-psAttributeNames = Lens.lens (attributeNames :: PricingService -> Lude.Maybe [Lude.Text]) (\s a -> s {attributeNames = a} :: PricingService)
+psAttributeNames :: Lens.Lens' PricingService (Core.Maybe [Types.String])
+psAttributeNames = Lens.field @"attributeNames"
 {-# DEPRECATED psAttributeNames "Use generic-lens or generic-optics with 'attributeNames' instead." #-}
 
 -- | The code for the AWS service.
 --
 -- /Note:/ Consider using 'serviceCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psServiceCode :: Lens.Lens' PricingService (Lude.Maybe Lude.Text)
-psServiceCode = Lens.lens (serviceCode :: PricingService -> Lude.Maybe Lude.Text) (\s a -> s {serviceCode = a} :: PricingService)
+psServiceCode :: Lens.Lens' PricingService (Core.Maybe Types.String)
+psServiceCode = Lens.field @"serviceCode"
 {-# DEPRECATED psServiceCode "Use generic-lens or generic-optics with 'serviceCode' instead." #-}
 
-instance Lude.FromJSON PricingService where
+instance Core.FromJSON PricingService where
   parseJSON =
-    Lude.withObject
-      "PricingService"
-      ( \x ->
-          PricingService'
-            Lude.<$> (x Lude..:? "AttributeNames" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "ServiceCode")
-      )
+    Core.withObject "PricingService" Core.$
+      \x ->
+        PricingService'
+          Core.<$> (x Core..:? "AttributeNames") Core.<*> (x Core..:? "ServiceCode")

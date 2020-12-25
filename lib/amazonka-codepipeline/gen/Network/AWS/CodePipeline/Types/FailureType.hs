@@ -13,66 +13,68 @@
 module Network.AWS.CodePipeline.Types.FailureType
   ( FailureType
       ( FailureType',
-        JobFailed,
-        ConfigurationError,
-        PermissionError,
-        RevisionOutOfSync,
-        RevisionUnavailable,
-        SystemUnavailable
+        FailureTypeJobFailed,
+        FailureTypeConfigurationError,
+        FailureTypePermissionError,
+        FailureTypeRevisionOutOfSync,
+        FailureTypeRevisionUnavailable,
+        FailureTypeSystemUnavailable,
+        fromFailureType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FailureType = FailureType' Lude.Text
+newtype FailureType = FailureType' {fromFailureType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JobFailed :: FailureType
-pattern JobFailed = FailureType' "JobFailed"
+pattern FailureTypeJobFailed :: FailureType
+pattern FailureTypeJobFailed = FailureType' "JobFailed"
 
-pattern ConfigurationError :: FailureType
-pattern ConfigurationError = FailureType' "ConfigurationError"
+pattern FailureTypeConfigurationError :: FailureType
+pattern FailureTypeConfigurationError = FailureType' "ConfigurationError"
 
-pattern PermissionError :: FailureType
-pattern PermissionError = FailureType' "PermissionError"
+pattern FailureTypePermissionError :: FailureType
+pattern FailureTypePermissionError = FailureType' "PermissionError"
 
-pattern RevisionOutOfSync :: FailureType
-pattern RevisionOutOfSync = FailureType' "RevisionOutOfSync"
+pattern FailureTypeRevisionOutOfSync :: FailureType
+pattern FailureTypeRevisionOutOfSync = FailureType' "RevisionOutOfSync"
 
-pattern RevisionUnavailable :: FailureType
-pattern RevisionUnavailable = FailureType' "RevisionUnavailable"
+pattern FailureTypeRevisionUnavailable :: FailureType
+pattern FailureTypeRevisionUnavailable = FailureType' "RevisionUnavailable"
 
-pattern SystemUnavailable :: FailureType
-pattern SystemUnavailable = FailureType' "SystemUnavailable"
+pattern FailureTypeSystemUnavailable :: FailureType
+pattern FailureTypeSystemUnavailable = FailureType' "SystemUnavailable"
 
 {-# COMPLETE
-  JobFailed,
-  ConfigurationError,
-  PermissionError,
-  RevisionOutOfSync,
-  RevisionUnavailable,
-  SystemUnavailable,
+  FailureTypeJobFailed,
+  FailureTypeConfigurationError,
+  FailureTypePermissionError,
+  FailureTypeRevisionOutOfSync,
+  FailureTypeRevisionUnavailable,
+  FailureTypeSystemUnavailable,
   FailureType'
   #-}

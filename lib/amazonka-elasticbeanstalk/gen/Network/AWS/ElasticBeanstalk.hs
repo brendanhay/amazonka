@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -19,10 +18,67 @@
 -- For a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to <https://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region Regions and Endpoints> in the /Amazon Web Services Glossary/ .
 module Network.AWS.ElasticBeanstalk
   ( -- * Service configuration
-    elasticBeanstalkService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** TooManyBucketsException
+    _TooManyBucketsException,
+
+    -- ** S3SubscriptionRequiredException
+    _S3SubscriptionRequiredException,
+
+    -- ** OperationInProgressException
+    _OperationInProgressException,
+
+    -- ** PlatformVersionStillReferencedException
+    _PlatformVersionStillReferencedException,
+
+    -- ** TooManyApplicationVersionsException
+    _TooManyApplicationVersionsException,
+
+    -- ** TooManyConfigurationTemplatesException
+    _TooManyConfigurationTemplatesException,
+
+    -- ** ResourceTypeNotSupportedException
+    _ResourceTypeNotSupportedException,
+
+    -- ** InsufficientPrivilegesException
+    _InsufficientPrivilegesException,
+
+    -- ** ElasticBeanstalkServiceException
+    _ElasticBeanstalkServiceException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** TooManyApplicationsException
+    _TooManyApplicationsException,
+
+    -- ** TooManyPlatformsException
+    _TooManyPlatformsException,
+
+    -- ** ManagedActionInvalidStateException
+    _ManagedActionInvalidStateException,
+
+    -- ** SourceBundleDeletionException
+    _SourceBundleDeletionException,
+
+    -- ** S3LocationNotInServiceRegionException
+    _S3LocationNotInServiceRegionException,
+
+    -- ** CodeBuildNotInServiceRegionException
+    _CodeBuildNotInServiceRegionException,
+
+    -- ** TooManyEnvironmentsException
+    _TooManyEnvironmentsException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -182,112 +238,17 @@ module Network.AWS.ElasticBeanstalk
 
     -- * Types
 
-    -- ** ActionHistoryStatus
-    ActionHistoryStatus (..),
+    -- ** RequestId
+    RequestId (..),
 
-    -- ** ActionStatus
-    ActionStatus (..),
-
-    -- ** ActionType
-    ActionType (..),
-
-    -- ** ApplicationVersionStatus
-    ApplicationVersionStatus (..),
-
-    -- ** ComputeType
-    ComputeType (..),
-
-    -- ** ConfigurationDeploymentStatus
-    ConfigurationDeploymentStatus (..),
-
-    -- ** ConfigurationOptionValueType
-    ConfigurationOptionValueType (..),
-
-    -- ** EnvironmentHealth
-    EnvironmentHealth (..),
-
-    -- ** EnvironmentHealthAttribute
-    EnvironmentHealthAttribute (..),
-
-    -- ** EnvironmentHealthStatus
-    EnvironmentHealthStatus (..),
-
-    -- ** EnvironmentInfoType
-    EnvironmentInfoType (..),
-
-    -- ** EnvironmentStatus
-    EnvironmentStatus (..),
-
-    -- ** EventSeverity
-    EventSeverity (..),
-
-    -- ** FailureType
-    FailureType (..),
-
-    -- ** InstancesHealthAttribute
-    InstancesHealthAttribute (..),
-
-    -- ** PlatformStatus
-    PlatformStatus (..),
-
-    -- ** SourceRepository
-    SourceRepository (..),
-
-    -- ** SourceType
-    SourceType (..),
-
-    -- ** ValidationSeverity
-    ValidationSeverity (..),
-
-    -- ** ApplicationDescription
-    ApplicationDescription (..),
-    mkApplicationDescription,
-    adApplicationARN,
-    adVersions,
-    adDateUpdated,
-    adDateCreated,
-    adApplicationName,
-    adConfigurationTemplates,
-    adResourceLifecycleConfig,
-    adDescription,
-
-    -- ** ApplicationDescriptionMessage
-    ApplicationDescriptionMessage (..),
-    mkApplicationDescriptionMessage,
-    admApplication,
-
-    -- ** ApplicationMetrics
-    ApplicationMetrics (..),
-    mkApplicationMetrics,
-    amRequestCount,
-    amLatency,
-    amStatusCodes,
-    amDuration,
+    -- ** InstanceId
+    InstanceId (..),
 
     -- ** ApplicationResourceLifecycleConfig
     ApplicationResourceLifecycleConfig (..),
     mkApplicationResourceLifecycleConfig,
-    arlcVersionLifecycleConfig,
     arlcServiceRole,
-
-    -- ** ApplicationVersionDescription
-    ApplicationVersionDescription (..),
-    mkApplicationVersionDescription,
-    avdStatus,
-    avdSourceBundle,
-    avdDateUpdated,
-    avdDateCreated,
-    avdVersionLabel,
-    avdSourceBuildInformation,
-    avdApplicationName,
-    avdApplicationVersionARN,
-    avdBuildARN,
-    avdDescription,
-
-    -- ** ApplicationVersionDescriptionMessage
-    ApplicationVersionDescriptionMessage (..),
-    mkApplicationVersionDescriptionMessage,
-    avdmApplicationVersion,
+    arlcVersionLifecycleConfig,
 
     -- ** ApplicationVersionLifecycleConfig
     ApplicationVersionLifecycleConfig (..),
@@ -295,396 +256,351 @@ module Network.AWS.ElasticBeanstalk
     avlcMaxAgeRule,
     avlcMaxCountRule,
 
-    -- ** AutoScalingGroup
-    AutoScalingGroup (..),
-    mkAutoScalingGroup,
-    asgName,
-
-    -- ** BuildConfiguration
-    BuildConfiguration (..),
-    mkBuildConfiguration,
-    bcImage,
-    bcArtifactName,
-    bcCodeBuildServiceRole,
-    bcComputeType,
-    bcTimeoutInMinutes,
-
-    -- ** Builder
-    Builder (..),
-    mkBuilder,
-    bARN,
-
-    -- ** CPUUtilization
-    CPUUtilization (..),
-    mkCPUUtilization,
-    cuSoftIRQ,
-    cuIdle,
-    cuIRQ,
-    cuSystem,
-    cuPrivileged,
-    cuUser,
-    cuIOWait,
-    cuNice,
-
-    -- ** ConfigurationOptionDescription
-    ConfigurationOptionDescription (..),
-    mkConfigurationOptionDescription,
-    codMaxValue,
-    codRegex,
-    codMaxLength,
-    codUserDefined,
-    codNamespace,
-    codValueOptions,
-    codName,
-    codChangeSeverity,
-    codDefaultValue,
-    codValueType,
-    codMinValue,
-
-    -- ** ConfigurationOptionSetting
-    ConfigurationOptionSetting (..),
-    mkConfigurationOptionSetting,
-    cosOptionName,
-    cosResourceName,
-    cosNamespace,
-    cosValue,
-
-    -- ** ConfigurationSettingsDescription
-    ConfigurationSettingsDescription (..),
-    mkConfigurationSettingsDescription,
-    csdTemplateName,
-    csdOptionSettings,
-    csdDateUpdated,
-    csdDateCreated,
-    csdPlatformARN,
-    csdEnvironmentName,
-    csdApplicationName,
-    csdDeploymentStatus,
-    csdSolutionStackName,
-    csdDescription,
-
-    -- ** CustomAMI
-    CustomAMI (..),
-    mkCustomAMI,
-    caVirtualizationType,
-    caImageId,
-
-    -- ** Deployment
-    Deployment (..),
-    mkDeployment,
-    dDeploymentId,
-    dStatus,
-    dDeploymentTime,
-    dVersionLabel,
-
-    -- ** EnvironmentDescription
-    EnvironmentDescription (..),
-    mkEnvironmentDescription,
-    eStatus,
-    eCNAME,
-    eTemplateName,
-    eAbortableOperationInProgress,
-    eEndpointURL,
-    eResources,
-    eDateUpdated,
-    eDateCreated,
-    eHealth,
-    eVersionLabel,
-    eOperationsRole,
-    ePlatformARN,
-    eTier,
-    eEnvironmentName,
-    eApplicationName,
-    eEnvironmentARN,
-    eSolutionStackName,
-    eEnvironmentId,
-    eHealthStatus,
-    eEnvironmentLinks,
-    eDescription,
-
-    -- ** EnvironmentDescriptionsMessage
-    EnvironmentDescriptionsMessage (..),
-    mkEnvironmentDescriptionsMessage,
-    edmNextToken,
-    edmEnvironments,
-
-    -- ** EnvironmentInfoDescription
-    EnvironmentInfoDescription (..),
-    mkEnvironmentInfoDescription,
-    eidSampleTimestamp,
-    eidEC2InstanceId,
-    eidInfoType,
-    eidMessage,
-
-    -- ** EnvironmentLink
-    EnvironmentLink (..),
-    mkEnvironmentLink,
-    elLinkName,
-    elEnvironmentName,
-
-    -- ** EnvironmentResourceDescription
-    EnvironmentResourceDescription (..),
-    mkEnvironmentResourceDescription,
-    erdQueues,
-    erdTriggers,
-    erdLaunchTemplates,
-    erdLoadBalancers,
-    erdEnvironmentName,
-    erdInstances,
-    erdLaunchConfigurations,
-    erdAutoScalingGroups,
-
-    -- ** EnvironmentResourcesDescription
-    EnvironmentResourcesDescription (..),
-    mkEnvironmentResourcesDescription,
-    erdLoadBalancer,
-
-    -- ** EnvironmentTier
-    EnvironmentTier (..),
-    mkEnvironmentTier,
-    etName,
-    etVersion,
-    etType,
-
-    -- ** EventDescription
-    EventDescription (..),
-    mkEventDescription,
-    edRequestId,
-    edTemplateName,
-    edSeverity,
-    edVersionLabel,
-    edPlatformARN,
-    edEnvironmentName,
-    edApplicationName,
-    edEventDate,
-    edMessage,
-
-    -- ** Instance
-    Instance (..),
-    mkInstance,
-    iId,
-
-    -- ** InstanceHealthSummary
-    InstanceHealthSummary (..),
-    mkInstanceHealthSummary,
-    ihsOK,
-    ihsPending,
-    ihsSevere,
-    ihsUnknown,
-    ihsNoData,
-    ihsWarning,
-    ihsDegraded,
-    ihsInfo,
-
-    -- ** Latency
-    Latency (..),
-    mkLatency,
-    lP75,
-    lP50,
-    lP85,
-    lP999,
-    lP90,
-    lP95,
-    lP99,
-    lP10,
-
-    -- ** LaunchConfiguration
-    LaunchConfiguration (..),
-    mkLaunchConfiguration,
-    lcName,
-
-    -- ** LaunchTemplate
-    LaunchTemplate (..),
-    mkLaunchTemplate,
-    ltId,
-
-    -- ** Listener
-    Listener (..),
-    mkListener,
-    lProtocol,
-    lPort,
-
-    -- ** LoadBalancer
-    LoadBalancer (..),
-    mkLoadBalancer,
-    lbName,
-
-    -- ** LoadBalancerDescription
-    LoadBalancerDescription (..),
-    mkLoadBalancerDescription,
-    lbdLoadBalancerName,
-    lbdDomain,
-    lbdListeners,
-
-    -- ** ManagedAction
-    ManagedAction (..),
-    mkManagedAction,
-    maStatus,
-    maActionId,
-    maWindowStartTime,
-    maActionDescription,
-    maActionType,
-
-    -- ** ManagedActionHistoryItem
-    ManagedActionHistoryItem (..),
-    mkManagedActionHistoryItem,
-    mahiStatus,
-    mahiFailureType,
-    mahiActionId,
-    mahiFailureDescription,
-    mahiFinishedTime,
-    mahiActionDescription,
-    mahiExecutedTime,
-    mahiActionType,
-
-    -- ** MaxAgeRule
-    MaxAgeRule (..),
-    mkMaxAgeRule,
-    marDeleteSourceFromS3,
-    marEnabled,
-    marMaxAgeInDays,
-
-    -- ** MaxCountRule
-    MaxCountRule (..),
-    mkMaxCountRule,
-    mcrMaxCount,
-    mcrDeleteSourceFromS3,
-    mcrEnabled,
-
-    -- ** OptionRestrictionRegex
-    OptionRestrictionRegex (..),
-    mkOptionRestrictionRegex,
-    orrPattern,
-    orrLabel,
-
-    -- ** OptionSpecification
-    OptionSpecification (..),
-    mkOptionSpecification,
-    osOptionName,
-    osResourceName,
-    osNamespace,
-
-    -- ** PlatformBranchSummary
-    PlatformBranchSummary (..),
-    mkPlatformBranchSummary,
-    pbsBranchName,
-    pbsBranchOrder,
-    pbsPlatformName,
-    pbsSupportedTierList,
-    pbsLifecycleState,
-
-    -- ** PlatformDescription
-    PlatformDescription (..),
-    mkPlatformDescription,
-    pdPlatformBranchName,
-    pdSupportedAddonList,
-    pdPlatformCategory,
-    pdPlatformBranchLifecycleState,
-    pdPlatformVersion,
-    pdPlatformStatus,
-    pdMaintainer,
-    pdPlatformLifecycleState,
-    pdPlatformOwner,
-    pdDateUpdated,
-    pdCustomAMIList,
-    pdDateCreated,
-    pdOperatingSystemName,
-    pdFrameworks,
-    pdPlatformARN,
-    pdOperatingSystemVersion,
-    pdProgrammingLanguages,
-    pdSolutionStackName,
-    pdPlatformName,
-    pdDescription,
-    pdSupportedTierList,
-
-    -- ** PlatformFilter
-    PlatformFilter (..),
-    mkPlatformFilter,
-    pfValues,
-    pfOperator,
-    pfType,
-
-    -- ** PlatformFramework
-    PlatformFramework (..),
-    mkPlatformFramework,
-    pfName,
-    pfVersion,
-
     -- ** PlatformProgrammingLanguage
     PlatformProgrammingLanguage (..),
     mkPlatformProgrammingLanguage,
     pplName,
     pplVersion,
 
-    -- ** PlatformSummary
-    PlatformSummary (..),
-    mkPlatformSummary,
-    psPlatformBranchName,
-    psSupportedAddonList,
-    psPlatformCategory,
-    psPlatformBranchLifecycleState,
-    psPlatformVersion,
-    psPlatformStatus,
-    psPlatformLifecycleState,
-    psPlatformOwner,
-    psOperatingSystemName,
-    psPlatformARN,
-    psOperatingSystemVersion,
-    psSupportedTierList,
+    -- ** PlatformFilterValue
+    PlatformFilterValue (..),
+
+    -- ** ApplicationDescription
+    ApplicationDescription (..),
+    mkApplicationDescription,
+    adApplicationArn,
+    adApplicationName,
+    adConfigurationTemplates,
+    adDateCreated,
+    adDateUpdated,
+    adDescription,
+    adResourceLifecycleConfig,
+    adVersions,
+
+    -- ** SupportedTier
+    SupportedTier (..),
+
+    -- ** PlatformFilterType
+    PlatformFilterType (..),
+
+    -- ** ResourceQuotas
+    ResourceQuotas (..),
+    mkResourceQuotas,
+    rqApplicationQuota,
+    rqApplicationVersionQuota,
+    rqConfigurationTemplateQuota,
+    rqCustomPlatformQuota,
+    rqEnvironmentQuota,
+
+    -- ** PlatformCategory
+    PlatformCategory (..),
+
+    -- ** VirtualizationType
+    VirtualizationType (..),
+
+    -- ** EventSeverity
+    EventSeverity (..),
+
+    -- ** PlatformBranchSummary
+    PlatformBranchSummary (..),
+    mkPlatformBranchSummary,
+    pbsBranchName,
+    pbsBranchOrder,
+    pbsLifecycleState,
+    pbsPlatformName,
+    pbsSupportedTierList,
+
+    -- ** ApplicationArn
+    ApplicationArn (..),
+
+    -- ** ResourceId
+    ResourceId (..),
+
+    -- ** S3Key
+    S3Key (..),
+
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- ** InstancesHealthAttribute
+    InstancesHealthAttribute (..),
+
+    -- ** PlatformBranchLifecycleState
+    PlatformBranchLifecycleState (..),
+
+    -- ** EventDescription
+    EventDescription (..),
+    mkEventDescription,
+    edApplicationName,
+    edEnvironmentName,
+    edEventDate,
+    edMessage,
+    edPlatformArn,
+    edRequestId,
+    edSeverity,
+    edTemplateName,
+    edVersionLabel,
+
+    -- ** DNSCname
+    DNSCname (..),
+
+    -- ** LaunchConfiguration
+    LaunchConfiguration (..),
+    mkLaunchConfiguration,
+    lcName,
+
+    -- ** ApplicationVersionDescriptionMessage
+    ApplicationVersionDescriptionMessage (..),
+    mkApplicationVersionDescriptionMessage,
+    avdmApplicationVersion,
+
+    -- ** AutoScalingGroup
+    AutoScalingGroup (..),
+    mkAutoScalingGroup,
+    asgName,
+
+    -- ** EnvironmentHealthAttribute
+    EnvironmentHealthAttribute (..),
+
+    -- ** ARN
+    ARN (..),
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** String
+    String (..),
+
+    -- ** DNSCnamePrefix
+    DNSCnamePrefix (..),
+
+    -- ** SourceType
+    SourceType (..),
+
+    -- ** ConfigurationDeploymentStatus
+    ConfigurationDeploymentStatus (..),
+
+    -- ** ApplicationMetrics
+    ApplicationMetrics (..),
+    mkApplicationMetrics,
+    amDuration,
+    amLatency,
+    amRequestCount,
+    amStatusCodes,
+
+    -- ** EnvironmentLink
+    EnvironmentLink (..),
+    mkEnvironmentLink,
+    elEnvironmentName,
+    elLinkName,
+
+    -- ** ConfigurationOptionPossibleValue
+    ConfigurationOptionPossibleValue (..),
+
+    -- ** ConfigurationOptionSetting
+    ConfigurationOptionSetting (..),
+    mkConfigurationOptionSetting,
+    cosNamespace,
+    cosOptionName,
+    cosResourceName,
+    cosValue,
+
+    -- ** PlatformVersion
+    PlatformVersion (..),
+
+    -- ** ConfigurationOptionSeverity
+    ConfigurationOptionSeverity (..),
+
+    -- ** ConfigurationOptionValueType
+    ConfigurationOptionValueType (..),
+
+    -- ** EndpointURL
+    EndpointURL (..),
+
+    -- ** OptionNamespace
+    OptionNamespace (..),
+
+    -- ** Ec2InstanceId
+    Ec2InstanceId (..),
+
+    -- ** FailureType
+    FailureType (..),
+
+    -- ** Latency
+    Latency (..),
+    mkLatency,
+    lP10,
+    lP50,
+    lP75,
+    lP85,
+    lP90,
+    lP95,
+    lP99,
+    lP999,
+
+    -- ** Token
+    Token (..),
+
+    -- ** PlatformStatus
+    PlatformStatus (..),
+
+    -- ** EnvironmentDescriptionsMessage
+    EnvironmentDescriptionsMessage (..),
+    mkEnvironmentDescriptionsMessage,
+    edmEnvironments,
+    edmNextToken,
+
+    -- ** BranchName
+    BranchName (..),
+
+    -- ** ConfigurationSettingsDescription
+    ConfigurationSettingsDescription (..),
+    mkConfigurationSettingsDescription,
+    csdApplicationName,
+    csdDateCreated,
+    csdDateUpdated,
+    csdDeploymentStatus,
+    csdDescription,
+    csdEnvironmentName,
+    csdOptionSettings,
+    csdPlatformArn,
+    csdSolutionStackName,
+    csdTemplateName,
+
+    -- ** ApplicationVersionDescription
+    ApplicationVersionDescription (..),
+    mkApplicationVersionDescription,
+    avdApplicationName,
+    avdApplicationVersionArn,
+    avdBuildArn,
+    avdDateCreated,
+    avdDateUpdated,
+    avdDescription,
+    avdSourceBuildInformation,
+    avdSourceBundle,
+    avdStatus,
+    avdVersionLabel,
+
+    -- ** CustomAmi
+    CustomAmi (..),
+    mkCustomAmi,
+    caImageId,
+    caVirtualizationType,
+
+    -- ** OptionSpecification
+    OptionSpecification (..),
+    mkOptionSpecification,
+    osNamespace,
+    osOptionName,
+    osResourceName,
+
+    -- ** SearchFilter
+    SearchFilter (..),
+    mkSearchFilter,
+    sfAttribute,
+    sfOperator,
+    sfValues,
+
+    -- ** Maintainer
+    Maintainer (..),
+
+    -- ** PlatformLifecycleState
+    PlatformLifecycleState (..),
+
+    -- ** PlatformOwner
+    PlatformOwner (..),
+
+    -- ** SystemStatus
+    SystemStatus (..),
+    mkSystemStatus,
+    ssCPUUtilization,
+    ssLoadAverage,
+
+    -- ** EnvironmentResourceDescription
+    EnvironmentResourceDescription (..),
+    mkEnvironmentResourceDescription,
+    erdAutoScalingGroups,
+    erdEnvironmentName,
+    erdInstances,
+    erdLaunchConfigurations,
+    erdLaunchTemplates,
+    erdLoadBalancers,
+    erdQueues,
+    erdTriggers,
+
+    -- ** Builder
+    Builder (..),
+    mkBuilder,
+    bARN,
 
     -- ** Queue
     Queue (..),
     mkQueue,
-    qURL,
     qName,
+    qURL,
+
+    -- ** Cause
+    Cause (..),
+
+    -- ** EnvironmentStatus
+    EnvironmentStatus (..),
+
+    -- ** ManagedActionHistoryItem
+    ManagedActionHistoryItem (..),
+    mkManagedActionHistoryItem,
+    mahiActionDescription,
+    mahiActionId,
+    mahiActionType,
+    mahiExecutedTime,
+    mahiFailureDescription,
+    mahiFailureType,
+    mahiFinishedTime,
+    mahiStatus,
+
+    -- ** CPUUtilization
+    CPUUtilization (..),
+    mkCPUUtilization,
+    cpuuIOWait,
+    cpuuIRQ,
+    cpuuIdle,
+    cpuuNice,
+    cpuuPrivileged,
+    cpuuSoftIRQ,
+    cpuuSystem,
+    cpuuUser,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** ApplicationVersionStatus
+    ApplicationVersionStatus (..),
+
+    -- ** LoadBalancerDescription
+    LoadBalancerDescription (..),
+    mkLoadBalancerDescription,
+    lbdDomain,
+    lbdListeners,
+    lbdLoadBalancerName,
+
+    -- ** ConfigurationOptionName
+    ConfigurationOptionName (..),
+
+    -- ** VersionLabel
+    VersionLabel (..),
 
     -- ** ResourceQuota
     ResourceQuota (..),
     mkResourceQuota,
     rqMaximum,
 
-    -- ** ResourceQuotas
-    ResourceQuotas (..),
-    mkResourceQuotas,
-    rqApplicationQuota,
-    rqCustomPlatformQuota,
-    rqApplicationVersionQuota,
-    rqEnvironmentQuota,
-    rqConfigurationTemplateQuota,
+    -- ** NonEmptyString
+    NonEmptyString (..),
 
-    -- ** S3Location
-    S3Location (..),
-    mkS3Location,
-    slS3Key,
-    slS3Bucket,
-
-    -- ** SearchFilter
-    SearchFilter (..),
-    mkSearchFilter,
-    sfAttribute,
-    sfValues,
-    sfOperator,
-
-    -- ** SingleInstanceHealth
-    SingleInstanceHealth (..),
-    mkSingleInstanceHealth,
-    sihInstanceId,
-    sihCauses,
-    sihSystem,
-    sihApplicationMetrics,
-    sihColor,
-    sihInstanceType,
-    sihAvailabilityZone,
-    sihHealthStatus,
-    sihDeployment,
-    sihLaunchedAt,
-
-    -- ** SolutionStackDescription
-    SolutionStackDescription (..),
-    mkSolutionStackDescription,
-    ssdPermittedFileTypes,
-    ssdSolutionStackName,
+    -- ** ConfigurationTemplateName
+    ConfigurationTemplateName (..),
 
     -- ** SourceBuildInformation
     SourceBuildInformation (..),
@@ -693,11 +609,61 @@ module Network.AWS.ElasticBeanstalk
     sbiSourceRepository,
     sbiSourceLocation,
 
-    -- ** SourceConfiguration
-    SourceConfiguration (..),
-    mkSourceConfiguration,
-    scTemplateName,
-    scApplicationName,
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** SingleInstanceHealth
+    SingleInstanceHealth (..),
+    mkSingleInstanceHealth,
+    sihApplicationMetrics,
+    sihAvailabilityZone,
+    sihCauses,
+    sihColor,
+    sihDeployment,
+    sihHealthStatus,
+    sihInstanceId,
+    sihInstanceType,
+    sihLaunchedAt,
+    sihSystem,
+
+    -- ** SourceRepository
+    SourceRepository (..),
+
+    -- ** PlatformFilter
+    PlatformFilter (..),
+    mkPlatformFilter,
+    pfOperator,
+    pfType,
+    pfValues,
+
+    -- ** ApplicationDescriptionMessage
+    ApplicationDescriptionMessage (..),
+    mkApplicationDescriptionMessage,
+    admApplication,
+
+    -- ** FileTypeExtension
+    FileTypeExtension (..),
+
+    -- ** OperatingSystemName
+    OperatingSystemName (..),
+
+    -- ** EnvironmentTier
+    EnvironmentTier (..),
+    mkEnvironmentTier,
+    etName,
+    etType,
+    etVersion,
+
+    -- ** LoadBalancer
+    LoadBalancer (..),
+    mkLoadBalancer,
+    lbName,
+
+    -- ** ImageId
+    ImageId (..),
+
+    -- ** OperationsRole
+    OperationsRole (..),
 
     -- ** StatusCodes
     StatusCodes (..),
@@ -707,40 +673,353 @@ module Network.AWS.ElasticBeanstalk
     scStatus4xx,
     scStatus5xx,
 
-    -- ** SystemStatus
-    SystemStatus (..),
-    mkSystemStatus,
-    ssCPUUtilization,
-    ssLoadAverage,
+    -- ** PlatformArn
+    PlatformArn (..),
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** OperatingSystemVersion
+    OperatingSystemVersion (..),
+
+    -- ** EnvironmentResourcesDescription
+    EnvironmentResourcesDescription (..),
+    mkEnvironmentResourcesDescription,
+    erdLoadBalancer,
+
+    -- ** OptionRestrictionRegex
+    OptionRestrictionRegex (..),
+    mkOptionRestrictionRegex,
+    orrLabel,
+    orrPattern,
+
+    -- ** EnvironmentName
+    EnvironmentName (..),
+
+    -- ** ActionStatus
+    ActionStatus (..),
+
+    -- ** ApplicationName
+    ApplicationName (..),
+
+    -- ** LaunchTemplate
+    LaunchTemplate (..),
+    mkLaunchTemplate,
+    ltId,
+
+    -- ** ConfigurationOptionDescription
+    ConfigurationOptionDescription (..),
+    mkConfigurationOptionDescription,
+    codChangeSeverity,
+    codDefaultValue,
+    codMaxLength,
+    codMaxValue,
+    codMinValue,
+    codName,
+    codNamespace,
+    codRegex,
+    codUserDefined,
+    codValueOptions,
+    codValueType,
+
+    -- ** SearchFilterValue
+    SearchFilterValue (..),
+
+    -- ** ApplicationVersionArn
+    ApplicationVersionArn (..),
+
+    -- ** ComputeType
+    ComputeType (..),
+
+    -- ** SourceConfiguration
+    SourceConfiguration (..),
+    mkSourceConfiguration,
+    scApplicationName,
+    scTemplateName,
+
+    -- ** ValidationMessageString
+    ValidationMessageString (..),
+
+    -- ** EnvironmentInfoDescription
+    EnvironmentInfoDescription (..),
+    mkEnvironmentInfoDescription,
+    eidEc2InstanceId,
+    eidInfoType,
+    eidMessage,
+    eidSampleTimestamp,
+
+    -- ** EnvironmentHealthStatus
+    EnvironmentHealthStatus (..),
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** S3Location
+    S3Location (..),
+    mkS3Location,
+    slS3Bucket,
+    slS3Key,
+
+    -- ** EnvironmentArn
+    EnvironmentArn (..),
+
+    -- ** SolutionStackName
+    SolutionStackName (..),
+
+    -- ** ValidationMessage
+    ValidationMessage (..),
+    mkValidationMessage,
+    vmMessage,
+    vmNamespace,
+    vmOptionName,
+    vmSeverity,
+
+    -- ** EnvironmentId
+    EnvironmentId (..),
+
+    -- ** PlatformName
+    PlatformName (..),
+
+    -- ** ValidationSeverity
+    ValidationSeverity (..),
 
     -- ** Trigger
     Trigger (..),
     mkTrigger,
     tName,
 
-    -- ** ValidationMessage
-    ValidationMessage (..),
-    mkValidationMessage,
-    vmOptionName,
-    vmSeverity,
-    vmNamespace,
-    vmMessage,
+    -- ** ActionHistoryStatus
+    ActionHistoryStatus (..),
+
+    -- ** SourceLocation
+    SourceLocation (..),
+
+    -- ** GroupName
+    GroupName (..),
+
+    -- ** ManagedAction
+    ManagedAction (..),
+    mkManagedAction,
+    maActionDescription,
+    maActionId,
+    maActionType,
+    maStatus,
+    maWindowStartTime,
+
+    -- ** EnvironmentInfoType
+    EnvironmentInfoType (..),
+
+    -- ** PlatformFramework
+    PlatformFramework (..),
+    mkPlatformFramework,
+    pfName,
+    pfVersion,
+
+    -- ** Message
+    Message (..),
+
+    -- ** PlatformSummary
+    PlatformSummary (..),
+    mkPlatformSummary,
+    psOperatingSystemName,
+    psOperatingSystemVersion,
+    psPlatformArn,
+    psPlatformBranchLifecycleState,
+    psPlatformBranchName,
+    psPlatformCategory,
+    psPlatformLifecycleState,
+    psPlatformOwner,
+    psPlatformStatus,
+    psPlatformVersion,
+    psSupportedAddonList,
+    psSupportedTierList,
+
+    -- ** EnvironmentDescription
+    EnvironmentDescription (..),
+    mkEnvironmentDescription,
+    eAbortableOperationInProgress,
+    eApplicationName,
+    eCNAME,
+    eDateCreated,
+    eDateUpdated,
+    eDescription,
+    eEndpointURL,
+    eEnvironmentArn,
+    eEnvironmentId,
+    eEnvironmentLinks,
+    eEnvironmentName,
+    eHealth,
+    eHealthStatus,
+    eOperationsRole,
+    ePlatformArn,
+    eResources,
+    eSolutionStackName,
+    eStatus,
+    eTemplateName,
+    eTier,
+    eVersionLabel,
+
+    -- ** SupportedAddon
+    SupportedAddon (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** BuildConfiguration
+    BuildConfiguration (..),
+    mkBuildConfiguration,
+    bcCodeBuildServiceRole,
+    bcImage,
+    bcArtifactName,
+    bcComputeType,
+    bcTimeoutInMinutes,
+
+    -- ** ActionType
+    ActionType (..),
+
+    -- ** Listener
+    Listener (..),
+    mkListener,
+    lPort,
+    lProtocol,
+
+    -- ** S3Bucket
+    S3Bucket (..),
+
+    -- ** EnvironmentHealth
+    EnvironmentHealth (..),
+
+    -- ** Instance
+    Instance (..),
+    mkInstance,
+    iId,
+
+    -- ** Deployment
+    Deployment (..),
+    mkDeployment,
+    dDeploymentId,
+    dDeploymentTime,
+    dStatus,
+    dVersionLabel,
+
+    -- ** MaxAgeRule
+    MaxAgeRule (..),
+    mkMaxAgeRule,
+    marEnabled,
+    marDeleteSourceFromS3,
+    marMaxAgeInDays,
+
+    -- ** PlatformDescription
+    PlatformDescription (..),
+    mkPlatformDescription,
+    pdCustomAmiList,
+    pdDateCreated,
+    pdDateUpdated,
+    pdDescription,
+    pdFrameworks,
+    pdMaintainer,
+    pdOperatingSystemName,
+    pdOperatingSystemVersion,
+    pdPlatformArn,
+    pdPlatformBranchLifecycleState,
+    pdPlatformBranchName,
+    pdPlatformCategory,
+    pdPlatformLifecycleState,
+    pdPlatformName,
+    pdPlatformOwner,
+    pdPlatformStatus,
+    pdPlatformVersion,
+    pdProgrammingLanguages,
+    pdSolutionStackName,
+    pdSupportedAddonList,
+    pdSupportedTierList,
+
+    -- ** MaxCountRule
+    MaxCountRule (..),
+    mkMaxCountRule,
+    mcrEnabled,
+    mcrDeleteSourceFromS3,
+    mcrMaxCount,
+
+    -- ** InstanceHealthSummary
+    InstanceHealthSummary (..),
+    mkInstanceHealthSummary,
+    ihsDegraded,
+    ihsInfo,
+    ihsNoData,
+    ihsOk,
+    ihsPending,
+    ihsSevere,
+    ihsUnknown,
+    ihsWarning,
+
+    -- ** SolutionStackDescription
+    SolutionStackDescription (..),
+    mkSolutionStackDescription,
+    ssdPermittedFileTypes,
+    ssdSolutionStackName,
+
+    -- ** FullyQualifiedCNAME
+    FullyQualifiedCNAME (..),
+
+    -- ** ServiceRole
+    ServiceRole (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Version
+    Version (..),
+
+    -- ** TemplateName
+    TemplateName (..),
+
+    -- ** LifecycleState
+    LifecycleState (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Namespace
+    Namespace (..),
+
+    -- ** OptionName
+    OptionName (..),
+
+    -- ** Attribute
+    Attribute (..),
+
+    -- ** Operator
+    Operator (..),
+
+    -- ** DestinationEnvironmentId
+    DestinationEnvironmentId (..),
+
+    -- ** DestinationEnvironmentName
+    DestinationEnvironmentName (..),
+
+    -- ** SourceEnvironmentId
+    SourceEnvironmentId (..),
+
+    -- ** SourceEnvironmentName
+    SourceEnvironmentName (..),
+
+    -- ** Label
+    Label (..),
+
+    -- ** Pattern
+    Pattern (..),
+
+    -- ** DefaultValue
+    DefaultValue (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

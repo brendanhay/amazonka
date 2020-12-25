@@ -102,8 +102,8 @@ import Test.Tasty
 --         , requestDeleteFunctionConcurrency $
 --             mkDeleteFunctionConcurrency
 --
---         , requestGetLayerVersionByARN $
---             mkGetLayerVersionByARN
+--         , requestGetLayerVersionByArn $
+--             mkGetLayerVersionByArn
 --
 --         , requestGetFunctionConcurrency $
 --             mkGetFunctionConcurrency
@@ -276,7 +276,7 @@ import Test.Tasty
 --         , responseDeleteFunctionConcurrency $
 --             mkDeleteFunctionConcurrencyResponse
 --
---         , responseGetLayerVersionByARN $
+--         , responseGetLayerVersionByArn $
 --             mkGetLayerVersionResponse
 --
 --         , responseGetFunctionConcurrency $
@@ -527,11 +527,11 @@ requestDeleteFunctionConcurrency =
     "DeleteFunctionConcurrency"
     "fixture/DeleteFunctionConcurrency.yaml"
 
-requestGetLayerVersionByARN :: GetLayerVersionByARN -> TestTree
-requestGetLayerVersionByARN =
+requestGetLayerVersionByArn :: GetLayerVersionByArn -> TestTree
+requestGetLayerVersionByArn =
   req
-    "GetLayerVersionByARN"
-    "fixture/GetLayerVersionByARN.yaml"
+    "GetLayerVersionByArn"
+    "fixture/GetLayerVersionByArn.yaml"
 
 requestGetFunctionConcurrency :: GetFunctionConcurrency -> TestTree
 requestGetFunctionConcurrency =
@@ -726,7 +726,7 @@ responseGetFunctionConfiguration =
   res
     "GetFunctionConfigurationResponse"
     "fixture/GetFunctionConfigurationResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetFunctionConfiguration)
 
 responseDeleteEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
@@ -734,7 +734,7 @@ responseDeleteEventSourceMapping =
   res
     "DeleteEventSourceMappingResponse"
     "fixture/DeleteEventSourceMappingResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteEventSourceMapping)
 
 responseUpdateEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
@@ -742,7 +742,7 @@ responseUpdateEventSourceMapping =
   res
     "UpdateEventSourceMappingResponse"
     "fixture/UpdateEventSourceMappingResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy UpdateEventSourceMapping)
 
 responseGetLayerVersion :: GetLayerVersionResponse -> TestTree
@@ -750,7 +750,7 @@ responseGetLayerVersion =
   res
     "GetLayerVersionResponse"
     "fixture/GetLayerVersionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetLayerVersion)
 
 responseDeleteFunctionCodeSigningConfig :: DeleteFunctionCodeSigningConfigResponse -> TestTree
@@ -758,7 +758,7 @@ responseDeleteFunctionCodeSigningConfig =
   res
     "DeleteFunctionCodeSigningConfigResponse"
     "fixture/DeleteFunctionCodeSigningConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFunctionCodeSigningConfig)
 
 responsePutFunctionCodeSigningConfig :: PutFunctionCodeSigningConfigResponse -> TestTree
@@ -766,7 +766,7 @@ responsePutFunctionCodeSigningConfig =
   res
     "PutFunctionCodeSigningConfigResponse"
     "fixture/PutFunctionCodeSigningConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy PutFunctionCodeSigningConfig)
 
 responseCreateAlias :: AliasConfiguration -> TestTree
@@ -774,7 +774,7 @@ responseCreateAlias =
   res
     "CreateAliasResponse"
     "fixture/CreateAliasResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy CreateAlias)
 
 responseListVersionsByFunction :: ListVersionsByFunctionResponse -> TestTree
@@ -782,7 +782,7 @@ responseListVersionsByFunction =
   res
     "ListVersionsByFunctionResponse"
     "fixture/ListVersionsByFunctionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy ListVersionsByFunction)
 
 responseListAliases :: ListAliasesResponse -> TestTree
@@ -790,7 +790,7 @@ responseListAliases =
   res
     "ListAliasesResponse"
     "fixture/ListAliasesResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy ListAliases)
 
 responseDeleteCodeSigningConfig :: DeleteCodeSigningConfigResponse -> TestTree
@@ -798,7 +798,7 @@ responseDeleteCodeSigningConfig =
   res
     "DeleteCodeSigningConfigResponse"
     "fixture/DeleteCodeSigningConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCodeSigningConfig)
 
 responseUpdateCodeSigningConfig :: UpdateCodeSigningConfigResponse -> TestTree
@@ -806,7 +806,7 @@ responseUpdateCodeSigningConfig =
   res
     "UpdateCodeSigningConfigResponse"
     "fixture/UpdateCodeSigningConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy UpdateCodeSigningConfig)
 
 responseRemovePermission :: RemovePermissionResponse -> TestTree
@@ -814,7 +814,7 @@ responseRemovePermission =
   res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy RemovePermission)
 
 responseDeleteFunctionEventInvokeConfig :: DeleteFunctionEventInvokeConfigResponse -> TestTree
@@ -822,7 +822,7 @@ responseDeleteFunctionEventInvokeConfig =
   res
     "DeleteFunctionEventInvokeConfigResponse"
     "fixture/DeleteFunctionEventInvokeConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFunctionEventInvokeConfig)
 
 responseUpdateFunctionEventInvokeConfig :: FunctionEventInvokeConfig -> TestTree
@@ -830,7 +830,7 @@ responseUpdateFunctionEventInvokeConfig =
   res
     "UpdateFunctionEventInvokeConfigResponse"
     "fixture/UpdateFunctionEventInvokeConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy UpdateFunctionEventInvokeConfig)
 
 responsePutFunctionEventInvokeConfig :: FunctionEventInvokeConfig -> TestTree
@@ -838,7 +838,7 @@ responsePutFunctionEventInvokeConfig =
   res
     "PutFunctionEventInvokeConfigResponse"
     "fixture/PutFunctionEventInvokeConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy PutFunctionEventInvokeConfig)
 
 responseInvoke :: InvokeResponse -> TestTree
@@ -846,7 +846,7 @@ responseInvoke =
   res
     "InvokeResponse"
     "fixture/InvokeResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy Invoke)
 
 responseDeleteLayerVersion :: DeleteLayerVersionResponse -> TestTree
@@ -854,7 +854,7 @@ responseDeleteLayerVersion =
   res
     "DeleteLayerVersionResponse"
     "fixture/DeleteLayerVersionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteLayerVersion)
 
 responseGetAlias :: AliasConfiguration -> TestTree
@@ -862,7 +862,7 @@ responseGetAlias =
   res
     "GetAliasResponse"
     "fixture/GetAliasResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetAlias)
 
 responsePublishLayerVersion :: PublishLayerVersionResponse -> TestTree
@@ -870,7 +870,7 @@ responsePublishLayerVersion =
   res
     "PublishLayerVersionResponse"
     "fixture/PublishLayerVersionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy PublishLayerVersion)
 
 responseGetEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
@@ -878,7 +878,7 @@ responseGetEventSourceMapping =
   res
     "GetEventSourceMappingResponse"
     "fixture/GetEventSourceMappingResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetEventSourceMapping)
 
 responseAddLayerVersionPermission :: AddLayerVersionPermissionResponse -> TestTree
@@ -886,7 +886,7 @@ responseAddLayerVersionPermission =
   res
     "AddLayerVersionPermissionResponse"
     "fixture/AddLayerVersionPermissionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy AddLayerVersionPermission)
 
 responseListProvisionedConcurrencyConfigs :: ListProvisionedConcurrencyConfigsResponse -> TestTree
@@ -894,7 +894,7 @@ responseListProvisionedConcurrencyConfigs =
   res
     "ListProvisionedConcurrencyConfigsResponse"
     "fixture/ListProvisionedConcurrencyConfigsResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy ListProvisionedConcurrencyConfigs)
 
 responsePutFunctionConcurrency :: Concurrency -> TestTree
@@ -902,7 +902,7 @@ responsePutFunctionConcurrency =
   res
     "PutFunctionConcurrencyResponse"
     "fixture/PutFunctionConcurrencyResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy PutFunctionConcurrency)
 
 responseCreateFunction :: FunctionConfiguration -> TestTree
@@ -910,7 +910,7 @@ responseCreateFunction =
   res
     "CreateFunctionResponse"
     "fixture/CreateFunctionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy CreateFunction)
 
 responseDeleteFunctionConcurrency :: DeleteFunctionConcurrencyResponse -> TestTree
@@ -918,23 +918,23 @@ responseDeleteFunctionConcurrency =
   res
     "DeleteFunctionConcurrencyResponse"
     "fixture/DeleteFunctionConcurrencyResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFunctionConcurrency)
 
-responseGetLayerVersionByARN :: GetLayerVersionResponse -> TestTree
-responseGetLayerVersionByARN =
+responseGetLayerVersionByArn :: GetLayerVersionResponse -> TestTree
+responseGetLayerVersionByArn =
   res
-    "GetLayerVersionByARNResponse"
-    "fixture/GetLayerVersionByARNResponse.proto"
-    lambdaService
-    (Proxy :: Proxy GetLayerVersionByARN)
+    "GetLayerVersionByArnResponse"
+    "fixture/GetLayerVersionByArnResponse.proto"
+    mkServiceConfig
+    (Proxy :: Proxy GetLayerVersionByArn)
 
 responseGetFunctionConcurrency :: GetFunctionConcurrencyResponse -> TestTree
 responseGetFunctionConcurrency =
   res
     "GetFunctionConcurrencyResponse"
     "fixture/GetFunctionConcurrencyResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetFunctionConcurrency)
 
 responseCreateEventSourceMapping :: EventSourceMappingConfiguration -> TestTree
@@ -942,7 +942,7 @@ responseCreateEventSourceMapping =
   res
     "CreateEventSourceMappingResponse"
     "fixture/CreateEventSourceMappingResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy CreateEventSourceMapping)
 
 responseGetProvisionedConcurrencyConfig :: GetProvisionedConcurrencyConfigResponse -> TestTree
@@ -950,7 +950,7 @@ responseGetProvisionedConcurrencyConfig =
   res
     "GetProvisionedConcurrencyConfigResponse"
     "fixture/GetProvisionedConcurrencyConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetProvisionedConcurrencyConfig)
 
 responseRemoveLayerVersionPermission :: RemoveLayerVersionPermissionResponse -> TestTree
@@ -958,7 +958,7 @@ responseRemoveLayerVersionPermission =
   res
     "RemoveLayerVersionPermissionResponse"
     "fixture/RemoveLayerVersionPermissionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy RemoveLayerVersionPermission)
 
 responseListFunctionsByCodeSigningConfig :: ListFunctionsByCodeSigningConfigResponse -> TestTree
@@ -966,7 +966,7 @@ responseListFunctionsByCodeSigningConfig =
   res
     "ListFunctionsByCodeSigningConfigResponse"
     "fixture/ListFunctionsByCodeSigningConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy ListFunctionsByCodeSigningConfig)
 
 responseGetFunction :: GetFunctionResponse -> TestTree
@@ -974,7 +974,7 @@ responseGetFunction =
   res
     "GetFunctionResponse"
     "fixture/GetFunctionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetFunction)
 
 responseListEventSourceMappings :: ListEventSourceMappingsResponse -> TestTree
@@ -982,7 +982,7 @@ responseListEventSourceMappings =
   res
     "ListEventSourceMappingsResponse"
     "fixture/ListEventSourceMappingsResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy ListEventSourceMappings)
 
 responseGetLayerVersionPolicy :: GetLayerVersionPolicyResponse -> TestTree
@@ -990,7 +990,7 @@ responseGetLayerVersionPolicy =
   res
     "GetLayerVersionPolicyResponse"
     "fixture/GetLayerVersionPolicyResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetLayerVersionPolicy)
 
 responseDeleteAlias :: DeleteAliasResponse -> TestTree
@@ -998,7 +998,7 @@ responseDeleteAlias =
   res
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteAlias)
 
 responseUpdateAlias :: AliasConfiguration -> TestTree
@@ -1006,7 +1006,7 @@ responseUpdateAlias =
   res
     "UpdateAliasResponse"
     "fixture/UpdateAliasResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy UpdateAlias)
 
 responseGetAccountSettings :: GetAccountSettingsResponse -> TestTree
@@ -1014,7 +1014,7 @@ responseGetAccountSettings =
   res
     "GetAccountSettingsResponse"
     "fixture/GetAccountSettingsResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetAccountSettings)
 
 responseGetFunctionEventInvokeConfig :: FunctionEventInvokeConfig -> TestTree
@@ -1022,7 +1022,7 @@ responseGetFunctionEventInvokeConfig =
   res
     "GetFunctionEventInvokeConfigResponse"
     "fixture/GetFunctionEventInvokeConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetFunctionEventInvokeConfig)
 
 responseGetCodeSigningConfig :: GetCodeSigningConfigResponse -> TestTree
@@ -1030,7 +1030,7 @@ responseGetCodeSigningConfig =
   res
     "GetCodeSigningConfigResponse"
     "fixture/GetCodeSigningConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetCodeSigningConfig)
 
 responseAddPermission :: AddPermissionResponse -> TestTree
@@ -1038,7 +1038,7 @@ responseAddPermission =
   res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy AddPermission)
 
 responseListLayers :: ListLayersResponse -> TestTree
@@ -1046,7 +1046,7 @@ responseListLayers =
   res
     "ListLayersResponse"
     "fixture/ListLayersResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy ListLayers)
 
 responseListFunctionEventInvokeConfigs :: ListFunctionEventInvokeConfigsResponse -> TestTree
@@ -1054,7 +1054,7 @@ responseListFunctionEventInvokeConfigs =
   res
     "ListFunctionEventInvokeConfigsResponse"
     "fixture/ListFunctionEventInvokeConfigsResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy ListFunctionEventInvokeConfigs)
 
 responseListCodeSigningConfigs :: ListCodeSigningConfigsResponse -> TestTree
@@ -1062,7 +1062,7 @@ responseListCodeSigningConfigs =
   res
     "ListCodeSigningConfigsResponse"
     "fixture/ListCodeSigningConfigsResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy ListCodeSigningConfigs)
 
 responseGetFunctionCodeSigningConfig :: GetFunctionCodeSigningConfigResponse -> TestTree
@@ -1070,7 +1070,7 @@ responseGetFunctionCodeSigningConfig =
   res
     "GetFunctionCodeSigningConfigResponse"
     "fixture/GetFunctionCodeSigningConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetFunctionCodeSigningConfig)
 
 responseCreateCodeSigningConfig :: CreateCodeSigningConfigResponse -> TestTree
@@ -1078,7 +1078,7 @@ responseCreateCodeSigningConfig =
   res
     "CreateCodeSigningConfigResponse"
     "fixture/CreateCodeSigningConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy CreateCodeSigningConfig)
 
 responseListLayerVersions :: ListLayerVersionsResponse -> TestTree
@@ -1086,7 +1086,7 @@ responseListLayerVersions =
   res
     "ListLayerVersionsResponse"
     "fixture/ListLayerVersionsResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy ListLayerVersions)
 
 responseTagResource :: TagResourceResponse -> TestTree
@@ -1094,7 +1094,7 @@ responseTagResource =
   res
     "TagResourceResponse"
     "fixture/TagResourceResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy TagResource)
 
 responsePublishVersion :: FunctionConfiguration -> TestTree
@@ -1102,7 +1102,7 @@ responsePublishVersion =
   res
     "PublishVersionResponse"
     "fixture/PublishVersionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy PublishVersion)
 
 responseListTags :: ListTagsResponse -> TestTree
@@ -1110,7 +1110,7 @@ responseListTags =
   res
     "ListTagsResponse"
     "fixture/ListTagsResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy ListTags)
 
 responseDeleteFunction :: DeleteFunctionResponse -> TestTree
@@ -1118,7 +1118,7 @@ responseDeleteFunction =
   res
     "DeleteFunctionResponse"
     "fixture/DeleteFunctionResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFunction)
 
 responseUntagResource :: UntagResourceResponse -> TestTree
@@ -1126,7 +1126,7 @@ responseUntagResource =
   res
     "UntagResourceResponse"
     "fixture/UntagResourceResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy UntagResource)
 
 responseUpdateFunctionConfiguration :: FunctionConfiguration -> TestTree
@@ -1134,7 +1134,7 @@ responseUpdateFunctionConfiguration =
   res
     "UpdateFunctionConfigurationResponse"
     "fixture/UpdateFunctionConfigurationResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy UpdateFunctionConfiguration)
 
 responseListFunctions :: ListFunctionsResponse -> TestTree
@@ -1142,7 +1142,7 @@ responseListFunctions =
   res
     "ListFunctionsResponse"
     "fixture/ListFunctionsResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy ListFunctions)
 
 responseUpdateFunctionCode :: FunctionConfiguration -> TestTree
@@ -1150,7 +1150,7 @@ responseUpdateFunctionCode =
   res
     "UpdateFunctionCodeResponse"
     "fixture/UpdateFunctionCodeResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy UpdateFunctionCode)
 
 responseDeleteProvisionedConcurrencyConfig :: DeleteProvisionedConcurrencyConfigResponse -> TestTree
@@ -1158,7 +1158,7 @@ responseDeleteProvisionedConcurrencyConfig =
   res
     "DeleteProvisionedConcurrencyConfigResponse"
     "fixture/DeleteProvisionedConcurrencyConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProvisionedConcurrencyConfig)
 
 responseGetPolicy :: GetPolicyResponse -> TestTree
@@ -1166,7 +1166,7 @@ responseGetPolicy =
   res
     "GetPolicyResponse"
     "fixture/GetPolicyResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy GetPolicy)
 
 responsePutProvisionedConcurrencyConfig :: PutProvisionedConcurrencyConfigResponse -> TestTree
@@ -1174,5 +1174,5 @@ responsePutProvisionedConcurrencyConfig =
   res
     "PutProvisionedConcurrencyConfigResponse"
     "fixture/PutProvisionedConcurrencyConfigResponse.proto"
-    lambdaService
+    mkServiceConfig
     (Proxy :: Proxy PutProvisionedConcurrencyConfig)

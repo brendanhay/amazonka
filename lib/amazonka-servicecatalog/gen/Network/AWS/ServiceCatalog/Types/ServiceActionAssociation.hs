@@ -17,81 +17,79 @@ module Network.AWS.ServiceCatalog.Types.ServiceActionAssociation
     mkServiceActionAssociation,
 
     -- * Lenses
-    saaProvisioningArtifactId,
     saaServiceActionId,
     saaProductId,
+    saaProvisioningArtifactId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ServiceCatalog.Types.ProductId as Types
+import qualified Network.AWS.ServiceCatalog.Types.ProvisioningArtifactId as Types
+import qualified Network.AWS.ServiceCatalog.Types.ServiceActionId as Types
 
 -- | A self-service action association consisting of the Action ID, the Product ID, and the Provisioning Artifact ID.
 --
 -- /See:/ 'mkServiceActionAssociation' smart constructor.
 data ServiceActionAssociation = ServiceActionAssociation'
-  { -- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
-    provisioningArtifactId :: Lude.Text,
-    -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
-    serviceActionId :: Lude.Text,
+  { -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
+    serviceActionId :: Types.ServiceActionId,
     -- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
-    productId :: Lude.Text
+    productId :: Types.ProductId,
+    -- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+    provisioningArtifactId :: Types.ProvisioningArtifactId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ServiceActionAssociation' with the minimum fields required to make a request.
---
--- * 'provisioningArtifactId' - The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
--- * 'serviceActionId' - The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
--- * 'productId' - The product identifier. For example, @prod-abcdzk7xy33qa@ .
+-- | Creates a 'ServiceActionAssociation' value with any optional fields omitted.
 mkServiceActionAssociation ::
-  -- | 'provisioningArtifactId'
-  Lude.Text ->
   -- | 'serviceActionId'
-  Lude.Text ->
+  Types.ServiceActionId ->
   -- | 'productId'
-  Lude.Text ->
+  Types.ProductId ->
+  -- | 'provisioningArtifactId'
+  Types.ProvisioningArtifactId ->
   ServiceActionAssociation
 mkServiceActionAssociation
-  pProvisioningArtifactId_
-  pServiceActionId_
-  pProductId_ =
+  serviceActionId
+  productId
+  provisioningArtifactId =
     ServiceActionAssociation'
-      { provisioningArtifactId =
-          pProvisioningArtifactId_,
-        serviceActionId = pServiceActionId_,
-        productId = pProductId_
+      { serviceActionId,
+        productId,
+        provisioningArtifactId
       }
-
--- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
---
--- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saaProvisioningArtifactId :: Lens.Lens' ServiceActionAssociation Lude.Text
-saaProvisioningArtifactId = Lens.lens (provisioningArtifactId :: ServiceActionAssociation -> Lude.Text) (\s a -> s {provisioningArtifactId = a} :: ServiceActionAssociation)
-{-# DEPRECATED saaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
 
 -- | The self-service action identifier. For example, @act-fs7abcd89wxyz@ .
 --
 -- /Note:/ Consider using 'serviceActionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saaServiceActionId :: Lens.Lens' ServiceActionAssociation Lude.Text
-saaServiceActionId = Lens.lens (serviceActionId :: ServiceActionAssociation -> Lude.Text) (\s a -> s {serviceActionId = a} :: ServiceActionAssociation)
+saaServiceActionId :: Lens.Lens' ServiceActionAssociation Types.ServiceActionId
+saaServiceActionId = Lens.field @"serviceActionId"
 {-# DEPRECATED saaServiceActionId "Use generic-lens or generic-optics with 'serviceActionId' instead." #-}
 
 -- | The product identifier. For example, @prod-abcdzk7xy33qa@ .
 --
 -- /Note:/ Consider using 'productId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saaProductId :: Lens.Lens' ServiceActionAssociation Lude.Text
-saaProductId = Lens.lens (productId :: ServiceActionAssociation -> Lude.Text) (\s a -> s {productId = a} :: ServiceActionAssociation)
+saaProductId :: Lens.Lens' ServiceActionAssociation Types.ProductId
+saaProductId = Lens.field @"productId"
 {-# DEPRECATED saaProductId "Use generic-lens or generic-optics with 'productId' instead." #-}
 
-instance Lude.ToJSON ServiceActionAssociation where
-  toJSON ServiceActionAssociation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("ProvisioningArtifactId" Lude..= provisioningArtifactId),
-            Lude.Just ("ServiceActionId" Lude..= serviceActionId),
-            Lude.Just ("ProductId" Lude..= productId)
+-- | The identifier of the provisioning artifact. For example, @pa-4abcdjnxjj6ne@ .
+--
+-- /Note:/ Consider using 'provisioningArtifactId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+saaProvisioningArtifactId :: Lens.Lens' ServiceActionAssociation Types.ProvisioningArtifactId
+saaProvisioningArtifactId = Lens.field @"provisioningArtifactId"
+{-# DEPRECATED saaProvisioningArtifactId "Use generic-lens or generic-optics with 'provisioningArtifactId' instead." #-}
+
+instance Core.FromJSON ServiceActionAssociation where
+  toJSON ServiceActionAssociation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ServiceActionId" Core..= serviceActionId),
+            Core.Just ("ProductId" Core..= productId),
+            Core.Just
+              ("ProvisioningArtifactId" Core..= provisioningArtifactId)
           ]
       )

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Mobile
     Network.AWS.Mobile.CreateProject
@@ -80,12 +86,33 @@ library
     Network.AWS.Mobile.Waiters
 
   other-modules:
+    Network.AWS.Mobile.Types.AttributeKey
+    Network.AWS.Mobile.Types.AttributeValue
+    Network.AWS.Mobile.Types.BundleDescription
     Network.AWS.Mobile.Types.BundleDetails
+    Network.AWS.Mobile.Types.BundleId
+    Network.AWS.Mobile.Types.BundleTitle
+    Network.AWS.Mobile.Types.BundleVersion
+    Network.AWS.Mobile.Types.ConsoleUrl
+    Network.AWS.Mobile.Types.DownloadUrl
+    Network.AWS.Mobile.Types.Feature
+    Network.AWS.Mobile.Types.IconUrl
+    Network.AWS.Mobile.Types.Name
+    Network.AWS.Mobile.Types.NextToken
     Network.AWS.Mobile.Types.Platform
     Network.AWS.Mobile.Types.ProjectDetails
+    Network.AWS.Mobile.Types.ProjectId
+    Network.AWS.Mobile.Types.ProjectName
+    Network.AWS.Mobile.Types.ProjectRegion
     Network.AWS.Mobile.Types.ProjectState
     Network.AWS.Mobile.Types.ProjectSummary
+    Network.AWS.Mobile.Types.Region
     Network.AWS.Mobile.Types.Resource
+    Network.AWS.Mobile.Types.ResourceArn
+    Network.AWS.Mobile.Types.ResourceName
+    Network.AWS.Mobile.Types.ResourceType
+    Network.AWS.Mobile.Types.ShareUrl
+    Network.AWS.Mobile.Types.SnapshotId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

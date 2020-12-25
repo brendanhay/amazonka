@@ -28,123 +28,102 @@ module Network.AWS.WorkSpaces.ModifySelfservicePermissions
     mkModifySelfservicePermissionsResponse,
 
     -- ** Response lenses
-    msprsResponseStatus,
+    msprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkSpaces.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkSpaces.Types as Types
 
 -- | /See:/ 'mkModifySelfservicePermissions' smart constructor.
 data ModifySelfservicePermissions = ModifySelfservicePermissions'
   { -- | The identifier of the directory.
-    resourceId :: Lude.Text,
+    resourceId :: Types.DirectoryId,
     -- | The permissions to enable or disable self-service capabilities.
-    selfservicePermissions :: SelfservicePermissions
+    selfservicePermissions :: Types.SelfservicePermissions
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifySelfservicePermissions' with the minimum fields required to make a request.
---
--- * 'resourceId' - The identifier of the directory.
--- * 'selfservicePermissions' - The permissions to enable or disable self-service capabilities.
+-- | Creates a 'ModifySelfservicePermissions' value with any optional fields omitted.
 mkModifySelfservicePermissions ::
   -- | 'resourceId'
-  Lude.Text ->
+  Types.DirectoryId ->
   -- | 'selfservicePermissions'
-  SelfservicePermissions ->
+  Types.SelfservicePermissions ->
   ModifySelfservicePermissions
-mkModifySelfservicePermissions
-  pResourceId_
-  pSelfservicePermissions_ =
-    ModifySelfservicePermissions'
-      { resourceId = pResourceId_,
-        selfservicePermissions = pSelfservicePermissions_
-      }
+mkModifySelfservicePermissions resourceId selfservicePermissions =
+  ModifySelfservicePermissions' {resourceId, selfservicePermissions}
 
 -- | The identifier of the directory.
 --
 -- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mspResourceId :: Lens.Lens' ModifySelfservicePermissions Lude.Text
-mspResourceId = Lens.lens (resourceId :: ModifySelfservicePermissions -> Lude.Text) (\s a -> s {resourceId = a} :: ModifySelfservicePermissions)
+mspResourceId :: Lens.Lens' ModifySelfservicePermissions Types.DirectoryId
+mspResourceId = Lens.field @"resourceId"
 {-# DEPRECATED mspResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The permissions to enable or disable self-service capabilities.
 --
 -- /Note:/ Consider using 'selfservicePermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mspSelfservicePermissions :: Lens.Lens' ModifySelfservicePermissions SelfservicePermissions
-mspSelfservicePermissions = Lens.lens (selfservicePermissions :: ModifySelfservicePermissions -> SelfservicePermissions) (\s a -> s {selfservicePermissions = a} :: ModifySelfservicePermissions)
+mspSelfservicePermissions :: Lens.Lens' ModifySelfservicePermissions Types.SelfservicePermissions
+mspSelfservicePermissions = Lens.field @"selfservicePermissions"
 {-# DEPRECATED mspSelfservicePermissions "Use generic-lens or generic-optics with 'selfservicePermissions' instead." #-}
 
-instance Lude.AWSRequest ModifySelfservicePermissions where
+instance Core.FromJSON ModifySelfservicePermissions where
+  toJSON ModifySelfservicePermissions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ResourceId" Core..= resourceId),
+            Core.Just
+              ("SelfservicePermissions" Core..= selfservicePermissions)
+          ]
+      )
+
+instance Core.AWSRequest ModifySelfservicePermissions where
   type
     Rs ModifySelfservicePermissions =
       ModifySelfservicePermissionsResponse
-  request = Req.postJSON workSpacesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "WorkspacesService.ModifySelfservicePermissions")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           ModifySelfservicePermissionsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifySelfservicePermissions where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "WorkspacesService.ModifySelfservicePermissions" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ModifySelfservicePermissions where
-  toJSON ModifySelfservicePermissions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("ResourceId" Lude..= resourceId),
-            Lude.Just
-              ("SelfservicePermissions" Lude..= selfservicePermissions)
-          ]
-      )
-
-instance Lude.ToPath ModifySelfservicePermissions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifySelfservicePermissions where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkModifySelfservicePermissionsResponse' smart constructor.
 newtype ModifySelfservicePermissionsResponse = ModifySelfservicePermissionsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifySelfservicePermissionsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifySelfservicePermissionsResponse' value with any optional fields omitted.
 mkModifySelfservicePermissionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifySelfservicePermissionsResponse
-mkModifySelfservicePermissionsResponse pResponseStatus_ =
-  ModifySelfservicePermissionsResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkModifySelfservicePermissionsResponse responseStatus =
+  ModifySelfservicePermissionsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msprsResponseStatus :: Lens.Lens' ModifySelfservicePermissionsResponse Lude.Int
-msprsResponseStatus = Lens.lens (responseStatus :: ModifySelfservicePermissionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifySelfservicePermissionsResponse)
-{-# DEPRECATED msprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+msprrsResponseStatus :: Lens.Lens' ModifySelfservicePermissionsResponse Core.Int
+msprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED msprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

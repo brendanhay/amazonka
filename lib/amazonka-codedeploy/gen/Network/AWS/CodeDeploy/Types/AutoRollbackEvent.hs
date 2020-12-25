@@ -13,51 +13,56 @@
 module Network.AWS.CodeDeploy.Types.AutoRollbackEvent
   ( AutoRollbackEvent
       ( AutoRollbackEvent',
-        AREDeploymentFailure,
-        AREDeploymentStopOnAlarm,
-        AREDeploymentStopOnRequest
+        AutoRollbackEventDeploymentFailure,
+        AutoRollbackEventDeploymentStopOnAlarm,
+        AutoRollbackEventDeploymentStopOnRequest,
+        fromAutoRollbackEvent
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AutoRollbackEvent = AutoRollbackEvent' Lude.Text
+newtype AutoRollbackEvent = AutoRollbackEvent'
+  { fromAutoRollbackEvent ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AREDeploymentFailure :: AutoRollbackEvent
-pattern AREDeploymentFailure = AutoRollbackEvent' "DEPLOYMENT_FAILURE"
+pattern AutoRollbackEventDeploymentFailure :: AutoRollbackEvent
+pattern AutoRollbackEventDeploymentFailure = AutoRollbackEvent' "DEPLOYMENT_FAILURE"
 
-pattern AREDeploymentStopOnAlarm :: AutoRollbackEvent
-pattern AREDeploymentStopOnAlarm = AutoRollbackEvent' "DEPLOYMENT_STOP_ON_ALARM"
+pattern AutoRollbackEventDeploymentStopOnAlarm :: AutoRollbackEvent
+pattern AutoRollbackEventDeploymentStopOnAlarm = AutoRollbackEvent' "DEPLOYMENT_STOP_ON_ALARM"
 
-pattern AREDeploymentStopOnRequest :: AutoRollbackEvent
-pattern AREDeploymentStopOnRequest = AutoRollbackEvent' "DEPLOYMENT_STOP_ON_REQUEST"
+pattern AutoRollbackEventDeploymentStopOnRequest :: AutoRollbackEvent
+pattern AutoRollbackEventDeploymentStopOnRequest = AutoRollbackEvent' "DEPLOYMENT_STOP_ON_REQUEST"
 
 {-# COMPLETE
-  AREDeploymentFailure,
-  AREDeploymentStopOnAlarm,
-  AREDeploymentStopOnRequest,
+  AutoRollbackEventDeploymentFailure,
+  AutoRollbackEventDeploymentStopOnAlarm,
+  AutoRollbackEventDeploymentStopOnRequest,
   AutoRollbackEvent'
   #-}

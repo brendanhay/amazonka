@@ -17,71 +17,66 @@ module Network.AWS.SSM.Types.InventoryDeletionSummaryItem
     mkInventoryDeletionSummaryItem,
 
     -- * Lenses
-    idsiRemainingCount,
     idsiCount,
+    idsiRemainingCount,
     idsiVersion,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.InventoryItemSchemaVersion as Types
 
 -- | Either a count, remaining count, or a version number in a delete inventory summary.
 --
 -- /See:/ 'mkInventoryDeletionSummaryItem' smart constructor.
 data InventoryDeletionSummaryItem = InventoryDeletionSummaryItem'
-  { -- | The remaining number of items to delete.
-    remainingCount :: Lude.Maybe Lude.Int,
-    -- | A count of the number of deleted items.
-    count :: Lude.Maybe Lude.Int,
+  { -- | A count of the number of deleted items.
+    count :: Core.Maybe Core.Int,
+    -- | The remaining number of items to delete.
+    remainingCount :: Core.Maybe Core.Int,
     -- | The inventory type version.
-    version :: Lude.Maybe Lude.Text
+    version :: Core.Maybe Types.InventoryItemSchemaVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventoryDeletionSummaryItem' with the minimum fields required to make a request.
---
--- * 'remainingCount' - The remaining number of items to delete.
--- * 'count' - A count of the number of deleted items.
--- * 'version' - The inventory type version.
+-- | Creates a 'InventoryDeletionSummaryItem' value with any optional fields omitted.
 mkInventoryDeletionSummaryItem ::
   InventoryDeletionSummaryItem
 mkInventoryDeletionSummaryItem =
   InventoryDeletionSummaryItem'
-    { remainingCount = Lude.Nothing,
-      count = Lude.Nothing,
-      version = Lude.Nothing
+    { count = Core.Nothing,
+      remainingCount = Core.Nothing,
+      version = Core.Nothing
     }
-
--- | The remaining number of items to delete.
---
--- /Note:/ Consider using 'remainingCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idsiRemainingCount :: Lens.Lens' InventoryDeletionSummaryItem (Lude.Maybe Lude.Int)
-idsiRemainingCount = Lens.lens (remainingCount :: InventoryDeletionSummaryItem -> Lude.Maybe Lude.Int) (\s a -> s {remainingCount = a} :: InventoryDeletionSummaryItem)
-{-# DEPRECATED idsiRemainingCount "Use generic-lens or generic-optics with 'remainingCount' instead." #-}
 
 -- | A count of the number of deleted items.
 --
 -- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idsiCount :: Lens.Lens' InventoryDeletionSummaryItem (Lude.Maybe Lude.Int)
-idsiCount = Lens.lens (count :: InventoryDeletionSummaryItem -> Lude.Maybe Lude.Int) (\s a -> s {count = a} :: InventoryDeletionSummaryItem)
+idsiCount :: Lens.Lens' InventoryDeletionSummaryItem (Core.Maybe Core.Int)
+idsiCount = Lens.field @"count"
 {-# DEPRECATED idsiCount "Use generic-lens or generic-optics with 'count' instead." #-}
+
+-- | The remaining number of items to delete.
+--
+-- /Note:/ Consider using 'remainingCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idsiRemainingCount :: Lens.Lens' InventoryDeletionSummaryItem (Core.Maybe Core.Int)
+idsiRemainingCount = Lens.field @"remainingCount"
+{-# DEPRECATED idsiRemainingCount "Use generic-lens or generic-optics with 'remainingCount' instead." #-}
 
 -- | The inventory type version.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idsiVersion :: Lens.Lens' InventoryDeletionSummaryItem (Lude.Maybe Lude.Text)
-idsiVersion = Lens.lens (version :: InventoryDeletionSummaryItem -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: InventoryDeletionSummaryItem)
+idsiVersion :: Lens.Lens' InventoryDeletionSummaryItem (Core.Maybe Types.InventoryItemSchemaVersion)
+idsiVersion = Lens.field @"version"
 {-# DEPRECATED idsiVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromJSON InventoryDeletionSummaryItem where
+instance Core.FromJSON InventoryDeletionSummaryItem where
   parseJSON =
-    Lude.withObject
-      "InventoryDeletionSummaryItem"
-      ( \x ->
-          InventoryDeletionSummaryItem'
-            Lude.<$> (x Lude..:? "RemainingCount")
-            Lude.<*> (x Lude..:? "Count")
-            Lude.<*> (x Lude..:? "Version")
-      )
+    Core.withObject "InventoryDeletionSummaryItem" Core.$
+      \x ->
+        InventoryDeletionSummaryItem'
+          Core.<$> (x Core..:? "Count")
+          Core.<*> (x Core..:? "RemainingCount")
+          Core.<*> (x Core..:? "Version")

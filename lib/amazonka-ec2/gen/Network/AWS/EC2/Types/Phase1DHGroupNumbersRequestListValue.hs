@@ -22,33 +22,27 @@ module Network.AWS.EC2.Types.Phase1DHGroupNumbersRequestListValue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies a Diffie-Hellman group number for the VPN tunnel for phase 1 IKE negotiations.
 --
 -- /See:/ 'mkPhase1DHGroupNumbersRequestListValue' smart constructor.
 newtype Phase1DHGroupNumbersRequestListValue = Phase1DHGroupNumbersRequestListValue'
   { -- | The Diffie-Hellmann group number.
-    value :: Lude.Maybe Lude.Int
+    value :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Phase1DHGroupNumbersRequestListValue' with the minimum fields required to make a request.
---
--- * 'value' - The Diffie-Hellmann group number.
+-- | Creates a 'Phase1DHGroupNumbersRequestListValue' value with any optional fields omitted.
 mkPhase1DHGroupNumbersRequestListValue ::
   Phase1DHGroupNumbersRequestListValue
 mkPhase1DHGroupNumbersRequestListValue =
-  Phase1DHGroupNumbersRequestListValue' {value = Lude.Nothing}
+  Phase1DHGroupNumbersRequestListValue' {value = Core.Nothing}
 
 -- | The Diffie-Hellmann group number.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pdhgnrlvValue :: Lens.Lens' Phase1DHGroupNumbersRequestListValue (Lude.Maybe Lude.Int)
-pdhgnrlvValue = Lens.lens (value :: Phase1DHGroupNumbersRequestListValue -> Lude.Maybe Lude.Int) (\s a -> s {value = a} :: Phase1DHGroupNumbersRequestListValue)
+pdhgnrlvValue :: Lens.Lens' Phase1DHGroupNumbersRequestListValue (Core.Maybe Core.Int)
+pdhgnrlvValue = Lens.field @"value"
 {-# DEPRECATED pdhgnrlvValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
-instance Lude.ToQuery Phase1DHGroupNumbersRequestListValue where
-  toQuery Phase1DHGroupNumbersRequestListValue' {..} =
-    Lude.mconcat ["Value" Lude.=: value]

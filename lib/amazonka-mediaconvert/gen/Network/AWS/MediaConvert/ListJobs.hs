@@ -22,187 +22,171 @@ module Network.AWS.MediaConvert.ListJobs
     mkListJobs,
 
     -- ** Request lenses
-    ljStatus,
-    ljQueue,
+    ljMaxResults,
     ljNextToken,
     ljOrder,
-    ljMaxResults,
+    ljQueue,
+    ljStatus,
 
     -- * Destructuring the response
     ListJobsResponse (..),
     mkListJobsResponse,
 
     -- ** Response lenses
-    ljrsNextToken,
-    ljrsJobs,
-    ljrsResponseStatus,
+    ljrrsJobs,
+    ljrrsNextToken,
+    ljrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaConvert.Types as Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListJobs' smart constructor.
 data ListJobs = ListJobs'
-  { -- | Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
-    status :: Lude.Maybe JobStatus,
-    -- | Optional. Provide a queue name to get back only jobs from that queue.
-    queue :: Lude.Maybe Lude.Text,
+  { -- | Optional. Number of jobs, up to twenty, that will be returned at one time.
+    maxResults :: Core.Maybe Core.Natural,
     -- | Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Core.Text,
     -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
-    order :: Lude.Maybe Order,
-    -- | Optional. Number of jobs, up to twenty, that will be returned at one time.
-    maxResults :: Lude.Maybe Lude.Natural
+    order :: Core.Maybe Types.Order,
+    -- | Optional. Provide a queue name to get back only jobs from that queue.
+    queue :: Core.Maybe Core.Text,
+    -- | Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+    status :: Core.Maybe Types.JobStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListJobs' with the minimum fields required to make a request.
---
--- * 'status' - Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
--- * 'queue' - Optional. Provide a queue name to get back only jobs from that queue.
--- * 'nextToken' - Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
--- * 'order' - Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
--- * 'maxResults' - Optional. Number of jobs, up to twenty, that will be returned at one time.
+-- | Creates a 'ListJobs' value with any optional fields omitted.
 mkListJobs ::
   ListJobs
 mkListJobs =
   ListJobs'
-    { status = Lude.Nothing,
-      queue = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      order = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      order = Core.Nothing,
+      queue = Core.Nothing,
+      status = Core.Nothing
     }
 
--- | Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+-- | Optional. Number of jobs, up to twenty, that will be returned at one time.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljStatus :: Lens.Lens' ListJobs (Lude.Maybe JobStatus)
-ljStatus = Lens.lens (status :: ListJobs -> Lude.Maybe JobStatus) (\s a -> s {status = a} :: ListJobs)
-{-# DEPRECATED ljStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | Optional. Provide a queue name to get back only jobs from that queue.
---
--- /Note:/ Consider using 'queue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljQueue :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
-ljQueue = Lens.lens (queue :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {queue = a} :: ListJobs)
-{-# DEPRECATED ljQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljMaxResults :: Lens.Lens' ListJobs (Core.Maybe Core.Natural)
+ljMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED ljMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljNextToken :: Lens.Lens' ListJobs (Lude.Maybe Lude.Text)
-ljNextToken = Lens.lens (nextToken :: ListJobs -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobs)
+ljNextToken :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
+ljNextToken = Lens.field @"nextToken"
 {-# DEPRECATED ljNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
 --
 -- /Note:/ Consider using 'order' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljOrder :: Lens.Lens' ListJobs (Lude.Maybe Order)
-ljOrder = Lens.lens (order :: ListJobs -> Lude.Maybe Order) (\s a -> s {order = a} :: ListJobs)
+ljOrder :: Lens.Lens' ListJobs (Core.Maybe Types.Order)
+ljOrder = Lens.field @"order"
 {-# DEPRECATED ljOrder "Use generic-lens or generic-optics with 'order' instead." #-}
 
--- | Optional. Number of jobs, up to twenty, that will be returned at one time.
+-- | Optional. Provide a queue name to get back only jobs from that queue.
 --
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljMaxResults :: Lens.Lens' ListJobs (Lude.Maybe Lude.Natural)
-ljMaxResults = Lens.lens (maxResults :: ListJobs -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListJobs)
-{-# DEPRECATED ljMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- /Note:/ Consider using 'queue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljQueue :: Lens.Lens' ListJobs (Core.Maybe Core.Text)
+ljQueue = Lens.field @"queue"
+{-# DEPRECATED ljQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
 
-instance Page.AWSPager ListJobs where
-  page rq rs
-    | Page.stop (rs Lens.^. ljrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ljrsJobs) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ljNextToken Lens..~ rs Lens.^. ljrsNextToken
+-- | Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljStatus :: Lens.Lens' ListJobs (Core.Maybe Types.JobStatus)
+ljStatus = Lens.field @"status"
+{-# DEPRECATED ljStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
-instance Lude.AWSRequest ListJobs where
+instance Core.AWSRequest ListJobs where
   type Rs ListJobs = ListJobsResponse
-  request = Req.get mediaConvertService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2017-08-29/jobs",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "order" Core.<$> order)
+            Core.<> (Core.toQueryValue "queue" Core.<$> queue)
+            Core.<> (Core.toQueryValue "status" Core.<$> status),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListJobsResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "jobs" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "jobs")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListJobs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListJobs where
-  toPath = Lude.const "/2017-08-29/jobs"
-
-instance Lude.ToQuery ListJobs where
-  toQuery ListJobs' {..} =
-    Lude.mconcat
-      [ "status" Lude.=: status,
-        "queue" Lude.=: queue,
-        "nextToken" Lude.=: nextToken,
-        "order" Lude.=: order,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListJobs where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"jobs" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListJobsResponse' smart constructor.
 data ListJobsResponse = ListJobsResponse'
-  { -- | Use this string to request the next batch of jobs.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | List of jobs
-    jobs :: Lude.Maybe [Job],
+  { -- | List of jobs
+    jobs :: Core.Maybe [Types.Job],
+    -- | Use this string to request the next batch of jobs.
+    nextToken :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListJobsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - Use this string to request the next batch of jobs.
--- * 'jobs' - List of jobs
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListJobsResponse' value with any optional fields omitted.
 mkListJobsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListJobsResponse
-mkListJobsResponse pResponseStatus_ =
+mkListJobsResponse responseStatus =
   ListJobsResponse'
-    { nextToken = Lude.Nothing,
-      jobs = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobs = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
-
--- | Use this string to request the next batch of jobs.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsNextToken :: Lens.Lens' ListJobsResponse (Lude.Maybe Lude.Text)
-ljrsNextToken = Lens.lens (nextToken :: ListJobsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | List of jobs
 --
 -- /Note:/ Consider using 'jobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsJobs :: Lens.Lens' ListJobsResponse (Lude.Maybe [Job])
-ljrsJobs = Lens.lens (jobs :: ListJobsResponse -> Lude.Maybe [Job]) (\s a -> s {jobs = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
+ljrrsJobs :: Lens.Lens' ListJobsResponse (Core.Maybe [Types.Job])
+ljrrsJobs = Lens.field @"jobs"
+{-# DEPRECATED ljrrsJobs "Use generic-lens or generic-optics with 'jobs' instead." #-}
+
+-- | Use this string to request the next batch of jobs.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ljrrsNextToken :: Lens.Lens' ListJobsResponse (Core.Maybe Core.Text)
+ljrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ljrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ljrsResponseStatus :: Lens.Lens' ListJobsResponse Lude.Int
-ljrsResponseStatus = Lens.lens (responseStatus :: ListJobsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListJobsResponse)
-{-# DEPRECATED ljrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ljrrsResponseStatus :: Lens.Lens' ListJobsResponse Core.Int
+ljrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ljrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

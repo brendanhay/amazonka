@@ -20,124 +20,108 @@ module Network.AWS.AlexaBusiness.DisassociateSkillGroupFromRoom
     mkDisassociateSkillGroupFromRoom,
 
     -- ** Request lenses
-    dsgfrSkillGroupARN,
-    dsgfrRoomARN,
+    dsgfrRoomArn,
+    dsgfrSkillGroupArn,
 
     -- * Destructuring the response
     DisassociateSkillGroupFromRoomResponse (..),
     mkDisassociateSkillGroupFromRoomResponse,
 
     -- ** Response lenses
-    dsgfrrsResponseStatus,
+    dsgfrrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateSkillGroupFromRoom' smart constructor.
 data DisassociateSkillGroupFromRoom = DisassociateSkillGroupFromRoom'
-  { -- | The ARN of the skill group to disassociate from a room. Required.
-    skillGroupARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the room from which the skill group is to be disassociated. Required.
-    roomARN :: Lude.Maybe Lude.Text
+  { -- | The ARN of the room from which the skill group is to be disassociated. Required.
+    roomArn :: Core.Maybe Types.Arn,
+    -- | The ARN of the skill group to disassociate from a room. Required.
+    skillGroupArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateSkillGroupFromRoom' with the minimum fields required to make a request.
---
--- * 'skillGroupARN' - The ARN of the skill group to disassociate from a room. Required.
--- * 'roomARN' - The ARN of the room from which the skill group is to be disassociated. Required.
+-- | Creates a 'DisassociateSkillGroupFromRoom' value with any optional fields omitted.
 mkDisassociateSkillGroupFromRoom ::
   DisassociateSkillGroupFromRoom
 mkDisassociateSkillGroupFromRoom =
   DisassociateSkillGroupFromRoom'
-    { skillGroupARN = Lude.Nothing,
-      roomARN = Lude.Nothing
+    { roomArn = Core.Nothing,
+      skillGroupArn = Core.Nothing
     }
-
--- | The ARN of the skill group to disassociate from a room. Required.
---
--- /Note:/ Consider using 'skillGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsgfrSkillGroupARN :: Lens.Lens' DisassociateSkillGroupFromRoom (Lude.Maybe Lude.Text)
-dsgfrSkillGroupARN = Lens.lens (skillGroupARN :: DisassociateSkillGroupFromRoom -> Lude.Maybe Lude.Text) (\s a -> s {skillGroupARN = a} :: DisassociateSkillGroupFromRoom)
-{-# DEPRECATED dsgfrSkillGroupARN "Use generic-lens or generic-optics with 'skillGroupARN' instead." #-}
 
 -- | The ARN of the room from which the skill group is to be disassociated. Required.
 --
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsgfrRoomARN :: Lens.Lens' DisassociateSkillGroupFromRoom (Lude.Maybe Lude.Text)
-dsgfrRoomARN = Lens.lens (roomARN :: DisassociateSkillGroupFromRoom -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: DisassociateSkillGroupFromRoom)
-{-# DEPRECATED dsgfrRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
+-- /Note:/ Consider using 'roomArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgfrRoomArn :: Lens.Lens' DisassociateSkillGroupFromRoom (Core.Maybe Types.Arn)
+dsgfrRoomArn = Lens.field @"roomArn"
+{-# DEPRECATED dsgfrRoomArn "Use generic-lens or generic-optics with 'roomArn' instead." #-}
 
-instance Lude.AWSRequest DisassociateSkillGroupFromRoom where
+-- | The ARN of the skill group to disassociate from a room. Required.
+--
+-- /Note:/ Consider using 'skillGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dsgfrSkillGroupArn :: Lens.Lens' DisassociateSkillGroupFromRoom (Core.Maybe Types.Arn)
+dsgfrSkillGroupArn = Lens.field @"skillGroupArn"
+{-# DEPRECATED dsgfrSkillGroupArn "Use generic-lens or generic-optics with 'skillGroupArn' instead." #-}
+
+instance Core.FromJSON DisassociateSkillGroupFromRoom where
+  toJSON DisassociateSkillGroupFromRoom {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("RoomArn" Core..=) Core.<$> roomArn,
+            ("SkillGroupArn" Core..=) Core.<$> skillGroupArn
+          ]
+      )
+
+instance Core.AWSRequest DisassociateSkillGroupFromRoom where
   type
     Rs DisassociateSkillGroupFromRoom =
       DisassociateSkillGroupFromRoomResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.DisassociateSkillGroupFromRoom")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateSkillGroupFromRoomResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateSkillGroupFromRoom where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AlexaForBusiness.DisassociateSkillGroupFromRoom" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateSkillGroupFromRoom where
-  toJSON DisassociateSkillGroupFromRoom' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SkillGroupArn" Lude..=) Lude.<$> skillGroupARN,
-            ("RoomArn" Lude..=) Lude.<$> roomARN
-          ]
-      )
-
-instance Lude.ToPath DisassociateSkillGroupFromRoom where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateSkillGroupFromRoom where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateSkillGroupFromRoomResponse' smart constructor.
 newtype DisassociateSkillGroupFromRoomResponse = DisassociateSkillGroupFromRoomResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateSkillGroupFromRoomResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateSkillGroupFromRoomResponse' value with any optional fields omitted.
 mkDisassociateSkillGroupFromRoomResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateSkillGroupFromRoomResponse
-mkDisassociateSkillGroupFromRoomResponse pResponseStatus_ =
-  DisassociateSkillGroupFromRoomResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDisassociateSkillGroupFromRoomResponse responseStatus =
+  DisassociateSkillGroupFromRoomResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dsgfrrsResponseStatus :: Lens.Lens' DisassociateSkillGroupFromRoomResponse Lude.Int
-dsgfrrsResponseStatus = Lens.lens (responseStatus :: DisassociateSkillGroupFromRoomResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateSkillGroupFromRoomResponse)
-{-# DEPRECATED dsgfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dsgfrrrsResponseStatus :: Lens.Lens' DisassociateSkillGroupFromRoomResponse Core.Int
+dsgfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dsgfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

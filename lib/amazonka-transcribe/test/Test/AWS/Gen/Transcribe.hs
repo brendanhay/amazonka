@@ -366,7 +366,7 @@ responseListLanguageModels =
   res
     "ListLanguageModelsResponse"
     "fixture/ListLanguageModelsResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy ListLanguageModels)
 
 responseGetVocabulary :: GetVocabularyResponse -> TestTree
@@ -374,7 +374,7 @@ responseGetVocabulary =
   res
     "GetVocabularyResponse"
     "fixture/GetVocabularyResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy GetVocabulary)
 
 responseDeleteLanguageModel :: DeleteLanguageModelResponse -> TestTree
@@ -382,7 +382,7 @@ responseDeleteLanguageModel =
   res
     "DeleteLanguageModelResponse"
     "fixture/DeleteLanguageModelResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy DeleteLanguageModel)
 
 responseGetTranscriptionJob :: GetTranscriptionJobResponse -> TestTree
@@ -390,7 +390,7 @@ responseGetTranscriptionJob =
   res
     "GetTranscriptionJobResponse"
     "fixture/GetTranscriptionJobResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy GetTranscriptionJob)
 
 responseStartMedicalTranscriptionJob :: StartMedicalTranscriptionJobResponse -> TestTree
@@ -398,7 +398,7 @@ responseStartMedicalTranscriptionJob =
   res
     "StartMedicalTranscriptionJobResponse"
     "fixture/StartMedicalTranscriptionJobResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy StartMedicalTranscriptionJob)
 
 responseDeleteMedicalVocabulary :: DeleteMedicalVocabularyResponse -> TestTree
@@ -406,7 +406,7 @@ responseDeleteMedicalVocabulary =
   res
     "DeleteMedicalVocabularyResponse"
     "fixture/DeleteMedicalVocabularyResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy DeleteMedicalVocabulary)
 
 responseUpdateMedicalVocabulary :: UpdateMedicalVocabularyResponse -> TestTree
@@ -414,7 +414,7 @@ responseUpdateMedicalVocabulary =
   res
     "UpdateMedicalVocabularyResponse"
     "fixture/UpdateMedicalVocabularyResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy UpdateMedicalVocabulary)
 
 responseDeleteTranscriptionJob :: DeleteTranscriptionJobResponse -> TestTree
@@ -422,7 +422,7 @@ responseDeleteTranscriptionJob =
   res
     "DeleteTranscriptionJobResponse"
     "fixture/DeleteTranscriptionJobResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy DeleteTranscriptionJob)
 
 responseDescribeLanguageModel :: DescribeLanguageModelResponse -> TestTree
@@ -430,7 +430,7 @@ responseDescribeLanguageModel =
   res
     "DescribeLanguageModelResponse"
     "fixture/DescribeLanguageModelResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy DescribeLanguageModel)
 
 responseDeleteMedicalTranscriptionJob :: DeleteMedicalTranscriptionJobResponse -> TestTree
@@ -438,7 +438,7 @@ responseDeleteMedicalTranscriptionJob =
   res
     "DeleteMedicalTranscriptionJobResponse"
     "fixture/DeleteMedicalTranscriptionJobResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy DeleteMedicalTranscriptionJob)
 
 responseDeleteVocabulary :: DeleteVocabularyResponse -> TestTree
@@ -446,7 +446,7 @@ responseDeleteVocabulary =
   res
     "DeleteVocabularyResponse"
     "fixture/DeleteVocabularyResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy DeleteVocabulary)
 
 responseUpdateVocabulary :: UpdateVocabularyResponse -> TestTree
@@ -454,7 +454,7 @@ responseUpdateVocabulary =
   res
     "UpdateVocabularyResponse"
     "fixture/UpdateVocabularyResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy UpdateVocabulary)
 
 responseCreateVocabularyFilter :: CreateVocabularyFilterResponse -> TestTree
@@ -462,7 +462,7 @@ responseCreateVocabularyFilter =
   res
     "CreateVocabularyFilterResponse"
     "fixture/CreateVocabularyFilterResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy CreateVocabularyFilter)
 
 responseGetMedicalTranscriptionJob :: GetMedicalTranscriptionJobResponse -> TestTree
@@ -470,7 +470,7 @@ responseGetMedicalTranscriptionJob =
   res
     "GetMedicalTranscriptionJobResponse"
     "fixture/GetMedicalTranscriptionJobResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy GetMedicalTranscriptionJob)
 
 responseGetVocabularyFilter :: GetVocabularyFilterResponse -> TestTree
@@ -478,7 +478,7 @@ responseGetVocabularyFilter =
   res
     "GetVocabularyFilterResponse"
     "fixture/GetVocabularyFilterResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy GetVocabularyFilter)
 
 responseGetMedicalVocabulary :: GetMedicalVocabularyResponse -> TestTree
@@ -486,7 +486,7 @@ responseGetMedicalVocabulary =
   res
     "GetMedicalVocabularyResponse"
     "fixture/GetMedicalVocabularyResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy GetMedicalVocabulary)
 
 responseCreateMedicalVocabulary :: CreateMedicalVocabularyResponse -> TestTree
@@ -494,7 +494,7 @@ responseCreateMedicalVocabulary =
   res
     "CreateMedicalVocabularyResponse"
     "fixture/CreateMedicalVocabularyResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy CreateMedicalVocabulary)
 
 responseListMedicalVocabularies :: ListMedicalVocabulariesResponse -> TestTree
@@ -502,7 +502,7 @@ responseListMedicalVocabularies =
   res
     "ListMedicalVocabulariesResponse"
     "fixture/ListMedicalVocabulariesResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy ListMedicalVocabularies)
 
 responseListTranscriptionJobs :: ListTranscriptionJobsResponse -> TestTree
@@ -510,7 +510,7 @@ responseListTranscriptionJobs =
   res
     "ListTranscriptionJobsResponse"
     "fixture/ListTranscriptionJobsResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy ListTranscriptionJobs)
 
 responseListMedicalTranscriptionJobs :: ListMedicalTranscriptionJobsResponse -> TestTree
@@ -518,7 +518,7 @@ responseListMedicalTranscriptionJobs =
   res
     "ListMedicalTranscriptionJobsResponse"
     "fixture/ListMedicalTranscriptionJobsResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy ListMedicalTranscriptionJobs)
 
 responseDeleteVocabularyFilter :: DeleteVocabularyFilterResponse -> TestTree
@@ -526,7 +526,7 @@ responseDeleteVocabularyFilter =
   res
     "DeleteVocabularyFilterResponse"
     "fixture/DeleteVocabularyFilterResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy DeleteVocabularyFilter)
 
 responseListVocabularyFilters :: ListVocabularyFiltersResponse -> TestTree
@@ -534,7 +534,7 @@ responseListVocabularyFilters =
   res
     "ListVocabularyFiltersResponse"
     "fixture/ListVocabularyFiltersResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy ListVocabularyFilters)
 
 responseUpdateVocabularyFilter :: UpdateVocabularyFilterResponse -> TestTree
@@ -542,7 +542,7 @@ responseUpdateVocabularyFilter =
   res
     "UpdateVocabularyFilterResponse"
     "fixture/UpdateVocabularyFilterResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy UpdateVocabularyFilter)
 
 responseListVocabularies :: ListVocabulariesResponse -> TestTree
@@ -550,7 +550,7 @@ responseListVocabularies =
   res
     "ListVocabulariesResponse"
     "fixture/ListVocabulariesResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy ListVocabularies)
 
 responseCreateVocabulary :: CreateVocabularyResponse -> TestTree
@@ -558,7 +558,7 @@ responseCreateVocabulary =
   res
     "CreateVocabularyResponse"
     "fixture/CreateVocabularyResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy CreateVocabulary)
 
 responseCreateLanguageModel :: CreateLanguageModelResponse -> TestTree
@@ -566,7 +566,7 @@ responseCreateLanguageModel =
   res
     "CreateLanguageModelResponse"
     "fixture/CreateLanguageModelResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy CreateLanguageModel)
 
 responseStartTranscriptionJob :: StartTranscriptionJobResponse -> TestTree
@@ -574,5 +574,5 @@ responseStartTranscriptionJob =
   res
     "StartTranscriptionJobResponse"
     "fixture/StartTranscriptionJobResponse.proto"
-    transcribeService
+    mkServiceConfig
     (Proxy :: Proxy StartTranscriptionJob)

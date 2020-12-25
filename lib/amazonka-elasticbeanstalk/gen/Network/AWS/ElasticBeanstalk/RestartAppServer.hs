@@ -20,8 +20,8 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     mkRestartAppServer,
 
     -- ** Request lenses
-    rasEnvironmentName,
     rasEnvironmentId,
+    rasEnvironmentName,
 
     -- * Destructuring the response
     RestartAppServerResponse (..),
@@ -29,88 +29,84 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkRestartAppServer' smart constructor.
 data RestartAppServer = RestartAppServer'
-  { -- | The name of the environment to restart the server for.
-    --
-    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentName :: Lude.Maybe Lude.Text,
-    -- | The ID of the environment to restart the server for.
+  { -- | The ID of the environment to restart the server for.
     --
     -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
-    environmentId :: Lude.Maybe Lude.Text
+    environmentId :: Core.Maybe Types.EnvironmentId,
+    -- | The name of the environment to restart the server for.
+    --
+    -- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+    environmentName :: Core.Maybe Types.EnvironmentName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RestartAppServer' with the minimum fields required to make a request.
---
--- * 'environmentName' - The name of the environment to restart the server for.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
--- * 'environmentId' - The ID of the environment to restart the server for.
---
--- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+-- | Creates a 'RestartAppServer' value with any optional fields omitted.
 mkRestartAppServer ::
   RestartAppServer
 mkRestartAppServer =
   RestartAppServer'
-    { environmentName = Lude.Nothing,
-      environmentId = Lude.Nothing
+    { environmentId = Core.Nothing,
+      environmentName = Core.Nothing
     }
-
--- | The name of the environment to restart the server for.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
---
--- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasEnvironmentName :: Lens.Lens' RestartAppServer (Lude.Maybe Lude.Text)
-rasEnvironmentName = Lens.lens (environmentName :: RestartAppServer -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: RestartAppServer)
-{-# DEPRECATED rasEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The ID of the environment to restart the server for.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rasEnvironmentId :: Lens.Lens' RestartAppServer (Lude.Maybe Lude.Text)
-rasEnvironmentId = Lens.lens (environmentId :: RestartAppServer -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: RestartAppServer)
+rasEnvironmentId :: Lens.Lens' RestartAppServer (Core.Maybe Types.EnvironmentId)
+rasEnvironmentId = Lens.field @"environmentId"
 {-# DEPRECATED rasEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
-instance Lude.AWSRequest RestartAppServer where
+-- | The name of the environment to restart the server for.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If you do not specify either, AWS Elastic Beanstalk returns @MissingRequiredParameter@ error.
+--
+-- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rasEnvironmentName :: Lens.Lens' RestartAppServer (Core.Maybe Types.EnvironmentName)
+rasEnvironmentName = Lens.field @"environmentName"
+{-# DEPRECATED rasEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
+
+instance Core.AWSRequest RestartAppServer where
   type Rs RestartAppServer = RestartAppServerResponse
-  request = Req.postQuery elasticBeanstalkService
-  response = Res.receiveNull RestartAppServerResponse'
-
-instance Lude.ToHeaders RestartAppServer where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath RestartAppServer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RestartAppServer where
-  toQuery RestartAppServer' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("RestartAppServer" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "EnvironmentName" Lude.=: environmentName,
-        "EnvironmentId" Lude.=: environmentId
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "RestartAppServer")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "EnvironmentId" Core.<$> environmentId)
+                Core.<> (Core.toQueryValue "EnvironmentName" Core.<$> environmentName)
+            )
+      }
+  response = Response.receiveNull RestartAppServerResponse'
 
 -- | /See:/ 'mkRestartAppServerResponse' smart constructor.
 data RestartAppServerResponse = RestartAppServerResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RestartAppServerResponse' with the minimum fields required to make a request.
+-- | Creates a 'RestartAppServerResponse' value with any optional fields omitted.
 mkRestartAppServerResponse ::
   RestartAppServerResponse
 mkRestartAppServerResponse = RestartAppServerResponse'

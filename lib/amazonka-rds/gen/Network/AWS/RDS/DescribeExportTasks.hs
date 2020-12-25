@@ -22,34 +22,34 @@ module Network.AWS.RDS.DescribeExportTasks
     mkDescribeExportTasks,
 
     -- ** Request lenses
-    detSourceARN,
+    detExportTaskIdentifier,
     detFilters,
     detMarker,
-    detExportTaskIdentifier,
     detMaxRecords,
+    detSourceArn,
 
     -- * Destructuring the response
     DescribeExportTasksResponse (..),
     mkDescribeExportTasksResponse,
 
     -- ** Response lenses
-    detrsMarker,
-    detrsExportTasks,
-    detrsResponseStatus,
+    detrrsExportTasks,
+    detrrsMarker,
+    detrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeExportTasks' smart constructor.
 data DescribeExportTasks = DescribeExportTasks'
-  { -- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
-    sourceARN :: Lude.Maybe Lude.Text,
+  { -- | The identifier of the snapshot export task to be described.
+    exportTaskIdentifier :: Core.Maybe Types.String,
     -- | Filters specify one or more snapshot exports to describe. The filters are specified as name-value pairs that define what to include in the output. Filter names and values are case-sensitive.
     --
     -- Supported filters include the following:
@@ -64,62 +64,38 @@ data DescribeExportTasks = DescribeExportTasks'
     --
     --
     --     * @status@ - The status of the export task. Must be lowercase, for example, @complete@ .
-    filters :: Lude.Maybe [Filter],
+    filters :: Core.Maybe [Types.Filter],
     -- | An optional pagination token provided by a previous @DescribeExportTasks@ request. If you specify this parameter, the response includes only records beyond the marker, up to the value specified by the @MaxRecords@ parameter.
-    marker :: Lude.Maybe Lude.Text,
-    -- | The identifier of the snapshot export task to be described.
-    exportTaskIdentifier :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of records to include in the response. If more records exist than the specified value, a pagination token called a marker is included in the response. You can use the marker in a later @DescribeExportTasks@ request to retrieve the remaining results.
     --
     -- Default: 100
     -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Natural
+    maxRecords :: Core.Maybe Core.Natural,
+    -- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
+    sourceArn :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeExportTasks' with the minimum fields required to make a request.
---
--- * 'sourceARN' - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
--- * 'filters' - Filters specify one or more snapshot exports to describe. The filters are specified as name-value pairs that define what to include in the output. Filter names and values are case-sensitive.
---
--- Supported filters include the following:
---
---     * @export-task-identifier@ - An identifier for the snapshot export task.
---
---
---     * @s3-bucket@ - The Amazon S3 bucket the snapshot is exported to.
---
---
---     * @source-arn@ - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3
---
---
---     * @status@ - The status of the export task. Must be lowercase, for example, @complete@ .
---
---
--- * 'marker' - An optional pagination token provided by a previous @DescribeExportTasks@ request. If you specify this parameter, the response includes only records beyond the marker, up to the value specified by the @MaxRecords@ parameter.
--- * 'exportTaskIdentifier' - The identifier of the snapshot export task to be described.
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified value, a pagination token called a marker is included in the response. You can use the marker in a later @DescribeExportTasks@ request to retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
+-- | Creates a 'DescribeExportTasks' value with any optional fields omitted.
 mkDescribeExportTasks ::
   DescribeExportTasks
 mkDescribeExportTasks =
   DescribeExportTasks'
-    { sourceARN = Lude.Nothing,
-      filters = Lude.Nothing,
-      marker = Lude.Nothing,
-      exportTaskIdentifier = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { exportTaskIdentifier = Core.Nothing,
+      filters = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      sourceArn = Core.Nothing
     }
 
--- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
+-- | The identifier of the snapshot export task to be described.
 --
--- /Note:/ Consider using 'sourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detSourceARN :: Lens.Lens' DescribeExportTasks (Lude.Maybe Lude.Text)
-detSourceARN = Lens.lens (sourceARN :: DescribeExportTasks -> Lude.Maybe Lude.Text) (\s a -> s {sourceARN = a} :: DescribeExportTasks)
-{-# DEPRECATED detSourceARN "Use generic-lens or generic-optics with 'sourceARN' instead." #-}
+-- /Note:/ Consider using 'exportTaskIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detExportTaskIdentifier :: Lens.Lens' DescribeExportTasks (Core.Maybe Types.String)
+detExportTaskIdentifier = Lens.field @"exportTaskIdentifier"
+{-# DEPRECATED detExportTaskIdentifier "Use generic-lens or generic-optics with 'exportTaskIdentifier' instead." #-}
 
 -- | Filters specify one or more snapshot exports to describe. The filters are specified as name-value pairs that define what to include in the output. Filter names and values are case-sensitive.
 --
@@ -139,23 +115,16 @@ detSourceARN = Lens.lens (sourceARN :: DescribeExportTasks -> Lude.Maybe Lude.Te
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detFilters :: Lens.Lens' DescribeExportTasks (Lude.Maybe [Filter])
-detFilters = Lens.lens (filters :: DescribeExportTasks -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeExportTasks)
+detFilters :: Lens.Lens' DescribeExportTasks (Core.Maybe [Types.Filter])
+detFilters = Lens.field @"filters"
 {-# DEPRECATED detFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
 -- | An optional pagination token provided by a previous @DescribeExportTasks@ request. If you specify this parameter, the response includes only records beyond the marker, up to the value specified by the @MaxRecords@ parameter.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detMarker :: Lens.Lens' DescribeExportTasks (Lude.Maybe Lude.Text)
-detMarker = Lens.lens (marker :: DescribeExportTasks -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeExportTasks)
+detMarker :: Lens.Lens' DescribeExportTasks (Core.Maybe Types.String)
+detMarker = Lens.field @"marker"
 {-# DEPRECATED detMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The identifier of the snapshot export task to be described.
---
--- /Note:/ Consider using 'exportTaskIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detExportTaskIdentifier :: Lens.Lens' DescribeExportTasks (Lude.Maybe Lude.Text)
-detExportTaskIdentifier = Lens.lens (exportTaskIdentifier :: DescribeExportTasks -> Lude.Maybe Lude.Text) (\s a -> s {exportTaskIdentifier = a} :: DescribeExportTasks)
-{-# DEPRECATED detExportTaskIdentifier "Use generic-lens or generic-optics with 'exportTaskIdentifier' instead." #-}
 
 -- | The maximum number of records to include in the response. If more records exist than the specified value, a pagination token called a marker is included in the response. You can use the marker in a later @DescribeExportTasks@ request to retrieve the remaining results.
 --
@@ -163,96 +132,109 @@ detExportTaskIdentifier = Lens.lens (exportTaskIdentifier :: DescribeExportTasks
 -- Constraints: Minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detMaxRecords :: Lens.Lens' DescribeExportTasks (Lude.Maybe Lude.Natural)
-detMaxRecords = Lens.lens (maxRecords :: DescribeExportTasks -> Lude.Maybe Lude.Natural) (\s a -> s {maxRecords = a} :: DescribeExportTasks)
+detMaxRecords :: Lens.Lens' DescribeExportTasks (Core.Maybe Core.Natural)
+detMaxRecords = Lens.field @"maxRecords"
 {-# DEPRECATED detMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeExportTasks where
-  page rq rs
-    | Page.stop (rs Lens.^. detrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. detrsExportTasks) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& detMarker Lens..~ rs Lens.^. detrsMarker
+-- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.
+--
+-- /Note:/ Consider using 'sourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detSourceArn :: Lens.Lens' DescribeExportTasks (Core.Maybe Types.String)
+detSourceArn = Lens.field @"sourceArn"
+{-# DEPRECATED detSourceArn "Use generic-lens or generic-optics with 'sourceArn' instead." #-}
 
-instance Lude.AWSRequest DescribeExportTasks where
+instance Core.AWSRequest DescribeExportTasks where
   type Rs DescribeExportTasks = DescribeExportTasksResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeExportTasks")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue "ExportTaskIdentifier"
+                            Core.<$> exportTaskIdentifier
+                        )
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "Filter" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "SourceArn" Core.<$> sourceArn)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeExportTasksResult"
       ( \s h x ->
           DescribeExportTasksResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> ( x Lude..@? "ExportTasks" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "ExportTask")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ExportTasks" Core..<@> Core.parseXMLList "ExportTask")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeExportTasks where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeExportTasks where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeExportTasks where
-  toQuery DescribeExportTasks' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeExportTasks" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "SourceArn" Lude.=: sourceARN,
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "Marker" Lude.=: marker,
-        "ExportTaskIdentifier" Lude.=: exportTaskIdentifier,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeExportTasks where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"exportTasks" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | /See:/ 'mkDescribeExportTasksResponse' smart constructor.
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-  { -- | A pagination token that can be used in a later @DescribeExportTasks@ request. A marker is used for pagination to identify the location to begin output for the next response of @DescribeExportTasks@ .
-    marker :: Lude.Maybe Lude.Text,
-    -- | Information about an export of a snapshot to Amazon S3.
-    exportTasks :: Lude.Maybe [ExportTask],
+  { -- | Information about an export of a snapshot to Amazon S3.
+    exportTasks :: Core.Maybe [Types.ExportTask],
+    -- | A pagination token that can be used in a later @DescribeExportTasks@ request. A marker is used for pagination to identify the location to begin output for the next response of @DescribeExportTasks@ .
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeExportTasksResponse' with the minimum fields required to make a request.
---
--- * 'marker' - A pagination token that can be used in a later @DescribeExportTasks@ request. A marker is used for pagination to identify the location to begin output for the next response of @DescribeExportTasks@ .
--- * 'exportTasks' - Information about an export of a snapshot to Amazon S3.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeExportTasksResponse' value with any optional fields omitted.
 mkDescribeExportTasksResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeExportTasksResponse
-mkDescribeExportTasksResponse pResponseStatus_ =
+mkDescribeExportTasksResponse responseStatus =
   DescribeExportTasksResponse'
-    { marker = Lude.Nothing,
-      exportTasks = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { exportTasks = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
-
--- | A pagination token that can be used in a later @DescribeExportTasks@ request. A marker is used for pagination to identify the location to begin output for the next response of @DescribeExportTasks@ .
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsMarker :: Lens.Lens' DescribeExportTasksResponse (Lude.Maybe Lude.Text)
-detrsMarker = Lens.lens (marker :: DescribeExportTasksResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeExportTasksResponse)
-{-# DEPRECATED detrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Information about an export of a snapshot to Amazon S3.
 --
 -- /Note:/ Consider using 'exportTasks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsExportTasks :: Lens.Lens' DescribeExportTasksResponse (Lude.Maybe [ExportTask])
-detrsExportTasks = Lens.lens (exportTasks :: DescribeExportTasksResponse -> Lude.Maybe [ExportTask]) (\s a -> s {exportTasks = a} :: DescribeExportTasksResponse)
-{-# DEPRECATED detrsExportTasks "Use generic-lens or generic-optics with 'exportTasks' instead." #-}
+detrrsExportTasks :: Lens.Lens' DescribeExportTasksResponse (Core.Maybe [Types.ExportTask])
+detrrsExportTasks = Lens.field @"exportTasks"
+{-# DEPRECATED detrrsExportTasks "Use generic-lens or generic-optics with 'exportTasks' instead." #-}
+
+-- | A pagination token that can be used in a later @DescribeExportTasks@ request. A marker is used for pagination to identify the location to begin output for the next response of @DescribeExportTasks@ .
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+detrrsMarker :: Lens.Lens' DescribeExportTasksResponse (Core.Maybe Types.String)
+detrrsMarker = Lens.field @"marker"
+{-# DEPRECATED detrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-detrsResponseStatus :: Lens.Lens' DescribeExportTasksResponse Lude.Int
-detrsResponseStatus = Lens.lens (responseStatus :: DescribeExportTasksResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeExportTasksResponse)
-{-# DEPRECATED detrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+detrrsResponseStatus :: Lens.Lens' DescribeExportTasksResponse Core.Int
+detrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED detrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

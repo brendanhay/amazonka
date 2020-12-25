@@ -17,72 +17,68 @@ module Network.AWS.CostExplorer.Types.SavingsPlansCoverage
     mkSavingsPlansCoverage,
 
     -- * Lenses
-    spcTimePeriod,
-    spcCoverage,
     spcAttributes,
+    spcCoverage,
+    spcTimePeriod,
   )
 where
 
-import Network.AWS.CostExplorer.Types.DateInterval
-import Network.AWS.CostExplorer.Types.SavingsPlansCoverageData
+import qualified Network.AWS.CostExplorer.Types.AttributeType as Types
+import qualified Network.AWS.CostExplorer.Types.AttributeValue as Types
+import qualified Network.AWS.CostExplorer.Types.DateInterval as Types
+import qualified Network.AWS.CostExplorer.Types.SavingsPlansCoverageData as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The amount of Savings Plans eligible usage that is covered by Savings Plans. All calculations consider the On-Demand equivalent of your Savings Plans usage.
 --
 -- /See:/ 'mkSavingsPlansCoverage' smart constructor.
 data SavingsPlansCoverage = SavingsPlansCoverage'
-  { timePeriod :: Lude.Maybe DateInterval,
+  { -- | The attribute that applies to a specific @Dimension@ .
+    attributes :: Core.Maybe (Core.HashMap Types.AttributeType Types.AttributeValue),
     -- | The amount of Savings Plans eligible usage that the Savings Plans covered.
-    coverage :: Lude.Maybe SavingsPlansCoverageData,
-    -- | The attribute that applies to a specific @Dimension@ .
-    attributes :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    coverage :: Core.Maybe Types.SavingsPlansCoverageData,
+    timePeriod :: Core.Maybe Types.DateInterval
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SavingsPlansCoverage' with the minimum fields required to make a request.
---
--- * 'timePeriod' -
--- * 'coverage' - The amount of Savings Plans eligible usage that the Savings Plans covered.
--- * 'attributes' - The attribute that applies to a specific @Dimension@ .
+-- | Creates a 'SavingsPlansCoverage' value with any optional fields omitted.
 mkSavingsPlansCoverage ::
   SavingsPlansCoverage
 mkSavingsPlansCoverage =
   SavingsPlansCoverage'
-    { timePeriod = Lude.Nothing,
-      coverage = Lude.Nothing,
-      attributes = Lude.Nothing
+    { attributes = Core.Nothing,
+      coverage = Core.Nothing,
+      timePeriod = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spcTimePeriod :: Lens.Lens' SavingsPlansCoverage (Lude.Maybe DateInterval)
-spcTimePeriod = Lens.lens (timePeriod :: SavingsPlansCoverage -> Lude.Maybe DateInterval) (\s a -> s {timePeriod = a} :: SavingsPlansCoverage)
-{-# DEPRECATED spcTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
-
--- | The amount of Savings Plans eligible usage that the Savings Plans covered.
---
--- /Note:/ Consider using 'coverage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spcCoverage :: Lens.Lens' SavingsPlansCoverage (Lude.Maybe SavingsPlansCoverageData)
-spcCoverage = Lens.lens (coverage :: SavingsPlansCoverage -> Lude.Maybe SavingsPlansCoverageData) (\s a -> s {coverage = a} :: SavingsPlansCoverage)
-{-# DEPRECATED spcCoverage "Use generic-lens or generic-optics with 'coverage' instead." #-}
 
 -- | The attribute that applies to a specific @Dimension@ .
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spcAttributes :: Lens.Lens' SavingsPlansCoverage (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-spcAttributes = Lens.lens (attributes :: SavingsPlansCoverage -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {attributes = a} :: SavingsPlansCoverage)
+spcAttributes :: Lens.Lens' SavingsPlansCoverage (Core.Maybe (Core.HashMap Types.AttributeType Types.AttributeValue))
+spcAttributes = Lens.field @"attributes"
 {-# DEPRECATED spcAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
-instance Lude.FromJSON SavingsPlansCoverage where
+-- | The amount of Savings Plans eligible usage that the Savings Plans covered.
+--
+-- /Note:/ Consider using 'coverage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spcCoverage :: Lens.Lens' SavingsPlansCoverage (Core.Maybe Types.SavingsPlansCoverageData)
+spcCoverage = Lens.field @"coverage"
+{-# DEPRECATED spcCoverage "Use generic-lens or generic-optics with 'coverage' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'timePeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+spcTimePeriod :: Lens.Lens' SavingsPlansCoverage (Core.Maybe Types.DateInterval)
+spcTimePeriod = Lens.field @"timePeriod"
+{-# DEPRECATED spcTimePeriod "Use generic-lens or generic-optics with 'timePeriod' instead." #-}
+
+instance Core.FromJSON SavingsPlansCoverage where
   parseJSON =
-    Lude.withObject
-      "SavingsPlansCoverage"
-      ( \x ->
-          SavingsPlansCoverage'
-            Lude.<$> (x Lude..:? "TimePeriod")
-            Lude.<*> (x Lude..:? "Coverage")
-            Lude.<*> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
-      )
+    Core.withObject "SavingsPlansCoverage" Core.$
+      \x ->
+        SavingsPlansCoverage'
+          Core.<$> (x Core..:? "Attributes")
+          Core.<*> (x Core..:? "Coverage")
+          Core.<*> (x Core..:? "TimePeriod")

@@ -258,7 +258,7 @@ responseListProjects =
   res
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy ListProjects)
 
 responseListTeamMembers :: ListTeamMembersResponse -> TestTree
@@ -266,7 +266,7 @@ responseListTeamMembers =
   res
     "ListTeamMembersResponse"
     "fixture/ListTeamMembersResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy ListTeamMembers)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
@@ -274,7 +274,7 @@ responseDeleteProject =
   res
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
@@ -282,7 +282,7 @@ responseUpdateProject =
   res
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy UpdateProject)
 
 responseDisassociateTeamMember :: DisassociateTeamMemberResponse -> TestTree
@@ -290,7 +290,7 @@ responseDisassociateTeamMember =
   res
     "DisassociateTeamMemberResponse"
     "fixture/DisassociateTeamMemberResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy DisassociateTeamMember)
 
 responseTagProject :: TagProjectResponse -> TestTree
@@ -298,7 +298,7 @@ responseTagProject =
   res
     "TagProjectResponse"
     "fixture/TagProjectResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy TagProject)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
@@ -306,7 +306,7 @@ responseDescribeProject =
   res
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy DescribeProject)
 
 responseListUserProfiles :: ListUserProfilesResponse -> TestTree
@@ -314,7 +314,7 @@ responseListUserProfiles =
   res
     "ListUserProfilesResponse"
     "fixture/ListUserProfilesResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy ListUserProfiles)
 
 responseListResources :: ListResourcesResponse -> TestTree
@@ -322,7 +322,7 @@ responseListResources =
   res
     "ListResourcesResponse"
     "fixture/ListResourcesResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy ListResources)
 
 responseAssociateTeamMember :: AssociateTeamMemberResponse -> TestTree
@@ -330,7 +330,7 @@ responseAssociateTeamMember =
   res
     "AssociateTeamMemberResponse"
     "fixture/AssociateTeamMemberResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy AssociateTeamMember)
 
 responseUntagProject :: UntagProjectResponse -> TestTree
@@ -338,7 +338,7 @@ responseUntagProject =
   res
     "UntagProjectResponse"
     "fixture/UntagProjectResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy UntagProject)
 
 responseUpdateTeamMember :: UpdateTeamMemberResponse -> TestTree
@@ -346,7 +346,7 @@ responseUpdateTeamMember =
   res
     "UpdateTeamMemberResponse"
     "fixture/UpdateTeamMemberResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy UpdateTeamMember)
 
 responseDescribeUserProfile :: DescribeUserProfileResponse -> TestTree
@@ -354,7 +354,7 @@ responseDescribeUserProfile =
   res
     "DescribeUserProfileResponse"
     "fixture/DescribeUserProfileResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUserProfile)
 
 responseListTagsForProject :: ListTagsForProjectResponse -> TestTree
@@ -362,7 +362,7 @@ responseListTagsForProject =
   res
     "ListTagsForProjectResponse"
     "fixture/ListTagsForProjectResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy ListTagsForProject)
 
 responseDeleteUserProfile :: DeleteUserProfileResponse -> TestTree
@@ -370,7 +370,7 @@ responseDeleteUserProfile =
   res
     "DeleteUserProfileResponse"
     "fixture/DeleteUserProfileResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUserProfile)
 
 responseUpdateUserProfile :: UpdateUserProfileResponse -> TestTree
@@ -378,7 +378,7 @@ responseUpdateUserProfile =
   res
     "UpdateUserProfileResponse"
     "fixture/UpdateUserProfileResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy UpdateUserProfile)
 
 responseCreateUserProfile :: CreateUserProfileResponse -> TestTree
@@ -386,7 +386,7 @@ responseCreateUserProfile =
   res
     "CreateUserProfileResponse"
     "fixture/CreateUserProfileResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy CreateUserProfile)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
@@ -394,5 +394,5 @@ responseCreateProject =
   res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
-    codeStarService
+    mkServiceConfig
     (Proxy :: Proxy CreateProject)

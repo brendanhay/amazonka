@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Vp9FramerateControl
   ( Vp9FramerateControl
       ( Vp9FramerateControl',
-        VFCInitializeFromSource,
-        VFCSpecified
+        Vp9FramerateControlInitializeFromSource,
+        Vp9FramerateControlSpecified,
+        fromVp9FramerateControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
-newtype Vp9FramerateControl = Vp9FramerateControl' Lude.Text
+newtype Vp9FramerateControl = Vp9FramerateControl'
+  { fromVp9FramerateControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VFCInitializeFromSource :: Vp9FramerateControl
-pattern VFCInitializeFromSource = Vp9FramerateControl' "INITIALIZE_FROM_SOURCE"
+pattern Vp9FramerateControlInitializeFromSource :: Vp9FramerateControl
+pattern Vp9FramerateControlInitializeFromSource = Vp9FramerateControl' "INITIALIZE_FROM_SOURCE"
 
-pattern VFCSpecified :: Vp9FramerateControl
-pattern VFCSpecified = Vp9FramerateControl' "SPECIFIED"
+pattern Vp9FramerateControlSpecified :: Vp9FramerateControl
+pattern Vp9FramerateControlSpecified = Vp9FramerateControl' "SPECIFIED"
 
 {-# COMPLETE
-  VFCInitializeFromSource,
-  VFCSpecified,
+  Vp9FramerateControlInitializeFromSource,
+  Vp9FramerateControlSpecified,
   Vp9FramerateControl'
   #-}

@@ -17,56 +17,52 @@ module Network.AWS.ServerlessApplicationRepository.Types.RollbackTrigger
     mkRollbackTrigger,
 
     -- * Lenses
-    rtARN,
     rtType,
+    rtArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | This property corresponds to the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackTrigger RollbackTrigger> / Data Type.
 --
 -- /See:/ 'mkRollbackTrigger' smart constructor.
 data RollbackTrigger = RollbackTrigger'
   { -- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackTrigger RollbackTrigger> / Data Type.
-    arn :: Lude.Text,
+    type' :: Core.Text,
     -- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackTrigger RollbackTrigger> / Data Type.
-    type' :: Lude.Text
+    arn :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RollbackTrigger' with the minimum fields required to make a request.
---
--- * 'arn' - This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackTrigger RollbackTrigger> / Data Type.
--- * 'type'' - This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackTrigger RollbackTrigger> / Data Type.
+-- | Creates a 'RollbackTrigger' value with any optional fields omitted.
 mkRollbackTrigger ::
+  -- | 'type\''
+  Core.Text ->
   -- | 'arn'
-  Lude.Text ->
-  -- | 'type''
-  Lude.Text ->
+  Core.Text ->
   RollbackTrigger
-mkRollbackTrigger pARN_ pType_ =
-  RollbackTrigger' {arn = pARN_, type' = pType_}
-
--- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackTrigger RollbackTrigger> / Data Type.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtARN :: Lens.Lens' RollbackTrigger Lude.Text
-rtARN = Lens.lens (arn :: RollbackTrigger -> Lude.Text) (\s a -> s {arn = a} :: RollbackTrigger)
-{-# DEPRECATED rtARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+mkRollbackTrigger type' arn = RollbackTrigger' {type', arn}
 
 -- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackTrigger RollbackTrigger> / Data Type.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtType :: Lens.Lens' RollbackTrigger Lude.Text
-rtType = Lens.lens (type' :: RollbackTrigger -> Lude.Text) (\s a -> s {type' = a} :: RollbackTrigger)
+rtType :: Lens.Lens' RollbackTrigger Core.Text
+rtType = Lens.field @"type'"
 {-# DEPRECATED rtType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.ToJSON RollbackTrigger where
-  toJSON RollbackTrigger' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("arn" Lude..= arn), Lude.Just ("type" Lude..= type')]
+-- | This property corresponds to the content of the same name for the /AWS CloudFormation <https:\/\/docs.aws.amazon.com\/goto\/WebAPI\/cloudformation-2010-05-15\/RollbackTrigger RollbackTrigger> / Data Type.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtArn :: Lens.Lens' RollbackTrigger Core.Text
+rtArn = Lens.field @"arn"
+{-# DEPRECATED rtArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+instance Core.FromJSON RollbackTrigger where
+  toJSON RollbackTrigger {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("type" Core..= type'), Core.Just ("arn" Core..= arn)]
       )

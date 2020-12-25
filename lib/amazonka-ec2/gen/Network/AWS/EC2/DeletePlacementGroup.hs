@@ -29,76 +29,73 @@ module Network.AWS.EC2.DeletePlacementGroup
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePlacementGroup' smart constructor.
 data DeletePlacementGroup = DeletePlacementGroup'
   { -- | The name of the placement group.
-    groupName :: Lude.Text,
+    groupName :: Types.GroupName,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePlacementGroup' with the minimum fields required to make a request.
---
--- * 'groupName' - The name of the placement group.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeletePlacementGroup' value with any optional fields omitted.
 mkDeletePlacementGroup ::
   -- | 'groupName'
-  Lude.Text ->
+  Types.GroupName ->
   DeletePlacementGroup
-mkDeletePlacementGroup pGroupName_ =
-  DeletePlacementGroup'
-    { groupName = pGroupName_,
-      dryRun = Lude.Nothing
-    }
+mkDeletePlacementGroup groupName =
+  DeletePlacementGroup' {groupName, dryRun = Core.Nothing}
 
 -- | The name of the placement group.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgGroupName :: Lens.Lens' DeletePlacementGroup Lude.Text
-dpgGroupName = Lens.lens (groupName :: DeletePlacementGroup -> Lude.Text) (\s a -> s {groupName = a} :: DeletePlacementGroup)
+dpgGroupName :: Lens.Lens' DeletePlacementGroup Types.GroupName
+dpgGroupName = Lens.field @"groupName"
 {-# DEPRECATED dpgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgDryRun :: Lens.Lens' DeletePlacementGroup (Lude.Maybe Lude.Bool)
-dpgDryRun = Lens.lens (dryRun :: DeletePlacementGroup -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeletePlacementGroup)
+dpgDryRun :: Lens.Lens' DeletePlacementGroup (Core.Maybe Core.Bool)
+dpgDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dpgDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeletePlacementGroup where
+instance Core.AWSRequest DeletePlacementGroup where
   type Rs DeletePlacementGroup = DeletePlacementGroupResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull DeletePlacementGroupResponse'
-
-instance Lude.ToHeaders DeletePlacementGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeletePlacementGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePlacementGroup where
-  toQuery DeletePlacementGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeletePlacementGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "GroupName" Lude.=: groupName,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeletePlacementGroup")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "GroupName" groupName)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull DeletePlacementGroupResponse'
 
 -- | /See:/ 'mkDeletePlacementGroupResponse' smart constructor.
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePlacementGroupResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePlacementGroupResponse' value with any optional fields omitted.
 mkDeletePlacementGroupResponse ::
   DeletePlacementGroupResponse
 mkDeletePlacementGroupResponse = DeletePlacementGroupResponse'

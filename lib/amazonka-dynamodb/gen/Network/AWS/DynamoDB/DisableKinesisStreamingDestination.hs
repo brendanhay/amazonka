@@ -20,97 +20,85 @@ module Network.AWS.DynamoDB.DisableKinesisStreamingDestination
     mkDisableKinesisStreamingDestination,
 
     -- ** Request lenses
-    dksdfStreamARN,
-    dksdfTableName,
+    dksdTableName,
+    dksdStreamArn,
 
     -- * Destructuring the response
-    KinesisStreamingDestinationOutput (..),
-    mkKinesisStreamingDestinationOutput,
+    Types.KinesisStreamingDestinationOutput (..),
+    Types.mkKinesisStreamingDestinationOutput,
 
     -- ** Response lenses
-    ksdoDestinationStatus,
-    ksdoStreamARN,
-    ksdoTableName,
+    Types.ksdoDestinationStatus,
+    Types.ksdoStreamArn,
+    Types.ksdoTableName,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisableKinesisStreamingDestination' smart constructor.
 data DisableKinesisStreamingDestination = DisableKinesisStreamingDestination'
-  { -- | The ARN for a Kinesis data stream.
-    streamARN :: Lude.Text,
-    -- | The name of the DynamoDB table.
-    tableName :: Lude.Text
+  { -- | The name of the DynamoDB table.
+    tableName :: Types.TableName,
+    -- | The ARN for a Kinesis data stream.
+    streamArn :: Types.StreamArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableKinesisStreamingDestination' with the minimum fields required to make a request.
---
--- * 'streamARN' - The ARN for a Kinesis data stream.
--- * 'tableName' - The name of the DynamoDB table.
+-- | Creates a 'DisableKinesisStreamingDestination' value with any optional fields omitted.
 mkDisableKinesisStreamingDestination ::
-  -- | 'streamARN'
-  Lude.Text ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
+  -- | 'streamArn'
+  Types.StreamArn ->
   DisableKinesisStreamingDestination
-mkDisableKinesisStreamingDestination pStreamARN_ pTableName_ =
-  DisableKinesisStreamingDestination'
-    { streamARN = pStreamARN_,
-      tableName = pTableName_
-    }
-
--- | The ARN for a Kinesis data stream.
---
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dksdfStreamARN :: Lens.Lens' DisableKinesisStreamingDestination Lude.Text
-dksdfStreamARN = Lens.lens (streamARN :: DisableKinesisStreamingDestination -> Lude.Text) (\s a -> s {streamARN = a} :: DisableKinesisStreamingDestination)
-{-# DEPRECATED dksdfStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
+mkDisableKinesisStreamingDestination tableName streamArn =
+  DisableKinesisStreamingDestination' {tableName, streamArn}
 
 -- | The name of the DynamoDB table.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dksdfTableName :: Lens.Lens' DisableKinesisStreamingDestination Lude.Text
-dksdfTableName = Lens.lens (tableName :: DisableKinesisStreamingDestination -> Lude.Text) (\s a -> s {tableName = a} :: DisableKinesisStreamingDestination)
-{-# DEPRECATED dksdfTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
+dksdTableName :: Lens.Lens' DisableKinesisStreamingDestination Types.TableName
+dksdTableName = Lens.field @"tableName"
+{-# DEPRECATED dksdTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest DisableKinesisStreamingDestination where
+-- | The ARN for a Kinesis data stream.
+--
+-- /Note:/ Consider using 'streamArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dksdStreamArn :: Lens.Lens' DisableKinesisStreamingDestination Types.StreamArn
+dksdStreamArn = Lens.field @"streamArn"
+{-# DEPRECATED dksdStreamArn "Use generic-lens or generic-optics with 'streamArn' instead." #-}
+
+instance Core.FromJSON DisableKinesisStreamingDestination where
+  toJSON DisableKinesisStreamingDestination {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TableName" Core..= tableName),
+            Core.Just ("StreamArn" Core..= streamArn)
+          ]
+      )
+
+instance Core.AWSRequest DisableKinesisStreamingDestination where
   type
     Rs DisableKinesisStreamingDestination =
-      KinesisStreamingDestinationOutput
-  request = Req.postJSON dynamoDBService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders DisableKinesisStreamingDestination where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "DynamoDB_20120810.DisableKinesisStreamingDestination" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisableKinesisStreamingDestination where
-  toJSON DisableKinesisStreamingDestination' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("StreamArn" Lude..= streamARN),
-            Lude.Just ("TableName" Lude..= tableName)
-          ]
-      )
-
-instance Lude.ToPath DisableKinesisStreamingDestination where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisableKinesisStreamingDestination where
-  toQuery = Lude.const Lude.mempty
+      Types.KinesisStreamingDestinationOutput
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "DynamoDB_20120810.DisableKinesisStreamingDestination"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

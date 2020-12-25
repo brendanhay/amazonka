@@ -13,51 +13,56 @@
 module Network.AWS.Athena.Types.DataCatalogType
   ( DataCatalogType
       ( DataCatalogType',
-        Lambda,
-        Glue,
-        Hive
+        DataCatalogTypeLambda,
+        DataCatalogTypeGlue,
+        DataCatalogTypeHive,
+        fromDataCatalogType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DataCatalogType = DataCatalogType' Lude.Text
+newtype DataCatalogType = DataCatalogType'
+  { fromDataCatalogType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Lambda :: DataCatalogType
-pattern Lambda = DataCatalogType' "LAMBDA"
+pattern DataCatalogTypeLambda :: DataCatalogType
+pattern DataCatalogTypeLambda = DataCatalogType' "LAMBDA"
 
-pattern Glue :: DataCatalogType
-pattern Glue = DataCatalogType' "GLUE"
+pattern DataCatalogTypeGlue :: DataCatalogType
+pattern DataCatalogTypeGlue = DataCatalogType' "GLUE"
 
-pattern Hive :: DataCatalogType
-pattern Hive = DataCatalogType' "HIVE"
+pattern DataCatalogTypeHive :: DataCatalogType
+pattern DataCatalogTypeHive = DataCatalogType' "HIVE"
 
 {-# COMPLETE
-  Lambda,
-  Glue,
-  Hive,
+  DataCatalogTypeLambda,
+  DataCatalogTypeGlue,
+  DataCatalogTypeHive,
   DataCatalogType'
   #-}

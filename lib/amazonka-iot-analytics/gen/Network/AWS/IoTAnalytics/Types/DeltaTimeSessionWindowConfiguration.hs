@@ -22,7 +22,7 @@ module Network.AWS.IoTAnalytics.Types.DeltaTimeSessionWindowConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure that contains the configuration information of a delta time session window.
 --
@@ -33,47 +33,38 @@ newtype DeltaTimeSessionWindowConfiguration = DeltaTimeSessionWindowConfiguratio
   { -- | A time interval. You can use @timeoutInMinutes@ so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
     --
     -- For more information about how to write a timestamp expression, see <https://prestodb.io/docs/0.172/functions/datetime.html Date and Time Functions and Operators> , in the /Presto 0.172 Documentation/ .
-    timeoutInMinutes :: Lude.Natural
+    timeoutInMinutes :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeltaTimeSessionWindowConfiguration' with the minimum fields required to make a request.
---
--- * 'timeoutInMinutes' - A time interval. You can use @timeoutInMinutes@ so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
---
--- For more information about how to write a timestamp expression, see <https://prestodb.io/docs/0.172/functions/datetime.html Date and Time Functions and Operators> , in the /Presto 0.172 Documentation/ .
+-- | Creates a 'DeltaTimeSessionWindowConfiguration' value with any optional fields omitted.
 mkDeltaTimeSessionWindowConfiguration ::
   -- | 'timeoutInMinutes'
-  Lude.Natural ->
+  Core.Natural ->
   DeltaTimeSessionWindowConfiguration
-mkDeltaTimeSessionWindowConfiguration pTimeoutInMinutes_ =
-  DeltaTimeSessionWindowConfiguration'
-    { timeoutInMinutes =
-        pTimeoutInMinutes_
-    }
+mkDeltaTimeSessionWindowConfiguration timeoutInMinutes =
+  DeltaTimeSessionWindowConfiguration' {timeoutInMinutes}
 
 -- | A time interval. You can use @timeoutInMinutes@ so that AWS IoT Analytics can batch up late data notifications that have been generated since the last execution. AWS IoT Analytics sends one batch of notifications to Amazon CloudWatch Events at one time.
 --
 -- For more information about how to write a timestamp expression, see <https://prestodb.io/docs/0.172/functions/datetime.html Date and Time Functions and Operators> , in the /Presto 0.172 Documentation/ .
 --
 -- /Note:/ Consider using 'timeoutInMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtswcTimeoutInMinutes :: Lens.Lens' DeltaTimeSessionWindowConfiguration Lude.Natural
-dtswcTimeoutInMinutes = Lens.lens (timeoutInMinutes :: DeltaTimeSessionWindowConfiguration -> Lude.Natural) (\s a -> s {timeoutInMinutes = a} :: DeltaTimeSessionWindowConfiguration)
+dtswcTimeoutInMinutes :: Lens.Lens' DeltaTimeSessionWindowConfiguration Core.Natural
+dtswcTimeoutInMinutes = Lens.field @"timeoutInMinutes"
 {-# DEPRECATED dtswcTimeoutInMinutes "Use generic-lens or generic-optics with 'timeoutInMinutes' instead." #-}
 
-instance Lude.FromJSON DeltaTimeSessionWindowConfiguration where
-  parseJSON =
-    Lude.withObject
-      "DeltaTimeSessionWindowConfiguration"
-      ( \x ->
-          DeltaTimeSessionWindowConfiguration'
-            Lude.<$> (x Lude..: "timeoutInMinutes")
+instance Core.FromJSON DeltaTimeSessionWindowConfiguration where
+  toJSON DeltaTimeSessionWindowConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("timeoutInMinutes" Core..= timeoutInMinutes)]
       )
 
-instance Lude.ToJSON DeltaTimeSessionWindowConfiguration where
-  toJSON DeltaTimeSessionWindowConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("timeoutInMinutes" Lude..= timeoutInMinutes)]
-      )
+instance Core.FromJSON DeltaTimeSessionWindowConfiguration where
+  parseJSON =
+    Core.withObject "DeltaTimeSessionWindowConfiguration" Core.$
+      \x ->
+        DeltaTimeSessionWindowConfiguration'
+          Core.<$> (x Core..: "timeoutInMinutes")

@@ -17,71 +17,68 @@ module Network.AWS.ResourceGroups.Types.FailedResource
     mkFailedResource,
 
     -- * Lenses
-    frResourceARN,
     frErrorCode,
     frErrorMessage,
+    frResourceArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroups.Types.ErrorCode as Types
+import qualified Network.AWS.ResourceGroups.Types.ErrorMessage as Types
+import qualified Network.AWS.ResourceGroups.Types.ResourceArn as Types
 
 -- | A resource that failed to be added to or removed from a group.
 --
 -- /See:/ 'mkFailedResource' smart constructor.
 data FailedResource = FailedResource'
-  { -- | The ARN of the resource that failed to be added or removed.
-    resourceARN :: Lude.Maybe Lude.Text,
-    -- | The error code associated with the failure.
-    errorCode :: Lude.Maybe Lude.Text,
+  { -- | The error code associated with the failure.
+    errorCode :: Core.Maybe Types.ErrorCode,
     -- | The error message text associated with the failure.
-    errorMessage :: Lude.Maybe Lude.Text
+    errorMessage :: Core.Maybe Types.ErrorMessage,
+    -- | The ARN of the resource that failed to be added or removed.
+    resourceArn :: Core.Maybe Types.ResourceArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FailedResource' with the minimum fields required to make a request.
---
--- * 'resourceARN' - The ARN of the resource that failed to be added or removed.
--- * 'errorCode' - The error code associated with the failure.
--- * 'errorMessage' - The error message text associated with the failure.
+-- | Creates a 'FailedResource' value with any optional fields omitted.
 mkFailedResource ::
   FailedResource
 mkFailedResource =
   FailedResource'
-    { resourceARN = Lude.Nothing,
-      errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      resourceArn = Core.Nothing
     }
-
--- | The ARN of the resource that failed to be added or removed.
---
--- /Note:/ Consider using 'resourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frResourceARN :: Lens.Lens' FailedResource (Lude.Maybe Lude.Text)
-frResourceARN = Lens.lens (resourceARN :: FailedResource -> Lude.Maybe Lude.Text) (\s a -> s {resourceARN = a} :: FailedResource)
-{-# DEPRECATED frResourceARN "Use generic-lens or generic-optics with 'resourceARN' instead." #-}
 
 -- | The error code associated with the failure.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frErrorCode :: Lens.Lens' FailedResource (Lude.Maybe Lude.Text)
-frErrorCode = Lens.lens (errorCode :: FailedResource -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: FailedResource)
+frErrorCode :: Lens.Lens' FailedResource (Core.Maybe Types.ErrorCode)
+frErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED frErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message text associated with the failure.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frErrorMessage :: Lens.Lens' FailedResource (Lude.Maybe Lude.Text)
-frErrorMessage = Lens.lens (errorMessage :: FailedResource -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: FailedResource)
+frErrorMessage :: Lens.Lens' FailedResource (Core.Maybe Types.ErrorMessage)
+frErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED frErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
-instance Lude.FromJSON FailedResource where
+-- | The ARN of the resource that failed to be added or removed.
+--
+-- /Note:/ Consider using 'resourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frResourceArn :: Lens.Lens' FailedResource (Core.Maybe Types.ResourceArn)
+frResourceArn = Lens.field @"resourceArn"
+{-# DEPRECATED frResourceArn "Use generic-lens or generic-optics with 'resourceArn' instead." #-}
+
+instance Core.FromJSON FailedResource where
   parseJSON =
-    Lude.withObject
-      "FailedResource"
-      ( \x ->
-          FailedResource'
-            Lude.<$> (x Lude..:? "ResourceArn")
-            Lude.<*> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-      )
+    Core.withObject "FailedResource" Core.$
+      \x ->
+        FailedResource'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "ResourceArn")

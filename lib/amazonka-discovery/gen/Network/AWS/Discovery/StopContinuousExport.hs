@@ -33,118 +33,105 @@ module Network.AWS.Discovery.StopContinuousExport
   )
 where
 
-import Network.AWS.Discovery.Types
+import qualified Network.AWS.Discovery.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStopContinuousExport' smart constructor.
 newtype StopContinuousExport = StopContinuousExport'
   { -- | The unique ID assigned to this export.
-    exportId :: Lude.Text
+    exportId :: Types.ConfigurationsExportId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopContinuousExport' with the minimum fields required to make a request.
---
--- * 'exportId' - The unique ID assigned to this export.
+-- | Creates a 'StopContinuousExport' value with any optional fields omitted.
 mkStopContinuousExport ::
   -- | 'exportId'
-  Lude.Text ->
+  Types.ConfigurationsExportId ->
   StopContinuousExport
-mkStopContinuousExport pExportId_ =
-  StopContinuousExport' {exportId = pExportId_}
+mkStopContinuousExport exportId = StopContinuousExport' {exportId}
 
 -- | The unique ID assigned to this export.
 --
 -- /Note:/ Consider using 'exportId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sceExportId :: Lens.Lens' StopContinuousExport Lude.Text
-sceExportId = Lens.lens (exportId :: StopContinuousExport -> Lude.Text) (\s a -> s {exportId = a} :: StopContinuousExport)
+sceExportId :: Lens.Lens' StopContinuousExport Types.ConfigurationsExportId
+sceExportId = Lens.field @"exportId"
 {-# DEPRECATED sceExportId "Use generic-lens or generic-optics with 'exportId' instead." #-}
 
-instance Lude.AWSRequest StopContinuousExport where
+instance Core.FromJSON StopContinuousExport where
+  toJSON StopContinuousExport {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("exportId" Core..= exportId)])
+
+instance Core.AWSRequest StopContinuousExport where
   type Rs StopContinuousExport = StopContinuousExportResponse
-  request = Req.postJSON discoveryService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSPoseidonService_V2015_11_01.StopContinuousExport"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StopContinuousExportResponse'
-            Lude.<$> (x Lude..?> "startTime")
-            Lude.<*> (x Lude..?> "stopTime")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "startTime")
+            Core.<*> (x Core..:? "stopTime")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopContinuousExport where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSPoseidonService_V2015_11_01.StopContinuousExport" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopContinuousExport where
-  toJSON StopContinuousExport' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("exportId" Lude..= exportId)])
-
-instance Lude.ToPath StopContinuousExport where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopContinuousExport where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStopContinuousExportResponse' smart constructor.
 data StopContinuousExportResponse = StopContinuousExportResponse'
   { -- | Timestamp that represents when this continuous export started collecting data.
-    startTime :: Lude.Maybe Lude.Timestamp,
+    startTime :: Core.Maybe Core.NominalDiffTime,
     -- | Timestamp that represents when this continuous export was stopped.
-    stopTime :: Lude.Maybe Lude.Timestamp,
+    stopTime :: Core.Maybe Core.NominalDiffTime,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StopContinuousExportResponse' with the minimum fields required to make a request.
---
--- * 'startTime' - Timestamp that represents when this continuous export started collecting data.
--- * 'stopTime' - Timestamp that represents when this continuous export was stopped.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopContinuousExportResponse' value with any optional fields omitted.
 mkStopContinuousExportResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopContinuousExportResponse
-mkStopContinuousExportResponse pResponseStatus_ =
+mkStopContinuousExportResponse responseStatus =
   StopContinuousExportResponse'
-    { startTime = Lude.Nothing,
-      stopTime = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { startTime = Core.Nothing,
+      stopTime = Core.Nothing,
+      responseStatus
     }
 
 -- | Timestamp that represents when this continuous export started collecting data.
 --
 -- /Note:/ Consider using 'startTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsStartTime :: Lens.Lens' StopContinuousExportResponse (Lude.Maybe Lude.Timestamp)
-srsStartTime = Lens.lens (startTime :: StopContinuousExportResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startTime = a} :: StopContinuousExportResponse)
+srsStartTime :: Lens.Lens' StopContinuousExportResponse (Core.Maybe Core.NominalDiffTime)
+srsStartTime = Lens.field @"startTime"
 {-# DEPRECATED srsStartTime "Use generic-lens or generic-optics with 'startTime' instead." #-}
 
 -- | Timestamp that represents when this continuous export was stopped.
 --
 -- /Note:/ Consider using 'stopTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsStopTime :: Lens.Lens' StopContinuousExportResponse (Lude.Maybe Lude.Timestamp)
-srsStopTime = Lens.lens (stopTime :: StopContinuousExportResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {stopTime = a} :: StopContinuousExportResponse)
+srsStopTime :: Lens.Lens' StopContinuousExportResponse (Core.Maybe Core.NominalDiffTime)
+srsStopTime = Lens.field @"stopTime"
 {-# DEPRECATED srsStopTime "Use generic-lens or generic-optics with 'stopTime' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StopContinuousExportResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StopContinuousExportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopContinuousExportResponse)
+srsResponseStatus :: Lens.Lens' StopContinuousExportResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

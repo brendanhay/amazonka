@@ -17,56 +17,50 @@ module Network.AWS.CostExplorer.Types.Impact
     mkImpact,
 
     -- * Lenses
-    iTotalImpact,
     iMaxImpact,
+    iTotalImpact,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The anomaly's dollar value.
 --
 -- /See:/ 'mkImpact' smart constructor.
 data Impact = Impact'
-  { -- | The cumulative dollar value observed for an anomaly.
-    totalImpact :: Lude.Maybe Lude.Double,
-    -- | The maximum dollar value observed for an anomaly.
-    maxImpact :: Lude.Double
+  { -- | The maximum dollar value observed for an anomaly.
+    maxImpact :: Core.Double,
+    -- | The cumulative dollar value observed for an anomaly.
+    totalImpact :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Impact' with the minimum fields required to make a request.
---
--- * 'totalImpact' - The cumulative dollar value observed for an anomaly.
--- * 'maxImpact' - The maximum dollar value observed for an anomaly.
+-- | Creates a 'Impact' value with any optional fields omitted.
 mkImpact ::
   -- | 'maxImpact'
-  Lude.Double ->
+  Core.Double ->
   Impact
-mkImpact pMaxImpact_ =
-  Impact' {totalImpact = Lude.Nothing, maxImpact = pMaxImpact_}
-
--- | The cumulative dollar value observed for an anomaly.
---
--- /Note:/ Consider using 'totalImpact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iTotalImpact :: Lens.Lens' Impact (Lude.Maybe Lude.Double)
-iTotalImpact = Lens.lens (totalImpact :: Impact -> Lude.Maybe Lude.Double) (\s a -> s {totalImpact = a} :: Impact)
-{-# DEPRECATED iTotalImpact "Use generic-lens or generic-optics with 'totalImpact' instead." #-}
+mkImpact maxImpact = Impact' {maxImpact, totalImpact = Core.Nothing}
 
 -- | The maximum dollar value observed for an anomaly.
 --
 -- /Note:/ Consider using 'maxImpact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iMaxImpact :: Lens.Lens' Impact Lude.Double
-iMaxImpact = Lens.lens (maxImpact :: Impact -> Lude.Double) (\s a -> s {maxImpact = a} :: Impact)
+iMaxImpact :: Lens.Lens' Impact Core.Double
+iMaxImpact = Lens.field @"maxImpact"
 {-# DEPRECATED iMaxImpact "Use generic-lens or generic-optics with 'maxImpact' instead." #-}
 
-instance Lude.FromJSON Impact where
+-- | The cumulative dollar value observed for an anomaly.
+--
+-- /Note:/ Consider using 'totalImpact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iTotalImpact :: Lens.Lens' Impact (Core.Maybe Core.Double)
+iTotalImpact = Lens.field @"totalImpact"
+{-# DEPRECATED iTotalImpact "Use generic-lens or generic-optics with 'totalImpact' instead." #-}
+
+instance Core.FromJSON Impact where
   parseJSON =
-    Lude.withObject
-      "Impact"
-      ( \x ->
-          Impact'
-            Lude.<$> (x Lude..:? "TotalImpact") Lude.<*> (x Lude..: "MaxImpact")
-      )
+    Core.withObject "Impact" Core.$
+      \x ->
+        Impact'
+          Core.<$> (x Core..: "MaxImpact") Core.<*> (x Core..:? "TotalImpact")

@@ -22,185 +22,173 @@ module Network.AWS.EMR.ListSteps
     mkListSteps,
 
     -- ** Request lenses
-    lStepIds,
-    lStepStates,
-    lClusterId,
-    lMarker,
+    lsClusterId,
+    lsMarker,
+    lsStepIds,
+    lsStepStates,
 
     -- * Destructuring the response
     ListStepsResponse (..),
     mkListStepsResponse,
 
     -- ** Response lenses
-    lrsSteps,
-    lrsMarker,
-    lrsResponseStatus,
+    lsrrsMarker,
+    lsrrsSteps,
+    lsrrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | This input determines which steps to list.
 --
 -- /See:/ 'mkListSteps' smart constructor.
 data ListSteps = ListSteps'
-  { -- | The filter to limit the step list based on the identifier of the steps. You can specify a maximum of ten Step IDs. The character constraint applies to the overall length of the array.
-    stepIds :: Lude.Maybe [Lude.Text],
-    -- | The filter to limit the step list based on certain states.
-    stepStates :: Lude.Maybe [StepState],
-    -- | The identifier of the cluster for which to list the steps.
-    clusterId :: Lude.Text,
+  { -- | The identifier of the cluster for which to list the steps.
+    clusterId :: Types.ClusterId,
     -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text
+    marker :: Core.Maybe Types.Marker,
+    -- | The filter to limit the step list based on the identifier of the steps. You can specify a maximum of ten Step IDs. The character constraint applies to the overall length of the array.
+    stepIds :: Core.Maybe [Types.XmlString],
+    -- | The filter to limit the step list based on certain states.
+    stepStates :: Core.Maybe [Types.StepState]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListSteps' with the minimum fields required to make a request.
---
--- * 'stepIds' - The filter to limit the step list based on the identifier of the steps. You can specify a maximum of ten Step IDs. The character constraint applies to the overall length of the array.
--- * 'stepStates' - The filter to limit the step list based on certain states.
--- * 'clusterId' - The identifier of the cluster for which to list the steps.
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
+-- | Creates a 'ListSteps' value with any optional fields omitted.
 mkListSteps ::
   -- | 'clusterId'
-  Lude.Text ->
+  Types.ClusterId ->
   ListSteps
-mkListSteps pClusterId_ =
+mkListSteps clusterId =
   ListSteps'
-    { stepIds = Lude.Nothing,
-      stepStates = Lude.Nothing,
-      clusterId = pClusterId_,
-      marker = Lude.Nothing
+    { clusterId,
+      marker = Core.Nothing,
+      stepIds = Core.Nothing,
+      stepStates = Core.Nothing
     }
-
--- | The filter to limit the step list based on the identifier of the steps. You can specify a maximum of ten Step IDs. The character constraint applies to the overall length of the array.
---
--- /Note:/ Consider using 'stepIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lStepIds :: Lens.Lens' ListSteps (Lude.Maybe [Lude.Text])
-lStepIds = Lens.lens (stepIds :: ListSteps -> Lude.Maybe [Lude.Text]) (\s a -> s {stepIds = a} :: ListSteps)
-{-# DEPRECATED lStepIds "Use generic-lens or generic-optics with 'stepIds' instead." #-}
-
--- | The filter to limit the step list based on certain states.
---
--- /Note:/ Consider using 'stepStates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lStepStates :: Lens.Lens' ListSteps (Lude.Maybe [StepState])
-lStepStates = Lens.lens (stepStates :: ListSteps -> Lude.Maybe [StepState]) (\s a -> s {stepStates = a} :: ListSteps)
-{-# DEPRECATED lStepStates "Use generic-lens or generic-optics with 'stepStates' instead." #-}
 
 -- | The identifier of the cluster for which to list the steps.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lClusterId :: Lens.Lens' ListSteps Lude.Text
-lClusterId = Lens.lens (clusterId :: ListSteps -> Lude.Text) (\s a -> s {clusterId = a} :: ListSteps)
-{-# DEPRECATED lClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+lsClusterId :: Lens.Lens' ListSteps Types.ClusterId
+lsClusterId = Lens.field @"clusterId"
+{-# DEPRECATED lsClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lMarker :: Lens.Lens' ListSteps (Lude.Maybe Lude.Text)
-lMarker = Lens.lens (marker :: ListSteps -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListSteps)
-{-# DEPRECATED lMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lsMarker :: Lens.Lens' ListSteps (Core.Maybe Types.Marker)
+lsMarker = Lens.field @"marker"
+{-# DEPRECATED lsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
-instance Page.AWSPager ListSteps where
-  page rq rs
-    | Page.stop (rs Lens.^. lrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. lrsSteps) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& lMarker Lens..~ rs Lens.^. lrsMarker
+-- | The filter to limit the step list based on the identifier of the steps. You can specify a maximum of ten Step IDs. The character constraint applies to the overall length of the array.
+--
+-- /Note:/ Consider using 'stepIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsStepIds :: Lens.Lens' ListSteps (Core.Maybe [Types.XmlString])
+lsStepIds = Lens.field @"stepIds"
+{-# DEPRECATED lsStepIds "Use generic-lens or generic-optics with 'stepIds' instead." #-}
 
-instance Lude.AWSRequest ListSteps where
+-- | The filter to limit the step list based on certain states.
+--
+-- /Note:/ Consider using 'stepStates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsStepStates :: Lens.Lens' ListSteps (Core.Maybe [Types.StepState])
+lsStepStates = Lens.field @"stepStates"
+{-# DEPRECATED lsStepStates "Use generic-lens or generic-optics with 'stepStates' instead." #-}
+
+instance Core.FromJSON ListSteps where
+  toJSON ListSteps {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            ("Marker" Core..=) Core.<$> marker,
+            ("StepIds" Core..=) Core.<$> stepIds,
+            ("StepStates" Core..=) Core.<$> stepStates
+          ]
+      )
+
+instance Core.AWSRequest ListSteps where
   type Rs ListSteps = ListStepsResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.ListSteps")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListStepsResponse'
-            Lude.<$> (x Lude..?> "Steps" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Marker")
+            Core.<*> (x Core..:? "Steps")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListSteps where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.ListSteps" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListSteps where
-  toJSON ListSteps' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StepIds" Lude..=) Lude.<$> stepIds,
-            ("StepStates" Lude..=) Lude.<$> stepStates,
-            Lude.Just ("ClusterId" Lude..= clusterId),
-            ("Marker" Lude..=) Lude.<$> marker
-          ]
-      )
-
-instance Lude.ToPath ListSteps where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListSteps where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListSteps where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"steps" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | This output contains the list of steps returned in reverse order. This means that the last step is the first element in the list.
 --
 -- /See:/ 'mkListStepsResponse' smart constructor.
 data ListStepsResponse = ListStepsResponse'
-  { -- | The filtered list of steps for the cluster.
-    steps :: Lude.Maybe [StepSummary],
-    -- | The pagination token that indicates the next set of results to retrieve.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | The pagination token that indicates the next set of results to retrieve.
+    marker :: Core.Maybe Types.Marker,
+    -- | The filtered list of steps for the cluster.
+    steps :: Core.Maybe [Types.StepSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListStepsResponse' with the minimum fields required to make a request.
---
--- * 'steps' - The filtered list of steps for the cluster.
--- * 'marker' - The pagination token that indicates the next set of results to retrieve.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListStepsResponse' value with any optional fields omitted.
 mkListStepsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListStepsResponse
-mkListStepsResponse pResponseStatus_ =
+mkListStepsResponse responseStatus =
   ListStepsResponse'
-    { steps = Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { marker = Core.Nothing,
+      steps = Core.Nothing,
+      responseStatus
     }
-
--- | The filtered list of steps for the cluster.
---
--- /Note:/ Consider using 'steps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsSteps :: Lens.Lens' ListStepsResponse (Lude.Maybe [StepSummary])
-lrsSteps = Lens.lens (steps :: ListStepsResponse -> Lude.Maybe [StepSummary]) (\s a -> s {steps = a} :: ListStepsResponse)
-{-# DEPRECATED lrsSteps "Use generic-lens or generic-optics with 'steps' instead." #-}
 
 -- | The pagination token that indicates the next set of results to retrieve.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsMarker :: Lens.Lens' ListStepsResponse (Lude.Maybe Lude.Text)
-lrsMarker = Lens.lens (marker :: ListStepsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListStepsResponse)
-{-# DEPRECATED lrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+lsrrsMarker :: Lens.Lens' ListStepsResponse (Core.Maybe Types.Marker)
+lsrrsMarker = Lens.field @"marker"
+{-# DEPRECATED lsrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The filtered list of steps for the cluster.
+--
+-- /Note:/ Consider using 'steps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrrsSteps :: Lens.Lens' ListStepsResponse (Core.Maybe [Types.StepSummary])
+lsrrsSteps = Lens.field @"steps"
+{-# DEPRECATED lsrrsSteps "Use generic-lens or generic-optics with 'steps' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsResponseStatus :: Lens.Lens' ListStepsResponse Lude.Int
-lrsResponseStatus = Lens.lens (responseStatus :: ListStepsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListStepsResponse)
-{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsrrsResponseStatus :: Lens.Lens' ListStepsResponse Core.Int
+lsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

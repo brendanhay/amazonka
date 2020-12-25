@@ -17,17 +17,18 @@ module Network.AWS.IAM.Types.Statement
     mkStatement,
 
     -- * Lenses
-    sSourcePolicyType,
-    sSourcePolicyId,
     sEndPosition,
+    sSourcePolicyId,
+    sSourcePolicyType,
     sStartPosition,
   )
 where
 
-import Network.AWS.IAM.Types.PolicySourceType
-import Network.AWS.IAM.Types.Position
+import qualified Network.AWS.IAM.Types.PolicySourceType as Types
+import qualified Network.AWS.IAM.Types.Position as Types
+import qualified Network.AWS.IAM.Types.SourcePolicyId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains a reference to a @Statement@ element in a policy document that determines the result of the simulation.
 --
@@ -35,66 +36,61 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkStatement' smart constructor.
 data Statement = Statement'
-  { -- | The type of the policy.
-    sourcePolicyType :: Lude.Maybe PolicySourceType,
+  { -- | The row and column of the end of a @Statement@ in an IAM policy.
+    endPosition :: Core.Maybe Types.Position,
     -- | The identifier of the policy that was provided as an input.
-    sourcePolicyId :: Lude.Maybe Lude.Text,
-    -- | The row and column of the end of a @Statement@ in an IAM policy.
-    endPosition :: Lude.Maybe Position,
+    sourcePolicyId :: Core.Maybe Types.SourcePolicyId,
+    -- | The type of the policy.
+    sourcePolicyType :: Core.Maybe Types.PolicySourceType,
     -- | The row and column of the beginning of the @Statement@ in an IAM policy.
-    startPosition :: Lude.Maybe Position
+    startPosition :: Core.Maybe Types.Position
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Statement' with the minimum fields required to make a request.
---
--- * 'sourcePolicyType' - The type of the policy.
--- * 'sourcePolicyId' - The identifier of the policy that was provided as an input.
--- * 'endPosition' - The row and column of the end of a @Statement@ in an IAM policy.
--- * 'startPosition' - The row and column of the beginning of the @Statement@ in an IAM policy.
+-- | Creates a 'Statement' value with any optional fields omitted.
 mkStatement ::
   Statement
 mkStatement =
   Statement'
-    { sourcePolicyType = Lude.Nothing,
-      sourcePolicyId = Lude.Nothing,
-      endPosition = Lude.Nothing,
-      startPosition = Lude.Nothing
+    { endPosition = Core.Nothing,
+      sourcePolicyId = Core.Nothing,
+      sourcePolicyType = Core.Nothing,
+      startPosition = Core.Nothing
     }
-
--- | The type of the policy.
---
--- /Note:/ Consider using 'sourcePolicyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSourcePolicyType :: Lens.Lens' Statement (Lude.Maybe PolicySourceType)
-sSourcePolicyType = Lens.lens (sourcePolicyType :: Statement -> Lude.Maybe PolicySourceType) (\s a -> s {sourcePolicyType = a} :: Statement)
-{-# DEPRECATED sSourcePolicyType "Use generic-lens or generic-optics with 'sourcePolicyType' instead." #-}
-
--- | The identifier of the policy that was provided as an input.
---
--- /Note:/ Consider using 'sourcePolicyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSourcePolicyId :: Lens.Lens' Statement (Lude.Maybe Lude.Text)
-sSourcePolicyId = Lens.lens (sourcePolicyId :: Statement -> Lude.Maybe Lude.Text) (\s a -> s {sourcePolicyId = a} :: Statement)
-{-# DEPRECATED sSourcePolicyId "Use generic-lens or generic-optics with 'sourcePolicyId' instead." #-}
 
 -- | The row and column of the end of a @Statement@ in an IAM policy.
 --
 -- /Note:/ Consider using 'endPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sEndPosition :: Lens.Lens' Statement (Lude.Maybe Position)
-sEndPosition = Lens.lens (endPosition :: Statement -> Lude.Maybe Position) (\s a -> s {endPosition = a} :: Statement)
+sEndPosition :: Lens.Lens' Statement (Core.Maybe Types.Position)
+sEndPosition = Lens.field @"endPosition"
 {-# DEPRECATED sEndPosition "Use generic-lens or generic-optics with 'endPosition' instead." #-}
+
+-- | The identifier of the policy that was provided as an input.
+--
+-- /Note:/ Consider using 'sourcePolicyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSourcePolicyId :: Lens.Lens' Statement (Core.Maybe Types.SourcePolicyId)
+sSourcePolicyId = Lens.field @"sourcePolicyId"
+{-# DEPRECATED sSourcePolicyId "Use generic-lens or generic-optics with 'sourcePolicyId' instead." #-}
+
+-- | The type of the policy.
+--
+-- /Note:/ Consider using 'sourcePolicyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sSourcePolicyType :: Lens.Lens' Statement (Core.Maybe Types.PolicySourceType)
+sSourcePolicyType = Lens.field @"sourcePolicyType"
+{-# DEPRECATED sSourcePolicyType "Use generic-lens or generic-optics with 'sourcePolicyType' instead." #-}
 
 -- | The row and column of the beginning of the @Statement@ in an IAM policy.
 --
 -- /Note:/ Consider using 'startPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sStartPosition :: Lens.Lens' Statement (Lude.Maybe Position)
-sStartPosition = Lens.lens (startPosition :: Statement -> Lude.Maybe Position) (\s a -> s {startPosition = a} :: Statement)
+sStartPosition :: Lens.Lens' Statement (Core.Maybe Types.Position)
+sStartPosition = Lens.field @"startPosition"
 {-# DEPRECATED sStartPosition "Use generic-lens or generic-optics with 'startPosition' instead." #-}
 
-instance Lude.FromXML Statement where
+instance Core.FromXML Statement where
   parseXML x =
     Statement'
-      Lude.<$> (x Lude..@? "SourcePolicyType")
-      Lude.<*> (x Lude..@? "SourcePolicyId")
-      Lude.<*> (x Lude..@? "EndPosition")
-      Lude.<*> (x Lude..@? "StartPosition")
+      Core.<$> (x Core..@? "EndPosition")
+      Core.<*> (x Core..@? "SourcePolicyId")
+      Core.<*> (x Core..@? "SourcePolicyType")
+      Core.<*> (x Core..@? "StartPosition")

@@ -56,88 +56,81 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     mkChangeResourceRecordSetsResponse,
 
     -- ** Response lenses
-    crrsrsChangeInfo,
-    crrsrsResponseStatus,
+    crrsrrsChangeInfo,
+    crrsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | A complex type that contains change information for the resource record set.
 --
 -- /See:/ 'mkChangeResourceRecordSets' smart constructor.
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
   { -- | The ID of the hosted zone that contains the resource record sets that you want to change.
-    hostedZoneId :: ResourceId,
+    hostedZoneId :: Types.ResourceId,
     -- | A complex type that contains an optional comment and the @Changes@ element.
-    changeBatch :: ChangeBatch
+    changeBatch :: Types.ChangeBatch
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChangeResourceRecordSets' with the minimum fields required to make a request.
---
--- * 'hostedZoneId' - The ID of the hosted zone that contains the resource record sets that you want to change.
--- * 'changeBatch' - A complex type that contains an optional comment and the @Changes@ element.
+-- | Creates a 'ChangeResourceRecordSets' value with any optional fields omitted.
 mkChangeResourceRecordSets ::
   -- | 'hostedZoneId'
-  ResourceId ->
+  Types.ResourceId ->
   -- | 'changeBatch'
-  ChangeBatch ->
+  Types.ChangeBatch ->
   ChangeResourceRecordSets
-mkChangeResourceRecordSets pHostedZoneId_ pChangeBatch_ =
-  ChangeResourceRecordSets'
-    { hostedZoneId = pHostedZoneId_,
-      changeBatch = pChangeBatch_
-    }
+mkChangeResourceRecordSets hostedZoneId changeBatch =
+  ChangeResourceRecordSets' {hostedZoneId, changeBatch}
 
 -- | The ID of the hosted zone that contains the resource record sets that you want to change.
 --
 -- /Note:/ Consider using 'hostedZoneId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsHostedZoneId :: Lens.Lens' ChangeResourceRecordSets ResourceId
-crrsHostedZoneId = Lens.lens (hostedZoneId :: ChangeResourceRecordSets -> ResourceId) (\s a -> s {hostedZoneId = a} :: ChangeResourceRecordSets)
+crrsHostedZoneId :: Lens.Lens' ChangeResourceRecordSets Types.ResourceId
+crrsHostedZoneId = Lens.field @"hostedZoneId"
 {-# DEPRECATED crrsHostedZoneId "Use generic-lens or generic-optics with 'hostedZoneId' instead." #-}
 
 -- | A complex type that contains an optional comment and the @Changes@ element.
 --
 -- /Note:/ Consider using 'changeBatch' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsChangeBatch :: Lens.Lens' ChangeResourceRecordSets ChangeBatch
-crrsChangeBatch = Lens.lens (changeBatch :: ChangeResourceRecordSets -> ChangeBatch) (\s a -> s {changeBatch = a} :: ChangeResourceRecordSets)
+crrsChangeBatch :: Lens.Lens' ChangeResourceRecordSets Types.ChangeBatch
+crrsChangeBatch = Lens.field @"changeBatch"
 {-# DEPRECATED crrsChangeBatch "Use generic-lens or generic-optics with 'changeBatch' instead." #-}
 
-instance Lude.AWSRequest ChangeResourceRecordSets where
-  type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
-  request = Req.postXML route53Service
-  response =
-    Res.receiveXML
-      ( \s h x ->
-          ChangeResourceRecordSetsResponse'
-            Lude.<$> (x Lude..@ "ChangeInfo") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToElement ChangeResourceRecordSets where
-  toElement =
-    Lude.mkElement
+instance Core.ToXML ChangeResourceRecordSets where
+  toXML ChangeResourceRecordSets {..} =
+    Core.toXMLNode "ChangeBatch" changeBatch
+  toXMLDocument =
+    Core.mkXMLElement
       "{https://route53.amazonaws.com/doc/2013-04-01/}ChangeResourceRecordSetsRequest"
 
-instance Lude.ToHeaders ChangeResourceRecordSets where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ChangeResourceRecordSets where
-  toPath ChangeResourceRecordSets' {..} =
-    Lude.mconcat
-      ["/2013-04-01/hostedzone/", Lude.toBS hostedZoneId, "/rrset/"]
-
-instance Lude.ToQuery ChangeResourceRecordSets where
-  toQuery = Lude.const Lude.mempty
-
-instance Lude.ToXML ChangeResourceRecordSets where
-  toXML ChangeResourceRecordSets' {..} =
-    Lude.mconcat ["ChangeBatch" Lude.@= changeBatch]
+instance Core.AWSRequest ChangeResourceRecordSets where
+  type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2013-04-01/hostedzone/" Core.<> (Core.toText hostedZoneId)
+                Core.<> ("/rrset/")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toXMLBody x
+      }
+  response =
+    Response.receiveXML
+      ( \s h x ->
+          ChangeResourceRecordSetsResponse'
+            Core.<$> (x Core..@ "ChangeInfo") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | A complex type containing the response for the request.
 --
@@ -146,43 +139,35 @@ data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
   { -- | A complex type that contains information about changes made to your hosted zone.
     --
     -- This element contains an ID that you use when performing a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange> action to get detailed information about the change.
-    changeInfo :: ChangeInfo,
+    changeInfo :: Types.ChangeInfo,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ChangeResourceRecordSetsResponse' with the minimum fields required to make a request.
---
--- * 'changeInfo' - A complex type that contains information about changes made to your hosted zone.
---
--- This element contains an ID that you use when performing a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange> action to get detailed information about the change.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ChangeResourceRecordSetsResponse' value with any optional fields omitted.
 mkChangeResourceRecordSetsResponse ::
   -- | 'changeInfo'
-  ChangeInfo ->
+  Types.ChangeInfo ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ChangeResourceRecordSetsResponse
-mkChangeResourceRecordSetsResponse pChangeInfo_ pResponseStatus_ =
-  ChangeResourceRecordSetsResponse'
-    { changeInfo = pChangeInfo_,
-      responseStatus = pResponseStatus_
-    }
+mkChangeResourceRecordSetsResponse changeInfo responseStatus =
+  ChangeResourceRecordSetsResponse' {changeInfo, responseStatus}
 
 -- | A complex type that contains information about changes made to your hosted zone.
 --
 -- This element contains an ID that you use when performing a <https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetChange.html GetChange> action to get detailed information about the change.
 --
 -- /Note:/ Consider using 'changeInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsrsChangeInfo :: Lens.Lens' ChangeResourceRecordSetsResponse ChangeInfo
-crrsrsChangeInfo = Lens.lens (changeInfo :: ChangeResourceRecordSetsResponse -> ChangeInfo) (\s a -> s {changeInfo = a} :: ChangeResourceRecordSetsResponse)
-{-# DEPRECATED crrsrsChangeInfo "Use generic-lens or generic-optics with 'changeInfo' instead." #-}
+crrsrrsChangeInfo :: Lens.Lens' ChangeResourceRecordSetsResponse Types.ChangeInfo
+crrsrrsChangeInfo = Lens.field @"changeInfo"
+{-# DEPRECATED crrsrrsChangeInfo "Use generic-lens or generic-optics with 'changeInfo' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crrsrsResponseStatus :: Lens.Lens' ChangeResourceRecordSetsResponse Lude.Int
-crrsrsResponseStatus = Lens.lens (responseStatus :: ChangeResourceRecordSetsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ChangeResourceRecordSetsResponse)
-{-# DEPRECATED crrsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+crrsrrsResponseStatus :: Lens.Lens' ChangeResourceRecordSetsResponse Core.Int
+crrsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED crrsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

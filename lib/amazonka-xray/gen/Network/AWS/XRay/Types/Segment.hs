@@ -23,7 +23,9 @@ module Network.AWS.XRay.Types.Segment
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.Id as Types
+import qualified Network.AWS.XRay.Types.SegmentDocument as Types
 
 -- | A segment from a trace that has been ingested by the X-Ray service. The segment can be compiled from documents uploaded with 'PutTraceSegments' , or an @inferred@ segment for a downstream service, generated from a subsegment sent by the service that called it.
 --
@@ -32,40 +34,35 @@ import qualified Network.AWS.Prelude as Lude
 -- /See:/ 'mkSegment' smart constructor.
 data Segment = Segment'
   { -- | The segment document.
-    document :: Lude.Maybe Lude.Text,
+    document :: Core.Maybe Types.SegmentDocument,
     -- | The segment's ID.
-    id :: Lude.Maybe Lude.Text
+    id :: Core.Maybe Types.Id
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Segment' with the minimum fields required to make a request.
---
--- * 'document' - The segment document.
--- * 'id' - The segment's ID.
+-- | Creates a 'Segment' value with any optional fields omitted.
 mkSegment ::
   Segment
-mkSegment = Segment' {document = Lude.Nothing, id = Lude.Nothing}
+mkSegment = Segment' {document = Core.Nothing, id = Core.Nothing}
 
 -- | The segment document.
 --
 -- /Note:/ Consider using 'document' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDocument :: Lens.Lens' Segment (Lude.Maybe Lude.Text)
-sDocument = Lens.lens (document :: Segment -> Lude.Maybe Lude.Text) (\s a -> s {document = a} :: Segment)
+sDocument :: Lens.Lens' Segment (Core.Maybe Types.SegmentDocument)
+sDocument = Lens.field @"document"
 {-# DEPRECATED sDocument "Use generic-lens or generic-optics with 'document' instead." #-}
 
 -- | The segment's ID.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sId :: Lens.Lens' Segment (Lude.Maybe Lude.Text)
-sId = Lens.lens (id :: Segment -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Segment)
+sId :: Lens.Lens' Segment (Core.Maybe Types.Id)
+sId = Lens.field @"id"
 {-# DEPRECATED sId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON Segment where
+instance Core.FromJSON Segment where
   parseJSON =
-    Lude.withObject
-      "Segment"
-      ( \x ->
-          Segment'
-            Lude.<$> (x Lude..:? "Document") Lude.<*> (x Lude..:? "Id")
-      )
+    Core.withObject "Segment" Core.$
+      \x ->
+        Segment'
+          Core.<$> (x Core..:? "Document") Core.<*> (x Core..:? "Id")

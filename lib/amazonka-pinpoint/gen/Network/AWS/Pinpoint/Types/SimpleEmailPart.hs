@@ -17,54 +17,51 @@ module Network.AWS.Pinpoint.Types.SimpleEmailPart
     mkSimpleEmailPart,
 
     -- * Lenses
-    sepData,
     sepCharset,
+    sepData,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the subject or body of an email message, represented as textual email data and the applicable character set.
 --
 -- /See:/ 'mkSimpleEmailPart' smart constructor.
 data SimpleEmailPart = SimpleEmailPart'
-  { -- | The textual data of the message content.
-    data' :: Lude.Maybe Lude.Text,
-    -- | The applicable character set for the message content.
-    charset :: Lude.Maybe Lude.Text
+  { -- | The applicable character set for the message content.
+    charset :: Core.Maybe Core.Text,
+    -- | The textual data of the message content.
+    data' :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SimpleEmailPart' with the minimum fields required to make a request.
---
--- * 'data'' - The textual data of the message content.
--- * 'charset' - The applicable character set for the message content.
+-- | Creates a 'SimpleEmailPart' value with any optional fields omitted.
 mkSimpleEmailPart ::
   SimpleEmailPart
 mkSimpleEmailPart =
-  SimpleEmailPart' {data' = Lude.Nothing, charset = Lude.Nothing}
-
--- | The textual data of the message content.
---
--- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sepData :: Lens.Lens' SimpleEmailPart (Lude.Maybe Lude.Text)
-sepData = Lens.lens (data' :: SimpleEmailPart -> Lude.Maybe Lude.Text) (\s a -> s {data' = a} :: SimpleEmailPart)
-{-# DEPRECATED sepData "Use generic-lens or generic-optics with 'data'' instead." #-}
+  SimpleEmailPart' {charset = Core.Nothing, data' = Core.Nothing}
 
 -- | The applicable character set for the message content.
 --
 -- /Note:/ Consider using 'charset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sepCharset :: Lens.Lens' SimpleEmailPart (Lude.Maybe Lude.Text)
-sepCharset = Lens.lens (charset :: SimpleEmailPart -> Lude.Maybe Lude.Text) (\s a -> s {charset = a} :: SimpleEmailPart)
+sepCharset :: Lens.Lens' SimpleEmailPart (Core.Maybe Core.Text)
+sepCharset = Lens.field @"charset"
 {-# DEPRECATED sepCharset "Use generic-lens or generic-optics with 'charset' instead." #-}
 
-instance Lude.ToJSON SimpleEmailPart where
-  toJSON SimpleEmailPart' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Data" Lude..=) Lude.<$> data',
-            ("Charset" Lude..=) Lude.<$> charset
+-- | The textual data of the message content.
+--
+-- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sepData :: Lens.Lens' SimpleEmailPart (Core.Maybe Core.Text)
+sepData = Lens.field @"data'"
+{-# DEPRECATED sepData "Use generic-lens or generic-optics with 'data'' instead." #-}
+
+instance Core.FromJSON SimpleEmailPart where
+  toJSON SimpleEmailPart {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Charset" Core..=) Core.<$> charset,
+            ("Data" Core..=) Core.<$> data'
           ]
       )

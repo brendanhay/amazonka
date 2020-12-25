@@ -17,17 +17,17 @@ module Network.AWS.AppSync.Types.SyncConfig
     mkSyncConfig,
 
     -- * Lenses
-    scConflictHandler,
     scConflictDetection,
+    scConflictHandler,
     scLambdaConflictHandlerConfig,
   )
 where
 
-import Network.AWS.AppSync.Types.ConflictDetectionType
-import Network.AWS.AppSync.Types.ConflictHandlerType
-import Network.AWS.AppSync.Types.LambdaConflictHandlerConfig
+import qualified Network.AWS.AppSync.Types.ConflictDetectionType as Types
+import qualified Network.AWS.AppSync.Types.ConflictHandlerType as Types
+import qualified Network.AWS.AppSync.Types.LambdaConflictHandlerConfig as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a Sync configuration for a resolver.
 --
@@ -35,7 +35,15 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkSyncConfig' smart constructor.
 data SyncConfig = SyncConfig'
-  { -- | The Conflict Resolution strategy to perform in the event of a conflict.
+  { -- | The Conflict Detection strategy to use.
+    --
+    --
+    --     * __VERSION__ : Detect conflicts based on object versions for this resolver.
+    --
+    --
+    --     * __NONE__ : Do not detect conflicts when executing this resolver.
+    conflictDetection :: Core.Maybe Types.ConflictDetectionType,
+    -- | The Conflict Resolution strategy to perform in the event of a conflict.
     --
     --
     --     * __OPTIMISTIC_CONCURRENCY__ : Resolve conflicts by rejecting mutations when versions do not match the latest version at the server.
@@ -45,36 +53,24 @@ data SyncConfig = SyncConfig'
     --
     --
     --     * __LAMBDA__ : Resolve conflicts with a Lambda function supplied in the LambdaConflictHandlerConfig.
-    conflictHandler :: Lude.Maybe ConflictHandlerType,
-    -- | The Conflict Detection strategy to use.
-    --
-    --
-    --     * __VERSION__ : Detect conflicts based on object versions for this resolver.
-    --
-    --
-    --     * __NONE__ : Do not detect conflicts when executing this resolver.
-    conflictDetection :: Lude.Maybe ConflictDetectionType,
+    conflictHandler :: Core.Maybe Types.ConflictHandlerType,
     -- | The @LambdaConflictHandlerConfig@ when configuring LAMBDA as the Conflict Handler.
-    lambdaConflictHandlerConfig :: Lude.Maybe LambdaConflictHandlerConfig
+    lambdaConflictHandlerConfig :: Core.Maybe Types.LambdaConflictHandlerConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SyncConfig' with the minimum fields required to make a request.
---
--- * 'conflictHandler' - The Conflict Resolution strategy to perform in the event of a conflict.
---
---
---     * __OPTIMISTIC_CONCURRENCY__ : Resolve conflicts by rejecting mutations when versions do not match the latest version at the server.
---
---
---     * __AUTOMERGE__ : Resolve conflicts with the Automerge conflict resolution strategy.
---
---
---     * __LAMBDA__ : Resolve conflicts with a Lambda function supplied in the LambdaConflictHandlerConfig.
---
---
--- * 'conflictDetection' - The Conflict Detection strategy to use.
+-- | Creates a 'SyncConfig' value with any optional fields omitted.
+mkSyncConfig ::
+  SyncConfig
+mkSyncConfig =
+  SyncConfig'
+    { conflictDetection = Core.Nothing,
+      conflictHandler = Core.Nothing,
+      lambdaConflictHandlerConfig = Core.Nothing
+    }
+
+-- | The Conflict Detection strategy to use.
 --
 --
 --     * __VERSION__ : Detect conflicts based on object versions for this resolver.
@@ -83,15 +79,11 @@ data SyncConfig = SyncConfig'
 --     * __NONE__ : Do not detect conflicts when executing this resolver.
 --
 --
--- * 'lambdaConflictHandlerConfig' - The @LambdaConflictHandlerConfig@ when configuring LAMBDA as the Conflict Handler.
-mkSyncConfig ::
-  SyncConfig
-mkSyncConfig =
-  SyncConfig'
-    { conflictHandler = Lude.Nothing,
-      conflictDetection = Lude.Nothing,
-      lambdaConflictHandlerConfig = Lude.Nothing
-    }
+--
+-- /Note:/ Consider using 'conflictDetection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scConflictDetection :: Lens.Lens' SyncConfig (Core.Maybe Types.ConflictDetectionType)
+scConflictDetection = Lens.field @"conflictDetection"
+{-# DEPRECATED scConflictDetection "Use generic-lens or generic-optics with 'conflictDetection' instead." #-}
 
 -- | The Conflict Resolution strategy to perform in the event of a conflict.
 --
@@ -107,50 +99,33 @@ mkSyncConfig =
 --
 --
 -- /Note:/ Consider using 'conflictHandler' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scConflictHandler :: Lens.Lens' SyncConfig (Lude.Maybe ConflictHandlerType)
-scConflictHandler = Lens.lens (conflictHandler :: SyncConfig -> Lude.Maybe ConflictHandlerType) (\s a -> s {conflictHandler = a} :: SyncConfig)
+scConflictHandler :: Lens.Lens' SyncConfig (Core.Maybe Types.ConflictHandlerType)
+scConflictHandler = Lens.field @"conflictHandler"
 {-# DEPRECATED scConflictHandler "Use generic-lens or generic-optics with 'conflictHandler' instead." #-}
-
--- | The Conflict Detection strategy to use.
---
---
---     * __VERSION__ : Detect conflicts based on object versions for this resolver.
---
---
---     * __NONE__ : Do not detect conflicts when executing this resolver.
---
---
---
--- /Note:/ Consider using 'conflictDetection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scConflictDetection :: Lens.Lens' SyncConfig (Lude.Maybe ConflictDetectionType)
-scConflictDetection = Lens.lens (conflictDetection :: SyncConfig -> Lude.Maybe ConflictDetectionType) (\s a -> s {conflictDetection = a} :: SyncConfig)
-{-# DEPRECATED scConflictDetection "Use generic-lens or generic-optics with 'conflictDetection' instead." #-}
 
 -- | The @LambdaConflictHandlerConfig@ when configuring LAMBDA as the Conflict Handler.
 --
 -- /Note:/ Consider using 'lambdaConflictHandlerConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scLambdaConflictHandlerConfig :: Lens.Lens' SyncConfig (Lude.Maybe LambdaConflictHandlerConfig)
-scLambdaConflictHandlerConfig = Lens.lens (lambdaConflictHandlerConfig :: SyncConfig -> Lude.Maybe LambdaConflictHandlerConfig) (\s a -> s {lambdaConflictHandlerConfig = a} :: SyncConfig)
+scLambdaConflictHandlerConfig :: Lens.Lens' SyncConfig (Core.Maybe Types.LambdaConflictHandlerConfig)
+scLambdaConflictHandlerConfig = Lens.field @"lambdaConflictHandlerConfig"
 {-# DEPRECATED scLambdaConflictHandlerConfig "Use generic-lens or generic-optics with 'lambdaConflictHandlerConfig' instead." #-}
 
-instance Lude.FromJSON SyncConfig where
-  parseJSON =
-    Lude.withObject
-      "SyncConfig"
-      ( \x ->
-          SyncConfig'
-            Lude.<$> (x Lude..:? "conflictHandler")
-            Lude.<*> (x Lude..:? "conflictDetection")
-            Lude.<*> (x Lude..:? "lambdaConflictHandlerConfig")
-      )
-
-instance Lude.ToJSON SyncConfig where
-  toJSON SyncConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("conflictHandler" Lude..=) Lude.<$> conflictHandler,
-            ("conflictDetection" Lude..=) Lude.<$> conflictDetection,
-            ("lambdaConflictHandlerConfig" Lude..=)
-              Lude.<$> lambdaConflictHandlerConfig
+instance Core.FromJSON SyncConfig where
+  toJSON SyncConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("conflictDetection" Core..=) Core.<$> conflictDetection,
+            ("conflictHandler" Core..=) Core.<$> conflictHandler,
+            ("lambdaConflictHandlerConfig" Core..=)
+              Core.<$> lambdaConflictHandlerConfig
           ]
       )
+
+instance Core.FromJSON SyncConfig where
+  parseJSON =
+    Core.withObject "SyncConfig" Core.$
+      \x ->
+        SyncConfig'
+          Core.<$> (x Core..:? "conflictDetection")
+          Core.<*> (x Core..:? "conflictHandler")
+          Core.<*> (x Core..:? "lambdaConflictHandlerConfig")

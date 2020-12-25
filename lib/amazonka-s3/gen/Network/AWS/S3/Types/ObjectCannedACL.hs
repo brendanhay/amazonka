@@ -13,72 +13,77 @@
 module Network.AWS.S3.Types.ObjectCannedACL
   ( ObjectCannedACL
       ( ObjectCannedACL',
-        OPrivate,
-        OPublicRead,
-        OPublicReadWrite,
-        OAuthenticatedRead,
-        OAWSExecRead,
-        OBucketOwnerRead,
-        OBucketOwnerFullControl
+        ObjectCannedACLOPrivate,
+        ObjectCannedACLOPublicRead,
+        ObjectCannedACLOPublicReadWrite,
+        ObjectCannedACLOAuthenticatedRead,
+        ObjectCannedACLOAwsExecRead,
+        ObjectCannedACLOBucketOwnerRead,
+        ObjectCannedACLOBucketOwnerFullControl,
+        fromObjectCannedACL
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
-newtype ObjectCannedACL = ObjectCannedACL' Lude.Text
+newtype ObjectCannedACL = ObjectCannedACL'
+  { fromObjectCannedACL ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern OPrivate :: ObjectCannedACL
-pattern OPrivate = ObjectCannedACL' "private"
+pattern ObjectCannedACLOPrivate :: ObjectCannedACL
+pattern ObjectCannedACLOPrivate = ObjectCannedACL' "private"
 
-pattern OPublicRead :: ObjectCannedACL
-pattern OPublicRead = ObjectCannedACL' "public-read"
+pattern ObjectCannedACLOPublicRead :: ObjectCannedACL
+pattern ObjectCannedACLOPublicRead = ObjectCannedACL' "public-read"
 
-pattern OPublicReadWrite :: ObjectCannedACL
-pattern OPublicReadWrite = ObjectCannedACL' "public-read-write"
+pattern ObjectCannedACLOPublicReadWrite :: ObjectCannedACL
+pattern ObjectCannedACLOPublicReadWrite = ObjectCannedACL' "public-read-write"
 
-pattern OAuthenticatedRead :: ObjectCannedACL
-pattern OAuthenticatedRead = ObjectCannedACL' "authenticated-read"
+pattern ObjectCannedACLOAuthenticatedRead :: ObjectCannedACL
+pattern ObjectCannedACLOAuthenticatedRead = ObjectCannedACL' "authenticated-read"
 
-pattern OAWSExecRead :: ObjectCannedACL
-pattern OAWSExecRead = ObjectCannedACL' "aws-exec-read"
+pattern ObjectCannedACLOAwsExecRead :: ObjectCannedACL
+pattern ObjectCannedACLOAwsExecRead = ObjectCannedACL' "aws-exec-read"
 
-pattern OBucketOwnerRead :: ObjectCannedACL
-pattern OBucketOwnerRead = ObjectCannedACL' "bucket-owner-read"
+pattern ObjectCannedACLOBucketOwnerRead :: ObjectCannedACL
+pattern ObjectCannedACLOBucketOwnerRead = ObjectCannedACL' "bucket-owner-read"
 
-pattern OBucketOwnerFullControl :: ObjectCannedACL
-pattern OBucketOwnerFullControl = ObjectCannedACL' "bucket-owner-full-control"
+pattern ObjectCannedACLOBucketOwnerFullControl :: ObjectCannedACL
+pattern ObjectCannedACLOBucketOwnerFullControl = ObjectCannedACL' "bucket-owner-full-control"
 
 {-# COMPLETE
-  OPrivate,
-  OPublicRead,
-  OPublicReadWrite,
-  OAuthenticatedRead,
-  OAWSExecRead,
-  OBucketOwnerRead,
-  OBucketOwnerFullControl,
+  ObjectCannedACLOPrivate,
+  ObjectCannedACLOPublicRead,
+  ObjectCannedACLOPublicReadWrite,
+  ObjectCannedACLOAuthenticatedRead,
+  ObjectCannedACLOAwsExecRead,
+  ObjectCannedACLOBucketOwnerRead,
+  ObjectCannedACLOBucketOwnerFullControl,
   ObjectCannedACL'
   #-}

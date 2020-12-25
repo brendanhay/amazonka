@@ -27,103 +27,90 @@ module Network.AWS.Config.DeleteEvaluationResults
     mkDeleteEvaluationResultsResponse,
 
     -- ** Response lenses
-    derrsResponseStatus,
+    derrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDeleteEvaluationResults' smart constructor.
 newtype DeleteEvaluationResults = DeleteEvaluationResults'
   { -- | The name of the AWS Config rule for which you want to delete the evaluation results.
-    configRuleName :: Lude.Text
+    configRuleName :: Types.StringWithCharLimit64
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEvaluationResults' with the minimum fields required to make a request.
---
--- * 'configRuleName' - The name of the AWS Config rule for which you want to delete the evaluation results.
+-- | Creates a 'DeleteEvaluationResults' value with any optional fields omitted.
 mkDeleteEvaluationResults ::
   -- | 'configRuleName'
-  Lude.Text ->
+  Types.StringWithCharLimit64 ->
   DeleteEvaluationResults
-mkDeleteEvaluationResults pConfigRuleName_ =
-  DeleteEvaluationResults' {configRuleName = pConfigRuleName_}
+mkDeleteEvaluationResults configRuleName =
+  DeleteEvaluationResults' {configRuleName}
 
 -- | The name of the AWS Config rule for which you want to delete the evaluation results.
 --
 -- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derConfigRuleName :: Lens.Lens' DeleteEvaluationResults Lude.Text
-derConfigRuleName = Lens.lens (configRuleName :: DeleteEvaluationResults -> Lude.Text) (\s a -> s {configRuleName = a} :: DeleteEvaluationResults)
+derConfigRuleName :: Lens.Lens' DeleteEvaluationResults Types.StringWithCharLimit64
+derConfigRuleName = Lens.field @"configRuleName"
 {-# DEPRECATED derConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
-instance Lude.AWSRequest DeleteEvaluationResults where
+instance Core.FromJSON DeleteEvaluationResults where
+  toJSON DeleteEvaluationResults {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ConfigRuleName" Core..= configRuleName)]
+      )
+
+instance Core.AWSRequest DeleteEvaluationResults where
   type Rs DeleteEvaluationResults = DeleteEvaluationResultsResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StarlingDoveService.DeleteEvaluationResults")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteEvaluationResultsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteEvaluationResults where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StarlingDoveService.DeleteEvaluationResults" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteEvaluationResults where
-  toJSON DeleteEvaluationResults' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ConfigRuleName" Lude..= configRuleName)]
-      )
-
-instance Lude.ToPath DeleteEvaluationResults where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteEvaluationResults where
-  toQuery = Lude.const Lude.mempty
 
 -- | The output when you delete the evaluation results for the specified AWS Config rule.
 --
 -- /See:/ 'mkDeleteEvaluationResultsResponse' smart constructor.
 newtype DeleteEvaluationResultsResponse = DeleteEvaluationResultsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEvaluationResultsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteEvaluationResultsResponse' value with any optional fields omitted.
 mkDeleteEvaluationResultsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteEvaluationResultsResponse
-mkDeleteEvaluationResultsResponse pResponseStatus_ =
-  DeleteEvaluationResultsResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteEvaluationResultsResponse responseStatus =
+  DeleteEvaluationResultsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-derrsResponseStatus :: Lens.Lens' DeleteEvaluationResultsResponse Lude.Int
-derrsResponseStatus = Lens.lens (responseStatus :: DeleteEvaluationResultsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteEvaluationResultsResponse)
-{-# DEPRECATED derrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+derrrsResponseStatus :: Lens.Lens' DeleteEvaluationResultsResponse Core.Int
+derrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED derrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

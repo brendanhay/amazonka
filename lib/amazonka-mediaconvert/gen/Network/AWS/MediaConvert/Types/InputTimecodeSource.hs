@@ -13,52 +13,57 @@
 module Network.AWS.MediaConvert.Types.InputTimecodeSource
   ( InputTimecodeSource
       ( InputTimecodeSource',
-        Embedded,
-        Zerobased,
-        Specifiedstart
+        InputTimecodeSourceEmbedded,
+        InputTimecodeSourceZerobased,
+        InputTimecodeSourceSpecifiedstart,
+        fromInputTimecodeSource
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use this Timecode source setting, located under the input settings (InputTimecodeSource), to specify how the service counts input video frames. This input frame count affects only the behavior of features that apply to a single input at a time, such as input clipping and synchronizing some captions formats. Choose Embedded (EMBEDDED) to use the timecodes in your input video. Choose Start at zero (ZEROBASED) to start the first frame at zero. Choose Specified start (SPECIFIEDSTART) to start the first frame at the timecode that you specify in the setting Start timecode (timecodeStart). If you don't specify a value for Timecode source, the service will use Embedded by default. For more information about timecodes, see https://docs.aws.amazon.com/console/mediaconvert/timecode.
-newtype InputTimecodeSource = InputTimecodeSource' Lude.Text
+newtype InputTimecodeSource = InputTimecodeSource'
+  { fromInputTimecodeSource ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Embedded :: InputTimecodeSource
-pattern Embedded = InputTimecodeSource' "EMBEDDED"
+pattern InputTimecodeSourceEmbedded :: InputTimecodeSource
+pattern InputTimecodeSourceEmbedded = InputTimecodeSource' "EMBEDDED"
 
-pattern Zerobased :: InputTimecodeSource
-pattern Zerobased = InputTimecodeSource' "ZEROBASED"
+pattern InputTimecodeSourceZerobased :: InputTimecodeSource
+pattern InputTimecodeSourceZerobased = InputTimecodeSource' "ZEROBASED"
 
-pattern Specifiedstart :: InputTimecodeSource
-pattern Specifiedstart = InputTimecodeSource' "SPECIFIEDSTART"
+pattern InputTimecodeSourceSpecifiedstart :: InputTimecodeSource
+pattern InputTimecodeSourceSpecifiedstart = InputTimecodeSource' "SPECIFIEDSTART"
 
 {-# COMPLETE
-  Embedded,
-  Zerobased,
-  Specifiedstart,
+  InputTimecodeSourceEmbedded,
+  InputTimecodeSourceZerobased,
+  InputTimecodeSourceSpecifiedstart,
   InputTimecodeSource'
   #-}

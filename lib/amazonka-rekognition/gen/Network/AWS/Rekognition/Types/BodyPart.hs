@@ -13,56 +13,58 @@
 module Network.AWS.Rekognition.Types.BodyPart
   ( BodyPart
       ( BodyPart',
-        Face,
-        Head,
-        LeftHand,
-        RightHand
+        BodyPartFace,
+        BodyPartHead,
+        BodyPartLeftHand,
+        BodyPartRightHand,
+        fromBodyPart
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BodyPart = BodyPart' Lude.Text
+newtype BodyPart = BodyPart' {fromBodyPart :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Face :: BodyPart
-pattern Face = BodyPart' "FACE"
+pattern BodyPartFace :: BodyPart
+pattern BodyPartFace = BodyPart' "FACE"
 
-pattern Head :: BodyPart
-pattern Head = BodyPart' "HEAD"
+pattern BodyPartHead :: BodyPart
+pattern BodyPartHead = BodyPart' "HEAD"
 
-pattern LeftHand :: BodyPart
-pattern LeftHand = BodyPart' "LEFT_HAND"
+pattern BodyPartLeftHand :: BodyPart
+pattern BodyPartLeftHand = BodyPart' "LEFT_HAND"
 
-pattern RightHand :: BodyPart
-pattern RightHand = BodyPart' "RIGHT_HAND"
+pattern BodyPartRightHand :: BodyPart
+pattern BodyPartRightHand = BodyPart' "RIGHT_HAND"
 
 {-# COMPLETE
-  Face,
-  Head,
-  LeftHand,
-  RightHand,
+  BodyPartFace,
+  BodyPartHead,
+  BodyPartLeftHand,
+  BodyPartRightHand,
   BodyPart'
   #-}

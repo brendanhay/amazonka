@@ -23,73 +23,71 @@ module Network.AWS.RDS.DeleteInstallationMedia
     dInstallationMediaId,
 
     -- * Destructuring the response
-    InstallationMedia (..),
-    mkInstallationMedia,
+    Types.InstallationMedia (..),
+    Types.mkInstallationMedia,
 
     -- ** Response lenses
-    imEngineVersion,
-    imStatus,
-    imInstallationMediaId,
-    imEngineInstallationMediaPath,
-    imEngine,
-    imOSInstallationMediaPath,
-    imCustomAvailabilityZoneId,
-    imFailureCause,
+    Types.imCustomAvailabilityZoneId,
+    Types.imEngine,
+    Types.imEngineInstallationMediaPath,
+    Types.imEngineVersion,
+    Types.imFailureCause,
+    Types.imInstallationMediaId,
+    Types.imOSInstallationMediaPath,
+    Types.imStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteInstallationMedia' smart constructor.
 newtype DeleteInstallationMedia = DeleteInstallationMedia'
   { -- | The installation medium ID.
-    installationMediaId :: Lude.Text
+    installationMediaId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteInstallationMedia' with the minimum fields required to make a request.
---
--- * 'installationMediaId' - The installation medium ID.
+-- | Creates a 'DeleteInstallationMedia' value with any optional fields omitted.
 mkDeleteInstallationMedia ::
   -- | 'installationMediaId'
-  Lude.Text ->
+  Types.String ->
   DeleteInstallationMedia
-mkDeleteInstallationMedia pInstallationMediaId_ =
-  DeleteInstallationMedia'
-    { installationMediaId =
-        pInstallationMediaId_
-    }
+mkDeleteInstallationMedia installationMediaId =
+  DeleteInstallationMedia' {installationMediaId}
 
 -- | The installation medium ID.
 --
 -- /Note:/ Consider using 'installationMediaId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dInstallationMediaId :: Lens.Lens' DeleteInstallationMedia Lude.Text
-dInstallationMediaId = Lens.lens (installationMediaId :: DeleteInstallationMedia -> Lude.Text) (\s a -> s {installationMediaId = a} :: DeleteInstallationMedia)
+dInstallationMediaId :: Lens.Lens' DeleteInstallationMedia Types.String
+dInstallationMediaId = Lens.field @"installationMediaId"
 {-# DEPRECATED dInstallationMediaId "Use generic-lens or generic-optics with 'installationMediaId' instead." #-}
 
-instance Lude.AWSRequest DeleteInstallationMedia where
-  type Rs DeleteInstallationMedia = InstallationMedia
-  request = Req.postQuery rdsService
+instance Core.AWSRequest DeleteInstallationMedia where
+  type Rs DeleteInstallationMedia = Types.InstallationMedia
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteInstallationMedia")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> (Core.toQueryValue "InstallationMediaId" installationMediaId)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteInstallationMediaResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders DeleteInstallationMedia where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteInstallationMedia where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteInstallationMedia where
-  toQuery DeleteInstallationMedia' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteInstallationMedia" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "InstallationMediaId" Lude.=: installationMediaId
-      ]
+      (\s h x -> Core.parseXML x)

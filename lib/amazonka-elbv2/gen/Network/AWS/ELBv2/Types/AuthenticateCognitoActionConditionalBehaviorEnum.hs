@@ -13,51 +13,56 @@
 module Network.AWS.ELBv2.Types.AuthenticateCognitoActionConditionalBehaviorEnum
   ( AuthenticateCognitoActionConditionalBehaviorEnum
       ( AuthenticateCognitoActionConditionalBehaviorEnum',
-        Deny,
-        Allow,
-        Authenticate
+        AuthenticateCognitoActionConditionalBehaviorEnumDeny,
+        AuthenticateCognitoActionConditionalBehaviorEnumAllow,
+        AuthenticateCognitoActionConditionalBehaviorEnumAuthenticate,
+        fromAuthenticateCognitoActionConditionalBehaviorEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuthenticateCognitoActionConditionalBehaviorEnum = AuthenticateCognitoActionConditionalBehaviorEnum' Lude.Text
+newtype AuthenticateCognitoActionConditionalBehaviorEnum = AuthenticateCognitoActionConditionalBehaviorEnum'
+  { fromAuthenticateCognitoActionConditionalBehaviorEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Deny :: AuthenticateCognitoActionConditionalBehaviorEnum
-pattern Deny = AuthenticateCognitoActionConditionalBehaviorEnum' "deny"
+pattern AuthenticateCognitoActionConditionalBehaviorEnumDeny :: AuthenticateCognitoActionConditionalBehaviorEnum
+pattern AuthenticateCognitoActionConditionalBehaviorEnumDeny = AuthenticateCognitoActionConditionalBehaviorEnum' "deny"
 
-pattern Allow :: AuthenticateCognitoActionConditionalBehaviorEnum
-pattern Allow = AuthenticateCognitoActionConditionalBehaviorEnum' "allow"
+pattern AuthenticateCognitoActionConditionalBehaviorEnumAllow :: AuthenticateCognitoActionConditionalBehaviorEnum
+pattern AuthenticateCognitoActionConditionalBehaviorEnumAllow = AuthenticateCognitoActionConditionalBehaviorEnum' "allow"
 
-pattern Authenticate :: AuthenticateCognitoActionConditionalBehaviorEnum
-pattern Authenticate = AuthenticateCognitoActionConditionalBehaviorEnum' "authenticate"
+pattern AuthenticateCognitoActionConditionalBehaviorEnumAuthenticate :: AuthenticateCognitoActionConditionalBehaviorEnum
+pattern AuthenticateCognitoActionConditionalBehaviorEnumAuthenticate = AuthenticateCognitoActionConditionalBehaviorEnum' "authenticate"
 
 {-# COMPLETE
-  Deny,
-  Allow,
-  Authenticate,
+  AuthenticateCognitoActionConditionalBehaviorEnumDeny,
+  AuthenticateCognitoActionConditionalBehaviorEnumAllow,
+  AuthenticateCognitoActionConditionalBehaviorEnumAuthenticate,
   AuthenticateCognitoActionConditionalBehaviorEnum'
   #-}

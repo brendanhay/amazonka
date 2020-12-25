@@ -17,84 +17,78 @@ module Network.AWS.MediaLive.Types.UdpGroupSettings
     mkUdpGroupSettings,
 
     -- * Lenses
-    ugsTimedMetadataId3Period,
     ugsInputLossAction,
     ugsTimedMetadataId3Frame,
+    ugsTimedMetadataId3Period,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.InputLossActionForUdpOut
-import Network.AWS.MediaLive.Types.UdpTimedMetadataId3Frame
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.InputLossActionForUdpOut as Types
+import qualified Network.AWS.MediaLive.Types.UdpTimedMetadataId3Frame as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Udp Group Settings
 --
 -- /See:/ 'mkUdpGroupSettings' smart constructor.
 data UdpGroupSettings = UdpGroupSettings'
-  { -- | Timed Metadata interval in seconds.
-    timedMetadataId3Period :: Lude.Maybe Lude.Natural,
-    -- | Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
-    inputLossAction :: Lude.Maybe InputLossActionForUdpOut,
+  { -- | Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
+    inputLossAction :: Core.Maybe Types.InputLossActionForUdpOut,
     -- | Indicates ID3 frame that has the timecode.
-    timedMetadataId3Frame :: Lude.Maybe UdpTimedMetadataId3Frame
+    timedMetadataId3Frame :: Core.Maybe Types.UdpTimedMetadataId3Frame,
+    -- | Timed Metadata interval in seconds.
+    timedMetadataId3Period :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UdpGroupSettings' with the minimum fields required to make a request.
---
--- * 'timedMetadataId3Period' - Timed Metadata interval in seconds.
--- * 'inputLossAction' - Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
--- * 'timedMetadataId3Frame' - Indicates ID3 frame that has the timecode.
+-- | Creates a 'UdpGroupSettings' value with any optional fields omitted.
 mkUdpGroupSettings ::
   UdpGroupSettings
 mkUdpGroupSettings =
   UdpGroupSettings'
-    { timedMetadataId3Period = Lude.Nothing,
-      inputLossAction = Lude.Nothing,
-      timedMetadataId3Frame = Lude.Nothing
+    { inputLossAction = Core.Nothing,
+      timedMetadataId3Frame = Core.Nothing,
+      timedMetadataId3Period = Core.Nothing
     }
-
--- | Timed Metadata interval in seconds.
---
--- /Note:/ Consider using 'timedMetadataId3Period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugsTimedMetadataId3Period :: Lens.Lens' UdpGroupSettings (Lude.Maybe Lude.Natural)
-ugsTimedMetadataId3Period = Lens.lens (timedMetadataId3Period :: UdpGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {timedMetadataId3Period = a} :: UdpGroupSettings)
-{-# DEPRECATED ugsTimedMetadataId3Period "Use generic-lens or generic-optics with 'timedMetadataId3Period' instead." #-}
 
 -- | Specifies behavior of last resort when input video is lost, and no more backup inputs are available. When dropTs is selected the entire transport stream will stop being emitted.  When dropProgram is selected the program can be dropped from the transport stream (and replaced with null packets to meet the TS bitrate requirement).  Or, when emitProgram is chosen the transport stream will continue to be produced normally with repeat frames, black frames, or slate frames substituted for the absent input video.
 --
 -- /Note:/ Consider using 'inputLossAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugsInputLossAction :: Lens.Lens' UdpGroupSettings (Lude.Maybe InputLossActionForUdpOut)
-ugsInputLossAction = Lens.lens (inputLossAction :: UdpGroupSettings -> Lude.Maybe InputLossActionForUdpOut) (\s a -> s {inputLossAction = a} :: UdpGroupSettings)
+ugsInputLossAction :: Lens.Lens' UdpGroupSettings (Core.Maybe Types.InputLossActionForUdpOut)
+ugsInputLossAction = Lens.field @"inputLossAction"
 {-# DEPRECATED ugsInputLossAction "Use generic-lens or generic-optics with 'inputLossAction' instead." #-}
 
 -- | Indicates ID3 frame that has the timecode.
 --
 -- /Note:/ Consider using 'timedMetadataId3Frame' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ugsTimedMetadataId3Frame :: Lens.Lens' UdpGroupSettings (Lude.Maybe UdpTimedMetadataId3Frame)
-ugsTimedMetadataId3Frame = Lens.lens (timedMetadataId3Frame :: UdpGroupSettings -> Lude.Maybe UdpTimedMetadataId3Frame) (\s a -> s {timedMetadataId3Frame = a} :: UdpGroupSettings)
+ugsTimedMetadataId3Frame :: Lens.Lens' UdpGroupSettings (Core.Maybe Types.UdpTimedMetadataId3Frame)
+ugsTimedMetadataId3Frame = Lens.field @"timedMetadataId3Frame"
 {-# DEPRECATED ugsTimedMetadataId3Frame "Use generic-lens or generic-optics with 'timedMetadataId3Frame' instead." #-}
 
-instance Lude.FromJSON UdpGroupSettings where
-  parseJSON =
-    Lude.withObject
-      "UdpGroupSettings"
-      ( \x ->
-          UdpGroupSettings'
-            Lude.<$> (x Lude..:? "timedMetadataId3Period")
-            Lude.<*> (x Lude..:? "inputLossAction")
-            Lude.<*> (x Lude..:? "timedMetadataId3Frame")
-      )
+-- | Timed Metadata interval in seconds.
+--
+-- /Note:/ Consider using 'timedMetadataId3Period' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ugsTimedMetadataId3Period :: Lens.Lens' UdpGroupSettings (Core.Maybe Core.Natural)
+ugsTimedMetadataId3Period = Lens.field @"timedMetadataId3Period"
+{-# DEPRECATED ugsTimedMetadataId3Period "Use generic-lens or generic-optics with 'timedMetadataId3Period' instead." #-}
 
-instance Lude.ToJSON UdpGroupSettings where
-  toJSON UdpGroupSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("timedMetadataId3Period" Lude..=)
-              Lude.<$> timedMetadataId3Period,
-            ("inputLossAction" Lude..=) Lude.<$> inputLossAction,
-            ("timedMetadataId3Frame" Lude..=) Lude.<$> timedMetadataId3Frame
+instance Core.FromJSON UdpGroupSettings where
+  toJSON UdpGroupSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("inputLossAction" Core..=) Core.<$> inputLossAction,
+            ("timedMetadataId3Frame" Core..=) Core.<$> timedMetadataId3Frame,
+            ("timedMetadataId3Period" Core..=)
+              Core.<$> timedMetadataId3Period
           ]
       )
+
+instance Core.FromJSON UdpGroupSettings where
+  parseJSON =
+    Core.withObject "UdpGroupSettings" Core.$
+      \x ->
+        UdpGroupSettings'
+          Core.<$> (x Core..:? "inputLossAction")
+          Core.<*> (x Core..:? "timedMetadataId3Frame")
+          Core.<*> (x Core..:? "timedMetadataId3Period")

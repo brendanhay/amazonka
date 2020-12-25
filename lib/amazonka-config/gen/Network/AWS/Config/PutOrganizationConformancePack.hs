@@ -23,215 +23,195 @@ module Network.AWS.Config.PutOrganizationConformancePack
     mkPutOrganizationConformancePack,
 
     -- ** Request lenses
-    pocpDeliveryS3Bucket,
     pocpOrganizationConformancePackName,
-    pocpDeliveryS3KeyPrefix,
-    pocpTemplateS3URI,
     pocpConformancePackInputParameters,
+    pocpDeliveryS3Bucket,
+    pocpDeliveryS3KeyPrefix,
     pocpExcludedAccounts,
     pocpTemplateBody,
+    pocpTemplateS3Uri,
 
     -- * Destructuring the response
     PutOrganizationConformancePackResponse (..),
     mkPutOrganizationConformancePackResponse,
 
     -- ** Response lenses
-    pocprsOrganizationConformancePackARN,
-    pocprsResponseStatus,
+    pocprrsOrganizationConformancePackArn,
+    pocprrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutOrganizationConformancePack' smart constructor.
 data PutOrganizationConformancePack = PutOrganizationConformancePack'
-  { -- | Location of an Amazon S3 bucket where AWS Config can deliver evaluation results. AWS Config stores intermediate files while processing conformance pack template.
+  { -- | Name of the organization conformance pack you want to create.
+    organizationConformancePackName :: Types.OrganizationConformancePackName,
+    -- | A list of @ConformancePackInputParameter@ objects.
+    conformancePackInputParameters :: Core.Maybe [Types.ConformancePackInputParameter],
+    -- | Location of an Amazon S3 bucket where AWS Config can deliver evaluation results. AWS Config stores intermediate files while processing conformance pack template.
     --
     -- The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*". For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html Permissions for cross account bucket access> .
-    deliveryS3Bucket :: Lude.Maybe Lude.Text,
-    -- | Name of the organization conformance pack you want to create.
-    organizationConformancePackName :: Lude.Text,
+    deliveryS3Bucket :: Core.Maybe Types.DeliveryS3Bucket,
     -- | The prefix for the Amazon S3 bucket.
-    deliveryS3KeyPrefix :: Lude.Maybe Lude.Text,
-    -- | Location of file containing the template body. The uri must point to the conformance pack template (max size: 300 KB).
-    templateS3URI :: Lude.Maybe Lude.Text,
-    -- | A list of @ConformancePackInputParameter@ objects.
-    conformancePackInputParameters :: Lude.Maybe [ConformancePackInputParameter],
+    deliveryS3KeyPrefix :: Core.Maybe Types.DeliveryS3KeyPrefix,
     -- | A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
-    excludedAccounts :: Lude.Maybe [Lude.Text],
+    excludedAccounts :: Core.Maybe [Types.AccountId],
     -- | A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
-    templateBody :: Lude.Maybe Lude.Text
+    templateBody :: Core.Maybe Types.TemplateBody,
+    -- | Location of file containing the template body. The uri must point to the conformance pack template (max size: 300 KB).
+    templateS3Uri :: Core.Maybe Types.TemplateS3Uri
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutOrganizationConformancePack' with the minimum fields required to make a request.
---
--- * 'deliveryS3Bucket' - Location of an Amazon S3 bucket where AWS Config can deliver evaluation results. AWS Config stores intermediate files while processing conformance pack template.
---
--- The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*". For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html Permissions for cross account bucket access> .
--- * 'organizationConformancePackName' - Name of the organization conformance pack you want to create.
--- * 'deliveryS3KeyPrefix' - The prefix for the Amazon S3 bucket.
--- * 'templateS3URI' - Location of file containing the template body. The uri must point to the conformance pack template (max size: 300 KB).
--- * 'conformancePackInputParameters' - A list of @ConformancePackInputParameter@ objects.
--- * 'excludedAccounts' - A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
--- * 'templateBody' - A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
+-- | Creates a 'PutOrganizationConformancePack' value with any optional fields omitted.
 mkPutOrganizationConformancePack ::
   -- | 'organizationConformancePackName'
-  Lude.Text ->
+  Types.OrganizationConformancePackName ->
   PutOrganizationConformancePack
-mkPutOrganizationConformancePack pOrganizationConformancePackName_ =
+mkPutOrganizationConformancePack organizationConformancePackName =
   PutOrganizationConformancePack'
-    { deliveryS3Bucket = Lude.Nothing,
-      organizationConformancePackName =
-        pOrganizationConformancePackName_,
-      deliveryS3KeyPrefix = Lude.Nothing,
-      templateS3URI = Lude.Nothing,
-      conformancePackInputParameters = Lude.Nothing,
-      excludedAccounts = Lude.Nothing,
-      templateBody = Lude.Nothing
+    { organizationConformancePackName,
+      conformancePackInputParameters = Core.Nothing,
+      deliveryS3Bucket = Core.Nothing,
+      deliveryS3KeyPrefix = Core.Nothing,
+      excludedAccounts = Core.Nothing,
+      templateBody = Core.Nothing,
+      templateS3Uri = Core.Nothing
     }
+
+-- | Name of the organization conformance pack you want to create.
+--
+-- /Note:/ Consider using 'organizationConformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pocpOrganizationConformancePackName :: Lens.Lens' PutOrganizationConformancePack Types.OrganizationConformancePackName
+pocpOrganizationConformancePackName = Lens.field @"organizationConformancePackName"
+{-# DEPRECATED pocpOrganizationConformancePackName "Use generic-lens or generic-optics with 'organizationConformancePackName' instead." #-}
+
+-- | A list of @ConformancePackInputParameter@ objects.
+--
+-- /Note:/ Consider using 'conformancePackInputParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pocpConformancePackInputParameters :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe [Types.ConformancePackInputParameter])
+pocpConformancePackInputParameters = Lens.field @"conformancePackInputParameters"
+{-# DEPRECATED pocpConformancePackInputParameters "Use generic-lens or generic-optics with 'conformancePackInputParameters' instead." #-}
 
 -- | Location of an Amazon S3 bucket where AWS Config can deliver evaluation results. AWS Config stores intermediate files while processing conformance pack template.
 --
 -- The delivery bucket name should start with awsconfigconforms. For example: "Resource": "arn:aws:s3:::your_bucket_name/*". For more information, see <https://docs.aws.amazon.com/config/latest/developerguide/conformance-pack-organization-apis.html Permissions for cross account bucket access> .
 --
 -- /Note:/ Consider using 'deliveryS3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocpDeliveryS3Bucket :: Lens.Lens' PutOrganizationConformancePack (Lude.Maybe Lude.Text)
-pocpDeliveryS3Bucket = Lens.lens (deliveryS3Bucket :: PutOrganizationConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {deliveryS3Bucket = a} :: PutOrganizationConformancePack)
+pocpDeliveryS3Bucket :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe Types.DeliveryS3Bucket)
+pocpDeliveryS3Bucket = Lens.field @"deliveryS3Bucket"
 {-# DEPRECATED pocpDeliveryS3Bucket "Use generic-lens or generic-optics with 'deliveryS3Bucket' instead." #-}
-
--- | Name of the organization conformance pack you want to create.
---
--- /Note:/ Consider using 'organizationConformancePackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocpOrganizationConformancePackName :: Lens.Lens' PutOrganizationConformancePack Lude.Text
-pocpOrganizationConformancePackName = Lens.lens (organizationConformancePackName :: PutOrganizationConformancePack -> Lude.Text) (\s a -> s {organizationConformancePackName = a} :: PutOrganizationConformancePack)
-{-# DEPRECATED pocpOrganizationConformancePackName "Use generic-lens or generic-optics with 'organizationConformancePackName' instead." #-}
 
 -- | The prefix for the Amazon S3 bucket.
 --
 -- /Note:/ Consider using 'deliveryS3KeyPrefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocpDeliveryS3KeyPrefix :: Lens.Lens' PutOrganizationConformancePack (Lude.Maybe Lude.Text)
-pocpDeliveryS3KeyPrefix = Lens.lens (deliveryS3KeyPrefix :: PutOrganizationConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {deliveryS3KeyPrefix = a} :: PutOrganizationConformancePack)
+pocpDeliveryS3KeyPrefix :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe Types.DeliveryS3KeyPrefix)
+pocpDeliveryS3KeyPrefix = Lens.field @"deliveryS3KeyPrefix"
 {-# DEPRECATED pocpDeliveryS3KeyPrefix "Use generic-lens or generic-optics with 'deliveryS3KeyPrefix' instead." #-}
-
--- | Location of file containing the template body. The uri must point to the conformance pack template (max size: 300 KB).
---
--- /Note:/ Consider using 'templateS3URI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocpTemplateS3URI :: Lens.Lens' PutOrganizationConformancePack (Lude.Maybe Lude.Text)
-pocpTemplateS3URI = Lens.lens (templateS3URI :: PutOrganizationConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {templateS3URI = a} :: PutOrganizationConformancePack)
-{-# DEPRECATED pocpTemplateS3URI "Use generic-lens or generic-optics with 'templateS3URI' instead." #-}
-
--- | A list of @ConformancePackInputParameter@ objects.
---
--- /Note:/ Consider using 'conformancePackInputParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocpConformancePackInputParameters :: Lens.Lens' PutOrganizationConformancePack (Lude.Maybe [ConformancePackInputParameter])
-pocpConformancePackInputParameters = Lens.lens (conformancePackInputParameters :: PutOrganizationConformancePack -> Lude.Maybe [ConformancePackInputParameter]) (\s a -> s {conformancePackInputParameters = a} :: PutOrganizationConformancePack)
-{-# DEPRECATED pocpConformancePackInputParameters "Use generic-lens or generic-optics with 'conformancePackInputParameters' instead." #-}
 
 -- | A list of AWS accounts to be excluded from an organization conformance pack while deploying a conformance pack.
 --
 -- /Note:/ Consider using 'excludedAccounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocpExcludedAccounts :: Lens.Lens' PutOrganizationConformancePack (Lude.Maybe [Lude.Text])
-pocpExcludedAccounts = Lens.lens (excludedAccounts :: PutOrganizationConformancePack -> Lude.Maybe [Lude.Text]) (\s a -> s {excludedAccounts = a} :: PutOrganizationConformancePack)
+pocpExcludedAccounts :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe [Types.AccountId])
+pocpExcludedAccounts = Lens.field @"excludedAccounts"
 {-# DEPRECATED pocpExcludedAccounts "Use generic-lens or generic-optics with 'excludedAccounts' instead." #-}
 
 -- | A string containing full conformance pack template body. Structure containing the template body with a minimum length of 1 byte and a maximum length of 51,200 bytes.
 --
 -- /Note:/ Consider using 'templateBody' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocpTemplateBody :: Lens.Lens' PutOrganizationConformancePack (Lude.Maybe Lude.Text)
-pocpTemplateBody = Lens.lens (templateBody :: PutOrganizationConformancePack -> Lude.Maybe Lude.Text) (\s a -> s {templateBody = a} :: PutOrganizationConformancePack)
+pocpTemplateBody :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe Types.TemplateBody)
+pocpTemplateBody = Lens.field @"templateBody"
 {-# DEPRECATED pocpTemplateBody "Use generic-lens or generic-optics with 'templateBody' instead." #-}
 
-instance Lude.AWSRequest PutOrganizationConformancePack where
+-- | Location of file containing the template body. The uri must point to the conformance pack template (max size: 300 KB).
+--
+-- /Note:/ Consider using 'templateS3Uri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pocpTemplateS3Uri :: Lens.Lens' PutOrganizationConformancePack (Core.Maybe Types.TemplateS3Uri)
+pocpTemplateS3Uri = Lens.field @"templateS3Uri"
+{-# DEPRECATED pocpTemplateS3Uri "Use generic-lens or generic-optics with 'templateS3Uri' instead." #-}
+
+instance Core.FromJSON PutOrganizationConformancePack where
+  toJSON PutOrganizationConformancePack {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ( "OrganizationConformancePackName"
+                  Core..= organizationConformancePackName
+              ),
+            ("ConformancePackInputParameters" Core..=)
+              Core.<$> conformancePackInputParameters,
+            ("DeliveryS3Bucket" Core..=) Core.<$> deliveryS3Bucket,
+            ("DeliveryS3KeyPrefix" Core..=) Core.<$> deliveryS3KeyPrefix,
+            ("ExcludedAccounts" Core..=) Core.<$> excludedAccounts,
+            ("TemplateBody" Core..=) Core.<$> templateBody,
+            ("TemplateS3Uri" Core..=) Core.<$> templateS3Uri
+          ]
+      )
+
+instance Core.AWSRequest PutOrganizationConformancePack where
   type
     Rs PutOrganizationConformancePack =
       PutOrganizationConformancePackResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.PutOrganizationConformancePack"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutOrganizationConformancePackResponse'
-            Lude.<$> (x Lude..?> "OrganizationConformancePackArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "OrganizationConformancePackArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutOrganizationConformancePack where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.PutOrganizationConformancePack" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutOrganizationConformancePack where
-  toJSON PutOrganizationConformancePack' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DeliveryS3Bucket" Lude..=) Lude.<$> deliveryS3Bucket,
-            Lude.Just
-              ( "OrganizationConformancePackName"
-                  Lude..= organizationConformancePackName
-              ),
-            ("DeliveryS3KeyPrefix" Lude..=) Lude.<$> deliveryS3KeyPrefix,
-            ("TemplateS3Uri" Lude..=) Lude.<$> templateS3URI,
-            ("ConformancePackInputParameters" Lude..=)
-              Lude.<$> conformancePackInputParameters,
-            ("ExcludedAccounts" Lude..=) Lude.<$> excludedAccounts,
-            ("TemplateBody" Lude..=) Lude.<$> templateBody
-          ]
-      )
-
-instance Lude.ToPath PutOrganizationConformancePack where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutOrganizationConformancePack where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutOrganizationConformancePackResponse' smart constructor.
 data PutOrganizationConformancePackResponse = PutOrganizationConformancePackResponse'
   { -- | ARN of the organization conformance pack.
-    organizationConformancePackARN :: Lude.Maybe Lude.Text,
+    organizationConformancePackArn :: Core.Maybe Types.StringWithCharLimit256,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutOrganizationConformancePackResponse' with the minimum fields required to make a request.
---
--- * 'organizationConformancePackARN' - ARN of the organization conformance pack.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutOrganizationConformancePackResponse' value with any optional fields omitted.
 mkPutOrganizationConformancePackResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutOrganizationConformancePackResponse
-mkPutOrganizationConformancePackResponse pResponseStatus_ =
+mkPutOrganizationConformancePackResponse responseStatus =
   PutOrganizationConformancePackResponse'
-    { organizationConformancePackARN =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { organizationConformancePackArn =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | ARN of the organization conformance pack.
 --
--- /Note:/ Consider using 'organizationConformancePackARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocprsOrganizationConformancePackARN :: Lens.Lens' PutOrganizationConformancePackResponse (Lude.Maybe Lude.Text)
-pocprsOrganizationConformancePackARN = Lens.lens (organizationConformancePackARN :: PutOrganizationConformancePackResponse -> Lude.Maybe Lude.Text) (\s a -> s {organizationConformancePackARN = a} :: PutOrganizationConformancePackResponse)
-{-# DEPRECATED pocprsOrganizationConformancePackARN "Use generic-lens or generic-optics with 'organizationConformancePackARN' instead." #-}
+-- /Note:/ Consider using 'organizationConformancePackArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pocprrsOrganizationConformancePackArn :: Lens.Lens' PutOrganizationConformancePackResponse (Core.Maybe Types.StringWithCharLimit256)
+pocprrsOrganizationConformancePackArn = Lens.field @"organizationConformancePackArn"
+{-# DEPRECATED pocprrsOrganizationConformancePackArn "Use generic-lens or generic-optics with 'organizationConformancePackArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pocprsResponseStatus :: Lens.Lens' PutOrganizationConformancePackResponse Lude.Int
-pocprsResponseStatus = Lens.lens (responseStatus :: PutOrganizationConformancePackResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutOrganizationConformancePackResponse)
-{-# DEPRECATED pocprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pocprrsResponseStatus :: Lens.Lens' PutOrganizationConformancePackResponse Core.Int
+pocprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pocprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,201 +17,186 @@ module Network.AWS.Pinpoint.Types.VoiceTemplateResponse
     mkVoiceTemplateResponse,
 
     -- * Lenses
-    vtTemplateName,
-    vtLastModifiedDate,
-    vtLanguageCode,
-    vtARN,
-    vtTemplateType,
-    vtBody,
-    vtTemplateDescription,
-    vtDefaultSubstitutions,
-    vtVersion,
-    vtCreationDate,
-    vtVoiceId,
-    vtTags,
+    vLastModifiedDate,
+    vCreationDate,
+    vTemplateName,
+    vTemplateType,
+    vArn,
+    vBody,
+    vDefaultSubstitutions,
+    vLanguageCode,
+    vTemplateDescription,
+    vVersion,
+    vVoiceId,
+    vTags,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.TemplateType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.TemplateType as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the content and settings for a message template that can be used in messages that are sent through the voice channel.
 --
 -- /See:/ 'mkVoiceTemplateResponse' smart constructor.
 data VoiceTemplateResponse = VoiceTemplateResponse'
-  { -- | The name of the message template.
-    templateName :: Lude.Text,
-    -- | The date, in ISO 8601 format, when the message template was last modified.
-    lastModifiedDate :: Lude.Text,
-    -- | The code for the language that's used when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
-    languageCode :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the message template.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The type of channel that the message template is designed for. For a voice template, this value is VOICE.
-    templateType :: TemplateType,
-    -- | The text of the script that's used in messages that are based on the message template, in plain text format.
-    body :: Lude.Maybe Lude.Text,
-    -- | The custom description of the message template.
-    templateDescription :: Lude.Maybe Lude.Text,
-    -- | The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
-    defaultSubstitutions :: Lude.Maybe Lude.Text,
-    -- | The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
-    version :: Lude.Maybe Lude.Text,
+  { -- | The date, in ISO 8601 format, when the message template was last modified.
+    lastModifiedDate :: Core.Text,
     -- | The date, in ISO 8601 format, when the message template was created.
-    creationDate :: Lude.Text,
+    creationDate :: Core.Text,
+    -- | The name of the message template.
+    templateName :: Core.Text,
+    -- | The type of channel that the message template is designed for. For a voice template, this value is VOICE.
+    templateType :: Types.TemplateType,
+    -- | The Amazon Resource Name (ARN) of the message template.
+    arn :: Core.Maybe Core.Text,
+    -- | The text of the script that's used in messages that are based on the message template, in plain text format.
+    body :: Core.Maybe Core.Text,
+    -- | The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
+    defaultSubstitutions :: Core.Maybe Core.Text,
+    -- | The code for the language that's used when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
+    languageCode :: Core.Maybe Core.Text,
+    -- | The custom description of the message template.
+    templateDescription :: Core.Maybe Core.Text,
+    -- | The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
+    version :: Core.Maybe Core.Text,
     -- | The name of the voice that's used when delivering messages that are based on the message template. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
-    voiceId :: Lude.Maybe Lude.Text,
+    voiceId :: Core.Maybe Core.Text,
     -- | A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'VoiceTemplateResponse' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the message template.
--- * 'lastModifiedDate' - The date, in ISO 8601 format, when the message template was last modified.
--- * 'languageCode' - The code for the language that's used when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
--- * 'arn' - The Amazon Resource Name (ARN) of the message template.
--- * 'templateType' - The type of channel that the message template is designed for. For a voice template, this value is VOICE.
--- * 'body' - The text of the script that's used in messages that are based on the message template, in plain text format.
--- * 'templateDescription' - The custom description of the message template.
--- * 'defaultSubstitutions' - The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
--- * 'version' - The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
--- * 'creationDate' - The date, in ISO 8601 format, when the message template was created.
--- * 'voiceId' - The name of the voice that's used when delivering messages that are based on the message template. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
--- * 'tags' - A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.
+-- | Creates a 'VoiceTemplateResponse' value with any optional fields omitted.
 mkVoiceTemplateResponse ::
-  -- | 'templateName'
-  Lude.Text ->
   -- | 'lastModifiedDate'
-  Lude.Text ->
-  -- | 'templateType'
-  TemplateType ->
+  Core.Text ->
   -- | 'creationDate'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'templateName'
+  Core.Text ->
+  -- | 'templateType'
+  Types.TemplateType ->
   VoiceTemplateResponse
 mkVoiceTemplateResponse
-  pTemplateName_
-  pLastModifiedDate_
-  pTemplateType_
-  pCreationDate_ =
+  lastModifiedDate
+  creationDate
+  templateName
+  templateType =
     VoiceTemplateResponse'
-      { templateName = pTemplateName_,
-        lastModifiedDate = pLastModifiedDate_,
-        languageCode = Lude.Nothing,
-        arn = Lude.Nothing,
-        templateType = pTemplateType_,
-        body = Lude.Nothing,
-        templateDescription = Lude.Nothing,
-        defaultSubstitutions = Lude.Nothing,
-        version = Lude.Nothing,
-        creationDate = pCreationDate_,
-        voiceId = Lude.Nothing,
-        tags = Lude.Nothing
+      { lastModifiedDate,
+        creationDate,
+        templateName,
+        templateType,
+        arn = Core.Nothing,
+        body = Core.Nothing,
+        defaultSubstitutions = Core.Nothing,
+        languageCode = Core.Nothing,
+        templateDescription = Core.Nothing,
+        version = Core.Nothing,
+        voiceId = Core.Nothing,
+        tags = Core.Nothing
       }
-
--- | The name of the message template.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtTemplateName :: Lens.Lens' VoiceTemplateResponse Lude.Text
-vtTemplateName = Lens.lens (templateName :: VoiceTemplateResponse -> Lude.Text) (\s a -> s {templateName = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The date, in ISO 8601 format, when the message template was last modified.
 --
 -- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtLastModifiedDate :: Lens.Lens' VoiceTemplateResponse Lude.Text
-vtLastModifiedDate = Lens.lens (lastModifiedDate :: VoiceTemplateResponse -> Lude.Text) (\s a -> s {lastModifiedDate = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
-
--- | The code for the language that's used when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
---
--- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtLanguageCode :: Lens.Lens' VoiceTemplateResponse (Lude.Maybe Lude.Text)
-vtLanguageCode = Lens.lens (languageCode :: VoiceTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {languageCode = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the message template.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtARN :: Lens.Lens' VoiceTemplateResponse (Lude.Maybe Lude.Text)
-vtARN = Lens.lens (arn :: VoiceTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The type of channel that the message template is designed for. For a voice template, this value is VOICE.
---
--- /Note:/ Consider using 'templateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtTemplateType :: Lens.Lens' VoiceTemplateResponse TemplateType
-vtTemplateType = Lens.lens (templateType :: VoiceTemplateResponse -> TemplateType) (\s a -> s {templateType = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtTemplateType "Use generic-lens or generic-optics with 'templateType' instead." #-}
-
--- | The text of the script that's used in messages that are based on the message template, in plain text format.
---
--- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtBody :: Lens.Lens' VoiceTemplateResponse (Lude.Maybe Lude.Text)
-vtBody = Lens.lens (body :: VoiceTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {body = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtBody "Use generic-lens or generic-optics with 'body' instead." #-}
-
--- | The custom description of the message template.
---
--- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtTemplateDescription :: Lens.Lens' VoiceTemplateResponse (Lude.Maybe Lude.Text)
-vtTemplateDescription = Lens.lens (templateDescription :: VoiceTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {templateDescription = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
-
--- | The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
---
--- /Note:/ Consider using 'defaultSubstitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtDefaultSubstitutions :: Lens.Lens' VoiceTemplateResponse (Lude.Maybe Lude.Text)
-vtDefaultSubstitutions = Lens.lens (defaultSubstitutions :: VoiceTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {defaultSubstitutions = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtDefaultSubstitutions "Use generic-lens or generic-optics with 'defaultSubstitutions' instead." #-}
-
--- | The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtVersion :: Lens.Lens' VoiceTemplateResponse (Lude.Maybe Lude.Text)
-vtVersion = Lens.lens (version :: VoiceTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+vLastModifiedDate :: Lens.Lens' VoiceTemplateResponse Core.Text
+vLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED vLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | The date, in ISO 8601 format, when the message template was created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtCreationDate :: Lens.Lens' VoiceTemplateResponse Lude.Text
-vtCreationDate = Lens.lens (creationDate :: VoiceTemplateResponse -> Lude.Text) (\s a -> s {creationDate = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+vCreationDate :: Lens.Lens' VoiceTemplateResponse Core.Text
+vCreationDate = Lens.field @"creationDate"
+{-# DEPRECATED vCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
+
+-- | The name of the message template.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vTemplateName :: Lens.Lens' VoiceTemplateResponse Core.Text
+vTemplateName = Lens.field @"templateName"
+{-# DEPRECATED vTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
+
+-- | The type of channel that the message template is designed for. For a voice template, this value is VOICE.
+--
+-- /Note:/ Consider using 'templateType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vTemplateType :: Lens.Lens' VoiceTemplateResponse Types.TemplateType
+vTemplateType = Lens.field @"templateType"
+{-# DEPRECATED vTemplateType "Use generic-lens or generic-optics with 'templateType' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the message template.
+--
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vArn :: Lens.Lens' VoiceTemplateResponse (Core.Maybe Core.Text)
+vArn = Lens.field @"arn"
+{-# DEPRECATED vArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The text of the script that's used in messages that are based on the message template, in plain text format.
+--
+-- /Note:/ Consider using 'body' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vBody :: Lens.Lens' VoiceTemplateResponse (Core.Maybe Core.Text)
+vBody = Lens.field @"body"
+{-# DEPRECATED vBody "Use generic-lens or generic-optics with 'body' instead." #-}
+
+-- | The JSON object that specifies the default values that are used for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable.
+--
+-- /Note:/ Consider using 'defaultSubstitutions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vDefaultSubstitutions :: Lens.Lens' VoiceTemplateResponse (Core.Maybe Core.Text)
+vDefaultSubstitutions = Lens.field @"defaultSubstitutions"
+{-# DEPRECATED vDefaultSubstitutions "Use generic-lens or generic-optics with 'defaultSubstitutions' instead." #-}
+
+-- | The code for the language that's used when synthesizing the text of the script in messages that are based on the message template. For a list of supported languages and the code for each one, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
+--
+-- /Note:/ Consider using 'languageCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vLanguageCode :: Lens.Lens' VoiceTemplateResponse (Core.Maybe Core.Text)
+vLanguageCode = Lens.field @"languageCode"
+{-# DEPRECATED vLanguageCode "Use generic-lens or generic-optics with 'languageCode' instead." #-}
+
+-- | The custom description of the message template.
+--
+-- /Note:/ Consider using 'templateDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vTemplateDescription :: Lens.Lens' VoiceTemplateResponse (Core.Maybe Core.Text)
+vTemplateDescription = Lens.field @"templateDescription"
+{-# DEPRECATED vTemplateDescription "Use generic-lens or generic-optics with 'templateDescription' instead." #-}
+
+-- | The unique identifier, as an integer, for the active version of the message template, or the version of the template that you specified by using the version parameter in your request.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vVersion :: Lens.Lens' VoiceTemplateResponse (Core.Maybe Core.Text)
+vVersion = Lens.field @"version"
+{-# DEPRECATED vVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The name of the voice that's used when delivering messages that are based on the message template. For a list of supported voices, see the <https://docs.aws.amazon.com/polly/latest/dg/what-is.html Amazon Polly Developer Guide> .
 --
 -- /Note:/ Consider using 'voiceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtVoiceId :: Lens.Lens' VoiceTemplateResponse (Lude.Maybe Lude.Text)
-vtVoiceId = Lens.lens (voiceId :: VoiceTemplateResponse -> Lude.Maybe Lude.Text) (\s a -> s {voiceId = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtVoiceId "Use generic-lens or generic-optics with 'voiceId' instead." #-}
+vVoiceId :: Lens.Lens' VoiceTemplateResponse (Core.Maybe Core.Text)
+vVoiceId = Lens.field @"voiceId"
+{-# DEPRECATED vVoiceId "Use generic-lens or generic-optics with 'voiceId' instead." #-}
 
 -- | A string-to-string map of key-value pairs that identifies the tags that are associated with the message template. Each tag consists of a required tag key and an associated tag value.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vtTags :: Lens.Lens' VoiceTemplateResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-vtTags = Lens.lens (tags :: VoiceTemplateResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: VoiceTemplateResponse)
-{-# DEPRECATED vtTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+vTags :: Lens.Lens' VoiceTemplateResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+vTags = Lens.field @"tags"
+{-# DEPRECATED vTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON VoiceTemplateResponse where
+instance Core.FromJSON VoiceTemplateResponse where
   parseJSON =
-    Lude.withObject
-      "VoiceTemplateResponse"
-      ( \x ->
-          VoiceTemplateResponse'
-            Lude.<$> (x Lude..: "TemplateName")
-            Lude.<*> (x Lude..: "LastModifiedDate")
-            Lude.<*> (x Lude..:? "LanguageCode")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..: "TemplateType")
-            Lude.<*> (x Lude..:? "Body")
-            Lude.<*> (x Lude..:? "TemplateDescription")
-            Lude.<*> (x Lude..:? "DefaultSubstitutions")
-            Lude.<*> (x Lude..:? "Version")
-            Lude.<*> (x Lude..: "CreationDate")
-            Lude.<*> (x Lude..:? "VoiceId")
-            Lude.<*> (x Lude..:? "tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "VoiceTemplateResponse" Core.$
+      \x ->
+        VoiceTemplateResponse'
+          Core.<$> (x Core..: "LastModifiedDate")
+          Core.<*> (x Core..: "CreationDate")
+          Core.<*> (x Core..: "TemplateName")
+          Core.<*> (x Core..: "TemplateType")
+          Core.<*> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Body")
+          Core.<*> (x Core..:? "DefaultSubstitutions")
+          Core.<*> (x Core..:? "LanguageCode")
+          Core.<*> (x Core..:? "TemplateDescription")
+          Core.<*> (x Core..:? "Version")
+          Core.<*> (x Core..:? "VoiceId")
+          Core.<*> (x Core..:? "tags")

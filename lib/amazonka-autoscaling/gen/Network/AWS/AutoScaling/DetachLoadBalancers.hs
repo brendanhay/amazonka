@@ -23,111 +23,110 @@ module Network.AWS.AutoScaling.DetachLoadBalancers
     mkDetachLoadBalancers,
 
     -- ** Request lenses
-    dlbsAutoScalingGroupName,
-    dlbsLoadBalancerNames,
+    dAutoScalingGroupName,
+    dLoadBalancerNames,
 
     -- * Destructuring the response
     DetachLoadBalancersResponse (..),
     mkDetachLoadBalancersResponse,
 
     -- ** Response lenses
-    drsResponseStatus,
+    dlbrfrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetachLoadBalancers' smart constructor.
 data DetachLoadBalancers = DetachLoadBalancers'
   { -- | The name of the Auto Scaling group.
-    autoScalingGroupName :: Lude.Text,
+    autoScalingGroupName :: Types.ResourceName,
     -- | The names of the load balancers. You can specify up to 10 load balancers.
-    loadBalancerNames :: [Lude.Text]
+    loadBalancerNames :: [Types.XmlStringMaxLen255]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachLoadBalancers' with the minimum fields required to make a request.
---
--- * 'autoScalingGroupName' - The name of the Auto Scaling group.
--- * 'loadBalancerNames' - The names of the load balancers. You can specify up to 10 load balancers.
+-- | Creates a 'DetachLoadBalancers' value with any optional fields omitted.
 mkDetachLoadBalancers ::
   -- | 'autoScalingGroupName'
-  Lude.Text ->
+  Types.ResourceName ->
   DetachLoadBalancers
-mkDetachLoadBalancers pAutoScalingGroupName_ =
+mkDetachLoadBalancers autoScalingGroupName =
   DetachLoadBalancers'
-    { autoScalingGroupName =
-        pAutoScalingGroupName_,
-      loadBalancerNames = Lude.mempty
+    { autoScalingGroupName,
+      loadBalancerNames = Core.mempty
     }
 
 -- | The name of the Auto Scaling group.
 --
 -- /Note:/ Consider using 'autoScalingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbsAutoScalingGroupName :: Lens.Lens' DetachLoadBalancers Lude.Text
-dlbsAutoScalingGroupName = Lens.lens (autoScalingGroupName :: DetachLoadBalancers -> Lude.Text) (\s a -> s {autoScalingGroupName = a} :: DetachLoadBalancers)
-{-# DEPRECATED dlbsAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
+dAutoScalingGroupName :: Lens.Lens' DetachLoadBalancers Types.ResourceName
+dAutoScalingGroupName = Lens.field @"autoScalingGroupName"
+{-# DEPRECATED dAutoScalingGroupName "Use generic-lens or generic-optics with 'autoScalingGroupName' instead." #-}
 
 -- | The names of the load balancers. You can specify up to 10 load balancers.
 --
 -- /Note:/ Consider using 'loadBalancerNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbsLoadBalancerNames :: Lens.Lens' DetachLoadBalancers [Lude.Text]
-dlbsLoadBalancerNames = Lens.lens (loadBalancerNames :: DetachLoadBalancers -> [Lude.Text]) (\s a -> s {loadBalancerNames = a} :: DetachLoadBalancers)
-{-# DEPRECATED dlbsLoadBalancerNames "Use generic-lens or generic-optics with 'loadBalancerNames' instead." #-}
+dLoadBalancerNames :: Lens.Lens' DetachLoadBalancers [Types.XmlStringMaxLen255]
+dLoadBalancerNames = Lens.field @"loadBalancerNames"
+{-# DEPRECATED dLoadBalancerNames "Use generic-lens or generic-optics with 'loadBalancerNames' instead." #-}
 
-instance Lude.AWSRequest DetachLoadBalancers where
+instance Core.AWSRequest DetachLoadBalancers where
   type Rs DetachLoadBalancers = DetachLoadBalancersResponse
-  request = Req.postQuery autoScalingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DetachLoadBalancers")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+                Core.<> (Core.toQueryValue "AutoScalingGroupName" autoScalingGroupName)
+                Core.<> ( Core.toQueryValue
+                            "LoadBalancerNames"
+                            (Core.toQueryList "member" loadBalancerNames)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DetachLoadBalancersResult"
       ( \s h x ->
           DetachLoadBalancersResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DetachLoadBalancers where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DetachLoadBalancers where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DetachLoadBalancers where
-  toQuery DetachLoadBalancers' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DetachLoadBalancers" :: Lude.ByteString),
-        "Version" Lude.=: ("2011-01-01" :: Lude.ByteString),
-        "AutoScalingGroupName" Lude.=: autoScalingGroupName,
-        "LoadBalancerNames"
-          Lude.=: Lude.toQueryList "member" loadBalancerNames
-      ]
 
 -- | /See:/ 'mkDetachLoadBalancersResponse' smart constructor.
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachLoadBalancersResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetachLoadBalancersResponse' value with any optional fields omitted.
 mkDetachLoadBalancersResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetachLoadBalancersResponse
-mkDetachLoadBalancersResponse pResponseStatus_ =
-  DetachLoadBalancersResponse' {responseStatus = pResponseStatus_}
+mkDetachLoadBalancersResponse responseStatus =
+  DetachLoadBalancersResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DetachLoadBalancersResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DetachLoadBalancersResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachLoadBalancersResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlbrfrsResponseStatus :: Lens.Lens' DetachLoadBalancersResponse Core.Int
+dlbrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlbrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

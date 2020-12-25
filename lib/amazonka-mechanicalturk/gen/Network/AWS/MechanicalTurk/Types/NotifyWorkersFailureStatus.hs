@@ -17,73 +17,69 @@ module Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureStatus
     mkNotifyWorkersFailureStatus,
 
     -- * Lenses
-    nwfsNotifyWorkersFailureMessage,
     nwfsNotifyWorkersFailureCode,
+    nwfsNotifyWorkersFailureMessage,
     nwfsWorkerId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureCode
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureCode as Types
+import qualified Network.AWS.MechanicalTurk.Types.NotifyWorkersFailureMessage as Types
+import qualified Network.AWS.MechanicalTurk.Types.WorkerId as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | When MTurk encounters an issue with notifying the Workers you specified, it returns back this object with failure details.
 --
 -- /See:/ 'mkNotifyWorkersFailureStatus' smart constructor.
 data NotifyWorkersFailureStatus = NotifyWorkersFailureStatus'
-  { -- | A message detailing the reason the Worker could not be notified.
-    notifyWorkersFailureMessage :: Lude.Maybe Lude.Text,
-    -- | Encoded value for the failure type.
-    notifyWorkersFailureCode :: Lude.Maybe NotifyWorkersFailureCode,
+  { -- | Encoded value for the failure type.
+    notifyWorkersFailureCode :: Core.Maybe Types.NotifyWorkersFailureCode,
+    -- | A message detailing the reason the Worker could not be notified.
+    notifyWorkersFailureMessage :: Core.Maybe Types.NotifyWorkersFailureMessage,
     -- | The ID of the Worker.
-    workerId :: Lude.Maybe Lude.Text
+    workerId :: Core.Maybe Types.WorkerId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotifyWorkersFailureStatus' with the minimum fields required to make a request.
---
--- * 'notifyWorkersFailureMessage' - A message detailing the reason the Worker could not be notified.
--- * 'notifyWorkersFailureCode' - Encoded value for the failure type.
--- * 'workerId' - The ID of the Worker.
+-- | Creates a 'NotifyWorkersFailureStatus' value with any optional fields omitted.
 mkNotifyWorkersFailureStatus ::
   NotifyWorkersFailureStatus
 mkNotifyWorkersFailureStatus =
   NotifyWorkersFailureStatus'
-    { notifyWorkersFailureMessage =
-        Lude.Nothing,
-      notifyWorkersFailureCode = Lude.Nothing,
-      workerId = Lude.Nothing
+    { notifyWorkersFailureCode =
+        Core.Nothing,
+      notifyWorkersFailureMessage = Core.Nothing,
+      workerId = Core.Nothing
     }
-
--- | A message detailing the reason the Worker could not be notified.
---
--- /Note:/ Consider using 'notifyWorkersFailureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nwfsNotifyWorkersFailureMessage :: Lens.Lens' NotifyWorkersFailureStatus (Lude.Maybe Lude.Text)
-nwfsNotifyWorkersFailureMessage = Lens.lens (notifyWorkersFailureMessage :: NotifyWorkersFailureStatus -> Lude.Maybe Lude.Text) (\s a -> s {notifyWorkersFailureMessage = a} :: NotifyWorkersFailureStatus)
-{-# DEPRECATED nwfsNotifyWorkersFailureMessage "Use generic-lens or generic-optics with 'notifyWorkersFailureMessage' instead." #-}
 
 -- | Encoded value for the failure type.
 --
 -- /Note:/ Consider using 'notifyWorkersFailureCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nwfsNotifyWorkersFailureCode :: Lens.Lens' NotifyWorkersFailureStatus (Lude.Maybe NotifyWorkersFailureCode)
-nwfsNotifyWorkersFailureCode = Lens.lens (notifyWorkersFailureCode :: NotifyWorkersFailureStatus -> Lude.Maybe NotifyWorkersFailureCode) (\s a -> s {notifyWorkersFailureCode = a} :: NotifyWorkersFailureStatus)
+nwfsNotifyWorkersFailureCode :: Lens.Lens' NotifyWorkersFailureStatus (Core.Maybe Types.NotifyWorkersFailureCode)
+nwfsNotifyWorkersFailureCode = Lens.field @"notifyWorkersFailureCode"
 {-# DEPRECATED nwfsNotifyWorkersFailureCode "Use generic-lens or generic-optics with 'notifyWorkersFailureCode' instead." #-}
+
+-- | A message detailing the reason the Worker could not be notified.
+--
+-- /Note:/ Consider using 'notifyWorkersFailureMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nwfsNotifyWorkersFailureMessage :: Lens.Lens' NotifyWorkersFailureStatus (Core.Maybe Types.NotifyWorkersFailureMessage)
+nwfsNotifyWorkersFailureMessage = Lens.field @"notifyWorkersFailureMessage"
+{-# DEPRECATED nwfsNotifyWorkersFailureMessage "Use generic-lens or generic-optics with 'notifyWorkersFailureMessage' instead." #-}
 
 -- | The ID of the Worker.
 --
 -- /Note:/ Consider using 'workerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nwfsWorkerId :: Lens.Lens' NotifyWorkersFailureStatus (Lude.Maybe Lude.Text)
-nwfsWorkerId = Lens.lens (workerId :: NotifyWorkersFailureStatus -> Lude.Maybe Lude.Text) (\s a -> s {workerId = a} :: NotifyWorkersFailureStatus)
+nwfsWorkerId :: Lens.Lens' NotifyWorkersFailureStatus (Core.Maybe Types.WorkerId)
+nwfsWorkerId = Lens.field @"workerId"
 {-# DEPRECATED nwfsWorkerId "Use generic-lens or generic-optics with 'workerId' instead." #-}
 
-instance Lude.FromJSON NotifyWorkersFailureStatus where
+instance Core.FromJSON NotifyWorkersFailureStatus where
   parseJSON =
-    Lude.withObject
-      "NotifyWorkersFailureStatus"
-      ( \x ->
-          NotifyWorkersFailureStatus'
-            Lude.<$> (x Lude..:? "NotifyWorkersFailureMessage")
-            Lude.<*> (x Lude..:? "NotifyWorkersFailureCode")
-            Lude.<*> (x Lude..:? "WorkerId")
-      )
+    Core.withObject "NotifyWorkersFailureStatus" Core.$
+      \x ->
+        NotifyWorkersFailureStatus'
+          Core.<$> (x Core..:? "NotifyWorkersFailureCode")
+          Core.<*> (x Core..:? "NotifyWorkersFailureMessage")
+          Core.<*> (x Core..:? "WorkerId")

@@ -20,107 +20,92 @@ module Network.AWS.EMR.DeleteSecurityConfiguration
     mkDeleteSecurityConfiguration,
 
     -- ** Request lenses
-    dName,
+    dscName,
 
     -- * Destructuring the response
     DeleteSecurityConfigurationResponse (..),
     mkDeleteSecurityConfigurationResponse,
 
     -- ** Response lenses
-    drsResponseStatus,
+    dscrrsResponseStatus,
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteSecurityConfiguration' smart constructor.
 newtype DeleteSecurityConfiguration = DeleteSecurityConfiguration'
   { -- | The name of the security configuration.
-    name :: Lude.Text
+    name :: Types.XmlString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSecurityConfiguration' with the minimum fields required to make a request.
---
--- * 'name' - The name of the security configuration.
+-- | Creates a 'DeleteSecurityConfiguration' value with any optional fields omitted.
 mkDeleteSecurityConfiguration ::
   -- | 'name'
-  Lude.Text ->
+  Types.XmlString ->
   DeleteSecurityConfiguration
-mkDeleteSecurityConfiguration pName_ =
-  DeleteSecurityConfiguration' {name = pName_}
+mkDeleteSecurityConfiguration name =
+  DeleteSecurityConfiguration' {name}
 
 -- | The name of the security configuration.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dName :: Lens.Lens' DeleteSecurityConfiguration Lude.Text
-dName = Lens.lens (name :: DeleteSecurityConfiguration -> Lude.Text) (\s a -> s {name = a} :: DeleteSecurityConfiguration)
-{-# DEPRECATED dName "Use generic-lens or generic-optics with 'name' instead." #-}
+dscName :: Lens.Lens' DeleteSecurityConfiguration Types.XmlString
+dscName = Lens.field @"name"
+{-# DEPRECATED dscName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteSecurityConfiguration where
+instance Core.FromJSON DeleteSecurityConfiguration where
+  toJSON DeleteSecurityConfiguration {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteSecurityConfiguration where
   type
     Rs DeleteSecurityConfiguration =
       DeleteSecurityConfigurationResponse
-  request = Req.postJSON emrService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "ElasticMapReduce.DeleteSecurityConfiguration")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteSecurityConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteSecurityConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "ElasticMapReduce.DeleteSecurityConfiguration" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteSecurityConfiguration where
-  toJSON DeleteSecurityConfiguration' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteSecurityConfiguration where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteSecurityConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteSecurityConfigurationResponse' smart constructor.
 newtype DeleteSecurityConfigurationResponse = DeleteSecurityConfigurationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteSecurityConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteSecurityConfigurationResponse' value with any optional fields omitted.
 mkDeleteSecurityConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteSecurityConfigurationResponse
-mkDeleteSecurityConfigurationResponse pResponseStatus_ =
-  DeleteSecurityConfigurationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteSecurityConfigurationResponse responseStatus =
+  DeleteSecurityConfigurationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DeleteSecurityConfigurationResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DeleteSecurityConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteSecurityConfigurationResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dscrrsResponseStatus :: Lens.Lens' DeleteSecurityConfigurationResponse Core.Int
+dscrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dscrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

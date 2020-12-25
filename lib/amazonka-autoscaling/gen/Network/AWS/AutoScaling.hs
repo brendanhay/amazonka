@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,37 @@
 -- For more information, including information about granting IAM users required permissions for Amazon EC2 Auto Scaling actions, see the <https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html Amazon EC2 Auto Scaling User Guide> .
 module Network.AWS.AutoScaling
   ( -- * Service configuration
-    autoScalingService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InstanceRefreshInProgressFault
+    _InstanceRefreshInProgressFault,
+
+    -- ** AlreadyExistsFault
+    _AlreadyExistsFault,
+
+    -- ** LimitExceededFault
+    _LimitExceededFault,
+
+    -- ** ResourceInUseFault
+    _ResourceInUseFault,
+
+    -- ** InvalidNextToken
+    _InvalidNextToken,
+
+    -- ** ScalingActivityInProgressFault
+    _ScalingActivityInProgressFault,
+
+    -- ** ResourceContentionFault
+    _ResourceContentionFault,
+
+    -- ** ServiceLinkedRoleFailure
+    _ServiceLinkedRoleFailure,
+
+    -- ** ActiveInstanceRefreshNotFoundFault
+    _ActiveInstanceRefreshNotFoundFault,
 
     -- * Waiters
     -- $waiters
@@ -201,132 +227,213 @@ module Network.AWS.AutoScaling
 
     -- * Types
 
-    -- ** InstanceMetadataEndpointState
-    InstanceMetadataEndpointState (..),
+    -- ** InstanceRefresh
+    InstanceRefresh (..),
+    mkInstanceRefresh,
+    irAutoScalingGroupName,
+    irEndTime,
+    irInstanceRefreshId,
+    irInstancesToUpdate,
+    irPercentageComplete,
+    irStartTime,
+    irStatus,
+    irStatusReason,
 
-    -- ** InstanceMetadataHTTPTokensState
-    InstanceMetadataHTTPTokensState (..),
-
-    -- ** InstanceRefreshStatus
-    InstanceRefreshStatus (..),
-
-    -- ** LifecycleState
-    LifecycleState (..),
-
-    -- ** MetricStatistic
-    MetricStatistic (..),
+    -- ** XmlString
+    XmlString (..),
 
     -- ** MetricType
     MetricType (..),
 
-    -- ** RefreshStrategy
-    RefreshStrategy (..),
+    -- ** TagDescription
+    TagDescription (..),
+    mkTagDescription,
+    tdKey,
+    tdPropagateAtLaunch,
+    tdResourceId,
+    tdResourceType,
+    tdValue,
 
-    -- ** ScalingActivityStatusCode
-    ScalingActivityStatusCode (..),
+    -- ** XmlStringMaxLen1023
+    XmlStringMaxLen1023 (..),
 
-    -- ** Activity
-    Activity (..),
-    mkActivity,
-    aProgress,
-    aStartTime,
-    aActivityId,
-    aCause,
-    aStatusMessage,
-    aAutoScalingGroupName,
-    aEndTime,
-    aDetails,
-    aDescription,
-    aStatusCode,
+    -- ** PredefinedMetricSpecification
+    PredefinedMetricSpecification (..),
+    mkPredefinedMetricSpecification,
+    pmsPredefinedMetricType,
+    pmsResourceLabel,
 
-    -- ** AdjustmentType
-    AdjustmentType (..),
-    mkAdjustmentType,
-    atAdjustmentType,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tPropagateAtLaunch,
+    tResourceId,
+    tResourceType,
+    tValue,
 
-    -- ** Alarm
-    Alarm (..),
-    mkAlarm,
-    aAlarmName,
-    aAlarmARN,
+    -- ** XmlStringMaxLen511
+    XmlStringMaxLen511 (..),
 
-    -- ** AutoScalingGroup
-    AutoScalingGroup (..),
-    mkAutoScalingGroup,
-    asgStatus,
-    asgTerminationPolicies,
-    asgCreatedTime,
-    asgHealthCheckGracePeriod,
-    asgServiceLinkedRoleARN,
-    asgNewInstancesProtectedFromScaleIn,
-    asgVPCZoneIdentifier,
-    asgTargetGroupARNs,
-    asgMaxInstanceLifetime,
-    asgDefaultCooldown,
-    asgMaxSize,
-    asgAvailabilityZones,
-    asgDesiredCapacity,
-    asgMixedInstancesPolicy,
-    asgMinSize,
-    asgEnabledMetrics,
-    asgAutoScalingGroupName,
-    asgLaunchConfigurationName,
-    asgInstances,
-    asgHealthCheckType,
-    asgLaunchTemplate,
-    asgCapacityRebalance,
-    asgAutoScalingGroupARN,
-    asgPlacementGroup,
-    asgSuspendedProcesses,
-    asgLoadBalancerNames,
-    asgTags,
+    -- ** LaunchTemplateOverrides
+    LaunchTemplateOverrides (..),
+    mkLaunchTemplateOverrides,
+    ltoInstanceType,
+    ltoLaunchTemplateSpecification,
+    ltoWeightedCapacity,
 
-    -- ** AutoScalingInstanceDetails
-    AutoScalingInstanceDetails (..),
-    mkAutoScalingInstanceDetails,
-    asidInstanceId,
-    asidWeightedCapacity,
-    asidProtectedFromScaleIn,
-    asidInstanceType,
-    asidAvailabilityZone,
-    asidAutoScalingGroupName,
-    asidLaunchConfigurationName,
-    asidLaunchTemplate,
-    asidHealthStatus,
-    asidLifecycleState,
+    -- ** LaunchTemplateName
+    LaunchTemplateName (..),
+
+    -- ** NotificationConfiguration
+    NotificationConfiguration (..),
+    mkNotificationConfiguration,
+    ncAutoScalingGroupName,
+    ncNotificationType,
+    ncTopicARN,
 
     -- ** BlockDeviceMapping
     BlockDeviceMapping (..),
     mkBlockDeviceMapping,
-    bdmVirtualName,
-    bdmNoDevice,
-    bdmEBS,
     bdmDeviceName,
+    bdmEbs,
+    bdmNoDevice,
+    bdmVirtualName,
+
+    -- ** LaunchConfiguration
+    LaunchConfiguration (..),
+    mkLaunchConfiguration,
+    lcLaunchConfigurationName,
+    lcImageId,
+    lcInstanceType,
+    lcCreatedTime,
+    lcAssociatePublicIpAddress,
+    lcBlockDeviceMappings,
+    lcClassicLinkVPCId,
+    lcClassicLinkVPCSecurityGroups,
+    lcEbsOptimized,
+    lcIamInstanceProfile,
+    lcInstanceMonitoring,
+    lcKernelId,
+    lcKeyName,
+    lcLaunchConfigurationARN,
+    lcMetadataOptions,
+    lcPlacementTenancy,
+    lcRamdiskId,
+    lcSecurityGroups,
+    lcSpotPrice,
+    lcUserData,
+
+    -- ** XmlStringMaxLen64
+    XmlStringMaxLen64 (..),
+
+    -- ** AutoScalingGroup
+    AutoScalingGroup (..),
+    mkAutoScalingGroup,
+    asgAutoScalingGroupName,
+    asgMinSize,
+    asgMaxSize,
+    asgDesiredCapacity,
+    asgDefaultCooldown,
+    asgAvailabilityZones,
+    asgHealthCheckType,
+    asgCreatedTime,
+    asgAutoScalingGroupARN,
+    asgCapacityRebalance,
+    asgEnabledMetrics,
+    asgHealthCheckGracePeriod,
+    asgInstances,
+    asgLaunchConfigurationName,
+    asgLaunchTemplate,
+    asgLoadBalancerNames,
+    asgMaxInstanceLifetime,
+    asgMixedInstancesPolicy,
+    asgNewInstancesProtectedFromScaleIn,
+    asgPlacementGroup,
+    asgServiceLinkedRoleARN,
+    asgStatus,
+    asgSuspendedProcesses,
+    asgTags,
+    asgTargetGroupARNs,
+    asgTerminationPolicies,
+    asgVPCZoneIdentifier,
+
+    -- ** ResourceName
+    ResourceName (..),
+
+    -- ** SpotPrice
+    SpotPrice (..),
+
+    -- ** ScalingPolicy
+    ScalingPolicy (..),
+    mkScalingPolicy,
+    spAdjustmentType,
+    spAlarms,
+    spAutoScalingGroupName,
+    spCooldown,
+    spEnabled,
+    spEstimatedInstanceWarmup,
+    spMetricAggregationType,
+    spMinAdjustmentMagnitude,
+    spMinAdjustmentStep,
+    spPolicyARN,
+    spPolicyName,
+    spPolicyType,
+    spScalingAdjustment,
+    spStepAdjustments,
+    spTargetTrackingConfiguration,
+
+    -- ** XmlStringUserData
+    XmlStringUserData (..),
+
+    -- ** XmlStringMaxLen255
+    XmlStringMaxLen255 (..),
+
+    -- ** InstanceMonitoring
+    InstanceMonitoring (..),
+    mkInstanceMonitoring,
+    imEnabled,
+
+    -- ** AsciiStringMaxLen255
+    AsciiStringMaxLen255 (..),
+
+    -- ** ScheduledUpdateGroupActionRequest
+    ScheduledUpdateGroupActionRequest (..),
+    mkScheduledUpdateGroupActionRequest,
+    sugarScheduledActionName,
+    sugarDesiredCapacity,
+    sugarEndTime,
+    sugarMaxSize,
+    sugarMinSize,
+    sugarRecurrence,
+    sugarStartTime,
 
     -- ** CustomizedMetricSpecification
     CustomizedMetricSpecification (..),
     mkCustomizedMetricSpecification,
     cmsMetricName,
     cmsNamespace,
+    cmsStatistic,
     cmsDimensions,
     cmsUnit,
-    cmsStatistic,
 
-    -- ** EBS
-    EBS (..),
-    mkEBS,
-    ebsDeleteOnTermination,
-    ebsVolumeSize,
-    ebsIOPS,
-    ebsEncrypted,
-    ebsVolumeType,
-    ebsSnapshotId,
+    -- ** InstanceMetadataEndpointState
+    InstanceMetadataEndpointState (..),
 
-    -- ** EnabledMetric
-    EnabledMetric (..),
-    mkEnabledMetric,
-    emGranularity,
-    emMetric,
+    -- ** InstanceRefreshStatus
+    InstanceRefreshStatus (..),
+
+    -- ** XmlStringMaxLen1600
+    XmlStringMaxLen1600 (..),
+
+    -- ** MetricDimensionName
+    MetricDimensionName (..),
+
+    -- ** LifecycleActionToken
+    LifecycleActionToken (..),
+
+    -- ** MetricName
+    MetricName (..),
 
     -- ** FailedScheduledUpdateGroupActionRequest
     FailedScheduledUpdateGroupActionRequest (..),
@@ -335,203 +442,39 @@ module Network.AWS.AutoScaling
     fsugarErrorCode,
     fsugarErrorMessage,
 
-    -- ** Filter
-    Filter (..),
-    mkFilter,
-    fValues,
-    fName,
+    -- ** TargetTrackingConfiguration
+    TargetTrackingConfiguration (..),
+    mkTargetTrackingConfiguration,
+    ttcTargetValue,
+    ttcCustomizedMetricSpecification,
+    ttcDisableScaleIn,
+    ttcPredefinedMetricSpecification,
 
-    -- ** Instance
-    Instance (..),
-    mkInstance,
-    iInstanceId,
-    iWeightedCapacity,
-    iProtectedFromScaleIn,
-    iInstanceType,
-    iAvailabilityZone,
-    iLaunchConfigurationName,
-    iLaunchTemplate,
-    iHealthStatus,
-    iLifecycleState,
+    -- ** XmlStringMaxLen2047
+    XmlStringMaxLen2047 (..),
 
-    -- ** InstanceMetadataOptions
-    InstanceMetadataOptions (..),
-    mkInstanceMetadataOptions,
-    imoHTTPEndpoint,
-    imoHTTPPutResponseHopLimit,
-    imoHTTPTokens,
+    -- ** ScheduledUpdateGroupAction
+    ScheduledUpdateGroupAction (..),
+    mkScheduledUpdateGroupAction,
+    sugaAutoScalingGroupName,
+    sugaDesiredCapacity,
+    sugaEndTime,
+    sugaMaxSize,
+    sugaMinSize,
+    sugaRecurrence,
+    sugaScheduledActionARN,
+    sugaScheduledActionName,
+    sugaStartTime,
+    sugaTime,
 
-    -- ** InstanceMonitoring
-    InstanceMonitoring (..),
-    mkInstanceMonitoring,
-    imEnabled,
-
-    -- ** InstanceRefresh
-    InstanceRefresh (..),
-    mkInstanceRefresh,
-    irStatus,
-    irStartTime,
-    irInstancesToUpdate,
-    irPercentageComplete,
-    irAutoScalingGroupName,
-    irEndTime,
-    irStatusReason,
-    irInstanceRefreshId,
-
-    -- ** InstancesDistribution
-    InstancesDistribution (..),
-    mkInstancesDistribution,
-    idSpotAllocationStrategy,
-    idSpotInstancePools,
-    idSpotMaxPrice,
-    idOnDemandBaseCapacity,
-    idOnDemandAllocationStrategy,
-    idOnDemandPercentageAboveBaseCapacity,
-
-    -- ** LaunchConfiguration
-    LaunchConfiguration (..),
-    mkLaunchConfiguration,
-    lcAssociatePublicIPAddress,
-    lcSecurityGroups,
-    lcSpotPrice,
-    lcCreatedTime,
-    lcInstanceMonitoring,
-    lcKeyName,
-    lcClassicLinkVPCSecurityGroups,
-    lcRAMDiskId,
-    lcKernelId,
-    lcInstanceType,
-    lcEBSOptimized,
-    lcUserData,
-    lcClassicLinkVPCId,
-    lcIAMInstanceProfile,
-    lcImageId,
-    lcLaunchConfigurationName,
-    lcMetadataOptions,
-    lcLaunchConfigurationARN,
-    lcPlacementTenancy,
-    lcBlockDeviceMappings,
-
-    -- ** LaunchTemplate
-    LaunchTemplate (..),
-    mkLaunchTemplate,
-    ltOverrides,
-    ltLaunchTemplateSpecification,
-
-    -- ** LaunchTemplateOverrides
-    LaunchTemplateOverrides (..),
-    mkLaunchTemplateOverrides,
-    ltoWeightedCapacity,
-    ltoInstanceType,
-    ltoLaunchTemplateSpecification,
-
-    -- ** LaunchTemplateSpecification
-    LaunchTemplateSpecification (..),
-    mkLaunchTemplateSpecification,
-    ltsLaunchTemplateName,
-    ltsLaunchTemplateId,
-    ltsVersion,
-
-    -- ** LifecycleHook
-    LifecycleHook (..),
-    mkLifecycleHook,
-    lhDefaultResult,
-    lhLifecycleHookName,
-    lhHeartbeatTimeout,
-    lhAutoScalingGroupName,
-    lhNotificationMetadata,
-    lhGlobalTimeout,
-    lhNotificationTargetARN,
-    lhLifecycleTransition,
-    lhRoleARN,
-
-    -- ** LifecycleHookSpecification
-    LifecycleHookSpecification (..),
-    mkLifecycleHookSpecification,
-    lhsDefaultResult,
-    lhsLifecycleHookName,
-    lhsHeartbeatTimeout,
-    lhsNotificationMetadata,
-    lhsNotificationTargetARN,
-    lhsLifecycleTransition,
-    lhsRoleARN,
-
-    -- ** LoadBalancerState
-    LoadBalancerState (..),
-    mkLoadBalancerState,
-    lbsState,
-    lbsLoadBalancerName,
-
-    -- ** LoadBalancerTargetGroupState
-    LoadBalancerTargetGroupState (..),
-    mkLoadBalancerTargetGroupState,
-    lbtgsState,
-    lbtgsLoadBalancerTargetGroupARN,
-
-    -- ** MetricCollectionType
-    MetricCollectionType (..),
-    mkMetricCollectionType,
-    mctMetric,
+    -- ** LifecycleActionResult
+    LifecycleActionResult (..),
 
     -- ** MetricDimension
     MetricDimension (..),
     mkMetricDimension,
-    mdValue,
     mdName,
-
-    -- ** MetricGranularityType
-    MetricGranularityType (..),
-    mkMetricGranularityType,
-    mgtGranularity,
-
-    -- ** MixedInstancesPolicy
-    MixedInstancesPolicy (..),
-    mkMixedInstancesPolicy,
-    mipLaunchTemplate,
-    mipInstancesDistribution,
-
-    -- ** NotificationConfiguration
-    NotificationConfiguration (..),
-    mkNotificationConfiguration,
-    ncTopicARN,
-    ncAutoScalingGroupName,
-    ncNotificationType,
-
-    -- ** PredefinedMetricSpecification
-    PredefinedMetricSpecification (..),
-    mkPredefinedMetricSpecification,
-    pmsPredefinedMetricType,
-    pmsResourceLabel,
-
-    -- ** ProcessType
-    ProcessType (..),
-    mkProcessType,
-    ptProcessName,
-
-    -- ** RefreshPreferences
-    RefreshPreferences (..),
-    mkRefreshPreferences,
-    rpMinHealthyPercentage,
-    rpInstanceWarmup,
-
-    -- ** ScalingPolicy
-    ScalingPolicy (..),
-    mkScalingPolicy,
-    spMinAdjustmentStep,
-    spEstimatedInstanceWarmup,
-    spPolicyName,
-    spEnabled,
-    spPolicyType,
-    spStepAdjustments,
-    spTargetTrackingConfiguration,
-    spAdjustmentType,
-    spAutoScalingGroupName,
-    spScalingAdjustment,
-    spCooldown,
-    spPolicyARN,
-    spAlarms,
-    spMetricAggregationType,
-    spMinAdjustmentMagnitude,
+    mdValue,
 
     -- ** ScalingProcessQuery
     ScalingProcessQuery (..),
@@ -539,37 +482,96 @@ module Network.AWS.AutoScaling
     spqAutoScalingGroupName,
     spqScalingProcesses,
 
-    -- ** ScheduledUpdateGroupAction
-    ScheduledUpdateGroupAction (..),
-    mkScheduledUpdateGroupAction,
-    sugaScheduledActionARN,
-    sugaStartTime,
-    sugaTime,
-    sugaScheduledActionName,
-    sugaMaxSize,
-    sugaRecurrence,
-    sugaDesiredCapacity,
-    sugaMinSize,
-    sugaAutoScalingGroupName,
-    sugaEndTime,
+    -- ** InstanceMetadataOptions
+    InstanceMetadataOptions (..),
+    mkInstanceMetadataOptions,
+    imoHttpEndpoint,
+    imoHttpPutResponseHopLimit,
+    imoHttpTokens,
 
-    -- ** ScheduledUpdateGroupActionRequest
-    ScheduledUpdateGroupActionRequest (..),
-    mkScheduledUpdateGroupActionRequest,
-    sugarStartTime,
-    sugarScheduledActionName,
-    sugarMaxSize,
-    sugarRecurrence,
-    sugarDesiredCapacity,
-    sugarMinSize,
-    sugarEndTime,
+    -- ** Ebs
+    Ebs (..),
+    mkEbs,
+    eDeleteOnTermination,
+    eEncrypted,
+    eIops,
+    eSnapshotId,
+    eVolumeSize,
+    eVolumeType,
+
+    -- ** MixedInstancesPolicy
+    MixedInstancesPolicy (..),
+    mkMixedInstancesPolicy,
+    mipInstancesDistribution,
+    mipLaunchTemplate,
+
+    -- ** AdjustmentType
+    AdjustmentType (..),
+    mkAdjustmentType,
+    atAdjustmentType,
+
+    -- ** XmlStringMaxLen19
+    XmlStringMaxLen19 (..),
+
+    -- ** MetricStatistic
+    MetricStatistic (..),
+
+    -- ** MetricCollectionType
+    MetricCollectionType (..),
+    mkMetricCollectionType,
+    mctMetric,
+
+    -- ** LoadBalancerState
+    LoadBalancerState (..),
+    mkLoadBalancerState,
+    lbsLoadBalancerName,
+    lbsState,
+
+    -- ** LaunchTemplate
+    LaunchTemplate (..),
+    mkLaunchTemplate,
+    ltLaunchTemplateSpecification,
+    ltOverrides,
+
+    -- ** LifecycleHook
+    LifecycleHook (..),
+    mkLifecycleHook,
+    lhAutoScalingGroupName,
+    lhDefaultResult,
+    lhGlobalTimeout,
+    lhHeartbeatTimeout,
+    lhLifecycleHookName,
+    lhLifecycleTransition,
+    lhNotificationMetadata,
+    lhNotificationTargetARN,
+    lhRoleARN,
 
     -- ** StepAdjustment
     StepAdjustment (..),
     mkStepAdjustment,
+    saScalingAdjustment,
     saMetricIntervalLowerBound,
     saMetricIntervalUpperBound,
-    saScalingAdjustment,
+
+    -- ** RefreshPreferences
+    RefreshPreferences (..),
+    mkRefreshPreferences,
+    rpInstanceWarmup,
+    rpMinHealthyPercentage,
+
+    -- ** Activity
+    Activity (..),
+    mkActivity,
+    aActivityId,
+    aAutoScalingGroupName,
+    aCause,
+    aStartTime,
+    aStatusCode,
+    aDescription,
+    aDetails,
+    aEndTime,
+    aProgress,
+    aStatusMessage,
 
     -- ** SuspendedProcess
     SuspendedProcess (..),
@@ -577,41 +579,240 @@ module Network.AWS.AutoScaling
     spProcessName,
     spSuspensionReason,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tResourceId,
-    tResourceType,
-    tValue,
-    tKey,
-    tPropagateAtLaunch,
+    -- ** LaunchTemplateSpecification
+    LaunchTemplateSpecification (..),
+    mkLaunchTemplateSpecification,
+    ltsLaunchTemplateId,
+    ltsLaunchTemplateName,
+    ltsVersion,
 
-    -- ** TagDescription
-    TagDescription (..),
-    mkTagDescription,
-    tdResourceId,
-    tdResourceType,
-    tdValue,
-    tdKey,
-    tdPropagateAtLaunch,
+    -- ** MetricGranularityType
+    MetricGranularityType (..),
+    mkMetricGranularityType,
+    mgtGranularity,
 
-    -- ** TargetTrackingConfiguration
-    TargetTrackingConfiguration (..),
-    mkTargetTrackingConfiguration,
-    ttcPredefinedMetricSpecification,
-    ttcTargetValue,
-    ttcCustomizedMetricSpecification,
-    ttcDisableScaleIn,
+    -- ** Filter
+    Filter (..),
+    mkFilter,
+    fName,
+    fValues,
+
+    -- ** LifecycleHookSpecification
+    LifecycleHookSpecification (..),
+    mkLifecycleHookSpecification,
+    lhsLifecycleHookName,
+    lhsLifecycleTransition,
+    lhsDefaultResult,
+    lhsHeartbeatTimeout,
+    lhsNotificationMetadata,
+    lhsNotificationTargetARN,
+    lhsRoleARN,
+
+    -- ** InstancesDistribution
+    InstancesDistribution (..),
+    mkInstancesDistribution,
+    idOnDemandAllocationStrategy,
+    idOnDemandBaseCapacity,
+    idOnDemandPercentageAboveBaseCapacity,
+    idSpotAllocationStrategy,
+    idSpotInstancePools,
+    idSpotMaxPrice,
+
+    -- ** InstanceMetadataHttpTokensState
+    InstanceMetadataHttpTokensState (..),
+
+    -- ** ProcessType
+    ProcessType (..),
+    mkProcessType,
+    ptProcessName,
+
+    -- ** LoadBalancerTargetGroupState
+    LoadBalancerTargetGroupState (..),
+    mkLoadBalancerTargetGroupState,
+    lbtgsLoadBalancerTargetGroupARN,
+    lbtgsState,
+
+    -- ** Alarm
+    Alarm (..),
+    mkAlarm,
+    aAlarmARN,
+    aAlarmName,
+
+    -- ** RefreshStrategy
+    RefreshStrategy (..),
+
+    -- ** XmlStringMaxLen32
+    XmlStringMaxLen32 (..),
+
+    -- ** EnabledMetric
+    EnabledMetric (..),
+    mkEnabledMetric,
+    emGranularity,
+    emMetric,
+
+    -- ** LifecycleTransition
+    LifecycleTransition (..),
+
+    -- ** Instance
+    Instance (..),
+    mkInstance,
+    iInstanceId,
+    iAvailabilityZone,
+    iLifecycleState,
+    iHealthStatus,
+    iProtectedFromScaleIn,
+    iInstanceType,
+    iLaunchConfigurationName,
+    iLaunchTemplate,
+    iWeightedCapacity,
+
+    -- ** LifecycleState
+    LifecycleState (..),
+
+    -- ** AutoScalingInstanceDetails
+    AutoScalingInstanceDetails (..),
+    mkAutoScalingInstanceDetails,
+    asidInstanceId,
+    asidAutoScalingGroupName,
+    asidAvailabilityZone,
+    asidLifecycleState,
+    asidHealthStatus,
+    asidProtectedFromScaleIn,
+    asidInstanceType,
+    asidLaunchConfigurationName,
+    asidLaunchTemplate,
+    asidWeightedCapacity,
+
+    -- ** ScalingActivityStatusCode
+    ScalingActivityStatusCode (..),
+
+    -- ** LifecycleHookName
+    LifecycleHookName (..),
+
+    -- ** AutoScalingGroupName
+    AutoScalingGroupName (..),
+
+    -- ** InstanceRefreshId
+    InstanceRefreshId (..),
+
+    -- ** StatusReason
+    StatusReason (..),
+
+    -- ** HealthCheckType
+    HealthCheckType (..),
+
+    -- ** LaunchConfigurationName
+    LaunchConfigurationName (..),
+
+    -- ** PlacementGroup
+    PlacementGroup (..),
+
+    -- ** ServiceLinkedRoleARN
+    ServiceLinkedRoleARN (..),
+
+    -- ** VPCZoneIdentifier
+    VPCZoneIdentifier (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** DefaultResult
+    DefaultResult (..),
+
+    -- ** NotificationMetadata
+    NotificationMetadata (..),
+
+    -- ** NotificationTargetARN
+    NotificationTargetARN (..),
+
+    -- ** RoleARN
+    RoleARN (..),
+
+    -- ** PolicyName
+    PolicyName (..),
+
+    -- ** InstanceType
+    InstanceType (..),
+
+    -- ** WeightedCapacity
+    WeightedCapacity (..),
+
+    -- ** InstanceId
+    InstanceId (..),
+
+    -- ** NotificationType
+    NotificationType (..),
+
+    -- ** TopicARN
+    TopicARN (..),
+
+    -- ** DeviceName
+    DeviceName (..),
+
+    -- ** VirtualName
+    VirtualName (..),
+
+    -- ** ImageId
+    ImageId (..),
+
+    -- ** ClassicLinkVPCId
+    ClassicLinkVPCId (..),
+
+    -- ** IamInstanceProfile
+    IamInstanceProfile (..),
+
+    -- ** KernelId
+    KernelId (..),
+
+    -- ** KeyName
+    KeyName (..),
+
+    -- ** LaunchConfigurationARN
+    LaunchConfigurationARN (..),
+
+    -- ** PlacementTenancy
+    PlacementTenancy (..),
+
+    -- ** RamdiskId
+    RamdiskId (..),
+
+    -- ** UserData
+    UserData (..),
+
+    -- ** AutoScalingGroupARN
+    AutoScalingGroupARN (..),
+
+    -- ** Status
+    Status (..),
+
+    -- ** HealthStatus
+    HealthStatus (..),
+
+    -- ** MetricAggregationType
+    MetricAggregationType (..),
+
+    -- ** Namespace
+    Namespace (..),
+
+    -- ** Unit
+    Unit (..),
+
+    -- ** VolumeType
+    VolumeType (..),
+
+    -- ** SpotMaxPrice
+    SpotMaxPrice (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

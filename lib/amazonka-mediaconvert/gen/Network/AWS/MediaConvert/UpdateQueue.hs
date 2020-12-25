@@ -20,158 +20,141 @@ module Network.AWS.MediaConvert.UpdateQueue
     mkUpdateQueue,
 
     -- ** Request lenses
-    uqStatus,
     uqName,
     uqDescription,
     uqReservationPlanSettings,
+    uqStatus,
 
     -- * Destructuring the response
     UpdateQueueResponse (..),
     mkUpdateQueueResponse,
 
     -- ** Response lenses
-    uqrsQueue,
-    uqrsResponseStatus,
+    uqrrsQueue,
+    uqrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaConvert.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateQueue' smart constructor.
 data UpdateQueue = UpdateQueue'
-  { -- | Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
-    status :: Lude.Maybe QueueStatus,
-    -- | The name of the queue that you are modifying.
-    name :: Lude.Text,
+  { -- | The name of the queue that you are modifying.
+    name :: Core.Text,
     -- | The new description for the queue, if you are changing it.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Core.Text,
     -- | The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make these commitments, you can't cancel them.
-    reservationPlanSettings :: Lude.Maybe ReservationPlanSettings
+    reservationPlanSettings :: Core.Maybe Types.ReservationPlanSettings,
+    -- | Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+    status :: Core.Maybe Types.QueueStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateQueue' with the minimum fields required to make a request.
---
--- * 'status' - Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
--- * 'name' - The name of the queue that you are modifying.
--- * 'description' - The new description for the queue, if you are changing it.
--- * 'reservationPlanSettings' - The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make these commitments, you can't cancel them.
+-- | Creates a 'UpdateQueue' value with any optional fields omitted.
 mkUpdateQueue ::
   -- | 'name'
-  Lude.Text ->
+  Core.Text ->
   UpdateQueue
-mkUpdateQueue pName_ =
+mkUpdateQueue name =
   UpdateQueue'
-    { status = Lude.Nothing,
-      name = pName_,
-      description = Lude.Nothing,
-      reservationPlanSettings = Lude.Nothing
+    { name,
+      description = Core.Nothing,
+      reservationPlanSettings = Core.Nothing,
+      status = Core.Nothing
     }
-
--- | Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqStatus :: Lens.Lens' UpdateQueue (Lude.Maybe QueueStatus)
-uqStatus = Lens.lens (status :: UpdateQueue -> Lude.Maybe QueueStatus) (\s a -> s {status = a} :: UpdateQueue)
-{-# DEPRECATED uqStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The name of the queue that you are modifying.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqName :: Lens.Lens' UpdateQueue Lude.Text
-uqName = Lens.lens (name :: UpdateQueue -> Lude.Text) (\s a -> s {name = a} :: UpdateQueue)
+uqName :: Lens.Lens' UpdateQueue Core.Text
+uqName = Lens.field @"name"
 {-# DEPRECATED uqName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The new description for the queue, if you are changing it.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqDescription :: Lens.Lens' UpdateQueue (Lude.Maybe Lude.Text)
-uqDescription = Lens.lens (description :: UpdateQueue -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: UpdateQueue)
+uqDescription :: Lens.Lens' UpdateQueue (Core.Maybe Core.Text)
+uqDescription = Lens.field @"description"
 {-# DEPRECATED uqDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The new details of your pricing plan for your reserved queue. When you set up a new pricing plan to replace an expired one, you enter into another 12-month commitment. When you add capacity to your queue by increasing the number of RTS, you extend the term of your commitment to 12 months from when you add capacity. After you make these commitments, you can't cancel them.
 --
 -- /Note:/ Consider using 'reservationPlanSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqReservationPlanSettings :: Lens.Lens' UpdateQueue (Lude.Maybe ReservationPlanSettings)
-uqReservationPlanSettings = Lens.lens (reservationPlanSettings :: UpdateQueue -> Lude.Maybe ReservationPlanSettings) (\s a -> s {reservationPlanSettings = a} :: UpdateQueue)
+uqReservationPlanSettings :: Lens.Lens' UpdateQueue (Core.Maybe Types.ReservationPlanSettings)
+uqReservationPlanSettings = Lens.field @"reservationPlanSettings"
 {-# DEPRECATED uqReservationPlanSettings "Use generic-lens or generic-optics with 'reservationPlanSettings' instead." #-}
 
-instance Lude.AWSRequest UpdateQueue where
+-- | Pause or activate a queue by changing its status between ACTIVE and PAUSED. If you pause a queue, jobs in that queue won't begin. Jobs that are running when you pause the queue continue to run until they finish or result in an error.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqStatus :: Lens.Lens' UpdateQueue (Core.Maybe Types.QueueStatus)
+uqStatus = Lens.field @"status"
+{-# DEPRECATED uqStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+instance Core.FromJSON UpdateQueue where
+  toJSON UpdateQueue {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("description" Core..=) Core.<$> description,
+            ("reservationPlanSettings" Core..=)
+              Core.<$> reservationPlanSettings,
+            ("status" Core..=) Core.<$> status
+          ]
+      )
+
+instance Core.AWSRequest UpdateQueue where
   type Rs UpdateQueue = UpdateQueueResponse
-  request = Req.putJSON mediaConvertService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath ("/2017-08-29/queues/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateQueueResponse'
-            Lude.<$> (x Lude..?> "queue") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "queue") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateQueue where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateQueue where
-  toJSON UpdateQueue' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("status" Lude..=) Lude.<$> status,
-            ("description" Lude..=) Lude.<$> description,
-            ("reservationPlanSettings" Lude..=)
-              Lude.<$> reservationPlanSettings
-          ]
-      )
-
-instance Lude.ToPath UpdateQueue where
-  toPath UpdateQueue' {..} =
-    Lude.mconcat ["/2017-08-29/queues/", Lude.toBS name]
-
-instance Lude.ToQuery UpdateQueue where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateQueueResponse' smart constructor.
 data UpdateQueueResponse = UpdateQueueResponse'
   { -- | You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
-    queue :: Lude.Maybe Queue,
+    queue :: Core.Maybe Types.Queue,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateQueueResponse' with the minimum fields required to make a request.
---
--- * 'queue' - You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateQueueResponse' value with any optional fields omitted.
 mkUpdateQueueResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateQueueResponse
-mkUpdateQueueResponse pResponseStatus_ =
-  UpdateQueueResponse'
-    { queue = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkUpdateQueueResponse responseStatus =
+  UpdateQueueResponse' {queue = Core.Nothing, responseStatus}
 
 -- | You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
 --
 -- /Note:/ Consider using 'queue' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqrsQueue :: Lens.Lens' UpdateQueueResponse (Lude.Maybe Queue)
-uqrsQueue = Lens.lens (queue :: UpdateQueueResponse -> Lude.Maybe Queue) (\s a -> s {queue = a} :: UpdateQueueResponse)
-{-# DEPRECATED uqrsQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
+uqrrsQueue :: Lens.Lens' UpdateQueueResponse (Core.Maybe Types.Queue)
+uqrrsQueue = Lens.field @"queue"
+{-# DEPRECATED uqrrsQueue "Use generic-lens or generic-optics with 'queue' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqrsResponseStatus :: Lens.Lens' UpdateQueueResponse Lude.Int
-uqrsResponseStatus = Lens.lens (responseStatus :: UpdateQueueResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateQueueResponse)
-{-# DEPRECATED uqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uqrrsResponseStatus :: Lens.Lens' UpdateQueueResponse Core.Int
+uqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Eac3LfeControl
   ( Eac3LfeControl
       ( Eac3LfeControl',
-        Lfe,
-        NoLfe
+        Eac3LfeControlLfe,
+        Eac3LfeControlNoLfe,
+        fromEac3LfeControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Eac3 Lfe Control
-newtype Eac3LfeControl = Eac3LfeControl' Lude.Text
+newtype Eac3LfeControl = Eac3LfeControl'
+  { fromEac3LfeControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Lfe :: Eac3LfeControl
-pattern Lfe = Eac3LfeControl' "LFE"
+pattern Eac3LfeControlLfe :: Eac3LfeControl
+pattern Eac3LfeControlLfe = Eac3LfeControl' "LFE"
 
-pattern NoLfe :: Eac3LfeControl
-pattern NoLfe = Eac3LfeControl' "NO_LFE"
+pattern Eac3LfeControlNoLfe :: Eac3LfeControl
+pattern Eac3LfeControlNoLfe = Eac3LfeControl' "NO_LFE"
 
 {-# COMPLETE
-  Lfe,
-  NoLfe,
+  Eac3LfeControlLfe,
+  Eac3LfeControlNoLfe,
   Eac3LfeControl'
   #-}

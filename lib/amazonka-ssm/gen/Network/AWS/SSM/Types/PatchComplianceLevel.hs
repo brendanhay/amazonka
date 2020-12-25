@@ -13,66 +13,71 @@
 module Network.AWS.SSM.Types.PatchComplianceLevel
   ( PatchComplianceLevel
       ( PatchComplianceLevel',
-        PCLCritical,
-        PCLHigh,
-        PCLMedium,
-        PCLLow,
-        PCLInformational,
-        PCLUnspecified
+        PatchComplianceLevelCritical,
+        PatchComplianceLevelHigh,
+        PatchComplianceLevelMedium,
+        PatchComplianceLevelLow,
+        PatchComplianceLevelInformational,
+        PatchComplianceLevelUnspecified,
+        fromPatchComplianceLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PatchComplianceLevel = PatchComplianceLevel' Lude.Text
+newtype PatchComplianceLevel = PatchComplianceLevel'
+  { fromPatchComplianceLevel ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PCLCritical :: PatchComplianceLevel
-pattern PCLCritical = PatchComplianceLevel' "CRITICAL"
+pattern PatchComplianceLevelCritical :: PatchComplianceLevel
+pattern PatchComplianceLevelCritical = PatchComplianceLevel' "CRITICAL"
 
-pattern PCLHigh :: PatchComplianceLevel
-pattern PCLHigh = PatchComplianceLevel' "HIGH"
+pattern PatchComplianceLevelHigh :: PatchComplianceLevel
+pattern PatchComplianceLevelHigh = PatchComplianceLevel' "HIGH"
 
-pattern PCLMedium :: PatchComplianceLevel
-pattern PCLMedium = PatchComplianceLevel' "MEDIUM"
+pattern PatchComplianceLevelMedium :: PatchComplianceLevel
+pattern PatchComplianceLevelMedium = PatchComplianceLevel' "MEDIUM"
 
-pattern PCLLow :: PatchComplianceLevel
-pattern PCLLow = PatchComplianceLevel' "LOW"
+pattern PatchComplianceLevelLow :: PatchComplianceLevel
+pattern PatchComplianceLevelLow = PatchComplianceLevel' "LOW"
 
-pattern PCLInformational :: PatchComplianceLevel
-pattern PCLInformational = PatchComplianceLevel' "INFORMATIONAL"
+pattern PatchComplianceLevelInformational :: PatchComplianceLevel
+pattern PatchComplianceLevelInformational = PatchComplianceLevel' "INFORMATIONAL"
 
-pattern PCLUnspecified :: PatchComplianceLevel
-pattern PCLUnspecified = PatchComplianceLevel' "UNSPECIFIED"
+pattern PatchComplianceLevelUnspecified :: PatchComplianceLevel
+pattern PatchComplianceLevelUnspecified = PatchComplianceLevel' "UNSPECIFIED"
 
 {-# COMPLETE
-  PCLCritical,
-  PCLHigh,
-  PCLMedium,
-  PCLLow,
-  PCLInformational,
-  PCLUnspecified,
+  PatchComplianceLevelCritical,
+  PatchComplianceLevelHigh,
+  PatchComplianceLevelMedium,
+  PatchComplianceLevelLow,
+  PatchComplianceLevelInformational,
+  PatchComplianceLevelUnspecified,
   PatchComplianceLevel'
   #-}

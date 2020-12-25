@@ -17,97 +17,94 @@ module Network.AWS.WorkMail.Types.OrganizationSummary
     mkOrganizationSummary,
 
     -- * Lenses
-    osState,
     osAlias,
     osDefaultMailDomain,
     osErrorMessage,
     osOrganizationId,
+    osState,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.WorkMail.Types.DefaultMailDomain as Types
+import qualified Network.AWS.WorkMail.Types.ErrorMessage as Types
+import qualified Network.AWS.WorkMail.Types.OrganizationId as Types
+import qualified Network.AWS.WorkMail.Types.OrganizationName as Types
+import qualified Network.AWS.WorkMail.Types.State as Types
 
 -- | The representation of an organization.
 --
 -- /See:/ 'mkOrganizationSummary' smart constructor.
 data OrganizationSummary = OrganizationSummary'
-  { -- | The state associated with the organization.
-    state :: Lude.Maybe Lude.Text,
-    -- | The alias associated with the organization.
-    alias :: Lude.Maybe Lude.Text,
+  { -- | The alias associated with the organization.
+    alias :: Core.Maybe Types.OrganizationName,
     -- | The default email domain associated with the organization.
-    defaultMailDomain :: Lude.Maybe Lude.Text,
+    defaultMailDomain :: Core.Maybe Types.DefaultMailDomain,
     -- | The error message associated with the organization. It is only present if unexpected behavior has occurred with regards to the organization. It provides insight or solutions regarding unexpected behavior.
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.ErrorMessage,
     -- | The identifier associated with the organization.
-    organizationId :: Lude.Maybe Lude.Text
+    organizationId :: Core.Maybe Types.OrganizationId,
+    -- | The state associated with the organization.
+    state :: Core.Maybe Types.State
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OrganizationSummary' with the minimum fields required to make a request.
---
--- * 'state' - The state associated with the organization.
--- * 'alias' - The alias associated with the organization.
--- * 'defaultMailDomain' - The default email domain associated with the organization.
--- * 'errorMessage' - The error message associated with the organization. It is only present if unexpected behavior has occurred with regards to the organization. It provides insight or solutions regarding unexpected behavior.
--- * 'organizationId' - The identifier associated with the organization.
+-- | Creates a 'OrganizationSummary' value with any optional fields omitted.
 mkOrganizationSummary ::
   OrganizationSummary
 mkOrganizationSummary =
   OrganizationSummary'
-    { state = Lude.Nothing,
-      alias = Lude.Nothing,
-      defaultMailDomain = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      organizationId = Lude.Nothing
+    { alias = Core.Nothing,
+      defaultMailDomain = Core.Nothing,
+      errorMessage = Core.Nothing,
+      organizationId = Core.Nothing,
+      state = Core.Nothing
     }
-
--- | The state associated with the organization.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osState :: Lens.Lens' OrganizationSummary (Lude.Maybe Lude.Text)
-osState = Lens.lens (state :: OrganizationSummary -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: OrganizationSummary)
-{-# DEPRECATED osState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The alias associated with the organization.
 --
 -- /Note:/ Consider using 'alias' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osAlias :: Lens.Lens' OrganizationSummary (Lude.Maybe Lude.Text)
-osAlias = Lens.lens (alias :: OrganizationSummary -> Lude.Maybe Lude.Text) (\s a -> s {alias = a} :: OrganizationSummary)
+osAlias :: Lens.Lens' OrganizationSummary (Core.Maybe Types.OrganizationName)
+osAlias = Lens.field @"alias"
 {-# DEPRECATED osAlias "Use generic-lens or generic-optics with 'alias' instead." #-}
 
 -- | The default email domain associated with the organization.
 --
 -- /Note:/ Consider using 'defaultMailDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osDefaultMailDomain :: Lens.Lens' OrganizationSummary (Lude.Maybe Lude.Text)
-osDefaultMailDomain = Lens.lens (defaultMailDomain :: OrganizationSummary -> Lude.Maybe Lude.Text) (\s a -> s {defaultMailDomain = a} :: OrganizationSummary)
+osDefaultMailDomain :: Lens.Lens' OrganizationSummary (Core.Maybe Types.DefaultMailDomain)
+osDefaultMailDomain = Lens.field @"defaultMailDomain"
 {-# DEPRECATED osDefaultMailDomain "Use generic-lens or generic-optics with 'defaultMailDomain' instead." #-}
 
 -- | The error message associated with the organization. It is only present if unexpected behavior has occurred with regards to the organization. It provides insight or solutions regarding unexpected behavior.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osErrorMessage :: Lens.Lens' OrganizationSummary (Lude.Maybe Lude.Text)
-osErrorMessage = Lens.lens (errorMessage :: OrganizationSummary -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: OrganizationSummary)
+osErrorMessage :: Lens.Lens' OrganizationSummary (Core.Maybe Types.ErrorMessage)
+osErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED osErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The identifier associated with the organization.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-osOrganizationId :: Lens.Lens' OrganizationSummary (Lude.Maybe Lude.Text)
-osOrganizationId = Lens.lens (organizationId :: OrganizationSummary -> Lude.Maybe Lude.Text) (\s a -> s {organizationId = a} :: OrganizationSummary)
+osOrganizationId :: Lens.Lens' OrganizationSummary (Core.Maybe Types.OrganizationId)
+osOrganizationId = Lens.field @"organizationId"
 {-# DEPRECATED osOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Lude.FromJSON OrganizationSummary where
+-- | The state associated with the organization.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+osState :: Lens.Lens' OrganizationSummary (Core.Maybe Types.State)
+osState = Lens.field @"state"
+{-# DEPRECATED osState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+instance Core.FromJSON OrganizationSummary where
   parseJSON =
-    Lude.withObject
-      "OrganizationSummary"
-      ( \x ->
-          OrganizationSummary'
-            Lude.<$> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "Alias")
-            Lude.<*> (x Lude..:? "DefaultMailDomain")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-            Lude.<*> (x Lude..:? "OrganizationId")
-      )
+    Core.withObject "OrganizationSummary" Core.$
+      \x ->
+        OrganizationSummary'
+          Core.<$> (x Core..:? "Alias")
+          Core.<*> (x Core..:? "DefaultMailDomain")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "OrganizationId")
+          Core.<*> (x Core..:? "State")

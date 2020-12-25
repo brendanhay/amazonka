@@ -9,87 +9,64 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MQ.Types
   ( -- * Service configuration
-    mqService,
+    mkServiceConfig,
 
     -- * Errors
+    _ConflictException,
+    _ForbiddenException,
+    _NotFoundException,
+    _InternalServerErrorException,
+    _UnauthorizedException,
+    _BadRequestException,
 
-    -- * AuthenticationStrategy
-    AuthenticationStrategy (..),
+    -- * EngineVersion
+    EngineVersion (..),
+    mkEngineVersion,
+    evName,
 
     -- * BrokerState
     BrokerState (..),
 
-    -- * BrokerStorageType
-    BrokerStorageType (..),
+    -- * WeeklyStartTime
+    WeeklyStartTime (..),
+    mkWeeklyStartTime,
+    wstDayOfWeek,
+    wstTimeOfDay,
+    wstTimeZone,
 
-    -- * ChangeType
-    ChangeType (..),
-
-    -- * DayOfWeek
-    DayOfWeek (..),
-
-    -- * DeploymentMode
-    DeploymentMode (..),
-
-    -- * EngineType
-    EngineType (..),
-
-    -- * SanitizationWarningReason
-    SanitizationWarningReason (..),
-
-    -- * AvailabilityZone
-    AvailabilityZone (..),
-    mkAvailabilityZone,
-    azName,
-
-    -- * BrokerEngineType
-    BrokerEngineType (..),
-    mkBrokerEngineType,
-    betEngineVersions,
-    betEngineType,
-
-    -- * BrokerInstance
-    BrokerInstance (..),
-    mkBrokerInstance,
-    biIPAddress,
-    biConsoleURL,
-    biEndpoints,
-
-    -- * BrokerInstanceOption
-    BrokerInstanceOption (..),
-    mkBrokerInstanceOption,
-    bioSupportedEngineVersions,
-    bioAvailabilityZones,
-    bioSupportedDeploymentModes,
-    bioEngineType,
-    bioHostInstanceType,
-    bioStorageType,
+    -- * LdapServerMetadataInput
+    LdapServerMetadataInput (..),
+    mkLdapServerMetadataInput,
+    lsmiHosts,
+    lsmiRoleBase,
+    lsmiRoleName,
+    lsmiRoleSearchMatching,
+    lsmiRoleSearchSubtree,
+    lsmiServiceAccountPassword,
+    lsmiServiceAccountUsername,
+    lsmiUserBase,
+    lsmiUserRoleName,
+    lsmiUserSearchMatching,
+    lsmiUserSearchSubtree,
 
     -- * BrokerSummary
     BrokerSummary (..),
     mkBrokerSummary,
+    bsBrokerArn,
+    bsBrokerId,
     bsBrokerName,
     bsBrokerState,
     bsCreated,
     bsDeploymentMode,
-    bsBrokerId,
     bsEngineType,
-    bsBrokerARN,
     bsHostInstanceType,
 
-    -- * Configuration
-    Configuration (..),
-    mkConfiguration,
-    cEngineVersion,
-    cARN,
-    cLatestRevision,
-    cCreated,
-    cAuthenticationStrategy,
-    cName,
-    cId,
-    cDescription,
-    cEngineType,
-    cTags,
+    -- * BrokerInstance
+    BrokerInstance (..),
+    mkBrokerInstance,
+    biConsoleURL,
+    biEndpoints,
+    biIpAddress,
 
     -- * ConfigurationId
     ConfigurationId (..),
@@ -101,55 +78,52 @@ module Network.AWS.MQ.Types
     ConfigurationRevision (..),
     mkConfigurationRevision,
     crCreated,
-    crRevision,
     crDescription,
+    crRevision,
+
+    -- * LogsSummary
+    LogsSummary (..),
+    mkLogsSummary,
+    lsAudit,
+    lsAuditLogGroup,
+    lsGeneral,
+    lsGeneralLogGroup,
+    lsPending,
 
     -- * Configurations
     Configurations (..),
     mkConfigurations,
-    cPending,
-    cHistory,
     cCurrent,
+    cHistory,
+    cPending,
 
-    -- * EncryptionOptions
-    EncryptionOptions (..),
-    mkEncryptionOptions,
-    eoUseAWSOwnedKey,
-    eoKMSKeyId,
-
-    -- * EngineVersion
-    EngineVersion (..),
-    mkEngineVersion,
-    evName,
-
-    -- * LdapServerMetadataInput
-    LdapServerMetadataInput (..),
-    mkLdapServerMetadataInput,
-    lsmiUserBase,
-    lsmiUserSearchMatching,
-    lsmiUserRoleName,
-    lsmiServiceAccountUsername,
-    lsmiUserSearchSubtree,
-    lsmiRoleSearchSubtree,
-    lsmiHosts,
-    lsmiRoleName,
-    lsmiServiceAccountPassword,
-    lsmiRoleSearchMatching,
-    lsmiRoleBase,
+    -- * AuthenticationStrategy
+    AuthenticationStrategy (..),
 
     -- * LdapServerMetadataOutput
     LdapServerMetadataOutput (..),
     mkLdapServerMetadataOutput,
-    lsmoUserBase,
-    lsmoUserSearchMatching,
-    lsmoUserRoleName,
-    lsmoServiceAccountUsername,
-    lsmoUserSearchSubtree,
-    lsmoRoleSearchSubtree,
     lsmoHosts,
+    lsmoRoleBase,
     lsmoRoleName,
     lsmoRoleSearchMatching,
-    lsmoRoleBase,
+    lsmoRoleSearchSubtree,
+    lsmoServiceAccountUsername,
+    lsmoUserBase,
+    lsmoUserRoleName,
+    lsmoUserSearchMatching,
+    lsmoUserSearchSubtree,
+
+    -- * SanitizationWarningReason
+    SanitizationWarningReason (..),
+
+    -- * User
+    User (..),
+    mkUser,
+    uConsoleAccess,
+    uGroups,
+    uPassword,
+    uUsername,
 
     -- * Logs
     Logs (..),
@@ -157,14 +131,55 @@ module Network.AWS.MQ.Types
     lAudit,
     lGeneral,
 
-    -- * LogsSummary
-    LogsSummary (..),
-    mkLogsSummary,
-    lsPending,
-    lsAudit,
-    lsGeneral,
-    lsGeneralLogGroup,
-    lsAuditLogGroup,
+    -- * EncryptionOptions
+    EncryptionOptions (..),
+    mkEncryptionOptions,
+    eoUseAwsOwnedKey,
+    eoKmsKeyId,
+
+    -- * AvailabilityZone
+    AvailabilityZone (..),
+    mkAvailabilityZone,
+    azName,
+
+    -- * DeploymentMode
+    DeploymentMode (..),
+
+    -- * BrokerStorageType
+    BrokerStorageType (..),
+
+    -- * UserSummary
+    UserSummary (..),
+    mkUserSummary,
+    usPendingChange,
+    usUsername,
+
+    -- * SanitizationWarning
+    SanitizationWarning (..),
+    mkSanitizationWarning,
+    swAttributeName,
+    swElementName,
+    swReason,
+
+    -- * BrokerEngineType
+    BrokerEngineType (..),
+    mkBrokerEngineType,
+    betEngineType,
+    betEngineVersions,
+
+    -- * Configuration
+    Configuration (..),
+    mkConfiguration,
+    cArn,
+    cAuthenticationStrategy,
+    cCreated,
+    cDescription,
+    cEngineType,
+    cEngineVersion,
+    cId,
+    cLatestRevision,
+    cName,
+    cTags,
 
     -- * PendingLogs
     PendingLogs (..),
@@ -172,40 +187,31 @@ module Network.AWS.MQ.Types
     plAudit,
     plGeneral,
 
-    -- * SanitizationWarning
-    SanitizationWarning (..),
-    mkSanitizationWarning,
-    swReason,
-    swAttributeName,
-    swElementName,
-
-    -- * User
-    User (..),
-    mkUser,
-    uGroups,
-    uConsoleAccess,
-    uUsername,
-    uPassword,
-
     -- * UserPendingChanges
     UserPendingChanges (..),
     mkUserPendingChanges,
-    upcGroups,
     upcConsoleAccess,
+    upcGroups,
     upcPendingChange,
 
-    -- * UserSummary
-    UserSummary (..),
-    mkUserSummary,
-    usUsername,
-    usPendingChange,
+    -- * ChangeType
+    ChangeType (..),
 
-    -- * WeeklyStartTime
-    WeeklyStartTime (..),
-    mkWeeklyStartTime,
-    wstTimeOfDay,
-    wstTimeZone,
-    wstDayOfWeek,
+    -- * EngineType
+    EngineType (..),
+
+    -- * BrokerInstanceOption
+    BrokerInstanceOption (..),
+    mkBrokerInstanceOption,
+    bioAvailabilityZones,
+    bioEngineType,
+    bioHostInstanceType,
+    bioStorageType,
+    bioSupportedDeploymentModes,
+    bioSupportedEngineVersions,
+
+    -- * DayOfWeek
+    DayOfWeek (..),
   )
 where
 
@@ -239,59 +245,103 @@ import Network.AWS.MQ.Types.User
 import Network.AWS.MQ.Types.UserPendingChanges
 import Network.AWS.MQ.Types.UserSummary
 import Network.AWS.MQ.Types.WeeklyStartTime
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-11-27@ of the Amazon MQ SDK configuration.
-mqService :: Lude.Service
-mqService =
-  Lude.Service
-    { Lude._svcAbbrev = "MQ",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "mq",
-      Lude._svcVersion = "2017-11-27",
-      Lude._svcEndpoint = Lude.defaultEndpoint mqService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "MQ",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "MQ",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "mq",
+      Core._svcVersion = "2017-11-27",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "MQ",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | Returns information about an error.
+_ConflictException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ConflictException =
+  Core._MatchServiceError mkServiceConfig "ConflictException"
+    Core.. Core.hasStatues 409
+{-# DEPRECATED _ConflictException "Use generic-lens or generic-optics instead." #-}
+
+-- | Returns information about an error.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError mkServiceConfig "ForbiddenException"
+    Core.. Core.hasStatues 403
+{-# DEPRECATED _ForbiddenException "Use generic-lens or generic-optics instead." #-}
+
+-- | Returns information about an error.
+_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError mkServiceConfig "NotFoundException"
+    Core.. Core.hasStatues 404
+{-# DEPRECATED _NotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | Returns information about an error.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InternalServerErrorException"
+    Core.. Core.hasStatues 500
+{-# DEPRECATED _InternalServerErrorException "Use generic-lens or generic-optics instead." #-}
+
+-- | Returns information about an error.
+_UnauthorizedException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnauthorizedException =
+  Core._MatchServiceError mkServiceConfig "UnauthorizedException"
+    Core.. Core.hasStatues 401
+{-# DEPRECATED _UnauthorizedException "Use generic-lens or generic-optics instead." #-}
+
+-- | Returns information about an error.
+_BadRequestException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_BadRequestException =
+  Core._MatchServiceError mkServiceConfig "BadRequestException"
+    Core.. Core.hasStatues 400
+{-# DEPRECATED _BadRequestException "Use generic-lens or generic-optics instead." #-}

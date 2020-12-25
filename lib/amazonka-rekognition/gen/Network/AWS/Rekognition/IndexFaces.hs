@@ -69,125 +69,108 @@ module Network.AWS.Rekognition.IndexFaces
     mkIndexFaces,
 
     -- ** Request lenses
-    ifExternalImageId,
-    ifImage,
-    ifQualityFilter,
     ifCollectionId,
-    ifMaxFaces,
+    ifImage,
     ifDetectionAttributes,
+    ifExternalImageId,
+    ifMaxFaces,
+    ifQualityFilter,
 
     -- * Destructuring the response
     IndexFacesResponse (..),
     mkIndexFacesResponse,
 
     -- ** Response lenses
-    ifrsFaceModelVersion,
-    ifrsFaceRecords,
-    ifrsOrientationCorrection,
-    ifrsUnindexedFaces,
-    ifrsResponseStatus,
+    ifrrsFaceModelVersion,
+    ifrrsFaceRecords,
+    ifrrsOrientationCorrection,
+    ifrrsUnindexedFaces,
+    ifrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkIndexFaces' smart constructor.
 data IndexFaces = IndexFaces'
-  { -- | The ID you want to assign to all the faces detected in the image.
-    externalImageId :: Lude.Maybe Lude.Text,
+  { -- | The ID of an existing collection to which you want to add the faces that are detected in the input images.
+    collectionId :: Types.CollectionId,
     -- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes isn't supported.
     --
     -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
-    image :: Image,
-    -- | A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't indexed. If you specify @AUTO@ , Amazon Rekognition chooses the quality bar. If you specify @LOW@ , @MEDIUM@ , or @HIGH@ , filtering removes all faces that don’t meet the chosen quality bar. The default value is @AUTO@ . The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify @NONE@ , no filtering is performed.
+    image :: Types.Image,
+    -- | An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ , and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned, but the operation takes longer to complete.
     --
-    -- To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.
-    qualityFilter :: Lude.Maybe QualityFilter,
-    -- | The ID of an existing collection to which you want to add the faces that are detected in the input images.
-    collectionId :: Lude.Text,
+    -- If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
+    detectionAttributes :: Core.Maybe [Types.Attribute],
+    -- | The ID you want to assign to all the faces detected in the image.
+    externalImageId :: Core.Maybe Types.ExternalImageId,
     -- | The maximum number of faces to index. The value of @MaxFaces@ must be greater than or equal to 1. @IndexFaces@ returns no more than 100 detected faces in an image, even if you specify a larger value for @MaxFaces@ .
     --
     -- If @IndexFaces@ detects more faces than the value of @MaxFaces@ , the faces with the lowest quality are filtered out first. If there are still more faces than the value of @MaxFaces@ , the faces with the smallest bounding boxes are filtered out (up to the number that's needed to satisfy the value of @MaxFaces@ ). Information about the unindexed faces is available in the @UnindexedFaces@ array.
     -- The faces that are returned by @IndexFaces@ are sorted by the largest face bounding box size to the smallest size, in descending order.
     -- @MaxFaces@ can be used with a collection associated with any version of the face model.
-    maxFaces :: Lude.Maybe Lude.Natural,
-    -- | An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ , and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned, but the operation takes longer to complete.
+    maxFaces :: Core.Maybe Core.Natural,
+    -- | A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't indexed. If you specify @AUTO@ , Amazon Rekognition chooses the quality bar. If you specify @LOW@ , @MEDIUM@ , or @HIGH@ , filtering removes all faces that don’t meet the chosen quality bar. The default value is @AUTO@ . The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify @NONE@ , no filtering is performed.
     --
-    -- If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
-    detectionAttributes :: Lude.Maybe [Attribute]
+    -- To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.
+    qualityFilter :: Core.Maybe Types.QualityFilter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IndexFaces' with the minimum fields required to make a request.
---
--- * 'externalImageId' - The ID you want to assign to all the faces detected in the image.
--- * 'image' - The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes isn't supported.
---
--- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
--- * 'qualityFilter' - A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't indexed. If you specify @AUTO@ , Amazon Rekognition chooses the quality bar. If you specify @LOW@ , @MEDIUM@ , or @HIGH@ , filtering removes all faces that don’t meet the chosen quality bar. The default value is @AUTO@ . The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify @NONE@ , no filtering is performed.
---
--- To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.
--- * 'collectionId' - The ID of an existing collection to which you want to add the faces that are detected in the input images.
--- * 'maxFaces' - The maximum number of faces to index. The value of @MaxFaces@ must be greater than or equal to 1. @IndexFaces@ returns no more than 100 detected faces in an image, even if you specify a larger value for @MaxFaces@ .
---
--- If @IndexFaces@ detects more faces than the value of @MaxFaces@ , the faces with the lowest quality are filtered out first. If there are still more faces than the value of @MaxFaces@ , the faces with the smallest bounding boxes are filtered out (up to the number that's needed to satisfy the value of @MaxFaces@ ). Information about the unindexed faces is available in the @UnindexedFaces@ array.
--- The faces that are returned by @IndexFaces@ are sorted by the largest face bounding box size to the smallest size, in descending order.
--- @MaxFaces@ can be used with a collection associated with any version of the face model.
--- * 'detectionAttributes' - An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ , and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned, but the operation takes longer to complete.
---
--- If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
+-- | Creates a 'IndexFaces' value with any optional fields omitted.
 mkIndexFaces ::
-  -- | 'image'
-  Image ->
   -- | 'collectionId'
-  Lude.Text ->
+  Types.CollectionId ->
+  -- | 'image'
+  Types.Image ->
   IndexFaces
-mkIndexFaces pImage_ pCollectionId_ =
+mkIndexFaces collectionId image =
   IndexFaces'
-    { externalImageId = Lude.Nothing,
-      image = pImage_,
-      qualityFilter = Lude.Nothing,
-      collectionId = pCollectionId_,
-      maxFaces = Lude.Nothing,
-      detectionAttributes = Lude.Nothing
+    { collectionId,
+      image,
+      detectionAttributes = Core.Nothing,
+      externalImageId = Core.Nothing,
+      maxFaces = Core.Nothing,
+      qualityFilter = Core.Nothing
     }
 
--- | The ID you want to assign to all the faces detected in the image.
+-- | The ID of an existing collection to which you want to add the faces that are detected in the input images.
 --
--- /Note:/ Consider using 'externalImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifExternalImageId :: Lens.Lens' IndexFaces (Lude.Maybe Lude.Text)
-ifExternalImageId = Lens.lens (externalImageId :: IndexFaces -> Lude.Maybe Lude.Text) (\s a -> s {externalImageId = a} :: IndexFaces)
-{-# DEPRECATED ifExternalImageId "Use generic-lens or generic-optics with 'externalImageId' instead." #-}
+-- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifCollectionId :: Lens.Lens' IndexFaces Types.CollectionId
+ifCollectionId = Lens.field @"collectionId"
+{-# DEPRECATED ifCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
 
 -- | The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes isn't supported.
 --
 -- If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes passed using the @Bytes@ field. For more information, see Images in the Amazon Rekognition developer guide.
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifImage :: Lens.Lens' IndexFaces Image
-ifImage = Lens.lens (image :: IndexFaces -> Image) (\s a -> s {image = a} :: IndexFaces)
+ifImage :: Lens.Lens' IndexFaces Types.Image
+ifImage = Lens.field @"image"
 {-# DEPRECATED ifImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
--- | A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't indexed. If you specify @AUTO@ , Amazon Rekognition chooses the quality bar. If you specify @LOW@ , @MEDIUM@ , or @HIGH@ , filtering removes all faces that don’t meet the chosen quality bar. The default value is @AUTO@ . The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify @NONE@ , no filtering is performed.
+-- | An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ , and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned, but the operation takes longer to complete.
 --
--- To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.
+-- If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
 --
--- /Note:/ Consider using 'qualityFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifQualityFilter :: Lens.Lens' IndexFaces (Lude.Maybe QualityFilter)
-ifQualityFilter = Lens.lens (qualityFilter :: IndexFaces -> Lude.Maybe QualityFilter) (\s a -> s {qualityFilter = a} :: IndexFaces)
-{-# DEPRECATED ifQualityFilter "Use generic-lens or generic-optics with 'qualityFilter' instead." #-}
+-- /Note:/ Consider using 'detectionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifDetectionAttributes :: Lens.Lens' IndexFaces (Core.Maybe [Types.Attribute])
+ifDetectionAttributes = Lens.field @"detectionAttributes"
+{-# DEPRECATED ifDetectionAttributes "Use generic-lens or generic-optics with 'detectionAttributes' instead." #-}
 
--- | The ID of an existing collection to which you want to add the faces that are detected in the input images.
+-- | The ID you want to assign to all the faces detected in the image.
 --
--- /Note:/ Consider using 'collectionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifCollectionId :: Lens.Lens' IndexFaces Lude.Text
-ifCollectionId = Lens.lens (collectionId :: IndexFaces -> Lude.Text) (\s a -> s {collectionId = a} :: IndexFaces)
-{-# DEPRECATED ifCollectionId "Use generic-lens or generic-optics with 'collectionId' instead." #-}
+-- /Note:/ Consider using 'externalImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifExternalImageId :: Lens.Lens' IndexFaces (Core.Maybe Types.ExternalImageId)
+ifExternalImageId = Lens.field @"externalImageId"
+{-# DEPRECATED ifExternalImageId "Use generic-lens or generic-optics with 'externalImageId' instead." #-}
 
 -- | The maximum number of faces to index. The value of @MaxFaces@ must be greater than or equal to 1. @IndexFaces@ returns no more than 100 detected faces in an image, even if you specify a larger value for @MaxFaces@ .
 --
@@ -196,69 +179,62 @@ ifCollectionId = Lens.lens (collectionId :: IndexFaces -> Lude.Text) (\s a -> s 
 -- @MaxFaces@ can be used with a collection associated with any version of the face model.
 --
 -- /Note:/ Consider using 'maxFaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifMaxFaces :: Lens.Lens' IndexFaces (Lude.Maybe Lude.Natural)
-ifMaxFaces = Lens.lens (maxFaces :: IndexFaces -> Lude.Maybe Lude.Natural) (\s a -> s {maxFaces = a} :: IndexFaces)
+ifMaxFaces :: Lens.Lens' IndexFaces (Core.Maybe Core.Natural)
+ifMaxFaces = Lens.field @"maxFaces"
 {-# DEPRECATED ifMaxFaces "Use generic-lens or generic-optics with 'maxFaces' instead." #-}
 
--- | An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for @Attributes@ or if you specify @["DEFAULT"]@ , the API returns the following subset of facial attributes: @BoundingBox@ , @Confidence@ , @Pose@ , @Quality@ , and @Landmarks@ . If you provide @["ALL"]@ , all facial attributes are returned, but the operation takes longer to complete.
+-- | A filter that specifies a quality bar for how much filtering is done to identify faces. Filtered faces aren't indexed. If you specify @AUTO@ , Amazon Rekognition chooses the quality bar. If you specify @LOW@ , @MEDIUM@ , or @HIGH@ , filtering removes all faces that don’t meet the chosen quality bar. The default value is @AUTO@ . The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify @NONE@ , no filtering is performed.
 --
--- If you provide both, @["ALL", "DEFAULT"]@ , the service uses a logical AND operator to determine which attributes to return (in this case, all attributes).
+-- To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.
 --
--- /Note:/ Consider using 'detectionAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifDetectionAttributes :: Lens.Lens' IndexFaces (Lude.Maybe [Attribute])
-ifDetectionAttributes = Lens.lens (detectionAttributes :: IndexFaces -> Lude.Maybe [Attribute]) (\s a -> s {detectionAttributes = a} :: IndexFaces)
-{-# DEPRECATED ifDetectionAttributes "Use generic-lens or generic-optics with 'detectionAttributes' instead." #-}
+-- /Note:/ Consider using 'qualityFilter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ifQualityFilter :: Lens.Lens' IndexFaces (Core.Maybe Types.QualityFilter)
+ifQualityFilter = Lens.field @"qualityFilter"
+{-# DEPRECATED ifQualityFilter "Use generic-lens or generic-optics with 'qualityFilter' instead." #-}
 
-instance Lude.AWSRequest IndexFaces where
+instance Core.FromJSON IndexFaces where
+  toJSON IndexFaces {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("CollectionId" Core..= collectionId),
+            Core.Just ("Image" Core..= image),
+            ("DetectionAttributes" Core..=) Core.<$> detectionAttributes,
+            ("ExternalImageId" Core..=) Core.<$> externalImageId,
+            ("MaxFaces" Core..=) Core.<$> maxFaces,
+            ("QualityFilter" Core..=) Core.<$> qualityFilter
+          ]
+      )
+
+instance Core.AWSRequest IndexFaces where
   type Rs IndexFaces = IndexFacesResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.IndexFaces")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           IndexFacesResponse'
-            Lude.<$> (x Lude..?> "FaceModelVersion")
-            Lude.<*> (x Lude..?> "FaceRecords" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "OrientationCorrection")
-            Lude.<*> (x Lude..?> "UnindexedFaces" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "FaceModelVersion")
+            Core.<*> (x Core..:? "FaceRecords")
+            Core.<*> (x Core..:? "OrientationCorrection")
+            Core.<*> (x Core..:? "UnindexedFaces")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders IndexFaces where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.IndexFaces" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON IndexFaces where
-  toJSON IndexFaces' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ExternalImageId" Lude..=) Lude.<$> externalImageId,
-            Lude.Just ("Image" Lude..= image),
-            ("QualityFilter" Lude..=) Lude.<$> qualityFilter,
-            Lude.Just ("CollectionId" Lude..= collectionId),
-            ("MaxFaces" Lude..=) Lude.<$> maxFaces,
-            ("DetectionAttributes" Lude..=) Lude.<$> detectionAttributes
-          ]
-      )
-
-instance Lude.ToPath IndexFaces where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery IndexFaces where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkIndexFacesResponse' smart constructor.
 data IndexFacesResponse = IndexFacesResponse'
   { -- | The version number of the face detection model that's associated with the input collection (@CollectionId@ ).
-    faceModelVersion :: Lude.Maybe Lude.Text,
+    faceModelVersion :: Core.Maybe Types.String,
     -- | An array of faces detected and added to the collection. For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.
-    faceRecords :: Lude.Maybe [FaceRecord],
+    faceRecords :: Core.Maybe [Types.FaceRecord],
     -- | If your collection is associated with a face detection model that's later than version 3.0, the value of @OrientationCorrection@ is always null and no orientation information is returned.
     --
     -- If your collection is associated with a face detection model that's version 3.0 or earlier, the following applies:
@@ -270,58 +246,42 @@ data IndexFacesResponse = IndexFacesResponse'
     --
     --
     -- Bounding box information is returned in the @FaceRecords@ array. You can get the version of the face detection model by calling 'DescribeCollection' .
-    orientationCorrection :: Lude.Maybe OrientationCorrection,
+    orientationCorrection :: Core.Maybe Types.OrientationCorrection,
     -- | An array of faces that were detected in the image but weren't indexed. They weren't indexed because the quality filter identified them as low quality, or the @MaxFaces@ request parameter filtered them out. To use the quality filter, you specify the @QualityFilter@ request parameter.
-    unindexedFaces :: Lude.Maybe [UnindexedFace],
+    unindexedFaces :: Core.Maybe [Types.UnindexedFace],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'IndexFacesResponse' with the minimum fields required to make a request.
---
--- * 'faceModelVersion' - The version number of the face detection model that's associated with the input collection (@CollectionId@ ).
--- * 'faceRecords' - An array of faces detected and added to the collection. For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.
--- * 'orientationCorrection' - If your collection is associated with a face detection model that's later than version 3.0, the value of @OrientationCorrection@ is always null and no orientation information is returned.
---
--- If your collection is associated with a face detection model that's version 3.0 or earlier, the following applies:
---
---     * If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction - the bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata. The value of @OrientationCorrection@ is null.
---
---
---     * If the image doesn't contain orientation information in its Exif metadata, Amazon Rekognition returns an estimated orientation (ROTATE_0, ROTATE_90, ROTATE_180, ROTATE_270). Amazon Rekognition doesn’t perform image correction for images. The bounding box coordinates aren't translated and represent the object locations before the image is rotated.
---
---
--- Bounding box information is returned in the @FaceRecords@ array. You can get the version of the face detection model by calling 'DescribeCollection' .
--- * 'unindexedFaces' - An array of faces that were detected in the image but weren't indexed. They weren't indexed because the quality filter identified them as low quality, or the @MaxFaces@ request parameter filtered them out. To use the quality filter, you specify the @QualityFilter@ request parameter.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'IndexFacesResponse' value with any optional fields omitted.
 mkIndexFacesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   IndexFacesResponse
-mkIndexFacesResponse pResponseStatus_ =
+mkIndexFacesResponse responseStatus =
   IndexFacesResponse'
-    { faceModelVersion = Lude.Nothing,
-      faceRecords = Lude.Nothing,
-      orientationCorrection = Lude.Nothing,
-      unindexedFaces = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { faceModelVersion = Core.Nothing,
+      faceRecords = Core.Nothing,
+      orientationCorrection = Core.Nothing,
+      unindexedFaces = Core.Nothing,
+      responseStatus
     }
 
 -- | The version number of the face detection model that's associated with the input collection (@CollectionId@ ).
 --
 -- /Note:/ Consider using 'faceModelVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifrsFaceModelVersion :: Lens.Lens' IndexFacesResponse (Lude.Maybe Lude.Text)
-ifrsFaceModelVersion = Lens.lens (faceModelVersion :: IndexFacesResponse -> Lude.Maybe Lude.Text) (\s a -> s {faceModelVersion = a} :: IndexFacesResponse)
-{-# DEPRECATED ifrsFaceModelVersion "Use generic-lens or generic-optics with 'faceModelVersion' instead." #-}
+ifrrsFaceModelVersion :: Lens.Lens' IndexFacesResponse (Core.Maybe Types.String)
+ifrrsFaceModelVersion = Lens.field @"faceModelVersion"
+{-# DEPRECATED ifrrsFaceModelVersion "Use generic-lens or generic-optics with 'faceModelVersion' instead." #-}
 
 -- | An array of faces detected and added to the collection. For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.
 --
 -- /Note:/ Consider using 'faceRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifrsFaceRecords :: Lens.Lens' IndexFacesResponse (Lude.Maybe [FaceRecord])
-ifrsFaceRecords = Lens.lens (faceRecords :: IndexFacesResponse -> Lude.Maybe [FaceRecord]) (\s a -> s {faceRecords = a} :: IndexFacesResponse)
-{-# DEPRECATED ifrsFaceRecords "Use generic-lens or generic-optics with 'faceRecords' instead." #-}
+ifrrsFaceRecords :: Lens.Lens' IndexFacesResponse (Core.Maybe [Types.FaceRecord])
+ifrrsFaceRecords = Lens.field @"faceRecords"
+{-# DEPRECATED ifrrsFaceRecords "Use generic-lens or generic-optics with 'faceRecords' instead." #-}
 
 -- | If your collection is associated with a face detection model that's later than version 3.0, the value of @OrientationCorrection@ is always null and no orientation information is returned.
 --
@@ -336,20 +296,20 @@ ifrsFaceRecords = Lens.lens (faceRecords :: IndexFacesResponse -> Lude.Maybe [Fa
 -- Bounding box information is returned in the @FaceRecords@ array. You can get the version of the face detection model by calling 'DescribeCollection' .
 --
 -- /Note:/ Consider using 'orientationCorrection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifrsOrientationCorrection :: Lens.Lens' IndexFacesResponse (Lude.Maybe OrientationCorrection)
-ifrsOrientationCorrection = Lens.lens (orientationCorrection :: IndexFacesResponse -> Lude.Maybe OrientationCorrection) (\s a -> s {orientationCorrection = a} :: IndexFacesResponse)
-{-# DEPRECATED ifrsOrientationCorrection "Use generic-lens or generic-optics with 'orientationCorrection' instead." #-}
+ifrrsOrientationCorrection :: Lens.Lens' IndexFacesResponse (Core.Maybe Types.OrientationCorrection)
+ifrrsOrientationCorrection = Lens.field @"orientationCorrection"
+{-# DEPRECATED ifrrsOrientationCorrection "Use generic-lens or generic-optics with 'orientationCorrection' instead." #-}
 
 -- | An array of faces that were detected in the image but weren't indexed. They weren't indexed because the quality filter identified them as low quality, or the @MaxFaces@ request parameter filtered them out. To use the quality filter, you specify the @QualityFilter@ request parameter.
 --
 -- /Note:/ Consider using 'unindexedFaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifrsUnindexedFaces :: Lens.Lens' IndexFacesResponse (Lude.Maybe [UnindexedFace])
-ifrsUnindexedFaces = Lens.lens (unindexedFaces :: IndexFacesResponse -> Lude.Maybe [UnindexedFace]) (\s a -> s {unindexedFaces = a} :: IndexFacesResponse)
-{-# DEPRECATED ifrsUnindexedFaces "Use generic-lens or generic-optics with 'unindexedFaces' instead." #-}
+ifrrsUnindexedFaces :: Lens.Lens' IndexFacesResponse (Core.Maybe [Types.UnindexedFace])
+ifrrsUnindexedFaces = Lens.field @"unindexedFaces"
+{-# DEPRECATED ifrrsUnindexedFaces "Use generic-lens or generic-optics with 'unindexedFaces' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifrsResponseStatus :: Lens.Lens' IndexFacesResponse Lude.Int
-ifrsResponseStatus = Lens.lens (responseStatus :: IndexFacesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: IndexFacesResponse)
-{-# DEPRECATED ifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ifrrsResponseStatus :: Lens.Lens' IndexFacesResponse Core.Int
+ifrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ifrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

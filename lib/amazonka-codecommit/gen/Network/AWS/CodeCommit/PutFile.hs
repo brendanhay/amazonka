@@ -20,102 +20,97 @@ module Network.AWS.CodeCommit.PutFile
     mkPutFile,
 
     -- ** Request lenses
-    pfEmail,
-    pfFileContent,
-    pfFileMode,
-    pfParentCommitId,
-    pfFilePath,
-    pfBranchName,
-    pfName,
-    pfCommitMessage,
     pfRepositoryName,
+    pfBranchName,
+    pfFileContent,
+    pfFilePath,
+    pfCommitMessage,
+    pfEmail,
+    pfFileMode,
+    pfName,
+    pfParentCommitId,
 
     -- * Destructuring the response
     PutFileResponse (..),
     mkPutFileResponse,
 
     -- ** Response lenses
-    pfrsCommitId,
-    pfrsTreeId,
-    pfrsBlobId,
-    pfrsResponseStatus,
+    pfrrsCommitId,
+    pfrrsBlobId,
+    pfrrsTreeId,
+    pfrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutFile' smart constructor.
 data PutFile = PutFile'
-  { -- | An email address for the person adding or updating the file.
-    email :: Lude.Maybe Lude.Text,
+  { -- | The name of the repository where you want to add or update the file.
+    repositoryName :: Types.RepositoryName,
+    -- | The name of the branch where you want to add or update the file. If this is an empty repository, this branch is created.
+    branchName :: Types.BranchName,
     -- | The content of the file, in binary object format.
-    fileContent :: Lude.Base64,
+    fileContent :: Core.Base64,
+    -- | The name of the file you want to add or update, including the relative path to the file in the repository.
+    filePath :: Types.Path,
+    -- | A message about why this file was added or updated. Although it is optional, a message makes the commit history for your repository more useful.
+    commitMessage :: Core.Maybe Types.Message,
+    -- | An email address for the person adding or updating the file.
+    email :: Core.Maybe Types.Email,
     -- | The file mode permissions of the blob. Valid file mode permissions are listed here.
-    fileMode :: Lude.Maybe FileModeTypeEnum,
+    fileMode :: Core.Maybe Types.FileModeTypeEnum,
+    -- | The name of the person adding or updating the file. Although it is optional, a name makes the commit history for your repository more useful.
+    name :: Core.Maybe Types.Name,
     -- | The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository, no commit ID is required. If this is not an empty repository, a commit ID is required.
     --
     -- The commit ID must match the ID of the head commit at the time of the operation. Otherwise, an error occurs, and the file is not added or updated.
-    parentCommitId :: Lude.Maybe Lude.Text,
-    -- | The name of the file you want to add or update, including the relative path to the file in the repository.
-    filePath :: Lude.Text,
-    -- | The name of the branch where you want to add or update the file. If this is an empty repository, this branch is created.
-    branchName :: Lude.Text,
-    -- | The name of the person adding or updating the file. Although it is optional, a name makes the commit history for your repository more useful.
-    name :: Lude.Maybe Lude.Text,
-    -- | A message about why this file was added or updated. Although it is optional, a message makes the commit history for your repository more useful.
-    commitMessage :: Lude.Maybe Lude.Text,
-    -- | The name of the repository where you want to add or update the file.
-    repositoryName :: Lude.Text
+    parentCommitId :: Core.Maybe Types.CommitId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutFile' with the minimum fields required to make a request.
---
--- * 'email' - An email address for the person adding or updating the file.
--- * 'fileContent' - The content of the file, in binary object format.
--- * 'fileMode' - The file mode permissions of the blob. Valid file mode permissions are listed here.
--- * 'parentCommitId' - The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository, no commit ID is required. If this is not an empty repository, a commit ID is required.
---
--- The commit ID must match the ID of the head commit at the time of the operation. Otherwise, an error occurs, and the file is not added or updated.
--- * 'filePath' - The name of the file you want to add or update, including the relative path to the file in the repository.
--- * 'branchName' - The name of the branch where you want to add or update the file. If this is an empty repository, this branch is created.
--- * 'name' - The name of the person adding or updating the file. Although it is optional, a name makes the commit history for your repository more useful.
--- * 'commitMessage' - A message about why this file was added or updated. Although it is optional, a message makes the commit history for your repository more useful.
--- * 'repositoryName' - The name of the repository where you want to add or update the file.
+-- | Creates a 'PutFile' value with any optional fields omitted.
 mkPutFile ::
-  -- | 'fileContent'
-  Lude.Base64 ->
-  -- | 'filePath'
-  Lude.Text ->
-  -- | 'branchName'
-  Lude.Text ->
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
+  -- | 'branchName'
+  Types.BranchName ->
+  -- | 'fileContent'
+  Core.Base64 ->
+  -- | 'filePath'
+  Types.Path ->
   PutFile
-mkPutFile pFileContent_ pFilePath_ pBranchName_ pRepositoryName_ =
+mkPutFile repositoryName branchName fileContent filePath =
   PutFile'
-    { email = Lude.Nothing,
-      fileContent = pFileContent_,
-      fileMode = Lude.Nothing,
-      parentCommitId = Lude.Nothing,
-      filePath = pFilePath_,
-      branchName = pBranchName_,
-      name = Lude.Nothing,
-      commitMessage = Lude.Nothing,
-      repositoryName = pRepositoryName_
+    { repositoryName,
+      branchName,
+      fileContent,
+      filePath,
+      commitMessage = Core.Nothing,
+      email = Core.Nothing,
+      fileMode = Core.Nothing,
+      name = Core.Nothing,
+      parentCommitId = Core.Nothing
     }
 
--- | An email address for the person adding or updating the file.
+-- | The name of the repository where you want to add or update the file.
 --
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfEmail :: Lens.Lens' PutFile (Lude.Maybe Lude.Text)
-pfEmail = Lens.lens (email :: PutFile -> Lude.Maybe Lude.Text) (\s a -> s {email = a} :: PutFile)
-{-# DEPRECATED pfEmail "Use generic-lens or generic-optics with 'email' instead." #-}
+-- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfRepositoryName :: Lens.Lens' PutFile Types.RepositoryName
+pfRepositoryName = Lens.field @"repositoryName"
+{-# DEPRECATED pfRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
+
+-- | The name of the branch where you want to add or update the file. If this is an empty repository, this branch is created.
+--
+-- /Note:/ Consider using 'branchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfBranchName :: Lens.Lens' PutFile Types.BranchName
+pfBranchName = Lens.field @"branchName"
+{-# DEPRECATED pfBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
 
 -- | The content of the file, in binary object format. --
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -124,169 +119,145 @@ pfEmail = Lens.lens (email :: PutFile -> Lude.Maybe Lude.Text) (\s a -> s {email
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'fileContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfFileContent :: Lens.Lens' PutFile Lude.Base64
-pfFileContent = Lens.lens (fileContent :: PutFile -> Lude.Base64) (\s a -> s {fileContent = a} :: PutFile)
+pfFileContent :: Lens.Lens' PutFile Core.Base64
+pfFileContent = Lens.field @"fileContent"
 {-# DEPRECATED pfFileContent "Use generic-lens or generic-optics with 'fileContent' instead." #-}
+
+-- | The name of the file you want to add or update, including the relative path to the file in the repository.
+--
+-- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfFilePath :: Lens.Lens' PutFile Types.Path
+pfFilePath = Lens.field @"filePath"
+{-# DEPRECATED pfFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
+
+-- | A message about why this file was added or updated. Although it is optional, a message makes the commit history for your repository more useful.
+--
+-- /Note:/ Consider using 'commitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfCommitMessage :: Lens.Lens' PutFile (Core.Maybe Types.Message)
+pfCommitMessage = Lens.field @"commitMessage"
+{-# DEPRECATED pfCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
+
+-- | An email address for the person adding or updating the file.
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfEmail :: Lens.Lens' PutFile (Core.Maybe Types.Email)
+pfEmail = Lens.field @"email"
+{-# DEPRECATED pfEmail "Use generic-lens or generic-optics with 'email' instead." #-}
 
 -- | The file mode permissions of the blob. Valid file mode permissions are listed here.
 --
 -- /Note:/ Consider using 'fileMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfFileMode :: Lens.Lens' PutFile (Lude.Maybe FileModeTypeEnum)
-pfFileMode = Lens.lens (fileMode :: PutFile -> Lude.Maybe FileModeTypeEnum) (\s a -> s {fileMode = a} :: PutFile)
+pfFileMode :: Lens.Lens' PutFile (Core.Maybe Types.FileModeTypeEnum)
+pfFileMode = Lens.field @"fileMode"
 {-# DEPRECATED pfFileMode "Use generic-lens or generic-optics with 'fileMode' instead." #-}
+
+-- | The name of the person adding or updating the file. Although it is optional, a name makes the commit history for your repository more useful.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfName :: Lens.Lens' PutFile (Core.Maybe Types.Name)
+pfName = Lens.field @"name"
+{-# DEPRECATED pfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The full commit ID of the head commit in the branch where you want to add or update the file. If this is an empty repository, no commit ID is required. If this is not an empty repository, a commit ID is required.
 --
 -- The commit ID must match the ID of the head commit at the time of the operation. Otherwise, an error occurs, and the file is not added or updated.
 --
 -- /Note:/ Consider using 'parentCommitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfParentCommitId :: Lens.Lens' PutFile (Lude.Maybe Lude.Text)
-pfParentCommitId = Lens.lens (parentCommitId :: PutFile -> Lude.Maybe Lude.Text) (\s a -> s {parentCommitId = a} :: PutFile)
+pfParentCommitId :: Lens.Lens' PutFile (Core.Maybe Types.CommitId)
+pfParentCommitId = Lens.field @"parentCommitId"
 {-# DEPRECATED pfParentCommitId "Use generic-lens or generic-optics with 'parentCommitId' instead." #-}
 
--- | The name of the file you want to add or update, including the relative path to the file in the repository.
---
--- /Note:/ Consider using 'filePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfFilePath :: Lens.Lens' PutFile Lude.Text
-pfFilePath = Lens.lens (filePath :: PutFile -> Lude.Text) (\s a -> s {filePath = a} :: PutFile)
-{-# DEPRECATED pfFilePath "Use generic-lens or generic-optics with 'filePath' instead." #-}
+instance Core.FromJSON PutFile where
+  toJSON PutFile {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("repositoryName" Core..= repositoryName),
+            Core.Just ("branchName" Core..= branchName),
+            Core.Just ("fileContent" Core..= fileContent),
+            Core.Just ("filePath" Core..= filePath),
+            ("commitMessage" Core..=) Core.<$> commitMessage,
+            ("email" Core..=) Core.<$> email,
+            ("fileMode" Core..=) Core.<$> fileMode,
+            ("name" Core..=) Core.<$> name,
+            ("parentCommitId" Core..=) Core.<$> parentCommitId
+          ]
+      )
 
--- | The name of the branch where you want to add or update the file. If this is an empty repository, this branch is created.
---
--- /Note:/ Consider using 'branchName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfBranchName :: Lens.Lens' PutFile Lude.Text
-pfBranchName = Lens.lens (branchName :: PutFile -> Lude.Text) (\s a -> s {branchName = a} :: PutFile)
-{-# DEPRECATED pfBranchName "Use generic-lens or generic-optics with 'branchName' instead." #-}
-
--- | The name of the person adding or updating the file. Although it is optional, a name makes the commit history for your repository more useful.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfName :: Lens.Lens' PutFile (Lude.Maybe Lude.Text)
-pfName = Lens.lens (name :: PutFile -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PutFile)
-{-# DEPRECATED pfName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A message about why this file was added or updated. Although it is optional, a message makes the commit history for your repository more useful.
---
--- /Note:/ Consider using 'commitMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfCommitMessage :: Lens.Lens' PutFile (Lude.Maybe Lude.Text)
-pfCommitMessage = Lens.lens (commitMessage :: PutFile -> Lude.Maybe Lude.Text) (\s a -> s {commitMessage = a} :: PutFile)
-{-# DEPRECATED pfCommitMessage "Use generic-lens or generic-optics with 'commitMessage' instead." #-}
-
--- | The name of the repository where you want to add or update the file.
---
--- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfRepositoryName :: Lens.Lens' PutFile Lude.Text
-pfRepositoryName = Lens.lens (repositoryName :: PutFile -> Lude.Text) (\s a -> s {repositoryName = a} :: PutFile)
-{-# DEPRECATED pfRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
-
-instance Lude.AWSRequest PutFile where
+instance Core.AWSRequest PutFile where
   type Rs PutFile = PutFileResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeCommit_20150413.PutFile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutFileResponse'
-            Lude.<$> (x Lude..:> "commitId")
-            Lude.<*> (x Lude..:> "treeId")
-            Lude.<*> (x Lude..:> "blobId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "commitId")
+            Core.<*> (x Core..: "blobId")
+            Core.<*> (x Core..: "treeId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutFile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.PutFile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutFile where
-  toJSON PutFile' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("email" Lude..=) Lude.<$> email,
-            Lude.Just ("fileContent" Lude..= fileContent),
-            ("fileMode" Lude..=) Lude.<$> fileMode,
-            ("parentCommitId" Lude..=) Lude.<$> parentCommitId,
-            Lude.Just ("filePath" Lude..= filePath),
-            Lude.Just ("branchName" Lude..= branchName),
-            ("name" Lude..=) Lude.<$> name,
-            ("commitMessage" Lude..=) Lude.<$> commitMessage,
-            Lude.Just ("repositoryName" Lude..= repositoryName)
-          ]
-      )
-
-instance Lude.ToPath PutFile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutFile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutFileResponse' smart constructor.
 data PutFileResponse = PutFileResponse'
   { -- | The full SHA ID of the commit that contains this file change.
-    commitId :: Lude.Text,
-    -- | The full SHA-1 pointer of the tree information for the commit that contains this file change.
-    treeId :: Lude.Text,
+    commitId :: Types.CommitId,
     -- | The ID of the blob, which is its SHA-1 pointer.
-    blobId :: Lude.Text,
+    blobId :: Types.BlobId,
+    -- | The full SHA-1 pointer of the tree information for the commit that contains this file change.
+    treeId :: Types.TreeId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutFileResponse' with the minimum fields required to make a request.
---
--- * 'commitId' - The full SHA ID of the commit that contains this file change.
--- * 'treeId' - The full SHA-1 pointer of the tree information for the commit that contains this file change.
--- * 'blobId' - The ID of the blob, which is its SHA-1 pointer.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutFileResponse' value with any optional fields omitted.
 mkPutFileResponse ::
   -- | 'commitId'
-  Lude.Text ->
-  -- | 'treeId'
-  Lude.Text ->
+  Types.CommitId ->
   -- | 'blobId'
-  Lude.Text ->
+  Types.BlobId ->
+  -- | 'treeId'
+  Types.TreeId ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutFileResponse
-mkPutFileResponse pCommitId_ pTreeId_ pBlobId_ pResponseStatus_ =
-  PutFileResponse'
-    { commitId = pCommitId_,
-      treeId = pTreeId_,
-      blobId = pBlobId_,
-      responseStatus = pResponseStatus_
-    }
+mkPutFileResponse commitId blobId treeId responseStatus =
+  PutFileResponse' {commitId, blobId, treeId, responseStatus}
 
 -- | The full SHA ID of the commit that contains this file change.
 --
 -- /Note:/ Consider using 'commitId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfrsCommitId :: Lens.Lens' PutFileResponse Lude.Text
-pfrsCommitId = Lens.lens (commitId :: PutFileResponse -> Lude.Text) (\s a -> s {commitId = a} :: PutFileResponse)
-{-# DEPRECATED pfrsCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
-
--- | The full SHA-1 pointer of the tree information for the commit that contains this file change.
---
--- /Note:/ Consider using 'treeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfrsTreeId :: Lens.Lens' PutFileResponse Lude.Text
-pfrsTreeId = Lens.lens (treeId :: PutFileResponse -> Lude.Text) (\s a -> s {treeId = a} :: PutFileResponse)
-{-# DEPRECATED pfrsTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
+pfrrsCommitId :: Lens.Lens' PutFileResponse Types.CommitId
+pfrrsCommitId = Lens.field @"commitId"
+{-# DEPRECATED pfrrsCommitId "Use generic-lens or generic-optics with 'commitId' instead." #-}
 
 -- | The ID of the blob, which is its SHA-1 pointer.
 --
 -- /Note:/ Consider using 'blobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfrsBlobId :: Lens.Lens' PutFileResponse Lude.Text
-pfrsBlobId = Lens.lens (blobId :: PutFileResponse -> Lude.Text) (\s a -> s {blobId = a} :: PutFileResponse)
-{-# DEPRECATED pfrsBlobId "Use generic-lens or generic-optics with 'blobId' instead." #-}
+pfrrsBlobId :: Lens.Lens' PutFileResponse Types.BlobId
+pfrrsBlobId = Lens.field @"blobId"
+{-# DEPRECATED pfrrsBlobId "Use generic-lens or generic-optics with 'blobId' instead." #-}
+
+-- | The full SHA-1 pointer of the tree information for the commit that contains this file change.
+--
+-- /Note:/ Consider using 'treeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pfrrsTreeId :: Lens.Lens' PutFileResponse Types.TreeId
+pfrrsTreeId = Lens.field @"treeId"
+{-# DEPRECATED pfrrsTreeId "Use generic-lens or generic-optics with 'treeId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pfrsResponseStatus :: Lens.Lens' PutFileResponse Lude.Int
-pfrsResponseStatus = Lens.lens (responseStatus :: PutFileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutFileResponse)
-{-# DEPRECATED pfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pfrrsResponseStatus :: Lens.Lens' PutFileResponse Core.Int
+pfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

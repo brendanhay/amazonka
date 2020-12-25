@@ -13,166 +13,171 @@
 module Network.AWS.SageMaker.Types.TransformInstanceType
   ( TransformInstanceType
       ( TransformInstanceType',
-        TMl_M4_XLarge,
-        TMl_M4_2XLarge,
-        TMl_M4_4XLarge,
-        TMl_M4_10XLarge,
-        TMl_M4_16XLarge,
-        TMl_C4_XLarge,
-        TMl_C4_2XLarge,
-        TMl_C4_4XLarge,
-        TMl_C4_8XLarge,
-        TMl_P2_XLarge,
-        TMl_P2_8XLarge,
-        TMl_P2_16XLarge,
-        TMl_P3_2XLarge,
-        TMl_P3_8XLarge,
-        TMl_P3_16XLarge,
-        TMl_C5_XLarge,
-        TMl_C5_2XLarge,
-        TMl_C5_4XLarge,
-        TMl_C5_9XLarge,
-        TMl_C5_18XLarge,
-        TMl_M5_Large,
-        TMl_M5_XLarge,
-        TMl_M5_2XLarge,
-        TMl_M5_4XLarge,
-        TMl_M5_12XLarge,
-        TMl_M5_24XLarge
+        TransformInstanceTypeMl_M4_Xlarge,
+        TransformInstanceTypeMl_M4_2xlarge,
+        TransformInstanceTypeMl_M4_4xlarge,
+        TransformInstanceTypeMl_M4_10xlarge,
+        TransformInstanceTypeMl_M4_16xlarge,
+        TransformInstanceTypeMl_C4_Xlarge,
+        TransformInstanceTypeMl_C4_2xlarge,
+        TransformInstanceTypeMl_C4_4xlarge,
+        TransformInstanceTypeMl_C4_8xlarge,
+        TransformInstanceTypeMl_P2_Xlarge,
+        TransformInstanceTypeMl_P2_8xlarge,
+        TransformInstanceTypeMl_P2_16xlarge,
+        TransformInstanceTypeMl_P3_2xlarge,
+        TransformInstanceTypeMl_P3_8xlarge,
+        TransformInstanceTypeMl_P3_16xlarge,
+        TransformInstanceTypeMl_C5_Xlarge,
+        TransformInstanceTypeMl_C5_2xlarge,
+        TransformInstanceTypeMl_C5_4xlarge,
+        TransformInstanceTypeMl_C5_9xlarge,
+        TransformInstanceTypeMl_C5_18xlarge,
+        TransformInstanceTypeMl_M5_Large,
+        TransformInstanceTypeMl_M5_Xlarge,
+        TransformInstanceTypeMl_M5_2xlarge,
+        TransformInstanceTypeMl_M5_4xlarge,
+        TransformInstanceTypeMl_M5_12xlarge,
+        TransformInstanceTypeMl_M5_24xlarge,
+        fromTransformInstanceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TransformInstanceType = TransformInstanceType' Lude.Text
+newtype TransformInstanceType = TransformInstanceType'
+  { fromTransformInstanceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TMl_M4_XLarge :: TransformInstanceType
-pattern TMl_M4_XLarge = TransformInstanceType' "ml.m4.xlarge"
+pattern TransformInstanceTypeMl_M4_Xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_M4_Xlarge = TransformInstanceType' "ml.m4.xlarge"
 
-pattern TMl_M4_2XLarge :: TransformInstanceType
-pattern TMl_M4_2XLarge = TransformInstanceType' "ml.m4.2xlarge"
+pattern TransformInstanceTypeMl_M4_2xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_M4_2xlarge = TransformInstanceType' "ml.m4.2xlarge"
 
-pattern TMl_M4_4XLarge :: TransformInstanceType
-pattern TMl_M4_4XLarge = TransformInstanceType' "ml.m4.4xlarge"
+pattern TransformInstanceTypeMl_M4_4xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_M4_4xlarge = TransformInstanceType' "ml.m4.4xlarge"
 
-pattern TMl_M4_10XLarge :: TransformInstanceType
-pattern TMl_M4_10XLarge = TransformInstanceType' "ml.m4.10xlarge"
+pattern TransformInstanceTypeMl_M4_10xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_M4_10xlarge = TransformInstanceType' "ml.m4.10xlarge"
 
-pattern TMl_M4_16XLarge :: TransformInstanceType
-pattern TMl_M4_16XLarge = TransformInstanceType' "ml.m4.16xlarge"
+pattern TransformInstanceTypeMl_M4_16xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_M4_16xlarge = TransformInstanceType' "ml.m4.16xlarge"
 
-pattern TMl_C4_XLarge :: TransformInstanceType
-pattern TMl_C4_XLarge = TransformInstanceType' "ml.c4.xlarge"
+pattern TransformInstanceTypeMl_C4_Xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_C4_Xlarge = TransformInstanceType' "ml.c4.xlarge"
 
-pattern TMl_C4_2XLarge :: TransformInstanceType
-pattern TMl_C4_2XLarge = TransformInstanceType' "ml.c4.2xlarge"
+pattern TransformInstanceTypeMl_C4_2xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_C4_2xlarge = TransformInstanceType' "ml.c4.2xlarge"
 
-pattern TMl_C4_4XLarge :: TransformInstanceType
-pattern TMl_C4_4XLarge = TransformInstanceType' "ml.c4.4xlarge"
+pattern TransformInstanceTypeMl_C4_4xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_C4_4xlarge = TransformInstanceType' "ml.c4.4xlarge"
 
-pattern TMl_C4_8XLarge :: TransformInstanceType
-pattern TMl_C4_8XLarge = TransformInstanceType' "ml.c4.8xlarge"
+pattern TransformInstanceTypeMl_C4_8xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_C4_8xlarge = TransformInstanceType' "ml.c4.8xlarge"
 
-pattern TMl_P2_XLarge :: TransformInstanceType
-pattern TMl_P2_XLarge = TransformInstanceType' "ml.p2.xlarge"
+pattern TransformInstanceTypeMl_P2_Xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_P2_Xlarge = TransformInstanceType' "ml.p2.xlarge"
 
-pattern TMl_P2_8XLarge :: TransformInstanceType
-pattern TMl_P2_8XLarge = TransformInstanceType' "ml.p2.8xlarge"
+pattern TransformInstanceTypeMl_P2_8xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_P2_8xlarge = TransformInstanceType' "ml.p2.8xlarge"
 
-pattern TMl_P2_16XLarge :: TransformInstanceType
-pattern TMl_P2_16XLarge = TransformInstanceType' "ml.p2.16xlarge"
+pattern TransformInstanceTypeMl_P2_16xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_P2_16xlarge = TransformInstanceType' "ml.p2.16xlarge"
 
-pattern TMl_P3_2XLarge :: TransformInstanceType
-pattern TMl_P3_2XLarge = TransformInstanceType' "ml.p3.2xlarge"
+pattern TransformInstanceTypeMl_P3_2xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_P3_2xlarge = TransformInstanceType' "ml.p3.2xlarge"
 
-pattern TMl_P3_8XLarge :: TransformInstanceType
-pattern TMl_P3_8XLarge = TransformInstanceType' "ml.p3.8xlarge"
+pattern TransformInstanceTypeMl_P3_8xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_P3_8xlarge = TransformInstanceType' "ml.p3.8xlarge"
 
-pattern TMl_P3_16XLarge :: TransformInstanceType
-pattern TMl_P3_16XLarge = TransformInstanceType' "ml.p3.16xlarge"
+pattern TransformInstanceTypeMl_P3_16xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_P3_16xlarge = TransformInstanceType' "ml.p3.16xlarge"
 
-pattern TMl_C5_XLarge :: TransformInstanceType
-pattern TMl_C5_XLarge = TransformInstanceType' "ml.c5.xlarge"
+pattern TransformInstanceTypeMl_C5_Xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_C5_Xlarge = TransformInstanceType' "ml.c5.xlarge"
 
-pattern TMl_C5_2XLarge :: TransformInstanceType
-pattern TMl_C5_2XLarge = TransformInstanceType' "ml.c5.2xlarge"
+pattern TransformInstanceTypeMl_C5_2xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_C5_2xlarge = TransformInstanceType' "ml.c5.2xlarge"
 
-pattern TMl_C5_4XLarge :: TransformInstanceType
-pattern TMl_C5_4XLarge = TransformInstanceType' "ml.c5.4xlarge"
+pattern TransformInstanceTypeMl_C5_4xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_C5_4xlarge = TransformInstanceType' "ml.c5.4xlarge"
 
-pattern TMl_C5_9XLarge :: TransformInstanceType
-pattern TMl_C5_9XLarge = TransformInstanceType' "ml.c5.9xlarge"
+pattern TransformInstanceTypeMl_C5_9xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_C5_9xlarge = TransformInstanceType' "ml.c5.9xlarge"
 
-pattern TMl_C5_18XLarge :: TransformInstanceType
-pattern TMl_C5_18XLarge = TransformInstanceType' "ml.c5.18xlarge"
+pattern TransformInstanceTypeMl_C5_18xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_C5_18xlarge = TransformInstanceType' "ml.c5.18xlarge"
 
-pattern TMl_M5_Large :: TransformInstanceType
-pattern TMl_M5_Large = TransformInstanceType' "ml.m5.large"
+pattern TransformInstanceTypeMl_M5_Large :: TransformInstanceType
+pattern TransformInstanceTypeMl_M5_Large = TransformInstanceType' "ml.m5.large"
 
-pattern TMl_M5_XLarge :: TransformInstanceType
-pattern TMl_M5_XLarge = TransformInstanceType' "ml.m5.xlarge"
+pattern TransformInstanceTypeMl_M5_Xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_M5_Xlarge = TransformInstanceType' "ml.m5.xlarge"
 
-pattern TMl_M5_2XLarge :: TransformInstanceType
-pattern TMl_M5_2XLarge = TransformInstanceType' "ml.m5.2xlarge"
+pattern TransformInstanceTypeMl_M5_2xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_M5_2xlarge = TransformInstanceType' "ml.m5.2xlarge"
 
-pattern TMl_M5_4XLarge :: TransformInstanceType
-pattern TMl_M5_4XLarge = TransformInstanceType' "ml.m5.4xlarge"
+pattern TransformInstanceTypeMl_M5_4xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_M5_4xlarge = TransformInstanceType' "ml.m5.4xlarge"
 
-pattern TMl_M5_12XLarge :: TransformInstanceType
-pattern TMl_M5_12XLarge = TransformInstanceType' "ml.m5.12xlarge"
+pattern TransformInstanceTypeMl_M5_12xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_M5_12xlarge = TransformInstanceType' "ml.m5.12xlarge"
 
-pattern TMl_M5_24XLarge :: TransformInstanceType
-pattern TMl_M5_24XLarge = TransformInstanceType' "ml.m5.24xlarge"
+pattern TransformInstanceTypeMl_M5_24xlarge :: TransformInstanceType
+pattern TransformInstanceTypeMl_M5_24xlarge = TransformInstanceType' "ml.m5.24xlarge"
 
 {-# COMPLETE
-  TMl_M4_XLarge,
-  TMl_M4_2XLarge,
-  TMl_M4_4XLarge,
-  TMl_M4_10XLarge,
-  TMl_M4_16XLarge,
-  TMl_C4_XLarge,
-  TMl_C4_2XLarge,
-  TMl_C4_4XLarge,
-  TMl_C4_8XLarge,
-  TMl_P2_XLarge,
-  TMl_P2_8XLarge,
-  TMl_P2_16XLarge,
-  TMl_P3_2XLarge,
-  TMl_P3_8XLarge,
-  TMl_P3_16XLarge,
-  TMl_C5_XLarge,
-  TMl_C5_2XLarge,
-  TMl_C5_4XLarge,
-  TMl_C5_9XLarge,
-  TMl_C5_18XLarge,
-  TMl_M5_Large,
-  TMl_M5_XLarge,
-  TMl_M5_2XLarge,
-  TMl_M5_4XLarge,
-  TMl_M5_12XLarge,
-  TMl_M5_24XLarge,
+  TransformInstanceTypeMl_M4_Xlarge,
+  TransformInstanceTypeMl_M4_2xlarge,
+  TransformInstanceTypeMl_M4_4xlarge,
+  TransformInstanceTypeMl_M4_10xlarge,
+  TransformInstanceTypeMl_M4_16xlarge,
+  TransformInstanceTypeMl_C4_Xlarge,
+  TransformInstanceTypeMl_C4_2xlarge,
+  TransformInstanceTypeMl_C4_4xlarge,
+  TransformInstanceTypeMl_C4_8xlarge,
+  TransformInstanceTypeMl_P2_Xlarge,
+  TransformInstanceTypeMl_P2_8xlarge,
+  TransformInstanceTypeMl_P2_16xlarge,
+  TransformInstanceTypeMl_P3_2xlarge,
+  TransformInstanceTypeMl_P3_8xlarge,
+  TransformInstanceTypeMl_P3_16xlarge,
+  TransformInstanceTypeMl_C5_Xlarge,
+  TransformInstanceTypeMl_C5_2xlarge,
+  TransformInstanceTypeMl_C5_4xlarge,
+  TransformInstanceTypeMl_C5_9xlarge,
+  TransformInstanceTypeMl_C5_18xlarge,
+  TransformInstanceTypeMl_M5_Large,
+  TransformInstanceTypeMl_M5_Xlarge,
+  TransformInstanceTypeMl_M5_2xlarge,
+  TransformInstanceTypeMl_M5_4xlarge,
+  TransformInstanceTypeMl_M5_12xlarge,
+  TransformInstanceTypeMl_M5_24xlarge,
   TransformInstanceType'
   #-}

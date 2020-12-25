@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ServiceCatalog
     Network.AWS.ServiceCatalog.AcceptPortfolioShare
@@ -156,91 +162,196 @@ library
     Network.AWS.ServiceCatalog.Waiters
 
   other-modules:
+    Network.AWS.ServiceCatalog.Types.AcceptLanguage
     Network.AWS.ServiceCatalog.Types.AccessLevelFilter
     Network.AWS.ServiceCatalog.Types.AccessLevelFilterKey
     Network.AWS.ServiceCatalog.Types.AccessStatus
+    Network.AWS.ServiceCatalog.Types.AccountId
+    Network.AWS.ServiceCatalog.Types.AllowedValue
+    Network.AWS.ServiceCatalog.Types.ARN
+    Network.AWS.ServiceCatalog.Types.AttributeValue
     Network.AWS.ServiceCatalog.Types.BudgetDetail
+    Network.AWS.ServiceCatalog.Types.BudgetName
+    Network.AWS.ServiceCatalog.Types.CausingEntity
     Network.AWS.ServiceCatalog.Types.ChangeAction
     Network.AWS.ServiceCatalog.Types.CloudWatchDashboard
+    Network.AWS.ServiceCatalog.Types.Code
+    Network.AWS.ServiceCatalog.Types.ConstraintDescription
     Network.AWS.ServiceCatalog.Types.ConstraintDetail
+    Network.AWS.ServiceCatalog.Types.ConstraintId
+    Network.AWS.ServiceCatalog.Types.ConstraintParameters
     Network.AWS.ServiceCatalog.Types.ConstraintSummary
+    Network.AWS.ServiceCatalog.Types.ConstraintType
     Network.AWS.ServiceCatalog.Types.CopyOption
     Network.AWS.ServiceCatalog.Types.CopyProductStatus
+    Network.AWS.ServiceCatalog.Types.CopyProductToken
+    Network.AWS.ServiceCatalog.Types.DefaultValue
+    Network.AWS.ServiceCatalog.Types.Description
+    Network.AWS.ServiceCatalog.Types.Distributor
+    Network.AWS.ServiceCatalog.Types.Error
     Network.AWS.ServiceCatalog.Types.EvaluationType
     Network.AWS.ServiceCatalog.Types.ExecutionParameter
+    Network.AWS.ServiceCatalog.Types.ExecutionParameterKey
+    Network.AWS.ServiceCatalog.Types.ExecutionParameterValue
     Network.AWS.ServiceCatalog.Types.FailedServiceActionAssociation
+    Network.AWS.ServiceCatalog.Types.Id
+    Network.AWS.ServiceCatalog.Types.IdempotencyToken
+    Network.AWS.ServiceCatalog.Types.InstructionType
+    Network.AWS.ServiceCatalog.Types.Key
+    Network.AWS.ServiceCatalog.Types.LastProvisioningRecordId
+    Network.AWS.ServiceCatalog.Types.LastRecordId
+    Network.AWS.ServiceCatalog.Types.LastSuccessfulProvisioningRecordId
     Network.AWS.ServiceCatalog.Types.LaunchPath
     Network.AWS.ServiceCatalog.Types.LaunchPathSummary
+    Network.AWS.ServiceCatalog.Types.LaunchRoleArn
     Network.AWS.ServiceCatalog.Types.ListRecordHistorySearchFilter
     Network.AWS.ServiceCatalog.Types.ListTagOptionsFilters
+    Network.AWS.ServiceCatalog.Types.LogicalResourceId
+    Network.AWS.ServiceCatalog.Types.Message
+    Network.AWS.ServiceCatalog.Types.Name
+    Network.AWS.ServiceCatalog.Types.NextPageToken
+    Network.AWS.ServiceCatalog.Types.NotificationArn
     Network.AWS.ServiceCatalog.Types.OrganizationNode
     Network.AWS.ServiceCatalog.Types.OrganizationNodeType
+    Network.AWS.ServiceCatalog.Types.OrganizationNodeValue
+    Network.AWS.ServiceCatalog.Types.OrganizationParentId
+    Network.AWS.ServiceCatalog.Types.OutputKey
+    Network.AWS.ServiceCatalog.Types.OutputValue
+    Network.AWS.ServiceCatalog.Types.Owner
+    Network.AWS.ServiceCatalog.Types.PageToken
     Network.AWS.ServiceCatalog.Types.ParameterConstraints
+    Network.AWS.ServiceCatalog.Types.ParameterKey
+    Network.AWS.ServiceCatalog.Types.ParameterType
+    Network.AWS.ServiceCatalog.Types.ParameterValue
+    Network.AWS.ServiceCatalog.Types.PathId
+    Network.AWS.ServiceCatalog.Types.PathName
+    Network.AWS.ServiceCatalog.Types.PhysicalId
+    Network.AWS.ServiceCatalog.Types.PhysicalResourceId
+    Network.AWS.ServiceCatalog.Types.PlanId
+    Network.AWS.ServiceCatalog.Types.PortfolioDescription
     Network.AWS.ServiceCatalog.Types.PortfolioDetail
+    Network.AWS.ServiceCatalog.Types.PortfolioDisplayName
+    Network.AWS.ServiceCatalog.Types.PortfolioId
+    Network.AWS.ServiceCatalog.Types.PortfolioName
+    Network.AWS.ServiceCatalog.Types.PortfolioShareToken
     Network.AWS.ServiceCatalog.Types.PortfolioShareType
     Network.AWS.ServiceCatalog.Types.Principal
+    Network.AWS.ServiceCatalog.Types.PrincipalARN
     Network.AWS.ServiceCatalog.Types.PrincipalType
+    Network.AWS.ServiceCatalog.Types.ProductId
+    Network.AWS.ServiceCatalog.Types.ProductName
     Network.AWS.ServiceCatalog.Types.ProductSource
     Network.AWS.ServiceCatalog.Types.ProductType
+    Network.AWS.ServiceCatalog.Types.ProductViewAggregationType
     Network.AWS.ServiceCatalog.Types.ProductViewAggregationValue
     Network.AWS.ServiceCatalog.Types.ProductViewDetail
     Network.AWS.ServiceCatalog.Types.ProductViewFilterBy
+    Network.AWS.ServiceCatalog.Types.ProductViewFilterValue
+    Network.AWS.ServiceCatalog.Types.ProductViewOwner
     Network.AWS.ServiceCatalog.Types.ProductViewSortBy
     Network.AWS.ServiceCatalog.Types.ProductViewSummary
     Network.AWS.ServiceCatalog.Types.PropertyKey
+    Network.AWS.ServiceCatalog.Types.PropertyName
+    Network.AWS.ServiceCatalog.Types.PropertyValue
+    Network.AWS.ServiceCatalog.Types.ProviderName
     Network.AWS.ServiceCatalog.Types.ProvisionedProductAttribute
     Network.AWS.ServiceCatalog.Types.ProvisionedProductDetail
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductId
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductName
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductNameOrArn
     Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanDetails
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanName
     Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanStatus
     Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanSummary
     Network.AWS.ServiceCatalog.Types.ProvisionedProductPlanType
     Network.AWS.ServiceCatalog.Types.ProvisionedProductStatus
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductStatusMessage
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductType
     Network.AWS.ServiceCatalog.Types.ProvisionedProductViewFilterBy
+    Network.AWS.ServiceCatalog.Types.ProvisionedProductViewFilterValue
     Network.AWS.ServiceCatalog.Types.ProvisioningArtifact
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactDescription
     Network.AWS.ServiceCatalog.Types.ProvisioningArtifactDetail
     Network.AWS.ServiceCatalog.Types.ProvisioningArtifactGuidance
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactId
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactInfoKey
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactInfoValue
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactName
     Network.AWS.ServiceCatalog.Types.ProvisioningArtifactOutput
     Network.AWS.ServiceCatalog.Types.ProvisioningArtifactParameter
     Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPreferences
     Network.AWS.ServiceCatalog.Types.ProvisioningArtifactProperties
     Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPropertyName
+    Network.AWS.ServiceCatalog.Types.ProvisioningArtifactPropertyValue
     Network.AWS.ServiceCatalog.Types.ProvisioningArtifactSummary
     Network.AWS.ServiceCatalog.Types.ProvisioningArtifactType
     Network.AWS.ServiceCatalog.Types.ProvisioningArtifactView
     Network.AWS.ServiceCatalog.Types.ProvisioningParameter
     Network.AWS.ServiceCatalog.Types.ProvisioningPreferences
+    Network.AWS.ServiceCatalog.Types.ProvisionProductId
     Network.AWS.ServiceCatalog.Types.RecordDetail
     Network.AWS.ServiceCatalog.Types.RecordError
+    Network.AWS.ServiceCatalog.Types.RecordId
     Network.AWS.ServiceCatalog.Types.RecordOutput
     Network.AWS.ServiceCatalog.Types.RecordStatus
     Network.AWS.ServiceCatalog.Types.RecordTag
+    Network.AWS.ServiceCatalog.Types.RecordType
+    Network.AWS.ServiceCatalog.Types.Region
     Network.AWS.ServiceCatalog.Types.Replacement
     Network.AWS.ServiceCatalog.Types.RequestStatus
     Network.AWS.ServiceCatalog.Types.RequiresRecreation
+    Network.AWS.ServiceCatalog.Types.ResourceARN
     Network.AWS.ServiceCatalog.Types.ResourceAttribute
     Network.AWS.ServiceCatalog.Types.ResourceChange
     Network.AWS.ServiceCatalog.Types.ResourceChangeDetail
     Network.AWS.ServiceCatalog.Types.ResourceDetail
+    Network.AWS.ServiceCatalog.Types.ResourceDetailId
+    Network.AWS.ServiceCatalog.Types.ResourceId
     Network.AWS.ServiceCatalog.Types.ResourceTargetDefinition
+    Network.AWS.ServiceCatalog.Types.ResourceType
+    Network.AWS.ServiceCatalog.Types.SearchFilterKey
+    Network.AWS.ServiceCatalog.Types.SearchFilterValue
     Network.AWS.ServiceCatalog.Types.ServiceActionAssociation
     Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorCode
+    Network.AWS.ServiceCatalog.Types.ServiceActionAssociationErrorMessage
     Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionKey
     Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionType
+    Network.AWS.ServiceCatalog.Types.ServiceActionDefinitionValue
+    Network.AWS.ServiceCatalog.Types.ServiceActionDescription
     Network.AWS.ServiceCatalog.Types.ServiceActionDetail
+    Network.AWS.ServiceCatalog.Types.ServiceActionId
+    Network.AWS.ServiceCatalog.Types.ServiceActionName
     Network.AWS.ServiceCatalog.Types.ServiceActionSummary
     Network.AWS.ServiceCatalog.Types.ShareDetails
     Network.AWS.ServiceCatalog.Types.ShareError
     Network.AWS.ServiceCatalog.Types.ShareStatus
+    Network.AWS.ServiceCatalog.Types.ShortDescription
+    Network.AWS.ServiceCatalog.Types.SortBy
     Network.AWS.ServiceCatalog.Types.SortOrder
+    Network.AWS.ServiceCatalog.Types.SourceProductArn
     Network.AWS.ServiceCatalog.Types.StackInstance
     Network.AWS.ServiceCatalog.Types.StackInstanceStatus
     Network.AWS.ServiceCatalog.Types.StackSetOperationType
+    Network.AWS.ServiceCatalog.Types.StatusDetail
+    Network.AWS.ServiceCatalog.Types.StatusMessage
+    Network.AWS.ServiceCatalog.Types.SupportDescription
+    Network.AWS.ServiceCatalog.Types.SupportEmail
+    Network.AWS.ServiceCatalog.Types.SupportUrl
     Network.AWS.ServiceCatalog.Types.Tag
+    Network.AWS.ServiceCatalog.Types.TagKey
     Network.AWS.ServiceCatalog.Types.TagOptionDetail
+    Network.AWS.ServiceCatalog.Types.TagOptionId
+    Network.AWS.ServiceCatalog.Types.TagOptionKey
     Network.AWS.ServiceCatalog.Types.TagOptionSummary
+    Network.AWS.ServiceCatalog.Types.TagOptionValue
+    Network.AWS.ServiceCatalog.Types.TargetProductName
+    Network.AWS.ServiceCatalog.Types.Type
     Network.AWS.ServiceCatalog.Types.UpdateProvisioningParameter
     Network.AWS.ServiceCatalog.Types.UpdateProvisioningPreferences
     Network.AWS.ServiceCatalog.Types.UsageInstruction
+    Network.AWS.ServiceCatalog.Types.UserArn
+    Network.AWS.ServiceCatalog.Types.UserArnSession
+    Network.AWS.ServiceCatalog.Types.Value
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

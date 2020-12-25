@@ -17,70 +17,80 @@ module Network.AWS.MediaLive.Types.GlobalConfiguration
     mkGlobalConfiguration,
 
     -- * Lenses
-    gcOutputLockingMode,
-    gcInputLossBehavior,
     gcInitialAudioGain,
-    gcSupportLowFramerateInputs,
     gcInputEndAction,
+    gcInputLossBehavior,
+    gcOutputLockingMode,
     gcOutputTimingSource,
+    gcSupportLowFramerateInputs,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.GlobalConfigurationInputEndAction
-import Network.AWS.MediaLive.Types.GlobalConfigurationLowFramerateInputs
-import Network.AWS.MediaLive.Types.GlobalConfigurationOutputLockingMode
-import Network.AWS.MediaLive.Types.GlobalConfigurationOutputTimingSource
-import Network.AWS.MediaLive.Types.InputLossBehavior
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.GlobalConfigurationInputEndAction as Types
+import qualified Network.AWS.MediaLive.Types.GlobalConfigurationLowFramerateInputs as Types
+import qualified Network.AWS.MediaLive.Types.GlobalConfigurationOutputLockingMode as Types
+import qualified Network.AWS.MediaLive.Types.GlobalConfigurationOutputTimingSource as Types
+import qualified Network.AWS.MediaLive.Types.InputLossBehavior as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Global Configuration
 --
 -- /See:/ 'mkGlobalConfiguration' smart constructor.
 data GlobalConfiguration = GlobalConfiguration'
-  { -- | Indicates how MediaLive pipelines are synchronized.
+  { -- | Value to set the initial audio gain for the Live Event.
+    initialAudioGain :: Core.Maybe Core.Int,
+    -- | Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+    inputEndAction :: Core.Maybe Types.GlobalConfigurationInputEndAction,
+    -- | Settings for system actions when input is lost.
+    inputLossBehavior :: Core.Maybe Types.InputLossBehavior,
+    -- | Indicates how MediaLive pipelines are synchronized.
     --
     --
     -- PIPELINE_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other.
     -- EPOCH_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
-    outputLockingMode :: Lude.Maybe GlobalConfigurationOutputLockingMode,
-    -- | Settings for system actions when input is lost.
-    inputLossBehavior :: Lude.Maybe InputLossBehavior,
-    -- | Value to set the initial audio gain for the Live Event.
-    initialAudioGain :: Lude.Maybe Lude.Int,
-    -- | Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
-    supportLowFramerateInputs :: Lude.Maybe GlobalConfigurationLowFramerateInputs,
-    -- | Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
-    inputEndAction :: Lude.Maybe GlobalConfigurationInputEndAction,
+    outputLockingMode :: Core.Maybe Types.GlobalConfigurationOutputLockingMode,
     -- | Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
-    outputTimingSource :: Lude.Maybe GlobalConfigurationOutputTimingSource
+    outputTimingSource :: Core.Maybe Types.GlobalConfigurationOutputTimingSource,
+    -- | Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+    supportLowFramerateInputs :: Core.Maybe Types.GlobalConfigurationLowFramerateInputs
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GlobalConfiguration' with the minimum fields required to make a request.
---
--- * 'outputLockingMode' - Indicates how MediaLive pipelines are synchronized.
---
---
--- PIPELINE_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the other.
--- EPOCH_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
--- * 'inputLossBehavior' - Settings for system actions when input is lost.
--- * 'initialAudioGain' - Value to set the initial audio gain for the Live Event.
--- * 'supportLowFramerateInputs' - Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
--- * 'inputEndAction' - Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
--- * 'outputTimingSource' - Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
+-- | Creates a 'GlobalConfiguration' value with any optional fields omitted.
 mkGlobalConfiguration ::
   GlobalConfiguration
 mkGlobalConfiguration =
   GlobalConfiguration'
-    { outputLockingMode = Lude.Nothing,
-      inputLossBehavior = Lude.Nothing,
-      initialAudioGain = Lude.Nothing,
-      supportLowFramerateInputs = Lude.Nothing,
-      inputEndAction = Lude.Nothing,
-      outputTimingSource = Lude.Nothing
+    { initialAudioGain = Core.Nothing,
+      inputEndAction = Core.Nothing,
+      inputLossBehavior = Core.Nothing,
+      outputLockingMode = Core.Nothing,
+      outputTimingSource = Core.Nothing,
+      supportLowFramerateInputs = Core.Nothing
     }
+
+-- | Value to set the initial audio gain for the Live Event.
+--
+-- /Note:/ Consider using 'initialAudioGain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcInitialAudioGain :: Lens.Lens' GlobalConfiguration (Core.Maybe Core.Int)
+gcInitialAudioGain = Lens.field @"initialAudioGain"
+{-# DEPRECATED gcInitialAudioGain "Use generic-lens or generic-optics with 'initialAudioGain' instead." #-}
+
+-- | Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
+--
+-- /Note:/ Consider using 'inputEndAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcInputEndAction :: Lens.Lens' GlobalConfiguration (Core.Maybe Types.GlobalConfigurationInputEndAction)
+gcInputEndAction = Lens.field @"inputEndAction"
+{-# DEPRECATED gcInputEndAction "Use generic-lens or generic-optics with 'inputEndAction' instead." #-}
+
+-- | Settings for system actions when input is lost.
+--
+-- /Note:/ Consider using 'inputLossBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcInputLossBehavior :: Lens.Lens' GlobalConfiguration (Core.Maybe Types.InputLossBehavior)
+gcInputLossBehavior = Lens.field @"inputLossBehavior"
+{-# DEPRECATED gcInputLossBehavior "Use generic-lens or generic-optics with 'inputLossBehavior' instead." #-}
 
 -- | Indicates how MediaLive pipelines are synchronized.
 --
@@ -89,69 +99,46 @@ mkGlobalConfiguration =
 -- EPOCH_LOCKING - MediaLive will attempt to synchronize the output of each pipeline to the Unix epoch.
 --
 -- /Note:/ Consider using 'outputLockingMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcOutputLockingMode :: Lens.Lens' GlobalConfiguration (Lude.Maybe GlobalConfigurationOutputLockingMode)
-gcOutputLockingMode = Lens.lens (outputLockingMode :: GlobalConfiguration -> Lude.Maybe GlobalConfigurationOutputLockingMode) (\s a -> s {outputLockingMode = a} :: GlobalConfiguration)
+gcOutputLockingMode :: Lens.Lens' GlobalConfiguration (Core.Maybe Types.GlobalConfigurationOutputLockingMode)
+gcOutputLockingMode = Lens.field @"outputLockingMode"
 {-# DEPRECATED gcOutputLockingMode "Use generic-lens or generic-optics with 'outputLockingMode' instead." #-}
-
--- | Settings for system actions when input is lost.
---
--- /Note:/ Consider using 'inputLossBehavior' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcInputLossBehavior :: Lens.Lens' GlobalConfiguration (Lude.Maybe InputLossBehavior)
-gcInputLossBehavior = Lens.lens (inputLossBehavior :: GlobalConfiguration -> Lude.Maybe InputLossBehavior) (\s a -> s {inputLossBehavior = a} :: GlobalConfiguration)
-{-# DEPRECATED gcInputLossBehavior "Use generic-lens or generic-optics with 'inputLossBehavior' instead." #-}
-
--- | Value to set the initial audio gain for the Live Event.
---
--- /Note:/ Consider using 'initialAudioGain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcInitialAudioGain :: Lens.Lens' GlobalConfiguration (Lude.Maybe Lude.Int)
-gcInitialAudioGain = Lens.lens (initialAudioGain :: GlobalConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {initialAudioGain = a} :: GlobalConfiguration)
-{-# DEPRECATED gcInitialAudioGain "Use generic-lens or generic-optics with 'initialAudioGain' instead." #-}
-
--- | Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
---
--- /Note:/ Consider using 'supportLowFramerateInputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcSupportLowFramerateInputs :: Lens.Lens' GlobalConfiguration (Lude.Maybe GlobalConfigurationLowFramerateInputs)
-gcSupportLowFramerateInputs = Lens.lens (supportLowFramerateInputs :: GlobalConfiguration -> Lude.Maybe GlobalConfigurationLowFramerateInputs) (\s a -> s {supportLowFramerateInputs = a} :: GlobalConfiguration)
-{-# DEPRECATED gcSupportLowFramerateInputs "Use generic-lens or generic-optics with 'supportLowFramerateInputs' instead." #-}
-
--- | Indicates the action to take when the current input completes (e.g. end-of-file). When switchAndLoopInputs is configured the encoder will restart at the beginning of the first input.  When "none" is configured the encoder will transcode either black, a solid color, or a user specified slate images per the "Input Loss Behavior" configuration until the next input switch occurs (which is controlled through the Channel Schedule API).
---
--- /Note:/ Consider using 'inputEndAction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcInputEndAction :: Lens.Lens' GlobalConfiguration (Lude.Maybe GlobalConfigurationInputEndAction)
-gcInputEndAction = Lens.lens (inputEndAction :: GlobalConfiguration -> Lude.Maybe GlobalConfigurationInputEndAction) (\s a -> s {inputEndAction = a} :: GlobalConfiguration)
-{-# DEPRECATED gcInputEndAction "Use generic-lens or generic-optics with 'inputEndAction' instead." #-}
 
 -- | Indicates whether the rate of frames emitted by the Live encoder should be paced by its system clock (which optionally may be locked to another source via NTP) or should be locked to the clock of the source that is providing the input stream.
 --
 -- /Note:/ Consider using 'outputTimingSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcOutputTimingSource :: Lens.Lens' GlobalConfiguration (Lude.Maybe GlobalConfigurationOutputTimingSource)
-gcOutputTimingSource = Lens.lens (outputTimingSource :: GlobalConfiguration -> Lude.Maybe GlobalConfigurationOutputTimingSource) (\s a -> s {outputTimingSource = a} :: GlobalConfiguration)
+gcOutputTimingSource :: Lens.Lens' GlobalConfiguration (Core.Maybe Types.GlobalConfigurationOutputTimingSource)
+gcOutputTimingSource = Lens.field @"outputTimingSource"
 {-# DEPRECATED gcOutputTimingSource "Use generic-lens or generic-optics with 'outputTimingSource' instead." #-}
 
-instance Lude.FromJSON GlobalConfiguration where
-  parseJSON =
-    Lude.withObject
-      "GlobalConfiguration"
-      ( \x ->
-          GlobalConfiguration'
-            Lude.<$> (x Lude..:? "outputLockingMode")
-            Lude.<*> (x Lude..:? "inputLossBehavior")
-            Lude.<*> (x Lude..:? "initialAudioGain")
-            Lude.<*> (x Lude..:? "supportLowFramerateInputs")
-            Lude.<*> (x Lude..:? "inputEndAction")
-            Lude.<*> (x Lude..:? "outputTimingSource")
-      )
+-- | Adjusts video input buffer for streams with very low video framerates. This is commonly set to enabled for music channels with less than one video frame per second.
+--
+-- /Note:/ Consider using 'supportLowFramerateInputs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcSupportLowFramerateInputs :: Lens.Lens' GlobalConfiguration (Core.Maybe Types.GlobalConfigurationLowFramerateInputs)
+gcSupportLowFramerateInputs = Lens.field @"supportLowFramerateInputs"
+{-# DEPRECATED gcSupportLowFramerateInputs "Use generic-lens or generic-optics with 'supportLowFramerateInputs' instead." #-}
 
-instance Lude.ToJSON GlobalConfiguration where
-  toJSON GlobalConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("outputLockingMode" Lude..=) Lude.<$> outputLockingMode,
-            ("inputLossBehavior" Lude..=) Lude.<$> inputLossBehavior,
-            ("initialAudioGain" Lude..=) Lude.<$> initialAudioGain,
-            ("supportLowFramerateInputs" Lude..=)
-              Lude.<$> supportLowFramerateInputs,
-            ("inputEndAction" Lude..=) Lude.<$> inputEndAction,
-            ("outputTimingSource" Lude..=) Lude.<$> outputTimingSource
+instance Core.FromJSON GlobalConfiguration where
+  toJSON GlobalConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("initialAudioGain" Core..=) Core.<$> initialAudioGain,
+            ("inputEndAction" Core..=) Core.<$> inputEndAction,
+            ("inputLossBehavior" Core..=) Core.<$> inputLossBehavior,
+            ("outputLockingMode" Core..=) Core.<$> outputLockingMode,
+            ("outputTimingSource" Core..=) Core.<$> outputTimingSource,
+            ("supportLowFramerateInputs" Core..=)
+              Core.<$> supportLowFramerateInputs
           ]
       )
+
+instance Core.FromJSON GlobalConfiguration where
+  parseJSON =
+    Core.withObject "GlobalConfiguration" Core.$
+      \x ->
+        GlobalConfiguration'
+          Core.<$> (x Core..:? "initialAudioGain")
+          Core.<*> (x Core..:? "inputEndAction")
+          Core.<*> (x Core..:? "inputLossBehavior")
+          Core.<*> (x Core..:? "outputLockingMode")
+          Core.<*> (x Core..:? "outputTimingSource")
+          Core.<*> (x Core..:? "supportLowFramerateInputs")

@@ -138,7 +138,7 @@ responseGetCallerIdentity =
   res
     "GetCallerIdentityResponse"
     "fixture/GetCallerIdentityResponse.proto"
-    stsService
+    mkServiceConfig
     (Proxy :: Proxy GetCallerIdentity)
 
 responseAssumeRole :: AssumeRoleResponse -> TestTree
@@ -146,7 +146,7 @@ responseAssumeRole =
   res
     "AssumeRoleResponse"
     "fixture/AssumeRoleResponse.proto"
-    stsService
+    mkServiceConfig
     (Proxy :: Proxy AssumeRole)
 
 responseGetAccessKeyInfo :: GetAccessKeyInfoResponse -> TestTree
@@ -154,7 +154,7 @@ responseGetAccessKeyInfo =
   res
     "GetAccessKeyInfoResponse"
     "fixture/GetAccessKeyInfoResponse.proto"
-    stsService
+    mkServiceConfig
     (Proxy :: Proxy GetAccessKeyInfo)
 
 responseDecodeAuthorizationMessage :: DecodeAuthorizationMessageResponse -> TestTree
@@ -162,7 +162,7 @@ responseDecodeAuthorizationMessage =
   res
     "DecodeAuthorizationMessageResponse"
     "fixture/DecodeAuthorizationMessageResponse.proto"
-    stsService
+    mkServiceConfig
     (Proxy :: Proxy DecodeAuthorizationMessage)
 
 responseAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentityResponse -> TestTree
@@ -170,7 +170,7 @@ responseAssumeRoleWithWebIdentity =
   res
     "AssumeRoleWithWebIdentityResponse"
     "fixture/AssumeRoleWithWebIdentityResponse.proto"
-    stsService
+    mkServiceConfig
     (Proxy :: Proxy AssumeRoleWithWebIdentity)
 
 responseGetFederationToken :: GetFederationTokenResponse -> TestTree
@@ -178,7 +178,7 @@ responseGetFederationToken =
   res
     "GetFederationTokenResponse"
     "fixture/GetFederationTokenResponse.proto"
-    stsService
+    mkServiceConfig
     (Proxy :: Proxy GetFederationToken)
 
 responseGetSessionToken :: GetSessionTokenResponse -> TestTree
@@ -186,7 +186,7 @@ responseGetSessionToken =
   res
     "GetSessionTokenResponse"
     "fixture/GetSessionTokenResponse.proto"
-    stsService
+    mkServiceConfig
     (Proxy :: Proxy GetSessionToken)
 
 responseAssumeRoleWithSAML :: AssumeRoleWithSAMLResponse -> TestTree
@@ -194,5 +194,5 @@ responseAssumeRoleWithSAML =
   res
     "AssumeRoleWithSAMLResponse"
     "fixture/AssumeRoleWithSAMLResponse.proto"
-    stsService
+    mkServiceConfig
     (Proxy :: Proxy AssumeRoleWithSAML)

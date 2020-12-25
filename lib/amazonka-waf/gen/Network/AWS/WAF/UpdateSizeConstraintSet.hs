@@ -52,29 +52,31 @@ module Network.AWS.WAF.UpdateSizeConstraintSet
 
     -- ** Request lenses
     uscsSizeConstraintSetId,
-    uscsUpdates,
     uscsChangeToken,
+    uscsUpdates,
 
     -- * Destructuring the response
     UpdateSizeConstraintSetResponse (..),
     mkUpdateSizeConstraintSetResponse,
 
     -- ** Response lenses
-    uscsrsChangeToken,
-    uscsrsResponseStatus,
+    uscsrrsChangeToken,
+    uscsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAF.Types as Types
 
 -- | /See:/ 'mkUpdateSizeConstraintSet' smart constructor.
 data UpdateSizeConstraintSet = UpdateSizeConstraintSet'
   { -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to update. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
-    sizeConstraintSetId :: Lude.Text,
+    sizeConstraintSetId :: Types.ResourceId,
+    -- | The value returned by the most recent call to 'GetChangeToken' .
+    changeToken :: Types.ChangeToken,
     -- | An array of @SizeConstraintSetUpdate@ objects that you want to insert into or delete from a 'SizeConstraintSet' . For more information, see the applicable data types:
     --
     --
@@ -85,54 +87,40 @@ data UpdateSizeConstraintSet = UpdateSizeConstraintSet'
     --
     --
     --     * 'FieldToMatch' : Contains @Data@ and @Type@
-    updates :: Lude.NonEmpty SizeConstraintSetUpdate,
-    -- | The value returned by the most recent call to 'GetChangeToken' .
-    changeToken :: Lude.Text
+    updates :: Core.NonEmpty Types.SizeConstraintSetUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSizeConstraintSet' with the minimum fields required to make a request.
---
--- * 'sizeConstraintSetId' - The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to update. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
--- * 'updates' - An array of @SizeConstraintSetUpdate@ objects that you want to insert into or delete from a 'SizeConstraintSet' . For more information, see the applicable data types:
---
---
---     * 'SizeConstraintSetUpdate' : Contains @Action@ and @SizeConstraint@
---
---
---     * 'SizeConstraint' : Contains @FieldToMatch@ , @TextTransformation@ , @ComparisonOperator@ , and @Size@
---
---
---     * 'FieldToMatch' : Contains @Data@ and @Type@
---
---
--- * 'changeToken' - The value returned by the most recent call to 'GetChangeToken' .
+-- | Creates a 'UpdateSizeConstraintSet' value with any optional fields omitted.
 mkUpdateSizeConstraintSet ::
   -- | 'sizeConstraintSetId'
-  Lude.Text ->
-  -- | 'updates'
-  Lude.NonEmpty SizeConstraintSetUpdate ->
+  Types.ResourceId ->
   -- | 'changeToken'
-  Lude.Text ->
+  Types.ChangeToken ->
+  -- | 'updates'
+  Core.NonEmpty Types.SizeConstraintSetUpdate ->
   UpdateSizeConstraintSet
-mkUpdateSizeConstraintSet
-  pSizeConstraintSetId_
-  pUpdates_
-  pChangeToken_ =
-    UpdateSizeConstraintSet'
-      { sizeConstraintSetId =
-          pSizeConstraintSetId_,
-        updates = pUpdates_,
-        changeToken = pChangeToken_
-      }
+mkUpdateSizeConstraintSet sizeConstraintSetId changeToken updates =
+  UpdateSizeConstraintSet'
+    { sizeConstraintSetId,
+      changeToken,
+      updates
+    }
 
 -- | The @SizeConstraintSetId@ of the 'SizeConstraintSet' that you want to update. @SizeConstraintSetId@ is returned by 'CreateSizeConstraintSet' and by 'ListSizeConstraintSets' .
 --
 -- /Note:/ Consider using 'sizeConstraintSetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscsSizeConstraintSetId :: Lens.Lens' UpdateSizeConstraintSet Lude.Text
-uscsSizeConstraintSetId = Lens.lens (sizeConstraintSetId :: UpdateSizeConstraintSet -> Lude.Text) (\s a -> s {sizeConstraintSetId = a} :: UpdateSizeConstraintSet)
+uscsSizeConstraintSetId :: Lens.Lens' UpdateSizeConstraintSet Types.ResourceId
+uscsSizeConstraintSetId = Lens.field @"sizeConstraintSetId"
 {-# DEPRECATED uscsSizeConstraintSetId "Use generic-lens or generic-optics with 'sizeConstraintSetId' instead." #-}
+
+-- | The value returned by the most recent call to 'GetChangeToken' .
+--
+-- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uscsChangeToken :: Lens.Lens' UpdateSizeConstraintSet Types.ChangeToken
+uscsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED uscsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | An array of @SizeConstraintSetUpdate@ objects that you want to insert into or delete from a 'SizeConstraintSet' . For more information, see the applicable data types:
 --
@@ -148,88 +136,72 @@ uscsSizeConstraintSetId = Lens.lens (sizeConstraintSetId :: UpdateSizeConstraint
 --
 --
 -- /Note:/ Consider using 'updates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscsUpdates :: Lens.Lens' UpdateSizeConstraintSet (Lude.NonEmpty SizeConstraintSetUpdate)
-uscsUpdates = Lens.lens (updates :: UpdateSizeConstraintSet -> Lude.NonEmpty SizeConstraintSetUpdate) (\s a -> s {updates = a} :: UpdateSizeConstraintSet)
+uscsUpdates :: Lens.Lens' UpdateSizeConstraintSet (Core.NonEmpty Types.SizeConstraintSetUpdate)
+uscsUpdates = Lens.field @"updates"
 {-# DEPRECATED uscsUpdates "Use generic-lens or generic-optics with 'updates' instead." #-}
 
--- | The value returned by the most recent call to 'GetChangeToken' .
---
--- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscsChangeToken :: Lens.Lens' UpdateSizeConstraintSet Lude.Text
-uscsChangeToken = Lens.lens (changeToken :: UpdateSizeConstraintSet -> Lude.Text) (\s a -> s {changeToken = a} :: UpdateSizeConstraintSet)
-{-# DEPRECATED uscsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+instance Core.FromJSON UpdateSizeConstraintSet where
+  toJSON UpdateSizeConstraintSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SizeConstraintSetId" Core..= sizeConstraintSetId),
+            Core.Just ("ChangeToken" Core..= changeToken),
+            Core.Just ("Updates" Core..= updates)
+          ]
+      )
 
-instance Lude.AWSRequest UpdateSizeConstraintSet where
+instance Core.AWSRequest UpdateSizeConstraintSet where
   type Rs UpdateSizeConstraintSet = UpdateSizeConstraintSetResponse
-  request = Req.postJSON wafService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSWAF_20150824.UpdateSizeConstraintSet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateSizeConstraintSetResponse'
-            Lude.<$> (x Lude..?> "ChangeToken") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ChangeToken") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateSizeConstraintSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_20150824.UpdateSizeConstraintSet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateSizeConstraintSet where
-  toJSON UpdateSizeConstraintSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("SizeConstraintSetId" Lude..= sizeConstraintSetId),
-            Lude.Just ("Updates" Lude..= updates),
-            Lude.Just ("ChangeToken" Lude..= changeToken)
-          ]
-      )
-
-instance Lude.ToPath UpdateSizeConstraintSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateSizeConstraintSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateSizeConstraintSetResponse' smart constructor.
 data UpdateSizeConstraintSetResponse = UpdateSizeConstraintSetResponse'
   { -- | The @ChangeToken@ that you used to submit the @UpdateSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
-    changeToken :: Lude.Maybe Lude.Text,
+    changeToken :: Core.Maybe Types.ChangeToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateSizeConstraintSetResponse' with the minimum fields required to make a request.
---
--- * 'changeToken' - The @ChangeToken@ that you used to submit the @UpdateSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateSizeConstraintSetResponse' value with any optional fields omitted.
 mkUpdateSizeConstraintSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateSizeConstraintSetResponse
-mkUpdateSizeConstraintSetResponse pResponseStatus_ =
+mkUpdateSizeConstraintSetResponse responseStatus =
   UpdateSizeConstraintSetResponse'
-    { changeToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { changeToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The @ChangeToken@ that you used to submit the @UpdateSizeConstraintSet@ request. You can also use this value to query the status of the request. For more information, see 'GetChangeTokenStatus' .
 --
 -- /Note:/ Consider using 'changeToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscsrsChangeToken :: Lens.Lens' UpdateSizeConstraintSetResponse (Lude.Maybe Lude.Text)
-uscsrsChangeToken = Lens.lens (changeToken :: UpdateSizeConstraintSetResponse -> Lude.Maybe Lude.Text) (\s a -> s {changeToken = a} :: UpdateSizeConstraintSetResponse)
-{-# DEPRECATED uscsrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
+uscsrrsChangeToken :: Lens.Lens' UpdateSizeConstraintSetResponse (Core.Maybe Types.ChangeToken)
+uscsrrsChangeToken = Lens.field @"changeToken"
+{-# DEPRECATED uscsrrsChangeToken "Use generic-lens or generic-optics with 'changeToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uscsrsResponseStatus :: Lens.Lens' UpdateSizeConstraintSetResponse Lude.Int
-uscsrsResponseStatus = Lens.lens (responseStatus :: UpdateSizeConstraintSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateSizeConstraintSetResponse)
-{-# DEPRECATED uscsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uscsrrsResponseStatus :: Lens.Lens' UpdateSizeConstraintSetResponse Core.Int
+uscsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uscsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

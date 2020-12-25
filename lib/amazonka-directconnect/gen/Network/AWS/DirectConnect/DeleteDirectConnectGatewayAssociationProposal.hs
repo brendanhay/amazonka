@@ -27,124 +27,110 @@ module Network.AWS.DirectConnect.DeleteDirectConnectGatewayAssociationProposal
     mkDeleteDirectConnectGatewayAssociationProposalResponse,
 
     -- ** Response lenses
-    ddcgaprsDirectConnectGatewayAssociationProposal,
-    ddcgaprsResponseStatus,
+    ddcgaprrsDirectConnectGatewayAssociationProposal,
+    ddcgaprrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDirectConnectGatewayAssociationProposal' smart constructor.
 newtype DeleteDirectConnectGatewayAssociationProposal = DeleteDirectConnectGatewayAssociationProposal'
   { -- | The ID of the proposal.
-    proposalId :: Lude.Text
+    proposalId :: Types.DirectConnectGatewayAssociationProposalId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDirectConnectGatewayAssociationProposal' with the minimum fields required to make a request.
---
--- * 'proposalId' - The ID of the proposal.
+-- | Creates a 'DeleteDirectConnectGatewayAssociationProposal' value with any optional fields omitted.
 mkDeleteDirectConnectGatewayAssociationProposal ::
   -- | 'proposalId'
-  Lude.Text ->
+  Types.DirectConnectGatewayAssociationProposalId ->
   DeleteDirectConnectGatewayAssociationProposal
-mkDeleteDirectConnectGatewayAssociationProposal pProposalId_ =
-  DeleteDirectConnectGatewayAssociationProposal'
-    { proposalId =
-        pProposalId_
-    }
+mkDeleteDirectConnectGatewayAssociationProposal proposalId =
+  DeleteDirectConnectGatewayAssociationProposal' {proposalId}
 
 -- | The ID of the proposal.
 --
 -- /Note:/ Consider using 'proposalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcgapProposalId :: Lens.Lens' DeleteDirectConnectGatewayAssociationProposal Lude.Text
-ddcgapProposalId = Lens.lens (proposalId :: DeleteDirectConnectGatewayAssociationProposal -> Lude.Text) (\s a -> s {proposalId = a} :: DeleteDirectConnectGatewayAssociationProposal)
+ddcgapProposalId :: Lens.Lens' DeleteDirectConnectGatewayAssociationProposal Types.DirectConnectGatewayAssociationProposalId
+ddcgapProposalId = Lens.field @"proposalId"
 {-# DEPRECATED ddcgapProposalId "Use generic-lens or generic-optics with 'proposalId' instead." #-}
 
 instance
-  Lude.AWSRequest
+  Core.FromJSON
+    DeleteDirectConnectGatewayAssociationProposal
+  where
+  toJSON DeleteDirectConnectGatewayAssociationProposal {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("proposalId" Core..= proposalId)])
+
+instance
+  Core.AWSRequest
     DeleteDirectConnectGatewayAssociationProposal
   where
   type
     Rs DeleteDirectConnectGatewayAssociationProposal =
       DeleteDirectConnectGatewayAssociationProposalResponse
-  request = Req.postJSON directConnectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "OvertureService.DeleteDirectConnectGatewayAssociationProposal"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteDirectConnectGatewayAssociationProposalResponse'
-            Lude.<$> (x Lude..?> "directConnectGatewayAssociationProposal")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "directConnectGatewayAssociationProposal")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance
-  Lude.ToHeaders
-    DeleteDirectConnectGatewayAssociationProposal
-  where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "OvertureService.DeleteDirectConnectGatewayAssociationProposal" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteDirectConnectGatewayAssociationProposal where
-  toJSON DeleteDirectConnectGatewayAssociationProposal' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("proposalId" Lude..= proposalId)])
-
-instance Lude.ToPath DeleteDirectConnectGatewayAssociationProposal where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDirectConnectGatewayAssociationProposal where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteDirectConnectGatewayAssociationProposalResponse' smart constructor.
 data DeleteDirectConnectGatewayAssociationProposalResponse = DeleteDirectConnectGatewayAssociationProposalResponse'
   { -- | The ID of the associated gateway.
-    directConnectGatewayAssociationProposal :: Lude.Maybe DirectConnectGatewayAssociationProposal,
+    directConnectGatewayAssociationProposal :: Core.Maybe Types.DirectConnectGatewayAssociationProposal,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDirectConnectGatewayAssociationProposalResponse' with the minimum fields required to make a request.
---
--- * 'directConnectGatewayAssociationProposal' - The ID of the associated gateway.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDirectConnectGatewayAssociationProposalResponse' value with any optional fields omitted.
 mkDeleteDirectConnectGatewayAssociationProposalResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDirectConnectGatewayAssociationProposalResponse
 mkDeleteDirectConnectGatewayAssociationProposalResponse
-  pResponseStatus_ =
+  responseStatus =
     DeleteDirectConnectGatewayAssociationProposalResponse'
       { directConnectGatewayAssociationProposal =
-          Lude.Nothing,
-        responseStatus = pResponseStatus_
+          Core.Nothing,
+        responseStatus
       }
 
 -- | The ID of the associated gateway.
 --
 -- /Note:/ Consider using 'directConnectGatewayAssociationProposal' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcgaprsDirectConnectGatewayAssociationProposal :: Lens.Lens' DeleteDirectConnectGatewayAssociationProposalResponse (Lude.Maybe DirectConnectGatewayAssociationProposal)
-ddcgaprsDirectConnectGatewayAssociationProposal = Lens.lens (directConnectGatewayAssociationProposal :: DeleteDirectConnectGatewayAssociationProposalResponse -> Lude.Maybe DirectConnectGatewayAssociationProposal) (\s a -> s {directConnectGatewayAssociationProposal = a} :: DeleteDirectConnectGatewayAssociationProposalResponse)
-{-# DEPRECATED ddcgaprsDirectConnectGatewayAssociationProposal "Use generic-lens or generic-optics with 'directConnectGatewayAssociationProposal' instead." #-}
+ddcgaprrsDirectConnectGatewayAssociationProposal :: Lens.Lens' DeleteDirectConnectGatewayAssociationProposalResponse (Core.Maybe Types.DirectConnectGatewayAssociationProposal)
+ddcgaprrsDirectConnectGatewayAssociationProposal = Lens.field @"directConnectGatewayAssociationProposal"
+{-# DEPRECATED ddcgaprrsDirectConnectGatewayAssociationProposal "Use generic-lens or generic-optics with 'directConnectGatewayAssociationProposal' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcgaprsResponseStatus :: Lens.Lens' DeleteDirectConnectGatewayAssociationProposalResponse Lude.Int
-ddcgaprsResponseStatus = Lens.lens (responseStatus :: DeleteDirectConnectGatewayAssociationProposalResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectConnectGatewayAssociationProposalResponse)
-{-# DEPRECATED ddcgaprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddcgaprrsResponseStatus :: Lens.Lens' DeleteDirectConnectGatewayAssociationProposalResponse Core.Int
+ddcgaprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddcgaprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

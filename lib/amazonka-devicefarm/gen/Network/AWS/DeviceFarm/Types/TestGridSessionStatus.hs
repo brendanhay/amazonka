@@ -13,51 +13,56 @@
 module Network.AWS.DeviceFarm.Types.TestGridSessionStatus
   ( TestGridSessionStatus
       ( TestGridSessionStatus',
-        Active,
-        Closed,
-        Errored
+        TestGridSessionStatusActive,
+        TestGridSessionStatusClosed,
+        TestGridSessionStatusErrored,
+        fromTestGridSessionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TestGridSessionStatus = TestGridSessionStatus' Lude.Text
+newtype TestGridSessionStatus = TestGridSessionStatus'
+  { fromTestGridSessionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Active :: TestGridSessionStatus
-pattern Active = TestGridSessionStatus' "ACTIVE"
+pattern TestGridSessionStatusActive :: TestGridSessionStatus
+pattern TestGridSessionStatusActive = TestGridSessionStatus' "ACTIVE"
 
-pattern Closed :: TestGridSessionStatus
-pattern Closed = TestGridSessionStatus' "CLOSED"
+pattern TestGridSessionStatusClosed :: TestGridSessionStatus
+pattern TestGridSessionStatusClosed = TestGridSessionStatus' "CLOSED"
 
-pattern Errored :: TestGridSessionStatus
-pattern Errored = TestGridSessionStatus' "ERRORED"
+pattern TestGridSessionStatusErrored :: TestGridSessionStatus
+pattern TestGridSessionStatusErrored = TestGridSessionStatus' "ERRORED"
 
 {-# COMPLETE
-  Active,
-  Closed,
-  Errored,
+  TestGridSessionStatusActive,
+  TestGridSessionStatusClosed,
+  TestGridSessionStatusErrored,
   TestGridSessionStatus'
   #-}

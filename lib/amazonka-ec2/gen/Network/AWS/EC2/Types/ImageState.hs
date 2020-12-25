@@ -13,71 +13,73 @@
 module Network.AWS.EC2.Types.ImageState
   ( ImageState
       ( ImageState',
-        ISPending,
-        ISAvailable,
-        ISInvalid,
-        ISDeregistered,
-        ISTransient,
-        ISFailed,
-        ISError
+        ImageStatePending,
+        ImageStateAvailable,
+        ImageStateInvalid,
+        ImageStateDeregistered,
+        ImageStateTransient,
+        ImageStateFailed,
+        ImageStateError,
+        fromImageState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ImageState = ImageState' Lude.Text
+newtype ImageState = ImageState' {fromImageState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ISPending :: ImageState
-pattern ISPending = ImageState' "pending"
+pattern ImageStatePending :: ImageState
+pattern ImageStatePending = ImageState' "pending"
 
-pattern ISAvailable :: ImageState
-pattern ISAvailable = ImageState' "available"
+pattern ImageStateAvailable :: ImageState
+pattern ImageStateAvailable = ImageState' "available"
 
-pattern ISInvalid :: ImageState
-pattern ISInvalid = ImageState' "invalid"
+pattern ImageStateInvalid :: ImageState
+pattern ImageStateInvalid = ImageState' "invalid"
 
-pattern ISDeregistered :: ImageState
-pattern ISDeregistered = ImageState' "deregistered"
+pattern ImageStateDeregistered :: ImageState
+pattern ImageStateDeregistered = ImageState' "deregistered"
 
-pattern ISTransient :: ImageState
-pattern ISTransient = ImageState' "transient"
+pattern ImageStateTransient :: ImageState
+pattern ImageStateTransient = ImageState' "transient"
 
-pattern ISFailed :: ImageState
-pattern ISFailed = ImageState' "failed"
+pattern ImageStateFailed :: ImageState
+pattern ImageStateFailed = ImageState' "failed"
 
-pattern ISError :: ImageState
-pattern ISError = ImageState' "error"
+pattern ImageStateError :: ImageState
+pattern ImageStateError = ImageState' "error"
 
 {-# COMPLETE
-  ISPending,
-  ISAvailable,
-  ISInvalid,
-  ISDeregistered,
-  ISTransient,
-  ISFailed,
-  ISError,
+  ImageStatePending,
+  ImageStateAvailable,
+  ImageStateInvalid,
+  ImageStateDeregistered,
+  ImageStateTransient,
+  ImageStateFailed,
+  ImageStateError,
   ImageState'
   #-}

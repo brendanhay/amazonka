@@ -28,68 +28,59 @@ module Network.AWS.CloudWatchEvents.DeleteEventBus
   )
 where
 
-import Network.AWS.CloudWatchEvents.Types
+import qualified Network.AWS.CloudWatchEvents.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteEventBus' smart constructor.
 newtype DeleteEventBus = DeleteEventBus'
   { -- | The name of the event bus to delete.
-    name :: Lude.Text
+    name :: Types.EventBusName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEventBus' with the minimum fields required to make a request.
---
--- * 'name' - The name of the event bus to delete.
+-- | Creates a 'DeleteEventBus' value with any optional fields omitted.
 mkDeleteEventBus ::
   -- | 'name'
-  Lude.Text ->
+  Types.EventBusName ->
   DeleteEventBus
-mkDeleteEventBus pName_ = DeleteEventBus' {name = pName_}
+mkDeleteEventBus name = DeleteEventBus' {name}
 
 -- | The name of the event bus to delete.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-debsName :: Lens.Lens' DeleteEventBus Lude.Text
-debsName = Lens.lens (name :: DeleteEventBus -> Lude.Text) (\s a -> s {name = a} :: DeleteEventBus)
+debsName :: Lens.Lens' DeleteEventBus Types.EventBusName
+debsName = Lens.field @"name"
 {-# DEPRECATED debsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest DeleteEventBus where
+instance Core.FromJSON DeleteEventBus where
+  toJSON DeleteEventBus {..} =
+    Core.object (Core.catMaybes [Core.Just ("Name" Core..= name)])
+
+instance Core.AWSRequest DeleteEventBus where
   type Rs DeleteEventBus = DeleteEventBusResponse
-  request = Req.postJSON cloudWatchEventsService
-  response = Res.receiveNull DeleteEventBusResponse'
-
-instance Lude.ToHeaders DeleteEventBus where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSEvents.DeleteEventBus" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteEventBus where
-  toJSON DeleteEventBus' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Name" Lude..= name)])
-
-instance Lude.ToPath DeleteEventBus where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteEventBus where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSEvents.DeleteEventBus")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteEventBusResponse'
 
 -- | /See:/ 'mkDeleteEventBusResponse' smart constructor.
 data DeleteEventBusResponse = DeleteEventBusResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteEventBusResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteEventBusResponse' value with any optional fields omitted.
 mkDeleteEventBusResponse ::
   DeleteEventBusResponse
 mkDeleteEventBusResponse = DeleteEventBusResponse'

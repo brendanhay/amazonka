@@ -13,51 +13,56 @@
 module Network.AWS.MechanicalTurk.Types.HITAccessActions
   ( HITAccessActions
       ( HITAccessActions',
-        Accept,
-        PreviewAndAccept,
-        DiscoverPreviewAndAccept
+        HITAccessActionsAccept,
+        HITAccessActionsPreviewAndAccept,
+        HITAccessActionsDiscoverPreviewAndAccept,
+        fromHITAccessActions
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype HITAccessActions = HITAccessActions' Lude.Text
+newtype HITAccessActions = HITAccessActions'
+  { fromHITAccessActions ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Accept :: HITAccessActions
-pattern Accept = HITAccessActions' "Accept"
+pattern HITAccessActionsAccept :: HITAccessActions
+pattern HITAccessActionsAccept = HITAccessActions' "Accept"
 
-pattern PreviewAndAccept :: HITAccessActions
-pattern PreviewAndAccept = HITAccessActions' "PreviewAndAccept"
+pattern HITAccessActionsPreviewAndAccept :: HITAccessActions
+pattern HITAccessActionsPreviewAndAccept = HITAccessActions' "PreviewAndAccept"
 
-pattern DiscoverPreviewAndAccept :: HITAccessActions
-pattern DiscoverPreviewAndAccept = HITAccessActions' "DiscoverPreviewAndAccept"
+pattern HITAccessActionsDiscoverPreviewAndAccept :: HITAccessActions
+pattern HITAccessActionsDiscoverPreviewAndAccept = HITAccessActions' "DiscoverPreviewAndAccept"
 
 {-# COMPLETE
-  Accept,
-  PreviewAndAccept,
-  DiscoverPreviewAndAccept,
+  HITAccessActionsAccept,
+  HITAccessActionsPreviewAndAccept,
+  HITAccessActionsDiscoverPreviewAndAccept,
   HITAccessActions'
   #-}

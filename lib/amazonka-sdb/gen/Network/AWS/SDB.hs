@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,61 @@
 -- Visit <http://aws.amazon.com/simpledb/ http://aws.amazon.com/simpledb/> for more information.
 module Network.AWS.SDB
   ( -- * Service configuration
-    sdbService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidNumberValueTests
+    _InvalidNumberValueTests,
+
+    -- ** NoSuchDomain
+    _NoSuchDomain,
+
+    -- ** NumberSubmittedItemsExceeded
+    _NumberSubmittedItemsExceeded,
+
+    -- ** AttributeDoesNotExist
+    _AttributeDoesNotExist,
+
+    -- ** NumberDomainAttributesExceeded
+    _NumberDomainAttributesExceeded,
+
+    -- ** DuplicateItemName
+    _DuplicateItemName,
+
+    -- ** MissingParameter
+    _MissingParameter,
+
+    -- ** InvalidNextToken
+    _InvalidNextToken,
+
+    -- ** InvalidParameterValue
+    _InvalidParameterValue,
+
+    -- ** NumberItemAttributesExceeded
+    _NumberItemAttributesExceeded,
+
+    -- ** RequestTimeout
+    _RequestTimeout,
+
+    -- ** TooManyRequestedAttributes
+    _TooManyRequestedAttributes,
+
+    -- ** InvalidNumberPredicates
+    _InvalidNumberPredicates,
+
+    -- ** NumberDomainsExceeded
+    _NumberDomainsExceeded,
+
+    -- ** NumberSubmittedAttributesExceeded
+    _NumberSubmittedAttributesExceeded,
+
+    -- ** NumberDomainBytesExceeded
+    _NumberDomainBytesExceeded,
+
+    -- ** InvalidQueryExpression
+    _InvalidQueryExpression,
 
     -- * Waiters
     -- $waiters
@@ -62,53 +112,69 @@ module Network.AWS.SDB
     -- ** Attribute
     Attribute (..),
     mkAttribute,
-    aAlternateValueEncoding,
+    aName,
     aValue,
     aAlternateNameEncoding,
-    aName,
+    aAlternateValueEncoding,
+
+    -- ** String
+    String (..),
 
     -- ** DeletableItem
     DeletableItem (..),
     mkDeletableItem,
-    diAttributes,
     diName,
-
-    -- ** Item
-    Item (..),
-    mkItem,
-    iAlternateNameEncoding,
-    iAttributes,
-    iName,
-
-    -- ** ReplaceableAttribute
-    ReplaceableAttribute (..),
-    mkReplaceableAttribute,
-    raReplace,
-    raValue,
-    raName,
+    diAttributes,
 
     -- ** ReplaceableItem
     ReplaceableItem (..),
     mkReplaceableItem,
-    riAttributes,
     riName,
+    riAttributes,
 
     -- ** UpdateCondition
     UpdateCondition (..),
     mkUpdateCondition,
     ucExists,
-    ucValue,
     ucName,
+    ucValue,
+
+    -- ** ReplaceableAttribute
+    ReplaceableAttribute (..),
+    mkReplaceableAttribute,
+    raName,
+    raValue,
+    raReplace,
+
+    -- ** Item
+    Item (..),
+    mkItem,
+    iName,
+    iAttributes,
+    iAlternateNameEncoding,
+
+    -- ** Name
+    Name (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** AlternateNameEncoding
+    AlternateNameEncoding (..),
+
+    -- ** AlternateValueEncoding
+    AlternateValueEncoding (..),
+
+    -- ** DomainName
+    DomainName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

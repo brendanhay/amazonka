@@ -21,8 +21,9 @@ module Network.AWS.ECS.Types.HostVolumeProperties
   )
 where
 
+import qualified Network.AWS.ECS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details on a container instance bind mount host volume.
 --
@@ -31,37 +32,32 @@ newtype HostVolumeProperties = HostVolumeProperties'
   { -- | When the @host@ parameter is used, specify a @sourcePath@ to declare the path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the @host@ parameter contains a @sourcePath@ file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the @sourcePath@ value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
     --
     -- If you are using the Fargate launch type, the @sourcePath@ parameter is not supported.
-    sourcePath :: Lude.Maybe Lude.Text
+    sourcePath :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HostVolumeProperties' with the minimum fields required to make a request.
---
--- * 'sourcePath' - When the @host@ parameter is used, specify a @sourcePath@ to declare the path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the @host@ parameter contains a @sourcePath@ file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the @sourcePath@ value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
---
--- If you are using the Fargate launch type, the @sourcePath@ parameter is not supported.
+-- | Creates a 'HostVolumeProperties' value with any optional fields omitted.
 mkHostVolumeProperties ::
   HostVolumeProperties
 mkHostVolumeProperties =
-  HostVolumeProperties' {sourcePath = Lude.Nothing}
+  HostVolumeProperties' {sourcePath = Core.Nothing}
 
 -- | When the @host@ parameter is used, specify a @sourcePath@ to declare the path on the host container instance that is presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If the @host@ parameter contains a @sourcePath@ file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the @sourcePath@ value does not exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
 --
 -- If you are using the Fargate launch type, the @sourcePath@ parameter is not supported.
 --
 -- /Note:/ Consider using 'sourcePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hvpSourcePath :: Lens.Lens' HostVolumeProperties (Lude.Maybe Lude.Text)
-hvpSourcePath = Lens.lens (sourcePath :: HostVolumeProperties -> Lude.Maybe Lude.Text) (\s a -> s {sourcePath = a} :: HostVolumeProperties)
+hvpSourcePath :: Lens.Lens' HostVolumeProperties (Core.Maybe Types.String)
+hvpSourcePath = Lens.field @"sourcePath"
 {-# DEPRECATED hvpSourcePath "Use generic-lens or generic-optics with 'sourcePath' instead." #-}
 
-instance Lude.FromJSON HostVolumeProperties where
-  parseJSON =
-    Lude.withObject
-      "HostVolumeProperties"
-      (\x -> HostVolumeProperties' Lude.<$> (x Lude..:? "sourcePath"))
+instance Core.FromJSON HostVolumeProperties where
+  toJSON HostVolumeProperties {..} =
+    Core.object
+      (Core.catMaybes [("sourcePath" Core..=) Core.<$> sourcePath])
 
-instance Lude.ToJSON HostVolumeProperties where
-  toJSON HostVolumeProperties' {..} =
-    Lude.object
-      (Lude.catMaybes [("sourcePath" Lude..=) Lude.<$> sourcePath])
+instance Core.FromJSON HostVolumeProperties where
+  parseJSON =
+    Core.withObject "HostVolumeProperties" Core.$
+      \x -> HostVolumeProperties' Core.<$> (x Core..:? "sourcePath")

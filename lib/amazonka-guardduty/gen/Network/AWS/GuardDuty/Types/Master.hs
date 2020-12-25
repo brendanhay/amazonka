@@ -17,84 +17,79 @@ module Network.AWS.GuardDuty.Types.Master
     mkMaster,
 
     -- * Lenses
+    mfAccountId,
+    mfInvitationId,
     mfInvitedAt,
     mfRelationshipStatus,
-    mfInvitationId,
-    mfAccountId,
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.AccountId as Types
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the master account and invitation.
 --
 -- /See:/ 'mkMaster' smart constructor.
 data Master = Master'
-  { -- | The timestamp when the invitation was sent.
-    invitedAt :: Lude.Maybe Lude.Text,
-    -- | The status of the relationship between the master and member accounts.
-    relationshipStatus :: Lude.Maybe Lude.Text,
+  { -- | The ID of the account used as the master account.
+    accountId :: Core.Maybe Types.AccountId,
     -- | The value used to validate the master account to the member account.
-    invitationId :: Lude.Maybe Lude.Text,
-    -- | The ID of the account used as the master account.
-    accountId :: Lude.Maybe Lude.Text
+    invitationId :: Core.Maybe Types.String,
+    -- | The timestamp when the invitation was sent.
+    invitedAt :: Core.Maybe Types.String,
+    -- | The status of the relationship between the master and member accounts.
+    relationshipStatus :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Master' with the minimum fields required to make a request.
---
--- * 'invitedAt' - The timestamp when the invitation was sent.
--- * 'relationshipStatus' - The status of the relationship between the master and member accounts.
--- * 'invitationId' - The value used to validate the master account to the member account.
--- * 'accountId' - The ID of the account used as the master account.
+-- | Creates a 'Master' value with any optional fields omitted.
 mkMaster ::
   Master
 mkMaster =
   Master'
-    { invitedAt = Lude.Nothing,
-      relationshipStatus = Lude.Nothing,
-      invitationId = Lude.Nothing,
-      accountId = Lude.Nothing
+    { accountId = Core.Nothing,
+      invitationId = Core.Nothing,
+      invitedAt = Core.Nothing,
+      relationshipStatus = Core.Nothing
     }
+
+-- | The ID of the account used as the master account.
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfAccountId :: Lens.Lens' Master (Core.Maybe Types.AccountId)
+mfAccountId = Lens.field @"accountId"
+{-# DEPRECATED mfAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The value used to validate the master account to the member account.
+--
+-- /Note:/ Consider using 'invitationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mfInvitationId :: Lens.Lens' Master (Core.Maybe Types.String)
+mfInvitationId = Lens.field @"invitationId"
+{-# DEPRECATED mfInvitationId "Use generic-lens or generic-optics with 'invitationId' instead." #-}
 
 -- | The timestamp when the invitation was sent.
 --
 -- /Note:/ Consider using 'invitedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mfInvitedAt :: Lens.Lens' Master (Lude.Maybe Lude.Text)
-mfInvitedAt = Lens.lens (invitedAt :: Master -> Lude.Maybe Lude.Text) (\s a -> s {invitedAt = a} :: Master)
+mfInvitedAt :: Lens.Lens' Master (Core.Maybe Types.String)
+mfInvitedAt = Lens.field @"invitedAt"
 {-# DEPRECATED mfInvitedAt "Use generic-lens or generic-optics with 'invitedAt' instead." #-}
 
 -- | The status of the relationship between the master and member accounts.
 --
 -- /Note:/ Consider using 'relationshipStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mfRelationshipStatus :: Lens.Lens' Master (Lude.Maybe Lude.Text)
-mfRelationshipStatus = Lens.lens (relationshipStatus :: Master -> Lude.Maybe Lude.Text) (\s a -> s {relationshipStatus = a} :: Master)
+mfRelationshipStatus :: Lens.Lens' Master (Core.Maybe Types.String)
+mfRelationshipStatus = Lens.field @"relationshipStatus"
 {-# DEPRECATED mfRelationshipStatus "Use generic-lens or generic-optics with 'relationshipStatus' instead." #-}
 
--- | The value used to validate the master account to the member account.
---
--- /Note:/ Consider using 'invitationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mfInvitationId :: Lens.Lens' Master (Lude.Maybe Lude.Text)
-mfInvitationId = Lens.lens (invitationId :: Master -> Lude.Maybe Lude.Text) (\s a -> s {invitationId = a} :: Master)
-{-# DEPRECATED mfInvitationId "Use generic-lens or generic-optics with 'invitationId' instead." #-}
-
--- | The ID of the account used as the master account.
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mfAccountId :: Lens.Lens' Master (Lude.Maybe Lude.Text)
-mfAccountId = Lens.lens (accountId :: Master -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: Master)
-{-# DEPRECATED mfAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
-
-instance Lude.FromJSON Master where
+instance Core.FromJSON Master where
   parseJSON =
-    Lude.withObject
-      "Master"
-      ( \x ->
-          Master'
-            Lude.<$> (x Lude..:? "invitedAt")
-            Lude.<*> (x Lude..:? "relationshipStatus")
-            Lude.<*> (x Lude..:? "invitationId")
-            Lude.<*> (x Lude..:? "accountId")
-      )
+    Core.withObject "Master" Core.$
+      \x ->
+        Master'
+          Core.<$> (x Core..:? "accountId")
+          Core.<*> (x Core..:? "invitationId")
+          Core.<*> (x Core..:? "invitedAt")
+          Core.<*> (x Core..:? "relationshipStatus")

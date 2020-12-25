@@ -13,61 +13,66 @@
 module Network.AWS.CertificateManagerPCA.Types.ValidityPeriodType
   ( ValidityPeriodType
       ( ValidityPeriodType',
-        EndDate,
-        Absolute,
-        Days,
-        Months,
-        Years
+        ValidityPeriodTypeEndDate,
+        ValidityPeriodTypeAbsolute,
+        ValidityPeriodTypeDays,
+        ValidityPeriodTypeMonths,
+        ValidityPeriodTypeYears,
+        fromValidityPeriodType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ValidityPeriodType = ValidityPeriodType' Lude.Text
+newtype ValidityPeriodType = ValidityPeriodType'
+  { fromValidityPeriodType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EndDate :: ValidityPeriodType
-pattern EndDate = ValidityPeriodType' "END_DATE"
+pattern ValidityPeriodTypeEndDate :: ValidityPeriodType
+pattern ValidityPeriodTypeEndDate = ValidityPeriodType' "END_DATE"
 
-pattern Absolute :: ValidityPeriodType
-pattern Absolute = ValidityPeriodType' "ABSOLUTE"
+pattern ValidityPeriodTypeAbsolute :: ValidityPeriodType
+pattern ValidityPeriodTypeAbsolute = ValidityPeriodType' "ABSOLUTE"
 
-pattern Days :: ValidityPeriodType
-pattern Days = ValidityPeriodType' "DAYS"
+pattern ValidityPeriodTypeDays :: ValidityPeriodType
+pattern ValidityPeriodTypeDays = ValidityPeriodType' "DAYS"
 
-pattern Months :: ValidityPeriodType
-pattern Months = ValidityPeriodType' "MONTHS"
+pattern ValidityPeriodTypeMonths :: ValidityPeriodType
+pattern ValidityPeriodTypeMonths = ValidityPeriodType' "MONTHS"
 
-pattern Years :: ValidityPeriodType
-pattern Years = ValidityPeriodType' "YEARS"
+pattern ValidityPeriodTypeYears :: ValidityPeriodType
+pattern ValidityPeriodTypeYears = ValidityPeriodType' "YEARS"
 
 {-# COMPLETE
-  EndDate,
-  Absolute,
-  Days,
-  Months,
-  Years,
+  ValidityPeriodTypeEndDate,
+  ValidityPeriodTypeAbsolute,
+  ValidityPeriodTypeDays,
+  ValidityPeriodTypeMonths,
+  ValidityPeriodTypeYears,
   ValidityPeriodType'
   #-}

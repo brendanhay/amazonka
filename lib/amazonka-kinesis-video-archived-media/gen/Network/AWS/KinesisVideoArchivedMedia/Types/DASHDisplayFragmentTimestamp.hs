@@ -13,46 +13,51 @@
 module Network.AWS.KinesisVideoArchivedMedia.Types.DASHDisplayFragmentTimestamp
   ( DASHDisplayFragmentTimestamp
       ( DASHDisplayFragmentTimestamp',
-        DASHDFTAlways,
-        DASHDFTNever
+        DASHDisplayFragmentTimestampAlways,
+        DASHDisplayFragmentTimestampNever,
+        fromDASHDisplayFragmentTimestamp
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DASHDisplayFragmentTimestamp = DASHDisplayFragmentTimestamp' Lude.Text
+newtype DASHDisplayFragmentTimestamp = DASHDisplayFragmentTimestamp'
+  { fromDASHDisplayFragmentTimestamp ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DASHDFTAlways :: DASHDisplayFragmentTimestamp
-pattern DASHDFTAlways = DASHDisplayFragmentTimestamp' "ALWAYS"
+pattern DASHDisplayFragmentTimestampAlways :: DASHDisplayFragmentTimestamp
+pattern DASHDisplayFragmentTimestampAlways = DASHDisplayFragmentTimestamp' "ALWAYS"
 
-pattern DASHDFTNever :: DASHDisplayFragmentTimestamp
-pattern DASHDFTNever = DASHDisplayFragmentTimestamp' "NEVER"
+pattern DASHDisplayFragmentTimestampNever :: DASHDisplayFragmentTimestamp
+pattern DASHDisplayFragmentTimestampNever = DASHDisplayFragmentTimestamp' "NEVER"
 
 {-# COMPLETE
-  DASHDFTAlways,
-  DASHDFTNever,
+  DASHDisplayFragmentTimestampAlways,
+  DASHDisplayFragmentTimestampNever,
   DASHDisplayFragmentTimestamp'
   #-}

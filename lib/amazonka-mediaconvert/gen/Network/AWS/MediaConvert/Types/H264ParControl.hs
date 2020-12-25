@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.H264ParControl
   ( H264ParControl
       ( H264ParControl',
-        HPCInitializeFromSource,
-        HPCSpecified
+        H264ParControlInitializeFromSource,
+        H264ParControlSpecified,
+        fromH264ParControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Optional. Specify how the service determines the pixel aspect ratio (PAR) for this output. The default behavior, Follow source (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your output. To specify a different PAR in the console, choose any value other than Follow source. To specify a different PAR by editing the JSON job specification, choose SPECIFIED. When you choose SPECIFIED for this setting, you must also specify values for the parNumerator and parDenominator settings.
-newtype H264ParControl = H264ParControl' Lude.Text
+newtype H264ParControl = H264ParControl'
+  { fromH264ParControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HPCInitializeFromSource :: H264ParControl
-pattern HPCInitializeFromSource = H264ParControl' "INITIALIZE_FROM_SOURCE"
+pattern H264ParControlInitializeFromSource :: H264ParControl
+pattern H264ParControlInitializeFromSource = H264ParControl' "INITIALIZE_FROM_SOURCE"
 
-pattern HPCSpecified :: H264ParControl
-pattern HPCSpecified = H264ParControl' "SPECIFIED"
+pattern H264ParControlSpecified :: H264ParControl
+pattern H264ParControlSpecified = H264ParControl' "SPECIFIED"
 
 {-# COMPLETE
-  HPCInitializeFromSource,
-  HPCSpecified,
+  H264ParControlInitializeFromSource,
+  H264ParControlSpecified,
   H264ParControl'
   #-}

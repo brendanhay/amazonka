@@ -17,59 +17,56 @@ module Network.AWS.DynamoDB.Types.GlobalSecondaryIndexAutoScalingUpdate
     mkGlobalSecondaryIndexAutoScalingUpdate,
 
     -- * Lenses
-    gsiasuProvisionedWriteCapacityAutoScalingUpdate,
     gsiasuIndexName,
+    gsiasuProvisionedWriteCapacityAutoScalingUpdate,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
+import qualified Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate as Types
+import qualified Network.AWS.DynamoDB.Types.IndexName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the auto scaling settings of a global secondary index for a global table that will be modified.
 --
 -- /See:/ 'mkGlobalSecondaryIndexAutoScalingUpdate' smart constructor.
 data GlobalSecondaryIndexAutoScalingUpdate = GlobalSecondaryIndexAutoScalingUpdate'
-  { provisionedWriteCapacityAutoScalingUpdate :: Lude.Maybe AutoScalingSettingsUpdate,
-    -- | The name of the global secondary index.
-    indexName :: Lude.Maybe Lude.Text
+  { -- | The name of the global secondary index.
+    indexName :: Core.Maybe Types.IndexName,
+    provisionedWriteCapacityAutoScalingUpdate :: Core.Maybe Types.AutoScalingSettingsUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GlobalSecondaryIndexAutoScalingUpdate' with the minimum fields required to make a request.
---
--- * 'provisionedWriteCapacityAutoScalingUpdate' -
--- * 'indexName' - The name of the global secondary index.
+-- | Creates a 'GlobalSecondaryIndexAutoScalingUpdate' value with any optional fields omitted.
 mkGlobalSecondaryIndexAutoScalingUpdate ::
   GlobalSecondaryIndexAutoScalingUpdate
 mkGlobalSecondaryIndexAutoScalingUpdate =
   GlobalSecondaryIndexAutoScalingUpdate'
-    { provisionedWriteCapacityAutoScalingUpdate =
-        Lude.Nothing,
-      indexName = Lude.Nothing
+    { indexName = Core.Nothing,
+      provisionedWriteCapacityAutoScalingUpdate = Core.Nothing
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'provisionedWriteCapacityAutoScalingUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiasuProvisionedWriteCapacityAutoScalingUpdate :: Lens.Lens' GlobalSecondaryIndexAutoScalingUpdate (Lude.Maybe AutoScalingSettingsUpdate)
-gsiasuProvisionedWriteCapacityAutoScalingUpdate = Lens.lens (provisionedWriteCapacityAutoScalingUpdate :: GlobalSecondaryIndexAutoScalingUpdate -> Lude.Maybe AutoScalingSettingsUpdate) (\s a -> s {provisionedWriteCapacityAutoScalingUpdate = a} :: GlobalSecondaryIndexAutoScalingUpdate)
-{-# DEPRECATED gsiasuProvisionedWriteCapacityAutoScalingUpdate "Use generic-lens or generic-optics with 'provisionedWriteCapacityAutoScalingUpdate' instead." #-}
 
 -- | The name of the global secondary index.
 --
 -- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsiasuIndexName :: Lens.Lens' GlobalSecondaryIndexAutoScalingUpdate (Lude.Maybe Lude.Text)
-gsiasuIndexName = Lens.lens (indexName :: GlobalSecondaryIndexAutoScalingUpdate -> Lude.Maybe Lude.Text) (\s a -> s {indexName = a} :: GlobalSecondaryIndexAutoScalingUpdate)
+gsiasuIndexName :: Lens.Lens' GlobalSecondaryIndexAutoScalingUpdate (Core.Maybe Types.IndexName)
+gsiasuIndexName = Lens.field @"indexName"
 {-# DEPRECATED gsiasuIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
-instance Lude.ToJSON GlobalSecondaryIndexAutoScalingUpdate where
-  toJSON GlobalSecondaryIndexAutoScalingUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ProvisionedWriteCapacityAutoScalingUpdate" Lude..=)
-              Lude.<$> provisionedWriteCapacityAutoScalingUpdate,
-            ("IndexName" Lude..=) Lude.<$> indexName
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'provisionedWriteCapacityAutoScalingUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gsiasuProvisionedWriteCapacityAutoScalingUpdate :: Lens.Lens' GlobalSecondaryIndexAutoScalingUpdate (Core.Maybe Types.AutoScalingSettingsUpdate)
+gsiasuProvisionedWriteCapacityAutoScalingUpdate = Lens.field @"provisionedWriteCapacityAutoScalingUpdate"
+{-# DEPRECATED gsiasuProvisionedWriteCapacityAutoScalingUpdate "Use generic-lens or generic-optics with 'provisionedWriteCapacityAutoScalingUpdate' instead." #-}
+
+instance Core.FromJSON GlobalSecondaryIndexAutoScalingUpdate where
+  toJSON GlobalSecondaryIndexAutoScalingUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("IndexName" Core..=) Core.<$> indexName,
+            ("ProvisionedWriteCapacityAutoScalingUpdate" Core..=)
+              Core.<$> provisionedWriteCapacityAutoScalingUpdate
           ]
       )

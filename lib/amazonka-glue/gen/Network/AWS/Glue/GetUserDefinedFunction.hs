@@ -20,150 +20,136 @@ module Network.AWS.Glue.GetUserDefinedFunction
     mkGetUserDefinedFunction,
 
     -- ** Request lenses
-    gudfCatalogId,
-    gudfDatabaseName,
-    gudfFunctionName,
+    gudffDatabaseName,
+    gudffFunctionName,
+    gudffCatalogId,
 
     -- * Destructuring the response
     GetUserDefinedFunctionResponse (..),
     mkGetUserDefinedFunctionResponse,
 
     -- ** Response lenses
-    gudffrsUserDefinedFunction,
-    gudffrsResponseStatus,
+    gudfrfrsUserDefinedFunction,
+    gudfrfrsResponseStatus,
   )
 where
 
-import Network.AWS.Glue.Types
+import qualified Network.AWS.Glue.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetUserDefinedFunction' smart constructor.
 data GetUserDefinedFunction = GetUserDefinedFunction'
-  { -- | The ID of the Data Catalog where the function to be retrieved is located. If none is provided, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text,
-    -- | The name of the catalog database where the function is located.
-    databaseName :: Lude.Text,
+  { -- | The name of the catalog database where the function is located.
+    databaseName :: Types.DatabaseName,
     -- | The name of the function.
-    functionName :: Lude.Text
+    functionName :: Types.FunctionName,
+    -- | The ID of the Data Catalog where the function to be retrieved is located. If none is provided, the AWS account ID is used by default.
+    catalogId :: Core.Maybe Types.CatalogId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetUserDefinedFunction' with the minimum fields required to make a request.
---
--- * 'catalogId' - The ID of the Data Catalog where the function to be retrieved is located. If none is provided, the AWS account ID is used by default.
--- * 'databaseName' - The name of the catalog database where the function is located.
--- * 'functionName' - The name of the function.
+-- | Creates a 'GetUserDefinedFunction' value with any optional fields omitted.
 mkGetUserDefinedFunction ::
   -- | 'databaseName'
-  Lude.Text ->
+  Types.DatabaseName ->
   -- | 'functionName'
-  Lude.Text ->
+  Types.FunctionName ->
   GetUserDefinedFunction
-mkGetUserDefinedFunction pDatabaseName_ pFunctionName_ =
+mkGetUserDefinedFunction databaseName functionName =
   GetUserDefinedFunction'
-    { catalogId = Lude.Nothing,
-      databaseName = pDatabaseName_,
-      functionName = pFunctionName_
+    { databaseName,
+      functionName,
+      catalogId = Core.Nothing
     }
-
--- | The ID of the Data Catalog where the function to be retrieved is located. If none is provided, the AWS account ID is used by default.
---
--- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gudfCatalogId :: Lens.Lens' GetUserDefinedFunction (Lude.Maybe Lude.Text)
-gudfCatalogId = Lens.lens (catalogId :: GetUserDefinedFunction -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: GetUserDefinedFunction)
-{-# DEPRECATED gudfCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | The name of the catalog database where the function is located.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gudfDatabaseName :: Lens.Lens' GetUserDefinedFunction Lude.Text
-gudfDatabaseName = Lens.lens (databaseName :: GetUserDefinedFunction -> Lude.Text) (\s a -> s {databaseName = a} :: GetUserDefinedFunction)
-{-# DEPRECATED gudfDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+gudffDatabaseName :: Lens.Lens' GetUserDefinedFunction Types.DatabaseName
+gudffDatabaseName = Lens.field @"databaseName"
+{-# DEPRECATED gudffDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | The name of the function.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gudfFunctionName :: Lens.Lens' GetUserDefinedFunction Lude.Text
-gudfFunctionName = Lens.lens (functionName :: GetUserDefinedFunction -> Lude.Text) (\s a -> s {functionName = a} :: GetUserDefinedFunction)
-{-# DEPRECATED gudfFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
+gudffFunctionName :: Lens.Lens' GetUserDefinedFunction Types.FunctionName
+gudffFunctionName = Lens.field @"functionName"
+{-# DEPRECATED gudffFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
-instance Lude.AWSRequest GetUserDefinedFunction where
+-- | The ID of the Data Catalog where the function to be retrieved is located. If none is provided, the AWS account ID is used by default.
+--
+-- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gudffCatalogId :: Lens.Lens' GetUserDefinedFunction (Core.Maybe Types.CatalogId)
+gudffCatalogId = Lens.field @"catalogId"
+{-# DEPRECATED gudffCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
+
+instance Core.FromJSON GetUserDefinedFunction where
+  toJSON GetUserDefinedFunction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DatabaseName" Core..= databaseName),
+            Core.Just ("FunctionName" Core..= functionName),
+            ("CatalogId" Core..=) Core.<$> catalogId
+          ]
+      )
+
+instance Core.AWSRequest GetUserDefinedFunction where
   type Rs GetUserDefinedFunction = GetUserDefinedFunctionResponse
-  request = Req.postJSON glueService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSGlue.GetUserDefinedFunction")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetUserDefinedFunctionResponse'
-            Lude.<$> (x Lude..?> "UserDefinedFunction")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "UserDefinedFunction")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetUserDefinedFunction where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSGlue.GetUserDefinedFunction" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetUserDefinedFunction where
-  toJSON GetUserDefinedFunction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CatalogId" Lude..=) Lude.<$> catalogId,
-            Lude.Just ("DatabaseName" Lude..= databaseName),
-            Lude.Just ("FunctionName" Lude..= functionName)
-          ]
-      )
-
-instance Lude.ToPath GetUserDefinedFunction where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetUserDefinedFunction where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetUserDefinedFunctionResponse' smart constructor.
 data GetUserDefinedFunctionResponse = GetUserDefinedFunctionResponse'
   { -- | The requested function definition.
-    userDefinedFunction :: Lude.Maybe UserDefinedFunction,
+    userDefinedFunction :: Core.Maybe Types.UserDefinedFunction,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetUserDefinedFunctionResponse' with the minimum fields required to make a request.
---
--- * 'userDefinedFunction' - The requested function definition.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetUserDefinedFunctionResponse' value with any optional fields omitted.
 mkGetUserDefinedFunctionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetUserDefinedFunctionResponse
-mkGetUserDefinedFunctionResponse pResponseStatus_ =
+mkGetUserDefinedFunctionResponse responseStatus =
   GetUserDefinedFunctionResponse'
     { userDefinedFunction =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The requested function definition.
 --
 -- /Note:/ Consider using 'userDefinedFunction' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gudffrsUserDefinedFunction :: Lens.Lens' GetUserDefinedFunctionResponse (Lude.Maybe UserDefinedFunction)
-gudffrsUserDefinedFunction = Lens.lens (userDefinedFunction :: GetUserDefinedFunctionResponse -> Lude.Maybe UserDefinedFunction) (\s a -> s {userDefinedFunction = a} :: GetUserDefinedFunctionResponse)
-{-# DEPRECATED gudffrsUserDefinedFunction "Use generic-lens or generic-optics with 'userDefinedFunction' instead." #-}
+gudfrfrsUserDefinedFunction :: Lens.Lens' GetUserDefinedFunctionResponse (Core.Maybe Types.UserDefinedFunction)
+gudfrfrsUserDefinedFunction = Lens.field @"userDefinedFunction"
+{-# DEPRECATED gudfrfrsUserDefinedFunction "Use generic-lens or generic-optics with 'userDefinedFunction' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gudffrsResponseStatus :: Lens.Lens' GetUserDefinedFunctionResponse Lude.Int
-gudffrsResponseStatus = Lens.lens (responseStatus :: GetUserDefinedFunctionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUserDefinedFunctionResponse)
-{-# DEPRECATED gudffrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gudfrfrsResponseStatus :: Lens.Lens' GetUserDefinedFunctionResponse Core.Int
+gudfrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gudfrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

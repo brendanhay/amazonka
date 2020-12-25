@@ -20,142 +20,128 @@ module Network.AWS.WAFRegional.ListWebACLs
     mkListWebACLs,
 
     -- ** Request lenses
-    lwaNextMarker,
-    lwaLimit,
+    lwaclLimit,
+    lwaclNextMarker,
 
     -- * Destructuring the response
     ListWebACLsResponse (..),
     mkListWebACLsResponse,
 
     -- ** Response lenses
-    lwarsWebACLs,
-    lwarsNextMarker,
-    lwarsResponseStatus,
+    lwaclrrsNextMarker,
+    lwaclrrsWebACLs,
+    lwaclrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WAFRegional.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WAFRegional.Types as Types
 
 -- | /See:/ 'mkListWebACLs' smart constructor.
 data ListWebACLs = ListWebACLs'
-  { -- | If you specify a value for @Limit@ and you have more @WebACL@ objects than the number that you specify for @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @WebACL@ objects. For the second and subsequent @ListWebACLs@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @WebACL@ objects.
-    nextMarker :: Lude.Maybe Lude.Text,
-    -- | Specifies the number of @WebACL@ objects that you want AWS WAF to return for this request. If you have more @WebACL@ objects than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @WebACL@ objects.
-    limit :: Lude.Maybe Lude.Natural
+  { -- | Specifies the number of @WebACL@ objects that you want AWS WAF to return for this request. If you have more @WebACL@ objects than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @WebACL@ objects.
+    limit :: Core.Maybe Core.Natural,
+    -- | If you specify a value for @Limit@ and you have more @WebACL@ objects than the number that you specify for @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @WebACL@ objects. For the second and subsequent @ListWebACLs@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @WebACL@ objects.
+    nextMarker :: Core.Maybe Types.NextMarker
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListWebACLs' with the minimum fields required to make a request.
---
--- * 'nextMarker' - If you specify a value for @Limit@ and you have more @WebACL@ objects than the number that you specify for @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @WebACL@ objects. For the second and subsequent @ListWebACLs@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @WebACL@ objects.
--- * 'limit' - Specifies the number of @WebACL@ objects that you want AWS WAF to return for this request. If you have more @WebACL@ objects than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @WebACL@ objects.
+-- | Creates a 'ListWebACLs' value with any optional fields omitted.
 mkListWebACLs ::
   ListWebACLs
 mkListWebACLs =
-  ListWebACLs' {nextMarker = Lude.Nothing, limit = Lude.Nothing}
-
--- | If you specify a value for @Limit@ and you have more @WebACL@ objects than the number that you specify for @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @WebACL@ objects. For the second and subsequent @ListWebACLs@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @WebACL@ objects.
---
--- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwaNextMarker :: Lens.Lens' ListWebACLs (Lude.Maybe Lude.Text)
-lwaNextMarker = Lens.lens (nextMarker :: ListWebACLs -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListWebACLs)
-{-# DEPRECATED lwaNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+  ListWebACLs' {limit = Core.Nothing, nextMarker = Core.Nothing}
 
 -- | Specifies the number of @WebACL@ objects that you want AWS WAF to return for this request. If you have more @WebACL@ objects than the number that you specify for @Limit@ , the response includes a @NextMarker@ value that you can use to get another batch of @WebACL@ objects.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwaLimit :: Lens.Lens' ListWebACLs (Lude.Maybe Lude.Natural)
-lwaLimit = Lens.lens (limit :: ListWebACLs -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListWebACLs)
-{-# DEPRECATED lwaLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
+lwaclLimit :: Lens.Lens' ListWebACLs (Core.Maybe Core.Natural)
+lwaclLimit = Lens.field @"limit"
+{-# DEPRECATED lwaclLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.AWSRequest ListWebACLs where
+-- | If you specify a value for @Limit@ and you have more @WebACL@ objects than the number that you specify for @Limit@ , AWS WAF returns a @NextMarker@ value in the response that allows you to list another group of @WebACL@ objects. For the second and subsequent @ListWebACLs@ requests, specify the value of @NextMarker@ from the previous response to get information about another batch of @WebACL@ objects.
+--
+-- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwaclNextMarker :: Lens.Lens' ListWebACLs (Core.Maybe Types.NextMarker)
+lwaclNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lwaclNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+instance Core.FromJSON ListWebACLs where
+  toJSON ListWebACLs {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("NextMarker" Core..=) Core.<$> nextMarker
+          ]
+      )
+
+instance Core.AWSRequest ListWebACLs where
   type Rs ListWebACLs = ListWebACLsResponse
-  request = Req.postJSON wAFRegionalService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AWSWAF_Regional_20161128.ListWebACLs")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListWebACLsResponse'
-            Lude.<$> (x Lude..?> "WebACLs" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextMarker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextMarker")
+            Core.<*> (x Core..:? "WebACLs")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListWebACLs where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSWAF_Regional_20161128.ListWebACLs" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListWebACLs where
-  toJSON ListWebACLs' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextMarker" Lude..=) Lude.<$> nextMarker,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListWebACLs where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListWebACLs where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListWebACLsResponse' smart constructor.
 data ListWebACLsResponse = ListWebACLsResponse'
-  { -- | An array of 'WebACLSummary' objects.
-    webACLs :: Lude.Maybe [WebACLSummary],
-    -- | If you have more @WebACL@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @WebACL@ objects, submit another @ListWebACLs@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
-    nextMarker :: Lude.Maybe Lude.Text,
+  { -- | If you have more @WebACL@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @WebACL@ objects, submit another @ListWebACLs@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
+    nextMarker :: Core.Maybe Types.NextMarker,
+    -- | An array of 'WebACLSummary' objects.
+    webACLs :: Core.Maybe [Types.WebACLSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListWebACLsResponse' with the minimum fields required to make a request.
---
--- * 'webACLs' - An array of 'WebACLSummary' objects.
--- * 'nextMarker' - If you have more @WebACL@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @WebACL@ objects, submit another @ListWebACLs@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListWebACLsResponse' value with any optional fields omitted.
 mkListWebACLsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListWebACLsResponse
-mkListWebACLsResponse pResponseStatus_ =
+mkListWebACLsResponse responseStatus =
   ListWebACLsResponse'
-    { webACLs = Lude.Nothing,
-      nextMarker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextMarker = Core.Nothing,
+      webACLs = Core.Nothing,
+      responseStatus
     }
-
--- | An array of 'WebACLSummary' objects.
---
--- /Note:/ Consider using 'webACLs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwarsWebACLs :: Lens.Lens' ListWebACLsResponse (Lude.Maybe [WebACLSummary])
-lwarsWebACLs = Lens.lens (webACLs :: ListWebACLsResponse -> Lude.Maybe [WebACLSummary]) (\s a -> s {webACLs = a} :: ListWebACLsResponse)
-{-# DEPRECATED lwarsWebACLs "Use generic-lens or generic-optics with 'webACLs' instead." #-}
 
 -- | If you have more @WebACL@ objects than the number that you specified for @Limit@ in the request, the response includes a @NextMarker@ value. To list more @WebACL@ objects, submit another @ListWebACLs@ request, and specify the @NextMarker@ value from the response in the @NextMarker@ value in the next request.
 --
 -- /Note:/ Consider using 'nextMarker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwarsNextMarker :: Lens.Lens' ListWebACLsResponse (Lude.Maybe Lude.Text)
-lwarsNextMarker = Lens.lens (nextMarker :: ListWebACLsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextMarker = a} :: ListWebACLsResponse)
-{-# DEPRECATED lwarsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+lwaclrrsNextMarker :: Lens.Lens' ListWebACLsResponse (Core.Maybe Types.NextMarker)
+lwaclrrsNextMarker = Lens.field @"nextMarker"
+{-# DEPRECATED lwaclrrsNextMarker "Use generic-lens or generic-optics with 'nextMarker' instead." #-}
+
+-- | An array of 'WebACLSummary' objects.
+--
+-- /Note:/ Consider using 'webACLs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lwaclrrsWebACLs :: Lens.Lens' ListWebACLsResponse (Core.Maybe [Types.WebACLSummary])
+lwaclrrsWebACLs = Lens.field @"webACLs"
+{-# DEPRECATED lwaclrrsWebACLs "Use generic-lens or generic-optics with 'webACLs' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lwarsResponseStatus :: Lens.Lens' ListWebACLsResponse Lude.Int
-lwarsResponseStatus = Lens.lens (responseStatus :: ListWebACLsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListWebACLsResponse)
-{-# DEPRECATED lwarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lwaclrrsResponseStatus :: Lens.Lens' ListWebACLsResponse Core.Int
+lwaclrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lwaclrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

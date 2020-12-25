@@ -17,179 +17,169 @@ module Network.AWS.CloudHSMv2.Types.Backup
     mkBackup,
 
     -- * Lenses
+    bBackupId,
+    bBackupState,
+    bClusterId,
+    bCopyTimestamp,
+    bCreateTimestamp,
     bDeleteTimestamp,
-    bSourceCluster,
     bNeverExpires,
+    bSourceBackup,
+    bSourceCluster,
     bSourceRegion,
     bTagList,
-    bBackupId,
-    bSourceBackup,
-    bClusterId,
-    bCreateTimestamp,
-    bCopyTimestamp,
-    bBackupState,
   )
 where
 
-import Network.AWS.CloudHSMv2.Types.BackupState
-import Network.AWS.CloudHSMv2.Types.Tag
+import qualified Network.AWS.CloudHSMv2.Types.BackupId as Types
+import qualified Network.AWS.CloudHSMv2.Types.BackupState as Types
+import qualified Network.AWS.CloudHSMv2.Types.ClusterId as Types
+import qualified Network.AWS.CloudHSMv2.Types.SourceCluster as Types
+import qualified Network.AWS.CloudHSMv2.Types.SourceRegion as Types
+import qualified Network.AWS.CloudHSMv2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a backup of an AWS CloudHSM cluster. All backup objects contain the @BackupId@ , @BackupState@ , @ClusterId@ , and @CreateTimestamp@ parameters. Backups that were copied into a destination region additionally contain the @CopyTimestamp@ , @SourceBackup@ , @SourceCluster@ , and @SourceRegion@ parameters. A backup that is pending deletion will include the @DeleteTimestamp@ parameter.
 --
 -- /See:/ 'mkBackup' smart constructor.
 data Backup = Backup'
-  { -- | The date and time when the backup will be permanently deleted.
-    deleteTimestamp :: Lude.Maybe Lude.Timestamp,
-    -- | The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
-    sourceCluster :: Lude.Maybe Lude.Text,
-    -- | Specifies whether the service should exempt a backup from the retention policy for the cluster. @True@ exempts a backup from the retention policy. @False@ means the service applies the backup retention policy defined at the cluster.
-    neverExpires :: Lude.Maybe Lude.Bool,
-    -- | The AWS Region that contains the source backup from which the new backup was copied.
-    sourceRegion :: Lude.Maybe Lude.Text,
-    -- | The list of tags for the backup.
-    tagList :: Lude.Maybe [Tag],
-    -- | The identifier (ID) of the backup.
-    backupId :: Lude.Text,
-    -- | The identifier (ID) of the source backup from which the new backup was copied.
-    sourceBackup :: Lude.Maybe Lude.Text,
-    -- | The identifier (ID) of the cluster that was backed up.
-    clusterId :: Lude.Maybe Lude.Text,
-    -- | The date and time when the backup was created.
-    createTimestamp :: Lude.Maybe Lude.Timestamp,
-    -- | The date and time when the backup was copied from a source backup.
-    copyTimestamp :: Lude.Maybe Lude.Timestamp,
+  { -- | The identifier (ID) of the backup.
+    backupId :: Types.BackupId,
     -- | The state of the backup.
-    backupState :: Lude.Maybe BackupState
+    backupState :: Core.Maybe Types.BackupState,
+    -- | The identifier (ID) of the cluster that was backed up.
+    clusterId :: Core.Maybe Types.ClusterId,
+    -- | The date and time when the backup was copied from a source backup.
+    copyTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | The date and time when the backup was created.
+    createTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | The date and time when the backup will be permanently deleted.
+    deleteTimestamp :: Core.Maybe Core.NominalDiffTime,
+    -- | Specifies whether the service should exempt a backup from the retention policy for the cluster. @True@ exempts a backup from the retention policy. @False@ means the service applies the backup retention policy defined at the cluster.
+    neverExpires :: Core.Maybe Core.Bool,
+    -- | The identifier (ID) of the source backup from which the new backup was copied.
+    sourceBackup :: Core.Maybe Types.BackupId,
+    -- | The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
+    sourceCluster :: Core.Maybe Types.SourceCluster,
+    -- | The AWS Region that contains the source backup from which the new backup was copied.
+    sourceRegion :: Core.Maybe Types.SourceRegion,
+    -- | The list of tags for the backup.
+    tagList :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Backup' with the minimum fields required to make a request.
---
--- * 'deleteTimestamp' - The date and time when the backup will be permanently deleted.
--- * 'sourceCluster' - The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
--- * 'neverExpires' - Specifies whether the service should exempt a backup from the retention policy for the cluster. @True@ exempts a backup from the retention policy. @False@ means the service applies the backup retention policy defined at the cluster.
--- * 'sourceRegion' - The AWS Region that contains the source backup from which the new backup was copied.
--- * 'tagList' - The list of tags for the backup.
--- * 'backupId' - The identifier (ID) of the backup.
--- * 'sourceBackup' - The identifier (ID) of the source backup from which the new backup was copied.
--- * 'clusterId' - The identifier (ID) of the cluster that was backed up.
--- * 'createTimestamp' - The date and time when the backup was created.
--- * 'copyTimestamp' - The date and time when the backup was copied from a source backup.
--- * 'backupState' - The state of the backup.
+-- | Creates a 'Backup' value with any optional fields omitted.
 mkBackup ::
   -- | 'backupId'
-  Lude.Text ->
+  Types.BackupId ->
   Backup
-mkBackup pBackupId_ =
+mkBackup backupId =
   Backup'
-    { deleteTimestamp = Lude.Nothing,
-      sourceCluster = Lude.Nothing,
-      neverExpires = Lude.Nothing,
-      sourceRegion = Lude.Nothing,
-      tagList = Lude.Nothing,
-      backupId = pBackupId_,
-      sourceBackup = Lude.Nothing,
-      clusterId = Lude.Nothing,
-      createTimestamp = Lude.Nothing,
-      copyTimestamp = Lude.Nothing,
-      backupState = Lude.Nothing
+    { backupId,
+      backupState = Core.Nothing,
+      clusterId = Core.Nothing,
+      copyTimestamp = Core.Nothing,
+      createTimestamp = Core.Nothing,
+      deleteTimestamp = Core.Nothing,
+      neverExpires = Core.Nothing,
+      sourceBackup = Core.Nothing,
+      sourceCluster = Core.Nothing,
+      sourceRegion = Core.Nothing,
+      tagList = Core.Nothing
     }
+
+-- | The identifier (ID) of the backup.
+--
+-- /Note:/ Consider using 'backupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bBackupId :: Lens.Lens' Backup Types.BackupId
+bBackupId = Lens.field @"backupId"
+{-# DEPRECATED bBackupId "Use generic-lens or generic-optics with 'backupId' instead." #-}
+
+-- | The state of the backup.
+--
+-- /Note:/ Consider using 'backupState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bBackupState :: Lens.Lens' Backup (Core.Maybe Types.BackupState)
+bBackupState = Lens.field @"backupState"
+{-# DEPRECATED bBackupState "Use generic-lens or generic-optics with 'backupState' instead." #-}
+
+-- | The identifier (ID) of the cluster that was backed up.
+--
+-- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bClusterId :: Lens.Lens' Backup (Core.Maybe Types.ClusterId)
+bClusterId = Lens.field @"clusterId"
+{-# DEPRECATED bClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
+
+-- | The date and time when the backup was copied from a source backup.
+--
+-- /Note:/ Consider using 'copyTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bCopyTimestamp :: Lens.Lens' Backup (Core.Maybe Core.NominalDiffTime)
+bCopyTimestamp = Lens.field @"copyTimestamp"
+{-# DEPRECATED bCopyTimestamp "Use generic-lens or generic-optics with 'copyTimestamp' instead." #-}
+
+-- | The date and time when the backup was created.
+--
+-- /Note:/ Consider using 'createTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bCreateTimestamp :: Lens.Lens' Backup (Core.Maybe Core.NominalDiffTime)
+bCreateTimestamp = Lens.field @"createTimestamp"
+{-# DEPRECATED bCreateTimestamp "Use generic-lens or generic-optics with 'createTimestamp' instead." #-}
 
 -- | The date and time when the backup will be permanently deleted.
 --
 -- /Note:/ Consider using 'deleteTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bDeleteTimestamp :: Lens.Lens' Backup (Lude.Maybe Lude.Timestamp)
-bDeleteTimestamp = Lens.lens (deleteTimestamp :: Backup -> Lude.Maybe Lude.Timestamp) (\s a -> s {deleteTimestamp = a} :: Backup)
+bDeleteTimestamp :: Lens.Lens' Backup (Core.Maybe Core.NominalDiffTime)
+bDeleteTimestamp = Lens.field @"deleteTimestamp"
 {-# DEPRECATED bDeleteTimestamp "Use generic-lens or generic-optics with 'deleteTimestamp' instead." #-}
-
--- | The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
---
--- /Note:/ Consider using 'sourceCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bSourceCluster :: Lens.Lens' Backup (Lude.Maybe Lude.Text)
-bSourceCluster = Lens.lens (sourceCluster :: Backup -> Lude.Maybe Lude.Text) (\s a -> s {sourceCluster = a} :: Backup)
-{-# DEPRECATED bSourceCluster "Use generic-lens or generic-optics with 'sourceCluster' instead." #-}
 
 -- | Specifies whether the service should exempt a backup from the retention policy for the cluster. @True@ exempts a backup from the retention policy. @False@ means the service applies the backup retention policy defined at the cluster.
 --
 -- /Note:/ Consider using 'neverExpires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bNeverExpires :: Lens.Lens' Backup (Lude.Maybe Lude.Bool)
-bNeverExpires = Lens.lens (neverExpires :: Backup -> Lude.Maybe Lude.Bool) (\s a -> s {neverExpires = a} :: Backup)
+bNeverExpires :: Lens.Lens' Backup (Core.Maybe Core.Bool)
+bNeverExpires = Lens.field @"neverExpires"
 {-# DEPRECATED bNeverExpires "Use generic-lens or generic-optics with 'neverExpires' instead." #-}
+
+-- | The identifier (ID) of the source backup from which the new backup was copied.
+--
+-- /Note:/ Consider using 'sourceBackup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bSourceBackup :: Lens.Lens' Backup (Core.Maybe Types.BackupId)
+bSourceBackup = Lens.field @"sourceBackup"
+{-# DEPRECATED bSourceBackup "Use generic-lens or generic-optics with 'sourceBackup' instead." #-}
+
+-- | The identifier (ID) of the cluster containing the source backup from which the new backup was copied.
+--
+-- /Note:/ Consider using 'sourceCluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bSourceCluster :: Lens.Lens' Backup (Core.Maybe Types.SourceCluster)
+bSourceCluster = Lens.field @"sourceCluster"
+{-# DEPRECATED bSourceCluster "Use generic-lens or generic-optics with 'sourceCluster' instead." #-}
 
 -- | The AWS Region that contains the source backup from which the new backup was copied.
 --
 -- /Note:/ Consider using 'sourceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bSourceRegion :: Lens.Lens' Backup (Lude.Maybe Lude.Text)
-bSourceRegion = Lens.lens (sourceRegion :: Backup -> Lude.Maybe Lude.Text) (\s a -> s {sourceRegion = a} :: Backup)
+bSourceRegion :: Lens.Lens' Backup (Core.Maybe Types.SourceRegion)
+bSourceRegion = Lens.field @"sourceRegion"
 {-# DEPRECATED bSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
 
 -- | The list of tags for the backup.
 --
 -- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bTagList :: Lens.Lens' Backup (Lude.Maybe [Tag])
-bTagList = Lens.lens (tagList :: Backup -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: Backup)
+bTagList :: Lens.Lens' Backup (Core.Maybe [Types.Tag])
+bTagList = Lens.field @"tagList"
 {-# DEPRECATED bTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
--- | The identifier (ID) of the backup.
---
--- /Note:/ Consider using 'backupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bBackupId :: Lens.Lens' Backup Lude.Text
-bBackupId = Lens.lens (backupId :: Backup -> Lude.Text) (\s a -> s {backupId = a} :: Backup)
-{-# DEPRECATED bBackupId "Use generic-lens or generic-optics with 'backupId' instead." #-}
-
--- | The identifier (ID) of the source backup from which the new backup was copied.
---
--- /Note:/ Consider using 'sourceBackup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bSourceBackup :: Lens.Lens' Backup (Lude.Maybe Lude.Text)
-bSourceBackup = Lens.lens (sourceBackup :: Backup -> Lude.Maybe Lude.Text) (\s a -> s {sourceBackup = a} :: Backup)
-{-# DEPRECATED bSourceBackup "Use generic-lens or generic-optics with 'sourceBackup' instead." #-}
-
--- | The identifier (ID) of the cluster that was backed up.
---
--- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bClusterId :: Lens.Lens' Backup (Lude.Maybe Lude.Text)
-bClusterId = Lens.lens (clusterId :: Backup -> Lude.Maybe Lude.Text) (\s a -> s {clusterId = a} :: Backup)
-{-# DEPRECATED bClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
-
--- | The date and time when the backup was created.
---
--- /Note:/ Consider using 'createTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bCreateTimestamp :: Lens.Lens' Backup (Lude.Maybe Lude.Timestamp)
-bCreateTimestamp = Lens.lens (createTimestamp :: Backup -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTimestamp = a} :: Backup)
-{-# DEPRECATED bCreateTimestamp "Use generic-lens or generic-optics with 'createTimestamp' instead." #-}
-
--- | The date and time when the backup was copied from a source backup.
---
--- /Note:/ Consider using 'copyTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bCopyTimestamp :: Lens.Lens' Backup (Lude.Maybe Lude.Timestamp)
-bCopyTimestamp = Lens.lens (copyTimestamp :: Backup -> Lude.Maybe Lude.Timestamp) (\s a -> s {copyTimestamp = a} :: Backup)
-{-# DEPRECATED bCopyTimestamp "Use generic-lens or generic-optics with 'copyTimestamp' instead." #-}
-
--- | The state of the backup.
---
--- /Note:/ Consider using 'backupState' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bBackupState :: Lens.Lens' Backup (Lude.Maybe BackupState)
-bBackupState = Lens.lens (backupState :: Backup -> Lude.Maybe BackupState) (\s a -> s {backupState = a} :: Backup)
-{-# DEPRECATED bBackupState "Use generic-lens or generic-optics with 'backupState' instead." #-}
-
-instance Lude.FromJSON Backup where
+instance Core.FromJSON Backup where
   parseJSON =
-    Lude.withObject
-      "Backup"
-      ( \x ->
-          Backup'
-            Lude.<$> (x Lude..:? "DeleteTimestamp")
-            Lude.<*> (x Lude..:? "SourceCluster")
-            Lude.<*> (x Lude..:? "NeverExpires")
-            Lude.<*> (x Lude..:? "SourceRegion")
-            Lude.<*> (x Lude..:? "TagList" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "BackupId")
-            Lude.<*> (x Lude..:? "SourceBackup")
-            Lude.<*> (x Lude..:? "ClusterId")
-            Lude.<*> (x Lude..:? "CreateTimestamp")
-            Lude.<*> (x Lude..:? "CopyTimestamp")
-            Lude.<*> (x Lude..:? "BackupState")
-      )
+    Core.withObject "Backup" Core.$
+      \x ->
+        Backup'
+          Core.<$> (x Core..: "BackupId")
+          Core.<*> (x Core..:? "BackupState")
+          Core.<*> (x Core..:? "ClusterId")
+          Core.<*> (x Core..:? "CopyTimestamp")
+          Core.<*> (x Core..:? "CreateTimestamp")
+          Core.<*> (x Core..:? "DeleteTimestamp")
+          Core.<*> (x Core..:? "NeverExpires")
+          Core.<*> (x Core..:? "SourceBackup")
+          Core.<*> (x Core..:? "SourceCluster")
+          Core.<*> (x Core..:? "SourceRegion")
+          Core.<*> (x Core..:? "TagList")

@@ -17,22 +17,21 @@ module Network.AWS.ResourceGroups.Types.GroupConfigurationItem
     mkGroupConfigurationItem,
 
     -- * Lenses
-    gciParameters,
     gciType,
+    gciParameters,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.ResourceGroups.Types.GroupConfigurationParameter
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.ResourceGroups.Types.GroupConfigurationParameter as Types
+import qualified Network.AWS.ResourceGroups.Types.GroupConfigurationType as Types
 
 -- | An item in a group configuration. A group configuration can have one or more items.
 --
 -- /See:/ 'mkGroupConfigurationItem' smart constructor.
 data GroupConfigurationItem = GroupConfigurationItem'
-  { -- | A collection of parameters for this group configuration item.
-    parameters :: Lude.Maybe [GroupConfigurationParameter],
-    -- | Specifies the type of group configuration item. Each item must have a unique value for @type@ .
+  { -- | Specifies the type of group configuration item. Each item must have a unique value for @type@ .
     --
     -- You can specify the following string values:
     --
@@ -41,39 +40,20 @@ data GroupConfigurationItem = GroupConfigurationItem'
     --
     --
     --     * @AWS::ResourceGroups::Generic@ - Supports parameters that configure the behavior of resource groups of any type.
-    type' :: Lude.Text
+    type' :: Types.GroupConfigurationType,
+    -- | A collection of parameters for this group configuration item.
+    parameters :: Core.Maybe [Types.GroupConfigurationParameter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GroupConfigurationItem' with the minimum fields required to make a request.
---
--- * 'parameters' - A collection of parameters for this group configuration item.
--- * 'type'' - Specifies the type of group configuration item. Each item must have a unique value for @type@ .
---
--- You can specify the following string values:
---
---     * @AWS::EC2::CapacityReservationPool@
--- For more information about EC2 capacity reservation groups, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group Working with capacity reservation groups> in the /EC2 Users Guide/ .
---
---
---     * @AWS::ResourceGroups::Generic@ - Supports parameters that configure the behavior of resource groups of any type.
+-- | Creates a 'GroupConfigurationItem' value with any optional fields omitted.
 mkGroupConfigurationItem ::
-  -- | 'type''
-  Lude.Text ->
+  -- | 'type\''
+  Types.GroupConfigurationType ->
   GroupConfigurationItem
-mkGroupConfigurationItem pType_ =
-  GroupConfigurationItem'
-    { parameters = Lude.Nothing,
-      type' = pType_
-    }
-
--- | A collection of parameters for this group configuration item.
---
--- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gciParameters :: Lens.Lens' GroupConfigurationItem (Lude.Maybe [GroupConfigurationParameter])
-gciParameters = Lens.lens (parameters :: GroupConfigurationItem -> Lude.Maybe [GroupConfigurationParameter]) (\s a -> s {parameters = a} :: GroupConfigurationItem)
-{-# DEPRECATED gciParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
+mkGroupConfigurationItem type' =
+  GroupConfigurationItem' {type', parameters = Core.Nothing}
 
 -- | Specifies the type of group configuration item. Each item must have a unique value for @type@ .
 --
@@ -88,25 +68,29 @@ gciParameters = Lens.lens (parameters :: GroupConfigurationItem -> Lude.Maybe [G
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gciType :: Lens.Lens' GroupConfigurationItem Lude.Text
-gciType = Lens.lens (type' :: GroupConfigurationItem -> Lude.Text) (\s a -> s {type' = a} :: GroupConfigurationItem)
+gciType :: Lens.Lens' GroupConfigurationItem Types.GroupConfigurationType
+gciType = Lens.field @"type'"
 {-# DEPRECATED gciType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON GroupConfigurationItem where
-  parseJSON =
-    Lude.withObject
-      "GroupConfigurationItem"
-      ( \x ->
-          GroupConfigurationItem'
-            Lude.<$> (x Lude..:? "Parameters" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "Type")
-      )
+-- | A collection of parameters for this group configuration item.
+--
+-- /Note:/ Consider using 'parameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gciParameters :: Lens.Lens' GroupConfigurationItem (Core.Maybe [Types.GroupConfigurationParameter])
+gciParameters = Lens.field @"parameters"
+{-# DEPRECATED gciParameters "Use generic-lens or generic-optics with 'parameters' instead." #-}
 
-instance Lude.ToJSON GroupConfigurationItem where
-  toJSON GroupConfigurationItem' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Parameters" Lude..=) Lude.<$> parameters,
-            Lude.Just ("Type" Lude..= type')
+instance Core.FromJSON GroupConfigurationItem where
+  toJSON GroupConfigurationItem {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            ("Parameters" Core..=) Core.<$> parameters
           ]
       )
+
+instance Core.FromJSON GroupConfigurationItem where
+  parseJSON =
+    Core.withObject "GroupConfigurationItem" Core.$
+      \x ->
+        GroupConfigurationItem'
+          Core.<$> (x Core..: "Type") Core.<*> (x Core..:? "Parameters")

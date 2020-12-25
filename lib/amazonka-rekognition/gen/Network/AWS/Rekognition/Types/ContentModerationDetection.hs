@@ -23,52 +23,47 @@ module Network.AWS.Rekognition.Types.ContentModerationDetection
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.ModerationLabel
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.ModerationLabel as Types
 
 -- | Information about an unsafe content label detection in a stored video.
 --
 -- /See:/ 'mkContentModerationDetection' smart constructor.
 data ContentModerationDetection = ContentModerationDetection'
   { -- | The unsafe content label detected by in the stored video.
-    moderationLabel :: Lude.Maybe ModerationLabel,
+    moderationLabel :: Core.Maybe Types.ModerationLabel,
     -- | Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.
-    timestamp :: Lude.Maybe Lude.Integer
+    timestamp :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ContentModerationDetection' with the minimum fields required to make a request.
---
--- * 'moderationLabel' - The unsafe content label detected by in the stored video.
--- * 'timestamp' - Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.
+-- | Creates a 'ContentModerationDetection' value with any optional fields omitted.
 mkContentModerationDetection ::
   ContentModerationDetection
 mkContentModerationDetection =
   ContentModerationDetection'
-    { moderationLabel = Lude.Nothing,
-      timestamp = Lude.Nothing
+    { moderationLabel = Core.Nothing,
+      timestamp = Core.Nothing
     }
 
 -- | The unsafe content label detected by in the stored video.
 --
 -- /Note:/ Consider using 'moderationLabel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmdModerationLabel :: Lens.Lens' ContentModerationDetection (Lude.Maybe ModerationLabel)
-cmdModerationLabel = Lens.lens (moderationLabel :: ContentModerationDetection -> Lude.Maybe ModerationLabel) (\s a -> s {moderationLabel = a} :: ContentModerationDetection)
+cmdModerationLabel :: Lens.Lens' ContentModerationDetection (Core.Maybe Types.ModerationLabel)
+cmdModerationLabel = Lens.field @"moderationLabel"
 {-# DEPRECATED cmdModerationLabel "Use generic-lens or generic-optics with 'moderationLabel' instead." #-}
 
 -- | Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cmdTimestamp :: Lens.Lens' ContentModerationDetection (Lude.Maybe Lude.Integer)
-cmdTimestamp = Lens.lens (timestamp :: ContentModerationDetection -> Lude.Maybe Lude.Integer) (\s a -> s {timestamp = a} :: ContentModerationDetection)
+cmdTimestamp :: Lens.Lens' ContentModerationDetection (Core.Maybe Core.Integer)
+cmdTimestamp = Lens.field @"timestamp"
 {-# DEPRECATED cmdTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
-instance Lude.FromJSON ContentModerationDetection where
+instance Core.FromJSON ContentModerationDetection where
   parseJSON =
-    Lude.withObject
-      "ContentModerationDetection"
-      ( \x ->
-          ContentModerationDetection'
-            Lude.<$> (x Lude..:? "ModerationLabel") Lude.<*> (x Lude..:? "Timestamp")
-      )
+    Core.withObject "ContentModerationDetection" Core.$
+      \x ->
+        ContentModerationDetection'
+          Core.<$> (x Core..:? "ModerationLabel") Core.<*> (x Core..:? "Timestamp")

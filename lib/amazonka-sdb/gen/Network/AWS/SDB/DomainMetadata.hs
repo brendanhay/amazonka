@@ -27,180 +27,171 @@ module Network.AWS.SDB.DomainMetadata
     mkDomainMetadataResponse,
 
     -- ** Response lenses
-    dmrsItemNamesSizeBytes,
-    dmrsAttributeValuesSizeBytes,
-    dmrsAttributeNameCount,
-    dmrsAttributeNamesSizeBytes,
-    dmrsAttributeValueCount,
-    dmrsItemCount,
-    dmrsTimestamp,
-    dmrsResponseStatus,
+    dmrrsAttributeNameCount,
+    dmrrsAttributeNamesSizeBytes,
+    dmrrsAttributeValueCount,
+    dmrrsAttributeValuesSizeBytes,
+    dmrrsItemCount,
+    dmrrsItemNamesSizeBytes,
+    dmrrsTimestamp,
+    dmrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SDB.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SDB.Types as Types
 
 -- | /See:/ 'mkDomainMetadata' smart constructor.
 newtype DomainMetadata = DomainMetadata'
   { -- | The name of the domain for which to display the metadata of.
-    domainName :: Lude.Text
+    domainName :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DomainMetadata' with the minimum fields required to make a request.
---
--- * 'domainName' - The name of the domain for which to display the metadata of.
+-- | Creates a 'DomainMetadata' value with any optional fields omitted.
 mkDomainMetadata ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.String ->
   DomainMetadata
-mkDomainMetadata pDomainName_ =
-  DomainMetadata' {domainName = pDomainName_}
+mkDomainMetadata domainName = DomainMetadata' {domainName}
 
 -- | The name of the domain for which to display the metadata of.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmDomainName :: Lens.Lens' DomainMetadata Lude.Text
-dmDomainName = Lens.lens (domainName :: DomainMetadata -> Lude.Text) (\s a -> s {domainName = a} :: DomainMetadata)
+dmDomainName :: Lens.Lens' DomainMetadata Types.String
+dmDomainName = Lens.field @"domainName"
 {-# DEPRECATED dmDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest DomainMetadata where
+instance Core.AWSRequest DomainMetadata where
   type Rs DomainMetadata = DomainMetadataResponse
-  request = Req.postQuery sdbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DomainMetadata")
+                Core.<> (Core.pure ("Version", "2009-04-15"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DomainMetadataResult"
       ( \s h x ->
           DomainMetadataResponse'
-            Lude.<$> (x Lude..@? "ItemNamesSizeBytes")
-            Lude.<*> (x Lude..@? "AttributeValuesSizeBytes")
-            Lude.<*> (x Lude..@? "AttributeNameCount")
-            Lude.<*> (x Lude..@? "AttributeNamesSizeBytes")
-            Lude.<*> (x Lude..@? "AttributeValueCount")
-            Lude.<*> (x Lude..@? "ItemCount")
-            Lude.<*> (x Lude..@? "Timestamp")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "AttributeNameCount")
+            Core.<*> (x Core..@? "AttributeNamesSizeBytes")
+            Core.<*> (x Core..@? "AttributeValueCount")
+            Core.<*> (x Core..@? "AttributeValuesSizeBytes")
+            Core.<*> (x Core..@? "ItemCount")
+            Core.<*> (x Core..@? "ItemNamesSizeBytes")
+            Core.<*> (x Core..@? "Timestamp")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DomainMetadata where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DomainMetadata where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DomainMetadata where
-  toQuery DomainMetadata' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DomainMetadata" :: Lude.ByteString),
-        "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | /See:/ 'mkDomainMetadataResponse' smart constructor.
 data DomainMetadataResponse = DomainMetadataResponse'
-  { -- | The total size of all item names in the domain, in bytes.
-    itemNamesSizeBytes :: Lude.Maybe Lude.Integer,
-    -- | The total size of all attribute values in the domain, in bytes.
-    attributeValuesSizeBytes :: Lude.Maybe Lude.Integer,
-    -- | The number of unique attribute names in the domain.
-    attributeNameCount :: Lude.Maybe Lude.Int,
+  { -- | The number of unique attribute names in the domain.
+    attributeNameCount :: Core.Maybe Core.Int,
     -- | The total size of all unique attribute names in the domain, in bytes.
-    attributeNamesSizeBytes :: Lude.Maybe Lude.Integer,
+    attributeNamesSizeBytes :: Core.Maybe Core.Integer,
     -- | The number of all attribute name/value pairs in the domain.
-    attributeValueCount :: Lude.Maybe Lude.Int,
+    attributeValueCount :: Core.Maybe Core.Int,
+    -- | The total size of all attribute values in the domain, in bytes.
+    attributeValuesSizeBytes :: Core.Maybe Core.Integer,
     -- | The number of all items in the domain.
-    itemCount :: Lude.Maybe Lude.Int,
+    itemCount :: Core.Maybe Core.Int,
+    -- | The total size of all item names in the domain, in bytes.
+    itemNamesSizeBytes :: Core.Maybe Core.Integer,
     -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
-    timestamp :: Lude.Maybe Lude.Int,
+    timestamp :: Core.Maybe Core.Int,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DomainMetadataResponse' with the minimum fields required to make a request.
---
--- * 'itemNamesSizeBytes' - The total size of all item names in the domain, in bytes.
--- * 'attributeValuesSizeBytes' - The total size of all attribute values in the domain, in bytes.
--- * 'attributeNameCount' - The number of unique attribute names in the domain.
--- * 'attributeNamesSizeBytes' - The total size of all unique attribute names in the domain, in bytes.
--- * 'attributeValueCount' - The number of all attribute name/value pairs in the domain.
--- * 'itemCount' - The number of all items in the domain.
--- * 'timestamp' - The data and time when metadata was calculated, in Epoch (UNIX) seconds.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DomainMetadataResponse' value with any optional fields omitted.
 mkDomainMetadataResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DomainMetadataResponse
-mkDomainMetadataResponse pResponseStatus_ =
+mkDomainMetadataResponse responseStatus =
   DomainMetadataResponse'
-    { itemNamesSizeBytes = Lude.Nothing,
-      attributeValuesSizeBytes = Lude.Nothing,
-      attributeNameCount = Lude.Nothing,
-      attributeNamesSizeBytes = Lude.Nothing,
-      attributeValueCount = Lude.Nothing,
-      itemCount = Lude.Nothing,
-      timestamp = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { attributeNameCount = Core.Nothing,
+      attributeNamesSizeBytes = Core.Nothing,
+      attributeValueCount = Core.Nothing,
+      attributeValuesSizeBytes = Core.Nothing,
+      itemCount = Core.Nothing,
+      itemNamesSizeBytes = Core.Nothing,
+      timestamp = Core.Nothing,
+      responseStatus
     }
-
--- | The total size of all item names in the domain, in bytes.
---
--- /Note:/ Consider using 'itemNamesSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsItemNamesSizeBytes :: Lens.Lens' DomainMetadataResponse (Lude.Maybe Lude.Integer)
-dmrsItemNamesSizeBytes = Lens.lens (itemNamesSizeBytes :: DomainMetadataResponse -> Lude.Maybe Lude.Integer) (\s a -> s {itemNamesSizeBytes = a} :: DomainMetadataResponse)
-{-# DEPRECATED dmrsItemNamesSizeBytes "Use generic-lens or generic-optics with 'itemNamesSizeBytes' instead." #-}
-
--- | The total size of all attribute values in the domain, in bytes.
---
--- /Note:/ Consider using 'attributeValuesSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsAttributeValuesSizeBytes :: Lens.Lens' DomainMetadataResponse (Lude.Maybe Lude.Integer)
-dmrsAttributeValuesSizeBytes = Lens.lens (attributeValuesSizeBytes :: DomainMetadataResponse -> Lude.Maybe Lude.Integer) (\s a -> s {attributeValuesSizeBytes = a} :: DomainMetadataResponse)
-{-# DEPRECATED dmrsAttributeValuesSizeBytes "Use generic-lens or generic-optics with 'attributeValuesSizeBytes' instead." #-}
 
 -- | The number of unique attribute names in the domain.
 --
 -- /Note:/ Consider using 'attributeNameCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsAttributeNameCount :: Lens.Lens' DomainMetadataResponse (Lude.Maybe Lude.Int)
-dmrsAttributeNameCount = Lens.lens (attributeNameCount :: DomainMetadataResponse -> Lude.Maybe Lude.Int) (\s a -> s {attributeNameCount = a} :: DomainMetadataResponse)
-{-# DEPRECATED dmrsAttributeNameCount "Use generic-lens or generic-optics with 'attributeNameCount' instead." #-}
+dmrrsAttributeNameCount :: Lens.Lens' DomainMetadataResponse (Core.Maybe Core.Int)
+dmrrsAttributeNameCount = Lens.field @"attributeNameCount"
+{-# DEPRECATED dmrrsAttributeNameCount "Use generic-lens or generic-optics with 'attributeNameCount' instead." #-}
 
 -- | The total size of all unique attribute names in the domain, in bytes.
 --
 -- /Note:/ Consider using 'attributeNamesSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsAttributeNamesSizeBytes :: Lens.Lens' DomainMetadataResponse (Lude.Maybe Lude.Integer)
-dmrsAttributeNamesSizeBytes = Lens.lens (attributeNamesSizeBytes :: DomainMetadataResponse -> Lude.Maybe Lude.Integer) (\s a -> s {attributeNamesSizeBytes = a} :: DomainMetadataResponse)
-{-# DEPRECATED dmrsAttributeNamesSizeBytes "Use generic-lens or generic-optics with 'attributeNamesSizeBytes' instead." #-}
+dmrrsAttributeNamesSizeBytes :: Lens.Lens' DomainMetadataResponse (Core.Maybe Core.Integer)
+dmrrsAttributeNamesSizeBytes = Lens.field @"attributeNamesSizeBytes"
+{-# DEPRECATED dmrrsAttributeNamesSizeBytes "Use generic-lens or generic-optics with 'attributeNamesSizeBytes' instead." #-}
 
 -- | The number of all attribute name/value pairs in the domain.
 --
 -- /Note:/ Consider using 'attributeValueCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsAttributeValueCount :: Lens.Lens' DomainMetadataResponse (Lude.Maybe Lude.Int)
-dmrsAttributeValueCount = Lens.lens (attributeValueCount :: DomainMetadataResponse -> Lude.Maybe Lude.Int) (\s a -> s {attributeValueCount = a} :: DomainMetadataResponse)
-{-# DEPRECATED dmrsAttributeValueCount "Use generic-lens or generic-optics with 'attributeValueCount' instead." #-}
+dmrrsAttributeValueCount :: Lens.Lens' DomainMetadataResponse (Core.Maybe Core.Int)
+dmrrsAttributeValueCount = Lens.field @"attributeValueCount"
+{-# DEPRECATED dmrrsAttributeValueCount "Use generic-lens or generic-optics with 'attributeValueCount' instead." #-}
+
+-- | The total size of all attribute values in the domain, in bytes.
+--
+-- /Note:/ Consider using 'attributeValuesSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrrsAttributeValuesSizeBytes :: Lens.Lens' DomainMetadataResponse (Core.Maybe Core.Integer)
+dmrrsAttributeValuesSizeBytes = Lens.field @"attributeValuesSizeBytes"
+{-# DEPRECATED dmrrsAttributeValuesSizeBytes "Use generic-lens or generic-optics with 'attributeValuesSizeBytes' instead." #-}
 
 -- | The number of all items in the domain.
 --
 -- /Note:/ Consider using 'itemCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsItemCount :: Lens.Lens' DomainMetadataResponse (Lude.Maybe Lude.Int)
-dmrsItemCount = Lens.lens (itemCount :: DomainMetadataResponse -> Lude.Maybe Lude.Int) (\s a -> s {itemCount = a} :: DomainMetadataResponse)
-{-# DEPRECATED dmrsItemCount "Use generic-lens or generic-optics with 'itemCount' instead." #-}
+dmrrsItemCount :: Lens.Lens' DomainMetadataResponse (Core.Maybe Core.Int)
+dmrrsItemCount = Lens.field @"itemCount"
+{-# DEPRECATED dmrrsItemCount "Use generic-lens or generic-optics with 'itemCount' instead." #-}
+
+-- | The total size of all item names in the domain, in bytes.
+--
+-- /Note:/ Consider using 'itemNamesSizeBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmrrsItemNamesSizeBytes :: Lens.Lens' DomainMetadataResponse (Core.Maybe Core.Integer)
+dmrrsItemNamesSizeBytes = Lens.field @"itemNamesSizeBytes"
+{-# DEPRECATED dmrrsItemNamesSizeBytes "Use generic-lens or generic-optics with 'itemNamesSizeBytes' instead." #-}
 
 -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
 --
 -- /Note:/ Consider using 'timestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsTimestamp :: Lens.Lens' DomainMetadataResponse (Lude.Maybe Lude.Int)
-dmrsTimestamp = Lens.lens (timestamp :: DomainMetadataResponse -> Lude.Maybe Lude.Int) (\s a -> s {timestamp = a} :: DomainMetadataResponse)
-{-# DEPRECATED dmrsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
+dmrrsTimestamp :: Lens.Lens' DomainMetadataResponse (Core.Maybe Core.Int)
+dmrrsTimestamp = Lens.field @"timestamp"
+{-# DEPRECATED dmrrsTimestamp "Use generic-lens or generic-optics with 'timestamp' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmrsResponseStatus :: Lens.Lens' DomainMetadataResponse Lude.Int
-dmrsResponseStatus = Lens.lens (responseStatus :: DomainMetadataResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DomainMetadataResponse)
-{-# DEPRECATED dmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dmrrsResponseStatus :: Lens.Lens' DomainMetadataResponse Core.Int
+dmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

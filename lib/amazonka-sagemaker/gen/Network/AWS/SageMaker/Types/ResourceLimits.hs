@@ -23,70 +23,59 @@ module Network.AWS.SageMaker.Types.ResourceLimits
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the maximum number of training jobs and parallel training jobs that a hyperparameter tuning job can launch.
 --
 -- /See:/ 'mkResourceLimits' smart constructor.
 data ResourceLimits = ResourceLimits'
   { -- | The maximum number of training jobs that a hyperparameter tuning job can launch.
-    maxNumberOfTrainingJobs :: Lude.Natural,
+    maxNumberOfTrainingJobs :: Core.Natural,
     -- | The maximum number of concurrent training jobs that a hyperparameter tuning job can launch.
-    maxParallelTrainingJobs :: Lude.Natural
+    maxParallelTrainingJobs :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceLimits' with the minimum fields required to make a request.
---
--- * 'maxNumberOfTrainingJobs' - The maximum number of training jobs that a hyperparameter tuning job can launch.
--- * 'maxParallelTrainingJobs' - The maximum number of concurrent training jobs that a hyperparameter tuning job can launch.
+-- | Creates a 'ResourceLimits' value with any optional fields omitted.
 mkResourceLimits ::
   -- | 'maxNumberOfTrainingJobs'
-  Lude.Natural ->
+  Core.Natural ->
   -- | 'maxParallelTrainingJobs'
-  Lude.Natural ->
+  Core.Natural ->
   ResourceLimits
-mkResourceLimits
-  pMaxNumberOfTrainingJobs_
-  pMaxParallelTrainingJobs_ =
-    ResourceLimits'
-      { maxNumberOfTrainingJobs =
-          pMaxNumberOfTrainingJobs_,
-        maxParallelTrainingJobs = pMaxParallelTrainingJobs_
-      }
+mkResourceLimits maxNumberOfTrainingJobs maxParallelTrainingJobs =
+  ResourceLimits' {maxNumberOfTrainingJobs, maxParallelTrainingJobs}
 
 -- | The maximum number of training jobs that a hyperparameter tuning job can launch.
 --
 -- /Note:/ Consider using 'maxNumberOfTrainingJobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlMaxNumberOfTrainingJobs :: Lens.Lens' ResourceLimits Lude.Natural
-rlMaxNumberOfTrainingJobs = Lens.lens (maxNumberOfTrainingJobs :: ResourceLimits -> Lude.Natural) (\s a -> s {maxNumberOfTrainingJobs = a} :: ResourceLimits)
+rlMaxNumberOfTrainingJobs :: Lens.Lens' ResourceLimits Core.Natural
+rlMaxNumberOfTrainingJobs = Lens.field @"maxNumberOfTrainingJobs"
 {-# DEPRECATED rlMaxNumberOfTrainingJobs "Use generic-lens or generic-optics with 'maxNumberOfTrainingJobs' instead." #-}
 
 -- | The maximum number of concurrent training jobs that a hyperparameter tuning job can launch.
 --
 -- /Note:/ Consider using 'maxParallelTrainingJobs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rlMaxParallelTrainingJobs :: Lens.Lens' ResourceLimits Lude.Natural
-rlMaxParallelTrainingJobs = Lens.lens (maxParallelTrainingJobs :: ResourceLimits -> Lude.Natural) (\s a -> s {maxParallelTrainingJobs = a} :: ResourceLimits)
+rlMaxParallelTrainingJobs :: Lens.Lens' ResourceLimits Core.Natural
+rlMaxParallelTrainingJobs = Lens.field @"maxParallelTrainingJobs"
 {-# DEPRECATED rlMaxParallelTrainingJobs "Use generic-lens or generic-optics with 'maxParallelTrainingJobs' instead." #-}
 
-instance Lude.FromJSON ResourceLimits where
-  parseJSON =
-    Lude.withObject
-      "ResourceLimits"
-      ( \x ->
-          ResourceLimits'
-            Lude.<$> (x Lude..: "MaxNumberOfTrainingJobs")
-            Lude.<*> (x Lude..: "MaxParallelTrainingJobs")
-      )
-
-instance Lude.ToJSON ResourceLimits where
-  toJSON ResourceLimits' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("MaxNumberOfTrainingJobs" Lude..= maxNumberOfTrainingJobs),
-            Lude.Just
-              ("MaxParallelTrainingJobs" Lude..= maxParallelTrainingJobs)
+instance Core.FromJSON ResourceLimits where
+  toJSON ResourceLimits {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("MaxNumberOfTrainingJobs" Core..= maxNumberOfTrainingJobs),
+            Core.Just
+              ("MaxParallelTrainingJobs" Core..= maxParallelTrainingJobs)
           ]
       )
+
+instance Core.FromJSON ResourceLimits where
+  parseJSON =
+    Core.withObject "ResourceLimits" Core.$
+      \x ->
+        ResourceLimits'
+          Core.<$> (x Core..: "MaxNumberOfTrainingJobs")
+          Core.<*> (x Core..: "MaxParallelTrainingJobs")

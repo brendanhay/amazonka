@@ -17,89 +17,83 @@ module Network.AWS.Redshift.Types.EventInfoMap
     mkEventInfoMap,
 
     -- * Lenses
-    eimEventDescription,
-    eimSeverity,
     eimEventCategories,
+    eimEventDescription,
     eimEventId,
+    eimSeverity,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
+import qualified Network.AWS.Redshift.Types.String as Types
 
 -- | Describes event information.
 --
 -- /See:/ 'mkEventInfoMap' smart constructor.
 data EventInfoMap = EventInfoMap'
-  { -- | The description of an Amazon Redshift event.
-    eventDescription :: Lude.Maybe Lude.Text,
+  { -- | The category of an Amazon Redshift event.
+    eventCategories :: Core.Maybe [Types.String],
+    -- | The description of an Amazon Redshift event.
+    eventDescription :: Core.Maybe Types.String,
+    -- | The identifier of an Amazon Redshift event.
+    eventId :: Core.Maybe Types.String,
     -- | The severity of the event.
     --
     -- Values: ERROR, INFO
-    severity :: Lude.Maybe Lude.Text,
-    -- | The category of an Amazon Redshift event.
-    eventCategories :: Lude.Maybe [Lude.Text],
-    -- | The identifier of an Amazon Redshift event.
-    eventId :: Lude.Maybe Lude.Text
+    severity :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventInfoMap' with the minimum fields required to make a request.
---
--- * 'eventDescription' - The description of an Amazon Redshift event.
--- * 'severity' - The severity of the event.
---
--- Values: ERROR, INFO
--- * 'eventCategories' - The category of an Amazon Redshift event.
--- * 'eventId' - The identifier of an Amazon Redshift event.
+-- | Creates a 'EventInfoMap' value with any optional fields omitted.
 mkEventInfoMap ::
   EventInfoMap
 mkEventInfoMap =
   EventInfoMap'
-    { eventDescription = Lude.Nothing,
-      severity = Lude.Nothing,
-      eventCategories = Lude.Nothing,
-      eventId = Lude.Nothing
+    { eventCategories = Core.Nothing,
+      eventDescription = Core.Nothing,
+      eventId = Core.Nothing,
+      severity = Core.Nothing
     }
+
+-- | The category of an Amazon Redshift event.
+--
+-- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eimEventCategories :: Lens.Lens' EventInfoMap (Core.Maybe [Types.String])
+eimEventCategories = Lens.field @"eventCategories"
+{-# DEPRECATED eimEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
 
 -- | The description of an Amazon Redshift event.
 --
 -- /Note:/ Consider using 'eventDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eimEventDescription :: Lens.Lens' EventInfoMap (Lude.Maybe Lude.Text)
-eimEventDescription = Lens.lens (eventDescription :: EventInfoMap -> Lude.Maybe Lude.Text) (\s a -> s {eventDescription = a} :: EventInfoMap)
+eimEventDescription :: Lens.Lens' EventInfoMap (Core.Maybe Types.String)
+eimEventDescription = Lens.field @"eventDescription"
 {-# DEPRECATED eimEventDescription "Use generic-lens or generic-optics with 'eventDescription' instead." #-}
+
+-- | The identifier of an Amazon Redshift event.
+--
+-- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+eimEventId :: Lens.Lens' EventInfoMap (Core.Maybe Types.String)
+eimEventId = Lens.field @"eventId"
+{-# DEPRECATED eimEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
 
 -- | The severity of the event.
 --
 -- Values: ERROR, INFO
 --
 -- /Note:/ Consider using 'severity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eimSeverity :: Lens.Lens' EventInfoMap (Lude.Maybe Lude.Text)
-eimSeverity = Lens.lens (severity :: EventInfoMap -> Lude.Maybe Lude.Text) (\s a -> s {severity = a} :: EventInfoMap)
+eimSeverity :: Lens.Lens' EventInfoMap (Core.Maybe Types.String)
+eimSeverity = Lens.field @"severity"
 {-# DEPRECATED eimSeverity "Use generic-lens or generic-optics with 'severity' instead." #-}
 
--- | The category of an Amazon Redshift event.
---
--- /Note:/ Consider using 'eventCategories' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eimEventCategories :: Lens.Lens' EventInfoMap (Lude.Maybe [Lude.Text])
-eimEventCategories = Lens.lens (eventCategories :: EventInfoMap -> Lude.Maybe [Lude.Text]) (\s a -> s {eventCategories = a} :: EventInfoMap)
-{-# DEPRECATED eimEventCategories "Use generic-lens or generic-optics with 'eventCategories' instead." #-}
-
--- | The identifier of an Amazon Redshift event.
---
--- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eimEventId :: Lens.Lens' EventInfoMap (Lude.Maybe Lude.Text)
-eimEventId = Lens.lens (eventId :: EventInfoMap -> Lude.Maybe Lude.Text) (\s a -> s {eventId = a} :: EventInfoMap)
-{-# DEPRECATED eimEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
-
-instance Lude.FromXML EventInfoMap where
+instance Core.FromXML EventInfoMap where
   parseXML x =
     EventInfoMap'
-      Lude.<$> (x Lude..@? "EventDescription")
-      Lude.<*> (x Lude..@? "Severity")
-      Lude.<*> ( x Lude..@? "EventCategories" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "EventCategory")
+      Core.<$> ( x Core..@? "EventCategories"
+                   Core..<@> Core.parseXMLList "EventCategory"
                )
-      Lude.<*> (x Lude..@? "EventId")
+      Core.<*> (x Core..@? "EventDescription")
+      Core.<*> (x Core..@? "EventId")
+      Core.<*> (x Core..@? "Severity")

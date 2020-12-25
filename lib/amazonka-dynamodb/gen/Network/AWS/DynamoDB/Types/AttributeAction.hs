@@ -13,51 +13,56 @@
 module Network.AWS.DynamoDB.Types.AttributeAction
   ( AttributeAction
       ( AttributeAction',
-        Add,
-        Put,
-        Delete
+        AttributeActionAdd,
+        AttributeActionPut,
+        AttributeActionDelete,
+        fromAttributeAction
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AttributeAction = AttributeAction' Lude.Text
+newtype AttributeAction = AttributeAction'
+  { fromAttributeAction ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Add :: AttributeAction
-pattern Add = AttributeAction' "ADD"
+pattern AttributeActionAdd :: AttributeAction
+pattern AttributeActionAdd = AttributeAction' "ADD"
 
-pattern Put :: AttributeAction
-pattern Put = AttributeAction' "PUT"
+pattern AttributeActionPut :: AttributeAction
+pattern AttributeActionPut = AttributeAction' "PUT"
 
-pattern Delete :: AttributeAction
-pattern Delete = AttributeAction' "DELETE"
+pattern AttributeActionDelete :: AttributeAction
+pattern AttributeActionDelete = AttributeAction' "DELETE"
 
 {-# COMPLETE
-  Add,
-  Put,
-  Delete,
+  AttributeActionAdd,
+  AttributeActionPut,
+  AttributeActionDelete,
   AttributeAction'
   #-}

@@ -29,142 +29,137 @@ module Network.AWS.EC2.ConfirmProductInstance
     mkConfirmProductInstanceResponse,
 
     -- ** Response lenses
-    cpirsReturn,
-    cpirsOwnerId,
-    cpirsResponseStatus,
+    cpirrsOwnerId,
+    cpirrsReturn,
+    cpirrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkConfirmProductInstance' smart constructor.
 data ConfirmProductInstance = ConfirmProductInstance'
   { -- | The ID of the instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The product code. This must be a product code that you own.
-    productCode :: Lude.Text,
+    productCode :: Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfirmProductInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'productCode' - The product code. This must be a product code that you own.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ConfirmProductInstance' value with any optional fields omitted.
 mkConfirmProductInstance ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'productCode'
-  Lude.Text ->
+  Types.String ->
   ConfirmProductInstance
-mkConfirmProductInstance pInstanceId_ pProductCode_ =
+mkConfirmProductInstance instanceId productCode =
   ConfirmProductInstance'
-    { instanceId = pInstanceId_,
-      productCode = pProductCode_,
-      dryRun = Lude.Nothing
+    { instanceId,
+      productCode,
+      dryRun = Core.Nothing
     }
 
 -- | The ID of the instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpiInstanceId :: Lens.Lens' ConfirmProductInstance Lude.Text
-cpiInstanceId = Lens.lens (instanceId :: ConfirmProductInstance -> Lude.Text) (\s a -> s {instanceId = a} :: ConfirmProductInstance)
+cpiInstanceId :: Lens.Lens' ConfirmProductInstance Types.InstanceId
+cpiInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED cpiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The product code. This must be a product code that you own.
 --
 -- /Note:/ Consider using 'productCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpiProductCode :: Lens.Lens' ConfirmProductInstance Lude.Text
-cpiProductCode = Lens.lens (productCode :: ConfirmProductInstance -> Lude.Text) (\s a -> s {productCode = a} :: ConfirmProductInstance)
+cpiProductCode :: Lens.Lens' ConfirmProductInstance Types.String
+cpiProductCode = Lens.field @"productCode"
 {-# DEPRECATED cpiProductCode "Use generic-lens or generic-optics with 'productCode' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpiDryRun :: Lens.Lens' ConfirmProductInstance (Lude.Maybe Lude.Bool)
-cpiDryRun = Lens.lens (dryRun :: ConfirmProductInstance -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ConfirmProductInstance)
+cpiDryRun :: Lens.Lens' ConfirmProductInstance (Core.Maybe Core.Bool)
+cpiDryRun = Lens.field @"dryRun"
 {-# DEPRECATED cpiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest ConfirmProductInstance where
+instance Core.AWSRequest ConfirmProductInstance where
   type Rs ConfirmProductInstance = ConfirmProductInstanceResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ConfirmProductInstance")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceId" instanceId)
+                Core.<> (Core.toQueryValue "ProductCode" productCode)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ConfirmProductInstanceResponse'
-            Lude.<$> (x Lude..@? "return")
-            Lude.<*> (x Lude..@? "ownerId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "ownerId")
+            Core.<*> (x Core..@? "return")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ConfirmProductInstance where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ConfirmProductInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ConfirmProductInstance where
-  toQuery ConfirmProductInstance' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ConfirmProductInstance" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceId" Lude.=: instanceId,
-        "ProductCode" Lude.=: productCode,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkConfirmProductInstanceResponse' smart constructor.
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
-  { -- | The return value of the request. Returns @true@ if the specified product code is owned by the requester and associated with the specified instance.
-    return :: Lude.Maybe Lude.Bool,
-    -- | The AWS account ID of the instance owner. This is only present if the product code is attached to the instance.
-    ownerId :: Lude.Maybe Lude.Text,
+  { -- | The AWS account ID of the instance owner. This is only present if the product code is attached to the instance.
+    ownerId :: Core.Maybe Types.String,
+    -- | The return value of the request. Returns @true@ if the specified product code is owned by the requester and associated with the specified instance.
+    return :: Core.Maybe Core.Bool,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ConfirmProductInstanceResponse' with the minimum fields required to make a request.
---
--- * 'return' - The return value of the request. Returns @true@ if the specified product code is owned by the requester and associated with the specified instance.
--- * 'ownerId' - The AWS account ID of the instance owner. This is only present if the product code is attached to the instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ConfirmProductInstanceResponse' value with any optional fields omitted.
 mkConfirmProductInstanceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ConfirmProductInstanceResponse
-mkConfirmProductInstanceResponse pResponseStatus_ =
+mkConfirmProductInstanceResponse responseStatus =
   ConfirmProductInstanceResponse'
-    { return = Lude.Nothing,
-      ownerId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { ownerId = Core.Nothing,
+      return = Core.Nothing,
+      responseStatus
     }
-
--- | The return value of the request. Returns @true@ if the specified product code is owned by the requester and associated with the specified instance.
---
--- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpirsReturn :: Lens.Lens' ConfirmProductInstanceResponse (Lude.Maybe Lude.Bool)
-cpirsReturn = Lens.lens (return :: ConfirmProductInstanceResponse -> Lude.Maybe Lude.Bool) (\s a -> s {return = a} :: ConfirmProductInstanceResponse)
-{-# DEPRECATED cpirsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
 -- | The AWS account ID of the instance owner. This is only present if the product code is attached to the instance.
 --
 -- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpirsOwnerId :: Lens.Lens' ConfirmProductInstanceResponse (Lude.Maybe Lude.Text)
-cpirsOwnerId = Lens.lens (ownerId :: ConfirmProductInstanceResponse -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: ConfirmProductInstanceResponse)
-{-# DEPRECATED cpirsOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+cpirrsOwnerId :: Lens.Lens' ConfirmProductInstanceResponse (Core.Maybe Types.String)
+cpirrsOwnerId = Lens.field @"ownerId"
+{-# DEPRECATED cpirrsOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
+
+-- | The return value of the request. Returns @true@ if the specified product code is owned by the requester and associated with the specified instance.
+--
+-- /Note:/ Consider using 'return' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpirrsReturn :: Lens.Lens' ConfirmProductInstanceResponse (Core.Maybe Core.Bool)
+cpirrsReturn = Lens.field @"return"
+{-# DEPRECATED cpirrsReturn "Use generic-lens or generic-optics with 'return' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpirsResponseStatus :: Lens.Lens' ConfirmProductInstanceResponse Lude.Int
-cpirsResponseStatus = Lens.lens (responseStatus :: ConfirmProductInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ConfirmProductInstanceResponse)
-{-# DEPRECATED cpirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cpirrsResponseStatus :: Lens.Lens' ConfirmProductInstanceResponse Core.Int
+cpirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cpirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

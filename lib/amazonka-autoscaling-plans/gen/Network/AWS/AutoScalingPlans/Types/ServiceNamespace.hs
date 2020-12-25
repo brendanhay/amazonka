@@ -13,61 +13,66 @@
 module Network.AWS.AutoScalingPlans.Types.ServiceNamespace
   ( ServiceNamespace
       ( ServiceNamespace',
-        Autoscaling,
-        Ecs,
-        EC2,
-        RDS,
-        Dynamodb
+        ServiceNamespaceAutoscaling,
+        ServiceNamespaceEcs,
+        ServiceNamespaceEC2,
+        ServiceNamespaceRds,
+        ServiceNamespaceDynamodb,
+        fromServiceNamespace
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ServiceNamespace = ServiceNamespace' Lude.Text
+newtype ServiceNamespace = ServiceNamespace'
+  { fromServiceNamespace ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Autoscaling :: ServiceNamespace
-pattern Autoscaling = ServiceNamespace' "autoscaling"
+pattern ServiceNamespaceAutoscaling :: ServiceNamespace
+pattern ServiceNamespaceAutoscaling = ServiceNamespace' "autoscaling"
 
-pattern Ecs :: ServiceNamespace
-pattern Ecs = ServiceNamespace' "ecs"
+pattern ServiceNamespaceEcs :: ServiceNamespace
+pattern ServiceNamespaceEcs = ServiceNamespace' "ecs"
 
-pattern EC2 :: ServiceNamespace
-pattern EC2 = ServiceNamespace' "ec2"
+pattern ServiceNamespaceEC2 :: ServiceNamespace
+pattern ServiceNamespaceEC2 = ServiceNamespace' "ec2"
 
-pattern RDS :: ServiceNamespace
-pattern RDS = ServiceNamespace' "rds"
+pattern ServiceNamespaceRds :: ServiceNamespace
+pattern ServiceNamespaceRds = ServiceNamespace' "rds"
 
-pattern Dynamodb :: ServiceNamespace
-pattern Dynamodb = ServiceNamespace' "dynamodb"
+pattern ServiceNamespaceDynamodb :: ServiceNamespace
+pattern ServiceNamespaceDynamodb = ServiceNamespace' "dynamodb"
 
 {-# COMPLETE
-  Autoscaling,
-  Ecs,
-  EC2,
-  RDS,
-  Dynamodb,
+  ServiceNamespaceAutoscaling,
+  ServiceNamespaceEcs,
+  ServiceNamespaceEC2,
+  ServiceNamespaceRds,
+  ServiceNamespaceDynamodb,
   ServiceNamespace'
   #-}

@@ -23,145 +23,142 @@ module Network.AWS.SES.SendCustomVerificationEmail
     mkSendCustomVerificationEmail,
 
     -- ** Request lenses
+    scveEmailAddress,
     scveTemplateName,
     scveConfigurationSetName,
-    scveEmailAddress,
 
     -- * Destructuring the response
     SendCustomVerificationEmailResponse (..),
     mkSendCustomVerificationEmailResponse,
 
     -- ** Response lenses
-    scversMessageId,
-    scversResponseStatus,
+    scverrsMessageId,
+    scverrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to send a custom verification email to a specified recipient.
 --
 -- /See:/ 'mkSendCustomVerificationEmail' smart constructor.
 data SendCustomVerificationEmail = SendCustomVerificationEmail'
-  { -- | The name of the custom verification email template to use when sending the verification email.
-    templateName :: Lude.Text,
+  { -- | The email address to verify.
+    emailAddress :: Types.Address,
+    -- | The name of the custom verification email template to use when sending the verification email.
+    templateName :: Types.TemplateName,
     -- | Name of a configuration set to use when sending the verification email.
-    configurationSetName :: Lude.Maybe Lude.Text,
-    -- | The email address to verify.
-    emailAddress :: Lude.Text
+    configurationSetName :: Core.Maybe Types.ConfigurationSetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendCustomVerificationEmail' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the custom verification email template to use when sending the verification email.
--- * 'configurationSetName' - Name of a configuration set to use when sending the verification email.
--- * 'emailAddress' - The email address to verify.
+-- | Creates a 'SendCustomVerificationEmail' value with any optional fields omitted.
 mkSendCustomVerificationEmail ::
-  -- | 'templateName'
-  Lude.Text ->
   -- | 'emailAddress'
-  Lude.Text ->
+  Types.Address ->
+  -- | 'templateName'
+  Types.TemplateName ->
   SendCustomVerificationEmail
-mkSendCustomVerificationEmail pTemplateName_ pEmailAddress_ =
+mkSendCustomVerificationEmail emailAddress templateName =
   SendCustomVerificationEmail'
-    { templateName = pTemplateName_,
-      configurationSetName = Lude.Nothing,
-      emailAddress = pEmailAddress_
+    { emailAddress,
+      templateName,
+      configurationSetName = Core.Nothing
     }
+
+-- | The email address to verify.
+--
+-- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scveEmailAddress :: Lens.Lens' SendCustomVerificationEmail Types.Address
+scveEmailAddress = Lens.field @"emailAddress"
+{-# DEPRECATED scveEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
 
 -- | The name of the custom verification email template to use when sending the verification email.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scveTemplateName :: Lens.Lens' SendCustomVerificationEmail Lude.Text
-scveTemplateName = Lens.lens (templateName :: SendCustomVerificationEmail -> Lude.Text) (\s a -> s {templateName = a} :: SendCustomVerificationEmail)
+scveTemplateName :: Lens.Lens' SendCustomVerificationEmail Types.TemplateName
+scveTemplateName = Lens.field @"templateName"
 {-# DEPRECATED scveTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | Name of a configuration set to use when sending the verification email.
 --
 -- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scveConfigurationSetName :: Lens.Lens' SendCustomVerificationEmail (Lude.Maybe Lude.Text)
-scveConfigurationSetName = Lens.lens (configurationSetName :: SendCustomVerificationEmail -> Lude.Maybe Lude.Text) (\s a -> s {configurationSetName = a} :: SendCustomVerificationEmail)
+scveConfigurationSetName :: Lens.Lens' SendCustomVerificationEmail (Core.Maybe Types.ConfigurationSetName)
+scveConfigurationSetName = Lens.field @"configurationSetName"
 {-# DEPRECATED scveConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
--- | The email address to verify.
---
--- /Note:/ Consider using 'emailAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scveEmailAddress :: Lens.Lens' SendCustomVerificationEmail Lude.Text
-scveEmailAddress = Lens.lens (emailAddress :: SendCustomVerificationEmail -> Lude.Text) (\s a -> s {emailAddress = a} :: SendCustomVerificationEmail)
-{-# DEPRECATED scveEmailAddress "Use generic-lens or generic-optics with 'emailAddress' instead." #-}
-
-instance Lude.AWSRequest SendCustomVerificationEmail where
+instance Core.AWSRequest SendCustomVerificationEmail where
   type
     Rs SendCustomVerificationEmail =
       SendCustomVerificationEmailResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "SendCustomVerificationEmail")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "EmailAddress" emailAddress)
+                Core.<> (Core.toQueryValue "TemplateName" templateName)
+                Core.<> ( Core.toQueryValue "ConfigurationSetName"
+                            Core.<$> configurationSetName
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "SendCustomVerificationEmailResult"
       ( \s h x ->
           SendCustomVerificationEmailResponse'
-            Lude.<$> (x Lude..@? "MessageId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "MessageId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SendCustomVerificationEmail where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath SendCustomVerificationEmail where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SendCustomVerificationEmail where
-  toQuery SendCustomVerificationEmail' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("SendCustomVerificationEmail" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "TemplateName" Lude.=: templateName,
-        "ConfigurationSetName" Lude.=: configurationSetName,
-        "EmailAddress" Lude.=: emailAddress
-      ]
 
 -- | The response received when attempting to send the custom verification email.
 --
 -- /See:/ 'mkSendCustomVerificationEmailResponse' smart constructor.
 data SendCustomVerificationEmailResponse = SendCustomVerificationEmailResponse'
   { -- | The unique message identifier returned from the @SendCustomVerificationEmail@ operation.
-    messageId :: Lude.Maybe Lude.Text,
+    messageId :: Core.Maybe Types.MessageId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SendCustomVerificationEmailResponse' with the minimum fields required to make a request.
---
--- * 'messageId' - The unique message identifier returned from the @SendCustomVerificationEmail@ operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SendCustomVerificationEmailResponse' value with any optional fields omitted.
 mkSendCustomVerificationEmailResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SendCustomVerificationEmailResponse
-mkSendCustomVerificationEmailResponse pResponseStatus_ =
+mkSendCustomVerificationEmailResponse responseStatus =
   SendCustomVerificationEmailResponse'
-    { messageId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { messageId = Core.Nothing,
+      responseStatus
     }
 
 -- | The unique message identifier returned from the @SendCustomVerificationEmail@ operation.
 --
 -- /Note:/ Consider using 'messageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scversMessageId :: Lens.Lens' SendCustomVerificationEmailResponse (Lude.Maybe Lude.Text)
-scversMessageId = Lens.lens (messageId :: SendCustomVerificationEmailResponse -> Lude.Maybe Lude.Text) (\s a -> s {messageId = a} :: SendCustomVerificationEmailResponse)
-{-# DEPRECATED scversMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
+scverrsMessageId :: Lens.Lens' SendCustomVerificationEmailResponse (Core.Maybe Types.MessageId)
+scverrsMessageId = Lens.field @"messageId"
+{-# DEPRECATED scverrsMessageId "Use generic-lens or generic-optics with 'messageId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scversResponseStatus :: Lens.Lens' SendCustomVerificationEmailResponse Lude.Int
-scversResponseStatus = Lens.lens (responseStatus :: SendCustomVerificationEmailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SendCustomVerificationEmailResponse)
-{-# DEPRECATED scversResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+scverrsResponseStatus :: Lens.Lens' SendCustomVerificationEmailResponse Core.Int
+scverrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED scverrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

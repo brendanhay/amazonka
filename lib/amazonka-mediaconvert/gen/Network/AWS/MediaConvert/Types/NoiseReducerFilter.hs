@@ -13,77 +13,82 @@
 module Network.AWS.MediaConvert.Types.NoiseReducerFilter
   ( NoiseReducerFilter
       ( NoiseReducerFilter',
-        Bilateral,
-        Mean,
-        Gaussian,
-        Lanczos,
-        Sharpen,
-        Conserve,
-        Spatial,
-        Temporal
+        NoiseReducerFilterBilateral,
+        NoiseReducerFilterMean,
+        NoiseReducerFilterGaussian,
+        NoiseReducerFilterLanczos,
+        NoiseReducerFilterSharpen,
+        NoiseReducerFilterConserve,
+        NoiseReducerFilterSpatial,
+        NoiseReducerFilterTemporal,
+        fromNoiseReducerFilter
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Use Noise reducer filter (NoiseReducerFilter) to select one of the following spatial image filtering functions. To use this setting, you must also enable Noise reducer (NoiseReducer). * Bilateral preserves edges while reducing noise. * Mean (softest), Gaussian, Lanczos, and Sharpen (sharpest) do convolution filtering. * Conserve does min/max noise reduction. * Spatial does frequency-domain filtering based on JND principles. * Temporal optimizes video quality for complex motion.
-newtype NoiseReducerFilter = NoiseReducerFilter' Lude.Text
+newtype NoiseReducerFilter = NoiseReducerFilter'
+  { fromNoiseReducerFilter ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Bilateral :: NoiseReducerFilter
-pattern Bilateral = NoiseReducerFilter' "BILATERAL"
+pattern NoiseReducerFilterBilateral :: NoiseReducerFilter
+pattern NoiseReducerFilterBilateral = NoiseReducerFilter' "BILATERAL"
 
-pattern Mean :: NoiseReducerFilter
-pattern Mean = NoiseReducerFilter' "MEAN"
+pattern NoiseReducerFilterMean :: NoiseReducerFilter
+pattern NoiseReducerFilterMean = NoiseReducerFilter' "MEAN"
 
-pattern Gaussian :: NoiseReducerFilter
-pattern Gaussian = NoiseReducerFilter' "GAUSSIAN"
+pattern NoiseReducerFilterGaussian :: NoiseReducerFilter
+pattern NoiseReducerFilterGaussian = NoiseReducerFilter' "GAUSSIAN"
 
-pattern Lanczos :: NoiseReducerFilter
-pattern Lanczos = NoiseReducerFilter' "LANCZOS"
+pattern NoiseReducerFilterLanczos :: NoiseReducerFilter
+pattern NoiseReducerFilterLanczos = NoiseReducerFilter' "LANCZOS"
 
-pattern Sharpen :: NoiseReducerFilter
-pattern Sharpen = NoiseReducerFilter' "SHARPEN"
+pattern NoiseReducerFilterSharpen :: NoiseReducerFilter
+pattern NoiseReducerFilterSharpen = NoiseReducerFilter' "SHARPEN"
 
-pattern Conserve :: NoiseReducerFilter
-pattern Conserve = NoiseReducerFilter' "CONSERVE"
+pattern NoiseReducerFilterConserve :: NoiseReducerFilter
+pattern NoiseReducerFilterConserve = NoiseReducerFilter' "CONSERVE"
 
-pattern Spatial :: NoiseReducerFilter
-pattern Spatial = NoiseReducerFilter' "SPATIAL"
+pattern NoiseReducerFilterSpatial :: NoiseReducerFilter
+pattern NoiseReducerFilterSpatial = NoiseReducerFilter' "SPATIAL"
 
-pattern Temporal :: NoiseReducerFilter
-pattern Temporal = NoiseReducerFilter' "TEMPORAL"
+pattern NoiseReducerFilterTemporal :: NoiseReducerFilter
+pattern NoiseReducerFilterTemporal = NoiseReducerFilter' "TEMPORAL"
 
 {-# COMPLETE
-  Bilateral,
-  Mean,
-  Gaussian,
-  Lanczos,
-  Sharpen,
-  Conserve,
-  Spatial,
-  Temporal,
+  NoiseReducerFilterBilateral,
+  NoiseReducerFilterMean,
+  NoiseReducerFilterGaussian,
+  NoiseReducerFilterLanczos,
+  NoiseReducerFilterSharpen,
+  NoiseReducerFilterConserve,
+  NoiseReducerFilterSpatial,
+  NoiseReducerFilterTemporal,
   NoiseReducerFilter'
   #-}

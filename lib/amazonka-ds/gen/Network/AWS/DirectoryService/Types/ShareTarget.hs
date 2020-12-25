@@ -22,51 +22,49 @@ module Network.AWS.DirectoryService.Types.ShareTarget
   )
 where
 
-import Network.AWS.DirectoryService.Types.TargetType
+import qualified Network.AWS.DirectoryService.Types.TargetId as Types
+import qualified Network.AWS.DirectoryService.Types.TargetType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifier that contains details about the directory consumer account.
 --
 -- /See:/ 'mkShareTarget' smart constructor.
 data ShareTarget = ShareTarget'
   { -- | Identifier of the directory consumer account.
-    id :: Lude.Text,
+    id :: Types.TargetId,
     -- | Type of identifier to be used in the @Id@ field.
-    type' :: TargetType
+    type' :: Types.TargetType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ShareTarget' with the minimum fields required to make a request.
---
--- * 'id' - Identifier of the directory consumer account.
--- * 'type'' - Type of identifier to be used in the @Id@ field.
+-- | Creates a 'ShareTarget' value with any optional fields omitted.
 mkShareTarget ::
   -- | 'id'
-  Lude.Text ->
-  -- | 'type''
-  TargetType ->
+  Types.TargetId ->
+  -- | 'type\''
+  Types.TargetType ->
   ShareTarget
-mkShareTarget pId_ pType_ = ShareTarget' {id = pId_, type' = pType_}
+mkShareTarget id type' = ShareTarget' {id, type'}
 
 -- | Identifier of the directory consumer account.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stId :: Lens.Lens' ShareTarget Lude.Text
-stId = Lens.lens (id :: ShareTarget -> Lude.Text) (\s a -> s {id = a} :: ShareTarget)
+stId :: Lens.Lens' ShareTarget Types.TargetId
+stId = Lens.field @"id"
 {-# DEPRECATED stId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | Type of identifier to be used in the @Id@ field.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stType :: Lens.Lens' ShareTarget TargetType
-stType = Lens.lens (type' :: ShareTarget -> TargetType) (\s a -> s {type' = a} :: ShareTarget)
+stType :: Lens.Lens' ShareTarget Types.TargetType
+stType = Lens.field @"type'"
 {-# DEPRECATED stType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.ToJSON ShareTarget where
-  toJSON ShareTarget' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("Id" Lude..= id), Lude.Just ("Type" Lude..= type')]
+instance Core.FromJSON ShareTarget where
+  toJSON ShareTarget {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Id" Core..= id), Core.Just ("Type" Core..= type')]
       )

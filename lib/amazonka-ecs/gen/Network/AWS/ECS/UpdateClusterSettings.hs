@@ -28,126 +28,111 @@ module Network.AWS.ECS.UpdateClusterSettings
     mkUpdateClusterSettingsResponse,
 
     -- ** Response lenses
-    ucsrsCluster,
-    ucsrsResponseStatus,
+    ucsrrsCluster,
+    ucsrrsResponseStatus,
   )
 where
 
-import Network.AWS.ECS.Types
+import qualified Network.AWS.ECS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateClusterSettings' smart constructor.
 data UpdateClusterSettings = UpdateClusterSettings'
   { -- | The name of the cluster to modify the settings for.
-    cluster :: Lude.Text,
+    cluster :: Types.String,
     -- | The setting to use by default for a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the @containerInsights@ value set with 'PutAccountSetting' or 'PutAccountSettingDefault' .
-    settings :: [ClusterSetting]
+    settings :: [Types.ClusterSetting]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateClusterSettings' with the minimum fields required to make a request.
---
--- * 'cluster' - The name of the cluster to modify the settings for.
--- * 'settings' - The setting to use by default for a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the @containerInsights@ value set with 'PutAccountSetting' or 'PutAccountSettingDefault' .
+-- | Creates a 'UpdateClusterSettings' value with any optional fields omitted.
 mkUpdateClusterSettings ::
   -- | 'cluster'
-  Lude.Text ->
+  Types.String ->
   UpdateClusterSettings
-mkUpdateClusterSettings pCluster_ =
-  UpdateClusterSettings'
-    { cluster = pCluster_,
-      settings = Lude.mempty
-    }
+mkUpdateClusterSettings cluster =
+  UpdateClusterSettings' {cluster, settings = Core.mempty}
 
 -- | The name of the cluster to modify the settings for.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucsCluster :: Lens.Lens' UpdateClusterSettings Lude.Text
-ucsCluster = Lens.lens (cluster :: UpdateClusterSettings -> Lude.Text) (\s a -> s {cluster = a} :: UpdateClusterSettings)
+ucsCluster :: Lens.Lens' UpdateClusterSettings Types.String
+ucsCluster = Lens.field @"cluster"
 {-# DEPRECATED ucsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The setting to use by default for a cluster. This parameter is used to enable CloudWatch Container Insights for a cluster. If this value is specified, it will override the @containerInsights@ value set with 'PutAccountSetting' or 'PutAccountSettingDefault' .
 --
 -- /Note:/ Consider using 'settings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucsSettings :: Lens.Lens' UpdateClusterSettings [ClusterSetting]
-ucsSettings = Lens.lens (settings :: UpdateClusterSettings -> [ClusterSetting]) (\s a -> s {settings = a} :: UpdateClusterSettings)
+ucsSettings :: Lens.Lens' UpdateClusterSettings [Types.ClusterSetting]
+ucsSettings = Lens.field @"settings"
 {-# DEPRECATED ucsSettings "Use generic-lens or generic-optics with 'settings' instead." #-}
 
-instance Lude.AWSRequest UpdateClusterSettings where
+instance Core.FromJSON UpdateClusterSettings where
+  toJSON UpdateClusterSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("cluster" Core..= cluster),
+            Core.Just ("settings" Core..= settings)
+          ]
+      )
+
+instance Core.AWSRequest UpdateClusterSettings where
   type Rs UpdateClusterSettings = UpdateClusterSettingsResponse
-  request = Req.postJSON ecsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AmazonEC2ContainerServiceV20141113.UpdateClusterSettings"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateClusterSettingsResponse'
-            Lude.<$> (x Lude..?> "cluster") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "cluster") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateClusterSettings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AmazonEC2ContainerServiceV20141113.UpdateClusterSettings" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateClusterSettings where
-  toJSON UpdateClusterSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("cluster" Lude..= cluster),
-            Lude.Just ("settings" Lude..= settings)
-          ]
-      )
-
-instance Lude.ToPath UpdateClusterSettings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateClusterSettings where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateClusterSettingsResponse' smart constructor.
 data UpdateClusterSettingsResponse = UpdateClusterSettingsResponse'
-  { cluster :: Lude.Maybe Cluster,
+  { cluster :: Core.Maybe Types.Cluster,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateClusterSettingsResponse' with the minimum fields required to make a request.
---
--- * 'cluster' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateClusterSettingsResponse' value with any optional fields omitted.
 mkUpdateClusterSettingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateClusterSettingsResponse
-mkUpdateClusterSettingsResponse pResponseStatus_ =
+mkUpdateClusterSettingsResponse responseStatus =
   UpdateClusterSettingsResponse'
-    { cluster = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { cluster = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cluster' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucsrsCluster :: Lens.Lens' UpdateClusterSettingsResponse (Lude.Maybe Cluster)
-ucsrsCluster = Lens.lens (cluster :: UpdateClusterSettingsResponse -> Lude.Maybe Cluster) (\s a -> s {cluster = a} :: UpdateClusterSettingsResponse)
-{-# DEPRECATED ucsrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
+ucsrrsCluster :: Lens.Lens' UpdateClusterSettingsResponse (Core.Maybe Types.Cluster)
+ucsrrsCluster = Lens.field @"cluster"
+{-# DEPRECATED ucsrrsCluster "Use generic-lens or generic-optics with 'cluster' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucsrsResponseStatus :: Lens.Lens' UpdateClusterSettingsResponse Lude.Int
-ucsrsResponseStatus = Lens.lens (responseStatus :: UpdateClusterSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateClusterSettingsResponse)
-{-# DEPRECATED ucsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucsrrsResponseStatus :: Lens.Lens' UpdateClusterSettingsResponse Core.Int
+ucsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

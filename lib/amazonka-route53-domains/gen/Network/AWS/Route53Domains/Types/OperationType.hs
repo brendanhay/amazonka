@@ -13,126 +13,131 @@
 module Network.AWS.Route53Domains.Types.OperationType
   ( OperationType
       ( OperationType',
-        RegisterDomain,
-        DeleteDomain,
-        TransferInDomain,
-        UpdateDomainContact,
-        UpdateNameserver,
-        ChangePrivacyProtection,
-        DomainLock,
-        EnableAutorenew,
-        DisableAutorenew,
-        AddDNSsec,
-        RemoveDNSsec,
-        ExpireDomain,
-        TransferOutDomain,
-        ChangeDomainOwner,
-        RenewDomain,
-        PushDomain,
-        InternalTransferOutDomain,
-        InternalTransferInDomain
+        OperationTypeRegisterDomain,
+        OperationTypeDeleteDomain,
+        OperationTypeTransferInDomain,
+        OperationTypeUpdateDomainContact,
+        OperationTypeUpdateNameserver,
+        OperationTypeChangePrivacyProtection,
+        OperationTypeDomainLock,
+        OperationTypeEnableAutorenew,
+        OperationTypeDisableAutorenew,
+        OperationTypeAddDnssec,
+        OperationTypeRemoveDnssec,
+        OperationTypeExpireDomain,
+        OperationTypeTransferOutDomain,
+        OperationTypeChangeDomainOwner,
+        OperationTypeRenewDomain,
+        OperationTypePushDomain,
+        OperationTypeInternalTransferOutDomain,
+        OperationTypeInternalTransferInDomain,
+        fromOperationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype OperationType = OperationType' Lude.Text
+newtype OperationType = OperationType'
+  { fromOperationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RegisterDomain :: OperationType
-pattern RegisterDomain = OperationType' "REGISTER_DOMAIN"
+pattern OperationTypeRegisterDomain :: OperationType
+pattern OperationTypeRegisterDomain = OperationType' "REGISTER_DOMAIN"
 
-pattern DeleteDomain :: OperationType
-pattern DeleteDomain = OperationType' "DELETE_DOMAIN"
+pattern OperationTypeDeleteDomain :: OperationType
+pattern OperationTypeDeleteDomain = OperationType' "DELETE_DOMAIN"
 
-pattern TransferInDomain :: OperationType
-pattern TransferInDomain = OperationType' "TRANSFER_IN_DOMAIN"
+pattern OperationTypeTransferInDomain :: OperationType
+pattern OperationTypeTransferInDomain = OperationType' "TRANSFER_IN_DOMAIN"
 
-pattern UpdateDomainContact :: OperationType
-pattern UpdateDomainContact = OperationType' "UPDATE_DOMAIN_CONTACT"
+pattern OperationTypeUpdateDomainContact :: OperationType
+pattern OperationTypeUpdateDomainContact = OperationType' "UPDATE_DOMAIN_CONTACT"
 
-pattern UpdateNameserver :: OperationType
-pattern UpdateNameserver = OperationType' "UPDATE_NAMESERVER"
+pattern OperationTypeUpdateNameserver :: OperationType
+pattern OperationTypeUpdateNameserver = OperationType' "UPDATE_NAMESERVER"
 
-pattern ChangePrivacyProtection :: OperationType
-pattern ChangePrivacyProtection = OperationType' "CHANGE_PRIVACY_PROTECTION"
+pattern OperationTypeChangePrivacyProtection :: OperationType
+pattern OperationTypeChangePrivacyProtection = OperationType' "CHANGE_PRIVACY_PROTECTION"
 
-pattern DomainLock :: OperationType
-pattern DomainLock = OperationType' "DOMAIN_LOCK"
+pattern OperationTypeDomainLock :: OperationType
+pattern OperationTypeDomainLock = OperationType' "DOMAIN_LOCK"
 
-pattern EnableAutorenew :: OperationType
-pattern EnableAutorenew = OperationType' "ENABLE_AUTORENEW"
+pattern OperationTypeEnableAutorenew :: OperationType
+pattern OperationTypeEnableAutorenew = OperationType' "ENABLE_AUTORENEW"
 
-pattern DisableAutorenew :: OperationType
-pattern DisableAutorenew = OperationType' "DISABLE_AUTORENEW"
+pattern OperationTypeDisableAutorenew :: OperationType
+pattern OperationTypeDisableAutorenew = OperationType' "DISABLE_AUTORENEW"
 
-pattern AddDNSsec :: OperationType
-pattern AddDNSsec = OperationType' "ADD_DNSSEC"
+pattern OperationTypeAddDnssec :: OperationType
+pattern OperationTypeAddDnssec = OperationType' "ADD_DNSSEC"
 
-pattern RemoveDNSsec :: OperationType
-pattern RemoveDNSsec = OperationType' "REMOVE_DNSSEC"
+pattern OperationTypeRemoveDnssec :: OperationType
+pattern OperationTypeRemoveDnssec = OperationType' "REMOVE_DNSSEC"
 
-pattern ExpireDomain :: OperationType
-pattern ExpireDomain = OperationType' "EXPIRE_DOMAIN"
+pattern OperationTypeExpireDomain :: OperationType
+pattern OperationTypeExpireDomain = OperationType' "EXPIRE_DOMAIN"
 
-pattern TransferOutDomain :: OperationType
-pattern TransferOutDomain = OperationType' "TRANSFER_OUT_DOMAIN"
+pattern OperationTypeTransferOutDomain :: OperationType
+pattern OperationTypeTransferOutDomain = OperationType' "TRANSFER_OUT_DOMAIN"
 
-pattern ChangeDomainOwner :: OperationType
-pattern ChangeDomainOwner = OperationType' "CHANGE_DOMAIN_OWNER"
+pattern OperationTypeChangeDomainOwner :: OperationType
+pattern OperationTypeChangeDomainOwner = OperationType' "CHANGE_DOMAIN_OWNER"
 
-pattern RenewDomain :: OperationType
-pattern RenewDomain = OperationType' "RENEW_DOMAIN"
+pattern OperationTypeRenewDomain :: OperationType
+pattern OperationTypeRenewDomain = OperationType' "RENEW_DOMAIN"
 
-pattern PushDomain :: OperationType
-pattern PushDomain = OperationType' "PUSH_DOMAIN"
+pattern OperationTypePushDomain :: OperationType
+pattern OperationTypePushDomain = OperationType' "PUSH_DOMAIN"
 
-pattern InternalTransferOutDomain :: OperationType
-pattern InternalTransferOutDomain = OperationType' "INTERNAL_TRANSFER_OUT_DOMAIN"
+pattern OperationTypeInternalTransferOutDomain :: OperationType
+pattern OperationTypeInternalTransferOutDomain = OperationType' "INTERNAL_TRANSFER_OUT_DOMAIN"
 
-pattern InternalTransferInDomain :: OperationType
-pattern InternalTransferInDomain = OperationType' "INTERNAL_TRANSFER_IN_DOMAIN"
+pattern OperationTypeInternalTransferInDomain :: OperationType
+pattern OperationTypeInternalTransferInDomain = OperationType' "INTERNAL_TRANSFER_IN_DOMAIN"
 
 {-# COMPLETE
-  RegisterDomain,
-  DeleteDomain,
-  TransferInDomain,
-  UpdateDomainContact,
-  UpdateNameserver,
-  ChangePrivacyProtection,
-  DomainLock,
-  EnableAutorenew,
-  DisableAutorenew,
-  AddDNSsec,
-  RemoveDNSsec,
-  ExpireDomain,
-  TransferOutDomain,
-  ChangeDomainOwner,
-  RenewDomain,
-  PushDomain,
-  InternalTransferOutDomain,
-  InternalTransferInDomain,
+  OperationTypeRegisterDomain,
+  OperationTypeDeleteDomain,
+  OperationTypeTransferInDomain,
+  OperationTypeUpdateDomainContact,
+  OperationTypeUpdateNameserver,
+  OperationTypeChangePrivacyProtection,
+  OperationTypeDomainLock,
+  OperationTypeEnableAutorenew,
+  OperationTypeDisableAutorenew,
+  OperationTypeAddDnssec,
+  OperationTypeRemoveDnssec,
+  OperationTypeExpireDomain,
+  OperationTypeTransferOutDomain,
+  OperationTypeChangeDomainOwner,
+  OperationTypeRenewDomain,
+  OperationTypePushDomain,
+  OperationTypeInternalTransferOutDomain,
+  OperationTypeInternalTransferInDomain,
   OperationType'
   #-}

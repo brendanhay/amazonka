@@ -13,46 +13,51 @@
 module Network.AWS.WorkDocs.Types.BooleanEnumType
   ( BooleanEnumType
       ( BooleanEnumType',
-        True,
-        False
+        BooleanEnumTypeTrue,
+        BooleanEnumTypeFalse,
+        fromBooleanEnumType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BooleanEnumType = BooleanEnumType' Lude.Text
+newtype BooleanEnumType = BooleanEnumType'
+  { fromBooleanEnumType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern True :: BooleanEnumType
-pattern True = BooleanEnumType' "TRUE"
+pattern BooleanEnumTypeTrue :: BooleanEnumType
+pattern BooleanEnumTypeTrue = BooleanEnumType' "TRUE"
 
-pattern False :: BooleanEnumType
-pattern False = BooleanEnumType' "FALSE"
+pattern BooleanEnumTypeFalse :: BooleanEnumType
+pattern BooleanEnumTypeFalse = BooleanEnumType' "FALSE"
 
 {-# COMPLETE
-  True,
-  False,
+  BooleanEnumTypeTrue,
+  BooleanEnumTypeFalse,
   BooleanEnumType'
   #-}

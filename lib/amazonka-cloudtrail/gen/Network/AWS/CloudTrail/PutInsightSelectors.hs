@@ -28,141 +28,125 @@ module Network.AWS.CloudTrail.PutInsightSelectors
     mkPutInsightSelectorsResponse,
 
     -- ** Response lenses
-    pisrsTrailARN,
-    pisrsInsightSelectors,
-    pisrsResponseStatus,
+    pisrrsInsightSelectors,
+    pisrrsTrailARN,
+    pisrrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudTrail.Types
+import qualified Network.AWS.CloudTrail.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkPutInsightSelectors' smart constructor.
 data PutInsightSelectors = PutInsightSelectors'
   { -- | The name of the CloudTrail trail for which you want to change or add Insights selectors.
-    trailName :: Lude.Text,
+    trailName :: Types.String,
     -- | A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
-    insightSelectors :: [InsightSelector]
+    insightSelectors :: [Types.InsightSelector]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutInsightSelectors' with the minimum fields required to make a request.
---
--- * 'trailName' - The name of the CloudTrail trail for which you want to change or add Insights selectors.
--- * 'insightSelectors' - A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
+-- | Creates a 'PutInsightSelectors' value with any optional fields omitted.
 mkPutInsightSelectors ::
   -- | 'trailName'
-  Lude.Text ->
+  Types.String ->
   PutInsightSelectors
-mkPutInsightSelectors pTrailName_ =
-  PutInsightSelectors'
-    { trailName = pTrailName_,
-      insightSelectors = Lude.mempty
-    }
+mkPutInsightSelectors trailName =
+  PutInsightSelectors' {trailName, insightSelectors = Core.mempty}
 
 -- | The name of the CloudTrail trail for which you want to change or add Insights selectors.
 --
 -- /Note:/ Consider using 'trailName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pisTrailName :: Lens.Lens' PutInsightSelectors Lude.Text
-pisTrailName = Lens.lens (trailName :: PutInsightSelectors -> Lude.Text) (\s a -> s {trailName = a} :: PutInsightSelectors)
+pisTrailName :: Lens.Lens' PutInsightSelectors Types.String
+pisTrailName = Lens.field @"trailName"
 {-# DEPRECATED pisTrailName "Use generic-lens or generic-optics with 'trailName' instead." #-}
 
 -- | A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
 --
 -- /Note:/ Consider using 'insightSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pisInsightSelectors :: Lens.Lens' PutInsightSelectors [InsightSelector]
-pisInsightSelectors = Lens.lens (insightSelectors :: PutInsightSelectors -> [InsightSelector]) (\s a -> s {insightSelectors = a} :: PutInsightSelectors)
+pisInsightSelectors :: Lens.Lens' PutInsightSelectors [Types.InsightSelector]
+pisInsightSelectors = Lens.field @"insightSelectors"
 {-# DEPRECATED pisInsightSelectors "Use generic-lens or generic-optics with 'insightSelectors' instead." #-}
 
-instance Lude.AWSRequest PutInsightSelectors where
+instance Core.FromJSON PutInsightSelectors where
+  toJSON PutInsightSelectors {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TrailName" Core..= trailName),
+            Core.Just ("InsightSelectors" Core..= insightSelectors)
+          ]
+      )
+
+instance Core.AWSRequest PutInsightSelectors where
   type Rs PutInsightSelectors = PutInsightSelectorsResponse
-  request = Req.postJSON cloudTrailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutInsightSelectors"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           PutInsightSelectorsResponse'
-            Lude.<$> (x Lude..?> "TrailARN")
-            Lude.<*> (x Lude..?> "InsightSelectors" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InsightSelectors")
+            Core.<*> (x Core..:? "TrailARN")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PutInsightSelectors where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "com.amazonaws.cloudtrail.v20131101.CloudTrail_20131101.PutInsightSelectors" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON PutInsightSelectors where
-  toJSON PutInsightSelectors' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TrailName" Lude..= trailName),
-            Lude.Just ("InsightSelectors" Lude..= insightSelectors)
-          ]
-      )
-
-instance Lude.ToPath PutInsightSelectors where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PutInsightSelectors where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkPutInsightSelectorsResponse' smart constructor.
 data PutInsightSelectorsResponse = PutInsightSelectorsResponse'
-  { -- | The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.
-    trailARN :: Lude.Maybe Lude.Text,
-    -- | A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
-    insightSelectors :: Lude.Maybe [InsightSelector],
+  { -- | A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
+    insightSelectors :: Core.Maybe [Types.InsightSelector],
+    -- | The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.
+    trailARN :: Core.Maybe Types.TrailARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutInsightSelectorsResponse' with the minimum fields required to make a request.
---
--- * 'trailARN' - The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.
--- * 'insightSelectors' - A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PutInsightSelectorsResponse' value with any optional fields omitted.
 mkPutInsightSelectorsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PutInsightSelectorsResponse
-mkPutInsightSelectorsResponse pResponseStatus_ =
+mkPutInsightSelectorsResponse responseStatus =
   PutInsightSelectorsResponse'
-    { trailARN = Lude.Nothing,
-      insightSelectors = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { insightSelectors = Core.Nothing,
+      trailARN = Core.Nothing,
+      responseStatus
     }
-
--- | The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.
---
--- /Note:/ Consider using 'trailARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pisrsTrailARN :: Lens.Lens' PutInsightSelectorsResponse (Lude.Maybe Lude.Text)
-pisrsTrailARN = Lens.lens (trailARN :: PutInsightSelectorsResponse -> Lude.Maybe Lude.Text) (\s a -> s {trailARN = a} :: PutInsightSelectorsResponse)
-{-# DEPRECATED pisrsTrailARN "Use generic-lens or generic-optics with 'trailARN' instead." #-}
 
 -- | A JSON string that contains the insight types you want to log on a trail. In this release, only @ApiCallRateInsight@ is supported as an insight type.
 --
 -- /Note:/ Consider using 'insightSelectors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pisrsInsightSelectors :: Lens.Lens' PutInsightSelectorsResponse (Lude.Maybe [InsightSelector])
-pisrsInsightSelectors = Lens.lens (insightSelectors :: PutInsightSelectorsResponse -> Lude.Maybe [InsightSelector]) (\s a -> s {insightSelectors = a} :: PutInsightSelectorsResponse)
-{-# DEPRECATED pisrsInsightSelectors "Use generic-lens or generic-optics with 'insightSelectors' instead." #-}
+pisrrsInsightSelectors :: Lens.Lens' PutInsightSelectorsResponse (Core.Maybe [Types.InsightSelector])
+pisrrsInsightSelectors = Lens.field @"insightSelectors"
+{-# DEPRECATED pisrrsInsightSelectors "Use generic-lens or generic-optics with 'insightSelectors' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of a trail for which you want to change or add Insights selectors.
+--
+-- /Note:/ Consider using 'trailARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pisrrsTrailARN :: Lens.Lens' PutInsightSelectorsResponse (Core.Maybe Types.TrailARN)
+pisrrsTrailARN = Lens.field @"trailARN"
+{-# DEPRECATED pisrrsTrailARN "Use generic-lens or generic-optics with 'trailARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pisrsResponseStatus :: Lens.Lens' PutInsightSelectorsResponse Lude.Int
-pisrsResponseStatus = Lens.lens (responseStatus :: PutInsightSelectorsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PutInsightSelectorsResponse)
-{-# DEPRECATED pisrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+pisrrsResponseStatus :: Lens.Lens' PutInsightSelectorsResponse Core.Int
+pisrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED pisrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

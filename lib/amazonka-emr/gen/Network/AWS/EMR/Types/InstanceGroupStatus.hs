@@ -23,68 +23,62 @@ module Network.AWS.EMR.Types.InstanceGroupStatus
   )
 where
 
-import Network.AWS.EMR.Types.InstanceGroupState
-import Network.AWS.EMR.Types.InstanceGroupStateChangeReason
-import Network.AWS.EMR.Types.InstanceGroupTimeline
+import qualified Network.AWS.EMR.Types.InstanceGroupState as Types
+import qualified Network.AWS.EMR.Types.InstanceGroupStateChangeReason as Types
+import qualified Network.AWS.EMR.Types.InstanceGroupTimeline as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details of the instance group status.
 --
 -- /See:/ 'mkInstanceGroupStatus' smart constructor.
 data InstanceGroupStatus = InstanceGroupStatus'
   { -- | The current state of the instance group.
-    state :: Lude.Maybe InstanceGroupState,
+    state :: Core.Maybe Types.InstanceGroupState,
     -- | The status change reason details for the instance group.
-    stateChangeReason :: Lude.Maybe InstanceGroupStateChangeReason,
+    stateChangeReason :: Core.Maybe Types.InstanceGroupStateChangeReason,
     -- | The timeline of the instance group status over time.
-    timeline :: Lude.Maybe InstanceGroupTimeline
+    timeline :: Core.Maybe Types.InstanceGroupTimeline
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceGroupStatus' with the minimum fields required to make a request.
---
--- * 'state' - The current state of the instance group.
--- * 'stateChangeReason' - The status change reason details for the instance group.
--- * 'timeline' - The timeline of the instance group status over time.
+-- | Creates a 'InstanceGroupStatus' value with any optional fields omitted.
 mkInstanceGroupStatus ::
   InstanceGroupStatus
 mkInstanceGroupStatus =
   InstanceGroupStatus'
-    { state = Lude.Nothing,
-      stateChangeReason = Lude.Nothing,
-      timeline = Lude.Nothing
+    { state = Core.Nothing,
+      stateChangeReason = Core.Nothing,
+      timeline = Core.Nothing
     }
 
 -- | The current state of the instance group.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igsState :: Lens.Lens' InstanceGroupStatus (Lude.Maybe InstanceGroupState)
-igsState = Lens.lens (state :: InstanceGroupStatus -> Lude.Maybe InstanceGroupState) (\s a -> s {state = a} :: InstanceGroupStatus)
+igsState :: Lens.Lens' InstanceGroupStatus (Core.Maybe Types.InstanceGroupState)
+igsState = Lens.field @"state"
 {-# DEPRECATED igsState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The status change reason details for the instance group.
 --
 -- /Note:/ Consider using 'stateChangeReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igsStateChangeReason :: Lens.Lens' InstanceGroupStatus (Lude.Maybe InstanceGroupStateChangeReason)
-igsStateChangeReason = Lens.lens (stateChangeReason :: InstanceGroupStatus -> Lude.Maybe InstanceGroupStateChangeReason) (\s a -> s {stateChangeReason = a} :: InstanceGroupStatus)
+igsStateChangeReason :: Lens.Lens' InstanceGroupStatus (Core.Maybe Types.InstanceGroupStateChangeReason)
+igsStateChangeReason = Lens.field @"stateChangeReason"
 {-# DEPRECATED igsStateChangeReason "Use generic-lens or generic-optics with 'stateChangeReason' instead." #-}
 
 -- | The timeline of the instance group status over time.
 --
 -- /Note:/ Consider using 'timeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-igsTimeline :: Lens.Lens' InstanceGroupStatus (Lude.Maybe InstanceGroupTimeline)
-igsTimeline = Lens.lens (timeline :: InstanceGroupStatus -> Lude.Maybe InstanceGroupTimeline) (\s a -> s {timeline = a} :: InstanceGroupStatus)
+igsTimeline :: Lens.Lens' InstanceGroupStatus (Core.Maybe Types.InstanceGroupTimeline)
+igsTimeline = Lens.field @"timeline"
 {-# DEPRECATED igsTimeline "Use generic-lens or generic-optics with 'timeline' instead." #-}
 
-instance Lude.FromJSON InstanceGroupStatus where
+instance Core.FromJSON InstanceGroupStatus where
   parseJSON =
-    Lude.withObject
-      "InstanceGroupStatus"
-      ( \x ->
-          InstanceGroupStatus'
-            Lude.<$> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "StateChangeReason")
-            Lude.<*> (x Lude..:? "Timeline")
-      )
+    Core.withObject "InstanceGroupStatus" Core.$
+      \x ->
+        InstanceGroupStatus'
+          Core.<$> (x Core..:? "State")
+          Core.<*> (x Core..:? "StateChangeReason")
+          Core.<*> (x Core..:? "Timeline")

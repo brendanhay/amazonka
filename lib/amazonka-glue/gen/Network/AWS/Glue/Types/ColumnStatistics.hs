@@ -17,108 +17,103 @@ module Network.AWS.Glue.Types.ColumnStatistics
     mkColumnStatistics,
 
     -- * Lenses
-    csAnalyzedTime,
-    csColumnType,
-    csStatisticsData,
     csColumnName,
+    csColumnType,
+    csAnalyzedTime,
+    csStatisticsData,
   )
 where
 
-import Network.AWS.Glue.Types.ColumnStatisticsData
+import qualified Network.AWS.Glue.Types.ColumnStatisticsData as Types
+import qualified Network.AWS.Glue.Types.NameString as Types
+import qualified Network.AWS.Glue.Types.TypeString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the generated column-level statistics for a table or partition.
 --
 -- /See:/ 'mkColumnStatistics' smart constructor.
 data ColumnStatistics = ColumnStatistics'
-  { -- | The timestamp of when column statistics were generated.
-    analyzedTime :: Lude.Timestamp,
+  { -- | Name of column which statistics belong to.
+    columnName :: Types.NameString,
     -- | The data type of the column.
-    columnType :: Lude.Text,
+    columnType :: Types.TypeString,
+    -- | The timestamp of when column statistics were generated.
+    analyzedTime :: Core.NominalDiffTime,
     -- | A @ColumnStatisticData@ object that contains the statistics data values.
-    statisticsData :: ColumnStatisticsData,
-    -- | Name of column which statistics belong to.
-    columnName :: Lude.Text
+    statisticsData :: Types.ColumnStatisticsData
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ColumnStatistics' with the minimum fields required to make a request.
---
--- * 'analyzedTime' - The timestamp of when column statistics were generated.
--- * 'columnType' - The data type of the column.
--- * 'statisticsData' - A @ColumnStatisticData@ object that contains the statistics data values.
--- * 'columnName' - Name of column which statistics belong to.
+-- | Creates a 'ColumnStatistics' value with any optional fields omitted.
 mkColumnStatistics ::
-  -- | 'analyzedTime'
-  Lude.Timestamp ->
-  -- | 'columnType'
-  Lude.Text ->
-  -- | 'statisticsData'
-  ColumnStatisticsData ->
   -- | 'columnName'
-  Lude.Text ->
+  Types.NameString ->
+  -- | 'columnType'
+  Types.TypeString ->
+  -- | 'analyzedTime'
+  Core.NominalDiffTime ->
+  -- | 'statisticsData'
+  Types.ColumnStatisticsData ->
   ColumnStatistics
 mkColumnStatistics
-  pAnalyzedTime_
-  pColumnType_
-  pStatisticsData_
-  pColumnName_ =
+  columnName
+  columnType
+  analyzedTime
+  statisticsData =
     ColumnStatistics'
-      { analyzedTime = pAnalyzedTime_,
-        columnType = pColumnType_,
-        statisticsData = pStatisticsData_,
-        columnName = pColumnName_
+      { columnName,
+        columnType,
+        analyzedTime,
+        statisticsData
       }
-
--- | The timestamp of when column statistics were generated.
---
--- /Note:/ Consider using 'analyzedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csAnalyzedTime :: Lens.Lens' ColumnStatistics Lude.Timestamp
-csAnalyzedTime = Lens.lens (analyzedTime :: ColumnStatistics -> Lude.Timestamp) (\s a -> s {analyzedTime = a} :: ColumnStatistics)
-{-# DEPRECATED csAnalyzedTime "Use generic-lens or generic-optics with 'analyzedTime' instead." #-}
-
--- | The data type of the column.
---
--- /Note:/ Consider using 'columnType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csColumnType :: Lens.Lens' ColumnStatistics Lude.Text
-csColumnType = Lens.lens (columnType :: ColumnStatistics -> Lude.Text) (\s a -> s {columnType = a} :: ColumnStatistics)
-{-# DEPRECATED csColumnType "Use generic-lens or generic-optics with 'columnType' instead." #-}
-
--- | A @ColumnStatisticData@ object that contains the statistics data values.
---
--- /Note:/ Consider using 'statisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csStatisticsData :: Lens.Lens' ColumnStatistics ColumnStatisticsData
-csStatisticsData = Lens.lens (statisticsData :: ColumnStatistics -> ColumnStatisticsData) (\s a -> s {statisticsData = a} :: ColumnStatistics)
-{-# DEPRECATED csStatisticsData "Use generic-lens or generic-optics with 'statisticsData' instead." #-}
 
 -- | Name of column which statistics belong to.
 --
 -- /Note:/ Consider using 'columnName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csColumnName :: Lens.Lens' ColumnStatistics Lude.Text
-csColumnName = Lens.lens (columnName :: ColumnStatistics -> Lude.Text) (\s a -> s {columnName = a} :: ColumnStatistics)
+csColumnName :: Lens.Lens' ColumnStatistics Types.NameString
+csColumnName = Lens.field @"columnName"
 {-# DEPRECATED csColumnName "Use generic-lens or generic-optics with 'columnName' instead." #-}
 
-instance Lude.FromJSON ColumnStatistics where
-  parseJSON =
-    Lude.withObject
-      "ColumnStatistics"
-      ( \x ->
-          ColumnStatistics'
-            Lude.<$> (x Lude..: "AnalyzedTime")
-            Lude.<*> (x Lude..: "ColumnType")
-            Lude.<*> (x Lude..: "StatisticsData")
-            Lude.<*> (x Lude..: "ColumnName")
-      )
+-- | The data type of the column.
+--
+-- /Note:/ Consider using 'columnType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csColumnType :: Lens.Lens' ColumnStatistics Types.TypeString
+csColumnType = Lens.field @"columnType"
+{-# DEPRECATED csColumnType "Use generic-lens or generic-optics with 'columnType' instead." #-}
 
-instance Lude.ToJSON ColumnStatistics where
-  toJSON ColumnStatistics' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AnalyzedTime" Lude..= analyzedTime),
-            Lude.Just ("ColumnType" Lude..= columnType),
-            Lude.Just ("StatisticsData" Lude..= statisticsData),
-            Lude.Just ("ColumnName" Lude..= columnName)
+-- | The timestamp of when column statistics were generated.
+--
+-- /Note:/ Consider using 'analyzedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csAnalyzedTime :: Lens.Lens' ColumnStatistics Core.NominalDiffTime
+csAnalyzedTime = Lens.field @"analyzedTime"
+{-# DEPRECATED csAnalyzedTime "Use generic-lens or generic-optics with 'analyzedTime' instead." #-}
+
+-- | A @ColumnStatisticData@ object that contains the statistics data values.
+--
+-- /Note:/ Consider using 'statisticsData' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csStatisticsData :: Lens.Lens' ColumnStatistics Types.ColumnStatisticsData
+csStatisticsData = Lens.field @"statisticsData"
+{-# DEPRECATED csStatisticsData "Use generic-lens or generic-optics with 'statisticsData' instead." #-}
+
+instance Core.FromJSON ColumnStatistics where
+  toJSON ColumnStatistics {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ColumnName" Core..= columnName),
+            Core.Just ("ColumnType" Core..= columnType),
+            Core.Just ("AnalyzedTime" Core..= analyzedTime),
+            Core.Just ("StatisticsData" Core..= statisticsData)
           ]
       )
+
+instance Core.FromJSON ColumnStatistics where
+  parseJSON =
+    Core.withObject "ColumnStatistics" Core.$
+      \x ->
+        ColumnStatistics'
+          Core.<$> (x Core..: "ColumnName")
+          Core.<*> (x Core..: "ColumnType")
+          Core.<*> (x Core..: "AnalyzedTime")
+          Core.<*> (x Core..: "StatisticsData")

@@ -13,71 +13,73 @@
 module Network.AWS.WorkSpaces.Types.Compute
   ( Compute
       ( Compute',
-        Value,
-        Standard,
-        Performance,
-        Power,
-        Graphics,
-        Powerpro,
-        Graphicspro
+        ComputeValue,
+        ComputeStandard,
+        ComputePerformance,
+        ComputePower,
+        ComputeGraphics,
+        ComputePowerpro,
+        ComputeGraphicspro,
+        fromCompute
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype Compute = Compute' Lude.Text
+newtype Compute = Compute' {fromCompute :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Value :: Compute
-pattern Value = Compute' "VALUE"
+pattern ComputeValue :: Compute
+pattern ComputeValue = Compute' "VALUE"
 
-pattern Standard :: Compute
-pattern Standard = Compute' "STANDARD"
+pattern ComputeStandard :: Compute
+pattern ComputeStandard = Compute' "STANDARD"
 
-pattern Performance :: Compute
-pattern Performance = Compute' "PERFORMANCE"
+pattern ComputePerformance :: Compute
+pattern ComputePerformance = Compute' "PERFORMANCE"
 
-pattern Power :: Compute
-pattern Power = Compute' "POWER"
+pattern ComputePower :: Compute
+pattern ComputePower = Compute' "POWER"
 
-pattern Graphics :: Compute
-pattern Graphics = Compute' "GRAPHICS"
+pattern ComputeGraphics :: Compute
+pattern ComputeGraphics = Compute' "GRAPHICS"
 
-pattern Powerpro :: Compute
-pattern Powerpro = Compute' "POWERPRO"
+pattern ComputePowerpro :: Compute
+pattern ComputePowerpro = Compute' "POWERPRO"
 
-pattern Graphicspro :: Compute
-pattern Graphicspro = Compute' "GRAPHICSPRO"
+pattern ComputeGraphicspro :: Compute
+pattern ComputeGraphicspro = Compute' "GRAPHICSPRO"
 
 {-# COMPLETE
-  Value,
-  Standard,
-  Performance,
-  Power,
-  Graphics,
-  Powerpro,
-  Graphicspro,
+  ComputeValue,
+  ComputeStandard,
+  ComputePerformance,
+  ComputePower,
+  ComputeGraphics,
+  ComputePowerpro,
+  ComputeGraphicspro,
   Compute'
   #-}

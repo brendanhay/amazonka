@@ -28,125 +28,113 @@ module Network.AWS.SMS.GenerateChangeSet
     mkGenerateChangeSetResponse,
 
     -- ** Response lenses
-    gcsrsS3Location,
-    gcsrsResponseStatus,
+    gcsrrsS3Location,
+    gcsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkGenerateChangeSet' smart constructor.
 data GenerateChangeSet = GenerateChangeSet'
   { -- | The ID of the application associated with the change set.
-    appId :: Lude.Maybe Lude.Text,
+    appId :: Core.Maybe Types.AppId,
     -- | The format for the change set.
-    changesetFormat :: Lude.Maybe OutputFormat
+    changesetFormat :: Core.Maybe Types.OutputFormat
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateChangeSet' with the minimum fields required to make a request.
---
--- * 'appId' - The ID of the application associated with the change set.
--- * 'changesetFormat' - The format for the change set.
+-- | Creates a 'GenerateChangeSet' value with any optional fields omitted.
 mkGenerateChangeSet ::
   GenerateChangeSet
 mkGenerateChangeSet =
   GenerateChangeSet'
-    { appId = Lude.Nothing,
-      changesetFormat = Lude.Nothing
+    { appId = Core.Nothing,
+      changesetFormat = Core.Nothing
     }
 
 -- | The ID of the application associated with the change set.
 --
 -- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsAppId :: Lens.Lens' GenerateChangeSet (Lude.Maybe Lude.Text)
-gcsAppId = Lens.lens (appId :: GenerateChangeSet -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: GenerateChangeSet)
+gcsAppId :: Lens.Lens' GenerateChangeSet (Core.Maybe Types.AppId)
+gcsAppId = Lens.field @"appId"
 {-# DEPRECATED gcsAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
 -- | The format for the change set.
 --
 -- /Note:/ Consider using 'changesetFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsChangesetFormat :: Lens.Lens' GenerateChangeSet (Lude.Maybe OutputFormat)
-gcsChangesetFormat = Lens.lens (changesetFormat :: GenerateChangeSet -> Lude.Maybe OutputFormat) (\s a -> s {changesetFormat = a} :: GenerateChangeSet)
+gcsChangesetFormat :: Lens.Lens' GenerateChangeSet (Core.Maybe Types.OutputFormat)
+gcsChangesetFormat = Lens.field @"changesetFormat"
 {-# DEPRECATED gcsChangesetFormat "Use generic-lens or generic-optics with 'changesetFormat' instead." #-}
 
-instance Lude.AWSRequest GenerateChangeSet where
+instance Core.FromJSON GenerateChangeSet where
+  toJSON GenerateChangeSet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("appId" Core..=) Core.<$> appId,
+            ("changesetFormat" Core..=) Core.<$> changesetFormat
+          ]
+      )
+
+instance Core.AWSRequest GenerateChangeSet where
   type Rs GenerateChangeSet = GenerateChangeSetResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSServerMigrationService_V2016_10_24.GenerateChangeSet"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GenerateChangeSetResponse'
-            Lude.<$> (x Lude..?> "s3Location") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "s3Location") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GenerateChangeSet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.GenerateChangeSet" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GenerateChangeSet where
-  toJSON GenerateChangeSet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("appId" Lude..=) Lude.<$> appId,
-            ("changesetFormat" Lude..=) Lude.<$> changesetFormat
-          ]
-      )
-
-instance Lude.ToPath GenerateChangeSet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GenerateChangeSet where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGenerateChangeSetResponse' smart constructor.
 data GenerateChangeSetResponse = GenerateChangeSetResponse'
   { -- | The location of the Amazon S3 object.
-    s3Location :: Lude.Maybe S3Location,
+    s3Location :: Core.Maybe Types.S3Location,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GenerateChangeSetResponse' with the minimum fields required to make a request.
---
--- * 's3Location' - The location of the Amazon S3 object.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GenerateChangeSetResponse' value with any optional fields omitted.
 mkGenerateChangeSetResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GenerateChangeSetResponse
-mkGenerateChangeSetResponse pResponseStatus_ =
+mkGenerateChangeSetResponse responseStatus =
   GenerateChangeSetResponse'
-    { s3Location = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { s3Location = Core.Nothing,
+      responseStatus
     }
 
 -- | The location of the Amazon S3 object.
 --
 -- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsrsS3Location :: Lens.Lens' GenerateChangeSetResponse (Lude.Maybe S3Location)
-gcsrsS3Location = Lens.lens (s3Location :: GenerateChangeSetResponse -> Lude.Maybe S3Location) (\s a -> s {s3Location = a} :: GenerateChangeSetResponse)
-{-# DEPRECATED gcsrsS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
+gcsrrsS3Location :: Lens.Lens' GenerateChangeSetResponse (Core.Maybe Types.S3Location)
+gcsrrsS3Location = Lens.field @"s3Location"
+{-# DEPRECATED gcsrrsS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcsrsResponseStatus :: Lens.Lens' GenerateChangeSetResponse Lude.Int
-gcsrsResponseStatus = Lens.lens (responseStatus :: GenerateChangeSetResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GenerateChangeSetResponse)
-{-# DEPRECATED gcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gcsrrsResponseStatus :: Lens.Lens' GenerateChangeSetResponse Core.Int
+gcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

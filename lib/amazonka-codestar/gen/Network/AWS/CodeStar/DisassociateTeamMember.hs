@@ -20,124 +20,107 @@ module Network.AWS.CodeStar.DisassociateTeamMember
     mkDisassociateTeamMember,
 
     -- ** Request lenses
-    dtmUserARN,
     dtmProjectId,
+    dtmUserArn,
 
     -- * Destructuring the response
     DisassociateTeamMemberResponse (..),
     mkDisassociateTeamMemberResponse,
 
     -- ** Response lenses
-    dtmrsResponseStatus,
+    dtmrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeStar.Types
+import qualified Network.AWS.CodeStar.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDisassociateTeamMember' smart constructor.
 data DisassociateTeamMember = DisassociateTeamMember'
-  { -- | The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
-    userARN :: Lude.Text,
-    -- | The ID of the AWS CodeStar project from which you want to remove a team member.
-    projectId :: Lude.Text
+  { -- | The ID of the AWS CodeStar project from which you want to remove a team member.
+    projectId :: Types.ProjectId,
+    -- | The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
+    userArn :: Types.UserArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateTeamMember' with the minimum fields required to make a request.
---
--- * 'userARN' - The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
--- * 'projectId' - The ID of the AWS CodeStar project from which you want to remove a team member.
+-- | Creates a 'DisassociateTeamMember' value with any optional fields omitted.
 mkDisassociateTeamMember ::
-  -- | 'userARN'
-  Lude.Text ->
   -- | 'projectId'
-  Lude.Text ->
+  Types.ProjectId ->
+  -- | 'userArn'
+  Types.UserArn ->
   DisassociateTeamMember
-mkDisassociateTeamMember pUserARN_ pProjectId_ =
-  DisassociateTeamMember'
-    { userARN = pUserARN_,
-      projectId = pProjectId_
-    }
-
--- | The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
---
--- /Note:/ Consider using 'userARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmUserARN :: Lens.Lens' DisassociateTeamMember Lude.Text
-dtmUserARN = Lens.lens (userARN :: DisassociateTeamMember -> Lude.Text) (\s a -> s {userARN = a} :: DisassociateTeamMember)
-{-# DEPRECATED dtmUserARN "Use generic-lens or generic-optics with 'userARN' instead." #-}
+mkDisassociateTeamMember projectId userArn =
+  DisassociateTeamMember' {projectId, userArn}
 
 -- | The ID of the AWS CodeStar project from which you want to remove a team member.
 --
 -- /Note:/ Consider using 'projectId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmProjectId :: Lens.Lens' DisassociateTeamMember Lude.Text
-dtmProjectId = Lens.lens (projectId :: DisassociateTeamMember -> Lude.Text) (\s a -> s {projectId = a} :: DisassociateTeamMember)
+dtmProjectId :: Lens.Lens' DisassociateTeamMember Types.ProjectId
+dtmProjectId = Lens.field @"projectId"
 {-# DEPRECATED dtmProjectId "Use generic-lens or generic-optics with 'projectId' instead." #-}
 
-instance Lude.AWSRequest DisassociateTeamMember where
+-- | The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
+--
+-- /Note:/ Consider using 'userArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtmUserArn :: Lens.Lens' DisassociateTeamMember Types.UserArn
+dtmUserArn = Lens.field @"userArn"
+{-# DEPRECATED dtmUserArn "Use generic-lens or generic-optics with 'userArn' instead." #-}
+
+instance Core.FromJSON DisassociateTeamMember where
+  toJSON DisassociateTeamMember {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("projectId" Core..= projectId),
+            Core.Just ("userArn" Core..= userArn)
+          ]
+      )
+
+instance Core.AWSRequest DisassociateTeamMember where
   type Rs DisassociateTeamMember = DisassociateTeamMemberResponse
-  request = Req.postJSON codeStarService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeStar_20170419.DisassociateTeamMember")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DisassociateTeamMemberResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisassociateTeamMember where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeStar_20170419.DisassociateTeamMember" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisassociateTeamMember where
-  toJSON DisassociateTeamMember' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("userArn" Lude..= userARN),
-            Lude.Just ("projectId" Lude..= projectId)
-          ]
-      )
-
-instance Lude.ToPath DisassociateTeamMember where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisassociateTeamMember where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDisassociateTeamMemberResponse' smart constructor.
 newtype DisassociateTeamMemberResponse = DisassociateTeamMemberResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisassociateTeamMemberResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisassociateTeamMemberResponse' value with any optional fields omitted.
 mkDisassociateTeamMemberResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisassociateTeamMemberResponse
-mkDisassociateTeamMemberResponse pResponseStatus_ =
-  DisassociateTeamMemberResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDisassociateTeamMemberResponse responseStatus =
+  DisassociateTeamMemberResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtmrsResponseStatus :: Lens.Lens' DisassociateTeamMemberResponse Lude.Int
-dtmrsResponseStatus = Lens.lens (responseStatus :: DisassociateTeamMemberResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisassociateTeamMemberResponse)
-{-# DEPRECATED dtmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtmrrsResponseStatus :: Lens.Lens' DisassociateTeamMemberResponse Core.Int
+dtmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

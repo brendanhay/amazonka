@@ -17,51 +17,42 @@ module Network.AWS.SDB.Types.DeletableItem
     mkDeletableItem,
 
     -- * Lenses
-    diAttributes,
     diName,
+    diAttributes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SDB.Types.Attribute
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SDB.Types.Attribute as Types
+import qualified Network.AWS.SDB.Types.String as Types
 
 -- | /See:/ 'mkDeletableItem' smart constructor.
 data DeletableItem = DeletableItem'
-  { attributes :: Lude.Maybe [Attribute],
-    name :: Lude.Text
+  { name :: Types.String,
+    attributes :: Core.Maybe [Types.Attribute]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletableItem' with the minimum fields required to make a request.
---
--- * 'attributes' -
--- * 'name' -
+-- | Creates a 'DeletableItem' value with any optional fields omitted.
 mkDeletableItem ::
   -- | 'name'
-  Lude.Text ->
+  Types.String ->
   DeletableItem
-mkDeletableItem pName_ =
-  DeletableItem' {attributes = Lude.Nothing, name = pName_}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diAttributes :: Lens.Lens' DeletableItem (Lude.Maybe [Attribute])
-diAttributes = Lens.lens (attributes :: DeletableItem -> Lude.Maybe [Attribute]) (\s a -> s {attributes = a} :: DeletableItem)
-{-# DEPRECATED diAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+mkDeletableItem name =
+  DeletableItem' {name, attributes = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diName :: Lens.Lens' DeletableItem Lude.Text
-diName = Lens.lens (name :: DeletableItem -> Lude.Text) (\s a -> s {name = a} :: DeletableItem)
+diName :: Lens.Lens' DeletableItem Types.String
+diName = Lens.field @"name"
 {-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToQuery DeletableItem where
-  toQuery DeletableItem' {..} =
-    Lude.mconcat
-      [ Lude.toQuery (Lude.toQueryList "Attribute" Lude.<$> attributes),
-        "ItemName" Lude.=: name
-      ]
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diAttributes :: Lens.Lens' DeletableItem (Core.Maybe [Types.Attribute])
+diAttributes = Lens.field @"attributes"
+{-# DEPRECATED diAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}

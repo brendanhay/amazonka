@@ -20,163 +20,145 @@ module Network.AWS.SSM.ModifyDocumentPermission
     mkModifyDocumentPermission,
 
     -- ** Request lenses
-    mdpSharedDocumentVersion,
-    mdpAccountIdsToAdd,
-    mdpPermissionType,
     mdpName,
+    mdpPermissionType,
+    mdpAccountIdsToAdd,
     mdpAccountIdsToRemove,
+    mdpSharedDocumentVersion,
 
     -- * Destructuring the response
     ModifyDocumentPermissionResponse (..),
     mkModifyDocumentPermissionResponse,
 
     -- ** Response lenses
-    mdprsResponseStatus,
+    mdprrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkModifyDocumentPermission' smart constructor.
 data ModifyDocumentPermission = ModifyDocumentPermission'
-  { -- | (Optional) The version of the document to share. If it's not specified, the system choose the @Default@ version to share.
-    sharedDocumentVersion :: Lude.Maybe Lude.Text,
-    -- | The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
-    accountIdsToAdd :: Lude.Maybe [Lude.Text],
+  { -- | The name of the document that you want to share.
+    name :: Types.Name,
     -- | The permission type for the document. The permission type can be /Share/ .
-    permissionType :: DocumentPermissionType,
-    -- | The name of the document that you want to share.
-    name :: Lude.Text,
+    permissionType :: Types.DocumentPermissionType,
+    -- | The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
+    accountIdsToAdd :: Core.Maybe [Types.AccountId],
     -- | The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
-    accountIdsToRemove :: Lude.Maybe [Lude.Text]
+    accountIdsToRemove :: Core.Maybe [Types.AccountId],
+    -- | (Optional) The version of the document to share. If it's not specified, the system choose the @Default@ version to share.
+    sharedDocumentVersion :: Core.Maybe Types.SharedDocumentVersion
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyDocumentPermission' with the minimum fields required to make a request.
---
--- * 'sharedDocumentVersion' - (Optional) The version of the document to share. If it's not specified, the system choose the @Default@ version to share.
--- * 'accountIdsToAdd' - The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
--- * 'permissionType' - The permission type for the document. The permission type can be /Share/ .
--- * 'name' - The name of the document that you want to share.
--- * 'accountIdsToRemove' - The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
+-- | Creates a 'ModifyDocumentPermission' value with any optional fields omitted.
 mkModifyDocumentPermission ::
-  -- | 'permissionType'
-  DocumentPermissionType ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'permissionType'
+  Types.DocumentPermissionType ->
   ModifyDocumentPermission
-mkModifyDocumentPermission pPermissionType_ pName_ =
+mkModifyDocumentPermission name permissionType =
   ModifyDocumentPermission'
-    { sharedDocumentVersion = Lude.Nothing,
-      accountIdsToAdd = Lude.Nothing,
-      permissionType = pPermissionType_,
-      name = pName_,
-      accountIdsToRemove = Lude.Nothing
+    { name,
+      permissionType,
+      accountIdsToAdd = Core.Nothing,
+      accountIdsToRemove = Core.Nothing,
+      sharedDocumentVersion = Core.Nothing
     }
-
--- | (Optional) The version of the document to share. If it's not specified, the system choose the @Default@ version to share.
---
--- /Note:/ Consider using 'sharedDocumentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdpSharedDocumentVersion :: Lens.Lens' ModifyDocumentPermission (Lude.Maybe Lude.Text)
-mdpSharedDocumentVersion = Lens.lens (sharedDocumentVersion :: ModifyDocumentPermission -> Lude.Maybe Lude.Text) (\s a -> s {sharedDocumentVersion = a} :: ModifyDocumentPermission)
-{-# DEPRECATED mdpSharedDocumentVersion "Use generic-lens or generic-optics with 'sharedDocumentVersion' instead." #-}
-
--- | The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
---
--- /Note:/ Consider using 'accountIdsToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdpAccountIdsToAdd :: Lens.Lens' ModifyDocumentPermission (Lude.Maybe [Lude.Text])
-mdpAccountIdsToAdd = Lens.lens (accountIdsToAdd :: ModifyDocumentPermission -> Lude.Maybe [Lude.Text]) (\s a -> s {accountIdsToAdd = a} :: ModifyDocumentPermission)
-{-# DEPRECATED mdpAccountIdsToAdd "Use generic-lens or generic-optics with 'accountIdsToAdd' instead." #-}
-
--- | The permission type for the document. The permission type can be /Share/ .
---
--- /Note:/ Consider using 'permissionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdpPermissionType :: Lens.Lens' ModifyDocumentPermission DocumentPermissionType
-mdpPermissionType = Lens.lens (permissionType :: ModifyDocumentPermission -> DocumentPermissionType) (\s a -> s {permissionType = a} :: ModifyDocumentPermission)
-{-# DEPRECATED mdpPermissionType "Use generic-lens or generic-optics with 'permissionType' instead." #-}
 
 -- | The name of the document that you want to share.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdpName :: Lens.Lens' ModifyDocumentPermission Lude.Text
-mdpName = Lens.lens (name :: ModifyDocumentPermission -> Lude.Text) (\s a -> s {name = a} :: ModifyDocumentPermission)
+mdpName :: Lens.Lens' ModifyDocumentPermission Types.Name
+mdpName = Lens.field @"name"
 {-# DEPRECATED mdpName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The permission type for the document. The permission type can be /Share/ .
+--
+-- /Note:/ Consider using 'permissionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdpPermissionType :: Lens.Lens' ModifyDocumentPermission Types.DocumentPermissionType
+mdpPermissionType = Lens.field @"permissionType"
+{-# DEPRECATED mdpPermissionType "Use generic-lens or generic-optics with 'permissionType' instead." #-}
+
+-- | The AWS user accounts that should have access to the document. The account IDs can either be a group of account IDs or /All/ .
+--
+-- /Note:/ Consider using 'accountIdsToAdd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdpAccountIdsToAdd :: Lens.Lens' ModifyDocumentPermission (Core.Maybe [Types.AccountId])
+mdpAccountIdsToAdd = Lens.field @"accountIdsToAdd"
+{-# DEPRECATED mdpAccountIdsToAdd "Use generic-lens or generic-optics with 'accountIdsToAdd' instead." #-}
 
 -- | The AWS user accounts that should no longer have access to the document. The AWS user account can either be a group of account IDs or /All/ . This action has a higher priority than /AccountIdsToAdd/ . If you specify an account ID to add and the same ID to remove, the system removes access to the document.
 --
 -- /Note:/ Consider using 'accountIdsToRemove' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdpAccountIdsToRemove :: Lens.Lens' ModifyDocumentPermission (Lude.Maybe [Lude.Text])
-mdpAccountIdsToRemove = Lens.lens (accountIdsToRemove :: ModifyDocumentPermission -> Lude.Maybe [Lude.Text]) (\s a -> s {accountIdsToRemove = a} :: ModifyDocumentPermission)
+mdpAccountIdsToRemove :: Lens.Lens' ModifyDocumentPermission (Core.Maybe [Types.AccountId])
+mdpAccountIdsToRemove = Lens.field @"accountIdsToRemove"
 {-# DEPRECATED mdpAccountIdsToRemove "Use generic-lens or generic-optics with 'accountIdsToRemove' instead." #-}
 
-instance Lude.AWSRequest ModifyDocumentPermission where
+-- | (Optional) The version of the document to share. If it's not specified, the system choose the @Default@ version to share.
+--
+-- /Note:/ Consider using 'sharedDocumentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mdpSharedDocumentVersion :: Lens.Lens' ModifyDocumentPermission (Core.Maybe Types.SharedDocumentVersion)
+mdpSharedDocumentVersion = Lens.field @"sharedDocumentVersion"
+{-# DEPRECATED mdpSharedDocumentVersion "Use generic-lens or generic-optics with 'sharedDocumentVersion' instead." #-}
+
+instance Core.FromJSON ModifyDocumentPermission where
+  toJSON ModifyDocumentPermission {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("PermissionType" Core..= permissionType),
+            ("AccountIdsToAdd" Core..=) Core.<$> accountIdsToAdd,
+            ("AccountIdsToRemove" Core..=) Core.<$> accountIdsToRemove,
+            ("SharedDocumentVersion" Core..=) Core.<$> sharedDocumentVersion
+          ]
+      )
+
+instance Core.AWSRequest ModifyDocumentPermission where
   type Rs ModifyDocumentPermission = ModifyDocumentPermissionResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.ModifyDocumentPermission")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           ModifyDocumentPermissionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ModifyDocumentPermission where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.ModifyDocumentPermission" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ModifyDocumentPermission where
-  toJSON ModifyDocumentPermission' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SharedDocumentVersion" Lude..=) Lude.<$> sharedDocumentVersion,
-            ("AccountIdsToAdd" Lude..=) Lude.<$> accountIdsToAdd,
-            Lude.Just ("PermissionType" Lude..= permissionType),
-            Lude.Just ("Name" Lude..= name),
-            ("AccountIdsToRemove" Lude..=) Lude.<$> accountIdsToRemove
-          ]
-      )
-
-instance Lude.ToPath ModifyDocumentPermission where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyDocumentPermission where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkModifyDocumentPermissionResponse' smart constructor.
 newtype ModifyDocumentPermissionResponse = ModifyDocumentPermissionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyDocumentPermissionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ModifyDocumentPermissionResponse' value with any optional fields omitted.
 mkModifyDocumentPermissionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ModifyDocumentPermissionResponse
-mkModifyDocumentPermissionResponse pResponseStatus_ =
-  ModifyDocumentPermissionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkModifyDocumentPermissionResponse responseStatus =
+  ModifyDocumentPermissionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mdprsResponseStatus :: Lens.Lens' ModifyDocumentPermissionResponse Lude.Int
-mdprsResponseStatus = Lens.lens (responseStatus :: ModifyDocumentPermissionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ModifyDocumentPermissionResponse)
-{-# DEPRECATED mdprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+mdprrsResponseStatus :: Lens.Lens' ModifyDocumentPermissionResponse Core.Int
+mdprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED mdprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

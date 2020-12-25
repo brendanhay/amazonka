@@ -13,71 +13,76 @@
 module Network.AWS.Pinpoint.Types.CampaignStatus
   ( CampaignStatus
       ( CampaignStatus',
-        Scheduled,
-        Executing,
-        PendingNextRun,
-        Completed,
-        Paused,
-        Deleted,
-        Invalid
+        CampaignStatusScheduled,
+        CampaignStatusExecuting,
+        CampaignStatusPendingNextRun,
+        CampaignStatusCompleted,
+        CampaignStatusPaused,
+        CampaignStatusDeleted,
+        CampaignStatusInvalid,
+        fromCampaignStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CampaignStatus = CampaignStatus' Lude.Text
+newtype CampaignStatus = CampaignStatus'
+  { fromCampaignStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Scheduled :: CampaignStatus
-pattern Scheduled = CampaignStatus' "SCHEDULED"
+pattern CampaignStatusScheduled :: CampaignStatus
+pattern CampaignStatusScheduled = CampaignStatus' "SCHEDULED"
 
-pattern Executing :: CampaignStatus
-pattern Executing = CampaignStatus' "EXECUTING"
+pattern CampaignStatusExecuting :: CampaignStatus
+pattern CampaignStatusExecuting = CampaignStatus' "EXECUTING"
 
-pattern PendingNextRun :: CampaignStatus
-pattern PendingNextRun = CampaignStatus' "PENDING_NEXT_RUN"
+pattern CampaignStatusPendingNextRun :: CampaignStatus
+pattern CampaignStatusPendingNextRun = CampaignStatus' "PENDING_NEXT_RUN"
 
-pattern Completed :: CampaignStatus
-pattern Completed = CampaignStatus' "COMPLETED"
+pattern CampaignStatusCompleted :: CampaignStatus
+pattern CampaignStatusCompleted = CampaignStatus' "COMPLETED"
 
-pattern Paused :: CampaignStatus
-pattern Paused = CampaignStatus' "PAUSED"
+pattern CampaignStatusPaused :: CampaignStatus
+pattern CampaignStatusPaused = CampaignStatus' "PAUSED"
 
-pattern Deleted :: CampaignStatus
-pattern Deleted = CampaignStatus' "DELETED"
+pattern CampaignStatusDeleted :: CampaignStatus
+pattern CampaignStatusDeleted = CampaignStatus' "DELETED"
 
-pattern Invalid :: CampaignStatus
-pattern Invalid = CampaignStatus' "INVALID"
+pattern CampaignStatusInvalid :: CampaignStatus
+pattern CampaignStatusInvalid = CampaignStatus' "INVALID"
 
 {-# COMPLETE
-  Scheduled,
-  Executing,
-  PendingNextRun,
-  Completed,
-  Paused,
-  Deleted,
-  Invalid,
+  CampaignStatusScheduled,
+  CampaignStatusExecuting,
+  CampaignStatusPendingNextRun,
+  CampaignStatusCompleted,
+  CampaignStatusPaused,
+  CampaignStatusDeleted,
+  CampaignStatusInvalid,
   CampaignStatus'
   #-}

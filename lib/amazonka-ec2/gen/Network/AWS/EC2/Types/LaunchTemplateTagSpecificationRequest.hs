@@ -22,53 +22,43 @@ module Network.AWS.EC2.Types.LaunchTemplateTagSpecificationRequest
   )
 where
 
-import Network.AWS.EC2.Types.ResourceType
-import Network.AWS.EC2.Types.Tag
+import qualified Network.AWS.EC2.Types.ResourceType as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The tags specification for the launch template.
 --
 -- /See:/ 'mkLaunchTemplateTagSpecificationRequest' smart constructor.
 data LaunchTemplateTagSpecificationRequest = LaunchTemplateTagSpecificationRequest'
   { -- | The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ . To tag a resource after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
-    resourceType :: Lude.Maybe ResourceType,
+    resourceType :: Core.Maybe Types.ResourceType,
     -- | The tags to apply to the resource.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplateTagSpecificationRequest' with the minimum fields required to make a request.
---
--- * 'resourceType' - The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ . To tag a resource after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
--- * 'tags' - The tags to apply to the resource.
+-- | Creates a 'LaunchTemplateTagSpecificationRequest' value with any optional fields omitted.
 mkLaunchTemplateTagSpecificationRequest ::
   LaunchTemplateTagSpecificationRequest
 mkLaunchTemplateTagSpecificationRequest =
   LaunchTemplateTagSpecificationRequest'
     { resourceType =
-        Lude.Nothing,
-      tags = Lude.Nothing
+        Core.Nothing,
+      tags = Core.Nothing
     }
 
 -- | The type of resource to tag. Currently, the resource types that support tagging on creation are @instance@ and @volume@ . To tag a resource after it has been created, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html CreateTags> .
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lttsrResourceType :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Lude.Maybe ResourceType)
-lttsrResourceType = Lens.lens (resourceType :: LaunchTemplateTagSpecificationRequest -> Lude.Maybe ResourceType) (\s a -> s {resourceType = a} :: LaunchTemplateTagSpecificationRequest)
+lttsrResourceType :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Core.Maybe Types.ResourceType)
+lttsrResourceType = Lens.field @"resourceType"
 {-# DEPRECATED lttsrResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
 -- | The tags to apply to the resource.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lttsrTags :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Lude.Maybe [Tag])
-lttsrTags = Lens.lens (tags :: LaunchTemplateTagSpecificationRequest -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: LaunchTemplateTagSpecificationRequest)
+lttsrTags :: Lens.Lens' LaunchTemplateTagSpecificationRequest (Core.Maybe [Types.Tag])
+lttsrTags = Lens.field @"tags"
 {-# DEPRECATED lttsrTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
-instance Lude.ToQuery LaunchTemplateTagSpecificationRequest where
-  toQuery LaunchTemplateTagSpecificationRequest' {..} =
-    Lude.mconcat
-      [ "ResourceType" Lude.=: resourceType,
-        Lude.toQuery (Lude.toQueryList "Tag" Lude.<$> tags)
-      ]

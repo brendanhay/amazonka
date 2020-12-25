@@ -17,61 +17,55 @@ module Network.AWS.KinesisVideoArchivedMedia.Types.TimestampRange
     mkTimestampRange,
 
     -- * Lenses
-    trEndTimestamp,
     trStartTimestamp,
+    trEndTimestamp,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The range of timestamps for which to return fragments.
 --
 -- /See:/ 'mkTimestampRange' smart constructor.
 data TimestampRange = TimestampRange'
-  { -- | The ending timestamp in the range of timestamps for which to return fragments.
-    endTimestamp :: Lude.Timestamp,
-    -- | The starting timestamp in the range of timestamps for which to return fragments.
-    startTimestamp :: Lude.Timestamp
+  { -- | The starting timestamp in the range of timestamps for which to return fragments.
+    startTimestamp :: Core.NominalDiffTime,
+    -- | The ending timestamp in the range of timestamps for which to return fragments.
+    endTimestamp :: Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TimestampRange' with the minimum fields required to make a request.
---
--- * 'endTimestamp' - The ending timestamp in the range of timestamps for which to return fragments.
--- * 'startTimestamp' - The starting timestamp in the range of timestamps for which to return fragments.
+-- | Creates a 'TimestampRange' value with any optional fields omitted.
 mkTimestampRange ::
-  -- | 'endTimestamp'
-  Lude.Timestamp ->
   -- | 'startTimestamp'
-  Lude.Timestamp ->
+  Core.NominalDiffTime ->
+  -- | 'endTimestamp'
+  Core.NominalDiffTime ->
   TimestampRange
-mkTimestampRange pEndTimestamp_ pStartTimestamp_ =
-  TimestampRange'
-    { endTimestamp = pEndTimestamp_,
-      startTimestamp = pStartTimestamp_
-    }
-
--- | The ending timestamp in the range of timestamps for which to return fragments.
---
--- /Note:/ Consider using 'endTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trEndTimestamp :: Lens.Lens' TimestampRange Lude.Timestamp
-trEndTimestamp = Lens.lens (endTimestamp :: TimestampRange -> Lude.Timestamp) (\s a -> s {endTimestamp = a} :: TimestampRange)
-{-# DEPRECATED trEndTimestamp "Use generic-lens or generic-optics with 'endTimestamp' instead." #-}
+mkTimestampRange startTimestamp endTimestamp =
+  TimestampRange' {startTimestamp, endTimestamp}
 
 -- | The starting timestamp in the range of timestamps for which to return fragments.
 --
 -- /Note:/ Consider using 'startTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trStartTimestamp :: Lens.Lens' TimestampRange Lude.Timestamp
-trStartTimestamp = Lens.lens (startTimestamp :: TimestampRange -> Lude.Timestamp) (\s a -> s {startTimestamp = a} :: TimestampRange)
+trStartTimestamp :: Lens.Lens' TimestampRange Core.NominalDiffTime
+trStartTimestamp = Lens.field @"startTimestamp"
 {-# DEPRECATED trStartTimestamp "Use generic-lens or generic-optics with 'startTimestamp' instead." #-}
 
-instance Lude.ToJSON TimestampRange where
-  toJSON TimestampRange' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("EndTimestamp" Lude..= endTimestamp),
-            Lude.Just ("StartTimestamp" Lude..= startTimestamp)
+-- | The ending timestamp in the range of timestamps for which to return fragments.
+--
+-- /Note:/ Consider using 'endTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trEndTimestamp :: Lens.Lens' TimestampRange Core.NominalDiffTime
+trEndTimestamp = Lens.field @"endTimestamp"
+{-# DEPRECATED trEndTimestamp "Use generic-lens or generic-optics with 'endTimestamp' instead." #-}
+
+instance Core.FromJSON TimestampRange where
+  toJSON TimestampRange {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("StartTimestamp" Core..= startTimestamp),
+            Core.Just ("EndTimestamp" Core..= endTimestamp)
           ]
       )

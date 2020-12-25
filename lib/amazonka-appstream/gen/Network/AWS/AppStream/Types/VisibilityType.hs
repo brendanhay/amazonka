@@ -13,51 +13,56 @@
 module Network.AWS.AppStream.Types.VisibilityType
   ( VisibilityType
       ( VisibilityType',
-        Public,
-        Private,
-        Shared
+        VisibilityTypePublic,
+        VisibilityTypePrivate,
+        VisibilityTypeShared,
+        fromVisibilityType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype VisibilityType = VisibilityType' Lude.Text
+newtype VisibilityType = VisibilityType'
+  { fromVisibilityType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Public :: VisibilityType
-pattern Public = VisibilityType' "PUBLIC"
+pattern VisibilityTypePublic :: VisibilityType
+pattern VisibilityTypePublic = VisibilityType' "PUBLIC"
 
-pattern Private :: VisibilityType
-pattern Private = VisibilityType' "PRIVATE"
+pattern VisibilityTypePrivate :: VisibilityType
+pattern VisibilityTypePrivate = VisibilityType' "PRIVATE"
 
-pattern Shared :: VisibilityType
-pattern Shared = VisibilityType' "SHARED"
+pattern VisibilityTypeShared :: VisibilityType
+pattern VisibilityTypeShared = VisibilityType' "SHARED"
 
 {-# COMPLETE
-  Public,
-  Private,
-  Shared,
+  VisibilityTypePublic,
+  VisibilityTypePrivate,
+  VisibilityTypeShared,
   VisibilityType'
   #-}

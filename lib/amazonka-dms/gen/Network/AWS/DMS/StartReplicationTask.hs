@@ -22,89 +22,85 @@ module Network.AWS.DMS.StartReplicationTask
     mkStartReplicationTask,
 
     -- ** Request lenses
-    srtCdcStartPosition,
-    srtReplicationTaskARN,
-    srtCdcStopPosition,
+    srtReplicationTaskArn,
     srtStartReplicationTaskType,
+    srtCdcStartPosition,
     srtCdcStartTime,
+    srtCdcStopPosition,
 
     -- * Destructuring the response
     StartReplicationTaskResponse (..),
     mkStartReplicationTaskResponse,
 
     -- ** Response lenses
-    srtrsReplicationTask,
-    srtrsResponseStatus,
+    srtrrsReplicationTask,
+    srtrrsResponseStatus,
   )
 where
 
-import Network.AWS.DMS.Types
+import qualified Network.AWS.DMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkStartReplicationTask' smart constructor.
 data StartReplicationTask = StartReplicationTask'
-  { -- | Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
+  { -- | The Amazon Resource Name (ARN) of the replication task to be started.
+    replicationTaskArn :: Types.ReplicationTaskArn,
+    -- | A type of replication task.
+    startReplicationTaskType :: Types.StartReplicationTaskTypeValue,
+    -- | Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
     --
     -- The value can be in date, checkpoint, or LSN/SCN format.
     -- Date Example: --cdc-start-position “2018-03-08T12:12:12”
     -- Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
     -- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
-    cdcStartPosition :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the replication task to be started.
-    replicationTaskARN :: Lude.Text,
+    cdcStartPosition :: Core.Maybe Types.CdcStartPosition,
+    -- | Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
+    --
+    -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+    cdcStartTime :: Core.Maybe Core.NominalDiffTime,
     -- | Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.
     --
     -- Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”
     -- Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
-    cdcStopPosition :: Lude.Maybe Lude.Text,
-    -- | A type of replication task.
-    startReplicationTaskType :: StartReplicationTaskTypeValue,
-    -- | Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
-    --
-    -- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
-    cdcStartTime :: Lude.Maybe Lude.Timestamp
+    cdcStopPosition :: Core.Maybe Types.CdcStopPosition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StartReplicationTask' with the minimum fields required to make a request.
---
--- * 'cdcStartPosition' - Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
---
--- The value can be in date, checkpoint, or LSN/SCN format.
--- Date Example: --cdc-start-position “2018-03-08T12:12:12”
--- Checkpoint Example: --cdc-start-position "checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93"
--- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
--- * 'replicationTaskARN' - The Amazon Resource Name (ARN) of the replication task to be started.
--- * 'cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.
---
--- Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”
--- Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
--- * 'startReplicationTaskType' - A type of replication task.
--- * 'cdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
---
--- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+-- | Creates a 'StartReplicationTask' value with any optional fields omitted.
 mkStartReplicationTask ::
-  -- | 'replicationTaskARN'
-  Lude.Text ->
+  -- | 'replicationTaskArn'
+  Types.ReplicationTaskArn ->
   -- | 'startReplicationTaskType'
-  StartReplicationTaskTypeValue ->
+  Types.StartReplicationTaskTypeValue ->
   StartReplicationTask
-mkStartReplicationTask
-  pReplicationTaskARN_
-  pStartReplicationTaskType_ =
-    StartReplicationTask'
-      { cdcStartPosition = Lude.Nothing,
-        replicationTaskARN = pReplicationTaskARN_,
-        cdcStopPosition = Lude.Nothing,
-        startReplicationTaskType = pStartReplicationTaskType_,
-        cdcStartTime = Lude.Nothing
-      }
+mkStartReplicationTask replicationTaskArn startReplicationTaskType =
+  StartReplicationTask'
+    { replicationTaskArn,
+      startReplicationTaskType,
+      cdcStartPosition = Core.Nothing,
+      cdcStartTime = Core.Nothing,
+      cdcStopPosition = Core.Nothing
+    }
+
+-- | The Amazon Resource Name (ARN) of the replication task to be started.
+--
+-- /Note:/ Consider using 'replicationTaskArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtReplicationTaskArn :: Lens.Lens' StartReplicationTask Types.ReplicationTaskArn
+srtReplicationTaskArn = Lens.field @"replicationTaskArn"
+{-# DEPRECATED srtReplicationTaskArn "Use generic-lens or generic-optics with 'replicationTaskArn' instead." #-}
+
+-- | A type of replication task.
+--
+-- /Note:/ Consider using 'startReplicationTaskType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtStartReplicationTaskType :: Lens.Lens' StartReplicationTask Types.StartReplicationTaskTypeValue
+srtStartReplicationTaskType = Lens.field @"startReplicationTaskType"
+{-# DEPRECATED srtStartReplicationTaskType "Use generic-lens or generic-optics with 'startReplicationTaskType' instead." #-}
 
 -- | Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error.
 --
@@ -114,16 +110,18 @@ mkStartReplicationTask
 -- LSN Example: --cdc-start-position “mysql-bin-changelog.000024:373”
 --
 -- /Note:/ Consider using 'cdcStartPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srtCdcStartPosition :: Lens.Lens' StartReplicationTask (Lude.Maybe Lude.Text)
-srtCdcStartPosition = Lens.lens (cdcStartPosition :: StartReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {cdcStartPosition = a} :: StartReplicationTask)
+srtCdcStartPosition :: Lens.Lens' StartReplicationTask (Core.Maybe Types.CdcStartPosition)
+srtCdcStartPosition = Lens.field @"cdcStartPosition"
 {-# DEPRECATED srtCdcStartPosition "Use generic-lens or generic-optics with 'cdcStartPosition' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the replication task to be started.
+-- | Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
 --
--- /Note:/ Consider using 'replicationTaskARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srtReplicationTaskARN :: Lens.Lens' StartReplicationTask Lude.Text
-srtReplicationTaskARN = Lens.lens (replicationTaskARN :: StartReplicationTask -> Lude.Text) (\s a -> s {replicationTaskARN = a} :: StartReplicationTask)
-{-# DEPRECATED srtReplicationTaskARN "Use generic-lens or generic-optics with 'replicationTaskARN' instead." #-}
+-- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
+--
+-- /Note:/ Consider using 'cdcStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+srtCdcStartTime :: Lens.Lens' StartReplicationTask (Core.Maybe Core.NominalDiffTime)
+srtCdcStartTime = Lens.field @"cdcStartTime"
+{-# DEPRECATED srtCdcStartTime "Use generic-lens or generic-optics with 'cdcStartTime' instead." #-}
 
 -- | Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time.
 --
@@ -131,103 +129,78 @@ srtReplicationTaskARN = Lens.lens (replicationTaskARN :: StartReplicationTask ->
 -- Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12 “
 --
 -- /Note:/ Consider using 'cdcStopPosition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srtCdcStopPosition :: Lens.Lens' StartReplicationTask (Lude.Maybe Lude.Text)
-srtCdcStopPosition = Lens.lens (cdcStopPosition :: StartReplicationTask -> Lude.Maybe Lude.Text) (\s a -> s {cdcStopPosition = a} :: StartReplicationTask)
+srtCdcStopPosition :: Lens.Lens' StartReplicationTask (Core.Maybe Types.CdcStopPosition)
+srtCdcStopPosition = Lens.field @"cdcStopPosition"
 {-# DEPRECATED srtCdcStopPosition "Use generic-lens or generic-optics with 'cdcStopPosition' instead." #-}
 
--- | A type of replication task.
---
--- /Note:/ Consider using 'startReplicationTaskType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srtStartReplicationTaskType :: Lens.Lens' StartReplicationTask StartReplicationTaskTypeValue
-srtStartReplicationTaskType = Lens.lens (startReplicationTaskType :: StartReplicationTask -> StartReplicationTaskTypeValue) (\s a -> s {startReplicationTaskType = a} :: StartReplicationTask)
-{-# DEPRECATED srtStartReplicationTaskType "Use generic-lens or generic-optics with 'startReplicationTaskType' instead." #-}
+instance Core.FromJSON StartReplicationTask where
+  toJSON StartReplicationTask {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ReplicationTaskArn" Core..= replicationTaskArn),
+            Core.Just
+              ("StartReplicationTaskType" Core..= startReplicationTaskType),
+            ("CdcStartPosition" Core..=) Core.<$> cdcStartPosition,
+            ("CdcStartTime" Core..=) Core.<$> cdcStartTime,
+            ("CdcStopPosition" Core..=) Core.<$> cdcStopPosition
+          ]
+      )
 
--- | Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error.
---
--- Timestamp Example: --cdc-start-time “2018-03-08T12:12:12”
---
--- /Note:/ Consider using 'cdcStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srtCdcStartTime :: Lens.Lens' StartReplicationTask (Lude.Maybe Lude.Timestamp)
-srtCdcStartTime = Lens.lens (cdcStartTime :: StartReplicationTask -> Lude.Maybe Lude.Timestamp) (\s a -> s {cdcStartTime = a} :: StartReplicationTask)
-{-# DEPRECATED srtCdcStartTime "Use generic-lens or generic-optics with 'cdcStartTime' instead." #-}
-
-instance Lude.AWSRequest StartReplicationTask where
+instance Core.AWSRequest StartReplicationTask where
   type Rs StartReplicationTask = StartReplicationTaskResponse
-  request = Req.postJSON dmsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AmazonDMSv20160101.StartReplicationTask")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           StartReplicationTaskResponse'
-            Lude.<$> (x Lude..?> "ReplicationTask")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ReplicationTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartReplicationTask where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonDMSv20160101.StartReplicationTask" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartReplicationTask where
-  toJSON StartReplicationTask' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CdcStartPosition" Lude..=) Lude.<$> cdcStartPosition,
-            Lude.Just ("ReplicationTaskArn" Lude..= replicationTaskARN),
-            ("CdcStopPosition" Lude..=) Lude.<$> cdcStopPosition,
-            Lude.Just
-              ("StartReplicationTaskType" Lude..= startReplicationTaskType),
-            ("CdcStartTime" Lude..=) Lude.<$> cdcStartTime
-          ]
-      )
-
-instance Lude.ToPath StartReplicationTask where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartReplicationTask where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkStartReplicationTaskResponse' smart constructor.
 data StartReplicationTaskResponse = StartReplicationTaskResponse'
   { -- | The replication task started.
-    replicationTask :: Lude.Maybe ReplicationTask,
+    replicationTask :: Core.Maybe Types.ReplicationTask,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'StartReplicationTaskResponse' with the minimum fields required to make a request.
---
--- * 'replicationTask' - The replication task started.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartReplicationTaskResponse' value with any optional fields omitted.
 mkStartReplicationTaskResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartReplicationTaskResponse
-mkStartReplicationTaskResponse pResponseStatus_ =
+mkStartReplicationTaskResponse responseStatus =
   StartReplicationTaskResponse'
-    { replicationTask = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { replicationTask = Core.Nothing,
+      responseStatus
     }
 
 -- | The replication task started.
 --
 -- /Note:/ Consider using 'replicationTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srtrsReplicationTask :: Lens.Lens' StartReplicationTaskResponse (Lude.Maybe ReplicationTask)
-srtrsReplicationTask = Lens.lens (replicationTask :: StartReplicationTaskResponse -> Lude.Maybe ReplicationTask) (\s a -> s {replicationTask = a} :: StartReplicationTaskResponse)
-{-# DEPRECATED srtrsReplicationTask "Use generic-lens or generic-optics with 'replicationTask' instead." #-}
+srtrrsReplicationTask :: Lens.Lens' StartReplicationTaskResponse (Core.Maybe Types.ReplicationTask)
+srtrrsReplicationTask = Lens.field @"replicationTask"
+{-# DEPRECATED srtrrsReplicationTask "Use generic-lens or generic-optics with 'replicationTask' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srtrsResponseStatus :: Lens.Lens' StartReplicationTaskResponse Lude.Int
-srtrsResponseStatus = Lens.lens (responseStatus :: StartReplicationTaskResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartReplicationTaskResponse)
-{-# DEPRECATED srtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srtrrsResponseStatus :: Lens.Lens' StartReplicationTaskResponse Core.Int
+srtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

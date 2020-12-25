@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,49 @@
 -- This is the /AWS Shield Advanced API Reference/ . This guide is for developers who need detailed information about the AWS Shield Advanced API actions, data types, and errors. For detailed information about AWS WAF and AWS Shield Advanced features and an overview of how to use the AWS WAF and AWS Shield Advanced APIs, see the <https://docs.aws.amazon.com/waf/latest/developerguide/ AWS WAF and AWS Shield Developer Guide> .
 module Network.AWS.Shield
   ( -- * Service configuration
-    shieldService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidResourceException
+    _InvalidResourceException,
+
+    -- ** AccessDeniedException
+    _AccessDeniedException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** LimitsExceededException
+    _LimitsExceededException,
+
+    -- ** InternalErrorException
+    _InternalErrorException,
+
+    -- ** ResourceAlreadyExistsException
+    _ResourceAlreadyExistsException,
+
+    -- ** OptimisticLockException
+    _OptimisticLockException,
+
+    -- ** NoAssociatedRoleException
+    _NoAssociatedRoleException,
+
+    -- ** AccessDeniedForDependencyException
+    _AccessDeniedForDependencyException,
+
+    -- ** InvalidOperationException
+    _InvalidOperationException,
+
+    -- ** LockedSubscriptionException
+    _LockedSubscriptionException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidPaginationTokenException
+    _InvalidPaginationTokenException,
 
     -- * Waiters
     -- $waiters
@@ -116,134 +154,11 @@ module Network.AWS.Shield
 
     -- * Types
 
-    -- ** AttackLayer
-    AttackLayer (..),
-
-    -- ** AttackPropertyIdentifier
-    AttackPropertyIdentifier (..),
-
-    -- ** AutoRenew
-    AutoRenew (..),
-
-    -- ** ProactiveEngagementStatus
-    ProactiveEngagementStatus (..),
-
-    -- ** ProtectedResourceType
-    ProtectedResourceType (..),
-
-    -- ** ProtectionGroupAggregation
-    ProtectionGroupAggregation (..),
-
-    -- ** ProtectionGroupPattern
-    ProtectionGroupPattern (..),
-
-    -- ** SubResourceType
-    SubResourceType (..),
-
     -- ** SubscriptionState
     SubscriptionState (..),
 
-    -- ** Unit
-    Unit (..),
-
-    -- ** AttackDetail
-    AttackDetail (..),
-    mkAttackDetail,
-    adAttackId,
-    adStartTime,
-    adSubResources,
-    adMitigations,
-    adAttackProperties,
-    adAttackCounters,
-    adResourceARN,
-    adEndTime,
-
-    -- ** AttackProperty
-    AttackProperty (..),
-    mkAttackProperty,
-    apAttackLayer,
-    apTopContributors,
-    apAttackPropertyIdentifier,
-    apTotal,
-    apUnit,
-
-    -- ** AttackStatisticsDataItem
-    AttackStatisticsDataItem (..),
-    mkAttackStatisticsDataItem,
-    asdiAttackVolume,
-    asdiAttackCount,
-
-    -- ** AttackSummary
-    AttackSummary (..),
-    mkAttackSummary,
-    asAttackVectors,
-    asAttackId,
-    asStartTime,
-    asResourceARN,
-    asEndTime,
-
-    -- ** AttackVectorDescription
-    AttackVectorDescription (..),
-    mkAttackVectorDescription,
-    avdVectorType,
-
-    -- ** AttackVolume
-    AttackVolume (..),
-    mkAttackVolume,
-    avPacketsPerSecond,
-    avRequestsPerSecond,
-    avBitsPerSecond,
-
-    -- ** AttackVolumeStatistics
-    AttackVolumeStatistics (..),
-    mkAttackVolumeStatistics,
-    avsMax,
-
-    -- ** Contributor
-    Contributor (..),
-    mkContributor,
-    cValue,
-    cName,
-
-    -- ** EmergencyContact
-    EmergencyContact (..),
-    mkEmergencyContact,
-    ecPhoneNumber,
-    ecEmailAddress,
-    ecContactNotes,
-
-    -- ** Limit
-    Limit (..),
-    mkLimit,
-    lMax,
-    lType,
-
-    -- ** Mitigation
-    Mitigation (..),
-    mkMitigation,
-    mMitigationName,
-
-    -- ** Protection
-    Protection (..),
-    mkProtection,
-    pHealthCheckIds,
-    pResourceARN,
-    pName,
-    pId,
-
-    -- ** ProtectionGroup
-    ProtectionGroup (..),
-    mkProtectionGroup,
-    pgResourceType,
-    pgPattern,
-    pgMembers,
-    pgProtectionGroupId,
-    pgAggregation,
-
-    -- ** ProtectionGroupArbitraryPatternLimits
-    ProtectionGroupArbitraryPatternLimits (..),
-    mkProtectionGroupArbitraryPatternLimits,
-    pgaplMaxMembers,
+    -- ** HealthCheckArn
+    HealthCheckArn (..),
 
     -- ** ProtectionGroupLimits
     ProtectionGroupLimits (..),
@@ -251,72 +166,241 @@ module Network.AWS.Shield
     pglMaxProtectionGroups,
     pglPatternTypeLimits,
 
-    -- ** ProtectionGroupPatternTypeLimits
-    ProtectionGroupPatternTypeLimits (..),
-    mkProtectionGroupPatternTypeLimits,
-    pgptlArbitraryPatternLimits,
-
-    -- ** ProtectionLimits
-    ProtectionLimits (..),
-    mkProtectionLimits,
-    plProtectedResourceTypeLimits,
-
-    -- ** SubResourceSummary
-    SubResourceSummary (..),
-    mkSubResourceSummary,
-    srsCounters,
-    srsAttackVectors,
-    srsId,
-    srsType,
-
-    -- ** Subscription
-    Subscription (..),
-    mkSubscription,
-    sTimeCommitmentInSeconds,
-    sSubscriptionLimits,
-    sStartTime,
-    sLimits,
-    sAutoRenew,
-    sEndTime,
-    sProactiveEngagementStatus,
-
-    -- ** SubscriptionLimits
-    SubscriptionLimits (..),
-    mkSubscriptionLimits,
-    slProtectionGroupLimits,
-    slProtectionLimits,
-
-    -- ** SummarizedAttackVector
-    SummarizedAttackVector (..),
-    mkSummarizedAttackVector,
-    savVectorCounters,
-    savVectorType,
-
-    -- ** SummarizedCounter
-    SummarizedCounter (..),
-    mkSummarizedCounter,
-    scMax,
-    scAverage,
-    scN,
-    scName,
-    scSum,
-    scUnit,
-
     -- ** TimeRange
     TimeRange (..),
     mkTimeRange,
     trFromInclusive,
     trToExclusive,
 
+    -- ** AttackId
+    AttackId (..),
+
+    -- ** AttackVolumeStatistics
+    AttackVolumeStatistics (..),
+    mkAttackVolumeStatistics,
+    avsMax,
+
+    -- ** SubscriptionLimits
+    SubscriptionLimits (..),
+    mkSubscriptionLimits,
+    slProtectionLimits,
+    slProtectionGroupLimits,
+
+    -- ** String
+    String (..),
+
+    -- ** ProtectionGroupAggregation
+    ProtectionGroupAggregation (..),
+
+    -- ** ProtectedResourceType
+    ProtectedResourceType (..),
+
+    -- ** Token
+    Token (..),
+
+    -- ** AttackLayer
+    AttackLayer (..),
+
+    -- ** Protection
+    Protection (..),
+    mkProtection,
+    pHealthCheckIds,
+    pId,
+    pName,
+    pResourceArn,
+
+    -- ** Mitigation
+    Mitigation (..),
+    mkMitigation,
+    mMitigationName,
+
+    -- ** ProtectionId
+    ProtectionId (..),
+
+    -- ** SummarizedAttackVector
+    SummarizedAttackVector (..),
+    mkSummarizedAttackVector,
+    savVectorType,
+    savVectorCounters,
+
+    -- ** AttackDetail
+    AttackDetail (..),
+    mkAttackDetail,
+    adAttackCounters,
+    adAttackId,
+    adAttackProperties,
+    adEndTime,
+    adMitigations,
+    adResourceArn,
+    adStartTime,
+    adSubResources,
+
+    -- ** ProtectionGroupId
+    ProtectionGroupId (..),
+
+    -- ** AttackPropertyIdentifier
+    AttackPropertyIdentifier (..),
+
+    -- ** AutoRenew
+    AutoRenew (..),
+
+    -- ** AttackSummary
+    AttackSummary (..),
+    mkAttackSummary,
+    asAttackId,
+    asAttackVectors,
+    asEndTime,
+    asResourceArn,
+    asStartTime,
+
+    -- ** ProtectionGroup
+    ProtectionGroup (..),
+    mkProtectionGroup,
+    pgProtectionGroupId,
+    pgAggregation,
+    pgPattern,
+    pgMembers,
+    pgResourceType,
+
+    -- ** ProtectionGroupPattern
+    ProtectionGroupPattern (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
+
+    -- ** PhoneNumber
+    PhoneNumber (..),
+
+    -- ** AttackProperty
+    AttackProperty (..),
+    mkAttackProperty,
+    apAttackLayer,
+    apAttackPropertyIdentifier,
+    apTopContributors,
+    apTotal,
+    apUnit,
+
+    -- ** AttackVectorDescription
+    AttackVectorDescription (..),
+    mkAttackVectorDescription,
+    avdVectorType,
+
+    -- ** HealthCheckId
+    HealthCheckId (..),
+
+    -- ** LogBucket
+    LogBucket (..),
+
+    -- ** EmailAddress
+    EmailAddress (..),
+
+    -- ** ProtectionGroupPatternTypeLimits
+    ProtectionGroupPatternTypeLimits (..),
+    mkProtectionGroupPatternTypeLimits,
+    pgptlArbitraryPatternLimits,
+
+    -- ** SubResourceSummary
+    SubResourceSummary (..),
+    mkSubResourceSummary,
+    srsAttackVectors,
+    srsCounters,
+    srsId,
+    srsType,
+
+    -- ** Limit
+    Limit (..),
+    mkLimit,
+    lMax,
+    lType,
+
+    -- ** ProtectionLimits
+    ProtectionLimits (..),
+    mkProtectionLimits,
+    plProtectedResourceTypeLimits,
+
+    -- ** AttackVolume
+    AttackVolume (..),
+    mkAttackVolume,
+    avBitsPerSecond,
+    avPacketsPerSecond,
+    avRequestsPerSecond,
+
+    -- ** ProactiveEngagementStatus
+    ProactiveEngagementStatus (..),
+
+    -- ** AttackStatisticsDataItem
+    AttackStatisticsDataItem (..),
+    mkAttackStatisticsDataItem,
+    asdiAttackCount,
+    asdiAttackVolume,
+
+    -- ** SummarizedCounter
+    SummarizedCounter (..),
+    mkSummarizedCounter,
+    scAverage,
+    scMax,
+    scN,
+    scName,
+    scSum,
+    scUnit,
+
+    -- ** ContactNotes
+    ContactNotes (..),
+
+    -- ** Subscription
+    Subscription (..),
+    mkSubscription,
+    sSubscriptionLimits,
+    sAutoRenew,
+    sEndTime,
+    sLimits,
+    sProactiveEngagementStatus,
+    sStartTime,
+    sTimeCommitmentInSeconds,
+
+    -- ** Contributor
+    Contributor (..),
+    mkContributor,
+    cName,
+    cValue,
+
+    -- ** SubResourceType
+    SubResourceType (..),
+
+    -- ** Unit
+    Unit (..),
+
+    -- ** ProtectionGroupArbitraryPatternLimits
+    ProtectionGroupArbitraryPatternLimits (..),
+    mkProtectionGroupArbitraryPatternLimits,
+    pgaplMaxMembers,
+
+    -- ** EmergencyContact
+    EmergencyContact (..),
+    mkEmergencyContact,
+    ecEmailAddress,
+    ecContactNotes,
+    ecPhoneNumber,
+
+    -- ** RoleArn
+    RoleArn (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Id
+    Id (..),
+
+    -- ** Name
+    Name (..),
+
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

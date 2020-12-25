@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.HlsEncryptionType
   ( HlsEncryptionType
       ( HlsEncryptionType',
-        HETAES128,
-        HETSampleAES
+        HlsEncryptionTypeAES128,
+        HlsEncryptionTypeSampleAes,
+        fromHlsEncryptionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
-newtype HlsEncryptionType = HlsEncryptionType' Lude.Text
+newtype HlsEncryptionType = HlsEncryptionType'
+  { fromHlsEncryptionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern HETAES128 :: HlsEncryptionType
-pattern HETAES128 = HlsEncryptionType' "AES128"
+pattern HlsEncryptionTypeAES128 :: HlsEncryptionType
+pattern HlsEncryptionTypeAES128 = HlsEncryptionType' "AES128"
 
-pattern HETSampleAES :: HlsEncryptionType
-pattern HETSampleAES = HlsEncryptionType' "SAMPLE_AES"
+pattern HlsEncryptionTypeSampleAes :: HlsEncryptionType
+pattern HlsEncryptionTypeSampleAes = HlsEncryptionType' "SAMPLE_AES"
 
 {-# COMPLETE
-  HETAES128,
-  HETSampleAES,
+  HlsEncryptionTypeAES128,
+  HlsEncryptionTypeSampleAes,
   HlsEncryptionType'
   #-}

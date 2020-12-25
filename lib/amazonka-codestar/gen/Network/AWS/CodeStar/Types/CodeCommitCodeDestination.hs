@@ -21,36 +21,34 @@ module Network.AWS.CodeStar.Types.CodeCommitCodeDestination
   )
 where
 
+import qualified Network.AWS.CodeStar.Types.Name as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
 --
 -- /See:/ 'mkCodeCommitCodeDestination' smart constructor.
 newtype CodeCommitCodeDestination = CodeCommitCodeDestination'
   { -- | The name of the AWS CodeCommit repository to be created in AWS CodeStar.
-    name :: Lude.Text
+    name :: Types.Name
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CodeCommitCodeDestination' with the minimum fields required to make a request.
---
--- * 'name' - The name of the AWS CodeCommit repository to be created in AWS CodeStar.
+-- | Creates a 'CodeCommitCodeDestination' value with any optional fields omitted.
 mkCodeCommitCodeDestination ::
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   CodeCommitCodeDestination
-mkCodeCommitCodeDestination pName_ =
-  CodeCommitCodeDestination' {name = pName_}
+mkCodeCommitCodeDestination name = CodeCommitCodeDestination' {name}
 
 -- | The name of the AWS CodeCommit repository to be created in AWS CodeStar.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cccdName :: Lens.Lens' CodeCommitCodeDestination Lude.Text
-cccdName = Lens.lens (name :: CodeCommitCodeDestination -> Lude.Text) (\s a -> s {name = a} :: CodeCommitCodeDestination)
+cccdName :: Lens.Lens' CodeCommitCodeDestination Types.Name
+cccdName = Lens.field @"name"
 {-# DEPRECATED cccdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.ToJSON CodeCommitCodeDestination where
-  toJSON CodeCommitCodeDestination' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("name" Lude..= name)])
+instance Core.FromJSON CodeCommitCodeDestination where
+  toJSON CodeCommitCodeDestination {..} =
+    Core.object (Core.catMaybes [Core.Just ("name" Core..= name)])

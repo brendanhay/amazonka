@@ -13,101 +13,103 @@
 module Network.AWS.SWF.Types.DecisionType
   ( DecisionType
       ( DecisionType',
-        ScheduleActivityTask,
-        RequestCancelActivityTask,
-        CompleteWorkflowExecution,
-        FailWorkflowExecution,
-        CancelWorkflowExecution,
-        ContinueAsNewWorkflowExecution,
-        RecordMarker,
-        StartTimer,
-        CancelTimer,
-        SignalExternalWorkflowExecution,
-        RequestCancelExternalWorkflowExecution,
-        StartChildWorkflowExecution,
-        ScheduleLambdaFunction
+        DecisionTypeScheduleActivityTask,
+        DecisionTypeRequestCancelActivityTask,
+        DecisionTypeCompleteWorkflowExecution,
+        DecisionTypeFailWorkflowExecution,
+        DecisionTypeCancelWorkflowExecution,
+        DecisionTypeContinueAsNewWorkflowExecution,
+        DecisionTypeRecordMarker,
+        DecisionTypeStartTimer,
+        DecisionTypeCancelTimer,
+        DecisionTypeSignalExternalWorkflowExecution,
+        DecisionTypeRequestCancelExternalWorkflowExecution,
+        DecisionTypeStartChildWorkflowExecution,
+        DecisionTypeScheduleLambdaFunction,
+        fromDecisionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DecisionType = DecisionType' Lude.Text
+newtype DecisionType = DecisionType' {fromDecisionType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ScheduleActivityTask :: DecisionType
-pattern ScheduleActivityTask = DecisionType' "ScheduleActivityTask"
+pattern DecisionTypeScheduleActivityTask :: DecisionType
+pattern DecisionTypeScheduleActivityTask = DecisionType' "ScheduleActivityTask"
 
-pattern RequestCancelActivityTask :: DecisionType
-pattern RequestCancelActivityTask = DecisionType' "RequestCancelActivityTask"
+pattern DecisionTypeRequestCancelActivityTask :: DecisionType
+pattern DecisionTypeRequestCancelActivityTask = DecisionType' "RequestCancelActivityTask"
 
-pattern CompleteWorkflowExecution :: DecisionType
-pattern CompleteWorkflowExecution = DecisionType' "CompleteWorkflowExecution"
+pattern DecisionTypeCompleteWorkflowExecution :: DecisionType
+pattern DecisionTypeCompleteWorkflowExecution = DecisionType' "CompleteWorkflowExecution"
 
-pattern FailWorkflowExecution :: DecisionType
-pattern FailWorkflowExecution = DecisionType' "FailWorkflowExecution"
+pattern DecisionTypeFailWorkflowExecution :: DecisionType
+pattern DecisionTypeFailWorkflowExecution = DecisionType' "FailWorkflowExecution"
 
-pattern CancelWorkflowExecution :: DecisionType
-pattern CancelWorkflowExecution = DecisionType' "CancelWorkflowExecution"
+pattern DecisionTypeCancelWorkflowExecution :: DecisionType
+pattern DecisionTypeCancelWorkflowExecution = DecisionType' "CancelWorkflowExecution"
 
-pattern ContinueAsNewWorkflowExecution :: DecisionType
-pattern ContinueAsNewWorkflowExecution = DecisionType' "ContinueAsNewWorkflowExecution"
+pattern DecisionTypeContinueAsNewWorkflowExecution :: DecisionType
+pattern DecisionTypeContinueAsNewWorkflowExecution = DecisionType' "ContinueAsNewWorkflowExecution"
 
-pattern RecordMarker :: DecisionType
-pattern RecordMarker = DecisionType' "RecordMarker"
+pattern DecisionTypeRecordMarker :: DecisionType
+pattern DecisionTypeRecordMarker = DecisionType' "RecordMarker"
 
-pattern StartTimer :: DecisionType
-pattern StartTimer = DecisionType' "StartTimer"
+pattern DecisionTypeStartTimer :: DecisionType
+pattern DecisionTypeStartTimer = DecisionType' "StartTimer"
 
-pattern CancelTimer :: DecisionType
-pattern CancelTimer = DecisionType' "CancelTimer"
+pattern DecisionTypeCancelTimer :: DecisionType
+pattern DecisionTypeCancelTimer = DecisionType' "CancelTimer"
 
-pattern SignalExternalWorkflowExecution :: DecisionType
-pattern SignalExternalWorkflowExecution = DecisionType' "SignalExternalWorkflowExecution"
+pattern DecisionTypeSignalExternalWorkflowExecution :: DecisionType
+pattern DecisionTypeSignalExternalWorkflowExecution = DecisionType' "SignalExternalWorkflowExecution"
 
-pattern RequestCancelExternalWorkflowExecution :: DecisionType
-pattern RequestCancelExternalWorkflowExecution = DecisionType' "RequestCancelExternalWorkflowExecution"
+pattern DecisionTypeRequestCancelExternalWorkflowExecution :: DecisionType
+pattern DecisionTypeRequestCancelExternalWorkflowExecution = DecisionType' "RequestCancelExternalWorkflowExecution"
 
-pattern StartChildWorkflowExecution :: DecisionType
-pattern StartChildWorkflowExecution = DecisionType' "StartChildWorkflowExecution"
+pattern DecisionTypeStartChildWorkflowExecution :: DecisionType
+pattern DecisionTypeStartChildWorkflowExecution = DecisionType' "StartChildWorkflowExecution"
 
-pattern ScheduleLambdaFunction :: DecisionType
-pattern ScheduleLambdaFunction = DecisionType' "ScheduleLambdaFunction"
+pattern DecisionTypeScheduleLambdaFunction :: DecisionType
+pattern DecisionTypeScheduleLambdaFunction = DecisionType' "ScheduleLambdaFunction"
 
 {-# COMPLETE
-  ScheduleActivityTask,
-  RequestCancelActivityTask,
-  CompleteWorkflowExecution,
-  FailWorkflowExecution,
-  CancelWorkflowExecution,
-  ContinueAsNewWorkflowExecution,
-  RecordMarker,
-  StartTimer,
-  CancelTimer,
-  SignalExternalWorkflowExecution,
-  RequestCancelExternalWorkflowExecution,
-  StartChildWorkflowExecution,
-  ScheduleLambdaFunction,
+  DecisionTypeScheduleActivityTask,
+  DecisionTypeRequestCancelActivityTask,
+  DecisionTypeCompleteWorkflowExecution,
+  DecisionTypeFailWorkflowExecution,
+  DecisionTypeCancelWorkflowExecution,
+  DecisionTypeContinueAsNewWorkflowExecution,
+  DecisionTypeRecordMarker,
+  DecisionTypeStartTimer,
+  DecisionTypeCancelTimer,
+  DecisionTypeSignalExternalWorkflowExecution,
+  DecisionTypeRequestCancelExternalWorkflowExecution,
+  DecisionTypeStartChildWorkflowExecution,
+  DecisionTypeScheduleLambdaFunction,
   DecisionType'
   #-}

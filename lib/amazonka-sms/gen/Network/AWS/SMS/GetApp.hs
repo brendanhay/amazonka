@@ -27,133 +27,118 @@ module Network.AWS.SMS.GetApp
     mkGetAppResponse,
 
     -- ** Response lenses
-    garsAppSummary,
-    garsServerGroups,
-    garsTags,
-    garsResponseStatus,
+    garrsAppSummary,
+    garrsServerGroups,
+    garrsTags,
+    garrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SMS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SMS.Types as Types
 
 -- | /See:/ 'mkGetApp' smart constructor.
 newtype GetApp = GetApp'
   { -- | The ID of the application.
-    appId :: Lude.Maybe Lude.Text
+    appId :: Core.Maybe Types.AppId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetApp' with the minimum fields required to make a request.
---
--- * 'appId' - The ID of the application.
+-- | Creates a 'GetApp' value with any optional fields omitted.
 mkGetApp ::
   GetApp
-mkGetApp = GetApp' {appId = Lude.Nothing}
+mkGetApp = GetApp' {appId = Core.Nothing}
 
 -- | The ID of the application.
 --
 -- /Note:/ Consider using 'appId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gaAppId :: Lens.Lens' GetApp (Lude.Maybe Lude.Text)
-gaAppId = Lens.lens (appId :: GetApp -> Lude.Maybe Lude.Text) (\s a -> s {appId = a} :: GetApp)
+gaAppId :: Lens.Lens' GetApp (Core.Maybe Types.AppId)
+gaAppId = Lens.field @"appId"
 {-# DEPRECATED gaAppId "Use generic-lens or generic-optics with 'appId' instead." #-}
 
-instance Lude.AWSRequest GetApp where
+instance Core.FromJSON GetApp where
+  toJSON GetApp {..} =
+    Core.object (Core.catMaybes [("appId" Core..=) Core.<$> appId])
+
+instance Core.AWSRequest GetApp where
   type Rs GetApp = GetAppResponse
-  request = Req.postJSON smsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSServerMigrationService_V2016_10_24.GetApp")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetAppResponse'
-            Lude.<$> (x Lude..?> "appSummary")
-            Lude.<*> (x Lude..?> "serverGroups" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "appSummary")
+            Core.<*> (x Core..:? "serverGroups")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetApp where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSServerMigrationService_V2016_10_24.GetApp" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetApp where
-  toJSON GetApp' {..} =
-    Lude.object (Lude.catMaybes [("appId" Lude..=) Lude.<$> appId])
-
-instance Lude.ToPath GetApp where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetApp where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetAppResponse' smart constructor.
 data GetAppResponse = GetAppResponse'
   { -- | Information about the application.
-    appSummary :: Lude.Maybe AppSummary,
+    appSummary :: Core.Maybe Types.AppSummary,
     -- | The server groups that belong to the application.
-    serverGroups :: Lude.Maybe [ServerGroup],
+    serverGroups :: Core.Maybe [Types.ServerGroup],
     -- | The tags associated with the application.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetAppResponse' with the minimum fields required to make a request.
---
--- * 'appSummary' - Information about the application.
--- * 'serverGroups' - The server groups that belong to the application.
--- * 'tags' - The tags associated with the application.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAppResponse' value with any optional fields omitted.
 mkGetAppResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAppResponse
-mkGetAppResponse pResponseStatus_ =
+mkGetAppResponse responseStatus =
   GetAppResponse'
-    { appSummary = Lude.Nothing,
-      serverGroups = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { appSummary = Core.Nothing,
+      serverGroups = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the application.
 --
 -- /Note:/ Consider using 'appSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsAppSummary :: Lens.Lens' GetAppResponse (Lude.Maybe AppSummary)
-garsAppSummary = Lens.lens (appSummary :: GetAppResponse -> Lude.Maybe AppSummary) (\s a -> s {appSummary = a} :: GetAppResponse)
-{-# DEPRECATED garsAppSummary "Use generic-lens or generic-optics with 'appSummary' instead." #-}
+garrsAppSummary :: Lens.Lens' GetAppResponse (Core.Maybe Types.AppSummary)
+garrsAppSummary = Lens.field @"appSummary"
+{-# DEPRECATED garrsAppSummary "Use generic-lens or generic-optics with 'appSummary' instead." #-}
 
 -- | The server groups that belong to the application.
 --
 -- /Note:/ Consider using 'serverGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsServerGroups :: Lens.Lens' GetAppResponse (Lude.Maybe [ServerGroup])
-garsServerGroups = Lens.lens (serverGroups :: GetAppResponse -> Lude.Maybe [ServerGroup]) (\s a -> s {serverGroups = a} :: GetAppResponse)
-{-# DEPRECATED garsServerGroups "Use generic-lens or generic-optics with 'serverGroups' instead." #-}
+garrsServerGroups :: Lens.Lens' GetAppResponse (Core.Maybe [Types.ServerGroup])
+garrsServerGroups = Lens.field @"serverGroups"
+{-# DEPRECATED garrsServerGroups "Use generic-lens or generic-optics with 'serverGroups' instead." #-}
 
 -- | The tags associated with the application.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsTags :: Lens.Lens' GetAppResponse (Lude.Maybe [Tag])
-garsTags = Lens.lens (tags :: GetAppResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: GetAppResponse)
-{-# DEPRECATED garsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+garrsTags :: Lens.Lens' GetAppResponse (Core.Maybe [Types.Tag])
+garrsTags = Lens.field @"tags"
+{-# DEPRECATED garrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garsResponseStatus :: Lens.Lens' GetAppResponse Lude.Int
-garsResponseStatus = Lens.lens (responseStatus :: GetAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAppResponse)
-{-# DEPRECATED garsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+garrsResponseStatus :: Lens.Lens' GetAppResponse Core.Int
+garrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED garrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

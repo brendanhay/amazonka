@@ -13,61 +13,63 @@
 module Network.AWS.DynamoDB.Types.ReturnValue
   ( ReturnValue
       ( ReturnValue',
-        RVNone,
-        RVAllOld,
-        RVUpdatedOld,
-        RVAllNew,
-        RVUpdatedNew
+        ReturnValueNone,
+        ReturnValueAllOld,
+        ReturnValueUpdatedOld,
+        ReturnValueAllNew,
+        ReturnValueUpdatedNew,
+        fromReturnValue
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ReturnValue = ReturnValue' Lude.Text
+newtype ReturnValue = ReturnValue' {fromReturnValue :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RVNone :: ReturnValue
-pattern RVNone = ReturnValue' "NONE"
+pattern ReturnValueNone :: ReturnValue
+pattern ReturnValueNone = ReturnValue' "NONE"
 
-pattern RVAllOld :: ReturnValue
-pattern RVAllOld = ReturnValue' "ALL_OLD"
+pattern ReturnValueAllOld :: ReturnValue
+pattern ReturnValueAllOld = ReturnValue' "ALL_OLD"
 
-pattern RVUpdatedOld :: ReturnValue
-pattern RVUpdatedOld = ReturnValue' "UPDATED_OLD"
+pattern ReturnValueUpdatedOld :: ReturnValue
+pattern ReturnValueUpdatedOld = ReturnValue' "UPDATED_OLD"
 
-pattern RVAllNew :: ReturnValue
-pattern RVAllNew = ReturnValue' "ALL_NEW"
+pattern ReturnValueAllNew :: ReturnValue
+pattern ReturnValueAllNew = ReturnValue' "ALL_NEW"
 
-pattern RVUpdatedNew :: ReturnValue
-pattern RVUpdatedNew = ReturnValue' "UPDATED_NEW"
+pattern ReturnValueUpdatedNew :: ReturnValue
+pattern ReturnValueUpdatedNew = ReturnValue' "UPDATED_NEW"
 
 {-# COMPLETE
-  RVNone,
-  RVAllOld,
-  RVUpdatedOld,
-  RVAllNew,
-  RVUpdatedNew,
+  ReturnValueNone,
+  ReturnValueAllOld,
+  ReturnValueUpdatedOld,
+  ReturnValueAllNew,
+  ReturnValueUpdatedNew,
   ReturnValue'
   #-}

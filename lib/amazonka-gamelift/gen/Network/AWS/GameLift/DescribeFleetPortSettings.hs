@@ -71,116 +71,104 @@ module Network.AWS.GameLift.DescribeFleetPortSettings
     mkDescribeFleetPortSettingsResponse,
 
     -- ** Response lenses
-    dfpsrsInboundPermissions,
-    dfpsrsResponseStatus,
+    dfpsrrsInboundPermissions,
+    dfpsrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input for a request operation.
 --
 -- /See:/ 'mkDescribeFleetPortSettings' smart constructor.
 newtype DescribeFleetPortSettings = DescribeFleetPortSettings'
   { -- | A unique identifier for a fleet to retrieve port settings for. You can use either the fleet ID or ARN value.
-    fleetId :: Lude.Text
+    fleetId :: Types.FleetIdOrArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeFleetPortSettings' with the minimum fields required to make a request.
---
--- * 'fleetId' - A unique identifier for a fleet to retrieve port settings for. You can use either the fleet ID or ARN value.
+-- | Creates a 'DescribeFleetPortSettings' value with any optional fields omitted.
 mkDescribeFleetPortSettings ::
   -- | 'fleetId'
-  Lude.Text ->
+  Types.FleetIdOrArn ->
   DescribeFleetPortSettings
-mkDescribeFleetPortSettings pFleetId_ =
-  DescribeFleetPortSettings' {fleetId = pFleetId_}
+mkDescribeFleetPortSettings fleetId =
+  DescribeFleetPortSettings' {fleetId}
 
 -- | A unique identifier for a fleet to retrieve port settings for. You can use either the fleet ID or ARN value.
 --
 -- /Note:/ Consider using 'fleetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfpsFleetId :: Lens.Lens' DescribeFleetPortSettings Lude.Text
-dfpsFleetId = Lens.lens (fleetId :: DescribeFleetPortSettings -> Lude.Text) (\s a -> s {fleetId = a} :: DescribeFleetPortSettings)
+dfpsFleetId :: Lens.Lens' DescribeFleetPortSettings Types.FleetIdOrArn
+dfpsFleetId = Lens.field @"fleetId"
 {-# DEPRECATED dfpsFleetId "Use generic-lens or generic-optics with 'fleetId' instead." #-}
 
-instance Lude.AWSRequest DescribeFleetPortSettings where
+instance Core.FromJSON DescribeFleetPortSettings where
+  toJSON DescribeFleetPortSettings {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("FleetId" Core..= fleetId)])
+
+instance Core.AWSRequest DescribeFleetPortSettings where
   type
     Rs DescribeFleetPortSettings =
       DescribeFleetPortSettingsResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.DescribeFleetPortSettings")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeFleetPortSettingsResponse'
-            Lude.<$> (x Lude..?> "InboundPermissions" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InboundPermissions")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeFleetPortSettings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.DescribeFleetPortSettings" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeFleetPortSettings where
-  toJSON DescribeFleetPortSettings' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("FleetId" Lude..= fleetId)])
-
-instance Lude.ToPath DescribeFleetPortSettings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeFleetPortSettings where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the returned data in response to a request operation.
 --
 -- /See:/ 'mkDescribeFleetPortSettingsResponse' smart constructor.
 data DescribeFleetPortSettingsResponse = DescribeFleetPortSettingsResponse'
   { -- | The port settings for the requested fleet ID.
-    inboundPermissions :: Lude.Maybe [IPPermission],
+    inboundPermissions :: Core.Maybe [Types.IpPermission],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeFleetPortSettingsResponse' with the minimum fields required to make a request.
---
--- * 'inboundPermissions' - The port settings for the requested fleet ID.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeFleetPortSettingsResponse' value with any optional fields omitted.
 mkDescribeFleetPortSettingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeFleetPortSettingsResponse
-mkDescribeFleetPortSettingsResponse pResponseStatus_ =
+mkDescribeFleetPortSettingsResponse responseStatus =
   DescribeFleetPortSettingsResponse'
     { inboundPermissions =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The port settings for the requested fleet ID.
 --
 -- /Note:/ Consider using 'inboundPermissions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfpsrsInboundPermissions :: Lens.Lens' DescribeFleetPortSettingsResponse (Lude.Maybe [IPPermission])
-dfpsrsInboundPermissions = Lens.lens (inboundPermissions :: DescribeFleetPortSettingsResponse -> Lude.Maybe [IPPermission]) (\s a -> s {inboundPermissions = a} :: DescribeFleetPortSettingsResponse)
-{-# DEPRECATED dfpsrsInboundPermissions "Use generic-lens or generic-optics with 'inboundPermissions' instead." #-}
+dfpsrrsInboundPermissions :: Lens.Lens' DescribeFleetPortSettingsResponse (Core.Maybe [Types.IpPermission])
+dfpsrrsInboundPermissions = Lens.field @"inboundPermissions"
+{-# DEPRECATED dfpsrrsInboundPermissions "Use generic-lens or generic-optics with 'inboundPermissions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dfpsrsResponseStatus :: Lens.Lens' DescribeFleetPortSettingsResponse Lude.Int
-dfpsrsResponseStatus = Lens.lens (responseStatus :: DescribeFleetPortSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeFleetPortSettingsResponse)
-{-# DEPRECATED dfpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dfpsrrsResponseStatus :: Lens.Lens' DescribeFleetPortSettingsResponse Core.Int
+dfpsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dfpsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

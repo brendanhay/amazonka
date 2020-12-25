@@ -22,78 +22,83 @@ module Network.AWS.CognitoIdentityProvider.CreateGroup
     mkCreateGroup,
 
     -- ** Request lenses
-    cgUserPoolId,
-    cgPrecedence,
     cgGroupName,
+    cgUserPoolId,
     cgDescription,
-    cgRoleARN,
+    cgPrecedence,
+    cgRoleArn,
 
     -- * Destructuring the response
     CreateGroupResponse (..),
     mkCreateGroupResponse,
 
     -- ** Response lenses
-    cgrsGroup,
-    cgrsResponseStatus,
+    cgrrsGroup,
+    cgrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateGroup' smart constructor.
 data CreateGroup = CreateGroup'
-  { -- | The user pool ID for the user pool.
-    userPoolId :: Lude.Text,
+  { -- | The name of the group. Must be unique.
+    groupName :: Types.GroupNameType,
+    -- | The user pool ID for the user pool.
+    userPoolId :: Types.UserPoolId,
+    -- | A string containing the description of the group.
+    description :: Core.Maybe Types.DescriptionType,
     -- | A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower @Precedence@ values take precedence over groups with higher or null @Precedence@ values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the @cognito:roles@ and @cognito:preferred_role@ claims in the user's tokens.
     --
     -- Two groups can have the same @Precedence@ value. If this happens, neither group takes precedence over the other. If two groups with the same @Precedence@ have the same role ARN, that role is used in the @cognito:preferred_role@ claim in tokens for users in each group. If the two groups have different role ARNs, the @cognito:preferred_role@ claim is not set in users' tokens.
     -- The default @Precedence@ value is null.
-    precedence :: Lude.Maybe Lude.Natural,
-    -- | The name of the group. Must be unique.
-    groupName :: Lude.Text,
-    -- | A string containing the description of the group.
-    description :: Lude.Maybe Lude.Text,
+    precedence :: Core.Maybe Core.Natural,
     -- | The role ARN for the group.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Types.RoleArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGroup' with the minimum fields required to make a request.
---
--- * 'userPoolId' - The user pool ID for the user pool.
--- * 'precedence' - A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower @Precedence@ values take precedence over groups with higher or null @Precedence@ values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the @cognito:roles@ and @cognito:preferred_role@ claims in the user's tokens.
---
--- Two groups can have the same @Precedence@ value. If this happens, neither group takes precedence over the other. If two groups with the same @Precedence@ have the same role ARN, that role is used in the @cognito:preferred_role@ claim in tokens for users in each group. If the two groups have different role ARNs, the @cognito:preferred_role@ claim is not set in users' tokens.
--- The default @Precedence@ value is null.
--- * 'groupName' - The name of the group. Must be unique.
--- * 'description' - A string containing the description of the group.
--- * 'roleARN' - The role ARN for the group.
+-- | Creates a 'CreateGroup' value with any optional fields omitted.
 mkCreateGroup ::
-  -- | 'userPoolId'
-  Lude.Text ->
   -- | 'groupName'
-  Lude.Text ->
+  Types.GroupNameType ->
+  -- | 'userPoolId'
+  Types.UserPoolId ->
   CreateGroup
-mkCreateGroup pUserPoolId_ pGroupName_ =
+mkCreateGroup groupName userPoolId =
   CreateGroup'
-    { userPoolId = pUserPoolId_,
-      precedence = Lude.Nothing,
-      groupName = pGroupName_,
-      description = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { groupName,
+      userPoolId,
+      description = Core.Nothing,
+      precedence = Core.Nothing,
+      roleArn = Core.Nothing
     }
+
+-- | The name of the group. Must be unique.
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgGroupName :: Lens.Lens' CreateGroup Types.GroupNameType
+cgGroupName = Lens.field @"groupName"
+{-# DEPRECATED cgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The user pool ID for the user pool.
 --
 -- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgUserPoolId :: Lens.Lens' CreateGroup Lude.Text
-cgUserPoolId = Lens.lens (userPoolId :: CreateGroup -> Lude.Text) (\s a -> s {userPoolId = a} :: CreateGroup)
+cgUserPoolId :: Lens.Lens' CreateGroup Types.UserPoolId
+cgUserPoolId = Lens.field @"userPoolId"
 {-# DEPRECATED cgUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
+-- | A string containing the description of the group.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgDescription :: Lens.Lens' CreateGroup (Core.Maybe Types.DescriptionType)
+cgDescription = Lens.field @"description"
+{-# DEPRECATED cgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower @Precedence@ values take precedence over groups with higher or null @Precedence@ values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the @cognito:roles@ and @cognito:preferred_role@ claims in the user's tokens.
 --
@@ -101,106 +106,78 @@ cgUserPoolId = Lens.lens (userPoolId :: CreateGroup -> Lude.Text) (\s a -> s {us
 -- The default @Precedence@ value is null.
 --
 -- /Note:/ Consider using 'precedence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgPrecedence :: Lens.Lens' CreateGroup (Lude.Maybe Lude.Natural)
-cgPrecedence = Lens.lens (precedence :: CreateGroup -> Lude.Maybe Lude.Natural) (\s a -> s {precedence = a} :: CreateGroup)
+cgPrecedence :: Lens.Lens' CreateGroup (Core.Maybe Core.Natural)
+cgPrecedence = Lens.field @"precedence"
 {-# DEPRECATED cgPrecedence "Use generic-lens or generic-optics with 'precedence' instead." #-}
-
--- | The name of the group. Must be unique.
---
--- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgGroupName :: Lens.Lens' CreateGroup Lude.Text
-cgGroupName = Lens.lens (groupName :: CreateGroup -> Lude.Text) (\s a -> s {groupName = a} :: CreateGroup)
-{-# DEPRECATED cgGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
-
--- | A string containing the description of the group.
---
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgDescription :: Lens.Lens' CreateGroup (Lude.Maybe Lude.Text)
-cgDescription = Lens.lens (description :: CreateGroup -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateGroup)
-{-# DEPRECATED cgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | The role ARN for the group.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgRoleARN :: Lens.Lens' CreateGroup (Lude.Maybe Lude.Text)
-cgRoleARN = Lens.lens (roleARN :: CreateGroup -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: CreateGroup)
-{-# DEPRECATED cgRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgRoleArn :: Lens.Lens' CreateGroup (Core.Maybe Types.RoleArn)
+cgRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED cgRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.AWSRequest CreateGroup where
+instance Core.FromJSON CreateGroup where
+  toJSON CreateGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GroupName" Core..= groupName),
+            Core.Just ("UserPoolId" Core..= userPoolId),
+            ("Description" Core..=) Core.<$> description,
+            ("Precedence" Core..=) Core.<$> precedence,
+            ("RoleArn" Core..=) Core.<$> roleArn
+          ]
+      )
+
+instance Core.AWSRequest CreateGroup where
   type Rs CreateGroup = CreateGroupResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSCognitoIdentityProviderService.CreateGroup")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateGroupResponse'
-            Lude.<$> (x Lude..?> "Group") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Group") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateGroup where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.CreateGroup" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateGroup where
-  toJSON CreateGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("UserPoolId" Lude..= userPoolId),
-            ("Precedence" Lude..=) Lude.<$> precedence,
-            Lude.Just ("GroupName" Lude..= groupName),
-            ("Description" Lude..=) Lude.<$> description,
-            ("RoleArn" Lude..=) Lude.<$> roleARN
-          ]
-      )
-
-instance Lude.ToPath CreateGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateGroup where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateGroupResponse' smart constructor.
 data CreateGroupResponse = CreateGroupResponse'
   { -- | The group object for the group.
-    group :: Lude.Maybe GroupType,
+    group :: Core.Maybe Types.GroupType,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateGroupResponse' with the minimum fields required to make a request.
---
--- * 'group' - The group object for the group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateGroupResponse' value with any optional fields omitted.
 mkCreateGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateGroupResponse
-mkCreateGroupResponse pResponseStatus_ =
-  CreateGroupResponse'
-    { group = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateGroupResponse responseStatus =
+  CreateGroupResponse' {group = Core.Nothing, responseStatus}
 
 -- | The group object for the group.
 --
 -- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrsGroup :: Lens.Lens' CreateGroupResponse (Lude.Maybe GroupType)
-cgrsGroup = Lens.lens (group :: CreateGroupResponse -> Lude.Maybe GroupType) (\s a -> s {group = a} :: CreateGroupResponse)
-{-# DEPRECATED cgrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
+cgrrsGroup :: Lens.Lens' CreateGroupResponse (Core.Maybe Types.GroupType)
+cgrrsGroup = Lens.field @"group"
+{-# DEPRECATED cgrrsGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgrsResponseStatus :: Lens.Lens' CreateGroupResponse Lude.Int
-cgrsResponseStatus = Lens.lens (responseStatus :: CreateGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGroupResponse)
-{-# DEPRECATED cgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cgrrsResponseStatus :: Lens.Lens' CreateGroupResponse Core.Int
+cgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

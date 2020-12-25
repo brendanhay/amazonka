@@ -27,118 +27,115 @@ module Network.AWS.EC2.CreateSnapshot
     mkCreateSnapshot,
 
     -- ** Request lenses
-    cshTagSpecifications,
     cshVolumeId,
     cshDescription,
     cshDryRun,
+    cshTagSpecifications,
 
     -- * Destructuring the response
-    Snapshot (..),
-    mkSnapshot,
+    Types.Snapshot (..),
+    Types.mkSnapshot,
 
     -- ** Response lenses
-    sfStateMessage,
-    sfState,
-    sfOwnerAlias,
-    sfProgress,
-    sfStartTime,
-    sfVolumeSize,
-    sfDataEncryptionKeyId,
-    sfEncrypted,
-    sfOwnerId,
-    sfKMSKeyId,
-    sfVolumeId,
-    sfDescription,
-    sfTags,
-    sfSnapshotId,
+    Types.sDataEncryptionKeyId,
+    Types.sDescription,
+    Types.sEncrypted,
+    Types.sKmsKeyId,
+    Types.sOwnerAlias,
+    Types.sOwnerId,
+    Types.sProgress,
+    Types.sSnapshotId,
+    Types.sStartTime,
+    Types.sState,
+    Types.sStateMessage,
+    Types.sTags,
+    Types.sVolumeId,
+    Types.sVolumeSize,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateSnapshot' smart constructor.
 data CreateSnapshot = CreateSnapshot'
-  { -- | The tags to apply to the snapshot during creation.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    -- | The ID of the EBS volume.
-    volumeId :: Lude.Text,
+  { -- | The ID of the EBS volume.
+    volumeId :: Types.VolumeId,
     -- | A description for the snapshot.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The tags to apply to the snapshot during creation.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateSnapshot' with the minimum fields required to make a request.
---
--- * 'tagSpecifications' - The tags to apply to the snapshot during creation.
--- * 'volumeId' - The ID of the EBS volume.
--- * 'description' - A description for the snapshot.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateSnapshot' value with any optional fields omitted.
 mkCreateSnapshot ::
   -- | 'volumeId'
-  Lude.Text ->
+  Types.VolumeId ->
   CreateSnapshot
-mkCreateSnapshot pVolumeId_ =
+mkCreateSnapshot volumeId =
   CreateSnapshot'
-    { tagSpecifications = Lude.Nothing,
-      volumeId = pVolumeId_,
-      description = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { volumeId,
+      description = Core.Nothing,
+      dryRun = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
-
--- | The tags to apply to the snapshot during creation.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cshTagSpecifications :: Lens.Lens' CreateSnapshot (Lude.Maybe [TagSpecification])
-cshTagSpecifications = Lens.lens (tagSpecifications :: CreateSnapshot -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateSnapshot)
-{-# DEPRECATED cshTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The ID of the EBS volume.
 --
 -- /Note:/ Consider using 'volumeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cshVolumeId :: Lens.Lens' CreateSnapshot Lude.Text
-cshVolumeId = Lens.lens (volumeId :: CreateSnapshot -> Lude.Text) (\s a -> s {volumeId = a} :: CreateSnapshot)
+cshVolumeId :: Lens.Lens' CreateSnapshot Types.VolumeId
+cshVolumeId = Lens.field @"volumeId"
 {-# DEPRECATED cshVolumeId "Use generic-lens or generic-optics with 'volumeId' instead." #-}
 
 -- | A description for the snapshot.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cshDescription :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Text)
-cshDescription = Lens.lens (description :: CreateSnapshot -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateSnapshot)
+cshDescription :: Lens.Lens' CreateSnapshot (Core.Maybe Types.String)
+cshDescription = Lens.field @"description"
 {-# DEPRECATED cshDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cshDryRun :: Lens.Lens' CreateSnapshot (Lude.Maybe Lude.Bool)
-cshDryRun = Lens.lens (dryRun :: CreateSnapshot -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateSnapshot)
+cshDryRun :: Lens.Lens' CreateSnapshot (Core.Maybe Core.Bool)
+cshDryRun = Lens.field @"dryRun"
 {-# DEPRECATED cshDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateSnapshot where
-  type Rs CreateSnapshot = Snapshot
-  request = Req.postQuery ec2Service
-  response = Res.receiveXML (\s h x -> Lude.parseXML x)
+-- | The tags to apply to the snapshot during creation.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cshTagSpecifications :: Lens.Lens' CreateSnapshot (Core.Maybe [Types.TagSpecification])
+cshTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED cshTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
-instance Lude.ToHeaders CreateSnapshot where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateSnapshot where
-  toQuery CreateSnapshot' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateSnapshot" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "VolumeId" Lude.=: volumeId,
-        "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun
-      ]
+instance Core.AWSRequest CreateSnapshot where
+  type Rs CreateSnapshot = Types.Snapshot
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateSnapshot")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "VolumeId" volumeId)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
+  response = Response.receiveXML (\s h x -> Core.parseXML x)

@@ -25,8 +25,8 @@ module Network.AWS.ServiceCatalog.CreatePortfolioShare
 
     -- ** Request lenses
     cpsPortfolioId,
-    cpsAccountId,
     cpsAcceptLanguage,
+    cpsAccountId,
     cpsOrganizationNode,
 
     -- * Destructuring the response
@@ -34,23 +34,21 @@ module Network.AWS.ServiceCatalog.CreatePortfolioShare
     mkCreatePortfolioShareResponse,
 
     -- ** Response lenses
-    cpsrsPortfolioShareToken,
-    cpsrsResponseStatus,
+    cpsrrsPortfolioShareToken,
+    cpsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkCreatePortfolioShare' smart constructor.
 data CreatePortfolioShare = CreatePortfolioShare'
   { -- | The portfolio identifier.
-    portfolioId :: Lude.Text,
-    -- | The AWS account ID. For example, @123456789012@ .
-    accountId :: Lude.Maybe Lude.Text,
+    portfolioId :: Types.PortfolioId,
     -- | The language code.
     --
     --
@@ -61,55 +59,34 @@ data CreatePortfolioShare = CreatePortfolioShare'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage,
+    -- | The AWS account ID. For example, @123456789012@ .
+    accountId :: Core.Maybe Types.AccountId,
     -- | The organization node to whom you are going to share. If @OrganizationNode@ is passed in, @PortfolioShare@ will be created for the node an ListOrganizationPortfolioAccessd its children (when applies), and a @PortfolioShareToken@ will be returned in the output in order for the administrator to monitor the status of the @PortfolioShare@ creation process.
-    organizationNode :: Lude.Maybe OrganizationNode
+    organizationNode :: Core.Maybe Types.OrganizationNode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePortfolioShare' with the minimum fields required to make a request.
---
--- * 'portfolioId' - The portfolio identifier.
--- * 'accountId' - The AWS account ID. For example, @123456789012@ .
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'organizationNode' - The organization node to whom you are going to share. If @OrganizationNode@ is passed in, @PortfolioShare@ will be created for the node an ListOrganizationPortfolioAccessd its children (when applies), and a @PortfolioShareToken@ will be returned in the output in order for the administrator to monitor the status of the @PortfolioShare@ creation process.
+-- | Creates a 'CreatePortfolioShare' value with any optional fields omitted.
 mkCreatePortfolioShare ::
   -- | 'portfolioId'
-  Lude.Text ->
+  Types.PortfolioId ->
   CreatePortfolioShare
-mkCreatePortfolioShare pPortfolioId_ =
+mkCreatePortfolioShare portfolioId =
   CreatePortfolioShare'
-    { portfolioId = pPortfolioId_,
-      accountId = Lude.Nothing,
-      acceptLanguage = Lude.Nothing,
-      organizationNode = Lude.Nothing
+    { portfolioId,
+      acceptLanguage = Core.Nothing,
+      accountId = Core.Nothing,
+      organizationNode = Core.Nothing
     }
 
 -- | The portfolio identifier.
 --
 -- /Note:/ Consider using 'portfolioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpsPortfolioId :: Lens.Lens' CreatePortfolioShare Lude.Text
-cpsPortfolioId = Lens.lens (portfolioId :: CreatePortfolioShare -> Lude.Text) (\s a -> s {portfolioId = a} :: CreatePortfolioShare)
+cpsPortfolioId :: Lens.Lens' CreatePortfolioShare Types.PortfolioId
+cpsPortfolioId = Lens.field @"portfolioId"
 {-# DEPRECATED cpsPortfolioId "Use generic-lens or generic-optics with 'portfolioId' instead." #-}
-
--- | The AWS account ID. For example, @123456789012@ .
---
--- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpsAccountId :: Lens.Lens' CreatePortfolioShare (Lude.Maybe Lude.Text)
-cpsAccountId = Lens.lens (accountId :: CreatePortfolioShare -> Lude.Maybe Lude.Text) (\s a -> s {accountId = a} :: CreatePortfolioShare)
-{-# DEPRECATED cpsAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The language code.
 --
@@ -125,92 +102,90 @@ cpsAccountId = Lens.lens (accountId :: CreatePortfolioShare -> Lude.Maybe Lude.T
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpsAcceptLanguage :: Lens.Lens' CreatePortfolioShare (Lude.Maybe Lude.Text)
-cpsAcceptLanguage = Lens.lens (acceptLanguage :: CreatePortfolioShare -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: CreatePortfolioShare)
+cpsAcceptLanguage :: Lens.Lens' CreatePortfolioShare (Core.Maybe Types.AcceptLanguage)
+cpsAcceptLanguage = Lens.field @"acceptLanguage"
 {-# DEPRECATED cpsAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+
+-- | The AWS account ID. For example, @123456789012@ .
+--
+-- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpsAccountId :: Lens.Lens' CreatePortfolioShare (Core.Maybe Types.AccountId)
+cpsAccountId = Lens.field @"accountId"
+{-# DEPRECATED cpsAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | The organization node to whom you are going to share. If @OrganizationNode@ is passed in, @PortfolioShare@ will be created for the node an ListOrganizationPortfolioAccessd its children (when applies), and a @PortfolioShareToken@ will be returned in the output in order for the administrator to monitor the status of the @PortfolioShare@ creation process.
 --
 -- /Note:/ Consider using 'organizationNode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpsOrganizationNode :: Lens.Lens' CreatePortfolioShare (Lude.Maybe OrganizationNode)
-cpsOrganizationNode = Lens.lens (organizationNode :: CreatePortfolioShare -> Lude.Maybe OrganizationNode) (\s a -> s {organizationNode = a} :: CreatePortfolioShare)
+cpsOrganizationNode :: Lens.Lens' CreatePortfolioShare (Core.Maybe Types.OrganizationNode)
+cpsOrganizationNode = Lens.field @"organizationNode"
 {-# DEPRECATED cpsOrganizationNode "Use generic-lens or generic-optics with 'organizationNode' instead." #-}
 
-instance Lude.AWSRequest CreatePortfolioShare where
+instance Core.FromJSON CreatePortfolioShare where
+  toJSON CreatePortfolioShare {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PortfolioId" Core..= portfolioId),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage,
+            ("AccountId" Core..=) Core.<$> accountId,
+            ("OrganizationNode" Core..=) Core.<$> organizationNode
+          ]
+      )
+
+instance Core.AWSRequest CreatePortfolioShare where
   type Rs CreatePortfolioShare = CreatePortfolioShareResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWS242ServiceCatalogService.CreatePortfolioShare"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreatePortfolioShareResponse'
-            Lude.<$> (x Lude..?> "PortfolioShareToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "PortfolioShareToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreatePortfolioShare where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.CreatePortfolioShare" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreatePortfolioShare where
-  toJSON CreatePortfolioShare' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PortfolioId" Lude..= portfolioId),
-            ("AccountId" Lude..=) Lude.<$> accountId,
-            ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            ("OrganizationNode" Lude..=) Lude.<$> organizationNode
-          ]
-      )
-
-instance Lude.ToPath CreatePortfolioShare where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreatePortfolioShare where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreatePortfolioShareResponse' smart constructor.
 data CreatePortfolioShareResponse = CreatePortfolioShareResponse'
   { -- | The portfolio shares a unique identifier that only returns if the portfolio is shared to an organization node.
-    portfolioShareToken :: Lude.Maybe Lude.Text,
+    portfolioShareToken :: Core.Maybe Types.PortfolioShareToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreatePortfolioShareResponse' with the minimum fields required to make a request.
---
--- * 'portfolioShareToken' - The portfolio shares a unique identifier that only returns if the portfolio is shared to an organization node.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreatePortfolioShareResponse' value with any optional fields omitted.
 mkCreatePortfolioShareResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreatePortfolioShareResponse
-mkCreatePortfolioShareResponse pResponseStatus_ =
+mkCreatePortfolioShareResponse responseStatus =
   CreatePortfolioShareResponse'
-    { portfolioShareToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { portfolioShareToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The portfolio shares a unique identifier that only returns if the portfolio is shared to an organization node.
 --
 -- /Note:/ Consider using 'portfolioShareToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpsrsPortfolioShareToken :: Lens.Lens' CreatePortfolioShareResponse (Lude.Maybe Lude.Text)
-cpsrsPortfolioShareToken = Lens.lens (portfolioShareToken :: CreatePortfolioShareResponse -> Lude.Maybe Lude.Text) (\s a -> s {portfolioShareToken = a} :: CreatePortfolioShareResponse)
-{-# DEPRECATED cpsrsPortfolioShareToken "Use generic-lens or generic-optics with 'portfolioShareToken' instead." #-}
+cpsrrsPortfolioShareToken :: Lens.Lens' CreatePortfolioShareResponse (Core.Maybe Types.PortfolioShareToken)
+cpsrrsPortfolioShareToken = Lens.field @"portfolioShareToken"
+{-# DEPRECATED cpsrrsPortfolioShareToken "Use generic-lens or generic-optics with 'portfolioShareToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpsrsResponseStatus :: Lens.Lens' CreatePortfolioShareResponse Lude.Int
-cpsrsResponseStatus = Lens.lens (responseStatus :: CreatePortfolioShareResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreatePortfolioShareResponse)
-{-# DEPRECATED cpsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cpsrrsResponseStatus :: Lens.Lens' CreatePortfolioShareResponse Core.Int
+cpsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cpsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

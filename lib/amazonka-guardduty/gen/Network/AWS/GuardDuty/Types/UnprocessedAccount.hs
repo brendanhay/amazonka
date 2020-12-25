@@ -17,58 +17,55 @@ module Network.AWS.GuardDuty.Types.UnprocessedAccount
     mkUnprocessedAccount,
 
     -- * Lenses
-    uaResult,
     uaAccountId,
+    uaResult,
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.AccountId as Types
+import qualified Network.AWS.GuardDuty.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the accounts that weren't processed.
 --
 -- /See:/ 'mkUnprocessedAccount' smart constructor.
 data UnprocessedAccount = UnprocessedAccount'
-  { -- | A reason why the account hasn't been processed.
-    result :: Lude.Text,
-    -- | The AWS account ID.
-    accountId :: Lude.Text
+  { -- | The AWS account ID.
+    accountId :: Types.AccountId,
+    -- | A reason why the account hasn't been processed.
+    result :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnprocessedAccount' with the minimum fields required to make a request.
---
--- * 'result' - A reason why the account hasn't been processed.
--- * 'accountId' - The AWS account ID.
+-- | Creates a 'UnprocessedAccount' value with any optional fields omitted.
 mkUnprocessedAccount ::
-  -- | 'result'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
+  -- | 'result'
+  Types.String ->
   UnprocessedAccount
-mkUnprocessedAccount pResult_ pAccountId_ =
-  UnprocessedAccount' {result = pResult_, accountId = pAccountId_}
-
--- | A reason why the account hasn't been processed.
---
--- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaResult :: Lens.Lens' UnprocessedAccount Lude.Text
-uaResult = Lens.lens (result :: UnprocessedAccount -> Lude.Text) (\s a -> s {result = a} :: UnprocessedAccount)
-{-# DEPRECATED uaResult "Use generic-lens or generic-optics with 'result' instead." #-}
+mkUnprocessedAccount accountId result =
+  UnprocessedAccount' {accountId, result}
 
 -- | The AWS account ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uaAccountId :: Lens.Lens' UnprocessedAccount Lude.Text
-uaAccountId = Lens.lens (accountId :: UnprocessedAccount -> Lude.Text) (\s a -> s {accountId = a} :: UnprocessedAccount)
+uaAccountId :: Lens.Lens' UnprocessedAccount Types.AccountId
+uaAccountId = Lens.field @"accountId"
 {-# DEPRECATED uaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
-instance Lude.FromJSON UnprocessedAccount where
+-- | A reason why the account hasn't been processed.
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uaResult :: Lens.Lens' UnprocessedAccount Types.String
+uaResult = Lens.field @"result"
+{-# DEPRECATED uaResult "Use generic-lens or generic-optics with 'result' instead." #-}
+
+instance Core.FromJSON UnprocessedAccount where
   parseJSON =
-    Lude.withObject
-      "UnprocessedAccount"
-      ( \x ->
-          UnprocessedAccount'
-            Lude.<$> (x Lude..: "result") Lude.<*> (x Lude..: "accountId")
-      )
+    Core.withObject "UnprocessedAccount" Core.$
+      \x ->
+        UnprocessedAccount'
+          Core.<$> (x Core..: "accountId") Core.<*> (x Core..: "result")

@@ -22,23 +22,23 @@ module Network.AWS.RDS.DeleteDBClusterSnapshot
     mkDeleteDBClusterSnapshot,
 
     -- ** Request lenses
-    ddcsDBClusterSnapshotIdentifier,
+    ddbcsDBClusterSnapshotIdentifier,
 
     -- * Destructuring the response
     DeleteDBClusterSnapshotResponse (..),
     mkDeleteDBClusterSnapshotResponse,
 
     -- ** Response lenses
-    ddcsrsDBClusterSnapshot,
-    ddcsrsResponseStatus,
+    ddbcsrrsDBClusterSnapshot,
+    ddbcsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
@@ -47,95 +47,91 @@ newtype DeleteDBClusterSnapshot = DeleteDBClusterSnapshot'
   { -- | The identifier of the DB cluster snapshot to delete.
     --
     -- Constraints: Must be the name of an existing DB cluster snapshot in the @available@ state.
-    dbClusterSnapshotIdentifier :: Lude.Text
+    dBClusterSnapshotIdentifier :: Types.DBClusterSnapshotIdentifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDBClusterSnapshot' with the minimum fields required to make a request.
---
--- * 'dbClusterSnapshotIdentifier' - The identifier of the DB cluster snapshot to delete.
---
--- Constraints: Must be the name of an existing DB cluster snapshot in the @available@ state.
+-- | Creates a 'DeleteDBClusterSnapshot' value with any optional fields omitted.
 mkDeleteDBClusterSnapshot ::
-  -- | 'dbClusterSnapshotIdentifier'
-  Lude.Text ->
+  -- | 'dBClusterSnapshotIdentifier'
+  Types.DBClusterSnapshotIdentifier ->
   DeleteDBClusterSnapshot
-mkDeleteDBClusterSnapshot pDBClusterSnapshotIdentifier_ =
-  DeleteDBClusterSnapshot'
-    { dbClusterSnapshotIdentifier =
-        pDBClusterSnapshotIdentifier_
-    }
+mkDeleteDBClusterSnapshot dBClusterSnapshotIdentifier =
+  DeleteDBClusterSnapshot' {dBClusterSnapshotIdentifier}
 
 -- | The identifier of the DB cluster snapshot to delete.
 --
 -- Constraints: Must be the name of an existing DB cluster snapshot in the @available@ state.
 --
--- /Note:/ Consider using 'dbClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcsDBClusterSnapshotIdentifier :: Lens.Lens' DeleteDBClusterSnapshot Lude.Text
-ddcsDBClusterSnapshotIdentifier = Lens.lens (dbClusterSnapshotIdentifier :: DeleteDBClusterSnapshot -> Lude.Text) (\s a -> s {dbClusterSnapshotIdentifier = a} :: DeleteDBClusterSnapshot)
-{-# DEPRECATED ddcsDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dbClusterSnapshotIdentifier' instead." #-}
+-- /Note:/ Consider using 'dBClusterSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsDBClusterSnapshotIdentifier :: Lens.Lens' DeleteDBClusterSnapshot Types.DBClusterSnapshotIdentifier
+ddbcsDBClusterSnapshotIdentifier = Lens.field @"dBClusterSnapshotIdentifier"
+{-# DEPRECATED ddbcsDBClusterSnapshotIdentifier "Use generic-lens or generic-optics with 'dBClusterSnapshotIdentifier' instead." #-}
 
-instance Lude.AWSRequest DeleteDBClusterSnapshot where
+instance Core.AWSRequest DeleteDBClusterSnapshot where
   type Rs DeleteDBClusterSnapshot = DeleteDBClusterSnapshotResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteDBClusterSnapshot")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue
+                            "DBClusterSnapshotIdentifier"
+                            dBClusterSnapshotIdentifier
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteDBClusterSnapshotResult"
       ( \s h x ->
           DeleteDBClusterSnapshotResponse'
-            Lude.<$> (x Lude..@? "DBClusterSnapshot")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBClusterSnapshot")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDBClusterSnapshot where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteDBClusterSnapshot where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDBClusterSnapshot where
-  toQuery DeleteDBClusterSnapshot' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteDBClusterSnapshot" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "DBClusterSnapshotIdentifier" Lude.=: dbClusterSnapshotIdentifier
-      ]
 
 -- | /See:/ 'mkDeleteDBClusterSnapshotResponse' smart constructor.
 data DeleteDBClusterSnapshotResponse = DeleteDBClusterSnapshotResponse'
-  { dbClusterSnapshot :: Lude.Maybe DBClusterSnapshot,
+  { dBClusterSnapshot :: Core.Maybe Types.DBClusterSnapshot,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteDBClusterSnapshotResponse' with the minimum fields required to make a request.
---
--- * 'dbClusterSnapshot' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDBClusterSnapshotResponse' value with any optional fields omitted.
 mkDeleteDBClusterSnapshotResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDBClusterSnapshotResponse
-mkDeleteDBClusterSnapshotResponse pResponseStatus_ =
+mkDeleteDBClusterSnapshotResponse responseStatus =
   DeleteDBClusterSnapshotResponse'
-    { dbClusterSnapshot =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBClusterSnapshot =
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'dbClusterSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcsrsDBClusterSnapshot :: Lens.Lens' DeleteDBClusterSnapshotResponse (Lude.Maybe DBClusterSnapshot)
-ddcsrsDBClusterSnapshot = Lens.lens (dbClusterSnapshot :: DeleteDBClusterSnapshotResponse -> Lude.Maybe DBClusterSnapshot) (\s a -> s {dbClusterSnapshot = a} :: DeleteDBClusterSnapshotResponse)
-{-# DEPRECATED ddcsrsDBClusterSnapshot "Use generic-lens or generic-optics with 'dbClusterSnapshot' instead." #-}
+-- /Note:/ Consider using 'dBClusterSnapshot' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbcsrrsDBClusterSnapshot :: Lens.Lens' DeleteDBClusterSnapshotResponse (Core.Maybe Types.DBClusterSnapshot)
+ddbcsrrsDBClusterSnapshot = Lens.field @"dBClusterSnapshot"
+{-# DEPRECATED ddbcsrrsDBClusterSnapshot "Use generic-lens or generic-optics with 'dBClusterSnapshot' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcsrsResponseStatus :: Lens.Lens' DeleteDBClusterSnapshotResponse Lude.Int
-ddcsrsResponseStatus = Lens.lens (responseStatus :: DeleteDBClusterSnapshotResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDBClusterSnapshotResponse)
-{-# DEPRECATED ddcsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddbcsrrsResponseStatus :: Lens.Lens' DeleteDBClusterSnapshotResponse Core.Int
+ddbcsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddbcsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

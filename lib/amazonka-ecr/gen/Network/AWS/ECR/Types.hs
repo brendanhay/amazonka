@@ -9,93 +9,48 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.ECR.Types
   ( -- * Service configuration
-    ecrService,
+    mkServiceConfig,
 
     -- * Errors
+    _ImageTagAlreadyExistsException,
+    _LayersNotFoundException,
+    _ReferencedImagesNotFoundException,
+    _InvalidParameterException,
+    _LayerAlreadyExistsException,
+    _ServerException,
+    _LayerInaccessibleException,
+    _InvalidLayerException,
+    _LayerPartTooSmallException,
+    _LifecyclePolicyPreviewNotFoundException,
+    _ImageDigestDoesNotMatchException,
+    _ImageNotFoundException,
+    _ImageAlreadyExistsException,
+    _RepositoryNotFoundException,
+    _TooManyTagsException,
+    _LifecyclePolicyPreviewInProgressException,
+    _UploadNotFoundException,
+    _LifecyclePolicyNotFoundException,
+    _KmsException,
+    _InvalidLayerPartException,
+    _InvalidTagParameterException,
+    _RepositoryNotEmptyException,
+    _UnsupportedImageTypeException,
+    _RepositoryAlreadyExistsException,
+    _ScanNotFoundException,
+    _RepositoryPolicyNotFoundException,
+    _EmptyUploadException,
+    _LimitExceededException,
 
-    -- * EncryptionType
-    EncryptionType (..),
-
-    -- * FindingSeverity
-    FindingSeverity (..),
-
-    -- * ImageActionType
-    ImageActionType (..),
-
-    -- * ImageFailureCode
-    ImageFailureCode (..),
-
-    -- * ImageTagMutability
-    ImageTagMutability (..),
-
-    -- * LayerAvailability
-    LayerAvailability (..),
-
-    -- * LayerFailureCode
-    LayerFailureCode (..),
-
-    -- * LifecyclePolicyPreviewStatus
-    LifecyclePolicyPreviewStatus (..),
-
-    -- * ScanStatus
-    ScanStatus (..),
-
-    -- * TagStatus
-    TagStatus (..),
+    -- * LifecyclePolicyPreviewFilter
+    LifecyclePolicyPreviewFilter (..),
+    mkLifecyclePolicyPreviewFilter,
+    lppfTagStatus,
 
     -- * Attribute
     Attribute (..),
     mkAttribute,
-    aValue,
     aKey,
-
-    -- * AuthorizationData
-    AuthorizationData (..),
-    mkAuthorizationData,
-    adExpiresAt,
-    adProxyEndpoint,
-    adAuthorizationToken,
-
-    -- * DescribeImagesFilter
-    DescribeImagesFilter (..),
-    mkDescribeImagesFilter,
-    difTagStatus,
-
-    -- * EncryptionConfiguration
-    EncryptionConfiguration (..),
-    mkEncryptionConfiguration,
-    ecEncryptionType,
-    ecKmsKey,
-
-    -- * Image
-    Image (..),
-    mkImage,
-    iRegistryId,
-    iImageManifestMediaType,
-    iImageId,
-    iRepositoryName,
-    iImageManifest,
-
-    -- * ImageDetail
-    ImageDetail (..),
-    mkImageDetail,
-    idRegistryId,
-    idImageTags,
-    idImageScanStatus,
-    idImageManifestMediaType,
-    idImageSizeInBytes,
-    idImageDigest,
-    idImageScanFindingsSummary,
-    idArtifactMediaType,
-    idImagePushedAt,
-    idRepositoryName,
-
-    -- * ImageFailure
-    ImageFailure (..),
-    mkImageFailure,
-    ifFailureReason,
-    ifFailureCode,
-    ifImageId,
+    aValue,
 
     -- * ImageIdentifier
     ImageIdentifier (..),
@@ -103,191 +58,580 @@ module Network.AWS.ECR.Types
     iiImageDigest,
     iiImageTag,
 
-    -- * ImageScanFinding
-    ImageScanFinding (..),
-    mkImageScanFinding,
-    isfSeverity,
-    isfUri,
-    isfName,
-    isfAttributes,
-    isfDescription,
+    -- * MediaType
+    MediaType (..),
+
+    -- * EncryptionType
+    EncryptionType (..),
+
+    -- * ImageFailure
+    ImageFailure (..),
+    mkImageFailure,
+    ifFailureCode,
+    ifFailureReason,
+    ifImageId,
+
+    -- * Image
+    Image (..),
+    mkImage,
+    iImageId,
+    iImageManifest,
+    iImageManifestMediaType,
+    iRegistryId,
+    iRepositoryName,
+
+    -- * LayerFailureReason
+    LayerFailureReason (..),
+
+    -- * Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
+
+    -- * Repository
+    Repository (..),
+    mkRepository,
+    rCreatedAt,
+    rEncryptionConfiguration,
+    rImageScanningConfiguration,
+    rImageTagMutability,
+    rRegistryId,
+    rRepositoryArn,
+    rRepositoryName,
+    rRepositoryUri,
+
+    -- * KmsKey
+    KmsKey (..),
+
+    -- * Arn
+    Arn (..),
+
+    -- * ScanStatusDescription
+    ScanStatusDescription (..),
+
+    -- * RegistryId
+    RegistryId (..),
+
+    -- * AuthorizationData
+    AuthorizationData (..),
+    mkAuthorizationData,
+    adAuthorizationToken,
+    adExpiresAt,
+    adProxyEndpoint,
+
+    -- * LayerDigest
+    LayerDigest (..),
+
+    -- * Url
+    Url (..),
+
+    -- * BatchedOperationLayerDigest
+    BatchedOperationLayerDigest (..),
+
+    -- * LifecyclePolicyText
+    LifecyclePolicyText (..),
+
+    -- * ImageDetail
+    ImageDetail (..),
+    mkImageDetail,
+    idArtifactMediaType,
+    idImageDigest,
+    idImageManifestMediaType,
+    idImagePushedAt,
+    idImageScanFindingsSummary,
+    idImageScanStatus,
+    idImageSizeInBytes,
+    idImageTags,
+    idRegistryId,
+    idRepositoryName,
 
     -- * ImageScanFindings
     ImageScanFindings (..),
     mkImageScanFindings,
-    isfImageScanCompletedAt,
-    isfFindings,
     isfFindingSeverityCounts,
+    isfFindings,
+    isfImageScanCompletedAt,
     isfVulnerabilitySourceUpdatedAt,
-
-    -- * ImageScanFindingsSummary
-    ImageScanFindingsSummary (..),
-    mkImageScanFindingsSummary,
-    isfsImageScanCompletedAt,
-    isfsFindingSeverityCounts,
-    isfsVulnerabilitySourceUpdatedAt,
-
-    -- * ImageScanStatus
-    ImageScanStatus (..),
-    mkImageScanStatus,
-    issStatus,
-    issDescription,
 
     -- * ImageScanningConfiguration
     ImageScanningConfiguration (..),
     mkImageScanningConfiguration,
     iscScanOnPush,
 
-    -- * Layer
-    Layer (..),
-    mkLayer,
-    lMediaType,
-    lLayerDigest,
-    lLayerSize,
-    lLayerAvailability,
+    -- * ListImagesFilter
+    ListImagesFilter (..),
+    mkListImagesFilter,
+    lifTagStatus,
 
-    -- * LayerFailure
-    LayerFailure (..),
-    mkLayerFailure,
-    lfFailureReason,
-    lfFailureCode,
-    lfLayerDigest,
+    -- * ImageActionType
+    ImageActionType (..),
 
-    -- * LifecyclePolicyPreviewFilter
-    LifecyclePolicyPreviewFilter (..),
-    mkLifecyclePolicyPreviewFilter,
-    lppfTagStatus,
+    -- * DescribeImagesFilter
+    DescribeImagesFilter (..),
+    mkDescribeImagesFilter,
+    difTagStatus,
+
+    -- * ImageScanStatus
+    ImageScanStatus (..),
+    mkImageScanStatus,
+    issDescription,
+    issStatus,
+
+    -- * NextToken
+    NextToken (..),
+
+    -- * ImageDigest
+    ImageDigest (..),
+
+    -- * ProxyEndpoint
+    ProxyEndpoint (..),
+
+    -- * RepositoryPolicyText
+    RepositoryPolicyText (..),
+
+    -- * EncryptionConfiguration
+    EncryptionConfiguration (..),
+    mkEncryptionConfiguration,
+    ecEncryptionType,
+    ecKmsKey,
+
+    -- * LayerAvailability
+    LayerAvailability (..),
+
+    -- * ImageFailureCode
+    ImageFailureCode (..),
+
+    -- * FindingName
+    FindingName (..),
+
+    -- * ImageScanFindingsSummary
+    ImageScanFindingsSummary (..),
+    mkImageScanFindingsSummary,
+    isfsFindingSeverityCounts,
+    isfsImageScanCompletedAt,
+    isfsVulnerabilitySourceUpdatedAt,
 
     -- * LifecyclePolicyPreviewResult
     LifecyclePolicyPreviewResult (..),
     mkLifecyclePolicyPreviewResult,
-    lpprImageTags,
     lpprAction,
+    lpprAppliedRulePriority,
     lpprImageDigest,
     lpprImagePushedAt,
-    lpprAppliedRulePriority,
+    lpprImageTags,
+
+    -- * ImageScanFinding
+    ImageScanFinding (..),
+    mkImageScanFinding,
+    isfAttributes,
+    isfDescription,
+    isfName,
+    isfSeverity,
+    isfUri,
+
+    -- * RepositoryName
+    RepositoryName (..),
+
+    -- * ImageTag
+    ImageTag (..),
+
+    -- * TagKey
+    TagKey (..),
+
+    -- * ImageManifest
+    ImageManifest (..),
 
     -- * LifecyclePolicyPreviewSummary
     LifecyclePolicyPreviewSummary (..),
     mkLifecyclePolicyPreviewSummary,
     lppsExpiringImageTotalCount,
 
+    -- * LifecyclePolicyPreviewStatus
+    LifecyclePolicyPreviewStatus (..),
+
+    -- * ImageTagMutability
+    ImageTagMutability (..),
+
+    -- * Layer
+    Layer (..),
+    mkLayer,
+    lLayerAvailability,
+    lLayerDigest,
+    lLayerSize,
+    lMediaType,
+
+    -- * LayerFailure
+    LayerFailure (..),
+    mkLayerFailure,
+    lfFailureCode,
+    lfFailureReason,
+    lfLayerDigest,
+
+    -- * ScanStatus
+    ScanStatus (..),
+
+    -- * TagStatus
+    TagStatus (..),
+
     -- * LifecyclePolicyRuleAction
     LifecyclePolicyRuleAction (..),
     mkLifecyclePolicyRuleAction,
     lpraType,
 
-    -- * ListImagesFilter
-    ListImagesFilter (..),
-    mkListImagesFilter,
-    lifTagStatus,
+    -- * UploadId
+    UploadId (..),
 
-    -- * Repository
-    Repository (..),
-    mkRepository,
-    rRepositoryARN,
-    rCreatedAt,
-    rRegistryId,
-    rImageScanningConfiguration,
-    rRepositoryURI,
-    rEncryptionConfiguration,
-    rRepositoryName,
-    rImageTagMutability,
+    -- * LayerFailureCode
+    LayerFailureCode (..),
 
-    -- * Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- * FindingSeverity
+    FindingSeverity (..),
+
+    -- * Key
+    Key (..),
+
+    -- * Value
+    Value (..),
+
+    -- * FailureReason
+    FailureReason (..),
+
+    -- * PolicyText
+    PolicyText (..),
+
+    -- * RepositoryArn
+    RepositoryArn (..),
+
+    -- * RepositoryUri
+    RepositoryUri (..),
+
+    -- * AuthorizationToken
+    AuthorizationToken (..),
+
+    -- * Description
+    Description (..),
   )
 where
 
+import Network.AWS.ECR.Types.Arn
 import Network.AWS.ECR.Types.Attribute
 import Network.AWS.ECR.Types.AuthorizationData
+import Network.AWS.ECR.Types.AuthorizationToken
+import Network.AWS.ECR.Types.BatchedOperationLayerDigest
 import Network.AWS.ECR.Types.DescribeImagesFilter
+import Network.AWS.ECR.Types.Description
 import Network.AWS.ECR.Types.EncryptionConfiguration
 import Network.AWS.ECR.Types.EncryptionType
+import Network.AWS.ECR.Types.FailureReason
+import Network.AWS.ECR.Types.FindingName
 import Network.AWS.ECR.Types.FindingSeverity
 import Network.AWS.ECR.Types.Image
 import Network.AWS.ECR.Types.ImageActionType
 import Network.AWS.ECR.Types.ImageDetail
+import Network.AWS.ECR.Types.ImageDigest
 import Network.AWS.ECR.Types.ImageFailure
 import Network.AWS.ECR.Types.ImageFailureCode
 import Network.AWS.ECR.Types.ImageIdentifier
+import Network.AWS.ECR.Types.ImageManifest
 import Network.AWS.ECR.Types.ImageScanFinding
 import Network.AWS.ECR.Types.ImageScanFindings
 import Network.AWS.ECR.Types.ImageScanFindingsSummary
 import Network.AWS.ECR.Types.ImageScanStatus
 import Network.AWS.ECR.Types.ImageScanningConfiguration
+import Network.AWS.ECR.Types.ImageTag
 import Network.AWS.ECR.Types.ImageTagMutability
+import Network.AWS.ECR.Types.Key
+import Network.AWS.ECR.Types.KmsKey
 import Network.AWS.ECR.Types.Layer
 import Network.AWS.ECR.Types.LayerAvailability
+import Network.AWS.ECR.Types.LayerDigest
 import Network.AWS.ECR.Types.LayerFailure
 import Network.AWS.ECR.Types.LayerFailureCode
+import Network.AWS.ECR.Types.LayerFailureReason
 import Network.AWS.ECR.Types.LifecyclePolicyPreviewFilter
 import Network.AWS.ECR.Types.LifecyclePolicyPreviewResult
 import Network.AWS.ECR.Types.LifecyclePolicyPreviewStatus
 import Network.AWS.ECR.Types.LifecyclePolicyPreviewSummary
 import Network.AWS.ECR.Types.LifecyclePolicyRuleAction
+import Network.AWS.ECR.Types.LifecyclePolicyText
 import Network.AWS.ECR.Types.ListImagesFilter
+import Network.AWS.ECR.Types.MediaType
+import Network.AWS.ECR.Types.NextToken
+import Network.AWS.ECR.Types.PolicyText
+import Network.AWS.ECR.Types.ProxyEndpoint
+import Network.AWS.ECR.Types.RegistryId
 import Network.AWS.ECR.Types.Repository
+import Network.AWS.ECR.Types.RepositoryArn
+import Network.AWS.ECR.Types.RepositoryName
+import Network.AWS.ECR.Types.RepositoryPolicyText
+import Network.AWS.ECR.Types.RepositoryUri
 import Network.AWS.ECR.Types.ScanStatus
+import Network.AWS.ECR.Types.ScanStatusDescription
 import Network.AWS.ECR.Types.Tag
+import Network.AWS.ECR.Types.TagKey
 import Network.AWS.ECR.Types.TagStatus
+import Network.AWS.ECR.Types.UploadId
+import Network.AWS.ECR.Types.Url
+import Network.AWS.ECR.Types.Value
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2015-09-21@ of the Amazon EC2 Container Registry SDK configuration.
-ecrService :: Lude.Service
-ecrService =
-  Lude.Service
-    { Lude._svcAbbrev = "ECR",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "api.ecr",
-      Lude._svcVersion = "2015-09-21",
-      Lude._svcEndpoint = Lude.defaultEndpoint ecrService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "ECR",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "ECR",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "api.ecr",
+      Core._svcVersion = "2015-09-21",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "ECR",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | The specified image is tagged with a tag that already exists. The repository is configured for tag immutability.
+_ImageTagAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ImageTagAlreadyExistsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ImageTagAlreadyExistsException"
+{-# DEPRECATED _ImageTagAlreadyExistsException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified layers could not be found, or the specified layer is not valid for this repository.
+_LayersNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LayersNotFoundException =
+  Core._MatchServiceError mkServiceConfig "LayersNotFoundException"
+{-# DEPRECATED _LayersNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The manifest list is referencing an image that does not exist.
+_ReferencedImagesNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ReferencedImagesNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ReferencedImagesNotFoundException"
+{-# DEPRECATED _ReferencedImagesNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified parameter is invalid. Review the available parameters for the API request.
+_InvalidParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidParameterException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidParameterException"
+{-# DEPRECATED _InvalidParameterException "Use generic-lens or generic-optics instead." #-}
+
+-- | The image layer already exists in the associated repository.
+_LayerAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LayerAlreadyExistsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "LayerAlreadyExistsException"
+{-# DEPRECATED _LayerAlreadyExistsException "Use generic-lens or generic-optics instead." #-}
+
+-- | These errors are usually caused by a server-side issue.
+_ServerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ServerException =
+  Core._MatchServiceError mkServiceConfig "ServerException"
+{-# DEPRECATED _ServerException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified layer is not available because it is not associated with an image. Unassociated image layers may be cleaned up at any time.
+_LayerInaccessibleException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LayerInaccessibleException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "LayerInaccessibleException"
+{-# DEPRECATED _LayerInaccessibleException "Use generic-lens or generic-optics instead." #-}
+
+-- | The layer digest calculation performed by Amazon ECR upon receipt of the image layer does not match the digest specified.
+_InvalidLayerException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidLayerException =
+  Core._MatchServiceError mkServiceConfig "InvalidLayerException"
+{-# DEPRECATED _InvalidLayerException "Use generic-lens or generic-optics instead." #-}
+
+-- | Layer parts must be at least 5 MiB in size.
+_LayerPartTooSmallException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LayerPartTooSmallException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "LayerPartTooSmallException"
+{-# DEPRECATED _LayerPartTooSmallException "Use generic-lens or generic-optics instead." #-}
+
+-- | There is no dry run for this repository.
+_LifecyclePolicyPreviewNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LifecyclePolicyPreviewNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "LifecyclePolicyPreviewNotFoundException"
+{-# DEPRECATED _LifecyclePolicyPreviewNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified image digest does not match the digest that Amazon ECR calculated for the image.
+_ImageDigestDoesNotMatchException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ImageDigestDoesNotMatchException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ImageDigestDoesNotMatchException"
+{-# DEPRECATED _ImageDigestDoesNotMatchException "Use generic-lens or generic-optics instead." #-}
+
+-- | The image requested does not exist in the specified repository.
+_ImageNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ImageNotFoundException =
+  Core._MatchServiceError mkServiceConfig "ImageNotFoundException"
+{-# DEPRECATED _ImageNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified image has already been pushed, and there were no changes to the manifest or image tag after the last push.
+_ImageAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ImageAlreadyExistsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ImageAlreadyExistsException"
+{-# DEPRECATED _ImageAlreadyExistsException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified repository could not be found. Check the spelling of the specified repository and ensure that you are performing operations on the correct registry.
+_RepositoryNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RepositoryNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "RepositoryNotFoundException"
+{-# DEPRECATED _RepositoryNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The list of tags on the repository is over the limit. The maximum number of tags that can be applied to a repository is 50.
+_TooManyTagsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyTagsException =
+  Core._MatchServiceError mkServiceConfig "TooManyTagsException"
+{-# DEPRECATED _TooManyTagsException "Use generic-lens or generic-optics instead." #-}
+
+-- | The previous lifecycle policy preview request has not completed. Wait and try again.
+_LifecyclePolicyPreviewInProgressException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LifecyclePolicyPreviewInProgressException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "LifecyclePolicyPreviewInProgressException"
+{-# DEPRECATED _LifecyclePolicyPreviewInProgressException "Use generic-lens or generic-optics instead." #-}
+
+-- | The upload could not be found, or the specified upload ID is not valid for this repository.
+_UploadNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UploadNotFoundException =
+  Core._MatchServiceError mkServiceConfig "UploadNotFoundException"
+{-# DEPRECATED _UploadNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The lifecycle policy could not be found, and no policy is set to the repository.
+_LifecyclePolicyNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LifecyclePolicyNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "LifecyclePolicyNotFoundException"
+{-# DEPRECATED _LifecyclePolicyNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The operation failed due to a KMS exception.
+_KmsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_KmsException =
+  Core._MatchServiceError mkServiceConfig "KmsException"
+{-# DEPRECATED _KmsException "Use generic-lens or generic-optics instead." #-}
+
+-- | The layer part size is not valid, or the first byte specified is not consecutive to the last byte of a previous layer part upload.
+_InvalidLayerPartException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidLayerPartException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidLayerPartException"
+{-# DEPRECATED _InvalidLayerPartException "Use generic-lens or generic-optics instead." #-}
+
+-- | An invalid parameter has been specified. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.
+_InvalidTagParameterException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InvalidTagParameterException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InvalidTagParameterException"
+{-# DEPRECATED _InvalidTagParameterException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified repository contains images. To delete a repository that contains images, you must force the deletion with the @force@ parameter.
+_RepositoryNotEmptyException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RepositoryNotEmptyException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "RepositoryNotEmptyException"
+{-# DEPRECATED _RepositoryNotEmptyException "Use generic-lens or generic-optics instead." #-}
+
+-- | The image is of a type that cannot be scanned.
+_UnsupportedImageTypeException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnsupportedImageTypeException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "UnsupportedImageTypeException"
+{-# DEPRECATED _UnsupportedImageTypeException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified repository already exists in the specified registry.
+_RepositoryAlreadyExistsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RepositoryAlreadyExistsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "RepositoryAlreadyExistsException"
+{-# DEPRECATED _RepositoryAlreadyExistsException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified image scan could not be found. Ensure that image scanning is enabled on the repository and try again.
+_ScanNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ScanNotFoundException =
+  Core._MatchServiceError mkServiceConfig "ScanNotFoundException"
+{-# DEPRECATED _ScanNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified repository and registry combination does not have an associated repository policy.
+_RepositoryPolicyNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RepositoryPolicyNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "RepositoryPolicyNotFoundException"
+{-# DEPRECATED _RepositoryPolicyNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified layer upload does not contain any layer parts.
+_EmptyUploadException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_EmptyUploadException =
+  Core._MatchServiceError mkServiceConfig "EmptyUploadException"
+{-# DEPRECATED _EmptyUploadException "Use generic-lens or generic-optics instead." #-}
+
+-- | The operation did not succeed because it would have exceeded a service limit for your account. For more information, see <https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html Amazon ECR Service Quotas> in the Amazon Elastic Container Registry User Guide.
+_LimitExceededException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_LimitExceededException =
+  Core._MatchServiceError mkServiceConfig "LimitExceededException"
+{-# DEPRECATED _LimitExceededException "Use generic-lens or generic-optics instead." #-}

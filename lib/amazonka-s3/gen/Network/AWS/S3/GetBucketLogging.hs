@@ -27,118 +27,107 @@ module Network.AWS.S3.GetBucketLogging
     mkGetBucketLogging,
 
     -- ** Request lenses
-    gblfBucket,
-    gblfExpectedBucketOwner,
+    gBucket,
+    gExpectedBucketOwner,
 
     -- * Destructuring the response
     GetBucketLoggingResponse (..),
     mkGetBucketLoggingResponse,
 
     -- ** Response lenses
-    gblrsLoggingEnabled,
-    gblrsResponseStatus,
+    grsLoggingEnabled,
+    grsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkGetBucketLogging' smart constructor.
 data GetBucketLogging = GetBucketLogging'
   { -- | The bucket name for which to get the logging information.
-    bucket :: BucketName,
+    bucket :: Types.BucketName,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.AccountId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketLogging' with the minimum fields required to make a request.
---
--- * 'bucket' - The bucket name for which to get the logging information.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'GetBucketLogging' value with any optional fields omitted.
 mkGetBucketLogging ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   GetBucketLogging
-mkGetBucketLogging pBucket_ =
-  GetBucketLogging'
-    { bucket = pBucket_,
-      expectedBucketOwner = Lude.Nothing
-    }
+mkGetBucketLogging bucket =
+  GetBucketLogging' {bucket, expectedBucketOwner = Core.Nothing}
 
 -- | The bucket name for which to get the logging information.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gblfBucket :: Lens.Lens' GetBucketLogging BucketName
-gblfBucket = Lens.lens (bucket :: GetBucketLogging -> BucketName) (\s a -> s {bucket = a} :: GetBucketLogging)
-{-# DEPRECATED gblfBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+gBucket :: Lens.Lens' GetBucketLogging Types.BucketName
+gBucket = Lens.field @"bucket"
+{-# DEPRECATED gBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gblfExpectedBucketOwner :: Lens.Lens' GetBucketLogging (Lude.Maybe Lude.Text)
-gblfExpectedBucketOwner = Lens.lens (expectedBucketOwner :: GetBucketLogging -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: GetBucketLogging)
-{-# DEPRECATED gblfExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
+gExpectedBucketOwner :: Lens.Lens' GetBucketLogging (Core.Maybe Types.AccountId)
+gExpectedBucketOwner = Lens.field @"expectedBucketOwner"
+{-# DEPRECATED gExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest GetBucketLogging where
+instance Core.AWSRequest GetBucketLogging where
   type Rs GetBucketLogging = GetBucketLoggingResponse
-  request = Req.get s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("logging", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           GetBucketLoggingResponse'
-            Lude.<$> (x Lude..@? "LoggingEnabled")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "LoggingEnabled")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetBucketLogging where
-  toHeaders GetBucketLogging' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath GetBucketLogging where
-  toPath GetBucketLogging' {..} = Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery GetBucketLogging where
-  toQuery = Lude.const (Lude.mconcat ["logging"])
 
 -- | /See:/ 'mkGetBucketLoggingResponse' smart constructor.
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
-  { loggingEnabled :: Lude.Maybe LoggingEnabled,
+  { loggingEnabled :: Core.Maybe Types.LoggingEnabled,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetBucketLoggingResponse' with the minimum fields required to make a request.
---
--- * 'loggingEnabled' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetBucketLoggingResponse' value with any optional fields omitted.
 mkGetBucketLoggingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetBucketLoggingResponse
-mkGetBucketLoggingResponse pResponseStatus_ =
+mkGetBucketLoggingResponse responseStatus =
   GetBucketLoggingResponse'
-    { loggingEnabled = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { loggingEnabled = Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'loggingEnabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gblrsLoggingEnabled :: Lens.Lens' GetBucketLoggingResponse (Lude.Maybe LoggingEnabled)
-gblrsLoggingEnabled = Lens.lens (loggingEnabled :: GetBucketLoggingResponse -> Lude.Maybe LoggingEnabled) (\s a -> s {loggingEnabled = a} :: GetBucketLoggingResponse)
-{-# DEPRECATED gblrsLoggingEnabled "Use generic-lens or generic-optics with 'loggingEnabled' instead." #-}
+grsLoggingEnabled :: Lens.Lens' GetBucketLoggingResponse (Core.Maybe Types.LoggingEnabled)
+grsLoggingEnabled = Lens.field @"loggingEnabled"
+{-# DEPRECATED grsLoggingEnabled "Use generic-lens or generic-optics with 'loggingEnabled' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gblrsResponseStatus :: Lens.Lens' GetBucketLoggingResponse Lude.Int
-gblrsResponseStatus = Lens.lens (responseStatus :: GetBucketLoggingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetBucketLoggingResponse)
-{-# DEPRECATED gblrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grsResponseStatus :: Lens.Lens' GetBucketLoggingResponse Core.Int
+grsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

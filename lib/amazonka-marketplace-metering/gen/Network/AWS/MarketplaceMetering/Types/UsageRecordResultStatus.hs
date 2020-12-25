@@ -13,51 +13,56 @@
 module Network.AWS.MarketplaceMetering.Types.UsageRecordResultStatus
   ( UsageRecordResultStatus
       ( UsageRecordResultStatus',
-        Success,
-        CustomerNotSubscribed,
-        DuplicateRecord
+        UsageRecordResultStatusSuccess,
+        UsageRecordResultStatusCustomerNotSubscribed,
+        UsageRecordResultStatusDuplicateRecord,
+        fromUsageRecordResultStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UsageRecordResultStatus = UsageRecordResultStatus' Lude.Text
+newtype UsageRecordResultStatus = UsageRecordResultStatus'
+  { fromUsageRecordResultStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Success :: UsageRecordResultStatus
-pattern Success = UsageRecordResultStatus' "Success"
+pattern UsageRecordResultStatusSuccess :: UsageRecordResultStatus
+pattern UsageRecordResultStatusSuccess = UsageRecordResultStatus' "Success"
 
-pattern CustomerNotSubscribed :: UsageRecordResultStatus
-pattern CustomerNotSubscribed = UsageRecordResultStatus' "CustomerNotSubscribed"
+pattern UsageRecordResultStatusCustomerNotSubscribed :: UsageRecordResultStatus
+pattern UsageRecordResultStatusCustomerNotSubscribed = UsageRecordResultStatus' "CustomerNotSubscribed"
 
-pattern DuplicateRecord :: UsageRecordResultStatus
-pattern DuplicateRecord = UsageRecordResultStatus' "DuplicateRecord"
+pattern UsageRecordResultStatusDuplicateRecord :: UsageRecordResultStatus
+pattern UsageRecordResultStatusDuplicateRecord = UsageRecordResultStatus' "DuplicateRecord"
 
 {-# COMPLETE
-  Success,
-  CustomerNotSubscribed,
-  DuplicateRecord,
+  UsageRecordResultStatusSuccess,
+  UsageRecordResultStatusCustomerNotSubscribed,
+  UsageRecordResultStatusDuplicateRecord,
   UsageRecordResultStatus'
   #-}

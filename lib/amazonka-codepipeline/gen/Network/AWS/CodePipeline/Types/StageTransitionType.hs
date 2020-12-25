@@ -13,46 +13,51 @@
 module Network.AWS.CodePipeline.Types.StageTransitionType
   ( StageTransitionType
       ( StageTransitionType',
-        Inbound,
-        Outbound
+        StageTransitionTypeInbound,
+        StageTransitionTypeOutbound,
+        fromStageTransitionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StageTransitionType = StageTransitionType' Lude.Text
+newtype StageTransitionType = StageTransitionType'
+  { fromStageTransitionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Inbound :: StageTransitionType
-pattern Inbound = StageTransitionType' "Inbound"
+pattern StageTransitionTypeInbound :: StageTransitionType
+pattern StageTransitionTypeInbound = StageTransitionType' "Inbound"
 
-pattern Outbound :: StageTransitionType
-pattern Outbound = StageTransitionType' "Outbound"
+pattern StageTransitionTypeOutbound :: StageTransitionType
+pattern StageTransitionTypeOutbound = StageTransitionType' "Outbound"
 
 {-# COMPLETE
-  Inbound,
-  Outbound,
+  StageTransitionTypeInbound,
+  StageTransitionTypeOutbound,
   StageTransitionType'
   #-}

@@ -13,51 +13,56 @@
 module Network.AWS.AppSync.Types.FieldLogLevel
   ( FieldLogLevel
       ( FieldLogLevel',
-        None,
-        Error,
-        All
+        FieldLogLevelNone,
+        FieldLogLevelError,
+        FieldLogLevelAll,
+        fromFieldLogLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FieldLogLevel = FieldLogLevel' Lude.Text
+newtype FieldLogLevel = FieldLogLevel'
+  { fromFieldLogLevel ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern None :: FieldLogLevel
-pattern None = FieldLogLevel' "NONE"
+pattern FieldLogLevelNone :: FieldLogLevel
+pattern FieldLogLevelNone = FieldLogLevel' "NONE"
 
-pattern Error :: FieldLogLevel
-pattern Error = FieldLogLevel' "ERROR"
+pattern FieldLogLevelError :: FieldLogLevel
+pattern FieldLogLevelError = FieldLogLevel' "ERROR"
 
-pattern All :: FieldLogLevel
-pattern All = FieldLogLevel' "ALL"
+pattern FieldLogLevelAll :: FieldLogLevel
+pattern FieldLogLevelAll = FieldLogLevel' "ALL"
 
 {-# COMPLETE
-  None,
-  Error,
-  All,
+  FieldLogLevelNone,
+  FieldLogLevelError,
+  FieldLogLevelAll,
   FieldLogLevel'
   #-}

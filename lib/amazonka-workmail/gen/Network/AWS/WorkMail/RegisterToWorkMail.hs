@@ -22,135 +22,118 @@ module Network.AWS.WorkMail.RegisterToWorkMail
     mkRegisterToWorkMail,
 
     -- ** Request lenses
-    rtwmEmail,
-    rtwmEntityId,
     rtwmOrganizationId,
+    rtwmEntityId,
+    rtwmEmail,
 
     -- * Destructuring the response
     RegisterToWorkMailResponse (..),
     mkRegisterToWorkMailResponse,
 
     -- ** Response lenses
-    rtwmrsResponseStatus,
+    rtwmrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.WorkMail.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.WorkMail.Types as Types
 
 -- | /See:/ 'mkRegisterToWorkMail' smart constructor.
 data RegisterToWorkMail = RegisterToWorkMail'
-  { -- | The email for the user, group, or resource to be updated.
-    email :: Lude.Text,
+  { -- | The identifier for the organization under which the user, group, or resource exists.
+    organizationId :: Types.OrganizationId,
     -- | The identifier for the user, group, or resource to be updated.
-    entityId :: Lude.Text,
-    -- | The identifier for the organization under which the user, group, or resource exists.
-    organizationId :: Lude.Text
+    entityId :: Types.WorkMailIdentifier,
+    -- | The email for the user, group, or resource to be updated.
+    email :: Types.EmailAddress
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterToWorkMail' with the minimum fields required to make a request.
---
--- * 'email' - The email for the user, group, or resource to be updated.
--- * 'entityId' - The identifier for the user, group, or resource to be updated.
--- * 'organizationId' - The identifier for the organization under which the user, group, or resource exists.
+-- | Creates a 'RegisterToWorkMail' value with any optional fields omitted.
 mkRegisterToWorkMail ::
-  -- | 'email'
-  Lude.Text ->
-  -- | 'entityId'
-  Lude.Text ->
   -- | 'organizationId'
-  Lude.Text ->
+  Types.OrganizationId ->
+  -- | 'entityId'
+  Types.WorkMailIdentifier ->
+  -- | 'email'
+  Types.EmailAddress ->
   RegisterToWorkMail
-mkRegisterToWorkMail pEmail_ pEntityId_ pOrganizationId_ =
-  RegisterToWorkMail'
-    { email = pEmail_,
-      entityId = pEntityId_,
-      organizationId = pOrganizationId_
-    }
-
--- | The email for the user, group, or resource to be updated.
---
--- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtwmEmail :: Lens.Lens' RegisterToWorkMail Lude.Text
-rtwmEmail = Lens.lens (email :: RegisterToWorkMail -> Lude.Text) (\s a -> s {email = a} :: RegisterToWorkMail)
-{-# DEPRECATED rtwmEmail "Use generic-lens or generic-optics with 'email' instead." #-}
-
--- | The identifier for the user, group, or resource to be updated.
---
--- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtwmEntityId :: Lens.Lens' RegisterToWorkMail Lude.Text
-rtwmEntityId = Lens.lens (entityId :: RegisterToWorkMail -> Lude.Text) (\s a -> s {entityId = a} :: RegisterToWorkMail)
-{-# DEPRECATED rtwmEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
+mkRegisterToWorkMail organizationId entityId email =
+  RegisterToWorkMail' {organizationId, entityId, email}
 
 -- | The identifier for the organization under which the user, group, or resource exists.
 --
 -- /Note:/ Consider using 'organizationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtwmOrganizationId :: Lens.Lens' RegisterToWorkMail Lude.Text
-rtwmOrganizationId = Lens.lens (organizationId :: RegisterToWorkMail -> Lude.Text) (\s a -> s {organizationId = a} :: RegisterToWorkMail)
+rtwmOrganizationId :: Lens.Lens' RegisterToWorkMail Types.OrganizationId
+rtwmOrganizationId = Lens.field @"organizationId"
 {-# DEPRECATED rtwmOrganizationId "Use generic-lens or generic-optics with 'organizationId' instead." #-}
 
-instance Lude.AWSRequest RegisterToWorkMail where
+-- | The identifier for the user, group, or resource to be updated.
+--
+-- /Note:/ Consider using 'entityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtwmEntityId :: Lens.Lens' RegisterToWorkMail Types.WorkMailIdentifier
+rtwmEntityId = Lens.field @"entityId"
+{-# DEPRECATED rtwmEntityId "Use generic-lens or generic-optics with 'entityId' instead." #-}
+
+-- | The email for the user, group, or resource to be updated.
+--
+-- /Note:/ Consider using 'email' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rtwmEmail :: Lens.Lens' RegisterToWorkMail Types.EmailAddress
+rtwmEmail = Lens.field @"email"
+{-# DEPRECATED rtwmEmail "Use generic-lens or generic-optics with 'email' instead." #-}
+
+instance Core.FromJSON RegisterToWorkMail where
+  toJSON RegisterToWorkMail {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("OrganizationId" Core..= organizationId),
+            Core.Just ("EntityId" Core..= entityId),
+            Core.Just ("Email" Core..= email)
+          ]
+      )
+
+instance Core.AWSRequest RegisterToWorkMail where
   type Rs RegisterToWorkMail = RegisterToWorkMailResponse
-  request = Req.postJSON workMailService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "WorkMailService.RegisterToWorkMail")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          RegisterToWorkMailResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          RegisterToWorkMailResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RegisterToWorkMail where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("WorkMailService.RegisterToWorkMail" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RegisterToWorkMail where
-  toJSON RegisterToWorkMail' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Email" Lude..= email),
-            Lude.Just ("EntityId" Lude..= entityId),
-            Lude.Just ("OrganizationId" Lude..= organizationId)
-          ]
-      )
-
-instance Lude.ToPath RegisterToWorkMail where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterToWorkMail where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRegisterToWorkMailResponse' smart constructor.
 newtype RegisterToWorkMailResponse = RegisterToWorkMailResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterToWorkMailResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RegisterToWorkMailResponse' value with any optional fields omitted.
 mkRegisterToWorkMailResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RegisterToWorkMailResponse
-mkRegisterToWorkMailResponse pResponseStatus_ =
-  RegisterToWorkMailResponse' {responseStatus = pResponseStatus_}
+mkRegisterToWorkMailResponse responseStatus =
+  RegisterToWorkMailResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtwmrsResponseStatus :: Lens.Lens' RegisterToWorkMailResponse Lude.Int
-rtwmrsResponseStatus = Lens.lens (responseStatus :: RegisterToWorkMailResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterToWorkMailResponse)
-{-# DEPRECATED rtwmrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rtwmrrsResponseStatus :: Lens.Lens' RegisterToWorkMailResponse Core.Int
+rtwmrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rtwmrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,7 +20,7 @@ module Network.AWS.SQS.DeleteMessage
     mkDeleteMessage,
 
     -- ** Request lenses
-    dmQueueURL,
+    dmQueueUrl,
     dmReceiptHandle,
 
     -- * Destructuring the response
@@ -30,10 +30,10 @@ module Network.AWS.SQS.DeleteMessage
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SQS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SQS.Types as Types
 
 -- |
 --
@@ -42,73 +42,68 @@ data DeleteMessage = DeleteMessage'
   { -- | The URL of the Amazon SQS queue from which messages are deleted.
     --
     -- Queue URLs and names are case-sensitive.
-    queueURL :: Lude.Text,
+    queueUrl :: Types.String,
     -- | The receipt handle associated with the message to delete.
-    receiptHandle :: Lude.Text
+    receiptHandle :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMessage' with the minimum fields required to make a request.
---
--- * 'queueURL' - The URL of the Amazon SQS queue from which messages are deleted.
---
--- Queue URLs and names are case-sensitive.
--- * 'receiptHandle' - The receipt handle associated with the message to delete.
+-- | Creates a 'DeleteMessage' value with any optional fields omitted.
 mkDeleteMessage ::
-  -- | 'queueURL'
-  Lude.Text ->
+  -- | 'queueUrl'
+  Types.String ->
   -- | 'receiptHandle'
-  Lude.Text ->
+  Types.String ->
   DeleteMessage
-mkDeleteMessage pQueueURL_ pReceiptHandle_ =
-  DeleteMessage'
-    { queueURL = pQueueURL_,
-      receiptHandle = pReceiptHandle_
-    }
+mkDeleteMessage queueUrl receiptHandle =
+  DeleteMessage' {queueUrl, receiptHandle}
 
 -- | The URL of the Amazon SQS queue from which messages are deleted.
 --
 -- Queue URLs and names are case-sensitive.
 --
--- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmQueueURL :: Lens.Lens' DeleteMessage Lude.Text
-dmQueueURL = Lens.lens (queueURL :: DeleteMessage -> Lude.Text) (\s a -> s {queueURL = a} :: DeleteMessage)
-{-# DEPRECATED dmQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
+-- /Note:/ Consider using 'queueUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dmQueueUrl :: Lens.Lens' DeleteMessage Types.String
+dmQueueUrl = Lens.field @"queueUrl"
+{-# DEPRECATED dmQueueUrl "Use generic-lens or generic-optics with 'queueUrl' instead." #-}
 
 -- | The receipt handle associated with the message to delete.
 --
 -- /Note:/ Consider using 'receiptHandle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dmReceiptHandle :: Lens.Lens' DeleteMessage Lude.Text
-dmReceiptHandle = Lens.lens (receiptHandle :: DeleteMessage -> Lude.Text) (\s a -> s {receiptHandle = a} :: DeleteMessage)
+dmReceiptHandle :: Lens.Lens' DeleteMessage Types.String
+dmReceiptHandle = Lens.field @"receiptHandle"
 {-# DEPRECATED dmReceiptHandle "Use generic-lens or generic-optics with 'receiptHandle' instead." #-}
 
-instance Lude.AWSRequest DeleteMessage where
+instance Core.AWSRequest DeleteMessage where
   type Rs DeleteMessage = DeleteMessageResponse
-  request = Req.postQuery sqsService
-  response = Res.receiveNull DeleteMessageResponse'
-
-instance Lude.ToHeaders DeleteMessage where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteMessage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteMessage where
-  toQuery DeleteMessage' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteMessage" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
-        "QueueUrl" Lude.=: queueURL,
-        "ReceiptHandle" Lude.=: receiptHandle
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteMessage")
+                Core.<> (Core.pure ("Version", "2012-11-05"))
+                Core.<> (Core.toQueryValue "QueueUrl" queueUrl)
+                Core.<> (Core.toQueryValue "ReceiptHandle" receiptHandle)
+            )
+      }
+  response = Response.receiveNull DeleteMessageResponse'
 
 -- | /See:/ 'mkDeleteMessageResponse' smart constructor.
 data DeleteMessageResponse = DeleteMessageResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMessageResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteMessageResponse' value with any optional fields omitted.
 mkDeleteMessageResponse ::
   DeleteMessageResponse
 mkDeleteMessageResponse = DeleteMessageResponse'

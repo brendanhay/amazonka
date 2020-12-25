@@ -22,42 +22,55 @@ module Network.AWS.RDS.DescribeDBSnapshots
     mkDescribeDBSnapshots,
 
     -- ** Request lenses
-    ddsIncludeShared,
-    ddsFilters,
-    ddsDBSnapshotIdentifier,
-    ddsSnapshotType,
-    ddsDBInstanceIdentifier,
-    ddsMarker,
-    ddsMaxRecords,
-    ddsIncludePublic,
-    ddsDBiResourceId,
+    ddbsDBInstanceIdentifier,
+    ddbsDBSnapshotIdentifier,
+    ddbsDbiResourceId,
+    ddbsFilters,
+    ddbsIncludePublic,
+    ddbsIncludeShared,
+    ddbsMarker,
+    ddbsMaxRecords,
+    ddbsSnapshotType,
 
     -- * Destructuring the response
     DescribeDBSnapshotsResponse (..),
     mkDescribeDBSnapshotsResponse,
 
     -- ** Response lenses
-    ddbsrsMarker,
-    ddbsrsDBSnapshots,
-    ddbsrsResponseStatus,
+    ddbsrrsDBSnapshots,
+    ddbsrrsMarker,
+    ddbsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.RDS.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.RDS.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeDBSnapshots' smart constructor.
 data DescribeDBSnapshots = DescribeDBSnapshots'
-  { -- | A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included.
+  { -- | The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can't be used in conjunction with @DBSnapshotIdentifier@ . This parameter isn't case-sensitive.
     --
-    -- You can give an AWS account permission to restore a manual DB snapshot from another AWS account by using the @ModifyDBSnapshotAttribute@ API action.
-    includeShared :: Lude.Maybe Lude.Bool,
+    -- Constraints:
+    --
+    --     * If supplied, must match the identifier of an existing DBInstance.
+    dBInstanceIdentifier :: Core.Maybe Types.DBInstanceIdentifier,
+    -- | A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.
+    --
+    -- Constraints:
+    --
+    --     * If supplied, must match the identifier of an existing DBSnapshot.
+    --
+    --
+    --     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
+    dBSnapshotIdentifier :: Core.Maybe Types.DBSnapshotIdentifier,
+    -- | A specific DB resource ID to describe.
+    dbiResourceId :: Core.Maybe Types.DbiResourceId,
     -- | A filter that specifies one or more DB snapshots to describe.
     --
     -- Supported filters:
@@ -75,16 +88,22 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
     --
     --
     --     * @engine@ - Accepts names of database engines.
-    filters :: Lude.Maybe [Filter],
-    -- | A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.
+    filters :: Core.Maybe [Types.Filter],
+    -- | A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included.
     --
-    -- Constraints:
+    -- You can share a manual DB snapshot as public by using the 'ModifyDBSnapshotAttribute' API.
+    includePublic :: Core.Maybe Core.Bool,
+    -- | A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included.
     --
-    --     * If supplied, must match the identifier of an existing DBSnapshot.
+    -- You can give an AWS account permission to restore a manual DB snapshot from another AWS account by using the @ModifyDBSnapshotAttribute@ API action.
+    includeShared :: Core.Maybe Core.Bool,
+    -- | An optional pagination token provided by a previous @DescribeDBSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.Marker,
+    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
     --
-    --
-    --     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
-    dbSnapshotIdentifier :: Lude.Maybe Lude.Text,
+    -- Default: 100
+    -- Constraints: Minimum 20, maximum 100.
+    maxRecords :: Core.Maybe Core.Int,
     -- | The type of snapshots to be returned. You can specify one of the following values:
     --
     --
@@ -107,55 +126,41 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
     --
     -- If you don't specify a @SnapshotType@ value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by enabling the @IncludeShared@ parameter. You can include public snapshots with these results by enabling the @IncludePublic@ parameter.
     -- The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
-    snapshotType :: Lude.Maybe Lude.Text,
-    -- | The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can't be used in conjunction with @DBSnapshotIdentifier@ . This parameter isn't case-sensitive.
-    --
-    -- Constraints:
-    --
-    --     * If supplied, must match the identifier of an existing DBInstance.
-    dbInstanceIdentifier :: Lude.Maybe Lude.Text,
-    -- | An optional pagination token provided by a previous @DescribeDBSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
-    -- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
-    --
-    -- Default: 100
-    -- Constraints: Minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int,
-    -- | A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included.
-    --
-    -- You can share a manual DB snapshot as public by using the 'ModifyDBSnapshotAttribute' API.
-    includePublic :: Lude.Maybe Lude.Bool,
-    -- | A specific DB resource ID to describe.
-    dbiResourceId :: Lude.Maybe Lude.Text
+    snapshotType :: Core.Maybe Types.SnapshotType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDBSnapshots' with the minimum fields required to make a request.
+-- | Creates a 'DescribeDBSnapshots' value with any optional fields omitted.
+mkDescribeDBSnapshots ::
+  DescribeDBSnapshots
+mkDescribeDBSnapshots =
+  DescribeDBSnapshots'
+    { dBInstanceIdentifier = Core.Nothing,
+      dBSnapshotIdentifier = Core.Nothing,
+      dbiResourceId = Core.Nothing,
+      filters = Core.Nothing,
+      includePublic = Core.Nothing,
+      includeShared = Core.Nothing,
+      marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      snapshotType = Core.Nothing
+    }
+
+-- | The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can't be used in conjunction with @DBSnapshotIdentifier@ . This parameter isn't case-sensitive.
 --
--- * 'includeShared' - A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included.
+-- Constraints:
 --
--- You can give an AWS account permission to restore a manual DB snapshot from another AWS account by using the @ModifyDBSnapshotAttribute@ API action.
--- * 'filters' - A filter that specifies one or more DB snapshots to describe.
---
--- Supported filters:
---
---     * @db-instance-id@ - Accepts DB instance identifiers and DB instance Amazon Resource Names (ARNs).
+--     * If supplied, must match the identifier of an existing DBInstance.
 --
 --
---     * @db-snapshot-id@ - Accepts DB snapshot identifiers.
 --
---
---     * @dbi-resource-id@ - Accepts identifiers of source DB instances.
---
---
---     * @snapshot-type@ - Accepts types of DB snapshots.
---
---
---     * @engine@ - Accepts names of database engines.
---
---
--- * 'dbSnapshotIdentifier' - A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.
+-- /Note:/ Consider using 'dBInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsDBInstanceIdentifier :: Lens.Lens' DescribeDBSnapshots (Core.Maybe Types.DBInstanceIdentifier)
+ddbsDBInstanceIdentifier = Lens.field @"dBInstanceIdentifier"
+{-# DEPRECATED ddbsDBInstanceIdentifier "Use generic-lens or generic-optics with 'dBInstanceIdentifier' instead." #-}
+
+-- | A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.
 --
 -- Constraints:
 --
@@ -165,67 +170,18 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
 --     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
 --
 --
--- * 'snapshotType' - The type of snapshots to be returned. You can specify one of the following values:
 --
---
---     * @automated@ - Return all DB snapshots that have been automatically taken by Amazon RDS for my AWS account.
---
---
---     * @manual@ - Return all DB snapshots that have been taken by my AWS account.
---
---
---     * @shared@ - Return all manual DB snapshots that have been shared to my AWS account.
---
---
---     * @public@ - Return all DB snapshots that have been marked as public.
---
---
---     * @awsbackup@ - Return the DB snapshots managed by the AWS Backup service.
--- For information about AWS Backup, see the <https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html /AWS Backup Developer Guide./ >
--- The @awsbackup@ type does not apply to Aurora.
---
---
--- If you don't specify a @SnapshotType@ value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. You can include shared snapshots with these results by enabling the @IncludeShared@ parameter. You can include public snapshots with these results by enabling the @IncludePublic@ parameter.
--- The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
--- * 'dbInstanceIdentifier' - The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can't be used in conjunction with @DBSnapshotIdentifier@ . This parameter isn't case-sensitive.
---
--- Constraints:
---
---     * If supplied, must match the identifier of an existing DBInstance.
---
---
--- * 'marker' - An optional pagination token provided by a previous @DescribeDBSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'maxRecords' - The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
--- * 'includePublic' - A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included.
---
--- You can share a manual DB snapshot as public by using the 'ModifyDBSnapshotAttribute' API.
--- * 'dbiResourceId' - A specific DB resource ID to describe.
-mkDescribeDBSnapshots ::
-  DescribeDBSnapshots
-mkDescribeDBSnapshots =
-  DescribeDBSnapshots'
-    { includeShared = Lude.Nothing,
-      filters = Lude.Nothing,
-      dbSnapshotIdentifier = Lude.Nothing,
-      snapshotType = Lude.Nothing,
-      dbInstanceIdentifier = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing,
-      includePublic = Lude.Nothing,
-      dbiResourceId = Lude.Nothing
-    }
+-- /Note:/ Consider using 'dBSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsDBSnapshotIdentifier :: Lens.Lens' DescribeDBSnapshots (Core.Maybe Types.DBSnapshotIdentifier)
+ddbsDBSnapshotIdentifier = Lens.field @"dBSnapshotIdentifier"
+{-# DEPRECATED ddbsDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dBSnapshotIdentifier' instead." #-}
 
--- | A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included.
+-- | A specific DB resource ID to describe.
 --
--- You can give an AWS account permission to restore a manual DB snapshot from another AWS account by using the @ModifyDBSnapshotAttribute@ API action.
---
--- /Note:/ Consider using 'includeShared' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsIncludeShared :: Lens.Lens' DescribeDBSnapshots (Lude.Maybe Lude.Bool)
-ddsIncludeShared = Lens.lens (includeShared :: DescribeDBSnapshots -> Lude.Maybe Lude.Bool) (\s a -> s {includeShared = a} :: DescribeDBSnapshots)
-{-# DEPRECATED ddsIncludeShared "Use generic-lens or generic-optics with 'includeShared' instead." #-}
+-- /Note:/ Consider using 'dbiResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsDbiResourceId :: Lens.Lens' DescribeDBSnapshots (Core.Maybe Types.DbiResourceId)
+ddbsDbiResourceId = Lens.field @"dbiResourceId"
+{-# DEPRECATED ddbsDbiResourceId "Use generic-lens or generic-optics with 'dbiResourceId' instead." #-}
 
 -- | A filter that specifies one or more DB snapshots to describe.
 --
@@ -248,25 +204,44 @@ ddsIncludeShared = Lens.lens (includeShared :: DescribeDBSnapshots -> Lude.Maybe
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsFilters :: Lens.Lens' DescribeDBSnapshots (Lude.Maybe [Filter])
-ddsFilters = Lens.lens (filters :: DescribeDBSnapshots -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribeDBSnapshots)
-{-# DEPRECATED ddsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+ddbsFilters :: Lens.Lens' DescribeDBSnapshots (Core.Maybe [Types.Filter])
+ddbsFilters = Lens.field @"filters"
+{-# DEPRECATED ddbsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
 
--- | A specific DB snapshot identifier to describe. This parameter can't be used in conjunction with @DBInstanceIdentifier@ . This value is stored as a lowercase string.
+-- | A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included.
 --
--- Constraints:
+-- You can share a manual DB snapshot as public by using the 'ModifyDBSnapshotAttribute' API.
 --
---     * If supplied, must match the identifier of an existing DBSnapshot.
+-- /Note:/ Consider using 'includePublic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsIncludePublic :: Lens.Lens' DescribeDBSnapshots (Core.Maybe Core.Bool)
+ddbsIncludePublic = Lens.field @"includePublic"
+{-# DEPRECATED ddbsIncludePublic "Use generic-lens or generic-optics with 'includePublic' instead." #-}
+
+-- | A value that indicates whether to include shared manual DB cluster snapshots from other AWS accounts that this AWS account has been given permission to copy or restore. By default, these snapshots are not included.
 --
+-- You can give an AWS account permission to restore a manual DB snapshot from another AWS account by using the @ModifyDBSnapshotAttribute@ API action.
 --
---     * If this identifier is for an automated snapshot, the @SnapshotType@ parameter must also be specified.
+-- /Note:/ Consider using 'includeShared' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsIncludeShared :: Lens.Lens' DescribeDBSnapshots (Core.Maybe Core.Bool)
+ddbsIncludeShared = Lens.field @"includeShared"
+{-# DEPRECATED ddbsIncludeShared "Use generic-lens or generic-optics with 'includeShared' instead." #-}
+
+-- | An optional pagination token provided by a previous @DescribeDBSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsMarker :: Lens.Lens' DescribeDBSnapshots (Core.Maybe Types.Marker)
+ddbsMarker = Lens.field @"marker"
+{-# DEPRECATED ddbsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
 --
+-- Default: 100
+-- Constraints: Minimum 20, maximum 100.
 --
--- /Note:/ Consider using 'dbSnapshotIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsDBSnapshotIdentifier :: Lens.Lens' DescribeDBSnapshots (Lude.Maybe Lude.Text)
-ddsDBSnapshotIdentifier = Lens.lens (dbSnapshotIdentifier :: DescribeDBSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {dbSnapshotIdentifier = a} :: DescribeDBSnapshots)
-{-# DEPRECATED ddsDBSnapshotIdentifier "Use generic-lens or generic-optics with 'dbSnapshotIdentifier' instead." #-}
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsMaxRecords :: Lens.Lens' DescribeDBSnapshots (Core.Maybe Core.Int)
+ddbsMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED ddbsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | The type of snapshots to be returned. You can specify one of the following values:
 --
@@ -292,150 +267,110 @@ ddsDBSnapshotIdentifier = Lens.lens (dbSnapshotIdentifier :: DescribeDBSnapshots
 -- The @IncludeShared@ and @IncludePublic@ parameters don't apply for @SnapshotType@ values of @manual@ or @automated@ . The @IncludePublic@ parameter doesn't apply when @SnapshotType@ is set to @shared@ . The @IncludeShared@ parameter doesn't apply when @SnapshotType@ is set to @public@ .
 --
 -- /Note:/ Consider using 'snapshotType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsSnapshotType :: Lens.Lens' DescribeDBSnapshots (Lude.Maybe Lude.Text)
-ddsSnapshotType = Lens.lens (snapshotType :: DescribeDBSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {snapshotType = a} :: DescribeDBSnapshots)
-{-# DEPRECATED ddsSnapshotType "Use generic-lens or generic-optics with 'snapshotType' instead." #-}
+ddbsSnapshotType :: Lens.Lens' DescribeDBSnapshots (Core.Maybe Types.SnapshotType)
+ddbsSnapshotType = Lens.field @"snapshotType"
+{-# DEPRECATED ddbsSnapshotType "Use generic-lens or generic-optics with 'snapshotType' instead." #-}
 
--- | The ID of the DB instance to retrieve the list of DB snapshots for. This parameter can't be used in conjunction with @DBSnapshotIdentifier@ . This parameter isn't case-sensitive.
---
--- Constraints:
---
---     * If supplied, must match the identifier of an existing DBInstance.
---
---
---
--- /Note:/ Consider using 'dbInstanceIdentifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsDBInstanceIdentifier :: Lens.Lens' DescribeDBSnapshots (Lude.Maybe Lude.Text)
-ddsDBInstanceIdentifier = Lens.lens (dbInstanceIdentifier :: DescribeDBSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {dbInstanceIdentifier = a} :: DescribeDBSnapshots)
-{-# DEPRECATED ddsDBInstanceIdentifier "Use generic-lens or generic-optics with 'dbInstanceIdentifier' instead." #-}
-
--- | An optional pagination token provided by a previous @DescribeDBSnapshots@ request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsMarker :: Lens.Lens' DescribeDBSnapshots (Lude.Maybe Lude.Text)
-ddsMarker = Lens.lens (marker :: DescribeDBSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBSnapshots)
-{-# DEPRECATED ddsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | The maximum number of records to include in the response. If more records exist than the specified @MaxRecords@ value, a pagination token called a marker is included in the response so that you can retrieve the remaining results.
---
--- Default: 100
--- Constraints: Minimum 20, maximum 100.
---
--- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsMaxRecords :: Lens.Lens' DescribeDBSnapshots (Lude.Maybe Lude.Int)
-ddsMaxRecords = Lens.lens (maxRecords :: DescribeDBSnapshots -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeDBSnapshots)
-{-# DEPRECATED ddsMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
-
--- | A value that indicates whether to include manual DB cluster snapshots that are public and can be copied or restored by any AWS account. By default, the public snapshots are not included.
---
--- You can share a manual DB snapshot as public by using the 'ModifyDBSnapshotAttribute' API.
---
--- /Note:/ Consider using 'includePublic' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsIncludePublic :: Lens.Lens' DescribeDBSnapshots (Lude.Maybe Lude.Bool)
-ddsIncludePublic = Lens.lens (includePublic :: DescribeDBSnapshots -> Lude.Maybe Lude.Bool) (\s a -> s {includePublic = a} :: DescribeDBSnapshots)
-{-# DEPRECATED ddsIncludePublic "Use generic-lens or generic-optics with 'includePublic' instead." #-}
-
--- | A specific DB resource ID to describe.
---
--- /Note:/ Consider using 'dbiResourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddsDBiResourceId :: Lens.Lens' DescribeDBSnapshots (Lude.Maybe Lude.Text)
-ddsDBiResourceId = Lens.lens (dbiResourceId :: DescribeDBSnapshots -> Lude.Maybe Lude.Text) (\s a -> s {dbiResourceId = a} :: DescribeDBSnapshots)
-{-# DEPRECATED ddsDBiResourceId "Use generic-lens or generic-optics with 'dbiResourceId' instead." #-}
-
-instance Page.AWSPager DescribeDBSnapshots where
-  page rq rs
-    | Page.stop (rs Lens.^. ddbsrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. ddbsrsDBSnapshots) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ddsMarker Lens..~ rs Lens.^. ddbsrsMarker
-
-instance Lude.AWSRequest DescribeDBSnapshots where
+instance Core.AWSRequest DescribeDBSnapshots where
   type Rs DescribeDBSnapshots = DescribeDBSnapshotsResponse
-  request = Req.postQuery rdsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeDBSnapshots")
+                Core.<> (Core.pure ("Version", "2014-10-31"))
+                Core.<> ( Core.toQueryValue "DBInstanceIdentifier"
+                            Core.<$> dBInstanceIdentifier
+                        )
+                Core.<> ( Core.toQueryValue "DBSnapshotIdentifier"
+                            Core.<$> dBSnapshotIdentifier
+                        )
+                Core.<> (Core.toQueryValue "DbiResourceId" Core.<$> dbiResourceId)
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "Filter" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "IncludePublic" Core.<$> includePublic)
+                Core.<> (Core.toQueryValue "IncludeShared" Core.<$> includeShared)
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "SnapshotType" Core.<$> snapshotType)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeDBSnapshotsResult"
       ( \s h x ->
           DescribeDBSnapshotsResponse'
-            Lude.<$> (x Lude..@? "Marker")
-            Lude.<*> ( x Lude..@? "DBSnapshots" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "DBSnapshot")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "DBSnapshots" Core..<@> Core.parseXMLList "DBSnapshot")
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeDBSnapshots where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeDBSnapshots where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDBSnapshots where
-  toQuery DescribeDBSnapshots' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeDBSnapshots" :: Lude.ByteString),
-        "Version" Lude.=: ("2014-10-31" :: Lude.ByteString),
-        "IncludeShared" Lude.=: includeShared,
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        "DBSnapshotIdentifier" Lude.=: dbSnapshotIdentifier,
-        "SnapshotType" Lude.=: snapshotType,
-        "DBInstanceIdentifier" Lude.=: dbInstanceIdentifier,
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords,
-        "IncludePublic" Lude.=: includePublic,
-        "DbiResourceId" Lude.=: dbiResourceId
-      ]
+instance Pager.AWSPager DescribeDBSnapshots where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"dBSnapshots" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- | Contains the result of a successful invocation of the @DescribeDBSnapshots@ action.
 --
 -- /See:/ 'mkDescribeDBSnapshotsResponse' smart constructor.
 data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
-  { -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
-    marker :: Lude.Maybe Lude.Text,
-    -- | A list of @DBSnapshot@ instances.
-    dbSnapshots :: Lude.Maybe [DBSnapshot],
+  { -- | A list of @DBSnapshot@ instances.
+    dBSnapshots :: Core.Maybe [Types.DBSnapshot],
+    -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
+    marker :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeDBSnapshotsResponse' with the minimum fields required to make a request.
---
--- * 'marker' - An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
--- * 'dbSnapshots' - A list of @DBSnapshot@ instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDBSnapshotsResponse' value with any optional fields omitted.
 mkDescribeDBSnapshotsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDBSnapshotsResponse
-mkDescribeDBSnapshotsResponse pResponseStatus_ =
+mkDescribeDBSnapshotsResponse responseStatus =
   DescribeDBSnapshotsResponse'
-    { marker = Lude.Nothing,
-      dbSnapshots = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { dBSnapshots = Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
+
+-- | A list of @DBSnapshot@ instances.
+--
+-- /Note:/ Consider using 'dBSnapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddbsrrsDBSnapshots :: Lens.Lens' DescribeDBSnapshotsResponse (Core.Maybe [Types.DBSnapshot])
+ddbsrrsDBSnapshots = Lens.field @"dBSnapshots"
+{-# DEPRECATED ddbsrrsDBSnapshots "Use generic-lens or generic-optics with 'dBSnapshots' instead." #-}
 
 -- | An optional pagination token provided by a previous request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by @MaxRecords@ .
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbsrsMarker :: Lens.Lens' DescribeDBSnapshotsResponse (Lude.Maybe Lude.Text)
-ddbsrsMarker = Lens.lens (marker :: DescribeDBSnapshotsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeDBSnapshotsResponse)
-{-# DEPRECATED ddbsrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
-
--- | A list of @DBSnapshot@ instances.
---
--- /Note:/ Consider using 'dbSnapshots' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbsrsDBSnapshots :: Lens.Lens' DescribeDBSnapshotsResponse (Lude.Maybe [DBSnapshot])
-ddbsrsDBSnapshots = Lens.lens (dbSnapshots :: DescribeDBSnapshotsResponse -> Lude.Maybe [DBSnapshot]) (\s a -> s {dbSnapshots = a} :: DescribeDBSnapshotsResponse)
-{-# DEPRECATED ddbsrsDBSnapshots "Use generic-lens or generic-optics with 'dbSnapshots' instead." #-}
+ddbsrrsMarker :: Lens.Lens' DescribeDBSnapshotsResponse (Core.Maybe Types.String)
+ddbsrrsMarker = Lens.field @"marker"
+{-# DEPRECATED ddbsrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddbsrsResponseStatus :: Lens.Lens' DescribeDBSnapshotsResponse Lude.Int
-ddbsrsResponseStatus = Lens.lens (responseStatus :: DescribeDBSnapshotsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDBSnapshotsResponse)
-{-# DEPRECATED ddbsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddbsrrsResponseStatus :: Lens.Lens' DescribeDBSnapshotsResponse Core.Int
+ddbsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddbsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -18,94 +18,88 @@ module Network.AWS.EC2.Types.ScheduledInstanceRecurrence
 
     -- * Lenses
     sirFrequency,
-    sirOccurrenceRelativeToEnd,
-    sirOccurrenceUnit,
     sirInterval,
     sirOccurrenceDaySet,
+    sirOccurrenceRelativeToEnd,
+    sirOccurrenceUnit,
   )
 where
 
+import qualified Network.AWS.EC2.Types.Frequency as Types
+import qualified Network.AWS.EC2.Types.OccurrenceUnit as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the recurring schedule for a Scheduled Instance.
 --
 -- /See:/ 'mkScheduledInstanceRecurrence' smart constructor.
 data ScheduledInstanceRecurrence = ScheduledInstanceRecurrence'
   { -- | The frequency (@Daily@ , @Weekly@ , or @Monthly@ ).
-    frequency :: Lude.Maybe Lude.Text,
-    -- | Indicates whether the occurrence is relative to the end of the specified week or month.
-    occurrenceRelativeToEnd :: Lude.Maybe Lude.Bool,
-    -- | The unit for @occurrenceDaySet@ (@DayOfWeek@ or @DayOfMonth@ ).
-    occurrenceUnit :: Lude.Maybe Lude.Text,
+    frequency :: Core.Maybe Types.Frequency,
     -- | The interval quantity. The interval unit depends on the value of @frequency@ . For example, every 2 weeks or every 2 months.
-    interval :: Lude.Maybe Lude.Int,
+    interval :: Core.Maybe Core.Int,
     -- | The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).
-    occurrenceDaySet :: Lude.Maybe [Lude.Int]
+    occurrenceDaySet :: Core.Maybe [Core.Int],
+    -- | Indicates whether the occurrence is relative to the end of the specified week or month.
+    occurrenceRelativeToEnd :: Core.Maybe Core.Bool,
+    -- | The unit for @occurrenceDaySet@ (@DayOfWeek@ or @DayOfMonth@ ).
+    occurrenceUnit :: Core.Maybe Types.OccurrenceUnit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduledInstanceRecurrence' with the minimum fields required to make a request.
---
--- * 'frequency' - The frequency (@Daily@ , @Weekly@ , or @Monthly@ ).
--- * 'occurrenceRelativeToEnd' - Indicates whether the occurrence is relative to the end of the specified week or month.
--- * 'occurrenceUnit' - The unit for @occurrenceDaySet@ (@DayOfWeek@ or @DayOfMonth@ ).
--- * 'interval' - The interval quantity. The interval unit depends on the value of @frequency@ . For example, every 2 weeks or every 2 months.
--- * 'occurrenceDaySet' - The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).
+-- | Creates a 'ScheduledInstanceRecurrence' value with any optional fields omitted.
 mkScheduledInstanceRecurrence ::
   ScheduledInstanceRecurrence
 mkScheduledInstanceRecurrence =
   ScheduledInstanceRecurrence'
-    { frequency = Lude.Nothing,
-      occurrenceRelativeToEnd = Lude.Nothing,
-      occurrenceUnit = Lude.Nothing,
-      interval = Lude.Nothing,
-      occurrenceDaySet = Lude.Nothing
+    { frequency = Core.Nothing,
+      interval = Core.Nothing,
+      occurrenceDaySet = Core.Nothing,
+      occurrenceRelativeToEnd = Core.Nothing,
+      occurrenceUnit = Core.Nothing
     }
 
 -- | The frequency (@Daily@ , @Weekly@ , or @Monthly@ ).
 --
 -- /Note:/ Consider using 'frequency' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirFrequency :: Lens.Lens' ScheduledInstanceRecurrence (Lude.Maybe Lude.Text)
-sirFrequency = Lens.lens (frequency :: ScheduledInstanceRecurrence -> Lude.Maybe Lude.Text) (\s a -> s {frequency = a} :: ScheduledInstanceRecurrence)
+sirFrequency :: Lens.Lens' ScheduledInstanceRecurrence (Core.Maybe Types.Frequency)
+sirFrequency = Lens.field @"frequency"
 {-# DEPRECATED sirFrequency "Use generic-lens or generic-optics with 'frequency' instead." #-}
-
--- | Indicates whether the occurrence is relative to the end of the specified week or month.
---
--- /Note:/ Consider using 'occurrenceRelativeToEnd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirOccurrenceRelativeToEnd :: Lens.Lens' ScheduledInstanceRecurrence (Lude.Maybe Lude.Bool)
-sirOccurrenceRelativeToEnd = Lens.lens (occurrenceRelativeToEnd :: ScheduledInstanceRecurrence -> Lude.Maybe Lude.Bool) (\s a -> s {occurrenceRelativeToEnd = a} :: ScheduledInstanceRecurrence)
-{-# DEPRECATED sirOccurrenceRelativeToEnd "Use generic-lens or generic-optics with 'occurrenceRelativeToEnd' instead." #-}
-
--- | The unit for @occurrenceDaySet@ (@DayOfWeek@ or @DayOfMonth@ ).
---
--- /Note:/ Consider using 'occurrenceUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirOccurrenceUnit :: Lens.Lens' ScheduledInstanceRecurrence (Lude.Maybe Lude.Text)
-sirOccurrenceUnit = Lens.lens (occurrenceUnit :: ScheduledInstanceRecurrence -> Lude.Maybe Lude.Text) (\s a -> s {occurrenceUnit = a} :: ScheduledInstanceRecurrence)
-{-# DEPRECATED sirOccurrenceUnit "Use generic-lens or generic-optics with 'occurrenceUnit' instead." #-}
 
 -- | The interval quantity. The interval unit depends on the value of @frequency@ . For example, every 2 weeks or every 2 months.
 --
 -- /Note:/ Consider using 'interval' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirInterval :: Lens.Lens' ScheduledInstanceRecurrence (Lude.Maybe Lude.Int)
-sirInterval = Lens.lens (interval :: ScheduledInstanceRecurrence -> Lude.Maybe Lude.Int) (\s a -> s {interval = a} :: ScheduledInstanceRecurrence)
+sirInterval :: Lens.Lens' ScheduledInstanceRecurrence (Core.Maybe Core.Int)
+sirInterval = Lens.field @"interval"
 {-# DEPRECATED sirInterval "Use generic-lens or generic-optics with 'interval' instead." #-}
 
 -- | The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).
 --
 -- /Note:/ Consider using 'occurrenceDaySet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirOccurrenceDaySet :: Lens.Lens' ScheduledInstanceRecurrence (Lude.Maybe [Lude.Int])
-sirOccurrenceDaySet = Lens.lens (occurrenceDaySet :: ScheduledInstanceRecurrence -> Lude.Maybe [Lude.Int]) (\s a -> s {occurrenceDaySet = a} :: ScheduledInstanceRecurrence)
+sirOccurrenceDaySet :: Lens.Lens' ScheduledInstanceRecurrence (Core.Maybe [Core.Int])
+sirOccurrenceDaySet = Lens.field @"occurrenceDaySet"
 {-# DEPRECATED sirOccurrenceDaySet "Use generic-lens or generic-optics with 'occurrenceDaySet' instead." #-}
 
-instance Lude.FromXML ScheduledInstanceRecurrence where
+-- | Indicates whether the occurrence is relative to the end of the specified week or month.
+--
+-- /Note:/ Consider using 'occurrenceRelativeToEnd' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirOccurrenceRelativeToEnd :: Lens.Lens' ScheduledInstanceRecurrence (Core.Maybe Core.Bool)
+sirOccurrenceRelativeToEnd = Lens.field @"occurrenceRelativeToEnd"
+{-# DEPRECATED sirOccurrenceRelativeToEnd "Use generic-lens or generic-optics with 'occurrenceRelativeToEnd' instead." #-}
+
+-- | The unit for @occurrenceDaySet@ (@DayOfWeek@ or @DayOfMonth@ ).
+--
+-- /Note:/ Consider using 'occurrenceUnit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirOccurrenceUnit :: Lens.Lens' ScheduledInstanceRecurrence (Core.Maybe Types.OccurrenceUnit)
+sirOccurrenceUnit = Lens.field @"occurrenceUnit"
+{-# DEPRECATED sirOccurrenceUnit "Use generic-lens or generic-optics with 'occurrenceUnit' instead." #-}
+
+instance Core.FromXML ScheduledInstanceRecurrence where
   parseXML x =
     ScheduledInstanceRecurrence'
-      Lude.<$> (x Lude..@? "frequency")
-      Lude.<*> (x Lude..@? "occurrenceRelativeToEnd")
-      Lude.<*> (x Lude..@? "occurrenceUnit")
-      Lude.<*> (x Lude..@? "interval")
-      Lude.<*> ( x Lude..@? "occurrenceDaySet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<$> (x Core..@? "frequency")
+      Core.<*> (x Core..@? "interval")
+      Core.<*> (x Core..@? "occurrenceDaySet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "occurrenceRelativeToEnd")
+      Core.<*> (x Core..@? "occurrenceUnit")

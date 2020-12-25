@@ -22,53 +22,49 @@ module Network.AWS.CognitoIdentity.Types.UnprocessedIdentityId
   )
 where
 
-import Network.AWS.CognitoIdentity.Types.CognitoErrorCode
+import qualified Network.AWS.CognitoIdentity.Types.CognitoErrorCode as Types
+import qualified Network.AWS.CognitoIdentity.Types.IdentityId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.
 --
 -- /See:/ 'mkUnprocessedIdentityId' smart constructor.
 data UnprocessedIdentityId = UnprocessedIdentityId'
   { -- | The error code indicating the type of error that occurred.
-    errorCode :: Lude.Maybe CognitoErrorCode,
+    errorCode :: Core.Maybe Types.CognitoErrorCode,
     -- | A unique identifier in the format REGION:GUID.
-    identityId :: Lude.Maybe Lude.Text
+    identityId :: Core.Maybe Types.IdentityId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnprocessedIdentityId' with the minimum fields required to make a request.
---
--- * 'errorCode' - The error code indicating the type of error that occurred.
--- * 'identityId' - A unique identifier in the format REGION:GUID.
+-- | Creates a 'UnprocessedIdentityId' value with any optional fields omitted.
 mkUnprocessedIdentityId ::
   UnprocessedIdentityId
 mkUnprocessedIdentityId =
   UnprocessedIdentityId'
-    { errorCode = Lude.Nothing,
-      identityId = Lude.Nothing
+    { errorCode = Core.Nothing,
+      identityId = Core.Nothing
     }
 
 -- | The error code indicating the type of error that occurred.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiiErrorCode :: Lens.Lens' UnprocessedIdentityId (Lude.Maybe CognitoErrorCode)
-uiiErrorCode = Lens.lens (errorCode :: UnprocessedIdentityId -> Lude.Maybe CognitoErrorCode) (\s a -> s {errorCode = a} :: UnprocessedIdentityId)
+uiiErrorCode :: Lens.Lens' UnprocessedIdentityId (Core.Maybe Types.CognitoErrorCode)
+uiiErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED uiiErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | A unique identifier in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uiiIdentityId :: Lens.Lens' UnprocessedIdentityId (Lude.Maybe Lude.Text)
-uiiIdentityId = Lens.lens (identityId :: UnprocessedIdentityId -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: UnprocessedIdentityId)
+uiiIdentityId :: Lens.Lens' UnprocessedIdentityId (Core.Maybe Types.IdentityId)
+uiiIdentityId = Lens.field @"identityId"
 {-# DEPRECATED uiiIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
-instance Lude.FromJSON UnprocessedIdentityId where
+instance Core.FromJSON UnprocessedIdentityId where
   parseJSON =
-    Lude.withObject
-      "UnprocessedIdentityId"
-      ( \x ->
-          UnprocessedIdentityId'
-            Lude.<$> (x Lude..:? "ErrorCode") Lude.<*> (x Lude..:? "IdentityId")
-      )
+    Core.withObject "UnprocessedIdentityId" Core.$
+      \x ->
+        UnprocessedIdentityId'
+          Core.<$> (x Core..:? "ErrorCode") Core.<*> (x Core..:? "IdentityId")

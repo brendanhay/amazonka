@@ -13,71 +13,76 @@
 module Network.AWS.Discovery.Types.ContinuousExportStatus
   ( ContinuousExportStatus
       ( ContinuousExportStatus',
-        StartInProgress,
-        StartFailed,
-        Active,
-        Error,
-        StopInProgress,
-        StopFailed,
-        Inactive
+        ContinuousExportStatusStartInProgress,
+        ContinuousExportStatusStartFailed,
+        ContinuousExportStatusActive,
+        ContinuousExportStatusError,
+        ContinuousExportStatusStopInProgress,
+        ContinuousExportStatusStopFailed,
+        ContinuousExportStatusInactive,
+        fromContinuousExportStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ContinuousExportStatus = ContinuousExportStatus' Lude.Text
+newtype ContinuousExportStatus = ContinuousExportStatus'
+  { fromContinuousExportStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern StartInProgress :: ContinuousExportStatus
-pattern StartInProgress = ContinuousExportStatus' "START_IN_PROGRESS"
+pattern ContinuousExportStatusStartInProgress :: ContinuousExportStatus
+pattern ContinuousExportStatusStartInProgress = ContinuousExportStatus' "START_IN_PROGRESS"
 
-pattern StartFailed :: ContinuousExportStatus
-pattern StartFailed = ContinuousExportStatus' "START_FAILED"
+pattern ContinuousExportStatusStartFailed :: ContinuousExportStatus
+pattern ContinuousExportStatusStartFailed = ContinuousExportStatus' "START_FAILED"
 
-pattern Active :: ContinuousExportStatus
-pattern Active = ContinuousExportStatus' "ACTIVE"
+pattern ContinuousExportStatusActive :: ContinuousExportStatus
+pattern ContinuousExportStatusActive = ContinuousExportStatus' "ACTIVE"
 
-pattern Error :: ContinuousExportStatus
-pattern Error = ContinuousExportStatus' "ERROR"
+pattern ContinuousExportStatusError :: ContinuousExportStatus
+pattern ContinuousExportStatusError = ContinuousExportStatus' "ERROR"
 
-pattern StopInProgress :: ContinuousExportStatus
-pattern StopInProgress = ContinuousExportStatus' "STOP_IN_PROGRESS"
+pattern ContinuousExportStatusStopInProgress :: ContinuousExportStatus
+pattern ContinuousExportStatusStopInProgress = ContinuousExportStatus' "STOP_IN_PROGRESS"
 
-pattern StopFailed :: ContinuousExportStatus
-pattern StopFailed = ContinuousExportStatus' "STOP_FAILED"
+pattern ContinuousExportStatusStopFailed :: ContinuousExportStatus
+pattern ContinuousExportStatusStopFailed = ContinuousExportStatus' "STOP_FAILED"
 
-pattern Inactive :: ContinuousExportStatus
-pattern Inactive = ContinuousExportStatus' "INACTIVE"
+pattern ContinuousExportStatusInactive :: ContinuousExportStatus
+pattern ContinuousExportStatusInactive = ContinuousExportStatus' "INACTIVE"
 
 {-# COMPLETE
-  StartInProgress,
-  StartFailed,
-  Active,
-  Error,
-  StopInProgress,
-  StopFailed,
-  Inactive,
+  ContinuousExportStatusStartInProgress,
+  ContinuousExportStatusStartFailed,
+  ContinuousExportStatusActive,
+  ContinuousExportStatusError,
+  ContinuousExportStatusStopInProgress,
+  ContinuousExportStatusStopFailed,
+  ContinuousExportStatusInactive,
   ContinuousExportStatus'
   #-}

@@ -22,46 +22,44 @@ module Network.AWS.EC2.Types.AssociationStatus
   )
 where
 
-import Network.AWS.EC2.Types.AssociationStatusCode
+import qualified Network.AWS.EC2.Types.AssociationStatusCode as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the state of a target network association.
 --
 -- /See:/ 'mkAssociationStatus' smart constructor.
 data AssociationStatus = AssociationStatus'
   { -- | The state of the target network association.
-    code :: Lude.Maybe AssociationStatusCode,
+    code :: Core.Maybe Types.AssociationStatusCode,
     -- | A message about the status of the target network association, if applicable.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociationStatus' with the minimum fields required to make a request.
---
--- * 'code' - The state of the target network association.
--- * 'message' - A message about the status of the target network association, if applicable.
+-- | Creates a 'AssociationStatus' value with any optional fields omitted.
 mkAssociationStatus ::
   AssociationStatus
 mkAssociationStatus =
-  AssociationStatus' {code = Lude.Nothing, message = Lude.Nothing}
+  AssociationStatus' {code = Core.Nothing, message = Core.Nothing}
 
 -- | The state of the target network association.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asCode :: Lens.Lens' AssociationStatus (Lude.Maybe AssociationStatusCode)
-asCode = Lens.lens (code :: AssociationStatus -> Lude.Maybe AssociationStatusCode) (\s a -> s {code = a} :: AssociationStatus)
+asCode :: Lens.Lens' AssociationStatus (Core.Maybe Types.AssociationStatusCode)
+asCode = Lens.field @"code"
 {-# DEPRECATED asCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | A message about the status of the target network association, if applicable.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asMessage :: Lens.Lens' AssociationStatus (Lude.Maybe Lude.Text)
-asMessage = Lens.lens (message :: AssociationStatus -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: AssociationStatus)
+asMessage :: Lens.Lens' AssociationStatus (Core.Maybe Types.String)
+asMessage = Lens.field @"message"
 {-# DEPRECATED asMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML AssociationStatus where
+instance Core.FromXML AssociationStatus where
   parseXML x =
     AssociationStatus'
-      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")
+      Core.<$> (x Core..@? "code") Core.<*> (x Core..@? "message")

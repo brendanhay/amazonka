@@ -17,54 +17,49 @@ module Network.AWS.Rekognition.Types.Mustache
     mkMustache,
 
     -- * Lenses
-    mValue,
     mConfidence,
+    mValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether or not the face has a mustache, and the confidence level in the determination.
 --
 -- /See:/ 'mkMustache' smart constructor.
 data Mustache = Mustache'
-  { -- | Boolean value that indicates whether the face has mustache or not.
-    value :: Lude.Maybe Lude.Bool,
-    -- | Level of confidence in the determination.
-    confidence :: Lude.Maybe Lude.Double
+  { -- | Level of confidence in the determination.
+    confidence :: Core.Maybe Core.Double,
+    -- | Boolean value that indicates whether the face has mustache or not.
+    value :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Mustache' with the minimum fields required to make a request.
---
--- * 'value' - Boolean value that indicates whether the face has mustache or not.
--- * 'confidence' - Level of confidence in the determination.
+-- | Creates a 'Mustache' value with any optional fields omitted.
 mkMustache ::
   Mustache
 mkMustache =
-  Mustache' {value = Lude.Nothing, confidence = Lude.Nothing}
-
--- | Boolean value that indicates whether the face has mustache or not.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mValue :: Lens.Lens' Mustache (Lude.Maybe Lude.Bool)
-mValue = Lens.lens (value :: Mustache -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: Mustache)
-{-# DEPRECATED mValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  Mustache' {confidence = Core.Nothing, value = Core.Nothing}
 
 -- | Level of confidence in the determination.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mConfidence :: Lens.Lens' Mustache (Lude.Maybe Lude.Double)
-mConfidence = Lens.lens (confidence :: Mustache -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: Mustache)
+mConfidence :: Lens.Lens' Mustache (Core.Maybe Core.Double)
+mConfidence = Lens.field @"confidence"
 {-# DEPRECATED mConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance Lude.FromJSON Mustache where
+-- | Boolean value that indicates whether the face has mustache or not.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mValue :: Lens.Lens' Mustache (Core.Maybe Core.Bool)
+mValue = Lens.field @"value"
+{-# DEPRECATED mValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Mustache where
   parseJSON =
-    Lude.withObject
-      "Mustache"
-      ( \x ->
-          Mustache'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
-      )
+    Core.withObject "Mustache" Core.$
+      \x ->
+        Mustache'
+          Core.<$> (x Core..:? "Confidence") Core.<*> (x Core..:? "Value")

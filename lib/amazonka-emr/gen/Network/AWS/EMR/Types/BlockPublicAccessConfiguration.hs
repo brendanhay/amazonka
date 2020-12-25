@@ -22,46 +22,40 @@ module Network.AWS.EMR.Types.BlockPublicAccessConfiguration
   )
 where
 
-import Network.AWS.EMR.Types.PortRange
+import qualified Network.AWS.EMR.Types.PortRange as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A configuration for Amazon EMR block public access. When @BlockPublicSecurityGroupRules@ is set to @true@ , Amazon EMR prevents cluster creation if one of the cluster's security groups has a rule that allows inbound traffic from 0.0.0.0/0 or ::/0 on a port, unless the port is specified as an exception using @PermittedPublicSecurityGroupRuleRanges@ .
 --
 -- /See:/ 'mkBlockPublicAccessConfiguration' smart constructor.
 data BlockPublicAccessConfiguration = BlockPublicAccessConfiguration'
   { -- | Indicates whether Amazon EMR block public access is enabled (@true@ ) or disabled (@false@ ). By default, the value is @false@ for accounts that have created EMR clusters before July 2019. For accounts created after this, the default is @true@ .
-    blockPublicSecurityGroupRules :: Lude.Bool,
+    blockPublicSecurityGroupRules :: Core.Bool,
     -- | Specifies ports and port ranges that are permitted to have security group rules that allow inbound traffic from all public sources. For example, if Port 23 (Telnet) is specified for @PermittedPublicSecurityGroupRuleRanges@ , Amazon EMR allows cluster creation if a security group associated with the cluster has a rule that allows inbound traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.
     --
     -- By default, Port 22, which is used for SSH access to the cluster EC2 instances, is in the list of @PermittedPublicSecurityGroupRuleRanges@ .
-    permittedPublicSecurityGroupRuleRanges :: Lude.Maybe [PortRange]
+    permittedPublicSecurityGroupRuleRanges :: Core.Maybe [Types.PortRange]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BlockPublicAccessConfiguration' with the minimum fields required to make a request.
---
--- * 'blockPublicSecurityGroupRules' - Indicates whether Amazon EMR block public access is enabled (@true@ ) or disabled (@false@ ). By default, the value is @false@ for accounts that have created EMR clusters before July 2019. For accounts created after this, the default is @true@ .
--- * 'permittedPublicSecurityGroupRuleRanges' - Specifies ports and port ranges that are permitted to have security group rules that allow inbound traffic from all public sources. For example, if Port 23 (Telnet) is specified for @PermittedPublicSecurityGroupRuleRanges@ , Amazon EMR allows cluster creation if a security group associated with the cluster has a rule that allows inbound traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.
---
--- By default, Port 22, which is used for SSH access to the cluster EC2 instances, is in the list of @PermittedPublicSecurityGroupRuleRanges@ .
+-- | Creates a 'BlockPublicAccessConfiguration' value with any optional fields omitted.
 mkBlockPublicAccessConfiguration ::
   -- | 'blockPublicSecurityGroupRules'
-  Lude.Bool ->
+  Core.Bool ->
   BlockPublicAccessConfiguration
-mkBlockPublicAccessConfiguration pBlockPublicSecurityGroupRules_ =
+mkBlockPublicAccessConfiguration blockPublicSecurityGroupRules =
   BlockPublicAccessConfiguration'
-    { blockPublicSecurityGroupRules =
-        pBlockPublicSecurityGroupRules_,
-      permittedPublicSecurityGroupRuleRanges = Lude.Nothing
+    { blockPublicSecurityGroupRules,
+      permittedPublicSecurityGroupRuleRanges = Core.Nothing
     }
 
 -- | Indicates whether Amazon EMR block public access is enabled (@true@ ) or disabled (@false@ ). By default, the value is @false@ for accounts that have created EMR clusters before July 2019. For accounts created after this, the default is @true@ .
 --
 -- /Note:/ Consider using 'blockPublicSecurityGroupRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpacBlockPublicSecurityGroupRules :: Lens.Lens' BlockPublicAccessConfiguration Lude.Bool
-bpacBlockPublicSecurityGroupRules = Lens.lens (blockPublicSecurityGroupRules :: BlockPublicAccessConfiguration -> Lude.Bool) (\s a -> s {blockPublicSecurityGroupRules = a} :: BlockPublicAccessConfiguration)
+bpacBlockPublicSecurityGroupRules :: Lens.Lens' BlockPublicAccessConfiguration Core.Bool
+bpacBlockPublicSecurityGroupRules = Lens.field @"blockPublicSecurityGroupRules"
 {-# DEPRECATED bpacBlockPublicSecurityGroupRules "Use generic-lens or generic-optics with 'blockPublicSecurityGroupRules' instead." #-}
 
 -- | Specifies ports and port ranges that are permitted to have security group rules that allow inbound traffic from all public sources. For example, if Port 23 (Telnet) is specified for @PermittedPublicSecurityGroupRuleRanges@ , Amazon EMR allows cluster creation if a security group associated with the cluster has a rule that allows inbound traffic on Port 23 from IPv4 0.0.0.0/0 or IPv6 port ::/0 as the source.
@@ -69,31 +63,27 @@ bpacBlockPublicSecurityGroupRules = Lens.lens (blockPublicSecurityGroupRules :: 
 -- By default, Port 22, which is used for SSH access to the cluster EC2 instances, is in the list of @PermittedPublicSecurityGroupRuleRanges@ .
 --
 -- /Note:/ Consider using 'permittedPublicSecurityGroupRuleRanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpacPermittedPublicSecurityGroupRuleRanges :: Lens.Lens' BlockPublicAccessConfiguration (Lude.Maybe [PortRange])
-bpacPermittedPublicSecurityGroupRuleRanges = Lens.lens (permittedPublicSecurityGroupRuleRanges :: BlockPublicAccessConfiguration -> Lude.Maybe [PortRange]) (\s a -> s {permittedPublicSecurityGroupRuleRanges = a} :: BlockPublicAccessConfiguration)
+bpacPermittedPublicSecurityGroupRuleRanges :: Lens.Lens' BlockPublicAccessConfiguration (Core.Maybe [Types.PortRange])
+bpacPermittedPublicSecurityGroupRuleRanges = Lens.field @"permittedPublicSecurityGroupRuleRanges"
 {-# DEPRECATED bpacPermittedPublicSecurityGroupRuleRanges "Use generic-lens or generic-optics with 'permittedPublicSecurityGroupRuleRanges' instead." #-}
 
-instance Lude.FromJSON BlockPublicAccessConfiguration where
-  parseJSON =
-    Lude.withObject
-      "BlockPublicAccessConfiguration"
-      ( \x ->
-          BlockPublicAccessConfiguration'
-            Lude.<$> (x Lude..: "BlockPublicSecurityGroupRules")
-            Lude.<*> ( x Lude..:? "PermittedPublicSecurityGroupRuleRanges"
-                         Lude..!= Lude.mempty
-                     )
-      )
-
-instance Lude.ToJSON BlockPublicAccessConfiguration where
-  toJSON BlockPublicAccessConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON BlockPublicAccessConfiguration where
+  toJSON BlockPublicAccessConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "BlockPublicSecurityGroupRules"
-                  Lude..= blockPublicSecurityGroupRules
+                  Core..= blockPublicSecurityGroupRules
               ),
-            ("PermittedPublicSecurityGroupRuleRanges" Lude..=)
-              Lude.<$> permittedPublicSecurityGroupRuleRanges
+            ("PermittedPublicSecurityGroupRuleRanges" Core..=)
+              Core.<$> permittedPublicSecurityGroupRuleRanges
           ]
       )
+
+instance Core.FromJSON BlockPublicAccessConfiguration where
+  parseJSON =
+    Core.withObject "BlockPublicAccessConfiguration" Core.$
+      \x ->
+        BlockPublicAccessConfiguration'
+          Core.<$> (x Core..: "BlockPublicSecurityGroupRules")
+          Core.<*> (x Core..:? "PermittedPublicSecurityGroupRuleRanges")

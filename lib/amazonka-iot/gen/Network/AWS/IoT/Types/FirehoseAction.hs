@@ -17,105 +17,99 @@ module Network.AWS.IoT.Types.FirehoseAction
     mkFirehoseAction,
 
     -- * Lenses
+    faRoleArn,
+    faDeliveryStreamName,
     faBatchMode,
     faSeparator,
-    faDeliveryStreamName,
-    faRoleARN,
   )
 where
 
+import qualified Network.AWS.IoT.Types.AwsArn as Types
+import qualified Network.AWS.IoT.Types.DeliveryStreamName as Types
+import qualified Network.AWS.IoT.Types.FirehoseSeparator as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an action that writes data to an Amazon Kinesis Firehose stream.
 --
 -- /See:/ 'mkFirehoseAction' smart constructor.
 data FirehoseAction = FirehoseAction'
-  { -- | Whether to deliver the Kinesis Data Firehose stream as a batch by using <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > . The default value is @false@ .
+  { -- | The IAM role that grants access to the Amazon Kinesis Firehose stream.
+    roleArn :: Types.AwsArn,
+    -- | The delivery stream name.
+    deliveryStreamName :: Types.DeliveryStreamName,
+    -- | Whether to deliver the Kinesis Data Firehose stream as a batch by using <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > . The default value is @false@ .
     --
     -- When @batchMode@ is @true@ and the rule's SQL statement evaluates to an Array, each Array element forms one record in the <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > request. The resulting array can't have more than 500 records.
-    batchMode :: Lude.Maybe Lude.Bool,
+    batchMode :: Core.Maybe Core.Bool,
     -- | A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
-    separator :: Lude.Maybe Lude.Text,
-    -- | The delivery stream name.
-    deliveryStreamName :: Lude.Text,
-    -- | The IAM role that grants access to the Amazon Kinesis Firehose stream.
-    roleARN :: Lude.Text
+    separator :: Core.Maybe Types.FirehoseSeparator
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FirehoseAction' with the minimum fields required to make a request.
---
--- * 'batchMode' - Whether to deliver the Kinesis Data Firehose stream as a batch by using <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > . The default value is @false@ .
---
--- When @batchMode@ is @true@ and the rule's SQL statement evaluates to an Array, each Array element forms one record in the <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > request. The resulting array can't have more than 500 records.
--- * 'separator' - A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
--- * 'deliveryStreamName' - The delivery stream name.
--- * 'roleARN' - The IAM role that grants access to the Amazon Kinesis Firehose stream.
+-- | Creates a 'FirehoseAction' value with any optional fields omitted.
 mkFirehoseAction ::
+  -- | 'roleArn'
+  Types.AwsArn ->
   -- | 'deliveryStreamName'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.DeliveryStreamName ->
   FirehoseAction
-mkFirehoseAction pDeliveryStreamName_ pRoleARN_ =
+mkFirehoseAction roleArn deliveryStreamName =
   FirehoseAction'
-    { batchMode = Lude.Nothing,
-      separator = Lude.Nothing,
-      deliveryStreamName = pDeliveryStreamName_,
-      roleARN = pRoleARN_
+    { roleArn,
+      deliveryStreamName,
+      batchMode = Core.Nothing,
+      separator = Core.Nothing
     }
+
+-- | The IAM role that grants access to the Amazon Kinesis Firehose stream.
+--
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faRoleArn :: Lens.Lens' FirehoseAction Types.AwsArn
+faRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED faRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
+
+-- | The delivery stream name.
+--
+-- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+faDeliveryStreamName :: Lens.Lens' FirehoseAction Types.DeliveryStreamName
+faDeliveryStreamName = Lens.field @"deliveryStreamName"
+{-# DEPRECATED faDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
 
 -- | Whether to deliver the Kinesis Data Firehose stream as a batch by using <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > . The default value is @false@ .
 --
 -- When @batchMode@ is @true@ and the rule's SQL statement evaluates to an Array, each Array element forms one record in the <https://docs.aws.amazon.com/firehose/latest/APIReference/API_PutRecordBatch.html @PutRecordBatch@ > request. The resulting array can't have more than 500 records.
 --
 -- /Note:/ Consider using 'batchMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faBatchMode :: Lens.Lens' FirehoseAction (Lude.Maybe Lude.Bool)
-faBatchMode = Lens.lens (batchMode :: FirehoseAction -> Lude.Maybe Lude.Bool) (\s a -> s {batchMode = a} :: FirehoseAction)
+faBatchMode :: Lens.Lens' FirehoseAction (Core.Maybe Core.Bool)
+faBatchMode = Lens.field @"batchMode"
 {-# DEPRECATED faBatchMode "Use generic-lens or generic-optics with 'batchMode' instead." #-}
 
 -- | A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
 --
 -- /Note:/ Consider using 'separator' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faSeparator :: Lens.Lens' FirehoseAction (Lude.Maybe Lude.Text)
-faSeparator = Lens.lens (separator :: FirehoseAction -> Lude.Maybe Lude.Text) (\s a -> s {separator = a} :: FirehoseAction)
+faSeparator :: Lens.Lens' FirehoseAction (Core.Maybe Types.FirehoseSeparator)
+faSeparator = Lens.field @"separator"
 {-# DEPRECATED faSeparator "Use generic-lens or generic-optics with 'separator' instead." #-}
 
--- | The delivery stream name.
---
--- /Note:/ Consider using 'deliveryStreamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faDeliveryStreamName :: Lens.Lens' FirehoseAction Lude.Text
-faDeliveryStreamName = Lens.lens (deliveryStreamName :: FirehoseAction -> Lude.Text) (\s a -> s {deliveryStreamName = a} :: FirehoseAction)
-{-# DEPRECATED faDeliveryStreamName "Use generic-lens or generic-optics with 'deliveryStreamName' instead." #-}
-
--- | The IAM role that grants access to the Amazon Kinesis Firehose stream.
---
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-faRoleARN :: Lens.Lens' FirehoseAction Lude.Text
-faRoleARN = Lens.lens (roleARN :: FirehoseAction -> Lude.Text) (\s a -> s {roleARN = a} :: FirehoseAction)
-{-# DEPRECATED faRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
-
-instance Lude.FromJSON FirehoseAction where
-  parseJSON =
-    Lude.withObject
-      "FirehoseAction"
-      ( \x ->
-          FirehoseAction'
-            Lude.<$> (x Lude..:? "batchMode")
-            Lude.<*> (x Lude..:? "separator")
-            Lude.<*> (x Lude..: "deliveryStreamName")
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON FirehoseAction where
-  toJSON FirehoseAction' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("batchMode" Lude..=) Lude.<$> batchMode,
-            ("separator" Lude..=) Lude.<$> separator,
-            Lude.Just ("deliveryStreamName" Lude..= deliveryStreamName),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON FirehoseAction where
+  toJSON FirehoseAction {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("deliveryStreamName" Core..= deliveryStreamName),
+            ("batchMode" Core..=) Core.<$> batchMode,
+            ("separator" Core..=) Core.<$> separator
           ]
       )
+
+instance Core.FromJSON FirehoseAction where
+  parseJSON =
+    Core.withObject "FirehoseAction" Core.$
+      \x ->
+        FirehoseAction'
+          Core.<$> (x Core..: "roleArn")
+          Core.<*> (x Core..: "deliveryStreamName")
+          Core.<*> (x Core..:? "batchMode")
+          Core.<*> (x Core..:? "separator")

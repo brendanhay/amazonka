@@ -20,176 +20,169 @@ module Network.AWS.EC2.CopyFpgaImage
     mkCopyFpgaImage,
 
     -- ** Request lenses
-    cfifSourceFpgaImageId,
-    cfifClientToken,
-    cfifSourceRegion,
-    cfifName,
-    cfifDescription,
-    cfifDryRun,
+    cfiSourceFpgaImageId,
+    cfiSourceRegion,
+    cfiClientToken,
+    cfiDescription,
+    cfiDryRun,
+    cfiName,
 
     -- * Destructuring the response
     CopyFpgaImageResponse (..),
     mkCopyFpgaImageResponse,
 
     -- ** Response lenses
-    cfifrsFpgaImageId,
-    cfifrsResponseStatus,
+    cfirrsFpgaImageId,
+    cfirrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCopyFpgaImage' smart constructor.
 data CopyFpgaImage = CopyFpgaImage'
   { -- | The ID of the source AFI.
-    sourceFpgaImageId :: Lude.Text,
-    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
-    clientToken :: Lude.Maybe Lude.Text,
+    sourceFpgaImageId :: Types.String,
     -- | The Region that contains the source AFI.
-    sourceRegion :: Lude.Text,
-    -- | The name for the new AFI. The default is the name of the source AFI.
-    name :: Lude.Maybe Lude.Text,
+    sourceRegion :: Types.String,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
+    clientToken :: Core.Maybe Types.String,
     -- | The description for the new AFI.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The name for the new AFI. The default is the name of the source AFI.
+    name :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CopyFpgaImage' with the minimum fields required to make a request.
---
--- * 'sourceFpgaImageId' - The ID of the source AFI.
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
--- * 'sourceRegion' - The Region that contains the source AFI.
--- * 'name' - The name for the new AFI. The default is the name of the source AFI.
--- * 'description' - The description for the new AFI.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CopyFpgaImage' value with any optional fields omitted.
 mkCopyFpgaImage ::
   -- | 'sourceFpgaImageId'
-  Lude.Text ->
+  Types.String ->
   -- | 'sourceRegion'
-  Lude.Text ->
+  Types.String ->
   CopyFpgaImage
-mkCopyFpgaImage pSourceFpgaImageId_ pSourceRegion_ =
+mkCopyFpgaImage sourceFpgaImageId sourceRegion =
   CopyFpgaImage'
-    { sourceFpgaImageId = pSourceFpgaImageId_,
-      clientToken = Lude.Nothing,
-      sourceRegion = pSourceRegion_,
-      name = Lude.Nothing,
-      description = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { sourceFpgaImageId,
+      sourceRegion,
+      clientToken = Core.Nothing,
+      description = Core.Nothing,
+      dryRun = Core.Nothing,
+      name = Core.Nothing
     }
 
 -- | The ID of the source AFI.
 --
 -- /Note:/ Consider using 'sourceFpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfifSourceFpgaImageId :: Lens.Lens' CopyFpgaImage Lude.Text
-cfifSourceFpgaImageId = Lens.lens (sourceFpgaImageId :: CopyFpgaImage -> Lude.Text) (\s a -> s {sourceFpgaImageId = a} :: CopyFpgaImage)
-{-# DEPRECATED cfifSourceFpgaImageId "Use generic-lens or generic-optics with 'sourceFpgaImageId' instead." #-}
-
--- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfifClientToken :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Text)
-cfifClientToken = Lens.lens (clientToken :: CopyFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CopyFpgaImage)
-{-# DEPRECATED cfifClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+cfiSourceFpgaImageId :: Lens.Lens' CopyFpgaImage Types.String
+cfiSourceFpgaImageId = Lens.field @"sourceFpgaImageId"
+{-# DEPRECATED cfiSourceFpgaImageId "Use generic-lens or generic-optics with 'sourceFpgaImageId' instead." #-}
 
 -- | The Region that contains the source AFI.
 --
 -- /Note:/ Consider using 'sourceRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfifSourceRegion :: Lens.Lens' CopyFpgaImage Lude.Text
-cfifSourceRegion = Lens.lens (sourceRegion :: CopyFpgaImage -> Lude.Text) (\s a -> s {sourceRegion = a} :: CopyFpgaImage)
-{-# DEPRECATED cfifSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
+cfiSourceRegion :: Lens.Lens' CopyFpgaImage Types.String
+cfiSourceRegion = Lens.field @"sourceRegion"
+{-# DEPRECATED cfiSourceRegion "Use generic-lens or generic-optics with 'sourceRegion' instead." #-}
 
--- | The name for the new AFI. The default is the name of the source AFI.
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html Ensuring Idempotency> .
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfifName :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Text)
-cfifName = Lens.lens (name :: CopyFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CopyFpgaImage)
-{-# DEPRECATED cfifName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfiClientToken :: Lens.Lens' CopyFpgaImage (Core.Maybe Types.String)
+cfiClientToken = Lens.field @"clientToken"
+{-# DEPRECATED cfiClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The description for the new AFI.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfifDescription :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Text)
-cfifDescription = Lens.lens (description :: CopyFpgaImage -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CopyFpgaImage)
-{-# DEPRECATED cfifDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+cfiDescription :: Lens.Lens' CopyFpgaImage (Core.Maybe Types.String)
+cfiDescription = Lens.field @"description"
+{-# DEPRECATED cfiDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfifDryRun :: Lens.Lens' CopyFpgaImage (Lude.Maybe Lude.Bool)
-cfifDryRun = Lens.lens (dryRun :: CopyFpgaImage -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CopyFpgaImage)
-{-# DEPRECATED cfifDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
+cfiDryRun :: Lens.Lens' CopyFpgaImage (Core.Maybe Core.Bool)
+cfiDryRun = Lens.field @"dryRun"
+{-# DEPRECATED cfiDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CopyFpgaImage where
+-- | The name for the new AFI. The default is the name of the source AFI.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cfiName :: Lens.Lens' CopyFpgaImage (Core.Maybe Types.String)
+cfiName = Lens.field @"name"
+{-# DEPRECATED cfiName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.AWSRequest CopyFpgaImage where
   type Rs CopyFpgaImage = CopyFpgaImageResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CopyFpgaImage")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "SourceFpgaImageId" sourceFpgaImageId)
+                Core.<> (Core.toQueryValue "SourceRegion" sourceRegion)
+                Core.<> (Core.toQueryValue "ClientToken" Core.<$> clientToken)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "Name" Core.<$> name)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CopyFpgaImageResponse'
-            Lude.<$> (x Lude..@? "fpgaImageId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "fpgaImageId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CopyFpgaImage where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CopyFpgaImage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CopyFpgaImage where
-  toQuery CopyFpgaImage' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CopyFpgaImage" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "SourceFpgaImageId" Lude.=: sourceFpgaImageId,
-        "ClientToken" Lude.=: clientToken,
-        "SourceRegion" Lude.=: sourceRegion,
-        "Name" Lude.=: name,
-        "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCopyFpgaImageResponse' smart constructor.
 data CopyFpgaImageResponse = CopyFpgaImageResponse'
   { -- | The ID of the new AFI.
-    fpgaImageId :: Lude.Maybe Lude.Text,
+    fpgaImageId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CopyFpgaImageResponse' with the minimum fields required to make a request.
---
--- * 'fpgaImageId' - The ID of the new AFI.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CopyFpgaImageResponse' value with any optional fields omitted.
 mkCopyFpgaImageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CopyFpgaImageResponse
-mkCopyFpgaImageResponse pResponseStatus_ =
+mkCopyFpgaImageResponse responseStatus =
   CopyFpgaImageResponse'
-    { fpgaImageId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { fpgaImageId = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the new AFI.
 --
 -- /Note:/ Consider using 'fpgaImageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfifrsFpgaImageId :: Lens.Lens' CopyFpgaImageResponse (Lude.Maybe Lude.Text)
-cfifrsFpgaImageId = Lens.lens (fpgaImageId :: CopyFpgaImageResponse -> Lude.Maybe Lude.Text) (\s a -> s {fpgaImageId = a} :: CopyFpgaImageResponse)
-{-# DEPRECATED cfifrsFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
+cfirrsFpgaImageId :: Lens.Lens' CopyFpgaImageResponse (Core.Maybe Types.String)
+cfirrsFpgaImageId = Lens.field @"fpgaImageId"
+{-# DEPRECATED cfirrsFpgaImageId "Use generic-lens or generic-optics with 'fpgaImageId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cfifrsResponseStatus :: Lens.Lens' CopyFpgaImageResponse Lude.Int
-cfifrsResponseStatus = Lens.lens (responseStatus :: CopyFpgaImageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CopyFpgaImageResponse)
-{-# DEPRECATED cfifrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cfirrsResponseStatus :: Lens.Lens' CopyFpgaImageResponse Core.Int
+cfirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cfirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

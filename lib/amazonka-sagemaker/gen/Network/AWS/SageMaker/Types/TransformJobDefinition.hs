@@ -17,157 +17,147 @@ module Network.AWS.SageMaker.Types.TransformJobDefinition
     mkTransformJobDefinition,
 
     -- * Lenses
-    tjdBatchStrategy,
-    tjdMaxPayloadInMB,
-    tjdEnvironment,
-    tjdTransformResources,
     tjdTransformInput,
-    tjdMaxConcurrentTransforms,
     tjdTransformOutput,
+    tjdTransformResources,
+    tjdBatchStrategy,
+    tjdEnvironment,
+    tjdMaxConcurrentTransforms,
+    tjdMaxPayloadInMB,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.BatchStrategy
-import Network.AWS.SageMaker.Types.TransformInput
-import Network.AWS.SageMaker.Types.TransformOutput
-import Network.AWS.SageMaker.Types.TransformResources
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.BatchStrategy as Types
+import qualified Network.AWS.SageMaker.Types.TransformEnvironmentKey as Types
+import qualified Network.AWS.SageMaker.Types.TransformEnvironmentValue as Types
+import qualified Network.AWS.SageMaker.Types.TransformInput as Types
+import qualified Network.AWS.SageMaker.Types.TransformOutput as Types
+import qualified Network.AWS.SageMaker.Types.TransformResources as Types
 
 -- | Defines the input needed to run a transform job using the inference specification specified in the algorithm.
 --
 -- /See:/ 'mkTransformJobDefinition' smart constructor.
 data TransformJobDefinition = TransformJobDefinition'
-  { -- | A string that determines the number of records included in a single mini-batch.
+  { -- | A description of the input source and the way the transform job consumes it.
+    transformInput :: Types.TransformInput,
+    -- | Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
+    transformOutput :: Types.TransformOutput,
+    -- | Identifies the ML compute instances for the transform job.
+    transformResources :: Types.TransformResources,
+    -- | A string that determines the number of records included in a single mini-batch.
     --
     -- @SingleRecord@ means only one record is used per mini-batch. @MultiRecord@ means a mini-batch is set to contain as many records that can fit within the @MaxPayloadInMB@ limit.
-    batchStrategy :: Lude.Maybe BatchStrategy,
-    -- | The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
-    maxPayloadInMB :: Lude.Maybe Lude.Natural,
+    batchStrategy :: Core.Maybe Types.BatchStrategy,
     -- | The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
-    environment :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | Identifies the ML compute instances for the transform job.
-    transformResources :: TransformResources,
-    -- | A description of the input source and the way the transform job consumes it.
-    transformInput :: TransformInput,
+    environment :: Core.Maybe (Core.HashMap Types.TransformEnvironmentKey Types.TransformEnvironmentValue),
     -- | The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
-    maxConcurrentTransforms :: Lude.Maybe Lude.Natural,
-    -- | Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
-    transformOutput :: TransformOutput
+    maxConcurrentTransforms :: Core.Maybe Core.Natural,
+    -- | The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
+    maxPayloadInMB :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransformJobDefinition' with the minimum fields required to make a request.
---
--- * 'batchStrategy' - A string that determines the number of records included in a single mini-batch.
---
--- @SingleRecord@ means only one record is used per mini-batch. @MultiRecord@ means a mini-batch is set to contain as many records that can fit within the @MaxPayloadInMB@ limit.
--- * 'maxPayloadInMB' - The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
--- * 'environment' - The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
--- * 'transformResources' - Identifies the ML compute instances for the transform job.
--- * 'transformInput' - A description of the input source and the way the transform job consumes it.
--- * 'maxConcurrentTransforms' - The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
--- * 'transformOutput' - Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
+-- | Creates a 'TransformJobDefinition' value with any optional fields omitted.
 mkTransformJobDefinition ::
-  -- | 'transformResources'
-  TransformResources ->
   -- | 'transformInput'
-  TransformInput ->
+  Types.TransformInput ->
   -- | 'transformOutput'
-  TransformOutput ->
+  Types.TransformOutput ->
+  -- | 'transformResources'
+  Types.TransformResources ->
   TransformJobDefinition
 mkTransformJobDefinition
-  pTransformResources_
-  pTransformInput_
-  pTransformOutput_ =
+  transformInput
+  transformOutput
+  transformResources =
     TransformJobDefinition'
-      { batchStrategy = Lude.Nothing,
-        maxPayloadInMB = Lude.Nothing,
-        environment = Lude.Nothing,
-        transformResources = pTransformResources_,
-        transformInput = pTransformInput_,
-        maxConcurrentTransforms = Lude.Nothing,
-        transformOutput = pTransformOutput_
+      { transformInput,
+        transformOutput,
+        transformResources,
+        batchStrategy = Core.Nothing,
+        environment = Core.Nothing,
+        maxConcurrentTransforms = Core.Nothing,
+        maxPayloadInMB = Core.Nothing
       }
+
+-- | A description of the input source and the way the transform job consumes it.
+--
+-- /Note:/ Consider using 'transformInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjdTransformInput :: Lens.Lens' TransformJobDefinition Types.TransformInput
+tjdTransformInput = Lens.field @"transformInput"
+{-# DEPRECATED tjdTransformInput "Use generic-lens or generic-optics with 'transformInput' instead." #-}
+
+-- | Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
+--
+-- /Note:/ Consider using 'transformOutput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjdTransformOutput :: Lens.Lens' TransformJobDefinition Types.TransformOutput
+tjdTransformOutput = Lens.field @"transformOutput"
+{-# DEPRECATED tjdTransformOutput "Use generic-lens or generic-optics with 'transformOutput' instead." #-}
+
+-- | Identifies the ML compute instances for the transform job.
+--
+-- /Note:/ Consider using 'transformResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjdTransformResources :: Lens.Lens' TransformJobDefinition Types.TransformResources
+tjdTransformResources = Lens.field @"transformResources"
+{-# DEPRECATED tjdTransformResources "Use generic-lens or generic-optics with 'transformResources' instead." #-}
 
 -- | A string that determines the number of records included in a single mini-batch.
 --
 -- @SingleRecord@ means only one record is used per mini-batch. @MultiRecord@ means a mini-batch is set to contain as many records that can fit within the @MaxPayloadInMB@ limit.
 --
 -- /Note:/ Consider using 'batchStrategy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjdBatchStrategy :: Lens.Lens' TransformJobDefinition (Lude.Maybe BatchStrategy)
-tjdBatchStrategy = Lens.lens (batchStrategy :: TransformJobDefinition -> Lude.Maybe BatchStrategy) (\s a -> s {batchStrategy = a} :: TransformJobDefinition)
+tjdBatchStrategy :: Lens.Lens' TransformJobDefinition (Core.Maybe Types.BatchStrategy)
+tjdBatchStrategy = Lens.field @"batchStrategy"
 {-# DEPRECATED tjdBatchStrategy "Use generic-lens or generic-optics with 'batchStrategy' instead." #-}
-
--- | The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
---
--- /Note:/ Consider using 'maxPayloadInMB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjdMaxPayloadInMB :: Lens.Lens' TransformJobDefinition (Lude.Maybe Lude.Natural)
-tjdMaxPayloadInMB = Lens.lens (maxPayloadInMB :: TransformJobDefinition -> Lude.Maybe Lude.Natural) (\s a -> s {maxPayloadInMB = a} :: TransformJobDefinition)
-{-# DEPRECATED tjdMaxPayloadInMB "Use generic-lens or generic-optics with 'maxPayloadInMB' instead." #-}
 
 -- | The environment variables to set in the Docker container. We support up to 16 key and values entries in the map.
 --
 -- /Note:/ Consider using 'environment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjdEnvironment :: Lens.Lens' TransformJobDefinition (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-tjdEnvironment = Lens.lens (environment :: TransformJobDefinition -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {environment = a} :: TransformJobDefinition)
+tjdEnvironment :: Lens.Lens' TransformJobDefinition (Core.Maybe (Core.HashMap Types.TransformEnvironmentKey Types.TransformEnvironmentValue))
+tjdEnvironment = Lens.field @"environment"
 {-# DEPRECATED tjdEnvironment "Use generic-lens or generic-optics with 'environment' instead." #-}
-
--- | Identifies the ML compute instances for the transform job.
---
--- /Note:/ Consider using 'transformResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjdTransformResources :: Lens.Lens' TransformJobDefinition TransformResources
-tjdTransformResources = Lens.lens (transformResources :: TransformJobDefinition -> TransformResources) (\s a -> s {transformResources = a} :: TransformJobDefinition)
-{-# DEPRECATED tjdTransformResources "Use generic-lens or generic-optics with 'transformResources' instead." #-}
-
--- | A description of the input source and the way the transform job consumes it.
---
--- /Note:/ Consider using 'transformInput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjdTransformInput :: Lens.Lens' TransformJobDefinition TransformInput
-tjdTransformInput = Lens.lens (transformInput :: TransformJobDefinition -> TransformInput) (\s a -> s {transformInput = a} :: TransformJobDefinition)
-{-# DEPRECATED tjdTransformInput "Use generic-lens or generic-optics with 'transformInput' instead." #-}
 
 -- | The maximum number of parallel requests that can be sent to each instance in a transform job. The default value is 1.
 --
 -- /Note:/ Consider using 'maxConcurrentTransforms' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjdMaxConcurrentTransforms :: Lens.Lens' TransformJobDefinition (Lude.Maybe Lude.Natural)
-tjdMaxConcurrentTransforms = Lens.lens (maxConcurrentTransforms :: TransformJobDefinition -> Lude.Maybe Lude.Natural) (\s a -> s {maxConcurrentTransforms = a} :: TransformJobDefinition)
+tjdMaxConcurrentTransforms :: Lens.Lens' TransformJobDefinition (Core.Maybe Core.Natural)
+tjdMaxConcurrentTransforms = Lens.field @"maxConcurrentTransforms"
 {-# DEPRECATED tjdMaxConcurrentTransforms "Use generic-lens or generic-optics with 'maxConcurrentTransforms' instead." #-}
 
--- | Identifies the Amazon S3 location where you want Amazon SageMaker to save the results from the transform job.
+-- | The maximum payload size allowed, in MB. A payload is the data portion of a record (without metadata).
 --
--- /Note:/ Consider using 'transformOutput' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tjdTransformOutput :: Lens.Lens' TransformJobDefinition TransformOutput
-tjdTransformOutput = Lens.lens (transformOutput :: TransformJobDefinition -> TransformOutput) (\s a -> s {transformOutput = a} :: TransformJobDefinition)
-{-# DEPRECATED tjdTransformOutput "Use generic-lens or generic-optics with 'transformOutput' instead." #-}
+-- /Note:/ Consider using 'maxPayloadInMB' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tjdMaxPayloadInMB :: Lens.Lens' TransformJobDefinition (Core.Maybe Core.Natural)
+tjdMaxPayloadInMB = Lens.field @"maxPayloadInMB"
+{-# DEPRECATED tjdMaxPayloadInMB "Use generic-lens or generic-optics with 'maxPayloadInMB' instead." #-}
 
-instance Lude.FromJSON TransformJobDefinition where
-  parseJSON =
-    Lude.withObject
-      "TransformJobDefinition"
-      ( \x ->
-          TransformJobDefinition'
-            Lude.<$> (x Lude..:? "BatchStrategy")
-            Lude.<*> (x Lude..:? "MaxPayloadInMB")
-            Lude.<*> (x Lude..:? "Environment" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "TransformResources")
-            Lude.<*> (x Lude..: "TransformInput")
-            Lude.<*> (x Lude..:? "MaxConcurrentTransforms")
-            Lude.<*> (x Lude..: "TransformOutput")
-      )
-
-instance Lude.ToJSON TransformJobDefinition where
-  toJSON TransformJobDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("BatchStrategy" Lude..=) Lude.<$> batchStrategy,
-            ("MaxPayloadInMB" Lude..=) Lude.<$> maxPayloadInMB,
-            ("Environment" Lude..=) Lude.<$> environment,
-            Lude.Just ("TransformResources" Lude..= transformResources),
-            Lude.Just ("TransformInput" Lude..= transformInput),
-            ("MaxConcurrentTransforms" Lude..=)
-              Lude.<$> maxConcurrentTransforms,
-            Lude.Just ("TransformOutput" Lude..= transformOutput)
+instance Core.FromJSON TransformJobDefinition where
+  toJSON TransformJobDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TransformInput" Core..= transformInput),
+            Core.Just ("TransformOutput" Core..= transformOutput),
+            Core.Just ("TransformResources" Core..= transformResources),
+            ("BatchStrategy" Core..=) Core.<$> batchStrategy,
+            ("Environment" Core..=) Core.<$> environment,
+            ("MaxConcurrentTransforms" Core..=)
+              Core.<$> maxConcurrentTransforms,
+            ("MaxPayloadInMB" Core..=) Core.<$> maxPayloadInMB
           ]
       )
+
+instance Core.FromJSON TransformJobDefinition where
+  parseJSON =
+    Core.withObject "TransformJobDefinition" Core.$
+      \x ->
+        TransformJobDefinition'
+          Core.<$> (x Core..: "TransformInput")
+          Core.<*> (x Core..: "TransformOutput")
+          Core.<*> (x Core..: "TransformResources")
+          Core.<*> (x Core..:? "BatchStrategy")
+          Core.<*> (x Core..:? "Environment")
+          Core.<*> (x Core..:? "MaxConcurrentTransforms")
+          Core.<*> (x Core..:? "MaxPayloadInMB")

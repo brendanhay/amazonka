@@ -17,120 +17,112 @@ module Network.AWS.Greengrass.Types.GreengrassLogger
     mkGreengrassLogger,
 
     -- * Lenses
-    glSpace,
-    glComponent,
-    glId,
     glType,
     glLevel,
+    glId,
+    glComponent,
+    glSpace,
   )
 where
 
-import Network.AWS.Greengrass.Types.LoggerComponent
-import Network.AWS.Greengrass.Types.LoggerLevel
-import Network.AWS.Greengrass.Types.LoggerType
+import qualified Network.AWS.Greengrass.Types.LoggerComponent as Types
+import qualified Network.AWS.Greengrass.Types.LoggerLevel as Types
+import qualified Network.AWS.Greengrass.Types.LoggerType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a logger
 --
 -- /See:/ 'mkGreengrassLogger' smart constructor.
 data GreengrassLogger = GreengrassLogger'
-  { -- | The amount of file space, in KB, to use if the local file system is used for logging purposes.
-    space :: Lude.Maybe Lude.Int,
-    -- | The component that will be subject to logging.
-    component :: LoggerComponent,
-    -- | A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
-    id :: Lude.Text,
-    -- | The type of log output which will be used.
-    type' :: LoggerType,
+  { -- | The type of log output which will be used.
+    type' :: Types.LoggerType,
     -- | The level of the logs.
-    level :: LoggerLevel
+    level :: Types.LoggerLevel,
+    -- | A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+    id :: Core.Text,
+    -- | The component that will be subject to logging.
+    component :: Types.LoggerComponent,
+    -- | The amount of file space, in KB, to use if the local file system is used for logging purposes.
+    space :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GreengrassLogger' with the minimum fields required to make a request.
---
--- * 'space' - The amount of file space, in KB, to use if the local file system is used for logging purposes.
--- * 'component' - The component that will be subject to logging.
--- * 'id' - A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
--- * 'type'' - The type of log output which will be used.
--- * 'level' - The level of the logs.
+-- | Creates a 'GreengrassLogger' value with any optional fields omitted.
 mkGreengrassLogger ::
-  -- | 'component'
-  LoggerComponent ->
-  -- | 'id'
-  Lude.Text ->
-  -- | 'type''
-  LoggerType ->
+  -- | 'type\''
+  Types.LoggerType ->
   -- | 'level'
-  LoggerLevel ->
+  Types.LoggerLevel ->
+  -- | 'id'
+  Core.Text ->
+  -- | 'component'
+  Types.LoggerComponent ->
   GreengrassLogger
-mkGreengrassLogger pComponent_ pId_ pType_ pLevel_ =
+mkGreengrassLogger type' level id component =
   GreengrassLogger'
-    { space = Lude.Nothing,
-      component = pComponent_,
-      id = pId_,
-      type' = pType_,
-      level = pLevel_
+    { type',
+      level,
+      id,
+      component,
+      space = Core.Nothing
     }
-
--- | The amount of file space, in KB, to use if the local file system is used for logging purposes.
---
--- /Note:/ Consider using 'space' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glSpace :: Lens.Lens' GreengrassLogger (Lude.Maybe Lude.Int)
-glSpace = Lens.lens (space :: GreengrassLogger -> Lude.Maybe Lude.Int) (\s a -> s {space = a} :: GreengrassLogger)
-{-# DEPRECATED glSpace "Use generic-lens or generic-optics with 'space' instead." #-}
-
--- | The component that will be subject to logging.
---
--- /Note:/ Consider using 'component' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glComponent :: Lens.Lens' GreengrassLogger LoggerComponent
-glComponent = Lens.lens (component :: GreengrassLogger -> LoggerComponent) (\s a -> s {component = a} :: GreengrassLogger)
-{-# DEPRECATED glComponent "Use generic-lens or generic-optics with 'component' instead." #-}
-
--- | A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glId :: Lens.Lens' GreengrassLogger Lude.Text
-glId = Lens.lens (id :: GreengrassLogger -> Lude.Text) (\s a -> s {id = a} :: GreengrassLogger)
-{-# DEPRECATED glId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The type of log output which will be used.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glType :: Lens.Lens' GreengrassLogger LoggerType
-glType = Lens.lens (type' :: GreengrassLogger -> LoggerType) (\s a -> s {type' = a} :: GreengrassLogger)
+glType :: Lens.Lens' GreengrassLogger Types.LoggerType
+glType = Lens.field @"type'"
 {-# DEPRECATED glType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The level of the logs.
 --
 -- /Note:/ Consider using 'level' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-glLevel :: Lens.Lens' GreengrassLogger LoggerLevel
-glLevel = Lens.lens (level :: GreengrassLogger -> LoggerLevel) (\s a -> s {level = a} :: GreengrassLogger)
+glLevel :: Lens.Lens' GreengrassLogger Types.LoggerLevel
+glLevel = Lens.field @"level"
 {-# DEPRECATED glLevel "Use generic-lens or generic-optics with 'level' instead." #-}
 
-instance Lude.FromJSON GreengrassLogger where
-  parseJSON =
-    Lude.withObject
-      "GreengrassLogger"
-      ( \x ->
-          GreengrassLogger'
-            Lude.<$> (x Lude..:? "Space")
-            Lude.<*> (x Lude..: "Component")
-            Lude.<*> (x Lude..: "Id")
-            Lude.<*> (x Lude..: "Type")
-            Lude.<*> (x Lude..: "Level")
-      )
+-- | A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glId :: Lens.Lens' GreengrassLogger Core.Text
+glId = Lens.field @"id"
+{-# DEPRECATED glId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.ToJSON GreengrassLogger where
-  toJSON GreengrassLogger' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Space" Lude..=) Lude.<$> space,
-            Lude.Just ("Component" Lude..= component),
-            Lude.Just ("Id" Lude..= id),
-            Lude.Just ("Type" Lude..= type'),
-            Lude.Just ("Level" Lude..= level)
+-- | The component that will be subject to logging.
+--
+-- /Note:/ Consider using 'component' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glComponent :: Lens.Lens' GreengrassLogger Types.LoggerComponent
+glComponent = Lens.field @"component"
+{-# DEPRECATED glComponent "Use generic-lens or generic-optics with 'component' instead." #-}
+
+-- | The amount of file space, in KB, to use if the local file system is used for logging purposes.
+--
+-- /Note:/ Consider using 'space' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+glSpace :: Lens.Lens' GreengrassLogger (Core.Maybe Core.Int)
+glSpace = Lens.field @"space"
+{-# DEPRECATED glSpace "Use generic-lens or generic-optics with 'space' instead." #-}
+
+instance Core.FromJSON GreengrassLogger where
+  toJSON GreengrassLogger {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            Core.Just ("Level" Core..= level),
+            Core.Just ("Id" Core..= id),
+            Core.Just ("Component" Core..= component),
+            ("Space" Core..=) Core.<$> space
           ]
       )
+
+instance Core.FromJSON GreengrassLogger where
+  parseJSON =
+    Core.withObject "GreengrassLogger" Core.$
+      \x ->
+        GreengrassLogger'
+          Core.<$> (x Core..: "Type")
+          Core.<*> (x Core..: "Level")
+          Core.<*> (x Core..: "Id")
+          Core.<*> (x Core..: "Component")
+          Core.<*> (x Core..:? "Space")

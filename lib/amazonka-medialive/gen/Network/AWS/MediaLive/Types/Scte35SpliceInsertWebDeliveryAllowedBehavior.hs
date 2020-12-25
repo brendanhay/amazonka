@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Scte35SpliceInsertWebDeliveryAllowedBehavior
   ( Scte35SpliceInsertWebDeliveryAllowedBehavior
       ( Scte35SpliceInsertWebDeliveryAllowedBehavior',
-        SSIWDABFollow,
-        SSIWDABIgnore
+        Scte35SpliceInsertWebDeliveryAllowedBehaviorFollow,
+        Scte35SpliceInsertWebDeliveryAllowedBehaviorIgnore,
+        fromScte35SpliceInsertWebDeliveryAllowedBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Scte35 Splice Insert Web Delivery Allowed Behavior
-newtype Scte35SpliceInsertWebDeliveryAllowedBehavior = Scte35SpliceInsertWebDeliveryAllowedBehavior' Lude.Text
+newtype Scte35SpliceInsertWebDeliveryAllowedBehavior = Scte35SpliceInsertWebDeliveryAllowedBehavior'
+  { fromScte35SpliceInsertWebDeliveryAllowedBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSIWDABFollow :: Scte35SpliceInsertWebDeliveryAllowedBehavior
-pattern SSIWDABFollow = Scte35SpliceInsertWebDeliveryAllowedBehavior' "FOLLOW"
+pattern Scte35SpliceInsertWebDeliveryAllowedBehaviorFollow :: Scte35SpliceInsertWebDeliveryAllowedBehavior
+pattern Scte35SpliceInsertWebDeliveryAllowedBehaviorFollow = Scte35SpliceInsertWebDeliveryAllowedBehavior' "FOLLOW"
 
-pattern SSIWDABIgnore :: Scte35SpliceInsertWebDeliveryAllowedBehavior
-pattern SSIWDABIgnore = Scte35SpliceInsertWebDeliveryAllowedBehavior' "IGNORE"
+pattern Scte35SpliceInsertWebDeliveryAllowedBehaviorIgnore :: Scte35SpliceInsertWebDeliveryAllowedBehavior
+pattern Scte35SpliceInsertWebDeliveryAllowedBehaviorIgnore = Scte35SpliceInsertWebDeliveryAllowedBehavior' "IGNORE"
 
 {-# COMPLETE
-  SSIWDABFollow,
-  SSIWDABIgnore,
+  Scte35SpliceInsertWebDeliveryAllowedBehaviorFollow,
+  Scte35SpliceInsertWebDeliveryAllowedBehaviorIgnore,
   Scte35SpliceInsertWebDeliveryAllowedBehavior'
   #-}

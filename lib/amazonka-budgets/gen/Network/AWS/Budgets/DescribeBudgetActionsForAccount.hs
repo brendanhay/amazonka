@@ -23,169 +23,156 @@ module Network.AWS.Budgets.DescribeBudgetActionsForAccount
 
     -- ** Request lenses
     dbafaAccountId,
-    dbafaNextToken,
     dbafaMaxResults,
+    dbafaNextToken,
 
     -- * Destructuring the response
     DescribeBudgetActionsForAccountResponse (..),
     mkDescribeBudgetActionsForAccountResponse,
 
     -- ** Response lenses
-    dbafarsActions,
-    dbafarsNextToken,
-    dbafarsResponseStatus,
+    dbafarrsActions,
+    dbafarrsNextToken,
+    dbafarrsResponseStatus,
   )
 where
 
-import Network.AWS.Budgets.Types
+import qualified Network.AWS.Budgets.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeBudgetActionsForAccount' smart constructor.
 data DescribeBudgetActionsForAccount = DescribeBudgetActionsForAccount'
-  { accountId :: Lude.Text,
-    nextToken :: Lude.Maybe Lude.Text,
-    maxResults :: Lude.Maybe Lude.Natural
+  { accountId :: Types.AccountId,
+    maxResults :: Core.Maybe Core.Natural,
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeBudgetActionsForAccount' with the minimum fields required to make a request.
---
--- * 'accountId' -
--- * 'nextToken' -
--- * 'maxResults' -
+-- | Creates a 'DescribeBudgetActionsForAccount' value with any optional fields omitted.
 mkDescribeBudgetActionsForAccount ::
   -- | 'accountId'
-  Lude.Text ->
+  Types.AccountId ->
   DescribeBudgetActionsForAccount
-mkDescribeBudgetActionsForAccount pAccountId_ =
+mkDescribeBudgetActionsForAccount accountId =
   DescribeBudgetActionsForAccount'
-    { accountId = pAccountId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { accountId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbafaAccountId :: Lens.Lens' DescribeBudgetActionsForAccount Lude.Text
-dbafaAccountId = Lens.lens (accountId :: DescribeBudgetActionsForAccount -> Lude.Text) (\s a -> s {accountId = a} :: DescribeBudgetActionsForAccount)
+dbafaAccountId :: Lens.Lens' DescribeBudgetActionsForAccount Types.AccountId
+dbafaAccountId = Lens.field @"accountId"
 {-# DEPRECATED dbafaAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbafaNextToken :: Lens.Lens' DescribeBudgetActionsForAccount (Lude.Maybe Lude.Text)
-dbafaNextToken = Lens.lens (nextToken :: DescribeBudgetActionsForAccount -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgetActionsForAccount)
-{-# DEPRECATED dbafaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbafaMaxResults :: Lens.Lens' DescribeBudgetActionsForAccount (Core.Maybe Core.Natural)
+dbafaMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED dbafaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | Undocumented field.
 --
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbafaMaxResults :: Lens.Lens' DescribeBudgetActionsForAccount (Lude.Maybe Lude.Natural)
-dbafaMaxResults = Lens.lens (maxResults :: DescribeBudgetActionsForAccount -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeBudgetActionsForAccount)
-{-# DEPRECATED dbafaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dbafaNextToken :: Lens.Lens' DescribeBudgetActionsForAccount (Core.Maybe Types.NextToken)
+dbafaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dbafaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager DescribeBudgetActionsForAccount where
-  page rq rs
-    | Page.stop (rs Lens.^. dbafarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dbafarsActions) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dbafaNextToken Lens..~ rs Lens.^. dbafarsNextToken
+instance Core.FromJSON DescribeBudgetActionsForAccount where
+  toJSON DescribeBudgetActionsForAccount {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccountId" Core..= accountId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Lude.AWSRequest DescribeBudgetActionsForAccount where
+instance Core.AWSRequest DescribeBudgetActionsForAccount where
   type
     Rs DescribeBudgetActionsForAccount =
       DescribeBudgetActionsForAccountResponse
-  request = Req.postJSON budgetsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeBudgetActionsForAccountResponse'
-            Lude.<$> (x Lude..?> "Actions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Actions" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeBudgetActionsForAccount where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeBudgetActionsForAccount where
-  toJSON DescribeBudgetActionsForAccount' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AccountId" Lude..= accountId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath DescribeBudgetActionsForAccount where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeBudgetActionsForAccount where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeBudgetActionsForAccount where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^. Lens.field @"actions") = Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeBudgetActionsForAccountResponse' smart constructor.
 data DescribeBudgetActionsForAccountResponse = DescribeBudgetActionsForAccountResponse'
   { -- | A list of the budget action resources information.
-    actions :: [Action],
-    nextToken :: Lude.Maybe Lude.Text,
+    actions :: [Types.Action],
+    nextToken :: Core.Maybe Types.GenericString,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeBudgetActionsForAccountResponse' with the minimum fields required to make a request.
---
--- * 'actions' - A list of the budget action resources information.
--- * 'nextToken' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeBudgetActionsForAccountResponse' value with any optional fields omitted.
 mkDescribeBudgetActionsForAccountResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeBudgetActionsForAccountResponse
-mkDescribeBudgetActionsForAccountResponse pResponseStatus_ =
+mkDescribeBudgetActionsForAccountResponse responseStatus =
   DescribeBudgetActionsForAccountResponse'
-    { actions = Lude.mempty,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { actions = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of the budget action resources information.
 --
 -- /Note:/ Consider using 'actions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbafarsActions :: Lens.Lens' DescribeBudgetActionsForAccountResponse [Action]
-dbafarsActions = Lens.lens (actions :: DescribeBudgetActionsForAccountResponse -> [Action]) (\s a -> s {actions = a} :: DescribeBudgetActionsForAccountResponse)
-{-# DEPRECATED dbafarsActions "Use generic-lens or generic-optics with 'actions' instead." #-}
+dbafarrsActions :: Lens.Lens' DescribeBudgetActionsForAccountResponse [Types.Action]
+dbafarrsActions = Lens.field @"actions"
+{-# DEPRECATED dbafarrsActions "Use generic-lens or generic-optics with 'actions' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbafarsNextToken :: Lens.Lens' DescribeBudgetActionsForAccountResponse (Lude.Maybe Lude.Text)
-dbafarsNextToken = Lens.lens (nextToken :: DescribeBudgetActionsForAccountResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeBudgetActionsForAccountResponse)
-{-# DEPRECATED dbafarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dbafarrsNextToken :: Lens.Lens' DescribeBudgetActionsForAccountResponse (Core.Maybe Types.GenericString)
+dbafarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dbafarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbafarsResponseStatus :: Lens.Lens' DescribeBudgetActionsForAccountResponse Lude.Int
-dbafarsResponseStatus = Lens.lens (responseStatus :: DescribeBudgetActionsForAccountResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeBudgetActionsForAccountResponse)
-{-# DEPRECATED dbafarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dbafarrsResponseStatus :: Lens.Lens' DescribeBudgetActionsForAccountResponse Core.Int
+dbafarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dbafarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -17,108 +17,104 @@ module Network.AWS.EC2.Types.TransitGatewayPrefixListReference
     mkTransitGatewayPrefixListReference,
 
     -- * Lenses
-    tgplrState,
-    tgplrTransitGatewayRouteTableId,
-    tgplrPrefixListOwnerId,
     tgplrBlackhole,
     tgplrPrefixListId,
+    tgplrPrefixListOwnerId,
+    tgplrState,
     tgplrTransitGatewayAttachment,
+    tgplrTransitGatewayRouteTableId,
   )
 where
 
-import Network.AWS.EC2.Types.TransitGatewayPrefixListAttachment
-import Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState
+import qualified Network.AWS.EC2.Types.PrefixListResourceId as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayPrefixListAttachment as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayPrefixListReferenceState as Types
+import qualified Network.AWS.EC2.Types.TransitGatewayRouteTableId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a prefix list reference.
 --
 -- /See:/ 'mkTransitGatewayPrefixListReference' smart constructor.
 data TransitGatewayPrefixListReference = TransitGatewayPrefixListReference'
-  { -- | The state of the prefix list reference.
-    state :: Lude.Maybe TransitGatewayPrefixListReferenceState,
-    -- | The ID of the transit gateway route table.
-    transitGatewayRouteTableId :: Lude.Maybe Lude.Text,
-    -- | The ID of the prefix list owner.
-    prefixListOwnerId :: Lude.Maybe Lude.Text,
-    -- | Indicates whether traffic that matches this route is dropped.
-    blackhole :: Lude.Maybe Lude.Bool,
+  { -- | Indicates whether traffic that matches this route is dropped.
+    blackhole :: Core.Maybe Core.Bool,
     -- | The ID of the prefix list.
-    prefixListId :: Lude.Maybe Lude.Text,
+    prefixListId :: Core.Maybe Types.PrefixListResourceId,
+    -- | The ID of the prefix list owner.
+    prefixListOwnerId :: Core.Maybe Types.String,
+    -- | The state of the prefix list reference.
+    state :: Core.Maybe Types.TransitGatewayPrefixListReferenceState,
     -- | Information about the transit gateway attachment.
-    transitGatewayAttachment :: Lude.Maybe TransitGatewayPrefixListAttachment
+    transitGatewayAttachment :: Core.Maybe Types.TransitGatewayPrefixListAttachment,
+    -- | The ID of the transit gateway route table.
+    transitGatewayRouteTableId :: Core.Maybe Types.TransitGatewayRouteTableId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransitGatewayPrefixListReference' with the minimum fields required to make a request.
---
--- * 'state' - The state of the prefix list reference.
--- * 'transitGatewayRouteTableId' - The ID of the transit gateway route table.
--- * 'prefixListOwnerId' - The ID of the prefix list owner.
--- * 'blackhole' - Indicates whether traffic that matches this route is dropped.
--- * 'prefixListId' - The ID of the prefix list.
--- * 'transitGatewayAttachment' - Information about the transit gateway attachment.
+-- | Creates a 'TransitGatewayPrefixListReference' value with any optional fields omitted.
 mkTransitGatewayPrefixListReference ::
   TransitGatewayPrefixListReference
 mkTransitGatewayPrefixListReference =
   TransitGatewayPrefixListReference'
-    { state = Lude.Nothing,
-      transitGatewayRouteTableId = Lude.Nothing,
-      prefixListOwnerId = Lude.Nothing,
-      blackhole = Lude.Nothing,
-      prefixListId = Lude.Nothing,
-      transitGatewayAttachment = Lude.Nothing
+    { blackhole = Core.Nothing,
+      prefixListId = Core.Nothing,
+      prefixListOwnerId = Core.Nothing,
+      state = Core.Nothing,
+      transitGatewayAttachment = Core.Nothing,
+      transitGatewayRouteTableId = Core.Nothing
     }
-
--- | The state of the prefix list reference.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgplrState :: Lens.Lens' TransitGatewayPrefixListReference (Lude.Maybe TransitGatewayPrefixListReferenceState)
-tgplrState = Lens.lens (state :: TransitGatewayPrefixListReference -> Lude.Maybe TransitGatewayPrefixListReferenceState) (\s a -> s {state = a} :: TransitGatewayPrefixListReference)
-{-# DEPRECATED tgplrState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The ID of the transit gateway route table.
---
--- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgplrTransitGatewayRouteTableId :: Lens.Lens' TransitGatewayPrefixListReference (Lude.Maybe Lude.Text)
-tgplrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: TransitGatewayPrefixListReference -> Lude.Maybe Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: TransitGatewayPrefixListReference)
-{-# DEPRECATED tgplrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
-
--- | The ID of the prefix list owner.
---
--- /Note:/ Consider using 'prefixListOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgplrPrefixListOwnerId :: Lens.Lens' TransitGatewayPrefixListReference (Lude.Maybe Lude.Text)
-tgplrPrefixListOwnerId = Lens.lens (prefixListOwnerId :: TransitGatewayPrefixListReference -> Lude.Maybe Lude.Text) (\s a -> s {prefixListOwnerId = a} :: TransitGatewayPrefixListReference)
-{-# DEPRECATED tgplrPrefixListOwnerId "Use generic-lens or generic-optics with 'prefixListOwnerId' instead." #-}
 
 -- | Indicates whether traffic that matches this route is dropped.
 --
 -- /Note:/ Consider using 'blackhole' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgplrBlackhole :: Lens.Lens' TransitGatewayPrefixListReference (Lude.Maybe Lude.Bool)
-tgplrBlackhole = Lens.lens (blackhole :: TransitGatewayPrefixListReference -> Lude.Maybe Lude.Bool) (\s a -> s {blackhole = a} :: TransitGatewayPrefixListReference)
+tgplrBlackhole :: Lens.Lens' TransitGatewayPrefixListReference (Core.Maybe Core.Bool)
+tgplrBlackhole = Lens.field @"blackhole"
 {-# DEPRECATED tgplrBlackhole "Use generic-lens or generic-optics with 'blackhole' instead." #-}
 
 -- | The ID of the prefix list.
 --
 -- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgplrPrefixListId :: Lens.Lens' TransitGatewayPrefixListReference (Lude.Maybe Lude.Text)
-tgplrPrefixListId = Lens.lens (prefixListId :: TransitGatewayPrefixListReference -> Lude.Maybe Lude.Text) (\s a -> s {prefixListId = a} :: TransitGatewayPrefixListReference)
+tgplrPrefixListId :: Lens.Lens' TransitGatewayPrefixListReference (Core.Maybe Types.PrefixListResourceId)
+tgplrPrefixListId = Lens.field @"prefixListId"
 {-# DEPRECATED tgplrPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
+
+-- | The ID of the prefix list owner.
+--
+-- /Note:/ Consider using 'prefixListOwnerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgplrPrefixListOwnerId :: Lens.Lens' TransitGatewayPrefixListReference (Core.Maybe Types.String)
+tgplrPrefixListOwnerId = Lens.field @"prefixListOwnerId"
+{-# DEPRECATED tgplrPrefixListOwnerId "Use generic-lens or generic-optics with 'prefixListOwnerId' instead." #-}
+
+-- | The state of the prefix list reference.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgplrState :: Lens.Lens' TransitGatewayPrefixListReference (Core.Maybe Types.TransitGatewayPrefixListReferenceState)
+tgplrState = Lens.field @"state"
+{-# DEPRECATED tgplrState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | Information about the transit gateway attachment.
 --
 -- /Note:/ Consider using 'transitGatewayAttachment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tgplrTransitGatewayAttachment :: Lens.Lens' TransitGatewayPrefixListReference (Lude.Maybe TransitGatewayPrefixListAttachment)
-tgplrTransitGatewayAttachment = Lens.lens (transitGatewayAttachment :: TransitGatewayPrefixListReference -> Lude.Maybe TransitGatewayPrefixListAttachment) (\s a -> s {transitGatewayAttachment = a} :: TransitGatewayPrefixListReference)
+tgplrTransitGatewayAttachment :: Lens.Lens' TransitGatewayPrefixListReference (Core.Maybe Types.TransitGatewayPrefixListAttachment)
+tgplrTransitGatewayAttachment = Lens.field @"transitGatewayAttachment"
 {-# DEPRECATED tgplrTransitGatewayAttachment "Use generic-lens or generic-optics with 'transitGatewayAttachment' instead." #-}
 
-instance Lude.FromXML TransitGatewayPrefixListReference where
+-- | The ID of the transit gateway route table.
+--
+-- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tgplrTransitGatewayRouteTableId :: Lens.Lens' TransitGatewayPrefixListReference (Core.Maybe Types.TransitGatewayRouteTableId)
+tgplrTransitGatewayRouteTableId = Lens.field @"transitGatewayRouteTableId"
+{-# DEPRECATED tgplrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
+
+instance Core.FromXML TransitGatewayPrefixListReference where
   parseXML x =
     TransitGatewayPrefixListReference'
-      Lude.<$> (x Lude..@? "state")
-      Lude.<*> (x Lude..@? "transitGatewayRouteTableId")
-      Lude.<*> (x Lude..@? "prefixListOwnerId")
-      Lude.<*> (x Lude..@? "blackhole")
-      Lude.<*> (x Lude..@? "prefixListId")
-      Lude.<*> (x Lude..@? "transitGatewayAttachment")
+      Core.<$> (x Core..@? "blackhole")
+      Core.<*> (x Core..@? "prefixListId")
+      Core.<*> (x Core..@? "prefixListOwnerId")
+      Core.<*> (x Core..@? "state")
+      Core.<*> (x Core..@? "transitGatewayAttachment")
+      Core.<*> (x Core..@? "transitGatewayRouteTableId")

@@ -27,123 +27,111 @@ module Network.AWS.Config.BatchGetResourceConfig
     mkBatchGetResourceConfigResponse,
 
     -- ** Response lenses
-    bgrcrsBaseConfigurationItems,
-    bgrcrsUnprocessedResourceKeys,
-    bgrcrsResponseStatus,
+    bgrcrrsBaseConfigurationItems,
+    bgrcrrsUnprocessedResourceKeys,
+    bgrcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchGetResourceConfig' smart constructor.
 newtype BatchGetResourceConfig = BatchGetResourceConfig'
   { -- | A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
-    resourceKeys :: Lude.NonEmpty ResourceKey
+    resourceKeys :: Core.NonEmpty Types.ResourceKey
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchGetResourceConfig' with the minimum fields required to make a request.
---
--- * 'resourceKeys' - A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
+-- | Creates a 'BatchGetResourceConfig' value with any optional fields omitted.
 mkBatchGetResourceConfig ::
   -- | 'resourceKeys'
-  Lude.NonEmpty ResourceKey ->
+  Core.NonEmpty Types.ResourceKey ->
   BatchGetResourceConfig
-mkBatchGetResourceConfig pResourceKeys_ =
-  BatchGetResourceConfig' {resourceKeys = pResourceKeys_}
+mkBatchGetResourceConfig resourceKeys =
+  BatchGetResourceConfig' {resourceKeys}
 
 -- | A list of resource keys to be processed with the current request. Each element in the list consists of the resource type and resource ID.
 --
 -- /Note:/ Consider using 'resourceKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrcResourceKeys :: Lens.Lens' BatchGetResourceConfig (Lude.NonEmpty ResourceKey)
-bgrcResourceKeys = Lens.lens (resourceKeys :: BatchGetResourceConfig -> Lude.NonEmpty ResourceKey) (\s a -> s {resourceKeys = a} :: BatchGetResourceConfig)
+bgrcResourceKeys :: Lens.Lens' BatchGetResourceConfig (Core.NonEmpty Types.ResourceKey)
+bgrcResourceKeys = Lens.field @"resourceKeys"
 {-# DEPRECATED bgrcResourceKeys "Use generic-lens or generic-optics with 'resourceKeys' instead." #-}
 
-instance Lude.AWSRequest BatchGetResourceConfig where
+instance Core.FromJSON BatchGetResourceConfig where
+  toJSON BatchGetResourceConfig {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("resourceKeys" Core..= resourceKeys)])
+
+instance Core.AWSRequest BatchGetResourceConfig where
   type Rs BatchGetResourceConfig = BatchGetResourceConfigResponse
-  request = Req.postJSON configService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StarlingDoveService.BatchGetResourceConfig")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchGetResourceConfigResponse'
-            Lude.<$> (x Lude..?> "baseConfigurationItems" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "unprocessedResourceKeys")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "baseConfigurationItems")
+            Core.<*> (x Core..:? "unprocessedResourceKeys")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders BatchGetResourceConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StarlingDoveService.BatchGetResourceConfig" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON BatchGetResourceConfig where
-  toJSON BatchGetResourceConfig' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("resourceKeys" Lude..= resourceKeys)])
-
-instance Lude.ToPath BatchGetResourceConfig where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchGetResourceConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchGetResourceConfigResponse' smart constructor.
 data BatchGetResourceConfigResponse = BatchGetResourceConfigResponse'
   { -- | A list that contains the current configuration of one or more resources.
-    baseConfigurationItems :: Lude.Maybe [BaseConfigurationItem],
+    baseConfigurationItems :: Core.Maybe [Types.BaseConfigurationItem],
     -- | A list of resource keys that were not processed with the current response. The unprocessesResourceKeys value is in the same form as ResourceKeys, so the value can be directly provided to a subsequent BatchGetResourceConfig operation. If there are no unprocessed resource keys, the response contains an empty unprocessedResourceKeys list.
-    unprocessedResourceKeys :: Lude.Maybe (Lude.NonEmpty ResourceKey),
+    unprocessedResourceKeys :: Core.Maybe (Core.NonEmpty Types.ResourceKey),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchGetResourceConfigResponse' with the minimum fields required to make a request.
---
--- * 'baseConfigurationItems' - A list that contains the current configuration of one or more resources.
--- * 'unprocessedResourceKeys' - A list of resource keys that were not processed with the current response. The unprocessesResourceKeys value is in the same form as ResourceKeys, so the value can be directly provided to a subsequent BatchGetResourceConfig operation. If there are no unprocessed resource keys, the response contains an empty unprocessedResourceKeys list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchGetResourceConfigResponse' value with any optional fields omitted.
 mkBatchGetResourceConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchGetResourceConfigResponse
-mkBatchGetResourceConfigResponse pResponseStatus_ =
+mkBatchGetResourceConfigResponse responseStatus =
   BatchGetResourceConfigResponse'
     { baseConfigurationItems =
-        Lude.Nothing,
-      unprocessedResourceKeys = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      unprocessedResourceKeys = Core.Nothing,
+      responseStatus
     }
 
 -- | A list that contains the current configuration of one or more resources.
 --
 -- /Note:/ Consider using 'baseConfigurationItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrcrsBaseConfigurationItems :: Lens.Lens' BatchGetResourceConfigResponse (Lude.Maybe [BaseConfigurationItem])
-bgrcrsBaseConfigurationItems = Lens.lens (baseConfigurationItems :: BatchGetResourceConfigResponse -> Lude.Maybe [BaseConfigurationItem]) (\s a -> s {baseConfigurationItems = a} :: BatchGetResourceConfigResponse)
-{-# DEPRECATED bgrcrsBaseConfigurationItems "Use generic-lens or generic-optics with 'baseConfigurationItems' instead." #-}
+bgrcrrsBaseConfigurationItems :: Lens.Lens' BatchGetResourceConfigResponse (Core.Maybe [Types.BaseConfigurationItem])
+bgrcrrsBaseConfigurationItems = Lens.field @"baseConfigurationItems"
+{-# DEPRECATED bgrcrrsBaseConfigurationItems "Use generic-lens or generic-optics with 'baseConfigurationItems' instead." #-}
 
 -- | A list of resource keys that were not processed with the current response. The unprocessesResourceKeys value is in the same form as ResourceKeys, so the value can be directly provided to a subsequent BatchGetResourceConfig operation. If there are no unprocessed resource keys, the response contains an empty unprocessedResourceKeys list.
 --
 -- /Note:/ Consider using 'unprocessedResourceKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrcrsUnprocessedResourceKeys :: Lens.Lens' BatchGetResourceConfigResponse (Lude.Maybe (Lude.NonEmpty ResourceKey))
-bgrcrsUnprocessedResourceKeys = Lens.lens (unprocessedResourceKeys :: BatchGetResourceConfigResponse -> Lude.Maybe (Lude.NonEmpty ResourceKey)) (\s a -> s {unprocessedResourceKeys = a} :: BatchGetResourceConfigResponse)
-{-# DEPRECATED bgrcrsUnprocessedResourceKeys "Use generic-lens or generic-optics with 'unprocessedResourceKeys' instead." #-}
+bgrcrrsUnprocessedResourceKeys :: Lens.Lens' BatchGetResourceConfigResponse (Core.Maybe (Core.NonEmpty Types.ResourceKey))
+bgrcrrsUnprocessedResourceKeys = Lens.field @"unprocessedResourceKeys"
+{-# DEPRECATED bgrcrrsUnprocessedResourceKeys "Use generic-lens or generic-optics with 'unprocessedResourceKeys' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bgrcrsResponseStatus :: Lens.Lens' BatchGetResourceConfigResponse Lude.Int
-bgrcrsResponseStatus = Lens.lens (responseStatus :: BatchGetResourceConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchGetResourceConfigResponse)
-{-# DEPRECATED bgrcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bgrcrrsResponseStatus :: Lens.Lens' BatchGetResourceConfigResponse Core.Int
+bgrcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bgrcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

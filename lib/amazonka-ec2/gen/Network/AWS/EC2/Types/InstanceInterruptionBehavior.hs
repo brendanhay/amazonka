@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.InstanceInterruptionBehavior
   ( InstanceInterruptionBehavior
       ( InstanceInterruptionBehavior',
-        Hibernate,
-        Stop,
-        Terminate
+        InstanceInterruptionBehaviorHibernate,
+        InstanceInterruptionBehaviorStop,
+        InstanceInterruptionBehaviorTerminate,
+        fromInstanceInterruptionBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype InstanceInterruptionBehavior = InstanceInterruptionBehavior' Lude.Text
+newtype InstanceInterruptionBehavior = InstanceInterruptionBehavior'
+  { fromInstanceInterruptionBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Hibernate :: InstanceInterruptionBehavior
-pattern Hibernate = InstanceInterruptionBehavior' "hibernate"
+pattern InstanceInterruptionBehaviorHibernate :: InstanceInterruptionBehavior
+pattern InstanceInterruptionBehaviorHibernate = InstanceInterruptionBehavior' "hibernate"
 
-pattern Stop :: InstanceInterruptionBehavior
-pattern Stop = InstanceInterruptionBehavior' "stop"
+pattern InstanceInterruptionBehaviorStop :: InstanceInterruptionBehavior
+pattern InstanceInterruptionBehaviorStop = InstanceInterruptionBehavior' "stop"
 
-pattern Terminate :: InstanceInterruptionBehavior
-pattern Terminate = InstanceInterruptionBehavior' "terminate"
+pattern InstanceInterruptionBehaviorTerminate :: InstanceInterruptionBehavior
+pattern InstanceInterruptionBehaviorTerminate = InstanceInterruptionBehavior' "terminate"
 
 {-# COMPLETE
-  Hibernate,
-  Stop,
-  Terminate,
+  InstanceInterruptionBehaviorHibernate,
+  InstanceInterruptionBehaviorStop,
+  InstanceInterruptionBehaviorTerminate,
   InstanceInterruptionBehavior'
   #-}

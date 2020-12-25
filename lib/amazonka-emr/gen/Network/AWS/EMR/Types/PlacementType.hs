@@ -17,57 +17,56 @@ module Network.AWS.EMR.Types.PlacementType
     mkPlacementType,
 
     -- * Lenses
-    ptAvailabilityZones,
     ptAvailabilityZone,
+    ptAvailabilityZones,
   )
 where
 
+import qualified Network.AWS.EMR.Types.XmlString as Types
+import qualified Network.AWS.EMR.Types.XmlStringMaxLen256 as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The Amazon EC2 Availability Zone configuration of the cluster (job flow).
 --
 -- /See:/ 'mkPlacementType' smart constructor.
 data PlacementType = PlacementType'
-  { -- | When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone. @AvailabilityZones@ is used for instance fleets, while @AvailabilityZone@ (singular) is used for uniform instance groups.
-    availabilityZones :: Lude.Maybe [Lude.Text],
-    -- | The Amazon EC2 Availability Zone for the cluster. @AvailabilityZone@ is used for uniform instance groups, while @AvailabilityZones@ (plural) is used for instance fleets.
-    availabilityZone :: Lude.Maybe Lude.Text
+  { -- | The Amazon EC2 Availability Zone for the cluster. @AvailabilityZone@ is used for uniform instance groups, while @AvailabilityZones@ (plural) is used for instance fleets.
+    availabilityZone :: Core.Maybe Types.XmlString,
+    -- | When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone. @AvailabilityZones@ is used for instance fleets, while @AvailabilityZone@ (singular) is used for uniform instance groups.
+    availabilityZones :: Core.Maybe [Types.XmlStringMaxLen256]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PlacementType' with the minimum fields required to make a request.
---
--- * 'availabilityZones' - When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone. @AvailabilityZones@ is used for instance fleets, while @AvailabilityZone@ (singular) is used for uniform instance groups.
--- * 'availabilityZone' - The Amazon EC2 Availability Zone for the cluster. @AvailabilityZone@ is used for uniform instance groups, while @AvailabilityZones@ (plural) is used for instance fleets.
+-- | Creates a 'PlacementType' value with any optional fields omitted.
 mkPlacementType ::
   PlacementType
 mkPlacementType =
   PlacementType'
-    { availabilityZones = Lude.Nothing,
-      availabilityZone = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      availabilityZones = Core.Nothing
     }
-
--- | When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone. @AvailabilityZones@ is used for instance fleets, while @AvailabilityZone@ (singular) is used for uniform instance groups.
---
--- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptAvailabilityZones :: Lens.Lens' PlacementType (Lude.Maybe [Lude.Text])
-ptAvailabilityZones = Lens.lens (availabilityZones :: PlacementType -> Lude.Maybe [Lude.Text]) (\s a -> s {availabilityZones = a} :: PlacementType)
-{-# DEPRECATED ptAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
 
 -- | The Amazon EC2 Availability Zone for the cluster. @AvailabilityZone@ is used for uniform instance groups, while @AvailabilityZones@ (plural) is used for instance fleets.
 --
 -- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ptAvailabilityZone :: Lens.Lens' PlacementType (Lude.Maybe Lude.Text)
-ptAvailabilityZone = Lens.lens (availabilityZone :: PlacementType -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: PlacementType)
+ptAvailabilityZone :: Lens.Lens' PlacementType (Core.Maybe Types.XmlString)
+ptAvailabilityZone = Lens.field @"availabilityZone"
 {-# DEPRECATED ptAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
-instance Lude.ToJSON PlacementType where
-  toJSON PlacementType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AvailabilityZones" Lude..=) Lude.<$> availabilityZones,
-            ("AvailabilityZone" Lude..=) Lude.<$> availabilityZone
+-- | When multiple Availability Zones are specified, Amazon EMR evaluates them and launches instances in the optimal Availability Zone. @AvailabilityZones@ is used for instance fleets, while @AvailabilityZone@ (singular) is used for uniform instance groups.
+--
+-- /Note:/ Consider using 'availabilityZones' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ptAvailabilityZones :: Lens.Lens' PlacementType (Core.Maybe [Types.XmlStringMaxLen256])
+ptAvailabilityZones = Lens.field @"availabilityZones"
+{-# DEPRECATED ptAvailabilityZones "Use generic-lens or generic-optics with 'availabilityZones' instead." #-}
+
+instance Core.FromJSON PlacementType where
+  toJSON PlacementType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AvailabilityZone" Core..=) Core.<$> availabilityZone,
+            ("AvailabilityZones" Core..=) Core.<$> availabilityZones
           ]
       )

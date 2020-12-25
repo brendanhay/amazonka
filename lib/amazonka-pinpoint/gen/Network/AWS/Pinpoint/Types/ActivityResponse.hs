@@ -17,207 +17,191 @@ module Network.AWS.Pinpoint.Types.ActivityResponse
     mkActivityResponse,
 
     -- * Lenses
-    aState,
-    aStart,
     aCampaignId,
+    aId,
+    aApplicationId,
+    aEnd,
+    aResult,
+    aScheduledStart,
+    aStart,
+    aState,
+    aSuccessfulEndpointCount,
     aTimezonesCompletedCount,
     aTimezonesTotalCount,
-    aResult,
-    aTreatmentId,
-    aSuccessfulEndpointCount,
-    aEnd,
-    aApplicationId,
     aTotalEndpointCount,
-    aId,
-    aScheduledStart,
+    aTreatmentId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about an activity that was performed by a campaign.
 --
 -- /See:/ 'mkActivityResponse' smart constructor.
 data ActivityResponse = ActivityResponse'
-  { -- | The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.
-    state :: Lude.Maybe Lude.Text,
-    -- | The actual start time, in ISO 8601 format, of the activity.
-    start :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the campaign that the activity applies to.
-    campaignId :: Lude.Text,
-    -- | The total number of time zones that were completed.
-    timezonesCompletedCount :: Lude.Maybe Lude.Int,
-    -- | The total number of unique time zones that are in the segment for the campaign.
-    timezonesTotalCount :: Lude.Maybe Lude.Int,
-    -- | Specifies whether the activity succeeded. Possible values are SUCCESS and FAIL.
-    result :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the campaign treatment that the activity applies to. A treatment is a variation of a campaign that's used for A/B testing of a campaign.
-    treatmentId :: Lude.Maybe Lude.Text,
-    -- | The total number of endpoints that the campaign successfully delivered messages to.
-    successfulEndpointCount :: Lude.Maybe Lude.Int,
-    -- | The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.
-    end :: Lude.Maybe Lude.Text,
-    -- | The unique identifier for the application that the campaign applies to.
-    applicationId :: Lude.Text,
-    -- | The total number of endpoints that the campaign attempted to deliver messages to.
-    totalEndpointCount :: Lude.Maybe Lude.Int,
+  { -- | The unique identifier for the campaign that the activity applies to.
+    campaignId :: Core.Text,
     -- | The unique identifier for the activity.
-    id :: Lude.Text,
+    id :: Core.Text,
+    -- | The unique identifier for the application that the campaign applies to.
+    applicationId :: Core.Text,
+    -- | The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.
+    end :: Core.Maybe Core.Text,
+    -- | Specifies whether the activity succeeded. Possible values are SUCCESS and FAIL.
+    result :: Core.Maybe Core.Text,
     -- | The scheduled start time, in ISO 8601 format, for the activity.
-    scheduledStart :: Lude.Maybe Lude.Text
+    scheduledStart :: Core.Maybe Core.Text,
+    -- | The actual start time, in ISO 8601 format, of the activity.
+    start :: Core.Maybe Core.Text,
+    -- | The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.
+    state :: Core.Maybe Core.Text,
+    -- | The total number of endpoints that the campaign successfully delivered messages to.
+    successfulEndpointCount :: Core.Maybe Core.Int,
+    -- | The total number of time zones that were completed.
+    timezonesCompletedCount :: Core.Maybe Core.Int,
+    -- | The total number of unique time zones that are in the segment for the campaign.
+    timezonesTotalCount :: Core.Maybe Core.Int,
+    -- | The total number of endpoints that the campaign attempted to deliver messages to.
+    totalEndpointCount :: Core.Maybe Core.Int,
+    -- | The unique identifier for the campaign treatment that the activity applies to. A treatment is a variation of a campaign that's used for A/B testing of a campaign.
+    treatmentId :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ActivityResponse' with the minimum fields required to make a request.
---
--- * 'state' - The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.
--- * 'start' - The actual start time, in ISO 8601 format, of the activity.
--- * 'campaignId' - The unique identifier for the campaign that the activity applies to.
--- * 'timezonesCompletedCount' - The total number of time zones that were completed.
--- * 'timezonesTotalCount' - The total number of unique time zones that are in the segment for the campaign.
--- * 'result' - Specifies whether the activity succeeded. Possible values are SUCCESS and FAIL.
--- * 'treatmentId' - The unique identifier for the campaign treatment that the activity applies to. A treatment is a variation of a campaign that's used for A/B testing of a campaign.
--- * 'successfulEndpointCount' - The total number of endpoints that the campaign successfully delivered messages to.
--- * 'end' - The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.
--- * 'applicationId' - The unique identifier for the application that the campaign applies to.
--- * 'totalEndpointCount' - The total number of endpoints that the campaign attempted to deliver messages to.
--- * 'id' - The unique identifier for the activity.
--- * 'scheduledStart' - The scheduled start time, in ISO 8601 format, for the activity.
+-- | Creates a 'ActivityResponse' value with any optional fields omitted.
 mkActivityResponse ::
   -- | 'campaignId'
-  Lude.Text ->
-  -- | 'applicationId'
-  Lude.Text ->
+  Core.Text ->
   -- | 'id'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'applicationId'
+  Core.Text ->
   ActivityResponse
-mkActivityResponse pCampaignId_ pApplicationId_ pId_ =
+mkActivityResponse campaignId id applicationId =
   ActivityResponse'
-    { state = Lude.Nothing,
-      start = Lude.Nothing,
-      campaignId = pCampaignId_,
-      timezonesCompletedCount = Lude.Nothing,
-      timezonesTotalCount = Lude.Nothing,
-      result = Lude.Nothing,
-      treatmentId = Lude.Nothing,
-      successfulEndpointCount = Lude.Nothing,
-      end = Lude.Nothing,
-      applicationId = pApplicationId_,
-      totalEndpointCount = Lude.Nothing,
-      id = pId_,
-      scheduledStart = Lude.Nothing
+    { campaignId,
+      id,
+      applicationId,
+      end = Core.Nothing,
+      result = Core.Nothing,
+      scheduledStart = Core.Nothing,
+      start = Core.Nothing,
+      state = Core.Nothing,
+      successfulEndpointCount = Core.Nothing,
+      timezonesCompletedCount = Core.Nothing,
+      timezonesTotalCount = Core.Nothing,
+      totalEndpointCount = Core.Nothing,
+      treatmentId = Core.Nothing
     }
-
--- | The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aState :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Text)
-aState = Lens.lens (state :: ActivityResponse -> Lude.Maybe Lude.Text) (\s a -> s {state = a} :: ActivityResponse)
-{-# DEPRECATED aState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The actual start time, in ISO 8601 format, of the activity.
---
--- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aStart :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Text)
-aStart = Lens.lens (start :: ActivityResponse -> Lude.Maybe Lude.Text) (\s a -> s {start = a} :: ActivityResponse)
-{-# DEPRECATED aStart "Use generic-lens or generic-optics with 'start' instead." #-}
 
 -- | The unique identifier for the campaign that the activity applies to.
 --
 -- /Note:/ Consider using 'campaignId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aCampaignId :: Lens.Lens' ActivityResponse Lude.Text
-aCampaignId = Lens.lens (campaignId :: ActivityResponse -> Lude.Text) (\s a -> s {campaignId = a} :: ActivityResponse)
+aCampaignId :: Lens.Lens' ActivityResponse Core.Text
+aCampaignId = Lens.field @"campaignId"
 {-# DEPRECATED aCampaignId "Use generic-lens or generic-optics with 'campaignId' instead." #-}
+
+-- | The unique identifier for the activity.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aId :: Lens.Lens' ActivityResponse Core.Text
+aId = Lens.field @"id"
+{-# DEPRECATED aId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The unique identifier for the application that the campaign applies to.
+--
+-- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aApplicationId :: Lens.Lens' ActivityResponse Core.Text
+aApplicationId = Lens.field @"applicationId"
+{-# DEPRECATED aApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
+
+-- | The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.
+--
+-- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aEnd :: Lens.Lens' ActivityResponse (Core.Maybe Core.Text)
+aEnd = Lens.field @"end"
+{-# DEPRECATED aEnd "Use generic-lens or generic-optics with 'end' instead." #-}
+
+-- | Specifies whether the activity succeeded. Possible values are SUCCESS and FAIL.
+--
+-- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aResult :: Lens.Lens' ActivityResponse (Core.Maybe Core.Text)
+aResult = Lens.field @"result"
+{-# DEPRECATED aResult "Use generic-lens or generic-optics with 'result' instead." #-}
+
+-- | The scheduled start time, in ISO 8601 format, for the activity.
+--
+-- /Note:/ Consider using 'scheduledStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aScheduledStart :: Lens.Lens' ActivityResponse (Core.Maybe Core.Text)
+aScheduledStart = Lens.field @"scheduledStart"
+{-# DEPRECATED aScheduledStart "Use generic-lens or generic-optics with 'scheduledStart' instead." #-}
+
+-- | The actual start time, in ISO 8601 format, of the activity.
+--
+-- /Note:/ Consider using 'start' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aStart :: Lens.Lens' ActivityResponse (Core.Maybe Core.Text)
+aStart = Lens.field @"start"
+{-# DEPRECATED aStart "Use generic-lens or generic-optics with 'start' instead." #-}
+
+-- | The current status of the activity. Possible values are: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, and COMPLETED.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aState :: Lens.Lens' ActivityResponse (Core.Maybe Core.Text)
+aState = Lens.field @"state"
+{-# DEPRECATED aState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The total number of endpoints that the campaign successfully delivered messages to.
+--
+-- /Note:/ Consider using 'successfulEndpointCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aSuccessfulEndpointCount :: Lens.Lens' ActivityResponse (Core.Maybe Core.Int)
+aSuccessfulEndpointCount = Lens.field @"successfulEndpointCount"
+{-# DEPRECATED aSuccessfulEndpointCount "Use generic-lens or generic-optics with 'successfulEndpointCount' instead." #-}
 
 -- | The total number of time zones that were completed.
 --
 -- /Note:/ Consider using 'timezonesCompletedCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aTimezonesCompletedCount :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Int)
-aTimezonesCompletedCount = Lens.lens (timezonesCompletedCount :: ActivityResponse -> Lude.Maybe Lude.Int) (\s a -> s {timezonesCompletedCount = a} :: ActivityResponse)
+aTimezonesCompletedCount :: Lens.Lens' ActivityResponse (Core.Maybe Core.Int)
+aTimezonesCompletedCount = Lens.field @"timezonesCompletedCount"
 {-# DEPRECATED aTimezonesCompletedCount "Use generic-lens or generic-optics with 'timezonesCompletedCount' instead." #-}
 
 -- | The total number of unique time zones that are in the segment for the campaign.
 --
 -- /Note:/ Consider using 'timezonesTotalCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aTimezonesTotalCount :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Int)
-aTimezonesTotalCount = Lens.lens (timezonesTotalCount :: ActivityResponse -> Lude.Maybe Lude.Int) (\s a -> s {timezonesTotalCount = a} :: ActivityResponse)
+aTimezonesTotalCount :: Lens.Lens' ActivityResponse (Core.Maybe Core.Int)
+aTimezonesTotalCount = Lens.field @"timezonesTotalCount"
 {-# DEPRECATED aTimezonesTotalCount "Use generic-lens or generic-optics with 'timezonesTotalCount' instead." #-}
-
--- | Specifies whether the activity succeeded. Possible values are SUCCESS and FAIL.
---
--- /Note:/ Consider using 'result' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aResult :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Text)
-aResult = Lens.lens (result :: ActivityResponse -> Lude.Maybe Lude.Text) (\s a -> s {result = a} :: ActivityResponse)
-{-# DEPRECATED aResult "Use generic-lens or generic-optics with 'result' instead." #-}
-
--- | The unique identifier for the campaign treatment that the activity applies to. A treatment is a variation of a campaign that's used for A/B testing of a campaign.
---
--- /Note:/ Consider using 'treatmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aTreatmentId :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Text)
-aTreatmentId = Lens.lens (treatmentId :: ActivityResponse -> Lude.Maybe Lude.Text) (\s a -> s {treatmentId = a} :: ActivityResponse)
-{-# DEPRECATED aTreatmentId "Use generic-lens or generic-optics with 'treatmentId' instead." #-}
-
--- | The total number of endpoints that the campaign successfully delivered messages to.
---
--- /Note:/ Consider using 'successfulEndpointCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aSuccessfulEndpointCount :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Int)
-aSuccessfulEndpointCount = Lens.lens (successfulEndpointCount :: ActivityResponse -> Lude.Maybe Lude.Int) (\s a -> s {successfulEndpointCount = a} :: ActivityResponse)
-{-# DEPRECATED aSuccessfulEndpointCount "Use generic-lens or generic-optics with 'successfulEndpointCount' instead." #-}
-
--- | The actual time, in ISO 8601 format, when the activity was marked CANCELLED or COMPLETED.
---
--- /Note:/ Consider using 'end' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aEnd :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Text)
-aEnd = Lens.lens (end :: ActivityResponse -> Lude.Maybe Lude.Text) (\s a -> s {end = a} :: ActivityResponse)
-{-# DEPRECATED aEnd "Use generic-lens or generic-optics with 'end' instead." #-}
-
--- | The unique identifier for the application that the campaign applies to.
---
--- /Note:/ Consider using 'applicationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aApplicationId :: Lens.Lens' ActivityResponse Lude.Text
-aApplicationId = Lens.lens (applicationId :: ActivityResponse -> Lude.Text) (\s a -> s {applicationId = a} :: ActivityResponse)
-{-# DEPRECATED aApplicationId "Use generic-lens or generic-optics with 'applicationId' instead." #-}
 
 -- | The total number of endpoints that the campaign attempted to deliver messages to.
 --
 -- /Note:/ Consider using 'totalEndpointCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aTotalEndpointCount :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Int)
-aTotalEndpointCount = Lens.lens (totalEndpointCount :: ActivityResponse -> Lude.Maybe Lude.Int) (\s a -> s {totalEndpointCount = a} :: ActivityResponse)
+aTotalEndpointCount :: Lens.Lens' ActivityResponse (Core.Maybe Core.Int)
+aTotalEndpointCount = Lens.field @"totalEndpointCount"
 {-# DEPRECATED aTotalEndpointCount "Use generic-lens or generic-optics with 'totalEndpointCount' instead." #-}
 
--- | The unique identifier for the activity.
+-- | The unique identifier for the campaign treatment that the activity applies to. A treatment is a variation of a campaign that's used for A/B testing of a campaign.
 --
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aId :: Lens.Lens' ActivityResponse Lude.Text
-aId = Lens.lens (id :: ActivityResponse -> Lude.Text) (\s a -> s {id = a} :: ActivityResponse)
-{-# DEPRECATED aId "Use generic-lens or generic-optics with 'id' instead." #-}
+-- /Note:/ Consider using 'treatmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+aTreatmentId :: Lens.Lens' ActivityResponse (Core.Maybe Core.Text)
+aTreatmentId = Lens.field @"treatmentId"
+{-# DEPRECATED aTreatmentId "Use generic-lens or generic-optics with 'treatmentId' instead." #-}
 
--- | The scheduled start time, in ISO 8601 format, for the activity.
---
--- /Note:/ Consider using 'scheduledStart' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aScheduledStart :: Lens.Lens' ActivityResponse (Lude.Maybe Lude.Text)
-aScheduledStart = Lens.lens (scheduledStart :: ActivityResponse -> Lude.Maybe Lude.Text) (\s a -> s {scheduledStart = a} :: ActivityResponse)
-{-# DEPRECATED aScheduledStart "Use generic-lens or generic-optics with 'scheduledStart' instead." #-}
-
-instance Lude.FromJSON ActivityResponse where
+instance Core.FromJSON ActivityResponse where
   parseJSON =
-    Lude.withObject
-      "ActivityResponse"
-      ( \x ->
-          ActivityResponse'
-            Lude.<$> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "Start")
-            Lude.<*> (x Lude..: "CampaignId")
-            Lude.<*> (x Lude..:? "TimezonesCompletedCount")
-            Lude.<*> (x Lude..:? "TimezonesTotalCount")
-            Lude.<*> (x Lude..:? "Result")
-            Lude.<*> (x Lude..:? "TreatmentId")
-            Lude.<*> (x Lude..:? "SuccessfulEndpointCount")
-            Lude.<*> (x Lude..:? "End")
-            Lude.<*> (x Lude..: "ApplicationId")
-            Lude.<*> (x Lude..:? "TotalEndpointCount")
-            Lude.<*> (x Lude..: "Id")
-            Lude.<*> (x Lude..:? "ScheduledStart")
-      )
+    Core.withObject "ActivityResponse" Core.$
+      \x ->
+        ActivityResponse'
+          Core.<$> (x Core..: "CampaignId")
+          Core.<*> (x Core..: "Id")
+          Core.<*> (x Core..: "ApplicationId")
+          Core.<*> (x Core..:? "End")
+          Core.<*> (x Core..:? "Result")
+          Core.<*> (x Core..:? "ScheduledStart")
+          Core.<*> (x Core..:? "Start")
+          Core.<*> (x Core..:? "State")
+          Core.<*> (x Core..:? "SuccessfulEndpointCount")
+          Core.<*> (x Core..:? "TimezonesCompletedCount")
+          Core.<*> (x Core..:? "TimezonesTotalCount")
+          Core.<*> (x Core..:? "TotalEndpointCount")
+          Core.<*> (x Core..:? "TreatmentId")

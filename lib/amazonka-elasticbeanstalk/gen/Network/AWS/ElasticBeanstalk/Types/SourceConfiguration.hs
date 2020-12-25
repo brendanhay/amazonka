@@ -17,55 +17,47 @@ module Network.AWS.ElasticBeanstalk.Types.SourceConfiguration
     mkSourceConfiguration,
 
     -- * Lenses
-    scTemplateName,
     scApplicationName,
+    scTemplateName,
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.ApplicationName as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.ConfigurationTemplateName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A specification for an environment configuration.
 --
 -- /See:/ 'mkSourceConfiguration' smart constructor.
 data SourceConfiguration = SourceConfiguration'
-  { -- | The name of the configuration template.
-    templateName :: Lude.Maybe Lude.Text,
-    -- | The name of the application associated with the configuration.
-    applicationName :: Lude.Maybe Lude.Text
+  { -- | The name of the application associated with the configuration.
+    applicationName :: Core.Maybe Types.ApplicationName,
+    -- | The name of the configuration template.
+    templateName :: Core.Maybe Types.ConfigurationTemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SourceConfiguration' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the configuration template.
--- * 'applicationName' - The name of the application associated with the configuration.
+-- | Creates a 'SourceConfiguration' value with any optional fields omitted.
 mkSourceConfiguration ::
   SourceConfiguration
 mkSourceConfiguration =
   SourceConfiguration'
-    { templateName = Lude.Nothing,
-      applicationName = Lude.Nothing
+    { applicationName = Core.Nothing,
+      templateName = Core.Nothing
     }
-
--- | The name of the configuration template.
---
--- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scTemplateName :: Lens.Lens' SourceConfiguration (Lude.Maybe Lude.Text)
-scTemplateName = Lens.lens (templateName :: SourceConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {templateName = a} :: SourceConfiguration)
-{-# DEPRECATED scTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
 -- | The name of the application associated with the configuration.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scApplicationName :: Lens.Lens' SourceConfiguration (Lude.Maybe Lude.Text)
-scApplicationName = Lens.lens (applicationName :: SourceConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {applicationName = a} :: SourceConfiguration)
+scApplicationName :: Lens.Lens' SourceConfiguration (Core.Maybe Types.ApplicationName)
+scApplicationName = Lens.field @"applicationName"
 {-# DEPRECATED scApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance Lude.ToQuery SourceConfiguration where
-  toQuery SourceConfiguration' {..} =
-    Lude.mconcat
-      [ "TemplateName" Lude.=: templateName,
-        "ApplicationName" Lude.=: applicationName
-      ]
+-- | The name of the configuration template.
+--
+-- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scTemplateName :: Lens.Lens' SourceConfiguration (Core.Maybe Types.ConfigurationTemplateName)
+scTemplateName = Lens.field @"templateName"
+{-# DEPRECATED scTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}

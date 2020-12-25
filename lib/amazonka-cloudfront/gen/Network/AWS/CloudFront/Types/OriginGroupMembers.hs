@@ -22,60 +22,55 @@ module Network.AWS.CloudFront.Types.OriginGroupMembers
   )
 where
 
-import Network.AWS.CloudFront.Types.OriginGroupMember
+import qualified Network.AWS.CloudFront.Types.OriginGroupMember as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A complex data type for the origins included in an origin group.
 --
 -- /See:/ 'mkOriginGroupMembers' smart constructor.
 data OriginGroupMembers = OriginGroupMembers'
   { -- | The number of origins in an origin group.
-    quantity :: Lude.Int,
+    quantity :: Core.Int,
     -- | Items (origins) in an origin group.
-    items :: Lude.NonEmpty OriginGroupMember
+    items :: Core.NonEmpty Types.OriginGroupMember
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OriginGroupMembers' with the minimum fields required to make a request.
---
--- * 'quantity' - The number of origins in an origin group.
--- * 'items' - Items (origins) in an origin group.
+-- | Creates a 'OriginGroupMembers' value with any optional fields omitted.
 mkOriginGroupMembers ::
   -- | 'quantity'
-  Lude.Int ->
+  Core.Int ->
   -- | 'items'
-  Lude.NonEmpty OriginGroupMember ->
+  Core.NonEmpty Types.OriginGroupMember ->
   OriginGroupMembers
-mkOriginGroupMembers pQuantity_ pItems_ =
-  OriginGroupMembers' {quantity = pQuantity_, items = pItems_}
+mkOriginGroupMembers quantity items =
+  OriginGroupMembers' {quantity, items}
 
 -- | The number of origins in an origin group.
 --
 -- /Note:/ Consider using 'quantity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogmQuantity :: Lens.Lens' OriginGroupMembers Lude.Int
-ogmQuantity = Lens.lens (quantity :: OriginGroupMembers -> Lude.Int) (\s a -> s {quantity = a} :: OriginGroupMembers)
+ogmQuantity :: Lens.Lens' OriginGroupMembers Core.Int
+ogmQuantity = Lens.field @"quantity"
 {-# DEPRECATED ogmQuantity "Use generic-lens or generic-optics with 'quantity' instead." #-}
 
 -- | Items (origins) in an origin group.
 --
 -- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ogmItems :: Lens.Lens' OriginGroupMembers (Lude.NonEmpty OriginGroupMember)
-ogmItems = Lens.lens (items :: OriginGroupMembers -> Lude.NonEmpty OriginGroupMember) (\s a -> s {items = a} :: OriginGroupMembers)
+ogmItems :: Lens.Lens' OriginGroupMembers (Core.NonEmpty Types.OriginGroupMember)
+ogmItems = Lens.field @"items"
 {-# DEPRECATED ogmItems "Use generic-lens or generic-optics with 'items' instead." #-}
 
-instance Lude.FromXML OriginGroupMembers where
+instance Core.ToXML OriginGroupMembers where
+  toXML OriginGroupMembers {..} =
+    Core.toXMLNode "Quantity" quantity
+      Core.<> Core.toXMLNode "Items" (Core.toXMLList "OriginGroupMember" items)
+
+instance Core.FromXML OriginGroupMembers where
   parseXML x =
     OriginGroupMembers'
-      Lude.<$> (x Lude..@ "Quantity")
-      Lude.<*> ( x Lude..@? "Items" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.parseXMLNonEmpty "OriginGroupMember"
+      Core.<$> (x Core..@ "Quantity")
+      Core.<*> ( x Core..@ "Items"
+                   Core..<@> Core.parseXMLNonEmpty "OriginGroupMember"
                )
-
-instance Lude.ToXML OriginGroupMembers where
-  toXML OriginGroupMembers' {..} =
-    Lude.mconcat
-      [ "Quantity" Lude.@= quantity,
-        "Items" Lude.@= Lude.toXMLList "OriginGroupMember" items
-      ]

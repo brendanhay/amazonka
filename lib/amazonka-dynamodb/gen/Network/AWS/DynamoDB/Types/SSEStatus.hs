@@ -13,61 +13,63 @@
 module Network.AWS.DynamoDB.Types.SSEStatus
   ( SSEStatus
       ( SSEStatus',
-        SSESEnabling,
-        SSESEnabled,
-        SSESDisabling,
-        SSESDisabled,
-        SSESUpdating
+        SSEStatusEnabling,
+        SSEStatusEnabled,
+        SSEStatusDisabling,
+        SSEStatusDisabled,
+        SSEStatusUpdating,
+        fromSSEStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SSEStatus = SSEStatus' Lude.Text
+newtype SSEStatus = SSEStatus' {fromSSEStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SSESEnabling :: SSEStatus
-pattern SSESEnabling = SSEStatus' "ENABLING"
+pattern SSEStatusEnabling :: SSEStatus
+pattern SSEStatusEnabling = SSEStatus' "ENABLING"
 
-pattern SSESEnabled :: SSEStatus
-pattern SSESEnabled = SSEStatus' "ENABLED"
+pattern SSEStatusEnabled :: SSEStatus
+pattern SSEStatusEnabled = SSEStatus' "ENABLED"
 
-pattern SSESDisabling :: SSEStatus
-pattern SSESDisabling = SSEStatus' "DISABLING"
+pattern SSEStatusDisabling :: SSEStatus
+pattern SSEStatusDisabling = SSEStatus' "DISABLING"
 
-pattern SSESDisabled :: SSEStatus
-pattern SSESDisabled = SSEStatus' "DISABLED"
+pattern SSEStatusDisabled :: SSEStatus
+pattern SSEStatusDisabled = SSEStatus' "DISABLED"
 
-pattern SSESUpdating :: SSEStatus
-pattern SSESUpdating = SSEStatus' "UPDATING"
+pattern SSEStatusUpdating :: SSEStatus
+pattern SSEStatusUpdating = SSEStatus' "UPDATING"
 
 {-# COMPLETE
-  SSESEnabling,
-  SSESEnabled,
-  SSESDisabling,
-  SSESDisabled,
-  SSESUpdating,
+  SSEStatusEnabling,
+  SSEStatusEnabled,
+  SSEStatusDisabling,
+  SSEStatusDisabled,
+  SSEStatusUpdating,
   SSEStatus'
   #-}

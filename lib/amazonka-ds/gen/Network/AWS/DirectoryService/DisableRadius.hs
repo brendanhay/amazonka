@@ -27,97 +27,86 @@ module Network.AWS.DirectoryService.DisableRadius
     mkDisableRadiusResponse,
 
     -- ** Response lenses
-    drsrsResponseStatus,
+    drrrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectoryService.Types
+import qualified Network.AWS.DirectoryService.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the inputs for the 'DisableRadius' operation.
 --
 -- /See:/ 'mkDisableRadius' smart constructor.
 newtype DisableRadius = DisableRadius'
   { -- | The identifier of the directory for which to disable MFA.
-    directoryId :: Lude.Text
+    directoryId :: Types.DirectoryId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableRadius' with the minimum fields required to make a request.
---
--- * 'directoryId' - The identifier of the directory for which to disable MFA.
+-- | Creates a 'DisableRadius' value with any optional fields omitted.
 mkDisableRadius ::
   -- | 'directoryId'
-  Lude.Text ->
+  Types.DirectoryId ->
   DisableRadius
-mkDisableRadius pDirectoryId_ =
-  DisableRadius' {directoryId = pDirectoryId_}
+mkDisableRadius directoryId = DisableRadius' {directoryId}
 
 -- | The identifier of the directory for which to disable MFA.
 --
 -- /Note:/ Consider using 'directoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drDirectoryId :: Lens.Lens' DisableRadius Lude.Text
-drDirectoryId = Lens.lens (directoryId :: DisableRadius -> Lude.Text) (\s a -> s {directoryId = a} :: DisableRadius)
+drDirectoryId :: Lens.Lens' DisableRadius Types.DirectoryId
+drDirectoryId = Lens.field @"directoryId"
 {-# DEPRECATED drDirectoryId "Use generic-lens or generic-optics with 'directoryId' instead." #-}
 
-instance Lude.AWSRequest DisableRadius where
+instance Core.FromJSON DisableRadius where
+  toJSON DisableRadius {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DirectoryId" Core..= directoryId)])
+
+instance Core.AWSRequest DisableRadius where
   type Rs DisableRadius = DisableRadiusResponse
-  request = Req.postJSON directoryServiceService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DirectoryService_20150416.DisableRadius")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DisableRadiusResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DisableRadiusResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DisableRadius where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DirectoryService_20150416.DisableRadius" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DisableRadius where
-  toJSON DisableRadius' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DirectoryId" Lude..= directoryId)])
-
-instance Lude.ToPath DisableRadius where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DisableRadius where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the results of the 'DisableRadius' operation.
 --
 -- /See:/ 'mkDisableRadiusResponse' smart constructor.
 newtype DisableRadiusResponse = DisableRadiusResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DisableRadiusResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DisableRadiusResponse' value with any optional fields omitted.
 mkDisableRadiusResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DisableRadiusResponse
-mkDisableRadiusResponse pResponseStatus_ =
-  DisableRadiusResponse' {responseStatus = pResponseStatus_}
+mkDisableRadiusResponse responseStatus =
+  DisableRadiusResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsrsResponseStatus :: Lens.Lens' DisableRadiusResponse Lude.Int
-drsrsResponseStatus = Lens.lens (responseStatus :: DisableRadiusResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DisableRadiusResponse)
-{-# DEPRECATED drsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drrrsResponseStatus :: Lens.Lens' DisableRadiusResponse Core.Int
+drrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

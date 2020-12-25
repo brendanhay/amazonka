@@ -13,46 +13,51 @@
 module Network.AWS.CodeBuild.Types.SharedResourceSortByType
   ( SharedResourceSortByType
       ( SharedResourceSortByType',
-        ARN,
-        ModifiedTime
+        SharedResourceSortByTypeArn,
+        SharedResourceSortByTypeModifiedTime,
+        fromSharedResourceSortByType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SharedResourceSortByType = SharedResourceSortByType' Lude.Text
+newtype SharedResourceSortByType = SharedResourceSortByType'
+  { fromSharedResourceSortByType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ARN :: SharedResourceSortByType
-pattern ARN = SharedResourceSortByType' "ARN"
+pattern SharedResourceSortByTypeArn :: SharedResourceSortByType
+pattern SharedResourceSortByTypeArn = SharedResourceSortByType' "ARN"
 
-pattern ModifiedTime :: SharedResourceSortByType
-pattern ModifiedTime = SharedResourceSortByType' "MODIFIED_TIME"
+pattern SharedResourceSortByTypeModifiedTime :: SharedResourceSortByType
+pattern SharedResourceSortByTypeModifiedTime = SharedResourceSortByType' "MODIFIED_TIME"
 
 {-# COMPLETE
-  ARN,
-  ModifiedTime,
+  SharedResourceSortByTypeArn,
+  SharedResourceSortByTypeModifiedTime,
   SharedResourceSortByType'
   #-}

@@ -17,84 +17,79 @@ module Network.AWS.CognitoIdentity.Types.IdentityDescription
     mkIdentityDescription,
 
     -- * Lenses
-    idLastModifiedDate,
     idCreationDate,
-    idLogins,
     idIdentityId,
+    idLastModifiedDate,
+    idLogins,
   )
 where
 
+import qualified Network.AWS.CognitoIdentity.Types.IdentityId as Types
+import qualified Network.AWS.CognitoIdentity.Types.IdentityProviderName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A description of the identity.
 --
 -- /See:/ 'mkIdentityDescription' smart constructor.
 data IdentityDescription = IdentityDescription'
-  { -- | Date on which the identity was last modified.
-    lastModifiedDate :: Lude.Maybe Lude.Timestamp,
-    -- | Date on which the identity was created.
-    creationDate :: Lude.Maybe Lude.Timestamp,
-    -- | The provider names.
-    logins :: Lude.Maybe [Lude.Text],
+  { -- | Date on which the identity was created.
+    creationDate :: Core.Maybe Core.NominalDiffTime,
     -- | A unique identifier in the format REGION:GUID.
-    identityId :: Lude.Maybe Lude.Text
+    identityId :: Core.Maybe Types.IdentityId,
+    -- | Date on which the identity was last modified.
+    lastModifiedDate :: Core.Maybe Core.NominalDiffTime,
+    -- | The provider names.
+    logins :: Core.Maybe [Types.IdentityProviderName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'IdentityDescription' with the minimum fields required to make a request.
---
--- * 'lastModifiedDate' - Date on which the identity was last modified.
--- * 'creationDate' - Date on which the identity was created.
--- * 'logins' - The provider names.
--- * 'identityId' - A unique identifier in the format REGION:GUID.
+-- | Creates a 'IdentityDescription' value with any optional fields omitted.
 mkIdentityDescription ::
   IdentityDescription
 mkIdentityDescription =
   IdentityDescription'
-    { lastModifiedDate = Lude.Nothing,
-      creationDate = Lude.Nothing,
-      logins = Lude.Nothing,
-      identityId = Lude.Nothing
+    { creationDate = Core.Nothing,
+      identityId = Core.Nothing,
+      lastModifiedDate = Core.Nothing,
+      logins = Core.Nothing
     }
-
--- | Date on which the identity was last modified.
---
--- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idLastModifiedDate :: Lens.Lens' IdentityDescription (Lude.Maybe Lude.Timestamp)
-idLastModifiedDate = Lens.lens (lastModifiedDate :: IdentityDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedDate = a} :: IdentityDescription)
-{-# DEPRECATED idLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
 
 -- | Date on which the identity was created.
 --
 -- /Note:/ Consider using 'creationDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idCreationDate :: Lens.Lens' IdentityDescription (Lude.Maybe Lude.Timestamp)
-idCreationDate = Lens.lens (creationDate :: IdentityDescription -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationDate = a} :: IdentityDescription)
+idCreationDate :: Lens.Lens' IdentityDescription (Core.Maybe Core.NominalDiffTime)
+idCreationDate = Lens.field @"creationDate"
 {-# DEPRECATED idCreationDate "Use generic-lens or generic-optics with 'creationDate' instead." #-}
-
--- | The provider names.
---
--- /Note:/ Consider using 'logins' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idLogins :: Lens.Lens' IdentityDescription (Lude.Maybe [Lude.Text])
-idLogins = Lens.lens (logins :: IdentityDescription -> Lude.Maybe [Lude.Text]) (\s a -> s {logins = a} :: IdentityDescription)
-{-# DEPRECATED idLogins "Use generic-lens or generic-optics with 'logins' instead." #-}
 
 -- | A unique identifier in the format REGION:GUID.
 --
 -- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idIdentityId :: Lens.Lens' IdentityDescription (Lude.Maybe Lude.Text)
-idIdentityId = Lens.lens (identityId :: IdentityDescription -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: IdentityDescription)
+idIdentityId :: Lens.Lens' IdentityDescription (Core.Maybe Types.IdentityId)
+idIdentityId = Lens.field @"identityId"
 {-# DEPRECATED idIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
 
-instance Lude.FromJSON IdentityDescription where
+-- | Date on which the identity was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idLastModifiedDate :: Lens.Lens' IdentityDescription (Core.Maybe Core.NominalDiffTime)
+idLastModifiedDate = Lens.field @"lastModifiedDate"
+{-# DEPRECATED idLastModifiedDate "Use generic-lens or generic-optics with 'lastModifiedDate' instead." #-}
+
+-- | The provider names.
+--
+-- /Note:/ Consider using 'logins' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idLogins :: Lens.Lens' IdentityDescription (Core.Maybe [Types.IdentityProviderName])
+idLogins = Lens.field @"logins"
+{-# DEPRECATED idLogins "Use generic-lens or generic-optics with 'logins' instead." #-}
+
+instance Core.FromJSON IdentityDescription where
   parseJSON =
-    Lude.withObject
-      "IdentityDescription"
-      ( \x ->
-          IdentityDescription'
-            Lude.<$> (x Lude..:? "LastModifiedDate")
-            Lude.<*> (x Lude..:? "CreationDate")
-            Lude.<*> (x Lude..:? "Logins" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "IdentityId")
-      )
+    Core.withObject "IdentityDescription" Core.$
+      \x ->
+        IdentityDescription'
+          Core.<$> (x Core..:? "CreationDate")
+          Core.<*> (x Core..:? "IdentityId")
+          Core.<*> (x Core..:? "LastModifiedDate")
+          Core.<*> (x Core..:? "Logins")

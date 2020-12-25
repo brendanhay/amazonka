@@ -23,71 +23,66 @@ module Network.AWS.AutoScalingPlans.Types.ScalingPolicy
   )
 where
 
-import Network.AWS.AutoScalingPlans.Types.PolicyType
-import Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration
+import qualified Network.AWS.AutoScalingPlans.Types.PolicyName as Types
+import qualified Network.AWS.AutoScalingPlans.Types.PolicyType as Types
+import qualified Network.AWS.AutoScalingPlans.Types.TargetTrackingConfiguration as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents a scaling policy.
 --
 -- /See:/ 'mkScalingPolicy' smart constructor.
 data ScalingPolicy = ScalingPolicy'
   { -- | The name of the scaling policy.
-    policyName :: Lude.Text,
+    policyName :: Types.PolicyName,
     -- | The type of scaling policy.
-    policyType :: PolicyType,
+    policyType :: Types.PolicyType,
     -- | The target tracking scaling policy. Includes support for predefined or customized metrics.
-    targetTrackingConfiguration :: Lude.Maybe TargetTrackingConfiguration
+    targetTrackingConfiguration :: Core.Maybe Types.TargetTrackingConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScalingPolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The name of the scaling policy.
--- * 'policyType' - The type of scaling policy.
--- * 'targetTrackingConfiguration' - The target tracking scaling policy. Includes support for predefined or customized metrics.
+-- | Creates a 'ScalingPolicy' value with any optional fields omitted.
 mkScalingPolicy ::
   -- | 'policyName'
-  Lude.Text ->
+  Types.PolicyName ->
   -- | 'policyType'
-  PolicyType ->
+  Types.PolicyType ->
   ScalingPolicy
-mkScalingPolicy pPolicyName_ pPolicyType_ =
+mkScalingPolicy policyName policyType =
   ScalingPolicy'
-    { policyName = pPolicyName_,
-      policyType = pPolicyType_,
-      targetTrackingConfiguration = Lude.Nothing
+    { policyName,
+      policyType,
+      targetTrackingConfiguration = Core.Nothing
     }
 
 -- | The name of the scaling policy.
 --
 -- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spPolicyName :: Lens.Lens' ScalingPolicy Lude.Text
-spPolicyName = Lens.lens (policyName :: ScalingPolicy -> Lude.Text) (\s a -> s {policyName = a} :: ScalingPolicy)
+spPolicyName :: Lens.Lens' ScalingPolicy Types.PolicyName
+spPolicyName = Lens.field @"policyName"
 {-# DEPRECATED spPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The type of scaling policy.
 --
 -- /Note:/ Consider using 'policyType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spPolicyType :: Lens.Lens' ScalingPolicy PolicyType
-spPolicyType = Lens.lens (policyType :: ScalingPolicy -> PolicyType) (\s a -> s {policyType = a} :: ScalingPolicy)
+spPolicyType :: Lens.Lens' ScalingPolicy Types.PolicyType
+spPolicyType = Lens.field @"policyType"
 {-# DEPRECATED spPolicyType "Use generic-lens or generic-optics with 'policyType' instead." #-}
 
 -- | The target tracking scaling policy. Includes support for predefined or customized metrics.
 --
 -- /Note:/ Consider using 'targetTrackingConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-spTargetTrackingConfiguration :: Lens.Lens' ScalingPolicy (Lude.Maybe TargetTrackingConfiguration)
-spTargetTrackingConfiguration = Lens.lens (targetTrackingConfiguration :: ScalingPolicy -> Lude.Maybe TargetTrackingConfiguration) (\s a -> s {targetTrackingConfiguration = a} :: ScalingPolicy)
+spTargetTrackingConfiguration :: Lens.Lens' ScalingPolicy (Core.Maybe Types.TargetTrackingConfiguration)
+spTargetTrackingConfiguration = Lens.field @"targetTrackingConfiguration"
 {-# DEPRECATED spTargetTrackingConfiguration "Use generic-lens or generic-optics with 'targetTrackingConfiguration' instead." #-}
 
-instance Lude.FromJSON ScalingPolicy where
+instance Core.FromJSON ScalingPolicy where
   parseJSON =
-    Lude.withObject
-      "ScalingPolicy"
-      ( \x ->
-          ScalingPolicy'
-            Lude.<$> (x Lude..: "PolicyName")
-            Lude.<*> (x Lude..: "PolicyType")
-            Lude.<*> (x Lude..:? "TargetTrackingConfiguration")
-      )
+    Core.withObject "ScalingPolicy" Core.$
+      \x ->
+        ScalingPolicy'
+          Core.<$> (x Core..: "PolicyName")
+          Core.<*> (x Core..: "PolicyType")
+          Core.<*> (x Core..:? "TargetTrackingConfiguration")

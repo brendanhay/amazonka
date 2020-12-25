@@ -17,84 +17,75 @@ module Network.AWS.S3.Types.NotificationConfiguration
     mkNotificationConfiguration,
 
     -- * Lenses
+    ncLambdaFunctionConfigurations,
     ncQueueConfigurations,
     ncTopicConfigurations,
-    ncLambdaFunctionConfigurations,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.LambdaFunctionConfiguration
-import Network.AWS.S3.Types.QueueConfiguration
-import Network.AWS.S3.Types.TopicConfiguration
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.LambdaFunctionConfiguration as Types
+import qualified Network.AWS.S3.Types.QueueConfiguration as Types
+import qualified Network.AWS.S3.Types.TopicConfiguration as Types
 
 -- | A container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off for the bucket.
 --
 -- /See:/ 'mkNotificationConfiguration' smart constructor.
 data NotificationConfiguration = NotificationConfiguration'
-  { -- | The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
-    queueConfigurations :: Lude.Maybe [QueueConfiguration],
+  { -- | Describes the AWS Lambda functions to invoke and the events for which to invoke them.
+    lambdaFunctionConfigurations :: Core.Maybe [Types.LambdaFunctionConfiguration],
+    -- | The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
+    queueConfigurations :: Core.Maybe [Types.QueueConfiguration],
     -- | The topic to which notifications are sent and the events for which notifications are generated.
-    topicConfigurations :: Lude.Maybe [TopicConfiguration],
-    -- | Describes the AWS Lambda functions to invoke and the events for which to invoke them.
-    lambdaFunctionConfigurations :: Lude.Maybe [LambdaFunctionConfiguration]
+    topicConfigurations :: Core.Maybe [Types.TopicConfiguration]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotificationConfiguration' with the minimum fields required to make a request.
---
--- * 'queueConfigurations' - The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
--- * 'topicConfigurations' - The topic to which notifications are sent and the events for which notifications are generated.
--- * 'lambdaFunctionConfigurations' - Describes the AWS Lambda functions to invoke and the events for which to invoke them.
+-- | Creates a 'NotificationConfiguration' value with any optional fields omitted.
 mkNotificationConfiguration ::
   NotificationConfiguration
 mkNotificationConfiguration =
   NotificationConfiguration'
-    { queueConfigurations = Lude.Nothing,
-      topicConfigurations = Lude.Nothing,
-      lambdaFunctionConfigurations = Lude.Nothing
+    { lambdaFunctionConfigurations =
+        Core.Nothing,
+      queueConfigurations = Core.Nothing,
+      topicConfigurations = Core.Nothing
     }
+
+-- | Describes the AWS Lambda functions to invoke and the events for which to invoke them.
+--
+-- /Note:/ Consider using 'lambdaFunctionConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ncLambdaFunctionConfigurations :: Lens.Lens' NotificationConfiguration (Core.Maybe [Types.LambdaFunctionConfiguration])
+ncLambdaFunctionConfigurations = Lens.field @"lambdaFunctionConfigurations"
+{-# DEPRECATED ncLambdaFunctionConfigurations "Use generic-lens or generic-optics with 'lambdaFunctionConfigurations' instead." #-}
 
 -- | The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.
 --
 -- /Note:/ Consider using 'queueConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncQueueConfigurations :: Lens.Lens' NotificationConfiguration (Lude.Maybe [QueueConfiguration])
-ncQueueConfigurations = Lens.lens (queueConfigurations :: NotificationConfiguration -> Lude.Maybe [QueueConfiguration]) (\s a -> s {queueConfigurations = a} :: NotificationConfiguration)
+ncQueueConfigurations :: Lens.Lens' NotificationConfiguration (Core.Maybe [Types.QueueConfiguration])
+ncQueueConfigurations = Lens.field @"queueConfigurations"
 {-# DEPRECATED ncQueueConfigurations "Use generic-lens or generic-optics with 'queueConfigurations' instead." #-}
 
 -- | The topic to which notifications are sent and the events for which notifications are generated.
 --
 -- /Note:/ Consider using 'topicConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncTopicConfigurations :: Lens.Lens' NotificationConfiguration (Lude.Maybe [TopicConfiguration])
-ncTopicConfigurations = Lens.lens (topicConfigurations :: NotificationConfiguration -> Lude.Maybe [TopicConfiguration]) (\s a -> s {topicConfigurations = a} :: NotificationConfiguration)
+ncTopicConfigurations :: Lens.Lens' NotificationConfiguration (Core.Maybe [Types.TopicConfiguration])
+ncTopicConfigurations = Lens.field @"topicConfigurations"
 {-# DEPRECATED ncTopicConfigurations "Use generic-lens or generic-optics with 'topicConfigurations' instead." #-}
 
--- | Describes the AWS Lambda functions to invoke and the events for which to invoke them.
---
--- /Note:/ Consider using 'lambdaFunctionConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ncLambdaFunctionConfigurations :: Lens.Lens' NotificationConfiguration (Lude.Maybe [LambdaFunctionConfiguration])
-ncLambdaFunctionConfigurations = Lens.lens (lambdaFunctionConfigurations :: NotificationConfiguration -> Lude.Maybe [LambdaFunctionConfiguration]) (\s a -> s {lambdaFunctionConfigurations = a} :: NotificationConfiguration)
-{-# DEPRECATED ncLambdaFunctionConfigurations "Use generic-lens or generic-optics with 'lambdaFunctionConfigurations' instead." #-}
+instance Core.ToXML NotificationConfiguration where
+  toXML NotificationConfiguration {..} =
+    Core.toXMLList "CloudFunctionConfiguration"
+      Core.<$> lambdaFunctionConfigurations
+      Core.<> Core.toXMLList "QueueConfiguration" Core.<$> queueConfigurations
+      Core.<> Core.toXMLList "TopicConfiguration" Core.<$> topicConfigurations
 
-instance Lude.FromXML NotificationConfiguration where
+instance Core.FromXML NotificationConfiguration where
   parseXML x =
     NotificationConfiguration'
-      Lude.<$> (Lude.may (Lude.parseXMLList "QueueConfiguration") x)
-      Lude.<*> (Lude.may (Lude.parseXMLList "TopicConfiguration") x)
-      Lude.<*> (Lude.may (Lude.parseXMLList "CloudFunctionConfiguration") x)
-
-instance Lude.ToXML NotificationConfiguration where
-  toXML NotificationConfiguration' {..} =
-    Lude.mconcat
-      [ Lude.toXML
-          (Lude.toXMLList "QueueConfiguration" Lude.<$> queueConfigurations),
-        Lude.toXML
-          (Lude.toXMLList "TopicConfiguration" Lude.<$> topicConfigurations),
-        Lude.toXML
-          ( Lude.toXMLList "CloudFunctionConfiguration"
-              Lude.<$> lambdaFunctionConfigurations
-          )
-      ]
+      Core.<$> (x Core..@? "CloudFunctionConfiguration")
+      Core.<*> (x Core..@? "QueueConfiguration")
+      Core.<*> (x Core..@? "TopicConfiguration")

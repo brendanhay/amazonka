@@ -25,174 +25,169 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
 
     -- ** Request lenses
     prioInstanceCount,
-    prioPurchaseTime,
-    prioLimitPrice,
     prioReservedInstancesOfferingId,
     prioDryRun,
+    prioLimitPrice,
+    prioPurchaseTime,
 
     -- * Destructuring the response
     PurchaseReservedInstancesOfferingResponse (..),
     mkPurchaseReservedInstancesOfferingResponse,
 
     -- ** Response lenses
-    priorsReservedInstancesId,
-    priorsResponseStatus,
+    priorrsReservedInstancesId,
+    priorrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for PurchaseReservedInstancesOffering.
 --
 -- /See:/ 'mkPurchaseReservedInstancesOffering' smart constructor.
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
   { -- | The number of Reserved Instances to purchase.
-    instanceCount :: Lude.Int,
-    -- | The time at which to purchase the Reserved Instance, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
-    purchaseTime :: Lude.Maybe Lude.DateTime,
-    -- | Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
-    limitPrice :: Lude.Maybe ReservedInstanceLimitPrice,
+    instanceCount :: Core.Int,
     -- | The ID of the Reserved Instance offering to purchase.
-    reservedInstancesOfferingId :: Lude.Text,
+    reservedInstancesOfferingId :: Types.ReservedInstancesOfferingId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
+    limitPrice :: Core.Maybe Types.ReservedInstanceLimitPrice,
+    -- | The time at which to purchase the Reserved Instance, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+    purchaseTime :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PurchaseReservedInstancesOffering' with the minimum fields required to make a request.
---
--- * 'instanceCount' - The number of Reserved Instances to purchase.
--- * 'purchaseTime' - The time at which to purchase the Reserved Instance, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
--- * 'limitPrice' - Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
--- * 'reservedInstancesOfferingId' - The ID of the Reserved Instance offering to purchase.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'PurchaseReservedInstancesOffering' value with any optional fields omitted.
 mkPurchaseReservedInstancesOffering ::
   -- | 'instanceCount'
-  Lude.Int ->
+  Core.Int ->
   -- | 'reservedInstancesOfferingId'
-  Lude.Text ->
+  Types.ReservedInstancesOfferingId ->
   PurchaseReservedInstancesOffering
 mkPurchaseReservedInstancesOffering
-  pInstanceCount_
-  pReservedInstancesOfferingId_ =
+  instanceCount
+  reservedInstancesOfferingId =
     PurchaseReservedInstancesOffering'
-      { instanceCount =
-          pInstanceCount_,
-        purchaseTime = Lude.Nothing,
-        limitPrice = Lude.Nothing,
-        reservedInstancesOfferingId = pReservedInstancesOfferingId_,
-        dryRun = Lude.Nothing
+      { instanceCount,
+        reservedInstancesOfferingId,
+        dryRun = Core.Nothing,
+        limitPrice = Core.Nothing,
+        purchaseTime = Core.Nothing
       }
 
 -- | The number of Reserved Instances to purchase.
 --
 -- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prioInstanceCount :: Lens.Lens' PurchaseReservedInstancesOffering Lude.Int
-prioInstanceCount = Lens.lens (instanceCount :: PurchaseReservedInstancesOffering -> Lude.Int) (\s a -> s {instanceCount = a} :: PurchaseReservedInstancesOffering)
+prioInstanceCount :: Lens.Lens' PurchaseReservedInstancesOffering Core.Int
+prioInstanceCount = Lens.field @"instanceCount"
 {-# DEPRECATED prioInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
-
--- | The time at which to purchase the Reserved Instance, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
---
--- /Note:/ Consider using 'purchaseTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prioPurchaseTime :: Lens.Lens' PurchaseReservedInstancesOffering (Lude.Maybe Lude.DateTime)
-prioPurchaseTime = Lens.lens (purchaseTime :: PurchaseReservedInstancesOffering -> Lude.Maybe Lude.DateTime) (\s a -> s {purchaseTime = a} :: PurchaseReservedInstancesOffering)
-{-# DEPRECATED prioPurchaseTime "Use generic-lens or generic-optics with 'purchaseTime' instead." #-}
-
--- | Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
---
--- /Note:/ Consider using 'limitPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prioLimitPrice :: Lens.Lens' PurchaseReservedInstancesOffering (Lude.Maybe ReservedInstanceLimitPrice)
-prioLimitPrice = Lens.lens (limitPrice :: PurchaseReservedInstancesOffering -> Lude.Maybe ReservedInstanceLimitPrice) (\s a -> s {limitPrice = a} :: PurchaseReservedInstancesOffering)
-{-# DEPRECATED prioLimitPrice "Use generic-lens or generic-optics with 'limitPrice' instead." #-}
 
 -- | The ID of the Reserved Instance offering to purchase.
 --
 -- /Note:/ Consider using 'reservedInstancesOfferingId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prioReservedInstancesOfferingId :: Lens.Lens' PurchaseReservedInstancesOffering Lude.Text
-prioReservedInstancesOfferingId = Lens.lens (reservedInstancesOfferingId :: PurchaseReservedInstancesOffering -> Lude.Text) (\s a -> s {reservedInstancesOfferingId = a} :: PurchaseReservedInstancesOffering)
+prioReservedInstancesOfferingId :: Lens.Lens' PurchaseReservedInstancesOffering Types.ReservedInstancesOfferingId
+prioReservedInstancesOfferingId = Lens.field @"reservedInstancesOfferingId"
 {-# DEPRECATED prioReservedInstancesOfferingId "Use generic-lens or generic-optics with 'reservedInstancesOfferingId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prioDryRun :: Lens.Lens' PurchaseReservedInstancesOffering (Lude.Maybe Lude.Bool)
-prioDryRun = Lens.lens (dryRun :: PurchaseReservedInstancesOffering -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: PurchaseReservedInstancesOffering)
+prioDryRun :: Lens.Lens' PurchaseReservedInstancesOffering (Core.Maybe Core.Bool)
+prioDryRun = Lens.field @"dryRun"
 {-# DEPRECATED prioDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest PurchaseReservedInstancesOffering where
+-- | Specified for Reserved Instance Marketplace offerings to limit the total order and ensure that the Reserved Instances are not purchased at unexpected prices.
+--
+-- /Note:/ Consider using 'limitPrice' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prioLimitPrice :: Lens.Lens' PurchaseReservedInstancesOffering (Core.Maybe Types.ReservedInstanceLimitPrice)
+prioLimitPrice = Lens.field @"limitPrice"
+{-# DEPRECATED prioLimitPrice "Use generic-lens or generic-optics with 'limitPrice' instead." #-}
+
+-- | The time at which to purchase the Reserved Instance, in UTC format (for example, /YYYY/ -/MM/ -/DD/ T/HH/ :/MM/ :/SS/ Z).
+--
+-- /Note:/ Consider using 'purchaseTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+prioPurchaseTime :: Lens.Lens' PurchaseReservedInstancesOffering (Core.Maybe Core.UTCTime)
+prioPurchaseTime = Lens.field @"purchaseTime"
+{-# DEPRECATED prioPurchaseTime "Use generic-lens or generic-optics with 'purchaseTime' instead." #-}
+
+instance Core.AWSRequest PurchaseReservedInstancesOffering where
   type
     Rs PurchaseReservedInstancesOffering =
       PurchaseReservedInstancesOfferingResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "PurchaseReservedInstancesOffering")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "InstanceCount" instanceCount)
+                Core.<> ( Core.toQueryValue
+                            "ReservedInstancesOfferingId"
+                            reservedInstancesOfferingId
+                        )
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "LimitPrice" Core.<$> limitPrice)
+                Core.<> (Core.toQueryValue "PurchaseTime" Core.<$> purchaseTime)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           PurchaseReservedInstancesOfferingResponse'
-            Lude.<$> (x Lude..@? "reservedInstancesId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "reservedInstancesId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders PurchaseReservedInstancesOffering where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath PurchaseReservedInstancesOffering where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery PurchaseReservedInstancesOffering where
-  toQuery PurchaseReservedInstancesOffering' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("PurchaseReservedInstancesOffering" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "InstanceCount" Lude.=: instanceCount,
-        "PurchaseTime" Lude.=: purchaseTime,
-        "LimitPrice" Lude.=: limitPrice,
-        "ReservedInstancesOfferingId" Lude.=: reservedInstancesOfferingId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | Contains the output of PurchaseReservedInstancesOffering.
 --
 -- /See:/ 'mkPurchaseReservedInstancesOfferingResponse' smart constructor.
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
   { -- | The IDs of the purchased Reserved Instances.
-    reservedInstancesId :: Lude.Maybe Lude.Text,
+    reservedInstancesId :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PurchaseReservedInstancesOfferingResponse' with the minimum fields required to make a request.
---
--- * 'reservedInstancesId' - The IDs of the purchased Reserved Instances.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'PurchaseReservedInstancesOfferingResponse' value with any optional fields omitted.
 mkPurchaseReservedInstancesOfferingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   PurchaseReservedInstancesOfferingResponse
-mkPurchaseReservedInstancesOfferingResponse pResponseStatus_ =
+mkPurchaseReservedInstancesOfferingResponse responseStatus =
   PurchaseReservedInstancesOfferingResponse'
     { reservedInstancesId =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The IDs of the purchased Reserved Instances.
 --
 -- /Note:/ Consider using 'reservedInstancesId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-priorsReservedInstancesId :: Lens.Lens' PurchaseReservedInstancesOfferingResponse (Lude.Maybe Lude.Text)
-priorsReservedInstancesId = Lens.lens (reservedInstancesId :: PurchaseReservedInstancesOfferingResponse -> Lude.Maybe Lude.Text) (\s a -> s {reservedInstancesId = a} :: PurchaseReservedInstancesOfferingResponse)
-{-# DEPRECATED priorsReservedInstancesId "Use generic-lens or generic-optics with 'reservedInstancesId' instead." #-}
+priorrsReservedInstancesId :: Lens.Lens' PurchaseReservedInstancesOfferingResponse (Core.Maybe Types.String)
+priorrsReservedInstancesId = Lens.field @"reservedInstancesId"
+{-# DEPRECATED priorrsReservedInstancesId "Use generic-lens or generic-optics with 'reservedInstancesId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-priorsResponseStatus :: Lens.Lens' PurchaseReservedInstancesOfferingResponse Lude.Int
-priorsResponseStatus = Lens.lens (responseStatus :: PurchaseReservedInstancesOfferingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: PurchaseReservedInstancesOfferingResponse)
-{-# DEPRECATED priorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+priorrsResponseStatus :: Lens.Lens' PurchaseReservedInstancesOfferingResponse Core.Int
+priorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED priorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

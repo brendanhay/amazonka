@@ -24,77 +24,70 @@ module Network.AWS.EC2.DescribePrefixLists
     mkDescribePrefixLists,
 
     -- ** Request lenses
-    dplFilters,
-    dplPrefixListIds,
-    dplNextToken,
     dplDryRun,
+    dplFilters,
     dplMaxResults,
+    dplNextToken,
+    dplPrefixListIds,
 
     -- * Destructuring the response
     DescribePrefixListsResponse (..),
     mkDescribePrefixListsResponse,
 
     -- ** Response lenses
-    dplrsNextToken,
-    dplrsPrefixLists,
-    dplrsResponseStatus,
+    dplrrsNextToken,
+    dplrrsPrefixLists,
+    dplrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribePrefixLists' smart constructor.
 data DescribePrefixLists = DescribePrefixLists'
-  { -- | One or more filters.
+  { -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+    dryRun :: Core.Maybe Core.Bool,
+    -- | One or more filters.
     --
     --
     --     * @prefix-list-id@ : The ID of a prefix list.
     --
     --
     --     * @prefix-list-name@ : The name of a prefix list.
-    filters :: Lude.Maybe [Filter],
-    -- | One or more prefix list IDs.
-    prefixListIds :: Lude.Maybe [Lude.Text],
-    -- | The token for the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool,
+    filters :: Core.Maybe [Types.Filter],
     -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
-    maxResults :: Lude.Maybe Lude.Int
+    maxResults :: Core.Maybe Core.Int,
+    -- | The token for the next page of results.
+    nextToken :: Core.Maybe Types.String,
+    -- | One or more prefix list IDs.
+    prefixListIds :: Core.Maybe [Types.PrefixListResourceId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePrefixLists' with the minimum fields required to make a request.
---
--- * 'filters' - One or more filters.
---
---
---     * @prefix-list-id@ : The ID of a prefix list.
---
---
---     * @prefix-list-name@ : The name of a prefix list.
---
---
--- * 'prefixListIds' - One or more prefix list IDs.
--- * 'nextToken' - The token for the next page of results.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
--- * 'maxResults' - The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
+-- | Creates a 'DescribePrefixLists' value with any optional fields omitted.
 mkDescribePrefixLists ::
   DescribePrefixLists
 mkDescribePrefixLists =
   DescribePrefixLists'
-    { filters = Lude.Nothing,
-      prefixListIds = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      dryRun = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { dryRun = Core.Nothing,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      prefixListIds = Core.Nothing
     }
+
+-- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+--
+-- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dplDryRun :: Lens.Lens' DescribePrefixLists (Core.Maybe Core.Bool)
+dplDryRun = Lens.field @"dryRun"
+{-# DEPRECATED dplDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | One or more filters.
 --
@@ -107,125 +100,117 @@ mkDescribePrefixLists =
 --
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dplFilters :: Lens.Lens' DescribePrefixLists (Lude.Maybe [Filter])
-dplFilters = Lens.lens (filters :: DescribePrefixLists -> Lude.Maybe [Filter]) (\s a -> s {filters = a} :: DescribePrefixLists)
+dplFilters :: Lens.Lens' DescribePrefixLists (Core.Maybe [Types.Filter])
+dplFilters = Lens.field @"filters"
 {-# DEPRECATED dplFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | One or more prefix list IDs.
---
--- /Note:/ Consider using 'prefixListIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dplPrefixListIds :: Lens.Lens' DescribePrefixLists (Lude.Maybe [Lude.Text])
-dplPrefixListIds = Lens.lens (prefixListIds :: DescribePrefixLists -> Lude.Maybe [Lude.Text]) (\s a -> s {prefixListIds = a} :: DescribePrefixLists)
-{-# DEPRECATED dplPrefixListIds "Use generic-lens or generic-optics with 'prefixListIds' instead." #-}
-
--- | The token for the next page of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dplNextToken :: Lens.Lens' DescribePrefixLists (Lude.Maybe Lude.Text)
-dplNextToken = Lens.lens (nextToken :: DescribePrefixLists -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePrefixLists)
-{-# DEPRECATED dplNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
---
--- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dplDryRun :: Lens.Lens' DescribePrefixLists (Lude.Maybe Lude.Bool)
-dplDryRun = Lens.lens (dryRun :: DescribePrefixLists -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DescribePrefixLists)
-{-# DEPRECATED dplDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
 -- | The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned @nextToken@ value.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dplMaxResults :: Lens.Lens' DescribePrefixLists (Lude.Maybe Lude.Int)
-dplMaxResults = Lens.lens (maxResults :: DescribePrefixLists -> Lude.Maybe Lude.Int) (\s a -> s {maxResults = a} :: DescribePrefixLists)
+dplMaxResults :: Lens.Lens' DescribePrefixLists (Core.Maybe Core.Int)
+dplMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dplMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager DescribePrefixLists where
-  page rq rs
-    | Page.stop (rs Lens.^. dplrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dplrsPrefixLists) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dplNextToken Lens..~ rs Lens.^. dplrsNextToken
+-- | The token for the next page of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dplNextToken :: Lens.Lens' DescribePrefixLists (Core.Maybe Types.String)
+dplNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dplNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest DescribePrefixLists where
+-- | One or more prefix list IDs.
+--
+-- /Note:/ Consider using 'prefixListIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dplPrefixListIds :: Lens.Lens' DescribePrefixLists (Core.Maybe [Types.PrefixListResourceId])
+dplPrefixListIds = Lens.field @"prefixListIds"
+{-# DEPRECATED dplPrefixListIds "Use generic-lens or generic-optics with 'prefixListIds' instead." #-}
+
+instance Core.AWSRequest DescribePrefixLists where
   type Rs DescribePrefixLists = DescribePrefixListsResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribePrefixLists")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "Filter" Core.<$> filters)
+                Core.<> (Core.toQueryValue "MaxResults" Core.<$> maxResults)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+                Core.<> (Core.toQueryList "PrefixListId" Core.<$> prefixListIds)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DescribePrefixListsResponse'
-            Lude.<$> (x Lude..@? "nextToken")
-            Lude.<*> ( x Lude..@? "prefixListSet" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "item")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "nextToken")
+            Core.<*> (x Core..@? "prefixListSet" Core..<@> Core.parseXMLList "item")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribePrefixLists where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribePrefixLists where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribePrefixLists where
-  toQuery DescribePrefixLists' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribePrefixLists" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery (Lude.toQueryList "Filter" Lude.<$> filters),
-        Lude.toQuery
-          (Lude.toQueryList "PrefixListId" Lude.<$> prefixListIds),
-        "NextToken" Lude.=: nextToken,
-        "DryRun" Lude.=: dryRun,
-        "MaxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager DescribePrefixLists where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"prefixLists" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribePrefixListsResponse' smart constructor.
 data DescribePrefixListsResponse = DescribePrefixListsResponse'
   { -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | All available prefix lists.
-    prefixLists :: Lude.Maybe [PrefixList],
+    prefixLists :: Core.Maybe [Types.PrefixList],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePrefixListsResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
--- * 'prefixLists' - All available prefix lists.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribePrefixListsResponse' value with any optional fields omitted.
 mkDescribePrefixListsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribePrefixListsResponse
-mkDescribePrefixListsResponse pResponseStatus_ =
+mkDescribePrefixListsResponse responseStatus =
   DescribePrefixListsResponse'
-    { nextToken = Lude.Nothing,
-      prefixLists = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      prefixLists = Core.Nothing,
+      responseStatus
     }
 
 -- | The token to use to retrieve the next page of results. This value is @null@ when there are no more results to return.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dplrsNextToken :: Lens.Lens' DescribePrefixListsResponse (Lude.Maybe Lude.Text)
-dplrsNextToken = Lens.lens (nextToken :: DescribePrefixListsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribePrefixListsResponse)
-{-# DEPRECATED dplrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dplrrsNextToken :: Lens.Lens' DescribePrefixListsResponse (Core.Maybe Types.String)
+dplrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dplrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | All available prefix lists.
 --
 -- /Note:/ Consider using 'prefixLists' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dplrsPrefixLists :: Lens.Lens' DescribePrefixListsResponse (Lude.Maybe [PrefixList])
-dplrsPrefixLists = Lens.lens (prefixLists :: DescribePrefixListsResponse -> Lude.Maybe [PrefixList]) (\s a -> s {prefixLists = a} :: DescribePrefixListsResponse)
-{-# DEPRECATED dplrsPrefixLists "Use generic-lens or generic-optics with 'prefixLists' instead." #-}
+dplrrsPrefixLists :: Lens.Lens' DescribePrefixListsResponse (Core.Maybe [Types.PrefixList])
+dplrrsPrefixLists = Lens.field @"prefixLists"
+{-# DEPRECATED dplrrsPrefixLists "Use generic-lens or generic-optics with 'prefixLists' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dplrsResponseStatus :: Lens.Lens' DescribePrefixListsResponse Lude.Int
-dplrsResponseStatus = Lens.lens (responseStatus :: DescribePrefixListsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePrefixListsResponse)
-{-# DEPRECATED dplrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dplrrsResponseStatus :: Lens.Lens' DescribePrefixListsResponse Core.Int
+dplrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dplrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -21,39 +21,33 @@ module Network.AWS.Glue.Types.JobNodeDetails
   )
 where
 
-import Network.AWS.Glue.Types.JobRun
+import qualified Network.AWS.Glue.Types.JobRun as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details of a Job node present in the workflow.
 --
 -- /See:/ 'mkJobNodeDetails' smart constructor.
 newtype JobNodeDetails = JobNodeDetails'
   { -- | The information for the job runs represented by the job node.
-    jobRuns :: Lude.Maybe [JobRun]
+    jobRuns :: Core.Maybe [Types.JobRun]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.NFData)
 
--- | Creates a value of 'JobNodeDetails' with the minimum fields required to make a request.
---
--- * 'jobRuns' - The information for the job runs represented by the job node.
+-- | Creates a 'JobNodeDetails' value with any optional fields omitted.
 mkJobNodeDetails ::
   JobNodeDetails
-mkJobNodeDetails = JobNodeDetails' {jobRuns = Lude.Nothing}
+mkJobNodeDetails = JobNodeDetails' {jobRuns = Core.Nothing}
 
 -- | The information for the job runs represented by the job node.
 --
 -- /Note:/ Consider using 'jobRuns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jndJobRuns :: Lens.Lens' JobNodeDetails (Lude.Maybe [JobRun])
-jndJobRuns = Lens.lens (jobRuns :: JobNodeDetails -> Lude.Maybe [JobRun]) (\s a -> s {jobRuns = a} :: JobNodeDetails)
+jndJobRuns :: Lens.Lens' JobNodeDetails (Core.Maybe [Types.JobRun])
+jndJobRuns = Lens.field @"jobRuns"
 {-# DEPRECATED jndJobRuns "Use generic-lens or generic-optics with 'jobRuns' instead." #-}
 
-instance Lude.FromJSON JobNodeDetails where
+instance Core.FromJSON JobNodeDetails where
   parseJSON =
-    Lude.withObject
-      "JobNodeDetails"
-      ( \x ->
-          JobNodeDetails'
-            Lude.<$> (x Lude..:? "JobRuns" Lude..!= Lude.mempty)
-      )
+    Core.withObject "JobNodeDetails" Core.$
+      \x -> JobNodeDetails' Core.<$> (x Core..:? "JobRuns")

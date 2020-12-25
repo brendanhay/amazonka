@@ -22,60 +22,55 @@ module Network.AWS.IoTAnalytics.Types.DatasetTrigger
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.Schedule
-import Network.AWS.IoTAnalytics.Types.TriggeringDataset
+import qualified Network.AWS.IoTAnalytics.Types.Schedule as Types
+import qualified Network.AWS.IoTAnalytics.Types.TriggeringDataset as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The @DatasetTrigger@ that specifies when the data set is automatically updated.
 --
 -- /See:/ 'mkDatasetTrigger' smart constructor.
 data DatasetTrigger = DatasetTrigger'
   { -- | The data set whose content creation triggers the creation of this data set's contents.
-    dataset :: Lude.Maybe TriggeringDataset,
+    dataset :: Core.Maybe Types.TriggeringDataset,
     -- | The Schedule when the trigger is initiated.
-    schedule :: Lude.Maybe Schedule
+    schedule :: Core.Maybe Types.Schedule
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DatasetTrigger' with the minimum fields required to make a request.
---
--- * 'dataset' - The data set whose content creation triggers the creation of this data set's contents.
--- * 'schedule' - The Schedule when the trigger is initiated.
+-- | Creates a 'DatasetTrigger' value with any optional fields omitted.
 mkDatasetTrigger ::
   DatasetTrigger
 mkDatasetTrigger =
-  DatasetTrigger' {dataset = Lude.Nothing, schedule = Lude.Nothing}
+  DatasetTrigger' {dataset = Core.Nothing, schedule = Core.Nothing}
 
 -- | The data set whose content creation triggers the creation of this data set's contents.
 --
 -- /Note:/ Consider using 'dataset' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtDataset :: Lens.Lens' DatasetTrigger (Lude.Maybe TriggeringDataset)
-dtDataset = Lens.lens (dataset :: DatasetTrigger -> Lude.Maybe TriggeringDataset) (\s a -> s {dataset = a} :: DatasetTrigger)
+dtDataset :: Lens.Lens' DatasetTrigger (Core.Maybe Types.TriggeringDataset)
+dtDataset = Lens.field @"dataset"
 {-# DEPRECATED dtDataset "Use generic-lens or generic-optics with 'dataset' instead." #-}
 
 -- | The Schedule when the trigger is initiated.
 --
 -- /Note:/ Consider using 'schedule' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtSchedule :: Lens.Lens' DatasetTrigger (Lude.Maybe Schedule)
-dtSchedule = Lens.lens (schedule :: DatasetTrigger -> Lude.Maybe Schedule) (\s a -> s {schedule = a} :: DatasetTrigger)
+dtSchedule :: Lens.Lens' DatasetTrigger (Core.Maybe Types.Schedule)
+dtSchedule = Lens.field @"schedule"
 {-# DEPRECATED dtSchedule "Use generic-lens or generic-optics with 'schedule' instead." #-}
 
-instance Lude.FromJSON DatasetTrigger where
-  parseJSON =
-    Lude.withObject
-      "DatasetTrigger"
-      ( \x ->
-          DatasetTrigger'
-            Lude.<$> (x Lude..:? "dataset") Lude.<*> (x Lude..:? "schedule")
-      )
-
-instance Lude.ToJSON DatasetTrigger where
-  toJSON DatasetTrigger' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("dataset" Lude..=) Lude.<$> dataset,
-            ("schedule" Lude..=) Lude.<$> schedule
+instance Core.FromJSON DatasetTrigger where
+  toJSON DatasetTrigger {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("dataset" Core..=) Core.<$> dataset,
+            ("schedule" Core..=) Core.<$> schedule
           ]
       )
+
+instance Core.FromJSON DatasetTrigger where
+  parseJSON =
+    Core.withObject "DatasetTrigger" Core.$
+      \x ->
+        DatasetTrigger'
+          Core.<$> (x Core..:? "dataset") Core.<*> (x Core..:? "schedule")

@@ -17,81 +17,75 @@ module Network.AWS.MediaConvert.Types.AiffSettings
     mkAiffSettings,
 
     -- * Lenses
-    asBitDepth,
-    asChannels,
-    asSampleRate,
+    assBitDepth,
+    assChannels,
+    assSampleRate,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
 --
 -- /See:/ 'mkAiffSettings' smart constructor.
 data AiffSettings = AiffSettings'
   { -- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding quality for this audio track.
-    bitDepth :: Lude.Maybe Lude.Natural,
+    bitDepth :: Core.Maybe Core.Natural,
     -- | Specify the number of channels in this output audio track. Valid values are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up to 64.
-    channels :: Lude.Maybe Lude.Natural,
+    channels :: Core.Maybe Core.Natural,
     -- | Sample rate in hz.
-    sampleRate :: Lude.Maybe Lude.Natural
+    sampleRate :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AiffSettings' with the minimum fields required to make a request.
---
--- * 'bitDepth' - Specify Bit depth (BitDepth), in bits per sample, to choose the encoding quality for this audio track.
--- * 'channels' - Specify the number of channels in this output audio track. Valid values are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up to 64.
--- * 'sampleRate' - Sample rate in hz.
+-- | Creates a 'AiffSettings' value with any optional fields omitted.
 mkAiffSettings ::
   AiffSettings
 mkAiffSettings =
   AiffSettings'
-    { bitDepth = Lude.Nothing,
-      channels = Lude.Nothing,
-      sampleRate = Lude.Nothing
+    { bitDepth = Core.Nothing,
+      channels = Core.Nothing,
+      sampleRate = Core.Nothing
     }
 
 -- | Specify Bit depth (BitDepth), in bits per sample, to choose the encoding quality for this audio track.
 --
 -- /Note:/ Consider using 'bitDepth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asBitDepth :: Lens.Lens' AiffSettings (Lude.Maybe Lude.Natural)
-asBitDepth = Lens.lens (bitDepth :: AiffSettings -> Lude.Maybe Lude.Natural) (\s a -> s {bitDepth = a} :: AiffSettings)
-{-# DEPRECATED asBitDepth "Use generic-lens or generic-optics with 'bitDepth' instead." #-}
+assBitDepth :: Lens.Lens' AiffSettings (Core.Maybe Core.Natural)
+assBitDepth = Lens.field @"bitDepth"
+{-# DEPRECATED assBitDepth "Use generic-lens or generic-optics with 'bitDepth' instead." #-}
 
 -- | Specify the number of channels in this output audio track. Valid values are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up to 64.
 --
 -- /Note:/ Consider using 'channels' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asChannels :: Lens.Lens' AiffSettings (Lude.Maybe Lude.Natural)
-asChannels = Lens.lens (channels :: AiffSettings -> Lude.Maybe Lude.Natural) (\s a -> s {channels = a} :: AiffSettings)
-{-# DEPRECATED asChannels "Use generic-lens or generic-optics with 'channels' instead." #-}
+assChannels :: Lens.Lens' AiffSettings (Core.Maybe Core.Natural)
+assChannels = Lens.field @"channels"
+{-# DEPRECATED assChannels "Use generic-lens or generic-optics with 'channels' instead." #-}
 
 -- | Sample rate in hz.
 --
 -- /Note:/ Consider using 'sampleRate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asSampleRate :: Lens.Lens' AiffSettings (Lude.Maybe Lude.Natural)
-asSampleRate = Lens.lens (sampleRate :: AiffSettings -> Lude.Maybe Lude.Natural) (\s a -> s {sampleRate = a} :: AiffSettings)
-{-# DEPRECATED asSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
+assSampleRate :: Lens.Lens' AiffSettings (Core.Maybe Core.Natural)
+assSampleRate = Lens.field @"sampleRate"
+{-# DEPRECATED assSampleRate "Use generic-lens or generic-optics with 'sampleRate' instead." #-}
 
-instance Lude.FromJSON AiffSettings where
-  parseJSON =
-    Lude.withObject
-      "AiffSettings"
-      ( \x ->
-          AiffSettings'
-            Lude.<$> (x Lude..:? "bitDepth")
-            Lude.<*> (x Lude..:? "channels")
-            Lude.<*> (x Lude..:? "sampleRate")
-      )
-
-instance Lude.ToJSON AiffSettings where
-  toJSON AiffSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("bitDepth" Lude..=) Lude.<$> bitDepth,
-            ("channels" Lude..=) Lude.<$> channels,
-            ("sampleRate" Lude..=) Lude.<$> sampleRate
+instance Core.FromJSON AiffSettings where
+  toJSON AiffSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("bitDepth" Core..=) Core.<$> bitDepth,
+            ("channels" Core..=) Core.<$> channels,
+            ("sampleRate" Core..=) Core.<$> sampleRate
           ]
       )
+
+instance Core.FromJSON AiffSettings where
+  parseJSON =
+    Core.withObject "AiffSettings" Core.$
+      \x ->
+        AiffSettings'
+          Core.<$> (x Core..:? "bitDepth")
+          Core.<*> (x Core..:? "channels")
+          Core.<*> (x Core..:? "sampleRate")

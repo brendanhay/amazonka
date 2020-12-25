@@ -21,39 +21,33 @@ module Network.AWS.IoT.Types.ImplicitDeny
   )
 where
 
-import Network.AWS.IoT.Types.Policy
+import qualified Network.AWS.IoT.Types.Policy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information that implicitly denies authorization. When policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.
 --
 -- /See:/ 'mkImplicitDeny' smart constructor.
 newtype ImplicitDeny = ImplicitDeny'
   { -- | Policies that don't contain a matching allow or deny statement for the specified action on the specified resource.
-    policies :: Lude.Maybe [Policy]
+    policies :: Core.Maybe [Types.Policy]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImplicitDeny' with the minimum fields required to make a request.
---
--- * 'policies' - Policies that don't contain a matching allow or deny statement for the specified action on the specified resource.
+-- | Creates a 'ImplicitDeny' value with any optional fields omitted.
 mkImplicitDeny ::
   ImplicitDeny
-mkImplicitDeny = ImplicitDeny' {policies = Lude.Nothing}
+mkImplicitDeny = ImplicitDeny' {policies = Core.Nothing}
 
 -- | Policies that don't contain a matching allow or deny statement for the specified action on the specified resource.
 --
 -- /Note:/ Consider using 'policies' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idPolicies :: Lens.Lens' ImplicitDeny (Lude.Maybe [Policy])
-idPolicies = Lens.lens (policies :: ImplicitDeny -> Lude.Maybe [Policy]) (\s a -> s {policies = a} :: ImplicitDeny)
+idPolicies :: Lens.Lens' ImplicitDeny (Core.Maybe [Types.Policy])
+idPolicies = Lens.field @"policies"
 {-# DEPRECATED idPolicies "Use generic-lens or generic-optics with 'policies' instead." #-}
 
-instance Lude.FromJSON ImplicitDeny where
+instance Core.FromJSON ImplicitDeny where
   parseJSON =
-    Lude.withObject
-      "ImplicitDeny"
-      ( \x ->
-          ImplicitDeny'
-            Lude.<$> (x Lude..:? "policies" Lude..!= Lude.mempty)
-      )
+    Core.withObject "ImplicitDeny" Core.$
+      \x -> ImplicitDeny' Core.<$> (x Core..:? "policies")

@@ -29,82 +29,75 @@ module Network.AWS.IoT.ReplaceTopicRule
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the ReplaceTopicRule operation.
 --
 -- /See:/ 'mkReplaceTopicRule' smart constructor.
 data ReplaceTopicRule = ReplaceTopicRule'
   { -- | The name of the rule.
-    ruleName :: Lude.Text,
+    ruleName :: Types.RuleName,
     -- | The rule payload.
-    topicRulePayload :: TopicRulePayload
+    topicRulePayload :: Types.TopicRulePayload
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplaceTopicRule' with the minimum fields required to make a request.
---
--- * 'ruleName' - The name of the rule.
--- * 'topicRulePayload' - The rule payload.
+-- | Creates a 'ReplaceTopicRule' value with any optional fields omitted.
 mkReplaceTopicRule ::
   -- | 'ruleName'
-  Lude.Text ->
+  Types.RuleName ->
   -- | 'topicRulePayload'
-  TopicRulePayload ->
+  Types.TopicRulePayload ->
   ReplaceTopicRule
-mkReplaceTopicRule pRuleName_ pTopicRulePayload_ =
-  ReplaceTopicRule'
-    { ruleName = pRuleName_,
-      topicRulePayload = pTopicRulePayload_
-    }
+mkReplaceTopicRule ruleName topicRulePayload =
+  ReplaceTopicRule' {ruleName, topicRulePayload}
 
 -- | The name of the rule.
 --
 -- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrRuleName :: Lens.Lens' ReplaceTopicRule Lude.Text
-rtrRuleName = Lens.lens (ruleName :: ReplaceTopicRule -> Lude.Text) (\s a -> s {ruleName = a} :: ReplaceTopicRule)
+rtrRuleName :: Lens.Lens' ReplaceTopicRule Types.RuleName
+rtrRuleName = Lens.field @"ruleName"
 {-# DEPRECATED rtrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
 -- | The rule payload.
 --
 -- /Note:/ Consider using 'topicRulePayload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rtrTopicRulePayload :: Lens.Lens' ReplaceTopicRule TopicRulePayload
-rtrTopicRulePayload = Lens.lens (topicRulePayload :: ReplaceTopicRule -> TopicRulePayload) (\s a -> s {topicRulePayload = a} :: ReplaceTopicRule)
+rtrTopicRulePayload :: Lens.Lens' ReplaceTopicRule Types.TopicRulePayload
+rtrTopicRulePayload = Lens.field @"topicRulePayload"
 {-# DEPRECATED rtrTopicRulePayload "Use generic-lens or generic-optics with 'topicRulePayload' instead." #-}
 
-instance Lude.AWSRequest ReplaceTopicRule where
-  type Rs ReplaceTopicRule = ReplaceTopicRuleResponse
-  request = Req.patchJSON ioTService
-  response = Res.receiveNull ReplaceTopicRuleResponse'
-
-instance Lude.ToHeaders ReplaceTopicRule where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON ReplaceTopicRule where
-  toJSON ReplaceTopicRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("topicRulePayload" Lude..= topicRulePayload)]
+instance Core.FromJSON ReplaceTopicRule where
+  toJSON ReplaceTopicRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("topicRulePayload" Core..= topicRulePayload)]
       )
 
-instance Lude.ToPath ReplaceTopicRule where
-  toPath ReplaceTopicRule' {..} =
-    Lude.mconcat ["/rules/", Lude.toBS ruleName]
-
-instance Lude.ToQuery ReplaceTopicRule where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest ReplaceTopicRule where
+  type Rs ReplaceTopicRule = ReplaceTopicRuleResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath =
+          Core.rawPath ("/rules/" Core.<> (Core.toText ruleName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull ReplaceTopicRuleResponse'
 
 -- | /See:/ 'mkReplaceTopicRuleResponse' smart constructor.
 data ReplaceTopicRuleResponse = ReplaceTopicRuleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplaceTopicRuleResponse' with the minimum fields required to make a request.
+-- | Creates a 'ReplaceTopicRuleResponse' value with any optional fields omitted.
 mkReplaceTopicRuleResponse ::
   ReplaceTopicRuleResponse
 mkReplaceTopicRuleResponse = ReplaceTopicRuleResponse'

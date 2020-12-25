@@ -17,106 +17,98 @@ module Network.AWS.DMS.Types.ElasticsearchSettings
     mkElasticsearchSettings,
 
     -- * Lenses
-    esFullLoadErrorPercentage,
-    esServiceAccessRoleARN,
-    esEndpointURI,
+    esServiceAccessRoleArn,
+    esEndpointUri,
     esErrorRetryDuration,
+    esFullLoadErrorPercentage,
   )
 where
 
+import qualified Network.AWS.DMS.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information that defines an Elasticsearch endpoint.
 --
 -- /See:/ 'mkElasticsearchSettings' smart constructor.
 data ElasticsearchSettings = ElasticsearchSettings'
-  { -- | The maximum percentage of records that can fail to be written before a full load operation stops.
+  { -- | The Amazon Resource Name (ARN) used by service to access the IAM role.
+    serviceAccessRoleArn :: Types.String,
+    -- | The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a transport protocol (http/https) is not specified.
+    endpointUri :: Types.String,
+    -- | The maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster.
+    errorRetryDuration :: Core.Maybe Core.Int,
+    -- | The maximum percentage of records that can fail to be written before a full load operation stops.
     --
     -- To avoid early failure, this counter is only effective after 1000 records are transferred. Elasticsearch also has the concept of error monitoring during the last 10 minutes of an Observation Window. If transfer of all records fail in the last 10 minutes, the full load operation stops.
-    fullLoadErrorPercentage :: Lude.Maybe Lude.Int,
-    -- | The Amazon Resource Name (ARN) used by service to access the IAM role.
-    serviceAccessRoleARN :: Lude.Text,
-    -- | The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a transport protocol (http/https) is not specified.
-    endpointURI :: Lude.Text,
-    -- | The maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster.
-    errorRetryDuration :: Lude.Maybe Lude.Int
+    fullLoadErrorPercentage :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ElasticsearchSettings' with the minimum fields required to make a request.
---
--- * 'fullLoadErrorPercentage' - The maximum percentage of records that can fail to be written before a full load operation stops.
---
--- To avoid early failure, this counter is only effective after 1000 records are transferred. Elasticsearch also has the concept of error monitoring during the last 10 minutes of an Observation Window. If transfer of all records fail in the last 10 minutes, the full load operation stops.
--- * 'serviceAccessRoleARN' - The Amazon Resource Name (ARN) used by service to access the IAM role.
--- * 'endpointURI' - The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a transport protocol (http/https) is not specified.
--- * 'errorRetryDuration' - The maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster.
+-- | Creates a 'ElasticsearchSettings' value with any optional fields omitted.
 mkElasticsearchSettings ::
-  -- | 'serviceAccessRoleARN'
-  Lude.Text ->
-  -- | 'endpointURI'
-  Lude.Text ->
+  -- | 'serviceAccessRoleArn'
+  Types.String ->
+  -- | 'endpointUri'
+  Types.String ->
   ElasticsearchSettings
-mkElasticsearchSettings pServiceAccessRoleARN_ pEndpointURI_ =
+mkElasticsearchSettings serviceAccessRoleArn endpointUri =
   ElasticsearchSettings'
-    { fullLoadErrorPercentage = Lude.Nothing,
-      serviceAccessRoleARN = pServiceAccessRoleARN_,
-      endpointURI = pEndpointURI_,
-      errorRetryDuration = Lude.Nothing
+    { serviceAccessRoleArn,
+      endpointUri,
+      errorRetryDuration = Core.Nothing,
+      fullLoadErrorPercentage = Core.Nothing
     }
+
+-- | The Amazon Resource Name (ARN) used by service to access the IAM role.
+--
+-- /Note:/ Consider using 'serviceAccessRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esServiceAccessRoleArn :: Lens.Lens' ElasticsearchSettings Types.String
+esServiceAccessRoleArn = Lens.field @"serviceAccessRoleArn"
+{-# DEPRECATED esServiceAccessRoleArn "Use generic-lens or generic-optics with 'serviceAccessRoleArn' instead." #-}
+
+-- | The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a transport protocol (http/https) is not specified.
+--
+-- /Note:/ Consider using 'endpointUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esEndpointUri :: Lens.Lens' ElasticsearchSettings Types.String
+esEndpointUri = Lens.field @"endpointUri"
+{-# DEPRECATED esEndpointUri "Use generic-lens or generic-optics with 'endpointUri' instead." #-}
+
+-- | The maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster.
+--
+-- /Note:/ Consider using 'errorRetryDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+esErrorRetryDuration :: Lens.Lens' ElasticsearchSettings (Core.Maybe Core.Int)
+esErrorRetryDuration = Lens.field @"errorRetryDuration"
+{-# DEPRECATED esErrorRetryDuration "Use generic-lens or generic-optics with 'errorRetryDuration' instead." #-}
 
 -- | The maximum percentage of records that can fail to be written before a full load operation stops.
 --
 -- To avoid early failure, this counter is only effective after 1000 records are transferred. Elasticsearch also has the concept of error monitoring during the last 10 minutes of an Observation Window. If transfer of all records fail in the last 10 minutes, the full load operation stops.
 --
 -- /Note:/ Consider using 'fullLoadErrorPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esFullLoadErrorPercentage :: Lens.Lens' ElasticsearchSettings (Lude.Maybe Lude.Int)
-esFullLoadErrorPercentage = Lens.lens (fullLoadErrorPercentage :: ElasticsearchSettings -> Lude.Maybe Lude.Int) (\s a -> s {fullLoadErrorPercentage = a} :: ElasticsearchSettings)
+esFullLoadErrorPercentage :: Lens.Lens' ElasticsearchSettings (Core.Maybe Core.Int)
+esFullLoadErrorPercentage = Lens.field @"fullLoadErrorPercentage"
 {-# DEPRECATED esFullLoadErrorPercentage "Use generic-lens or generic-optics with 'fullLoadErrorPercentage' instead." #-}
 
--- | The Amazon Resource Name (ARN) used by service to access the IAM role.
---
--- /Note:/ Consider using 'serviceAccessRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esServiceAccessRoleARN :: Lens.Lens' ElasticsearchSettings Lude.Text
-esServiceAccessRoleARN = Lens.lens (serviceAccessRoleARN :: ElasticsearchSettings -> Lude.Text) (\s a -> s {serviceAccessRoleARN = a} :: ElasticsearchSettings)
-{-# DEPRECATED esServiceAccessRoleARN "Use generic-lens or generic-optics with 'serviceAccessRoleARN' instead." #-}
-
--- | The endpoint for the Elasticsearch cluster. AWS DMS uses HTTPS if a transport protocol (http/https) is not specified.
---
--- /Note:/ Consider using 'endpointURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esEndpointURI :: Lens.Lens' ElasticsearchSettings Lude.Text
-esEndpointURI = Lens.lens (endpointURI :: ElasticsearchSettings -> Lude.Text) (\s a -> s {endpointURI = a} :: ElasticsearchSettings)
-{-# DEPRECATED esEndpointURI "Use generic-lens or generic-optics with 'endpointURI' instead." #-}
-
--- | The maximum number of seconds for which DMS retries failed API requests to the Elasticsearch cluster.
---
--- /Note:/ Consider using 'errorRetryDuration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-esErrorRetryDuration :: Lens.Lens' ElasticsearchSettings (Lude.Maybe Lude.Int)
-esErrorRetryDuration = Lens.lens (errorRetryDuration :: ElasticsearchSettings -> Lude.Maybe Lude.Int) (\s a -> s {errorRetryDuration = a} :: ElasticsearchSettings)
-{-# DEPRECATED esErrorRetryDuration "Use generic-lens or generic-optics with 'errorRetryDuration' instead." #-}
-
-instance Lude.FromJSON ElasticsearchSettings where
-  parseJSON =
-    Lude.withObject
-      "ElasticsearchSettings"
-      ( \x ->
-          ElasticsearchSettings'
-            Lude.<$> (x Lude..:? "FullLoadErrorPercentage")
-            Lude.<*> (x Lude..: "ServiceAccessRoleArn")
-            Lude.<*> (x Lude..: "EndpointUri")
-            Lude.<*> (x Lude..:? "ErrorRetryDuration")
-      )
-
-instance Lude.ToJSON ElasticsearchSettings where
-  toJSON ElasticsearchSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("FullLoadErrorPercentage" Lude..=)
-              Lude.<$> fullLoadErrorPercentage,
-            Lude.Just ("ServiceAccessRoleArn" Lude..= serviceAccessRoleARN),
-            Lude.Just ("EndpointUri" Lude..= endpointURI),
-            ("ErrorRetryDuration" Lude..=) Lude.<$> errorRetryDuration
+instance Core.FromJSON ElasticsearchSettings where
+  toJSON ElasticsearchSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ServiceAccessRoleArn" Core..= serviceAccessRoleArn),
+            Core.Just ("EndpointUri" Core..= endpointUri),
+            ("ErrorRetryDuration" Core..=) Core.<$> errorRetryDuration,
+            ("FullLoadErrorPercentage" Core..=)
+              Core.<$> fullLoadErrorPercentage
           ]
       )
+
+instance Core.FromJSON ElasticsearchSettings where
+  parseJSON =
+    Core.withObject "ElasticsearchSettings" Core.$
+      \x ->
+        ElasticsearchSettings'
+          Core.<$> (x Core..: "ServiceAccessRoleArn")
+          Core.<*> (x Core..: "EndpointUri")
+          Core.<*> (x Core..:? "ErrorRetryDuration")
+          Core.<*> (x Core..:? "FullLoadErrorPercentage")

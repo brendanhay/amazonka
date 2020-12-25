@@ -17,84 +17,78 @@ module Network.AWS.OpsWorks.Types.SelfUserProfile
     mkSelfUserProfile,
 
     -- * Lenses
-    supSSHPublicKey,
-    supSSHUsername,
-    supIAMUserARN,
+    supIamUserArn,
     supName,
+    supSshPublicKey,
+    supSshUsername,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a user's SSH information.
 --
 -- /See:/ 'mkSelfUserProfile' smart constructor.
 data SelfUserProfile = SelfUserProfile'
-  { -- | The user's SSH public key.
-    sshPublicKey :: Lude.Maybe Lude.Text,
-    -- | The user's SSH user name.
-    sshUsername :: Lude.Maybe Lude.Text,
-    -- | The user's IAM ARN.
-    iamUserARN :: Lude.Maybe Lude.Text,
+  { -- | The user's IAM ARN.
+    iamUserArn :: Core.Maybe Types.String,
     -- | The user's name.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.String,
+    -- | The user's SSH public key.
+    sshPublicKey :: Core.Maybe Types.String,
+    -- | The user's SSH user name.
+    sshUsername :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SelfUserProfile' with the minimum fields required to make a request.
---
--- * 'sshPublicKey' - The user's SSH public key.
--- * 'sshUsername' - The user's SSH user name.
--- * 'iamUserARN' - The user's IAM ARN.
--- * 'name' - The user's name.
+-- | Creates a 'SelfUserProfile' value with any optional fields omitted.
 mkSelfUserProfile ::
   SelfUserProfile
 mkSelfUserProfile =
   SelfUserProfile'
-    { sshPublicKey = Lude.Nothing,
-      sshUsername = Lude.Nothing,
-      iamUserARN = Lude.Nothing,
-      name = Lude.Nothing
+    { iamUserArn = Core.Nothing,
+      name = Core.Nothing,
+      sshPublicKey = Core.Nothing,
+      sshUsername = Core.Nothing
     }
-
--- | The user's SSH public key.
---
--- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-supSSHPublicKey :: Lens.Lens' SelfUserProfile (Lude.Maybe Lude.Text)
-supSSHPublicKey = Lens.lens (sshPublicKey :: SelfUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {sshPublicKey = a} :: SelfUserProfile)
-{-# DEPRECATED supSSHPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
-
--- | The user's SSH user name.
---
--- /Note:/ Consider using 'sshUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-supSSHUsername :: Lens.Lens' SelfUserProfile (Lude.Maybe Lude.Text)
-supSSHUsername = Lens.lens (sshUsername :: SelfUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {sshUsername = a} :: SelfUserProfile)
-{-# DEPRECATED supSSHUsername "Use generic-lens or generic-optics with 'sshUsername' instead." #-}
 
 -- | The user's IAM ARN.
 --
--- /Note:/ Consider using 'iamUserARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-supIAMUserARN :: Lens.Lens' SelfUserProfile (Lude.Maybe Lude.Text)
-supIAMUserARN = Lens.lens (iamUserARN :: SelfUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {iamUserARN = a} :: SelfUserProfile)
-{-# DEPRECATED supIAMUserARN "Use generic-lens or generic-optics with 'iamUserARN' instead." #-}
+-- /Note:/ Consider using 'iamUserArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+supIamUserArn :: Lens.Lens' SelfUserProfile (Core.Maybe Types.String)
+supIamUserArn = Lens.field @"iamUserArn"
+{-# DEPRECATED supIamUserArn "Use generic-lens or generic-optics with 'iamUserArn' instead." #-}
 
 -- | The user's name.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-supName :: Lens.Lens' SelfUserProfile (Lude.Maybe Lude.Text)
-supName = Lens.lens (name :: SelfUserProfile -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: SelfUserProfile)
+supName :: Lens.Lens' SelfUserProfile (Core.Maybe Types.String)
+supName = Lens.field @"name"
 {-# DEPRECATED supName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON SelfUserProfile where
+-- | The user's SSH public key.
+--
+-- /Note:/ Consider using 'sshPublicKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+supSshPublicKey :: Lens.Lens' SelfUserProfile (Core.Maybe Types.String)
+supSshPublicKey = Lens.field @"sshPublicKey"
+{-# DEPRECATED supSshPublicKey "Use generic-lens or generic-optics with 'sshPublicKey' instead." #-}
+
+-- | The user's SSH user name.
+--
+-- /Note:/ Consider using 'sshUsername' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+supSshUsername :: Lens.Lens' SelfUserProfile (Core.Maybe Types.String)
+supSshUsername = Lens.field @"sshUsername"
+{-# DEPRECATED supSshUsername "Use generic-lens or generic-optics with 'sshUsername' instead." #-}
+
+instance Core.FromJSON SelfUserProfile where
   parseJSON =
-    Lude.withObject
-      "SelfUserProfile"
-      ( \x ->
-          SelfUserProfile'
-            Lude.<$> (x Lude..:? "SshPublicKey")
-            Lude.<*> (x Lude..:? "SshUsername")
-            Lude.<*> (x Lude..:? "IamUserArn")
-            Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "SelfUserProfile" Core.$
+      \x ->
+        SelfUserProfile'
+          Core.<$> (x Core..:? "IamUserArn")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "SshPublicKey")
+          Core.<*> (x Core..:? "SshUsername")

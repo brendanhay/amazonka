@@ -23,143 +23,130 @@ module Network.AWS.DynamoDB.UpdateContinuousBackups
     mkUpdateContinuousBackups,
 
     -- ** Request lenses
-    ucbPointInTimeRecoverySpecification,
     ucbTableName,
+    ucbPointInTimeRecoverySpecification,
 
     -- * Destructuring the response
     UpdateContinuousBackupsResponse (..),
     mkUpdateContinuousBackupsResponse,
 
     -- ** Response lenses
-    ucbrsContinuousBackupsDescription,
-    ucbrsResponseStatus,
+    ucbrrsContinuousBackupsDescription,
+    ucbrrsResponseStatus,
   )
 where
 
-import Network.AWS.DynamoDB.Types
+import qualified Network.AWS.DynamoDB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateContinuousBackups' smart constructor.
 data UpdateContinuousBackups = UpdateContinuousBackups'
-  { -- | Represents the settings used to enable point in time recovery.
-    pointInTimeRecoverySpecification :: PointInTimeRecoverySpecification,
-    -- | The name of the table.
-    tableName :: Lude.Text
+  { -- | The name of the table.
+    tableName :: Types.TableName,
+    -- | Represents the settings used to enable point in time recovery.
+    pointInTimeRecoverySpecification :: Types.PointInTimeRecoverySpecification
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateContinuousBackups' with the minimum fields required to make a request.
---
--- * 'pointInTimeRecoverySpecification' - Represents the settings used to enable point in time recovery.
--- * 'tableName' - The name of the table.
+-- | Creates a 'UpdateContinuousBackups' value with any optional fields omitted.
 mkUpdateContinuousBackups ::
-  -- | 'pointInTimeRecoverySpecification'
-  PointInTimeRecoverySpecification ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.TableName ->
+  -- | 'pointInTimeRecoverySpecification'
+  Types.PointInTimeRecoverySpecification ->
   UpdateContinuousBackups
 mkUpdateContinuousBackups
-  pPointInTimeRecoverySpecification_
-  pTableName_ =
+  tableName
+  pointInTimeRecoverySpecification =
     UpdateContinuousBackups'
-      { pointInTimeRecoverySpecification =
-          pPointInTimeRecoverySpecification_,
-        tableName = pTableName_
+      { tableName,
+        pointInTimeRecoverySpecification
       }
-
--- | Represents the settings used to enable point in time recovery.
---
--- /Note:/ Consider using 'pointInTimeRecoverySpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucbPointInTimeRecoverySpecification :: Lens.Lens' UpdateContinuousBackups PointInTimeRecoverySpecification
-ucbPointInTimeRecoverySpecification = Lens.lens (pointInTimeRecoverySpecification :: UpdateContinuousBackups -> PointInTimeRecoverySpecification) (\s a -> s {pointInTimeRecoverySpecification = a} :: UpdateContinuousBackups)
-{-# DEPRECATED ucbPointInTimeRecoverySpecification "Use generic-lens or generic-optics with 'pointInTimeRecoverySpecification' instead." #-}
 
 -- | The name of the table.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucbTableName :: Lens.Lens' UpdateContinuousBackups Lude.Text
-ucbTableName = Lens.lens (tableName :: UpdateContinuousBackups -> Lude.Text) (\s a -> s {tableName = a} :: UpdateContinuousBackups)
+ucbTableName :: Lens.Lens' UpdateContinuousBackups Types.TableName
+ucbTableName = Lens.field @"tableName"
 {-# DEPRECATED ucbTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.AWSRequest UpdateContinuousBackups where
+-- | Represents the settings used to enable point in time recovery.
+--
+-- /Note:/ Consider using 'pointInTimeRecoverySpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ucbPointInTimeRecoverySpecification :: Lens.Lens' UpdateContinuousBackups Types.PointInTimeRecoverySpecification
+ucbPointInTimeRecoverySpecification = Lens.field @"pointInTimeRecoverySpecification"
+{-# DEPRECATED ucbPointInTimeRecoverySpecification "Use generic-lens or generic-optics with 'pointInTimeRecoverySpecification' instead." #-}
+
+instance Core.FromJSON UpdateContinuousBackups where
+  toJSON UpdateContinuousBackups {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TableName" Core..= tableName),
+            Core.Just
+              ( "PointInTimeRecoverySpecification"
+                  Core..= pointInTimeRecoverySpecification
+              )
+          ]
+      )
+
+instance Core.AWSRequest UpdateContinuousBackups where
   type Rs UpdateContinuousBackups = UpdateContinuousBackupsResponse
-  request = Req.postJSON dynamoDBService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DynamoDB_20120810.UpdateContinuousBackups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateContinuousBackupsResponse'
-            Lude.<$> (x Lude..?> "ContinuousBackupsDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ContinuousBackupsDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateContinuousBackups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DynamoDB_20120810.UpdateContinuousBackups" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateContinuousBackups where
-  toJSON UpdateContinuousBackups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ( "PointInTimeRecoverySpecification"
-                  Lude..= pointInTimeRecoverySpecification
-              ),
-            Lude.Just ("TableName" Lude..= tableName)
-          ]
-      )
-
-instance Lude.ToPath UpdateContinuousBackups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateContinuousBackups where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateContinuousBackupsResponse' smart constructor.
 data UpdateContinuousBackupsResponse = UpdateContinuousBackupsResponse'
   { -- | Represents the continuous backups and point in time recovery settings on the table.
-    continuousBackupsDescription :: Lude.Maybe ContinuousBackupsDescription,
+    continuousBackupsDescription :: Core.Maybe Types.ContinuousBackupsDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'UpdateContinuousBackupsResponse' with the minimum fields required to make a request.
---
--- * 'continuousBackupsDescription' - Represents the continuous backups and point in time recovery settings on the table.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateContinuousBackupsResponse' value with any optional fields omitted.
 mkUpdateContinuousBackupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateContinuousBackupsResponse
-mkUpdateContinuousBackupsResponse pResponseStatus_ =
+mkUpdateContinuousBackupsResponse responseStatus =
   UpdateContinuousBackupsResponse'
     { continuousBackupsDescription =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Represents the continuous backups and point in time recovery settings on the table.
 --
 -- /Note:/ Consider using 'continuousBackupsDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucbrsContinuousBackupsDescription :: Lens.Lens' UpdateContinuousBackupsResponse (Lude.Maybe ContinuousBackupsDescription)
-ucbrsContinuousBackupsDescription = Lens.lens (continuousBackupsDescription :: UpdateContinuousBackupsResponse -> Lude.Maybe ContinuousBackupsDescription) (\s a -> s {continuousBackupsDescription = a} :: UpdateContinuousBackupsResponse)
-{-# DEPRECATED ucbrsContinuousBackupsDescription "Use generic-lens or generic-optics with 'continuousBackupsDescription' instead." #-}
+ucbrrsContinuousBackupsDescription :: Lens.Lens' UpdateContinuousBackupsResponse (Core.Maybe Types.ContinuousBackupsDescription)
+ucbrrsContinuousBackupsDescription = Lens.field @"continuousBackupsDescription"
+{-# DEPRECATED ucbrrsContinuousBackupsDescription "Use generic-lens or generic-optics with 'continuousBackupsDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ucbrsResponseStatus :: Lens.Lens' UpdateContinuousBackupsResponse Lude.Int
-ucbrsResponseStatus = Lens.lens (responseStatus :: UpdateContinuousBackupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateContinuousBackupsResponse)
-{-# DEPRECATED ucbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ucbrrsResponseStatus :: Lens.Lens' UpdateContinuousBackupsResponse Core.Int
+ucbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ucbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

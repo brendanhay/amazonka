@@ -23,68 +23,62 @@ module Network.AWS.EMR.Types.InstanceStatus
   )
 where
 
-import Network.AWS.EMR.Types.InstanceState
-import Network.AWS.EMR.Types.InstanceStateChangeReason
-import Network.AWS.EMR.Types.InstanceTimeline
+import qualified Network.AWS.EMR.Types.InstanceState as Types
+import qualified Network.AWS.EMR.Types.InstanceStateChangeReason as Types
+import qualified Network.AWS.EMR.Types.InstanceTimeline as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The instance status details.
 --
 -- /See:/ 'mkInstanceStatus' smart constructor.
 data InstanceStatus = InstanceStatus'
   { -- | The current state of the instance.
-    state :: Lude.Maybe InstanceState,
+    state :: Core.Maybe Types.InstanceState,
     -- | The details of the status change reason for the instance.
-    stateChangeReason :: Lude.Maybe InstanceStateChangeReason,
+    stateChangeReason :: Core.Maybe Types.InstanceStateChangeReason,
     -- | The timeline of the instance status over time.
-    timeline :: Lude.Maybe InstanceTimeline
+    timeline :: Core.Maybe Types.InstanceTimeline
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'InstanceStatus' with the minimum fields required to make a request.
---
--- * 'state' - The current state of the instance.
--- * 'stateChangeReason' - The details of the status change reason for the instance.
--- * 'timeline' - The timeline of the instance status over time.
+-- | Creates a 'InstanceStatus' value with any optional fields omitted.
 mkInstanceStatus ::
   InstanceStatus
 mkInstanceStatus =
   InstanceStatus'
-    { state = Lude.Nothing,
-      stateChangeReason = Lude.Nothing,
-      timeline = Lude.Nothing
+    { state = Core.Nothing,
+      stateChangeReason = Core.Nothing,
+      timeline = Core.Nothing
     }
 
 -- | The current state of the instance.
 --
 -- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isState :: Lens.Lens' InstanceStatus (Lude.Maybe InstanceState)
-isState = Lens.lens (state :: InstanceStatus -> Lude.Maybe InstanceState) (\s a -> s {state = a} :: InstanceStatus)
+isState :: Lens.Lens' InstanceStatus (Core.Maybe Types.InstanceState)
+isState = Lens.field @"state"
 {-# DEPRECATED isState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The details of the status change reason for the instance.
 --
 -- /Note:/ Consider using 'stateChangeReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isStateChangeReason :: Lens.Lens' InstanceStatus (Lude.Maybe InstanceStateChangeReason)
-isStateChangeReason = Lens.lens (stateChangeReason :: InstanceStatus -> Lude.Maybe InstanceStateChangeReason) (\s a -> s {stateChangeReason = a} :: InstanceStatus)
+isStateChangeReason :: Lens.Lens' InstanceStatus (Core.Maybe Types.InstanceStateChangeReason)
+isStateChangeReason = Lens.field @"stateChangeReason"
 {-# DEPRECATED isStateChangeReason "Use generic-lens or generic-optics with 'stateChangeReason' instead." #-}
 
 -- | The timeline of the instance status over time.
 --
 -- /Note:/ Consider using 'timeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-isTimeline :: Lens.Lens' InstanceStatus (Lude.Maybe InstanceTimeline)
-isTimeline = Lens.lens (timeline :: InstanceStatus -> Lude.Maybe InstanceTimeline) (\s a -> s {timeline = a} :: InstanceStatus)
+isTimeline :: Lens.Lens' InstanceStatus (Core.Maybe Types.InstanceTimeline)
+isTimeline = Lens.field @"timeline"
 {-# DEPRECATED isTimeline "Use generic-lens or generic-optics with 'timeline' instead." #-}
 
-instance Lude.FromJSON InstanceStatus where
+instance Core.FromJSON InstanceStatus where
   parseJSON =
-    Lude.withObject
-      "InstanceStatus"
-      ( \x ->
-          InstanceStatus'
-            Lude.<$> (x Lude..:? "State")
-            Lude.<*> (x Lude..:? "StateChangeReason")
-            Lude.<*> (x Lude..:? "Timeline")
-      )
+    Core.withObject "InstanceStatus" Core.$
+      \x ->
+        InstanceStatus'
+          Core.<$> (x Core..:? "State")
+          Core.<*> (x Core..:? "StateChangeReason")
+          Core.<*> (x Core..:? "Timeline")

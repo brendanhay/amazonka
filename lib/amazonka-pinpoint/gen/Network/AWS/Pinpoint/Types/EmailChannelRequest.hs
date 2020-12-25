@@ -17,100 +17,94 @@ module Network.AWS.Pinpoint.Types.EmailChannelRequest
     mkEmailChannelRequest,
 
     -- * Lenses
-    ecrEnabled,
-    ecrFromAddress,
-    ecrConfigurationSet,
-    ecrIdentity,
-    ecrRoleARN,
+    ecrfFromAddress,
+    ecrfIdentity,
+    ecrfConfigurationSet,
+    ecrfEnabled,
+    ecrfRoleArn,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the status and settings of the email channel for an application.
 --
 -- /See:/ 'mkEmailChannelRequest' smart constructor.
 data EmailChannelRequest = EmailChannelRequest'
-  { -- | Specifies whether to enable the email channel for the application.
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | The verified email address that you want to send email from when you send email through the channel.
-    fromAddress :: Lude.Text,
-    -- | The <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set> that you want to apply to messages that you send through the channel.
-    configurationSet :: Lude.Maybe Lude.Text,
+  { -- | The verified email address that you want to send email from when you send email through the channel.
+    fromAddress :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you want to use when you send email through the channel.
-    identity :: Lude.Text,
+    identity :: Core.Text,
+    -- | The <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set> that you want to apply to messages that you send through the channel.
+    configurationSet :: Core.Maybe Core.Text,
+    -- | Specifies whether to enable the email channel for the application.
+    enabled :: Core.Maybe Core.Bool,
     -- | The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.
-    roleARN :: Lude.Maybe Lude.Text
+    roleArn :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EmailChannelRequest' with the minimum fields required to make a request.
---
--- * 'enabled' - Specifies whether to enable the email channel for the application.
--- * 'fromAddress' - The verified email address that you want to send email from when you send email through the channel.
--- * 'configurationSet' - The <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set> that you want to apply to messages that you send through the channel.
--- * 'identity' - The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you want to use when you send email through the channel.
--- * 'roleARN' - The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.
+-- | Creates a 'EmailChannelRequest' value with any optional fields omitted.
 mkEmailChannelRequest ::
   -- | 'fromAddress'
-  Lude.Text ->
+  Core.Text ->
   -- | 'identity'
-  Lude.Text ->
+  Core.Text ->
   EmailChannelRequest
-mkEmailChannelRequest pFromAddress_ pIdentity_ =
+mkEmailChannelRequest fromAddress identity =
   EmailChannelRequest'
-    { enabled = Lude.Nothing,
-      fromAddress = pFromAddress_,
-      configurationSet = Lude.Nothing,
-      identity = pIdentity_,
-      roleARN = Lude.Nothing
+    { fromAddress,
+      identity,
+      configurationSet = Core.Nothing,
+      enabled = Core.Nothing,
+      roleArn = Core.Nothing
     }
-
--- | Specifies whether to enable the email channel for the application.
---
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecrEnabled :: Lens.Lens' EmailChannelRequest (Lude.Maybe Lude.Bool)
-ecrEnabled = Lens.lens (enabled :: EmailChannelRequest -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: EmailChannelRequest)
-{-# DEPRECATED ecrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The verified email address that you want to send email from when you send email through the channel.
 --
 -- /Note:/ Consider using 'fromAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecrFromAddress :: Lens.Lens' EmailChannelRequest Lude.Text
-ecrFromAddress = Lens.lens (fromAddress :: EmailChannelRequest -> Lude.Text) (\s a -> s {fromAddress = a} :: EmailChannelRequest)
-{-# DEPRECATED ecrFromAddress "Use generic-lens or generic-optics with 'fromAddress' instead." #-}
-
--- | The <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set> that you want to apply to messages that you send through the channel.
---
--- /Note:/ Consider using 'configurationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecrConfigurationSet :: Lens.Lens' EmailChannelRequest (Lude.Maybe Lude.Text)
-ecrConfigurationSet = Lens.lens (configurationSet :: EmailChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {configurationSet = a} :: EmailChannelRequest)
-{-# DEPRECATED ecrConfigurationSet "Use generic-lens or generic-optics with 'configurationSet' instead." #-}
+ecrfFromAddress :: Lens.Lens' EmailChannelRequest Core.Text
+ecrfFromAddress = Lens.field @"fromAddress"
+{-# DEPRECATED ecrfFromAddress "Use generic-lens or generic-optics with 'fromAddress' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the identity, verified with Amazon Simple Email Service (Amazon SES), that you want to use when you send email through the channel.
 --
 -- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecrIdentity :: Lens.Lens' EmailChannelRequest Lude.Text
-ecrIdentity = Lens.lens (identity :: EmailChannelRequest -> Lude.Text) (\s a -> s {identity = a} :: EmailChannelRequest)
-{-# DEPRECATED ecrIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
+ecrfIdentity :: Lens.Lens' EmailChannelRequest Core.Text
+ecrfIdentity = Lens.field @"identity"
+{-# DEPRECATED ecrfIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
+
+-- | The <https://docs.aws.amazon.com/ses/latest/APIReference/API_ConfigurationSet.html Amazon SES configuration set> that you want to apply to messages that you send through the channel.
+--
+-- /Note:/ Consider using 'configurationSet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecrfConfigurationSet :: Lens.Lens' EmailChannelRequest (Core.Maybe Core.Text)
+ecrfConfigurationSet = Lens.field @"configurationSet"
+{-# DEPRECATED ecrfConfigurationSet "Use generic-lens or generic-optics with 'configurationSet' instead." #-}
+
+-- | Specifies whether to enable the email channel for the application.
+--
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecrfEnabled :: Lens.Lens' EmailChannelRequest (Core.Maybe Core.Bool)
+ecrfEnabled = Lens.field @"enabled"
+{-# DEPRECATED ecrfEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The ARN of the AWS Identity and Access Management (IAM) role that you want Amazon Pinpoint to use when it submits email-related event data for the channel.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ecrRoleARN :: Lens.Lens' EmailChannelRequest (Lude.Maybe Lude.Text)
-ecrRoleARN = Lens.lens (roleARN :: EmailChannelRequest -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: EmailChannelRequest)
-{-# DEPRECATED ecrRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecrfRoleArn :: Lens.Lens' EmailChannelRequest (Core.Maybe Core.Text)
+ecrfRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED ecrfRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.ToJSON EmailChannelRequest where
-  toJSON EmailChannelRequest' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Enabled" Lude..=) Lude.<$> enabled,
-            Lude.Just ("FromAddress" Lude..= fromAddress),
-            ("ConfigurationSet" Lude..=) Lude.<$> configurationSet,
-            Lude.Just ("Identity" Lude..= identity),
-            ("RoleArn" Lude..=) Lude.<$> roleARN
+instance Core.FromJSON EmailChannelRequest where
+  toJSON EmailChannelRequest {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("FromAddress" Core..= fromAddress),
+            Core.Just ("Identity" Core..= identity),
+            ("ConfigurationSet" Core..=) Core.<$> configurationSet,
+            ("Enabled" Core..=) Core.<$> enabled,
+            ("RoleArn" Core..=) Core.<$> roleArn
           ]
       )

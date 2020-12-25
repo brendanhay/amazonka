@@ -24,78 +24,74 @@ module Network.AWS.DirectConnect.Types.AssociatedGateway
   )
 where
 
-import Network.AWS.DirectConnect.Types.GatewayType
+import qualified Network.AWS.DirectConnect.Types.GatewayIdentifier as Types
+import qualified Network.AWS.DirectConnect.Types.GatewayType as Types
+import qualified Network.AWS.DirectConnect.Types.OwnerAccount as Types
+import qualified Network.AWS.DirectConnect.Types.Region as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the associated gateway.
 --
 -- /See:/ 'mkAssociatedGateway' smart constructor.
 data AssociatedGateway = AssociatedGateway'
   { -- | The ID of the associated gateway.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.GatewayIdentifier,
     -- | The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
-    ownerAccount :: Lude.Maybe Lude.Text,
+    ownerAccount :: Core.Maybe Types.OwnerAccount,
     -- | The Region where the associated gateway is located.
-    region :: Lude.Maybe Lude.Text,
+    region :: Core.Maybe Types.Region,
     -- | The type of associated gateway.
-    type' :: Lude.Maybe GatewayType
+    type' :: Core.Maybe Types.GatewayType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociatedGateway' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the associated gateway.
--- * 'ownerAccount' - The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
--- * 'region' - The Region where the associated gateway is located.
--- * 'type'' - The type of associated gateway.
+-- | Creates a 'AssociatedGateway' value with any optional fields omitted.
 mkAssociatedGateway ::
   AssociatedGateway
 mkAssociatedGateway =
   AssociatedGateway'
-    { id = Lude.Nothing,
-      ownerAccount = Lude.Nothing,
-      region = Lude.Nothing,
-      type' = Lude.Nothing
+    { id = Core.Nothing,
+      ownerAccount = Core.Nothing,
+      region = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The ID of the associated gateway.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agId :: Lens.Lens' AssociatedGateway (Lude.Maybe Lude.Text)
-agId = Lens.lens (id :: AssociatedGateway -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: AssociatedGateway)
+agId :: Lens.Lens' AssociatedGateway (Core.Maybe Types.GatewayIdentifier)
+agId = Lens.field @"id"
 {-# DEPRECATED agId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The ID of the AWS account that owns the associated virtual private gateway or transit gateway.
 --
 -- /Note:/ Consider using 'ownerAccount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agOwnerAccount :: Lens.Lens' AssociatedGateway (Lude.Maybe Lude.Text)
-agOwnerAccount = Lens.lens (ownerAccount :: AssociatedGateway -> Lude.Maybe Lude.Text) (\s a -> s {ownerAccount = a} :: AssociatedGateway)
+agOwnerAccount :: Lens.Lens' AssociatedGateway (Core.Maybe Types.OwnerAccount)
+agOwnerAccount = Lens.field @"ownerAccount"
 {-# DEPRECATED agOwnerAccount "Use generic-lens or generic-optics with 'ownerAccount' instead." #-}
 
 -- | The Region where the associated gateway is located.
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agRegion :: Lens.Lens' AssociatedGateway (Lude.Maybe Lude.Text)
-agRegion = Lens.lens (region :: AssociatedGateway -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: AssociatedGateway)
+agRegion :: Lens.Lens' AssociatedGateway (Core.Maybe Types.Region)
+agRegion = Lens.field @"region"
 {-# DEPRECATED agRegion "Use generic-lens or generic-optics with 'region' instead." #-}
 
 -- | The type of associated gateway.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agType :: Lens.Lens' AssociatedGateway (Lude.Maybe GatewayType)
-agType = Lens.lens (type' :: AssociatedGateway -> Lude.Maybe GatewayType) (\s a -> s {type' = a} :: AssociatedGateway)
+agType :: Lens.Lens' AssociatedGateway (Core.Maybe Types.GatewayType)
+agType = Lens.field @"type'"
 {-# DEPRECATED agType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON AssociatedGateway where
+instance Core.FromJSON AssociatedGateway where
   parseJSON =
-    Lude.withObject
-      "AssociatedGateway"
-      ( \x ->
-          AssociatedGateway'
-            Lude.<$> (x Lude..:? "id")
-            Lude.<*> (x Lude..:? "ownerAccount")
-            Lude.<*> (x Lude..:? "region")
-            Lude.<*> (x Lude..:? "type")
-      )
+    Core.withObject "AssociatedGateway" Core.$
+      \x ->
+        AssociatedGateway'
+          Core.<$> (x Core..:? "id")
+          Core.<*> (x Core..:? "ownerAccount")
+          Core.<*> (x Core..:? "region")
+          Core.<*> (x Core..:? "type")

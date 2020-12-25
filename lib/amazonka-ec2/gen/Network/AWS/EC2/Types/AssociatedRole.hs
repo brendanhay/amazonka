@@ -17,80 +17,79 @@ module Network.AWS.EC2.Types.AssociatedRole
     mkAssociatedRole,
 
     -- * Lenses
+    arAssociatedRoleArn,
     arCertificateS3BucketName,
     arCertificateS3ObjectKey,
-    arEncryptionKMSKeyId,
-    arAssociatedRoleARN,
+    arEncryptionKmsKeyId,
   )
 where
 
+import qualified Network.AWS.EC2.Types.AssociatedRoleArn as Types
+import qualified Network.AWS.EC2.Types.CertificateS3BucketName as Types
+import qualified Network.AWS.EC2.Types.CertificateS3ObjectKey as Types
+import qualified Network.AWS.EC2.Types.EncryptionKmsKeyId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about the associated IAM roles.
 --
 -- /See:/ 'mkAssociatedRole' smart constructor.
 data AssociatedRole = AssociatedRole'
-  { -- | The name of the Amazon S3 bucket in which the Amazon S3 object is stored.
-    certificateS3BucketName :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the associated IAM role.
+    associatedRoleArn :: Core.Maybe Types.AssociatedRoleArn,
+    -- | The name of the Amazon S3 bucket in which the Amazon S3 object is stored.
+    certificateS3BucketName :: Core.Maybe Types.CertificateS3BucketName,
     -- | The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle is stored. The object key is formated as follows: @certificate_arn@ /@role_arn@ .
-    certificateS3ObjectKey :: Lude.Maybe Lude.Text,
+    certificateS3ObjectKey :: Core.Maybe Types.CertificateS3ObjectKey,
     -- | The ID of the KMS customer master key (CMK) used to encrypt the private key.
-    encryptionKMSKeyId :: Lude.Maybe Lude.Text,
-    -- | The ARN of the associated IAM role.
-    associatedRoleARN :: Lude.Maybe Lude.Text
+    encryptionKmsKeyId :: Core.Maybe Types.EncryptionKmsKeyId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociatedRole' with the minimum fields required to make a request.
---
--- * 'certificateS3BucketName' - The name of the Amazon S3 bucket in which the Amazon S3 object is stored.
--- * 'certificateS3ObjectKey' - The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle is stored. The object key is formated as follows: @certificate_arn@ /@role_arn@ .
--- * 'encryptionKMSKeyId' - The ID of the KMS customer master key (CMK) used to encrypt the private key.
--- * 'associatedRoleARN' - The ARN of the associated IAM role.
+-- | Creates a 'AssociatedRole' value with any optional fields omitted.
 mkAssociatedRole ::
   AssociatedRole
 mkAssociatedRole =
   AssociatedRole'
-    { certificateS3BucketName = Lude.Nothing,
-      certificateS3ObjectKey = Lude.Nothing,
-      encryptionKMSKeyId = Lude.Nothing,
-      associatedRoleARN = Lude.Nothing
+    { associatedRoleArn = Core.Nothing,
+      certificateS3BucketName = Core.Nothing,
+      certificateS3ObjectKey = Core.Nothing,
+      encryptionKmsKeyId = Core.Nothing
     }
+
+-- | The ARN of the associated IAM role.
+--
+-- /Note:/ Consider using 'associatedRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arAssociatedRoleArn :: Lens.Lens' AssociatedRole (Core.Maybe Types.AssociatedRoleArn)
+arAssociatedRoleArn = Lens.field @"associatedRoleArn"
+{-# DEPRECATED arAssociatedRoleArn "Use generic-lens or generic-optics with 'associatedRoleArn' instead." #-}
 
 -- | The name of the Amazon S3 bucket in which the Amazon S3 object is stored.
 --
 -- /Note:/ Consider using 'certificateS3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arCertificateS3BucketName :: Lens.Lens' AssociatedRole (Lude.Maybe Lude.Text)
-arCertificateS3BucketName = Lens.lens (certificateS3BucketName :: AssociatedRole -> Lude.Maybe Lude.Text) (\s a -> s {certificateS3BucketName = a} :: AssociatedRole)
+arCertificateS3BucketName :: Lens.Lens' AssociatedRole (Core.Maybe Types.CertificateS3BucketName)
+arCertificateS3BucketName = Lens.field @"certificateS3BucketName"
 {-# DEPRECATED arCertificateS3BucketName "Use generic-lens or generic-optics with 'certificateS3BucketName' instead." #-}
 
 -- | The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle is stored. The object key is formated as follows: @certificate_arn@ /@role_arn@ .
 --
 -- /Note:/ Consider using 'certificateS3ObjectKey' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arCertificateS3ObjectKey :: Lens.Lens' AssociatedRole (Lude.Maybe Lude.Text)
-arCertificateS3ObjectKey = Lens.lens (certificateS3ObjectKey :: AssociatedRole -> Lude.Maybe Lude.Text) (\s a -> s {certificateS3ObjectKey = a} :: AssociatedRole)
+arCertificateS3ObjectKey :: Lens.Lens' AssociatedRole (Core.Maybe Types.CertificateS3ObjectKey)
+arCertificateS3ObjectKey = Lens.field @"certificateS3ObjectKey"
 {-# DEPRECATED arCertificateS3ObjectKey "Use generic-lens or generic-optics with 'certificateS3ObjectKey' instead." #-}
 
 -- | The ID of the KMS customer master key (CMK) used to encrypt the private key.
 --
--- /Note:/ Consider using 'encryptionKMSKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arEncryptionKMSKeyId :: Lens.Lens' AssociatedRole (Lude.Maybe Lude.Text)
-arEncryptionKMSKeyId = Lens.lens (encryptionKMSKeyId :: AssociatedRole -> Lude.Maybe Lude.Text) (\s a -> s {encryptionKMSKeyId = a} :: AssociatedRole)
-{-# DEPRECATED arEncryptionKMSKeyId "Use generic-lens or generic-optics with 'encryptionKMSKeyId' instead." #-}
+-- /Note:/ Consider using 'encryptionKmsKeyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arEncryptionKmsKeyId :: Lens.Lens' AssociatedRole (Core.Maybe Types.EncryptionKmsKeyId)
+arEncryptionKmsKeyId = Lens.field @"encryptionKmsKeyId"
+{-# DEPRECATED arEncryptionKmsKeyId "Use generic-lens or generic-optics with 'encryptionKmsKeyId' instead." #-}
 
--- | The ARN of the associated IAM role.
---
--- /Note:/ Consider using 'associatedRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arAssociatedRoleARN :: Lens.Lens' AssociatedRole (Lude.Maybe Lude.Text)
-arAssociatedRoleARN = Lens.lens (associatedRoleARN :: AssociatedRole -> Lude.Maybe Lude.Text) (\s a -> s {associatedRoleARN = a} :: AssociatedRole)
-{-# DEPRECATED arAssociatedRoleARN "Use generic-lens or generic-optics with 'associatedRoleARN' instead." #-}
-
-instance Lude.FromXML AssociatedRole where
+instance Core.FromXML AssociatedRole where
   parseXML x =
     AssociatedRole'
-      Lude.<$> (x Lude..@? "certificateS3BucketName")
-      Lude.<*> (x Lude..@? "certificateS3ObjectKey")
-      Lude.<*> (x Lude..@? "encryptionKmsKeyId")
-      Lude.<*> (x Lude..@? "associatedRoleArn")
+      Core.<$> (x Core..@? "associatedRoleArn")
+      Core.<*> (x Core..@? "certificateS3BucketName")
+      Core.<*> (x Core..@? "certificateS3ObjectKey")
+      Core.<*> (x Core..@? "encryptionKmsKeyId")

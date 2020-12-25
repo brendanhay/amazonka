@@ -13,61 +13,63 @@
 module Network.AWS.Pinpoint.Types.State
   ( State
       ( State',
-        SDraft,
-        SActive,
-        SCompleted,
-        SCancelled,
-        SClosed
+        StateDraft,
+        StateActive,
+        StateCompleted,
+        StateCancelled,
+        StateClosed,
+        fromState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype State = State' Lude.Text
+newtype State = State' {fromState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SDraft :: State
-pattern SDraft = State' "DRAFT"
+pattern StateDraft :: State
+pattern StateDraft = State' "DRAFT"
 
-pattern SActive :: State
-pattern SActive = State' "ACTIVE"
+pattern StateActive :: State
+pattern StateActive = State' "ACTIVE"
 
-pattern SCompleted :: State
-pattern SCompleted = State' "COMPLETED"
+pattern StateCompleted :: State
+pattern StateCompleted = State' "COMPLETED"
 
-pattern SCancelled :: State
-pattern SCancelled = State' "CANCELLED"
+pattern StateCancelled :: State
+pattern StateCancelled = State' "CANCELLED"
 
-pattern SClosed :: State
-pattern SClosed = State' "CLOSED"
+pattern StateClosed :: State
+pattern StateClosed = State' "CLOSED"
 
 {-# COMPLETE
-  SDraft,
-  SActive,
-  SCompleted,
-  SCancelled,
-  SClosed,
+  StateDraft,
+  StateActive,
+  StateCompleted,
+  StateCancelled,
+  StateClosed,
   State'
   #-}

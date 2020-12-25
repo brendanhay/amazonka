@@ -13,56 +13,61 @@
 module Network.AWS.SSM.Types.PatchDeploymentStatus
   ( PatchDeploymentStatus
       ( PatchDeploymentStatus',
-        Approved,
-        PendingApproval,
-        ExplicitApproved,
-        ExplicitRejected
+        PatchDeploymentStatusApproved,
+        PatchDeploymentStatusPendingApproval,
+        PatchDeploymentStatusExplicitApproved,
+        PatchDeploymentStatusExplicitRejected,
+        fromPatchDeploymentStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PatchDeploymentStatus = PatchDeploymentStatus' Lude.Text
+newtype PatchDeploymentStatus = PatchDeploymentStatus'
+  { fromPatchDeploymentStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Approved :: PatchDeploymentStatus
-pattern Approved = PatchDeploymentStatus' "APPROVED"
+pattern PatchDeploymentStatusApproved :: PatchDeploymentStatus
+pattern PatchDeploymentStatusApproved = PatchDeploymentStatus' "APPROVED"
 
-pattern PendingApproval :: PatchDeploymentStatus
-pattern PendingApproval = PatchDeploymentStatus' "PENDING_APPROVAL"
+pattern PatchDeploymentStatusPendingApproval :: PatchDeploymentStatus
+pattern PatchDeploymentStatusPendingApproval = PatchDeploymentStatus' "PENDING_APPROVAL"
 
-pattern ExplicitApproved :: PatchDeploymentStatus
-pattern ExplicitApproved = PatchDeploymentStatus' "EXPLICIT_APPROVED"
+pattern PatchDeploymentStatusExplicitApproved :: PatchDeploymentStatus
+pattern PatchDeploymentStatusExplicitApproved = PatchDeploymentStatus' "EXPLICIT_APPROVED"
 
-pattern ExplicitRejected :: PatchDeploymentStatus
-pattern ExplicitRejected = PatchDeploymentStatus' "EXPLICIT_REJECTED"
+pattern PatchDeploymentStatusExplicitRejected :: PatchDeploymentStatus
+pattern PatchDeploymentStatusExplicitRejected = PatchDeploymentStatus' "EXPLICIT_REJECTED"
 
 {-# COMPLETE
-  Approved,
-  PendingApproval,
-  ExplicitApproved,
-  ExplicitRejected,
+  PatchDeploymentStatusApproved,
+  PatchDeploymentStatusPendingApproval,
+  PatchDeploymentStatusExplicitApproved,
+  PatchDeploymentStatusExplicitRejected,
   PatchDeploymentStatus'
   #-}

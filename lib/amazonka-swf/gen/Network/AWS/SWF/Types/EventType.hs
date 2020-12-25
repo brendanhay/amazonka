@@ -13,306 +13,308 @@
 module Network.AWS.SWF.Types.EventType
   ( EventType
       ( EventType',
-        WorkflowExecutionStarted,
-        WorkflowExecutionCancelRequested,
-        WorkflowExecutionCompleted,
-        CompleteWorkflowExecutionFailed,
-        WorkflowExecutionFailed,
-        FailWorkflowExecutionFailed,
-        WorkflowExecutionTimedOut,
-        WorkflowExecutionCanceled,
-        CancelWorkflowExecutionFailed,
-        WorkflowExecutionContinuedAsNew,
-        ContinueAsNewWorkflowExecutionFailed,
-        WorkflowExecutionTerminated,
-        DecisionTaskScheduled,
-        DecisionTaskStarted,
-        DecisionTaskCompleted,
-        DecisionTaskTimedOut,
-        ActivityTaskScheduled,
-        ScheduleActivityTaskFailed,
-        ActivityTaskStarted,
-        ActivityTaskCompleted,
-        ActivityTaskFailed,
-        ActivityTaskTimedOut,
-        ActivityTaskCanceled,
-        ActivityTaskCancelRequested,
-        RequestCancelActivityTaskFailed,
-        WorkflowExecutionSignaled,
-        MarkerRecorded,
-        RecordMarkerFailed,
-        TimerStarted,
-        StartTimerFailed,
-        TimerFired,
-        TimerCanceled,
-        CancelTimerFailed,
-        StartChildWorkflowExecutionInitiated,
-        StartChildWorkflowExecutionFailed,
-        ChildWorkflowExecutionStarted,
-        ChildWorkflowExecutionCompleted,
-        ChildWorkflowExecutionFailed,
-        ChildWorkflowExecutionTimedOut,
-        ChildWorkflowExecutionCanceled,
-        ChildWorkflowExecutionTerminated,
-        SignalExternalWorkflowExecutionInitiated,
-        SignalExternalWorkflowExecutionFailed,
-        ExternalWorkflowExecutionSignaled,
-        RequestCancelExternalWorkflowExecutionInitiated,
-        RequestCancelExternalWorkflowExecutionFailed,
-        ExternalWorkflowExecutionCancelRequested,
-        LambdaFunctionScheduled,
-        LambdaFunctionStarted,
-        LambdaFunctionCompleted,
-        LambdaFunctionFailed,
-        LambdaFunctionTimedOut,
-        ScheduleLambdaFunctionFailed,
-        StartLambdaFunctionFailed
+        EventTypeWorkflowExecutionStarted,
+        EventTypeWorkflowExecutionCancelRequested,
+        EventTypeWorkflowExecutionCompleted,
+        EventTypeCompleteWorkflowExecutionFailed,
+        EventTypeWorkflowExecutionFailed,
+        EventTypeFailWorkflowExecutionFailed,
+        EventTypeWorkflowExecutionTimedOut,
+        EventTypeWorkflowExecutionCanceled,
+        EventTypeCancelWorkflowExecutionFailed,
+        EventTypeWorkflowExecutionContinuedAsNew,
+        EventTypeContinueAsNewWorkflowExecutionFailed,
+        EventTypeWorkflowExecutionTerminated,
+        EventTypeDecisionTaskScheduled,
+        EventTypeDecisionTaskStarted,
+        EventTypeDecisionTaskCompleted,
+        EventTypeDecisionTaskTimedOut,
+        EventTypeActivityTaskScheduled,
+        EventTypeScheduleActivityTaskFailed,
+        EventTypeActivityTaskStarted,
+        EventTypeActivityTaskCompleted,
+        EventTypeActivityTaskFailed,
+        EventTypeActivityTaskTimedOut,
+        EventTypeActivityTaskCanceled,
+        EventTypeActivityTaskCancelRequested,
+        EventTypeRequestCancelActivityTaskFailed,
+        EventTypeWorkflowExecutionSignaled,
+        EventTypeMarkerRecorded,
+        EventTypeRecordMarkerFailed,
+        EventTypeTimerStarted,
+        EventTypeStartTimerFailed,
+        EventTypeTimerFired,
+        EventTypeTimerCanceled,
+        EventTypeCancelTimerFailed,
+        EventTypeStartChildWorkflowExecutionInitiated,
+        EventTypeStartChildWorkflowExecutionFailed,
+        EventTypeChildWorkflowExecutionStarted,
+        EventTypeChildWorkflowExecutionCompleted,
+        EventTypeChildWorkflowExecutionFailed,
+        EventTypeChildWorkflowExecutionTimedOut,
+        EventTypeChildWorkflowExecutionCanceled,
+        EventTypeChildWorkflowExecutionTerminated,
+        EventTypeSignalExternalWorkflowExecutionInitiated,
+        EventTypeSignalExternalWorkflowExecutionFailed,
+        EventTypeExternalWorkflowExecutionSignaled,
+        EventTypeRequestCancelExternalWorkflowExecutionInitiated,
+        EventTypeRequestCancelExternalWorkflowExecutionFailed,
+        EventTypeExternalWorkflowExecutionCancelRequested,
+        EventTypeLambdaFunctionScheduled,
+        EventTypeLambdaFunctionStarted,
+        EventTypeLambdaFunctionCompleted,
+        EventTypeLambdaFunctionFailed,
+        EventTypeLambdaFunctionTimedOut,
+        EventTypeScheduleLambdaFunctionFailed,
+        EventTypeStartLambdaFunctionFailed,
+        fromEventType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EventType = EventType' Lude.Text
+newtype EventType = EventType' {fromEventType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern WorkflowExecutionStarted :: EventType
-pattern WorkflowExecutionStarted = EventType' "WorkflowExecutionStarted"
+pattern EventTypeWorkflowExecutionStarted :: EventType
+pattern EventTypeWorkflowExecutionStarted = EventType' "WorkflowExecutionStarted"
 
-pattern WorkflowExecutionCancelRequested :: EventType
-pattern WorkflowExecutionCancelRequested = EventType' "WorkflowExecutionCancelRequested"
+pattern EventTypeWorkflowExecutionCancelRequested :: EventType
+pattern EventTypeWorkflowExecutionCancelRequested = EventType' "WorkflowExecutionCancelRequested"
 
-pattern WorkflowExecutionCompleted :: EventType
-pattern WorkflowExecutionCompleted = EventType' "WorkflowExecutionCompleted"
+pattern EventTypeWorkflowExecutionCompleted :: EventType
+pattern EventTypeWorkflowExecutionCompleted = EventType' "WorkflowExecutionCompleted"
 
-pattern CompleteWorkflowExecutionFailed :: EventType
-pattern CompleteWorkflowExecutionFailed = EventType' "CompleteWorkflowExecutionFailed"
+pattern EventTypeCompleteWorkflowExecutionFailed :: EventType
+pattern EventTypeCompleteWorkflowExecutionFailed = EventType' "CompleteWorkflowExecutionFailed"
 
-pattern WorkflowExecutionFailed :: EventType
-pattern WorkflowExecutionFailed = EventType' "WorkflowExecutionFailed"
+pattern EventTypeWorkflowExecutionFailed :: EventType
+pattern EventTypeWorkflowExecutionFailed = EventType' "WorkflowExecutionFailed"
 
-pattern FailWorkflowExecutionFailed :: EventType
-pattern FailWorkflowExecutionFailed = EventType' "FailWorkflowExecutionFailed"
+pattern EventTypeFailWorkflowExecutionFailed :: EventType
+pattern EventTypeFailWorkflowExecutionFailed = EventType' "FailWorkflowExecutionFailed"
 
-pattern WorkflowExecutionTimedOut :: EventType
-pattern WorkflowExecutionTimedOut = EventType' "WorkflowExecutionTimedOut"
+pattern EventTypeWorkflowExecutionTimedOut :: EventType
+pattern EventTypeWorkflowExecutionTimedOut = EventType' "WorkflowExecutionTimedOut"
 
-pattern WorkflowExecutionCanceled :: EventType
-pattern WorkflowExecutionCanceled = EventType' "WorkflowExecutionCanceled"
+pattern EventTypeWorkflowExecutionCanceled :: EventType
+pattern EventTypeWorkflowExecutionCanceled = EventType' "WorkflowExecutionCanceled"
 
-pattern CancelWorkflowExecutionFailed :: EventType
-pattern CancelWorkflowExecutionFailed = EventType' "CancelWorkflowExecutionFailed"
+pattern EventTypeCancelWorkflowExecutionFailed :: EventType
+pattern EventTypeCancelWorkflowExecutionFailed = EventType' "CancelWorkflowExecutionFailed"
 
-pattern WorkflowExecutionContinuedAsNew :: EventType
-pattern WorkflowExecutionContinuedAsNew = EventType' "WorkflowExecutionContinuedAsNew"
+pattern EventTypeWorkflowExecutionContinuedAsNew :: EventType
+pattern EventTypeWorkflowExecutionContinuedAsNew = EventType' "WorkflowExecutionContinuedAsNew"
 
-pattern ContinueAsNewWorkflowExecutionFailed :: EventType
-pattern ContinueAsNewWorkflowExecutionFailed = EventType' "ContinueAsNewWorkflowExecutionFailed"
+pattern EventTypeContinueAsNewWorkflowExecutionFailed :: EventType
+pattern EventTypeContinueAsNewWorkflowExecutionFailed = EventType' "ContinueAsNewWorkflowExecutionFailed"
 
-pattern WorkflowExecutionTerminated :: EventType
-pattern WorkflowExecutionTerminated = EventType' "WorkflowExecutionTerminated"
+pattern EventTypeWorkflowExecutionTerminated :: EventType
+pattern EventTypeWorkflowExecutionTerminated = EventType' "WorkflowExecutionTerminated"
 
-pattern DecisionTaskScheduled :: EventType
-pattern DecisionTaskScheduled = EventType' "DecisionTaskScheduled"
+pattern EventTypeDecisionTaskScheduled :: EventType
+pattern EventTypeDecisionTaskScheduled = EventType' "DecisionTaskScheduled"
 
-pattern DecisionTaskStarted :: EventType
-pattern DecisionTaskStarted = EventType' "DecisionTaskStarted"
+pattern EventTypeDecisionTaskStarted :: EventType
+pattern EventTypeDecisionTaskStarted = EventType' "DecisionTaskStarted"
 
-pattern DecisionTaskCompleted :: EventType
-pattern DecisionTaskCompleted = EventType' "DecisionTaskCompleted"
+pattern EventTypeDecisionTaskCompleted :: EventType
+pattern EventTypeDecisionTaskCompleted = EventType' "DecisionTaskCompleted"
 
-pattern DecisionTaskTimedOut :: EventType
-pattern DecisionTaskTimedOut = EventType' "DecisionTaskTimedOut"
+pattern EventTypeDecisionTaskTimedOut :: EventType
+pattern EventTypeDecisionTaskTimedOut = EventType' "DecisionTaskTimedOut"
 
-pattern ActivityTaskScheduled :: EventType
-pattern ActivityTaskScheduled = EventType' "ActivityTaskScheduled"
+pattern EventTypeActivityTaskScheduled :: EventType
+pattern EventTypeActivityTaskScheduled = EventType' "ActivityTaskScheduled"
 
-pattern ScheduleActivityTaskFailed :: EventType
-pattern ScheduleActivityTaskFailed = EventType' "ScheduleActivityTaskFailed"
+pattern EventTypeScheduleActivityTaskFailed :: EventType
+pattern EventTypeScheduleActivityTaskFailed = EventType' "ScheduleActivityTaskFailed"
 
-pattern ActivityTaskStarted :: EventType
-pattern ActivityTaskStarted = EventType' "ActivityTaskStarted"
+pattern EventTypeActivityTaskStarted :: EventType
+pattern EventTypeActivityTaskStarted = EventType' "ActivityTaskStarted"
 
-pattern ActivityTaskCompleted :: EventType
-pattern ActivityTaskCompleted = EventType' "ActivityTaskCompleted"
+pattern EventTypeActivityTaskCompleted :: EventType
+pattern EventTypeActivityTaskCompleted = EventType' "ActivityTaskCompleted"
 
-pattern ActivityTaskFailed :: EventType
-pattern ActivityTaskFailed = EventType' "ActivityTaskFailed"
+pattern EventTypeActivityTaskFailed :: EventType
+pattern EventTypeActivityTaskFailed = EventType' "ActivityTaskFailed"
 
-pattern ActivityTaskTimedOut :: EventType
-pattern ActivityTaskTimedOut = EventType' "ActivityTaskTimedOut"
+pattern EventTypeActivityTaskTimedOut :: EventType
+pattern EventTypeActivityTaskTimedOut = EventType' "ActivityTaskTimedOut"
 
-pattern ActivityTaskCanceled :: EventType
-pattern ActivityTaskCanceled = EventType' "ActivityTaskCanceled"
+pattern EventTypeActivityTaskCanceled :: EventType
+pattern EventTypeActivityTaskCanceled = EventType' "ActivityTaskCanceled"
 
-pattern ActivityTaskCancelRequested :: EventType
-pattern ActivityTaskCancelRequested = EventType' "ActivityTaskCancelRequested"
+pattern EventTypeActivityTaskCancelRequested :: EventType
+pattern EventTypeActivityTaskCancelRequested = EventType' "ActivityTaskCancelRequested"
 
-pattern RequestCancelActivityTaskFailed :: EventType
-pattern RequestCancelActivityTaskFailed = EventType' "RequestCancelActivityTaskFailed"
+pattern EventTypeRequestCancelActivityTaskFailed :: EventType
+pattern EventTypeRequestCancelActivityTaskFailed = EventType' "RequestCancelActivityTaskFailed"
 
-pattern WorkflowExecutionSignaled :: EventType
-pattern WorkflowExecutionSignaled = EventType' "WorkflowExecutionSignaled"
+pattern EventTypeWorkflowExecutionSignaled :: EventType
+pattern EventTypeWorkflowExecutionSignaled = EventType' "WorkflowExecutionSignaled"
 
-pattern MarkerRecorded :: EventType
-pattern MarkerRecorded = EventType' "MarkerRecorded"
+pattern EventTypeMarkerRecorded :: EventType
+pattern EventTypeMarkerRecorded = EventType' "MarkerRecorded"
 
-pattern RecordMarkerFailed :: EventType
-pattern RecordMarkerFailed = EventType' "RecordMarkerFailed"
+pattern EventTypeRecordMarkerFailed :: EventType
+pattern EventTypeRecordMarkerFailed = EventType' "RecordMarkerFailed"
 
-pattern TimerStarted :: EventType
-pattern TimerStarted = EventType' "TimerStarted"
+pattern EventTypeTimerStarted :: EventType
+pattern EventTypeTimerStarted = EventType' "TimerStarted"
 
-pattern StartTimerFailed :: EventType
-pattern StartTimerFailed = EventType' "StartTimerFailed"
+pattern EventTypeStartTimerFailed :: EventType
+pattern EventTypeStartTimerFailed = EventType' "StartTimerFailed"
 
-pattern TimerFired :: EventType
-pattern TimerFired = EventType' "TimerFired"
+pattern EventTypeTimerFired :: EventType
+pattern EventTypeTimerFired = EventType' "TimerFired"
 
-pattern TimerCanceled :: EventType
-pattern TimerCanceled = EventType' "TimerCanceled"
+pattern EventTypeTimerCanceled :: EventType
+pattern EventTypeTimerCanceled = EventType' "TimerCanceled"
 
-pattern CancelTimerFailed :: EventType
-pattern CancelTimerFailed = EventType' "CancelTimerFailed"
+pattern EventTypeCancelTimerFailed :: EventType
+pattern EventTypeCancelTimerFailed = EventType' "CancelTimerFailed"
 
-pattern StartChildWorkflowExecutionInitiated :: EventType
-pattern StartChildWorkflowExecutionInitiated = EventType' "StartChildWorkflowExecutionInitiated"
+pattern EventTypeStartChildWorkflowExecutionInitiated :: EventType
+pattern EventTypeStartChildWorkflowExecutionInitiated = EventType' "StartChildWorkflowExecutionInitiated"
 
-pattern StartChildWorkflowExecutionFailed :: EventType
-pattern StartChildWorkflowExecutionFailed = EventType' "StartChildWorkflowExecutionFailed"
+pattern EventTypeStartChildWorkflowExecutionFailed :: EventType
+pattern EventTypeStartChildWorkflowExecutionFailed = EventType' "StartChildWorkflowExecutionFailed"
 
-pattern ChildWorkflowExecutionStarted :: EventType
-pattern ChildWorkflowExecutionStarted = EventType' "ChildWorkflowExecutionStarted"
+pattern EventTypeChildWorkflowExecutionStarted :: EventType
+pattern EventTypeChildWorkflowExecutionStarted = EventType' "ChildWorkflowExecutionStarted"
 
-pattern ChildWorkflowExecutionCompleted :: EventType
-pattern ChildWorkflowExecutionCompleted = EventType' "ChildWorkflowExecutionCompleted"
+pattern EventTypeChildWorkflowExecutionCompleted :: EventType
+pattern EventTypeChildWorkflowExecutionCompleted = EventType' "ChildWorkflowExecutionCompleted"
 
-pattern ChildWorkflowExecutionFailed :: EventType
-pattern ChildWorkflowExecutionFailed = EventType' "ChildWorkflowExecutionFailed"
+pattern EventTypeChildWorkflowExecutionFailed :: EventType
+pattern EventTypeChildWorkflowExecutionFailed = EventType' "ChildWorkflowExecutionFailed"
 
-pattern ChildWorkflowExecutionTimedOut :: EventType
-pattern ChildWorkflowExecutionTimedOut = EventType' "ChildWorkflowExecutionTimedOut"
+pattern EventTypeChildWorkflowExecutionTimedOut :: EventType
+pattern EventTypeChildWorkflowExecutionTimedOut = EventType' "ChildWorkflowExecutionTimedOut"
 
-pattern ChildWorkflowExecutionCanceled :: EventType
-pattern ChildWorkflowExecutionCanceled = EventType' "ChildWorkflowExecutionCanceled"
+pattern EventTypeChildWorkflowExecutionCanceled :: EventType
+pattern EventTypeChildWorkflowExecutionCanceled = EventType' "ChildWorkflowExecutionCanceled"
 
-pattern ChildWorkflowExecutionTerminated :: EventType
-pattern ChildWorkflowExecutionTerminated = EventType' "ChildWorkflowExecutionTerminated"
+pattern EventTypeChildWorkflowExecutionTerminated :: EventType
+pattern EventTypeChildWorkflowExecutionTerminated = EventType' "ChildWorkflowExecutionTerminated"
 
-pattern SignalExternalWorkflowExecutionInitiated :: EventType
-pattern SignalExternalWorkflowExecutionInitiated = EventType' "SignalExternalWorkflowExecutionInitiated"
+pattern EventTypeSignalExternalWorkflowExecutionInitiated :: EventType
+pattern EventTypeSignalExternalWorkflowExecutionInitiated = EventType' "SignalExternalWorkflowExecutionInitiated"
 
-pattern SignalExternalWorkflowExecutionFailed :: EventType
-pattern SignalExternalWorkflowExecutionFailed = EventType' "SignalExternalWorkflowExecutionFailed"
+pattern EventTypeSignalExternalWorkflowExecutionFailed :: EventType
+pattern EventTypeSignalExternalWorkflowExecutionFailed = EventType' "SignalExternalWorkflowExecutionFailed"
 
-pattern ExternalWorkflowExecutionSignaled :: EventType
-pattern ExternalWorkflowExecutionSignaled = EventType' "ExternalWorkflowExecutionSignaled"
+pattern EventTypeExternalWorkflowExecutionSignaled :: EventType
+pattern EventTypeExternalWorkflowExecutionSignaled = EventType' "ExternalWorkflowExecutionSignaled"
 
-pattern RequestCancelExternalWorkflowExecutionInitiated :: EventType
-pattern RequestCancelExternalWorkflowExecutionInitiated = EventType' "RequestCancelExternalWorkflowExecutionInitiated"
+pattern EventTypeRequestCancelExternalWorkflowExecutionInitiated :: EventType
+pattern EventTypeRequestCancelExternalWorkflowExecutionInitiated = EventType' "RequestCancelExternalWorkflowExecutionInitiated"
 
-pattern RequestCancelExternalWorkflowExecutionFailed :: EventType
-pattern RequestCancelExternalWorkflowExecutionFailed = EventType' "RequestCancelExternalWorkflowExecutionFailed"
+pattern EventTypeRequestCancelExternalWorkflowExecutionFailed :: EventType
+pattern EventTypeRequestCancelExternalWorkflowExecutionFailed = EventType' "RequestCancelExternalWorkflowExecutionFailed"
 
-pattern ExternalWorkflowExecutionCancelRequested :: EventType
-pattern ExternalWorkflowExecutionCancelRequested = EventType' "ExternalWorkflowExecutionCancelRequested"
+pattern EventTypeExternalWorkflowExecutionCancelRequested :: EventType
+pattern EventTypeExternalWorkflowExecutionCancelRequested = EventType' "ExternalWorkflowExecutionCancelRequested"
 
-pattern LambdaFunctionScheduled :: EventType
-pattern LambdaFunctionScheduled = EventType' "LambdaFunctionScheduled"
+pattern EventTypeLambdaFunctionScheduled :: EventType
+pattern EventTypeLambdaFunctionScheduled = EventType' "LambdaFunctionScheduled"
 
-pattern LambdaFunctionStarted :: EventType
-pattern LambdaFunctionStarted = EventType' "LambdaFunctionStarted"
+pattern EventTypeLambdaFunctionStarted :: EventType
+pattern EventTypeLambdaFunctionStarted = EventType' "LambdaFunctionStarted"
 
-pattern LambdaFunctionCompleted :: EventType
-pattern LambdaFunctionCompleted = EventType' "LambdaFunctionCompleted"
+pattern EventTypeLambdaFunctionCompleted :: EventType
+pattern EventTypeLambdaFunctionCompleted = EventType' "LambdaFunctionCompleted"
 
-pattern LambdaFunctionFailed :: EventType
-pattern LambdaFunctionFailed = EventType' "LambdaFunctionFailed"
+pattern EventTypeLambdaFunctionFailed :: EventType
+pattern EventTypeLambdaFunctionFailed = EventType' "LambdaFunctionFailed"
 
-pattern LambdaFunctionTimedOut :: EventType
-pattern LambdaFunctionTimedOut = EventType' "LambdaFunctionTimedOut"
+pattern EventTypeLambdaFunctionTimedOut :: EventType
+pattern EventTypeLambdaFunctionTimedOut = EventType' "LambdaFunctionTimedOut"
 
-pattern ScheduleLambdaFunctionFailed :: EventType
-pattern ScheduleLambdaFunctionFailed = EventType' "ScheduleLambdaFunctionFailed"
+pattern EventTypeScheduleLambdaFunctionFailed :: EventType
+pattern EventTypeScheduleLambdaFunctionFailed = EventType' "ScheduleLambdaFunctionFailed"
 
-pattern StartLambdaFunctionFailed :: EventType
-pattern StartLambdaFunctionFailed = EventType' "StartLambdaFunctionFailed"
+pattern EventTypeStartLambdaFunctionFailed :: EventType
+pattern EventTypeStartLambdaFunctionFailed = EventType' "StartLambdaFunctionFailed"
 
 {-# COMPLETE
-  WorkflowExecutionStarted,
-  WorkflowExecutionCancelRequested,
-  WorkflowExecutionCompleted,
-  CompleteWorkflowExecutionFailed,
-  WorkflowExecutionFailed,
-  FailWorkflowExecutionFailed,
-  WorkflowExecutionTimedOut,
-  WorkflowExecutionCanceled,
-  CancelWorkflowExecutionFailed,
-  WorkflowExecutionContinuedAsNew,
-  ContinueAsNewWorkflowExecutionFailed,
-  WorkflowExecutionTerminated,
-  DecisionTaskScheduled,
-  DecisionTaskStarted,
-  DecisionTaskCompleted,
-  DecisionTaskTimedOut,
-  ActivityTaskScheduled,
-  ScheduleActivityTaskFailed,
-  ActivityTaskStarted,
-  ActivityTaskCompleted,
-  ActivityTaskFailed,
-  ActivityTaskTimedOut,
-  ActivityTaskCanceled,
-  ActivityTaskCancelRequested,
-  RequestCancelActivityTaskFailed,
-  WorkflowExecutionSignaled,
-  MarkerRecorded,
-  RecordMarkerFailed,
-  TimerStarted,
-  StartTimerFailed,
-  TimerFired,
-  TimerCanceled,
-  CancelTimerFailed,
-  StartChildWorkflowExecutionInitiated,
-  StartChildWorkflowExecutionFailed,
-  ChildWorkflowExecutionStarted,
-  ChildWorkflowExecutionCompleted,
-  ChildWorkflowExecutionFailed,
-  ChildWorkflowExecutionTimedOut,
-  ChildWorkflowExecutionCanceled,
-  ChildWorkflowExecutionTerminated,
-  SignalExternalWorkflowExecutionInitiated,
-  SignalExternalWorkflowExecutionFailed,
-  ExternalWorkflowExecutionSignaled,
-  RequestCancelExternalWorkflowExecutionInitiated,
-  RequestCancelExternalWorkflowExecutionFailed,
-  ExternalWorkflowExecutionCancelRequested,
-  LambdaFunctionScheduled,
-  LambdaFunctionStarted,
-  LambdaFunctionCompleted,
-  LambdaFunctionFailed,
-  LambdaFunctionTimedOut,
-  ScheduleLambdaFunctionFailed,
-  StartLambdaFunctionFailed,
+  EventTypeWorkflowExecutionStarted,
+  EventTypeWorkflowExecutionCancelRequested,
+  EventTypeWorkflowExecutionCompleted,
+  EventTypeCompleteWorkflowExecutionFailed,
+  EventTypeWorkflowExecutionFailed,
+  EventTypeFailWorkflowExecutionFailed,
+  EventTypeWorkflowExecutionTimedOut,
+  EventTypeWorkflowExecutionCanceled,
+  EventTypeCancelWorkflowExecutionFailed,
+  EventTypeWorkflowExecutionContinuedAsNew,
+  EventTypeContinueAsNewWorkflowExecutionFailed,
+  EventTypeWorkflowExecutionTerminated,
+  EventTypeDecisionTaskScheduled,
+  EventTypeDecisionTaskStarted,
+  EventTypeDecisionTaskCompleted,
+  EventTypeDecisionTaskTimedOut,
+  EventTypeActivityTaskScheduled,
+  EventTypeScheduleActivityTaskFailed,
+  EventTypeActivityTaskStarted,
+  EventTypeActivityTaskCompleted,
+  EventTypeActivityTaskFailed,
+  EventTypeActivityTaskTimedOut,
+  EventTypeActivityTaskCanceled,
+  EventTypeActivityTaskCancelRequested,
+  EventTypeRequestCancelActivityTaskFailed,
+  EventTypeWorkflowExecutionSignaled,
+  EventTypeMarkerRecorded,
+  EventTypeRecordMarkerFailed,
+  EventTypeTimerStarted,
+  EventTypeStartTimerFailed,
+  EventTypeTimerFired,
+  EventTypeTimerCanceled,
+  EventTypeCancelTimerFailed,
+  EventTypeStartChildWorkflowExecutionInitiated,
+  EventTypeStartChildWorkflowExecutionFailed,
+  EventTypeChildWorkflowExecutionStarted,
+  EventTypeChildWorkflowExecutionCompleted,
+  EventTypeChildWorkflowExecutionFailed,
+  EventTypeChildWorkflowExecutionTimedOut,
+  EventTypeChildWorkflowExecutionCanceled,
+  EventTypeChildWorkflowExecutionTerminated,
+  EventTypeSignalExternalWorkflowExecutionInitiated,
+  EventTypeSignalExternalWorkflowExecutionFailed,
+  EventTypeExternalWorkflowExecutionSignaled,
+  EventTypeRequestCancelExternalWorkflowExecutionInitiated,
+  EventTypeRequestCancelExternalWorkflowExecutionFailed,
+  EventTypeExternalWorkflowExecutionCancelRequested,
+  EventTypeLambdaFunctionScheduled,
+  EventTypeLambdaFunctionStarted,
+  EventTypeLambdaFunctionCompleted,
+  EventTypeLambdaFunctionFailed,
+  EventTypeLambdaFunctionTimedOut,
+  EventTypeScheduleLambdaFunctionFailed,
+  EventTypeStartLambdaFunctionFailed,
   EventType'
   #-}

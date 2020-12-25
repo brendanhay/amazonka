@@ -30,123 +30,119 @@ module Network.AWS.CloudFormation.UpdateTerminationProtection
     mkUpdateTerminationProtectionResponse,
 
     -- ** Response lenses
-    utprsStackId,
-    utprsResponseStatus,
+    utprrsStackId,
+    utprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateTerminationProtection' smart constructor.
 data UpdateTerminationProtection = UpdateTerminationProtection'
   { -- | Whether to enable termination protection on the specified stack.
-    enableTerminationProtection :: Lude.Bool,
+    enableTerminationProtection :: Core.Bool,
     -- | The name or unique ID of the stack for which you want to set termination protection.
-    stackName :: Lude.Text
+    stackName :: Types.StackName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTerminationProtection' with the minimum fields required to make a request.
---
--- * 'enableTerminationProtection' - Whether to enable termination protection on the specified stack.
--- * 'stackName' - The name or unique ID of the stack for which you want to set termination protection.
+-- | Creates a 'UpdateTerminationProtection' value with any optional fields omitted.
 mkUpdateTerminationProtection ::
   -- | 'enableTerminationProtection'
-  Lude.Bool ->
+  Core.Bool ->
   -- | 'stackName'
-  Lude.Text ->
+  Types.StackName ->
   UpdateTerminationProtection
-mkUpdateTerminationProtection
-  pEnableTerminationProtection_
-  pStackName_ =
-    UpdateTerminationProtection'
-      { enableTerminationProtection =
-          pEnableTerminationProtection_,
-        stackName = pStackName_
-      }
+mkUpdateTerminationProtection enableTerminationProtection stackName =
+  UpdateTerminationProtection'
+    { enableTerminationProtection,
+      stackName
+    }
 
 -- | Whether to enable termination protection on the specified stack.
 --
 -- /Note:/ Consider using 'enableTerminationProtection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utpEnableTerminationProtection :: Lens.Lens' UpdateTerminationProtection Lude.Bool
-utpEnableTerminationProtection = Lens.lens (enableTerminationProtection :: UpdateTerminationProtection -> Lude.Bool) (\s a -> s {enableTerminationProtection = a} :: UpdateTerminationProtection)
+utpEnableTerminationProtection :: Lens.Lens' UpdateTerminationProtection Core.Bool
+utpEnableTerminationProtection = Lens.field @"enableTerminationProtection"
 {-# DEPRECATED utpEnableTerminationProtection "Use generic-lens or generic-optics with 'enableTerminationProtection' instead." #-}
 
 -- | The name or unique ID of the stack for which you want to set termination protection.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utpStackName :: Lens.Lens' UpdateTerminationProtection Lude.Text
-utpStackName = Lens.lens (stackName :: UpdateTerminationProtection -> Lude.Text) (\s a -> s {stackName = a} :: UpdateTerminationProtection)
+utpStackName :: Lens.Lens' UpdateTerminationProtection Types.StackName
+utpStackName = Lens.field @"stackName"
 {-# DEPRECATED utpStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Lude.AWSRequest UpdateTerminationProtection where
+instance Core.AWSRequest UpdateTerminationProtection where
   type
     Rs UpdateTerminationProtection =
       UpdateTerminationProtectionResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UpdateTerminationProtection")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> ( Core.toQueryValue
+                            "EnableTerminationProtection"
+                            enableTerminationProtection
+                        )
+                Core.<> (Core.toQueryValue "StackName" stackName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "UpdateTerminationProtectionResult"
       ( \s h x ->
           UpdateTerminationProtectionResponse'
-            Lude.<$> (x Lude..@? "StackId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "StackId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateTerminationProtection where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UpdateTerminationProtection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateTerminationProtection where
-  toQuery UpdateTerminationProtection' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("UpdateTerminationProtection" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "EnableTerminationProtection" Lude.=: enableTerminationProtection,
-        "StackName" Lude.=: stackName
-      ]
 
 -- | /See:/ 'mkUpdateTerminationProtectionResponse' smart constructor.
 data UpdateTerminationProtectionResponse = UpdateTerminationProtectionResponse'
   { -- | The unique ID of the stack.
-    stackId :: Lude.Maybe Lude.Text,
+    stackId :: Core.Maybe Types.StackId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateTerminationProtectionResponse' with the minimum fields required to make a request.
---
--- * 'stackId' - The unique ID of the stack.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateTerminationProtectionResponse' value with any optional fields omitted.
 mkUpdateTerminationProtectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateTerminationProtectionResponse
-mkUpdateTerminationProtectionResponse pResponseStatus_ =
+mkUpdateTerminationProtectionResponse responseStatus =
   UpdateTerminationProtectionResponse'
-    { stackId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { stackId = Core.Nothing,
+      responseStatus
     }
 
 -- | The unique ID of the stack.
 --
 -- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utprsStackId :: Lens.Lens' UpdateTerminationProtectionResponse (Lude.Maybe Lude.Text)
-utprsStackId = Lens.lens (stackId :: UpdateTerminationProtectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: UpdateTerminationProtectionResponse)
-{-# DEPRECATED utprsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+utprrsStackId :: Lens.Lens' UpdateTerminationProtectionResponse (Core.Maybe Types.StackId)
+utprrsStackId = Lens.field @"stackId"
+{-# DEPRECATED utprrsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utprsResponseStatus :: Lens.Lens' UpdateTerminationProtectionResponse Lude.Int
-utprsResponseStatus = Lens.lens (responseStatus :: UpdateTerminationProtectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateTerminationProtectionResponse)
-{-# DEPRECATED utprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utprrsResponseStatus :: Lens.Lens' UpdateTerminationProtectionResponse Core.Int
+utprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

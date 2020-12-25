@@ -23,60 +23,56 @@ module Network.AWS.EFS.DescribeBackupPolicy
     dbpFileSystemId,
 
     -- * Destructuring the response
-    BackupPolicyDescription (..),
-    mkBackupPolicyDescription,
+    Types.BackupPolicyDescription (..),
+    Types.mkBackupPolicyDescription,
 
     -- ** Response lenses
-    bpdBackupPolicy,
+    Types.bpdBackupPolicy,
   )
 where
 
-import Network.AWS.EFS.Types
+import qualified Network.AWS.EFS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeBackupPolicy' smart constructor.
 newtype DescribeBackupPolicy = DescribeBackupPolicy'
   { -- | Specifies which EFS file system to retrieve the @BackupPolicy@ for.
-    fileSystemId :: Lude.Text
+    fileSystemId :: Types.FileSystemId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeBackupPolicy' with the minimum fields required to make a request.
---
--- * 'fileSystemId' - Specifies which EFS file system to retrieve the @BackupPolicy@ for.
+-- | Creates a 'DescribeBackupPolicy' value with any optional fields omitted.
 mkDescribeBackupPolicy ::
   -- | 'fileSystemId'
-  Lude.Text ->
+  Types.FileSystemId ->
   DescribeBackupPolicy
-mkDescribeBackupPolicy pFileSystemId_ =
-  DescribeBackupPolicy' {fileSystemId = pFileSystemId_}
+mkDescribeBackupPolicy fileSystemId =
+  DescribeBackupPolicy' {fileSystemId}
 
 -- | Specifies which EFS file system to retrieve the @BackupPolicy@ for.
 --
 -- /Note:/ Consider using 'fileSystemId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dbpFileSystemId :: Lens.Lens' DescribeBackupPolicy Lude.Text
-dbpFileSystemId = Lens.lens (fileSystemId :: DescribeBackupPolicy -> Lude.Text) (\s a -> s {fileSystemId = a} :: DescribeBackupPolicy)
+dbpFileSystemId :: Lens.Lens' DescribeBackupPolicy Types.FileSystemId
+dbpFileSystemId = Lens.field @"fileSystemId"
 {-# DEPRECATED dbpFileSystemId "Use generic-lens or generic-optics with 'fileSystemId' instead." #-}
 
-instance Lude.AWSRequest DescribeBackupPolicy where
-  type Rs DescribeBackupPolicy = BackupPolicyDescription
-  request = Req.get efsService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders DescribeBackupPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeBackupPolicy where
-  toPath DescribeBackupPolicy' {..} =
-    Lude.mconcat
-      [ "/2015-02-01/file-systems/",
-        Lude.toBS fileSystemId,
-        "/backup-policy"
-      ]
-
-instance Lude.ToQuery DescribeBackupPolicy where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DescribeBackupPolicy where
+  type Rs DescribeBackupPolicy = Types.BackupPolicyDescription
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2015-02-01/file-systems/" Core.<> (Core.toText fileSystemId)
+                Core.<> ("/backup-policy")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

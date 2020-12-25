@@ -23,45 +23,42 @@ module Network.AWS.S3.Types.CopyPartResult
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- | Container for all response elements.
 --
 -- /See:/ 'mkCopyPartResult' smart constructor.
 data CopyPartResult = CopyPartResult'
   { -- | Entity tag of the object.
-    eTag :: Lude.Maybe ETag,
+    eTag :: Core.Maybe Types.ETag,
     -- | Date and time at which the object was uploaded.
-    lastModified :: Lude.Maybe Lude.DateTime
+    lastModified :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CopyPartResult' with the minimum fields required to make a request.
---
--- * 'eTag' - Entity tag of the object.
--- * 'lastModified' - Date and time at which the object was uploaded.
+-- | Creates a 'CopyPartResult' value with any optional fields omitted.
 mkCopyPartResult ::
   CopyPartResult
 mkCopyPartResult =
-  CopyPartResult' {eTag = Lude.Nothing, lastModified = Lude.Nothing}
+  CopyPartResult' {eTag = Core.Nothing, lastModified = Core.Nothing}
 
 -- | Entity tag of the object.
 --
 -- /Note:/ Consider using 'eTag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprETag :: Lens.Lens' CopyPartResult (Lude.Maybe ETag)
-cprETag = Lens.lens (eTag :: CopyPartResult -> Lude.Maybe ETag) (\s a -> s {eTag = a} :: CopyPartResult)
+cprETag :: Lens.Lens' CopyPartResult (Core.Maybe Types.ETag)
+cprETag = Lens.field @"eTag"
 {-# DEPRECATED cprETag "Use generic-lens or generic-optics with 'eTag' instead." #-}
 
 -- | Date and time at which the object was uploaded.
 --
 -- /Note:/ Consider using 'lastModified' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cprLastModified :: Lens.Lens' CopyPartResult (Lude.Maybe Lude.DateTime)
-cprLastModified = Lens.lens (lastModified :: CopyPartResult -> Lude.Maybe Lude.DateTime) (\s a -> s {lastModified = a} :: CopyPartResult)
+cprLastModified :: Lens.Lens' CopyPartResult (Core.Maybe Core.UTCTime)
+cprLastModified = Lens.field @"lastModified"
 {-# DEPRECATED cprLastModified "Use generic-lens or generic-optics with 'lastModified' instead." #-}
 
-instance Lude.FromXML CopyPartResult where
+instance Core.FromXML CopyPartResult where
   parseXML x =
     CopyPartResult'
-      Lude.<$> (x Lude..@? "ETag") Lude.<*> (x Lude..@? "LastModified")
+      Core.<$> (x Core..@? "ETag") Core.<*> (x Core..@? "LastModified")

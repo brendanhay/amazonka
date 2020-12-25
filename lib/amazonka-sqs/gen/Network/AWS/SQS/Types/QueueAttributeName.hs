@@ -13,126 +13,131 @@
 module Network.AWS.SQS.Types.QueueAttributeName
   ( QueueAttributeName
       ( QueueAttributeName',
-        QANAll,
-        QANPolicy,
-        QANVisibilityTimeout,
-        QANMaximumMessageSize,
-        QANMessageRetentionPeriod,
-        QANApproximateNumberOfMessages,
-        QANApproximateNumberOfMessagesNotVisible,
-        QANCreatedTimestamp,
-        QANLastModifiedTimestamp,
-        QANQueueARN,
-        QANApproximateNumberOfMessagesDelayed,
-        QANDelaySeconds,
-        QANReceiveMessageWaitTimeSeconds,
-        QANRedrivePolicy,
-        QANFifoQueue,
-        QANContentBasedDeduplication,
-        QANKMSMasterKeyId,
-        QANKMSDataKeyReusePeriodSeconds
+        QueueAttributeNameAll,
+        QueueAttributeNamePolicy,
+        QueueAttributeNameVisibilityTimeout,
+        QueueAttributeNameMaximumMessageSize,
+        QueueAttributeNameMessageRetentionPeriod,
+        QueueAttributeNameApproximateNumberOfMessages,
+        QueueAttributeNameApproximateNumberOfMessagesNotVisible,
+        QueueAttributeNameCreatedTimestamp,
+        QueueAttributeNameLastModifiedTimestamp,
+        QueueAttributeNameQueueArn,
+        QueueAttributeNameApproximateNumberOfMessagesDelayed,
+        QueueAttributeNameDelaySeconds,
+        QueueAttributeNameReceiveMessageWaitTimeSeconds,
+        QueueAttributeNameRedrivePolicy,
+        QueueAttributeNameFifoQueue,
+        QueueAttributeNameContentBasedDeduplication,
+        QueueAttributeNameKmsMasterKeyId,
+        QueueAttributeNameKmsDataKeyReusePeriodSeconds,
+        fromQueueAttributeName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype QueueAttributeName = QueueAttributeName' Lude.Text
+newtype QueueAttributeName = QueueAttributeName'
+  { fromQueueAttributeName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern QANAll :: QueueAttributeName
-pattern QANAll = QueueAttributeName' "All"
+pattern QueueAttributeNameAll :: QueueAttributeName
+pattern QueueAttributeNameAll = QueueAttributeName' "All"
 
-pattern QANPolicy :: QueueAttributeName
-pattern QANPolicy = QueueAttributeName' "Policy"
+pattern QueueAttributeNamePolicy :: QueueAttributeName
+pattern QueueAttributeNamePolicy = QueueAttributeName' "Policy"
 
-pattern QANVisibilityTimeout :: QueueAttributeName
-pattern QANVisibilityTimeout = QueueAttributeName' "VisibilityTimeout"
+pattern QueueAttributeNameVisibilityTimeout :: QueueAttributeName
+pattern QueueAttributeNameVisibilityTimeout = QueueAttributeName' "VisibilityTimeout"
 
-pattern QANMaximumMessageSize :: QueueAttributeName
-pattern QANMaximumMessageSize = QueueAttributeName' "MaximumMessageSize"
+pattern QueueAttributeNameMaximumMessageSize :: QueueAttributeName
+pattern QueueAttributeNameMaximumMessageSize = QueueAttributeName' "MaximumMessageSize"
 
-pattern QANMessageRetentionPeriod :: QueueAttributeName
-pattern QANMessageRetentionPeriod = QueueAttributeName' "MessageRetentionPeriod"
+pattern QueueAttributeNameMessageRetentionPeriod :: QueueAttributeName
+pattern QueueAttributeNameMessageRetentionPeriod = QueueAttributeName' "MessageRetentionPeriod"
 
-pattern QANApproximateNumberOfMessages :: QueueAttributeName
-pattern QANApproximateNumberOfMessages = QueueAttributeName' "ApproximateNumberOfMessages"
+pattern QueueAttributeNameApproximateNumberOfMessages :: QueueAttributeName
+pattern QueueAttributeNameApproximateNumberOfMessages = QueueAttributeName' "ApproximateNumberOfMessages"
 
-pattern QANApproximateNumberOfMessagesNotVisible :: QueueAttributeName
-pattern QANApproximateNumberOfMessagesNotVisible = QueueAttributeName' "ApproximateNumberOfMessagesNotVisible"
+pattern QueueAttributeNameApproximateNumberOfMessagesNotVisible :: QueueAttributeName
+pattern QueueAttributeNameApproximateNumberOfMessagesNotVisible = QueueAttributeName' "ApproximateNumberOfMessagesNotVisible"
 
-pattern QANCreatedTimestamp :: QueueAttributeName
-pattern QANCreatedTimestamp = QueueAttributeName' "CreatedTimestamp"
+pattern QueueAttributeNameCreatedTimestamp :: QueueAttributeName
+pattern QueueAttributeNameCreatedTimestamp = QueueAttributeName' "CreatedTimestamp"
 
-pattern QANLastModifiedTimestamp :: QueueAttributeName
-pattern QANLastModifiedTimestamp = QueueAttributeName' "LastModifiedTimestamp"
+pattern QueueAttributeNameLastModifiedTimestamp :: QueueAttributeName
+pattern QueueAttributeNameLastModifiedTimestamp = QueueAttributeName' "LastModifiedTimestamp"
 
-pattern QANQueueARN :: QueueAttributeName
-pattern QANQueueARN = QueueAttributeName' "QueueArn"
+pattern QueueAttributeNameQueueArn :: QueueAttributeName
+pattern QueueAttributeNameQueueArn = QueueAttributeName' "QueueArn"
 
-pattern QANApproximateNumberOfMessagesDelayed :: QueueAttributeName
-pattern QANApproximateNumberOfMessagesDelayed = QueueAttributeName' "ApproximateNumberOfMessagesDelayed"
+pattern QueueAttributeNameApproximateNumberOfMessagesDelayed :: QueueAttributeName
+pattern QueueAttributeNameApproximateNumberOfMessagesDelayed = QueueAttributeName' "ApproximateNumberOfMessagesDelayed"
 
-pattern QANDelaySeconds :: QueueAttributeName
-pattern QANDelaySeconds = QueueAttributeName' "DelaySeconds"
+pattern QueueAttributeNameDelaySeconds :: QueueAttributeName
+pattern QueueAttributeNameDelaySeconds = QueueAttributeName' "DelaySeconds"
 
-pattern QANReceiveMessageWaitTimeSeconds :: QueueAttributeName
-pattern QANReceiveMessageWaitTimeSeconds = QueueAttributeName' "ReceiveMessageWaitTimeSeconds"
+pattern QueueAttributeNameReceiveMessageWaitTimeSeconds :: QueueAttributeName
+pattern QueueAttributeNameReceiveMessageWaitTimeSeconds = QueueAttributeName' "ReceiveMessageWaitTimeSeconds"
 
-pattern QANRedrivePolicy :: QueueAttributeName
-pattern QANRedrivePolicy = QueueAttributeName' "RedrivePolicy"
+pattern QueueAttributeNameRedrivePolicy :: QueueAttributeName
+pattern QueueAttributeNameRedrivePolicy = QueueAttributeName' "RedrivePolicy"
 
-pattern QANFifoQueue :: QueueAttributeName
-pattern QANFifoQueue = QueueAttributeName' "FifoQueue"
+pattern QueueAttributeNameFifoQueue :: QueueAttributeName
+pattern QueueAttributeNameFifoQueue = QueueAttributeName' "FifoQueue"
 
-pattern QANContentBasedDeduplication :: QueueAttributeName
-pattern QANContentBasedDeduplication = QueueAttributeName' "ContentBasedDeduplication"
+pattern QueueAttributeNameContentBasedDeduplication :: QueueAttributeName
+pattern QueueAttributeNameContentBasedDeduplication = QueueAttributeName' "ContentBasedDeduplication"
 
-pattern QANKMSMasterKeyId :: QueueAttributeName
-pattern QANKMSMasterKeyId = QueueAttributeName' "KmsMasterKeyId"
+pattern QueueAttributeNameKmsMasterKeyId :: QueueAttributeName
+pattern QueueAttributeNameKmsMasterKeyId = QueueAttributeName' "KmsMasterKeyId"
 
-pattern QANKMSDataKeyReusePeriodSeconds :: QueueAttributeName
-pattern QANKMSDataKeyReusePeriodSeconds = QueueAttributeName' "KmsDataKeyReusePeriodSeconds"
+pattern QueueAttributeNameKmsDataKeyReusePeriodSeconds :: QueueAttributeName
+pattern QueueAttributeNameKmsDataKeyReusePeriodSeconds = QueueAttributeName' "KmsDataKeyReusePeriodSeconds"
 
 {-# COMPLETE
-  QANAll,
-  QANPolicy,
-  QANVisibilityTimeout,
-  QANMaximumMessageSize,
-  QANMessageRetentionPeriod,
-  QANApproximateNumberOfMessages,
-  QANApproximateNumberOfMessagesNotVisible,
-  QANCreatedTimestamp,
-  QANLastModifiedTimestamp,
-  QANQueueARN,
-  QANApproximateNumberOfMessagesDelayed,
-  QANDelaySeconds,
-  QANReceiveMessageWaitTimeSeconds,
-  QANRedrivePolicy,
-  QANFifoQueue,
-  QANContentBasedDeduplication,
-  QANKMSMasterKeyId,
-  QANKMSDataKeyReusePeriodSeconds,
+  QueueAttributeNameAll,
+  QueueAttributeNamePolicy,
+  QueueAttributeNameVisibilityTimeout,
+  QueueAttributeNameMaximumMessageSize,
+  QueueAttributeNameMessageRetentionPeriod,
+  QueueAttributeNameApproximateNumberOfMessages,
+  QueueAttributeNameApproximateNumberOfMessagesNotVisible,
+  QueueAttributeNameCreatedTimestamp,
+  QueueAttributeNameLastModifiedTimestamp,
+  QueueAttributeNameQueueArn,
+  QueueAttributeNameApproximateNumberOfMessagesDelayed,
+  QueueAttributeNameDelaySeconds,
+  QueueAttributeNameReceiveMessageWaitTimeSeconds,
+  QueueAttributeNameRedrivePolicy,
+  QueueAttributeNameFifoQueue,
+  QueueAttributeNameContentBasedDeduplication,
+  QueueAttributeNameKmsMasterKeyId,
+  QueueAttributeNameKmsDataKeyReusePeriodSeconds,
   QueueAttributeName'
   #-}

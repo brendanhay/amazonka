@@ -13,46 +13,51 @@
 module Network.AWS.KMS.Types.ExpirationModelType
   ( ExpirationModelType
       ( ExpirationModelType',
-        KeyMaterialExpires,
-        KeyMaterialDoesNotExpire
+        ExpirationModelTypeKeyMaterialExpires,
+        ExpirationModelTypeKeyMaterialDoesNotExpire,
+        fromExpirationModelType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExpirationModelType = ExpirationModelType' Lude.Text
+newtype ExpirationModelType = ExpirationModelType'
+  { fromExpirationModelType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern KeyMaterialExpires :: ExpirationModelType
-pattern KeyMaterialExpires = ExpirationModelType' "KEY_MATERIAL_EXPIRES"
+pattern ExpirationModelTypeKeyMaterialExpires :: ExpirationModelType
+pattern ExpirationModelTypeKeyMaterialExpires = ExpirationModelType' "KEY_MATERIAL_EXPIRES"
 
-pattern KeyMaterialDoesNotExpire :: ExpirationModelType
-pattern KeyMaterialDoesNotExpire = ExpirationModelType' "KEY_MATERIAL_DOES_NOT_EXPIRE"
+pattern ExpirationModelTypeKeyMaterialDoesNotExpire :: ExpirationModelType
+pattern ExpirationModelTypeKeyMaterialDoesNotExpire = ExpirationModelType' "KEY_MATERIAL_DOES_NOT_EXPIRE"
 
 {-# COMPLETE
-  KeyMaterialExpires,
-  KeyMaterialDoesNotExpire,
+  ExpirationModelTypeKeyMaterialExpires,
+  ExpirationModelTypeKeyMaterialDoesNotExpire,
   ExpirationModelType'
   #-}

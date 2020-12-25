@@ -26,23 +26,23 @@ module Network.AWS.Lambda.GetFunctionEventInvokeConfig
     gfeicQualifier,
 
     -- * Destructuring the response
-    FunctionEventInvokeConfig (..),
-    mkFunctionEventInvokeConfig,
+    Types.FunctionEventInvokeConfig (..),
+    Types.mkFunctionEventInvokeConfig,
 
     -- ** Response lenses
-    feicFunctionARN,
-    feicMaximumEventAgeInSeconds,
-    feicMaximumRetryAttempts,
-    feicLastModified,
-    feicDestinationConfig,
+    Types.feicDestinationConfig,
+    Types.feicFunctionArn,
+    Types.feicLastModified,
+    Types.feicMaximumEventAgeInSeconds,
+    Types.feicMaximumRetryAttempts,
   )
 where
 
-import Network.AWS.Lambda.Types
+import qualified Network.AWS.Lambda.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetFunctionEventInvokeConfig' smart constructor.
 data GetFunctionEventInvokeConfig = GetFunctionEventInvokeConfig'
@@ -60,38 +60,22 @@ data GetFunctionEventInvokeConfig = GetFunctionEventInvokeConfig'
     --
     --
     -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
-    functionName :: Lude.Text,
+    functionName :: Types.FunctionName,
     -- | A version number or alias name.
-    qualifier :: Lude.Maybe Lude.Text
+    qualifier :: Core.Maybe Types.Qualifier
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFunctionEventInvokeConfig' with the minimum fields required to make a request.
---
--- * 'functionName' - The name of the Lambda function, version, or alias.
---
--- __Name formats__
---
---     * __Function name__ - @my-function@ (name-only), @my-function:v1@ (with alias).
---
---
---     * __Function ARN__ - @arn:aws:lambda:us-west-2:123456789012:function:my-function@ .
---
---
---     * __Partial ARN__ - @123456789012:function:my-function@ .
---
---
--- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
--- * 'qualifier' - A version number or alias name.
+-- | Creates a 'GetFunctionEventInvokeConfig' value with any optional fields omitted.
 mkGetFunctionEventInvokeConfig ::
   -- | 'functionName'
-  Lude.Text ->
+  Types.FunctionName ->
   GetFunctionEventInvokeConfig
-mkGetFunctionEventInvokeConfig pFunctionName_ =
+mkGetFunctionEventInvokeConfig functionName =
   GetFunctionEventInvokeConfig'
-    { functionName = pFunctionName_,
-      qualifier = Lude.Nothing
+    { functionName,
+      qualifier = Core.Nothing
     }
 
 -- | The name of the Lambda function, version, or alias.
@@ -110,33 +94,32 @@ mkGetFunctionEventInvokeConfig pFunctionName_ =
 -- You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.
 --
 -- /Note:/ Consider using 'functionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfeicFunctionName :: Lens.Lens' GetFunctionEventInvokeConfig Lude.Text
-gfeicFunctionName = Lens.lens (functionName :: GetFunctionEventInvokeConfig -> Lude.Text) (\s a -> s {functionName = a} :: GetFunctionEventInvokeConfig)
+gfeicFunctionName :: Lens.Lens' GetFunctionEventInvokeConfig Types.FunctionName
+gfeicFunctionName = Lens.field @"functionName"
 {-# DEPRECATED gfeicFunctionName "Use generic-lens or generic-optics with 'functionName' instead." #-}
 
 -- | A version number or alias name.
 --
 -- /Note:/ Consider using 'qualifier' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfeicQualifier :: Lens.Lens' GetFunctionEventInvokeConfig (Lude.Maybe Lude.Text)
-gfeicQualifier = Lens.lens (qualifier :: GetFunctionEventInvokeConfig -> Lude.Maybe Lude.Text) (\s a -> s {qualifier = a} :: GetFunctionEventInvokeConfig)
+gfeicQualifier :: Lens.Lens' GetFunctionEventInvokeConfig (Core.Maybe Types.Qualifier)
+gfeicQualifier = Lens.field @"qualifier"
 {-# DEPRECATED gfeicQualifier "Use generic-lens or generic-optics with 'qualifier' instead." #-}
 
-instance Lude.AWSRequest GetFunctionEventInvokeConfig where
-  type Rs GetFunctionEventInvokeConfig = FunctionEventInvokeConfig
-  request = Req.get lambdaService
-  response = Res.receiveJSON (\s h x -> Lude.eitherParseJSON x)
-
-instance Lude.ToHeaders GetFunctionEventInvokeConfig where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetFunctionEventInvokeConfig where
-  toPath GetFunctionEventInvokeConfig' {..} =
-    Lude.mconcat
-      [ "/2019-09-25/functions/",
-        Lude.toBS functionName,
-        "/event-invoke-config"
-      ]
-
-instance Lude.ToQuery GetFunctionEventInvokeConfig where
-  toQuery GetFunctionEventInvokeConfig' {..} =
-    Lude.mconcat ["Qualifier" Lude.=: qualifier]
+instance Core.AWSRequest GetFunctionEventInvokeConfig where
+  type
+    Rs GetFunctionEventInvokeConfig =
+      Types.FunctionEventInvokeConfig
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2019-09-25/functions/" Core.<> (Core.toText functionName)
+                Core.<> ("/event-invoke-config")
+            ),
+        Core._rqQuery = Core.toQueryValue "Qualifier" Core.<$> qualifier,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveJSON (\s h x -> Core.eitherParseJSON x)

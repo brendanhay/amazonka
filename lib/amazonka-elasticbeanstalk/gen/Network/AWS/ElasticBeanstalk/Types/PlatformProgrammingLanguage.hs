@@ -22,48 +22,47 @@ module Network.AWS.ElasticBeanstalk.Types.PlatformProgrammingLanguage
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.Name as Types
+import qualified Network.AWS.ElasticBeanstalk.Types.Version as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A programming language supported by the platform.
 --
 -- /See:/ 'mkPlatformProgrammingLanguage' smart constructor.
 data PlatformProgrammingLanguage = PlatformProgrammingLanguage'
   { -- | The name of the programming language.
-    name :: Lude.Maybe Lude.Text,
+    name :: Core.Maybe Types.Name,
     -- | The version of the programming language.
-    version :: Lude.Maybe Lude.Text
+    version :: Core.Maybe Types.Version
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PlatformProgrammingLanguage' with the minimum fields required to make a request.
---
--- * 'name' - The name of the programming language.
--- * 'version' - The version of the programming language.
+-- | Creates a 'PlatformProgrammingLanguage' value with any optional fields omitted.
 mkPlatformProgrammingLanguage ::
   PlatformProgrammingLanguage
 mkPlatformProgrammingLanguage =
   PlatformProgrammingLanguage'
-    { name = Lude.Nothing,
-      version = Lude.Nothing
+    { name = Core.Nothing,
+      version = Core.Nothing
     }
 
 -- | The name of the programming language.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pplName :: Lens.Lens' PlatformProgrammingLanguage (Lude.Maybe Lude.Text)
-pplName = Lens.lens (name :: PlatformProgrammingLanguage -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: PlatformProgrammingLanguage)
+pplName :: Lens.Lens' PlatformProgrammingLanguage (Core.Maybe Types.Name)
+pplName = Lens.field @"name"
 {-# DEPRECATED pplName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the programming language.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pplVersion :: Lens.Lens' PlatformProgrammingLanguage (Lude.Maybe Lude.Text)
-pplVersion = Lens.lens (version :: PlatformProgrammingLanguage -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: PlatformProgrammingLanguage)
+pplVersion :: Lens.Lens' PlatformProgrammingLanguage (Core.Maybe Types.Version)
+pplVersion = Lens.field @"version"
 {-# DEPRECATED pplVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
-instance Lude.FromXML PlatformProgrammingLanguage where
+instance Core.FromXML PlatformProgrammingLanguage where
   parseXML x =
     PlatformProgrammingLanguage'
-      Lude.<$> (x Lude..@? "Name") Lude.<*> (x Lude..@? "Version")
+      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Version")

@@ -27,92 +27,82 @@ module Network.AWS.DeviceFarm.DeleteNetworkProfile
     mkDeleteNetworkProfileResponse,
 
     -- ** Response lenses
-    dnprsResponseStatus,
+    dnprrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteNetworkProfile' smart constructor.
 newtype DeleteNetworkProfile = DeleteNetworkProfile'
   { -- | The ARN of the network profile to delete.
-    arn :: Lude.Text
+    arn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteNetworkProfile' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the network profile to delete.
+-- | Creates a 'DeleteNetworkProfile' value with any optional fields omitted.
 mkDeleteNetworkProfile ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   DeleteNetworkProfile
-mkDeleteNetworkProfile pArn_ = DeleteNetworkProfile' {arn = pArn_}
+mkDeleteNetworkProfile arn = DeleteNetworkProfile' {arn}
 
 -- | The ARN of the network profile to delete.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnpArn :: Lens.Lens' DeleteNetworkProfile Lude.Text
-dnpArn = Lens.lens (arn :: DeleteNetworkProfile -> Lude.Text) (\s a -> s {arn = a} :: DeleteNetworkProfile)
+dnpArn :: Lens.Lens' DeleteNetworkProfile Types.Arn
+dnpArn = Lens.field @"arn"
 {-# DEPRECATED dnpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.AWSRequest DeleteNetworkProfile where
+instance Core.FromJSON DeleteNetworkProfile where
+  toJSON DeleteNetworkProfile {..} =
+    Core.object (Core.catMaybes [Core.Just ("arn" Core..= arn)])
+
+instance Core.AWSRequest DeleteNetworkProfile where
   type Rs DeleteNetworkProfile = DeleteNetworkProfileResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "DeviceFarm_20150623.DeleteNetworkProfile")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteNetworkProfileResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteNetworkProfile where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.DeleteNetworkProfile" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteNetworkProfile where
-  toJSON DeleteNetworkProfile' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("arn" Lude..= arn)])
-
-instance Lude.ToPath DeleteNetworkProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteNetworkProfile where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteNetworkProfileResponse' smart constructor.
 newtype DeleteNetworkProfileResponse = DeleteNetworkProfileResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteNetworkProfileResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteNetworkProfileResponse' value with any optional fields omitted.
 mkDeleteNetworkProfileResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteNetworkProfileResponse
-mkDeleteNetworkProfileResponse pResponseStatus_ =
-  DeleteNetworkProfileResponse' {responseStatus = pResponseStatus_}
+mkDeleteNetworkProfileResponse responseStatus =
+  DeleteNetworkProfileResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dnprsResponseStatus :: Lens.Lens' DeleteNetworkProfileResponse Lude.Int
-dnprsResponseStatus = Lens.lens (responseStatus :: DeleteNetworkProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteNetworkProfileResponse)
-{-# DEPRECATED dnprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dnprrsResponseStatus :: Lens.Lens' DeleteNetworkProfileResponse Core.Int
+dnprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dnprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

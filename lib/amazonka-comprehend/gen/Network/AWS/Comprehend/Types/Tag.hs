@@ -17,61 +17,58 @@ module Network.AWS.Comprehend.Types.Tag
     mkTag,
 
     -- * Lenses
-    tValue,
     tKey,
+    tValue,
   )
 where
 
+import qualified Network.AWS.Comprehend.Types.Key as Types
+import qualified Network.AWS.Comprehend.Types.Value as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A key-value pair that adds as a metadata to a resource used by Amazon Comprehend. For example, a tag with the key-value pair ‘Department’:’Sales’ might be added to a resource to indicate its use by a particular department.
 --
 -- /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { -- | The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the initial (key) portion of the pair, with a value of “sales” to indicate the sales department.
-    value :: Lude.Maybe Lude.Text,
-    -- | The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the key portion of the pair, with multiple possible values such as “sales,” “legal,” and “administration.”
-    key :: Lude.Text
+  { -- | The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the key portion of the pair, with multiple possible values such as “sales,” “legal,” and “administration.”
+    key :: Types.Key,
+    -- | The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the initial (key) portion of the pair, with a value of “sales” to indicate the sales department.
+    value :: Core.Maybe Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- * 'value' - The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the initial (key) portion of the pair, with a value of “sales” to indicate the sales department.
--- * 'key' - The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the key portion of the pair, with multiple possible values such as “sales,” “legal,” and “administration.”
+-- | Creates a 'Tag' value with any optional fields omitted.
 mkTag ::
   -- | 'key'
-  Lude.Text ->
+  Types.Key ->
   Tag
-mkTag pKey_ = Tag' {value = Lude.Nothing, key = pKey_}
-
--- | The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the initial (key) portion of the pair, with a value of “sales” to indicate the sales department.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tValue :: Lens.Lens' Tag (Lude.Maybe Lude.Text)
-tValue = Lens.lens (value :: Tag -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Tag)
-{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkTag key = Tag' {key, value = Core.Nothing}
 
 -- | The initial part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the key portion of the pair, with multiple possible values such as “sales,” “legal,” and “administration.”
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag Lude.Text
-tKey = Lens.lens (key :: Tag -> Lude.Text) (\s a -> s {key = a} :: Tag)
+tKey :: Lens.Lens' Tag Types.Key
+tKey = Lens.field @"key"
 {-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromJSON Tag where
-  parseJSON =
-    Lude.withObject
-      "Tag"
-      ( \x ->
-          Tag' Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..: "Key")
+-- | The second part of a key-value pair that forms a tag associated with a given resource. For instance, if you want to show which resources are used by which departments, you might use “Department” as the initial (key) portion of the pair, with a value of “sales” to indicate the sales department.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tValue :: Lens.Lens' Tag (Core.Maybe Types.Value)
+tValue = Lens.field @"value"
+{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON Tag where
+  toJSON Tag {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("Key" Core..= key), ("Value" Core..=) Core.<$> value]
       )
 
-instance Lude.ToJSON Tag where
-  toJSON Tag' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [("Value" Lude..=) Lude.<$> value, Lude.Just ("Key" Lude..= key)]
-      )
+instance Core.FromJSON Tag where
+  parseJSON =
+    Core.withObject "Tag" Core.$
+      \x ->
+        Tag' Core.<$> (x Core..: "Key") Core.<*> (x Core..:? "Value")

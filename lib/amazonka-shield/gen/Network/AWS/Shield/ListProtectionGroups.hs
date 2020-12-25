@@ -20,151 +20,136 @@ module Network.AWS.Shield.ListProtectionGroups
     mkListProtectionGroups,
 
     -- ** Request lenses
-    lpgNextToken,
     lpgMaxResults,
+    lpgNextToken,
 
     -- * Destructuring the response
     ListProtectionGroupsResponse (..),
     mkListProtectionGroupsResponse,
 
     -- ** Response lenses
-    lpgrsProtectionGroups,
-    lpgrsNextToken,
-    lpgrsResponseStatus,
+    lpgrrsProtectionGroups,
+    lpgrrsNextToken,
+    lpgrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Shield.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Shield.Types as Types
 
 -- | /See:/ 'mkListProtectionGroups' smart constructor.
 data ListProtectionGroups = ListProtectionGroups'
-  { -- | The next token value from a previous call to @ListProtectionGroups@ . Pass null if this is the first call.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of 'ProtectionGroup' objects to return. If you leave this blank, Shield Advanced returns the first 20 results.
+  { -- | The maximum number of 'ProtectionGroup' objects to return. If you leave this blank, Shield Advanced returns the first 20 results.
     --
     -- This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than @MaxResults@ , even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in @NextToken@ that you can use in your next request, to get the next batch of objects.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The next token value from a previous call to @ListProtectionGroups@ . Pass null if this is the first call.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListProtectionGroups' with the minimum fields required to make a request.
---
--- * 'nextToken' - The next token value from a previous call to @ListProtectionGroups@ . Pass null if this is the first call.
--- * 'maxResults' - The maximum number of 'ProtectionGroup' objects to return. If you leave this blank, Shield Advanced returns the first 20 results.
---
--- This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than @MaxResults@ , even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in @NextToken@ that you can use in your next request, to get the next batch of objects.
+-- | Creates a 'ListProtectionGroups' value with any optional fields omitted.
 mkListProtectionGroups ::
   ListProtectionGroups
 mkListProtectionGroups =
   ListProtectionGroups'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The next token value from a previous call to @ListProtectionGroups@ . Pass null if this is the first call.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgNextToken :: Lens.Lens' ListProtectionGroups (Lude.Maybe Lude.Text)
-lpgNextToken = Lens.lens (nextToken :: ListProtectionGroups -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProtectionGroups)
-{-# DEPRECATED lpgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of 'ProtectionGroup' objects to return. If you leave this blank, Shield Advanced returns the first 20 results.
 --
 -- This is a maximum value. Shield Advanced might return the results in smaller batches. That is, the number of objects returned could be less than @MaxResults@ , even if there are still more objects yet to return. If there are more objects to return, Shield Advanced returns a value in @NextToken@ that you can use in your next request, to get the next batch of objects.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgMaxResults :: Lens.Lens' ListProtectionGroups (Lude.Maybe Lude.Natural)
-lpgMaxResults = Lens.lens (maxResults :: ListProtectionGroups -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListProtectionGroups)
+lpgMaxResults :: Lens.Lens' ListProtectionGroups (Core.Maybe Core.Natural)
+lpgMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lpgMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListProtectionGroups where
+-- | The next token value from a previous call to @ListProtectionGroups@ . Pass null if this is the first call.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpgNextToken :: Lens.Lens' ListProtectionGroups (Core.Maybe Types.NextToken)
+lpgNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpgNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListProtectionGroups where
+  toJSON ListProtectionGroups {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListProtectionGroups where
   type Rs ListProtectionGroups = ListProtectionGroupsResponse
-  request = Req.postJSON shieldService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWSShield_20160616.ListProtectionGroups")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListProtectionGroupsResponse'
-            Lude.<$> (x Lude..?> "ProtectionGroups" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ProtectionGroups" Core..!= Core.mempty)
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListProtectionGroups where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AWSShield_20160616.ListProtectionGroups" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListProtectionGroups where
-  toJSON ListProtectionGroups' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListProtectionGroups where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListProtectionGroups where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListProtectionGroupsResponse' smart constructor.
 data ListProtectionGroupsResponse = ListProtectionGroupsResponse'
   { -- |
-    protectionGroups :: [ProtectionGroup],
+    protectionGroups :: [Types.ProtectionGroup],
     -- | If you specify a value for @MaxResults@ and you have more protection groups than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.Token,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListProtectionGroupsResponse' with the minimum fields required to make a request.
---
--- * 'protectionGroups' -
--- * 'nextToken' - If you specify a value for @MaxResults@ and you have more protection groups than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListProtectionGroupsResponse' value with any optional fields omitted.
 mkListProtectionGroupsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListProtectionGroupsResponse
-mkListProtectionGroupsResponse pResponseStatus_ =
+mkListProtectionGroupsResponse responseStatus =
   ListProtectionGroupsResponse'
-    { protectionGroups = Lude.mempty,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { protectionGroups = Core.mempty,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- |
 --
 -- /Note:/ Consider using 'protectionGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgrsProtectionGroups :: Lens.Lens' ListProtectionGroupsResponse [ProtectionGroup]
-lpgrsProtectionGroups = Lens.lens (protectionGroups :: ListProtectionGroupsResponse -> [ProtectionGroup]) (\s a -> s {protectionGroups = a} :: ListProtectionGroupsResponse)
-{-# DEPRECATED lpgrsProtectionGroups "Use generic-lens or generic-optics with 'protectionGroups' instead." #-}
+lpgrrsProtectionGroups :: Lens.Lens' ListProtectionGroupsResponse [Types.ProtectionGroup]
+lpgrrsProtectionGroups = Lens.field @"protectionGroups"
+{-# DEPRECATED lpgrrsProtectionGroups "Use generic-lens or generic-optics with 'protectionGroups' instead." #-}
 
 -- | If you specify a value for @MaxResults@ and you have more protection groups than the value of MaxResults, AWS Shield Advanced returns this token that you can use in your next request, to get the next batch of objects.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgrsNextToken :: Lens.Lens' ListProtectionGroupsResponse (Lude.Maybe Lude.Text)
-lpgrsNextToken = Lens.lens (nextToken :: ListProtectionGroupsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListProtectionGroupsResponse)
-{-# DEPRECATED lpgrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lpgrrsNextToken :: Lens.Lens' ListProtectionGroupsResponse (Core.Maybe Types.Token)
+lpgrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpgrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpgrsResponseStatus :: Lens.Lens' ListProtectionGroupsResponse Lude.Int
-lpgrsResponseStatus = Lens.lens (responseStatus :: ListProtectionGroupsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListProtectionGroupsResponse)
-{-# DEPRECATED lpgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lpgrrsResponseStatus :: Lens.Lens' ListProtectionGroupsResponse Core.Int
+lpgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lpgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

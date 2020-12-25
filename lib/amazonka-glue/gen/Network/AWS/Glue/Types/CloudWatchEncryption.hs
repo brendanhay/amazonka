@@ -18,68 +18,64 @@ module Network.AWS.Glue.Types.CloudWatchEncryption
 
     -- * Lenses
     cweCloudWatchEncryptionMode,
-    cweKMSKeyARN,
+    cweKmsKeyArn,
   )
 where
 
-import Network.AWS.Glue.Types.CloudWatchEncryptionMode
+import qualified Network.AWS.Glue.Types.CloudWatchEncryptionMode as Types
+import qualified Network.AWS.Glue.Types.KmsKeyArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies how Amazon CloudWatch data should be encrypted.
 --
 -- /See:/ 'mkCloudWatchEncryption' smart constructor.
 data CloudWatchEncryption = CloudWatchEncryption'
   { -- | The encryption mode to use for CloudWatch data.
-    cloudWatchEncryptionMode :: Lude.Maybe CloudWatchEncryptionMode,
+    cloudWatchEncryptionMode :: Core.Maybe Types.CloudWatchEncryptionMode,
     -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-    kmsKeyARN :: Lude.Maybe Lude.Text
+    kmsKeyArn :: Core.Maybe Types.KmsKeyArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CloudWatchEncryption' with the minimum fields required to make a request.
---
--- * 'cloudWatchEncryptionMode' - The encryption mode to use for CloudWatch data.
--- * 'kmsKeyARN' - The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+-- | Creates a 'CloudWatchEncryption' value with any optional fields omitted.
 mkCloudWatchEncryption ::
   CloudWatchEncryption
 mkCloudWatchEncryption =
   CloudWatchEncryption'
-    { cloudWatchEncryptionMode = Lude.Nothing,
-      kmsKeyARN = Lude.Nothing
+    { cloudWatchEncryptionMode = Core.Nothing,
+      kmsKeyArn = Core.Nothing
     }
 
 -- | The encryption mode to use for CloudWatch data.
 --
 -- /Note:/ Consider using 'cloudWatchEncryptionMode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cweCloudWatchEncryptionMode :: Lens.Lens' CloudWatchEncryption (Lude.Maybe CloudWatchEncryptionMode)
-cweCloudWatchEncryptionMode = Lens.lens (cloudWatchEncryptionMode :: CloudWatchEncryption -> Lude.Maybe CloudWatchEncryptionMode) (\s a -> s {cloudWatchEncryptionMode = a} :: CloudWatchEncryption)
+cweCloudWatchEncryptionMode :: Lens.Lens' CloudWatchEncryption (Core.Maybe Types.CloudWatchEncryptionMode)
+cweCloudWatchEncryptionMode = Lens.field @"cloudWatchEncryptionMode"
 {-# DEPRECATED cweCloudWatchEncryptionMode "Use generic-lens or generic-optics with 'cloudWatchEncryptionMode' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 --
--- /Note:/ Consider using 'kmsKeyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cweKMSKeyARN :: Lens.Lens' CloudWatchEncryption (Lude.Maybe Lude.Text)
-cweKMSKeyARN = Lens.lens (kmsKeyARN :: CloudWatchEncryption -> Lude.Maybe Lude.Text) (\s a -> s {kmsKeyARN = a} :: CloudWatchEncryption)
-{-# DEPRECATED cweKMSKeyARN "Use generic-lens or generic-optics with 'kmsKeyARN' instead." #-}
+-- /Note:/ Consider using 'kmsKeyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cweKmsKeyArn :: Lens.Lens' CloudWatchEncryption (Core.Maybe Types.KmsKeyArn)
+cweKmsKeyArn = Lens.field @"kmsKeyArn"
+{-# DEPRECATED cweKmsKeyArn "Use generic-lens or generic-optics with 'kmsKeyArn' instead." #-}
 
-instance Lude.FromJSON CloudWatchEncryption where
-  parseJSON =
-    Lude.withObject
-      "CloudWatchEncryption"
-      ( \x ->
-          CloudWatchEncryption'
-            Lude.<$> (x Lude..:? "CloudWatchEncryptionMode")
-            Lude.<*> (x Lude..:? "KmsKeyArn")
-      )
-
-instance Lude.ToJSON CloudWatchEncryption where
-  toJSON CloudWatchEncryption' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CloudWatchEncryptionMode" Lude..=)
-              Lude.<$> cloudWatchEncryptionMode,
-            ("KmsKeyArn" Lude..=) Lude.<$> kmsKeyARN
+instance Core.FromJSON CloudWatchEncryption where
+  toJSON CloudWatchEncryption {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CloudWatchEncryptionMode" Core..=)
+              Core.<$> cloudWatchEncryptionMode,
+            ("KmsKeyArn" Core..=) Core.<$> kmsKeyArn
           ]
       )
+
+instance Core.FromJSON CloudWatchEncryption where
+  parseJSON =
+    Core.withObject "CloudWatchEncryption" Core.$
+      \x ->
+        CloudWatchEncryption'
+          Core.<$> (x Core..:? "CloudWatchEncryptionMode")
+          Core.<*> (x Core..:? "KmsKeyArn")

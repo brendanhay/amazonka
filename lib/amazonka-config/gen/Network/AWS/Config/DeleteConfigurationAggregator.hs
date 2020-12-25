@@ -28,83 +28,73 @@ module Network.AWS.Config.DeleteConfigurationAggregator
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteConfigurationAggregator' smart constructor.
 newtype DeleteConfigurationAggregator = DeleteConfigurationAggregator'
   { -- | The name of the configuration aggregator.
-    configurationAggregatorName :: Lude.Text
+    configurationAggregatorName :: Types.ConfigurationAggregatorName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConfigurationAggregator' with the minimum fields required to make a request.
---
--- * 'configurationAggregatorName' - The name of the configuration aggregator.
+-- | Creates a 'DeleteConfigurationAggregator' value with any optional fields omitted.
 mkDeleteConfigurationAggregator ::
   -- | 'configurationAggregatorName'
-  Lude.Text ->
+  Types.ConfigurationAggregatorName ->
   DeleteConfigurationAggregator
-mkDeleteConfigurationAggregator pConfigurationAggregatorName_ =
-  DeleteConfigurationAggregator'
-    { configurationAggregatorName =
-        pConfigurationAggregatorName_
-    }
+mkDeleteConfigurationAggregator configurationAggregatorName =
+  DeleteConfigurationAggregator' {configurationAggregatorName}
 
 -- | The name of the configuration aggregator.
 --
 -- /Note:/ Consider using 'configurationAggregatorName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcaConfigurationAggregatorName :: Lens.Lens' DeleteConfigurationAggregator Lude.Text
-dcaConfigurationAggregatorName = Lens.lens (configurationAggregatorName :: DeleteConfigurationAggregator -> Lude.Text) (\s a -> s {configurationAggregatorName = a} :: DeleteConfigurationAggregator)
+dcaConfigurationAggregatorName :: Lens.Lens' DeleteConfigurationAggregator Types.ConfigurationAggregatorName
+dcaConfigurationAggregatorName = Lens.field @"configurationAggregatorName"
 {-# DEPRECATED dcaConfigurationAggregatorName "Use generic-lens or generic-optics with 'configurationAggregatorName' instead." #-}
 
-instance Lude.AWSRequest DeleteConfigurationAggregator where
-  type
-    Rs DeleteConfigurationAggregator =
-      DeleteConfigurationAggregatorResponse
-  request = Req.postJSON configService
-  response = Res.receiveNull DeleteConfigurationAggregatorResponse'
-
-instance Lude.ToHeaders DeleteConfigurationAggregator where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StarlingDoveService.DeleteConfigurationAggregator" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteConfigurationAggregator where
-  toJSON DeleteConfigurationAggregator' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
+instance Core.FromJSON DeleteConfigurationAggregator where
+  toJSON DeleteConfigurationAggregator {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
               ( "ConfigurationAggregatorName"
-                  Lude..= configurationAggregatorName
+                  Core..= configurationAggregatorName
               )
           ]
       )
 
-instance Lude.ToPath DeleteConfigurationAggregator where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteConfigurationAggregator where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DeleteConfigurationAggregator where
+  type
+    Rs DeleteConfigurationAggregator =
+      DeleteConfigurationAggregatorResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StarlingDoveService.DeleteConfigurationAggregator"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveNull DeleteConfigurationAggregatorResponse'
 
 -- | /See:/ 'mkDeleteConfigurationAggregatorResponse' smart constructor.
 data DeleteConfigurationAggregatorResponse = DeleteConfigurationAggregatorResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConfigurationAggregatorResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteConfigurationAggregatorResponse' value with any optional fields omitted.
 mkDeleteConfigurationAggregatorResponse ::
   DeleteConfigurationAggregatorResponse
 mkDeleteConfigurationAggregatorResponse =

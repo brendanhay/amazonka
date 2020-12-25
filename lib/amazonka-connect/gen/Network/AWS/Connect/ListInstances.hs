@@ -22,146 +22,136 @@ module Network.AWS.Connect.ListInstances
     mkListInstances,
 
     -- ** Request lenses
-    liNextToken,
     liMaxResults,
+    liNextToken,
 
     -- * Destructuring the response
     ListInstancesResponse (..),
     mkListInstancesResponse,
 
     -- ** Response lenses
-    lirsInstanceSummaryList,
-    lirsNextToken,
-    lirsResponseStatus,
+    lirrsInstanceSummaryList,
+    lirrsNextToken,
+    lirrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListInstances' smart constructor.
 data ListInstances = ListInstances'
-  { -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximimum number of results to return per page.
-    maxResults :: Lude.Maybe Lude.Natural
+  { -- | The maximimum number of results to return per page.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListInstances' with the minimum fields required to make a request.
---
--- * 'nextToken' - The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
--- * 'maxResults' - The maximimum number of results to return per page.
+-- | Creates a 'ListInstances' value with any optional fields omitted.
 mkListInstances ::
   ListInstances
 mkListInstances =
   ListInstances'
-    { nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
-
--- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liNextToken :: Lens.Lens' ListInstances (Lude.Maybe Lude.Text)
-liNextToken = Lens.lens (nextToken :: ListInstances -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstances)
-{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximimum number of results to return per page.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liMaxResults :: Lens.Lens' ListInstances (Lude.Maybe Lude.Natural)
-liMaxResults = Lens.lens (maxResults :: ListInstances -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInstances)
+liMaxResults :: Lens.Lens' ListInstances (Core.Maybe Core.Natural)
+liMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED liMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListInstances where
-  page rq rs
-    | Page.stop (rs Lens.^. lirsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lirsInstanceSummaryList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& liNextToken Lens..~ rs Lens.^. lirsNextToken
+-- | The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+liNextToken :: Lens.Lens' ListInstances (Core.Maybe Types.NextToken)
+liNextToken = Lens.field @"nextToken"
+{-# DEPRECATED liNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListInstances where
+instance Core.AWSRequest ListInstances where
   type Rs ListInstances = ListInstancesResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/instance",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListInstancesResponse'
-            Lude.<$> (x Lude..?> "InstanceSummaryList" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "InstanceSummaryList")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListInstances where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath ListInstances where
-  toPath = Lude.const "/instance"
-
-instance Lude.ToQuery ListInstances where
-  toQuery ListInstances' {..} =
-    Lude.mconcat
-      ["nextToken" Lude.=: nextToken, "maxResults" Lude.=: maxResults]
+instance Pager.AWSPager ListInstances where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"instanceSummaryList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListInstancesResponse' smart constructor.
 data ListInstancesResponse = ListInstancesResponse'
   { -- | Information about the instances.
-    instanceSummaryList :: Lude.Maybe [InstanceSummary],
+    instanceSummaryList :: Core.Maybe [Types.InstanceSummary],
     -- | If there are additional results, this is the token for the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListInstancesResponse' with the minimum fields required to make a request.
---
--- * 'instanceSummaryList' - Information about the instances.
--- * 'nextToken' - If there are additional results, this is the token for the next set of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListInstancesResponse' value with any optional fields omitted.
 mkListInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListInstancesResponse
-mkListInstancesResponse pResponseStatus_ =
+mkListInstancesResponse responseStatus =
   ListInstancesResponse'
-    { instanceSummaryList = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instanceSummaryList = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the instances.
 --
 -- /Note:/ Consider using 'instanceSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsInstanceSummaryList :: Lens.Lens' ListInstancesResponse (Lude.Maybe [InstanceSummary])
-lirsInstanceSummaryList = Lens.lens (instanceSummaryList :: ListInstancesResponse -> Lude.Maybe [InstanceSummary]) (\s a -> s {instanceSummaryList = a} :: ListInstancesResponse)
-{-# DEPRECATED lirsInstanceSummaryList "Use generic-lens or generic-optics with 'instanceSummaryList' instead." #-}
+lirrsInstanceSummaryList :: Lens.Lens' ListInstancesResponse (Core.Maybe [Types.InstanceSummary])
+lirrsInstanceSummaryList = Lens.field @"instanceSummaryList"
+{-# DEPRECATED lirrsInstanceSummaryList "Use generic-lens or generic-optics with 'instanceSummaryList' instead." #-}
 
 -- | If there are additional results, this is the token for the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsNextToken :: Lens.Lens' ListInstancesResponse (Lude.Maybe Lude.Text)
-lirsNextToken = Lens.lens (nextToken :: ListInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInstancesResponse)
-{-# DEPRECATED lirsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lirrsNextToken :: Lens.Lens' ListInstancesResponse (Core.Maybe Types.NextToken)
+lirrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lirrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lirsResponseStatus :: Lens.Lens' ListInstancesResponse Lude.Int
-lirsResponseStatus = Lens.lens (responseStatus :: ListInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInstancesResponse)
-{-# DEPRECATED lirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lirrsResponseStatus :: Lens.Lens' ListInstancesResponse Core.Int
+lirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

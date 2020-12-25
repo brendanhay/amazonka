@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.ApplicationAutoScaling
     Network.AWS.ApplicationAutoScaling.DeleteScalingPolicy
@@ -86,22 +92,35 @@ library
     Network.AWS.ApplicationAutoScaling.Types.CustomizedMetricSpecification
     Network.AWS.ApplicationAutoScaling.Types.MetricAggregationType
     Network.AWS.ApplicationAutoScaling.Types.MetricDimension
+    Network.AWS.ApplicationAutoScaling.Types.MetricDimensionName
+    Network.AWS.ApplicationAutoScaling.Types.MetricName
     Network.AWS.ApplicationAutoScaling.Types.MetricStatistic
     Network.AWS.ApplicationAutoScaling.Types.MetricType
+    Network.AWS.ApplicationAutoScaling.Types.Namespace
+    Network.AWS.ApplicationAutoScaling.Types.PolicyARN
+    Network.AWS.ApplicationAutoScaling.Types.PolicyName
     Network.AWS.ApplicationAutoScaling.Types.PolicyType
     Network.AWS.ApplicationAutoScaling.Types.PredefinedMetricSpecification
+    Network.AWS.ApplicationAutoScaling.Types.ResourceId
+    Network.AWS.ApplicationAutoScaling.Types.ResourceIdMaxLen1600
+    Network.AWS.ApplicationAutoScaling.Types.ResourceLabel
     Network.AWS.ApplicationAutoScaling.Types.ScalableDimension
     Network.AWS.ApplicationAutoScaling.Types.ScalableTarget
     Network.AWS.ApplicationAutoScaling.Types.ScalableTargetAction
     Network.AWS.ApplicationAutoScaling.Types.ScalingActivity
     Network.AWS.ApplicationAutoScaling.Types.ScalingActivityStatusCode
     Network.AWS.ApplicationAutoScaling.Types.ScalingPolicy
+    Network.AWS.ApplicationAutoScaling.Types.Schedule
     Network.AWS.ApplicationAutoScaling.Types.ScheduledAction
+    Network.AWS.ApplicationAutoScaling.Types.ScheduledActionName
     Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
     Network.AWS.ApplicationAutoScaling.Types.StepAdjustment
     Network.AWS.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration
     Network.AWS.ApplicationAutoScaling.Types.SuspendedState
     Network.AWS.ApplicationAutoScaling.Types.TargetTrackingScalingPolicyConfiguration
+    Network.AWS.ApplicationAutoScaling.Types.Unit
+    Network.AWS.ApplicationAutoScaling.Types.Value
+    Network.AWS.ApplicationAutoScaling.Types.XmlString
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

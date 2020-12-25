@@ -17,29 +17,26 @@ module Network.AWS.CodeBuild.Types.BuildSummary
     mkBuildSummary,
 
     -- * Lenses
-    bsSecondaryArtifacts,
-    bsPrimaryArtifact,
     bsArn,
     bsBuildStatus,
+    bsPrimaryArtifact,
     bsRequestedOn,
+    bsSecondaryArtifacts,
   )
 where
 
-import Network.AWS.CodeBuild.Types.ResolvedArtifact
-import Network.AWS.CodeBuild.Types.StatusType
+import qualified Network.AWS.CodeBuild.Types.ResolvedArtifact as Types
+import qualified Network.AWS.CodeBuild.Types.StatusType as Types
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains summary information about a batch build group.
 --
 -- /See:/ 'mkBuildSummary' smart constructor.
 data BuildSummary = BuildSummary'
-  { -- | An array of @ResolvedArtifact@ objects that represents the secondary build artifacts for the build group.
-    secondaryArtifacts :: Lude.Maybe [ResolvedArtifact],
-    -- | A @ResolvedArtifact@ object that represents the primary build artifacts for the build group.
-    primaryArtifact :: Lude.Maybe ResolvedArtifact,
-    -- | The batch build ARN.
-    arn :: Lude.Maybe Lude.Text,
+  { -- | The batch build ARN.
+    arn :: Core.Maybe Types.String,
     -- | The status of the build group.
     --
     --
@@ -71,82 +68,34 @@ data BuildSummary = BuildSummary'
     --     * TIMED_OUT
     --
     --     * The build group timed out.
-    buildStatus :: Lude.Maybe StatusType,
+    buildStatus :: Core.Maybe Types.StatusType,
+    -- | A @ResolvedArtifact@ object that represents the primary build artifacts for the build group.
+    primaryArtifact :: Core.Maybe Types.ResolvedArtifact,
     -- | When the build was started, expressed in Unix time format.
-    requestedOn :: Lude.Maybe Lude.Timestamp
+    requestedOn :: Core.Maybe Core.NominalDiffTime,
+    -- | An array of @ResolvedArtifact@ objects that represents the secondary build artifacts for the build group.
+    secondaryArtifacts :: Core.Maybe [Types.ResolvedArtifact]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BuildSummary' with the minimum fields required to make a request.
---
--- * 'secondaryArtifacts' - An array of @ResolvedArtifact@ objects that represents the secondary build artifacts for the build group.
--- * 'primaryArtifact' - A @ResolvedArtifact@ object that represents the primary build artifacts for the build group.
--- * 'arn' - The batch build ARN.
--- * 'buildStatus' - The status of the build group.
---
---
---     * FAILED
---
---     * The build group failed.
---
---
---     * FAULT
---
---     * The build group faulted.
---
---
---     * IN_PROGRESS
---
---     * The build group is still in progress.
---
---
---     * STOPPED
---
---     * The build group stopped.
---
---
---     * SUCCEEDED
---
---     * The build group succeeded.
---
---
---     * TIMED_OUT
---
---     * The build group timed out.
---
---
--- * 'requestedOn' - When the build was started, expressed in Unix time format.
+-- | Creates a 'BuildSummary' value with any optional fields omitted.
 mkBuildSummary ::
   BuildSummary
 mkBuildSummary =
   BuildSummary'
-    { secondaryArtifacts = Lude.Nothing,
-      primaryArtifact = Lude.Nothing,
-      arn = Lude.Nothing,
-      buildStatus = Lude.Nothing,
-      requestedOn = Lude.Nothing
+    { arn = Core.Nothing,
+      buildStatus = Core.Nothing,
+      primaryArtifact = Core.Nothing,
+      requestedOn = Core.Nothing,
+      secondaryArtifacts = Core.Nothing
     }
-
--- | An array of @ResolvedArtifact@ objects that represents the secondary build artifacts for the build group.
---
--- /Note:/ Consider using 'secondaryArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsSecondaryArtifacts :: Lens.Lens' BuildSummary (Lude.Maybe [ResolvedArtifact])
-bsSecondaryArtifacts = Lens.lens (secondaryArtifacts :: BuildSummary -> Lude.Maybe [ResolvedArtifact]) (\s a -> s {secondaryArtifacts = a} :: BuildSummary)
-{-# DEPRECATED bsSecondaryArtifacts "Use generic-lens or generic-optics with 'secondaryArtifacts' instead." #-}
-
--- | A @ResolvedArtifact@ object that represents the primary build artifacts for the build group.
---
--- /Note:/ Consider using 'primaryArtifact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsPrimaryArtifact :: Lens.Lens' BuildSummary (Lude.Maybe ResolvedArtifact)
-bsPrimaryArtifact = Lens.lens (primaryArtifact :: BuildSummary -> Lude.Maybe ResolvedArtifact) (\s a -> s {primaryArtifact = a} :: BuildSummary)
-{-# DEPRECATED bsPrimaryArtifact "Use generic-lens or generic-optics with 'primaryArtifact' instead." #-}
 
 -- | The batch build ARN.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsArn :: Lens.Lens' BuildSummary (Lude.Maybe Lude.Text)
-bsArn = Lens.lens (arn :: BuildSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: BuildSummary)
+bsArn :: Lens.Lens' BuildSummary (Core.Maybe Types.String)
+bsArn = Lens.field @"arn"
 {-# DEPRECATED bsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The status of the build group.
@@ -184,26 +133,38 @@ bsArn = Lens.lens (arn :: BuildSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn 
 --
 --
 -- /Note:/ Consider using 'buildStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsBuildStatus :: Lens.Lens' BuildSummary (Lude.Maybe StatusType)
-bsBuildStatus = Lens.lens (buildStatus :: BuildSummary -> Lude.Maybe StatusType) (\s a -> s {buildStatus = a} :: BuildSummary)
+bsBuildStatus :: Lens.Lens' BuildSummary (Core.Maybe Types.StatusType)
+bsBuildStatus = Lens.field @"buildStatus"
 {-# DEPRECATED bsBuildStatus "Use generic-lens or generic-optics with 'buildStatus' instead." #-}
+
+-- | A @ResolvedArtifact@ object that represents the primary build artifacts for the build group.
+--
+-- /Note:/ Consider using 'primaryArtifact' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsPrimaryArtifact :: Lens.Lens' BuildSummary (Core.Maybe Types.ResolvedArtifact)
+bsPrimaryArtifact = Lens.field @"primaryArtifact"
+{-# DEPRECATED bsPrimaryArtifact "Use generic-lens or generic-optics with 'primaryArtifact' instead." #-}
 
 -- | When the build was started, expressed in Unix time format.
 --
 -- /Note:/ Consider using 'requestedOn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bsRequestedOn :: Lens.Lens' BuildSummary (Lude.Maybe Lude.Timestamp)
-bsRequestedOn = Lens.lens (requestedOn :: BuildSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {requestedOn = a} :: BuildSummary)
+bsRequestedOn :: Lens.Lens' BuildSummary (Core.Maybe Core.NominalDiffTime)
+bsRequestedOn = Lens.field @"requestedOn"
 {-# DEPRECATED bsRequestedOn "Use generic-lens or generic-optics with 'requestedOn' instead." #-}
 
-instance Lude.FromJSON BuildSummary where
+-- | An array of @ResolvedArtifact@ objects that represents the secondary build artifacts for the build group.
+--
+-- /Note:/ Consider using 'secondaryArtifacts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bsSecondaryArtifacts :: Lens.Lens' BuildSummary (Core.Maybe [Types.ResolvedArtifact])
+bsSecondaryArtifacts = Lens.field @"secondaryArtifacts"
+{-# DEPRECATED bsSecondaryArtifacts "Use generic-lens or generic-optics with 'secondaryArtifacts' instead." #-}
+
+instance Core.FromJSON BuildSummary where
   parseJSON =
-    Lude.withObject
-      "BuildSummary"
-      ( \x ->
-          BuildSummary'
-            Lude.<$> (x Lude..:? "secondaryArtifacts" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "primaryArtifact")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..:? "buildStatus")
-            Lude.<*> (x Lude..:? "requestedOn")
-      )
+    Core.withObject "BuildSummary" Core.$
+      \x ->
+        BuildSummary'
+          Core.<$> (x Core..:? "arn")
+          Core.<*> (x Core..:? "buildStatus")
+          Core.<*> (x Core..:? "primaryArtifact")
+          Core.<*> (x Core..:? "requestedOn")
+          Core.<*> (x Core..:? "secondaryArtifacts")

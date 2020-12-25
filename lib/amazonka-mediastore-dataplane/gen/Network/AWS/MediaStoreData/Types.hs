@@ -9,9 +9,31 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaStoreData.Types
   ( -- * Service configuration
-    mediaStoreDataService,
+    mkServiceConfig,
 
     -- * Errors
+    _RequestedRangeNotSatisfiableException,
+    _InternalServerError,
+    _ContainerNotFoundException,
+    _ObjectNotFoundException,
+
+    -- * StringPrimitive
+    StringPrimitive (..),
+
+    -- * PathNaming
+    PathNaming (..),
+
+    -- * PaginationToken
+    PaginationToken (..),
+
+    -- * ETag
+    ETag (..),
+
+    -- * RangePattern
+    RangePattern (..),
+
+    -- * ItemName
+    ItemName (..),
 
     -- * ItemType
     ItemType (..),
@@ -25,73 +47,126 @@ module Network.AWS.MediaStoreData.Types
     -- * Item
     Item (..),
     mkItem,
-    iETag,
     iContentLength,
+    iContentType,
+    iETag,
+    iLastModified,
     iName,
     iType,
-    iLastModified,
-    iContentType,
+
+    -- * ContentType
+    ContentType (..),
+
+    -- * ContentSHA256
+    ContentSHA256 (..),
+
+    -- * Path
+    Path (..),
+
+    -- * ContentRange
+    ContentRange (..),
   )
 where
 
 import qualified Network.AWS.Lens as Lens
+import Network.AWS.MediaStoreData.Types.ContentRange
+import Network.AWS.MediaStoreData.Types.ContentSHA256
+import Network.AWS.MediaStoreData.Types.ContentType
+import Network.AWS.MediaStoreData.Types.ETag
 import Network.AWS.MediaStoreData.Types.Item
+import Network.AWS.MediaStoreData.Types.ItemName
 import Network.AWS.MediaStoreData.Types.ItemType
+import Network.AWS.MediaStoreData.Types.PaginationToken
+import Network.AWS.MediaStoreData.Types.Path
+import Network.AWS.MediaStoreData.Types.PathNaming
+import Network.AWS.MediaStoreData.Types.RangePattern
 import Network.AWS.MediaStoreData.Types.StorageClass
+import Network.AWS.MediaStoreData.Types.StringPrimitive
 import Network.AWS.MediaStoreData.Types.UploadAvailability
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-09-01@ of the Amazon Elemental MediaStore Data Plane SDK configuration.
-mediaStoreDataService :: Lude.Service
-mediaStoreDataService =
-  Lude.Service
-    { Lude._svcAbbrev = "MediaStoreData",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "data.mediastore",
-      Lude._svcVersion = "2017-09-01",
-      Lude._svcEndpoint = Lude.defaultEndpoint mediaStoreDataService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "MediaStoreData",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "MediaStoreData",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "data.mediastore",
+      Core._svcVersion = "2017-09-01",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "MediaStoreData",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | The requested content range is not valid.
+_RequestedRangeNotSatisfiableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_RequestedRangeNotSatisfiableException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "RequestedRangeNotSatisfiableException"
+    Core.. Core.hasStatues 416
+{-# DEPRECATED _RequestedRangeNotSatisfiableException "Use generic-lens or generic-optics instead." #-}
+
+-- | The service is temporarily unavailable.
+_InternalServerError :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServerError =
+  Core._MatchServiceError mkServiceConfig "InternalServerError"
+{-# DEPRECATED _InternalServerError "Use generic-lens or generic-optics instead." #-}
+
+-- | The specified container was not found for the specified account.
+_ContainerNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ContainerNotFoundException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ContainerNotFoundException"
+    Core.. Core.hasStatues 404
+{-# DEPRECATED _ContainerNotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | Could not perform an operation on an object that does not exist.
+_ObjectNotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ObjectNotFoundException =
+  Core._MatchServiceError mkServiceConfig "ObjectNotFoundException"
+    Core.. Core.hasStatues 404
+{-# DEPRECATED _ObjectNotFoundException "Use generic-lens or generic-optics instead." #-}

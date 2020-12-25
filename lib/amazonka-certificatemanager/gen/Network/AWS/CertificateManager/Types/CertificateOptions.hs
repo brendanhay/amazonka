@@ -21,52 +21,48 @@ module Network.AWS.CertificateManager.Types.CertificateOptions
   )
 where
 
-import Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference
+import qualified Network.AWS.CertificateManager.Types.CertificateTransparencyLoggingPreference as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Structure that contains options for your certificate. Currently, you can use this only to specify whether to opt in to or out of certificate transparency logging. Some browsers require that public certificates issued for your domain be recorded in a log. Certificates that are not logged typically generate a browser error. Transparency makes it possible for you to detect SSL/TLS certificates that have been mistakenly or maliciously issued for your domain. For general information, see <https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency Certificate Transparency Logging> .
 --
 -- /See:/ 'mkCertificateOptions' smart constructor.
 newtype CertificateOptions = CertificateOptions'
   { -- | You can opt out of certificate transparency logging by specifying the @DISABLED@ option. Opt in by specifying @ENABLED@ .
-    certificateTransparencyLoggingPreference :: Lude.Maybe CertificateTransparencyLoggingPreference
+    certificateTransparencyLoggingPreference :: Core.Maybe Types.CertificateTransparencyLoggingPreference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CertificateOptions' with the minimum fields required to make a request.
---
--- * 'certificateTransparencyLoggingPreference' - You can opt out of certificate transparency logging by specifying the @DISABLED@ option. Opt in by specifying @ENABLED@ .
+-- | Creates a 'CertificateOptions' value with any optional fields omitted.
 mkCertificateOptions ::
   CertificateOptions
 mkCertificateOptions =
   CertificateOptions'
     { certificateTransparencyLoggingPreference =
-        Lude.Nothing
+        Core.Nothing
     }
 
 -- | You can opt out of certificate transparency logging by specifying the @DISABLED@ option. Opt in by specifying @ENABLED@ .
 --
 -- /Note:/ Consider using 'certificateTransparencyLoggingPreference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-coCertificateTransparencyLoggingPreference :: Lens.Lens' CertificateOptions (Lude.Maybe CertificateTransparencyLoggingPreference)
-coCertificateTransparencyLoggingPreference = Lens.lens (certificateTransparencyLoggingPreference :: CertificateOptions -> Lude.Maybe CertificateTransparencyLoggingPreference) (\s a -> s {certificateTransparencyLoggingPreference = a} :: CertificateOptions)
+coCertificateTransparencyLoggingPreference :: Lens.Lens' CertificateOptions (Core.Maybe Types.CertificateTransparencyLoggingPreference)
+coCertificateTransparencyLoggingPreference = Lens.field @"certificateTransparencyLoggingPreference"
 {-# DEPRECATED coCertificateTransparencyLoggingPreference "Use generic-lens or generic-optics with 'certificateTransparencyLoggingPreference' instead." #-}
 
-instance Lude.FromJSON CertificateOptions where
-  parseJSON =
-    Lude.withObject
-      "CertificateOptions"
-      ( \x ->
-          CertificateOptions'
-            Lude.<$> (x Lude..:? "CertificateTransparencyLoggingPreference")
-      )
-
-instance Lude.ToJSON CertificateOptions where
-  toJSON CertificateOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CertificateTransparencyLoggingPreference" Lude..=)
-              Lude.<$> certificateTransparencyLoggingPreference
+instance Core.FromJSON CertificateOptions where
+  toJSON CertificateOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CertificateTransparencyLoggingPreference" Core..=)
+              Core.<$> certificateTransparencyLoggingPreference
           ]
       )
+
+instance Core.FromJSON CertificateOptions where
+  parseJSON =
+    Core.withObject "CertificateOptions" Core.$
+      \x ->
+        CertificateOptions'
+          Core.<$> (x Core..:? "CertificateTransparencyLoggingPreference")

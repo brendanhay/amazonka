@@ -25,132 +25,119 @@ module Network.AWS.DirectConnect.CreateBGPPeer
     mkCreateBGPPeer,
 
     -- ** Request lenses
-    cbpNewBGPPeer,
-    cbpVirtualInterfaceId,
+    cbgppNewBGPPeer,
+    cbgppVirtualInterfaceId,
 
     -- * Destructuring the response
     CreateBGPPeerResponse (..),
     mkCreateBGPPeerResponse,
 
     -- ** Response lenses
-    cbprsVirtualInterface,
-    cbprsResponseStatus,
+    cbgpprrsVirtualInterface,
+    cbgpprrsResponseStatus,
   )
 where
 
-import Network.AWS.DirectConnect.Types
+import qualified Network.AWS.DirectConnect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateBGPPeer' smart constructor.
 data CreateBGPPeer = CreateBGPPeer'
   { -- | Information about the BGP peer.
-    newBGPPeer :: Lude.Maybe NewBGPPeer,
+    newBGPPeer :: Core.Maybe Types.NewBGPPeer,
     -- | The ID of the virtual interface.
-    virtualInterfaceId :: Lude.Maybe Lude.Text
+    virtualInterfaceId :: Core.Maybe Types.VirtualInterfaceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateBGPPeer' with the minimum fields required to make a request.
---
--- * 'newBGPPeer' - Information about the BGP peer.
--- * 'virtualInterfaceId' - The ID of the virtual interface.
+-- | Creates a 'CreateBGPPeer' value with any optional fields omitted.
 mkCreateBGPPeer ::
   CreateBGPPeer
 mkCreateBGPPeer =
   CreateBGPPeer'
-    { newBGPPeer = Lude.Nothing,
-      virtualInterfaceId = Lude.Nothing
+    { newBGPPeer = Core.Nothing,
+      virtualInterfaceId = Core.Nothing
     }
 
 -- | Information about the BGP peer.
 --
 -- /Note:/ Consider using 'newBGPPeer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbpNewBGPPeer :: Lens.Lens' CreateBGPPeer (Lude.Maybe NewBGPPeer)
-cbpNewBGPPeer = Lens.lens (newBGPPeer :: CreateBGPPeer -> Lude.Maybe NewBGPPeer) (\s a -> s {newBGPPeer = a} :: CreateBGPPeer)
-{-# DEPRECATED cbpNewBGPPeer "Use generic-lens or generic-optics with 'newBGPPeer' instead." #-}
+cbgppNewBGPPeer :: Lens.Lens' CreateBGPPeer (Core.Maybe Types.NewBGPPeer)
+cbgppNewBGPPeer = Lens.field @"newBGPPeer"
+{-# DEPRECATED cbgppNewBGPPeer "Use generic-lens or generic-optics with 'newBGPPeer' instead." #-}
 
 -- | The ID of the virtual interface.
 --
 -- /Note:/ Consider using 'virtualInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbpVirtualInterfaceId :: Lens.Lens' CreateBGPPeer (Lude.Maybe Lude.Text)
-cbpVirtualInterfaceId = Lens.lens (virtualInterfaceId :: CreateBGPPeer -> Lude.Maybe Lude.Text) (\s a -> s {virtualInterfaceId = a} :: CreateBGPPeer)
-{-# DEPRECATED cbpVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
+cbgppVirtualInterfaceId :: Lens.Lens' CreateBGPPeer (Core.Maybe Types.VirtualInterfaceId)
+cbgppVirtualInterfaceId = Lens.field @"virtualInterfaceId"
+{-# DEPRECATED cbgppVirtualInterfaceId "Use generic-lens or generic-optics with 'virtualInterfaceId' instead." #-}
 
-instance Lude.AWSRequest CreateBGPPeer where
+instance Core.FromJSON CreateBGPPeer where
+  toJSON CreateBGPPeer {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("newBGPPeer" Core..=) Core.<$> newBGPPeer,
+            ("virtualInterfaceId" Core..=) Core.<$> virtualInterfaceId
+          ]
+      )
+
+instance Core.AWSRequest CreateBGPPeer where
   type Rs CreateBGPPeer = CreateBGPPeerResponse
-  request = Req.postJSON directConnectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OvertureService.CreateBGPPeer")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateBGPPeerResponse'
-            Lude.<$> (x Lude..?> "virtualInterface")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "virtualInterface")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateBGPPeer where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OvertureService.CreateBGPPeer" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateBGPPeer where
-  toJSON CreateBGPPeer' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("newBGPPeer" Lude..=) Lude.<$> newBGPPeer,
-            ("virtualInterfaceId" Lude..=) Lude.<$> virtualInterfaceId
-          ]
-      )
-
-instance Lude.ToPath CreateBGPPeer where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateBGPPeer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateBGPPeerResponse' smart constructor.
 data CreateBGPPeerResponse = CreateBGPPeerResponse'
   { -- | The virtual interface.
-    virtualInterface :: Lude.Maybe VirtualInterface,
+    virtualInterface :: Core.Maybe Types.VirtualInterface,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateBGPPeerResponse' with the minimum fields required to make a request.
---
--- * 'virtualInterface' - The virtual interface.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateBGPPeerResponse' value with any optional fields omitted.
 mkCreateBGPPeerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateBGPPeerResponse
-mkCreateBGPPeerResponse pResponseStatus_ =
+mkCreateBGPPeerResponse responseStatus =
   CreateBGPPeerResponse'
-    { virtualInterface = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { virtualInterface = Core.Nothing,
+      responseStatus
     }
 
 -- | The virtual interface.
 --
 -- /Note:/ Consider using 'virtualInterface' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbprsVirtualInterface :: Lens.Lens' CreateBGPPeerResponse (Lude.Maybe VirtualInterface)
-cbprsVirtualInterface = Lens.lens (virtualInterface :: CreateBGPPeerResponse -> Lude.Maybe VirtualInterface) (\s a -> s {virtualInterface = a} :: CreateBGPPeerResponse)
-{-# DEPRECATED cbprsVirtualInterface "Use generic-lens or generic-optics with 'virtualInterface' instead." #-}
+cbgpprrsVirtualInterface :: Lens.Lens' CreateBGPPeerResponse (Core.Maybe Types.VirtualInterface)
+cbgpprrsVirtualInterface = Lens.field @"virtualInterface"
+{-# DEPRECATED cbgpprrsVirtualInterface "Use generic-lens or generic-optics with 'virtualInterface' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbprsResponseStatus :: Lens.Lens' CreateBGPPeerResponse Lude.Int
-cbprsResponseStatus = Lens.lens (responseStatus :: CreateBGPPeerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBGPPeerResponse)
-{-# DEPRECATED cbprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cbgpprrsResponseStatus :: Lens.Lens' CreateBGPPeerResponse Core.Int
+cbgpprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cbgpprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

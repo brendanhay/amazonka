@@ -42,86 +42,73 @@ module Network.AWS.OpsWorks.AssignInstance
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssignInstance' smart constructor.
 data AssignInstance = AssignInstance'
   { -- | The instance ID.
-    instanceId :: Lude.Text,
+    instanceId :: Types.String,
     -- | The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
-    layerIds :: [Lude.Text]
+    layerIds :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssignInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance ID.
--- * 'layerIds' - The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
+-- | Creates a 'AssignInstance' value with any optional fields omitted.
 mkAssignInstance ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.String ->
   AssignInstance
-mkAssignInstance pInstanceId_ =
-  AssignInstance'
-    { instanceId = pInstanceId_,
-      layerIds = Lude.mempty
-    }
+mkAssignInstance instanceId =
+  AssignInstance' {instanceId, layerIds = Core.mempty}
 
 -- | The instance ID.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiInstanceId :: Lens.Lens' AssignInstance Lude.Text
-aiInstanceId = Lens.lens (instanceId :: AssignInstance -> Lude.Text) (\s a -> s {instanceId = a} :: AssignInstance)
+aiInstanceId :: Lens.Lens' AssignInstance Types.String
+aiInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED aiInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The layer ID, which must correspond to a custom layer. You cannot assign a registered instance to a built-in layer.
 --
 -- /Note:/ Consider using 'layerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aiLayerIds :: Lens.Lens' AssignInstance [Lude.Text]
-aiLayerIds = Lens.lens (layerIds :: AssignInstance -> [Lude.Text]) (\s a -> s {layerIds = a} :: AssignInstance)
+aiLayerIds :: Lens.Lens' AssignInstance [Types.String]
+aiLayerIds = Lens.field @"layerIds"
 {-# DEPRECATED aiLayerIds "Use generic-lens or generic-optics with 'layerIds' instead." #-}
 
-instance Lude.AWSRequest AssignInstance where
+instance Core.FromJSON AssignInstance where
+  toJSON AssignInstance {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("LayerIds" Core..= layerIds)
+          ]
+      )
+
+instance Core.AWSRequest AssignInstance where
   type Rs AssignInstance = AssignInstanceResponse
-  request = Req.postJSON opsWorksService
-  response = Res.receiveNull AssignInstanceResponse'
-
-instance Lude.ToHeaders AssignInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("OpsWorks_20130218.AssignInstance" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssignInstance where
-  toJSON AssignInstance' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("LayerIds" Lude..= layerIds)
-          ]
-      )
-
-instance Lude.ToPath AssignInstance where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssignInstance where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "OpsWorks_20130218.AssignInstance")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull AssignInstanceResponse'
 
 -- | /See:/ 'mkAssignInstanceResponse' smart constructor.
 data AssignInstanceResponse = AssignInstanceResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssignInstanceResponse' with the minimum fields required to make a request.
+-- | Creates a 'AssignInstanceResponse' value with any optional fields omitted.
 mkAssignInstanceResponse ::
   AssignInstanceResponse
 mkAssignInstanceResponse = AssignInstanceResponse'

@@ -20,8 +20,8 @@ module Network.AWS.EMR.ModifyInstanceFleet
     mkModifyInstanceFleet,
 
     -- ** Request lenses
-    mifInstanceFleet,
     mifClusterId,
+    mifInstanceFleet,
 
     -- * Destructuring the response
     ModifyInstanceFleetResponse (..),
@@ -29,89 +29,76 @@ module Network.AWS.EMR.ModifyInstanceFleet
   )
 where
 
-import Network.AWS.EMR.Types
+import qualified Network.AWS.EMR.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkModifyInstanceFleet' smart constructor.
 data ModifyInstanceFleet = ModifyInstanceFleet'
-  { -- | The unique identifier of the instance fleet.
-    instanceFleet :: InstanceFleetModifyConfig,
-    -- | The unique identifier of the cluster.
-    clusterId :: Lude.Text
+  { -- | The unique identifier of the cluster.
+    clusterId :: Types.ClusterId,
+    -- | The unique identifier of the instance fleet.
+    instanceFleet :: Types.InstanceFleetModifyConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyInstanceFleet' with the minimum fields required to make a request.
---
--- * 'instanceFleet' - The unique identifier of the instance fleet.
--- * 'clusterId' - The unique identifier of the cluster.
+-- | Creates a 'ModifyInstanceFleet' value with any optional fields omitted.
 mkModifyInstanceFleet ::
-  -- | 'instanceFleet'
-  InstanceFleetModifyConfig ->
   -- | 'clusterId'
-  Lude.Text ->
+  Types.ClusterId ->
+  -- | 'instanceFleet'
+  Types.InstanceFleetModifyConfig ->
   ModifyInstanceFleet
-mkModifyInstanceFleet pInstanceFleet_ pClusterId_ =
-  ModifyInstanceFleet'
-    { instanceFleet = pInstanceFleet_,
-      clusterId = pClusterId_
-    }
-
--- | The unique identifier of the instance fleet.
---
--- /Note:/ Consider using 'instanceFleet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mifInstanceFleet :: Lens.Lens' ModifyInstanceFleet InstanceFleetModifyConfig
-mifInstanceFleet = Lens.lens (instanceFleet :: ModifyInstanceFleet -> InstanceFleetModifyConfig) (\s a -> s {instanceFleet = a} :: ModifyInstanceFleet)
-{-# DEPRECATED mifInstanceFleet "Use generic-lens or generic-optics with 'instanceFleet' instead." #-}
+mkModifyInstanceFleet clusterId instanceFleet =
+  ModifyInstanceFleet' {clusterId, instanceFleet}
 
 -- | The unique identifier of the cluster.
 --
 -- /Note:/ Consider using 'clusterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mifClusterId :: Lens.Lens' ModifyInstanceFleet Lude.Text
-mifClusterId = Lens.lens (clusterId :: ModifyInstanceFleet -> Lude.Text) (\s a -> s {clusterId = a} :: ModifyInstanceFleet)
+mifClusterId :: Lens.Lens' ModifyInstanceFleet Types.ClusterId
+mifClusterId = Lens.field @"clusterId"
 {-# DEPRECATED mifClusterId "Use generic-lens or generic-optics with 'clusterId' instead." #-}
 
-instance Lude.AWSRequest ModifyInstanceFleet where
+-- | The unique identifier of the instance fleet.
+--
+-- /Note:/ Consider using 'instanceFleet' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mifInstanceFleet :: Lens.Lens' ModifyInstanceFleet Types.InstanceFleetModifyConfig
+mifInstanceFleet = Lens.field @"instanceFleet"
+{-# DEPRECATED mifInstanceFleet "Use generic-lens or generic-optics with 'instanceFleet' instead." #-}
+
+instance Core.FromJSON ModifyInstanceFleet where
+  toJSON ModifyInstanceFleet {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ClusterId" Core..= clusterId),
+            Core.Just ("InstanceFleet" Core..= instanceFleet)
+          ]
+      )
+
+instance Core.AWSRequest ModifyInstanceFleet where
   type Rs ModifyInstanceFleet = ModifyInstanceFleetResponse
-  request = Req.postJSON emrService
-  response = Res.receiveNull ModifyInstanceFleetResponse'
-
-instance Lude.ToHeaders ModifyInstanceFleet where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("ElasticMapReduce.ModifyInstanceFleet" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ModifyInstanceFleet where
-  toJSON ModifyInstanceFleet' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceFleet" Lude..= instanceFleet),
-            Lude.Just ("ClusterId" Lude..= clusterId)
-          ]
-      )
-
-instance Lude.ToPath ModifyInstanceFleet where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ModifyInstanceFleet where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "ElasticMapReduce.ModifyInstanceFleet")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull ModifyInstanceFleetResponse'
 
 -- | /See:/ 'mkModifyInstanceFleetResponse' smart constructor.
 data ModifyInstanceFleetResponse = ModifyInstanceFleetResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ModifyInstanceFleetResponse' with the minimum fields required to make a request.
+-- | Creates a 'ModifyInstanceFleetResponse' value with any optional fields omitted.
 mkModifyInstanceFleetResponse ::
   ModifyInstanceFleetResponse
 mkModifyInstanceFleetResponse = ModifyInstanceFleetResponse'

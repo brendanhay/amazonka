@@ -13,61 +13,66 @@
 module Network.AWS.SMS.Types.ConnectorCapability
   ( ConnectorCapability
       ( ConnectorCapability',
-        CCVsphere,
-        CCScvmm,
-        CCHypervManager,
-        CCSnapshotBatching,
-        CCSmsOptimized
+        ConnectorCapabilityVsphere,
+        ConnectorCapabilityScvmm,
+        ConnectorCapabilityHypervManager,
+        ConnectorCapabilitySnapshotBatching,
+        ConnectorCapabilitySmsOptimized,
+        fromConnectorCapability
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConnectorCapability = ConnectorCapability' Lude.Text
+newtype ConnectorCapability = ConnectorCapability'
+  { fromConnectorCapability ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CCVsphere :: ConnectorCapability
-pattern CCVsphere = ConnectorCapability' "VSPHERE"
+pattern ConnectorCapabilityVsphere :: ConnectorCapability
+pattern ConnectorCapabilityVsphere = ConnectorCapability' "VSPHERE"
 
-pattern CCScvmm :: ConnectorCapability
-pattern CCScvmm = ConnectorCapability' "SCVMM"
+pattern ConnectorCapabilityScvmm :: ConnectorCapability
+pattern ConnectorCapabilityScvmm = ConnectorCapability' "SCVMM"
 
-pattern CCHypervManager :: ConnectorCapability
-pattern CCHypervManager = ConnectorCapability' "HYPERV-MANAGER"
+pattern ConnectorCapabilityHypervManager :: ConnectorCapability
+pattern ConnectorCapabilityHypervManager = ConnectorCapability' "HYPERV-MANAGER"
 
-pattern CCSnapshotBatching :: ConnectorCapability
-pattern CCSnapshotBatching = ConnectorCapability' "SNAPSHOT_BATCHING"
+pattern ConnectorCapabilitySnapshotBatching :: ConnectorCapability
+pattern ConnectorCapabilitySnapshotBatching = ConnectorCapability' "SNAPSHOT_BATCHING"
 
-pattern CCSmsOptimized :: ConnectorCapability
-pattern CCSmsOptimized = ConnectorCapability' "SMS_OPTIMIZED"
+pattern ConnectorCapabilitySmsOptimized :: ConnectorCapability
+pattern ConnectorCapabilitySmsOptimized = ConnectorCapability' "SMS_OPTIMIZED"
 
 {-# COMPLETE
-  CCVsphere,
-  CCScvmm,
-  CCHypervManager,
-  CCSnapshotBatching,
-  CCSmsOptimized,
+  ConnectorCapabilityVsphere,
+  ConnectorCapabilityScvmm,
+  ConnectorCapabilityHypervManager,
+  ConnectorCapabilitySnapshotBatching,
+  ConnectorCapabilitySmsOptimized,
   ConnectorCapability'
   #-}

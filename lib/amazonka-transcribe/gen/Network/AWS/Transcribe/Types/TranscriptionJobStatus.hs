@@ -13,56 +13,61 @@
 module Network.AWS.Transcribe.Types.TranscriptionJobStatus
   ( TranscriptionJobStatus
       ( TranscriptionJobStatus',
-        TJSQueued,
-        TJSInProgress,
-        TJSFailed,
-        TJSCompleted
+        TranscriptionJobStatusQueued,
+        TranscriptionJobStatusInProgress,
+        TranscriptionJobStatusFailed,
+        TranscriptionJobStatusCompleted,
+        fromTranscriptionJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TranscriptionJobStatus = TranscriptionJobStatus' Lude.Text
+newtype TranscriptionJobStatus = TranscriptionJobStatus'
+  { fromTranscriptionJobStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TJSQueued :: TranscriptionJobStatus
-pattern TJSQueued = TranscriptionJobStatus' "QUEUED"
+pattern TranscriptionJobStatusQueued :: TranscriptionJobStatus
+pattern TranscriptionJobStatusQueued = TranscriptionJobStatus' "QUEUED"
 
-pattern TJSInProgress :: TranscriptionJobStatus
-pattern TJSInProgress = TranscriptionJobStatus' "IN_PROGRESS"
+pattern TranscriptionJobStatusInProgress :: TranscriptionJobStatus
+pattern TranscriptionJobStatusInProgress = TranscriptionJobStatus' "IN_PROGRESS"
 
-pattern TJSFailed :: TranscriptionJobStatus
-pattern TJSFailed = TranscriptionJobStatus' "FAILED"
+pattern TranscriptionJobStatusFailed :: TranscriptionJobStatus
+pattern TranscriptionJobStatusFailed = TranscriptionJobStatus' "FAILED"
 
-pattern TJSCompleted :: TranscriptionJobStatus
-pattern TJSCompleted = TranscriptionJobStatus' "COMPLETED"
+pattern TranscriptionJobStatusCompleted :: TranscriptionJobStatus
+pattern TranscriptionJobStatusCompleted = TranscriptionJobStatus' "COMPLETED"
 
 {-# COMPLETE
-  TJSQueued,
-  TJSInProgress,
-  TJSFailed,
-  TJSCompleted,
+  TranscriptionJobStatusQueued,
+  TranscriptionJobStatusInProgress,
+  TranscriptionJobStatusFailed,
+  TranscriptionJobStatusCompleted,
   TranscriptionJobStatus'
   #-}

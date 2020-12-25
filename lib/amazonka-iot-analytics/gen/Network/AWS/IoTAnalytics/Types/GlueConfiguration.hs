@@ -17,70 +17,64 @@ module Network.AWS.IoTAnalytics.Types.GlueConfiguration
     mkGlueConfiguration,
 
     -- * Lenses
-    gcDatabaseName,
     gcTableName,
+    gcDatabaseName,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.DatabaseName as Types
+import qualified Network.AWS.IoTAnalytics.Types.GlueTableName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration information for coordination with AWS Glue, a fully managed extract, transform and load (ETL) service.
 --
 -- /See:/ 'mkGlueConfiguration' smart constructor.
 data GlueConfiguration = GlueConfiguration'
-  { -- | The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
-    databaseName :: Lude.Text,
-    -- | The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
-    tableName :: Lude.Text
+  { -- | The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
+    tableName :: Types.GlueTableName,
+    -- | The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
+    databaseName :: Types.DatabaseName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GlueConfiguration' with the minimum fields required to make a request.
---
--- * 'databaseName' - The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
--- * 'tableName' - The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
+-- | Creates a 'GlueConfiguration' value with any optional fields omitted.
 mkGlueConfiguration ::
-  -- | 'databaseName'
-  Lude.Text ->
   -- | 'tableName'
-  Lude.Text ->
+  Types.GlueTableName ->
+  -- | 'databaseName'
+  Types.DatabaseName ->
   GlueConfiguration
-mkGlueConfiguration pDatabaseName_ pTableName_ =
-  GlueConfiguration'
-    { databaseName = pDatabaseName_,
-      tableName = pTableName_
-    }
-
--- | The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
---
--- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcDatabaseName :: Lens.Lens' GlueConfiguration Lude.Text
-gcDatabaseName = Lens.lens (databaseName :: GlueConfiguration -> Lude.Text) (\s a -> s {databaseName = a} :: GlueConfiguration)
-{-# DEPRECATED gcDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
+mkGlueConfiguration tableName databaseName =
+  GlueConfiguration' {tableName, databaseName}
 
 -- | The name of the table in your AWS Glue Data Catalog that is used to perform the ETL operations. An AWS Glue Data Catalog table contains partitioned data and descriptions of data sources and targets.
 --
 -- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gcTableName :: Lens.Lens' GlueConfiguration Lude.Text
-gcTableName = Lens.lens (tableName :: GlueConfiguration -> Lude.Text) (\s a -> s {tableName = a} :: GlueConfiguration)
+gcTableName :: Lens.Lens' GlueConfiguration Types.GlueTableName
+gcTableName = Lens.field @"tableName"
 {-# DEPRECATED gcTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.FromJSON GlueConfiguration where
-  parseJSON =
-    Lude.withObject
-      "GlueConfiguration"
-      ( \x ->
-          GlueConfiguration'
-            Lude.<$> (x Lude..: "databaseName") Lude.<*> (x Lude..: "tableName")
-      )
+-- | The name of the database in your AWS Glue Data Catalog in which the table is located. An AWS Glue Data Catalog database contains metadata tables.
+--
+-- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gcDatabaseName :: Lens.Lens' GlueConfiguration Types.DatabaseName
+gcDatabaseName = Lens.field @"databaseName"
+{-# DEPRECATED gcDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
-instance Lude.ToJSON GlueConfiguration where
-  toJSON GlueConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("databaseName" Lude..= databaseName),
-            Lude.Just ("tableName" Lude..= tableName)
+instance Core.FromJSON GlueConfiguration where
+  toJSON GlueConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("tableName" Core..= tableName),
+            Core.Just ("databaseName" Core..= databaseName)
           ]
       )
+
+instance Core.FromJSON GlueConfiguration where
+  parseJSON =
+    Core.withObject "GlueConfiguration" Core.$
+      \x ->
+        GlueConfiguration'
+          Core.<$> (x Core..: "tableName") Core.<*> (x Core..: "databaseName")

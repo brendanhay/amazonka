@@ -17,69 +17,62 @@ module Network.AWS.IoTAnalytics.Types.LateDataRule
     mkLateDataRule,
 
     -- * Lenses
-    ldrRuleName,
     ldrRuleConfiguration,
+    ldrRuleName,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.LateDataRuleConfiguration
+import qualified Network.AWS.IoTAnalytics.Types.LateDataRuleConfiguration as Types
+import qualified Network.AWS.IoTAnalytics.Types.LateDataRuleName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure that contains the name and configuration information of a late data rule.
 --
 -- /See:/ 'mkLateDataRule' smart constructor.
 data LateDataRule = LateDataRule'
-  { -- | The name of the late data rule.
-    ruleName :: Lude.Maybe Lude.Text,
-    -- | The information needed to configure the late data rule.
-    ruleConfiguration :: LateDataRuleConfiguration
+  { -- | The information needed to configure the late data rule.
+    ruleConfiguration :: Types.LateDataRuleConfiguration,
+    -- | The name of the late data rule.
+    ruleName :: Core.Maybe Types.LateDataRuleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LateDataRule' with the minimum fields required to make a request.
---
--- * 'ruleName' - The name of the late data rule.
--- * 'ruleConfiguration' - The information needed to configure the late data rule.
+-- | Creates a 'LateDataRule' value with any optional fields omitted.
 mkLateDataRule ::
   -- | 'ruleConfiguration'
-  LateDataRuleConfiguration ->
+  Types.LateDataRuleConfiguration ->
   LateDataRule
-mkLateDataRule pRuleConfiguration_ =
-  LateDataRule'
-    { ruleName = Lude.Nothing,
-      ruleConfiguration = pRuleConfiguration_
-    }
-
--- | The name of the late data rule.
---
--- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrRuleName :: Lens.Lens' LateDataRule (Lude.Maybe Lude.Text)
-ldrRuleName = Lens.lens (ruleName :: LateDataRule -> Lude.Maybe Lude.Text) (\s a -> s {ruleName = a} :: LateDataRule)
-{-# DEPRECATED ldrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
+mkLateDataRule ruleConfiguration =
+  LateDataRule' {ruleConfiguration, ruleName = Core.Nothing}
 
 -- | The information needed to configure the late data rule.
 --
 -- /Note:/ Consider using 'ruleConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldrRuleConfiguration :: Lens.Lens' LateDataRule LateDataRuleConfiguration
-ldrRuleConfiguration = Lens.lens (ruleConfiguration :: LateDataRule -> LateDataRuleConfiguration) (\s a -> s {ruleConfiguration = a} :: LateDataRule)
+ldrRuleConfiguration :: Lens.Lens' LateDataRule Types.LateDataRuleConfiguration
+ldrRuleConfiguration = Lens.field @"ruleConfiguration"
 {-# DEPRECATED ldrRuleConfiguration "Use generic-lens or generic-optics with 'ruleConfiguration' instead." #-}
 
-instance Lude.FromJSON LateDataRule where
-  parseJSON =
-    Lude.withObject
-      "LateDataRule"
-      ( \x ->
-          LateDataRule'
-            Lude.<$> (x Lude..:? "ruleName") Lude.<*> (x Lude..: "ruleConfiguration")
-      )
+-- | The name of the late data rule.
+--
+-- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ldrRuleName :: Lens.Lens' LateDataRule (Core.Maybe Types.LateDataRuleName)
+ldrRuleName = Lens.field @"ruleName"
+{-# DEPRECATED ldrRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
 
-instance Lude.ToJSON LateDataRule where
-  toJSON LateDataRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ruleName" Lude..=) Lude.<$> ruleName,
-            Lude.Just ("ruleConfiguration" Lude..= ruleConfiguration)
+instance Core.FromJSON LateDataRule where
+  toJSON LateDataRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ruleConfiguration" Core..= ruleConfiguration),
+            ("ruleName" Core..=) Core.<$> ruleName
           ]
       )
+
+instance Core.FromJSON LateDataRule where
+  parseJSON =
+    Core.withObject "LateDataRule" Core.$
+      \x ->
+        LateDataRule'
+          Core.<$> (x Core..: "ruleConfiguration") Core.<*> (x Core..:? "ruleName")

@@ -22,45 +22,43 @@ module Network.AWS.EC2.Types.LastError
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The last error that occurred for a VPC endpoint.
 --
 -- /See:/ 'mkLastError' smart constructor.
 data LastError = LastError'
   { -- | The error code for the VPC endpoint error.
-    code :: Lude.Maybe Lude.Text,
+    code :: Core.Maybe Types.String,
     -- | The error message for the VPC endpoint error.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LastError' with the minimum fields required to make a request.
---
--- * 'code' - The error code for the VPC endpoint error.
--- * 'message' - The error message for the VPC endpoint error.
+-- | Creates a 'LastError' value with any optional fields omitted.
 mkLastError ::
   LastError
 mkLastError =
-  LastError' {code = Lude.Nothing, message = Lude.Nothing}
+  LastError' {code = Core.Nothing, message = Core.Nothing}
 
 -- | The error code for the VPC endpoint error.
 --
 -- /Note:/ Consider using 'code' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leCode :: Lens.Lens' LastError (Lude.Maybe Lude.Text)
-leCode = Lens.lens (code :: LastError -> Lude.Maybe Lude.Text) (\s a -> s {code = a} :: LastError)
+leCode :: Lens.Lens' LastError (Core.Maybe Types.String)
+leCode = Lens.field @"code"
 {-# DEPRECATED leCode "Use generic-lens or generic-optics with 'code' instead." #-}
 
 -- | The error message for the VPC endpoint error.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-leMessage :: Lens.Lens' LastError (Lude.Maybe Lude.Text)
-leMessage = Lens.lens (message :: LastError -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: LastError)
+leMessage :: Lens.Lens' LastError (Core.Maybe Types.String)
+leMessage = Lens.field @"message"
 {-# DEPRECATED leMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromXML LastError where
+instance Core.FromXML LastError where
   parseXML x =
     LastError'
-      Lude.<$> (x Lude..@? "code") Lude.<*> (x Lude..@? "message")
+      Core.<$> (x Core..@? "code") Core.<*> (x Core..@? "message")

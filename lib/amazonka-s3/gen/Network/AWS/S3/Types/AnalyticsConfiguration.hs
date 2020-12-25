@@ -17,83 +17,77 @@ module Network.AWS.S3.Types.AnalyticsConfiguration
     mkAnalyticsConfiguration,
 
     -- * Lenses
-    acStorageClassAnalysis,
     acId,
+    acStorageClassAnalysis,
     acFilter,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.AnalyticsFilter
-import Network.AWS.S3.Types.StorageClassAnalysis
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.AnalyticsFilter as Types
+import qualified Network.AWS.S3.Types.AnalyticsId as Types
+import qualified Network.AWS.S3.Types.StorageClassAnalysis as Types
 
 -- | Specifies the configuration and any analyses for the analytics filter of an Amazon S3 bucket.
 --
 -- /See:/ 'mkAnalyticsConfiguration' smart constructor.
 data AnalyticsConfiguration = AnalyticsConfiguration'
-  { -- | Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
-    storageClassAnalysis :: StorageClassAnalysis,
-    -- | The ID that identifies the analytics configuration.
-    id :: Lude.Text,
+  { -- | The ID that identifies the analytics configuration.
+    id :: Types.AnalyticsId,
+    -- | Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
+    storageClassAnalysis :: Types.StorageClassAnalysis,
     -- | The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.
-    filter :: Lude.Maybe AnalyticsFilter
+    filter :: Core.Maybe Types.AnalyticsFilter
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AnalyticsConfiguration' with the minimum fields required to make a request.
---
--- * 'storageClassAnalysis' - Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
--- * 'id' - The ID that identifies the analytics configuration.
--- * 'filter' - The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.
+-- | Creates a 'AnalyticsConfiguration' value with any optional fields omitted.
 mkAnalyticsConfiguration ::
-  -- | 'storageClassAnalysis'
-  StorageClassAnalysis ->
   -- | 'id'
-  Lude.Text ->
+  Types.AnalyticsId ->
+  -- | 'storageClassAnalysis'
+  Types.StorageClassAnalysis ->
   AnalyticsConfiguration
-mkAnalyticsConfiguration pStorageClassAnalysis_ pId_ =
+mkAnalyticsConfiguration id storageClassAnalysis =
   AnalyticsConfiguration'
-    { storageClassAnalysis =
-        pStorageClassAnalysis_,
-      id = pId_,
-      filter = Lude.Nothing
+    { id,
+      storageClassAnalysis,
+      filter = Core.Nothing
     }
-
--- | Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
---
--- /Note:/ Consider using 'storageClassAnalysis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acStorageClassAnalysis :: Lens.Lens' AnalyticsConfiguration StorageClassAnalysis
-acStorageClassAnalysis = Lens.lens (storageClassAnalysis :: AnalyticsConfiguration -> StorageClassAnalysis) (\s a -> s {storageClassAnalysis = a} :: AnalyticsConfiguration)
-{-# DEPRECATED acStorageClassAnalysis "Use generic-lens or generic-optics with 'storageClassAnalysis' instead." #-}
 
 -- | The ID that identifies the analytics configuration.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acId :: Lens.Lens' AnalyticsConfiguration Lude.Text
-acId = Lens.lens (id :: AnalyticsConfiguration -> Lude.Text) (\s a -> s {id = a} :: AnalyticsConfiguration)
+acId :: Lens.Lens' AnalyticsConfiguration Types.AnalyticsId
+acId = Lens.field @"id"
 {-# DEPRECATED acId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.
+--
+-- /Note:/ Consider using 'storageClassAnalysis' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acStorageClassAnalysis :: Lens.Lens' AnalyticsConfiguration Types.StorageClassAnalysis
+acStorageClassAnalysis = Lens.field @"storageClassAnalysis"
+{-# DEPRECATED acStorageClassAnalysis "Use generic-lens or generic-optics with 'storageClassAnalysis' instead." #-}
 
 -- | The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.
 --
 -- /Note:/ Consider using 'filter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acFilter :: Lens.Lens' AnalyticsConfiguration (Lude.Maybe AnalyticsFilter)
-acFilter = Lens.lens (filter :: AnalyticsConfiguration -> Lude.Maybe AnalyticsFilter) (\s a -> s {filter = a} :: AnalyticsConfiguration)
+acFilter :: Lens.Lens' AnalyticsConfiguration (Core.Maybe Types.AnalyticsFilter)
+acFilter = Lens.field @"filter"
 {-# DEPRECATED acFilter "Use generic-lens or generic-optics with 'filter' instead." #-}
 
-instance Lude.FromXML AnalyticsConfiguration where
+instance Core.ToXML AnalyticsConfiguration where
+  toXML AnalyticsConfiguration {..} =
+    Core.toXMLNode "Id" id
+      Core.<> Core.toXMLNode "StorageClassAnalysis" storageClassAnalysis
+      Core.<> Core.toXMLNode "Filter" Core.<$> filter
+
+instance Core.FromXML AnalyticsConfiguration where
   parseXML x =
     AnalyticsConfiguration'
-      Lude.<$> (x Lude..@ "StorageClassAnalysis")
-      Lude.<*> (x Lude..@ "Id")
-      Lude.<*> (x Lude..@? "Filter")
-
-instance Lude.ToXML AnalyticsConfiguration where
-  toXML AnalyticsConfiguration' {..} =
-    Lude.mconcat
-      [ "StorageClassAnalysis" Lude.@= storageClassAnalysis,
-        "Id" Lude.@= id,
-        "Filter" Lude.@= filter
-      ]
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "StorageClassAnalysis")
+      Core.<*> (x Core..@? "Filter")

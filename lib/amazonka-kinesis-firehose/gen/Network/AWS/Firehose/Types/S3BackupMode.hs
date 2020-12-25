@@ -13,46 +13,48 @@
 module Network.AWS.Firehose.Types.S3BackupMode
   ( S3BackupMode
       ( S3BackupMode',
-        SBMDisabled,
-        SBMEnabled
+        S3BackupModeDisabled,
+        S3BackupModeEnabled,
+        fromS3BackupMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype S3BackupMode = S3BackupMode' Lude.Text
+newtype S3BackupMode = S3BackupMode' {fromS3BackupMode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern SBMDisabled :: S3BackupMode
-pattern SBMDisabled = S3BackupMode' "Disabled"
+pattern S3BackupModeDisabled :: S3BackupMode
+pattern S3BackupModeDisabled = S3BackupMode' "Disabled"
 
-pattern SBMEnabled :: S3BackupMode
-pattern SBMEnabled = S3BackupMode' "Enabled"
+pattern S3BackupModeEnabled :: S3BackupMode
+pattern S3BackupModeEnabled = S3BackupMode' "Enabled"
 
 {-# COMPLETE
-  SBMDisabled,
-  SBMEnabled,
+  S3BackupModeDisabled,
+  S3BackupModeEnabled,
   S3BackupMode'
   #-}

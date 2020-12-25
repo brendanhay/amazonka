@@ -17,57 +17,56 @@ module Network.AWS.S3.Types.Tag
     mkTag,
 
     -- * Lenses
-    tValue,
     tKey,
+    tValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Key as Types
+import qualified Network.AWS.S3.Types.Value as Types
 
 -- | A container of a key value name pair.
 --
 -- /See:/ 'mkTag' smart constructor.
 data Tag = Tag'
-  { -- | Value of the tag.
-    value :: Lude.Text,
-    -- | Name of the object key.
-    key :: ObjectKey
+  { -- | Name of the object key.
+    key :: Types.Key,
+    -- | Value of the tag.
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Tag' with the minimum fields required to make a request.
---
--- * 'value' - Value of the tag.
--- * 'key' - Name of the object key.
+-- | Creates a 'Tag' value with any optional fields omitted.
 mkTag ::
-  -- | 'value'
-  Lude.Text ->
   -- | 'key'
-  ObjectKey ->
+  Types.Key ->
+  -- | 'value'
+  Types.Value ->
   Tag
-mkTag pValue_ pKey_ = Tag' {value = pValue_, key = pKey_}
-
--- | Value of the tag.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tValue :: Lens.Lens' Tag Lude.Text
-tValue = Lens.lens (value :: Tag -> Lude.Text) (\s a -> s {value = a} :: Tag)
-{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkTag key value = Tag' {key, value}
 
 -- | Name of the object key.
 --
 -- /Note:/ Consider using 'key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tKey :: Lens.Lens' Tag ObjectKey
-tKey = Lens.lens (key :: Tag -> ObjectKey) (\s a -> s {key = a} :: Tag)
+tKey :: Lens.Lens' Tag Types.Key
+tKey = Lens.field @"key"
 {-# DEPRECATED tKey "Use generic-lens or generic-optics with 'key' instead." #-}
 
-instance Lude.FromXML Tag where
-  parseXML x =
-    Tag' Lude.<$> (x Lude..@ "Value") Lude.<*> (x Lude..@ "Key")
+-- | Value of the tag.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tValue :: Lens.Lens' Tag Types.Value
+tValue = Lens.field @"value"
+{-# DEPRECATED tValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToXML Tag where
-  toXML Tag' {..} =
-    Lude.mconcat ["Value" Lude.@= value, "Key" Lude.@= key]
+instance Core.ToXML Tag where
+  toXML Tag {..} =
+    Core.toXMLNode "Key" key Core.<> Core.toXMLNode "Value" value
+
+instance Core.FromXML Tag where
+  parseXML x =
+    Tag' Core.<$> (x Core..@ "Key") Core.<*> (x Core..@ "Value")

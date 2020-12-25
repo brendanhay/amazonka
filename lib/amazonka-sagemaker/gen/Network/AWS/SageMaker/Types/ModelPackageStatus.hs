@@ -13,61 +13,66 @@
 module Network.AWS.SageMaker.Types.ModelPackageStatus
   ( ModelPackageStatus
       ( ModelPackageStatus',
-        MPSPending,
-        MPSInProgress,
-        MPSCompleted,
-        MPSFailed,
-        MPSDeleting
+        ModelPackageStatusPending,
+        ModelPackageStatusInProgress,
+        ModelPackageStatusCompleted,
+        ModelPackageStatusFailed,
+        ModelPackageStatusDeleting,
+        fromModelPackageStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ModelPackageStatus = ModelPackageStatus' Lude.Text
+newtype ModelPackageStatus = ModelPackageStatus'
+  { fromModelPackageStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MPSPending :: ModelPackageStatus
-pattern MPSPending = ModelPackageStatus' "Pending"
+pattern ModelPackageStatusPending :: ModelPackageStatus
+pattern ModelPackageStatusPending = ModelPackageStatus' "Pending"
 
-pattern MPSInProgress :: ModelPackageStatus
-pattern MPSInProgress = ModelPackageStatus' "InProgress"
+pattern ModelPackageStatusInProgress :: ModelPackageStatus
+pattern ModelPackageStatusInProgress = ModelPackageStatus' "InProgress"
 
-pattern MPSCompleted :: ModelPackageStatus
-pattern MPSCompleted = ModelPackageStatus' "Completed"
+pattern ModelPackageStatusCompleted :: ModelPackageStatus
+pattern ModelPackageStatusCompleted = ModelPackageStatus' "Completed"
 
-pattern MPSFailed :: ModelPackageStatus
-pattern MPSFailed = ModelPackageStatus' "Failed"
+pattern ModelPackageStatusFailed :: ModelPackageStatus
+pattern ModelPackageStatusFailed = ModelPackageStatus' "Failed"
 
-pattern MPSDeleting :: ModelPackageStatus
-pattern MPSDeleting = ModelPackageStatus' "Deleting"
+pattern ModelPackageStatusDeleting :: ModelPackageStatus
+pattern ModelPackageStatusDeleting = ModelPackageStatus' "Deleting"
 
 {-# COMPLETE
-  MPSPending,
-  MPSInProgress,
-  MPSCompleted,
-  MPSFailed,
-  MPSDeleting,
+  ModelPackageStatusPending,
+  ModelPackageStatusInProgress,
+  ModelPackageStatusCompleted,
+  ModelPackageStatusFailed,
+  ModelPackageStatusDeleting,
   ModelPackageStatus'
   #-}

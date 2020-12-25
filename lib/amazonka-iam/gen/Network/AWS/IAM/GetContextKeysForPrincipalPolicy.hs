@@ -24,27 +24,31 @@ module Network.AWS.IAM.GetContextKeysForPrincipalPolicy
     mkGetContextKeysForPrincipalPolicy,
 
     -- ** Request lenses
+    gckfppPolicySourceArn,
     gckfppPolicyInputList,
-    gckfppPolicySourceARN,
 
     -- * Destructuring the response
-    GetContextKeysForPolicyResponse (..),
-    mkGetContextKeysForPolicyResponse,
+    Types.GetContextKeysForPolicyResponse (..),
+    Types.mkGetContextKeysForPolicyResponse,
 
     -- ** Response lenses
-    gckfpContextKeyNames,
+    Types.gckfprContextKeyNames,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetContextKeysForPrincipalPolicy' smart constructor.
 data GetContextKeysForPrincipalPolicy = GetContextKeysForPrincipalPolicy'
-  { -- | An optional list of additional policies for which you want the list of context keys that are referenced.
+  { -- | The ARN of a user, group, or role whose policies contain the context keys that you want listed. If you specify a user, the list includes context keys that are found in all policies that are attached to the user. The list also includes all groups that the user is a member of. If you pick a group or a role, then it includes only those context keys that are found in policies attached to that entity. Note that all parameters are shown in unencoded form here for clarity, but must be URL encoded to be included as a part of a real HTML request.
+    --
+    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+    policySourceArn :: Types.PolicySourceArn,
+    -- | An optional list of additional policies for which you want the list of context keys that are referenced.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
     --
@@ -55,42 +59,30 @@ data GetContextKeysForPrincipalPolicy = GetContextKeysForPrincipalPolicy'
     --
     --
     --     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
-    policyInputList :: Lude.Maybe [Lude.Text],
-    -- | The ARN of a user, group, or role whose policies contain the context keys that you want listed. If you specify a user, the list includes context keys that are found in all policies that are attached to the user. The list also includes all groups that the user is a member of. If you pick a group or a role, then it includes only those context keys that are found in policies attached to that entity. Note that all parameters are shown in unencoded form here for clarity, but must be URL encoded to be included as a part of a real HTML request.
-    --
-    -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-    policySourceARN :: Lude.Text
+    policyInputList :: Core.Maybe [Types.PolicyDocumentType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetContextKeysForPrincipalPolicy' with the minimum fields required to make a request.
---
--- * 'policyInputList' - An optional list of additional policies for which you want the list of context keys that are referenced.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> used to validate this parameter is a string of characters consisting of the following:
---
---     * Any printable ASCII character ranging from the space character (@\u0020@ ) through the end of the ASCII character range
---
---
---     * The printable characters in the Basic Latin and Latin-1 Supplement character set (through @\u00FF@ )
---
---
---     * The special characters tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ )
---
---
--- * 'policySourceARN' - The ARN of a user, group, or role whose policies contain the context keys that you want listed. If you specify a user, the list includes context keys that are found in all policies that are attached to the user. The list also includes all groups that the user is a member of. If you pick a group or a role, then it includes only those context keys that are found in policies attached to that entity. Note that all parameters are shown in unencoded form here for clarity, but must be URL encoded to be included as a part of a real HTML request.
+-- | Creates a 'GetContextKeysForPrincipalPolicy' value with any optional fields omitted.
+mkGetContextKeysForPrincipalPolicy ::
+  -- | 'policySourceArn'
+  Types.PolicySourceArn ->
+  GetContextKeysForPrincipalPolicy
+mkGetContextKeysForPrincipalPolicy policySourceArn =
+  GetContextKeysForPrincipalPolicy'
+    { policySourceArn,
+      policyInputList = Core.Nothing
+    }
+
+-- | The ARN of a user, group, or role whose policies contain the context keys that you want listed. If you specify a user, the list includes context keys that are found in all policies that are attached to the user. The list also includes all groups that the user is a member of. If you pick a group or a role, then it includes only those context keys that are found in policies attached to that entity. Note that all parameters are shown in unencoded form here for clarity, but must be URL encoded to be included as a part of a real HTML request.
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-mkGetContextKeysForPrincipalPolicy ::
-  -- | 'policySourceARN'
-  Lude.Text ->
-  GetContextKeysForPrincipalPolicy
-mkGetContextKeysForPrincipalPolicy pPolicySourceARN_ =
-  GetContextKeysForPrincipalPolicy'
-    { policyInputList = Lude.Nothing,
-      policySourceARN = pPolicySourceARN_
-    }
+--
+-- /Note:/ Consider using 'policySourceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gckfppPolicySourceArn :: Lens.Lens' GetContextKeysForPrincipalPolicy Types.PolicySourceArn
+gckfppPolicySourceArn = Lens.field @"policySourceArn"
+{-# DEPRECATED gckfppPolicySourceArn "Use generic-lens or generic-optics with 'policySourceArn' instead." #-}
 
 -- | An optional list of additional policies for which you want the list of context keys that are referenced.
 --
@@ -107,42 +99,37 @@ mkGetContextKeysForPrincipalPolicy pPolicySourceARN_ =
 --
 --
 -- /Note:/ Consider using 'policyInputList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gckfppPolicyInputList :: Lens.Lens' GetContextKeysForPrincipalPolicy (Lude.Maybe [Lude.Text])
-gckfppPolicyInputList = Lens.lens (policyInputList :: GetContextKeysForPrincipalPolicy -> Lude.Maybe [Lude.Text]) (\s a -> s {policyInputList = a} :: GetContextKeysForPrincipalPolicy)
+gckfppPolicyInputList :: Lens.Lens' GetContextKeysForPrincipalPolicy (Core.Maybe [Types.PolicyDocumentType])
+gckfppPolicyInputList = Lens.field @"policyInputList"
 {-# DEPRECATED gckfppPolicyInputList "Use generic-lens or generic-optics with 'policyInputList' instead." #-}
 
--- | The ARN of a user, group, or role whose policies contain the context keys that you want listed. If you specify a user, the list includes context keys that are found in all policies that are attached to the user. The list also includes all groups that the user is a member of. If you pick a group or a role, then it includes only those context keys that are found in policies attached to that entity. Note that all parameters are shown in unencoded form here for clarity, but must be URL encoded to be included as a part of a real HTML request.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
---
--- /Note:/ Consider using 'policySourceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gckfppPolicySourceARN :: Lens.Lens' GetContextKeysForPrincipalPolicy Lude.Text
-gckfppPolicySourceARN = Lens.lens (policySourceARN :: GetContextKeysForPrincipalPolicy -> Lude.Text) (\s a -> s {policySourceARN = a} :: GetContextKeysForPrincipalPolicy)
-{-# DEPRECATED gckfppPolicySourceARN "Use generic-lens or generic-optics with 'policySourceARN' instead." #-}
-
-instance Lude.AWSRequest GetContextKeysForPrincipalPolicy where
+instance Core.AWSRequest GetContextKeysForPrincipalPolicy where
   type
     Rs GetContextKeysForPrincipalPolicy =
-      GetContextKeysForPolicyResponse
-  request = Req.postQuery iamService
+      Types.GetContextKeysForPolicyResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetContextKeysForPrincipalPolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "PolicySourceArn" policySourceArn)
+                Core.<> ( Core.toQueryValue
+                            "PolicyInputList"
+                            (Core.toQueryList "member" Core.<$> policyInputList)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetContextKeysForPrincipalPolicyResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders GetContextKeysForPrincipalPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetContextKeysForPrincipalPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetContextKeysForPrincipalPolicy where
-  toQuery GetContextKeysForPrincipalPolicy' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("GetContextKeysForPrincipalPolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyInputList"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> policyInputList),
-        "PolicySourceArn" Lude.=: policySourceARN
-      ]
+      (\s h x -> Core.parseXML x)

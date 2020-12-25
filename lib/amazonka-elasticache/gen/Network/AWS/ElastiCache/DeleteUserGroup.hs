@@ -20,72 +20,72 @@ module Network.AWS.ElastiCache.DeleteUserGroup
     mkDeleteUserGroup,
 
     -- ** Request lenses
-    dUserGroupId,
+    dugUserGroupId,
 
     -- * Destructuring the response
-    UserGroup (..),
-    mkUserGroup,
+    Types.UserGroup (..),
+    Types.mkUserGroup,
 
     -- ** Response lenses
-    ugStatus,
-    ugUserIds,
-    ugARN,
-    ugUserGroupId,
-    ugEngine,
-    ugPendingChanges,
-    ugReplicationGroups,
+    Types.ugARN,
+    Types.ugEngine,
+    Types.ugPendingChanges,
+    Types.ugReplicationGroups,
+    Types.ugStatus,
+    Types.ugUserGroupId,
+    Types.ugUserIds,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteUserGroup' smart constructor.
 newtype DeleteUserGroup = DeleteUserGroup'
   { -- | The ID of the user group.
-    userGroupId :: Lude.Text
+    userGroupId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteUserGroup' with the minimum fields required to make a request.
---
--- * 'userGroupId' - The ID of the user group.
+-- | Creates a 'DeleteUserGroup' value with any optional fields omitted.
 mkDeleteUserGroup ::
   -- | 'userGroupId'
-  Lude.Text ->
+  Types.String ->
   DeleteUserGroup
-mkDeleteUserGroup pUserGroupId_ =
-  DeleteUserGroup' {userGroupId = pUserGroupId_}
+mkDeleteUserGroup userGroupId = DeleteUserGroup' {userGroupId}
 
 -- | The ID of the user group.
 --
 -- /Note:/ Consider using 'userGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dUserGroupId :: Lens.Lens' DeleteUserGroup Lude.Text
-dUserGroupId = Lens.lens (userGroupId :: DeleteUserGroup -> Lude.Text) (\s a -> s {userGroupId = a} :: DeleteUserGroup)
-{-# DEPRECATED dUserGroupId "Use generic-lens or generic-optics with 'userGroupId' instead." #-}
+dugUserGroupId :: Lens.Lens' DeleteUserGroup Types.String
+dugUserGroupId = Lens.field @"userGroupId"
+{-# DEPRECATED dugUserGroupId "Use generic-lens or generic-optics with 'userGroupId' instead." #-}
 
-instance Lude.AWSRequest DeleteUserGroup where
-  type Rs DeleteUserGroup = UserGroup
-  request = Req.postQuery elastiCacheService
+instance Core.AWSRequest DeleteUserGroup where
+  type Rs DeleteUserGroup = Types.UserGroup
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteUserGroup")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "UserGroupId" userGroupId)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteUserGroupResult"
-      (\s h x -> Lude.parseXML x)
-
-instance Lude.ToHeaders DeleteUserGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteUserGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteUserGroup where
-  toQuery DeleteUserGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteUserGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "UserGroupId" Lude.=: userGroupId
-      ]
+      (\s h x -> Core.parseXML x)

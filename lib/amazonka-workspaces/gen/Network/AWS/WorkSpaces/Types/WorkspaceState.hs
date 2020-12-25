@@ -13,121 +13,126 @@
 module Network.AWS.WorkSpaces.Types.WorkspaceState
   ( WorkspaceState
       ( WorkspaceState',
-        WSPending,
-        WSAvailable,
-        WSImpaired,
-        WSUnhealthy,
-        WSRebooting,
-        WSStarting,
-        WSRebuilding,
-        WSRestoring,
-        WSMaintenance,
-        WSAdminMaintenance,
-        WSTerminating,
-        WSTerminated,
-        WSSuspended,
-        WSUpdating,
-        WSStopping,
-        WSStopped,
-        WSError
+        WorkspaceStatePending,
+        WorkspaceStateAvailable,
+        WorkspaceStateImpaired,
+        WorkspaceStateUnhealthy,
+        WorkspaceStateRebooting,
+        WorkspaceStateStarting,
+        WorkspaceStateRebuilding,
+        WorkspaceStateRestoring,
+        WorkspaceStateMaintenance,
+        WorkspaceStateAdminMaintenance,
+        WorkspaceStateTerminating,
+        WorkspaceStateTerminated,
+        WorkspaceStateSuspended,
+        WorkspaceStateUpdating,
+        WorkspaceStateStopping,
+        WorkspaceStateStopped,
+        WorkspaceStateError,
+        fromWorkspaceState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WorkspaceState = WorkspaceState' Lude.Text
+newtype WorkspaceState = WorkspaceState'
+  { fromWorkspaceState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern WSPending :: WorkspaceState
-pattern WSPending = WorkspaceState' "PENDING"
+pattern WorkspaceStatePending :: WorkspaceState
+pattern WorkspaceStatePending = WorkspaceState' "PENDING"
 
-pattern WSAvailable :: WorkspaceState
-pattern WSAvailable = WorkspaceState' "AVAILABLE"
+pattern WorkspaceStateAvailable :: WorkspaceState
+pattern WorkspaceStateAvailable = WorkspaceState' "AVAILABLE"
 
-pattern WSImpaired :: WorkspaceState
-pattern WSImpaired = WorkspaceState' "IMPAIRED"
+pattern WorkspaceStateImpaired :: WorkspaceState
+pattern WorkspaceStateImpaired = WorkspaceState' "IMPAIRED"
 
-pattern WSUnhealthy :: WorkspaceState
-pattern WSUnhealthy = WorkspaceState' "UNHEALTHY"
+pattern WorkspaceStateUnhealthy :: WorkspaceState
+pattern WorkspaceStateUnhealthy = WorkspaceState' "UNHEALTHY"
 
-pattern WSRebooting :: WorkspaceState
-pattern WSRebooting = WorkspaceState' "REBOOTING"
+pattern WorkspaceStateRebooting :: WorkspaceState
+pattern WorkspaceStateRebooting = WorkspaceState' "REBOOTING"
 
-pattern WSStarting :: WorkspaceState
-pattern WSStarting = WorkspaceState' "STARTING"
+pattern WorkspaceStateStarting :: WorkspaceState
+pattern WorkspaceStateStarting = WorkspaceState' "STARTING"
 
-pattern WSRebuilding :: WorkspaceState
-pattern WSRebuilding = WorkspaceState' "REBUILDING"
+pattern WorkspaceStateRebuilding :: WorkspaceState
+pattern WorkspaceStateRebuilding = WorkspaceState' "REBUILDING"
 
-pattern WSRestoring :: WorkspaceState
-pattern WSRestoring = WorkspaceState' "RESTORING"
+pattern WorkspaceStateRestoring :: WorkspaceState
+pattern WorkspaceStateRestoring = WorkspaceState' "RESTORING"
 
-pattern WSMaintenance :: WorkspaceState
-pattern WSMaintenance = WorkspaceState' "MAINTENANCE"
+pattern WorkspaceStateMaintenance :: WorkspaceState
+pattern WorkspaceStateMaintenance = WorkspaceState' "MAINTENANCE"
 
-pattern WSAdminMaintenance :: WorkspaceState
-pattern WSAdminMaintenance = WorkspaceState' "ADMIN_MAINTENANCE"
+pattern WorkspaceStateAdminMaintenance :: WorkspaceState
+pattern WorkspaceStateAdminMaintenance = WorkspaceState' "ADMIN_MAINTENANCE"
 
-pattern WSTerminating :: WorkspaceState
-pattern WSTerminating = WorkspaceState' "TERMINATING"
+pattern WorkspaceStateTerminating :: WorkspaceState
+pattern WorkspaceStateTerminating = WorkspaceState' "TERMINATING"
 
-pattern WSTerminated :: WorkspaceState
-pattern WSTerminated = WorkspaceState' "TERMINATED"
+pattern WorkspaceStateTerminated :: WorkspaceState
+pattern WorkspaceStateTerminated = WorkspaceState' "TERMINATED"
 
-pattern WSSuspended :: WorkspaceState
-pattern WSSuspended = WorkspaceState' "SUSPENDED"
+pattern WorkspaceStateSuspended :: WorkspaceState
+pattern WorkspaceStateSuspended = WorkspaceState' "SUSPENDED"
 
-pattern WSUpdating :: WorkspaceState
-pattern WSUpdating = WorkspaceState' "UPDATING"
+pattern WorkspaceStateUpdating :: WorkspaceState
+pattern WorkspaceStateUpdating = WorkspaceState' "UPDATING"
 
-pattern WSStopping :: WorkspaceState
-pattern WSStopping = WorkspaceState' "STOPPING"
+pattern WorkspaceStateStopping :: WorkspaceState
+pattern WorkspaceStateStopping = WorkspaceState' "STOPPING"
 
-pattern WSStopped :: WorkspaceState
-pattern WSStopped = WorkspaceState' "STOPPED"
+pattern WorkspaceStateStopped :: WorkspaceState
+pattern WorkspaceStateStopped = WorkspaceState' "STOPPED"
 
-pattern WSError :: WorkspaceState
-pattern WSError = WorkspaceState' "ERROR"
+pattern WorkspaceStateError :: WorkspaceState
+pattern WorkspaceStateError = WorkspaceState' "ERROR"
 
 {-# COMPLETE
-  WSPending,
-  WSAvailable,
-  WSImpaired,
-  WSUnhealthy,
-  WSRebooting,
-  WSStarting,
-  WSRebuilding,
-  WSRestoring,
-  WSMaintenance,
-  WSAdminMaintenance,
-  WSTerminating,
-  WSTerminated,
-  WSSuspended,
-  WSUpdating,
-  WSStopping,
-  WSStopped,
-  WSError,
+  WorkspaceStatePending,
+  WorkspaceStateAvailable,
+  WorkspaceStateImpaired,
+  WorkspaceStateUnhealthy,
+  WorkspaceStateRebooting,
+  WorkspaceStateStarting,
+  WorkspaceStateRebuilding,
+  WorkspaceStateRestoring,
+  WorkspaceStateMaintenance,
+  WorkspaceStateAdminMaintenance,
+  WorkspaceStateTerminating,
+  WorkspaceStateTerminated,
+  WorkspaceStateSuspended,
+  WorkspaceStateUpdating,
+  WorkspaceStateStopping,
+  WorkspaceStateStopped,
+  WorkspaceStateError,
   WorkspaceState'
   #-}

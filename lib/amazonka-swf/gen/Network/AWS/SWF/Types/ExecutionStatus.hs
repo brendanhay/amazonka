@@ -13,46 +13,51 @@
 module Network.AWS.SWF.Types.ExecutionStatus
   ( ExecutionStatus
       ( ExecutionStatus',
-        Open,
-        Closed
+        ExecutionStatusOpen,
+        ExecutionStatusClosed,
+        fromExecutionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExecutionStatus = ExecutionStatus' Lude.Text
+newtype ExecutionStatus = ExecutionStatus'
+  { fromExecutionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Open :: ExecutionStatus
-pattern Open = ExecutionStatus' "OPEN"
+pattern ExecutionStatusOpen :: ExecutionStatus
+pattern ExecutionStatusOpen = ExecutionStatus' "OPEN"
 
-pattern Closed :: ExecutionStatus
-pattern Closed = ExecutionStatus' "CLOSED"
+pattern ExecutionStatusClosed :: ExecutionStatus
+pattern ExecutionStatusClosed = ExecutionStatus' "CLOSED"
 
 {-# COMPLETE
-  Open,
-  Closed,
+  ExecutionStatusOpen,
+  ExecutionStatusClosed,
   ExecutionStatus'
   #-}

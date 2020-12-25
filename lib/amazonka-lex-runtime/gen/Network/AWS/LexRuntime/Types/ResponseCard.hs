@@ -17,73 +17,68 @@ module Network.AWS.LexRuntime.Types.ResponseCard
     mkResponseCard,
 
     -- * Lenses
+    rcContentType,
     rcGenericAttachments,
     rcVersion,
-    rcContentType,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexRuntime.Types.ContentType
-import Network.AWS.LexRuntime.Types.GenericAttachment
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexRuntime.Types.ContentType as Types
+import qualified Network.AWS.LexRuntime.Types.GenericAttachment as Types
+import qualified Network.AWS.LexRuntime.Types.Version as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | If you configure a response card when creating your bots, Amazon Lex substitutes the session attributes and slot values that are available, and then returns it. The response card can also come from a Lambda function ( @dialogCodeHook@ and @fulfillmentActivity@ on an intent).
 --
 -- /See:/ 'mkResponseCard' smart constructor.
 data ResponseCard = ResponseCard'
-  { -- | An array of attachment objects representing options.
-    genericAttachments :: Lude.Maybe [GenericAttachment],
+  { -- | The content type of the response.
+    contentType :: Core.Maybe Types.ContentType,
+    -- | An array of attachment objects representing options.
+    genericAttachments :: Core.Maybe [Types.GenericAttachment],
     -- | The version of the response card format.
-    version :: Lude.Maybe Lude.Text,
-    -- | The content type of the response.
-    contentType :: Lude.Maybe ContentType
+    version :: Core.Maybe Types.Version
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResponseCard' with the minimum fields required to make a request.
---
--- * 'genericAttachments' - An array of attachment objects representing options.
--- * 'version' - The version of the response card format.
--- * 'contentType' - The content type of the response.
+-- | Creates a 'ResponseCard' value with any optional fields omitted.
 mkResponseCard ::
   ResponseCard
 mkResponseCard =
   ResponseCard'
-    { genericAttachments = Lude.Nothing,
-      version = Lude.Nothing,
-      contentType = Lude.Nothing
+    { contentType = Core.Nothing,
+      genericAttachments = Core.Nothing,
+      version = Core.Nothing
     }
+
+-- | The content type of the response.
+--
+-- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rcContentType :: Lens.Lens' ResponseCard (Core.Maybe Types.ContentType)
+rcContentType = Lens.field @"contentType"
+{-# DEPRECATED rcContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
 
 -- | An array of attachment objects representing options.
 --
 -- /Note:/ Consider using 'genericAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcGenericAttachments :: Lens.Lens' ResponseCard (Lude.Maybe [GenericAttachment])
-rcGenericAttachments = Lens.lens (genericAttachments :: ResponseCard -> Lude.Maybe [GenericAttachment]) (\s a -> s {genericAttachments = a} :: ResponseCard)
+rcGenericAttachments :: Lens.Lens' ResponseCard (Core.Maybe [Types.GenericAttachment])
+rcGenericAttachments = Lens.field @"genericAttachments"
 {-# DEPRECATED rcGenericAttachments "Use generic-lens or generic-optics with 'genericAttachments' instead." #-}
 
 -- | The version of the response card format.
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcVersion :: Lens.Lens' ResponseCard (Lude.Maybe Lude.Text)
-rcVersion = Lens.lens (version :: ResponseCard -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: ResponseCard)
+rcVersion :: Lens.Lens' ResponseCard (Core.Maybe Types.Version)
+rcVersion = Lens.field @"version"
 {-# DEPRECATED rcVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
--- | The content type of the response.
---
--- /Note:/ Consider using 'contentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rcContentType :: Lens.Lens' ResponseCard (Lude.Maybe ContentType)
-rcContentType = Lens.lens (contentType :: ResponseCard -> Lude.Maybe ContentType) (\s a -> s {contentType = a} :: ResponseCard)
-{-# DEPRECATED rcContentType "Use generic-lens or generic-optics with 'contentType' instead." #-}
-
-instance Lude.FromJSON ResponseCard where
+instance Core.FromJSON ResponseCard where
   parseJSON =
-    Lude.withObject
-      "ResponseCard"
-      ( \x ->
-          ResponseCard'
-            Lude.<$> (x Lude..:? "genericAttachments" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "version")
-            Lude.<*> (x Lude..:? "contentType")
-      )
+    Core.withObject "ResponseCard" Core.$
+      \x ->
+        ResponseCard'
+          Core.<$> (x Core..:? "contentType")
+          Core.<*> (x Core..:? "genericAttachments")
+          Core.<*> (x Core..:? "version")

@@ -31,94 +31,91 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     mkDescribeLifecycleHookTypesResponse,
 
     -- ** Response lenses
-    dlhtrsLifecycleHookTypes,
-    dlhtrsResponseStatus,
+    dlhtrrsLifecycleHookTypes,
+    dlhtrrsResponseStatus,
   )
 where
 
-import Network.AWS.AutoScaling.Types
+import qualified Network.AWS.AutoScaling.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLifecycleHookTypes' smart constructor.
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLifecycleHookTypes' with the minimum fields required to make a request.
+-- | Creates a 'DescribeLifecycleHookTypes' value with any optional fields omitted.
 mkDescribeLifecycleHookTypes ::
   DescribeLifecycleHookTypes
 mkDescribeLifecycleHookTypes = DescribeLifecycleHookTypes'
 
-instance Lude.AWSRequest DescribeLifecycleHookTypes where
+instance Core.AWSRequest DescribeLifecycleHookTypes where
   type
     Rs DescribeLifecycleHookTypes =
       DescribeLifecycleHookTypesResponse
-  request = Req.postQuery autoScalingService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeLifecycleHookTypes")
+                Core.<> (Core.pure ("Version", "2011-01-01"))
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeLifecycleHookTypesResult"
       ( \s h x ->
           DescribeLifecycleHookTypesResponse'
-            Lude.<$> ( x Lude..@? "LifecycleHookTypes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "LifecycleHookTypes"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DescribeLifecycleHookTypes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeLifecycleHookTypes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLifecycleHookTypes where
-  toQuery =
-    Lude.const
-      ( Lude.mconcat
-          [ "Action"
-              Lude.=: ("DescribeLifecycleHookTypes" :: Lude.ByteString),
-            "Version" Lude.=: ("2011-01-01" :: Lude.ByteString)
-          ]
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
 -- | /See:/ 'mkDescribeLifecycleHookTypesResponse' smart constructor.
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
   { -- | The lifecycle hook types.
-    lifecycleHookTypes :: Lude.Maybe [Lude.Text],
+    lifecycleHookTypes :: Core.Maybe [Types.XmlStringMaxLen255],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLifecycleHookTypesResponse' with the minimum fields required to make a request.
---
--- * 'lifecycleHookTypes' - The lifecycle hook types.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLifecycleHookTypesResponse' value with any optional fields omitted.
 mkDescribeLifecycleHookTypesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLifecycleHookTypesResponse
-mkDescribeLifecycleHookTypesResponse pResponseStatus_ =
+mkDescribeLifecycleHookTypesResponse responseStatus =
   DescribeLifecycleHookTypesResponse'
     { lifecycleHookTypes =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The lifecycle hook types.
 --
 -- /Note:/ Consider using 'lifecycleHookTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlhtrsLifecycleHookTypes :: Lens.Lens' DescribeLifecycleHookTypesResponse (Lude.Maybe [Lude.Text])
-dlhtrsLifecycleHookTypes = Lens.lens (lifecycleHookTypes :: DescribeLifecycleHookTypesResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {lifecycleHookTypes = a} :: DescribeLifecycleHookTypesResponse)
-{-# DEPRECATED dlhtrsLifecycleHookTypes "Use generic-lens or generic-optics with 'lifecycleHookTypes' instead." #-}
+dlhtrrsLifecycleHookTypes :: Lens.Lens' DescribeLifecycleHookTypesResponse (Core.Maybe [Types.XmlStringMaxLen255])
+dlhtrrsLifecycleHookTypes = Lens.field @"lifecycleHookTypes"
+{-# DEPRECATED dlhtrrsLifecycleHookTypes "Use generic-lens or generic-optics with 'lifecycleHookTypes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlhtrsResponseStatus :: Lens.Lens' DescribeLifecycleHookTypesResponse Lude.Int
-dlhtrsResponseStatus = Lens.lens (responseStatus :: DescribeLifecycleHookTypesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLifecycleHookTypesResponse)
-{-# DEPRECATED dlhtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlhtrrsResponseStatus :: Lens.Lens' DescribeLifecycleHookTypesResponse Core.Int
+dlhtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlhtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -29,90 +29,88 @@ module Network.AWS.SES.DeleteIdentity
     mkDeleteIdentityResponse,
 
     -- ** Response lenses
-    dirsResponseStatus,
+    dirrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to delete one of your Amazon SES identities (an email address or domain).
 --
 -- /See:/ 'mkDeleteIdentity' smart constructor.
 newtype DeleteIdentity = DeleteIdentity'
   { -- | The identity to be removed from the list of identities for the AWS Account.
-    identity :: Lude.Text
+    identity :: Types.Identity
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIdentity' with the minimum fields required to make a request.
---
--- * 'identity' - The identity to be removed from the list of identities for the AWS Account.
+-- | Creates a 'DeleteIdentity' value with any optional fields omitted.
 mkDeleteIdentity ::
   -- | 'identity'
-  Lude.Text ->
+  Types.Identity ->
   DeleteIdentity
-mkDeleteIdentity pIdentity_ =
-  DeleteIdentity' {identity = pIdentity_}
+mkDeleteIdentity identity = DeleteIdentity' {identity}
 
 -- | The identity to be removed from the list of identities for the AWS Account.
 --
 -- /Note:/ Consider using 'identity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diIdentity :: Lens.Lens' DeleteIdentity Lude.Text
-diIdentity = Lens.lens (identity :: DeleteIdentity -> Lude.Text) (\s a -> s {identity = a} :: DeleteIdentity)
+diIdentity :: Lens.Lens' DeleteIdentity Types.Identity
+diIdentity = Lens.field @"identity"
 {-# DEPRECATED diIdentity "Use generic-lens or generic-optics with 'identity' instead." #-}
 
-instance Lude.AWSRequest DeleteIdentity where
+instance Core.AWSRequest DeleteIdentity where
   type Rs DeleteIdentity = DeleteIdentityResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteIdentity")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "Identity" identity)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteIdentityResult"
       ( \s h x ->
-          DeleteIdentityResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteIdentityResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteIdentity where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteIdentity where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteIdentity where
-  toQuery DeleteIdentity' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteIdentity" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Identity" Lude.=: identity
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkDeleteIdentityResponse' smart constructor.
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteIdentityResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteIdentityResponse' value with any optional fields omitted.
 mkDeleteIdentityResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteIdentityResponse
-mkDeleteIdentityResponse pResponseStatus_ =
-  DeleteIdentityResponse' {responseStatus = pResponseStatus_}
+mkDeleteIdentityResponse responseStatus =
+  DeleteIdentityResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsResponseStatus :: Lens.Lens' DeleteIdentityResponse Lude.Int
-dirsResponseStatus = Lens.lens (responseStatus :: DeleteIdentityResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteIdentityResponse)
-{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dirrsResponseStatus :: Lens.Lens' DeleteIdentityResponse Core.Int
+dirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

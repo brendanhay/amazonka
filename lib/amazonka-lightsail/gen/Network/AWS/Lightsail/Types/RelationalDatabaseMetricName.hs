@@ -13,66 +13,71 @@
 module Network.AWS.Lightsail.Types.RelationalDatabaseMetricName
   ( RelationalDatabaseMetricName
       ( RelationalDatabaseMetricName',
-        RDMNCPUUtilization,
-        RDMNDatabaseConnections,
-        RDMNDiskQueueDepth,
-        RDMNFreeStorageSpace,
-        RDMNNetworkReceiveThroughput,
-        RDMNNetworkTransmitThroughput
+        RelationalDatabaseMetricNameCPUUtilization,
+        RelationalDatabaseMetricNameDatabaseConnections,
+        RelationalDatabaseMetricNameDiskQueueDepth,
+        RelationalDatabaseMetricNameFreeStorageSpace,
+        RelationalDatabaseMetricNameNetworkReceiveThroughput,
+        RelationalDatabaseMetricNameNetworkTransmitThroughput,
+        fromRelationalDatabaseMetricName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype RelationalDatabaseMetricName = RelationalDatabaseMetricName' Lude.Text
+newtype RelationalDatabaseMetricName = RelationalDatabaseMetricName'
+  { fromRelationalDatabaseMetricName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RDMNCPUUtilization :: RelationalDatabaseMetricName
-pattern RDMNCPUUtilization = RelationalDatabaseMetricName' "CPUUtilization"
+pattern RelationalDatabaseMetricNameCPUUtilization :: RelationalDatabaseMetricName
+pattern RelationalDatabaseMetricNameCPUUtilization = RelationalDatabaseMetricName' "CPUUtilization"
 
-pattern RDMNDatabaseConnections :: RelationalDatabaseMetricName
-pattern RDMNDatabaseConnections = RelationalDatabaseMetricName' "DatabaseConnections"
+pattern RelationalDatabaseMetricNameDatabaseConnections :: RelationalDatabaseMetricName
+pattern RelationalDatabaseMetricNameDatabaseConnections = RelationalDatabaseMetricName' "DatabaseConnections"
 
-pattern RDMNDiskQueueDepth :: RelationalDatabaseMetricName
-pattern RDMNDiskQueueDepth = RelationalDatabaseMetricName' "DiskQueueDepth"
+pattern RelationalDatabaseMetricNameDiskQueueDepth :: RelationalDatabaseMetricName
+pattern RelationalDatabaseMetricNameDiskQueueDepth = RelationalDatabaseMetricName' "DiskQueueDepth"
 
-pattern RDMNFreeStorageSpace :: RelationalDatabaseMetricName
-pattern RDMNFreeStorageSpace = RelationalDatabaseMetricName' "FreeStorageSpace"
+pattern RelationalDatabaseMetricNameFreeStorageSpace :: RelationalDatabaseMetricName
+pattern RelationalDatabaseMetricNameFreeStorageSpace = RelationalDatabaseMetricName' "FreeStorageSpace"
 
-pattern RDMNNetworkReceiveThroughput :: RelationalDatabaseMetricName
-pattern RDMNNetworkReceiveThroughput = RelationalDatabaseMetricName' "NetworkReceiveThroughput"
+pattern RelationalDatabaseMetricNameNetworkReceiveThroughput :: RelationalDatabaseMetricName
+pattern RelationalDatabaseMetricNameNetworkReceiveThroughput = RelationalDatabaseMetricName' "NetworkReceiveThroughput"
 
-pattern RDMNNetworkTransmitThroughput :: RelationalDatabaseMetricName
-pattern RDMNNetworkTransmitThroughput = RelationalDatabaseMetricName' "NetworkTransmitThroughput"
+pattern RelationalDatabaseMetricNameNetworkTransmitThroughput :: RelationalDatabaseMetricName
+pattern RelationalDatabaseMetricNameNetworkTransmitThroughput = RelationalDatabaseMetricName' "NetworkTransmitThroughput"
 
 {-# COMPLETE
-  RDMNCPUUtilization,
-  RDMNDatabaseConnections,
-  RDMNDiskQueueDepth,
-  RDMNFreeStorageSpace,
-  RDMNNetworkReceiveThroughput,
-  RDMNNetworkTransmitThroughput,
+  RelationalDatabaseMetricNameCPUUtilization,
+  RelationalDatabaseMetricNameDatabaseConnections,
+  RelationalDatabaseMetricNameDiskQueueDepth,
+  RelationalDatabaseMetricNameFreeStorageSpace,
+  RelationalDatabaseMetricNameNetworkReceiveThroughput,
+  RelationalDatabaseMetricNameNetworkTransmitThroughput,
   RelationalDatabaseMetricName'
   #-}

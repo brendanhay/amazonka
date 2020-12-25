@@ -22,43 +22,39 @@ module Network.AWS.MediaLive.Types.HlsTimedMetadataScheduleActionSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for the action to emit HLS metadata
 --
 -- /See:/ 'mkHlsTimedMetadataScheduleActionSettings' smart constructor.
 newtype HlsTimedMetadataScheduleActionSettings = HlsTimedMetadataScheduleActionSettings'
   { -- | Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
-    id3 :: Lude.Text
+    id3 :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'HlsTimedMetadataScheduleActionSettings' with the minimum fields required to make a request.
---
--- * 'id3' - Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
+-- | Creates a 'HlsTimedMetadataScheduleActionSettings' value with any optional fields omitted.
 mkHlsTimedMetadataScheduleActionSettings ::
   -- | 'id3'
-  Lude.Text ->
+  Core.Text ->
   HlsTimedMetadataScheduleActionSettings
-mkHlsTimedMetadataScheduleActionSettings pId3_ =
-  HlsTimedMetadataScheduleActionSettings' {id3 = pId3_}
+mkHlsTimedMetadataScheduleActionSettings id3 =
+  HlsTimedMetadataScheduleActionSettings' {id3}
 
 -- | Base64 string formatted according to the ID3 specification: http://id3.org/id3v2.4.0-structure
 --
 -- /Note:/ Consider using 'id3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-htmsasId3 :: Lens.Lens' HlsTimedMetadataScheduleActionSettings Lude.Text
-htmsasId3 = Lens.lens (id3 :: HlsTimedMetadataScheduleActionSettings -> Lude.Text) (\s a -> s {id3 = a} :: HlsTimedMetadataScheduleActionSettings)
+htmsasId3 :: Lens.Lens' HlsTimedMetadataScheduleActionSettings Core.Text
+htmsasId3 = Lens.field @"id3"
 {-# DEPRECATED htmsasId3 "Use generic-lens or generic-optics with 'id3' instead." #-}
 
-instance Lude.FromJSON HlsTimedMetadataScheduleActionSettings where
-  parseJSON =
-    Lude.withObject
-      "HlsTimedMetadataScheduleActionSettings"
-      ( \x ->
-          HlsTimedMetadataScheduleActionSettings' Lude.<$> (x Lude..: "id3")
-      )
+instance Core.FromJSON HlsTimedMetadataScheduleActionSettings where
+  toJSON HlsTimedMetadataScheduleActionSettings {..} =
+    Core.object (Core.catMaybes [Core.Just ("id3" Core..= id3)])
 
-instance Lude.ToJSON HlsTimedMetadataScheduleActionSettings where
-  toJSON HlsTimedMetadataScheduleActionSettings' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("id3" Lude..= id3)])
+instance Core.FromJSON HlsTimedMetadataScheduleActionSettings where
+  parseJSON =
+    Core.withObject "HlsTimedMetadataScheduleActionSettings" Core.$
+      \x ->
+        HlsTimedMetadataScheduleActionSettings' Core.<$> (x Core..: "id3")

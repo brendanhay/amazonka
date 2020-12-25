@@ -17,101 +17,89 @@ module Network.AWS.Greengrass.Types.Device
     mkDevice,
 
     -- * Lenses
-    dCertificateARN,
-    dThingARN,
-    dSyncShadow,
+    dThingArn,
     dId,
+    dCertificateArn,
+    dSyncShadow,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a device.
 --
 -- /See:/ 'mkDevice' smart constructor.
 data Device = Device'
-  { -- | The ARN of the certificate associated with the device.
-    certificateARN :: Lude.Text,
-    -- | The thing ARN of the device.
-    thingARN :: Lude.Text,
-    -- | If true, the device's local shadow will be automatically synced with the cloud.
-    syncShadow :: Lude.Maybe Lude.Bool,
+  { -- | The thing ARN of the device.
+    thingArn :: Core.Text,
     -- | A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
-    id :: Lude.Text
+    id :: Core.Text,
+    -- | The ARN of the certificate associated with the device.
+    certificateArn :: Core.Text,
+    -- | If true, the device's local shadow will be automatically synced with the cloud.
+    syncShadow :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Device' with the minimum fields required to make a request.
---
--- * 'certificateARN' - The ARN of the certificate associated with the device.
--- * 'thingARN' - The thing ARN of the device.
--- * 'syncShadow' - If true, the device's local shadow will be automatically synced with the cloud.
--- * 'id' - A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
+-- | Creates a 'Device' value with any optional fields omitted.
 mkDevice ::
-  -- | 'certificateARN'
-  Lude.Text ->
-  -- | 'thingARN'
-  Lude.Text ->
+  -- | 'thingArn'
+  Core.Text ->
   -- | 'id'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'certificateArn'
+  Core.Text ->
   Device
-mkDevice pCertificateARN_ pThingARN_ pId_ =
-  Device'
-    { certificateARN = pCertificateARN_,
-      thingARN = pThingARN_,
-      syncShadow = Lude.Nothing,
-      id = pId_
-    }
-
--- | The ARN of the certificate associated with the device.
---
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dCertificateARN :: Lens.Lens' Device Lude.Text
-dCertificateARN = Lens.lens (certificateARN :: Device -> Lude.Text) (\s a -> s {certificateARN = a} :: Device)
-{-# DEPRECATED dCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+mkDevice thingArn id certificateArn =
+  Device' {thingArn, id, certificateArn, syncShadow = Core.Nothing}
 
 -- | The thing ARN of the device.
 --
--- /Note:/ Consider using 'thingARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dThingARN :: Lens.Lens' Device Lude.Text
-dThingARN = Lens.lens (thingARN :: Device -> Lude.Text) (\s a -> s {thingARN = a} :: Device)
-{-# DEPRECATED dThingARN "Use generic-lens or generic-optics with 'thingARN' instead." #-}
-
--- | If true, the device's local shadow will be automatically synced with the cloud.
---
--- /Note:/ Consider using 'syncShadow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dSyncShadow :: Lens.Lens' Device (Lude.Maybe Lude.Bool)
-dSyncShadow = Lens.lens (syncShadow :: Device -> Lude.Maybe Lude.Bool) (\s a -> s {syncShadow = a} :: Device)
-{-# DEPRECATED dSyncShadow "Use generic-lens or generic-optics with 'syncShadow' instead." #-}
+-- /Note:/ Consider using 'thingArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dThingArn :: Lens.Lens' Device Core.Text
+dThingArn = Lens.field @"thingArn"
+{-# DEPRECATED dThingArn "Use generic-lens or generic-optics with 'thingArn' instead." #-}
 
 -- | A descriptive or arbitrary ID for the device. This value must be unique within the device definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dId :: Lens.Lens' Device Lude.Text
-dId = Lens.lens (id :: Device -> Lude.Text) (\s a -> s {id = a} :: Device)
+dId :: Lens.Lens' Device Core.Text
+dId = Lens.field @"id"
 {-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON Device where
-  parseJSON =
-    Lude.withObject
-      "Device"
-      ( \x ->
-          Device'
-            Lude.<$> (x Lude..: "CertificateArn")
-            Lude.<*> (x Lude..: "ThingArn")
-            Lude.<*> (x Lude..:? "SyncShadow")
-            Lude.<*> (x Lude..: "Id")
-      )
+-- | The ARN of the certificate associated with the device.
+--
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dCertificateArn :: Lens.Lens' Device Core.Text
+dCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED dCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
-instance Lude.ToJSON Device where
-  toJSON Device' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("CertificateArn" Lude..= certificateARN),
-            Lude.Just ("ThingArn" Lude..= thingARN),
-            ("SyncShadow" Lude..=) Lude.<$> syncShadow,
-            Lude.Just ("Id" Lude..= id)
+-- | If true, the device's local shadow will be automatically synced with the cloud.
+--
+-- /Note:/ Consider using 'syncShadow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dSyncShadow :: Lens.Lens' Device (Core.Maybe Core.Bool)
+dSyncShadow = Lens.field @"syncShadow"
+{-# DEPRECATED dSyncShadow "Use generic-lens or generic-optics with 'syncShadow' instead." #-}
+
+instance Core.FromJSON Device where
+  toJSON Device {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ThingArn" Core..= thingArn),
+            Core.Just ("Id" Core..= id),
+            Core.Just ("CertificateArn" Core..= certificateArn),
+            ("SyncShadow" Core..=) Core.<$> syncShadow
           ]
       )
+
+instance Core.FromJSON Device where
+  parseJSON =
+    Core.withObject "Device" Core.$
+      \x ->
+        Device'
+          Core.<$> (x Core..: "ThingArn")
+          Core.<*> (x Core..: "Id")
+          Core.<*> (x Core..: "CertificateArn")
+          Core.<*> (x Core..:? "SyncShadow")

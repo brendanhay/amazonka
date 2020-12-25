@@ -27,99 +27,83 @@ module Network.AWS.Greengrass.DeleteConnectorDefinition
     mkDeleteConnectorDefinitionResponse,
 
     -- ** Response lenses
-    dcdrsResponseStatus,
+    dcdrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteConnectorDefinition' smart constructor.
 newtype DeleteConnectorDefinition = DeleteConnectorDefinition'
   { -- | The ID of the connector definition.
-    connectorDefinitionId :: Lude.Text
+    connectorDefinitionId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConnectorDefinition' with the minimum fields required to make a request.
---
--- * 'connectorDefinitionId' - The ID of the connector definition.
+-- | Creates a 'DeleteConnectorDefinition' value with any optional fields omitted.
 mkDeleteConnectorDefinition ::
   -- | 'connectorDefinitionId'
-  Lude.Text ->
+  Core.Text ->
   DeleteConnectorDefinition
-mkDeleteConnectorDefinition pConnectorDefinitionId_ =
-  DeleteConnectorDefinition'
-    { connectorDefinitionId =
-        pConnectorDefinitionId_
-    }
+mkDeleteConnectorDefinition connectorDefinitionId =
+  DeleteConnectorDefinition' {connectorDefinitionId}
 
 -- | The ID of the connector definition.
 --
 -- /Note:/ Consider using 'connectorDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcdConnectorDefinitionId :: Lens.Lens' DeleteConnectorDefinition Lude.Text
-dcdConnectorDefinitionId = Lens.lens (connectorDefinitionId :: DeleteConnectorDefinition -> Lude.Text) (\s a -> s {connectorDefinitionId = a} :: DeleteConnectorDefinition)
+dcdConnectorDefinitionId :: Lens.Lens' DeleteConnectorDefinition Core.Text
+dcdConnectorDefinitionId = Lens.field @"connectorDefinitionId"
 {-# DEPRECATED dcdConnectorDefinitionId "Use generic-lens or generic-optics with 'connectorDefinitionId' instead." #-}
 
-instance Lude.AWSRequest DeleteConnectorDefinition where
+instance Core.AWSRequest DeleteConnectorDefinition where
   type
     Rs DeleteConnectorDefinition =
       DeleteConnectorDefinitionResponse
-  request = Req.delete greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/definition/connectors/"
+                Core.<> (Core.toText connectorDefinitionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteConnectorDefinitionResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteConnectorDefinition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DeleteConnectorDefinition where
-  toPath DeleteConnectorDefinition' {..} =
-    Lude.mconcat
-      [ "/greengrass/definition/connectors/",
-        Lude.toBS connectorDefinitionId
-      ]
-
-instance Lude.ToQuery DeleteConnectorDefinition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteConnectorDefinitionResponse' smart constructor.
 newtype DeleteConnectorDefinitionResponse = DeleteConnectorDefinitionResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConnectorDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteConnectorDefinitionResponse' value with any optional fields omitted.
 mkDeleteConnectorDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteConnectorDefinitionResponse
-mkDeleteConnectorDefinitionResponse pResponseStatus_ =
-  DeleteConnectorDefinitionResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteConnectorDefinitionResponse responseStatus =
+  DeleteConnectorDefinitionResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcdrsResponseStatus :: Lens.Lens' DeleteConnectorDefinitionResponse Lude.Int
-dcdrsResponseStatus = Lens.lens (responseStatus :: DeleteConnectorDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConnectorDefinitionResponse)
-{-# DEPRECATED dcdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcdrrsResponseStatus :: Lens.Lens' DeleteConnectorDefinitionResponse Core.Int
+dcdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

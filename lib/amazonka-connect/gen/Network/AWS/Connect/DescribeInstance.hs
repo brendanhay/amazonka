@@ -29,102 +29,90 @@ module Network.AWS.Connect.DescribeInstance
     mkDescribeInstanceResponse,
 
     -- ** Response lenses
-    dirsInstance,
-    dirsResponseStatus,
+    dirrsInstance,
+    dirrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeInstance' smart constructor.
 newtype DescribeInstance = DescribeInstance'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text
+    instanceId :: Types.InstanceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeInstance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
+-- | Creates a 'DescribeInstance' value with any optional fields omitted.
 mkDescribeInstance ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   DescribeInstance
-mkDescribeInstance pInstanceId_ =
-  DescribeInstance' {instanceId = pInstanceId_}
+mkDescribeInstance instanceId = DescribeInstance' {instanceId}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diInstanceId :: Lens.Lens' DescribeInstance Lude.Text
-diInstanceId = Lens.lens (instanceId :: DescribeInstance -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeInstance)
+diInstanceId :: Lens.Lens' DescribeInstance Types.InstanceId
+diInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED diInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
-instance Lude.AWSRequest DescribeInstance where
+instance Core.AWSRequest DescribeInstance where
   type Rs DescribeInstance = DescribeInstanceResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/instance/" Core.<> (Core.toText instanceId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeInstanceResponse'
-            Lude.<$> (x Lude..?> "Instance") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Instance") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeInstance where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeInstance where
-  toPath DescribeInstance' {..} =
-    Lude.mconcat ["/instance/", Lude.toBS instanceId]
-
-instance Lude.ToQuery DescribeInstance where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeInstanceResponse' smart constructor.
 data DescribeInstanceResponse = DescribeInstanceResponse'
   { -- | The name of the instance.
-    instance' :: Lude.Maybe Instance,
+    instance' :: Core.Maybe Types.Instance,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeInstanceResponse' with the minimum fields required to make a request.
---
--- * 'instance'' - The name of the instance.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeInstanceResponse' value with any optional fields omitted.
 mkDescribeInstanceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeInstanceResponse
-mkDescribeInstanceResponse pResponseStatus_ =
+mkDescribeInstanceResponse responseStatus =
   DescribeInstanceResponse'
-    { instance' = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { instance' = Core.Nothing,
+      responseStatus
     }
 
 -- | The name of the instance.
 --
 -- /Note:/ Consider using 'instance'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsInstance :: Lens.Lens' DescribeInstanceResponse (Lude.Maybe Instance)
-dirsInstance = Lens.lens (instance' :: DescribeInstanceResponse -> Lude.Maybe Instance) (\s a -> s {instance' = a} :: DescribeInstanceResponse)
-{-# DEPRECATED dirsInstance "Use generic-lens or generic-optics with 'instance'' instead." #-}
+dirrsInstance :: Lens.Lens' DescribeInstanceResponse (Core.Maybe Types.Instance)
+dirrsInstance = Lens.field @"instance'"
+{-# DEPRECATED dirrsInstance "Use generic-lens or generic-optics with 'instance'' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dirsResponseStatus :: Lens.Lens' DescribeInstanceResponse Lude.Int
-dirsResponseStatus = Lens.lens (responseStatus :: DescribeInstanceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeInstanceResponse)
-{-# DEPRECATED dirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dirrsResponseStatus :: Lens.Lens' DescribeInstanceResponse Core.Int
+dirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

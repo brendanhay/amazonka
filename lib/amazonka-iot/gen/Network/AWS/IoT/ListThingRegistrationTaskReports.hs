@@ -23,188 +23,180 @@ module Network.AWS.IoT.ListThingRegistrationTaskReports
 
     -- ** Request lenses
     ltrtrTaskId,
-    ltrtrNextToken,
     ltrtrReportType,
     ltrtrMaxResults,
+    ltrtrNextToken,
 
     -- * Destructuring the response
     ListThingRegistrationTaskReportsResponse (..),
     mkListThingRegistrationTaskReportsResponse,
 
     -- ** Response lenses
-    ltrtrrsResourceLinks,
-    ltrtrrsNextToken,
-    ltrtrrsReportType,
-    ltrtrrsResponseStatus,
+    ltrtrrrsNextToken,
+    ltrtrrrsReportType,
+    ltrtrrrsResourceLinks,
+    ltrtrrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListThingRegistrationTaskReports' smart constructor.
 data ListThingRegistrationTaskReports = ListThingRegistrationTaskReports'
   { -- | The id of the task.
-    taskId :: Lude.Text,
-    -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    taskId :: Types.TaskId,
     -- | The type of task report.
-    reportType :: ReportType,
+    reportType :: Types.ReportType,
     -- | The maximum number of results to return per request.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListThingRegistrationTaskReports' with the minimum fields required to make a request.
---
--- * 'taskId' - The id of the task.
--- * 'nextToken' - To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
--- * 'reportType' - The type of task report.
--- * 'maxResults' - The maximum number of results to return per request.
+-- | Creates a 'ListThingRegistrationTaskReports' value with any optional fields omitted.
 mkListThingRegistrationTaskReports ::
   -- | 'taskId'
-  Lude.Text ->
+  Types.TaskId ->
   -- | 'reportType'
-  ReportType ->
+  Types.ReportType ->
   ListThingRegistrationTaskReports
-mkListThingRegistrationTaskReports pTaskId_ pReportType_ =
+mkListThingRegistrationTaskReports taskId reportType =
   ListThingRegistrationTaskReports'
-    { taskId = pTaskId_,
-      nextToken = Lude.Nothing,
-      reportType = pReportType_,
-      maxResults = Lude.Nothing
+    { taskId,
+      reportType,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The id of the task.
 --
 -- /Note:/ Consider using 'taskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtrTaskId :: Lens.Lens' ListThingRegistrationTaskReports Lude.Text
-ltrtrTaskId = Lens.lens (taskId :: ListThingRegistrationTaskReports -> Lude.Text) (\s a -> s {taskId = a} :: ListThingRegistrationTaskReports)
+ltrtrTaskId :: Lens.Lens' ListThingRegistrationTaskReports Types.TaskId
+ltrtrTaskId = Lens.field @"taskId"
 {-# DEPRECATED ltrtrTaskId "Use generic-lens or generic-optics with 'taskId' instead." #-}
-
--- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtrNextToken :: Lens.Lens' ListThingRegistrationTaskReports (Lude.Maybe Lude.Text)
-ltrtrNextToken = Lens.lens (nextToken :: ListThingRegistrationTaskReports -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThingRegistrationTaskReports)
-{-# DEPRECATED ltrtrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The type of task report.
 --
 -- /Note:/ Consider using 'reportType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtrReportType :: Lens.Lens' ListThingRegistrationTaskReports ReportType
-ltrtrReportType = Lens.lens (reportType :: ListThingRegistrationTaskReports -> ReportType) (\s a -> s {reportType = a} :: ListThingRegistrationTaskReports)
+ltrtrReportType :: Lens.Lens' ListThingRegistrationTaskReports Types.ReportType
+ltrtrReportType = Lens.field @"reportType"
 {-# DEPRECATED ltrtrReportType "Use generic-lens or generic-optics with 'reportType' instead." #-}
 
 -- | The maximum number of results to return per request.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtrMaxResults :: Lens.Lens' ListThingRegistrationTaskReports (Lude.Maybe Lude.Natural)
-ltrtrMaxResults = Lens.lens (maxResults :: ListThingRegistrationTaskReports -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListThingRegistrationTaskReports)
+ltrtrMaxResults :: Lens.Lens' ListThingRegistrationTaskReports (Core.Maybe Core.Natural)
+ltrtrMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED ltrtrMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Page.AWSPager ListThingRegistrationTaskReports where
-  page rq rs
-    | Page.stop (rs Lens.^. ltrtrrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ltrtrrsResourceLinks) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ltrtrNextToken Lens..~ rs Lens.^. ltrtrrsNextToken
+-- | To retrieve the next set of results, the @nextToken@ value from a previous response; otherwise __null__ to receive the first set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrtrNextToken :: Lens.Lens' ListThingRegistrationTaskReports (Core.Maybe Types.NextToken)
+ltrtrNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltrtrNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListThingRegistrationTaskReports where
+instance Core.AWSRequest ListThingRegistrationTaskReports where
   type
     Rs ListThingRegistrationTaskReports =
       ListThingRegistrationTaskReportsResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/thing-registration-tasks/" Core.<> (Core.toText taskId)
+                Core.<> ("/reports")
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "reportType" reportType
+            Core.<> (Core.toQueryValue "maxResults" Core.<$> maxResults)
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListThingRegistrationTaskReportsResponse'
-            Lude.<$> (x Lude..?> "resourceLinks" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "reportType")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "reportType")
+            Core.<*> (x Core..:? "resourceLinks")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListThingRegistrationTaskReports where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListThingRegistrationTaskReports where
-  toPath ListThingRegistrationTaskReports' {..} =
-    Lude.mconcat
-      ["/thing-registration-tasks/", Lude.toBS taskId, "/reports"]
-
-instance Lude.ToQuery ListThingRegistrationTaskReports where
-  toQuery ListThingRegistrationTaskReports' {..} =
-    Lude.mconcat
-      [ "nextToken" Lude.=: nextToken,
-        "reportType" Lude.=: reportType,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListThingRegistrationTaskReports where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"resourceLinks" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListThingRegistrationTaskReportsResponse' smart constructor.
 data ListThingRegistrationTaskReportsResponse = ListThingRegistrationTaskReportsResponse'
-  { -- | Links to the task resources.
-    resourceLinks :: Lude.Maybe [Lude.Text],
-    -- | The token to use to get the next set of results, or __null__ if there are no additional results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The token to use to get the next set of results, or __null__ if there are no additional results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The type of task report.
-    reportType :: Lude.Maybe ReportType,
+    reportType :: Core.Maybe Types.ReportType,
+    -- | Links to the task resources.
+    resourceLinks :: Core.Maybe [Types.S3FileUrl],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListThingRegistrationTaskReportsResponse' with the minimum fields required to make a request.
---
--- * 'resourceLinks' - Links to the task resources.
--- * 'nextToken' - The token to use to get the next set of results, or __null__ if there are no additional results.
--- * 'reportType' - The type of task report.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListThingRegistrationTaskReportsResponse' value with any optional fields omitted.
 mkListThingRegistrationTaskReportsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListThingRegistrationTaskReportsResponse
-mkListThingRegistrationTaskReportsResponse pResponseStatus_ =
+mkListThingRegistrationTaskReportsResponse responseStatus =
   ListThingRegistrationTaskReportsResponse'
-    { resourceLinks =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      reportType = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken =
+        Core.Nothing,
+      reportType = Core.Nothing,
+      resourceLinks = Core.Nothing,
+      responseStatus
     }
-
--- | Links to the task resources.
---
--- /Note:/ Consider using 'resourceLinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtrrsResourceLinks :: Lens.Lens' ListThingRegistrationTaskReportsResponse (Lude.Maybe [Lude.Text])
-ltrtrrsResourceLinks = Lens.lens (resourceLinks :: ListThingRegistrationTaskReportsResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {resourceLinks = a} :: ListThingRegistrationTaskReportsResponse)
-{-# DEPRECATED ltrtrrsResourceLinks "Use generic-lens or generic-optics with 'resourceLinks' instead." #-}
 
 -- | The token to use to get the next set of results, or __null__ if there are no additional results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtrrsNextToken :: Lens.Lens' ListThingRegistrationTaskReportsResponse (Lude.Maybe Lude.Text)
-ltrtrrsNextToken = Lens.lens (nextToken :: ListThingRegistrationTaskReportsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListThingRegistrationTaskReportsResponse)
-{-# DEPRECATED ltrtrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ltrtrrrsNextToken :: Lens.Lens' ListThingRegistrationTaskReportsResponse (Core.Maybe Types.NextToken)
+ltrtrrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ltrtrrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The type of task report.
 --
 -- /Note:/ Consider using 'reportType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtrrsReportType :: Lens.Lens' ListThingRegistrationTaskReportsResponse (Lude.Maybe ReportType)
-ltrtrrsReportType = Lens.lens (reportType :: ListThingRegistrationTaskReportsResponse -> Lude.Maybe ReportType) (\s a -> s {reportType = a} :: ListThingRegistrationTaskReportsResponse)
-{-# DEPRECATED ltrtrrsReportType "Use generic-lens or generic-optics with 'reportType' instead." #-}
+ltrtrrrsReportType :: Lens.Lens' ListThingRegistrationTaskReportsResponse (Core.Maybe Types.ReportType)
+ltrtrrrsReportType = Lens.field @"reportType"
+{-# DEPRECATED ltrtrrrsReportType "Use generic-lens or generic-optics with 'reportType' instead." #-}
+
+-- | Links to the task resources.
+--
+-- /Note:/ Consider using 'resourceLinks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltrtrrrsResourceLinks :: Lens.Lens' ListThingRegistrationTaskReportsResponse (Core.Maybe [Types.S3FileUrl])
+ltrtrrrsResourceLinks = Lens.field @"resourceLinks"
+{-# DEPRECATED ltrtrrrsResourceLinks "Use generic-lens or generic-optics with 'resourceLinks' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrtrrsResponseStatus :: Lens.Lens' ListThingRegistrationTaskReportsResponse Lude.Int
-ltrtrrsResponseStatus = Lens.lens (responseStatus :: ListThingRegistrationTaskReportsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListThingRegistrationTaskReportsResponse)
-{-# DEPRECATED ltrtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltrtrrrsResponseStatus :: Lens.Lens' ListThingRegistrationTaskReportsResponse Core.Int
+ltrtrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltrtrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

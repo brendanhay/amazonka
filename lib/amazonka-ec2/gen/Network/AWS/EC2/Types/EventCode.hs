@@ -13,61 +13,63 @@
 module Network.AWS.EC2.Types.EventCode
   ( EventCode
       ( EventCode',
-        InstanceReboot,
-        SystemReboot,
-        SystemMaintenance,
-        InstanceRetirement,
-        InstanceStop
+        EventCodeInstanceReboot,
+        EventCodeSystemReboot,
+        EventCodeSystemMaintenance,
+        EventCodeInstanceRetirement,
+        EventCodeInstanceStop,
+        fromEventCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype EventCode = EventCode' Lude.Text
+newtype EventCode = EventCode' {fromEventCode :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern InstanceReboot :: EventCode
-pattern InstanceReboot = EventCode' "instance-reboot"
+pattern EventCodeInstanceReboot :: EventCode
+pattern EventCodeInstanceReboot = EventCode' "instance-reboot"
 
-pattern SystemReboot :: EventCode
-pattern SystemReboot = EventCode' "system-reboot"
+pattern EventCodeSystemReboot :: EventCode
+pattern EventCodeSystemReboot = EventCode' "system-reboot"
 
-pattern SystemMaintenance :: EventCode
-pattern SystemMaintenance = EventCode' "system-maintenance"
+pattern EventCodeSystemMaintenance :: EventCode
+pattern EventCodeSystemMaintenance = EventCode' "system-maintenance"
 
-pattern InstanceRetirement :: EventCode
-pattern InstanceRetirement = EventCode' "instance-retirement"
+pattern EventCodeInstanceRetirement :: EventCode
+pattern EventCodeInstanceRetirement = EventCode' "instance-retirement"
 
-pattern InstanceStop :: EventCode
-pattern InstanceStop = EventCode' "instance-stop"
+pattern EventCodeInstanceStop :: EventCode
+pattern EventCodeInstanceStop = EventCode' "instance-stop"
 
 {-# COMPLETE
-  InstanceReboot,
-  SystemReboot,
-  SystemMaintenance,
-  InstanceRetirement,
-  InstanceStop,
+  EventCodeInstanceReboot,
+  EventCodeSystemReboot,
+  EventCodeSystemMaintenance,
+  EventCodeInstanceRetirement,
+  EventCodeInstanceStop,
   EventCode'
   #-}

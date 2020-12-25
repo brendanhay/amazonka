@@ -17,74 +17,67 @@ module Network.AWS.CloudFront.Types.PublicKey
     mkPublicKey,
 
     -- * Lenses
+    pkId,
     pkCreatedTime,
     pkPublicKeyConfig,
-    pkId,
   )
 where
 
-import Network.AWS.CloudFront.Types.PublicKeyConfig
+import qualified Network.AWS.CloudFront.Types.PublicKeyConfig as Types
+import qualified Network.AWS.CloudFront.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A public key that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .
 --
 -- /See:/ 'mkPublicKey' smart constructor.
 data PublicKey = PublicKey'
-  { -- | The date and time when the public key was uploaded.
-    createdTime :: Lude.DateTime,
+  { -- | The identifier of the public key.
+    id :: Types.String,
+    -- | The date and time when the public key was uploaded.
+    createdTime :: Core.UTCTime,
     -- | Configuration information about a public key that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .
-    publicKeyConfig :: PublicKeyConfig,
-    -- | The identifier of the public key.
-    id :: Lude.Text
+    publicKeyConfig :: Types.PublicKeyConfig
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PublicKey' with the minimum fields required to make a request.
---
--- * 'createdTime' - The date and time when the public key was uploaded.
--- * 'publicKeyConfig' - Configuration information about a public key that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .
--- * 'id' - The identifier of the public key.
+-- | Creates a 'PublicKey' value with any optional fields omitted.
 mkPublicKey ::
-  -- | 'createdTime'
-  Lude.DateTime ->
-  -- | 'publicKeyConfig'
-  PublicKeyConfig ->
   -- | 'id'
-  Lude.Text ->
+  Types.String ->
+  -- | 'createdTime'
+  Core.UTCTime ->
+  -- | 'publicKeyConfig'
+  Types.PublicKeyConfig ->
   PublicKey
-mkPublicKey pCreatedTime_ pPublicKeyConfig_ pId_ =
-  PublicKey'
-    { createdTime = pCreatedTime_,
-      publicKeyConfig = pPublicKeyConfig_,
-      id = pId_
-    }
+mkPublicKey id createdTime publicKeyConfig =
+  PublicKey' {id, createdTime, publicKeyConfig}
+
+-- | The identifier of the public key.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pkId :: Lens.Lens' PublicKey Types.String
+pkId = Lens.field @"id"
+{-# DEPRECATED pkId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The date and time when the public key was uploaded.
 --
 -- /Note:/ Consider using 'createdTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkCreatedTime :: Lens.Lens' PublicKey Lude.DateTime
-pkCreatedTime = Lens.lens (createdTime :: PublicKey -> Lude.DateTime) (\s a -> s {createdTime = a} :: PublicKey)
+pkCreatedTime :: Lens.Lens' PublicKey Core.UTCTime
+pkCreatedTime = Lens.field @"createdTime"
 {-# DEPRECATED pkCreatedTime "Use generic-lens or generic-optics with 'createdTime' instead." #-}
 
 -- | Configuration information about a public key that you can use with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html signed URLs and signed cookies> , or with <https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html field-level encryption> .
 --
 -- /Note:/ Consider using 'publicKeyConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkPublicKeyConfig :: Lens.Lens' PublicKey PublicKeyConfig
-pkPublicKeyConfig = Lens.lens (publicKeyConfig :: PublicKey -> PublicKeyConfig) (\s a -> s {publicKeyConfig = a} :: PublicKey)
+pkPublicKeyConfig :: Lens.Lens' PublicKey Types.PublicKeyConfig
+pkPublicKeyConfig = Lens.field @"publicKeyConfig"
 {-# DEPRECATED pkPublicKeyConfig "Use generic-lens or generic-optics with 'publicKeyConfig' instead." #-}
 
--- | The identifier of the public key.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkId :: Lens.Lens' PublicKey Lude.Text
-pkId = Lens.lens (id :: PublicKey -> Lude.Text) (\s a -> s {id = a} :: PublicKey)
-{-# DEPRECATED pkId "Use generic-lens or generic-optics with 'id' instead." #-}
-
-instance Lude.FromXML PublicKey where
+instance Core.FromXML PublicKey where
   parseXML x =
     PublicKey'
-      Lude.<$> (x Lude..@ "CreatedTime")
-      Lude.<*> (x Lude..@ "PublicKeyConfig")
-      Lude.<*> (x Lude..@ "Id")
+      Core.<$> (x Core..@ "Id")
+      Core.<*> (x Core..@ "CreatedTime")
+      Core.<*> (x Core..@ "PublicKeyConfig")

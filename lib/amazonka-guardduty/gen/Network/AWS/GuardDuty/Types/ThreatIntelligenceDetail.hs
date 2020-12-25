@@ -17,58 +17,54 @@ module Network.AWS.GuardDuty.Types.ThreatIntelligenceDetail
     mkThreatIntelligenceDetail,
 
     -- * Lenses
-    tidThreatNames,
     tidThreatListName,
+    tidThreatNames,
   )
 where
 
+import qualified Network.AWS.GuardDuty.Types.String as Types
+import qualified Network.AWS.GuardDuty.Types.ThreatListName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An instance of a threat intelligence detail that constitutes evidence for the finding.
 --
 -- /See:/ 'mkThreatIntelligenceDetail' smart constructor.
 data ThreatIntelligenceDetail = ThreatIntelligenceDetail'
-  { -- | A list of names of the threats in the threat intelligence list that triggered the finding.
-    threatNames :: Lude.Maybe [Lude.Text],
-    -- | The name of the threat intelligence list that triggered the finding.
-    threatListName :: Lude.Maybe Lude.Text
+  { -- | The name of the threat intelligence list that triggered the finding.
+    threatListName :: Core.Maybe Types.ThreatListName,
+    -- | A list of names of the threats in the threat intelligence list that triggered the finding.
+    threatNames :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ThreatIntelligenceDetail' with the minimum fields required to make a request.
---
--- * 'threatNames' - A list of names of the threats in the threat intelligence list that triggered the finding.
--- * 'threatListName' - The name of the threat intelligence list that triggered the finding.
+-- | Creates a 'ThreatIntelligenceDetail' value with any optional fields omitted.
 mkThreatIntelligenceDetail ::
   ThreatIntelligenceDetail
 mkThreatIntelligenceDetail =
   ThreatIntelligenceDetail'
-    { threatNames = Lude.Nothing,
-      threatListName = Lude.Nothing
+    { threatListName = Core.Nothing,
+      threatNames = Core.Nothing
     }
-
--- | A list of names of the threats in the threat intelligence list that triggered the finding.
---
--- /Note:/ Consider using 'threatNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tidThreatNames :: Lens.Lens' ThreatIntelligenceDetail (Lude.Maybe [Lude.Text])
-tidThreatNames = Lens.lens (threatNames :: ThreatIntelligenceDetail -> Lude.Maybe [Lude.Text]) (\s a -> s {threatNames = a} :: ThreatIntelligenceDetail)
-{-# DEPRECATED tidThreatNames "Use generic-lens or generic-optics with 'threatNames' instead." #-}
 
 -- | The name of the threat intelligence list that triggered the finding.
 --
 -- /Note:/ Consider using 'threatListName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tidThreatListName :: Lens.Lens' ThreatIntelligenceDetail (Lude.Maybe Lude.Text)
-tidThreatListName = Lens.lens (threatListName :: ThreatIntelligenceDetail -> Lude.Maybe Lude.Text) (\s a -> s {threatListName = a} :: ThreatIntelligenceDetail)
+tidThreatListName :: Lens.Lens' ThreatIntelligenceDetail (Core.Maybe Types.ThreatListName)
+tidThreatListName = Lens.field @"threatListName"
 {-# DEPRECATED tidThreatListName "Use generic-lens or generic-optics with 'threatListName' instead." #-}
 
-instance Lude.FromJSON ThreatIntelligenceDetail where
+-- | A list of names of the threats in the threat intelligence list that triggered the finding.
+--
+-- /Note:/ Consider using 'threatNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tidThreatNames :: Lens.Lens' ThreatIntelligenceDetail (Core.Maybe [Types.String])
+tidThreatNames = Lens.field @"threatNames"
+{-# DEPRECATED tidThreatNames "Use generic-lens or generic-optics with 'threatNames' instead." #-}
+
+instance Core.FromJSON ThreatIntelligenceDetail where
   parseJSON =
-    Lude.withObject
-      "ThreatIntelligenceDetail"
-      ( \x ->
-          ThreatIntelligenceDetail'
-            Lude.<$> (x Lude..:? "threatNames" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "threatListName")
-      )
+    Core.withObject "ThreatIntelligenceDetail" Core.$
+      \x ->
+        ThreatIntelligenceDetail'
+          Core.<$> (x Core..:? "threatListName") Core.<*> (x Core..:? "threatNames")

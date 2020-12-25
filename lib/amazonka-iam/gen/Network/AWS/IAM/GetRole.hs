@@ -27,110 +27,103 @@ module Network.AWS.IAM.GetRole
     mkGetRoleResponse,
 
     -- ** Response lenses
-    grrsRole,
-    grrsResponseStatus,
+    grrrsRole,
+    grrrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetRole' smart constructor.
 newtype GetRole = GetRole'
   { -- | The name of the IAM role to get information about.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    roleName :: Lude.Text
+    roleName :: Types.RoleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetRole' with the minimum fields required to make a request.
---
--- * 'roleName' - The name of the IAM role to get information about.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
+-- | Creates a 'GetRole' value with any optional fields omitted.
 mkGetRole ::
   -- | 'roleName'
-  Lude.Text ->
+  Types.RoleName ->
   GetRole
-mkGetRole pRoleName_ = GetRole' {roleName = pRoleName_}
+mkGetRole roleName = GetRole' {roleName}
 
 -- | The name of the IAM role to get information about.
 --
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'roleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grRoleName :: Lens.Lens' GetRole Lude.Text
-grRoleName = Lens.lens (roleName :: GetRole -> Lude.Text) (\s a -> s {roleName = a} :: GetRole)
+grRoleName :: Lens.Lens' GetRole Types.RoleName
+grRoleName = Lens.field @"roleName"
 {-# DEPRECATED grRoleName "Use generic-lens or generic-optics with 'roleName' instead." #-}
 
-instance Lude.AWSRequest GetRole where
+instance Core.AWSRequest GetRole where
   type Rs GetRole = GetRoleResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetRole")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "RoleName" roleName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetRoleResult"
       ( \s h x ->
           GetRoleResponse'
-            Lude.<$> (x Lude..@ "Role") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "Role") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetRole where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetRole where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetRole where
-  toQuery GetRole' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetRole" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "RoleName" Lude.=: roleName
-      ]
 
 -- | Contains the response to a successful 'GetRole' request.
 --
 -- /See:/ 'mkGetRoleResponse' smart constructor.
 data GetRoleResponse = GetRoleResponse'
   { -- | A structure containing details about the IAM role.
-    role' :: Role,
+    role' :: Types.Role,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetRoleResponse' with the minimum fields required to make a request.
---
--- * 'role'' - A structure containing details about the IAM role.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetRoleResponse' value with any optional fields omitted.
 mkGetRoleResponse ::
-  -- | 'role''
-  Role ->
+  -- | 'role\''
+  Types.Role ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetRoleResponse
-mkGetRoleResponse pRole_ pResponseStatus_ =
-  GetRoleResponse'
-    { role' = pRole_,
-      responseStatus = pResponseStatus_
-    }
+mkGetRoleResponse role' responseStatus =
+  GetRoleResponse' {role', responseStatus}
 
 -- | A structure containing details about the IAM role.
 --
 -- /Note:/ Consider using 'role'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrsRole :: Lens.Lens' GetRoleResponse Role
-grrsRole = Lens.lens (role' :: GetRoleResponse -> Role) (\s a -> s {role' = a} :: GetRoleResponse)
-{-# DEPRECATED grrsRole "Use generic-lens or generic-optics with 'role'' instead." #-}
+grrrsRole :: Lens.Lens' GetRoleResponse Types.Role
+grrrsRole = Lens.field @"role'"
+{-# DEPRECATED grrrsRole "Use generic-lens or generic-optics with 'role'' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grrsResponseStatus :: Lens.Lens' GetRoleResponse Lude.Int
-grrsResponseStatus = Lens.lens (responseStatus :: GetRoleResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetRoleResponse)
-{-# DEPRECATED grrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+grrrsResponseStatus :: Lens.Lens' GetRoleResponse Core.Int
+grrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED grrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

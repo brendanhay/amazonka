@@ -17,53 +17,51 @@ module Network.AWS.EC2.Types.CapacityReservationGroup
     mkCapacityReservationGroup,
 
     -- * Lenses
+    crgGroupArn,
     crgOwnerId,
-    crgGroupARN,
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a resource group to which a Capacity Reservation has been added.
 --
 -- /See:/ 'mkCapacityReservationGroup' smart constructor.
 data CapacityReservationGroup = CapacityReservationGroup'
-  { -- | The ID of the AWS account that owns the resource group.
-    ownerId :: Lude.Maybe Lude.Text,
-    -- | The ARN of the resource group.
-    groupARN :: Lude.Maybe Lude.Text
+  { -- | The ARN of the resource group.
+    groupArn :: Core.Maybe Types.String,
+    -- | The ID of the AWS account that owns the resource group.
+    ownerId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CapacityReservationGroup' with the minimum fields required to make a request.
---
--- * 'ownerId' - The ID of the AWS account that owns the resource group.
--- * 'groupARN' - The ARN of the resource group.
+-- | Creates a 'CapacityReservationGroup' value with any optional fields omitted.
 mkCapacityReservationGroup ::
   CapacityReservationGroup
 mkCapacityReservationGroup =
   CapacityReservationGroup'
-    { ownerId = Lude.Nothing,
-      groupARN = Lude.Nothing
+    { groupArn = Core.Nothing,
+      ownerId = Core.Nothing
     }
+
+-- | The ARN of the resource group.
+--
+-- /Note:/ Consider using 'groupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+crgGroupArn :: Lens.Lens' CapacityReservationGroup (Core.Maybe Types.String)
+crgGroupArn = Lens.field @"groupArn"
+{-# DEPRECATED crgGroupArn "Use generic-lens or generic-optics with 'groupArn' instead." #-}
 
 -- | The ID of the AWS account that owns the resource group.
 --
 -- /Note:/ Consider using 'ownerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgOwnerId :: Lens.Lens' CapacityReservationGroup (Lude.Maybe Lude.Text)
-crgOwnerId = Lens.lens (ownerId :: CapacityReservationGroup -> Lude.Maybe Lude.Text) (\s a -> s {ownerId = a} :: CapacityReservationGroup)
+crgOwnerId :: Lens.Lens' CapacityReservationGroup (Core.Maybe Types.String)
+crgOwnerId = Lens.field @"ownerId"
 {-# DEPRECATED crgOwnerId "Use generic-lens or generic-optics with 'ownerId' instead." #-}
 
--- | The ARN of the resource group.
---
--- /Note:/ Consider using 'groupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-crgGroupARN :: Lens.Lens' CapacityReservationGroup (Lude.Maybe Lude.Text)
-crgGroupARN = Lens.lens (groupARN :: CapacityReservationGroup -> Lude.Maybe Lude.Text) (\s a -> s {groupARN = a} :: CapacityReservationGroup)
-{-# DEPRECATED crgGroupARN "Use generic-lens or generic-optics with 'groupARN' instead." #-}
-
-instance Lude.FromXML CapacityReservationGroup where
+instance Core.FromXML CapacityReservationGroup where
   parseXML x =
     CapacityReservationGroup'
-      Lude.<$> (x Lude..@? "ownerId") Lude.<*> (x Lude..@? "groupArn")
+      Core.<$> (x Core..@? "groupArn") Core.<*> (x Core..@? "ownerId")

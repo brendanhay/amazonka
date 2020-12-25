@@ -31,11 +31,11 @@ module Network.AWS.KMS.EnableKeyRotation
   )
 where
 
-import Network.AWS.KMS.Types
+import qualified Network.AWS.KMS.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnableKeyRotation' smart constructor.
 newtype EnableKeyRotation = EnableKeyRotation'
@@ -51,30 +51,17 @@ newtype EnableKeyRotation = EnableKeyRotation'
     --
     --
     -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
-    keyId :: Lude.Text
+    keyId :: Types.KeyIdType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableKeyRotation' with the minimum fields required to make a request.
---
--- * 'keyId' - Identifies a symmetric customer master key (CMK). You cannot enable automatic rotation of asymmetric CMKs, CMKs with imported key material, or CMKs in a <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> .
---
--- Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
--- For example:
---
---     * Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
---     * Key ARN: @arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab@
---
---
--- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
+-- | Creates a 'EnableKeyRotation' value with any optional fields omitted.
 mkEnableKeyRotation ::
   -- | 'keyId'
-  Lude.Text ->
+  Types.KeyIdType ->
   EnableKeyRotation
-mkEnableKeyRotation pKeyId_ = EnableKeyRotation' {keyId = pKeyId_}
+mkEnableKeyRotation keyId = EnableKeyRotation' {keyId}
 
 -- | Identifies a symmetric customer master key (CMK). You cannot enable automatic rotation of asymmetric CMKs, CMKs with imported key material, or CMKs in a <https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html custom key store> .
 --
@@ -90,42 +77,35 @@ mkEnableKeyRotation pKeyId_ = EnableKeyRotation' {keyId = pKeyId_}
 -- To get the key ID and key ARN for a CMK, use 'ListKeys' or 'DescribeKey' .
 --
 -- /Note:/ Consider using 'keyId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ekrKeyId :: Lens.Lens' EnableKeyRotation Lude.Text
-ekrKeyId = Lens.lens (keyId :: EnableKeyRotation -> Lude.Text) (\s a -> s {keyId = a} :: EnableKeyRotation)
+ekrKeyId :: Lens.Lens' EnableKeyRotation Types.KeyIdType
+ekrKeyId = Lens.field @"keyId"
 {-# DEPRECATED ekrKeyId "Use generic-lens or generic-optics with 'keyId' instead." #-}
 
-instance Lude.AWSRequest EnableKeyRotation where
+instance Core.FromJSON EnableKeyRotation where
+  toJSON EnableKeyRotation {..} =
+    Core.object (Core.catMaybes [Core.Just ("KeyId" Core..= keyId)])
+
+instance Core.AWSRequest EnableKeyRotation where
   type Rs EnableKeyRotation = EnableKeyRotationResponse
-  request = Req.postJSON kmsService
-  response = Res.receiveNull EnableKeyRotationResponse'
-
-instance Lude.ToHeaders EnableKeyRotation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("TrentService.EnableKeyRotation" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON EnableKeyRotation where
-  toJSON EnableKeyRotation' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("KeyId" Lude..= keyId)])
-
-instance Lude.ToPath EnableKeyRotation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableKeyRotation where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "TrentService.EnableKeyRotation")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull EnableKeyRotationResponse'
 
 -- | /See:/ 'mkEnableKeyRotationResponse' smart constructor.
 data EnableKeyRotationResponse = EnableKeyRotationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableKeyRotationResponse' with the minimum fields required to make a request.
+-- | Creates a 'EnableKeyRotationResponse' value with any optional fields omitted.
 mkEnableKeyRotationResponse ::
   EnableKeyRotationResponse
 mkEnableKeyRotationResponse = EnableKeyRotationResponse'

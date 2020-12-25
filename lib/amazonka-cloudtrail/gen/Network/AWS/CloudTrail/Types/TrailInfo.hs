@@ -17,71 +17,68 @@ module Network.AWS.CloudTrail.Types.TrailInfo
     mkTrailInfo,
 
     -- * Lenses
-    tiTrailARN,
     tiHomeRegion,
     tiName,
+    tiTrailARN,
   )
 where
 
+import qualified Network.AWS.CloudTrail.Types.HomeRegion as Types
+import qualified Network.AWS.CloudTrail.Types.Name as Types
+import qualified Network.AWS.CloudTrail.Types.TrailARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a CloudTrail trail, including the trail's name, home region, and Amazon Resource Name (ARN).
 --
 -- /See:/ 'mkTrailInfo' smart constructor.
 data TrailInfo = TrailInfo'
-  { -- | The ARN of a trail.
-    trailARN :: Lude.Maybe Lude.Text,
-    -- | The AWS region in which a trail was created.
-    homeRegion :: Lude.Maybe Lude.Text,
+  { -- | The AWS region in which a trail was created.
+    homeRegion :: Core.Maybe Types.HomeRegion,
     -- | The name of a trail.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.Name,
+    -- | The ARN of a trail.
+    trailARN :: Core.Maybe Types.TrailARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TrailInfo' with the minimum fields required to make a request.
---
--- * 'trailARN' - The ARN of a trail.
--- * 'homeRegion' - The AWS region in which a trail was created.
--- * 'name' - The name of a trail.
+-- | Creates a 'TrailInfo' value with any optional fields omitted.
 mkTrailInfo ::
   TrailInfo
 mkTrailInfo =
   TrailInfo'
-    { trailARN = Lude.Nothing,
-      homeRegion = Lude.Nothing,
-      name = Lude.Nothing
+    { homeRegion = Core.Nothing,
+      name = Core.Nothing,
+      trailARN = Core.Nothing
     }
-
--- | The ARN of a trail.
---
--- /Note:/ Consider using 'trailARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiTrailARN :: Lens.Lens' TrailInfo (Lude.Maybe Lude.Text)
-tiTrailARN = Lens.lens (trailARN :: TrailInfo -> Lude.Maybe Lude.Text) (\s a -> s {trailARN = a} :: TrailInfo)
-{-# DEPRECATED tiTrailARN "Use generic-lens or generic-optics with 'trailARN' instead." #-}
 
 -- | The AWS region in which a trail was created.
 --
 -- /Note:/ Consider using 'homeRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiHomeRegion :: Lens.Lens' TrailInfo (Lude.Maybe Lude.Text)
-tiHomeRegion = Lens.lens (homeRegion :: TrailInfo -> Lude.Maybe Lude.Text) (\s a -> s {homeRegion = a} :: TrailInfo)
+tiHomeRegion :: Lens.Lens' TrailInfo (Core.Maybe Types.HomeRegion)
+tiHomeRegion = Lens.field @"homeRegion"
 {-# DEPRECATED tiHomeRegion "Use generic-lens or generic-optics with 'homeRegion' instead." #-}
 
 -- | The name of a trail.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tiName :: Lens.Lens' TrailInfo (Lude.Maybe Lude.Text)
-tiName = Lens.lens (name :: TrailInfo -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: TrailInfo)
+tiName :: Lens.Lens' TrailInfo (Core.Maybe Types.Name)
+tiName = Lens.field @"name"
 {-# DEPRECATED tiName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON TrailInfo where
+-- | The ARN of a trail.
+--
+-- /Note:/ Consider using 'trailARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+tiTrailARN :: Lens.Lens' TrailInfo (Core.Maybe Types.TrailARN)
+tiTrailARN = Lens.field @"trailARN"
+{-# DEPRECATED tiTrailARN "Use generic-lens or generic-optics with 'trailARN' instead." #-}
+
+instance Core.FromJSON TrailInfo where
   parseJSON =
-    Lude.withObject
-      "TrailInfo"
-      ( \x ->
-          TrailInfo'
-            Lude.<$> (x Lude..:? "TrailARN")
-            Lude.<*> (x Lude..:? "HomeRegion")
-            Lude.<*> (x Lude..:? "Name")
-      )
+    Core.withObject "TrailInfo" Core.$
+      \x ->
+        TrailInfo'
+          Core.<$> (x Core..:? "HomeRegion")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "TrailARN")

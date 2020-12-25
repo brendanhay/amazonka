@@ -17,54 +17,49 @@ module Network.AWS.Rekognition.Types.MouthOpen
     mkMouthOpen,
 
     -- * Lenses
-    moValue,
     moConfidence,
+    moValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether or not the mouth on the face is open, and the confidence level in the determination.
 --
 -- /See:/ 'mkMouthOpen' smart constructor.
 data MouthOpen = MouthOpen'
-  { -- | Boolean value that indicates whether the mouth on the face is open or not.
-    value :: Lude.Maybe Lude.Bool,
-    -- | Level of confidence in the determination.
-    confidence :: Lude.Maybe Lude.Double
+  { -- | Level of confidence in the determination.
+    confidence :: Core.Maybe Core.Double,
+    -- | Boolean value that indicates whether the mouth on the face is open or not.
+    value :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MouthOpen' with the minimum fields required to make a request.
---
--- * 'value' - Boolean value that indicates whether the mouth on the face is open or not.
--- * 'confidence' - Level of confidence in the determination.
+-- | Creates a 'MouthOpen' value with any optional fields omitted.
 mkMouthOpen ::
   MouthOpen
 mkMouthOpen =
-  MouthOpen' {value = Lude.Nothing, confidence = Lude.Nothing}
-
--- | Boolean value that indicates whether the mouth on the face is open or not.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-moValue :: Lens.Lens' MouthOpen (Lude.Maybe Lude.Bool)
-moValue = Lens.lens (value :: MouthOpen -> Lude.Maybe Lude.Bool) (\s a -> s {value = a} :: MouthOpen)
-{-# DEPRECATED moValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  MouthOpen' {confidence = Core.Nothing, value = Core.Nothing}
 
 -- | Level of confidence in the determination.
 --
 -- /Note:/ Consider using 'confidence' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-moConfidence :: Lens.Lens' MouthOpen (Lude.Maybe Lude.Double)
-moConfidence = Lens.lens (confidence :: MouthOpen -> Lude.Maybe Lude.Double) (\s a -> s {confidence = a} :: MouthOpen)
+moConfidence :: Lens.Lens' MouthOpen (Core.Maybe Core.Double)
+moConfidence = Lens.field @"confidence"
 {-# DEPRECATED moConfidence "Use generic-lens or generic-optics with 'confidence' instead." #-}
 
-instance Lude.FromJSON MouthOpen where
+-- | Boolean value that indicates whether the mouth on the face is open or not.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+moValue :: Lens.Lens' MouthOpen (Core.Maybe Core.Bool)
+moValue = Lens.field @"value"
+{-# DEPRECATED moValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON MouthOpen where
   parseJSON =
-    Lude.withObject
-      "MouthOpen"
-      ( \x ->
-          MouthOpen'
-            Lude.<$> (x Lude..:? "Value") Lude.<*> (x Lude..:? "Confidence")
-      )
+    Core.withObject "MouthOpen" Core.$
+      \x ->
+        MouthOpen'
+          Core.<$> (x Core..:? "Confidence") Core.<*> (x Core..:? "Value")

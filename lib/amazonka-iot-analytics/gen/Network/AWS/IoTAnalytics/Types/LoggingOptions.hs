@@ -17,88 +17,79 @@ module Network.AWS.IoTAnalytics.Types.LoggingOptions
     mkLoggingOptions,
 
     -- * Lenses
-    loEnabled,
+    loRoleArn,
     loLevel,
-    loRoleARN,
+    loEnabled,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types.LoggingLevel
+import qualified Network.AWS.IoTAnalytics.Types.LoggingLevel as Types
+import qualified Network.AWS.IoTAnalytics.Types.RoleArn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about logging options.
 --
 -- /See:/ 'mkLoggingOptions' smart constructor.
 data LoggingOptions = LoggingOptions'
-  { -- | If true, logging is enabled for AWS IoT Analytics.
-    enabled :: Lude.Bool,
+  { -- | The ARN of the role that grants permission to AWS IoT Analytics to perform logging.
+    roleArn :: Types.RoleArn,
     -- | The logging level. Currently, only ERROR is supported.
-    level :: LoggingLevel,
-    -- | The ARN of the role that grants permission to AWS IoT Analytics to perform logging.
-    roleARN :: Lude.Text
+    level :: Types.LoggingLevel,
+    -- | If true, logging is enabled for AWS IoT Analytics.
+    enabled :: Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoggingOptions' with the minimum fields required to make a request.
---
--- * 'enabled' - If true, logging is enabled for AWS IoT Analytics.
--- * 'level' - The logging level. Currently, only ERROR is supported.
--- * 'roleARN' - The ARN of the role that grants permission to AWS IoT Analytics to perform logging.
+-- | Creates a 'LoggingOptions' value with any optional fields omitted.
 mkLoggingOptions ::
-  -- | 'enabled'
-  Lude.Bool ->
+  -- | 'roleArn'
+  Types.RoleArn ->
   -- | 'level'
-  LoggingLevel ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Types.LoggingLevel ->
+  -- | 'enabled'
+  Core.Bool ->
   LoggingOptions
-mkLoggingOptions pEnabled_ pLevel_ pRoleARN_ =
-  LoggingOptions'
-    { enabled = pEnabled_,
-      level = pLevel_,
-      roleARN = pRoleARN_
-    }
+mkLoggingOptions roleArn level enabled =
+  LoggingOptions' {roleArn, level, enabled}
 
--- | If true, logging is enabled for AWS IoT Analytics.
+-- | The ARN of the role that grants permission to AWS IoT Analytics to perform logging.
 --
--- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loEnabled :: Lens.Lens' LoggingOptions Lude.Bool
-loEnabled = Lens.lens (enabled :: LoggingOptions -> Lude.Bool) (\s a -> s {enabled = a} :: LoggingOptions)
-{-# DEPRECATED loEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loRoleArn :: Lens.Lens' LoggingOptions Types.RoleArn
+loRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED loRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
 -- | The logging level. Currently, only ERROR is supported.
 --
 -- /Note:/ Consider using 'level' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loLevel :: Lens.Lens' LoggingOptions LoggingLevel
-loLevel = Lens.lens (level :: LoggingOptions -> LoggingLevel) (\s a -> s {level = a} :: LoggingOptions)
+loLevel :: Lens.Lens' LoggingOptions Types.LoggingLevel
+loLevel = Lens.field @"level"
 {-# DEPRECATED loLevel "Use generic-lens or generic-optics with 'level' instead." #-}
 
--- | The ARN of the role that grants permission to AWS IoT Analytics to perform logging.
+-- | If true, logging is enabled for AWS IoT Analytics.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-loRoleARN :: Lens.Lens' LoggingOptions Lude.Text
-loRoleARN = Lens.lens (roleARN :: LoggingOptions -> Lude.Text) (\s a -> s {roleARN = a} :: LoggingOptions)
-{-# DEPRECATED loRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+loEnabled :: Lens.Lens' LoggingOptions Core.Bool
+loEnabled = Lens.field @"enabled"
+{-# DEPRECATED loEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
-instance Lude.FromJSON LoggingOptions where
-  parseJSON =
-    Lude.withObject
-      "LoggingOptions"
-      ( \x ->
-          LoggingOptions'
-            Lude.<$> (x Lude..: "enabled")
-            Lude.<*> (x Lude..: "level")
-            Lude.<*> (x Lude..: "roleArn")
-      )
-
-instance Lude.ToJSON LoggingOptions where
-  toJSON LoggingOptions' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("enabled" Lude..= enabled),
-            Lude.Just ("level" Lude..= level),
-            Lude.Just ("roleArn" Lude..= roleARN)
+instance Core.FromJSON LoggingOptions where
+  toJSON LoggingOptions {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("roleArn" Core..= roleArn),
+            Core.Just ("level" Core..= level),
+            Core.Just ("enabled" Core..= enabled)
           ]
       )
+
+instance Core.FromJSON LoggingOptions where
+  parseJSON =
+    Core.withObject "LoggingOptions" Core.$
+      \x ->
+        LoggingOptions'
+          Core.<$> (x Core..: "roleArn")
+          Core.<*> (x Core..: "level")
+          Core.<*> (x Core..: "enabled")

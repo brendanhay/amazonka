@@ -19,59 +19,62 @@ module Network.AWS.CloudTrail.Types.PublicKey
     -- * Lenses
     pkFingerprint,
     pkValidityEndTime,
-    pkValue,
     pkValidityStartTime,
+    pkValue,
   )
 where
 
+import qualified Network.AWS.CloudTrail.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about a returned public key.
 --
 -- /See:/ 'mkPublicKey' smart constructor.
 data PublicKey = PublicKey'
   { -- | The fingerprint of the public key.
-    fingerprint :: Lude.Maybe Lude.Text,
+    fingerprint :: Core.Maybe Types.String,
     -- | The ending time of validity of the public key.
-    validityEndTime :: Lude.Maybe Lude.Timestamp,
-    -- | The DER encoded public key value in PKCS#1 format.
-    value :: Lude.Maybe Lude.Base64,
+    validityEndTime :: Core.Maybe Core.NominalDiffTime,
     -- | The starting time of validity of the public key.
-    validityStartTime :: Lude.Maybe Lude.Timestamp
+    validityStartTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The DER encoded public key value in PKCS#1 format.
+    value :: Core.Maybe Core.Base64
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'PublicKey' with the minimum fields required to make a request.
---
--- * 'fingerprint' - The fingerprint of the public key.
--- * 'validityEndTime' - The ending time of validity of the public key.
--- * 'value' - The DER encoded public key value in PKCS#1 format.
--- * 'validityStartTime' - The starting time of validity of the public key.
+-- | Creates a 'PublicKey' value with any optional fields omitted.
 mkPublicKey ::
   PublicKey
 mkPublicKey =
   PublicKey'
-    { fingerprint = Lude.Nothing,
-      validityEndTime = Lude.Nothing,
-      value = Lude.Nothing,
-      validityStartTime = Lude.Nothing
+    { fingerprint = Core.Nothing,
+      validityEndTime = Core.Nothing,
+      validityStartTime = Core.Nothing,
+      value = Core.Nothing
     }
 
 -- | The fingerprint of the public key.
 --
 -- /Note:/ Consider using 'fingerprint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkFingerprint :: Lens.Lens' PublicKey (Lude.Maybe Lude.Text)
-pkFingerprint = Lens.lens (fingerprint :: PublicKey -> Lude.Maybe Lude.Text) (\s a -> s {fingerprint = a} :: PublicKey)
+pkFingerprint :: Lens.Lens' PublicKey (Core.Maybe Types.String)
+pkFingerprint = Lens.field @"fingerprint"
 {-# DEPRECATED pkFingerprint "Use generic-lens or generic-optics with 'fingerprint' instead." #-}
 
 -- | The ending time of validity of the public key.
 --
 -- /Note:/ Consider using 'validityEndTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkValidityEndTime :: Lens.Lens' PublicKey (Lude.Maybe Lude.Timestamp)
-pkValidityEndTime = Lens.lens (validityEndTime :: PublicKey -> Lude.Maybe Lude.Timestamp) (\s a -> s {validityEndTime = a} :: PublicKey)
+pkValidityEndTime :: Lens.Lens' PublicKey (Core.Maybe Core.NominalDiffTime)
+pkValidityEndTime = Lens.field @"validityEndTime"
 {-# DEPRECATED pkValidityEndTime "Use generic-lens or generic-optics with 'validityEndTime' instead." #-}
+
+-- | The starting time of validity of the public key.
+--
+-- /Note:/ Consider using 'validityStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pkValidityStartTime :: Lens.Lens' PublicKey (Core.Maybe Core.NominalDiffTime)
+pkValidityStartTime = Lens.field @"validityStartTime"
+{-# DEPRECATED pkValidityStartTime "Use generic-lens or generic-optics with 'validityStartTime' instead." #-}
 
 -- | The DER encoded public key value in PKCS#1 format.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -80,25 +83,16 @@ pkValidityEndTime = Lens.lens (validityEndTime :: PublicKey -> Lude.Maybe Lude.T
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkValue :: Lens.Lens' PublicKey (Lude.Maybe Lude.Base64)
-pkValue = Lens.lens (value :: PublicKey -> Lude.Maybe Lude.Base64) (\s a -> s {value = a} :: PublicKey)
+pkValue :: Lens.Lens' PublicKey (Core.Maybe Core.Base64)
+pkValue = Lens.field @"value"
 {-# DEPRECATED pkValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
--- | The starting time of validity of the public key.
---
--- /Note:/ Consider using 'validityStartTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pkValidityStartTime :: Lens.Lens' PublicKey (Lude.Maybe Lude.Timestamp)
-pkValidityStartTime = Lens.lens (validityStartTime :: PublicKey -> Lude.Maybe Lude.Timestamp) (\s a -> s {validityStartTime = a} :: PublicKey)
-{-# DEPRECATED pkValidityStartTime "Use generic-lens or generic-optics with 'validityStartTime' instead." #-}
-
-instance Lude.FromJSON PublicKey where
+instance Core.FromJSON PublicKey where
   parseJSON =
-    Lude.withObject
-      "PublicKey"
-      ( \x ->
-          PublicKey'
-            Lude.<$> (x Lude..:? "Fingerprint")
-            Lude.<*> (x Lude..:? "ValidityEndTime")
-            Lude.<*> (x Lude..:? "Value")
-            Lude.<*> (x Lude..:? "ValidityStartTime")
-      )
+    Core.withObject "PublicKey" Core.$
+      \x ->
+        PublicKey'
+          Core.<$> (x Core..:? "Fingerprint")
+          Core.<*> (x Core..:? "ValidityEndTime")
+          Core.<*> (x Core..:? "ValidityStartTime")
+          Core.<*> (x Core..:? "Value")

@@ -13,71 +13,73 @@
 module Network.AWS.CodePipeline.Types.JobStatus
   ( JobStatus
       ( JobStatus',
-        JSCreated,
-        JSQueued,
-        JSDispatched,
-        JSInProgress,
-        JSTimedOut,
-        JSSucceeded,
-        JSFailed
+        JobStatusCreated,
+        JobStatusQueued,
+        JobStatusDispatched,
+        JobStatusInProgress,
+        JobStatusTimedOut,
+        JobStatusSucceeded,
+        JobStatusFailed,
+        fromJobStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype JobStatus = JobStatus' Lude.Text
+newtype JobStatus = JobStatus' {fromJobStatus :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern JSCreated :: JobStatus
-pattern JSCreated = JobStatus' "Created"
+pattern JobStatusCreated :: JobStatus
+pattern JobStatusCreated = JobStatus' "Created"
 
-pattern JSQueued :: JobStatus
-pattern JSQueued = JobStatus' "Queued"
+pattern JobStatusQueued :: JobStatus
+pattern JobStatusQueued = JobStatus' "Queued"
 
-pattern JSDispatched :: JobStatus
-pattern JSDispatched = JobStatus' "Dispatched"
+pattern JobStatusDispatched :: JobStatus
+pattern JobStatusDispatched = JobStatus' "Dispatched"
 
-pattern JSInProgress :: JobStatus
-pattern JSInProgress = JobStatus' "InProgress"
+pattern JobStatusInProgress :: JobStatus
+pattern JobStatusInProgress = JobStatus' "InProgress"
 
-pattern JSTimedOut :: JobStatus
-pattern JSTimedOut = JobStatus' "TimedOut"
+pattern JobStatusTimedOut :: JobStatus
+pattern JobStatusTimedOut = JobStatus' "TimedOut"
 
-pattern JSSucceeded :: JobStatus
-pattern JSSucceeded = JobStatus' "Succeeded"
+pattern JobStatusSucceeded :: JobStatus
+pattern JobStatusSucceeded = JobStatus' "Succeeded"
 
-pattern JSFailed :: JobStatus
-pattern JSFailed = JobStatus' "Failed"
+pattern JobStatusFailed :: JobStatus
+pattern JobStatusFailed = JobStatus' "Failed"
 
 {-# COMPLETE
-  JSCreated,
-  JSQueued,
-  JSDispatched,
-  JSInProgress,
-  JSTimedOut,
-  JSSucceeded,
-  JSFailed,
+  JobStatusCreated,
+  JobStatusQueued,
+  JobStatusDispatched,
+  JobStatusInProgress,
+  JobStatusTimedOut,
+  JobStatusSucceeded,
+  JobStatusFailed,
   JobStatus'
   #-}

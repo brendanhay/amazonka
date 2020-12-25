@@ -22,62 +22,59 @@ module Network.AWS.IoT.Types.ThingTypeProperties
   )
 where
 
+import qualified Network.AWS.IoT.Types.AttributeName as Types
+import qualified Network.AWS.IoT.Types.ThingTypeDescription as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The ThingTypeProperties contains information about the thing type including: a thing type description, and a list of searchable thing attribute names.
 --
 -- /See:/ 'mkThingTypeProperties' smart constructor.
 data ThingTypeProperties = ThingTypeProperties'
   { -- | A list of searchable thing attribute names.
-    searchableAttributes :: Lude.Maybe [Lude.Text],
+    searchableAttributes :: Core.Maybe [Types.AttributeName],
     -- | The description of the thing type.
-    thingTypeDescription :: Lude.Maybe Lude.Text
+    thingTypeDescription :: Core.Maybe Types.ThingTypeDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ThingTypeProperties' with the minimum fields required to make a request.
---
--- * 'searchableAttributes' - A list of searchable thing attribute names.
--- * 'thingTypeDescription' - The description of the thing type.
+-- | Creates a 'ThingTypeProperties' value with any optional fields omitted.
 mkThingTypeProperties ::
   ThingTypeProperties
 mkThingTypeProperties =
   ThingTypeProperties'
-    { searchableAttributes = Lude.Nothing,
-      thingTypeDescription = Lude.Nothing
+    { searchableAttributes = Core.Nothing,
+      thingTypeDescription = Core.Nothing
     }
 
 -- | A list of searchable thing attribute names.
 --
 -- /Note:/ Consider using 'searchableAttributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttpSearchableAttributes :: Lens.Lens' ThingTypeProperties (Lude.Maybe [Lude.Text])
-ttpSearchableAttributes = Lens.lens (searchableAttributes :: ThingTypeProperties -> Lude.Maybe [Lude.Text]) (\s a -> s {searchableAttributes = a} :: ThingTypeProperties)
+ttpSearchableAttributes :: Lens.Lens' ThingTypeProperties (Core.Maybe [Types.AttributeName])
+ttpSearchableAttributes = Lens.field @"searchableAttributes"
 {-# DEPRECATED ttpSearchableAttributes "Use generic-lens or generic-optics with 'searchableAttributes' instead." #-}
 
 -- | The description of the thing type.
 --
 -- /Note:/ Consider using 'thingTypeDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ttpThingTypeDescription :: Lens.Lens' ThingTypeProperties (Lude.Maybe Lude.Text)
-ttpThingTypeDescription = Lens.lens (thingTypeDescription :: ThingTypeProperties -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeDescription = a} :: ThingTypeProperties)
+ttpThingTypeDescription :: Lens.Lens' ThingTypeProperties (Core.Maybe Types.ThingTypeDescription)
+ttpThingTypeDescription = Lens.field @"thingTypeDescription"
 {-# DEPRECATED ttpThingTypeDescription "Use generic-lens or generic-optics with 'thingTypeDescription' instead." #-}
 
-instance Lude.FromJSON ThingTypeProperties where
-  parseJSON =
-    Lude.withObject
-      "ThingTypeProperties"
-      ( \x ->
-          ThingTypeProperties'
-            Lude.<$> (x Lude..:? "searchableAttributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "thingTypeDescription")
-      )
-
-instance Lude.ToJSON ThingTypeProperties where
-  toJSON ThingTypeProperties' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("searchableAttributes" Lude..=) Lude.<$> searchableAttributes,
-            ("thingTypeDescription" Lude..=) Lude.<$> thingTypeDescription
+instance Core.FromJSON ThingTypeProperties where
+  toJSON ThingTypeProperties {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("searchableAttributes" Core..=) Core.<$> searchableAttributes,
+            ("thingTypeDescription" Core..=) Core.<$> thingTypeDescription
           ]
       )
+
+instance Core.FromJSON ThingTypeProperties where
+  parseJSON =
+    Core.withObject "ThingTypeProperties" Core.$
+      \x ->
+        ThingTypeProperties'
+          Core.<$> (x Core..:? "searchableAttributes")
+          Core.<*> (x Core..:? "thingTypeDescription")

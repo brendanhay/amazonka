@@ -17,132 +17,122 @@ module Network.AWS.Firehose.Types.DestinationDescription
     mkDestinationDescription,
 
     -- * Lenses
-    ddSplunkDestinationDescription,
-    ddHTTPEndpointDestinationDescription,
-    ddS3DestinationDescription,
-    ddExtendedS3DestinationDescription,
-    ddElasticsearchDestinationDescription,
-    ddRedshiftDestinationDescription,
     ddDestinationId,
+    ddElasticsearchDestinationDescription,
+    ddExtendedS3DestinationDescription,
+    ddHttpEndpointDestinationDescription,
+    ddRedshiftDestinationDescription,
+    ddS3DestinationDescription,
+    ddSplunkDestinationDescription,
   )
 where
 
-import Network.AWS.Firehose.Types.ElasticsearchDestinationDescription
-import Network.AWS.Firehose.Types.ExtendedS3DestinationDescription
-import Network.AWS.Firehose.Types.HTTPEndpointDestinationDescription
-import Network.AWS.Firehose.Types.RedshiftDestinationDescription
-import Network.AWS.Firehose.Types.S3DestinationDescription
-import Network.AWS.Firehose.Types.SplunkDestinationDescription
+import qualified Network.AWS.Firehose.Types.DestinationId as Types
+import qualified Network.AWS.Firehose.Types.ElasticsearchDestinationDescription as Types
+import qualified Network.AWS.Firehose.Types.ExtendedS3DestinationDescription as Types
+import qualified Network.AWS.Firehose.Types.HttpEndpointDestinationDescription as Types
+import qualified Network.AWS.Firehose.Types.RedshiftDestinationDescription as Types
+import qualified Network.AWS.Firehose.Types.S3DestinationDescription as Types
+import qualified Network.AWS.Firehose.Types.SplunkDestinationDescription as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the destination for a delivery stream.
 --
 -- /See:/ 'mkDestinationDescription' smart constructor.
 data DestinationDescription = DestinationDescription'
-  { -- | The destination in Splunk.
-    splunkDestinationDescription :: Lude.Maybe SplunkDestinationDescription,
-    -- | Describes the specified HTTP endpoint destination.
-    hTTPEndpointDestinationDescription :: Lude.Maybe HTTPEndpointDestinationDescription,
-    -- | [Deprecated] The destination in Amazon S3.
-    s3DestinationDescription :: Lude.Maybe S3DestinationDescription,
-    -- | The destination in Amazon S3.
-    extendedS3DestinationDescription :: Lude.Maybe ExtendedS3DestinationDescription,
+  { -- | The ID of the destination.
+    destinationId :: Types.DestinationId,
     -- | The destination in Amazon ES.
-    elasticsearchDestinationDescription :: Lude.Maybe ElasticsearchDestinationDescription,
+    elasticsearchDestinationDescription :: Core.Maybe Types.ElasticsearchDestinationDescription,
+    -- | The destination in Amazon S3.
+    extendedS3DestinationDescription :: Core.Maybe Types.ExtendedS3DestinationDescription,
+    -- | Describes the specified HTTP endpoint destination.
+    httpEndpointDestinationDescription :: Core.Maybe Types.HttpEndpointDestinationDescription,
     -- | The destination in Amazon Redshift.
-    redshiftDestinationDescription :: Lude.Maybe RedshiftDestinationDescription,
-    -- | The ID of the destination.
-    destinationId :: Lude.Text
+    redshiftDestinationDescription :: Core.Maybe Types.RedshiftDestinationDescription,
+    -- | [Deprecated] The destination in Amazon S3.
+    s3DestinationDescription :: Core.Maybe Types.S3DestinationDescription,
+    -- | The destination in Splunk.
+    splunkDestinationDescription :: Core.Maybe Types.SplunkDestinationDescription
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DestinationDescription' with the minimum fields required to make a request.
---
--- * 'splunkDestinationDescription' - The destination in Splunk.
--- * 'hTTPEndpointDestinationDescription' - Describes the specified HTTP endpoint destination.
--- * 's3DestinationDescription' - [Deprecated] The destination in Amazon S3.
--- * 'extendedS3DestinationDescription' - The destination in Amazon S3.
--- * 'elasticsearchDestinationDescription' - The destination in Amazon ES.
--- * 'redshiftDestinationDescription' - The destination in Amazon Redshift.
--- * 'destinationId' - The ID of the destination.
+-- | Creates a 'DestinationDescription' value with any optional fields omitted.
 mkDestinationDescription ::
   -- | 'destinationId'
-  Lude.Text ->
+  Types.DestinationId ->
   DestinationDescription
-mkDestinationDescription pDestinationId_ =
+mkDestinationDescription destinationId =
   DestinationDescription'
-    { splunkDestinationDescription =
-        Lude.Nothing,
-      hTTPEndpointDestinationDescription = Lude.Nothing,
-      s3DestinationDescription = Lude.Nothing,
-      extendedS3DestinationDescription = Lude.Nothing,
-      elasticsearchDestinationDescription = Lude.Nothing,
-      redshiftDestinationDescription = Lude.Nothing,
-      destinationId = pDestinationId_
+    { destinationId,
+      elasticsearchDestinationDescription = Core.Nothing,
+      extendedS3DestinationDescription = Core.Nothing,
+      httpEndpointDestinationDescription = Core.Nothing,
+      redshiftDestinationDescription = Core.Nothing,
+      s3DestinationDescription = Core.Nothing,
+      splunkDestinationDescription = Core.Nothing
     }
-
--- | The destination in Splunk.
---
--- /Note:/ Consider using 'splunkDestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddSplunkDestinationDescription :: Lens.Lens' DestinationDescription (Lude.Maybe SplunkDestinationDescription)
-ddSplunkDestinationDescription = Lens.lens (splunkDestinationDescription :: DestinationDescription -> Lude.Maybe SplunkDestinationDescription) (\s a -> s {splunkDestinationDescription = a} :: DestinationDescription)
-{-# DEPRECATED ddSplunkDestinationDescription "Use generic-lens or generic-optics with 'splunkDestinationDescription' instead." #-}
-
--- | Describes the specified HTTP endpoint destination.
---
--- /Note:/ Consider using 'hTTPEndpointDestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddHTTPEndpointDestinationDescription :: Lens.Lens' DestinationDescription (Lude.Maybe HTTPEndpointDestinationDescription)
-ddHTTPEndpointDestinationDescription = Lens.lens (hTTPEndpointDestinationDescription :: DestinationDescription -> Lude.Maybe HTTPEndpointDestinationDescription) (\s a -> s {hTTPEndpointDestinationDescription = a} :: DestinationDescription)
-{-# DEPRECATED ddHTTPEndpointDestinationDescription "Use generic-lens or generic-optics with 'hTTPEndpointDestinationDescription' instead." #-}
-
--- | [Deprecated] The destination in Amazon S3.
---
--- /Note:/ Consider using 's3DestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddS3DestinationDescription :: Lens.Lens' DestinationDescription (Lude.Maybe S3DestinationDescription)
-ddS3DestinationDescription = Lens.lens (s3DestinationDescription :: DestinationDescription -> Lude.Maybe S3DestinationDescription) (\s a -> s {s3DestinationDescription = a} :: DestinationDescription)
-{-# DEPRECATED ddS3DestinationDescription "Use generic-lens or generic-optics with 's3DestinationDescription' instead." #-}
-
--- | The destination in Amazon S3.
---
--- /Note:/ Consider using 'extendedS3DestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddExtendedS3DestinationDescription :: Lens.Lens' DestinationDescription (Lude.Maybe ExtendedS3DestinationDescription)
-ddExtendedS3DestinationDescription = Lens.lens (extendedS3DestinationDescription :: DestinationDescription -> Lude.Maybe ExtendedS3DestinationDescription) (\s a -> s {extendedS3DestinationDescription = a} :: DestinationDescription)
-{-# DEPRECATED ddExtendedS3DestinationDescription "Use generic-lens or generic-optics with 'extendedS3DestinationDescription' instead." #-}
-
--- | The destination in Amazon ES.
---
--- /Note:/ Consider using 'elasticsearchDestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddElasticsearchDestinationDescription :: Lens.Lens' DestinationDescription (Lude.Maybe ElasticsearchDestinationDescription)
-ddElasticsearchDestinationDescription = Lens.lens (elasticsearchDestinationDescription :: DestinationDescription -> Lude.Maybe ElasticsearchDestinationDescription) (\s a -> s {elasticsearchDestinationDescription = a} :: DestinationDescription)
-{-# DEPRECATED ddElasticsearchDestinationDescription "Use generic-lens or generic-optics with 'elasticsearchDestinationDescription' instead." #-}
-
--- | The destination in Amazon Redshift.
---
--- /Note:/ Consider using 'redshiftDestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddRedshiftDestinationDescription :: Lens.Lens' DestinationDescription (Lude.Maybe RedshiftDestinationDescription)
-ddRedshiftDestinationDescription = Lens.lens (redshiftDestinationDescription :: DestinationDescription -> Lude.Maybe RedshiftDestinationDescription) (\s a -> s {redshiftDestinationDescription = a} :: DestinationDescription)
-{-# DEPRECATED ddRedshiftDestinationDescription "Use generic-lens or generic-optics with 'redshiftDestinationDescription' instead." #-}
 
 -- | The ID of the destination.
 --
 -- /Note:/ Consider using 'destinationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddDestinationId :: Lens.Lens' DestinationDescription Lude.Text
-ddDestinationId = Lens.lens (destinationId :: DestinationDescription -> Lude.Text) (\s a -> s {destinationId = a} :: DestinationDescription)
+ddDestinationId :: Lens.Lens' DestinationDescription Types.DestinationId
+ddDestinationId = Lens.field @"destinationId"
 {-# DEPRECATED ddDestinationId "Use generic-lens or generic-optics with 'destinationId' instead." #-}
 
-instance Lude.FromJSON DestinationDescription where
+-- | The destination in Amazon ES.
+--
+-- /Note:/ Consider using 'elasticsearchDestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddElasticsearchDestinationDescription :: Lens.Lens' DestinationDescription (Core.Maybe Types.ElasticsearchDestinationDescription)
+ddElasticsearchDestinationDescription = Lens.field @"elasticsearchDestinationDescription"
+{-# DEPRECATED ddElasticsearchDestinationDescription "Use generic-lens or generic-optics with 'elasticsearchDestinationDescription' instead." #-}
+
+-- | The destination in Amazon S3.
+--
+-- /Note:/ Consider using 'extendedS3DestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddExtendedS3DestinationDescription :: Lens.Lens' DestinationDescription (Core.Maybe Types.ExtendedS3DestinationDescription)
+ddExtendedS3DestinationDescription = Lens.field @"extendedS3DestinationDescription"
+{-# DEPRECATED ddExtendedS3DestinationDescription "Use generic-lens or generic-optics with 'extendedS3DestinationDescription' instead." #-}
+
+-- | Describes the specified HTTP endpoint destination.
+--
+-- /Note:/ Consider using 'httpEndpointDestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddHttpEndpointDestinationDescription :: Lens.Lens' DestinationDescription (Core.Maybe Types.HttpEndpointDestinationDescription)
+ddHttpEndpointDestinationDescription = Lens.field @"httpEndpointDestinationDescription"
+{-# DEPRECATED ddHttpEndpointDestinationDescription "Use generic-lens or generic-optics with 'httpEndpointDestinationDescription' instead." #-}
+
+-- | The destination in Amazon Redshift.
+--
+-- /Note:/ Consider using 'redshiftDestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddRedshiftDestinationDescription :: Lens.Lens' DestinationDescription (Core.Maybe Types.RedshiftDestinationDescription)
+ddRedshiftDestinationDescription = Lens.field @"redshiftDestinationDescription"
+{-# DEPRECATED ddRedshiftDestinationDescription "Use generic-lens or generic-optics with 'redshiftDestinationDescription' instead." #-}
+
+-- | [Deprecated] The destination in Amazon S3.
+--
+-- /Note:/ Consider using 's3DestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddS3DestinationDescription :: Lens.Lens' DestinationDescription (Core.Maybe Types.S3DestinationDescription)
+ddS3DestinationDescription = Lens.field @"s3DestinationDescription"
+{-# DEPRECATED ddS3DestinationDescription "Use generic-lens or generic-optics with 's3DestinationDescription' instead." #-}
+
+-- | The destination in Splunk.
+--
+-- /Note:/ Consider using 'splunkDestinationDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddSplunkDestinationDescription :: Lens.Lens' DestinationDescription (Core.Maybe Types.SplunkDestinationDescription)
+ddSplunkDestinationDescription = Lens.field @"splunkDestinationDescription"
+{-# DEPRECATED ddSplunkDestinationDescription "Use generic-lens or generic-optics with 'splunkDestinationDescription' instead." #-}
+
+instance Core.FromJSON DestinationDescription where
   parseJSON =
-    Lude.withObject
-      "DestinationDescription"
-      ( \x ->
-          DestinationDescription'
-            Lude.<$> (x Lude..:? "SplunkDestinationDescription")
-            Lude.<*> (x Lude..:? "HttpEndpointDestinationDescription")
-            Lude.<*> (x Lude..:? "S3DestinationDescription")
-            Lude.<*> (x Lude..:? "ExtendedS3DestinationDescription")
-            Lude.<*> (x Lude..:? "ElasticsearchDestinationDescription")
-            Lude.<*> (x Lude..:? "RedshiftDestinationDescription")
-            Lude.<*> (x Lude..: "DestinationId")
-      )
+    Core.withObject "DestinationDescription" Core.$
+      \x ->
+        DestinationDescription'
+          Core.<$> (x Core..: "DestinationId")
+          Core.<*> (x Core..:? "ElasticsearchDestinationDescription")
+          Core.<*> (x Core..:? "ExtendedS3DestinationDescription")
+          Core.<*> (x Core..:? "HttpEndpointDestinationDescription")
+          Core.<*> (x Core..:? "RedshiftDestinationDescription")
+          Core.<*> (x Core..:? "S3DestinationDescription")
+          Core.<*> (x Core..:? "SplunkDestinationDescription")

@@ -48,72 +48,85 @@ module Network.AWS.GameLift.CreateScript
     mkCreateScript,
 
     -- ** Request lenses
-    csStorageLocation,
-    csZipFile,
     csName,
-    csVersion,
+    csStorageLocation,
     csTags,
+    csVersion,
+    csZipFile,
 
     -- * Destructuring the response
     CreateScriptResponse (..),
     mkCreateScriptResponse,
 
     -- ** Response lenses
-    csrsScript,
-    csrsResponseStatus,
+    csrrsScript,
+    csrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateScript' smart constructor.
 data CreateScript = CreateScript'
-  { -- | The Amazon S3 location of your Realtime scripts. The storage location must specify the S3 bucket name, the zip file name (the "key"), and an IAM role ARN that allows Amazon GameLift to access the S3 storage location. The S3 bucket must be in the same Region where you are creating a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the @ObjectVersion@ parameter to specify an earlier version. To call this operation with a storage location, you must have IAM PassRole permission. For more details on IAM roles and PassRole permissions, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access> .
-    storageLocation :: Lude.Maybe S3Location,
+  { -- | A descriptive label that is associated with a script. Script names do not need to be unique. You can use 'UpdateScript' to change this value later.
+    name :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | The Amazon S3 location of your Realtime scripts. The storage location must specify the S3 bucket name, the zip file name (the "key"), and an IAM role ARN that allows Amazon GameLift to access the S3 storage location. The S3 bucket must be in the same Region where you are creating a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the @ObjectVersion@ parameter to specify an earlier version. To call this operation with a storage location, you must have IAM PassRole permission. For more details on IAM roles and PassRole permissions, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access> .
+    storageLocation :: Core.Maybe Types.S3Location,
+    -- | A list of labels to assign to the new script resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+    tags :: Core.Maybe [Types.Tag],
+    -- | The version that is associated with a build or script. Version strings do not need to be unique. You can use 'UpdateScript' to change this value later.
+    version :: Core.Maybe Types.NonZeroAndMaxString,
     -- | A data object containing your Realtime scripts and dependencies as a zip file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
     --
     -- When using the AWS CLI tool to create a script, this parameter is set to the zip file name. It must be prepended with the string "fileb://" to indicate that the file data is a binary object. For example: @--zip-file fileb://myRealtimeScript.zip@ .
-    zipFile :: Lude.Maybe Lude.Base64,
-    -- | A descriptive label that is associated with a script. Script names do not need to be unique. You can use 'UpdateScript' to change this value later.
-    name :: Lude.Maybe Lude.Text,
-    -- | The version that is associated with a build or script. Version strings do not need to be unique. You can use 'UpdateScript' to change this value later.
-    version :: Lude.Maybe Lude.Text,
-    -- | A list of labels to assign to the new script resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
-    tags :: Lude.Maybe [Tag]
+    zipFile :: Core.Maybe Core.Base64
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateScript' with the minimum fields required to make a request.
---
--- * 'storageLocation' - The Amazon S3 location of your Realtime scripts. The storage location must specify the S3 bucket name, the zip file name (the "key"), and an IAM role ARN that allows Amazon GameLift to access the S3 storage location. The S3 bucket must be in the same Region where you are creating a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the @ObjectVersion@ parameter to specify an earlier version. To call this operation with a storage location, you must have IAM PassRole permission. For more details on IAM roles and PassRole permissions, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access> .
--- * 'zipFile' - A data object containing your Realtime scripts and dependencies as a zip file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
---
--- When using the AWS CLI tool to create a script, this parameter is set to the zip file name. It must be prepended with the string "fileb://" to indicate that the file data is a binary object. For example: @--zip-file fileb://myRealtimeScript.zip@ .
--- * 'name' - A descriptive label that is associated with a script. Script names do not need to be unique. You can use 'UpdateScript' to change this value later.
--- * 'version' - The version that is associated with a build or script. Version strings do not need to be unique. You can use 'UpdateScript' to change this value later.
--- * 'tags' - A list of labels to assign to the new script resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+-- | Creates a 'CreateScript' value with any optional fields omitted.
 mkCreateScript ::
   CreateScript
 mkCreateScript =
   CreateScript'
-    { storageLocation = Lude.Nothing,
-      zipFile = Lude.Nothing,
-      name = Lude.Nothing,
-      version = Lude.Nothing,
-      tags = Lude.Nothing
+    { name = Core.Nothing,
+      storageLocation = Core.Nothing,
+      tags = Core.Nothing,
+      version = Core.Nothing,
+      zipFile = Core.Nothing
     }
+
+-- | A descriptive label that is associated with a script. Script names do not need to be unique. You can use 'UpdateScript' to change this value later.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csName :: Lens.Lens' CreateScript (Core.Maybe Types.NonZeroAndMaxString)
+csName = Lens.field @"name"
+{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The Amazon S3 location of your Realtime scripts. The storage location must specify the S3 bucket name, the zip file name (the "key"), and an IAM role ARN that allows Amazon GameLift to access the S3 storage location. The S3 bucket must be in the same Region where you are creating a new script. By default, Amazon GameLift uploads the latest version of the zip file; if you have S3 object versioning turned on, you can use the @ObjectVersion@ parameter to specify an earlier version. To call this operation with a storage location, you must have IAM PassRole permission. For more details on IAM roles and PassRole permissions, see <https://docs.aws.amazon.com/gamelift/latest/developerguide/setting-up-role.html Set up a role for GameLift access> .
 --
 -- /Note:/ Consider using 'storageLocation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csStorageLocation :: Lens.Lens' CreateScript (Lude.Maybe S3Location)
-csStorageLocation = Lens.lens (storageLocation :: CreateScript -> Lude.Maybe S3Location) (\s a -> s {storageLocation = a} :: CreateScript)
+csStorageLocation :: Lens.Lens' CreateScript (Core.Maybe Types.S3Location)
+csStorageLocation = Lens.field @"storageLocation"
 {-# DEPRECATED csStorageLocation "Use generic-lens or generic-optics with 'storageLocation' instead." #-}
+
+-- | A list of labels to assign to the new script resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csTags :: Lens.Lens' CreateScript (Core.Maybe [Types.Tag])
+csTags = Lens.field @"tags"
+{-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+-- | The version that is associated with a build or script. Version strings do not need to be unique. You can use 'UpdateScript' to change this value later.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csVersion :: Lens.Lens' CreateScript (Core.Maybe Types.NonZeroAndMaxString)
+csVersion = Lens.field @"version"
+{-# DEPRECATED csVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | A data object containing your Realtime scripts and dependencies as a zip file. The zip file can have one or multiple files. Maximum size of a zip file is 5 MB.
 --
@@ -124,104 +137,70 @@ csStorageLocation = Lens.lens (storageLocation :: CreateScript -> Lude.Maybe S3L
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'zipFile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csZipFile :: Lens.Lens' CreateScript (Lude.Maybe Lude.Base64)
-csZipFile = Lens.lens (zipFile :: CreateScript -> Lude.Maybe Lude.Base64) (\s a -> s {zipFile = a} :: CreateScript)
+csZipFile :: Lens.Lens' CreateScript (Core.Maybe Core.Base64)
+csZipFile = Lens.field @"zipFile"
 {-# DEPRECATED csZipFile "Use generic-lens or generic-optics with 'zipFile' instead." #-}
 
--- | A descriptive label that is associated with a script. Script names do not need to be unique. You can use 'UpdateScript' to change this value later.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csName :: Lens.Lens' CreateScript (Lude.Maybe Lude.Text)
-csName = Lens.lens (name :: CreateScript -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: CreateScript)
-{-# DEPRECATED csName "Use generic-lens or generic-optics with 'name' instead." #-}
+instance Core.FromJSON CreateScript where
+  toJSON CreateScript {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Name" Core..=) Core.<$> name,
+            ("StorageLocation" Core..=) Core.<$> storageLocation,
+            ("Tags" Core..=) Core.<$> tags,
+            ("Version" Core..=) Core.<$> version,
+            ("ZipFile" Core..=) Core.<$> zipFile
+          ]
+      )
 
--- | The version that is associated with a build or script. Version strings do not need to be unique. You can use 'UpdateScript' to change this value later.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csVersion :: Lens.Lens' CreateScript (Lude.Maybe Lude.Text)
-csVersion = Lens.lens (version :: CreateScript -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: CreateScript)
-{-# DEPRECATED csVersion "Use generic-lens or generic-optics with 'version' instead." #-}
-
--- | A list of labels to assign to the new script resource. Tags are developer-defined key-value pairs. Tagging AWS resources are useful for resource management, access management and cost allocation. For more information, see <https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html Tagging AWS Resources> in the /AWS General Reference/ . Once the resource is created, you can use 'TagResource' , 'UntagResource' , and 'ListTagsForResource' to add, remove, and view tags. The maximum tag limit may be lower than stated. See the AWS General Reference for actual tagging limits.
---
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csTags :: Lens.Lens' CreateScript (Lude.Maybe [Tag])
-csTags = Lens.lens (tags :: CreateScript -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateScript)
-{-# DEPRECATED csTags "Use generic-lens or generic-optics with 'tags' instead." #-}
-
-instance Lude.AWSRequest CreateScript where
+instance Core.AWSRequest CreateScript where
   type Rs CreateScript = CreateScriptResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.CreateScript")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateScriptResponse'
-            Lude.<$> (x Lude..?> "Script") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Script") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateScript where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.CreateScript" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateScript where
-  toJSON CreateScript' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StorageLocation" Lude..=) Lude.<$> storageLocation,
-            ("ZipFile" Lude..=) Lude.<$> zipFile,
-            ("Name" Lude..=) Lude.<$> name,
-            ("Version" Lude..=) Lude.<$> version,
-            ("Tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateScript where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateScript where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateScriptResponse' smart constructor.
 data CreateScriptResponse = CreateScriptResponse'
   { -- | The newly created script record with a unique script ID and ARN. The new script's storage location reflects an Amazon S3 location: (1) If the script was uploaded from an S3 bucket under your account, the storage location reflects the information that was provided in the /CreateScript/ request; (2) If the script file was uploaded from a local zip file, the storage location reflects an S3 location controls by the Amazon GameLift service.
-    script :: Lude.Maybe Script,
+    script :: Core.Maybe Types.Script,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateScriptResponse' with the minimum fields required to make a request.
---
--- * 'script' - The newly created script record with a unique script ID and ARN. The new script's storage location reflects an Amazon S3 location: (1) If the script was uploaded from an S3 bucket under your account, the storage location reflects the information that was provided in the /CreateScript/ request; (2) If the script file was uploaded from a local zip file, the storage location reflects an S3 location controls by the Amazon GameLift service.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateScriptResponse' value with any optional fields omitted.
 mkCreateScriptResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateScriptResponse
-mkCreateScriptResponse pResponseStatus_ =
-  CreateScriptResponse'
-    { script = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateScriptResponse responseStatus =
+  CreateScriptResponse' {script = Core.Nothing, responseStatus}
 
 -- | The newly created script record with a unique script ID and ARN. The new script's storage location reflects an Amazon S3 location: (1) If the script was uploaded from an S3 bucket under your account, the storage location reflects the information that was provided in the /CreateScript/ request; (2) If the script file was uploaded from a local zip file, the storage location reflects an S3 location controls by the Amazon GameLift service.
 --
 -- /Note:/ Consider using 'script' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsScript :: Lens.Lens' CreateScriptResponse (Lude.Maybe Script)
-csrsScript = Lens.lens (script :: CreateScriptResponse -> Lude.Maybe Script) (\s a -> s {script = a} :: CreateScriptResponse)
-{-# DEPRECATED csrsScript "Use generic-lens or generic-optics with 'script' instead." #-}
+csrrsScript :: Lens.Lens' CreateScriptResponse (Core.Maybe Types.Script)
+csrrsScript = Lens.field @"script"
+{-# DEPRECATED csrrsScript "Use generic-lens or generic-optics with 'script' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csrsResponseStatus :: Lens.Lens' CreateScriptResponse Lude.Int
-csrsResponseStatus = Lens.lens (responseStatus :: CreateScriptResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateScriptResponse)
-{-# DEPRECATED csrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csrrsResponseStatus :: Lens.Lens' CreateScriptResponse Core.Int
+csrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

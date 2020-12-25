@@ -17,54 +17,50 @@ module Network.AWS.AlexaBusiness.Types.Category
     mkCategory,
 
     -- * Lenses
-    cCategoryName,
     cCategoryId,
+    cCategoryName,
   )
 where
 
+import qualified Network.AWS.AlexaBusiness.Types.CategoryName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The skill store category that is shown. Alexa skills are assigned a specific skill category during creation, such as News, Social, and Sports.
 --
 -- /See:/ 'mkCategory' smart constructor.
 data Category = Category'
-  { -- | The name of the skill store category.
-    categoryName :: Lude.Maybe Lude.Text,
-    -- | The ID of the skill store category.
-    categoryId :: Lude.Maybe Lude.Natural
+  { -- | The ID of the skill store category.
+    categoryId :: Core.Maybe Core.Natural,
+    -- | The name of the skill store category.
+    categoryName :: Core.Maybe Types.CategoryName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Category' with the minimum fields required to make a request.
---
--- * 'categoryName' - The name of the skill store category.
--- * 'categoryId' - The ID of the skill store category.
+-- | Creates a 'Category' value with any optional fields omitted.
 mkCategory ::
   Category
 mkCategory =
-  Category' {categoryName = Lude.Nothing, categoryId = Lude.Nothing}
-
--- | The name of the skill store category.
---
--- /Note:/ Consider using 'categoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCategoryName :: Lens.Lens' Category (Lude.Maybe Lude.Text)
-cCategoryName = Lens.lens (categoryName :: Category -> Lude.Maybe Lude.Text) (\s a -> s {categoryName = a} :: Category)
-{-# DEPRECATED cCategoryName "Use generic-lens or generic-optics with 'categoryName' instead." #-}
+  Category' {categoryId = Core.Nothing, categoryName = Core.Nothing}
 
 -- | The ID of the skill store category.
 --
 -- /Note:/ Consider using 'categoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cCategoryId :: Lens.Lens' Category (Lude.Maybe Lude.Natural)
-cCategoryId = Lens.lens (categoryId :: Category -> Lude.Maybe Lude.Natural) (\s a -> s {categoryId = a} :: Category)
+cCategoryId :: Lens.Lens' Category (Core.Maybe Core.Natural)
+cCategoryId = Lens.field @"categoryId"
 {-# DEPRECATED cCategoryId "Use generic-lens or generic-optics with 'categoryId' instead." #-}
 
-instance Lude.FromJSON Category where
+-- | The name of the skill store category.
+--
+-- /Note:/ Consider using 'categoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cCategoryName :: Lens.Lens' Category (Core.Maybe Types.CategoryName)
+cCategoryName = Lens.field @"categoryName"
+{-# DEPRECATED cCategoryName "Use generic-lens or generic-optics with 'categoryName' instead." #-}
+
+instance Core.FromJSON Category where
   parseJSON =
-    Lude.withObject
-      "Category"
-      ( \x ->
-          Category'
-            Lude.<$> (x Lude..:? "CategoryName") Lude.<*> (x Lude..:? "CategoryId")
-      )
+    Core.withObject "Category" Core.$
+      \x ->
+        Category'
+          Core.<$> (x Core..:? "CategoryId") Core.<*> (x Core..:? "CategoryName")

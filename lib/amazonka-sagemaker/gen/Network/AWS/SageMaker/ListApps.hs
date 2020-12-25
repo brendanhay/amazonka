@@ -22,206 +22,191 @@ module Network.AWS.SageMaker.ListApps
     mkListApps,
 
     -- ** Request lenses
-    lasDomainIdEquals,
-    lasNextToken,
-    lasSortOrder,
-    lasUserProfileNameEquals,
-    lasMaxResults,
-    lasSortBy,
+    laDomainIdEquals,
+    laMaxResults,
+    laNextToken,
+    laSortBy,
+    laSortOrder,
+    laUserProfileNameEquals,
 
     -- * Destructuring the response
     ListAppsResponse (..),
     mkListAppsResponse,
 
     -- ** Response lenses
-    larsApps,
-    larsNextToken,
-    larsResponseStatus,
+    larrsApps,
+    larrsNextToken,
+    larrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListApps' smart constructor.
 data ListApps = ListApps'
   { -- | A parameter to search for the domain ID.
-    domainIdEquals :: Lude.Maybe Lude.Text,
-    -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sort order for the results. The default is Ascending.
-    sortOrder :: Lude.Maybe SortOrder,
-    -- | A parameter to search by user profile name.
-    userProfileNameEquals :: Lude.Maybe Lude.Text,
+    domainIdEquals :: Core.Maybe Types.DomainId,
     -- | Returns a list up to a specified limit.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The parameter by which to sort the results. The default is CreationTime.
-    sortBy :: Lude.Maybe AppSortKey
+    sortBy :: Core.Maybe Types.AppSortKey,
+    -- | The sort order for the results. The default is Ascending.
+    sortOrder :: Core.Maybe Types.SortOrder,
+    -- | A parameter to search by user profile name.
+    userProfileNameEquals :: Core.Maybe Types.UserProfileName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListApps' with the minimum fields required to make a request.
---
--- * 'domainIdEquals' - A parameter to search for the domain ID.
--- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
--- * 'sortOrder' - The sort order for the results. The default is Ascending.
--- * 'userProfileNameEquals' - A parameter to search by user profile name.
--- * 'maxResults' - Returns a list up to a specified limit.
--- * 'sortBy' - The parameter by which to sort the results. The default is CreationTime.
+-- | Creates a 'ListApps' value with any optional fields omitted.
 mkListApps ::
   ListApps
 mkListApps =
   ListApps'
-    { domainIdEquals = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      userProfileNameEquals = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { domainIdEquals = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing,
+      userProfileNameEquals = Core.Nothing
     }
 
 -- | A parameter to search for the domain ID.
 --
 -- /Note:/ Consider using 'domainIdEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasDomainIdEquals :: Lens.Lens' ListApps (Lude.Maybe Lude.Text)
-lasDomainIdEquals = Lens.lens (domainIdEquals :: ListApps -> Lude.Maybe Lude.Text) (\s a -> s {domainIdEquals = a} :: ListApps)
-{-# DEPRECATED lasDomainIdEquals "Use generic-lens or generic-optics with 'domainIdEquals' instead." #-}
-
--- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasNextToken :: Lens.Lens' ListApps (Lude.Maybe Lude.Text)
-lasNextToken = Lens.lens (nextToken :: ListApps -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListApps)
-{-# DEPRECATED lasNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sort order for the results. The default is Ascending.
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasSortOrder :: Lens.Lens' ListApps (Lude.Maybe SortOrder)
-lasSortOrder = Lens.lens (sortOrder :: ListApps -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListApps)
-{-# DEPRECATED lasSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
-
--- | A parameter to search by user profile name.
---
--- /Note:/ Consider using 'userProfileNameEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasUserProfileNameEquals :: Lens.Lens' ListApps (Lude.Maybe Lude.Text)
-lasUserProfileNameEquals = Lens.lens (userProfileNameEquals :: ListApps -> Lude.Maybe Lude.Text) (\s a -> s {userProfileNameEquals = a} :: ListApps)
-{-# DEPRECATED lasUserProfileNameEquals "Use generic-lens or generic-optics with 'userProfileNameEquals' instead." #-}
+laDomainIdEquals :: Lens.Lens' ListApps (Core.Maybe Types.DomainId)
+laDomainIdEquals = Lens.field @"domainIdEquals"
+{-# DEPRECATED laDomainIdEquals "Use generic-lens or generic-optics with 'domainIdEquals' instead." #-}
 
 -- | Returns a list up to a specified limit.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasMaxResults :: Lens.Lens' ListApps (Lude.Maybe Lude.Natural)
-lasMaxResults = Lens.lens (maxResults :: ListApps -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListApps)
-{-# DEPRECATED lasMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+laMaxResults :: Lens.Lens' ListApps (Core.Maybe Core.Natural)
+laMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED laMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laNextToken :: Lens.Lens' ListApps (Core.Maybe Types.NextToken)
+laNextToken = Lens.field @"nextToken"
+{-# DEPRECATED laNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The parameter by which to sort the results. The default is CreationTime.
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lasSortBy :: Lens.Lens' ListApps (Lude.Maybe AppSortKey)
-lasSortBy = Lens.lens (sortBy :: ListApps -> Lude.Maybe AppSortKey) (\s a -> s {sortBy = a} :: ListApps)
-{-# DEPRECATED lasSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
+laSortBy :: Lens.Lens' ListApps (Core.Maybe Types.AppSortKey)
+laSortBy = Lens.field @"sortBy"
+{-# DEPRECATED laSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager ListApps where
-  page rq rs
-    | Page.stop (rs Lens.^. larsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. larsApps) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lasNextToken Lens..~ rs Lens.^. larsNextToken
+-- | The sort order for the results. The default is Ascending.
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laSortOrder :: Lens.Lens' ListApps (Core.Maybe Types.SortOrder)
+laSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED laSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest ListApps where
+-- | A parameter to search by user profile name.
+--
+-- /Note:/ Consider using 'userProfileNameEquals' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+laUserProfileNameEquals :: Lens.Lens' ListApps (Core.Maybe Types.UserProfileName)
+laUserProfileNameEquals = Lens.field @"userProfileNameEquals"
+{-# DEPRECATED laUserProfileNameEquals "Use generic-lens or generic-optics with 'userProfileNameEquals' instead." #-}
+
+instance Core.FromJSON ListApps where
+  toJSON ListApps {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DomainIdEquals" Core..=) Core.<$> domainIdEquals,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("SortOrder" Core..=) Core.<$> sortOrder,
+            ("UserProfileNameEquals" Core..=) Core.<$> userProfileNameEquals
+          ]
+      )
+
+instance Core.AWSRequest ListApps where
   type Rs ListApps = ListAppsResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListApps")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListAppsResponse'
-            Lude.<$> (x Lude..?> "Apps" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Apps")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListApps where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("SageMaker.ListApps" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListApps where
-  toJSON ListApps' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DomainIdEquals" Lude..=) Lude.<$> domainIdEquals,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("UserProfileNameEquals" Lude..=) Lude.<$> userProfileNameEquals,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListApps where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListApps where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListApps where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"apps" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListAppsResponse' smart constructor.
 data ListAppsResponse = ListAppsResponse'
   { -- | The list of apps.
-    apps :: Lude.Maybe [AppDetails],
+    apps :: Core.Maybe [Types.AppDetails],
     -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListAppsResponse' with the minimum fields required to make a request.
---
--- * 'apps' - The list of apps.
--- * 'nextToken' - If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListAppsResponse' value with any optional fields omitted.
 mkListAppsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListAppsResponse
-mkListAppsResponse pResponseStatus_ =
+mkListAppsResponse responseStatus =
   ListAppsResponse'
-    { apps = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { apps = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | The list of apps.
 --
 -- /Note:/ Consider using 'apps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsApps :: Lens.Lens' ListAppsResponse (Lude.Maybe [AppDetails])
-larsApps = Lens.lens (apps :: ListAppsResponse -> Lude.Maybe [AppDetails]) (\s a -> s {apps = a} :: ListAppsResponse)
-{-# DEPRECATED larsApps "Use generic-lens or generic-optics with 'apps' instead." #-}
+larrsApps :: Lens.Lens' ListAppsResponse (Core.Maybe [Types.AppDetails])
+larrsApps = Lens.field @"apps"
+{-# DEPRECATED larrsApps "Use generic-lens or generic-optics with 'apps' instead." #-}
 
 -- | If the previous response was truncated, you will receive this token. Use it in your next request to receive the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsNextToken :: Lens.Lens' ListAppsResponse (Lude.Maybe Lude.Text)
-larsNextToken = Lens.lens (nextToken :: ListAppsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListAppsResponse)
-{-# DEPRECATED larsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+larrsNextToken :: Lens.Lens' ListAppsResponse (Core.Maybe Types.NextToken)
+larrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED larrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-larsResponseStatus :: Lens.Lens' ListAppsResponse Lude.Int
-larsResponseStatus = Lens.lens (responseStatus :: ListAppsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListAppsResponse)
-{-# DEPRECATED larsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+larrsResponseStatus :: Lens.Lens' ListAppsResponse Core.Int
+larrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED larrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

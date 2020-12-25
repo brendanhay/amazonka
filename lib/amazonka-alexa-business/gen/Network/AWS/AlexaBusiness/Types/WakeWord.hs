@@ -13,56 +13,58 @@
 module Network.AWS.AlexaBusiness.Types.WakeWord
   ( WakeWord
       ( WakeWord',
-        Alexa,
-        Amazon,
-        Echo,
-        Computer
+        WakeWordAlexa,
+        WakeWordAmazon,
+        WakeWordEcho,
+        WakeWordComputer,
+        fromWakeWord
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype WakeWord = WakeWord' Lude.Text
+newtype WakeWord = WakeWord' {fromWakeWord :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Alexa :: WakeWord
-pattern Alexa = WakeWord' "ALEXA"
+pattern WakeWordAlexa :: WakeWord
+pattern WakeWordAlexa = WakeWord' "ALEXA"
 
-pattern Amazon :: WakeWord
-pattern Amazon = WakeWord' "AMAZON"
+pattern WakeWordAmazon :: WakeWord
+pattern WakeWordAmazon = WakeWord' "AMAZON"
 
-pattern Echo :: WakeWord
-pattern Echo = WakeWord' "ECHO"
+pattern WakeWordEcho :: WakeWord
+pattern WakeWordEcho = WakeWord' "ECHO"
 
-pattern Computer :: WakeWord
-pattern Computer = WakeWord' "COMPUTER"
+pattern WakeWordComputer :: WakeWord
+pattern WakeWordComputer = WakeWord' "COMPUTER"
 
 {-# COMPLETE
-  Alexa,
-  Amazon,
-  Echo,
-  Computer,
+  WakeWordAlexa,
+  WakeWordAmazon,
+  WakeWordEcho,
+  WakeWordComputer,
   WakeWord'
   #-}

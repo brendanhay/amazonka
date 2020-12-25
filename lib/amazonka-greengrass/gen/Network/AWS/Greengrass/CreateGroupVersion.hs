@@ -20,268 +20,250 @@ module Network.AWS.Greengrass.CreateGroupVersion
     mkCreateGroupVersion,
 
     -- ** Request lenses
-    cgvAmznClientToken,
-    cgvResourceDefinitionVersionARN,
-    cgvSubscriptionDefinitionVersionARN,
-    cgvCoreDefinitionVersionARN,
     cgvGroupId,
-    cgvDeviceDefinitionVersionARN,
-    cgvFunctionDefinitionVersionARN,
-    cgvLoggerDefinitionVersionARN,
-    cgvConnectorDefinitionVersionARN,
+    cgvAmznClientToken,
+    cgvConnectorDefinitionVersionArn,
+    cgvCoreDefinitionVersionArn,
+    cgvDeviceDefinitionVersionArn,
+    cgvFunctionDefinitionVersionArn,
+    cgvLoggerDefinitionVersionArn,
+    cgvResourceDefinitionVersionArn,
+    cgvSubscriptionDefinitionVersionArn,
 
     -- * Destructuring the response
     CreateGroupVersionResponse (..),
     mkCreateGroupVersionResponse,
 
     -- ** Response lenses
-    cgvrsARN,
-    cgvrsCreationTimestamp,
-    cgvrsVersion,
-    cgvrsId,
-    cgvrsResponseStatus,
+    cgvrrsArn,
+    cgvrrsCreationTimestamp,
+    cgvrrsId,
+    cgvrrsVersion,
+    cgvrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateGroupVersion' smart constructor.
 data CreateGroupVersion = CreateGroupVersion'
-  { -- | A client token used to correlate requests and responses.
-    amznClientToken :: Lude.Maybe Lude.Text,
-    -- | The ARN of the resource definition version for this group.
-    resourceDefinitionVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the subscription definition version for this group.
-    subscriptionDefinitionVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the core definition version for this group.
-    coreDefinitionVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ID of the Greengrass group.
-    groupId :: Lude.Text,
-    -- | The ARN of the device definition version for this group.
-    deviceDefinitionVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the function definition version for this group.
-    functionDefinitionVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the logger definition version for this group.
-    loggerDefinitionVersionARN :: Lude.Maybe Lude.Text,
+  { -- | The ID of the Greengrass group.
+    groupId :: Core.Text,
+    -- | A client token used to correlate requests and responses.
+    amznClientToken :: Core.Maybe Core.Text,
     -- | The ARN of the connector definition version for this group.
-    connectorDefinitionVersionARN :: Lude.Maybe Lude.Text
+    connectorDefinitionVersionArn :: Core.Maybe Core.Text,
+    -- | The ARN of the core definition version for this group.
+    coreDefinitionVersionArn :: Core.Maybe Core.Text,
+    -- | The ARN of the device definition version for this group.
+    deviceDefinitionVersionArn :: Core.Maybe Core.Text,
+    -- | The ARN of the function definition version for this group.
+    functionDefinitionVersionArn :: Core.Maybe Core.Text,
+    -- | The ARN of the logger definition version for this group.
+    loggerDefinitionVersionArn :: Core.Maybe Core.Text,
+    -- | The ARN of the resource definition version for this group.
+    resourceDefinitionVersionArn :: Core.Maybe Core.Text,
+    -- | The ARN of the subscription definition version for this group.
+    subscriptionDefinitionVersionArn :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGroupVersion' with the minimum fields required to make a request.
---
--- * 'amznClientToken' - A client token used to correlate requests and responses.
--- * 'resourceDefinitionVersionARN' - The ARN of the resource definition version for this group.
--- * 'subscriptionDefinitionVersionARN' - The ARN of the subscription definition version for this group.
--- * 'coreDefinitionVersionARN' - The ARN of the core definition version for this group.
--- * 'groupId' - The ID of the Greengrass group.
--- * 'deviceDefinitionVersionARN' - The ARN of the device definition version for this group.
--- * 'functionDefinitionVersionARN' - The ARN of the function definition version for this group.
--- * 'loggerDefinitionVersionARN' - The ARN of the logger definition version for this group.
--- * 'connectorDefinitionVersionARN' - The ARN of the connector definition version for this group.
+-- | Creates a 'CreateGroupVersion' value with any optional fields omitted.
 mkCreateGroupVersion ::
   -- | 'groupId'
-  Lude.Text ->
+  Core.Text ->
   CreateGroupVersion
-mkCreateGroupVersion pGroupId_ =
+mkCreateGroupVersion groupId =
   CreateGroupVersion'
-    { amznClientToken = Lude.Nothing,
-      resourceDefinitionVersionARN = Lude.Nothing,
-      subscriptionDefinitionVersionARN = Lude.Nothing,
-      coreDefinitionVersionARN = Lude.Nothing,
-      groupId = pGroupId_,
-      deviceDefinitionVersionARN = Lude.Nothing,
-      functionDefinitionVersionARN = Lude.Nothing,
-      loggerDefinitionVersionARN = Lude.Nothing,
-      connectorDefinitionVersionARN = Lude.Nothing
+    { groupId,
+      amznClientToken = Core.Nothing,
+      connectorDefinitionVersionArn = Core.Nothing,
+      coreDefinitionVersionArn = Core.Nothing,
+      deviceDefinitionVersionArn = Core.Nothing,
+      functionDefinitionVersionArn = Core.Nothing,
+      loggerDefinitionVersionArn = Core.Nothing,
+      resourceDefinitionVersionArn = Core.Nothing,
+      subscriptionDefinitionVersionArn = Core.Nothing
     }
-
--- | A client token used to correlate requests and responses.
---
--- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvAmznClientToken :: Lens.Lens' CreateGroupVersion (Lude.Maybe Lude.Text)
-cgvAmznClientToken = Lens.lens (amznClientToken :: CreateGroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {amznClientToken = a} :: CreateGroupVersion)
-{-# DEPRECATED cgvAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
-
--- | The ARN of the resource definition version for this group.
---
--- /Note:/ Consider using 'resourceDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvResourceDefinitionVersionARN :: Lens.Lens' CreateGroupVersion (Lude.Maybe Lude.Text)
-cgvResourceDefinitionVersionARN = Lens.lens (resourceDefinitionVersionARN :: CreateGroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {resourceDefinitionVersionARN = a} :: CreateGroupVersion)
-{-# DEPRECATED cgvResourceDefinitionVersionARN "Use generic-lens or generic-optics with 'resourceDefinitionVersionARN' instead." #-}
-
--- | The ARN of the subscription definition version for this group.
---
--- /Note:/ Consider using 'subscriptionDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvSubscriptionDefinitionVersionARN :: Lens.Lens' CreateGroupVersion (Lude.Maybe Lude.Text)
-cgvSubscriptionDefinitionVersionARN = Lens.lens (subscriptionDefinitionVersionARN :: CreateGroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionDefinitionVersionARN = a} :: CreateGroupVersion)
-{-# DEPRECATED cgvSubscriptionDefinitionVersionARN "Use generic-lens or generic-optics with 'subscriptionDefinitionVersionARN' instead." #-}
-
--- | The ARN of the core definition version for this group.
---
--- /Note:/ Consider using 'coreDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvCoreDefinitionVersionARN :: Lens.Lens' CreateGroupVersion (Lude.Maybe Lude.Text)
-cgvCoreDefinitionVersionARN = Lens.lens (coreDefinitionVersionARN :: CreateGroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {coreDefinitionVersionARN = a} :: CreateGroupVersion)
-{-# DEPRECATED cgvCoreDefinitionVersionARN "Use generic-lens or generic-optics with 'coreDefinitionVersionARN' instead." #-}
 
 -- | The ID of the Greengrass group.
 --
 -- /Note:/ Consider using 'groupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvGroupId :: Lens.Lens' CreateGroupVersion Lude.Text
-cgvGroupId = Lens.lens (groupId :: CreateGroupVersion -> Lude.Text) (\s a -> s {groupId = a} :: CreateGroupVersion)
+cgvGroupId :: Lens.Lens' CreateGroupVersion Core.Text
+cgvGroupId = Lens.field @"groupId"
 {-# DEPRECATED cgvGroupId "Use generic-lens or generic-optics with 'groupId' instead." #-}
 
--- | The ARN of the device definition version for this group.
+-- | A client token used to correlate requests and responses.
 --
--- /Note:/ Consider using 'deviceDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvDeviceDefinitionVersionARN :: Lens.Lens' CreateGroupVersion (Lude.Maybe Lude.Text)
-cgvDeviceDefinitionVersionARN = Lens.lens (deviceDefinitionVersionARN :: CreateGroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {deviceDefinitionVersionARN = a} :: CreateGroupVersion)
-{-# DEPRECATED cgvDeviceDefinitionVersionARN "Use generic-lens or generic-optics with 'deviceDefinitionVersionARN' instead." #-}
-
--- | The ARN of the function definition version for this group.
---
--- /Note:/ Consider using 'functionDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvFunctionDefinitionVersionARN :: Lens.Lens' CreateGroupVersion (Lude.Maybe Lude.Text)
-cgvFunctionDefinitionVersionARN = Lens.lens (functionDefinitionVersionARN :: CreateGroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {functionDefinitionVersionARN = a} :: CreateGroupVersion)
-{-# DEPRECATED cgvFunctionDefinitionVersionARN "Use generic-lens or generic-optics with 'functionDefinitionVersionARN' instead." #-}
-
--- | The ARN of the logger definition version for this group.
---
--- /Note:/ Consider using 'loggerDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvLoggerDefinitionVersionARN :: Lens.Lens' CreateGroupVersion (Lude.Maybe Lude.Text)
-cgvLoggerDefinitionVersionARN = Lens.lens (loggerDefinitionVersionARN :: CreateGroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {loggerDefinitionVersionARN = a} :: CreateGroupVersion)
-{-# DEPRECATED cgvLoggerDefinitionVersionARN "Use generic-lens or generic-optics with 'loggerDefinitionVersionARN' instead." #-}
+-- /Note:/ Consider using 'amznClientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgvAmznClientToken :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+cgvAmznClientToken = Lens.field @"amznClientToken"
+{-# DEPRECATED cgvAmznClientToken "Use generic-lens or generic-optics with 'amznClientToken' instead." #-}
 
 -- | The ARN of the connector definition version for this group.
 --
--- /Note:/ Consider using 'connectorDefinitionVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvConnectorDefinitionVersionARN :: Lens.Lens' CreateGroupVersion (Lude.Maybe Lude.Text)
-cgvConnectorDefinitionVersionARN = Lens.lens (connectorDefinitionVersionARN :: CreateGroupVersion -> Lude.Maybe Lude.Text) (\s a -> s {connectorDefinitionVersionARN = a} :: CreateGroupVersion)
-{-# DEPRECATED cgvConnectorDefinitionVersionARN "Use generic-lens or generic-optics with 'connectorDefinitionVersionARN' instead." #-}
+-- /Note:/ Consider using 'connectorDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgvConnectorDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+cgvConnectorDefinitionVersionArn = Lens.field @"connectorDefinitionVersionArn"
+{-# DEPRECATED cgvConnectorDefinitionVersionArn "Use generic-lens or generic-optics with 'connectorDefinitionVersionArn' instead." #-}
 
-instance Lude.AWSRequest CreateGroupVersion where
-  type Rs CreateGroupVersion = CreateGroupVersionResponse
-  request = Req.postJSON greengrassService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateGroupVersionResponse'
-            Lude.<$> (x Lude..?> "Arn")
-            Lude.<*> (x Lude..?> "CreationTimestamp")
-            Lude.<*> (x Lude..?> "Version")
-            Lude.<*> (x Lude..?> "Id")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | The ARN of the core definition version for this group.
+--
+-- /Note:/ Consider using 'coreDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgvCoreDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+cgvCoreDefinitionVersionArn = Lens.field @"coreDefinitionVersionArn"
+{-# DEPRECATED cgvCoreDefinitionVersionArn "Use generic-lens or generic-optics with 'coreDefinitionVersionArn' instead." #-}
 
-instance Lude.ToHeaders CreateGroupVersion where
-  toHeaders CreateGroupVersion' {..} =
-    Lude.mconcat
-      [ "X-Amzn-Client-Token" Lude.=# amznClientToken,
-        "Content-Type"
-          Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-      ]
+-- | The ARN of the device definition version for this group.
+--
+-- /Note:/ Consider using 'deviceDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgvDeviceDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+cgvDeviceDefinitionVersionArn = Lens.field @"deviceDefinitionVersionArn"
+{-# DEPRECATED cgvDeviceDefinitionVersionArn "Use generic-lens or generic-optics with 'deviceDefinitionVersionArn' instead." #-}
 
-instance Lude.ToJSON CreateGroupVersion where
-  toJSON CreateGroupVersion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ResourceDefinitionVersionArn" Lude..=)
-              Lude.<$> resourceDefinitionVersionARN,
-            ("SubscriptionDefinitionVersionArn" Lude..=)
-              Lude.<$> subscriptionDefinitionVersionARN,
-            ("CoreDefinitionVersionArn" Lude..=)
-              Lude.<$> coreDefinitionVersionARN,
-            ("DeviceDefinitionVersionArn" Lude..=)
-              Lude.<$> deviceDefinitionVersionARN,
-            ("FunctionDefinitionVersionArn" Lude..=)
-              Lude.<$> functionDefinitionVersionARN,
-            ("LoggerDefinitionVersionArn" Lude..=)
-              Lude.<$> loggerDefinitionVersionARN,
-            ("ConnectorDefinitionVersionArn" Lude..=)
-              Lude.<$> connectorDefinitionVersionARN
+-- | The ARN of the function definition version for this group.
+--
+-- /Note:/ Consider using 'functionDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgvFunctionDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+cgvFunctionDefinitionVersionArn = Lens.field @"functionDefinitionVersionArn"
+{-# DEPRECATED cgvFunctionDefinitionVersionArn "Use generic-lens or generic-optics with 'functionDefinitionVersionArn' instead." #-}
+
+-- | The ARN of the logger definition version for this group.
+--
+-- /Note:/ Consider using 'loggerDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgvLoggerDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+cgvLoggerDefinitionVersionArn = Lens.field @"loggerDefinitionVersionArn"
+{-# DEPRECATED cgvLoggerDefinitionVersionArn "Use generic-lens or generic-optics with 'loggerDefinitionVersionArn' instead." #-}
+
+-- | The ARN of the resource definition version for this group.
+--
+-- /Note:/ Consider using 'resourceDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgvResourceDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+cgvResourceDefinitionVersionArn = Lens.field @"resourceDefinitionVersionArn"
+{-# DEPRECATED cgvResourceDefinitionVersionArn "Use generic-lens or generic-optics with 'resourceDefinitionVersionArn' instead." #-}
+
+-- | The ARN of the subscription definition version for this group.
+--
+-- /Note:/ Consider using 'subscriptionDefinitionVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgvSubscriptionDefinitionVersionArn :: Lens.Lens' CreateGroupVersion (Core.Maybe Core.Text)
+cgvSubscriptionDefinitionVersionArn = Lens.field @"subscriptionDefinitionVersionArn"
+{-# DEPRECATED cgvSubscriptionDefinitionVersionArn "Use generic-lens or generic-optics with 'subscriptionDefinitionVersionArn' instead." #-}
+
+instance Core.FromJSON CreateGroupVersion where
+  toJSON CreateGroupVersion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ConnectorDefinitionVersionArn" Core..=)
+              Core.<$> connectorDefinitionVersionArn,
+            ("CoreDefinitionVersionArn" Core..=)
+              Core.<$> coreDefinitionVersionArn,
+            ("DeviceDefinitionVersionArn" Core..=)
+              Core.<$> deviceDefinitionVersionArn,
+            ("FunctionDefinitionVersionArn" Core..=)
+              Core.<$> functionDefinitionVersionArn,
+            ("LoggerDefinitionVersionArn" Core..=)
+              Core.<$> loggerDefinitionVersionArn,
+            ("ResourceDefinitionVersionArn" Core..=)
+              Core.<$> resourceDefinitionVersionArn,
+            ("SubscriptionDefinitionVersionArn" Core..=)
+              Core.<$> subscriptionDefinitionVersionArn
           ]
       )
 
-instance Lude.ToPath CreateGroupVersion where
-  toPath CreateGroupVersion' {..} =
-    Lude.mconcat
-      ["/greengrass/groups/", Lude.toBS groupId, "/versions"]
-
-instance Lude.ToQuery CreateGroupVersion where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateGroupVersion where
+  type Rs CreateGroupVersion = CreateGroupVersionResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/groups/" Core.<> (Core.toText groupId)
+                Core.<> ("/versions")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "X-Amzn-Client-Token" amznClientToken
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateGroupVersionResponse'
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "CreationTimestamp")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "Version")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateGroupVersionResponse' smart constructor.
 data CreateGroupVersionResponse = CreateGroupVersionResponse'
   { -- | The ARN of the version.
-    arn :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the version was created.
-    creationTimestamp :: Lude.Maybe Lude.Text,
-    -- | The ID of the version.
-    version :: Lude.Maybe Lude.Text,
+    creationTimestamp :: Core.Maybe Core.Text,
     -- | The ID of the parent definition that the version is associated with.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
+    -- | The ID of the version.
+    version :: Core.Maybe Core.Text,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateGroupVersionResponse' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the version.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the version was created.
--- * 'version' - The ID of the version.
--- * 'id' - The ID of the parent definition that the version is associated with.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateGroupVersionResponse' value with any optional fields omitted.
 mkCreateGroupVersionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateGroupVersionResponse
-mkCreateGroupVersionResponse pResponseStatus_ =
+mkCreateGroupVersionResponse responseStatus =
   CreateGroupVersionResponse'
-    { arn = Lude.Nothing,
-      creationTimestamp = Lude.Nothing,
-      version = Lude.Nothing,
-      id = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      creationTimestamp = Core.Nothing,
+      id = Core.Nothing,
+      version = Core.Nothing,
+      responseStatus
     }
 
 -- | The ARN of the version.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvrsARN :: Lens.Lens' CreateGroupVersionResponse (Lude.Maybe Lude.Text)
-cgvrsARN = Lens.lens (arn :: CreateGroupVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: CreateGroupVersionResponse)
-{-# DEPRECATED cgvrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+cgvrrsArn :: Lens.Lens' CreateGroupVersionResponse (Core.Maybe Core.Text)
+cgvrrsArn = Lens.field @"arn"
+{-# DEPRECATED cgvrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the version was created.
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvrsCreationTimestamp :: Lens.Lens' CreateGroupVersionResponse (Lude.Maybe Lude.Text)
-cgvrsCreationTimestamp = Lens.lens (creationTimestamp :: CreateGroupVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: CreateGroupVersionResponse)
-{-# DEPRECATED cgvrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
-
--- | The ID of the version.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvrsVersion :: Lens.Lens' CreateGroupVersionResponse (Lude.Maybe Lude.Text)
-cgvrsVersion = Lens.lens (version :: CreateGroupVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {version = a} :: CreateGroupVersionResponse)
-{-# DEPRECATED cgvrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+cgvrrsCreationTimestamp :: Lens.Lens' CreateGroupVersionResponse (Core.Maybe Core.Text)
+cgvrrsCreationTimestamp = Lens.field @"creationTimestamp"
+{-# DEPRECATED cgvrrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the parent definition that the version is associated with.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvrsId :: Lens.Lens' CreateGroupVersionResponse (Lude.Maybe Lude.Text)
-cgvrsId = Lens.lens (id :: CreateGroupVersionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: CreateGroupVersionResponse)
-{-# DEPRECATED cgvrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+cgvrrsId :: Lens.Lens' CreateGroupVersionResponse (Core.Maybe Core.Text)
+cgvrrsId = Lens.field @"id"
+{-# DEPRECATED cgvrrsId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The ID of the version.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cgvrrsVersion :: Lens.Lens' CreateGroupVersionResponse (Core.Maybe Core.Text)
+cgvrrsVersion = Lens.field @"version"
+{-# DEPRECATED cgvrrsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cgvrsResponseStatus :: Lens.Lens' CreateGroupVersionResponse Lude.Int
-cgvrsResponseStatus = Lens.lens (responseStatus :: CreateGroupVersionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateGroupVersionResponse)
-{-# DEPRECATED cgvrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cgvrrsResponseStatus :: Lens.Lens' CreateGroupVersionResponse Core.Int
+cgvrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cgvrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

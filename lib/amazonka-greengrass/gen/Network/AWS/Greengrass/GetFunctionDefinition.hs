@@ -27,200 +27,179 @@ module Network.AWS.Greengrass.GetFunctionDefinition
     mkGetFunctionDefinitionResponse,
 
     -- ** Response lenses
-    gfdrsLatestVersionARN,
-    gfdrsARN,
-    gfdrsName,
-    gfdrsCreationTimestamp,
-    gfdrsId,
-    gfdrsLatestVersion,
-    gfdrsLastUpdatedTimestamp,
-    gfdrsTags,
-    gfdrsResponseStatus,
+    gfdrrsArn,
+    gfdrrsCreationTimestamp,
+    gfdrrsId,
+    gfdrrsLastUpdatedTimestamp,
+    gfdrrsLatestVersion,
+    gfdrrsLatestVersionArn,
+    gfdrrsName,
+    gfdrrsTags,
+    gfdrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetFunctionDefinition' smart constructor.
 newtype GetFunctionDefinition = GetFunctionDefinition'
   { -- | The ID of the Lambda function definition.
-    functionDefinitionId :: Lude.Text
+    functionDefinitionId :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFunctionDefinition' with the minimum fields required to make a request.
---
--- * 'functionDefinitionId' - The ID of the Lambda function definition.
+-- | Creates a 'GetFunctionDefinition' value with any optional fields omitted.
 mkGetFunctionDefinition ::
   -- | 'functionDefinitionId'
-  Lude.Text ->
+  Core.Text ->
   GetFunctionDefinition
-mkGetFunctionDefinition pFunctionDefinitionId_ =
-  GetFunctionDefinition'
-    { functionDefinitionId =
-        pFunctionDefinitionId_
-    }
+mkGetFunctionDefinition functionDefinitionId =
+  GetFunctionDefinition' {functionDefinitionId}
 
 -- | The ID of the Lambda function definition.
 --
 -- /Note:/ Consider using 'functionDefinitionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdFunctionDefinitionId :: Lens.Lens' GetFunctionDefinition Lude.Text
-gfdFunctionDefinitionId = Lens.lens (functionDefinitionId :: GetFunctionDefinition -> Lude.Text) (\s a -> s {functionDefinitionId = a} :: GetFunctionDefinition)
+gfdFunctionDefinitionId :: Lens.Lens' GetFunctionDefinition Core.Text
+gfdFunctionDefinitionId = Lens.field @"functionDefinitionId"
 {-# DEPRECATED gfdFunctionDefinitionId "Use generic-lens or generic-optics with 'functionDefinitionId' instead." #-}
 
-instance Lude.AWSRequest GetFunctionDefinition where
+instance Core.AWSRequest GetFunctionDefinition where
   type Rs GetFunctionDefinition = GetFunctionDefinitionResponse
-  request = Req.get greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/definition/functions/"
+                Core.<> (Core.toText functionDefinitionId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetFunctionDefinitionResponse'
-            Lude.<$> (x Lude..?> "LatestVersionArn")
-            Lude.<*> (x Lude..?> "Arn")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (x Lude..?> "CreationTimestamp")
-            Lude.<*> (x Lude..?> "Id")
-            Lude.<*> (x Lude..?> "LatestVersion")
-            Lude.<*> (x Lude..?> "LastUpdatedTimestamp")
-            Lude.<*> (x Lude..?> "tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Arn")
+            Core.<*> (x Core..:? "CreationTimestamp")
+            Core.<*> (x Core..:? "Id")
+            Core.<*> (x Core..:? "LastUpdatedTimestamp")
+            Core.<*> (x Core..:? "LatestVersion")
+            Core.<*> (x Core..:? "LatestVersionArn")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetFunctionDefinition where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetFunctionDefinition where
-  toPath GetFunctionDefinition' {..} =
-    Lude.mconcat
-      [ "/greengrass/definition/functions/",
-        Lude.toBS functionDefinitionId
-      ]
-
-instance Lude.ToQuery GetFunctionDefinition where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetFunctionDefinitionResponse' smart constructor.
 data GetFunctionDefinitionResponse = GetFunctionDefinitionResponse'
-  { -- | The ARN of the latest version associated with the definition.
-    latestVersionARN :: Lude.Maybe Lude.Text,
-    -- | The ARN of the definition.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the definition.
-    name :: Lude.Maybe Lude.Text,
+  { -- | The ARN of the definition.
+    arn :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the definition was created.
-    creationTimestamp :: Lude.Maybe Lude.Text,
+    creationTimestamp :: Core.Maybe Core.Text,
     -- | The ID of the definition.
-    id :: Lude.Maybe Lude.Text,
-    -- | The ID of the latest version associated with the definition.
-    latestVersion :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Core.Text,
     -- | The time, in milliseconds since the epoch, when the definition was last updated.
-    lastUpdatedTimestamp :: Lude.Maybe Lude.Text,
+    lastUpdatedTimestamp :: Core.Maybe Core.Text,
+    -- | The ID of the latest version associated with the definition.
+    latestVersion :: Core.Maybe Core.Text,
+    -- | The ARN of the latest version associated with the definition.
+    latestVersionArn :: Core.Maybe Core.Text,
+    -- | The name of the definition.
+    name :: Core.Maybe Core.Text,
     -- | Tag(s) attached to the resource arn.
-    tags :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    tags :: Core.Maybe (Core.HashMap Core.Text Core.Text),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFunctionDefinitionResponse' with the minimum fields required to make a request.
---
--- * 'latestVersionARN' - The ARN of the latest version associated with the definition.
--- * 'arn' - The ARN of the definition.
--- * 'name' - The name of the definition.
--- * 'creationTimestamp' - The time, in milliseconds since the epoch, when the definition was created.
--- * 'id' - The ID of the definition.
--- * 'latestVersion' - The ID of the latest version associated with the definition.
--- * 'lastUpdatedTimestamp' - The time, in milliseconds since the epoch, when the definition was last updated.
--- * 'tags' - Tag(s) attached to the resource arn.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetFunctionDefinitionResponse' value with any optional fields omitted.
 mkGetFunctionDefinitionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetFunctionDefinitionResponse
-mkGetFunctionDefinitionResponse pResponseStatus_ =
+mkGetFunctionDefinitionResponse responseStatus =
   GetFunctionDefinitionResponse'
-    { latestVersionARN = Lude.Nothing,
-      arn = Lude.Nothing,
-      name = Lude.Nothing,
-      creationTimestamp = Lude.Nothing,
-      id = Lude.Nothing,
-      latestVersion = Lude.Nothing,
-      lastUpdatedTimestamp = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      creationTimestamp = Core.Nothing,
+      id = Core.Nothing,
+      lastUpdatedTimestamp = Core.Nothing,
+      latestVersion = Core.Nothing,
+      latestVersionArn = Core.Nothing,
+      name = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
-
--- | The ARN of the latest version associated with the definition.
---
--- /Note:/ Consider using 'latestVersionARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsLatestVersionARN :: Lens.Lens' GetFunctionDefinitionResponse (Lude.Maybe Lude.Text)
-gfdrsLatestVersionARN = Lens.lens (latestVersionARN :: GetFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersionARN = a} :: GetFunctionDefinitionResponse)
-{-# DEPRECATED gfdrsLatestVersionARN "Use generic-lens or generic-optics with 'latestVersionARN' instead." #-}
 
 -- | The ARN of the definition.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsARN :: Lens.Lens' GetFunctionDefinitionResponse (Lude.Maybe Lude.Text)
-gfdrsARN = Lens.lens (arn :: GetFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: GetFunctionDefinitionResponse)
-{-# DEPRECATED gfdrsARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the definition.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsName :: Lens.Lens' GetFunctionDefinitionResponse (Lude.Maybe Lude.Text)
-gfdrsName = Lens.lens (name :: GetFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetFunctionDefinitionResponse)
-{-# DEPRECATED gfdrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+gfdrrsArn :: Lens.Lens' GetFunctionDefinitionResponse (Core.Maybe Core.Text)
+gfdrrsArn = Lens.field @"arn"
+{-# DEPRECATED gfdrrsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was created.
 --
 -- /Note:/ Consider using 'creationTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsCreationTimestamp :: Lens.Lens' GetFunctionDefinitionResponse (Lude.Maybe Lude.Text)
-gfdrsCreationTimestamp = Lens.lens (creationTimestamp :: GetFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {creationTimestamp = a} :: GetFunctionDefinitionResponse)
-{-# DEPRECATED gfdrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
+gfdrrsCreationTimestamp :: Lens.Lens' GetFunctionDefinitionResponse (Core.Maybe Core.Text)
+gfdrrsCreationTimestamp = Lens.field @"creationTimestamp"
+{-# DEPRECATED gfdrrsCreationTimestamp "Use generic-lens or generic-optics with 'creationTimestamp' instead." #-}
 
 -- | The ID of the definition.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsId :: Lens.Lens' GetFunctionDefinitionResponse (Lude.Maybe Lude.Text)
-gfdrsId = Lens.lens (id :: GetFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: GetFunctionDefinitionResponse)
-{-# DEPRECATED gfdrsId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The ID of the latest version associated with the definition.
---
--- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsLatestVersion :: Lens.Lens' GetFunctionDefinitionResponse (Lude.Maybe Lude.Text)
-gfdrsLatestVersion = Lens.lens (latestVersion :: GetFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {latestVersion = a} :: GetFunctionDefinitionResponse)
-{-# DEPRECATED gfdrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
+gfdrrsId :: Lens.Lens' GetFunctionDefinitionResponse (Core.Maybe Core.Text)
+gfdrrsId = Lens.field @"id"
+{-# DEPRECATED gfdrrsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The time, in milliseconds since the epoch, when the definition was last updated.
 --
 -- /Note:/ Consider using 'lastUpdatedTimestamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsLastUpdatedTimestamp :: Lens.Lens' GetFunctionDefinitionResponse (Lude.Maybe Lude.Text)
-gfdrsLastUpdatedTimestamp = Lens.lens (lastUpdatedTimestamp :: GetFunctionDefinitionResponse -> Lude.Maybe Lude.Text) (\s a -> s {lastUpdatedTimestamp = a} :: GetFunctionDefinitionResponse)
-{-# DEPRECATED gfdrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
+gfdrrsLastUpdatedTimestamp :: Lens.Lens' GetFunctionDefinitionResponse (Core.Maybe Core.Text)
+gfdrrsLastUpdatedTimestamp = Lens.field @"lastUpdatedTimestamp"
+{-# DEPRECATED gfdrrsLastUpdatedTimestamp "Use generic-lens or generic-optics with 'lastUpdatedTimestamp' instead." #-}
+
+-- | The ID of the latest version associated with the definition.
+--
+-- /Note:/ Consider using 'latestVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfdrrsLatestVersion :: Lens.Lens' GetFunctionDefinitionResponse (Core.Maybe Core.Text)
+gfdrrsLatestVersion = Lens.field @"latestVersion"
+{-# DEPRECATED gfdrrsLatestVersion "Use generic-lens or generic-optics with 'latestVersion' instead." #-}
+
+-- | The ARN of the latest version associated with the definition.
+--
+-- /Note:/ Consider using 'latestVersionArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfdrrsLatestVersionArn :: Lens.Lens' GetFunctionDefinitionResponse (Core.Maybe Core.Text)
+gfdrrsLatestVersionArn = Lens.field @"latestVersionArn"
+{-# DEPRECATED gfdrrsLatestVersionArn "Use generic-lens or generic-optics with 'latestVersionArn' instead." #-}
+
+-- | The name of the definition.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfdrrsName :: Lens.Lens' GetFunctionDefinitionResponse (Core.Maybe Core.Text)
+gfdrrsName = Lens.field @"name"
+{-# DEPRECATED gfdrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Tag(s) attached to the resource arn.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsTags :: Lens.Lens' GetFunctionDefinitionResponse (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-gfdrsTags = Lens.lens (tags :: GetFunctionDefinitionResponse -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {tags = a} :: GetFunctionDefinitionResponse)
-{-# DEPRECATED gfdrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+gfdrrsTags :: Lens.Lens' GetFunctionDefinitionResponse (Core.Maybe (Core.HashMap Core.Text Core.Text))
+gfdrrsTags = Lens.field @"tags"
+{-# DEPRECATED gfdrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsResponseStatus :: Lens.Lens' GetFunctionDefinitionResponse Lude.Int
-gfdrsResponseStatus = Lens.lens (responseStatus :: GetFunctionDefinitionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFunctionDefinitionResponse)
-{-# DEPRECATED gfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gfdrrsResponseStatus :: Lens.Lens' GetFunctionDefinitionResponse Core.Int
+gfdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gfdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

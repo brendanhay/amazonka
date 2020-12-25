@@ -21,39 +21,35 @@ module Network.AWS.GuardDuty.Types.AccountLevelPermissions
   )
 where
 
-import Network.AWS.GuardDuty.Types.BlockPublicAccess
+import qualified Network.AWS.GuardDuty.Types.BlockPublicAccess as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information about the account level permissions on the S3 bucket.
 --
 -- /See:/ 'mkAccountLevelPermissions' smart constructor.
 newtype AccountLevelPermissions = AccountLevelPermissions'
   { -- | Describes the S3 Block Public Access settings of the bucket's parent account.
-    blockPublicAccess :: Lude.Maybe BlockPublicAccess
+    blockPublicAccess :: Core.Maybe Types.BlockPublicAccess
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountLevelPermissions' with the minimum fields required to make a request.
---
--- * 'blockPublicAccess' - Describes the S3 Block Public Access settings of the bucket's parent account.
+-- | Creates a 'AccountLevelPermissions' value with any optional fields omitted.
 mkAccountLevelPermissions ::
   AccountLevelPermissions
 mkAccountLevelPermissions =
-  AccountLevelPermissions' {blockPublicAccess = Lude.Nothing}
+  AccountLevelPermissions' {blockPublicAccess = Core.Nothing}
 
 -- | Describes the S3 Block Public Access settings of the bucket's parent account.
 --
 -- /Note:/ Consider using 'blockPublicAccess' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-alpBlockPublicAccess :: Lens.Lens' AccountLevelPermissions (Lude.Maybe BlockPublicAccess)
-alpBlockPublicAccess = Lens.lens (blockPublicAccess :: AccountLevelPermissions -> Lude.Maybe BlockPublicAccess) (\s a -> s {blockPublicAccess = a} :: AccountLevelPermissions)
+alpBlockPublicAccess :: Lens.Lens' AccountLevelPermissions (Core.Maybe Types.BlockPublicAccess)
+alpBlockPublicAccess = Lens.field @"blockPublicAccess"
 {-# DEPRECATED alpBlockPublicAccess "Use generic-lens or generic-optics with 'blockPublicAccess' instead." #-}
 
-instance Lude.FromJSON AccountLevelPermissions where
+instance Core.FromJSON AccountLevelPermissions where
   parseJSON =
-    Lude.withObject
-      "AccountLevelPermissions"
-      ( \x ->
-          AccountLevelPermissions' Lude.<$> (x Lude..:? "blockPublicAccess")
-      )
+    Core.withObject "AccountLevelPermissions" Core.$
+      \x ->
+        AccountLevelPermissions' Core.<$> (x Core..:? "blockPublicAccess")

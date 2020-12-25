@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.InputLossActionForRtmpOut
   ( InputLossActionForRtmpOut
       ( InputLossActionForRtmpOut',
-        ILAFROEmitOutput,
-        ILAFROPauseOutput
+        InputLossActionForRtmpOutEmitOutput,
+        InputLossActionForRtmpOutPauseOutput,
+        fromInputLossActionForRtmpOut
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Input Loss Action For Rtmp Out
-newtype InputLossActionForRtmpOut = InputLossActionForRtmpOut' Lude.Text
+newtype InputLossActionForRtmpOut = InputLossActionForRtmpOut'
+  { fromInputLossActionForRtmpOut ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ILAFROEmitOutput :: InputLossActionForRtmpOut
-pattern ILAFROEmitOutput = InputLossActionForRtmpOut' "EMIT_OUTPUT"
+pattern InputLossActionForRtmpOutEmitOutput :: InputLossActionForRtmpOut
+pattern InputLossActionForRtmpOutEmitOutput = InputLossActionForRtmpOut' "EMIT_OUTPUT"
 
-pattern ILAFROPauseOutput :: InputLossActionForRtmpOut
-pattern ILAFROPauseOutput = InputLossActionForRtmpOut' "PAUSE_OUTPUT"
+pattern InputLossActionForRtmpOutPauseOutput :: InputLossActionForRtmpOut
+pattern InputLossActionForRtmpOutPauseOutput = InputLossActionForRtmpOut' "PAUSE_OUTPUT"
 
 {-# COMPLETE
-  ILAFROEmitOutput,
-  ILAFROPauseOutput,
+  InputLossActionForRtmpOutEmitOutput,
+  InputLossActionForRtmpOutPauseOutput,
   InputLossActionForRtmpOut'
   #-}

@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.CodeDeploy
     Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
@@ -114,23 +120,38 @@ library
     Network.AWS.CodeDeploy.Waiters
 
   other-modules:
+    Network.AWS.CodeDeploy.Types.AdditionalDeploymentStatusInfo
     Network.AWS.CodeDeploy.Types.Alarm
     Network.AWS.CodeDeploy.Types.AlarmConfiguration
+    Network.AWS.CodeDeploy.Types.AlarmName
+    Network.AWS.CodeDeploy.Types.ApplicationId
     Network.AWS.CodeDeploy.Types.ApplicationInfo
+    Network.AWS.CodeDeploy.Types.ApplicationName
     Network.AWS.CodeDeploy.Types.ApplicationRevisionSortBy
     Network.AWS.CodeDeploy.Types.AppSpecContent
+    Network.AWS.CodeDeploy.Types.Arn
     Network.AWS.CodeDeploy.Types.AutoRollbackConfiguration
     Network.AWS.CodeDeploy.Types.AutoRollbackEvent
     Network.AWS.CodeDeploy.Types.AutoScalingGroup
+    Network.AWS.CodeDeploy.Types.AutoScalingGroupName
     Network.AWS.CodeDeploy.Types.BlueGreenDeploymentConfiguration
     Network.AWS.CodeDeploy.Types.BlueInstanceTerminationOption
+    Network.AWS.CodeDeploy.Types.Bucket
     Network.AWS.CodeDeploy.Types.BundleType
     Network.AWS.CodeDeploy.Types.CloudFormationTarget
+    Network.AWS.CodeDeploy.Types.CommitId
     Network.AWS.CodeDeploy.Types.ComputePlatform
+    Network.AWS.CodeDeploy.Types.Content
+    Network.AWS.CodeDeploy.Types.CurrentDeploymentGroupName
     Network.AWS.CodeDeploy.Types.DeployErrorCode
+    Network.AWS.CodeDeploy.Types.DeploymentConfigId
     Network.AWS.CodeDeploy.Types.DeploymentConfigInfo
+    Network.AWS.CodeDeploy.Types.DeploymentConfigName
     Network.AWS.CodeDeploy.Types.DeploymentCreator
+    Network.AWS.CodeDeploy.Types.DeploymentGroupId
     Network.AWS.CodeDeploy.Types.DeploymentGroupInfo
+    Network.AWS.CodeDeploy.Types.DeploymentGroupName
+    Network.AWS.CodeDeploy.Types.DeploymentId
     Network.AWS.CodeDeploy.Types.DeploymentInfo
     Network.AWS.CodeDeploy.Types.DeploymentOption
     Network.AWS.CodeDeploy.Types.DeploymentOverview
@@ -142,60 +163,107 @@ library
     Network.AWS.CodeDeploy.Types.DeploymentTargetType
     Network.AWS.CodeDeploy.Types.DeploymentType
     Network.AWS.CodeDeploy.Types.DeploymentWaitType
+    Network.AWS.CodeDeploy.Types.Description
     Network.AWS.CodeDeploy.Types.Diagnostics
     Network.AWS.CodeDeploy.Types.EC2TagFilter
     Network.AWS.CodeDeploy.Types.EC2TagFilterType
     Network.AWS.CodeDeploy.Types.EC2TagSet
+    Network.AWS.CodeDeploy.Types.ECSClusterName
     Network.AWS.CodeDeploy.Types.ECSService
+    Network.AWS.CodeDeploy.Types.ECSServiceName
     Network.AWS.CodeDeploy.Types.ECSTarget
     Network.AWS.CodeDeploy.Types.ECSTaskSet
+    Network.AWS.CodeDeploy.Types.ECSTaskSetStatus
     Network.AWS.CodeDeploy.Types.ELBInfo
     Network.AWS.CodeDeploy.Types.ErrorInformation
+    Network.AWS.CodeDeploy.Types.ErrorMessage
+    Network.AWS.CodeDeploy.Types.ETag
+    Network.AWS.CodeDeploy.Types.ExternalId
     Network.AWS.CodeDeploy.Types.FileExistsBehavior
+    Network.AWS.CodeDeploy.Types.FilterValue
+    Network.AWS.CodeDeploy.Types.FunctionAlias
     Network.AWS.CodeDeploy.Types.GenericRevisionInfo
+    Network.AWS.CodeDeploy.Types.GitHubAccountName
+    Network.AWS.CodeDeploy.Types.GitHubAccountTokenName
     Network.AWS.CodeDeploy.Types.GitHubLocation
     Network.AWS.CodeDeploy.Types.GreenFleetProvisioningAction
     Network.AWS.CodeDeploy.Types.GreenFleetProvisioningOption
+    Network.AWS.CodeDeploy.Types.Hook
+    Network.AWS.CodeDeploy.Types.IamSessionArn
+    Network.AWS.CodeDeploy.Types.IamUserArn
+    Network.AWS.CodeDeploy.Types.Identifer
     Network.AWS.CodeDeploy.Types.InstanceAction
+    Network.AWS.CodeDeploy.Types.InstanceArn
     Network.AWS.CodeDeploy.Types.InstanceInfo
+    Network.AWS.CodeDeploy.Types.InstanceName
     Network.AWS.CodeDeploy.Types.InstanceTarget
+    Network.AWS.CodeDeploy.Types.Key
     Network.AWS.CodeDeploy.Types.LambdaFunctionInfo
+    Network.AWS.CodeDeploy.Types.LambdaFunctionName
     Network.AWS.CodeDeploy.Types.LambdaTarget
     Network.AWS.CodeDeploy.Types.LastDeploymentInfo
     Network.AWS.CodeDeploy.Types.LifecycleErrorCode
     Network.AWS.CodeDeploy.Types.LifecycleEvent
+    Network.AWS.CodeDeploy.Types.LifecycleEventHookExecutionId
+    Network.AWS.CodeDeploy.Types.LifecycleEventName
     Network.AWS.CodeDeploy.Types.LifecycleEventStatus
+    Network.AWS.CodeDeploy.Types.LifecycleMessage
+    Network.AWS.CodeDeploy.Types.ListenerArn
     Network.AWS.CodeDeploy.Types.ListStateFilterAction
     Network.AWS.CodeDeploy.Types.LoadBalancerInfo
+    Network.AWS.CodeDeploy.Types.LogTail
+    Network.AWS.CodeDeploy.Types.Message
     Network.AWS.CodeDeploy.Types.MinimumHealthyHosts
     Network.AWS.CodeDeploy.Types.MinimumHealthyHostsType
+    Network.AWS.CodeDeploy.Types.Name
+    Network.AWS.CodeDeploy.Types.NewApplicationName
+    Network.AWS.CodeDeploy.Types.NewDeploymentGroupName
+    Network.AWS.CodeDeploy.Types.NextToken
     Network.AWS.CodeDeploy.Types.OnPremisesTagSet
     Network.AWS.CodeDeploy.Types.RawString
+    Network.AWS.CodeDeploy.Types.RawStringSha256
     Network.AWS.CodeDeploy.Types.RegistrationStatus
+    Network.AWS.CodeDeploy.Types.Repository
+    Network.AWS.CodeDeploy.Types.ResourceType
     Network.AWS.CodeDeploy.Types.RevisionInfo
     Network.AWS.CodeDeploy.Types.RevisionLocation
     Network.AWS.CodeDeploy.Types.RevisionLocationType
     Network.AWS.CodeDeploy.Types.RollbackInfo
+    Network.AWS.CodeDeploy.Types.RollbackMessage
+    Network.AWS.CodeDeploy.Types.S3Bucket
+    Network.AWS.CodeDeploy.Types.S3Key
     Network.AWS.CodeDeploy.Types.S3Location
+    Network.AWS.CodeDeploy.Types.ScriptName
+    Network.AWS.CodeDeploy.Types.ServiceRoleArn
+    Network.AWS.CodeDeploy.Types.Sha256
     Network.AWS.CodeDeploy.Types.SortOrder
+    Network.AWS.CodeDeploy.Types.StatusMessage
     Network.AWS.CodeDeploy.Types.StopStatus
     Network.AWS.CodeDeploy.Types.Tag
     Network.AWS.CodeDeploy.Types.TagFilter
     Network.AWS.CodeDeploy.Types.TagFilterType
+    Network.AWS.CodeDeploy.Types.TargetArn
     Network.AWS.CodeDeploy.Types.TargetFilterName
     Network.AWS.CodeDeploy.Types.TargetGroupInfo
     Network.AWS.CodeDeploy.Types.TargetGroupPairInfo
+    Network.AWS.CodeDeploy.Types.TargetId
     Network.AWS.CodeDeploy.Types.TargetInstances
     Network.AWS.CodeDeploy.Types.TargetLabel
     Network.AWS.CodeDeploy.Types.TargetStatus
     Network.AWS.CodeDeploy.Types.TimeBasedCanary
     Network.AWS.CodeDeploy.Types.TimeBasedLinear
     Network.AWS.CodeDeploy.Types.TimeRange
+    Network.AWS.CodeDeploy.Types.TokenName
     Network.AWS.CodeDeploy.Types.TrafficRoute
     Network.AWS.CodeDeploy.Types.TrafficRoutingConfig
     Network.AWS.CodeDeploy.Types.TrafficRoutingType
     Network.AWS.CodeDeploy.Types.TriggerConfig
     Network.AWS.CodeDeploy.Types.TriggerEventType
+    Network.AWS.CodeDeploy.Types.TriggerName
+    Network.AWS.CodeDeploy.Types.TriggerTargetArn
+    Network.AWS.CodeDeploy.Types.Value
+    Network.AWS.CodeDeploy.Types.Version
+    Network.AWS.CodeDeploy.Types.VersionId
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

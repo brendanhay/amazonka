@@ -20,103 +20,96 @@ module Network.AWS.IoTAnalytics.DescribePipeline
     mkDescribePipeline,
 
     -- ** Request lenses
-    dPipelineName,
+    dpPipelineName,
 
     -- * Destructuring the response
     DescribePipelineResponse (..),
     mkDescribePipelineResponse,
 
     -- ** Response lenses
-    dprsPipeline,
-    dprsResponseStatus,
+    dprrsPipeline,
+    dprrsResponseStatus,
   )
 where
 
-import Network.AWS.IoTAnalytics.Types
+import qualified Network.AWS.IoTAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribePipeline' smart constructor.
 newtype DescribePipeline = DescribePipeline'
   { -- | The name of the pipeline whose information is retrieved.
-    pipelineName :: Lude.Text
+    pipelineName :: Types.PipelineName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePipeline' with the minimum fields required to make a request.
---
--- * 'pipelineName' - The name of the pipeline whose information is retrieved.
+-- | Creates a 'DescribePipeline' value with any optional fields omitted.
 mkDescribePipeline ::
   -- | 'pipelineName'
-  Lude.Text ->
+  Types.PipelineName ->
   DescribePipeline
-mkDescribePipeline pPipelineName_ =
-  DescribePipeline' {pipelineName = pPipelineName_}
+mkDescribePipeline pipelineName = DescribePipeline' {pipelineName}
 
 -- | The name of the pipeline whose information is retrieved.
 --
 -- /Note:/ Consider using 'pipelineName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dPipelineName :: Lens.Lens' DescribePipeline Lude.Text
-dPipelineName = Lens.lens (pipelineName :: DescribePipeline -> Lude.Text) (\s a -> s {pipelineName = a} :: DescribePipeline)
-{-# DEPRECATED dPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
+dpPipelineName :: Lens.Lens' DescribePipeline Types.PipelineName
+dpPipelineName = Lens.field @"pipelineName"
+{-# DEPRECATED dpPipelineName "Use generic-lens or generic-optics with 'pipelineName' instead." #-}
 
-instance Lude.AWSRequest DescribePipeline where
+instance Core.AWSRequest DescribePipeline where
   type Rs DescribePipeline = DescribePipelineResponse
-  request = Req.get ioTAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/pipelines/" Core.<> (Core.toText pipelineName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribePipelineResponse'
-            Lude.<$> (x Lude..?> "pipeline") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "pipeline") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribePipeline where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribePipeline where
-  toPath DescribePipeline' {..} =
-    Lude.mconcat ["/pipelines/", Lude.toBS pipelineName]
-
-instance Lude.ToQuery DescribePipeline where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribePipelineResponse' smart constructor.
 data DescribePipelineResponse = DescribePipelineResponse'
   { -- | A @Pipeline@ object that contains information about the pipeline.
-    pipeline :: Lude.Maybe Pipeline,
+    pipeline :: Core.Maybe Types.Pipeline,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribePipelineResponse' with the minimum fields required to make a request.
---
--- * 'pipeline' - A @Pipeline@ object that contains information about the pipeline.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribePipelineResponse' value with any optional fields omitted.
 mkDescribePipelineResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribePipelineResponse
-mkDescribePipelineResponse pResponseStatus_ =
+mkDescribePipelineResponse responseStatus =
   DescribePipelineResponse'
-    { pipeline = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { pipeline = Core.Nothing,
+      responseStatus
     }
 
 -- | A @Pipeline@ object that contains information about the pipeline.
 --
 -- /Note:/ Consider using 'pipeline' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsPipeline :: Lens.Lens' DescribePipelineResponse (Lude.Maybe Pipeline)
-dprsPipeline = Lens.lens (pipeline :: DescribePipelineResponse -> Lude.Maybe Pipeline) (\s a -> s {pipeline = a} :: DescribePipelineResponse)
-{-# DEPRECATED dprsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
+dprrsPipeline :: Lens.Lens' DescribePipelineResponse (Core.Maybe Types.Pipeline)
+dprrsPipeline = Lens.field @"pipeline"
+{-# DEPRECATED dprrsPipeline "Use generic-lens or generic-optics with 'pipeline' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DescribePipelineResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DescribePipelineResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePipelineResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprrsResponseStatus :: Lens.Lens' DescribePipelineResponse Core.Int
+dprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

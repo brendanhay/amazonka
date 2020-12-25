@@ -17,54 +17,49 @@ module Network.AWS.IoT.Types.PercentPair
     mkPercentPair,
 
     -- * Lenses
-    ppValue,
     ppPercent,
+    ppValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the percentile and percentile value.
 --
 -- /See:/ 'mkPercentPair' smart constructor.
 data PercentPair = PercentPair'
-  { -- | The value of the percentile.
-    value :: Lude.Maybe Lude.Double,
-    -- | The percentile.
-    percent :: Lude.Maybe Lude.Double
+  { -- | The percentile.
+    percent :: Core.Maybe Core.Double,
+    -- | The value of the percentile.
+    value :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PercentPair' with the minimum fields required to make a request.
---
--- * 'value' - The value of the percentile.
--- * 'percent' - The percentile.
+-- | Creates a 'PercentPair' value with any optional fields omitted.
 mkPercentPair ::
   PercentPair
 mkPercentPair =
-  PercentPair' {value = Lude.Nothing, percent = Lude.Nothing}
-
--- | The value of the percentile.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppValue :: Lens.Lens' PercentPair (Lude.Maybe Lude.Double)
-ppValue = Lens.lens (value :: PercentPair -> Lude.Maybe Lude.Double) (\s a -> s {value = a} :: PercentPair)
-{-# DEPRECATED ppValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  PercentPair' {percent = Core.Nothing, value = Core.Nothing}
 
 -- | The percentile.
 --
 -- /Note:/ Consider using 'percent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppPercent :: Lens.Lens' PercentPair (Lude.Maybe Lude.Double)
-ppPercent = Lens.lens (percent :: PercentPair -> Lude.Maybe Lude.Double) (\s a -> s {percent = a} :: PercentPair)
+ppPercent :: Lens.Lens' PercentPair (Core.Maybe Core.Double)
+ppPercent = Lens.field @"percent"
 {-# DEPRECATED ppPercent "Use generic-lens or generic-optics with 'percent' instead." #-}
 
-instance Lude.FromJSON PercentPair where
+-- | The value of the percentile.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppValue :: Lens.Lens' PercentPair (Core.Maybe Core.Double)
+ppValue = Lens.field @"value"
+{-# DEPRECATED ppValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.FromJSON PercentPair where
   parseJSON =
-    Lude.withObject
-      "PercentPair"
-      ( \x ->
-          PercentPair'
-            Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "percent")
-      )
+    Core.withObject "PercentPair" Core.$
+      \x ->
+        PercentPair'
+          Core.<$> (x Core..:? "percent") Core.<*> (x Core..:? "value")

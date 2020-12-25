@@ -21,39 +21,34 @@ module Network.AWS.CostExplorer.Types.ResourceDetails
   )
 where
 
-import Network.AWS.CostExplorer.Types.EC2ResourceDetails
+import qualified Network.AWS.CostExplorer.Types.EC2ResourceDetails as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details on the resource.
 --
 -- /See:/ 'mkResourceDetails' smart constructor.
 newtype ResourceDetails = ResourceDetails'
   { -- | Details on the Amazon EC2 resource.
-    ec2ResourceDetails :: Lude.Maybe EC2ResourceDetails
+    eC2ResourceDetails :: Core.Maybe Types.EC2ResourceDetails
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceDetails' with the minimum fields required to make a request.
---
--- * 'ec2ResourceDetails' - Details on the Amazon EC2 resource.
+-- | Creates a 'ResourceDetails' value with any optional fields omitted.
 mkResourceDetails ::
   ResourceDetails
 mkResourceDetails =
-  ResourceDetails' {ec2ResourceDetails = Lude.Nothing}
+  ResourceDetails' {eC2ResourceDetails = Core.Nothing}
 
 -- | Details on the Amazon EC2 resource.
 --
--- /Note:/ Consider using 'ec2ResourceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdEC2ResourceDetails :: Lens.Lens' ResourceDetails (Lude.Maybe EC2ResourceDetails)
-rdEC2ResourceDetails = Lens.lens (ec2ResourceDetails :: ResourceDetails -> Lude.Maybe EC2ResourceDetails) (\s a -> s {ec2ResourceDetails = a} :: ResourceDetails)
-{-# DEPRECATED rdEC2ResourceDetails "Use generic-lens or generic-optics with 'ec2ResourceDetails' instead." #-}
+-- /Note:/ Consider using 'eC2ResourceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdEC2ResourceDetails :: Lens.Lens' ResourceDetails (Core.Maybe Types.EC2ResourceDetails)
+rdEC2ResourceDetails = Lens.field @"eC2ResourceDetails"
+{-# DEPRECATED rdEC2ResourceDetails "Use generic-lens or generic-optics with 'eC2ResourceDetails' instead." #-}
 
-instance Lude.FromJSON ResourceDetails where
+instance Core.FromJSON ResourceDetails where
   parseJSON =
-    Lude.withObject
-      "ResourceDetails"
-      ( \x ->
-          ResourceDetails' Lude.<$> (x Lude..:? "EC2ResourceDetails")
-      )
+    Core.withObject "ResourceDetails" Core.$
+      \x -> ResourceDetails' Core.<$> (x Core..:? "EC2ResourceDetails")

@@ -29,114 +29,102 @@ module Network.AWS.CodeCommit.DeleteRepository
     mkDeleteRepositoryResponse,
 
     -- ** Response lenses
-    drrsRepositoryId,
-    drrsResponseStatus,
+    drrrsRepositoryId,
+    drrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a delete repository operation.
 --
 -- /See:/ 'mkDeleteRepository' smart constructor.
 newtype DeleteRepository = DeleteRepository'
   { -- | The name of the repository to delete.
-    repositoryName :: Lude.Text
+    repositoryName :: Types.RepositoryName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRepository' with the minimum fields required to make a request.
---
--- * 'repositoryName' - The name of the repository to delete.
+-- | Creates a 'DeleteRepository' value with any optional fields omitted.
 mkDeleteRepository ::
   -- | 'repositoryName'
-  Lude.Text ->
+  Types.RepositoryName ->
   DeleteRepository
-mkDeleteRepository pRepositoryName_ =
-  DeleteRepository' {repositoryName = pRepositoryName_}
+mkDeleteRepository repositoryName =
+  DeleteRepository' {repositoryName}
 
 -- | The name of the repository to delete.
 --
 -- /Note:/ Consider using 'repositoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drRepositoryName :: Lens.Lens' DeleteRepository Lude.Text
-drRepositoryName = Lens.lens (repositoryName :: DeleteRepository -> Lude.Text) (\s a -> s {repositoryName = a} :: DeleteRepository)
+drRepositoryName :: Lens.Lens' DeleteRepository Types.RepositoryName
+drRepositoryName = Lens.field @"repositoryName"
 {-# DEPRECATED drRepositoryName "Use generic-lens or generic-optics with 'repositoryName' instead." #-}
 
-instance Lude.AWSRequest DeleteRepository where
+instance Core.FromJSON DeleteRepository where
+  toJSON DeleteRepository {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("repositoryName" Core..= repositoryName)]
+      )
+
+instance Core.AWSRequest DeleteRepository where
   type Rs DeleteRepository = DeleteRepositoryResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeCommit_20150413.DeleteRepository")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteRepositoryResponse'
-            Lude.<$> (x Lude..?> "repositoryId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "repositoryId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteRepository where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.DeleteRepository" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteRepository where
-  toJSON DeleteRepository' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("repositoryName" Lude..= repositoryName)]
-      )
-
-instance Lude.ToPath DeleteRepository where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteRepository where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a delete repository operation.
 --
 -- /See:/ 'mkDeleteRepositoryResponse' smart constructor.
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
   { -- | The ID of the repository that was deleted.
-    repositoryId :: Lude.Maybe Lude.Text,
+    repositoryId :: Core.Maybe Types.RepositoryId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteRepositoryResponse' with the minimum fields required to make a request.
---
--- * 'repositoryId' - The ID of the repository that was deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteRepositoryResponse' value with any optional fields omitted.
 mkDeleteRepositoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteRepositoryResponse
-mkDeleteRepositoryResponse pResponseStatus_ =
+mkDeleteRepositoryResponse responseStatus =
   DeleteRepositoryResponse'
-    { repositoryId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { repositoryId = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the repository that was deleted.
 --
 -- /Note:/ Consider using 'repositoryId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsRepositoryId :: Lens.Lens' DeleteRepositoryResponse (Lude.Maybe Lude.Text)
-drrsRepositoryId = Lens.lens (repositoryId :: DeleteRepositoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {repositoryId = a} :: DeleteRepositoryResponse)
-{-# DEPRECATED drrsRepositoryId "Use generic-lens or generic-optics with 'repositoryId' instead." #-}
+drrrsRepositoryId :: Lens.Lens' DeleteRepositoryResponse (Core.Maybe Types.RepositoryId)
+drrrsRepositoryId = Lens.field @"repositoryId"
+{-# DEPRECATED drrrsRepositoryId "Use generic-lens or generic-optics with 'repositoryId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drrsResponseStatus :: Lens.Lens' DeleteRepositoryResponse Lude.Int
-drrsResponseStatus = Lens.lens (responseStatus :: DeleteRepositoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteRepositoryResponse)
-{-# DEPRECATED drrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+drrrsResponseStatus :: Lens.Lens' DeleteRepositoryResponse Core.Int
+drrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED drrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

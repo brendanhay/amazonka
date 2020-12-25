@@ -13,56 +13,61 @@
 module Network.AWS.SWF.Types.ActivityTaskTimeoutType
   ( ActivityTaskTimeoutType
       ( ActivityTaskTimeoutType',
-        ATTTStartToClose,
-        ATTTScheduleToStart,
-        ATTTScheduleToClose,
-        ATTTHeartbeat
+        ActivityTaskTimeoutTypeStartToClose,
+        ActivityTaskTimeoutTypeScheduleToStart,
+        ActivityTaskTimeoutTypeScheduleToClose,
+        ActivityTaskTimeoutTypeHeartbeat,
+        fromActivityTaskTimeoutType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ActivityTaskTimeoutType = ActivityTaskTimeoutType' Lude.Text
+newtype ActivityTaskTimeoutType = ActivityTaskTimeoutType'
+  { fromActivityTaskTimeoutType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ATTTStartToClose :: ActivityTaskTimeoutType
-pattern ATTTStartToClose = ActivityTaskTimeoutType' "START_TO_CLOSE"
+pattern ActivityTaskTimeoutTypeStartToClose :: ActivityTaskTimeoutType
+pattern ActivityTaskTimeoutTypeStartToClose = ActivityTaskTimeoutType' "START_TO_CLOSE"
 
-pattern ATTTScheduleToStart :: ActivityTaskTimeoutType
-pattern ATTTScheduleToStart = ActivityTaskTimeoutType' "SCHEDULE_TO_START"
+pattern ActivityTaskTimeoutTypeScheduleToStart :: ActivityTaskTimeoutType
+pattern ActivityTaskTimeoutTypeScheduleToStart = ActivityTaskTimeoutType' "SCHEDULE_TO_START"
 
-pattern ATTTScheduleToClose :: ActivityTaskTimeoutType
-pattern ATTTScheduleToClose = ActivityTaskTimeoutType' "SCHEDULE_TO_CLOSE"
+pattern ActivityTaskTimeoutTypeScheduleToClose :: ActivityTaskTimeoutType
+pattern ActivityTaskTimeoutTypeScheduleToClose = ActivityTaskTimeoutType' "SCHEDULE_TO_CLOSE"
 
-pattern ATTTHeartbeat :: ActivityTaskTimeoutType
-pattern ATTTHeartbeat = ActivityTaskTimeoutType' "HEARTBEAT"
+pattern ActivityTaskTimeoutTypeHeartbeat :: ActivityTaskTimeoutType
+pattern ActivityTaskTimeoutTypeHeartbeat = ActivityTaskTimeoutType' "HEARTBEAT"
 
 {-# COMPLETE
-  ATTTStartToClose,
-  ATTTScheduleToStart,
-  ATTTScheduleToClose,
-  ATTTHeartbeat,
+  ActivityTaskTimeoutTypeStartToClose,
+  ActivityTaskTimeoutTypeScheduleToStart,
+  ActivityTaskTimeoutTypeScheduleToClose,
+  ActivityTaskTimeoutTypeHeartbeat,
   ActivityTaskTimeoutType'
   #-}

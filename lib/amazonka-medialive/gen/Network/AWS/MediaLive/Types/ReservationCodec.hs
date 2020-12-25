@@ -13,62 +13,67 @@
 module Network.AWS.MediaLive.Types.ReservationCodec
   ( ReservationCodec
       ( ReservationCodec',
-        RCMPEG2,
-        RCAvc,
-        RCHevc,
-        RCAudio,
-        RCLink
+        ReservationCodecMPEG2,
+        ReservationCodecAvc,
+        ReservationCodecHevc,
+        ReservationCodecAudio,
+        ReservationCodecLink,
+        fromReservationCodec
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Codec, 'MPEG2', 'AVC', 'HEVC', or 'AUDIO'
-newtype ReservationCodec = ReservationCodec' Lude.Text
+newtype ReservationCodec = ReservationCodec'
+  { fromReservationCodec ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern RCMPEG2 :: ReservationCodec
-pattern RCMPEG2 = ReservationCodec' "MPEG2"
+pattern ReservationCodecMPEG2 :: ReservationCodec
+pattern ReservationCodecMPEG2 = ReservationCodec' "MPEG2"
 
-pattern RCAvc :: ReservationCodec
-pattern RCAvc = ReservationCodec' "AVC"
+pattern ReservationCodecAvc :: ReservationCodec
+pattern ReservationCodecAvc = ReservationCodec' "AVC"
 
-pattern RCHevc :: ReservationCodec
-pattern RCHevc = ReservationCodec' "HEVC"
+pattern ReservationCodecHevc :: ReservationCodec
+pattern ReservationCodecHevc = ReservationCodec' "HEVC"
 
-pattern RCAudio :: ReservationCodec
-pattern RCAudio = ReservationCodec' "AUDIO"
+pattern ReservationCodecAudio :: ReservationCodec
+pattern ReservationCodecAudio = ReservationCodec' "AUDIO"
 
-pattern RCLink :: ReservationCodec
-pattern RCLink = ReservationCodec' "LINK"
+pattern ReservationCodecLink :: ReservationCodec
+pattern ReservationCodecLink = ReservationCodec' "LINK"
 
 {-# COMPLETE
-  RCMPEG2,
-  RCAvc,
-  RCHevc,
-  RCAudio,
-  RCLink,
+  ReservationCodecMPEG2,
+  ReservationCodecAvc,
+  ReservationCodecHevc,
+  ReservationCodecAudio,
+  ReservationCodecLink,
   ReservationCodec'
   #-}

@@ -22,8 +22,8 @@ module Network.AWS.KinesisVideo.UntagStream
     mkUntagStream,
 
     -- ** Request lenses
-    usStreamARN,
     usTagKeyList,
+    usStreamARN,
     usStreamName,
 
     -- * Destructuring the response
@@ -31,114 +31,107 @@ module Network.AWS.KinesisVideo.UntagStream
     mkUntagStreamResponse,
 
     -- ** Response lenses
-    ursResponseStatus,
+    usrrsResponseStatus,
   )
 where
 
-import Network.AWS.KinesisVideo.Types
+import qualified Network.AWS.KinesisVideo.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUntagStream' smart constructor.
 data UntagStream = UntagStream'
-  { -- | The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
-    streamARN :: Lude.Maybe Lude.Text,
-    -- | A list of the keys of the tags that you want to remove.
-    tagKeyList :: Lude.NonEmpty Lude.Text,
+  { -- | A list of the keys of the tags that you want to remove.
+    tagKeyList :: Core.NonEmpty Types.TagKey,
+    -- | The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
+    streamARN :: Core.Maybe Types.StreamARN,
     -- | The name of the stream that you want to remove tags from.
-    streamName :: Lude.Maybe Lude.Text
+    streamName :: Core.Maybe Types.StreamName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagStream' with the minimum fields required to make a request.
---
--- * 'streamARN' - The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
--- * 'tagKeyList' - A list of the keys of the tags that you want to remove.
--- * 'streamName' - The name of the stream that you want to remove tags from.
+-- | Creates a 'UntagStream' value with any optional fields omitted.
 mkUntagStream ::
   -- | 'tagKeyList'
-  Lude.NonEmpty Lude.Text ->
+  Core.NonEmpty Types.TagKey ->
   UntagStream
-mkUntagStream pTagKeyList_ =
+mkUntagStream tagKeyList =
   UntagStream'
-    { streamARN = Lude.Nothing,
-      tagKeyList = pTagKeyList_,
-      streamName = Lude.Nothing
+    { tagKeyList,
+      streamARN = Core.Nothing,
+      streamName = Core.Nothing
     }
-
--- | The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
---
--- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usStreamARN :: Lens.Lens' UntagStream (Lude.Maybe Lude.Text)
-usStreamARN = Lens.lens (streamARN :: UntagStream -> Lude.Maybe Lude.Text) (\s a -> s {streamARN = a} :: UntagStream)
-{-# DEPRECATED usStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | A list of the keys of the tags that you want to remove.
 --
 -- /Note:/ Consider using 'tagKeyList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usTagKeyList :: Lens.Lens' UntagStream (Lude.NonEmpty Lude.Text)
-usTagKeyList = Lens.lens (tagKeyList :: UntagStream -> Lude.NonEmpty Lude.Text) (\s a -> s {tagKeyList = a} :: UntagStream)
+usTagKeyList :: Lens.Lens' UntagStream (Core.NonEmpty Types.TagKey)
+usTagKeyList = Lens.field @"tagKeyList"
 {-# DEPRECATED usTagKeyList "Use generic-lens or generic-optics with 'tagKeyList' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the stream that you want to remove tags from.
+--
+-- /Note:/ Consider using 'streamARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+usStreamARN :: Lens.Lens' UntagStream (Core.Maybe Types.StreamARN)
+usStreamARN = Lens.field @"streamARN"
+{-# DEPRECATED usStreamARN "Use generic-lens or generic-optics with 'streamARN' instead." #-}
 
 -- | The name of the stream that you want to remove tags from.
 --
 -- /Note:/ Consider using 'streamName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-usStreamName :: Lens.Lens' UntagStream (Lude.Maybe Lude.Text)
-usStreamName = Lens.lens (streamName :: UntagStream -> Lude.Maybe Lude.Text) (\s a -> s {streamName = a} :: UntagStream)
+usStreamName :: Lens.Lens' UntagStream (Core.Maybe Types.StreamName)
+usStreamName = Lens.field @"streamName"
 {-# DEPRECATED usStreamName "Use generic-lens or generic-optics with 'streamName' instead." #-}
 
-instance Lude.AWSRequest UntagStream where
-  type Rs UntagStream = UntagStreamResponse
-  request = Req.postJSON kinesisVideoService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          UntagStreamResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UntagStream where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UntagStream where
-  toJSON UntagStream' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("StreamARN" Lude..=) Lude.<$> streamARN,
-            Lude.Just ("TagKeyList" Lude..= tagKeyList),
-            ("StreamName" Lude..=) Lude.<$> streamName
+instance Core.FromJSON UntagStream where
+  toJSON UntagStream {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TagKeyList" Core..= tagKeyList),
+            ("StreamARN" Core..=) Core.<$> streamARN,
+            ("StreamName" Core..=) Core.<$> streamName
           ]
       )
 
-instance Lude.ToPath UntagStream where
-  toPath = Lude.const "/untagStream"
-
-instance Lude.ToQuery UntagStream where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UntagStream where
+  type Rs UntagStream = UntagStreamResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/untagStream",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UntagStreamResponse' Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkUntagStreamResponse' smart constructor.
 newtype UntagStreamResponse = UntagStreamResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagStreamResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UntagStreamResponse' value with any optional fields omitted.
 mkUntagStreamResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UntagStreamResponse
-mkUntagStreamResponse pResponseStatus_ =
-  UntagStreamResponse' {responseStatus = pResponseStatus_}
+mkUntagStreamResponse responseStatus =
+  UntagStreamResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ursResponseStatus :: Lens.Lens' UntagStreamResponse Lude.Int
-ursResponseStatus = Lens.lens (responseStatus :: UntagStreamResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UntagStreamResponse)
-{-# DEPRECATED ursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+usrrsResponseStatus :: Lens.Lens' UntagStreamResponse Core.Int
+usrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED usrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

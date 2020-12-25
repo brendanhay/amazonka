@@ -22,38 +22,36 @@ module Network.AWS.AppStream.Types.ComputeCapacity
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the capacity for a fleet.
 --
 -- /See:/ 'mkComputeCapacity' smart constructor.
 newtype ComputeCapacity = ComputeCapacity'
   { -- | The desired number of streaming instances.
-    desiredInstances :: Lude.Int
+    desiredInstances :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ComputeCapacity' with the minimum fields required to make a request.
---
--- * 'desiredInstances' - The desired number of streaming instances.
+-- | Creates a 'ComputeCapacity' value with any optional fields omitted.
 mkComputeCapacity ::
   -- | 'desiredInstances'
-  Lude.Int ->
+  Core.Int ->
   ComputeCapacity
-mkComputeCapacity pDesiredInstances_ =
-  ComputeCapacity' {desiredInstances = pDesiredInstances_}
+mkComputeCapacity desiredInstances =
+  ComputeCapacity' {desiredInstances}
 
 -- | The desired number of streaming instances.
 --
 -- /Note:/ Consider using 'desiredInstances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccDesiredInstances :: Lens.Lens' ComputeCapacity Lude.Int
-ccDesiredInstances = Lens.lens (desiredInstances :: ComputeCapacity -> Lude.Int) (\s a -> s {desiredInstances = a} :: ComputeCapacity)
+ccDesiredInstances :: Lens.Lens' ComputeCapacity Core.Int
+ccDesiredInstances = Lens.field @"desiredInstances"
 {-# DEPRECATED ccDesiredInstances "Use generic-lens or generic-optics with 'desiredInstances' instead." #-}
 
-instance Lude.ToJSON ComputeCapacity where
-  toJSON ComputeCapacity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("DesiredInstances" Lude..= desiredInstances)]
+instance Core.FromJSON ComputeCapacity where
+  toJSON ComputeCapacity {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DesiredInstances" Core..= desiredInstances)]
       )

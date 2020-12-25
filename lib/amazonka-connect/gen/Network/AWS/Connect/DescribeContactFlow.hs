@@ -30,122 +30,105 @@ module Network.AWS.Connect.DescribeContactFlow
     mkDescribeContactFlowResponse,
 
     -- ** Response lenses
-    dcfrsContactFlow,
-    dcfrsResponseStatus,
+    dcfrrsContactFlow,
+    dcfrrsResponseStatus,
   )
 where
 
-import Network.AWS.Connect.Types
+import qualified Network.AWS.Connect.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeContactFlow' smart constructor.
 data DescribeContactFlow = DescribeContactFlow'
   { -- | The identifier of the Amazon Connect instance.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The identifier of the contact flow.
-    contactFlowId :: Lude.Text
+    contactFlowId :: Types.ContactFlowId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeContactFlow' with the minimum fields required to make a request.
---
--- * 'instanceId' - The identifier of the Amazon Connect instance.
--- * 'contactFlowId' - The identifier of the contact flow.
+-- | Creates a 'DescribeContactFlow' value with any optional fields omitted.
 mkDescribeContactFlow ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'contactFlowId'
-  Lude.Text ->
+  Types.ContactFlowId ->
   DescribeContactFlow
-mkDescribeContactFlow pInstanceId_ pContactFlowId_ =
-  DescribeContactFlow'
-    { instanceId = pInstanceId_,
-      contactFlowId = pContactFlowId_
-    }
+mkDescribeContactFlow instanceId contactFlowId =
+  DescribeContactFlow' {instanceId, contactFlowId}
 
 -- | The identifier of the Amazon Connect instance.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfInstanceId :: Lens.Lens' DescribeContactFlow Lude.Text
-dcfInstanceId = Lens.lens (instanceId :: DescribeContactFlow -> Lude.Text) (\s a -> s {instanceId = a} :: DescribeContactFlow)
+dcfInstanceId :: Lens.Lens' DescribeContactFlow Types.InstanceId
+dcfInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED dcfInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The identifier of the contact flow.
 --
 -- /Note:/ Consider using 'contactFlowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfContactFlowId :: Lens.Lens' DescribeContactFlow Lude.Text
-dcfContactFlowId = Lens.lens (contactFlowId :: DescribeContactFlow -> Lude.Text) (\s a -> s {contactFlowId = a} :: DescribeContactFlow)
+dcfContactFlowId :: Lens.Lens' DescribeContactFlow Types.ContactFlowId
+dcfContactFlowId = Lens.field @"contactFlowId"
 {-# DEPRECATED dcfContactFlowId "Use generic-lens or generic-optics with 'contactFlowId' instead." #-}
 
-instance Lude.AWSRequest DescribeContactFlow where
+instance Core.AWSRequest DescribeContactFlow where
   type Rs DescribeContactFlow = DescribeContactFlowResponse
-  request = Req.get connectService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/contact-flows/" Core.<> (Core.toText instanceId) Core.<> ("/")
+                Core.<> (Core.toText contactFlowId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeContactFlowResponse'
-            Lude.<$> (x Lude..?> "ContactFlow") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ContactFlow") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeContactFlow where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath DescribeContactFlow where
-  toPath DescribeContactFlow' {..} =
-    Lude.mconcat
-      [ "/contact-flows/",
-        Lude.toBS instanceId,
-        "/",
-        Lude.toBS contactFlowId
-      ]
-
-instance Lude.ToQuery DescribeContactFlow where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeContactFlowResponse' smart constructor.
 data DescribeContactFlowResponse = DescribeContactFlowResponse'
   { -- | Information about the contact flow.
-    contactFlow :: Lude.Maybe ContactFlow,
+    contactFlow :: Core.Maybe Types.ContactFlow,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeContactFlowResponse' with the minimum fields required to make a request.
---
--- * 'contactFlow' - Information about the contact flow.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeContactFlowResponse' value with any optional fields omitted.
 mkDescribeContactFlowResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeContactFlowResponse
-mkDescribeContactFlowResponse pResponseStatus_ =
+mkDescribeContactFlowResponse responseStatus =
   DescribeContactFlowResponse'
-    { contactFlow = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { contactFlow = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the contact flow.
 --
 -- /Note:/ Consider using 'contactFlow' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfrsContactFlow :: Lens.Lens' DescribeContactFlowResponse (Lude.Maybe ContactFlow)
-dcfrsContactFlow = Lens.lens (contactFlow :: DescribeContactFlowResponse -> Lude.Maybe ContactFlow) (\s a -> s {contactFlow = a} :: DescribeContactFlowResponse)
-{-# DEPRECATED dcfrsContactFlow "Use generic-lens or generic-optics with 'contactFlow' instead." #-}
+dcfrrsContactFlow :: Lens.Lens' DescribeContactFlowResponse (Core.Maybe Types.ContactFlow)
+dcfrrsContactFlow = Lens.field @"contactFlow"
+{-# DEPRECATED dcfrrsContactFlow "Use generic-lens or generic-optics with 'contactFlow' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcfrsResponseStatus :: Lens.Lens' DescribeContactFlowResponse Lude.Int
-dcfrsResponseStatus = Lens.lens (responseStatus :: DescribeContactFlowResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeContactFlowResponse)
-{-# DEPRECATED dcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcfrrsResponseStatus :: Lens.Lens' DescribeContactFlowResponse Core.Int
+dcfrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

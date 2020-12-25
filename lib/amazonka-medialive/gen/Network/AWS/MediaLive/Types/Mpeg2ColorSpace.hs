@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.Mpeg2ColorSpace
   ( Mpeg2ColorSpace
       ( Mpeg2ColorSpace',
-        MCSAuto,
-        MCSPassthrough
+        Mpeg2ColorSpaceAuto,
+        Mpeg2ColorSpacePassthrough,
+        fromMpeg2ColorSpace
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Mpeg2 Color Space
-newtype Mpeg2ColorSpace = Mpeg2ColorSpace' Lude.Text
+newtype Mpeg2ColorSpace = Mpeg2ColorSpace'
+  { fromMpeg2ColorSpace ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern MCSAuto :: Mpeg2ColorSpace
-pattern MCSAuto = Mpeg2ColorSpace' "AUTO"
+pattern Mpeg2ColorSpaceAuto :: Mpeg2ColorSpace
+pattern Mpeg2ColorSpaceAuto = Mpeg2ColorSpace' "AUTO"
 
-pattern MCSPassthrough :: Mpeg2ColorSpace
-pattern MCSPassthrough = Mpeg2ColorSpace' "PASSTHROUGH"
+pattern Mpeg2ColorSpacePassthrough :: Mpeg2ColorSpace
+pattern Mpeg2ColorSpacePassthrough = Mpeg2ColorSpace' "PASSTHROUGH"
 
 {-# COMPLETE
-  MCSAuto,
-  MCSPassthrough,
+  Mpeg2ColorSpaceAuto,
+  Mpeg2ColorSpacePassthrough,
   Mpeg2ColorSpace'
   #-}

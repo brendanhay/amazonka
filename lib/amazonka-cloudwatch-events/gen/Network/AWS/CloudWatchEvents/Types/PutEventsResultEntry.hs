@@ -23,65 +23,62 @@ module Network.AWS.CloudWatchEvents.Types.PutEventsResultEntry
   )
 where
 
+import qualified Network.AWS.CloudWatchEvents.Types.ErrorCode as Types
+import qualified Network.AWS.CloudWatchEvents.Types.ErrorMessage as Types
+import qualified Network.AWS.CloudWatchEvents.Types.EventId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents an event that failed to be submitted.
 --
 -- /See:/ 'mkPutEventsResultEntry' smart constructor.
 data PutEventsResultEntry = PutEventsResultEntry'
   { -- | The error code that indicates why the event submission failed.
-    errorCode :: Lude.Maybe Lude.Text,
+    errorCode :: Core.Maybe Types.ErrorCode,
     -- | The error message that explains why the event submission failed.
-    errorMessage :: Lude.Maybe Lude.Text,
+    errorMessage :: Core.Maybe Types.ErrorMessage,
     -- | The ID of the event.
-    eventId :: Lude.Maybe Lude.Text
+    eventId :: Core.Maybe Types.EventId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutEventsResultEntry' with the minimum fields required to make a request.
---
--- * 'errorCode' - The error code that indicates why the event submission failed.
--- * 'errorMessage' - The error message that explains why the event submission failed.
--- * 'eventId' - The ID of the event.
+-- | Creates a 'PutEventsResultEntry' value with any optional fields omitted.
 mkPutEventsResultEntry ::
   PutEventsResultEntry
 mkPutEventsResultEntry =
   PutEventsResultEntry'
-    { errorCode = Lude.Nothing,
-      errorMessage = Lude.Nothing,
-      eventId = Lude.Nothing
+    { errorCode = Core.Nothing,
+      errorMessage = Core.Nothing,
+      eventId = Core.Nothing
     }
 
 -- | The error code that indicates why the event submission failed.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pereErrorCode :: Lens.Lens' PutEventsResultEntry (Lude.Maybe Lude.Text)
-pereErrorCode = Lens.lens (errorCode :: PutEventsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: PutEventsResultEntry)
+pereErrorCode :: Lens.Lens' PutEventsResultEntry (Core.Maybe Types.ErrorCode)
+pereErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED pereErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The error message that explains why the event submission failed.
 --
 -- /Note:/ Consider using 'errorMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pereErrorMessage :: Lens.Lens' PutEventsResultEntry (Lude.Maybe Lude.Text)
-pereErrorMessage = Lens.lens (errorMessage :: PutEventsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {errorMessage = a} :: PutEventsResultEntry)
+pereErrorMessage :: Lens.Lens' PutEventsResultEntry (Core.Maybe Types.ErrorMessage)
+pereErrorMessage = Lens.field @"errorMessage"
 {-# DEPRECATED pereErrorMessage "Use generic-lens or generic-optics with 'errorMessage' instead." #-}
 
 -- | The ID of the event.
 --
 -- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pereEventId :: Lens.Lens' PutEventsResultEntry (Lude.Maybe Lude.Text)
-pereEventId = Lens.lens (eventId :: PutEventsResultEntry -> Lude.Maybe Lude.Text) (\s a -> s {eventId = a} :: PutEventsResultEntry)
+pereEventId :: Lens.Lens' PutEventsResultEntry (Core.Maybe Types.EventId)
+pereEventId = Lens.field @"eventId"
 {-# DEPRECATED pereEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
 
-instance Lude.FromJSON PutEventsResultEntry where
+instance Core.FromJSON PutEventsResultEntry where
   parseJSON =
-    Lude.withObject
-      "PutEventsResultEntry"
-      ( \x ->
-          PutEventsResultEntry'
-            Lude.<$> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "ErrorMessage")
-            Lude.<*> (x Lude..:? "EventId")
-      )
+    Core.withObject "PutEventsResultEntry" Core.$
+      \x ->
+        PutEventsResultEntry'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "ErrorMessage")
+          Core.<*> (x Core..:? "EventId")

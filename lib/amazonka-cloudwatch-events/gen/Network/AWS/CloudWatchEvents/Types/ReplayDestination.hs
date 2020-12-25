@@ -17,66 +17,61 @@ module Network.AWS.CloudWatchEvents.Types.ReplayDestination
     mkReplayDestination,
 
     -- * Lenses
-    rdARN,
-    rdFilterARNs,
+    rdArn,
+    rdFilterArns,
   )
 where
 
+import qualified Network.AWS.CloudWatchEvents.Types.Arn as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A @ReplayDestination@ object that contains details about a replay.
 --
 -- /See:/ 'mkReplayDestination' smart constructor.
 data ReplayDestination = ReplayDestination'
   { -- | The ARN of the event bus to replay event to. You can replay events only to the event bus specified to create the archive.
-    arn :: Lude.Text,
+    arn :: Types.Arn,
     -- | A list of ARNs for rules to replay events to.
-    filterARNs :: Lude.Maybe [Lude.Text]
+    filterArns :: Core.Maybe [Types.Arn]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplayDestination' with the minimum fields required to make a request.
---
--- * 'arn' - The ARN of the event bus to replay event to. You can replay events only to the event bus specified to create the archive.
--- * 'filterARNs' - A list of ARNs for rules to replay events to.
+-- | Creates a 'ReplayDestination' value with any optional fields omitted.
 mkReplayDestination ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   ReplayDestination
-mkReplayDestination pARN_ =
-  ReplayDestination' {arn = pARN_, filterARNs = Lude.Nothing}
+mkReplayDestination arn =
+  ReplayDestination' {arn, filterArns = Core.Nothing}
 
 -- | The ARN of the event bus to replay event to. You can replay events only to the event bus specified to create the archive.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdARN :: Lens.Lens' ReplayDestination Lude.Text
-rdARN = Lens.lens (arn :: ReplayDestination -> Lude.Text) (\s a -> s {arn = a} :: ReplayDestination)
-{-# DEPRECATED rdARN "Use generic-lens or generic-optics with 'arn' instead." #-}
+rdArn :: Lens.Lens' ReplayDestination Types.Arn
+rdArn = Lens.field @"arn"
+{-# DEPRECATED rdArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | A list of ARNs for rules to replay events to.
 --
--- /Note:/ Consider using 'filterARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rdFilterARNs :: Lens.Lens' ReplayDestination (Lude.Maybe [Lude.Text])
-rdFilterARNs = Lens.lens (filterARNs :: ReplayDestination -> Lude.Maybe [Lude.Text]) (\s a -> s {filterARNs = a} :: ReplayDestination)
-{-# DEPRECATED rdFilterARNs "Use generic-lens or generic-optics with 'filterARNs' instead." #-}
+-- /Note:/ Consider using 'filterArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rdFilterArns :: Lens.Lens' ReplayDestination (Core.Maybe [Types.Arn])
+rdFilterArns = Lens.field @"filterArns"
+{-# DEPRECATED rdFilterArns "Use generic-lens or generic-optics with 'filterArns' instead." #-}
 
-instance Lude.FromJSON ReplayDestination where
-  parseJSON =
-    Lude.withObject
-      "ReplayDestination"
-      ( \x ->
-          ReplayDestination'
-            Lude.<$> (x Lude..: "Arn")
-            Lude.<*> (x Lude..:? "FilterArns" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON ReplayDestination where
-  toJSON ReplayDestination' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Arn" Lude..= arn),
-            ("FilterArns" Lude..=) Lude.<$> filterARNs
+instance Core.FromJSON ReplayDestination where
+  toJSON ReplayDestination {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Arn" Core..= arn),
+            ("FilterArns" Core..=) Core.<$> filterArns
           ]
       )
+
+instance Core.FromJSON ReplayDestination where
+  parseJSON =
+    Core.withObject "ReplayDestination" Core.$
+      \x ->
+        ReplayDestination'
+          Core.<$> (x Core..: "Arn") Core.<*> (x Core..:? "FilterArns")

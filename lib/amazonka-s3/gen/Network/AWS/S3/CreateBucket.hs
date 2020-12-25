@@ -51,216 +51,194 @@ module Network.AWS.S3.CreateBucket
     mkCreateBucket,
 
     -- ** Request lenses
-    cbGrantReadACP,
     cbBucket,
-    cbObjectLockEnabledForBucket,
-    cbGrantWriteACP,
-    cbGrantRead,
-    cbGrantFullControl,
-    cbCreateBucketConfiguration,
-    cbGrantWrite,
     cbACL,
+    cbCreateBucketConfiguration,
+    cbGrantFullControl,
+    cbGrantRead,
+    cbGrantReadACP,
+    cbGrantWrite,
+    cbGrantWriteACP,
+    cbObjectLockEnabledForBucket,
 
     -- * Destructuring the response
     CreateBucketResponse (..),
     mkCreateBucketResponse,
 
     -- ** Response lenses
-    cbrsLocation,
-    cbrsResponseStatus,
+    cbrrsLocation,
+    cbrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkCreateBucket' smart constructor.
 data CreateBucket = CreateBucket'
-  { -- | Allows grantee to read the bucket ACL.
-    grantReadACP :: Lude.Maybe Lude.Text,
-    -- | The name of the bucket to create.
-    bucket :: BucketName,
-    -- | Specifies whether you want S3 Object Lock to be enabled for the new bucket.
-    objectLockEnabledForBucket :: Lude.Maybe Lude.Bool,
-    -- | Allows grantee to write the ACL for the applicable bucket.
-    grantWriteACP :: Lude.Maybe Lude.Text,
-    -- | Allows grantee to list the objects in the bucket.
-    grantRead :: Lude.Maybe Lude.Text,
-    -- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
-    grantFullControl :: Lude.Maybe Lude.Text,
-    -- | The configuration information for the bucket.
-    createBucketConfiguration :: Lude.Maybe CreateBucketConfiguration,
-    -- | Allows grantee to create, overwrite, and delete any object in the bucket.
-    grantWrite :: Lude.Maybe Lude.Text,
+  { -- | The name of the bucket to create.
+    bucket :: Types.BucketName,
     -- | The canned ACL to apply to the bucket.
-    acl :: Lude.Maybe BucketCannedACL
+    acl :: Core.Maybe Types.BucketCannedACL,
+    -- | The configuration information for the bucket.
+    createBucketConfiguration :: Core.Maybe Types.CreateBucketConfiguration,
+    -- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
+    grantFullControl :: Core.Maybe Types.GrantFullControl,
+    -- | Allows grantee to list the objects in the bucket.
+    grantRead :: Core.Maybe Types.GrantRead,
+    -- | Allows grantee to read the bucket ACL.
+    grantReadACP :: Core.Maybe Types.GrantReadACP,
+    -- | Allows grantee to create, overwrite, and delete any object in the bucket.
+    grantWrite :: Core.Maybe Types.GrantWrite,
+    -- | Allows grantee to write the ACL for the applicable bucket.
+    grantWriteACP :: Core.Maybe Types.GrantWriteACP,
+    -- | Specifies whether you want S3 Object Lock to be enabled for the new bucket.
+    objectLockEnabledForBucket :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateBucket' with the minimum fields required to make a request.
---
--- * 'grantReadACP' - Allows grantee to read the bucket ACL.
--- * 'bucket' - The name of the bucket to create.
--- * 'objectLockEnabledForBucket' - Specifies whether you want S3 Object Lock to be enabled for the new bucket.
--- * 'grantWriteACP' - Allows grantee to write the ACL for the applicable bucket.
--- * 'grantRead' - Allows grantee to list the objects in the bucket.
--- * 'grantFullControl' - Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
--- * 'createBucketConfiguration' - The configuration information for the bucket.
--- * 'grantWrite' - Allows grantee to create, overwrite, and delete any object in the bucket.
--- * 'acl' - The canned ACL to apply to the bucket.
+-- | Creates a 'CreateBucket' value with any optional fields omitted.
 mkCreateBucket ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   CreateBucket
-mkCreateBucket pBucket_ =
+mkCreateBucket bucket =
   CreateBucket'
-    { grantReadACP = Lude.Nothing,
-      bucket = pBucket_,
-      objectLockEnabledForBucket = Lude.Nothing,
-      grantWriteACP = Lude.Nothing,
-      grantRead = Lude.Nothing,
-      grantFullControl = Lude.Nothing,
-      createBucketConfiguration = Lude.Nothing,
-      grantWrite = Lude.Nothing,
-      acl = Lude.Nothing
+    { bucket,
+      acl = Core.Nothing,
+      createBucketConfiguration = Core.Nothing,
+      grantFullControl = Core.Nothing,
+      grantRead = Core.Nothing,
+      grantReadACP = Core.Nothing,
+      grantWrite = Core.Nothing,
+      grantWriteACP = Core.Nothing,
+      objectLockEnabledForBucket = Core.Nothing
     }
-
--- | Allows grantee to read the bucket ACL.
---
--- /Note:/ Consider using 'grantReadACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbGrantReadACP :: Lens.Lens' CreateBucket (Lude.Maybe Lude.Text)
-cbGrantReadACP = Lens.lens (grantReadACP :: CreateBucket -> Lude.Maybe Lude.Text) (\s a -> s {grantReadACP = a} :: CreateBucket)
-{-# DEPRECATED cbGrantReadACP "Use generic-lens or generic-optics with 'grantReadACP' instead." #-}
 
 -- | The name of the bucket to create.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbBucket :: Lens.Lens' CreateBucket BucketName
-cbBucket = Lens.lens (bucket :: CreateBucket -> BucketName) (\s a -> s {bucket = a} :: CreateBucket)
+cbBucket :: Lens.Lens' CreateBucket Types.BucketName
+cbBucket = Lens.field @"bucket"
 {-# DEPRECATED cbBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
-
--- | Specifies whether you want S3 Object Lock to be enabled for the new bucket.
---
--- /Note:/ Consider using 'objectLockEnabledForBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbObjectLockEnabledForBucket :: Lens.Lens' CreateBucket (Lude.Maybe Lude.Bool)
-cbObjectLockEnabledForBucket = Lens.lens (objectLockEnabledForBucket :: CreateBucket -> Lude.Maybe Lude.Bool) (\s a -> s {objectLockEnabledForBucket = a} :: CreateBucket)
-{-# DEPRECATED cbObjectLockEnabledForBucket "Use generic-lens or generic-optics with 'objectLockEnabledForBucket' instead." #-}
-
--- | Allows grantee to write the ACL for the applicable bucket.
---
--- /Note:/ Consider using 'grantWriteACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbGrantWriteACP :: Lens.Lens' CreateBucket (Lude.Maybe Lude.Text)
-cbGrantWriteACP = Lens.lens (grantWriteACP :: CreateBucket -> Lude.Maybe Lude.Text) (\s a -> s {grantWriteACP = a} :: CreateBucket)
-{-# DEPRECATED cbGrantWriteACP "Use generic-lens or generic-optics with 'grantWriteACP' instead." #-}
-
--- | Allows grantee to list the objects in the bucket.
---
--- /Note:/ Consider using 'grantRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbGrantRead :: Lens.Lens' CreateBucket (Lude.Maybe Lude.Text)
-cbGrantRead = Lens.lens (grantRead :: CreateBucket -> Lude.Maybe Lude.Text) (\s a -> s {grantRead = a} :: CreateBucket)
-{-# DEPRECATED cbGrantRead "Use generic-lens or generic-optics with 'grantRead' instead." #-}
-
--- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
---
--- /Note:/ Consider using 'grantFullControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbGrantFullControl :: Lens.Lens' CreateBucket (Lude.Maybe Lude.Text)
-cbGrantFullControl = Lens.lens (grantFullControl :: CreateBucket -> Lude.Maybe Lude.Text) (\s a -> s {grantFullControl = a} :: CreateBucket)
-{-# DEPRECATED cbGrantFullControl "Use generic-lens or generic-optics with 'grantFullControl' instead." #-}
-
--- | The configuration information for the bucket.
---
--- /Note:/ Consider using 'createBucketConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbCreateBucketConfiguration :: Lens.Lens' CreateBucket (Lude.Maybe CreateBucketConfiguration)
-cbCreateBucketConfiguration = Lens.lens (createBucketConfiguration :: CreateBucket -> Lude.Maybe CreateBucketConfiguration) (\s a -> s {createBucketConfiguration = a} :: CreateBucket)
-{-# DEPRECATED cbCreateBucketConfiguration "Use generic-lens or generic-optics with 'createBucketConfiguration' instead." #-}
-
--- | Allows grantee to create, overwrite, and delete any object in the bucket.
---
--- /Note:/ Consider using 'grantWrite' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbGrantWrite :: Lens.Lens' CreateBucket (Lude.Maybe Lude.Text)
-cbGrantWrite = Lens.lens (grantWrite :: CreateBucket -> Lude.Maybe Lude.Text) (\s a -> s {grantWrite = a} :: CreateBucket)
-{-# DEPRECATED cbGrantWrite "Use generic-lens or generic-optics with 'grantWrite' instead." #-}
 
 -- | The canned ACL to apply to the bucket.
 --
 -- /Note:/ Consider using 'acl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbACL :: Lens.Lens' CreateBucket (Lude.Maybe BucketCannedACL)
-cbACL = Lens.lens (acl :: CreateBucket -> Lude.Maybe BucketCannedACL) (\s a -> s {acl = a} :: CreateBucket)
+cbACL :: Lens.Lens' CreateBucket (Core.Maybe Types.BucketCannedACL)
+cbACL = Lens.field @"acl"
 {-# DEPRECATED cbACL "Use generic-lens or generic-optics with 'acl' instead." #-}
 
-instance Lude.AWSRequest CreateBucket where
+-- | The configuration information for the bucket.
+--
+-- /Note:/ Consider using 'createBucketConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbCreateBucketConfiguration :: Lens.Lens' CreateBucket (Core.Maybe Types.CreateBucketConfiguration)
+cbCreateBucketConfiguration = Lens.field @"createBucketConfiguration"
+{-# DEPRECATED cbCreateBucketConfiguration "Use generic-lens or generic-optics with 'createBucketConfiguration' instead." #-}
+
+-- | Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.
+--
+-- /Note:/ Consider using 'grantFullControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbGrantFullControl :: Lens.Lens' CreateBucket (Core.Maybe Types.GrantFullControl)
+cbGrantFullControl = Lens.field @"grantFullControl"
+{-# DEPRECATED cbGrantFullControl "Use generic-lens or generic-optics with 'grantFullControl' instead." #-}
+
+-- | Allows grantee to list the objects in the bucket.
+--
+-- /Note:/ Consider using 'grantRead' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbGrantRead :: Lens.Lens' CreateBucket (Core.Maybe Types.GrantRead)
+cbGrantRead = Lens.field @"grantRead"
+{-# DEPRECATED cbGrantRead "Use generic-lens or generic-optics with 'grantRead' instead." #-}
+
+-- | Allows grantee to read the bucket ACL.
+--
+-- /Note:/ Consider using 'grantReadACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbGrantReadACP :: Lens.Lens' CreateBucket (Core.Maybe Types.GrantReadACP)
+cbGrantReadACP = Lens.field @"grantReadACP"
+{-# DEPRECATED cbGrantReadACP "Use generic-lens or generic-optics with 'grantReadACP' instead." #-}
+
+-- | Allows grantee to create, overwrite, and delete any object in the bucket.
+--
+-- /Note:/ Consider using 'grantWrite' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbGrantWrite :: Lens.Lens' CreateBucket (Core.Maybe Types.GrantWrite)
+cbGrantWrite = Lens.field @"grantWrite"
+{-# DEPRECATED cbGrantWrite "Use generic-lens or generic-optics with 'grantWrite' instead." #-}
+
+-- | Allows grantee to write the ACL for the applicable bucket.
+--
+-- /Note:/ Consider using 'grantWriteACP' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbGrantWriteACP :: Lens.Lens' CreateBucket (Core.Maybe Types.GrantWriteACP)
+cbGrantWriteACP = Lens.field @"grantWriteACP"
+{-# DEPRECATED cbGrantWriteACP "Use generic-lens or generic-optics with 'grantWriteACP' instead." #-}
+
+-- | Specifies whether you want S3 Object Lock to be enabled for the new bucket.
+--
+-- /Note:/ Consider using 'objectLockEnabledForBucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cbObjectLockEnabledForBucket :: Lens.Lens' CreateBucket (Core.Maybe Core.Bool)
+cbObjectLockEnabledForBucket = Lens.field @"objectLockEnabledForBucket"
+{-# DEPRECATED cbObjectLockEnabledForBucket "Use generic-lens or generic-optics with 'objectLockEnabledForBucket' instead." #-}
+
+instance Core.AWSRequest CreateBucket where
   type Rs CreateBucket = CreateBucketResponse
-  request = Req.putXML s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-acl" acl
+            Core.<> (Core.toHeaders "x-amz-grant-full-control" grantFullControl)
+            Core.<> (Core.toHeaders "x-amz-grant-read" grantRead)
+            Core.<> (Core.toHeaders "x-amz-grant-read-acp" grantReadACP)
+            Core.<> (Core.toHeaders "x-amz-grant-write" grantWrite)
+            Core.<> (Core.toHeaders "x-amz-grant-write-acp" grantWriteACP)
+            Core.<> ( Core.toHeaders
+                        "x-amz-bucket-object-lock-enabled"
+                        objectLockEnabledForBucket
+                    ),
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           CreateBucketResponse'
-            Lude.<$> (h Lude..#? "Location") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseHeaderMaybe "Location" h)
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToElement CreateBucket where
-  toElement =
-    Lude.mkElement
-      "{http://s3.amazonaws.com/doc/2006-03-01/}CreateBucketConfiguration"
-      Lude.. createBucketConfiguration
-
-instance Lude.ToHeaders CreateBucket where
-  toHeaders CreateBucket' {..} =
-    Lude.mconcat
-      [ "x-amz-grant-read-acp" Lude.=# grantReadACP,
-        "x-amz-bucket-object-lock-enabled"
-          Lude.=# objectLockEnabledForBucket,
-        "x-amz-grant-write-acp" Lude.=# grantWriteACP,
-        "x-amz-grant-read" Lude.=# grantRead,
-        "x-amz-grant-full-control" Lude.=# grantFullControl,
-        "x-amz-grant-write" Lude.=# grantWrite,
-        "x-amz-acl" Lude.=# acl
-      ]
-
-instance Lude.ToPath CreateBucket where
-  toPath CreateBucket' {..} = Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery CreateBucket where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateBucketResponse' smart constructor.
 data CreateBucketResponse = CreateBucketResponse'
   { -- | Specifies the Region where the bucket will be created. If you are creating a bucket on the US East (N. Virginia) Region (us-east-1), you do not need to specify the location.
-    location :: Lude.Maybe Lude.Text,
+    location :: Core.Maybe Types.Location,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateBucketResponse' with the minimum fields required to make a request.
---
--- * 'location' - Specifies the Region where the bucket will be created. If you are creating a bucket on the US East (N. Virginia) Region (us-east-1), you do not need to specify the location.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateBucketResponse' value with any optional fields omitted.
 mkCreateBucketResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateBucketResponse
-mkCreateBucketResponse pResponseStatus_ =
-  CreateBucketResponse'
-    { location = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateBucketResponse responseStatus =
+  CreateBucketResponse' {location = Core.Nothing, responseStatus}
 
 -- | Specifies the Region where the bucket will be created. If you are creating a bucket on the US East (N. Virginia) Region (us-east-1), you do not need to specify the location.
 --
 -- /Note:/ Consider using 'location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbrsLocation :: Lens.Lens' CreateBucketResponse (Lude.Maybe Lude.Text)
-cbrsLocation = Lens.lens (location :: CreateBucketResponse -> Lude.Maybe Lude.Text) (\s a -> s {location = a} :: CreateBucketResponse)
-{-# DEPRECATED cbrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
+cbrrsLocation :: Lens.Lens' CreateBucketResponse (Core.Maybe Types.Location)
+cbrrsLocation = Lens.field @"location"
+{-# DEPRECATED cbrrsLocation "Use generic-lens or generic-optics with 'location' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cbrsResponseStatus :: Lens.Lens' CreateBucketResponse Lude.Int
-cbrsResponseStatus = Lens.lens (responseStatus :: CreateBucketResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateBucketResponse)
-{-# DEPRECATED cbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cbrrsResponseStatus :: Lens.Lens' CreateBucketResponse Core.Int
+cbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

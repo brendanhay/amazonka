@@ -22,54 +22,49 @@ module Network.AWS.IoT.Types.LogTargetConfiguration
   )
 where
 
-import Network.AWS.IoT.Types.LogLevel
-import Network.AWS.IoT.Types.LogTarget
+import qualified Network.AWS.IoT.Types.LogLevel as Types
+import qualified Network.AWS.IoT.Types.LogTarget as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The target configuration.
 --
 -- /See:/ 'mkLogTargetConfiguration' smart constructor.
 data LogTargetConfiguration = LogTargetConfiguration'
   { -- | The logging level.
-    logLevel :: Lude.Maybe LogLevel,
+    logLevel :: Core.Maybe Types.LogLevel,
     -- | A log target
-    logTarget :: Lude.Maybe LogTarget
+    logTarget :: Core.Maybe Types.LogTarget
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LogTargetConfiguration' with the minimum fields required to make a request.
---
--- * 'logLevel' - The logging level.
--- * 'logTarget' - A log target
+-- | Creates a 'LogTargetConfiguration' value with any optional fields omitted.
 mkLogTargetConfiguration ::
   LogTargetConfiguration
 mkLogTargetConfiguration =
   LogTargetConfiguration'
-    { logLevel = Lude.Nothing,
-      logTarget = Lude.Nothing
+    { logLevel = Core.Nothing,
+      logTarget = Core.Nothing
     }
 
 -- | The logging level.
 --
 -- /Note:/ Consider using 'logLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltcLogLevel :: Lens.Lens' LogTargetConfiguration (Lude.Maybe LogLevel)
-ltcLogLevel = Lens.lens (logLevel :: LogTargetConfiguration -> Lude.Maybe LogLevel) (\s a -> s {logLevel = a} :: LogTargetConfiguration)
+ltcLogLevel :: Lens.Lens' LogTargetConfiguration (Core.Maybe Types.LogLevel)
+ltcLogLevel = Lens.field @"logLevel"
 {-# DEPRECATED ltcLogLevel "Use generic-lens or generic-optics with 'logLevel' instead." #-}
 
 -- | A log target
 --
 -- /Note:/ Consider using 'logTarget' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltcLogTarget :: Lens.Lens' LogTargetConfiguration (Lude.Maybe LogTarget)
-ltcLogTarget = Lens.lens (logTarget :: LogTargetConfiguration -> Lude.Maybe LogTarget) (\s a -> s {logTarget = a} :: LogTargetConfiguration)
+ltcLogTarget :: Lens.Lens' LogTargetConfiguration (Core.Maybe Types.LogTarget)
+ltcLogTarget = Lens.field @"logTarget"
 {-# DEPRECATED ltcLogTarget "Use generic-lens or generic-optics with 'logTarget' instead." #-}
 
-instance Lude.FromJSON LogTargetConfiguration where
+instance Core.FromJSON LogTargetConfiguration where
   parseJSON =
-    Lude.withObject
-      "LogTargetConfiguration"
-      ( \x ->
-          LogTargetConfiguration'
-            Lude.<$> (x Lude..:? "logLevel") Lude.<*> (x Lude..:? "logTarget")
-      )
+    Core.withObject "LogTargetConfiguration" Core.$
+      \x ->
+        LogTargetConfiguration'
+          Core.<$> (x Core..:? "logLevel") Core.<*> (x Core..:? "logTarget")

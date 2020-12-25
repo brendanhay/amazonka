@@ -17,85 +17,79 @@ module Network.AWS.Batch.Types.AttemptDetail
     mkAttemptDetail,
 
     -- * Lenses
-    adStoppedAt,
-    adStartedAt,
     adContainer,
+    adStartedAt,
     adStatusReason,
+    adStoppedAt,
   )
 where
 
-import Network.AWS.Batch.Types.AttemptContainerDetail
+import qualified Network.AWS.Batch.Types.AttemptContainerDetail as Types
+import qualified Network.AWS.Batch.Types.StatusReason as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object representing a job attempt.
 --
 -- /See:/ 'mkAttemptDetail' smart constructor.
 data AttemptDetail = AttemptDetail'
-  { -- | The Unix timestamp (in milliseconds) for when the attempt was stopped (when the attempt transitioned from the @RUNNING@ state to a terminal state, such as @SUCCEEDED@ or @FAILED@ ).
-    stoppedAt :: Lude.Maybe Lude.Integer,
+  { -- | Details about the container in this job attempt.
+    container :: Core.Maybe Types.AttemptContainerDetail,
     -- | The Unix timestamp (in milliseconds) for when the attempt was started (when the attempt transitioned from the @STARTING@ state to the @RUNNING@ state).
-    startedAt :: Lude.Maybe Lude.Integer,
-    -- | Details about the container in this job attempt.
-    container :: Lude.Maybe AttemptContainerDetail,
+    startedAt :: Core.Maybe Core.Integer,
     -- | A short, human-readable string to provide additional details about the current status of the job attempt.
-    statusReason :: Lude.Maybe Lude.Text
+    statusReason :: Core.Maybe Types.StatusReason,
+    -- | The Unix timestamp (in milliseconds) for when the attempt was stopped (when the attempt transitioned from the @RUNNING@ state to a terminal state, such as @SUCCEEDED@ or @FAILED@ ).
+    stoppedAt :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AttemptDetail' with the minimum fields required to make a request.
---
--- * 'stoppedAt' - The Unix timestamp (in milliseconds) for when the attempt was stopped (when the attempt transitioned from the @RUNNING@ state to a terminal state, such as @SUCCEEDED@ or @FAILED@ ).
--- * 'startedAt' - The Unix timestamp (in milliseconds) for when the attempt was started (when the attempt transitioned from the @STARTING@ state to the @RUNNING@ state).
--- * 'container' - Details about the container in this job attempt.
--- * 'statusReason' - A short, human-readable string to provide additional details about the current status of the job attempt.
+-- | Creates a 'AttemptDetail' value with any optional fields omitted.
 mkAttemptDetail ::
   AttemptDetail
 mkAttemptDetail =
   AttemptDetail'
-    { stoppedAt = Lude.Nothing,
-      startedAt = Lude.Nothing,
-      container = Lude.Nothing,
-      statusReason = Lude.Nothing
+    { container = Core.Nothing,
+      startedAt = Core.Nothing,
+      statusReason = Core.Nothing,
+      stoppedAt = Core.Nothing
     }
-
--- | The Unix timestamp (in milliseconds) for when the attempt was stopped (when the attempt transitioned from the @RUNNING@ state to a terminal state, such as @SUCCEEDED@ or @FAILED@ ).
---
--- /Note:/ Consider using 'stoppedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adStoppedAt :: Lens.Lens' AttemptDetail (Lude.Maybe Lude.Integer)
-adStoppedAt = Lens.lens (stoppedAt :: AttemptDetail -> Lude.Maybe Lude.Integer) (\s a -> s {stoppedAt = a} :: AttemptDetail)
-{-# DEPRECATED adStoppedAt "Use generic-lens or generic-optics with 'stoppedAt' instead." #-}
-
--- | The Unix timestamp (in milliseconds) for when the attempt was started (when the attempt transitioned from the @STARTING@ state to the @RUNNING@ state).
---
--- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adStartedAt :: Lens.Lens' AttemptDetail (Lude.Maybe Lude.Integer)
-adStartedAt = Lens.lens (startedAt :: AttemptDetail -> Lude.Maybe Lude.Integer) (\s a -> s {startedAt = a} :: AttemptDetail)
-{-# DEPRECATED adStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
 -- | Details about the container in this job attempt.
 --
 -- /Note:/ Consider using 'container' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adContainer :: Lens.Lens' AttemptDetail (Lude.Maybe AttemptContainerDetail)
-adContainer = Lens.lens (container :: AttemptDetail -> Lude.Maybe AttemptContainerDetail) (\s a -> s {container = a} :: AttemptDetail)
+adContainer :: Lens.Lens' AttemptDetail (Core.Maybe Types.AttemptContainerDetail)
+adContainer = Lens.field @"container"
 {-# DEPRECATED adContainer "Use generic-lens or generic-optics with 'container' instead." #-}
+
+-- | The Unix timestamp (in milliseconds) for when the attempt was started (when the attempt transitioned from the @STARTING@ state to the @RUNNING@ state).
+--
+-- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adStartedAt :: Lens.Lens' AttemptDetail (Core.Maybe Core.Integer)
+adStartedAt = Lens.field @"startedAt"
+{-# DEPRECATED adStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
 -- | A short, human-readable string to provide additional details about the current status of the job attempt.
 --
 -- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adStatusReason :: Lens.Lens' AttemptDetail (Lude.Maybe Lude.Text)
-adStatusReason = Lens.lens (statusReason :: AttemptDetail -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: AttemptDetail)
+adStatusReason :: Lens.Lens' AttemptDetail (Core.Maybe Types.StatusReason)
+adStatusReason = Lens.field @"statusReason"
 {-# DEPRECATED adStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
-instance Lude.FromJSON AttemptDetail where
+-- | The Unix timestamp (in milliseconds) for when the attempt was stopped (when the attempt transitioned from the @RUNNING@ state to a terminal state, such as @SUCCEEDED@ or @FAILED@ ).
+--
+-- /Note:/ Consider using 'stoppedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adStoppedAt :: Lens.Lens' AttemptDetail (Core.Maybe Core.Integer)
+adStoppedAt = Lens.field @"stoppedAt"
+{-# DEPRECATED adStoppedAt "Use generic-lens or generic-optics with 'stoppedAt' instead." #-}
+
+instance Core.FromJSON AttemptDetail where
   parseJSON =
-    Lude.withObject
-      "AttemptDetail"
-      ( \x ->
-          AttemptDetail'
-            Lude.<$> (x Lude..:? "stoppedAt")
-            Lude.<*> (x Lude..:? "startedAt")
-            Lude.<*> (x Lude..:? "container")
-            Lude.<*> (x Lude..:? "statusReason")
-      )
+    Core.withObject "AttemptDetail" Core.$
+      \x ->
+        AttemptDetail'
+          Core.<$> (x Core..:? "container")
+          Core.<*> (x Core..:? "startedAt")
+          Core.<*> (x Core..:? "statusReason")
+          Core.<*> (x Core..:? "stoppedAt")

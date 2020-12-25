@@ -13,56 +13,58 @@
 module Network.AWS.StepFunctions.Types.LogLevel
   ( LogLevel
       ( LogLevel',
-        All,
-        Error,
-        Fatal,
-        Off
+        LogLevelAll,
+        LogLevelError,
+        LogLevelFatal,
+        LogLevelOff,
+        fromLogLevel
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype LogLevel = LogLevel' Lude.Text
+newtype LogLevel = LogLevel' {fromLogLevel :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern All :: LogLevel
-pattern All = LogLevel' "ALL"
+pattern LogLevelAll :: LogLevel
+pattern LogLevelAll = LogLevel' "ALL"
 
-pattern Error :: LogLevel
-pattern Error = LogLevel' "ERROR"
+pattern LogLevelError :: LogLevel
+pattern LogLevelError = LogLevel' "ERROR"
 
-pattern Fatal :: LogLevel
-pattern Fatal = LogLevel' "FATAL"
+pattern LogLevelFatal :: LogLevel
+pattern LogLevelFatal = LogLevel' "FATAL"
 
-pattern Off :: LogLevel
-pattern Off = LogLevel' "OFF"
+pattern LogLevelOff :: LogLevel
+pattern LogLevelOff = LogLevel' "OFF"
 
 {-# COMPLETE
-  All,
-  Error,
-  Fatal,
-  Off,
+  LogLevelAll,
+  LogLevelError,
+  LogLevelFatal,
+  LogLevelOff,
   LogLevel'
   #-}

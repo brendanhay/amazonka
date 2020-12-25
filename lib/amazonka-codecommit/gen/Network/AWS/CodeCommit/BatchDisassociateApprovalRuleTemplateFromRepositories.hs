@@ -20,173 +20,148 @@ module Network.AWS.CodeCommit.BatchDisassociateApprovalRuleTemplateFromRepositor
     mkBatchDisassociateApprovalRuleTemplateFromRepositories,
 
     -- ** Request lenses
-    bdartfrRepositoryNames,
     bdartfrApprovalRuleTemplateName,
+    bdartfrRepositoryNames,
 
     -- * Destructuring the response
     BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse (..),
     mkBatchDisassociateApprovalRuleTemplateFromRepositoriesResponse,
 
     -- ** Response lenses
-    bdartfrrsDisassociatedRepositoryNames,
-    bdartfrrsErrors,
-    bdartfrrsResponseStatus,
+    bdartfrrrsDisassociatedRepositoryNames,
+    bdartfrrrsErrors,
+    bdartfrrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkBatchDisassociateApprovalRuleTemplateFromRepositories' smart constructor.
 data BatchDisassociateApprovalRuleTemplateFromRepositories = BatchDisassociateApprovalRuleTemplateFromRepositories'
-  { -- | The repository names that you want to disassociate from the approval rule template.
-    repositoryNames :: [Lude.Text],
-    -- | The name of the template that you want to disassociate from one or more repositories.
-    approvalRuleTemplateName :: Lude.Text
+  { -- | The name of the template that you want to disassociate from one or more repositories.
+    approvalRuleTemplateName :: Types.ApprovalRuleTemplateName,
+    -- | The repository names that you want to disassociate from the approval rule template.
+    repositoryNames :: [Types.RepositoryName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDisassociateApprovalRuleTemplateFromRepositories' with the minimum fields required to make a request.
---
--- * 'repositoryNames' - The repository names that you want to disassociate from the approval rule template.
--- * 'approvalRuleTemplateName' - The name of the template that you want to disassociate from one or more repositories.
+-- | Creates a 'BatchDisassociateApprovalRuleTemplateFromRepositories' value with any optional fields omitted.
 mkBatchDisassociateApprovalRuleTemplateFromRepositories ::
   -- | 'approvalRuleTemplateName'
-  Lude.Text ->
+  Types.ApprovalRuleTemplateName ->
   BatchDisassociateApprovalRuleTemplateFromRepositories
 mkBatchDisassociateApprovalRuleTemplateFromRepositories
-  pApprovalRuleTemplateName_ =
+  approvalRuleTemplateName =
     BatchDisassociateApprovalRuleTemplateFromRepositories'
-      { repositoryNames =
-          Lude.mempty,
-        approvalRuleTemplateName =
-          pApprovalRuleTemplateName_
+      { approvalRuleTemplateName,
+        repositoryNames = Core.mempty
       }
-
--- | The repository names that you want to disassociate from the approval rule template.
---
--- /Note:/ Consider using 'repositoryNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdartfrRepositoryNames :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositories [Lude.Text]
-bdartfrRepositoryNames = Lens.lens (repositoryNames :: BatchDisassociateApprovalRuleTemplateFromRepositories -> [Lude.Text]) (\s a -> s {repositoryNames = a} :: BatchDisassociateApprovalRuleTemplateFromRepositories)
-{-# DEPRECATED bdartfrRepositoryNames "Use generic-lens or generic-optics with 'repositoryNames' instead." #-}
 
 -- | The name of the template that you want to disassociate from one or more repositories.
 --
 -- /Note:/ Consider using 'approvalRuleTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdartfrApprovalRuleTemplateName :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositories Lude.Text
-bdartfrApprovalRuleTemplateName = Lens.lens (approvalRuleTemplateName :: BatchDisassociateApprovalRuleTemplateFromRepositories -> Lude.Text) (\s a -> s {approvalRuleTemplateName = a} :: BatchDisassociateApprovalRuleTemplateFromRepositories)
+bdartfrApprovalRuleTemplateName :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositories Types.ApprovalRuleTemplateName
+bdartfrApprovalRuleTemplateName = Lens.field @"approvalRuleTemplateName"
 {-# DEPRECATED bdartfrApprovalRuleTemplateName "Use generic-lens or generic-optics with 'approvalRuleTemplateName' instead." #-}
 
+-- | The repository names that you want to disassociate from the approval rule template.
+--
+-- /Note:/ Consider using 'repositoryNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bdartfrRepositoryNames :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositories [Types.RepositoryName]
+bdartfrRepositoryNames = Lens.field @"repositoryNames"
+{-# DEPRECATED bdartfrRepositoryNames "Use generic-lens or generic-optics with 'repositoryNames' instead." #-}
+
 instance
-  Lude.AWSRequest
+  Core.FromJSON
+    BatchDisassociateApprovalRuleTemplateFromRepositories
+  where
+  toJSON BatchDisassociateApprovalRuleTemplateFromRepositories {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("approvalRuleTemplateName" Core..= approvalRuleTemplateName),
+            Core.Just ("repositoryNames" Core..= repositoryNames)
+          ]
+      )
+
+instance
+  Core.AWSRequest
     BatchDisassociateApprovalRuleTemplateFromRepositories
   where
   type
     Rs BatchDisassociateApprovalRuleTemplateFromRepositories =
       BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "CodeCommit_20150413.BatchDisassociateApprovalRuleTemplateFromRepositories"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse'
-            Lude.<$> (x Lude..?> "disassociatedRepositoryNames" Lude..!@ Lude.mempty)
-              Lude.<*> (x Lude..?> "errors" Lude..!@ Lude.mempty)
-              Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "disassociatedRepositoryNames" Core..!= Core.mempty)
+              Core.<*> (x Core..:? "errors" Core..!= Core.mempty)
+              Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance
-  Lude.ToHeaders
-    BatchDisassociateApprovalRuleTemplateFromRepositories
-  where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodeCommit_20150413.BatchDisassociateApprovalRuleTemplateFromRepositories" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance
-  Lude.ToJSON
-    BatchDisassociateApprovalRuleTemplateFromRepositories
-  where
-  toJSON BatchDisassociateApprovalRuleTemplateFromRepositories' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("repositoryNames" Lude..= repositoryNames),
-            Lude.Just
-              ("approvalRuleTemplateName" Lude..= approvalRuleTemplateName)
-          ]
-      )
-
-instance
-  Lude.ToPath
-    BatchDisassociateApprovalRuleTemplateFromRepositories
-  where
-  toPath = Lude.const "/"
-
-instance
-  Lude.ToQuery
-    BatchDisassociateApprovalRuleTemplateFromRepositories
-  where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkBatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' smart constructor.
 data BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse = BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse'
   { -- | A list of repository names that have had their association with the template removed.
-    disassociatedRepositoryNames :: [Lude.Text],
+    disassociatedRepositoryNames :: [Types.RepositoryName],
     -- | A list of any errors that might have occurred while attempting to remove the association between the template and the repositories.
-    errors :: [BatchDisassociateApprovalRuleTemplateFromRepositoriesError],
+    errors :: [Types.BatchDisassociateApprovalRuleTemplateFromRepositoriesError],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' with the minimum fields required to make a request.
---
--- * 'disassociatedRepositoryNames' - A list of repository names that have had their association with the template removed.
--- * 'errors' - A list of any errors that might have occurred while attempting to remove the association between the template and the repositories.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse' value with any optional fields omitted.
 mkBatchDisassociateApprovalRuleTemplateFromRepositoriesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse
 mkBatchDisassociateApprovalRuleTemplateFromRepositoriesResponse
-  pResponseStatus_ =
+  responseStatus =
     BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse'
       { disassociatedRepositoryNames =
-          Lude.mempty,
-        errors = Lude.mempty,
-        responseStatus =
-          pResponseStatus_
+          Core.mempty,
+        errors = Core.mempty,
+        responseStatus
       }
 
 -- | A list of repository names that have had their association with the template removed.
 --
 -- /Note:/ Consider using 'disassociatedRepositoryNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdartfrrsDisassociatedRepositoryNames :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse [Lude.Text]
-bdartfrrsDisassociatedRepositoryNames = Lens.lens (disassociatedRepositoryNames :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse -> [Lude.Text]) (\s a -> s {disassociatedRepositoryNames = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse)
-{-# DEPRECATED bdartfrrsDisassociatedRepositoryNames "Use generic-lens or generic-optics with 'disassociatedRepositoryNames' instead." #-}
+bdartfrrrsDisassociatedRepositoryNames :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse [Types.RepositoryName]
+bdartfrrrsDisassociatedRepositoryNames = Lens.field @"disassociatedRepositoryNames"
+{-# DEPRECATED bdartfrrrsDisassociatedRepositoryNames "Use generic-lens or generic-optics with 'disassociatedRepositoryNames' instead." #-}
 
 -- | A list of any errors that might have occurred while attempting to remove the association between the template and the repositories.
 --
 -- /Note:/ Consider using 'errors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdartfrrsErrors :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse [BatchDisassociateApprovalRuleTemplateFromRepositoriesError]
-bdartfrrsErrors = Lens.lens (errors :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse -> [BatchDisassociateApprovalRuleTemplateFromRepositoriesError]) (\s a -> s {errors = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse)
-{-# DEPRECATED bdartfrrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
+bdartfrrrsErrors :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse [Types.BatchDisassociateApprovalRuleTemplateFromRepositoriesError]
+bdartfrrrsErrors = Lens.field @"errors"
+{-# DEPRECATED bdartfrrrsErrors "Use generic-lens or generic-optics with 'errors' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bdartfrrsResponseStatus :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse Lude.Int
-bdartfrrsResponseStatus = Lens.lens (responseStatus :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse)
-{-# DEPRECATED bdartfrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+bdartfrrrsResponseStatus :: Lens.Lens' BatchDisassociateApprovalRuleTemplateFromRepositoriesResponse Core.Int
+bdartfrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED bdartfrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

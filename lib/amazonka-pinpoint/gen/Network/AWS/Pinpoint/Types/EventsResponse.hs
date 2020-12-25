@@ -17,43 +17,37 @@ module Network.AWS.Pinpoint.Types.EventsResponse
     mkEventsResponse,
 
     -- * Lenses
-    eResults,
+    erResults,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.ItemResponse
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.ItemResponse as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about endpoints and the events that they're associated with.
 --
 -- /See:/ 'mkEventsResponse' smart constructor.
 newtype EventsResponse = EventsResponse'
   { -- | A map that contains a multipart response for each endpoint. For each item in this object, the endpoint ID is the key and the item response is the value. If no item response exists, the value can also be one of the following: 202, the request was processed successfully; or 400, the payload wasn't valid or required fields were missing.
-    results :: Lude.Maybe (Lude.HashMap Lude.Text (ItemResponse))
+    results :: Core.Maybe (Core.HashMap Core.Text Types.ItemResponse)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EventsResponse' with the minimum fields required to make a request.
---
--- * 'results' - A map that contains a multipart response for each endpoint. For each item in this object, the endpoint ID is the key and the item response is the value. If no item response exists, the value can also be one of the following: 202, the request was processed successfully; or 400, the payload wasn't valid or required fields were missing.
+-- | Creates a 'EventsResponse' value with any optional fields omitted.
 mkEventsResponse ::
   EventsResponse
-mkEventsResponse = EventsResponse' {results = Lude.Nothing}
+mkEventsResponse = EventsResponse' {results = Core.Nothing}
 
 -- | A map that contains a multipart response for each endpoint. For each item in this object, the endpoint ID is the key and the item response is the value. If no item response exists, the value can also be one of the following: 202, the request was processed successfully; or 400, the payload wasn't valid or required fields were missing.
 --
 -- /Note:/ Consider using 'results' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eResults :: Lens.Lens' EventsResponse (Lude.Maybe (Lude.HashMap Lude.Text (ItemResponse)))
-eResults = Lens.lens (results :: EventsResponse -> Lude.Maybe (Lude.HashMap Lude.Text (ItemResponse))) (\s a -> s {results = a} :: EventsResponse)
-{-# DEPRECATED eResults "Use generic-lens or generic-optics with 'results' instead." #-}
+erResults :: Lens.Lens' EventsResponse (Core.Maybe (Core.HashMap Core.Text Types.ItemResponse))
+erResults = Lens.field @"results"
+{-# DEPRECATED erResults "Use generic-lens or generic-optics with 'results' instead." #-}
 
-instance Lude.FromJSON EventsResponse where
+instance Core.FromJSON EventsResponse where
   parseJSON =
-    Lude.withObject
-      "EventsResponse"
-      ( \x ->
-          EventsResponse'
-            Lude.<$> (x Lude..:? "Results" Lude..!= Lude.mempty)
-      )
+    Core.withObject "EventsResponse" Core.$
+      \x -> EventsResponse' Core.<$> (x Core..:? "Results")

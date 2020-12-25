@@ -20,144 +20,142 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     mkDescribeIndexFields,
 
     -- ** Request lenses
+    difDomainName,
     difDeployed,
     difFieldNames,
-    difDomainName,
 
     -- * Destructuring the response
     DescribeIndexFieldsResponse (..),
     mkDescribeIndexFieldsResponse,
 
     -- ** Response lenses
-    difsrsIndexFields,
-    difsrsResponseStatus,
+    difrgrsIndexFields,
+    difrgrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudSearch.Types
+import qualified Network.AWS.CloudSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'DescribeIndexFields' @ operation. Specifies the name of the domain you want to describe. To restrict the response to particular index fields, specify the names of the index fields you want to describe. To show the active configuration and exclude any pending changes, set the @Deployed@ option to @true@ .
 --
 -- /See:/ 'mkDescribeIndexFields' smart constructor.
 data DescribeIndexFields = DescribeIndexFields'
-  { -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
-    deployed :: Lude.Maybe Lude.Bool,
+  { -- | The name of the domain you want to describe.
+    domainName :: Types.DomainName,
+    -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
+    deployed :: Core.Maybe Core.Bool,
     -- | A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.
-    fieldNames :: Lude.Maybe [Lude.Text],
-    -- | The name of the domain you want to describe.
-    domainName :: Lude.Text
+    fieldNames :: Core.Maybe [Types.DynamicFieldName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeIndexFields' with the minimum fields required to make a request.
---
--- * 'deployed' - Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
--- * 'fieldNames' - A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.
--- * 'domainName' - The name of the domain you want to describe.
+-- | Creates a 'DescribeIndexFields' value with any optional fields omitted.
 mkDescribeIndexFields ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.DomainName ->
   DescribeIndexFields
-mkDescribeIndexFields pDomainName_ =
+mkDescribeIndexFields domainName =
   DescribeIndexFields'
-    { deployed = Lude.Nothing,
-      fieldNames = Lude.Nothing,
-      domainName = pDomainName_
+    { domainName,
+      deployed = Core.Nothing,
+      fieldNames = Core.Nothing
     }
+
+-- | The name of the domain you want to describe.
+--
+-- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+difDomainName :: Lens.Lens' DescribeIndexFields Types.DomainName
+difDomainName = Lens.field @"domainName"
+{-# DEPRECATED difDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
 -- | Whether to display the deployed configuration (@true@ ) or include any pending changes (@false@ ). Defaults to @false@ .
 --
 -- /Note:/ Consider using 'deployed' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difDeployed :: Lens.Lens' DescribeIndexFields (Lude.Maybe Lude.Bool)
-difDeployed = Lens.lens (deployed :: DescribeIndexFields -> Lude.Maybe Lude.Bool) (\s a -> s {deployed = a} :: DescribeIndexFields)
+difDeployed :: Lens.Lens' DescribeIndexFields (Core.Maybe Core.Bool)
+difDeployed = Lens.field @"deployed"
 {-# DEPRECATED difDeployed "Use generic-lens or generic-optics with 'deployed' instead." #-}
 
 -- | A list of the index fields you want to describe. If not specified, information is returned for all configured index fields.
 --
 -- /Note:/ Consider using 'fieldNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difFieldNames :: Lens.Lens' DescribeIndexFields (Lude.Maybe [Lude.Text])
-difFieldNames = Lens.lens (fieldNames :: DescribeIndexFields -> Lude.Maybe [Lude.Text]) (\s a -> s {fieldNames = a} :: DescribeIndexFields)
+difFieldNames :: Lens.Lens' DescribeIndexFields (Core.Maybe [Types.DynamicFieldName])
+difFieldNames = Lens.field @"fieldNames"
 {-# DEPRECATED difFieldNames "Use generic-lens or generic-optics with 'fieldNames' instead." #-}
 
--- | The name of the domain you want to describe.
---
--- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difDomainName :: Lens.Lens' DescribeIndexFields Lude.Text
-difDomainName = Lens.lens (domainName :: DescribeIndexFields -> Lude.Text) (\s a -> s {domainName = a} :: DescribeIndexFields)
-{-# DEPRECATED difDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
-
-instance Lude.AWSRequest DescribeIndexFields where
+instance Core.AWSRequest DescribeIndexFields where
   type Rs DescribeIndexFields = DescribeIndexFieldsResponse
-  request = Req.postQuery cloudSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeIndexFields")
+                Core.<> (Core.pure ("Version", "2013-01-01"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryValue "Deployed" Core.<$> deployed)
+                Core.<> ( Core.toQueryValue
+                            "FieldNames"
+                            (Core.toQueryList "member" Core.<$> fieldNames)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeIndexFieldsResult"
       ( \s h x ->
           DescribeIndexFieldsResponse'
-            Lude.<$> ( x Lude..@? "IndexFields" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.parseXMLList "member"
+            Core.<$> ( x Core..@? "IndexFields" Core..@! Core.mempty
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeIndexFields where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeIndexFields where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeIndexFields where
-  toQuery DescribeIndexFields' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DescribeIndexFields" :: Lude.ByteString),
-        "Version" Lude.=: ("2013-01-01" :: Lude.ByteString),
-        "Deployed" Lude.=: deployed,
-        "FieldNames"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> fieldNames),
-        "DomainName" Lude.=: domainName
-      ]
 
 -- | The result of a @DescribeIndexFields@ request. Contains the index fields configured for the domain specified in the request.
 --
 -- /See:/ 'mkDescribeIndexFieldsResponse' smart constructor.
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
   { -- | The index fields configured for the domain.
-    indexFields :: [IndexFieldStatus],
+    indexFields :: [Types.IndexFieldStatus],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeIndexFieldsResponse' with the minimum fields required to make a request.
---
--- * 'indexFields' - The index fields configured for the domain.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeIndexFieldsResponse' value with any optional fields omitted.
 mkDescribeIndexFieldsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeIndexFieldsResponse
-mkDescribeIndexFieldsResponse pResponseStatus_ =
+mkDescribeIndexFieldsResponse responseStatus =
   DescribeIndexFieldsResponse'
-    { indexFields = Lude.mempty,
-      responseStatus = pResponseStatus_
+    { indexFields = Core.mempty,
+      responseStatus
     }
 
 -- | The index fields configured for the domain.
 --
 -- /Note:/ Consider using 'indexFields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difsrsIndexFields :: Lens.Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-difsrsIndexFields = Lens.lens (indexFields :: DescribeIndexFieldsResponse -> [IndexFieldStatus]) (\s a -> s {indexFields = a} :: DescribeIndexFieldsResponse)
-{-# DEPRECATED difsrsIndexFields "Use generic-lens or generic-optics with 'indexFields' instead." #-}
+difrgrsIndexFields :: Lens.Lens' DescribeIndexFieldsResponse [Types.IndexFieldStatus]
+difrgrsIndexFields = Lens.field @"indexFields"
+{-# DEPRECATED difrgrsIndexFields "Use generic-lens or generic-optics with 'indexFields' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-difsrsResponseStatus :: Lens.Lens' DescribeIndexFieldsResponse Lude.Int
-difsrsResponseStatus = Lens.lens (responseStatus :: DescribeIndexFieldsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeIndexFieldsResponse)
-{-# DEPRECATED difsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+difrgrsResponseStatus :: Lens.Lens' DescribeIndexFieldsResponse Core.Int
+difrgrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED difrgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -24,64 +24,59 @@ module Network.AWS.XRay.Types.UnprocessedTraceSegment
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.XRay.Types.String as Types
 
 -- | Information about a segment that failed processing.
 --
 -- /See:/ 'mkUnprocessedTraceSegment' smart constructor.
 data UnprocessedTraceSegment = UnprocessedTraceSegment'
   { -- | The error that caused processing to fail.
-    errorCode :: Lude.Maybe Lude.Text,
+    errorCode :: Core.Maybe Types.String,
     -- | The segment's ID.
-    id :: Lude.Maybe Lude.Text,
+    id :: Core.Maybe Types.String,
     -- | The error message.
-    message :: Lude.Maybe Lude.Text
+    message :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UnprocessedTraceSegment' with the minimum fields required to make a request.
---
--- * 'errorCode' - The error that caused processing to fail.
--- * 'id' - The segment's ID.
--- * 'message' - The error message.
+-- | Creates a 'UnprocessedTraceSegment' value with any optional fields omitted.
 mkUnprocessedTraceSegment ::
   UnprocessedTraceSegment
 mkUnprocessedTraceSegment =
   UnprocessedTraceSegment'
-    { errorCode = Lude.Nothing,
-      id = Lude.Nothing,
-      message = Lude.Nothing
+    { errorCode = Core.Nothing,
+      id = Core.Nothing,
+      message = Core.Nothing
     }
 
 -- | The error that caused processing to fail.
 --
 -- /Note:/ Consider using 'errorCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsErrorCode :: Lens.Lens' UnprocessedTraceSegment (Lude.Maybe Lude.Text)
-utsErrorCode = Lens.lens (errorCode :: UnprocessedTraceSegment -> Lude.Maybe Lude.Text) (\s a -> s {errorCode = a} :: UnprocessedTraceSegment)
+utsErrorCode :: Lens.Lens' UnprocessedTraceSegment (Core.Maybe Types.String)
+utsErrorCode = Lens.field @"errorCode"
 {-# DEPRECATED utsErrorCode "Use generic-lens or generic-optics with 'errorCode' instead." #-}
 
 -- | The segment's ID.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsId :: Lens.Lens' UnprocessedTraceSegment (Lude.Maybe Lude.Text)
-utsId = Lens.lens (id :: UnprocessedTraceSegment -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: UnprocessedTraceSegment)
+utsId :: Lens.Lens' UnprocessedTraceSegment (Core.Maybe Types.String)
+utsId = Lens.field @"id"
 {-# DEPRECATED utsId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The error message.
 --
 -- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utsMessage :: Lens.Lens' UnprocessedTraceSegment (Lude.Maybe Lude.Text)
-utsMessage = Lens.lens (message :: UnprocessedTraceSegment -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: UnprocessedTraceSegment)
+utsMessage :: Lens.Lens' UnprocessedTraceSegment (Core.Maybe Types.String)
+utsMessage = Lens.field @"message"
 {-# DEPRECATED utsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
 
-instance Lude.FromJSON UnprocessedTraceSegment where
+instance Core.FromJSON UnprocessedTraceSegment where
   parseJSON =
-    Lude.withObject
-      "UnprocessedTraceSegment"
-      ( \x ->
-          UnprocessedTraceSegment'
-            Lude.<$> (x Lude..:? "ErrorCode")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "Message")
-      )
+    Core.withObject "UnprocessedTraceSegment" Core.$
+      \x ->
+        UnprocessedTraceSegment'
+          Core.<$> (x Core..:? "ErrorCode")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "Message")

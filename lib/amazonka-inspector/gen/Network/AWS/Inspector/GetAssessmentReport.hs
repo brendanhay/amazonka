@@ -20,7 +20,7 @@ module Network.AWS.Inspector.GetAssessmentReport
     mkGetAssessmentReport,
 
     -- ** Request lenses
-    garAssessmentRunARN,
+    garAssessmentRunArn,
     garReportFileFormat,
     garReportType,
 
@@ -29,160 +29,142 @@ module Network.AWS.Inspector.GetAssessmentReport
     mkGetAssessmentReportResponse,
 
     -- ** Response lenses
-    garrsStatus,
-    garrsUrl,
-    garrsResponseStatus,
+    garrrsStatus,
+    garrrsUrl,
+    garrrsResponseStatus,
   )
 where
 
-import Network.AWS.Inspector.Types
+import qualified Network.AWS.Inspector.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetAssessmentReport' smart constructor.
 data GetAssessmentReport = GetAssessmentReport'
   { -- | The ARN that specifies the assessment run for which you want to generate a report.
-    assessmentRunARN :: Lude.Text,
+    assessmentRunArn :: Types.Arn,
     -- | Specifies the file format (html or pdf) of the assessment report that you want to generate.
-    reportFileFormat :: ReportFileFormat,
+    reportFileFormat :: Types.ReportFileFormat,
     -- | Specifies the type of the assessment report that you want to generate. There are two types of assessment reports: a finding report and a full report. For more information, see <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html Assessment Reports> .
-    reportType :: ReportType
+    reportType :: Types.ReportType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAssessmentReport' with the minimum fields required to make a request.
---
--- * 'assessmentRunARN' - The ARN that specifies the assessment run for which you want to generate a report.
--- * 'reportFileFormat' - Specifies the file format (html or pdf) of the assessment report that you want to generate.
--- * 'reportType' - Specifies the type of the assessment report that you want to generate. There are two types of assessment reports: a finding report and a full report. For more information, see <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html Assessment Reports> .
+-- | Creates a 'GetAssessmentReport' value with any optional fields omitted.
 mkGetAssessmentReport ::
-  -- | 'assessmentRunARN'
-  Lude.Text ->
+  -- | 'assessmentRunArn'
+  Types.Arn ->
   -- | 'reportFileFormat'
-  ReportFileFormat ->
+  Types.ReportFileFormat ->
   -- | 'reportType'
-  ReportType ->
+  Types.ReportType ->
   GetAssessmentReport
-mkGetAssessmentReport
-  pAssessmentRunARN_
-  pReportFileFormat_
-  pReportType_ =
-    GetAssessmentReport'
-      { assessmentRunARN = pAssessmentRunARN_,
-        reportFileFormat = pReportFileFormat_,
-        reportType = pReportType_
-      }
+mkGetAssessmentReport assessmentRunArn reportFileFormat reportType =
+  GetAssessmentReport'
+    { assessmentRunArn,
+      reportFileFormat,
+      reportType
+    }
 
 -- | The ARN that specifies the assessment run for which you want to generate a report.
 --
--- /Note:/ Consider using 'assessmentRunARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garAssessmentRunARN :: Lens.Lens' GetAssessmentReport Lude.Text
-garAssessmentRunARN = Lens.lens (assessmentRunARN :: GetAssessmentReport -> Lude.Text) (\s a -> s {assessmentRunARN = a} :: GetAssessmentReport)
-{-# DEPRECATED garAssessmentRunARN "Use generic-lens or generic-optics with 'assessmentRunARN' instead." #-}
+-- /Note:/ Consider using 'assessmentRunArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+garAssessmentRunArn :: Lens.Lens' GetAssessmentReport Types.Arn
+garAssessmentRunArn = Lens.field @"assessmentRunArn"
+{-# DEPRECATED garAssessmentRunArn "Use generic-lens or generic-optics with 'assessmentRunArn' instead." #-}
 
 -- | Specifies the file format (html or pdf) of the assessment report that you want to generate.
 --
 -- /Note:/ Consider using 'reportFileFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garReportFileFormat :: Lens.Lens' GetAssessmentReport ReportFileFormat
-garReportFileFormat = Lens.lens (reportFileFormat :: GetAssessmentReport -> ReportFileFormat) (\s a -> s {reportFileFormat = a} :: GetAssessmentReport)
+garReportFileFormat :: Lens.Lens' GetAssessmentReport Types.ReportFileFormat
+garReportFileFormat = Lens.field @"reportFileFormat"
 {-# DEPRECATED garReportFileFormat "Use generic-lens or generic-optics with 'reportFileFormat' instead." #-}
 
 -- | Specifies the type of the assessment report that you want to generate. There are two types of assessment reports: a finding report and a full report. For more information, see <https://docs.aws.amazon.com/inspector/latest/userguide/inspector_reports.html Assessment Reports> .
 --
 -- /Note:/ Consider using 'reportType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garReportType :: Lens.Lens' GetAssessmentReport ReportType
-garReportType = Lens.lens (reportType :: GetAssessmentReport -> ReportType) (\s a -> s {reportType = a} :: GetAssessmentReport)
+garReportType :: Lens.Lens' GetAssessmentReport Types.ReportType
+garReportType = Lens.field @"reportType"
 {-# DEPRECATED garReportType "Use generic-lens or generic-optics with 'reportType' instead." #-}
 
-instance Lude.AWSRequest GetAssessmentReport where
+instance Core.FromJSON GetAssessmentReport where
+  toJSON GetAssessmentReport {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("assessmentRunArn" Core..= assessmentRunArn),
+            Core.Just ("reportFileFormat" Core..= reportFileFormat),
+            Core.Just ("reportType" Core..= reportType)
+          ]
+      )
+
+instance Core.AWSRequest GetAssessmentReport where
   type Rs GetAssessmentReport = GetAssessmentReportResponse
-  request = Req.postJSON inspectorService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "InspectorService.GetAssessmentReport")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetAssessmentReportResponse'
-            Lude.<$> (x Lude..:> "status")
-            Lude.<*> (x Lude..?> "url")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..: "status")
+            Core.<*> (x Core..:? "url")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetAssessmentReport where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("InspectorService.GetAssessmentReport" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetAssessmentReport where
-  toJSON GetAssessmentReport' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("assessmentRunArn" Lude..= assessmentRunARN),
-            Lude.Just ("reportFileFormat" Lude..= reportFileFormat),
-            Lude.Just ("reportType" Lude..= reportType)
-          ]
-      )
-
-instance Lude.ToPath GetAssessmentReport where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetAssessmentReport where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetAssessmentReportResponse' smart constructor.
 data GetAssessmentReportResponse = GetAssessmentReportResponse'
   { -- | Specifies the status of the request to generate an assessment report.
-    status :: ReportStatus,
+    status :: Types.ReportStatus,
     -- | Specifies the URL where you can find the generated assessment report. This parameter is only returned if the report is successfully generated.
-    url :: Lude.Maybe Lude.Text,
+    url :: Core.Maybe Types.Url,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetAssessmentReportResponse' with the minimum fields required to make a request.
---
--- * 'status' - Specifies the status of the request to generate an assessment report.
--- * 'url' - Specifies the URL where you can find the generated assessment report. This parameter is only returned if the report is successfully generated.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetAssessmentReportResponse' value with any optional fields omitted.
 mkGetAssessmentReportResponse ::
   -- | 'status'
-  ReportStatus ->
+  Types.ReportStatus ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetAssessmentReportResponse
-mkGetAssessmentReportResponse pStatus_ pResponseStatus_ =
+mkGetAssessmentReportResponse status responseStatus =
   GetAssessmentReportResponse'
-    { status = pStatus_,
-      url = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { status,
+      url = Core.Nothing,
+      responseStatus
     }
 
 -- | Specifies the status of the request to generate an assessment report.
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garrsStatus :: Lens.Lens' GetAssessmentReportResponse ReportStatus
-garrsStatus = Lens.lens (status :: GetAssessmentReportResponse -> ReportStatus) (\s a -> s {status = a} :: GetAssessmentReportResponse)
-{-# DEPRECATED garrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+garrrsStatus :: Lens.Lens' GetAssessmentReportResponse Types.ReportStatus
+garrrsStatus = Lens.field @"status"
+{-# DEPRECATED garrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | Specifies the URL where you can find the generated assessment report. This parameter is only returned if the report is successfully generated.
 --
 -- /Note:/ Consider using 'url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garrsUrl :: Lens.Lens' GetAssessmentReportResponse (Lude.Maybe Lude.Text)
-garrsUrl = Lens.lens (url :: GetAssessmentReportResponse -> Lude.Maybe Lude.Text) (\s a -> s {url = a} :: GetAssessmentReportResponse)
-{-# DEPRECATED garrsUrl "Use generic-lens or generic-optics with 'url' instead." #-}
+garrrsUrl :: Lens.Lens' GetAssessmentReportResponse (Core.Maybe Types.Url)
+garrrsUrl = Lens.field @"url"
+{-# DEPRECATED garrrsUrl "Use generic-lens or generic-optics with 'url' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-garrsResponseStatus :: Lens.Lens' GetAssessmentReportResponse Lude.Int
-garrsResponseStatus = Lens.lens (responseStatus :: GetAssessmentReportResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetAssessmentReportResponse)
-{-# DEPRECATED garrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+garrrsResponseStatus :: Lens.Lens' GetAssessmentReportResponse Core.Int
+garrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED garrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

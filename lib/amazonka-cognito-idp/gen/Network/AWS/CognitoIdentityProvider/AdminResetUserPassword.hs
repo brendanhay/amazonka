@@ -23,62 +23,69 @@ module Network.AWS.CognitoIdentityProvider.AdminResetUserPassword
     mkAdminResetUserPassword,
 
     -- ** Request lenses
-    arupClientMetadata,
     arupUserPoolId,
     arupUsername,
+    arupClientMetadata,
 
     -- * Destructuring the response
     AdminResetUserPasswordResponse (..),
     mkAdminResetUserPasswordResponse,
 
     -- ** Response lenses
-    aruprsResponseStatus,
+    aruprrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to reset a user's password as an administrator.
 --
 -- /See:/ 'mkAdminResetUserPassword' smart constructor.
 data AdminResetUserPassword = AdminResetUserPassword'
-  { -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+  { -- | The user pool ID for the user pool where you want to reset the user's password.
+    userPoolId :: Types.UserPoolId,
+    -- | The user name of the user whose password you wish to reset.
+    username :: Types.Username,
+    -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
     --
     -- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminResetUserPassword API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminResetUserPassword request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
     -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
-    clientMetadata :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The user pool ID for the user pool where you want to reset the user's password.
-    userPoolId :: Lude.Text,
-    -- | The user name of the user whose password you wish to reset.
-    username :: Lude.Sensitive Lude.Text
+    clientMetadata :: Core.Maybe (Core.HashMap Types.StringType Types.StringType)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminResetUserPassword' with the minimum fields required to make a request.
---
--- * 'clientMetadata' - A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
---
--- You create custom workflows by assigning AWS Lambda functions to user pool triggers. When you use the AdminResetUserPassword API action, Amazon Cognito invokes the function that is assigned to the /custom message/ trigger. When Amazon Cognito invokes this function, it passes a JSON payload, which the function receives as input. This payload contains a @clientMetadata@ attribute, which provides the data that you assigned to the ClientMetadata parameter in your AdminResetUserPassword request. In your function code in AWS Lambda, you can process the @clientMetadata@ value to enhance your workflow for your specific needs.
--- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
--- * 'userPoolId' - The user pool ID for the user pool where you want to reset the user's password.
--- * 'username' - The user name of the user whose password you wish to reset.
+-- | Creates a 'AdminResetUserPassword' value with any optional fields omitted.
 mkAdminResetUserPassword ::
   -- | 'userPoolId'
-  Lude.Text ->
+  Types.UserPoolId ->
   -- | 'username'
-  Lude.Sensitive Lude.Text ->
+  Types.Username ->
   AdminResetUserPassword
-mkAdminResetUserPassword pUserPoolId_ pUsername_ =
+mkAdminResetUserPassword userPoolId username =
   AdminResetUserPassword'
-    { clientMetadata = Lude.Nothing,
-      userPoolId = pUserPoolId_,
-      username = pUsername_
+    { userPoolId,
+      username,
+      clientMetadata = Core.Nothing
     }
+
+-- | The user pool ID for the user pool where you want to reset the user's password.
+--
+-- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arupUserPoolId :: Lens.Lens' AdminResetUserPassword Types.UserPoolId
+arupUserPoolId = Lens.field @"userPoolId"
+{-# DEPRECATED arupUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+
+-- | The user name of the user whose password you wish to reset.
+--
+-- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arupUsername :: Lens.Lens' AdminResetUserPassword Types.Username
+arupUsername = Lens.field @"username"
+{-# DEPRECATED arupUsername "Use generic-lens or generic-optics with 'username' instead." #-}
 
 -- | A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
 --
@@ -86,89 +93,64 @@ mkAdminResetUserPassword pUserPoolId_ pUsername_ =
 -- For more information, see <https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools-working-with-aws-lambda-triggers.html Customizing User Pool Workflows with Lambda Triggers> in the /Amazon Cognito Developer Guide/ .
 --
 -- /Note:/ Consider using 'clientMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arupClientMetadata :: Lens.Lens' AdminResetUserPassword (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-arupClientMetadata = Lens.lens (clientMetadata :: AdminResetUserPassword -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {clientMetadata = a} :: AdminResetUserPassword)
+arupClientMetadata :: Lens.Lens' AdminResetUserPassword (Core.Maybe (Core.HashMap Types.StringType Types.StringType))
+arupClientMetadata = Lens.field @"clientMetadata"
 {-# DEPRECATED arupClientMetadata "Use generic-lens or generic-optics with 'clientMetadata' instead." #-}
 
--- | The user pool ID for the user pool where you want to reset the user's password.
---
--- /Note:/ Consider using 'userPoolId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arupUserPoolId :: Lens.Lens' AdminResetUserPassword Lude.Text
-arupUserPoolId = Lens.lens (userPoolId :: AdminResetUserPassword -> Lude.Text) (\s a -> s {userPoolId = a} :: AdminResetUserPassword)
-{-# DEPRECATED arupUserPoolId "Use generic-lens or generic-optics with 'userPoolId' instead." #-}
+instance Core.FromJSON AdminResetUserPassword where
+  toJSON AdminResetUserPassword {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("UserPoolId" Core..= userPoolId),
+            Core.Just ("Username" Core..= username),
+            ("ClientMetadata" Core..=) Core.<$> clientMetadata
+          ]
+      )
 
--- | The user name of the user whose password you wish to reset.
---
--- /Note:/ Consider using 'username' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arupUsername :: Lens.Lens' AdminResetUserPassword (Lude.Sensitive Lude.Text)
-arupUsername = Lens.lens (username :: AdminResetUserPassword -> Lude.Sensitive Lude.Text) (\s a -> s {username = a} :: AdminResetUserPassword)
-{-# DEPRECATED arupUsername "Use generic-lens or generic-optics with 'username' instead." #-}
-
-instance Lude.AWSRequest AdminResetUserPassword where
+instance Core.AWSRequest AdminResetUserPassword where
   type Rs AdminResetUserPassword = AdminResetUserPasswordResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.AdminResetUserPassword"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AdminResetUserPasswordResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AdminResetUserPassword where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.AdminResetUserPassword" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AdminResetUserPassword where
-  toJSON AdminResetUserPassword' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ClientMetadata" Lude..=) Lude.<$> clientMetadata,
-            Lude.Just ("UserPoolId" Lude..= userPoolId),
-            Lude.Just ("Username" Lude..= username)
-          ]
-      )
-
-instance Lude.ToPath AdminResetUserPassword where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AdminResetUserPassword where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the response from the server to reset a user password as an administrator.
 --
 -- /See:/ 'mkAdminResetUserPasswordResponse' smart constructor.
 newtype AdminResetUserPasswordResponse = AdminResetUserPasswordResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AdminResetUserPasswordResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AdminResetUserPasswordResponse' value with any optional fields omitted.
 mkAdminResetUserPasswordResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AdminResetUserPasswordResponse
-mkAdminResetUserPasswordResponse pResponseStatus_ =
-  AdminResetUserPasswordResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkAdminResetUserPasswordResponse responseStatus =
+  AdminResetUserPasswordResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aruprsResponseStatus :: Lens.Lens' AdminResetUserPasswordResponse Lude.Int
-aruprsResponseStatus = Lens.lens (responseStatus :: AdminResetUserPasswordResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AdminResetUserPasswordResponse)
-{-# DEPRECATED aruprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+aruprrsResponseStatus :: Lens.Lens' AdminResetUserPasswordResponse Core.Int
+aruprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED aruprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

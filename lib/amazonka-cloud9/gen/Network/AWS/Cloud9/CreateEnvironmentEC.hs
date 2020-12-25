@@ -20,14 +20,14 @@ module Network.AWS.Cloud9.CreateEnvironmentEC
     mkCreateEnvironmentEC,
 
     -- ** Request lenses
-    ceecAutomaticStopTimeMinutes,
-    ceecSubnetId,
-    ceecInstanceType,
-    ceecOwnerARN,
     ceecName,
+    ceecInstanceType,
+    ceecAutomaticStopTimeMinutes,
     ceecClientRequestToken,
     ceecConnectionType,
     ceecDescription,
+    ceecOwnerArn,
+    ceecSubnetId,
     ceecTags,
 
     -- * Destructuring the response
@@ -35,227 +35,204 @@ module Network.AWS.Cloud9.CreateEnvironmentEC
     mkCreateEnvironmentECResponse,
 
     -- ** Response lenses
-    ceecrsEnvironmentId,
-    ceecrsResponseStatus,
+    ceecrrsEnvironmentId,
+    ceecrrsResponseStatus,
   )
 where
 
-import Network.AWS.Cloud9.Types
+import qualified Network.AWS.Cloud9.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateEnvironmentEC' smart constructor.
 data CreateEnvironmentEC = CreateEnvironmentEC'
-  { -- | The number of minutes until the running instance is shut down after the environment has last been used.
-    automaticStopTimeMinutes :: Lude.Maybe Lude.Int,
-    -- | The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | The type of instance to connect to the environment (for example, @t2.micro@ ).
-    instanceType :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.
-    ownerARN :: Lude.Maybe Lude.Text,
-    -- | The name of the environment to create.
+  { -- | The name of the environment to create.
     --
     -- This name is visible to other AWS IAM users in the same AWS account.
-    name :: Lude.Text,
+    name :: Types.Name,
+    -- | The type of instance to connect to the environment (for example, @t2.micro@ ).
+    instanceType :: Types.InstanceType,
+    -- | The number of minutes until the running instance is shut down after the environment has last been used.
+    automaticStopTimeMinutes :: Core.Maybe Core.Int,
     -- | A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.
     --
     -- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Client Tokens> in the /Amazon EC2 API Reference/ .
-    clientRequestToken :: Lude.Maybe Lude.Text,
+    clientRequestToken :: Core.Maybe Types.ClientRequestToken,
     -- | The connection type used for connecting to an Amazon EC2 environment.
-    connectionType :: Lude.Maybe ConnectionType,
+    connectionType :: Core.Maybe Types.ConnectionType,
     -- | The description of the environment to create.
-    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    description :: Core.Maybe Types.Description,
+    -- | The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.
+    ownerArn :: Core.Maybe Types.OwnerArn,
+    -- | The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
+    subnetId :: Core.Maybe Types.SubnetId,
     -- | An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateEnvironmentEC' with the minimum fields required to make a request.
---
--- * 'automaticStopTimeMinutes' - The number of minutes until the running instance is shut down after the environment has last been used.
--- * 'subnetId' - The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
--- * 'instanceType' - The type of instance to connect to the environment (for example, @t2.micro@ ).
--- * 'ownerARN' - The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.
--- * 'name' - The name of the environment to create.
---
--- This name is visible to other AWS IAM users in the same AWS account.
--- * 'clientRequestToken' - A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.
---
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Client Tokens> in the /Amazon EC2 API Reference/ .
--- * 'connectionType' - The connection type used for connecting to an Amazon EC2 environment.
--- * 'description' - The description of the environment to create.
--- * 'tags' - An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.
+-- | Creates a 'CreateEnvironmentEC' value with any optional fields omitted.
 mkCreateEnvironmentEC ::
-  -- | 'instanceType'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'instanceType'
+  Types.InstanceType ->
   CreateEnvironmentEC
-mkCreateEnvironmentEC pInstanceType_ pName_ =
+mkCreateEnvironmentEC name instanceType =
   CreateEnvironmentEC'
-    { automaticStopTimeMinutes = Lude.Nothing,
-      subnetId = Lude.Nothing,
-      instanceType = pInstanceType_,
-      ownerARN = Lude.Nothing,
-      name = pName_,
-      clientRequestToken = Lude.Nothing,
-      connectionType = Lude.Nothing,
-      description = Lude.Nothing,
-      tags = Lude.Nothing
+    { name,
+      instanceType,
+      automaticStopTimeMinutes = Core.Nothing,
+      clientRequestToken = Core.Nothing,
+      connectionType = Core.Nothing,
+      description = Core.Nothing,
+      ownerArn = Core.Nothing,
+      subnetId = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The number of minutes until the running instance is shut down after the environment has last been used.
---
--- /Note:/ Consider using 'automaticStopTimeMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceecAutomaticStopTimeMinutes :: Lens.Lens' CreateEnvironmentEC (Lude.Maybe Lude.Int)
-ceecAutomaticStopTimeMinutes = Lens.lens (automaticStopTimeMinutes :: CreateEnvironmentEC -> Lude.Maybe Lude.Int) (\s a -> s {automaticStopTimeMinutes = a} :: CreateEnvironmentEC)
-{-# DEPRECATED ceecAutomaticStopTimeMinutes "Use generic-lens or generic-optics with 'automaticStopTimeMinutes' instead." #-}
-
--- | The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceecSubnetId :: Lens.Lens' CreateEnvironmentEC (Lude.Maybe Lude.Text)
-ceecSubnetId = Lens.lens (subnetId :: CreateEnvironmentEC -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: CreateEnvironmentEC)
-{-# DEPRECATED ceecSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | The type of instance to connect to the environment (for example, @t2.micro@ ).
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceecInstanceType :: Lens.Lens' CreateEnvironmentEC Lude.Text
-ceecInstanceType = Lens.lens (instanceType :: CreateEnvironmentEC -> Lude.Text) (\s a -> s {instanceType = a} :: CreateEnvironmentEC)
-{-# DEPRECATED ceecInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.
---
--- /Note:/ Consider using 'ownerARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceecOwnerARN :: Lens.Lens' CreateEnvironmentEC (Lude.Maybe Lude.Text)
-ceecOwnerARN = Lens.lens (ownerARN :: CreateEnvironmentEC -> Lude.Maybe Lude.Text) (\s a -> s {ownerARN = a} :: CreateEnvironmentEC)
-{-# DEPRECATED ceecOwnerARN "Use generic-lens or generic-optics with 'ownerARN' instead." #-}
 
 -- | The name of the environment to create.
 --
 -- This name is visible to other AWS IAM users in the same AWS account.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceecName :: Lens.Lens' CreateEnvironmentEC Lude.Text
-ceecName = Lens.lens (name :: CreateEnvironmentEC -> Lude.Text) (\s a -> s {name = a} :: CreateEnvironmentEC)
+ceecName :: Lens.Lens' CreateEnvironmentEC Types.Name
+ceecName = Lens.field @"name"
 {-# DEPRECATED ceecName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The type of instance to connect to the environment (for example, @t2.micro@ ).
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceecInstanceType :: Lens.Lens' CreateEnvironmentEC Types.InstanceType
+ceecInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED ceecInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The number of minutes until the running instance is shut down after the environment has last been used.
+--
+-- /Note:/ Consider using 'automaticStopTimeMinutes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceecAutomaticStopTimeMinutes :: Lens.Lens' CreateEnvironmentEC (Core.Maybe Core.Int)
+ceecAutomaticStopTimeMinutes = Lens.field @"automaticStopTimeMinutes"
+{-# DEPRECATED ceecAutomaticStopTimeMinutes "Use generic-lens or generic-optics with 'automaticStopTimeMinutes' instead." #-}
 
 -- | A unique, case-sensitive string that helps AWS Cloud9 to ensure this operation completes no more than one time.
 --
 -- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Client Tokens> in the /Amazon EC2 API Reference/ .
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceecClientRequestToken :: Lens.Lens' CreateEnvironmentEC (Lude.Maybe Lude.Text)
-ceecClientRequestToken = Lens.lens (clientRequestToken :: CreateEnvironmentEC -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: CreateEnvironmentEC)
+ceecClientRequestToken :: Lens.Lens' CreateEnvironmentEC (Core.Maybe Types.ClientRequestToken)
+ceecClientRequestToken = Lens.field @"clientRequestToken"
 {-# DEPRECATED ceecClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The connection type used for connecting to an Amazon EC2 environment.
 --
 -- /Note:/ Consider using 'connectionType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceecConnectionType :: Lens.Lens' CreateEnvironmentEC (Lude.Maybe ConnectionType)
-ceecConnectionType = Lens.lens (connectionType :: CreateEnvironmentEC -> Lude.Maybe ConnectionType) (\s a -> s {connectionType = a} :: CreateEnvironmentEC)
+ceecConnectionType :: Lens.Lens' CreateEnvironmentEC (Core.Maybe Types.ConnectionType)
+ceecConnectionType = Lens.field @"connectionType"
 {-# DEPRECATED ceecConnectionType "Use generic-lens or generic-optics with 'connectionType' instead." #-}
 
 -- | The description of the environment to create.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceecDescription :: Lens.Lens' CreateEnvironmentEC (Lude.Maybe (Lude.Sensitive Lude.Text))
-ceecDescription = Lens.lens (description :: CreateEnvironmentEC -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: CreateEnvironmentEC)
+ceecDescription :: Lens.Lens' CreateEnvironmentEC (Core.Maybe Types.Description)
+ceecDescription = Lens.field @"description"
 {-# DEPRECATED ceecDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the environment owner. This ARN can be the ARN of any AWS IAM principal. If this value is not specified, the ARN defaults to this environment's creator.
+--
+-- /Note:/ Consider using 'ownerArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceecOwnerArn :: Lens.Lens' CreateEnvironmentEC (Core.Maybe Types.OwnerArn)
+ceecOwnerArn = Lens.field @"ownerArn"
+{-# DEPRECATED ceecOwnerArn "Use generic-lens or generic-optics with 'ownerArn' instead." #-}
+
+-- | The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ceecSubnetId :: Lens.Lens' CreateEnvironmentEC (Core.Maybe Types.SubnetId)
+ceecSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED ceecSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | An array of key-value pairs that will be associated with the new AWS Cloud9 development environment.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceecTags :: Lens.Lens' CreateEnvironmentEC (Lude.Maybe [Tag])
-ceecTags = Lens.lens (tags :: CreateEnvironmentEC -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateEnvironmentEC)
+ceecTags :: Lens.Lens' CreateEnvironmentEC (Core.Maybe [Types.Tag])
+ceecTags = Lens.field @"tags"
 {-# DEPRECATED ceecTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateEnvironmentEC where
+instance Core.FromJSON CreateEnvironmentEC where
+  toJSON CreateEnvironmentEC {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("instanceType" Core..= instanceType),
+            ("automaticStopTimeMinutes" Core..=)
+              Core.<$> automaticStopTimeMinutes,
+            ("clientRequestToken" Core..=) Core.<$> clientRequestToken,
+            ("connectionType" Core..=) Core.<$> connectionType,
+            ("description" Core..=) Core.<$> description,
+            ("ownerArn" Core..=) Core.<$> ownerArn,
+            ("subnetId" Core..=) Core.<$> subnetId,
+            ("tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateEnvironmentEC where
   type Rs CreateEnvironmentEC = CreateEnvironmentECResponse
-  request = Req.postJSON cloud9Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateEnvironmentECResponse'
-            Lude.<$> (x Lude..?> "environmentId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "environmentId")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateEnvironmentEC where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateEnvironmentEC where
-  toJSON CreateEnvironmentEC' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("automaticStopTimeMinutes" Lude..=)
-              Lude.<$> automaticStopTimeMinutes,
-            ("subnetId" Lude..=) Lude.<$> subnetId,
-            Lude.Just ("instanceType" Lude..= instanceType),
-            ("ownerArn" Lude..=) Lude.<$> ownerARN,
-            Lude.Just ("name" Lude..= name),
-            ("clientRequestToken" Lude..=) Lude.<$> clientRequestToken,
-            ("connectionType" Lude..=) Lude.<$> connectionType,
-            ("description" Lude..=) Lude.<$> description,
-            ("tags" Lude..=) Lude.<$> tags
-          ]
-      )
-
-instance Lude.ToPath CreateEnvironmentEC where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateEnvironmentEC where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateEnvironmentECResponse' smart constructor.
 data CreateEnvironmentECResponse = CreateEnvironmentECResponse'
   { -- | The ID of the environment that was created.
-    environmentId :: Lude.Maybe Lude.Text,
+    environmentId :: Core.Maybe Types.EnvironmentId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateEnvironmentECResponse' with the minimum fields required to make a request.
---
--- * 'environmentId' - The ID of the environment that was created.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateEnvironmentECResponse' value with any optional fields omitted.
 mkCreateEnvironmentECResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateEnvironmentECResponse
-mkCreateEnvironmentECResponse pResponseStatus_ =
+mkCreateEnvironmentECResponse responseStatus =
   CreateEnvironmentECResponse'
-    { environmentId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { environmentId = Core.Nothing,
+      responseStatus
     }
 
 -- | The ID of the environment that was created.
 --
 -- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceecrsEnvironmentId :: Lens.Lens' CreateEnvironmentECResponse (Lude.Maybe Lude.Text)
-ceecrsEnvironmentId = Lens.lens (environmentId :: CreateEnvironmentECResponse -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: CreateEnvironmentECResponse)
-{-# DEPRECATED ceecrsEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
+ceecrrsEnvironmentId :: Lens.Lens' CreateEnvironmentECResponse (Core.Maybe Types.EnvironmentId)
+ceecrrsEnvironmentId = Lens.field @"environmentId"
+{-# DEPRECATED ceecrrsEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ceecrsResponseStatus :: Lens.Lens' CreateEnvironmentECResponse Lude.Int
-ceecrsResponseStatus = Lens.lens (responseStatus :: CreateEnvironmentECResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateEnvironmentECResponse)
-{-# DEPRECATED ceecrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ceecrrsResponseStatus :: Lens.Lens' CreateEnvironmentECResponse Core.Int
+ceecrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ceecrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

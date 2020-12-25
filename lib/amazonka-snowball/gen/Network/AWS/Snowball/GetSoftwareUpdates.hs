@@ -33,102 +33,91 @@ module Network.AWS.Snowball.GetSoftwareUpdates
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Snowball.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Snowball.Types as Types
 
 -- | /See:/ 'mkGetSoftwareUpdates' smart constructor.
 newtype GetSoftwareUpdates = GetSoftwareUpdates'
   { -- | The ID for a job that you want to get the software update file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSoftwareUpdates' with the minimum fields required to make a request.
---
--- * 'jobId' - The ID for a job that you want to get the software update file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
+-- | Creates a 'GetSoftwareUpdates' value with any optional fields omitted.
 mkGetSoftwareUpdates ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   GetSoftwareUpdates
-mkGetSoftwareUpdates pJobId_ = GetSoftwareUpdates' {jobId = pJobId_}
+mkGetSoftwareUpdates jobId = GetSoftwareUpdates' {jobId}
 
 -- | The ID for a job that you want to get the software update file for, for example @JID123e4567-e89b-12d3-a456-426655440000@ .
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gsuJobId :: Lens.Lens' GetSoftwareUpdates Lude.Text
-gsuJobId = Lens.lens (jobId :: GetSoftwareUpdates -> Lude.Text) (\s a -> s {jobId = a} :: GetSoftwareUpdates)
+gsuJobId :: Lens.Lens' GetSoftwareUpdates Types.JobId
+gsuJobId = Lens.field @"jobId"
 {-# DEPRECATED gsuJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest GetSoftwareUpdates where
+instance Core.FromJSON GetSoftwareUpdates where
+  toJSON GetSoftwareUpdates {..} =
+    Core.object (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.AWSRequest GetSoftwareUpdates where
   type Rs GetSoftwareUpdates = GetSoftwareUpdatesResponse
-  request = Req.postJSON snowballService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSIESnowballJobManagementService.GetSoftwareUpdates"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetSoftwareUpdatesResponse'
-            Lude.<$> (x Lude..?> "UpdatesURI") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "UpdatesURI") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetSoftwareUpdates where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSIESnowballJobManagementService.GetSoftwareUpdates" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetSoftwareUpdates where
-  toJSON GetSoftwareUpdates' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
-
-instance Lude.ToPath GetSoftwareUpdates where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetSoftwareUpdates where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetSoftwareUpdatesResponse' smart constructor.
 data GetSoftwareUpdatesResponse = GetSoftwareUpdatesResponse'
   { -- | The Amazon S3 presigned URL for the update file associated with the specified @JobId@ value. The software update will be available for 2 days after this request is made. To access an update after the 2 days have passed, you'll have to make another call to @GetSoftwareUpdates@ .
-    updatesURI :: Lude.Maybe Lude.Text,
+    updatesURI :: Core.Maybe Types.UpdatesURI,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetSoftwareUpdatesResponse' with the minimum fields required to make a request.
---
--- * 'updatesURI' - The Amazon S3 presigned URL for the update file associated with the specified @JobId@ value. The software update will be available for 2 days after this request is made. To access an update after the 2 days have passed, you'll have to make another call to @GetSoftwareUpdates@ .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetSoftwareUpdatesResponse' value with any optional fields omitted.
 mkGetSoftwareUpdatesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetSoftwareUpdatesResponse
-mkGetSoftwareUpdatesResponse pResponseStatus_ =
+mkGetSoftwareUpdatesResponse responseStatus =
   GetSoftwareUpdatesResponse'
-    { updatesURI = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { updatesURI = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon S3 presigned URL for the update file associated with the specified @JobId@ value. The software update will be available for 2 days after this request is made. To access an update after the 2 days have passed, you'll have to make another call to @GetSoftwareUpdates@ .
 --
 -- /Note:/ Consider using 'updatesURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsUpdatesURI :: Lens.Lens' GetSoftwareUpdatesResponse (Lude.Maybe Lude.Text)
-grsUpdatesURI = Lens.lens (updatesURI :: GetSoftwareUpdatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {updatesURI = a} :: GetSoftwareUpdatesResponse)
+grsUpdatesURI :: Lens.Lens' GetSoftwareUpdatesResponse (Core.Maybe Types.UpdatesURI)
+grsUpdatesURI = Lens.field @"updatesURI"
 {-# DEPRECATED grsUpdatesURI "Use generic-lens or generic-optics with 'updatesURI' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grsResponseStatus :: Lens.Lens' GetSoftwareUpdatesResponse Lude.Int
-grsResponseStatus = Lens.lens (responseStatus :: GetSoftwareUpdatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetSoftwareUpdatesResponse)
+grsResponseStatus :: Lens.Lens' GetSoftwareUpdatesResponse Core.Int
+grsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED grsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

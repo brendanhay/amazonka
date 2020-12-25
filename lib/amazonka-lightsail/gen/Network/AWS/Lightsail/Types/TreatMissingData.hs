@@ -13,56 +13,61 @@
 module Network.AWS.Lightsail.Types.TreatMissingData
   ( TreatMissingData
       ( TreatMissingData',
-        Breaching,
-        NotBreaching,
-        Ignore,
-        Missing
+        TreatMissingDataBreaching,
+        TreatMissingDataNotBreaching,
+        TreatMissingDataIgnore,
+        TreatMissingDataMissing,
+        fromTreatMissingData
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TreatMissingData = TreatMissingData' Lude.Text
+newtype TreatMissingData = TreatMissingData'
+  { fromTreatMissingData ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Breaching :: TreatMissingData
-pattern Breaching = TreatMissingData' "breaching"
+pattern TreatMissingDataBreaching :: TreatMissingData
+pattern TreatMissingDataBreaching = TreatMissingData' "breaching"
 
-pattern NotBreaching :: TreatMissingData
-pattern NotBreaching = TreatMissingData' "notBreaching"
+pattern TreatMissingDataNotBreaching :: TreatMissingData
+pattern TreatMissingDataNotBreaching = TreatMissingData' "notBreaching"
 
-pattern Ignore :: TreatMissingData
-pattern Ignore = TreatMissingData' "ignore"
+pattern TreatMissingDataIgnore :: TreatMissingData
+pattern TreatMissingDataIgnore = TreatMissingData' "ignore"
 
-pattern Missing :: TreatMissingData
-pattern Missing = TreatMissingData' "missing"
+pattern TreatMissingDataMissing :: TreatMissingData
+pattern TreatMissingDataMissing = TreatMissingData' "missing"
 
 {-# COMPLETE
-  Breaching,
-  NotBreaching,
-  Ignore,
-  Missing,
+  TreatMissingDataBreaching,
+  TreatMissingDataNotBreaching,
+  TreatMissingDataIgnore,
+  TreatMissingDataMissing,
   TreatMissingData'
   #-}

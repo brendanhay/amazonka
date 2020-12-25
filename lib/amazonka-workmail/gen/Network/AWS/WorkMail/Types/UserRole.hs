@@ -13,51 +13,53 @@
 module Network.AWS.WorkMail.Types.UserRole
   ( UserRole
       ( UserRole',
-        URUser,
-        URResource,
-        URSystemUser
+        UserRoleUser,
+        UserRoleResource,
+        UserRoleSystemUser,
+        fromUserRole
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UserRole = UserRole' Lude.Text
+newtype UserRole = UserRole' {fromUserRole :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern URUser :: UserRole
-pattern URUser = UserRole' "USER"
+pattern UserRoleUser :: UserRole
+pattern UserRoleUser = UserRole' "USER"
 
-pattern URResource :: UserRole
-pattern URResource = UserRole' "RESOURCE"
+pattern UserRoleResource :: UserRole
+pattern UserRoleResource = UserRole' "RESOURCE"
 
-pattern URSystemUser :: UserRole
-pattern URSystemUser = UserRole' "SYSTEM_USER"
+pattern UserRoleSystemUser :: UserRole
+pattern UserRoleSystemUser = UserRole' "SYSTEM_USER"
 
 {-# COMPLETE
-  URUser,
-  URResource,
-  URSystemUser,
+  UserRoleUser,
+  UserRoleResource,
+  UserRoleSystemUser,
   UserRole'
   #-}

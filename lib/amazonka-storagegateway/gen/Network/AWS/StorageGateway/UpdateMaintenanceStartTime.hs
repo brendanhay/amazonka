@@ -21,9 +21,9 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
 
     -- ** Request lenses
     umstGatewayARN,
+    umstHourOfDay,
     umstMinuteOfHour,
     umstDayOfMonth,
-    umstHourOfDay,
     umstDayOfWeek,
 
     -- * Destructuring the response
@@ -31,16 +31,16 @@ module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
     mkUpdateMaintenanceStartTimeResponse,
 
     -- ** Response lenses
-    umstrsGatewayARN,
-    umstrsResponseStatus,
+    umstrrsGatewayARN,
+    umstrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing the following fields:
 --
@@ -60,159 +60,141 @@ import Network.AWS.StorageGateway.Types
 --
 -- /See:/ 'mkUpdateMaintenanceStartTime' smart constructor.
 data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
-  { gatewayARN :: Lude.Text,
-    -- | The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
-    minuteOfHour :: Lude.Natural,
-    -- | The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
-    dayOfMonth :: Lude.Maybe Lude.Natural,
+  { gatewayARN :: Types.GatewayARN,
     -- | The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
-    hourOfDay :: Lude.Natural,
+    hourOfDay :: Core.Natural,
+    -- | The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+    minuteOfHour :: Core.Natural,
+    -- | The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+    dayOfMonth :: Core.Maybe Core.Natural,
     -- | The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
-    dayOfWeek :: Lude.Maybe Lude.Natural
+    dayOfWeek :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateMaintenanceStartTime' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'minuteOfHour' - The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
--- * 'dayOfMonth' - The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
--- * 'hourOfDay' - The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
--- * 'dayOfWeek' - The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+-- | Creates a 'UpdateMaintenanceStartTime' value with any optional fields omitted.
 mkUpdateMaintenanceStartTime ::
   -- | 'gatewayARN'
-  Lude.Text ->
-  -- | 'minuteOfHour'
-  Lude.Natural ->
+  Types.GatewayARN ->
   -- | 'hourOfDay'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'minuteOfHour'
+  Core.Natural ->
   UpdateMaintenanceStartTime
-mkUpdateMaintenanceStartTime
-  pGatewayARN_
-  pMinuteOfHour_
-  pHourOfDay_ =
-    UpdateMaintenanceStartTime'
-      { gatewayARN = pGatewayARN_,
-        minuteOfHour = pMinuteOfHour_,
-        dayOfMonth = Lude.Nothing,
-        hourOfDay = pHourOfDay_,
-        dayOfWeek = Lude.Nothing
-      }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umstGatewayARN :: Lens.Lens' UpdateMaintenanceStartTime Lude.Text
-umstGatewayARN = Lens.lens (gatewayARN :: UpdateMaintenanceStartTime -> Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateMaintenanceStartTime)
-{-# DEPRECATED umstGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
-
--- | The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
---
--- /Note:/ Consider using 'minuteOfHour' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umstMinuteOfHour :: Lens.Lens' UpdateMaintenanceStartTime Lude.Natural
-umstMinuteOfHour = Lens.lens (minuteOfHour :: UpdateMaintenanceStartTime -> Lude.Natural) (\s a -> s {minuteOfHour = a} :: UpdateMaintenanceStartTime)
-{-# DEPRECATED umstMinuteOfHour "Use generic-lens or generic-optics with 'minuteOfHour' instead." #-}
-
--- | The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
---
--- /Note:/ Consider using 'dayOfMonth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umstDayOfMonth :: Lens.Lens' UpdateMaintenanceStartTime (Lude.Maybe Lude.Natural)
-umstDayOfMonth = Lens.lens (dayOfMonth :: UpdateMaintenanceStartTime -> Lude.Maybe Lude.Natural) (\s a -> s {dayOfMonth = a} :: UpdateMaintenanceStartTime)
-{-# DEPRECATED umstDayOfMonth "Use generic-lens or generic-optics with 'dayOfMonth' instead." #-}
-
--- | The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
---
--- /Note:/ Consider using 'hourOfDay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umstHourOfDay :: Lens.Lens' UpdateMaintenanceStartTime Lude.Natural
-umstHourOfDay = Lens.lens (hourOfDay :: UpdateMaintenanceStartTime -> Lude.Natural) (\s a -> s {hourOfDay = a} :: UpdateMaintenanceStartTime)
-{-# DEPRECATED umstHourOfDay "Use generic-lens or generic-optics with 'hourOfDay' instead." #-}
-
--- | The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
---
--- /Note:/ Consider using 'dayOfWeek' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umstDayOfWeek :: Lens.Lens' UpdateMaintenanceStartTime (Lude.Maybe Lude.Natural)
-umstDayOfWeek = Lens.lens (dayOfWeek :: UpdateMaintenanceStartTime -> Lude.Maybe Lude.Natural) (\s a -> s {dayOfWeek = a} :: UpdateMaintenanceStartTime)
-{-# DEPRECATED umstDayOfWeek "Use generic-lens or generic-optics with 'dayOfWeek' instead." #-}
-
-instance Lude.AWSRequest UpdateMaintenanceStartTime where
-  type
-    Rs UpdateMaintenanceStartTime =
-      UpdateMaintenanceStartTimeResponse
-  request = Req.postJSON storageGatewayService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          UpdateMaintenanceStartTimeResponse'
-            Lude.<$> (x Lude..?> "GatewayARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders UpdateMaintenanceStartTime where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.UpdateMaintenanceStartTime" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateMaintenanceStartTime where
-  toJSON UpdateMaintenanceStartTime' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("GatewayARN" Lude..= gatewayARN),
-            Lude.Just ("MinuteOfHour" Lude..= minuteOfHour),
-            ("DayOfMonth" Lude..=) Lude.<$> dayOfMonth,
-            Lude.Just ("HourOfDay" Lude..= hourOfDay),
-            ("DayOfWeek" Lude..=) Lude.<$> dayOfWeek
-          ]
-      )
-
-instance Lude.ToPath UpdateMaintenanceStartTime where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateMaintenanceStartTime where
-  toQuery = Lude.const Lude.mempty
-
--- | A JSON object containing the Amazon Resource Name (ARN) of the gateway whose maintenance start time is updated.
---
--- /See:/ 'mkUpdateMaintenanceStartTimeResponse' smart constructor.
-data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
-    -- | The response status code.
-    responseStatus :: Lude.Int
-  }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
-
--- | Creates a value of 'UpdateMaintenanceStartTimeResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'responseStatus' - The response status code.
-mkUpdateMaintenanceStartTimeResponse ::
-  -- | 'responseStatus'
-  Lude.Int ->
-  UpdateMaintenanceStartTimeResponse
-mkUpdateMaintenanceStartTimeResponse pResponseStatus_ =
-  UpdateMaintenanceStartTimeResponse'
-    { gatewayARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+mkUpdateMaintenanceStartTime gatewayARN hourOfDay minuteOfHour =
+  UpdateMaintenanceStartTime'
+    { gatewayARN,
+      hourOfDay,
+      minuteOfHour,
+      dayOfMonth = Core.Nothing,
+      dayOfWeek = Core.Nothing
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umstrsGatewayARN :: Lens.Lens' UpdateMaintenanceStartTimeResponse (Lude.Maybe Lude.Text)
-umstrsGatewayARN = Lens.lens (gatewayARN :: UpdateMaintenanceStartTimeResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: UpdateMaintenanceStartTimeResponse)
-{-# DEPRECATED umstrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+umstGatewayARN :: Lens.Lens' UpdateMaintenanceStartTime Types.GatewayARN
+umstGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED umstGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
+
+-- | The hour component of the maintenance start time represented as /hh/ , where /hh/ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+--
+-- /Note:/ Consider using 'hourOfDay' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umstHourOfDay :: Lens.Lens' UpdateMaintenanceStartTime Core.Natural
+umstHourOfDay = Lens.field @"hourOfDay"
+{-# DEPRECATED umstHourOfDay "Use generic-lens or generic-optics with 'hourOfDay' instead." #-}
+
+-- | The minute component of the maintenance start time represented as /mm/ , where /mm/ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+--
+-- /Note:/ Consider using 'minuteOfHour' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umstMinuteOfHour :: Lens.Lens' UpdateMaintenanceStartTime Core.Natural
+umstMinuteOfHour = Lens.field @"minuteOfHour"
+{-# DEPRECATED umstMinuteOfHour "Use generic-lens or generic-optics with 'minuteOfHour' instead." #-}
+
+-- | The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+--
+-- /Note:/ Consider using 'dayOfMonth' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umstDayOfMonth :: Lens.Lens' UpdateMaintenanceStartTime (Core.Maybe Core.Natural)
+umstDayOfMonth = Lens.field @"dayOfMonth"
+{-# DEPRECATED umstDayOfMonth "Use generic-lens or generic-optics with 'dayOfMonth' instead." #-}
+
+-- | The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+--
+-- /Note:/ Consider using 'dayOfWeek' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umstDayOfWeek :: Lens.Lens' UpdateMaintenanceStartTime (Core.Maybe Core.Natural)
+umstDayOfWeek = Lens.field @"dayOfWeek"
+{-# DEPRECATED umstDayOfWeek "Use generic-lens or generic-optics with 'dayOfWeek' instead." #-}
+
+instance Core.FromJSON UpdateMaintenanceStartTime where
+  toJSON UpdateMaintenanceStartTime {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("GatewayARN" Core..= gatewayARN),
+            Core.Just ("HourOfDay" Core..= hourOfDay),
+            Core.Just ("MinuteOfHour" Core..= minuteOfHour),
+            ("DayOfMonth" Core..=) Core.<$> dayOfMonth,
+            ("DayOfWeek" Core..=) Core.<$> dayOfWeek
+          ]
+      )
+
+instance Core.AWSRequest UpdateMaintenanceStartTime where
+  type
+    Rs UpdateMaintenanceStartTime =
+      UpdateMaintenanceStartTimeResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "StorageGateway_20130630.UpdateMaintenanceStartTime"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          UpdateMaintenanceStartTimeResponse'
+            Core.<$> (x Core..:? "GatewayARN") Core.<*> (Core.pure (Core.fromEnum s))
+      )
+
+-- | A JSON object containing the Amazon Resource Name (ARN) of the gateway whose maintenance start time is updated.
+--
+-- /See:/ 'mkUpdateMaintenanceStartTimeResponse' smart constructor.
+data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
+  { gatewayARN :: Core.Maybe Types.GatewayARN,
+    -- | The response status code.
+    responseStatus :: Core.Int
+  }
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
+
+-- | Creates a 'UpdateMaintenanceStartTimeResponse' value with any optional fields omitted.
+mkUpdateMaintenanceStartTimeResponse ::
+  -- | 'responseStatus'
+  Core.Int ->
+  UpdateMaintenanceStartTimeResponse
+mkUpdateMaintenanceStartTimeResponse responseStatus =
+  UpdateMaintenanceStartTimeResponse'
+    { gatewayARN = Core.Nothing,
+      responseStatus
+    }
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+umstrrsGatewayARN :: Lens.Lens' UpdateMaintenanceStartTimeResponse (Core.Maybe Types.GatewayARN)
+umstrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED umstrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-umstrsResponseStatus :: Lens.Lens' UpdateMaintenanceStartTimeResponse Lude.Int
-umstrsResponseStatus = Lens.lens (responseStatus :: UpdateMaintenanceStartTimeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateMaintenanceStartTimeResponse)
-{-# DEPRECATED umstrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+umstrrsResponseStatus :: Lens.Lens' UpdateMaintenanceStartTimeResponse Core.Int
+umstrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED umstrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

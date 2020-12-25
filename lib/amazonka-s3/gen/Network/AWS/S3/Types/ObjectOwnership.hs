@@ -13,51 +13,56 @@
 module Network.AWS.S3.Types.ObjectOwnership
   ( ObjectOwnership
       ( ObjectOwnership',
-        BucketOwnerPreferred,
-        ObjectWriter
+        ObjectOwnershipBucketOwnerPreferred,
+        ObjectOwnershipObjectWriter,
+        fromObjectOwnership
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
 
 -- | The container element for object ownership for a bucket's ownership controls.
 --
 -- BucketOwnerPreferred - Objects uploaded to the bucket change ownership to the bucket owner if the objects are uploaded with the @bucket-owner-full-control@ canned ACL.
 -- ObjectWriter - The uploading account will own the object if the object is uploaded with the @bucket-owner-full-control@ canned ACL.
-newtype ObjectOwnership = ObjectOwnership' Lude.Text
+newtype ObjectOwnership = ObjectOwnership'
+  { fromObjectOwnership ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern BucketOwnerPreferred :: ObjectOwnership
-pattern BucketOwnerPreferred = ObjectOwnership' "BucketOwnerPreferred"
+pattern ObjectOwnershipBucketOwnerPreferred :: ObjectOwnership
+pattern ObjectOwnershipBucketOwnerPreferred = ObjectOwnership' "BucketOwnerPreferred"
 
-pattern ObjectWriter :: ObjectOwnership
-pattern ObjectWriter = ObjectOwnership' "ObjectWriter"
+pattern ObjectOwnershipObjectWriter :: ObjectOwnership
+pattern ObjectOwnershipObjectWriter = ObjectOwnership' "ObjectWriter"
 
 {-# COMPLETE
-  BucketOwnerPreferred,
-  ObjectWriter,
+  ObjectOwnershipBucketOwnerPreferred,
+  ObjectOwnershipObjectWriter,
   ObjectOwnership'
   #-}

@@ -18,12 +18,13 @@ module Network.AWS.CodeBuild.Types.BuildStatusConfig
 
     -- * Lenses
     bscContext,
-    bscTargetURL,
+    bscTargetUrl,
   )
 where
 
+import qualified Network.AWS.CodeBuild.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information that defines how the AWS CodeBuild build project reports the build status to the source provider.
 --
@@ -40,7 +41,7 @@ data BuildStatusConfig = BuildStatusConfig'
     --     * GitHub/GitHub Enterprise Server
     --
     --     * This parameter is used for the @context@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
-    context :: Lude.Maybe Lude.Text,
+    context :: Core.Maybe Types.String,
     -- | Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
     --
     --
@@ -52,43 +53,18 @@ data BuildStatusConfig = BuildStatusConfig'
     --     * GitHub/GitHub Enterprise Server
     --
     --     * This parameter is used for the @target_url@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
-    targetURL :: Lude.Maybe Lude.Text
+    targetUrl :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BuildStatusConfig' with the minimum fields required to make a request.
---
--- * 'context' - Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
---
---
---     * Bitbucket
---
---     * This parameter is used for the @name@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.
---
---
---     * GitHub/GitHub Enterprise Server
---
---     * This parameter is used for the @context@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
---
---
--- * 'targetURL' - Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
---
---
---     * Bitbucket
---
---     * This parameter is used for the @url@ parameter in the Bitbucket commit status. For more information, see <https://developer.atlassian.com/bitbucket/api/2/reference/resource/repositories/%7Bworkspace%7D/%7Brepo_slug%7D/commit/%7Bnode%7D/statuses/build build> in the Bitbucket API documentation.
---
---
---     * GitHub/GitHub Enterprise Server
---
---     * This parameter is used for the @target_url@ parameter in the GitHub commit status. For more information, see <https://developer.github.com/v3/repos/statuses/#create-a-commit-status Create a commit status> in the GitHub developer guide.
+-- | Creates a 'BuildStatusConfig' value with any optional fields omitted.
 mkBuildStatusConfig ::
   BuildStatusConfig
 mkBuildStatusConfig =
   BuildStatusConfig'
-    { context = Lude.Nothing,
-      targetURL = Lude.Nothing
+    { context = Core.Nothing,
+      targetUrl = Core.Nothing
     }
 
 -- | Specifies the context of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
@@ -106,8 +82,8 @@ mkBuildStatusConfig =
 --
 --
 -- /Note:/ Consider using 'context' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bscContext :: Lens.Lens' BuildStatusConfig (Lude.Maybe Lude.Text)
-bscContext = Lens.lens (context :: BuildStatusConfig -> Lude.Maybe Lude.Text) (\s a -> s {context = a} :: BuildStatusConfig)
+bscContext :: Lens.Lens' BuildStatusConfig (Core.Maybe Types.String)
+bscContext = Lens.field @"context"
 {-# DEPRECATED bscContext "Use generic-lens or generic-optics with 'context' instead." #-}
 
 -- | Specifies the target url of the build status CodeBuild sends to the source provider. The usage of this parameter depends on the source provider.
@@ -124,25 +100,23 @@ bscContext = Lens.lens (context :: BuildStatusConfig -> Lude.Maybe Lude.Text) (\
 --
 --
 --
--- /Note:/ Consider using 'targetURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bscTargetURL :: Lens.Lens' BuildStatusConfig (Lude.Maybe Lude.Text)
-bscTargetURL = Lens.lens (targetURL :: BuildStatusConfig -> Lude.Maybe Lude.Text) (\s a -> s {targetURL = a} :: BuildStatusConfig)
-{-# DEPRECATED bscTargetURL "Use generic-lens or generic-optics with 'targetURL' instead." #-}
+-- /Note:/ Consider using 'targetUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bscTargetUrl :: Lens.Lens' BuildStatusConfig (Core.Maybe Types.String)
+bscTargetUrl = Lens.field @"targetUrl"
+{-# DEPRECATED bscTargetUrl "Use generic-lens or generic-optics with 'targetUrl' instead." #-}
 
-instance Lude.FromJSON BuildStatusConfig where
-  parseJSON =
-    Lude.withObject
-      "BuildStatusConfig"
-      ( \x ->
-          BuildStatusConfig'
-            Lude.<$> (x Lude..:? "context") Lude.<*> (x Lude..:? "targetUrl")
-      )
-
-instance Lude.ToJSON BuildStatusConfig where
-  toJSON BuildStatusConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("context" Lude..=) Lude.<$> context,
-            ("targetUrl" Lude..=) Lude.<$> targetURL
+instance Core.FromJSON BuildStatusConfig where
+  toJSON BuildStatusConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("context" Core..=) Core.<$> context,
+            ("targetUrl" Core..=) Core.<$> targetUrl
           ]
       )
+
+instance Core.FromJSON BuildStatusConfig where
+  parseJSON =
+    Core.withObject "BuildStatusConfig" Core.$
+      \x ->
+        BuildStatusConfig'
+          Core.<$> (x Core..:? "context") Core.<*> (x Core..:? "targetUrl")

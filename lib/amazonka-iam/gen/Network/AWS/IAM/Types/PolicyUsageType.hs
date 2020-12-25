@@ -13,49 +13,54 @@
 module Network.AWS.IAM.Types.PolicyUsageType
   ( PolicyUsageType
       ( PolicyUsageType',
-        PermissionsPolicy,
-        PermissionsBoundary
+        PolicyUsageTypePermissionsPolicy,
+        PolicyUsageTypePermissionsBoundary,
+        fromPolicyUsageType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The policy usage type that indicates whether the policy is used as a permissions policy or as the permissions boundary for an entity.
 --
 -- For more information about permissions boundaries, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html Permissions Boundaries for IAM Identities > in the /IAM User Guide/ .
-newtype PolicyUsageType = PolicyUsageType' Lude.Text
+newtype PolicyUsageType = PolicyUsageType'
+  { fromPolicyUsageType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PermissionsPolicy :: PolicyUsageType
-pattern PermissionsPolicy = PolicyUsageType' "PermissionsPolicy"
+pattern PolicyUsageTypePermissionsPolicy :: PolicyUsageType
+pattern PolicyUsageTypePermissionsPolicy = PolicyUsageType' "PermissionsPolicy"
 
-pattern PermissionsBoundary :: PolicyUsageType
-pattern PermissionsBoundary = PolicyUsageType' "PermissionsBoundary"
+pattern PolicyUsageTypePermissionsBoundary :: PolicyUsageType
+pattern PolicyUsageTypePermissionsBoundary = PolicyUsageType' "PermissionsBoundary"
 
 {-# COMPLETE
-  PermissionsPolicy,
-  PermissionsBoundary,
+  PolicyUsageTypePermissionsPolicy,
+  PolicyUsageTypePermissionsBoundary,
   PolicyUsageType'
   #-}

@@ -13,72 +13,74 @@
 module Network.AWS.StorageGateway.Types.ObjectACL
   ( ObjectACL
       ( ObjectACL',
-        Private,
-        PublicRead,
-        PublicReadWrite,
-        AuthenticatedRead,
-        BucketOwnerRead,
-        BucketOwnerFullControl,
-        AWSExecRead
+        ObjectACLPrivate,
+        ObjectACLPublicRead,
+        ObjectACLPublicReadWrite,
+        ObjectACLAuthenticatedRead,
+        ObjectACLBucketOwnerRead,
+        ObjectACLBucketOwnerFullControl,
+        ObjectACLAwsExecRead,
+        fromObjectACL
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A value that sets the access control list (ACL) permission for objects in the S3 bucket that a file gateway puts objects into. The default value is @private@ .
-newtype ObjectACL = ObjectACL' Lude.Text
+newtype ObjectACL = ObjectACL' {fromObjectACL :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Private :: ObjectACL
-pattern Private = ObjectACL' "private"
+pattern ObjectACLPrivate :: ObjectACL
+pattern ObjectACLPrivate = ObjectACL' "private"
 
-pattern PublicRead :: ObjectACL
-pattern PublicRead = ObjectACL' "public-read"
+pattern ObjectACLPublicRead :: ObjectACL
+pattern ObjectACLPublicRead = ObjectACL' "public-read"
 
-pattern PublicReadWrite :: ObjectACL
-pattern PublicReadWrite = ObjectACL' "public-read-write"
+pattern ObjectACLPublicReadWrite :: ObjectACL
+pattern ObjectACLPublicReadWrite = ObjectACL' "public-read-write"
 
-pattern AuthenticatedRead :: ObjectACL
-pattern AuthenticatedRead = ObjectACL' "authenticated-read"
+pattern ObjectACLAuthenticatedRead :: ObjectACL
+pattern ObjectACLAuthenticatedRead = ObjectACL' "authenticated-read"
 
-pattern BucketOwnerRead :: ObjectACL
-pattern BucketOwnerRead = ObjectACL' "bucket-owner-read"
+pattern ObjectACLBucketOwnerRead :: ObjectACL
+pattern ObjectACLBucketOwnerRead = ObjectACL' "bucket-owner-read"
 
-pattern BucketOwnerFullControl :: ObjectACL
-pattern BucketOwnerFullControl = ObjectACL' "bucket-owner-full-control"
+pattern ObjectACLBucketOwnerFullControl :: ObjectACL
+pattern ObjectACLBucketOwnerFullControl = ObjectACL' "bucket-owner-full-control"
 
-pattern AWSExecRead :: ObjectACL
-pattern AWSExecRead = ObjectACL' "aws-exec-read"
+pattern ObjectACLAwsExecRead :: ObjectACL
+pattern ObjectACLAwsExecRead = ObjectACL' "aws-exec-read"
 
 {-# COMPLETE
-  Private,
-  PublicRead,
-  PublicReadWrite,
-  AuthenticatedRead,
-  BucketOwnerRead,
-  BucketOwnerFullControl,
-  AWSExecRead,
+  ObjectACLPrivate,
+  ObjectACLPublicRead,
+  ObjectACLPublicReadWrite,
+  ObjectACLAuthenticatedRead,
+  ObjectACLBucketOwnerRead,
+  ObjectACLBucketOwnerFullControl,
+  ObjectACLAwsExecRead,
   ObjectACL'
   #-}

@@ -17,81 +17,76 @@ module Network.AWS.EMR.Types.Configuration
     mkConfiguration,
 
     -- * Lenses
-    cConfigurations,
     cClassification,
+    cConfigurations,
     cProperties,
   )
 where
 
+import qualified Network.AWS.EMR.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file. For more information, see <https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html Configuring Applications> .
 --
 -- /See:/ 'mkConfiguration' smart constructor.
 data Configuration = Configuration'
-  { -- | A list of additional configurations to apply within a configuration object.
-    configurations :: Lude.Maybe [Configuration],
-    -- | The classification within a configuration.
-    classification :: Lude.Maybe Lude.Text,
+  { -- | The classification within a configuration.
+    classification :: Core.Maybe Types.String,
+    -- | A list of additional configurations to apply within a configuration object.
+    configurations :: Core.Maybe [Configuration],
     -- | A set of properties specified within a configuration classification.
-    properties :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))
+    properties :: Core.Maybe (Core.HashMap Types.String Types.String)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Configuration' with the minimum fields required to make a request.
---
--- * 'configurations' - A list of additional configurations to apply within a configuration object.
--- * 'classification' - The classification within a configuration.
--- * 'properties' - A set of properties specified within a configuration classification.
+-- | Creates a 'Configuration' value with any optional fields omitted.
 mkConfiguration ::
   Configuration
 mkConfiguration =
   Configuration'
-    { configurations = Lude.Nothing,
-      classification = Lude.Nothing,
-      properties = Lude.Nothing
+    { classification = Core.Nothing,
+      configurations = Core.Nothing,
+      properties = Core.Nothing
     }
-
--- | A list of additional configurations to apply within a configuration object.
---
--- /Note:/ Consider using 'configurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cConfigurations :: Lens.Lens' Configuration (Lude.Maybe [Configuration])
-cConfigurations = Lens.lens (configurations :: Configuration -> Lude.Maybe [Configuration]) (\s a -> s {configurations = a} :: Configuration)
-{-# DEPRECATED cConfigurations "Use generic-lens or generic-optics with 'configurations' instead." #-}
 
 -- | The classification within a configuration.
 --
 -- /Note:/ Consider using 'classification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cClassification :: Lens.Lens' Configuration (Lude.Maybe Lude.Text)
-cClassification = Lens.lens (classification :: Configuration -> Lude.Maybe Lude.Text) (\s a -> s {classification = a} :: Configuration)
+cClassification :: Lens.Lens' Configuration (Core.Maybe Types.String)
+cClassification = Lens.field @"classification"
 {-# DEPRECATED cClassification "Use generic-lens or generic-optics with 'classification' instead." #-}
+
+-- | A list of additional configurations to apply within a configuration object.
+--
+-- /Note:/ Consider using 'configurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cConfigurations :: Lens.Lens' Configuration (Core.Maybe [Configuration])
+cConfigurations = Lens.field @"configurations"
+{-# DEPRECATED cConfigurations "Use generic-lens or generic-optics with 'configurations' instead." #-}
 
 -- | A set of properties specified within a configuration classification.
 --
 -- /Note:/ Consider using 'properties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cProperties :: Lens.Lens' Configuration (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-cProperties = Lens.lens (properties :: Configuration -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {properties = a} :: Configuration)
+cProperties :: Lens.Lens' Configuration (Core.Maybe (Core.HashMap Types.String Types.String))
+cProperties = Lens.field @"properties"
 {-# DEPRECATED cProperties "Use generic-lens or generic-optics with 'properties' instead." #-}
 
-instance Lude.FromJSON Configuration where
-  parseJSON =
-    Lude.withObject
-      "Configuration"
-      ( \x ->
-          Configuration'
-            Lude.<$> (x Lude..:? "Configurations" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Classification")
-            Lude.<*> (x Lude..:? "Properties" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON Configuration where
-  toJSON Configuration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Configurations" Lude..=) Lude.<$> configurations,
-            ("Classification" Lude..=) Lude.<$> classification,
-            ("Properties" Lude..=) Lude.<$> properties
+instance Core.FromJSON Configuration where
+  toJSON Configuration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Classification" Core..=) Core.<$> classification,
+            ("Configurations" Core..=) Core.<$> configurations,
+            ("Properties" Core..=) Core.<$> properties
           ]
       )
+
+instance Core.FromJSON Configuration where
+  parseJSON =
+    Core.withObject "Configuration" Core.$
+      \x ->
+        Configuration'
+          Core.<$> (x Core..:? "Classification")
+          Core.<*> (x Core..:? "Configurations")
+          Core.<*> (x Core..:? "Properties")

@@ -17,105 +17,90 @@ module Network.AWS.EC2.Types.ReservedInstancesConfiguration
     mkReservedInstancesConfiguration,
 
     -- * Lenses
-    ricPlatform,
+    ricAvailabilityZone,
     ricInstanceCount,
     ricInstanceType,
-    ricAvailabilityZone,
+    ricPlatform,
     ricScope,
   )
 where
 
-import Network.AWS.EC2.Types.InstanceType
-import Network.AWS.EC2.Types.Scope
+import qualified Network.AWS.EC2.Types.InstanceType as Types
+import qualified Network.AWS.EC2.Types.Scope as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the configuration settings for the modified Reserved Instances.
 --
 -- /See:/ 'mkReservedInstancesConfiguration' smart constructor.
 data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
-  { -- | The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
-    platform :: Lude.Maybe Lude.Text,
+  { -- | The Availability Zone for the modified Reserved Instances.
+    availabilityZone :: Core.Maybe Types.String,
     -- | The number of modified Reserved Instances.
-    instanceCount :: Lude.Maybe Lude.Int,
+    instanceCount :: Core.Maybe Core.Int,
     -- | The instance type for the modified Reserved Instances.
-    instanceType :: Lude.Maybe InstanceType,
-    -- | The Availability Zone for the modified Reserved Instances.
-    availabilityZone :: Lude.Maybe Lude.Text,
+    instanceType :: Core.Maybe Types.InstanceType,
+    -- | The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
+    platform :: Core.Maybe Types.String,
     -- | Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.
-    scope :: Lude.Maybe Scope
+    scope :: Core.Maybe Types.Scope
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReservedInstancesConfiguration' with the minimum fields required to make a request.
---
--- * 'platform' - The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
--- * 'instanceCount' - The number of modified Reserved Instances.
--- * 'instanceType' - The instance type for the modified Reserved Instances.
--- * 'availabilityZone' - The Availability Zone for the modified Reserved Instances.
--- * 'scope' - Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.
+-- | Creates a 'ReservedInstancesConfiguration' value with any optional fields omitted.
 mkReservedInstancesConfiguration ::
   ReservedInstancesConfiguration
 mkReservedInstancesConfiguration =
   ReservedInstancesConfiguration'
-    { platform = Lude.Nothing,
-      instanceCount = Lude.Nothing,
-      instanceType = Lude.Nothing,
-      availabilityZone = Lude.Nothing,
-      scope = Lude.Nothing
+    { availabilityZone = Core.Nothing,
+      instanceCount = Core.Nothing,
+      instanceType = Core.Nothing,
+      platform = Core.Nothing,
+      scope = Core.Nothing
     }
 
--- | The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
+-- | The Availability Zone for the modified Reserved Instances.
 --
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ricPlatform :: Lens.Lens' ReservedInstancesConfiguration (Lude.Maybe Lude.Text)
-ricPlatform = Lens.lens (platform :: ReservedInstancesConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {platform = a} :: ReservedInstancesConfiguration)
-{-# DEPRECATED ricPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ricAvailabilityZone :: Lens.Lens' ReservedInstancesConfiguration (Core.Maybe Types.String)
+ricAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED ricAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The number of modified Reserved Instances.
 --
 -- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ricInstanceCount :: Lens.Lens' ReservedInstancesConfiguration (Lude.Maybe Lude.Int)
-ricInstanceCount = Lens.lens (instanceCount :: ReservedInstancesConfiguration -> Lude.Maybe Lude.Int) (\s a -> s {instanceCount = a} :: ReservedInstancesConfiguration)
+ricInstanceCount :: Lens.Lens' ReservedInstancesConfiguration (Core.Maybe Core.Int)
+ricInstanceCount = Lens.field @"instanceCount"
 {-# DEPRECATED ricInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | The instance type for the modified Reserved Instances.
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ricInstanceType :: Lens.Lens' ReservedInstancesConfiguration (Lude.Maybe InstanceType)
-ricInstanceType = Lens.lens (instanceType :: ReservedInstancesConfiguration -> Lude.Maybe InstanceType) (\s a -> s {instanceType = a} :: ReservedInstancesConfiguration)
+ricInstanceType :: Lens.Lens' ReservedInstancesConfiguration (Core.Maybe Types.InstanceType)
+ricInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED ricInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
--- | The Availability Zone for the modified Reserved Instances.
+-- | The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.
 --
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ricAvailabilityZone :: Lens.Lens' ReservedInstancesConfiguration (Lude.Maybe Lude.Text)
-ricAvailabilityZone = Lens.lens (availabilityZone :: ReservedInstancesConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {availabilityZone = a} :: ReservedInstancesConfiguration)
-{-# DEPRECATED ricAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ricPlatform :: Lens.Lens' ReservedInstancesConfiguration (Core.Maybe Types.String)
+ricPlatform = Lens.field @"platform"
+{-# DEPRECATED ricPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.
 --
 -- /Note:/ Consider using 'scope' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ricScope :: Lens.Lens' ReservedInstancesConfiguration (Lude.Maybe Scope)
-ricScope = Lens.lens (scope :: ReservedInstancesConfiguration -> Lude.Maybe Scope) (\s a -> s {scope = a} :: ReservedInstancesConfiguration)
+ricScope :: Lens.Lens' ReservedInstancesConfiguration (Core.Maybe Types.Scope)
+ricScope = Lens.field @"scope"
 {-# DEPRECATED ricScope "Use generic-lens or generic-optics with 'scope' instead." #-}
 
-instance Lude.FromXML ReservedInstancesConfiguration where
+instance Core.FromXML ReservedInstancesConfiguration where
   parseXML x =
     ReservedInstancesConfiguration'
-      Lude.<$> (x Lude..@? "platform")
-      Lude.<*> (x Lude..@? "instanceCount")
-      Lude.<*> (x Lude..@? "instanceType")
-      Lude.<*> (x Lude..@? "availabilityZone")
-      Lude.<*> (x Lude..@? "scope")
-
-instance Lude.ToQuery ReservedInstancesConfiguration where
-  toQuery ReservedInstancesConfiguration' {..} =
-    Lude.mconcat
-      [ "Platform" Lude.=: platform,
-        "InstanceCount" Lude.=: instanceCount,
-        "InstanceType" Lude.=: instanceType,
-        "AvailabilityZone" Lude.=: availabilityZone,
-        "Scope" Lude.=: scope
-      ]
+      Core.<$> (x Core..@? "availabilityZone")
+      Core.<*> (x Core..@? "instanceCount")
+      Core.<*> (x Core..@? "instanceType")
+      Core.<*> (x Core..@? "platform")
+      Core.<*> (x Core..@? "scope")

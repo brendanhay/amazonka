@@ -22,9 +22,10 @@ module Network.AWS.CloudFormation.Types.AccountGateResult
   )
 where
 
-import Network.AWS.CloudFormation.Types.AccountGateStatus
+import qualified Network.AWS.CloudFormation.Types.AccountGateStatus as Types
+import qualified Network.AWS.CloudFormation.Types.StatusReason as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Structure that contains the results of the account gate function which AWS CloudFormation invokes, if present, before proceeding with a stack set operation in an account and Region.
 --
@@ -51,44 +52,20 @@ data AccountGateResult = AccountGateResult'
     --
     --
     --     * Either no action is necessary, or no action is possible, on the stack. AWS CloudFormation skips the stack set operation in this account and Region.
-    status :: Lude.Maybe AccountGateStatus,
+    status :: Core.Maybe Types.AccountGateStatus,
     -- | The reason for the account gate status assigned to this account and Region for the stack set operation.
-    statusReason :: Lude.Maybe Lude.Text
+    statusReason :: Core.Maybe Types.StatusReason
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AccountGateResult' with the minimum fields required to make a request.
---
--- * 'status' - The status of the account gate function.
---
---
---     * @SUCCEEDED@ : The account gate function has determined that the account and Region passes any requirements for a stack set operation to occur. AWS CloudFormation proceeds with the stack operation in that account and Region.
---
---
---     * @FAILED@ : The account gate function has determined that the account and Region does not meet the requirements for a stack set operation to occur. AWS CloudFormation cancels the stack set operation in that account and Region, and sets the stack set operation result status for that account and Region to @FAILED@ .
---
---
---     * @SKIPPED@ : AWS CloudFormation has skipped calling the account gate function for this account and Region, for one of the following reasons:
---
---     * An account gate function has not been specified for the account and Region. AWS CloudFormation proceeds with the stack set operation in this account and Region.
---
---
---     * The @AWSCloudFormationStackSetExecutionRole@ of the stack set adminstration account lacks permissions to invoke the function. AWS CloudFormation proceeds with the stack set operation in this account and Region.
---
---
---     * Either no action is necessary, or no action is possible, on the stack. AWS CloudFormation skips the stack set operation in this account and Region.
---
---
---
---
--- * 'statusReason' - The reason for the account gate status assigned to this account and Region for the stack set operation.
+-- | Creates a 'AccountGateResult' value with any optional fields omitted.
 mkAccountGateResult ::
   AccountGateResult
 mkAccountGateResult =
   AccountGateResult'
-    { status = Lude.Nothing,
-      statusReason = Lude.Nothing
+    { status = Core.Nothing,
+      statusReason = Core.Nothing
     }
 
 -- | The status of the account gate function.
@@ -115,18 +92,18 @@ mkAccountGateResult =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agrStatus :: Lens.Lens' AccountGateResult (Lude.Maybe AccountGateStatus)
-agrStatus = Lens.lens (status :: AccountGateResult -> Lude.Maybe AccountGateStatus) (\s a -> s {status = a} :: AccountGateResult)
+agrStatus :: Lens.Lens' AccountGateResult (Core.Maybe Types.AccountGateStatus)
+agrStatus = Lens.field @"status"
 {-# DEPRECATED agrStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The reason for the account gate status assigned to this account and Region for the stack set operation.
 --
 -- /Note:/ Consider using 'statusReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-agrStatusReason :: Lens.Lens' AccountGateResult (Lude.Maybe Lude.Text)
-agrStatusReason = Lens.lens (statusReason :: AccountGateResult -> Lude.Maybe Lude.Text) (\s a -> s {statusReason = a} :: AccountGateResult)
+agrStatusReason :: Lens.Lens' AccountGateResult (Core.Maybe Types.StatusReason)
+agrStatusReason = Lens.field @"statusReason"
 {-# DEPRECATED agrStatusReason "Use generic-lens or generic-optics with 'statusReason' instead." #-}
 
-instance Lude.FromXML AccountGateResult where
+instance Core.FromXML AccountGateResult where
   parseXML x =
     AccountGateResult'
-      Lude.<$> (x Lude..@? "Status") Lude.<*> (x Lude..@? "StatusReason")
+      Core.<$> (x Core..@? "Status") Core.<*> (x Core..@? "StatusReason")

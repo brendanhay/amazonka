@@ -13,51 +13,56 @@
 module Network.AWS.MigrationHub.Types.ApplicationStatus
   ( ApplicationStatus
       ( ApplicationStatus',
-        ASNotStarted,
-        ASInProgress,
-        ASCompleted
+        ApplicationStatusNotStarted,
+        ApplicationStatusInProgress,
+        ApplicationStatusCompleted,
+        fromApplicationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ApplicationStatus = ApplicationStatus' Lude.Text
+newtype ApplicationStatus = ApplicationStatus'
+  { fromApplicationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ASNotStarted :: ApplicationStatus
-pattern ASNotStarted = ApplicationStatus' "NOT_STARTED"
+pattern ApplicationStatusNotStarted :: ApplicationStatus
+pattern ApplicationStatusNotStarted = ApplicationStatus' "NOT_STARTED"
 
-pattern ASInProgress :: ApplicationStatus
-pattern ASInProgress = ApplicationStatus' "IN_PROGRESS"
+pattern ApplicationStatusInProgress :: ApplicationStatus
+pattern ApplicationStatusInProgress = ApplicationStatus' "IN_PROGRESS"
 
-pattern ASCompleted :: ApplicationStatus
-pattern ASCompleted = ApplicationStatus' "COMPLETED"
+pattern ApplicationStatusCompleted :: ApplicationStatus
+pattern ApplicationStatusCompleted = ApplicationStatus' "COMPLETED"
 
 {-# COMPLETE
-  ASNotStarted,
-  ASInProgress,
-  ASCompleted,
+  ApplicationStatusNotStarted,
+  ApplicationStatusInProgress,
+  ApplicationStatusCompleted,
   ApplicationStatus'
   #-}

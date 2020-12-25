@@ -24,8 +24,8 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     mkCreateAppCookieStickinessPolicy,
 
     -- ** Request lenses
-    cacspPolicyName,
     cacspLoadBalancerName,
+    cacspPolicyName,
     cacspCookieName,
 
     -- * Destructuring the response
@@ -33,130 +33,123 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     mkCreateAppCookieStickinessPolicyResponse,
 
     -- ** Response lenses
-    cacsprsResponseStatus,
+    cacsprrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for CreateAppCookieStickinessPolicy.
 --
 -- /See:/ 'mkCreateAppCookieStickinessPolicy' smart constructor.
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
-  { -- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
-    policyName :: Lude.Text,
-    -- | The name of the load balancer.
-    loadBalancerName :: Lude.Text,
+  { -- | The name of the load balancer.
+    loadBalancerName :: Types.AccessPointName,
+    -- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
+    policyName :: Types.PolicyName,
     -- | The name of the application cookie used for stickiness.
-    cookieName :: Lude.Text
+    cookieName :: Types.CookieName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAppCookieStickinessPolicy' with the minimum fields required to make a request.
---
--- * 'policyName' - The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
--- * 'loadBalancerName' - The name of the load balancer.
--- * 'cookieName' - The name of the application cookie used for stickiness.
+-- | Creates a 'CreateAppCookieStickinessPolicy' value with any optional fields omitted.
 mkCreateAppCookieStickinessPolicy ::
-  -- | 'policyName'
-  Lude.Text ->
   -- | 'loadBalancerName'
-  Lude.Text ->
+  Types.AccessPointName ->
+  -- | 'policyName'
+  Types.PolicyName ->
   -- | 'cookieName'
-  Lude.Text ->
+  Types.CookieName ->
   CreateAppCookieStickinessPolicy
 mkCreateAppCookieStickinessPolicy
-  pPolicyName_
-  pLoadBalancerName_
-  pCookieName_ =
+  loadBalancerName
+  policyName
+  cookieName =
     CreateAppCookieStickinessPolicy'
-      { policyName = pPolicyName_,
-        loadBalancerName = pLoadBalancerName_,
-        cookieName = pCookieName_
+      { loadBalancerName,
+        policyName,
+        cookieName
       }
-
--- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
---
--- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacspPolicyName :: Lens.Lens' CreateAppCookieStickinessPolicy Lude.Text
-cacspPolicyName = Lens.lens (policyName :: CreateAppCookieStickinessPolicy -> Lude.Text) (\s a -> s {policyName = a} :: CreateAppCookieStickinessPolicy)
-{-# DEPRECATED cacspPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacspLoadBalancerName :: Lens.Lens' CreateAppCookieStickinessPolicy Lude.Text
-cacspLoadBalancerName = Lens.lens (loadBalancerName :: CreateAppCookieStickinessPolicy -> Lude.Text) (\s a -> s {loadBalancerName = a} :: CreateAppCookieStickinessPolicy)
+cacspLoadBalancerName :: Lens.Lens' CreateAppCookieStickinessPolicy Types.AccessPointName
+cacspLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED cacspLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
+
+-- | The name of the policy being created. Policy names must consist of alphanumeric characters and dashes (-). This name must be unique within the set of policies for this load balancer.
+--
+-- /Note:/ Consider using 'policyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cacspPolicyName :: Lens.Lens' CreateAppCookieStickinessPolicy Types.PolicyName
+cacspPolicyName = Lens.field @"policyName"
+{-# DEPRECATED cacspPolicyName "Use generic-lens or generic-optics with 'policyName' instead." #-}
 
 -- | The name of the application cookie used for stickiness.
 --
 -- /Note:/ Consider using 'cookieName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacspCookieName :: Lens.Lens' CreateAppCookieStickinessPolicy Lude.Text
-cacspCookieName = Lens.lens (cookieName :: CreateAppCookieStickinessPolicy -> Lude.Text) (\s a -> s {cookieName = a} :: CreateAppCookieStickinessPolicy)
+cacspCookieName :: Lens.Lens' CreateAppCookieStickinessPolicy Types.CookieName
+cacspCookieName = Lens.field @"cookieName"
 {-# DEPRECATED cacspCookieName "Use generic-lens or generic-optics with 'cookieName' instead." #-}
 
-instance Lude.AWSRequest CreateAppCookieStickinessPolicy where
+instance Core.AWSRequest CreateAppCookieStickinessPolicy where
   type
     Rs CreateAppCookieStickinessPolicy =
       CreateAppCookieStickinessPolicyResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateAppCookieStickinessPolicy")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" loadBalancerName)
+                Core.<> (Core.toQueryValue "PolicyName" policyName)
+                Core.<> (Core.toQueryValue "CookieName" cookieName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateAppCookieStickinessPolicyResult"
       ( \s h x ->
           CreateAppCookieStickinessPolicyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateAppCookieStickinessPolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateAppCookieStickinessPolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateAppCookieStickinessPolicy where
-  toQuery CreateAppCookieStickinessPolicy' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("CreateAppCookieStickinessPolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "PolicyName" Lude.=: policyName,
-        "LoadBalancerName" Lude.=: loadBalancerName,
-        "CookieName" Lude.=: cookieName
-      ]
 
 -- | Contains the output for CreateAppCookieStickinessPolicy.
 --
 -- /See:/ 'mkCreateAppCookieStickinessPolicyResponse' smart constructor.
 newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAppCookieStickinessPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateAppCookieStickinessPolicyResponse' value with any optional fields omitted.
 mkCreateAppCookieStickinessPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateAppCookieStickinessPolicyResponse
-mkCreateAppCookieStickinessPolicyResponse pResponseStatus_ =
-  CreateAppCookieStickinessPolicyResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkCreateAppCookieStickinessPolicyResponse responseStatus =
+  CreateAppCookieStickinessPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cacsprsResponseStatus :: Lens.Lens' CreateAppCookieStickinessPolicyResponse Lude.Int
-cacsprsResponseStatus = Lens.lens (responseStatus :: CreateAppCookieStickinessPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppCookieStickinessPolicyResponse)
-{-# DEPRECATED cacsprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cacsprrsResponseStatus :: Lens.Lens' CreateAppCookieStickinessPolicyResponse Core.Int
+cacsprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cacsprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

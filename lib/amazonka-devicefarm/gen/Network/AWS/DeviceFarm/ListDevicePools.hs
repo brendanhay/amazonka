@@ -31,27 +31,27 @@ module Network.AWS.DeviceFarm.ListDevicePools
     mkListDevicePoolsResponse,
 
     -- ** Response lenses
-    ldprsDevicePools,
-    ldprsNextToken,
-    ldprsResponseStatus,
+    ldprrsDevicePools,
+    ldprrsNextToken,
+    ldprrsResponseStatus,
   )
 where
 
-import Network.AWS.DeviceFarm.Types
+import qualified Network.AWS.DeviceFarm.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the result of a list device pools request.
 --
 -- /See:/ 'mkListDevicePools' smart constructor.
 data ListDevicePools = ListDevicePools'
   { -- | The project ARN.
-    arn :: Lude.Text,
+    arn :: Types.Arn,
     -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The device pools' type.
     --
     -- Allowed values include:
@@ -60,46 +60,35 @@ data ListDevicePools = ListDevicePools'
     --
     --
     --     * PRIVATE: A device pool that is created and managed by the device pool developer.
-    type' :: Lude.Maybe DevicePoolType
+    type' :: Core.Maybe Types.DevicePoolType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDevicePools' with the minimum fields required to make a request.
---
--- * 'arn' - The project ARN.
--- * 'nextToken' - An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
--- * 'type'' - The device pools' type.
---
--- Allowed values include:
---
---     * CURATED: A device pool that is created and managed by AWS Device Farm.
---
---
---     * PRIVATE: A device pool that is created and managed by the device pool developer.
+-- | Creates a 'ListDevicePools' value with any optional fields omitted.
 mkListDevicePools ::
   -- | 'arn'
-  Lude.Text ->
+  Types.Arn ->
   ListDevicePools
-mkListDevicePools pArn_ =
+mkListDevicePools arn =
   ListDevicePools'
-    { arn = pArn_,
-      nextToken = Lude.Nothing,
-      type' = Lude.Nothing
+    { arn,
+      nextToken = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The project ARN.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldpArn :: Lens.Lens' ListDevicePools Lude.Text
-ldpArn = Lens.lens (arn :: ListDevicePools -> Lude.Text) (\s a -> s {arn = a} :: ListDevicePools)
+ldpArn :: Lens.Lens' ListDevicePools Types.Arn
+ldpArn = Lens.field @"arn"
 {-# DEPRECATED ldpArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldpNextToken :: Lens.Lens' ListDevicePools (Lude.Maybe Lude.Text)
-ldpNextToken = Lens.lens (nextToken :: ListDevicePools -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDevicePools)
+ldpNextToken :: Lens.Lens' ListDevicePools (Core.Maybe Types.NextToken)
+ldpNextToken = Lens.field @"nextToken"
 {-# DEPRECATED ldpNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The device pools' type.
@@ -114,105 +103,97 @@ ldpNextToken = Lens.lens (nextToken :: ListDevicePools -> Lude.Maybe Lude.Text) 
 --
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldpType :: Lens.Lens' ListDevicePools (Lude.Maybe DevicePoolType)
-ldpType = Lens.lens (type' :: ListDevicePools -> Lude.Maybe DevicePoolType) (\s a -> s {type' = a} :: ListDevicePools)
+ldpType :: Lens.Lens' ListDevicePools (Core.Maybe Types.DevicePoolType)
+ldpType = Lens.field @"type'"
 {-# DEPRECATED ldpType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Page.AWSPager ListDevicePools where
-  page rq rs
-    | Page.stop (rs Lens.^. ldprsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. ldprsDevicePools) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& ldpNextToken Lens..~ rs Lens.^. ldprsNextToken
+instance Core.FromJSON ListDevicePools where
+  toJSON ListDevicePools {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("arn" Core..= arn),
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("type" Core..=) Core.<$> type'
+          ]
+      )
 
-instance Lude.AWSRequest ListDevicePools where
+instance Core.AWSRequest ListDevicePools where
   type Rs ListDevicePools = ListDevicePoolsResponse
-  request = Req.postJSON deviceFarmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "DeviceFarm_20150623.ListDevicePools")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListDevicePoolsResponse'
-            Lude.<$> (x Lude..?> "devicePools" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "devicePools")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListDevicePools where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("DeviceFarm_20150623.ListDevicePools" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListDevicePools where
-  toJSON ListDevicePools' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("arn" Lude..= arn),
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            ("type" Lude..=) Lude.<$> type'
-          ]
-      )
-
-instance Lude.ToPath ListDevicePools where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListDevicePools where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListDevicePools where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"devicePools" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | Represents the result of a list device pools request.
 --
 -- /See:/ 'mkListDevicePoolsResponse' smart constructor.
 data ListDevicePoolsResponse = ListDevicePoolsResponse'
   { -- | Information about the device pools.
-    devicePools :: Lude.Maybe [DevicePool],
+    devicePools :: Core.Maybe [Types.DevicePool],
     -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDevicePoolsResponse' with the minimum fields required to make a request.
---
--- * 'devicePools' - Information about the device pools.
--- * 'nextToken' - If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDevicePoolsResponse' value with any optional fields omitted.
 mkListDevicePoolsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDevicePoolsResponse
-mkListDevicePoolsResponse pResponseStatus_ =
+mkListDevicePoolsResponse responseStatus =
   ListDevicePoolsResponse'
-    { devicePools = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { devicePools = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the device pools.
 --
 -- /Note:/ Consider using 'devicePools' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldprsDevicePools :: Lens.Lens' ListDevicePoolsResponse (Lude.Maybe [DevicePool])
-ldprsDevicePools = Lens.lens (devicePools :: ListDevicePoolsResponse -> Lude.Maybe [DevicePool]) (\s a -> s {devicePools = a} :: ListDevicePoolsResponse)
-{-# DEPRECATED ldprsDevicePools "Use generic-lens or generic-optics with 'devicePools' instead." #-}
+ldprrsDevicePools :: Lens.Lens' ListDevicePoolsResponse (Core.Maybe [Types.DevicePool])
+ldprrsDevicePools = Lens.field @"devicePools"
+{-# DEPRECATED ldprrsDevicePools "Use generic-lens or generic-optics with 'devicePools' instead." #-}
 
 -- | If the number of items that are returned is significantly large, this is an identifier that is also returned. It can be used in a subsequent call to this operation to return the next set of items in the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldprsNextToken :: Lens.Lens' ListDevicePoolsResponse (Lude.Maybe Lude.Text)
-ldprsNextToken = Lens.lens (nextToken :: ListDevicePoolsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListDevicePoolsResponse)
-{-# DEPRECATED ldprsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+ldprrsNextToken :: Lens.Lens' ListDevicePoolsResponse (Core.Maybe Types.NextToken)
+ldprrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED ldprrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldprsResponseStatus :: Lens.Lens' ListDevicePoolsResponse Lude.Int
-ldprsResponseStatus = Lens.lens (responseStatus :: ListDevicePoolsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDevicePoolsResponse)
-{-# DEPRECATED ldprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldprrsResponseStatus :: Lens.Lens' ListDevicePoolsResponse Core.Int
+ldprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

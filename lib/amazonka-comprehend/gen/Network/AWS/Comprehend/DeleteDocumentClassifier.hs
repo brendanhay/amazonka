@@ -23,113 +23,95 @@ module Network.AWS.Comprehend.DeleteDocumentClassifier
     mkDeleteDocumentClassifier,
 
     -- ** Request lenses
-    dDocumentClassifierARN,
+    dDocumentClassifierArn,
 
     -- * Destructuring the response
     DeleteDocumentClassifierResponse (..),
     mkDeleteDocumentClassifierResponse,
 
     -- ** Response lenses
-    ddcfrsResponseStatus,
+    ddcrfrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDocumentClassifier' smart constructor.
 newtype DeleteDocumentClassifier = DeleteDocumentClassifier'
   { -- | The Amazon Resource Name (ARN) that identifies the document classifier.
-    documentClassifierARN :: Lude.Text
+    documentClassifierArn :: Types.DocumentClassifierArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDocumentClassifier' with the minimum fields required to make a request.
---
--- * 'documentClassifierARN' - The Amazon Resource Name (ARN) that identifies the document classifier.
+-- | Creates a 'DeleteDocumentClassifier' value with any optional fields omitted.
 mkDeleteDocumentClassifier ::
-  -- | 'documentClassifierARN'
-  Lude.Text ->
+  -- | 'documentClassifierArn'
+  Types.DocumentClassifierArn ->
   DeleteDocumentClassifier
-mkDeleteDocumentClassifier pDocumentClassifierARN_ =
-  DeleteDocumentClassifier'
-    { documentClassifierARN =
-        pDocumentClassifierARN_
-    }
+mkDeleteDocumentClassifier documentClassifierArn =
+  DeleteDocumentClassifier' {documentClassifierArn}
 
 -- | The Amazon Resource Name (ARN) that identifies the document classifier.
 --
--- /Note:/ Consider using 'documentClassifierARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDocumentClassifierARN :: Lens.Lens' DeleteDocumentClassifier Lude.Text
-dDocumentClassifierARN = Lens.lens (documentClassifierARN :: DeleteDocumentClassifier -> Lude.Text) (\s a -> s {documentClassifierARN = a} :: DeleteDocumentClassifier)
-{-# DEPRECATED dDocumentClassifierARN "Use generic-lens or generic-optics with 'documentClassifierARN' instead." #-}
+-- /Note:/ Consider using 'documentClassifierArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dDocumentClassifierArn :: Lens.Lens' DeleteDocumentClassifier Types.DocumentClassifierArn
+dDocumentClassifierArn = Lens.field @"documentClassifierArn"
+{-# DEPRECATED dDocumentClassifierArn "Use generic-lens or generic-optics with 'documentClassifierArn' instead." #-}
 
-instance Lude.AWSRequest DeleteDocumentClassifier where
+instance Core.FromJSON DeleteDocumentClassifier where
+  toJSON DeleteDocumentClassifier {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("DocumentClassifierArn" Core..= documentClassifierArn)
+          ]
+      )
+
+instance Core.AWSRequest DeleteDocumentClassifier where
   type Rs DeleteDocumentClassifier = DeleteDocumentClassifierResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Comprehend_20171127.DeleteDocumentClassifier")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteDocumentClassifierResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDocumentClassifier where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.DeleteDocumentClassifier" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteDocumentClassifier where
-  toJSON DeleteDocumentClassifier' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("DocumentClassifierArn" Lude..= documentClassifierARN)
-          ]
-      )
-
-instance Lude.ToPath DeleteDocumentClassifier where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDocumentClassifier where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteDocumentClassifierResponse' smart constructor.
 newtype DeleteDocumentClassifierResponse = DeleteDocumentClassifierResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDocumentClassifierResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDocumentClassifierResponse' value with any optional fields omitted.
 mkDeleteDocumentClassifierResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDocumentClassifierResponse
-mkDeleteDocumentClassifierResponse pResponseStatus_ =
-  DeleteDocumentClassifierResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteDocumentClassifierResponse responseStatus =
+  DeleteDocumentClassifierResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcfrsResponseStatus :: Lens.Lens' DeleteDocumentClassifierResponse Lude.Int
-ddcfrsResponseStatus = Lens.lens (responseStatus :: DeleteDocumentClassifierResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDocumentClassifierResponse)
-{-# DEPRECATED ddcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddcrfrsResponseStatus :: Lens.Lens' DeleteDocumentClassifierResponse Core.Int
+ddcrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddcrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

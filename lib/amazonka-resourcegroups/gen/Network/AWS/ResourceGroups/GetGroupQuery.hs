@@ -28,112 +28,102 @@ module Network.AWS.ResourceGroups.GetGroupQuery
     mkGetGroupQueryResponse,
 
     -- ** Response lenses
-    ggqrsGroupQuery,
-    ggqrsResponseStatus,
+    ggqrrsGroupQuery,
+    ggqrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import Network.AWS.ResourceGroups.Types
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.ResourceGroups.Types as Types
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetGroupQuery' smart constructor.
 data GetGroupQuery = GetGroupQuery'
   { -- | The name or the ARN of the resource group to query.
-    group :: Lude.Maybe Lude.Text,
+    group :: Core.Maybe Types.GroupString,
     -- | Don't use this parameter. Use @Group@ instead.
-    groupName :: Lude.Maybe Lude.Text
+    groupName :: Core.Maybe Types.GroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroupQuery' with the minimum fields required to make a request.
---
--- * 'group' - The name or the ARN of the resource group to query.
--- * 'groupName' - Don't use this parameter. Use @Group@ instead.
+-- | Creates a 'GetGroupQuery' value with any optional fields omitted.
 mkGetGroupQuery ::
   GetGroupQuery
 mkGetGroupQuery =
-  GetGroupQuery' {group = Lude.Nothing, groupName = Lude.Nothing}
+  GetGroupQuery' {group = Core.Nothing, groupName = Core.Nothing}
 
 -- | The name or the ARN of the resource group to query.
 --
 -- /Note:/ Consider using 'group' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggqGroup :: Lens.Lens' GetGroupQuery (Lude.Maybe Lude.Text)
-ggqGroup = Lens.lens (group :: GetGroupQuery -> Lude.Maybe Lude.Text) (\s a -> s {group = a} :: GetGroupQuery)
+ggqGroup :: Lens.Lens' GetGroupQuery (Core.Maybe Types.GroupString)
+ggqGroup = Lens.field @"group"
 {-# DEPRECATED ggqGroup "Use generic-lens or generic-optics with 'group' instead." #-}
 
 -- | Don't use this parameter. Use @Group@ instead.
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggqGroupName :: Lens.Lens' GetGroupQuery (Lude.Maybe Lude.Text)
-ggqGroupName = Lens.lens (groupName :: GetGroupQuery -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: GetGroupQuery)
+ggqGroupName :: Lens.Lens' GetGroupQuery (Core.Maybe Types.GroupName)
+ggqGroupName = Lens.field @"groupName"
 {-# DEPRECATED ggqGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
-instance Lude.AWSRequest GetGroupQuery where
-  type Rs GetGroupQuery = GetGroupQueryResponse
-  request = Req.postJSON resourceGroupsService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          GetGroupQueryResponse'
-            Lude.<$> (x Lude..?> "GroupQuery") Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders GetGroupQuery where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON GetGroupQuery where
-  toJSON GetGroupQuery' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Group" Lude..=) Lude.<$> group,
-            ("GroupName" Lude..=) Lude.<$> groupName
+instance Core.FromJSON GetGroupQuery where
+  toJSON GetGroupQuery {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Group" Core..=) Core.<$> group,
+            ("GroupName" Core..=) Core.<$> groupName
           ]
       )
 
-instance Lude.ToPath GetGroupQuery where
-  toPath = Lude.const "/get-group-query"
-
-instance Lude.ToQuery GetGroupQuery where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest GetGroupQuery where
+  type Rs GetGroupQuery = GetGroupQueryResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/get-group-query",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          GetGroupQueryResponse'
+            Core.<$> (x Core..:? "GroupQuery") Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkGetGroupQueryResponse' smart constructor.
 data GetGroupQueryResponse = GetGroupQueryResponse'
   { -- | The resource query associated with the specified group.
-    groupQuery :: Lude.Maybe GroupQuery,
+    groupQuery :: Core.Maybe Types.GroupQuery,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetGroupQueryResponse' with the minimum fields required to make a request.
---
--- * 'groupQuery' - The resource query associated with the specified group.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetGroupQueryResponse' value with any optional fields omitted.
 mkGetGroupQueryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetGroupQueryResponse
-mkGetGroupQueryResponse pResponseStatus_ =
-  GetGroupQueryResponse'
-    { groupQuery = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetGroupQueryResponse responseStatus =
+  GetGroupQueryResponse' {groupQuery = Core.Nothing, responseStatus}
 
 -- | The resource query associated with the specified group.
 --
 -- /Note:/ Consider using 'groupQuery' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggqrsGroupQuery :: Lens.Lens' GetGroupQueryResponse (Lude.Maybe GroupQuery)
-ggqrsGroupQuery = Lens.lens (groupQuery :: GetGroupQueryResponse -> Lude.Maybe GroupQuery) (\s a -> s {groupQuery = a} :: GetGroupQueryResponse)
-{-# DEPRECATED ggqrsGroupQuery "Use generic-lens or generic-optics with 'groupQuery' instead." #-}
+ggqrrsGroupQuery :: Lens.Lens' GetGroupQueryResponse (Core.Maybe Types.GroupQuery)
+ggqrrsGroupQuery = Lens.field @"groupQuery"
+{-# DEPRECATED ggqrrsGroupQuery "Use generic-lens or generic-optics with 'groupQuery' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ggqrsResponseStatus :: Lens.Lens' GetGroupQueryResponse Lude.Int
-ggqrsResponseStatus = Lens.lens (responseStatus :: GetGroupQueryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetGroupQueryResponse)
-{-# DEPRECATED ggqrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ggqrrsResponseStatus :: Lens.Lens' GetGroupQueryResponse Core.Int
+ggqrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ggqrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

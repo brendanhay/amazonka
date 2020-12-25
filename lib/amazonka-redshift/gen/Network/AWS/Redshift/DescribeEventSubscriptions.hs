@@ -25,99 +25,69 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     mkDescribeEventSubscriptions,
 
     -- ** Request lenses
-    desSubscriptionName,
-    desTagValues,
-    desTagKeys,
-    desMarker,
-    desMaxRecords,
+    dessMarker,
+    dessMaxRecords,
+    dessSubscriptionName,
+    dessTagKeys,
+    dessTagValues,
 
     -- * Destructuring the response
     DescribeEventSubscriptionsResponse (..),
     mkDescribeEventSubscriptionsResponse,
 
     -- ** Response lenses
-    desrsEventSubscriptionsList,
-    desrsMarker,
-    desrsResponseStatus,
+    desrrsEventSubscriptionsList,
+    desrrsMarker,
+    desrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDescribeEventSubscriptions' smart constructor.
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
-  { -- | The name of the Amazon Redshift event notification subscription to be described.
-    subscriptionName :: Lude.Maybe Lude.Text,
-    -- | A tag value or values for which you want to return all matching event notification subscriptions that are associated with the specified tag value or values. For example, suppose that you have subscriptions that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag values associated with them.
-    tagValues :: Lude.Maybe [Lude.Text],
-    -- | A tag key or keys for which you want to return all matching event notification subscriptions that are associated with the specified key or keys. For example, suppose that you have subscriptions that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag keys associated with them.
-    tagKeys :: Lude.Maybe [Lude.Text],
-    -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeEventSubscriptions request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
-    marker :: Lude.Maybe Lude.Text,
+  { -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeEventSubscriptions request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
+    marker :: Core.Maybe Types.Marker,
     -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
     --
     -- Default: @100@
     -- Constraints: minimum 20, maximum 100.
-    maxRecords :: Lude.Maybe Lude.Int
+    maxRecords :: Core.Maybe Core.Int,
+    -- | The name of the Amazon Redshift event notification subscription to be described.
+    subscriptionName :: Core.Maybe Types.SubscriptionName,
+    -- | A tag key or keys for which you want to return all matching event notification subscriptions that are associated with the specified key or keys. For example, suppose that you have subscriptions that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag keys associated with them.
+    tagKeys :: Core.Maybe [Types.String],
+    -- | A tag value or values for which you want to return all matching event notification subscriptions that are associated with the specified tag value or values. For example, suppose that you have subscriptions that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag values associated with them.
+    tagValues :: Core.Maybe [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEventSubscriptions' with the minimum fields required to make a request.
---
--- * 'subscriptionName' - The name of the Amazon Redshift event notification subscription to be described.
--- * 'tagValues' - A tag value or values for which you want to return all matching event notification subscriptions that are associated with the specified tag value or values. For example, suppose that you have subscriptions that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag values associated with them.
--- * 'tagKeys' - A tag key or keys for which you want to return all matching event notification subscriptions that are associated with the specified key or keys. For example, suppose that you have subscriptions that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag keys associated with them.
--- * 'marker' - An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeEventSubscriptions request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
--- * 'maxRecords' - The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
---
--- Default: @100@
--- Constraints: minimum 20, maximum 100.
+-- | Creates a 'DescribeEventSubscriptions' value with any optional fields omitted.
 mkDescribeEventSubscriptions ::
   DescribeEventSubscriptions
 mkDescribeEventSubscriptions =
   DescribeEventSubscriptions'
-    { subscriptionName = Lude.Nothing,
-      tagValues = Lude.Nothing,
-      tagKeys = Lude.Nothing,
-      marker = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { marker = Core.Nothing,
+      maxRecords = Core.Nothing,
+      subscriptionName = Core.Nothing,
+      tagKeys = Core.Nothing,
+      tagValues = Core.Nothing
     }
-
--- | The name of the Amazon Redshift event notification subscription to be described.
---
--- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desSubscriptionName :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe Lude.Text)
-desSubscriptionName = Lens.lens (subscriptionName :: DescribeEventSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {subscriptionName = a} :: DescribeEventSubscriptions)
-{-# DEPRECATED desSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
-
--- | A tag value or values for which you want to return all matching event notification subscriptions that are associated with the specified tag value or values. For example, suppose that you have subscriptions that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag values associated with them.
---
--- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desTagValues :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe [Lude.Text])
-desTagValues = Lens.lens (tagValues :: DescribeEventSubscriptions -> Lude.Maybe [Lude.Text]) (\s a -> s {tagValues = a} :: DescribeEventSubscriptions)
-{-# DEPRECATED desTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
-
--- | A tag key or keys for which you want to return all matching event notification subscriptions that are associated with the specified key or keys. For example, suppose that you have subscriptions that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag keys associated with them.
---
--- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desTagKeys :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe [Lude.Text])
-desTagKeys = Lens.lens (tagKeys :: DescribeEventSubscriptions -> Lude.Maybe [Lude.Text]) (\s a -> s {tagKeys = a} :: DescribeEventSubscriptions)
-{-# DEPRECATED desTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
 -- | An optional parameter that specifies the starting point to return a set of response records. When the results of a DescribeEventSubscriptions request exceed the value specified in @MaxRecords@ , AWS returns a value in the @Marker@ field of the response. You can retrieve the next set of response records by providing the returned marker value in the @Marker@ parameter and retrying the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desMarker :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe Lude.Text)
-desMarker = Lens.lens (marker :: DescribeEventSubscriptions -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEventSubscriptions)
-{-# DEPRECATED desMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+dessMarker :: Lens.Lens' DescribeEventSubscriptions (Core.Maybe Types.Marker)
+dessMarker = Lens.field @"marker"
+{-# DEPRECATED dessMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of response records to return in each call. If the number of remaining response records exceeds the specified @MaxRecords@ value, a value is returned in a @marker@ field of the response. You can retrieve the next set of records by retrying the command with the returned marker value.
 --
@@ -125,103 +95,131 @@ desMarker = Lens.lens (marker :: DescribeEventSubscriptions -> Lude.Maybe Lude.T
 -- Constraints: minimum 20, maximum 100.
 --
 -- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desMaxRecords :: Lens.Lens' DescribeEventSubscriptions (Lude.Maybe Lude.Int)
-desMaxRecords = Lens.lens (maxRecords :: DescribeEventSubscriptions -> Lude.Maybe Lude.Int) (\s a -> s {maxRecords = a} :: DescribeEventSubscriptions)
-{-# DEPRECATED desMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
+dessMaxRecords :: Lens.Lens' DescribeEventSubscriptions (Core.Maybe Core.Int)
+dessMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED dessMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
-instance Page.AWSPager DescribeEventSubscriptions where
-  page rq rs
-    | Page.stop (rs Lens.^. desrsMarker) = Lude.Nothing
-    | Page.stop (rs Lens.^. desrsEventSubscriptionsList) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$ rq Lude.& desMarker Lens..~ rs Lens.^. desrsMarker
+-- | The name of the Amazon Redshift event notification subscription to be described.
+--
+-- /Note:/ Consider using 'subscriptionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dessSubscriptionName :: Lens.Lens' DescribeEventSubscriptions (Core.Maybe Types.SubscriptionName)
+dessSubscriptionName = Lens.field @"subscriptionName"
+{-# DEPRECATED dessSubscriptionName "Use generic-lens or generic-optics with 'subscriptionName' instead." #-}
 
-instance Lude.AWSRequest DescribeEventSubscriptions where
+-- | A tag key or keys for which you want to return all matching event notification subscriptions that are associated with the specified key or keys. For example, suppose that you have subscriptions that are tagged with keys called @owner@ and @environment@ . If you specify both of these tag keys in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag keys associated with them.
+--
+-- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dessTagKeys :: Lens.Lens' DescribeEventSubscriptions (Core.Maybe [Types.String])
+dessTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED dessTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+
+-- | A tag value or values for which you want to return all matching event notification subscriptions that are associated with the specified tag value or values. For example, suppose that you have subscriptions that are tagged with values called @admin@ and @test@ . If you specify both of these tag values in the request, Amazon Redshift returns a response with the subscriptions that have either or both of these tag values associated with them.
+--
+-- /Note:/ Consider using 'tagValues' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dessTagValues :: Lens.Lens' DescribeEventSubscriptions (Core.Maybe [Types.String])
+dessTagValues = Lens.field @"tagValues"
+{-# DEPRECATED dessTagValues "Use generic-lens or generic-optics with 'tagValues' instead." #-}
+
+instance Core.AWSRequest DescribeEventSubscriptions where
   type
     Rs DescribeEventSubscriptions =
       DescribeEventSubscriptionsResponse
-  request = Req.postQuery redshiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeEventSubscriptions")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "Marker" Core.<$> marker)
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "SubscriptionName" Core.<$> subscriptionName)
+                Core.<> ( Core.toQueryValue
+                            "TagKeys"
+                            (Core.toQueryList "TagKey" Core.<$> tagKeys)
+                        )
+                Core.<> ( Core.toQueryValue
+                            "TagValues"
+                            (Core.toQueryList "TagValue" Core.<$> tagValues)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeEventSubscriptionsResult"
       ( \s h x ->
           DescribeEventSubscriptionsResponse'
-            Lude.<$> ( x Lude..@? "EventSubscriptionsList" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "EventSubscription")
+            Core.<$> ( x Core..@? "EventSubscriptionsList"
+                         Core..<@> Core.parseXMLList "EventSubscription"
                      )
-            Lude.<*> (x Lude..@? "Marker")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "Marker")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeEventSubscriptions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeEventSubscriptions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEventSubscriptions where
-  toQuery DescribeEventSubscriptions' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeEventSubscriptions" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "SubscriptionName" Lude.=: subscriptionName,
-        "TagValues"
-          Lude.=: Lude.toQuery (Lude.toQueryList "TagValue" Lude.<$> tagValues),
-        "TagKeys"
-          Lude.=: Lude.toQuery (Lude.toQueryList "TagKey" Lude.<$> tagKeys),
-        "Marker" Lude.=: marker,
-        "MaxRecords" Lude.=: maxRecords
-      ]
+instance Pager.AWSPager DescribeEventSubscriptions where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"marker") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"eventSubscriptionsList" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"marker" Lens..~ rs Lens.^. Lens.field @"marker"
+        )
 
 -- |
 --
 -- /See:/ 'mkDescribeEventSubscriptionsResponse' smart constructor.
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
   { -- | A list of event subscriptions.
-    eventSubscriptionsList :: Lude.Maybe [EventSubscription],
+    eventSubscriptionsList :: Core.Maybe [Types.EventSubscription],
     -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.Marker,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeEventSubscriptionsResponse' with the minimum fields required to make a request.
---
--- * 'eventSubscriptionsList' - A list of event subscriptions.
--- * 'marker' - A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEventSubscriptionsResponse' value with any optional fields omitted.
 mkDescribeEventSubscriptionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEventSubscriptionsResponse
-mkDescribeEventSubscriptionsResponse pResponseStatus_ =
+mkDescribeEventSubscriptionsResponse responseStatus =
   DescribeEventSubscriptionsResponse'
     { eventSubscriptionsList =
-        Lude.Nothing,
-      marker = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      marker = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of event subscriptions.
 --
 -- /Note:/ Consider using 'eventSubscriptionsList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsEventSubscriptionsList :: Lens.Lens' DescribeEventSubscriptionsResponse (Lude.Maybe [EventSubscription])
-desrsEventSubscriptionsList = Lens.lens (eventSubscriptionsList :: DescribeEventSubscriptionsResponse -> Lude.Maybe [EventSubscription]) (\s a -> s {eventSubscriptionsList = a} :: DescribeEventSubscriptionsResponse)
-{-# DEPRECATED desrsEventSubscriptionsList "Use generic-lens or generic-optics with 'eventSubscriptionsList' instead." #-}
+desrrsEventSubscriptionsList :: Lens.Lens' DescribeEventSubscriptionsResponse (Core.Maybe [Types.EventSubscription])
+desrrsEventSubscriptionsList = Lens.field @"eventSubscriptionsList"
+{-# DEPRECATED desrrsEventSubscriptionsList "Use generic-lens or generic-optics with 'eventSubscriptionsList' instead." #-}
 
 -- | A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned marker value in the @Marker@ parameter and retrying the command. If the @Marker@ field is empty, all response records have been retrieved for the request.
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsMarker :: Lens.Lens' DescribeEventSubscriptionsResponse (Lude.Maybe Lude.Text)
-desrsMarker = Lens.lens (marker :: DescribeEventSubscriptionsResponse -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: DescribeEventSubscriptionsResponse)
-{-# DEPRECATED desrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+desrrsMarker :: Lens.Lens' DescribeEventSubscriptionsResponse (Core.Maybe Types.Marker)
+desrrsMarker = Lens.field @"marker"
+{-# DEPRECATED desrrsMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-desrsResponseStatus :: Lens.Lens' DescribeEventSubscriptionsResponse Lude.Int
-desrsResponseStatus = Lens.lens (responseStatus :: DescribeEventSubscriptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEventSubscriptionsResponse)
-{-# DEPRECATED desrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+desrrsResponseStatus :: Lens.Lens' DescribeEventSubscriptionsResponse Core.Int
+desrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED desrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

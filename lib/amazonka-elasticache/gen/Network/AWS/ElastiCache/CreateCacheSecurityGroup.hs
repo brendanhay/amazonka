@@ -30,16 +30,16 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     mkCreateCacheSecurityGroupResponse,
 
     -- ** Response lenses
-    ccsgrsCacheSecurityGroup,
-    ccsgrsResponseStatus,
+    ccsgrrsCacheSecurityGroup,
+    ccsgrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElastiCache.Types
+import qualified Network.AWS.ElastiCache.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the input of a @CreateCacheSecurityGroup@ operation.
 --
@@ -49,32 +49,22 @@ data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
     --
     -- Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word "Default".
     -- Example: @mysecuritygroup@
-    cacheSecurityGroupName :: Lude.Text,
+    cacheSecurityGroupName :: Types.CacheSecurityGroupName,
     -- | A description for the cache security group.
-    description :: Lude.Text
+    description :: Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCacheSecurityGroup' with the minimum fields required to make a request.
---
--- * 'cacheSecurityGroupName' - A name for the cache security group. This value is stored as a lowercase string.
---
--- Constraints: Must contain no more than 255 alphanumeric characters. Cannot be the word "Default".
--- Example: @mysecuritygroup@
--- * 'description' - A description for the cache security group.
+-- | Creates a 'CreateCacheSecurityGroup' value with any optional fields omitted.
 mkCreateCacheSecurityGroup ::
   -- | 'cacheSecurityGroupName'
-  Lude.Text ->
+  Types.CacheSecurityGroupName ->
   -- | 'description'
-  Lude.Text ->
+  Types.Description ->
   CreateCacheSecurityGroup
-mkCreateCacheSecurityGroup pCacheSecurityGroupName_ pDescription_ =
-  CreateCacheSecurityGroup'
-    { cacheSecurityGroupName =
-        pCacheSecurityGroupName_,
-      description = pDescription_
-    }
+mkCreateCacheSecurityGroup cacheSecurityGroupName description =
+  CreateCacheSecurityGroup' {cacheSecurityGroupName, description}
 
 -- | A name for the cache security group. This value is stored as a lowercase string.
 --
@@ -82,78 +72,78 @@ mkCreateCacheSecurityGroup pCacheSecurityGroupName_ pDescription_ =
 -- Example: @mysecuritygroup@
 --
 -- /Note:/ Consider using 'cacheSecurityGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsgCacheSecurityGroupName :: Lens.Lens' CreateCacheSecurityGroup Lude.Text
-ccsgCacheSecurityGroupName = Lens.lens (cacheSecurityGroupName :: CreateCacheSecurityGroup -> Lude.Text) (\s a -> s {cacheSecurityGroupName = a} :: CreateCacheSecurityGroup)
+ccsgCacheSecurityGroupName :: Lens.Lens' CreateCacheSecurityGroup Types.CacheSecurityGroupName
+ccsgCacheSecurityGroupName = Lens.field @"cacheSecurityGroupName"
 {-# DEPRECATED ccsgCacheSecurityGroupName "Use generic-lens or generic-optics with 'cacheSecurityGroupName' instead." #-}
 
 -- | A description for the cache security group.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsgDescription :: Lens.Lens' CreateCacheSecurityGroup Lude.Text
-ccsgDescription = Lens.lens (description :: CreateCacheSecurityGroup -> Lude.Text) (\s a -> s {description = a} :: CreateCacheSecurityGroup)
+ccsgDescription :: Lens.Lens' CreateCacheSecurityGroup Types.Description
+ccsgDescription = Lens.field @"description"
 {-# DEPRECATED ccsgDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest CreateCacheSecurityGroup where
+instance Core.AWSRequest CreateCacheSecurityGroup where
   type Rs CreateCacheSecurityGroup = CreateCacheSecurityGroupResponse
-  request = Req.postQuery elastiCacheService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateCacheSecurityGroup")
+                Core.<> (Core.pure ("Version", "2015-02-02"))
+                Core.<> (Core.toQueryValue "CacheSecurityGroupName" cacheSecurityGroupName)
+                Core.<> (Core.toQueryValue "Description" description)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateCacheSecurityGroupResult"
       ( \s h x ->
           CreateCacheSecurityGroupResponse'
-            Lude.<$> (x Lude..@? "CacheSecurityGroup")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "CacheSecurityGroup")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateCacheSecurityGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateCacheSecurityGroup where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateCacheSecurityGroup where
-  toQuery CreateCacheSecurityGroup' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateCacheSecurityGroup" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-02-02" :: Lude.ByteString),
-        "CacheSecurityGroupName" Lude.=: cacheSecurityGroupName,
-        "Description" Lude.=: description
-      ]
 
 -- | /See:/ 'mkCreateCacheSecurityGroupResponse' smart constructor.
 data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
-  { cacheSecurityGroup :: Lude.Maybe CacheSecurityGroup,
+  { cacheSecurityGroup :: Core.Maybe Types.CacheSecurityGroup,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateCacheSecurityGroupResponse' with the minimum fields required to make a request.
---
--- * 'cacheSecurityGroup' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateCacheSecurityGroupResponse' value with any optional fields omitted.
 mkCreateCacheSecurityGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateCacheSecurityGroupResponse
-mkCreateCacheSecurityGroupResponse pResponseStatus_ =
+mkCreateCacheSecurityGroupResponse responseStatus =
   CreateCacheSecurityGroupResponse'
     { cacheSecurityGroup =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'cacheSecurityGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsgrsCacheSecurityGroup :: Lens.Lens' CreateCacheSecurityGroupResponse (Lude.Maybe CacheSecurityGroup)
-ccsgrsCacheSecurityGroup = Lens.lens (cacheSecurityGroup :: CreateCacheSecurityGroupResponse -> Lude.Maybe CacheSecurityGroup) (\s a -> s {cacheSecurityGroup = a} :: CreateCacheSecurityGroupResponse)
-{-# DEPRECATED ccsgrsCacheSecurityGroup "Use generic-lens or generic-optics with 'cacheSecurityGroup' instead." #-}
+ccsgrrsCacheSecurityGroup :: Lens.Lens' CreateCacheSecurityGroupResponse (Core.Maybe Types.CacheSecurityGroup)
+ccsgrrsCacheSecurityGroup = Lens.field @"cacheSecurityGroup"
+{-# DEPRECATED ccsgrrsCacheSecurityGroup "Use generic-lens or generic-optics with 'cacheSecurityGroup' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ccsgrsResponseStatus :: Lens.Lens' CreateCacheSecurityGroupResponse Lude.Int
-ccsgrsResponseStatus = Lens.lens (responseStatus :: CreateCacheSecurityGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateCacheSecurityGroupResponse)
-{-# DEPRECATED ccsgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ccsgrrsResponseStatus :: Lens.Lens' CreateCacheSecurityGroupResponse Core.Int
+ccsgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ccsgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

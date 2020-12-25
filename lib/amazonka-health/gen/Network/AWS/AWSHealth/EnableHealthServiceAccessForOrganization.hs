@@ -27,59 +27,54 @@ module Network.AWS.AWSHealth.EnableHealthServiceAccessForOrganization
   )
 where
 
-import Network.AWS.AWSHealth.Types
+import qualified Network.AWS.AWSHealth.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkEnableHealthServiceAccessForOrganization' smart constructor.
 data EnableHealthServiceAccessForOrganization = EnableHealthServiceAccessForOrganization'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableHealthServiceAccessForOrganization' with the minimum fields required to make a request.
+-- | Creates a 'EnableHealthServiceAccessForOrganization' value with any optional fields omitted.
 mkEnableHealthServiceAccessForOrganization ::
   EnableHealthServiceAccessForOrganization
 mkEnableHealthServiceAccessForOrganization =
   EnableHealthServiceAccessForOrganization'
 
-instance Lude.AWSRequest EnableHealthServiceAccessForOrganization where
+instance Core.FromJSON EnableHealthServiceAccessForOrganization where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest EnableHealthServiceAccessForOrganization where
   type
     Rs EnableHealthServiceAccessForOrganization =
       EnableHealthServiceAccessForOrganizationResponse
-  request = Req.postJSON awsHealthService
+  request x@_ =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSHealth_20160804.EnableHealthServiceAccessForOrganization"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveNull EnableHealthServiceAccessForOrganizationResponse'
-
-instance Lude.ToHeaders EnableHealthServiceAccessForOrganization where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSHealth_20160804.EnableHealthServiceAccessForOrganization" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON EnableHealthServiceAccessForOrganization where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath EnableHealthServiceAccessForOrganization where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery EnableHealthServiceAccessForOrganization where
-  toQuery = Lude.const Lude.mempty
+    Response.receiveNull
+      EnableHealthServiceAccessForOrganizationResponse'
 
 -- | /See:/ 'mkEnableHealthServiceAccessForOrganizationResponse' smart constructor.
 data EnableHealthServiceAccessForOrganizationResponse = EnableHealthServiceAccessForOrganizationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EnableHealthServiceAccessForOrganizationResponse' with the minimum fields required to make a request.
+-- | Creates a 'EnableHealthServiceAccessForOrganizationResponse' value with any optional fields omitted.
 mkEnableHealthServiceAccessForOrganizationResponse ::
   EnableHealthServiceAccessForOrganizationResponse
 mkEnableHealthServiceAccessForOrganizationResponse =

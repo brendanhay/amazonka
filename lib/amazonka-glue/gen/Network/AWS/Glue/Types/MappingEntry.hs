@@ -17,123 +17,120 @@ module Network.AWS.Glue.Types.MappingEntry
     mkMappingEntry,
 
     -- * Lenses
-    meTargetTable,
-    meSourceType,
-    meSourceTable,
-    meTargetType,
-    meTargetPath,
     meSourcePath,
+    meSourceTable,
+    meSourceType,
+    meTargetPath,
+    meTargetTable,
+    meTargetType,
   )
 where
 
+import qualified Network.AWS.Glue.Types.SourcePath as Types
+import qualified Network.AWS.Glue.Types.SourceTable as Types
+import qualified Network.AWS.Glue.Types.SourceType as Types
+import qualified Network.AWS.Glue.Types.TargetPath as Types
+import qualified Network.AWS.Glue.Types.TargetTable as Types
+import qualified Network.AWS.Glue.Types.TargetType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Defines a mapping.
 --
 -- /See:/ 'mkMappingEntry' smart constructor.
 data MappingEntry = MappingEntry'
-  { -- | The target table.
-    targetTable :: Lude.Maybe Lude.Text,
-    -- | The source type.
-    sourceType :: Lude.Maybe Lude.Text,
+  { -- | The source path.
+    sourcePath :: Core.Maybe Types.SourcePath,
     -- | The name of the source table.
-    sourceTable :: Lude.Maybe Lude.Text,
-    -- | The target type.
-    targetType :: Lude.Maybe Lude.Text,
+    sourceTable :: Core.Maybe Types.SourceTable,
+    -- | The source type.
+    sourceType :: Core.Maybe Types.SourceType,
     -- | The target path.
-    targetPath :: Lude.Maybe Lude.Text,
-    -- | The source path.
-    sourcePath :: Lude.Maybe Lude.Text
+    targetPath :: Core.Maybe Types.TargetPath,
+    -- | The target table.
+    targetTable :: Core.Maybe Types.TargetTable,
+    -- | The target type.
+    targetType :: Core.Maybe Types.TargetType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MappingEntry' with the minimum fields required to make a request.
---
--- * 'targetTable' - The target table.
--- * 'sourceType' - The source type.
--- * 'sourceTable' - The name of the source table.
--- * 'targetType' - The target type.
--- * 'targetPath' - The target path.
--- * 'sourcePath' - The source path.
+-- | Creates a 'MappingEntry' value with any optional fields omitted.
 mkMappingEntry ::
   MappingEntry
 mkMappingEntry =
   MappingEntry'
-    { targetTable = Lude.Nothing,
-      sourceType = Lude.Nothing,
-      sourceTable = Lude.Nothing,
-      targetType = Lude.Nothing,
-      targetPath = Lude.Nothing,
-      sourcePath = Lude.Nothing
+    { sourcePath = Core.Nothing,
+      sourceTable = Core.Nothing,
+      sourceType = Core.Nothing,
+      targetPath = Core.Nothing,
+      targetTable = Core.Nothing,
+      targetType = Core.Nothing
     }
-
--- | The target table.
---
--- /Note:/ Consider using 'targetTable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-meTargetTable :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
-meTargetTable = Lens.lens (targetTable :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {targetTable = a} :: MappingEntry)
-{-# DEPRECATED meTargetTable "Use generic-lens or generic-optics with 'targetTable' instead." #-}
-
--- | The source type.
---
--- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-meSourceType :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
-meSourceType = Lens.lens (sourceType :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {sourceType = a} :: MappingEntry)
-{-# DEPRECATED meSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
-
--- | The name of the source table.
---
--- /Note:/ Consider using 'sourceTable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-meSourceTable :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
-meSourceTable = Lens.lens (sourceTable :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {sourceTable = a} :: MappingEntry)
-{-# DEPRECATED meSourceTable "Use generic-lens or generic-optics with 'sourceTable' instead." #-}
-
--- | The target type.
---
--- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-meTargetType :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
-meTargetType = Lens.lens (targetType :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {targetType = a} :: MappingEntry)
-{-# DEPRECATED meTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
-
--- | The target path.
---
--- /Note:/ Consider using 'targetPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-meTargetPath :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
-meTargetPath = Lens.lens (targetPath :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {targetPath = a} :: MappingEntry)
-{-# DEPRECATED meTargetPath "Use generic-lens or generic-optics with 'targetPath' instead." #-}
 
 -- | The source path.
 --
 -- /Note:/ Consider using 'sourcePath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-meSourcePath :: Lens.Lens' MappingEntry (Lude.Maybe Lude.Text)
-meSourcePath = Lens.lens (sourcePath :: MappingEntry -> Lude.Maybe Lude.Text) (\s a -> s {sourcePath = a} :: MappingEntry)
+meSourcePath :: Lens.Lens' MappingEntry (Core.Maybe Types.SourcePath)
+meSourcePath = Lens.field @"sourcePath"
 {-# DEPRECATED meSourcePath "Use generic-lens or generic-optics with 'sourcePath' instead." #-}
 
-instance Lude.FromJSON MappingEntry where
-  parseJSON =
-    Lude.withObject
-      "MappingEntry"
-      ( \x ->
-          MappingEntry'
-            Lude.<$> (x Lude..:? "TargetTable")
-            Lude.<*> (x Lude..:? "SourceType")
-            Lude.<*> (x Lude..:? "SourceTable")
-            Lude.<*> (x Lude..:? "TargetType")
-            Lude.<*> (x Lude..:? "TargetPath")
-            Lude.<*> (x Lude..:? "SourcePath")
-      )
+-- | The name of the source table.
+--
+-- /Note:/ Consider using 'sourceTable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meSourceTable :: Lens.Lens' MappingEntry (Core.Maybe Types.SourceTable)
+meSourceTable = Lens.field @"sourceTable"
+{-# DEPRECATED meSourceTable "Use generic-lens or generic-optics with 'sourceTable' instead." #-}
 
-instance Lude.ToJSON MappingEntry where
-  toJSON MappingEntry' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TargetTable" Lude..=) Lude.<$> targetTable,
-            ("SourceType" Lude..=) Lude.<$> sourceType,
-            ("SourceTable" Lude..=) Lude.<$> sourceTable,
-            ("TargetType" Lude..=) Lude.<$> targetType,
-            ("TargetPath" Lude..=) Lude.<$> targetPath,
-            ("SourcePath" Lude..=) Lude.<$> sourcePath
+-- | The source type.
+--
+-- /Note:/ Consider using 'sourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meSourceType :: Lens.Lens' MappingEntry (Core.Maybe Types.SourceType)
+meSourceType = Lens.field @"sourceType"
+{-# DEPRECATED meSourceType "Use generic-lens or generic-optics with 'sourceType' instead." #-}
+
+-- | The target path.
+--
+-- /Note:/ Consider using 'targetPath' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meTargetPath :: Lens.Lens' MappingEntry (Core.Maybe Types.TargetPath)
+meTargetPath = Lens.field @"targetPath"
+{-# DEPRECATED meTargetPath "Use generic-lens or generic-optics with 'targetPath' instead." #-}
+
+-- | The target table.
+--
+-- /Note:/ Consider using 'targetTable' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meTargetTable :: Lens.Lens' MappingEntry (Core.Maybe Types.TargetTable)
+meTargetTable = Lens.field @"targetTable"
+{-# DEPRECATED meTargetTable "Use generic-lens or generic-optics with 'targetTable' instead." #-}
+
+-- | The target type.
+--
+-- /Note:/ Consider using 'targetType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+meTargetType :: Lens.Lens' MappingEntry (Core.Maybe Types.TargetType)
+meTargetType = Lens.field @"targetType"
+{-# DEPRECATED meTargetType "Use generic-lens or generic-optics with 'targetType' instead." #-}
+
+instance Core.FromJSON MappingEntry where
+  toJSON MappingEntry {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("SourcePath" Core..=) Core.<$> sourcePath,
+            ("SourceTable" Core..=) Core.<$> sourceTable,
+            ("SourceType" Core..=) Core.<$> sourceType,
+            ("TargetPath" Core..=) Core.<$> targetPath,
+            ("TargetTable" Core..=) Core.<$> targetTable,
+            ("TargetType" Core..=) Core.<$> targetType
           ]
       )
+
+instance Core.FromJSON MappingEntry where
+  parseJSON =
+    Core.withObject "MappingEntry" Core.$
+      \x ->
+        MappingEntry'
+          Core.<$> (x Core..:? "SourcePath")
+          Core.<*> (x Core..:? "SourceTable")
+          Core.<*> (x Core..:? "SourceType")
+          Core.<*> (x Core..:? "TargetPath")
+          Core.<*> (x Core..:? "TargetTable")
+          Core.<*> (x Core..:? "TargetType")

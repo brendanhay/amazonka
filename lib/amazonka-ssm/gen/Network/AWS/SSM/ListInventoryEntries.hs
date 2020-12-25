@@ -23,237 +23,216 @@ module Network.AWS.SSM.ListInventoryEntries
     lieInstanceId,
     lieTypeName,
     lieFilters,
-    lieNextToken,
     lieMaxResults,
+    lieNextToken,
 
     -- * Destructuring the response
     ListInventoryEntriesResponse (..),
     mkListInventoryEntriesResponse,
 
     -- ** Response lenses
-    liersInstanceId,
-    liersTypeName,
-    liersEntries,
-    liersSchemaVersion,
-    liersCaptureTime,
-    liersNextToken,
-    liersResponseStatus,
+    lierrsCaptureTime,
+    lierrsEntries,
+    lierrsInstanceId,
+    lierrsNextToken,
+    lierrsSchemaVersion,
+    lierrsTypeName,
+    lierrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkListInventoryEntries' smart constructor.
 data ListInventoryEntries = ListInventoryEntries'
   { -- | The instance ID for which you want inventory information.
-    instanceId :: Lude.Text,
+    instanceId :: Types.InstanceId,
     -- | The type of inventory item for which you want information.
-    typeName :: Lude.Text,
+    typeName :: Types.InventoryItemTypeName,
     -- | One or more filters. Use a filter to return a more specific list of results.
-    filters :: Lude.Maybe (Lude.NonEmpty InventoryFilter),
-    -- | The token for the next set of items to return. (You received this token from a previous call.)
-    nextToken :: Lude.Maybe Lude.Text,
+    filters :: Core.Maybe (Core.NonEmpty Types.InventoryFilter),
     -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The token for the next set of items to return. (You received this token from a previous call.)
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListInventoryEntries' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance ID for which you want inventory information.
--- * 'typeName' - The type of inventory item for which you want information.
--- * 'filters' - One or more filters. Use a filter to return a more specific list of results.
--- * 'nextToken' - The token for the next set of items to return. (You received this token from a previous call.)
--- * 'maxResults' - The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
+-- | Creates a 'ListInventoryEntries' value with any optional fields omitted.
 mkListInventoryEntries ::
   -- | 'instanceId'
-  Lude.Text ->
+  Types.InstanceId ->
   -- | 'typeName'
-  Lude.Text ->
+  Types.InventoryItemTypeName ->
   ListInventoryEntries
-mkListInventoryEntries pInstanceId_ pTypeName_ =
+mkListInventoryEntries instanceId typeName =
   ListInventoryEntries'
-    { instanceId = pInstanceId_,
-      typeName = pTypeName_,
-      filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { instanceId,
+      typeName,
+      filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The instance ID for which you want inventory information.
 --
 -- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lieInstanceId :: Lens.Lens' ListInventoryEntries Lude.Text
-lieInstanceId = Lens.lens (instanceId :: ListInventoryEntries -> Lude.Text) (\s a -> s {instanceId = a} :: ListInventoryEntries)
+lieInstanceId :: Lens.Lens' ListInventoryEntries Types.InstanceId
+lieInstanceId = Lens.field @"instanceId"
 {-# DEPRECATED lieInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The type of inventory item for which you want information.
 --
 -- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lieTypeName :: Lens.Lens' ListInventoryEntries Lude.Text
-lieTypeName = Lens.lens (typeName :: ListInventoryEntries -> Lude.Text) (\s a -> s {typeName = a} :: ListInventoryEntries)
+lieTypeName :: Lens.Lens' ListInventoryEntries Types.InventoryItemTypeName
+lieTypeName = Lens.field @"typeName"
 {-# DEPRECATED lieTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | One or more filters. Use a filter to return a more specific list of results.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lieFilters :: Lens.Lens' ListInventoryEntries (Lude.Maybe (Lude.NonEmpty InventoryFilter))
-lieFilters = Lens.lens (filters :: ListInventoryEntries -> Lude.Maybe (Lude.NonEmpty InventoryFilter)) (\s a -> s {filters = a} :: ListInventoryEntries)
+lieFilters :: Lens.Lens' ListInventoryEntries (Core.Maybe (Core.NonEmpty Types.InventoryFilter))
+lieFilters = Lens.field @"filters"
 {-# DEPRECATED lieFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
-
--- | The token for the next set of items to return. (You received this token from a previous call.)
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lieNextToken :: Lens.Lens' ListInventoryEntries (Lude.Maybe Lude.Text)
-lieNextToken = Lens.lens (nextToken :: ListInventoryEntries -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInventoryEntries)
-{-# DEPRECATED lieNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The maximum number of items to return for this call. The call also returns a token that you can specify in a subsequent call to get the next set of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lieMaxResults :: Lens.Lens' ListInventoryEntries (Lude.Maybe Lude.Natural)
-lieMaxResults = Lens.lens (maxResults :: ListInventoryEntries -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListInventoryEntries)
+lieMaxResults :: Lens.Lens' ListInventoryEntries (Core.Maybe Core.Natural)
+lieMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED lieMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest ListInventoryEntries where
+-- | The token for the next set of items to return. (You received this token from a previous call.)
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lieNextToken :: Lens.Lens' ListInventoryEntries (Core.Maybe Types.NextToken)
+lieNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lieNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON ListInventoryEntries where
+  toJSON ListInventoryEntries {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceId" Core..= instanceId),
+            Core.Just ("TypeName" Core..= typeName),
+            ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListInventoryEntries where
   type Rs ListInventoryEntries = ListInventoryEntriesResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.ListInventoryEntries")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListInventoryEntriesResponse'
-            Lude.<$> (x Lude..?> "InstanceId")
-            Lude.<*> (x Lude..?> "TypeName")
-            Lude.<*> (x Lude..?> "Entries" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "SchemaVersion")
-            Lude.<*> (x Lude..?> "CaptureTime")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "CaptureTime")
+            Core.<*> (x Core..:? "Entries")
+            Core.<*> (x Core..:? "InstanceId")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "SchemaVersion")
+            Core.<*> (x Core..:? "TypeName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListInventoryEntries where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.ListInventoryEntries" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListInventoryEntries where
-  toJSON ListInventoryEntries' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("InstanceId" Lude..= instanceId),
-            Lude.Just ("TypeName" Lude..= typeName),
-            ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListInventoryEntries where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListInventoryEntries where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListInventoryEntriesResponse' smart constructor.
 data ListInventoryEntriesResponse = ListInventoryEntriesResponse'
-  { -- | The instance ID targeted by the request to query inventory information.
-    instanceId :: Lude.Maybe Lude.Text,
-    -- | The type of inventory item returned by the request.
-    typeName :: Lude.Maybe Lude.Text,
+  { -- | The time that inventory information was collected for the instance(s).
+    captureTime :: Core.Maybe Types.InventoryItemCaptureTime,
     -- | A list of inventory items on the instance(s).
-    entries :: Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)],
-    -- | The inventory schema version used by the instance(s).
-    schemaVersion :: Lude.Maybe Lude.Text,
-    -- | The time that inventory information was collected for the instance(s).
-    captureTime :: Lude.Maybe Lude.Text,
+    entries :: Core.Maybe [Core.HashMap Types.AttributeName Types.AttributeValue],
+    -- | The instance ID targeted by the request to query inventory information.
+    instanceId :: Core.Maybe Types.InstanceId,
     -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The inventory schema version used by the instance(s).
+    schemaVersion :: Core.Maybe Types.InventoryItemSchemaVersion,
+    -- | The type of inventory item returned by the request.
+    typeName :: Core.Maybe Types.InventoryItemTypeName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListInventoryEntriesResponse' with the minimum fields required to make a request.
---
--- * 'instanceId' - The instance ID targeted by the request to query inventory information.
--- * 'typeName' - The type of inventory item returned by the request.
--- * 'entries' - A list of inventory items on the instance(s).
--- * 'schemaVersion' - The inventory schema version used by the instance(s).
--- * 'captureTime' - The time that inventory information was collected for the instance(s).
--- * 'nextToken' - The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListInventoryEntriesResponse' value with any optional fields omitted.
 mkListInventoryEntriesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListInventoryEntriesResponse
-mkListInventoryEntriesResponse pResponseStatus_ =
+mkListInventoryEntriesResponse responseStatus =
   ListInventoryEntriesResponse'
-    { instanceId = Lude.Nothing,
-      typeName = Lude.Nothing,
-      entries = Lude.Nothing,
-      schemaVersion = Lude.Nothing,
-      captureTime = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { captureTime = Core.Nothing,
+      entries = Core.Nothing,
+      instanceId = Core.Nothing,
+      nextToken = Core.Nothing,
+      schemaVersion = Core.Nothing,
+      typeName = Core.Nothing,
+      responseStatus
     }
-
--- | The instance ID targeted by the request to query inventory information.
---
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liersInstanceId :: Lens.Lens' ListInventoryEntriesResponse (Lude.Maybe Lude.Text)
-liersInstanceId = Lens.lens (instanceId :: ListInventoryEntriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {instanceId = a} :: ListInventoryEntriesResponse)
-{-# DEPRECATED liersInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The type of inventory item returned by the request.
---
--- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liersTypeName :: Lens.Lens' ListInventoryEntriesResponse (Lude.Maybe Lude.Text)
-liersTypeName = Lens.lens (typeName :: ListInventoryEntriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {typeName = a} :: ListInventoryEntriesResponse)
-{-# DEPRECATED liersTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
-
--- | A list of inventory items on the instance(s).
---
--- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liersEntries :: Lens.Lens' ListInventoryEntriesResponse (Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)])
-liersEntries = Lens.lens (entries :: ListInventoryEntriesResponse -> Lude.Maybe [Lude.HashMap Lude.Text (Lude.Text)]) (\s a -> s {entries = a} :: ListInventoryEntriesResponse)
-{-# DEPRECATED liersEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
-
--- | The inventory schema version used by the instance(s).
---
--- /Note:/ Consider using 'schemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liersSchemaVersion :: Lens.Lens' ListInventoryEntriesResponse (Lude.Maybe Lude.Text)
-liersSchemaVersion = Lens.lens (schemaVersion :: ListInventoryEntriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {schemaVersion = a} :: ListInventoryEntriesResponse)
-{-# DEPRECATED liersSchemaVersion "Use generic-lens or generic-optics with 'schemaVersion' instead." #-}
 
 -- | The time that inventory information was collected for the instance(s).
 --
 -- /Note:/ Consider using 'captureTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liersCaptureTime :: Lens.Lens' ListInventoryEntriesResponse (Lude.Maybe Lude.Text)
-liersCaptureTime = Lens.lens (captureTime :: ListInventoryEntriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {captureTime = a} :: ListInventoryEntriesResponse)
-{-# DEPRECATED liersCaptureTime "Use generic-lens or generic-optics with 'captureTime' instead." #-}
+lierrsCaptureTime :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe Types.InventoryItemCaptureTime)
+lierrsCaptureTime = Lens.field @"captureTime"
+{-# DEPRECATED lierrsCaptureTime "Use generic-lens or generic-optics with 'captureTime' instead." #-}
+
+-- | A list of inventory items on the instance(s).
+--
+-- /Note:/ Consider using 'entries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lierrsEntries :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe [Core.HashMap Types.AttributeName Types.AttributeValue])
+lierrsEntries = Lens.field @"entries"
+{-# DEPRECATED lierrsEntries "Use generic-lens or generic-optics with 'entries' instead." #-}
+
+-- | The instance ID targeted by the request to query inventory information.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lierrsInstanceId :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe Types.InstanceId)
+lierrsInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED lierrsInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
 
 -- | The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liersNextToken :: Lens.Lens' ListInventoryEntriesResponse (Lude.Maybe Lude.Text)
-liersNextToken = Lens.lens (nextToken :: ListInventoryEntriesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListInventoryEntriesResponse)
-{-# DEPRECATED liersNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lierrsNextToken :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe Types.NextToken)
+lierrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lierrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The inventory schema version used by the instance(s).
+--
+-- /Note:/ Consider using 'schemaVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lierrsSchemaVersion :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe Types.InventoryItemSchemaVersion)
+lierrsSchemaVersion = Lens.field @"schemaVersion"
+{-# DEPRECATED lierrsSchemaVersion "Use generic-lens or generic-optics with 'schemaVersion' instead." #-}
+
+-- | The type of inventory item returned by the request.
+--
+-- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lierrsTypeName :: Lens.Lens' ListInventoryEntriesResponse (Core.Maybe Types.InventoryItemTypeName)
+lierrsTypeName = Lens.field @"typeName"
+{-# DEPRECATED lierrsTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-liersResponseStatus :: Lens.Lens' ListInventoryEntriesResponse Lude.Int
-liersResponseStatus = Lens.lens (responseStatus :: ListInventoryEntriesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListInventoryEntriesResponse)
-{-# DEPRECATED liersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lierrsResponseStatus :: Lens.Lens' ListInventoryEntriesResponse Core.Int
+lierrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lierrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

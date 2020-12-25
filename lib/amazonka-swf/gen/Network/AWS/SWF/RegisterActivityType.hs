@@ -46,13 +46,13 @@ module Network.AWS.SWF.RegisterActivityType
 
     -- ** Request lenses
     ratDomain,
-    ratDefaultTaskScheduleToStartTimeout,
-    ratDefaultTaskList,
-    ratDefaultTaskPriority,
     ratName,
     ratVersion,
     ratDefaultTaskHeartbeatTimeout,
+    ratDefaultTaskList,
+    ratDefaultTaskPriority,
     ratDefaultTaskScheduleToCloseTimeout,
+    ratDefaultTaskScheduleToStartTimeout,
     ratDefaultTaskStartToCloseTimeout,
     ratDescription,
 
@@ -63,138 +63,88 @@ module Network.AWS.SWF.RegisterActivityType
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SWF.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SWF.Types as Types
 
 -- | /See:/ 'mkRegisterActivityType' smart constructor.
 data RegisterActivityType = RegisterActivityType'
   { -- | The name of the domain in which this activity is to be registered.
-    domain :: Lude.Text,
-    -- | If set, specifies the default maximum duration that a task of this activity type can wait before being assigned to a worker. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' .
-    --
-    -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-    defaultTaskScheduleToStartTimeout :: Lude.Maybe Lude.Text,
-    -- | If set, specifies the default task list to use for scheduling tasks of this activity type. This default task list is used if a task list isn't provided when a task is scheduled through the @ScheduleActivityTask@ 'Decision' .
-    defaultTaskList :: Lude.Maybe TaskList,
-    -- | The default task priority to assign to the activity type. If not assigned, then @0@ is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
-    --
-    -- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /in the \/Amazon SWF Developer Guide\/ ./ .
-    defaultTaskPriority :: Lude.Maybe Lude.Text,
+    domain :: Types.DomainName,
     -- | The name of the activity type within the domain.
     --
     -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
-    name :: Lude.Text,
+    name :: Types.Name,
     -- | The version of the activity type.
     --
     -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
-    version :: Lude.Text,
+    version :: Types.Version,
     -- | If set, specifies the default maximum time before which a worker processing a task of this type must report progress by calling 'RecordActivityTaskHeartbeat' . If the timeout is exceeded, the activity task is automatically timed out. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' . If the activity worker subsequently attempts to record a heartbeat or returns a result, the activity worker receives an @UnknownResource@ fault. In this case, Amazon SWF no longer considers the activity task to be valid; the activity worker should clean up the activity task.
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-    defaultTaskHeartbeatTimeout :: Lude.Maybe Lude.Text,
+    defaultTaskHeartbeatTimeout :: Core.Maybe Types.DurationInSecondsOptional,
+    -- | If set, specifies the default task list to use for scheduling tasks of this activity type. This default task list is used if a task list isn't provided when a task is scheduled through the @ScheduleActivityTask@ 'Decision' .
+    defaultTaskList :: Core.Maybe Types.TaskList,
+    -- | The default task priority to assign to the activity type. If not assigned, then @0@ is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
+    --
+    -- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /in the \/Amazon SWF Developer Guide\/ ./ .
+    defaultTaskPriority :: Core.Maybe Types.TaskPriority,
     -- | If set, specifies the default maximum duration for a task of this activity type. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' .
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-    defaultTaskScheduleToCloseTimeout :: Lude.Maybe Lude.Text,
+    defaultTaskScheduleToCloseTimeout :: Core.Maybe Types.DurationInSecondsOptional,
+    -- | If set, specifies the default maximum duration that a task of this activity type can wait before being assigned to a worker. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' .
+    --
+    -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+    defaultTaskScheduleToStartTimeout :: Core.Maybe Types.DurationInSecondsOptional,
     -- | If set, specifies the default maximum duration that a worker can take to process tasks of this activity type. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' .
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-    defaultTaskStartToCloseTimeout :: Lude.Maybe Lude.Text,
+    defaultTaskStartToCloseTimeout :: Core.Maybe Types.DurationInSecondsOptional,
     -- | A textual description of the activity type.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterActivityType' with the minimum fields required to make a request.
---
--- * 'domain' - The name of the domain in which this activity is to be registered.
--- * 'defaultTaskScheduleToStartTimeout' - If set, specifies the default maximum duration that a task of this activity type can wait before being assigned to a worker. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' .
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'defaultTaskList' - If set, specifies the default task list to use for scheduling tasks of this activity type. This default task list is used if a task list isn't provided when a task is scheduled through the @ScheduleActivityTask@ 'Decision' .
--- * 'defaultTaskPriority' - The default task priority to assign to the activity type. If not assigned, then @0@ is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /in the \/Amazon SWF Developer Guide\/ ./ .
--- * 'name' - The name of the activity type within the domain.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
--- * 'version' - The version of the activity type.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
--- * 'defaultTaskHeartbeatTimeout' - If set, specifies the default maximum time before which a worker processing a task of this type must report progress by calling 'RecordActivityTaskHeartbeat' . If the timeout is exceeded, the activity task is automatically timed out. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' . If the activity worker subsequently attempts to record a heartbeat or returns a result, the activity worker receives an @UnknownResource@ fault. In this case, Amazon SWF no longer considers the activity task to be valid; the activity worker should clean up the activity task.
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'defaultTaskScheduleToCloseTimeout' - If set, specifies the default maximum duration for a task of this activity type. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' .
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'defaultTaskStartToCloseTimeout' - If set, specifies the default maximum duration that a worker can take to process tasks of this activity type. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' .
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'description' - A textual description of the activity type.
+-- | Creates a 'RegisterActivityType' value with any optional fields omitted.
 mkRegisterActivityType ::
   -- | 'domain'
-  Lude.Text ->
+  Types.DomainName ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
   -- | 'version'
-  Lude.Text ->
+  Types.Version ->
   RegisterActivityType
-mkRegisterActivityType pDomain_ pName_ pVersion_ =
+mkRegisterActivityType domain name version =
   RegisterActivityType'
-    { domain = pDomain_,
-      defaultTaskScheduleToStartTimeout = Lude.Nothing,
-      defaultTaskList = Lude.Nothing,
-      defaultTaskPriority = Lude.Nothing,
-      name = pName_,
-      version = pVersion_,
-      defaultTaskHeartbeatTimeout = Lude.Nothing,
-      defaultTaskScheduleToCloseTimeout = Lude.Nothing,
-      defaultTaskStartToCloseTimeout = Lude.Nothing,
-      description = Lude.Nothing
+    { domain,
+      name,
+      version,
+      defaultTaskHeartbeatTimeout = Core.Nothing,
+      defaultTaskList = Core.Nothing,
+      defaultTaskPriority = Core.Nothing,
+      defaultTaskScheduleToCloseTimeout = Core.Nothing,
+      defaultTaskScheduleToStartTimeout = Core.Nothing,
+      defaultTaskStartToCloseTimeout = Core.Nothing,
+      description = Core.Nothing
     }
 
 -- | The name of the domain in which this activity is to be registered.
 --
 -- /Note:/ Consider using 'domain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratDomain :: Lens.Lens' RegisterActivityType Lude.Text
-ratDomain = Lens.lens (domain :: RegisterActivityType -> Lude.Text) (\s a -> s {domain = a} :: RegisterActivityType)
+ratDomain :: Lens.Lens' RegisterActivityType Types.DomainName
+ratDomain = Lens.field @"domain"
 {-# DEPRECATED ratDomain "Use generic-lens or generic-optics with 'domain' instead." #-}
-
--- | If set, specifies the default maximum duration that a task of this activity type can wait before being assigned to a worker. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' .
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
---
--- /Note:/ Consider using 'defaultTaskScheduleToStartTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratDefaultTaskScheduleToStartTimeout :: Lens.Lens' RegisterActivityType (Lude.Maybe Lude.Text)
-ratDefaultTaskScheduleToStartTimeout = Lens.lens (defaultTaskScheduleToStartTimeout :: RegisterActivityType -> Lude.Maybe Lude.Text) (\s a -> s {defaultTaskScheduleToStartTimeout = a} :: RegisterActivityType)
-{-# DEPRECATED ratDefaultTaskScheduleToStartTimeout "Use generic-lens or generic-optics with 'defaultTaskScheduleToStartTimeout' instead." #-}
-
--- | If set, specifies the default task list to use for scheduling tasks of this activity type. This default task list is used if a task list isn't provided when a task is scheduled through the @ScheduleActivityTask@ 'Decision' .
---
--- /Note:/ Consider using 'defaultTaskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratDefaultTaskList :: Lens.Lens' RegisterActivityType (Lude.Maybe TaskList)
-ratDefaultTaskList = Lens.lens (defaultTaskList :: RegisterActivityType -> Lude.Maybe TaskList) (\s a -> s {defaultTaskList = a} :: RegisterActivityType)
-{-# DEPRECATED ratDefaultTaskList "Use generic-lens or generic-optics with 'defaultTaskList' instead." #-}
-
--- | The default task priority to assign to the activity type. If not assigned, then @0@ is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /in the \/Amazon SWF Developer Guide\/ ./ .
---
--- /Note:/ Consider using 'defaultTaskPriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratDefaultTaskPriority :: Lens.Lens' RegisterActivityType (Lude.Maybe Lude.Text)
-ratDefaultTaskPriority = Lens.lens (defaultTaskPriority :: RegisterActivityType -> Lude.Maybe Lude.Text) (\s a -> s {defaultTaskPriority = a} :: RegisterActivityType)
-{-# DEPRECATED ratDefaultTaskPriority "Use generic-lens or generic-optics with 'defaultTaskPriority' instead." #-}
 
 -- | The name of the activity type within the domain.
 --
 -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratName :: Lens.Lens' RegisterActivityType Lude.Text
-ratName = Lens.lens (name :: RegisterActivityType -> Lude.Text) (\s a -> s {name = a} :: RegisterActivityType)
+ratName :: Lens.Lens' RegisterActivityType Types.Name
+ratName = Lens.field @"name"
 {-# DEPRECATED ratName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The version of the activity type.
@@ -202,8 +152,8 @@ ratName = Lens.lens (name :: RegisterActivityType -> Lude.Text) (\s a -> s {name
 -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not /be/ the literal string @arn@ .
 --
 -- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratVersion :: Lens.Lens' RegisterActivityType Lude.Text
-ratVersion = Lens.lens (version :: RegisterActivityType -> Lude.Text) (\s a -> s {version = a} :: RegisterActivityType)
+ratVersion :: Lens.Lens' RegisterActivityType Types.Version
+ratVersion = Lens.field @"version"
 {-# DEPRECATED ratVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | If set, specifies the default maximum time before which a worker processing a task of this type must report progress by calling 'RecordActivityTaskHeartbeat' . If the timeout is exceeded, the activity task is automatically timed out. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' . If the activity worker subsequently attempts to record a heartbeat or returns a result, the activity worker receives an @UnknownResource@ fault. In this case, Amazon SWF no longer considers the activity task to be valid; the activity worker should clean up the activity task.
@@ -211,84 +161,103 @@ ratVersion = Lens.lens (version :: RegisterActivityType -> Lude.Text) (\s a -> s
 -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
 -- /Note:/ Consider using 'defaultTaskHeartbeatTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratDefaultTaskHeartbeatTimeout :: Lens.Lens' RegisterActivityType (Lude.Maybe Lude.Text)
-ratDefaultTaskHeartbeatTimeout = Lens.lens (defaultTaskHeartbeatTimeout :: RegisterActivityType -> Lude.Maybe Lude.Text) (\s a -> s {defaultTaskHeartbeatTimeout = a} :: RegisterActivityType)
+ratDefaultTaskHeartbeatTimeout :: Lens.Lens' RegisterActivityType (Core.Maybe Types.DurationInSecondsOptional)
+ratDefaultTaskHeartbeatTimeout = Lens.field @"defaultTaskHeartbeatTimeout"
 {-# DEPRECATED ratDefaultTaskHeartbeatTimeout "Use generic-lens or generic-optics with 'defaultTaskHeartbeatTimeout' instead." #-}
+
+-- | If set, specifies the default task list to use for scheduling tasks of this activity type. This default task list is used if a task list isn't provided when a task is scheduled through the @ScheduleActivityTask@ 'Decision' .
+--
+-- /Note:/ Consider using 'defaultTaskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ratDefaultTaskList :: Lens.Lens' RegisterActivityType (Core.Maybe Types.TaskList)
+ratDefaultTaskList = Lens.field @"defaultTaskList"
+{-# DEPRECATED ratDefaultTaskList "Use generic-lens or generic-optics with 'defaultTaskList' instead." #-}
+
+-- | The default task priority to assign to the activity type. If not assigned, then @0@ is used. Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /in the \/Amazon SWF Developer Guide\/ ./ .
+--
+-- /Note:/ Consider using 'defaultTaskPriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ratDefaultTaskPriority :: Lens.Lens' RegisterActivityType (Core.Maybe Types.TaskPriority)
+ratDefaultTaskPriority = Lens.field @"defaultTaskPriority"
+{-# DEPRECATED ratDefaultTaskPriority "Use generic-lens or generic-optics with 'defaultTaskPriority' instead." #-}
 
 -- | If set, specifies the default maximum duration for a task of this activity type. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' .
 --
 -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
 -- /Note:/ Consider using 'defaultTaskScheduleToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratDefaultTaskScheduleToCloseTimeout :: Lens.Lens' RegisterActivityType (Lude.Maybe Lude.Text)
-ratDefaultTaskScheduleToCloseTimeout = Lens.lens (defaultTaskScheduleToCloseTimeout :: RegisterActivityType -> Lude.Maybe Lude.Text) (\s a -> s {defaultTaskScheduleToCloseTimeout = a} :: RegisterActivityType)
+ratDefaultTaskScheduleToCloseTimeout :: Lens.Lens' RegisterActivityType (Core.Maybe Types.DurationInSecondsOptional)
+ratDefaultTaskScheduleToCloseTimeout = Lens.field @"defaultTaskScheduleToCloseTimeout"
 {-# DEPRECATED ratDefaultTaskScheduleToCloseTimeout "Use generic-lens or generic-optics with 'defaultTaskScheduleToCloseTimeout' instead." #-}
+
+-- | If set, specifies the default maximum duration that a task of this activity type can wait before being assigned to a worker. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' .
+--
+-- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+--
+-- /Note:/ Consider using 'defaultTaskScheduleToStartTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ratDefaultTaskScheduleToStartTimeout :: Lens.Lens' RegisterActivityType (Core.Maybe Types.DurationInSecondsOptional)
+ratDefaultTaskScheduleToStartTimeout = Lens.field @"defaultTaskScheduleToStartTimeout"
+{-# DEPRECATED ratDefaultTaskScheduleToStartTimeout "Use generic-lens or generic-optics with 'defaultTaskScheduleToStartTimeout' instead." #-}
 
 -- | If set, specifies the default maximum duration that a worker can take to process tasks of this activity type. This default can be overridden when scheduling an activity task using the @ScheduleActivityTask@ 'Decision' .
 --
 -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
 -- /Note:/ Consider using 'defaultTaskStartToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratDefaultTaskStartToCloseTimeout :: Lens.Lens' RegisterActivityType (Lude.Maybe Lude.Text)
-ratDefaultTaskStartToCloseTimeout = Lens.lens (defaultTaskStartToCloseTimeout :: RegisterActivityType -> Lude.Maybe Lude.Text) (\s a -> s {defaultTaskStartToCloseTimeout = a} :: RegisterActivityType)
+ratDefaultTaskStartToCloseTimeout :: Lens.Lens' RegisterActivityType (Core.Maybe Types.DurationInSecondsOptional)
+ratDefaultTaskStartToCloseTimeout = Lens.field @"defaultTaskStartToCloseTimeout"
 {-# DEPRECATED ratDefaultTaskStartToCloseTimeout "Use generic-lens or generic-optics with 'defaultTaskStartToCloseTimeout' instead." #-}
 
 -- | A textual description of the activity type.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ratDescription :: Lens.Lens' RegisterActivityType (Lude.Maybe Lude.Text)
-ratDescription = Lens.lens (description :: RegisterActivityType -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: RegisterActivityType)
+ratDescription :: Lens.Lens' RegisterActivityType (Core.Maybe Types.Description)
+ratDescription = Lens.field @"description"
 {-# DEPRECATED ratDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.AWSRequest RegisterActivityType where
+instance Core.FromJSON RegisterActivityType where
+  toJSON RegisterActivityType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("domain" Core..= domain),
+            Core.Just ("name" Core..= name),
+            Core.Just ("version" Core..= version),
+            ("defaultTaskHeartbeatTimeout" Core..=)
+              Core.<$> defaultTaskHeartbeatTimeout,
+            ("defaultTaskList" Core..=) Core.<$> defaultTaskList,
+            ("defaultTaskPriority" Core..=) Core.<$> defaultTaskPriority,
+            ("defaultTaskScheduleToCloseTimeout" Core..=)
+              Core.<$> defaultTaskScheduleToCloseTimeout,
+            ("defaultTaskScheduleToStartTimeout" Core..=)
+              Core.<$> defaultTaskScheduleToStartTimeout,
+            ("defaultTaskStartToCloseTimeout" Core..=)
+              Core.<$> defaultTaskStartToCloseTimeout,
+            ("description" Core..=) Core.<$> description
+          ]
+      )
+
+instance Core.AWSRequest RegisterActivityType where
   type Rs RegisterActivityType = RegisterActivityTypeResponse
-  request = Req.postJSON swfService
-  response = Res.receiveNull RegisterActivityTypeResponse'
-
-instance Lude.ToHeaders RegisterActivityType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SimpleWorkflowService.RegisterActivityType" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.0" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RegisterActivityType where
-  toJSON RegisterActivityType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("domain" Lude..= domain),
-            ("defaultTaskScheduleToStartTimeout" Lude..=)
-              Lude.<$> defaultTaskScheduleToStartTimeout,
-            ("defaultTaskList" Lude..=) Lude.<$> defaultTaskList,
-            ("defaultTaskPriority" Lude..=) Lude.<$> defaultTaskPriority,
-            Lude.Just ("name" Lude..= name),
-            Lude.Just ("version" Lude..= version),
-            ("defaultTaskHeartbeatTimeout" Lude..=)
-              Lude.<$> defaultTaskHeartbeatTimeout,
-            ("defaultTaskScheduleToCloseTimeout" Lude..=)
-              Lude.<$> defaultTaskScheduleToCloseTimeout,
-            ("defaultTaskStartToCloseTimeout" Lude..=)
-              Lude.<$> defaultTaskStartToCloseTimeout,
-            ("description" Lude..=) Lude.<$> description
-          ]
-      )
-
-instance Lude.ToPath RegisterActivityType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterActivityType where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "SimpleWorkflowService.RegisterActivityType")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.0")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull RegisterActivityTypeResponse'
 
 -- | /See:/ 'mkRegisterActivityTypeResponse' smart constructor.
 data RegisterActivityTypeResponse = RegisterActivityTypeResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterActivityTypeResponse' with the minimum fields required to make a request.
+-- | Creates a 'RegisterActivityTypeResponse' value with any optional fields omitted.
 mkRegisterActivityTypeResponse ::
   RegisterActivityTypeResponse
 mkRegisterActivityTypeResponse = RegisterActivityTypeResponse'

@@ -31,15 +31,15 @@ module Network.AWS.ResourceGroupsTagging.StartReportCreation
     mkStartReportCreationResponse,
 
     -- ** Response lenses
-    srcrsResponseStatus,
+    srcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import Network.AWS.ResourceGroupsTagging.Types
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.ResourceGroupsTagging.Types as Types
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkStartReportCreation' smart constructor.
 newtype StartReportCreation = StartReportCreation'
@@ -47,23 +47,17 @@ newtype StartReportCreation = StartReportCreation'
     --
     -- @awsexamplebucket@
     -- For more information on S3 bucket requirements, including an example bucket policy, see the example S3 bucket policy on this page.
-    s3Bucket :: Lude.Text
+    s3Bucket :: Types.S3Bucket
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartReportCreation' with the minimum fields required to make a request.
---
--- * 's3Bucket' - The name of the Amazon S3 bucket where the report will be stored; for example:
---
--- @awsexamplebucket@
--- For more information on S3 bucket requirements, including an example bucket policy, see the example S3 bucket policy on this page.
+-- | Creates a 'StartReportCreation' value with any optional fields omitted.
 mkStartReportCreation ::
   -- | 's3Bucket'
-  Lude.Text ->
+  Types.S3Bucket ->
   StartReportCreation
-mkStartReportCreation pS3Bucket_ =
-  StartReportCreation' {s3Bucket = pS3Bucket_}
+mkStartReportCreation s3Bucket = StartReportCreation' {s3Bucket}
 
 -- | The name of the Amazon S3 bucket where the report will be stored; for example:
 --
@@ -71,65 +65,57 @@ mkStartReportCreation pS3Bucket_ =
 -- For more information on S3 bucket requirements, including an example bucket policy, see the example S3 bucket policy on this page.
 --
 -- /Note:/ Consider using 's3Bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcS3Bucket :: Lens.Lens' StartReportCreation Lude.Text
-srcS3Bucket = Lens.lens (s3Bucket :: StartReportCreation -> Lude.Text) (\s a -> s {s3Bucket = a} :: StartReportCreation)
+srcS3Bucket :: Lens.Lens' StartReportCreation Types.S3Bucket
+srcS3Bucket = Lens.field @"s3Bucket"
 {-# DEPRECATED srcS3Bucket "Use generic-lens or generic-optics with 's3Bucket' instead." #-}
 
-instance Lude.AWSRequest StartReportCreation where
+instance Core.FromJSON StartReportCreation where
+  toJSON StartReportCreation {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("S3Bucket" Core..= s3Bucket)])
+
+instance Core.AWSRequest StartReportCreation where
   type Rs StartReportCreation = StartReportCreationResponse
-  request = Req.postJSON resourceGroupsTaggingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "ResourceGroupsTaggingAPI_20170126.StartReportCreation"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           StartReportCreationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StartReportCreation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "ResourceGroupsTaggingAPI_20170126.StartReportCreation" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StartReportCreation where
-  toJSON StartReportCreation' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("S3Bucket" Lude..= s3Bucket)])
-
-instance Lude.ToPath StartReportCreation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StartReportCreation where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkStartReportCreationResponse' smart constructor.
 newtype StartReportCreationResponse = StartReportCreationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StartReportCreationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StartReportCreationResponse' value with any optional fields omitted.
 mkStartReportCreationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StartReportCreationResponse
-mkStartReportCreationResponse pResponseStatus_ =
-  StartReportCreationResponse' {responseStatus = pResponseStatus_}
+mkStartReportCreationResponse responseStatus =
+  StartReportCreationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srcrsResponseStatus :: Lens.Lens' StartReportCreationResponse Lude.Int
-srcrsResponseStatus = Lens.lens (responseStatus :: StartReportCreationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StartReportCreationResponse)
-{-# DEPRECATED srcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+srcrrsResponseStatus :: Lens.Lens' StartReportCreationResponse Core.Int
+srcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED srcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

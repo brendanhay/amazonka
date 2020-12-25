@@ -27,91 +27,82 @@ module Network.AWS.IoT.DeleteDomainConfiguration
     mkDeleteDomainConfigurationResponse,
 
     -- ** Response lenses
-    ddcfrsResponseStatus,
+    ddcrfrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDomainConfiguration' smart constructor.
 newtype DeleteDomainConfiguration = DeleteDomainConfiguration'
   { -- | The name of the domain configuration to be deleted.
-    domainConfigurationName :: Lude.Text
+    domainConfigurationName :: Types.DomainConfigurationName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDomainConfiguration' with the minimum fields required to make a request.
---
--- * 'domainConfigurationName' - The name of the domain configuration to be deleted.
+-- | Creates a 'DeleteDomainConfiguration' value with any optional fields omitted.
 mkDeleteDomainConfiguration ::
   -- | 'domainConfigurationName'
-  Lude.Text ->
+  Types.DomainConfigurationName ->
   DeleteDomainConfiguration
-mkDeleteDomainConfiguration pDomainConfigurationName_ =
-  DeleteDomainConfiguration'
-    { domainConfigurationName =
-        pDomainConfigurationName_
-    }
+mkDeleteDomainConfiguration domainConfigurationName =
+  DeleteDomainConfiguration' {domainConfigurationName}
 
 -- | The name of the domain configuration to be deleted.
 --
 -- /Note:/ Consider using 'domainConfigurationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dDomainConfigurationName :: Lens.Lens' DeleteDomainConfiguration Lude.Text
-dDomainConfigurationName = Lens.lens (domainConfigurationName :: DeleteDomainConfiguration -> Lude.Text) (\s a -> s {domainConfigurationName = a} :: DeleteDomainConfiguration)
+dDomainConfigurationName :: Lens.Lens' DeleteDomainConfiguration Types.DomainConfigurationName
+dDomainConfigurationName = Lens.field @"domainConfigurationName"
 {-# DEPRECATED dDomainConfigurationName "Use generic-lens or generic-optics with 'domainConfigurationName' instead." #-}
 
-instance Lude.AWSRequest DeleteDomainConfiguration where
+instance Core.AWSRequest DeleteDomainConfiguration where
   type
     Rs DeleteDomainConfiguration =
       DeleteDomainConfigurationResponse
-  request = Req.delete ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/domainConfigurations/"
+                Core.<> (Core.toText domainConfigurationName)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteDomainConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDomainConfiguration where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteDomainConfiguration where
-  toPath DeleteDomainConfiguration' {..} =
-    Lude.mconcat
-      ["/domainConfigurations/", Lude.toBS domainConfigurationName]
-
-instance Lude.ToQuery DeleteDomainConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteDomainConfigurationResponse' smart constructor.
 newtype DeleteDomainConfigurationResponse = DeleteDomainConfigurationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDomainConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDomainConfigurationResponse' value with any optional fields omitted.
 mkDeleteDomainConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDomainConfigurationResponse
-mkDeleteDomainConfigurationResponse pResponseStatus_ =
-  DeleteDomainConfigurationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteDomainConfigurationResponse responseStatus =
+  DeleteDomainConfigurationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcfrsResponseStatus :: Lens.Lens' DeleteDomainConfigurationResponse Lude.Int
-ddcfrsResponseStatus = Lens.lens (responseStatus :: DeleteDomainConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDomainConfigurationResponse)
-{-# DEPRECATED ddcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddcrfrsResponseStatus :: Lens.Lens' DeleteDomainConfigurationResponse Core.Int
+ddcrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddcrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

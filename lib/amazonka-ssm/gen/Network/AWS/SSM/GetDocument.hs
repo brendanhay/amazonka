@@ -20,277 +20,253 @@ module Network.AWS.SSM.GetDocument
     mkGetDocument,
 
     -- ** Request lenses
-    gdVersionName,
-    gdDocumentFormat,
     gdName,
+    gdDocumentFormat,
     gdDocumentVersion,
+    gdVersionName,
 
     -- * Destructuring the response
     GetDocumentResponse (..),
     mkGetDocumentResponse,
 
     -- ** Response lenses
-    gdrsStatus,
-    gdrsDocumentType,
-    gdrsVersionName,
-    gdrsAttachmentsContent,
-    gdrsContent,
-    gdrsDocumentFormat,
-    gdrsName,
-    gdrsDocumentVersion,
-    gdrsStatusInformation,
-    gdrsRequires,
-    gdrsResponseStatus,
+    gdrrsAttachmentsContent,
+    gdrrsContent,
+    gdrrsDocumentFormat,
+    gdrrsDocumentType,
+    gdrrsDocumentVersion,
+    gdrrsName,
+    gdrrsRequires,
+    gdrrsStatus,
+    gdrrsStatusInformation,
+    gdrrsVersionName,
+    gdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SSM.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SSM.Types as Types
 
 -- | /See:/ 'mkGetDocument' smart constructor.
 data GetDocument = GetDocument'
-  { -- | An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and can't be changed.
-    versionName :: Lude.Maybe Lude.Text,
+  { -- | The name of the Systems Manager document.
+    name :: Types.DocumentARN,
     -- | Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
-    documentFormat :: Lude.Maybe DocumentFormat,
-    -- | The name of the Systems Manager document.
-    name :: Lude.Text,
+    documentFormat :: Core.Maybe Types.DocumentFormat,
     -- | The document version for which you want information.
-    documentVersion :: Lude.Maybe Lude.Text
+    documentVersion :: Core.Maybe Types.DocumentVersion,
+    -- | An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and can't be changed.
+    versionName :: Core.Maybe Types.DocumentVersionName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDocument' with the minimum fields required to make a request.
---
--- * 'versionName' - An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and can't be changed.
--- * 'documentFormat' - Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
--- * 'name' - The name of the Systems Manager document.
--- * 'documentVersion' - The document version for which you want information.
+-- | Creates a 'GetDocument' value with any optional fields omitted.
 mkGetDocument ::
   -- | 'name'
-  Lude.Text ->
+  Types.DocumentARN ->
   GetDocument
-mkGetDocument pName_ =
+mkGetDocument name =
   GetDocument'
-    { versionName = Lude.Nothing,
-      documentFormat = Lude.Nothing,
-      name = pName_,
-      documentVersion = Lude.Nothing
+    { name,
+      documentFormat = Core.Nothing,
+      documentVersion = Core.Nothing,
+      versionName = Core.Nothing
     }
 
--- | An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and can't be changed.
+-- | The name of the Systems Manager document.
 --
--- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdVersionName :: Lens.Lens' GetDocument (Lude.Maybe Lude.Text)
-gdVersionName = Lens.lens (versionName :: GetDocument -> Lude.Maybe Lude.Text) (\s a -> s {versionName = a} :: GetDocument)
-{-# DEPRECATED gdVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdName :: Lens.Lens' GetDocument Types.DocumentARN
+gdName = Lens.field @"name"
+{-# DEPRECATED gdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
 --
 -- /Note:/ Consider using 'documentFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdDocumentFormat :: Lens.Lens' GetDocument (Lude.Maybe DocumentFormat)
-gdDocumentFormat = Lens.lens (documentFormat :: GetDocument -> Lude.Maybe DocumentFormat) (\s a -> s {documentFormat = a} :: GetDocument)
+gdDocumentFormat :: Lens.Lens' GetDocument (Core.Maybe Types.DocumentFormat)
+gdDocumentFormat = Lens.field @"documentFormat"
 {-# DEPRECATED gdDocumentFormat "Use generic-lens or generic-optics with 'documentFormat' instead." #-}
-
--- | The name of the Systems Manager document.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdName :: Lens.Lens' GetDocument Lude.Text
-gdName = Lens.lens (name :: GetDocument -> Lude.Text) (\s a -> s {name = a} :: GetDocument)
-{-# DEPRECATED gdName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The document version for which you want information.
 --
 -- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdDocumentVersion :: Lens.Lens' GetDocument (Lude.Maybe Lude.Text)
-gdDocumentVersion = Lens.lens (documentVersion :: GetDocument -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: GetDocument)
+gdDocumentVersion :: Lens.Lens' GetDocument (Core.Maybe Types.DocumentVersion)
+gdDocumentVersion = Lens.field @"documentVersion"
 {-# DEPRECATED gdDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
-instance Lude.AWSRequest GetDocument where
+-- | An optional field specifying the version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document and can't be changed.
+--
+-- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdVersionName :: Lens.Lens' GetDocument (Core.Maybe Types.DocumentVersionName)
+gdVersionName = Lens.field @"versionName"
+{-# DEPRECATED gdVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
+
+instance Core.FromJSON GetDocument where
+  toJSON GetDocument {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            ("DocumentFormat" Core..=) Core.<$> documentFormat,
+            ("DocumentVersion" Core..=) Core.<$> documentVersion,
+            ("VersionName" Core..=) Core.<$> versionName
+          ]
+      )
+
+instance Core.AWSRequest GetDocument where
   type Rs GetDocument = GetDocumentResponse
-  request = Req.postJSON ssmService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonSSM.GetDocument")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetDocumentResponse'
-            Lude.<$> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "DocumentType")
-            Lude.<*> (x Lude..?> "VersionName")
-            Lude.<*> (x Lude..?> "AttachmentsContent" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Content")
-            Lude.<*> (x Lude..?> "DocumentFormat")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (x Lude..?> "DocumentVersion")
-            Lude.<*> (x Lude..?> "StatusInformation")
-            Lude.<*> (x Lude..?> "Requires")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AttachmentsContent")
+            Core.<*> (x Core..:? "Content")
+            Core.<*> (x Core..:? "DocumentFormat")
+            Core.<*> (x Core..:? "DocumentType")
+            Core.<*> (x Core..:? "DocumentVersion")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "Requires")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (x Core..:? "StatusInformation")
+            Core.<*> (x Core..:? "VersionName")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetDocument where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonSSM.GetDocument" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetDocument where
-  toJSON GetDocument' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("VersionName" Lude..=) Lude.<$> versionName,
-            ("DocumentFormat" Lude..=) Lude.<$> documentFormat,
-            Lude.Just ("Name" Lude..= name),
-            ("DocumentVersion" Lude..=) Lude.<$> documentVersion
-          ]
-      )
-
-instance Lude.ToPath GetDocument where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetDocument where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetDocumentResponse' smart constructor.
 data GetDocumentResponse = GetDocumentResponse'
-  { -- | The status of the Systems Manager document, such as @Creating@ , @Active@ , @Updating@ , @Failed@ , and @Deleting@ .
-    status :: Lude.Maybe DocumentStatus,
-    -- | The document type.
-    documentType :: Lude.Maybe DocumentType,
-    -- | The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
-    versionName :: Lude.Maybe Lude.Text,
-    -- | A description of the document attachments, including names, locations, sizes, and so on.
-    attachmentsContent :: Lude.Maybe [AttachmentContent],
+  { -- | A description of the document attachments, including names, locations, sizes, and so on.
+    attachmentsContent :: Core.Maybe [Types.AttachmentContent],
     -- | The contents of the Systems Manager document.
-    content :: Lude.Maybe Lude.Text,
+    content :: Core.Maybe Types.Content,
     -- | The document format, either JSON or YAML.
-    documentFormat :: Lude.Maybe DocumentFormat,
-    -- | The name of the Systems Manager document.
-    name :: Lude.Maybe Lude.Text,
+    documentFormat :: Core.Maybe Types.DocumentFormat,
+    -- | The document type.
+    documentType :: Core.Maybe Types.DocumentType,
     -- | The document version.
-    documentVersion :: Lude.Maybe Lude.Text,
-    -- | A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
-    statusInformation :: Lude.Maybe Lude.Text,
+    documentVersion :: Core.Maybe Types.DocumentVersion,
+    -- | The name of the Systems Manager document.
+    name :: Core.Maybe Types.DocumentARN,
     -- | A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
-    requires :: Lude.Maybe (Lude.NonEmpty DocumentRequires),
+    requires :: Core.Maybe (Core.NonEmpty Types.DocumentRequires),
+    -- | The status of the Systems Manager document, such as @Creating@ , @Active@ , @Updating@ , @Failed@ , and @Deleting@ .
+    status :: Core.Maybe Types.DocumentStatus,
+    -- | A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
+    statusInformation :: Core.Maybe Types.StatusInformation,
+    -- | The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+    versionName :: Core.Maybe Types.DocumentVersionName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetDocumentResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the Systems Manager document, such as @Creating@ , @Active@ , @Updating@ , @Failed@ , and @Deleting@ .
--- * 'documentType' - The document type.
--- * 'versionName' - The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
--- * 'attachmentsContent' - A description of the document attachments, including names, locations, sizes, and so on.
--- * 'content' - The contents of the Systems Manager document.
--- * 'documentFormat' - The document format, either JSON or YAML.
--- * 'name' - The name of the Systems Manager document.
--- * 'documentVersion' - The document version.
--- * 'statusInformation' - A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
--- * 'requires' - A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetDocumentResponse' value with any optional fields omitted.
 mkGetDocumentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetDocumentResponse
-mkGetDocumentResponse pResponseStatus_ =
+mkGetDocumentResponse responseStatus =
   GetDocumentResponse'
-    { status = Lude.Nothing,
-      documentType = Lude.Nothing,
-      versionName = Lude.Nothing,
-      attachmentsContent = Lude.Nothing,
-      content = Lude.Nothing,
-      documentFormat = Lude.Nothing,
-      name = Lude.Nothing,
-      documentVersion = Lude.Nothing,
-      statusInformation = Lude.Nothing,
-      requires = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { attachmentsContent = Core.Nothing,
+      content = Core.Nothing,
+      documentFormat = Core.Nothing,
+      documentType = Core.Nothing,
+      documentVersion = Core.Nothing,
+      name = Core.Nothing,
+      requires = Core.Nothing,
+      status = Core.Nothing,
+      statusInformation = Core.Nothing,
+      versionName = Core.Nothing,
+      responseStatus
     }
-
--- | The status of the Systems Manager document, such as @Creating@ , @Active@ , @Updating@ , @Failed@ , and @Deleting@ .
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsStatus :: Lens.Lens' GetDocumentResponse (Lude.Maybe DocumentStatus)
-gdrsStatus = Lens.lens (status :: GetDocumentResponse -> Lude.Maybe DocumentStatus) (\s a -> s {status = a} :: GetDocumentResponse)
-{-# DEPRECATED gdrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
-
--- | The document type.
---
--- /Note:/ Consider using 'documentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsDocumentType :: Lens.Lens' GetDocumentResponse (Lude.Maybe DocumentType)
-gdrsDocumentType = Lens.lens (documentType :: GetDocumentResponse -> Lude.Maybe DocumentType) (\s a -> s {documentType = a} :: GetDocumentResponse)
-{-# DEPRECATED gdrsDocumentType "Use generic-lens or generic-optics with 'documentType' instead." #-}
-
--- | The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
---
--- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsVersionName :: Lens.Lens' GetDocumentResponse (Lude.Maybe Lude.Text)
-gdrsVersionName = Lens.lens (versionName :: GetDocumentResponse -> Lude.Maybe Lude.Text) (\s a -> s {versionName = a} :: GetDocumentResponse)
-{-# DEPRECATED gdrsVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
 
 -- | A description of the document attachments, including names, locations, sizes, and so on.
 --
 -- /Note:/ Consider using 'attachmentsContent' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsAttachmentsContent :: Lens.Lens' GetDocumentResponse (Lude.Maybe [AttachmentContent])
-gdrsAttachmentsContent = Lens.lens (attachmentsContent :: GetDocumentResponse -> Lude.Maybe [AttachmentContent]) (\s a -> s {attachmentsContent = a} :: GetDocumentResponse)
-{-# DEPRECATED gdrsAttachmentsContent "Use generic-lens or generic-optics with 'attachmentsContent' instead." #-}
+gdrrsAttachmentsContent :: Lens.Lens' GetDocumentResponse (Core.Maybe [Types.AttachmentContent])
+gdrrsAttachmentsContent = Lens.field @"attachmentsContent"
+{-# DEPRECATED gdrrsAttachmentsContent "Use generic-lens or generic-optics with 'attachmentsContent' instead." #-}
 
 -- | The contents of the Systems Manager document.
 --
 -- /Note:/ Consider using 'content' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsContent :: Lens.Lens' GetDocumentResponse (Lude.Maybe Lude.Text)
-gdrsContent = Lens.lens (content :: GetDocumentResponse -> Lude.Maybe Lude.Text) (\s a -> s {content = a} :: GetDocumentResponse)
-{-# DEPRECATED gdrsContent "Use generic-lens or generic-optics with 'content' instead." #-}
+gdrrsContent :: Lens.Lens' GetDocumentResponse (Core.Maybe Types.Content)
+gdrrsContent = Lens.field @"content"
+{-# DEPRECATED gdrrsContent "Use generic-lens or generic-optics with 'content' instead." #-}
 
 -- | The document format, either JSON or YAML.
 --
 -- /Note:/ Consider using 'documentFormat' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsDocumentFormat :: Lens.Lens' GetDocumentResponse (Lude.Maybe DocumentFormat)
-gdrsDocumentFormat = Lens.lens (documentFormat :: GetDocumentResponse -> Lude.Maybe DocumentFormat) (\s a -> s {documentFormat = a} :: GetDocumentResponse)
-{-# DEPRECATED gdrsDocumentFormat "Use generic-lens or generic-optics with 'documentFormat' instead." #-}
+gdrrsDocumentFormat :: Lens.Lens' GetDocumentResponse (Core.Maybe Types.DocumentFormat)
+gdrrsDocumentFormat = Lens.field @"documentFormat"
+{-# DEPRECATED gdrrsDocumentFormat "Use generic-lens or generic-optics with 'documentFormat' instead." #-}
 
--- | The name of the Systems Manager document.
+-- | The document type.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsName :: Lens.Lens' GetDocumentResponse (Lude.Maybe Lude.Text)
-gdrsName = Lens.lens (name :: GetDocumentResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetDocumentResponse)
-{-# DEPRECATED gdrsName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'documentType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrrsDocumentType :: Lens.Lens' GetDocumentResponse (Core.Maybe Types.DocumentType)
+gdrrsDocumentType = Lens.field @"documentType"
+{-# DEPRECATED gdrrsDocumentType "Use generic-lens or generic-optics with 'documentType' instead." #-}
 
 -- | The document version.
 --
 -- /Note:/ Consider using 'documentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsDocumentVersion :: Lens.Lens' GetDocumentResponse (Lude.Maybe Lude.Text)
-gdrsDocumentVersion = Lens.lens (documentVersion :: GetDocumentResponse -> Lude.Maybe Lude.Text) (\s a -> s {documentVersion = a} :: GetDocumentResponse)
-{-# DEPRECATED gdrsDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
+gdrrsDocumentVersion :: Lens.Lens' GetDocumentResponse (Core.Maybe Types.DocumentVersion)
+gdrrsDocumentVersion = Lens.field @"documentVersion"
+{-# DEPRECATED gdrrsDocumentVersion "Use generic-lens or generic-optics with 'documentVersion' instead." #-}
 
--- | A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
+-- | The name of the Systems Manager document.
 --
--- /Note:/ Consider using 'statusInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsStatusInformation :: Lens.Lens' GetDocumentResponse (Lude.Maybe Lude.Text)
-gdrsStatusInformation = Lens.lens (statusInformation :: GetDocumentResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusInformation = a} :: GetDocumentResponse)
-{-# DEPRECATED gdrsStatusInformation "Use generic-lens or generic-optics with 'statusInformation' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrrsName :: Lens.Lens' GetDocumentResponse (Core.Maybe Types.DocumentARN)
+gdrrsName = Lens.field @"name"
+{-# DEPRECATED gdrrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | A list of SSM documents required by a document. For example, an @ApplicationConfiguration@ document requires an @ApplicationConfigurationSchema@ document.
 --
 -- /Note:/ Consider using 'requires' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsRequires :: Lens.Lens' GetDocumentResponse (Lude.Maybe (Lude.NonEmpty DocumentRequires))
-gdrsRequires = Lens.lens (requires :: GetDocumentResponse -> Lude.Maybe (Lude.NonEmpty DocumentRequires)) (\s a -> s {requires = a} :: GetDocumentResponse)
-{-# DEPRECATED gdrsRequires "Use generic-lens or generic-optics with 'requires' instead." #-}
+gdrrsRequires :: Lens.Lens' GetDocumentResponse (Core.Maybe (Core.NonEmpty Types.DocumentRequires))
+gdrrsRequires = Lens.field @"requires"
+{-# DEPRECATED gdrrsRequires "Use generic-lens or generic-optics with 'requires' instead." #-}
+
+-- | The status of the Systems Manager document, such as @Creating@ , @Active@ , @Updating@ , @Failed@ , and @Deleting@ .
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrrsStatus :: Lens.Lens' GetDocumentResponse (Core.Maybe Types.DocumentStatus)
+gdrrsStatus = Lens.field @"status"
+{-# DEPRECATED gdrrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+
+-- | A message returned by AWS Systems Manager that explains the @Status@ value. For example, a @Failed@ status might be explained by the @StatusInformation@ message, "The specified S3 bucket does not exist. Verify that the URL of the S3 bucket is correct."
+--
+-- /Note:/ Consider using 'statusInformation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrrsStatusInformation :: Lens.Lens' GetDocumentResponse (Core.Maybe Types.StatusInformation)
+gdrrsStatusInformation = Lens.field @"statusInformation"
+{-# DEPRECATED gdrrsStatusInformation "Use generic-lens or generic-optics with 'statusInformation' instead." #-}
+
+-- | The version of the artifact associated with the document. For example, "Release 12, Update 6". This value is unique across all versions of a document, and cannot be changed.
+--
+-- /Note:/ Consider using 'versionName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gdrrsVersionName :: Lens.Lens' GetDocumentResponse (Core.Maybe Types.DocumentVersionName)
+gdrrsVersionName = Lens.field @"versionName"
+{-# DEPRECATED gdrrsVersionName "Use generic-lens or generic-optics with 'versionName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gdrsResponseStatus :: Lens.Lens' GetDocumentResponse Lude.Int
-gdrsResponseStatus = Lens.lens (responseStatus :: GetDocumentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetDocumentResponse)
-{-# DEPRECATED gdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gdrrsResponseStatus :: Lens.Lens' GetDocumentResponse Core.Int
+gdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

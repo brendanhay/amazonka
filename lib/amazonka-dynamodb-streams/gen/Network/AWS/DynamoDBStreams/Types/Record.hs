@@ -17,44 +17,33 @@ module Network.AWS.DynamoDBStreams.Types.Record
     mkRecord,
 
     -- * Lenses
-    rUserIdentity,
-    rEventVersion,
-    rDynamodb,
     rAwsRegion,
+    rDynamodb,
+    rEventID,
     rEventName,
     rEventSource,
-    rEventId,
+    rEventVersion,
+    rUserIdentity,
   )
 where
 
-import Network.AWS.DynamoDBStreams.Types.Identity
-import Network.AWS.DynamoDBStreams.Types.OperationType
-import Network.AWS.DynamoDBStreams.Types.StreamRecord
+import qualified Network.AWS.DynamoDBStreams.Types.Identity as Types
+import qualified Network.AWS.DynamoDBStreams.Types.OperationType as Types
+import qualified Network.AWS.DynamoDBStreams.Types.StreamRecord as Types
+import qualified Network.AWS.DynamoDBStreams.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A description of a unique event within a stream.
 --
 -- /See:/ 'mkRecord' smart constructor.
 data Record = Record'
-  { -- | Items that are deleted by the Time to Live process after expiration have the following fields:
-    --
-    --
-    --     * Records[].userIdentity.type
-    -- "Service"
-    --
-    --
-    --     * Records[].userIdentity.principalId
-    -- "dynamodb.amazonaws.com"
-    userIdentity :: Lude.Maybe Identity,
-    -- | The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified.
-    --
-    -- Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
-    eventVersion :: Lude.Maybe Lude.Text,
+  { -- | The region in which the @GetRecords@ request was received.
+    awsRegion :: Core.Maybe Types.String,
     -- | The main body of the stream record, containing all of the DynamoDB-specific fields.
-    dynamodb :: Lude.Maybe StreamRecord,
-    -- | The region in which the @GetRecords@ request was received.
-    awsRegion :: Lude.Maybe Lude.Text,
+    dynamodb :: Core.Maybe Types.StreamRecord,
+    -- | A globally unique identifier for the event that was recorded in this stream record.
+    eventID :: Core.Maybe Types.String,
     -- | The type of data modification that was performed on the DynamoDB table:
     --
     --
@@ -65,99 +54,61 @@ data Record = Record'
     --
     --
     --     * @REMOVE@ - the item was deleted from the table
-    eventName :: Lude.Maybe OperationType,
+    eventName :: Core.Maybe Types.OperationType,
     -- | The AWS service from which the stream record originated. For DynamoDB Streams, this is @aws:dynamodb@ .
-    eventSource :: Lude.Maybe Lude.Text,
-    -- | A globally unique identifier for the event that was recorded in this stream record.
-    eventId :: Lude.Maybe Lude.Text
+    eventSource :: Core.Maybe Types.String,
+    -- | The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified.
+    --
+    -- Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
+    eventVersion :: Core.Maybe Types.String,
+    -- | Items that are deleted by the Time to Live process after expiration have the following fields:
+    --
+    --
+    --     * Records[].userIdentity.type
+    -- "Service"
+    --
+    --
+    --     * Records[].userIdentity.principalId
+    -- "dynamodb.amazonaws.com"
+    userIdentity :: Core.Maybe Types.Identity
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Record' with the minimum fields required to make a request.
---
--- * 'userIdentity' - Items that are deleted by the Time to Live process after expiration have the following fields:
---
---
---     * Records[].userIdentity.type
--- "Service"
---
---
---     * Records[].userIdentity.principalId
--- "dynamodb.amazonaws.com"
---
---
--- * 'eventVersion' - The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified.
---
--- Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
--- * 'dynamodb' - The main body of the stream record, containing all of the DynamoDB-specific fields.
--- * 'awsRegion' - The region in which the @GetRecords@ request was received.
--- * 'eventName' - The type of data modification that was performed on the DynamoDB table:
---
---
---     * @INSERT@ - a new item was added to the table.
---
---
---     * @MODIFY@ - one or more of an existing item's attributes were modified.
---
---
---     * @REMOVE@ - the item was deleted from the table
---
---
--- * 'eventSource' - The AWS service from which the stream record originated. For DynamoDB Streams, this is @aws:dynamodb@ .
--- * 'eventId' - A globally unique identifier for the event that was recorded in this stream record.
+-- | Creates a 'Record' value with any optional fields omitted.
 mkRecord ::
   Record
 mkRecord =
   Record'
-    { userIdentity = Lude.Nothing,
-      eventVersion = Lude.Nothing,
-      dynamodb = Lude.Nothing,
-      awsRegion = Lude.Nothing,
-      eventName = Lude.Nothing,
-      eventSource = Lude.Nothing,
-      eventId = Lude.Nothing
+    { awsRegion = Core.Nothing,
+      dynamodb = Core.Nothing,
+      eventID = Core.Nothing,
+      eventName = Core.Nothing,
+      eventSource = Core.Nothing,
+      eventVersion = Core.Nothing,
+      userIdentity = Core.Nothing
     }
-
--- | Items that are deleted by the Time to Live process after expiration have the following fields:
---
---
---     * Records[].userIdentity.type
--- "Service"
---
---
---     * Records[].userIdentity.principalId
--- "dynamodb.amazonaws.com"
---
---
---
--- /Note:/ Consider using 'userIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rUserIdentity :: Lens.Lens' Record (Lude.Maybe Identity)
-rUserIdentity = Lens.lens (userIdentity :: Record -> Lude.Maybe Identity) (\s a -> s {userIdentity = a} :: Record)
-{-# DEPRECATED rUserIdentity "Use generic-lens or generic-optics with 'userIdentity' instead." #-}
-
--- | The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified.
---
--- Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
---
--- /Note:/ Consider using 'eventVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rEventVersion :: Lens.Lens' Record (Lude.Maybe Lude.Text)
-rEventVersion = Lens.lens (eventVersion :: Record -> Lude.Maybe Lude.Text) (\s a -> s {eventVersion = a} :: Record)
-{-# DEPRECATED rEventVersion "Use generic-lens or generic-optics with 'eventVersion' instead." #-}
-
--- | The main body of the stream record, containing all of the DynamoDB-specific fields.
---
--- /Note:/ Consider using 'dynamodb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rDynamodb :: Lens.Lens' Record (Lude.Maybe StreamRecord)
-rDynamodb = Lens.lens (dynamodb :: Record -> Lude.Maybe StreamRecord) (\s a -> s {dynamodb = a} :: Record)
-{-# DEPRECATED rDynamodb "Use generic-lens or generic-optics with 'dynamodb' instead." #-}
 
 -- | The region in which the @GetRecords@ request was received.
 --
 -- /Note:/ Consider using 'awsRegion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rAwsRegion :: Lens.Lens' Record (Lude.Maybe Lude.Text)
-rAwsRegion = Lens.lens (awsRegion :: Record -> Lude.Maybe Lude.Text) (\s a -> s {awsRegion = a} :: Record)
+rAwsRegion :: Lens.Lens' Record (Core.Maybe Types.String)
+rAwsRegion = Lens.field @"awsRegion"
 {-# DEPRECATED rAwsRegion "Use generic-lens or generic-optics with 'awsRegion' instead." #-}
+
+-- | The main body of the stream record, containing all of the DynamoDB-specific fields.
+--
+-- /Note:/ Consider using 'dynamodb' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rDynamodb :: Lens.Lens' Record (Core.Maybe Types.StreamRecord)
+rDynamodb = Lens.field @"dynamodb"
+{-# DEPRECATED rDynamodb "Use generic-lens or generic-optics with 'dynamodb' instead." #-}
+
+-- | A globally unique identifier for the event that was recorded in this stream record.
+--
+-- /Note:/ Consider using 'eventID' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rEventID :: Lens.Lens' Record (Core.Maybe Types.String)
+rEventID = Lens.field @"eventID"
+{-# DEPRECATED rEventID "Use generic-lens or generic-optics with 'eventID' instead." #-}
 
 -- | The type of data modification that was performed on the DynamoDB table:
 --
@@ -173,35 +124,52 @@ rAwsRegion = Lens.lens (awsRegion :: Record -> Lude.Maybe Lude.Text) (\s a -> s 
 --
 --
 -- /Note:/ Consider using 'eventName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rEventName :: Lens.Lens' Record (Lude.Maybe OperationType)
-rEventName = Lens.lens (eventName :: Record -> Lude.Maybe OperationType) (\s a -> s {eventName = a} :: Record)
+rEventName :: Lens.Lens' Record (Core.Maybe Types.OperationType)
+rEventName = Lens.field @"eventName"
 {-# DEPRECATED rEventName "Use generic-lens or generic-optics with 'eventName' instead." #-}
 
 -- | The AWS service from which the stream record originated. For DynamoDB Streams, this is @aws:dynamodb@ .
 --
 -- /Note:/ Consider using 'eventSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rEventSource :: Lens.Lens' Record (Lude.Maybe Lude.Text)
-rEventSource = Lens.lens (eventSource :: Record -> Lude.Maybe Lude.Text) (\s a -> s {eventSource = a} :: Record)
+rEventSource :: Lens.Lens' Record (Core.Maybe Types.String)
+rEventSource = Lens.field @"eventSource"
 {-# DEPRECATED rEventSource "Use generic-lens or generic-optics with 'eventSource' instead." #-}
 
--- | A globally unique identifier for the event that was recorded in this stream record.
+-- | The version number of the stream record format. This number is updated whenever the structure of @Record@ is modified.
 --
--- /Note:/ Consider using 'eventId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rEventId :: Lens.Lens' Record (Lude.Maybe Lude.Text)
-rEventId = Lens.lens (eventId :: Record -> Lude.Maybe Lude.Text) (\s a -> s {eventId = a} :: Record)
-{-# DEPRECATED rEventId "Use generic-lens or generic-optics with 'eventId' instead." #-}
+-- Client applications must not assume that @eventVersion@ will remain at a particular value, as this number is subject to change at any time. In general, @eventVersion@ will only increase as the low-level DynamoDB Streams API evolves.
+--
+-- /Note:/ Consider using 'eventVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rEventVersion :: Lens.Lens' Record (Core.Maybe Types.String)
+rEventVersion = Lens.field @"eventVersion"
+{-# DEPRECATED rEventVersion "Use generic-lens or generic-optics with 'eventVersion' instead." #-}
 
-instance Lude.FromJSON Record where
+-- | Items that are deleted by the Time to Live process after expiration have the following fields:
+--
+--
+--     * Records[].userIdentity.type
+-- "Service"
+--
+--
+--     * Records[].userIdentity.principalId
+-- "dynamodb.amazonaws.com"
+--
+--
+--
+-- /Note:/ Consider using 'userIdentity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rUserIdentity :: Lens.Lens' Record (Core.Maybe Types.Identity)
+rUserIdentity = Lens.field @"userIdentity"
+{-# DEPRECATED rUserIdentity "Use generic-lens or generic-optics with 'userIdentity' instead." #-}
+
+instance Core.FromJSON Record where
   parseJSON =
-    Lude.withObject
-      "Record"
-      ( \x ->
-          Record'
-            Lude.<$> (x Lude..:? "userIdentity")
-            Lude.<*> (x Lude..:? "eventVersion")
-            Lude.<*> (x Lude..:? "dynamodb")
-            Lude.<*> (x Lude..:? "awsRegion")
-            Lude.<*> (x Lude..:? "eventName")
-            Lude.<*> (x Lude..:? "eventSource")
-            Lude.<*> (x Lude..:? "eventID")
-      )
+    Core.withObject "Record" Core.$
+      \x ->
+        Record'
+          Core.<$> (x Core..:? "awsRegion")
+          Core.<*> (x Core..:? "dynamodb")
+          Core.<*> (x Core..:? "eventID")
+          Core.<*> (x Core..:? "eventName")
+          Core.<*> (x Core..:? "eventSource")
+          Core.<*> (x Core..:? "eventVersion")
+          Core.<*> (x Core..:? "userIdentity")

@@ -17,14 +17,15 @@ module Network.AWS.MigrationHub.Types.ResourceAttribute
     mkResourceAttribute,
 
     -- * Lenses
-    raValue,
     raType,
+    raValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MigrationHub.Types.ResourceAttributeType
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MigrationHub.Types.ResourceAttributeType as Types
+import qualified Network.AWS.MigrationHub.Types.Value as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Attribute associated with a resource.
 --
@@ -55,55 +56,49 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkResourceAttribute' smart constructor.
 data ResourceAttribute = ResourceAttribute'
-  { -- | Value of the resource type.
-    value :: Lude.Text,
-    -- | Type of resource.
-    type' :: ResourceAttributeType
+  { -- | Type of resource.
+    type' :: Types.ResourceAttributeType,
+    -- | Value of the resource type.
+    value :: Types.Value
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceAttribute' with the minimum fields required to make a request.
---
--- * 'value' - Value of the resource type.
--- * 'type'' - Type of resource.
+-- | Creates a 'ResourceAttribute' value with any optional fields omitted.
 mkResourceAttribute ::
+  -- | 'type\''
+  Types.ResourceAttributeType ->
   -- | 'value'
-  Lude.Text ->
-  -- | 'type''
-  ResourceAttributeType ->
+  Types.Value ->
   ResourceAttribute
-mkResourceAttribute pValue_ pType_ =
-  ResourceAttribute' {value = pValue_, type' = pType_}
-
--- | Value of the resource type.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raValue :: Lens.Lens' ResourceAttribute Lude.Text
-raValue = Lens.lens (value :: ResourceAttribute -> Lude.Text) (\s a -> s {value = a} :: ResourceAttribute)
-{-# DEPRECATED raValue "Use generic-lens or generic-optics with 'value' instead." #-}
+mkResourceAttribute type' value = ResourceAttribute' {type', value}
 
 -- | Type of resource.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raType :: Lens.Lens' ResourceAttribute ResourceAttributeType
-raType = Lens.lens (type' :: ResourceAttribute -> ResourceAttributeType) (\s a -> s {type' = a} :: ResourceAttribute)
+raType :: Lens.Lens' ResourceAttribute Types.ResourceAttributeType
+raType = Lens.field @"type'"
 {-# DEPRECATED raType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON ResourceAttribute where
-  parseJSON =
-    Lude.withObject
-      "ResourceAttribute"
-      ( \x ->
-          ResourceAttribute'
-            Lude.<$> (x Lude..: "Value") Lude.<*> (x Lude..: "Type")
-      )
+-- | Value of the resource type.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+raValue :: Lens.Lens' ResourceAttribute Types.Value
+raValue = Lens.field @"value"
+{-# DEPRECATED raValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToJSON ResourceAttribute where
-  toJSON ResourceAttribute' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Value" Lude..= value),
-            Lude.Just ("Type" Lude..= type')
+instance Core.FromJSON ResourceAttribute where
+  toJSON ResourceAttribute {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Type" Core..= type'),
+            Core.Just ("Value" Core..= value)
           ]
       )
+
+instance Core.FromJSON ResourceAttribute where
+  parseJSON =
+    Core.withObject "ResourceAttribute" Core.$
+      \x ->
+        ResourceAttribute'
+          Core.<$> (x Core..: "Type") Core.<*> (x Core..: "Value")

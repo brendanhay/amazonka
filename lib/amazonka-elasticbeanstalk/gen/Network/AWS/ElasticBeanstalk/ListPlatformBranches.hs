@@ -23,25 +23,25 @@ module Network.AWS.ElasticBeanstalk.ListPlatformBranches
 
     -- ** Request lenses
     lpbFilters,
-    lpbNextToken,
     lpbMaxRecords,
+    lpbNextToken,
 
     -- * Destructuring the response
     ListPlatformBranchesResponse (..),
     mkListPlatformBranchesResponse,
 
     -- ** Response lenses
-    lpbrsPlatformBranchSummaryList,
-    lpbrsNextToken,
-    lpbrsResponseStatus,
+    lpbrrsNextToken,
+    lpbrrsPlatformBranchSummaryList,
+    lpbrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListPlatformBranches' smart constructor.
 data ListPlatformBranches = ListPlatformBranches'
@@ -85,70 +85,25 @@ data ListPlatformBranches = ListPlatformBranches'
     --
     -- Array size: limited to 10 @SearchFilter@ objects.
     -- Within each @SearchFilter@ item, the @Values@ array is limited to 10 items.
-    filters :: Lude.Maybe [SearchFilter],
+    filters :: Core.Maybe [Types.SearchFilter],
+    -- | The maximum number of platform branch values returned in one call.
+    maxRecords :: Core.Maybe Core.Natural,
     -- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
     --
     -- If no @NextToken@ is specified, the first page is retrieved.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of platform branch values returned in one call.
-    maxRecords :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.Token
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPlatformBranches' with the minimum fields required to make a request.
---
--- * 'filters' - Criteria for restricting the resulting list of platform branches. The filter is evaluated as a logical conjunction (AND) of the separate @SearchFilter@ terms.
---
--- The following list shows valid attribute values for each of the @SearchFilter@ terms. Most operators take a single value. The @in@ and @not_in@ operators can take multiple values.
---
---     * @Attribute = BranchName@ :
---
---     * @Operator@ : @=@ | @!=@ | @begins_with@ | @ends_with@ | @contains@ | @in@ | @not_in@
---
---
---
---
---     * @Attribute = LifecycleState@ :
---
---     * @Operator@ : @=@ | @!=@ | @in@ | @not_in@
---
---
---     * @Values@ : @beta@ | @supported@ | @deprecated@ | @retired@
---
---
---
---
---     * @Attribute = PlatformName@ :
---
---     * @Operator@ : @=@ | @!=@ | @begins_with@ | @ends_with@ | @contains@ | @in@ | @not_in@
---
---
---
---
---     * @Attribute = TierType@ :
---
---     * @Operator@ : @=@ | @!=@
---
---
---     * @Values@ : @WebServer/Standard@ | @Worker/SQS/HTTP@
---
---
---
---
--- Array size: limited to 10 @SearchFilter@ objects.
--- Within each @SearchFilter@ item, the @Values@ array is limited to 10 items.
--- * 'nextToken' - For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
---
--- If no @NextToken@ is specified, the first page is retrieved.
--- * 'maxRecords' - The maximum number of platform branch values returned in one call.
+-- | Creates a 'ListPlatformBranches' value with any optional fields omitted.
 mkListPlatformBranches ::
   ListPlatformBranches
 mkListPlatformBranches =
   ListPlatformBranches'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxRecords = Lude.Nothing
+    { filters = Core.Nothing,
+      maxRecords = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Criteria for restricting the resulting list of platform branches. The filter is evaluated as a logical conjunction (AND) of the separate @SearchFilter@ terms.
@@ -193,104 +148,104 @@ mkListPlatformBranches =
 -- Within each @SearchFilter@ item, the @Values@ array is limited to 10 items.
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpbFilters :: Lens.Lens' ListPlatformBranches (Lude.Maybe [SearchFilter])
-lpbFilters = Lens.lens (filters :: ListPlatformBranches -> Lude.Maybe [SearchFilter]) (\s a -> s {filters = a} :: ListPlatformBranches)
+lpbFilters :: Lens.Lens' ListPlatformBranches (Core.Maybe [Types.SearchFilter])
+lpbFilters = Lens.field @"filters"
 {-# DEPRECATED lpbFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | The maximum number of platform branch values returned in one call.
+--
+-- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpbMaxRecords :: Lens.Lens' ListPlatformBranches (Core.Maybe Core.Natural)
+lpbMaxRecords = Lens.field @"maxRecords"
+{-# DEPRECATED lpbMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
 
 -- | For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.
 --
 -- If no @NextToken@ is specified, the first page is retrieved.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpbNextToken :: Lens.Lens' ListPlatformBranches (Lude.Maybe Lude.Text)
-lpbNextToken = Lens.lens (nextToken :: ListPlatformBranches -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPlatformBranches)
+lpbNextToken :: Lens.Lens' ListPlatformBranches (Core.Maybe Types.Token)
+lpbNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lpbNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of platform branch values returned in one call.
---
--- /Note:/ Consider using 'maxRecords' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpbMaxRecords :: Lens.Lens' ListPlatformBranches (Lude.Maybe Lude.Natural)
-lpbMaxRecords = Lens.lens (maxRecords :: ListPlatformBranches -> Lude.Maybe Lude.Natural) (\s a -> s {maxRecords = a} :: ListPlatformBranches)
-{-# DEPRECATED lpbMaxRecords "Use generic-lens or generic-optics with 'maxRecords' instead." #-}
-
-instance Lude.AWSRequest ListPlatformBranches where
+instance Core.AWSRequest ListPlatformBranches where
   type Rs ListPlatformBranches = ListPlatformBranchesResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ListPlatformBranches")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> ( Core.toQueryValue
+                            "Filters"
+                            (Core.toQueryList "member" Core.<$> filters)
+                        )
+                Core.<> (Core.toQueryValue "MaxRecords" Core.<$> maxRecords)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "ListPlatformBranchesResult"
       ( \s h x ->
           ListPlatformBranchesResponse'
-            Lude.<$> ( x Lude..@? "PlatformBranchSummaryList" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> (x Core..@? "NextToken")
+            Core.<*> ( x Core..@? "PlatformBranchSummaryList"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListPlatformBranches where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListPlatformBranches where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListPlatformBranches where
-  toQuery ListPlatformBranches' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ListPlatformBranches" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "Filters"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> filters),
-        "NextToken" Lude.=: nextToken,
-        "MaxRecords" Lude.=: maxRecords
-      ]
 
 -- | /See:/ 'mkListPlatformBranchesResponse' smart constructor.
 data ListPlatformBranchesResponse = ListPlatformBranchesResponse'
-  { -- | Summary information about the platform branches.
-    platformBranchSummaryList :: Lude.Maybe [PlatformBranchSummary],
-    -- | In a paginated request, if this value isn't @null@ , it's the token that you can pass in a subsequent request to get the next response page.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | In a paginated request, if this value isn't @null@ , it's the token that you can pass in a subsequent request to get the next response page.
+    nextToken :: Core.Maybe Types.Token,
+    -- | Summary information about the platform branches.
+    platformBranchSummaryList :: Core.Maybe [Types.PlatformBranchSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListPlatformBranchesResponse' with the minimum fields required to make a request.
---
--- * 'platformBranchSummaryList' - Summary information about the platform branches.
--- * 'nextToken' - In a paginated request, if this value isn't @null@ , it's the token that you can pass in a subsequent request to get the next response page.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListPlatformBranchesResponse' value with any optional fields omitted.
 mkListPlatformBranchesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListPlatformBranchesResponse
-mkListPlatformBranchesResponse pResponseStatus_ =
+mkListPlatformBranchesResponse responseStatus =
   ListPlatformBranchesResponse'
-    { platformBranchSummaryList =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      platformBranchSummaryList = Core.Nothing,
+      responseStatus
     }
-
--- | Summary information about the platform branches.
---
--- /Note:/ Consider using 'platformBranchSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpbrsPlatformBranchSummaryList :: Lens.Lens' ListPlatformBranchesResponse (Lude.Maybe [PlatformBranchSummary])
-lpbrsPlatformBranchSummaryList = Lens.lens (platformBranchSummaryList :: ListPlatformBranchesResponse -> Lude.Maybe [PlatformBranchSummary]) (\s a -> s {platformBranchSummaryList = a} :: ListPlatformBranchesResponse)
-{-# DEPRECATED lpbrsPlatformBranchSummaryList "Use generic-lens or generic-optics with 'platformBranchSummaryList' instead." #-}
 
 -- | In a paginated request, if this value isn't @null@ , it's the token that you can pass in a subsequent request to get the next response page.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpbrsNextToken :: Lens.Lens' ListPlatformBranchesResponse (Lude.Maybe Lude.Text)
-lpbrsNextToken = Lens.lens (nextToken :: ListPlatformBranchesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListPlatformBranchesResponse)
-{-# DEPRECATED lpbrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lpbrrsNextToken :: Lens.Lens' ListPlatformBranchesResponse (Core.Maybe Types.Token)
+lpbrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lpbrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | Summary information about the platform branches.
+--
+-- /Note:/ Consider using 'platformBranchSummaryList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lpbrrsPlatformBranchSummaryList :: Lens.Lens' ListPlatformBranchesResponse (Core.Maybe [Types.PlatformBranchSummary])
+lpbrrsPlatformBranchSummaryList = Lens.field @"platformBranchSummaryList"
+{-# DEPRECATED lpbrrsPlatformBranchSummaryList "Use generic-lens or generic-optics with 'platformBranchSummaryList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lpbrsResponseStatus :: Lens.Lens' ListPlatformBranchesResponse Lude.Int
-lpbrsResponseStatus = Lens.lens (responseStatus :: ListPlatformBranchesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListPlatformBranchesResponse)
-{-# DEPRECATED lpbrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lpbrrsResponseStatus :: Lens.Lens' ListPlatformBranchesResponse Core.Int
+lpbrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lpbrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

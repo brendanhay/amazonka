@@ -13,61 +13,66 @@
 module Network.AWS.ElasticBeanstalk.Types.ApplicationVersionStatus
   ( ApplicationVersionStatus
       ( ApplicationVersionStatus',
-        AVSProcessed,
-        AVSUnprocessed,
-        AVSFailed,
-        AVSProcessing,
-        AVSBuilding
+        ApplicationVersionStatusProcessed,
+        ApplicationVersionStatusUnprocessed,
+        ApplicationVersionStatusFailed,
+        ApplicationVersionStatusProcessing,
+        ApplicationVersionStatusBuilding,
+        fromApplicationVersionStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ApplicationVersionStatus = ApplicationVersionStatus' Lude.Text
+newtype ApplicationVersionStatus = ApplicationVersionStatus'
+  { fromApplicationVersionStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AVSProcessed :: ApplicationVersionStatus
-pattern AVSProcessed = ApplicationVersionStatus' "Processed"
+pattern ApplicationVersionStatusProcessed :: ApplicationVersionStatus
+pattern ApplicationVersionStatusProcessed = ApplicationVersionStatus' "Processed"
 
-pattern AVSUnprocessed :: ApplicationVersionStatus
-pattern AVSUnprocessed = ApplicationVersionStatus' "Unprocessed"
+pattern ApplicationVersionStatusUnprocessed :: ApplicationVersionStatus
+pattern ApplicationVersionStatusUnprocessed = ApplicationVersionStatus' "Unprocessed"
 
-pattern AVSFailed :: ApplicationVersionStatus
-pattern AVSFailed = ApplicationVersionStatus' "Failed"
+pattern ApplicationVersionStatusFailed :: ApplicationVersionStatus
+pattern ApplicationVersionStatusFailed = ApplicationVersionStatus' "Failed"
 
-pattern AVSProcessing :: ApplicationVersionStatus
-pattern AVSProcessing = ApplicationVersionStatus' "Processing"
+pattern ApplicationVersionStatusProcessing :: ApplicationVersionStatus
+pattern ApplicationVersionStatusProcessing = ApplicationVersionStatus' "Processing"
 
-pattern AVSBuilding :: ApplicationVersionStatus
-pattern AVSBuilding = ApplicationVersionStatus' "Building"
+pattern ApplicationVersionStatusBuilding :: ApplicationVersionStatus
+pattern ApplicationVersionStatusBuilding = ApplicationVersionStatus' "Building"
 
 {-# COMPLETE
-  AVSProcessed,
-  AVSUnprocessed,
-  AVSFailed,
-  AVSProcessing,
-  AVSBuilding,
+  ApplicationVersionStatusProcessed,
+  ApplicationVersionStatusUnprocessed,
+  ApplicationVersionStatusFailed,
+  ApplicationVersionStatusProcessing,
+  ApplicationVersionStatusBuilding,
   ApplicationVersionStatus'
   #-}

@@ -20,7 +20,7 @@ module Network.AWS.CloudDirectory.DetachPolicy
     mkDetachPolicy,
 
     -- ** Request lenses
-    dpDirectoryARN,
+    dpDirectoryArn,
     dpPolicyReference,
     dpObjectReference,
 
@@ -29,119 +29,108 @@ module Network.AWS.CloudDirectory.DetachPolicy
     mkDetachPolicyResponse,
 
     -- ** Response lenses
-    dprsResponseStatus,
+    dprrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudDirectory.Types
+import qualified Network.AWS.CloudDirectory.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDetachPolicy' smart constructor.
 data DetachPolicy = DetachPolicy'
   { -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
-    directoryARN :: Lude.Text,
+    directoryArn :: Types.Arn,
     -- | Reference that identifies the policy object.
-    policyReference :: ObjectReference,
+    policyReference :: Types.ObjectReference,
     -- | Reference that identifies the object whose policy object will be detached.
-    objectReference :: ObjectReference
+    objectReference :: Types.ObjectReference
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachPolicy' with the minimum fields required to make a request.
---
--- * 'directoryARN' - The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
--- * 'policyReference' - Reference that identifies the policy object.
--- * 'objectReference' - Reference that identifies the object whose policy object will be detached.
+-- | Creates a 'DetachPolicy' value with any optional fields omitted.
 mkDetachPolicy ::
-  -- | 'directoryARN'
-  Lude.Text ->
+  -- | 'directoryArn'
+  Types.Arn ->
   -- | 'policyReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   -- | 'objectReference'
-  ObjectReference ->
+  Types.ObjectReference ->
   DetachPolicy
-mkDetachPolicy pDirectoryARN_ pPolicyReference_ pObjectReference_ =
-  DetachPolicy'
-    { directoryARN = pDirectoryARN_,
-      policyReference = pPolicyReference_,
-      objectReference = pObjectReference_
-    }
+mkDetachPolicy directoryArn policyReference objectReference =
+  DetachPolicy' {directoryArn, policyReference, objectReference}
 
 -- | The Amazon Resource Name (ARN) that is associated with the 'Directory' where both objects reside. For more information, see 'arns' .
 --
--- /Note:/ Consider using 'directoryARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpDirectoryARN :: Lens.Lens' DetachPolicy Lude.Text
-dpDirectoryARN = Lens.lens (directoryARN :: DetachPolicy -> Lude.Text) (\s a -> s {directoryARN = a} :: DetachPolicy)
-{-# DEPRECATED dpDirectoryARN "Use generic-lens or generic-optics with 'directoryARN' instead." #-}
+-- /Note:/ Consider using 'directoryArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpDirectoryArn :: Lens.Lens' DetachPolicy Types.Arn
+dpDirectoryArn = Lens.field @"directoryArn"
+{-# DEPRECATED dpDirectoryArn "Use generic-lens or generic-optics with 'directoryArn' instead." #-}
 
 -- | Reference that identifies the policy object.
 --
 -- /Note:/ Consider using 'policyReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpPolicyReference :: Lens.Lens' DetachPolicy ObjectReference
-dpPolicyReference = Lens.lens (policyReference :: DetachPolicy -> ObjectReference) (\s a -> s {policyReference = a} :: DetachPolicy)
+dpPolicyReference :: Lens.Lens' DetachPolicy Types.ObjectReference
+dpPolicyReference = Lens.field @"policyReference"
 {-# DEPRECATED dpPolicyReference "Use generic-lens or generic-optics with 'policyReference' instead." #-}
 
 -- | Reference that identifies the object whose policy object will be detached.
 --
 -- /Note:/ Consider using 'objectReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpObjectReference :: Lens.Lens' DetachPolicy ObjectReference
-dpObjectReference = Lens.lens (objectReference :: DetachPolicy -> ObjectReference) (\s a -> s {objectReference = a} :: DetachPolicy)
+dpObjectReference :: Lens.Lens' DetachPolicy Types.ObjectReference
+dpObjectReference = Lens.field @"objectReference"
 {-# DEPRECATED dpObjectReference "Use generic-lens or generic-optics with 'objectReference' instead." #-}
 
-instance Lude.AWSRequest DetachPolicy where
-  type Rs DetachPolicy = DetachPolicyResponse
-  request = Req.putJSON cloudDirectoryService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          DetachPolicyResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
-
-instance Lude.ToHeaders DetachPolicy where
-  toHeaders DetachPolicy' {..} =
-    Lude.mconcat ["x-amz-data-partition" Lude.=# directoryARN]
-
-instance Lude.ToJSON DetachPolicy where
-  toJSON DetachPolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("PolicyReference" Lude..= policyReference),
-            Lude.Just ("ObjectReference" Lude..= objectReference)
+instance Core.FromJSON DetachPolicy where
+  toJSON DetachPolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("PolicyReference" Core..= policyReference),
+            Core.Just ("ObjectReference" Core..= objectReference)
           ]
       )
 
-instance Lude.ToPath DetachPolicy where
-  toPath =
-    Lude.const "/amazonclouddirectory/2017-01-11/policy/detach"
-
-instance Lude.ToQuery DetachPolicy where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest DetachPolicy where
+  type Rs DetachPolicy = DetachPolicyResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath "/amazonclouddirectory/2017-01-11/policy/detach",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-data-partition" directoryArn,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          DetachPolicyResponse' Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkDetachPolicyResponse' smart constructor.
 newtype DetachPolicyResponse = DetachPolicyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DetachPolicyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DetachPolicyResponse' value with any optional fields omitted.
 mkDetachPolicyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DetachPolicyResponse
-mkDetachPolicyResponse pResponseStatus_ =
-  DetachPolicyResponse' {responseStatus = pResponseStatus_}
+mkDetachPolicyResponse responseStatus =
+  DetachPolicyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dprsResponseStatus :: Lens.Lens' DetachPolicyResponse Lude.Int
-dprsResponseStatus = Lens.lens (responseStatus :: DetachPolicyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DetachPolicyResponse)
-{-# DEPRECATED dprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprrsResponseStatus :: Lens.Lens' DetachPolicyResponse Core.Int
+dprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

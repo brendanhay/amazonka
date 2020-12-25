@@ -42,152 +42,140 @@ module Network.AWS.GameLift.ListScripts
     mkListScripts,
 
     -- ** Request lenses
-    lsNextToken,
     lsLimit,
+    lsNextToken,
 
     -- * Destructuring the response
     ListScriptsResponse (..),
     mkListScriptsResponse,
 
     -- ** Response lenses
-    lsrsScripts,
-    lsrsNextToken,
-    lsrsResponseStatus,
+    lsrrsNextToken,
+    lsrrsScripts,
+    lsrrsResponseStatus,
   )
 where
 
-import Network.AWS.GameLift.Types
+import qualified Network.AWS.GameLift.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListScripts' smart constructor.
 data ListScripts = ListScripts'
-  { -- | A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
-    limit :: Lude.Maybe Lude.Natural
+  { -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
+    limit :: Core.Maybe Core.Natural,
+    -- | A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+    nextToken :: Core.Maybe Types.NonEmptyString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListScripts' with the minimum fields required to make a request.
---
--- * 'nextToken' - A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
--- * 'limit' - The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
+-- | Creates a 'ListScripts' value with any optional fields omitted.
 mkListScripts ::
   ListScripts
 mkListScripts =
-  ListScripts' {nextToken = Lude.Nothing, limit = Lude.Nothing}
-
--- | A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsNextToken :: Lens.Lens' ListScripts (Lude.Maybe Lude.Text)
-lsNextToken = Lens.lens (nextToken :: ListScripts -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListScripts)
-{-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+  ListScripts' {limit = Core.Nothing, nextToken = Core.Nothing}
 
 -- | The maximum number of results to return. Use this parameter with @NextToken@ to get results as a set of sequential pages.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsLimit :: Lens.Lens' ListScripts (Lude.Maybe Lude.Natural)
-lsLimit = Lens.lens (limit :: ListScripts -> Lude.Maybe Lude.Natural) (\s a -> s {limit = a} :: ListScripts)
+lsLimit :: Lens.Lens' ListScripts (Core.Maybe Core.Natural)
+lsLimit = Lens.field @"limit"
 {-# DEPRECATED lsLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Page.AWSPager ListScripts where
-  page rq rs
-    | Page.stop (rs Lens.^. lsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsrsScripts) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lsNextToken Lens..~ rs Lens.^. lsrsNextToken
+-- | A token that indicates the start of the next sequential page of results. Use the token that is returned with a previous call to this operation. To start at the beginning of the result set, do not specify a value.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsNextToken :: Lens.Lens' ListScripts (Core.Maybe Types.NonEmptyString)
+lsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.AWSRequest ListScripts where
+instance Core.FromJSON ListScripts where
+  toJSON ListScripts {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Limit" Core..=) Core.<$> limit,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest ListScripts where
   type Rs ListScripts = ListScriptsResponse
-  request = Req.postJSON gameLiftService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "GameLift.ListScripts")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListScriptsResponse'
-            Lude.<$> (x Lude..?> "Scripts" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Scripts")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListScripts where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("GameLift.ListScripts" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListScripts where
-  toJSON ListScripts' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("Limit" Lude..=) Lude.<$> limit
-          ]
-      )
-
-instance Lude.ToPath ListScripts where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListScripts where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListScripts where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"scripts" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListScriptsResponse' smart constructor.
 data ListScriptsResponse = ListScriptsResponse'
-  { -- | A set of properties describing the requested script.
-    scripts :: Lude.Maybe [Script],
-    -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
+    nextToken :: Core.Maybe Types.NonEmptyString,
+    -- | A set of properties describing the requested script.
+    scripts :: Core.Maybe [Types.Script],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListScriptsResponse' with the minimum fields required to make a request.
---
--- * 'scripts' - A set of properties describing the requested script.
--- * 'nextToken' - A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListScriptsResponse' value with any optional fields omitted.
 mkListScriptsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListScriptsResponse
-mkListScriptsResponse pResponseStatus_ =
+mkListScriptsResponse responseStatus =
   ListScriptsResponse'
-    { scripts = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      scripts = Core.Nothing,
+      responseStatus
     }
-
--- | A set of properties describing the requested script.
---
--- /Note:/ Consider using 'scripts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsScripts :: Lens.Lens' ListScriptsResponse (Lude.Maybe [Script])
-lsrsScripts = Lens.lens (scripts :: ListScriptsResponse -> Lude.Maybe [Script]) (\s a -> s {scripts = a} :: ListScriptsResponse)
-{-# DEPRECATED lsrsScripts "Use generic-lens or generic-optics with 'scripts' instead." #-}
 
 -- | A token that indicates where to resume retrieving results on the next call to this operation. If no token is returned, these results represent the end of the list.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsNextToken :: Lens.Lens' ListScriptsResponse (Lude.Maybe Lude.Text)
-lsrsNextToken = Lens.lens (nextToken :: ListScriptsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListScriptsResponse)
-{-# DEPRECATED lsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lsrrsNextToken :: Lens.Lens' ListScriptsResponse (Core.Maybe Types.NonEmptyString)
+lsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | A set of properties describing the requested script.
+--
+-- /Note:/ Consider using 'scripts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsrrsScripts :: Lens.Lens' ListScriptsResponse (Core.Maybe [Types.Script])
+lsrrsScripts = Lens.field @"scripts"
+{-# DEPRECATED lsrrsScripts "Use generic-lens or generic-optics with 'scripts' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsResponseStatus :: Lens.Lens' ListScriptsResponse Lude.Int
-lsrsResponseStatus = Lens.lens (responseStatus :: ListScriptsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListScriptsResponse)
-{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsrrsResponseStatus :: Lens.Lens' ListScriptsResponse Core.Int
+lsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

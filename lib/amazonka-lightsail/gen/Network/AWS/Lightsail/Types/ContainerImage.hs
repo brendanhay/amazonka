@@ -17,71 +17,66 @@ module Network.AWS.Lightsail.Types.ContainerImage
     mkContainerImage,
 
     -- * Lenses
-    ciImage,
     ciCreatedAt,
     ciDigest,
+    ciImage,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Lightsail.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a container image that is registered to an Amazon Lightsail container service.
 --
 -- /See:/ 'mkContainerImage' smart constructor.
 data ContainerImage = ContainerImage'
-  { -- | The name of the container image.
-    image :: Lude.Maybe Lude.Text,
-    -- | The timestamp when the container image was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
+  { -- | The timestamp when the container image was created.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | The digest of the container image.
-    digest :: Lude.Maybe Lude.Text
+    digest :: Core.Maybe Types.String,
+    -- | The name of the container image.
+    image :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ContainerImage' with the minimum fields required to make a request.
---
--- * 'image' - The name of the container image.
--- * 'createdAt' - The timestamp when the container image was created.
--- * 'digest' - The digest of the container image.
+-- | Creates a 'ContainerImage' value with any optional fields omitted.
 mkContainerImage ::
   ContainerImage
 mkContainerImage =
   ContainerImage'
-    { image = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      digest = Lude.Nothing
+    { createdAt = Core.Nothing,
+      digest = Core.Nothing,
+      image = Core.Nothing
     }
-
--- | The name of the container image.
---
--- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciImage :: Lens.Lens' ContainerImage (Lude.Maybe Lude.Text)
-ciImage = Lens.lens (image :: ContainerImage -> Lude.Maybe Lude.Text) (\s a -> s {image = a} :: ContainerImage)
-{-# DEPRECATED ciImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 -- | The timestamp when the container image was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciCreatedAt :: Lens.Lens' ContainerImage (Lude.Maybe Lude.Timestamp)
-ciCreatedAt = Lens.lens (createdAt :: ContainerImage -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: ContainerImage)
+ciCreatedAt :: Lens.Lens' ContainerImage (Core.Maybe Core.NominalDiffTime)
+ciCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED ciCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The digest of the container image.
 --
 -- /Note:/ Consider using 'digest' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciDigest :: Lens.Lens' ContainerImage (Lude.Maybe Lude.Text)
-ciDigest = Lens.lens (digest :: ContainerImage -> Lude.Maybe Lude.Text) (\s a -> s {digest = a} :: ContainerImage)
+ciDigest :: Lens.Lens' ContainerImage (Core.Maybe Types.String)
+ciDigest = Lens.field @"digest"
 {-# DEPRECATED ciDigest "Use generic-lens or generic-optics with 'digest' instead." #-}
 
-instance Lude.FromJSON ContainerImage where
+-- | The name of the container image.
+--
+-- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciImage :: Lens.Lens' ContainerImage (Core.Maybe Types.String)
+ciImage = Lens.field @"image"
+{-# DEPRECATED ciImage "Use generic-lens or generic-optics with 'image' instead." #-}
+
+instance Core.FromJSON ContainerImage where
   parseJSON =
-    Lude.withObject
-      "ContainerImage"
-      ( \x ->
-          ContainerImage'
-            Lude.<$> (x Lude..:? "image")
-            Lude.<*> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "digest")
-      )
+    Core.withObject "ContainerImage" Core.$
+      \x ->
+        ContainerImage'
+          Core.<$> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "digest")
+          Core.<*> (x Core..:? "image")

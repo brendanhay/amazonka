@@ -17,55 +17,51 @@ module Network.AWS.DataPipeline.Types.ValidationWarning
     mkValidationWarning,
 
     -- * Lenses
-    vwWarnings,
     vwId,
+    vwWarnings,
   )
 where
 
+import qualified Network.AWS.DataPipeline.Types.Id as Types
+import qualified Network.AWS.DataPipeline.Types.ValidationMessage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Defines a validation warning. Validation warnings do not prevent pipeline activation. The set of validation warnings that can be returned are defined by AWS Data Pipeline.
 --
 -- /See:/ 'mkValidationWarning' smart constructor.
 data ValidationWarning = ValidationWarning'
-  { -- | A description of the validation warning.
-    warnings :: Lude.Maybe [Lude.Text],
-    -- | The identifier of the object that contains the validation warning.
-    id :: Lude.Maybe Lude.Text
+  { -- | The identifier of the object that contains the validation warning.
+    id :: Core.Maybe Types.Id,
+    -- | A description of the validation warning.
+    warnings :: Core.Maybe [Types.ValidationMessage]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ValidationWarning' with the minimum fields required to make a request.
---
--- * 'warnings' - A description of the validation warning.
--- * 'id' - The identifier of the object that contains the validation warning.
+-- | Creates a 'ValidationWarning' value with any optional fields omitted.
 mkValidationWarning ::
   ValidationWarning
 mkValidationWarning =
-  ValidationWarning' {warnings = Lude.Nothing, id = Lude.Nothing}
-
--- | A description of the validation warning.
---
--- /Note:/ Consider using 'warnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vwWarnings :: Lens.Lens' ValidationWarning (Lude.Maybe [Lude.Text])
-vwWarnings = Lens.lens (warnings :: ValidationWarning -> Lude.Maybe [Lude.Text]) (\s a -> s {warnings = a} :: ValidationWarning)
-{-# DEPRECATED vwWarnings "Use generic-lens or generic-optics with 'warnings' instead." #-}
+  ValidationWarning' {id = Core.Nothing, warnings = Core.Nothing}
 
 -- | The identifier of the object that contains the validation warning.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vwId :: Lens.Lens' ValidationWarning (Lude.Maybe Lude.Text)
-vwId = Lens.lens (id :: ValidationWarning -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ValidationWarning)
+vwId :: Lens.Lens' ValidationWarning (Core.Maybe Types.Id)
+vwId = Lens.field @"id"
 {-# DEPRECATED vwId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.FromJSON ValidationWarning where
+-- | A description of the validation warning.
+--
+-- /Note:/ Consider using 'warnings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+vwWarnings :: Lens.Lens' ValidationWarning (Core.Maybe [Types.ValidationMessage])
+vwWarnings = Lens.field @"warnings"
+{-# DEPRECATED vwWarnings "Use generic-lens or generic-optics with 'warnings' instead." #-}
+
+instance Core.FromJSON ValidationWarning where
   parseJSON =
-    Lude.withObject
-      "ValidationWarning"
-      ( \x ->
-          ValidationWarning'
-            Lude.<$> (x Lude..:? "warnings" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "id")
-      )
+    Core.withObject "ValidationWarning" Core.$
+      \x ->
+        ValidationWarning'
+          Core.<$> (x Core..:? "id") Core.<*> (x Core..:? "warnings")

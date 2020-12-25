@@ -30,114 +30,109 @@ module Network.AWS.ELBv2.DescribeTargetGroupAttributes
     mkDescribeTargetGroupAttributes,
 
     -- ** Request lenses
-    dtgaTargetGroupARN,
+    dtgaTargetGroupArn,
 
     -- * Destructuring the response
     DescribeTargetGroupAttributesResponse (..),
     mkDescribeTargetGroupAttributesResponse,
 
     -- ** Response lenses
-    dtgarsAttributes,
-    dtgarsResponseStatus,
+    dtgarrsAttributes,
+    dtgarrsResponseStatus,
   )
 where
 
-import Network.AWS.ELBv2.Types
+import qualified Network.AWS.ELBv2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeTargetGroupAttributes' smart constructor.
 newtype DescribeTargetGroupAttributes = DescribeTargetGroupAttributes'
   { -- | The Amazon Resource Name (ARN) of the target group.
-    targetGroupARN :: Lude.Text
+    targetGroupArn :: Types.TargetGroupArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTargetGroupAttributes' with the minimum fields required to make a request.
---
--- * 'targetGroupARN' - The Amazon Resource Name (ARN) of the target group.
+-- | Creates a 'DescribeTargetGroupAttributes' value with any optional fields omitted.
 mkDescribeTargetGroupAttributes ::
-  -- | 'targetGroupARN'
-  Lude.Text ->
+  -- | 'targetGroupArn'
+  Types.TargetGroupArn ->
   DescribeTargetGroupAttributes
-mkDescribeTargetGroupAttributes pTargetGroupARN_ =
-  DescribeTargetGroupAttributes' {targetGroupARN = pTargetGroupARN_}
+mkDescribeTargetGroupAttributes targetGroupArn =
+  DescribeTargetGroupAttributes' {targetGroupArn}
 
 -- | The Amazon Resource Name (ARN) of the target group.
 --
--- /Note:/ Consider using 'targetGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgaTargetGroupARN :: Lens.Lens' DescribeTargetGroupAttributes Lude.Text
-dtgaTargetGroupARN = Lens.lens (targetGroupARN :: DescribeTargetGroupAttributes -> Lude.Text) (\s a -> s {targetGroupARN = a} :: DescribeTargetGroupAttributes)
-{-# DEPRECATED dtgaTargetGroupARN "Use generic-lens or generic-optics with 'targetGroupARN' instead." #-}
+-- /Note:/ Consider using 'targetGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dtgaTargetGroupArn :: Lens.Lens' DescribeTargetGroupAttributes Types.TargetGroupArn
+dtgaTargetGroupArn = Lens.field @"targetGroupArn"
+{-# DEPRECATED dtgaTargetGroupArn "Use generic-lens or generic-optics with 'targetGroupArn' instead." #-}
 
-instance Lude.AWSRequest DescribeTargetGroupAttributes where
+instance Core.AWSRequest DescribeTargetGroupAttributes where
   type
     Rs DescribeTargetGroupAttributes =
       DescribeTargetGroupAttributesResponse
-  request = Req.postQuery eLBv2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeTargetGroupAttributes")
+                Core.<> (Core.pure ("Version", "2015-12-01"))
+                Core.<> (Core.toQueryValue "TargetGroupArn" targetGroupArn)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeTargetGroupAttributesResult"
       ( \s h x ->
           DescribeTargetGroupAttributesResponse'
-            Lude.<$> ( x Lude..@? "Attributes" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Attributes" Core..<@> Core.parseXMLList "member")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeTargetGroupAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeTargetGroupAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeTargetGroupAttributes where
-  toQuery DescribeTargetGroupAttributes' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeTargetGroupAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2015-12-01" :: Lude.ByteString),
-        "TargetGroupArn" Lude.=: targetGroupARN
-      ]
 
 -- | /See:/ 'mkDescribeTargetGroupAttributesResponse' smart constructor.
 data DescribeTargetGroupAttributesResponse = DescribeTargetGroupAttributesResponse'
   { -- | Information about the target group attributes
-    attributes :: Lude.Maybe [TargetGroupAttribute],
+    attributes :: Core.Maybe [Types.TargetGroupAttribute],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeTargetGroupAttributesResponse' with the minimum fields required to make a request.
---
--- * 'attributes' - Information about the target group attributes
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeTargetGroupAttributesResponse' value with any optional fields omitted.
 mkDescribeTargetGroupAttributesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeTargetGroupAttributesResponse
-mkDescribeTargetGroupAttributesResponse pResponseStatus_ =
+mkDescribeTargetGroupAttributesResponse responseStatus =
   DescribeTargetGroupAttributesResponse'
-    { attributes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { attributes = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the target group attributes
 --
 -- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgarsAttributes :: Lens.Lens' DescribeTargetGroupAttributesResponse (Lude.Maybe [TargetGroupAttribute])
-dtgarsAttributes = Lens.lens (attributes :: DescribeTargetGroupAttributesResponse -> Lude.Maybe [TargetGroupAttribute]) (\s a -> s {attributes = a} :: DescribeTargetGroupAttributesResponse)
-{-# DEPRECATED dtgarsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+dtgarrsAttributes :: Lens.Lens' DescribeTargetGroupAttributesResponse (Core.Maybe [Types.TargetGroupAttribute])
+dtgarrsAttributes = Lens.field @"attributes"
+{-# DEPRECATED dtgarrsAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgarsResponseStatus :: Lens.Lens' DescribeTargetGroupAttributesResponse Lude.Int
-dtgarsResponseStatus = Lens.lens (responseStatus :: DescribeTargetGroupAttributesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeTargetGroupAttributesResponse)
-{-# DEPRECATED dtgarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtgarrsResponseStatus :: Lens.Lens' DescribeTargetGroupAttributesResponse Core.Int
+dtgarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtgarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

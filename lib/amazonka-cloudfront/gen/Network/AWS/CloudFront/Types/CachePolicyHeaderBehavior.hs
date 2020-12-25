@@ -13,46 +13,51 @@
 module Network.AWS.CloudFront.Types.CachePolicyHeaderBehavior
   ( CachePolicyHeaderBehavior
       ( CachePolicyHeaderBehavior',
-        CPHBNone,
-        CPHBWhitelist
+        CachePolicyHeaderBehaviorNone,
+        CachePolicyHeaderBehaviorWhitelist,
+        fromCachePolicyHeaderBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CachePolicyHeaderBehavior = CachePolicyHeaderBehavior' Lude.Text
+newtype CachePolicyHeaderBehavior = CachePolicyHeaderBehavior'
+  { fromCachePolicyHeaderBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CPHBNone :: CachePolicyHeaderBehavior
-pattern CPHBNone = CachePolicyHeaderBehavior' "none"
+pattern CachePolicyHeaderBehaviorNone :: CachePolicyHeaderBehavior
+pattern CachePolicyHeaderBehaviorNone = CachePolicyHeaderBehavior' "none"
 
-pattern CPHBWhitelist :: CachePolicyHeaderBehavior
-pattern CPHBWhitelist = CachePolicyHeaderBehavior' "whitelist"
+pattern CachePolicyHeaderBehaviorWhitelist :: CachePolicyHeaderBehavior
+pattern CachePolicyHeaderBehaviorWhitelist = CachePolicyHeaderBehavior' "whitelist"
 
 {-# COMPLETE
-  CPHBNone,
-  CPHBWhitelist,
+  CachePolicyHeaderBehaviorNone,
+  CachePolicyHeaderBehaviorWhitelist,
   CachePolicyHeaderBehavior'
   #-}

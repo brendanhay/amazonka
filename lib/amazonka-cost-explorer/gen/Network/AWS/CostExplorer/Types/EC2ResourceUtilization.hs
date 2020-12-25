@@ -17,86 +17,81 @@ module Network.AWS.CostExplorer.Types.EC2ResourceUtilization
     mkEC2ResourceUtilization,
 
     -- * Lenses
-    eruMaxCPUUtilizationPercentage,
-    eruEBSResourceUtilization,
-    eruMaxStorageUtilizationPercentage,
-    eruMaxMemoryUtilizationPercentage,
+    ecruEBSResourceUtilization,
+    ecruMaxCpuUtilizationPercentage,
+    ecruMaxMemoryUtilizationPercentage,
+    ecruMaxStorageUtilizationPercentage,
   )
 where
 
-import Network.AWS.CostExplorer.Types.EBSResourceUtilization
+import qualified Network.AWS.CostExplorer.Types.EBSResourceUtilization as Types
+import qualified Network.AWS.CostExplorer.Types.MaxCpuUtilizationPercentage as Types
+import qualified Network.AWS.CostExplorer.Types.MaxMemoryUtilizationPercentage as Types
+import qualified Network.AWS.CostExplorer.Types.MaxStorageUtilizationPercentage as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Utilization metrics of the instance.
 --
 -- /See:/ 'mkEC2ResourceUtilization' smart constructor.
 data EC2ResourceUtilization = EC2ResourceUtilization'
-  { -- | Maximum observed or expected CPU utilization of the instance.
-    maxCPUUtilizationPercentage :: Lude.Maybe Lude.Text,
-    -- | The EBS field that contains a list of EBS metrics associated with the current instance.
-    ebsResourceUtilization :: Lude.Maybe EBSResourceUtilization,
-    -- | Maximum observed or expected storage utilization of the instance (does not measure EBS storage).
-    maxStorageUtilizationPercentage :: Lude.Maybe Lude.Text,
+  { -- | The EBS field that contains a list of EBS metrics associated with the current instance.
+    eBSResourceUtilization :: Core.Maybe Types.EBSResourceUtilization,
+    -- | Maximum observed or expected CPU utilization of the instance.
+    maxCpuUtilizationPercentage :: Core.Maybe Types.MaxCpuUtilizationPercentage,
     -- | Maximum observed or expected memory utilization of the instance.
-    maxMemoryUtilizationPercentage :: Lude.Maybe Lude.Text
+    maxMemoryUtilizationPercentage :: Core.Maybe Types.MaxMemoryUtilizationPercentage,
+    -- | Maximum observed or expected storage utilization of the instance (does not measure EBS storage).
+    maxStorageUtilizationPercentage :: Core.Maybe Types.MaxStorageUtilizationPercentage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EC2ResourceUtilization' with the minimum fields required to make a request.
---
--- * 'maxCPUUtilizationPercentage' - Maximum observed or expected CPU utilization of the instance.
--- * 'ebsResourceUtilization' - The EBS field that contains a list of EBS metrics associated with the current instance.
--- * 'maxStorageUtilizationPercentage' - Maximum observed or expected storage utilization of the instance (does not measure EBS storage).
--- * 'maxMemoryUtilizationPercentage' - Maximum observed or expected memory utilization of the instance.
+-- | Creates a 'EC2ResourceUtilization' value with any optional fields omitted.
 mkEC2ResourceUtilization ::
   EC2ResourceUtilization
 mkEC2ResourceUtilization =
   EC2ResourceUtilization'
-    { maxCPUUtilizationPercentage =
-        Lude.Nothing,
-      ebsResourceUtilization = Lude.Nothing,
-      maxStorageUtilizationPercentage = Lude.Nothing,
-      maxMemoryUtilizationPercentage = Lude.Nothing
+    { eBSResourceUtilization = Core.Nothing,
+      maxCpuUtilizationPercentage = Core.Nothing,
+      maxMemoryUtilizationPercentage = Core.Nothing,
+      maxStorageUtilizationPercentage = Core.Nothing
     }
-
--- | Maximum observed or expected CPU utilization of the instance.
---
--- /Note:/ Consider using 'maxCPUUtilizationPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eruMaxCPUUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Lude.Maybe Lude.Text)
-eruMaxCPUUtilizationPercentage = Lens.lens (maxCPUUtilizationPercentage :: EC2ResourceUtilization -> Lude.Maybe Lude.Text) (\s a -> s {maxCPUUtilizationPercentage = a} :: EC2ResourceUtilization)
-{-# DEPRECATED eruMaxCPUUtilizationPercentage "Use generic-lens or generic-optics with 'maxCPUUtilizationPercentage' instead." #-}
 
 -- | The EBS field that contains a list of EBS metrics associated with the current instance.
 --
--- /Note:/ Consider using 'ebsResourceUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eruEBSResourceUtilization :: Lens.Lens' EC2ResourceUtilization (Lude.Maybe EBSResourceUtilization)
-eruEBSResourceUtilization = Lens.lens (ebsResourceUtilization :: EC2ResourceUtilization -> Lude.Maybe EBSResourceUtilization) (\s a -> s {ebsResourceUtilization = a} :: EC2ResourceUtilization)
-{-# DEPRECATED eruEBSResourceUtilization "Use generic-lens or generic-optics with 'ebsResourceUtilization' instead." #-}
+-- /Note:/ Consider using 'eBSResourceUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecruEBSResourceUtilization :: Lens.Lens' EC2ResourceUtilization (Core.Maybe Types.EBSResourceUtilization)
+ecruEBSResourceUtilization = Lens.field @"eBSResourceUtilization"
+{-# DEPRECATED ecruEBSResourceUtilization "Use generic-lens or generic-optics with 'eBSResourceUtilization' instead." #-}
 
--- | Maximum observed or expected storage utilization of the instance (does not measure EBS storage).
+-- | Maximum observed or expected CPU utilization of the instance.
 --
--- /Note:/ Consider using 'maxStorageUtilizationPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eruMaxStorageUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Lude.Maybe Lude.Text)
-eruMaxStorageUtilizationPercentage = Lens.lens (maxStorageUtilizationPercentage :: EC2ResourceUtilization -> Lude.Maybe Lude.Text) (\s a -> s {maxStorageUtilizationPercentage = a} :: EC2ResourceUtilization)
-{-# DEPRECATED eruMaxStorageUtilizationPercentage "Use generic-lens or generic-optics with 'maxStorageUtilizationPercentage' instead." #-}
+-- /Note:/ Consider using 'maxCpuUtilizationPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecruMaxCpuUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Core.Maybe Types.MaxCpuUtilizationPercentage)
+ecruMaxCpuUtilizationPercentage = Lens.field @"maxCpuUtilizationPercentage"
+{-# DEPRECATED ecruMaxCpuUtilizationPercentage "Use generic-lens or generic-optics with 'maxCpuUtilizationPercentage' instead." #-}
 
 -- | Maximum observed or expected memory utilization of the instance.
 --
 -- /Note:/ Consider using 'maxMemoryUtilizationPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-eruMaxMemoryUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Lude.Maybe Lude.Text)
-eruMaxMemoryUtilizationPercentage = Lens.lens (maxMemoryUtilizationPercentage :: EC2ResourceUtilization -> Lude.Maybe Lude.Text) (\s a -> s {maxMemoryUtilizationPercentage = a} :: EC2ResourceUtilization)
-{-# DEPRECATED eruMaxMemoryUtilizationPercentage "Use generic-lens or generic-optics with 'maxMemoryUtilizationPercentage' instead." #-}
+ecruMaxMemoryUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Core.Maybe Types.MaxMemoryUtilizationPercentage)
+ecruMaxMemoryUtilizationPercentage = Lens.field @"maxMemoryUtilizationPercentage"
+{-# DEPRECATED ecruMaxMemoryUtilizationPercentage "Use generic-lens or generic-optics with 'maxMemoryUtilizationPercentage' instead." #-}
 
-instance Lude.FromJSON EC2ResourceUtilization where
+-- | Maximum observed or expected storage utilization of the instance (does not measure EBS storage).
+--
+-- /Note:/ Consider using 'maxStorageUtilizationPercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ecruMaxStorageUtilizationPercentage :: Lens.Lens' EC2ResourceUtilization (Core.Maybe Types.MaxStorageUtilizationPercentage)
+ecruMaxStorageUtilizationPercentage = Lens.field @"maxStorageUtilizationPercentage"
+{-# DEPRECATED ecruMaxStorageUtilizationPercentage "Use generic-lens or generic-optics with 'maxStorageUtilizationPercentage' instead." #-}
+
+instance Core.FromJSON EC2ResourceUtilization where
   parseJSON =
-    Lude.withObject
-      "EC2ResourceUtilization"
-      ( \x ->
-          EC2ResourceUtilization'
-            Lude.<$> (x Lude..:? "MaxCpuUtilizationPercentage")
-            Lude.<*> (x Lude..:? "EBSResourceUtilization")
-            Lude.<*> (x Lude..:? "MaxStorageUtilizationPercentage")
-            Lude.<*> (x Lude..:? "MaxMemoryUtilizationPercentage")
-      )
+    Core.withObject "EC2ResourceUtilization" Core.$
+      \x ->
+        EC2ResourceUtilization'
+          Core.<$> (x Core..:? "EBSResourceUtilization")
+          Core.<*> (x Core..:? "MaxCpuUtilizationPercentage")
+          Core.<*> (x Core..:? "MaxMemoryUtilizationPercentage")
+          Core.<*> (x Core..:? "MaxStorageUtilizationPercentage")

@@ -17,22 +17,22 @@ module Network.AWS.Route53.Waiters
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import Network.AWS.Route53.GetChange
-import Network.AWS.Route53.Types
-import qualified Network.AWS.Waiter as Wait
+import qualified Network.AWS.Route53.Types as Types
+import qualified Network.AWS.Waiter as Waiter
 
 -- | Polls 'Network.AWS.Route53.GetChange' every 30 seconds until a successful state is reached. An error is returned after 60 failed checks.
-mkResourceRecordSetsChanged :: Wait.Wait GetChange
+mkResourceRecordSetsChanged :: Waiter.Wait GetChange
 mkResourceRecordSetsChanged =
-  Wait.Wait
-    { Wait._waitName = "ResourceRecordSetsChanged",
-      Wait._waitAttempts = 60,
-      Wait._waitDelay = 30,
-      Wait._waitAcceptors =
-        [ Wait.matchAll
+  Waiter.Wait
+    { Waiter._waitName = "ResourceRecordSetsChanged",
+      Waiter._waitAttempts = 60,
+      Waiter._waitDelay = 30,
+      Waiter._waitAcceptors =
+        [ Waiter.matchAll
             "INSYNC"
-            Wait.AcceptSuccess
-            (gcrsChangeInfo Lude.. ciStatus Lude.. Lens.to Lude.toText)
+            Waiter.AcceptSuccess
+            (Lens.field @"changeInfo" Core.. Lens.field @"status")
         ]
     }

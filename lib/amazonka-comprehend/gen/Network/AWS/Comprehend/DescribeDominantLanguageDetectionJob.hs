@@ -27,113 +27,102 @@ module Network.AWS.Comprehend.DescribeDominantLanguageDetectionJob
     mkDescribeDominantLanguageDetectionJobResponse,
 
     -- ** Response lenses
-    ddldjrsDominantLanguageDetectionJobProperties,
-    ddldjrsResponseStatus,
+    ddldjrrsDominantLanguageDetectionJobProperties,
+    ddldjrrsResponseStatus,
   )
 where
 
-import Network.AWS.Comprehend.Types
+import qualified Network.AWS.Comprehend.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeDominantLanguageDetectionJob' smart constructor.
 newtype DescribeDominantLanguageDetectionJob = DescribeDominantLanguageDetectionJob'
   { -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
-    jobId :: Lude.Text
+    jobId :: Types.JobId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeDominantLanguageDetectionJob' with the minimum fields required to make a request.
---
--- * 'jobId' - The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
+-- | Creates a 'DescribeDominantLanguageDetectionJob' value with any optional fields omitted.
 mkDescribeDominantLanguageDetectionJob ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   DescribeDominantLanguageDetectionJob
-mkDescribeDominantLanguageDetectionJob pJobId_ =
-  DescribeDominantLanguageDetectionJob' {jobId = pJobId_}
+mkDescribeDominantLanguageDetectionJob jobId =
+  DescribeDominantLanguageDetectionJob' {jobId}
 
 -- | The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddldjJobId :: Lens.Lens' DescribeDominantLanguageDetectionJob Lude.Text
-ddldjJobId = Lens.lens (jobId :: DescribeDominantLanguageDetectionJob -> Lude.Text) (\s a -> s {jobId = a} :: DescribeDominantLanguageDetectionJob)
+ddldjJobId :: Lens.Lens' DescribeDominantLanguageDetectionJob Types.JobId
+ddldjJobId = Lens.field @"jobId"
 {-# DEPRECATED ddldjJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
 
-instance Lude.AWSRequest DescribeDominantLanguageDetectionJob where
+instance Core.FromJSON DescribeDominantLanguageDetectionJob where
+  toJSON DescribeDominantLanguageDetectionJob {..} =
+    Core.object (Core.catMaybes [Core.Just ("JobId" Core..= jobId)])
+
+instance Core.AWSRequest DescribeDominantLanguageDetectionJob where
   type
     Rs DescribeDominantLanguageDetectionJob =
       DescribeDominantLanguageDetectionJobResponse
-  request = Req.postJSON comprehendService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "Comprehend_20171127.DescribeDominantLanguageDetectionJob"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeDominantLanguageDetectionJobResponse'
-            Lude.<$> (x Lude..?> "DominantLanguageDetectionJobProperties")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DominantLanguageDetectionJobProperties")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeDominantLanguageDetectionJob where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "Comprehend_20171127.DescribeDominantLanguageDetectionJob" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeDominantLanguageDetectionJob where
-  toJSON DescribeDominantLanguageDetectionJob' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("JobId" Lude..= jobId)])
-
-instance Lude.ToPath DescribeDominantLanguageDetectionJob where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeDominantLanguageDetectionJob where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeDominantLanguageDetectionJobResponse' smart constructor.
 data DescribeDominantLanguageDetectionJobResponse = DescribeDominantLanguageDetectionJobResponse'
   { -- | An object that contains the properties associated with a dominant language detection job.
-    dominantLanguageDetectionJobProperties :: Lude.Maybe DominantLanguageDetectionJobProperties,
+    dominantLanguageDetectionJobProperties :: Core.Maybe Types.DominantLanguageDetectionJobProperties,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeDominantLanguageDetectionJobResponse' with the minimum fields required to make a request.
---
--- * 'dominantLanguageDetectionJobProperties' - An object that contains the properties associated with a dominant language detection job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeDominantLanguageDetectionJobResponse' value with any optional fields omitted.
 mkDescribeDominantLanguageDetectionJobResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeDominantLanguageDetectionJobResponse
-mkDescribeDominantLanguageDetectionJobResponse pResponseStatus_ =
+mkDescribeDominantLanguageDetectionJobResponse responseStatus =
   DescribeDominantLanguageDetectionJobResponse'
     { dominantLanguageDetectionJobProperties =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An object that contains the properties associated with a dominant language detection job.
 --
 -- /Note:/ Consider using 'dominantLanguageDetectionJobProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddldjrsDominantLanguageDetectionJobProperties :: Lens.Lens' DescribeDominantLanguageDetectionJobResponse (Lude.Maybe DominantLanguageDetectionJobProperties)
-ddldjrsDominantLanguageDetectionJobProperties = Lens.lens (dominantLanguageDetectionJobProperties :: DescribeDominantLanguageDetectionJobResponse -> Lude.Maybe DominantLanguageDetectionJobProperties) (\s a -> s {dominantLanguageDetectionJobProperties = a} :: DescribeDominantLanguageDetectionJobResponse)
-{-# DEPRECATED ddldjrsDominantLanguageDetectionJobProperties "Use generic-lens or generic-optics with 'dominantLanguageDetectionJobProperties' instead." #-}
+ddldjrrsDominantLanguageDetectionJobProperties :: Lens.Lens' DescribeDominantLanguageDetectionJobResponse (Core.Maybe Types.DominantLanguageDetectionJobProperties)
+ddldjrrsDominantLanguageDetectionJobProperties = Lens.field @"dominantLanguageDetectionJobProperties"
+{-# DEPRECATED ddldjrrsDominantLanguageDetectionJobProperties "Use generic-lens or generic-optics with 'dominantLanguageDetectionJobProperties' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddldjrsResponseStatus :: Lens.Lens' DescribeDominantLanguageDetectionJobResponse Lude.Int
-ddldjrsResponseStatus = Lens.lens (responseStatus :: DescribeDominantLanguageDetectionJobResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeDominantLanguageDetectionJobResponse)
-{-# DEPRECATED ddldjrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddldjrrsResponseStatus :: Lens.Lens' DescribeDominantLanguageDetectionJobResponse Core.Int
+ddldjrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddldjrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

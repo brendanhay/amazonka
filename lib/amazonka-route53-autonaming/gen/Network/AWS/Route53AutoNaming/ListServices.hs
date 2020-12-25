@@ -23,59 +23,51 @@ module Network.AWS.Route53AutoNaming.ListServices
 
     -- ** Request lenses
     lsFilters,
-    lsNextToken,
     lsMaxResults,
+    lsNextToken,
 
     -- * Destructuring the response
     ListServicesResponse (..),
     mkListServicesResponse,
 
     -- ** Response lenses
-    lsrsNextToken,
-    lsrsServices,
-    lsrsResponseStatus,
+    lsrrsNextToken,
+    lsrrsServices,
+    lsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53AutoNaming.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53AutoNaming.Types as Types
 
 -- | /See:/ 'mkListServices' smart constructor.
 data ListServices = ListServices'
   { -- | A complex type that contains specifications for the namespaces that you want to list services for.
     --
     -- If you specify more than one filter, an operation must match all filters to be returned by @ListServices@ .
-    filters :: Lude.Maybe [ServiceFilter],
+    filters :: Core.Maybe [Types.ServiceFilter],
+    -- | The maximum number of services that you want AWS Cloud Map to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 services.
+    maxResults :: Core.Maybe Core.Natural,
     -- | For the first @ListServices@ request, omit this value.
     --
     -- If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The maximum number of services that you want AWS Cloud Map to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 services.
-    maxResults :: Lude.Maybe Lude.Natural
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListServices' with the minimum fields required to make a request.
---
--- * 'filters' - A complex type that contains specifications for the namespaces that you want to list services for.
---
--- If you specify more than one filter, an operation must match all filters to be returned by @ListServices@ .
--- * 'nextToken' - For the first @ListServices@ request, omit this value.
---
--- If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
--- * 'maxResults' - The maximum number of services that you want AWS Cloud Map to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 services.
+-- | Creates a 'ListServices' value with any optional fields omitted.
 mkListServices ::
   ListServices
 mkListServices =
   ListServices'
-    { filters = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { filters = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | A complex type that contains specifications for the namespaces that you want to list services for.
@@ -83,119 +75,111 @@ mkListServices =
 -- If you specify more than one filter, an operation must match all filters to be returned by @ListServices@ .
 --
 -- /Note:/ Consider using 'filters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsFilters :: Lens.Lens' ListServices (Lude.Maybe [ServiceFilter])
-lsFilters = Lens.lens (filters :: ListServices -> Lude.Maybe [ServiceFilter]) (\s a -> s {filters = a} :: ListServices)
+lsFilters :: Lens.Lens' ListServices (Core.Maybe [Types.ServiceFilter])
+lsFilters = Lens.field @"filters"
 {-# DEPRECATED lsFilters "Use generic-lens or generic-optics with 'filters' instead." #-}
+
+-- | The maximum number of services that you want AWS Cloud Map to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 services.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lsMaxResults :: Lens.Lens' ListServices (Core.Maybe Core.Natural)
+lsMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | For the first @ListServices@ request, omit this value.
 --
 -- If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsNextToken :: Lens.Lens' ListServices (Lude.Maybe Lude.Text)
-lsNextToken = Lens.lens (nextToken :: ListServices -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListServices)
+lsNextToken :: Lens.Lens' ListServices (Core.Maybe Types.NextToken)
+lsNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
--- | The maximum number of services that you want AWS Cloud Map to return in the response to a @ListServices@ request. If you don't specify a value for @MaxResults@ , AWS Cloud Map returns up to 100 services.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsMaxResults :: Lens.Lens' ListServices (Lude.Maybe Lude.Natural)
-lsMaxResults = Lens.lens (maxResults :: ListServices -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListServices)
-{-# DEPRECATED lsMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+instance Core.FromJSON ListServices where
+  toJSON ListServices {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Filters" Core..=) Core.<$> filters,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
 
-instance Page.AWSPager ListServices where
-  page rq rs
-    | Page.stop (rs Lens.^. lsrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lsrsServices) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lsNextToken Lens..~ rs Lens.^. lsrsNextToken
-
-instance Lude.AWSRequest ListServices where
+instance Core.AWSRequest ListServices where
   type Rs ListServices = ListServicesResponse
-  request = Req.postJSON route53AutoNamingService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "Route53AutoNaming_v20170314.ListServices")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListServicesResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "Services" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "Services")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListServices where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("Route53AutoNaming_v20170314.ListServices" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListServices where
-  toJSON ListServices' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Filters" Lude..=) Lude.<$> filters,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath ListServices where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListServices where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListServices where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop (rs Lens.^? Lens.field @"services" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListServicesResponse' smart constructor.
 data ListServicesResponse = ListServicesResponse'
   { -- | If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | An array that contains one @ServiceSummary@ object for each service that matches the specified filter criteria.
-    services :: Lude.Maybe [ServiceSummary],
+    services :: Core.Maybe [Types.ServiceSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListServicesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
--- * 'services' - An array that contains one @ServiceSummary@ object for each service that matches the specified filter criteria.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListServicesResponse' value with any optional fields omitted.
 mkListServicesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListServicesResponse
-mkListServicesResponse pResponseStatus_ =
+mkListServicesResponse responseStatus =
   ListServicesResponse'
-    { nextToken = Lude.Nothing,
-      services = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      services = Core.Nothing,
+      responseStatus
     }
 
 -- | If the response contains @NextToken@ , submit another @ListServices@ request to get the next group of results. Specify the value of @NextToken@ from the previous response in the next request.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsNextToken :: Lens.Lens' ListServicesResponse (Lude.Maybe Lude.Text)
-lsrsNextToken = Lens.lens (nextToken :: ListServicesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListServicesResponse)
-{-# DEPRECATED lsrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lsrrsNextToken :: Lens.Lens' ListServicesResponse (Core.Maybe Types.NextToken)
+lsrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lsrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | An array that contains one @ServiceSummary@ object for each service that matches the specified filter criteria.
 --
 -- /Note:/ Consider using 'services' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsServices :: Lens.Lens' ListServicesResponse (Lude.Maybe [ServiceSummary])
-lsrsServices = Lens.lens (services :: ListServicesResponse -> Lude.Maybe [ServiceSummary]) (\s a -> s {services = a} :: ListServicesResponse)
-{-# DEPRECATED lsrsServices "Use generic-lens or generic-optics with 'services' instead." #-}
+lsrrsServices :: Lens.Lens' ListServicesResponse (Core.Maybe [Types.ServiceSummary])
+lsrrsServices = Lens.field @"services"
+{-# DEPRECATED lsrrsServices "Use generic-lens or generic-optics with 'services' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lsrsResponseStatus :: Lens.Lens' ListServicesResponse Lude.Int
-lsrsResponseStatus = Lens.lens (responseStatus :: ListServicesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListServicesResponse)
-{-# DEPRECATED lsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lsrrsResponseStatus :: Lens.Lens' ListServicesResponse Core.Int
+lsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

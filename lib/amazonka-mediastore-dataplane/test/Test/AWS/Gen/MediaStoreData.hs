@@ -96,7 +96,7 @@ responsePutObject =
   res
     "PutObjectResponse"
     "fixture/PutObjectResponse.proto"
-    mediaStoreDataService
+    mkServiceConfig
     (Proxy :: Proxy PutObject)
 
 responseDeleteObject :: DeleteObjectResponse -> TestTree
@@ -104,7 +104,7 @@ responseDeleteObject =
   res
     "DeleteObjectResponse"
     "fixture/DeleteObjectResponse.proto"
-    mediaStoreDataService
+    mkServiceConfig
     (Proxy :: Proxy DeleteObject)
 
 responseDescribeObject :: DescribeObjectResponse -> TestTree
@@ -112,7 +112,7 @@ responseDescribeObject =
   res
     "DescribeObjectResponse"
     "fixture/DescribeObjectResponse.proto"
-    mediaStoreDataService
+    mkServiceConfig
     (Proxy :: Proxy DescribeObject)
 
 responseListItems :: ListItemsResponse -> TestTree
@@ -120,5 +120,5 @@ responseListItems =
   res
     "ListItemsResponse"
     "fixture/ListItemsResponse.proto"
-    mediaStoreDataService
+    mkServiceConfig
     (Proxy :: Proxy ListItems)

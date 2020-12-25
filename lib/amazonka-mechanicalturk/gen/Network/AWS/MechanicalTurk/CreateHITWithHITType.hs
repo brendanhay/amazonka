@@ -23,167 +23,138 @@ module Network.AWS.MechanicalTurk.CreateHITWithHITType
     mkCreateHITWithHITType,
 
     -- ** Request lenses
-    chitwhittLifetimeInSeconds,
-    chitwhittHITReviewPolicy,
     chitwhittHITTypeId,
-    chitwhittUniqueRequestToken,
-    chitwhittRequesterAnnotation,
-    chitwhittMaxAssignments,
+    chitwhittLifetimeInSeconds,
+    chitwhittAssignmentReviewPolicy,
     chitwhittHITLayoutId,
     chitwhittHITLayoutParameters,
+    chitwhittHITReviewPolicy,
+    chitwhittMaxAssignments,
     chitwhittQuestion,
-    chitwhittAssignmentReviewPolicy,
+    chitwhittRequesterAnnotation,
+    chitwhittUniqueRequestToken,
 
     -- * Destructuring the response
     CreateHITWithHITTypeResponse (..),
     mkCreateHITWithHITTypeResponse,
 
     -- ** Response lenses
-    chitwhittrsHIT,
-    chitwhittrsResponseStatus,
+    chitwhittrrsHIT,
+    chitwhittrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MechanicalTurk.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateHITWithHITType' smart constructor.
 data CreateHITWithHITType = CreateHITWithHITType'
-  { -- | An amount of time, in seconds, after which the HIT is no longer available for users to accept. After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches, even if not all of the assignments for the HIT have been accepted.
-    lifetimeInSeconds :: Lude.Integer,
-    -- | The HIT-level Review Policy applies to the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
-    hITReviewPolicy :: Lude.Maybe ReviewPolicy,
-    -- | The HIT type ID you want to create this HIT with.
-    hITTypeId :: Lude.Text,
-    -- | A unique identifier for this request which allows you to retry the call on error without creating duplicate HITs. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the HIT already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return a AWS.MechanicalTurk.HitAlreadyExists error with a message containing the HITId.
-    uniqueRequestToken :: Lude.Maybe Lude.Text,
-    -- | An arbitrary data field. The RequesterAnnotation parameter lets your application attach arbitrary data to the HIT for tracking purposes. For example, this parameter could be an identifier internal to the Requester's application that corresponds with the HIT.
-    --
-    -- The RequesterAnnotation parameter for a HIT is only visible to the Requester who created the HIT. It is not shown to the Worker, or any other Requester.
-    -- The RequesterAnnotation parameter may be different for each HIT you submit. It does not affect how your HITs are grouped.
-    requesterAnnotation :: Lude.Maybe Lude.Text,
-    -- | The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
-    maxAssignments :: Lude.Maybe Lude.Int,
+  { -- | The HIT type ID you want to create this HIT with.
+    hITTypeId :: Types.HITTypeId,
+    -- | An amount of time, in seconds, after which the HIT is no longer available for users to accept. After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches, even if not all of the assignments for the HIT have been accepted.
+    lifetimeInSeconds :: Core.Integer,
+    -- | The Assignment-level Review Policy applies to the assignments under the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
+    assignmentReviewPolicy :: Core.Maybe Types.ReviewPolicy,
     -- | The HITLayoutId allows you to use a pre-existing HIT design with placeholder values and create an additional HIT by providing those values as HITLayoutParameters.
     --
     -- Constraints: Either a Question parameter or a HITLayoutId parameter must be provided.
-    hITLayoutId :: Lude.Maybe Lude.Text,
+    hITLayoutId :: Core.Maybe Types.HITLayoutId,
     -- | If the HITLayoutId is provided, any placeholder values must be filled in with values using the HITLayoutParameter structure. For more information, see HITLayout.
-    hITLayoutParameters :: Lude.Maybe [HITLayoutParameter],
+    hITLayoutParameters :: Core.Maybe [Types.HITLayoutParameter],
+    -- | The HIT-level Review Policy applies to the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
+    hITReviewPolicy :: Core.Maybe Types.ReviewPolicy,
+    -- | The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
+    maxAssignments :: Core.Maybe Core.Int,
     -- | The data the person completing the HIT uses to produce the results.
     --
     -- Constraints: Must be a QuestionForm data structure, an ExternalQuestion data structure, or an HTMLQuestion data structure. The XML question data must not be larger than 64 kilobytes (65,535 bytes) in size, including whitespace.
     -- Either a Question parameter or a HITLayoutId parameter must be provided.
-    question :: Lude.Maybe Lude.Text,
-    -- | The Assignment-level Review Policy applies to the assignments under the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
-    assignmentReviewPolicy :: Lude.Maybe ReviewPolicy
+    question :: Core.Maybe Types.Question,
+    -- | An arbitrary data field. The RequesterAnnotation parameter lets your application attach arbitrary data to the HIT for tracking purposes. For example, this parameter could be an identifier internal to the Requester's application that corresponds with the HIT.
+    --
+    -- The RequesterAnnotation parameter for a HIT is only visible to the Requester who created the HIT. It is not shown to the Worker, or any other Requester.
+    -- The RequesterAnnotation parameter may be different for each HIT you submit. It does not affect how your HITs are grouped.
+    requesterAnnotation :: Core.Maybe Types.RequesterAnnotation,
+    -- | A unique identifier for this request which allows you to retry the call on error without creating duplicate HITs. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the HIT already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return a AWS.MechanicalTurk.HitAlreadyExists error with a message containing the HITId.
+    uniqueRequestToken :: Core.Maybe Types.IdempotencyToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateHITWithHITType' with the minimum fields required to make a request.
---
--- * 'lifetimeInSeconds' - An amount of time, in seconds, after which the HIT is no longer available for users to accept. After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches, even if not all of the assignments for the HIT have been accepted.
--- * 'hITReviewPolicy' - The HIT-level Review Policy applies to the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
--- * 'hITTypeId' - The HIT type ID you want to create this HIT with.
--- * 'uniqueRequestToken' - A unique identifier for this request which allows you to retry the call on error without creating duplicate HITs. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the HIT already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return a AWS.MechanicalTurk.HitAlreadyExists error with a message containing the HITId.
--- * 'requesterAnnotation' - An arbitrary data field. The RequesterAnnotation parameter lets your application attach arbitrary data to the HIT for tracking purposes. For example, this parameter could be an identifier internal to the Requester's application that corresponds with the HIT.
---
--- The RequesterAnnotation parameter for a HIT is only visible to the Requester who created the HIT. It is not shown to the Worker, or any other Requester.
--- The RequesterAnnotation parameter may be different for each HIT you submit. It does not affect how your HITs are grouped.
--- * 'maxAssignments' - The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
--- * 'hITLayoutId' - The HITLayoutId allows you to use a pre-existing HIT design with placeholder values and create an additional HIT by providing those values as HITLayoutParameters.
---
--- Constraints: Either a Question parameter or a HITLayoutId parameter must be provided.
--- * 'hITLayoutParameters' - If the HITLayoutId is provided, any placeholder values must be filled in with values using the HITLayoutParameter structure. For more information, see HITLayout.
--- * 'question' - The data the person completing the HIT uses to produce the results.
---
--- Constraints: Must be a QuestionForm data structure, an ExternalQuestion data structure, or an HTMLQuestion data structure. The XML question data must not be larger than 64 kilobytes (65,535 bytes) in size, including whitespace.
--- Either a Question parameter or a HITLayoutId parameter must be provided.
--- * 'assignmentReviewPolicy' - The Assignment-level Review Policy applies to the assignments under the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
+-- | Creates a 'CreateHITWithHITType' value with any optional fields omitted.
 mkCreateHITWithHITType ::
-  -- | 'lifetimeInSeconds'
-  Lude.Integer ->
   -- | 'hITTypeId'
-  Lude.Text ->
+  Types.HITTypeId ->
+  -- | 'lifetimeInSeconds'
+  Core.Integer ->
   CreateHITWithHITType
-mkCreateHITWithHITType pLifetimeInSeconds_ pHITTypeId_ =
+mkCreateHITWithHITType hITTypeId lifetimeInSeconds =
   CreateHITWithHITType'
-    { lifetimeInSeconds = pLifetimeInSeconds_,
-      hITReviewPolicy = Lude.Nothing,
-      hITTypeId = pHITTypeId_,
-      uniqueRequestToken = Lude.Nothing,
-      requesterAnnotation = Lude.Nothing,
-      maxAssignments = Lude.Nothing,
-      hITLayoutId = Lude.Nothing,
-      hITLayoutParameters = Lude.Nothing,
-      question = Lude.Nothing,
-      assignmentReviewPolicy = Lude.Nothing
+    { hITTypeId,
+      lifetimeInSeconds,
+      assignmentReviewPolicy = Core.Nothing,
+      hITLayoutId = Core.Nothing,
+      hITLayoutParameters = Core.Nothing,
+      hITReviewPolicy = Core.Nothing,
+      maxAssignments = Core.Nothing,
+      question = Core.Nothing,
+      requesterAnnotation = Core.Nothing,
+      uniqueRequestToken = Core.Nothing
     }
-
--- | An amount of time, in seconds, after which the HIT is no longer available for users to accept. After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches, even if not all of the assignments for the HIT have been accepted.
---
--- /Note:/ Consider using 'lifetimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittLifetimeInSeconds :: Lens.Lens' CreateHITWithHITType Lude.Integer
-chitwhittLifetimeInSeconds = Lens.lens (lifetimeInSeconds :: CreateHITWithHITType -> Lude.Integer) (\s a -> s {lifetimeInSeconds = a} :: CreateHITWithHITType)
-{-# DEPRECATED chitwhittLifetimeInSeconds "Use generic-lens or generic-optics with 'lifetimeInSeconds' instead." #-}
-
--- | The HIT-level Review Policy applies to the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
---
--- /Note:/ Consider using 'hITReviewPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittHITReviewPolicy :: Lens.Lens' CreateHITWithHITType (Lude.Maybe ReviewPolicy)
-chitwhittHITReviewPolicy = Lens.lens (hITReviewPolicy :: CreateHITWithHITType -> Lude.Maybe ReviewPolicy) (\s a -> s {hITReviewPolicy = a} :: CreateHITWithHITType)
-{-# DEPRECATED chitwhittHITReviewPolicy "Use generic-lens or generic-optics with 'hITReviewPolicy' instead." #-}
 
 -- | The HIT type ID you want to create this HIT with.
 --
 -- /Note:/ Consider using 'hITTypeId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittHITTypeId :: Lens.Lens' CreateHITWithHITType Lude.Text
-chitwhittHITTypeId = Lens.lens (hITTypeId :: CreateHITWithHITType -> Lude.Text) (\s a -> s {hITTypeId = a} :: CreateHITWithHITType)
+chitwhittHITTypeId :: Lens.Lens' CreateHITWithHITType Types.HITTypeId
+chitwhittHITTypeId = Lens.field @"hITTypeId"
 {-# DEPRECATED chitwhittHITTypeId "Use generic-lens or generic-optics with 'hITTypeId' instead." #-}
 
--- | A unique identifier for this request which allows you to retry the call on error without creating duplicate HITs. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the HIT already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return a AWS.MechanicalTurk.HitAlreadyExists error with a message containing the HITId.
+-- | An amount of time, in seconds, after which the HIT is no longer available for users to accept. After the lifetime of the HIT elapses, the HIT no longer appears in HIT searches, even if not all of the assignments for the HIT have been accepted.
 --
--- /Note:/ Consider using 'uniqueRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittUniqueRequestToken :: Lens.Lens' CreateHITWithHITType (Lude.Maybe Lude.Text)
-chitwhittUniqueRequestToken = Lens.lens (uniqueRequestToken :: CreateHITWithHITType -> Lude.Maybe Lude.Text) (\s a -> s {uniqueRequestToken = a} :: CreateHITWithHITType)
-{-# DEPRECATED chitwhittUniqueRequestToken "Use generic-lens or generic-optics with 'uniqueRequestToken' instead." #-}
+-- /Note:/ Consider using 'lifetimeInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chitwhittLifetimeInSeconds :: Lens.Lens' CreateHITWithHITType Core.Integer
+chitwhittLifetimeInSeconds = Lens.field @"lifetimeInSeconds"
+{-# DEPRECATED chitwhittLifetimeInSeconds "Use generic-lens or generic-optics with 'lifetimeInSeconds' instead." #-}
 
--- | An arbitrary data field. The RequesterAnnotation parameter lets your application attach arbitrary data to the HIT for tracking purposes. For example, this parameter could be an identifier internal to the Requester's application that corresponds with the HIT.
+-- | The Assignment-level Review Policy applies to the assignments under the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
 --
--- The RequesterAnnotation parameter for a HIT is only visible to the Requester who created the HIT. It is not shown to the Worker, or any other Requester.
--- The RequesterAnnotation parameter may be different for each HIT you submit. It does not affect how your HITs are grouped.
---
--- /Note:/ Consider using 'requesterAnnotation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittRequesterAnnotation :: Lens.Lens' CreateHITWithHITType (Lude.Maybe Lude.Text)
-chitwhittRequesterAnnotation = Lens.lens (requesterAnnotation :: CreateHITWithHITType -> Lude.Maybe Lude.Text) (\s a -> s {requesterAnnotation = a} :: CreateHITWithHITType)
-{-# DEPRECATED chitwhittRequesterAnnotation "Use generic-lens or generic-optics with 'requesterAnnotation' instead." #-}
-
--- | The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
---
--- /Note:/ Consider using 'maxAssignments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittMaxAssignments :: Lens.Lens' CreateHITWithHITType (Lude.Maybe Lude.Int)
-chitwhittMaxAssignments = Lens.lens (maxAssignments :: CreateHITWithHITType -> Lude.Maybe Lude.Int) (\s a -> s {maxAssignments = a} :: CreateHITWithHITType)
-{-# DEPRECATED chitwhittMaxAssignments "Use generic-lens or generic-optics with 'maxAssignments' instead." #-}
+-- /Note:/ Consider using 'assignmentReviewPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chitwhittAssignmentReviewPolicy :: Lens.Lens' CreateHITWithHITType (Core.Maybe Types.ReviewPolicy)
+chitwhittAssignmentReviewPolicy = Lens.field @"assignmentReviewPolicy"
+{-# DEPRECATED chitwhittAssignmentReviewPolicy "Use generic-lens or generic-optics with 'assignmentReviewPolicy' instead." #-}
 
 -- | The HITLayoutId allows you to use a pre-existing HIT design with placeholder values and create an additional HIT by providing those values as HITLayoutParameters.
 --
 -- Constraints: Either a Question parameter or a HITLayoutId parameter must be provided.
 --
 -- /Note:/ Consider using 'hITLayoutId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittHITLayoutId :: Lens.Lens' CreateHITWithHITType (Lude.Maybe Lude.Text)
-chitwhittHITLayoutId = Lens.lens (hITLayoutId :: CreateHITWithHITType -> Lude.Maybe Lude.Text) (\s a -> s {hITLayoutId = a} :: CreateHITWithHITType)
+chitwhittHITLayoutId :: Lens.Lens' CreateHITWithHITType (Core.Maybe Types.HITLayoutId)
+chitwhittHITLayoutId = Lens.field @"hITLayoutId"
 {-# DEPRECATED chitwhittHITLayoutId "Use generic-lens or generic-optics with 'hITLayoutId' instead." #-}
 
 -- | If the HITLayoutId is provided, any placeholder values must be filled in with values using the HITLayoutParameter structure. For more information, see HITLayout.
 --
 -- /Note:/ Consider using 'hITLayoutParameters' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittHITLayoutParameters :: Lens.Lens' CreateHITWithHITType (Lude.Maybe [HITLayoutParameter])
-chitwhittHITLayoutParameters = Lens.lens (hITLayoutParameters :: CreateHITWithHITType -> Lude.Maybe [HITLayoutParameter]) (\s a -> s {hITLayoutParameters = a} :: CreateHITWithHITType)
+chitwhittHITLayoutParameters :: Lens.Lens' CreateHITWithHITType (Core.Maybe [Types.HITLayoutParameter])
+chitwhittHITLayoutParameters = Lens.field @"hITLayoutParameters"
 {-# DEPRECATED chitwhittHITLayoutParameters "Use generic-lens or generic-optics with 'hITLayoutParameters' instead." #-}
+
+-- | The HIT-level Review Policy applies to the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
+--
+-- /Note:/ Consider using 'hITReviewPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chitwhittHITReviewPolicy :: Lens.Lens' CreateHITWithHITType (Core.Maybe Types.ReviewPolicy)
+chitwhittHITReviewPolicy = Lens.field @"hITReviewPolicy"
+{-# DEPRECATED chitwhittHITReviewPolicy "Use generic-lens or generic-optics with 'hITReviewPolicy' instead." #-}
+
+-- | The number of times the HIT can be accepted and completed before the HIT becomes unavailable.
+--
+-- /Note:/ Consider using 'maxAssignments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chitwhittMaxAssignments :: Lens.Lens' CreateHITWithHITType (Core.Maybe Core.Int)
+chitwhittMaxAssignments = Lens.field @"maxAssignments"
+{-# DEPRECATED chitwhittMaxAssignments "Use generic-lens or generic-optics with 'maxAssignments' instead." #-}
 
 -- | The data the person completing the HIT uses to produce the results.
 --
@@ -191,98 +162,95 @@ chitwhittHITLayoutParameters = Lens.lens (hITLayoutParameters :: CreateHITWithHI
 -- Either a Question parameter or a HITLayoutId parameter must be provided.
 --
 -- /Note:/ Consider using 'question' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittQuestion :: Lens.Lens' CreateHITWithHITType (Lude.Maybe Lude.Text)
-chitwhittQuestion = Lens.lens (question :: CreateHITWithHITType -> Lude.Maybe Lude.Text) (\s a -> s {question = a} :: CreateHITWithHITType)
+chitwhittQuestion :: Lens.Lens' CreateHITWithHITType (Core.Maybe Types.Question)
+chitwhittQuestion = Lens.field @"question"
 {-# DEPRECATED chitwhittQuestion "Use generic-lens or generic-optics with 'question' instead." #-}
 
--- | The Assignment-level Review Policy applies to the assignments under the HIT. You can specify for Mechanical Turk to take various actions based on the policy.
+-- | An arbitrary data field. The RequesterAnnotation parameter lets your application attach arbitrary data to the HIT for tracking purposes. For example, this parameter could be an identifier internal to the Requester's application that corresponds with the HIT.
 --
--- /Note:/ Consider using 'assignmentReviewPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittAssignmentReviewPolicy :: Lens.Lens' CreateHITWithHITType (Lude.Maybe ReviewPolicy)
-chitwhittAssignmentReviewPolicy = Lens.lens (assignmentReviewPolicy :: CreateHITWithHITType -> Lude.Maybe ReviewPolicy) (\s a -> s {assignmentReviewPolicy = a} :: CreateHITWithHITType)
-{-# DEPRECATED chitwhittAssignmentReviewPolicy "Use generic-lens or generic-optics with 'assignmentReviewPolicy' instead." #-}
+-- The RequesterAnnotation parameter for a HIT is only visible to the Requester who created the HIT. It is not shown to the Worker, or any other Requester.
+-- The RequesterAnnotation parameter may be different for each HIT you submit. It does not affect how your HITs are grouped.
+--
+-- /Note:/ Consider using 'requesterAnnotation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chitwhittRequesterAnnotation :: Lens.Lens' CreateHITWithHITType (Core.Maybe Types.RequesterAnnotation)
+chitwhittRequesterAnnotation = Lens.field @"requesterAnnotation"
+{-# DEPRECATED chitwhittRequesterAnnotation "Use generic-lens or generic-optics with 'requesterAnnotation' instead." #-}
 
-instance Lude.AWSRequest CreateHITWithHITType where
+-- | A unique identifier for this request which allows you to retry the call on error without creating duplicate HITs. This is useful in cases such as network timeouts where it is unclear whether or not the call succeeded on the server. If the HIT already exists in the system from a previous call using the same UniqueRequestToken, subsequent calls will return a AWS.MechanicalTurk.HitAlreadyExists error with a message containing the HITId.
+--
+-- /Note:/ Consider using 'uniqueRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chitwhittUniqueRequestToken :: Lens.Lens' CreateHITWithHITType (Core.Maybe Types.IdempotencyToken)
+chitwhittUniqueRequestToken = Lens.field @"uniqueRequestToken"
+{-# DEPRECATED chitwhittUniqueRequestToken "Use generic-lens or generic-optics with 'uniqueRequestToken' instead." #-}
+
+instance Core.FromJSON CreateHITWithHITType where
+  toJSON CreateHITWithHITType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("HITTypeId" Core..= hITTypeId),
+            Core.Just ("LifetimeInSeconds" Core..= lifetimeInSeconds),
+            ("AssignmentReviewPolicy" Core..=) Core.<$> assignmentReviewPolicy,
+            ("HITLayoutId" Core..=) Core.<$> hITLayoutId,
+            ("HITLayoutParameters" Core..=) Core.<$> hITLayoutParameters,
+            ("HITReviewPolicy" Core..=) Core.<$> hITReviewPolicy,
+            ("MaxAssignments" Core..=) Core.<$> maxAssignments,
+            ("Question" Core..=) Core.<$> question,
+            ("RequesterAnnotation" Core..=) Core.<$> requesterAnnotation,
+            ("UniqueRequestToken" Core..=) Core.<$> uniqueRequestToken
+          ]
+      )
+
+instance Core.AWSRequest CreateHITWithHITType where
   type Rs CreateHITWithHITType = CreateHITWithHITTypeResponse
-  request = Req.postJSON mechanicalTurkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "MTurkRequesterServiceV20170117.CreateHITWithHITType"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateHITWithHITTypeResponse'
-            Lude.<$> (x Lude..?> "HIT") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "HIT") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateHITWithHITType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "MTurkRequesterServiceV20170117.CreateHITWithHITType" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateHITWithHITType where
-  toJSON CreateHITWithHITType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("LifetimeInSeconds" Lude..= lifetimeInSeconds),
-            ("HITReviewPolicy" Lude..=) Lude.<$> hITReviewPolicy,
-            Lude.Just ("HITTypeId" Lude..= hITTypeId),
-            ("UniqueRequestToken" Lude..=) Lude.<$> uniqueRequestToken,
-            ("RequesterAnnotation" Lude..=) Lude.<$> requesterAnnotation,
-            ("MaxAssignments" Lude..=) Lude.<$> maxAssignments,
-            ("HITLayoutId" Lude..=) Lude.<$> hITLayoutId,
-            ("HITLayoutParameters" Lude..=) Lude.<$> hITLayoutParameters,
-            ("Question" Lude..=) Lude.<$> question,
-            ("AssignmentReviewPolicy" Lude..=)
-              Lude.<$> assignmentReviewPolicy
-          ]
-      )
-
-instance Lude.ToPath CreateHITWithHITType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateHITWithHITType where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateHITWithHITTypeResponse' smart constructor.
 data CreateHITWithHITTypeResponse = CreateHITWithHITTypeResponse'
   { -- | Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation.
-    hIT :: Lude.Maybe HIT,
+    hit :: Core.Maybe Types.HIT,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateHITWithHITTypeResponse' with the minimum fields required to make a request.
---
--- * 'hIT' - Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateHITWithHITTypeResponse' value with any optional fields omitted.
 mkCreateHITWithHITTypeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateHITWithHITTypeResponse
-mkCreateHITWithHITTypeResponse pResponseStatus_ =
-  CreateHITWithHITTypeResponse'
-    { hIT = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateHITWithHITTypeResponse responseStatus =
+  CreateHITWithHITTypeResponse' {hit = Core.Nothing, responseStatus}
 
 -- | Contains the newly created HIT data. For a description of the HIT data structure as it appears in responses, see the HIT Data Structure documentation.
 --
--- /Note:/ Consider using 'hIT' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittrsHIT :: Lens.Lens' CreateHITWithHITTypeResponse (Lude.Maybe HIT)
-chitwhittrsHIT = Lens.lens (hIT :: CreateHITWithHITTypeResponse -> Lude.Maybe HIT) (\s a -> s {hIT = a} :: CreateHITWithHITTypeResponse)
-{-# DEPRECATED chitwhittrsHIT "Use generic-lens or generic-optics with 'hIT' instead." #-}
+-- /Note:/ Consider using 'hit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+chitwhittrrsHIT :: Lens.Lens' CreateHITWithHITTypeResponse (Core.Maybe Types.HIT)
+chitwhittrrsHIT = Lens.field @"hit"
+{-# DEPRECATED chitwhittrrsHIT "Use generic-lens or generic-optics with 'hit' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-chitwhittrsResponseStatus :: Lens.Lens' CreateHITWithHITTypeResponse Lude.Int
-chitwhittrsResponseStatus = Lens.lens (responseStatus :: CreateHITWithHITTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateHITWithHITTypeResponse)
-{-# DEPRECATED chitwhittrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+chitwhittrrsResponseStatus :: Lens.Lens' CreateHITWithHITTypeResponse Core.Int
+chitwhittrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED chitwhittrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

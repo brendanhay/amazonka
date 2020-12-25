@@ -20,120 +20,106 @@ module Network.AWS.AlexaBusiness.AssociateDeviceWithRoom
     mkAssociateDeviceWithRoom,
 
     -- ** Request lenses
-    adwrDeviceARN,
-    adwrRoomARN,
+    adwrDeviceArn,
+    adwrRoomArn,
 
     -- * Destructuring the response
     AssociateDeviceWithRoomResponse (..),
     mkAssociateDeviceWithRoomResponse,
 
     -- ** Response lenses
-    adwrrsResponseStatus,
+    adwrrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateDeviceWithRoom' smart constructor.
 data AssociateDeviceWithRoom = AssociateDeviceWithRoom'
   { -- | The ARN of the device to associate to a room. Required.
-    deviceARN :: Lude.Maybe Lude.Text,
+    deviceArn :: Core.Maybe Types.Arn,
     -- | The ARN of the room with which to associate the device. Required.
-    roomARN :: Lude.Maybe Lude.Text
+    roomArn :: Core.Maybe Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateDeviceWithRoom' with the minimum fields required to make a request.
---
--- * 'deviceARN' - The ARN of the device to associate to a room. Required.
--- * 'roomARN' - The ARN of the room with which to associate the device. Required.
+-- | Creates a 'AssociateDeviceWithRoom' value with any optional fields omitted.
 mkAssociateDeviceWithRoom ::
   AssociateDeviceWithRoom
 mkAssociateDeviceWithRoom =
   AssociateDeviceWithRoom'
-    { deviceARN = Lude.Nothing,
-      roomARN = Lude.Nothing
+    { deviceArn = Core.Nothing,
+      roomArn = Core.Nothing
     }
 
 -- | The ARN of the device to associate to a room. Required.
 --
--- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adwrDeviceARN :: Lens.Lens' AssociateDeviceWithRoom (Lude.Maybe Lude.Text)
-adwrDeviceARN = Lens.lens (deviceARN :: AssociateDeviceWithRoom -> Lude.Maybe Lude.Text) (\s a -> s {deviceARN = a} :: AssociateDeviceWithRoom)
-{-# DEPRECATED adwrDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
+-- /Note:/ Consider using 'deviceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adwrDeviceArn :: Lens.Lens' AssociateDeviceWithRoom (Core.Maybe Types.Arn)
+adwrDeviceArn = Lens.field @"deviceArn"
+{-# DEPRECATED adwrDeviceArn "Use generic-lens or generic-optics with 'deviceArn' instead." #-}
 
 -- | The ARN of the room with which to associate the device. Required.
 --
--- /Note:/ Consider using 'roomARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adwrRoomARN :: Lens.Lens' AssociateDeviceWithRoom (Lude.Maybe Lude.Text)
-adwrRoomARN = Lens.lens (roomARN :: AssociateDeviceWithRoom -> Lude.Maybe Lude.Text) (\s a -> s {roomARN = a} :: AssociateDeviceWithRoom)
-{-# DEPRECATED adwrRoomARN "Use generic-lens or generic-optics with 'roomARN' instead." #-}
+-- /Note:/ Consider using 'roomArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+adwrRoomArn :: Lens.Lens' AssociateDeviceWithRoom (Core.Maybe Types.Arn)
+adwrRoomArn = Lens.field @"roomArn"
+{-# DEPRECATED adwrRoomArn "Use generic-lens or generic-optics with 'roomArn' instead." #-}
 
-instance Lude.AWSRequest AssociateDeviceWithRoom where
+instance Core.FromJSON AssociateDeviceWithRoom where
+  toJSON AssociateDeviceWithRoom {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("DeviceArn" Core..=) Core.<$> deviceArn,
+            ("RoomArn" Core..=) Core.<$> roomArn
+          ]
+      )
+
+instance Core.AWSRequest AssociateDeviceWithRoom where
   type Rs AssociateDeviceWithRoom = AssociateDeviceWithRoomResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AlexaForBusiness.AssociateDeviceWithRoom")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AssociateDeviceWithRoomResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateDeviceWithRoom where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.AssociateDeviceWithRoom" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateDeviceWithRoom where
-  toJSON AssociateDeviceWithRoom' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("DeviceArn" Lude..=) Lude.<$> deviceARN,
-            ("RoomArn" Lude..=) Lude.<$> roomARN
-          ]
-      )
-
-instance Lude.ToPath AssociateDeviceWithRoom where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateDeviceWithRoom where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateDeviceWithRoomResponse' smart constructor.
 newtype AssociateDeviceWithRoomResponse = AssociateDeviceWithRoomResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateDeviceWithRoomResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateDeviceWithRoomResponse' value with any optional fields omitted.
 mkAssociateDeviceWithRoomResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateDeviceWithRoomResponse
-mkAssociateDeviceWithRoomResponse pResponseStatus_ =
-  AssociateDeviceWithRoomResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkAssociateDeviceWithRoomResponse responseStatus =
+  AssociateDeviceWithRoomResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-adwrrsResponseStatus :: Lens.Lens' AssociateDeviceWithRoomResponse Lude.Int
-adwrrsResponseStatus = Lens.lens (responseStatus :: AssociateDeviceWithRoomResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateDeviceWithRoomResponse)
-{-# DEPRECATED adwrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+adwrrrsResponseStatus :: Lens.Lens' AssociateDeviceWithRoomResponse Core.Int
+adwrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED adwrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

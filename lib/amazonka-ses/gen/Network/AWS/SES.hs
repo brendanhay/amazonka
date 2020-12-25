@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -16,10 +15,112 @@
 -- This document contains reference information for the <https://aws.amazon.com/ses/ Amazon Simple Email Service> (Amazon SES) API, version 2010-12-01. This document is best used in conjunction with the <https://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide> .
 module Network.AWS.SES
   ( -- * Service configuration
-    sesService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidConfigurationSetException
+    _InvalidConfigurationSetException,
+
+    -- ** InvalidSNSDestinationException
+    _InvalidSNSDestinationException,
+
+    -- ** TemplateDoesNotExistException
+    _TemplateDoesNotExistException,
+
+    -- ** ConfigurationSetSendingPausedException
+    _ConfigurationSetSendingPausedException,
+
+    -- ** CannotDeleteException
+    _CannotDeleteException,
+
+    -- ** ProductionAccessNotGrantedException
+    _ProductionAccessNotGrantedException,
+
+    -- ** RuleDoesNotExistException
+    _RuleDoesNotExistException,
+
+    -- ** MessageRejected
+    _MessageRejected,
+
+    -- ** InvalidRenderingParameterException
+    _InvalidRenderingParameterException,
+
+    -- ** MissingRenderingAttributeException
+    _MissingRenderingAttributeException,
+
+    -- ** FromEmailAddressNotVerifiedException
+    _FromEmailAddressNotVerifiedException,
+
+    -- ** RuleSetDoesNotExistException
+    _RuleSetDoesNotExistException,
+
+    -- ** MailFromDomainNotVerifiedException
+    _MailFromDomainNotVerifiedException,
+
+    -- ** InvalidFirehoseDestinationException
+    _InvalidFirehoseDestinationException,
+
+    -- ** ConfigurationSetAlreadyExistsException
+    _ConfigurationSetAlreadyExistsException,
+
+    -- ** CustomVerificationEmailInvalidContentException
+    _CustomVerificationEmailInvalidContentException,
+
+    -- ** InvalidTrackingOptionsException
+    _InvalidTrackingOptionsException,
+
+    -- ** AccountSendingPausedException
+    _AccountSendingPausedException,
+
+    -- ** EventDestinationDoesNotExistException
+    _EventDestinationDoesNotExistException,
+
+    -- ** CustomVerificationEmailTemplateAlreadyExistsException
+    _CustomVerificationEmailTemplateAlreadyExistsException,
+
+    -- ** CustomVerificationEmailTemplateDoesNotExistException
+    _CustomVerificationEmailTemplateDoesNotExistException,
+
+    -- ** InvalidCloudWatchDestinationException
+    _InvalidCloudWatchDestinationException,
+
+    -- ** InvalidDeliveryOptionsException
+    _InvalidDeliveryOptionsException,
+
+    -- ** InvalidLambdaFunctionException
+    _InvalidLambdaFunctionException,
+
+    -- ** TrackingOptionsDoesNotExistException
+    _TrackingOptionsDoesNotExistException,
+
+    -- ** InvalidTemplateException
+    _InvalidTemplateException,
+
+    -- ** ConfigurationSetDoesNotExistException
+    _ConfigurationSetDoesNotExistException,
+
+    -- ** InvalidPolicyException
+    _InvalidPolicyException,
+
+    -- ** InvalidS3ConfigurationException
+    _InvalidS3ConfigurationException,
+
+    -- ** TrackingOptionsAlreadyExistsException
+    _TrackingOptionsAlreadyExistsException,
+
+    -- ** InvalidSnsTopicException
+    _InvalidSnsTopicException,
+
+    -- ** EventDestinationAlreadyExistsException
+    _EventDestinationAlreadyExistsException,
+
+    -- ** AlreadyExistsException
+    _AlreadyExistsException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
 
     -- * Waiters
     -- $waiters
@@ -242,163 +343,213 @@ module Network.AWS.SES
 
     -- * Types
 
-    -- ** BehaviorOnMXFailure
-    BehaviorOnMXFailure (..),
+    -- ** Subject
+    Subject (..),
 
-    -- ** BounceType
-    BounceType (..),
-
-    -- ** BulkEmailStatus
-    BulkEmailStatus (..),
-
-    -- ** ConfigurationSetAttribute
-    ConfigurationSetAttribute (..),
-
-    -- ** CustomMailFromStatus
-    CustomMailFromStatus (..),
-
-    -- ** DimensionValueSource
-    DimensionValueSource (..),
-
-    -- ** DsnAction
-    DsnAction (..),
-
-    -- ** EventType
-    EventType (..),
-
-    -- ** IdentityType
-    IdentityType (..),
-
-    -- ** InvocationType
-    InvocationType (..),
-
-    -- ** NotificationType
-    NotificationType (..),
+    -- ** BulkEmailDestinationStatus
+    BulkEmailDestinationStatus (..),
+    mkBulkEmailDestinationStatus,
+    bedsError,
+    bedsMessageId,
+    bedsStatus,
 
     -- ** ReceiptFilterPolicy
     ReceiptFilterPolicy (..),
 
-    -- ** SNSActionEncoding
-    SNSActionEncoding (..),
+    -- ** ExtensionFieldName
+    ExtensionFieldName (..),
+
+    -- ** Destination
+    Destination (..),
+    mkDestination,
+    dBccAddresses,
+    dCcAddresses,
+    dToAddresses,
+
+    -- ** HeaderValue
+    HeaderValue (..),
+
+    -- ** TemplateName
+    TemplateName (..),
+
+    -- ** ReceiptRuleSetName
+    ReceiptRuleSetName (..),
+
+    -- ** PolicyName
+    PolicyName (..),
+
+    -- ** S3KeyPrefix
+    S3KeyPrefix (..),
+
+    -- ** DiagnosticCode
+    DiagnosticCode (..),
 
     -- ** StopScope
     StopScope (..),
 
-    -- ** TLSPolicy
-    TLSPolicy (..),
+    -- ** VerificationToken
+    VerificationToken (..),
 
-    -- ** VerificationStatus
-    VerificationStatus (..),
+    -- ** IdentityDkimAttributes
+    IdentityDkimAttributes (..),
+    mkIdentityDkimAttributes,
+    idaDkimEnabled,
+    idaDkimVerificationStatus,
+    idaDkimTokens,
+
+    -- ** TextPart
+    TextPart (..),
+
+    -- ** MessageDsn
+    MessageDsn (..),
+    mkMessageDsn,
+    mdReportingMta,
+    mdArrivalDate,
+    mdExtensionFields,
+
+    -- ** ReceiptRuleSetMetadata
+    ReceiptRuleSetMetadata (..),
+    mkReceiptRuleSetMetadata,
+    rrsmCreatedTimestamp,
+    rrsmName,
+
+    -- ** ReceiptRuleName
+    ReceiptRuleName (..),
+
+    -- ** KinesisFirehoseDestination
+    KinesisFirehoseDestination (..),
+    mkKinesisFirehoseDestination,
+    kfdIAMRoleARN,
+    kfdDeliveryStreamARN,
+
+    -- ** TemplateMetadata
+    TemplateMetadata (..),
+    mkTemplateMetadata,
+    tmCreatedTimestamp,
+    tmName,
+
+    -- ** DsnStatus
+    DsnStatus (..),
+
+    -- ** ConfigurationSetName
+    ConfigurationSetName (..),
+
+    -- ** BounceSmtpReplyCode
+    BounceSmtpReplyCode (..),
 
     -- ** AddHeaderAction
     AddHeaderAction (..),
     mkAddHeaderAction,
-    ahaHeaderValue,
     ahaHeaderName,
-
-    -- ** Body
-    Body (..),
-    mkBody,
-    bText,
-    bHTML,
-
-    -- ** BounceAction
-    BounceAction (..),
-    mkBounceAction,
-    baSmtpReplyCode,
-    baSender,
-    baTopicARN,
-    baMessage,
-    baStatusCode,
-
-    -- ** BouncedRecipientInfo
-    BouncedRecipientInfo (..),
-    mkBouncedRecipientInfo,
-    briBounceType,
-    briRecipientDsnFields,
-    briRecipient,
-    briRecipientARN,
+    ahaHeaderValue,
 
     -- ** BulkEmailDestination
     BulkEmailDestination (..),
     mkBulkEmailDestination,
     bedDestination,
-    bedReplacementTemplateData,
     bedReplacementTags,
+    bedReplacementTemplateData,
 
-    -- ** BulkEmailDestinationStatus
-    BulkEmailDestinationStatus (..),
-    mkBulkEmailDestinationStatus,
-    bedsStatus,
-    bedsError,
-    bedsMessageId,
+    -- ** SNSAction
+    SNSAction (..),
+    mkSNSAction,
+    snsaTopicArn,
+    snsaEncoding,
 
-    -- ** CloudWatchDestination
-    CloudWatchDestination (..),
-    mkCloudWatchDestination,
-    cwdDimensionConfigurations,
+    -- ** CustomMailFromStatus
+    CustomMailFromStatus (..),
 
-    -- ** CloudWatchDimensionConfiguration
-    CloudWatchDimensionConfiguration (..),
-    mkCloudWatchDimensionConfiguration,
-    cwdcDefaultDimensionValue,
-    cwdcDimensionValueSource,
-    cwdcDimensionName,
-
-    -- ** ConfigurationSet
-    ConfigurationSet (..),
-    mkConfigurationSet,
-    csName,
-
-    -- ** Content
-    Content (..),
-    mkContent,
-    cData,
-    cCharset,
-
-    -- ** CustomVerificationEmailTemplate
-    CustomVerificationEmailTemplate (..),
-    mkCustomVerificationEmailTemplate,
-    cvetFromEmailAddress,
-    cvetTemplateName,
-    cvetFailureRedirectionURL,
-    cvetTemplateSubject,
-    cvetSuccessRedirectionURL,
-
-    -- ** DeliveryOptions
-    DeliveryOptions (..),
-    mkDeliveryOptions,
-    doTLSPolicy,
-
-    -- ** Destination
-    Destination (..),
-    mkDestination,
-    dBCCAddresses,
-    dCCAddresses,
-    dToAddresses,
+    -- ** Body
+    Body (..),
+    mkBody,
+    bHtml,
+    bText,
 
     -- ** EventDestination
     EventDestination (..),
     mkEventDestination,
+    edName,
     edMatchingEventTypes,
+    edCloudWatchDestination,
     edEnabled,
     edKinesisFirehoseDestination,
-    edCloudWatchDestination,
-    edName,
     edSNSDestination,
 
-    -- ** ExtensionField
-    ExtensionField (..),
-    mkExtensionField,
-    efValue,
-    efName,
+    -- ** CloudWatchDimensionConfiguration
+    CloudWatchDimensionConfiguration (..),
+    mkCloudWatchDimensionConfiguration,
+    cwdcDimensionName,
+    cwdcDimensionValueSource,
+    cwdcDefaultDimensionValue,
 
-    -- ** IdentityDkimAttributes
-    IdentityDkimAttributes (..),
-    mkIdentityDkimAttributes,
-    idaDkimTokens,
-    idaDkimEnabled,
-    idaDkimVerificationStatus,
+    -- ** DefaultDimensionValue
+    DefaultDimensionValue (..),
+
+    -- ** HeaderName
+    HeaderName (..),
+
+    -- ** Domain
+    Domain (..),
+
+    -- ** InvocationType
+    InvocationType (..),
+
+    -- ** FromAddress
+    FromAddress (..),
+
+    -- ** BulkEmailStatus
+    BulkEmailStatus (..),
+
+    -- ** IdentityVerificationAttributes
+    IdentityVerificationAttributes (..),
+    mkIdentityVerificationAttributes,
+    ivaVerificationStatus,
+    ivaVerificationToken,
+
+    -- ** Error
+    Error (..),
+
+    -- ** SendDataPoint
+    SendDataPoint (..),
+    mkSendDataPoint,
+    sdpBounces,
+    sdpComplaints,
+    sdpDeliveryAttempts,
+    sdpRejects,
+    sdpTimestamp,
+
+    -- ** ExtensionFieldValue
+    ExtensionFieldValue (..),
+
+    -- ** SubjectPart
+    SubjectPart (..),
+
+    -- ** ReceiptFilterName
+    ReceiptFilterName (..),
+
+    -- ** Explanation
+    Explanation (..),
+
+    -- ** Address
+    Address (..),
+
+    -- ** ConfigurationSetAttribute
+    ConfigurationSetAttribute (..),
+
+    -- ** WorkmailAction
+    WorkmailAction (..),
+    mkWorkmailAction,
+    waOrganizationArn,
+    waTopicArn,
+
+    -- ** IdentityType
+    IdentityType (..),
+
+    -- ** MessageTagName
+    MessageTagName (..),
+
+    -- ** DimensionValueSource
+    DimensionValueSource (..),
 
     -- ** IdentityMailFromDomainAttributes
     IdentityMailFromDomainAttributes (..),
@@ -407,109 +558,174 @@ module Network.AWS.SES
     imfdaMailFromDomainStatus,
     imfdaBehaviorOnMXFailure,
 
-    -- ** IdentityNotificationAttributes
-    IdentityNotificationAttributes (..),
-    mkIdentityNotificationAttributes,
-    inaHeadersInDeliveryNotificationsEnabled,
-    inaHeadersInComplaintNotificationsEnabled,
-    inaDeliveryTopic,
-    inaHeadersInBounceNotificationsEnabled,
-    inaBounceTopic,
-    inaComplaintTopic,
-    inaForwardingEnabled,
-
-    -- ** IdentityVerificationAttributes
-    IdentityVerificationAttributes (..),
-    mkIdentityVerificationAttributes,
-    ivaVerificationToken,
-    ivaVerificationStatus,
-
-    -- ** KinesisFirehoseDestination
-    KinesisFirehoseDestination (..),
-    mkKinesisFirehoseDestination,
-    kfdIAMRoleARN,
-    kfdDeliveryStreamARN,
+    -- ** BounceAction
+    BounceAction (..),
+    mkBounceAction,
+    baSmtpReplyCode,
+    baMessage,
+    baSender,
+    baStatusCode,
+    baTopicArn,
 
     -- ** LambdaAction
     LambdaAction (..),
     mkLambdaAction,
-    laFunctionARN,
+    laFunctionArn,
     laInvocationType,
-    laTopicARN,
+    laTopicArn,
 
-    -- ** Message
-    Message (..),
-    mkMessage,
-    mSubject,
-    mBody,
-
-    -- ** MessageDsn
-    MessageDsn (..),
-    mkMessageDsn,
-    mdArrivalDate,
-    mdExtensionFields,
-    mdReportingMta,
+    -- ** FailureRedirectionURL
+    FailureRedirectionURL (..),
 
     -- ** MessageTag
     MessageTag (..),
     mkMessageTag,
-    mtValue,
     mtName,
+    mtValue,
+
+    -- ** Content
+    Content (..),
+    mkContent,
+    cData,
+    cCharset,
+
+    -- ** BouncedRecipientInfo
+    BouncedRecipientInfo (..),
+    mkBouncedRecipientInfo,
+    briRecipient,
+    briBounceType,
+    briRecipientArn,
+    briRecipientDsnFields,
+
+    -- ** CloudWatchDestination
+    CloudWatchDestination (..),
+    mkCloudWatchDestination,
+    cwdDimensionConfigurations,
+
+    -- ** IdentityNotificationAttributes
+    IdentityNotificationAttributes (..),
+    mkIdentityNotificationAttributes,
+    inaBounceTopic,
+    inaComplaintTopic,
+    inaDeliveryTopic,
+    inaForwardingEnabled,
+    inaHeadersInBounceNotificationsEnabled,
+    inaHeadersInComplaintNotificationsEnabled,
+    inaHeadersInDeliveryNotificationsEnabled,
+
+    -- ** RemoteMta
+    RemoteMta (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** Cidr
+    Cidr (..),
+
+    -- ** ReceiptFilter
+    ReceiptFilter (..),
+    mkReceiptFilter,
+    rfName,
+    rfIpFilter,
+
+    -- ** EventType
+    EventType (..),
+
+    -- ** DeliveryOptions
+    DeliveryOptions (..),
+    mkDeliveryOptions,
+    doTlsPolicy,
+
+    -- ** DsnAction
+    DsnAction (..),
+
+    -- ** EventDestinationName
+    EventDestinationName (..),
+
+    -- ** TrackingOptions
+    TrackingOptions (..),
+    mkTrackingOptions,
+    toCustomRedirectDomain,
+
+    -- ** DimensionName
+    DimensionName (..),
 
     -- ** RawMessage
     RawMessage (..),
     mkRawMessage,
     rmData,
 
+    -- ** ReceiptRule
+    ReceiptRule (..),
+    mkReceiptRule,
+    rrName,
+    rrActions,
+    rrEnabled,
+    rrRecipients,
+    rrScanEnabled,
+    rrTlsPolicy,
+
+    -- ** SNSDestination
+    SNSDestination (..),
+    mkSNSDestination,
+    snsdTopicARN,
+
+    -- ** HtmlPart
+    HtmlPart (..),
+
+    -- ** Charset
+    Charset (..),
+
+    -- ** SuccessRedirectionURL
+    SuccessRedirectionURL (..),
+
     -- ** ReceiptAction
     ReceiptAction (..),
     mkReceiptAction,
     raAddHeaderAction,
-    raSNSAction,
-    raWorkmailAction,
     raBounceAction,
     raLambdaAction,
-    raStopAction,
     raS3Action,
+    raSNSAction,
+    raStopAction,
+    raWorkmailAction,
 
-    -- ** ReceiptFilter
-    ReceiptFilter (..),
-    mkReceiptFilter,
-    rfName,
-    rfIPFilter,
+    -- ** ConfigurationSet
+    ConfigurationSet (..),
+    mkConfigurationSet,
+    csName,
 
-    -- ** ReceiptIPFilter
-    ReceiptIPFilter (..),
-    mkReceiptIPFilter,
-    rifCidr,
+    -- ** ReceiptIpFilter
+    ReceiptIpFilter (..),
+    mkReceiptIpFilter,
     rifPolicy,
+    rifCidr,
 
-    -- ** ReceiptRule
-    ReceiptRule (..),
-    mkReceiptRule,
-    rrScanEnabled,
-    rrEnabled,
-    rrActions,
-    rrName,
-    rrRecipients,
-    rrTLSPolicy,
+    -- ** NotificationType
+    NotificationType (..),
 
-    -- ** ReceiptRuleSetMetadata
-    ReceiptRuleSetMetadata (..),
-    mkReceiptRuleSetMetadata,
-    rrsmName,
-    rrsmCreatedTimestamp,
+    -- ** VerificationStatus
+    VerificationStatus (..),
 
-    -- ** RecipientDsnFields
-    RecipientDsnFields (..),
-    mkRecipientDsnFields,
-    rdfStatus,
-    rdfDiagnosticCode,
-    rdfAction,
-    rdfRemoteMta,
-    rdfFinalRecipient,
-    rdfExtensionFields,
-    rdfLastAttemptDate,
+    -- ** Policy
+    Policy (..),
+
+    -- ** BehaviorOnMXFailure
+    BehaviorOnMXFailure (..),
+
+    -- ** Template
+    Template (..),
+    mkTemplate,
+    tTemplateName,
+    tHtmlPart,
+    tSubjectPart,
+    tTextPart,
+
+    -- ** TemplateData
+    TemplateData (..),
+
+    -- ** BounceType
+    BounceType (..),
 
     -- ** ReputationOptions
     ReputationOptions (..),
@@ -518,74 +734,179 @@ module Network.AWS.SES
     roReputationMetricsEnabled,
     roSendingEnabled,
 
-    -- ** S3Action
-    S3Action (..),
-    mkS3Action,
-    safKMSKeyARN,
-    safBucketName,
-    safTopicARN,
-    safObjectKeyPrefix,
+    -- ** BounceMessage
+    BounceMessage (..),
 
-    -- ** SNSAction
-    SNSAction (..),
-    mkSNSAction,
-    saTopicARN,
-    saEncoding,
+    -- ** ExtensionField
+    ExtensionField (..),
+    mkExtensionField,
+    efName,
+    efValue,
 
-    -- ** SNSDestination
-    SNSDestination (..),
-    mkSNSDestination,
-    sdTopicARN,
+    -- ** Message
+    Message (..),
+    mkMessage,
+    mSubject,
+    mBody,
 
-    -- ** SendDataPoint
-    SendDataPoint (..),
-    mkSendDataPoint,
-    sdpRejects,
-    sdpComplaints,
-    sdpDeliveryAttempts,
-    sdpBounces,
-    sdpTimestamp,
+    -- ** AmazonResourceName
+    AmazonResourceName (..),
+
+    -- ** RecipientDsnFields
+    RecipientDsnFields (..),
+    mkRecipientDsnFields,
+    rdfAction,
+    rdfStatus,
+    rdfDiagnosticCode,
+    rdfExtensionFields,
+    rdfFinalRecipient,
+    rdfLastAttemptDate,
+    rdfRemoteMta,
+
+    -- ** SNSActionEncoding
+    SNSActionEncoding (..),
+
+    -- ** TlsPolicy
+    TlsPolicy (..),
+
+    -- ** Recipient
+    Recipient (..),
+
+    -- ** RenderedTemplate
+    RenderedTemplate (..),
+
+    -- ** ReportingMta
+    ReportingMta (..),
+
+    -- ** CustomVerificationEmailTemplate
+    CustomVerificationEmailTemplate (..),
+    mkCustomVerificationEmailTemplate,
+    cvetFailureRedirectionURL,
+    cvetFromEmailAddress,
+    cvetSuccessRedirectionURL,
+    cvetTemplateName,
+    cvetTemplateSubject,
+
+    -- ** Identity
+    Identity (..),
 
     -- ** StopAction
     StopAction (..),
     mkStopAction,
-    sTopicARN,
     sScope,
+    sTopicArn,
 
-    -- ** Template
-    Template (..),
-    mkTemplate,
-    tTemplateName,
-    tTextPart,
-    tSubjectPart,
-    tHTMLPart,
+    -- ** S3Action
+    S3Action (..),
+    mkS3Action,
+    saBucketName,
+    saKmsKeyArn,
+    saObjectKeyPrefix,
+    saTopicArn,
 
-    -- ** TemplateMetadata
-    TemplateMetadata (..),
-    mkTemplateMetadata,
-    tmName,
-    tmCreatedTimestamp,
+    -- ** MessageId
+    MessageId (..),
 
-    -- ** TrackingOptions
-    TrackingOptions (..),
-    mkTrackingOptions,
-    toCustomRedirectDomain,
+    -- ** CustomRedirectDomain
+    CustomRedirectDomain (..),
 
-    -- ** WorkmailAction
-    WorkmailAction (..),
-    mkWorkmailAction,
-    waTopicARN,
-    waOrganizationARN,
+    -- ** TemplateContent
+    TemplateContent (..),
+
+    -- ** RuleSetName
+    RuleSetName (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** MailFromDomain
+    MailFromDomain (..),
+
+    -- ** Source
+    Source (..),
+
+    -- ** DefaultTemplateData
+    DefaultTemplateData (..),
+
+    -- ** ReturnPath
+    ReturnPath (..),
+
+    -- ** ReturnPathArn
+    ReturnPathArn (..),
+
+    -- ** SourceArn
+    SourceArn (..),
+
+    -- ** TemplateArn
+    TemplateArn (..),
+
+    -- ** FromArn
+    FromArn (..),
+
+    -- ** IAMRoleARN
+    IAMRoleARN (..),
+
+    -- ** DeliveryStreamARN
+    DeliveryStreamARN (..),
+
+    -- ** OriginalMessageId
+    OriginalMessageId (..),
+
+    -- ** BounceSender
+    BounceSender (..),
+
+    -- ** BounceSenderArn
+    BounceSenderArn (..),
+
+    -- ** ReplacementTemplateData
+    ReplacementTemplateData (..),
+
+    -- ** TopicArn
+    TopicArn (..),
+
+    -- ** OrganizationArn
+    OrganizationArn (..),
+
+    -- ** StatusCode
+    StatusCode (..),
+
+    -- ** FunctionArn
+    FunctionArn (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Data
+    Data (..),
+
+    -- ** RecipientArn
+    RecipientArn (..),
+
+    -- ** SnsTopic
+    SnsTopic (..),
+
+    -- ** BounceTopic
+    BounceTopic (..),
+
+    -- ** ComplaintTopic
+    ComplaintTopic (..),
+
+    -- ** DeliveryTopic
+    DeliveryTopic (..),
+
+    -- ** TopicARN
+    TopicARN (..),
+
+    -- ** BucketName
+    BucketName (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

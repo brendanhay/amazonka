@@ -22,36 +22,35 @@ module Network.AWS.SWF.Types.WorkflowExecutionFilter
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.WorkflowId as Types
 
 -- | Used to filter the workflow executions in visibility APIs by their @workflowId@ .
 --
 -- /See:/ 'mkWorkflowExecutionFilter' smart constructor.
 newtype WorkflowExecutionFilter = WorkflowExecutionFilter'
   { -- | The workflowId to pass of match the criteria of this filter.
-    workflowId :: Lude.Text
+    workflowId :: Types.WorkflowId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WorkflowExecutionFilter' with the minimum fields required to make a request.
---
--- * 'workflowId' - The workflowId to pass of match the criteria of this filter.
+-- | Creates a 'WorkflowExecutionFilter' value with any optional fields omitted.
 mkWorkflowExecutionFilter ::
   -- | 'workflowId'
-  Lude.Text ->
+  Types.WorkflowId ->
   WorkflowExecutionFilter
-mkWorkflowExecutionFilter pWorkflowId_ =
-  WorkflowExecutionFilter' {workflowId = pWorkflowId_}
+mkWorkflowExecutionFilter workflowId =
+  WorkflowExecutionFilter' {workflowId}
 
 -- | The workflowId to pass of match the criteria of this filter.
 --
 -- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-wefWorkflowId :: Lens.Lens' WorkflowExecutionFilter Lude.Text
-wefWorkflowId = Lens.lens (workflowId :: WorkflowExecutionFilter -> Lude.Text) (\s a -> s {workflowId = a} :: WorkflowExecutionFilter)
+wefWorkflowId :: Lens.Lens' WorkflowExecutionFilter Types.WorkflowId
+wefWorkflowId = Lens.field @"workflowId"
 {-# DEPRECATED wefWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
 
-instance Lude.ToJSON WorkflowExecutionFilter where
-  toJSON WorkflowExecutionFilter' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("workflowId" Lude..= workflowId)])
+instance Core.FromJSON WorkflowExecutionFilter where
+  toJSON WorkflowExecutionFilter {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("workflowId" Core..= workflowId)])

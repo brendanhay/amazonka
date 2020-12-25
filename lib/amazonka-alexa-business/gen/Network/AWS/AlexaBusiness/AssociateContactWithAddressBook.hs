@@ -20,129 +20,111 @@ module Network.AWS.AlexaBusiness.AssociateContactWithAddressBook
     mkAssociateContactWithAddressBook,
 
     -- ** Request lenses
-    acwabAddressBookARN,
-    acwabContactARN,
+    acwabContactArn,
+    acwabAddressBookArn,
 
     -- * Destructuring the response
     AssociateContactWithAddressBookResponse (..),
     mkAssociateContactWithAddressBookResponse,
 
     -- ** Response lenses
-    acwabrsResponseStatus,
+    acwabrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkAssociateContactWithAddressBook' smart constructor.
 data AssociateContactWithAddressBook = AssociateContactWithAddressBook'
-  { -- | The ARN of the address book with which to associate the contact.
-    addressBookARN :: Lude.Text,
-    -- | The ARN of the contact to associate with an address book.
-    contactARN :: Lude.Text
+  { -- | The ARN of the contact to associate with an address book.
+    contactArn :: Types.Arn,
+    -- | The ARN of the address book with which to associate the contact.
+    addressBookArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateContactWithAddressBook' with the minimum fields required to make a request.
---
--- * 'addressBookARN' - The ARN of the address book with which to associate the contact.
--- * 'contactARN' - The ARN of the contact to associate with an address book.
+-- | Creates a 'AssociateContactWithAddressBook' value with any optional fields omitted.
 mkAssociateContactWithAddressBook ::
-  -- | 'addressBookARN'
-  Lude.Text ->
-  -- | 'contactARN'
-  Lude.Text ->
+  -- | 'contactArn'
+  Types.Arn ->
+  -- | 'addressBookArn'
+  Types.Arn ->
   AssociateContactWithAddressBook
-mkAssociateContactWithAddressBook pAddressBookARN_ pContactARN_ =
-  AssociateContactWithAddressBook'
-    { addressBookARN =
-        pAddressBookARN_,
-      contactARN = pContactARN_
-    }
-
--- | The ARN of the address book with which to associate the contact.
---
--- /Note:/ Consider using 'addressBookARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acwabAddressBookARN :: Lens.Lens' AssociateContactWithAddressBook Lude.Text
-acwabAddressBookARN = Lens.lens (addressBookARN :: AssociateContactWithAddressBook -> Lude.Text) (\s a -> s {addressBookARN = a} :: AssociateContactWithAddressBook)
-{-# DEPRECATED acwabAddressBookARN "Use generic-lens or generic-optics with 'addressBookARN' instead." #-}
+mkAssociateContactWithAddressBook contactArn addressBookArn =
+  AssociateContactWithAddressBook' {contactArn, addressBookArn}
 
 -- | The ARN of the contact to associate with an address book.
 --
--- /Note:/ Consider using 'contactARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acwabContactARN :: Lens.Lens' AssociateContactWithAddressBook Lude.Text
-acwabContactARN = Lens.lens (contactARN :: AssociateContactWithAddressBook -> Lude.Text) (\s a -> s {contactARN = a} :: AssociateContactWithAddressBook)
-{-# DEPRECATED acwabContactARN "Use generic-lens or generic-optics with 'contactARN' instead." #-}
+-- /Note:/ Consider using 'contactArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acwabContactArn :: Lens.Lens' AssociateContactWithAddressBook Types.Arn
+acwabContactArn = Lens.field @"contactArn"
+{-# DEPRECATED acwabContactArn "Use generic-lens or generic-optics with 'contactArn' instead." #-}
 
-instance Lude.AWSRequest AssociateContactWithAddressBook where
+-- | The ARN of the address book with which to associate the contact.
+--
+-- /Note:/ Consider using 'addressBookArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acwabAddressBookArn :: Lens.Lens' AssociateContactWithAddressBook Types.Arn
+acwabAddressBookArn = Lens.field @"addressBookArn"
+{-# DEPRECATED acwabAddressBookArn "Use generic-lens or generic-optics with 'addressBookArn' instead." #-}
+
+instance Core.FromJSON AssociateContactWithAddressBook where
+  toJSON AssociateContactWithAddressBook {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("ContactArn" Core..= contactArn),
+            Core.Just ("AddressBookArn" Core..= addressBookArn)
+          ]
+      )
+
+instance Core.AWSRequest AssociateContactWithAddressBook where
   type
     Rs AssociateContactWithAddressBook =
       AssociateContactWithAddressBookResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AlexaForBusiness.AssociateContactWithAddressBook"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           AssociateContactWithAddressBookResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateContactWithAddressBook where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AlexaForBusiness.AssociateContactWithAddressBook" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateContactWithAddressBook where
-  toJSON AssociateContactWithAddressBook' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AddressBookArn" Lude..= addressBookARN),
-            Lude.Just ("ContactArn" Lude..= contactARN)
-          ]
-      )
-
-instance Lude.ToPath AssociateContactWithAddressBook where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateContactWithAddressBook where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateContactWithAddressBookResponse' smart constructor.
 newtype AssociateContactWithAddressBookResponse = AssociateContactWithAddressBookResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateContactWithAddressBookResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateContactWithAddressBookResponse' value with any optional fields omitted.
 mkAssociateContactWithAddressBookResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateContactWithAddressBookResponse
-mkAssociateContactWithAddressBookResponse pResponseStatus_ =
-  AssociateContactWithAddressBookResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkAssociateContactWithAddressBookResponse responseStatus =
+  AssociateContactWithAddressBookResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acwabrsResponseStatus :: Lens.Lens' AssociateContactWithAddressBookResponse Lude.Int
-acwabrsResponseStatus = Lens.lens (responseStatus :: AssociateContactWithAddressBookResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateContactWithAddressBookResponse)
-{-# DEPRECATED acwabrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+acwabrrsResponseStatus :: Lens.Lens' AssociateContactWithAddressBookResponse Core.Int
+acwabrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED acwabrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

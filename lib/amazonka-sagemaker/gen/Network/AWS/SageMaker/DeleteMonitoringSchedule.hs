@@ -29,76 +29,64 @@ module Network.AWS.SageMaker.DeleteMonitoringSchedule
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkDeleteMonitoringSchedule' smart constructor.
 newtype DeleteMonitoringSchedule = DeleteMonitoringSchedule'
   { -- | The name of the monitoring schedule to delete.
-    monitoringScheduleName :: Lude.Text
+    monitoringScheduleName :: Types.MonitoringScheduleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMonitoringSchedule' with the minimum fields required to make a request.
---
--- * 'monitoringScheduleName' - The name of the monitoring schedule to delete.
+-- | Creates a 'DeleteMonitoringSchedule' value with any optional fields omitted.
 mkDeleteMonitoringSchedule ::
   -- | 'monitoringScheduleName'
-  Lude.Text ->
+  Types.MonitoringScheduleName ->
   DeleteMonitoringSchedule
-mkDeleteMonitoringSchedule pMonitoringScheduleName_ =
-  DeleteMonitoringSchedule'
-    { monitoringScheduleName =
-        pMonitoringScheduleName_
-    }
+mkDeleteMonitoringSchedule monitoringScheduleName =
+  DeleteMonitoringSchedule' {monitoringScheduleName}
 
 -- | The name of the monitoring schedule to delete.
 --
 -- /Note:/ Consider using 'monitoringScheduleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMonitoringScheduleName :: Lens.Lens' DeleteMonitoringSchedule Lude.Text
-dMonitoringScheduleName = Lens.lens (monitoringScheduleName :: DeleteMonitoringSchedule -> Lude.Text) (\s a -> s {monitoringScheduleName = a} :: DeleteMonitoringSchedule)
+dMonitoringScheduleName :: Lens.Lens' DeleteMonitoringSchedule Types.MonitoringScheduleName
+dMonitoringScheduleName = Lens.field @"monitoringScheduleName"
 {-# DEPRECATED dMonitoringScheduleName "Use generic-lens or generic-optics with 'monitoringScheduleName' instead." #-}
 
-instance Lude.AWSRequest DeleteMonitoringSchedule where
+instance Core.FromJSON DeleteMonitoringSchedule where
+  toJSON DeleteMonitoringSchedule {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just
+              ("MonitoringScheduleName" Core..= monitoringScheduleName)
+          ]
+      )
+
+instance Core.AWSRequest DeleteMonitoringSchedule where
   type Rs DeleteMonitoringSchedule = DeleteMonitoringScheduleResponse
-  request = Req.postJSON sageMakerService
-  response = Res.receiveNull DeleteMonitoringScheduleResponse'
-
-instance Lude.ToHeaders DeleteMonitoringSchedule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.DeleteMonitoringSchedule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteMonitoringSchedule where
-  toJSON DeleteMonitoringSchedule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just
-              ("MonitoringScheduleName" Lude..= monitoringScheduleName)
-          ]
-      )
-
-instance Lude.ToPath DeleteMonitoringSchedule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteMonitoringSchedule where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.DeleteMonitoringSchedule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteMonitoringScheduleResponse'
 
 -- | /See:/ 'mkDeleteMonitoringScheduleResponse' smart constructor.
 data DeleteMonitoringScheduleResponse = DeleteMonitoringScheduleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteMonitoringScheduleResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteMonitoringScheduleResponse' value with any optional fields omitted.
 mkDeleteMonitoringScheduleResponse ::
   DeleteMonitoringScheduleResponse
 mkDeleteMonitoringScheduleResponse =

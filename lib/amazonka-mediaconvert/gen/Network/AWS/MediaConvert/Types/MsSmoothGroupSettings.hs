@@ -17,142 +17,132 @@ module Network.AWS.MediaConvert.Types.MsSmoothGroupSettings
     mkMsSmoothGroupSettings,
 
     -- * Lenses
-    msgsFragmentLength,
-    msgsManifestEncoding,
-    msgsDestination,
-    msgsAudioDeduplication,
     msgsAdditionalManifests,
+    msgsAudioDeduplication,
+    msgsDestination,
     msgsDestinationSettings,
     msgsEncryption,
+    msgsFragmentLength,
+    msgsManifestEncoding,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.DestinationSettings
-import Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest
-import Network.AWS.MediaConvert.Types.MsSmoothAudioDeduplication
-import Network.AWS.MediaConvert.Types.MsSmoothEncryptionSettings
-import Network.AWS.MediaConvert.Types.MsSmoothManifestEncoding
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.DestinationSettings as Types
+import qualified Network.AWS.MediaConvert.Types.MsSmoothAdditionalManifest as Types
+import qualified Network.AWS.MediaConvert.Types.MsSmoothAudioDeduplication as Types
+import qualified Network.AWS.MediaConvert.Types.MsSmoothEncryptionSettings as Types
+import qualified Network.AWS.MediaConvert.Types.MsSmoothManifestEncoding as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to MS_SMOOTH_GROUP_SETTINGS.
 --
 -- /See:/ 'mkMsSmoothGroupSettings' smart constructor.
 data MsSmoothGroupSettings = MsSmoothGroupSettings'
-  { -- | Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be compatible with GOP size and frame rate.
-    fragmentLength :: Lude.Maybe Lude.Natural,
-    -- | Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
-    manifestEncoding :: Lude.Maybe MsSmoothManifestEncoding,
-    -- | Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
-    destination :: Lude.Maybe Lude.Text,
+  { -- | By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
+    additionalManifests :: Core.Maybe [Types.MsSmoothAdditionalManifest],
     -- | COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
-    audioDeduplication :: Lude.Maybe MsSmoothAudioDeduplication,
-    -- | By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
-    additionalManifests :: Lude.Maybe [MsSmoothAdditionalManifest],
+    audioDeduplication :: Core.Maybe Types.MsSmoothAudioDeduplication,
+    -- | Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+    destination :: Core.Maybe Core.Text,
     -- | Settings associated with the destination. Will vary based on the type of destination
-    destinationSettings :: Lude.Maybe DestinationSettings,
+    destinationSettings :: Core.Maybe Types.DestinationSettings,
     -- | If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
-    encryption :: Lude.Maybe MsSmoothEncryptionSettings
+    encryption :: Core.Maybe Types.MsSmoothEncryptionSettings,
+    -- | Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be compatible with GOP size and frame rate.
+    fragmentLength :: Core.Maybe Core.Natural,
+    -- | Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
+    manifestEncoding :: Core.Maybe Types.MsSmoothManifestEncoding
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MsSmoothGroupSettings' with the minimum fields required to make a request.
---
--- * 'fragmentLength' - Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be compatible with GOP size and frame rate.
--- * 'manifestEncoding' - Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
--- * 'destination' - Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
--- * 'audioDeduplication' - COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
--- * 'additionalManifests' - By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
--- * 'destinationSettings' - Settings associated with the destination. Will vary based on the type of destination
--- * 'encryption' - If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
+-- | Creates a 'MsSmoothGroupSettings' value with any optional fields omitted.
 mkMsSmoothGroupSettings ::
   MsSmoothGroupSettings
 mkMsSmoothGroupSettings =
   MsSmoothGroupSettings'
-    { fragmentLength = Lude.Nothing,
-      manifestEncoding = Lude.Nothing,
-      destination = Lude.Nothing,
-      audioDeduplication = Lude.Nothing,
-      additionalManifests = Lude.Nothing,
-      destinationSettings = Lude.Nothing,
-      encryption = Lude.Nothing
+    { additionalManifests = Core.Nothing,
+      audioDeduplication = Core.Nothing,
+      destination = Core.Nothing,
+      destinationSettings = Core.Nothing,
+      encryption = Core.Nothing,
+      fragmentLength = Core.Nothing,
+      manifestEncoding = Core.Nothing
     }
-
--- | Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be compatible with GOP size and frame rate.
---
--- /Note:/ Consider using 'fragmentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsFragmentLength :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Natural)
-msgsFragmentLength = Lens.lens (fragmentLength :: MsSmoothGroupSettings -> Lude.Maybe Lude.Natural) (\s a -> s {fragmentLength = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsFragmentLength "Use generic-lens or generic-optics with 'fragmentLength' instead." #-}
-
--- | Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
---
--- /Note:/ Consider using 'manifestEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsManifestEncoding :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe MsSmoothManifestEncoding)
-msgsManifestEncoding = Lens.lens (manifestEncoding :: MsSmoothGroupSettings -> Lude.Maybe MsSmoothManifestEncoding) (\s a -> s {manifestEncoding = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsManifestEncoding "Use generic-lens or generic-optics with 'manifestEncoding' instead." #-}
-
--- | Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
---
--- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsDestination :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe Lude.Text)
-msgsDestination = Lens.lens (destination :: MsSmoothGroupSettings -> Lude.Maybe Lude.Text) (\s a -> s {destination = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
--- | COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
---
--- /Note:/ Consider using 'audioDeduplication' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsAudioDeduplication :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe MsSmoothAudioDeduplication)
-msgsAudioDeduplication = Lens.lens (audioDeduplication :: MsSmoothGroupSettings -> Lude.Maybe MsSmoothAudioDeduplication) (\s a -> s {audioDeduplication = a} :: MsSmoothGroupSettings)
-{-# DEPRECATED msgsAudioDeduplication "Use generic-lens or generic-optics with 'audioDeduplication' instead." #-}
 
 -- | By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
 --
 -- /Note:/ Consider using 'additionalManifests' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsAdditionalManifests :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe [MsSmoothAdditionalManifest])
-msgsAdditionalManifests = Lens.lens (additionalManifests :: MsSmoothGroupSettings -> Lude.Maybe [MsSmoothAdditionalManifest]) (\s a -> s {additionalManifests = a} :: MsSmoothGroupSettings)
+msgsAdditionalManifests :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe [Types.MsSmoothAdditionalManifest])
+msgsAdditionalManifests = Lens.field @"additionalManifests"
 {-# DEPRECATED msgsAdditionalManifests "Use generic-lens or generic-optics with 'additionalManifests' instead." #-}
+
+-- | COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
+--
+-- /Note:/ Consider using 'audioDeduplication' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsAudioDeduplication :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.MsSmoothAudioDeduplication)
+msgsAudioDeduplication = Lens.field @"audioDeduplication"
+{-# DEPRECATED msgsAudioDeduplication "Use generic-lens or generic-optics with 'audioDeduplication' instead." #-}
+
+-- | Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+--
+-- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsDestination :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Core.Text)
+msgsDestination = Lens.field @"destination"
+{-# DEPRECATED msgsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
 
 -- | Settings associated with the destination. Will vary based on the type of destination
 --
 -- /Note:/ Consider using 'destinationSettings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsDestinationSettings :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe DestinationSettings)
-msgsDestinationSettings = Lens.lens (destinationSettings :: MsSmoothGroupSettings -> Lude.Maybe DestinationSettings) (\s a -> s {destinationSettings = a} :: MsSmoothGroupSettings)
+msgsDestinationSettings :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.DestinationSettings)
+msgsDestinationSettings = Lens.field @"destinationSettings"
 {-# DEPRECATED msgsDestinationSettings "Use generic-lens or generic-optics with 'destinationSettings' instead." #-}
 
 -- | If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
 --
 -- /Note:/ Consider using 'encryption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-msgsEncryption :: Lens.Lens' MsSmoothGroupSettings (Lude.Maybe MsSmoothEncryptionSettings)
-msgsEncryption = Lens.lens (encryption :: MsSmoothGroupSettings -> Lude.Maybe MsSmoothEncryptionSettings) (\s a -> s {encryption = a} :: MsSmoothGroupSettings)
+msgsEncryption :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.MsSmoothEncryptionSettings)
+msgsEncryption = Lens.field @"encryption"
 {-# DEPRECATED msgsEncryption "Use generic-lens or generic-optics with 'encryption' instead." #-}
 
-instance Lude.FromJSON MsSmoothGroupSettings where
-  parseJSON =
-    Lude.withObject
-      "MsSmoothGroupSettings"
-      ( \x ->
-          MsSmoothGroupSettings'
-            Lude.<$> (x Lude..:? "fragmentLength")
-            Lude.<*> (x Lude..:? "manifestEncoding")
-            Lude.<*> (x Lude..:? "destination")
-            Lude.<*> (x Lude..:? "audioDeduplication")
-            Lude.<*> (x Lude..:? "additionalManifests" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "destinationSettings")
-            Lude.<*> (x Lude..:? "encryption")
-      )
+-- | Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be compatible with GOP size and frame rate.
+--
+-- /Note:/ Consider using 'fragmentLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsFragmentLength :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Core.Natural)
+msgsFragmentLength = Lens.field @"fragmentLength"
+{-# DEPRECATED msgsFragmentLength "Use generic-lens or generic-optics with 'fragmentLength' instead." #-}
 
-instance Lude.ToJSON MsSmoothGroupSettings where
-  toJSON MsSmoothGroupSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("fragmentLength" Lude..=) Lude.<$> fragmentLength,
-            ("manifestEncoding" Lude..=) Lude.<$> manifestEncoding,
-            ("destination" Lude..=) Lude.<$> destination,
-            ("audioDeduplication" Lude..=) Lude.<$> audioDeduplication,
-            ("additionalManifests" Lude..=) Lude.<$> additionalManifests,
-            ("destinationSettings" Lude..=) Lude.<$> destinationSettings,
-            ("encryption" Lude..=) Lude.<$> encryption
+-- | Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
+--
+-- /Note:/ Consider using 'manifestEncoding' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+msgsManifestEncoding :: Lens.Lens' MsSmoothGroupSettings (Core.Maybe Types.MsSmoothManifestEncoding)
+msgsManifestEncoding = Lens.field @"manifestEncoding"
+{-# DEPRECATED msgsManifestEncoding "Use generic-lens or generic-optics with 'manifestEncoding' instead." #-}
+
+instance Core.FromJSON MsSmoothGroupSettings where
+  toJSON MsSmoothGroupSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("additionalManifests" Core..=) Core.<$> additionalManifests,
+            ("audioDeduplication" Core..=) Core.<$> audioDeduplication,
+            ("destination" Core..=) Core.<$> destination,
+            ("destinationSettings" Core..=) Core.<$> destinationSettings,
+            ("encryption" Core..=) Core.<$> encryption,
+            ("fragmentLength" Core..=) Core.<$> fragmentLength,
+            ("manifestEncoding" Core..=) Core.<$> manifestEncoding
           ]
       )
+
+instance Core.FromJSON MsSmoothGroupSettings where
+  parseJSON =
+    Core.withObject "MsSmoothGroupSettings" Core.$
+      \x ->
+        MsSmoothGroupSettings'
+          Core.<$> (x Core..:? "additionalManifests")
+          Core.<*> (x Core..:? "audioDeduplication")
+          Core.<*> (x Core..:? "destination")
+          Core.<*> (x Core..:? "destinationSettings")
+          Core.<*> (x Core..:? "encryption")
+          Core.<*> (x Core..:? "fragmentLength")
+          Core.<*> (x Core..:? "manifestEncoding")

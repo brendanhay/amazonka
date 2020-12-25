@@ -27,143 +27,133 @@ module Network.AWS.IoT.CreateProvisioningClaim
     mkCreateProvisioningClaimResponse,
 
     -- ** Response lenses
-    cpcrsKeyPair,
-    cpcrsCertificatePem,
-    cpcrsCertificateId,
-    cpcrsExpiration,
-    cpcrsResponseStatus,
+    cpcrrsCertificateId,
+    cpcrrsCertificatePem,
+    cpcrrsExpiration,
+    cpcrrsKeyPair,
+    cpcrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateProvisioningClaim' smart constructor.
 newtype CreateProvisioningClaim = CreateProvisioningClaim'
   { -- | The name of the provisioning template to use.
-    templateName :: Lude.Text
+    templateName :: Types.TemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateProvisioningClaim' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the provisioning template to use.
+-- | Creates a 'CreateProvisioningClaim' value with any optional fields omitted.
 mkCreateProvisioningClaim ::
   -- | 'templateName'
-  Lude.Text ->
+  Types.TemplateName ->
   CreateProvisioningClaim
-mkCreateProvisioningClaim pTemplateName_ =
-  CreateProvisioningClaim' {templateName = pTemplateName_}
+mkCreateProvisioningClaim templateName =
+  CreateProvisioningClaim' {templateName}
 
 -- | The name of the provisioning template to use.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcTemplateName :: Lens.Lens' CreateProvisioningClaim Lude.Text
-cpcTemplateName = Lens.lens (templateName :: CreateProvisioningClaim -> Lude.Text) (\s a -> s {templateName = a} :: CreateProvisioningClaim)
+cpcTemplateName :: Lens.Lens' CreateProvisioningClaim Types.TemplateName
+cpcTemplateName = Lens.field @"templateName"
 {-# DEPRECATED cpcTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance Lude.AWSRequest CreateProvisioningClaim where
+instance Core.FromJSON CreateProvisioningClaim where
+  toJSON _ = Core.Object Core.mempty
+
+instance Core.AWSRequest CreateProvisioningClaim where
   type Rs CreateProvisioningClaim = CreateProvisioningClaimResponse
-  request = Req.postJSON ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/provisioning-templates/" Core.<> (Core.toText templateName)
+                Core.<> ("/provisioning-claim")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateProvisioningClaimResponse'
-            Lude.<$> (x Lude..?> "keyPair")
-            Lude.<*> (x Lude..?> "certificatePem")
-            Lude.<*> (x Lude..?> "certificateId")
-            Lude.<*> (x Lude..?> "expiration")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "certificateId")
+            Core.<*> (x Core..:? "certificatePem")
+            Core.<*> (x Core..:? "expiration")
+            Core.<*> (x Core..:? "keyPair")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateProvisioningClaim where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateProvisioningClaim where
-  toJSON = Lude.const (Lude.Object Lude.mempty)
-
-instance Lude.ToPath CreateProvisioningClaim where
-  toPath CreateProvisioningClaim' {..} =
-    Lude.mconcat
-      [ "/provisioning-templates/",
-        Lude.toBS templateName,
-        "/provisioning-claim"
-      ]
-
-instance Lude.ToQuery CreateProvisioningClaim where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateProvisioningClaimResponse' smart constructor.
 data CreateProvisioningClaimResponse = CreateProvisioningClaimResponse'
-  { -- | The provisioning claim key pair.
-    keyPair :: Lude.Maybe KeyPair,
+  { -- | The ID of the certificate.
+    certificateId :: Core.Maybe Types.CertificateId,
     -- | The provisioning claim certificate.
-    certificatePem :: Lude.Maybe Lude.Text,
-    -- | The ID of the certificate.
-    certificateId :: Lude.Maybe Lude.Text,
+    certificatePem :: Core.Maybe Types.CertificatePem,
     -- | The provisioning claim expiration time.
-    expiration :: Lude.Maybe Lude.Timestamp,
+    expiration :: Core.Maybe Core.NominalDiffTime,
+    -- | The provisioning claim key pair.
+    keyPair :: Core.Maybe Types.KeyPair,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateProvisioningClaimResponse' with the minimum fields required to make a request.
---
--- * 'keyPair' - The provisioning claim key pair.
--- * 'certificatePem' - The provisioning claim certificate.
--- * 'certificateId' - The ID of the certificate.
--- * 'expiration' - The provisioning claim expiration time.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateProvisioningClaimResponse' value with any optional fields omitted.
 mkCreateProvisioningClaimResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateProvisioningClaimResponse
-mkCreateProvisioningClaimResponse pResponseStatus_ =
+mkCreateProvisioningClaimResponse responseStatus =
   CreateProvisioningClaimResponse'
-    { keyPair = Lude.Nothing,
-      certificatePem = Lude.Nothing,
-      certificateId = Lude.Nothing,
-      expiration = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { certificateId = Core.Nothing,
+      certificatePem = Core.Nothing,
+      expiration = Core.Nothing,
+      keyPair = Core.Nothing,
+      responseStatus
     }
-
--- | The provisioning claim key pair.
---
--- /Note:/ Consider using 'keyPair' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcrsKeyPair :: Lens.Lens' CreateProvisioningClaimResponse (Lude.Maybe KeyPair)
-cpcrsKeyPair = Lens.lens (keyPair :: CreateProvisioningClaimResponse -> Lude.Maybe KeyPair) (\s a -> s {keyPair = a} :: CreateProvisioningClaimResponse)
-{-# DEPRECATED cpcrsKeyPair "Use generic-lens or generic-optics with 'keyPair' instead." #-}
-
--- | The provisioning claim certificate.
---
--- /Note:/ Consider using 'certificatePem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcrsCertificatePem :: Lens.Lens' CreateProvisioningClaimResponse (Lude.Maybe Lude.Text)
-cpcrsCertificatePem = Lens.lens (certificatePem :: CreateProvisioningClaimResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificatePem = a} :: CreateProvisioningClaimResponse)
-{-# DEPRECATED cpcrsCertificatePem "Use generic-lens or generic-optics with 'certificatePem' instead." #-}
 
 -- | The ID of the certificate.
 --
 -- /Note:/ Consider using 'certificateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcrsCertificateId :: Lens.Lens' CreateProvisioningClaimResponse (Lude.Maybe Lude.Text)
-cpcrsCertificateId = Lens.lens (certificateId :: CreateProvisioningClaimResponse -> Lude.Maybe Lude.Text) (\s a -> s {certificateId = a} :: CreateProvisioningClaimResponse)
-{-# DEPRECATED cpcrsCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+cpcrrsCertificateId :: Lens.Lens' CreateProvisioningClaimResponse (Core.Maybe Types.CertificateId)
+cpcrrsCertificateId = Lens.field @"certificateId"
+{-# DEPRECATED cpcrrsCertificateId "Use generic-lens or generic-optics with 'certificateId' instead." #-}
+
+-- | The provisioning claim certificate.
+--
+-- /Note:/ Consider using 'certificatePem' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcrrsCertificatePem :: Lens.Lens' CreateProvisioningClaimResponse (Core.Maybe Types.CertificatePem)
+cpcrrsCertificatePem = Lens.field @"certificatePem"
+{-# DEPRECATED cpcrrsCertificatePem "Use generic-lens or generic-optics with 'certificatePem' instead." #-}
 
 -- | The provisioning claim expiration time.
 --
 -- /Note:/ Consider using 'expiration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcrsExpiration :: Lens.Lens' CreateProvisioningClaimResponse (Lude.Maybe Lude.Timestamp)
-cpcrsExpiration = Lens.lens (expiration :: CreateProvisioningClaimResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {expiration = a} :: CreateProvisioningClaimResponse)
-{-# DEPRECATED cpcrsExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
+cpcrrsExpiration :: Lens.Lens' CreateProvisioningClaimResponse (Core.Maybe Core.NominalDiffTime)
+cpcrrsExpiration = Lens.field @"expiration"
+{-# DEPRECATED cpcrrsExpiration "Use generic-lens or generic-optics with 'expiration' instead." #-}
+
+-- | The provisioning claim key pair.
+--
+-- /Note:/ Consider using 'keyPair' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+cpcrrsKeyPair :: Lens.Lens' CreateProvisioningClaimResponse (Core.Maybe Types.KeyPair)
+cpcrrsKeyPair = Lens.field @"keyPair"
+{-# DEPRECATED cpcrrsKeyPair "Use generic-lens or generic-optics with 'keyPair' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cpcrsResponseStatus :: Lens.Lens' CreateProvisioningClaimResponse Lude.Int
-cpcrsResponseStatus = Lens.lens (responseStatus :: CreateProvisioningClaimResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateProvisioningClaimResponse)
-{-# DEPRECATED cpcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+cpcrrsResponseStatus :: Lens.Lens' CreateProvisioningClaimResponse Core.Int
+cpcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED cpcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

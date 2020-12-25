@@ -17,56 +17,55 @@ module Network.AWS.S3.Types.FilterRule
     mkFilterRule,
 
     -- * Lenses
-    frValue,
     frName,
+    frValue,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.FilterRuleName
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.FilterRuleName as Types
+import qualified Network.AWS.S3.Types.FilterRuleValue as Types
 
 -- | Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or prefix of the key name.
 --
 -- /See:/ 'mkFilterRule' smart constructor.
 data FilterRule = FilterRule'
-  { -- | The value that the filter searches for in object key names.
-    value :: Lude.Maybe Lude.Text,
-    -- | The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the /Amazon Simple Storage Service Developer Guide/ .
-    name :: Lude.Maybe FilterRuleName
+  { -- | The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the /Amazon Simple Storage Service Developer Guide/ .
+    name :: Core.Maybe Types.FilterRuleName,
+    -- | The value that the filter searches for in object key names.
+    value :: Core.Maybe Types.FilterRuleValue
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FilterRule' with the minimum fields required to make a request.
---
--- * 'value' - The value that the filter searches for in object key names.
--- * 'name' - The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the /Amazon Simple Storage Service Developer Guide/ .
+-- | Creates a 'FilterRule' value with any optional fields omitted.
 mkFilterRule ::
   FilterRule
 mkFilterRule =
-  FilterRule' {value = Lude.Nothing, name = Lude.Nothing}
-
--- | The value that the filter searches for in object key names.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frValue :: Lens.Lens' FilterRule (Lude.Maybe Lude.Text)
-frValue = Lens.lens (value :: FilterRule -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: FilterRule)
-{-# DEPRECATED frValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  FilterRule' {name = Core.Nothing, value = Core.Nothing}
 
 -- | The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html Configuring Event Notifications> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-frName :: Lens.Lens' FilterRule (Lude.Maybe FilterRuleName)
-frName = Lens.lens (name :: FilterRule -> Lude.Maybe FilterRuleName) (\s a -> s {name = a} :: FilterRule)
+frName :: Lens.Lens' FilterRule (Core.Maybe Types.FilterRuleName)
+frName = Lens.field @"name"
 {-# DEPRECATED frName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML FilterRule where
+-- | The value that the filter searches for in object key names.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+frValue :: Lens.Lens' FilterRule (Core.Maybe Types.FilterRuleValue)
+frValue = Lens.field @"value"
+{-# DEPRECATED frValue "Use generic-lens or generic-optics with 'value' instead." #-}
+
+instance Core.ToXML FilterRule where
+  toXML FilterRule {..} =
+    Core.toXMLNode "Name" Core.<$> name
+      Core.<> Core.toXMLNode "Value" Core.<$> value
+
+instance Core.FromXML FilterRule where
   parseXML x =
     FilterRule'
-      Lude.<$> (x Lude..@? "Value") Lude.<*> (x Lude..@? "Name")
-
-instance Lude.ToXML FilterRule where
-  toXML FilterRule' {..} =
-    Lude.mconcat ["Value" Lude.@= value, "Name" Lude.@= name]
+      Core.<$> (x Core..@? "Name") Core.<*> (x Core..@? "Value")

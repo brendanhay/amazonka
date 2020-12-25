@@ -27,97 +27,91 @@ module Network.AWS.IoT.DescribeAuthorizer
     mkDescribeAuthorizerResponse,
 
     -- ** Response lenses
-    darsAuthorizerDescription,
-    darsResponseStatus,
+    darrsAuthorizerDescription,
+    darrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeAuthorizer' smart constructor.
 newtype DescribeAuthorizer = DescribeAuthorizer'
   { -- | The name of the authorizer to describe.
-    authorizerName :: Lude.Text
+    authorizerName :: Types.AuthorizerName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeAuthorizer' with the minimum fields required to make a request.
---
--- * 'authorizerName' - The name of the authorizer to describe.
+-- | Creates a 'DescribeAuthorizer' value with any optional fields omitted.
 mkDescribeAuthorizer ::
   -- | 'authorizerName'
-  Lude.Text ->
+  Types.AuthorizerName ->
   DescribeAuthorizer
-mkDescribeAuthorizer pAuthorizerName_ =
-  DescribeAuthorizer' {authorizerName = pAuthorizerName_}
+mkDescribeAuthorizer authorizerName =
+  DescribeAuthorizer' {authorizerName}
 
 -- | The name of the authorizer to describe.
 --
 -- /Note:/ Consider using 'authorizerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-daAuthorizerName :: Lens.Lens' DescribeAuthorizer Lude.Text
-daAuthorizerName = Lens.lens (authorizerName :: DescribeAuthorizer -> Lude.Text) (\s a -> s {authorizerName = a} :: DescribeAuthorizer)
+daAuthorizerName :: Lens.Lens' DescribeAuthorizer Types.AuthorizerName
+daAuthorizerName = Lens.field @"authorizerName"
 {-# DEPRECATED daAuthorizerName "Use generic-lens or generic-optics with 'authorizerName' instead." #-}
 
-instance Lude.AWSRequest DescribeAuthorizer where
+instance Core.AWSRequest DescribeAuthorizer where
   type Rs DescribeAuthorizer = DescribeAuthorizerResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath ("/authorizer/" Core.<> (Core.toText authorizerName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeAuthorizerResponse'
-            Lude.<$> (x Lude..?> "authorizerDescription")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "authorizerDescription")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeAuthorizer where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeAuthorizer where
-  toPath DescribeAuthorizer' {..} =
-    Lude.mconcat ["/authorizer/", Lude.toBS authorizerName]
-
-instance Lude.ToQuery DescribeAuthorizer where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeAuthorizerResponse' smart constructor.
 data DescribeAuthorizerResponse = DescribeAuthorizerResponse'
   { -- | The authorizer description.
-    authorizerDescription :: Lude.Maybe AuthorizerDescription,
+    authorizerDescription :: Core.Maybe Types.AuthorizerDescription,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeAuthorizerResponse' with the minimum fields required to make a request.
---
--- * 'authorizerDescription' - The authorizer description.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeAuthorizerResponse' value with any optional fields omitted.
 mkDescribeAuthorizerResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeAuthorizerResponse
-mkDescribeAuthorizerResponse pResponseStatus_ =
+mkDescribeAuthorizerResponse responseStatus =
   DescribeAuthorizerResponse'
-    { authorizerDescription = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { authorizerDescription = Core.Nothing,
+      responseStatus
     }
 
 -- | The authorizer description.
 --
 -- /Note:/ Consider using 'authorizerDescription' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsAuthorizerDescription :: Lens.Lens' DescribeAuthorizerResponse (Lude.Maybe AuthorizerDescription)
-darsAuthorizerDescription = Lens.lens (authorizerDescription :: DescribeAuthorizerResponse -> Lude.Maybe AuthorizerDescription) (\s a -> s {authorizerDescription = a} :: DescribeAuthorizerResponse)
-{-# DEPRECATED darsAuthorizerDescription "Use generic-lens or generic-optics with 'authorizerDescription' instead." #-}
+darrsAuthorizerDescription :: Lens.Lens' DescribeAuthorizerResponse (Core.Maybe Types.AuthorizerDescription)
+darrsAuthorizerDescription = Lens.field @"authorizerDescription"
+{-# DEPRECATED darrsAuthorizerDescription "Use generic-lens or generic-optics with 'authorizerDescription' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-darsResponseStatus :: Lens.Lens' DescribeAuthorizerResponse Lude.Int
-darsResponseStatus = Lens.lens (responseStatus :: DescribeAuthorizerResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeAuthorizerResponse)
-{-# DEPRECATED darsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+darrsResponseStatus :: Lens.Lens' DescribeAuthorizerResponse Core.Int
+darrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED darrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

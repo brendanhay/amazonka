@@ -22,142 +22,135 @@ module Network.AWS.EC2.CreateTransitGatewayMulticastDomain
     mkCreateTransitGatewayMulticastDomain,
 
     -- ** Request lenses
-    ctgmdTagSpecifications,
     ctgmdTransitGatewayId,
     ctgmdDryRun,
+    ctgmdTagSpecifications,
 
     -- * Destructuring the response
     CreateTransitGatewayMulticastDomainResponse (..),
     mkCreateTransitGatewayMulticastDomainResponse,
 
     -- ** Response lenses
-    ctgmdrsTransitGatewayMulticastDomain,
-    ctgmdrsResponseStatus,
+    ctgmdrrsTransitGatewayMulticastDomain,
+    ctgmdrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateTransitGatewayMulticastDomain' smart constructor.
 data CreateTransitGatewayMulticastDomain = CreateTransitGatewayMulticastDomain'
-  { -- | The tags for the transit gateway multicast domain.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    -- | The ID of the transit gateway.
-    transitGatewayId :: Lude.Text,
+  { -- | The ID of the transit gateway.
+    transitGatewayId :: Types.TransitGatewayId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The tags for the transit gateway multicast domain.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTransitGatewayMulticastDomain' with the minimum fields required to make a request.
---
--- * 'tagSpecifications' - The tags for the transit gateway multicast domain.
--- * 'transitGatewayId' - The ID of the transit gateway.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateTransitGatewayMulticastDomain' value with any optional fields omitted.
 mkCreateTransitGatewayMulticastDomain ::
   -- | 'transitGatewayId'
-  Lude.Text ->
+  Types.TransitGatewayId ->
   CreateTransitGatewayMulticastDomain
-mkCreateTransitGatewayMulticastDomain pTransitGatewayId_ =
+mkCreateTransitGatewayMulticastDomain transitGatewayId =
   CreateTransitGatewayMulticastDomain'
-    { tagSpecifications =
-        Lude.Nothing,
-      transitGatewayId = pTransitGatewayId_,
-      dryRun = Lude.Nothing
+    { transitGatewayId,
+      dryRun = Core.Nothing,
+      tagSpecifications = Core.Nothing
     }
-
--- | The tags for the transit gateway multicast domain.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgmdTagSpecifications :: Lens.Lens' CreateTransitGatewayMulticastDomain (Lude.Maybe [TagSpecification])
-ctgmdTagSpecifications = Lens.lens (tagSpecifications :: CreateTransitGatewayMulticastDomain -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateTransitGatewayMulticastDomain)
-{-# DEPRECATED ctgmdTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
 
 -- | The ID of the transit gateway.
 --
 -- /Note:/ Consider using 'transitGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgmdTransitGatewayId :: Lens.Lens' CreateTransitGatewayMulticastDomain Lude.Text
-ctgmdTransitGatewayId = Lens.lens (transitGatewayId :: CreateTransitGatewayMulticastDomain -> Lude.Text) (\s a -> s {transitGatewayId = a} :: CreateTransitGatewayMulticastDomain)
+ctgmdTransitGatewayId :: Lens.Lens' CreateTransitGatewayMulticastDomain Types.TransitGatewayId
+ctgmdTransitGatewayId = Lens.field @"transitGatewayId"
 {-# DEPRECATED ctgmdTransitGatewayId "Use generic-lens or generic-optics with 'transitGatewayId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgmdDryRun :: Lens.Lens' CreateTransitGatewayMulticastDomain (Lude.Maybe Lude.Bool)
-ctgmdDryRun = Lens.lens (dryRun :: CreateTransitGatewayMulticastDomain -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTransitGatewayMulticastDomain)
+ctgmdDryRun :: Lens.Lens' CreateTransitGatewayMulticastDomain (Core.Maybe Core.Bool)
+ctgmdDryRun = Lens.field @"dryRun"
 {-# DEPRECATED ctgmdDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateTransitGatewayMulticastDomain where
+-- | The tags for the transit gateway multicast domain.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgmdTagSpecifications :: Lens.Lens' CreateTransitGatewayMulticastDomain (Core.Maybe [Types.TagSpecification])
+ctgmdTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED ctgmdTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+instance Core.AWSRequest CreateTransitGatewayMulticastDomain where
   type
     Rs CreateTransitGatewayMulticastDomain =
       CreateTransitGatewayMulticastDomainResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateTransitGatewayMulticastDomain")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "TransitGatewayId" transitGatewayId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateTransitGatewayMulticastDomainResponse'
-            Lude.<$> (x Lude..@? "transitGatewayMulticastDomain")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "transitGatewayMulticastDomain")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTransitGatewayMulticastDomain where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateTransitGatewayMulticastDomain where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTransitGatewayMulticastDomain where
-  toQuery CreateTransitGatewayMulticastDomain' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("CreateTransitGatewayMulticastDomain" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "TransitGatewayId" Lude.=: transitGatewayId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCreateTransitGatewayMulticastDomainResponse' smart constructor.
 data CreateTransitGatewayMulticastDomainResponse = CreateTransitGatewayMulticastDomainResponse'
   { -- | Information about the transit gateway multicast domain.
-    transitGatewayMulticastDomain :: Lude.Maybe TransitGatewayMulticastDomain,
+    transitGatewayMulticastDomain :: Core.Maybe Types.TransitGatewayMulticastDomain,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateTransitGatewayMulticastDomainResponse' with the minimum fields required to make a request.
---
--- * 'transitGatewayMulticastDomain' - Information about the transit gateway multicast domain.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTransitGatewayMulticastDomainResponse' value with any optional fields omitted.
 mkCreateTransitGatewayMulticastDomainResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTransitGatewayMulticastDomainResponse
-mkCreateTransitGatewayMulticastDomainResponse pResponseStatus_ =
+mkCreateTransitGatewayMulticastDomainResponse responseStatus =
   CreateTransitGatewayMulticastDomainResponse'
     { transitGatewayMulticastDomain =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the transit gateway multicast domain.
 --
 -- /Note:/ Consider using 'transitGatewayMulticastDomain' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgmdrsTransitGatewayMulticastDomain :: Lens.Lens' CreateTransitGatewayMulticastDomainResponse (Lude.Maybe TransitGatewayMulticastDomain)
-ctgmdrsTransitGatewayMulticastDomain = Lens.lens (transitGatewayMulticastDomain :: CreateTransitGatewayMulticastDomainResponse -> Lude.Maybe TransitGatewayMulticastDomain) (\s a -> s {transitGatewayMulticastDomain = a} :: CreateTransitGatewayMulticastDomainResponse)
-{-# DEPRECATED ctgmdrsTransitGatewayMulticastDomain "Use generic-lens or generic-optics with 'transitGatewayMulticastDomain' instead." #-}
+ctgmdrrsTransitGatewayMulticastDomain :: Lens.Lens' CreateTransitGatewayMulticastDomainResponse (Core.Maybe Types.TransitGatewayMulticastDomain)
+ctgmdrrsTransitGatewayMulticastDomain = Lens.field @"transitGatewayMulticastDomain"
+{-# DEPRECATED ctgmdrrsTransitGatewayMulticastDomain "Use generic-lens or generic-optics with 'transitGatewayMulticastDomain' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgmdrsResponseStatus :: Lens.Lens' CreateTransitGatewayMulticastDomainResponse Lude.Int
-ctgmdrsResponseStatus = Lens.lens (responseStatus :: CreateTransitGatewayMulticastDomainResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTransitGatewayMulticastDomainResponse)
-{-# DEPRECATED ctgmdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctgmdrrsResponseStatus :: Lens.Lens' CreateTransitGatewayMulticastDomainResponse Core.Int
+ctgmdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctgmdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

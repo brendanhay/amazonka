@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.M2tsAudioInterval
   ( M2tsAudioInterval
       ( M2tsAudioInterval',
-        VideoAndFixedIntervals,
-        VideoInterval
+        M2tsAudioIntervalVideoAndFixedIntervals,
+        M2tsAudioIntervalVideoInterval,
+        fromM2tsAudioInterval
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | M2ts Audio Interval
-newtype M2tsAudioInterval = M2tsAudioInterval' Lude.Text
+newtype M2tsAudioInterval = M2tsAudioInterval'
+  { fromM2tsAudioInterval ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern VideoAndFixedIntervals :: M2tsAudioInterval
-pattern VideoAndFixedIntervals = M2tsAudioInterval' "VIDEO_AND_FIXED_INTERVALS"
+pattern M2tsAudioIntervalVideoAndFixedIntervals :: M2tsAudioInterval
+pattern M2tsAudioIntervalVideoAndFixedIntervals = M2tsAudioInterval' "VIDEO_AND_FIXED_INTERVALS"
 
-pattern VideoInterval :: M2tsAudioInterval
-pattern VideoInterval = M2tsAudioInterval' "VIDEO_INTERVAL"
+pattern M2tsAudioIntervalVideoInterval :: M2tsAudioInterval
+pattern M2tsAudioIntervalVideoInterval = M2tsAudioInterval' "VIDEO_INTERVAL"
 
 {-# COMPLETE
-  VideoAndFixedIntervals,
-  VideoInterval,
+  M2tsAudioIntervalVideoAndFixedIntervals,
+  M2tsAudioIntervalVideoInterval,
   M2tsAudioInterval'
   #-}

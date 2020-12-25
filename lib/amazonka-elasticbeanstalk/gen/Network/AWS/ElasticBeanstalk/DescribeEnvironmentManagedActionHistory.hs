@@ -22,183 +22,180 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentManagedActionHistory
     mkDescribeEnvironmentManagedActionHistory,
 
     -- ** Request lenses
-    demahNextToken,
+    demahEnvironmentId,
     demahEnvironmentName,
     demahMaxItems,
-    demahEnvironmentId,
+    demahNextToken,
 
     -- * Destructuring the response
     DescribeEnvironmentManagedActionHistoryResponse (..),
     mkDescribeEnvironmentManagedActionHistoryResponse,
 
     -- ** Response lenses
-    demahrsManagedActionHistoryItems,
-    demahrsNextToken,
-    demahrsResponseStatus,
+    demahrrsManagedActionHistoryItems,
+    demahrrsNextToken,
+    demahrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticBeanstalk.Types
+import qualified Network.AWS.ElasticBeanstalk.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Request to list completed and failed managed actions.
 --
 -- /See:/ 'mkDescribeEnvironmentManagedActionHistory' smart constructor.
 data DescribeEnvironmentManagedActionHistory = DescribeEnvironmentManagedActionHistory'
-  { -- | The pagination token returned by a previous request.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The environment ID of the target environment.
+    environmentId :: Core.Maybe Types.EnvironmentId,
     -- | The name of the target environment.
-    environmentName :: Lude.Maybe Lude.Text,
+    environmentName :: Core.Maybe Types.EnvironmentName,
     -- | The maximum number of items to return for a single request.
-    maxItems :: Lude.Maybe Lude.Natural,
-    -- | The environment ID of the target environment.
-    environmentId :: Lude.Maybe Lude.Text
+    maxItems :: Core.Maybe Core.Natural,
+    -- | The pagination token returned by a previous request.
+    nextToken :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeEnvironmentManagedActionHistory' with the minimum fields required to make a request.
---
--- * 'nextToken' - The pagination token returned by a previous request.
--- * 'environmentName' - The name of the target environment.
--- * 'maxItems' - The maximum number of items to return for a single request.
--- * 'environmentId' - The environment ID of the target environment.
+-- | Creates a 'DescribeEnvironmentManagedActionHistory' value with any optional fields omitted.
 mkDescribeEnvironmentManagedActionHistory ::
   DescribeEnvironmentManagedActionHistory
 mkDescribeEnvironmentManagedActionHistory =
   DescribeEnvironmentManagedActionHistory'
-    { nextToken =
-        Lude.Nothing,
-      environmentName = Lude.Nothing,
-      maxItems = Lude.Nothing,
-      environmentId = Lude.Nothing
+    { environmentId =
+        Core.Nothing,
+      environmentName = Core.Nothing,
+      maxItems = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
--- | The pagination token returned by a previous request.
+-- | The environment ID of the target environment.
 --
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-demahNextToken :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Lude.Maybe Lude.Text)
-demahNextToken = Lens.lens (nextToken :: DescribeEnvironmentManagedActionHistory -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEnvironmentManagedActionHistory)
-{-# DEPRECATED demahNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+-- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+demahEnvironmentId :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Core.Maybe Types.EnvironmentId)
+demahEnvironmentId = Lens.field @"environmentId"
+{-# DEPRECATED demahEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
 
 -- | The name of the target environment.
 --
 -- /Note:/ Consider using 'environmentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-demahEnvironmentName :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Lude.Maybe Lude.Text)
-demahEnvironmentName = Lens.lens (environmentName :: DescribeEnvironmentManagedActionHistory -> Lude.Maybe Lude.Text) (\s a -> s {environmentName = a} :: DescribeEnvironmentManagedActionHistory)
+demahEnvironmentName :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Core.Maybe Types.EnvironmentName)
+demahEnvironmentName = Lens.field @"environmentName"
 {-# DEPRECATED demahEnvironmentName "Use generic-lens or generic-optics with 'environmentName' instead." #-}
 
 -- | The maximum number of items to return for a single request.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-demahMaxItems :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Lude.Maybe Lude.Natural)
-demahMaxItems = Lens.lens (maxItems :: DescribeEnvironmentManagedActionHistory -> Lude.Maybe Lude.Natural) (\s a -> s {maxItems = a} :: DescribeEnvironmentManagedActionHistory)
+demahMaxItems :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Core.Maybe Core.Natural)
+demahMaxItems = Lens.field @"maxItems"
 {-# DEPRECATED demahMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
--- | The environment ID of the target environment.
+-- | The pagination token returned by a previous request.
 --
--- /Note:/ Consider using 'environmentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-demahEnvironmentId :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Lude.Maybe Lude.Text)
-demahEnvironmentId = Lens.lens (environmentId :: DescribeEnvironmentManagedActionHistory -> Lude.Maybe Lude.Text) (\s a -> s {environmentId = a} :: DescribeEnvironmentManagedActionHistory)
-{-# DEPRECATED demahEnvironmentId "Use generic-lens or generic-optics with 'environmentId' instead." #-}
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+demahNextToken :: Lens.Lens' DescribeEnvironmentManagedActionHistory (Core.Maybe Types.String)
+demahNextToken = Lens.field @"nextToken"
+{-# DEPRECATED demahNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Page.AWSPager DescribeEnvironmentManagedActionHistory where
-  page rq rs
-    | Page.stop (rs Lens.^. demahrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. demahrsManagedActionHistoryItems) =
-      Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& demahNextToken Lens..~ rs Lens.^. demahrsNextToken
-
-instance Lude.AWSRequest DescribeEnvironmentManagedActionHistory where
+instance Core.AWSRequest DescribeEnvironmentManagedActionHistory where
   type
     Rs DescribeEnvironmentManagedActionHistory =
       DescribeEnvironmentManagedActionHistoryResponse
-  request = Req.postQuery elasticBeanstalkService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeEnvironmentManagedActionHistory")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "EnvironmentId" Core.<$> environmentId)
+                Core.<> (Core.toQueryValue "EnvironmentName" Core.<$> environmentName)
+                Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems)
+                Core.<> (Core.toQueryValue "NextToken" Core.<$> nextToken)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeEnvironmentManagedActionHistoryResult"
       ( \s h x ->
           DescribeEnvironmentManagedActionHistoryResponse'
-            Lude.<$> ( x Lude..@? "ManagedActionHistoryItems" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLNonEmpty "member")
+            Core.<$> ( x Core..@? "ManagedActionHistoryItems"
+                         Core..<@> Core.parseXMLNonEmpty "member"
                      )
-            Lude.<*> (x Lude..@? "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (x Core..@? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeEnvironmentManagedActionHistory where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeEnvironmentManagedActionHistory where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeEnvironmentManagedActionHistory where
-  toQuery DescribeEnvironmentManagedActionHistory' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeEnvironmentManagedActionHistory" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "NextToken" Lude.=: nextToken,
-        "EnvironmentName" Lude.=: environmentName,
-        "MaxItems" Lude.=: maxItems,
-        "EnvironmentId" Lude.=: environmentId
-      ]
+instance Pager.AWSPager DescribeEnvironmentManagedActionHistory where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        ( rs
+            Lens.^? Lens.field @"managedActionHistoryItems" Core.. Lens._Just
+        ) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | A result message containing a list of completed and failed managed actions.
 --
 -- /See:/ 'mkDescribeEnvironmentManagedActionHistoryResponse' smart constructor.
 data DescribeEnvironmentManagedActionHistoryResponse = DescribeEnvironmentManagedActionHistoryResponse'
   { -- | A list of completed and failed managed actions.
-    managedActionHistoryItems :: Lude.Maybe (Lude.NonEmpty ManagedActionHistoryItem),
+    managedActionHistoryItems :: Core.Maybe (Core.NonEmpty Types.ManagedActionHistoryItem),
     -- | A pagination token that you pass to 'DescribeEnvironmentManagedActionHistory' to get the next page of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeEnvironmentManagedActionHistoryResponse' with the minimum fields required to make a request.
---
--- * 'managedActionHistoryItems' - A list of completed and failed managed actions.
--- * 'nextToken' - A pagination token that you pass to 'DescribeEnvironmentManagedActionHistory' to get the next page of results.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeEnvironmentManagedActionHistoryResponse' value with any optional fields omitted.
 mkDescribeEnvironmentManagedActionHistoryResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeEnvironmentManagedActionHistoryResponse
-mkDescribeEnvironmentManagedActionHistoryResponse pResponseStatus_ =
+mkDescribeEnvironmentManagedActionHistoryResponse responseStatus =
   DescribeEnvironmentManagedActionHistoryResponse'
     { managedActionHistoryItems =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of completed and failed managed actions.
 --
 -- /Note:/ Consider using 'managedActionHistoryItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-demahrsManagedActionHistoryItems :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse (Lude.Maybe (Lude.NonEmpty ManagedActionHistoryItem))
-demahrsManagedActionHistoryItems = Lens.lens (managedActionHistoryItems :: DescribeEnvironmentManagedActionHistoryResponse -> Lude.Maybe (Lude.NonEmpty ManagedActionHistoryItem)) (\s a -> s {managedActionHistoryItems = a} :: DescribeEnvironmentManagedActionHistoryResponse)
-{-# DEPRECATED demahrsManagedActionHistoryItems "Use generic-lens or generic-optics with 'managedActionHistoryItems' instead." #-}
+demahrrsManagedActionHistoryItems :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse (Core.Maybe (Core.NonEmpty Types.ManagedActionHistoryItem))
+demahrrsManagedActionHistoryItems = Lens.field @"managedActionHistoryItems"
+{-# DEPRECATED demahrrsManagedActionHistoryItems "Use generic-lens or generic-optics with 'managedActionHistoryItems' instead." #-}
 
 -- | A pagination token that you pass to 'DescribeEnvironmentManagedActionHistory' to get the next page of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-demahrsNextToken :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse (Lude.Maybe Lude.Text)
-demahrsNextToken = Lens.lens (nextToken :: DescribeEnvironmentManagedActionHistoryResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeEnvironmentManagedActionHistoryResponse)
-{-# DEPRECATED demahrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+demahrrsNextToken :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse (Core.Maybe Types.String)
+demahrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED demahrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-demahrsResponseStatus :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse Lude.Int
-demahrsResponseStatus = Lens.lens (responseStatus :: DescribeEnvironmentManagedActionHistoryResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeEnvironmentManagedActionHistoryResponse)
-{-# DEPRECATED demahrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+demahrrsResponseStatus :: Lens.Lens' DescribeEnvironmentManagedActionHistoryResponse Core.Int
+demahrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED demahrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

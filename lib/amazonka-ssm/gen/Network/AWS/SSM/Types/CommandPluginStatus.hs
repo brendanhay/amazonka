@@ -13,66 +13,71 @@
 module Network.AWS.SSM.Types.CommandPluginStatus
   ( CommandPluginStatus
       ( CommandPluginStatus',
-        CPSPending,
-        CPSInProgress,
-        CPSSuccess,
-        CPSTimedOut,
-        CPSCancelled,
-        CPSFailed
+        CommandPluginStatusPending,
+        CommandPluginStatusInProgress,
+        CommandPluginStatusSuccess,
+        CommandPluginStatusTimedOut,
+        CommandPluginStatusCancelled,
+        CommandPluginStatusFailed,
+        fromCommandPluginStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CommandPluginStatus = CommandPluginStatus' Lude.Text
+newtype CommandPluginStatus = CommandPluginStatus'
+  { fromCommandPluginStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CPSPending :: CommandPluginStatus
-pattern CPSPending = CommandPluginStatus' "Pending"
+pattern CommandPluginStatusPending :: CommandPluginStatus
+pattern CommandPluginStatusPending = CommandPluginStatus' "Pending"
 
-pattern CPSInProgress :: CommandPluginStatus
-pattern CPSInProgress = CommandPluginStatus' "InProgress"
+pattern CommandPluginStatusInProgress :: CommandPluginStatus
+pattern CommandPluginStatusInProgress = CommandPluginStatus' "InProgress"
 
-pattern CPSSuccess :: CommandPluginStatus
-pattern CPSSuccess = CommandPluginStatus' "Success"
+pattern CommandPluginStatusSuccess :: CommandPluginStatus
+pattern CommandPluginStatusSuccess = CommandPluginStatus' "Success"
 
-pattern CPSTimedOut :: CommandPluginStatus
-pattern CPSTimedOut = CommandPluginStatus' "TimedOut"
+pattern CommandPluginStatusTimedOut :: CommandPluginStatus
+pattern CommandPluginStatusTimedOut = CommandPluginStatus' "TimedOut"
 
-pattern CPSCancelled :: CommandPluginStatus
-pattern CPSCancelled = CommandPluginStatus' "Cancelled"
+pattern CommandPluginStatusCancelled :: CommandPluginStatus
+pattern CommandPluginStatusCancelled = CommandPluginStatus' "Cancelled"
 
-pattern CPSFailed :: CommandPluginStatus
-pattern CPSFailed = CommandPluginStatus' "Failed"
+pattern CommandPluginStatusFailed :: CommandPluginStatus
+pattern CommandPluginStatusFailed = CommandPluginStatus' "Failed"
 
 {-# COMPLETE
-  CPSPending,
-  CPSInProgress,
-  CPSSuccess,
-  CPSTimedOut,
-  CPSCancelled,
-  CPSFailed,
+  CommandPluginStatusPending,
+  CommandPluginStatusInProgress,
+  CommandPluginStatusSuccess,
+  CommandPluginStatusTimedOut,
+  CommandPluginStatusCancelled,
+  CommandPluginStatusFailed,
   CommandPluginStatus'
   #-}

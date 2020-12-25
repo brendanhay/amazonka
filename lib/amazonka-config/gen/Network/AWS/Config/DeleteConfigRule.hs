@@ -31,74 +31,65 @@ module Network.AWS.Config.DeleteConfigRule
   )
 where
 
-import Network.AWS.Config.Types
+import qualified Network.AWS.Config.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkDeleteConfigRule' smart constructor.
 newtype DeleteConfigRule = DeleteConfigRule'
   { -- | The name of the AWS Config rule that you want to delete.
-    configRuleName :: Lude.Text
+    configRuleName :: Types.ConfigRuleName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConfigRule' with the minimum fields required to make a request.
---
--- * 'configRuleName' - The name of the AWS Config rule that you want to delete.
+-- | Creates a 'DeleteConfigRule' value with any optional fields omitted.
 mkDeleteConfigRule ::
   -- | 'configRuleName'
-  Lude.Text ->
+  Types.ConfigRuleName ->
   DeleteConfigRule
-mkDeleteConfigRule pConfigRuleName_ =
-  DeleteConfigRule' {configRuleName = pConfigRuleName_}
+mkDeleteConfigRule configRuleName =
+  DeleteConfigRule' {configRuleName}
 
 -- | The name of the AWS Config rule that you want to delete.
 --
 -- /Note:/ Consider using 'configRuleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcrConfigRuleName :: Lens.Lens' DeleteConfigRule Lude.Text
-dcrConfigRuleName = Lens.lens (configRuleName :: DeleteConfigRule -> Lude.Text) (\s a -> s {configRuleName = a} :: DeleteConfigRule)
+dcrConfigRuleName :: Lens.Lens' DeleteConfigRule Types.ConfigRuleName
+dcrConfigRuleName = Lens.field @"configRuleName"
 {-# DEPRECATED dcrConfigRuleName "Use generic-lens or generic-optics with 'configRuleName' instead." #-}
 
-instance Lude.AWSRequest DeleteConfigRule where
+instance Core.FromJSON DeleteConfigRule where
+  toJSON DeleteConfigRule {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ConfigRuleName" Core..= configRuleName)]
+      )
+
+instance Core.AWSRequest DeleteConfigRule where
   type Rs DeleteConfigRule = DeleteConfigRuleResponse
-  request = Req.postJSON configService
-  response = Res.receiveNull DeleteConfigRuleResponse'
-
-instance Lude.ToHeaders DeleteConfigRule where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StarlingDoveService.DeleteConfigRule" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteConfigRule where
-  toJSON DeleteConfigRule' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ConfigRuleName" Lude..= configRuleName)]
-      )
-
-instance Lude.ToPath DeleteConfigRule where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteConfigRule where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "StarlingDoveService.DeleteConfigRule")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
+  response = Response.receiveNull DeleteConfigRuleResponse'
 
 -- | /See:/ 'mkDeleteConfigRuleResponse' smart constructor.
 data DeleteConfigRuleResponse = DeleteConfigRuleResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConfigRuleResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteConfigRuleResponse' value with any optional fields omitted.
 mkDeleteConfigRuleResponse ::
   DeleteConfigRuleResponse
 mkDeleteConfigRuleResponse = DeleteConfigRuleResponse'

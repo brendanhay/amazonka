@@ -22,43 +22,39 @@ module Network.AWS.SSM.Types.PatchRuleGroup
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.PatchRule
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.PatchRule as Types
 
 -- | A set of rules defining the approval rules for a patch baseline.
 --
 -- /See:/ 'mkPatchRuleGroup' smart constructor.
 newtype PatchRuleGroup = PatchRuleGroup'
   { -- | The rules that make up the rule group.
-    patchRules :: [PatchRule]
+    patchRules :: [Types.PatchRule]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PatchRuleGroup' with the minimum fields required to make a request.
---
--- * 'patchRules' - The rules that make up the rule group.
+-- | Creates a 'PatchRuleGroup' value with any optional fields omitted.
 mkPatchRuleGroup ::
   PatchRuleGroup
-mkPatchRuleGroup = PatchRuleGroup' {patchRules = Lude.mempty}
+mkPatchRuleGroup = PatchRuleGroup' {patchRules = Core.mempty}
 
 -- | The rules that make up the rule group.
 --
 -- /Note:/ Consider using 'patchRules' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-prgPatchRules :: Lens.Lens' PatchRuleGroup [PatchRule]
-prgPatchRules = Lens.lens (patchRules :: PatchRuleGroup -> [PatchRule]) (\s a -> s {patchRules = a} :: PatchRuleGroup)
+prgPatchRules :: Lens.Lens' PatchRuleGroup [Types.PatchRule]
+prgPatchRules = Lens.field @"patchRules"
 {-# DEPRECATED prgPatchRules "Use generic-lens or generic-optics with 'patchRules' instead." #-}
 
-instance Lude.FromJSON PatchRuleGroup where
-  parseJSON =
-    Lude.withObject
-      "PatchRuleGroup"
-      ( \x ->
-          PatchRuleGroup'
-            Lude.<$> (x Lude..:? "PatchRules" Lude..!= Lude.mempty)
-      )
+instance Core.FromJSON PatchRuleGroup where
+  toJSON PatchRuleGroup {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("PatchRules" Core..= patchRules)])
 
-instance Lude.ToJSON PatchRuleGroup where
-  toJSON PatchRuleGroup' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("PatchRules" Lude..= patchRules)])
+instance Core.FromJSON PatchRuleGroup where
+  parseJSON =
+    Core.withObject "PatchRuleGroup" Core.$
+      \x ->
+        PatchRuleGroup'
+          Core.<$> (x Core..:? "PatchRules" Core..!= Core.mempty)

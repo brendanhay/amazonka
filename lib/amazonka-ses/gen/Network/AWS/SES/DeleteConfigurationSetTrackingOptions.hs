@@ -29,100 +29,92 @@ module Network.AWS.SES.DeleteConfigurationSetTrackingOptions
     mkDeleteConfigurationSetTrackingOptionsResponse,
 
     -- ** Response lenses
-    dcstorsResponseStatus,
+    dcstorrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | Represents a request to delete open and click tracking options in a configuration set.
 --
 -- /See:/ 'mkDeleteConfigurationSetTrackingOptions' smart constructor.
 newtype DeleteConfigurationSetTrackingOptions = DeleteConfigurationSetTrackingOptions'
   { -- | The name of the configuration set from which you want to delete the tracking options.
-    configurationSetName :: Lude.Text
+    configurationSetName :: Types.ConfigurationSetName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConfigurationSetTrackingOptions' with the minimum fields required to make a request.
---
--- * 'configurationSetName' - The name of the configuration set from which you want to delete the tracking options.
+-- | Creates a 'DeleteConfigurationSetTrackingOptions' value with any optional fields omitted.
 mkDeleteConfigurationSetTrackingOptions ::
   -- | 'configurationSetName'
-  Lude.Text ->
+  Types.ConfigurationSetName ->
   DeleteConfigurationSetTrackingOptions
-mkDeleteConfigurationSetTrackingOptions pConfigurationSetName_ =
-  DeleteConfigurationSetTrackingOptions'
-    { configurationSetName =
-        pConfigurationSetName_
-    }
+mkDeleteConfigurationSetTrackingOptions configurationSetName =
+  DeleteConfigurationSetTrackingOptions' {configurationSetName}
 
 -- | The name of the configuration set from which you want to delete the tracking options.
 --
 -- /Note:/ Consider using 'configurationSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcstoConfigurationSetName :: Lens.Lens' DeleteConfigurationSetTrackingOptions Lude.Text
-dcstoConfigurationSetName = Lens.lens (configurationSetName :: DeleteConfigurationSetTrackingOptions -> Lude.Text) (\s a -> s {configurationSetName = a} :: DeleteConfigurationSetTrackingOptions)
+dcstoConfigurationSetName :: Lens.Lens' DeleteConfigurationSetTrackingOptions Types.ConfigurationSetName
+dcstoConfigurationSetName = Lens.field @"configurationSetName"
 {-# DEPRECATED dcstoConfigurationSetName "Use generic-lens or generic-optics with 'configurationSetName' instead." #-}
 
-instance Lude.AWSRequest DeleteConfigurationSetTrackingOptions where
+instance Core.AWSRequest DeleteConfigurationSetTrackingOptions where
   type
     Rs DeleteConfigurationSetTrackingOptions =
       DeleteConfigurationSetTrackingOptionsResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteConfigurationSetTrackingOptions")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "ConfigurationSetName" configurationSetName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DeleteConfigurationSetTrackingOptionsResult"
       ( \s h x ->
           DeleteConfigurationSetTrackingOptionsResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteConfigurationSetTrackingOptions where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteConfigurationSetTrackingOptions where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteConfigurationSetTrackingOptions where
-  toQuery DeleteConfigurationSetTrackingOptions' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeleteConfigurationSetTrackingOptions" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "ConfigurationSetName" Lude.=: configurationSetName
-      ]
 
 -- | An empty element returned on a successful request.
 --
 -- /See:/ 'mkDeleteConfigurationSetTrackingOptionsResponse' smart constructor.
 newtype DeleteConfigurationSetTrackingOptionsResponse = DeleteConfigurationSetTrackingOptionsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteConfigurationSetTrackingOptionsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteConfigurationSetTrackingOptionsResponse' value with any optional fields omitted.
 mkDeleteConfigurationSetTrackingOptionsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteConfigurationSetTrackingOptionsResponse
-mkDeleteConfigurationSetTrackingOptionsResponse pResponseStatus_ =
-  DeleteConfigurationSetTrackingOptionsResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkDeleteConfigurationSetTrackingOptionsResponse responseStatus =
+  DeleteConfigurationSetTrackingOptionsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcstorsResponseStatus :: Lens.Lens' DeleteConfigurationSetTrackingOptionsResponse Lude.Int
-dcstorsResponseStatus = Lens.lens (responseStatus :: DeleteConfigurationSetTrackingOptionsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteConfigurationSetTrackingOptionsResponse)
-{-# DEPRECATED dcstorsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dcstorrsResponseStatus :: Lens.Lens' DeleteConfigurationSetTrackingOptionsResponse Core.Int
+dcstorrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dcstorrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -20,12 +20,12 @@ module Network.AWS.CloudFormation.CreateStackInstances
     mkCreateStackInstances,
 
     -- ** Request lenses
-    csiAccounts,
-    csiRegions,
-    csiOperationPreferences,
-    csiOperationId,
-    csiDeploymentTargets,
     csiStackSetName,
+    csiRegions,
+    csiAccounts,
+    csiDeploymentTargets,
+    csiOperationId,
+    csiOperationPreferences,
     csiParameterOverrides,
 
     -- * Destructuring the response
@@ -33,39 +33,39 @@ module Network.AWS.CloudFormation.CreateStackInstances
     mkCreateStackInstancesResponse,
 
     -- ** Response lenses
-    csirsOperationId,
-    csirsResponseStatus,
+    csirrsOperationId,
+    csirrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFormation.Types
+import qualified Network.AWS.CloudFormation.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateStackInstances' smart constructor.
 data CreateStackInstances = CreateStackInstances'
-  { -- | [@Self-managed@ permissions] The names of one or more AWS accounts that you want to create stack instances in the specified Region(s) for.
+  { -- | The name or unique ID of the stack set that you want to create stack instances from.
+    stackSetName :: Types.StackSetName,
+    -- | The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
+    regions :: [Types.Region],
+    -- | [@Self-managed@ permissions] The names of one or more AWS accounts that you want to create stack instances in the specified Region(s) for.
     --
     -- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
-    accounts :: Lude.Maybe [Lude.Text],
-    -- | The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
-    regions :: [Lude.Text],
-    -- | Preferences for how AWS CloudFormation performs this stack set operation.
-    operationPreferences :: Lude.Maybe StackSetOperationPreferences,
+    accounts :: Core.Maybe [Types.Account],
+    -- | [@Service-managed@ permissions] The AWS Organizations accounts for which to create stack instances in the specified Regions.
+    --
+    -- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
+    deploymentTargets :: Core.Maybe Types.DeploymentTargets,
     -- | The unique identifier for this stack set operation.
     --
     -- The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You might retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
     -- If you don't specify an operation ID, the SDK generates one automatically.
     -- Repeating this stack set operation with a new operation ID retries all stack instances whose status is @OUTDATED@ .
-    operationId :: Lude.Maybe Lude.Text,
-    -- | [@Service-managed@ permissions] The AWS Organizations accounts for which to create stack instances in the specified Regions.
-    --
-    -- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
-    deploymentTargets :: Lude.Maybe DeploymentTargets,
-    -- | The name or unique ID of the stack set that you want to create stack instances from.
-    stackSetName :: Lude.Text,
+    operationId :: Core.Maybe Types.OperationId,
+    -- | Preferences for how AWS CloudFormation performs this stack set operation.
+    operationPreferences :: Core.Maybe Types.StackSetOperationPreferences,
     -- | A list of stack set parameters whose values you want to override in the selected stack instances.
     --
     -- Any overridden parameter values will be applied to all stack instances in the specified accounts and Regions. When specifying parameters and their values, be aware of how AWS CloudFormation sets parameter values during stack instance operations:
@@ -91,89 +91,58 @@ data CreateStackInstances = CreateStackInstances'
     --
     -- During stack set updates, any parameter values overridden for a stack instance are not updated, but retain their overridden value.
     -- You can only override the parameter /values/ that are specified in the stack set; to add or delete a parameter itself, use <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet> to update the stack set template.
-    parameterOverrides :: Lude.Maybe [Parameter]
+    parameterOverrides :: Core.Maybe [Types.Parameter]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStackInstances' with the minimum fields required to make a request.
---
--- * 'accounts' - [@Self-managed@ permissions] The names of one or more AWS accounts that you want to create stack instances in the specified Region(s) for.
---
--- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
--- * 'regions' - The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
--- * 'operationPreferences' - Preferences for how AWS CloudFormation performs this stack set operation.
--- * 'operationId' - The unique identifier for this stack set operation.
---
--- The operation ID also functions as an idempotency token, to ensure that AWS CloudFormation performs the stack set operation only once, even if you retry the request multiple times. You might retry stack set operation requests to ensure that AWS CloudFormation successfully received them.
--- If you don't specify an operation ID, the SDK generates one automatically.
--- Repeating this stack set operation with a new operation ID retries all stack instances whose status is @OUTDATED@ .
--- * 'deploymentTargets' - [@Service-managed@ permissions] The AWS Organizations accounts for which to create stack instances in the specified Regions.
---
--- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
--- * 'stackSetName' - The name or unique ID of the stack set that you want to create stack instances from.
--- * 'parameterOverrides' - A list of stack set parameters whose values you want to override in the selected stack instances.
---
--- Any overridden parameter values will be applied to all stack instances in the specified accounts and Regions. When specifying parameters and their values, be aware of how AWS CloudFormation sets parameter values during stack instance operations:
---
---     * To override the current value for a parameter, include the parameter and specify its value.
---
---
---     * To leave a parameter set to its present value, you can do one of the following:
---
---     * Do not include the parameter in the list.
---
---
---     * Include the parameter and specify @UsePreviousValue@ as @true@ . (You cannot specify both a value and set @UsePreviousValue@ to @true@ .)
---
---
---
---
---     * To set all overridden parameter back to the values specified in the stack set, specify a parameter list but do not include any parameters.
---
---
---     * To leave all parameters set to their present values, do not specify this property at all.
---
---
--- During stack set updates, any parameter values overridden for a stack instance are not updated, but retain their overridden value.
--- You can only override the parameter /values/ that are specified in the stack set; to add or delete a parameter itself, use <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet> to update the stack set template.
+-- | Creates a 'CreateStackInstances' value with any optional fields omitted.
 mkCreateStackInstances ::
   -- | 'stackSetName'
-  Lude.Text ->
+  Types.StackSetName ->
   CreateStackInstances
-mkCreateStackInstances pStackSetName_ =
+mkCreateStackInstances stackSetName =
   CreateStackInstances'
-    { accounts = Lude.Nothing,
-      regions = Lude.mempty,
-      operationPreferences = Lude.Nothing,
-      operationId = Lude.Nothing,
-      deploymentTargets = Lude.Nothing,
-      stackSetName = pStackSetName_,
-      parameterOverrides = Lude.Nothing
+    { stackSetName,
+      regions = Core.mempty,
+      accounts = Core.Nothing,
+      deploymentTargets = Core.Nothing,
+      operationId = Core.Nothing,
+      operationPreferences = Core.Nothing,
+      parameterOverrides = Core.Nothing
     }
+
+-- | The name or unique ID of the stack set that you want to create stack instances from.
+--
+-- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csiStackSetName :: Lens.Lens' CreateStackInstances Types.StackSetName
+csiStackSetName = Lens.field @"stackSetName"
+{-# DEPRECATED csiStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
+
+-- | The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
+--
+-- /Note:/ Consider using 'regions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csiRegions :: Lens.Lens' CreateStackInstances [Types.Region]
+csiRegions = Lens.field @"regions"
+{-# DEPRECATED csiRegions "Use generic-lens or generic-optics with 'regions' instead." #-}
 
 -- | [@Self-managed@ permissions] The names of one or more AWS accounts that you want to create stack instances in the specified Region(s) for.
 --
 -- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
 --
 -- /Note:/ Consider using 'accounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiAccounts :: Lens.Lens' CreateStackInstances (Lude.Maybe [Lude.Text])
-csiAccounts = Lens.lens (accounts :: CreateStackInstances -> Lude.Maybe [Lude.Text]) (\s a -> s {accounts = a} :: CreateStackInstances)
+csiAccounts :: Lens.Lens' CreateStackInstances (Core.Maybe [Types.Account])
+csiAccounts = Lens.field @"accounts"
 {-# DEPRECATED csiAccounts "Use generic-lens or generic-optics with 'accounts' instead." #-}
 
--- | The names of one or more Regions where you want to create stack instances using the specified AWS account(s).
+-- | [@Service-managed@ permissions] The AWS Organizations accounts for which to create stack instances in the specified Regions.
 --
--- /Note:/ Consider using 'regions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiRegions :: Lens.Lens' CreateStackInstances [Lude.Text]
-csiRegions = Lens.lens (regions :: CreateStackInstances -> [Lude.Text]) (\s a -> s {regions = a} :: CreateStackInstances)
-{-# DEPRECATED csiRegions "Use generic-lens or generic-optics with 'regions' instead." #-}
-
--- | Preferences for how AWS CloudFormation performs this stack set operation.
+-- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
 --
--- /Note:/ Consider using 'operationPreferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiOperationPreferences :: Lens.Lens' CreateStackInstances (Lude.Maybe StackSetOperationPreferences)
-csiOperationPreferences = Lens.lens (operationPreferences :: CreateStackInstances -> Lude.Maybe StackSetOperationPreferences) (\s a -> s {operationPreferences = a} :: CreateStackInstances)
-{-# DEPRECATED csiOperationPreferences "Use generic-lens or generic-optics with 'operationPreferences' instead." #-}
+-- /Note:/ Consider using 'deploymentTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csiDeploymentTargets :: Lens.Lens' CreateStackInstances (Core.Maybe Types.DeploymentTargets)
+csiDeploymentTargets = Lens.field @"deploymentTargets"
+{-# DEPRECATED csiDeploymentTargets "Use generic-lens or generic-optics with 'deploymentTargets' instead." #-}
 
 -- | The unique identifier for this stack set operation.
 --
@@ -182,25 +151,16 @@ csiOperationPreferences = Lens.lens (operationPreferences :: CreateStackInstance
 -- Repeating this stack set operation with a new operation ID retries all stack instances whose status is @OUTDATED@ .
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiOperationId :: Lens.Lens' CreateStackInstances (Lude.Maybe Lude.Text)
-csiOperationId = Lens.lens (operationId :: CreateStackInstances -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: CreateStackInstances)
+csiOperationId :: Lens.Lens' CreateStackInstances (Core.Maybe Types.OperationId)
+csiOperationId = Lens.field @"operationId"
 {-# DEPRECATED csiOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
--- | [@Service-managed@ permissions] The AWS Organizations accounts for which to create stack instances in the specified Regions.
+-- | Preferences for how AWS CloudFormation performs this stack set operation.
 --
--- You can specify @Accounts@ or @DeploymentTargets@ , but not both.
---
--- /Note:/ Consider using 'deploymentTargets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiDeploymentTargets :: Lens.Lens' CreateStackInstances (Lude.Maybe DeploymentTargets)
-csiDeploymentTargets = Lens.lens (deploymentTargets :: CreateStackInstances -> Lude.Maybe DeploymentTargets) (\s a -> s {deploymentTargets = a} :: CreateStackInstances)
-{-# DEPRECATED csiDeploymentTargets "Use generic-lens or generic-optics with 'deploymentTargets' instead." #-}
-
--- | The name or unique ID of the stack set that you want to create stack instances from.
---
--- /Note:/ Consider using 'stackSetName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiStackSetName :: Lens.Lens' CreateStackInstances Lude.Text
-csiStackSetName = Lens.lens (stackSetName :: CreateStackInstances -> Lude.Text) (\s a -> s {stackSetName = a} :: CreateStackInstances)
-{-# DEPRECATED csiStackSetName "Use generic-lens or generic-optics with 'stackSetName' instead." #-}
+-- /Note:/ Consider using 'operationPreferences' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+csiOperationPreferences :: Lens.Lens' CreateStackInstances (Core.Maybe Types.StackSetOperationPreferences)
+csiOperationPreferences = Lens.field @"operationPreferences"
+{-# DEPRECATED csiOperationPreferences "Use generic-lens or generic-optics with 'operationPreferences' instead." #-}
 
 -- | A list of stack set parameters whose values you want to override in the selected stack instances.
 --
@@ -229,78 +189,83 @@ csiStackSetName = Lens.lens (stackSetName :: CreateStackInstances -> Lude.Text) 
 -- You can only override the parameter /values/ that are specified in the stack set; to add or delete a parameter itself, use <https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html UpdateStackSet> to update the stack set template.
 --
 -- /Note:/ Consider using 'parameterOverrides' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csiParameterOverrides :: Lens.Lens' CreateStackInstances (Lude.Maybe [Parameter])
-csiParameterOverrides = Lens.lens (parameterOverrides :: CreateStackInstances -> Lude.Maybe [Parameter]) (\s a -> s {parameterOverrides = a} :: CreateStackInstances)
+csiParameterOverrides :: Lens.Lens' CreateStackInstances (Core.Maybe [Types.Parameter])
+csiParameterOverrides = Lens.field @"parameterOverrides"
 {-# DEPRECATED csiParameterOverrides "Use generic-lens or generic-optics with 'parameterOverrides' instead." #-}
 
-instance Lude.AWSRequest CreateStackInstances where
+instance Core.AWSRequest CreateStackInstances where
   type Rs CreateStackInstances = CreateStackInstancesResponse
-  request = Req.postQuery cloudFormationService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateStackInstances")
+                Core.<> (Core.pure ("Version", "2010-05-15"))
+                Core.<> (Core.toQueryValue "StackSetName" stackSetName)
+                Core.<> (Core.toQueryValue "Regions" (Core.toQueryList "member" regions))
+                Core.<> ( Core.toQueryValue
+                            "Accounts"
+                            (Core.toQueryList "member" Core.<$> accounts)
+                        )
+                Core.<> (Core.toQueryValue "DeploymentTargets" Core.<$> deploymentTargets)
+                Core.<> (Core.toQueryValue "OperationId" Core.<$> operationId)
+                Core.<> ( Core.toQueryValue "OperationPreferences"
+                            Core.<$> operationPreferences
+                        )
+                Core.<> ( Core.toQueryValue
+                            "ParameterOverrides"
+                            (Core.toQueryList "member" Core.<$> parameterOverrides)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateStackInstancesResult"
       ( \s h x ->
           CreateStackInstancesResponse'
-            Lude.<$> (x Lude..@? "OperationId") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "OperationId") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateStackInstances where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateStackInstances where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateStackInstances where
-  toQuery CreateStackInstances' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateStackInstances" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-15" :: Lude.ByteString),
-        "Accounts"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> accounts),
-        "Regions" Lude.=: Lude.toQueryList "member" regions,
-        "OperationPreferences" Lude.=: operationPreferences,
-        "OperationId" Lude.=: operationId,
-        "DeploymentTargets" Lude.=: deploymentTargets,
-        "StackSetName" Lude.=: stackSetName,
-        "ParameterOverrides"
-          Lude.=: Lude.toQuery
-            (Lude.toQueryList "member" Lude.<$> parameterOverrides)
-      ]
 
 -- | /See:/ 'mkCreateStackInstancesResponse' smart constructor.
 data CreateStackInstancesResponse = CreateStackInstancesResponse'
   { -- | The unique identifier for this stack set operation.
-    operationId :: Lude.Maybe Lude.Text,
+    operationId :: Core.Maybe Types.OperationId,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateStackInstancesResponse' with the minimum fields required to make a request.
---
--- * 'operationId' - The unique identifier for this stack set operation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateStackInstancesResponse' value with any optional fields omitted.
 mkCreateStackInstancesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateStackInstancesResponse
-mkCreateStackInstancesResponse pResponseStatus_ =
+mkCreateStackInstancesResponse responseStatus =
   CreateStackInstancesResponse'
-    { operationId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { operationId = Core.Nothing,
+      responseStatus
     }
 
 -- | The unique identifier for this stack set operation.
 --
 -- /Note:/ Consider using 'operationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csirsOperationId :: Lens.Lens' CreateStackInstancesResponse (Lude.Maybe Lude.Text)
-csirsOperationId = Lens.lens (operationId :: CreateStackInstancesResponse -> Lude.Maybe Lude.Text) (\s a -> s {operationId = a} :: CreateStackInstancesResponse)
-{-# DEPRECATED csirsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
+csirrsOperationId :: Lens.Lens' CreateStackInstancesResponse (Core.Maybe Types.OperationId)
+csirrsOperationId = Lens.field @"operationId"
+{-# DEPRECATED csirrsOperationId "Use generic-lens or generic-optics with 'operationId' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-csirsResponseStatus :: Lens.Lens' CreateStackInstancesResponse Lude.Int
-csirsResponseStatus = Lens.lens (responseStatus :: CreateStackInstancesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateStackInstancesResponse)
-{-# DEPRECATED csirsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+csirrsResponseStatus :: Lens.Lens' CreateStackInstancesResponse Core.Int
+csirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED csirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,46 +22,44 @@ module Network.AWS.CodeBuild.DescribeCodeCoverages
     mkDescribeCodeCoverages,
 
     -- ** Request lenses
-    dccMinLineCoveragePercentage,
-    dccSortOrder,
+    dccReportArn,
     dccMaxLineCoveragePercentage,
-    dccNextToken,
-    dccReportARN,
     dccMaxResults,
+    dccMinLineCoveragePercentage,
+    dccNextToken,
     dccSortBy,
+    dccSortOrder,
 
     -- * Destructuring the response
     DescribeCodeCoveragesResponse (..),
     mkDescribeCodeCoveragesResponse,
 
     -- ** Response lenses
-    dccrsCodeCoverages,
-    dccrsNextToken,
-    dccrsResponseStatus,
+    dccrrsCodeCoverages,
+    dccrrsNextToken,
+    dccrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeBuild.Types
+import qualified Network.AWS.CodeBuild.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeCodeCoverages' smart constructor.
 data DescribeCodeCoverages = DescribeCodeCoverages'
-  { -- | The minimum line coverage percentage to report.
-    minLineCoveragePercentage :: Lude.Maybe Lude.Double,
-    -- | Specifies if the results are sorted in ascending or descending order.
-    sortOrder :: Lude.Maybe SortOrderType,
+  { -- | The ARN of the report for which test cases are returned.
+    reportArn :: Types.ReportArn,
     -- | The maximum line coverage percentage to report.
-    maxLineCoveragePercentage :: Lude.Maybe Lude.Double,
-    -- | The @nextToken@ value returned from a previous call to @DescribeCodeCoverages@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The ARN of the report for which test cases are returned.
-    reportARN :: Lude.Text,
+    maxLineCoveragePercentage :: Core.Maybe Core.Double,
     -- | The maximum number of results to return.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The minimum line coverage percentage to report.
+    minLineCoveragePercentage :: Core.Maybe Core.Double,
+    -- | The @nextToken@ value returned from a previous call to @DescribeCodeCoverages@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
+    nextToken :: Core.Maybe Types.String,
     -- | Specifies how the results are sorted. Possible values are:
     --
     --
@@ -73,86 +71,63 @@ data DescribeCodeCoverages = DescribeCodeCoverages'
     --     * LINE_COVERAGE_PERCENTAGE
     --
     --     * The results are sorted by the percentage of lines that are covered.
-    sortBy :: Lude.Maybe ReportCodeCoverageSortByType
+    sortBy :: Core.Maybe Types.ReportCodeCoverageSortByType,
+    -- | Specifies if the results are sorted in ascending or descending order.
+    sortOrder :: Core.Maybe Types.SortOrderType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeCodeCoverages' with the minimum fields required to make a request.
---
--- * 'minLineCoveragePercentage' - The minimum line coverage percentage to report.
--- * 'sortOrder' - Specifies if the results are sorted in ascending or descending order.
--- * 'maxLineCoveragePercentage' - The maximum line coverage percentage to report.
--- * 'nextToken' - The @nextToken@ value returned from a previous call to @DescribeCodeCoverages@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
--- * 'reportARN' - The ARN of the report for which test cases are returned.
--- * 'maxResults' - The maximum number of results to return.
--- * 'sortBy' - Specifies how the results are sorted. Possible values are:
---
---
---     * FILE_PATH
---
---     * The results are sorted by file path.
---
---
---     * LINE_COVERAGE_PERCENTAGE
---
---     * The results are sorted by the percentage of lines that are covered.
+-- | Creates a 'DescribeCodeCoverages' value with any optional fields omitted.
 mkDescribeCodeCoverages ::
-  -- | 'reportARN'
-  Lude.Text ->
+  -- | 'reportArn'
+  Types.ReportArn ->
   DescribeCodeCoverages
-mkDescribeCodeCoverages pReportARN_ =
+mkDescribeCodeCoverages reportArn =
   DescribeCodeCoverages'
-    { minLineCoveragePercentage = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      maxLineCoveragePercentage = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      reportARN = pReportARN_,
-      maxResults = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { reportArn,
+      maxLineCoveragePercentage = Core.Nothing,
+      maxResults = Core.Nothing,
+      minLineCoveragePercentage = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing
     }
 
--- | The minimum line coverage percentage to report.
+-- | The ARN of the report for which test cases are returned.
 --
--- /Note:/ Consider using 'minLineCoveragePercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccMinLineCoveragePercentage :: Lens.Lens' DescribeCodeCoverages (Lude.Maybe Lude.Double)
-dccMinLineCoveragePercentage = Lens.lens (minLineCoveragePercentage :: DescribeCodeCoverages -> Lude.Maybe Lude.Double) (\s a -> s {minLineCoveragePercentage = a} :: DescribeCodeCoverages)
-{-# DEPRECATED dccMinLineCoveragePercentage "Use generic-lens or generic-optics with 'minLineCoveragePercentage' instead." #-}
-
--- | Specifies if the results are sorted in ascending or descending order.
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccSortOrder :: Lens.Lens' DescribeCodeCoverages (Lude.Maybe SortOrderType)
-dccSortOrder = Lens.lens (sortOrder :: DescribeCodeCoverages -> Lude.Maybe SortOrderType) (\s a -> s {sortOrder = a} :: DescribeCodeCoverages)
-{-# DEPRECATED dccSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
+-- /Note:/ Consider using 'reportArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccReportArn :: Lens.Lens' DescribeCodeCoverages Types.ReportArn
+dccReportArn = Lens.field @"reportArn"
+{-# DEPRECATED dccReportArn "Use generic-lens or generic-optics with 'reportArn' instead." #-}
 
 -- | The maximum line coverage percentage to report.
 --
 -- /Note:/ Consider using 'maxLineCoveragePercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccMaxLineCoveragePercentage :: Lens.Lens' DescribeCodeCoverages (Lude.Maybe Lude.Double)
-dccMaxLineCoveragePercentage = Lens.lens (maxLineCoveragePercentage :: DescribeCodeCoverages -> Lude.Maybe Lude.Double) (\s a -> s {maxLineCoveragePercentage = a} :: DescribeCodeCoverages)
+dccMaxLineCoveragePercentage :: Lens.Lens' DescribeCodeCoverages (Core.Maybe Core.Double)
+dccMaxLineCoveragePercentage = Lens.field @"maxLineCoveragePercentage"
 {-# DEPRECATED dccMaxLineCoveragePercentage "Use generic-lens or generic-optics with 'maxLineCoveragePercentage' instead." #-}
-
--- | The @nextToken@ value returned from a previous call to @DescribeCodeCoverages@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccNextToken :: Lens.Lens' DescribeCodeCoverages (Lude.Maybe Lude.Text)
-dccNextToken = Lens.lens (nextToken :: DescribeCodeCoverages -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeCodeCoverages)
-{-# DEPRECATED dccNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The ARN of the report for which test cases are returned.
---
--- /Note:/ Consider using 'reportARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccReportARN :: Lens.Lens' DescribeCodeCoverages Lude.Text
-dccReportARN = Lens.lens (reportARN :: DescribeCodeCoverages -> Lude.Text) (\s a -> s {reportARN = a} :: DescribeCodeCoverages)
-{-# DEPRECATED dccReportARN "Use generic-lens or generic-optics with 'reportARN' instead." #-}
 
 -- | The maximum number of results to return.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccMaxResults :: Lens.Lens' DescribeCodeCoverages (Lude.Maybe Lude.Natural)
-dccMaxResults = Lens.lens (maxResults :: DescribeCodeCoverages -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeCodeCoverages)
+dccMaxResults :: Lens.Lens' DescribeCodeCoverages (Core.Maybe Core.Natural)
+dccMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dccMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | The minimum line coverage percentage to report.
+--
+-- /Note:/ Consider using 'minLineCoveragePercentage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccMinLineCoveragePercentage :: Lens.Lens' DescribeCodeCoverages (Core.Maybe Core.Double)
+dccMinLineCoveragePercentage = Lens.field @"minLineCoveragePercentage"
+{-# DEPRECATED dccMinLineCoveragePercentage "Use generic-lens or generic-optics with 'minLineCoveragePercentage' instead." #-}
+
+-- | The @nextToken@ value returned from a previous call to @DescribeCodeCoverages@ . This specifies the next item to return. To return the beginning of the list, exclude this parameter.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccNextToken :: Lens.Lens' DescribeCodeCoverages (Core.Maybe Types.String)
+dccNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dccNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Specifies how the results are sorted. Possible values are:
 --
@@ -169,109 +144,109 @@ dccMaxResults = Lens.lens (maxResults :: DescribeCodeCoverages -> Lude.Maybe Lud
 --
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccSortBy :: Lens.Lens' DescribeCodeCoverages (Lude.Maybe ReportCodeCoverageSortByType)
-dccSortBy = Lens.lens (sortBy :: DescribeCodeCoverages -> Lude.Maybe ReportCodeCoverageSortByType) (\s a -> s {sortBy = a} :: DescribeCodeCoverages)
+dccSortBy :: Lens.Lens' DescribeCodeCoverages (Core.Maybe Types.ReportCodeCoverageSortByType)
+dccSortBy = Lens.field @"sortBy"
 {-# DEPRECATED dccSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager DescribeCodeCoverages where
-  page rq rs
-    | Page.stop (rs Lens.^. dccrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dccrsCodeCoverages) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dccNextToken Lens..~ rs Lens.^. dccrsNextToken
+-- | Specifies if the results are sorted in ascending or descending order.
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dccSortOrder :: Lens.Lens' DescribeCodeCoverages (Core.Maybe Types.SortOrderType)
+dccSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED dccSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest DescribeCodeCoverages where
+instance Core.FromJSON DescribeCodeCoverages where
+  toJSON DescribeCodeCoverages {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("reportArn" Core..= reportArn),
+            ("maxLineCoveragePercentage" Core..=)
+              Core.<$> maxLineCoveragePercentage,
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("minLineCoveragePercentage" Core..=)
+              Core.<$> minLineCoveragePercentage,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("sortBy" Core..=) Core.<$> sortBy,
+            ("sortOrder" Core..=) Core.<$> sortOrder
+          ]
+      )
+
+instance Core.AWSRequest DescribeCodeCoverages where
   type Rs DescribeCodeCoverages = DescribeCodeCoveragesResponse
-  request = Req.postJSON codeBuildService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeBuild_20161006.DescribeCodeCoverages")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeCodeCoveragesResponse'
-            Lude.<$> (x Lude..?> "codeCoverages" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "codeCoverages")
+            Core.<*> (x Core..:? "nextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeCodeCoverages where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeBuild_20161006.DescribeCodeCoverages" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeCodeCoverages where
-  toJSON DescribeCodeCoverages' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("minLineCoveragePercentage" Lude..=)
-              Lude.<$> minLineCoveragePercentage,
-            ("sortOrder" Lude..=) Lude.<$> sortOrder,
-            ("maxLineCoveragePercentage" Lude..=)
-              Lude.<$> maxLineCoveragePercentage,
-            ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("reportArn" Lude..= reportARN),
-            ("maxResults" Lude..=) Lude.<$> maxResults,
-            ("sortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath DescribeCodeCoverages where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeCodeCoverages where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeCodeCoverages where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"codeCoverages" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeCodeCoveragesResponse' smart constructor.
 data DescribeCodeCoveragesResponse = DescribeCodeCoveragesResponse'
   { -- | An array of @CodeCoverage@ objects that contain the results.
-    codeCoverages :: Lude.Maybe [CodeCoverage],
+    codeCoverages :: Core.Maybe [Types.CodeCoverage],
     -- | If there are more items to return, this contains a token that is passed to a subsequent call to @DescribeCodeCoverages@ to retrieve the next set of items.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.String,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeCodeCoveragesResponse' with the minimum fields required to make a request.
---
--- * 'codeCoverages' - An array of @CodeCoverage@ objects that contain the results.
--- * 'nextToken' - If there are more items to return, this contains a token that is passed to a subsequent call to @DescribeCodeCoverages@ to retrieve the next set of items.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeCodeCoveragesResponse' value with any optional fields omitted.
 mkDescribeCodeCoveragesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeCodeCoveragesResponse
-mkDescribeCodeCoveragesResponse pResponseStatus_ =
+mkDescribeCodeCoveragesResponse responseStatus =
   DescribeCodeCoveragesResponse'
-    { codeCoverages = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { codeCoverages = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | An array of @CodeCoverage@ objects that contain the results.
 --
 -- /Note:/ Consider using 'codeCoverages' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsCodeCoverages :: Lens.Lens' DescribeCodeCoveragesResponse (Lude.Maybe [CodeCoverage])
-dccrsCodeCoverages = Lens.lens (codeCoverages :: DescribeCodeCoveragesResponse -> Lude.Maybe [CodeCoverage]) (\s a -> s {codeCoverages = a} :: DescribeCodeCoveragesResponse)
-{-# DEPRECATED dccrsCodeCoverages "Use generic-lens or generic-optics with 'codeCoverages' instead." #-}
+dccrrsCodeCoverages :: Lens.Lens' DescribeCodeCoveragesResponse (Core.Maybe [Types.CodeCoverage])
+dccrrsCodeCoverages = Lens.field @"codeCoverages"
+{-# DEPRECATED dccrrsCodeCoverages "Use generic-lens or generic-optics with 'codeCoverages' instead." #-}
 
 -- | If there are more items to return, this contains a token that is passed to a subsequent call to @DescribeCodeCoverages@ to retrieve the next set of items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsNextToken :: Lens.Lens' DescribeCodeCoveragesResponse (Lude.Maybe Lude.Text)
-dccrsNextToken = Lens.lens (nextToken :: DescribeCodeCoveragesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeCodeCoveragesResponse)
-{-# DEPRECATED dccrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dccrrsNextToken :: Lens.Lens' DescribeCodeCoveragesResponse (Core.Maybe Types.String)
+dccrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dccrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsResponseStatus :: Lens.Lens' DescribeCodeCoveragesResponse Lude.Int
-dccrsResponseStatus = Lens.lens (responseStatus :: DescribeCodeCoveragesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeCodeCoveragesResponse)
-{-# DEPRECATED dccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dccrrsResponseStatus :: Lens.Lens' DescribeCodeCoveragesResponse Core.Int
+dccrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

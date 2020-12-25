@@ -21,34 +21,32 @@ module Network.AWS.Lambda.Types.TracingConfig
   )
 where
 
-import Network.AWS.Lambda.Types.TracingMode
+import qualified Network.AWS.Lambda.Types.TracingMode as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set @Mode@ to @Active@ .
 --
 -- /See:/ 'mkTracingConfig' smart constructor.
 newtype TracingConfig = TracingConfig'
   { -- | The tracing mode.
-    mode :: Lude.Maybe TracingMode
+    mode :: Core.Maybe Types.TracingMode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TracingConfig' with the minimum fields required to make a request.
---
--- * 'mode' - The tracing mode.
+-- | Creates a 'TracingConfig' value with any optional fields omitted.
 mkTracingConfig ::
   TracingConfig
-mkTracingConfig = TracingConfig' {mode = Lude.Nothing}
+mkTracingConfig = TracingConfig' {mode = Core.Nothing}
 
 -- | The tracing mode.
 --
 -- /Note:/ Consider using 'mode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tcMode :: Lens.Lens' TracingConfig (Lude.Maybe TracingMode)
-tcMode = Lens.lens (mode :: TracingConfig -> Lude.Maybe TracingMode) (\s a -> s {mode = a} :: TracingConfig)
+tcMode :: Lens.Lens' TracingConfig (Core.Maybe Types.TracingMode)
+tcMode = Lens.field @"mode"
 {-# DEPRECATED tcMode "Use generic-lens or generic-optics with 'mode' instead." #-}
 
-instance Lude.ToJSON TracingConfig where
-  toJSON TracingConfig' {..} =
-    Lude.object (Lude.catMaybes [("Mode" Lude..=) Lude.<$> mode])
+instance Core.FromJSON TracingConfig where
+  toJSON TracingConfig {..} =
+    Core.object (Core.catMaybes [("Mode" Core..=) Core.<$> mode])

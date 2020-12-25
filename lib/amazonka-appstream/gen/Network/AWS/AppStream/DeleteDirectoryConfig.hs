@@ -27,98 +27,86 @@ module Network.AWS.AppStream.DeleteDirectoryConfig
     mkDeleteDirectoryConfigResponse,
 
     -- ** Response lenses
-    ddcfrsResponseStatus,
+    ddcrfrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDirectoryConfig' smart constructor.
 newtype DeleteDirectoryConfig = DeleteDirectoryConfig'
   { -- | The name of the directory configuration.
-    directoryName :: Lude.Text
+    directoryName :: Types.DirectoryName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDirectoryConfig' with the minimum fields required to make a request.
---
--- * 'directoryName' - The name of the directory configuration.
+-- | Creates a 'DeleteDirectoryConfig' value with any optional fields omitted.
 mkDeleteDirectoryConfig ::
   -- | 'directoryName'
-  Lude.Text ->
+  Types.DirectoryName ->
   DeleteDirectoryConfig
-mkDeleteDirectoryConfig pDirectoryName_ =
-  DeleteDirectoryConfig' {directoryName = pDirectoryName_}
+mkDeleteDirectoryConfig directoryName =
+  DeleteDirectoryConfig' {directoryName}
 
 -- | The name of the directory configuration.
 --
 -- /Note:/ Consider using 'directoryName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcDirectoryName :: Lens.Lens' DeleteDirectoryConfig Lude.Text
-ddcDirectoryName = Lens.lens (directoryName :: DeleteDirectoryConfig -> Lude.Text) (\s a -> s {directoryName = a} :: DeleteDirectoryConfig)
+ddcDirectoryName :: Lens.Lens' DeleteDirectoryConfig Types.DirectoryName
+ddcDirectoryName = Lens.field @"directoryName"
 {-# DEPRECATED ddcDirectoryName "Use generic-lens or generic-optics with 'directoryName' instead." #-}
 
-instance Lude.AWSRequest DeleteDirectoryConfig where
+instance Core.FromJSON DeleteDirectoryConfig where
+  toJSON DeleteDirectoryConfig {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("DirectoryName" Core..= directoryName)]
+      )
+
+instance Core.AWSRequest DeleteDirectoryConfig where
   type Rs DeleteDirectoryConfig = DeleteDirectoryConfigResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "PhotonAdminProxyService.DeleteDirectoryConfig")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           DeleteDirectoryConfigResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDirectoryConfig where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "PhotonAdminProxyService.DeleteDirectoryConfig" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteDirectoryConfig where
-  toJSON DeleteDirectoryConfig' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("DirectoryName" Lude..= directoryName)]
-      )
-
-instance Lude.ToPath DeleteDirectoryConfig where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDirectoryConfig where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteDirectoryConfigResponse' smart constructor.
 newtype DeleteDirectoryConfigResponse = DeleteDirectoryConfigResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDirectoryConfigResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDirectoryConfigResponse' value with any optional fields omitted.
 mkDeleteDirectoryConfigResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDirectoryConfigResponse
-mkDeleteDirectoryConfigResponse pResponseStatus_ =
-  DeleteDirectoryConfigResponse' {responseStatus = pResponseStatus_}
+mkDeleteDirectoryConfigResponse responseStatus =
+  DeleteDirectoryConfigResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddcfrsResponseStatus :: Lens.Lens' DeleteDirectoryConfigResponse Lude.Int
-ddcfrsResponseStatus = Lens.lens (responseStatus :: DeleteDirectoryConfigResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDirectoryConfigResponse)
-{-# DEPRECATED ddcfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddcrfrsResponseStatus :: Lens.Lens' DeleteDirectoryConfigResponse Core.Int
+ddcrfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddcrfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

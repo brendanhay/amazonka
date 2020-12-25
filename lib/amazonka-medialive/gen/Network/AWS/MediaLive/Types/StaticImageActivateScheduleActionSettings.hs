@@ -17,182 +17,169 @@ module Network.AWS.MediaLive.Types.StaticImageActivateScheduleActionSettings
     mkStaticImageActivateScheduleActionSettings,
 
     -- * Lenses
-    siasasImageX,
-    siasasHeight,
     siasasImage,
-    siasasFadeOut,
-    siasasWidth,
-    siasasOpacity,
-    siasasLayer,
     siasasDuration,
-    siasasImageY,
     siasasFadeIn,
+    siasasFadeOut,
+    siasasHeight,
+    siasasImageX,
+    siasasImageY,
+    siasasLayer,
+    siasasOpacity,
+    siasasWidth,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.InputLocation
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.InputLocation as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for the action to activate a static image.
 --
 -- /See:/ 'mkStaticImageActivateScheduleActionSettings' smart constructor.
 data StaticImageActivateScheduleActionSettings = StaticImageActivateScheduleActionSettings'
-  { -- | Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
-    imageX :: Lude.Maybe Lude.Natural,
-    -- | The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
-    height :: Lude.Maybe Lude.Natural,
-    -- | The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
-    image :: InputLocation,
-    -- | Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
-    fadeOut :: Lude.Maybe Lude.Natural,
-    -- | The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
-    width :: Lude.Maybe Lude.Natural,
-    -- | Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
-    opacity :: Lude.Maybe Lude.Natural,
-    -- | The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
-    layer :: Lude.Maybe Lude.Natural,
+  { -- | The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
+    image :: Types.InputLocation,
     -- | The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
-    duration :: Lude.Maybe Lude.Natural,
-    -- | Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
-    imageY :: Lude.Maybe Lude.Natural,
+    duration :: Core.Maybe Core.Natural,
     -- | The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
-    fadeIn :: Lude.Maybe Lude.Natural
+    fadeIn :: Core.Maybe Core.Natural,
+    -- | Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
+    fadeOut :: Core.Maybe Core.Natural,
+    -- | The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
+    height :: Core.Maybe Core.Natural,
+    -- | Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
+    imageX :: Core.Maybe Core.Natural,
+    -- | Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
+    imageY :: Core.Maybe Core.Natural,
+    -- | The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
+    layer :: Core.Maybe Core.Natural,
+    -- | Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
+    opacity :: Core.Maybe Core.Natural,
+    -- | The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
+    width :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StaticImageActivateScheduleActionSettings' with the minimum fields required to make a request.
---
--- * 'imageX' - Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
--- * 'height' - The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
--- * 'image' - The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
--- * 'fadeOut' - Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
--- * 'width' - The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
--- * 'opacity' - Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
--- * 'layer' - The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
--- * 'duration' - The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
--- * 'imageY' - Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
--- * 'fadeIn' - The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
+-- | Creates a 'StaticImageActivateScheduleActionSettings' value with any optional fields omitted.
 mkStaticImageActivateScheduleActionSettings ::
   -- | 'image'
-  InputLocation ->
+  Types.InputLocation ->
   StaticImageActivateScheduleActionSettings
-mkStaticImageActivateScheduleActionSettings pImage_ =
+mkStaticImageActivateScheduleActionSettings image =
   StaticImageActivateScheduleActionSettings'
-    { imageX = Lude.Nothing,
-      height = Lude.Nothing,
-      image = pImage_,
-      fadeOut = Lude.Nothing,
-      width = Lude.Nothing,
-      opacity = Lude.Nothing,
-      layer = Lude.Nothing,
-      duration = Lude.Nothing,
-      imageY = Lude.Nothing,
-      fadeIn = Lude.Nothing
+    { image,
+      duration = Core.Nothing,
+      fadeIn = Core.Nothing,
+      fadeOut = Core.Nothing,
+      height = Core.Nothing,
+      imageX = Core.Nothing,
+      imageY = Core.Nothing,
+      layer = Core.Nothing,
+      opacity = Core.Nothing,
+      width = Core.Nothing
     }
-
--- | Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
---
--- /Note:/ Consider using 'imageX' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siasasImageX :: Lens.Lens' StaticImageActivateScheduleActionSettings (Lude.Maybe Lude.Natural)
-siasasImageX = Lens.lens (imageX :: StaticImageActivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {imageX = a} :: StaticImageActivateScheduleActionSettings)
-{-# DEPRECATED siasasImageX "Use generic-lens or generic-optics with 'imageX' instead." #-}
-
--- | The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
---
--- /Note:/ Consider using 'height' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siasasHeight :: Lens.Lens' StaticImageActivateScheduleActionSettings (Lude.Maybe Lude.Natural)
-siasasHeight = Lens.lens (height :: StaticImageActivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {height = a} :: StaticImageActivateScheduleActionSettings)
-{-# DEPRECATED siasasHeight "Use generic-lens or generic-optics with 'height' instead." #-}
 
 -- | The location and filename of the image file to overlay on the video. The file must be a 32-bit BMP, PNG, or TGA file, and must not be larger (in pixels) than the input video.
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siasasImage :: Lens.Lens' StaticImageActivateScheduleActionSettings InputLocation
-siasasImage = Lens.lens (image :: StaticImageActivateScheduleActionSettings -> InputLocation) (\s a -> s {image = a} :: StaticImageActivateScheduleActionSettings)
+siasasImage :: Lens.Lens' StaticImageActivateScheduleActionSettings Types.InputLocation
+siasasImage = Lens.field @"image"
 {-# DEPRECATED siasasImage "Use generic-lens or generic-optics with 'image' instead." #-}
-
--- | Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
---
--- /Note:/ Consider using 'fadeOut' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siasasFadeOut :: Lens.Lens' StaticImageActivateScheduleActionSettings (Lude.Maybe Lude.Natural)
-siasasFadeOut = Lens.lens (fadeOut :: StaticImageActivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {fadeOut = a} :: StaticImageActivateScheduleActionSettings)
-{-# DEPRECATED siasasFadeOut "Use generic-lens or generic-optics with 'fadeOut' instead." #-}
-
--- | The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
---
--- /Note:/ Consider using 'width' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siasasWidth :: Lens.Lens' StaticImageActivateScheduleActionSettings (Lude.Maybe Lude.Natural)
-siasasWidth = Lens.lens (width :: StaticImageActivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {width = a} :: StaticImageActivateScheduleActionSettings)
-{-# DEPRECATED siasasWidth "Use generic-lens or generic-optics with 'width' instead." #-}
-
--- | Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
---
--- /Note:/ Consider using 'opacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siasasOpacity :: Lens.Lens' StaticImageActivateScheduleActionSettings (Lude.Maybe Lude.Natural)
-siasasOpacity = Lens.lens (opacity :: StaticImageActivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {opacity = a} :: StaticImageActivateScheduleActionSettings)
-{-# DEPRECATED siasasOpacity "Use generic-lens or generic-optics with 'opacity' instead." #-}
-
--- | The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
---
--- /Note:/ Consider using 'layer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siasasLayer :: Lens.Lens' StaticImageActivateScheduleActionSettings (Lude.Maybe Lude.Natural)
-siasasLayer = Lens.lens (layer :: StaticImageActivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {layer = a} :: StaticImageActivateScheduleActionSettings)
-{-# DEPRECATED siasasLayer "Use generic-lens or generic-optics with 'layer' instead." #-}
 
 -- | The duration in milliseconds for the image to remain on the video. If omitted or set to 0 the duration is unlimited and the image will remain until it is explicitly deactivated.
 --
 -- /Note:/ Consider using 'duration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siasasDuration :: Lens.Lens' StaticImageActivateScheduleActionSettings (Lude.Maybe Lude.Natural)
-siasasDuration = Lens.lens (duration :: StaticImageActivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {duration = a} :: StaticImageActivateScheduleActionSettings)
+siasasDuration :: Lens.Lens' StaticImageActivateScheduleActionSettings (Core.Maybe Core.Natural)
+siasasDuration = Lens.field @"duration"
 {-# DEPRECATED siasasDuration "Use generic-lens or generic-optics with 'duration' instead." #-}
-
--- | Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
---
--- /Note:/ Consider using 'imageY' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siasasImageY :: Lens.Lens' StaticImageActivateScheduleActionSettings (Lude.Maybe Lude.Natural)
-siasasImageY = Lens.lens (imageY :: StaticImageActivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {imageY = a} :: StaticImageActivateScheduleActionSettings)
-{-# DEPRECATED siasasImageY "Use generic-lens or generic-optics with 'imageY' instead." #-}
 
 -- | The time in milliseconds for the image to fade in. The fade-in starts at the start time of the overlay. Default is 0 (no fade-in).
 --
 -- /Note:/ Consider using 'fadeIn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-siasasFadeIn :: Lens.Lens' StaticImageActivateScheduleActionSettings (Lude.Maybe Lude.Natural)
-siasasFadeIn = Lens.lens (fadeIn :: StaticImageActivateScheduleActionSettings -> Lude.Maybe Lude.Natural) (\s a -> s {fadeIn = a} :: StaticImageActivateScheduleActionSettings)
+siasasFadeIn :: Lens.Lens' StaticImageActivateScheduleActionSettings (Core.Maybe Core.Natural)
+siasasFadeIn = Lens.field @"fadeIn"
 {-# DEPRECATED siasasFadeIn "Use generic-lens or generic-optics with 'fadeIn' instead." #-}
 
-instance Lude.FromJSON StaticImageActivateScheduleActionSettings where
-  parseJSON =
-    Lude.withObject
-      "StaticImageActivateScheduleActionSettings"
-      ( \x ->
-          StaticImageActivateScheduleActionSettings'
-            Lude.<$> (x Lude..:? "imageX")
-            Lude.<*> (x Lude..:? "height")
-            Lude.<*> (x Lude..: "image")
-            Lude.<*> (x Lude..:? "fadeOut")
-            Lude.<*> (x Lude..:? "width")
-            Lude.<*> (x Lude..:? "opacity")
-            Lude.<*> (x Lude..:? "layer")
-            Lude.<*> (x Lude..:? "duration")
-            Lude.<*> (x Lude..:? "imageY")
-            Lude.<*> (x Lude..:? "fadeIn")
-      )
+-- | Applies only if a duration is specified. The time in milliseconds for the image to fade out. The fade-out starts when the duration time is hit, so it effectively extends the duration. Default is 0 (no fade-out).
+--
+-- /Note:/ Consider using 'fadeOut' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siasasFadeOut :: Lens.Lens' StaticImageActivateScheduleActionSettings (Core.Maybe Core.Natural)
+siasasFadeOut = Lens.field @"fadeOut"
+{-# DEPRECATED siasasFadeOut "Use generic-lens or generic-optics with 'fadeOut' instead." #-}
 
-instance Lude.ToJSON StaticImageActivateScheduleActionSettings where
-  toJSON StaticImageActivateScheduleActionSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("imageX" Lude..=) Lude.<$> imageX,
-            ("height" Lude..=) Lude.<$> height,
-            Lude.Just ("image" Lude..= image),
-            ("fadeOut" Lude..=) Lude.<$> fadeOut,
-            ("width" Lude..=) Lude.<$> width,
-            ("opacity" Lude..=) Lude.<$> opacity,
-            ("layer" Lude..=) Lude.<$> layer,
-            ("duration" Lude..=) Lude.<$> duration,
-            ("imageY" Lude..=) Lude.<$> imageY,
-            ("fadeIn" Lude..=) Lude.<$> fadeIn
+-- | The height of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified height. Leave blank to use the native height of the overlay.
+--
+-- /Note:/ Consider using 'height' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siasasHeight :: Lens.Lens' StaticImageActivateScheduleActionSettings (Core.Maybe Core.Natural)
+siasasHeight = Lens.field @"height"
+{-# DEPRECATED siasasHeight "Use generic-lens or generic-optics with 'height' instead." #-}
+
+-- | Placement of the left edge of the overlay relative to the left edge of the video frame, in pixels. 0 (the default) is the left edge of the frame. If the placement causes the overlay to extend beyond the right edge of the underlying video, then the overlay is cropped on the right.
+--
+-- /Note:/ Consider using 'imageX' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siasasImageX :: Lens.Lens' StaticImageActivateScheduleActionSettings (Core.Maybe Core.Natural)
+siasasImageX = Lens.field @"imageX"
+{-# DEPRECATED siasasImageX "Use generic-lens or generic-optics with 'imageX' instead." #-}
+
+-- | Placement of the top edge of the overlay relative to the top edge of the video frame, in pixels. 0 (the default) is the top edge of the frame. If the placement causes the overlay to extend beyond the bottom edge of the underlying video, then the overlay is cropped on the bottom.
+--
+-- /Note:/ Consider using 'imageY' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siasasImageY :: Lens.Lens' StaticImageActivateScheduleActionSettings (Core.Maybe Core.Natural)
+siasasImageY = Lens.field @"imageY"
+{-# DEPRECATED siasasImageY "Use generic-lens or generic-optics with 'imageY' instead." #-}
+
+-- | The number of the layer, 0 to 7. There are 8 layers that can be overlaid on the video, each layer with a different image. The layers are in Z order, which means that overlays with higher values of layer are inserted on top of overlays with lower values of layer. Default is 0.
+--
+-- /Note:/ Consider using 'layer' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siasasLayer :: Lens.Lens' StaticImageActivateScheduleActionSettings (Core.Maybe Core.Natural)
+siasasLayer = Lens.field @"layer"
+{-# DEPRECATED siasasLayer "Use generic-lens or generic-optics with 'layer' instead." #-}
+
+-- | Opacity of image where 0 is transparent and 100 is fully opaque. Default is 100.
+--
+-- /Note:/ Consider using 'opacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siasasOpacity :: Lens.Lens' StaticImageActivateScheduleActionSettings (Core.Maybe Core.Natural)
+siasasOpacity = Lens.field @"opacity"
+{-# DEPRECATED siasasOpacity "Use generic-lens or generic-optics with 'opacity' instead." #-}
+
+-- | The width of the image when inserted into the video, in pixels. The overlay will be scaled up or down to the specified width. Leave blank to use the native width of the overlay.
+--
+-- /Note:/ Consider using 'width' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+siasasWidth :: Lens.Lens' StaticImageActivateScheduleActionSettings (Core.Maybe Core.Natural)
+siasasWidth = Lens.field @"width"
+{-# DEPRECATED siasasWidth "Use generic-lens or generic-optics with 'width' instead." #-}
+
+instance Core.FromJSON StaticImageActivateScheduleActionSettings where
+  toJSON StaticImageActivateScheduleActionSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("image" Core..= image),
+            ("duration" Core..=) Core.<$> duration,
+            ("fadeIn" Core..=) Core.<$> fadeIn,
+            ("fadeOut" Core..=) Core.<$> fadeOut,
+            ("height" Core..=) Core.<$> height,
+            ("imageX" Core..=) Core.<$> imageX,
+            ("imageY" Core..=) Core.<$> imageY,
+            ("layer" Core..=) Core.<$> layer,
+            ("opacity" Core..=) Core.<$> opacity,
+            ("width" Core..=) Core.<$> width
           ]
       )
+
+instance Core.FromJSON StaticImageActivateScheduleActionSettings where
+  parseJSON =
+    Core.withObject "StaticImageActivateScheduleActionSettings" Core.$
+      \x ->
+        StaticImageActivateScheduleActionSettings'
+          Core.<$> (x Core..: "image")
+          Core.<*> (x Core..:? "duration")
+          Core.<*> (x Core..:? "fadeIn")
+          Core.<*> (x Core..:? "fadeOut")
+          Core.<*> (x Core..:? "height")
+          Core.<*> (x Core..:? "imageX")
+          Core.<*> (x Core..:? "imageY")
+          Core.<*> (x Core..:? "layer")
+          Core.<*> (x Core..:? "opacity")
+          Core.<*> (x Core..:? "width")

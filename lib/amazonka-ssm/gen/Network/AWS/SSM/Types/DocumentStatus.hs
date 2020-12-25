@@ -13,62 +13,67 @@
 module Network.AWS.SSM.Types.DocumentStatus
   ( DocumentStatus
       ( DocumentStatus',
-        DSCreating,
-        DSActive,
-        DSUpdating,
-        DSDeleting,
-        DSFailed
+        DocumentStatusCreating,
+        DocumentStatusActive,
+        DocumentStatusUpdating,
+        DocumentStatusDeleting,
+        DocumentStatusFailed,
+        fromDocumentStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of a document.
-newtype DocumentStatus = DocumentStatus' Lude.Text
+newtype DocumentStatus = DocumentStatus'
+  { fromDocumentStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DSCreating :: DocumentStatus
-pattern DSCreating = DocumentStatus' "Creating"
+pattern DocumentStatusCreating :: DocumentStatus
+pattern DocumentStatusCreating = DocumentStatus' "Creating"
 
-pattern DSActive :: DocumentStatus
-pattern DSActive = DocumentStatus' "Active"
+pattern DocumentStatusActive :: DocumentStatus
+pattern DocumentStatusActive = DocumentStatus' "Active"
 
-pattern DSUpdating :: DocumentStatus
-pattern DSUpdating = DocumentStatus' "Updating"
+pattern DocumentStatusUpdating :: DocumentStatus
+pattern DocumentStatusUpdating = DocumentStatus' "Updating"
 
-pattern DSDeleting :: DocumentStatus
-pattern DSDeleting = DocumentStatus' "Deleting"
+pattern DocumentStatusDeleting :: DocumentStatus
+pattern DocumentStatusDeleting = DocumentStatus' "Deleting"
 
-pattern DSFailed :: DocumentStatus
-pattern DSFailed = DocumentStatus' "Failed"
+pattern DocumentStatusFailed :: DocumentStatus
+pattern DocumentStatusFailed = DocumentStatus' "Failed"
 
 {-# COMPLETE
-  DSCreating,
-  DSActive,
-  DSUpdating,
-  DSDeleting,
-  DSFailed,
+  DocumentStatusCreating,
+  DocumentStatusActive,
+  DocumentStatusUpdating,
+  DocumentStatusDeleting,
+  DocumentStatusFailed,
   DocumentStatus'
   #-}

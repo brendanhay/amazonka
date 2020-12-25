@@ -13,66 +13,71 @@
 module Network.AWS.KinesisVideoMedia.Types.StartSelectorType
   ( StartSelectorType
       ( StartSelectorType',
-        FragmentNumber,
-        ServerTimestamp,
-        ProducerTimestamp,
-        Now,
-        Earliest,
-        ContinuationToken
+        StartSelectorTypeFragmentNumber,
+        StartSelectorTypeServerTimestamp,
+        StartSelectorTypeProducerTimestamp,
+        StartSelectorTypeNow,
+        StartSelectorTypeEarliest,
+        StartSelectorTypeContinuationToken,
+        fromStartSelectorType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype StartSelectorType = StartSelectorType' Lude.Text
+newtype StartSelectorType = StartSelectorType'
+  { fromStartSelectorType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FragmentNumber :: StartSelectorType
-pattern FragmentNumber = StartSelectorType' "FRAGMENT_NUMBER"
+pattern StartSelectorTypeFragmentNumber :: StartSelectorType
+pattern StartSelectorTypeFragmentNumber = StartSelectorType' "FRAGMENT_NUMBER"
 
-pattern ServerTimestamp :: StartSelectorType
-pattern ServerTimestamp = StartSelectorType' "SERVER_TIMESTAMP"
+pattern StartSelectorTypeServerTimestamp :: StartSelectorType
+pattern StartSelectorTypeServerTimestamp = StartSelectorType' "SERVER_TIMESTAMP"
 
-pattern ProducerTimestamp :: StartSelectorType
-pattern ProducerTimestamp = StartSelectorType' "PRODUCER_TIMESTAMP"
+pattern StartSelectorTypeProducerTimestamp :: StartSelectorType
+pattern StartSelectorTypeProducerTimestamp = StartSelectorType' "PRODUCER_TIMESTAMP"
 
-pattern Now :: StartSelectorType
-pattern Now = StartSelectorType' "NOW"
+pattern StartSelectorTypeNow :: StartSelectorType
+pattern StartSelectorTypeNow = StartSelectorType' "NOW"
 
-pattern Earliest :: StartSelectorType
-pattern Earliest = StartSelectorType' "EARLIEST"
+pattern StartSelectorTypeEarliest :: StartSelectorType
+pattern StartSelectorTypeEarliest = StartSelectorType' "EARLIEST"
 
-pattern ContinuationToken :: StartSelectorType
-pattern ContinuationToken = StartSelectorType' "CONTINUATION_TOKEN"
+pattern StartSelectorTypeContinuationToken :: StartSelectorType
+pattern StartSelectorTypeContinuationToken = StartSelectorType' "CONTINUATION_TOKEN"
 
 {-# COMPLETE
-  FragmentNumber,
-  ServerTimestamp,
-  ProducerTimestamp,
-  Now,
-  Earliest,
-  ContinuationToken,
+  StartSelectorTypeFragmentNumber,
+  StartSelectorTypeServerTimestamp,
+  StartSelectorTypeProducerTimestamp,
+  StartSelectorTypeNow,
+  StartSelectorTypeEarliest,
+  StartSelectorTypeContinuationToken,
   StartSelectorType'
   #-}

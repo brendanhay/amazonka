@@ -17,39 +17,23 @@ module Network.AWS.Route53AutoNaming.Types.OperationFilter
     mkOperationFilter,
 
     -- * Lenses
-    ofValues,
     ofName,
+    ofValues,
     ofCondition,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53AutoNaming.Types.FilterCondition
-import Network.AWS.Route53AutoNaming.Types.OperationFilterName
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53AutoNaming.Types.FilterCondition as Types
+import qualified Network.AWS.Route53AutoNaming.Types.FilterValue as Types
+import qualified Network.AWS.Route53AutoNaming.Types.OperationFilterName as Types
 
 -- | A complex type that lets you select the operations that you want to list.
 --
 -- /See:/ 'mkOperationFilter' smart constructor.
 data OperationFilter = OperationFilter'
-  { -- | Specify values that are applicable to the value that you specify for @Name@ :
-    --
-    --
-    --     * __NAMESPACE_ID__ : Specify one namespace ID.
-    --
-    --
-    --     * __SERVICE_ID__ : Specify one service ID.
-    --
-    --
-    --     * __STATUS__ : Specify one or more statuses: @SUBMITTED@ , @PENDING@ , @SUCCEED@ , or @FAIL@ .
-    --
-    --
-    --     * __TYPE__ : Specify one or more of the following types: @CREATE_NAMESPACE@ , @DELETE_NAMESPACE@ , @UPDATE_SERVICE@ , @REGISTER_INSTANCE@ , or @DEREGISTER_INSTANCE@ .
-    --
-    --
-    --     * __UPDATE_DATE__ : Specify a start date and an end date in Unix date/time format and Coordinated Universal Time (UTC). The start date must be the first value.
-    values :: [Lude.Text],
-    -- | Specify the operations that you want to get:
+  { -- | Specify the operations that you want to get:
     --
     --
     --     * __NAMESPACE_ID__ : Gets operations related to specified namespaces.
@@ -65,7 +49,24 @@ data OperationFilter = OperationFilter'
     --
     --
     --     * __UPDATE_DATE__ : Gets operations that changed status during a specified date/time range.
-    name :: OperationFilterName,
+    name :: Types.OperationFilterName,
+    -- | Specify values that are applicable to the value that you specify for @Name@ :
+    --
+    --
+    --     * __NAMESPACE_ID__ : Specify one namespace ID.
+    --
+    --
+    --     * __SERVICE_ID__ : Specify one service ID.
+    --
+    --
+    --     * __STATUS__ : Specify one or more statuses: @SUBMITTED@ , @PENDING@ , @SUCCEED@ , or @FAIL@ .
+    --
+    --
+    --     * __TYPE__ : Specify one or more of the following types: @CREATE_NAMESPACE@ , @DELETE_NAMESPACE@ , @UPDATE_SERVICE@ , @REGISTER_INSTANCE@ , or @DEREGISTER_INSTANCE@ .
+    --
+    --
+    --     * __UPDATE_DATE__ : Specify a start date and an end date in Unix date/time format and Coordinated Universal Time (UTC). The start date must be the first value.
+    values :: [Types.FilterValue],
     -- | The operator that you want to use to determine whether an operation matches the specified value. Valid values for condition include:
     --
     --
@@ -76,93 +77,22 @@ data OperationFilter = OperationFilter'
     --
     --
     --     * @BETWEEN@ : Specify a start date and an end date in Unix date/time format and Coordinated Universal Time (UTC). The start date must be the first value. @BETWEEN@ is supported for @UPDATE_DATE@ .
-    condition :: Lude.Maybe FilterCondition
+    condition :: Core.Maybe Types.FilterCondition
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'OperationFilter' with the minimum fields required to make a request.
---
--- * 'values' - Specify values that are applicable to the value that you specify for @Name@ :
---
---
---     * __NAMESPACE_ID__ : Specify one namespace ID.
---
---
---     * __SERVICE_ID__ : Specify one service ID.
---
---
---     * __STATUS__ : Specify one or more statuses: @SUBMITTED@ , @PENDING@ , @SUCCEED@ , or @FAIL@ .
---
---
---     * __TYPE__ : Specify one or more of the following types: @CREATE_NAMESPACE@ , @DELETE_NAMESPACE@ , @UPDATE_SERVICE@ , @REGISTER_INSTANCE@ , or @DEREGISTER_INSTANCE@ .
---
---
---     * __UPDATE_DATE__ : Specify a start date and an end date in Unix date/time format and Coordinated Universal Time (UTC). The start date must be the first value.
---
---
--- * 'name' - Specify the operations that you want to get:
---
---
---     * __NAMESPACE_ID__ : Gets operations related to specified namespaces.
---
---
---     * __SERVICE_ID__ : Gets operations related to specified services.
---
---
---     * __STATUS__ : Gets operations based on the status of the operations: @SUBMITTED@ , @PENDING@ , @SUCCEED@ , or @FAIL@ .
---
---
---     * __TYPE__ : Gets specified types of operation.
---
---
---     * __UPDATE_DATE__ : Gets operations that changed status during a specified date/time range.
---
---
--- * 'condition' - The operator that you want to use to determine whether an operation matches the specified value. Valid values for condition include:
---
---
---     * @EQ@ : When you specify @EQ@ for the condition, you can specify only one value. @EQ@ is supported for @NAMESPACE_ID@ , @SERVICE_ID@ , @STATUS@ , and @TYPE@ . @EQ@ is the default condition and can be omitted.
---
---
---     * @IN@ : When you specify @IN@ for the condition, you can specify a list of one or more values. @IN@ is supported for @STATUS@ and @TYPE@ . An operation must match one of the specified values to be returned in the response.
---
---
---     * @BETWEEN@ : Specify a start date and an end date in Unix date/time format and Coordinated Universal Time (UTC). The start date must be the first value. @BETWEEN@ is supported for @UPDATE_DATE@ .
+-- | Creates a 'OperationFilter' value with any optional fields omitted.
 mkOperationFilter ::
   -- | 'name'
-  OperationFilterName ->
+  Types.OperationFilterName ->
   OperationFilter
-mkOperationFilter pName_ =
+mkOperationFilter name =
   OperationFilter'
-    { values = Lude.mempty,
-      name = pName_,
-      condition = Lude.Nothing
+    { name,
+      values = Core.mempty,
+      condition = Core.Nothing
     }
-
--- | Specify values that are applicable to the value that you specify for @Name@ :
---
---
---     * __NAMESPACE_ID__ : Specify one namespace ID.
---
---
---     * __SERVICE_ID__ : Specify one service ID.
---
---
---     * __STATUS__ : Specify one or more statuses: @SUBMITTED@ , @PENDING@ , @SUCCEED@ , or @FAIL@ .
---
---
---     * __TYPE__ : Specify one or more of the following types: @CREATE_NAMESPACE@ , @DELETE_NAMESPACE@ , @UPDATE_SERVICE@ , @REGISTER_INSTANCE@ , or @DEREGISTER_INSTANCE@ .
---
---
---     * __UPDATE_DATE__ : Specify a start date and an end date in Unix date/time format and Coordinated Universal Time (UTC). The start date must be the first value.
---
---
---
--- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ofValues :: Lens.Lens' OperationFilter [Lude.Text]
-ofValues = Lens.lens (values :: OperationFilter -> [Lude.Text]) (\s a -> s {values = a} :: OperationFilter)
-{-# DEPRECATED ofValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | Specify the operations that you want to get:
 --
@@ -184,9 +114,33 @@ ofValues = Lens.lens (values :: OperationFilter -> [Lude.Text]) (\s a -> s {valu
 --
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ofName :: Lens.Lens' OperationFilter OperationFilterName
-ofName = Lens.lens (name :: OperationFilter -> OperationFilterName) (\s a -> s {name = a} :: OperationFilter)
+ofName :: Lens.Lens' OperationFilter Types.OperationFilterName
+ofName = Lens.field @"name"
 {-# DEPRECATED ofName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | Specify values that are applicable to the value that you specify for @Name@ :
+--
+--
+--     * __NAMESPACE_ID__ : Specify one namespace ID.
+--
+--
+--     * __SERVICE_ID__ : Specify one service ID.
+--
+--
+--     * __STATUS__ : Specify one or more statuses: @SUBMITTED@ , @PENDING@ , @SUCCEED@ , or @FAIL@ .
+--
+--
+--     * __TYPE__ : Specify one or more of the following types: @CREATE_NAMESPACE@ , @DELETE_NAMESPACE@ , @UPDATE_SERVICE@ , @REGISTER_INSTANCE@ , or @DEREGISTER_INSTANCE@ .
+--
+--
+--     * __UPDATE_DATE__ : Specify a start date and an end date in Unix date/time format and Coordinated Universal Time (UTC). The start date must be the first value.
+--
+--
+--
+-- /Note:/ Consider using 'values' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ofValues :: Lens.Lens' OperationFilter [Types.FilterValue]
+ofValues = Lens.field @"values"
+{-# DEPRECATED ofValues "Use generic-lens or generic-optics with 'values' instead." #-}
 
 -- | The operator that you want to use to determine whether an operation matches the specified value. Valid values for condition include:
 --
@@ -202,16 +156,16 @@ ofName = Lens.lens (name :: OperationFilter -> OperationFilterName) (\s a -> s {
 --
 --
 -- /Note:/ Consider using 'condition' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ofCondition :: Lens.Lens' OperationFilter (Lude.Maybe FilterCondition)
-ofCondition = Lens.lens (condition :: OperationFilter -> Lude.Maybe FilterCondition) (\s a -> s {condition = a} :: OperationFilter)
+ofCondition :: Lens.Lens' OperationFilter (Core.Maybe Types.FilterCondition)
+ofCondition = Lens.field @"condition"
 {-# DEPRECATED ofCondition "Use generic-lens or generic-optics with 'condition' instead." #-}
 
-instance Lude.ToJSON OperationFilter where
-  toJSON OperationFilter' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Values" Lude..= values),
-            Lude.Just ("Name" Lude..= name),
-            ("Condition" Lude..=) Lude.<$> condition
+instance Core.FromJSON OperationFilter where
+  toJSON OperationFilter {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Name" Core..= name),
+            Core.Just ("Values" Core..= values),
+            ("Condition" Core..=) Core.<$> condition
           ]
       )

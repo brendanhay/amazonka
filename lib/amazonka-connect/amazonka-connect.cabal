@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.Connect
     Network.AWS.Connect.AssociateApprovedOrigin
@@ -146,27 +152,57 @@ library
     Network.AWS.Connect.Waiters
 
   other-modules:
+    Network.AWS.Connect.Types.AgentFirstName
+    Network.AWS.Connect.Types.AgentLastName
+    Network.AWS.Connect.Types.AgentUsername
+    Network.AWS.Connect.Types.ARN
+    Network.AWS.Connect.Types.Arn
+    Network.AWS.Connect.Types.AssociationId
     Network.AWS.Connect.Types.Attribute
+    Network.AWS.Connect.Types.AttributeName
+    Network.AWS.Connect.Types.AttributeValue
+    Network.AWS.Connect.Types.BotName
+    Network.AWS.Connect.Types.BucketName
     Network.AWS.Connect.Types.Channel
+    Network.AWS.Connect.Types.ChatContentType
     Network.AWS.Connect.Types.ChatMessage
+    Network.AWS.Connect.Types.ClientToken
     Network.AWS.Connect.Types.Comparison
     Network.AWS.Connect.Types.ContactFlow
+    Network.AWS.Connect.Types.ContactFlowContent
+    Network.AWS.Connect.Types.ContactFlowDescription
+    Network.AWS.Connect.Types.ContactFlowId
+    Network.AWS.Connect.Types.ContactFlowName
     Network.AWS.Connect.Types.ContactFlowSummary
     Network.AWS.Connect.Types.ContactFlowType
+    Network.AWS.Connect.Types.ContactId
+    Network.AWS.Connect.Types.Content
     Network.AWS.Connect.Types.Credentials
     Network.AWS.Connect.Types.CurrentMetric
     Network.AWS.Connect.Types.CurrentMetricData
     Network.AWS.Connect.Types.CurrentMetricName
     Network.AWS.Connect.Types.CurrentMetricResult
+    Network.AWS.Connect.Types.DefaultOutboundQueueId
+    Network.AWS.Connect.Types.Description
+    Network.AWS.Connect.Types.DeskPhoneNumber
     Network.AWS.Connect.Types.Dimensions
+    Network.AWS.Connect.Types.DirectoryAlias
+    Network.AWS.Connect.Types.DirectoryId
     Network.AWS.Connect.Types.DirectoryType
+    Network.AWS.Connect.Types.DirectoryUserId
+    Network.AWS.Connect.Types.DisplayName
+    Network.AWS.Connect.Types.Email
     Network.AWS.Connect.Types.EncryptionConfig
     Network.AWS.Connect.Types.EncryptionType
     Network.AWS.Connect.Types.Filters
+    Network.AWS.Connect.Types.FunctionArn
     Network.AWS.Connect.Types.Grouping
     Network.AWS.Connect.Types.HierarchyGroup
+    Network.AWS.Connect.Types.HierarchyGroupId
+    Network.AWS.Connect.Types.HierarchyGroupName
     Network.AWS.Connect.Types.HierarchyGroupSummary
     Network.AWS.Connect.Types.HierarchyLevel
+    Network.AWS.Connect.Types.HierarchyLevelName
     Network.AWS.Connect.Types.HierarchyLevelUpdate
     Network.AWS.Connect.Types.HierarchyPath
     Network.AWS.Connect.Types.HierarchyStructure
@@ -175,42 +211,77 @@ library
     Network.AWS.Connect.Types.HistoricalMetricData
     Network.AWS.Connect.Types.HistoricalMetricName
     Network.AWS.Connect.Types.HistoricalMetricResult
+    Network.AWS.Connect.Types.HoursOfOperationId
+    Network.AWS.Connect.Types.HoursOfOperationName
     Network.AWS.Connect.Types.HoursOfOperationSummary
+    Network.AWS.Connect.Types.Id
+    Network.AWS.Connect.Types.InitialContactId
     Network.AWS.Connect.Types.Instance
+    Network.AWS.Connect.Types.InstanceAlias
     Network.AWS.Connect.Types.InstanceAttributeType
+    Network.AWS.Connect.Types.InstanceAttributeValue
+    Network.AWS.Connect.Types.InstanceId
     Network.AWS.Connect.Types.InstanceStatus
     Network.AWS.Connect.Types.InstanceStatusReason
     Network.AWS.Connect.Types.InstanceStorageConfig
     Network.AWS.Connect.Types.InstanceStorageResourceType
     Network.AWS.Connect.Types.InstanceSummary
+    Network.AWS.Connect.Types.KeyId
     Network.AWS.Connect.Types.KinesisFirehoseConfig
     Network.AWS.Connect.Types.KinesisStreamConfig
     Network.AWS.Connect.Types.KinesisVideoStreamConfig
+    Network.AWS.Connect.Types.LevelId
     Network.AWS.Connect.Types.LexBot
+    Network.AWS.Connect.Types.LexRegion
     Network.AWS.Connect.Types.MediaConcurrency
+    Network.AWS.Connect.Types.Name
+    Network.AWS.Connect.Types.NextToken
+    Network.AWS.Connect.Types.Origin
+    Network.AWS.Connect.Types.ParentGroupId
     Network.AWS.Connect.Types.ParticipantDetails
+    Network.AWS.Connect.Types.ParticipantId
+    Network.AWS.Connect.Types.ParticipantToken
+    Network.AWS.Connect.Types.Password
+    Network.AWS.Connect.Types.PEM
+    Network.AWS.Connect.Types.PhoneNumber
     Network.AWS.Connect.Types.PhoneNumberCountryCode
+    Network.AWS.Connect.Types.PhoneNumberId
     Network.AWS.Connect.Types.PhoneNumberSummary
     Network.AWS.Connect.Types.PhoneNumberType
     Network.AWS.Connect.Types.PhoneType
+    Network.AWS.Connect.Types.Prefix
     Network.AWS.Connect.Types.PromptSummary
+    Network.AWS.Connect.Types.QueueId
+    Network.AWS.Connect.Types.QueueName
     Network.AWS.Connect.Types.QueueReference
     Network.AWS.Connect.Types.QueueSummary
     Network.AWS.Connect.Types.QueueType
     Network.AWS.Connect.Types.RoutingProfile
+    Network.AWS.Connect.Types.RoutingProfileDescription
+    Network.AWS.Connect.Types.RoutingProfileId
+    Network.AWS.Connect.Types.RoutingProfileName
     Network.AWS.Connect.Types.RoutingProfileQueueConfig
     Network.AWS.Connect.Types.RoutingProfileQueueConfigSummary
     Network.AWS.Connect.Types.RoutingProfileQueueReference
     Network.AWS.Connect.Types.RoutingProfileSummary
     Network.AWS.Connect.Types.S3Config
     Network.AWS.Connect.Types.SecurityKey
+    Network.AWS.Connect.Types.SecurityProfileId
+    Network.AWS.Connect.Types.SecurityProfileName
     Network.AWS.Connect.Types.SecurityProfileSummary
+    Network.AWS.Connect.Types.SecurityToken
+    Network.AWS.Connect.Types.ServiceRole
     Network.AWS.Connect.Types.Statistic
     Network.AWS.Connect.Types.StorageType
+    Network.AWS.Connect.Types.String
+    Network.AWS.Connect.Types.TagKey
+    Network.AWS.Connect.Types.TagValue
     Network.AWS.Connect.Types.Threshold
     Network.AWS.Connect.Types.Unit
     Network.AWS.Connect.Types.User
+    Network.AWS.Connect.Types.UserId
     Network.AWS.Connect.Types.UserIdentityInfo
+    Network.AWS.Connect.Types.Username
     Network.AWS.Connect.Types.UserPhoneConfig
     Network.AWS.Connect.Types.UserSummary
     Network.AWS.Connect.Types.VoiceRecordingConfiguration

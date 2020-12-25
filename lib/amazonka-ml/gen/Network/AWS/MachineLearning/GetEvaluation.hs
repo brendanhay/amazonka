@@ -27,120 +27,121 @@ module Network.AWS.MachineLearning.GetEvaluation
     mkGetEvaluationResponse,
 
     -- ** Response lenses
-    gersStatus,
-    gersPerformanceMetrics,
-    gersLastUpdatedAt,
-    gersCreatedAt,
-    gersComputeTime,
-    gersInputDataLocationS3,
-    gersMLModelId,
-    gersStartedAt,
-    gersFinishedAt,
-    gersCreatedByIAMUser,
-    gersName,
-    gersLogURI,
-    gersEvaluationId,
-    gersMessage,
-    gersEvaluationDataSourceId,
-    gersResponseStatus,
+    gerrsComputeTime,
+    gerrsCreatedAt,
+    gerrsCreatedByIamUser,
+    gerrsEvaluationDataSourceId,
+    gerrsEvaluationId,
+    gerrsFinishedAt,
+    gerrsInputDataLocationS3,
+    gerrsLastUpdatedAt,
+    gerrsLogUri,
+    gerrsMLModelId,
+    gerrsMessage,
+    gerrsName,
+    gerrsPerformanceMetrics,
+    gerrsStartedAt,
+    gerrsStatus,
+    gerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MachineLearning.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MachineLearning.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetEvaluation' smart constructor.
 newtype GetEvaluation = GetEvaluation'
   { -- | The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@ is recorded and cataloged. The ID provides the means to access the information.
-    evaluationId :: Lude.Text
+    evaluationId :: Types.EvaluationId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetEvaluation' with the minimum fields required to make a request.
---
--- * 'evaluationId' - The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@ is recorded and cataloged. The ID provides the means to access the information.
+-- | Creates a 'GetEvaluation' value with any optional fields omitted.
 mkGetEvaluation ::
   -- | 'evaluationId'
-  Lude.Text ->
+  Types.EvaluationId ->
   GetEvaluation
-mkGetEvaluation pEvaluationId_ =
-  GetEvaluation' {evaluationId = pEvaluationId_}
+mkGetEvaluation evaluationId = GetEvaluation' {evaluationId}
 
 -- | The ID of the @Evaluation@ to retrieve. The evaluation of each @MLModel@ is recorded and cataloged. The ID provides the means to access the information.
 --
 -- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-geEvaluationId :: Lens.Lens' GetEvaluation Lude.Text
-geEvaluationId = Lens.lens (evaluationId :: GetEvaluation -> Lude.Text) (\s a -> s {evaluationId = a} :: GetEvaluation)
+geEvaluationId :: Lens.Lens' GetEvaluation Types.EvaluationId
+geEvaluationId = Lens.field @"evaluationId"
 {-# DEPRECATED geEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
 
-instance Lude.AWSRequest GetEvaluation where
+instance Core.FromJSON GetEvaluation where
+  toJSON GetEvaluation {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("EvaluationId" Core..= evaluationId)])
+
+instance Core.AWSRequest GetEvaluation where
   type Rs GetEvaluation = GetEvaluationResponse
-  request = Req.postJSON machineLearningService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AmazonML_20141212.GetEvaluation")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetEvaluationResponse'
-            Lude.<$> (x Lude..?> "Status")
-            Lude.<*> (x Lude..?> "PerformanceMetrics")
-            Lude.<*> (x Lude..?> "LastUpdatedAt")
-            Lude.<*> (x Lude..?> "CreatedAt")
-            Lude.<*> (x Lude..?> "ComputeTime")
-            Lude.<*> (x Lude..?> "InputDataLocationS3")
-            Lude.<*> (x Lude..?> "MLModelId")
-            Lude.<*> (x Lude..?> "StartedAt")
-            Lude.<*> (x Lude..?> "FinishedAt")
-            Lude.<*> (x Lude..?> "CreatedByIamUser")
-            Lude.<*> (x Lude..?> "Name")
-            Lude.<*> (x Lude..?> "LogUri")
-            Lude.<*> (x Lude..?> "EvaluationId")
-            Lude.<*> (x Lude..?> "Message")
-            Lude.<*> (x Lude..?> "EvaluationDataSourceId")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ComputeTime")
+            Core.<*> (x Core..:? "CreatedAt")
+            Core.<*> (x Core..:? "CreatedByIamUser")
+            Core.<*> (x Core..:? "EvaluationDataSourceId")
+            Core.<*> (x Core..:? "EvaluationId")
+            Core.<*> (x Core..:? "FinishedAt")
+            Core.<*> (x Core..:? "InputDataLocationS3")
+            Core.<*> (x Core..:? "LastUpdatedAt")
+            Core.<*> (x Core..:? "LogUri")
+            Core.<*> (x Core..:? "MLModelId")
+            Core.<*> (x Core..:? "Message")
+            Core.<*> (x Core..:? "Name")
+            Core.<*> (x Core..:? "PerformanceMetrics")
+            Core.<*> (x Core..:? "StartedAt")
+            Core.<*> (x Core..:? "Status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetEvaluation where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AmazonML_20141212.GetEvaluation" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetEvaluation where
-  toJSON GetEvaluation' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("EvaluationId" Lude..= evaluationId)])
-
-instance Lude.ToPath GetEvaluation where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetEvaluation where
-  toQuery = Lude.const Lude.mempty
 
 -- | Represents the output of a @GetEvaluation@ operation and describes an @Evaluation@ .
 --
 -- /See:/ 'mkGetEvaluationResponse' smart constructor.
 data GetEvaluationResponse = GetEvaluationResponse'
-  { -- | The status of the evaluation. This element can have one of the following values:
-    --
-    --
-    --     * @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request to evaluate an @MLModel@ .
-    --
-    --     * @INPROGRESS@ - The evaluation is underway.
-    --
-    --     * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.
-    --
-    --     * @COMPLETED@ - The evaluation process completed successfully.
-    --
-    --     * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
-    status :: Lude.Maybe EntityStatus,
+  { -- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @Evaluation@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @Evaluation@ is in the @COMPLETED@ state.
+    computeTime :: Core.Maybe Core.Integer,
+    -- | The time that the @Evaluation@ was created. The time is expressed in epoch time.
+    createdAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
+    createdByIamUser :: Core.Maybe Types.CreatedByIamUser,
+    -- | The @DataSource@ used for this evaluation.
+    evaluationDataSourceId :: Core.Maybe Types.EvaluationDataSourceId,
+    -- | The evaluation ID which is same as the @EvaluationId@ in the request.
+    evaluationId :: Core.Maybe Types.EvaluationId,
+    -- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
+    finishedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
+    inputDataLocationS3 :: Core.Maybe Types.InputDataLocationS3,
+    -- | The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
+    lastUpdatedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | A link to the file that contains logs of the @CreateEvaluation@ operation.
+    logUri :: Core.Maybe Types.LogUri,
+    -- | The ID of the @MLModel@ that was the focus of the evaluation.
+    mLModelId :: Core.Maybe Types.MLModelId,
+    -- | A description of the most recent details about evaluating the @MLModel@ .
+    message :: Core.Maybe Types.Message,
+    -- | A user-supplied name or description of the @Evaluation@ .
+    name :: Core.Maybe Types.EntityName,
     -- | Measurements of how well the @MLModel@ performed using observations referenced by the @DataSource@ . One of the following metric is returned based on the type of the @MLModel@ :
     --
     --
@@ -154,123 +155,136 @@ data GetEvaluationResponse = GetEvaluationResponse'
     --
     --
     -- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
-    performanceMetrics :: Lude.Maybe PerformanceMetrics,
-    -- | The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
-    lastUpdatedAt :: Lude.Maybe Lude.Timestamp,
-    -- | The time that the @Evaluation@ was created. The time is expressed in epoch time.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @Evaluation@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @Evaluation@ is in the @COMPLETED@ state.
-    computeTime :: Lude.Maybe Lude.Integer,
-    -- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
-    inputDataLocationS3 :: Lude.Maybe Lude.Text,
-    -- | The ID of the @MLModel@ that was the focus of the evaluation.
-    mLModelId :: Lude.Maybe Lude.Text,
+    performanceMetrics :: Core.Maybe Types.PerformanceMetrics,
     -- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as @INPROGRESS@ . @StartedAt@ isn't available if the @Evaluation@ is in the @PENDING@ state.
-    startedAt :: Lude.Maybe Lude.Timestamp,
-    -- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
-    finishedAt :: Lude.Maybe Lude.Timestamp,
-    -- | The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
-    createdByIAMUser :: Lude.Maybe Lude.Text,
-    -- | A user-supplied name or description of the @Evaluation@ .
-    name :: Lude.Maybe Lude.Text,
-    -- | A link to the file that contains logs of the @CreateEvaluation@ operation.
-    logURI :: Lude.Maybe Lude.Text,
-    -- | The evaluation ID which is same as the @EvaluationId@ in the request.
-    evaluationId :: Lude.Maybe Lude.Text,
-    -- | A description of the most recent details about evaluating the @MLModel@ .
-    message :: Lude.Maybe Lude.Text,
-    -- | The @DataSource@ used for this evaluation.
-    evaluationDataSourceId :: Lude.Maybe Lude.Text,
+    startedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The status of the evaluation. This element can have one of the following values:
+    --
+    --
+    --     * @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request to evaluate an @MLModel@ .
+    --
+    --     * @INPROGRESS@ - The evaluation is underway.
+    --
+    --     * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.
+    --
+    --     * @COMPLETED@ - The evaluation process completed successfully.
+    --
+    --     * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
+    status :: Core.Maybe Types.EntityStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetEvaluationResponse' with the minimum fields required to make a request.
---
--- * 'status' - The status of the evaluation. This element can have one of the following values:
---
---
---     * @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request to evaluate an @MLModel@ .
---
---     * @INPROGRESS@ - The evaluation is underway.
---
---     * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.
---
---     * @COMPLETED@ - The evaluation process completed successfully.
---
---     * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
---
--- * 'performanceMetrics' - Measurements of how well the @MLModel@ performed using observations referenced by the @DataSource@ . One of the following metric is returned based on the type of the @MLModel@ :
---
---
---     * BinaryAUC: A binary @MLModel@ uses the Area Under the Curve (AUC) technique to measure performance.
---
---
---     * RegressionRMSE: A regression @MLModel@ uses the Root Mean Square Error (RMSE) technique to measure performance. RMSE measures the difference between predicted and actual values for a single variable.
---
---
---     * MulticlassAvgFScore: A multiclass @MLModel@ uses the F1 score technique to measure performance.
---
---
--- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
--- * 'lastUpdatedAt' - The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
--- * 'createdAt' - The time that the @Evaluation@ was created. The time is expressed in epoch time.
--- * 'computeTime' - The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @Evaluation@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @Evaluation@ is in the @COMPLETED@ state.
--- * 'inputDataLocationS3' - The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
--- * 'mLModelId' - The ID of the @MLModel@ that was the focus of the evaluation.
--- * 'startedAt' - The epoch time when Amazon Machine Learning marked the @Evaluation@ as @INPROGRESS@ . @StartedAt@ isn't available if the @Evaluation@ is in the @PENDING@ state.
--- * 'finishedAt' - The epoch time when Amazon Machine Learning marked the @Evaluation@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
--- * 'createdByIAMUser' - The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
--- * 'name' - A user-supplied name or description of the @Evaluation@ .
--- * 'logURI' - A link to the file that contains logs of the @CreateEvaluation@ operation.
--- * 'evaluationId' - The evaluation ID which is same as the @EvaluationId@ in the request.
--- * 'message' - A description of the most recent details about evaluating the @MLModel@ .
--- * 'evaluationDataSourceId' - The @DataSource@ used for this evaluation.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetEvaluationResponse' value with any optional fields omitted.
 mkGetEvaluationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetEvaluationResponse
-mkGetEvaluationResponse pResponseStatus_ =
+mkGetEvaluationResponse responseStatus =
   GetEvaluationResponse'
-    { status = Lude.Nothing,
-      performanceMetrics = Lude.Nothing,
-      lastUpdatedAt = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      computeTime = Lude.Nothing,
-      inputDataLocationS3 = Lude.Nothing,
-      mLModelId = Lude.Nothing,
-      startedAt = Lude.Nothing,
-      finishedAt = Lude.Nothing,
-      createdByIAMUser = Lude.Nothing,
-      name = Lude.Nothing,
-      logURI = Lude.Nothing,
-      evaluationId = Lude.Nothing,
-      message = Lude.Nothing,
-      evaluationDataSourceId = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { computeTime = Core.Nothing,
+      createdAt = Core.Nothing,
+      createdByIamUser = Core.Nothing,
+      evaluationDataSourceId = Core.Nothing,
+      evaluationId = Core.Nothing,
+      finishedAt = Core.Nothing,
+      inputDataLocationS3 = Core.Nothing,
+      lastUpdatedAt = Core.Nothing,
+      logUri = Core.Nothing,
+      mLModelId = Core.Nothing,
+      message = Core.Nothing,
+      name = Core.Nothing,
+      performanceMetrics = Core.Nothing,
+      startedAt = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
 
--- | The status of the evaluation. This element can have one of the following values:
+-- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @Evaluation@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @Evaluation@ is in the @COMPLETED@ state.
 --
+-- /Note:/ Consider using 'computeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsComputeTime :: Lens.Lens' GetEvaluationResponse (Core.Maybe Core.Integer)
+gerrsComputeTime = Lens.field @"computeTime"
+{-# DEPRECATED gerrsComputeTime "Use generic-lens or generic-optics with 'computeTime' instead." #-}
+
+-- | The time that the @Evaluation@ was created. The time is expressed in epoch time.
 --
---     * @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request to evaluate an @MLModel@ .
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsCreatedAt :: Lens.Lens' GetEvaluationResponse (Core.Maybe Core.NominalDiffTime)
+gerrsCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED gerrsCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
 --
---     * @INPROGRESS@ - The evaluation is underway.
+-- /Note:/ Consider using 'createdByIamUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsCreatedByIamUser :: Lens.Lens' GetEvaluationResponse (Core.Maybe Types.CreatedByIamUser)
+gerrsCreatedByIamUser = Lens.field @"createdByIamUser"
+{-# DEPRECATED gerrsCreatedByIamUser "Use generic-lens or generic-optics with 'createdByIamUser' instead." #-}
+
+-- | The @DataSource@ used for this evaluation.
 --
---     * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.
+-- /Note:/ Consider using 'evaluationDataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsEvaluationDataSourceId :: Lens.Lens' GetEvaluationResponse (Core.Maybe Types.EvaluationDataSourceId)
+gerrsEvaluationDataSourceId = Lens.field @"evaluationDataSourceId"
+{-# DEPRECATED gerrsEvaluationDataSourceId "Use generic-lens or generic-optics with 'evaluationDataSourceId' instead." #-}
+
+-- | The evaluation ID which is same as the @EvaluationId@ in the request.
 --
---     * @COMPLETED@ - The evaluation process completed successfully.
+-- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsEvaluationId :: Lens.Lens' GetEvaluationResponse (Core.Maybe Types.EvaluationId)
+gerrsEvaluationId = Lens.field @"evaluationId"
+{-# DEPRECATED gerrsEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
+
+-- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
 --
---     * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
+-- /Note:/ Consider using 'finishedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsFinishedAt :: Lens.Lens' GetEvaluationResponse (Core.Maybe Core.NominalDiffTime)
+gerrsFinishedAt = Lens.field @"finishedAt"
+{-# DEPRECATED gerrsFinishedAt "Use generic-lens or generic-optics with 'finishedAt' instead." #-}
+
+-- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
 --
+-- /Note:/ Consider using 'inputDataLocationS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsInputDataLocationS3 :: Lens.Lens' GetEvaluationResponse (Core.Maybe Types.InputDataLocationS3)
+gerrsInputDataLocationS3 = Lens.field @"inputDataLocationS3"
+{-# DEPRECATED gerrsInputDataLocationS3 "Use generic-lens or generic-optics with 'inputDataLocationS3' instead." #-}
+
+-- | The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
 --
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersStatus :: Lens.Lens' GetEvaluationResponse (Lude.Maybe EntityStatus)
-gersStatus = Lens.lens (status :: GetEvaluationResponse -> Lude.Maybe EntityStatus) (\s a -> s {status = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersStatus "Use generic-lens or generic-optics with 'status' instead." #-}
+-- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsLastUpdatedAt :: Lens.Lens' GetEvaluationResponse (Core.Maybe Core.NominalDiffTime)
+gerrsLastUpdatedAt = Lens.field @"lastUpdatedAt"
+{-# DEPRECATED gerrsLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
+
+-- | A link to the file that contains logs of the @CreateEvaluation@ operation.
+--
+-- /Note:/ Consider using 'logUri' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsLogUri :: Lens.Lens' GetEvaluationResponse (Core.Maybe Types.LogUri)
+gerrsLogUri = Lens.field @"logUri"
+{-# DEPRECATED gerrsLogUri "Use generic-lens or generic-optics with 'logUri' instead." #-}
+
+-- | The ID of the @MLModel@ that was the focus of the evaluation.
+--
+-- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsMLModelId :: Lens.Lens' GetEvaluationResponse (Core.Maybe Types.MLModelId)
+gerrsMLModelId = Lens.field @"mLModelId"
+{-# DEPRECATED gerrsMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
+
+-- | A description of the most recent details about evaluating the @MLModel@ .
+--
+-- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsMessage :: Lens.Lens' GetEvaluationResponse (Core.Maybe Types.Message)
+gerrsMessage = Lens.field @"message"
+{-# DEPRECATED gerrsMessage "Use generic-lens or generic-optics with 'message' instead." #-}
+
+-- | A user-supplied name or description of the @Evaluation@ .
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsName :: Lens.Lens' GetEvaluationResponse (Core.Maybe Types.EntityName)
+gerrsName = Lens.field @"name"
+{-# DEPRECATED gerrsName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | Measurements of how well the @MLModel@ performed using observations referenced by the @DataSource@ . One of the following metric is returned based on the type of the @MLModel@ :
 --
@@ -287,104 +301,39 @@ gersStatus = Lens.lens (status :: GetEvaluationResponse -> Lude.Maybe EntityStat
 -- For more information about performance metrics, please see the <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide> .
 --
 -- /Note:/ Consider using 'performanceMetrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersPerformanceMetrics :: Lens.Lens' GetEvaluationResponse (Lude.Maybe PerformanceMetrics)
-gersPerformanceMetrics = Lens.lens (performanceMetrics :: GetEvaluationResponse -> Lude.Maybe PerformanceMetrics) (\s a -> s {performanceMetrics = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersPerformanceMetrics "Use generic-lens or generic-optics with 'performanceMetrics' instead." #-}
-
--- | The time of the most recent edit to the @Evaluation@ . The time is expressed in epoch time.
---
--- /Note:/ Consider using 'lastUpdatedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersLastUpdatedAt :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Timestamp)
-gersLastUpdatedAt = Lens.lens (lastUpdatedAt :: GetEvaluationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastUpdatedAt = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersLastUpdatedAt "Use generic-lens or generic-optics with 'lastUpdatedAt' instead." #-}
-
--- | The time that the @Evaluation@ was created. The time is expressed in epoch time.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersCreatedAt :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Timestamp)
-gersCreatedAt = Lens.lens (createdAt :: GetEvaluationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The approximate CPU time in milliseconds that Amazon Machine Learning spent processing the @Evaluation@ , normalized and scaled on computation resources. @ComputeTime@ is only available if the @Evaluation@ is in the @COMPLETED@ state.
---
--- /Note:/ Consider using 'computeTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersComputeTime :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Integer)
-gersComputeTime = Lens.lens (computeTime :: GetEvaluationResponse -> Lude.Maybe Lude.Integer) (\s a -> s {computeTime = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersComputeTime "Use generic-lens or generic-optics with 'computeTime' instead." #-}
-
--- | The location of the data file or directory in Amazon Simple Storage Service (Amazon S3).
---
--- /Note:/ Consider using 'inputDataLocationS3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersInputDataLocationS3 :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Text)
-gersInputDataLocationS3 = Lens.lens (inputDataLocationS3 :: GetEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {inputDataLocationS3 = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersInputDataLocationS3 "Use generic-lens or generic-optics with 'inputDataLocationS3' instead." #-}
-
--- | The ID of the @MLModel@ that was the focus of the evaluation.
---
--- /Note:/ Consider using 'mLModelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersMLModelId :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Text)
-gersMLModelId = Lens.lens (mLModelId :: GetEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {mLModelId = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersMLModelId "Use generic-lens or generic-optics with 'mLModelId' instead." #-}
+gerrsPerformanceMetrics :: Lens.Lens' GetEvaluationResponse (Core.Maybe Types.PerformanceMetrics)
+gerrsPerformanceMetrics = Lens.field @"performanceMetrics"
+{-# DEPRECATED gerrsPerformanceMetrics "Use generic-lens or generic-optics with 'performanceMetrics' instead." #-}
 
 -- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as @INPROGRESS@ . @StartedAt@ isn't available if the @Evaluation@ is in the @PENDING@ state.
 --
 -- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersStartedAt :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Timestamp)
-gersStartedAt = Lens.lens (startedAt :: GetEvaluationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedAt = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
+gerrsStartedAt :: Lens.Lens' GetEvaluationResponse (Core.Maybe Core.NominalDiffTime)
+gerrsStartedAt = Lens.field @"startedAt"
+{-# DEPRECATED gerrsStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
--- | The epoch time when Amazon Machine Learning marked the @Evaluation@ as @COMPLETED@ or @FAILED@ . @FinishedAt@ is only available when the @Evaluation@ is in the @COMPLETED@ or @FAILED@ state.
+-- | The status of the evaluation. This element can have one of the following values:
 --
--- /Note:/ Consider using 'finishedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersFinishedAt :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Timestamp)
-gersFinishedAt = Lens.lens (finishedAt :: GetEvaluationResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {finishedAt = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersFinishedAt "Use generic-lens or generic-optics with 'finishedAt' instead." #-}
-
--- | The AWS user account that invoked the evaluation. The account type can be either an AWS root account or an AWS Identity and Access Management (IAM) user account.
 --
--- /Note:/ Consider using 'createdByIAMUser' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersCreatedByIAMUser :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Text)
-gersCreatedByIAMUser = Lens.lens (createdByIAMUser :: GetEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {createdByIAMUser = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersCreatedByIAMUser "Use generic-lens or generic-optics with 'createdByIAMUser' instead." #-}
-
--- | A user-supplied name or description of the @Evaluation@ .
+--     * @PENDING@ - Amazon Machine Language (Amazon ML) submitted a request to evaluate an @MLModel@ .
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersName :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Text)
-gersName = Lens.lens (name :: GetEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | A link to the file that contains logs of the @CreateEvaluation@ operation.
+--     * @INPROGRESS@ - The evaluation is underway.
 --
--- /Note:/ Consider using 'logURI' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersLogURI :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Text)
-gersLogURI = Lens.lens (logURI :: GetEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {logURI = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersLogURI "Use generic-lens or generic-optics with 'logURI' instead." #-}
-
--- | The evaluation ID which is same as the @EvaluationId@ in the request.
+--     * @FAILED@ - The request to evaluate an @MLModel@ did not run to completion. It is not usable.
 --
--- /Note:/ Consider using 'evaluationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersEvaluationId :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Text)
-gersEvaluationId = Lens.lens (evaluationId :: GetEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {evaluationId = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersEvaluationId "Use generic-lens or generic-optics with 'evaluationId' instead." #-}
-
--- | A description of the most recent details about evaluating the @MLModel@ .
+--     * @COMPLETED@ - The evaluation process completed successfully.
 --
--- /Note:/ Consider using 'message' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersMessage :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Text)
-gersMessage = Lens.lens (message :: GetEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {message = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersMessage "Use generic-lens or generic-optics with 'message' instead." #-}
-
--- | The @DataSource@ used for this evaluation.
+--     * @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
 --
--- /Note:/ Consider using 'evaluationDataSourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersEvaluationDataSourceId :: Lens.Lens' GetEvaluationResponse (Lude.Maybe Lude.Text)
-gersEvaluationDataSourceId = Lens.lens (evaluationDataSourceId :: GetEvaluationResponse -> Lude.Maybe Lude.Text) (\s a -> s {evaluationDataSourceId = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersEvaluationDataSourceId "Use generic-lens or generic-optics with 'evaluationDataSourceId' instead." #-}
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gerrsStatus :: Lens.Lens' GetEvaluationResponse (Core.Maybe Types.EntityStatus)
+gerrsStatus = Lens.field @"status"
+{-# DEPRECATED gerrsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gersResponseStatus :: Lens.Lens' GetEvaluationResponse Lude.Int
-gersResponseStatus = Lens.lens (responseStatus :: GetEvaluationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetEvaluationResponse)
-{-# DEPRECATED gersResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gerrsResponseStatus :: Lens.Lens' GetEvaluationResponse Core.Int
+gerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

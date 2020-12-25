@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.SES
     Network.AWS.SES.CloneReceiptRuleSet
@@ -143,28 +149,64 @@ library
 
   other-modules:
     Network.AWS.SES.Types.AddHeaderAction
+    Network.AWS.SES.Types.Address
+    Network.AWS.SES.Types.AmazonResourceName
     Network.AWS.SES.Types.BehaviorOnMXFailure
     Network.AWS.SES.Types.Body
     Network.AWS.SES.Types.BounceAction
     Network.AWS.SES.Types.BouncedRecipientInfo
+    Network.AWS.SES.Types.BounceMessage
+    Network.AWS.SES.Types.BounceSender
+    Network.AWS.SES.Types.BounceSenderArn
+    Network.AWS.SES.Types.BounceSmtpReplyCode
+    Network.AWS.SES.Types.BounceTopic
     Network.AWS.SES.Types.BounceType
+    Network.AWS.SES.Types.BucketName
     Network.AWS.SES.Types.BulkEmailDestination
     Network.AWS.SES.Types.BulkEmailDestinationStatus
     Network.AWS.SES.Types.BulkEmailStatus
+    Network.AWS.SES.Types.Charset
+    Network.AWS.SES.Types.Cidr
     Network.AWS.SES.Types.CloudWatchDestination
     Network.AWS.SES.Types.CloudWatchDimensionConfiguration
+    Network.AWS.SES.Types.ComplaintTopic
     Network.AWS.SES.Types.ConfigurationSet
     Network.AWS.SES.Types.ConfigurationSetAttribute
+    Network.AWS.SES.Types.ConfigurationSetName
     Network.AWS.SES.Types.Content
     Network.AWS.SES.Types.CustomMailFromStatus
+    Network.AWS.SES.Types.CustomRedirectDomain
     Network.AWS.SES.Types.CustomVerificationEmailTemplate
+    Network.AWS.SES.Types.Data
+    Network.AWS.SES.Types.DefaultDimensionValue
+    Network.AWS.SES.Types.DefaultTemplateData
     Network.AWS.SES.Types.DeliveryOptions
+    Network.AWS.SES.Types.DeliveryStreamARN
+    Network.AWS.SES.Types.DeliveryTopic
     Network.AWS.SES.Types.Destination
+    Network.AWS.SES.Types.DiagnosticCode
+    Network.AWS.SES.Types.DimensionName
     Network.AWS.SES.Types.DimensionValueSource
+    Network.AWS.SES.Types.Domain
     Network.AWS.SES.Types.DsnAction
+    Network.AWS.SES.Types.DsnStatus
+    Network.AWS.SES.Types.Error
     Network.AWS.SES.Types.EventDestination
+    Network.AWS.SES.Types.EventDestinationName
     Network.AWS.SES.Types.EventType
+    Network.AWS.SES.Types.Explanation
     Network.AWS.SES.Types.ExtensionField
+    Network.AWS.SES.Types.ExtensionFieldName
+    Network.AWS.SES.Types.ExtensionFieldValue
+    Network.AWS.SES.Types.FailureRedirectionURL
+    Network.AWS.SES.Types.FromAddress
+    Network.AWS.SES.Types.FromArn
+    Network.AWS.SES.Types.FunctionArn
+    Network.AWS.SES.Types.HeaderName
+    Network.AWS.SES.Types.HeaderValue
+    Network.AWS.SES.Types.HtmlPart
+    Network.AWS.SES.Types.IAMRoleARN
+    Network.AWS.SES.Types.Identity
     Network.AWS.SES.Types.IdentityDkimAttributes
     Network.AWS.SES.Types.IdentityMailFromDomainAttributes
     Network.AWS.SES.Types.IdentityNotificationAttributes
@@ -173,31 +215,69 @@ library
     Network.AWS.SES.Types.InvocationType
     Network.AWS.SES.Types.KinesisFirehoseDestination
     Network.AWS.SES.Types.LambdaAction
+    Network.AWS.SES.Types.MailFromDomain
     Network.AWS.SES.Types.Message
     Network.AWS.SES.Types.MessageDsn
+    Network.AWS.SES.Types.MessageId
     Network.AWS.SES.Types.MessageTag
+    Network.AWS.SES.Types.MessageTagName
+    Network.AWS.SES.Types.Name
+    Network.AWS.SES.Types.NextToken
     Network.AWS.SES.Types.NotificationType
+    Network.AWS.SES.Types.OrganizationArn
+    Network.AWS.SES.Types.OriginalMessageId
+    Network.AWS.SES.Types.Policy
+    Network.AWS.SES.Types.PolicyName
     Network.AWS.SES.Types.RawMessage
     Network.AWS.SES.Types.ReceiptAction
     Network.AWS.SES.Types.ReceiptFilter
+    Network.AWS.SES.Types.ReceiptFilterName
     Network.AWS.SES.Types.ReceiptFilterPolicy
-    Network.AWS.SES.Types.ReceiptIPFilter
+    Network.AWS.SES.Types.ReceiptIpFilter
     Network.AWS.SES.Types.ReceiptRule
+    Network.AWS.SES.Types.ReceiptRuleName
     Network.AWS.SES.Types.ReceiptRuleSetMetadata
+    Network.AWS.SES.Types.ReceiptRuleSetName
+    Network.AWS.SES.Types.Recipient
+    Network.AWS.SES.Types.RecipientArn
     Network.AWS.SES.Types.RecipientDsnFields
+    Network.AWS.SES.Types.RemoteMta
+    Network.AWS.SES.Types.RenderedTemplate
+    Network.AWS.SES.Types.ReplacementTemplateData
+    Network.AWS.SES.Types.ReportingMta
     Network.AWS.SES.Types.ReputationOptions
+    Network.AWS.SES.Types.ReturnPath
+    Network.AWS.SES.Types.ReturnPathArn
+    Network.AWS.SES.Types.RuleSetName
     Network.AWS.SES.Types.S3Action
+    Network.AWS.SES.Types.S3KeyPrefix
     Network.AWS.SES.Types.SendDataPoint
     Network.AWS.SES.Types.SNSAction
     Network.AWS.SES.Types.SNSActionEncoding
     Network.AWS.SES.Types.SNSDestination
+    Network.AWS.SES.Types.SnsTopic
+    Network.AWS.SES.Types.Source
+    Network.AWS.SES.Types.SourceArn
+    Network.AWS.SES.Types.StatusCode
     Network.AWS.SES.Types.StopAction
     Network.AWS.SES.Types.StopScope
+    Network.AWS.SES.Types.Subject
+    Network.AWS.SES.Types.SubjectPart
+    Network.AWS.SES.Types.SuccessRedirectionURL
     Network.AWS.SES.Types.Template
+    Network.AWS.SES.Types.TemplateArn
+    Network.AWS.SES.Types.TemplateContent
+    Network.AWS.SES.Types.TemplateData
     Network.AWS.SES.Types.TemplateMetadata
-    Network.AWS.SES.Types.TLSPolicy
+    Network.AWS.SES.Types.TemplateName
+    Network.AWS.SES.Types.TextPart
+    Network.AWS.SES.Types.TlsPolicy
+    Network.AWS.SES.Types.TopicArn
+    Network.AWS.SES.Types.TopicARN
     Network.AWS.SES.Types.TrackingOptions
+    Network.AWS.SES.Types.Value
     Network.AWS.SES.Types.VerificationStatus
+    Network.AWS.SES.Types.VerificationToken
     Network.AWS.SES.Types.WorkmailAction
 
   build-depends:   amazonka-core ==2.0.0.0.*

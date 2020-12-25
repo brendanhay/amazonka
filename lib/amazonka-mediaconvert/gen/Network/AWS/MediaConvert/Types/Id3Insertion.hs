@@ -23,57 +23,52 @@ module Network.AWS.MediaConvert.Types.Id3Insertion
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | To insert ID3 tags in your output, specify two values. Use ID3 tag (Id3) to specify the base 64 encoded string and use Timecode (TimeCode) to specify the time when the tag should be inserted. To insert multiple ID3 tags in your output, create multiple instances of ID3 insertion (Id3Insertion).
 --
 -- /See:/ 'mkId3Insertion' smart constructor.
 data Id3Insertion = Id3Insertion'
   { -- | Use ID3 tag (Id3) to provide a tag value in base64-encode format.
-    id3 :: Lude.Maybe Lude.Text,
+    id3 :: Core.Maybe Core.Text,
     -- | Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
-    timecode :: Lude.Maybe Lude.Text
+    timecode :: Core.Maybe Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Id3Insertion' with the minimum fields required to make a request.
---
--- * 'id3' - Use ID3 tag (Id3) to provide a tag value in base64-encode format.
--- * 'timecode' - Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
+-- | Creates a 'Id3Insertion' value with any optional fields omitted.
 mkId3Insertion ::
   Id3Insertion
 mkId3Insertion =
-  Id3Insertion' {id3 = Lude.Nothing, timecode = Lude.Nothing}
+  Id3Insertion' {id3 = Core.Nothing, timecode = Core.Nothing}
 
 -- | Use ID3 tag (Id3) to provide a tag value in base64-encode format.
 --
 -- /Note:/ Consider using 'id3' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiId3 :: Lens.Lens' Id3Insertion (Lude.Maybe Lude.Text)
-iiId3 = Lens.lens (id3 :: Id3Insertion -> Lude.Maybe Lude.Text) (\s a -> s {id3 = a} :: Id3Insertion)
+iiId3 :: Lens.Lens' Id3Insertion (Core.Maybe Core.Text)
+iiId3 = Lens.field @"id3"
 {-# DEPRECATED iiId3 "Use generic-lens or generic-optics with 'id3' instead." #-}
 
 -- | Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
 --
 -- /Note:/ Consider using 'timecode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iiTimecode :: Lens.Lens' Id3Insertion (Lude.Maybe Lude.Text)
-iiTimecode = Lens.lens (timecode :: Id3Insertion -> Lude.Maybe Lude.Text) (\s a -> s {timecode = a} :: Id3Insertion)
+iiTimecode :: Lens.Lens' Id3Insertion (Core.Maybe Core.Text)
+iiTimecode = Lens.field @"timecode"
 {-# DEPRECATED iiTimecode "Use generic-lens or generic-optics with 'timecode' instead." #-}
 
-instance Lude.FromJSON Id3Insertion where
-  parseJSON =
-    Lude.withObject
-      "Id3Insertion"
-      ( \x ->
-          Id3Insertion'
-            Lude.<$> (x Lude..:? "id3") Lude.<*> (x Lude..:? "timecode")
-      )
-
-instance Lude.ToJSON Id3Insertion where
-  toJSON Id3Insertion' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("id3" Lude..=) Lude.<$> id3,
-            ("timecode" Lude..=) Lude.<$> timecode
+instance Core.FromJSON Id3Insertion where
+  toJSON Id3Insertion {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("id3" Core..=) Core.<$> id3,
+            ("timecode" Core..=) Core.<$> timecode
           ]
       )
+
+instance Core.FromJSON Id3Insertion where
+  parseJSON =
+    Core.withObject "Id3Insertion" Core.$
+      \x ->
+        Id3Insertion'
+          Core.<$> (x Core..:? "id3") Core.<*> (x Core..:? "timecode")

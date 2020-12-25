@@ -18,83 +18,77 @@ module Network.AWS.CloudSearchDomains.Types.Hit
 
     -- * Lenses
     hExprs,
-    hId,
-    hHighlights,
     hFields,
+    hHighlights,
+    hId,
   )
 where
 
+import qualified Network.AWS.CloudSearchDomains.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a document that matches the search request.
 --
 -- /See:/ 'mkHit' smart constructor.
 data Hit = Hit'
   { -- | The expressions returned from a document that matches the search request.
-    exprs :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
-    -- | The document ID of a document that matches the search request.
-    id :: Lude.Maybe Lude.Text,
-    -- | The highlights returned from a document that matches the search request.
-    highlights :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)),
+    exprs :: Core.Maybe (Core.HashMap Types.String Types.String),
     -- | The fields returned from a document that matches the search request.
-    fields :: Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))
+    fields :: Core.Maybe (Core.HashMap Types.String [Types.String]),
+    -- | The highlights returned from a document that matches the search request.
+    highlights :: Core.Maybe (Core.HashMap Types.String Types.String),
+    -- | The document ID of a document that matches the search request.
+    id :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Hit' with the minimum fields required to make a request.
---
--- * 'exprs' - The expressions returned from a document that matches the search request.
--- * 'id' - The document ID of a document that matches the search request.
--- * 'highlights' - The highlights returned from a document that matches the search request.
--- * 'fields' - The fields returned from a document that matches the search request.
+-- | Creates a 'Hit' value with any optional fields omitted.
 mkHit ::
   Hit
 mkHit =
   Hit'
-    { exprs = Lude.Nothing,
-      id = Lude.Nothing,
-      highlights = Lude.Nothing,
-      fields = Lude.Nothing
+    { exprs = Core.Nothing,
+      fields = Core.Nothing,
+      highlights = Core.Nothing,
+      id = Core.Nothing
     }
 
 -- | The expressions returned from a document that matches the search request.
 --
 -- /Note:/ Consider using 'exprs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hExprs :: Lens.Lens' Hit (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-hExprs = Lens.lens (exprs :: Hit -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {exprs = a} :: Hit)
+hExprs :: Lens.Lens' Hit (Core.Maybe (Core.HashMap Types.String Types.String))
+hExprs = Lens.field @"exprs"
 {-# DEPRECATED hExprs "Use generic-lens or generic-optics with 'exprs' instead." #-}
-
--- | The document ID of a document that matches the search request.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hId :: Lens.Lens' Hit (Lude.Maybe Lude.Text)
-hId = Lens.lens (id :: Hit -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: Hit)
-{-# DEPRECATED hId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The highlights returned from a document that matches the search request.
---
--- /Note:/ Consider using 'highlights' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hHighlights :: Lens.Lens' Hit (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text)))
-hHighlights = Lens.lens (highlights :: Hit -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Text))) (\s a -> s {highlights = a} :: Hit)
-{-# DEPRECATED hHighlights "Use generic-lens or generic-optics with 'highlights' instead." #-}
 
 -- | The fields returned from a document that matches the search request.
 --
 -- /Note:/ Consider using 'fields' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-hFields :: Lens.Lens' Hit (Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text])))
-hFields = Lens.lens (fields :: Hit -> Lude.Maybe (Lude.HashMap Lude.Text ([Lude.Text]))) (\s a -> s {fields = a} :: Hit)
+hFields :: Lens.Lens' Hit (Core.Maybe (Core.HashMap Types.String [Types.String]))
+hFields = Lens.field @"fields"
 {-# DEPRECATED hFields "Use generic-lens or generic-optics with 'fields' instead." #-}
 
-instance Lude.FromJSON Hit where
+-- | The highlights returned from a document that matches the search request.
+--
+-- /Note:/ Consider using 'highlights' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hHighlights :: Lens.Lens' Hit (Core.Maybe (Core.HashMap Types.String Types.String))
+hHighlights = Lens.field @"highlights"
+{-# DEPRECATED hHighlights "Use generic-lens or generic-optics with 'highlights' instead." #-}
+
+-- | The document ID of a document that matches the search request.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+hId :: Lens.Lens' Hit (Core.Maybe Types.String)
+hId = Lens.field @"id"
+{-# DEPRECATED hId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+instance Core.FromJSON Hit where
   parseJSON =
-    Lude.withObject
-      "Hit"
-      ( \x ->
-          Hit'
-            Lude.<$> (x Lude..:? "exprs" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "id")
-            Lude.<*> (x Lude..:? "highlights" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "fields" Lude..!= Lude.mempty)
-      )
+    Core.withObject "Hit" Core.$
+      \x ->
+        Hit'
+          Core.<$> (x Core..:? "exprs")
+          Core.<*> (x Core..:? "fields")
+          Core.<*> (x Core..:? "highlights")
+          Core.<*> (x Core..:? "id")

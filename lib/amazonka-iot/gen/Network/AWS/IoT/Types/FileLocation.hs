@@ -17,65 +17,60 @@ module Network.AWS.IoT.Types.FileLocation
     mkFileLocation,
 
     -- * Lenses
-    flStream,
     flS3Location,
+    flStream,
   )
 where
 
-import Network.AWS.IoT.Types.S3Location
-import Network.AWS.IoT.Types.Stream
+import qualified Network.AWS.IoT.Types.S3Location as Types
+import qualified Network.AWS.IoT.Types.Stream as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The location of the OTA update.
 --
 -- /See:/ 'mkFileLocation' smart constructor.
 data FileLocation = FileLocation'
-  { -- | The stream that contains the OTA update.
-    stream :: Lude.Maybe Stream,
-    -- | The location of the updated firmware in S3.
-    s3Location :: Lude.Maybe S3Location
+  { -- | The location of the updated firmware in S3.
+    s3Location :: Core.Maybe Types.S3Location,
+    -- | The stream that contains the OTA update.
+    stream :: Core.Maybe Types.Stream
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'FileLocation' with the minimum fields required to make a request.
---
--- * 'stream' - The stream that contains the OTA update.
--- * 's3Location' - The location of the updated firmware in S3.
+-- | Creates a 'FileLocation' value with any optional fields omitted.
 mkFileLocation ::
   FileLocation
 mkFileLocation =
-  FileLocation' {stream = Lude.Nothing, s3Location = Lude.Nothing}
-
--- | The stream that contains the OTA update.
---
--- /Note:/ Consider using 'stream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flStream :: Lens.Lens' FileLocation (Lude.Maybe Stream)
-flStream = Lens.lens (stream :: FileLocation -> Lude.Maybe Stream) (\s a -> s {stream = a} :: FileLocation)
-{-# DEPRECATED flStream "Use generic-lens or generic-optics with 'stream' instead." #-}
+  FileLocation' {s3Location = Core.Nothing, stream = Core.Nothing}
 
 -- | The location of the updated firmware in S3.
 --
 -- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-flS3Location :: Lens.Lens' FileLocation (Lude.Maybe S3Location)
-flS3Location = Lens.lens (s3Location :: FileLocation -> Lude.Maybe S3Location) (\s a -> s {s3Location = a} :: FileLocation)
+flS3Location :: Lens.Lens' FileLocation (Core.Maybe Types.S3Location)
+flS3Location = Lens.field @"s3Location"
 {-# DEPRECATED flS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
-instance Lude.FromJSON FileLocation where
-  parseJSON =
-    Lude.withObject
-      "FileLocation"
-      ( \x ->
-          FileLocation'
-            Lude.<$> (x Lude..:? "stream") Lude.<*> (x Lude..:? "s3Location")
-      )
+-- | The stream that contains the OTA update.
+--
+-- /Note:/ Consider using 'stream' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+flStream :: Lens.Lens' FileLocation (Core.Maybe Types.Stream)
+flStream = Lens.field @"stream"
+{-# DEPRECATED flStream "Use generic-lens or generic-optics with 'stream' instead." #-}
 
-instance Lude.ToJSON FileLocation where
-  toJSON FileLocation' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("stream" Lude..=) Lude.<$> stream,
-            ("s3Location" Lude..=) Lude.<$> s3Location
+instance Core.FromJSON FileLocation where
+  toJSON FileLocation {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("s3Location" Core..=) Core.<$> s3Location,
+            ("stream" Core..=) Core.<$> stream
           ]
       )
+
+instance Core.FromJSON FileLocation where
+  parseJSON =
+    Core.withObject "FileLocation" Core.$
+      \x ->
+        FileLocation'
+          Core.<$> (x Core..:? "s3Location") Core.<*> (x Core..:? "stream")

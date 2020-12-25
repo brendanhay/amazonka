@@ -21,22 +21,21 @@ module Network.AWS.CloudDirectory.Types.BatchAttachPolicyResponse
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of an 'AttachPolicy' response operation.
 --
 -- /See:/ 'mkBatchAttachPolicyResponse' smart constructor.
 data BatchAttachPolicyResponse = BatchAttachPolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchAttachPolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'BatchAttachPolicyResponse' value with any optional fields omitted.
 mkBatchAttachPolicyResponse ::
   BatchAttachPolicyResponse
 mkBatchAttachPolicyResponse = BatchAttachPolicyResponse'
 
-instance Lude.FromJSON BatchAttachPolicyResponse where
+instance Core.FromJSON BatchAttachPolicyResponse where
   parseJSON =
-    Lude.withObject
-      "BatchAttachPolicyResponse"
-      (\x -> Lude.pure BatchAttachPolicyResponse')
+    Core.withObject "BatchAttachPolicyResponse" Core.$
+      \x -> Core.pure BatchAttachPolicyResponse'

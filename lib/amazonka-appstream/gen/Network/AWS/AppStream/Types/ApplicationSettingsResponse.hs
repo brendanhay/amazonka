@@ -17,71 +17,67 @@ module Network.AWS.AppStream.Types.ApplicationSettingsResponse
     mkApplicationSettingsResponse,
 
     -- * Lenses
-    asEnabled,
-    asSettingsGroup,
-    asS3BucketName,
+    asrEnabled,
+    asrS3BucketName,
+    asrSettingsGroup,
   )
 where
 
+import qualified Network.AWS.AppStream.Types.S3BucketName as Types
+import qualified Network.AWS.AppStream.Types.SettingsGroup as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes the persistent application settings for users of a stack.
 --
 -- /See:/ 'mkApplicationSettingsResponse' smart constructor.
 data ApplicationSettingsResponse = ApplicationSettingsResponse'
   { -- | Specifies whether persistent application settings are enabled for users during their streaming sessions.
-    enabled :: Lude.Maybe Lude.Bool,
-    -- | The path prefix for the S3 bucket where users’ persistent application settings are stored.
-    settingsGroup :: Lude.Maybe Lude.Text,
+    enabled :: Core.Maybe Core.Bool,
     -- | The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region.
-    s3BucketName :: Lude.Maybe Lude.Text
+    s3BucketName :: Core.Maybe Types.S3BucketName,
+    -- | The path prefix for the S3 bucket where users’ persistent application settings are stored.
+    settingsGroup :: Core.Maybe Types.SettingsGroup
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ApplicationSettingsResponse' with the minimum fields required to make a request.
---
--- * 'enabled' - Specifies whether persistent application settings are enabled for users during their streaming sessions.
--- * 'settingsGroup' - The path prefix for the S3 bucket where users’ persistent application settings are stored.
--- * 's3BucketName' - The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region.
+-- | Creates a 'ApplicationSettingsResponse' value with any optional fields omitted.
 mkApplicationSettingsResponse ::
   ApplicationSettingsResponse
 mkApplicationSettingsResponse =
   ApplicationSettingsResponse'
-    { enabled = Lude.Nothing,
-      settingsGroup = Lude.Nothing,
-      s3BucketName = Lude.Nothing
+    { enabled = Core.Nothing,
+      s3BucketName = Core.Nothing,
+      settingsGroup = Core.Nothing
     }
 
 -- | Specifies whether persistent application settings are enabled for users during their streaming sessions.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asEnabled :: Lens.Lens' ApplicationSettingsResponse (Lude.Maybe Lude.Bool)
-asEnabled = Lens.lens (enabled :: ApplicationSettingsResponse -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ApplicationSettingsResponse)
-{-# DEPRECATED asEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
-
--- | The path prefix for the S3 bucket where users’ persistent application settings are stored.
---
--- /Note:/ Consider using 'settingsGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asSettingsGroup :: Lens.Lens' ApplicationSettingsResponse (Lude.Maybe Lude.Text)
-asSettingsGroup = Lens.lens (settingsGroup :: ApplicationSettingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {settingsGroup = a} :: ApplicationSettingsResponse)
-{-# DEPRECATED asSettingsGroup "Use generic-lens or generic-optics with 'settingsGroup' instead." #-}
+asrEnabled :: Lens.Lens' ApplicationSettingsResponse (Core.Maybe Core.Bool)
+asrEnabled = Lens.field @"enabled"
+{-# DEPRECATED asrEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The S3 bucket where users’ persistent application settings are stored. When persistent application settings are enabled for the first time for an account in an AWS Region, an S3 bucket is created. The bucket is unique to the AWS account and the Region.
 --
 -- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-asS3BucketName :: Lens.Lens' ApplicationSettingsResponse (Lude.Maybe Lude.Text)
-asS3BucketName = Lens.lens (s3BucketName :: ApplicationSettingsResponse -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: ApplicationSettingsResponse)
-{-# DEPRECATED asS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
+asrS3BucketName :: Lens.Lens' ApplicationSettingsResponse (Core.Maybe Types.S3BucketName)
+asrS3BucketName = Lens.field @"s3BucketName"
+{-# DEPRECATED asrS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
-instance Lude.FromJSON ApplicationSettingsResponse where
+-- | The path prefix for the S3 bucket where users’ persistent application settings are stored.
+--
+-- /Note:/ Consider using 'settingsGroup' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+asrSettingsGroup :: Lens.Lens' ApplicationSettingsResponse (Core.Maybe Types.SettingsGroup)
+asrSettingsGroup = Lens.field @"settingsGroup"
+{-# DEPRECATED asrSettingsGroup "Use generic-lens or generic-optics with 'settingsGroup' instead." #-}
+
+instance Core.FromJSON ApplicationSettingsResponse where
   parseJSON =
-    Lude.withObject
-      "ApplicationSettingsResponse"
-      ( \x ->
-          ApplicationSettingsResponse'
-            Lude.<$> (x Lude..:? "Enabled")
-            Lude.<*> (x Lude..:? "SettingsGroup")
-            Lude.<*> (x Lude..:? "S3BucketName")
-      )
+    Core.withObject "ApplicationSettingsResponse" Core.$
+      \x ->
+        ApplicationSettingsResponse'
+          Core.<$> (x Core..:? "Enabled")
+          Core.<*> (x Core..:? "S3BucketName")
+          Core.<*> (x Core..:? "SettingsGroup")

@@ -17,76 +17,73 @@ module Network.AWS.DynamoDB.Types.ReplicaGlobalSecondaryIndexSettingsUpdate
     mkReplicaGlobalSecondaryIndexSettingsUpdate,
 
     -- * Lenses
+    rgsisuIndexName,
     rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate,
     rgsisuProvisionedReadCapacityUnits,
-    rgsisuIndexName,
   )
 where
 
-import Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate
+import qualified Network.AWS.DynamoDB.Types.AutoScalingSettingsUpdate as Types
+import qualified Network.AWS.DynamoDB.Types.IndexName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the settings of a global secondary index for a global table that will be modified.
 --
 -- /See:/ 'mkReplicaGlobalSecondaryIndexSettingsUpdate' smart constructor.
 data ReplicaGlobalSecondaryIndexSettingsUpdate = ReplicaGlobalSecondaryIndexSettingsUpdate'
-  { -- | Auto scaling settings for managing a global secondary index replica's read capacity units.
-    provisionedReadCapacityAutoScalingSettingsUpdate :: Lude.Maybe AutoScalingSettingsUpdate,
+  { -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
+    indexName :: Types.IndexName,
+    -- | Auto scaling settings for managing a global secondary index replica's read capacity units.
+    provisionedReadCapacityAutoScalingSettingsUpdate :: Core.Maybe Types.AutoScalingSettingsUpdate,
     -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ .
-    provisionedReadCapacityUnits :: Lude.Maybe Lude.Natural,
-    -- | The name of the global secondary index. The name must be unique among all other indexes on this table.
-    indexName :: Lude.Text
+    provisionedReadCapacityUnits :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ReplicaGlobalSecondaryIndexSettingsUpdate' with the minimum fields required to make a request.
---
--- * 'provisionedReadCapacityAutoScalingSettingsUpdate' - Auto scaling settings for managing a global secondary index replica's read capacity units.
--- * 'provisionedReadCapacityUnits' - The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ .
--- * 'indexName' - The name of the global secondary index. The name must be unique among all other indexes on this table.
+-- | Creates a 'ReplicaGlobalSecondaryIndexSettingsUpdate' value with any optional fields omitted.
 mkReplicaGlobalSecondaryIndexSettingsUpdate ::
   -- | 'indexName'
-  Lude.Text ->
+  Types.IndexName ->
   ReplicaGlobalSecondaryIndexSettingsUpdate
-mkReplicaGlobalSecondaryIndexSettingsUpdate pIndexName_ =
+mkReplicaGlobalSecondaryIndexSettingsUpdate indexName =
   ReplicaGlobalSecondaryIndexSettingsUpdate'
-    { provisionedReadCapacityAutoScalingSettingsUpdate =
-        Lude.Nothing,
-      provisionedReadCapacityUnits = Lude.Nothing,
-      indexName = pIndexName_
+    { indexName,
+      provisionedReadCapacityAutoScalingSettingsUpdate =
+        Core.Nothing,
+      provisionedReadCapacityUnits = Core.Nothing
     }
+
+-- | The name of the global secondary index. The name must be unique among all other indexes on this table.
+--
+-- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rgsisuIndexName :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate Types.IndexName
+rgsisuIndexName = Lens.field @"indexName"
+{-# DEPRECATED rgsisuIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
 
 -- | Auto scaling settings for managing a global secondary index replica's read capacity units.
 --
 -- /Note:/ Consider using 'provisionedReadCapacityAutoScalingSettingsUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Lude.Maybe AutoScalingSettingsUpdate)
-rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate = Lens.lens (provisionedReadCapacityAutoScalingSettingsUpdate :: ReplicaGlobalSecondaryIndexSettingsUpdate -> Lude.Maybe AutoScalingSettingsUpdate) (\s a -> s {provisionedReadCapacityAutoScalingSettingsUpdate = a} :: ReplicaGlobalSecondaryIndexSettingsUpdate)
+rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Core.Maybe Types.AutoScalingSettingsUpdate)
+rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate = Lens.field @"provisionedReadCapacityAutoScalingSettingsUpdate"
 {-# DEPRECATED rgsisuProvisionedReadCapacityAutoScalingSettingsUpdate "Use generic-lens or generic-optics with 'provisionedReadCapacityAutoScalingSettingsUpdate' instead." #-}
 
 -- | The maximum number of strongly consistent reads consumed per second before DynamoDB returns a @ThrottlingException@ .
 --
 -- /Note:/ Consider using 'provisionedReadCapacityUnits' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsisuProvisionedReadCapacityUnits :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Lude.Maybe Lude.Natural)
-rgsisuProvisionedReadCapacityUnits = Lens.lens (provisionedReadCapacityUnits :: ReplicaGlobalSecondaryIndexSettingsUpdate -> Lude.Maybe Lude.Natural) (\s a -> s {provisionedReadCapacityUnits = a} :: ReplicaGlobalSecondaryIndexSettingsUpdate)
+rgsisuProvisionedReadCapacityUnits :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate (Core.Maybe Core.Natural)
+rgsisuProvisionedReadCapacityUnits = Lens.field @"provisionedReadCapacityUnits"
 {-# DEPRECATED rgsisuProvisionedReadCapacityUnits "Use generic-lens or generic-optics with 'provisionedReadCapacityUnits' instead." #-}
 
--- | The name of the global secondary index. The name must be unique among all other indexes on this table.
---
--- /Note:/ Consider using 'indexName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rgsisuIndexName :: Lens.Lens' ReplicaGlobalSecondaryIndexSettingsUpdate Lude.Text
-rgsisuIndexName = Lens.lens (indexName :: ReplicaGlobalSecondaryIndexSettingsUpdate -> Lude.Text) (\s a -> s {indexName = a} :: ReplicaGlobalSecondaryIndexSettingsUpdate)
-{-# DEPRECATED rgsisuIndexName "Use generic-lens or generic-optics with 'indexName' instead." #-}
-
-instance Lude.ToJSON ReplicaGlobalSecondaryIndexSettingsUpdate where
-  toJSON ReplicaGlobalSecondaryIndexSettingsUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ProvisionedReadCapacityAutoScalingSettingsUpdate" Lude..=)
-              Lude.<$> provisionedReadCapacityAutoScalingSettingsUpdate,
-            ("ProvisionedReadCapacityUnits" Lude..=)
-              Lude.<$> provisionedReadCapacityUnits,
-            Lude.Just ("IndexName" Lude..= indexName)
+instance Core.FromJSON ReplicaGlobalSecondaryIndexSettingsUpdate where
+  toJSON ReplicaGlobalSecondaryIndexSettingsUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("IndexName" Core..= indexName),
+            ("ProvisionedReadCapacityAutoScalingSettingsUpdate" Core..=)
+              Core.<$> provisionedReadCapacityAutoScalingSettingsUpdate,
+            ("ProvisionedReadCapacityUnits" Core..=)
+              Core.<$> provisionedReadCapacityUnits
           ]
       )

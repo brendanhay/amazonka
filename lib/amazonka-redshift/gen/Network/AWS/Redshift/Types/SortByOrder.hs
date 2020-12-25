@@ -13,47 +13,49 @@
 module Network.AWS.Redshift.Types.SortByOrder
   ( SortByOrder
       ( SortByOrder',
-        Asc,
-        Desc
+        SortByOrderAsc,
+        SortByOrderDesc,
+        fromSortByOrder
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Internal
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Internal as Types
 
-newtype SortByOrder = SortByOrder' Lude.Text
+newtype SortByOrder = SortByOrder' {fromSortByOrder :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Asc :: SortByOrder
-pattern Asc = SortByOrder' "ASC"
+pattern SortByOrderAsc :: SortByOrder
+pattern SortByOrderAsc = SortByOrder' "ASC"
 
-pattern Desc :: SortByOrder
-pattern Desc = SortByOrder' "DESC"
+pattern SortByOrderDesc :: SortByOrder
+pattern SortByOrderDesc = SortByOrder' "DESC"
 
 {-# COMPLETE
-  Asc,
-  Desc,
+  SortByOrderAsc,
+  SortByOrderDesc,
   SortByOrder'
   #-}

@@ -34,8 +34,8 @@ module Network.AWS.S3.PutBucketNotificationConfiguration
     mkPutBucketNotificationConfiguration,
 
     -- ** Request lenses
-    pbncNotificationConfiguration,
     pbncBucket,
+    pbncNotificationConfiguration,
     pbncExpectedBucketOwner,
 
     -- * Destructuring the response
@@ -45,96 +45,82 @@ module Network.AWS.S3.PutBucketNotificationConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.S3.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.S3.Types as Types
 
 -- | /See:/ 'mkPutBucketNotificationConfiguration' smart constructor.
 data PutBucketNotificationConfiguration = PutBucketNotificationConfiguration'
-  { notificationConfiguration :: NotificationConfiguration,
-    -- | The name of the bucket.
-    bucket :: BucketName,
+  { -- | The name of the bucket.
+    bucket :: Types.BucketName,
+    notificationConfiguration :: Types.NotificationConfiguration,
     -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
-    expectedBucketOwner :: Lude.Maybe Lude.Text
+    expectedBucketOwner :: Core.Maybe Types.ExpectedBucketOwner
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketNotificationConfiguration' with the minimum fields required to make a request.
---
--- * 'notificationConfiguration' -
--- * 'bucket' - The name of the bucket.
--- * 'expectedBucketOwner' - The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
+-- | Creates a 'PutBucketNotificationConfiguration' value with any optional fields omitted.
 mkPutBucketNotificationConfiguration ::
-  -- | 'notificationConfiguration'
-  NotificationConfiguration ->
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
+  -- | 'notificationConfiguration'
+  Types.NotificationConfiguration ->
   PutBucketNotificationConfiguration
 mkPutBucketNotificationConfiguration
-  pNotificationConfiguration_
-  pBucket_ =
+  bucket
+  notificationConfiguration =
     PutBucketNotificationConfiguration'
-      { notificationConfiguration =
-          pNotificationConfiguration_,
-        bucket = pBucket_,
-        expectedBucketOwner = Lude.Nothing
+      { bucket,
+        notificationConfiguration,
+        expectedBucketOwner = Core.Nothing
       }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'notificationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbncNotificationConfiguration :: Lens.Lens' PutBucketNotificationConfiguration NotificationConfiguration
-pbncNotificationConfiguration = Lens.lens (notificationConfiguration :: PutBucketNotificationConfiguration -> NotificationConfiguration) (\s a -> s {notificationConfiguration = a} :: PutBucketNotificationConfiguration)
-{-# DEPRECATED pbncNotificationConfiguration "Use generic-lens or generic-optics with 'notificationConfiguration' instead." #-}
 
 -- | The name of the bucket.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbncBucket :: Lens.Lens' PutBucketNotificationConfiguration BucketName
-pbncBucket = Lens.lens (bucket :: PutBucketNotificationConfiguration -> BucketName) (\s a -> s {bucket = a} :: PutBucketNotificationConfiguration)
+pbncBucket :: Lens.Lens' PutBucketNotificationConfiguration Types.BucketName
+pbncBucket = Lens.field @"bucket"
 {-# DEPRECATED pbncBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'notificationConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+pbncNotificationConfiguration :: Lens.Lens' PutBucketNotificationConfiguration Types.NotificationConfiguration
+pbncNotificationConfiguration = Lens.field @"notificationConfiguration"
+{-# DEPRECATED pbncNotificationConfiguration "Use generic-lens or generic-optics with 'notificationConfiguration' instead." #-}
 
 -- | The account id of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP @403 (Access Denied)@ error.
 --
 -- /Note:/ Consider using 'expectedBucketOwner' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pbncExpectedBucketOwner :: Lens.Lens' PutBucketNotificationConfiguration (Lude.Maybe Lude.Text)
-pbncExpectedBucketOwner = Lens.lens (expectedBucketOwner :: PutBucketNotificationConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {expectedBucketOwner = a} :: PutBucketNotificationConfiguration)
+pbncExpectedBucketOwner :: Lens.Lens' PutBucketNotificationConfiguration (Core.Maybe Types.ExpectedBucketOwner)
+pbncExpectedBucketOwner = Lens.field @"expectedBucketOwner"
 {-# DEPRECATED pbncExpectedBucketOwner "Use generic-lens or generic-optics with 'expectedBucketOwner' instead." #-}
 
-instance Lude.AWSRequest PutBucketNotificationConfiguration where
+instance Core.AWSRequest PutBucketNotificationConfiguration where
   type
     Rs PutBucketNotificationConfiguration =
       PutBucketNotificationConfigurationResponse
-  request = Req.putXML s3Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath = Core.rawPath ("/" Core.<> (Core.toText bucket)),
+        Core._rqQuery = Core.pure ("notification", ""),
+        Core._rqHeaders =
+          Core.toHeaders "x-amz-expected-bucket-owner" expectedBucketOwner,
+        Core._rqBody = Core.toXMLBody x
+      }
   response =
-    Res.receiveNull PutBucketNotificationConfigurationResponse'
-
-instance Lude.ToElement PutBucketNotificationConfiguration where
-  toElement =
-    Lude.mkElement
-      "{http://s3.amazonaws.com/doc/2006-03-01/}NotificationConfiguration"
-      Lude.. notificationConfiguration
-
-instance Lude.ToHeaders PutBucketNotificationConfiguration where
-  toHeaders PutBucketNotificationConfiguration' {..} =
-    Lude.mconcat
-      ["x-amz-expected-bucket-owner" Lude.=# expectedBucketOwner]
-
-instance Lude.ToPath PutBucketNotificationConfiguration where
-  toPath PutBucketNotificationConfiguration' {..} =
-    Lude.mconcat ["/", Lude.toBS bucket]
-
-instance Lude.ToQuery PutBucketNotificationConfiguration where
-  toQuery = Lude.const (Lude.mconcat ["notification"])
+    Response.receiveNull PutBucketNotificationConfigurationResponse'
 
 -- | /See:/ 'mkPutBucketNotificationConfigurationResponse' smart constructor.
 data PutBucketNotificationConfigurationResponse = PutBucketNotificationConfigurationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PutBucketNotificationConfigurationResponse' with the minimum fields required to make a request.
+-- | Creates a 'PutBucketNotificationConfigurationResponse' value with any optional fields omitted.
 mkPutBucketNotificationConfigurationResponse ::
   PutBucketNotificationConfigurationResponse
 mkPutBucketNotificationConfigurationResponse =

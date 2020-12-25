@@ -21,37 +21,33 @@ module Network.AWS.EFS.Types.BackupPolicyDescription
   )
 where
 
-import Network.AWS.EFS.Types.BackupPolicy
+import qualified Network.AWS.EFS.Types.BackupPolicy as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | /See:/ 'mkBackupPolicyDescription' smart constructor.
 newtype BackupPolicyDescription = BackupPolicyDescription'
   { -- | Describes the file system's backup policy, indicating whether automatic backups are turned on or off..
-    backupPolicy :: Lude.Maybe BackupPolicy
+    backupPolicy :: Core.Maybe Types.BackupPolicy
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BackupPolicyDescription' with the minimum fields required to make a request.
---
--- * 'backupPolicy' - Describes the file system's backup policy, indicating whether automatic backups are turned on or off..
+-- | Creates a 'BackupPolicyDescription' value with any optional fields omitted.
 mkBackupPolicyDescription ::
   BackupPolicyDescription
 mkBackupPolicyDescription =
-  BackupPolicyDescription' {backupPolicy = Lude.Nothing}
+  BackupPolicyDescription' {backupPolicy = Core.Nothing}
 
 -- | Describes the file system's backup policy, indicating whether automatic backups are turned on or off..
 --
 -- /Note:/ Consider using 'backupPolicy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpdBackupPolicy :: Lens.Lens' BackupPolicyDescription (Lude.Maybe BackupPolicy)
-bpdBackupPolicy = Lens.lens (backupPolicy :: BackupPolicyDescription -> Lude.Maybe BackupPolicy) (\s a -> s {backupPolicy = a} :: BackupPolicyDescription)
+bpdBackupPolicy :: Lens.Lens' BackupPolicyDescription (Core.Maybe Types.BackupPolicy)
+bpdBackupPolicy = Lens.field @"backupPolicy"
 {-# DEPRECATED bpdBackupPolicy "Use generic-lens or generic-optics with 'backupPolicy' instead." #-}
 
-instance Lude.FromJSON BackupPolicyDescription where
+instance Core.FromJSON BackupPolicyDescription where
   parseJSON =
-    Lude.withObject
-      "BackupPolicyDescription"
-      ( \x ->
-          BackupPolicyDescription' Lude.<$> (x Lude..:? "BackupPolicy")
-      )
+    Core.withObject "BackupPolicyDescription" Core.$
+      \x ->
+        BackupPolicyDescription' Core.<$> (x Core..:? "BackupPolicy")

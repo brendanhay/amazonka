@@ -13,81 +13,83 @@
 module Network.AWS.SSM.Types.DocumentType
   ( DocumentType
       ( DocumentType',
-        DTCommand,
-        DTPolicy,
-        DTAutomation,
-        DTSession,
-        DTPackage,
-        DTApplicationConfiguration,
-        DTApplicationConfigurationSchema,
-        DTDeploymentStrategy,
-        DTChangeCalendar
+        DocumentTypeCommand,
+        DocumentTypePolicy,
+        DocumentTypeAutomation,
+        DocumentTypeSession,
+        DocumentTypePackage,
+        DocumentTypeApplicationConfiguration,
+        DocumentTypeApplicationConfigurationSchema,
+        DocumentTypeDeploymentStrategy,
+        DocumentTypeChangeCalendar,
+        fromDocumentType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DocumentType = DocumentType' Lude.Text
+newtype DocumentType = DocumentType' {fromDocumentType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern DTCommand :: DocumentType
-pattern DTCommand = DocumentType' "Command"
+pattern DocumentTypeCommand :: DocumentType
+pattern DocumentTypeCommand = DocumentType' "Command"
 
-pattern DTPolicy :: DocumentType
-pattern DTPolicy = DocumentType' "Policy"
+pattern DocumentTypePolicy :: DocumentType
+pattern DocumentTypePolicy = DocumentType' "Policy"
 
-pattern DTAutomation :: DocumentType
-pattern DTAutomation = DocumentType' "Automation"
+pattern DocumentTypeAutomation :: DocumentType
+pattern DocumentTypeAutomation = DocumentType' "Automation"
 
-pattern DTSession :: DocumentType
-pattern DTSession = DocumentType' "Session"
+pattern DocumentTypeSession :: DocumentType
+pattern DocumentTypeSession = DocumentType' "Session"
 
-pattern DTPackage :: DocumentType
-pattern DTPackage = DocumentType' "Package"
+pattern DocumentTypePackage :: DocumentType
+pattern DocumentTypePackage = DocumentType' "Package"
 
-pattern DTApplicationConfiguration :: DocumentType
-pattern DTApplicationConfiguration = DocumentType' "ApplicationConfiguration"
+pattern DocumentTypeApplicationConfiguration :: DocumentType
+pattern DocumentTypeApplicationConfiguration = DocumentType' "ApplicationConfiguration"
 
-pattern DTApplicationConfigurationSchema :: DocumentType
-pattern DTApplicationConfigurationSchema = DocumentType' "ApplicationConfigurationSchema"
+pattern DocumentTypeApplicationConfigurationSchema :: DocumentType
+pattern DocumentTypeApplicationConfigurationSchema = DocumentType' "ApplicationConfigurationSchema"
 
-pattern DTDeploymentStrategy :: DocumentType
-pattern DTDeploymentStrategy = DocumentType' "DeploymentStrategy"
+pattern DocumentTypeDeploymentStrategy :: DocumentType
+pattern DocumentTypeDeploymentStrategy = DocumentType' "DeploymentStrategy"
 
-pattern DTChangeCalendar :: DocumentType
-pattern DTChangeCalendar = DocumentType' "ChangeCalendar"
+pattern DocumentTypeChangeCalendar :: DocumentType
+pattern DocumentTypeChangeCalendar = DocumentType' "ChangeCalendar"
 
 {-# COMPLETE
-  DTCommand,
-  DTPolicy,
-  DTAutomation,
-  DTSession,
-  DTPackage,
-  DTApplicationConfiguration,
-  DTApplicationConfigurationSchema,
-  DTDeploymentStrategy,
-  DTChangeCalendar,
+  DocumentTypeCommand,
+  DocumentTypePolicy,
+  DocumentTypeAutomation,
+  DocumentTypeSession,
+  DocumentTypePackage,
+  DocumentTypeApplicationConfiguration,
+  DocumentTypeApplicationConfigurationSchema,
+  DocumentTypeDeploymentStrategy,
+  DocumentTypeChangeCalendar,
   DocumentType'
   #-}

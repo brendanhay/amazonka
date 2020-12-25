@@ -22,39 +22,36 @@ module Network.AWS.SMS.Types.Source
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SMS.Types.S3Location
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SMS.Types.S3Location as Types
 
 -- | Contains the location of a validation script.
 --
 -- /See:/ 'mkSource' smart constructor.
 newtype Source = Source'
-  { s3Location :: Lude.Maybe S3Location
+  { s3Location :: Core.Maybe Types.S3Location
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Source' with the minimum fields required to make a request.
---
--- * 's3Location' -
+-- | Creates a 'Source' value with any optional fields omitted.
 mkSource ::
   Source
-mkSource = Source' {s3Location = Lude.Nothing}
+mkSource = Source' {s3Location = Core.Nothing}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 's3Location' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sS3Location :: Lens.Lens' Source (Lude.Maybe S3Location)
-sS3Location = Lens.lens (s3Location :: Source -> Lude.Maybe S3Location) (\s a -> s {s3Location = a} :: Source)
+sS3Location :: Lens.Lens' Source (Core.Maybe Types.S3Location)
+sS3Location = Lens.field @"s3Location"
 {-# DEPRECATED sS3Location "Use generic-lens or generic-optics with 's3Location' instead." #-}
 
-instance Lude.FromJSON Source where
-  parseJSON =
-    Lude.withObject
-      "Source"
-      (\x -> Source' Lude.<$> (x Lude..:? "s3Location"))
+instance Core.FromJSON Source where
+  toJSON Source {..} =
+    Core.object
+      (Core.catMaybes [("s3Location" Core..=) Core.<$> s3Location])
 
-instance Lude.ToJSON Source where
-  toJSON Source' {..} =
-    Lude.object
-      (Lude.catMaybes [("s3Location" Lude..=) Lude.<$> s3Location])
+instance Core.FromJSON Source where
+  parseJSON =
+    Core.withObject "Source" Core.$
+      \x -> Source' Core.<$> (x Core..:? "s3Location")

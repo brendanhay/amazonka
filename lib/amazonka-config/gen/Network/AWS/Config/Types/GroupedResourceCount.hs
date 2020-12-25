@@ -22,56 +22,49 @@ module Network.AWS.Config.Types.GroupedResourceCount
   )
 where
 
+import qualified Network.AWS.Config.Types.GroupName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The count of resources that are grouped by the group name.
 --
 -- /See:/ 'mkGroupedResourceCount' smart constructor.
 data GroupedResourceCount = GroupedResourceCount'
   { -- | The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as @GroupByKey@ .
-    groupName :: Lude.Text,
+    groupName :: Types.GroupName,
     -- | The number of resources in the group.
-    resourceCount :: Lude.Integer
+    resourceCount :: Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GroupedResourceCount' with the minimum fields required to make a request.
---
--- * 'groupName' - The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as @GroupByKey@ .
--- * 'resourceCount' - The number of resources in the group.
+-- | Creates a 'GroupedResourceCount' value with any optional fields omitted.
 mkGroupedResourceCount ::
   -- | 'groupName'
-  Lude.Text ->
+  Types.GroupName ->
   -- | 'resourceCount'
-  Lude.Integer ->
+  Core.Integer ->
   GroupedResourceCount
-mkGroupedResourceCount pGroupName_ pResourceCount_ =
-  GroupedResourceCount'
-    { groupName = pGroupName_,
-      resourceCount = pResourceCount_
-    }
+mkGroupedResourceCount groupName resourceCount =
+  GroupedResourceCount' {groupName, resourceCount}
 
 -- | The name of the group that can be region, account ID, or resource type. For example, region1, region2 if the region was chosen as @GroupByKey@ .
 --
 -- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grcGroupName :: Lens.Lens' GroupedResourceCount Lude.Text
-grcGroupName = Lens.lens (groupName :: GroupedResourceCount -> Lude.Text) (\s a -> s {groupName = a} :: GroupedResourceCount)
+grcGroupName :: Lens.Lens' GroupedResourceCount Types.GroupName
+grcGroupName = Lens.field @"groupName"
 {-# DEPRECATED grcGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The number of resources in the group.
 --
 -- /Note:/ Consider using 'resourceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-grcResourceCount :: Lens.Lens' GroupedResourceCount Lude.Integer
-grcResourceCount = Lens.lens (resourceCount :: GroupedResourceCount -> Lude.Integer) (\s a -> s {resourceCount = a} :: GroupedResourceCount)
+grcResourceCount :: Lens.Lens' GroupedResourceCount Core.Integer
+grcResourceCount = Lens.field @"resourceCount"
 {-# DEPRECATED grcResourceCount "Use generic-lens or generic-optics with 'resourceCount' instead." #-}
 
-instance Lude.FromJSON GroupedResourceCount where
+instance Core.FromJSON GroupedResourceCount where
   parseJSON =
-    Lude.withObject
-      "GroupedResourceCount"
-      ( \x ->
-          GroupedResourceCount'
-            Lude.<$> (x Lude..: "GroupName") Lude.<*> (x Lude..: "ResourceCount")
-      )
+    Core.withObject "GroupedResourceCount" Core.$
+      \x ->
+        GroupedResourceCount'
+          Core.<$> (x Core..: "GroupName") Core.<*> (x Core..: "ResourceCount")

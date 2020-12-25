@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,16 @@
 -- GuardDuty informs you of the status of your AWS environment by producing security findings that you can view in the GuardDuty console or through Amazon CloudWatch events. For more information, see the /<https:\/\/docs.aws.amazon.com\/guardduty\/latest\/ug\/what-is-guardduty.html Amazon GuardDuty User Guide> / .
 module Network.AWS.GuardDuty
   ( -- * Service configuration
-    guardDutyService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InternalServerErrorException
+    _InternalServerErrorException,
+
+    -- ** BadRequestException
+    _BadRequestException,
 
     -- * Waiters
     -- $waiters
@@ -204,354 +209,6 @@ module Network.AWS.GuardDuty
 
     -- * Types
 
-    -- ** AdminStatus
-    AdminStatus (..),
-
-    -- ** DataSource
-    DataSource (..),
-
-    -- ** DataSourceStatus
-    DataSourceStatus (..),
-
-    -- ** DestinationType
-    DestinationType (..),
-
-    -- ** DetectorStatus
-    DetectorStatus (..),
-
-    -- ** Feedback
-    Feedback (..),
-
-    -- ** FilterAction
-    FilterAction (..),
-
-    -- ** FindingPublishingFrequency
-    FindingPublishingFrequency (..),
-
-    -- ** FindingStatisticType
-    FindingStatisticType (..),
-
-    -- ** IPSetFormat
-    IPSetFormat (..),
-
-    -- ** IPSetStatus
-    IPSetStatus (..),
-
-    -- ** OrderBy
-    OrderBy (..),
-
-    -- ** PublishingStatus
-    PublishingStatus (..),
-
-    -- ** ThreatIntelSetFormat
-    ThreatIntelSetFormat (..),
-
-    -- ** ThreatIntelSetStatus
-    ThreatIntelSetStatus (..),
-
-    -- ** UsageStatisticType
-    UsageStatisticType (..),
-
-    -- ** AWSAPICallAction
-    AWSAPICallAction (..),
-    mkAWSAPICallAction,
-    aacaRemoteIPDetails,
-    aacaCallerType,
-    aacaDomainDetails,
-    aacaServiceName,
-    aacaErrorCode,
-    aacaAPI,
-
-    -- ** AccessControlList
-    AccessControlList (..),
-    mkAccessControlList,
-    aclAllowsPublicWriteAccess,
-    aclAllowsPublicReadAccess,
-
-    -- ** AccessKeyDetails
-    AccessKeyDetails (..),
-    mkAccessKeyDetails,
-    akdPrincipalId,
-    akdUserName,
-    akdAccessKeyId,
-    akdUserType,
-
-    -- ** AccountDetail
-    AccountDetail (..),
-    mkAccountDetail,
-    adEmail,
-    adAccountId,
-
-    -- ** AccountLevelPermissions
-    AccountLevelPermissions (..),
-    mkAccountLevelPermissions,
-    alpBlockPublicAccess,
-
-    -- ** Action
-    Action (..),
-    mkAction,
-    aNetworkConnectionAction,
-    aPortProbeAction,
-    aActionType,
-    aDNSRequestAction,
-    aAWSAPICallAction,
-
-    -- ** AdminAccount
-    AdminAccount (..),
-    mkAdminAccount,
-    aaAdminAccountId,
-    aaAdminStatus,
-
-    -- ** BlockPublicAccess
-    BlockPublicAccess (..),
-    mkBlockPublicAccess,
-    bpaIgnorePublicACLs,
-    bpaBlockPublicACLs,
-    bpaRestrictPublicBuckets,
-    bpaBlockPublicPolicy,
-
-    -- ** BucketLevelPermissions
-    BucketLevelPermissions (..),
-    mkBucketLevelPermissions,
-    blpAccessControlList,
-    blpBlockPublicAccess,
-    blpBucketPolicy,
-
-    -- ** BucketPolicy
-    BucketPolicy (..),
-    mkBucketPolicy,
-    bpAllowsPublicWriteAccess,
-    bpAllowsPublicReadAccess,
-
-    -- ** City
-    City (..),
-    mkCity,
-    cCityName,
-
-    -- ** CloudTrailConfigurationResult
-    CloudTrailConfigurationResult (..),
-    mkCloudTrailConfigurationResult,
-    ctcrStatus,
-
-    -- ** Condition
-    Condition (..),
-    mkCondition,
-    cEQ,
-    cLessThan,
-    cLte,
-    cGreaterThanOrEqual,
-    cLessThanOrEqual,
-    cGT,
-    cEquals,
-    cNeq,
-    cNotEquals,
-    cLT,
-    cGte,
-    cGreaterThan,
-
-    -- ** Country
-    Country (..),
-    mkCountry,
-    cCountryName,
-    cCountryCode,
-
-    -- ** DNSLogsConfigurationResult
-    DNSLogsConfigurationResult (..),
-    mkDNSLogsConfigurationResult,
-    dlcrStatus,
-
-    -- ** DNSRequestAction
-    DNSRequestAction (..),
-    mkDNSRequestAction,
-    draDomain,
-
-    -- ** DataSourceConfigurations
-    DataSourceConfigurations (..),
-    mkDataSourceConfigurations,
-    dscS3Logs,
-
-    -- ** DataSourceConfigurationsResult
-    DataSourceConfigurationsResult (..),
-    mkDataSourceConfigurationsResult,
-    dscrS3Logs,
-    dscrCloudTrail,
-    dscrFlowLogs,
-    dscrDNSLogs,
-
-    -- ** DefaultServerSideEncryption
-    DefaultServerSideEncryption (..),
-    mkDefaultServerSideEncryption,
-    dsseEncryptionType,
-    dsseKMSMasterKeyARN,
-
-    -- ** Destination
-    Destination (..),
-    mkDestination,
-    dStatus,
-    dDestinationType,
-    dDestinationId,
-
-    -- ** DestinationProperties
-    DestinationProperties (..),
-    mkDestinationProperties,
-    dpKMSKeyARN,
-    dpDestinationARN,
-
-    -- ** DomainDetails
-    DomainDetails (..),
-    mkDomainDetails,
-    ddDomain,
-
-    -- ** Evidence
-    Evidence (..),
-    mkEvidence,
-    eThreatIntelligenceDetails,
-
-    -- ** Finding
-    Finding (..),
-    mkFinding,
-    fARN,
-    fService,
-    fCreatedAt,
-    fSeverity,
-    fSchemaVersion,
-    fAccountId,
-    fConfidence,
-    fResource,
-    fPartition,
-    fId,
-    fTitle,
-    fRegion,
-    fType,
-    fUpdatedAt,
-    fDescription,
-
-    -- ** FindingCriteria
-    FindingCriteria (..),
-    mkFindingCriteria,
-    fcCriterion,
-
-    -- ** FindingStatistics
-    FindingStatistics (..),
-    mkFindingStatistics,
-    fsCountBySeverity,
-
-    -- ** FlowLogsConfigurationResult
-    FlowLogsConfigurationResult (..),
-    mkFlowLogsConfigurationResult,
-    flcrStatus,
-
-    -- ** GeoLocation
-    GeoLocation (..),
-    mkGeoLocation,
-    glLat,
-    glLon,
-
-    -- ** IAMInstanceProfile
-    IAMInstanceProfile (..),
-    mkIAMInstanceProfile,
-    iapARN,
-    iapId,
-
-    -- ** InstanceDetails
-    InstanceDetails (..),
-    mkInstanceDetails,
-    idInstanceId,
-    idPlatform,
-    idLaunchTime,
-    idNetworkInterfaces,
-    idOutpostARN,
-    idInstanceType,
-    idAvailabilityZone,
-    idIAMInstanceProfile,
-    idImageId,
-    idProductCodes,
-    idInstanceState,
-    idTags,
-    idImageDescription,
-
-    -- ** Invitation
-    Invitation (..),
-    mkInvitation,
-    iInvitedAt,
-    iRelationshipStatus,
-    iInvitationId,
-    iAccountId,
-
-    -- ** LocalIPDetails
-    LocalIPDetails (..),
-    mkLocalIPDetails,
-    lidIPAddressV4,
-
-    -- ** LocalPortDetails
-    LocalPortDetails (..),
-    mkLocalPortDetails,
-    lpdPortName,
-    lpdPort,
-
-    -- ** Master
-    Master (..),
-    mkMaster,
-    mfInvitedAt,
-    mfRelationshipStatus,
-    mfInvitationId,
-    mfAccountId,
-
-    -- ** Member
-    Member (..),
-    mkMember,
-    mEmail,
-    mInvitedAt,
-    mRelationshipStatus,
-    mMasterId,
-    mAccountId,
-    mDetectorId,
-    mUpdatedAt,
-
-    -- ** MemberDataSourceConfiguration
-    MemberDataSourceConfiguration (..),
-    mkMemberDataSourceConfiguration,
-    mdscDataSources,
-    mdscAccountId,
-
-    -- ** NetworkConnectionAction
-    NetworkConnectionAction (..),
-    mkNetworkConnectionAction,
-    ncaRemoteIPDetails,
-    ncaProtocol,
-    ncaLocalIPDetails,
-    ncaRemotePortDetails,
-    ncaBlocked,
-    ncaConnectionDirection,
-    ncaLocalPortDetails,
-
-    -- ** NetworkInterface
-    NetworkInterface (..),
-    mkNetworkInterface,
-    niPrivateIPAddresses,
-    niPublicDNSName,
-    niSecurityGroups,
-    niVPCId,
-    niNetworkInterfaceId,
-    niSubnetId,
-    niPrivateIPAddress,
-    niPublicIP,
-    niPrivateDNSName,
-    niIPv6Addresses,
-
-    -- ** Organization
-    Organization (..),
-    mkOrganization,
-    oOrg,
-    oASNOrg,
-    oASN,
-    oIsp,
-
-    -- ** OrganizationDataSourceConfigurations
-    OrganizationDataSourceConfigurations (..),
-    mkOrganizationDataSourceConfigurations,
-    odscS3Logs,
-
     -- ** OrganizationDataSourceConfigurationsResult
     OrganizationDataSourceConfigurationsResult (..),
     mkOrganizationDataSourceConfigurationsResult,
@@ -562,147 +219,65 @@ module Network.AWS.GuardDuty
     mkOrganizationS3LogsConfiguration,
     oslcAutoEnable,
 
-    -- ** OrganizationS3LogsConfigurationResult
-    OrganizationS3LogsConfigurationResult (..),
-    mkOrganizationS3LogsConfigurationResult,
-    oslcrAutoEnable,
+    -- ** Destination
+    Destination (..),
+    mkDestination,
+    dDestinationId,
+    dDestinationType,
+    dStatus,
 
-    -- ** Owner
-    Owner (..),
-    mkOwner,
-    oId,
+    -- ** Email
+    Email (..),
 
-    -- ** PermissionConfiguration
-    PermissionConfiguration (..),
-    mkPermissionConfiguration,
-    pcBucketLevelPermissions,
-    pcAccountLevelPermissions,
-
-    -- ** PortProbeAction
-    PortProbeAction (..),
-    mkPortProbeAction,
-    ppaPortProbeDetails,
-    ppaBlocked,
-
-    -- ** PortProbeDetail
-    PortProbeDetail (..),
-    mkPortProbeDetail,
-    ppdRemoteIPDetails,
-    ppdLocalIPDetails,
-    ppdLocalPortDetails,
-
-    -- ** PrivateIPAddressDetails
-    PrivateIPAddressDetails (..),
-    mkPrivateIPAddressDetails,
-    piadPrivateIPAddress,
-    piadPrivateDNSName,
-
-    -- ** ProductCode
-    ProductCode (..),
-    mkProductCode,
-    pcProductType,
-    pcCode,
-
-    -- ** PublicAccess
-    PublicAccess (..),
-    mkPublicAccess,
-    paPermissionConfiguration,
-    paEffectivePermission,
-
-    -- ** RemoteIPDetails
-    RemoteIPDetails (..),
-    mkRemoteIPDetails,
-    ridCountry,
+    -- ** RemoteIpDetails
+    RemoteIpDetails (..),
+    mkRemoteIpDetails,
     ridCity,
-    ridIPAddressV4,
+    ridCountry,
     ridGeoLocation,
+    ridIpAddressV4,
     ridOrganization,
 
-    -- ** RemotePortDetails
-    RemotePortDetails (..),
-    mkRemotePortDetails,
-    rpdPortName,
-    rpdPort,
-
-    -- ** Resource
-    Resource (..),
-    mkResource,
-    rResourceType,
-    rS3BucketDetails,
-    rInstanceDetails,
-    rAccessKeyDetails,
-
-    -- ** S3BucketDetail
-    S3BucketDetail (..),
-    mkS3BucketDetail,
-    sbdARN,
-    sbdCreatedAt,
-    sbdOwner,
-    sbdName,
-    sbdDefaultServerSideEncryption,
-    sbdPublicAccess,
-    sbdType,
-    sbdTags,
+    -- ** FilterName
+    FilterName (..),
 
     -- ** S3LogsConfiguration
     S3LogsConfiguration (..),
     mkS3LogsConfiguration,
     slcEnable,
 
-    -- ** S3LogsConfigurationResult
-    S3LogsConfigurationResult (..),
-    mkS3LogsConfigurationResult,
-    slcrStatus,
-
-    -- ** SecurityGroup
-    SecurityGroup (..),
-    mkSecurityGroup,
-    sgGroupId,
-    sgGroupName,
-
-    -- ** ServiceInfo
-    ServiceInfo (..),
-    mkServiceInfo,
-    siCount,
-    siEventFirstSeen,
-    siAction,
-    siDetectorId,
-    siServiceName,
-    siUserFeedback,
-    siEvidence,
-    siEventLastSeen,
-    siResourceRole,
-    siArchived,
-
-    -- ** SortCriteria
-    SortCriteria (..),
-    mkSortCriteria,
-    scOrderBy,
-    scAttributeName,
+    -- ** CloudTrailConfigurationResult
+    CloudTrailConfigurationResult (..),
+    mkCloudTrailConfigurationResult,
+    ctcrStatus,
 
     -- ** Tag
     Tag (..),
     mkTag,
-    tValue,
     tKey,
+    tValue,
 
     -- ** ThreatIntelligenceDetail
     ThreatIntelligenceDetail (..),
     mkThreatIntelligenceDetail,
-    tidThreatNames,
     tidThreatListName,
+    tidThreatNames,
 
-    -- ** Total
-    Total (..),
-    mkTotal,
-    tAmount,
-    tUnit,
+    -- ** ClientToken
+    ClientToken (..),
 
-    -- ** UnprocessedAccount
-    UnprocessedAccount (..),
-    mkUnprocessedAccount,
-    uaResult,
-    uaAccountId,
+    -- ** Location
+    Location (..),
+
+    -- ** OrganizationS3LogsConfigurationResult
+    OrganizationS3LogsConfigurationResult (..),
+    mkOrganizationS3LogsConfigurationResult,
+    oslcrAutoEnable,
+
+    -- ** OrganizationDataSourceConfigurations
+    OrganizationDataSourceConfigurations (..),
+    mkOrganizationDataSourceConfigurations,
+    odscS3Logs,
 
     -- ** UsageAccountResult
     UsageAccountResult (..),
@@ -710,42 +285,545 @@ module Network.AWS.GuardDuty
     uarAccountId,
     uarTotal,
 
-    -- ** UsageCriteria
-    UsageCriteria (..),
-    mkUsageCriteria,
-    ucAccountIds,
-    ucDataSources,
-    ucResources,
+    -- ** MemberDataSourceConfiguration
+    MemberDataSourceConfiguration (..),
+    mkMemberDataSourceConfiguration,
+    mdscAccountId,
+    mdscDataSources,
 
-    -- ** UsageDataSourceResult
-    UsageDataSourceResult (..),
-    mkUsageDataSourceResult,
-    udsrTotal,
-    udsrDataSource,
+    -- ** PublishingStatus
+    PublishingStatus (..),
 
-    -- ** UsageResourceResult
-    UsageResourceResult (..),
-    mkUsageResourceResult,
-    urrTotal,
-    urrResource,
+    -- ** String
+    String (..),
+
+    -- ** ServiceInfo
+    ServiceInfo (..),
+    mkServiceInfo,
+    siAction,
+    siArchived,
+    siCount,
+    siDetectorId,
+    siEventFirstSeen,
+    siEventLastSeen,
+    siEvidence,
+    siResourceRole,
+    siServiceName,
+    siUserFeedback,
+
+    -- ** OrderBy
+    OrderBy (..),
+
+    -- ** Finding
+    Finding (..),
+    mkFinding,
+    fAccountId,
+    fArn,
+    fCreatedAt,
+    fId,
+    fRegion,
+    fResource,
+    fSchemaVersion,
+    fSeverity,
+    fType,
+    fUpdatedAt,
+    fConfidence,
+    fDescription,
+    fPartition,
+    fService,
+    fTitle,
+
+    -- ** UnprocessedAccount
+    UnprocessedAccount (..),
+    mkUnprocessedAccount,
+    uaAccountId,
+    uaResult,
+
+    -- ** Country
+    Country (..),
+    mkCountry,
+    cCountryCode,
+    cCountryName,
+
+    -- ** FindingPublishingFrequency
+    FindingPublishingFrequency (..),
+
+    -- ** BucketLevelPermissions
+    BucketLevelPermissions (..),
+    mkBucketLevelPermissions,
+    blpAccessControlList,
+    blpBlockPublicAccess,
+    blpBucketPolicy,
 
     -- ** UsageStatistics
     UsageStatistics (..),
     mkUsageStatistics,
-    usTopResources,
-    usSumByResource,
-    usSumByDataSource,
     usSumByAccount,
+    usSumByDataSource,
+    usSumByResource,
+    usTopResources,
+
+    -- ** PrivateIpAddressDetails
+    PrivateIpAddressDetails (..),
+    mkPrivateIpAddressDetails,
+    piadPrivateDnsName,
+    piadPrivateIpAddress,
+
+    -- ** NetworkInterface
+    NetworkInterface (..),
+    mkNetworkInterface,
+    niIpv6Addresses,
+    niNetworkInterfaceId,
+    niPrivateDnsName,
+    niPrivateIpAddress,
+    niPrivateIpAddresses,
+    niPublicDnsName,
+    niPublicIp,
+    niSecurityGroups,
+    niSubnetId,
+    niVpcId,
+
+    -- ** FindingStatisticType
+    FindingStatisticType (..),
+
+    -- ** AdminStatus
+    AdminStatus (..),
+
+    -- ** FindingCriteria
+    FindingCriteria (..),
+    mkFindingCriteria,
+    fcCriterion,
+
+    -- ** Action
+    Action (..),
+    mkAction,
+    aActionType,
+    aAwsApiCallAction,
+    aDnsRequestAction,
+    aNetworkConnectionAction,
+    aPortProbeAction,
+
+    -- ** AdminAccount
+    AdminAccount (..),
+    mkAdminAccount,
+    aaAdminAccountId,
+    aaAdminStatus,
+
+    -- ** DataSourceConfigurations
+    DataSourceConfigurations (..),
+    mkDataSourceConfigurations,
+    dscS3Logs,
+
+    -- ** FilterDescription
+    FilterDescription (..),
+
+    -- ** LocalIpDetails
+    LocalIpDetails (..),
+    mkLocalIpDetails,
+    lidIpAddressV4,
+
+    -- ** NetworkConnectionAction
+    NetworkConnectionAction (..),
+    mkNetworkConnectionAction,
+    ncaBlocked,
+    ncaConnectionDirection,
+    ncaLocalIpDetails,
+    ncaLocalPortDetails,
+    ncaProtocol,
+    ncaRemoteIpDetails,
+    ncaRemotePortDetails,
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** UsageDataSourceResult
+    UsageDataSourceResult (..),
+    mkUsageDataSourceResult,
+    udsrDataSource,
+    udsrTotal,
+
+    -- ** SortCriteria
+    SortCriteria (..),
+    mkSortCriteria,
+    scAttributeName,
+    scOrderBy,
+
+    -- ** Owner
+    Owner (..),
+    mkOwner,
+    oId,
+
+    -- ** Invitation
+    Invitation (..),
+    mkInvitation,
+    iAccountId,
+    iInvitationId,
+    iInvitedAt,
+    iRelationshipStatus,
+
+    -- ** SecurityGroup
+    SecurityGroup (..),
+    mkSecurityGroup,
+    sgGroupId,
+    sgGroupName,
+
+    -- ** AccessControlList
+    AccessControlList (..),
+    mkAccessControlList,
+    aclAllowsPublicReadAccess,
+    aclAllowsPublicWriteAccess,
+
+    -- ** AccountId
+    AccountId (..),
+
+    -- ** GuardDutyArn
+    GuardDutyArn (..),
+
+    -- ** FlowLogsConfigurationResult
+    FlowLogsConfigurationResult (..),
+    mkFlowLogsConfigurationResult,
+    flcrStatus,
+
+    -- ** BlockPublicAccess
+    BlockPublicAccess (..),
+    mkBlockPublicAccess,
+    bpaBlockPublicAcls,
+    bpaBlockPublicPolicy,
+    bpaIgnorePublicAcls,
+    bpaRestrictPublicBuckets,
+
+    -- ** DestinationType
+    DestinationType (..),
+
+    -- ** Master
+    Master (..),
+    mkMaster,
+    mfAccountId,
+    mfInvitationId,
+    mfInvitedAt,
+    mfRelationshipStatus,
+
+    -- ** AccountLevelPermissions
+    AccountLevelPermissions (..),
+    mkAccountLevelPermissions,
+    alpBlockPublicAccess,
+
+    -- ** DetectorId
+    DetectorId (..),
+
+    -- ** City
+    City (..),
+    mkCity,
+    cCityName,
+
+    -- ** DNSLogsConfigurationResult
+    DNSLogsConfigurationResult (..),
+    mkDNSLogsConfigurationResult,
+    dnslcrStatus,
+
+    -- ** S3BucketDetail
+    S3BucketDetail (..),
+    mkS3BucketDetail,
+    sbdArn,
+    sbdCreatedAt,
+    sbdDefaultServerSideEncryption,
+    sbdName,
+    sbdOwner,
+    sbdPublicAccess,
+    sbdTags,
+    sbdType,
+
+    -- ** RemotePortDetails
+    RemotePortDetails (..),
+    mkRemotePortDetails,
+    rpdPort,
+    rpdPortName,
+
+    -- ** Name
+    Name (..),
+
+    -- ** IpSetStatus
+    IpSetStatus (..),
+
+    -- ** IamInstanceProfile
+    IamInstanceProfile (..),
+    mkIamInstanceProfile,
+    iipArn,
+    iipId,
+
+    -- ** DataSourceConfigurationsResult
+    DataSourceConfigurationsResult (..),
+    mkDataSourceConfigurationsResult,
+    dscrCloudTrail,
+    dscrDNSLogs,
+    dscrFlowLogs,
+    dscrS3Logs,
+
+    -- ** Total
+    Total (..),
+    mkTotal,
+    tAmount,
+    tUnit,
+
+    -- ** DomainDetails
+    DomainDetails (..),
+    mkDomainDetails,
+    ddDomain,
+
+    -- ** PortProbeDetail
+    PortProbeDetail (..),
+    mkPortProbeDetail,
+    ppdLocalIpDetails,
+    ppdLocalPortDetails,
+    ppdRemoteIpDetails,
+
+    -- ** DefaultServerSideEncryption
+    DefaultServerSideEncryption (..),
+    mkDefaultServerSideEncryption,
+    dsseEncryptionType,
+    dsseKmsMasterKeyArn,
+
+    -- ** Resource
+    Resource (..),
+    mkResource,
+    rAccessKeyDetails,
+    rInstanceDetails,
+    rResourceType,
+    rS3BucketDetails,
+
+    -- ** ThreatIntelSetStatus
+    ThreatIntelSetStatus (..),
+
+    -- ** FindingType
+    FindingType (..),
+
+    -- ** DataSource
+    DataSource (..),
+
+    -- ** DestinationProperties
+    DestinationProperties (..),
+    mkDestinationProperties,
+    dpDestinationArn,
+    dpKmsKeyArn,
+
+    -- ** PublicAccess
+    PublicAccess (..),
+    mkPublicAccess,
+    paEffectivePermission,
+    paPermissionConfiguration,
+
+    -- ** ThreatIntelSetFormat
+    ThreatIntelSetFormat (..),
+
+    -- ** PortProbeAction
+    PortProbeAction (..),
+    mkPortProbeAction,
+    ppaBlocked,
+    ppaPortProbeDetails,
+
+    -- ** TagKey
+    TagKey (..),
+
+    -- ** Member
+    Member (..),
+    mkMember,
+    mAccountId,
+    mMasterId,
+    mEmail,
+    mRelationshipStatus,
+    mUpdatedAt,
+    mDetectorId,
+    mInvitedAt,
+
+    -- ** AccountDetail
+    AccountDetail (..),
+    mkAccountDetail,
+    adAccountId,
+    adEmail,
+
+    -- ** IpSetFormat
+    IpSetFormat (..),
+
+    -- ** FindingId
+    FindingId (..),
+
+    -- ** GeoLocation
+    GeoLocation (..),
+    mkGeoLocation,
+    glLat,
+    glLon,
+
+    -- ** FindingStatistics
+    FindingStatistics (..),
+    mkFindingStatistics,
+    fsCountBySeverity,
+
+    -- ** UsageStatisticType
+    UsageStatisticType (..),
+
+    -- ** Condition
+    Condition (..),
+    mkCondition,
+    cEq,
+    cEquals,
+    cGreaterThan,
+    cGreaterThanOrEqual,
+    cGt,
+    cGte,
+    cLessThan,
+    cLessThanOrEqual,
+    cLt,
+    cLte,
+    cNeq,
+    cNotEquals,
+
+    -- ** PermissionConfiguration
+    PermissionConfiguration (..),
+    mkPermissionConfiguration,
+    pcAccountLevelPermissions,
+    pcBucketLevelPermissions,
+
+    -- ** Organization
+    Organization (..),
+    mkOrganization,
+    oAsn,
+    oAsnOrg,
+    oIsp,
+    oOrg,
+
+    -- ** InstanceDetails
+    InstanceDetails (..),
+    mkInstanceDetails,
+    idAvailabilityZone,
+    idIamInstanceProfile,
+    idImageDescription,
+    idImageId,
+    idInstanceId,
+    idInstanceState,
+    idInstanceType,
+    idLaunchTime,
+    idNetworkInterfaces,
+    idOutpostArn,
+    idPlatform,
+    idProductCodes,
+    idTags,
+
+    -- ** Evidence
+    Evidence (..),
+    mkEvidence,
+    eThreatIntelligenceDetails,
+
+    -- ** BucketPolicy
+    BucketPolicy (..),
+    mkBucketPolicy,
+    bpAllowsPublicReadAccess,
+    bpAllowsPublicWriteAccess,
+
+    -- ** ProductCode
+    ProductCode (..),
+    mkProductCode,
+    pcCode,
+    pcProductType,
+
+    -- ** FilterAction
+    FilterAction (..),
+
+    -- ** UsageCriteria
+    UsageCriteria (..),
+    mkUsageCriteria,
+    ucDataSources,
+    ucAccountIds,
+    ucResources,
+
+    -- ** DetectorStatus
+    DetectorStatus (..),
+
+    -- ** DnsRequestAction
+    DnsRequestAction (..),
+    mkDnsRequestAction,
+    draDomain,
+
+    -- ** UsageResourceResult
+    UsageResourceResult (..),
+    mkUsageResourceResult,
+    urrResource,
+    urrTotal,
+
+    -- ** S3LogsConfigurationResult
+    S3LogsConfigurationResult (..),
+    mkS3LogsConfigurationResult,
+    slcrStatus,
+
+    -- ** LocalPortDetails
+    LocalPortDetails (..),
+    mkLocalPortDetails,
+    lpdPort,
+    lpdPortName,
+
+    -- ** Feedback
+    Feedback (..),
+
+    -- ** AwsApiCallAction
+    AwsApiCallAction (..),
+    mkAwsApiCallAction,
+    aacaApi,
+    aacaCallerType,
+    aacaDomainDetails,
+    aacaErrorCode,
+    aacaRemoteIpDetails,
+    aacaServiceName,
+
+    -- ** AccessKeyDetails
+    AccessKeyDetails (..),
+    mkAccessKeyDetails,
+    akdAccessKeyId,
+    akdPrincipalId,
+    akdUserName,
+    akdUserType,
+
+    -- ** DataSourceStatus
+    DataSourceStatus (..),
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** IpSetId
+    IpSetId (..),
+
+    -- ** DestinationId
+    DestinationId (..),
+
+    -- ** IpAddressV4
+    IpAddressV4 (..),
+
+    -- ** Unit
+    Unit (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** ThreatListName
+    ThreatListName (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** Type
+    Type (..),
+
+    -- ** ResourceArn
+    ResourceArn (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

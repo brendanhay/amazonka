@@ -27,99 +27,89 @@ module Network.AWS.ElasticSearch.ListTags
     mkListTagsResponse,
 
     -- ** Response lenses
-    ltrsTagList,
-    ltrsResponseStatus,
+    ltrrsTagList,
+    ltrrsResponseStatus,
   )
 where
 
-import Network.AWS.ElasticSearch.Types
+import qualified Network.AWS.ElasticSearch.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Container for the parameters to the @'ListTags' @ operation. Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view are attached.
 --
 -- /See:/ 'mkListTags' smart constructor.
 newtype ListTags = ListTags'
   { -- | Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view.
-    arn :: Lude.Text
+    arn :: Types.ARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTags' with the minimum fields required to make a request.
---
--- * 'arn' - Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view.
+-- | Creates a 'ListTags' value with any optional fields omitted.
 mkListTags ::
   -- | 'arn'
-  Lude.Text ->
+  Types.ARN ->
   ListTags
-mkListTags pARN_ = ListTags' {arn = pARN_}
+mkListTags arn = ListTags' {arn}
 
 -- | Specify the @ARN@ for the Elasticsearch domain to which the tags are attached that you want to view.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltARN :: Lens.Lens' ListTags Lude.Text
-ltARN = Lens.lens (arn :: ListTags -> Lude.Text) (\s a -> s {arn = a} :: ListTags)
+ltARN :: Lens.Lens' ListTags Types.ARN
+ltARN = Lens.field @"arn"
 {-# DEPRECATED ltARN "Use generic-lens or generic-optics with 'arn' instead." #-}
 
-instance Lude.AWSRequest ListTags where
+instance Core.AWSRequest ListTags where
   type Rs ListTags = ListTagsResponse
-  request = Req.get elasticSearchService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/2015-01-01/tags/",
+        Core._rqQuery = Core.toQueryValue "arn" arn,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTagsResponse'
-            Lude.<$> (x Lude..?> "TagList" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TagList") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListTags where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListTags where
-  toPath = Lude.const "/2015-01-01/tags/"
-
-instance Lude.ToQuery ListTags where
-  toQuery ListTags' {..} = Lude.mconcat ["arn" Lude.=: arn]
 
 -- | The result of a @ListTags@ operation. Contains tags for all requested Elasticsearch domains.
 --
 -- /See:/ 'mkListTagsResponse' smart constructor.
 data ListTagsResponse = ListTagsResponse'
   { -- | List of @Tag@ for the requested Elasticsearch domain.
-    tagList :: Lude.Maybe [Tag],
+    tagList :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsResponse' with the minimum fields required to make a request.
---
--- * 'tagList' - List of @Tag@ for the requested Elasticsearch domain.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTagsResponse' value with any optional fields omitted.
 mkListTagsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTagsResponse
-mkListTagsResponse pResponseStatus_ =
-  ListTagsResponse'
-    { tagList = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkListTagsResponse responseStatus =
+  ListTagsResponse' {tagList = Core.Nothing, responseStatus}
 
 -- | List of @Tag@ for the requested Elasticsearch domain.
 --
 -- /Note:/ Consider using 'tagList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrsTagList :: Lens.Lens' ListTagsResponse (Lude.Maybe [Tag])
-ltrsTagList = Lens.lens (tagList :: ListTagsResponse -> Lude.Maybe [Tag]) (\s a -> s {tagList = a} :: ListTagsResponse)
-{-# DEPRECATED ltrsTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
+ltrrsTagList :: Lens.Lens' ListTagsResponse (Core.Maybe [Types.Tag])
+ltrrsTagList = Lens.field @"tagList"
+{-# DEPRECATED ltrrsTagList "Use generic-lens or generic-optics with 'tagList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltrsResponseStatus :: Lens.Lens' ListTagsResponse Lude.Int
-ltrsResponseStatus = Lens.lens (responseStatus :: ListTagsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsResponse)
-{-# DEPRECATED ltrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltrrsResponseStatus :: Lens.Lens' ListTagsResponse Core.Int
+ltrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

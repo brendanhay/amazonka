@@ -13,66 +13,71 @@
 module Network.AWS.ElastiCache.Types.NodeUpdateStatus
   ( NodeUpdateStatus
       ( NodeUpdateStatus',
-        NUSNotApplied,
-        NUSWaitingToStart,
-        NUSInProgress,
-        NUSStopping,
-        NUSStopped,
-        NUSComplete
+        NodeUpdateStatusNotApplied,
+        NodeUpdateStatusWaitingToStart,
+        NodeUpdateStatusInProgress,
+        NodeUpdateStatusStopping,
+        NodeUpdateStatusStopped,
+        NodeUpdateStatusComplete,
+        fromNodeUpdateStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype NodeUpdateStatus = NodeUpdateStatus' Lude.Text
+newtype NodeUpdateStatus = NodeUpdateStatus'
+  { fromNodeUpdateStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern NUSNotApplied :: NodeUpdateStatus
-pattern NUSNotApplied = NodeUpdateStatus' "not-applied"
+pattern NodeUpdateStatusNotApplied :: NodeUpdateStatus
+pattern NodeUpdateStatusNotApplied = NodeUpdateStatus' "not-applied"
 
-pattern NUSWaitingToStart :: NodeUpdateStatus
-pattern NUSWaitingToStart = NodeUpdateStatus' "waiting-to-start"
+pattern NodeUpdateStatusWaitingToStart :: NodeUpdateStatus
+pattern NodeUpdateStatusWaitingToStart = NodeUpdateStatus' "waiting-to-start"
 
-pattern NUSInProgress :: NodeUpdateStatus
-pattern NUSInProgress = NodeUpdateStatus' "in-progress"
+pattern NodeUpdateStatusInProgress :: NodeUpdateStatus
+pattern NodeUpdateStatusInProgress = NodeUpdateStatus' "in-progress"
 
-pattern NUSStopping :: NodeUpdateStatus
-pattern NUSStopping = NodeUpdateStatus' "stopping"
+pattern NodeUpdateStatusStopping :: NodeUpdateStatus
+pattern NodeUpdateStatusStopping = NodeUpdateStatus' "stopping"
 
-pattern NUSStopped :: NodeUpdateStatus
-pattern NUSStopped = NodeUpdateStatus' "stopped"
+pattern NodeUpdateStatusStopped :: NodeUpdateStatus
+pattern NodeUpdateStatusStopped = NodeUpdateStatus' "stopped"
 
-pattern NUSComplete :: NodeUpdateStatus
-pattern NUSComplete = NodeUpdateStatus' "complete"
+pattern NodeUpdateStatusComplete :: NodeUpdateStatus
+pattern NodeUpdateStatusComplete = NodeUpdateStatus' "complete"
 
 {-# COMPLETE
-  NUSNotApplied,
-  NUSWaitingToStart,
-  NUSInProgress,
-  NUSStopping,
-  NUSStopped,
-  NUSComplete,
+  NodeUpdateStatusNotApplied,
+  NodeUpdateStatusWaitingToStart,
+  NodeUpdateStatusInProgress,
+  NodeUpdateStatusStopping,
+  NodeUpdateStatusStopped,
+  NodeUpdateStatusComplete,
   NodeUpdateStatus'
   #-}

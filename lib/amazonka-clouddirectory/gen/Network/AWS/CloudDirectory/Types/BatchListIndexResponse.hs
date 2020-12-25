@@ -17,59 +17,54 @@ module Network.AWS.CloudDirectory.Types.BatchListIndexResponse
     mkBatchListIndexResponse,
 
     -- * Lenses
-    bliIndexAttachments,
-    bliNextToken,
+    blirIndexAttachments,
+    blirNextToken,
   )
 where
 
-import Network.AWS.CloudDirectory.Types.IndexAttachment
+import qualified Network.AWS.CloudDirectory.Types.IndexAttachment as Types
+import qualified Network.AWS.CloudDirectory.Types.NextToken as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Represents the output of a 'ListIndex' response operation.
 --
 -- /See:/ 'mkBatchListIndexResponse' smart constructor.
 data BatchListIndexResponse = BatchListIndexResponse'
   { -- | The objects and indexed values attached to the index.
-    indexAttachments :: Lude.Maybe [IndexAttachment],
+    indexAttachments :: Core.Maybe [Types.IndexAttachment],
     -- | The pagination token.
-    nextToken :: Lude.Maybe Lude.Text
+    nextToken :: Core.Maybe Types.NextToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'BatchListIndexResponse' with the minimum fields required to make a request.
---
--- * 'indexAttachments' - The objects and indexed values attached to the index.
--- * 'nextToken' - The pagination token.
+-- | Creates a 'BatchListIndexResponse' value with any optional fields omitted.
 mkBatchListIndexResponse ::
   BatchListIndexResponse
 mkBatchListIndexResponse =
   BatchListIndexResponse'
-    { indexAttachments = Lude.Nothing,
-      nextToken = Lude.Nothing
+    { indexAttachments = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | The objects and indexed values attached to the index.
 --
 -- /Note:/ Consider using 'indexAttachments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bliIndexAttachments :: Lens.Lens' BatchListIndexResponse (Lude.Maybe [IndexAttachment])
-bliIndexAttachments = Lens.lens (indexAttachments :: BatchListIndexResponse -> Lude.Maybe [IndexAttachment]) (\s a -> s {indexAttachments = a} :: BatchListIndexResponse)
-{-# DEPRECATED bliIndexAttachments "Use generic-lens or generic-optics with 'indexAttachments' instead." #-}
+blirIndexAttachments :: Lens.Lens' BatchListIndexResponse (Core.Maybe [Types.IndexAttachment])
+blirIndexAttachments = Lens.field @"indexAttachments"
+{-# DEPRECATED blirIndexAttachments "Use generic-lens or generic-optics with 'indexAttachments' instead." #-}
 
 -- | The pagination token.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bliNextToken :: Lens.Lens' BatchListIndexResponse (Lude.Maybe Lude.Text)
-bliNextToken = Lens.lens (nextToken :: BatchListIndexResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: BatchListIndexResponse)
-{-# DEPRECATED bliNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+blirNextToken :: Lens.Lens' BatchListIndexResponse (Core.Maybe Types.NextToken)
+blirNextToken = Lens.field @"nextToken"
+{-# DEPRECATED blirNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
-instance Lude.FromJSON BatchListIndexResponse where
+instance Core.FromJSON BatchListIndexResponse where
   parseJSON =
-    Lude.withObject
-      "BatchListIndexResponse"
-      ( \x ->
-          BatchListIndexResponse'
-            Lude.<$> (x Lude..:? "IndexAttachments" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "NextToken")
-      )
+    Core.withObject "BatchListIndexResponse" Core.$
+      \x ->
+        BatchListIndexResponse'
+          Core.<$> (x Core..:? "IndexAttachments") Core.<*> (x Core..:? "NextToken")

@@ -17,124 +17,115 @@ module Network.AWS.Pinpoint.Types.SegmentDemographics
     mkSegmentDemographics,
 
     -- * Lenses
-    sdPlatform,
     sdAppVersion,
     sdChannel,
-    sdModel,
-    sdMake,
     sdDeviceType,
+    sdMake,
+    sdModel,
+    sdPlatform,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.SetDimension
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.SetDimension as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies demographic-based dimension settings for including or excluding endpoints from a segment. These settings derive from characteristics of endpoint devices, such as platform, make, and model.
 --
 -- /See:/ 'mkSegmentDemographics' smart constructor.
 data SegmentDemographics = SegmentDemographics'
-  { -- | The device platform criteria for the segment.
-    platform :: Lude.Maybe SetDimension,
-    -- | The app version criteria for the segment.
-    appVersion :: Lude.Maybe SetDimension,
+  { -- | The app version criteria for the segment.
+    appVersion :: Core.Maybe Types.SetDimension,
     -- | The channel criteria for the segment.
-    channel :: Lude.Maybe SetDimension,
-    -- | The device model criteria for the segment.
-    model :: Lude.Maybe SetDimension,
-    -- | The device make criteria for the segment.
-    make :: Lude.Maybe SetDimension,
+    channel :: Core.Maybe Types.SetDimension,
     -- | The device type criteria for the segment.
-    deviceType :: Lude.Maybe SetDimension
+    deviceType :: Core.Maybe Types.SetDimension,
+    -- | The device make criteria for the segment.
+    make :: Core.Maybe Types.SetDimension,
+    -- | The device model criteria for the segment.
+    model :: Core.Maybe Types.SetDimension,
+    -- | The device platform criteria for the segment.
+    platform :: Core.Maybe Types.SetDimension
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SegmentDemographics' with the minimum fields required to make a request.
---
--- * 'platform' - The device platform criteria for the segment.
--- * 'appVersion' - The app version criteria for the segment.
--- * 'channel' - The channel criteria for the segment.
--- * 'model' - The device model criteria for the segment.
--- * 'make' - The device make criteria for the segment.
--- * 'deviceType' - The device type criteria for the segment.
+-- | Creates a 'SegmentDemographics' value with any optional fields omitted.
 mkSegmentDemographics ::
   SegmentDemographics
 mkSegmentDemographics =
   SegmentDemographics'
-    { platform = Lude.Nothing,
-      appVersion = Lude.Nothing,
-      channel = Lude.Nothing,
-      model = Lude.Nothing,
-      make = Lude.Nothing,
-      deviceType = Lude.Nothing
+    { appVersion = Core.Nothing,
+      channel = Core.Nothing,
+      deviceType = Core.Nothing,
+      make = Core.Nothing,
+      model = Core.Nothing,
+      platform = Core.Nothing
     }
-
--- | The device platform criteria for the segment.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdPlatform :: Lens.Lens' SegmentDemographics (Lude.Maybe SetDimension)
-sdPlatform = Lens.lens (platform :: SegmentDemographics -> Lude.Maybe SetDimension) (\s a -> s {platform = a} :: SegmentDemographics)
-{-# DEPRECATED sdPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | The app version criteria for the segment.
 --
 -- /Note:/ Consider using 'appVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdAppVersion :: Lens.Lens' SegmentDemographics (Lude.Maybe SetDimension)
-sdAppVersion = Lens.lens (appVersion :: SegmentDemographics -> Lude.Maybe SetDimension) (\s a -> s {appVersion = a} :: SegmentDemographics)
+sdAppVersion :: Lens.Lens' SegmentDemographics (Core.Maybe Types.SetDimension)
+sdAppVersion = Lens.field @"appVersion"
 {-# DEPRECATED sdAppVersion "Use generic-lens or generic-optics with 'appVersion' instead." #-}
 
 -- | The channel criteria for the segment.
 --
 -- /Note:/ Consider using 'channel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdChannel :: Lens.Lens' SegmentDemographics (Lude.Maybe SetDimension)
-sdChannel = Lens.lens (channel :: SegmentDemographics -> Lude.Maybe SetDimension) (\s a -> s {channel = a} :: SegmentDemographics)
+sdChannel :: Lens.Lens' SegmentDemographics (Core.Maybe Types.SetDimension)
+sdChannel = Lens.field @"channel"
 {-# DEPRECATED sdChannel "Use generic-lens or generic-optics with 'channel' instead." #-}
-
--- | The device model criteria for the segment.
---
--- /Note:/ Consider using 'model' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdModel :: Lens.Lens' SegmentDemographics (Lude.Maybe SetDimension)
-sdModel = Lens.lens (model :: SegmentDemographics -> Lude.Maybe SetDimension) (\s a -> s {model = a} :: SegmentDemographics)
-{-# DEPRECATED sdModel "Use generic-lens or generic-optics with 'model' instead." #-}
-
--- | The device make criteria for the segment.
---
--- /Note:/ Consider using 'make' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdMake :: Lens.Lens' SegmentDemographics (Lude.Maybe SetDimension)
-sdMake = Lens.lens (make :: SegmentDemographics -> Lude.Maybe SetDimension) (\s a -> s {make = a} :: SegmentDemographics)
-{-# DEPRECATED sdMake "Use generic-lens or generic-optics with 'make' instead." #-}
 
 -- | The device type criteria for the segment.
 --
 -- /Note:/ Consider using 'deviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdDeviceType :: Lens.Lens' SegmentDemographics (Lude.Maybe SetDimension)
-sdDeviceType = Lens.lens (deviceType :: SegmentDemographics -> Lude.Maybe SetDimension) (\s a -> s {deviceType = a} :: SegmentDemographics)
+sdDeviceType :: Lens.Lens' SegmentDemographics (Core.Maybe Types.SetDimension)
+sdDeviceType = Lens.field @"deviceType"
 {-# DEPRECATED sdDeviceType "Use generic-lens or generic-optics with 'deviceType' instead." #-}
 
-instance Lude.FromJSON SegmentDemographics where
-  parseJSON =
-    Lude.withObject
-      "SegmentDemographics"
-      ( \x ->
-          SegmentDemographics'
-            Lude.<$> (x Lude..:? "Platform")
-            Lude.<*> (x Lude..:? "AppVersion")
-            Lude.<*> (x Lude..:? "Channel")
-            Lude.<*> (x Lude..:? "Model")
-            Lude.<*> (x Lude..:? "Make")
-            Lude.<*> (x Lude..:? "DeviceType")
-      )
+-- | The device make criteria for the segment.
+--
+-- /Note:/ Consider using 'make' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdMake :: Lens.Lens' SegmentDemographics (Core.Maybe Types.SetDimension)
+sdMake = Lens.field @"make"
+{-# DEPRECATED sdMake "Use generic-lens or generic-optics with 'make' instead." #-}
 
-instance Lude.ToJSON SegmentDemographics where
-  toJSON SegmentDemographics' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Platform" Lude..=) Lude.<$> platform,
-            ("AppVersion" Lude..=) Lude.<$> appVersion,
-            ("Channel" Lude..=) Lude.<$> channel,
-            ("Model" Lude..=) Lude.<$> model,
-            ("Make" Lude..=) Lude.<$> make,
-            ("DeviceType" Lude..=) Lude.<$> deviceType
+-- | The device model criteria for the segment.
+--
+-- /Note:/ Consider using 'model' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdModel :: Lens.Lens' SegmentDemographics (Core.Maybe Types.SetDimension)
+sdModel = Lens.field @"model"
+{-# DEPRECATED sdModel "Use generic-lens or generic-optics with 'model' instead." #-}
+
+-- | The device platform criteria for the segment.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdPlatform :: Lens.Lens' SegmentDemographics (Core.Maybe Types.SetDimension)
+sdPlatform = Lens.field @"platform"
+{-# DEPRECATED sdPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
+
+instance Core.FromJSON SegmentDemographics where
+  toJSON SegmentDemographics {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AppVersion" Core..=) Core.<$> appVersion,
+            ("Channel" Core..=) Core.<$> channel,
+            ("DeviceType" Core..=) Core.<$> deviceType,
+            ("Make" Core..=) Core.<$> make,
+            ("Model" Core..=) Core.<$> model,
+            ("Platform" Core..=) Core.<$> platform
           ]
       )
+
+instance Core.FromJSON SegmentDemographics where
+  parseJSON =
+    Core.withObject "SegmentDemographics" Core.$
+      \x ->
+        SegmentDemographics'
+          Core.<$> (x Core..:? "AppVersion")
+          Core.<*> (x Core..:? "Channel")
+          Core.<*> (x Core..:? "DeviceType")
+          Core.<*> (x Core..:? "Make")
+          Core.<*> (x Core..:? "Model")
+          Core.<*> (x Core..:? "Platform")

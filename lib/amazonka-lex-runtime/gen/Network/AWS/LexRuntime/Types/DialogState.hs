@@ -13,66 +13,68 @@
 module Network.AWS.LexRuntime.Types.DialogState
   ( DialogState
       ( DialogState',
-        ElicitIntent,
-        ConfirmIntent,
-        ElicitSlot,
-        Fulfilled,
-        ReadyForFulfillment,
-        Failed
+        DialogStateElicitIntent,
+        DialogStateConfirmIntent,
+        DialogStateElicitSlot,
+        DialogStateFulfilled,
+        DialogStateReadyForFulfillment,
+        DialogStateFailed,
+        fromDialogState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype DialogState = DialogState' Lude.Text
+newtype DialogState = DialogState' {fromDialogState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ElicitIntent :: DialogState
-pattern ElicitIntent = DialogState' "ElicitIntent"
+pattern DialogStateElicitIntent :: DialogState
+pattern DialogStateElicitIntent = DialogState' "ElicitIntent"
 
-pattern ConfirmIntent :: DialogState
-pattern ConfirmIntent = DialogState' "ConfirmIntent"
+pattern DialogStateConfirmIntent :: DialogState
+pattern DialogStateConfirmIntent = DialogState' "ConfirmIntent"
 
-pattern ElicitSlot :: DialogState
-pattern ElicitSlot = DialogState' "ElicitSlot"
+pattern DialogStateElicitSlot :: DialogState
+pattern DialogStateElicitSlot = DialogState' "ElicitSlot"
 
-pattern Fulfilled :: DialogState
-pattern Fulfilled = DialogState' "Fulfilled"
+pattern DialogStateFulfilled :: DialogState
+pattern DialogStateFulfilled = DialogState' "Fulfilled"
 
-pattern ReadyForFulfillment :: DialogState
-pattern ReadyForFulfillment = DialogState' "ReadyForFulfillment"
+pattern DialogStateReadyForFulfillment :: DialogState
+pattern DialogStateReadyForFulfillment = DialogState' "ReadyForFulfillment"
 
-pattern Failed :: DialogState
-pattern Failed = DialogState' "Failed"
+pattern DialogStateFailed :: DialogState
+pattern DialogStateFailed = DialogState' "Failed"
 
 {-# COMPLETE
-  ElicitIntent,
-  ConfirmIntent,
-  ElicitSlot,
-  Fulfilled,
-  ReadyForFulfillment,
-  Failed,
+  DialogStateElicitIntent,
+  DialogStateConfirmIntent,
+  DialogStateElicitSlot,
+  DialogStateFulfilled,
+  DialogStateReadyForFulfillment,
+  DialogStateFailed,
   DialogState'
   #-}

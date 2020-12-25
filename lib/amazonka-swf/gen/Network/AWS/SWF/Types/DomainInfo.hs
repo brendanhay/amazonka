@@ -17,66 +17,63 @@ module Network.AWS.SWF.Types.DomainInfo
     mkDomainInfo,
 
     -- * Lenses
+    diName,
     diStatus,
     diArn,
-    diName,
     diDescription,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SWF.Types.RegistrationStatus
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.Arn as Types
+import qualified Network.AWS.SWF.Types.Description as Types
+import qualified Network.AWS.SWF.Types.DomainName as Types
+import qualified Network.AWS.SWF.Types.RegistrationStatus as Types
 
 -- | Contains general information about a domain.
 --
 -- /See:/ 'mkDomainInfo' smart constructor.
 data DomainInfo = DomainInfo'
-  { -- | The status of the domain:
+  { -- | The name of the domain. This name is unique within the account.
+    name :: Types.DomainName,
+    -- | The status of the domain:
     --
     --
     --     * @REGISTERED@ – The domain is properly registered and available. You can use this domain for registering types and creating new workflow executions.
     --
     --
     --     * @DEPRECATED@ – The domain was deprecated using 'DeprecateDomain' , but is still in use. You should not create new workflow executions in this domain.
-    status :: RegistrationStatus,
+    status :: Types.RegistrationStatus,
     -- | The ARN of the domain.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The name of the domain. This name is unique within the account.
-    name :: Lude.Text,
+    arn :: Core.Maybe Types.Arn,
     -- | The description of the domain provided through 'RegisterDomain' .
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DomainInfo' with the minimum fields required to make a request.
---
--- * 'status' - The status of the domain:
---
---
---     * @REGISTERED@ – The domain is properly registered and available. You can use this domain for registering types and creating new workflow executions.
---
---
---     * @DEPRECATED@ – The domain was deprecated using 'DeprecateDomain' , but is still in use. You should not create new workflow executions in this domain.
---
---
--- * 'arn' - The ARN of the domain.
--- * 'name' - The name of the domain. This name is unique within the account.
--- * 'description' - The description of the domain provided through 'RegisterDomain' .
+-- | Creates a 'DomainInfo' value with any optional fields omitted.
 mkDomainInfo ::
-  -- | 'status'
-  RegistrationStatus ->
   -- | 'name'
-  Lude.Text ->
+  Types.DomainName ->
+  -- | 'status'
+  Types.RegistrationStatus ->
   DomainInfo
-mkDomainInfo pStatus_ pName_ =
+mkDomainInfo name status =
   DomainInfo'
-    { status = pStatus_,
-      arn = Lude.Nothing,
-      name = pName_,
-      description = Lude.Nothing
+    { name,
+      status,
+      arn = Core.Nothing,
+      description = Core.Nothing
     }
+
+-- | The name of the domain. This name is unique within the account.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+diName :: Lens.Lens' DomainInfo Types.DomainName
+diName = Lens.field @"name"
+{-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The status of the domain:
 --
@@ -89,39 +86,30 @@ mkDomainInfo pStatus_ pName_ =
 --
 --
 -- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diStatus :: Lens.Lens' DomainInfo RegistrationStatus
-diStatus = Lens.lens (status :: DomainInfo -> RegistrationStatus) (\s a -> s {status = a} :: DomainInfo)
+diStatus :: Lens.Lens' DomainInfo Types.RegistrationStatus
+diStatus = Lens.field @"status"
 {-# DEPRECATED diStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The ARN of the domain.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diArn :: Lens.Lens' DomainInfo (Lude.Maybe Lude.Text)
-diArn = Lens.lens (arn :: DomainInfo -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DomainInfo)
+diArn :: Lens.Lens' DomainInfo (Core.Maybe Types.Arn)
+diArn = Lens.field @"arn"
 {-# DEPRECATED diArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The name of the domain. This name is unique within the account.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diName :: Lens.Lens' DomainInfo Lude.Text
-diName = Lens.lens (name :: DomainInfo -> Lude.Text) (\s a -> s {name = a} :: DomainInfo)
-{-# DEPRECATED diName "Use generic-lens or generic-optics with 'name' instead." #-}
 
 -- | The description of the domain provided through 'RegisterDomain' .
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-diDescription :: Lens.Lens' DomainInfo (Lude.Maybe Lude.Text)
-diDescription = Lens.lens (description :: DomainInfo -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: DomainInfo)
+diDescription :: Lens.Lens' DomainInfo (Core.Maybe Types.Description)
+diDescription = Lens.field @"description"
 {-# DEPRECATED diDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON DomainInfo where
+instance Core.FromJSON DomainInfo where
   parseJSON =
-    Lude.withObject
-      "DomainInfo"
-      ( \x ->
-          DomainInfo'
-            Lude.<$> (x Lude..: "status")
-            Lude.<*> (x Lude..:? "arn")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "DomainInfo" Core.$
+      \x ->
+        DomainInfo'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..: "status")
+          Core.<*> (x Core..:? "arn")
+          Core.<*> (x Core..:? "description")

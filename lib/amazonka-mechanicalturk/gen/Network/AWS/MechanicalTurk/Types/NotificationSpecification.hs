@@ -18,16 +18,17 @@ module Network.AWS.MechanicalTurk.Types.NotificationSpecification
 
     -- * Lenses
     nsDestination,
-    nsEventTypes,
-    nsVersion,
     nsTransport,
+    nsVersion,
+    nsEventTypes,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MechanicalTurk.Types.EventType
-import Network.AWS.MechanicalTurk.Types.NotificationTransport
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MechanicalTurk.Types.EventType as Types
+import qualified Network.AWS.MechanicalTurk.Types.NotificationTransport as Types
+import qualified Network.AWS.MechanicalTurk.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | The NotificationSpecification data structure describes a HIT event notification for a HIT type.
 --
@@ -43,48 +44,32 @@ data NotificationSpecification = NotificationSpecification'
     --
     --
     --     * When Transport is SNS, the Destination is the ARN of your topic.
-    destination :: Lude.Text,
-    -- | The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
-    eventTypes :: [EventType],
-    -- | The version of the Notification API to use. Valid value is 2006-05-05.
-    version :: Lude.Text,
+    destination :: Types.String,
     -- | The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS | SNS.
-    transport :: NotificationTransport
+    transport :: Types.NotificationTransport,
+    -- | The version of the Notification API to use. Valid value is 2006-05-05.
+    version :: Types.String,
+    -- | The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
+    eventTypes :: [Types.EventType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'NotificationSpecification' with the minimum fields required to make a request.
---
--- * 'destination' - The target for notification messages. The Destination’s format is determined by the specified Transport:
---
---
---     * When Transport is Email, the Destination is your email address.
---
---
---     * When Transport is SQS, the Destination is your queue URL.
---
---
---     * When Transport is SNS, the Destination is the ARN of your topic.
---
---
--- * 'eventTypes' - The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
--- * 'version' - The version of the Notification API to use. Valid value is 2006-05-05.
--- * 'transport' - The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS | SNS.
+-- | Creates a 'NotificationSpecification' value with any optional fields omitted.
 mkNotificationSpecification ::
   -- | 'destination'
-  Lude.Text ->
-  -- | 'version'
-  Lude.Text ->
+  Types.String ->
   -- | 'transport'
-  NotificationTransport ->
+  Types.NotificationTransport ->
+  -- | 'version'
+  Types.String ->
   NotificationSpecification
-mkNotificationSpecification pDestination_ pVersion_ pTransport_ =
+mkNotificationSpecification destination transport version =
   NotificationSpecification'
-    { destination = pDestination_,
-      eventTypes = Lude.mempty,
-      version = pVersion_,
-      transport = pTransport_
+    { destination,
+      transport,
+      version,
+      eventTypes = Core.mempty
     }
 
 -- | The target for notification messages. The Destination’s format is determined by the specified Transport:
@@ -101,38 +86,38 @@ mkNotificationSpecification pDestination_ pVersion_ pTransport_ =
 --
 --
 -- /Note:/ Consider using 'destination' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsDestination :: Lens.Lens' NotificationSpecification Lude.Text
-nsDestination = Lens.lens (destination :: NotificationSpecification -> Lude.Text) (\s a -> s {destination = a} :: NotificationSpecification)
+nsDestination :: Lens.Lens' NotificationSpecification Types.String
+nsDestination = Lens.field @"destination"
 {-# DEPRECATED nsDestination "Use generic-lens or generic-optics with 'destination' instead." #-}
-
--- | The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
---
--- /Note:/ Consider using 'eventTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsEventTypes :: Lens.Lens' NotificationSpecification [EventType]
-nsEventTypes = Lens.lens (eventTypes :: NotificationSpecification -> [EventType]) (\s a -> s {eventTypes = a} :: NotificationSpecification)
-{-# DEPRECATED nsEventTypes "Use generic-lens or generic-optics with 'eventTypes' instead." #-}
-
--- | The version of the Notification API to use. Valid value is 2006-05-05.
---
--- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsVersion :: Lens.Lens' NotificationSpecification Lude.Text
-nsVersion = Lens.lens (version :: NotificationSpecification -> Lude.Text) (\s a -> s {version = a} :: NotificationSpecification)
-{-# DEPRECATED nsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
 
 -- | The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email | SQS | SNS.
 --
 -- /Note:/ Consider using 'transport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-nsTransport :: Lens.Lens' NotificationSpecification NotificationTransport
-nsTransport = Lens.lens (transport :: NotificationSpecification -> NotificationTransport) (\s a -> s {transport = a} :: NotificationSpecification)
+nsTransport :: Lens.Lens' NotificationSpecification Types.NotificationTransport
+nsTransport = Lens.field @"transport"
 {-# DEPRECATED nsTransport "Use generic-lens or generic-optics with 'transport' instead." #-}
 
-instance Lude.ToJSON NotificationSpecification where
-  toJSON NotificationSpecification' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("Destination" Lude..= destination),
-            Lude.Just ("EventTypes" Lude..= eventTypes),
-            Lude.Just ("Version" Lude..= version),
-            Lude.Just ("Transport" Lude..= transport)
+-- | The version of the Notification API to use. Valid value is 2006-05-05.
+--
+-- /Note:/ Consider using 'version' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsVersion :: Lens.Lens' NotificationSpecification Types.String
+nsVersion = Lens.field @"version"
+{-# DEPRECATED nsVersion "Use generic-lens or generic-optics with 'version' instead." #-}
+
+-- | The list of events that should cause notifications to be sent. Valid Values: AssignmentAccepted | AssignmentAbandoned | AssignmentReturned | AssignmentSubmitted | AssignmentRejected | AssignmentApproved | HITCreated | HITExtended | HITDisposed | HITReviewable | HITExpired | Ping. The Ping event is only valid for the SendTestEventNotification operation.
+--
+-- /Note:/ Consider using 'eventTypes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+nsEventTypes :: Lens.Lens' NotificationSpecification [Types.EventType]
+nsEventTypes = Lens.field @"eventTypes"
+{-# DEPRECATED nsEventTypes "Use generic-lens or generic-optics with 'eventTypes' instead." #-}
+
+instance Core.FromJSON NotificationSpecification where
+  toJSON NotificationSpecification {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Destination" Core..= destination),
+            Core.Just ("Transport" Core..= transport),
+            Core.Just ("Version" Core..= version),
+            Core.Just ("EventTypes" Core..= eventTypes)
           ]
       )

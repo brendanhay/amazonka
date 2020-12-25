@@ -13,46 +13,51 @@
 module Network.AWS.Discovery.Types.ExportDataFormat
   ( ExportDataFormat
       ( ExportDataFormat',
-        CSV,
-        Graphml
+        ExportDataFormatCsv,
+        ExportDataFormatGraphml,
+        fromExportDataFormat
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ExportDataFormat = ExportDataFormat' Lude.Text
+newtype ExportDataFormat = ExportDataFormat'
+  { fromExportDataFormat ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSV :: ExportDataFormat
-pattern CSV = ExportDataFormat' "CSV"
+pattern ExportDataFormatCsv :: ExportDataFormat
+pattern ExportDataFormatCsv = ExportDataFormat' "CSV"
 
-pattern Graphml :: ExportDataFormat
-pattern Graphml = ExportDataFormat' "GRAPHML"
+pattern ExportDataFormatGraphml :: ExportDataFormat
+pattern ExportDataFormatGraphml = ExportDataFormat' "GRAPHML"
 
 {-# COMPLETE
-  CSV,
-  Graphml,
+  ExportDataFormatCsv,
+  ExportDataFormatGraphml,
   ExportDataFormat'
   #-}

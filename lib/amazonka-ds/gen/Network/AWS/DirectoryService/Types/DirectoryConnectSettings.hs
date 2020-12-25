@@ -17,21 +17,31 @@ module Network.AWS.DirectoryService.Types.DirectoryConnectSettings
     mkDirectoryConnectSettings,
 
     -- * Lenses
-    dcsCustomerUserName,
+    dcsVpcId,
     dcsSubnetIds,
-    dcsVPCId,
-    dcsCustomerDNSIPs,
+    dcsCustomerDnsIps,
+    dcsCustomerUserName,
   )
 where
 
+import qualified Network.AWS.DirectoryService.Types.IpAddr as Types
+import qualified Network.AWS.DirectoryService.Types.SubnetId as Types
+import qualified Network.AWS.DirectoryService.Types.UserName as Types
+import qualified Network.AWS.DirectoryService.Types.VpcId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Contains information for the 'ConnectDirectory' operation when an AD Connector directory is being created.
 --
 -- /See:/ 'mkDirectoryConnectSettings' smart constructor.
 data DirectoryConnectSettings = DirectoryConnectSettings'
-  { -- | The user name of an account in the on-premises directory that is used to connect to the directory. This account must have the following permissions:
+  { -- | The identifier of the VPC in which the AD Connector is created.
+    vpcId :: Types.VpcId,
+    -- | A list of subnet identifiers in the VPC in which the AD Connector is created.
+    subnetIds :: [Types.SubnetId],
+    -- | A list of one or more IP addresses of DNS servers or domain controllers in the on-premises directory.
+    customerDnsIps :: [Types.IpAddr],
+    -- | The user name of an account in the on-premises directory that is used to connect to the directory. This account must have the following permissions:
     --
     --
     --     * Read users and groups
@@ -41,47 +51,46 @@ data DirectoryConnectSettings = DirectoryConnectSettings'
     --
     --
     --     * Join computers to the domain
-    customerUserName :: Lude.Text,
-    -- | A list of subnet identifiers in the VPC in which the AD Connector is created.
-    subnetIds :: [Lude.Text],
-    -- | The identifier of the VPC in which the AD Connector is created.
-    vpcId :: Lude.Text,
-    -- | A list of one or more IP addresses of DNS servers or domain controllers in the on-premises directory.
-    customerDNSIPs :: [Lude.Text]
+    customerUserName :: Types.UserName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DirectoryConnectSettings' with the minimum fields required to make a request.
---
--- * 'customerUserName' - The user name of an account in the on-premises directory that is used to connect to the directory. This account must have the following permissions:
---
---
---     * Read users and groups
---
---
---     * Create computer objects
---
---
---     * Join computers to the domain
---
---
--- * 'subnetIds' - A list of subnet identifiers in the VPC in which the AD Connector is created.
--- * 'vpcId' - The identifier of the VPC in which the AD Connector is created.
--- * 'customerDNSIPs' - A list of one or more IP addresses of DNS servers or domain controllers in the on-premises directory.
+-- | Creates a 'DirectoryConnectSettings' value with any optional fields omitted.
 mkDirectoryConnectSettings ::
-  -- | 'customerUserName'
-  Lude.Text ->
   -- | 'vpcId'
-  Lude.Text ->
+  Types.VpcId ->
+  -- | 'customerUserName'
+  Types.UserName ->
   DirectoryConnectSettings
-mkDirectoryConnectSettings pCustomerUserName_ pVPCId_ =
+mkDirectoryConnectSettings vpcId customerUserName =
   DirectoryConnectSettings'
-    { customerUserName = pCustomerUserName_,
-      subnetIds = Lude.mempty,
-      vpcId = pVPCId_,
-      customerDNSIPs = Lude.mempty
+    { vpcId,
+      subnetIds = Core.mempty,
+      customerDnsIps = Core.mempty,
+      customerUserName
     }
+
+-- | The identifier of the VPC in which the AD Connector is created.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsVpcId :: Lens.Lens' DirectoryConnectSettings Types.VpcId
+dcsVpcId = Lens.field @"vpcId"
+{-# DEPRECATED dcsVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+-- | A list of subnet identifiers in the VPC in which the AD Connector is created.
+--
+-- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsSubnetIds :: Lens.Lens' DirectoryConnectSettings [Types.SubnetId]
+dcsSubnetIds = Lens.field @"subnetIds"
+{-# DEPRECATED dcsSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
+
+-- | A list of one or more IP addresses of DNS servers or domain controllers in the on-premises directory.
+--
+-- /Note:/ Consider using 'customerDnsIps' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dcsCustomerDnsIps :: Lens.Lens' DirectoryConnectSettings [Types.IpAddr]
+dcsCustomerDnsIps = Lens.field @"customerDnsIps"
+{-# DEPRECATED dcsCustomerDnsIps "Use generic-lens or generic-optics with 'customerDnsIps' instead." #-}
 
 -- | The user name of an account in the on-premises directory that is used to connect to the directory. This account must have the following permissions:
 --
@@ -97,38 +106,17 @@ mkDirectoryConnectSettings pCustomerUserName_ pVPCId_ =
 --
 --
 -- /Note:/ Consider using 'customerUserName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsCustomerUserName :: Lens.Lens' DirectoryConnectSettings Lude.Text
-dcsCustomerUserName = Lens.lens (customerUserName :: DirectoryConnectSettings -> Lude.Text) (\s a -> s {customerUserName = a} :: DirectoryConnectSettings)
+dcsCustomerUserName :: Lens.Lens' DirectoryConnectSettings Types.UserName
+dcsCustomerUserName = Lens.field @"customerUserName"
 {-# DEPRECATED dcsCustomerUserName "Use generic-lens or generic-optics with 'customerUserName' instead." #-}
 
--- | A list of subnet identifiers in the VPC in which the AD Connector is created.
---
--- /Note:/ Consider using 'subnetIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsSubnetIds :: Lens.Lens' DirectoryConnectSettings [Lude.Text]
-dcsSubnetIds = Lens.lens (subnetIds :: DirectoryConnectSettings -> [Lude.Text]) (\s a -> s {subnetIds = a} :: DirectoryConnectSettings)
-{-# DEPRECATED dcsSubnetIds "Use generic-lens or generic-optics with 'subnetIds' instead." #-}
-
--- | The identifier of the VPC in which the AD Connector is created.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsVPCId :: Lens.Lens' DirectoryConnectSettings Lude.Text
-dcsVPCId = Lens.lens (vpcId :: DirectoryConnectSettings -> Lude.Text) (\s a -> s {vpcId = a} :: DirectoryConnectSettings)
-{-# DEPRECATED dcsVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | A list of one or more IP addresses of DNS servers or domain controllers in the on-premises directory.
---
--- /Note:/ Consider using 'customerDNSIPs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcsCustomerDNSIPs :: Lens.Lens' DirectoryConnectSettings [Lude.Text]
-dcsCustomerDNSIPs = Lens.lens (customerDNSIPs :: DirectoryConnectSettings -> [Lude.Text]) (\s a -> s {customerDNSIPs = a} :: DirectoryConnectSettings)
-{-# DEPRECATED dcsCustomerDNSIPs "Use generic-lens or generic-optics with 'customerDNSIPs' instead." #-}
-
-instance Lude.ToJSON DirectoryConnectSettings where
-  toJSON DirectoryConnectSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("CustomerUserName" Lude..= customerUserName),
-            Lude.Just ("SubnetIds" Lude..= subnetIds),
-            Lude.Just ("VpcId" Lude..= vpcId),
-            Lude.Just ("CustomerDnsIps" Lude..= customerDNSIPs)
+instance Core.FromJSON DirectoryConnectSettings where
+  toJSON DirectoryConnectSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("VpcId" Core..= vpcId),
+            Core.Just ("SubnetIds" Core..= subnetIds),
+            Core.Just ("CustomerDnsIps" Core..= customerDnsIps),
+            Core.Just ("CustomerUserName" Core..= customerUserName)
           ]
       )

@@ -17,47 +17,45 @@ module Network.AWS.Connect.Types.KinesisFirehoseConfig
     mkKinesisFirehoseConfig,
 
     -- * Lenses
-    kfcFirehoseARN,
+    kfcFirehoseArn,
   )
 where
 
+import qualified Network.AWS.Connect.Types.ARN as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Configuration information of a Kinesis Firehose delivery stream.
 --
 -- /See:/ 'mkKinesisFirehoseConfig' smart constructor.
 newtype KinesisFirehoseConfig = KinesisFirehoseConfig'
   { -- | The Amazon Resource Name (ARN) of the delivery stream.
-    firehoseARN :: Lude.Text
+    firehoseArn :: Types.ARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KinesisFirehoseConfig' with the minimum fields required to make a request.
---
--- * 'firehoseARN' - The Amazon Resource Name (ARN) of the delivery stream.
+-- | Creates a 'KinesisFirehoseConfig' value with any optional fields omitted.
 mkKinesisFirehoseConfig ::
-  -- | 'firehoseARN'
-  Lude.Text ->
+  -- | 'firehoseArn'
+  Types.ARN ->
   KinesisFirehoseConfig
-mkKinesisFirehoseConfig pFirehoseARN_ =
-  KinesisFirehoseConfig' {firehoseARN = pFirehoseARN_}
+mkKinesisFirehoseConfig firehoseArn =
+  KinesisFirehoseConfig' {firehoseArn}
 
 -- | The Amazon Resource Name (ARN) of the delivery stream.
 --
--- /Note:/ Consider using 'firehoseARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kfcFirehoseARN :: Lens.Lens' KinesisFirehoseConfig Lude.Text
-kfcFirehoseARN = Lens.lens (firehoseARN :: KinesisFirehoseConfig -> Lude.Text) (\s a -> s {firehoseARN = a} :: KinesisFirehoseConfig)
-{-# DEPRECATED kfcFirehoseARN "Use generic-lens or generic-optics with 'firehoseARN' instead." #-}
+-- /Note:/ Consider using 'firehoseArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kfcFirehoseArn :: Lens.Lens' KinesisFirehoseConfig Types.ARN
+kfcFirehoseArn = Lens.field @"firehoseArn"
+{-# DEPRECATED kfcFirehoseArn "Use generic-lens or generic-optics with 'firehoseArn' instead." #-}
 
-instance Lude.FromJSON KinesisFirehoseConfig where
+instance Core.FromJSON KinesisFirehoseConfig where
+  toJSON KinesisFirehoseConfig {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("FirehoseArn" Core..= firehoseArn)])
+
+instance Core.FromJSON KinesisFirehoseConfig where
   parseJSON =
-    Lude.withObject
-      "KinesisFirehoseConfig"
-      (\x -> KinesisFirehoseConfig' Lude.<$> (x Lude..: "FirehoseArn"))
-
-instance Lude.ToJSON KinesisFirehoseConfig where
-  toJSON KinesisFirehoseConfig' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("FirehoseArn" Lude..= firehoseARN)])
+    Core.withObject "KinesisFirehoseConfig" Core.$
+      \x -> KinesisFirehoseConfig' Core.<$> (x Core..: "FirehoseArn")

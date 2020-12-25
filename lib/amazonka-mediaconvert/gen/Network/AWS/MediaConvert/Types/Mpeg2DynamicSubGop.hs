@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.Mpeg2DynamicSubGop
   ( Mpeg2DynamicSubGop
       ( Mpeg2DynamicSubGop',
-        Adaptive,
-        Static
+        Mpeg2DynamicSubGopAdaptive,
+        Mpeg2DynamicSubGopStatic,
+        fromMpeg2DynamicSubGop
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-newtype Mpeg2DynamicSubGop = Mpeg2DynamicSubGop' Lude.Text
+newtype Mpeg2DynamicSubGop = Mpeg2DynamicSubGop'
+  { fromMpeg2DynamicSubGop ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Adaptive :: Mpeg2DynamicSubGop
-pattern Adaptive = Mpeg2DynamicSubGop' "ADAPTIVE"
+pattern Mpeg2DynamicSubGopAdaptive :: Mpeg2DynamicSubGop
+pattern Mpeg2DynamicSubGopAdaptive = Mpeg2DynamicSubGop' "ADAPTIVE"
 
-pattern Static :: Mpeg2DynamicSubGop
-pattern Static = Mpeg2DynamicSubGop' "STATIC"
+pattern Mpeg2DynamicSubGopStatic :: Mpeg2DynamicSubGop
+pattern Mpeg2DynamicSubGopStatic = Mpeg2DynamicSubGop' "STATIC"
 
 {-# COMPLETE
-  Adaptive,
-  Static,
+  Mpeg2DynamicSubGopAdaptive,
+  Mpeg2DynamicSubGopStatic,
   Mpeg2DynamicSubGop'
   #-}

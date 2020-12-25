@@ -13,56 +13,61 @@
 module Network.AWS.AppSync.Types.AuthenticationType
   ( AuthenticationType
       ( AuthenticationType',
-        APIKey,
-        AWSIAM,
-        AmazonCognitoUserPools,
-        OpenidConnect
+        AuthenticationTypeApiKey,
+        AuthenticationTypeAwsIam,
+        AuthenticationTypeAmazonCognitoUserPools,
+        AuthenticationTypeOpenidConnect,
+        fromAuthenticationType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AuthenticationType = AuthenticationType' Lude.Text
+newtype AuthenticationType = AuthenticationType'
+  { fromAuthenticationType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern APIKey :: AuthenticationType
-pattern APIKey = AuthenticationType' "API_KEY"
+pattern AuthenticationTypeApiKey :: AuthenticationType
+pattern AuthenticationTypeApiKey = AuthenticationType' "API_KEY"
 
-pattern AWSIAM :: AuthenticationType
-pattern AWSIAM = AuthenticationType' "AWS_IAM"
+pattern AuthenticationTypeAwsIam :: AuthenticationType
+pattern AuthenticationTypeAwsIam = AuthenticationType' "AWS_IAM"
 
-pattern AmazonCognitoUserPools :: AuthenticationType
-pattern AmazonCognitoUserPools = AuthenticationType' "AMAZON_COGNITO_USER_POOLS"
+pattern AuthenticationTypeAmazonCognitoUserPools :: AuthenticationType
+pattern AuthenticationTypeAmazonCognitoUserPools = AuthenticationType' "AMAZON_COGNITO_USER_POOLS"
 
-pattern OpenidConnect :: AuthenticationType
-pattern OpenidConnect = AuthenticationType' "OPENID_CONNECT"
+pattern AuthenticationTypeOpenidConnect :: AuthenticationType
+pattern AuthenticationTypeOpenidConnect = AuthenticationType' "OPENID_CONNECT"
 
 {-# COMPLETE
-  APIKey,
-  AWSIAM,
-  AmazonCognitoUserPools,
-  OpenidConnect,
+  AuthenticationTypeApiKey,
+  AuthenticationTypeAwsIam,
+  AuthenticationTypeAmazonCognitoUserPools,
+  AuthenticationTypeOpenidConnect,
   AuthenticationType'
   #-}

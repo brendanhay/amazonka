@@ -13,71 +13,76 @@
 module Network.AWS.SSM.Types.PatchComplianceDataState
   ( PatchComplianceDataState
       ( PatchComplianceDataState',
-        PCDSInstalled,
-        PCDSInstalledOther,
-        PCDSInstalledPendingReboot,
-        PCDSInstalledRejected,
-        PCDSMissing,
-        PCDSNotApplicable,
-        PCDSFailed
+        PatchComplianceDataStateInstalled,
+        PatchComplianceDataStateInstalledOther,
+        PatchComplianceDataStateInstalledPendingReboot,
+        PatchComplianceDataStateInstalledRejected,
+        PatchComplianceDataStateMissing,
+        PatchComplianceDataStateNotApplicable,
+        PatchComplianceDataStateFailed,
+        fromPatchComplianceDataState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype PatchComplianceDataState = PatchComplianceDataState' Lude.Text
+newtype PatchComplianceDataState = PatchComplianceDataState'
+  { fromPatchComplianceDataState ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern PCDSInstalled :: PatchComplianceDataState
-pattern PCDSInstalled = PatchComplianceDataState' "INSTALLED"
+pattern PatchComplianceDataStateInstalled :: PatchComplianceDataState
+pattern PatchComplianceDataStateInstalled = PatchComplianceDataState' "INSTALLED"
 
-pattern PCDSInstalledOther :: PatchComplianceDataState
-pattern PCDSInstalledOther = PatchComplianceDataState' "INSTALLED_OTHER"
+pattern PatchComplianceDataStateInstalledOther :: PatchComplianceDataState
+pattern PatchComplianceDataStateInstalledOther = PatchComplianceDataState' "INSTALLED_OTHER"
 
-pattern PCDSInstalledPendingReboot :: PatchComplianceDataState
-pattern PCDSInstalledPendingReboot = PatchComplianceDataState' "INSTALLED_PENDING_REBOOT"
+pattern PatchComplianceDataStateInstalledPendingReboot :: PatchComplianceDataState
+pattern PatchComplianceDataStateInstalledPendingReboot = PatchComplianceDataState' "INSTALLED_PENDING_REBOOT"
 
-pattern PCDSInstalledRejected :: PatchComplianceDataState
-pattern PCDSInstalledRejected = PatchComplianceDataState' "INSTALLED_REJECTED"
+pattern PatchComplianceDataStateInstalledRejected :: PatchComplianceDataState
+pattern PatchComplianceDataStateInstalledRejected = PatchComplianceDataState' "INSTALLED_REJECTED"
 
-pattern PCDSMissing :: PatchComplianceDataState
-pattern PCDSMissing = PatchComplianceDataState' "MISSING"
+pattern PatchComplianceDataStateMissing :: PatchComplianceDataState
+pattern PatchComplianceDataStateMissing = PatchComplianceDataState' "MISSING"
 
-pattern PCDSNotApplicable :: PatchComplianceDataState
-pattern PCDSNotApplicable = PatchComplianceDataState' "NOT_APPLICABLE"
+pattern PatchComplianceDataStateNotApplicable :: PatchComplianceDataState
+pattern PatchComplianceDataStateNotApplicable = PatchComplianceDataState' "NOT_APPLICABLE"
 
-pattern PCDSFailed :: PatchComplianceDataState
-pattern PCDSFailed = PatchComplianceDataState' "FAILED"
+pattern PatchComplianceDataStateFailed :: PatchComplianceDataState
+pattern PatchComplianceDataStateFailed = PatchComplianceDataState' "FAILED"
 
 {-# COMPLETE
-  PCDSInstalled,
-  PCDSInstalledOther,
-  PCDSInstalledPendingReboot,
-  PCDSInstalledRejected,
-  PCDSMissing,
-  PCDSNotApplicable,
-  PCDSFailed,
+  PatchComplianceDataStateInstalled,
+  PatchComplianceDataStateInstalledOther,
+  PatchComplianceDataStateInstalledPendingReboot,
+  PatchComplianceDataStateInstalledRejected,
+  PatchComplianceDataStateMissing,
+  PatchComplianceDataStateNotApplicable,
+  PatchComplianceDataStateFailed,
   PatchComplianceDataState'
   #-}

@@ -20,139 +20,133 @@ module Network.AWS.CloudFront.ListDistributionsByWebACLId
     mkListDistributionsByWebACLId,
 
     -- ** Request lenses
-    ldbwaiWebACLId,
-    ldbwaiMarker,
-    ldbwaiMaxItems,
+    ldbwacliWebACLId,
+    ldbwacliMarker,
+    ldbwacliMaxItems,
 
     -- * Destructuring the response
     ListDistributionsByWebACLIdResponse (..),
     mkListDistributionsByWebACLIdResponse,
 
     -- ** Response lenses
-    ldbwairsDistributionList,
-    ldbwairsResponseStatus,
+    ldbwaclirrsDistributionList,
+    ldbwaclirrsResponseStatus,
   )
 where
 
-import Network.AWS.CloudFront.Types
+import qualified Network.AWS.CloudFront.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The request to list distributions that are associated with a specified AWS WAF web ACL.
 --
 -- /See:/ 'mkListDistributionsByWebACLId' smart constructor.
 data ListDistributionsByWebACLId = ListDistributionsByWebACLId'
   { -- | The ID of the AWS WAF web ACL that you want to list the associated distributions. If you specify "null" for the ID, the request returns a list of the distributions that aren't associated with a web ACL.
-    webACLId :: Lude.Text,
+    webACLId :: Types.String,
     -- | Use @Marker@ and @MaxItems@ to control pagination of results. If you have more than @MaxItems@ distributions that satisfy the request, the response includes a @NextMarker@ element. To get the next page of results, submit another request. For the value of @Marker@ , specify the value of @NextMarker@ from the last response. (For the first request, omit @Marker@ .)
-    marker :: Lude.Maybe Lude.Text,
+    marker :: Core.Maybe Types.String,
     -- | The maximum number of distributions that you want CloudFront to return in the response body. The maximum and default values are both 100.
-    maxItems :: Lude.Maybe Lude.Text
+    maxItems :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListDistributionsByWebACLId' with the minimum fields required to make a request.
---
--- * 'webACLId' - The ID of the AWS WAF web ACL that you want to list the associated distributions. If you specify "null" for the ID, the request returns a list of the distributions that aren't associated with a web ACL.
--- * 'marker' - Use @Marker@ and @MaxItems@ to control pagination of results. If you have more than @MaxItems@ distributions that satisfy the request, the response includes a @NextMarker@ element. To get the next page of results, submit another request. For the value of @Marker@ , specify the value of @NextMarker@ from the last response. (For the first request, omit @Marker@ .)
--- * 'maxItems' - The maximum number of distributions that you want CloudFront to return in the response body. The maximum and default values are both 100.
+-- | Creates a 'ListDistributionsByWebACLId' value with any optional fields omitted.
 mkListDistributionsByWebACLId ::
   -- | 'webACLId'
-  Lude.Text ->
+  Types.String ->
   ListDistributionsByWebACLId
-mkListDistributionsByWebACLId pWebACLId_ =
+mkListDistributionsByWebACLId webACLId =
   ListDistributionsByWebACLId'
-    { webACLId = pWebACLId_,
-      marker = Lude.Nothing,
-      maxItems = Lude.Nothing
+    { webACLId,
+      marker = Core.Nothing,
+      maxItems = Core.Nothing
     }
 
 -- | The ID of the AWS WAF web ACL that you want to list the associated distributions. If you specify "null" for the ID, the request returns a list of the distributions that aren't associated with a web ACL.
 --
 -- /Note:/ Consider using 'webACLId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldbwaiWebACLId :: Lens.Lens' ListDistributionsByWebACLId Lude.Text
-ldbwaiWebACLId = Lens.lens (webACLId :: ListDistributionsByWebACLId -> Lude.Text) (\s a -> s {webACLId = a} :: ListDistributionsByWebACLId)
-{-# DEPRECATED ldbwaiWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
+ldbwacliWebACLId :: Lens.Lens' ListDistributionsByWebACLId Types.String
+ldbwacliWebACLId = Lens.field @"webACLId"
+{-# DEPRECATED ldbwacliWebACLId "Use generic-lens or generic-optics with 'webACLId' instead." #-}
 
 -- | Use @Marker@ and @MaxItems@ to control pagination of results. If you have more than @MaxItems@ distributions that satisfy the request, the response includes a @NextMarker@ element. To get the next page of results, submit another request. For the value of @Marker@ , specify the value of @NextMarker@ from the last response. (For the first request, omit @Marker@ .)
 --
 -- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldbwaiMarker :: Lens.Lens' ListDistributionsByWebACLId (Lude.Maybe Lude.Text)
-ldbwaiMarker = Lens.lens (marker :: ListDistributionsByWebACLId -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: ListDistributionsByWebACLId)
-{-# DEPRECATED ldbwaiMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+ldbwacliMarker :: Lens.Lens' ListDistributionsByWebACLId (Core.Maybe Types.String)
+ldbwacliMarker = Lens.field @"marker"
+{-# DEPRECATED ldbwacliMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | The maximum number of distributions that you want CloudFront to return in the response body. The maximum and default values are both 100.
 --
 -- /Note:/ Consider using 'maxItems' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldbwaiMaxItems :: Lens.Lens' ListDistributionsByWebACLId (Lude.Maybe Lude.Text)
-ldbwaiMaxItems = Lens.lens (maxItems :: ListDistributionsByWebACLId -> Lude.Maybe Lude.Text) (\s a -> s {maxItems = a} :: ListDistributionsByWebACLId)
-{-# DEPRECATED ldbwaiMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
+ldbwacliMaxItems :: Lens.Lens' ListDistributionsByWebACLId (Core.Maybe Types.String)
+ldbwacliMaxItems = Lens.field @"maxItems"
+{-# DEPRECATED ldbwacliMaxItems "Use generic-lens or generic-optics with 'maxItems' instead." #-}
 
-instance Lude.AWSRequest ListDistributionsByWebACLId where
+instance Core.AWSRequest ListDistributionsByWebACLId where
   type
     Rs ListDistributionsByWebACLId =
       ListDistributionsByWebACLIdResponse
-  request = Req.get cloudFrontService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ( "/2020-05-31/distributionsByWebACLId/"
+                Core.<> (Core.toText webACLId)
+            ),
+        Core._rqQuery =
+          Core.toQueryValue "Marker" Core.<$> marker
+            Core.<> (Core.toQueryValue "MaxItems" Core.<$> maxItems),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ListDistributionsByWebACLIdResponse'
-            Lude.<$> (Lude.parseXML x) Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.parseXML x) Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListDistributionsByWebACLId where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListDistributionsByWebACLId where
-  toPath ListDistributionsByWebACLId' {..} =
-    Lude.mconcat
-      ["/2020-05-31/distributionsByWebACLId/", Lude.toBS webACLId]
-
-instance Lude.ToQuery ListDistributionsByWebACLId where
-  toQuery ListDistributionsByWebACLId' {..} =
-    Lude.mconcat
-      ["Marker" Lude.=: marker, "MaxItems" Lude.=: maxItems]
 
 -- | The response to a request to list the distributions that are associated with a specified AWS WAF web ACL.
 --
 -- /See:/ 'mkListDistributionsByWebACLIdResponse' smart constructor.
 data ListDistributionsByWebACLIdResponse = ListDistributionsByWebACLIdResponse'
   { -- | The @DistributionList@ type.
-    distributionList :: Lude.Maybe DistributionList,
+    distributionList :: Core.Maybe Types.DistributionList,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListDistributionsByWebACLIdResponse' with the minimum fields required to make a request.
---
--- * 'distributionList' - The @DistributionList@ type.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListDistributionsByWebACLIdResponse' value with any optional fields omitted.
 mkListDistributionsByWebACLIdResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListDistributionsByWebACLIdResponse
-mkListDistributionsByWebACLIdResponse pResponseStatus_ =
+mkListDistributionsByWebACLIdResponse responseStatus =
   ListDistributionsByWebACLIdResponse'
     { distributionList =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | The @DistributionList@ type.
 --
 -- /Note:/ Consider using 'distributionList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldbwairsDistributionList :: Lens.Lens' ListDistributionsByWebACLIdResponse (Lude.Maybe DistributionList)
-ldbwairsDistributionList = Lens.lens (distributionList :: ListDistributionsByWebACLIdResponse -> Lude.Maybe DistributionList) (\s a -> s {distributionList = a} :: ListDistributionsByWebACLIdResponse)
-{-# DEPRECATED ldbwairsDistributionList "Use generic-lens or generic-optics with 'distributionList' instead." #-}
+ldbwaclirrsDistributionList :: Lens.Lens' ListDistributionsByWebACLIdResponse (Core.Maybe Types.DistributionList)
+ldbwaclirrsDistributionList = Lens.field @"distributionList"
+{-# DEPRECATED ldbwaclirrsDistributionList "Use generic-lens or generic-optics with 'distributionList' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ldbwairsResponseStatus :: Lens.Lens' ListDistributionsByWebACLIdResponse Lude.Int
-ldbwairsResponseStatus = Lens.lens (responseStatus :: ListDistributionsByWebACLIdResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListDistributionsByWebACLIdResponse)
-{-# DEPRECATED ldbwairsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ldbwaclirrsResponseStatus :: Lens.Lens' ListDistributionsByWebACLIdResponse Core.Int
+ldbwaclirrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ldbwaclirrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

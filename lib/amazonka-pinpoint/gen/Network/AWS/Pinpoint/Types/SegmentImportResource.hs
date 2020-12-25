@@ -17,126 +17,112 @@ module Network.AWS.Pinpoint.Types.SegmentImportResource
     mkSegmentImportResource,
 
     -- * Lenses
-    sirSize,
     sirFormat,
-    sirChannelCounts,
+    sirS3Url,
+    sirSize,
     sirExternalId,
-    sirS3URL,
-    sirRoleARN,
+    sirRoleArn,
+    sirChannelCounts,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.Pinpoint.Types.DefinitionFormat
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Pinpoint.Types.DefinitionFormat as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides information about the import job that created a segment. An import job is a job that creates a user segment by importing endpoint definitions.
 --
 -- /See:/ 'mkSegmentImportResource' smart constructor.
 data SegmentImportResource = SegmentImportResource'
-  { -- | The number of endpoint definitions that were imported successfully to create the segment.
-    size :: Lude.Int,
-    -- | The format of the files that were imported to create the segment. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format.
-    format :: DefinitionFormat,
-    -- | The number of channel types in the endpoint definitions that were imported to create the segment.
-    channelCounts :: Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int)),
-    -- | (Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when importing endpoint definitions, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.
-    externalId :: Lude.Text,
+  { -- | The format of the files that were imported to create the segment. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format.
+    format :: Types.DefinitionFormat,
     -- | The URL of the Amazon Simple Storage Service (Amazon S3) bucket that the endpoint definitions were imported from to create the segment.
-    s3URL :: Lude.Text,
+    s3Url :: Core.Text,
+    -- | The number of endpoint definitions that were imported successfully to create the segment.
+    size :: Core.Int,
+    -- | (Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when importing endpoint definitions, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.
+    externalId :: Core.Text,
     -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorized Amazon Pinpoint to access the Amazon S3 location to import endpoint definitions from.
-    roleARN :: Lude.Text
+    roleArn :: Core.Text,
+    -- | The number of channel types in the endpoint definitions that were imported to create the segment.
+    channelCounts :: Core.Maybe (Core.HashMap Core.Text Core.Int)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SegmentImportResource' with the minimum fields required to make a request.
---
--- * 'size' - The number of endpoint definitions that were imported successfully to create the segment.
--- * 'format' - The format of the files that were imported to create the segment. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format.
--- * 'channelCounts' - The number of channel types in the endpoint definitions that were imported to create the segment.
--- * 'externalId' - (Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when importing endpoint definitions, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.
--- * 's3URL' - The URL of the Amazon Simple Storage Service (Amazon S3) bucket that the endpoint definitions were imported from to create the segment.
--- * 'roleARN' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorized Amazon Pinpoint to access the Amazon S3 location to import endpoint definitions from.
+-- | Creates a 'SegmentImportResource' value with any optional fields omitted.
 mkSegmentImportResource ::
-  -- | 'size'
-  Lude.Int ->
   -- | 'format'
-  DefinitionFormat ->
+  Types.DefinitionFormat ->
+  -- | 's3Url'
+  Core.Text ->
+  -- | 'size'
+  Core.Int ->
   -- | 'externalId'
-  Lude.Text ->
-  -- | 's3URL'
-  Lude.Text ->
-  -- | 'roleARN'
-  Lude.Text ->
+  Core.Text ->
+  -- | 'roleArn'
+  Core.Text ->
   SegmentImportResource
-mkSegmentImportResource
-  pSize_
-  pFormat_
-  pExternalId_
-  pS3URL_
-  pRoleARN_ =
-    SegmentImportResource'
-      { size = pSize_,
-        format = pFormat_,
-        channelCounts = Lude.Nothing,
-        externalId = pExternalId_,
-        s3URL = pS3URL_,
-        roleARN = pRoleARN_
-      }
-
--- | The number of endpoint definitions that were imported successfully to create the segment.
---
--- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirSize :: Lens.Lens' SegmentImportResource Lude.Int
-sirSize = Lens.lens (size :: SegmentImportResource -> Lude.Int) (\s a -> s {size = a} :: SegmentImportResource)
-{-# DEPRECATED sirSize "Use generic-lens or generic-optics with 'size' instead." #-}
+mkSegmentImportResource format s3Url size externalId roleArn =
+  SegmentImportResource'
+    { format,
+      s3Url,
+      size,
+      externalId,
+      roleArn,
+      channelCounts = Core.Nothing
+    }
 
 -- | The format of the files that were imported to create the segment. Valid values are: CSV, for comma-separated values format; and, JSON, for newline-delimited JSON format.
 --
 -- /Note:/ Consider using 'format' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirFormat :: Lens.Lens' SegmentImportResource DefinitionFormat
-sirFormat = Lens.lens (format :: SegmentImportResource -> DefinitionFormat) (\s a -> s {format = a} :: SegmentImportResource)
+sirFormat :: Lens.Lens' SegmentImportResource Types.DefinitionFormat
+sirFormat = Lens.field @"format"
 {-# DEPRECATED sirFormat "Use generic-lens or generic-optics with 'format' instead." #-}
 
--- | The number of channel types in the endpoint definitions that were imported to create the segment.
+-- | The URL of the Amazon Simple Storage Service (Amazon S3) bucket that the endpoint definitions were imported from to create the segment.
 --
--- /Note:/ Consider using 'channelCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirChannelCounts :: Lens.Lens' SegmentImportResource (Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int)))
-sirChannelCounts = Lens.lens (channelCounts :: SegmentImportResource -> Lude.Maybe (Lude.HashMap Lude.Text (Lude.Int))) (\s a -> s {channelCounts = a} :: SegmentImportResource)
-{-# DEPRECATED sirChannelCounts "Use generic-lens or generic-optics with 'channelCounts' instead." #-}
+-- /Note:/ Consider using 's3Url' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirS3Url :: Lens.Lens' SegmentImportResource Core.Text
+sirS3Url = Lens.field @"s3Url"
+{-# DEPRECATED sirS3Url "Use generic-lens or generic-optics with 's3Url' instead." #-}
+
+-- | The number of endpoint definitions that were imported successfully to create the segment.
+--
+-- /Note:/ Consider using 'size' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirSize :: Lens.Lens' SegmentImportResource Core.Int
+sirSize = Lens.field @"size"
+{-# DEPRECATED sirSize "Use generic-lens or generic-optics with 'size' instead." #-}
 
 -- | (Deprecated) Your AWS account ID, which you assigned to an external ID key in an IAM trust policy. Amazon Pinpoint previously used this value to assume an IAM role when importing endpoint definitions, but we removed this requirement. We don't recommend use of external IDs for IAM roles that are assumed by Amazon Pinpoint.
 --
 -- /Note:/ Consider using 'externalId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirExternalId :: Lens.Lens' SegmentImportResource Lude.Text
-sirExternalId = Lens.lens (externalId :: SegmentImportResource -> Lude.Text) (\s a -> s {externalId = a} :: SegmentImportResource)
+sirExternalId :: Lens.Lens' SegmentImportResource Core.Text
+sirExternalId = Lens.field @"externalId"
 {-# DEPRECATED sirExternalId "Use generic-lens or generic-optics with 'externalId' instead." #-}
-
--- | The URL of the Amazon Simple Storage Service (Amazon S3) bucket that the endpoint definitions were imported from to create the segment.
---
--- /Note:/ Consider using 's3URL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirS3URL :: Lens.Lens' SegmentImportResource Lude.Text
-sirS3URL = Lens.lens (s3URL :: SegmentImportResource -> Lude.Text) (\s a -> s {s3URL = a} :: SegmentImportResource)
-{-# DEPRECATED sirS3URL "Use generic-lens or generic-optics with 's3URL' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that authorized Amazon Pinpoint to access the Amazon S3 location to import endpoint definitions from.
 --
--- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sirRoleARN :: Lens.Lens' SegmentImportResource Lude.Text
-sirRoleARN = Lens.lens (roleARN :: SegmentImportResource -> Lude.Text) (\s a -> s {roleARN = a} :: SegmentImportResource)
-{-# DEPRECATED sirRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
+-- /Note:/ Consider using 'roleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirRoleArn :: Lens.Lens' SegmentImportResource Core.Text
+sirRoleArn = Lens.field @"roleArn"
+{-# DEPRECATED sirRoleArn "Use generic-lens or generic-optics with 'roleArn' instead." #-}
 
-instance Lude.FromJSON SegmentImportResource where
+-- | The number of channel types in the endpoint definitions that were imported to create the segment.
+--
+-- /Note:/ Consider using 'channelCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sirChannelCounts :: Lens.Lens' SegmentImportResource (Core.Maybe (Core.HashMap Core.Text Core.Int))
+sirChannelCounts = Lens.field @"channelCounts"
+{-# DEPRECATED sirChannelCounts "Use generic-lens or generic-optics with 'channelCounts' instead." #-}
+
+instance Core.FromJSON SegmentImportResource where
   parseJSON =
-    Lude.withObject
-      "SegmentImportResource"
-      ( \x ->
-          SegmentImportResource'
-            Lude.<$> (x Lude..: "Size")
-            Lude.<*> (x Lude..: "Format")
-            Lude.<*> (x Lude..:? "ChannelCounts" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "ExternalId")
-            Lude.<*> (x Lude..: "S3Url")
-            Lude.<*> (x Lude..: "RoleArn")
-      )
+    Core.withObject "SegmentImportResource" Core.$
+      \x ->
+        SegmentImportResource'
+          Core.<$> (x Core..: "Format")
+          Core.<*> (x Core..: "S3Url")
+          Core.<*> (x Core..: "Size")
+          Core.<*> (x Core..: "ExternalId")
+          Core.<*> (x Core..: "RoleArn")
+          Core.<*> (x Core..:? "ChannelCounts")

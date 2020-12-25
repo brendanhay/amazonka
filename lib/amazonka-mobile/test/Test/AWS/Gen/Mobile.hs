@@ -150,7 +150,7 @@ responseListProjects =
   res
     "ListProjectsResponse"
     "fixture/ListProjectsResponse.proto"
-    mobileService
+    mkServiceConfig
     (Proxy :: Proxy ListProjects)
 
 responseDeleteProject :: DeleteProjectResponse -> TestTree
@@ -158,7 +158,7 @@ responseDeleteProject =
   res
     "DeleteProjectResponse"
     "fixture/DeleteProjectResponse.proto"
-    mobileService
+    mkServiceConfig
     (Proxy :: Proxy DeleteProject)
 
 responseUpdateProject :: UpdateProjectResponse -> TestTree
@@ -166,7 +166,7 @@ responseUpdateProject =
   res
     "UpdateProjectResponse"
     "fixture/UpdateProjectResponse.proto"
-    mobileService
+    mkServiceConfig
     (Proxy :: Proxy UpdateProject)
 
 responseListBundles :: ListBundlesResponse -> TestTree
@@ -174,7 +174,7 @@ responseListBundles =
   res
     "ListBundlesResponse"
     "fixture/ListBundlesResponse.proto"
-    mobileService
+    mkServiceConfig
     (Proxy :: Proxy ListBundles)
 
 responseDescribeProject :: DescribeProjectResponse -> TestTree
@@ -182,7 +182,7 @@ responseDescribeProject =
   res
     "DescribeProjectResponse"
     "fixture/DescribeProjectResponse.proto"
-    mobileService
+    mkServiceConfig
     (Proxy :: Proxy DescribeProject)
 
 responseExportProject :: ExportProjectResponse -> TestTree
@@ -190,7 +190,7 @@ responseExportProject =
   res
     "ExportProjectResponse"
     "fixture/ExportProjectResponse.proto"
-    mobileService
+    mkServiceConfig
     (Proxy :: Proxy ExportProject)
 
 responseDescribeBundle :: DescribeBundleResponse -> TestTree
@@ -198,7 +198,7 @@ responseDescribeBundle =
   res
     "DescribeBundleResponse"
     "fixture/DescribeBundleResponse.proto"
-    mobileService
+    mkServiceConfig
     (Proxy :: Proxy DescribeBundle)
 
 responseExportBundle :: ExportBundleResponse -> TestTree
@@ -206,7 +206,7 @@ responseExportBundle =
   res
     "ExportBundleResponse"
     "fixture/ExportBundleResponse.proto"
-    mobileService
+    mkServiceConfig
     (Proxy :: Proxy ExportBundle)
 
 responseCreateProject :: CreateProjectResponse -> TestTree
@@ -214,5 +214,5 @@ responseCreateProject =
   res
     "CreateProjectResponse"
     "fixture/CreateProjectResponse.proto"
-    mobileService
+    mkServiceConfig
     (Proxy :: Proxy CreateProject)

@@ -17,14 +17,15 @@ module Network.AWS.GameLift.Types.InstanceDefinition
     mkInstanceDefinition,
 
     -- * Lenses
-    idWeightedCapacity,
     idInstanceType,
+    idWeightedCapacity,
   )
 where
 
-import Network.AWS.GameLift.Types.GameServerGroupInstanceType
+import qualified Network.AWS.GameLift.Types.GameServerGroupInstanceType as Types
+import qualified Network.AWS.GameLift.Types.WeightedCapacity as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | __This data type is used with the Amazon GameLift FleetIQ and game server groups.__
 --
@@ -32,57 +33,51 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkInstanceDefinition' smart constructor.
 data InstanceDefinition = InstanceDefinition'
-  { -- | Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting> in the /Amazon EC2 Auto Scaling User Guide/ . Default value is "1".
-    weightedCapacity :: Lude.Maybe Lude.Text,
-    -- | An EC2 instance type designation.
-    instanceType :: GameServerGroupInstanceType
+  { -- | An EC2 instance type designation.
+    instanceType :: Types.GameServerGroupInstanceType,
+    -- | Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting> in the /Amazon EC2 Auto Scaling User Guide/ . Default value is "1".
+    weightedCapacity :: Core.Maybe Types.WeightedCapacity
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceDefinition' with the minimum fields required to make a request.
---
--- * 'weightedCapacity' - Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting> in the /Amazon EC2 Auto Scaling User Guide/ . Default value is "1".
--- * 'instanceType' - An EC2 instance type designation.
+-- | Creates a 'InstanceDefinition' value with any optional fields omitted.
 mkInstanceDefinition ::
   -- | 'instanceType'
-  GameServerGroupInstanceType ->
+  Types.GameServerGroupInstanceType ->
   InstanceDefinition
-mkInstanceDefinition pInstanceType_ =
+mkInstanceDefinition instanceType =
   InstanceDefinition'
-    { weightedCapacity = Lude.Nothing,
-      instanceType = pInstanceType_
+    { instanceType,
+      weightedCapacity = Core.Nothing
     }
-
--- | Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting> in the /Amazon EC2 Auto Scaling User Guide/ . Default value is "1".
---
--- /Note:/ Consider using 'weightedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idWeightedCapacity :: Lens.Lens' InstanceDefinition (Lude.Maybe Lude.Text)
-idWeightedCapacity = Lens.lens (weightedCapacity :: InstanceDefinition -> Lude.Maybe Lude.Text) (\s a -> s {weightedCapacity = a} :: InstanceDefinition)
-{-# DEPRECATED idWeightedCapacity "Use generic-lens or generic-optics with 'weightedCapacity' instead." #-}
 
 -- | An EC2 instance type designation.
 --
 -- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-idInstanceType :: Lens.Lens' InstanceDefinition GameServerGroupInstanceType
-idInstanceType = Lens.lens (instanceType :: InstanceDefinition -> GameServerGroupInstanceType) (\s a -> s {instanceType = a} :: InstanceDefinition)
+idInstanceType :: Lens.Lens' InstanceDefinition Types.GameServerGroupInstanceType
+idInstanceType = Lens.field @"instanceType"
 {-# DEPRECATED idInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
 
-instance Lude.FromJSON InstanceDefinition where
-  parseJSON =
-    Lude.withObject
-      "InstanceDefinition"
-      ( \x ->
-          InstanceDefinition'
-            Lude.<$> (x Lude..:? "WeightedCapacity")
-            Lude.<*> (x Lude..: "InstanceType")
-      )
+-- | Instance weighting that indicates how much this instance type contributes to the total capacity of a game server group. Instance weights are used by GameLift FleetIQ to calculate the instance type's cost per unit hour and better identify the most cost-effective options. For detailed information on weighting instance capacity, see <https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-instance-weighting.html Instance Weighting> in the /Amazon EC2 Auto Scaling User Guide/ . Default value is "1".
+--
+-- /Note:/ Consider using 'weightedCapacity' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+idWeightedCapacity :: Lens.Lens' InstanceDefinition (Core.Maybe Types.WeightedCapacity)
+idWeightedCapacity = Lens.field @"weightedCapacity"
+{-# DEPRECATED idWeightedCapacity "Use generic-lens or generic-optics with 'weightedCapacity' instead." #-}
 
-instance Lude.ToJSON InstanceDefinition where
-  toJSON InstanceDefinition' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("WeightedCapacity" Lude..=) Lude.<$> weightedCapacity,
-            Lude.Just ("InstanceType" Lude..= instanceType)
+instance Core.FromJSON InstanceDefinition where
+  toJSON InstanceDefinition {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("InstanceType" Core..= instanceType),
+            ("WeightedCapacity" Core..=) Core.<$> weightedCapacity
           ]
       )
+
+instance Core.FromJSON InstanceDefinition where
+  parseJSON =
+    Core.withObject "InstanceDefinition" Core.$
+      \x ->
+        InstanceDefinition'
+          Core.<$> (x Core..: "InstanceType") Core.<*> (x Core..:? "WeightedCapacity")

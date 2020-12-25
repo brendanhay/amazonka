@@ -17,23 +17,31 @@ module Network.AWS.SWF.Types.ScheduleActivityTaskDecisionAttributes
     mkScheduleActivityTaskDecisionAttributes,
 
     -- * Lenses
-    satdaControl,
     satdaActivityType,
     satdaActivityId,
+    satdaControl,
     satdaHeartbeatTimeout,
-    satdaScheduleToCloseTimeout,
     satdaInput,
-    satdaTaskList,
-    satdaTaskPriority,
+    satdaScheduleToCloseTimeout,
     satdaScheduleToStartTimeout,
     satdaStartToCloseTimeout,
+    satdaTaskList,
+    satdaTaskPriority,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SWF.Types.ActivityType
-import Network.AWS.SWF.Types.TaskList
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.ActivityId as Types
+import qualified Network.AWS.SWF.Types.ActivityType as Types
+import qualified Network.AWS.SWF.Types.Control as Types
+import qualified Network.AWS.SWF.Types.HeartbeatTimeout as Types
+import qualified Network.AWS.SWF.Types.Input as Types
+import qualified Network.AWS.SWF.Types.ScheduleToCloseTimeout as Types
+import qualified Network.AWS.SWF.Types.ScheduleToStartTimeout as Types
+import qualified Network.AWS.SWF.Types.StartToCloseTimeout as Types
+import qualified Network.AWS.SWF.Types.TaskList as Types
+import qualified Network.AWS.SWF.Types.TaskPriority as Types
 
 -- | Provides the details of the @ScheduleActivityTask@ decision.
 --
@@ -63,104 +71,70 @@ import Network.AWS.SWF.Types.TaskList
 --
 -- /See:/ 'mkScheduleActivityTaskDecisionAttributes' smart constructor.
 data ScheduleActivityTaskDecisionAttributes = ScheduleActivityTaskDecisionAttributes'
-  { -- | Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.
-    control :: Lude.Maybe Lude.Text,
-    -- | The type of the activity task to schedule.
-    activityType :: ActivityType,
+  { -- | The type of the activity task to schedule.
+    activityType :: Types.ActivityType,
     -- | The @activityId@ of the activity task.
     --
     -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
-    activityId :: Lude.Text,
+    activityId :: Types.ActivityId,
+    -- | Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.
+    control :: Core.Maybe Types.Control,
     -- | If set, specifies the maximum time before which a worker processing a task of this type must report progress by calling 'RecordActivityTaskHeartbeat' . If the timeout is exceeded, the activity task is automatically timed out. If the worker subsequently attempts to record a heartbeat or returns a result, it is ignored. This overrides the default heartbeat timeout specified when registering the activity type using 'RegisterActivityType' .
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-    heartbeatTimeout :: Lude.Maybe Lude.Text,
+    heartbeatTimeout :: Core.Maybe Types.HeartbeatTimeout,
+    -- | The input provided to the activity task.
+    input :: Core.Maybe Types.Input,
     -- | The maximum duration for this activity task.
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-    scheduleToCloseTimeout :: Lude.Maybe Lude.Text,
-    -- | The input provided to the activity task.
-    input :: Lude.Maybe Lude.Text,
-    -- | If set, specifies the name of the task list in which to schedule the activity task. If not specified, the @defaultTaskList@ registered with the activity type is used.
-    --
-    -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
-    taskList :: Lude.Maybe TaskList,
-    -- | If set, specifies the priority with which the activity task is to be assigned to a worker. This overrides the defaultTaskPriority specified when registering the activity type using 'RegisterActivityType' . Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
-    --
-    -- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
-    taskPriority :: Lude.Maybe Lude.Text,
+    scheduleToCloseTimeout :: Core.Maybe Types.ScheduleToCloseTimeout,
     -- | If set, specifies the maximum duration the activity task can wait to be assigned to a worker. This overrides the default schedule-to-start timeout specified when registering the activity type using 'RegisterActivityType' .
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-    scheduleToStartTimeout :: Lude.Maybe Lude.Text,
+    scheduleToStartTimeout :: Core.Maybe Types.ScheduleToStartTimeout,
     -- | If set, specifies the maximum duration a worker may take to process this activity task. This overrides the default start-to-close timeout specified when registering the activity type using 'RegisterActivityType' .
     --
     -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
-    startToCloseTimeout :: Lude.Maybe Lude.Text
+    startToCloseTimeout :: Core.Maybe Types.StartToCloseTimeout,
+    -- | If set, specifies the name of the task list in which to schedule the activity task. If not specified, the @defaultTaskList@ registered with the activity type is used.
+    --
+    -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
+    taskList :: Core.Maybe Types.TaskList,
+    -- | If set, specifies the priority with which the activity task is to be assigned to a worker. This overrides the defaultTaskPriority specified when registering the activity type using 'RegisterActivityType' . Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
+    --
+    -- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
+    taskPriority :: Core.Maybe Types.TaskPriority
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ScheduleActivityTaskDecisionAttributes' with the minimum fields required to make a request.
---
--- * 'control' - Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.
--- * 'activityType' - The type of the activity task to schedule.
--- * 'activityId' - The @activityId@ of the activity task.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
--- * 'heartbeatTimeout' - If set, specifies the maximum time before which a worker processing a task of this type must report progress by calling 'RecordActivityTaskHeartbeat' . If the timeout is exceeded, the activity task is automatically timed out. If the worker subsequently attempts to record a heartbeat or returns a result, it is ignored. This overrides the default heartbeat timeout specified when registering the activity type using 'RegisterActivityType' .
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'scheduleToCloseTimeout' - The maximum duration for this activity task.
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'input' - The input provided to the activity task.
--- * 'taskList' - If set, specifies the name of the task list in which to schedule the activity task. If not specified, the @defaultTaskList@ registered with the activity type is used.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
--- * 'taskPriority' - If set, specifies the priority with which the activity task is to be assigned to a worker. This overrides the defaultTaskPriority specified when registering the activity type using 'RegisterActivityType' . Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
--- * 'scheduleToStartTimeout' - If set, specifies the maximum duration the activity task can wait to be assigned to a worker. This overrides the default schedule-to-start timeout specified when registering the activity type using 'RegisterActivityType' .
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
--- * 'startToCloseTimeout' - If set, specifies the maximum duration a worker may take to process this activity task. This overrides the default start-to-close timeout specified when registering the activity type using 'RegisterActivityType' .
---
--- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
+-- | Creates a 'ScheduleActivityTaskDecisionAttributes' value with any optional fields omitted.
 mkScheduleActivityTaskDecisionAttributes ::
   -- | 'activityType'
-  ActivityType ->
+  Types.ActivityType ->
   -- | 'activityId'
-  Lude.Text ->
+  Types.ActivityId ->
   ScheduleActivityTaskDecisionAttributes
-mkScheduleActivityTaskDecisionAttributes
-  pActivityType_
-  pActivityId_ =
-    ScheduleActivityTaskDecisionAttributes'
-      { control = Lude.Nothing,
-        activityType = pActivityType_,
-        activityId = pActivityId_,
-        heartbeatTimeout = Lude.Nothing,
-        scheduleToCloseTimeout = Lude.Nothing,
-        input = Lude.Nothing,
-        taskList = Lude.Nothing,
-        taskPriority = Lude.Nothing,
-        scheduleToStartTimeout = Lude.Nothing,
-        startToCloseTimeout = Lude.Nothing
-      }
-
--- | Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.
---
--- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satdaControl :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Lude.Maybe Lude.Text)
-satdaControl = Lens.lens (control :: ScheduleActivityTaskDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {control = a} :: ScheduleActivityTaskDecisionAttributes)
-{-# DEPRECATED satdaControl "Use generic-lens or generic-optics with 'control' instead." #-}
+mkScheduleActivityTaskDecisionAttributes activityType activityId =
+  ScheduleActivityTaskDecisionAttributes'
+    { activityType,
+      activityId,
+      control = Core.Nothing,
+      heartbeatTimeout = Core.Nothing,
+      input = Core.Nothing,
+      scheduleToCloseTimeout = Core.Nothing,
+      scheduleToStartTimeout = Core.Nothing,
+      startToCloseTimeout = Core.Nothing,
+      taskList = Core.Nothing,
+      taskPriority = Core.Nothing
+    }
 
 -- | The type of the activity task to schedule.
 --
 -- /Note:/ Consider using 'activityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satdaActivityType :: Lens.Lens' ScheduleActivityTaskDecisionAttributes ActivityType
-satdaActivityType = Lens.lens (activityType :: ScheduleActivityTaskDecisionAttributes -> ActivityType) (\s a -> s {activityType = a} :: ScheduleActivityTaskDecisionAttributes)
+satdaActivityType :: Lens.Lens' ScheduleActivityTaskDecisionAttributes Types.ActivityType
+satdaActivityType = Lens.field @"activityType"
 {-# DEPRECATED satdaActivityType "Use generic-lens or generic-optics with 'activityType' instead." #-}
 
 -- | The @activityId@ of the activity task.
@@ -168,60 +142,49 @@ satdaActivityType = Lens.lens (activityType :: ScheduleActivityTaskDecisionAttri
 -- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
 --
 -- /Note:/ Consider using 'activityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satdaActivityId :: Lens.Lens' ScheduleActivityTaskDecisionAttributes Lude.Text
-satdaActivityId = Lens.lens (activityId :: ScheduleActivityTaskDecisionAttributes -> Lude.Text) (\s a -> s {activityId = a} :: ScheduleActivityTaskDecisionAttributes)
+satdaActivityId :: Lens.Lens' ScheduleActivityTaskDecisionAttributes Types.ActivityId
+satdaActivityId = Lens.field @"activityId"
 {-# DEPRECATED satdaActivityId "Use generic-lens or generic-optics with 'activityId' instead." #-}
+
+-- | Data attached to the event that can be used by the decider in subsequent workflow tasks. This data isn't sent to the activity.
+--
+-- /Note:/ Consider using 'control' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+satdaControl :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Core.Maybe Types.Control)
+satdaControl = Lens.field @"control"
+{-# DEPRECATED satdaControl "Use generic-lens or generic-optics with 'control' instead." #-}
 
 -- | If set, specifies the maximum time before which a worker processing a task of this type must report progress by calling 'RecordActivityTaskHeartbeat' . If the timeout is exceeded, the activity task is automatically timed out. If the worker subsequently attempts to record a heartbeat or returns a result, it is ignored. This overrides the default heartbeat timeout specified when registering the activity type using 'RegisterActivityType' .
 --
 -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
 -- /Note:/ Consider using 'heartbeatTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satdaHeartbeatTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Lude.Maybe Lude.Text)
-satdaHeartbeatTimeout = Lens.lens (heartbeatTimeout :: ScheduleActivityTaskDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {heartbeatTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
+satdaHeartbeatTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Core.Maybe Types.HeartbeatTimeout)
+satdaHeartbeatTimeout = Lens.field @"heartbeatTimeout"
 {-# DEPRECATED satdaHeartbeatTimeout "Use generic-lens or generic-optics with 'heartbeatTimeout' instead." #-}
+
+-- | The input provided to the activity task.
+--
+-- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+satdaInput :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Core.Maybe Types.Input)
+satdaInput = Lens.field @"input"
+{-# DEPRECATED satdaInput "Use generic-lens or generic-optics with 'input' instead." #-}
 
 -- | The maximum duration for this activity task.
 --
 -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
 -- /Note:/ Consider using 'scheduleToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satdaScheduleToCloseTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Lude.Maybe Lude.Text)
-satdaScheduleToCloseTimeout = Lens.lens (scheduleToCloseTimeout :: ScheduleActivityTaskDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {scheduleToCloseTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
+satdaScheduleToCloseTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Core.Maybe Types.ScheduleToCloseTimeout)
+satdaScheduleToCloseTimeout = Lens.field @"scheduleToCloseTimeout"
 {-# DEPRECATED satdaScheduleToCloseTimeout "Use generic-lens or generic-optics with 'scheduleToCloseTimeout' instead." #-}
-
--- | The input provided to the activity task.
---
--- /Note:/ Consider using 'input' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satdaInput :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Lude.Maybe Lude.Text)
-satdaInput = Lens.lens (input :: ScheduleActivityTaskDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {input = a} :: ScheduleActivityTaskDecisionAttributes)
-{-# DEPRECATED satdaInput "Use generic-lens or generic-optics with 'input' instead." #-}
-
--- | If set, specifies the name of the task list in which to schedule the activity task. If not specified, the @defaultTaskList@ registered with the activity type is used.
---
--- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
---
--- /Note:/ Consider using 'taskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satdaTaskList :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Lude.Maybe TaskList)
-satdaTaskList = Lens.lens (taskList :: ScheduleActivityTaskDecisionAttributes -> Lude.Maybe TaskList) (\s a -> s {taskList = a} :: ScheduleActivityTaskDecisionAttributes)
-{-# DEPRECATED satdaTaskList "Use generic-lens or generic-optics with 'taskList' instead." #-}
-
--- | If set, specifies the priority with which the activity task is to be assigned to a worker. This overrides the defaultTaskPriority specified when registering the activity type using 'RegisterActivityType' . Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
---
--- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
---
--- /Note:/ Consider using 'taskPriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satdaTaskPriority :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Lude.Maybe Lude.Text)
-satdaTaskPriority = Lens.lens (taskPriority :: ScheduleActivityTaskDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {taskPriority = a} :: ScheduleActivityTaskDecisionAttributes)
-{-# DEPRECATED satdaTaskPriority "Use generic-lens or generic-optics with 'taskPriority' instead." #-}
 
 -- | If set, specifies the maximum duration the activity task can wait to be assigned to a worker. This overrides the default schedule-to-start timeout specified when registering the activity type using 'RegisterActivityType' .
 --
 -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
 -- /Note:/ Consider using 'scheduleToStartTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satdaScheduleToStartTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Lude.Maybe Lude.Text)
-satdaScheduleToStartTimeout = Lens.lens (scheduleToStartTimeout :: ScheduleActivityTaskDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {scheduleToStartTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
+satdaScheduleToStartTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Core.Maybe Types.ScheduleToStartTimeout)
+satdaScheduleToStartTimeout = Lens.field @"scheduleToStartTimeout"
 {-# DEPRECATED satdaScheduleToStartTimeout "Use generic-lens or generic-optics with 'scheduleToStartTimeout' instead." #-}
 
 -- | If set, specifies the maximum duration a worker may take to process this activity task. This overrides the default start-to-close timeout specified when registering the activity type using 'RegisterActivityType' .
@@ -229,23 +192,41 @@ satdaScheduleToStartTimeout = Lens.lens (scheduleToStartTimeout :: ScheduleActiv
 -- The duration is specified in seconds, an integer greater than or equal to @0@ . You can use @NONE@ to specify unlimited duration.
 --
 -- /Note:/ Consider using 'startToCloseTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-satdaStartToCloseTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Lude.Maybe Lude.Text)
-satdaStartToCloseTimeout = Lens.lens (startToCloseTimeout :: ScheduleActivityTaskDecisionAttributes -> Lude.Maybe Lude.Text) (\s a -> s {startToCloseTimeout = a} :: ScheduleActivityTaskDecisionAttributes)
+satdaStartToCloseTimeout :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Core.Maybe Types.StartToCloseTimeout)
+satdaStartToCloseTimeout = Lens.field @"startToCloseTimeout"
 {-# DEPRECATED satdaStartToCloseTimeout "Use generic-lens or generic-optics with 'startToCloseTimeout' instead." #-}
 
-instance Lude.ToJSON ScheduleActivityTaskDecisionAttributes where
-  toJSON ScheduleActivityTaskDecisionAttributes' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("control" Lude..=) Lude.<$> control,
-            Lude.Just ("activityType" Lude..= activityType),
-            Lude.Just ("activityId" Lude..= activityId),
-            ("heartbeatTimeout" Lude..=) Lude.<$> heartbeatTimeout,
-            ("scheduleToCloseTimeout" Lude..=) Lude.<$> scheduleToCloseTimeout,
-            ("input" Lude..=) Lude.<$> input,
-            ("taskList" Lude..=) Lude.<$> taskList,
-            ("taskPriority" Lude..=) Lude.<$> taskPriority,
-            ("scheduleToStartTimeout" Lude..=) Lude.<$> scheduleToStartTimeout,
-            ("startToCloseTimeout" Lude..=) Lude.<$> startToCloseTimeout
+-- | If set, specifies the name of the task list in which to schedule the activity task. If not specified, the @defaultTaskList@ registered with the activity type is used.
+--
+-- The specified string must not start or end with whitespace. It must not contain a @:@ (colon), @/@ (slash), @|@ (vertical bar), or any control characters (@\u0000-\u001f@ | @\u007f-\u009f@ ). Also, it must not contain the literal string @arn@ .
+--
+-- /Note:/ Consider using 'taskList' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+satdaTaskList :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Core.Maybe Types.TaskList)
+satdaTaskList = Lens.field @"taskList"
+{-# DEPRECATED satdaTaskList "Use generic-lens or generic-optics with 'taskList' instead." #-}
+
+-- | If set, specifies the priority with which the activity task is to be assigned to a worker. This overrides the defaultTaskPriority specified when registering the activity type using 'RegisterActivityType' . Valid values are integers that range from Java's @Integer.MIN_VALUE@ (-2147483648) to @Integer.MAX_VALUE@ (2147483647). Higher numbers indicate higher priority.
+--
+-- For more information about setting task priority, see <https://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority> in the /Amazon SWF Developer Guide/ .
+--
+-- /Note:/ Consider using 'taskPriority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+satdaTaskPriority :: Lens.Lens' ScheduleActivityTaskDecisionAttributes (Core.Maybe Types.TaskPriority)
+satdaTaskPriority = Lens.field @"taskPriority"
+{-# DEPRECATED satdaTaskPriority "Use generic-lens or generic-optics with 'taskPriority' instead." #-}
+
+instance Core.FromJSON ScheduleActivityTaskDecisionAttributes where
+  toJSON ScheduleActivityTaskDecisionAttributes {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("activityType" Core..= activityType),
+            Core.Just ("activityId" Core..= activityId),
+            ("control" Core..=) Core.<$> control,
+            ("heartbeatTimeout" Core..=) Core.<$> heartbeatTimeout,
+            ("input" Core..=) Core.<$> input,
+            ("scheduleToCloseTimeout" Core..=) Core.<$> scheduleToCloseTimeout,
+            ("scheduleToStartTimeout" Core..=) Core.<$> scheduleToStartTimeout,
+            ("startToCloseTimeout" Core..=) Core.<$> startToCloseTimeout,
+            ("taskList" Core..=) Core.<$> taskList,
+            ("taskPriority" Core..=) Core.<$> taskPriority
           ]
       )

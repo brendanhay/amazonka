@@ -13,56 +13,61 @@
 module Network.AWS.SageMaker.Types.TrainingJobSortByOptions
   ( TrainingJobSortByOptions
       ( TrainingJobSortByOptions',
-        TJSBOName,
-        TJSBOCreationTime,
-        TJSBOStatus,
-        TJSBOFinalObjectiveMetricValue
+        TrainingJobSortByOptionsName,
+        TrainingJobSortByOptionsCreationTime,
+        TrainingJobSortByOptionsStatus,
+        TrainingJobSortByOptionsFinalObjectiveMetricValue,
+        fromTrainingJobSortByOptions
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype TrainingJobSortByOptions = TrainingJobSortByOptions' Lude.Text
+newtype TrainingJobSortByOptions = TrainingJobSortByOptions'
+  { fromTrainingJobSortByOptions ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TJSBOName :: TrainingJobSortByOptions
-pattern TJSBOName = TrainingJobSortByOptions' "Name"
+pattern TrainingJobSortByOptionsName :: TrainingJobSortByOptions
+pattern TrainingJobSortByOptionsName = TrainingJobSortByOptions' "Name"
 
-pattern TJSBOCreationTime :: TrainingJobSortByOptions
-pattern TJSBOCreationTime = TrainingJobSortByOptions' "CreationTime"
+pattern TrainingJobSortByOptionsCreationTime :: TrainingJobSortByOptions
+pattern TrainingJobSortByOptionsCreationTime = TrainingJobSortByOptions' "CreationTime"
 
-pattern TJSBOStatus :: TrainingJobSortByOptions
-pattern TJSBOStatus = TrainingJobSortByOptions' "Status"
+pattern TrainingJobSortByOptionsStatus :: TrainingJobSortByOptions
+pattern TrainingJobSortByOptionsStatus = TrainingJobSortByOptions' "Status"
 
-pattern TJSBOFinalObjectiveMetricValue :: TrainingJobSortByOptions
-pattern TJSBOFinalObjectiveMetricValue = TrainingJobSortByOptions' "FinalObjectiveMetricValue"
+pattern TrainingJobSortByOptionsFinalObjectiveMetricValue :: TrainingJobSortByOptions
+pattern TrainingJobSortByOptionsFinalObjectiveMetricValue = TrainingJobSortByOptions' "FinalObjectiveMetricValue"
 
 {-# COMPLETE
-  TJSBOName,
-  TJSBOCreationTime,
-  TJSBOStatus,
-  TJSBOFinalObjectiveMetricValue,
+  TrainingJobSortByOptionsName,
+  TrainingJobSortByOptionsCreationTime,
+  TrainingJobSortByOptionsStatus,
+  TrainingJobSortByOptionsFinalObjectiveMetricValue,
   TrainingJobSortByOptions'
   #-}

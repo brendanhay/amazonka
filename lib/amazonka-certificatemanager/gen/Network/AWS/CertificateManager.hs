@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -17,10 +16,46 @@
 -- You can use ACM to manage SSL/TLS certificates for your AWS-based websites and applications. For general information about using ACM, see the <https://docs.aws.amazon.com/acm/latest/userguide/ /AWS Certificate Manager User Guide/ > .
 module Network.AWS.CertificateManager
   ( -- * Service configuration
-    certificateManagerService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidTagException
+    _InvalidTagException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidDomainValidationOptionsException
+    _InvalidDomainValidationOptionsException,
+
+    -- ** TooManyTagsException
+    _TooManyTagsException,
+
+    -- ** InvalidArgsException
+    _InvalidArgsException,
+
+    -- ** RequestInProgressException
+    _RequestInProgressException,
+
+    -- ** TagPolicyException
+    _TagPolicyException,
+
+    -- ** InvalidArnException
+    _InvalidArnException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** InvalidStateException
+    _InvalidStateException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -72,95 +107,81 @@ module Network.AWS.CertificateManager
 
     -- * Types
 
-    -- ** CertificateStatus
-    CertificateStatus (..),
-
-    -- ** CertificateTransparencyLoggingPreference
-    CertificateTransparencyLoggingPreference (..),
-
-    -- ** CertificateType
-    CertificateType (..),
-
     -- ** DomainStatus
     DomainStatus (..),
 
-    -- ** ExtendedKeyUsageName
-    ExtendedKeyUsageName (..),
+    -- ** IdempotencyToken
+    IdempotencyToken (..),
 
     -- ** FailureReason
     FailureReason (..),
 
-    -- ** KeyAlgorithm
-    KeyAlgorithm (..),
-
-    -- ** KeyUsageName
-    KeyUsageName (..),
-
-    -- ** RecordType
-    RecordType (..),
-
-    -- ** RenewalEligibility
-    RenewalEligibility (..),
-
-    -- ** RenewalStatus
-    RenewalStatus (..),
-
-    -- ** RevocationReason
-    RevocationReason (..),
+    -- ** CertificateDetail
+    CertificateDetail (..),
+    mkCertificateDetail,
+    cdCertificateArn,
+    cdCertificateAuthorityArn,
+    cdCreatedAt,
+    cdDomainName,
+    cdDomainValidationOptions,
+    cdExtendedKeyUsages,
+    cdFailureReason,
+    cdImportedAt,
+    cdInUseBy,
+    cdIssuedAt,
+    cdIssuer,
+    cdKeyAlgorithm,
+    cdKeyUsages,
+    cdNotAfter,
+    cdNotBefore,
+    cdOptions,
+    cdRenewalEligibility,
+    cdRenewalSummary,
+    cdRevocationReason,
+    cdRevokedAt,
+    cdSerial,
+    cdSignatureAlgorithm,
+    cdStatus,
+    cdSubject,
+    cdSubjectAlternativeNames,
+    cdType,
 
     -- ** ValidationMethod
     ValidationMethod (..),
 
-    -- ** CertificateDetail
-    CertificateDetail (..),
-    mkCertificateDetail,
-    cdSubject,
-    cdStatus,
-    cdFailureReason,
-    cdSubjectAlternativeNames,
-    cdInUseBy,
-    cdCreatedAt,
-    cdCertificateARN,
-    cdSerial,
-    cdRenewalEligibility,
-    cdExtendedKeyUsages,
-    cdImportedAt,
-    cdKeyUsages,
-    cdRevokedAt,
-    cdNotBefore,
-    cdRevocationReason,
-    cdDomainName,
-    cdRenewalSummary,
-    cdKeyAlgorithm,
-    cdType,
-    cdOptions,
-    cdIssuedAt,
-    cdSignatureAlgorithm,
-    cdDomainValidationOptions,
-    cdIssuer,
-    cdNotAfter,
-    cdCertificateAuthorityARN,
+    -- ** ResourceRecord
+    ResourceRecord (..),
+    mkResourceRecord,
+    rrName,
+    rrType,
+    rrValue,
 
-    -- ** CertificateOptions
-    CertificateOptions (..),
-    mkCertificateOptions,
-    coCertificateTransparencyLoggingPreference,
+    -- ** Tag
+    Tag (..),
+    mkTag,
+    tKey,
+    tValue,
 
-    -- ** CertificateSummary
-    CertificateSummary (..),
-    mkCertificateSummary,
-    csCertificateARN,
-    csDomainName,
+    -- ** PrivateKey
+    PrivateKey (..),
 
-    -- ** DomainValidation
-    DomainValidation (..),
-    mkDomainValidation,
-    dvValidationEmails,
-    dvValidationMethod,
-    dvResourceRecord,
-    dvValidationStatus,
-    dvDomainName,
-    dvValidationDomain,
+    -- ** ExtendedKeyUsageName
+    ExtendedKeyUsageName (..),
+
+    -- ** Arn
+    Arn (..),
+
+    -- ** String
+    String (..),
+
+    -- ** CertificateType
+    CertificateType (..),
+
+    -- ** RecordType
+    RecordType (..),
+
+    -- ** KeyUsageName
+    KeyUsageName (..),
 
     -- ** DomainValidationOption
     DomainValidationOption (..),
@@ -168,54 +189,123 @@ module Network.AWS.CertificateManager
     dvoDomainName,
     dvoValidationDomain,
 
-    -- ** ExtendedKeyUsage
-    ExtendedKeyUsage (..),
-    mkExtendedKeyUsage,
-    ekuOId,
-    ekuName,
-
     -- ** Filters
     Filters (..),
     mkFilters,
+    fExtendedKeyUsage,
     fKeyTypes,
     fKeyUsage,
-    fExtendedKeyUsage,
+
+    -- ** RenewalEligibility
+    RenewalEligibility (..),
+
+    -- ** CertificateSummary
+    CertificateSummary (..),
+    mkCertificateSummary,
+    csCertificateArn,
+    csDomainName,
+
+    -- ** NextToken
+    NextToken (..),
+
+    -- ** RevocationReason
+    RevocationReason (..),
+
+    -- ** RenewalStatus
+    RenewalStatus (..),
+
+    -- ** DomainNameString
+    DomainNameString (..),
+
+    -- ** RenewalSummary
+    RenewalSummary (..),
+    mkRenewalSummary,
+    rsRenewalStatus,
+    rsDomainValidationOptions,
+    rsUpdatedAt,
+    rsRenewalStatusReason,
 
     -- ** KeyUsage
     KeyUsage (..),
     mkKeyUsage,
     kuName,
 
-    -- ** RenewalSummary
-    RenewalSummary (..),
-    mkRenewalSummary,
-    rsRenewalStatus,
-    rsUpdatedAt,
-    rsDomainValidationOptions,
-    rsRenewalStatusReason,
+    -- ** CertificateOptions
+    CertificateOptions (..),
+    mkCertificateOptions,
+    coCertificateTransparencyLoggingPreference,
 
-    -- ** ResourceRecord
-    ResourceRecord (..),
-    mkResourceRecord,
-    rrValue,
-    rrName,
-    rrType,
+    -- ** ExtendedKeyUsage
+    ExtendedKeyUsage (..),
+    mkExtendedKeyUsage,
+    ekuName,
+    ekuOID,
 
-    -- ** Tag
-    Tag (..),
-    mkTag,
-    tValue,
-    tKey,
+    -- ** CertificateTransparencyLoggingPreference
+    CertificateTransparencyLoggingPreference (..),
+
+    -- ** KeyAlgorithm
+    KeyAlgorithm (..),
+
+    -- ** CertificateChain
+    CertificateChain (..),
+
+    -- ** DomainValidation
+    DomainValidation (..),
+    mkDomainValidation,
+    dvDomainName,
+    dvResourceRecord,
+    dvValidationDomain,
+    dvValidationEmails,
+    dvValidationMethod,
+    dvValidationStatus,
+
+    -- ** CertificateStatus
+    CertificateStatus (..),
+
+    -- ** CertificateArn
+    CertificateArn (..),
+
+    -- ** CertificateAuthorityArn
+    CertificateAuthorityArn (..),
+
+    -- ** DomainName
+    DomainName (..),
+
+    -- ** Issuer
+    Issuer (..),
+
+    -- ** Serial
+    Serial (..),
+
+    -- ** SignatureAlgorithm
+    SignatureAlgorithm (..),
+
+    -- ** Subject
+    Subject (..),
+
+    -- ** Name
+    Name (..),
+
+    -- ** Value
+    Value (..),
+
+    -- ** Key
+    Key (..),
+
+    -- ** ValidationDomain
+    ValidationDomain (..),
+
+    -- ** Certificate
+    Certificate (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

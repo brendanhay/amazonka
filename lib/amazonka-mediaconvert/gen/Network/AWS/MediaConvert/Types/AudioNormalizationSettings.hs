@@ -17,127 +17,118 @@ module Network.AWS.MediaConvert.Types.AudioNormalizationSettings
     mkAudioNormalizationSettings,
 
     -- * Lenses
-    ansAlgorithmControl,
-    ansTargetLkfs,
-    ansPeakCalculation,
-    ansCorrectionGateLevel,
     ansAlgorithm,
+    ansAlgorithmControl,
+    ansCorrectionGateLevel,
     ansLoudnessLogging,
+    ansPeakCalculation,
+    ansTargetLkfs,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm
-import Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl
-import Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging
-import Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithm as Types
+import qualified Network.AWS.MediaConvert.Types.AudioNormalizationAlgorithmControl as Types
+import qualified Network.AWS.MediaConvert.Types.AudioNormalizationLoudnessLogging as Types
+import qualified Network.AWS.MediaConvert.Types.AudioNormalizationPeakCalculation as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Advanced audio normalization settings. Ignore these settings unless you need to comply with a loudness standard.
 --
 -- /See:/ 'mkAudioNormalizationSettings' smart constructor.
 data AudioNormalizationSettings = AudioNormalizationSettings'
-  { -- | When enabled the output audio is corrected using the chosen algorithm. If disabled, the audio will be measured but not adjusted.
-    algorithmControl :: Lude.Maybe AudioNormalizationAlgorithmControl,
-    -- | When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.
-    targetLkfs :: Lude.Maybe Lude.Double,
-    -- | If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
-    peakCalculation :: Lude.Maybe AudioNormalizationPeakCalculation,
+  { -- | Choose one of the following audio normalization algorithms: ITU-R BS.1770-1: Ungated loudness. A measurement of ungated average loudness for an entire piece of content, suitable for measurement of short-form content under ATSC recommendation A/85. Supports up to 5.1 audio channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated average loudness compliant with the requirements of EBU-R128. Supports up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same loudness measurement algorithm as 1770-2, with an updated true peak measurement. ITU-R BS.1770-4: Higher channel count. Allows for more audio channels than the other algorithms, including configurations such as 7.1.
+    algorithm :: Core.Maybe Types.AudioNormalizationAlgorithm,
+    -- | When enabled the output audio is corrected using the chosen algorithm. If disabled, the audio will be measured but not adjusted.
+    algorithmControl :: Core.Maybe Types.AudioNormalizationAlgorithmControl,
     -- | Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected.
-    correctionGateLevel :: Lude.Maybe Lude.Int,
-    -- | Choose one of the following audio normalization algorithms: ITU-R BS.1770-1: Ungated loudness. A measurement of ungated average loudness for an entire piece of content, suitable for measurement of short-form content under ATSC recommendation A/85. Supports up to 5.1 audio channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated average loudness compliant with the requirements of EBU-R128. Supports up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same loudness measurement algorithm as 1770-2, with an updated true peak measurement. ITU-R BS.1770-4: Higher channel count. Allows for more audio channels than the other algorithms, including configurations such as 7.1.
-    algorithm :: Lude.Maybe AudioNormalizationAlgorithm,
+    correctionGateLevel :: Core.Maybe Core.Int,
     -- | If set to LOG, log each output's audio track loudness to a CSV file.
-    loudnessLogging :: Lude.Maybe AudioNormalizationLoudnessLogging
+    loudnessLogging :: Core.Maybe Types.AudioNormalizationLoudnessLogging,
+    -- | If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
+    peakCalculation :: Core.Maybe Types.AudioNormalizationPeakCalculation,
+    -- | When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.
+    targetLkfs :: Core.Maybe Core.Double
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AudioNormalizationSettings' with the minimum fields required to make a request.
---
--- * 'algorithmControl' - When enabled the output audio is corrected using the chosen algorithm. If disabled, the audio will be measured but not adjusted.
--- * 'targetLkfs' - When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.
--- * 'peakCalculation' - If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
--- * 'correctionGateLevel' - Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected.
--- * 'algorithm' - Choose one of the following audio normalization algorithms: ITU-R BS.1770-1: Ungated loudness. A measurement of ungated average loudness for an entire piece of content, suitable for measurement of short-form content under ATSC recommendation A/85. Supports up to 5.1 audio channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated average loudness compliant with the requirements of EBU-R128. Supports up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same loudness measurement algorithm as 1770-2, with an updated true peak measurement. ITU-R BS.1770-4: Higher channel count. Allows for more audio channels than the other algorithms, including configurations such as 7.1.
--- * 'loudnessLogging' - If set to LOG, log each output's audio track loudness to a CSV file.
+-- | Creates a 'AudioNormalizationSettings' value with any optional fields omitted.
 mkAudioNormalizationSettings ::
   AudioNormalizationSettings
 mkAudioNormalizationSettings =
   AudioNormalizationSettings'
-    { algorithmControl = Lude.Nothing,
-      targetLkfs = Lude.Nothing,
-      peakCalculation = Lude.Nothing,
-      correctionGateLevel = Lude.Nothing,
-      algorithm = Lude.Nothing,
-      loudnessLogging = Lude.Nothing
+    { algorithm = Core.Nothing,
+      algorithmControl = Core.Nothing,
+      correctionGateLevel = Core.Nothing,
+      loudnessLogging = Core.Nothing,
+      peakCalculation = Core.Nothing,
+      targetLkfs = Core.Nothing
     }
-
--- | When enabled the output audio is corrected using the chosen algorithm. If disabled, the audio will be measured but not adjusted.
---
--- /Note:/ Consider using 'algorithmControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ansAlgorithmControl :: Lens.Lens' AudioNormalizationSettings (Lude.Maybe AudioNormalizationAlgorithmControl)
-ansAlgorithmControl = Lens.lens (algorithmControl :: AudioNormalizationSettings -> Lude.Maybe AudioNormalizationAlgorithmControl) (\s a -> s {algorithmControl = a} :: AudioNormalizationSettings)
-{-# DEPRECATED ansAlgorithmControl "Use generic-lens or generic-optics with 'algorithmControl' instead." #-}
-
--- | When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.
---
--- /Note:/ Consider using 'targetLkfs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ansTargetLkfs :: Lens.Lens' AudioNormalizationSettings (Lude.Maybe Lude.Double)
-ansTargetLkfs = Lens.lens (targetLkfs :: AudioNormalizationSettings -> Lude.Maybe Lude.Double) (\s a -> s {targetLkfs = a} :: AudioNormalizationSettings)
-{-# DEPRECATED ansTargetLkfs "Use generic-lens or generic-optics with 'targetLkfs' instead." #-}
-
--- | If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
---
--- /Note:/ Consider using 'peakCalculation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ansPeakCalculation :: Lens.Lens' AudioNormalizationSettings (Lude.Maybe AudioNormalizationPeakCalculation)
-ansPeakCalculation = Lens.lens (peakCalculation :: AudioNormalizationSettings -> Lude.Maybe AudioNormalizationPeakCalculation) (\s a -> s {peakCalculation = a} :: AudioNormalizationSettings)
-{-# DEPRECATED ansPeakCalculation "Use generic-lens or generic-optics with 'peakCalculation' instead." #-}
-
--- | Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected.
---
--- /Note:/ Consider using 'correctionGateLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ansCorrectionGateLevel :: Lens.Lens' AudioNormalizationSettings (Lude.Maybe Lude.Int)
-ansCorrectionGateLevel = Lens.lens (correctionGateLevel :: AudioNormalizationSettings -> Lude.Maybe Lude.Int) (\s a -> s {correctionGateLevel = a} :: AudioNormalizationSettings)
-{-# DEPRECATED ansCorrectionGateLevel "Use generic-lens or generic-optics with 'correctionGateLevel' instead." #-}
 
 -- | Choose one of the following audio normalization algorithms: ITU-R BS.1770-1: Ungated loudness. A measurement of ungated average loudness for an entire piece of content, suitable for measurement of short-form content under ATSC recommendation A/85. Supports up to 5.1 audio channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated average loudness compliant with the requirements of EBU-R128. Supports up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same loudness measurement algorithm as 1770-2, with an updated true peak measurement. ITU-R BS.1770-4: Higher channel count. Allows for more audio channels than the other algorithms, including configurations such as 7.1.
 --
 -- /Note:/ Consider using 'algorithm' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ansAlgorithm :: Lens.Lens' AudioNormalizationSettings (Lude.Maybe AudioNormalizationAlgorithm)
-ansAlgorithm = Lens.lens (algorithm :: AudioNormalizationSettings -> Lude.Maybe AudioNormalizationAlgorithm) (\s a -> s {algorithm = a} :: AudioNormalizationSettings)
+ansAlgorithm :: Lens.Lens' AudioNormalizationSettings (Core.Maybe Types.AudioNormalizationAlgorithm)
+ansAlgorithm = Lens.field @"algorithm"
 {-# DEPRECATED ansAlgorithm "Use generic-lens or generic-optics with 'algorithm' instead." #-}
+
+-- | When enabled the output audio is corrected using the chosen algorithm. If disabled, the audio will be measured but not adjusted.
+--
+-- /Note:/ Consider using 'algorithmControl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ansAlgorithmControl :: Lens.Lens' AudioNormalizationSettings (Core.Maybe Types.AudioNormalizationAlgorithmControl)
+ansAlgorithmControl = Lens.field @"algorithmControl"
+{-# DEPRECATED ansAlgorithmControl "Use generic-lens or generic-optics with 'algorithmControl' instead." #-}
+
+-- | Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected.
+--
+-- /Note:/ Consider using 'correctionGateLevel' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ansCorrectionGateLevel :: Lens.Lens' AudioNormalizationSettings (Core.Maybe Core.Int)
+ansCorrectionGateLevel = Lens.field @"correctionGateLevel"
+{-# DEPRECATED ansCorrectionGateLevel "Use generic-lens or generic-optics with 'correctionGateLevel' instead." #-}
 
 -- | If set to LOG, log each output's audio track loudness to a CSV file.
 --
 -- /Note:/ Consider using 'loudnessLogging' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ansLoudnessLogging :: Lens.Lens' AudioNormalizationSettings (Lude.Maybe AudioNormalizationLoudnessLogging)
-ansLoudnessLogging = Lens.lens (loudnessLogging :: AudioNormalizationSettings -> Lude.Maybe AudioNormalizationLoudnessLogging) (\s a -> s {loudnessLogging = a} :: AudioNormalizationSettings)
+ansLoudnessLogging :: Lens.Lens' AudioNormalizationSettings (Core.Maybe Types.AudioNormalizationLoudnessLogging)
+ansLoudnessLogging = Lens.field @"loudnessLogging"
 {-# DEPRECATED ansLoudnessLogging "Use generic-lens or generic-optics with 'loudnessLogging' instead." #-}
 
-instance Lude.FromJSON AudioNormalizationSettings where
-  parseJSON =
-    Lude.withObject
-      "AudioNormalizationSettings"
-      ( \x ->
-          AudioNormalizationSettings'
-            Lude.<$> (x Lude..:? "algorithmControl")
-            Lude.<*> (x Lude..:? "targetLkfs")
-            Lude.<*> (x Lude..:? "peakCalculation")
-            Lude.<*> (x Lude..:? "correctionGateLevel")
-            Lude.<*> (x Lude..:? "algorithm")
-            Lude.<*> (x Lude..:? "loudnessLogging")
-      )
+-- | If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
+--
+-- /Note:/ Consider using 'peakCalculation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ansPeakCalculation :: Lens.Lens' AudioNormalizationSettings (Core.Maybe Types.AudioNormalizationPeakCalculation)
+ansPeakCalculation = Lens.field @"peakCalculation"
+{-# DEPRECATED ansPeakCalculation "Use generic-lens or generic-optics with 'peakCalculation' instead." #-}
 
-instance Lude.ToJSON AudioNormalizationSettings where
-  toJSON AudioNormalizationSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("algorithmControl" Lude..=) Lude.<$> algorithmControl,
-            ("targetLkfs" Lude..=) Lude.<$> targetLkfs,
-            ("peakCalculation" Lude..=) Lude.<$> peakCalculation,
-            ("correctionGateLevel" Lude..=) Lude.<$> correctionGateLevel,
-            ("algorithm" Lude..=) Lude.<$> algorithm,
-            ("loudnessLogging" Lude..=) Lude.<$> loudnessLogging
+-- | When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.
+--
+-- /Note:/ Consider using 'targetLkfs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ansTargetLkfs :: Lens.Lens' AudioNormalizationSettings (Core.Maybe Core.Double)
+ansTargetLkfs = Lens.field @"targetLkfs"
+{-# DEPRECATED ansTargetLkfs "Use generic-lens or generic-optics with 'targetLkfs' instead." #-}
+
+instance Core.FromJSON AudioNormalizationSettings where
+  toJSON AudioNormalizationSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("algorithm" Core..=) Core.<$> algorithm,
+            ("algorithmControl" Core..=) Core.<$> algorithmControl,
+            ("correctionGateLevel" Core..=) Core.<$> correctionGateLevel,
+            ("loudnessLogging" Core..=) Core.<$> loudnessLogging,
+            ("peakCalculation" Core..=) Core.<$> peakCalculation,
+            ("targetLkfs" Core..=) Core.<$> targetLkfs
           ]
       )
+
+instance Core.FromJSON AudioNormalizationSettings where
+  parseJSON =
+    Core.withObject "AudioNormalizationSettings" Core.$
+      \x ->
+        AudioNormalizationSettings'
+          Core.<$> (x Core..:? "algorithm")
+          Core.<*> (x Core..:? "algorithmControl")
+          Core.<*> (x Core..:? "correctionGateLevel")
+          Core.<*> (x Core..:? "loudnessLogging")
+          Core.<*> (x Core..:? "peakCalculation")
+          Core.<*> (x Core..:? "targetLkfs")

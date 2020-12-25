@@ -17,84 +17,79 @@ module Network.AWS.Glue.Types.GluePolicy
     mkGluePolicy,
 
     -- * Lenses
-    gpPolicyInJSON,
-    gpUpdateTime,
-    gpPolicyHash,
     gpCreateTime,
+    gpPolicyHash,
+    gpPolicyInJson,
+    gpUpdateTime,
   )
 where
 
+import qualified Network.AWS.Glue.Types.HashString as Types
+import qualified Network.AWS.Glue.Types.PolicyJsonString as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A structure for returning a resource policy.
 --
 -- /See:/ 'mkGluePolicy' smart constructor.
 data GluePolicy = GluePolicy'
-  { -- | Contains the requested policy document, in JSON format.
-    policyInJSON :: Lude.Maybe Lude.Text,
-    -- | The date and time at which the policy was last updated.
-    updateTime :: Lude.Maybe Lude.Timestamp,
+  { -- | The date and time at which the policy was created.
+    createTime :: Core.Maybe Core.NominalDiffTime,
     -- | Contains the hash value associated with this policy.
-    policyHash :: Lude.Maybe Lude.Text,
-    -- | The date and time at which the policy was created.
-    createTime :: Lude.Maybe Lude.Timestamp
+    policyHash :: Core.Maybe Types.HashString,
+    -- | Contains the requested policy document, in JSON format.
+    policyInJson :: Core.Maybe Types.PolicyJsonString,
+    -- | The date and time at which the policy was last updated.
+    updateTime :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GluePolicy' with the minimum fields required to make a request.
---
--- * 'policyInJSON' - Contains the requested policy document, in JSON format.
--- * 'updateTime' - The date and time at which the policy was last updated.
--- * 'policyHash' - Contains the hash value associated with this policy.
--- * 'createTime' - The date and time at which the policy was created.
+-- | Creates a 'GluePolicy' value with any optional fields omitted.
 mkGluePolicy ::
   GluePolicy
 mkGluePolicy =
   GluePolicy'
-    { policyInJSON = Lude.Nothing,
-      updateTime = Lude.Nothing,
-      policyHash = Lude.Nothing,
-      createTime = Lude.Nothing
+    { createTime = Core.Nothing,
+      policyHash = Core.Nothing,
+      policyInJson = Core.Nothing,
+      updateTime = Core.Nothing
     }
-
--- | Contains the requested policy document, in JSON format.
---
--- /Note:/ Consider using 'policyInJSON' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpPolicyInJSON :: Lens.Lens' GluePolicy (Lude.Maybe Lude.Text)
-gpPolicyInJSON = Lens.lens (policyInJSON :: GluePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyInJSON = a} :: GluePolicy)
-{-# DEPRECATED gpPolicyInJSON "Use generic-lens or generic-optics with 'policyInJSON' instead." #-}
-
--- | The date and time at which the policy was last updated.
---
--- /Note:/ Consider using 'updateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpUpdateTime :: Lens.Lens' GluePolicy (Lude.Maybe Lude.Timestamp)
-gpUpdateTime = Lens.lens (updateTime :: GluePolicy -> Lude.Maybe Lude.Timestamp) (\s a -> s {updateTime = a} :: GluePolicy)
-{-# DEPRECATED gpUpdateTime "Use generic-lens or generic-optics with 'updateTime' instead." #-}
-
--- | Contains the hash value associated with this policy.
---
--- /Note:/ Consider using 'policyHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpPolicyHash :: Lens.Lens' GluePolicy (Lude.Maybe Lude.Text)
-gpPolicyHash = Lens.lens (policyHash :: GluePolicy -> Lude.Maybe Lude.Text) (\s a -> s {policyHash = a} :: GluePolicy)
-{-# DEPRECATED gpPolicyHash "Use generic-lens or generic-optics with 'policyHash' instead." #-}
 
 -- | The date and time at which the policy was created.
 --
 -- /Note:/ Consider using 'createTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gpCreateTime :: Lens.Lens' GluePolicy (Lude.Maybe Lude.Timestamp)
-gpCreateTime = Lens.lens (createTime :: GluePolicy -> Lude.Maybe Lude.Timestamp) (\s a -> s {createTime = a} :: GluePolicy)
+gpCreateTime :: Lens.Lens' GluePolicy (Core.Maybe Core.NominalDiffTime)
+gpCreateTime = Lens.field @"createTime"
 {-# DEPRECATED gpCreateTime "Use generic-lens or generic-optics with 'createTime' instead." #-}
 
-instance Lude.FromJSON GluePolicy where
+-- | Contains the hash value associated with this policy.
+--
+-- /Note:/ Consider using 'policyHash' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpPolicyHash :: Lens.Lens' GluePolicy (Core.Maybe Types.HashString)
+gpPolicyHash = Lens.field @"policyHash"
+{-# DEPRECATED gpPolicyHash "Use generic-lens or generic-optics with 'policyHash' instead." #-}
+
+-- | Contains the requested policy document, in JSON format.
+--
+-- /Note:/ Consider using 'policyInJson' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpPolicyInJson :: Lens.Lens' GluePolicy (Core.Maybe Types.PolicyJsonString)
+gpPolicyInJson = Lens.field @"policyInJson"
+{-# DEPRECATED gpPolicyInJson "Use generic-lens or generic-optics with 'policyInJson' instead." #-}
+
+-- | The date and time at which the policy was last updated.
+--
+-- /Note:/ Consider using 'updateTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gpUpdateTime :: Lens.Lens' GluePolicy (Core.Maybe Core.NominalDiffTime)
+gpUpdateTime = Lens.field @"updateTime"
+{-# DEPRECATED gpUpdateTime "Use generic-lens or generic-optics with 'updateTime' instead." #-}
+
+instance Core.FromJSON GluePolicy where
   parseJSON =
-    Lude.withObject
-      "GluePolicy"
-      ( \x ->
-          GluePolicy'
-            Lude.<$> (x Lude..:? "PolicyInJson")
-            Lude.<*> (x Lude..:? "UpdateTime")
-            Lude.<*> (x Lude..:? "PolicyHash")
-            Lude.<*> (x Lude..:? "CreateTime")
-      )
+    Core.withObject "GluePolicy" Core.$
+      \x ->
+        GluePolicy'
+          Core.<$> (x Core..:? "CreateTime")
+          Core.<*> (x Core..:? "PolicyHash")
+          Core.<*> (x Core..:? "PolicyInJson")
+          Core.<*> (x Core..:? "UpdateTime")

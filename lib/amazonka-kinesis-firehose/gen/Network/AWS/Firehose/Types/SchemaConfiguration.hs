@@ -17,123 +17,120 @@ module Network.AWS.Firehose.Types.SchemaConfiguration
     mkSchemaConfiguration,
 
     -- * Lenses
-    scVersionId,
     scCatalogId,
     scDatabaseName,
     scRegion,
-    scTableName,
     scRoleARN,
+    scTableName,
+    scVersionId,
   )
 where
 
+import qualified Network.AWS.Firehose.Types.CatalogId as Types
+import qualified Network.AWS.Firehose.Types.DatabaseName as Types
+import qualified Network.AWS.Firehose.Types.NonEmptyStringWithoutWhitespace as Types
+import qualified Network.AWS.Firehose.Types.Region as Types
+import qualified Network.AWS.Firehose.Types.TableName as Types
+import qualified Network.AWS.Firehose.Types.VersionId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the schema to which you want Kinesis Data Firehose to configure your data before it writes it to Amazon S3. This parameter is required if @Enabled@ is set to true.
 --
 -- /See:/ 'mkSchemaConfiguration' smart constructor.
 data SchemaConfiguration = SchemaConfiguration'
-  { -- | Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to @LATEST@ , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
-    versionId :: Lude.Maybe Lude.Text,
-    -- | The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
-    catalogId :: Lude.Maybe Lude.Text,
+  { -- | The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
+    catalogId :: Core.Maybe Types.CatalogId,
     -- | Specifies the name of the AWS Glue database that contains the schema for the output data.
-    databaseName :: Lude.Maybe Lude.Text,
+    databaseName :: Core.Maybe Types.DatabaseName,
     -- | If you don't specify an AWS Region, the default is the current Region.
-    region :: Lude.Maybe Lude.Text,
-    -- | Specifies the AWS Glue table that contains the column information that constitutes your data schema.
-    tableName :: Lude.Maybe Lude.Text,
+    region :: Core.Maybe Types.Region,
     -- | The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
-    roleARN :: Lude.Maybe Lude.Text
+    roleARN :: Core.Maybe Types.NonEmptyStringWithoutWhitespace,
+    -- | Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+    tableName :: Core.Maybe Types.TableName,
+    -- | Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to @LATEST@ , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
+    versionId :: Core.Maybe Types.VersionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SchemaConfiguration' with the minimum fields required to make a request.
---
--- * 'versionId' - Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to @LATEST@ , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
--- * 'catalogId' - The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
--- * 'databaseName' - Specifies the name of the AWS Glue database that contains the schema for the output data.
--- * 'region' - If you don't specify an AWS Region, the default is the current Region.
--- * 'tableName' - Specifies the AWS Glue table that contains the column information that constitutes your data schema.
--- * 'roleARN' - The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
+-- | Creates a 'SchemaConfiguration' value with any optional fields omitted.
 mkSchemaConfiguration ::
   SchemaConfiguration
 mkSchemaConfiguration =
   SchemaConfiguration'
-    { versionId = Lude.Nothing,
-      catalogId = Lude.Nothing,
-      databaseName = Lude.Nothing,
-      region = Lude.Nothing,
-      tableName = Lude.Nothing,
-      roleARN = Lude.Nothing
+    { catalogId = Core.Nothing,
+      databaseName = Core.Nothing,
+      region = Core.Nothing,
+      roleARN = Core.Nothing,
+      tableName = Core.Nothing,
+      versionId = Core.Nothing
     }
-
--- | Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to @LATEST@ , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
---
--- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scVersionId :: Lens.Lens' SchemaConfiguration (Lude.Maybe Lude.Text)
-scVersionId = Lens.lens (versionId :: SchemaConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {versionId = a} :: SchemaConfiguration)
-{-# DEPRECATED scVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
 
 -- | The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is used by default.
 --
 -- /Note:/ Consider using 'catalogId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scCatalogId :: Lens.Lens' SchemaConfiguration (Lude.Maybe Lude.Text)
-scCatalogId = Lens.lens (catalogId :: SchemaConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {catalogId = a} :: SchemaConfiguration)
+scCatalogId :: Lens.Lens' SchemaConfiguration (Core.Maybe Types.CatalogId)
+scCatalogId = Lens.field @"catalogId"
 {-# DEPRECATED scCatalogId "Use generic-lens or generic-optics with 'catalogId' instead." #-}
 
 -- | Specifies the name of the AWS Glue database that contains the schema for the output data.
 --
 -- /Note:/ Consider using 'databaseName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scDatabaseName :: Lens.Lens' SchemaConfiguration (Lude.Maybe Lude.Text)
-scDatabaseName = Lens.lens (databaseName :: SchemaConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {databaseName = a} :: SchemaConfiguration)
+scDatabaseName :: Lens.Lens' SchemaConfiguration (Core.Maybe Types.DatabaseName)
+scDatabaseName = Lens.field @"databaseName"
 {-# DEPRECATED scDatabaseName "Use generic-lens or generic-optics with 'databaseName' instead." #-}
 
 -- | If you don't specify an AWS Region, the default is the current Region.
 --
 -- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scRegion :: Lens.Lens' SchemaConfiguration (Lude.Maybe Lude.Text)
-scRegion = Lens.lens (region :: SchemaConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: SchemaConfiguration)
+scRegion :: Lens.Lens' SchemaConfiguration (Core.Maybe Types.Region)
+scRegion = Lens.field @"region"
 {-# DEPRECATED scRegion "Use generic-lens or generic-optics with 'region' instead." #-}
-
--- | Specifies the AWS Glue table that contains the column information that constitutes your data schema.
---
--- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scTableName :: Lens.Lens' SchemaConfiguration (Lude.Maybe Lude.Text)
-scTableName = Lens.lens (tableName :: SchemaConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {tableName = a} :: SchemaConfiguration)
-{-# DEPRECATED scTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
 -- | The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in the same account you use for Kinesis Data Firehose. Cross-account roles aren't allowed.
 --
 -- /Note:/ Consider using 'roleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-scRoleARN :: Lens.Lens' SchemaConfiguration (Lude.Maybe Lude.Text)
-scRoleARN = Lens.lens (roleARN :: SchemaConfiguration -> Lude.Maybe Lude.Text) (\s a -> s {roleARN = a} :: SchemaConfiguration)
+scRoleARN :: Lens.Lens' SchemaConfiguration (Core.Maybe Types.NonEmptyStringWithoutWhitespace)
+scRoleARN = Lens.field @"roleARN"
 {-# DEPRECATED scRoleARN "Use generic-lens or generic-optics with 'roleARN' instead." #-}
 
-instance Lude.FromJSON SchemaConfiguration where
-  parseJSON =
-    Lude.withObject
-      "SchemaConfiguration"
-      ( \x ->
-          SchemaConfiguration'
-            Lude.<$> (x Lude..:? "VersionId")
-            Lude.<*> (x Lude..:? "CatalogId")
-            Lude.<*> (x Lude..:? "DatabaseName")
-            Lude.<*> (x Lude..:? "Region")
-            Lude.<*> (x Lude..:? "TableName")
-            Lude.<*> (x Lude..:? "RoleARN")
-      )
+-- | Specifies the AWS Glue table that contains the column information that constitutes your data schema.
+--
+-- /Note:/ Consider using 'tableName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scTableName :: Lens.Lens' SchemaConfiguration (Core.Maybe Types.TableName)
+scTableName = Lens.field @"tableName"
+{-# DEPRECATED scTableName "Use generic-lens or generic-optics with 'tableName' instead." #-}
 
-instance Lude.ToJSON SchemaConfiguration where
-  toJSON SchemaConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("VersionId" Lude..=) Lude.<$> versionId,
-            ("CatalogId" Lude..=) Lude.<$> catalogId,
-            ("DatabaseName" Lude..=) Lude.<$> databaseName,
-            ("Region" Lude..=) Lude.<$> region,
-            ("TableName" Lude..=) Lude.<$> tableName,
-            ("RoleARN" Lude..=) Lude.<$> roleARN
+-- | Specifies the table version for the output data schema. If you don't specify this version ID, or if you set it to @LATEST@ , Kinesis Data Firehose uses the most recent version. This means that any updates to the table are automatically picked up.
+--
+-- /Note:/ Consider using 'versionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+scVersionId :: Lens.Lens' SchemaConfiguration (Core.Maybe Types.VersionId)
+scVersionId = Lens.field @"versionId"
+{-# DEPRECATED scVersionId "Use generic-lens or generic-optics with 'versionId' instead." #-}
+
+instance Core.FromJSON SchemaConfiguration where
+  toJSON SchemaConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CatalogId" Core..=) Core.<$> catalogId,
+            ("DatabaseName" Core..=) Core.<$> databaseName,
+            ("Region" Core..=) Core.<$> region,
+            ("RoleARN" Core..=) Core.<$> roleARN,
+            ("TableName" Core..=) Core.<$> tableName,
+            ("VersionId" Core..=) Core.<$> versionId
           ]
       )
+
+instance Core.FromJSON SchemaConfiguration where
+  parseJSON =
+    Core.withObject "SchemaConfiguration" Core.$
+      \x ->
+        SchemaConfiguration'
+          Core.<$> (x Core..:? "CatalogId")
+          Core.<*> (x Core..:? "DatabaseName")
+          Core.<*> (x Core..:? "Region")
+          Core.<*> (x Core..:? "RoleARN")
+          Core.<*> (x Core..:? "TableName")
+          Core.<*> (x Core..:? "VersionId")

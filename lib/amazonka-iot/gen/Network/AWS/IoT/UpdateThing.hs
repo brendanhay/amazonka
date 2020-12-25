@@ -20,95 +20,72 @@ module Network.AWS.IoT.UpdateThing
     mkUpdateThing,
 
     -- ** Request lenses
+    utThingName,
+    utAttributePayload,
+    utExpectedVersion,
     utRemoveThingType,
     utThingTypeName,
-    utExpectedVersion,
-    utAttributePayload,
-    utThingName,
 
     -- * Destructuring the response
     UpdateThingResponse (..),
     mkUpdateThingResponse,
 
     -- ** Response lenses
-    utrsResponseStatus,
+    utrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | The input for the UpdateThing operation.
 --
 -- /See:/ 'mkUpdateThing' smart constructor.
 data UpdateThing = UpdateThing'
-  { -- | Remove a thing type association. If __true__ , the association is removed.
-    removeThingType :: Lude.Maybe Lude.Bool,
-    -- | The name of the thing type.
-    thingTypeName :: Lude.Maybe Lude.Text,
-    -- | The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @UpdateThing@ request is rejected with a @VersionConflictException@ .
-    expectedVersion :: Lude.Maybe Lude.Integer,
+  { -- | The name of the thing to update.
+    --
+    -- You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+    thingName :: Types.ThingName,
     -- | A list of thing attributes, a JSON string containing name-value pairs. For example:
     --
     -- @{\"attributes\":{\"name1\":\"value2\"}}@
     -- This data is used to add new attributes or update existing attributes.
-    attributePayload :: Lude.Maybe AttributePayload,
-    -- | The name of the thing to update.
-    --
-    -- You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
-    thingName :: Lude.Text
+    attributePayload :: Core.Maybe Types.AttributePayload,
+    -- | The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @UpdateThing@ request is rejected with a @VersionConflictException@ .
+    expectedVersion :: Core.Maybe Core.Integer,
+    -- | Remove a thing type association. If __true__ , the association is removed.
+    removeThingType :: Core.Maybe Core.Bool,
+    -- | The name of the thing type.
+    thingTypeName :: Core.Maybe Types.ThingTypeName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateThing' with the minimum fields required to make a request.
---
--- * 'removeThingType' - Remove a thing type association. If __true__ , the association is removed.
--- * 'thingTypeName' - The name of the thing type.
--- * 'expectedVersion' - The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @UpdateThing@ request is rejected with a @VersionConflictException@ .
--- * 'attributePayload' - A list of thing attributes, a JSON string containing name-value pairs. For example:
---
--- @{\"attributes\":{\"name1\":\"value2\"}}@
--- This data is used to add new attributes or update existing attributes.
--- * 'thingName' - The name of the thing to update.
---
--- You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+-- | Creates a 'UpdateThing' value with any optional fields omitted.
 mkUpdateThing ::
   -- | 'thingName'
-  Lude.Text ->
+  Types.ThingName ->
   UpdateThing
-mkUpdateThing pThingName_ =
+mkUpdateThing thingName =
   UpdateThing'
-    { removeThingType = Lude.Nothing,
-      thingTypeName = Lude.Nothing,
-      expectedVersion = Lude.Nothing,
-      attributePayload = Lude.Nothing,
-      thingName = pThingName_
+    { thingName,
+      attributePayload = Core.Nothing,
+      expectedVersion = Core.Nothing,
+      removeThingType = Core.Nothing,
+      thingTypeName = Core.Nothing
     }
 
--- | Remove a thing type association. If __true__ , the association is removed.
+-- | The name of the thing to update.
 --
--- /Note:/ Consider using 'removeThingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utRemoveThingType :: Lens.Lens' UpdateThing (Lude.Maybe Lude.Bool)
-utRemoveThingType = Lens.lens (removeThingType :: UpdateThing -> Lude.Maybe Lude.Bool) (\s a -> s {removeThingType = a} :: UpdateThing)
-{-# DEPRECATED utRemoveThingType "Use generic-lens or generic-optics with 'removeThingType' instead." #-}
-
--- | The name of the thing type.
+-- You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
 --
--- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utThingTypeName :: Lens.Lens' UpdateThing (Lude.Maybe Lude.Text)
-utThingTypeName = Lens.lens (thingTypeName :: UpdateThing -> Lude.Maybe Lude.Text) (\s a -> s {thingTypeName = a} :: UpdateThing)
-{-# DEPRECATED utThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
-
--- | The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @UpdateThing@ request is rejected with a @VersionConflictException@ .
---
--- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utExpectedVersion :: Lens.Lens' UpdateThing (Lude.Maybe Lude.Integer)
-utExpectedVersion = Lens.lens (expectedVersion :: UpdateThing -> Lude.Maybe Lude.Integer) (\s a -> s {expectedVersion = a} :: UpdateThing)
-{-# DEPRECATED utExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
+-- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utThingName :: Lens.Lens' UpdateThing Types.ThingName
+utThingName = Lens.field @"thingName"
+{-# DEPRECATED utThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
 -- | A list of thing attributes, a JSON string containing name-value pairs. For example:
 --
@@ -116,72 +93,81 @@ utExpectedVersion = Lens.lens (expectedVersion :: UpdateThing -> Lude.Maybe Lude
 -- This data is used to add new attributes or update existing attributes.
 --
 -- /Note:/ Consider using 'attributePayload' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utAttributePayload :: Lens.Lens' UpdateThing (Lude.Maybe AttributePayload)
-utAttributePayload = Lens.lens (attributePayload :: UpdateThing -> Lude.Maybe AttributePayload) (\s a -> s {attributePayload = a} :: UpdateThing)
+utAttributePayload :: Lens.Lens' UpdateThing (Core.Maybe Types.AttributePayload)
+utAttributePayload = Lens.field @"attributePayload"
 {-# DEPRECATED utAttributePayload "Use generic-lens or generic-optics with 'attributePayload' instead." #-}
 
--- | The name of the thing to update.
+-- | The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the @UpdateThing@ request is rejected with a @VersionConflictException@ .
 --
--- You can't change a thing's name. To change a thing's name, you must create a new thing, give it the new name, and then delete the old thing.
+-- /Note:/ Consider using 'expectedVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utExpectedVersion :: Lens.Lens' UpdateThing (Core.Maybe Core.Integer)
+utExpectedVersion = Lens.field @"expectedVersion"
+{-# DEPRECATED utExpectedVersion "Use generic-lens or generic-optics with 'expectedVersion' instead." #-}
+
+-- | Remove a thing type association. If __true__ , the association is removed.
 --
--- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utThingName :: Lens.Lens' UpdateThing Lude.Text
-utThingName = Lens.lens (thingName :: UpdateThing -> Lude.Text) (\s a -> s {thingName = a} :: UpdateThing)
-{-# DEPRECATED utThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
+-- /Note:/ Consider using 'removeThingType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utRemoveThingType :: Lens.Lens' UpdateThing (Core.Maybe Core.Bool)
+utRemoveThingType = Lens.field @"removeThingType"
+{-# DEPRECATED utRemoveThingType "Use generic-lens or generic-optics with 'removeThingType' instead." #-}
 
-instance Lude.AWSRequest UpdateThing where
-  type Rs UpdateThing = UpdateThingResponse
-  request = Req.patchJSON ioTService
-  response =
-    Res.receiveEmpty
-      ( \s h x ->
-          UpdateThingResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
-      )
+-- | The name of the thing type.
+--
+-- /Note:/ Consider using 'thingTypeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utThingTypeName :: Lens.Lens' UpdateThing (Core.Maybe Types.ThingTypeName)
+utThingTypeName = Lens.field @"thingTypeName"
+{-# DEPRECATED utThingTypeName "Use generic-lens or generic-optics with 'thingTypeName' instead." #-}
 
-instance Lude.ToHeaders UpdateThing where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON UpdateThing where
-  toJSON UpdateThing' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("removeThingType" Lude..=) Lude.<$> removeThingType,
-            ("thingTypeName" Lude..=) Lude.<$> thingTypeName,
-            ("expectedVersion" Lude..=) Lude.<$> expectedVersion,
-            ("attributePayload" Lude..=) Lude.<$> attributePayload
+instance Core.FromJSON UpdateThing where
+  toJSON UpdateThing {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("attributePayload" Core..=) Core.<$> attributePayload,
+            ("expectedVersion" Core..=) Core.<$> expectedVersion,
+            ("removeThingType" Core..=) Core.<$> removeThingType,
+            ("thingTypeName" Core..=) Core.<$> thingTypeName
           ]
       )
 
-instance Lude.ToPath UpdateThing where
-  toPath UpdateThing' {..} =
-    Lude.mconcat ["/things/", Lude.toBS thingName]
-
-instance Lude.ToQuery UpdateThing where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest UpdateThing where
+  type Rs UpdateThing = UpdateThingResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PATCH,
+        Core._rqPath =
+          Core.rawPath ("/things/" Core.<> (Core.toText thingName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveEmpty
+      ( \s h x ->
+          UpdateThingResponse' Core.<$> (Core.pure (Core.fromEnum s))
+      )
 
 -- | The output from the UpdateThing operation.
 --
 -- /See:/ 'mkUpdateThingResponse' smart constructor.
 newtype UpdateThingResponse = UpdateThingResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateThingResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateThingResponse' value with any optional fields omitted.
 mkUpdateThingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateThingResponse
-mkUpdateThingResponse pResponseStatus_ =
-  UpdateThingResponse' {responseStatus = pResponseStatus_}
+mkUpdateThingResponse responseStatus =
+  UpdateThingResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrsResponseStatus :: Lens.Lens' UpdateThingResponse Lude.Int
-utrsResponseStatus = Lens.lens (responseStatus :: UpdateThingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateThingResponse)
-{-# DEPRECATED utrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utrrsResponseStatus :: Lens.Lens' UpdateThingResponse Core.Int
+utrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

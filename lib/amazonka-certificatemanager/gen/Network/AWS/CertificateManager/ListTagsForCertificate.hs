@@ -20,23 +20,23 @@ module Network.AWS.CertificateManager.ListTagsForCertificate
     mkListTagsForCertificate,
 
     -- ** Request lenses
-    ltfcCertificateARN,
+    ltfcCertificateArn,
 
     -- * Destructuring the response
     ListTagsForCertificateResponse (..),
     mkListTagsForCertificateResponse,
 
     -- ** Response lenses
-    ltfcrsTags,
-    ltfcrsResponseStatus,
+    ltfcrrsTags,
+    ltfcrrsResponseStatus,
   )
 where
 
-import Network.AWS.CertificateManager.Types
+import qualified Network.AWS.CertificateManager.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListTagsForCertificate' smart constructor.
 newtype ListTagsForCertificate = ListTagsForCertificate'
@@ -44,102 +44,88 @@ newtype ListTagsForCertificate = ListTagsForCertificate'
     --
     -- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
     -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
-    certificateARN :: Lude.Text
+    certificateArn :: Types.CertificateArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForCertificate' with the minimum fields required to make a request.
---
--- * 'certificateARN' - String that contains the ARN of the ACM certificate for which you want to list the tags. This must have the following form:
---
--- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
+-- | Creates a 'ListTagsForCertificate' value with any optional fields omitted.
 mkListTagsForCertificate ::
-  -- | 'certificateARN'
-  Lude.Text ->
+  -- | 'certificateArn'
+  Types.CertificateArn ->
   ListTagsForCertificate
-mkListTagsForCertificate pCertificateARN_ =
-  ListTagsForCertificate' {certificateARN = pCertificateARN_}
+mkListTagsForCertificate certificateArn =
+  ListTagsForCertificate' {certificateArn}
 
 -- | String that contains the ARN of the ACM certificate for which you want to list the tags. This must have the following form:
 --
 -- @arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012@
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> .
 --
--- /Note:/ Consider using 'certificateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfcCertificateARN :: Lens.Lens' ListTagsForCertificate Lude.Text
-ltfcCertificateARN = Lens.lens (certificateARN :: ListTagsForCertificate -> Lude.Text) (\s a -> s {certificateARN = a} :: ListTagsForCertificate)
-{-# DEPRECATED ltfcCertificateARN "Use generic-lens or generic-optics with 'certificateARN' instead." #-}
+-- /Note:/ Consider using 'certificateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ltfcCertificateArn :: Lens.Lens' ListTagsForCertificate Types.CertificateArn
+ltfcCertificateArn = Lens.field @"certificateArn"
+{-# DEPRECATED ltfcCertificateArn "Use generic-lens or generic-optics with 'certificateArn' instead." #-}
 
-instance Lude.AWSRequest ListTagsForCertificate where
+instance Core.FromJSON ListTagsForCertificate where
+  toJSON ListTagsForCertificate {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("CertificateArn" Core..= certificateArn)]
+      )
+
+instance Core.AWSRequest ListTagsForCertificate where
   type Rs ListTagsForCertificate = ListTagsForCertificateResponse
-  request = Req.postJSON certificateManagerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CertificateManager.ListTagsForCertificate")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListTagsForCertificateResponse'
-            Lude.<$> (x Lude..?> "Tags") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Tags") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ListTagsForCertificate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CertificateManager.ListTagsForCertificate" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListTagsForCertificate where
-  toJSON ListTagsForCertificate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("CertificateArn" Lude..= certificateARN)]
-      )
-
-instance Lude.ToPath ListTagsForCertificate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListTagsForCertificate where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkListTagsForCertificateResponse' smart constructor.
 data ListTagsForCertificateResponse = ListTagsForCertificateResponse'
   { -- | The key-value pairs that define the applied tags.
-    tags :: Lude.Maybe (Lude.NonEmpty Tag),
+    tags :: Core.Maybe (Core.NonEmpty Types.Tag),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListTagsForCertificateResponse' with the minimum fields required to make a request.
---
--- * 'tags' - The key-value pairs that define the applied tags.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListTagsForCertificateResponse' value with any optional fields omitted.
 mkListTagsForCertificateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListTagsForCertificateResponse
-mkListTagsForCertificateResponse pResponseStatus_ =
+mkListTagsForCertificateResponse responseStatus =
   ListTagsForCertificateResponse'
-    { tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { tags = Core.Nothing,
+      responseStatus
     }
 
 -- | The key-value pairs that define the applied tags.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfcrsTags :: Lens.Lens' ListTagsForCertificateResponse (Lude.Maybe (Lude.NonEmpty Tag))
-ltfcrsTags = Lens.lens (tags :: ListTagsForCertificateResponse -> Lude.Maybe (Lude.NonEmpty Tag)) (\s a -> s {tags = a} :: ListTagsForCertificateResponse)
-{-# DEPRECATED ltfcrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+ltfcrrsTags :: Lens.Lens' ListTagsForCertificateResponse (Core.Maybe (Core.NonEmpty Types.Tag))
+ltfcrrsTags = Lens.field @"tags"
+{-# DEPRECATED ltfcrrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ltfcrsResponseStatus :: Lens.Lens' ListTagsForCertificateResponse Lude.Int
-ltfcrsResponseStatus = Lens.lens (responseStatus :: ListTagsForCertificateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListTagsForCertificateResponse)
-{-# DEPRECATED ltfcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ltfcrrsResponseStatus :: Lens.Lens' ListTagsForCertificateResponse Core.Int
+ltfcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ltfcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

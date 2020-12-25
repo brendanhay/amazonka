@@ -17,207 +17,198 @@ module Network.AWS.LexModels.Types.Slot
     mkSlot,
 
     -- * Lenses
-    sSlotType,
-    sValueElicitationPrompt,
-    sResponseCard,
-    sPriority,
-    sObfuscationSetting,
-    sDefaultValueSpec,
-    sSlotTypeVersion,
-    sSampleUtterances,
-    sSlotConstraint,
-    sName,
-    sDescription,
+    sfName,
+    sfSlotConstraint,
+    sfDefaultValueSpec,
+    sfDescription,
+    sfObfuscationSetting,
+    sfPriority,
+    sfResponseCard,
+    sfSampleUtterances,
+    sfSlotType,
+    sfSlotTypeVersion,
+    sfValueElicitationPrompt,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.LexModels.Types.ObfuscationSetting
-import Network.AWS.LexModels.Types.Prompt
-import Network.AWS.LexModels.Types.SlotConstraint
-import Network.AWS.LexModels.Types.SlotDefaultValueSpec
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.LexModels.Types.CustomOrBuiltinSlotTypeName as Types
+import qualified Network.AWS.LexModels.Types.Description as Types
+import qualified Network.AWS.LexModels.Types.ObfuscationSetting as Types
+import qualified Network.AWS.LexModels.Types.Prompt as Types
+import qualified Network.AWS.LexModels.Types.ResponseCard as Types
+import qualified Network.AWS.LexModels.Types.SlotConstraint as Types
+import qualified Network.AWS.LexModels.Types.SlotDefaultValueSpec as Types
+import qualified Network.AWS.LexModels.Types.SlotName as Types
+import qualified Network.AWS.LexModels.Types.SlotTypeVersion as Types
+import qualified Network.AWS.LexModels.Types.Utterance as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Identifies the version of a specific slot.
 --
 -- /See:/ 'mkSlot' smart constructor.
 data Slot = Slot'
-  { -- | The type of the slot, either a custom slot type that you defined or one of the built-in slot types.
-    slotType :: Lude.Maybe Lude.Text,
-    -- | The prompt that Amazon Lex uses to elicit the slot value from the user.
-    valueElicitationPrompt :: Lude.Maybe Prompt,
-    -- | A set of possible responses for the slot type used by text-based clients. A user chooses an option from the response card, instead of using text to reply.
-    responseCard :: Lude.Maybe Lude.Text,
+  { -- | The name of the slot.
+    name :: Types.SlotName,
+    -- | Specifies whether the slot is required or optional.
+    slotConstraint :: Types.SlotConstraint,
+    -- | A list of default values for the slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
+    defaultValueSpec :: Core.Maybe Types.SlotDefaultValueSpec,
+    -- | A description of the slot.
+    description :: Core.Maybe Types.Description,
+    -- | Determines whether a slot is obfuscated in conversation logs and stored utterances. When you obfuscate a slot, the value is replaced by the slot name in curly braces ({}). For example, if the slot name is "full_name", obfuscated values are replaced with "{full_name}". For more information, see <https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html Slot Obfuscation > .
+    obfuscationSetting :: Core.Maybe Types.ObfuscationSetting,
     -- | Directs Amazon Lex the order in which to elicit this slot value from the user. For example, if the intent has two slots with priorities 1 and 2, AWS Amazon Lex first elicits a value for the slot with priority 1.
     --
     -- If multiple slots share the same priority, the order in which Amazon Lex elicits values is arbitrary.
-    priority :: Lude.Maybe Lude.Natural,
-    -- | Determines whether a slot is obfuscated in conversation logs and stored utterances. When you obfuscate a slot, the value is replaced by the slot name in curly braces ({}). For example, if the slot name is "full_name", obfuscated values are replaced with "{full_name}". For more information, see <https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html Slot Obfuscation > .
-    obfuscationSetting :: Lude.Maybe ObfuscationSetting,
-    -- | A list of default values for the slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
-    defaultValueSpec :: Lude.Maybe SlotDefaultValueSpec,
-    -- | The version of the slot type.
-    slotTypeVersion :: Lude.Maybe Lude.Text,
+    priority :: Core.Maybe Core.Natural,
+    -- | A set of possible responses for the slot type used by text-based clients. A user chooses an option from the response card, instead of using text to reply.
+    responseCard :: Core.Maybe Types.ResponseCard,
     -- | If you know a specific pattern with which users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
-    sampleUtterances :: Lude.Maybe [Lude.Text],
-    -- | Specifies whether the slot is required or optional.
-    slotConstraint :: SlotConstraint,
-    -- | The name of the slot.
-    name :: Lude.Text,
-    -- | A description of the slot.
-    description :: Lude.Maybe Lude.Text
+    sampleUtterances :: Core.Maybe [Types.Utterance],
+    -- | The type of the slot, either a custom slot type that you defined or one of the built-in slot types.
+    slotType :: Core.Maybe Types.CustomOrBuiltinSlotTypeName,
+    -- | The version of the slot type.
+    slotTypeVersion :: Core.Maybe Types.SlotTypeVersion,
+    -- | The prompt that Amazon Lex uses to elicit the slot value from the user.
+    valueElicitationPrompt :: Core.Maybe Types.Prompt
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Slot' with the minimum fields required to make a request.
---
--- * 'slotType' - The type of the slot, either a custom slot type that you defined or one of the built-in slot types.
--- * 'valueElicitationPrompt' - The prompt that Amazon Lex uses to elicit the slot value from the user.
--- * 'responseCard' - A set of possible responses for the slot type used by text-based clients. A user chooses an option from the response card, instead of using text to reply.
--- * 'priority' - Directs Amazon Lex the order in which to elicit this slot value from the user. For example, if the intent has two slots with priorities 1 and 2, AWS Amazon Lex first elicits a value for the slot with priority 1.
---
--- If multiple slots share the same priority, the order in which Amazon Lex elicits values is arbitrary.
--- * 'obfuscationSetting' - Determines whether a slot is obfuscated in conversation logs and stored utterances. When you obfuscate a slot, the value is replaced by the slot name in curly braces ({}). For example, if the slot name is "full_name", obfuscated values are replaced with "{full_name}". For more information, see <https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html Slot Obfuscation > .
--- * 'defaultValueSpec' - A list of default values for the slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
--- * 'slotTypeVersion' - The version of the slot type.
--- * 'sampleUtterances' - If you know a specific pattern with which users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
--- * 'slotConstraint' - Specifies whether the slot is required or optional.
--- * 'name' - The name of the slot.
--- * 'description' - A description of the slot.
+-- | Creates a 'Slot' value with any optional fields omitted.
 mkSlot ::
-  -- | 'slotConstraint'
-  SlotConstraint ->
   -- | 'name'
-  Lude.Text ->
+  Types.SlotName ->
+  -- | 'slotConstraint'
+  Types.SlotConstraint ->
   Slot
-mkSlot pSlotConstraint_ pName_ =
+mkSlot name slotConstraint =
   Slot'
-    { slotType = Lude.Nothing,
-      valueElicitationPrompt = Lude.Nothing,
-      responseCard = Lude.Nothing,
-      priority = Lude.Nothing,
-      obfuscationSetting = Lude.Nothing,
-      defaultValueSpec = Lude.Nothing,
-      slotTypeVersion = Lude.Nothing,
-      sampleUtterances = Lude.Nothing,
-      slotConstraint = pSlotConstraint_,
-      name = pName_,
-      description = Lude.Nothing
+    { name,
+      slotConstraint,
+      defaultValueSpec = Core.Nothing,
+      description = Core.Nothing,
+      obfuscationSetting = Core.Nothing,
+      priority = Core.Nothing,
+      responseCard = Core.Nothing,
+      sampleUtterances = Core.Nothing,
+      slotType = Core.Nothing,
+      slotTypeVersion = Core.Nothing,
+      valueElicitationPrompt = Core.Nothing
     }
 
--- | The type of the slot, either a custom slot type that you defined or one of the built-in slot types.
+-- | The name of the slot.
 --
--- /Note:/ Consider using 'slotType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSlotType :: Lens.Lens' Slot (Lude.Maybe Lude.Text)
-sSlotType = Lens.lens (slotType :: Slot -> Lude.Maybe Lude.Text) (\s a -> s {slotType = a} :: Slot)
-{-# DEPRECATED sSlotType "Use generic-lens or generic-optics with 'slotType' instead." #-}
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfName :: Lens.Lens' Slot Types.SlotName
+sfName = Lens.field @"name"
+{-# DEPRECATED sfName "Use generic-lens or generic-optics with 'name' instead." #-}
 
--- | The prompt that Amazon Lex uses to elicit the slot value from the user.
+-- | Specifies whether the slot is required or optional.
 --
--- /Note:/ Consider using 'valueElicitationPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sValueElicitationPrompt :: Lens.Lens' Slot (Lude.Maybe Prompt)
-sValueElicitationPrompt = Lens.lens (valueElicitationPrompt :: Slot -> Lude.Maybe Prompt) (\s a -> s {valueElicitationPrompt = a} :: Slot)
-{-# DEPRECATED sValueElicitationPrompt "Use generic-lens or generic-optics with 'valueElicitationPrompt' instead." #-}
+-- /Note:/ Consider using 'slotConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfSlotConstraint :: Lens.Lens' Slot Types.SlotConstraint
+sfSlotConstraint = Lens.field @"slotConstraint"
+{-# DEPRECATED sfSlotConstraint "Use generic-lens or generic-optics with 'slotConstraint' instead." #-}
 
--- | A set of possible responses for the slot type used by text-based clients. A user chooses an option from the response card, instead of using text to reply.
+-- | A list of default values for the slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
 --
--- /Note:/ Consider using 'responseCard' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sResponseCard :: Lens.Lens' Slot (Lude.Maybe Lude.Text)
-sResponseCard = Lens.lens (responseCard :: Slot -> Lude.Maybe Lude.Text) (\s a -> s {responseCard = a} :: Slot)
-{-# DEPRECATED sResponseCard "Use generic-lens or generic-optics with 'responseCard' instead." #-}
+-- /Note:/ Consider using 'defaultValueSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfDefaultValueSpec :: Lens.Lens' Slot (Core.Maybe Types.SlotDefaultValueSpec)
+sfDefaultValueSpec = Lens.field @"defaultValueSpec"
+{-# DEPRECATED sfDefaultValueSpec "Use generic-lens or generic-optics with 'defaultValueSpec' instead." #-}
+
+-- | A description of the slot.
+--
+-- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfDescription :: Lens.Lens' Slot (Core.Maybe Types.Description)
+sfDescription = Lens.field @"description"
+{-# DEPRECATED sfDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | Determines whether a slot is obfuscated in conversation logs and stored utterances. When you obfuscate a slot, the value is replaced by the slot name in curly braces ({}). For example, if the slot name is "full_name", obfuscated values are replaced with "{full_name}". For more information, see <https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html Slot Obfuscation > .
+--
+-- /Note:/ Consider using 'obfuscationSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfObfuscationSetting :: Lens.Lens' Slot (Core.Maybe Types.ObfuscationSetting)
+sfObfuscationSetting = Lens.field @"obfuscationSetting"
+{-# DEPRECATED sfObfuscationSetting "Use generic-lens or generic-optics with 'obfuscationSetting' instead." #-}
 
 -- | Directs Amazon Lex the order in which to elicit this slot value from the user. For example, if the intent has two slots with priorities 1 and 2, AWS Amazon Lex first elicits a value for the slot with priority 1.
 --
 -- If multiple slots share the same priority, the order in which Amazon Lex elicits values is arbitrary.
 --
 -- /Note:/ Consider using 'priority' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sPriority :: Lens.Lens' Slot (Lude.Maybe Lude.Natural)
-sPriority = Lens.lens (priority :: Slot -> Lude.Maybe Lude.Natural) (\s a -> s {priority = a} :: Slot)
-{-# DEPRECATED sPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
+sfPriority :: Lens.Lens' Slot (Core.Maybe Core.Natural)
+sfPriority = Lens.field @"priority"
+{-# DEPRECATED sfPriority "Use generic-lens or generic-optics with 'priority' instead." #-}
 
--- | Determines whether a slot is obfuscated in conversation logs and stored utterances. When you obfuscate a slot, the value is replaced by the slot name in curly braces ({}). For example, if the slot name is "full_name", obfuscated values are replaced with "{full_name}". For more information, see <https://docs.aws.amazon.com/lex/latest/dg/how-obfuscate.html Slot Obfuscation > .
+-- | A set of possible responses for the slot type used by text-based clients. A user chooses an option from the response card, instead of using text to reply.
 --
--- /Note:/ Consider using 'obfuscationSetting' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sObfuscationSetting :: Lens.Lens' Slot (Lude.Maybe ObfuscationSetting)
-sObfuscationSetting = Lens.lens (obfuscationSetting :: Slot -> Lude.Maybe ObfuscationSetting) (\s a -> s {obfuscationSetting = a} :: Slot)
-{-# DEPRECATED sObfuscationSetting "Use generic-lens or generic-optics with 'obfuscationSetting' instead." #-}
-
--- | A list of default values for the slot. Default values are used when Amazon Lex hasn't determined a value for a slot. You can specify default values from context variables, session attributes, and defined values.
---
--- /Note:/ Consider using 'defaultValueSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDefaultValueSpec :: Lens.Lens' Slot (Lude.Maybe SlotDefaultValueSpec)
-sDefaultValueSpec = Lens.lens (defaultValueSpec :: Slot -> Lude.Maybe SlotDefaultValueSpec) (\s a -> s {defaultValueSpec = a} :: Slot)
-{-# DEPRECATED sDefaultValueSpec "Use generic-lens or generic-optics with 'defaultValueSpec' instead." #-}
-
--- | The version of the slot type.
---
--- /Note:/ Consider using 'slotTypeVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSlotTypeVersion :: Lens.Lens' Slot (Lude.Maybe Lude.Text)
-sSlotTypeVersion = Lens.lens (slotTypeVersion :: Slot -> Lude.Maybe Lude.Text) (\s a -> s {slotTypeVersion = a} :: Slot)
-{-# DEPRECATED sSlotTypeVersion "Use generic-lens or generic-optics with 'slotTypeVersion' instead." #-}
+-- /Note:/ Consider using 'responseCard' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfResponseCard :: Lens.Lens' Slot (Core.Maybe Types.ResponseCard)
+sfResponseCard = Lens.field @"responseCard"
+{-# DEPRECATED sfResponseCard "Use generic-lens or generic-optics with 'responseCard' instead." #-}
 
 -- | If you know a specific pattern with which users might respond to an Amazon Lex request for a slot value, you can provide those utterances to improve accuracy. This is optional. In most cases, Amazon Lex is capable of understanding user utterances.
 --
 -- /Note:/ Consider using 'sampleUtterances' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSampleUtterances :: Lens.Lens' Slot (Lude.Maybe [Lude.Text])
-sSampleUtterances = Lens.lens (sampleUtterances :: Slot -> Lude.Maybe [Lude.Text]) (\s a -> s {sampleUtterances = a} :: Slot)
-{-# DEPRECATED sSampleUtterances "Use generic-lens or generic-optics with 'sampleUtterances' instead." #-}
+sfSampleUtterances :: Lens.Lens' Slot (Core.Maybe [Types.Utterance])
+sfSampleUtterances = Lens.field @"sampleUtterances"
+{-# DEPRECATED sfSampleUtterances "Use generic-lens or generic-optics with 'sampleUtterances' instead." #-}
 
--- | Specifies whether the slot is required or optional.
+-- | The type of the slot, either a custom slot type that you defined or one of the built-in slot types.
 --
--- /Note:/ Consider using 'slotConstraint' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSlotConstraint :: Lens.Lens' Slot SlotConstraint
-sSlotConstraint = Lens.lens (slotConstraint :: Slot -> SlotConstraint) (\s a -> s {slotConstraint = a} :: Slot)
-{-# DEPRECATED sSlotConstraint "Use generic-lens or generic-optics with 'slotConstraint' instead." #-}
+-- /Note:/ Consider using 'slotType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfSlotType :: Lens.Lens' Slot (Core.Maybe Types.CustomOrBuiltinSlotTypeName)
+sfSlotType = Lens.field @"slotType"
+{-# DEPRECATED sfSlotType "Use generic-lens or generic-optics with 'slotType' instead." #-}
 
--- | The name of the slot.
+-- | The version of the slot type.
 --
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sName :: Lens.Lens' Slot Lude.Text
-sName = Lens.lens (name :: Slot -> Lude.Text) (\s a -> s {name = a} :: Slot)
-{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'slotTypeVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfSlotTypeVersion :: Lens.Lens' Slot (Core.Maybe Types.SlotTypeVersion)
+sfSlotTypeVersion = Lens.field @"slotTypeVersion"
+{-# DEPRECATED sfSlotTypeVersion "Use generic-lens or generic-optics with 'slotTypeVersion' instead." #-}
 
--- | A description of the slot.
+-- | The prompt that Amazon Lex uses to elicit the slot value from the user.
 --
--- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sDescription :: Lens.Lens' Slot (Lude.Maybe Lude.Text)
-sDescription = Lens.lens (description :: Slot -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: Slot)
-{-# DEPRECATED sDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+-- /Note:/ Consider using 'valueElicitationPrompt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sfValueElicitationPrompt :: Lens.Lens' Slot (Core.Maybe Types.Prompt)
+sfValueElicitationPrompt = Lens.field @"valueElicitationPrompt"
+{-# DEPRECATED sfValueElicitationPrompt "Use generic-lens or generic-optics with 'valueElicitationPrompt' instead." #-}
 
-instance Lude.FromJSON Slot where
-  parseJSON =
-    Lude.withObject
-      "Slot"
-      ( \x ->
-          Slot'
-            Lude.<$> (x Lude..:? "slotType")
-            Lude.<*> (x Lude..:? "valueElicitationPrompt")
-            Lude.<*> (x Lude..:? "responseCard")
-            Lude.<*> (x Lude..:? "priority")
-            Lude.<*> (x Lude..:? "obfuscationSetting")
-            Lude.<*> (x Lude..:? "defaultValueSpec")
-            Lude.<*> (x Lude..:? "slotTypeVersion")
-            Lude.<*> (x Lude..:? "sampleUtterances" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "slotConstraint")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..:? "description")
-      )
-
-instance Lude.ToJSON Slot where
-  toJSON Slot' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("slotType" Lude..=) Lude.<$> slotType,
-            ("valueElicitationPrompt" Lude..=) Lude.<$> valueElicitationPrompt,
-            ("responseCard" Lude..=) Lude.<$> responseCard,
-            ("priority" Lude..=) Lude.<$> priority,
-            ("obfuscationSetting" Lude..=) Lude.<$> obfuscationSetting,
-            ("defaultValueSpec" Lude..=) Lude.<$> defaultValueSpec,
-            ("slotTypeVersion" Lude..=) Lude.<$> slotTypeVersion,
-            ("sampleUtterances" Lude..=) Lude.<$> sampleUtterances,
-            Lude.Just ("slotConstraint" Lude..= slotConstraint),
-            Lude.Just ("name" Lude..= name),
-            ("description" Lude..=) Lude.<$> description
+instance Core.FromJSON Slot where
+  toJSON Slot {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("slotConstraint" Core..= slotConstraint),
+            ("defaultValueSpec" Core..=) Core.<$> defaultValueSpec,
+            ("description" Core..=) Core.<$> description,
+            ("obfuscationSetting" Core..=) Core.<$> obfuscationSetting,
+            ("priority" Core..=) Core.<$> priority,
+            ("responseCard" Core..=) Core.<$> responseCard,
+            ("sampleUtterances" Core..=) Core.<$> sampleUtterances,
+            ("slotType" Core..=) Core.<$> slotType,
+            ("slotTypeVersion" Core..=) Core.<$> slotTypeVersion,
+            ("valueElicitationPrompt" Core..=)
+              Core.<$> valueElicitationPrompt
           ]
       )
+
+instance Core.FromJSON Slot where
+  parseJSON =
+    Core.withObject "Slot" Core.$
+      \x ->
+        Slot'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..: "slotConstraint")
+          Core.<*> (x Core..:? "defaultValueSpec")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "obfuscationSetting")
+          Core.<*> (x Core..:? "priority")
+          Core.<*> (x Core..:? "responseCard")
+          Core.<*> (x Core..:? "sampleUtterances")
+          Core.<*> (x Core..:? "slotType")
+          Core.<*> (x Core..:? "slotTypeVersion")
+          Core.<*> (x Core..:? "valueElicitationPrompt")

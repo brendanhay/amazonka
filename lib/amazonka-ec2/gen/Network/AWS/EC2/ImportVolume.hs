@@ -22,9 +22,9 @@ module Network.AWS.EC2.ImportVolume
     mkImportVolume,
 
     -- ** Request lenses
+    ivAvailabilityZone,
     ivImage,
     ivVolume,
-    ivAvailabilityZone,
     ivDescription,
     ivDryRun,
 
@@ -33,155 +33,149 @@ module Network.AWS.EC2.ImportVolume
     mkImportVolumeResponse,
 
     -- ** Response lenses
-    ivrsConversionTask,
-    ivrsResponseStatus,
+    ivrrsConversionTask,
+    ivrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkImportVolume' smart constructor.
 data ImportVolume = ImportVolume'
-  { -- | The disk image.
-    image :: DiskImageDetail,
+  { -- | The Availability Zone for the resulting EBS volume.
+    availabilityZone :: Types.String,
+    -- | The disk image.
+    image :: Types.DiskImageDetail,
     -- | The volume size.
-    volume :: VolumeDetail,
-    -- | The Availability Zone for the resulting EBS volume.
-    availabilityZone :: Lude.Text,
+    volume :: Types.VolumeDetail,
     -- | A description of the volume.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.String,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportVolume' with the minimum fields required to make a request.
---
--- * 'image' - The disk image.
--- * 'volume' - The volume size.
--- * 'availabilityZone' - The Availability Zone for the resulting EBS volume.
--- * 'description' - A description of the volume.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'ImportVolume' value with any optional fields omitted.
 mkImportVolume ::
-  -- | 'image'
-  DiskImageDetail ->
-  -- | 'volume'
-  VolumeDetail ->
   -- | 'availabilityZone'
-  Lude.Text ->
+  Types.String ->
+  -- | 'image'
+  Types.DiskImageDetail ->
+  -- | 'volume'
+  Types.VolumeDetail ->
   ImportVolume
-mkImportVolume pImage_ pVolume_ pAvailabilityZone_ =
+mkImportVolume availabilityZone image volume =
   ImportVolume'
-    { image = pImage_,
-      volume = pVolume_,
-      availabilityZone = pAvailabilityZone_,
-      description = Lude.Nothing,
-      dryRun = Lude.Nothing
+    { availabilityZone,
+      image,
+      volume,
+      description = Core.Nothing,
+      dryRun = Core.Nothing
     }
+
+-- | The Availability Zone for the resulting EBS volume.
+--
+-- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ivAvailabilityZone :: Lens.Lens' ImportVolume Types.String
+ivAvailabilityZone = Lens.field @"availabilityZone"
+{-# DEPRECATED ivAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | The disk image.
 --
 -- /Note:/ Consider using 'image' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivImage :: Lens.Lens' ImportVolume DiskImageDetail
-ivImage = Lens.lens (image :: ImportVolume -> DiskImageDetail) (\s a -> s {image = a} :: ImportVolume)
+ivImage :: Lens.Lens' ImportVolume Types.DiskImageDetail
+ivImage = Lens.field @"image"
 {-# DEPRECATED ivImage "Use generic-lens or generic-optics with 'image' instead." #-}
 
 -- | The volume size.
 --
 -- /Note:/ Consider using 'volume' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivVolume :: Lens.Lens' ImportVolume VolumeDetail
-ivVolume = Lens.lens (volume :: ImportVolume -> VolumeDetail) (\s a -> s {volume = a} :: ImportVolume)
+ivVolume :: Lens.Lens' ImportVolume Types.VolumeDetail
+ivVolume = Lens.field @"volume"
 {-# DEPRECATED ivVolume "Use generic-lens or generic-optics with 'volume' instead." #-}
-
--- | The Availability Zone for the resulting EBS volume.
---
--- /Note:/ Consider using 'availabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivAvailabilityZone :: Lens.Lens' ImportVolume Lude.Text
-ivAvailabilityZone = Lens.lens (availabilityZone :: ImportVolume -> Lude.Text) (\s a -> s {availabilityZone = a} :: ImportVolume)
-{-# DEPRECATED ivAvailabilityZone "Use generic-lens or generic-optics with 'availabilityZone' instead." #-}
 
 -- | A description of the volume.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivDescription :: Lens.Lens' ImportVolume (Lude.Maybe Lude.Text)
-ivDescription = Lens.lens (description :: ImportVolume -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ImportVolume)
+ivDescription :: Lens.Lens' ImportVolume (Core.Maybe Types.String)
+ivDescription = Lens.field @"description"
 {-# DEPRECATED ivDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivDryRun :: Lens.Lens' ImportVolume (Lude.Maybe Lude.Bool)
-ivDryRun = Lens.lens (dryRun :: ImportVolume -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: ImportVolume)
+ivDryRun :: Lens.Lens' ImportVolume (Core.Maybe Core.Bool)
+ivDryRun = Lens.field @"dryRun"
 {-# DEPRECATED ivDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest ImportVolume where
+instance Core.AWSRequest ImportVolume where
   type Rs ImportVolume = ImportVolumeResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "ImportVolume")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "AvailabilityZone" availabilityZone)
+                Core.<> (Core.toQueryValue "Image" image)
+                Core.<> (Core.toQueryValue "Volume" volume)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           ImportVolumeResponse'
-            Lude.<$> (x Lude..@? "conversionTask")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "conversionTask")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders ImportVolume where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ImportVolume where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ImportVolume where
-  toQuery ImportVolume' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("ImportVolume" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "Image" Lude.=: image,
-        "Volume" Lude.=: volume,
-        "AvailabilityZone" Lude.=: availabilityZone,
-        "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkImportVolumeResponse' smart constructor.
 data ImportVolumeResponse = ImportVolumeResponse'
   { -- | Information about the conversion task.
-    conversionTask :: Lude.Maybe ConversionTask,
+    conversionTask :: Core.Maybe Types.ConversionTask,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ImportVolumeResponse' with the minimum fields required to make a request.
---
--- * 'conversionTask' - Information about the conversion task.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ImportVolumeResponse' value with any optional fields omitted.
 mkImportVolumeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ImportVolumeResponse
-mkImportVolumeResponse pResponseStatus_ =
+mkImportVolumeResponse responseStatus =
   ImportVolumeResponse'
-    { conversionTask = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { conversionTask = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the conversion task.
 --
 -- /Note:/ Consider using 'conversionTask' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivrsConversionTask :: Lens.Lens' ImportVolumeResponse (Lude.Maybe ConversionTask)
-ivrsConversionTask = Lens.lens (conversionTask :: ImportVolumeResponse -> Lude.Maybe ConversionTask) (\s a -> s {conversionTask = a} :: ImportVolumeResponse)
-{-# DEPRECATED ivrsConversionTask "Use generic-lens or generic-optics with 'conversionTask' instead." #-}
+ivrrsConversionTask :: Lens.Lens' ImportVolumeResponse (Core.Maybe Types.ConversionTask)
+ivrrsConversionTask = Lens.field @"conversionTask"
+{-# DEPRECATED ivrrsConversionTask "Use generic-lens or generic-optics with 'conversionTask' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ivrsResponseStatus :: Lens.Lens' ImportVolumeResponse Lude.Int
-ivrsResponseStatus = Lens.lens (responseStatus :: ImportVolumeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ImportVolumeResponse)
-{-# DEPRECATED ivrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ivrrsResponseStatus :: Lens.Lens' ImportVolumeResponse Core.Int
+ivrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ivrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

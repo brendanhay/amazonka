@@ -22,7 +22,7 @@ module Network.AWS.KinesisAnalytics.StopApplication
     mkStopApplication,
 
     -- ** Request lenses
-    saApplicationName,
+    sApplicationName,
 
     -- * Destructuring the response
     StopApplicationResponse (..),
@@ -33,95 +33,85 @@ module Network.AWS.KinesisAnalytics.StopApplication
   )
 where
 
-import Network.AWS.KinesisAnalytics.Types
+import qualified Network.AWS.KinesisAnalytics.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- |
 --
 -- /See:/ 'mkStopApplication' smart constructor.
 newtype StopApplication = StopApplication'
   { -- | Name of the running application to stop.
-    applicationName :: Lude.Text
+    applicationName :: Types.ApplicationName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopApplication' with the minimum fields required to make a request.
---
--- * 'applicationName' - Name of the running application to stop.
+-- | Creates a 'StopApplication' value with any optional fields omitted.
 mkStopApplication ::
   -- | 'applicationName'
-  Lude.Text ->
+  Types.ApplicationName ->
   StopApplication
-mkStopApplication pApplicationName_ =
-  StopApplication' {applicationName = pApplicationName_}
+mkStopApplication applicationName =
+  StopApplication' {applicationName}
 
 -- | Name of the running application to stop.
 --
 -- /Note:/ Consider using 'applicationName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-saApplicationName :: Lens.Lens' StopApplication Lude.Text
-saApplicationName = Lens.lens (applicationName :: StopApplication -> Lude.Text) (\s a -> s {applicationName = a} :: StopApplication)
-{-# DEPRECATED saApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
+sApplicationName :: Lens.Lens' StopApplication Types.ApplicationName
+sApplicationName = Lens.field @"applicationName"
+{-# DEPRECATED sApplicationName "Use generic-lens or generic-optics with 'applicationName' instead." #-}
 
-instance Lude.AWSRequest StopApplication where
+instance Core.FromJSON StopApplication where
+  toJSON StopApplication {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("ApplicationName" Core..= applicationName)]
+      )
+
+instance Core.AWSRequest StopApplication where
   type Rs StopApplication = StopApplicationResponse
-  request = Req.postJSON kinesisAnalyticsService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "KinesisAnalytics_20150814.StopApplication")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          StopApplicationResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          StopApplicationResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders StopApplication where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("KinesisAnalytics_20150814.StopApplication" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON StopApplication where
-  toJSON StopApplication' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("ApplicationName" Lude..= applicationName)]
-      )
-
-instance Lude.ToPath StopApplication where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery StopApplication where
-  toQuery = Lude.const Lude.mempty
 
 -- |
 --
 -- /See:/ 'mkStopApplicationResponse' smart constructor.
 newtype StopApplicationResponse = StopApplicationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StopApplicationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'StopApplicationResponse' value with any optional fields omitted.
 mkStopApplicationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   StopApplicationResponse
-mkStopApplicationResponse pResponseStatus_ =
-  StopApplicationResponse' {responseStatus = pResponseStatus_}
+mkStopApplicationResponse responseStatus =
+  StopApplicationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-srsResponseStatus :: Lens.Lens' StopApplicationResponse Lude.Int
-srsResponseStatus = Lens.lens (responseStatus :: StopApplicationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: StopApplicationResponse)
+srsResponseStatus :: Lens.Lens' StopApplicationResponse Core.Int
+srsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED srsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

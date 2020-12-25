@@ -30,86 +30,81 @@ module Network.AWS.Route53.DeleteHealthCheck
     mkDeleteHealthCheckResponse,
 
     -- ** Response lenses
-    dhcrsResponseStatus,
+    dhcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.Route53.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.Route53.Types as Types
 
 -- | This action deletes a health check.
 --
 -- /See:/ 'mkDeleteHealthCheck' smart constructor.
 newtype DeleteHealthCheck = DeleteHealthCheck'
   { -- | The ID of the health check that you want to delete.
-    healthCheckId :: Lude.Text
+    healthCheckId :: Types.HealthCheckId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteHealthCheck' with the minimum fields required to make a request.
---
--- * 'healthCheckId' - The ID of the health check that you want to delete.
+-- | Creates a 'DeleteHealthCheck' value with any optional fields omitted.
 mkDeleteHealthCheck ::
   -- | 'healthCheckId'
-  Lude.Text ->
+  Types.HealthCheckId ->
   DeleteHealthCheck
-mkDeleteHealthCheck pHealthCheckId_ =
-  DeleteHealthCheck' {healthCheckId = pHealthCheckId_}
+mkDeleteHealthCheck healthCheckId =
+  DeleteHealthCheck' {healthCheckId}
 
 -- | The ID of the health check that you want to delete.
 --
 -- /Note:/ Consider using 'healthCheckId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhcHealthCheckId :: Lens.Lens' DeleteHealthCheck Lude.Text
-dhcHealthCheckId = Lens.lens (healthCheckId :: DeleteHealthCheck -> Lude.Text) (\s a -> s {healthCheckId = a} :: DeleteHealthCheck)
+dhcHealthCheckId :: Lens.Lens' DeleteHealthCheck Types.HealthCheckId
+dhcHealthCheckId = Lens.field @"healthCheckId"
 {-# DEPRECATED dhcHealthCheckId "Use generic-lens or generic-optics with 'healthCheckId' instead." #-}
 
-instance Lude.AWSRequest DeleteHealthCheck where
+instance Core.AWSRequest DeleteHealthCheck where
   type Rs DeleteHealthCheck = DeleteHealthCheckResponse
-  request = Req.delete route53Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ("/2013-04-01/healthcheck/" Core.<> (Core.toText healthCheckId)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteHealthCheckResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteHealthCheckResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteHealthCheck where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteHealthCheck where
-  toPath DeleteHealthCheck' {..} =
-    Lude.mconcat
-      ["/2013-04-01/healthcheck/", Lude.toBS healthCheckId]
-
-instance Lude.ToQuery DeleteHealthCheck where
-  toQuery = Lude.const Lude.mempty
 
 -- | An empty element.
 --
 -- /See:/ 'mkDeleteHealthCheckResponse' smart constructor.
 newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteHealthCheckResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteHealthCheckResponse' value with any optional fields omitted.
 mkDeleteHealthCheckResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteHealthCheckResponse
-mkDeleteHealthCheckResponse pResponseStatus_ =
-  DeleteHealthCheckResponse' {responseStatus = pResponseStatus_}
+mkDeleteHealthCheckResponse responseStatus =
+  DeleteHealthCheckResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dhcrsResponseStatus :: Lens.Lens' DeleteHealthCheckResponse Lude.Int
-dhcrsResponseStatus = Lens.lens (responseStatus :: DeleteHealthCheckResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteHealthCheckResponse)
-{-# DEPRECATED dhcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dhcrrsResponseStatus :: Lens.Lens' DeleteHealthCheckResponse Core.Int
+dhcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dhcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -22,47 +22,41 @@ module Network.AWS.ElastiCache.Types.CustomerNodeEndpoint
   )
 where
 
+import qualified Network.AWS.ElastiCache.Types.Address as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The endpoint from which data should be migrated.
 --
 -- /See:/ 'mkCustomerNodeEndpoint' smart constructor.
 data CustomerNodeEndpoint = CustomerNodeEndpoint'
   { -- | The address of the node endpoint
-    address :: Lude.Maybe Lude.Text,
+    address :: Core.Maybe Types.Address,
     -- | The port of the node endpoint
-    port :: Lude.Maybe Lude.Int
+    port :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CustomerNodeEndpoint' with the minimum fields required to make a request.
---
--- * 'address' - The address of the node endpoint
--- * 'port' - The port of the node endpoint
+-- | Creates a 'CustomerNodeEndpoint' value with any optional fields omitted.
 mkCustomerNodeEndpoint ::
   CustomerNodeEndpoint
 mkCustomerNodeEndpoint =
   CustomerNodeEndpoint'
-    { address = Lude.Nothing,
-      port = Lude.Nothing
+    { address = Core.Nothing,
+      port = Core.Nothing
     }
 
 -- | The address of the node endpoint
 --
 -- /Note:/ Consider using 'address' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cneAddress :: Lens.Lens' CustomerNodeEndpoint (Lude.Maybe Lude.Text)
-cneAddress = Lens.lens (address :: CustomerNodeEndpoint -> Lude.Maybe Lude.Text) (\s a -> s {address = a} :: CustomerNodeEndpoint)
+cneAddress :: Lens.Lens' CustomerNodeEndpoint (Core.Maybe Types.Address)
+cneAddress = Lens.field @"address"
 {-# DEPRECATED cneAddress "Use generic-lens or generic-optics with 'address' instead." #-}
 
 -- | The port of the node endpoint
 --
 -- /Note:/ Consider using 'port' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-cnePort :: Lens.Lens' CustomerNodeEndpoint (Lude.Maybe Lude.Int)
-cnePort = Lens.lens (port :: CustomerNodeEndpoint -> Lude.Maybe Lude.Int) (\s a -> s {port = a} :: CustomerNodeEndpoint)
+cnePort :: Lens.Lens' CustomerNodeEndpoint (Core.Maybe Core.Int)
+cnePort = Lens.field @"port"
 {-# DEPRECATED cnePort "Use generic-lens or generic-optics with 'port' instead." #-}
-
-instance Lude.ToQuery CustomerNodeEndpoint where
-  toQuery CustomerNodeEndpoint' {..} =
-    Lude.mconcat ["Address" Lude.=: address, "Port" Lude.=: port]

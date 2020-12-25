@@ -22,43 +22,40 @@ module Network.AWS.SageMaker.Types.TransformDataSource
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SageMaker.Types.TransformS3DataSource
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SageMaker.Types.TransformS3DataSource as Types
 
 -- | Describes the location of the channel data.
 --
 -- /See:/ 'mkTransformDataSource' smart constructor.
 newtype TransformDataSource = TransformDataSource'
   { -- | The S3 location of the data source that is associated with a channel.
-    s3DataSource :: TransformS3DataSource
+    s3DataSource :: Types.TransformS3DataSource
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'TransformDataSource' with the minimum fields required to make a request.
---
--- * 's3DataSource' - The S3 location of the data source that is associated with a channel.
+-- | Creates a 'TransformDataSource' value with any optional fields omitted.
 mkTransformDataSource ::
   -- | 's3DataSource'
-  TransformS3DataSource ->
+  Types.TransformS3DataSource ->
   TransformDataSource
-mkTransformDataSource pS3DataSource_ =
-  TransformDataSource' {s3DataSource = pS3DataSource_}
+mkTransformDataSource s3DataSource =
+  TransformDataSource' {s3DataSource}
 
 -- | The S3 location of the data source that is associated with a channel.
 --
 -- /Note:/ Consider using 's3DataSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-tdsS3DataSource :: Lens.Lens' TransformDataSource TransformS3DataSource
-tdsS3DataSource = Lens.lens (s3DataSource :: TransformDataSource -> TransformS3DataSource) (\s a -> s {s3DataSource = a} :: TransformDataSource)
+tdsS3DataSource :: Lens.Lens' TransformDataSource Types.TransformS3DataSource
+tdsS3DataSource = Lens.field @"s3DataSource"
 {-# DEPRECATED tdsS3DataSource "Use generic-lens or generic-optics with 's3DataSource' instead." #-}
 
-instance Lude.FromJSON TransformDataSource where
-  parseJSON =
-    Lude.withObject
-      "TransformDataSource"
-      (\x -> TransformDataSource' Lude.<$> (x Lude..: "S3DataSource"))
+instance Core.FromJSON TransformDataSource where
+  toJSON TransformDataSource {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("S3DataSource" Core..= s3DataSource)])
 
-instance Lude.ToJSON TransformDataSource where
-  toJSON TransformDataSource' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("S3DataSource" Lude..= s3DataSource)])
+instance Core.FromJSON TransformDataSource where
+  parseJSON =
+    Core.withObject "TransformDataSource" Core.$
+      \x -> TransformDataSource' Core.<$> (x Core..: "S3DataSource")

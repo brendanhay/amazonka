@@ -17,57 +17,56 @@ module Network.AWS.KinesisAnalytics.Types.KinesisFirehoseInputUpdate
     mkKinesisFirehoseInputUpdate,
 
     -- * Lenses
-    kfiuRoleARNUpdate,
     kfiuResourceARNUpdate,
+    kfiuRoleARNUpdate,
   )
 where
 
+import qualified Network.AWS.KinesisAnalytics.Types.ResourceARN as Types
+import qualified Network.AWS.KinesisAnalytics.Types.RoleARNUpdate as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | When updating application input configuration, provides information about an Amazon Kinesis Firehose delivery stream as the streaming source.
 --
 -- /See:/ 'mkKinesisFirehoseInputUpdate' smart constructor.
 data KinesisFirehoseInputUpdate = KinesisFirehoseInputUpdate'
-  { -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
-    roleARNUpdate :: Lude.Maybe Lude.Text,
-    -- | Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to read.
-    resourceARNUpdate :: Lude.Maybe Lude.Text
+  { -- | Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to read.
+    resourceARNUpdate :: Core.Maybe Types.ResourceARN,
+    -- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
+    roleARNUpdate :: Core.Maybe Types.RoleARNUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'KinesisFirehoseInputUpdate' with the minimum fields required to make a request.
---
--- * 'roleARNUpdate' - ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
--- * 'resourceARNUpdate' - Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to read.
+-- | Creates a 'KinesisFirehoseInputUpdate' value with any optional fields omitted.
 mkKinesisFirehoseInputUpdate ::
   KinesisFirehoseInputUpdate
 mkKinesisFirehoseInputUpdate =
   KinesisFirehoseInputUpdate'
-    { roleARNUpdate = Lude.Nothing,
-      resourceARNUpdate = Lude.Nothing
+    { resourceARNUpdate = Core.Nothing,
+      roleARNUpdate = Core.Nothing
     }
-
--- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
---
--- /Note:/ Consider using 'roleARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kfiuRoleARNUpdate :: Lens.Lens' KinesisFirehoseInputUpdate (Lude.Maybe Lude.Text)
-kfiuRoleARNUpdate = Lens.lens (roleARNUpdate :: KinesisFirehoseInputUpdate -> Lude.Maybe Lude.Text) (\s a -> s {roleARNUpdate = a} :: KinesisFirehoseInputUpdate)
-{-# DEPRECATED kfiuRoleARNUpdate "Use generic-lens or generic-optics with 'roleARNUpdate' instead." #-}
 
 -- | Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to read.
 --
 -- /Note:/ Consider using 'resourceARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-kfiuResourceARNUpdate :: Lens.Lens' KinesisFirehoseInputUpdate (Lude.Maybe Lude.Text)
-kfiuResourceARNUpdate = Lens.lens (resourceARNUpdate :: KinesisFirehoseInputUpdate -> Lude.Maybe Lude.Text) (\s a -> s {resourceARNUpdate = a} :: KinesisFirehoseInputUpdate)
+kfiuResourceARNUpdate :: Lens.Lens' KinesisFirehoseInputUpdate (Core.Maybe Types.ResourceARN)
+kfiuResourceARNUpdate = Lens.field @"resourceARNUpdate"
 {-# DEPRECATED kfiuResourceARNUpdate "Use generic-lens or generic-optics with 'resourceARNUpdate' instead." #-}
 
-instance Lude.ToJSON KinesisFirehoseInputUpdate where
-  toJSON KinesisFirehoseInputUpdate' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("RoleARNUpdate" Lude..=) Lude.<$> roleARNUpdate,
-            ("ResourceARNUpdate" Lude..=) Lude.<$> resourceARNUpdate
+-- | ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream on your behalf. You need to grant the necessary permissions to this role.
+--
+-- /Note:/ Consider using 'roleARNUpdate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+kfiuRoleARNUpdate :: Lens.Lens' KinesisFirehoseInputUpdate (Core.Maybe Types.RoleARNUpdate)
+kfiuRoleARNUpdate = Lens.field @"roleARNUpdate"
+{-# DEPRECATED kfiuRoleARNUpdate "Use generic-lens or generic-optics with 'roleARNUpdate' instead." #-}
+
+instance Core.FromJSON KinesisFirehoseInputUpdate where
+  toJSON KinesisFirehoseInputUpdate {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("ResourceARNUpdate" Core..=) Core.<$> resourceARNUpdate,
+            ("RoleARNUpdate" Core..=) Core.<$> roleARNUpdate
           ]
       )

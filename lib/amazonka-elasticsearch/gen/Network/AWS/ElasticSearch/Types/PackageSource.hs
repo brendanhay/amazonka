@@ -17,54 +17,53 @@ module Network.AWS.ElasticSearch.Types.PackageSource
     mkPackageSource,
 
     -- * Lenses
-    psS3Key,
     psS3BucketName,
+    psS3Key,
   )
 where
 
+import qualified Network.AWS.ElasticSearch.Types.S3BucketName as Types
+import qualified Network.AWS.ElasticSearch.Types.S3Key as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The S3 location for importing the package specified as @S3BucketName@ and @S3Key@
 --
 -- /See:/ 'mkPackageSource' smart constructor.
 data PackageSource = PackageSource'
-  { -- | Key (file name) of the package.
-    s3Key :: Lude.Maybe Lude.Text,
-    -- | Name of the bucket containing the package.
-    s3BucketName :: Lude.Maybe Lude.Text
+  { -- | Name of the bucket containing the package.
+    s3BucketName :: Core.Maybe Types.S3BucketName,
+    -- | Key (file name) of the package.
+    s3Key :: Core.Maybe Types.S3Key
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PackageSource' with the minimum fields required to make a request.
---
--- * 's3Key' - Key (file name) of the package.
--- * 's3BucketName' - Name of the bucket containing the package.
+-- | Creates a 'PackageSource' value with any optional fields omitted.
 mkPackageSource ::
   PackageSource
 mkPackageSource =
-  PackageSource' {s3Key = Lude.Nothing, s3BucketName = Lude.Nothing}
-
--- | Key (file name) of the package.
---
--- /Note:/ Consider using 's3Key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psS3Key :: Lens.Lens' PackageSource (Lude.Maybe Lude.Text)
-psS3Key = Lens.lens (s3Key :: PackageSource -> Lude.Maybe Lude.Text) (\s a -> s {s3Key = a} :: PackageSource)
-{-# DEPRECATED psS3Key "Use generic-lens or generic-optics with 's3Key' instead." #-}
+  PackageSource' {s3BucketName = Core.Nothing, s3Key = Core.Nothing}
 
 -- | Name of the bucket containing the package.
 --
 -- /Note:/ Consider using 's3BucketName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-psS3BucketName :: Lens.Lens' PackageSource (Lude.Maybe Lude.Text)
-psS3BucketName = Lens.lens (s3BucketName :: PackageSource -> Lude.Maybe Lude.Text) (\s a -> s {s3BucketName = a} :: PackageSource)
+psS3BucketName :: Lens.Lens' PackageSource (Core.Maybe Types.S3BucketName)
+psS3BucketName = Lens.field @"s3BucketName"
 {-# DEPRECATED psS3BucketName "Use generic-lens or generic-optics with 's3BucketName' instead." #-}
 
-instance Lude.ToJSON PackageSource where
-  toJSON PackageSource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("S3Key" Lude..=) Lude.<$> s3Key,
-            ("S3BucketName" Lude..=) Lude.<$> s3BucketName
+-- | Key (file name) of the package.
+--
+-- /Note:/ Consider using 's3Key' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+psS3Key :: Lens.Lens' PackageSource (Core.Maybe Types.S3Key)
+psS3Key = Lens.field @"s3Key"
+{-# DEPRECATED psS3Key "Use generic-lens or generic-optics with 's3Key' instead." #-}
+
+instance Core.FromJSON PackageSource where
+  toJSON PackageSource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("S3BucketName" Core..=) Core.<$> s3BucketName,
+            ("S3Key" Core..=) Core.<$> s3Key
           ]
       )

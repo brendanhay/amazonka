@@ -22,34 +22,32 @@ module Network.AWS.Rekognition.Types.Video
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types.S3Object
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types.S3Object as Types
 
 -- | Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as 'StartLabelDetection' use @Video@ to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.
 --
 -- /See:/ 'mkVideo' smart constructor.
 newtype Video = Video'
   { -- | The Amazon S3 bucket name and file name for the video.
-    s3Object :: Lude.Maybe S3Object
+    s3Object :: Core.Maybe Types.S3Object
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Video' with the minimum fields required to make a request.
---
--- * 's3Object' - The Amazon S3 bucket name and file name for the video.
+-- | Creates a 'Video' value with any optional fields omitted.
 mkVideo ::
   Video
-mkVideo = Video' {s3Object = Lude.Nothing}
+mkVideo = Video' {s3Object = Core.Nothing}
 
 -- | The Amazon S3 bucket name and file name for the video.
 --
 -- /Note:/ Consider using 's3Object' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-vS3Object :: Lens.Lens' Video (Lude.Maybe S3Object)
-vS3Object = Lens.lens (s3Object :: Video -> Lude.Maybe S3Object) (\s a -> s {s3Object = a} :: Video)
+vS3Object :: Lens.Lens' Video (Core.Maybe Types.S3Object)
+vS3Object = Lens.field @"s3Object"
 {-# DEPRECATED vS3Object "Use generic-lens or generic-optics with 's3Object' instead." #-}
 
-instance Lude.ToJSON Video where
-  toJSON Video' {..} =
-    Lude.object
-      (Lude.catMaybes [("S3Object" Lude..=) Lude.<$> s3Object])
+instance Core.FromJSON Video where
+  toJSON Video {..} =
+    Core.object
+      (Core.catMaybes [("S3Object" Core..=) Core.<$> s3Object])

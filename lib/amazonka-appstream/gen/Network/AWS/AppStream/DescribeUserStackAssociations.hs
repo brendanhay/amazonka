@@ -30,199 +30,185 @@ module Network.AWS.AppStream.DescribeUserStackAssociations
     mkDescribeUserStackAssociations,
 
     -- ** Request lenses
-    dusaUserName,
-    dusaNextToken,
     dusaAuthenticationType,
     dusaMaxResults,
+    dusaNextToken,
     dusaStackName,
+    dusaUserName,
 
     -- * Destructuring the response
     DescribeUserStackAssociationsResponse (..),
     mkDescribeUserStackAssociationsResponse,
 
     -- ** Response lenses
-    dusarsUserStackAssociations,
-    dusarsNextToken,
-    dusarsResponseStatus,
+    dusarrsNextToken,
+    dusarrsUserStackAssociations,
+    dusarrsResponseStatus,
   )
 where
 
-import Network.AWS.AppStream.Types
+import qualified Network.AWS.AppStream.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeUserStackAssociations' smart constructor.
 data DescribeUserStackAssociations = DescribeUserStackAssociations'
-  { -- | The email address of the user who is associated with the stack.
-    userName :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The authentication type for the user who is associated with the stack. You must specify USERPOOL.
-    authenticationType :: Lude.Maybe AuthenticationType,
+  { -- | The authentication type for the user who is associated with the stack. You must specify USERPOOL.
+    authenticationType :: Core.Maybe Types.AuthenticationType,
     -- | The maximum size of each page of results.
-    maxResults :: Lude.Maybe Lude.Natural,
+    maxResults :: Core.Maybe Core.Natural,
+    -- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+    nextToken :: Core.Maybe Types.String,
     -- | The name of the stack that is associated with the user.
-    stackName :: Lude.Maybe Lude.Text
+    stackName :: Core.Maybe Types.String,
+    -- | The email address of the user who is associated with the stack.
+    userName :: Core.Maybe Types.Username
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUserStackAssociations' with the minimum fields required to make a request.
---
--- * 'userName' - The email address of the user who is associated with the stack.
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
--- * 'authenticationType' - The authentication type for the user who is associated with the stack. You must specify USERPOOL.
--- * 'maxResults' - The maximum size of each page of results.
--- * 'stackName' - The name of the stack that is associated with the user.
+-- | Creates a 'DescribeUserStackAssociations' value with any optional fields omitted.
 mkDescribeUserStackAssociations ::
   DescribeUserStackAssociations
 mkDescribeUserStackAssociations =
   DescribeUserStackAssociations'
-    { userName = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      authenticationType = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      stackName = Lude.Nothing
+    { authenticationType = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      stackName = Core.Nothing,
+      userName = Core.Nothing
     }
-
--- | The email address of the user who is associated with the stack.
---
--- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusaUserName :: Lens.Lens' DescribeUserStackAssociations (Lude.Maybe (Lude.Sensitive Lude.Text))
-dusaUserName = Lens.lens (userName :: DescribeUserStackAssociations -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {userName = a} :: DescribeUserStackAssociations)
-{-# DEPRECATED dusaUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
-
--- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusaNextToken :: Lens.Lens' DescribeUserStackAssociations (Lude.Maybe Lude.Text)
-dusaNextToken = Lens.lens (nextToken :: DescribeUserStackAssociations -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeUserStackAssociations)
-{-# DEPRECATED dusaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The authentication type for the user who is associated with the stack. You must specify USERPOOL.
 --
 -- /Note:/ Consider using 'authenticationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusaAuthenticationType :: Lens.Lens' DescribeUserStackAssociations (Lude.Maybe AuthenticationType)
-dusaAuthenticationType = Lens.lens (authenticationType :: DescribeUserStackAssociations -> Lude.Maybe AuthenticationType) (\s a -> s {authenticationType = a} :: DescribeUserStackAssociations)
+dusaAuthenticationType :: Lens.Lens' DescribeUserStackAssociations (Core.Maybe Types.AuthenticationType)
+dusaAuthenticationType = Lens.field @"authenticationType"
 {-# DEPRECATED dusaAuthenticationType "Use generic-lens or generic-optics with 'authenticationType' instead." #-}
 
 -- | The maximum size of each page of results.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusaMaxResults :: Lens.Lens' DescribeUserStackAssociations (Lude.Maybe Lude.Natural)
-dusaMaxResults = Lens.lens (maxResults :: DescribeUserStackAssociations -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: DescribeUserStackAssociations)
+dusaMaxResults :: Lens.Lens' DescribeUserStackAssociations (Core.Maybe Core.Natural)
+dusaMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED dusaMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | The pagination token to use to retrieve the next page of results for this operation. If this value is null, it retrieves the first page.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dusaNextToken :: Lens.Lens' DescribeUserStackAssociations (Core.Maybe Types.String)
+dusaNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dusaNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The name of the stack that is associated with the user.
 --
 -- /Note:/ Consider using 'stackName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusaStackName :: Lens.Lens' DescribeUserStackAssociations (Lude.Maybe Lude.Text)
-dusaStackName = Lens.lens (stackName :: DescribeUserStackAssociations -> Lude.Maybe Lude.Text) (\s a -> s {stackName = a} :: DescribeUserStackAssociations)
+dusaStackName :: Lens.Lens' DescribeUserStackAssociations (Core.Maybe Types.String)
+dusaStackName = Lens.field @"stackName"
 {-# DEPRECATED dusaStackName "Use generic-lens or generic-optics with 'stackName' instead." #-}
 
-instance Page.AWSPager DescribeUserStackAssociations where
-  page rq rs
-    | Page.stop (rs Lens.^. dusarsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. dusarsUserStackAssociations) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& dusaNextToken Lens..~ rs Lens.^. dusarsNextToken
+-- | The email address of the user who is associated with the stack.
+--
+-- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dusaUserName :: Lens.Lens' DescribeUserStackAssociations (Core.Maybe Types.Username)
+dusaUserName = Lens.field @"userName"
+{-# DEPRECATED dusaUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
-instance Lude.AWSRequest DescribeUserStackAssociations where
+instance Core.FromJSON DescribeUserStackAssociations where
+  toJSON DescribeUserStackAssociations {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("AuthenticationType" Core..=) Core.<$> authenticationType,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("StackName" Core..=) Core.<$> stackName,
+            ("UserName" Core..=) Core.<$> userName
+          ]
+      )
+
+instance Core.AWSRequest DescribeUserStackAssociations where
   type
     Rs DescribeUserStackAssociations =
       DescribeUserStackAssociationsResponse
-  request = Req.postJSON appStreamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "PhotonAdminProxyService.DescribeUserStackAssociations"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeUserStackAssociationsResponse'
-            Lude.<$> (x Lude..?> "UserStackAssociations")
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "UserStackAssociations")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders DescribeUserStackAssociations where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "PhotonAdminProxyService.DescribeUserStackAssociations" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeUserStackAssociations where
-  toJSON DescribeUserStackAssociations' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("UserName" Lude..=) Lude.<$> userName,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("AuthenticationType" Lude..=) Lude.<$> authenticationType,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("StackName" Lude..=) Lude.<$> stackName
-          ]
-      )
-
-instance Lude.ToPath DescribeUserStackAssociations where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeUserStackAssociations where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager DescribeUserStackAssociations where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"userStackAssociations" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkDescribeUserStackAssociationsResponse' smart constructor.
 data DescribeUserStackAssociationsResponse = DescribeUserStackAssociationsResponse'
-  { -- | The UserStackAssociation objects.
-    userStackAssociations :: Lude.Maybe (Lude.NonEmpty UserStackAssociation),
-    -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
+    nextToken :: Core.Maybe Types.String,
+    -- | The UserStackAssociation objects.
+    userStackAssociations :: Core.Maybe (Core.NonEmpty Types.UserStackAssociation),
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeUserStackAssociationsResponse' with the minimum fields required to make a request.
---
--- * 'userStackAssociations' - The UserStackAssociation objects.
--- * 'nextToken' - The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeUserStackAssociationsResponse' value with any optional fields omitted.
 mkDescribeUserStackAssociationsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeUserStackAssociationsResponse
-mkDescribeUserStackAssociationsResponse pResponseStatus_ =
+mkDescribeUserStackAssociationsResponse responseStatus =
   DescribeUserStackAssociationsResponse'
-    { userStackAssociations =
-        Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      userStackAssociations = Core.Nothing,
+      responseStatus
     }
-
--- | The UserStackAssociation objects.
---
--- /Note:/ Consider using 'userStackAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusarsUserStackAssociations :: Lens.Lens' DescribeUserStackAssociationsResponse (Lude.Maybe (Lude.NonEmpty UserStackAssociation))
-dusarsUserStackAssociations = Lens.lens (userStackAssociations :: DescribeUserStackAssociationsResponse -> Lude.Maybe (Lude.NonEmpty UserStackAssociation)) (\s a -> s {userStackAssociations = a} :: DescribeUserStackAssociationsResponse)
-{-# DEPRECATED dusarsUserStackAssociations "Use generic-lens or generic-optics with 'userStackAssociations' instead." #-}
 
 -- | The pagination token to use to retrieve the next page of results for this operation. If there are no more pages, this value is null.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusarsNextToken :: Lens.Lens' DescribeUserStackAssociationsResponse (Lude.Maybe Lude.Text)
-dusarsNextToken = Lens.lens (nextToken :: DescribeUserStackAssociationsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: DescribeUserStackAssociationsResponse)
-{-# DEPRECATED dusarsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+dusarrsNextToken :: Lens.Lens' DescribeUserStackAssociationsResponse (Core.Maybe Types.String)
+dusarrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED dusarrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The UserStackAssociation objects.
+--
+-- /Note:/ Consider using 'userStackAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dusarrsUserStackAssociations :: Lens.Lens' DescribeUserStackAssociationsResponse (Core.Maybe (Core.NonEmpty Types.UserStackAssociation))
+dusarrsUserStackAssociations = Lens.field @"userStackAssociations"
+{-# DEPRECATED dusarrsUserStackAssociations "Use generic-lens or generic-optics with 'userStackAssociations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dusarsResponseStatus :: Lens.Lens' DescribeUserStackAssociationsResponse Lude.Int
-dusarsResponseStatus = Lens.lens (responseStatus :: DescribeUserStackAssociationsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeUserStackAssociationsResponse)
-{-# DEPRECATED dusarsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dusarrsResponseStatus :: Lens.Lens' DescribeUserStackAssociationsResponse Core.Int
+dusarrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dusarrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

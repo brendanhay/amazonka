@@ -20,125 +20,112 @@ module Network.AWS.Greengrass.UpdateThingRuntimeConfiguration
     mkUpdateThingRuntimeConfiguration,
 
     -- ** Request lenses
-    utrcTelemetryConfiguration,
     utrcThingName,
+    utrcTelemetryConfiguration,
 
     -- * Destructuring the response
     UpdateThingRuntimeConfigurationResponse (..),
     mkUpdateThingRuntimeConfigurationResponse,
 
     -- ** Response lenses
-    utrcrsResponseStatus,
+    utrcrrsResponseStatus,
   )
 where
 
-import Network.AWS.Greengrass.Types
+import qualified Network.AWS.Greengrass.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkUpdateThingRuntimeConfiguration' smart constructor.
 data UpdateThingRuntimeConfiguration = UpdateThingRuntimeConfiguration'
-  { -- | Configuration for telemetry service.
-    telemetryConfiguration :: Lude.Maybe TelemetryConfigurationUpdate,
-    -- | The thing name.
-    thingName :: Lude.Text
+  { -- | The thing name.
+    thingName :: Core.Text,
+    -- | Configuration for telemetry service.
+    telemetryConfiguration :: Core.Maybe Types.TelemetryConfigurationUpdate
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateThingRuntimeConfiguration' with the minimum fields required to make a request.
---
--- * 'telemetryConfiguration' - Configuration for telemetry service.
--- * 'thingName' - The thing name.
+-- | Creates a 'UpdateThingRuntimeConfiguration' value with any optional fields omitted.
 mkUpdateThingRuntimeConfiguration ::
   -- | 'thingName'
-  Lude.Text ->
+  Core.Text ->
   UpdateThingRuntimeConfiguration
-mkUpdateThingRuntimeConfiguration pThingName_ =
+mkUpdateThingRuntimeConfiguration thingName =
   UpdateThingRuntimeConfiguration'
-    { telemetryConfiguration =
-        Lude.Nothing,
-      thingName = pThingName_
+    { thingName,
+      telemetryConfiguration = Core.Nothing
     }
-
--- | Configuration for telemetry service.
---
--- /Note:/ Consider using 'telemetryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrcTelemetryConfiguration :: Lens.Lens' UpdateThingRuntimeConfiguration (Lude.Maybe TelemetryConfigurationUpdate)
-utrcTelemetryConfiguration = Lens.lens (telemetryConfiguration :: UpdateThingRuntimeConfiguration -> Lude.Maybe TelemetryConfigurationUpdate) (\s a -> s {telemetryConfiguration = a} :: UpdateThingRuntimeConfiguration)
-{-# DEPRECATED utrcTelemetryConfiguration "Use generic-lens or generic-optics with 'telemetryConfiguration' instead." #-}
 
 -- | The thing name.
 --
 -- /Note:/ Consider using 'thingName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrcThingName :: Lens.Lens' UpdateThingRuntimeConfiguration Lude.Text
-utrcThingName = Lens.lens (thingName :: UpdateThingRuntimeConfiguration -> Lude.Text) (\s a -> s {thingName = a} :: UpdateThingRuntimeConfiguration)
+utrcThingName :: Lens.Lens' UpdateThingRuntimeConfiguration Core.Text
+utrcThingName = Lens.field @"thingName"
 {-# DEPRECATED utrcThingName "Use generic-lens or generic-optics with 'thingName' instead." #-}
 
-instance Lude.AWSRequest UpdateThingRuntimeConfiguration where
+-- | Configuration for telemetry service.
+--
+-- /Note:/ Consider using 'telemetryConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+utrcTelemetryConfiguration :: Lens.Lens' UpdateThingRuntimeConfiguration (Core.Maybe Types.TelemetryConfigurationUpdate)
+utrcTelemetryConfiguration = Lens.field @"telemetryConfiguration"
+{-# DEPRECATED utrcTelemetryConfiguration "Use generic-lens or generic-optics with 'telemetryConfiguration' instead." #-}
+
+instance Core.FromJSON UpdateThingRuntimeConfiguration where
+  toJSON UpdateThingRuntimeConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("TelemetryConfiguration" Core..=)
+              Core.<$> telemetryConfiguration
+          ]
+      )
+
+instance Core.AWSRequest UpdateThingRuntimeConfiguration where
   type
     Rs UpdateThingRuntimeConfiguration =
       UpdateThingRuntimeConfigurationResponse
-  request = Req.putJSON greengrassService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.PUT,
+        Core._rqPath =
+          Core.rawPath
+            ( "/greengrass/things/" Core.<> (Core.toText thingName)
+                Core.<> ("/runtimeconfig")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           UpdateThingRuntimeConfigurationResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateThingRuntimeConfiguration where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateThingRuntimeConfiguration where
-  toJSON UpdateThingRuntimeConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("TelemetryConfiguration" Lude..=)
-              Lude.<$> telemetryConfiguration
-          ]
-      )
-
-instance Lude.ToPath UpdateThingRuntimeConfiguration where
-  toPath UpdateThingRuntimeConfiguration' {..} =
-    Lude.mconcat
-      ["/greengrass/things/", Lude.toBS thingName, "/runtimeconfig"]
-
-instance Lude.ToQuery UpdateThingRuntimeConfiguration where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkUpdateThingRuntimeConfigurationResponse' smart constructor.
 newtype UpdateThingRuntimeConfigurationResponse = UpdateThingRuntimeConfigurationResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateThingRuntimeConfigurationResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateThingRuntimeConfigurationResponse' value with any optional fields omitted.
 mkUpdateThingRuntimeConfigurationResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateThingRuntimeConfigurationResponse
-mkUpdateThingRuntimeConfigurationResponse pResponseStatus_ =
-  UpdateThingRuntimeConfigurationResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkUpdateThingRuntimeConfigurationResponse responseStatus =
+  UpdateThingRuntimeConfigurationResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-utrcrsResponseStatus :: Lens.Lens' UpdateThingRuntimeConfigurationResponse Lude.Int
-utrcrsResponseStatus = Lens.lens (responseStatus :: UpdateThingRuntimeConfigurationResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateThingRuntimeConfigurationResponse)
-{-# DEPRECATED utrcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+utrcrrsResponseStatus :: Lens.Lens' UpdateThingRuntimeConfigurationResponse Core.Int
+utrcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED utrcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

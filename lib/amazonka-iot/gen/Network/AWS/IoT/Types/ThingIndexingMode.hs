@@ -13,51 +13,56 @@
 module Network.AWS.IoT.Types.ThingIndexingMode
   ( ThingIndexingMode
       ( ThingIndexingMode',
-        TIMOff,
-        TIMRegistry,
-        TIMRegistryAndShadow
+        ThingIndexingModeOff,
+        ThingIndexingModeRegistry,
+        ThingIndexingModeRegistryAndShadow,
+        fromThingIndexingMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ThingIndexingMode = ThingIndexingMode' Lude.Text
+newtype ThingIndexingMode = ThingIndexingMode'
+  { fromThingIndexingMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TIMOff :: ThingIndexingMode
-pattern TIMOff = ThingIndexingMode' "OFF"
+pattern ThingIndexingModeOff :: ThingIndexingMode
+pattern ThingIndexingModeOff = ThingIndexingMode' "OFF"
 
-pattern TIMRegistry :: ThingIndexingMode
-pattern TIMRegistry = ThingIndexingMode' "REGISTRY"
+pattern ThingIndexingModeRegistry :: ThingIndexingMode
+pattern ThingIndexingModeRegistry = ThingIndexingMode' "REGISTRY"
 
-pattern TIMRegistryAndShadow :: ThingIndexingMode
-pattern TIMRegistryAndShadow = ThingIndexingMode' "REGISTRY_AND_SHADOW"
+pattern ThingIndexingModeRegistryAndShadow :: ThingIndexingMode
+pattern ThingIndexingModeRegistryAndShadow = ThingIndexingMode' "REGISTRY_AND_SHADOW"
 
 {-# COMPLETE
-  TIMOff,
-  TIMRegistry,
-  TIMRegistryAndShadow,
+  ThingIndexingModeOff,
+  ThingIndexingModeRegistry,
+  ThingIndexingModeRegistryAndShadow,
   ThingIndexingMode'
   #-}

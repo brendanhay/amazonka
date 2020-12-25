@@ -22,48 +22,44 @@ module Network.AWS.Snowball.Types.DeviceConfiguration
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Snowball.Types.SnowconeDeviceConfiguration
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Snowball.Types.SnowconeDeviceConfiguration as Types
 
 -- | The container for @SnowconeDeviceConfiguration@ .
 --
 -- /See:/ 'mkDeviceConfiguration' smart constructor.
 newtype DeviceConfiguration = DeviceConfiguration'
   { -- | Returns information about the device configuration for an AWS Snowcone job.
-    snowconeDeviceConfiguration :: Lude.Maybe SnowconeDeviceConfiguration
+    snowconeDeviceConfiguration :: Core.Maybe Types.SnowconeDeviceConfiguration
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeviceConfiguration' with the minimum fields required to make a request.
---
--- * 'snowconeDeviceConfiguration' - Returns information about the device configuration for an AWS Snowcone job.
+-- | Creates a 'DeviceConfiguration' value with any optional fields omitted.
 mkDeviceConfiguration ::
   DeviceConfiguration
 mkDeviceConfiguration =
-  DeviceConfiguration' {snowconeDeviceConfiguration = Lude.Nothing}
+  DeviceConfiguration' {snowconeDeviceConfiguration = Core.Nothing}
 
 -- | Returns information about the device configuration for an AWS Snowcone job.
 --
 -- /Note:/ Consider using 'snowconeDeviceConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcSnowconeDeviceConfiguration :: Lens.Lens' DeviceConfiguration (Lude.Maybe SnowconeDeviceConfiguration)
-dcSnowconeDeviceConfiguration = Lens.lens (snowconeDeviceConfiguration :: DeviceConfiguration -> Lude.Maybe SnowconeDeviceConfiguration) (\s a -> s {snowconeDeviceConfiguration = a} :: DeviceConfiguration)
+dcSnowconeDeviceConfiguration :: Lens.Lens' DeviceConfiguration (Core.Maybe Types.SnowconeDeviceConfiguration)
+dcSnowconeDeviceConfiguration = Lens.field @"snowconeDeviceConfiguration"
 {-# DEPRECATED dcSnowconeDeviceConfiguration "Use generic-lens or generic-optics with 'snowconeDeviceConfiguration' instead." #-}
 
-instance Lude.FromJSON DeviceConfiguration where
-  parseJSON =
-    Lude.withObject
-      "DeviceConfiguration"
-      ( \x ->
-          DeviceConfiguration'
-            Lude.<$> (x Lude..:? "SnowconeDeviceConfiguration")
-      )
-
-instance Lude.ToJSON DeviceConfiguration where
-  toJSON DeviceConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("SnowconeDeviceConfiguration" Lude..=)
-              Lude.<$> snowconeDeviceConfiguration
+instance Core.FromJSON DeviceConfiguration where
+  toJSON DeviceConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("SnowconeDeviceConfiguration" Core..=)
+              Core.<$> snowconeDeviceConfiguration
           ]
       )
+
+instance Core.FromJSON DeviceConfiguration where
+  parseJSON =
+    Core.withObject "DeviceConfiguration" Core.$
+      \x ->
+        DeviceConfiguration'
+          Core.<$> (x Core..:? "SnowconeDeviceConfiguration")

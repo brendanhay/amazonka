@@ -28,116 +28,102 @@ module Network.AWS.CognitoIdentityProvider.SetUserSettings
     mkSetUserSettingsResponse,
 
     -- ** Response lenses
-    susrsResponseStatus,
+    susrrsResponseStatus,
   )
 where
 
-import Network.AWS.CognitoIdentityProvider.Types
+import qualified Network.AWS.CognitoIdentityProvider.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Represents the request to set user settings.
 --
 -- /See:/ 'mkSetUserSettings' smart constructor.
 data SetUserSettings = SetUserSettings'
   { -- | The access token for the set user settings request.
-    accessToken :: Lude.Sensitive Lude.Text,
+    accessToken :: Types.TokenModelType,
     -- | You can use this parameter only to set an SMS configuration that uses SMS for delivery.
-    mfaOptions :: [MFAOptionType]
+    mFAOptions :: [Types.MFAOptionType]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetUserSettings' with the minimum fields required to make a request.
---
--- * 'accessToken' - The access token for the set user settings request.
--- * 'mfaOptions' - You can use this parameter only to set an SMS configuration that uses SMS for delivery.
+-- | Creates a 'SetUserSettings' value with any optional fields omitted.
 mkSetUserSettings ::
   -- | 'accessToken'
-  Lude.Sensitive Lude.Text ->
+  Types.TokenModelType ->
   SetUserSettings
-mkSetUserSettings pAccessToken_ =
-  SetUserSettings'
-    { accessToken = pAccessToken_,
-      mfaOptions = Lude.mempty
-    }
+mkSetUserSettings accessToken =
+  SetUserSettings' {accessToken, mFAOptions = Core.mempty}
 
 -- | The access token for the set user settings request.
 --
 -- /Note:/ Consider using 'accessToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-susAccessToken :: Lens.Lens' SetUserSettings (Lude.Sensitive Lude.Text)
-susAccessToken = Lens.lens (accessToken :: SetUserSettings -> Lude.Sensitive Lude.Text) (\s a -> s {accessToken = a} :: SetUserSettings)
+susAccessToken :: Lens.Lens' SetUserSettings Types.TokenModelType
+susAccessToken = Lens.field @"accessToken"
 {-# DEPRECATED susAccessToken "Use generic-lens or generic-optics with 'accessToken' instead." #-}
 
 -- | You can use this parameter only to set an SMS configuration that uses SMS for delivery.
 --
--- /Note:/ Consider using 'mfaOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-susMFAOptions :: Lens.Lens' SetUserSettings [MFAOptionType]
-susMFAOptions = Lens.lens (mfaOptions :: SetUserSettings -> [MFAOptionType]) (\s a -> s {mfaOptions = a} :: SetUserSettings)
-{-# DEPRECATED susMFAOptions "Use generic-lens or generic-optics with 'mfaOptions' instead." #-}
+-- /Note:/ Consider using 'mFAOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+susMFAOptions :: Lens.Lens' SetUserSettings [Types.MFAOptionType]
+susMFAOptions = Lens.field @"mFAOptions"
+{-# DEPRECATED susMFAOptions "Use generic-lens or generic-optics with 'mFAOptions' instead." #-}
 
-instance Lude.AWSRequest SetUserSettings where
+instance Core.FromJSON SetUserSettings where
+  toJSON SetUserSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("AccessToken" Core..= accessToken),
+            Core.Just ("MFAOptions" Core..= mFAOptions)
+          ]
+      )
+
+instance Core.AWSRequest SetUserSettings where
   type Rs SetUserSettings = SetUserSettingsResponse
-  request = Req.postJSON cognitoIdentityProviderService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "AWSCognitoIdentityProviderService.SetUserSettings"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          SetUserSettingsResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          SetUserSettingsResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders SetUserSettings where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWSCognitoIdentityProviderService.SetUserSettings" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON SetUserSettings where
-  toJSON SetUserSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("AccessToken" Lude..= accessToken),
-            Lude.Just ("MFAOptions" Lude..= mfaOptions)
-          ]
-      )
-
-instance Lude.ToPath SetUserSettings where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery SetUserSettings where
-  toQuery = Lude.const Lude.mempty
 
 -- | The response from the server for a set user settings request.
 --
 -- /See:/ 'mkSetUserSettingsResponse' smart constructor.
 newtype SetUserSettingsResponse = SetUserSettingsResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'SetUserSettingsResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'SetUserSettingsResponse' value with any optional fields omitted.
 mkSetUserSettingsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   SetUserSettingsResponse
-mkSetUserSettingsResponse pResponseStatus_ =
-  SetUserSettingsResponse' {responseStatus = pResponseStatus_}
+mkSetUserSettingsResponse responseStatus =
+  SetUserSettingsResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-susrsResponseStatus :: Lens.Lens' SetUserSettingsResponse Lude.Int
-susrsResponseStatus = Lens.lens (responseStatus :: SetUserSettingsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: SetUserSettingsResponse)
-{-# DEPRECATED susrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+susrrsResponseStatus :: Lens.Lens' SetUserSettingsResponse Core.Int
+susrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED susrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

@@ -13,96 +13,101 @@
 module Network.AWS.ApplicationAutoScaling.Types.ServiceNamespace
   ( ServiceNamespace
       ( ServiceNamespace',
-        Ecs,
-        Elasticmapreduce,
-        EC2,
-        Appstream,
-        Dynamodb,
-        RDS,
-        Sagemaker,
-        CustomResource,
-        Comprehend,
-        Lambda,
-        Cassandra,
-        Kafka
+        ServiceNamespaceEcs,
+        ServiceNamespaceElasticmapreduce,
+        ServiceNamespaceEC2,
+        ServiceNamespaceAppstream,
+        ServiceNamespaceDynamodb,
+        ServiceNamespaceRds,
+        ServiceNamespaceSagemaker,
+        ServiceNamespaceCustomResource,
+        ServiceNamespaceComprehend,
+        ServiceNamespaceLambda,
+        ServiceNamespaceCassandra,
+        ServiceNamespaceKafka,
+        fromServiceNamespace
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ServiceNamespace = ServiceNamespace' Lude.Text
+newtype ServiceNamespace = ServiceNamespace'
+  { fromServiceNamespace ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Ecs :: ServiceNamespace
-pattern Ecs = ServiceNamespace' "ecs"
+pattern ServiceNamespaceEcs :: ServiceNamespace
+pattern ServiceNamespaceEcs = ServiceNamespace' "ecs"
 
-pattern Elasticmapreduce :: ServiceNamespace
-pattern Elasticmapreduce = ServiceNamespace' "elasticmapreduce"
+pattern ServiceNamespaceElasticmapreduce :: ServiceNamespace
+pattern ServiceNamespaceElasticmapreduce = ServiceNamespace' "elasticmapreduce"
 
-pattern EC2 :: ServiceNamespace
-pattern EC2 = ServiceNamespace' "ec2"
+pattern ServiceNamespaceEC2 :: ServiceNamespace
+pattern ServiceNamespaceEC2 = ServiceNamespace' "ec2"
 
-pattern Appstream :: ServiceNamespace
-pattern Appstream = ServiceNamespace' "appstream"
+pattern ServiceNamespaceAppstream :: ServiceNamespace
+pattern ServiceNamespaceAppstream = ServiceNamespace' "appstream"
 
-pattern Dynamodb :: ServiceNamespace
-pattern Dynamodb = ServiceNamespace' "dynamodb"
+pattern ServiceNamespaceDynamodb :: ServiceNamespace
+pattern ServiceNamespaceDynamodb = ServiceNamespace' "dynamodb"
 
-pattern RDS :: ServiceNamespace
-pattern RDS = ServiceNamespace' "rds"
+pattern ServiceNamespaceRds :: ServiceNamespace
+pattern ServiceNamespaceRds = ServiceNamespace' "rds"
 
-pattern Sagemaker :: ServiceNamespace
-pattern Sagemaker = ServiceNamespace' "sagemaker"
+pattern ServiceNamespaceSagemaker :: ServiceNamespace
+pattern ServiceNamespaceSagemaker = ServiceNamespace' "sagemaker"
 
-pattern CustomResource :: ServiceNamespace
-pattern CustomResource = ServiceNamespace' "custom-resource"
+pattern ServiceNamespaceCustomResource :: ServiceNamespace
+pattern ServiceNamespaceCustomResource = ServiceNamespace' "custom-resource"
 
-pattern Comprehend :: ServiceNamespace
-pattern Comprehend = ServiceNamespace' "comprehend"
+pattern ServiceNamespaceComprehend :: ServiceNamespace
+pattern ServiceNamespaceComprehend = ServiceNamespace' "comprehend"
 
-pattern Lambda :: ServiceNamespace
-pattern Lambda = ServiceNamespace' "lambda"
+pattern ServiceNamespaceLambda :: ServiceNamespace
+pattern ServiceNamespaceLambda = ServiceNamespace' "lambda"
 
-pattern Cassandra :: ServiceNamespace
-pattern Cassandra = ServiceNamespace' "cassandra"
+pattern ServiceNamespaceCassandra :: ServiceNamespace
+pattern ServiceNamespaceCassandra = ServiceNamespace' "cassandra"
 
-pattern Kafka :: ServiceNamespace
-pattern Kafka = ServiceNamespace' "kafka"
+pattern ServiceNamespaceKafka :: ServiceNamespace
+pattern ServiceNamespaceKafka = ServiceNamespace' "kafka"
 
 {-# COMPLETE
-  Ecs,
-  Elasticmapreduce,
-  EC2,
-  Appstream,
-  Dynamodb,
-  RDS,
-  Sagemaker,
-  CustomResource,
-  Comprehend,
-  Lambda,
-  Cassandra,
-  Kafka,
+  ServiceNamespaceEcs,
+  ServiceNamespaceElasticmapreduce,
+  ServiceNamespaceEC2,
+  ServiceNamespaceAppstream,
+  ServiceNamespaceDynamodb,
+  ServiceNamespaceRds,
+  ServiceNamespaceSagemaker,
+  ServiceNamespaceCustomResource,
+  ServiceNamespaceComprehend,
+  ServiceNamespaceLambda,
+  ServiceNamespaceCassandra,
+  ServiceNamespaceKafka,
   ServiceNamespace'
   #-}

@@ -13,91 +13,96 @@
 module Network.AWS.DynamoDB.Types.BatchStatementErrorCodeEnum
   ( BatchStatementErrorCodeEnum
       ( BatchStatementErrorCodeEnum',
-        ConditionalCheckFailed,
-        ItemCollectionSizeLimitExceeded,
-        RequestLimitExceeded,
-        ValidationError,
-        ProvisionedThroughputExceeded,
-        TransactionConflict,
-        ThrottlingError,
-        InternalServerError,
-        ResourceNotFound,
-        AccessDenied,
-        DuplicateItem
+        BatchStatementErrorCodeEnumConditionalCheckFailed,
+        BatchStatementErrorCodeEnumItemCollectionSizeLimitExceeded,
+        BatchStatementErrorCodeEnumRequestLimitExceeded,
+        BatchStatementErrorCodeEnumValidationError,
+        BatchStatementErrorCodeEnumProvisionedThroughputExceeded,
+        BatchStatementErrorCodeEnumTransactionConflict,
+        BatchStatementErrorCodeEnumThrottlingError,
+        BatchStatementErrorCodeEnumInternalServerError,
+        BatchStatementErrorCodeEnumResourceNotFound,
+        BatchStatementErrorCodeEnumAccessDenied,
+        BatchStatementErrorCodeEnumDuplicateItem,
+        fromBatchStatementErrorCodeEnum
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype BatchStatementErrorCodeEnum = BatchStatementErrorCodeEnum' Lude.Text
+newtype BatchStatementErrorCodeEnum = BatchStatementErrorCodeEnum'
+  { fromBatchStatementErrorCodeEnum ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ConditionalCheckFailed :: BatchStatementErrorCodeEnum
-pattern ConditionalCheckFailed = BatchStatementErrorCodeEnum' "ConditionalCheckFailed"
+pattern BatchStatementErrorCodeEnumConditionalCheckFailed :: BatchStatementErrorCodeEnum
+pattern BatchStatementErrorCodeEnumConditionalCheckFailed = BatchStatementErrorCodeEnum' "ConditionalCheckFailed"
 
-pattern ItemCollectionSizeLimitExceeded :: BatchStatementErrorCodeEnum
-pattern ItemCollectionSizeLimitExceeded = BatchStatementErrorCodeEnum' "ItemCollectionSizeLimitExceeded"
+pattern BatchStatementErrorCodeEnumItemCollectionSizeLimitExceeded :: BatchStatementErrorCodeEnum
+pattern BatchStatementErrorCodeEnumItemCollectionSizeLimitExceeded = BatchStatementErrorCodeEnum' "ItemCollectionSizeLimitExceeded"
 
-pattern RequestLimitExceeded :: BatchStatementErrorCodeEnum
-pattern RequestLimitExceeded = BatchStatementErrorCodeEnum' "RequestLimitExceeded"
+pattern BatchStatementErrorCodeEnumRequestLimitExceeded :: BatchStatementErrorCodeEnum
+pattern BatchStatementErrorCodeEnumRequestLimitExceeded = BatchStatementErrorCodeEnum' "RequestLimitExceeded"
 
-pattern ValidationError :: BatchStatementErrorCodeEnum
-pattern ValidationError = BatchStatementErrorCodeEnum' "ValidationError"
+pattern BatchStatementErrorCodeEnumValidationError :: BatchStatementErrorCodeEnum
+pattern BatchStatementErrorCodeEnumValidationError = BatchStatementErrorCodeEnum' "ValidationError"
 
-pattern ProvisionedThroughputExceeded :: BatchStatementErrorCodeEnum
-pattern ProvisionedThroughputExceeded = BatchStatementErrorCodeEnum' "ProvisionedThroughputExceeded"
+pattern BatchStatementErrorCodeEnumProvisionedThroughputExceeded :: BatchStatementErrorCodeEnum
+pattern BatchStatementErrorCodeEnumProvisionedThroughputExceeded = BatchStatementErrorCodeEnum' "ProvisionedThroughputExceeded"
 
-pattern TransactionConflict :: BatchStatementErrorCodeEnum
-pattern TransactionConflict = BatchStatementErrorCodeEnum' "TransactionConflict"
+pattern BatchStatementErrorCodeEnumTransactionConflict :: BatchStatementErrorCodeEnum
+pattern BatchStatementErrorCodeEnumTransactionConflict = BatchStatementErrorCodeEnum' "TransactionConflict"
 
-pattern ThrottlingError :: BatchStatementErrorCodeEnum
-pattern ThrottlingError = BatchStatementErrorCodeEnum' "ThrottlingError"
+pattern BatchStatementErrorCodeEnumThrottlingError :: BatchStatementErrorCodeEnum
+pattern BatchStatementErrorCodeEnumThrottlingError = BatchStatementErrorCodeEnum' "ThrottlingError"
 
-pattern InternalServerError :: BatchStatementErrorCodeEnum
-pattern InternalServerError = BatchStatementErrorCodeEnum' "InternalServerError"
+pattern BatchStatementErrorCodeEnumInternalServerError :: BatchStatementErrorCodeEnum
+pattern BatchStatementErrorCodeEnumInternalServerError = BatchStatementErrorCodeEnum' "InternalServerError"
 
-pattern ResourceNotFound :: BatchStatementErrorCodeEnum
-pattern ResourceNotFound = BatchStatementErrorCodeEnum' "ResourceNotFound"
+pattern BatchStatementErrorCodeEnumResourceNotFound :: BatchStatementErrorCodeEnum
+pattern BatchStatementErrorCodeEnumResourceNotFound = BatchStatementErrorCodeEnum' "ResourceNotFound"
 
-pattern AccessDenied :: BatchStatementErrorCodeEnum
-pattern AccessDenied = BatchStatementErrorCodeEnum' "AccessDenied"
+pattern BatchStatementErrorCodeEnumAccessDenied :: BatchStatementErrorCodeEnum
+pattern BatchStatementErrorCodeEnumAccessDenied = BatchStatementErrorCodeEnum' "AccessDenied"
 
-pattern DuplicateItem :: BatchStatementErrorCodeEnum
-pattern DuplicateItem = BatchStatementErrorCodeEnum' "DuplicateItem"
+pattern BatchStatementErrorCodeEnumDuplicateItem :: BatchStatementErrorCodeEnum
+pattern BatchStatementErrorCodeEnumDuplicateItem = BatchStatementErrorCodeEnum' "DuplicateItem"
 
 {-# COMPLETE
-  ConditionalCheckFailed,
-  ItemCollectionSizeLimitExceeded,
-  RequestLimitExceeded,
-  ValidationError,
-  ProvisionedThroughputExceeded,
-  TransactionConflict,
-  ThrottlingError,
-  InternalServerError,
-  ResourceNotFound,
-  AccessDenied,
-  DuplicateItem,
+  BatchStatementErrorCodeEnumConditionalCheckFailed,
+  BatchStatementErrorCodeEnumItemCollectionSizeLimitExceeded,
+  BatchStatementErrorCodeEnumRequestLimitExceeded,
+  BatchStatementErrorCodeEnumValidationError,
+  BatchStatementErrorCodeEnumProvisionedThroughputExceeded,
+  BatchStatementErrorCodeEnumTransactionConflict,
+  BatchStatementErrorCodeEnumThrottlingError,
+  BatchStatementErrorCodeEnumInternalServerError,
+  BatchStatementErrorCodeEnumResourceNotFound,
+  BatchStatementErrorCodeEnumAccessDenied,
+  BatchStatementErrorCodeEnumDuplicateItem,
   BatchStatementErrorCodeEnum'
   #-}

@@ -22,36 +22,34 @@ module Network.AWS.SSM.Types.ResultAttribute
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.InventoryItemTypeName as Types
 
 -- | The inventory item result attribute.
 --
 -- /See:/ 'mkResultAttribute' smart constructor.
 newtype ResultAttribute = ResultAttribute'
   { -- | Name of the inventory item type. Valid value: AWS:InstanceInformation. Default Value: AWS:InstanceInformation.
-    typeName :: Lude.Text
+    typeName :: Types.InventoryItemTypeName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResultAttribute' with the minimum fields required to make a request.
---
--- * 'typeName' - Name of the inventory item type. Valid value: AWS:InstanceInformation. Default Value: AWS:InstanceInformation.
+-- | Creates a 'ResultAttribute' value with any optional fields omitted.
 mkResultAttribute ::
   -- | 'typeName'
-  Lude.Text ->
+  Types.InventoryItemTypeName ->
   ResultAttribute
-mkResultAttribute pTypeName_ =
-  ResultAttribute' {typeName = pTypeName_}
+mkResultAttribute typeName = ResultAttribute' {typeName}
 
 -- | Name of the inventory item type. Valid value: AWS:InstanceInformation. Default Value: AWS:InstanceInformation.
 --
 -- /Note:/ Consider using 'typeName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-raTypeName :: Lens.Lens' ResultAttribute Lude.Text
-raTypeName = Lens.lens (typeName :: ResultAttribute -> Lude.Text) (\s a -> s {typeName = a} :: ResultAttribute)
+raTypeName :: Lens.Lens' ResultAttribute Types.InventoryItemTypeName
+raTypeName = Lens.field @"typeName"
 {-# DEPRECATED raTypeName "Use generic-lens or generic-optics with 'typeName' instead." #-}
 
-instance Lude.ToJSON ResultAttribute where
-  toJSON ResultAttribute' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("TypeName" Lude..= typeName)])
+instance Core.FromJSON ResultAttribute where
+  toJSON ResultAttribute {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("TypeName" Core..= typeName)])

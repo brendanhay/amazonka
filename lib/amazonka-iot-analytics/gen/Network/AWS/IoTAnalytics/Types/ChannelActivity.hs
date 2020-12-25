@@ -17,85 +17,77 @@ module Network.AWS.IoTAnalytics.Types.ChannelActivity
     mkChannelActivity,
 
     -- * Lenses
-    caNext,
-    caChannelName,
     caName,
+    caChannelName,
+    caNext,
   )
 where
 
+import qualified Network.AWS.IoTAnalytics.Types.ActivityName as Types
+import qualified Network.AWS.IoTAnalytics.Types.ChannelName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The activity that determines the source of the messages to be processed.
 --
 -- /See:/ 'mkChannelActivity' smart constructor.
 data ChannelActivity = ChannelActivity'
-  { -- | The next activity in the pipeline.
-    next :: Lude.Maybe Lude.Text,
+  { -- | The name of the channel activity.
+    name :: Types.ActivityName,
     -- | The name of the channel from which the messages are processed.
-    channelName :: Lude.Text,
-    -- | The name of the channel activity.
-    name :: Lude.Text
+    channelName :: Types.ChannelName,
+    -- | The next activity in the pipeline.
+    next :: Core.Maybe Types.ActivityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ChannelActivity' with the minimum fields required to make a request.
---
--- * 'next' - The next activity in the pipeline.
--- * 'channelName' - The name of the channel from which the messages are processed.
--- * 'name' - The name of the channel activity.
+-- | Creates a 'ChannelActivity' value with any optional fields omitted.
 mkChannelActivity ::
-  -- | 'channelName'
-  Lude.Text ->
   -- | 'name'
-  Lude.Text ->
+  Types.ActivityName ->
+  -- | 'channelName'
+  Types.ChannelName ->
   ChannelActivity
-mkChannelActivity pChannelName_ pName_ =
-  ChannelActivity'
-    { next = Lude.Nothing,
-      channelName = pChannelName_,
-      name = pName_
-    }
-
--- | The next activity in the pipeline.
---
--- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caNext :: Lens.Lens' ChannelActivity (Lude.Maybe Lude.Text)
-caNext = Lens.lens (next :: ChannelActivity -> Lude.Maybe Lude.Text) (\s a -> s {next = a} :: ChannelActivity)
-{-# DEPRECATED caNext "Use generic-lens or generic-optics with 'next' instead." #-}
-
--- | The name of the channel from which the messages are processed.
---
--- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caChannelName :: Lens.Lens' ChannelActivity Lude.Text
-caChannelName = Lens.lens (channelName :: ChannelActivity -> Lude.Text) (\s a -> s {channelName = a} :: ChannelActivity)
-{-# DEPRECATED caChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
+mkChannelActivity name channelName =
+  ChannelActivity' {name, channelName, next = Core.Nothing}
 
 -- | The name of the channel activity.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caName :: Lens.Lens' ChannelActivity Lude.Text
-caName = Lens.lens (name :: ChannelActivity -> Lude.Text) (\s a -> s {name = a} :: ChannelActivity)
+caName :: Lens.Lens' ChannelActivity Types.ActivityName
+caName = Lens.field @"name"
 {-# DEPRECATED caName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromJSON ChannelActivity where
-  parseJSON =
-    Lude.withObject
-      "ChannelActivity"
-      ( \x ->
-          ChannelActivity'
-            Lude.<$> (x Lude..:? "next")
-            Lude.<*> (x Lude..: "channelName")
-            Lude.<*> (x Lude..: "name")
-      )
+-- | The name of the channel from which the messages are processed.
+--
+-- /Note:/ Consider using 'channelName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caChannelName :: Lens.Lens' ChannelActivity Types.ChannelName
+caChannelName = Lens.field @"channelName"
+{-# DEPRECATED caChannelName "Use generic-lens or generic-optics with 'channelName' instead." #-}
 
-instance Lude.ToJSON ChannelActivity where
-  toJSON ChannelActivity' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("next" Lude..=) Lude.<$> next,
-            Lude.Just ("channelName" Lude..= channelName),
-            Lude.Just ("name" Lude..= name)
+-- | The next activity in the pipeline.
+--
+-- /Note:/ Consider using 'next' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caNext :: Lens.Lens' ChannelActivity (Core.Maybe Types.ActivityName)
+caNext = Lens.field @"next"
+{-# DEPRECATED caNext "Use generic-lens or generic-optics with 'next' instead." #-}
+
+instance Core.FromJSON ChannelActivity where
+  toJSON ChannelActivity {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("name" Core..= name),
+            Core.Just ("channelName" Core..= channelName),
+            ("next" Core..=) Core.<$> next
           ]
       )
+
+instance Core.FromJSON ChannelActivity where
+  parseJSON =
+    Core.withObject "ChannelActivity" Core.$
+      \x ->
+        ChannelActivity'
+          Core.<$> (x Core..: "name")
+          Core.<*> (x Core..: "channelName")
+          Core.<*> (x Core..:? "next")

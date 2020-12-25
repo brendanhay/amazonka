@@ -13,62 +13,67 @@
 module Network.AWS.MediaLive.Types.Eac3BitstreamMode
   ( Eac3BitstreamMode
       ( Eac3BitstreamMode',
-        EBMCommentary,
-        EBMCompleteMain,
-        EBMEmergency,
-        EBMHearingImpaired,
-        EBMVisuallyImpaired
+        Eac3BitstreamModeCommentary,
+        Eac3BitstreamModeCompleteMain,
+        Eac3BitstreamModeEmergency,
+        Eac3BitstreamModeHearingImpaired,
+        Eac3BitstreamModeVisuallyImpaired,
+        fromEac3BitstreamMode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Eac3 Bitstream Mode
-newtype Eac3BitstreamMode = Eac3BitstreamMode' Lude.Text
+newtype Eac3BitstreamMode = Eac3BitstreamMode'
+  { fromEac3BitstreamMode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EBMCommentary :: Eac3BitstreamMode
-pattern EBMCommentary = Eac3BitstreamMode' "COMMENTARY"
+pattern Eac3BitstreamModeCommentary :: Eac3BitstreamMode
+pattern Eac3BitstreamModeCommentary = Eac3BitstreamMode' "COMMENTARY"
 
-pattern EBMCompleteMain :: Eac3BitstreamMode
-pattern EBMCompleteMain = Eac3BitstreamMode' "COMPLETE_MAIN"
+pattern Eac3BitstreamModeCompleteMain :: Eac3BitstreamMode
+pattern Eac3BitstreamModeCompleteMain = Eac3BitstreamMode' "COMPLETE_MAIN"
 
-pattern EBMEmergency :: Eac3BitstreamMode
-pattern EBMEmergency = Eac3BitstreamMode' "EMERGENCY"
+pattern Eac3BitstreamModeEmergency :: Eac3BitstreamMode
+pattern Eac3BitstreamModeEmergency = Eac3BitstreamMode' "EMERGENCY"
 
-pattern EBMHearingImpaired :: Eac3BitstreamMode
-pattern EBMHearingImpaired = Eac3BitstreamMode' "HEARING_IMPAIRED"
+pattern Eac3BitstreamModeHearingImpaired :: Eac3BitstreamMode
+pattern Eac3BitstreamModeHearingImpaired = Eac3BitstreamMode' "HEARING_IMPAIRED"
 
-pattern EBMVisuallyImpaired :: Eac3BitstreamMode
-pattern EBMVisuallyImpaired = Eac3BitstreamMode' "VISUALLY_IMPAIRED"
+pattern Eac3BitstreamModeVisuallyImpaired :: Eac3BitstreamMode
+pattern Eac3BitstreamModeVisuallyImpaired = Eac3BitstreamMode' "VISUALLY_IMPAIRED"
 
 {-# COMPLETE
-  EBMCommentary,
-  EBMCompleteMain,
-  EBMEmergency,
-  EBMHearingImpaired,
-  EBMVisuallyImpaired,
+  Eac3BitstreamModeCommentary,
+  Eac3BitstreamModeCompleteMain,
+  Eac3BitstreamModeEmergency,
+  Eac3BitstreamModeHearingImpaired,
+  Eac3BitstreamModeVisuallyImpaired,
   Eac3BitstreamMode'
   #-}

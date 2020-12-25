@@ -13,62 +13,64 @@
 module Network.AWS.MQ.Types.BrokerState
   ( BrokerState
       ( BrokerState',
-        CreationInProgress,
-        CreationFailed,
-        DeletionInProgress,
-        Running,
-        RebootInProgress
+        BrokerStateCreationInProgress,
+        BrokerStateCreationFailed,
+        BrokerStateDeletionInProgress,
+        BrokerStateRunning,
+        BrokerStateRebootInProgress,
+        fromBrokerState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The status of the broker.
-newtype BrokerState = BrokerState' Lude.Text
+newtype BrokerState = BrokerState' {fromBrokerState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CreationInProgress :: BrokerState
-pattern CreationInProgress = BrokerState' "CREATION_IN_PROGRESS"
+pattern BrokerStateCreationInProgress :: BrokerState
+pattern BrokerStateCreationInProgress = BrokerState' "CREATION_IN_PROGRESS"
 
-pattern CreationFailed :: BrokerState
-pattern CreationFailed = BrokerState' "CREATION_FAILED"
+pattern BrokerStateCreationFailed :: BrokerState
+pattern BrokerStateCreationFailed = BrokerState' "CREATION_FAILED"
 
-pattern DeletionInProgress :: BrokerState
-pattern DeletionInProgress = BrokerState' "DELETION_IN_PROGRESS"
+pattern BrokerStateDeletionInProgress :: BrokerState
+pattern BrokerStateDeletionInProgress = BrokerState' "DELETION_IN_PROGRESS"
 
-pattern Running :: BrokerState
-pattern Running = BrokerState' "RUNNING"
+pattern BrokerStateRunning :: BrokerState
+pattern BrokerStateRunning = BrokerState' "RUNNING"
 
-pattern RebootInProgress :: BrokerState
-pattern RebootInProgress = BrokerState' "REBOOT_IN_PROGRESS"
+pattern BrokerStateRebootInProgress :: BrokerState
+pattern BrokerStateRebootInProgress = BrokerState' "REBOOT_IN_PROGRESS"
 
 {-# COMPLETE
-  CreationInProgress,
-  CreationFailed,
-  DeletionInProgress,
-  Running,
-  RebootInProgress,
+  BrokerStateCreationInProgress,
+  BrokerStateCreationFailed,
+  BrokerStateDeletionInProgress,
+  BrokerStateRunning,
+  BrokerStateRebootInProgress,
   BrokerState'
   #-}

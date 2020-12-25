@@ -17,71 +17,64 @@ module Network.AWS.Config.Types.ResourceKey
     mkResourceKey,
 
     -- * Lenses
-    rkResourceId,
     rkResourceType,
+    rkResourceId,
   )
 where
 
-import Network.AWS.Config.Types.ResourceType
+import qualified Network.AWS.Config.Types.ResourceId as Types
+import qualified Network.AWS.Config.Types.ResourceType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The details that identify a resource within AWS Config, including the resource type and resource ID.
 --
 -- /See:/ 'mkResourceKey' smart constructor.
 data ResourceKey = ResourceKey'
-  { -- | The ID of the resource (for example., sg-xxxxxx).
-    resourceId :: Lude.Text,
-    -- | The resource type.
-    resourceType :: ResourceType
+  { -- | The resource type.
+    resourceType :: Types.ResourceType,
+    -- | The ID of the resource (for example., sg-xxxxxx).
+    resourceId :: Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ResourceKey' with the minimum fields required to make a request.
---
--- * 'resourceId' - The ID of the resource (for example., sg-xxxxxx).
--- * 'resourceType' - The resource type.
+-- | Creates a 'ResourceKey' value with any optional fields omitted.
 mkResourceKey ::
-  -- | 'resourceId'
-  Lude.Text ->
   -- | 'resourceType'
-  ResourceType ->
+  Types.ResourceType ->
+  -- | 'resourceId'
+  Types.ResourceId ->
   ResourceKey
-mkResourceKey pResourceId_ pResourceType_ =
-  ResourceKey'
-    { resourceId = pResourceId_,
-      resourceType = pResourceType_
-    }
-
--- | The ID of the resource (for example., sg-xxxxxx).
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rkResourceId :: Lens.Lens' ResourceKey Lude.Text
-rkResourceId = Lens.lens (resourceId :: ResourceKey -> Lude.Text) (\s a -> s {resourceId = a} :: ResourceKey)
-{-# DEPRECATED rkResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+mkResourceKey resourceType resourceId =
+  ResourceKey' {resourceType, resourceId}
 
 -- | The resource type.
 --
 -- /Note:/ Consider using 'resourceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rkResourceType :: Lens.Lens' ResourceKey ResourceType
-rkResourceType = Lens.lens (resourceType :: ResourceKey -> ResourceType) (\s a -> s {resourceType = a} :: ResourceKey)
+rkResourceType :: Lens.Lens' ResourceKey Types.ResourceType
+rkResourceType = Lens.field @"resourceType"
 {-# DEPRECATED rkResourceType "Use generic-lens or generic-optics with 'resourceType' instead." #-}
 
-instance Lude.FromJSON ResourceKey where
-  parseJSON =
-    Lude.withObject
-      "ResourceKey"
-      ( \x ->
-          ResourceKey'
-            Lude.<$> (x Lude..: "resourceId") Lude.<*> (x Lude..: "resourceType")
-      )
+-- | The ID of the resource (for example., sg-xxxxxx).
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+rkResourceId :: Lens.Lens' ResourceKey Types.ResourceId
+rkResourceId = Lens.field @"resourceId"
+{-# DEPRECATED rkResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
-instance Lude.ToJSON ResourceKey where
-  toJSON ResourceKey' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("resourceId" Lude..= resourceId),
-            Lude.Just ("resourceType" Lude..= resourceType)
+instance Core.FromJSON ResourceKey where
+  toJSON ResourceKey {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("resourceType" Core..= resourceType),
+            Core.Just ("resourceId" Core..= resourceId)
           ]
       )
+
+instance Core.FromJSON ResourceKey where
+  parseJSON =
+    Core.withObject "ResourceKey" Core.$
+      \x ->
+        ResourceKey'
+          Core.<$> (x Core..: "resourceType") Core.<*> (x Core..: "resourceId")

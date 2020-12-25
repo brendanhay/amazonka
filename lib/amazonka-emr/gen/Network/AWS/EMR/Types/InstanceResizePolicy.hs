@@ -17,82 +17,77 @@ module Network.AWS.EMR.Types.InstanceResizePolicy
     mkInstanceResizePolicy,
 
     -- * Lenses
+    irpInstanceTerminationTimeout,
     irpInstancesToProtect,
     irpInstancesToTerminate,
-    irpInstanceTerminationTimeout,
   )
 where
 
+import qualified Network.AWS.EMR.Types.InstanceId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
 --
 -- /See:/ 'mkInstanceResizePolicy' smart constructor.
 data InstanceResizePolicy = InstanceResizePolicy'
-  { -- | Specific list of instances to be protected when shrinking an instance group.
-    instancesToProtect :: Lude.Maybe [Lude.Text],
+  { -- | Decommissioning timeout override for the specific list of instances to be terminated.
+    instanceTerminationTimeout :: Core.Maybe Core.Int,
+    -- | Specific list of instances to be protected when shrinking an instance group.
+    instancesToProtect :: Core.Maybe [Types.InstanceId],
     -- | Specific list of instances to be terminated when shrinking an instance group.
-    instancesToTerminate :: Lude.Maybe [Lude.Text],
-    -- | Decommissioning timeout override for the specific list of instances to be terminated.
-    instanceTerminationTimeout :: Lude.Maybe Lude.Int
+    instancesToTerminate :: Core.Maybe [Types.InstanceId]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InstanceResizePolicy' with the minimum fields required to make a request.
---
--- * 'instancesToProtect' - Specific list of instances to be protected when shrinking an instance group.
--- * 'instancesToTerminate' - Specific list of instances to be terminated when shrinking an instance group.
--- * 'instanceTerminationTimeout' - Decommissioning timeout override for the specific list of instances to be terminated.
+-- | Creates a 'InstanceResizePolicy' value with any optional fields omitted.
 mkInstanceResizePolicy ::
   InstanceResizePolicy
 mkInstanceResizePolicy =
   InstanceResizePolicy'
-    { instancesToProtect = Lude.Nothing,
-      instancesToTerminate = Lude.Nothing,
-      instanceTerminationTimeout = Lude.Nothing
+    { instanceTerminationTimeout = Core.Nothing,
+      instancesToProtect = Core.Nothing,
+      instancesToTerminate = Core.Nothing
     }
+
+-- | Decommissioning timeout override for the specific list of instances to be terminated.
+--
+-- /Note:/ Consider using 'instanceTerminationTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irpInstanceTerminationTimeout :: Lens.Lens' InstanceResizePolicy (Core.Maybe Core.Int)
+irpInstanceTerminationTimeout = Lens.field @"instanceTerminationTimeout"
+{-# DEPRECATED irpInstanceTerminationTimeout "Use generic-lens or generic-optics with 'instanceTerminationTimeout' instead." #-}
 
 -- | Specific list of instances to be protected when shrinking an instance group.
 --
 -- /Note:/ Consider using 'instancesToProtect' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irpInstancesToProtect :: Lens.Lens' InstanceResizePolicy (Lude.Maybe [Lude.Text])
-irpInstancesToProtect = Lens.lens (instancesToProtect :: InstanceResizePolicy -> Lude.Maybe [Lude.Text]) (\s a -> s {instancesToProtect = a} :: InstanceResizePolicy)
+irpInstancesToProtect :: Lens.Lens' InstanceResizePolicy (Core.Maybe [Types.InstanceId])
+irpInstancesToProtect = Lens.field @"instancesToProtect"
 {-# DEPRECATED irpInstancesToProtect "Use generic-lens or generic-optics with 'instancesToProtect' instead." #-}
 
 -- | Specific list of instances to be terminated when shrinking an instance group.
 --
 -- /Note:/ Consider using 'instancesToTerminate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irpInstancesToTerminate :: Lens.Lens' InstanceResizePolicy (Lude.Maybe [Lude.Text])
-irpInstancesToTerminate = Lens.lens (instancesToTerminate :: InstanceResizePolicy -> Lude.Maybe [Lude.Text]) (\s a -> s {instancesToTerminate = a} :: InstanceResizePolicy)
+irpInstancesToTerminate :: Lens.Lens' InstanceResizePolicy (Core.Maybe [Types.InstanceId])
+irpInstancesToTerminate = Lens.field @"instancesToTerminate"
 {-# DEPRECATED irpInstancesToTerminate "Use generic-lens or generic-optics with 'instancesToTerminate' instead." #-}
 
--- | Decommissioning timeout override for the specific list of instances to be terminated.
---
--- /Note:/ Consider using 'instanceTerminationTimeout' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irpInstanceTerminationTimeout :: Lens.Lens' InstanceResizePolicy (Lude.Maybe Lude.Int)
-irpInstanceTerminationTimeout = Lens.lens (instanceTerminationTimeout :: InstanceResizePolicy -> Lude.Maybe Lude.Int) (\s a -> s {instanceTerminationTimeout = a} :: InstanceResizePolicy)
-{-# DEPRECATED irpInstanceTerminationTimeout "Use generic-lens or generic-optics with 'instanceTerminationTimeout' instead." #-}
-
-instance Lude.FromJSON InstanceResizePolicy where
-  parseJSON =
-    Lude.withObject
-      "InstanceResizePolicy"
-      ( \x ->
-          InstanceResizePolicy'
-            Lude.<$> (x Lude..:? "InstancesToProtect" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "InstancesToTerminate" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "InstanceTerminationTimeout")
-      )
-
-instance Lude.ToJSON InstanceResizePolicy where
-  toJSON InstanceResizePolicy' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("InstancesToProtect" Lude..=) Lude.<$> instancesToProtect,
-            ("InstancesToTerminate" Lude..=) Lude.<$> instancesToTerminate,
-            ("InstanceTerminationTimeout" Lude..=)
-              Lude.<$> instanceTerminationTimeout
+instance Core.FromJSON InstanceResizePolicy where
+  toJSON InstanceResizePolicy {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("InstanceTerminationTimeout" Core..=)
+              Core.<$> instanceTerminationTimeout,
+            ("InstancesToProtect" Core..=) Core.<$> instancesToProtect,
+            ("InstancesToTerminate" Core..=) Core.<$> instancesToTerminate
           ]
       )
+
+instance Core.FromJSON InstanceResizePolicy where
+  parseJSON =
+    Core.withObject "InstanceResizePolicy" Core.$
+      \x ->
+        InstanceResizePolicy'
+          Core.<$> (x Core..:? "InstanceTerminationTimeout")
+          Core.<*> (x Core..:? "InstancesToProtect")
+          Core.<*> (x Core..:? "InstancesToTerminate")

@@ -20,190 +20,171 @@ module Network.AWS.SageMaker.CreateApp
     mkCreateApp,
 
     -- ** Request lenses
-    caResourceSpec,
-    caUserProfileName,
-    caAppName,
     caDomainId,
-    caTags,
+    caUserProfileName,
     caAppType,
+    caAppName,
+    caResourceSpec,
+    caTags,
 
     -- * Destructuring the response
     CreateAppResponse (..),
     mkCreateAppResponse,
 
     -- ** Response lenses
-    carsAppARN,
-    carsResponseStatus,
+    carrsAppArn,
+    carrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkCreateApp' smart constructor.
 data CreateApp = CreateApp'
-  { -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
-    resourceSpec :: Lude.Maybe ResourceSpec,
+  { -- | The domain ID.
+    domainId :: Types.DomainId,
     -- | The user profile name.
-    userProfileName :: Lude.Text,
-    -- | The name of the app.
-    appName :: Lude.Text,
-    -- | The domain ID.
-    domainId :: Lude.Text,
-    -- | Each tag consists of a key and an optional value. Tag keys must be unique per resource.
-    tags :: Lude.Maybe [Tag],
+    userProfileName :: Types.UserProfileName,
     -- | The type of app.
-    appType :: AppType
+    appType :: Types.AppType,
+    -- | The name of the app.
+    appName :: Types.AppName,
+    -- | The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+    resourceSpec :: Core.Maybe Types.ResourceSpec,
+    -- | Each tag consists of a key and an optional value. Tag keys must be unique per resource.
+    tags :: Core.Maybe [Types.Tag]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateApp' with the minimum fields required to make a request.
---
--- * 'resourceSpec' - The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
--- * 'userProfileName' - The user profile name.
--- * 'appName' - The name of the app.
--- * 'domainId' - The domain ID.
--- * 'tags' - Each tag consists of a key and an optional value. Tag keys must be unique per resource.
--- * 'appType' - The type of app.
+-- | Creates a 'CreateApp' value with any optional fields omitted.
 mkCreateApp ::
-  -- | 'userProfileName'
-  Lude.Text ->
-  -- | 'appName'
-  Lude.Text ->
   -- | 'domainId'
-  Lude.Text ->
+  Types.DomainId ->
+  -- | 'userProfileName'
+  Types.UserProfileName ->
   -- | 'appType'
-  AppType ->
+  Types.AppType ->
+  -- | 'appName'
+  Types.AppName ->
   CreateApp
-mkCreateApp pUserProfileName_ pAppName_ pDomainId_ pAppType_ =
+mkCreateApp domainId userProfileName appType appName =
   CreateApp'
-    { resourceSpec = Lude.Nothing,
-      userProfileName = pUserProfileName_,
-      appName = pAppName_,
-      domainId = pDomainId_,
-      tags = Lude.Nothing,
-      appType = pAppType_
+    { domainId,
+      userProfileName,
+      appType,
+      appName,
+      resourceSpec = Core.Nothing,
+      tags = Core.Nothing
     }
-
--- | The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
---
--- /Note:/ Consider using 'resourceSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caResourceSpec :: Lens.Lens' CreateApp (Lude.Maybe ResourceSpec)
-caResourceSpec = Lens.lens (resourceSpec :: CreateApp -> Lude.Maybe ResourceSpec) (\s a -> s {resourceSpec = a} :: CreateApp)
-{-# DEPRECATED caResourceSpec "Use generic-lens or generic-optics with 'resourceSpec' instead." #-}
-
--- | The user profile name.
---
--- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caUserProfileName :: Lens.Lens' CreateApp Lude.Text
-caUserProfileName = Lens.lens (userProfileName :: CreateApp -> Lude.Text) (\s a -> s {userProfileName = a} :: CreateApp)
-{-# DEPRECATED caUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
-
--- | The name of the app.
---
--- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAppName :: Lens.Lens' CreateApp Lude.Text
-caAppName = Lens.lens (appName :: CreateApp -> Lude.Text) (\s a -> s {appName = a} :: CreateApp)
-{-# DEPRECATED caAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
 
 -- | The domain ID.
 --
 -- /Note:/ Consider using 'domainId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caDomainId :: Lens.Lens' CreateApp Lude.Text
-caDomainId = Lens.lens (domainId :: CreateApp -> Lude.Text) (\s a -> s {domainId = a} :: CreateApp)
+caDomainId :: Lens.Lens' CreateApp Types.DomainId
+caDomainId = Lens.field @"domainId"
 {-# DEPRECATED caDomainId "Use generic-lens or generic-optics with 'domainId' instead." #-}
 
--- | Each tag consists of a key and an optional value. Tag keys must be unique per resource.
+-- | The user profile name.
 --
--- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caTags :: Lens.Lens' CreateApp (Lude.Maybe [Tag])
-caTags = Lens.lens (tags :: CreateApp -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateApp)
-{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+-- /Note:/ Consider using 'userProfileName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caUserProfileName :: Lens.Lens' CreateApp Types.UserProfileName
+caUserProfileName = Lens.field @"userProfileName"
+{-# DEPRECATED caUserProfileName "Use generic-lens or generic-optics with 'userProfileName' instead." #-}
 
 -- | The type of app.
 --
 -- /Note:/ Consider using 'appType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-caAppType :: Lens.Lens' CreateApp AppType
-caAppType = Lens.lens (appType :: CreateApp -> AppType) (\s a -> s {appType = a} :: CreateApp)
+caAppType :: Lens.Lens' CreateApp Types.AppType
+caAppType = Lens.field @"appType"
 {-# DEPRECATED caAppType "Use generic-lens or generic-optics with 'appType' instead." #-}
 
-instance Lude.AWSRequest CreateApp where
+-- | The name of the app.
+--
+-- /Note:/ Consider using 'appName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caAppName :: Lens.Lens' CreateApp Types.AppName
+caAppName = Lens.field @"appName"
+{-# DEPRECATED caAppName "Use generic-lens or generic-optics with 'appName' instead." #-}
+
+-- | The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.
+--
+-- /Note:/ Consider using 'resourceSpec' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caResourceSpec :: Lens.Lens' CreateApp (Core.Maybe Types.ResourceSpec)
+caResourceSpec = Lens.field @"resourceSpec"
+{-# DEPRECATED caResourceSpec "Use generic-lens or generic-optics with 'resourceSpec' instead." #-}
+
+-- | Each tag consists of a key and an optional value. Tag keys must be unique per resource.
+--
+-- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+caTags :: Lens.Lens' CreateApp (Core.Maybe [Types.Tag])
+caTags = Lens.field @"tags"
+{-# DEPRECATED caTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+
+instance Core.FromJSON CreateApp where
+  toJSON CreateApp {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("DomainId" Core..= domainId),
+            Core.Just ("UserProfileName" Core..= userProfileName),
+            Core.Just ("AppType" Core..= appType),
+            Core.Just ("AppName" Core..= appName),
+            ("ResourceSpec" Core..=) Core.<$> resourceSpec,
+            ("Tags" Core..=) Core.<$> tags
+          ]
+      )
+
+instance Core.AWSRequest CreateApp where
   type Rs CreateApp = CreateAppResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.CreateApp")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           CreateAppResponse'
-            Lude.<$> (x Lude..?> "AppArn") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "AppArn") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateApp where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target" Lude.=# ("SageMaker.CreateApp" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON CreateApp where
-  toJSON CreateApp' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("ResourceSpec" Lude..=) Lude.<$> resourceSpec,
-            Lude.Just ("UserProfileName" Lude..= userProfileName),
-            Lude.Just ("AppName" Lude..= appName),
-            Lude.Just ("DomainId" Lude..= domainId),
-            ("Tags" Lude..=) Lude.<$> tags,
-            Lude.Just ("AppType" Lude..= appType)
-          ]
-      )
-
-instance Lude.ToPath CreateApp where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateApp where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkCreateAppResponse' smart constructor.
 data CreateAppResponse = CreateAppResponse'
   { -- | The Amazon Resource Name (ARN) of the app.
-    appARN :: Lude.Maybe Lude.Text,
+    appArn :: Core.Maybe Types.AppArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateAppResponse' with the minimum fields required to make a request.
---
--- * 'appARN' - The Amazon Resource Name (ARN) of the app.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateAppResponse' value with any optional fields omitted.
 mkCreateAppResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateAppResponse
-mkCreateAppResponse pResponseStatus_ =
-  CreateAppResponse'
-    { appARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkCreateAppResponse responseStatus =
+  CreateAppResponse' {appArn = Core.Nothing, responseStatus}
 
 -- | The Amazon Resource Name (ARN) of the app.
 --
--- /Note:/ Consider using 'appARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsAppARN :: Lens.Lens' CreateAppResponse (Lude.Maybe Lude.Text)
-carsAppARN = Lens.lens (appARN :: CreateAppResponse -> Lude.Maybe Lude.Text) (\s a -> s {appARN = a} :: CreateAppResponse)
-{-# DEPRECATED carsAppARN "Use generic-lens or generic-optics with 'appARN' instead." #-}
+-- /Note:/ Consider using 'appArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+carrsAppArn :: Lens.Lens' CreateAppResponse (Core.Maybe Types.AppArn)
+carrsAppArn = Lens.field @"appArn"
+{-# DEPRECATED carrsAppArn "Use generic-lens or generic-optics with 'appArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-carsResponseStatus :: Lens.Lens' CreateAppResponse Lude.Int
-carsResponseStatus = Lens.lens (responseStatus :: CreateAppResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateAppResponse)
-{-# DEPRECATED carsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+carrsResponseStatus :: Lens.Lens' CreateAppResponse Core.Int
+carrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED carrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

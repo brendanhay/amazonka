@@ -22,26 +22,24 @@ module Network.AWS.Firehose.Types.Record
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The unit of data in a delivery stream.
 --
 -- /See:/ 'mkRecord' smart constructor.
 newtype Record = Record'
   { -- | The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KiB.
-    data' :: Lude.Base64
+    data' :: Core.Base64
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Record' with the minimum fields required to make a request.
---
--- * 'data'' - The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KiB.
+-- | Creates a 'Record' value with any optional fields omitted.
 mkRecord ::
-  -- | 'data''
-  Lude.Base64 ->
+  -- | 'data\''
+  Core.Base64 ->
   Record
-mkRecord pData_ = Record' {data' = pData_}
+mkRecord data' = Record' {data'}
 
 -- | The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KiB.--
 -- /Note:/ This 'Lens' automatically encodes and decodes Base64 data.
@@ -50,10 +48,10 @@ mkRecord pData_ = Record' {data' = pData_}
 -- This 'Lens' accepts and returns only raw unencoded data.
 --
 -- /Note:/ Consider using 'data'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rData :: Lens.Lens' Record Lude.Base64
-rData = Lens.lens (data' :: Record -> Lude.Base64) (\s a -> s {data' = a} :: Record)
+rData :: Lens.Lens' Record Core.Base64
+rData = Lens.field @"data'"
 {-# DEPRECATED rData "Use generic-lens or generic-optics with 'data'' instead." #-}
 
-instance Lude.ToJSON Record where
-  toJSON Record' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("Data" Lude..= data')])
+instance Core.FromJSON Record where
+  toJSON Record {..} =
+    Core.object (Core.catMaybes [Core.Just ("Data" Core..= data')])

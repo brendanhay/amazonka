@@ -13,46 +13,51 @@
 module Network.AWS.CostExplorer.Types.SubscriberStatus
   ( SubscriberStatus
       ( SubscriberStatus',
-        Confirmed,
-        Declined
+        SubscriberStatusConfirmed,
+        SubscriberStatusDeclined,
+        fromSubscriberStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype SubscriberStatus = SubscriberStatus' Lude.Text
+newtype SubscriberStatus = SubscriberStatus'
+  { fromSubscriberStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Confirmed :: SubscriberStatus
-pattern Confirmed = SubscriberStatus' "CONFIRMED"
+pattern SubscriberStatusConfirmed :: SubscriberStatus
+pattern SubscriberStatusConfirmed = SubscriberStatus' "CONFIRMED"
 
-pattern Declined :: SubscriberStatus
-pattern Declined = SubscriberStatus' "DECLINED"
+pattern SubscriberStatusDeclined :: SubscriberStatus
+pattern SubscriberStatusDeclined = SubscriberStatus' "DECLINED"
 
 {-# COMPLETE
-  Confirmed,
-  Declined,
+  SubscriberStatusConfirmed,
+  SubscriberStatusDeclined,
   SubscriberStatus'
   #-}

@@ -17,22 +17,20 @@ module Network.AWS.CodeDeploy.Types.MinimumHealthyHosts
     mkMinimumHealthyHosts,
 
     -- * Lenses
-    mhhValue,
     mhhType,
+    mhhValue,
   )
 where
 
-import Network.AWS.CodeDeploy.Types.MinimumHealthyHostsType
+import qualified Network.AWS.CodeDeploy.Types.MinimumHealthyHostsType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about minimum healthy instance.
 --
 -- /See:/ 'mkMinimumHealthyHosts' smart constructor.
 data MinimumHealthyHosts = MinimumHealthyHosts'
-  { -- | The minimum healthy instance value.
-    value :: Lude.Maybe Lude.Int,
-    -- | The minimum healthy instance type:
+  { -- | The minimum healthy instance type:
     --
     --
     --     * @HOST_COUNT@ : The minimum number of healthy instances as an absolute value.
@@ -43,36 +41,18 @@ data MinimumHealthyHosts = MinimumHealthyHosts'
     --
     -- In an example of nine instances, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instances at a time. The deployment is successful if four or more instances are deployed to successfully. Otherwise, the deployment fails.
     -- For more information, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health> in the /AWS CodeDeploy User Guide/ .
-    type' :: Lude.Maybe MinimumHealthyHostsType
+    type' :: Core.Maybe Types.MinimumHealthyHostsType,
+    -- | The minimum healthy instance value.
+    value :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'MinimumHealthyHosts' with the minimum fields required to make a request.
---
--- * 'value' - The minimum healthy instance value.
--- * 'type'' - The minimum healthy instance type:
---
---
---     * @HOST_COUNT@ : The minimum number of healthy instances as an absolute value.
---
---
---     * @FLEET_PERCENT@ : The minimum number of healthy instances as a percentage of the total number of instances in the deployment.
---
---
--- In an example of nine instances, if a HOST_COUNT of six is specified, deploy to up to three instances at a time. The deployment is successful if six or more instances are deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is specified, deploy to up to five instances at a time. The deployment is successful if four or more instances are deployed to successfully. Otherwise, the deployment fails.
--- For more information, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health> in the /AWS CodeDeploy User Guide/ .
+-- | Creates a 'MinimumHealthyHosts' value with any optional fields omitted.
 mkMinimumHealthyHosts ::
   MinimumHealthyHosts
 mkMinimumHealthyHosts =
-  MinimumHealthyHosts' {value = Lude.Nothing, type' = Lude.Nothing}
-
--- | The minimum healthy instance value.
---
--- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mhhValue :: Lens.Lens' MinimumHealthyHosts (Lude.Maybe Lude.Int)
-mhhValue = Lens.lens (value :: MinimumHealthyHosts -> Lude.Maybe Lude.Int) (\s a -> s {value = a} :: MinimumHealthyHosts)
-{-# DEPRECATED mhhValue "Use generic-lens or generic-optics with 'value' instead." #-}
+  MinimumHealthyHosts' {type' = Core.Nothing, value = Core.Nothing}
 
 -- | The minimum healthy instance type:
 --
@@ -87,24 +67,29 @@ mhhValue = Lens.lens (value :: MinimumHealthyHosts -> Lude.Maybe Lude.Int) (\s a
 -- For more information, see <https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html AWS CodeDeploy Instance Health> in the /AWS CodeDeploy User Guide/ .
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mhhType :: Lens.Lens' MinimumHealthyHosts (Lude.Maybe MinimumHealthyHostsType)
-mhhType = Lens.lens (type' :: MinimumHealthyHosts -> Lude.Maybe MinimumHealthyHostsType) (\s a -> s {type' = a} :: MinimumHealthyHosts)
+mhhType :: Lens.Lens' MinimumHealthyHosts (Core.Maybe Types.MinimumHealthyHostsType)
+mhhType = Lens.field @"type'"
 {-# DEPRECATED mhhType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromJSON MinimumHealthyHosts where
-  parseJSON =
-    Lude.withObject
-      "MinimumHealthyHosts"
-      ( \x ->
-          MinimumHealthyHosts'
-            Lude.<$> (x Lude..:? "value") Lude.<*> (x Lude..:? "type")
-      )
+-- | The minimum healthy instance value.
+--
+-- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mhhValue :: Lens.Lens' MinimumHealthyHosts (Core.Maybe Core.Int)
+mhhValue = Lens.field @"value"
+{-# DEPRECATED mhhValue "Use generic-lens or generic-optics with 'value' instead." #-}
 
-instance Lude.ToJSON MinimumHealthyHosts where
-  toJSON MinimumHealthyHosts' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("value" Lude..=) Lude.<$> value,
-            ("type" Lude..=) Lude.<$> type'
+instance Core.FromJSON MinimumHealthyHosts where
+  toJSON MinimumHealthyHosts {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("type" Core..=) Core.<$> type',
+            ("value" Core..=) Core.<$> value
           ]
       )
+
+instance Core.FromJSON MinimumHealthyHosts where
+  parseJSON =
+    Core.withObject "MinimumHealthyHosts" Core.$
+      \x ->
+        MinimumHealthyHosts'
+          Core.<$> (x Core..:? "type") Core.<*> (x Core..:? "value")

@@ -17,61 +17,55 @@ module Network.AWS.Glue.Types.Segment
     mkSegment,
 
     -- * Lenses
-    sTotalSegments,
     sSegmentNumber,
+    sTotalSegments,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Defines a non-overlapping region of a table's partitions, allowing multiple requests to be executed in parallel.
 --
 -- /See:/ 'mkSegment' smart constructor.
 data Segment = Segment'
-  { -- | The total number of segments.
-    totalSegments :: Lude.Natural,
-    -- | The zero-based index number of the segment. For example, if the total number of segments is 4, @SegmentNumber@ values range from 0 through 3.
-    segmentNumber :: Lude.Natural
+  { -- | The zero-based index number of the segment. For example, if the total number of segments is 4, @SegmentNumber@ values range from 0 through 3.
+    segmentNumber :: Core.Natural,
+    -- | The total number of segments.
+    totalSegments :: Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Segment' with the minimum fields required to make a request.
---
--- * 'totalSegments' - The total number of segments.
--- * 'segmentNumber' - The zero-based index number of the segment. For example, if the total number of segments is 4, @SegmentNumber@ values range from 0 through 3.
+-- | Creates a 'Segment' value with any optional fields omitted.
 mkSegment ::
-  -- | 'totalSegments'
-  Lude.Natural ->
   -- | 'segmentNumber'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'totalSegments'
+  Core.Natural ->
   Segment
-mkSegment pTotalSegments_ pSegmentNumber_ =
-  Segment'
-    { totalSegments = pTotalSegments_,
-      segmentNumber = pSegmentNumber_
-    }
-
--- | The total number of segments.
---
--- /Note:/ Consider using 'totalSegments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sTotalSegments :: Lens.Lens' Segment Lude.Natural
-sTotalSegments = Lens.lens (totalSegments :: Segment -> Lude.Natural) (\s a -> s {totalSegments = a} :: Segment)
-{-# DEPRECATED sTotalSegments "Use generic-lens or generic-optics with 'totalSegments' instead." #-}
+mkSegment segmentNumber totalSegments =
+  Segment' {segmentNumber, totalSegments}
 
 -- | The zero-based index number of the segment. For example, if the total number of segments is 4, @SegmentNumber@ values range from 0 through 3.
 --
 -- /Note:/ Consider using 'segmentNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sSegmentNumber :: Lens.Lens' Segment Lude.Natural
-sSegmentNumber = Lens.lens (segmentNumber :: Segment -> Lude.Natural) (\s a -> s {segmentNumber = a} :: Segment)
+sSegmentNumber :: Lens.Lens' Segment Core.Natural
+sSegmentNumber = Lens.field @"segmentNumber"
 {-# DEPRECATED sSegmentNumber "Use generic-lens or generic-optics with 'segmentNumber' instead." #-}
 
-instance Lude.ToJSON Segment where
-  toJSON Segment' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TotalSegments" Lude..= totalSegments),
-            Lude.Just ("SegmentNumber" Lude..= segmentNumber)
+-- | The total number of segments.
+--
+-- /Note:/ Consider using 'totalSegments' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sTotalSegments :: Lens.Lens' Segment Core.Natural
+sTotalSegments = Lens.field @"totalSegments"
+{-# DEPRECATED sTotalSegments "Use generic-lens or generic-optics with 'totalSegments' instead." #-}
+
+instance Core.FromJSON Segment where
+  toJSON Segment {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("SegmentNumber" Core..= segmentNumber),
+            Core.Just ("TotalSegments" Core..= totalSegments)
           ]
       )

@@ -22,207 +22,192 @@ module Network.AWS.SageMaker.ListExperiments
     mkListExperiments,
 
     -- ** Request lenses
-    lesCreatedAfter,
-    lesNextToken,
-    lesSortOrder,
-    lesMaxResults,
-    lesCreatedBefore,
-    lesSortBy,
+    leCreatedAfter,
+    leCreatedBefore,
+    leMaxResults,
+    leNextToken,
+    leSortBy,
+    leSortOrder,
 
     -- * Destructuring the response
     ListExperimentsResponse (..),
     mkListExperimentsResponse,
 
     -- ** Response lenses
-    lrsExperimentSummaries,
-    lrsNextToken,
-    lrsResponseStatus,
+    lerrsExperimentSummaries,
+    lerrsNextToken,
+    lerrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkListExperiments' smart constructor.
 data ListExperiments = ListExperiments'
   { -- | A filter that returns only experiments created after the specified time.
-    createdAfter :: Lude.Maybe Lude.Timestamp,
-    -- | If the previous call to @ListExperiments@ didn't return the full set of experiments, the call returns a token for getting the next set of experiments.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The sort order. The default value is @Descending@ .
-    sortOrder :: Lude.Maybe SortOrder,
-    -- | The maximum number of experiments to return in the response. The default value is 10.
-    maxResults :: Lude.Maybe Lude.Natural,
+    createdAfter :: Core.Maybe Core.NominalDiffTime,
     -- | A filter that returns only experiments created before the specified time.
-    createdBefore :: Lude.Maybe Lude.Timestamp,
+    createdBefore :: Core.Maybe Core.NominalDiffTime,
+    -- | The maximum number of experiments to return in the response. The default value is 10.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If the previous call to @ListExperiments@ didn't return the full set of experiments, the call returns a token for getting the next set of experiments.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The property used to sort results. The default value is @CreationTime@ .
-    sortBy :: Lude.Maybe SortExperimentsBy
+    sortBy :: Core.Maybe Types.SortExperimentsBy,
+    -- | The sort order. The default value is @Descending@ .
+    sortOrder :: Core.Maybe Types.SortOrder
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListExperiments' with the minimum fields required to make a request.
---
--- * 'createdAfter' - A filter that returns only experiments created after the specified time.
--- * 'nextToken' - If the previous call to @ListExperiments@ didn't return the full set of experiments, the call returns a token for getting the next set of experiments.
--- * 'sortOrder' - The sort order. The default value is @Descending@ .
--- * 'maxResults' - The maximum number of experiments to return in the response. The default value is 10.
--- * 'createdBefore' - A filter that returns only experiments created before the specified time.
--- * 'sortBy' - The property used to sort results. The default value is @CreationTime@ .
+-- | Creates a 'ListExperiments' value with any optional fields omitted.
 mkListExperiments ::
   ListExperiments
 mkListExperiments =
   ListExperiments'
-    { createdAfter = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      sortOrder = Lude.Nothing,
-      maxResults = Lude.Nothing,
-      createdBefore = Lude.Nothing,
-      sortBy = Lude.Nothing
+    { createdAfter = Core.Nothing,
+      createdBefore = Core.Nothing,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      sortBy = Core.Nothing,
+      sortOrder = Core.Nothing
     }
 
 -- | A filter that returns only experiments created after the specified time.
 --
 -- /Note:/ Consider using 'createdAfter' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesCreatedAfter :: Lens.Lens' ListExperiments (Lude.Maybe Lude.Timestamp)
-lesCreatedAfter = Lens.lens (createdAfter :: ListExperiments -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAfter = a} :: ListExperiments)
-{-# DEPRECATED lesCreatedAfter "Use generic-lens or generic-optics with 'createdAfter' instead." #-}
-
--- | If the previous call to @ListExperiments@ didn't return the full set of experiments, the call returns a token for getting the next set of experiments.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesNextToken :: Lens.Lens' ListExperiments (Lude.Maybe Lude.Text)
-lesNextToken = Lens.lens (nextToken :: ListExperiments -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListExperiments)
-{-# DEPRECATED lesNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | The sort order. The default value is @Descending@ .
---
--- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesSortOrder :: Lens.Lens' ListExperiments (Lude.Maybe SortOrder)
-lesSortOrder = Lens.lens (sortOrder :: ListExperiments -> Lude.Maybe SortOrder) (\s a -> s {sortOrder = a} :: ListExperiments)
-{-# DEPRECATED lesSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
-
--- | The maximum number of experiments to return in the response. The default value is 10.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesMaxResults :: Lens.Lens' ListExperiments (Lude.Maybe Lude.Natural)
-lesMaxResults = Lens.lens (maxResults :: ListExperiments -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListExperiments)
-{-# DEPRECATED lesMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+leCreatedAfter :: Lens.Lens' ListExperiments (Core.Maybe Core.NominalDiffTime)
+leCreatedAfter = Lens.field @"createdAfter"
+{-# DEPRECATED leCreatedAfter "Use generic-lens or generic-optics with 'createdAfter' instead." #-}
 
 -- | A filter that returns only experiments created before the specified time.
 --
 -- /Note:/ Consider using 'createdBefore' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesCreatedBefore :: Lens.Lens' ListExperiments (Lude.Maybe Lude.Timestamp)
-lesCreatedBefore = Lens.lens (createdBefore :: ListExperiments -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdBefore = a} :: ListExperiments)
-{-# DEPRECATED lesCreatedBefore "Use generic-lens or generic-optics with 'createdBefore' instead." #-}
+leCreatedBefore :: Lens.Lens' ListExperiments (Core.Maybe Core.NominalDiffTime)
+leCreatedBefore = Lens.field @"createdBefore"
+{-# DEPRECATED leCreatedBefore "Use generic-lens or generic-optics with 'createdBefore' instead." #-}
+
+-- | The maximum number of experiments to return in the response. The default value is 10.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leMaxResults :: Lens.Lens' ListExperiments (Core.Maybe Core.Natural)
+leMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED leMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
+
+-- | If the previous call to @ListExperiments@ didn't return the full set of experiments, the call returns a token for getting the next set of experiments.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leNextToken :: Lens.Lens' ListExperiments (Core.Maybe Types.NextToken)
+leNextToken = Lens.field @"nextToken"
+{-# DEPRECATED leNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The property used to sort results. The default value is @CreationTime@ .
 --
 -- /Note:/ Consider using 'sortBy' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lesSortBy :: Lens.Lens' ListExperiments (Lude.Maybe SortExperimentsBy)
-lesSortBy = Lens.lens (sortBy :: ListExperiments -> Lude.Maybe SortExperimentsBy) (\s a -> s {sortBy = a} :: ListExperiments)
-{-# DEPRECATED lesSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
+leSortBy :: Lens.Lens' ListExperiments (Core.Maybe Types.SortExperimentsBy)
+leSortBy = Lens.field @"sortBy"
+{-# DEPRECATED leSortBy "Use generic-lens or generic-optics with 'sortBy' instead." #-}
 
-instance Page.AWSPager ListExperiments where
-  page rq rs
-    | Page.stop (rs Lens.^. lrsNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lrsExperimentSummaries) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lesNextToken Lens..~ rs Lens.^. lrsNextToken
+-- | The sort order. The default value is @Descending@ .
+--
+-- /Note:/ Consider using 'sortOrder' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+leSortOrder :: Lens.Lens' ListExperiments (Core.Maybe Types.SortOrder)
+leSortOrder = Lens.field @"sortOrder"
+{-# DEPRECATED leSortOrder "Use generic-lens or generic-optics with 'sortOrder' instead." #-}
 
-instance Lude.AWSRequest ListExperiments where
+instance Core.FromJSON ListExperiments where
+  toJSON ListExperiments {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("CreatedAfter" Core..=) Core.<$> createdAfter,
+            ("CreatedBefore" Core..=) Core.<$> createdBefore,
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken,
+            ("SortBy" Core..=) Core.<$> sortBy,
+            ("SortOrder" Core..=) Core.<$> sortOrder
+          ]
+      )
+
+instance Core.AWSRequest ListExperiments where
   type Rs ListExperiments = ListExperimentsResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.ListExperiments")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListExperimentsResponse'
-            Lude.<$> (x Lude..?> "ExperimentSummaries" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "NextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "ExperimentSummaries")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListExperiments where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.ListExperiments" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON ListExperiments where
-  toJSON ListExperiments' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("CreatedAfter" Lude..=) Lude.<$> createdAfter,
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("SortOrder" Lude..=) Lude.<$> sortOrder,
-            ("MaxResults" Lude..=) Lude.<$> maxResults,
-            ("CreatedBefore" Lude..=) Lude.<$> createdBefore,
-            ("SortBy" Lude..=) Lude.<$> sortBy
-          ]
-      )
-
-instance Lude.ToPath ListExperiments where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery ListExperiments where
-  toQuery = Lude.const Lude.mempty
+instance Pager.AWSPager ListExperiments where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"experimentSummaries" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListExperimentsResponse' smart constructor.
 data ListExperimentsResponse = ListExperimentsResponse'
   { -- | A list of the summaries of your experiments.
-    experimentSummaries :: Lude.Maybe [ExperimentSummary],
+    experimentSummaries :: Core.Maybe [Types.ExperimentSummary],
     -- | A token for getting the next set of experiments, if there are any.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListExperimentsResponse' with the minimum fields required to make a request.
---
--- * 'experimentSummaries' - A list of the summaries of your experiments.
--- * 'nextToken' - A token for getting the next set of experiments, if there are any.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListExperimentsResponse' value with any optional fields omitted.
 mkListExperimentsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListExperimentsResponse
-mkListExperimentsResponse pResponseStatus_ =
+mkListExperimentsResponse responseStatus =
   ListExperimentsResponse'
-    { experimentSummaries = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { experimentSummaries = Core.Nothing,
+      nextToken = Core.Nothing,
+      responseStatus
     }
 
 -- | A list of the summaries of your experiments.
 --
 -- /Note:/ Consider using 'experimentSummaries' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsExperimentSummaries :: Lens.Lens' ListExperimentsResponse (Lude.Maybe [ExperimentSummary])
-lrsExperimentSummaries = Lens.lens (experimentSummaries :: ListExperimentsResponse -> Lude.Maybe [ExperimentSummary]) (\s a -> s {experimentSummaries = a} :: ListExperimentsResponse)
-{-# DEPRECATED lrsExperimentSummaries "Use generic-lens or generic-optics with 'experimentSummaries' instead." #-}
+lerrsExperimentSummaries :: Lens.Lens' ListExperimentsResponse (Core.Maybe [Types.ExperimentSummary])
+lerrsExperimentSummaries = Lens.field @"experimentSummaries"
+{-# DEPRECATED lerrsExperimentSummaries "Use generic-lens or generic-optics with 'experimentSummaries' instead." #-}
 
 -- | A token for getting the next set of experiments, if there are any.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsNextToken :: Lens.Lens' ListExperimentsResponse (Lude.Maybe Lude.Text)
-lrsNextToken = Lens.lens (nextToken :: ListExperimentsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListExperimentsResponse)
-{-# DEPRECATED lrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lerrsNextToken :: Lens.Lens' ListExperimentsResponse (Core.Maybe Types.NextToken)
+lerrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lerrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrsResponseStatus :: Lens.Lens' ListExperimentsResponse Lude.Int
-lrsResponseStatus = Lens.lens (responseStatus :: ListExperimentsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListExperimentsResponse)
-{-# DEPRECATED lrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lerrsResponseStatus :: Lens.Lens' ListExperimentsResponse Core.Int
+lerrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lerrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

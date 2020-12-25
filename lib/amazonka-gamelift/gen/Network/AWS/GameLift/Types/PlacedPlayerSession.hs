@@ -17,13 +17,15 @@ module Network.AWS.GameLift.Types.PlacedPlayerSession
     mkPlacedPlayerSession,
 
     -- * Lenses
-    ppsPlayerSessionId,
     ppsPlayerId,
+    ppsPlayerSessionId,
   )
 where
 
+import qualified Network.AWS.GameLift.Types.NonZeroAndMaxString as Types
+import qualified Network.AWS.GameLift.Types.PlayerSessionId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about a player session that was created as part of a 'StartGameSessionPlacement' request. This object contains only the player ID and player session ID. To retrieve full details on a player session, call 'DescribePlayerSessions' with the player session ID.
 --
@@ -53,45 +55,40 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkPlacedPlayerSession' smart constructor.
 data PlacedPlayerSession = PlacedPlayerSession'
-  { -- | A unique identifier for a player session.
-    playerSessionId :: Lude.Maybe Lude.Text,
-    -- | A unique identifier for a player that is associated with this player session.
-    playerId :: Lude.Maybe Lude.Text
+  { -- | A unique identifier for a player that is associated with this player session.
+    playerId :: Core.Maybe Types.NonZeroAndMaxString,
+    -- | A unique identifier for a player session.
+    playerSessionId :: Core.Maybe Types.PlayerSessionId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'PlacedPlayerSession' with the minimum fields required to make a request.
---
--- * 'playerSessionId' - A unique identifier for a player session.
--- * 'playerId' - A unique identifier for a player that is associated with this player session.
+-- | Creates a 'PlacedPlayerSession' value with any optional fields omitted.
 mkPlacedPlayerSession ::
   PlacedPlayerSession
 mkPlacedPlayerSession =
   PlacedPlayerSession'
-    { playerSessionId = Lude.Nothing,
-      playerId = Lude.Nothing
+    { playerId = Core.Nothing,
+      playerSessionId = Core.Nothing
     }
-
--- | A unique identifier for a player session.
---
--- /Note:/ Consider using 'playerSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppsPlayerSessionId :: Lens.Lens' PlacedPlayerSession (Lude.Maybe Lude.Text)
-ppsPlayerSessionId = Lens.lens (playerSessionId :: PlacedPlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerSessionId = a} :: PlacedPlayerSession)
-{-# DEPRECATED ppsPlayerSessionId "Use generic-lens or generic-optics with 'playerSessionId' instead." #-}
 
 -- | A unique identifier for a player that is associated with this player session.
 --
 -- /Note:/ Consider using 'playerId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ppsPlayerId :: Lens.Lens' PlacedPlayerSession (Lude.Maybe Lude.Text)
-ppsPlayerId = Lens.lens (playerId :: PlacedPlayerSession -> Lude.Maybe Lude.Text) (\s a -> s {playerId = a} :: PlacedPlayerSession)
+ppsPlayerId :: Lens.Lens' PlacedPlayerSession (Core.Maybe Types.NonZeroAndMaxString)
+ppsPlayerId = Lens.field @"playerId"
 {-# DEPRECATED ppsPlayerId "Use generic-lens or generic-optics with 'playerId' instead." #-}
 
-instance Lude.FromJSON PlacedPlayerSession where
+-- | A unique identifier for a player session.
+--
+-- /Note:/ Consider using 'playerSessionId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ppsPlayerSessionId :: Lens.Lens' PlacedPlayerSession (Core.Maybe Types.PlayerSessionId)
+ppsPlayerSessionId = Lens.field @"playerSessionId"
+{-# DEPRECATED ppsPlayerSessionId "Use generic-lens or generic-optics with 'playerSessionId' instead." #-}
+
+instance Core.FromJSON PlacedPlayerSession where
   parseJSON =
-    Lude.withObject
-      "PlacedPlayerSession"
-      ( \x ->
-          PlacedPlayerSession'
-            Lude.<$> (x Lude..:? "PlayerSessionId") Lude.<*> (x Lude..:? "PlayerId")
-      )
+    Core.withObject "PlacedPlayerSession" Core.$
+      \x ->
+        PlacedPlayerSession'
+          Core.<$> (x Core..:? "PlayerId") Core.<*> (x Core..:? "PlayerSessionId")

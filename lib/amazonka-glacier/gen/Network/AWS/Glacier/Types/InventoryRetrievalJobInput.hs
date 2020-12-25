@@ -18,82 +18,78 @@ module Network.AWS.Glacier.Types.InventoryRetrievalJobInput
 
     -- * Lenses
     irjiEndDate,
-    irjiStartDate,
-    irjiMarker,
     irjiLimit,
+    irjiMarker,
+    irjiStartDate,
   )
 where
 
+import qualified Network.AWS.Glacier.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Provides options for specifying a range inventory retrieval job.
 --
 -- /See:/ 'mkInventoryRetrievalJobInput' smart constructor.
 data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
   { -- | The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
-    endDate :: Lude.Maybe Lude.Text,
-    -- | The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
-    startDate :: Lude.Maybe Lude.Text,
-    -- | An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ .
-    marker :: Lude.Maybe Lude.Text,
+    endDate :: Core.Maybe Types.String,
     -- | Specifies the maximum number of inventory items returned per vault inventory retrieval request. Valid values are greater than or equal to 1.
-    limit :: Lude.Maybe Lude.Text
+    limit :: Core.Maybe Types.String,
+    -- | An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ .
+    marker :: Core.Maybe Types.String,
+    -- | The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
+    startDate :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventoryRetrievalJobInput' with the minimum fields required to make a request.
---
--- * 'endDate' - The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
--- * 'startDate' - The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
--- * 'marker' - An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ .
--- * 'limit' - Specifies the maximum number of inventory items returned per vault inventory retrieval request. Valid values are greater than or equal to 1.
+-- | Creates a 'InventoryRetrievalJobInput' value with any optional fields omitted.
 mkInventoryRetrievalJobInput ::
   InventoryRetrievalJobInput
 mkInventoryRetrievalJobInput =
   InventoryRetrievalJobInput'
-    { endDate = Lude.Nothing,
-      startDate = Lude.Nothing,
-      marker = Lude.Nothing,
-      limit = Lude.Nothing
+    { endDate = Core.Nothing,
+      limit = Core.Nothing,
+      marker = Core.Nothing,
+      startDate = Core.Nothing
     }
 
 -- | The end of the date range in UTC for vault inventory retrieval that includes archives created before this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
 --
 -- /Note:/ Consider using 'endDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irjiEndDate :: Lens.Lens' InventoryRetrievalJobInput (Lude.Maybe Lude.Text)
-irjiEndDate = Lens.lens (endDate :: InventoryRetrievalJobInput -> Lude.Maybe Lude.Text) (\s a -> s {endDate = a} :: InventoryRetrievalJobInput)
+irjiEndDate :: Lens.Lens' InventoryRetrievalJobInput (Core.Maybe Types.String)
+irjiEndDate = Lens.field @"endDate"
 {-# DEPRECATED irjiEndDate "Use generic-lens or generic-optics with 'endDate' instead." #-}
-
--- | The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
---
--- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irjiStartDate :: Lens.Lens' InventoryRetrievalJobInput (Lude.Maybe Lude.Text)
-irjiStartDate = Lens.lens (startDate :: InventoryRetrievalJobInput -> Lude.Maybe Lude.Text) (\s a -> s {startDate = a} :: InventoryRetrievalJobInput)
-{-# DEPRECATED irjiStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
-
--- | An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ .
---
--- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irjiMarker :: Lens.Lens' InventoryRetrievalJobInput (Lude.Maybe Lude.Text)
-irjiMarker = Lens.lens (marker :: InventoryRetrievalJobInput -> Lude.Maybe Lude.Text) (\s a -> s {marker = a} :: InventoryRetrievalJobInput)
-{-# DEPRECATED irjiMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
 
 -- | Specifies the maximum number of inventory items returned per vault inventory retrieval request. Valid values are greater than or equal to 1.
 --
 -- /Note:/ Consider using 'limit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-irjiLimit :: Lens.Lens' InventoryRetrievalJobInput (Lude.Maybe Lude.Text)
-irjiLimit = Lens.lens (limit :: InventoryRetrievalJobInput -> Lude.Maybe Lude.Text) (\s a -> s {limit = a} :: InventoryRetrievalJobInput)
+irjiLimit :: Lens.Lens' InventoryRetrievalJobInput (Core.Maybe Types.String)
+irjiLimit = Lens.field @"limit"
 {-# DEPRECATED irjiLimit "Use generic-lens or generic-optics with 'limit' instead." #-}
 
-instance Lude.ToJSON InventoryRetrievalJobInput where
-  toJSON InventoryRetrievalJobInput' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("EndDate" Lude..=) Lude.<$> endDate,
-            ("StartDate" Lude..=) Lude.<$> startDate,
-            ("Marker" Lude..=) Lude.<$> marker,
-            ("Limit" Lude..=) Lude.<$> limit
+-- | An opaque string that represents where to continue pagination of the vault inventory retrieval results. You use the marker in a new __InitiateJob__ request to obtain additional inventory items. If there are no more inventory items, this value is @null@ .
+--
+-- /Note:/ Consider using 'marker' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irjiMarker :: Lens.Lens' InventoryRetrievalJobInput (Core.Maybe Types.String)
+irjiMarker = Lens.field @"marker"
+{-# DEPRECATED irjiMarker "Use generic-lens or generic-optics with 'marker' instead." #-}
+
+-- | The start of the date range in UTC for vault inventory retrieval that includes archives created on or after this date. This value should be a string in the ISO 8601 date format, for example @2013-03-20T17:03:43Z@ .
+--
+-- /Note:/ Consider using 'startDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+irjiStartDate :: Lens.Lens' InventoryRetrievalJobInput (Core.Maybe Types.String)
+irjiStartDate = Lens.field @"startDate"
+{-# DEPRECATED irjiStartDate "Use generic-lens or generic-optics with 'startDate' instead." #-}
+
+instance Core.FromJSON InventoryRetrievalJobInput where
+  toJSON InventoryRetrievalJobInput {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("EndDate" Core..=) Core.<$> endDate,
+            ("Limit" Core..=) Core.<$> limit,
+            ("Marker" Core..=) Core.<$> marker,
+            ("StartDate" Core..=) Core.<$> startDate
           ]
       )

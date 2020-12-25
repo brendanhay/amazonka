@@ -22,33 +22,31 @@ module Network.AWS.S3.Types.ProgressEvent
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.Progress
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.Progress as Types
 
 -- | This data type contains information about the progress event of an operation.
 --
 -- /See:/ 'mkProgressEvent' smart constructor.
 newtype ProgressEvent = ProgressEvent'
   { -- | The Progress event details.
-    details :: Lude.Maybe Progress
+    details :: Core.Maybe Types.Progress
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProgressEvent' with the minimum fields required to make a request.
---
--- * 'details' - The Progress event details.
+-- | Creates a 'ProgressEvent' value with any optional fields omitted.
 mkProgressEvent ::
   ProgressEvent
-mkProgressEvent = ProgressEvent' {details = Lude.Nothing}
+mkProgressEvent = ProgressEvent' {details = Core.Nothing}
 
 -- | The Progress event details.
 --
 -- /Note:/ Consider using 'details' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-peDetails :: Lens.Lens' ProgressEvent (Lude.Maybe Progress)
-peDetails = Lens.lens (details :: ProgressEvent -> Lude.Maybe Progress) (\s a -> s {details = a} :: ProgressEvent)
+peDetails :: Lens.Lens' ProgressEvent (Core.Maybe Types.Progress)
+peDetails = Lens.field @"details"
 {-# DEPRECATED peDetails "Use generic-lens or generic-optics with 'details' instead." #-}
 
-instance Lude.FromXML ProgressEvent where
-  parseXML x = ProgressEvent' Lude.<$> (x Lude..@? "Details")
+instance Core.FromXML ProgressEvent where
+  parseXML x = ProgressEvent' Core.<$> (x Core..@? "Details")

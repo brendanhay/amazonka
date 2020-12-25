@@ -25,198 +25,180 @@ module Network.AWS.Rekognition.GetFaceDetection
 
     -- ** Request lenses
     gfdJobId,
-    gfdNextToken,
     gfdMaxResults,
+    gfdNextToken,
 
     -- * Destructuring the response
     GetFaceDetectionResponse (..),
     mkGetFaceDetectionResponse,
 
     -- ** Response lenses
-    gfdrsNextToken,
-    gfdrsVideoMetadata,
-    gfdrsStatusMessage,
-    gfdrsFaces,
-    gfdrsJobStatus,
-    gfdrsResponseStatus,
+    gfdrrsFaces,
+    gfdrrsJobStatus,
+    gfdrrsNextToken,
+    gfdrrsStatusMessage,
+    gfdrrsVideoMetadata,
+    gfdrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Rekognition.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Rekognition.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetFaceDetection' smart constructor.
 data GetFaceDetection = GetFaceDetection'
   { -- | Unique identifier for the face detection job. The @JobId@ is returned from @StartFaceDetection@ .
-    jobId :: Lude.Text,
-    -- | If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
-    nextToken :: Lude.Maybe Lude.Text,
+    jobId :: Types.JobId,
     -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
+    nextToken :: Core.Maybe Types.PaginationToken
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFaceDetection' with the minimum fields required to make a request.
---
--- * 'jobId' - Unique identifier for the face detection job. The @JobId@ is returned from @StartFaceDetection@ .
--- * 'nextToken' - If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
--- * 'maxResults' - Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
+-- | Creates a 'GetFaceDetection' value with any optional fields omitted.
 mkGetFaceDetection ::
   -- | 'jobId'
-  Lude.Text ->
+  Types.JobId ->
   GetFaceDetection
-mkGetFaceDetection pJobId_ =
+mkGetFaceDetection jobId =
   GetFaceDetection'
-    { jobId = pJobId_,
-      nextToken = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { jobId,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing
     }
 
 -- | Unique identifier for the face detection job. The @JobId@ is returned from @StartFaceDetection@ .
 --
 -- /Note:/ Consider using 'jobId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdJobId :: Lens.Lens' GetFaceDetection Lude.Text
-gfdJobId = Lens.lens (jobId :: GetFaceDetection -> Lude.Text) (\s a -> s {jobId = a} :: GetFaceDetection)
+gfdJobId :: Lens.Lens' GetFaceDetection Types.JobId
+gfdJobId = Lens.field @"jobId"
 {-# DEPRECATED gfdJobId "Use generic-lens or generic-optics with 'jobId' instead." #-}
-
--- | If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdNextToken :: Lens.Lens' GetFaceDetection (Lude.Maybe Lude.Text)
-gfdNextToken = Lens.lens (nextToken :: GetFaceDetection -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetFaceDetection)
-{-# DEPRECATED gfdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdMaxResults :: Lens.Lens' GetFaceDetection (Lude.Maybe Lude.Natural)
-gfdMaxResults = Lens.lens (maxResults :: GetFaceDetection -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetFaceDetection)
+gfdMaxResults :: Lens.Lens' GetFaceDetection (Core.Maybe Core.Natural)
+gfdMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED gfdMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest GetFaceDetection where
+-- | If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfdNextToken :: Lens.Lens' GetFaceDetection (Core.Maybe Types.PaginationToken)
+gfdNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gfdNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+instance Core.FromJSON GetFaceDetection where
+  toJSON GetFaceDetection {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("JobId" Core..= jobId),
+            ("MaxResults" Core..=) Core.<$> maxResults,
+            ("NextToken" Core..=) Core.<$> nextToken
+          ]
+      )
+
+instance Core.AWSRequest GetFaceDetection where
   type Rs GetFaceDetection = GetFaceDetectionResponse
-  request = Req.postJSON rekognitionService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "RekognitionService.GetFaceDetection")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetFaceDetectionResponse'
-            Lude.<$> (x Lude..?> "NextToken")
-            Lude.<*> (x Lude..?> "VideoMetadata")
-            Lude.<*> (x Lude..?> "StatusMessage")
-            Lude.<*> (x Lude..?> "Faces" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "JobStatus")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Faces")
+            Core.<*> (x Core..:? "JobStatus")
+            Core.<*> (x Core..:? "NextToken")
+            Core.<*> (x Core..:? "StatusMessage")
+            Core.<*> (x Core..:? "VideoMetadata")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetFaceDetection where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("RekognitionService.GetFaceDetection" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetFaceDetection where
-  toJSON GetFaceDetection' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("JobId" Lude..= jobId),
-            ("NextToken" Lude..=) Lude.<$> nextToken,
-            ("MaxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath GetFaceDetection where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetFaceDetection where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetFaceDetectionResponse' smart constructor.
 data GetFaceDetectionResponse = GetFaceDetectionResponse'
-  { -- | If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
-    videoMetadata :: Lude.Maybe VideoMetadata,
-    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
-    statusMessage :: Lude.Maybe Lude.Text,
-    -- | An array of faces detected in the video. Each element contains a detected face's details and the time, in milliseconds from the start of the video, the face was detected.
-    faces :: Lude.Maybe [FaceDetection],
+  { -- | An array of faces detected in the video. Each element contains a detected face's details and the time, in milliseconds from the start of the video, the face was detected.
+    faces :: Core.Maybe [Types.FaceDetection],
     -- | The current status of the face detection job.
-    jobStatus :: Lude.Maybe VideoJobStatus,
+    jobStatus :: Core.Maybe Types.VideoJobStatus,
+    -- | If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
+    nextToken :: Core.Maybe Types.PaginationToken,
+    -- | If the job fails, @StatusMessage@ provides a descriptive error message.
+    statusMessage :: Core.Maybe Types.StatusMessage,
+    -- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
+    videoMetadata :: Core.Maybe Types.VideoMetadata,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetFaceDetectionResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
--- * 'videoMetadata' - Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
--- * 'statusMessage' - If the job fails, @StatusMessage@ provides a descriptive error message.
--- * 'faces' - An array of faces detected in the video. Each element contains a detected face's details and the time, in milliseconds from the start of the video, the face was detected.
--- * 'jobStatus' - The current status of the face detection job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetFaceDetectionResponse' value with any optional fields omitted.
 mkGetFaceDetectionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetFaceDetectionResponse
-mkGetFaceDetectionResponse pResponseStatus_ =
+mkGetFaceDetectionResponse responseStatus =
   GetFaceDetectionResponse'
-    { nextToken = Lude.Nothing,
-      videoMetadata = Lude.Nothing,
-      statusMessage = Lude.Nothing,
-      faces = Lude.Nothing,
-      jobStatus = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { faces = Core.Nothing,
+      jobStatus = Core.Nothing,
+      nextToken = Core.Nothing,
+      statusMessage = Core.Nothing,
+      videoMetadata = Core.Nothing,
+      responseStatus
     }
-
--- | If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsNextToken :: Lens.Lens' GetFaceDetectionResponse (Lude.Maybe Lude.Text)
-gfdrsNextToken = Lens.lens (nextToken :: GetFaceDetectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetFaceDetectionResponse)
-{-# DEPRECATED gfdrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
-
--- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
---
--- /Note:/ Consider using 'videoMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsVideoMetadata :: Lens.Lens' GetFaceDetectionResponse (Lude.Maybe VideoMetadata)
-gfdrsVideoMetadata = Lens.lens (videoMetadata :: GetFaceDetectionResponse -> Lude.Maybe VideoMetadata) (\s a -> s {videoMetadata = a} :: GetFaceDetectionResponse)
-{-# DEPRECATED gfdrsVideoMetadata "Use generic-lens or generic-optics with 'videoMetadata' instead." #-}
-
--- | If the job fails, @StatusMessage@ provides a descriptive error message.
---
--- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsStatusMessage :: Lens.Lens' GetFaceDetectionResponse (Lude.Maybe Lude.Text)
-gfdrsStatusMessage = Lens.lens (statusMessage :: GetFaceDetectionResponse -> Lude.Maybe Lude.Text) (\s a -> s {statusMessage = a} :: GetFaceDetectionResponse)
-{-# DEPRECATED gfdrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
 
 -- | An array of faces detected in the video. Each element contains a detected face's details and the time, in milliseconds from the start of the video, the face was detected.
 --
 -- /Note:/ Consider using 'faces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsFaces :: Lens.Lens' GetFaceDetectionResponse (Lude.Maybe [FaceDetection])
-gfdrsFaces = Lens.lens (faces :: GetFaceDetectionResponse -> Lude.Maybe [FaceDetection]) (\s a -> s {faces = a} :: GetFaceDetectionResponse)
-{-# DEPRECATED gfdrsFaces "Use generic-lens or generic-optics with 'faces' instead." #-}
+gfdrrsFaces :: Lens.Lens' GetFaceDetectionResponse (Core.Maybe [Types.FaceDetection])
+gfdrrsFaces = Lens.field @"faces"
+{-# DEPRECATED gfdrrsFaces "Use generic-lens or generic-optics with 'faces' instead." #-}
 
 -- | The current status of the face detection job.
 --
 -- /Note:/ Consider using 'jobStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsJobStatus :: Lens.Lens' GetFaceDetectionResponse (Lude.Maybe VideoJobStatus)
-gfdrsJobStatus = Lens.lens (jobStatus :: GetFaceDetectionResponse -> Lude.Maybe VideoJobStatus) (\s a -> s {jobStatus = a} :: GetFaceDetectionResponse)
-{-# DEPRECATED gfdrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+gfdrrsJobStatus :: Lens.Lens' GetFaceDetectionResponse (Core.Maybe Types.VideoJobStatus)
+gfdrrsJobStatus = Lens.field @"jobStatus"
+{-# DEPRECATED gfdrrsJobStatus "Use generic-lens or generic-optics with 'jobStatus' instead." #-}
+
+-- | If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfdrrsNextToken :: Lens.Lens' GetFaceDetectionResponse (Core.Maybe Types.PaginationToken)
+gfdrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gfdrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | If the job fails, @StatusMessage@ provides a descriptive error message.
+--
+-- /Note:/ Consider using 'statusMessage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfdrrsStatusMessage :: Lens.Lens' GetFaceDetectionResponse (Core.Maybe Types.StatusMessage)
+gfdrrsStatusMessage = Lens.field @"statusMessage"
+{-# DEPRECATED gfdrrsStatusMessage "Use generic-lens or generic-optics with 'statusMessage' instead." #-}
+
+-- | Information about a video that Amazon Rekognition Video analyzed. @Videometadata@ is returned in every page of paginated responses from a Amazon Rekognition video operation.
+--
+-- /Note:/ Consider using 'videoMetadata' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gfdrrsVideoMetadata :: Lens.Lens' GetFaceDetectionResponse (Core.Maybe Types.VideoMetadata)
+gfdrrsVideoMetadata = Lens.field @"videoMetadata"
+{-# DEPRECATED gfdrrsVideoMetadata "Use generic-lens or generic-optics with 'videoMetadata' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gfdrsResponseStatus :: Lens.Lens' GetFaceDetectionResponse Lude.Int
-gfdrsResponseStatus = Lens.lens (responseStatus :: GetFaceDetectionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetFaceDetectionResponse)
-{-# DEPRECATED gfdrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gfdrrsResponseStatus :: Lens.Lens' GetFaceDetectionResponse Core.Int
+gfdrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gfdrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

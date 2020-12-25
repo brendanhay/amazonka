@@ -35,8 +35,8 @@ module Network.AWS.SDB.BatchPutAttributes
     mkBatchPutAttributes,
 
     -- ** Request lenses
-    bpaItems,
     bpaDomainName,
+    bpaItems,
 
     -- * Destructuring the response
     BatchPutAttributesResponse (..),
@@ -45,75 +45,72 @@ module Network.AWS.SDB.BatchPutAttributes
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SDB.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SDB.Types as Types
 
 -- | /See:/ 'mkBatchPutAttributes' smart constructor.
 data BatchPutAttributes = BatchPutAttributes'
-  { -- | A list of items on which to perform the operation.
-    items :: [ReplaceableItem],
-    -- | The name of the domain in which the attributes are being stored.
-    domainName :: Lude.Text
+  { -- | The name of the domain in which the attributes are being stored.
+    domainName :: Types.String,
+    -- | A list of items on which to perform the operation.
+    items :: [Types.ReplaceableItem]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchPutAttributes' with the minimum fields required to make a request.
---
--- * 'items' - A list of items on which to perform the operation.
--- * 'domainName' - The name of the domain in which the attributes are being stored.
+-- | Creates a 'BatchPutAttributes' value with any optional fields omitted.
 mkBatchPutAttributes ::
   -- | 'domainName'
-  Lude.Text ->
+  Types.String ->
   BatchPutAttributes
-mkBatchPutAttributes pDomainName_ =
-  BatchPutAttributes'
-    { items = Lude.mempty,
-      domainName = pDomainName_
-    }
-
--- | A list of items on which to perform the operation.
---
--- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpaItems :: Lens.Lens' BatchPutAttributes [ReplaceableItem]
-bpaItems = Lens.lens (items :: BatchPutAttributes -> [ReplaceableItem]) (\s a -> s {items = a} :: BatchPutAttributes)
-{-# DEPRECATED bpaItems "Use generic-lens or generic-optics with 'items' instead." #-}
+mkBatchPutAttributes domainName =
+  BatchPutAttributes' {domainName, items = Core.mempty}
 
 -- | The name of the domain in which the attributes are being stored.
 --
 -- /Note:/ Consider using 'domainName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-bpaDomainName :: Lens.Lens' BatchPutAttributes Lude.Text
-bpaDomainName = Lens.lens (domainName :: BatchPutAttributes -> Lude.Text) (\s a -> s {domainName = a} :: BatchPutAttributes)
+bpaDomainName :: Lens.Lens' BatchPutAttributes Types.String
+bpaDomainName = Lens.field @"domainName"
 {-# DEPRECATED bpaDomainName "Use generic-lens or generic-optics with 'domainName' instead." #-}
 
-instance Lude.AWSRequest BatchPutAttributes where
+-- | A list of items on which to perform the operation.
+--
+-- /Note:/ Consider using 'items' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+bpaItems :: Lens.Lens' BatchPutAttributes [Types.ReplaceableItem]
+bpaItems = Lens.field @"items"
+{-# DEPRECATED bpaItems "Use generic-lens or generic-optics with 'items' instead." #-}
+
+instance Core.AWSRequest BatchPutAttributes where
   type Rs BatchPutAttributes = BatchPutAttributesResponse
-  request = Req.postQuery sdbService
-  response = Res.receiveNull BatchPutAttributesResponse'
-
-instance Lude.ToHeaders BatchPutAttributes where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath BatchPutAttributes where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery BatchPutAttributes where
-  toQuery BatchPutAttributes' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("BatchPutAttributes" :: Lude.ByteString),
-        "Version" Lude.=: ("2009-04-15" :: Lude.ByteString),
-        Lude.toQueryList "Item" items,
-        "DomainName" Lude.=: domainName
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "BatchPutAttributes")
+                Core.<> (Core.pure ("Version", "2009-04-15"))
+                Core.<> (Core.toQueryValue "DomainName" domainName)
+                Core.<> (Core.toQueryList "Item" items)
+            )
+      }
+  response = Response.receiveNull BatchPutAttributesResponse'
 
 -- | /See:/ 'mkBatchPutAttributesResponse' smart constructor.
 data BatchPutAttributesResponse = BatchPutAttributesResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'BatchPutAttributesResponse' with the minimum fields required to make a request.
+-- | Creates a 'BatchPutAttributesResponse' value with any optional fields omitted.
 mkBatchPutAttributesResponse ::
   BatchPutAttributesResponse
 mkBatchPutAttributesResponse = BatchPutAttributesResponse'

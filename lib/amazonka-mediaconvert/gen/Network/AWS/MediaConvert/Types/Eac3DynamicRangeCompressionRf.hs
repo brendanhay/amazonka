@@ -13,67 +13,72 @@
 module Network.AWS.MediaConvert.Types.Eac3DynamicRangeCompressionRf
   ( Eac3DynamicRangeCompressionRf
       ( Eac3DynamicRangeCompressionRf',
-        EDRCRNone,
-        EDRCRFilmStandard,
-        EDRCRFilmLight,
-        EDRCRMusicStandard,
-        EDRCRMusicLight,
-        EDRCRSpeech
+        Eac3DynamicRangeCompressionRfNone,
+        Eac3DynamicRangeCompressionRfFilmStandard,
+        Eac3DynamicRangeCompressionRfFilmLight,
+        Eac3DynamicRangeCompressionRfMusicStandard,
+        Eac3DynamicRangeCompressionRfMusicLight,
+        Eac3DynamicRangeCompressionRfSpeech,
+        fromEac3DynamicRangeCompressionRf
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specify how the service limits the audio dynamic range when compressing the audio.
-newtype Eac3DynamicRangeCompressionRf = Eac3DynamicRangeCompressionRf' Lude.Text
+newtype Eac3DynamicRangeCompressionRf = Eac3DynamicRangeCompressionRf'
+  { fromEac3DynamicRangeCompressionRf ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern EDRCRNone :: Eac3DynamicRangeCompressionRf
-pattern EDRCRNone = Eac3DynamicRangeCompressionRf' "NONE"
+pattern Eac3DynamicRangeCompressionRfNone :: Eac3DynamicRangeCompressionRf
+pattern Eac3DynamicRangeCompressionRfNone = Eac3DynamicRangeCompressionRf' "NONE"
 
-pattern EDRCRFilmStandard :: Eac3DynamicRangeCompressionRf
-pattern EDRCRFilmStandard = Eac3DynamicRangeCompressionRf' "FILM_STANDARD"
+pattern Eac3DynamicRangeCompressionRfFilmStandard :: Eac3DynamicRangeCompressionRf
+pattern Eac3DynamicRangeCompressionRfFilmStandard = Eac3DynamicRangeCompressionRf' "FILM_STANDARD"
 
-pattern EDRCRFilmLight :: Eac3DynamicRangeCompressionRf
-pattern EDRCRFilmLight = Eac3DynamicRangeCompressionRf' "FILM_LIGHT"
+pattern Eac3DynamicRangeCompressionRfFilmLight :: Eac3DynamicRangeCompressionRf
+pattern Eac3DynamicRangeCompressionRfFilmLight = Eac3DynamicRangeCompressionRf' "FILM_LIGHT"
 
-pattern EDRCRMusicStandard :: Eac3DynamicRangeCompressionRf
-pattern EDRCRMusicStandard = Eac3DynamicRangeCompressionRf' "MUSIC_STANDARD"
+pattern Eac3DynamicRangeCompressionRfMusicStandard :: Eac3DynamicRangeCompressionRf
+pattern Eac3DynamicRangeCompressionRfMusicStandard = Eac3DynamicRangeCompressionRf' "MUSIC_STANDARD"
 
-pattern EDRCRMusicLight :: Eac3DynamicRangeCompressionRf
-pattern EDRCRMusicLight = Eac3DynamicRangeCompressionRf' "MUSIC_LIGHT"
+pattern Eac3DynamicRangeCompressionRfMusicLight :: Eac3DynamicRangeCompressionRf
+pattern Eac3DynamicRangeCompressionRfMusicLight = Eac3DynamicRangeCompressionRf' "MUSIC_LIGHT"
 
-pattern EDRCRSpeech :: Eac3DynamicRangeCompressionRf
-pattern EDRCRSpeech = Eac3DynamicRangeCompressionRf' "SPEECH"
+pattern Eac3DynamicRangeCompressionRfSpeech :: Eac3DynamicRangeCompressionRf
+pattern Eac3DynamicRangeCompressionRfSpeech = Eac3DynamicRangeCompressionRf' "SPEECH"
 
 {-# COMPLETE
-  EDRCRNone,
-  EDRCRFilmStandard,
-  EDRCRFilmLight,
-  EDRCRMusicStandard,
-  EDRCRMusicLight,
-  EDRCRSpeech,
+  Eac3DynamicRangeCompressionRfNone,
+  Eac3DynamicRangeCompressionRfFilmStandard,
+  Eac3DynamicRangeCompressionRfFilmLight,
+  Eac3DynamicRangeCompressionRfMusicStandard,
+  Eac3DynamicRangeCompressionRfMusicLight,
+  Eac3DynamicRangeCompressionRfSpeech,
   Eac3DynamicRangeCompressionRf'
   #-}

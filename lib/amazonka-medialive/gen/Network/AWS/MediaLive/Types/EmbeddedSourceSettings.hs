@@ -19,96 +19,88 @@ module Network.AWS.MediaLive.Types.EmbeddedSourceSettings
     -- * Lenses
     essConvert608To708,
     essScte20Detection,
-    essSource608TrackNumber,
     essSource608ChannelNumber,
+    essSource608TrackNumber,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.EmbeddedConvert608To708
-import Network.AWS.MediaLive.Types.EmbeddedScte20Detection
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.EmbeddedConvert608To708 as Types
+import qualified Network.AWS.MediaLive.Types.EmbeddedScte20Detection as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Embedded Source Settings
 --
 -- /See:/ 'mkEmbeddedSourceSettings' smart constructor.
 data EmbeddedSourceSettings = EmbeddedSourceSettings'
   { -- | If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
-    convert608To708 :: Lude.Maybe EmbeddedConvert608To708,
+    convert608To708 :: Core.Maybe Types.EmbeddedConvert608To708,
     -- | Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
-    scte20Detection :: Lude.Maybe EmbeddedScte20Detection,
-    -- | This field is unused and deprecated.
-    source608TrackNumber :: Lude.Maybe Lude.Natural,
+    scte20Detection :: Core.Maybe Types.EmbeddedScte20Detection,
     -- | Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
-    source608ChannelNumber :: Lude.Maybe Lude.Natural
+    source608ChannelNumber :: Core.Maybe Core.Natural,
+    -- | This field is unused and deprecated.
+    source608TrackNumber :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'EmbeddedSourceSettings' with the minimum fields required to make a request.
---
--- * 'convert608To708' - If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
--- * 'scte20Detection' - Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
--- * 'source608TrackNumber' - This field is unused and deprecated.
--- * 'source608ChannelNumber' - Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
+-- | Creates a 'EmbeddedSourceSettings' value with any optional fields omitted.
 mkEmbeddedSourceSettings ::
   EmbeddedSourceSettings
 mkEmbeddedSourceSettings =
   EmbeddedSourceSettings'
-    { convert608To708 = Lude.Nothing,
-      scte20Detection = Lude.Nothing,
-      source608TrackNumber = Lude.Nothing,
-      source608ChannelNumber = Lude.Nothing
+    { convert608To708 = Core.Nothing,
+      scte20Detection = Core.Nothing,
+      source608ChannelNumber = Core.Nothing,
+      source608TrackNumber = Core.Nothing
     }
 
 -- | If upconvert, 608 data is both passed through via the "608 compatibility bytes" fields of the 708 wrapper as well as translated into 708. 708 data present in the source content will be discarded.
 --
 -- /Note:/ Consider using 'convert608To708' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-essConvert608To708 :: Lens.Lens' EmbeddedSourceSettings (Lude.Maybe EmbeddedConvert608To708)
-essConvert608To708 = Lens.lens (convert608To708 :: EmbeddedSourceSettings -> Lude.Maybe EmbeddedConvert608To708) (\s a -> s {convert608To708 = a} :: EmbeddedSourceSettings)
+essConvert608To708 :: Lens.Lens' EmbeddedSourceSettings (Core.Maybe Types.EmbeddedConvert608To708)
+essConvert608To708 = Lens.field @"convert608To708"
 {-# DEPRECATED essConvert608To708 "Use generic-lens or generic-optics with 'convert608To708' instead." #-}
 
 -- | Set to "auto" to handle streams with intermittent and/or non-aligned SCTE-20 and Embedded captions.
 --
 -- /Note:/ Consider using 'scte20Detection' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-essScte20Detection :: Lens.Lens' EmbeddedSourceSettings (Lude.Maybe EmbeddedScte20Detection)
-essScte20Detection = Lens.lens (scte20Detection :: EmbeddedSourceSettings -> Lude.Maybe EmbeddedScte20Detection) (\s a -> s {scte20Detection = a} :: EmbeddedSourceSettings)
+essScte20Detection :: Lens.Lens' EmbeddedSourceSettings (Core.Maybe Types.EmbeddedScte20Detection)
+essScte20Detection = Lens.field @"scte20Detection"
 {-# DEPRECATED essScte20Detection "Use generic-lens or generic-optics with 'scte20Detection' instead." #-}
-
--- | This field is unused and deprecated.
---
--- /Note:/ Consider using 'source608TrackNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-essSource608TrackNumber :: Lens.Lens' EmbeddedSourceSettings (Lude.Maybe Lude.Natural)
-essSource608TrackNumber = Lens.lens (source608TrackNumber :: EmbeddedSourceSettings -> Lude.Maybe Lude.Natural) (\s a -> s {source608TrackNumber = a} :: EmbeddedSourceSettings)
-{-# DEPRECATED essSource608TrackNumber "Use generic-lens or generic-optics with 'source608TrackNumber' instead." #-}
 
 -- | Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
 --
 -- /Note:/ Consider using 'source608ChannelNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-essSource608ChannelNumber :: Lens.Lens' EmbeddedSourceSettings (Lude.Maybe Lude.Natural)
-essSource608ChannelNumber = Lens.lens (source608ChannelNumber :: EmbeddedSourceSettings -> Lude.Maybe Lude.Natural) (\s a -> s {source608ChannelNumber = a} :: EmbeddedSourceSettings)
+essSource608ChannelNumber :: Lens.Lens' EmbeddedSourceSettings (Core.Maybe Core.Natural)
+essSource608ChannelNumber = Lens.field @"source608ChannelNumber"
 {-# DEPRECATED essSource608ChannelNumber "Use generic-lens or generic-optics with 'source608ChannelNumber' instead." #-}
 
-instance Lude.FromJSON EmbeddedSourceSettings where
-  parseJSON =
-    Lude.withObject
-      "EmbeddedSourceSettings"
-      ( \x ->
-          EmbeddedSourceSettings'
-            Lude.<$> (x Lude..:? "convert608To708")
-            Lude.<*> (x Lude..:? "scte20Detection")
-            Lude.<*> (x Lude..:? "source608TrackNumber")
-            Lude.<*> (x Lude..:? "source608ChannelNumber")
-      )
+-- | This field is unused and deprecated.
+--
+-- /Note:/ Consider using 'source608TrackNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+essSource608TrackNumber :: Lens.Lens' EmbeddedSourceSettings (Core.Maybe Core.Natural)
+essSource608TrackNumber = Lens.field @"source608TrackNumber"
+{-# DEPRECATED essSource608TrackNumber "Use generic-lens or generic-optics with 'source608TrackNumber' instead." #-}
 
-instance Lude.ToJSON EmbeddedSourceSettings where
-  toJSON EmbeddedSourceSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("convert608To708" Lude..=) Lude.<$> convert608To708,
-            ("scte20Detection" Lude..=) Lude.<$> scte20Detection,
-            ("source608TrackNumber" Lude..=) Lude.<$> source608TrackNumber,
-            ("source608ChannelNumber" Lude..=)
-              Lude.<$> source608ChannelNumber
+instance Core.FromJSON EmbeddedSourceSettings where
+  toJSON EmbeddedSourceSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("convert608To708" Core..=) Core.<$> convert608To708,
+            ("scte20Detection" Core..=) Core.<$> scte20Detection,
+            ("source608ChannelNumber" Core..=) Core.<$> source608ChannelNumber,
+            ("source608TrackNumber" Core..=) Core.<$> source608TrackNumber
           ]
       )
+
+instance Core.FromJSON EmbeddedSourceSettings where
+  parseJSON =
+    Core.withObject "EmbeddedSourceSettings" Core.$
+      \x ->
+        EmbeddedSourceSettings'
+          Core.<$> (x Core..:? "convert608To708")
+          Core.<*> (x Core..:? "scte20Detection")
+          Core.<*> (x Core..:? "source608ChannelNumber")
+          Core.<*> (x Core..:? "source608TrackNumber")

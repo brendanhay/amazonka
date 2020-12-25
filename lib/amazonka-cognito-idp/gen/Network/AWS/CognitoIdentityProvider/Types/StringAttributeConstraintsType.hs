@@ -22,61 +22,58 @@ module Network.AWS.CognitoIdentityProvider.Types.StringAttributeConstraintsType
   )
 where
 
+import qualified Network.AWS.CognitoIdentityProvider.Types.MaxLength as Types
+import qualified Network.AWS.CognitoIdentityProvider.Types.MinLength as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The constraints associated with a string attribute.
 --
 -- /See:/ 'mkStringAttributeConstraintsType' smart constructor.
 data StringAttributeConstraintsType = StringAttributeConstraintsType'
   { -- | The maximum length.
-    maxLength :: Lude.Maybe Lude.Text,
+    maxLength :: Core.Maybe Types.MaxLength,
     -- | The minimum length.
-    minLength :: Lude.Maybe Lude.Text
+    minLength :: Core.Maybe Types.MinLength
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'StringAttributeConstraintsType' with the minimum fields required to make a request.
---
--- * 'maxLength' - The maximum length.
--- * 'minLength' - The minimum length.
+-- | Creates a 'StringAttributeConstraintsType' value with any optional fields omitted.
 mkStringAttributeConstraintsType ::
   StringAttributeConstraintsType
 mkStringAttributeConstraintsType =
   StringAttributeConstraintsType'
-    { maxLength = Lude.Nothing,
-      minLength = Lude.Nothing
+    { maxLength = Core.Nothing,
+      minLength = Core.Nothing
     }
 
 -- | The maximum length.
 --
 -- /Note:/ Consider using 'maxLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sactMaxLength :: Lens.Lens' StringAttributeConstraintsType (Lude.Maybe Lude.Text)
-sactMaxLength = Lens.lens (maxLength :: StringAttributeConstraintsType -> Lude.Maybe Lude.Text) (\s a -> s {maxLength = a} :: StringAttributeConstraintsType)
+sactMaxLength :: Lens.Lens' StringAttributeConstraintsType (Core.Maybe Types.MaxLength)
+sactMaxLength = Lens.field @"maxLength"
 {-# DEPRECATED sactMaxLength "Use generic-lens or generic-optics with 'maxLength' instead." #-}
 
 -- | The minimum length.
 --
 -- /Note:/ Consider using 'minLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sactMinLength :: Lens.Lens' StringAttributeConstraintsType (Lude.Maybe Lude.Text)
-sactMinLength = Lens.lens (minLength :: StringAttributeConstraintsType -> Lude.Maybe Lude.Text) (\s a -> s {minLength = a} :: StringAttributeConstraintsType)
+sactMinLength :: Lens.Lens' StringAttributeConstraintsType (Core.Maybe Types.MinLength)
+sactMinLength = Lens.field @"minLength"
 {-# DEPRECATED sactMinLength "Use generic-lens or generic-optics with 'minLength' instead." #-}
 
-instance Lude.FromJSON StringAttributeConstraintsType where
-  parseJSON =
-    Lude.withObject
-      "StringAttributeConstraintsType"
-      ( \x ->
-          StringAttributeConstraintsType'
-            Lude.<$> (x Lude..:? "MaxLength") Lude.<*> (x Lude..:? "MinLength")
-      )
-
-instance Lude.ToJSON StringAttributeConstraintsType where
-  toJSON StringAttributeConstraintsType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("MaxLength" Lude..=) Lude.<$> maxLength,
-            ("MinLength" Lude..=) Lude.<$> minLength
+instance Core.FromJSON StringAttributeConstraintsType where
+  toJSON StringAttributeConstraintsType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("MaxLength" Core..=) Core.<$> maxLength,
+            ("MinLength" Core..=) Core.<$> minLength
           ]
       )
+
+instance Core.FromJSON StringAttributeConstraintsType where
+  parseJSON =
+    Core.withObject "StringAttributeConstraintsType" Core.$
+      \x ->
+        StringAttributeConstraintsType'
+          Core.<$> (x Core..:? "MaxLength") Core.<*> (x Core..:? "MinLength")

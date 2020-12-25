@@ -22,34 +22,32 @@ module Network.AWS.Pinpoint.Types.UpdateAttributesRequest
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies one or more attributes to remove from all the endpoints that are associated with an application.
 --
 -- /See:/ 'mkUpdateAttributesRequest' smart constructor.
 newtype UpdateAttributesRequest = UpdateAttributesRequest'
   { -- | An array of the attributes to remove from all the endpoints that are associated with the application. The array can specify the complete, exact name of each attribute to remove or it can specify a glob pattern that an attribute name must match in order for the attribute to be removed.
-    blacklist :: Lude.Maybe [Lude.Text]
+    blacklist :: Core.Maybe [Core.Text]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateAttributesRequest' with the minimum fields required to make a request.
---
--- * 'blacklist' - An array of the attributes to remove from all the endpoints that are associated with the application. The array can specify the complete, exact name of each attribute to remove or it can specify a glob pattern that an attribute name must match in order for the attribute to be removed.
+-- | Creates a 'UpdateAttributesRequest' value with any optional fields omitted.
 mkUpdateAttributesRequest ::
   UpdateAttributesRequest
 mkUpdateAttributesRequest =
-  UpdateAttributesRequest' {blacklist = Lude.Nothing}
+  UpdateAttributesRequest' {blacklist = Core.Nothing}
 
 -- | An array of the attributes to remove from all the endpoints that are associated with the application. The array can specify the complete, exact name of each attribute to remove or it can specify a glob pattern that an attribute name must match in order for the attribute to be removed.
 --
 -- /Note:/ Consider using 'blacklist' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uarBlacklist :: Lens.Lens' UpdateAttributesRequest (Lude.Maybe [Lude.Text])
-uarBlacklist = Lens.lens (blacklist :: UpdateAttributesRequest -> Lude.Maybe [Lude.Text]) (\s a -> s {blacklist = a} :: UpdateAttributesRequest)
+uarBlacklist :: Lens.Lens' UpdateAttributesRequest (Core.Maybe [Core.Text])
+uarBlacklist = Lens.field @"blacklist"
 {-# DEPRECATED uarBlacklist "Use generic-lens or generic-optics with 'blacklist' instead." #-}
 
-instance Lude.ToJSON UpdateAttributesRequest where
-  toJSON UpdateAttributesRequest' {..} =
-    Lude.object
-      (Lude.catMaybes [("Blacklist" Lude..=) Lude.<$> blacklist])
+instance Core.FromJSON UpdateAttributesRequest where
+  toJSON UpdateAttributesRequest {..} =
+    Core.object
+      (Core.catMaybes [("Blacklist" Core..=) Core.<$> blacklist])

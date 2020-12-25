@@ -27,101 +27,91 @@ module Network.AWS.MediaConvert.GetJobTemplate
     mkGetJobTemplateResponse,
 
     -- ** Response lenses
-    gjtrsJobTemplate,
-    gjtrsResponseStatus,
+    gjtrrsJobTemplate,
+    gjtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaConvert.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.MediaConvert.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetJobTemplate' smart constructor.
 newtype GetJobTemplate = GetJobTemplate'
   { -- | The name of the job template.
-    name :: Lude.Text
+    name :: Core.Text
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetJobTemplate' with the minimum fields required to make a request.
---
--- * 'name' - The name of the job template.
+-- | Creates a 'GetJobTemplate' value with any optional fields omitted.
 mkGetJobTemplate ::
   -- | 'name'
-  Lude.Text ->
+  Core.Text ->
   GetJobTemplate
-mkGetJobTemplate pName_ = GetJobTemplate' {name = pName_}
+mkGetJobTemplate name = GetJobTemplate' {name}
 
 -- | The name of the job template.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjtName :: Lens.Lens' GetJobTemplate Lude.Text
-gjtName = Lens.lens (name :: GetJobTemplate -> Lude.Text) (\s a -> s {name = a} :: GetJobTemplate)
+gjtName :: Lens.Lens' GetJobTemplate Core.Text
+gjtName = Lens.field @"name"
 {-# DEPRECATED gjtName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.AWSRequest GetJobTemplate where
+instance Core.AWSRequest GetJobTemplate where
   type Rs GetJobTemplate = GetJobTemplateResponse
-  request = Req.get mediaConvertService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath =
+          Core.rawPath
+            ("/2017-08-29/jobTemplates/" Core.<> (Core.toText name)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetJobTemplateResponse'
-            Lude.<$> (x Lude..?> "jobTemplate") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "jobTemplate") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetJobTemplate where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToPath GetJobTemplate where
-  toPath GetJobTemplate' {..} =
-    Lude.mconcat ["/2017-08-29/jobTemplates/", Lude.toBS name]
-
-instance Lude.ToQuery GetJobTemplate where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetJobTemplateResponse' smart constructor.
 data GetJobTemplateResponse = GetJobTemplateResponse'
   { -- | A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
-    jobTemplate :: Lude.Maybe JobTemplate,
+    jobTemplate :: Core.Maybe Types.JobTemplate,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'GetJobTemplateResponse' with the minimum fields required to make a request.
---
--- * 'jobTemplate' - A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetJobTemplateResponse' value with any optional fields omitted.
 mkGetJobTemplateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetJobTemplateResponse
-mkGetJobTemplateResponse pResponseStatus_ =
+mkGetJobTemplateResponse responseStatus =
   GetJobTemplateResponse'
-    { jobTemplate = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { jobTemplate = Core.Nothing,
+      responseStatus
     }
 
 -- | A job template is a pre-made set of encoding instructions that you can use to quickly create a job.
 --
 -- /Note:/ Consider using 'jobTemplate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjtrsJobTemplate :: Lens.Lens' GetJobTemplateResponse (Lude.Maybe JobTemplate)
-gjtrsJobTemplate = Lens.lens (jobTemplate :: GetJobTemplateResponse -> Lude.Maybe JobTemplate) (\s a -> s {jobTemplate = a} :: GetJobTemplateResponse)
-{-# DEPRECATED gjtrsJobTemplate "Use generic-lens or generic-optics with 'jobTemplate' instead." #-}
+gjtrrsJobTemplate :: Lens.Lens' GetJobTemplateResponse (Core.Maybe Types.JobTemplate)
+gjtrrsJobTemplate = Lens.field @"jobTemplate"
+{-# DEPRECATED gjtrrsJobTemplate "Use generic-lens or generic-optics with 'jobTemplate' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gjtrsResponseStatus :: Lens.Lens' GetJobTemplateResponse Lude.Int
-gjtrsResponseStatus = Lens.lens (responseStatus :: GetJobTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetJobTemplateResponse)
-{-# DEPRECATED gjtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gjtrrsResponseStatus :: Lens.Lens' GetJobTemplateResponse Core.Int
+gjtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gjtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

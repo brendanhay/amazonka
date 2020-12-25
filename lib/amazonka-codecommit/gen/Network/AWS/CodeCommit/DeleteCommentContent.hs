@@ -27,108 +27,96 @@ module Network.AWS.CodeCommit.DeleteCommentContent
     mkDeleteCommentContentResponse,
 
     -- ** Response lenses
-    dccrsComment,
-    dccrsResponseStatus,
+    dccrrsComment,
+    dccrrsResponseStatus,
   )
 where
 
-import Network.AWS.CodeCommit.Types
+import qualified Network.AWS.CodeCommit.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteCommentContent' smart constructor.
 newtype DeleteCommentContent = DeleteCommentContent'
   { -- | The unique, system-generated ID of the comment. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
-    commentId :: Lude.Text
+    commentId :: Types.CommentId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCommentContent' with the minimum fields required to make a request.
---
--- * 'commentId' - The unique, system-generated ID of the comment. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
+-- | Creates a 'DeleteCommentContent' value with any optional fields omitted.
 mkDeleteCommentContent ::
   -- | 'commentId'
-  Lude.Text ->
+  Types.CommentId ->
   DeleteCommentContent
-mkDeleteCommentContent pCommentId_ =
-  DeleteCommentContent' {commentId = pCommentId_}
+mkDeleteCommentContent commentId = DeleteCommentContent' {commentId}
 
 -- | The unique, system-generated ID of the comment. To get this ID, use 'GetCommentsForComparedCommit' or 'GetCommentsForPullRequest' .
 --
 -- /Note:/ Consider using 'commentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccCommentId :: Lens.Lens' DeleteCommentContent Lude.Text
-dccCommentId = Lens.lens (commentId :: DeleteCommentContent -> Lude.Text) (\s a -> s {commentId = a} :: DeleteCommentContent)
+dccCommentId :: Lens.Lens' DeleteCommentContent Types.CommentId
+dccCommentId = Lens.field @"commentId"
 {-# DEPRECATED dccCommentId "Use generic-lens or generic-optics with 'commentId' instead." #-}
 
-instance Lude.AWSRequest DeleteCommentContent where
+instance Core.FromJSON DeleteCommentContent where
+  toJSON DeleteCommentContent {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("commentId" Core..= commentId)])
+
+instance Core.AWSRequest DeleteCommentContent where
   type Rs DeleteCommentContent = DeleteCommentContentResponse
-  request = Req.postJSON codeCommitService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "CodeCommit_20150413.DeleteCommentContent")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DeleteCommentContentResponse'
-            Lude.<$> (x Lude..?> "comment") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "comment") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteCommentContent where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeCommit_20150413.DeleteCommentContent" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteCommentContent where
-  toJSON DeleteCommentContent' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("commentId" Lude..= commentId)])
-
-instance Lude.ToPath DeleteCommentContent where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteCommentContent where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteCommentContentResponse' smart constructor.
 data DeleteCommentContentResponse = DeleteCommentContentResponse'
   { -- | Information about the comment you just deleted.
-    comment :: Lude.Maybe Comment,
+    comment :: Core.Maybe Types.Comment,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DeleteCommentContentResponse' with the minimum fields required to make a request.
---
--- * 'comment' - Information about the comment you just deleted.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteCommentContentResponse' value with any optional fields omitted.
 mkDeleteCommentContentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteCommentContentResponse
-mkDeleteCommentContentResponse pResponseStatus_ =
+mkDeleteCommentContentResponse responseStatus =
   DeleteCommentContentResponse'
-    { comment = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { comment = Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the comment you just deleted.
 --
 -- /Note:/ Consider using 'comment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsComment :: Lens.Lens' DeleteCommentContentResponse (Lude.Maybe Comment)
-dccrsComment = Lens.lens (comment :: DeleteCommentContentResponse -> Lude.Maybe Comment) (\s a -> s {comment = a} :: DeleteCommentContentResponse)
-{-# DEPRECATED dccrsComment "Use generic-lens or generic-optics with 'comment' instead." #-}
+dccrrsComment :: Lens.Lens' DeleteCommentContentResponse (Core.Maybe Types.Comment)
+dccrrsComment = Lens.field @"comment"
+{-# DEPRECATED dccrrsComment "Use generic-lens or generic-optics with 'comment' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dccrsResponseStatus :: Lens.Lens' DeleteCommentContentResponse Lude.Int
-dccrsResponseStatus = Lens.lens (responseStatus :: DeleteCommentContentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteCommentContentResponse)
-{-# DEPRECATED dccrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dccrrsResponseStatus :: Lens.Lens' DeleteCommentContentResponse Core.Int
+dccrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dccrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

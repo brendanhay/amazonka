@@ -17,145 +17,140 @@ module Network.AWS.S3.Types.Destination
     mkDestination,
 
     -- * Lenses
-    dMetrics,
-    dAccessControlTranslation,
     dBucket,
+    dAccessControlTranslation,
     dAccount,
-    dStorageClass,
     dEncryptionConfiguration,
+    dMetrics,
     dReplicationTime,
+    dStorageClass,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.AccessControlTranslation
-import Network.AWS.S3.Types.EncryptionConfiguration
-import Network.AWS.S3.Types.Metrics
-import Network.AWS.S3.Types.ReplicationTime
-import Network.AWS.S3.Types.StorageClass
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.AccessControlTranslation as Types
+import qualified Network.AWS.S3.Types.Account as Types
+import qualified Network.AWS.S3.Types.EncryptionConfiguration as Types
+import qualified Network.AWS.S3.Types.Metrics as Types
+import qualified Network.AWS.S3.Types.ReplicationTime as Types
+import qualified Network.AWS.S3.Types.StorageClass as Types
 
 -- | Specifies information about where to publish analysis or configuration results for an Amazon S3 bucket and S3 Replication Time Control (S3 RTC).
 --
 -- /See:/ 'mkDestination' smart constructor.
 data Destination = Destination'
-  { -- | A container specifying replication metrics-related settings enabling replication metrics and events.
-    metrics :: Lude.Maybe Metrics,
+  { -- | The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
+    bucket :: Types.BucketName,
     -- | Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
-    accessControlTranslation :: Lude.Maybe AccessControlTranslation,
-    -- | The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
-    bucket :: BucketName,
+    accessControlTranslation :: Core.Maybe Types.AccessControlTranslation,
     -- | Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS account that owns the destination bucket by specifying the @AccessControlTranslation@ property, this is the account ID of the destination bucket owner. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html Replication Additional Configuration: Changing the Replica Owner> in the /Amazon Simple Storage Service Developer Guide/ .
-    account :: Lude.Maybe Lude.Text,
+    account :: Core.Maybe Types.Account,
+    -- | A container that provides information about encryption. If @SourceSelectionCriteria@ is specified, you must specify this element.
+    encryptionConfiguration :: Core.Maybe Types.EncryptionConfiguration,
+    -- | A container specifying replication metrics-related settings enabling replication metrics and events.
+    metrics :: Core.Maybe Types.Metrics,
+    -- | A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a @Metrics@ block.
+    replicationTime :: Core.Maybe Types.ReplicationTime,
     -- | The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.
     --
     -- For valid values, see the @StorageClass@ element of the <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT Bucket replication> action in the /Amazon Simple Storage Service API Reference/ .
-    storageClass :: Lude.Maybe StorageClass,
-    -- | A container that provides information about encryption. If @SourceSelectionCriteria@ is specified, you must specify this element.
-    encryptionConfiguration :: Lude.Maybe EncryptionConfiguration,
-    -- | A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a @Metrics@ block.
-    replicationTime :: Lude.Maybe ReplicationTime
+    storageClass :: Core.Maybe Types.StorageClass
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Destination' with the minimum fields required to make a request.
---
--- * 'metrics' - A container specifying replication metrics-related settings enabling replication metrics and events.
--- * 'accessControlTranslation' - Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
--- * 'bucket' - The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
--- * 'account' - Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS account that owns the destination bucket by specifying the @AccessControlTranslation@ property, this is the account ID of the destination bucket owner. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html Replication Additional Configuration: Changing the Replica Owner> in the /Amazon Simple Storage Service Developer Guide/ .
--- * 'storageClass' - The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.
---
--- For valid values, see the @StorageClass@ element of the <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT Bucket replication> action in the /Amazon Simple Storage Service API Reference/ .
--- * 'encryptionConfiguration' - A container that provides information about encryption. If @SourceSelectionCriteria@ is specified, you must specify this element.
--- * 'replicationTime' - A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a @Metrics@ block.
+-- | Creates a 'Destination' value with any optional fields omitted.
 mkDestination ::
   -- | 'bucket'
-  BucketName ->
+  Types.BucketName ->
   Destination
-mkDestination pBucket_ =
+mkDestination bucket =
   Destination'
-    { metrics = Lude.Nothing,
-      accessControlTranslation = Lude.Nothing,
-      bucket = pBucket_,
-      account = Lude.Nothing,
-      storageClass = Lude.Nothing,
-      encryptionConfiguration = Lude.Nothing,
-      replicationTime = Lude.Nothing
+    { bucket,
+      accessControlTranslation = Core.Nothing,
+      account = Core.Nothing,
+      encryptionConfiguration = Core.Nothing,
+      metrics = Core.Nothing,
+      replicationTime = Core.Nothing,
+      storageClass = Core.Nothing
     }
-
--- | A container specifying replication metrics-related settings enabling replication metrics and events.
---
--- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dMetrics :: Lens.Lens' Destination (Lude.Maybe Metrics)
-dMetrics = Lens.lens (metrics :: Destination -> Lude.Maybe Metrics) (\s a -> s {metrics = a} :: Destination)
-{-# DEPRECATED dMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
-
--- | Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
---
--- /Note:/ Consider using 'accessControlTranslation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAccessControlTranslation :: Lens.Lens' Destination (Lude.Maybe AccessControlTranslation)
-dAccessControlTranslation = Lens.lens (accessControlTranslation :: Destination -> Lude.Maybe AccessControlTranslation) (\s a -> s {accessControlTranslation = a} :: Destination)
-{-# DEPRECATED dAccessControlTranslation "Use generic-lens or generic-optics with 'accessControlTranslation' instead." #-}
 
 -- | The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store the results.
 --
 -- /Note:/ Consider using 'bucket' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dBucket :: Lens.Lens' Destination BucketName
-dBucket = Lens.lens (bucket :: Destination -> BucketName) (\s a -> s {bucket = a} :: Destination)
+dBucket :: Lens.Lens' Destination Types.BucketName
+dBucket = Lens.field @"bucket"
 {-# DEPRECATED dBucket "Use generic-lens or generic-optics with 'bucket' instead." #-}
+
+-- | Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object.
+--
+-- /Note:/ Consider using 'accessControlTranslation' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dAccessControlTranslation :: Lens.Lens' Destination (Core.Maybe Types.AccessControlTranslation)
+dAccessControlTranslation = Lens.field @"accessControlTranslation"
+{-# DEPRECATED dAccessControlTranslation "Use generic-lens or generic-optics with 'accessControlTranslation' instead." #-}
 
 -- | Destination bucket owner account ID. In a cross-account scenario, if you direct Amazon S3 to change replica ownership to the AWS account that owns the destination bucket by specifying the @AccessControlTranslation@ property, this is the account ID of the destination bucket owner. For more information, see <https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-change-owner.html Replication Additional Configuration: Changing the Replica Owner> in the /Amazon Simple Storage Service Developer Guide/ .
 --
 -- /Note:/ Consider using 'account' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dAccount :: Lens.Lens' Destination (Lude.Maybe Lude.Text)
-dAccount = Lens.lens (account :: Destination -> Lude.Maybe Lude.Text) (\s a -> s {account = a} :: Destination)
+dAccount :: Lens.Lens' Destination (Core.Maybe Types.Account)
+dAccount = Lens.field @"account"
 {-# DEPRECATED dAccount "Use generic-lens or generic-optics with 'account' instead." #-}
+
+-- | A container that provides information about encryption. If @SourceSelectionCriteria@ is specified, you must specify this element.
+--
+-- /Note:/ Consider using 'encryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dEncryptionConfiguration :: Lens.Lens' Destination (Core.Maybe Types.EncryptionConfiguration)
+dEncryptionConfiguration = Lens.field @"encryptionConfiguration"
+{-# DEPRECATED dEncryptionConfiguration "Use generic-lens or generic-optics with 'encryptionConfiguration' instead." #-}
+
+-- | A container specifying replication metrics-related settings enabling replication metrics and events.
+--
+-- /Note:/ Consider using 'metrics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dMetrics :: Lens.Lens' Destination (Core.Maybe Types.Metrics)
+dMetrics = Lens.field @"metrics"
+{-# DEPRECATED dMetrics "Use generic-lens or generic-optics with 'metrics' instead." #-}
+
+-- | A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a @Metrics@ block.
+--
+-- /Note:/ Consider using 'replicationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dReplicationTime :: Lens.Lens' Destination (Core.Maybe Types.ReplicationTime)
+dReplicationTime = Lens.field @"replicationTime"
+{-# DEPRECATED dReplicationTime "Use generic-lens or generic-optics with 'replicationTime' instead." #-}
 
 -- | The storage class to use when replicating objects, such as S3 Standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 --
 -- For valid values, see the @StorageClass@ element of the <https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html PUT Bucket replication> action in the /Amazon Simple Storage Service API Reference/ .
 --
 -- /Note:/ Consider using 'storageClass' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dStorageClass :: Lens.Lens' Destination (Lude.Maybe StorageClass)
-dStorageClass = Lens.lens (storageClass :: Destination -> Lude.Maybe StorageClass) (\s a -> s {storageClass = a} :: Destination)
+dStorageClass :: Lens.Lens' Destination (Core.Maybe Types.StorageClass)
+dStorageClass = Lens.field @"storageClass"
 {-# DEPRECATED dStorageClass "Use generic-lens or generic-optics with 'storageClass' instead." #-}
 
--- | A container that provides information about encryption. If @SourceSelectionCriteria@ is specified, you must specify this element.
---
--- /Note:/ Consider using 'encryptionConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dEncryptionConfiguration :: Lens.Lens' Destination (Lude.Maybe EncryptionConfiguration)
-dEncryptionConfiguration = Lens.lens (encryptionConfiguration :: Destination -> Lude.Maybe EncryptionConfiguration) (\s a -> s {encryptionConfiguration = a} :: Destination)
-{-# DEPRECATED dEncryptionConfiguration "Use generic-lens or generic-optics with 'encryptionConfiguration' instead." #-}
+instance Core.ToXML Destination where
+  toXML Destination {..} =
+    Core.toXMLNode "Bucket" bucket
+      Core.<> Core.toXMLNode "AccessControlTranslation"
+      Core.<$> accessControlTranslation
+      Core.<> Core.toXMLNode "Account"
+      Core.<$> account
+      Core.<> Core.toXMLNode "EncryptionConfiguration"
+      Core.<$> encryptionConfiguration
+      Core.<> Core.toXMLNode "Metrics"
+      Core.<$> metrics
+      Core.<> Core.toXMLNode "ReplicationTime"
+      Core.<$> replicationTime
+      Core.<> Core.toXMLNode "StorageClass"
+      Core.<$> storageClass
 
--- | A container specifying S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated. Must be specified together with a @Metrics@ block.
---
--- /Note:/ Consider using 'replicationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dReplicationTime :: Lens.Lens' Destination (Lude.Maybe ReplicationTime)
-dReplicationTime = Lens.lens (replicationTime :: Destination -> Lude.Maybe ReplicationTime) (\s a -> s {replicationTime = a} :: Destination)
-{-# DEPRECATED dReplicationTime "Use generic-lens or generic-optics with 'replicationTime' instead." #-}
-
-instance Lude.FromXML Destination where
+instance Core.FromXML Destination where
   parseXML x =
     Destination'
-      Lude.<$> (x Lude..@? "Metrics")
-      Lude.<*> (x Lude..@? "AccessControlTranslation")
-      Lude.<*> (x Lude..@ "Bucket")
-      Lude.<*> (x Lude..@? "Account")
-      Lude.<*> (x Lude..@? "StorageClass")
-      Lude.<*> (x Lude..@? "EncryptionConfiguration")
-      Lude.<*> (x Lude..@? "ReplicationTime")
-
-instance Lude.ToXML Destination where
-  toXML Destination' {..} =
-    Lude.mconcat
-      [ "Metrics" Lude.@= metrics,
-        "AccessControlTranslation" Lude.@= accessControlTranslation,
-        "Bucket" Lude.@= bucket,
-        "Account" Lude.@= account,
-        "StorageClass" Lude.@= storageClass,
-        "EncryptionConfiguration" Lude.@= encryptionConfiguration,
-        "ReplicationTime" Lude.@= replicationTime
-      ]
+      Core.<$> (x Core..@ "Bucket")
+      Core.<*> (x Core..@? "AccessControlTranslation")
+      Core.<*> (x Core..@? "Account")
+      Core.<*> (x Core..@? "EncryptionConfiguration")
+      Core.<*> (x Core..@? "Metrics")
+      Core.<*> (x Core..@? "ReplicationTime")
+      Core.<*> (x Core..@? "StorageClass")

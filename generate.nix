@@ -93,9 +93,9 @@ in pkgs.stdenvNoCC.mkDerivation {
       --client-version=${clientVersion} \
       --core-version=${coreVersion} \
       --annexes="${annexesDir}" \
-      --configs="${servicesDir}" \
+      --services="${servicesDir}" \
       --templates="${templatesDir}" \
-      --static="${assetsDir}" \
+      --assets="${assetsDir}" \
       --retry=${botocoreDir}/_retry.json \
       ${builtins.concatStringsSep " " modelArguments}
     )
@@ -118,7 +118,9 @@ in pkgs.stdenvNoCC.mkDerivation {
         | xargs -0 cabal-fmt --inplace --indent=2
 
       find $dir -type f -name '*.hs' -print0 \
-        | xargs -0 ormolu --mode=inplace --ghc-opt='-XPatternSynonyms' 
+        | xargs -0 ormolu --mode=inplace \
+          --ghc-opt='-XPatternSynonyms' \
+          --ghc-opt='-XTypeApplications' 
     done
   '';
 }

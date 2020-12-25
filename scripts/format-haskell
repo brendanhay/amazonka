@@ -17,5 +17,7 @@ echo "Formatting Haskell"
 find amazonka* \
   -path ./dist-newstyle -prune -o \
   -type f -name '*.hs' \
-  -exec ormolu -i \
+  -exec ormolu --mode=inplace \
+      --ghc-opt='-XPatternSynonyms' \
+      --ghc-opt='-XTypeApplications' \
   {} \+

@@ -17,84 +17,78 @@ module Network.AWS.Snowball.Types.JobResource
     mkJobResource,
 
     -- * Lenses
-    jrEC2AMIResources,
+    jrEc2AmiResources,
     jrLambdaResources,
     jrS3Resources,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Snowball.Types.EC2AMIResource
-import Network.AWS.Snowball.Types.LambdaResource
-import Network.AWS.Snowball.Types.S3Resource
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Snowball.Types.Ec2AmiResource as Types
+import qualified Network.AWS.Snowball.Types.LambdaResource as Types
+import qualified Network.AWS.Snowball.Types.S3Resource as Types
 
 -- | Contains an array of AWS resource objects. Each object represents an Amazon S3 bucket, an AWS Lambda function, or an Amazon Machine Image (AMI) based on Amazon EC2 that is associated with a particular job.
 --
 -- /See:/ 'mkJobResource' smart constructor.
 data JobResource = JobResource'
   { -- | The Amazon Machine Images (AMIs) associated with this job.
-    ec2AMIResources :: Lude.Maybe [EC2AMIResource],
+    ec2AmiResources :: Core.Maybe [Types.Ec2AmiResource],
     -- | The Python-language Lambda functions for this job.
-    lambdaResources :: Lude.Maybe [LambdaResource],
+    lambdaResources :: Core.Maybe [Types.LambdaResource],
     -- | An array of @S3Resource@ objects.
-    s3Resources :: Lude.Maybe [S3Resource]
+    s3Resources :: Core.Maybe [Types.S3Resource]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'JobResource' with the minimum fields required to make a request.
---
--- * 'ec2AMIResources' - The Amazon Machine Images (AMIs) associated with this job.
--- * 'lambdaResources' - The Python-language Lambda functions for this job.
--- * 's3Resources' - An array of @S3Resource@ objects.
+-- | Creates a 'JobResource' value with any optional fields omitted.
 mkJobResource ::
   JobResource
 mkJobResource =
   JobResource'
-    { ec2AMIResources = Lude.Nothing,
-      lambdaResources = Lude.Nothing,
-      s3Resources = Lude.Nothing
+    { ec2AmiResources = Core.Nothing,
+      lambdaResources = Core.Nothing,
+      s3Resources = Core.Nothing
     }
 
 -- | The Amazon Machine Images (AMIs) associated with this job.
 --
--- /Note:/ Consider using 'ec2AMIResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jrEC2AMIResources :: Lens.Lens' JobResource (Lude.Maybe [EC2AMIResource])
-jrEC2AMIResources = Lens.lens (ec2AMIResources :: JobResource -> Lude.Maybe [EC2AMIResource]) (\s a -> s {ec2AMIResources = a} :: JobResource)
-{-# DEPRECATED jrEC2AMIResources "Use generic-lens or generic-optics with 'ec2AMIResources' instead." #-}
+-- /Note:/ Consider using 'ec2AmiResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+jrEc2AmiResources :: Lens.Lens' JobResource (Core.Maybe [Types.Ec2AmiResource])
+jrEc2AmiResources = Lens.field @"ec2AmiResources"
+{-# DEPRECATED jrEc2AmiResources "Use generic-lens or generic-optics with 'ec2AmiResources' instead." #-}
 
 -- | The Python-language Lambda functions for this job.
 --
 -- /Note:/ Consider using 'lambdaResources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jrLambdaResources :: Lens.Lens' JobResource (Lude.Maybe [LambdaResource])
-jrLambdaResources = Lens.lens (lambdaResources :: JobResource -> Lude.Maybe [LambdaResource]) (\s a -> s {lambdaResources = a} :: JobResource)
+jrLambdaResources :: Lens.Lens' JobResource (Core.Maybe [Types.LambdaResource])
+jrLambdaResources = Lens.field @"lambdaResources"
 {-# DEPRECATED jrLambdaResources "Use generic-lens or generic-optics with 'lambdaResources' instead." #-}
 
 -- | An array of @S3Resource@ objects.
 --
 -- /Note:/ Consider using 's3Resources' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-jrS3Resources :: Lens.Lens' JobResource (Lude.Maybe [S3Resource])
-jrS3Resources = Lens.lens (s3Resources :: JobResource -> Lude.Maybe [S3Resource]) (\s a -> s {s3Resources = a} :: JobResource)
+jrS3Resources :: Lens.Lens' JobResource (Core.Maybe [Types.S3Resource])
+jrS3Resources = Lens.field @"s3Resources"
 {-# DEPRECATED jrS3Resources "Use generic-lens or generic-optics with 's3Resources' instead." #-}
 
-instance Lude.FromJSON JobResource where
-  parseJSON =
-    Lude.withObject
-      "JobResource"
-      ( \x ->
-          JobResource'
-            Lude.<$> (x Lude..:? "Ec2AmiResources" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "LambdaResources" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "S3Resources" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON JobResource where
-  toJSON JobResource' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Ec2AmiResources" Lude..=) Lude.<$> ec2AMIResources,
-            ("LambdaResources" Lude..=) Lude.<$> lambdaResources,
-            ("S3Resources" Lude..=) Lude.<$> s3Resources
+instance Core.FromJSON JobResource where
+  toJSON JobResource {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Ec2AmiResources" Core..=) Core.<$> ec2AmiResources,
+            ("LambdaResources" Core..=) Core.<$> lambdaResources,
+            ("S3Resources" Core..=) Core.<$> s3Resources
           ]
       )
+
+instance Core.FromJSON JobResource where
+  parseJSON =
+    Core.withObject "JobResource" Core.$
+      \x ->
+        JobResource'
+          Core.<$> (x Core..:? "Ec2AmiResources")
+          Core.<*> (x Core..:? "LambdaResources")
+          Core.<*> (x Core..:? "S3Resources")

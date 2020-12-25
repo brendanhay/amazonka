@@ -13,71 +13,76 @@
 module Network.AWS.SageMaker.Types.UserProfileStatus
   ( UserProfileStatus
       ( UserProfileStatus',
-        UPSDeleting,
-        UPSFailed,
-        UPSInService,
-        UPSPending,
-        UPSUpdating,
-        UPSUpdateFailed,
-        UPSDeleteFailed
+        UserProfileStatusDeleting,
+        UserProfileStatusFailed,
+        UserProfileStatusInService,
+        UserProfileStatusPending,
+        UserProfileStatusUpdating,
+        UserProfileStatusUpdateFailed,
+        UserProfileStatusDeleteFailed,
+        fromUserProfileStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UserProfileStatus = UserProfileStatus' Lude.Text
+newtype UserProfileStatus = UserProfileStatus'
+  { fromUserProfileStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern UPSDeleting :: UserProfileStatus
-pattern UPSDeleting = UserProfileStatus' "Deleting"
+pattern UserProfileStatusDeleting :: UserProfileStatus
+pattern UserProfileStatusDeleting = UserProfileStatus' "Deleting"
 
-pattern UPSFailed :: UserProfileStatus
-pattern UPSFailed = UserProfileStatus' "Failed"
+pattern UserProfileStatusFailed :: UserProfileStatus
+pattern UserProfileStatusFailed = UserProfileStatus' "Failed"
 
-pattern UPSInService :: UserProfileStatus
-pattern UPSInService = UserProfileStatus' "InService"
+pattern UserProfileStatusInService :: UserProfileStatus
+pattern UserProfileStatusInService = UserProfileStatus' "InService"
 
-pattern UPSPending :: UserProfileStatus
-pattern UPSPending = UserProfileStatus' "Pending"
+pattern UserProfileStatusPending :: UserProfileStatus
+pattern UserProfileStatusPending = UserProfileStatus' "Pending"
 
-pattern UPSUpdating :: UserProfileStatus
-pattern UPSUpdating = UserProfileStatus' "Updating"
+pattern UserProfileStatusUpdating :: UserProfileStatus
+pattern UserProfileStatusUpdating = UserProfileStatus' "Updating"
 
-pattern UPSUpdateFailed :: UserProfileStatus
-pattern UPSUpdateFailed = UserProfileStatus' "Update_Failed"
+pattern UserProfileStatusUpdateFailed :: UserProfileStatus
+pattern UserProfileStatusUpdateFailed = UserProfileStatus' "Update_Failed"
 
-pattern UPSDeleteFailed :: UserProfileStatus
-pattern UPSDeleteFailed = UserProfileStatus' "Delete_Failed"
+pattern UserProfileStatusDeleteFailed :: UserProfileStatus
+pattern UserProfileStatusDeleteFailed = UserProfileStatus' "Delete_Failed"
 
 {-# COMPLETE
-  UPSDeleting,
-  UPSFailed,
-  UPSInService,
-  UPSPending,
-  UPSUpdating,
-  UPSUpdateFailed,
-  UPSDeleteFailed,
+  UserProfileStatusDeleting,
+  UserProfileStatusFailed,
+  UserProfileStatusInService,
+  UserProfileStatusPending,
+  UserProfileStatusUpdating,
+  UserProfileStatusUpdateFailed,
+  UserProfileStatusDeleteFailed,
   UserProfileStatus'
   #-}

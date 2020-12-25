@@ -21,32 +21,31 @@ module Network.AWS.ElasticBeanstalk.Types.LoadBalancer
   )
 where
 
+import qualified Network.AWS.ElasticBeanstalk.Types.ResourceId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a LoadBalancer.
 --
 -- /See:/ 'mkLoadBalancer' smart constructor.
 newtype LoadBalancer = LoadBalancer'
   { -- | The name of the LoadBalancer.
-    name :: Lude.Maybe Lude.Text
+    name :: Core.Maybe Types.ResourceId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LoadBalancer' with the minimum fields required to make a request.
---
--- * 'name' - The name of the LoadBalancer.
+-- | Creates a 'LoadBalancer' value with any optional fields omitted.
 mkLoadBalancer ::
   LoadBalancer
-mkLoadBalancer = LoadBalancer' {name = Lude.Nothing}
+mkLoadBalancer = LoadBalancer' {name = Core.Nothing}
 
 -- | The name of the LoadBalancer.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lbName :: Lens.Lens' LoadBalancer (Lude.Maybe Lude.Text)
-lbName = Lens.lens (name :: LoadBalancer -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: LoadBalancer)
+lbName :: Lens.Lens' LoadBalancer (Core.Maybe Types.ResourceId)
+lbName = Lens.field @"name"
 {-# DEPRECATED lbName "Use generic-lens or generic-optics with 'name' instead." #-}
 
-instance Lude.FromXML LoadBalancer where
-  parseXML x = LoadBalancer' Lude.<$> (x Lude..@? "Name")
+instance Core.FromXML LoadBalancer where
+  parseXML x = LoadBalancer' Core.<$> (x Core..@? "Name")

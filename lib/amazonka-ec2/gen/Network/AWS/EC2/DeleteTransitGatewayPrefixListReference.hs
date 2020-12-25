@@ -29,136 +29,133 @@ module Network.AWS.EC2.DeleteTransitGatewayPrefixListReference
     mkDeleteTransitGatewayPrefixListReferenceResponse,
 
     -- ** Response lenses
-    dtgplrrsTransitGatewayPrefixListReference,
-    dtgplrrsResponseStatus,
+    dtgplrrrsTransitGatewayPrefixListReference,
+    dtgplrrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteTransitGatewayPrefixListReference' smart constructor.
 data DeleteTransitGatewayPrefixListReference = DeleteTransitGatewayPrefixListReference'
   { -- | The ID of the route table.
-    transitGatewayRouteTableId :: Lude.Text,
+    transitGatewayRouteTableId :: Types.TransitGatewayRouteTableId,
     -- | The ID of the prefix list.
-    prefixListId :: Lude.Text,
+    prefixListId :: Types.PrefixListResourceId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTransitGatewayPrefixListReference' with the minimum fields required to make a request.
---
--- * 'transitGatewayRouteTableId' - The ID of the route table.
--- * 'prefixListId' - The ID of the prefix list.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteTransitGatewayPrefixListReference' value with any optional fields omitted.
 mkDeleteTransitGatewayPrefixListReference ::
   -- | 'transitGatewayRouteTableId'
-  Lude.Text ->
+  Types.TransitGatewayRouteTableId ->
   -- | 'prefixListId'
-  Lude.Text ->
+  Types.PrefixListResourceId ->
   DeleteTransitGatewayPrefixListReference
 mkDeleteTransitGatewayPrefixListReference
-  pTransitGatewayRouteTableId_
-  pPrefixListId_ =
+  transitGatewayRouteTableId
+  prefixListId =
     DeleteTransitGatewayPrefixListReference'
-      { transitGatewayRouteTableId =
-          pTransitGatewayRouteTableId_,
-        prefixListId = pPrefixListId_,
-        dryRun = Lude.Nothing
+      { transitGatewayRouteTableId,
+        prefixListId,
+        dryRun = Core.Nothing
       }
 
 -- | The ID of the route table.
 --
 -- /Note:/ Consider using 'transitGatewayRouteTableId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgplrTransitGatewayRouteTableId :: Lens.Lens' DeleteTransitGatewayPrefixListReference Lude.Text
-dtgplrTransitGatewayRouteTableId = Lens.lens (transitGatewayRouteTableId :: DeleteTransitGatewayPrefixListReference -> Lude.Text) (\s a -> s {transitGatewayRouteTableId = a} :: DeleteTransitGatewayPrefixListReference)
+dtgplrTransitGatewayRouteTableId :: Lens.Lens' DeleteTransitGatewayPrefixListReference Types.TransitGatewayRouteTableId
+dtgplrTransitGatewayRouteTableId = Lens.field @"transitGatewayRouteTableId"
 {-# DEPRECATED dtgplrTransitGatewayRouteTableId "Use generic-lens or generic-optics with 'transitGatewayRouteTableId' instead." #-}
 
 -- | The ID of the prefix list.
 --
 -- /Note:/ Consider using 'prefixListId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgplrPrefixListId :: Lens.Lens' DeleteTransitGatewayPrefixListReference Lude.Text
-dtgplrPrefixListId = Lens.lens (prefixListId :: DeleteTransitGatewayPrefixListReference -> Lude.Text) (\s a -> s {prefixListId = a} :: DeleteTransitGatewayPrefixListReference)
+dtgplrPrefixListId :: Lens.Lens' DeleteTransitGatewayPrefixListReference Types.PrefixListResourceId
+dtgplrPrefixListId = Lens.field @"prefixListId"
 {-# DEPRECATED dtgplrPrefixListId "Use generic-lens or generic-optics with 'prefixListId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgplrDryRun :: Lens.Lens' DeleteTransitGatewayPrefixListReference (Lude.Maybe Lude.Bool)
-dtgplrDryRun = Lens.lens (dryRun :: DeleteTransitGatewayPrefixListReference -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteTransitGatewayPrefixListReference)
+dtgplrDryRun :: Lens.Lens' DeleteTransitGatewayPrefixListReference (Core.Maybe Core.Bool)
+dtgplrDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dtgplrDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteTransitGatewayPrefixListReference where
+instance Core.AWSRequest DeleteTransitGatewayPrefixListReference where
   type
     Rs DeleteTransitGatewayPrefixListReference =
       DeleteTransitGatewayPrefixListReferenceResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteTransitGatewayPrefixListReference")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> ( Core.toQueryValue
+                            "TransitGatewayRouteTableId"
+                            transitGatewayRouteTableId
+                        )
+                Core.<> (Core.toQueryValue "PrefixListId" prefixListId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           DeleteTransitGatewayPrefixListReferenceResponse'
-            Lude.<$> (x Lude..@? "transitGatewayPrefixListReference")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "transitGatewayPrefixListReference")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteTransitGatewayPrefixListReference where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteTransitGatewayPrefixListReference where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTransitGatewayPrefixListReference where
-  toQuery DeleteTransitGatewayPrefixListReference' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DeleteTransitGatewayPrefixListReference" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "TransitGatewayRouteTableId" Lude.=: transitGatewayRouteTableId,
-        "PrefixListId" Lude.=: prefixListId,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkDeleteTransitGatewayPrefixListReferenceResponse' smart constructor.
 data DeleteTransitGatewayPrefixListReferenceResponse = DeleteTransitGatewayPrefixListReferenceResponse'
   { -- | Information about the deleted prefix list reference.
-    transitGatewayPrefixListReference :: Lude.Maybe TransitGatewayPrefixListReference,
+    transitGatewayPrefixListReference :: Core.Maybe Types.TransitGatewayPrefixListReference,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTransitGatewayPrefixListReferenceResponse' with the minimum fields required to make a request.
---
--- * 'transitGatewayPrefixListReference' - Information about the deleted prefix list reference.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteTransitGatewayPrefixListReferenceResponse' value with any optional fields omitted.
 mkDeleteTransitGatewayPrefixListReferenceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteTransitGatewayPrefixListReferenceResponse
-mkDeleteTransitGatewayPrefixListReferenceResponse pResponseStatus_ =
+mkDeleteTransitGatewayPrefixListReferenceResponse responseStatus =
   DeleteTransitGatewayPrefixListReferenceResponse'
     { transitGatewayPrefixListReference =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the deleted prefix list reference.
 --
 -- /Note:/ Consider using 'transitGatewayPrefixListReference' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgplrrsTransitGatewayPrefixListReference :: Lens.Lens' DeleteTransitGatewayPrefixListReferenceResponse (Lude.Maybe TransitGatewayPrefixListReference)
-dtgplrrsTransitGatewayPrefixListReference = Lens.lens (transitGatewayPrefixListReference :: DeleteTransitGatewayPrefixListReferenceResponse -> Lude.Maybe TransitGatewayPrefixListReference) (\s a -> s {transitGatewayPrefixListReference = a} :: DeleteTransitGatewayPrefixListReferenceResponse)
-{-# DEPRECATED dtgplrrsTransitGatewayPrefixListReference "Use generic-lens or generic-optics with 'transitGatewayPrefixListReference' instead." #-}
+dtgplrrrsTransitGatewayPrefixListReference :: Lens.Lens' DeleteTransitGatewayPrefixListReferenceResponse (Core.Maybe Types.TransitGatewayPrefixListReference)
+dtgplrrrsTransitGatewayPrefixListReference = Lens.field @"transitGatewayPrefixListReference"
+{-# DEPRECATED dtgplrrrsTransitGatewayPrefixListReference "Use generic-lens or generic-optics with 'transitGatewayPrefixListReference' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dtgplrrsResponseStatus :: Lens.Lens' DeleteTransitGatewayPrefixListReferenceResponse Lude.Int
-dtgplrrsResponseStatus = Lens.lens (responseStatus :: DeleteTransitGatewayPrefixListReferenceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteTransitGatewayPrefixListReferenceResponse)
-{-# DEPRECATED dtgplrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dtgplrrrsResponseStatus :: Lens.Lens' DeleteTransitGatewayPrefixListReferenceResponse Core.Int
+dtgplrrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dtgplrrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

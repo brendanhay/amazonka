@@ -17,67 +17,64 @@ module Network.AWS.SWF.Types.WorkflowExecution
     mkWorkflowExecution,
 
     -- * Lenses
-    weRunId,
     weWorkflowId,
+    weRunId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SWF.Types.WorkflowId as Types
+import qualified Network.AWS.SWF.Types.WorkflowRunId as Types
 
 -- | Represents a workflow execution.
 --
 -- /See:/ 'mkWorkflowExecution' smart constructor.
 data WorkflowExecution = WorkflowExecution'
-  { -- | A system-generated unique identifier for the workflow execution.
-    runId :: Lude.Text,
-    -- | The user defined identifier associated with the workflow execution.
-    workflowId :: Lude.Text
+  { -- | The user defined identifier associated with the workflow execution.
+    workflowId :: Types.WorkflowId,
+    -- | A system-generated unique identifier for the workflow execution.
+    runId :: Types.WorkflowRunId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'WorkflowExecution' with the minimum fields required to make a request.
---
--- * 'runId' - A system-generated unique identifier for the workflow execution.
--- * 'workflowId' - The user defined identifier associated with the workflow execution.
+-- | Creates a 'WorkflowExecution' value with any optional fields omitted.
 mkWorkflowExecution ::
-  -- | 'runId'
-  Lude.Text ->
   -- | 'workflowId'
-  Lude.Text ->
+  Types.WorkflowId ->
+  -- | 'runId'
+  Types.WorkflowRunId ->
   WorkflowExecution
-mkWorkflowExecution pRunId_ pWorkflowId_ =
-  WorkflowExecution' {runId = pRunId_, workflowId = pWorkflowId_}
-
--- | A system-generated unique identifier for the workflow execution.
---
--- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-weRunId :: Lens.Lens' WorkflowExecution Lude.Text
-weRunId = Lens.lens (runId :: WorkflowExecution -> Lude.Text) (\s a -> s {runId = a} :: WorkflowExecution)
-{-# DEPRECATED weRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
+mkWorkflowExecution workflowId runId =
+  WorkflowExecution' {workflowId, runId}
 
 -- | The user defined identifier associated with the workflow execution.
 --
 -- /Note:/ Consider using 'workflowId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-weWorkflowId :: Lens.Lens' WorkflowExecution Lude.Text
-weWorkflowId = Lens.lens (workflowId :: WorkflowExecution -> Lude.Text) (\s a -> s {workflowId = a} :: WorkflowExecution)
+weWorkflowId :: Lens.Lens' WorkflowExecution Types.WorkflowId
+weWorkflowId = Lens.field @"workflowId"
 {-# DEPRECATED weWorkflowId "Use generic-lens or generic-optics with 'workflowId' instead." #-}
 
-instance Lude.FromJSON WorkflowExecution where
-  parseJSON =
-    Lude.withObject
-      "WorkflowExecution"
-      ( \x ->
-          WorkflowExecution'
-            Lude.<$> (x Lude..: "runId") Lude.<*> (x Lude..: "workflowId")
-      )
+-- | A system-generated unique identifier for the workflow execution.
+--
+-- /Note:/ Consider using 'runId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+weRunId :: Lens.Lens' WorkflowExecution Types.WorkflowRunId
+weRunId = Lens.field @"runId"
+{-# DEPRECATED weRunId "Use generic-lens or generic-optics with 'runId' instead." #-}
 
-instance Lude.ToJSON WorkflowExecution where
-  toJSON WorkflowExecution' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("runId" Lude..= runId),
-            Lude.Just ("workflowId" Lude..= workflowId)
+instance Core.FromJSON WorkflowExecution where
+  toJSON WorkflowExecution {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("workflowId" Core..= workflowId),
+            Core.Just ("runId" Core..= runId)
           ]
       )
+
+instance Core.FromJSON WorkflowExecution where
+  parseJSON =
+    Core.withObject "WorkflowExecution" Core.$
+      \x ->
+        WorkflowExecution'
+          Core.<$> (x Core..: "workflowId") Core.<*> (x Core..: "runId")

@@ -13,116 +13,121 @@
 module Network.AWS.SMS.Types.AppReplicationStatus
   ( AppReplicationStatus
       ( AppReplicationStatus',
-        ARSReadyForConfiguration,
-        ARSConfigurationInProgress,
-        ARSConfigurationInvalid,
-        ARSReadyForReplication,
-        ARSValidationInProgress,
-        ARSReplicationPending,
-        ARSReplicationInProgress,
-        ARSReplicated,
-        ARSPartiallyReplicated,
-        ARSDeltaReplicationInProgress,
-        ARSDeltaReplicated,
-        ARSDeltaReplicationFailed,
-        ARSReplicationFailed,
-        ARSReplicationStopping,
-        ARSReplicationStopFailed,
-        ARSReplicationStopped
+        AppReplicationStatusReadyForConfiguration,
+        AppReplicationStatusConfigurationInProgress,
+        AppReplicationStatusConfigurationInvalid,
+        AppReplicationStatusReadyForReplication,
+        AppReplicationStatusValidationInProgress,
+        AppReplicationStatusReplicationPending,
+        AppReplicationStatusReplicationInProgress,
+        AppReplicationStatusReplicated,
+        AppReplicationStatusPartiallyReplicated,
+        AppReplicationStatusDeltaReplicationInProgress,
+        AppReplicationStatusDeltaReplicated,
+        AppReplicationStatusDeltaReplicationFailed,
+        AppReplicationStatusReplicationFailed,
+        AppReplicationStatusReplicationStopping,
+        AppReplicationStatusReplicationStopFailed,
+        AppReplicationStatusReplicationStopped,
+        fromAppReplicationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype AppReplicationStatus = AppReplicationStatus' Lude.Text
+newtype AppReplicationStatus = AppReplicationStatus'
+  { fromAppReplicationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ARSReadyForConfiguration :: AppReplicationStatus
-pattern ARSReadyForConfiguration = AppReplicationStatus' "READY_FOR_CONFIGURATION"
+pattern AppReplicationStatusReadyForConfiguration :: AppReplicationStatus
+pattern AppReplicationStatusReadyForConfiguration = AppReplicationStatus' "READY_FOR_CONFIGURATION"
 
-pattern ARSConfigurationInProgress :: AppReplicationStatus
-pattern ARSConfigurationInProgress = AppReplicationStatus' "CONFIGURATION_IN_PROGRESS"
+pattern AppReplicationStatusConfigurationInProgress :: AppReplicationStatus
+pattern AppReplicationStatusConfigurationInProgress = AppReplicationStatus' "CONFIGURATION_IN_PROGRESS"
 
-pattern ARSConfigurationInvalid :: AppReplicationStatus
-pattern ARSConfigurationInvalid = AppReplicationStatus' "CONFIGURATION_INVALID"
+pattern AppReplicationStatusConfigurationInvalid :: AppReplicationStatus
+pattern AppReplicationStatusConfigurationInvalid = AppReplicationStatus' "CONFIGURATION_INVALID"
 
-pattern ARSReadyForReplication :: AppReplicationStatus
-pattern ARSReadyForReplication = AppReplicationStatus' "READY_FOR_REPLICATION"
+pattern AppReplicationStatusReadyForReplication :: AppReplicationStatus
+pattern AppReplicationStatusReadyForReplication = AppReplicationStatus' "READY_FOR_REPLICATION"
 
-pattern ARSValidationInProgress :: AppReplicationStatus
-pattern ARSValidationInProgress = AppReplicationStatus' "VALIDATION_IN_PROGRESS"
+pattern AppReplicationStatusValidationInProgress :: AppReplicationStatus
+pattern AppReplicationStatusValidationInProgress = AppReplicationStatus' "VALIDATION_IN_PROGRESS"
 
-pattern ARSReplicationPending :: AppReplicationStatus
-pattern ARSReplicationPending = AppReplicationStatus' "REPLICATION_PENDING"
+pattern AppReplicationStatusReplicationPending :: AppReplicationStatus
+pattern AppReplicationStatusReplicationPending = AppReplicationStatus' "REPLICATION_PENDING"
 
-pattern ARSReplicationInProgress :: AppReplicationStatus
-pattern ARSReplicationInProgress = AppReplicationStatus' "REPLICATION_IN_PROGRESS"
+pattern AppReplicationStatusReplicationInProgress :: AppReplicationStatus
+pattern AppReplicationStatusReplicationInProgress = AppReplicationStatus' "REPLICATION_IN_PROGRESS"
 
-pattern ARSReplicated :: AppReplicationStatus
-pattern ARSReplicated = AppReplicationStatus' "REPLICATED"
+pattern AppReplicationStatusReplicated :: AppReplicationStatus
+pattern AppReplicationStatusReplicated = AppReplicationStatus' "REPLICATED"
 
-pattern ARSPartiallyReplicated :: AppReplicationStatus
-pattern ARSPartiallyReplicated = AppReplicationStatus' "PARTIALLY_REPLICATED"
+pattern AppReplicationStatusPartiallyReplicated :: AppReplicationStatus
+pattern AppReplicationStatusPartiallyReplicated = AppReplicationStatus' "PARTIALLY_REPLICATED"
 
-pattern ARSDeltaReplicationInProgress :: AppReplicationStatus
-pattern ARSDeltaReplicationInProgress = AppReplicationStatus' "DELTA_REPLICATION_IN_PROGRESS"
+pattern AppReplicationStatusDeltaReplicationInProgress :: AppReplicationStatus
+pattern AppReplicationStatusDeltaReplicationInProgress = AppReplicationStatus' "DELTA_REPLICATION_IN_PROGRESS"
 
-pattern ARSDeltaReplicated :: AppReplicationStatus
-pattern ARSDeltaReplicated = AppReplicationStatus' "DELTA_REPLICATED"
+pattern AppReplicationStatusDeltaReplicated :: AppReplicationStatus
+pattern AppReplicationStatusDeltaReplicated = AppReplicationStatus' "DELTA_REPLICATED"
 
-pattern ARSDeltaReplicationFailed :: AppReplicationStatus
-pattern ARSDeltaReplicationFailed = AppReplicationStatus' "DELTA_REPLICATION_FAILED"
+pattern AppReplicationStatusDeltaReplicationFailed :: AppReplicationStatus
+pattern AppReplicationStatusDeltaReplicationFailed = AppReplicationStatus' "DELTA_REPLICATION_FAILED"
 
-pattern ARSReplicationFailed :: AppReplicationStatus
-pattern ARSReplicationFailed = AppReplicationStatus' "REPLICATION_FAILED"
+pattern AppReplicationStatusReplicationFailed :: AppReplicationStatus
+pattern AppReplicationStatusReplicationFailed = AppReplicationStatus' "REPLICATION_FAILED"
 
-pattern ARSReplicationStopping :: AppReplicationStatus
-pattern ARSReplicationStopping = AppReplicationStatus' "REPLICATION_STOPPING"
+pattern AppReplicationStatusReplicationStopping :: AppReplicationStatus
+pattern AppReplicationStatusReplicationStopping = AppReplicationStatus' "REPLICATION_STOPPING"
 
-pattern ARSReplicationStopFailed :: AppReplicationStatus
-pattern ARSReplicationStopFailed = AppReplicationStatus' "REPLICATION_STOP_FAILED"
+pattern AppReplicationStatusReplicationStopFailed :: AppReplicationStatus
+pattern AppReplicationStatusReplicationStopFailed = AppReplicationStatus' "REPLICATION_STOP_FAILED"
 
-pattern ARSReplicationStopped :: AppReplicationStatus
-pattern ARSReplicationStopped = AppReplicationStatus' "REPLICATION_STOPPED"
+pattern AppReplicationStatusReplicationStopped :: AppReplicationStatus
+pattern AppReplicationStatusReplicationStopped = AppReplicationStatus' "REPLICATION_STOPPED"
 
 {-# COMPLETE
-  ARSReadyForConfiguration,
-  ARSConfigurationInProgress,
-  ARSConfigurationInvalid,
-  ARSReadyForReplication,
-  ARSValidationInProgress,
-  ARSReplicationPending,
-  ARSReplicationInProgress,
-  ARSReplicated,
-  ARSPartiallyReplicated,
-  ARSDeltaReplicationInProgress,
-  ARSDeltaReplicated,
-  ARSDeltaReplicationFailed,
-  ARSReplicationFailed,
-  ARSReplicationStopping,
-  ARSReplicationStopFailed,
-  ARSReplicationStopped,
+  AppReplicationStatusReadyForConfiguration,
+  AppReplicationStatusConfigurationInProgress,
+  AppReplicationStatusConfigurationInvalid,
+  AppReplicationStatusReadyForReplication,
+  AppReplicationStatusValidationInProgress,
+  AppReplicationStatusReplicationPending,
+  AppReplicationStatusReplicationInProgress,
+  AppReplicationStatusReplicated,
+  AppReplicationStatusPartiallyReplicated,
+  AppReplicationStatusDeltaReplicationInProgress,
+  AppReplicationStatusDeltaReplicated,
+  AppReplicationStatusDeltaReplicationFailed,
+  AppReplicationStatusReplicationFailed,
+  AppReplicationStatusReplicationStopping,
+  AppReplicationStatusReplicationStopFailed,
+  AppReplicationStatusReplicationStopped,
   AppReplicationStatus'
   #-}

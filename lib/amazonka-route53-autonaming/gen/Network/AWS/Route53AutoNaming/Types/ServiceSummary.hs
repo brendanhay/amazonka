@@ -17,149 +17,141 @@ module Network.AWS.Route53AutoNaming.Types.ServiceSummary
     mkServiceSummary,
 
     -- * Lenses
-    ssInstanceCount,
-    ssARN,
-    ssHealthCheckConfig,
+    ssArn,
     ssCreateDate,
-    ssHealthCheckCustomConfig,
-    ssName,
-    ssId,
-    ssDNSConfig,
     ssDescription,
+    ssDnsConfig,
+    ssHealthCheckConfig,
+    ssHealthCheckCustomConfig,
+    ssId,
+    ssInstanceCount,
+    ssName,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Route53AutoNaming.Types.DNSConfig
-import Network.AWS.Route53AutoNaming.Types.HealthCheckConfig
-import Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Route53AutoNaming.Types.Arn as Types
+import qualified Network.AWS.Route53AutoNaming.Types.DnsConfig as Types
+import qualified Network.AWS.Route53AutoNaming.Types.HealthCheckConfig as Types
+import qualified Network.AWS.Route53AutoNaming.Types.HealthCheckCustomConfig as Types
+import qualified Network.AWS.Route53AutoNaming.Types.ResourceDescription as Types
+import qualified Network.AWS.Route53AutoNaming.Types.ResourceId as Types
+import qualified Network.AWS.Route53AutoNaming.Types.ServiceName as Types
 
 -- | A complex type that contains information about a specified service.
 --
 -- /See:/ 'mkServiceSummary' smart constructor.
 data ServiceSummary = ServiceSummary'
-  { -- | The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count. The count might not reflect pending registrations and deregistrations.
-    instanceCount :: Lude.Maybe Lude.Int,
-    -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
-    arn :: Lude.Maybe Lude.Text,
-    healthCheckConfig :: Lude.Maybe HealthCheckConfig,
+  { -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
+    arn :: Core.Maybe Types.Arn,
     -- | The date and time that the service was created.
-    createDate :: Lude.Maybe Lude.Timestamp,
-    healthCheckCustomConfig :: Lude.Maybe HealthCheckCustomConfig,
-    -- | The name of the service.
-    name :: Lude.Maybe Lude.Text,
-    -- | The ID that AWS Cloud Map assigned to the service when you created it.
-    id :: Lude.Maybe Lude.Text,
-    dnsConfig :: Lude.Maybe DNSConfig,
+    createDate :: Core.Maybe Core.NominalDiffTime,
     -- | The description that you specify when you create the service.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.ResourceDescription,
+    dnsConfig :: Core.Maybe Types.DnsConfig,
+    healthCheckConfig :: Core.Maybe Types.HealthCheckConfig,
+    healthCheckCustomConfig :: Core.Maybe Types.HealthCheckCustomConfig,
+    -- | The ID that AWS Cloud Map assigned to the service when you created it.
+    id :: Core.Maybe Types.ResourceId,
+    -- | The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count. The count might not reflect pending registrations and deregistrations.
+    instanceCount :: Core.Maybe Core.Int,
+    -- | The name of the service.
+    name :: Core.Maybe Types.ServiceName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ServiceSummary' with the minimum fields required to make a request.
---
--- * 'instanceCount' - The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count. The count might not reflect pending registrations and deregistrations.
--- * 'arn' - The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
--- * 'healthCheckConfig' -
--- * 'createDate' - The date and time that the service was created.
--- * 'healthCheckCustomConfig' -
--- * 'name' - The name of the service.
--- * 'id' - The ID that AWS Cloud Map assigned to the service when you created it.
--- * 'dnsConfig' -
--- * 'description' - The description that you specify when you create the service.
+-- | Creates a 'ServiceSummary' value with any optional fields omitted.
 mkServiceSummary ::
   ServiceSummary
 mkServiceSummary =
   ServiceSummary'
-    { instanceCount = Lude.Nothing,
-      arn = Lude.Nothing,
-      healthCheckConfig = Lude.Nothing,
-      createDate = Lude.Nothing,
-      healthCheckCustomConfig = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      dnsConfig = Lude.Nothing,
-      description = Lude.Nothing
+    { arn = Core.Nothing,
+      createDate = Core.Nothing,
+      description = Core.Nothing,
+      dnsConfig = Core.Nothing,
+      healthCheckConfig = Core.Nothing,
+      healthCheckCustomConfig = Core.Nothing,
+      id = Core.Nothing,
+      instanceCount = Core.Nothing,
+      name = Core.Nothing
     }
-
--- | The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count. The count might not reflect pending registrations and deregistrations.
---
--- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssInstanceCount :: Lens.Lens' ServiceSummary (Lude.Maybe Lude.Int)
-ssInstanceCount = Lens.lens (instanceCount :: ServiceSummary -> Lude.Maybe Lude.Int) (\s a -> s {instanceCount = a} :: ServiceSummary)
-{-# DEPRECATED ssInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
 
 -- | The Amazon Resource Name (ARN) that AWS Cloud Map assigns to the service when you create it.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssARN :: Lens.Lens' ServiceSummary (Lude.Maybe Lude.Text)
-ssARN = Lens.lens (arn :: ServiceSummary -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: ServiceSummary)
-{-# DEPRECATED ssARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'healthCheckConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssHealthCheckConfig :: Lens.Lens' ServiceSummary (Lude.Maybe HealthCheckConfig)
-ssHealthCheckConfig = Lens.lens (healthCheckConfig :: ServiceSummary -> Lude.Maybe HealthCheckConfig) (\s a -> s {healthCheckConfig = a} :: ServiceSummary)
-{-# DEPRECATED ssHealthCheckConfig "Use generic-lens or generic-optics with 'healthCheckConfig' instead." #-}
+ssArn :: Lens.Lens' ServiceSummary (Core.Maybe Types.Arn)
+ssArn = Lens.field @"arn"
+{-# DEPRECATED ssArn "Use generic-lens or generic-optics with 'arn' instead." #-}
 
 -- | The date and time that the service was created.
 --
 -- /Note:/ Consider using 'createDate' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssCreateDate :: Lens.Lens' ServiceSummary (Lude.Maybe Lude.Timestamp)
-ssCreateDate = Lens.lens (createDate :: ServiceSummary -> Lude.Maybe Lude.Timestamp) (\s a -> s {createDate = a} :: ServiceSummary)
+ssCreateDate :: Lens.Lens' ServiceSummary (Core.Maybe Core.NominalDiffTime)
+ssCreateDate = Lens.field @"createDate"
 {-# DEPRECATED ssCreateDate "Use generic-lens or generic-optics with 'createDate' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'healthCheckCustomConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssHealthCheckCustomConfig :: Lens.Lens' ServiceSummary (Lude.Maybe HealthCheckCustomConfig)
-ssHealthCheckCustomConfig = Lens.lens (healthCheckCustomConfig :: ServiceSummary -> Lude.Maybe HealthCheckCustomConfig) (\s a -> s {healthCheckCustomConfig = a} :: ServiceSummary)
-{-# DEPRECATED ssHealthCheckCustomConfig "Use generic-lens or generic-optics with 'healthCheckCustomConfig' instead." #-}
-
--- | The name of the service.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssName :: Lens.Lens' ServiceSummary (Lude.Maybe Lude.Text)
-ssName = Lens.lens (name :: ServiceSummary -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: ServiceSummary)
-{-# DEPRECATED ssName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The ID that AWS Cloud Map assigned to the service when you created it.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssId :: Lens.Lens' ServiceSummary (Lude.Maybe Lude.Text)
-ssId = Lens.lens (id :: ServiceSummary -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: ServiceSummary)
-{-# DEPRECATED ssId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'dnsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssDNSConfig :: Lens.Lens' ServiceSummary (Lude.Maybe DNSConfig)
-ssDNSConfig = Lens.lens (dnsConfig :: ServiceSummary -> Lude.Maybe DNSConfig) (\s a -> s {dnsConfig = a} :: ServiceSummary)
-{-# DEPRECATED ssDNSConfig "Use generic-lens or generic-optics with 'dnsConfig' instead." #-}
 
 -- | The description that you specify when you create the service.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ssDescription :: Lens.Lens' ServiceSummary (Lude.Maybe Lude.Text)
-ssDescription = Lens.lens (description :: ServiceSummary -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: ServiceSummary)
+ssDescription :: Lens.Lens' ServiceSummary (Core.Maybe Types.ResourceDescription)
+ssDescription = Lens.field @"description"
 {-# DEPRECATED ssDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON ServiceSummary where
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'dnsConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssDnsConfig :: Lens.Lens' ServiceSummary (Core.Maybe Types.DnsConfig)
+ssDnsConfig = Lens.field @"dnsConfig"
+{-# DEPRECATED ssDnsConfig "Use generic-lens or generic-optics with 'dnsConfig' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'healthCheckConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssHealthCheckConfig :: Lens.Lens' ServiceSummary (Core.Maybe Types.HealthCheckConfig)
+ssHealthCheckConfig = Lens.field @"healthCheckConfig"
+{-# DEPRECATED ssHealthCheckConfig "Use generic-lens or generic-optics with 'healthCheckConfig' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'healthCheckCustomConfig' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssHealthCheckCustomConfig :: Lens.Lens' ServiceSummary (Core.Maybe Types.HealthCheckCustomConfig)
+ssHealthCheckCustomConfig = Lens.field @"healthCheckCustomConfig"
+{-# DEPRECATED ssHealthCheckCustomConfig "Use generic-lens or generic-optics with 'healthCheckCustomConfig' instead." #-}
+
+-- | The ID that AWS Cloud Map assigned to the service when you created it.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssId :: Lens.Lens' ServiceSummary (Core.Maybe Types.ResourceId)
+ssId = Lens.field @"id"
+{-# DEPRECATED ssId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The number of instances that are currently associated with the service. Instances that were previously associated with the service but that have been deleted are not included in the count. The count might not reflect pending registrations and deregistrations.
+--
+-- /Note:/ Consider using 'instanceCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssInstanceCount :: Lens.Lens' ServiceSummary (Core.Maybe Core.Int)
+ssInstanceCount = Lens.field @"instanceCount"
+{-# DEPRECATED ssInstanceCount "Use generic-lens or generic-optics with 'instanceCount' instead." #-}
+
+-- | The name of the service.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ssName :: Lens.Lens' ServiceSummary (Core.Maybe Types.ServiceName)
+ssName = Lens.field @"name"
+{-# DEPRECATED ssName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+instance Core.FromJSON ServiceSummary where
   parseJSON =
-    Lude.withObject
-      "ServiceSummary"
-      ( \x ->
-          ServiceSummary'
-            Lude.<$> (x Lude..:? "InstanceCount")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "HealthCheckConfig")
-            Lude.<*> (x Lude..:? "CreateDate")
-            Lude.<*> (x Lude..:? "HealthCheckCustomConfig")
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "Id")
-            Lude.<*> (x Lude..:? "DnsConfig")
-            Lude.<*> (x Lude..:? "Description")
-      )
+    Core.withObject "ServiceSummary" Core.$
+      \x ->
+        ServiceSummary'
+          Core.<$> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "CreateDate")
+          Core.<*> (x Core..:? "Description")
+          Core.<*> (x Core..:? "DnsConfig")
+          Core.<*> (x Core..:? "HealthCheckConfig")
+          Core.<*> (x Core..:? "HealthCheckCustomConfig")
+          Core.<*> (x Core..:? "Id")
+          Core.<*> (x Core..:? "InstanceCount")
+          Core.<*> (x Core..:? "Name")

@@ -13,47 +13,52 @@
 module Network.AWS.MediaConvert.Types.InputPsiControl
   ( InputPsiControl
       ( InputPsiControl',
-        IgnorePsi,
-        UsePsi
+        InputPsiControlIgnorePsi,
+        InputPsiControlUsePsi,
+        fromInputPsiControl
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Set PSI control (InputPsiControl) for transport stream inputs to specify which data the demux process to scans. * Ignore PSI - Scan all PIDs for audio and video. * Use PSI - Scan only PSI data.
-newtype InputPsiControl = InputPsiControl' Lude.Text
+newtype InputPsiControl = InputPsiControl'
+  { fromInputPsiControl ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern IgnorePsi :: InputPsiControl
-pattern IgnorePsi = InputPsiControl' "IGNORE_PSI"
+pattern InputPsiControlIgnorePsi :: InputPsiControl
+pattern InputPsiControlIgnorePsi = InputPsiControl' "IGNORE_PSI"
 
-pattern UsePsi :: InputPsiControl
-pattern UsePsi = InputPsiControl' "USE_PSI"
+pattern InputPsiControlUsePsi :: InputPsiControl
+pattern InputPsiControlUsePsi = InputPsiControl' "USE_PSI"
 
 {-# COMPLETE
-  IgnorePsi,
-  UsePsi,
+  InputPsiControlIgnorePsi,
+  InputPsiControlUsePsi,
   InputPsiControl'
   #-}

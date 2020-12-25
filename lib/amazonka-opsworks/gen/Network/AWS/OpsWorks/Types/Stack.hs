@@ -17,332 +17,306 @@ module Network.AWS.OpsWorks.Types.Stack
     mkStack,
 
     -- * Lenses
-    sfDefaultInstanceProfileARN,
-    sfServiceRoleARN,
-    sfDefaultRootDeviceType,
-    sfARN,
-    sfCreatedAt,
-    sfVPCId,
-    sfChefConfiguration,
-    sfAgentVersion,
-    sfDefaultSSHKeyName,
-    sfCustomJSON,
-    sfCustomCookbooksSource,
-    sfDefaultAvailabilityZone,
-    sfAttributes,
-    sfName,
-    sfDefaultOS,
-    sfUseOpsworksSecurityGroups,
-    sfUseCustomCookbooks,
-    sfDefaultSubnetId,
-    sfRegion,
-    sfConfigurationManager,
-    sfStackId,
-    sfHostnameTheme,
+    sAgentVersion,
+    sArn,
+    sAttributes,
+    sChefConfiguration,
+    sConfigurationManager,
+    sCreatedAt,
+    sCustomCookbooksSource,
+    sCustomJson,
+    sDefaultAvailabilityZone,
+    sDefaultInstanceProfileArn,
+    sDefaultOs,
+    sDefaultRootDeviceType,
+    sDefaultSshKeyName,
+    sDefaultSubnetId,
+    sHostnameTheme,
+    sName,
+    sRegion,
+    sServiceRoleArn,
+    sStackId,
+    sUseCustomCookbooks,
+    sUseOpsworksSecurityGroups,
+    sVpcId,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types.ChefConfiguration
-import Network.AWS.OpsWorks.Types.RootDeviceType
-import Network.AWS.OpsWorks.Types.Source
-import Network.AWS.OpsWorks.Types.StackAttributesKeys
-import Network.AWS.OpsWorks.Types.StackConfigurationManager
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.OpsWorks.Types.ChefConfiguration as Types
+import qualified Network.AWS.OpsWorks.Types.CreatedAt as Types
+import qualified Network.AWS.OpsWorks.Types.RootDeviceType as Types
+import qualified Network.AWS.OpsWorks.Types.Source as Types
+import qualified Network.AWS.OpsWorks.Types.StackAttributesKeys as Types
+import qualified Network.AWS.OpsWorks.Types.StackConfigurationManager as Types
+import qualified Network.AWS.OpsWorks.Types.String as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a stack.
 --
 -- /See:/ 'mkStack' smart constructor.
 data Stack = Stack'
-  { -- | The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
-    defaultInstanceProfileARN :: Lude.Maybe Lude.Text,
-    -- | The stack AWS Identity and Access Management (IAM) role.
-    serviceRoleARN :: Lude.Maybe Lude.Text,
-    -- | The default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
-    defaultRootDeviceType :: Lude.Maybe RootDeviceType,
+  { -- | The agent version. This parameter is set to @LATEST@ for auto-update. or a version number for a fixed agent version.
+    agentVersion :: Core.Maybe Types.String,
     -- | The stack's ARN.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The date when the stack was created.
-    createdAt :: Lude.Maybe Lude.Text,
-    -- | The VPC ID; applicable only if the stack is running in a VPC.
-    vpcId :: Lude.Maybe Lude.Text,
+    arn :: Core.Maybe Types.String,
+    -- | The stack's attributes.
+    attributes :: Core.Maybe (Core.HashMap Types.StackAttributesKeys Types.Maybe Text),
     -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf and the Berkshelf version. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
-    chefConfiguration :: Lude.Maybe ChefConfiguration,
-    -- | The agent version. This parameter is set to @LATEST@ for auto-update. or a version number for a fixed agent version.
-    agentVersion :: Lude.Maybe Lude.Text,
-    -- | A default Amazon EC2 key pair for the stack's instances. You can override this value when you create or update an instance.
-    defaultSSHKeyName :: Lude.Maybe Lude.Text,
+    chefConfiguration :: Core.Maybe Types.ChefConfiguration,
+    -- | The configuration manager.
+    configurationManager :: Core.Maybe Types.StackConfigurationManager,
+    -- | The date when the stack was created.
+    createdAt :: Core.Maybe Types.CreatedAt,
+    -- | Contains the information required to retrieve an app or cookbook from a repository. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps> or <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes> .
+    customCookbooksSource :: Core.Maybe Types.Source,
     -- | A JSON object that contains user-defined attributes to be added to the stack configuration and deployment attributes. You can use custom JSON to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:
     --
     -- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
     -- For more information on custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
-    customJSON :: Lude.Maybe Lude.Text,
-    -- | Contains the information required to retrieve an app or cookbook from a repository. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps> or <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes> .
-    customCookbooksSource :: Lude.Maybe Source,
+    customJson :: Core.Maybe Types.String,
     -- | The stack's default Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
-    defaultAvailabilityZone :: Lude.Maybe Lude.Text,
-    -- | The stack's attributes.
-    attributes :: Lude.Maybe (Lude.HashMap StackAttributesKeys (Maybe Text)),
-    -- | The stack name.
-    name :: Lude.Maybe Lude.Text,
+    defaultAvailabilityZone :: Core.Maybe Types.String,
+    -- | The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
+    defaultInstanceProfileArn :: Core.Maybe Types.String,
     -- | The stack's default operating system.
-    defaultOS :: Lude.Maybe Lude.Text,
-    -- | Whether the stack automatically associates the AWS OpsWorks Stacks built-in security groups with the stack's layers.
-    useOpsworksSecurityGroups :: Lude.Maybe Lude.Bool,
-    -- | Whether the stack uses custom cookbooks.
-    useCustomCookbooks :: Lude.Maybe Lude.Bool,
+    defaultOs :: Core.Maybe Types.String,
+    -- | The default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
+    defaultRootDeviceType :: Core.Maybe Types.RootDeviceType,
+    -- | A default Amazon EC2 key pair for the stack's instances. You can override this value when you create or update an instance.
+    defaultSshKeyName :: Core.Maybe Types.String,
     -- | The default subnet ID; applicable only if the stack is running in a VPC.
-    defaultSubnetId :: Lude.Maybe Lude.Text,
-    -- | The stack AWS region, such as "ap-northeast-2". For more information about AWS regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
-    region :: Lude.Maybe Lude.Text,
-    -- | The configuration manager.
-    configurationManager :: Lude.Maybe StackConfigurationManager,
-    -- | The stack ID.
-    stackId :: Lude.Maybe Lude.Text,
+    defaultSubnetId :: Core.Maybe Types.String,
     -- | The stack host name theme, with spaces replaced by underscores.
-    hostnameTheme :: Lude.Maybe Lude.Text
+    hostnameTheme :: Core.Maybe Types.String,
+    -- | The stack name.
+    name :: Core.Maybe Types.String,
+    -- | The stack AWS region, such as "ap-northeast-2". For more information about AWS regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
+    region :: Core.Maybe Types.String,
+    -- | The stack AWS Identity and Access Management (IAM) role.
+    serviceRoleArn :: Core.Maybe Types.String,
+    -- | The stack ID.
+    stackId :: Core.Maybe Types.String,
+    -- | Whether the stack uses custom cookbooks.
+    useCustomCookbooks :: Core.Maybe Core.Bool,
+    -- | Whether the stack automatically associates the AWS OpsWorks Stacks built-in security groups with the stack's layers.
+    useOpsworksSecurityGroups :: Core.Maybe Core.Bool,
+    -- | The VPC ID; applicable only if the stack is running in a VPC.
+    vpcId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Stack' with the minimum fields required to make a request.
---
--- * 'defaultInstanceProfileARN' - The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
--- * 'serviceRoleARN' - The stack AWS Identity and Access Management (IAM) role.
--- * 'defaultRootDeviceType' - The default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
--- * 'arn' - The stack's ARN.
--- * 'createdAt' - The date when the stack was created.
--- * 'vpcId' - The VPC ID; applicable only if the stack is running in a VPC.
--- * 'chefConfiguration' - A @ChefConfiguration@ object that specifies whether to enable Berkshelf and the Berkshelf version. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
--- * 'agentVersion' - The agent version. This parameter is set to @LATEST@ for auto-update. or a version number for a fixed agent version.
--- * 'defaultSSHKeyName' - A default Amazon EC2 key pair for the stack's instances. You can override this value when you create or update an instance.
--- * 'customJSON' - A JSON object that contains user-defined attributes to be added to the stack configuration and deployment attributes. You can use custom JSON to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:
---
--- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
--- For more information on custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
--- * 'customCookbooksSource' - Contains the information required to retrieve an app or cookbook from a repository. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps> or <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes> .
--- * 'defaultAvailabilityZone' - The stack's default Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
--- * 'attributes' - The stack's attributes.
--- * 'name' - The stack name.
--- * 'defaultOS' - The stack's default operating system.
--- * 'useOpsworksSecurityGroups' - Whether the stack automatically associates the AWS OpsWorks Stacks built-in security groups with the stack's layers.
--- * 'useCustomCookbooks' - Whether the stack uses custom cookbooks.
--- * 'defaultSubnetId' - The default subnet ID; applicable only if the stack is running in a VPC.
--- * 'region' - The stack AWS region, such as "ap-northeast-2". For more information about AWS regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
--- * 'configurationManager' - The configuration manager.
--- * 'stackId' - The stack ID.
--- * 'hostnameTheme' - The stack host name theme, with spaces replaced by underscores.
+-- | Creates a 'Stack' value with any optional fields omitted.
 mkStack ::
   Stack
 mkStack =
   Stack'
-    { defaultInstanceProfileARN = Lude.Nothing,
-      serviceRoleARN = Lude.Nothing,
-      defaultRootDeviceType = Lude.Nothing,
-      arn = Lude.Nothing,
-      createdAt = Lude.Nothing,
-      vpcId = Lude.Nothing,
-      chefConfiguration = Lude.Nothing,
-      agentVersion = Lude.Nothing,
-      defaultSSHKeyName = Lude.Nothing,
-      customJSON = Lude.Nothing,
-      customCookbooksSource = Lude.Nothing,
-      defaultAvailabilityZone = Lude.Nothing,
-      attributes = Lude.Nothing,
-      name = Lude.Nothing,
-      defaultOS = Lude.Nothing,
-      useOpsworksSecurityGroups = Lude.Nothing,
-      useCustomCookbooks = Lude.Nothing,
-      defaultSubnetId = Lude.Nothing,
-      region = Lude.Nothing,
-      configurationManager = Lude.Nothing,
-      stackId = Lude.Nothing,
-      hostnameTheme = Lude.Nothing
+    { agentVersion = Core.Nothing,
+      arn = Core.Nothing,
+      attributes = Core.Nothing,
+      chefConfiguration = Core.Nothing,
+      configurationManager = Core.Nothing,
+      createdAt = Core.Nothing,
+      customCookbooksSource = Core.Nothing,
+      customJson = Core.Nothing,
+      defaultAvailabilityZone = Core.Nothing,
+      defaultInstanceProfileArn = Core.Nothing,
+      defaultOs = Core.Nothing,
+      defaultRootDeviceType = Core.Nothing,
+      defaultSshKeyName = Core.Nothing,
+      defaultSubnetId = Core.Nothing,
+      hostnameTheme = Core.Nothing,
+      name = Core.Nothing,
+      region = Core.Nothing,
+      serviceRoleArn = Core.Nothing,
+      stackId = Core.Nothing,
+      useCustomCookbooks = Core.Nothing,
+      useOpsworksSecurityGroups = Core.Nothing,
+      vpcId = Core.Nothing
     }
-
--- | The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
---
--- /Note:/ Consider using 'defaultInstanceProfileARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfDefaultInstanceProfileARN :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfDefaultInstanceProfileARN = Lens.lens (defaultInstanceProfileARN :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {defaultInstanceProfileARN = a} :: Stack)
-{-# DEPRECATED sfDefaultInstanceProfileARN "Use generic-lens or generic-optics with 'defaultInstanceProfileARN' instead." #-}
-
--- | The stack AWS Identity and Access Management (IAM) role.
---
--- /Note:/ Consider using 'serviceRoleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfServiceRoleARN :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfServiceRoleARN = Lens.lens (serviceRoleARN :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {serviceRoleARN = a} :: Stack)
-{-# DEPRECATED sfServiceRoleARN "Use generic-lens or generic-optics with 'serviceRoleARN' instead." #-}
-
--- | The default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
---
--- /Note:/ Consider using 'defaultRootDeviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfDefaultRootDeviceType :: Lens.Lens' Stack (Lude.Maybe RootDeviceType)
-sfDefaultRootDeviceType = Lens.lens (defaultRootDeviceType :: Stack -> Lude.Maybe RootDeviceType) (\s a -> s {defaultRootDeviceType = a} :: Stack)
-{-# DEPRECATED sfDefaultRootDeviceType "Use generic-lens or generic-optics with 'defaultRootDeviceType' instead." #-}
-
--- | The stack's ARN.
---
--- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfARN :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfARN = Lens.lens (arn :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: Stack)
-{-# DEPRECATED sfARN "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The date when the stack was created.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfCreatedAt :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfCreatedAt = Lens.lens (createdAt :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {createdAt = a} :: Stack)
-{-# DEPRECATED sfCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | The VPC ID; applicable only if the stack is running in a VPC.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfVPCId :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfVPCId = Lens.lens (vpcId :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: Stack)
-{-# DEPRECATED sfVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf and the Berkshelf version. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
---
--- /Note:/ Consider using 'chefConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfChefConfiguration :: Lens.Lens' Stack (Lude.Maybe ChefConfiguration)
-sfChefConfiguration = Lens.lens (chefConfiguration :: Stack -> Lude.Maybe ChefConfiguration) (\s a -> s {chefConfiguration = a} :: Stack)
-{-# DEPRECATED sfChefConfiguration "Use generic-lens or generic-optics with 'chefConfiguration' instead." #-}
 
 -- | The agent version. This parameter is set to @LATEST@ for auto-update. or a version number for a fixed agent version.
 --
 -- /Note:/ Consider using 'agentVersion' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfAgentVersion :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfAgentVersion = Lens.lens (agentVersion :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {agentVersion = a} :: Stack)
-{-# DEPRECATED sfAgentVersion "Use generic-lens or generic-optics with 'agentVersion' instead." #-}
+sAgentVersion :: Lens.Lens' Stack (Core.Maybe Types.String)
+sAgentVersion = Lens.field @"agentVersion"
+{-# DEPRECATED sAgentVersion "Use generic-lens or generic-optics with 'agentVersion' instead." #-}
 
--- | A default Amazon EC2 key pair for the stack's instances. You can override this value when you create or update an instance.
+-- | The stack's ARN.
 --
--- /Note:/ Consider using 'defaultSSHKeyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfDefaultSSHKeyName :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfDefaultSSHKeyName = Lens.lens (defaultSSHKeyName :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {defaultSSHKeyName = a} :: Stack)
-{-# DEPRECATED sfDefaultSSHKeyName "Use generic-lens or generic-optics with 'defaultSSHKeyName' instead." #-}
+-- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sArn :: Lens.Lens' Stack (Core.Maybe Types.String)
+sArn = Lens.field @"arn"
+{-# DEPRECATED sArn "Use generic-lens or generic-optics with 'arn' instead." #-}
+
+-- | The stack's attributes.
+--
+-- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sAttributes :: Lens.Lens' Stack (Core.Maybe (Core.HashMap Types.StackAttributesKeys Types.Maybe Text))
+sAttributes = Lens.field @"attributes"
+{-# DEPRECATED sAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
+
+-- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf and the Berkshelf version. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack> .
+--
+-- /Note:/ Consider using 'chefConfiguration' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sChefConfiguration :: Lens.Lens' Stack (Core.Maybe Types.ChefConfiguration)
+sChefConfiguration = Lens.field @"chefConfiguration"
+{-# DEPRECATED sChefConfiguration "Use generic-lens or generic-optics with 'chefConfiguration' instead." #-}
+
+-- | The configuration manager.
+--
+-- /Note:/ Consider using 'configurationManager' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sConfigurationManager :: Lens.Lens' Stack (Core.Maybe Types.StackConfigurationManager)
+sConfigurationManager = Lens.field @"configurationManager"
+{-# DEPRECATED sConfigurationManager "Use generic-lens or generic-optics with 'configurationManager' instead." #-}
+
+-- | The date when the stack was created.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCreatedAt :: Lens.Lens' Stack (Core.Maybe Types.CreatedAt)
+sCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED sCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | Contains the information required to retrieve an app or cookbook from a repository. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps> or <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes> .
+--
+-- /Note:/ Consider using 'customCookbooksSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCustomCookbooksSource :: Lens.Lens' Stack (Core.Maybe Types.Source)
+sCustomCookbooksSource = Lens.field @"customCookbooksSource"
+{-# DEPRECATED sCustomCookbooksSource "Use generic-lens or generic-optics with 'customCookbooksSource' instead." #-}
 
 -- | A JSON object that contains user-defined attributes to be added to the stack configuration and deployment attributes. You can use custom JSON to override the corresponding default stack configuration attribute values or to pass data to recipes. The string should be in the following format:
 --
 -- @"{\"key1\": \"value1\", \"key2\": \"value2\",...}"@
 -- For more information on custom JSON, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes> .
 --
--- /Note:/ Consider using 'customJSON' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfCustomJSON :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfCustomJSON = Lens.lens (customJSON :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {customJSON = a} :: Stack)
-{-# DEPRECATED sfCustomJSON "Use generic-lens or generic-optics with 'customJSON' instead." #-}
-
--- | Contains the information required to retrieve an app or cookbook from a repository. For more information, see <https://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Adding Apps> or <https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook.html Cookbooks and Recipes> .
---
--- /Note:/ Consider using 'customCookbooksSource' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfCustomCookbooksSource :: Lens.Lens' Stack (Lude.Maybe Source)
-sfCustomCookbooksSource = Lens.lens (customCookbooksSource :: Stack -> Lude.Maybe Source) (\s a -> s {customCookbooksSource = a} :: Stack)
-{-# DEPRECATED sfCustomCookbooksSource "Use generic-lens or generic-optics with 'customCookbooksSource' instead." #-}
+-- /Note:/ Consider using 'customJson' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sCustomJson :: Lens.Lens' Stack (Core.Maybe Types.String)
+sCustomJson = Lens.field @"customJson"
+{-# DEPRECATED sCustomJson "Use generic-lens or generic-optics with 'customJson' instead." #-}
 
 -- | The stack's default Availability Zone. For more information, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
 --
 -- /Note:/ Consider using 'defaultAvailabilityZone' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfDefaultAvailabilityZone :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfDefaultAvailabilityZone = Lens.lens (defaultAvailabilityZone :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {defaultAvailabilityZone = a} :: Stack)
-{-# DEPRECATED sfDefaultAvailabilityZone "Use generic-lens or generic-optics with 'defaultAvailabilityZone' instead." #-}
+sDefaultAvailabilityZone :: Lens.Lens' Stack (Core.Maybe Types.String)
+sDefaultAvailabilityZone = Lens.field @"defaultAvailabilityZone"
+{-# DEPRECATED sDefaultAvailabilityZone "Use generic-lens or generic-optics with 'defaultAvailabilityZone' instead." #-}
 
--- | The stack's attributes.
+-- | The ARN of an IAM profile that is the default profile for all of the stack's EC2 instances. For more information about IAM ARNs, see <https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers> .
 --
--- /Note:/ Consider using 'attributes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfAttributes :: Lens.Lens' Stack (Lude.Maybe (Lude.HashMap StackAttributesKeys (Maybe Text)))
-sfAttributes = Lens.lens (attributes :: Stack -> Lude.Maybe (Lude.HashMap StackAttributesKeys (Maybe Text))) (\s a -> s {attributes = a} :: Stack)
-{-# DEPRECATED sfAttributes "Use generic-lens or generic-optics with 'attributes' instead." #-}
-
--- | The stack name.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfName :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfName = Lens.lens (name :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {name = a} :: Stack)
-{-# DEPRECATED sfName "Use generic-lens or generic-optics with 'name' instead." #-}
+-- /Note:/ Consider using 'defaultInstanceProfileArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDefaultInstanceProfileArn :: Lens.Lens' Stack (Core.Maybe Types.String)
+sDefaultInstanceProfileArn = Lens.field @"defaultInstanceProfileArn"
+{-# DEPRECATED sDefaultInstanceProfileArn "Use generic-lens or generic-optics with 'defaultInstanceProfileArn' instead." #-}
 
 -- | The stack's default operating system.
 --
--- /Note:/ Consider using 'defaultOS' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfDefaultOS :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfDefaultOS = Lens.lens (defaultOS :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {defaultOS = a} :: Stack)
-{-# DEPRECATED sfDefaultOS "Use generic-lens or generic-optics with 'defaultOS' instead." #-}
+-- /Note:/ Consider using 'defaultOs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDefaultOs :: Lens.Lens' Stack (Core.Maybe Types.String)
+sDefaultOs = Lens.field @"defaultOs"
+{-# DEPRECATED sDefaultOs "Use generic-lens or generic-optics with 'defaultOs' instead." #-}
 
--- | Whether the stack automatically associates the AWS OpsWorks Stacks built-in security groups with the stack's layers.
+-- | The default root device type. This value is used by default for all instances in the stack, but you can override it when you create an instance. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device> .
 --
--- /Note:/ Consider using 'useOpsworksSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfUseOpsworksSecurityGroups :: Lens.Lens' Stack (Lude.Maybe Lude.Bool)
-sfUseOpsworksSecurityGroups = Lens.lens (useOpsworksSecurityGroups :: Stack -> Lude.Maybe Lude.Bool) (\s a -> s {useOpsworksSecurityGroups = a} :: Stack)
-{-# DEPRECATED sfUseOpsworksSecurityGroups "Use generic-lens or generic-optics with 'useOpsworksSecurityGroups' instead." #-}
+-- /Note:/ Consider using 'defaultRootDeviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDefaultRootDeviceType :: Lens.Lens' Stack (Core.Maybe Types.RootDeviceType)
+sDefaultRootDeviceType = Lens.field @"defaultRootDeviceType"
+{-# DEPRECATED sDefaultRootDeviceType "Use generic-lens or generic-optics with 'defaultRootDeviceType' instead." #-}
 
--- | Whether the stack uses custom cookbooks.
+-- | A default Amazon EC2 key pair for the stack's instances. You can override this value when you create or update an instance.
 --
--- /Note:/ Consider using 'useCustomCookbooks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfUseCustomCookbooks :: Lens.Lens' Stack (Lude.Maybe Lude.Bool)
-sfUseCustomCookbooks = Lens.lens (useCustomCookbooks :: Stack -> Lude.Maybe Lude.Bool) (\s a -> s {useCustomCookbooks = a} :: Stack)
-{-# DEPRECATED sfUseCustomCookbooks "Use generic-lens or generic-optics with 'useCustomCookbooks' instead." #-}
+-- /Note:/ Consider using 'defaultSshKeyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sDefaultSshKeyName :: Lens.Lens' Stack (Core.Maybe Types.String)
+sDefaultSshKeyName = Lens.field @"defaultSshKeyName"
+{-# DEPRECATED sDefaultSshKeyName "Use generic-lens or generic-optics with 'defaultSshKeyName' instead." #-}
 
 -- | The default subnet ID; applicable only if the stack is running in a VPC.
 --
 -- /Note:/ Consider using 'defaultSubnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfDefaultSubnetId :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfDefaultSubnetId = Lens.lens (defaultSubnetId :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {defaultSubnetId = a} :: Stack)
-{-# DEPRECATED sfDefaultSubnetId "Use generic-lens or generic-optics with 'defaultSubnetId' instead." #-}
-
--- | The stack AWS region, such as "ap-northeast-2". For more information about AWS regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
---
--- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfRegion :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfRegion = Lens.lens (region :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {region = a} :: Stack)
-{-# DEPRECATED sfRegion "Use generic-lens or generic-optics with 'region' instead." #-}
-
--- | The configuration manager.
---
--- /Note:/ Consider using 'configurationManager' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfConfigurationManager :: Lens.Lens' Stack (Lude.Maybe StackConfigurationManager)
-sfConfigurationManager = Lens.lens (configurationManager :: Stack -> Lude.Maybe StackConfigurationManager) (\s a -> s {configurationManager = a} :: Stack)
-{-# DEPRECATED sfConfigurationManager "Use generic-lens or generic-optics with 'configurationManager' instead." #-}
-
--- | The stack ID.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfStackId :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfStackId = Lens.lens (stackId :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: Stack)
-{-# DEPRECATED sfStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+sDefaultSubnetId :: Lens.Lens' Stack (Core.Maybe Types.String)
+sDefaultSubnetId = Lens.field @"defaultSubnetId"
+{-# DEPRECATED sDefaultSubnetId "Use generic-lens or generic-optics with 'defaultSubnetId' instead." #-}
 
 -- | The stack host name theme, with spaces replaced by underscores.
 --
 -- /Note:/ Consider using 'hostnameTheme' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sfHostnameTheme :: Lens.Lens' Stack (Lude.Maybe Lude.Text)
-sfHostnameTheme = Lens.lens (hostnameTheme :: Stack -> Lude.Maybe Lude.Text) (\s a -> s {hostnameTheme = a} :: Stack)
-{-# DEPRECATED sfHostnameTheme "Use generic-lens or generic-optics with 'hostnameTheme' instead." #-}
+sHostnameTheme :: Lens.Lens' Stack (Core.Maybe Types.String)
+sHostnameTheme = Lens.field @"hostnameTheme"
+{-# DEPRECATED sHostnameTheme "Use generic-lens or generic-optics with 'hostnameTheme' instead." #-}
 
-instance Lude.FromJSON Stack where
+-- | The stack name.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sName :: Lens.Lens' Stack (Core.Maybe Types.String)
+sName = Lens.field @"name"
+{-# DEPRECATED sName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The stack AWS region, such as "ap-northeast-2". For more information about AWS regions, see <https://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> .
+--
+-- /Note:/ Consider using 'region' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sRegion :: Lens.Lens' Stack (Core.Maybe Types.String)
+sRegion = Lens.field @"region"
+{-# DEPRECATED sRegion "Use generic-lens or generic-optics with 'region' instead." #-}
+
+-- | The stack AWS Identity and Access Management (IAM) role.
+--
+-- /Note:/ Consider using 'serviceRoleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sServiceRoleArn :: Lens.Lens' Stack (Core.Maybe Types.String)
+sServiceRoleArn = Lens.field @"serviceRoleArn"
+{-# DEPRECATED sServiceRoleArn "Use generic-lens or generic-optics with 'serviceRoleArn' instead." #-}
+
+-- | The stack ID.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sStackId :: Lens.Lens' Stack (Core.Maybe Types.String)
+sStackId = Lens.field @"stackId"
+{-# DEPRECATED sStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+
+-- | Whether the stack uses custom cookbooks.
+--
+-- /Note:/ Consider using 'useCustomCookbooks' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sUseCustomCookbooks :: Lens.Lens' Stack (Core.Maybe Core.Bool)
+sUseCustomCookbooks = Lens.field @"useCustomCookbooks"
+{-# DEPRECATED sUseCustomCookbooks "Use generic-lens or generic-optics with 'useCustomCookbooks' instead." #-}
+
+-- | Whether the stack automatically associates the AWS OpsWorks Stacks built-in security groups with the stack's layers.
+--
+-- /Note:/ Consider using 'useOpsworksSecurityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sUseOpsworksSecurityGroups :: Lens.Lens' Stack (Core.Maybe Core.Bool)
+sUseOpsworksSecurityGroups = Lens.field @"useOpsworksSecurityGroups"
+{-# DEPRECATED sUseOpsworksSecurityGroups "Use generic-lens or generic-optics with 'useOpsworksSecurityGroups' instead." #-}
+
+-- | The VPC ID; applicable only if the stack is running in a VPC.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sVpcId :: Lens.Lens' Stack (Core.Maybe Types.String)
+sVpcId = Lens.field @"vpcId"
+{-# DEPRECATED sVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+instance Core.FromJSON Stack where
   parseJSON =
-    Lude.withObject
-      "Stack"
-      ( \x ->
-          Stack'
-            Lude.<$> (x Lude..:? "DefaultInstanceProfileArn")
-            Lude.<*> (x Lude..:? "ServiceRoleArn")
-            Lude.<*> (x Lude..:? "DefaultRootDeviceType")
-            Lude.<*> (x Lude..:? "Arn")
-            Lude.<*> (x Lude..:? "CreatedAt")
-            Lude.<*> (x Lude..:? "VpcId")
-            Lude.<*> (x Lude..:? "ChefConfiguration")
-            Lude.<*> (x Lude..:? "AgentVersion")
-            Lude.<*> (x Lude..:? "DefaultSshKeyName")
-            Lude.<*> (x Lude..:? "CustomJson")
-            Lude.<*> (x Lude..:? "CustomCookbooksSource")
-            Lude.<*> (x Lude..:? "DefaultAvailabilityZone")
-            Lude.<*> (x Lude..:? "Attributes" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "Name")
-            Lude.<*> (x Lude..:? "DefaultOs")
-            Lude.<*> (x Lude..:? "UseOpsworksSecurityGroups")
-            Lude.<*> (x Lude..:? "UseCustomCookbooks")
-            Lude.<*> (x Lude..:? "DefaultSubnetId")
-            Lude.<*> (x Lude..:? "Region")
-            Lude.<*> (x Lude..:? "ConfigurationManager")
-            Lude.<*> (x Lude..:? "StackId")
-            Lude.<*> (x Lude..:? "HostnameTheme")
-      )
+    Core.withObject "Stack" Core.$
+      \x ->
+        Stack'
+          Core.<$> (x Core..:? "AgentVersion")
+          Core.<*> (x Core..:? "Arn")
+          Core.<*> (x Core..:? "Attributes")
+          Core.<*> (x Core..:? "ChefConfiguration")
+          Core.<*> (x Core..:? "ConfigurationManager")
+          Core.<*> (x Core..:? "CreatedAt")
+          Core.<*> (x Core..:? "CustomCookbooksSource")
+          Core.<*> (x Core..:? "CustomJson")
+          Core.<*> (x Core..:? "DefaultAvailabilityZone")
+          Core.<*> (x Core..:? "DefaultInstanceProfileArn")
+          Core.<*> (x Core..:? "DefaultOs")
+          Core.<*> (x Core..:? "DefaultRootDeviceType")
+          Core.<*> (x Core..:? "DefaultSshKeyName")
+          Core.<*> (x Core..:? "DefaultSubnetId")
+          Core.<*> (x Core..:? "HostnameTheme")
+          Core.<*> (x Core..:? "Name")
+          Core.<*> (x Core..:? "Region")
+          Core.<*> (x Core..:? "ServiceRoleArn")
+          Core.<*> (x Core..:? "StackId")
+          Core.<*> (x Core..:? "UseCustomCookbooks")
+          Core.<*> (x Core..:? "UseOpsworksSecurityGroups")
+          Core.<*> (x Core..:? "VpcId")

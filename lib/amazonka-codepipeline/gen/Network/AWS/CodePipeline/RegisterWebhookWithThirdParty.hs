@@ -27,99 +27,86 @@ module Network.AWS.CodePipeline.RegisterWebhookWithThirdParty
     mkRegisterWebhookWithThirdPartyResponse,
 
     -- ** Response lenses
-    rwwtprsResponseStatus,
+    rwwtprrsResponseStatus,
   )
 where
 
-import Network.AWS.CodePipeline.Types
+import qualified Network.AWS.CodePipeline.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkRegisterWebhookWithThirdParty' smart constructor.
 newtype RegisterWebhookWithThirdParty = RegisterWebhookWithThirdParty'
   { -- | The name of an existing webhook created with PutWebhook to register with a supported third party.
-    webhookName :: Lude.Maybe Lude.Text
+    webhookName :: Core.Maybe Types.WebhookName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterWebhookWithThirdParty' with the minimum fields required to make a request.
---
--- * 'webhookName' - The name of an existing webhook created with PutWebhook to register with a supported third party.
+-- | Creates a 'RegisterWebhookWithThirdParty' value with any optional fields omitted.
 mkRegisterWebhookWithThirdParty ::
   RegisterWebhookWithThirdParty
 mkRegisterWebhookWithThirdParty =
-  RegisterWebhookWithThirdParty' {webhookName = Lude.Nothing}
+  RegisterWebhookWithThirdParty' {webhookName = Core.Nothing}
 
 -- | The name of an existing webhook created with PutWebhook to register with a supported third party.
 --
 -- /Note:/ Consider using 'webhookName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwwtpWebhookName :: Lens.Lens' RegisterWebhookWithThirdParty (Lude.Maybe Lude.Text)
-rwwtpWebhookName = Lens.lens (webhookName :: RegisterWebhookWithThirdParty -> Lude.Maybe Lude.Text) (\s a -> s {webhookName = a} :: RegisterWebhookWithThirdParty)
+rwwtpWebhookName :: Lens.Lens' RegisterWebhookWithThirdParty (Core.Maybe Types.WebhookName)
+rwwtpWebhookName = Lens.field @"webhookName"
 {-# DEPRECATED rwwtpWebhookName "Use generic-lens or generic-optics with 'webhookName' instead." #-}
 
-instance Lude.AWSRequest RegisterWebhookWithThirdParty where
+instance Core.FromJSON RegisterWebhookWithThirdParty where
+  toJSON RegisterWebhookWithThirdParty {..} =
+    Core.object
+      (Core.catMaybes [("webhookName" Core..=) Core.<$> webhookName])
+
+instance Core.AWSRequest RegisterWebhookWithThirdParty where
   type
     Rs RegisterWebhookWithThirdParty =
       RegisterWebhookWithThirdPartyResponse
-  request = Req.postJSON codePipelineService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "X-Amz-Target",
+              "CodePipeline_20150709.RegisterWebhookWithThirdParty"
+            )
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
           RegisterWebhookWithThirdPartyResponse'
-            Lude.<$> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders RegisterWebhookWithThirdParty where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "CodePipeline_20150709.RegisterWebhookWithThirdParty" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON RegisterWebhookWithThirdParty where
-  toJSON RegisterWebhookWithThirdParty' {..} =
-    Lude.object
-      (Lude.catMaybes [("webhookName" Lude..=) Lude.<$> webhookName])
-
-instance Lude.ToPath RegisterWebhookWithThirdParty where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery RegisterWebhookWithThirdParty where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkRegisterWebhookWithThirdPartyResponse' smart constructor.
 newtype RegisterWebhookWithThirdPartyResponse = RegisterWebhookWithThirdPartyResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'RegisterWebhookWithThirdPartyResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'RegisterWebhookWithThirdPartyResponse' value with any optional fields omitted.
 mkRegisterWebhookWithThirdPartyResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   RegisterWebhookWithThirdPartyResponse
-mkRegisterWebhookWithThirdPartyResponse pResponseStatus_ =
-  RegisterWebhookWithThirdPartyResponse'
-    { responseStatus =
-        pResponseStatus_
-    }
+mkRegisterWebhookWithThirdPartyResponse responseStatus =
+  RegisterWebhookWithThirdPartyResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-rwwtprsResponseStatus :: Lens.Lens' RegisterWebhookWithThirdPartyResponse Lude.Int
-rwwtprsResponseStatus = Lens.lens (responseStatus :: RegisterWebhookWithThirdPartyResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: RegisterWebhookWithThirdPartyResponse)
-{-# DEPRECATED rwwtprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+rwwtprrsResponseStatus :: Lens.Lens' RegisterWebhookWithThirdPartyResponse Core.Int
+rwwtprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED rwwtprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

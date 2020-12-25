@@ -22,49 +22,46 @@ module Network.AWS.ElastiCache.Types.Authentication
   )
 where
 
-import Network.AWS.ElastiCache.Types.AuthenticationType
+import qualified Network.AWS.ElastiCache.Types.AuthenticationType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Indicates whether the user requires a password to authenticate.
 --
 -- /See:/ 'mkAuthentication' smart constructor.
 data Authentication = Authentication'
   { -- | The number of passwords belonging to the user. The maximum is two.
-    passwordCount :: Lude.Maybe Lude.Int,
+    passwordCount :: Core.Maybe Core.Int,
     -- | Indicates whether the user requires a password to authenticate.
-    type' :: Lude.Maybe AuthenticationType
+    type' :: Core.Maybe Types.AuthenticationType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Authentication' with the minimum fields required to make a request.
---
--- * 'passwordCount' - The number of passwords belonging to the user. The maximum is two.
--- * 'type'' - Indicates whether the user requires a password to authenticate.
+-- | Creates a 'Authentication' value with any optional fields omitted.
 mkAuthentication ::
   Authentication
 mkAuthentication =
   Authentication'
-    { passwordCount = Lude.Nothing,
-      type' = Lude.Nothing
+    { passwordCount = Core.Nothing,
+      type' = Core.Nothing
     }
 
 -- | The number of passwords belonging to the user. The maximum is two.
 --
 -- /Note:/ Consider using 'passwordCount' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aPasswordCount :: Lens.Lens' Authentication (Lude.Maybe Lude.Int)
-aPasswordCount = Lens.lens (passwordCount :: Authentication -> Lude.Maybe Lude.Int) (\s a -> s {passwordCount = a} :: Authentication)
+aPasswordCount :: Lens.Lens' Authentication (Core.Maybe Core.Int)
+aPasswordCount = Lens.field @"passwordCount"
 {-# DEPRECATED aPasswordCount "Use generic-lens or generic-optics with 'passwordCount' instead." #-}
 
 -- | Indicates whether the user requires a password to authenticate.
 --
 -- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-aType :: Lens.Lens' Authentication (Lude.Maybe AuthenticationType)
-aType = Lens.lens (type' :: Authentication -> Lude.Maybe AuthenticationType) (\s a -> s {type' = a} :: Authentication)
+aType :: Lens.Lens' Authentication (Core.Maybe Types.AuthenticationType)
+aType = Lens.field @"type'"
 {-# DEPRECATED aType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
-instance Lude.FromXML Authentication where
+instance Core.FromXML Authentication where
   parseXML x =
     Authentication'
-      Lude.<$> (x Lude..@? "PasswordCount") Lude.<*> (x Lude..@? "Type")
+      Core.<$> (x Core..@? "PasswordCount") Core.<*> (x Core..@? "Type")

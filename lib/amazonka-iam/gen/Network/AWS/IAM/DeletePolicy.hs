@@ -33,7 +33,7 @@ module Network.AWS.IAM.DeletePolicy
     mkDeletePolicy,
 
     -- ** Request lenses
-    dpPolicyARN,
+    dpPolicyArn,
 
     -- * Destructuring the response
     DeletePolicyResponse (..),
@@ -41,67 +41,66 @@ module Network.AWS.IAM.DeletePolicy
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeletePolicy' smart constructor.
 newtype DeletePolicy = DeletePolicy'
   { -- | The Amazon Resource Name (ARN) of the IAM policy you want to delete.
     --
     -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
-    policyARN :: Lude.Text
+    policyArn :: Types.PolicyArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicy' with the minimum fields required to make a request.
---
--- * 'policyARN' - The Amazon Resource Name (ARN) of the IAM policy you want to delete.
---
--- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
+-- | Creates a 'DeletePolicy' value with any optional fields omitted.
 mkDeletePolicy ::
-  -- | 'policyARN'
-  Lude.Text ->
+  -- | 'policyArn'
+  Types.PolicyArn ->
   DeletePolicy
-mkDeletePolicy pPolicyARN_ = DeletePolicy' {policyARN = pPolicyARN_}
+mkDeletePolicy policyArn = DeletePolicy' {policyArn}
 
 -- | The Amazon Resource Name (ARN) of the IAM policy you want to delete.
 --
 -- For more information about ARNs, see <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html Amazon Resource Names (ARNs) and AWS Service Namespaces> in the /AWS General Reference/ .
 --
--- /Note:/ Consider using 'policyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpPolicyARN :: Lens.Lens' DeletePolicy Lude.Text
-dpPolicyARN = Lens.lens (policyARN :: DeletePolicy -> Lude.Text) (\s a -> s {policyARN = a} :: DeletePolicy)
-{-# DEPRECATED dpPolicyARN "Use generic-lens or generic-optics with 'policyARN' instead." #-}
+-- /Note:/ Consider using 'policyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpPolicyArn :: Lens.Lens' DeletePolicy Types.PolicyArn
+dpPolicyArn = Lens.field @"policyArn"
+{-# DEPRECATED dpPolicyArn "Use generic-lens or generic-optics with 'policyArn' instead." #-}
 
-instance Lude.AWSRequest DeletePolicy where
+instance Core.AWSRequest DeletePolicy where
   type Rs DeletePolicy = DeletePolicyResponse
-  request = Req.postQuery iamService
-  response = Res.receiveNull DeletePolicyResponse'
-
-instance Lude.ToHeaders DeletePolicy where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeletePolicy where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePolicy where
-  toQuery DeletePolicy' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeletePolicy" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "PolicyArn" Lude.=: policyARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeletePolicy")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "PolicyArn" policyArn)
+            )
+      }
+  response = Response.receiveNull DeletePolicyResponse'
 
 -- | /See:/ 'mkDeletePolicyResponse' smart constructor.
 data DeletePolicyResponse = DeletePolicyResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePolicyResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePolicyResponse' value with any optional fields omitted.
 mkDeletePolicyResponse ::
   DeletePolicyResponse
 mkDeletePolicyResponse = DeletePolicyResponse'

@@ -13,71 +13,73 @@
 module Network.AWS.Glacier.Types.CannedACL
   ( CannedACL
       ( CannedACL',
-        Private,
-        PublicRead,
-        PublicReadWrite,
-        AWSExecRead,
-        AuthenticatedRead,
-        BucketOwnerRead,
-        BucketOwnerFullControl
+        CannedACLPrivate,
+        CannedACLPublicRead,
+        CannedACLPublicReadWrite,
+        CannedACLAwsExecRead,
+        CannedACLAuthenticatedRead,
+        CannedACLBucketOwnerRead,
+        CannedACLBucketOwnerFullControl,
+        fromCannedACL
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CannedACL = CannedACL' Lude.Text
+newtype CannedACL = CannedACL' {fromCannedACL :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Private :: CannedACL
-pattern Private = CannedACL' "private"
+pattern CannedACLPrivate :: CannedACL
+pattern CannedACLPrivate = CannedACL' "private"
 
-pattern PublicRead :: CannedACL
-pattern PublicRead = CannedACL' "public-read"
+pattern CannedACLPublicRead :: CannedACL
+pattern CannedACLPublicRead = CannedACL' "public-read"
 
-pattern PublicReadWrite :: CannedACL
-pattern PublicReadWrite = CannedACL' "public-read-write"
+pattern CannedACLPublicReadWrite :: CannedACL
+pattern CannedACLPublicReadWrite = CannedACL' "public-read-write"
 
-pattern AWSExecRead :: CannedACL
-pattern AWSExecRead = CannedACL' "aws-exec-read"
+pattern CannedACLAwsExecRead :: CannedACL
+pattern CannedACLAwsExecRead = CannedACL' "aws-exec-read"
 
-pattern AuthenticatedRead :: CannedACL
-pattern AuthenticatedRead = CannedACL' "authenticated-read"
+pattern CannedACLAuthenticatedRead :: CannedACL
+pattern CannedACLAuthenticatedRead = CannedACL' "authenticated-read"
 
-pattern BucketOwnerRead :: CannedACL
-pattern BucketOwnerRead = CannedACL' "bucket-owner-read"
+pattern CannedACLBucketOwnerRead :: CannedACL
+pattern CannedACLBucketOwnerRead = CannedACL' "bucket-owner-read"
 
-pattern BucketOwnerFullControl :: CannedACL
-pattern BucketOwnerFullControl = CannedACL' "bucket-owner-full-control"
+pattern CannedACLBucketOwnerFullControl :: CannedACL
+pattern CannedACLBucketOwnerFullControl = CannedACL' "bucket-owner-full-control"
 
 {-# COMPLETE
-  Private,
-  PublicRead,
-  PublicReadWrite,
-  AWSExecRead,
-  AuthenticatedRead,
-  BucketOwnerRead,
-  BucketOwnerFullControl,
+  CannedACLPrivate,
+  CannedACLPublicRead,
+  CannedACLPublicReadWrite,
+  CannedACLAwsExecRead,
+  CannedACLAuthenticatedRead,
+  CannedACLBucketOwnerRead,
+  CannedACLBucketOwnerFullControl,
   CannedACL'
   #-}

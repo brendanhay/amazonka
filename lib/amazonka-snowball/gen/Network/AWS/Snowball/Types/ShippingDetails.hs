@@ -17,22 +17,26 @@ module Network.AWS.Snowball.Types.ShippingDetails
     mkShippingDetails,
 
     -- * Lenses
-    sdShippingOption,
-    sdOutboundShipment,
     sdInboundShipment,
+    sdOutboundShipment,
+    sdShippingOption,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Snowball.Types.Shipment
-import Network.AWS.Snowball.Types.ShippingOption
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Snowball.Types.Shipment as Types
+import qualified Network.AWS.Snowball.Types.ShippingOption as Types
 
 -- | A job's shipping information, including inbound and outbound tracking numbers and shipping speed options.
 --
 -- /See:/ 'mkShippingDetails' smart constructor.
 data ShippingDetails = ShippingDetails'
-  { -- | The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snow device from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
+  { -- | The @Status@ and @TrackingNumber@ values for a Snow device being returned to AWS for a particular job.
+    inboundShipment :: Core.Maybe Types.Shipment,
+    -- | The @Status@ and @TrackingNumber@ values for a Snow device being delivered to the address that you specified for a particular job.
+    outboundShipment :: Core.Maybe Types.Shipment,
+    -- | The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snow device from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
     --
     --
     --     * In Australia, you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day.
@@ -45,42 +49,34 @@ data ShippingDetails = ShippingDetails'
     --
     --
     --     * In the United States of America (US), you have access to one-day shipping and two-day shipping.
-    shippingOption :: Lude.Maybe ShippingOption,
-    -- | The @Status@ and @TrackingNumber@ values for a Snow device being delivered to the address that you specified for a particular job.
-    outboundShipment :: Lude.Maybe Shipment,
-    -- | The @Status@ and @TrackingNumber@ values for a Snow device being returned to AWS for a particular job.
-    inboundShipment :: Lude.Maybe Shipment
+    shippingOption :: Core.Maybe Types.ShippingOption
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ShippingDetails' with the minimum fields required to make a request.
---
--- * 'shippingOption' - The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snow device from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
---
---
---     * In Australia, you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day.
---
---
---     * In the European Union (EU), you have access to express shipping. Typically, Snow devices shipped express are delivered in about a day. In addition, most countries in the EU have access to standard shipping, which typically takes less than a week, one way.
---
---
---     * In India, Snow device are delivered in one to seven days.
---
---
---     * In the United States of America (US), you have access to one-day shipping and two-day shipping.
---
---
--- * 'outboundShipment' - The @Status@ and @TrackingNumber@ values for a Snow device being delivered to the address that you specified for a particular job.
--- * 'inboundShipment' - The @Status@ and @TrackingNumber@ values for a Snow device being returned to AWS for a particular job.
+-- | Creates a 'ShippingDetails' value with any optional fields omitted.
 mkShippingDetails ::
   ShippingDetails
 mkShippingDetails =
   ShippingDetails'
-    { shippingOption = Lude.Nothing,
-      outboundShipment = Lude.Nothing,
-      inboundShipment = Lude.Nothing
+    { inboundShipment = Core.Nothing,
+      outboundShipment = Core.Nothing,
+      shippingOption = Core.Nothing
     }
+
+-- | The @Status@ and @TrackingNumber@ values for a Snow device being returned to AWS for a particular job.
+--
+-- /Note:/ Consider using 'inboundShipment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdInboundShipment :: Lens.Lens' ShippingDetails (Core.Maybe Types.Shipment)
+sdInboundShipment = Lens.field @"inboundShipment"
+{-# DEPRECATED sdInboundShipment "Use generic-lens or generic-optics with 'inboundShipment' instead." #-}
+
+-- | The @Status@ and @TrackingNumber@ values for a Snow device being delivered to the address that you specified for a particular job.
+--
+-- /Note:/ Consider using 'outboundShipment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+sdOutboundShipment :: Lens.Lens' ShippingDetails (Core.Maybe Types.Shipment)
+sdOutboundShipment = Lens.field @"outboundShipment"
+{-# DEPRECATED sdOutboundShipment "Use generic-lens or generic-optics with 'outboundShipment' instead." #-}
 
 -- | The shipping speed for a particular job. This speed doesn't dictate how soon you'll get the Snow device from the job's creation date. This speed represents how quickly it moves to its destination while in transit. Regional shipping speeds are as follows:
 --
@@ -99,31 +95,15 @@ mkShippingDetails =
 --
 --
 -- /Note:/ Consider using 'shippingOption' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdShippingOption :: Lens.Lens' ShippingDetails (Lude.Maybe ShippingOption)
-sdShippingOption = Lens.lens (shippingOption :: ShippingDetails -> Lude.Maybe ShippingOption) (\s a -> s {shippingOption = a} :: ShippingDetails)
+sdShippingOption :: Lens.Lens' ShippingDetails (Core.Maybe Types.ShippingOption)
+sdShippingOption = Lens.field @"shippingOption"
 {-# DEPRECATED sdShippingOption "Use generic-lens or generic-optics with 'shippingOption' instead." #-}
 
--- | The @Status@ and @TrackingNumber@ values for a Snow device being delivered to the address that you specified for a particular job.
---
--- /Note:/ Consider using 'outboundShipment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdOutboundShipment :: Lens.Lens' ShippingDetails (Lude.Maybe Shipment)
-sdOutboundShipment = Lens.lens (outboundShipment :: ShippingDetails -> Lude.Maybe Shipment) (\s a -> s {outboundShipment = a} :: ShippingDetails)
-{-# DEPRECATED sdOutboundShipment "Use generic-lens or generic-optics with 'outboundShipment' instead." #-}
-
--- | The @Status@ and @TrackingNumber@ values for a Snow device being returned to AWS for a particular job.
---
--- /Note:/ Consider using 'inboundShipment' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-sdInboundShipment :: Lens.Lens' ShippingDetails (Lude.Maybe Shipment)
-sdInboundShipment = Lens.lens (inboundShipment :: ShippingDetails -> Lude.Maybe Shipment) (\s a -> s {inboundShipment = a} :: ShippingDetails)
-{-# DEPRECATED sdInboundShipment "Use generic-lens or generic-optics with 'inboundShipment' instead." #-}
-
-instance Lude.FromJSON ShippingDetails where
+instance Core.FromJSON ShippingDetails where
   parseJSON =
-    Lude.withObject
-      "ShippingDetails"
-      ( \x ->
-          ShippingDetails'
-            Lude.<$> (x Lude..:? "ShippingOption")
-            Lude.<*> (x Lude..:? "OutboundShipment")
-            Lude.<*> (x Lude..:? "InboundShipment")
-      )
+    Core.withObject "ShippingDetails" Core.$
+      \x ->
+        ShippingDetails'
+          Core.<$> (x Core..:? "InboundShipment")
+          Core.<*> (x Core..:? "OutboundShipment")
+          Core.<*> (x Core..:? "ShippingOption")

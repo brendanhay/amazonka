@@ -17,61 +17,53 @@ module Network.AWS.ELBv2.Types.Matcher
     mkMatcher,
 
     -- * Lenses
-    mHTTPCode,
     mGrpcCode,
+    mHttpCode,
   )
 where
 
+import qualified Network.AWS.ELBv2.Types.GrpcCode as Types
+import qualified Network.AWS.ELBv2.Types.HttpCode as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | The codes to use when checking for a successful response from a target. If the protocol version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes.
 --
 -- /See:/ 'mkMatcher' smart constructor.
 data Matcher = Matcher'
-  { -- | For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
+  { -- | You can specify values between 0 and 99. You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
+    grpcCode :: Core.Maybe Types.GrpcCode,
+    -- | For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
     --
     -- For Network Load Balancers and Gateway Load Balancers, this must be "200–399".
-    hTTPCode :: Lude.Maybe Lude.Text,
-    -- | You can specify values between 0 and 99. You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
-    grpcCode :: Lude.Maybe Lude.Text
+    httpCode :: Core.Maybe Types.HttpCode
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Matcher' with the minimum fields required to make a request.
---
--- * 'hTTPCode' - For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
---
--- For Network Load Balancers and Gateway Load Balancers, this must be "200–399".
--- * 'grpcCode' - You can specify values between 0 and 99. You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
+-- | Creates a 'Matcher' value with any optional fields omitted.
 mkMatcher ::
   Matcher
 mkMatcher =
-  Matcher' {hTTPCode = Lude.Nothing, grpcCode = Lude.Nothing}
+  Matcher' {grpcCode = Core.Nothing, httpCode = Core.Nothing}
+
+-- | You can specify values between 0 and 99. You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
+--
+-- /Note:/ Consider using 'grpcCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mGrpcCode :: Lens.Lens' Matcher (Core.Maybe Types.GrpcCode)
+mGrpcCode = Lens.field @"grpcCode"
+{-# DEPRECATED mGrpcCode "Use generic-lens or generic-optics with 'grpcCode' instead." #-}
 
 -- | For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").
 --
 -- For Network Load Balancers and Gateway Load Balancers, this must be "200–399".
 --
--- /Note:/ Consider using 'hTTPCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mHTTPCode :: Lens.Lens' Matcher (Lude.Maybe Lude.Text)
-mHTTPCode = Lens.lens (hTTPCode :: Matcher -> Lude.Maybe Lude.Text) (\s a -> s {hTTPCode = a} :: Matcher)
-{-# DEPRECATED mHTTPCode "Use generic-lens or generic-optics with 'hTTPCode' instead." #-}
+-- /Note:/ Consider using 'httpCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+mHttpCode :: Lens.Lens' Matcher (Core.Maybe Types.HttpCode)
+mHttpCode = Lens.field @"httpCode"
+{-# DEPRECATED mHttpCode "Use generic-lens or generic-optics with 'httpCode' instead." #-}
 
--- | You can specify values between 0 and 99. You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.
---
--- /Note:/ Consider using 'grpcCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-mGrpcCode :: Lens.Lens' Matcher (Lude.Maybe Lude.Text)
-mGrpcCode = Lens.lens (grpcCode :: Matcher -> Lude.Maybe Lude.Text) (\s a -> s {grpcCode = a} :: Matcher)
-{-# DEPRECATED mGrpcCode "Use generic-lens or generic-optics with 'grpcCode' instead." #-}
-
-instance Lude.FromXML Matcher where
+instance Core.FromXML Matcher where
   parseXML x =
     Matcher'
-      Lude.<$> (x Lude..@? "HttpCode") Lude.<*> (x Lude..@? "GrpcCode")
-
-instance Lude.ToQuery Matcher where
-  toQuery Matcher' {..} =
-    Lude.mconcat
-      ["HttpCode" Lude.=: hTTPCode, "GrpcCode" Lude.=: grpcCode]
+      Core.<$> (x Core..@? "GrpcCode") Core.<*> (x Core..@? "HttpCode")

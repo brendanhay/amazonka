@@ -13,61 +13,63 @@
 module Network.AWS.Glue.Types.CrawlState
   ( CrawlState
       ( CrawlState',
-        CSRunning,
-        CSCancelling,
-        CSCancelled,
-        CSSucceeded,
-        CSFailed
+        CrawlStateRunning,
+        CrawlStateCancelling,
+        CrawlStateCancelled,
+        CrawlStateSucceeded,
+        CrawlStateFailed,
+        fromCrawlState
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CrawlState = CrawlState' Lude.Text
+newtype CrawlState = CrawlState' {fromCrawlState :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CSRunning :: CrawlState
-pattern CSRunning = CrawlState' "RUNNING"
+pattern CrawlStateRunning :: CrawlState
+pattern CrawlStateRunning = CrawlState' "RUNNING"
 
-pattern CSCancelling :: CrawlState
-pattern CSCancelling = CrawlState' "CANCELLING"
+pattern CrawlStateCancelling :: CrawlState
+pattern CrawlStateCancelling = CrawlState' "CANCELLING"
 
-pattern CSCancelled :: CrawlState
-pattern CSCancelled = CrawlState' "CANCELLED"
+pattern CrawlStateCancelled :: CrawlState
+pattern CrawlStateCancelled = CrawlState' "CANCELLED"
 
-pattern CSSucceeded :: CrawlState
-pattern CSSucceeded = CrawlState' "SUCCEEDED"
+pattern CrawlStateSucceeded :: CrawlState
+pattern CrawlStateSucceeded = CrawlState' "SUCCEEDED"
 
-pattern CSFailed :: CrawlState
-pattern CSFailed = CrawlState' "FAILED"
+pattern CrawlStateFailed :: CrawlState
+pattern CrawlStateFailed = CrawlState' "FAILED"
 
 {-# COMPLETE
-  CSRunning,
-  CSCancelling,
-  CSCancelled,
-  CSSucceeded,
-  CSFailed,
+  CrawlStateRunning,
+  CrawlStateCancelling,
+  CrawlStateCancelled,
+  CrawlStateSucceeded,
+  CrawlStateFailed,
   CrawlState'
   #-}

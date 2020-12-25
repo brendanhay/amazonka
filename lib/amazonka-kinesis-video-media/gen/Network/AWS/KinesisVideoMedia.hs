@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -12,10 +11,28 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.KinesisVideoMedia
   ( -- * Service configuration
-    kinesisVideoMediaService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** ConnectionLimitExceededException
+    _ConnectionLimitExceededException,
+
+    -- ** InvalidArgumentException
+    _InvalidArgumentException,
+
+    -- ** NotAuthorizedException
+    _NotAuthorizedException,
+
+    -- ** ClientLimitExceededException
+    _ClientLimitExceededException,
+
+    -- ** InvalidEndpointException
+    _InvalidEndpointException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
 
     -- * Waiters
     -- $waiters
@@ -28,26 +45,39 @@ module Network.AWS.KinesisVideoMedia
 
     -- * Types
 
-    -- ** StartSelectorType
-    StartSelectorType (..),
+    -- ** ContinuationToken
+    ContinuationToken (..),
 
     -- ** StartSelector
     StartSelector (..),
     mkStartSelector,
-    ssContinuationToken,
-    ssAfterFragmentNumber,
     ssStartSelectorType,
+    ssAfterFragmentNumber,
+    ssContinuationToken,
     ssStartTimestamp,
+
+    -- ** StartSelectorType
+    StartSelectorType (..),
+
+    -- ** StreamName
+    StreamName (..),
+
+    -- ** ContentType
+    ContentType (..),
+
+    -- ** AfterFragmentNumber
+    AfterFragmentNumber (..),
+
+    -- ** StreamARN
+    StreamARN (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

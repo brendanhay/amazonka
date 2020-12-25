@@ -13,47 +13,52 @@
 module Network.AWS.MediaLive.Types.LastFrameClippingBehavior
   ( LastFrameClippingBehavior
       ( LastFrameClippingBehavior',
-        ExcludeLastFrame,
-        IncludeLastFrame
+        LastFrameClippingBehaviorExcludeLastFrame,
+        LastFrameClippingBehaviorIncludeLastFrame,
+        fromLastFrameClippingBehavior
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | If you specify a StopTimecode in an input (in order to clip the file), you can specify if you want the clip to exclude (the default) or include the frame specified by the timecode.
-newtype LastFrameClippingBehavior = LastFrameClippingBehavior' Lude.Text
+newtype LastFrameClippingBehavior = LastFrameClippingBehavior'
+  { fromLastFrameClippingBehavior ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern ExcludeLastFrame :: LastFrameClippingBehavior
-pattern ExcludeLastFrame = LastFrameClippingBehavior' "EXCLUDE_LAST_FRAME"
+pattern LastFrameClippingBehaviorExcludeLastFrame :: LastFrameClippingBehavior
+pattern LastFrameClippingBehaviorExcludeLastFrame = LastFrameClippingBehavior' "EXCLUDE_LAST_FRAME"
 
-pattern IncludeLastFrame :: LastFrameClippingBehavior
-pattern IncludeLastFrame = LastFrameClippingBehavior' "INCLUDE_LAST_FRAME"
+pattern LastFrameClippingBehaviorIncludeLastFrame :: LastFrameClippingBehavior
+pattern LastFrameClippingBehaviorIncludeLastFrame = LastFrameClippingBehavior' "INCLUDE_LAST_FRAME"
 
 {-# COMPLETE
-  ExcludeLastFrame,
-  IncludeLastFrame,
+  LastFrameClippingBehaviorExcludeLastFrame,
+  LastFrameClippingBehaviorIncludeLastFrame,
   LastFrameClippingBehavior'
   #-}

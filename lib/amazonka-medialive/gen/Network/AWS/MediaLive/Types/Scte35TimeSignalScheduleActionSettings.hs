@@ -22,49 +22,45 @@ module Network.AWS.MediaLive.Types.Scte35TimeSignalScheduleActionSettings
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.MediaLive.Types.Scte35Descriptor
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.MediaLive.Types.Scte35Descriptor as Types
+import qualified Network.AWS.Prelude as Core
 
 -- | Settings for a SCTE-35 time_signal.
 --
 -- /See:/ 'mkScte35TimeSignalScheduleActionSettings' smart constructor.
 newtype Scte35TimeSignalScheduleActionSettings = Scte35TimeSignalScheduleActionSettings'
   { -- | The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
-    scte35Descriptors :: [Scte35Descriptor]
+    scte35Descriptors :: [Types.Scte35Descriptor]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Scte35TimeSignalScheduleActionSettings' with the minimum fields required to make a request.
---
--- * 'scte35Descriptors' - The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
+-- | Creates a 'Scte35TimeSignalScheduleActionSettings' value with any optional fields omitted.
 mkScte35TimeSignalScheduleActionSettings ::
   Scte35TimeSignalScheduleActionSettings
 mkScte35TimeSignalScheduleActionSettings =
   Scte35TimeSignalScheduleActionSettings'
     { scte35Descriptors =
-        Lude.mempty
+        Core.mempty
     }
 
 -- | The list of SCTE-35 descriptors accompanying the SCTE-35 time_signal.
 --
 -- /Note:/ Consider using 'scte35Descriptors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-stssasScte35Descriptors :: Lens.Lens' Scte35TimeSignalScheduleActionSettings [Scte35Descriptor]
-stssasScte35Descriptors = Lens.lens (scte35Descriptors :: Scte35TimeSignalScheduleActionSettings -> [Scte35Descriptor]) (\s a -> s {scte35Descriptors = a} :: Scte35TimeSignalScheduleActionSettings)
+stssasScte35Descriptors :: Lens.Lens' Scte35TimeSignalScheduleActionSettings [Types.Scte35Descriptor]
+stssasScte35Descriptors = Lens.field @"scte35Descriptors"
 {-# DEPRECATED stssasScte35Descriptors "Use generic-lens or generic-optics with 'scte35Descriptors' instead." #-}
 
-instance Lude.FromJSON Scte35TimeSignalScheduleActionSettings where
-  parseJSON =
-    Lude.withObject
-      "Scte35TimeSignalScheduleActionSettings"
-      ( \x ->
-          Scte35TimeSignalScheduleActionSettings'
-            Lude.<$> (x Lude..:? "scte35Descriptors" Lude..!= Lude.mempty)
+instance Core.FromJSON Scte35TimeSignalScheduleActionSettings where
+  toJSON Scte35TimeSignalScheduleActionSettings {..} =
+    Core.object
+      ( Core.catMaybes
+          [Core.Just ("scte35Descriptors" Core..= scte35Descriptors)]
       )
 
-instance Lude.ToJSON Scte35TimeSignalScheduleActionSettings where
-  toJSON Scte35TimeSignalScheduleActionSettings' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [Lude.Just ("scte35Descriptors" Lude..= scte35Descriptors)]
-      )
+instance Core.FromJSON Scte35TimeSignalScheduleActionSettings where
+  parseJSON =
+    Core.withObject "Scte35TimeSignalScheduleActionSettings" Core.$
+      \x ->
+        Scte35TimeSignalScheduleActionSettings'
+          Core.<$> (x Core..:? "scte35Descriptors" Core..!= Core.mempty)

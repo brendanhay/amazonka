@@ -20,178 +20,168 @@ module Network.AWS.IoT.CreateThingGroup
     mkCreateThingGroup,
 
     -- ** Request lenses
-    ctgParentGroupName,
     ctgThingGroupName,
-    ctgThingGroupProperties,
+    ctgParentGroupName,
     ctgTags,
+    ctgThingGroupProperties,
 
     -- * Destructuring the response
     CreateThingGroupResponse (..),
     mkCreateThingGroupResponse,
 
     -- ** Response lenses
-    ctgrsThingGroupARN,
-    ctgrsThingGroupId,
-    ctgrsThingGroupName,
-    ctgrsResponseStatus,
+    ctgrrsThingGroupArn,
+    ctgrrsThingGroupId,
+    ctgrrsThingGroupName,
+    ctgrrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateThingGroup' smart constructor.
 data CreateThingGroup = CreateThingGroup'
-  { -- | The name of the parent thing group.
-    parentGroupName :: Lude.Maybe Lude.Text,
-    -- | The thing group name to create.
-    thingGroupName :: Lude.Text,
-    -- | The thing group properties.
-    thingGroupProperties :: Lude.Maybe ThingGroupProperties,
+  { -- | The thing group name to create.
+    thingGroupName :: Types.ThingGroupName,
+    -- | The name of the parent thing group.
+    parentGroupName :: Core.Maybe Types.ParentGroupName,
     -- | Metadata which can be used to manage the thing group.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The thing group properties.
+    thingGroupProperties :: Core.Maybe Types.ThingGroupProperties
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateThingGroup' with the minimum fields required to make a request.
---
--- * 'parentGroupName' - The name of the parent thing group.
--- * 'thingGroupName' - The thing group name to create.
--- * 'thingGroupProperties' - The thing group properties.
--- * 'tags' - Metadata which can be used to manage the thing group.
+-- | Creates a 'CreateThingGroup' value with any optional fields omitted.
 mkCreateThingGroup ::
   -- | 'thingGroupName'
-  Lude.Text ->
+  Types.ThingGroupName ->
   CreateThingGroup
-mkCreateThingGroup pThingGroupName_ =
+mkCreateThingGroup thingGroupName =
   CreateThingGroup'
-    { parentGroupName = Lude.Nothing,
-      thingGroupName = pThingGroupName_,
-      thingGroupProperties = Lude.Nothing,
-      tags = Lude.Nothing
+    { thingGroupName,
+      parentGroupName = Core.Nothing,
+      tags = Core.Nothing,
+      thingGroupProperties = Core.Nothing
     }
-
--- | The name of the parent thing group.
---
--- /Note:/ Consider using 'parentGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgParentGroupName :: Lens.Lens' CreateThingGroup (Lude.Maybe Lude.Text)
-ctgParentGroupName = Lens.lens (parentGroupName :: CreateThingGroup -> Lude.Maybe Lude.Text) (\s a -> s {parentGroupName = a} :: CreateThingGroup)
-{-# DEPRECATED ctgParentGroupName "Use generic-lens or generic-optics with 'parentGroupName' instead." #-}
 
 -- | The thing group name to create.
 --
 -- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgThingGroupName :: Lens.Lens' CreateThingGroup Lude.Text
-ctgThingGroupName = Lens.lens (thingGroupName :: CreateThingGroup -> Lude.Text) (\s a -> s {thingGroupName = a} :: CreateThingGroup)
+ctgThingGroupName :: Lens.Lens' CreateThingGroup Types.ThingGroupName
+ctgThingGroupName = Lens.field @"thingGroupName"
 {-# DEPRECATED ctgThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
--- | The thing group properties.
+-- | The name of the parent thing group.
 --
--- /Note:/ Consider using 'thingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgThingGroupProperties :: Lens.Lens' CreateThingGroup (Lude.Maybe ThingGroupProperties)
-ctgThingGroupProperties = Lens.lens (thingGroupProperties :: CreateThingGroup -> Lude.Maybe ThingGroupProperties) (\s a -> s {thingGroupProperties = a} :: CreateThingGroup)
-{-# DEPRECATED ctgThingGroupProperties "Use generic-lens or generic-optics with 'thingGroupProperties' instead." #-}
+-- /Note:/ Consider using 'parentGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgParentGroupName :: Lens.Lens' CreateThingGroup (Core.Maybe Types.ParentGroupName)
+ctgParentGroupName = Lens.field @"parentGroupName"
+{-# DEPRECATED ctgParentGroupName "Use generic-lens or generic-optics with 'parentGroupName' instead." #-}
 
 -- | Metadata which can be used to manage the thing group.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgTags :: Lens.Lens' CreateThingGroup (Lude.Maybe [Tag])
-ctgTags = Lens.lens (tags :: CreateThingGroup -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: CreateThingGroup)
+ctgTags :: Lens.Lens' CreateThingGroup (Core.Maybe [Types.Tag])
+ctgTags = Lens.field @"tags"
 {-# DEPRECATED ctgTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.AWSRequest CreateThingGroup where
-  type Rs CreateThingGroup = CreateThingGroupResponse
-  request = Req.postJSON ioTService
-  response =
-    Res.receiveJSON
-      ( \s h x ->
-          CreateThingGroupResponse'
-            Lude.<$> (x Lude..?> "thingGroupArn")
-            Lude.<*> (x Lude..?> "thingGroupId")
-            Lude.<*> (x Lude..?> "thingGroupName")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
-      )
+-- | The thing group properties.
+--
+-- /Note:/ Consider using 'thingGroupProperties' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgThingGroupProperties :: Lens.Lens' CreateThingGroup (Core.Maybe Types.ThingGroupProperties)
+ctgThingGroupProperties = Lens.field @"thingGroupProperties"
+{-# DEPRECATED ctgThingGroupProperties "Use generic-lens or generic-optics with 'thingGroupProperties' instead." #-}
 
-instance Lude.ToHeaders CreateThingGroup where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToJSON CreateThingGroup where
-  toJSON CreateThingGroup' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("parentGroupName" Lude..=) Lude.<$> parentGroupName,
-            ("thingGroupProperties" Lude..=) Lude.<$> thingGroupProperties,
-            ("tags" Lude..=) Lude.<$> tags
+instance Core.FromJSON CreateThingGroup where
+  toJSON CreateThingGroup {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("parentGroupName" Core..=) Core.<$> parentGroupName,
+            ("tags" Core..=) Core.<$> tags,
+            ("thingGroupProperties" Core..=) Core.<$> thingGroupProperties
           ]
       )
 
-instance Lude.ToPath CreateThingGroup where
-  toPath CreateThingGroup' {..} =
-    Lude.mconcat ["/thing-groups/", Lude.toBS thingGroupName]
-
-instance Lude.ToQuery CreateThingGroup where
-  toQuery = Lude.const Lude.mempty
+instance Core.AWSRequest CreateThingGroup where
+  type Rs CreateThingGroup = CreateThingGroupResponse
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ("/thing-groups/" Core.<> (Core.toText thingGroupName)),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = Core.toJSONBody x
+      }
+  response =
+    Response.receiveJSON
+      ( \s h x ->
+          CreateThingGroupResponse'
+            Core.<$> (x Core..:? "thingGroupArn")
+            Core.<*> (x Core..:? "thingGroupId")
+            Core.<*> (x Core..:? "thingGroupName")
+            Core.<*> (Core.pure (Core.fromEnum s))
+      )
 
 -- | /See:/ 'mkCreateThingGroupResponse' smart constructor.
 data CreateThingGroupResponse = CreateThingGroupResponse'
   { -- | The thing group ARN.
-    thingGroupARN :: Lude.Maybe Lude.Text,
+    thingGroupArn :: Core.Maybe Types.ThingGroupArn,
     -- | The thing group ID.
-    thingGroupId :: Lude.Maybe Lude.Text,
+    thingGroupId :: Core.Maybe Types.ThingGroupId,
     -- | The thing group name.
-    thingGroupName :: Lude.Maybe Lude.Text,
+    thingGroupName :: Core.Maybe Types.ThingGroupName,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateThingGroupResponse' with the minimum fields required to make a request.
---
--- * 'thingGroupARN' - The thing group ARN.
--- * 'thingGroupId' - The thing group ID.
--- * 'thingGroupName' - The thing group name.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateThingGroupResponse' value with any optional fields omitted.
 mkCreateThingGroupResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateThingGroupResponse
-mkCreateThingGroupResponse pResponseStatus_ =
+mkCreateThingGroupResponse responseStatus =
   CreateThingGroupResponse'
-    { thingGroupARN = Lude.Nothing,
-      thingGroupId = Lude.Nothing,
-      thingGroupName = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { thingGroupArn = Core.Nothing,
+      thingGroupId = Core.Nothing,
+      thingGroupName = Core.Nothing,
+      responseStatus
     }
 
 -- | The thing group ARN.
 --
--- /Note:/ Consider using 'thingGroupARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrsThingGroupARN :: Lens.Lens' CreateThingGroupResponse (Lude.Maybe Lude.Text)
-ctgrsThingGroupARN = Lens.lens (thingGroupARN :: CreateThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupARN = a} :: CreateThingGroupResponse)
-{-# DEPRECATED ctgrsThingGroupARN "Use generic-lens or generic-optics with 'thingGroupARN' instead." #-}
+-- /Note:/ Consider using 'thingGroupArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctgrrsThingGroupArn :: Lens.Lens' CreateThingGroupResponse (Core.Maybe Types.ThingGroupArn)
+ctgrrsThingGroupArn = Lens.field @"thingGroupArn"
+{-# DEPRECATED ctgrrsThingGroupArn "Use generic-lens or generic-optics with 'thingGroupArn' instead." #-}
 
 -- | The thing group ID.
 --
 -- /Note:/ Consider using 'thingGroupId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrsThingGroupId :: Lens.Lens' CreateThingGroupResponse (Lude.Maybe Lude.Text)
-ctgrsThingGroupId = Lens.lens (thingGroupId :: CreateThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupId = a} :: CreateThingGroupResponse)
-{-# DEPRECATED ctgrsThingGroupId "Use generic-lens or generic-optics with 'thingGroupId' instead." #-}
+ctgrrsThingGroupId :: Lens.Lens' CreateThingGroupResponse (Core.Maybe Types.ThingGroupId)
+ctgrrsThingGroupId = Lens.field @"thingGroupId"
+{-# DEPRECATED ctgrrsThingGroupId "Use generic-lens or generic-optics with 'thingGroupId' instead." #-}
 
 -- | The thing group name.
 --
 -- /Note:/ Consider using 'thingGroupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrsThingGroupName :: Lens.Lens' CreateThingGroupResponse (Lude.Maybe Lude.Text)
-ctgrsThingGroupName = Lens.lens (thingGroupName :: CreateThingGroupResponse -> Lude.Maybe Lude.Text) (\s a -> s {thingGroupName = a} :: CreateThingGroupResponse)
-{-# DEPRECATED ctgrsThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
+ctgrrsThingGroupName :: Lens.Lens' CreateThingGroupResponse (Core.Maybe Types.ThingGroupName)
+ctgrrsThingGroupName = Lens.field @"thingGroupName"
+{-# DEPRECATED ctgrrsThingGroupName "Use generic-lens or generic-optics with 'thingGroupName' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctgrsResponseStatus :: Lens.Lens' CreateThingGroupResponse Lude.Int
-ctgrsResponseStatus = Lens.lens (responseStatus :: CreateThingGroupResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateThingGroupResponse)
-{-# DEPRECATED ctgrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctgrrsResponseStatus :: Lens.Lens' CreateThingGroupResponse Core.Int
+ctgrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctgrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

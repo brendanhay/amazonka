@@ -29,116 +29,101 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     mkDescribeLoadBasedAutoScalingResponse,
 
     -- ** Response lenses
-    dlbasrsLoadBasedAutoScalingConfigurations,
-    dlbasrsResponseStatus,
+    dlbasrrsLoadBasedAutoScalingConfigurations,
+    dlbasrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import Network.AWS.OpsWorks.Types
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.OpsWorks.Types as Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeLoadBasedAutoScaling' smart constructor.
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
   { -- | An array of layer IDs.
-    layerIds :: [Lude.Text]
+    layerIds :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLoadBasedAutoScaling' with the minimum fields required to make a request.
---
--- * 'layerIds' - An array of layer IDs.
+-- | Creates a 'DescribeLoadBasedAutoScaling' value with any optional fields omitted.
 mkDescribeLoadBasedAutoScaling ::
   DescribeLoadBasedAutoScaling
 mkDescribeLoadBasedAutoScaling =
-  DescribeLoadBasedAutoScaling' {layerIds = Lude.mempty}
+  DescribeLoadBasedAutoScaling' {layerIds = Core.mempty}
 
 -- | An array of layer IDs.
 --
 -- /Note:/ Consider using 'layerIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbasLayerIds :: Lens.Lens' DescribeLoadBasedAutoScaling [Lude.Text]
-dlbasLayerIds = Lens.lens (layerIds :: DescribeLoadBasedAutoScaling -> [Lude.Text]) (\s a -> s {layerIds = a} :: DescribeLoadBasedAutoScaling)
+dlbasLayerIds :: Lens.Lens' DescribeLoadBasedAutoScaling [Types.String]
+dlbasLayerIds = Lens.field @"layerIds"
 {-# DEPRECATED dlbasLayerIds "Use generic-lens or generic-optics with 'layerIds' instead." #-}
 
-instance Lude.AWSRequest DescribeLoadBasedAutoScaling where
+instance Core.FromJSON DescribeLoadBasedAutoScaling where
+  toJSON DescribeLoadBasedAutoScaling {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("LayerIds" Core..= layerIds)])
+
+instance Core.AWSRequest DescribeLoadBasedAutoScaling where
   type
     Rs DescribeLoadBasedAutoScaling =
       DescribeLoadBasedAutoScalingResponse
-  request = Req.postJSON opsWorksService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "OpsWorks_20130218.DescribeLoadBasedAutoScaling")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeLoadBasedAutoScalingResponse'
-            Lude.<$> ( x Lude..?> "LoadBasedAutoScalingConfigurations"
-                         Lude..!@ Lude.mempty
-                     )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "LoadBasedAutoScalingConfigurations")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeLoadBasedAutoScaling where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "OpsWorks_20130218.DescribeLoadBasedAutoScaling" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeLoadBasedAutoScaling where
-  toJSON DescribeLoadBasedAutoScaling' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("LayerIds" Lude..= layerIds)])
-
-instance Lude.ToPath DescribeLoadBasedAutoScaling where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLoadBasedAutoScaling where
-  toQuery = Lude.const Lude.mempty
 
 -- | Contains the response to a @DescribeLoadBasedAutoScaling@ request.
 --
 -- /See:/ 'mkDescribeLoadBasedAutoScalingResponse' smart constructor.
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
   { -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe each layer's configuration.
-    loadBasedAutoScalingConfigurations :: Lude.Maybe [LoadBasedAutoScalingConfiguration],
+    loadBasedAutoScalingConfigurations :: Core.Maybe [Types.LoadBasedAutoScalingConfiguration],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLoadBasedAutoScalingResponse' with the minimum fields required to make a request.
---
--- * 'loadBasedAutoScalingConfigurations' - An array of @LoadBasedAutoScalingConfiguration@ objects that describe each layer's configuration.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLoadBasedAutoScalingResponse' value with any optional fields omitted.
 mkDescribeLoadBasedAutoScalingResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLoadBasedAutoScalingResponse
-mkDescribeLoadBasedAutoScalingResponse pResponseStatus_ =
+mkDescribeLoadBasedAutoScalingResponse responseStatus =
   DescribeLoadBasedAutoScalingResponse'
     { loadBasedAutoScalingConfigurations =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe each layer's configuration.
 --
 -- /Note:/ Consider using 'loadBasedAutoScalingConfigurations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbasrsLoadBasedAutoScalingConfigurations :: Lens.Lens' DescribeLoadBasedAutoScalingResponse (Lude.Maybe [LoadBasedAutoScalingConfiguration])
-dlbasrsLoadBasedAutoScalingConfigurations = Lens.lens (loadBasedAutoScalingConfigurations :: DescribeLoadBasedAutoScalingResponse -> Lude.Maybe [LoadBasedAutoScalingConfiguration]) (\s a -> s {loadBasedAutoScalingConfigurations = a} :: DescribeLoadBasedAutoScalingResponse)
-{-# DEPRECATED dlbasrsLoadBasedAutoScalingConfigurations "Use generic-lens or generic-optics with 'loadBasedAutoScalingConfigurations' instead." #-}
+dlbasrrsLoadBasedAutoScalingConfigurations :: Lens.Lens' DescribeLoadBasedAutoScalingResponse (Core.Maybe [Types.LoadBasedAutoScalingConfiguration])
+dlbasrrsLoadBasedAutoScalingConfigurations = Lens.field @"loadBasedAutoScalingConfigurations"
+{-# DEPRECATED dlbasrrsLoadBasedAutoScalingConfigurations "Use generic-lens or generic-optics with 'loadBasedAutoScalingConfigurations' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbasrsResponseStatus :: Lens.Lens' DescribeLoadBasedAutoScalingResponse Lude.Int
-dlbasrsResponseStatus = Lens.lens (responseStatus :: DescribeLoadBasedAutoScalingResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoadBasedAutoScalingResponse)
-{-# DEPRECATED dlbasrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlbasrrsResponseStatus :: Lens.Lens' DescribeLoadBasedAutoScalingResponse Core.Int
+dlbasrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlbasrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

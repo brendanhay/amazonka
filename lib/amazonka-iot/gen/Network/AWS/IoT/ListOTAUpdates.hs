@@ -22,155 +22,147 @@ module Network.AWS.IoT.ListOTAUpdates
     mkListOTAUpdates,
 
     -- ** Request lenses
+    lotauMaxResults,
     lotauNextToken,
     lotauOtaUpdateStatus,
-    lotauMaxResults,
 
     -- * Destructuring the response
     ListOTAUpdatesResponse (..),
     mkListOTAUpdatesResponse,
 
     -- ** Response lenses
-    lotaursNextToken,
-    lotaursOtaUpdates,
-    lotaursResponseStatus,
+    lotaurrsNextToken,
+    lotaurrsOtaUpdates,
+    lotaurrsResponseStatus,
   )
 where
 
-import Network.AWS.IoT.Types
+import qualified Network.AWS.IoT.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Pager as Page
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Pager as Pager
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkListOTAUpdates' smart constructor.
 data ListOTAUpdates = ListOTAUpdates'
-  { -- | A token used to retrieve the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The maximum number of results to return at one time.
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A token used to retrieve the next set of results.
+    nextToken :: Core.Maybe Types.NextToken,
     -- | The OTA update job status.
-    otaUpdateStatus :: Lude.Maybe OTAUpdateStatus,
-    -- | The maximum number of results to return at one time.
-    maxResults :: Lude.Maybe Lude.Natural
+    otaUpdateStatus :: Core.Maybe Types.OTAUpdateStatus
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ListOTAUpdates' with the minimum fields required to make a request.
---
--- * 'nextToken' - A token used to retrieve the next set of results.
--- * 'otaUpdateStatus' - The OTA update job status.
--- * 'maxResults' - The maximum number of results to return at one time.
+-- | Creates a 'ListOTAUpdates' value with any optional fields omitted.
 mkListOTAUpdates ::
   ListOTAUpdates
 mkListOTAUpdates =
   ListOTAUpdates'
-    { nextToken = Lude.Nothing,
-      otaUpdateStatus = Lude.Nothing,
-      maxResults = Lude.Nothing
+    { maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      otaUpdateStatus = Core.Nothing
     }
+
+-- | The maximum number of results to return at one time.
+--
+-- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lotauMaxResults :: Lens.Lens' ListOTAUpdates (Core.Maybe Core.Natural)
+lotauMaxResults = Lens.field @"maxResults"
+{-# DEPRECATED lotauMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
 -- | A token used to retrieve the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lotauNextToken :: Lens.Lens' ListOTAUpdates (Lude.Maybe Lude.Text)
-lotauNextToken = Lens.lens (nextToken :: ListOTAUpdates -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOTAUpdates)
+lotauNextToken :: Lens.Lens' ListOTAUpdates (Core.Maybe Types.NextToken)
+lotauNextToken = Lens.field @"nextToken"
 {-# DEPRECATED lotauNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | The OTA update job status.
 --
 -- /Note:/ Consider using 'otaUpdateStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lotauOtaUpdateStatus :: Lens.Lens' ListOTAUpdates (Lude.Maybe OTAUpdateStatus)
-lotauOtaUpdateStatus = Lens.lens (otaUpdateStatus :: ListOTAUpdates -> Lude.Maybe OTAUpdateStatus) (\s a -> s {otaUpdateStatus = a} :: ListOTAUpdates)
+lotauOtaUpdateStatus :: Lens.Lens' ListOTAUpdates (Core.Maybe Types.OTAUpdateStatus)
+lotauOtaUpdateStatus = Lens.field @"otaUpdateStatus"
 {-# DEPRECATED lotauOtaUpdateStatus "Use generic-lens or generic-optics with 'otaUpdateStatus' instead." #-}
 
--- | The maximum number of results to return at one time.
---
--- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lotauMaxResults :: Lens.Lens' ListOTAUpdates (Lude.Maybe Lude.Natural)
-lotauMaxResults = Lens.lens (maxResults :: ListOTAUpdates -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: ListOTAUpdates)
-{-# DEPRECATED lotauMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
-
-instance Page.AWSPager ListOTAUpdates where
-  page rq rs
-    | Page.stop (rs Lens.^. lotaursNextToken) = Lude.Nothing
-    | Page.stop (rs Lens.^. lotaursOtaUpdates) = Lude.Nothing
-    | Lude.otherwise =
-      Lude.Just Lude.$
-        rq
-          Lude.& lotauNextToken Lens..~ rs Lens.^. lotaursNextToken
-
-instance Lude.AWSRequest ListOTAUpdates where
+instance Core.AWSRequest ListOTAUpdates where
   type Rs ListOTAUpdates = ListOTAUpdatesResponse
-  request = Req.get ioTService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.GET,
+        Core._rqPath = Core.rawPath "/otaUpdates",
+        Core._rqQuery =
+          Core.toQueryValue "maxResults" Core.<$> maxResults
+            Core.<> (Core.toQueryValue "nextToken" Core.<$> nextToken)
+            Core.<> (Core.toQueryValue "otaUpdateStatus" Core.<$> otaUpdateStatus),
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           ListOTAUpdatesResponse'
-            Lude.<$> (x Lude..?> "nextToken")
-            Lude.<*> (x Lude..?> "otaUpdates" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "otaUpdates")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
 
-instance Lude.ToHeaders ListOTAUpdates where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath ListOTAUpdates where
-  toPath = Lude.const "/otaUpdates"
-
-instance Lude.ToQuery ListOTAUpdates where
-  toQuery ListOTAUpdates' {..} =
-    Lude.mconcat
-      [ "nextToken" Lude.=: nextToken,
-        "otaUpdateStatus" Lude.=: otaUpdateStatus,
-        "maxResults" Lude.=: maxResults
-      ]
+instance Pager.AWSPager ListOTAUpdates where
+  page rq rs
+    | Pager.stop (rs Lens.^. Lens.field @"nextToken") = Core.Nothing
+    | Pager.stop
+        (rs Lens.^? Lens.field @"otaUpdates" Core.. Lens._Just) =
+      Core.Nothing
+    | Core.otherwise =
+      Core.Just
+        ( rq
+            Core.& Lens.field @"nextToken" Lens..~ rs Lens.^. Lens.field @"nextToken"
+        )
 
 -- | /See:/ 'mkListOTAUpdatesResponse' smart constructor.
 data ListOTAUpdatesResponse = ListOTAUpdatesResponse'
   { -- | A token to use to get the next set of results.
-    nextToken :: Lude.Maybe Lude.Text,
+    nextToken :: Core.Maybe Types.NextToken,
     -- | A list of OTA update jobs.
-    otaUpdates :: Lude.Maybe [OTAUpdateSummary],
+    otaUpdates :: Core.Maybe [Types.OTAUpdateSummary],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'ListOTAUpdatesResponse' with the minimum fields required to make a request.
---
--- * 'nextToken' - A token to use to get the next set of results.
--- * 'otaUpdates' - A list of OTA update jobs.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'ListOTAUpdatesResponse' value with any optional fields omitted.
 mkListOTAUpdatesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   ListOTAUpdatesResponse
-mkListOTAUpdatesResponse pResponseStatus_ =
+mkListOTAUpdatesResponse responseStatus =
   ListOTAUpdatesResponse'
-    { nextToken = Lude.Nothing,
-      otaUpdates = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      otaUpdates = Core.Nothing,
+      responseStatus
     }
 
 -- | A token to use to get the next set of results.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lotaursNextToken :: Lens.Lens' ListOTAUpdatesResponse (Lude.Maybe Lude.Text)
-lotaursNextToken = Lens.lens (nextToken :: ListOTAUpdatesResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: ListOTAUpdatesResponse)
-{-# DEPRECATED lotaursNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+lotaurrsNextToken :: Lens.Lens' ListOTAUpdatesResponse (Core.Maybe Types.NextToken)
+lotaurrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED lotaurrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
 
 -- | A list of OTA update jobs.
 --
 -- /Note:/ Consider using 'otaUpdates' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lotaursOtaUpdates :: Lens.Lens' ListOTAUpdatesResponse (Lude.Maybe [OTAUpdateSummary])
-lotaursOtaUpdates = Lens.lens (otaUpdates :: ListOTAUpdatesResponse -> Lude.Maybe [OTAUpdateSummary]) (\s a -> s {otaUpdates = a} :: ListOTAUpdatesResponse)
-{-# DEPRECATED lotaursOtaUpdates "Use generic-lens or generic-optics with 'otaUpdates' instead." #-}
+lotaurrsOtaUpdates :: Lens.Lens' ListOTAUpdatesResponse (Core.Maybe [Types.OTAUpdateSummary])
+lotaurrsOtaUpdates = Lens.field @"otaUpdates"
+{-# DEPRECATED lotaurrsOtaUpdates "Use generic-lens or generic-optics with 'otaUpdates' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lotaursResponseStatus :: Lens.Lens' ListOTAUpdatesResponse Lude.Int
-lotaursResponseStatus = Lens.lens (responseStatus :: ListOTAUpdatesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: ListOTAUpdatesResponse)
-{-# DEPRECATED lotaursResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+lotaurrsResponseStatus :: Lens.Lens' ListOTAUpdatesResponse Core.Int
+lotaurrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED lotaurrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

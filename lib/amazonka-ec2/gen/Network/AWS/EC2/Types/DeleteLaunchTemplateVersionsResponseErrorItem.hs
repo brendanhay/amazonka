@@ -17,82 +17,78 @@ module Network.AWS.EC2.Types.DeleteLaunchTemplateVersionsResponseErrorItem
     mkDeleteLaunchTemplateVersionsResponseErrorItem,
 
     -- * Lenses
-    dltvreiLaunchTemplateName,
     dltvreiLaunchTemplateId,
-    dltvreiVersionNumber,
+    dltvreiLaunchTemplateName,
     dltvreiResponseError,
+    dltvreiVersionNumber,
   )
 where
 
-import Network.AWS.EC2.Types.ResponseError
+import qualified Network.AWS.EC2.Types.ResponseError as Types
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a launch template version that could not be deleted.
 --
 -- /See:/ 'mkDeleteLaunchTemplateVersionsResponseErrorItem' smart constructor.
 data DeleteLaunchTemplateVersionsResponseErrorItem = DeleteLaunchTemplateVersionsResponseErrorItem'
-  { -- | The name of the launch template.
-    launchTemplateName :: Lude.Maybe Lude.Text,
-    -- | The ID of the launch template.
-    launchTemplateId :: Lude.Maybe Lude.Text,
-    -- | The version number of the launch template.
-    versionNumber :: Lude.Maybe Lude.Integer,
+  { -- | The ID of the launch template.
+    launchTemplateId :: Core.Maybe Types.String,
+    -- | The name of the launch template.
+    launchTemplateName :: Core.Maybe Types.String,
     -- | Information about the error.
-    responseError :: Lude.Maybe ResponseError
+    responseError :: Core.Maybe Types.ResponseError,
+    -- | The version number of the launch template.
+    versionNumber :: Core.Maybe Core.Integer
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteLaunchTemplateVersionsResponseErrorItem' with the minimum fields required to make a request.
---
--- * 'launchTemplateName' - The name of the launch template.
--- * 'launchTemplateId' - The ID of the launch template.
--- * 'versionNumber' - The version number of the launch template.
--- * 'responseError' - Information about the error.
+-- | Creates a 'DeleteLaunchTemplateVersionsResponseErrorItem' value with any optional fields omitted.
 mkDeleteLaunchTemplateVersionsResponseErrorItem ::
   DeleteLaunchTemplateVersionsResponseErrorItem
 mkDeleteLaunchTemplateVersionsResponseErrorItem =
   DeleteLaunchTemplateVersionsResponseErrorItem'
-    { launchTemplateName =
-        Lude.Nothing,
-      launchTemplateId = Lude.Nothing,
-      versionNumber = Lude.Nothing,
-      responseError = Lude.Nothing
+    { launchTemplateId =
+        Core.Nothing,
+      launchTemplateName = Core.Nothing,
+      responseError = Core.Nothing,
+      versionNumber = Core.Nothing
     }
-
--- | The name of the launch template.
---
--- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvreiLaunchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Lude.Maybe Lude.Text)
-dltvreiLaunchTemplateName = Lens.lens (launchTemplateName :: DeleteLaunchTemplateVersionsResponseErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateName = a} :: DeleteLaunchTemplateVersionsResponseErrorItem)
-{-# DEPRECATED dltvreiLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | The ID of the launch template.
 --
 -- /Note:/ Consider using 'launchTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvreiLaunchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Lude.Maybe Lude.Text)
-dltvreiLaunchTemplateId = Lens.lens (launchTemplateId :: DeleteLaunchTemplateVersionsResponseErrorItem -> Lude.Maybe Lude.Text) (\s a -> s {launchTemplateId = a} :: DeleteLaunchTemplateVersionsResponseErrorItem)
+dltvreiLaunchTemplateId :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Core.Maybe Types.String)
+dltvreiLaunchTemplateId = Lens.field @"launchTemplateId"
 {-# DEPRECATED dltvreiLaunchTemplateId "Use generic-lens or generic-optics with 'launchTemplateId' instead." #-}
 
--- | The version number of the launch template.
+-- | The name of the launch template.
 --
--- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvreiVersionNumber :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Lude.Maybe Lude.Integer)
-dltvreiVersionNumber = Lens.lens (versionNumber :: DeleteLaunchTemplateVersionsResponseErrorItem -> Lude.Maybe Lude.Integer) (\s a -> s {versionNumber = a} :: DeleteLaunchTemplateVersionsResponseErrorItem)
-{-# DEPRECATED dltvreiVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
+-- /Note:/ Consider using 'launchTemplateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvreiLaunchTemplateName :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Core.Maybe Types.String)
+dltvreiLaunchTemplateName = Lens.field @"launchTemplateName"
+{-# DEPRECATED dltvreiLaunchTemplateName "Use generic-lens or generic-optics with 'launchTemplateName' instead." #-}
 
 -- | Information about the error.
 --
 -- /Note:/ Consider using 'responseError' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dltvreiResponseError :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Lude.Maybe ResponseError)
-dltvreiResponseError = Lens.lens (responseError :: DeleteLaunchTemplateVersionsResponseErrorItem -> Lude.Maybe ResponseError) (\s a -> s {responseError = a} :: DeleteLaunchTemplateVersionsResponseErrorItem)
+dltvreiResponseError :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Core.Maybe Types.ResponseError)
+dltvreiResponseError = Lens.field @"responseError"
 {-# DEPRECATED dltvreiResponseError "Use generic-lens or generic-optics with 'responseError' instead." #-}
 
-instance Lude.FromXML DeleteLaunchTemplateVersionsResponseErrorItem where
+-- | The version number of the launch template.
+--
+-- /Note:/ Consider using 'versionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dltvreiVersionNumber :: Lens.Lens' DeleteLaunchTemplateVersionsResponseErrorItem (Core.Maybe Core.Integer)
+dltvreiVersionNumber = Lens.field @"versionNumber"
+{-# DEPRECATED dltvreiVersionNumber "Use generic-lens or generic-optics with 'versionNumber' instead." #-}
+
+instance Core.FromXML DeleteLaunchTemplateVersionsResponseErrorItem where
   parseXML x =
     DeleteLaunchTemplateVersionsResponseErrorItem'
-      Lude.<$> (x Lude..@? "launchTemplateName")
-      Lude.<*> (x Lude..@? "launchTemplateId")
-      Lude.<*> (x Lude..@? "versionNumber")
-      Lude.<*> (x Lude..@? "responseError")
+      Core.<$> (x Core..@? "launchTemplateId")
+      Core.<*> (x Core..@? "launchTemplateName")
+      Core.<*> (x Core..@? "responseError")
+      Core.<*> (x Core..@? "versionNumber")

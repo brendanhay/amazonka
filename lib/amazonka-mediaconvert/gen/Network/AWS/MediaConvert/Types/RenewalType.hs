@@ -13,47 +13,49 @@
 module Network.AWS.MediaConvert.Types.RenewalType
   ( RenewalType
       ( RenewalType',
-        AutoRenew,
-        Expire
+        RenewalTypeAutoRenew,
+        RenewalTypeExpire,
+        fromRenewalType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies whether the term of your reserved queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the end of the term.
-newtype RenewalType = RenewalType' Lude.Text
+newtype RenewalType = RenewalType' {fromRenewalType :: Core.Text}
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern AutoRenew :: RenewalType
-pattern AutoRenew = RenewalType' "AUTO_RENEW"
+pattern RenewalTypeAutoRenew :: RenewalType
+pattern RenewalTypeAutoRenew = RenewalType' "AUTO_RENEW"
 
-pattern Expire :: RenewalType
-pattern Expire = RenewalType' "EXPIRE"
+pattern RenewalTypeExpire :: RenewalType
+pattern RenewalTypeExpire = RenewalType' "EXPIRE"
 
 {-# COMPLETE
-  AutoRenew,
-  Expire,
+  RenewalTypeAutoRenew,
+  RenewalTypeExpire,
   RenewalType'
   #-}

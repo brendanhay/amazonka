@@ -22,31 +22,33 @@ module Network.AWS.ServiceCatalog.DescribePortfolio
     mkDescribePortfolio,
 
     -- ** Request lenses
-    dpgAcceptLanguage,
-    dpgId,
+    dpfId,
+    dpfAcceptLanguage,
 
     -- * Destructuring the response
     DescribePortfolioResponse (..),
     mkDescribePortfolioResponse,
 
     -- ** Response lenses
-    dpfrsPortfolioDetail,
-    dpfrsTagOptions,
-    dpfrsBudgets,
-    dpfrsTags,
-    dpfrsResponseStatus,
+    dprfrsBudgets,
+    dprfrsPortfolioDetail,
+    dprfrsTagOptions,
+    dprfrsTags,
+    dprfrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.ServiceCatalog.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.ServiceCatalog.Types as Types
 
 -- | /See:/ 'mkDescribePortfolio' smart constructor.
 data DescribePortfolio = DescribePortfolio'
-  { -- | The language code.
+  { -- | The portfolio identifier.
+    id :: Types.Id,
+    -- | The language code.
     --
     --
     --     * @en@ - English (default)
@@ -56,34 +58,25 @@ data DescribePortfolio = DescribePortfolio'
     --
     --
     --     * @zh@ - Chinese
-    acceptLanguage :: Lude.Maybe Lude.Text,
-    -- | The portfolio identifier.
-    id :: Lude.Text
+    acceptLanguage :: Core.Maybe Types.AcceptLanguage
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribePortfolio' with the minimum fields required to make a request.
---
--- * 'acceptLanguage' - The language code.
---
---
---     * @en@ - English (default)
---
---
---     * @jp@ - Japanese
---
---
---     * @zh@ - Chinese
---
---
--- * 'id' - The portfolio identifier.
+-- | Creates a 'DescribePortfolio' value with any optional fields omitted.
 mkDescribePortfolio ::
   -- | 'id'
-  Lude.Text ->
+  Types.Id ->
   DescribePortfolio
-mkDescribePortfolio pId_ =
-  DescribePortfolio' {acceptLanguage = Lude.Nothing, id = pId_}
+mkDescribePortfolio id =
+  DescribePortfolio' {id, acceptLanguage = Core.Nothing}
+
+-- | The portfolio identifier.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpfId :: Lens.Lens' DescribePortfolio Types.Id
+dpfId = Lens.field @"id"
+{-# DEPRECATED dpfId "Use generic-lens or generic-optics with 'id' instead." #-}
 
 -- | The language code.
 --
@@ -99,126 +92,105 @@ mkDescribePortfolio pId_ =
 --
 --
 -- /Note:/ Consider using 'acceptLanguage' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgAcceptLanguage :: Lens.Lens' DescribePortfolio (Lude.Maybe Lude.Text)
-dpgAcceptLanguage = Lens.lens (acceptLanguage :: DescribePortfolio -> Lude.Maybe Lude.Text) (\s a -> s {acceptLanguage = a} :: DescribePortfolio)
-{-# DEPRECATED dpgAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
+dpfAcceptLanguage :: Lens.Lens' DescribePortfolio (Core.Maybe Types.AcceptLanguage)
+dpfAcceptLanguage = Lens.field @"acceptLanguage"
+{-# DEPRECATED dpfAcceptLanguage "Use generic-lens or generic-optics with 'acceptLanguage' instead." #-}
 
--- | The portfolio identifier.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpgId :: Lens.Lens' DescribePortfolio Lude.Text
-dpgId = Lens.lens (id :: DescribePortfolio -> Lude.Text) (\s a -> s {id = a} :: DescribePortfolio)
-{-# DEPRECATED dpgId "Use generic-lens or generic-optics with 'id' instead." #-}
+instance Core.FromJSON DescribePortfolio where
+  toJSON DescribePortfolio {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("Id" Core..= id),
+            ("AcceptLanguage" Core..=) Core.<$> acceptLanguage
+          ]
+      )
 
-instance Lude.AWSRequest DescribePortfolio where
+instance Core.AWSRequest DescribePortfolio where
   type Rs DescribePortfolio = DescribePortfolioResponse
-  request = Req.postJSON serviceCatalogService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "AWS242ServiceCatalogService.DescribePortfolio")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribePortfolioResponse'
-            Lude.<$> (x Lude..?> "PortfolioDetail")
-            Lude.<*> (x Lude..?> "TagOptions" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Budgets" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "Tags" Lude..!@ Lude.mempty)
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "Budgets")
+            Core.<*> (x Core..:? "PortfolioDetail")
+            Core.<*> (x Core..:? "TagOptions")
+            Core.<*> (x Core..:? "Tags")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribePortfolio where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "AWS242ServiceCatalogService.DescribePortfolio" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribePortfolio where
-  toJSON DescribePortfolio' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("AcceptLanguage" Lude..=) Lude.<$> acceptLanguage,
-            Lude.Just ("Id" Lude..= id)
-          ]
-      )
-
-instance Lude.ToPath DescribePortfolio where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribePortfolio where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribePortfolioResponse' smart constructor.
 data DescribePortfolioResponse = DescribePortfolioResponse'
-  { -- | Information about the portfolio.
-    portfolioDetail :: Lude.Maybe PortfolioDetail,
+  { -- | Information about the associated budgets.
+    budgets :: Core.Maybe [Types.BudgetDetail],
+    -- | Information about the portfolio.
+    portfolioDetail :: Core.Maybe Types.PortfolioDetail,
     -- | Information about the TagOptions associated with the portfolio.
-    tagOptions :: Lude.Maybe [TagOptionDetail],
-    -- | Information about the associated budgets.
-    budgets :: Lude.Maybe [BudgetDetail],
+    tagOptions :: Core.Maybe [Types.TagOptionDetail],
     -- | Information about the tags associated with the portfolio.
-    tags :: Lude.Maybe [Tag],
+    tags :: Core.Maybe [Types.Tag],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribePortfolioResponse' with the minimum fields required to make a request.
---
--- * 'portfolioDetail' - Information about the portfolio.
--- * 'tagOptions' - Information about the TagOptions associated with the portfolio.
--- * 'budgets' - Information about the associated budgets.
--- * 'tags' - Information about the tags associated with the portfolio.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribePortfolioResponse' value with any optional fields omitted.
 mkDescribePortfolioResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribePortfolioResponse
-mkDescribePortfolioResponse pResponseStatus_ =
+mkDescribePortfolioResponse responseStatus =
   DescribePortfolioResponse'
-    { portfolioDetail = Lude.Nothing,
-      tagOptions = Lude.Nothing,
-      budgets = Lude.Nothing,
-      tags = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { budgets = Core.Nothing,
+      portfolioDetail = Core.Nothing,
+      tagOptions = Core.Nothing,
+      tags = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the portfolio.
---
--- /Note:/ Consider using 'portfolioDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfrsPortfolioDetail :: Lens.Lens' DescribePortfolioResponse (Lude.Maybe PortfolioDetail)
-dpfrsPortfolioDetail = Lens.lens (portfolioDetail :: DescribePortfolioResponse -> Lude.Maybe PortfolioDetail) (\s a -> s {portfolioDetail = a} :: DescribePortfolioResponse)
-{-# DEPRECATED dpfrsPortfolioDetail "Use generic-lens or generic-optics with 'portfolioDetail' instead." #-}
-
--- | Information about the TagOptions associated with the portfolio.
---
--- /Note:/ Consider using 'tagOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfrsTagOptions :: Lens.Lens' DescribePortfolioResponse (Lude.Maybe [TagOptionDetail])
-dpfrsTagOptions = Lens.lens (tagOptions :: DescribePortfolioResponse -> Lude.Maybe [TagOptionDetail]) (\s a -> s {tagOptions = a} :: DescribePortfolioResponse)
-{-# DEPRECATED dpfrsTagOptions "Use generic-lens or generic-optics with 'tagOptions' instead." #-}
 
 -- | Information about the associated budgets.
 --
 -- /Note:/ Consider using 'budgets' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfrsBudgets :: Lens.Lens' DescribePortfolioResponse (Lude.Maybe [BudgetDetail])
-dpfrsBudgets = Lens.lens (budgets :: DescribePortfolioResponse -> Lude.Maybe [BudgetDetail]) (\s a -> s {budgets = a} :: DescribePortfolioResponse)
-{-# DEPRECATED dpfrsBudgets "Use generic-lens or generic-optics with 'budgets' instead." #-}
+dprfrsBudgets :: Lens.Lens' DescribePortfolioResponse (Core.Maybe [Types.BudgetDetail])
+dprfrsBudgets = Lens.field @"budgets"
+{-# DEPRECATED dprfrsBudgets "Use generic-lens or generic-optics with 'budgets' instead." #-}
+
+-- | Information about the portfolio.
+--
+-- /Note:/ Consider using 'portfolioDetail' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dprfrsPortfolioDetail :: Lens.Lens' DescribePortfolioResponse (Core.Maybe Types.PortfolioDetail)
+dprfrsPortfolioDetail = Lens.field @"portfolioDetail"
+{-# DEPRECATED dprfrsPortfolioDetail "Use generic-lens or generic-optics with 'portfolioDetail' instead." #-}
+
+-- | Information about the TagOptions associated with the portfolio.
+--
+-- /Note:/ Consider using 'tagOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dprfrsTagOptions :: Lens.Lens' DescribePortfolioResponse (Core.Maybe [Types.TagOptionDetail])
+dprfrsTagOptions = Lens.field @"tagOptions"
+{-# DEPRECATED dprfrsTagOptions "Use generic-lens or generic-optics with 'tagOptions' instead." #-}
 
 -- | Information about the tags associated with the portfolio.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfrsTags :: Lens.Lens' DescribePortfolioResponse (Lude.Maybe [Tag])
-dpfrsTags = Lens.lens (tags :: DescribePortfolioResponse -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: DescribePortfolioResponse)
-{-# DEPRECATED dpfrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+dprfrsTags :: Lens.Lens' DescribePortfolioResponse (Core.Maybe [Types.Tag])
+dprfrsTags = Lens.field @"tags"
+{-# DEPRECATED dprfrsTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpfrsResponseStatus :: Lens.Lens' DescribePortfolioResponse Lude.Int
-dpfrsResponseStatus = Lens.lens (responseStatus :: DescribePortfolioResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribePortfolioResponse)
-{-# DEPRECATED dpfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dprfrsResponseStatus :: Lens.Lens' DescribePortfolioResponse Core.Int
+dprfrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dprfrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

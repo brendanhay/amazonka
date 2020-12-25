@@ -17,31 +17,34 @@ module Network.AWS.Inspector.Types.AssessmentRun
     mkAssessmentRun,
 
     -- * Lenses
-    arDataCollected,
-    arState,
     arArn,
-    arCreatedAt,
-    arFindingCounts,
-    arUserAttributesForFindings,
-    arRulesPackageARNs,
-    arStartedAt,
     arName,
+    arAssessmentTemplateArn,
+    arState,
     arDurationInSeconds,
-    arStateChanges,
-    arCompletedAt,
+    arRulesPackageArns,
+    arUserAttributesForFindings,
+    arCreatedAt,
     arStateChangedAt,
-    arAssessmentTemplateARN,
+    arDataCollected,
+    arStateChanges,
     arNotifications,
+    arFindingCounts,
+    arCompletedAt,
+    arStartedAt,
   )
 where
 
-import Network.AWS.Inspector.Types.AssessmentRunNotification
-import Network.AWS.Inspector.Types.AssessmentRunState
-import Network.AWS.Inspector.Types.AssessmentRunStateChange
-import Network.AWS.Inspector.Types.Attribute
-import Network.AWS.Inspector.Types.Severity
+import qualified Network.AWS.Inspector.Types.Arn as Types
+import qualified Network.AWS.Inspector.Types.AssessmentRunNotification as Types
+import qualified Network.AWS.Inspector.Types.AssessmentRunState as Types
+import qualified Network.AWS.Inspector.Types.AssessmentRunStateChange as Types
+import qualified Network.AWS.Inspector.Types.AssessmentTemplateArn as Types
+import qualified Network.AWS.Inspector.Types.Attribute as Types
+import qualified Network.AWS.Inspector.Types.Name as Types
+import qualified Network.AWS.Inspector.Types.Severity as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | A snapshot of an Amazon Inspector assessment run that contains the findings of the assessment run .
 --
@@ -49,229 +52,211 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkAssessmentRun' smart constructor.
 data AssessmentRun = AssessmentRun'
-  { -- | A Boolean value (true or false) that specifies whether the process of collecting data from the agents is completed.
-    dataCollected :: Lude.Bool,
-    -- | The state of the assessment run.
-    state :: AssessmentRunState,
-    -- | The ARN of the assessment run.
-    arn :: Lude.Text,
-    -- | The time when 'StartAssessmentRun' was called.
-    createdAt :: Lude.Timestamp,
-    -- | Provides a total count of generated findings per severity.
-    findingCounts :: Lude.HashMap Severity (Lude.Int),
-    -- | The user-defined attributes that are assigned to every generated finding.
-    userAttributesForFindings :: [Attribute],
-    -- | The rules packages selected for the assessment run.
-    rulesPackageARNs :: Lude.NonEmpty Lude.Text,
-    -- | The time when 'StartAssessmentRun' was called.
-    startedAt :: Lude.Maybe Lude.Timestamp,
+  { -- | The ARN of the assessment run.
+    arn :: Types.Arn,
     -- | The auto-generated name for the assessment run.
-    name :: Lude.Text,
-    -- | The duration of the assessment run.
-    durationInSeconds :: Lude.Natural,
-    -- | A list of the assessment run state changes.
-    stateChanges :: [AssessmentRunStateChange],
-    -- | The assessment run completion time that corresponds to the rules packages evaluation completion time or failure.
-    completedAt :: Lude.Maybe Lude.Timestamp,
-    -- | The last time when the assessment run's state changed.
-    stateChangedAt :: Lude.Timestamp,
+    name :: Types.Name,
     -- | The ARN of the assessment template that is associated with the assessment run.
-    assessmentTemplateARN :: Lude.Text,
+    assessmentTemplateArn :: Types.AssessmentTemplateArn,
+    -- | The state of the assessment run.
+    state :: Types.AssessmentRunState,
+    -- | The duration of the assessment run.
+    durationInSeconds :: Core.Natural,
+    -- | The rules packages selected for the assessment run.
+    rulesPackageArns :: Core.NonEmpty Types.Arn,
+    -- | The user-defined attributes that are assigned to every generated finding.
+    userAttributesForFindings :: [Types.Attribute],
+    -- | The time when 'StartAssessmentRun' was called.
+    createdAt :: Core.NominalDiffTime,
+    -- | The last time when the assessment run's state changed.
+    stateChangedAt :: Core.NominalDiffTime,
+    -- | A Boolean value (true or false) that specifies whether the process of collecting data from the agents is completed.
+    dataCollected :: Core.Bool,
+    -- | A list of the assessment run state changes.
+    stateChanges :: [Types.AssessmentRunStateChange],
     -- | A list of notifications for the event subscriptions. A notification about a particular generated finding is added to this list only once.
-    notifications :: [AssessmentRunNotification]
+    notifications :: [Types.AssessmentRunNotification],
+    -- | Provides a total count of generated findings per severity.
+    findingCounts :: Core.HashMap Types.Severity Core.Int,
+    -- | The assessment run completion time that corresponds to the rules packages evaluation completion time or failure.
+    completedAt :: Core.Maybe Core.NominalDiffTime,
+    -- | The time when 'StartAssessmentRun' was called.
+    startedAt :: Core.Maybe Core.NominalDiffTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AssessmentRun' with the minimum fields required to make a request.
---
--- * 'dataCollected' - A Boolean value (true or false) that specifies whether the process of collecting data from the agents is completed.
--- * 'state' - The state of the assessment run.
--- * 'arn' - The ARN of the assessment run.
--- * 'createdAt' - The time when 'StartAssessmentRun' was called.
--- * 'findingCounts' - Provides a total count of generated findings per severity.
--- * 'userAttributesForFindings' - The user-defined attributes that are assigned to every generated finding.
--- * 'rulesPackageARNs' - The rules packages selected for the assessment run.
--- * 'startedAt' - The time when 'StartAssessmentRun' was called.
--- * 'name' - The auto-generated name for the assessment run.
--- * 'durationInSeconds' - The duration of the assessment run.
--- * 'stateChanges' - A list of the assessment run state changes.
--- * 'completedAt' - The assessment run completion time that corresponds to the rules packages evaluation completion time or failure.
--- * 'stateChangedAt' - The last time when the assessment run's state changed.
--- * 'assessmentTemplateARN' - The ARN of the assessment template that is associated with the assessment run.
--- * 'notifications' - A list of notifications for the event subscriptions. A notification about a particular generated finding is added to this list only once.
+-- | Creates a 'AssessmentRun' value with any optional fields omitted.
 mkAssessmentRun ::
-  -- | 'dataCollected'
-  Lude.Bool ->
-  -- | 'state'
-  AssessmentRunState ->
   -- | 'arn'
-  Lude.Text ->
-  -- | 'createdAt'
-  Lude.Timestamp ->
-  -- | 'rulesPackageARNs'
-  Lude.NonEmpty Lude.Text ->
+  Types.Arn ->
   -- | 'name'
-  Lude.Text ->
+  Types.Name ->
+  -- | 'assessmentTemplateArn'
+  Types.AssessmentTemplateArn ->
+  -- | 'state'
+  Types.AssessmentRunState ->
   -- | 'durationInSeconds'
-  Lude.Natural ->
+  Core.Natural ->
+  -- | 'rulesPackageArns'
+  Core.NonEmpty Types.Arn ->
+  -- | 'createdAt'
+  Core.NominalDiffTime ->
   -- | 'stateChangedAt'
-  Lude.Timestamp ->
-  -- | 'assessmentTemplateARN'
-  Lude.Text ->
+  Core.NominalDiffTime ->
+  -- | 'dataCollected'
+  Core.Bool ->
   AssessmentRun
 mkAssessmentRun
-  pDataCollected_
-  pState_
-  pArn_
-  pCreatedAt_
-  pRulesPackageARNs_
-  pName_
-  pDurationInSeconds_
-  pStateChangedAt_
-  pAssessmentTemplateARN_ =
+  arn
+  name
+  assessmentTemplateArn
+  state
+  durationInSeconds
+  rulesPackageArns
+  createdAt
+  stateChangedAt
+  dataCollected =
     AssessmentRun'
-      { dataCollected = pDataCollected_,
-        state = pState_,
-        arn = pArn_,
-        createdAt = pCreatedAt_,
-        findingCounts = Lude.mempty,
-        userAttributesForFindings = Lude.mempty,
-        rulesPackageARNs = pRulesPackageARNs_,
-        startedAt = Lude.Nothing,
-        name = pName_,
-        durationInSeconds = pDurationInSeconds_,
-        stateChanges = Lude.mempty,
-        completedAt = Lude.Nothing,
-        stateChangedAt = pStateChangedAt_,
-        assessmentTemplateARN = pAssessmentTemplateARN_,
-        notifications = Lude.mempty
+      { arn,
+        name,
+        assessmentTemplateArn,
+        state,
+        durationInSeconds,
+        rulesPackageArns,
+        userAttributesForFindings = Core.mempty,
+        createdAt,
+        stateChangedAt,
+        dataCollected,
+        stateChanges = Core.mempty,
+        notifications = Core.mempty,
+        findingCounts = Core.mempty,
+        completedAt = Core.Nothing,
+        startedAt = Core.Nothing
       }
-
--- | A Boolean value (true or false) that specifies whether the process of collecting data from the agents is completed.
---
--- /Note:/ Consider using 'dataCollected' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arDataCollected :: Lens.Lens' AssessmentRun Lude.Bool
-arDataCollected = Lens.lens (dataCollected :: AssessmentRun -> Lude.Bool) (\s a -> s {dataCollected = a} :: AssessmentRun)
-{-# DEPRECATED arDataCollected "Use generic-lens or generic-optics with 'dataCollected' instead." #-}
-
--- | The state of the assessment run.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arState :: Lens.Lens' AssessmentRun AssessmentRunState
-arState = Lens.lens (state :: AssessmentRun -> AssessmentRunState) (\s a -> s {state = a} :: AssessmentRun)
-{-# DEPRECATED arState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The ARN of the assessment run.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arArn :: Lens.Lens' AssessmentRun Lude.Text
-arArn = Lens.lens (arn :: AssessmentRun -> Lude.Text) (\s a -> s {arn = a} :: AssessmentRun)
+arArn :: Lens.Lens' AssessmentRun Types.Arn
+arArn = Lens.field @"arn"
 {-# DEPRECATED arArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The time when 'StartAssessmentRun' was called.
---
--- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arCreatedAt :: Lens.Lens' AssessmentRun Lude.Timestamp
-arCreatedAt = Lens.lens (createdAt :: AssessmentRun -> Lude.Timestamp) (\s a -> s {createdAt = a} :: AssessmentRun)
-{-# DEPRECATED arCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
-
--- | Provides a total count of generated findings per severity.
---
--- /Note:/ Consider using 'findingCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arFindingCounts :: Lens.Lens' AssessmentRun (Lude.HashMap Severity (Lude.Int))
-arFindingCounts = Lens.lens (findingCounts :: AssessmentRun -> Lude.HashMap Severity (Lude.Int)) (\s a -> s {findingCounts = a} :: AssessmentRun)
-{-# DEPRECATED arFindingCounts "Use generic-lens or generic-optics with 'findingCounts' instead." #-}
-
--- | The user-defined attributes that are assigned to every generated finding.
---
--- /Note:/ Consider using 'userAttributesForFindings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arUserAttributesForFindings :: Lens.Lens' AssessmentRun [Attribute]
-arUserAttributesForFindings = Lens.lens (userAttributesForFindings :: AssessmentRun -> [Attribute]) (\s a -> s {userAttributesForFindings = a} :: AssessmentRun)
-{-# DEPRECATED arUserAttributesForFindings "Use generic-lens or generic-optics with 'userAttributesForFindings' instead." #-}
-
--- | The rules packages selected for the assessment run.
---
--- /Note:/ Consider using 'rulesPackageARNs' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arRulesPackageARNs :: Lens.Lens' AssessmentRun (Lude.NonEmpty Lude.Text)
-arRulesPackageARNs = Lens.lens (rulesPackageARNs :: AssessmentRun -> Lude.NonEmpty Lude.Text) (\s a -> s {rulesPackageARNs = a} :: AssessmentRun)
-{-# DEPRECATED arRulesPackageARNs "Use generic-lens or generic-optics with 'rulesPackageARNs' instead." #-}
-
--- | The time when 'StartAssessmentRun' was called.
---
--- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arStartedAt :: Lens.Lens' AssessmentRun (Lude.Maybe Lude.Timestamp)
-arStartedAt = Lens.lens (startedAt :: AssessmentRun -> Lude.Maybe Lude.Timestamp) (\s a -> s {startedAt = a} :: AssessmentRun)
-{-# DEPRECATED arStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
 
 -- | The auto-generated name for the assessment run.
 --
 -- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arName :: Lens.Lens' AssessmentRun Lude.Text
-arName = Lens.lens (name :: AssessmentRun -> Lude.Text) (\s a -> s {name = a} :: AssessmentRun)
+arName :: Lens.Lens' AssessmentRun Types.Name
+arName = Lens.field @"name"
 {-# DEPRECATED arName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The ARN of the assessment template that is associated with the assessment run.
+--
+-- /Note:/ Consider using 'assessmentTemplateArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arAssessmentTemplateArn :: Lens.Lens' AssessmentRun Types.AssessmentTemplateArn
+arAssessmentTemplateArn = Lens.field @"assessmentTemplateArn"
+{-# DEPRECATED arAssessmentTemplateArn "Use generic-lens or generic-optics with 'assessmentTemplateArn' instead." #-}
+
+-- | The state of the assessment run.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arState :: Lens.Lens' AssessmentRun Types.AssessmentRunState
+arState = Lens.field @"state"
+{-# DEPRECATED arState "Use generic-lens or generic-optics with 'state' instead." #-}
 
 -- | The duration of the assessment run.
 --
 -- /Note:/ Consider using 'durationInSeconds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arDurationInSeconds :: Lens.Lens' AssessmentRun Lude.Natural
-arDurationInSeconds = Lens.lens (durationInSeconds :: AssessmentRun -> Lude.Natural) (\s a -> s {durationInSeconds = a} :: AssessmentRun)
+arDurationInSeconds :: Lens.Lens' AssessmentRun Core.Natural
+arDurationInSeconds = Lens.field @"durationInSeconds"
 {-# DEPRECATED arDurationInSeconds "Use generic-lens or generic-optics with 'durationInSeconds' instead." #-}
 
--- | A list of the assessment run state changes.
+-- | The rules packages selected for the assessment run.
 --
--- /Note:/ Consider using 'stateChanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arStateChanges :: Lens.Lens' AssessmentRun [AssessmentRunStateChange]
-arStateChanges = Lens.lens (stateChanges :: AssessmentRun -> [AssessmentRunStateChange]) (\s a -> s {stateChanges = a} :: AssessmentRun)
-{-# DEPRECATED arStateChanges "Use generic-lens or generic-optics with 'stateChanges' instead." #-}
+-- /Note:/ Consider using 'rulesPackageArns' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arRulesPackageArns :: Lens.Lens' AssessmentRun (Core.NonEmpty Types.Arn)
+arRulesPackageArns = Lens.field @"rulesPackageArns"
+{-# DEPRECATED arRulesPackageArns "Use generic-lens or generic-optics with 'rulesPackageArns' instead." #-}
 
--- | The assessment run completion time that corresponds to the rules packages evaluation completion time or failure.
+-- | The user-defined attributes that are assigned to every generated finding.
 --
--- /Note:/ Consider using 'completedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arCompletedAt :: Lens.Lens' AssessmentRun (Lude.Maybe Lude.Timestamp)
-arCompletedAt = Lens.lens (completedAt :: AssessmentRun -> Lude.Maybe Lude.Timestamp) (\s a -> s {completedAt = a} :: AssessmentRun)
-{-# DEPRECATED arCompletedAt "Use generic-lens or generic-optics with 'completedAt' instead." #-}
+-- /Note:/ Consider using 'userAttributesForFindings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arUserAttributesForFindings :: Lens.Lens' AssessmentRun [Types.Attribute]
+arUserAttributesForFindings = Lens.field @"userAttributesForFindings"
+{-# DEPRECATED arUserAttributesForFindings "Use generic-lens or generic-optics with 'userAttributesForFindings' instead." #-}
+
+-- | The time when 'StartAssessmentRun' was called.
+--
+-- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arCreatedAt :: Lens.Lens' AssessmentRun Core.NominalDiffTime
+arCreatedAt = Lens.field @"createdAt"
+{-# DEPRECATED arCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
 
 -- | The last time when the assessment run's state changed.
 --
 -- /Note:/ Consider using 'stateChangedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arStateChangedAt :: Lens.Lens' AssessmentRun Lude.Timestamp
-arStateChangedAt = Lens.lens (stateChangedAt :: AssessmentRun -> Lude.Timestamp) (\s a -> s {stateChangedAt = a} :: AssessmentRun)
+arStateChangedAt :: Lens.Lens' AssessmentRun Core.NominalDiffTime
+arStateChangedAt = Lens.field @"stateChangedAt"
 {-# DEPRECATED arStateChangedAt "Use generic-lens or generic-optics with 'stateChangedAt' instead." #-}
 
--- | The ARN of the assessment template that is associated with the assessment run.
+-- | A Boolean value (true or false) that specifies whether the process of collecting data from the agents is completed.
 --
--- /Note:/ Consider using 'assessmentTemplateARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arAssessmentTemplateARN :: Lens.Lens' AssessmentRun Lude.Text
-arAssessmentTemplateARN = Lens.lens (assessmentTemplateARN :: AssessmentRun -> Lude.Text) (\s a -> s {assessmentTemplateARN = a} :: AssessmentRun)
-{-# DEPRECATED arAssessmentTemplateARN "Use generic-lens or generic-optics with 'assessmentTemplateARN' instead." #-}
+-- /Note:/ Consider using 'dataCollected' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arDataCollected :: Lens.Lens' AssessmentRun Core.Bool
+arDataCollected = Lens.field @"dataCollected"
+{-# DEPRECATED arDataCollected "Use generic-lens or generic-optics with 'dataCollected' instead." #-}
+
+-- | A list of the assessment run state changes.
+--
+-- /Note:/ Consider using 'stateChanges' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arStateChanges :: Lens.Lens' AssessmentRun [Types.AssessmentRunStateChange]
+arStateChanges = Lens.field @"stateChanges"
+{-# DEPRECATED arStateChanges "Use generic-lens or generic-optics with 'stateChanges' instead." #-}
 
 -- | A list of notifications for the event subscriptions. A notification about a particular generated finding is added to this list only once.
 --
 -- /Note:/ Consider using 'notifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-arNotifications :: Lens.Lens' AssessmentRun [AssessmentRunNotification]
-arNotifications = Lens.lens (notifications :: AssessmentRun -> [AssessmentRunNotification]) (\s a -> s {notifications = a} :: AssessmentRun)
+arNotifications :: Lens.Lens' AssessmentRun [Types.AssessmentRunNotification]
+arNotifications = Lens.field @"notifications"
 {-# DEPRECATED arNotifications "Use generic-lens or generic-optics with 'notifications' instead." #-}
 
-instance Lude.FromJSON AssessmentRun where
+-- | Provides a total count of generated findings per severity.
+--
+-- /Note:/ Consider using 'findingCounts' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arFindingCounts :: Lens.Lens' AssessmentRun (Core.HashMap Types.Severity Core.Int)
+arFindingCounts = Lens.field @"findingCounts"
+{-# DEPRECATED arFindingCounts "Use generic-lens or generic-optics with 'findingCounts' instead." #-}
+
+-- | The assessment run completion time that corresponds to the rules packages evaluation completion time or failure.
+--
+-- /Note:/ Consider using 'completedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arCompletedAt :: Lens.Lens' AssessmentRun (Core.Maybe Core.NominalDiffTime)
+arCompletedAt = Lens.field @"completedAt"
+{-# DEPRECATED arCompletedAt "Use generic-lens or generic-optics with 'completedAt' instead." #-}
+
+-- | The time when 'StartAssessmentRun' was called.
+--
+-- /Note:/ Consider using 'startedAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+arStartedAt :: Lens.Lens' AssessmentRun (Core.Maybe Core.NominalDiffTime)
+arStartedAt = Lens.field @"startedAt"
+{-# DEPRECATED arStartedAt "Use generic-lens or generic-optics with 'startedAt' instead." #-}
+
+instance Core.FromJSON AssessmentRun where
   parseJSON =
-    Lude.withObject
-      "AssessmentRun"
-      ( \x ->
-          AssessmentRun'
-            Lude.<$> (x Lude..: "dataCollected")
-            Lude.<*> (x Lude..: "state")
-            Lude.<*> (x Lude..: "arn")
-            Lude.<*> (x Lude..: "createdAt")
-            Lude.<*> (x Lude..:? "findingCounts" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "userAttributesForFindings" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..: "rulesPackageArns")
-            Lude.<*> (x Lude..:? "startedAt")
-            Lude.<*> (x Lude..: "name")
-            Lude.<*> (x Lude..: "durationInSeconds")
-            Lude.<*> (x Lude..:? "stateChanges" Lude..!= Lude.mempty)
-            Lude.<*> (x Lude..:? "completedAt")
-            Lude.<*> (x Lude..: "stateChangedAt")
-            Lude.<*> (x Lude..: "assessmentTemplateArn")
-            Lude.<*> (x Lude..:? "notifications" Lude..!= Lude.mempty)
-      )
+    Core.withObject "AssessmentRun" Core.$
+      \x ->
+        AssessmentRun'
+          Core.<$> (x Core..: "arn")
+          Core.<*> (x Core..: "name")
+          Core.<*> (x Core..: "assessmentTemplateArn")
+          Core.<*> (x Core..: "state")
+          Core.<*> (x Core..: "durationInSeconds")
+          Core.<*> (x Core..: "rulesPackageArns")
+          Core.<*> (x Core..:? "userAttributesForFindings" Core..!= Core.mempty)
+          Core.<*> (x Core..: "createdAt")
+          Core.<*> (x Core..: "stateChangedAt")
+          Core.<*> (x Core..: "dataCollected")
+          Core.<*> (x Core..:? "stateChanges" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "notifications" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "findingCounts" Core..!= Core.mempty)
+          Core.<*> (x Core..:? "completedAt")
+          Core.<*> (x Core..:? "startedAt")

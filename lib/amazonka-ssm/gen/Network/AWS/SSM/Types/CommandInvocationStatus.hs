@@ -13,76 +13,81 @@
 module Network.AWS.SSM.Types.CommandInvocationStatus
   ( CommandInvocationStatus
       ( CommandInvocationStatus',
-        CISPending,
-        CISInProgress,
-        CISDelayed,
-        CISSuccess,
-        CISCancelled,
-        CISTimedOut,
-        CISFailed,
-        CISCancelling
+        CommandInvocationStatusPending,
+        CommandInvocationStatusInProgress,
+        CommandInvocationStatusDelayed,
+        CommandInvocationStatusSuccess,
+        CommandInvocationStatusCancelled,
+        CommandInvocationStatusTimedOut,
+        CommandInvocationStatusFailed,
+        CommandInvocationStatusCancelling,
+        fromCommandInvocationStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype CommandInvocationStatus = CommandInvocationStatus' Lude.Text
+newtype CommandInvocationStatus = CommandInvocationStatus'
+  { fromCommandInvocationStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern CISPending :: CommandInvocationStatus
-pattern CISPending = CommandInvocationStatus' "Pending"
+pattern CommandInvocationStatusPending :: CommandInvocationStatus
+pattern CommandInvocationStatusPending = CommandInvocationStatus' "Pending"
 
-pattern CISInProgress :: CommandInvocationStatus
-pattern CISInProgress = CommandInvocationStatus' "InProgress"
+pattern CommandInvocationStatusInProgress :: CommandInvocationStatus
+pattern CommandInvocationStatusInProgress = CommandInvocationStatus' "InProgress"
 
-pattern CISDelayed :: CommandInvocationStatus
-pattern CISDelayed = CommandInvocationStatus' "Delayed"
+pattern CommandInvocationStatusDelayed :: CommandInvocationStatus
+pattern CommandInvocationStatusDelayed = CommandInvocationStatus' "Delayed"
 
-pattern CISSuccess :: CommandInvocationStatus
-pattern CISSuccess = CommandInvocationStatus' "Success"
+pattern CommandInvocationStatusSuccess :: CommandInvocationStatus
+pattern CommandInvocationStatusSuccess = CommandInvocationStatus' "Success"
 
-pattern CISCancelled :: CommandInvocationStatus
-pattern CISCancelled = CommandInvocationStatus' "Cancelled"
+pattern CommandInvocationStatusCancelled :: CommandInvocationStatus
+pattern CommandInvocationStatusCancelled = CommandInvocationStatus' "Cancelled"
 
-pattern CISTimedOut :: CommandInvocationStatus
-pattern CISTimedOut = CommandInvocationStatus' "TimedOut"
+pattern CommandInvocationStatusTimedOut :: CommandInvocationStatus
+pattern CommandInvocationStatusTimedOut = CommandInvocationStatus' "TimedOut"
 
-pattern CISFailed :: CommandInvocationStatus
-pattern CISFailed = CommandInvocationStatus' "Failed"
+pattern CommandInvocationStatusFailed :: CommandInvocationStatus
+pattern CommandInvocationStatusFailed = CommandInvocationStatus' "Failed"
 
-pattern CISCancelling :: CommandInvocationStatus
-pattern CISCancelling = CommandInvocationStatus' "Cancelling"
+pattern CommandInvocationStatusCancelling :: CommandInvocationStatus
+pattern CommandInvocationStatusCancelling = CommandInvocationStatus' "Cancelling"
 
 {-# COMPLETE
-  CISPending,
-  CISInProgress,
-  CISDelayed,
-  CISSuccess,
-  CISCancelled,
-  CISTimedOut,
-  CISFailed,
-  CISCancelling,
+  CommandInvocationStatusPending,
+  CommandInvocationStatusInProgress,
+  CommandInvocationStatusDelayed,
+  CommandInvocationStatusSuccess,
+  CommandInvocationStatusCancelled,
+  CommandInvocationStatusTimedOut,
+  CommandInvocationStatusFailed,
+  CommandInvocationStatusCancelling,
   CommandInvocationStatus'
   #-}

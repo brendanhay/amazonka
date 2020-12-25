@@ -13,66 +13,71 @@
 module Network.AWS.Lightsail.Types.ContainerServicePowerName
   ( ContainerServicePowerName
       ( ContainerServicePowerName',
-        Nano,
-        Micro,
-        Small,
-        Medium,
-        Large,
-        XLarge
+        ContainerServicePowerNameNano,
+        ContainerServicePowerNameMicro,
+        ContainerServicePowerNameSmall,
+        ContainerServicePowerNameMedium,
+        ContainerServicePowerNameLarge,
+        ContainerServicePowerNameXlarge,
+        fromContainerServicePowerName
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ContainerServicePowerName = ContainerServicePowerName' Lude.Text
+newtype ContainerServicePowerName = ContainerServicePowerName'
+  { fromContainerServicePowerName ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Nano :: ContainerServicePowerName
-pattern Nano = ContainerServicePowerName' "nano"
+pattern ContainerServicePowerNameNano :: ContainerServicePowerName
+pattern ContainerServicePowerNameNano = ContainerServicePowerName' "nano"
 
-pattern Micro :: ContainerServicePowerName
-pattern Micro = ContainerServicePowerName' "micro"
+pattern ContainerServicePowerNameMicro :: ContainerServicePowerName
+pattern ContainerServicePowerNameMicro = ContainerServicePowerName' "micro"
 
-pattern Small :: ContainerServicePowerName
-pattern Small = ContainerServicePowerName' "small"
+pattern ContainerServicePowerNameSmall :: ContainerServicePowerName
+pattern ContainerServicePowerNameSmall = ContainerServicePowerName' "small"
 
-pattern Medium :: ContainerServicePowerName
-pattern Medium = ContainerServicePowerName' "medium"
+pattern ContainerServicePowerNameMedium :: ContainerServicePowerName
+pattern ContainerServicePowerNameMedium = ContainerServicePowerName' "medium"
 
-pattern Large :: ContainerServicePowerName
-pattern Large = ContainerServicePowerName' "large"
+pattern ContainerServicePowerNameLarge :: ContainerServicePowerName
+pattern ContainerServicePowerNameLarge = ContainerServicePowerName' "large"
 
-pattern XLarge :: ContainerServicePowerName
-pattern XLarge = ContainerServicePowerName' "xlarge"
+pattern ContainerServicePowerNameXlarge :: ContainerServicePowerName
+pattern ContainerServicePowerNameXlarge = ContainerServicePowerName' "xlarge"
 
 {-# COMPLETE
-  Nano,
-  Micro,
-  Small,
-  Medium,
-  Large,
-  XLarge,
+  ContainerServicePowerNameNano,
+  ContainerServicePowerNameMicro,
+  ContainerServicePowerNameSmall,
+  ContainerServicePowerNameMedium,
+  ContainerServicePowerNameLarge,
+  ContainerServicePowerNameXlarge,
   ContainerServicePowerName'
   #-}

@@ -17,58 +17,54 @@ module Network.AWS.Config.Types.AggregateComplianceCount
     mkAggregateComplianceCount,
 
     -- * Lenses
-    accGroupName,
     accComplianceSummary,
+    accGroupName,
   )
 where
 
-import Network.AWS.Config.Types.ComplianceSummary
+import qualified Network.AWS.Config.Types.ComplianceSummary as Types
+import qualified Network.AWS.Config.Types.GroupName as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Returns the number of compliant and noncompliant rules for one or more accounts and regions in an aggregator.
 --
 -- /See:/ 'mkAggregateComplianceCount' smart constructor.
 data AggregateComplianceCount = AggregateComplianceCount'
-  { -- | The 12-digit account ID or region based on the GroupByKey value.
-    groupName :: Lude.Maybe Lude.Text,
-    -- | The number of compliant and noncompliant AWS Config rules.
-    complianceSummary :: Lude.Maybe ComplianceSummary
+  { -- | The number of compliant and noncompliant AWS Config rules.
+    complianceSummary :: Core.Maybe Types.ComplianceSummary,
+    -- | The 12-digit account ID or region based on the GroupByKey value.
+    groupName :: Core.Maybe Types.GroupName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'AggregateComplianceCount' with the minimum fields required to make a request.
---
--- * 'groupName' - The 12-digit account ID or region based on the GroupByKey value.
--- * 'complianceSummary' - The number of compliant and noncompliant AWS Config rules.
+-- | Creates a 'AggregateComplianceCount' value with any optional fields omitted.
 mkAggregateComplianceCount ::
   AggregateComplianceCount
 mkAggregateComplianceCount =
   AggregateComplianceCount'
-    { groupName = Lude.Nothing,
-      complianceSummary = Lude.Nothing
+    { complianceSummary = Core.Nothing,
+      groupName = Core.Nothing
     }
-
--- | The 12-digit account ID or region based on the GroupByKey value.
---
--- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-accGroupName :: Lens.Lens' AggregateComplianceCount (Lude.Maybe Lude.Text)
-accGroupName = Lens.lens (groupName :: AggregateComplianceCount -> Lude.Maybe Lude.Text) (\s a -> s {groupName = a} :: AggregateComplianceCount)
-{-# DEPRECATED accGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
 
 -- | The number of compliant and noncompliant AWS Config rules.
 --
 -- /Note:/ Consider using 'complianceSummary' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-accComplianceSummary :: Lens.Lens' AggregateComplianceCount (Lude.Maybe ComplianceSummary)
-accComplianceSummary = Lens.lens (complianceSummary :: AggregateComplianceCount -> Lude.Maybe ComplianceSummary) (\s a -> s {complianceSummary = a} :: AggregateComplianceCount)
+accComplianceSummary :: Lens.Lens' AggregateComplianceCount (Core.Maybe Types.ComplianceSummary)
+accComplianceSummary = Lens.field @"complianceSummary"
 {-# DEPRECATED accComplianceSummary "Use generic-lens or generic-optics with 'complianceSummary' instead." #-}
 
-instance Lude.FromJSON AggregateComplianceCount where
+-- | The 12-digit account ID or region based on the GroupByKey value.
+--
+-- /Note:/ Consider using 'groupName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+accGroupName :: Lens.Lens' AggregateComplianceCount (Core.Maybe Types.GroupName)
+accGroupName = Lens.field @"groupName"
+{-# DEPRECATED accGroupName "Use generic-lens or generic-optics with 'groupName' instead." #-}
+
+instance Core.FromJSON AggregateComplianceCount where
   parseJSON =
-    Lude.withObject
-      "AggregateComplianceCount"
-      ( \x ->
-          AggregateComplianceCount'
-            Lude.<$> (x Lude..:? "GroupName") Lude.<*> (x Lude..:? "ComplianceSummary")
-      )
+    Core.withObject "AggregateComplianceCount" Core.$
+      \x ->
+        AggregateComplianceCount'
+          Core.<$> (x Core..:? "ComplianceSummary") Core.<*> (x Core..:? "GroupName")

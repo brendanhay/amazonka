@@ -20,143 +20,126 @@ module Network.AWS.StorageGateway.UpdateVTLDeviceType
     mkUpdateVTLDeviceType,
 
     -- ** Request lenses
-    uvtldtDeviceType,
     uvtldtVTLDeviceARN,
+    uvtldtDeviceType,
 
     -- * Destructuring the response
     UpdateVTLDeviceTypeResponse (..),
     mkUpdateVTLDeviceTypeResponse,
 
     -- ** Response lenses
-    uvtldtrsVTLDeviceARN,
-    uvtldtrsResponseStatus,
+    uvtldtrrsVTLDeviceARN,
+    uvtldtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | /See:/ 'mkUpdateVTLDeviceType' smart constructor.
 data UpdateVTLDeviceType = UpdateVTLDeviceType'
-  { -- | The type of medium changer you want to select.
+  { -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
+    vTLDeviceARN :: Types.VTLDeviceARN,
+    -- | The type of medium changer you want to select.
     --
     -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
-    deviceType :: Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
-    vTLDeviceARN :: Lude.Text
+    deviceType :: Types.DeviceType
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateVTLDeviceType' with the minimum fields required to make a request.
---
--- * 'deviceType' - The type of medium changer you want to select.
---
--- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
--- * 'vTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you want to select.
+-- | Creates a 'UpdateVTLDeviceType' value with any optional fields omitted.
 mkUpdateVTLDeviceType ::
-  -- | 'deviceType'
-  Lude.Text ->
   -- | 'vTLDeviceARN'
-  Lude.Text ->
+  Types.VTLDeviceARN ->
+  -- | 'deviceType'
+  Types.DeviceType ->
   UpdateVTLDeviceType
-mkUpdateVTLDeviceType pDeviceType_ pVTLDeviceARN_ =
-  UpdateVTLDeviceType'
-    { deviceType = pDeviceType_,
-      vTLDeviceARN = pVTLDeviceARN_
-    }
+mkUpdateVTLDeviceType vTLDeviceARN deviceType =
+  UpdateVTLDeviceType' {vTLDeviceARN, deviceType}
+
+-- | The Amazon Resource Name (ARN) of the medium changer you want to select.
+--
+-- /Note:/ Consider using 'vTLDeviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uvtldtVTLDeviceARN :: Lens.Lens' UpdateVTLDeviceType Types.VTLDeviceARN
+uvtldtVTLDeviceARN = Lens.field @"vTLDeviceARN"
+{-# DEPRECATED uvtldtVTLDeviceARN "Use generic-lens or generic-optics with 'vTLDeviceARN' instead." #-}
 
 -- | The type of medium changer you want to select.
 --
 -- Valid Values: @STK-L700@ | @AWS-Gateway-VTL@ | @IBM-03584L32-0402@
 --
 -- /Note:/ Consider using 'deviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uvtldtDeviceType :: Lens.Lens' UpdateVTLDeviceType Lude.Text
-uvtldtDeviceType = Lens.lens (deviceType :: UpdateVTLDeviceType -> Lude.Text) (\s a -> s {deviceType = a} :: UpdateVTLDeviceType)
+uvtldtDeviceType :: Lens.Lens' UpdateVTLDeviceType Types.DeviceType
+uvtldtDeviceType = Lens.field @"deviceType"
 {-# DEPRECATED uvtldtDeviceType "Use generic-lens or generic-optics with 'deviceType' instead." #-}
 
--- | The Amazon Resource Name (ARN) of the medium changer you want to select.
---
--- /Note:/ Consider using 'vTLDeviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uvtldtVTLDeviceARN :: Lens.Lens' UpdateVTLDeviceType Lude.Text
-uvtldtVTLDeviceARN = Lens.lens (vTLDeviceARN :: UpdateVTLDeviceType -> Lude.Text) (\s a -> s {vTLDeviceARN = a} :: UpdateVTLDeviceType)
-{-# DEPRECATED uvtldtVTLDeviceARN "Use generic-lens or generic-optics with 'vTLDeviceARN' instead." #-}
+instance Core.FromJSON UpdateVTLDeviceType where
+  toJSON UpdateVTLDeviceType {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("VTLDeviceARN" Core..= vTLDeviceARN),
+            Core.Just ("DeviceType" Core..= deviceType)
+          ]
+      )
 
-instance Lude.AWSRequest UpdateVTLDeviceType where
+instance Core.AWSRequest UpdateVTLDeviceType where
   type Rs UpdateVTLDeviceType = UpdateVTLDeviceTypeResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.UpdateVTLDeviceType")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           UpdateVTLDeviceTypeResponse'
-            Lude.<$> (x Lude..?> "VTLDeviceARN") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "VTLDeviceARN") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders UpdateVTLDeviceType where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("StorageGateway_20130630.UpdateVTLDeviceType" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON UpdateVTLDeviceType where
-  toJSON UpdateVTLDeviceType' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("DeviceType" Lude..= deviceType),
-            Lude.Just ("VTLDeviceARN" Lude..= vTLDeviceARN)
-          ]
-      )
-
-instance Lude.ToPath UpdateVTLDeviceType where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UpdateVTLDeviceType where
-  toQuery = Lude.const Lude.mempty
 
 -- | UpdateVTLDeviceTypeOutput
 --
 -- /See:/ 'mkUpdateVTLDeviceTypeResponse' smart constructor.
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
   { -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
-    vTLDeviceARN :: Lude.Maybe Lude.Text,
+    vTLDeviceARN :: Core.Maybe Types.VTLDeviceARN,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UpdateVTLDeviceTypeResponse' with the minimum fields required to make a request.
---
--- * 'vTLDeviceARN' - The Amazon Resource Name (ARN) of the medium changer you have selected.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'UpdateVTLDeviceTypeResponse' value with any optional fields omitted.
 mkUpdateVTLDeviceTypeResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   UpdateVTLDeviceTypeResponse
-mkUpdateVTLDeviceTypeResponse pResponseStatus_ =
+mkUpdateVTLDeviceTypeResponse responseStatus =
   UpdateVTLDeviceTypeResponse'
-    { vTLDeviceARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { vTLDeviceARN = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
 --
 -- /Note:/ Consider using 'vTLDeviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uvtldtrsVTLDeviceARN :: Lens.Lens' UpdateVTLDeviceTypeResponse (Lude.Maybe Lude.Text)
-uvtldtrsVTLDeviceARN = Lens.lens (vTLDeviceARN :: UpdateVTLDeviceTypeResponse -> Lude.Maybe Lude.Text) (\s a -> s {vTLDeviceARN = a} :: UpdateVTLDeviceTypeResponse)
-{-# DEPRECATED uvtldtrsVTLDeviceARN "Use generic-lens or generic-optics with 'vTLDeviceARN' instead." #-}
+uvtldtrrsVTLDeviceARN :: Lens.Lens' UpdateVTLDeviceTypeResponse (Core.Maybe Types.VTLDeviceARN)
+uvtldtrrsVTLDeviceARN = Lens.field @"vTLDeviceARN"
+{-# DEPRECATED uvtldtrrsVTLDeviceARN "Use generic-lens or generic-optics with 'vTLDeviceARN' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uvtldtrsResponseStatus :: Lens.Lens' UpdateVTLDeviceTypeResponse Lude.Int
-uvtldtrsResponseStatus = Lens.lens (responseStatus :: UpdateVTLDeviceTypeResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: UpdateVTLDeviceTypeResponse)
-{-# DEPRECATED uvtldtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+uvtldtrrsResponseStatus :: Lens.Lens' UpdateVTLDeviceTypeResponse Core.Int
+uvtldtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED uvtldtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

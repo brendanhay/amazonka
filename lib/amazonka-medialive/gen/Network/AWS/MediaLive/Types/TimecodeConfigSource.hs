@@ -13,52 +13,57 @@
 module Network.AWS.MediaLive.Types.TimecodeConfigSource
   ( TimecodeConfigSource
       ( TimecodeConfigSource',
-        TCSEmbedded,
-        TCSSystemclock,
-        TCSZerobased
+        TimecodeConfigSourceEmbedded,
+        TimecodeConfigSourceSystemclock,
+        TimecodeConfigSourceZerobased,
+        fromTimecodeConfigSource
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Timecode Config Source
-newtype TimecodeConfigSource = TimecodeConfigSource' Lude.Text
+newtype TimecodeConfigSource = TimecodeConfigSource'
+  { fromTimecodeConfigSource ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern TCSEmbedded :: TimecodeConfigSource
-pattern TCSEmbedded = TimecodeConfigSource' "EMBEDDED"
+pattern TimecodeConfigSourceEmbedded :: TimecodeConfigSource
+pattern TimecodeConfigSourceEmbedded = TimecodeConfigSource' "EMBEDDED"
 
-pattern TCSSystemclock :: TimecodeConfigSource
-pattern TCSSystemclock = TimecodeConfigSource' "SYSTEMCLOCK"
+pattern TimecodeConfigSourceSystemclock :: TimecodeConfigSource
+pattern TimecodeConfigSourceSystemclock = TimecodeConfigSource' "SYSTEMCLOCK"
 
-pattern TCSZerobased :: TimecodeConfigSource
-pattern TCSZerobased = TimecodeConfigSource' "ZEROBASED"
+pattern TimecodeConfigSourceZerobased :: TimecodeConfigSource
+pattern TimecodeConfigSourceZerobased = TimecodeConfigSource' "ZEROBASED"
 
 {-# COMPLETE
-  TCSEmbedded,
-  TCSSystemclock,
-  TCSZerobased,
+  TimecodeConfigSourceEmbedded,
+  TimecodeConfigSourceSystemclock,
+  TimecodeConfigSourceZerobased,
   TimecodeConfigSource'
   #-}

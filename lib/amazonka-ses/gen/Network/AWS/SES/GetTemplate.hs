@@ -29,100 +29,94 @@ module Network.AWS.SES.GetTemplate
     mkGetTemplateResponse,
 
     -- ** Response lenses
-    gtrsTemplate,
-    gtrsResponseStatus,
+    gtrrsTemplate,
+    gtrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SES.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SES.Types as Types
 
 -- | /See:/ 'mkGetTemplate' smart constructor.
 newtype GetTemplate = GetTemplate'
   { -- | The name of the template you want to retrieve.
-    templateName :: Lude.Text
+    templateName :: Types.TemplateName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTemplate' with the minimum fields required to make a request.
---
--- * 'templateName' - The name of the template you want to retrieve.
+-- | Creates a 'GetTemplate' value with any optional fields omitted.
 mkGetTemplate ::
   -- | 'templateName'
-  Lude.Text ->
+  Types.TemplateName ->
   GetTemplate
-mkGetTemplate pTemplateName_ =
-  GetTemplate' {templateName = pTemplateName_}
+mkGetTemplate templateName = GetTemplate' {templateName}
 
 -- | The name of the template you want to retrieve.
 --
 -- /Note:/ Consider using 'templateName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtTemplateName :: Lens.Lens' GetTemplate Lude.Text
-gtTemplateName = Lens.lens (templateName :: GetTemplate -> Lude.Text) (\s a -> s {templateName = a} :: GetTemplate)
+gtTemplateName :: Lens.Lens' GetTemplate Types.TemplateName
+gtTemplateName = Lens.field @"templateName"
 {-# DEPRECATED gtTemplateName "Use generic-lens or generic-optics with 'templateName' instead." #-}
 
-instance Lude.AWSRequest GetTemplate where
+instance Core.AWSRequest GetTemplate where
   type Rs GetTemplate = GetTemplateResponse
-  request = Req.postQuery sesService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "GetTemplate")
+                Core.<> (Core.pure ("Version", "2010-12-01"))
+                Core.<> (Core.toQueryValue "TemplateName" templateName)
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "GetTemplateResult"
       ( \s h x ->
           GetTemplateResponse'
-            Lude.<$> (x Lude..@? "Template") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "Template") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetTemplate where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath GetTemplate where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery GetTemplate where
-  toQuery GetTemplate' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("GetTemplate" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-12-01" :: Lude.ByteString),
-        "TemplateName" Lude.=: templateName
-      ]
 
 -- | /See:/ 'mkGetTemplateResponse' smart constructor.
 data GetTemplateResponse = GetTemplateResponse'
-  { template :: Lude.Maybe Template,
+  { template :: Core.Maybe Types.Template,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetTemplateResponse' with the minimum fields required to make a request.
---
--- * 'template' -
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetTemplateResponse' value with any optional fields omitted.
 mkGetTemplateResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetTemplateResponse
-mkGetTemplateResponse pResponseStatus_ =
-  GetTemplateResponse'
-    { template = Lude.Nothing,
-      responseStatus = pResponseStatus_
-    }
+mkGetTemplateResponse responseStatus =
+  GetTemplateResponse' {template = Core.Nothing, responseStatus}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'template' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsTemplate :: Lens.Lens' GetTemplateResponse (Lude.Maybe Template)
-gtrsTemplate = Lens.lens (template :: GetTemplateResponse -> Lude.Maybe Template) (\s a -> s {template = a} :: GetTemplateResponse)
-{-# DEPRECATED gtrsTemplate "Use generic-lens or generic-optics with 'template' instead." #-}
+gtrrsTemplate :: Lens.Lens' GetTemplateResponse (Core.Maybe Types.Template)
+gtrrsTemplate = Lens.field @"template"
+{-# DEPRECATED gtrrsTemplate "Use generic-lens or generic-optics with 'template' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gtrsResponseStatus :: Lens.Lens' GetTemplateResponse Lude.Int
-gtrsResponseStatus = Lens.lens (responseStatus :: GetTemplateResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetTemplateResponse)
-{-# DEPRECATED gtrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gtrrsResponseStatus :: Lens.Lens' GetTemplateResponse Core.Int
+gtrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gtrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

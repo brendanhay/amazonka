@@ -17,60 +17,52 @@ module Network.AWS.EC2.Types.LaunchTemplateElasticInferenceAccelerator
     mkLaunchTemplateElasticInferenceAccelerator,
 
     -- * Lenses
-    lteiaCount,
     lteiaType,
+    lteiaCount,
   )
 where
 
+import qualified Network.AWS.EC2.Types.Type as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an elastic inference accelerator.
 --
 -- /See:/ 'mkLaunchTemplateElasticInferenceAccelerator' smart constructor.
 data LaunchTemplateElasticInferenceAccelerator = LaunchTemplateElasticInferenceAccelerator'
-  { -- | The number of elastic inference accelerators to attach to the instance.
+  { -- | The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+    type' :: Types.Type,
+    -- | The number of elastic inference accelerators to attach to the instance.
     --
     -- Default: 1
-    count :: Lude.Maybe Lude.Natural,
-    -- | The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
-    type' :: Lude.Text
+    count :: Core.Maybe Core.Natural
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LaunchTemplateElasticInferenceAccelerator' with the minimum fields required to make a request.
---
--- * 'count' - The number of elastic inference accelerators to attach to the instance.
---
--- Default: 1
--- * 'type'' - The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+-- | Creates a 'LaunchTemplateElasticInferenceAccelerator' value with any optional fields omitted.
 mkLaunchTemplateElasticInferenceAccelerator ::
-  -- | 'type''
-  Lude.Text ->
+  -- | 'type\''
+  Types.Type ->
   LaunchTemplateElasticInferenceAccelerator
-mkLaunchTemplateElasticInferenceAccelerator pType_ =
+mkLaunchTemplateElasticInferenceAccelerator type' =
   LaunchTemplateElasticInferenceAccelerator'
-    { count = Lude.Nothing,
-      type' = pType_
+    { type',
+      count = Core.Nothing
     }
+
+-- | The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
+--
+-- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lteiaType :: Lens.Lens' LaunchTemplateElasticInferenceAccelerator Types.Type
+lteiaType = Lens.field @"type'"
+{-# DEPRECATED lteiaType "Use generic-lens or generic-optics with 'type'' instead." #-}
 
 -- | The number of elastic inference accelerators to attach to the instance.
 --
 -- Default: 1
 --
 -- /Note:/ Consider using 'count' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lteiaCount :: Lens.Lens' LaunchTemplateElasticInferenceAccelerator (Lude.Maybe Lude.Natural)
-lteiaCount = Lens.lens (count :: LaunchTemplateElasticInferenceAccelerator -> Lude.Maybe Lude.Natural) (\s a -> s {count = a} :: LaunchTemplateElasticInferenceAccelerator)
+lteiaCount :: Lens.Lens' LaunchTemplateElasticInferenceAccelerator (Core.Maybe Core.Natural)
+lteiaCount = Lens.field @"count"
 {-# DEPRECATED lteiaCount "Use generic-lens or generic-optics with 'count' instead." #-}
-
--- | The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge.
---
--- /Note:/ Consider using 'type'' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lteiaType :: Lens.Lens' LaunchTemplateElasticInferenceAccelerator Lude.Text
-lteiaType = Lens.lens (type' :: LaunchTemplateElasticInferenceAccelerator -> Lude.Text) (\s a -> s {type' = a} :: LaunchTemplateElasticInferenceAccelerator)
-{-# DEPRECATED lteiaType "Use generic-lens or generic-optics with 'type'' instead." #-}
-
-instance Lude.ToQuery LaunchTemplateElasticInferenceAccelerator where
-  toQuery LaunchTemplateElasticInferenceAccelerator' {..} =
-    Lude.mconcat ["Count" Lude.=: count, "Type" Lude.=: type']

@@ -13,56 +13,61 @@
 module Network.AWS.ElasticSearch.Types.UpgradeStatus
   ( UpgradeStatus
       ( UpgradeStatus',
-        USInProgress,
-        USSucceeded,
-        USSucceededWithIssues,
-        USFailed
+        UpgradeStatusInProgress,
+        UpgradeStatusSucceeded,
+        UpgradeStatusSucceededWithIssues,
+        UpgradeStatusFailed,
+        fromUpgradeStatus
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype UpgradeStatus = UpgradeStatus' Lude.Text
+newtype UpgradeStatus = UpgradeStatus'
+  { fromUpgradeStatus ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern USInProgress :: UpgradeStatus
-pattern USInProgress = UpgradeStatus' "IN_PROGRESS"
+pattern UpgradeStatusInProgress :: UpgradeStatus
+pattern UpgradeStatusInProgress = UpgradeStatus' "IN_PROGRESS"
 
-pattern USSucceeded :: UpgradeStatus
-pattern USSucceeded = UpgradeStatus' "SUCCEEDED"
+pattern UpgradeStatusSucceeded :: UpgradeStatus
+pattern UpgradeStatusSucceeded = UpgradeStatus' "SUCCEEDED"
 
-pattern USSucceededWithIssues :: UpgradeStatus
-pattern USSucceededWithIssues = UpgradeStatus' "SUCCEEDED_WITH_ISSUES"
+pattern UpgradeStatusSucceededWithIssues :: UpgradeStatus
+pattern UpgradeStatusSucceededWithIssues = UpgradeStatus' "SUCCEEDED_WITH_ISSUES"
 
-pattern USFailed :: UpgradeStatus
-pattern USFailed = UpgradeStatus' "FAILED"
+pattern UpgradeStatusFailed :: UpgradeStatus
+pattern UpgradeStatusFailed = UpgradeStatus' "FAILED"
 
 {-# COMPLETE
-  USInProgress,
-  USSucceeded,
-  USSucceededWithIssues,
-  USFailed,
+  UpgradeStatusInProgress,
+  UpgradeStatusSucceeded,
+  UpgradeStatusSucceededWithIssues,
+  UpgradeStatusFailed,
   UpgradeStatus'
   #-}

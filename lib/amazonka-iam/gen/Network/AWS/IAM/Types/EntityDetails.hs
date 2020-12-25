@@ -17,14 +17,14 @@ module Network.AWS.IAM.Types.EntityDetails
     mkEntityDetails,
 
     -- * Lenses
-    edLastAuthenticated,
     edEntityInfo,
+    edLastAuthenticated,
   )
 where
 
-import Network.AWS.IAM.Types.EntityInfo
+import qualified Network.AWS.IAM.Types.EntityInfo as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | An object that contains details about when the IAM entities (users or roles) were last used in an attempt to access the specified AWS service.
 --
@@ -32,49 +32,41 @@ import qualified Network.AWS.Prelude as Lude
 --
 -- /See:/ 'mkEntityDetails' smart constructor.
 data EntityDetails = EntityDetails'
-  { -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the authenticated entity last attempted to access AWS. AWS does not report unauthenticated requests.
+  { -- | The @EntityInfo@ object that contains details about the entity (user or role).
+    entityInfo :: Types.EntityInfo,
+    -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the authenticated entity last attempted to access AWS. AWS does not report unauthenticated requests.
     --
     -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
-    lastAuthenticated :: Lude.Maybe Lude.DateTime,
-    -- | The @EntityInfo@ object that contains details about the entity (user or role).
-    entityInfo :: EntityInfo
+    lastAuthenticated :: Core.Maybe Core.UTCTime
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'EntityDetails' with the minimum fields required to make a request.
---
--- * 'lastAuthenticated' - The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the authenticated entity last attempted to access AWS. AWS does not report unauthenticated requests.
---
--- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
--- * 'entityInfo' - The @EntityInfo@ object that contains details about the entity (user or role).
+-- | Creates a 'EntityDetails' value with any optional fields omitted.
 mkEntityDetails ::
   -- | 'entityInfo'
-  EntityInfo ->
+  Types.EntityInfo ->
   EntityDetails
-mkEntityDetails pEntityInfo_ =
-  EntityDetails'
-    { lastAuthenticated = Lude.Nothing,
-      entityInfo = pEntityInfo_
-    }
+mkEntityDetails entityInfo =
+  EntityDetails' {entityInfo, lastAuthenticated = Core.Nothing}
+
+-- | The @EntityInfo@ object that contains details about the entity (user or role).
+--
+-- /Note:/ Consider using 'entityInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+edEntityInfo :: Lens.Lens' EntityDetails Types.EntityInfo
+edEntityInfo = Lens.field @"entityInfo"
+{-# DEPRECATED edEntityInfo "Use generic-lens or generic-optics with 'entityInfo' instead." #-}
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format> , when the authenticated entity last attempted to access AWS. AWS does not report unauthenticated requests.
 --
 -- This field is null if no IAM entities attempted to access the service within the <https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period reporting period> .
 --
 -- /Note:/ Consider using 'lastAuthenticated' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edLastAuthenticated :: Lens.Lens' EntityDetails (Lude.Maybe Lude.DateTime)
-edLastAuthenticated = Lens.lens (lastAuthenticated :: EntityDetails -> Lude.Maybe Lude.DateTime) (\s a -> s {lastAuthenticated = a} :: EntityDetails)
+edLastAuthenticated :: Lens.Lens' EntityDetails (Core.Maybe Core.UTCTime)
+edLastAuthenticated = Lens.field @"lastAuthenticated"
 {-# DEPRECATED edLastAuthenticated "Use generic-lens or generic-optics with 'lastAuthenticated' instead." #-}
 
--- | The @EntityInfo@ object that contains details about the entity (user or role).
---
--- /Note:/ Consider using 'entityInfo' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-edEntityInfo :: Lens.Lens' EntityDetails EntityInfo
-edEntityInfo = Lens.lens (entityInfo :: EntityDetails -> EntityInfo) (\s a -> s {entityInfo = a} :: EntityDetails)
-{-# DEPRECATED edEntityInfo "Use generic-lens or generic-optics with 'entityInfo' instead." #-}
-
-instance Lude.FromXML EntityDetails where
+instance Core.FromXML EntityDetails where
   parseXML x =
     EntityDetails'
-      Lude.<$> (x Lude..@? "LastAuthenticated") Lude.<*> (x Lude..@ "EntityInfo")
+      Core.<$> (x Core..@ "EntityInfo") Core.<*> (x Core..@? "LastAuthenticated")

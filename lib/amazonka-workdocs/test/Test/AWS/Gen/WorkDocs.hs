@@ -534,7 +534,7 @@ responseDeleteLabels =
   res
     "DeleteLabelsResponse"
     "fixture/DeleteLabelsResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteLabels)
 
 responseAbortDocumentVersionUpload :: AbortDocumentVersionUploadResponse -> TestTree
@@ -542,7 +542,7 @@ responseAbortDocumentVersionUpload =
   res
     "AbortDocumentVersionUploadResponse"
     "fixture/AbortDocumentVersionUploadResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy AbortDocumentVersionUpload)
 
 responseGetDocumentPath :: GetDocumentPathResponse -> TestTree
@@ -550,7 +550,7 @@ responseGetDocumentPath =
   res
     "GetDocumentPathResponse"
     "fixture/GetDocumentPathResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy GetDocumentPath)
 
 responseCreateComment :: CreateCommentResponse -> TestTree
@@ -558,7 +558,7 @@ responseCreateComment =
   res
     "CreateCommentResponse"
     "fixture/CreateCommentResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy CreateComment)
 
 responseDescribeUsers :: DescribeUsersResponse -> TestTree
@@ -566,7 +566,7 @@ responseDescribeUsers =
   res
     "DescribeUsersResponse"
     "fixture/DescribeUsersResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeUsers)
 
 responseDeleteFolder :: DeleteFolderResponse -> TestTree
@@ -574,7 +574,7 @@ responseDeleteFolder =
   res
     "DeleteFolderResponse"
     "fixture/DeleteFolderResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFolder)
 
 responseUpdateFolder :: UpdateFolderResponse -> TestTree
@@ -582,7 +582,7 @@ responseUpdateFolder =
   res
     "UpdateFolderResponse"
     "fixture/UpdateFolderResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateFolder)
 
 responseDeleteCustomMetadata :: DeleteCustomMetadataResponse -> TestTree
@@ -590,7 +590,7 @@ responseDeleteCustomMetadata =
   res
     "DeleteCustomMetadataResponse"
     "fixture/DeleteCustomMetadataResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteCustomMetadata)
 
 responseDescribeResourcePermissions :: DescribeResourcePermissionsResponse -> TestTree
@@ -598,7 +598,7 @@ responseDescribeResourcePermissions =
   res
     "DescribeResourcePermissionsResponse"
     "fixture/DescribeResourcePermissionsResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeResourcePermissions)
 
 responseDeleteNotificationSubscription :: DeleteNotificationSubscriptionResponse -> TestTree
@@ -606,7 +606,7 @@ responseDeleteNotificationSubscription =
   res
     "DeleteNotificationSubscriptionResponse"
     "fixture/DeleteNotificationSubscriptionResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteNotificationSubscription)
 
 responseCreateFolder :: CreateFolderResponse -> TestTree
@@ -614,7 +614,7 @@ responseCreateFolder =
   res
     "CreateFolderResponse"
     "fixture/CreateFolderResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy CreateFolder)
 
 responseCreateNotificationSubscription :: CreateNotificationSubscriptionResponse -> TestTree
@@ -622,7 +622,7 @@ responseCreateNotificationSubscription =
   res
     "CreateNotificationSubscriptionResponse"
     "fixture/CreateNotificationSubscriptionResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy CreateNotificationSubscription)
 
 responseCreateCustomMetadata :: CreateCustomMetadataResponse -> TestTree
@@ -630,7 +630,7 @@ responseCreateCustomMetadata =
   res
     "CreateCustomMetadataResponse"
     "fixture/CreateCustomMetadataResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy CreateCustomMetadata)
 
 responseGetFolderPath :: GetFolderPathResponse -> TestTree
@@ -638,7 +638,7 @@ responseGetFolderPath =
   res
     "GetFolderPathResponse"
     "fixture/GetFolderPathResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy GetFolderPath)
 
 responseDescribeComments :: DescribeCommentsResponse -> TestTree
@@ -646,7 +646,7 @@ responseDescribeComments =
   res
     "DescribeCommentsResponse"
     "fixture/DescribeCommentsResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeComments)
 
 responseDeleteFolderContents :: DeleteFolderContentsResponse -> TestTree
@@ -654,7 +654,7 @@ responseDeleteFolderContents =
   res
     "DeleteFolderContentsResponse"
     "fixture/DeleteFolderContentsResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteFolderContents)
 
 responseRemoveAllResourcePermissions :: RemoveAllResourcePermissionsResponse -> TestTree
@@ -662,7 +662,7 @@ responseRemoveAllResourcePermissions =
   res
     "RemoveAllResourcePermissionsResponse"
     "fixture/RemoveAllResourcePermissionsResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy RemoveAllResourcePermissions)
 
 responseGetFolder :: GetFolderResponse -> TestTree
@@ -670,7 +670,7 @@ responseGetFolder =
   res
     "GetFolderResponse"
     "fixture/GetFolderResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy GetFolder)
 
 responseDescribeNotificationSubscriptions :: DescribeNotificationSubscriptionsResponse -> TestTree
@@ -678,7 +678,7 @@ responseDescribeNotificationSubscriptions =
   res
     "DescribeNotificationSubscriptionsResponse"
     "fixture/DescribeNotificationSubscriptionsResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeNotificationSubscriptions)
 
 responseActivateUser :: ActivateUserResponse -> TestTree
@@ -686,7 +686,7 @@ responseActivateUser =
   res
     "ActivateUserResponse"
     "fixture/ActivateUserResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy ActivateUser)
 
 responseDescribeDocumentVersions :: DescribeDocumentVersionsResponse -> TestTree
@@ -694,7 +694,7 @@ responseDescribeDocumentVersions =
   res
     "DescribeDocumentVersionsResponse"
     "fixture/DescribeDocumentVersionsResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeDocumentVersions)
 
 responseGetDocumentVersion :: GetDocumentVersionResponse -> TestTree
@@ -702,7 +702,7 @@ responseGetDocumentVersion =
   res
     "GetDocumentVersionResponse"
     "fixture/GetDocumentVersionResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy GetDocumentVersion)
 
 responseDescribeActivities :: DescribeActivitiesResponse -> TestTree
@@ -710,7 +710,7 @@ responseDescribeActivities =
   res
     "DescribeActivitiesResponse"
     "fixture/DescribeActivitiesResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeActivities)
 
 responseDescribeRootFolders :: DescribeRootFoldersResponse -> TestTree
@@ -718,7 +718,7 @@ responseDescribeRootFolders =
   res
     "DescribeRootFoldersResponse"
     "fixture/DescribeRootFoldersResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeRootFolders)
 
 responseGetCurrentUser :: GetCurrentUserResponse -> TestTree
@@ -726,7 +726,7 @@ responseGetCurrentUser =
   res
     "GetCurrentUserResponse"
     "fixture/GetCurrentUserResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy GetCurrentUser)
 
 responseDeactivateUser :: DeactivateUserResponse -> TestTree
@@ -734,7 +734,7 @@ responseDeactivateUser =
   res
     "DeactivateUserResponse"
     "fixture/DeactivateUserResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DeactivateUser)
 
 responseGetDocument :: GetDocumentResponse -> TestTree
@@ -742,7 +742,7 @@ responseGetDocument =
   res
     "GetDocumentResponse"
     "fixture/GetDocumentResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy GetDocument)
 
 responseDescribeFolderContents :: DescribeFolderContentsResponse -> TestTree
@@ -750,7 +750,7 @@ responseDescribeFolderContents =
   res
     "DescribeFolderContentsResponse"
     "fixture/DescribeFolderContentsResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeFolderContents)
 
 responseCreateLabels :: CreateLabelsResponse -> TestTree
@@ -758,7 +758,7 @@ responseCreateLabels =
   res
     "CreateLabelsResponse"
     "fixture/CreateLabelsResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy CreateLabels)
 
 responseUpdateDocumentVersion :: UpdateDocumentVersionResponse -> TestTree
@@ -766,7 +766,7 @@ responseUpdateDocumentVersion =
   res
     "UpdateDocumentVersionResponse"
     "fixture/UpdateDocumentVersionResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDocumentVersion)
 
 responseRemoveResourcePermission :: RemoveResourcePermissionResponse -> TestTree
@@ -774,7 +774,7 @@ responseRemoveResourcePermission =
   res
     "RemoveResourcePermissionResponse"
     "fixture/RemoveResourcePermissionResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy RemoveResourcePermission)
 
 responseGetResources :: GetResourcesResponse -> TestTree
@@ -782,7 +782,7 @@ responseGetResources =
   res
     "GetResourcesResponse"
     "fixture/GetResourcesResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy GetResources)
 
 responseDeleteComment :: DeleteCommentResponse -> TestTree
@@ -790,7 +790,7 @@ responseDeleteComment =
   res
     "DeleteCommentResponse"
     "fixture/DeleteCommentResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteComment)
 
 responseInitiateDocumentVersionUpload :: InitiateDocumentVersionUploadResponse -> TestTree
@@ -798,7 +798,7 @@ responseInitiateDocumentVersionUpload =
   res
     "InitiateDocumentVersionUploadResponse"
     "fixture/InitiateDocumentVersionUploadResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy InitiateDocumentVersionUpload)
 
 responseCreateUser :: CreateUserResponse -> TestTree
@@ -806,7 +806,7 @@ responseCreateUser =
   res
     "CreateUserResponse"
     "fixture/CreateUserResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy CreateUser)
 
 responseUpdateUser :: UpdateUserResponse -> TestTree
@@ -814,7 +814,7 @@ responseUpdateUser =
   res
     "UpdateUserResponse"
     "fixture/UpdateUserResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateUser)
 
 responseDeleteUser :: DeleteUserResponse -> TestTree
@@ -822,7 +822,7 @@ responseDeleteUser =
   res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteUser)
 
 responseAddResourcePermissions :: AddResourcePermissionsResponse -> TestTree
@@ -830,7 +830,7 @@ responseAddResourcePermissions =
   res
     "AddResourcePermissionsResponse"
     "fixture/AddResourcePermissionsResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy AddResourcePermissions)
 
 responseUpdateDocument :: UpdateDocumentResponse -> TestTree
@@ -838,7 +838,7 @@ responseUpdateDocument =
   res
     "UpdateDocumentResponse"
     "fixture/UpdateDocumentResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy UpdateDocument)
 
 responseDeleteDocument :: DeleteDocumentResponse -> TestTree
@@ -846,7 +846,7 @@ responseDeleteDocument =
   res
     "DeleteDocumentResponse"
     "fixture/DeleteDocumentResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DeleteDocument)
 
 responseDescribeGroups :: DescribeGroupsResponse -> TestTree
@@ -854,5 +854,5 @@ responseDescribeGroups =
   res
     "DescribeGroupsResponse"
     "fixture/DescribeGroupsResponse.proto"
-    workDocsService
+    mkServiceConfig
     (Proxy :: Proxy DescribeGroups)

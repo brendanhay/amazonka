@@ -13,51 +13,56 @@
 module Network.AWS.AutoScalingPlans.Types.ScalingStatusCode
   ( ScalingStatusCode
       ( ScalingStatusCode',
-        Inactive,
-        PartiallyActive,
-        Active
+        ScalingStatusCodeInactive,
+        ScalingStatusCodePartiallyActive,
+        ScalingStatusCodeActive,
+        fromScalingStatusCode
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ScalingStatusCode = ScalingStatusCode' Lude.Text
+newtype ScalingStatusCode = ScalingStatusCode'
+  { fromScalingStatusCode ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Inactive :: ScalingStatusCode
-pattern Inactive = ScalingStatusCode' "Inactive"
+pattern ScalingStatusCodeInactive :: ScalingStatusCode
+pattern ScalingStatusCodeInactive = ScalingStatusCode' "Inactive"
 
-pattern PartiallyActive :: ScalingStatusCode
-pattern PartiallyActive = ScalingStatusCode' "PartiallyActive"
+pattern ScalingStatusCodePartiallyActive :: ScalingStatusCode
+pattern ScalingStatusCodePartiallyActive = ScalingStatusCode' "PartiallyActive"
 
-pattern Active :: ScalingStatusCode
-pattern Active = ScalingStatusCode' "Active"
+pattern ScalingStatusCodeActive :: ScalingStatusCode
+pattern ScalingStatusCodeActive = ScalingStatusCode' "Active"
 
 {-# COMPLETE
-  Inactive,
-  PartiallyActive,
-  Active,
+  ScalingStatusCodeInactive,
+  ScalingStatusCodePartiallyActive,
+  ScalingStatusCodeActive,
   ScalingStatusCode'
   #-}

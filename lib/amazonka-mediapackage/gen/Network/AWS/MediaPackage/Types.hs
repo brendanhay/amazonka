@@ -9,255 +9,261 @@
 -- Portability : non-portable (GHC extensions)
 module Network.AWS.MediaPackage.Types
   ( -- * Service configuration
-    mediaPackageService,
+    mkServiceConfig,
 
     -- * Errors
-
-    -- * AdMarkers
-    AdMarkers (..),
-
-    -- * AdTriggersElement
-    AdTriggersElement (..),
+    _UnprocessableEntityException,
+    _ForbiddenException,
+    _NotFoundException,
+    _TooManyRequestsException,
+    _InternalServerErrorException,
+    _ServiceUnavailableException,
 
     -- * AdsOnDeliveryRestrictions
     AdsOnDeliveryRestrictions (..),
 
-    -- * EncryptionMethod
-    EncryptionMethod (..),
-
-    -- * ManifestLayout
-    ManifestLayout (..),
-
-    -- * Origination
-    Origination (..),
-
-    -- * PeriodTriggersElement
-    PeriodTriggersElement (..),
-
-    -- * PlaylistType
-    PlaylistType (..),
-
-    -- * Profile
-    Profile (..),
-
-    -- * SegmentTemplateFormat
-    SegmentTemplateFormat (..),
-
     -- * Status
     Status (..),
-
-    -- * StreamOrder
-    StreamOrder (..),
-
-    -- * UtcTiming
-    UtcTiming (..),
-
-    -- * Authorization
-    Authorization (..),
-    mkAuthorization,
-    aCdnIdentifierSecret,
-    aSecretsRoleARN,
-
-    -- * Channel
-    Channel (..),
-    mkChannel,
-    cIngressAccessLogs,
-    cHlsIngest,
-    cARN,
-    cId,
-    cDescription,
-    cEgressAccessLogs,
-    cTags,
-
-    -- * CmafEncryption
-    CmafEncryption (..),
-    mkCmafEncryption,
-    ceKeyRotationIntervalSeconds,
-    ceSpekeKeyProvider,
-
-    -- * CmafPackage
-    CmafPackage (..),
-    mkCmafPackage,
-    cpHlsManifests,
-    cpSegmentDurationSeconds,
-    cpStreamSelection,
-    cpEncryption,
-    cpSegmentPrefix,
-
-    -- * CmafPackageCreateOrUpdateParameters
-    CmafPackageCreateOrUpdateParameters (..),
-    mkCmafPackageCreateOrUpdateParameters,
-    cpcoupHlsManifests,
-    cpcoupSegmentDurationSeconds,
-    cpcoupStreamSelection,
-    cpcoupEncryption,
-    cpcoupSegmentPrefix,
-
-    -- * DashEncryption
-    DashEncryption (..),
-    mkDashEncryption,
-    deKeyRotationIntervalSeconds,
-    deSpekeKeyProvider,
-
-    -- * DashPackage
-    DashPackage (..),
-    mkDashPackage,
-    dpAdsOnDeliveryRestrictions,
-    dpMinBufferTimeSeconds,
-    dpUtcTiming,
-    dpSegmentTemplateFormat,
-    dpProfile,
-    dpSegmentDurationSeconds,
-    dpUtcTimingURI,
-    dpStreamSelection,
-    dpEncryption,
-    dpMinUpdatePeriodSeconds,
-    dpManifestLayout,
-    dpSuggestedPresentationDelaySeconds,
-    dpManifestWindowSeconds,
-    dpAdTriggers,
-    dpPeriodTriggers,
-
-    -- * EgressAccessLogs
-    EgressAccessLogs (..),
-    mkEgressAccessLogs,
-    ealLogGroupName,
-
-    -- * HarvestJob
-    HarvestJob (..),
-    mkHarvestJob,
-    hjStatus,
-    hjOriginEndpointId,
-    hjStartTime,
-    hjARN,
-    hjCreatedAt,
-    hjChannelId,
-    hjS3Destination,
-    hjEndTime,
-    hjId,
-
-    -- * HlsEncryption
-    HlsEncryption (..),
-    mkHlsEncryption,
-    heEncryptionMethod,
-    heKeyRotationIntervalSeconds,
-    heConstantInitializationVector,
-    heSpekeKeyProvider,
-    heRepeatExtXKey,
-
-    -- * HlsIngest
-    HlsIngest (..),
-    mkHlsIngest,
-    hiIngestEndpoints,
-
-    -- * HlsManifest
-    HlsManifest (..),
-    mkHlsManifest,
-    hmManifestName,
-    hmURL,
-    hmPlaylistType,
-    hmProgramDateTimeIntervalSeconds,
-    hmAdMarkers,
-    hmId,
-    hmIncludeIframeOnlyStream,
-    hmPlaylistWindowSeconds,
-
-    -- * HlsManifestCreateOrUpdateParameters
-    HlsManifestCreateOrUpdateParameters (..),
-    mkHlsManifestCreateOrUpdateParameters,
-    hmcoupAdsOnDeliveryRestrictions,
-    hmcoupManifestName,
-    hmcoupPlaylistType,
-    hmcoupProgramDateTimeIntervalSeconds,
-    hmcoupAdMarkers,
-    hmcoupId,
-    hmcoupIncludeIframeOnlyStream,
-    hmcoupAdTriggers,
-    hmcoupPlaylistWindowSeconds,
-
-    -- * HlsPackage
-    HlsPackage (..),
-    mkHlsPackage,
-    hpAdsOnDeliveryRestrictions,
-    hpUseAudioRenditionGroup,
-    hpPlaylistType,
-    hpSegmentDurationSeconds,
-    hpProgramDateTimeIntervalSeconds,
-    hpStreamSelection,
-    hpAdMarkers,
-    hpEncryption,
-    hpIncludeIframeOnlyStream,
-    hpAdTriggers,
-    hpPlaylistWindowSeconds,
-
-    -- * IngestEndpoint
-    IngestEndpoint (..),
-    mkIngestEndpoint,
-    ieURL,
-    ieUsername,
-    iePassword,
-    ieId,
 
     -- * IngressAccessLogs
     IngressAccessLogs (..),
     mkIngressAccessLogs,
     ialLogGroupName,
 
+    -- * UtcTiming
+    UtcTiming (..),
+
     -- * MssEncryption
     MssEncryption (..),
     mkMssEncryption,
     meSpekeKeyProvider,
 
-    -- * MssPackage
-    MssPackage (..),
-    mkMssPackage,
-    mpSegmentDurationSeconds,
-    mpStreamSelection,
-    mpEncryption,
-    mpManifestWindowSeconds,
+    -- * StreamOrder
+    StreamOrder (..),
 
-    -- * OriginEndpoint
-    OriginEndpoint (..),
-    mkOriginEndpoint,
-    oeWhitelist,
-    oeHlsPackage,
-    oeARN,
-    oeManifestName,
-    oeURL,
-    oeAuthorization,
-    oeChannelId,
-    oeStartoverWindowSeconds,
-    oeDashPackage,
-    oeMssPackage,
-    oeId,
-    oeTimeDelaySeconds,
-    oeCmafPackage,
-    oeDescription,
-    oeTags,
-    oeOrigination,
+    -- * HlsIngest
+    HlsIngest (..),
+    mkHlsIngest,
+    hiIngestEndpoints,
+
+    -- * HlsPackage
+    HlsPackage (..),
+    mkHlsPackage,
+    hpAdMarkers,
+    hpAdTriggers,
+    hpAdsOnDeliveryRestrictions,
+    hpEncryption,
+    hpIncludeIframeOnlyStream,
+    hpPlaylistType,
+    hpPlaylistWindowSeconds,
+    hpProgramDateTimeIntervalSeconds,
+    hpSegmentDurationSeconds,
+    hpStreamSelection,
+    hpUseAudioRenditionGroup,
+
+    -- * EncryptionMethod
+    EncryptionMethod (..),
+
+    -- * SegmentTemplateFormat
+    SegmentTemplateFormat (..),
+
+    -- * Authorization
+    Authorization (..),
+    mkAuthorization,
+    aSecretsRoleArn,
+    aCdnIdentifierSecret,
+
+    -- * Channel
+    Channel (..),
+    mkChannel,
+    cArn,
+    cDescription,
+    cEgressAccessLogs,
+    cHlsIngest,
+    cId,
+    cIngressAccessLogs,
+    cTags,
+
+    -- * Profile
+    Profile (..),
+
+    -- * PlaylistType
+    PlaylistType (..),
+
+    -- * StreamSelection
+    StreamSelection (..),
+    mkStreamSelection,
+    ssMaxVideoBitsPerSecond,
+    ssMinVideoBitsPerSecond,
+    ssStreamOrder,
+
+    -- * AdMarkers
+    AdMarkers (..),
 
     -- * S3Destination
     S3Destination (..),
     mkS3Destination,
-    sdBucketName,
     sdManifestKey,
-    sdRoleARN,
+    sdBucketName,
+    sdRoleArn,
+
+    -- * DashPackage
+    DashPackage (..),
+    mkDashPackage,
+    dpAdTriggers,
+    dpAdsOnDeliveryRestrictions,
+    dpEncryption,
+    dpManifestLayout,
+    dpManifestWindowSeconds,
+    dpMinBufferTimeSeconds,
+    dpMinUpdatePeriodSeconds,
+    dpPeriodTriggers,
+    dpProfile,
+    dpSegmentDurationSeconds,
+    dpSegmentTemplateFormat,
+    dpStreamSelection,
+    dpSuggestedPresentationDelaySeconds,
+    dpUtcTiming,
+    dpUtcTimingUri,
+
+    -- * MssPackage
+    MssPackage (..),
+    mkMssPackage,
+    mpEncryption,
+    mpManifestWindowSeconds,
+    mpSegmentDurationSeconds,
+    mpStreamSelection,
+
+    -- * OriginEndpoint
+    OriginEndpoint (..),
+    mkOriginEndpoint,
+    oeArn,
+    oeAuthorization,
+    oeChannelId,
+    oeCmafPackage,
+    oeDashPackage,
+    oeDescription,
+    oeHlsPackage,
+    oeId,
+    oeManifestName,
+    oeMssPackage,
+    oeOrigination,
+    oeStartoverWindowSeconds,
+    oeTags,
+    oeTimeDelaySeconds,
+    oeUrl,
+    oeWhitelist,
+
+    -- * HlsManifestCreateOrUpdateParameters
+    HlsManifestCreateOrUpdateParameters (..),
+    mkHlsManifestCreateOrUpdateParameters,
+    hmcoupId,
+    hmcoupAdMarkers,
+    hmcoupAdTriggers,
+    hmcoupAdsOnDeliveryRestrictions,
+    hmcoupIncludeIframeOnlyStream,
+    hmcoupManifestName,
+    hmcoupPlaylistType,
+    hmcoupPlaylistWindowSeconds,
+    hmcoupProgramDateTimeIntervalSeconds,
+
+    -- * ManifestLayout
+    ManifestLayout (..),
+
+    -- * AdTriggersElement
+    AdTriggersElement (..),
+
+    -- * HlsManifest
+    HlsManifest (..),
+    mkHlsManifest,
+    hmId,
+    hmAdMarkers,
+    hmIncludeIframeOnlyStream,
+    hmManifestName,
+    hmPlaylistType,
+    hmPlaylistWindowSeconds,
+    hmProgramDateTimeIntervalSeconds,
+    hmUrl,
+
+    -- * HlsEncryption
+    HlsEncryption (..),
+    mkHlsEncryption,
+    heSpekeKeyProvider,
+    heConstantInitializationVector,
+    heEncryptionMethod,
+    heKeyRotationIntervalSeconds,
+    heRepeatExtXKey,
+
+    -- * HarvestJob
+    HarvestJob (..),
+    mkHarvestJob,
+    hjArn,
+    hjChannelId,
+    hjCreatedAt,
+    hjEndTime,
+    hjId,
+    hjOriginEndpointId,
+    hjS3Destination,
+    hjStartTime,
+    hjStatus,
+
+    -- * PeriodTriggersElement
+    PeriodTriggersElement (..),
+
+    -- * CmafPackage
+    CmafPackage (..),
+    mkCmafPackage,
+    cpEncryption,
+    cpHlsManifests,
+    cpSegmentDurationSeconds,
+    cpSegmentPrefix,
+    cpStreamSelection,
+
+    -- * CmafEncryption
+    CmafEncryption (..),
+    mkCmafEncryption,
+    ceSpekeKeyProvider,
+    ceKeyRotationIntervalSeconds,
 
     -- * SpekeKeyProvider
     SpekeKeyProvider (..),
     mkSpekeKeyProvider,
     skpResourceId,
-    skpCertificateARN,
-    skpURL,
     skpSystemIds,
-    skpRoleARN,
+    skpUrl,
+    skpRoleArn,
+    skpCertificateArn,
 
-    -- * StreamSelection
-    StreamSelection (..),
-    mkStreamSelection,
-    ssStreamOrder,
-    ssMinVideoBitsPerSecond,
-    ssMaxVideoBitsPerSecond,
+    -- * EgressAccessLogs
+    EgressAccessLogs (..),
+    mkEgressAccessLogs,
+    ealLogGroupName,
+
+    -- * CmafPackageCreateOrUpdateParameters
+    CmafPackageCreateOrUpdateParameters (..),
+    mkCmafPackageCreateOrUpdateParameters,
+    cpcoupEncryption,
+    cpcoupHlsManifests,
+    cpcoupSegmentDurationSeconds,
+    cpcoupSegmentPrefix,
+    cpcoupStreamSelection,
+
+    -- * Origination
+    Origination (..),
+
+    -- * IngestEndpoint
+    IngestEndpoint (..),
+    mkIngestEndpoint,
+    ieId,
+    iePassword,
+    ieUrl,
+    ieUsername,
+
+    -- * DashEncryption
+    DashEncryption (..),
+    mkDashEncryption,
+    deSpekeKeyProvider,
+    deKeyRotationIntervalSeconds,
   )
 where
 
@@ -297,59 +303,109 @@ import Network.AWS.MediaPackage.Types.Status
 import Network.AWS.MediaPackage.Types.StreamOrder
 import Network.AWS.MediaPackage.Types.StreamSelection
 import Network.AWS.MediaPackage.Types.UtcTiming
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 import qualified Network.AWS.Sign.V4 as Sign
 
 -- | API version @2017-10-12@ of the Amazon Elemental MediaPackage SDK configuration.
-mediaPackageService :: Lude.Service
-mediaPackageService =
-  Lude.Service
-    { Lude._svcAbbrev = "MediaPackage",
-      Lude._svcSigner = Sign.v4,
-      Lude._svcPrefix = "mediapackage",
-      Lude._svcVersion = "2017-10-12",
-      Lude._svcEndpoint = Lude.defaultEndpoint mediaPackageService,
-      Lude._svcTimeout = Lude.Just 70,
-      Lude._svcCheck = Lude.statusSuccess,
-      Lude._svcError = Lude.parseJSONError "MediaPackage",
-      Lude._svcRetry = retry
+mkServiceConfig :: Core.Service
+mkServiceConfig =
+  Core.Service
+    { Core._svcAbbrev = "MediaPackage",
+      Core._svcSigner = Sign.v4,
+      Core._svcPrefix = "mediapackage",
+      Core._svcVersion = "2017-10-12",
+      Core._svcTimeout = Core.Just 70,
+      Core._svcCheck = Core.statusSuccess,
+      Core._svcRetry = retry,
+      Core._svcError = Core.parseJSONError "MediaPackage",
+      Core._svcEndpoint = Core.defaultEndpoint mkServiceConfig
     }
   where
     retry =
-      Lude.Exponential
-        { Lude._retryBase = 5.0e-2,
-          Lude._retryGrowth = 2,
-          Lude._retryAttempts = 5,
-          Lude._retryCheck = check
+      Core.Exponential
+        { Core._retryBase = 5.0e-2,
+          Core._retryGrowth = 2,
+          Core._retryAttempts = 5,
+          Core._retryCheck = check
         }
     check e
       | Lens.has
-          (Lude.hasCode "ThrottledException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottledException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttled_exception"
-      | Lens.has (Lude.hasStatus 429) e = Lude.Just "too_many_requests"
+        Core.Just "throttled_exception"
+      | Lens.has (Core.hasStatus 429) e = Core.Just "too_many_requests"
       | Lens.has
-          (Lude.hasCode "ThrottlingException" Lude.. Lude.hasStatus 400)
+          (Core.hasCode "ThrottlingException" Core.. Core.hasStatus 400)
           e =
-        Lude.Just "throttling_exception"
-      | Lens.has (Lude.hasCode "Throttling" Lude.. Lude.hasStatus 400) e =
-        Lude.Just "throttling"
+        Core.Just "throttling_exception"
+      | Lens.has (Core.hasCode "Throttling" Core.. Core.hasStatus 400) e =
+        Core.Just "throttling"
       | Lens.has
-          ( Lude.hasCode "ProvisionedThroughputExceededException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "ProvisionedThroughputExceededException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "throughput_exceeded"
-      | Lens.has (Lude.hasStatus 504) e = Lude.Just "gateway_timeout"
+        Core.Just "throughput_exceeded"
+      | Lens.has (Core.hasStatus 504) e = Core.Just "gateway_timeout"
       | Lens.has
-          ( Lude.hasCode "RequestThrottledException"
-              Lude.. Lude.hasStatus 400
+          ( Core.hasCode "RequestThrottledException"
+              Core.. Core.hasStatus 400
           )
           e =
-        Lude.Just "request_throttled_exception"
-      | Lens.has (Lude.hasStatus 502) e = Lude.Just "bad_gateway"
-      | Lens.has (Lude.hasStatus 503) e = Lude.Just "service_unavailable"
-      | Lens.has (Lude.hasStatus 500) e =
-        Lude.Just "general_server_error"
-      | Lens.has (Lude.hasStatus 509) e = Lude.Just "limit_exceeded"
-      | Lude.otherwise = Lude.Nothing
+        Core.Just "request_throttled_exception"
+      | Lens.has (Core.hasStatus 502) e = Core.Just "bad_gateway"
+      | Lens.has (Core.hasStatus 503) e = Core.Just "service_unavailable"
+      | Lens.has (Core.hasStatus 500) e =
+        Core.Just "general_server_error"
+      | Lens.has (Core.hasStatus 509) e = Core.Just "limit_exceeded"
+      | Core.otherwise = Core.Nothing
+
+-- | The parameters sent in the request are not valid.
+_UnprocessableEntityException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_UnprocessableEntityException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "UnprocessableEntityException"
+    Core.. Core.hasStatues 422
+{-# DEPRECATED _UnprocessableEntityException "Use generic-lens or generic-optics instead." #-}
+
+-- | The client is not authorized to access the requested resource.
+_ForbiddenException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ForbiddenException =
+  Core._MatchServiceError mkServiceConfig "ForbiddenException"
+    Core.. Core.hasStatues 403
+{-# DEPRECATED _ForbiddenException "Use generic-lens or generic-optics instead." #-}
+
+-- | The requested resource does not exist.
+_NotFoundException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_NotFoundException =
+  Core._MatchServiceError mkServiceConfig "NotFoundException"
+    Core.. Core.hasStatues 404
+{-# DEPRECATED _NotFoundException "Use generic-lens or generic-optics instead." #-}
+
+-- | The client has exceeded their resource or throttling limits.
+_TooManyRequestsException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_TooManyRequestsException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "TooManyRequestsException"
+    Core.. Core.hasStatues 429
+{-# DEPRECATED _TooManyRequestsException "Use generic-lens or generic-optics instead." #-}
+
+-- | An unexpected error occurred.
+_InternalServerErrorException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_InternalServerErrorException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "InternalServerErrorException"
+    Core.. Core.hasStatues 500
+{-# DEPRECATED _InternalServerErrorException "Use generic-lens or generic-optics instead." #-}
+
+-- | An unexpected error occurred.
+_ServiceUnavailableException :: Core.AsError a => Lens.Getting (Core.First Core.ServiceError) a Core.ServiceError
+_ServiceUnavailableException =
+  Core._MatchServiceError
+    mkServiceConfig
+    "ServiceUnavailableException"
+    Core.. Core.hasStatues 503
+{-# DEPRECATED _ServiceUnavailableException "Use generic-lens or generic-optics instead." #-}

@@ -17,178 +17,165 @@ module Network.AWS.CostExplorer.Types.CurrentInstance
     mkCurrentInstance,
 
     -- * Lenses
-    ciResourceId,
     ciCurrencyCode,
-    ciResourceUtilization,
-    ciResourceDetails,
-    ciTotalRunningHoursInLookbackPeriod,
-    ciReservationCoveredHoursInLookbackPeriod,
-    ciOnDemandHoursInLookbackPeriod,
-    ciMonthlyCost,
     ciInstanceName,
+    ciMonthlyCost,
+    ciOnDemandHoursInLookbackPeriod,
+    ciReservationCoveredHoursInLookbackPeriod,
+    ciResourceDetails,
+    ciResourceId,
+    ciResourceUtilization,
     ciSavingsPlansCoveredHoursInLookbackPeriod,
     ciTags,
+    ciTotalRunningHoursInLookbackPeriod,
   )
 where
 
-import Network.AWS.CostExplorer.Types.ResourceDetails
-import Network.AWS.CostExplorer.Types.ResourceUtilization
-import Network.AWS.CostExplorer.Types.TagValues
+import qualified Network.AWS.CostExplorer.Types.GenericString as Types
+import qualified Network.AWS.CostExplorer.Types.ResourceDetails as Types
+import qualified Network.AWS.CostExplorer.Types.ResourceUtilization as Types
+import qualified Network.AWS.CostExplorer.Types.TagValues as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Context about the current instance.
 --
 -- /See:/ 'mkCurrentInstance' smart constructor.
 data CurrentInstance = CurrentInstance'
-  { -- | Resource ID of the current instance.
-    resourceId :: Lude.Maybe Lude.Text,
-    -- | The currency code that AWS used to calculate the costs for this instance.
-    currencyCode :: Lude.Maybe Lude.Text,
-    -- | Utilization information of the current instance during the lookback period.
-    resourceUtilization :: Lude.Maybe ResourceUtilization,
-    -- | Details about the resource and utilization.
-    resourceDetails :: Lude.Maybe ResourceDetails,
-    -- | The total number of hours the instance ran during the lookback period.
-    totalRunningHoursInLookbackPeriod :: Lude.Maybe Lude.Text,
-    -- | Number of hours during the lookback period covered by reservations.
-    reservationCoveredHoursInLookbackPeriod :: Lude.Maybe Lude.Text,
-    -- | Number of hours during the lookback period billed at On-Demand rates.
-    onDemandHoursInLookbackPeriod :: Lude.Maybe Lude.Text,
-    -- | Current On-Demand cost of operating this instance on a monthly basis.
-    monthlyCost :: Lude.Maybe Lude.Text,
+  { -- | The currency code that AWS used to calculate the costs for this instance.
+    currencyCode :: Core.Maybe Types.GenericString,
     -- | The name you've given an instance. This field will show as blank if you haven't given the instance a name.
-    instanceName :: Lude.Maybe Lude.Text,
+    instanceName :: Core.Maybe Types.GenericString,
+    -- | Current On-Demand cost of operating this instance on a monthly basis.
+    monthlyCost :: Core.Maybe Types.GenericString,
+    -- | Number of hours during the lookback period billed at On-Demand rates.
+    onDemandHoursInLookbackPeriod :: Core.Maybe Types.GenericString,
+    -- | Number of hours during the lookback period covered by reservations.
+    reservationCoveredHoursInLookbackPeriod :: Core.Maybe Types.GenericString,
+    -- | Details about the resource and utilization.
+    resourceDetails :: Core.Maybe Types.ResourceDetails,
+    -- | Resource ID of the current instance.
+    resourceId :: Core.Maybe Types.GenericString,
+    -- | Utilization information of the current instance during the lookback period.
+    resourceUtilization :: Core.Maybe Types.ResourceUtilization,
     -- | Number of hours during the lookback period covered by Savings Plans.
-    savingsPlansCoveredHoursInLookbackPeriod :: Lude.Maybe Lude.Text,
+    savingsPlansCoveredHoursInLookbackPeriod :: Core.Maybe Types.GenericString,
     -- | Cost allocation resource tags applied to the instance.
-    tags :: Lude.Maybe [TagValues]
+    tags :: Core.Maybe [Types.TagValues],
+    -- | The total number of hours the instance ran during the lookback period.
+    totalRunningHoursInLookbackPeriod :: Core.Maybe Types.GenericString
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CurrentInstance' with the minimum fields required to make a request.
---
--- * 'resourceId' - Resource ID of the current instance.
--- * 'currencyCode' - The currency code that AWS used to calculate the costs for this instance.
--- * 'resourceUtilization' - Utilization information of the current instance during the lookback period.
--- * 'resourceDetails' - Details about the resource and utilization.
--- * 'totalRunningHoursInLookbackPeriod' - The total number of hours the instance ran during the lookback period.
--- * 'reservationCoveredHoursInLookbackPeriod' - Number of hours during the lookback period covered by reservations.
--- * 'onDemandHoursInLookbackPeriod' - Number of hours during the lookback period billed at On-Demand rates.
--- * 'monthlyCost' - Current On-Demand cost of operating this instance on a monthly basis.
--- * 'instanceName' - The name you've given an instance. This field will show as blank if you haven't given the instance a name.
--- * 'savingsPlansCoveredHoursInLookbackPeriod' - Number of hours during the lookback period covered by Savings Plans.
--- * 'tags' - Cost allocation resource tags applied to the instance.
+-- | Creates a 'CurrentInstance' value with any optional fields omitted.
 mkCurrentInstance ::
   CurrentInstance
 mkCurrentInstance =
   CurrentInstance'
-    { resourceId = Lude.Nothing,
-      currencyCode = Lude.Nothing,
-      resourceUtilization = Lude.Nothing,
-      resourceDetails = Lude.Nothing,
-      totalRunningHoursInLookbackPeriod = Lude.Nothing,
-      reservationCoveredHoursInLookbackPeriod = Lude.Nothing,
-      onDemandHoursInLookbackPeriod = Lude.Nothing,
-      monthlyCost = Lude.Nothing,
-      instanceName = Lude.Nothing,
-      savingsPlansCoveredHoursInLookbackPeriod = Lude.Nothing,
-      tags = Lude.Nothing
+    { currencyCode = Core.Nothing,
+      instanceName = Core.Nothing,
+      monthlyCost = Core.Nothing,
+      onDemandHoursInLookbackPeriod = Core.Nothing,
+      reservationCoveredHoursInLookbackPeriod = Core.Nothing,
+      resourceDetails = Core.Nothing,
+      resourceId = Core.Nothing,
+      resourceUtilization = Core.Nothing,
+      savingsPlansCoveredHoursInLookbackPeriod = Core.Nothing,
+      tags = Core.Nothing,
+      totalRunningHoursInLookbackPeriod = Core.Nothing
     }
-
--- | Resource ID of the current instance.
---
--- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciResourceId :: Lens.Lens' CurrentInstance (Lude.Maybe Lude.Text)
-ciResourceId = Lens.lens (resourceId :: CurrentInstance -> Lude.Maybe Lude.Text) (\s a -> s {resourceId = a} :: CurrentInstance)
-{-# DEPRECATED ciResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
 
 -- | The currency code that AWS used to calculate the costs for this instance.
 --
 -- /Note:/ Consider using 'currencyCode' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciCurrencyCode :: Lens.Lens' CurrentInstance (Lude.Maybe Lude.Text)
-ciCurrencyCode = Lens.lens (currencyCode :: CurrentInstance -> Lude.Maybe Lude.Text) (\s a -> s {currencyCode = a} :: CurrentInstance)
+ciCurrencyCode :: Lens.Lens' CurrentInstance (Core.Maybe Types.GenericString)
+ciCurrencyCode = Lens.field @"currencyCode"
 {-# DEPRECATED ciCurrencyCode "Use generic-lens or generic-optics with 'currencyCode' instead." #-}
-
--- | Utilization information of the current instance during the lookback period.
---
--- /Note:/ Consider using 'resourceUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciResourceUtilization :: Lens.Lens' CurrentInstance (Lude.Maybe ResourceUtilization)
-ciResourceUtilization = Lens.lens (resourceUtilization :: CurrentInstance -> Lude.Maybe ResourceUtilization) (\s a -> s {resourceUtilization = a} :: CurrentInstance)
-{-# DEPRECATED ciResourceUtilization "Use generic-lens or generic-optics with 'resourceUtilization' instead." #-}
-
--- | Details about the resource and utilization.
---
--- /Note:/ Consider using 'resourceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciResourceDetails :: Lens.Lens' CurrentInstance (Lude.Maybe ResourceDetails)
-ciResourceDetails = Lens.lens (resourceDetails :: CurrentInstance -> Lude.Maybe ResourceDetails) (\s a -> s {resourceDetails = a} :: CurrentInstance)
-{-# DEPRECATED ciResourceDetails "Use generic-lens or generic-optics with 'resourceDetails' instead." #-}
-
--- | The total number of hours the instance ran during the lookback period.
---
--- /Note:/ Consider using 'totalRunningHoursInLookbackPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciTotalRunningHoursInLookbackPeriod :: Lens.Lens' CurrentInstance (Lude.Maybe Lude.Text)
-ciTotalRunningHoursInLookbackPeriod = Lens.lens (totalRunningHoursInLookbackPeriod :: CurrentInstance -> Lude.Maybe Lude.Text) (\s a -> s {totalRunningHoursInLookbackPeriod = a} :: CurrentInstance)
-{-# DEPRECATED ciTotalRunningHoursInLookbackPeriod "Use generic-lens or generic-optics with 'totalRunningHoursInLookbackPeriod' instead." #-}
-
--- | Number of hours during the lookback period covered by reservations.
---
--- /Note:/ Consider using 'reservationCoveredHoursInLookbackPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciReservationCoveredHoursInLookbackPeriod :: Lens.Lens' CurrentInstance (Lude.Maybe Lude.Text)
-ciReservationCoveredHoursInLookbackPeriod = Lens.lens (reservationCoveredHoursInLookbackPeriod :: CurrentInstance -> Lude.Maybe Lude.Text) (\s a -> s {reservationCoveredHoursInLookbackPeriod = a} :: CurrentInstance)
-{-# DEPRECATED ciReservationCoveredHoursInLookbackPeriod "Use generic-lens or generic-optics with 'reservationCoveredHoursInLookbackPeriod' instead." #-}
-
--- | Number of hours during the lookback period billed at On-Demand rates.
---
--- /Note:/ Consider using 'onDemandHoursInLookbackPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciOnDemandHoursInLookbackPeriod :: Lens.Lens' CurrentInstance (Lude.Maybe Lude.Text)
-ciOnDemandHoursInLookbackPeriod = Lens.lens (onDemandHoursInLookbackPeriod :: CurrentInstance -> Lude.Maybe Lude.Text) (\s a -> s {onDemandHoursInLookbackPeriod = a} :: CurrentInstance)
-{-# DEPRECATED ciOnDemandHoursInLookbackPeriod "Use generic-lens or generic-optics with 'onDemandHoursInLookbackPeriod' instead." #-}
-
--- | Current On-Demand cost of operating this instance on a monthly basis.
---
--- /Note:/ Consider using 'monthlyCost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciMonthlyCost :: Lens.Lens' CurrentInstance (Lude.Maybe Lude.Text)
-ciMonthlyCost = Lens.lens (monthlyCost :: CurrentInstance -> Lude.Maybe Lude.Text) (\s a -> s {monthlyCost = a} :: CurrentInstance)
-{-# DEPRECATED ciMonthlyCost "Use generic-lens or generic-optics with 'monthlyCost' instead." #-}
 
 -- | The name you've given an instance. This field will show as blank if you haven't given the instance a name.
 --
 -- /Note:/ Consider using 'instanceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciInstanceName :: Lens.Lens' CurrentInstance (Lude.Maybe Lude.Text)
-ciInstanceName = Lens.lens (instanceName :: CurrentInstance -> Lude.Maybe Lude.Text) (\s a -> s {instanceName = a} :: CurrentInstance)
+ciInstanceName :: Lens.Lens' CurrentInstance (Core.Maybe Types.GenericString)
+ciInstanceName = Lens.field @"instanceName"
 {-# DEPRECATED ciInstanceName "Use generic-lens or generic-optics with 'instanceName' instead." #-}
+
+-- | Current On-Demand cost of operating this instance on a monthly basis.
+--
+-- /Note:/ Consider using 'monthlyCost' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciMonthlyCost :: Lens.Lens' CurrentInstance (Core.Maybe Types.GenericString)
+ciMonthlyCost = Lens.field @"monthlyCost"
+{-# DEPRECATED ciMonthlyCost "Use generic-lens or generic-optics with 'monthlyCost' instead." #-}
+
+-- | Number of hours during the lookback period billed at On-Demand rates.
+--
+-- /Note:/ Consider using 'onDemandHoursInLookbackPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciOnDemandHoursInLookbackPeriod :: Lens.Lens' CurrentInstance (Core.Maybe Types.GenericString)
+ciOnDemandHoursInLookbackPeriod = Lens.field @"onDemandHoursInLookbackPeriod"
+{-# DEPRECATED ciOnDemandHoursInLookbackPeriod "Use generic-lens or generic-optics with 'onDemandHoursInLookbackPeriod' instead." #-}
+
+-- | Number of hours during the lookback period covered by reservations.
+--
+-- /Note:/ Consider using 'reservationCoveredHoursInLookbackPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciReservationCoveredHoursInLookbackPeriod :: Lens.Lens' CurrentInstance (Core.Maybe Types.GenericString)
+ciReservationCoveredHoursInLookbackPeriod = Lens.field @"reservationCoveredHoursInLookbackPeriod"
+{-# DEPRECATED ciReservationCoveredHoursInLookbackPeriod "Use generic-lens or generic-optics with 'reservationCoveredHoursInLookbackPeriod' instead." #-}
+
+-- | Details about the resource and utilization.
+--
+-- /Note:/ Consider using 'resourceDetails' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciResourceDetails :: Lens.Lens' CurrentInstance (Core.Maybe Types.ResourceDetails)
+ciResourceDetails = Lens.field @"resourceDetails"
+{-# DEPRECATED ciResourceDetails "Use generic-lens or generic-optics with 'resourceDetails' instead." #-}
+
+-- | Resource ID of the current instance.
+--
+-- /Note:/ Consider using 'resourceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciResourceId :: Lens.Lens' CurrentInstance (Core.Maybe Types.GenericString)
+ciResourceId = Lens.field @"resourceId"
+{-# DEPRECATED ciResourceId "Use generic-lens or generic-optics with 'resourceId' instead." #-}
+
+-- | Utilization information of the current instance during the lookback period.
+--
+-- /Note:/ Consider using 'resourceUtilization' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciResourceUtilization :: Lens.Lens' CurrentInstance (Core.Maybe Types.ResourceUtilization)
+ciResourceUtilization = Lens.field @"resourceUtilization"
+{-# DEPRECATED ciResourceUtilization "Use generic-lens or generic-optics with 'resourceUtilization' instead." #-}
 
 -- | Number of hours during the lookback period covered by Savings Plans.
 --
 -- /Note:/ Consider using 'savingsPlansCoveredHoursInLookbackPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciSavingsPlansCoveredHoursInLookbackPeriod :: Lens.Lens' CurrentInstance (Lude.Maybe Lude.Text)
-ciSavingsPlansCoveredHoursInLookbackPeriod = Lens.lens (savingsPlansCoveredHoursInLookbackPeriod :: CurrentInstance -> Lude.Maybe Lude.Text) (\s a -> s {savingsPlansCoveredHoursInLookbackPeriod = a} :: CurrentInstance)
+ciSavingsPlansCoveredHoursInLookbackPeriod :: Lens.Lens' CurrentInstance (Core.Maybe Types.GenericString)
+ciSavingsPlansCoveredHoursInLookbackPeriod = Lens.field @"savingsPlansCoveredHoursInLookbackPeriod"
 {-# DEPRECATED ciSavingsPlansCoveredHoursInLookbackPeriod "Use generic-lens or generic-optics with 'savingsPlansCoveredHoursInLookbackPeriod' instead." #-}
 
 -- | Cost allocation resource tags applied to the instance.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ciTags :: Lens.Lens' CurrentInstance (Lude.Maybe [TagValues])
-ciTags = Lens.lens (tags :: CurrentInstance -> Lude.Maybe [TagValues]) (\s a -> s {tags = a} :: CurrentInstance)
+ciTags :: Lens.Lens' CurrentInstance (Core.Maybe [Types.TagValues])
+ciTags = Lens.field @"tags"
 {-# DEPRECATED ciTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromJSON CurrentInstance where
+-- | The total number of hours the instance ran during the lookback period.
+--
+-- /Note:/ Consider using 'totalRunningHoursInLookbackPeriod' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ciTotalRunningHoursInLookbackPeriod :: Lens.Lens' CurrentInstance (Core.Maybe Types.GenericString)
+ciTotalRunningHoursInLookbackPeriod = Lens.field @"totalRunningHoursInLookbackPeriod"
+{-# DEPRECATED ciTotalRunningHoursInLookbackPeriod "Use generic-lens or generic-optics with 'totalRunningHoursInLookbackPeriod' instead." #-}
+
+instance Core.FromJSON CurrentInstance where
   parseJSON =
-    Lude.withObject
-      "CurrentInstance"
-      ( \x ->
-          CurrentInstance'
-            Lude.<$> (x Lude..:? "ResourceId")
-            Lude.<*> (x Lude..:? "CurrencyCode")
-            Lude.<*> (x Lude..:? "ResourceUtilization")
-            Lude.<*> (x Lude..:? "ResourceDetails")
-            Lude.<*> (x Lude..:? "TotalRunningHoursInLookbackPeriod")
-            Lude.<*> (x Lude..:? "ReservationCoveredHoursInLookbackPeriod")
-            Lude.<*> (x Lude..:? "OnDemandHoursInLookbackPeriod")
-            Lude.<*> (x Lude..:? "MonthlyCost")
-            Lude.<*> (x Lude..:? "InstanceName")
-            Lude.<*> (x Lude..:? "SavingsPlansCoveredHoursInLookbackPeriod")
-            Lude.<*> (x Lude..:? "Tags" Lude..!= Lude.mempty)
-      )
+    Core.withObject "CurrentInstance" Core.$
+      \x ->
+        CurrentInstance'
+          Core.<$> (x Core..:? "CurrencyCode")
+          Core.<*> (x Core..:? "InstanceName")
+          Core.<*> (x Core..:? "MonthlyCost")
+          Core.<*> (x Core..:? "OnDemandHoursInLookbackPeriod")
+          Core.<*> (x Core..:? "ReservationCoveredHoursInLookbackPeriod")
+          Core.<*> (x Core..:? "ResourceDetails")
+          Core.<*> (x Core..:? "ResourceId")
+          Core.<*> (x Core..:? "ResourceUtilization")
+          Core.<*> (x Core..:? "SavingsPlansCoveredHoursInLookbackPeriod")
+          Core.<*> (x Core..:? "Tags")
+          Core.<*> (x Core..:? "TotalRunningHoursInLookbackPeriod")

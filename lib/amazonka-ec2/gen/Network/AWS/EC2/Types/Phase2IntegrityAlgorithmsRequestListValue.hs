@@ -21,34 +21,29 @@ module Network.AWS.EC2.Types.Phase2IntegrityAlgorithmsRequestListValue
   )
 where
 
+import qualified Network.AWS.EC2.Types.String as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Specifies the integrity algorithm for the VPN tunnel for phase 2 IKE negotiations.
 --
 -- /See:/ 'mkPhase2IntegrityAlgorithmsRequestListValue' smart constructor.
 newtype Phase2IntegrityAlgorithmsRequestListValue = Phase2IntegrityAlgorithmsRequestListValue'
   { -- | The integrity algorithm.
-    value :: Lude.Maybe Lude.Text
+    value :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'Phase2IntegrityAlgorithmsRequestListValue' with the minimum fields required to make a request.
---
--- * 'value' - The integrity algorithm.
+-- | Creates a 'Phase2IntegrityAlgorithmsRequestListValue' value with any optional fields omitted.
 mkPhase2IntegrityAlgorithmsRequestListValue ::
   Phase2IntegrityAlgorithmsRequestListValue
 mkPhase2IntegrityAlgorithmsRequestListValue =
-  Phase2IntegrityAlgorithmsRequestListValue' {value = Lude.Nothing}
+  Phase2IntegrityAlgorithmsRequestListValue' {value = Core.Nothing}
 
 -- | The integrity algorithm.
 --
 -- /Note:/ Consider using 'value' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-piarlvValue :: Lens.Lens' Phase2IntegrityAlgorithmsRequestListValue (Lude.Maybe Lude.Text)
-piarlvValue = Lens.lens (value :: Phase2IntegrityAlgorithmsRequestListValue -> Lude.Maybe Lude.Text) (\s a -> s {value = a} :: Phase2IntegrityAlgorithmsRequestListValue)
+piarlvValue :: Lens.Lens' Phase2IntegrityAlgorithmsRequestListValue (Core.Maybe Types.String)
+piarlvValue = Lens.field @"value"
 {-# DEPRECATED piarlvValue "Use generic-lens or generic-optics with 'value' instead." #-}
-
-instance Lude.ToQuery Phase2IntegrityAlgorithmsRequestListValue where
-  toQuery Phase2IntegrityAlgorithmsRequestListValue' {..} =
-    Lude.mconcat ["Value" Lude.=: value]

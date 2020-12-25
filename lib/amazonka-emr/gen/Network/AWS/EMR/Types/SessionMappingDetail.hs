@@ -18,123 +18,117 @@ module Network.AWS.EMR.Types.SessionMappingDetail
 
     -- * Lenses
     smdCreationTime,
-    smdStudioId,
-    smdLastModifiedTime,
-    smdIdentityType,
     smdIdentityId,
-    smdSessionPolicyARN,
     smdIdentityName,
+    smdIdentityType,
+    smdLastModifiedTime,
+    smdSessionPolicyArn,
+    smdStudioId,
   )
 where
 
-import Network.AWS.EMR.Types.IdentityType
+import qualified Network.AWS.EMR.Types.IdentityId as Types
+import qualified Network.AWS.EMR.Types.IdentityName as Types
+import qualified Network.AWS.EMR.Types.IdentityType as Types
+import qualified Network.AWS.EMR.Types.SessionPolicyArn as Types
+import qualified Network.AWS.EMR.Types.StudioId as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Details for an Amazon EMR Studio session mapping including creation time, user or group ID, Studio ID, and so on.
 --
 -- /See:/ 'mkSessionMappingDetail' smart constructor.
 data SessionMappingDetail = SessionMappingDetail'
   { -- | The time the session mapping was created.
-    creationTime :: Lude.Maybe Lude.Timestamp,
-    -- | The ID of the Amazon EMR Studio.
-    studioId :: Lude.Maybe Lude.Text,
-    -- | The time the session mapping was last modified.
-    lastModifiedTime :: Lude.Maybe Lude.Timestamp,
-    -- | Specifies whether the identity mapped to the Studio is a user or a group.
-    identityType :: Lude.Maybe IdentityType,
+    creationTime :: Core.Maybe Core.NominalDiffTime,
     -- | The globally unique identifier (GUID) of the user or group.
-    identityId :: Lude.Maybe Lude.Text,
-    -- | The Amazon Resource Name (ARN) of the session policy associated with the user or group.
-    sessionPolicyARN :: Lude.Maybe Lude.Text,
+    identityId :: Core.Maybe Types.IdentityId,
     -- | The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ .
-    identityName :: Lude.Maybe Lude.Text
+    identityName :: Core.Maybe Types.IdentityName,
+    -- | Specifies whether the identity mapped to the Studio is a user or a group.
+    identityType :: Core.Maybe Types.IdentityType,
+    -- | The time the session mapping was last modified.
+    lastModifiedTime :: Core.Maybe Core.NominalDiffTime,
+    -- | The Amazon Resource Name (ARN) of the session policy associated with the user or group.
+    sessionPolicyArn :: Core.Maybe Types.SessionPolicyArn,
+    -- | The ID of the Amazon EMR Studio.
+    studioId :: Core.Maybe Types.StudioId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'SessionMappingDetail' with the minimum fields required to make a request.
---
--- * 'creationTime' - The time the session mapping was created.
--- * 'studioId' - The ID of the Amazon EMR Studio.
--- * 'lastModifiedTime' - The time the session mapping was last modified.
--- * 'identityType' - Specifies whether the identity mapped to the Studio is a user or a group.
--- * 'identityId' - The globally unique identifier (GUID) of the user or group.
--- * 'sessionPolicyARN' - The Amazon Resource Name (ARN) of the session policy associated with the user or group.
--- * 'identityName' - The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ .
+-- | Creates a 'SessionMappingDetail' value with any optional fields omitted.
 mkSessionMappingDetail ::
   SessionMappingDetail
 mkSessionMappingDetail =
   SessionMappingDetail'
-    { creationTime = Lude.Nothing,
-      studioId = Lude.Nothing,
-      lastModifiedTime = Lude.Nothing,
-      identityType = Lude.Nothing,
-      identityId = Lude.Nothing,
-      sessionPolicyARN = Lude.Nothing,
-      identityName = Lude.Nothing
+    { creationTime = Core.Nothing,
+      identityId = Core.Nothing,
+      identityName = Core.Nothing,
+      identityType = Core.Nothing,
+      lastModifiedTime = Core.Nothing,
+      sessionPolicyArn = Core.Nothing,
+      studioId = Core.Nothing
     }
 
 -- | The time the session mapping was created.
 --
 -- /Note:/ Consider using 'creationTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smdCreationTime :: Lens.Lens' SessionMappingDetail (Lude.Maybe Lude.Timestamp)
-smdCreationTime = Lens.lens (creationTime :: SessionMappingDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {creationTime = a} :: SessionMappingDetail)
+smdCreationTime :: Lens.Lens' SessionMappingDetail (Core.Maybe Core.NominalDiffTime)
+smdCreationTime = Lens.field @"creationTime"
 {-# DEPRECATED smdCreationTime "Use generic-lens or generic-optics with 'creationTime' instead." #-}
-
--- | The ID of the Amazon EMR Studio.
---
--- /Note:/ Consider using 'studioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smdStudioId :: Lens.Lens' SessionMappingDetail (Lude.Maybe Lude.Text)
-smdStudioId = Lens.lens (studioId :: SessionMappingDetail -> Lude.Maybe Lude.Text) (\s a -> s {studioId = a} :: SessionMappingDetail)
-{-# DEPRECATED smdStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
-
--- | The time the session mapping was last modified.
---
--- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smdLastModifiedTime :: Lens.Lens' SessionMappingDetail (Lude.Maybe Lude.Timestamp)
-smdLastModifiedTime = Lens.lens (lastModifiedTime :: SessionMappingDetail -> Lude.Maybe Lude.Timestamp) (\s a -> s {lastModifiedTime = a} :: SessionMappingDetail)
-{-# DEPRECATED smdLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
-
--- | Specifies whether the identity mapped to the Studio is a user or a group.
---
--- /Note:/ Consider using 'identityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smdIdentityType :: Lens.Lens' SessionMappingDetail (Lude.Maybe IdentityType)
-smdIdentityType = Lens.lens (identityType :: SessionMappingDetail -> Lude.Maybe IdentityType) (\s a -> s {identityType = a} :: SessionMappingDetail)
-{-# DEPRECATED smdIdentityType "Use generic-lens or generic-optics with 'identityType' instead." #-}
 
 -- | The globally unique identifier (GUID) of the user or group.
 --
 -- /Note:/ Consider using 'identityId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smdIdentityId :: Lens.Lens' SessionMappingDetail (Lude.Maybe Lude.Text)
-smdIdentityId = Lens.lens (identityId :: SessionMappingDetail -> Lude.Maybe Lude.Text) (\s a -> s {identityId = a} :: SessionMappingDetail)
+smdIdentityId :: Lens.Lens' SessionMappingDetail (Core.Maybe Types.IdentityId)
+smdIdentityId = Lens.field @"identityId"
 {-# DEPRECATED smdIdentityId "Use generic-lens or generic-optics with 'identityId' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the session policy associated with the user or group.
---
--- /Note:/ Consider using 'sessionPolicyARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smdSessionPolicyARN :: Lens.Lens' SessionMappingDetail (Lude.Maybe Lude.Text)
-smdSessionPolicyARN = Lens.lens (sessionPolicyARN :: SessionMappingDetail -> Lude.Maybe Lude.Text) (\s a -> s {sessionPolicyARN = a} :: SessionMappingDetail)
-{-# DEPRECATED smdSessionPolicyARN "Use generic-lens or generic-optics with 'sessionPolicyARN' instead." #-}
 
 -- | The name of the user or group. For more information, see <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html#singlesignon-Type-User-UserId UserName> and <https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html#singlesignon-Type-Group-DisplayName DisplayName> in the /AWS SSO Identity Store API Reference/ .
 --
 -- /Note:/ Consider using 'identityName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-smdIdentityName :: Lens.Lens' SessionMappingDetail (Lude.Maybe Lude.Text)
-smdIdentityName = Lens.lens (identityName :: SessionMappingDetail -> Lude.Maybe Lude.Text) (\s a -> s {identityName = a} :: SessionMappingDetail)
+smdIdentityName :: Lens.Lens' SessionMappingDetail (Core.Maybe Types.IdentityName)
+smdIdentityName = Lens.field @"identityName"
 {-# DEPRECATED smdIdentityName "Use generic-lens or generic-optics with 'identityName' instead." #-}
 
-instance Lude.FromJSON SessionMappingDetail where
+-- | Specifies whether the identity mapped to the Studio is a user or a group.
+--
+-- /Note:/ Consider using 'identityType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smdIdentityType :: Lens.Lens' SessionMappingDetail (Core.Maybe Types.IdentityType)
+smdIdentityType = Lens.field @"identityType"
+{-# DEPRECATED smdIdentityType "Use generic-lens or generic-optics with 'identityType' instead." #-}
+
+-- | The time the session mapping was last modified.
+--
+-- /Note:/ Consider using 'lastModifiedTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smdLastModifiedTime :: Lens.Lens' SessionMappingDetail (Core.Maybe Core.NominalDiffTime)
+smdLastModifiedTime = Lens.field @"lastModifiedTime"
+{-# DEPRECATED smdLastModifiedTime "Use generic-lens or generic-optics with 'lastModifiedTime' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the session policy associated with the user or group.
+--
+-- /Note:/ Consider using 'sessionPolicyArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smdSessionPolicyArn :: Lens.Lens' SessionMappingDetail (Core.Maybe Types.SessionPolicyArn)
+smdSessionPolicyArn = Lens.field @"sessionPolicyArn"
+{-# DEPRECATED smdSessionPolicyArn "Use generic-lens or generic-optics with 'sessionPolicyArn' instead." #-}
+
+-- | The ID of the Amazon EMR Studio.
+--
+-- /Note:/ Consider using 'studioId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+smdStudioId :: Lens.Lens' SessionMappingDetail (Core.Maybe Types.StudioId)
+smdStudioId = Lens.field @"studioId"
+{-# DEPRECATED smdStudioId "Use generic-lens or generic-optics with 'studioId' instead." #-}
+
+instance Core.FromJSON SessionMappingDetail where
   parseJSON =
-    Lude.withObject
-      "SessionMappingDetail"
-      ( \x ->
-          SessionMappingDetail'
-            Lude.<$> (x Lude..:? "CreationTime")
-            Lude.<*> (x Lude..:? "StudioId")
-            Lude.<*> (x Lude..:? "LastModifiedTime")
-            Lude.<*> (x Lude..:? "IdentityType")
-            Lude.<*> (x Lude..:? "IdentityId")
-            Lude.<*> (x Lude..:? "SessionPolicyArn")
-            Lude.<*> (x Lude..:? "IdentityName")
-      )
+    Core.withObject "SessionMappingDetail" Core.$
+      \x ->
+        SessionMappingDetail'
+          Core.<$> (x Core..:? "CreationTime")
+          Core.<*> (x Core..:? "IdentityId")
+          Core.<*> (x Core..:? "IdentityName")
+          Core.<*> (x Core..:? "IdentityType")
+          Core.<*> (x Core..:? "LastModifiedTime")
+          Core.<*> (x Core..:? "SessionPolicyArn")
+          Core.<*> (x Core..:? "StudioId")

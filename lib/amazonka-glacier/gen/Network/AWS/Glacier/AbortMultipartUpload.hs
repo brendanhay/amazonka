@@ -25,8 +25,8 @@ module Network.AWS.Glacier.AbortMultipartUpload
     mkAbortMultipartUpload,
 
     -- ** Request lenses
-    amuVaultName,
     amuAccountId,
+    amuVaultName,
     amuUploadId,
 
     -- * Destructuring the response
@@ -35,11 +35,11 @@ module Network.AWS.Glacier.AbortMultipartUpload
   )
 where
 
-import Network.AWS.Glacier.Types
+import qualified Network.AWS.Glacier.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Provides options to abort a multipart upload identified by the upload ID.
 --
@@ -47,85 +47,74 @@ import qualified Network.AWS.Response as Res
 --
 -- /See:/ 'mkAbortMultipartUpload' smart constructor.
 data AbortMultipartUpload = AbortMultipartUpload'
-  { -- | The name of the vault.
-    vaultName :: Lude.Text,
-    -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
-    accountId :: Lude.Text,
+  { -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
+    accountId :: Types.String,
+    -- | The name of the vault.
+    vaultName :: Types.String,
     -- | The upload ID of the multipart upload to delete.
-    uploadId :: Lude.Text
+    uploadId :: Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AbortMultipartUpload' with the minimum fields required to make a request.
---
--- * 'vaultName' - The name of the vault.
--- * 'accountId' - The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
--- * 'uploadId' - The upload ID of the multipart upload to delete.
+-- | Creates a 'AbortMultipartUpload' value with any optional fields omitted.
 mkAbortMultipartUpload ::
-  -- | 'vaultName'
-  Lude.Text ->
   -- | 'accountId'
-  Lude.Text ->
+  Types.String ->
+  -- | 'vaultName'
+  Types.String ->
   -- | 'uploadId'
-  Lude.Text ->
+  Types.String ->
   AbortMultipartUpload
-mkAbortMultipartUpload pVaultName_ pAccountId_ pUploadId_ =
-  AbortMultipartUpload'
-    { vaultName = pVaultName_,
-      accountId = pAccountId_,
-      uploadId = pUploadId_
-    }
-
--- | The name of the vault.
---
--- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amuVaultName :: Lens.Lens' AbortMultipartUpload Lude.Text
-amuVaultName = Lens.lens (vaultName :: AbortMultipartUpload -> Lude.Text) (\s a -> s {vaultName = a} :: AbortMultipartUpload)
-{-# DEPRECATED amuVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
+mkAbortMultipartUpload accountId vaultName uploadId =
+  AbortMultipartUpload' {accountId, vaultName, uploadId}
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the vault. You can either specify an AWS account ID or optionally a single '@-@ ' (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the credentials used to sign the request. If you use an account ID, do not include any hyphens ('-') in the ID.
 --
 -- /Note:/ Consider using 'accountId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amuAccountId :: Lens.Lens' AbortMultipartUpload Lude.Text
-amuAccountId = Lens.lens (accountId :: AbortMultipartUpload -> Lude.Text) (\s a -> s {accountId = a} :: AbortMultipartUpload)
+amuAccountId :: Lens.Lens' AbortMultipartUpload Types.String
+amuAccountId = Lens.field @"accountId"
 {-# DEPRECATED amuAccountId "Use generic-lens or generic-optics with 'accountId' instead." #-}
+
+-- | The name of the vault.
+--
+-- /Note:/ Consider using 'vaultName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+amuVaultName :: Lens.Lens' AbortMultipartUpload Types.String
+amuVaultName = Lens.field @"vaultName"
+{-# DEPRECATED amuVaultName "Use generic-lens or generic-optics with 'vaultName' instead." #-}
 
 -- | The upload ID of the multipart upload to delete.
 --
 -- /Note:/ Consider using 'uploadId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-amuUploadId :: Lens.Lens' AbortMultipartUpload Lude.Text
-amuUploadId = Lens.lens (uploadId :: AbortMultipartUpload -> Lude.Text) (\s a -> s {uploadId = a} :: AbortMultipartUpload)
+amuUploadId :: Lens.Lens' AbortMultipartUpload Types.String
+amuUploadId = Lens.field @"uploadId"
 {-# DEPRECATED amuUploadId "Use generic-lens or generic-optics with 'uploadId' instead." #-}
 
-instance Lude.AWSRequest AbortMultipartUpload where
+instance Core.AWSRequest AbortMultipartUpload where
   type Rs AbortMultipartUpload = AbortMultipartUploadResponse
-  request = Req.delete glacierService
-  response = Res.receiveNull AbortMultipartUploadResponse'
-
-instance Lude.ToHeaders AbortMultipartUpload where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath AbortMultipartUpload where
-  toPath AbortMultipartUpload' {..} =
-    Lude.mconcat
-      [ "/",
-        Lude.toBS accountId,
-        "/vaults/",
-        Lude.toBS vaultName,
-        "/multipart-uploads/",
-        Lude.toBS uploadId
-      ]
-
-instance Lude.ToQuery AbortMultipartUpload where
-  toQuery = Lude.const Lude.mempty
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.DELETE,
+        Core._rqPath =
+          Core.rawPath
+            ( "/" Core.<> (Core.toText accountId) Core.<> ("/vaults/")
+                Core.<> (Core.toText vaultName)
+                Core.<> ("/multipart-uploads/")
+                Core.<> (Core.toText uploadId)
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders = Core.mempty,
+        Core._rqBody = ""
+      }
+  response = Response.receiveNull AbortMultipartUploadResponse'
 
 -- | /See:/ 'mkAbortMultipartUploadResponse' smart constructor.
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AbortMultipartUploadResponse' with the minimum fields required to make a request.
+-- | Creates a 'AbortMultipartUploadResponse' value with any optional fields omitted.
 mkAbortMultipartUploadResponse ::
   AbortMultipartUploadResponse
 mkAbortMultipartUploadResponse = AbortMultipartUploadResponse'

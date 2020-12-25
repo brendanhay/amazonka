@@ -20,8 +20,8 @@ module Network.AWS.SQS.UntagQueue
     mkUntagQueue,
 
     -- ** Request lenses
+    uqQueueUrl,
     uqTagKeys,
-    uqQueueURL,
 
     -- * Destructuring the response
     UntagQueueResponse (..),
@@ -30,72 +30,72 @@ module Network.AWS.SQS.UntagQueue
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SQS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SQS.Types as Types
 
 -- | /See:/ 'mkUntagQueue' smart constructor.
 data UntagQueue = UntagQueue'
-  { -- | The list of tags to be removed from the specified queue.
-    tagKeys :: [Lude.Text],
-    -- | The URL of the queue.
-    queueURL :: Lude.Text
+  { -- | The URL of the queue.
+    queueUrl :: Types.String,
+    -- | The list of tags to be removed from the specified queue.
+    tagKeys :: [Types.TagKey]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagQueue' with the minimum fields required to make a request.
---
--- * 'tagKeys' - The list of tags to be removed from the specified queue.
--- * 'queueURL' - The URL of the queue.
+-- | Creates a 'UntagQueue' value with any optional fields omitted.
 mkUntagQueue ::
-  -- | 'queueURL'
-  Lude.Text ->
+  -- | 'queueUrl'
+  Types.String ->
   UntagQueue
-mkUntagQueue pQueueURL_ =
-  UntagQueue' {tagKeys = Lude.mempty, queueURL = pQueueURL_}
+mkUntagQueue queueUrl =
+  UntagQueue' {queueUrl, tagKeys = Core.mempty}
+
+-- | The URL of the queue.
+--
+-- /Note:/ Consider using 'queueUrl' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+uqQueueUrl :: Lens.Lens' UntagQueue Types.String
+uqQueueUrl = Lens.field @"queueUrl"
+{-# DEPRECATED uqQueueUrl "Use generic-lens or generic-optics with 'queueUrl' instead." #-}
 
 -- | The list of tags to be removed from the specified queue.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqTagKeys :: Lens.Lens' UntagQueue [Lude.Text]
-uqTagKeys = Lens.lens (tagKeys :: UntagQueue -> [Lude.Text]) (\s a -> s {tagKeys = a} :: UntagQueue)
+uqTagKeys :: Lens.Lens' UntagQueue [Types.TagKey]
+uqTagKeys = Lens.field @"tagKeys"
 {-# DEPRECATED uqTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
--- | The URL of the queue.
---
--- /Note:/ Consider using 'queueURL' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-uqQueueURL :: Lens.Lens' UntagQueue Lude.Text
-uqQueueURL = Lens.lens (queueURL :: UntagQueue -> Lude.Text) (\s a -> s {queueURL = a} :: UntagQueue)
-{-# DEPRECATED uqQueueURL "Use generic-lens or generic-optics with 'queueURL' instead." #-}
-
-instance Lude.AWSRequest UntagQueue where
+instance Core.AWSRequest UntagQueue where
   type Rs UntagQueue = UntagQueueResponse
-  request = Req.postQuery sqsService
-  response = Res.receiveNull UntagQueueResponse'
-
-instance Lude.ToHeaders UntagQueue where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath UntagQueue where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery UntagQueue where
-  toQuery UntagQueue' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("UntagQueue" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-11-05" :: Lude.ByteString),
-        Lude.toQueryList "TagKey" tagKeys,
-        "QueueUrl" Lude.=: queueURL
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "UntagQueue")
+                Core.<> (Core.pure ("Version", "2012-11-05"))
+                Core.<> (Core.toQueryValue "QueueUrl" queueUrl)
+                Core.<> (Core.toQueryList "TagKey" tagKeys)
+            )
+      }
+  response = Response.receiveNull UntagQueueResponse'
 
 -- | /See:/ 'mkUntagQueueResponse' smart constructor.
 data UntagQueueResponse = UntagQueueResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'UntagQueueResponse' with the minimum fields required to make a request.
+-- | Creates a 'UntagQueueResponse' value with any optional fields omitted.
 mkUntagQueueResponse ::
   UntagQueueResponse
 mkUntagQueueResponse = UntagQueueResponse'

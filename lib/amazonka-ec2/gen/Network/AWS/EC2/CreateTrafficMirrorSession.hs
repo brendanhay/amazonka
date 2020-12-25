@@ -24,267 +24,248 @@ module Network.AWS.EC2.CreateTrafficMirrorSession
     mkCreateTrafficMirrorSession,
 
     -- ** Request lenses
-    ctmsClientToken,
-    ctmsTrafficMirrorTargetId,
     ctmsNetworkInterfaceId,
+    ctmsTrafficMirrorTargetId,
     ctmsTrafficMirrorFilterId,
+    ctmsSessionNumber,
+    ctmsClientToken,
+    ctmsDescription,
+    ctmsDryRun,
     ctmsPacketLength,
     ctmsTagSpecifications,
     ctmsVirtualNetworkId,
-    ctmsSessionNumber,
-    ctmsDescription,
-    ctmsDryRun,
 
     -- * Destructuring the response
     CreateTrafficMirrorSessionResponse (..),
     mkCreateTrafficMirrorSessionResponse,
 
     -- ** Response lenses
-    ctmsrsTrafficMirrorSession,
-    ctmsrsClientToken,
-    ctmsrsResponseStatus,
+    ctmsrrsClientToken,
+    ctmsrrsTrafficMirrorSession,
+    ctmsrrsResponseStatus,
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateTrafficMirrorSession' smart constructor.
 data CreateTrafficMirrorSession = CreateTrafficMirrorSession'
-  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-    clientToken :: Lude.Maybe Lude.Text,
+  { -- | The ID of the source network interface.
+    networkInterfaceId :: Types.NetworkInterfaceId,
     -- | The ID of the Traffic Mirror target.
-    trafficMirrorTargetId :: Lude.Text,
-    -- | The ID of the source network interface.
-    networkInterfaceId :: Lude.Text,
+    trafficMirrorTargetId :: Types.TrafficMirrorTargetId,
     -- | The ID of the Traffic Mirror filter.
-    trafficMirrorFilterId :: Lude.Text,
-    -- | The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target.
-    --
-    -- If you do not want to mirror the entire packet, use the @PacketLength@ parameter to specify the number of bytes in each packet to mirror.
-    packetLength :: Lude.Maybe Lude.Int,
-    -- | The tags to assign to a Traffic Mirror session.
-    tagSpecifications :: Lude.Maybe [TagSpecification],
-    -- | The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see <https://tools.ietf.org/html/rfc7348 RFC 7348> . If you do not specify a @VirtualNetworkId@ , an account-wide unique id is chosen at random.
-    virtualNetworkId :: Lude.Maybe Lude.Int,
+    trafficMirrorFilterId :: Types.TrafficMirrorFilterId,
     -- | The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
     --
     -- Valid values are 1-32766.
-    sessionNumber :: Lude.Int,
+    sessionNumber :: Core.Int,
+    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Core.Maybe Types.ClientToken,
     -- | The description of the Traffic Mirror session.
-    description :: Lude.Maybe Lude.Text,
+    description :: Core.Maybe Types.Description,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool,
+    -- | The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target.
+    --
+    -- If you do not want to mirror the entire packet, use the @PacketLength@ parameter to specify the number of bytes in each packet to mirror.
+    packetLength :: Core.Maybe Core.Int,
+    -- | The tags to assign to a Traffic Mirror session.
+    tagSpecifications :: Core.Maybe [Types.TagSpecification],
+    -- | The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see <https://tools.ietf.org/html/rfc7348 RFC 7348> . If you do not specify a @VirtualNetworkId@ , an account-wide unique id is chosen at random.
+    virtualNetworkId :: Core.Maybe Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTrafficMirrorSession' with the minimum fields required to make a request.
---
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'trafficMirrorTargetId' - The ID of the Traffic Mirror target.
--- * 'networkInterfaceId' - The ID of the source network interface.
--- * 'trafficMirrorFilterId' - The ID of the Traffic Mirror filter.
--- * 'packetLength' - The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target.
---
--- If you do not want to mirror the entire packet, use the @PacketLength@ parameter to specify the number of bytes in each packet to mirror.
--- * 'tagSpecifications' - The tags to assign to a Traffic Mirror session.
--- * 'virtualNetworkId' - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see <https://tools.ietf.org/html/rfc7348 RFC 7348> . If you do not specify a @VirtualNetworkId@ , an account-wide unique id is chosen at random.
--- * 'sessionNumber' - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
---
--- Valid values are 1-32766.
--- * 'description' - The description of the Traffic Mirror session.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'CreateTrafficMirrorSession' value with any optional fields omitted.
 mkCreateTrafficMirrorSession ::
-  -- | 'trafficMirrorTargetId'
-  Lude.Text ->
   -- | 'networkInterfaceId'
-  Lude.Text ->
+  Types.NetworkInterfaceId ->
+  -- | 'trafficMirrorTargetId'
+  Types.TrafficMirrorTargetId ->
   -- | 'trafficMirrorFilterId'
-  Lude.Text ->
+  Types.TrafficMirrorFilterId ->
   -- | 'sessionNumber'
-  Lude.Int ->
+  Core.Int ->
   CreateTrafficMirrorSession
 mkCreateTrafficMirrorSession
-  pTrafficMirrorTargetId_
-  pNetworkInterfaceId_
-  pTrafficMirrorFilterId_
-  pSessionNumber_ =
+  networkInterfaceId
+  trafficMirrorTargetId
+  trafficMirrorFilterId
+  sessionNumber =
     CreateTrafficMirrorSession'
-      { clientToken = Lude.Nothing,
-        trafficMirrorTargetId = pTrafficMirrorTargetId_,
-        networkInterfaceId = pNetworkInterfaceId_,
-        trafficMirrorFilterId = pTrafficMirrorFilterId_,
-        packetLength = Lude.Nothing,
-        tagSpecifications = Lude.Nothing,
-        virtualNetworkId = Lude.Nothing,
-        sessionNumber = pSessionNumber_,
-        description = Lude.Nothing,
-        dryRun = Lude.Nothing
+      { networkInterfaceId,
+        trafficMirrorTargetId,
+        trafficMirrorFilterId,
+        sessionNumber,
+        clientToken = Core.Nothing,
+        description = Core.Nothing,
+        dryRun = Core.Nothing,
+        packetLength = Core.Nothing,
+        tagSpecifications = Core.Nothing,
+        virtualNetworkId = Core.Nothing
       }
-
--- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsClientToken :: Lens.Lens' CreateTrafficMirrorSession (Lude.Maybe Lude.Text)
-ctmsClientToken = Lens.lens (clientToken :: CreateTrafficMirrorSession -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateTrafficMirrorSession)
-{-# DEPRECATED ctmsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | The ID of the Traffic Mirror target.
---
--- /Note:/ Consider using 'trafficMirrorTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsTrafficMirrorTargetId :: Lens.Lens' CreateTrafficMirrorSession Lude.Text
-ctmsTrafficMirrorTargetId = Lens.lens (trafficMirrorTargetId :: CreateTrafficMirrorSession -> Lude.Text) (\s a -> s {trafficMirrorTargetId = a} :: CreateTrafficMirrorSession)
-{-# DEPRECATED ctmsTrafficMirrorTargetId "Use generic-lens or generic-optics with 'trafficMirrorTargetId' instead." #-}
 
 -- | The ID of the source network interface.
 --
 -- /Note:/ Consider using 'networkInterfaceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsNetworkInterfaceId :: Lens.Lens' CreateTrafficMirrorSession Lude.Text
-ctmsNetworkInterfaceId = Lens.lens (networkInterfaceId :: CreateTrafficMirrorSession -> Lude.Text) (\s a -> s {networkInterfaceId = a} :: CreateTrafficMirrorSession)
+ctmsNetworkInterfaceId :: Lens.Lens' CreateTrafficMirrorSession Types.NetworkInterfaceId
+ctmsNetworkInterfaceId = Lens.field @"networkInterfaceId"
 {-# DEPRECATED ctmsNetworkInterfaceId "Use generic-lens or generic-optics with 'networkInterfaceId' instead." #-}
+
+-- | The ID of the Traffic Mirror target.
+--
+-- /Note:/ Consider using 'trafficMirrorTargetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmsTrafficMirrorTargetId :: Lens.Lens' CreateTrafficMirrorSession Types.TrafficMirrorTargetId
+ctmsTrafficMirrorTargetId = Lens.field @"trafficMirrorTargetId"
+{-# DEPRECATED ctmsTrafficMirrorTargetId "Use generic-lens or generic-optics with 'trafficMirrorTargetId' instead." #-}
 
 -- | The ID of the Traffic Mirror filter.
 --
 -- /Note:/ Consider using 'trafficMirrorFilterId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsTrafficMirrorFilterId :: Lens.Lens' CreateTrafficMirrorSession Lude.Text
-ctmsTrafficMirrorFilterId = Lens.lens (trafficMirrorFilterId :: CreateTrafficMirrorSession -> Lude.Text) (\s a -> s {trafficMirrorFilterId = a} :: CreateTrafficMirrorSession)
+ctmsTrafficMirrorFilterId :: Lens.Lens' CreateTrafficMirrorSession Types.TrafficMirrorFilterId
+ctmsTrafficMirrorFilterId = Lens.field @"trafficMirrorFilterId"
 {-# DEPRECATED ctmsTrafficMirrorFilterId "Use generic-lens or generic-optics with 'trafficMirrorFilterId' instead." #-}
-
--- | The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target.
---
--- If you do not want to mirror the entire packet, use the @PacketLength@ parameter to specify the number of bytes in each packet to mirror.
---
--- /Note:/ Consider using 'packetLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsPacketLength :: Lens.Lens' CreateTrafficMirrorSession (Lude.Maybe Lude.Int)
-ctmsPacketLength = Lens.lens (packetLength :: CreateTrafficMirrorSession -> Lude.Maybe Lude.Int) (\s a -> s {packetLength = a} :: CreateTrafficMirrorSession)
-{-# DEPRECATED ctmsPacketLength "Use generic-lens or generic-optics with 'packetLength' instead." #-}
-
--- | The tags to assign to a Traffic Mirror session.
---
--- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsTagSpecifications :: Lens.Lens' CreateTrafficMirrorSession (Lude.Maybe [TagSpecification])
-ctmsTagSpecifications = Lens.lens (tagSpecifications :: CreateTrafficMirrorSession -> Lude.Maybe [TagSpecification]) (\s a -> s {tagSpecifications = a} :: CreateTrafficMirrorSession)
-{-# DEPRECATED ctmsTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
-
--- | The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see <https://tools.ietf.org/html/rfc7348 RFC 7348> . If you do not specify a @VirtualNetworkId@ , an account-wide unique id is chosen at random.
---
--- /Note:/ Consider using 'virtualNetworkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsVirtualNetworkId :: Lens.Lens' CreateTrafficMirrorSession (Lude.Maybe Lude.Int)
-ctmsVirtualNetworkId = Lens.lens (virtualNetworkId :: CreateTrafficMirrorSession -> Lude.Maybe Lude.Int) (\s a -> s {virtualNetworkId = a} :: CreateTrafficMirrorSession)
-{-# DEPRECATED ctmsVirtualNetworkId "Use generic-lens or generic-optics with 'virtualNetworkId' instead." #-}
 
 -- | The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 --
 -- Valid values are 1-32766.
 --
 -- /Note:/ Consider using 'sessionNumber' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsSessionNumber :: Lens.Lens' CreateTrafficMirrorSession Lude.Int
-ctmsSessionNumber = Lens.lens (sessionNumber :: CreateTrafficMirrorSession -> Lude.Int) (\s a -> s {sessionNumber = a} :: CreateTrafficMirrorSession)
+ctmsSessionNumber :: Lens.Lens' CreateTrafficMirrorSession Core.Int
+ctmsSessionNumber = Lens.field @"sessionNumber"
 {-# DEPRECATED ctmsSessionNumber "Use generic-lens or generic-optics with 'sessionNumber' instead." #-}
+
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmsClientToken :: Lens.Lens' CreateTrafficMirrorSession (Core.Maybe Types.ClientToken)
+ctmsClientToken = Lens.field @"clientToken"
+{-# DEPRECATED ctmsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
 
 -- | The description of the Traffic Mirror session.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsDescription :: Lens.Lens' CreateTrafficMirrorSession (Lude.Maybe Lude.Text)
-ctmsDescription = Lens.lens (description :: CreateTrafficMirrorSession -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: CreateTrafficMirrorSession)
+ctmsDescription :: Lens.Lens' CreateTrafficMirrorSession (Core.Maybe Types.Description)
+ctmsDescription = Lens.field @"description"
 {-# DEPRECATED ctmsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsDryRun :: Lens.Lens' CreateTrafficMirrorSession (Lude.Maybe Lude.Bool)
-ctmsDryRun = Lens.lens (dryRun :: CreateTrafficMirrorSession -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: CreateTrafficMirrorSession)
+ctmsDryRun :: Lens.Lens' CreateTrafficMirrorSession (Core.Maybe Core.Bool)
+ctmsDryRun = Lens.field @"dryRun"
 {-# DEPRECATED ctmsDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest CreateTrafficMirrorSession where
+-- | The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror. For example, if you set this value to 100, then the first 100 bytes that meet the filter criteria are copied to the target.
+--
+-- If you do not want to mirror the entire packet, use the @PacketLength@ parameter to specify the number of bytes in each packet to mirror.
+--
+-- /Note:/ Consider using 'packetLength' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmsPacketLength :: Lens.Lens' CreateTrafficMirrorSession (Core.Maybe Core.Int)
+ctmsPacketLength = Lens.field @"packetLength"
+{-# DEPRECATED ctmsPacketLength "Use generic-lens or generic-optics with 'packetLength' instead." #-}
+
+-- | The tags to assign to a Traffic Mirror session.
+--
+-- /Note:/ Consider using 'tagSpecifications' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmsTagSpecifications :: Lens.Lens' CreateTrafficMirrorSession (Core.Maybe [Types.TagSpecification])
+ctmsTagSpecifications = Lens.field @"tagSpecifications"
+{-# DEPRECATED ctmsTagSpecifications "Use generic-lens or generic-optics with 'tagSpecifications' instead." #-}
+
+-- | The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see <https://tools.ietf.org/html/rfc7348 RFC 7348> . If you do not specify a @VirtualNetworkId@ , an account-wide unique id is chosen at random.
+--
+-- /Note:/ Consider using 'virtualNetworkId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmsVirtualNetworkId :: Lens.Lens' CreateTrafficMirrorSession (Core.Maybe Core.Int)
+ctmsVirtualNetworkId = Lens.field @"virtualNetworkId"
+{-# DEPRECATED ctmsVirtualNetworkId "Use generic-lens or generic-optics with 'virtualNetworkId' instead." #-}
+
+instance Core.AWSRequest CreateTrafficMirrorSession where
   type
     Rs CreateTrafficMirrorSession =
       CreateTrafficMirrorSessionResponse
-  request = Req.postQuery ec2Service
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateTrafficMirrorSession")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "NetworkInterfaceId" networkInterfaceId)
+                Core.<> (Core.toQueryValue "TrafficMirrorTargetId" trafficMirrorTargetId)
+                Core.<> (Core.toQueryValue "TrafficMirrorFilterId" trafficMirrorFilterId)
+                Core.<> (Core.toQueryValue "SessionNumber" sessionNumber)
+                Core.<> (Core.toQueryValue "ClientToken" Core.<$> clientToken)
+                Core.<> (Core.toQueryValue "Description" Core.<$> description)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+                Core.<> (Core.toQueryValue "PacketLength" Core.<$> packetLength)
+                Core.<> (Core.toQueryList "TagSpecification" Core.<$> tagSpecifications)
+                Core.<> (Core.toQueryValue "VirtualNetworkId" Core.<$> virtualNetworkId)
+            )
+      }
   response =
-    Res.receiveXML
+    Response.receiveXML
       ( \s h x ->
           CreateTrafficMirrorSessionResponse'
-            Lude.<$> (x Lude..@? "trafficMirrorSession")
-            Lude.<*> (x Lude..@? "clientToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@? "clientToken")
+            Core.<*> (x Core..@? "trafficMirrorSession")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateTrafficMirrorSession where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateTrafficMirrorSession where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateTrafficMirrorSession where
-  toQuery CreateTrafficMirrorSession' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("CreateTrafficMirrorSession" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "ClientToken" Lude.=: clientToken,
-        "TrafficMirrorTargetId" Lude.=: trafficMirrorTargetId,
-        "NetworkInterfaceId" Lude.=: networkInterfaceId,
-        "TrafficMirrorFilterId" Lude.=: trafficMirrorFilterId,
-        "PacketLength" Lude.=: packetLength,
-        Lude.toQuery
-          (Lude.toQueryList "TagSpecification" Lude.<$> tagSpecifications),
-        "VirtualNetworkId" Lude.=: virtualNetworkId,
-        "SessionNumber" Lude.=: sessionNumber,
-        "Description" Lude.=: description,
-        "DryRun" Lude.=: dryRun
-      ]
 
 -- | /See:/ 'mkCreateTrafficMirrorSessionResponse' smart constructor.
 data CreateTrafficMirrorSessionResponse = CreateTrafficMirrorSessionResponse'
-  { -- | Information about the Traffic Mirror session.
-    trafficMirrorSession :: Lude.Maybe TrafficMirrorSession,
-    -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
-    clientToken :: Lude.Maybe Lude.Text,
+  { -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
+    clientToken :: Core.Maybe Types.String,
+    -- | Information about the Traffic Mirror session.
+    trafficMirrorSession :: Core.Maybe Types.TrafficMirrorSession,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateTrafficMirrorSessionResponse' with the minimum fields required to make a request.
---
--- * 'trafficMirrorSession' - Information about the Traffic Mirror session.
--- * 'clientToken' - Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateTrafficMirrorSessionResponse' value with any optional fields omitted.
 mkCreateTrafficMirrorSessionResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateTrafficMirrorSessionResponse
-mkCreateTrafficMirrorSessionResponse pResponseStatus_ =
+mkCreateTrafficMirrorSessionResponse responseStatus =
   CreateTrafficMirrorSessionResponse'
-    { trafficMirrorSession =
-        Lude.Nothing,
-      clientToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { clientToken = Core.Nothing,
+      trafficMirrorSession = Core.Nothing,
+      responseStatus
     }
-
--- | Information about the Traffic Mirror session.
---
--- /Note:/ Consider using 'trafficMirrorSession' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsrsTrafficMirrorSession :: Lens.Lens' CreateTrafficMirrorSessionResponse (Lude.Maybe TrafficMirrorSession)
-ctmsrsTrafficMirrorSession = Lens.lens (trafficMirrorSession :: CreateTrafficMirrorSessionResponse -> Lude.Maybe TrafficMirrorSession) (\s a -> s {trafficMirrorSession = a} :: CreateTrafficMirrorSessionResponse)
-{-# DEPRECATED ctmsrsTrafficMirrorSession "Use generic-lens or generic-optics with 'trafficMirrorSession' instead." #-}
 
 -- | Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency> .
 --
 -- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsrsClientToken :: Lens.Lens' CreateTrafficMirrorSessionResponse (Lude.Maybe Lude.Text)
-ctmsrsClientToken = Lens.lens (clientToken :: CreateTrafficMirrorSessionResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: CreateTrafficMirrorSessionResponse)
-{-# DEPRECATED ctmsrsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+ctmsrrsClientToken :: Lens.Lens' CreateTrafficMirrorSessionResponse (Core.Maybe Types.String)
+ctmsrrsClientToken = Lens.field @"clientToken"
+{-# DEPRECATED ctmsrrsClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | Information about the Traffic Mirror session.
+--
+-- /Note:/ Consider using 'trafficMirrorSession' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ctmsrrsTrafficMirrorSession :: Lens.Lens' CreateTrafficMirrorSessionResponse (Core.Maybe Types.TrafficMirrorSession)
+ctmsrrsTrafficMirrorSession = Lens.field @"trafficMirrorSession"
+{-# DEPRECATED ctmsrrsTrafficMirrorSession "Use generic-lens or generic-optics with 'trafficMirrorSession' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ctmsrsResponseStatus :: Lens.Lens' CreateTrafficMirrorSessionResponse Lude.Int
-ctmsrsResponseStatus = Lens.lens (responseStatus :: CreateTrafficMirrorSessionResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateTrafficMirrorSessionResponse)
-{-# DEPRECATED ctmsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ctmsrrsResponseStatus :: Lens.Lens' CreateTrafficMirrorSessionResponse Core.Int
+ctmsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ctmsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

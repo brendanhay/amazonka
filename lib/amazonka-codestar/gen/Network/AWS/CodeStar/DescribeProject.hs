@@ -27,211 +27,191 @@ module Network.AWS.CodeStar.DescribeProject
     mkDescribeProjectResponse,
 
     -- ** Response lenses
-    drsStatus,
     drsArn,
-    drsProjectTemplateId,
-    drsName,
-    drsId,
-    drsStackId,
     drsClientRequestToken,
     drsCreatedTimeStamp,
     drsDescription,
+    drsId,
+    drsName,
+    drsProjectTemplateId,
+    drsStackId,
+    drsStatus,
     drsResponseStatus,
   )
 where
 
-import Network.AWS.CodeStar.Types
+import qualified Network.AWS.CodeStar.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDescribeProject' smart constructor.
 newtype DescribeProject = DescribeProject'
   { -- | The ID of the project.
-    id :: Lude.Text
+    id :: Types.ProjectId
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeProject' with the minimum fields required to make a request.
---
--- * 'id' - The ID of the project.
+-- | Creates a 'DescribeProject' value with any optional fields omitted.
 mkDescribeProject ::
   -- | 'id'
-  Lude.Text ->
+  Types.ProjectId ->
   DescribeProject
-mkDescribeProject pId_ = DescribeProject' {id = pId_}
+mkDescribeProject id = DescribeProject' {id}
 
 -- | The ID of the project.
 --
 -- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dId :: Lens.Lens' DescribeProject Lude.Text
-dId = Lens.lens (id :: DescribeProject -> Lude.Text) (\s a -> s {id = a} :: DescribeProject)
+dId :: Lens.Lens' DescribeProject Types.ProjectId
+dId = Lens.field @"id"
 {-# DEPRECATED dId "Use generic-lens or generic-optics with 'id' instead." #-}
 
-instance Lude.AWSRequest DescribeProject where
+instance Core.FromJSON DescribeProject where
+  toJSON DescribeProject {..} =
+    Core.object (Core.catMaybes [Core.Just ("id" Core..= id)])
+
+instance Core.AWSRequest DescribeProject where
   type Rs DescribeProject = DescribeProjectResponse
-  request = Req.postJSON codeStarService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "CodeStar_20170419.DescribeProject")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeProjectResponse'
-            Lude.<$> (x Lude..?> "status")
-            Lude.<*> (x Lude..?> "arn")
-            Lude.<*> (x Lude..?> "projectTemplateId")
-            Lude.<*> (x Lude..?> "name")
-            Lude.<*> (x Lude..?> "id")
-            Lude.<*> (x Lude..?> "stackId")
-            Lude.<*> (x Lude..?> "clientRequestToken")
-            Lude.<*> (x Lude..?> "createdTimeStamp")
-            Lude.<*> (x Lude..?> "description")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "arn")
+            Core.<*> (x Core..:? "clientRequestToken")
+            Core.<*> (x Core..:? "createdTimeStamp")
+            Core.<*> (x Core..:? "description")
+            Core.<*> (x Core..:? "id")
+            Core.<*> (x Core..:? "name")
+            Core.<*> (x Core..:? "projectTemplateId")
+            Core.<*> (x Core..:? "stackId")
+            Core.<*> (x Core..:? "status")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeProject where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("CodeStar_20170419.DescribeProject" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeProject where
-  toJSON DescribeProject' {..} =
-    Lude.object (Lude.catMaybes [Lude.Just ("id" Lude..= id)])
-
-instance Lude.ToPath DescribeProject where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeProject where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDescribeProjectResponse' smart constructor.
 data DescribeProjectResponse = DescribeProjectResponse'
-  { -- | The project creation or deletion status.
-    status :: Lude.Maybe ProjectStatus,
-    -- | The Amazon Resource Name (ARN) for the project.
-    arn :: Lude.Maybe Lude.Text,
-    -- | The ID for the AWS CodeStar project template used to create the project.
-    projectTemplateId :: Lude.Maybe Lude.Text,
-    -- | The display name for the project.
-    name :: Lude.Maybe (Lude.Sensitive Lude.Text),
-    -- | The ID of the project.
-    id :: Lude.Maybe Lude.Text,
-    -- | The ID of the primary stack in AWS CloudFormation used to generate resources for the project.
-    stackId :: Lude.Maybe Lude.Text,
+  { -- | The Amazon Resource Name (ARN) for the project.
+    arn :: Core.Maybe Types.Arn,
     -- | A user- or system-generated token that identifies the entity that requested project creation.
-    clientRequestToken :: Lude.Maybe Lude.Text,
+    clientRequestToken :: Core.Maybe Types.ClientRequestToken,
     -- | The date and time the project was created, in timestamp format.
-    createdTimeStamp :: Lude.Maybe Lude.Timestamp,
+    createdTimeStamp :: Core.Maybe Core.NominalDiffTime,
     -- | The description of the project, if any.
-    description :: Lude.Maybe (Lude.Sensitive Lude.Text),
+    description :: Core.Maybe Types.Description,
+    -- | The ID of the project.
+    id :: Core.Maybe Types.Id,
+    -- | The display name for the project.
+    name :: Core.Maybe Types.Name,
+    -- | The ID for the AWS CodeStar project template used to create the project.
+    projectTemplateId :: Core.Maybe Types.ProjectTemplateId,
+    -- | The ID of the primary stack in AWS CloudFormation used to generate resources for the project.
+    stackId :: Core.Maybe Types.StackId,
+    -- | The project creation or deletion status.
+    status :: Core.Maybe Types.ProjectStatus,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'DescribeProjectResponse' with the minimum fields required to make a request.
---
--- * 'status' - The project creation or deletion status.
--- * 'arn' - The Amazon Resource Name (ARN) for the project.
--- * 'projectTemplateId' - The ID for the AWS CodeStar project template used to create the project.
--- * 'name' - The display name for the project.
--- * 'id' - The ID of the project.
--- * 'stackId' - The ID of the primary stack in AWS CloudFormation used to generate resources for the project.
--- * 'clientRequestToken' - A user- or system-generated token that identifies the entity that requested project creation.
--- * 'createdTimeStamp' - The date and time the project was created, in timestamp format.
--- * 'description' - The description of the project, if any.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeProjectResponse' value with any optional fields omitted.
 mkDescribeProjectResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeProjectResponse
-mkDescribeProjectResponse pResponseStatus_ =
+mkDescribeProjectResponse responseStatus =
   DescribeProjectResponse'
-    { status = Lude.Nothing,
-      arn = Lude.Nothing,
-      projectTemplateId = Lude.Nothing,
-      name = Lude.Nothing,
-      id = Lude.Nothing,
-      stackId = Lude.Nothing,
-      clientRequestToken = Lude.Nothing,
-      createdTimeStamp = Lude.Nothing,
-      description = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { arn = Core.Nothing,
+      clientRequestToken = Core.Nothing,
+      createdTimeStamp = Core.Nothing,
+      description = Core.Nothing,
+      id = Core.Nothing,
+      name = Core.Nothing,
+      projectTemplateId = Core.Nothing,
+      stackId = Core.Nothing,
+      status = Core.Nothing,
+      responseStatus
     }
-
--- | The project creation or deletion status.
---
--- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsStatus :: Lens.Lens' DescribeProjectResponse (Lude.Maybe ProjectStatus)
-drsStatus = Lens.lens (status :: DescribeProjectResponse -> Lude.Maybe ProjectStatus) (\s a -> s {status = a} :: DescribeProjectResponse)
-{-# DEPRECATED drsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The Amazon Resource Name (ARN) for the project.
 --
 -- /Note:/ Consider using 'arn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsArn :: Lens.Lens' DescribeProjectResponse (Lude.Maybe Lude.Text)
-drsArn = Lens.lens (arn :: DescribeProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {arn = a} :: DescribeProjectResponse)
+drsArn :: Lens.Lens' DescribeProjectResponse (Core.Maybe Types.Arn)
+drsArn = Lens.field @"arn"
 {-# DEPRECATED drsArn "Use generic-lens or generic-optics with 'arn' instead." #-}
-
--- | The ID for the AWS CodeStar project template used to create the project.
---
--- /Note:/ Consider using 'projectTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsProjectTemplateId :: Lens.Lens' DescribeProjectResponse (Lude.Maybe Lude.Text)
-drsProjectTemplateId = Lens.lens (projectTemplateId :: DescribeProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {projectTemplateId = a} :: DescribeProjectResponse)
-{-# DEPRECATED drsProjectTemplateId "Use generic-lens or generic-optics with 'projectTemplateId' instead." #-}
-
--- | The display name for the project.
---
--- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsName :: Lens.Lens' DescribeProjectResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-drsName = Lens.lens (name :: DescribeProjectResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {name = a} :: DescribeProjectResponse)
-{-# DEPRECATED drsName "Use generic-lens or generic-optics with 'name' instead." #-}
-
--- | The ID of the project.
---
--- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsId :: Lens.Lens' DescribeProjectResponse (Lude.Maybe Lude.Text)
-drsId = Lens.lens (id :: DescribeProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {id = a} :: DescribeProjectResponse)
-{-# DEPRECATED drsId "Use generic-lens or generic-optics with 'id' instead." #-}
-
--- | The ID of the primary stack in AWS CloudFormation used to generate resources for the project.
---
--- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsStackId :: Lens.Lens' DescribeProjectResponse (Lude.Maybe Lude.Text)
-drsStackId = Lens.lens (stackId :: DescribeProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {stackId = a} :: DescribeProjectResponse)
-{-# DEPRECATED drsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
 
 -- | A user- or system-generated token that identifies the entity that requested project creation.
 --
 -- /Note:/ Consider using 'clientRequestToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsClientRequestToken :: Lens.Lens' DescribeProjectResponse (Lude.Maybe Lude.Text)
-drsClientRequestToken = Lens.lens (clientRequestToken :: DescribeProjectResponse -> Lude.Maybe Lude.Text) (\s a -> s {clientRequestToken = a} :: DescribeProjectResponse)
+drsClientRequestToken :: Lens.Lens' DescribeProjectResponse (Core.Maybe Types.ClientRequestToken)
+drsClientRequestToken = Lens.field @"clientRequestToken"
 {-# DEPRECATED drsClientRequestToken "Use generic-lens or generic-optics with 'clientRequestToken' instead." #-}
 
 -- | The date and time the project was created, in timestamp format.
 --
 -- /Note:/ Consider using 'createdTimeStamp' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsCreatedTimeStamp :: Lens.Lens' DescribeProjectResponse (Lude.Maybe Lude.Timestamp)
-drsCreatedTimeStamp = Lens.lens (createdTimeStamp :: DescribeProjectResponse -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdTimeStamp = a} :: DescribeProjectResponse)
+drsCreatedTimeStamp :: Lens.Lens' DescribeProjectResponse (Core.Maybe Core.NominalDiffTime)
+drsCreatedTimeStamp = Lens.field @"createdTimeStamp"
 {-# DEPRECATED drsCreatedTimeStamp "Use generic-lens or generic-optics with 'createdTimeStamp' instead." #-}
 
 -- | The description of the project, if any.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsDescription :: Lens.Lens' DescribeProjectResponse (Lude.Maybe (Lude.Sensitive Lude.Text))
-drsDescription = Lens.lens (description :: DescribeProjectResponse -> Lude.Maybe (Lude.Sensitive Lude.Text)) (\s a -> s {description = a} :: DescribeProjectResponse)
+drsDescription :: Lens.Lens' DescribeProjectResponse (Core.Maybe Types.Description)
+drsDescription = Lens.field @"description"
 {-# DEPRECATED drsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
+
+-- | The ID of the project.
+--
+-- /Note:/ Consider using 'id' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsId :: Lens.Lens' DescribeProjectResponse (Core.Maybe Types.Id)
+drsId = Lens.field @"id"
+{-# DEPRECATED drsId "Use generic-lens or generic-optics with 'id' instead." #-}
+
+-- | The display name for the project.
+--
+-- /Note:/ Consider using 'name' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsName :: Lens.Lens' DescribeProjectResponse (Core.Maybe Types.Name)
+drsName = Lens.field @"name"
+{-# DEPRECATED drsName "Use generic-lens or generic-optics with 'name' instead." #-}
+
+-- | The ID for the AWS CodeStar project template used to create the project.
+--
+-- /Note:/ Consider using 'projectTemplateId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsProjectTemplateId :: Lens.Lens' DescribeProjectResponse (Core.Maybe Types.ProjectTemplateId)
+drsProjectTemplateId = Lens.field @"projectTemplateId"
+{-# DEPRECATED drsProjectTemplateId "Use generic-lens or generic-optics with 'projectTemplateId' instead." #-}
+
+-- | The ID of the primary stack in AWS CloudFormation used to generate resources for the project.
+--
+-- /Note:/ Consider using 'stackId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsStackId :: Lens.Lens' DescribeProjectResponse (Core.Maybe Types.StackId)
+drsStackId = Lens.field @"stackId"
+{-# DEPRECATED drsStackId "Use generic-lens or generic-optics with 'stackId' instead." #-}
+
+-- | The project creation or deletion status.
+--
+-- /Note:/ Consider using 'status' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+drsStatus :: Lens.Lens' DescribeProjectResponse (Core.Maybe Types.ProjectStatus)
+drsStatus = Lens.field @"status"
+{-# DEPRECATED drsStatus "Use generic-lens or generic-optics with 'status' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeProjectResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeProjectResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeProjectResponse)
+drsResponseStatus :: Lens.Lens' DescribeProjectResponse Core.Int
+drsResponseStatus = Lens.field @"responseStatus"
 {-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

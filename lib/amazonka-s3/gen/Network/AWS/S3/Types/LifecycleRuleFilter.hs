@@ -17,74 +17,72 @@ module Network.AWS.S3.Types.LifecycleRuleFilter
     mkLifecycleRuleFilter,
 
     -- * Lenses
-    lrfTag,
-    lrfPrefix,
     lrfAnd,
+    lrfPrefix,
+    lrfTag,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.S3.Internal
-import Network.AWS.S3.Types.LifecycleRuleAndOperator
-import Network.AWS.S3.Types.Tag
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.S3.Internal as Types
+import qualified Network.AWS.S3.Types.LifecycleRuleAndOperator as Types
+import qualified Network.AWS.S3.Types.Prefix as Types
+import qualified Network.AWS.S3.Types.Tag as Types
 
 -- | The @Filter@ is used to identify objects that a Lifecycle Rule applies to. A @Filter@ must have exactly one of @Prefix@ , @Tag@ , or @And@ specified.
 --
 -- /See:/ 'mkLifecycleRuleFilter' smart constructor.
 data LifecycleRuleFilter = LifecycleRuleFilter'
-  { -- | This tag must exist in the object's tag set in order for the rule to apply.
-    tag :: Lude.Maybe Tag,
+  { and :: Core.Maybe Types.LifecycleRuleAndOperator,
     -- | Prefix identifying one or more objects to which the rule applies.
-    prefix :: Lude.Maybe Lude.Text,
-    and :: Lude.Maybe LifecycleRuleAndOperator
+    prefix :: Core.Maybe Types.Prefix,
+    -- | This tag must exist in the object's tag set in order for the rule to apply.
+    tag :: Core.Maybe Types.Tag
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'LifecycleRuleFilter' with the minimum fields required to make a request.
---
--- * 'tag' - This tag must exist in the object's tag set in order for the rule to apply.
--- * 'prefix' - Prefix identifying one or more objects to which the rule applies.
--- * 'and' -
+-- | Creates a 'LifecycleRuleFilter' value with any optional fields omitted.
 mkLifecycleRuleFilter ::
   LifecycleRuleFilter
 mkLifecycleRuleFilter =
   LifecycleRuleFilter'
-    { tag = Lude.Nothing,
-      prefix = Lude.Nothing,
-      and = Lude.Nothing
+    { and = Core.Nothing,
+      prefix = Core.Nothing,
+      tag = Core.Nothing
     }
-
--- | This tag must exist in the object's tag set in order for the rule to apply.
---
--- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrfTag :: Lens.Lens' LifecycleRuleFilter (Lude.Maybe Tag)
-lrfTag = Lens.lens (tag :: LifecycleRuleFilter -> Lude.Maybe Tag) (\s a -> s {tag = a} :: LifecycleRuleFilter)
-{-# DEPRECATED lrfTag "Use generic-lens or generic-optics with 'tag' instead." #-}
-
--- | Prefix identifying one or more objects to which the rule applies.
---
--- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrfPrefix :: Lens.Lens' LifecycleRuleFilter (Lude.Maybe Lude.Text)
-lrfPrefix = Lens.lens (prefix :: LifecycleRuleFilter -> Lude.Maybe Lude.Text) (\s a -> s {prefix = a} :: LifecycleRuleFilter)
-{-# DEPRECATED lrfPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'and' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-lrfAnd :: Lens.Lens' LifecycleRuleFilter (Lude.Maybe LifecycleRuleAndOperator)
-lrfAnd = Lens.lens (and :: LifecycleRuleFilter -> Lude.Maybe LifecycleRuleAndOperator) (\s a -> s {and = a} :: LifecycleRuleFilter)
+lrfAnd :: Lens.Lens' LifecycleRuleFilter (Core.Maybe Types.LifecycleRuleAndOperator)
+lrfAnd = Lens.field @"and"
 {-# DEPRECATED lrfAnd "Use generic-lens or generic-optics with 'and' instead." #-}
 
-instance Lude.FromXML LifecycleRuleFilter where
+-- | Prefix identifying one or more objects to which the rule applies.
+--
+-- /Note:/ Consider using 'prefix' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfPrefix :: Lens.Lens' LifecycleRuleFilter (Core.Maybe Types.Prefix)
+lrfPrefix = Lens.field @"prefix"
+{-# DEPRECATED lrfPrefix "Use generic-lens or generic-optics with 'prefix' instead." #-}
+
+-- | This tag must exist in the object's tag set in order for the rule to apply.
+--
+-- /Note:/ Consider using 'tag' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+lrfTag :: Lens.Lens' LifecycleRuleFilter (Core.Maybe Types.Tag)
+lrfTag = Lens.field @"tag"
+{-# DEPRECATED lrfTag "Use generic-lens or generic-optics with 'tag' instead." #-}
+
+instance Core.ToXML LifecycleRuleFilter where
+  toXML LifecycleRuleFilter {..} =
+    Core.toXMLNode "And" Core.<$> and
+      Core.<> Core.toXMLNode "Prefix" Core.<$> prefix
+      Core.<> Core.toXMLNode "Tag" Core.<$> tag
+
+instance Core.FromXML LifecycleRuleFilter where
   parseXML x =
     LifecycleRuleFilter'
-      Lude.<$> (x Lude..@? "Tag")
-      Lude.<*> (x Lude..@? "Prefix")
-      Lude.<*> (x Lude..@? "And")
-
-instance Lude.ToXML LifecycleRuleFilter where
-  toXML LifecycleRuleFilter' {..} =
-    Lude.mconcat
-      ["Tag" Lude.@= tag, "Prefix" Lude.@= prefix, "And" Lude.@= and]
+      Core.<$> (x Core..@? "And")
+      Core.<*> (x Core..@? "Prefix")
+      Core.<*> (x Core..@? "Tag")

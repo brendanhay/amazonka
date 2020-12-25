@@ -20,7 +20,7 @@ module Network.AWS.SNS.DeletePlatformApplication
     mkDeletePlatformApplication,
 
     -- ** Request lenses
-    dpaPlatformApplicationARN,
+    dpaPlatformApplicationArn,
 
     -- * Destructuring the response
     DeletePlatformApplicationResponse (..),
@@ -29,68 +29,69 @@ module Network.AWS.SNS.DeletePlatformApplication
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SNS.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SNS.Types as Types
 
 -- | Input for DeletePlatformApplication action.
 --
 -- /See:/ 'mkDeletePlatformApplication' smart constructor.
 newtype DeletePlatformApplication = DeletePlatformApplication'
   { -- | PlatformApplicationArn of platform application object to delete.
-    platformApplicationARN :: Lude.Text
+    platformApplicationArn :: Types.PlatformApplicationArn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePlatformApplication' with the minimum fields required to make a request.
---
--- * 'platformApplicationARN' - PlatformApplicationArn of platform application object to delete.
+-- | Creates a 'DeletePlatformApplication' value with any optional fields omitted.
 mkDeletePlatformApplication ::
-  -- | 'platformApplicationARN'
-  Lude.Text ->
+  -- | 'platformApplicationArn'
+  Types.PlatformApplicationArn ->
   DeletePlatformApplication
-mkDeletePlatformApplication pPlatformApplicationARN_ =
-  DeletePlatformApplication'
-    { platformApplicationARN =
-        pPlatformApplicationARN_
-    }
+mkDeletePlatformApplication platformApplicationArn =
+  DeletePlatformApplication' {platformApplicationArn}
 
 -- | PlatformApplicationArn of platform application object to delete.
 --
--- /Note:/ Consider using 'platformApplicationARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dpaPlatformApplicationARN :: Lens.Lens' DeletePlatformApplication Lude.Text
-dpaPlatformApplicationARN = Lens.lens (platformApplicationARN :: DeletePlatformApplication -> Lude.Text) (\s a -> s {platformApplicationARN = a} :: DeletePlatformApplication)
-{-# DEPRECATED dpaPlatformApplicationARN "Use generic-lens or generic-optics with 'platformApplicationARN' instead." #-}
+-- /Note:/ Consider using 'platformApplicationArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dpaPlatformApplicationArn :: Lens.Lens' DeletePlatformApplication Types.PlatformApplicationArn
+dpaPlatformApplicationArn = Lens.field @"platformApplicationArn"
+{-# DEPRECATED dpaPlatformApplicationArn "Use generic-lens or generic-optics with 'platformApplicationArn' instead." #-}
 
-instance Lude.AWSRequest DeletePlatformApplication where
+instance Core.AWSRequest DeletePlatformApplication where
   type
     Rs DeletePlatformApplication =
       DeletePlatformApplicationResponse
-  request = Req.postQuery snsService
-  response = Res.receiveNull DeletePlatformApplicationResponse'
-
-instance Lude.ToHeaders DeletePlatformApplication where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeletePlatformApplication where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeletePlatformApplication where
-  toQuery DeletePlatformApplication' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeletePlatformApplication" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-03-31" :: Lude.ByteString),
-        "PlatformApplicationArn" Lude.=: platformApplicationARN
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeletePlatformApplication")
+                Core.<> (Core.pure ("Version", "2010-03-31"))
+                Core.<> ( Core.toQueryValue
+                            "PlatformApplicationArn"
+                            platformApplicationArn
+                        )
+            )
+      }
+  response = Response.receiveNull DeletePlatformApplicationResponse'
 
 -- | /See:/ 'mkDeletePlatformApplicationResponse' smart constructor.
 data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeletePlatformApplicationResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeletePlatformApplicationResponse' value with any optional fields omitted.
 mkDeletePlatformApplicationResponse ::
   DeletePlatformApplicationResponse
 mkDeletePlatformApplicationResponse =

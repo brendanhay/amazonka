@@ -20,205 +20,187 @@ module Network.AWS.GuardDuty.GetUsageStatistics
     mkGetUsageStatistics,
 
     -- ** Request lenses
-    gusNextToken,
     gusDetectorId,
     gusUsageStatisticType,
-    gusUnit,
     gusUsageCriteria,
     gusMaxResults,
+    gusNextToken,
+    gusUnit,
 
     -- * Destructuring the response
     GetUsageStatisticsResponse (..),
     mkGetUsageStatisticsResponse,
 
     -- ** Response lenses
-    gusrsUsageStatistics,
-    gusrsNextToken,
-    gusrsResponseStatus,
+    gusrrsNextToken,
+    gusrrsUsageStatistics,
+    gusrrsResponseStatus,
   )
 where
 
-import Network.AWS.GuardDuty.Types
+import qualified Network.AWS.GuardDuty.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkGetUsageStatistics' smart constructor.
 data GetUsageStatistics = GetUsageStatistics'
-  { -- | A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.
-    nextToken :: Lude.Maybe Lude.Text,
-    -- | The ID of the detector that specifies the GuardDuty service whose usage statistics you want to retrieve.
-    detectorId :: Lude.Text,
+  { -- | The ID of the detector that specifies the GuardDuty service whose usage statistics you want to retrieve.
+    detectorId :: Types.DetectorId,
     -- | The type of usage statistics to retrieve.
-    usageStatisticType :: UsageStatisticType,
-    -- | The currency unit you would like to view your usage statistics in. Current valid values are USD.
-    unit :: Lude.Maybe Lude.Text,
+    usageStatisticType :: Types.UsageStatisticType,
     -- | Represents the criteria used for querying usage.
-    usageCriteria :: UsageCriteria,
+    usageCriteria :: Types.UsageCriteria,
     -- | The maximum number of results to return in the response.
-    maxResults :: Lude.Maybe Lude.Natural
+    maxResults :: Core.Maybe Core.Natural,
+    -- | A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.
+    nextToken :: Core.Maybe Types.NextToken,
+    -- | The currency unit you would like to view your usage statistics in. Current valid values are USD.
+    unit :: Core.Maybe Types.Unit
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetUsageStatistics' with the minimum fields required to make a request.
---
--- * 'nextToken' - A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.
--- * 'detectorId' - The ID of the detector that specifies the GuardDuty service whose usage statistics you want to retrieve.
--- * 'usageStatisticType' - The type of usage statistics to retrieve.
--- * 'unit' - The currency unit you would like to view your usage statistics in. Current valid values are USD.
--- * 'usageCriteria' - Represents the criteria used for querying usage.
--- * 'maxResults' - The maximum number of results to return in the response.
+-- | Creates a 'GetUsageStatistics' value with any optional fields omitted.
 mkGetUsageStatistics ::
   -- | 'detectorId'
-  Lude.Text ->
+  Types.DetectorId ->
   -- | 'usageStatisticType'
-  UsageStatisticType ->
+  Types.UsageStatisticType ->
   -- | 'usageCriteria'
-  UsageCriteria ->
+  Types.UsageCriteria ->
   GetUsageStatistics
-mkGetUsageStatistics
-  pDetectorId_
-  pUsageStatisticType_
-  pUsageCriteria_ =
-    GetUsageStatistics'
-      { nextToken = Lude.Nothing,
-        detectorId = pDetectorId_,
-        usageStatisticType = pUsageStatisticType_,
-        unit = Lude.Nothing,
-        usageCriteria = pUsageCriteria_,
-        maxResults = Lude.Nothing
-      }
-
--- | A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.
---
--- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gusNextToken :: Lens.Lens' GetUsageStatistics (Lude.Maybe Lude.Text)
-gusNextToken = Lens.lens (nextToken :: GetUsageStatistics -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetUsageStatistics)
-{-# DEPRECATED gusNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+mkGetUsageStatistics detectorId usageStatisticType usageCriteria =
+  GetUsageStatistics'
+    { detectorId,
+      usageStatisticType,
+      usageCriteria,
+      maxResults = Core.Nothing,
+      nextToken = Core.Nothing,
+      unit = Core.Nothing
+    }
 
 -- | The ID of the detector that specifies the GuardDuty service whose usage statistics you want to retrieve.
 --
 -- /Note:/ Consider using 'detectorId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gusDetectorId :: Lens.Lens' GetUsageStatistics Lude.Text
-gusDetectorId = Lens.lens (detectorId :: GetUsageStatistics -> Lude.Text) (\s a -> s {detectorId = a} :: GetUsageStatistics)
+gusDetectorId :: Lens.Lens' GetUsageStatistics Types.DetectorId
+gusDetectorId = Lens.field @"detectorId"
 {-# DEPRECATED gusDetectorId "Use generic-lens or generic-optics with 'detectorId' instead." #-}
 
 -- | The type of usage statistics to retrieve.
 --
 -- /Note:/ Consider using 'usageStatisticType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gusUsageStatisticType :: Lens.Lens' GetUsageStatistics UsageStatisticType
-gusUsageStatisticType = Lens.lens (usageStatisticType :: GetUsageStatistics -> UsageStatisticType) (\s a -> s {usageStatisticType = a} :: GetUsageStatistics)
+gusUsageStatisticType :: Lens.Lens' GetUsageStatistics Types.UsageStatisticType
+gusUsageStatisticType = Lens.field @"usageStatisticType"
 {-# DEPRECATED gusUsageStatisticType "Use generic-lens or generic-optics with 'usageStatisticType' instead." #-}
-
--- | The currency unit you would like to view your usage statistics in. Current valid values are USD.
---
--- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gusUnit :: Lens.Lens' GetUsageStatistics (Lude.Maybe Lude.Text)
-gusUnit = Lens.lens (unit :: GetUsageStatistics -> Lude.Maybe Lude.Text) (\s a -> s {unit = a} :: GetUsageStatistics)
-{-# DEPRECATED gusUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
 
 -- | Represents the criteria used for querying usage.
 --
 -- /Note:/ Consider using 'usageCriteria' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gusUsageCriteria :: Lens.Lens' GetUsageStatistics UsageCriteria
-gusUsageCriteria = Lens.lens (usageCriteria :: GetUsageStatistics -> UsageCriteria) (\s a -> s {usageCriteria = a} :: GetUsageStatistics)
+gusUsageCriteria :: Lens.Lens' GetUsageStatistics Types.UsageCriteria
+gusUsageCriteria = Lens.field @"usageCriteria"
 {-# DEPRECATED gusUsageCriteria "Use generic-lens or generic-optics with 'usageCriteria' instead." #-}
 
 -- | The maximum number of results to return in the response.
 --
 -- /Note:/ Consider using 'maxResults' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gusMaxResults :: Lens.Lens' GetUsageStatistics (Lude.Maybe Lude.Natural)
-gusMaxResults = Lens.lens (maxResults :: GetUsageStatistics -> Lude.Maybe Lude.Natural) (\s a -> s {maxResults = a} :: GetUsageStatistics)
+gusMaxResults :: Lens.Lens' GetUsageStatistics (Core.Maybe Core.Natural)
+gusMaxResults = Lens.field @"maxResults"
 {-# DEPRECATED gusMaxResults "Use generic-lens or generic-optics with 'maxResults' instead." #-}
 
-instance Lude.AWSRequest GetUsageStatistics where
+-- | A token to use for paginating results that are returned in the response. Set the value of this parameter to null for the first request to a list action. For subsequent calls, use the NextToken value returned from the previous request to continue listing results after the first page.
+--
+-- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gusNextToken :: Lens.Lens' GetUsageStatistics (Core.Maybe Types.NextToken)
+gusNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gusNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The currency unit you would like to view your usage statistics in. Current valid values are USD.
+--
+-- /Note:/ Consider using 'unit' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gusUnit :: Lens.Lens' GetUsageStatistics (Core.Maybe Types.Unit)
+gusUnit = Lens.field @"unit"
+{-# DEPRECATED gusUnit "Use generic-lens or generic-optics with 'unit' instead." #-}
+
+instance Core.FromJSON GetUsageStatistics where
+  toJSON GetUsageStatistics {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("usageStatisticsType" Core..= usageStatisticType),
+            Core.Just ("usageCriteria" Core..= usageCriteria),
+            ("maxResults" Core..=) Core.<$> maxResults,
+            ("nextToken" Core..=) Core.<$> nextToken,
+            ("unit" Core..=) Core.<$> unit
+          ]
+      )
+
+instance Core.AWSRequest GetUsageStatistics where
   type Rs GetUsageStatistics = GetUsageStatisticsResponse
-  request = Req.postJSON guardDutyService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath =
+          Core.rawPath
+            ( "/detector/" Core.<> (Core.toText detectorId)
+                Core.<> ("/usage/statistics")
+            ),
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("Content-Type", "application/x-amz-json-1.1"),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           GetUsageStatisticsResponse'
-            Lude.<$> (x Lude..?> "usageStatistics")
-            Lude.<*> (x Lude..?> "nextToken")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "nextToken")
+            Core.<*> (x Core..:? "usageStatistics")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders GetUsageStatistics where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON GetUsageStatistics where
-  toJSON GetUsageStatistics' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("nextToken" Lude..=) Lude.<$> nextToken,
-            Lude.Just ("usageStatisticsType" Lude..= usageStatisticType),
-            ("unit" Lude..=) Lude.<$> unit,
-            Lude.Just ("usageCriteria" Lude..= usageCriteria),
-            ("maxResults" Lude..=) Lude.<$> maxResults
-          ]
-      )
-
-instance Lude.ToPath GetUsageStatistics where
-  toPath GetUsageStatistics' {..} =
-    Lude.mconcat
-      ["/detector/", Lude.toBS detectorId, "/usage/statistics"]
-
-instance Lude.ToQuery GetUsageStatistics where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkGetUsageStatisticsResponse' smart constructor.
 data GetUsageStatisticsResponse = GetUsageStatisticsResponse'
-  { -- | The usage statistics object. If a UsageStatisticType was provided, the objects representing other types will be null.
-    usageStatistics :: Lude.Maybe UsageStatistics,
-    -- | The pagination parameter to be used on the next list operation to retrieve more items.
-    nextToken :: Lude.Maybe Lude.Text,
+  { -- | The pagination parameter to be used on the next list operation to retrieve more items.
+    nextToken :: Core.Maybe Types.String,
+    -- | The usage statistics object. If a UsageStatisticType was provided, the objects representing other types will be null.
+    usageStatistics :: Core.Maybe Types.UsageStatistics,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'GetUsageStatisticsResponse' with the minimum fields required to make a request.
---
--- * 'usageStatistics' - The usage statistics object. If a UsageStatisticType was provided, the objects representing other types will be null.
--- * 'nextToken' - The pagination parameter to be used on the next list operation to retrieve more items.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'GetUsageStatisticsResponse' value with any optional fields omitted.
 mkGetUsageStatisticsResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   GetUsageStatisticsResponse
-mkGetUsageStatisticsResponse pResponseStatus_ =
+mkGetUsageStatisticsResponse responseStatus =
   GetUsageStatisticsResponse'
-    { usageStatistics = Lude.Nothing,
-      nextToken = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { nextToken = Core.Nothing,
+      usageStatistics = Core.Nothing,
+      responseStatus
     }
-
--- | The usage statistics object. If a UsageStatisticType was provided, the objects representing other types will be null.
---
--- /Note:/ Consider using 'usageStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gusrsUsageStatistics :: Lens.Lens' GetUsageStatisticsResponse (Lude.Maybe UsageStatistics)
-gusrsUsageStatistics = Lens.lens (usageStatistics :: GetUsageStatisticsResponse -> Lude.Maybe UsageStatistics) (\s a -> s {usageStatistics = a} :: GetUsageStatisticsResponse)
-{-# DEPRECATED gusrsUsageStatistics "Use generic-lens or generic-optics with 'usageStatistics' instead." #-}
 
 -- | The pagination parameter to be used on the next list operation to retrieve more items.
 --
 -- /Note:/ Consider using 'nextToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gusrsNextToken :: Lens.Lens' GetUsageStatisticsResponse (Lude.Maybe Lude.Text)
-gusrsNextToken = Lens.lens (nextToken :: GetUsageStatisticsResponse -> Lude.Maybe Lude.Text) (\s a -> s {nextToken = a} :: GetUsageStatisticsResponse)
-{-# DEPRECATED gusrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+gusrrsNextToken :: Lens.Lens' GetUsageStatisticsResponse (Core.Maybe Types.String)
+gusrrsNextToken = Lens.field @"nextToken"
+{-# DEPRECATED gusrrsNextToken "Use generic-lens or generic-optics with 'nextToken' instead." #-}
+
+-- | The usage statistics object. If a UsageStatisticType was provided, the objects representing other types will be null.
+--
+-- /Note:/ Consider using 'usageStatistics' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+gusrrsUsageStatistics :: Lens.Lens' GetUsageStatisticsResponse (Core.Maybe Types.UsageStatistics)
+gusrrsUsageStatistics = Lens.field @"usageStatistics"
+{-# DEPRECATED gusrrsUsageStatistics "Use generic-lens or generic-optics with 'usageStatistics' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-gusrsResponseStatus :: Lens.Lens' GetUsageStatisticsResponse Lude.Int
-gusrsResponseStatus = Lens.lens (responseStatus :: GetUsageStatisticsResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: GetUsageStatisticsResponse)
-{-# DEPRECATED gusrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+gusrrsResponseStatus :: Lens.Lens' GetUsageStatisticsResponse Core.Int
+gusrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED gusrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

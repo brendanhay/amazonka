@@ -13,61 +13,66 @@
 module Network.AWS.Glue.Types.ConnectionType
   ( ConnectionType
       ( ConnectionType',
-        Jdbc,
-        Sftp,
-        Mongodb,
-        Kafka,
-        Network
+        ConnectionTypeJdbc,
+        ConnectionTypeSftp,
+        ConnectionTypeMongodb,
+        ConnectionTypeKafka,
+        ConnectionTypeNetwork,
+        fromConnectionType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype ConnectionType = ConnectionType' Lude.Text
+newtype ConnectionType = ConnectionType'
+  { fromConnectionType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern Jdbc :: ConnectionType
-pattern Jdbc = ConnectionType' "JDBC"
+pattern ConnectionTypeJdbc :: ConnectionType
+pattern ConnectionTypeJdbc = ConnectionType' "JDBC"
 
-pattern Sftp :: ConnectionType
-pattern Sftp = ConnectionType' "SFTP"
+pattern ConnectionTypeSftp :: ConnectionType
+pattern ConnectionTypeSftp = ConnectionType' "SFTP"
 
-pattern Mongodb :: ConnectionType
-pattern Mongodb = ConnectionType' "MONGODB"
+pattern ConnectionTypeMongodb :: ConnectionType
+pattern ConnectionTypeMongodb = ConnectionType' "MONGODB"
 
-pattern Kafka :: ConnectionType
-pattern Kafka = ConnectionType' "KAFKA"
+pattern ConnectionTypeKafka :: ConnectionType
+pattern ConnectionTypeKafka = ConnectionType' "KAFKA"
 
-pattern Network :: ConnectionType
-pattern Network = ConnectionType' "NETWORK"
+pattern ConnectionTypeNetwork :: ConnectionType
+pattern ConnectionTypeNetwork = ConnectionType' "NETWORK"
 
 {-# COMPLETE
-  Jdbc,
-  Sftp,
-  Mongodb,
-  Kafka,
-  Network,
+  ConnectionTypeJdbc,
+  ConnectionTypeSftp,
+  ConnectionTypeMongodb,
+  ConnectionTypeKafka,
+  ConnectionTypeNetwork,
   ConnectionType'
   #-}

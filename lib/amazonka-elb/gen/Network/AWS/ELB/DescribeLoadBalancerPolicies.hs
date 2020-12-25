@@ -22,133 +22,131 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     mkDescribeLoadBalancerPolicies,
 
     -- ** Request lenses
-    dlbpPolicyNames,
     dlbpLoadBalancerName,
+    dlbpPolicyNames,
 
     -- * Destructuring the response
     DescribeLoadBalancerPoliciesResponse (..),
     mkDescribeLoadBalancerPoliciesResponse,
 
     -- ** Response lenses
-    drsPolicyDescriptions,
-    drsResponseStatus,
+    dlbprrsPolicyDescriptions,
+    dlbprrsResponseStatus,
   )
 where
 
-import Network.AWS.ELB.Types
+import qualified Network.AWS.ELB.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DescribeLoadBalancerPolicies.
 --
 -- /See:/ 'mkDescribeLoadBalancerPolicies' smart constructor.
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
-  { -- | The names of the policies.
-    policyNames :: Lude.Maybe [Lude.Text],
-    -- | The name of the load balancer.
-    loadBalancerName :: Lude.Maybe Lude.Text
+  { -- | The name of the load balancer.
+    loadBalancerName :: Core.Maybe Types.AccessPointName,
+    -- | The names of the policies.
+    policyNames :: Core.Maybe [Types.PolicyName]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLoadBalancerPolicies' with the minimum fields required to make a request.
---
--- * 'policyNames' - The names of the policies.
--- * 'loadBalancerName' - The name of the load balancer.
+-- | Creates a 'DescribeLoadBalancerPolicies' value with any optional fields omitted.
 mkDescribeLoadBalancerPolicies ::
   DescribeLoadBalancerPolicies
 mkDescribeLoadBalancerPolicies =
   DescribeLoadBalancerPolicies'
-    { policyNames = Lude.Nothing,
-      loadBalancerName = Lude.Nothing
+    { loadBalancerName = Core.Nothing,
+      policyNames = Core.Nothing
     }
-
--- | The names of the policies.
---
--- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbpPolicyNames :: Lens.Lens' DescribeLoadBalancerPolicies (Lude.Maybe [Lude.Text])
-dlbpPolicyNames = Lens.lens (policyNames :: DescribeLoadBalancerPolicies -> Lude.Maybe [Lude.Text]) (\s a -> s {policyNames = a} :: DescribeLoadBalancerPolicies)
-{-# DEPRECATED dlbpPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
 
 -- | The name of the load balancer.
 --
 -- /Note:/ Consider using 'loadBalancerName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dlbpLoadBalancerName :: Lens.Lens' DescribeLoadBalancerPolicies (Lude.Maybe Lude.Text)
-dlbpLoadBalancerName = Lens.lens (loadBalancerName :: DescribeLoadBalancerPolicies -> Lude.Maybe Lude.Text) (\s a -> s {loadBalancerName = a} :: DescribeLoadBalancerPolicies)
+dlbpLoadBalancerName :: Lens.Lens' DescribeLoadBalancerPolicies (Core.Maybe Types.AccessPointName)
+dlbpLoadBalancerName = Lens.field @"loadBalancerName"
 {-# DEPRECATED dlbpLoadBalancerName "Use generic-lens or generic-optics with 'loadBalancerName' instead." #-}
 
-instance Lude.AWSRequest DescribeLoadBalancerPolicies where
+-- | The names of the policies.
+--
+-- /Note:/ Consider using 'policyNames' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dlbpPolicyNames :: Lens.Lens' DescribeLoadBalancerPolicies (Core.Maybe [Types.PolicyName])
+dlbpPolicyNames = Lens.field @"policyNames"
+{-# DEPRECATED dlbpPolicyNames "Use generic-lens or generic-optics with 'policyNames' instead." #-}
+
+instance Core.AWSRequest DescribeLoadBalancerPolicies where
   type
     Rs DescribeLoadBalancerPolicies =
       DescribeLoadBalancerPoliciesResponse
-  request = Req.postQuery elbService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DescribeLoadBalancerPolicies")
+                Core.<> (Core.pure ("Version", "2012-06-01"))
+                Core.<> (Core.toQueryValue "LoadBalancerName" Core.<$> loadBalancerName)
+                Core.<> ( Core.toQueryValue
+                            "PolicyNames"
+                            (Core.toQueryList "member" Core.<$> policyNames)
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "DescribeLoadBalancerPoliciesResult"
       ( \s h x ->
           DescribeLoadBalancerPoliciesResponse'
-            Lude.<$> ( x Lude..@? "PolicyDescriptions" Lude..!@ Lude.mempty
-                         Lude.>>= Lude.may (Lude.parseXMLList "member")
+            Core.<$> ( x Core..@? "PolicyDescriptions"
+                         Core..<@> Core.parseXMLList "member"
                      )
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeLoadBalancerPolicies where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DescribeLoadBalancerPolicies where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeLoadBalancerPolicies where
-  toQuery DescribeLoadBalancerPolicies' {..} =
-    Lude.mconcat
-      [ "Action"
-          Lude.=: ("DescribeLoadBalancerPolicies" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-06-01" :: Lude.ByteString),
-        "PolicyNames"
-          Lude.=: Lude.toQuery (Lude.toQueryList "member" Lude.<$> policyNames),
-        "LoadBalancerName" Lude.=: loadBalancerName
-      ]
 
 -- | Contains the output of DescribeLoadBalancerPolicies.
 --
 -- /See:/ 'mkDescribeLoadBalancerPoliciesResponse' smart constructor.
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
   { -- | Information about the policies.
-    policyDescriptions :: Lude.Maybe [PolicyDescription],
+    policyDescriptions :: Core.Maybe [Types.PolicyDescription],
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeLoadBalancerPoliciesResponse' with the minimum fields required to make a request.
---
--- * 'policyDescriptions' - Information about the policies.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeLoadBalancerPoliciesResponse' value with any optional fields omitted.
 mkDescribeLoadBalancerPoliciesResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeLoadBalancerPoliciesResponse
-mkDescribeLoadBalancerPoliciesResponse pResponseStatus_ =
+mkDescribeLoadBalancerPoliciesResponse responseStatus =
   DescribeLoadBalancerPoliciesResponse'
     { policyDescriptions =
-        Lude.Nothing,
-      responseStatus = pResponseStatus_
+        Core.Nothing,
+      responseStatus
     }
 
 -- | Information about the policies.
 --
 -- /Note:/ Consider using 'policyDescriptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsPolicyDescriptions :: Lens.Lens' DescribeLoadBalancerPoliciesResponse (Lude.Maybe [PolicyDescription])
-drsPolicyDescriptions = Lens.lens (policyDescriptions :: DescribeLoadBalancerPoliciesResponse -> Lude.Maybe [PolicyDescription]) (\s a -> s {policyDescriptions = a} :: DescribeLoadBalancerPoliciesResponse)
-{-# DEPRECATED drsPolicyDescriptions "Use generic-lens or generic-optics with 'policyDescriptions' instead." #-}
+dlbprrsPolicyDescriptions :: Lens.Lens' DescribeLoadBalancerPoliciesResponse (Core.Maybe [Types.PolicyDescription])
+dlbprrsPolicyDescriptions = Lens.field @"policyDescriptions"
+{-# DEPRECATED dlbprrsPolicyDescriptions "Use generic-lens or generic-optics with 'policyDescriptions' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-drsResponseStatus :: Lens.Lens' DescribeLoadBalancerPoliciesResponse Lude.Int
-drsResponseStatus = Lens.lens (responseStatus :: DescribeLoadBalancerPoliciesResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeLoadBalancerPoliciesResponse)
-{-# DEPRECATED drsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dlbprrsResponseStatus :: Lens.Lens' DescribeLoadBalancerPoliciesResponse Core.Int
+dlbprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dlbprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

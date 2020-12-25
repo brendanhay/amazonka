@@ -46,25 +46,31 @@ common base
 
   default-extensions:
     NoImplicitPrelude
+    DataKinds
     DeriveAnyClass
     DeriveGeneric
     DerivingStrategies
     DuplicateRecordFields
+    FlexibleContexts
+    FlexibleInstances
     GeneralizedNewtypeDeriving
     LambdaCase
+    NamedFieldPuns
     OverloadedStrings
     PatternSynonyms
     RecordWildCards
     ScopedTypeVariables
     StandaloneDeriving
     StrictData
+    TupleSections
+    TypeApplications
     TypeFamilies
 
   build-depends:      base >=4.12 && <5
 
 library
   import:          base
-  hs-source-dirs:  src gen
+  hs-source-dirs:  gen
   exposed-modules:
     Network.AWS.SQS
     Network.AWS.SQS.AddPermission
@@ -75,7 +81,7 @@ library
     Network.AWS.SQS.DeleteMessageBatch
     Network.AWS.SQS.DeleteQueue
     Network.AWS.SQS.GetQueueAttributes
-    Network.AWS.SQS.GetQueueURL
+    Network.AWS.SQS.GetQueueUrl
     Network.AWS.SQS.ListDeadLetterSourceQueues
     Network.AWS.SQS.ListQueues
     Network.AWS.SQS.ListQueueTags
@@ -96,14 +102,21 @@ library
     Network.AWS.SQS.Types.ChangeMessageVisibilityBatchResultEntry
     Network.AWS.SQS.Types.DeleteMessageBatchRequestEntry
     Network.AWS.SQS.Types.DeleteMessageBatchResultEntry
+    Network.AWS.SQS.Types.Label
     Network.AWS.SQS.Types.Message
     Network.AWS.SQS.Types.MessageAttribute
+    Network.AWS.SQS.Types.MessageAttributeName
     Network.AWS.SQS.Types.MessageAttributeValue
     Network.AWS.SQS.Types.MessageSystemAttributeNameForSends
     Network.AWS.SQS.Types.MessageSystemAttributeValue
     Network.AWS.SQS.Types.QueueAttributeName
+    Network.AWS.SQS.Types.QueueUrl
     Network.AWS.SQS.Types.SendMessageBatchRequestEntry
     Network.AWS.SQS.Types.SendMessageBatchResultEntry
+    Network.AWS.SQS.Types.String
+    Network.AWS.SQS.Types.TagKey
+    Network.AWS.SQS.Types.TagValue
+    Network.AWS.SQS.Types.Token
 
   build-depends:   amazonka-core ==2.0.0.0.*
 

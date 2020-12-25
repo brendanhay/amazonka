@@ -29,53 +29,45 @@ module Network.AWS.IAM.CreateLoginProfile
     mkCreateLoginProfileResponse,
 
     -- ** Response lenses
-    clprsLoginProfile,
-    clprsResponseStatus,
+    clprrsLoginProfile,
+    clprrsResponseStatus,
   )
 where
 
-import Network.AWS.IAM.Types
+import qualified Network.AWS.IAM.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkCreateLoginProfile' smart constructor.
 data CreateLoginProfile = CreateLoginProfile'
   { -- | The name of the IAM user to create a password for. The user must already exist.
     --
     -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
-    userName :: Lude.Text,
+    userName :: Types.UserName,
     -- | The new password for the user.
     --
     -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of characters. That string can include almost any printable ASCII character from the space (@\u0020@ ) through the end of the ASCII character range (@\u00FF@ ). You can also include the tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ ) characters. Any of these characters are valid in a password. However, many tools, such as the AWS Management Console, might restrict the ability to type certain characters because they have special meaning within that tool.
-    password :: Lude.Sensitive Lude.Text,
+    password :: Types.PasswordType,
     -- | Specifies whether the user is required to set a new password on next sign-in.
-    passwordResetRequired :: Lude.Maybe Lude.Bool
+    passwordResetRequired :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'CreateLoginProfile' with the minimum fields required to make a request.
---
--- * 'userName' - The name of the IAM user to create a password for. The user must already exist.
---
--- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
--- * 'password' - The new password for the user.
---
--- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of characters. That string can include almost any printable ASCII character from the space (@\u0020@ ) through the end of the ASCII character range (@\u00FF@ ). You can also include the tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ ) characters. Any of these characters are valid in a password. However, many tools, such as the AWS Management Console, might restrict the ability to type certain characters because they have special meaning within that tool.
--- * 'passwordResetRequired' - Specifies whether the user is required to set a new password on next sign-in.
+-- | Creates a 'CreateLoginProfile' value with any optional fields omitted.
 mkCreateLoginProfile ::
   -- | 'userName'
-  Lude.Text ->
+  Types.UserName ->
   -- | 'password'
-  Lude.Sensitive Lude.Text ->
+  Types.PasswordType ->
   CreateLoginProfile
-mkCreateLoginProfile pUserName_ pPassword_ =
+mkCreateLoginProfile userName password =
   CreateLoginProfile'
-    { userName = pUserName_,
-      password = pPassword_,
-      passwordResetRequired = Lude.Nothing
+    { userName,
+      password,
+      passwordResetRequired = Core.Nothing
     }
 
 -- | The name of the IAM user to create a password for. The user must already exist.
@@ -83,8 +75,8 @@ mkCreateLoginProfile pUserName_ pPassword_ =
 -- This parameter allows (through its <http://wikipedia.org/wiki/regex regex pattern> ) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-
 --
 -- /Note:/ Consider using 'userName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clpUserName :: Lens.Lens' CreateLoginProfile Lude.Text
-clpUserName = Lens.lens (userName :: CreateLoginProfile -> Lude.Text) (\s a -> s {userName = a} :: CreateLoginProfile)
+clpUserName :: Lens.Lens' CreateLoginProfile Types.UserName
+clpUserName = Lens.field @"userName"
 {-# DEPRECATED clpUserName "Use generic-lens or generic-optics with 'userName' instead." #-}
 
 -- | The new password for the user.
@@ -92,82 +84,81 @@ clpUserName = Lens.lens (userName :: CreateLoginProfile -> Lude.Text) (\s a -> s
 -- The <http://wikipedia.org/wiki/regex regex pattern> that is used to validate this parameter is a string of characters. That string can include almost any printable ASCII character from the space (@\u0020@ ) through the end of the ASCII character range (@\u00FF@ ). You can also include the tab (@\u0009@ ), line feed (@\u000A@ ), and carriage return (@\u000D@ ) characters. Any of these characters are valid in a password. However, many tools, such as the AWS Management Console, might restrict the ability to type certain characters because they have special meaning within that tool.
 --
 -- /Note:/ Consider using 'password' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clpPassword :: Lens.Lens' CreateLoginProfile (Lude.Sensitive Lude.Text)
-clpPassword = Lens.lens (password :: CreateLoginProfile -> Lude.Sensitive Lude.Text) (\s a -> s {password = a} :: CreateLoginProfile)
+clpPassword :: Lens.Lens' CreateLoginProfile Types.PasswordType
+clpPassword = Lens.field @"password"
 {-# DEPRECATED clpPassword "Use generic-lens or generic-optics with 'password' instead." #-}
 
 -- | Specifies whether the user is required to set a new password on next sign-in.
 --
 -- /Note:/ Consider using 'passwordResetRequired' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clpPasswordResetRequired :: Lens.Lens' CreateLoginProfile (Lude.Maybe Lude.Bool)
-clpPasswordResetRequired = Lens.lens (passwordResetRequired :: CreateLoginProfile -> Lude.Maybe Lude.Bool) (\s a -> s {passwordResetRequired = a} :: CreateLoginProfile)
+clpPasswordResetRequired :: Lens.Lens' CreateLoginProfile (Core.Maybe Core.Bool)
+clpPasswordResetRequired = Lens.field @"passwordResetRequired"
 {-# DEPRECATED clpPasswordResetRequired "Use generic-lens or generic-optics with 'passwordResetRequired' instead." #-}
 
-instance Lude.AWSRequest CreateLoginProfile where
+instance Core.AWSRequest CreateLoginProfile where
   type Rs CreateLoginProfile = CreateLoginProfileResponse
-  request = Req.postQuery iamService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "CreateLoginProfile")
+                Core.<> (Core.pure ("Version", "2010-05-08"))
+                Core.<> (Core.toQueryValue "UserName" userName)
+                Core.<> (Core.toQueryValue "Password" password)
+                Core.<> ( Core.toQueryValue "PasswordResetRequired"
+                            Core.<$> passwordResetRequired
+                        )
+            )
+      }
   response =
-    Res.receiveXMLWrapper
+    Response.receiveXMLWrapper
       "CreateLoginProfileResult"
       ( \s h x ->
           CreateLoginProfileResponse'
-            Lude.<$> (x Lude..@ "LoginProfile") Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..@ "LoginProfile") Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders CreateLoginProfile where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath CreateLoginProfile where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery CreateLoginProfile where
-  toQuery CreateLoginProfile' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("CreateLoginProfile" :: Lude.ByteString),
-        "Version" Lude.=: ("2010-05-08" :: Lude.ByteString),
-        "UserName" Lude.=: userName,
-        "Password" Lude.=: password,
-        "PasswordResetRequired" Lude.=: passwordResetRequired
-      ]
 
 -- | Contains the response to a successful 'CreateLoginProfile' request.
 --
 -- /See:/ 'mkCreateLoginProfileResponse' smart constructor.
 data CreateLoginProfileResponse = CreateLoginProfileResponse'
   { -- | A structure containing the user name and password create date.
-    loginProfile :: LoginProfile,
+    loginProfile :: Types.LoginProfile,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'CreateLoginProfileResponse' with the minimum fields required to make a request.
---
--- * 'loginProfile' - A structure containing the user name and password create date.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'CreateLoginProfileResponse' value with any optional fields omitted.
 mkCreateLoginProfileResponse ::
   -- | 'loginProfile'
-  LoginProfile ->
+  Types.LoginProfile ->
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   CreateLoginProfileResponse
-mkCreateLoginProfileResponse pLoginProfile_ pResponseStatus_ =
-  CreateLoginProfileResponse'
-    { loginProfile = pLoginProfile_,
-      responseStatus = pResponseStatus_
-    }
+mkCreateLoginProfileResponse loginProfile responseStatus =
+  CreateLoginProfileResponse' {loginProfile, responseStatus}
 
 -- | A structure containing the user name and password create date.
 --
 -- /Note:/ Consider using 'loginProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clprsLoginProfile :: Lens.Lens' CreateLoginProfileResponse LoginProfile
-clprsLoginProfile = Lens.lens (loginProfile :: CreateLoginProfileResponse -> LoginProfile) (\s a -> s {loginProfile = a} :: CreateLoginProfileResponse)
-{-# DEPRECATED clprsLoginProfile "Use generic-lens or generic-optics with 'loginProfile' instead." #-}
+clprrsLoginProfile :: Lens.Lens' CreateLoginProfileResponse Types.LoginProfile
+clprrsLoginProfile = Lens.field @"loginProfile"
+{-# DEPRECATED clprrsLoginProfile "Use generic-lens or generic-optics with 'loginProfile' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-clprsResponseStatus :: Lens.Lens' CreateLoginProfileResponse Lude.Int
-clprsResponseStatus = Lens.lens (responseStatus :: CreateLoginProfileResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: CreateLoginProfileResponse)
-{-# DEPRECATED clprsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+clprrsResponseStatus :: Lens.Lens' CreateLoginProfileResponse Core.Int
+clprrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED clprrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

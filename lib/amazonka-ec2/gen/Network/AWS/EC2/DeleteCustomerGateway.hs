@@ -29,78 +29,75 @@ module Network.AWS.EC2.DeleteCustomerGateway
   )
 where
 
-import Network.AWS.EC2.Types
+import qualified Network.AWS.EC2.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the parameters for DeleteCustomerGateway.
 --
 -- /See:/ 'mkDeleteCustomerGateway' smart constructor.
 data DeleteCustomerGateway = DeleteCustomerGateway'
   { -- | The ID of the customer gateway.
-    customerGatewayId :: Lude.Text,
+    customerGatewayId :: Types.CustomerGatewayId,
     -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
-    dryRun :: Lude.Maybe Lude.Bool
+    dryRun :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCustomerGateway' with the minimum fields required to make a request.
---
--- * 'customerGatewayId' - The ID of the customer gateway.
--- * 'dryRun' - Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
+-- | Creates a 'DeleteCustomerGateway' value with any optional fields omitted.
 mkDeleteCustomerGateway ::
   -- | 'customerGatewayId'
-  Lude.Text ->
+  Types.CustomerGatewayId ->
   DeleteCustomerGateway
-mkDeleteCustomerGateway pCustomerGatewayId_ =
-  DeleteCustomerGateway'
-    { customerGatewayId = pCustomerGatewayId_,
-      dryRun = Lude.Nothing
-    }
+mkDeleteCustomerGateway customerGatewayId =
+  DeleteCustomerGateway' {customerGatewayId, dryRun = Core.Nothing}
 
 -- | The ID of the customer gateway.
 --
 -- /Note:/ Consider using 'customerGatewayId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcggCustomerGatewayId :: Lens.Lens' DeleteCustomerGateway Lude.Text
-dcggCustomerGatewayId = Lens.lens (customerGatewayId :: DeleteCustomerGateway -> Lude.Text) (\s a -> s {customerGatewayId = a} :: DeleteCustomerGateway)
+dcggCustomerGatewayId :: Lens.Lens' DeleteCustomerGateway Types.CustomerGatewayId
+dcggCustomerGatewayId = Lens.field @"customerGatewayId"
 {-# DEPRECATED dcggCustomerGatewayId "Use generic-lens or generic-optics with 'customerGatewayId' instead." #-}
 
 -- | Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is @DryRunOperation@ . Otherwise, it is @UnauthorizedOperation@ .
 --
 -- /Note:/ Consider using 'dryRun' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dcggDryRun :: Lens.Lens' DeleteCustomerGateway (Lude.Maybe Lude.Bool)
-dcggDryRun = Lens.lens (dryRun :: DeleteCustomerGateway -> Lude.Maybe Lude.Bool) (\s a -> s {dryRun = a} :: DeleteCustomerGateway)
+dcggDryRun :: Lens.Lens' DeleteCustomerGateway (Core.Maybe Core.Bool)
+dcggDryRun = Lens.field @"dryRun"
 {-# DEPRECATED dcggDryRun "Use generic-lens or generic-optics with 'dryRun' instead." #-}
 
-instance Lude.AWSRequest DeleteCustomerGateway where
+instance Core.AWSRequest DeleteCustomerGateway where
   type Rs DeleteCustomerGateway = DeleteCustomerGatewayResponse
-  request = Req.postQuery ec2Service
-  response = Res.receiveNull DeleteCustomerGatewayResponse'
-
-instance Lude.ToHeaders DeleteCustomerGateway where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteCustomerGateway where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteCustomerGateway where
-  toQuery DeleteCustomerGateway' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteCustomerGateway" :: Lude.ByteString),
-        "Version" Lude.=: ("2016-11-15" :: Lude.ByteString),
-        "CustomerGatewayId" Lude.=: customerGatewayId,
-        "DryRun" Lude.=: dryRun
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteCustomerGateway")
+                Core.<> (Core.pure ("Version", "2016-11-15"))
+                Core.<> (Core.toQueryValue "CustomerGatewayId" customerGatewayId)
+                Core.<> (Core.toQueryValue "DryRun" Core.<$> dryRun)
+            )
+      }
+  response = Response.receiveNull DeleteCustomerGatewayResponse'
 
 -- | /See:/ 'mkDeleteCustomerGatewayResponse' smart constructor.
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteCustomerGatewayResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteCustomerGatewayResponse' value with any optional fields omitted.
 mkDeleteCustomerGatewayResponse ::
   DeleteCustomerGatewayResponse
 mkDeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse'

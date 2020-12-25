@@ -29,152 +29,136 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     mkDescribeWorkingStorageResponse,
 
     -- ** Response lenses
-    dwsrsGatewayARN,
-    dwsrsDiskIds,
-    dwsrsWorkingStorageAllocatedInBytes,
-    dwsrsWorkingStorageUsedInBytes,
-    dwsrsResponseStatus,
+    dwsrrsDiskIds,
+    dwsrrsGatewayARN,
+    dwsrrsWorkingStorageAllocatedInBytes,
+    dwsrrsWorkingStorageUsedInBytes,
+    dwsrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.StorageGateway.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.StorageGateway.Types as Types
 
 -- | A JSON object containing the Amazon Resource Name (ARN) of the gateway.
 --
 -- /See:/ 'mkDescribeWorkingStorage' smart constructor.
 newtype DescribeWorkingStorage = DescribeWorkingStorage'
-  { gatewayARN :: Lude.Text
+  { gatewayARN :: Types.GatewayARN
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeWorkingStorage' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
+-- | Creates a 'DescribeWorkingStorage' value with any optional fields omitted.
 mkDescribeWorkingStorage ::
   -- | 'gatewayARN'
-  Lude.Text ->
+  Types.GatewayARN ->
   DescribeWorkingStorage
-mkDescribeWorkingStorage pGatewayARN_ =
-  DescribeWorkingStorage' {gatewayARN = pGatewayARN_}
+mkDescribeWorkingStorage gatewayARN =
+  DescribeWorkingStorage' {gatewayARN}
 
 -- | Undocumented field.
 --
 -- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwsGatewayARN :: Lens.Lens' DescribeWorkingStorage Lude.Text
-dwsGatewayARN = Lens.lens (gatewayARN :: DescribeWorkingStorage -> Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeWorkingStorage)
+dwsGatewayARN :: Lens.Lens' DescribeWorkingStorage Types.GatewayARN
+dwsGatewayARN = Lens.field @"gatewayARN"
 {-# DEPRECATED dwsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
-instance Lude.AWSRequest DescribeWorkingStorage where
+instance Core.FromJSON DescribeWorkingStorage where
+  toJSON DescribeWorkingStorage {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("GatewayARN" Core..= gatewayARN)])
+
+instance Core.AWSRequest DescribeWorkingStorage where
   type Rs DescribeWorkingStorage = DescribeWorkingStorageResponse
-  request = Req.postJSON storageGatewayService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ("X-Amz-Target", "StorageGateway_20130630.DescribeWorkingStorage")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           DescribeWorkingStorageResponse'
-            Lude.<$> (x Lude..?> "GatewayARN")
-            Lude.<*> (x Lude..?> "DiskIds" Lude..!@ Lude.mempty)
-            Lude.<*> (x Lude..?> "WorkingStorageAllocatedInBytes")
-            Lude.<*> (x Lude..?> "WorkingStorageUsedInBytes")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "DiskIds")
+            Core.<*> (x Core..:? "GatewayARN")
+            Core.<*> (x Core..:? "WorkingStorageAllocatedInBytes")
+            Core.<*> (x Core..:? "WorkingStorageUsedInBytes")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DescribeWorkingStorage where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ( "StorageGateway_20130630.DescribeWorkingStorage" ::
-                          Lude.ByteString
-                      ),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DescribeWorkingStorage where
-  toJSON DescribeWorkingStorage' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("GatewayARN" Lude..= gatewayARN)])
-
-instance Lude.ToPath DescribeWorkingStorage where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DescribeWorkingStorage where
-  toQuery = Lude.const Lude.mempty
 
 -- | A JSON object containing the following fields:
 --
 -- /See:/ 'mkDescribeWorkingStorageResponse' smart constructor.
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
-  { gatewayARN :: Lude.Maybe Lude.Text,
-    -- | An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
-    diskIds :: Lude.Maybe [Lude.Text],
+  { -- | An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
+    diskIds :: Core.Maybe [Types.DiskId],
+    gatewayARN :: Core.Maybe Types.GatewayARN,
     -- | The total working storage in bytes allocated for the gateway. If no working storage is configured for the gateway, this field returns 0.
-    workingStorageAllocatedInBytes :: Lude.Maybe Lude.Integer,
+    workingStorageAllocatedInBytes :: Core.Maybe Core.Integer,
     -- | The total working storage in bytes in use by the gateway. If no working storage is configured for the gateway, this field returns 0.
-    workingStorageUsedInBytes :: Lude.Maybe Lude.Integer,
+    workingStorageUsedInBytes :: Core.Maybe Core.Integer,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DescribeWorkingStorageResponse' with the minimum fields required to make a request.
---
--- * 'gatewayARN' -
--- * 'diskIds' - An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
--- * 'workingStorageAllocatedInBytes' - The total working storage in bytes allocated for the gateway. If no working storage is configured for the gateway, this field returns 0.
--- * 'workingStorageUsedInBytes' - The total working storage in bytes in use by the gateway. If no working storage is configured for the gateway, this field returns 0.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DescribeWorkingStorageResponse' value with any optional fields omitted.
 mkDescribeWorkingStorageResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DescribeWorkingStorageResponse
-mkDescribeWorkingStorageResponse pResponseStatus_ =
+mkDescribeWorkingStorageResponse responseStatus =
   DescribeWorkingStorageResponse'
-    { gatewayARN = Lude.Nothing,
-      diskIds = Lude.Nothing,
-      workingStorageAllocatedInBytes = Lude.Nothing,
-      workingStorageUsedInBytes = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { diskIds = Core.Nothing,
+      gatewayARN = Core.Nothing,
+      workingStorageAllocatedInBytes = Core.Nothing,
+      workingStorageUsedInBytes = Core.Nothing,
+      responseStatus
     }
-
--- | Undocumented field.
---
--- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwsrsGatewayARN :: Lens.Lens' DescribeWorkingStorageResponse (Lude.Maybe Lude.Text)
-dwsrsGatewayARN = Lens.lens (gatewayARN :: DescribeWorkingStorageResponse -> Lude.Maybe Lude.Text) (\s a -> s {gatewayARN = a} :: DescribeWorkingStorageResponse)
-{-# DEPRECATED dwsrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | An array of the gateway's local disk IDs that are configured as working storage. Each local disk ID is specified as a string (minimum length of 1 and maximum length of 300). If no local disks are configured as working storage, then the DiskIds array is empty.
 --
 -- /Note:/ Consider using 'diskIds' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwsrsDiskIds :: Lens.Lens' DescribeWorkingStorageResponse (Lude.Maybe [Lude.Text])
-dwsrsDiskIds = Lens.lens (diskIds :: DescribeWorkingStorageResponse -> Lude.Maybe [Lude.Text]) (\s a -> s {diskIds = a} :: DescribeWorkingStorageResponse)
-{-# DEPRECATED dwsrsDiskIds "Use generic-lens or generic-optics with 'diskIds' instead." #-}
+dwsrrsDiskIds :: Lens.Lens' DescribeWorkingStorageResponse (Core.Maybe [Types.DiskId])
+dwsrrsDiskIds = Lens.field @"diskIds"
+{-# DEPRECATED dwsrrsDiskIds "Use generic-lens or generic-optics with 'diskIds' instead." #-}
+
+-- | Undocumented field.
+--
+-- /Note:/ Consider using 'gatewayARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+dwsrrsGatewayARN :: Lens.Lens' DescribeWorkingStorageResponse (Core.Maybe Types.GatewayARN)
+dwsrrsGatewayARN = Lens.field @"gatewayARN"
+{-# DEPRECATED dwsrrsGatewayARN "Use generic-lens or generic-optics with 'gatewayARN' instead." #-}
 
 -- | The total working storage in bytes allocated for the gateway. If no working storage is configured for the gateway, this field returns 0.
 --
 -- /Note:/ Consider using 'workingStorageAllocatedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwsrsWorkingStorageAllocatedInBytes :: Lens.Lens' DescribeWorkingStorageResponse (Lude.Maybe Lude.Integer)
-dwsrsWorkingStorageAllocatedInBytes = Lens.lens (workingStorageAllocatedInBytes :: DescribeWorkingStorageResponse -> Lude.Maybe Lude.Integer) (\s a -> s {workingStorageAllocatedInBytes = a} :: DescribeWorkingStorageResponse)
-{-# DEPRECATED dwsrsWorkingStorageAllocatedInBytes "Use generic-lens or generic-optics with 'workingStorageAllocatedInBytes' instead." #-}
+dwsrrsWorkingStorageAllocatedInBytes :: Lens.Lens' DescribeWorkingStorageResponse (Core.Maybe Core.Integer)
+dwsrrsWorkingStorageAllocatedInBytes = Lens.field @"workingStorageAllocatedInBytes"
+{-# DEPRECATED dwsrrsWorkingStorageAllocatedInBytes "Use generic-lens or generic-optics with 'workingStorageAllocatedInBytes' instead." #-}
 
 -- | The total working storage in bytes in use by the gateway. If no working storage is configured for the gateway, this field returns 0.
 --
 -- /Note:/ Consider using 'workingStorageUsedInBytes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwsrsWorkingStorageUsedInBytes :: Lens.Lens' DescribeWorkingStorageResponse (Lude.Maybe Lude.Integer)
-dwsrsWorkingStorageUsedInBytes = Lens.lens (workingStorageUsedInBytes :: DescribeWorkingStorageResponse -> Lude.Maybe Lude.Integer) (\s a -> s {workingStorageUsedInBytes = a} :: DescribeWorkingStorageResponse)
-{-# DEPRECATED dwsrsWorkingStorageUsedInBytes "Use generic-lens or generic-optics with 'workingStorageUsedInBytes' instead." #-}
+dwsrrsWorkingStorageUsedInBytes :: Lens.Lens' DescribeWorkingStorageResponse (Core.Maybe Core.Integer)
+dwsrrsWorkingStorageUsedInBytes = Lens.field @"workingStorageUsedInBytes"
+{-# DEPRECATED dwsrrsWorkingStorageUsedInBytes "Use generic-lens or generic-optics with 'workingStorageUsedInBytes' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dwsrsResponseStatus :: Lens.Lens' DescribeWorkingStorageResponse Lude.Int
-dwsrsResponseStatus = Lens.lens (responseStatus :: DescribeWorkingStorageResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DescribeWorkingStorageResponse)
-{-# DEPRECATED dwsrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+dwsrrsResponseStatus :: Lens.Lens' DescribeWorkingStorageResponse Core.Int
+dwsrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED dwsrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

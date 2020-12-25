@@ -20,99 +20,88 @@ module Network.AWS.AlexaBusiness.DeleteDevice
     mkDeleteDevice,
 
     -- ** Request lenses
-    ddfDeviceARN,
+    ddfDeviceArn,
 
     -- * Destructuring the response
     DeleteDeviceResponse (..),
     mkDeleteDeviceResponse,
 
     -- ** Response lenses
-    ddrsResponseStatus,
+    ddrrsResponseStatus,
   )
 where
 
-import Network.AWS.AlexaBusiness.Types
+import qualified Network.AWS.AlexaBusiness.Types as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | /See:/ 'mkDeleteDevice' smart constructor.
 newtype DeleteDevice = DeleteDevice'
   { -- | The ARN of the device for which to request details.
-    deviceARN :: Lude.Text
+    deviceArn :: Types.Arn
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDevice' with the minimum fields required to make a request.
---
--- * 'deviceARN' - The ARN of the device for which to request details.
+-- | Creates a 'DeleteDevice' value with any optional fields omitted.
 mkDeleteDevice ::
-  -- | 'deviceARN'
-  Lude.Text ->
+  -- | 'deviceArn'
+  Types.Arn ->
   DeleteDevice
-mkDeleteDevice pDeviceARN_ = DeleteDevice' {deviceARN = pDeviceARN_}
+mkDeleteDevice deviceArn = DeleteDevice' {deviceArn}
 
 -- | The ARN of the device for which to request details.
 --
--- /Note:/ Consider using 'deviceARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddfDeviceARN :: Lens.Lens' DeleteDevice Lude.Text
-ddfDeviceARN = Lens.lens (deviceARN :: DeleteDevice -> Lude.Text) (\s a -> s {deviceARN = a} :: DeleteDevice)
-{-# DEPRECATED ddfDeviceARN "Use generic-lens or generic-optics with 'deviceARN' instead." #-}
+-- /Note:/ Consider using 'deviceArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+ddfDeviceArn :: Lens.Lens' DeleteDevice Types.Arn
+ddfDeviceArn = Lens.field @"deviceArn"
+{-# DEPRECATED ddfDeviceArn "Use generic-lens or generic-optics with 'deviceArn' instead." #-}
 
-instance Lude.AWSRequest DeleteDevice where
+instance Core.FromJSON DeleteDevice where
+  toJSON DeleteDevice {..} =
+    Core.object
+      (Core.catMaybes [Core.Just ("DeviceArn" Core..= deviceArn)])
+
+instance Core.AWSRequest DeleteDevice where
   type Rs DeleteDevice = DeleteDeviceResponse
-  request = Req.postJSON alexaBusinessService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "AlexaForBusiness.DeleteDevice")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveEmpty
+    Response.receiveEmpty
       ( \s h x ->
-          DeleteDeviceResponse' Lude.<$> (Lude.pure (Lude.fromEnum s))
+          DeleteDeviceResponse' Core.<$> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders DeleteDevice where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("AlexaForBusiness.DeleteDevice" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON DeleteDevice where
-  toJSON DeleteDevice' {..} =
-    Lude.object
-      (Lude.catMaybes [Lude.Just ("DeviceArn" Lude..= deviceARN)])
-
-instance Lude.ToPath DeleteDevice where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteDevice where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkDeleteDeviceResponse' smart constructor.
 newtype DeleteDeviceResponse = DeleteDeviceResponse'
   { -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving newtype (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving newtype (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteDeviceResponse' with the minimum fields required to make a request.
---
--- * 'responseStatus' - The response status code.
+-- | Creates a 'DeleteDeviceResponse' value with any optional fields omitted.
 mkDeleteDeviceResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   DeleteDeviceResponse
-mkDeleteDeviceResponse pResponseStatus_ =
-  DeleteDeviceResponse' {responseStatus = pResponseStatus_}
+mkDeleteDeviceResponse responseStatus =
+  DeleteDeviceResponse' {responseStatus}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ddrsResponseStatus :: Lens.Lens' DeleteDeviceResponse Lude.Int
-ddrsResponseStatus = Lens.lens (responseStatus :: DeleteDeviceResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: DeleteDeviceResponse)
-{-# DEPRECATED ddrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+ddrrsResponseStatus :: Lens.Lens' DeleteDeviceResponse Core.Int
+ddrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED ddrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

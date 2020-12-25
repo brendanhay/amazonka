@@ -20,8 +20,8 @@ module Network.AWS.Redshift.DeleteTags
     mkDeleteTags,
 
     -- ** Request lenses
-    dResourceName,
-    dTagKeys,
+    dtsResourceName,
+    dtsTagKeys,
 
     -- * Destructuring the response
     DeleteTagsResponse (..),
@@ -30,74 +30,74 @@ module Network.AWS.Redshift.DeleteTags
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.Redshift.Types
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Redshift.Types as Types
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
 
 -- | Contains the output from the @DeleteTags@ action.
 --
 -- /See:/ 'mkDeleteTags' smart constructor.
 data DeleteTags = DeleteTags'
   { -- | The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
-    resourceName :: Lude.Text,
+    resourceName :: Types.String,
     -- | The tag key that you want to delete.
-    tagKeys :: [Lude.Text]
+    tagKeys :: [Types.String]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTags' with the minimum fields required to make a request.
---
--- * 'resourceName' - The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
--- * 'tagKeys' - The tag key that you want to delete.
+-- | Creates a 'DeleteTags' value with any optional fields omitted.
 mkDeleteTags ::
   -- | 'resourceName'
-  Lude.Text ->
+  Types.String ->
   DeleteTags
-mkDeleteTags pResourceName_ =
-  DeleteTags' {resourceName = pResourceName_, tagKeys = Lude.mempty}
+mkDeleteTags resourceName =
+  DeleteTags' {resourceName, tagKeys = Core.mempty}
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For example, @arn:aws:redshift:us-east-2:123456789:cluster:t1@ .
 --
 -- /Note:/ Consider using 'resourceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dResourceName :: Lens.Lens' DeleteTags Lude.Text
-dResourceName = Lens.lens (resourceName :: DeleteTags -> Lude.Text) (\s a -> s {resourceName = a} :: DeleteTags)
-{-# DEPRECATED dResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
+dtsResourceName :: Lens.Lens' DeleteTags Types.String
+dtsResourceName = Lens.field @"resourceName"
+{-# DEPRECATED dtsResourceName "Use generic-lens or generic-optics with 'resourceName' instead." #-}
 
 -- | The tag key that you want to delete.
 --
 -- /Note:/ Consider using 'tagKeys' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-dTagKeys :: Lens.Lens' DeleteTags [Lude.Text]
-dTagKeys = Lens.lens (tagKeys :: DeleteTags -> [Lude.Text]) (\s a -> s {tagKeys = a} :: DeleteTags)
-{-# DEPRECATED dTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
+dtsTagKeys :: Lens.Lens' DeleteTags [Types.String]
+dtsTagKeys = Lens.field @"tagKeys"
+{-# DEPRECATED dtsTagKeys "Use generic-lens or generic-optics with 'tagKeys' instead." #-}
 
-instance Lude.AWSRequest DeleteTags where
+instance Core.AWSRequest DeleteTags where
   type Rs DeleteTags = DeleteTagsResponse
-  request = Req.postQuery redshiftService
-  response = Res.receiveNull DeleteTagsResponse'
-
-instance Lude.ToHeaders DeleteTags where
-  toHeaders = Lude.const Lude.mempty
-
-instance Lude.ToPath DeleteTags where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery DeleteTags where
-  toQuery DeleteTags' {..} =
-    Lude.mconcat
-      [ "Action" Lude.=: ("DeleteTags" :: Lude.ByteString),
-        "Version" Lude.=: ("2012-12-01" :: Lude.ByteString),
-        "ResourceName" Lude.=: resourceName,
-        "TagKeys" Lude.=: Lude.toQueryList "TagKey" tagKeys
-      ]
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure
+            ( "Content-Type",
+              "application/x-www-form-urlencoded; charset=utf-8"
+            ),
+        Core._rqBody =
+          Core.toFormBody
+            ( Core.pure ("Action", "DeleteTags")
+                Core.<> (Core.pure ("Version", "2012-12-01"))
+                Core.<> (Core.toQueryValue "ResourceName" resourceName)
+                Core.<> (Core.toQueryValue "TagKeys" (Core.toQueryList "TagKey" tagKeys))
+            )
+      }
+  response = Response.receiveNull DeleteTagsResponse'
 
 -- | /See:/ 'mkDeleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse'
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'DeleteTagsResponse' with the minimum fields required to make a request.
+-- | Creates a 'DeleteTagsResponse' value with any optional fields omitted.
 mkDeleteTagsResponse ::
   DeleteTagsResponse
 mkDeleteTagsResponse = DeleteTagsResponse'

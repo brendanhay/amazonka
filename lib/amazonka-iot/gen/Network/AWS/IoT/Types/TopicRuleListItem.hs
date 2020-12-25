@@ -18,96 +18,91 @@ module Network.AWS.IoT.Types.TopicRuleListItem
 
     -- * Lenses
     trliCreatedAt,
+    trliRuleArn,
     trliRuleDisabled,
     trliRuleName,
-    trliRuleARN,
     trliTopicPattern,
   )
 where
 
+import qualified Network.AWS.IoT.Types.RuleArn as Types
+import qualified Network.AWS.IoT.Types.RuleName as Types
+import qualified Network.AWS.IoT.Types.TopicPattern as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a rule.
 --
 -- /See:/ 'mkTopicRuleListItem' smart constructor.
 data TopicRuleListItem = TopicRuleListItem'
   { -- | The date and time the rule was created.
-    createdAt :: Lude.Maybe Lude.Timestamp,
-    -- | Specifies whether the rule is disabled.
-    ruleDisabled :: Lude.Maybe Lude.Bool,
-    -- | The name of the rule.
-    ruleName :: Lude.Maybe Lude.Text,
+    createdAt :: Core.Maybe Core.NominalDiffTime,
     -- | The rule ARN.
-    ruleARN :: Lude.Maybe Lude.Text,
+    ruleArn :: Core.Maybe Types.RuleArn,
+    -- | Specifies whether the rule is disabled.
+    ruleDisabled :: Core.Maybe Core.Bool,
+    -- | The name of the rule.
+    ruleName :: Core.Maybe Types.RuleName,
     -- | The pattern for the topic names that apply.
-    topicPattern :: Lude.Maybe Lude.Text
+    topicPattern :: Core.Maybe Types.TopicPattern
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'TopicRuleListItem' with the minimum fields required to make a request.
---
--- * 'createdAt' - The date and time the rule was created.
--- * 'ruleDisabled' - Specifies whether the rule is disabled.
--- * 'ruleName' - The name of the rule.
--- * 'ruleARN' - The rule ARN.
--- * 'topicPattern' - The pattern for the topic names that apply.
+-- | Creates a 'TopicRuleListItem' value with any optional fields omitted.
 mkTopicRuleListItem ::
   TopicRuleListItem
 mkTopicRuleListItem =
   TopicRuleListItem'
-    { createdAt = Lude.Nothing,
-      ruleDisabled = Lude.Nothing,
-      ruleName = Lude.Nothing,
-      ruleARN = Lude.Nothing,
-      topicPattern = Lude.Nothing
+    { createdAt = Core.Nothing,
+      ruleArn = Core.Nothing,
+      ruleDisabled = Core.Nothing,
+      ruleName = Core.Nothing,
+      topicPattern = Core.Nothing
     }
 
 -- | The date and time the rule was created.
 --
 -- /Note:/ Consider using 'createdAt' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trliCreatedAt :: Lens.Lens' TopicRuleListItem (Lude.Maybe Lude.Timestamp)
-trliCreatedAt = Lens.lens (createdAt :: TopicRuleListItem -> Lude.Maybe Lude.Timestamp) (\s a -> s {createdAt = a} :: TopicRuleListItem)
+trliCreatedAt :: Lens.Lens' TopicRuleListItem (Core.Maybe Core.NominalDiffTime)
+trliCreatedAt = Lens.field @"createdAt"
 {-# DEPRECATED trliCreatedAt "Use generic-lens or generic-optics with 'createdAt' instead." #-}
+
+-- | The rule ARN.
+--
+-- /Note:/ Consider using 'ruleArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+trliRuleArn :: Lens.Lens' TopicRuleListItem (Core.Maybe Types.RuleArn)
+trliRuleArn = Lens.field @"ruleArn"
+{-# DEPRECATED trliRuleArn "Use generic-lens or generic-optics with 'ruleArn' instead." #-}
 
 -- | Specifies whether the rule is disabled.
 --
 -- /Note:/ Consider using 'ruleDisabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trliRuleDisabled :: Lens.Lens' TopicRuleListItem (Lude.Maybe Lude.Bool)
-trliRuleDisabled = Lens.lens (ruleDisabled :: TopicRuleListItem -> Lude.Maybe Lude.Bool) (\s a -> s {ruleDisabled = a} :: TopicRuleListItem)
+trliRuleDisabled :: Lens.Lens' TopicRuleListItem (Core.Maybe Core.Bool)
+trliRuleDisabled = Lens.field @"ruleDisabled"
 {-# DEPRECATED trliRuleDisabled "Use generic-lens or generic-optics with 'ruleDisabled' instead." #-}
 
 -- | The name of the rule.
 --
 -- /Note:/ Consider using 'ruleName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trliRuleName :: Lens.Lens' TopicRuleListItem (Lude.Maybe Lude.Text)
-trliRuleName = Lens.lens (ruleName :: TopicRuleListItem -> Lude.Maybe Lude.Text) (\s a -> s {ruleName = a} :: TopicRuleListItem)
+trliRuleName :: Lens.Lens' TopicRuleListItem (Core.Maybe Types.RuleName)
+trliRuleName = Lens.field @"ruleName"
 {-# DEPRECATED trliRuleName "Use generic-lens or generic-optics with 'ruleName' instead." #-}
-
--- | The rule ARN.
---
--- /Note:/ Consider using 'ruleARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trliRuleARN :: Lens.Lens' TopicRuleListItem (Lude.Maybe Lude.Text)
-trliRuleARN = Lens.lens (ruleARN :: TopicRuleListItem -> Lude.Maybe Lude.Text) (\s a -> s {ruleARN = a} :: TopicRuleListItem)
-{-# DEPRECATED trliRuleARN "Use generic-lens or generic-optics with 'ruleARN' instead." #-}
 
 -- | The pattern for the topic names that apply.
 --
 -- /Note:/ Consider using 'topicPattern' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-trliTopicPattern :: Lens.Lens' TopicRuleListItem (Lude.Maybe Lude.Text)
-trliTopicPattern = Lens.lens (topicPattern :: TopicRuleListItem -> Lude.Maybe Lude.Text) (\s a -> s {topicPattern = a} :: TopicRuleListItem)
+trliTopicPattern :: Lens.Lens' TopicRuleListItem (Core.Maybe Types.TopicPattern)
+trliTopicPattern = Lens.field @"topicPattern"
 {-# DEPRECATED trliTopicPattern "Use generic-lens or generic-optics with 'topicPattern' instead." #-}
 
-instance Lude.FromJSON TopicRuleListItem where
+instance Core.FromJSON TopicRuleListItem where
   parseJSON =
-    Lude.withObject
-      "TopicRuleListItem"
-      ( \x ->
-          TopicRuleListItem'
-            Lude.<$> (x Lude..:? "createdAt")
-            Lude.<*> (x Lude..:? "ruleDisabled")
-            Lude.<*> (x Lude..:? "ruleName")
-            Lude.<*> (x Lude..:? "ruleArn")
-            Lude.<*> (x Lude..:? "topicPattern")
-      )
+    Core.withObject "TopicRuleListItem" Core.$
+      \x ->
+        TopicRuleListItem'
+          Core.<$> (x Core..:? "createdAt")
+          Core.<*> (x Core..:? "ruleArn")
+          Core.<*> (x Core..:? "ruleDisabled")
+          Core.<*> (x Core..:? "ruleName")
+          Core.<*> (x Core..:? "topicPattern")

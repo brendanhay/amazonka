@@ -22,63 +22,57 @@ module Network.AWS.Firehose.Types.ProcessingConfiguration
   )
 where
 
-import Network.AWS.Firehose.Types.Processor
+import qualified Network.AWS.Firehose.Types.Processor as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes a data processing configuration.
 --
 -- /See:/ 'mkProcessingConfiguration' smart constructor.
 data ProcessingConfiguration = ProcessingConfiguration'
   { -- | Enables or disables data processing.
-    enabled :: Lude.Maybe Lude.Bool,
+    enabled :: Core.Maybe Core.Bool,
     -- | The data processors.
-    processors :: Lude.Maybe [Processor]
+    processors :: Core.Maybe [Types.Processor]
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'ProcessingConfiguration' with the minimum fields required to make a request.
---
--- * 'enabled' - Enables or disables data processing.
--- * 'processors' - The data processors.
+-- | Creates a 'ProcessingConfiguration' value with any optional fields omitted.
 mkProcessingConfiguration ::
   ProcessingConfiguration
 mkProcessingConfiguration =
   ProcessingConfiguration'
-    { enabled = Lude.Nothing,
-      processors = Lude.Nothing
+    { enabled = Core.Nothing,
+      processors = Core.Nothing
     }
 
 -- | Enables or disables data processing.
 --
 -- /Note:/ Consider using 'enabled' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcEnabled :: Lens.Lens' ProcessingConfiguration (Lude.Maybe Lude.Bool)
-pcEnabled = Lens.lens (enabled :: ProcessingConfiguration -> Lude.Maybe Lude.Bool) (\s a -> s {enabled = a} :: ProcessingConfiguration)
+pcEnabled :: Lens.Lens' ProcessingConfiguration (Core.Maybe Core.Bool)
+pcEnabled = Lens.field @"enabled"
 {-# DEPRECATED pcEnabled "Use generic-lens or generic-optics with 'enabled' instead." #-}
 
 -- | The data processors.
 --
 -- /Note:/ Consider using 'processors' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-pcProcessors :: Lens.Lens' ProcessingConfiguration (Lude.Maybe [Processor])
-pcProcessors = Lens.lens (processors :: ProcessingConfiguration -> Lude.Maybe [Processor]) (\s a -> s {processors = a} :: ProcessingConfiguration)
+pcProcessors :: Lens.Lens' ProcessingConfiguration (Core.Maybe [Types.Processor])
+pcProcessors = Lens.field @"processors"
 {-# DEPRECATED pcProcessors "Use generic-lens or generic-optics with 'processors' instead." #-}
 
-instance Lude.FromJSON ProcessingConfiguration where
-  parseJSON =
-    Lude.withObject
-      "ProcessingConfiguration"
-      ( \x ->
-          ProcessingConfiguration'
-            Lude.<$> (x Lude..:? "Enabled")
-            Lude.<*> (x Lude..:? "Processors" Lude..!= Lude.mempty)
-      )
-
-instance Lude.ToJSON ProcessingConfiguration where
-  toJSON ProcessingConfiguration' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Enabled" Lude..=) Lude.<$> enabled,
-            ("Processors" Lude..=) Lude.<$> processors
+instance Core.FromJSON ProcessingConfiguration where
+  toJSON ProcessingConfiguration {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Enabled" Core..=) Core.<$> enabled,
+            ("Processors" Core..=) Core.<$> processors
           ]
       )
+
+instance Core.FromJSON ProcessingConfiguration where
+  parseJSON =
+    Core.withObject "ProcessingConfiguration" Core.$
+      \x ->
+        ProcessingConfiguration'
+          Core.<$> (x Core..:? "Enabled") Core.<*> (x Core..:? "Processors")

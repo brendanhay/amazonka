@@ -17,742 +17,681 @@ module Network.AWS.EC2.Types.Instance
     mkInstance,
 
     -- * Lenses
-    ifInstanceId,
-    ifState,
-    ifVirtualizationType,
-    ifPublicDNSName,
-    ifHypervisor,
-    ifPlatform,
-    ifSecurityGroups,
-    ifClientToken,
-    ifEnaSupport,
-    ifSourceDestCheck,
-    ifElasticGpuAssociations,
-    ifVPCId,
-    ifKeyName,
-    ifLaunchTime,
-    ifNetworkInterfaces,
-    ifOutpostARN,
-    ifEnclaveOptions,
-    ifRAMDiskId,
-    ifCPUOptions,
-    ifSubnetId,
-    ifKernelId,
-    ifRootDeviceName,
-    ifCapacityReservationId,
-    ifInstanceType,
-    ifCapacityReservationSpecification,
-    ifSRIOVNetSupport,
-    ifEBSOptimized,
-    ifMonitoring,
-    ifStateTransitionReason,
-    ifHibernationOptions,
-    ifInstanceLifecycle,
-    ifIAMInstanceProfile,
-    ifImageId,
-    ifPrivateIPAddress,
-    ifMetadataOptions,
-    ifArchitecture,
-    ifProductCodes,
-    ifSpotInstanceRequestId,
-    ifLicenses,
-    ifElasticInferenceAcceleratorAssociations,
-    ifPrivateDNSName,
-    ifStateReason,
-    ifRootDeviceType,
-    ifBlockDeviceMappings,
-    ifAMILaunchIndex,
-    ifPublicIPAddress,
-    ifPlacement,
-    ifTags,
+    iAmiLaunchIndex,
+    iArchitecture,
+    iBlockDeviceMappings,
+    iCapacityReservationId,
+    iCapacityReservationSpecification,
+    iClientToken,
+    iCpuOptions,
+    iEbsOptimized,
+    iElasticGpuAssociations,
+    iElasticInferenceAcceleratorAssociations,
+    iEnaSupport,
+    iEnclaveOptions,
+    iHibernationOptions,
+    iHypervisor,
+    iIamInstanceProfile,
+    iImageId,
+    iInstanceId,
+    iInstanceLifecycle,
+    iInstanceType,
+    iKernelId,
+    iKeyName,
+    iLaunchTime,
+    iLicenses,
+    iMetadataOptions,
+    iMonitoring,
+    iNetworkInterfaces,
+    iOutpostArn,
+    iPlacement,
+    iPlatform,
+    iPrivateDnsName,
+    iPrivateIpAddress,
+    iProductCodes,
+    iPublicDnsName,
+    iPublicIpAddress,
+    iRamdiskId,
+    iRootDeviceName,
+    iRootDeviceType,
+    iSecurityGroups,
+    iSourceDestCheck,
+    iSpotInstanceRequestId,
+    iSriovNetSupport,
+    iState,
+    iStateReason,
+    iStateTransitionReason,
+    iSubnetId,
+    iTags,
+    iVirtualizationType,
+    iVpcId,
   )
 where
 
-import Network.AWS.EC2.Types.ArchitectureValues
-import Network.AWS.EC2.Types.CPUOptions
-import Network.AWS.EC2.Types.CapacityReservationSpecificationResponse
-import Network.AWS.EC2.Types.DeviceType
-import Network.AWS.EC2.Types.ElasticGpuAssociation
-import Network.AWS.EC2.Types.ElasticInferenceAcceleratorAssociation
-import Network.AWS.EC2.Types.EnclaveOptions
-import Network.AWS.EC2.Types.GroupIdentifier
-import Network.AWS.EC2.Types.HibernationOptions
-import Network.AWS.EC2.Types.HypervisorType
-import Network.AWS.EC2.Types.IAMInstanceProfile
-import Network.AWS.EC2.Types.InstanceBlockDeviceMapping
-import Network.AWS.EC2.Types.InstanceLifecycleType
-import Network.AWS.EC2.Types.InstanceMetadataOptionsResponse
-import Network.AWS.EC2.Types.InstanceNetworkInterface
-import Network.AWS.EC2.Types.InstanceState
-import Network.AWS.EC2.Types.InstanceType
-import Network.AWS.EC2.Types.LicenseConfiguration
-import Network.AWS.EC2.Types.Monitoring
-import Network.AWS.EC2.Types.Placement
-import Network.AWS.EC2.Types.PlatformValues
-import Network.AWS.EC2.Types.ProductCode
-import Network.AWS.EC2.Types.StateReason
-import Network.AWS.EC2.Types.Tag
-import Network.AWS.EC2.Types.VirtualizationType
+import qualified Network.AWS.EC2.Types.ArchitectureValues as Types
+import qualified Network.AWS.EC2.Types.CapacityReservationSpecificationResponse as Types
+import qualified Network.AWS.EC2.Types.CpuOptions as Types
+import qualified Network.AWS.EC2.Types.DeviceType as Types
+import qualified Network.AWS.EC2.Types.ElasticGpuAssociation as Types
+import qualified Network.AWS.EC2.Types.ElasticInferenceAcceleratorAssociation as Types
+import qualified Network.AWS.EC2.Types.EnclaveOptions as Types
+import qualified Network.AWS.EC2.Types.GroupIdentifier as Types
+import qualified Network.AWS.EC2.Types.HibernationOptions as Types
+import qualified Network.AWS.EC2.Types.HypervisorType as Types
+import qualified Network.AWS.EC2.Types.IamInstanceProfile as Types
+import qualified Network.AWS.EC2.Types.InstanceBlockDeviceMapping as Types
+import qualified Network.AWS.EC2.Types.InstanceLifecycleType as Types
+import qualified Network.AWS.EC2.Types.InstanceMetadataOptionsResponse as Types
+import qualified Network.AWS.EC2.Types.InstanceNetworkInterface as Types
+import qualified Network.AWS.EC2.Types.InstanceState as Types
+import qualified Network.AWS.EC2.Types.InstanceType as Types
+import qualified Network.AWS.EC2.Types.LicenseConfiguration as Types
+import qualified Network.AWS.EC2.Types.Monitoring as Types
+import qualified Network.AWS.EC2.Types.Placement as Types
+import qualified Network.AWS.EC2.Types.PlatformValues as Types
+import qualified Network.AWS.EC2.Types.ProductCode as Types
+import qualified Network.AWS.EC2.Types.StateReason as Types
+import qualified Network.AWS.EC2.Types.String as Types
+import qualified Network.AWS.EC2.Types.Tag as Types
+import qualified Network.AWS.EC2.Types.VirtualizationType as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Describes an instance.
 --
 -- /See:/ 'mkInstance' smart constructor.
 data Instance = Instance'
-  { -- | The ID of the instance.
-    instanceId :: Lude.Text,
-    -- | The current state of the instance.
-    state :: InstanceState,
-    -- | The virtualization type of the instance.
-    virtualizationType :: VirtualizationType,
-    -- | (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the @running@ state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
-    publicDNSName :: Lude.Maybe Lude.Text,
-    -- | The hypervisor type of the instance. The value @xen@ is used for both Xen and Nitro hypervisors.
-    hypervisor :: HypervisorType,
-    -- | The value is @Windows@ for Windows instances; otherwise blank.
-    platform :: Lude.Maybe PlatformValues,
-    -- | The security groups for the instance.
-    securityGroups :: Lude.Maybe [GroupIdentifier],
-    -- | The idempotency token you provided when you launched the instance, if applicable.
-    clientToken :: Lude.Maybe Lude.Text,
-    -- | Specifies whether enhanced networking with ENA is enabled.
-    enaSupport :: Lude.Maybe Lude.Bool,
-    -- | Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
-    sourceDestCheck :: Lude.Maybe Lude.Bool,
-    -- | The Elastic GPU associated with the instance.
-    elasticGpuAssociations :: Lude.Maybe [ElasticGpuAssociation],
-    -- | [EC2-VPC] The ID of the VPC in which the instance is running.
-    vpcId :: Lude.Maybe Lude.Text,
-    -- | The name of the key pair, if this instance was launched with an associated key pair.
-    keyName :: Lude.Maybe Lude.Text,
-    -- | The time the instance was launched.
-    launchTime :: Lude.DateTime,
-    -- | [EC2-VPC] The network interfaces for the instance.
-    networkInterfaces :: Lude.Maybe [InstanceNetworkInterface],
-    -- | The Amazon Resource Name (ARN) of the Outpost.
-    outpostARN :: Lude.Maybe Lude.Text,
-    -- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
-    enclaveOptions :: Lude.Maybe EnclaveOptions,
-    -- | The RAM disk associated with this instance, if applicable.
-    ramdiskId :: Lude.Maybe Lude.Text,
-    -- | The CPU options for the instance.
-    cpuOptions :: Lude.Maybe CPUOptions,
-    -- | [EC2-VPC] The ID of the subnet in which the instance is running.
-    subnetId :: Lude.Maybe Lude.Text,
-    -- | The kernel associated with this instance, if applicable.
-    kernelId :: Lude.Maybe Lude.Text,
-    -- | The device name of the root device volume (for example, @/dev/sda1@ ).
-    rootDeviceName :: Lude.Maybe Lude.Text,
-    -- | The ID of the Capacity Reservation.
-    capacityReservationId :: Lude.Maybe Lude.Text,
-    -- | The instance type.
-    instanceType :: InstanceType,
-    -- | Information about the Capacity Reservation targeting option.
-    capacityReservationSpecification :: Lude.Maybe CapacityReservationSpecificationResponse,
-    -- | Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
-    sriovNetSupport :: Lude.Maybe Lude.Text,
-    -- | Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
-    ebsOptimized :: Lude.Maybe Lude.Bool,
-    -- | The monitoring for the instance.
-    monitoring :: Monitoring,
-    -- | The reason for the most recent state transition. This might be an empty string.
-    stateTransitionReason :: Lude.Maybe Lude.Text,
-    -- | Indicates whether the instance is enabled for hibernation.
-    hibernationOptions :: Lude.Maybe HibernationOptions,
-    -- | Indicates whether this is a Spot Instance or a Scheduled Instance.
-    instanceLifecycle :: Lude.Maybe InstanceLifecycleType,
-    -- | The IAM instance profile associated with the instance, if applicable.
-    iamInstanceProfile :: Lude.Maybe IAMInstanceProfile,
-    -- | The ID of the AMI used to launch the instance.
-    imageId :: Lude.Text,
-    -- | The private IPv4 address assigned to the instance.
-    privateIPAddress :: Lude.Maybe Lude.Text,
-    -- | The metadata options for the instance.
-    metadataOptions :: Lude.Maybe InstanceMetadataOptionsResponse,
+  { -- | The AMI launch index, which can be used to find this instance in the launch group.
+    amiLaunchIndex :: Core.Int,
     -- | The architecture of the image.
-    architecture :: ArchitectureValues,
-    -- | The product codes attached to this instance, if applicable.
-    productCodes :: Lude.Maybe [ProductCode],
-    -- | If the request is a Spot Instance request, the ID of the request.
-    spotInstanceRequestId :: Lude.Maybe Lude.Text,
-    -- | The license configurations.
-    licenses :: Lude.Maybe [LicenseConfiguration],
+    architecture :: Types.ArchitectureValues,
+    -- | Any block device mapping entries for the instance.
+    blockDeviceMappings :: Core.Maybe [Types.InstanceBlockDeviceMapping],
+    -- | The ID of the Capacity Reservation.
+    capacityReservationId :: Core.Maybe Types.String,
+    -- | Information about the Capacity Reservation targeting option.
+    capacityReservationSpecification :: Core.Maybe Types.CapacityReservationSpecificationResponse,
+    -- | The idempotency token you provided when you launched the instance, if applicable.
+    clientToken :: Core.Maybe Types.String,
+    -- | The CPU options for the instance.
+    cpuOptions :: Core.Maybe Types.CpuOptions,
+    -- | Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+    ebsOptimized :: Core.Maybe Core.Bool,
+    -- | The Elastic GPU associated with the instance.
+    elasticGpuAssociations :: Core.Maybe [Types.ElasticGpuAssociation],
     -- | The elastic inference accelerator associated with the instance.
-    elasticInferenceAcceleratorAssociations :: Lude.Maybe [ElasticInferenceAcceleratorAssociation],
+    elasticInferenceAcceleratorAssociations :: Core.Maybe [Types.ElasticInferenceAcceleratorAssociation],
+    -- | Specifies whether enhanced networking with ENA is enabled.
+    enaSupport :: Core.Maybe Core.Bool,
+    -- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
+    enclaveOptions :: Core.Maybe Types.EnclaveOptions,
+    -- | Indicates whether the instance is enabled for hibernation.
+    hibernationOptions :: Core.Maybe Types.HibernationOptions,
+    -- | The hypervisor type of the instance. The value @xen@ is used for both Xen and Nitro hypervisors.
+    hypervisor :: Types.HypervisorType,
+    -- | The IAM instance profile associated with the instance, if applicable.
+    iamInstanceProfile :: Core.Maybe Types.IamInstanceProfile,
+    -- | The ID of the AMI used to launch the instance.
+    imageId :: Types.String,
+    -- | The ID of the instance.
+    instanceId :: Types.String,
+    -- | Indicates whether this is a Spot Instance or a Scheduled Instance.
+    instanceLifecycle :: Core.Maybe Types.InstanceLifecycleType,
+    -- | The instance type.
+    instanceType :: Types.InstanceType,
+    -- | The kernel associated with this instance, if applicable.
+    kernelId :: Core.Maybe Types.String,
+    -- | The name of the key pair, if this instance was launched with an associated key pair.
+    keyName :: Core.Maybe Types.String,
+    -- | The time the instance was launched.
+    launchTime :: Core.UTCTime,
+    -- | The license configurations.
+    licenses :: Core.Maybe [Types.LicenseConfiguration],
+    -- | The metadata options for the instance.
+    metadataOptions :: Core.Maybe Types.InstanceMetadataOptionsResponse,
+    -- | The monitoring for the instance.
+    monitoring :: Types.Monitoring,
+    -- | [EC2-VPC] The network interfaces for the instance.
+    networkInterfaces :: Core.Maybe [Types.InstanceNetworkInterface],
+    -- | The Amazon Resource Name (ARN) of the Outpost.
+    outpostArn :: Core.Maybe Types.String,
+    -- | The location where the instance launched, if applicable.
+    placement :: Types.Placement,
+    -- | The value is @Windows@ for Windows instances; otherwise blank.
+    platform :: Core.Maybe Types.PlatformValues,
     -- | (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state.
     --
     -- [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
-    privateDNSName :: Lude.Maybe Lude.Text,
-    -- | The reason for the most recent state transition.
-    stateReason :: Lude.Maybe StateReason,
-    -- | The root device type used by the AMI. The AMI can use an EBS volume or an instance store volume.
-    rootDeviceType :: DeviceType,
-    -- | Any block device mapping entries for the instance.
-    blockDeviceMappings :: Lude.Maybe [InstanceBlockDeviceMapping],
-    -- | The AMI launch index, which can be used to find this instance in the launch group.
-    amiLaunchIndex :: Lude.Int,
+    privateDnsName :: Core.Maybe Types.String,
+    -- | The private IPv4 address assigned to the instance.
+    privateIpAddress :: Core.Maybe Types.String,
+    -- | The product codes attached to this instance, if applicable.
+    productCodes :: Core.Maybe [Types.ProductCode],
+    -- | (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the @running@ state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
+    publicDnsName :: Core.Maybe Types.String,
     -- | The public IPv4 address, or the Carrier IP address assigned to the instance, if applicable.
     --
     -- A Carrier IP address only applies to an instance launched in a subnet associated with a Wavelength Zone.
-    publicIPAddress :: Lude.Maybe Lude.Text,
-    -- | The location where the instance launched, if applicable.
-    placement :: Placement,
+    publicIpAddress :: Core.Maybe Types.String,
+    -- | The RAM disk associated with this instance, if applicable.
+    ramdiskId :: Core.Maybe Types.String,
+    -- | The device name of the root device volume (for example, @/dev/sda1@ ).
+    rootDeviceName :: Core.Maybe Types.String,
+    -- | The root device type used by the AMI. The AMI can use an EBS volume or an instance store volume.
+    rootDeviceType :: Types.DeviceType,
+    -- | The security groups for the instance.
+    securityGroups :: Core.Maybe [Types.GroupIdentifier],
+    -- | Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+    sourceDestCheck :: Core.Maybe Core.Bool,
+    -- | If the request is a Spot Instance request, the ID of the request.
+    spotInstanceRequestId :: Core.Maybe Types.String,
+    -- | Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
+    sriovNetSupport :: Core.Maybe Types.String,
+    -- | The current state of the instance.
+    state :: Types.InstanceState,
+    -- | The reason for the most recent state transition.
+    stateReason :: Core.Maybe Types.StateReason,
+    -- | The reason for the most recent state transition. This might be an empty string.
+    stateTransitionReason :: Core.Maybe Types.String,
+    -- | [EC2-VPC] The ID of the subnet in which the instance is running.
+    subnetId :: Core.Maybe Types.String,
     -- | Any tags assigned to the instance.
-    tags :: Lude.Maybe [Tag]
+    tags :: Core.Maybe [Types.Tag],
+    -- | The virtualization type of the instance.
+    virtualizationType :: Types.VirtualizationType,
+    -- | [EC2-VPC] The ID of the VPC in which the instance is running.
+    vpcId :: Core.Maybe Types.String
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.NFData)
 
--- | Creates a value of 'Instance' with the minimum fields required to make a request.
---
--- * 'instanceId' - The ID of the instance.
--- * 'state' - The current state of the instance.
--- * 'virtualizationType' - The virtualization type of the instance.
--- * 'publicDNSName' - (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the @running@ state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
--- * 'hypervisor' - The hypervisor type of the instance. The value @xen@ is used for both Xen and Nitro hypervisors.
--- * 'platform' - The value is @Windows@ for Windows instances; otherwise blank.
--- * 'securityGroups' - The security groups for the instance.
--- * 'clientToken' - The idempotency token you provided when you launched the instance, if applicable.
--- * 'enaSupport' - Specifies whether enhanced networking with ENA is enabled.
--- * 'sourceDestCheck' - Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
--- * 'elasticGpuAssociations' - The Elastic GPU associated with the instance.
--- * 'vpcId' - [EC2-VPC] The ID of the VPC in which the instance is running.
--- * 'keyName' - The name of the key pair, if this instance was launched with an associated key pair.
--- * 'launchTime' - The time the instance was launched.
--- * 'networkInterfaces' - [EC2-VPC] The network interfaces for the instance.
--- * 'outpostARN' - The Amazon Resource Name (ARN) of the Outpost.
--- * 'enclaveOptions' - Indicates whether the instance is enabled for AWS Nitro Enclaves.
--- * 'ramdiskId' - The RAM disk associated with this instance, if applicable.
--- * 'cpuOptions' - The CPU options for the instance.
--- * 'subnetId' - [EC2-VPC] The ID of the subnet in which the instance is running.
--- * 'kernelId' - The kernel associated with this instance, if applicable.
--- * 'rootDeviceName' - The device name of the root device volume (for example, @/dev/sda1@ ).
--- * 'capacityReservationId' - The ID of the Capacity Reservation.
--- * 'instanceType' - The instance type.
--- * 'capacityReservationSpecification' - Information about the Capacity Reservation targeting option.
--- * 'sriovNetSupport' - Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
--- * 'ebsOptimized' - Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
--- * 'monitoring' - The monitoring for the instance.
--- * 'stateTransitionReason' - The reason for the most recent state transition. This might be an empty string.
--- * 'hibernationOptions' - Indicates whether the instance is enabled for hibernation.
--- * 'instanceLifecycle' - Indicates whether this is a Spot Instance or a Scheduled Instance.
--- * 'iamInstanceProfile' - The IAM instance profile associated with the instance, if applicable.
--- * 'imageId' - The ID of the AMI used to launch the instance.
--- * 'privateIPAddress' - The private IPv4 address assigned to the instance.
--- * 'metadataOptions' - The metadata options for the instance.
--- * 'architecture' - The architecture of the image.
--- * 'productCodes' - The product codes attached to this instance, if applicable.
--- * 'spotInstanceRequestId' - If the request is a Spot Instance request, the ID of the request.
--- * 'licenses' - The license configurations.
--- * 'elasticInferenceAcceleratorAssociations' - The elastic inference accelerator associated with the instance.
--- * 'privateDNSName' - (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state.
---
--- [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
--- * 'stateReason' - The reason for the most recent state transition.
--- * 'rootDeviceType' - The root device type used by the AMI. The AMI can use an EBS volume or an instance store volume.
--- * 'blockDeviceMappings' - Any block device mapping entries for the instance.
--- * 'amiLaunchIndex' - The AMI launch index, which can be used to find this instance in the launch group.
--- * 'publicIPAddress' - The public IPv4 address, or the Carrier IP address assigned to the instance, if applicable.
---
--- A Carrier IP address only applies to an instance launched in a subnet associated with a Wavelength Zone.
--- * 'placement' - The location where the instance launched, if applicable.
--- * 'tags' - Any tags assigned to the instance.
+-- | Creates a 'Instance' value with any optional fields omitted.
 mkInstance ::
-  -- | 'instanceId'
-  Lude.Text ->
-  -- | 'state'
-  InstanceState ->
-  -- | 'virtualizationType'
-  VirtualizationType ->
-  -- | 'hypervisor'
-  HypervisorType ->
-  -- | 'launchTime'
-  Lude.DateTime ->
-  -- | 'instanceType'
-  InstanceType ->
-  -- | 'monitoring'
-  Monitoring ->
-  -- | 'imageId'
-  Lude.Text ->
-  -- | 'architecture'
-  ArchitectureValues ->
-  -- | 'rootDeviceType'
-  DeviceType ->
   -- | 'amiLaunchIndex'
-  Lude.Int ->
+  Core.Int ->
+  -- | 'architecture'
+  Types.ArchitectureValues ->
+  -- | 'hypervisor'
+  Types.HypervisorType ->
+  -- | 'imageId'
+  Types.String ->
+  -- | 'instanceId'
+  Types.String ->
+  -- | 'instanceType'
+  Types.InstanceType ->
+  -- | 'launchTime'
+  Core.UTCTime ->
+  -- | 'monitoring'
+  Types.Monitoring ->
   -- | 'placement'
-  Placement ->
+  Types.Placement ->
+  -- | 'rootDeviceType'
+  Types.DeviceType ->
+  -- | 'state'
+  Types.InstanceState ->
+  -- | 'virtualizationType'
+  Types.VirtualizationType ->
   Instance
 mkInstance
-  pInstanceId_
-  pState_
-  pVirtualizationType_
-  pHypervisor_
-  pLaunchTime_
-  pInstanceType_
-  pMonitoring_
-  pImageId_
-  pArchitecture_
-  pRootDeviceType_
-  pAMILaunchIndex_
-  pPlacement_ =
+  amiLaunchIndex
+  architecture
+  hypervisor
+  imageId
+  instanceId
+  instanceType
+  launchTime
+  monitoring
+  placement
+  rootDeviceType
+  state
+  virtualizationType =
     Instance'
-      { instanceId = pInstanceId_,
-        state = pState_,
-        virtualizationType = pVirtualizationType_,
-        publicDNSName = Lude.Nothing,
-        hypervisor = pHypervisor_,
-        platform = Lude.Nothing,
-        securityGroups = Lude.Nothing,
-        clientToken = Lude.Nothing,
-        enaSupport = Lude.Nothing,
-        sourceDestCheck = Lude.Nothing,
-        elasticGpuAssociations = Lude.Nothing,
-        vpcId = Lude.Nothing,
-        keyName = Lude.Nothing,
-        launchTime = pLaunchTime_,
-        networkInterfaces = Lude.Nothing,
-        outpostARN = Lude.Nothing,
-        enclaveOptions = Lude.Nothing,
-        ramdiskId = Lude.Nothing,
-        cpuOptions = Lude.Nothing,
-        subnetId = Lude.Nothing,
-        kernelId = Lude.Nothing,
-        rootDeviceName = Lude.Nothing,
-        capacityReservationId = Lude.Nothing,
-        instanceType = pInstanceType_,
-        capacityReservationSpecification = Lude.Nothing,
-        sriovNetSupport = Lude.Nothing,
-        ebsOptimized = Lude.Nothing,
-        monitoring = pMonitoring_,
-        stateTransitionReason = Lude.Nothing,
-        hibernationOptions = Lude.Nothing,
-        instanceLifecycle = Lude.Nothing,
-        iamInstanceProfile = Lude.Nothing,
-        imageId = pImageId_,
-        privateIPAddress = Lude.Nothing,
-        metadataOptions = Lude.Nothing,
-        architecture = pArchitecture_,
-        productCodes = Lude.Nothing,
-        spotInstanceRequestId = Lude.Nothing,
-        licenses = Lude.Nothing,
-        elasticInferenceAcceleratorAssociations = Lude.Nothing,
-        privateDNSName = Lude.Nothing,
-        stateReason = Lude.Nothing,
-        rootDeviceType = pRootDeviceType_,
-        blockDeviceMappings = Lude.Nothing,
-        amiLaunchIndex = pAMILaunchIndex_,
-        publicIPAddress = Lude.Nothing,
-        placement = pPlacement_,
-        tags = Lude.Nothing
+      { amiLaunchIndex,
+        architecture,
+        blockDeviceMappings = Core.Nothing,
+        capacityReservationId = Core.Nothing,
+        capacityReservationSpecification = Core.Nothing,
+        clientToken = Core.Nothing,
+        cpuOptions = Core.Nothing,
+        ebsOptimized = Core.Nothing,
+        elasticGpuAssociations = Core.Nothing,
+        elasticInferenceAcceleratorAssociations = Core.Nothing,
+        enaSupport = Core.Nothing,
+        enclaveOptions = Core.Nothing,
+        hibernationOptions = Core.Nothing,
+        hypervisor,
+        iamInstanceProfile = Core.Nothing,
+        imageId,
+        instanceId,
+        instanceLifecycle = Core.Nothing,
+        instanceType,
+        kernelId = Core.Nothing,
+        keyName = Core.Nothing,
+        launchTime,
+        licenses = Core.Nothing,
+        metadataOptions = Core.Nothing,
+        monitoring,
+        networkInterfaces = Core.Nothing,
+        outpostArn = Core.Nothing,
+        placement,
+        platform = Core.Nothing,
+        privateDnsName = Core.Nothing,
+        privateIpAddress = Core.Nothing,
+        productCodes = Core.Nothing,
+        publicDnsName = Core.Nothing,
+        publicIpAddress = Core.Nothing,
+        ramdiskId = Core.Nothing,
+        rootDeviceName = Core.Nothing,
+        rootDeviceType,
+        securityGroups = Core.Nothing,
+        sourceDestCheck = Core.Nothing,
+        spotInstanceRequestId = Core.Nothing,
+        sriovNetSupport = Core.Nothing,
+        state,
+        stateReason = Core.Nothing,
+        stateTransitionReason = Core.Nothing,
+        subnetId = Core.Nothing,
+        tags = Core.Nothing,
+        virtualizationType,
+        vpcId = Core.Nothing
       }
 
--- | The ID of the instance.
+-- | The AMI launch index, which can be used to find this instance in the launch group.
 --
--- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifInstanceId :: Lens.Lens' Instance Lude.Text
-ifInstanceId = Lens.lens (instanceId :: Instance -> Lude.Text) (\s a -> s {instanceId = a} :: Instance)
-{-# DEPRECATED ifInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
-
--- | The current state of the instance.
---
--- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifState :: Lens.Lens' Instance InstanceState
-ifState = Lens.lens (state :: Instance -> InstanceState) (\s a -> s {state = a} :: Instance)
-{-# DEPRECATED ifState "Use generic-lens or generic-optics with 'state' instead." #-}
-
--- | The virtualization type of the instance.
---
--- /Note:/ Consider using 'virtualizationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifVirtualizationType :: Lens.Lens' Instance VirtualizationType
-ifVirtualizationType = Lens.lens (virtualizationType :: Instance -> VirtualizationType) (\s a -> s {virtualizationType = a} :: Instance)
-{-# DEPRECATED ifVirtualizationType "Use generic-lens or generic-optics with 'virtualizationType' instead." #-}
-
--- | (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the @running@ state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
---
--- /Note:/ Consider using 'publicDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifPublicDNSName :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifPublicDNSName = Lens.lens (publicDNSName :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {publicDNSName = a} :: Instance)
-{-# DEPRECATED ifPublicDNSName "Use generic-lens or generic-optics with 'publicDNSName' instead." #-}
-
--- | The hypervisor type of the instance. The value @xen@ is used for both Xen and Nitro hypervisors.
---
--- /Note:/ Consider using 'hypervisor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifHypervisor :: Lens.Lens' Instance HypervisorType
-ifHypervisor = Lens.lens (hypervisor :: Instance -> HypervisorType) (\s a -> s {hypervisor = a} :: Instance)
-{-# DEPRECATED ifHypervisor "Use generic-lens or generic-optics with 'hypervisor' instead." #-}
-
--- | The value is @Windows@ for Windows instances; otherwise blank.
---
--- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifPlatform :: Lens.Lens' Instance (Lude.Maybe PlatformValues)
-ifPlatform = Lens.lens (platform :: Instance -> Lude.Maybe PlatformValues) (\s a -> s {platform = a} :: Instance)
-{-# DEPRECATED ifPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
-
--- | The security groups for the instance.
---
--- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifSecurityGroups :: Lens.Lens' Instance (Lude.Maybe [GroupIdentifier])
-ifSecurityGroups = Lens.lens (securityGroups :: Instance -> Lude.Maybe [GroupIdentifier]) (\s a -> s {securityGroups = a} :: Instance)
-{-# DEPRECATED ifSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
-
--- | The idempotency token you provided when you launched the instance, if applicable.
---
--- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifClientToken :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifClientToken = Lens.lens (clientToken :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {clientToken = a} :: Instance)
-{-# DEPRECATED ifClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
-
--- | Specifies whether enhanced networking with ENA is enabled.
---
--- /Note:/ Consider using 'enaSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifEnaSupport :: Lens.Lens' Instance (Lude.Maybe Lude.Bool)
-ifEnaSupport = Lens.lens (enaSupport :: Instance -> Lude.Maybe Lude.Bool) (\s a -> s {enaSupport = a} :: Instance)
-{-# DEPRECATED ifEnaSupport "Use generic-lens or generic-optics with 'enaSupport' instead." #-}
-
--- | Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
---
--- /Note:/ Consider using 'sourceDestCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifSourceDestCheck :: Lens.Lens' Instance (Lude.Maybe Lude.Bool)
-ifSourceDestCheck = Lens.lens (sourceDestCheck :: Instance -> Lude.Maybe Lude.Bool) (\s a -> s {sourceDestCheck = a} :: Instance)
-{-# DEPRECATED ifSourceDestCheck "Use generic-lens or generic-optics with 'sourceDestCheck' instead." #-}
-
--- | The Elastic GPU associated with the instance.
---
--- /Note:/ Consider using 'elasticGpuAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifElasticGpuAssociations :: Lens.Lens' Instance (Lude.Maybe [ElasticGpuAssociation])
-ifElasticGpuAssociations = Lens.lens (elasticGpuAssociations :: Instance -> Lude.Maybe [ElasticGpuAssociation]) (\s a -> s {elasticGpuAssociations = a} :: Instance)
-{-# DEPRECATED ifElasticGpuAssociations "Use generic-lens or generic-optics with 'elasticGpuAssociations' instead." #-}
-
--- | [EC2-VPC] The ID of the VPC in which the instance is running.
---
--- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifVPCId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifVPCId = Lens.lens (vpcId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {vpcId = a} :: Instance)
-{-# DEPRECATED ifVPCId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
-
--- | The name of the key pair, if this instance was launched with an associated key pair.
---
--- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifKeyName :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifKeyName = Lens.lens (keyName :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {keyName = a} :: Instance)
-{-# DEPRECATED ifKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
-
--- | The time the instance was launched.
---
--- /Note:/ Consider using 'launchTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifLaunchTime :: Lens.Lens' Instance Lude.DateTime
-ifLaunchTime = Lens.lens (launchTime :: Instance -> Lude.DateTime) (\s a -> s {launchTime = a} :: Instance)
-{-# DEPRECATED ifLaunchTime "Use generic-lens or generic-optics with 'launchTime' instead." #-}
-
--- | [EC2-VPC] The network interfaces for the instance.
---
--- /Note:/ Consider using 'networkInterfaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifNetworkInterfaces :: Lens.Lens' Instance (Lude.Maybe [InstanceNetworkInterface])
-ifNetworkInterfaces = Lens.lens (networkInterfaces :: Instance -> Lude.Maybe [InstanceNetworkInterface]) (\s a -> s {networkInterfaces = a} :: Instance)
-{-# DEPRECATED ifNetworkInterfaces "Use generic-lens or generic-optics with 'networkInterfaces' instead." #-}
-
--- | The Amazon Resource Name (ARN) of the Outpost.
---
--- /Note:/ Consider using 'outpostARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifOutpostARN :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifOutpostARN = Lens.lens (outpostARN :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {outpostARN = a} :: Instance)
-{-# DEPRECATED ifOutpostARN "Use generic-lens or generic-optics with 'outpostARN' instead." #-}
-
--- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
---
--- /Note:/ Consider using 'enclaveOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifEnclaveOptions :: Lens.Lens' Instance (Lude.Maybe EnclaveOptions)
-ifEnclaveOptions = Lens.lens (enclaveOptions :: Instance -> Lude.Maybe EnclaveOptions) (\s a -> s {enclaveOptions = a} :: Instance)
-{-# DEPRECATED ifEnclaveOptions "Use generic-lens or generic-optics with 'enclaveOptions' instead." #-}
-
--- | The RAM disk associated with this instance, if applicable.
---
--- /Note:/ Consider using 'ramdiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifRAMDiskId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifRAMDiskId = Lens.lens (ramdiskId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {ramdiskId = a} :: Instance)
-{-# DEPRECATED ifRAMDiskId "Use generic-lens or generic-optics with 'ramdiskId' instead." #-}
-
--- | The CPU options for the instance.
---
--- /Note:/ Consider using 'cpuOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifCPUOptions :: Lens.Lens' Instance (Lude.Maybe CPUOptions)
-ifCPUOptions = Lens.lens (cpuOptions :: Instance -> Lude.Maybe CPUOptions) (\s a -> s {cpuOptions = a} :: Instance)
-{-# DEPRECATED ifCPUOptions "Use generic-lens or generic-optics with 'cpuOptions' instead." #-}
-
--- | [EC2-VPC] The ID of the subnet in which the instance is running.
---
--- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifSubnetId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifSubnetId = Lens.lens (subnetId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {subnetId = a} :: Instance)
-{-# DEPRECATED ifSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
-
--- | The kernel associated with this instance, if applicable.
---
--- /Note:/ Consider using 'kernelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifKernelId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifKernelId = Lens.lens (kernelId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {kernelId = a} :: Instance)
-{-# DEPRECATED ifKernelId "Use generic-lens or generic-optics with 'kernelId' instead." #-}
-
--- | The device name of the root device volume (for example, @/dev/sda1@ ).
---
--- /Note:/ Consider using 'rootDeviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifRootDeviceName :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifRootDeviceName = Lens.lens (rootDeviceName :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {rootDeviceName = a} :: Instance)
-{-# DEPRECATED ifRootDeviceName "Use generic-lens or generic-optics with 'rootDeviceName' instead." #-}
-
--- | The ID of the Capacity Reservation.
---
--- /Note:/ Consider using 'capacityReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifCapacityReservationId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifCapacityReservationId = Lens.lens (capacityReservationId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {capacityReservationId = a} :: Instance)
-{-# DEPRECATED ifCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
-
--- | The instance type.
---
--- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifInstanceType :: Lens.Lens' Instance InstanceType
-ifInstanceType = Lens.lens (instanceType :: Instance -> InstanceType) (\s a -> s {instanceType = a} :: Instance)
-{-# DEPRECATED ifInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
-
--- | Information about the Capacity Reservation targeting option.
---
--- /Note:/ Consider using 'capacityReservationSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifCapacityReservationSpecification :: Lens.Lens' Instance (Lude.Maybe CapacityReservationSpecificationResponse)
-ifCapacityReservationSpecification = Lens.lens (capacityReservationSpecification :: Instance -> Lude.Maybe CapacityReservationSpecificationResponse) (\s a -> s {capacityReservationSpecification = a} :: Instance)
-{-# DEPRECATED ifCapacityReservationSpecification "Use generic-lens or generic-optics with 'capacityReservationSpecification' instead." #-}
-
--- | Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
---
--- /Note:/ Consider using 'sriovNetSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifSRIOVNetSupport :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifSRIOVNetSupport = Lens.lens (sriovNetSupport :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {sriovNetSupport = a} :: Instance)
-{-# DEPRECATED ifSRIOVNetSupport "Use generic-lens or generic-optics with 'sriovNetSupport' instead." #-}
-
--- | Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
---
--- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifEBSOptimized :: Lens.Lens' Instance (Lude.Maybe Lude.Bool)
-ifEBSOptimized = Lens.lens (ebsOptimized :: Instance -> Lude.Maybe Lude.Bool) (\s a -> s {ebsOptimized = a} :: Instance)
-{-# DEPRECATED ifEBSOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
-
--- | The monitoring for the instance.
---
--- /Note:/ Consider using 'monitoring' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifMonitoring :: Lens.Lens' Instance Monitoring
-ifMonitoring = Lens.lens (monitoring :: Instance -> Monitoring) (\s a -> s {monitoring = a} :: Instance)
-{-# DEPRECATED ifMonitoring "Use generic-lens or generic-optics with 'monitoring' instead." #-}
-
--- | The reason for the most recent state transition. This might be an empty string.
---
--- /Note:/ Consider using 'stateTransitionReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifStateTransitionReason :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifStateTransitionReason = Lens.lens (stateTransitionReason :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {stateTransitionReason = a} :: Instance)
-{-# DEPRECATED ifStateTransitionReason "Use generic-lens or generic-optics with 'stateTransitionReason' instead." #-}
-
--- | Indicates whether the instance is enabled for hibernation.
---
--- /Note:/ Consider using 'hibernationOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifHibernationOptions :: Lens.Lens' Instance (Lude.Maybe HibernationOptions)
-ifHibernationOptions = Lens.lens (hibernationOptions :: Instance -> Lude.Maybe HibernationOptions) (\s a -> s {hibernationOptions = a} :: Instance)
-{-# DEPRECATED ifHibernationOptions "Use generic-lens or generic-optics with 'hibernationOptions' instead." #-}
-
--- | Indicates whether this is a Spot Instance or a Scheduled Instance.
---
--- /Note:/ Consider using 'instanceLifecycle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifInstanceLifecycle :: Lens.Lens' Instance (Lude.Maybe InstanceLifecycleType)
-ifInstanceLifecycle = Lens.lens (instanceLifecycle :: Instance -> Lude.Maybe InstanceLifecycleType) (\s a -> s {instanceLifecycle = a} :: Instance)
-{-# DEPRECATED ifInstanceLifecycle "Use generic-lens or generic-optics with 'instanceLifecycle' instead." #-}
-
--- | The IAM instance profile associated with the instance, if applicable.
---
--- /Note:/ Consider using 'iamInstanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifIAMInstanceProfile :: Lens.Lens' Instance (Lude.Maybe IAMInstanceProfile)
-ifIAMInstanceProfile = Lens.lens (iamInstanceProfile :: Instance -> Lude.Maybe IAMInstanceProfile) (\s a -> s {iamInstanceProfile = a} :: Instance)
-{-# DEPRECATED ifIAMInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
-
--- | The ID of the AMI used to launch the instance.
---
--- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifImageId :: Lens.Lens' Instance Lude.Text
-ifImageId = Lens.lens (imageId :: Instance -> Lude.Text) (\s a -> s {imageId = a} :: Instance)
-{-# DEPRECATED ifImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
-
--- | The private IPv4 address assigned to the instance.
---
--- /Note:/ Consider using 'privateIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifPrivateIPAddress :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifPrivateIPAddress = Lens.lens (privateIPAddress :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {privateIPAddress = a} :: Instance)
-{-# DEPRECATED ifPrivateIPAddress "Use generic-lens or generic-optics with 'privateIPAddress' instead." #-}
-
--- | The metadata options for the instance.
---
--- /Note:/ Consider using 'metadataOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifMetadataOptions :: Lens.Lens' Instance (Lude.Maybe InstanceMetadataOptionsResponse)
-ifMetadataOptions = Lens.lens (metadataOptions :: Instance -> Lude.Maybe InstanceMetadataOptionsResponse) (\s a -> s {metadataOptions = a} :: Instance)
-{-# DEPRECATED ifMetadataOptions "Use generic-lens or generic-optics with 'metadataOptions' instead." #-}
+-- /Note:/ Consider using 'amiLaunchIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iAmiLaunchIndex :: Lens.Lens' Instance Core.Int
+iAmiLaunchIndex = Lens.field @"amiLaunchIndex"
+{-# DEPRECATED iAmiLaunchIndex "Use generic-lens or generic-optics with 'amiLaunchIndex' instead." #-}
 
 -- | The architecture of the image.
 --
 -- /Note:/ Consider using 'architecture' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifArchitecture :: Lens.Lens' Instance ArchitectureValues
-ifArchitecture = Lens.lens (architecture :: Instance -> ArchitectureValues) (\s a -> s {architecture = a} :: Instance)
-{-# DEPRECATED ifArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
+iArchitecture :: Lens.Lens' Instance Types.ArchitectureValues
+iArchitecture = Lens.field @"architecture"
+{-# DEPRECATED iArchitecture "Use generic-lens or generic-optics with 'architecture' instead." #-}
 
--- | The product codes attached to this instance, if applicable.
+-- | Any block device mapping entries for the instance.
 --
--- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifProductCodes :: Lens.Lens' Instance (Lude.Maybe [ProductCode])
-ifProductCodes = Lens.lens (productCodes :: Instance -> Lude.Maybe [ProductCode]) (\s a -> s {productCodes = a} :: Instance)
-{-# DEPRECATED ifProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
+-- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iBlockDeviceMappings :: Lens.Lens' Instance (Core.Maybe [Types.InstanceBlockDeviceMapping])
+iBlockDeviceMappings = Lens.field @"blockDeviceMappings"
+{-# DEPRECATED iBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
 
--- | If the request is a Spot Instance request, the ID of the request.
+-- | The ID of the Capacity Reservation.
 --
--- /Note:/ Consider using 'spotInstanceRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifSpotInstanceRequestId :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifSpotInstanceRequestId = Lens.lens (spotInstanceRequestId :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {spotInstanceRequestId = a} :: Instance)
-{-# DEPRECATED ifSpotInstanceRequestId "Use generic-lens or generic-optics with 'spotInstanceRequestId' instead." #-}
+-- /Note:/ Consider using 'capacityReservationId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iCapacityReservationId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iCapacityReservationId = Lens.field @"capacityReservationId"
+{-# DEPRECATED iCapacityReservationId "Use generic-lens or generic-optics with 'capacityReservationId' instead." #-}
 
--- | The license configurations.
+-- | Information about the Capacity Reservation targeting option.
 --
--- /Note:/ Consider using 'licenses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifLicenses :: Lens.Lens' Instance (Lude.Maybe [LicenseConfiguration])
-ifLicenses = Lens.lens (licenses :: Instance -> Lude.Maybe [LicenseConfiguration]) (\s a -> s {licenses = a} :: Instance)
-{-# DEPRECATED ifLicenses "Use generic-lens or generic-optics with 'licenses' instead." #-}
+-- /Note:/ Consider using 'capacityReservationSpecification' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iCapacityReservationSpecification :: Lens.Lens' Instance (Core.Maybe Types.CapacityReservationSpecificationResponse)
+iCapacityReservationSpecification = Lens.field @"capacityReservationSpecification"
+{-# DEPRECATED iCapacityReservationSpecification "Use generic-lens or generic-optics with 'capacityReservationSpecification' instead." #-}
+
+-- | The idempotency token you provided when you launched the instance, if applicable.
+--
+-- /Note:/ Consider using 'clientToken' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iClientToken :: Lens.Lens' Instance (Core.Maybe Types.String)
+iClientToken = Lens.field @"clientToken"
+{-# DEPRECATED iClientToken "Use generic-lens or generic-optics with 'clientToken' instead." #-}
+
+-- | The CPU options for the instance.
+--
+-- /Note:/ Consider using 'cpuOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iCpuOptions :: Lens.Lens' Instance (Core.Maybe Types.CpuOptions)
+iCpuOptions = Lens.field @"cpuOptions"
+{-# DEPRECATED iCpuOptions "Use generic-lens or generic-optics with 'cpuOptions' instead." #-}
+
+-- | Indicates whether the instance is optimized for Amazon EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.
+--
+-- /Note:/ Consider using 'ebsOptimized' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iEbsOptimized :: Lens.Lens' Instance (Core.Maybe Core.Bool)
+iEbsOptimized = Lens.field @"ebsOptimized"
+{-# DEPRECATED iEbsOptimized "Use generic-lens or generic-optics with 'ebsOptimized' instead." #-}
+
+-- | The Elastic GPU associated with the instance.
+--
+-- /Note:/ Consider using 'elasticGpuAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iElasticGpuAssociations :: Lens.Lens' Instance (Core.Maybe [Types.ElasticGpuAssociation])
+iElasticGpuAssociations = Lens.field @"elasticGpuAssociations"
+{-# DEPRECATED iElasticGpuAssociations "Use generic-lens or generic-optics with 'elasticGpuAssociations' instead." #-}
 
 -- | The elastic inference accelerator associated with the instance.
 --
 -- /Note:/ Consider using 'elasticInferenceAcceleratorAssociations' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifElasticInferenceAcceleratorAssociations :: Lens.Lens' Instance (Lude.Maybe [ElasticInferenceAcceleratorAssociation])
-ifElasticInferenceAcceleratorAssociations = Lens.lens (elasticInferenceAcceleratorAssociations :: Instance -> Lude.Maybe [ElasticInferenceAcceleratorAssociation]) (\s a -> s {elasticInferenceAcceleratorAssociations = a} :: Instance)
-{-# DEPRECATED ifElasticInferenceAcceleratorAssociations "Use generic-lens or generic-optics with 'elasticInferenceAcceleratorAssociations' instead." #-}
+iElasticInferenceAcceleratorAssociations :: Lens.Lens' Instance (Core.Maybe [Types.ElasticInferenceAcceleratorAssociation])
+iElasticInferenceAcceleratorAssociations = Lens.field @"elasticInferenceAcceleratorAssociations"
+{-# DEPRECATED iElasticInferenceAcceleratorAssociations "Use generic-lens or generic-optics with 'elasticInferenceAcceleratorAssociations' instead." #-}
+
+-- | Specifies whether enhanced networking with ENA is enabled.
+--
+-- /Note:/ Consider using 'enaSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iEnaSupport :: Lens.Lens' Instance (Core.Maybe Core.Bool)
+iEnaSupport = Lens.field @"enaSupport"
+{-# DEPRECATED iEnaSupport "Use generic-lens or generic-optics with 'enaSupport' instead." #-}
+
+-- | Indicates whether the instance is enabled for AWS Nitro Enclaves.
+--
+-- /Note:/ Consider using 'enclaveOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iEnclaveOptions :: Lens.Lens' Instance (Core.Maybe Types.EnclaveOptions)
+iEnclaveOptions = Lens.field @"enclaveOptions"
+{-# DEPRECATED iEnclaveOptions "Use generic-lens or generic-optics with 'enclaveOptions' instead." #-}
+
+-- | Indicates whether the instance is enabled for hibernation.
+--
+-- /Note:/ Consider using 'hibernationOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iHibernationOptions :: Lens.Lens' Instance (Core.Maybe Types.HibernationOptions)
+iHibernationOptions = Lens.field @"hibernationOptions"
+{-# DEPRECATED iHibernationOptions "Use generic-lens or generic-optics with 'hibernationOptions' instead." #-}
+
+-- | The hypervisor type of the instance. The value @xen@ is used for both Xen and Nitro hypervisors.
+--
+-- /Note:/ Consider using 'hypervisor' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iHypervisor :: Lens.Lens' Instance Types.HypervisorType
+iHypervisor = Lens.field @"hypervisor"
+{-# DEPRECATED iHypervisor "Use generic-lens or generic-optics with 'hypervisor' instead." #-}
+
+-- | The IAM instance profile associated with the instance, if applicable.
+--
+-- /Note:/ Consider using 'iamInstanceProfile' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iIamInstanceProfile :: Lens.Lens' Instance (Core.Maybe Types.IamInstanceProfile)
+iIamInstanceProfile = Lens.field @"iamInstanceProfile"
+{-# DEPRECATED iIamInstanceProfile "Use generic-lens or generic-optics with 'iamInstanceProfile' instead." #-}
+
+-- | The ID of the AMI used to launch the instance.
+--
+-- /Note:/ Consider using 'imageId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iImageId :: Lens.Lens' Instance Types.String
+iImageId = Lens.field @"imageId"
+{-# DEPRECATED iImageId "Use generic-lens or generic-optics with 'imageId' instead." #-}
+
+-- | The ID of the instance.
+--
+-- /Note:/ Consider using 'instanceId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInstanceId :: Lens.Lens' Instance Types.String
+iInstanceId = Lens.field @"instanceId"
+{-# DEPRECATED iInstanceId "Use generic-lens or generic-optics with 'instanceId' instead." #-}
+
+-- | Indicates whether this is a Spot Instance or a Scheduled Instance.
+--
+-- /Note:/ Consider using 'instanceLifecycle' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInstanceLifecycle :: Lens.Lens' Instance (Core.Maybe Types.InstanceLifecycleType)
+iInstanceLifecycle = Lens.field @"instanceLifecycle"
+{-# DEPRECATED iInstanceLifecycle "Use generic-lens or generic-optics with 'instanceLifecycle' instead." #-}
+
+-- | The instance type.
+--
+-- /Note:/ Consider using 'instanceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iInstanceType :: Lens.Lens' Instance Types.InstanceType
+iInstanceType = Lens.field @"instanceType"
+{-# DEPRECATED iInstanceType "Use generic-lens or generic-optics with 'instanceType' instead." #-}
+
+-- | The kernel associated with this instance, if applicable.
+--
+-- /Note:/ Consider using 'kernelId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iKernelId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iKernelId = Lens.field @"kernelId"
+{-# DEPRECATED iKernelId "Use generic-lens or generic-optics with 'kernelId' instead." #-}
+
+-- | The name of the key pair, if this instance was launched with an associated key pair.
+--
+-- /Note:/ Consider using 'keyName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iKeyName :: Lens.Lens' Instance (Core.Maybe Types.String)
+iKeyName = Lens.field @"keyName"
+{-# DEPRECATED iKeyName "Use generic-lens or generic-optics with 'keyName' instead." #-}
+
+-- | The time the instance was launched.
+--
+-- /Note:/ Consider using 'launchTime' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iLaunchTime :: Lens.Lens' Instance Core.UTCTime
+iLaunchTime = Lens.field @"launchTime"
+{-# DEPRECATED iLaunchTime "Use generic-lens or generic-optics with 'launchTime' instead." #-}
+
+-- | The license configurations.
+--
+-- /Note:/ Consider using 'licenses' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iLicenses :: Lens.Lens' Instance (Core.Maybe [Types.LicenseConfiguration])
+iLicenses = Lens.field @"licenses"
+{-# DEPRECATED iLicenses "Use generic-lens or generic-optics with 'licenses' instead." #-}
+
+-- | The metadata options for the instance.
+--
+-- /Note:/ Consider using 'metadataOptions' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iMetadataOptions :: Lens.Lens' Instance (Core.Maybe Types.InstanceMetadataOptionsResponse)
+iMetadataOptions = Lens.field @"metadataOptions"
+{-# DEPRECATED iMetadataOptions "Use generic-lens or generic-optics with 'metadataOptions' instead." #-}
+
+-- | The monitoring for the instance.
+--
+-- /Note:/ Consider using 'monitoring' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iMonitoring :: Lens.Lens' Instance Types.Monitoring
+iMonitoring = Lens.field @"monitoring"
+{-# DEPRECATED iMonitoring "Use generic-lens or generic-optics with 'monitoring' instead." #-}
+
+-- | [EC2-VPC] The network interfaces for the instance.
+--
+-- /Note:/ Consider using 'networkInterfaces' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iNetworkInterfaces :: Lens.Lens' Instance (Core.Maybe [Types.InstanceNetworkInterface])
+iNetworkInterfaces = Lens.field @"networkInterfaces"
+{-# DEPRECATED iNetworkInterfaces "Use generic-lens or generic-optics with 'networkInterfaces' instead." #-}
+
+-- | The Amazon Resource Name (ARN) of the Outpost.
+--
+-- /Note:/ Consider using 'outpostArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iOutpostArn :: Lens.Lens' Instance (Core.Maybe Types.String)
+iOutpostArn = Lens.field @"outpostArn"
+{-# DEPRECATED iOutpostArn "Use generic-lens or generic-optics with 'outpostArn' instead." #-}
+
+-- | The location where the instance launched, if applicable.
+--
+-- /Note:/ Consider using 'placement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPlacement :: Lens.Lens' Instance Types.Placement
+iPlacement = Lens.field @"placement"
+{-# DEPRECATED iPlacement "Use generic-lens or generic-optics with 'placement' instead." #-}
+
+-- | The value is @Windows@ for Windows instances; otherwise blank.
+--
+-- /Note:/ Consider using 'platform' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPlatform :: Lens.Lens' Instance (Core.Maybe Types.PlatformValues)
+iPlatform = Lens.field @"platform"
+{-# DEPRECATED iPlatform "Use generic-lens or generic-optics with 'platform' instead." #-}
 
 -- | (IPv4 only) The private DNS hostname name assigned to the instance. This DNS hostname can only be used inside the Amazon EC2 network. This name is not available until the instance enters the @running@ state.
 --
 -- [EC2-VPC] The Amazon-provided DNS server resolves Amazon-provided private DNS hostnames if you've enabled DNS resolution and DNS hostnames in your VPC. If you are not using the Amazon-provided DNS server in your VPC, your custom domain name servers must resolve the hostname as appropriate.
 --
--- /Note:/ Consider using 'privateDNSName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifPrivateDNSName :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifPrivateDNSName = Lens.lens (privateDNSName :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {privateDNSName = a} :: Instance)
-{-# DEPRECATED ifPrivateDNSName "Use generic-lens or generic-optics with 'privateDNSName' instead." #-}
+-- /Note:/ Consider using 'privateDnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPrivateDnsName :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPrivateDnsName = Lens.field @"privateDnsName"
+{-# DEPRECATED iPrivateDnsName "Use generic-lens or generic-optics with 'privateDnsName' instead." #-}
 
--- | The reason for the most recent state transition.
+-- | The private IPv4 address assigned to the instance.
 --
--- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifStateReason :: Lens.Lens' Instance (Lude.Maybe StateReason)
-ifStateReason = Lens.lens (stateReason :: Instance -> Lude.Maybe StateReason) (\s a -> s {stateReason = a} :: Instance)
-{-# DEPRECATED ifStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
+-- /Note:/ Consider using 'privateIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPrivateIpAddress :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPrivateIpAddress = Lens.field @"privateIpAddress"
+{-# DEPRECATED iPrivateIpAddress "Use generic-lens or generic-optics with 'privateIpAddress' instead." #-}
 
--- | The root device type used by the AMI. The AMI can use an EBS volume or an instance store volume.
+-- | The product codes attached to this instance, if applicable.
 --
--- /Note:/ Consider using 'rootDeviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifRootDeviceType :: Lens.Lens' Instance DeviceType
-ifRootDeviceType = Lens.lens (rootDeviceType :: Instance -> DeviceType) (\s a -> s {rootDeviceType = a} :: Instance)
-{-# DEPRECATED ifRootDeviceType "Use generic-lens or generic-optics with 'rootDeviceType' instead." #-}
+-- /Note:/ Consider using 'productCodes' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iProductCodes :: Lens.Lens' Instance (Core.Maybe [Types.ProductCode])
+iProductCodes = Lens.field @"productCodes"
+{-# DEPRECATED iProductCodes "Use generic-lens or generic-optics with 'productCodes' instead." #-}
 
--- | Any block device mapping entries for the instance.
+-- | (IPv4 only) The public DNS name assigned to the instance. This name is not available until the instance enters the @running@ state. For EC2-VPC, this name is only available if you've enabled DNS hostnames for your VPC.
 --
--- /Note:/ Consider using 'blockDeviceMappings' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifBlockDeviceMappings :: Lens.Lens' Instance (Lude.Maybe [InstanceBlockDeviceMapping])
-ifBlockDeviceMappings = Lens.lens (blockDeviceMappings :: Instance -> Lude.Maybe [InstanceBlockDeviceMapping]) (\s a -> s {blockDeviceMappings = a} :: Instance)
-{-# DEPRECATED ifBlockDeviceMappings "Use generic-lens or generic-optics with 'blockDeviceMappings' instead." #-}
-
--- | The AMI launch index, which can be used to find this instance in the launch group.
---
--- /Note:/ Consider using 'amiLaunchIndex' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifAMILaunchIndex :: Lens.Lens' Instance Lude.Int
-ifAMILaunchIndex = Lens.lens (amiLaunchIndex :: Instance -> Lude.Int) (\s a -> s {amiLaunchIndex = a} :: Instance)
-{-# DEPRECATED ifAMILaunchIndex "Use generic-lens or generic-optics with 'amiLaunchIndex' instead." #-}
+-- /Note:/ Consider using 'publicDnsName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPublicDnsName :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPublicDnsName = Lens.field @"publicDnsName"
+{-# DEPRECATED iPublicDnsName "Use generic-lens or generic-optics with 'publicDnsName' instead." #-}
 
 -- | The public IPv4 address, or the Carrier IP address assigned to the instance, if applicable.
 --
 -- A Carrier IP address only applies to an instance launched in a subnet associated with a Wavelength Zone.
 --
--- /Note:/ Consider using 'publicIPAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifPublicIPAddress :: Lens.Lens' Instance (Lude.Maybe Lude.Text)
-ifPublicIPAddress = Lens.lens (publicIPAddress :: Instance -> Lude.Maybe Lude.Text) (\s a -> s {publicIPAddress = a} :: Instance)
-{-# DEPRECATED ifPublicIPAddress "Use generic-lens or generic-optics with 'publicIPAddress' instead." #-}
+-- /Note:/ Consider using 'publicIpAddress' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iPublicIpAddress :: Lens.Lens' Instance (Core.Maybe Types.String)
+iPublicIpAddress = Lens.field @"publicIpAddress"
+{-# DEPRECATED iPublicIpAddress "Use generic-lens or generic-optics with 'publicIpAddress' instead." #-}
 
--- | The location where the instance launched, if applicable.
+-- | The RAM disk associated with this instance, if applicable.
 --
--- /Note:/ Consider using 'placement' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifPlacement :: Lens.Lens' Instance Placement
-ifPlacement = Lens.lens (placement :: Instance -> Placement) (\s a -> s {placement = a} :: Instance)
-{-# DEPRECATED ifPlacement "Use generic-lens or generic-optics with 'placement' instead." #-}
+-- /Note:/ Consider using 'ramdiskId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iRamdiskId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iRamdiskId = Lens.field @"ramdiskId"
+{-# DEPRECATED iRamdiskId "Use generic-lens or generic-optics with 'ramdiskId' instead." #-}
+
+-- | The device name of the root device volume (for example, @/dev/sda1@ ).
+--
+-- /Note:/ Consider using 'rootDeviceName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iRootDeviceName :: Lens.Lens' Instance (Core.Maybe Types.String)
+iRootDeviceName = Lens.field @"rootDeviceName"
+{-# DEPRECATED iRootDeviceName "Use generic-lens or generic-optics with 'rootDeviceName' instead." #-}
+
+-- | The root device type used by the AMI. The AMI can use an EBS volume or an instance store volume.
+--
+-- /Note:/ Consider using 'rootDeviceType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iRootDeviceType :: Lens.Lens' Instance Types.DeviceType
+iRootDeviceType = Lens.field @"rootDeviceType"
+{-# DEPRECATED iRootDeviceType "Use generic-lens or generic-optics with 'rootDeviceType' instead." #-}
+
+-- | The security groups for the instance.
+--
+-- /Note:/ Consider using 'securityGroups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iSecurityGroups :: Lens.Lens' Instance (Core.Maybe [Types.GroupIdentifier])
+iSecurityGroups = Lens.field @"securityGroups"
+{-# DEPRECATED iSecurityGroups "Use generic-lens or generic-optics with 'securityGroups' instead." #-}
+
+-- | Specifies whether to enable an instance launched in a VPC to perform NAT. This controls whether source/destination checking is enabled on the instance. A value of @true@ means that checking is enabled, and @false@ means that checking is disabled. The value must be @false@ for the instance to perform NAT. For more information, see <https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances> in the /Amazon Virtual Private Cloud User Guide/ .
+--
+-- /Note:/ Consider using 'sourceDestCheck' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iSourceDestCheck :: Lens.Lens' Instance (Core.Maybe Core.Bool)
+iSourceDestCheck = Lens.field @"sourceDestCheck"
+{-# DEPRECATED iSourceDestCheck "Use generic-lens or generic-optics with 'sourceDestCheck' instead." #-}
+
+-- | If the request is a Spot Instance request, the ID of the request.
+--
+-- /Note:/ Consider using 'spotInstanceRequestId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iSpotInstanceRequestId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iSpotInstanceRequestId = Lens.field @"spotInstanceRequestId"
+{-# DEPRECATED iSpotInstanceRequestId "Use generic-lens or generic-optics with 'spotInstanceRequestId' instead." #-}
+
+-- | Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.
+--
+-- /Note:/ Consider using 'sriovNetSupport' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iSriovNetSupport :: Lens.Lens' Instance (Core.Maybe Types.String)
+iSriovNetSupport = Lens.field @"sriovNetSupport"
+{-# DEPRECATED iSriovNetSupport "Use generic-lens or generic-optics with 'sriovNetSupport' instead." #-}
+
+-- | The current state of the instance.
+--
+-- /Note:/ Consider using 'state' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iState :: Lens.Lens' Instance Types.InstanceState
+iState = Lens.field @"state"
+{-# DEPRECATED iState "Use generic-lens or generic-optics with 'state' instead." #-}
+
+-- | The reason for the most recent state transition.
+--
+-- /Note:/ Consider using 'stateReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iStateReason :: Lens.Lens' Instance (Core.Maybe Types.StateReason)
+iStateReason = Lens.field @"stateReason"
+{-# DEPRECATED iStateReason "Use generic-lens or generic-optics with 'stateReason' instead." #-}
+
+-- | The reason for the most recent state transition. This might be an empty string.
+--
+-- /Note:/ Consider using 'stateTransitionReason' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iStateTransitionReason :: Lens.Lens' Instance (Core.Maybe Types.String)
+iStateTransitionReason = Lens.field @"stateTransitionReason"
+{-# DEPRECATED iStateTransitionReason "Use generic-lens or generic-optics with 'stateTransitionReason' instead." #-}
+
+-- | [EC2-VPC] The ID of the subnet in which the instance is running.
+--
+-- /Note:/ Consider using 'subnetId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iSubnetId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iSubnetId = Lens.field @"subnetId"
+{-# DEPRECATED iSubnetId "Use generic-lens or generic-optics with 'subnetId' instead." #-}
 
 -- | Any tags assigned to the instance.
 --
 -- /Note:/ Consider using 'tags' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-ifTags :: Lens.Lens' Instance (Lude.Maybe [Tag])
-ifTags = Lens.lens (tags :: Instance -> Lude.Maybe [Tag]) (\s a -> s {tags = a} :: Instance)
-{-# DEPRECATED ifTags "Use generic-lens or generic-optics with 'tags' instead." #-}
+iTags :: Lens.Lens' Instance (Core.Maybe [Types.Tag])
+iTags = Lens.field @"tags"
+{-# DEPRECATED iTags "Use generic-lens or generic-optics with 'tags' instead." #-}
 
-instance Lude.FromXML Instance where
+-- | The virtualization type of the instance.
+--
+-- /Note:/ Consider using 'virtualizationType' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iVirtualizationType :: Lens.Lens' Instance Types.VirtualizationType
+iVirtualizationType = Lens.field @"virtualizationType"
+{-# DEPRECATED iVirtualizationType "Use generic-lens or generic-optics with 'virtualizationType' instead." #-}
+
+-- | [EC2-VPC] The ID of the VPC in which the instance is running.
+--
+-- /Note:/ Consider using 'vpcId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iVpcId :: Lens.Lens' Instance (Core.Maybe Types.String)
+iVpcId = Lens.field @"vpcId"
+{-# DEPRECATED iVpcId "Use generic-lens or generic-optics with 'vpcId' instead." #-}
+
+instance Core.FromXML Instance where
   parseXML x =
     Instance'
-      Lude.<$> (x Lude..@ "instanceId")
-      Lude.<*> (x Lude..@ "instanceState")
-      Lude.<*> (x Lude..@ "virtualizationType")
-      Lude.<*> (x Lude..@? "dnsName")
-      Lude.<*> (x Lude..@ "hypervisor")
-      Lude.<*> (x Lude..@? "platform")
-      Lude.<*> ( x Lude..@? "groupSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<$> (x Core..@ "amiLaunchIndex")
+      Core.<*> (x Core..@ "architecture")
+      Core.<*> ( x Core..@? "blockDeviceMapping"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "clientToken")
-      Lude.<*> (x Lude..@? "enaSupport")
-      Lude.<*> (x Lude..@? "sourceDestCheck")
-      Lude.<*> ( x Lude..@? "elasticGpuAssociationSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<*> (x Core..@? "capacityReservationId")
+      Core.<*> (x Core..@? "capacityReservationSpecification")
+      Core.<*> (x Core..@? "clientToken")
+      Core.<*> (x Core..@? "cpuOptions")
+      Core.<*> (x Core..@? "ebsOptimized")
+      Core.<*> ( x Core..@? "elasticGpuAssociationSet"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "vpcId")
-      Lude.<*> (x Lude..@? "keyName")
-      Lude.<*> (x Lude..@ "launchTime")
-      Lude.<*> ( x Lude..@? "networkInterfaceSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<*> ( x Core..@? "elasticInferenceAcceleratorAssociationSet"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "outpostArn")
-      Lude.<*> (x Lude..@? "enclaveOptions")
-      Lude.<*> (x Lude..@? "ramdiskId")
-      Lude.<*> (x Lude..@? "cpuOptions")
-      Lude.<*> (x Lude..@? "subnetId")
-      Lude.<*> (x Lude..@? "kernelId")
-      Lude.<*> (x Lude..@? "rootDeviceName")
-      Lude.<*> (x Lude..@? "capacityReservationId")
-      Lude.<*> (x Lude..@ "instanceType")
-      Lude.<*> (x Lude..@? "capacityReservationSpecification")
-      Lude.<*> (x Lude..@? "sriovNetSupport")
-      Lude.<*> (x Lude..@? "ebsOptimized")
-      Lude.<*> (x Lude..@ "monitoring")
-      Lude.<*> (x Lude..@? "reason")
-      Lude.<*> (x Lude..@? "hibernationOptions")
-      Lude.<*> (x Lude..@? "instanceLifecycle")
-      Lude.<*> (x Lude..@? "iamInstanceProfile")
-      Lude.<*> (x Lude..@ "imageId")
-      Lude.<*> (x Lude..@? "privateIpAddress")
-      Lude.<*> (x Lude..@? "metadataOptions")
-      Lude.<*> (x Lude..@ "architecture")
-      Lude.<*> ( x Lude..@? "productCodes" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
+      Core.<*> (x Core..@? "enaSupport")
+      Core.<*> (x Core..@? "enclaveOptions")
+      Core.<*> (x Core..@? "hibernationOptions")
+      Core.<*> (x Core..@ "hypervisor")
+      Core.<*> (x Core..@? "iamInstanceProfile")
+      Core.<*> (x Core..@ "imageId")
+      Core.<*> (x Core..@ "instanceId")
+      Core.<*> (x Core..@? "instanceLifecycle")
+      Core.<*> (x Core..@ "instanceType")
+      Core.<*> (x Core..@? "kernelId")
+      Core.<*> (x Core..@? "keyName")
+      Core.<*> (x Core..@ "launchTime")
+      Core.<*> (x Core..@? "licenseSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "metadataOptions")
+      Core.<*> (x Core..@ "monitoring")
+      Core.<*> ( x Core..@? "networkInterfaceSet"
+                   Core..<@> Core.parseXMLList "item"
                )
-      Lude.<*> (x Lude..@? "spotInstanceRequestId")
-      Lude.<*> ( x Lude..@? "licenseSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> ( x Lude..@? "elasticInferenceAcceleratorAssociationSet"
-                   Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@? "privateDnsName")
-      Lude.<*> (x Lude..@? "stateReason")
-      Lude.<*> (x Lude..@ "rootDeviceType")
-      Lude.<*> ( x Lude..@? "blockDeviceMapping" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
-      Lude.<*> (x Lude..@ "amiLaunchIndex")
-      Lude.<*> (x Lude..@? "ipAddress")
-      Lude.<*> (x Lude..@ "placement")
-      Lude.<*> ( x Lude..@? "tagSet" Lude..!@ Lude.mempty
-                   Lude.>>= Lude.may (Lude.parseXMLList "item")
-               )
+      Core.<*> (x Core..@? "outpostArn")
+      Core.<*> (x Core..@ "placement")
+      Core.<*> (x Core..@? "platform")
+      Core.<*> (x Core..@? "privateDnsName")
+      Core.<*> (x Core..@? "privateIpAddress")
+      Core.<*> (x Core..@? "productCodes" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "dnsName")
+      Core.<*> (x Core..@? "ipAddress")
+      Core.<*> (x Core..@? "ramdiskId")
+      Core.<*> (x Core..@? "rootDeviceName")
+      Core.<*> (x Core..@ "rootDeviceType")
+      Core.<*> (x Core..@? "groupSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@? "sourceDestCheck")
+      Core.<*> (x Core..@? "spotInstanceRequestId")
+      Core.<*> (x Core..@? "sriovNetSupport")
+      Core.<*> (x Core..@ "instanceState")
+      Core.<*> (x Core..@? "stateReason")
+      Core.<*> (x Core..@? "reason")
+      Core.<*> (x Core..@? "subnetId")
+      Core.<*> (x Core..@? "tagSet" Core..<@> Core.parseXMLList "item")
+      Core.<*> (x Core..@ "virtualizationType")
+      Core.<*> (x Core..@? "vpcId")

@@ -18,70 +18,66 @@ module Network.AWS.Discovery.Types.AgentConfigurationStatus
 
     -- * Lenses
     acsAgentId,
-    acsOperationSucceeded,
     acsDescription,
+    acsOperationSucceeded,
   )
 where
 
+import qualified Network.AWS.Discovery.Types.AgentId as Types
+import qualified Network.AWS.Discovery.Types.Description as Types
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
 -- | Information about agents or connectors that were instructed to start collecting data. Information includes the agent/connector ID, a description of the operation, and whether the agent/connector configuration was updated.
 --
 -- /See:/ 'mkAgentConfigurationStatus' smart constructor.
 data AgentConfigurationStatus = AgentConfigurationStatus'
   { -- | The agent/connector ID.
-    agentId :: Lude.Maybe Lude.Text,
-    -- | Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
-    operationSucceeded :: Lude.Maybe Lude.Bool,
+    agentId :: Core.Maybe Types.AgentId,
     -- | A description of the operation performed.
-    description :: Lude.Maybe Lude.Text
+    description :: Core.Maybe Types.Description,
+    -- | Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
+    operationSucceeded :: Core.Maybe Core.Bool
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AgentConfigurationStatus' with the minimum fields required to make a request.
---
--- * 'agentId' - The agent/connector ID.
--- * 'operationSucceeded' - Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
--- * 'description' - A description of the operation performed.
+-- | Creates a 'AgentConfigurationStatus' value with any optional fields omitted.
 mkAgentConfigurationStatus ::
   AgentConfigurationStatus
 mkAgentConfigurationStatus =
   AgentConfigurationStatus'
-    { agentId = Lude.Nothing,
-      operationSucceeded = Lude.Nothing,
-      description = Lude.Nothing
+    { agentId = Core.Nothing,
+      description = Core.Nothing,
+      operationSucceeded = Core.Nothing
     }
 
 -- | The agent/connector ID.
 --
 -- /Note:/ Consider using 'agentId' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsAgentId :: Lens.Lens' AgentConfigurationStatus (Lude.Maybe Lude.Text)
-acsAgentId = Lens.lens (agentId :: AgentConfigurationStatus -> Lude.Maybe Lude.Text) (\s a -> s {agentId = a} :: AgentConfigurationStatus)
+acsAgentId :: Lens.Lens' AgentConfigurationStatus (Core.Maybe Types.AgentId)
+acsAgentId = Lens.field @"agentId"
 {-# DEPRECATED acsAgentId "Use generic-lens or generic-optics with 'agentId' instead." #-}
-
--- | Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
---
--- /Note:/ Consider using 'operationSucceeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsOperationSucceeded :: Lens.Lens' AgentConfigurationStatus (Lude.Maybe Lude.Bool)
-acsOperationSucceeded = Lens.lens (operationSucceeded :: AgentConfigurationStatus -> Lude.Maybe Lude.Bool) (\s a -> s {operationSucceeded = a} :: AgentConfigurationStatus)
-{-# DEPRECATED acsOperationSucceeded "Use generic-lens or generic-optics with 'operationSucceeded' instead." #-}
 
 -- | A description of the operation performed.
 --
 -- /Note:/ Consider using 'description' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-acsDescription :: Lens.Lens' AgentConfigurationStatus (Lude.Maybe Lude.Text)
-acsDescription = Lens.lens (description :: AgentConfigurationStatus -> Lude.Maybe Lude.Text) (\s a -> s {description = a} :: AgentConfigurationStatus)
+acsDescription :: Lens.Lens' AgentConfigurationStatus (Core.Maybe Types.Description)
+acsDescription = Lens.field @"description"
 {-# DEPRECATED acsDescription "Use generic-lens or generic-optics with 'description' instead." #-}
 
-instance Lude.FromJSON AgentConfigurationStatus where
+-- | Information about the status of the @StartDataCollection@ and @StopDataCollection@ operations. The system has recorded the data collection operation. The agent/connector receives this command the next time it polls for a new command.
+--
+-- /Note:/ Consider using 'operationSucceeded' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+acsOperationSucceeded :: Lens.Lens' AgentConfigurationStatus (Core.Maybe Core.Bool)
+acsOperationSucceeded = Lens.field @"operationSucceeded"
+{-# DEPRECATED acsOperationSucceeded "Use generic-lens or generic-optics with 'operationSucceeded' instead." #-}
+
+instance Core.FromJSON AgentConfigurationStatus where
   parseJSON =
-    Lude.withObject
-      "AgentConfigurationStatus"
-      ( \x ->
-          AgentConfigurationStatus'
-            Lude.<$> (x Lude..:? "agentId")
-            Lude.<*> (x Lude..:? "operationSucceeded")
-            Lude.<*> (x Lude..:? "description")
-      )
+    Core.withObject "AgentConfigurationStatus" Core.$
+      \x ->
+        AgentConfigurationStatus'
+          Core.<$> (x Core..:? "agentId")
+          Core.<*> (x Core..:? "description")
+          Core.<*> (x Core..:? "operationSucceeded")

@@ -13,51 +13,56 @@
 module Network.AWS.EC2.Types.FlowLogsResourceType
   ( FlowLogsResourceType
       ( FlowLogsResourceType',
-        FLRTVPC,
-        FLRTSubnet,
-        FLRTNetworkInterface
+        FlowLogsResourceTypeVpc,
+        FlowLogsResourceTypeSubnet,
+        FlowLogsResourceTypeNetworkInterface,
+        fromFlowLogsResourceType
       ),
   )
 where
 
-import qualified Network.AWS.Prelude as Lude
+import qualified Network.AWS.Prelude as Core
 
-newtype FlowLogsResourceType = FlowLogsResourceType' Lude.Text
+newtype FlowLogsResourceType = FlowLogsResourceType'
+  { fromFlowLogsResourceType ::
+      Core.Text
+  }
   deriving stock
-    ( Lude.Eq,
-      Lude.Ord,
-      Lude.Read,
-      Lude.Show,
-      Lude.Generic
+    ( Core.Eq,
+      Core.Ord,
+      Core.Read,
+      Core.Show,
+      Core.Generic
     )
   deriving newtype
-    ( Lude.Hashable,
-      Lude.NFData,
-      Lude.ToJSONKey,
-      Lude.FromJSONKey,
-      Lude.ToJSON,
-      Lude.FromJSON,
-      Lude.ToXML,
-      Lude.FromXML,
-      Lude.ToText,
-      Lude.FromText,
-      Lude.ToByteString,
-      Lude.ToQuery,
-      Lude.ToHeader
+    ( Core.IsString,
+      Core.Hashable,
+      Core.NFData,
+      Core.ToJSONKey,
+      Core.FromJSONKey,
+      Core.ToJSON,
+      Core.FromJSON,
+      Core.ToXML,
+      Core.FromXML,
+      Core.ToText,
+      Core.FromText,
+      Core.ToByteString,
+      Core.ToQuery,
+      Core.ToHeader
     )
 
-pattern FLRTVPC :: FlowLogsResourceType
-pattern FLRTVPC = FlowLogsResourceType' "VPC"
+pattern FlowLogsResourceTypeVpc :: FlowLogsResourceType
+pattern FlowLogsResourceTypeVpc = FlowLogsResourceType' "VPC"
 
-pattern FLRTSubnet :: FlowLogsResourceType
-pattern FLRTSubnet = FlowLogsResourceType' "Subnet"
+pattern FlowLogsResourceTypeSubnet :: FlowLogsResourceType
+pattern FlowLogsResourceTypeSubnet = FlowLogsResourceType' "Subnet"
 
-pattern FLRTNetworkInterface :: FlowLogsResourceType
-pattern FLRTNetworkInterface = FlowLogsResourceType' "NetworkInterface"
+pattern FlowLogsResourceTypeNetworkInterface :: FlowLogsResourceType
+pattern FlowLogsResourceTypeNetworkInterface = FlowLogsResourceType' "NetworkInterface"
 
 {-# COMPLETE
-  FLRTVPC,
-  FLRTSubnet,
-  FLRTNetworkInterface,
+  FlowLogsResourceTypeVpc,
+  FlowLogsResourceTypeSubnet,
+  FlowLogsResourceTypeNetworkInterface,
   FlowLogsResourceType'
   #-}

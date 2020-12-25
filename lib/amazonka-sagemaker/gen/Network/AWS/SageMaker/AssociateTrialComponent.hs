@@ -28,142 +28,124 @@ module Network.AWS.SageMaker.AssociateTrialComponent
     mkAssociateTrialComponentResponse,
 
     -- ** Response lenses
-    atcrsTrialARN,
-    atcrsTrialComponentARN,
-    atcrsResponseStatus,
+    atcrrsTrialArn,
+    atcrrsTrialComponentArn,
+    atcrrsResponseStatus,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import qualified Network.AWS.Request as Req
-import qualified Network.AWS.Response as Res
-import Network.AWS.SageMaker.Types
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.Request as Request
+import qualified Network.AWS.Response as Response
+import qualified Network.AWS.SageMaker.Types as Types
 
 -- | /See:/ 'mkAssociateTrialComponent' smart constructor.
 data AssociateTrialComponent = AssociateTrialComponent'
   { -- | The name of the component to associated with the trial.
-    trialComponentName :: Lude.Text,
+    trialComponentName :: Types.ExperimentEntityName,
     -- | The name of the trial to associate with.
-    trialName :: Lude.Text
+    trialName :: Types.ExperimentEntityName
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateTrialComponent' with the minimum fields required to make a request.
---
--- * 'trialComponentName' - The name of the component to associated with the trial.
--- * 'trialName' - The name of the trial to associate with.
+-- | Creates a 'AssociateTrialComponent' value with any optional fields omitted.
 mkAssociateTrialComponent ::
   -- | 'trialComponentName'
-  Lude.Text ->
+  Types.ExperimentEntityName ->
   -- | 'trialName'
-  Lude.Text ->
+  Types.ExperimentEntityName ->
   AssociateTrialComponent
-mkAssociateTrialComponent pTrialComponentName_ pTrialName_ =
-  AssociateTrialComponent'
-    { trialComponentName =
-        pTrialComponentName_,
-      trialName = pTrialName_
-    }
+mkAssociateTrialComponent trialComponentName trialName =
+  AssociateTrialComponent' {trialComponentName, trialName}
 
 -- | The name of the component to associated with the trial.
 --
 -- /Note:/ Consider using 'trialComponentName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atcTrialComponentName :: Lens.Lens' AssociateTrialComponent Lude.Text
-atcTrialComponentName = Lens.lens (trialComponentName :: AssociateTrialComponent -> Lude.Text) (\s a -> s {trialComponentName = a} :: AssociateTrialComponent)
+atcTrialComponentName :: Lens.Lens' AssociateTrialComponent Types.ExperimentEntityName
+atcTrialComponentName = Lens.field @"trialComponentName"
 {-# DEPRECATED atcTrialComponentName "Use generic-lens or generic-optics with 'trialComponentName' instead." #-}
 
 -- | The name of the trial to associate with.
 --
 -- /Note:/ Consider using 'trialName' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atcTrialName :: Lens.Lens' AssociateTrialComponent Lude.Text
-atcTrialName = Lens.lens (trialName :: AssociateTrialComponent -> Lude.Text) (\s a -> s {trialName = a} :: AssociateTrialComponent)
+atcTrialName :: Lens.Lens' AssociateTrialComponent Types.ExperimentEntityName
+atcTrialName = Lens.field @"trialName"
 {-# DEPRECATED atcTrialName "Use generic-lens or generic-optics with 'trialName' instead." #-}
 
-instance Lude.AWSRequest AssociateTrialComponent where
+instance Core.FromJSON AssociateTrialComponent where
+  toJSON AssociateTrialComponent {..} =
+    Core.object
+      ( Core.catMaybes
+          [ Core.Just ("TrialComponentName" Core..= trialComponentName),
+            Core.Just ("TrialName" Core..= trialName)
+          ]
+      )
+
+instance Core.AWSRequest AssociateTrialComponent where
   type Rs AssociateTrialComponent = AssociateTrialComponentResponse
-  request = Req.postJSON sageMakerService
+  request x@Core.Request {..} =
+    Core.Request
+      { Core._rqService = Types.mkServiceConfig,
+        Core._rqMethod = Request.POST,
+        Core._rqPath = Core.rawPath "/",
+        Core._rqQuery = Core.mempty,
+        Core._rqHeaders =
+          Core.pure ("X-Amz-Target", "SageMaker.AssociateTrialComponent")
+            Core.<> (Core.pure ("Content-Type", "application/x-amz-json-1.1")),
+        Core._rqBody = Core.toJSONBody x
+      }
   response =
-    Res.receiveJSON
+    Response.receiveJSON
       ( \s h x ->
           AssociateTrialComponentResponse'
-            Lude.<$> (x Lude..?> "TrialArn")
-            Lude.<*> (x Lude..?> "TrialComponentArn")
-            Lude.<*> (Lude.pure (Lude.fromEnum s))
+            Core.<$> (x Core..:? "TrialArn")
+            Core.<*> (x Core..:? "TrialComponentArn")
+            Core.<*> (Core.pure (Core.fromEnum s))
       )
-
-instance Lude.ToHeaders AssociateTrialComponent where
-  toHeaders =
-    Lude.const
-      ( Lude.mconcat
-          [ "X-Amz-Target"
-              Lude.=# ("SageMaker.AssociateTrialComponent" :: Lude.ByteString),
-            "Content-Type"
-              Lude.=# ("application/x-amz-json-1.1" :: Lude.ByteString)
-          ]
-      )
-
-instance Lude.ToJSON AssociateTrialComponent where
-  toJSON AssociateTrialComponent' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ Lude.Just ("TrialComponentName" Lude..= trialComponentName),
-            Lude.Just ("TrialName" Lude..= trialName)
-          ]
-      )
-
-instance Lude.ToPath AssociateTrialComponent where
-  toPath = Lude.const "/"
-
-instance Lude.ToQuery AssociateTrialComponent where
-  toQuery = Lude.const Lude.mempty
 
 -- | /See:/ 'mkAssociateTrialComponentResponse' smart constructor.
 data AssociateTrialComponentResponse = AssociateTrialComponentResponse'
   { -- | The Amazon Resource Name (ARN) of the trial.
-    trialARN :: Lude.Maybe Lude.Text,
+    trialArn :: Core.Maybe Types.TrialArn,
     -- | The ARN of the trial component.
-    trialComponentARN :: Lude.Maybe Lude.Text,
+    trialComponentArn :: Core.Maybe Types.TrialComponentArn,
     -- | The response status code.
-    responseStatus :: Lude.Int
+    responseStatus :: Core.Int
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'AssociateTrialComponentResponse' with the minimum fields required to make a request.
---
--- * 'trialARN' - The Amazon Resource Name (ARN) of the trial.
--- * 'trialComponentARN' - The ARN of the trial component.
--- * 'responseStatus' - The response status code.
+-- | Creates a 'AssociateTrialComponentResponse' value with any optional fields omitted.
 mkAssociateTrialComponentResponse ::
   -- | 'responseStatus'
-  Lude.Int ->
+  Core.Int ->
   AssociateTrialComponentResponse
-mkAssociateTrialComponentResponse pResponseStatus_ =
+mkAssociateTrialComponentResponse responseStatus =
   AssociateTrialComponentResponse'
-    { trialARN = Lude.Nothing,
-      trialComponentARN = Lude.Nothing,
-      responseStatus = pResponseStatus_
+    { trialArn = Core.Nothing,
+      trialComponentArn = Core.Nothing,
+      responseStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the trial.
 --
--- /Note:/ Consider using 'trialARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atcrsTrialARN :: Lens.Lens' AssociateTrialComponentResponse (Lude.Maybe Lude.Text)
-atcrsTrialARN = Lens.lens (trialARN :: AssociateTrialComponentResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialARN = a} :: AssociateTrialComponentResponse)
-{-# DEPRECATED atcrsTrialARN "Use generic-lens or generic-optics with 'trialARN' instead." #-}
+-- /Note:/ Consider using 'trialArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atcrrsTrialArn :: Lens.Lens' AssociateTrialComponentResponse (Core.Maybe Types.TrialArn)
+atcrrsTrialArn = Lens.field @"trialArn"
+{-# DEPRECATED atcrrsTrialArn "Use generic-lens or generic-optics with 'trialArn' instead." #-}
 
 -- | The ARN of the trial component.
 --
--- /Note:/ Consider using 'trialComponentARN' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atcrsTrialComponentARN :: Lens.Lens' AssociateTrialComponentResponse (Lude.Maybe Lude.Text)
-atcrsTrialComponentARN = Lens.lens (trialComponentARN :: AssociateTrialComponentResponse -> Lude.Maybe Lude.Text) (\s a -> s {trialComponentARN = a} :: AssociateTrialComponentResponse)
-{-# DEPRECATED atcrsTrialComponentARN "Use generic-lens or generic-optics with 'trialComponentARN' instead." #-}
+-- /Note:/ Consider using 'trialComponentArn' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+atcrrsTrialComponentArn :: Lens.Lens' AssociateTrialComponentResponse (Core.Maybe Types.TrialComponentArn)
+atcrrsTrialComponentArn = Lens.field @"trialComponentArn"
+{-# DEPRECATED atcrrsTrialComponentArn "Use generic-lens or generic-optics with 'trialComponentArn' instead." #-}
 
 -- | The response status code.
 --
 -- /Note:/ Consider using 'responseStatus' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-atcrsResponseStatus :: Lens.Lens' AssociateTrialComponentResponse Lude.Int
-atcrsResponseStatus = Lens.lens (responseStatus :: AssociateTrialComponentResponse -> Lude.Int) (\s a -> s {responseStatus = a} :: AssociateTrialComponentResponse)
-{-# DEPRECATED atcrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}
+atcrrsResponseStatus :: Lens.Lens' AssociateTrialComponentResponse Core.Int
+atcrrsResponseStatus = Lens.field @"responseStatus"
+{-# DEPRECATED atcrrsResponseStatus "Use generic-lens or generic-optics with 'responseStatus' instead." #-}

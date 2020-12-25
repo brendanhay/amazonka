@@ -1,4 +1,3 @@
-{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
@@ -18,10 +17,58 @@
 -- To connect programmatically to an AWS service, you use an endpoint. For a list of Amazon Connect endpoints, see <https://docs.aws.amazon.com/general/latest/gr/connect_region.html Amazon Connect Endpoints> .
 module Network.AWS.Connect
   ( -- * Service configuration
-    connectService,
+    mkServiceConfig,
 
     -- * Errors
     -- $errors
+
+    -- ** InvalidContactFlowException
+    _InvalidContactFlowException,
+
+    -- ** OutboundContactNotPermittedException
+    _OutboundContactNotPermittedException,
+
+    -- ** InvalidParameterException
+    _InvalidParameterException,
+
+    -- ** InvalidRequestException
+    _InvalidRequestException,
+
+    -- ** DuplicateResourceException
+    _DuplicateResourceException,
+
+    -- ** UserNotFoundException
+    _UserNotFoundException,
+
+    -- ** ContactFlowNotPublishedException
+    _ContactFlowNotPublishedException,
+
+    -- ** DestinationNotAllowedException
+    _DestinationNotAllowedException,
+
+    -- ** ContactNotFoundException
+    _ContactNotFoundException,
+
+    -- ** ServiceQuotaExceededException
+    _ServiceQuotaExceededException,
+
+    -- ** ThrottlingException
+    _ThrottlingException,
+
+    -- ** InternalServiceException
+    _InternalServiceException,
+
+    -- ** ResourceConflictException
+    _ResourceConflictException,
+
+    -- ** ResourceNotFoundException
+    _ResourceNotFoundException,
+
+    -- ** LimitExceededException
+    _LimitExceededException,
+
+    -- ** ResourceInUseException
+    _ResourceInUseException,
 
     -- * Waiters
     -- $waiters
@@ -256,113 +303,320 @@ module Network.AWS.Connect
 
     -- * Types
 
-    -- ** Channel
-    Channel (..),
+    -- ** AgentFirstName
+    AgentFirstName (..),
 
-    -- ** Comparison
-    Comparison (..),
+    -- ** AssociationId
+    AssociationId (..),
 
-    -- ** ContactFlowType
-    ContactFlowType (..),
+    -- ** ParticipantToken
+    ParticipantToken (..),
 
-    -- ** CurrentMetricName
-    CurrentMetricName (..),
+    -- ** InstanceId
+    InstanceId (..),
 
-    -- ** DirectoryType
-    DirectoryType (..),
+    -- ** ContactFlowDescription
+    ContactFlowDescription (..),
 
-    -- ** EncryptionType
-    EncryptionType (..),
-
-    -- ** Grouping
-    Grouping (..),
-
-    -- ** HistoricalMetricName
-    HistoricalMetricName (..),
-
-    -- ** InstanceAttributeType
-    InstanceAttributeType (..),
-
-    -- ** InstanceStatus
-    InstanceStatus (..),
-
-    -- ** InstanceStorageResourceType
-    InstanceStorageResourceType (..),
-
-    -- ** PhoneNumberCountryCode
-    PhoneNumberCountryCode (..),
-
-    -- ** PhoneNumberType
-    PhoneNumberType (..),
-
-    -- ** PhoneType
-    PhoneType (..),
-
-    -- ** QueueType
-    QueueType (..),
-
-    -- ** Statistic
-    Statistic (..),
-
-    -- ** StorageType
-    StorageType (..),
-
-    -- ** Unit
-    Unit (..),
-
-    -- ** VoiceRecordingTrack
-    VoiceRecordingTrack (..),
+    -- ** Origin
+    Origin (..),
 
     -- ** Attribute
     Attribute (..),
     mkAttribute,
-    aValue,
     aAttributeType,
+    aValue,
 
-    -- ** ChatMessage
-    ChatMessage (..),
-    mkChatMessage,
-    cmContent,
-    cmContentType,
+    -- ** HierarchyGroupSummary
+    HierarchyGroupSummary (..),
+    mkHierarchyGroupSummary,
+    hgsArn,
+    hgsId,
+    hgsName,
+
+    -- ** RoutingProfileQueueConfig
+    RoutingProfileQueueConfig (..),
+    mkRoutingProfileQueueConfig,
+    rpqcQueueReference,
+    rpqcPriority,
+    rpqcDelay,
+
+    -- ** Email
+    Email (..),
+
+    -- ** AgentLastName
+    AgentLastName (..),
+
+    -- ** DirectoryId
+    DirectoryId (..),
+
+    -- ** PhoneNumberType
+    PhoneNumberType (..),
+
+    -- ** EncryptionType
+    EncryptionType (..),
+
+    -- ** ChatContentType
+    ChatContentType (..),
+
+    -- ** AttributeValue
+    AttributeValue (..),
+
+    -- ** HistoricalMetricName
+    HistoricalMetricName (..),
+
+    -- ** FunctionArn
+    FunctionArn (..),
+
+    -- ** HierarchyStructure
+    HierarchyStructure (..),
+    mkHierarchyStructure,
+    hsLevelFive,
+    hsLevelFour,
+    hsLevelOne,
+    hsLevelThree,
+    hsLevelTwo,
+
+    -- ** InstanceStorageConfig
+    InstanceStorageConfig (..),
+    mkInstanceStorageConfig,
+    iscStorageType,
+    iscAssociationId,
+    iscKinesisFirehoseConfig,
+    iscKinesisStreamConfig,
+    iscKinesisVideoStreamConfig,
+    iscS3Config,
+
+    -- ** KeyId
+    KeyId (..),
+
+    -- ** ParticipantId
+    ParticipantId (..),
+
+    -- ** InstanceStorageResourceType
+    InstanceStorageResourceType (..),
 
     -- ** ContactFlow
     ContactFlow (..),
     mkContactFlow,
-    cfARN,
+    cfArn,
     cfContent,
-    cfName,
-    cfId,
-    cfType,
     cfDescription,
+    cfId,
+    cfName,
     cfTags,
+    cfType,
 
-    -- ** ContactFlowSummary
-    ContactFlowSummary (..),
-    mkContactFlowSummary,
-    cfsARN,
-    cfsName,
-    cfsContactFlowType,
-    cfsId,
+    -- ** PhoneNumberId
+    PhoneNumberId (..),
+
+    -- ** ClientToken
+    ClientToken (..),
+
+    -- ** CurrentMetricName
+    CurrentMetricName (..),
+
+    -- ** RoutingProfileId
+    RoutingProfileId (..),
+
+    -- ** DirectoryUserId
+    DirectoryUserId (..),
+
+    -- ** ChatMessage
+    ChatMessage (..),
+    mkChatMessage,
+    cmContentType,
+    cmContent,
+
+    -- ** SecurityToken
+    SecurityToken (..),
+
+    -- ** InstanceSummary
+    InstanceSummary (..),
+    mkInstanceSummary,
+    isArn,
+    isCreatedTime,
+    isId,
+    isIdentityManagementType,
+    isInboundCallsEnabled,
+    isInstanceAlias,
+    isInstanceStatus,
+    isOutboundCallsEnabled,
+    isServiceRole,
+
+    -- ** ARN
+    ARN (..),
+
+    -- ** RoutingProfileQueueReference
+    RoutingProfileQueueReference (..),
+    mkRoutingProfileQueueReference,
+    rpqrQueueId,
+    rpqrChannel,
+
+    -- ** String
+    String (..),
+
+    -- ** LexBot
+    LexBot (..),
+    mkLexBot,
+    lbLexRegion,
+    lbName,
+
+    -- ** PEM
+    PEM (..),
 
     -- ** Credentials
     Credentials (..),
     mkCredentials,
-    cAccessTokenExpiration,
     cAccessToken,
+    cAccessTokenExpiration,
     cRefreshToken,
     cRefreshTokenExpiration,
 
-    -- ** CurrentMetric
-    CurrentMetric (..),
-    mkCurrentMetric,
-    cmName,
-    cmUnit,
+    -- ** PromptSummary
+    PromptSummary (..),
+    mkPromptSummary,
+    psArn,
+    psId,
+    psName,
 
-    -- ** CurrentMetricData
-    CurrentMetricData (..),
-    mkCurrentMetricData,
-    cmdValue,
-    cmdMetric,
+    -- ** HierarchyGroup
+    HierarchyGroup (..),
+    mkHierarchyGroup,
+    hgArn,
+    hgHierarchyPath,
+    hgId,
+    hgLevelId,
+    hgName,
+
+    -- ** RoutingProfileName
+    RoutingProfileName (..),
+
+    -- ** Prefix
+    Prefix (..),
+
+    -- ** RoutingProfileQueueConfigSummary
+    RoutingProfileQueueConfigSummary (..),
+    mkRoutingProfileQueueConfigSummary,
+    rpqcsQueueId,
+    rpqcsQueueArn,
+    rpqcsQueueName,
+    rpqcsPriority,
+    rpqcsDelay,
+    rpqcsChannel,
+
+    -- ** VoiceRecordingConfiguration
+    VoiceRecordingConfiguration (..),
+    mkVoiceRecordingConfiguration,
+    vrcVoiceRecordingTrack,
+
+    -- ** Filters
+    Filters (..),
+    mkFilters,
+    fChannels,
+    fQueues,
+
+    -- ** ContactFlowContent
+    ContactFlowContent (..),
+
+    -- ** PhoneNumberSummary
+    PhoneNumberSummary (..),
+    mkPhoneNumberSummary,
+    pnsArn,
+    pnsId,
+    pnsPhoneNumber,
+    pnsPhoneNumberCountryCode,
+    pnsPhoneNumberType,
+
+    -- ** RoutingProfileSummary
+    RoutingProfileSummary (..),
+    mkRoutingProfileSummary,
+    rpsArn,
+    rpsId,
+    rpsName,
+
+    -- ** Channel
+    Channel (..),
+
+    -- ** QueueName
+    QueueName (..),
+
+    -- ** KinesisStreamConfig
+    KinesisStreamConfig (..),
+    mkKinesisStreamConfig,
+    kscStreamArn,
+
+    -- ** BotName
+    BotName (..),
+
+    -- ** HierarchyLevelName
+    HierarchyLevelName (..),
+
+    -- ** InstanceAttributeValue
+    InstanceAttributeValue (..),
+
+    -- ** HierarchyLevel
+    HierarchyLevel (..),
+    mkHierarchyLevel,
+    hlArn,
+    hlId,
+    hlName,
+
+    -- ** InstanceStatusReason
+    InstanceStatusReason (..),
+    mkInstanceStatusReason,
+    isrMessage,
+
+    -- ** TagValue
+    TagValue (..),
+
+    -- ** RoutingProfileDescription
+    RoutingProfileDescription (..),
+
+    -- ** DirectoryType
+    DirectoryType (..),
+
+    -- ** User
+    User (..),
+    mkUser,
+    uArn,
+    uDirectoryUserId,
+    uHierarchyGroupId,
+    uId,
+    uIdentityInfo,
+    uPhoneConfig,
+    uRoutingProfileId,
+    uSecurityProfileIds,
+    uTags,
+    uUsername,
+
+    -- ** LexRegion
+    LexRegion (..),
+
+    -- ** MediaConcurrency
+    MediaConcurrency (..),
+    mkMediaConcurrency,
+    mcChannel,
+    mcConcurrency,
+
+    -- ** Comparison
+    Comparison (..),
+
+    -- ** UserIdentityInfo
+    UserIdentityInfo (..),
+    mkUserIdentityInfo,
+    uiiEmail,
+    uiiFirstName,
+    uiiLastName,
+
+    -- ** BucketName
+    BucketName (..),
+
+    -- ** UserId
+    UserId (..),
+
+    -- ** NextToken
+    NextToken (..),
 
     -- ** CurrentMetricResult
     CurrentMetricResult (..),
@@ -370,157 +624,23 @@ module Network.AWS.Connect
     cmrCollections,
     cmrDimensions,
 
-    -- ** Dimensions
-    Dimensions (..),
-    mkDimensions,
-    dChannel,
-    dQueue,
+    -- ** VoiceRecordingTrack
+    VoiceRecordingTrack (..),
 
-    -- ** EncryptionConfig
-    EncryptionConfig (..),
-    mkEncryptionConfig,
-    ecEncryptionType,
-    ecKeyId,
+    -- ** PhoneType
+    PhoneType (..),
 
-    -- ** Filters
-    Filters (..),
-    mkFilters,
-    fQueues,
-    fChannels,
+    -- ** QueueId
+    QueueId (..),
 
-    -- ** HierarchyGroup
-    HierarchyGroup (..),
-    mkHierarchyGroup,
-    hgARN,
-    hgName,
-    hgHierarchyPath,
-    hgId,
-    hgLevelId,
+    -- ** Grouping
+    Grouping (..),
 
-    -- ** HierarchyGroupSummary
-    HierarchyGroupSummary (..),
-    mkHierarchyGroupSummary,
-    hgsARN,
-    hgsName,
-    hgsId,
+    -- ** ContactFlowId
+    ContactFlowId (..),
 
-    -- ** HierarchyLevel
-    HierarchyLevel (..),
-    mkHierarchyLevel,
-    hlARN,
-    hlName,
-    hlId,
-
-    -- ** HierarchyLevelUpdate
-    HierarchyLevelUpdate (..),
-    mkHierarchyLevelUpdate,
-    hluName,
-
-    -- ** HierarchyPath
-    HierarchyPath (..),
-    mkHierarchyPath,
-    hpLevelFive,
-    hpLevelThree,
-    hpLevelFour,
-    hpLevelTwo,
-    hpLevelOne,
-
-    -- ** HierarchyStructure
-    HierarchyStructure (..),
-    mkHierarchyStructure,
-    hsLevelFive,
-    hsLevelThree,
-    hsLevelFour,
-    hsLevelTwo,
-    hsLevelOne,
-
-    -- ** HierarchyStructureUpdate
-    HierarchyStructureUpdate (..),
-    mkHierarchyStructureUpdate,
-    hsuLevelFive,
-    hsuLevelThree,
-    hsuLevelFour,
-    hsuLevelTwo,
-    hsuLevelOne,
-
-    -- ** HistoricalMetric
-    HistoricalMetric (..),
-    mkHistoricalMetric,
-    hmName,
-    hmThreshold,
-    hmUnit,
-    hmStatistic,
-
-    -- ** HistoricalMetricData
-    HistoricalMetricData (..),
-    mkHistoricalMetricData,
-    hmdValue,
-    hmdMetric,
-
-    -- ** HistoricalMetricResult
-    HistoricalMetricResult (..),
-    mkHistoricalMetricResult,
-    hmrCollections,
-    hmrDimensions,
-
-    -- ** HoursOfOperationSummary
-    HoursOfOperationSummary (..),
-    mkHoursOfOperationSummary,
-    hoosARN,
-    hoosName,
-    hoosId,
-
-    -- ** Instance
-    Instance (..),
-    mkInstance,
-    iARN,
-    iCreatedTime,
-    iOutboundCallsEnabled,
-    iInboundCallsEnabled,
-    iInstanceAlias,
-    iId,
-    iInstanceStatus,
-    iIdentityManagementType,
-    iStatusReason,
-    iServiceRole,
-
-    -- ** InstanceStatusReason
-    InstanceStatusReason (..),
-    mkInstanceStatusReason,
-    isrMessage,
-
-    -- ** InstanceStorageConfig
-    InstanceStorageConfig (..),
-    mkInstanceStorageConfig,
-    iscAssociationId,
-    iscKinesisStreamConfig,
-    iscKinesisVideoStreamConfig,
-    iscS3Config,
-    iscKinesisFirehoseConfig,
-    iscStorageType,
-
-    -- ** InstanceSummary
-    InstanceSummary (..),
-    mkInstanceSummary,
-    isARN,
-    isCreatedTime,
-    isOutboundCallsEnabled,
-    isInboundCallsEnabled,
-    isInstanceAlias,
-    isId,
-    isInstanceStatus,
-    isIdentityManagementType,
-    isServiceRole,
-
-    -- ** KinesisFirehoseConfig
-    KinesisFirehoseConfig (..),
-    mkKinesisFirehoseConfig,
-    kfcFirehoseARN,
-
-    -- ** KinesisStreamConfig
-    KinesisStreamConfig (..),
-    mkKinesisStreamConfig,
-    kscStreamARN,
+    -- ** DirectoryAlias
+    DirectoryAlias (..),
 
     -- ** KinesisVideoStreamConfig
     KinesisVideoStreamConfig (..),
@@ -529,172 +649,292 @@ module Network.AWS.Connect
     kvscRetentionPeriodHours,
     kvscEncryptionConfig,
 
-    -- ** LexBot
-    LexBot (..),
-    mkLexBot,
-    lbLexRegion,
-    lbName,
+    -- ** AgentUsername
+    AgentUsername (..),
 
-    -- ** MediaConcurrency
-    MediaConcurrency (..),
-    mkMediaConcurrency,
-    mcChannel,
-    mcConcurrency,
+    -- ** RoutingProfile
+    RoutingProfile (..),
+    mkRoutingProfile,
+    rpDefaultOutboundQueueId,
+    rpDescription,
+    rpInstanceId,
+    rpMediaConcurrencies,
+    rpName,
+    rpRoutingProfileArn,
+    rpRoutingProfileId,
+    rpTags,
+
+    -- ** UserPhoneConfig
+    UserPhoneConfig (..),
+    mkUserPhoneConfig,
+    upcPhoneType,
+    upcAfterContactWorkTimeLimit,
+    upcAutoAccept,
+    upcDeskPhoneNumber,
+
+    -- ** PhoneNumber
+    PhoneNumber (..),
+
+    -- ** Threshold
+    Threshold (..),
+    mkThreshold,
+    tComparison,
+    tThresholdValue,
+
+    -- ** HierarchyGroupName
+    HierarchyGroupName (..),
+
+    -- ** Password
+    Password (..),
+
+    -- ** PhoneNumberCountryCode
+    PhoneNumberCountryCode (..),
+
+    -- ** HierarchyPath
+    HierarchyPath (..),
+    mkHierarchyPath,
+    hpLevelFive,
+    hpLevelFour,
+    hpLevelOne,
+    hpLevelThree,
+    hpLevelTwo,
+
+    -- ** ContactFlowType
+    ContactFlowType (..),
+
+    -- ** QueueReference
+    QueueReference (..),
+    mkQueueReference,
+    qrArn,
+    qrId,
+
+    -- ** SecurityProfileName
+    SecurityProfileName (..),
+
+    -- ** S3Config
+    S3Config (..),
+    mkS3Config,
+    scBucketName,
+    scBucketPrefix,
+    scEncryptionConfig,
+
+    -- ** HoursOfOperationId
+    HoursOfOperationId (..),
+
+    -- ** ContactFlowName
+    ContactFlowName (..),
+
+    -- ** HierarchyGroupId
+    HierarchyGroupId (..),
+
+    -- ** UserSummary
+    UserSummary (..),
+    mkUserSummary,
+    usArn,
+    usId,
+    usUsername,
+
+    -- ** InstanceStatus
+    InstanceStatus (..),
+
+    -- ** DisplayName
+    DisplayName (..),
+
+    -- ** ContactId
+    ContactId (..),
 
     -- ** ParticipantDetails
     ParticipantDetails (..),
     mkParticipantDetails,
     pdDisplayName,
 
-    -- ** PhoneNumberSummary
-    PhoneNumberSummary (..),
-    mkPhoneNumberSummary,
-    pnsPhoneNumberType,
-    pnsARN,
-    pnsPhoneNumber,
-    pnsPhoneNumberCountryCode,
-    pnsId,
+    -- ** EncryptionConfig
+    EncryptionConfig (..),
+    mkEncryptionConfig,
+    ecEncryptionType,
+    ecKeyId,
 
-    -- ** PromptSummary
-    PromptSummary (..),
-    mkPromptSummary,
-    psARN,
-    psName,
-    psId,
-
-    -- ** QueueReference
-    QueueReference (..),
-    mkQueueReference,
-    qrARN,
-    qrId,
+    -- ** CurrentMetric
+    CurrentMetric (..),
+    mkCurrentMetric,
+    cmName,
+    cmUnit,
 
     -- ** QueueSummary
     QueueSummary (..),
     mkQueueSummary,
-    qsARN,
-    qsName,
+    qsArn,
     qsId,
+    qsName,
     qsQueueType,
 
-    -- ** RoutingProfile
-    RoutingProfile (..),
-    mkRoutingProfile,
-    rpInstanceId,
-    rpRoutingProfileARN,
-    rpRoutingProfileId,
-    rpDefaultOutboundQueueId,
-    rpName,
-    rpMediaConcurrencies,
-    rpDescription,
-    rpTags,
+    -- ** InstanceAttributeType
+    InstanceAttributeType (..),
 
-    -- ** RoutingProfileQueueConfig
-    RoutingProfileQueueConfig (..),
-    mkRoutingProfileQueueConfig,
-    rpqcPriority,
-    rpqcQueueReference,
-    rpqcDelay,
+    -- ** CurrentMetricData
+    CurrentMetricData (..),
+    mkCurrentMetricData,
+    cmdMetric,
+    cmdValue,
 
-    -- ** RoutingProfileQueueConfigSummary
-    RoutingProfileQueueConfigSummary (..),
-    mkRoutingProfileQueueConfigSummary,
-    rpqcsPriority,
-    rpqcsChannel,
-    rpqcsQueueName,
-    rpqcsQueueARN,
-    rpqcsQueueId,
-    rpqcsDelay,
+    -- ** TagKey
+    TagKey (..),
 
-    -- ** RoutingProfileQueueReference
-    RoutingProfileQueueReference (..),
-    mkRoutingProfileQueueReference,
-    rpqrChannel,
-    rpqrQueueId,
+    -- ** HierarchyLevelUpdate
+    HierarchyLevelUpdate (..),
+    mkHierarchyLevelUpdate,
+    hluName,
 
-    -- ** RoutingProfileSummary
-    RoutingProfileSummary (..),
-    mkRoutingProfileSummary,
-    rpsARN,
-    rpsName,
-    rpsId,
+    -- ** HistoricalMetric
+    HistoricalMetric (..),
+    mkHistoricalMetric,
+    hmName,
+    hmStatistic,
+    hmThreshold,
+    hmUnit,
 
-    -- ** S3Config
-    S3Config (..),
-    mkS3Config,
-    scBucketPrefix,
-    scBucketName,
-    scEncryptionConfig,
+    -- ** HistoricalMetricData
+    HistoricalMetricData (..),
+    mkHistoricalMetricData,
+    hmdMetric,
+    hmdValue,
+
+    -- ** SecurityProfileId
+    SecurityProfileId (..),
+
+    -- ** HoursOfOperationName
+    HoursOfOperationName (..),
+
+    -- ** HierarchyStructureUpdate
+    HierarchyStructureUpdate (..),
+    mkHierarchyStructureUpdate,
+    hsuLevelFive,
+    hsuLevelFour,
+    hsuLevelOne,
+    hsuLevelThree,
+    hsuLevelTwo,
+
+    -- ** AttributeName
+    AttributeName (..),
+
+    -- ** Dimensions
+    Dimensions (..),
+    mkDimensions,
+    dChannel,
+    dQueue,
+
+    -- ** KinesisFirehoseConfig
+    KinesisFirehoseConfig (..),
+    mkKinesisFirehoseConfig,
+    kfcFirehoseArn,
+
+    -- ** HoursOfOperationSummary
+    HoursOfOperationSummary (..),
+    mkHoursOfOperationSummary,
+    hoosArn,
+    hoosId,
+    hoosName,
+
+    -- ** Unit
+    Unit (..),
+
+    -- ** Statistic
+    Statistic (..),
+
+    -- ** ContactFlowSummary
+    ContactFlowSummary (..),
+    mkContactFlowSummary,
+    cfsArn,
+    cfsContactFlowType,
+    cfsId,
+    cfsName,
+
+    -- ** QueueType
+    QueueType (..),
+
+    -- ** Instance
+    Instance (..),
+    mkInstance,
+    iArn,
+    iCreatedTime,
+    iId,
+    iIdentityManagementType,
+    iInboundCallsEnabled,
+    iInstanceAlias,
+    iInstanceStatus,
+    iOutboundCallsEnabled,
+    iServiceRole,
+    iStatusReason,
+
+    -- ** HistoricalMetricResult
+    HistoricalMetricResult (..),
+    mkHistoricalMetricResult,
+    hmrCollections,
+    hmrDimensions,
 
     -- ** SecurityKey
     SecurityKey (..),
     mkSecurityKey,
-    skCreationTime,
     skAssociationId,
+    skCreationTime,
     skKey,
+
+    -- ** StorageType
+    StorageType (..),
 
     -- ** SecurityProfileSummary
     SecurityProfileSummary (..),
     mkSecurityProfileSummary,
-    spsARN,
-    spsName,
+    spsArn,
     spsId,
+    spsName,
 
-    -- ** Threshold
-    Threshold (..),
-    mkThreshold,
-    tThresholdValue,
-    tComparison,
+    -- ** InitialContactId
+    InitialContactId (..),
 
-    -- ** User
-    User (..),
-    mkUser,
-    uRoutingProfileId,
-    uDirectoryUserId,
-    uARN,
-    uIdentityInfo,
-    uSecurityProfileIds,
-    uUsername,
-    uId,
-    uHierarchyGroupId,
-    uPhoneConfig,
-    uTags,
+    -- ** Arn
+    Arn (..),
 
-    -- ** UserIdentityInfo
-    UserIdentityInfo (..),
-    mkUserIdentityInfo,
-    uiiEmail,
-    uiiLastName,
-    uiiFirstName,
+    -- ** Id
+    Id (..),
 
-    -- ** UserPhoneConfig
-    UserPhoneConfig (..),
-    mkUserPhoneConfig,
-    upcAutoAccept,
-    upcAfterContactWorkTimeLimit,
-    upcPhoneType,
-    upcDeskPhoneNumber,
+    -- ** Name
+    Name (..),
 
-    -- ** UserSummary
-    UserSummary (..),
-    mkUserSummary,
-    usARN,
-    usUsername,
-    usId,
+    -- ** InstanceAlias
+    InstanceAlias (..),
 
-    -- ** VoiceRecordingConfiguration
-    VoiceRecordingConfiguration (..),
-    mkVoiceRecordingConfiguration,
-    vrcVoiceRecordingTrack,
+    -- ** Content
+    Content (..),
+
+    -- ** Description
+    Description (..),
+
+    -- ** DefaultOutboundQueueId
+    DefaultOutboundQueueId (..),
+
+    -- ** ServiceRole
+    ServiceRole (..),
+
+    -- ** LevelId
+    LevelId (..),
+
+    -- ** Username
+    Username (..),
+
+    -- ** ParentGroupId
+    ParentGroupId (..),
+
+    -- ** DeskPhoneNumber
+    DeskPhoneNumber (..),
 
     -- * Serialization types
     Lude.Base64 (..),
     Lude._Base64,
     Lude.Sensitive (..),
     Lude._Sensitive,
-    Lude.Time (..),
-    Lude._Time,
-    Lude.DateTime,
-    Lude.Timestamp,
+    Lude.UTCTime,
+    Lude.NominalDiffTime,
   )
 where
 

@@ -17,71 +17,68 @@ module Network.AWS.SSM.Types.InventoryAggregator
     mkInventoryAggregator,
 
     -- * Lenses
-    iaGroups,
     iaAggregators,
     iaExpression,
+    iaGroups,
   )
 where
 
 import qualified Network.AWS.Lens as Lens
-import qualified Network.AWS.Prelude as Lude
-import Network.AWS.SSM.Types.InventoryGroup
+import qualified Network.AWS.Prelude as Core
+import qualified Network.AWS.SSM.Types.InventoryAggregatorExpression as Types
+import qualified Network.AWS.SSM.Types.InventoryGroup as Types
 
 -- | Specifies the inventory type and attribute for the aggregation execution.
 --
 -- /See:/ 'mkInventoryAggregator' smart constructor.
 data InventoryAggregator = InventoryAggregator'
-  { -- | A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
-    groups :: Lude.Maybe (Lude.NonEmpty InventoryGroup),
-    -- | Nested aggregators to further refine aggregation for an inventory type.
-    aggregators :: Lude.Maybe (Lude.NonEmpty InventoryAggregator),
+  { -- | Nested aggregators to further refine aggregation for an inventory type.
+    aggregators :: Core.Maybe (Core.NonEmpty InventoryAggregator),
     -- | The inventory type and attribute name for aggregation.
-    expression :: Lude.Maybe Lude.Text
+    expression :: Core.Maybe Types.InventoryAggregatorExpression,
+    -- | A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
+    groups :: Core.Maybe (Core.NonEmpty Types.InventoryGroup)
   }
-  deriving stock (Lude.Eq, Lude.Ord, Lude.Read, Lude.Show, Lude.Generic)
-  deriving anyclass (Lude.Hashable, Lude.NFData)
+  deriving stock (Core.Eq, Core.Ord, Core.Read, Core.Show, Core.Generic)
+  deriving anyclass (Core.Hashable, Core.NFData)
 
--- | Creates a value of 'InventoryAggregator' with the minimum fields required to make a request.
---
--- * 'groups' - A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
--- * 'aggregators' - Nested aggregators to further refine aggregation for an inventory type.
--- * 'expression' - The inventory type and attribute name for aggregation.
+-- | Creates a 'InventoryAggregator' value with any optional fields omitted.
 mkInventoryAggregator ::
   InventoryAggregator
 mkInventoryAggregator =
   InventoryAggregator'
-    { groups = Lude.Nothing,
-      aggregators = Lude.Nothing,
-      expression = Lude.Nothing
+    { aggregators = Core.Nothing,
+      expression = Core.Nothing,
+      groups = Core.Nothing
     }
-
--- | A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
---
--- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaGroups :: Lens.Lens' InventoryAggregator (Lude.Maybe (Lude.NonEmpty InventoryGroup))
-iaGroups = Lens.lens (groups :: InventoryAggregator -> Lude.Maybe (Lude.NonEmpty InventoryGroup)) (\s a -> s {groups = a} :: InventoryAggregator)
-{-# DEPRECATED iaGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
 
 -- | Nested aggregators to further refine aggregation for an inventory type.
 --
 -- /Note:/ Consider using 'aggregators' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaAggregators :: Lens.Lens' InventoryAggregator (Lude.Maybe (Lude.NonEmpty InventoryAggregator))
-iaAggregators = Lens.lens (aggregators :: InventoryAggregator -> Lude.Maybe (Lude.NonEmpty InventoryAggregator)) (\s a -> s {aggregators = a} :: InventoryAggregator)
+iaAggregators :: Lens.Lens' InventoryAggregator (Core.Maybe (Core.NonEmpty InventoryAggregator))
+iaAggregators = Lens.field @"aggregators"
 {-# DEPRECATED iaAggregators "Use generic-lens or generic-optics with 'aggregators' instead." #-}
 
 -- | The inventory type and attribute name for aggregation.
 --
 -- /Note:/ Consider using 'expression' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
-iaExpression :: Lens.Lens' InventoryAggregator (Lude.Maybe Lude.Text)
-iaExpression = Lens.lens (expression :: InventoryAggregator -> Lude.Maybe Lude.Text) (\s a -> s {expression = a} :: InventoryAggregator)
+iaExpression :: Lens.Lens' InventoryAggregator (Core.Maybe Types.InventoryAggregatorExpression)
+iaExpression = Lens.field @"expression"
 {-# DEPRECATED iaExpression "Use generic-lens or generic-optics with 'expression' instead." #-}
 
-instance Lude.ToJSON InventoryAggregator where
-  toJSON InventoryAggregator' {..} =
-    Lude.object
-      ( Lude.catMaybes
-          [ ("Groups" Lude..=) Lude.<$> groups,
-            ("Aggregators" Lude..=) Lude.<$> aggregators,
-            ("Expression" Lude..=) Lude.<$> expression
+-- | A user-defined set of one or more filters on which to aggregate inventory data. Groups return a count of resources that match and don't match the specified criteria.
+--
+-- /Note:/ Consider using 'groups' with <https://hackage.haskell.org/package/generic-lens generic-lens> or <https://hackage.haskell.org/package/generic-optics generic-optics> instead.
+iaGroups :: Lens.Lens' InventoryAggregator (Core.Maybe (Core.NonEmpty Types.InventoryGroup))
+iaGroups = Lens.field @"groups"
+{-# DEPRECATED iaGroups "Use generic-lens or generic-optics with 'groups' instead." #-}
+
+instance Core.FromJSON InventoryAggregator where
+  toJSON InventoryAggregator {..} =
+    Core.object
+      ( Core.catMaybes
+          [ ("Aggregators" Core..=) Core.<$> aggregators,
+            ("Expression" Core..=) Core.<$> expression,
+            ("Groups" Core..=) Core.<$> groups
           ]
       )
